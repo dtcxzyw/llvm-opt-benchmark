@@ -8024,7 +8024,7 @@ cvPredict.exit:                                   ; preds = %._crit_edge119.i, %
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %scevgep.i.i, i8 0, i64 %253, i1 false)
   %254 = add nsw i32 %243, -1
   %255 = zext nneg i32 %254 to i64
-  %256 = sitofp i32 %243 to double
+  %256 = uitofp nneg i32 %243 to double
   %gep.i.i.i = getelementptr double, ptr %invariant.gep.i.i.i, i64 %252
   br label %257
 
@@ -8361,7 +8361,7 @@ cvSetAdams.exit.i:                                ; preds = %cvAdamsFinish.exit.
   %414 = getelementptr inbounds [13 x double], ptr %79, i64 0, i64 %413
   %415 = load double, ptr %414, align 8
   %416 = fdiv double %.054.i.i, %415
-  %417 = sitofp i32 %410 to double
+  %417 = uitofp nneg i32 %410 to double
   %418 = fdiv double 1.000000e+00, %417
   %419 = fadd double %.158.i.i, %418
   %420 = fadd double %.056.i.i, %.055.i.i
@@ -14614,7 +14614,7 @@ define internal fastcc void @cvAdjustOrder(ptr noundef %0, i32 noundef %1) unnam
   br i1 %exitcond.not.i, label %.lr.ph122.i, label %58, !llvm.loop !165
 
 .lr.ph122.i:                                      ; preds = %.loopexit107.i
-  %57 = sitofp i32 %4 to double
+  %57 = uitofp nneg i32 %4 to double
   %.pre.i = load double, ptr %52, align 8
   br label %73
 

@@ -3344,7 +3344,7 @@ _ZN2EA4StdC8int128_t6NegateEv.exit:               ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %conv = uitofp i64 %0 to float
+  %conv = uitofp nneg i64 %0 to float
   %4 = tail call float @llvm.fmuladd.f32(float %conv, float 0x43F0000000000000, float 0.000000e+00)
   %5 = load i64, ptr %this, align 8
   %tobool6.not = icmp eq i64 %5, 0
@@ -3384,7 +3384,7 @@ _ZN2EA4StdC8int128_t6NegateEv.exit:               ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %conv = uitofp i64 %0 to double
+  %conv = uitofp nneg i64 %0 to double
   %4 = tail call double @llvm.fmuladd.f64(double %conv, double 0x43F0000000000000, double 0.000000e+00)
   %5 = load i64, ptr %this, align 8
   %tobool6.not = icmp eq i64 %5, 0

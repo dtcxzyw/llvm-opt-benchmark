@@ -903,7 +903,7 @@ _ZNKSt14default_deleteIN4base19SampleCountIteratorEEclEPS1_.exit.i: ; preds = %_
 _ZNSt10unique_ptrIN4base19SampleCountIteratorESt14default_deleteIS1_EED2Ev.exit: ; preds = %invoke.cont35, %_ZNSt10unique_ptrIN4base19SampleCountIteratorESt14default_deleteIS1_EEaSEOS4_.exit, %_ZNKSt14default_deleteIN4base19SampleCountIteratorEEclEPS1_.exit.i
   store ptr null, ptr %ref.tmp31, align 8
   %add58 = add i64 %call30, 2
-  %conv63 = sitofp i32 %largest_count.0 to double
+  %conv63 = uitofp nneg i32 %largest_count.0 to double
   br label %while.cond37
 
 while.cond37:                                     ; preds = %invoke.cont72, %_ZNSt10unique_ptrIN4base19SampleCountIteratorESt14default_deleteIS1_EED2Ev.exit

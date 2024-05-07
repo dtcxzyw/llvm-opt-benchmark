@@ -64695,7 +64695,7 @@ cond.true:                                        ; preds = %for.body
   %6 = load i64, ptr %arrayidx15, align 8, !tbaa !26
   %sub17 = sub i64 %6, %5
   %conv = uitofp i64 %sub17 to double
-  %conv18 = sitofp i64 %sub to double
+  %conv18 = uitofp nneg i64 %sub to double
   %div = fdiv double %conv, %conv18
   br label %cond.end
 

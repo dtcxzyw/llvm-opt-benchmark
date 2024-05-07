@@ -6264,7 +6264,7 @@ if.end13.i.i.i.i.i.i.i:                           ; preds = %_ZN4absl9BitGenRef6
   %shr.i.i.i.i.i.i.i.i = lshr i64 %product.1.i.i.i.i.i.i.i, 32
   %retval.0.i.i.i.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i.i.i.i.i to i32
   %add.i.i.i.i.i.i = add nuw nsw i32 %retval.0.i.i.i.i.i.i.i, 1
-  %conv = sitofp i32 %add.i.i.i.i.i.i to double
+  %conv = uitofp nneg i32 %add.i.i.i.i.i.i to double
   call void @_ZN7testing8internal20DoubleNearPredFormatEPKcS2_S2_ddd(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43, double noundef %conv, double noundef 4.000000e+00, double noundef 3.000000e+00)
   %14 = load i8, ptr %gtest_ar, align 8
   %tobool.i = trunc i8 %14 to i1
@@ -6591,7 +6591,7 @@ if.end13.i.i.i.i.i.i.i:                           ; preds = %while.body.i.i.i.i.
   %shr.i.i.i.i.i.i.i.i = lshr i64 %product.1.i.i.i.i.i.i.i, 32
   %retval.0.i.i.i.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i.i.i.i.i to i32
   %add.i.i.i.i.i.i = add nuw nsw i32 %retval.0.i.i.i.i.i.i.i, 1
-  %conv = sitofp i32 %add.i.i.i.i.i.i to double
+  %conv = uitofp nneg i32 %add.i.i.i.i.i.i to double
   call void @_ZN7testing8internal20DoubleNearPredFormatEPKcS2_S2_ddd(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43, double noundef %conv, double noundef 4.000000e+00, double noundef 3.000000e+00)
   %10 = load i8, ptr %gtest_ar, align 8
   %tobool.i = trunc i8 %10 to i1
@@ -6785,7 +6785,7 @@ if.end13.i.i.i.i.i.i.i:                           ; preds = %while.body.i.i.i.i.
   %shr.i.i.i.i.i.i.i.i = lshr i64 %product.1.i.i.i.i.i.i.i, 32
   %retval.0.i.i.i.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i.i.i.i.i to i32
   %add.i.i.i.i.i.i = add nuw nsw i32 %retval.0.i.i.i.i.i.i.i, 1
-  %conv = sitofp i32 %add.i.i.i.i.i.i to double
+  %conv = uitofp nneg i32 %add.i.i.i.i.i.i to double
   call void @_ZN7testing8internal20DoubleNearPredFormatEPKcS2_S2_ddd(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43, double noundef %conv, double noundef 4.000000e+00, double noundef 3.000000e+00)
   %3 = load i8, ptr %gtest_ar, align 8
   %tobool.i = trunc i8 %3 to i1
@@ -7077,7 +7077,7 @@ if.end13.i.i.i.i.i.i.i:                           ; preds = %while.body.i.i.i.i.
   %shr.i.i.i.i.i.i.i.i = lshr i64 %product.1.i.i.i.i.i.i.i, 32
   %retval.0.i.i.i.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i.i.i.i.i to i32
   %add.i.i.i.i.i.i = add nuw nsw i32 %retval.0.i.i.i.i.i.i.i, 1
-  %conv = sitofp i32 %add.i.i.i.i.i.i to double
+  %conv = uitofp nneg i32 %add.i.i.i.i.i.i to double
   call void @_ZN7testing8internal20DoubleNearPredFormatEPKcS2_S2_ddd(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43, double noundef %conv, double noundef 4.000000e+00, double noundef 3.000000e+00)
   %3 = load i8, ptr %gtest_ar, align 8
   %tobool.i = trunc i8 %3 to i1
@@ -7409,7 +7409,7 @@ if.end13.i.i.i.i.i.i.i:                           ; preds = %_ZN4absl9BitGenRef6
   %shr.i.i.i.i.i.i.i.i = lshr i64 %product.1.i.i.i.i.i.i.i, 32
   %retval.0.i.i.i.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i.i.i.i.i to i32
   %add.i.i.i.i.i.i = add nuw nsw i32 %retval.0.i.i.i.i.i.i.i, 1
-  %conv = sitofp i32 %add.i.i.i.i.i.i to double
+  %conv = uitofp nneg i32 %add.i.i.i.i.i.i to double
   call void @_ZN7testing8internal20DoubleNearPredFormatEPKcS2_S2_ddd(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43, double noundef %conv, double noundef 4.000000e+00, double noundef 3.000000e+00)
   %2 = load i8, ptr %gtest_ar, align 8
   %tobool.i = trunc i8 %2 to i1

@@ -279,7 +279,7 @@ invoke.cont51:                                    ; preds = %invoke.cont46
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i, align 8
   %_M_next_resize.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i, i8 0, i64 16, i1 false)
-  %conv.i.i.i = uitofp i64 %1 to double
+  %conv.i.i.i = uitofp nneg i64 %1 to double
   %conv3.i.i.i = fptoui double %conv.i.i.i to i64
   invoke void @_ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4pairIKS8_S8_ESaISB_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE6rehashEm(ptr noundef nonnull align 8 dereferenceable(56) %agg.result, i64 noundef %conv3.i.i.i)
           to label %invoke.cont56 unwind label %lpad52.loopexit.split-lp
@@ -550,7 +550,7 @@ invoke.cont51:                                    ; preds = %invoke.cont46
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i, align 8
   %_M_next_resize.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i, i8 0, i64 16, i1 false)
-  %conv.i.i.i = uitofp i64 %2 to double
+  %conv.i.i.i = uitofp nneg i64 %2 to double
   %conv3.i.i.i = fptoui double %conv.i.i.i to i64
   invoke void @_ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4pairIKS8_S8_ESaISB_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE6rehashEm(ptr noundef nonnull align 8 dereferenceable(56) %agg.result, i64 noundef %conv3.i.i.i)
           to label %invoke.cont56 unwind label %lpad52.loopexit.split-lp

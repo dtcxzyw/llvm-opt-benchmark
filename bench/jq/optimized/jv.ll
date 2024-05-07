@@ -1586,7 +1586,7 @@ jv_copy.exit111:                                  ; preds = %jv_array_get.exit10
   br i1 %71, label %72, label %.loopexit.thread
 
 72:                                               ; preds = %.loopexit
-  %73 = sitofp i32 %.4 to double
+  %73 = uitofp nneg i32 %.4 to double
   %74 = bitcast double %73 to i64
   %75 = inttoptr i64 %74 to ptr
   %76 = and i64 %.sroa.055.1141, 128

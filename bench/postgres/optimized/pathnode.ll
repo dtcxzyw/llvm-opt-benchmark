@@ -5043,7 +5043,7 @@ define dso_local void @adjust_limit_rows_costs(ptr nocapture noundef %0, ptr noc
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %9
-  %12 = sitofp i64 %3 to double
+  %12 = uitofp nneg i64 %3 to double
   br label %16
 
 13:                                               ; preds = %9
@@ -5091,7 +5091,7 @@ define dso_local void @adjust_limit_rows_costs(ptr nocapture noundef %0, ptr noc
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %33
-  %36 = sitofp i64 %4 to double
+  %36 = uitofp nneg i64 %4 to double
   br label %40
 
 37:                                               ; preds = %33

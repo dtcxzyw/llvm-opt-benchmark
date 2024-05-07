@@ -6433,7 +6433,7 @@ current_time.exit.i:                              ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i)
   %sub.i = fsub double %add.i.i, %start
   %cmp.i = icmp sgt i32 %count, 0
-  %conv.i = sitofp i32 %count to double
+  %conv.i = uitofp nneg i32 %count to double
   %div.i = fdiv double %sub.i, %conv.i
   %5 = fmul double %div.i, 1.000000e+03
   %each.0.i = select i1 %cmp.i, double %5, double 0.000000e+00

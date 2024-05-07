@@ -1595,7 +1595,7 @@ define noalias noundef ptr @Gia_ManFindLatest(ptr noundef %0, i32 noundef %1, i3
 37:                                               ; preds = %._crit_edge
   %38 = sitofp i32 %2 to double
   %39 = tail call double @llvm.fmuladd.f64(double %38, double -1.000000e-02, double 1.000000e+00)
-  %40 = sitofp i32 %.068.lcssa to double
+  %40 = uitofp nneg i32 %.068.lcssa to double
   %41 = fmul double %39, %40
   %42 = fptosi double %41 to i32
   br label %43

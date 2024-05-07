@@ -7967,7 +7967,7 @@ _ZL22lambda_vec_print_shortPK12lambda_vec_tPc.exit481: ; preds = %3173, %3179, %
 
 3201:                                             ; preds = %3197
   %3202 = add nuw nsw i32 %3199, %3195
-  %3203 = sitofp i32 %3202 to double
+  %3203 = uitofp nneg i32 %3202 to double
   br label %.sink.split.i
 
 3204:                                             ; preds = %3197, %3187

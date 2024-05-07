@@ -180,7 +180,7 @@ define i32 @yr_execute_code(ptr nocapture noundef readonly %0, ptr nocapture nou
   %19 = getelementptr inbounds i8, ptr %2, i64 32
   %20 = getelementptr inbounds i8, ptr %1, i64 56
   %21 = icmp sgt i32 %3, 0
-  %22 = sitofp i32 %3 to double
+  %22 = uitofp nneg i32 %3 to double
   %scevgep = getelementptr inbounds i8, ptr %7, i64 8
   br label %23
 

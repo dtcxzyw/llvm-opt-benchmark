@@ -589,7 +589,7 @@ get_convert_unit_val.exit.i:                      ; preds = %.lr.ph.i.i
   br i1 %74, label %75, label %81
 
 75:                                               ; preds = %get_convert_unit_val.exit.i
-  %76 = sitofp i32 %.1.i.i to double
+  %76 = uitofp nneg i32 %.1.i.i to double
   %77 = fdiv double %49, %76
   br label %81
 

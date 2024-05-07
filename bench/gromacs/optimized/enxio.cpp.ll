@@ -3123,7 +3123,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %107, %112
 .lr.ph94.i:                                       ; preds = %239
   %243 = getelementptr inbounds i8, ptr %1, i64 48
   %244 = getelementptr inbounds i8, ptr %0, i64 16
-  %245 = sitofp i32 %227 to double
+  %245 = uitofp nneg i32 %227 to double
   br label %246
 
 246:                                              ; preds = %246, %.lr.ph94.i

@@ -10204,7 +10204,7 @@ digi_finish.i2809:                                ; preds = %if.end2055.i2802, %
   br i1 %or.cond9, label %if.then2118.i3094, label %if.end2141.i2811
 
 if.then2118.i3094:                                ; preds = %digi_finish.i2809
-  %conv2119.i3095 = uitofp i64 %sig.i2665.22 to double
+  %conv2119.i3095 = uitofp nneg i64 %sig.i2665.22 to double
   %cmp2120.i3096 = icmp slt i32 %storemerge7773, 0
   br i1 %cmp2120.i3096, label %if.then2122.i3109, label %if.else2125.i3097
 
@@ -17252,7 +17252,7 @@ digi_finish.i4794:                                ; preds = %if.end2055.i4787, %
   br i1 %or.cond14, label %if.then2118.i5079, label %if.end2141.i4796
 
 if.then2118.i5079:                                ; preds = %digi_finish.i4794
-  %conv2119.i5080 = uitofp i64 %sig.i4650.22 to double
+  %conv2119.i5080 = uitofp nneg i64 %sig.i4650.22 to double
   %cmp2120.i5081 = icmp slt i32 %storemerge7752, 0
   br i1 %cmp2120.i5081, label %if.then2122.i5094, label %if.else2125.i5082
 
@@ -20801,7 +20801,7 @@ digi_finish.i:                                    ; preds = %if.end2055.i, %if.t
   br i1 %or.cond19, label %if.then2118.i, label %if.end2141.i
 
 if.then2118.i:                                    ; preds = %digi_finish.i
-  %conv2119.i = uitofp i64 %sig.i.22 to double
+  %conv2119.i = uitofp nneg i64 %sig.i.22 to double
   %cmp2120.i = icmp slt i32 %storemerge7731, 0
   br i1 %cmp2120.i, label %if.then2122.i, label %if.else2125.i
 
@@ -27787,7 +27787,7 @@ digi_finish.i824:                                 ; preds = %if.end2055.i817, %i
   br i1 %or.cond24, label %if.then2118.i1109, label %if.end2141.i826
 
 if.then2118.i1109:                                ; preds = %digi_finish.i824
-  %conv2119.i1110 = uitofp i64 %sig.i680.22 to double
+  %conv2119.i1110 = uitofp nneg i64 %sig.i680.22 to double
   %cmp2120.i1111 = icmp slt i32 %storemerge7711, 0
   br i1 %cmp2120.i1111, label %if.then2122.i1124, label %if.else2125.i1112
 
@@ -31231,7 +31231,7 @@ digi_finish.i.i:                                  ; preds = %if.end2055.i.i, %if
   br i1 %or.cond3.i, label %if.then2118.i.i, label %if.end2141.i.i
 
 if.then2118.i.i:                                  ; preds = %digi_finish.i.i
-  %conv2119.i.i = uitofp i64 %sig.i.22.i to double
+  %conv2119.i.i = uitofp nneg i64 %sig.i.22.i to double
   %cmp2120.i.i = icmp slt i32 %storemerge.i, 0
   br i1 %cmp2120.i.i, label %if.then2122.i.i, label %if.else2125.i.i
 
@@ -36024,7 +36024,7 @@ digi_finish.i:                                    ; preds = %if.end2055.i, %if.t
   br i1 %or.cond3, label %if.then2118.i, label %if.end2141.i
 
 if.then2118.i:                                    ; preds = %digi_finish.i
-  %conv2119.i = uitofp i64 %sig.i.22 to double
+  %conv2119.i = uitofp nneg i64 %sig.i.22 to double
   %cmp2120.i = icmp slt i32 %storemerge, 0
   br i1 %cmp2120.i, label %if.then2122.i, label %if.else2125.i
 

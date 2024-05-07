@@ -6743,7 +6743,7 @@ define void @_ZN11LayerDialog15clickAnimFasterEv(ptr nocapture noundef nonnull a
   br i1 %4, label %5, label %9
 
 5:                                                ; preds = %1
-  %6 = sitofp i32 %3 to float
+  %6 = uitofp nneg i32 %3 to float
   %7 = fdiv float %6, 0x3FF3333340000000
   %8 = fptosi float %7 to i32
   store i32 %8, ptr %2, align 8

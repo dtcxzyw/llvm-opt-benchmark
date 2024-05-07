@@ -5058,7 +5058,7 @@ dissect_link_control_cmd.exit:                    ; preds = %188, %188, %188, %1
   %844 = zext i16 %842 to i32
   %845 = shl nuw nsw i32 %844, 1
   %846 = add nsw i32 %845, -1
-  %847 = sitofp i32 %846 to double
+  %847 = uitofp nneg i32 %846 to double
   %848 = fmul double %847, 6.250000e-01
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %841, ptr noundef nonnull @.str.2523, double noundef %848) #7
   br label %850

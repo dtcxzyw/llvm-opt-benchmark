@@ -2461,7 +2461,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 
 244:                                              ; preds = %237
   %245 = sitofp i32 %239 to float
-  %246 = sitofp i32 %241 to float
+  %246 = uitofp nneg i32 %241 to float
   %247 = fdiv float %245, %246
   br label %248
 
@@ -2868,8 +2868,8 @@ _ZSt7getlineIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_EOS6_RNSt7__cxx111
   %365 = icmp slt i32 %362, 1
   %366 = icmp slt i32 %364, 1
   %or.cond.not.i = select i1 %365, i1 true, i1 %366
-  %367 = sitofp i32 %362 to float
-  %368 = sitofp i32 %364 to float
+  %367 = uitofp nneg i32 %362 to float
+  %368 = uitofp nneg i32 %364 to float
   %369 = fdiv float %367, %368
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #20

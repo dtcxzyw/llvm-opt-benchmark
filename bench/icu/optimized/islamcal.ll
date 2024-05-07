@@ -1226,7 +1226,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %sub7 = add nsw i32 %year, -1300
-  %conv8 = sitofp i32 %sub7 to double
+  %conv8 = uitofp nneg i32 %sub7 to double
   %3 = tail call double @llvm.fmuladd.f64(double %conv8, double 0x407625E00D1B7176, double 0x411C188833333333)
   %add10 = fadd double %3, 5.000000e-01
   %conv11 = fptosi double %add10 to i32

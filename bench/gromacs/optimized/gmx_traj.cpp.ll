@@ -3335,7 +3335,7 @@ _ZL11print_histoPKciPifPK16gmx_output_env_t.exit: ; preds = %._crit_edge.i451
   br i1 %1342, label %.lr.ph655, label %.loopexit589
 
 .lr.ph655:                                        ; preds = %1340
-  %1343 = sitofp i32 %.1247 to double
+  %1343 = uitofp nneg i32 %.1247 to double
   %1344 = fdiv double 1.000000e+00, %1343
   %1345 = fptrunc double %1344 to float
   %1346 = insertelement <2 x float> poison, float %1345, i64 0

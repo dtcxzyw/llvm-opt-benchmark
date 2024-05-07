@@ -3188,7 +3188,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN10fast_float19from_chars_advancedIfE
   br i1 %brmerge, label %208, label %193
 
 193:                                              ; preds = %189
-  %194 = uitofp i64 %.7495 to float
+  %194 = uitofp nneg i64 %.7495 to float
   %195 = icmp slt i64 %.2502, 0
   br i1 %195, label %196, label %201
 
@@ -6093,7 +6093,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN10fast_float19from_chars_advancedIdE
   br i1 %brmerge, label %208, label %193
 
 193:                                              ; preds = %189
-  %194 = uitofp i64 %.7503 to double
+  %194 = uitofp nneg i64 %.7503 to double
   %195 = icmp slt i64 %.2510, 0
   br i1 %195, label %196, label %201
 

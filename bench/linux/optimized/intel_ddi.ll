@@ -9002,14 +9002,13 @@ define internal void @dg1_ddi_get_config(ptr noundef %0, ptr noundef %1) #0 alig
   %13 = tail call i32 %12(ptr noundef %10, i32 %9, i1 noundef zeroext true) #14
   %14 = srem i32 %6, 2
   %15 = shl nsw i32 %14, 1
-  %16 = shl nuw nsw i32 3, %15
-  %17 = and i32 %16, %13
-  %18 = lshr i32 %17, %15
-  %19 = icmp sgt i32 %6, 1
-  %20 = add nuw nsw i32 %18, 2
-  %21 = select i1 %19, i32 %20, i32 %18
-  %22 = tail call ptr @intel_get_shared_dpll_by_id(ptr noundef %3, i32 noundef %21) #14
-  tail call void @intel_ddi_get_clock(ptr noundef %0, ptr noundef %1, ptr noundef %22)
+  %16 = lshr i32 %13, %15
+  %17 = and i32 %16, 3
+  %18 = icmp sgt i32 %6, 1
+  %19 = add nuw nsw i32 %17, 2
+  %20 = select i1 %18, i32 %19, i32 %17
+  %21 = tail call ptr @intel_get_shared_dpll_by_id(ptr noundef %3, i32 noundef %20) #14
+  tail call void @intel_ddi_get_clock(ptr noundef %0, ptr noundef %1, ptr noundef %21)
   tail call fastcc void @intel_ddi_get_config(ptr noundef %0, ptr noundef %1)
   ret void
 }

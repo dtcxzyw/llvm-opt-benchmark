@@ -14068,7 +14068,7 @@ _ZNSt6vectorIP9ParamFaceSaIS1_EED2Ev.exit:        ; preds = %_ZNSt6vectorIN3vcg6
 .loopexit:                                        ; preds = %210, %202
   %.sroa.058.0.lcssa.i = phi <2 x float> [ zeroinitializer, %202 ], [ %254, %210 ]
   %.sroa.11.0.lcssa.i = phi float [ 0.000000e+00, %202 ], [ %255, %210 ]
-  %259 = uitofp i64 %208 to float
+  %259 = uitofp nneg i64 %208 to float
   %260 = insertelement <2 x float> poison, float %259, i64 0
   %261 = shufflevector <2 x float> %260, <2 x float> poison, <2 x i32> zeroinitializer
   %262 = fdiv <2 x float> %.sroa.058.0.lcssa.i, %261
@@ -36905,7 +36905,7 @@ _Z4AreaI8BaseFaceENT_10ScalarTypeERSt6vectorIPS1_SaIS4_EE.exit: ; preds = %88, %
 
 _Z4AreaI8BaseFaceENT_10ScalarTypeERSt6vectorIPS1_SaIS4_EE.exit52: ; preds = %152
   %156 = fsub float %.0.lcssa.i, %.1.i49
-  %157 = uitofp i64 %101 to float
+  %157 = uitofp nneg i64 %101 to float
   %158 = fdiv float %156, %157
   br i1 %.not36.i44, label %._crit_edge, label %.lr.ph
 
@@ -44494,7 +44494,7 @@ _ZNSt6vectorIP8BaseFaceSaIS1_EED2Ev.exit:         ; preds = %_ZNSt6vectorIP10Bas
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZNSt6vectorIP10BaseVertexSaIS1_EE5clearEv.exit
   %.012.lcssa = phi float [ 0.000000e+00, %_ZNSt6vectorIP10BaseVertexSaIS1_EE5clearEv.exit ], [ %44, %._crit_edge.loopexit ]
-  %45 = uitofp i64 %21 to float
+  %45 = uitofp nneg i64 %21 to float
   %46 = fdiv float %.012.lcssa, %45
   %47 = fcmp ugt float %46, 1.000000e+00
   br i1 %47, label %48, label %49
@@ -50362,7 +50362,7 @@ define linkonce_odr void @_Z19ParametrizeInternalI8BaseMeshEvRT_(ptr noundef non
   %60 = getelementptr inbounds i8, ptr %.sroa.077.0110, i64 12
   %61 = getelementptr inbounds i8, ptr %.sroa.077.0110, i64 16
   %62 = getelementptr inbounds i8, ptr %.sroa.077.0110, i64 20
-  %63 = uitofp i64 %19 to float
+  %63 = uitofp nneg i64 %19 to float
   br label %64
 
 64:                                               ; preds = %.lr.ph107, %99
@@ -50505,7 +50505,7 @@ _Z14InitDampRestUVI8BaseMeshEvRT_.exit:           ; preds = %.lr.ph.i
   br i1 %144, label %.lr.ph118, label %._crit_edge119.thread, !llvm.loop !627
 
 ._crit_edge119.thread:                            ; preds = %.lr.ph118
-  %145 = uitofp i64 %134 to float
+  %145 = uitofp nneg i64 %134 to float
   %146 = getelementptr inbounds i8, ptr %.sroa.067.0125, i64 48
   %147 = insertelement <2 x float> poison, float %145, i64 0
   %148 = shufflevector <2 x float> %147, <2 x float> poison, <2 x i32> zeroinitializer
@@ -50521,7 +50521,7 @@ _Z14InitDampRestUVI8BaseMeshEvRT_.exit:           ; preds = %.lr.ph.i
   br i1 %.not.i.i.i59, label %_ZNSt6vectorIP10BaseVertexSaIS1_EED2Ev.exit, label %_ZNSt6vectorIP10BaseVertexSaIS1_EED2Ev.exit.sink.split
 
 ._crit_edge119:                                   ; preds = %.preheader
-  %153 = uitofp i64 %134 to float
+  %153 = uitofp nneg i64 %134 to float
   %154 = getelementptr inbounds i8, ptr %.sroa.067.0125, i64 48
   %155 = insertelement <2 x float> poison, float %153, i64 0
   %156 = fdiv <2 x float> <float 0.000000e+00, float poison>, %155
@@ -55539,7 +55539,7 @@ _ZN3vcg3tri20TexCoordOptimizationI8BaseMeshE16SetBorderAsFixedEv.exit: ; preds =
 
 322:                                              ; preds = %.loopexit318
   %323 = add nsw i32 %2, -1
-  %324 = sitofp i32 %323 to double
+  %324 = uitofp nneg i32 %323 to double
   %325 = fmul double %324, 1.000000e+01
   %326 = fptrunc double %325 to float
   %327 = fpext float %326 to double
@@ -55717,7 +55717,7 @@ _ZN3vcg3tri20TexCoordOptimizationI8BaseMeshE16SetBorderAsFixedEv.exit125: ; pred
 
 418:                                              ; preds = %.loopexit324
   %419 = add nsw i32 %2, -1
-  %420 = sitofp i32 %419 to double
+  %420 = uitofp nneg i32 %419 to double
   %421 = fmul double %420, 1.000000e+01
   %422 = fptrunc double %421 to float
   %423 = fpext float %422 to double
@@ -57627,7 +57627,7 @@ _ZN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EENS_6Point2IfEEEC2ERKS4_.ex
 
 234:                                              ; preds = %225
   %235 = getelementptr inbounds %"class.vcg::Point2.140", ptr %.sroa.12.1157, i64 %230
-  %236 = sitofp i32 %232 to float
+  %236 = uitofp nneg i32 %232 to float
   %237 = load <2 x float>, ptr %235, align 4
   %238 = insertelement <2 x float> poison, float %236, i64 0
   %239 = shufflevector <2 x float> %238, <2 x float> poison, <2 x i32> zeroinitializer
@@ -89984,7 +89984,7 @@ _Z19GetSmallestUVHeightI8BaseMeshENT_10ScalarTypeERKS1_.exit: ; preds = %165, %_
 
 177:                                              ; preds = %_Z19GetSmallestUVHeightI8BaseMeshENT_10ScalarTypeERKS1_.exit
   %178 = add nsw i32 %175, -1
-  %179 = sitofp i32 %178 to double
+  %179 = uitofp nneg i32 %178 to double
   %180 = fmul double %179, 1.000000e+01
   %181 = fptrunc double %180 to float
   %182 = fpext float %181 to double
@@ -90669,7 +90669,7 @@ _Z12ForceInParamI8BaseMeshEvRN3vcg6Point2INT_10ScalarTypeEEERS3_.exit: ; preds =
 .lr.ph.i135:                                      ; preds = %_Z12ForceInParamI8BaseMeshEvRN3vcg6Point2INT_10ScalarTypeEEERS3_.exit
   %548 = extractelement <2 x float> %542, i64 1
   %549 = mul nuw nsw i64 %458, 3
-  %550 = uitofp i64 %549 to float
+  %550 = uitofp nneg i64 %549 to float
   %551 = fdiv float %.sroa.10.0.lcssa.i, %550
   %552 = fmul float %551, 0x3FA99999A0000000
   %553 = fadd float %548, %552
@@ -92696,7 +92696,7 @@ _ZNSt6vectorIP8BaseFaceSaIS1_EED2Ev.exit:         ; preds = %71, %73
   %77 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %30, %_ZNSt6vectorIfSaIfEE6resizeEm.exit49 ]
   %.036.lcssa = phi float [ %58, %._crit_edge.loopexit ], [ 0.000000e+00, %_ZNSt6vectorIfSaIfEE6resizeEm.exit49 ]
   %.lcssa122 = phi i64 [ %66, %._crit_edge.loopexit ], [ %50, %_ZNSt6vectorIfSaIfEE6resizeEm.exit49 ]
-  %78 = uitofp i64 %.lcssa122 to float
+  %78 = uitofp nneg i64 %.lcssa122 to float
   %79 = fdiv float %.036.lcssa, %78
   %.not146 = icmp eq ptr %77, %76
   br i1 %.not146, label %._crit_edge132, label %.lr.ph131
@@ -92804,7 +92804,7 @@ _ZNSt6vectorIP8BaseFaceSaIS1_EED2Ev.exit:         ; preds = %71, %73
 
 ._crit_edge132:                                   ; preds = %103, %._crit_edge
   %.035.lcssa = phi float [ 0.000000e+00, %._crit_edge ], [ %156, %103 ]
-  %159 = uitofp i64 %.pre-phi163 to float
+  %159 = uitofp nneg i64 %.pre-phi163 to float
   %160 = fdiv float %.035.lcssa, %159
   %161 = ptrtoint ptr %.sroa.9.1 to i64
   %162 = ptrtoint ptr %.sroa.095.1 to i64

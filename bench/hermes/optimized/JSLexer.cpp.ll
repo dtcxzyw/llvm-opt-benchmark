@@ -8084,7 +8084,7 @@ if.end.i:                                         ; preds = %if.else23.i
 for.inc.sink.split.i:                             ; preds = %if.then18.i, %for.body.i
   %.sink.i = phi i8 [ %add21.i, %if.then18.i ], [ %2, %for.body.i ]
   %mul.i.i = fmul double %result.0, %conv.i15.i
-  %conv3.i.i = uitofp i8 %.sink.i to double
+  %conv3.i.i = uitofp nneg i8 %.sink.i to double
   %add.i.i = fadd double %mul.i.i, %conv3.i.i
   br label %for.inc.i
 

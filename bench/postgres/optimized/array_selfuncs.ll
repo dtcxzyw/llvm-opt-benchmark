@@ -884,7 +884,7 @@ calc_distr.exit163:                               ; preds = %._crit_edge87.i, %c
   tail call void @pfree(ptr noundef %.165.i) #10
   %178 = tail call ptr @palloc(i64 noundef %110) #10
   %179 = add nsw i32 %7, -2
-  %180 = sitofp i32 %179 to float
+  %180 = uitofp nneg i32 %179 to float
   %181 = fdiv float 1.000000e+00, %180
   %.not54.i = icmp slt i32 %.2116, 0
   br i1 %.not54.i, label %._crit_edge209, label %.preheader.preheader.i164
@@ -949,7 +949,7 @@ calc_distr.exit163:                               ; preds = %._crit_edge87.i, %c
   %.03846.i = phi i32 [ %.03852.i, %197 ], [ %186, %.critedge.thread.i ]
   %.040.i = phi float [ %204, %197 ], [ 0.000000e+00, %.critedge.thread.i ]
   %205 = add nsw i32 %.03846.i, -1
-  %206 = sitofp i32 %205 to float
+  %206 = uitofp nneg i32 %205 to float
   %207 = fcmp ogt float %.040.i, 0.000000e+00
   %208 = fdiv float 5.000000e-01, %.040.i
   %209 = select i1 %207, float %208, float -0.000000e+00

@@ -3521,7 +3521,7 @@ Abc_SclReadMaxDelay.exit:                         ; preds = %Abc_Clock.exit209, 
   br i1 %675, label %676, label %680
 
 676:                                              ; preds = %673
-  %677 = sitofp i32 %674 to float
+  %677 = uitofp nneg i32 %674 to float
   %678 = fcmp olt float %671, %677
   br i1 %678, label %679, label %680
 

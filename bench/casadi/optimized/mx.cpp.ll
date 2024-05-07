@@ -17103,7 +17103,7 @@ define weak_odr hidden void @_ZN6casadi13GenericMatrixINS_2MXEE6mpowerERKS1_S4_(
 
 180:                                              ; preds = %178
   %181 = sub nsw i64 0, %104
-  %182 = sitofp i64 %181 to double
+  %182 = uitofp nneg i64 %181 to double
   call void @_ZN6casadi2MXC1Ed(ptr noundef nonnull align 8 dereferenceable(8) %36, double noundef %182)
   invoke void @_ZN6casadi13GenericMatrixINS_2MXEE6mpowerERKS1_S4_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::MX") align 8 %35, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %36)
           to label %183 unwind label %185
@@ -17213,7 +17213,7 @@ _ZN6casadi2MX3eyeEx.exit:                         ; preds = %195, %198
 
 215:                                              ; preds = %203
   %216 = add nsw i64 %104, -1
-  %217 = sitofp i64 %216 to double
+  %217 = uitofp nneg i64 %216 to double
   call void @_ZN6casadi2MXC1Ed(ptr noundef nonnull align 8 dereferenceable(8) %40, double noundef %217)
   invoke void @_ZN6casadi13GenericMatrixINS_2MXEE6mpowerERKS1_S4_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::MX") align 8 %39, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %40)
           to label %218 unwind label %220
@@ -57173,7 +57173,7 @@ _ZN6casadi10ZeroByZero11getInstanceEv.exit.i:     ; preds = %2244, %2241, %.noex
   store ptr %2238, ptr %723, align 8
   store i64 %2233, ptr %724, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
-  %2250 = sitofp i64 %2233 to double
+  %2250 = uitofp nneg i64 %2233 to double
   invoke void @_ZN6casadi6MatrixIxEC1Ed(ptr noundef nonnull align 8 dereferenceable(40) %5, double noundef %2250)
           to label %.noexc.i unwind label %2256
 

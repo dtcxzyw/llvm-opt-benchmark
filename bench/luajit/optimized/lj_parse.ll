@@ -7687,9 +7687,9 @@ if.then.i165:                                     ; preds = %if.then95
   %55 = load double, ptr %key, align 8
   %conv.i166 = fptosi double %55 to i32
   %cmp5.i167 = icmp ult i32 %conv.i166, 256
-  %conv7.i168 = sitofp i32 %conv.i166 to double
+  %conv7.i168 = uitofp nneg i32 %conv.i166 to double
   %cmp8.i169 = fcmp oeq double %55, %conv7.i168
-  %or.cond.i170 = and i1 %cmp5.i167, %cmp8.i169
+  %or.cond.i170 = select i1 %cmp5.i167, i1 %cmp8.i169, i1 false
   br i1 %or.cond.i170, label %if.then10.i171, label %if.end24.i158
 
 if.then10.i171:                                   ; preds = %if.then.i165
@@ -8570,9 +8570,9 @@ if.then.i39:                                      ; preds = %lex_check.exit
   %15 = load double, ptr %key, align 8
   %conv.i = fptosi double %15 to i32
   %cmp5.i = icmp ult i32 %conv.i, 256
-  %conv7.i = sitofp i32 %conv.i to double
+  %conv7.i = uitofp nneg i32 %conv.i to double
   %cmp8.i = fcmp oeq double %15, %conv7.i
-  %or.cond.i = and i1 %cmp5.i, %cmp8.i
+  %or.cond.i = select i1 %cmp5.i, i1 %cmp8.i, i1 false
   br i1 %or.cond.i, label %if.then10.i, label %if.end24.i
 
 if.then10.i:                                      ; preds = %if.then.i39

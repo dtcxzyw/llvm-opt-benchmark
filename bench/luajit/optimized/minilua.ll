@@ -35058,7 +35058,7 @@ if.then.i9.i:                                     ; preds = %if.end
   br label %lua_rawgeti.exit
 
 hashnum.exit.i.i:                                 ; preds = %if.end
-  %conv.i6.i = sitofp i32 %conv3 to double
+  %conv.i6.i = uitofp nneg i32 %conv3 to double
   %11 = bitcast double %conv.i6.i to i64
   %a.sroa.0.4.extract.shift.i.i.i = lshr i64 %11, 32
   %add.i.i.i = add i64 %a.sroa.0.4.extract.shift.i.i.i, %11

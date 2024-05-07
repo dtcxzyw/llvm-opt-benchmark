@@ -2935,7 +2935,7 @@ define i32 @ARKStepPrintAllStats(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   %33 = getelementptr inbounds i8, ptr %32, i64 400
   %34 = load i64, ptr %33, align 8
   %35 = sitofp i64 %34 to double
-  %36 = sitofp i64 %29 to double
+  %36 = uitofp nneg i64 %29 to double
   %37 = fdiv double %35, %36
   %38 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.28, double noundef %37) #6
   br label %39
@@ -2990,7 +2990,7 @@ define i32 @ARKStepPrintAllStats(ptr noundef %0, ptr noundef %1, i32 noundef %2)
 81:                                               ; preds = %48
   %82 = load i64, ptr %65, align 8
   %83 = sitofp i64 %82 to double
-  %84 = sitofp i64 %79 to double
+  %84 = uitofp nneg i64 %79 to double
   %85 = fdiv double %83, %84
   %86 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.38, double noundef %85) #6
   %87 = load i64, ptr %53, align 8
@@ -3078,7 +3078,7 @@ define i32 @ARKStepPrintAllStats(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   %160 = getelementptr inbounds i8, ptr %159, i64 400
   %161 = load i64, ptr %160, align 8
   %162 = sitofp i64 %161 to double
-  %163 = sitofp i64 %156 to double
+  %163 = uitofp nneg i64 %156 to double
   %164 = fdiv double %162, %163
   %165 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.53, double noundef %164) #6
   br label %168
@@ -3137,7 +3137,7 @@ define i32 @ARKStepPrintAllStats(ptr noundef %0, ptr noundef %1, i32 noundef %2)
 210:                                              ; preds = %177
   %211 = load i64, ptr %194, align 8
   %212 = sitofp i64 %211 to double
-  %213 = sitofp i64 %208 to double
+  %213 = uitofp nneg i64 %208 to double
   %214 = fdiv double %212, %213
   %215 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.64, double noundef %214) #6
   %216 = load i64, ptr %182, align 8

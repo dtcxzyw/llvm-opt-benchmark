@@ -1025,7 +1025,7 @@ define internal fastcc void @_homography(ptr noundef %0, float noundef %1, float
 369:                                              ; preds = %395, %361
   %370 = phi i32 [ %396, %395 ], [ 0, %361 ]
   %371 = phi <2 x float> [ %392, %395 ], [ <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>, %361 ]
-  %372 = sitofp i32 %370 to float
+  %372 = uitofp nneg i32 %370 to float
   %373 = insertelement <2 x float> poison, float %372, i64 0
   %374 = shufflevector <2 x float> %373, <2 x float> poison, <2 x i32> zeroinitializer
   %375 = fmul reassoc nsz arcp contract afn <2 x float> %374, %363
@@ -10573,10 +10573,10 @@ define internal fastcc i32 @simplex(ptr nocapture noundef readonly %0, ptr nocap
   br i1 %25, label %26, label %20
 
 26:                                               ; preds = %20
-  %27 = sitofp i32 %9 to double
+  %27 = uitofp nneg i32 %9 to double
   %28 = tail call reassoc nsz arcp contract afn double @llvm.sqrt.f64(double %27)
   %29 = fadd reassoc nsz arcp contract afn double %28, -1.000000e+00
-  %30 = sitofp i32 %2 to double
+  %30 = uitofp nneg i32 %2 to double
   %31 = fadd reassoc nsz arcp contract afn double %29, %30
   %32 = icmp slt i32 %2, 1
   br i1 %32, label %.loopexit70, label %33
@@ -19316,7 +19316,7 @@ define internal fastcc void @ransac(ptr nocapture noundef readonly %0, ptr nocap
   %50 = sitofp i32 %6 to float
   %51 = sitofp i32 %8 to float
   %52 = getelementptr inbounds i8, ptr %43, i64 4
-  %53 = sitofp i32 %3 to float
+  %53 = uitofp nneg i32 %3 to float
   %54 = fdiv reassoc nsz arcp contract afn float 0x3FD51EB860000000, %53
   %55 = add i32 %20, 249
   %56 = tail call i32 @llvm.smax.i32(i32 %55, i32 0)
@@ -19694,7 +19694,7 @@ define internal fastcc void @ransac(ptr nocapture noundef readonly %0, ptr nocap
 339:                                              ; preds = %333
   %340 = sitofp i32 %332 to float
   %341 = fmul reassoc nsz arcp contract afn float %340, 1.000000e+02
-  %342 = sitofp i32 %331 to float
+  %342 = uitofp nneg i32 %331 to float
   %343 = fmul reassoc nsz arcp contract afn float %342, %53
   %344 = fdiv reassoc nsz arcp contract afn float %341, %343
   %345 = fcmp reassoc nsz arcp contract afn olt float %344, 6.000000e+01

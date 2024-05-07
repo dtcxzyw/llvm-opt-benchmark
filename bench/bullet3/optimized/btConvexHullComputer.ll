@@ -5898,7 +5898,7 @@ entry:
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %conv = uitofp i64 %0 to float
+  %conv = uitofp nneg i64 %0 to float
   %1 = load i64, ptr %this, align 8
   %conv3 = uitofp i64 %1 to float
   %2 = tail call float @llvm.fmuladd.f32(float %conv, float 0x43F0000000000000, float %conv3)

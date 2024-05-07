@@ -32772,7 +32772,7 @@ define internal fastcc void @_ZL14pr_simple_cmapP8_IO_FILEffi5t_rgbS1_i(ptr noca
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %7
-  %9 = sitofp i32 %3 to double
+  %9 = uitofp nneg i32 %3 to double
   %10 = load double, ptr %4, align 8
   %11 = load double, ptr %5, align 8
   %12 = fsub double %11, %10

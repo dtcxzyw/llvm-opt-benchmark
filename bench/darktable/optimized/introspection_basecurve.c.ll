@@ -4255,7 +4255,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
   %302 = phi float [ %298, %294 ], [ %288, %286 ]
   %303 = getelementptr inbounds i8, ptr %6, i64 262160
   %304 = icmp eq i32 %301, 0
-  %305 = sitofp i32 %301 to float
+  %305 = uitofp nneg i32 %301 to float
   %306 = fdiv reassoc nsz arcp contract afn float %302, %305
   %307 = select i1 %304, float 1.000000e+00, float %306
   %308 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %231
@@ -5356,7 +5356,7 @@ define internal noundef i32 @dt_iop_basecurve_draw(ptr noundef %0, ptr noundef %
   %435 = phi i32 [ %433, %428 ], [ %421, %420 ]
   %436 = phi float [ %432, %428 ], [ %422, %420 ]
   %437 = icmp eq i32 %435, 0
-  %438 = sitofp i32 %435 to float
+  %438 = uitofp nneg i32 %435 to float
   %439 = fdiv reassoc nsz arcp contract afn float %436, %438
   %440 = select i1 %437, float 1.000000e+00, float %439
   %441 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !226

@@ -3696,7 +3696,7 @@ define noundef range(i32 0, 2) i32 @mouse_moved(ptr noundef %0, float noundef %1
   br i1 %26, label %27, label %37
 
 27:                                               ; preds = %17
-  %28 = sitofp i32 %20 to float
+  %28 = uitofp nneg i32 %20 to float
   %29 = load float, ptr %7, align 4, !tbaa !6
   %30 = fcmp reassoc nsz arcp contract afn ogt float %29, %28
   %31 = icmp sgt i32 %23, -1
@@ -3704,7 +3704,7 @@ define noundef range(i32 0, 2) i32 @mouse_moved(ptr noundef %0, float noundef %1
   br i1 %32, label %33, label %37
 
 33:                                               ; preds = %27
-  %34 = sitofp i32 %23 to float
+  %34 = uitofp nneg i32 %23 to float
   %35 = load float, ptr %8, align 4, !tbaa !6
   %36 = fcmp reassoc nsz arcp contract afn ogt float %35, %34
   br i1 %36, label %38, label %37

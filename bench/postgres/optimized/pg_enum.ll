@@ -550,7 +550,7 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
   %138 = zext i8 %137 to i64
   %139 = getelementptr i8, ptr %135, i64 %138
   %140 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %141 = sitofp i32 %140 to float
+  %141 = uitofp nneg i32 %140 to float
   %142 = getelementptr inbounds i8, ptr %139, i64 8
   %143 = load float, ptr %142, align 4
   %144 = fcmp une float %143, %141

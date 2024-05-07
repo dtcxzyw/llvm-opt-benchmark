@@ -3589,7 +3589,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11EiPKdS4
   br label %_ZN10hypothesis8chi2_cdfEdi.exit
 
 154:                                              ; preds = %148
-  %155 = sitofp i32 %123 to double
+  %155 = uitofp nneg i32 %123 to double
   %156 = fmul double %155, 5.000000e-01
   %157 = fmul double %.291, 5.000000e-01
   %158 = invoke noundef double @_ZN6cephes7rlgammaEdd(double noundef %156, double noundef %157)

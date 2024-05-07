@@ -335,7 +335,7 @@ if.then87:                                        ; preds = %_ZN7msdfgenL11switc
 
 for.body93.lr.ph:                                 ; preds = %if.then87
   %sub = add nsw i32 %conv, -1
-  %conv95 = sitofp i32 %sub to double
+  %conv95 = uitofp nneg i32 %sub to double
   br label %for.body93
 
 for.body93:                                       ; preds = %for.body93.lr.ph, %invoke.cont106
@@ -1027,7 +1027,7 @@ if.then96:                                        ; preds = %_ZN7msdfgenL11switc
 
 for.body102.lr.ph:                                ; preds = %if.then96
   %sub = add nsw i32 %conv, -1
-  %conv104 = sitofp i32 %sub to double
+  %conv104 = uitofp nneg i32 %sub to double
   br label %for.body102
 
 for.body102:                                      ; preds = %for.body102.lr.ph, %invoke.cont116
@@ -1884,7 +1884,7 @@ if.then87:                                        ; preds = %if.then81
 for.body94.lr.ph:                                 ; preds = %if.then87
   %div1525 = lshr i32 %conv91, 1
   %sub = add nsw i32 %conv91, -1
-  %conv103 = sitofp i32 %sub to double
+  %conv103 = uitofp nneg i32 %sub to double
   br label %for.body94
 
 for.body94:                                       ; preds = %for.body94.lr.ph, %for.inc129

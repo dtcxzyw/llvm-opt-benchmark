@@ -1456,7 +1456,7 @@ _ZN5osgeo4projL10swap_wordsEPvmm.exit59:          ; preds = %._crit_edge.us.i57
 
 48:                                               ; preds = %43
   %49 = extractelement <2 x i32> %33, i64 1
-  %50 = sitofp i32 %49 to double
+  %50 = uitofp nneg i32 %49 to double
   %51 = extractelement <2 x double> %32, i64 1
   %52 = call double @llvm.fmuladd.f64(double %51, double %50, double %.050)
   %53 = fcmp ogt double %52, 1.800000e+02
@@ -1472,7 +1472,7 @@ _ZN5osgeo4projL10swap_wordsEPvmm.exit59:          ; preds = %._crit_edge.us.i57
   %58 = fmul <2 x double> %57, <double 0x3F91DF46A2529D39, double 0x3F91DF46A2529D39>
   %59 = fmul <2 x double> %32, <double 0x3F91DF46A2529D39, double 0x3F91DF46A2529D39>
   %60 = add nsw <2 x i32> %33, <i32 -1, i32 -1>
-  %61 = sitofp <2 x i32> %60 to <2 x double>
+  %61 = uitofp <2 x i32> %60 to <2 x double>
   %62 = insertelement <2 x double> %37, double %.050, i64 1
   %63 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %32, <2 x double> %61, <2 x double> %62)
   %64 = fmul <2 x double> %63, <double 0x3F91DF46A2529D39, double 0x3F91DF46A2529D39>
@@ -8952,7 +8952,7 @@ _ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EED2Ev.exit: ; preds =
   %.sroa.230.0..sroa_idx = getelementptr inbounds i8, ptr %37, i64 56
   store <2 x double> %13, ptr %.sroa.230.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %37, i64 72
-  %44 = sitofp <2 x i32> %41 to <2 x double>
+  %44 = uitofp <2 x i32> %41 to <2 x double>
   %45 = shufflevector <2 x double> %15, <2 x double> poison, <2 x i32> zeroinitializer
   %46 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %44, <2 x double> %45, <2 x double> %13)
   store <2 x double> %46, ptr %.sroa.7.0..sroa_idx, align 8
@@ -18139,7 +18139,7 @@ _ZNK5osgeo4proj12ExtentAndRes18fullWorldLongitudeEv.exit169: ; preds = %65
   %104 = tail call double @llvm.floor.f64(double %93)
   %105 = tail call i64 @lround(double noundef %104) #29
   %106 = trunc i64 %105 to i32
-  %107 = sitofp i32 %96 to double
+  %107 = uitofp nneg i32 %96 to double
   %108 = fsub double %.0149, %107
   %109 = sitofp i32 %106 to double
   %110 = fsub double %93, %109

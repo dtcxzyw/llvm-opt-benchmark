@@ -169,7 +169,7 @@ define range(i32 0, 2) i32 @cuddExact(ptr noundef %0, i32 noundef %1, i32 nounde
   %88 = uitofp nneg i32 %87 to double
   %89 = add nuw nsw i32 %87, 1
   %90 = uitofp nneg i32 %89 to double
-  %91 = sitofp i32 %82 to double
+  %91 = uitofp nneg i32 %82 to double
   %92 = fcmp ugt double %90, %91
   br i1 %92, label %getMaxBinomial.exit, label %.lr.ph.i
 

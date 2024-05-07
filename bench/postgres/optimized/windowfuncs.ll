@@ -220,7 +220,7 @@ rank_up.exit:                                     ; preds = %9, %10
   %21 = add i64 %20, -1
   %22 = sitofp i64 %21 to double
   %23 = add nsw i64 %4, -1
-  %24 = sitofp i64 %23 to double
+  %24 = uitofp nneg i64 %23 to double
   %25 = fdiv double %22, %24
   %26 = bitcast double %25 to i64
   br label %27

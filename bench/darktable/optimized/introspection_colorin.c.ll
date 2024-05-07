@@ -3701,7 +3701,7 @@ define void @commit_params(ptr nocapture noundef readonly %0, ptr noundef %1, pt
   %365 = phi i32 [ %363, %359 ], [ %355, %354 ]
   %366 = phi float [ %362, %359 ], [ %356, %354 ]
   %367 = icmp eq i32 %365, 0
-  %368 = sitofp i32 %365 to float
+  %368 = uitofp nneg i32 %365 to float
   %369 = fdiv reassoc nsz arcp contract afn float %366, %368
   %370 = select i1 %367, float 1.000000e+00, float %369
   store float 1.000000e+00, ptr %312, align 4, !tbaa !72
@@ -3787,7 +3787,7 @@ define void @commit_params(ptr nocapture noundef readonly %0, ptr noundef %1, pt
   %428 = phi i32 [ %426, %422 ], [ %418, %417 ]
   %429 = phi float [ %425, %422 ], [ %419, %417 ]
   %430 = icmp eq i32 %428, 0
-  %431 = sitofp i32 %428 to float
+  %431 = uitofp nneg i32 %428 to float
   %432 = fdiv reassoc nsz arcp contract afn float %429, %431
   %433 = select i1 %430, float 1.000000e+00, float %432
   store float 1.000000e+00, ptr %401, align 4, !tbaa !72
@@ -3871,7 +3871,7 @@ define void @commit_params(ptr nocapture noundef readonly %0, ptr noundef %1, pt
   %492 = phi i32 [ %490, %486 ], [ %482, %481 ]
   %493 = phi float [ %489, %486 ], [ %483, %481 ]
   %494 = icmp eq i32 %492, 0
-  %495 = sitofp i32 %492 to float
+  %495 = uitofp nneg i32 %492 to float
   %496 = fdiv reassoc nsz arcp contract afn float %493, %495
   %497 = select i1 %494, float 1.000000e+00, float %496
   store float 1.000000e+00, ptr %465, align 4, !tbaa !72

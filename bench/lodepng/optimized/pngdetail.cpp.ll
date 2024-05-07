@@ -1963,7 +1963,7 @@ for.cond163.preheader:                            ; preds = %invoke.cont
 
 for.body165.lr.ph:                                ; preds = %for.cond163.preheader
   %conv169 = sitofp i32 %h0 to double
-  %conv171 = sitofp i32 %h1 to double
+  %conv171 = uitofp nneg i32 %h1 to double
   %cmp177147 = icmp sgt i32 %w1, 0
   %conv182 = sitofp i32 %w0 to double
   %conv184 = sitofp i32 %w1 to double

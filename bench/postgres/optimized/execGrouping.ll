@@ -1075,7 +1075,7 @@ tuplehash_distance.exit:                          ; preds = %8
   br i1 %37, label %.lr.ph77, label %._crit_edge.loopexit, !llvm.loop !13
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph77
-  %38 = uitofp i64 %25 to double
+  %38 = uitofp nneg i64 %25 to double
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1, %.preheader

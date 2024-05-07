@@ -1333,11 +1333,11 @@ _ZL8containsPKhhh.exit681.thread:                 ; preds = %410, %_ZL8containsP
   store float %482, ptr %557, align 4
   %558 = getelementptr inbounds i8, ptr %520, i64 20
   store float %495, ptr %558, align 4
-  %559 = sitofp i32 %.0552.lcssa to float
+  %559 = uitofp nneg i32 %.0552.lcssa to float
   %560 = load float, ptr %509, align 8
   %561 = tail call float @llvm.fmuladd.f32(float %559, float %560, float %478)
   store float %561, ptr %555, align 4
-  %562 = sitofp i32 %.0550.lcssa to float
+  %562 = uitofp nneg i32 %.0550.lcssa to float
   %563 = load float, ptr %509, align 8
   %564 = tail call float @llvm.fmuladd.f32(float %562, float %563, float %478)
   store float %564, ptr %557, align 4

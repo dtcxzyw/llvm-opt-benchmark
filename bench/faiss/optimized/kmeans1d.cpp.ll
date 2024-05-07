@@ -2055,11 +2055,11 @@ _ZSt10accumulateIPffET0_T_S2_S1_.exit:            ; preds = %.lr.ph.i138, %.lr.p
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit151
 
 294:                                              ; preds = %_ZSt10accumulateIPffET0_T_S2_S1_.exit
-  %295 = sitofp i64 %274 to float
+  %295 = uitofp nneg i64 %274 to float
   %296 = fdiv float %.0.lcssa.i, %295
   %297 = getelementptr inbounds float, ptr %3, i64 %.080218
   store float %296, ptr %297, align 4
-  %298 = sitofp i64 %274 to double
+  %298 = uitofp nneg i64 %274 to double
   %299 = fadd double %.083215, %298
   %300 = call double @llvm.fmuladd.f64(double %298, double %298, double %.082216)
   %.080 = add i64 %.080218, -1
@@ -2741,7 +2741,7 @@ define internal noundef float @"_ZNSt17_Function_handlerIFfllEZN5faiss8kmeans1dE
   %13 = load double, ptr %12, align 8
   %14 = load double, ptr %.val8.i.i.i, align 8
   %15 = fsub double %13, %14
-  %16 = sitofp i64 %11 to double
+  %16 = uitofp nneg i64 %11 to double
   %17 = fdiv double %15, %16
   %18 = getelementptr inbounds double, ptr %.val9.i.i.i, i64 %11
   %19 = load double, ptr %18, align 8

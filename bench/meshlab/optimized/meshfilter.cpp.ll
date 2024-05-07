@@ -103725,7 +103725,7 @@ define linkonce_odr void @_ZN3vcg3tri6SmoothI6CMeshOE22VertexQualityLaplacianERS
 
 231:                                              ; preds = %228
   %232 = load float, ptr %224, align 4
-  %233 = sitofp i32 %226 to float
+  %233 = uitofp nneg i32 %226 to float
   %234 = fdiv float %232, %233
   %235 = getelementptr inbounds i8, ptr %.sroa.083.1133, i64 36
   store float %234, ptr %235, align 4

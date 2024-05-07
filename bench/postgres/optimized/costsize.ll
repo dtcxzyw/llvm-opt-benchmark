@@ -194,7 +194,7 @@ get_restriction_qual_cost.exit:                   ; preds = %cost_qual_eval.exit
   br i1 %55, label %56, label %73
 
 56:                                               ; preds = %get_restriction_qual_cost.exit
-  %57 = sitofp i32 %54 to double
+  %57 = uitofp nneg i32 %54 to double
   %58 = load i8, ptr @parallel_leader_participation, align 1
   %59 = trunc i8 %58 to i1
   br i1 %59, label %60, label %get_parallel_divisor.exit
@@ -1032,7 +1032,7 @@ cost_qual_eval.exit:                              ; preds = %cost_qual_eval.exit
   br i1 %332, label %333, label %350
 
 333:                                              ; preds = %cost_qual_eval.exit
-  %334 = sitofp i32 %331 to double
+  %334 = uitofp nneg i32 %331 to double
   %335 = load i8, ptr @parallel_leader_participation, align 1
   %336 = trunc i8 %335 to i1
   br i1 %336, label %337, label %get_parallel_divisor.exit
@@ -1293,7 +1293,7 @@ get_restriction_qual_cost.exit._crit_edge:        ; preds = %get_restriction_qua
   br label %85
 
 67:                                               ; preds = %get_restriction_qual_cost.exit
-  %68 = sitofp i32 %65 to double
+  %68 = uitofp nneg i32 %65 to double
   %69 = load i8, ptr @parallel_leader_participation, align 1
   %70 = trunc i8 %69 to i1
   br i1 %70, label %71, label %get_parallel_divisor.exit
@@ -4683,7 +4683,7 @@ define dso_local void @final_cost_nestloop(ptr noundef %0, ptr nocapture noundef
   br i1 %29, label %30, label %46
 
 30:                                               ; preds = %24
-  %31 = sitofp i32 %28 to double
+  %31 = uitofp nneg i32 %28 to double
   %32 = load i8, ptr @parallel_leader_participation, align 1
   %33 = trunc i8 %32 to i1
   br i1 %33, label %34, label %get_parallel_divisor.exit
@@ -5375,7 +5375,7 @@ define dso_local void @final_cost_mergejoin(ptr noundef %0, ptr nocapture nounde
   br i1 %42, label %43, label %59
 
 43:                                               ; preds = %37
-  %44 = sitofp i32 %41 to double
+  %44 = uitofp nneg i32 %41 to double
   %45 = load i8, ptr @parallel_leader_participation, align 1
   %46 = trunc i8 %45 to i1
   br i1 %46, label %47, label %get_parallel_divisor.exit
@@ -5889,7 +5889,7 @@ define dso_local void @final_cost_hashjoin(ptr noundef %0, ptr nocapture noundef
   br i1 %37, label %38, label %54
 
 38:                                               ; preds = %32
-  %39 = sitofp i32 %36 to double
+  %39 = uitofp nneg i32 %36 to double
   %40 = load i8, ptr @parallel_leader_participation, align 1
   %41 = trunc i8 %40 to i1
   br i1 %41, label %42, label %get_parallel_divisor.exit

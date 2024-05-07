@@ -698,7 +698,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
   %134 = phi i32 [ %132, %128 ], [ %124, %123 ]
   %135 = phi float [ %131, %128 ], [ %125, %123 ]
   %136 = icmp eq i32 %134, 0
-  %137 = sitofp i32 %134 to float
+  %137 = uitofp nneg i32 %134 to float
   %138 = fdiv reassoc nsz arcp contract afn float %135, %137
   %139 = select i1 %136, float 1.000000e+00, float %138
   store float 1.000000e+00, ptr %107, align 4, !tbaa !26
@@ -803,7 +803,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
   %219 = phi float [ %215, %212 ], [ %209, %207 ]
   %220 = getelementptr inbounds i8, ptr %6, i64 524328
   %221 = icmp eq i32 %218, 0
-  %222 = sitofp i32 %218 to float
+  %222 = uitofp nneg i32 %218 to float
   %223 = fdiv reassoc nsz arcp contract afn float %219, %222
   %224 = select i1 %221, float 1.000000e+00, float %223
   store float 1.000000e+00, ptr %220, align 4, !tbaa !26

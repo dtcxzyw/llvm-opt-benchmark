@@ -98515,7 +98515,7 @@ _ZN3vcg3tri13TrivialWalkerI6CMeshONS_12SimpleVolumeINS_11SimpleVoxelIfEEEEE5Exis
 
 _ZN3vcg3tri13TrivialWalkerI6CMeshONS_12SimpleVolumeINS_11SimpleVoxelIfEEEEE5ExistERKNS_6Point3IiEESB_RP8CVertexO.exit170.thread: ; preds = %728, %733, %_ZN3vcg3tri13TrivialWalkerI6CMeshONS_12SimpleVolumeINS_11SimpleVoxelIfEEEEE5ExistERKNS_6Point3IiEESB_RP8CVertexO.exit170
   %.11 = phi i32 [ %735, %733 ], [ %.10, %_ZN3vcg3tri13TrivialWalkerI6CMeshONS_12SimpleVolumeINS_11SimpleVoxelIfEEEEE5ExistERKNS_6Point3IiEESB_RP8CVertexO.exit170 ], [ %.10, %728 ]
-  %752 = uitofp i32 %.11 to float
+  %752 = uitofp nneg i32 %.11 to float
   %753 = load ptr, ptr %1, align 8
   %754 = getelementptr inbounds i8, ptr %753, i64 8
   %755 = load <2 x float>, ptr %754, align 4
@@ -102683,7 +102683,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit: ; preds = %18, %21
   %26 = icmp sgt i32 %0, 0
   %27 = sitofp i32 %0 to double
   %28 = fdiv double 0x401921FB54442D18, %27
-  %29 = sitofp i32 %1 to float
+  %29 = uitofp nneg i32 %1 to float
   br i1 %26, label %.preheader156.us, label %.preheader155
 
 .preheader156.us:                                 ; preds = %.preheader156.lr.ph, %._crit_edge.us

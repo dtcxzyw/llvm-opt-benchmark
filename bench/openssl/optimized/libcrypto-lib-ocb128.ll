@@ -346,20 +346,20 @@ ocb_block_xor.exit:                               ; preds = %for.body.i
   %add.ptr32 = getelementptr inbounds i8, ptr %stretch, i64 %div18
   %offset = getelementptr inbounds i8, ptr %ctx, i64 144
   %14 = and i8 %11, 7
-  %15 = zext nneg i8 %14 to i32
-  %sh_prom.i = sub nuw nsw i32 8, %15
+  %15 = zext nneg i8 %14 to i16
+  %sh_prom.i = sub nuw nsw i16 8, %15
   br label %for.body.i19
 
 for.body.i19:                                     ; preds = %for.body.i19, %ocb_block_xor.exit
   %indvars.iv.i = phi i64 [ 15, %ocb_block_xor.exit ], [ %indvars.iv.next.i, %for.body.i19 ]
-  %carry.07.i = phi i32 [ 0, %ocb_block_xor.exit ], [ %shr.i, %for.body.i19 ]
+  %carry.07.i = phi i16 [ 0, %ocb_block_xor.exit ], [ %shr.i, %for.body.i19 ]
   %arrayidx.i20 = getelementptr inbounds i8, ptr %add.ptr32, i64 %indvars.iv.i
   %16 = load i8, ptr %arrayidx.i20, align 1
-  %conv.i = zext i8 %16 to i32
-  %shr.i = lshr i32 %conv.i, %sh_prom.i
-  %shl.i = shl nuw nsw i32 %conv.i, %15
-  %or.i = or i32 %shl.i, %carry.07.i
-  %conv7.i = trunc i32 %or.i to i8
+  %conv.i = zext i8 %16 to i16
+  %shr.i = lshr i16 %conv.i, %sh_prom.i
+  %shl.i = shl nuw nsw i16 %conv.i, %15
+  %or.i = or i16 %shl.i, %carry.07.i
+  %conv7.i = trunc i16 %or.i to i8
   %arrayidx9.i = getelementptr inbounds i8, ptr %offset, i64 %indvars.iv.i
   store i8 %conv7.i, ptr %arrayidx9.i, align 1
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
@@ -367,16 +367,14 @@ for.body.i19:                                     ; preds = %for.body.i19, %ocb_
   br i1 %cmp.not.i, label %ocb_block_lshift.exit, label %for.body.i19, !llvm.loop !4
 
 ocb_block_lshift.exit:                            ; preds = %for.body.i19
-  %shl37 = shl nuw nsw i32 255, %sh_prom.i
   %add.ptr42 = getelementptr inbounds i8, ptr %add.ptr32, i64 16
   %17 = load i8, ptr %add.ptr42, align 1
-  %conv43 = zext i8 %17 to i32
-  %and45 = and i32 %shl37, %conv43
-  %shr = lshr i32 %and45, %sh_prom.i
+  %conv43 = zext i8 %17 to i16
+  %18 = lshr i16 %conv43, %sh_prom.i
   %arrayidx50 = getelementptr inbounds i8, ptr %ctx, i64 159
-  %18 = load i8, ptr %arrayidx50, align 1
-  %19 = trunc nuw nsw i32 %shr to i8
-  %conv53 = or i8 %18, %19
+  %19 = load i8, ptr %arrayidx50, align 1
+  %20 = trunc nuw nsw i16 %18 to i8
+  %conv53 = or i8 %19, %20
   store i8 %conv53, ptr %arrayidx50, align 1
   br label %return
 

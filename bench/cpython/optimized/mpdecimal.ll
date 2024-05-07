@@ -26857,7 +26857,7 @@ if.end:                                           ; preds = %entry, %land.rhs.i
   br i1 %cmp, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %conv = uitofp i64 %add to double
+  %conv = uitofp nneg i64 %add to double
   %conv4 = uitofp i32 %base to double
   %call5 = tail call double @log10(double noundef %conv4) #27
   %div = fdiv double %conv, %call5
@@ -26968,7 +26968,7 @@ if.end.i31:                                       ; preds = %if.end
   br i1 %cmp.i34, label %if.then7, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i31
-  %conv.i35 = uitofp i64 %add.i33 to double
+  %conv.i35 = uitofp nneg i64 %add.i33 to double
   %conv4.i = uitofp i32 %rbase to double
   %call5.i = call double @log10(double noundef %conv4.i) #27
   %div.i = fdiv double %conv.i35, %call5.i
@@ -27234,7 +27234,7 @@ if.end.i31:                                       ; preds = %if.end
   br i1 %cmp.i34, label %if.then7, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i31
-  %conv.i35 = uitofp i64 %add.i33 to double
+  %conv.i35 = uitofp nneg i64 %add.i33 to double
   %conv4.i = uitofp i32 %rbase to double
   %call5.i = call double @log10(double noundef %conv4.i) #27
   %div.i = fdiv double %conv.i35, %call5.i
@@ -27414,7 +27414,7 @@ entry:
   br i1 %cmp.i, label %if.then, label %if.end.i53
 
 if.end.i53:                                       ; preds = %entry
-  %conv.i = uitofp i64 %srclen to double
+  %conv.i = uitofp nneg i64 %srclen to double
   %conv1.i = uitofp i32 %srcbase to double
   %call.i = tail call double @log10(double noundef %conv1.i) #27
   %div.i = fdiv double %call.i, 1.900000e+01
@@ -27747,7 +27747,7 @@ entry:
   br i1 %cmp.i, label %if.then, label %if.end.i42
 
 if.end.i42:                                       ; preds = %entry
-  %conv.i = uitofp i64 %srclen to double
+  %conv.i = uitofp nneg i64 %srclen to double
   %conv1.i = uitofp i32 %srcbase to double
   %call.i = tail call double @log10(double noundef %conv1.i) #27
   %div.i = fdiv double %call.i, 1.900000e+01

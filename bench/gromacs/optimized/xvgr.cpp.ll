@@ -3606,8 +3606,8 @@ _ZNKSt10filesystem7__cxx114path6stringEv.exit168: ; preds = %136
   %166 = load float, ptr %161, align 4
   %167 = fsub float %165, %166
   %168 = fpext float %167 to double
-  %169 = add nsw i32 %.0128.lcssa, -1
-  %170 = sitofp i32 %169 to double
+  %169 = uitofp nneg i32 %.0128.lcssa to double
+  %170 = fadd double %169, -1.000000e+00
   %171 = fdiv double %168, %170
   %172 = fptrunc double %171 to float
   store float %172, ptr %9, align 4

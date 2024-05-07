@@ -4325,7 +4325,7 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
   br i1 %1116, label %_ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.loopexit.i.i, label %.lr.ph417.i.i
 
 1117:                                             ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h82e15a42ed1aaa8aE.exit.thread.i.i"
-  %1118 = uitofp i64 %.sroa.7.0418.i.i to float
+  %1118 = uitofp nneg i64 %.sroa.7.0418.i.i to float
   %1119 = fmul float %1118, 0x3FB1EB8520000000
   %1120 = fdiv float %1119, 2.000000e+03
   %1121 = fadd float %1120, 0x3FE8A3D700000000
@@ -7542,7 +7542,7 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
   br i1 %2236, label %_ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.loopexit.i.i224, label %.lr.ph417.i.i198
 
 2237:                                             ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h82e15a42ed1aaa8aE.exit.thread.i.i178"
-  %2238 = uitofp i64 %.sroa.7.0418.i.i152 to float
+  %2238 = uitofp nneg i64 %.sroa.7.0418.i.i152 to float
   %2239 = fmul float %2238, 0x3FB1EB8520000000
   %2240 = fdiv float %2239, 2.000000e+03
   %2241 = fadd float %2240, 0x3FE8A3D700000000
@@ -10773,7 +10773,7 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
   br i1 %3359, label %_ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.loopexit.i.i640, label %.lr.ph417.i.i613
 
 3360:                                             ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h82e15a42ed1aaa8aE.exit.thread.i.i591"
-  %3361 = uitofp i64 %.sroa.7.0418.i.i564 to float
+  %3361 = uitofp nneg i64 %.sroa.7.0418.i.i564 to float
   %3362 = fmul float %3361, 0x3FB1EB8520000000
   %3363 = fdiv float %3362, 2.000000e+03
   %3364 = fadd float %3363, 0x3FE8A3D700000000

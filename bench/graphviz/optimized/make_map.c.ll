@@ -1232,7 +1232,7 @@ get_boundingbox.exit:                             ; preds = %84, %81
   %.0 = phi double [ %78, %76 ], [ %104, %106 ], [ %104, %get_boundingbox.exit ], [ %11, %79 ]
   %110 = icmp sgt i32 %.0214, 0
   %111 = fmul <2 x double> %52, <double 5.000000e-01, double 5.000000e-01>
-  %112 = sitofp i32 %.0214 to double
+  %112 = uitofp nneg i32 %.0214 to double
   %113 = insertelement <2 x double> poison, double %112, i64 0
   %114 = shufflevector <2 x double> %113, <2 x double> poison, <2 x i32> zeroinitializer
   %115 = fdiv <2 x double> %111, %114
@@ -1278,7 +1278,7 @@ get_boundingbox.exit:                             ; preds = %84, %81
 
 138:                                              ; preds = %.split.preheader
   %139 = getelementptr inbounds double, ptr %4, i64 %131
-  %140 = sitofp i32 %.sroa.0.0.extract.trunc823 to double
+  %140 = uitofp nneg i32 %.sroa.0.0.extract.trunc823 to double
   %141 = getelementptr inbounds double, ptr %3, i64 %131
   %142 = load <2 x double>, ptr %139, align 8
   %143 = extractelement <2 x double> %142, i64 0
@@ -1605,7 +1605,7 @@ add_point.exit236:                                ; preds = %290, %288, %278, %.
   br i1 %301, label %302, label %.loopexit
 
 302:                                              ; preds = %.loopexit442
-  %303 = sitofp i32 %.sroa.0.4.extract.trunc829 to double
+  %303 = uitofp nneg i32 %.sroa.0.4.extract.trunc829 to double
   %304 = getelementptr inbounds double, ptr %3, i64 %131
   %305 = getelementptr inbounds double, ptr %4, i64 %131
   %306 = load <2 x double>, ptr %305, align 8

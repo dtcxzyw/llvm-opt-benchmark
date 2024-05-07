@@ -13483,7 +13483,7 @@ land.lhs.true207:                                 ; preds = %if.then205
   %conv4.i661 = sitofp i64 %94 to double
   %mul5.i662 = fmul double %mul.i657, %conv4.i661
   %95 = call noundef double @llvm.fmuladd.f64(double %93, double %sub.i659, double %mul5.i662)
-  %conv = sitofp i64 %89 to double
+  %conv = uitofp nneg i64 %89 to double
   %cmp213 = fcmp ogt double %95, %conv
   br i1 %cmp213, label %if.then214, label %if.end283
 
@@ -17361,7 +17361,7 @@ if.end15:                                         ; preds = %if.then7
   %div.i = fmul float %timeoutVariationFrac, 0x3BF0000000000000
   %conv16.i = uitofp i64 %add14.i.i to float
   %mul.i = fmul float %div.i, %conv16.i
-  %conv18.i = sitofp i64 %idleTimeout.coerce to float
+  %conv18.i = uitofp nneg i64 %idleTimeout.coerce to float
   %add.i = fadd float %mul.i, 1.000000e+00
   %mul19.i = fmul float %add.i, %conv18.i
   %conv20.i = fptoui float %mul19.i to i64

@@ -182,7 +182,7 @@ define noundef float @_Z7fit_ahxiP4t_bbiiPiPA3_fiS1_b(i32 noundef %0, ptr nocapt
 .preheader.i:                                     ; preds = %74
   store <2 x float> %82, ptr %10, align 8
   store float %85, ptr %72, align 8
-  %73 = sitofp i32 %6 to float
+  %73 = uitofp nneg i32 %6 to float
   br label %86
 
 74:                                               ; preds = %74, %.lr.ph.i

@@ -9715,7 +9715,7 @@ define void @_ZN6GLArea22displayViewerHighlightEv(ptr noundef nonnull align 8 de
 
 2:                                                ; preds = %1, %2
   %.03 = phi i32 [ 5, %1 ], [ %4, %2 ]
-  %3 = sitofp i32 %.03 to float
+  %3 = uitofp nneg i32 %.03 to float
   tail call void @glLineWidth(float noundef %3)
   tail call void @glBegin(i32 noundef 2)
   tail call void @glVertex2f(float noundef -1.000000e+00, float noundef 1.000000e+00)

@@ -773,7 +773,7 @@ if.end75:                                         ; preds = %if.end61
   %sub.i = shl nuw nsw i32 %conv.i23, 10
   %sub2.i = add nsw i32 %sub.i, -56613888
   %add3.i = add nuw nsw i32 %sub2.i, %conv1.i
-  %conv.i24 = uitofp i32 %add3.i to double
+  %conv.i24 = uitofp nneg i32 %add3.i to double
   %23 = bitcast double %conv.i24 to i64
   br label %return
 
@@ -2364,7 +2364,7 @@ if.end47:                                         ; preds = %if.end35
   %cmp50 = fcmp ogt double %12, 0x41EFFFFFFFE00000
   %div = fdiv double 0x41B0000000000000, %12
   %cmp55 = fcmp olt double %div, %conv
-  %or.cond41 = or i1 %cmp50, %cmp55
+  %or.cond41 = select i1 %cmp50, i1 true, i1 %cmp55
   br i1 %or.cond41, label %if.then56, label %if.end59
 
 if.then56:                                        ; preds = %if.end47

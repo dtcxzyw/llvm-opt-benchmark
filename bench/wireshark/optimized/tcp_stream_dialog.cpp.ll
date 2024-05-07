@@ -17362,7 +17362,7 @@ _ZN7QStringD2Ev.exit43:                           ; preds = %_ZN7QStringD2Ev.exi
 
 105:                                              ; preds = %101
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %106 = uitofp i32 %100 to double
+  %106 = uitofp nneg i32 %100 to double
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store double %106, ptr %4, align 8
   %107 = load i64, ptr %71, align 8

@@ -5095,7 +5095,7 @@ define void @_ZN22EditManipulatorsPlugin10DrawCircleEfff(ptr nocapture noundef n
 
 .lr.ph.preheader:                                 ; preds = %.thread, %26
   %.in = phi i32 [ %25, %.thread ], [ %28, %26 ]
-  %30 = sitofp i32 %.in to double
+  %30 = uitofp i32 %.in to double
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph

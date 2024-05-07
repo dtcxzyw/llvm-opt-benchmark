@@ -1995,7 +1995,7 @@ do.body28:                                        ; preds = %do.body21, %if.else
   br i1 %cmp31, label %do.end38, label %if.else34
 
 if.else34:                                        ; preds = %do.body28
-  %conv35 = sitofp i64 %6 to x86_fp80
+  %conv35 = uitofp nneg i64 %6 to x86_fp80
   call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 689, ptr noundef nonnull @__func__.qtest_rsp_args, ptr noundef nonnull @.str.139, x86_fp80 noundef %conv35, ptr noundef nonnull @.str.140, x86_fp80 noundef 0xK40078000000000000000, i8 noundef signext 105) #20
   br label %do.end38
 

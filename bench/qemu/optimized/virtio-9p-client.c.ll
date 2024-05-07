@@ -279,7 +279,7 @@ entry:
   br i1 %cmp, label %do.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  %conv = sitofp i64 %call to x86_fp80
+  %conv = uitofp nneg i64 %call to x86_fp80
   tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 151, ptr noundef nonnull @__func__.v9fs_string_size, ptr noundef nonnull @.str.1, x86_fp80 noundef %conv, ptr noundef nonnull @.str.2, x86_fp80 noundef 0xK400EFFFD000000000000, i8 noundef signext 105) #13
   br label %do.end
 
@@ -305,7 +305,7 @@ entry:
   br i1 %cmp, label %do.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  %conv3 = sitofp i64 %conv1 to x86_fp80
+  %conv3 = uitofp nneg i64 %conv1 to x86_fp80
   tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 160, ptr noundef nonnull @__func__.v9fs_string_write, ptr noundef nonnull @.str.3, x86_fp80 noundef %conv3, ptr noundef nonnull @.str.2, x86_fp80 noundef 0xK400EFFFF000000000000, i8 noundef signext 105) #13
   br label %do.end
 
@@ -410,7 +410,7 @@ entry:
 
 do.end.thread:                                    ; preds = %entry
   %sub = xor i32 %size, -1
-  %conv8 = uitofp i32 %sub to x86_fp80
+  %conv8 = uitofp nneg i32 %sub to x86_fp80
   tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 199, ptr noundef nonnull @__func__.v9fs_req_init, ptr noundef nonnull @.str.4, x86_fp80 noundef 0xK4001E000000000000000, ptr noundef nonnull @.str.2, x86_fp80 noundef %conv8, i8 noundef signext 105) #13
   %add18 = add nsw i32 %size, 7
   store i32 %add18, ptr %hdr, align 4
@@ -531,7 +531,7 @@ entry:
   br i1 %cmp, label %do.body9, label %if.else
 
 if.else:                                          ; preds = %entry
-  %conv7 = uitofp i32 %hdr.val to x86_fp80
+  %conv7 = uitofp nneg i32 %hdr.val to x86_fp80
   call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 261, ptr noundef nonnull @__func__.v9fs_req_recv, ptr noundef nonnull @.str.6, x86_fp80 noundef %conv7, ptr noundef nonnull @.str.7, x86_fp80 noundef 0xK4001E000000000000000, i8 noundef signext 105) #13
   %.pr = load i32, ptr %hdr, align 4
   br label %do.body9
@@ -792,7 +792,7 @@ do.end:                                           ; preds = %entry
   br i1 %cmp.i, label %v9fs_string_size.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %do.end
-  %conv.i = sitofp i64 %call.i to x86_fp80
+  %conv.i = uitofp nneg i64 %call.i to x86_fp80
   tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 151, ptr noundef nonnull @__func__.v9fs_string_size, ptr noundef nonnull @.str.1, x86_fp80 noundef %conv.i, ptr noundef nonnull @.str.2, x86_fp80 noundef 0xK400EFFFD000000000000, i8 noundef signext 105) #13
   br label %v9fs_string_size.exit
 
@@ -1413,7 +1413,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %do
   br i1 %cmp.i, label %v9fs_string_size.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %for.body
-  %conv.i24 = sitofp i64 %call.i23 to x86_fp80
+  %conv.i24 = uitofp nneg i64 %call.i23 to x86_fp80
   tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 151, ptr noundef nonnull @__func__.v9fs_string_size, ptr noundef nonnull @.str.1, x86_fp80 noundef %conv.i24, ptr noundef nonnull @.str.2, x86_fp80 noundef 0xK400EFFFD000000000000, i8 noundef signext 105) #13
   br label %v9fs_string_size.exit
 
@@ -2524,7 +2524,7 @@ do.body1:                                         ; preds = %entry
 
 if.else5:                                         ; preds = %do.body1
   %sub = xor i32 %1, -1
-  %conv7 = uitofp i32 %sub to x86_fp80
+  %conv7 = uitofp nneg i32 %sub to x86_fp80
   tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 704, ptr noundef nonnull @__func__.v9fs_twrite, ptr noundef nonnull @.str.32, x86_fp80 noundef 0xK40038000000000000000, ptr noundef nonnull @.str.2, x86_fp80 noundef %conv7, i8 noundef signext 105) #13
   br label %do.end9
 
@@ -2896,7 +2896,7 @@ if.end24:                                         ; preds = %if.then18, %do.end1
   br i1 %cmp.i, label %v9fs_string_size.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end24
-  %conv.i = sitofp i64 %call.i to x86_fp80
+  %conv.i = uitofp nneg i64 %call.i to x86_fp80
   tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 151, ptr noundef nonnull @__func__.v9fs_string_size, ptr noundef nonnull @.str.1, x86_fp80 noundef %conv.i, ptr noundef nonnull @.str.2, x86_fp80 noundef 0xK400EFFFD000000000000, i8 noundef signext 105) #13
   br label %v9fs_string_size.exit
 
@@ -3149,7 +3149,7 @@ if.end28:                                         ; preds = %if.then21, %do.end1
   br i1 %cmp.i, label %v9fs_string_size.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end28
-  %conv.i = sitofp i64 %call.i to x86_fp80
+  %conv.i = uitofp nneg i64 %call.i to x86_fp80
   tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 151, ptr noundef nonnull @__func__.v9fs_string_size, ptr noundef nonnull @.str.1, x86_fp80 noundef %conv.i, ptr noundef nonnull @.str.2, x86_fp80 noundef 0xK400EFFFD000000000000, i8 noundef signext 105) #13
   br label %v9fs_string_size.exit
 
@@ -3391,7 +3391,7 @@ if.end25:                                         ; preds = %if.then18, %do.end1
   br i1 %cmp.i, label %v9fs_string_size.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end25
-  %conv.i = sitofp i64 %call.i to x86_fp80
+  %conv.i = uitofp nneg i64 %call.i to x86_fp80
   tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 151, ptr noundef nonnull @__func__.v9fs_string_size, ptr noundef nonnull @.str.1, x86_fp80 noundef %conv.i, ptr noundef nonnull @.str.2, x86_fp80 noundef 0xK400EFFFD000000000000, i8 noundef signext 105) #13
   br label %v9fs_string_size.exit
 
@@ -3404,7 +3404,7 @@ v9fs_string_size.exit:                            ; preds = %if.end25, %if.else.
   br i1 %cmp.i18, label %v9fs_string_size.exit22, label %if.else.i19
 
 if.else.i19:                                      ; preds = %v9fs_string_size.exit
-  %conv.i20 = sitofp i64 %call.i17 to x86_fp80
+  %conv.i20 = uitofp nneg i64 %call.i17 to x86_fp80
   tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 151, ptr noundef nonnull @__func__.v9fs_string_size, ptr noundef nonnull @.str.1, x86_fp80 noundef %conv.i20, ptr noundef nonnull @.str.2, x86_fp80 noundef 0xK400EFFFD000000000000, i8 noundef signext 105) #13
   br label %v9fs_string_size.exit22
 
@@ -3656,7 +3656,7 @@ if.end39:                                         ; preds = %if.then27, %if.end2
   br i1 %cmp.i, label %v9fs_string_size.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end39
-  %conv.i = sitofp i64 %call.i to x86_fp80
+  %conv.i = uitofp nneg i64 %call.i to x86_fp80
   tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 151, ptr noundef nonnull @__func__.v9fs_string_size, ptr noundef nonnull @.str.1, x86_fp80 noundef %conv.i, ptr noundef nonnull @.str.2, x86_fp80 noundef 0xK400EFFFD000000000000, i8 noundef signext 105) #13
   br label %v9fs_string_size.exit
 
@@ -3833,7 +3833,7 @@ if.end15:                                         ; preds = %if.then10, %do.end7
   br i1 %cmp.i, label %v9fs_string_size.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end15
-  %conv.i = sitofp i64 %call.i to x86_fp80
+  %conv.i = uitofp nneg i64 %call.i to x86_fp80
   tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 151, ptr noundef nonnull @__func__.v9fs_string_size, ptr noundef nonnull @.str.1, x86_fp80 noundef %conv.i, ptr noundef nonnull @.str.2, x86_fp80 noundef 0xK400EFFFD000000000000, i8 noundef signext 105) #13
   br label %v9fs_string_size.exit
 

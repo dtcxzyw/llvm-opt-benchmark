@@ -1203,7 +1203,7 @@ define dso_local ptr @GetCachedPlan(ptr noundef %0, ptr noundef %1, ptr noundef 
 choose_custom_plan.exit:                          ; preds = %32
   %36 = getelementptr inbounds i8, ptr %0, i64 176
   %37 = load double, ptr %36, align 8
-  %38 = sitofp i64 %34 to double
+  %38 = uitofp nneg i64 %34 to double
   %39 = fdiv double %37, %38
   %40 = getelementptr inbounds i8, ptr %0, i64 168
   %41 = load double, ptr %40, align 8
@@ -1451,7 +1451,7 @@ cached_plan_cost.exit:                            ; preds = %136, %117, %.lr.ph.
 choose_custom_plan.exit58:                        ; preds = %154
   %158 = getelementptr inbounds i8, ptr %0, i64 176
   %159 = load double, ptr %158, align 8
-  %160 = sitofp i64 %156 to double
+  %160 = uitofp nneg i64 %156 to double
   %161 = fdiv double %159, %160
   %162 = load double, ptr %137, align 8
   %163 = fcmp uge double %162, %161

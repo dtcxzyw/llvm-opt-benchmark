@@ -556,7 +556,7 @@ BTreeTupleIsPosting.exit.thread.i231:             ; preds = %BTreeTupleIsPosting
 
 _bt_afternewitemoff.exit:                         ; preds = %262
   %265 = uitofp i16 %2 to double
-  %266 = uitofp i16 %.0.i to double
+  %266 = uitofp nneg i16 %.0.i to double
   %267 = fadd double %266, 1.000000e+00
   %268 = fdiv double %265, %267
   %269 = sitofp i32 %40 to double

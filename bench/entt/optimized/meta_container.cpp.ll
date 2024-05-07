@@ -134692,7 +134692,7 @@ _ZNSt12_Vector_baseIN4entt8internal14dense_map_nodeIicEESaIS3_EE13_M_deallocateE
   br label %_ZN4entt9dense_mapIicSt4hashIiESt8equal_toIiESaISt4pairIKicEEE7reserveEm.exit
 
 _ZN4entt9dense_mapIicSt4hashIiESt8equal_toIiESaISt4pairIKicEEE7reserveEm.exit: ; preds = %if.end.i.i, %_ZNSt12_Vector_baseIN4entt8internal14dense_map_nodeIicEESaIS3_EE13_M_deallocateEPS3_m.exit.i.i
-  %conv.i = uitofp i64 %sz to float
+  %conv.i = uitofp nneg i64 %sz to float
   %threshold.i.i = getelementptr inbounds i8, ptr %container, i64 48
   %3 = load float, ptr %threshold.i.i, align 8, !tbaa !1166
   %div.i = fdiv float %conv.i, %3
@@ -136818,7 +136818,7 @@ _ZNSt12_Vector_baseISt4pairImiESaIS1_EE13_M_deallocateEPS1_m.exit.i.i: ; preds =
   br label %_ZN4entt9dense_setIiSt4hashIiESt8equal_toIiESaIiEE7reserveEm.exit
 
 _ZN4entt9dense_setIiSt4hashIiESt8equal_toIiESaIiEE7reserveEm.exit: ; preds = %if.end.i.i, %_ZNSt12_Vector_baseISt4pairImiESaIS1_EE13_M_deallocateEPS1_m.exit.i.i
-  %conv.i = uitofp i64 %sz to float
+  %conv.i = uitofp nneg i64 %sz to float
   %threshold.i.i = getelementptr inbounds i8, ptr %container, i64 48
   %3 = load float, ptr %threshold.i.i, align 8, !tbaa !1252
   %div.i = fdiv float %conv.i, %3

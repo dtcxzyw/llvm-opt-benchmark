@@ -847,7 +847,7 @@ manifest_files_distance.exit:                     ; preds = %14, %20
 
 45:                                               ; preds = %._crit_edge
   %46 = uitofp i32 %44 to double
-  %47 = uitofp i64 %.lcssa90 to double
+  %47 = uitofp nneg i64 %.lcssa90 to double
   %48 = fdiv double %46, %47
   %49 = uitofp i32 %.048.lcssa88 to double
   %50 = fdiv double %49, %46

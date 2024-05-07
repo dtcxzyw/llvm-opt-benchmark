@@ -507,7 +507,7 @@ define void @jag_common_poll_data(ptr noundef %0, i64 noundef %1, ptr noundef %2
   %151 = load double, ptr %59, align 8
   %152 = fadd double %150, %151
   %153 = load i64, ptr @conv_units, align 8
-  %154 = sitofp i64 %153 to double
+  %154 = uitofp nneg i64 %153 to double
   %155 = fdiv double %152, %154
   %156 = fmul double %155, 1.000000e+03
   %157 = fptoui double %156 to i64
@@ -783,7 +783,7 @@ _print_jag_prec.exit:                             ; preds = %191, %._crit_edge.i
   %315 = add i64 %314, %.0154.ph214
   %316 = load double, ptr %59, align 8
   %317 = load i64, ptr @conv_units, align 8
-  %318 = sitofp i64 %317 to double
+  %318 = uitofp nneg i64 %317 to double
   %319 = fdiv double %316, %318
   %320 = fptoui double %319 to i64
   %321 = getelementptr inbounds i8, ptr %74, i64 24

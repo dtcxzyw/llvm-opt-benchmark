@@ -2439,7 +2439,7 @@ _ZL13est_prot_areaP9pos_ins_tPA3_fP7t_blockP5mem_t.exit.thread: ; preds = %.lr.p
   br i1 %903, label %904, label %._crit_edge79.thread.i
 
 904:                                              ; preds = %._crit_edge79.i
-  %905 = sitofp i32 %.165.i to double
+  %905 = uitofp nneg i32 %.165.i to double
   %906 = fdiv double 1.000000e+00, %905
   %907 = fptrunc double %906 to float
   %908 = load ptr, ptr %852, align 8

@@ -133,7 +133,7 @@ _ZN3gmx7CpuInfoD2Ev.exit:                         ; preds = %_ZNSt6vectorIN3gmx7
   br i1 %exitcond.not.i, label %33, label %29, !llvm.loop !9
 
 33:                                               ; preds = %29
-  %34 = uitofp i64 %.sroa.speculated5.i to double
+  %34 = uitofp nneg i64 %.sroa.speculated5.i to double
   %35 = uitofp i64 %.sroa.speculated.i to double
   %36 = fmul double %35, 1.500000e+00
   %37 = fcmp olt double %36, %34

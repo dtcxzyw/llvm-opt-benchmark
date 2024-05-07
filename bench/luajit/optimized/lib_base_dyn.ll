@@ -647,7 +647,7 @@ land.lhs.true6:                                   ; preds = %land.lhs.true
 if.then:                                          ; preds = %land.lhs.true6
   %add.ptr12 = getelementptr inbounds i8, ptr %0, i64 -8
   %sub = add nsw i32 %conv, -1
-  %conv.i = sitofp i32 %sub to double
+  %conv.i = uitofp nneg i32 %sub to double
   store double %conv.i, ptr %add.ptr12, align 8
   br label %return
 

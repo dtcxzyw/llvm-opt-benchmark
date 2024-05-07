@@ -1746,7 +1746,7 @@ _ZN6RmsMax3addEfi.exit60.i:                       ; preds = %142, %134
 ._crit_edge141.i:                                 ; preds = %._crit_edge.i
   %153 = fdiv float %.sroa.785.1.lcssa.i, 3.276700e+04
   %154 = icmp sgt i32 %.sroa.483.1.lcssa.fr.i, 0
-  %155 = sitofp i32 %.sroa.483.1.lcssa.fr.i to double
+  %155 = uitofp nneg i32 %.sroa.483.1.lcssa.fr.i to double
   %156 = fdiv double %.sroa.081.1.lcssa.i, %155
   %157 = fptrunc double %156 to float
   %158 = fmul float %157, 0x3F847AE140000000
@@ -1777,7 +1777,7 @@ _ZN6RmsMax3addEfi.exit60.i:                       ; preds = %142, %134
 _ZL14getResolutionsRK10gmx_mtop_tbb.exit:         ; preds = %._crit_edge141.thread.i
   %173 = fdiv <2 x float> %167, <float 3.276700e+04, float 3.276700e+04>
   %174 = icmp sgt <2 x i32> %168, zeroinitializer
-  %175 = sitofp <2 x i32> %168 to <2 x double>
+  %175 = uitofp <2 x i32> %168 to <2 x double>
   %.sroa.044.0.vec.insert.i = insertelement <2 x float> poison, float %.sroa.speculated.i61.i, i64 0
   %176 = fdiv <2 x double> %169, %175
   %177 = fptrunc <2 x double> %176 to <2 x float>
@@ -3733,7 +3733,7 @@ define internal fastcc noundef float @_ZL12surface_fraciff(i32 noundef %0, float
 
 48:                                               ; preds = %11, %16, %14
   %.027 = phi float [ %35, %16 ], [ %15, %14 ], [ 1.000000e+00, %11 ]
-  %49 = sitofp i32 %0 to float
+  %49 = uitofp nneg i32 %0 to float
   %50 = fdiv float %.027, %49
   br label %51
 

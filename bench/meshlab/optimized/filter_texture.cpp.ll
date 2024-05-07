@@ -11926,8 +11926,8 @@ _ZN7QStringD2Ev.exit745:                          ; preds = %332, %_ZN9QtPrivate
   br i1 %switch.selectcmp, label %381, label %911
 
 381:                                              ; preds = %380
-  %382 = sitofp i32 %324 to float
-  %383 = sitofp i32 %317 to float
+  %382 = uitofp nneg i32 %324 to float
+  %383 = uitofp nneg i32 %317 to float
   %384 = fdiv float %382, %383
   %385 = getelementptr inbounds i8, ptr %104, i64 304
   %386 = getelementptr inbounds i8, ptr %104, i64 312
@@ -12221,7 +12221,7 @@ _ZNSt12_Vector_baseISt6vectorIjSaIjEESaIS2_EEC2EmRKS3_.exit.thread.i: ; preds = 
 .lr.ph1557:                                       ; preds = %.preheader1389
   %.not632 = icmp eq i32 %310, 0
   %517 = fpext float %384 to double
-  %518 = sitofp i32 %317 to double
+  %518 = uitofp nneg i32 %317 to double
   %smax1674 = call i32 @llvm.smax.i32(i32 %502, i32 1)
   %wide.trip.count1675 = zext nneg i32 %smax1674 to i64
   br label %568
@@ -12560,7 +12560,7 @@ _ZNSt16allocator_traitsISaIN3vcg9Triangle2IfEEEE8allocateERS3_m.exit.i.i.i.i: ; 
 
 .lr.ph1605:                                       ; preds = %652
   %656 = load ptr, ptr %510, align 8
-  %657 = sitofp i32 %.0528.lcssa to float
+  %657 = uitofp nneg i32 %.0528.lcssa to float
   %658 = sext i32 %.0531.lcssa to i64
   br label %.lr.ph1593.preheader
 
@@ -13107,11 +13107,11 @@ _ZNSt6vectorIN3vcg9Triangle2IfEESaIS2_EED2Ev.exit: ; preds = %.loopexit1390, %.l
 
 950:                                              ; preds = %._crit_edge1512, %933
   %.0482 = phi i32 [ %310, %933 ], [ %931, %._crit_edge1512 ]
-  %951 = sitofp i32 %324 to float
-  %952 = sitofp i32 %317 to float
+  %951 = uitofp nneg i32 %324 to float
+  %952 = uitofp nneg i32 %317 to float
   %953 = fdiv float %951, %952
   %954 = fpext float %953 to double
-  %955 = sitofp i32 %317 to double
+  %955 = uitofp nneg i32 %317 to double
   %956 = fdiv double 2.000000e+00, %955
   %957 = call double @llvm.fmuladd.f64(double %954, double 0x4003504F333F9DE6, double %956)
   %958 = sitofp i32 %.0482 to double

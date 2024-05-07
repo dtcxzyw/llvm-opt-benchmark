@@ -10061,7 +10061,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit: ; preds = %8, %11
   br i1 %17, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit
-  %18 = sitofp i32 %1 to double
+  %18 = uitofp nneg i32 %1 to double
   %19 = fdiv double 0x401921FB54442D18, %18
   br label %23
 

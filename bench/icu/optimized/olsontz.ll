@@ -1126,7 +1126,7 @@ if.then34:                                        ; preds = %if.end26
 
 if.end37:                                         ; preds = %if.end26
   %call38 = tail call noundef double @_ZN6icu_755Grego11fieldsToDayEiii(i32 noundef %spec.select, i32 noundef %month, i32 noundef %dom)
-  %conv39 = sitofp i32 %millis to double
+  %conv39 = uitofp nneg i32 %millis to double
   %10 = tail call double @llvm.fmuladd.f64(double %call38, double 8.640000e+07, double %conv39)
   call void @_ZNK6icu_7513OlsonTimeZone19getHistoricalOffsetEdaiiRiS1_(ptr noundef nonnull align 8 dereferenceable(224) %this, double noundef %10, i8 noundef signext 1, i32 noundef 3, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %rawoff, ptr noundef nonnull align 4 dereferenceable(4) %dstoff)
   %11 = load i32, ptr %rawoff, align 4

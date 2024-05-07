@@ -770,7 +770,7 @@ _ZN4absl12lts_2023080215random_internal15FastUniformBitsIjEclINS1_17NonsecureURB
   br i1 %cmp.not.i.i.i.i.i, label %if.end.i.i.i.i.i, label %invoke.cont86
 
 if.end.i.i.i.i.i:                                 ; preds = %_ZN4absl12lts_2023080215random_internal15FastUniformBitsIjEclINS1_17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i
-  %conv5.i.i.i.i.i = uitofp i64 %conv.i.i.i.i.i to double
+  %conv5.i.i.i.i.i = uitofp nneg i64 %conv.i.i.i.i.i to double
   %div.i.i.i.i.i = fmul double %conv5.i.i.i.i.i, 0x3DF0000000000000
   %sub.i.i.i.i.i = fsub double %p.addr.0.i.i.i.i.i, %div.i.i.i.i.i
   %mul6.i.i.i.i.i = fmul double %sub.i.i.i.i.i, 0x41F0000000000000

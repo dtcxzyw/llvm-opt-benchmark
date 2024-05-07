@@ -2483,32 +2483,28 @@ define noundef double @_ZNK15SequenceDiagram10selectTestERK7QPointFbP8QVariant(p
   %11 = fadd double %9, %10
   %12 = fptosi double %11 to i32
   %13 = icmp sgt i32 %12, -1
-  br i1 %13, label %14, label %25
+  br i1 %13, label %14, label %_ZNK9QMultiMapId11WSCPSeqDataE4sizeEv.exit.thread
 
 14:                                               ; preds = %4
-  %15 = sitofp i32 %12 to double
-  %16 = getelementptr inbounds i8, ptr %0, i64 208
+  %15 = getelementptr inbounds i8, ptr %0, i64 208
+  %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %16, align 8
-  %18 = load ptr, ptr %17, align 8
-  %.not.i = icmp eq ptr %18, null
-  br i1 %.not.i, label %_ZNK9QMultiMapId11WSCPSeqDataE4sizeEv.exit, label %19
+  %.not.i = icmp eq ptr %17, null
+  br i1 %.not.i, label %_ZNK9QMultiMapId11WSCPSeqDataE4sizeEv.exit.thread, label %_ZNK9QMultiMapId11WSCPSeqDataE4sizeEv.exit
 
-19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %18, i64 48
-  %21 = load i64, ptr %20, align 8
-  %22 = sitofp i64 %21 to double
-  br label %_ZNK9QMultiMapId11WSCPSeqDataE4sizeEv.exit
+_ZNK9QMultiMapId11WSCPSeqDataE4sizeEv.exit:       ; preds = %14
+  %18 = uitofp nneg i32 %12 to double
+  %19 = getelementptr inbounds i8, ptr %17, i64 48
+  %20 = load i64, ptr %19, align 8
+  %21 = sitofp i64 %20 to double
+  %22 = fcmp ogt double %21, %18
+  br i1 %22, label %23, label %_ZNK9QMultiMapId11WSCPSeqDataE4sizeEv.exit.thread
 
-_ZNK9QMultiMapId11WSCPSeqDataE4sizeEv.exit:       ; preds = %14, %19
-  %23 = phi double [ %22, %19 ], [ 0.000000e+00, %14 ]
-  %24 = fcmp ogt double %23, %15
-  br i1 %24, label %26, label %25
+_ZNK9QMultiMapId11WSCPSeqDataE4sizeEv.exit.thread: ; preds = %14, %_ZNK9QMultiMapId11WSCPSeqDataE4sizeEv.exit, %4
+  br label %23
 
-25:                                               ; preds = %_ZNK9QMultiMapId11WSCPSeqDataE4sizeEv.exit, %4
-  br label %26
-
-26:                                               ; preds = %_ZNK9QMultiMapId11WSCPSeqDataE4sizeEv.exit, %25
-  %.0 = phi double [ -1.000000e+00, %25 ], [ 1.000000e+00, %_ZNK9QMultiMapId11WSCPSeqDataE4sizeEv.exit ]
+23:                                               ; preds = %_ZNK9QMultiMapId11WSCPSeqDataE4sizeEv.exit, %_ZNK9QMultiMapId11WSCPSeqDataE4sizeEv.exit.thread
+  %.0 = phi double [ -1.000000e+00, %_ZNK9QMultiMapId11WSCPSeqDataE4sizeEv.exit.thread ], [ 1.000000e+00, %_ZNK9QMultiMapId11WSCPSeqDataE4sizeEv.exit ]
   ret double %.0
 }
 

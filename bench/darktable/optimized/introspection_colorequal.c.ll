@@ -5398,7 +5398,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
 
 717:                                              ; preds = %714
   %718 = shl i32 %715, 3
-  %719 = sitofp i32 %715 to float
+  %719 = uitofp nneg i32 %715 to float
   %720 = select reassoc nsz arcp contract afn i1 %711, float %179, float %189
   %721 = call i32 @llvm.smax.i32(i32 %718, i32 1)
   %722 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %719

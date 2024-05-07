@@ -10636,7 +10636,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 
 invoke.cont254:                                   ; preds = %for.body.i, %invoke.cont252
   %sum.0.lcssa.i = phi float [ 0.000000e+00, %invoke.cont252 ], [ %add.i, %for.body.i ]
-  %conv5.i = uitofp i64 %38 to float
+  %conv5.i = uitofp nneg i64 %38 to float
   %div.i = fdiv float %sum.0.lcssa.i, %conv5.i
   invoke void @_ZN4pbrt5Image10SetChannelENS_6Point2IiEEif(ptr noundef nonnull align 8 dereferenceable(152) %image, i64 %agg.tmp245.sroa.0.0.insert.insert, i32 noundef 0, float noundef %div.i)
           to label %invoke.cont257 unwind label %lpad253
@@ -33793,7 +33793,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 
 invoke.cont:                                      ; preds = %for.body.i, %for.body5
   %sum.0.lcssa.i = phi float [ 0.000000e+00, %for.body5 ], [ %add.i, %for.body.i ]
-  %conv5.i = uitofp i64 %7 to float
+  %conv5.i = uitofp nneg i64 %7 to float
   %div.i = fdiv float %sum.0.lcssa.i, %conv5.i
   store i64 0, ptr %nStored.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %.pre, null
@@ -52421,7 +52421,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
 
 invoke.cont.i.i.i:                                ; preds = %for.body.i.i.i.i, %for.body5.i.i.i
   %sum.0.lcssa.i.i.i.i = phi float [ 0.000000e+00, %for.body5.i.i.i ], [ %add.i.i.i.i, %for.body.i.i.i.i ]
-  %conv5.i.i.i.i = uitofp i64 %9 to float
+  %conv5.i.i.i.i = uitofp nneg i64 %9 to float
   %div.i.i.i.i = fdiv float %sum.0.lcssa.i.i.i.i, %conv5.i.i.i.i
   store i64 0, ptr %nStored.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %.pre.i.i.i, null
@@ -59589,7 +59589,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
 
 invoke.cont.i.i.i:                                ; preds = %for.body.i.i.i.i, %for.body5.i.i.i
   %sum.0.lcssa.i.i.i.i = phi float [ 0.000000e+00, %for.body5.i.i.i ], [ %add.i.i.i.i, %for.body.i.i.i.i ]
-  %conv5.i.i.i.i = uitofp i64 %8 to float
+  %conv5.i.i.i.i = uitofp nneg i64 %8 to float
   %div.i.i.i.i = fdiv float %sum.0.lcssa.i.i.i.i, %conv5.i.i.i.i
   store i64 0, ptr %nStored.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %.pre.i.i.i, null

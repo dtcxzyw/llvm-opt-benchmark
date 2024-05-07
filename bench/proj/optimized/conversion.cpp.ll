@@ -3802,7 +3802,7 @@ define void @_ZN5osgeo4proj9operation10Conversion9createUTMERKNS0_4util11Propert
           to label %19 unwind label %29
 
 19:                                               ; preds = %18
-  %20 = sitofp i32 %2 to double
+  %20 = uitofp nneg i32 %2 to double
   %21 = call double @llvm.fmuladd.f64(double %20, double 6.000000e+00, double -1.830000e+02)
   invoke void @_ZN5osgeo4proj6common5AngleC1Ed(ptr noundef nonnull align 8 dereferenceable(24) %8, double noundef %21)
           to label %22 unwind label %31

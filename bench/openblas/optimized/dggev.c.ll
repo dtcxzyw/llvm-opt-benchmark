@@ -171,7 +171,7 @@ define void @dggev_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
 
 115:                                              ; preds = %109, %97
   %116 = phi i32 [ %114, %109 ], [ %108, %97 ]
-  %117 = sitofp i32 %116 to double
+  %117 = uitofp nneg i32 %116 to double
   store double %117, ptr %14, align 8, !tbaa !7
   %118 = load i32, ptr %15, align 4, !tbaa !3
   %119 = icmp sge i32 %118, %99
@@ -193,15 +193,15 @@ define void @dggev_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   %124 = sub nsw i32 0, %123
   store i32 %124, ptr %18, align 4, !tbaa !3
   %125 = call i32 @xerbla_(ptr noundef nonnull @.str.6, ptr noundef nonnull %18, i32 noundef 6) #6
-  br label %427
+  br label %428
 
 126:                                              ; preds = %121
-  br i1 %72, label %427, label %127
+  br i1 %72, label %428, label %127
 
 127:                                              ; preds = %126
   %128 = load i32, ptr %2, align 4, !tbaa !3
   %129 = icmp eq i32 %128, 0
-  br i1 %129, label %427, label %130
+  br i1 %129, label %428, label %130
 
 130:                                              ; preds = %127
   %131 = tail call double @dlamch_(ptr noundef nonnull @.str.7) #6
@@ -698,10 +698,11 @@ define void @dggev_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   br label %426
 
 426:                                              ; preds = %425, %424
-  store double %117, ptr %14, align 8, !tbaa !7
-  br label %427
+  %427 = uitofp nneg i32 %116 to double
+  store double %427, ptr %14, align 8, !tbaa !7
+  br label %428
 
-427:                                              ; preds = %426, %127, %126, %.thread23
+428:                                              ; preds = %426, %127, %126, %.thread23
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %32) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #6

@@ -5477,13 +5477,15 @@ _ZN7QStringaSEPKc.exit:                           ; preds = %3, %_ZN9QtPrivate8R
   br i1 %or.cond, label %92, label %85
 
 85:                                               ; preds = %27
-  %86 = insertelement <2 x i32> %78, i32 %82, i64 1
-  %87 = sitofp <2 x i32> %86 to <2 x float>
+  %86 = uitofp nneg i32 %82 to float
+  %87 = uitofp nneg i32 %79 to float
   %88 = getelementptr inbounds i8, ptr %0, i64 160
   %89 = sext i32 %18 to i64
   %90 = load ptr, ptr %88, align 8
   %91 = getelementptr inbounds %"class.vcg::Point2.40", ptr %90, i64 %89
-  store <2 x float> %87, ptr %91, align 4
+  store float %87, ptr %91, align 4
+  %.sroa_idx10 = getelementptr inbounds i8, ptr %91, i64 4
+  store float %86, ptr %.sroa_idx10, align 4
   br label %92
 
 92:                                               ; preds = %27, %85, %_ZN7QStringaSEPKc.exit

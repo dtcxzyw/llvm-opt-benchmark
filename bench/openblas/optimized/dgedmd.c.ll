@@ -456,9 +456,9 @@ define noundef i32 @dgedmd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
 282:                                              ; preds = %270
   %283 = call i32 @llvm.smax.i32(i32 %242, i32 %276)
   store i32 %240, ptr %27, align 4, !tbaa !3
-  %284 = sitofp i32 %264 to double
+  %284 = uitofp nneg i32 %264 to double
   store double %284, ptr %25, align 8, !tbaa !7
-  %285 = sitofp i32 %283 to double
+  %285 = uitofp nneg i32 %283 to double
   %286 = getelementptr inbounds i8, ptr %25, i64 8
   store double %285, ptr %286, align 8, !tbaa !7
   br label %791

@@ -3325,7 +3325,7 @@ make_flat_labeled_edge.exit:                      ; preds = %1794, %.sink.split.
   %1824 = getelementptr inbounds i8, ptr %.val.i, i64 96
   %1825 = load double, ptr %1824, align 8
   %1826 = add nsw i32 %.0327.lcssa, -1
-  %1827 = sitofp i32 %1826 to double
+  %1827 = uitofp nneg i32 %1826 to double
   %1828 = fdiv double %1825, %1827
   %1829 = fmul double %1825, 5.000000e-01
   br label %.lr.ph.i505
@@ -6697,7 +6697,7 @@ define internal fastcc void @makeSimpleFlat(ptr nocapture readonly %.16.val, dou
   %22 = getelementptr inbounds i8, ptr %.16.val, i64 96
   %23 = load double, ptr %22, align 8
   %24 = add nsw i32 %2, -1
-  %25 = sitofp i32 %24 to double
+  %25 = uitofp nneg i32 %24 to double
   %26 = fdiv double %23, %25
   %27 = fmul double %23, 5.000000e-01
   br label %.lr.ph

@@ -35520,7 +35520,7 @@ if.then.i.i:                                      ; preds = %_ZN4absl15random_in
   br label %if.end
 
 if.end.i.i:                                       ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclINS_13MockingBitGenEEEjRT_.exit.i.i
-  %conv5.i.i = uitofp i64 %conv.i.i to double
+  %conv5.i.i = uitofp nneg i64 %conv.i.i to double
   %div.i.i = fmul double %conv5.i.i, 0x3DF0000000000000
   %sub.i.i = fsub double %p.addr.0.i.i, %div.i.i
   %mul6.i.i = fmul double %sub.i.i, 0x41F0000000000000

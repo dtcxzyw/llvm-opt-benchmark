@@ -27568,7 +27568,7 @@ _ZN7QStringD2Ev.exit1844..loopexit2540_crit_edge: ; preds = %_ZN7QStringD2Ev.exi
   %3658 = insertelement <2 x i32> poison, i32 %3594, i64 0
   %3659 = insertelement <2 x i32> %3658, i32 %3601, i64 1
   %3660 = add nsw <2 x i32> %3659, <i32 -1, i32 -1>
-  %3661 = sitofp <2 x i32> %3660 to <2 x float>
+  %3661 = uitofp <2 x i32> %3660 to <2 x float>
   %3662 = fmul <2 x float> %3661, <float 5.000000e-01, float 5.000000e-01>
   %3663 = getelementptr inbounds i8, ptr %374, i64 8
   %3664 = load ptr, ptr %3663, align 8
@@ -27578,7 +27578,7 @@ _ZN7QStringD2Ev.exit1844..loopexit2540_crit_edge: ; preds = %_ZN7QStringD2Ev.exi
   br i1 %.not24322554, label %.loopexit2540, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3657
-  %3667 = sitofp <2 x i32> %3659 to <2 x float>
+  %3667 = uitofp <2 x i32> %3659 to <2 x float>
   %3668 = insertelement <2 x float> poison, float %3608, i64 0
   %3669 = insertelement <2 x float> %3668, float %3615, i64 1
   %3670 = fneg <2 x float> %3669
@@ -41674,7 +41674,7 @@ _ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS4_EESt4lessIS1_ESaISt4pair
   br label %150
 
 88:                                               ; preds = %69
-  %89 = sitofp i32 %51 to double
+  %89 = uitofp nneg i32 %51 to double
   %90 = fsub double %50, %89
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
@@ -52282,7 +52282,7 @@ _ZN3vcg3tri13TrivialWalkerI6CMeshONS_12SimpleVolumeINS_11SimpleVoxelIfEEEEE5Exis
 
 _ZN3vcg3tri13TrivialWalkerI6CMeshONS_12SimpleVolumeINS_11SimpleVoxelIfEEEEE5ExistERKNS_6Point3IiEESB_RP8CVertexO.exit170.thread: ; preds = %728, %733, %_ZN3vcg3tri13TrivialWalkerI6CMeshONS_12SimpleVolumeINS_11SimpleVoxelIfEEEEE5ExistERKNS_6Point3IiEESB_RP8CVertexO.exit170
   %.11 = phi i32 [ %735, %733 ], [ %.10, %_ZN3vcg3tri13TrivialWalkerI6CMeshONS_12SimpleVolumeINS_11SimpleVoxelIfEEEEE5ExistERKNS_6Point3IiEESB_RP8CVertexO.exit170 ], [ %.10, %728 ]
-  %752 = uitofp i32 %.11 to float
+  %752 = uitofp nneg i32 %.11 to float
   %753 = load ptr, ptr %1, align 8
   %754 = getelementptr inbounds i8, ptr %753, i64 8
   %755 = load <2 x float>, ptr %754, align 4

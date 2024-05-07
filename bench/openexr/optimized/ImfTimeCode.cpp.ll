@@ -706,9 +706,8 @@ if.end:                                           ; preds = %entry
   %mul = add nsw i32 %sub, -4
   %_user = getelementptr inbounds i8, ptr %this, i64 4
   %2 = load i32, ptr %_user, align 4
-  %shl1.i = shl nuw i32 15, %mul
-  %and.i = and i32 %2, %shl1.i
-  %shr.i = lshr i32 %and.i, %mul
+  %3 = lshr i32 %2, %mul
+  %shr.i = and i32 %3, 15
   ret i32 %shr.i
 }
 

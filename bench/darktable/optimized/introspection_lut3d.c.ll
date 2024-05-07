@@ -3192,7 +3192,7 @@ sub_116:                                          ; preds = %sub_010
   %211 = phi ptr [ %216, %.preheader ], [ %204, %203 ]
   %212 = fmul reassoc nsz arcp contract afn double %210, 1.000000e+01
   %213 = add nsw i8 %209, -48
-  %214 = sitofp i8 %213 to double
+  %214 = uitofp nneg i8 %213 to double
   %215 = fadd reassoc nsz arcp contract afn double %212, %214
   %216 = getelementptr inbounds i8, ptr %211, i64 1
   %217 = load i8, ptr %216, align 1, !tbaa !57
@@ -3944,7 +3944,7 @@ split:                                            ; preds = %99, %._crit_edge
 
 169:                                              ; preds = %167
   %170 = add nsw i32 %160, -1
-  %171 = sitofp i32 %170 to float
+  %171 = uitofp nneg i32 %170 to float
   %172 = icmp ult i64 %143, 32
   br i1 %172, label %.preheader108, label %173
 

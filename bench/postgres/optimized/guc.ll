@@ -9636,7 +9636,7 @@ define internal fastcc void @convert_int_from_base_unit(i64 noundef %0, i32 noun
   br i1 %18, label %19, label %24
 
 19:                                               ; preds = %15, %11
-  %20 = sitofp i64 %0 to double
+  %20 = uitofp nneg i64 %0 to double
   %21 = fdiv double %20, %13
   %22 = tail call double @llvm.rint.f64(double %21)
   %23 = fptosi double %22 to i64

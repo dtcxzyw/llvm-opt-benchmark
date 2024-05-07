@@ -11939,7 +11939,7 @@ _ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13ra
   br i1 %cmp.not.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i, label %_ZN4absl9BernoulliIRNS_15random_internal17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEEbOT_d.exit.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i.i
-  %conv5.i.i.i.i.i.i = uitofp i64 %conv.i.i.i.i.i.i to double
+  %conv5.i.i.i.i.i.i = uitofp nneg i64 %conv.i.i.i.i.i.i to double
   %div.i.i.i.i.i.i = fmul double %conv5.i.i.i.i.i.i, 0x3DF0000000000000
   %sub.i.i.i.i.i.i = fsub double %p.addr.0.i.i.i.i.i.i, %div.i.i.i.i.i.i
   %mul6.i.i.i.i.i.i = fmul double %sub.i.i.i.i.i.i, 0x41F0000000000000
@@ -12128,7 +12128,7 @@ _ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13ra
   br i1 %cmp.not.i.i.i.i.i.i43, label %if.end.i.i.i.i.i.i59, label %_ZN4absl9BernoulliIRNS_15random_internal17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEEbOT_d.exit.i44
 
 if.end.i.i.i.i.i.i59:                             ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i.i39
-  %conv5.i.i.i.i.i.i60 = uitofp i64 %conv.i.i.i.i.i.i37 to double
+  %conv5.i.i.i.i.i.i60 = uitofp nneg i64 %conv.i.i.i.i.i.i37 to double
   %div.i.i.i.i.i.i61 = fmul double %conv5.i.i.i.i.i.i60, 0x3DF0000000000000
   %sub.i.i.i.i.i.i62 = fsub double %p.addr.0.i.i.i.i.i.i35, %div.i.i.i.i.i.i61
   %mul6.i.i.i.i.i.i63 = fmul double %sub.i.i.i.i.i.i62, 0x41F0000000000000
@@ -12317,7 +12317,7 @@ _ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13ra
   br i1 %cmp.not.i.i.i.i.i.i111, label %if.end.i.i.i.i.i.i122, label %_ZN4absl9BernoulliIRNS_15random_internal17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEEbOT_d.exit.i112
 
 if.end.i.i.i.i.i.i122:                            ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i.i107
-  %conv5.i.i.i.i.i.i123 = uitofp i64 %conv.i.i.i.i.i.i105 to double
+  %conv5.i.i.i.i.i.i123 = uitofp nneg i64 %conv.i.i.i.i.i.i105 to double
   %div.i.i.i.i.i.i124 = fmul double %conv5.i.i.i.i.i.i123, 0x3DF0000000000000
   %sub.i.i.i.i.i.i125 = fsub double %p.addr.0.i.i.i.i.i.i103, %div.i.i.i.i.i.i124
   %mul6.i.i.i.i.i.i126 = fmul double %sub.i.i.i.i.i.i125, 0x41F0000000000000
@@ -12499,7 +12499,7 @@ _ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13ra
   br i1 %cmp.not.i.i.i.i.i.i175, label %if.end.i.i.i.i.i.i186, label %_ZN4absl9BernoulliIRNS_15random_internal17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEEbOT_d.exit.i176
 
 if.end.i.i.i.i.i.i186:                            ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i.i171
-  %conv5.i.i.i.i.i.i187 = uitofp i64 %conv.i.i.i.i.i.i169 to double
+  %conv5.i.i.i.i.i.i187 = uitofp nneg i64 %conv.i.i.i.i.i.i169 to double
   %div.i.i.i.i.i.i188 = fmul double %conv5.i.i.i.i.i.i187, 0x3DF0000000000000
   %sub.i.i.i.i.i.i189 = fsub double %p.addr.0.i.i.i.i.i.i167, %div.i.i.i.i.i.i188
   %mul6.i.i.i.i.i.i190 = fmul double %sub.i.i.i.i.i.i189, 0x41F0000000000000

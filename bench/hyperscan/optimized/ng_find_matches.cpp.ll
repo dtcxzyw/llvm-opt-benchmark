@@ -4467,7 +4467,7 @@ invoke.cont13.i:                                  ; preds = %call5.i.i.i.i4.i.i.
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i.i.i, align 8
   %_M_next_resize.i.i.i.i.i = getelementptr inbounds i8, ptr %state, i64 288
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i.i.i, i8 0, i64 16, i1 false)
-  %conv.i.i.i.i.i105 = uitofp i64 %440 to double
+  %conv.i.i.i.i.i105 = uitofp nneg i64 %440 to double
   %conv3.i.i.i.i.i = fptoui double %conv.i.i.i.i.i105 to i64
   invoke void @_ZNSt10_HashtableISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_8NGHolderENS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEES9_ES0_IKSA_NS2_15edge_descriptorIS8_EEESaISE_ENSt8__detail10_Select1stESt8equal_toISA_ENS1_10ue2_hasherENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEE6rehashEm(ptr noundef nonnull align 8 dereferenceable(56) %edge_cache.i, i64 noundef %conv3.i.i.i.i.i)
           to label %invoke.cont3.i.i unwind label %lpad.i.i

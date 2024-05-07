@@ -220,7 +220,7 @@ thread-pre-split:                                 ; preds = %17, %.thread
   %135 = select i1 %28, i32 %134, i32 %53
   %136 = sitofp i32 %135 to double
   store double %136, ptr %4, align 8, !tbaa !7
-  %137 = sitofp i32 %99 to double
+  %137 = uitofp nneg i32 %99 to double
   %138 = getelementptr inbounds i8, ptr %4, i64 8
   store double %137, ptr %138, align 8, !tbaa !7
   %139 = sitofp i32 %100 to double

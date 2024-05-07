@@ -1759,16 +1759,16 @@ if.else105.i:                                     ; preds = %if.else45.i
   br i1 %cmp.i158.i, label %if.then108.i, label %if.else135.i
 
 if.then108.i:                                     ; preds = %if.else105.i
-  %conv.i.i = sitofp i32 %92 to double
-  %call.i159.i = call noundef double @sqrt(double noundef %conv.i.i) #29, !noalias !7
-  %conv111.i = fptosi double %call.i159.i to i32
+  %conv.i.i = uitofp nneg i32 %92 to double
+  %sqrt = call double @llvm.sqrt.f64(double %conv.i.i)
+  %conv111.i = fptosi double %sqrt to i32
   %mul.i.i = mul nsw i32 %conv111.i, %conv111.i
   store i32 %mul.i.i, ptr %nPoints.addr.i, align 4, !noalias !7
   %cmp116933.i = icmp sgt i32 %conv111.i, 0
   br i1 %cmp116933.i, label %for.cond118.preheader.lr.ph.i, label %cleanup.thread.i
 
 for.cond118.preheader.lr.ph.i:                    ; preds = %if.then108.i
-  %conv123.i = sitofp i32 %conv111.i to float
+  %conv123.i = uitofp nneg i32 %conv111.i to float
   br label %for.cond118.preheader.us.i
 
 for.cond118.preheader.us.i:                       ; preds = %for.cond118.for.inc132_crit_edge.us.i, %for.cond118.preheader.lr.ph.i
@@ -12368,6 +12368,9 @@ declare i32 @llvm.smax.i32(i32, i32) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #25
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.sqrt.f64(double) #25
 
 attributes #0 = { mustprogress norecurse uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

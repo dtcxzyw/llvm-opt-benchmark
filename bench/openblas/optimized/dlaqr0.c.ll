@@ -707,7 +707,7 @@ define void @dlaqr0_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 .loopexit27:                                      ; preds = %127, %.loopexit28, %49, %46
   %495 = phi i32 [ 1, %49 ], [ 1, %46 ], [ %86, %.loopexit28 ], [ %86, %127 ]
-  %496 = sitofp i32 %495 to double
+  %496 = uitofp nneg i32 %495 to double
   br label %497
 
 497:                                              ; preds = %.loopexit27, %89, %16

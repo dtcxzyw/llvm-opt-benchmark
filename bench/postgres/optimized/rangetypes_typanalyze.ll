@@ -140,7 +140,7 @@ define internal void @compute_range_stats(ptr noundef %0, ptr nocapture noundef 
 
 62:                                               ; preds = %59, %42
   %63 = phi i64 [ %50, %42 ], [ %61, %59 ]
-  %64 = uitofp i64 %63 to double
+  %64 = uitofp nneg i64 %63 to double
   %65 = fadd double %.0197223, %64
   %66 = call ptr @pg_detoast_datum(ptr noundef nonnull %39) #4
   br i1 %.not260, label %67, label %73
@@ -235,7 +235,7 @@ define internal void @compute_range_stats(ptr noundef %0, ptr nocapture noundef 
   %106 = fptrunc double %105 to float
   %107 = getelementptr inbounds i8, ptr %0, i64 68
   store float %106, ptr %107, align 4
-  %108 = sitofp i32 %.1190 to double
+  %108 = uitofp nneg i32 %.1190 to double
   %109 = fdiv double %.1198, %108
   %110 = fptosi double %109 to i32
   %111 = getelementptr inbounds i8, ptr %0, i64 72

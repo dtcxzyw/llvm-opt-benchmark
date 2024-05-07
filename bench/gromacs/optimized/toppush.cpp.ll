@@ -12403,7 +12403,7 @@ define void @_Z12push_vsitesn9DirectiveN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_
   br i1 %118, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %119 = sitofp i32 %.152124130 to float
+  %119 = uitofp nneg i32 %.152124130 to float
   %120 = getelementptr inbounds i8, ptr %10, i64 4
   %121 = sext i32 %43 to i64
   %122 = getelementptr inbounds %struct.InteractionsOfType, ptr %1, i64 %121

@@ -2143,7 +2143,7 @@ if.else:                                          ; preds = %cond.end39
 
 if.then47:                                        ; preds = %if.else
   %sub = add nsw i32 %shr44, -1
-  %conv48 = sitofp i32 %sub to double
+  %conv48 = uitofp nneg i32 %sub to double
   br label %return
 
 if.else49:                                        ; preds = %if.else
@@ -2152,7 +2152,7 @@ if.else49:                                        ; preds = %if.else
 
 if.then51:                                        ; preds = %if.else49
   %sub52 = add nsw i32 %shr44, -11
-  %conv53 = sitofp i32 %sub52 to double
+  %conv53 = uitofp nneg i32 %sub52 to double
   br label %return
 
 if.else54:                                        ; preds = %if.else49
@@ -2161,7 +2161,7 @@ if.else54:                                        ; preds = %if.else49
 
 if.then56:                                        ; preds = %if.else54
   %sub57 = add nsw i32 %shr44, -21
-  %conv58 = sitofp i32 %sub57 to double
+  %conv58 = uitofp nneg i32 %sub57 to double
   br label %return
 
 if.else59:                                        ; preds = %if.else54
@@ -2187,7 +2187,7 @@ if.then70:                                        ; preds = %if.else68
   %sub72 = add nsw i32 %shr71, -14
   %and73 = and i32 %shr44, 31
   %add74 = add nuw nsw i32 %and73, 2
-  %conv75 = sitofp i32 %sub72 to double
+  %conv75 = uitofp nneg i32 %sub72 to double
   %cmp7643 = icmp ugt i32 %and73, 1
   br i1 %cmp7643, label %while.body, label %while.end
 
@@ -2232,7 +2232,7 @@ if.then86:                                        ; preds = %if.else84
   %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.u_getNumericValue_75, i64 0, i64 %7
   %switch.load = load i32, ptr %switch.gep, align 4
   %mul100 = mul nuw nsw i32 %sub89, %switch.load
-  %conv104 = sitofp i32 %mul100 to double
+  %conv104 = uitofp nneg i32 %mul100 to double
   br label %return
 
 if.else105:                                       ; preds = %if.else84
@@ -2247,7 +2247,7 @@ if.then107:                                       ; preds = %if.else105
   %shr114 = lshr i32 %sub108, 2
   %shl115 = shl i32 20, %shr114
   %conv116 = uitofp nneg i32 %add112 to double
-  %conv117 = sitofp i32 %shl115 to double
+  %conv117 = uitofp nneg i32 %shl115 to double
   %div118 = fdiv double %conv116, %conv117
   br label %return
 
@@ -2263,7 +2263,7 @@ if.then121:                                       ; preds = %if.else119
   %shr128 = lshr i32 %sub122, 2
   %shl129 = shl i32 32, %shr128
   %conv130 = uitofp nneg i32 %add126 to double
-  %conv131 = sitofp i32 %shl129 to double
+  %conv131 = uitofp nneg i32 %shl129 to double
   %div132 = fdiv double %conv130, %conv131
   br label %return
 

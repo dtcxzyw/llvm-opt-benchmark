@@ -30629,8 +30629,8 @@ _ZN3vcg3tri4StatI6CMeshOE15ComputeMeshAreaERKS2_.exit: ; preds = %57
   br label %63
 
 63:                                               ; preds = %.lr.ph, %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE17SingleFaceSimilarEP6CFaceORS3_i.exit
-  %.01930 = phi double [ 0.000000e+00, %.lr.ph ], [ %143, %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE17SingleFaceSimilarEP6CFaceORS3_i.exit ]
-  %.sroa.023.029 = phi ptr [ %7, %.lr.ph ], [ %144, %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE17SingleFaceSimilarEP6CFaceORS3_i.exit ]
+  %.01930 = phi double [ 0.000000e+00, %.lr.ph ], [ %142, %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE17SingleFaceSimilarEP6CFaceORS3_i.exit ]
+  %.sroa.023.029 = phi ptr [ %7, %.lr.ph ], [ %143, %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE17SingleFaceSimilarEP6CFaceORS3_i.exit ]
   %64 = getelementptr inbounds i8, ptr %.sroa.023.029, i64 8
   %65 = getelementptr inbounds i8, ptr %.sroa.023.029, i64 16
   %66 = load ptr, ptr %65, align 8
@@ -30682,7 +30682,7 @@ _ZN3vcg3tri4StatI6CMeshOE15ComputeMeshAreaERKS2_.exit: ; preds = %57
   br i1 %110, label %111, label %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE17SingleFaceSimilarEP6CFaceORS3_i.exit
 
 111:                                              ; preds = %63
-  %112 = sitofp i32 %109 to double
+  %112 = uitofp nneg i32 %109 to double
   br i1 %3, label %113, label %137
 
 113:                                              ; preds = %111
@@ -30738,19 +30738,19 @@ _ZN3vcg3tri4StatI6CMeshOE15ComputeMeshAreaERKS2_.exit: ; preds = %57
   br i1 %exitcond32.not.i, label %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE17SingleFaceSimilarEP6CFaceORS3_i.exit, label %.preheader.i, !llvm.loop !89
 
 137:                                              ; preds = %111
-  %138 = tail call double @sqrt(double noundef %112) #20
-  %139 = fadd double %138, 1.000000e+00
-  %140 = fptosi double %139 to i32
-  %141 = tail call noundef i32 @_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE21SingleFaceSimilarDualEP6CFaceORS3_ib(ptr noundef nonnull %.sroa.023.029, ptr noundef nonnull align 8 dereferenceable(27) %1, i32 noundef %140, i1 noundef zeroext %4)
+  %sqrt = tail call double @llvm.sqrt.f64(double %112)
+  %138 = fadd double %sqrt, 1.000000e+00
+  %139 = fptosi double %138 to i32
+  %140 = tail call noundef i32 @_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE21SingleFaceSimilarDualEP6CFaceORS3_ib(ptr noundef nonnull %.sroa.023.029, ptr noundef nonnull align 8 dereferenceable(27) %1, i32 noundef %139, i1 noundef zeroext %4)
   br label %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE17SingleFaceSimilarEP6CFaceORS3_i.exit
 
 _ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE17SingleFaceSimilarEP6CFaceORS3_i.exit: ; preds = %._crit_edge.i, %113, %137, %63
-  %.0 = phi i32 [ %141, %137 ], [ %109, %63 ], [ 0, %113 ], [ %.1.lcssa.i, %._crit_edge.i ]
-  %142 = sitofp i32 %.0 to double
-  %143 = fsub double %108, %142
-  %144 = getelementptr inbounds i8, ptr %.sroa.023.029, i64 48
-  %145 = load ptr, ptr %8, align 8
-  %.not = icmp eq ptr %144, %145
+  %.0 = phi i32 [ %140, %137 ], [ %109, %63 ], [ 0, %113 ], [ %.1.lcssa.i, %._crit_edge.i ]
+  %141 = sitofp i32 %.0 to double
+  %142 = fsub double %108, %141
+  %143 = getelementptr inbounds i8, ptr %.sroa.023.029, i64 48
+  %144 = load ptr, ptr %8, align 8
+  %.not = icmp eq ptr %143, %144
   br i1 %.not, label %._crit_edge, label %63, !llvm.loop !90
 
 ._crit_edge:                                      ; preds = %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE17SingleFaceSimilarEP6CFaceORS3_i.exit, %5, %_ZN3vcg3tri4StatI6CMeshOE15ComputeMeshAreaERKS2_.exit
@@ -44118,183 +44118,185 @@ define linkonce_odr noundef i32 @_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSampl
   br label %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE5LnFacEi.exit
 
 24:                                               ; preds = %1
-  %25 = fdiv double 1.000000e+00, %5
-  %26 = fadd double %5, 5.000000e-01
-  %27 = tail call double @log(double noundef %5) #20
-  %28 = fneg double %5
-  %29 = tail call double @llvm.fmuladd.f64(double %26, double %27, double %28)
-  %30 = fadd double %29, 0x3FED67F1C864BEB4
-  %31 = fmul double %25, %25
-  %32 = tail call double @llvm.fmuladd.f64(double %31, double 0xBF66C16C16C16C17, double 0x3FB5555555555555)
-  %33 = tail call double @llvm.fmuladd.f64(double %25, double %32, double %30)
+  %25 = uitofp nneg i32 %3 to double
+  %26 = fdiv double 1.000000e+00, %25
+  %27 = fadd double %25, 5.000000e-01
+  %28 = tail call double @log(double noundef %25) #20
+  %29 = fneg double %25
+  %30 = tail call double @llvm.fmuladd.f64(double %27, double %28, double %29)
+  %31 = fadd double %30, 0x3FED67F1C864BEB4
+  %32 = fmul double %26, %26
+  %33 = tail call double @llvm.fmuladd.f64(double %32, double 0xBF66C16C16C16C17, double 0x3FB5555555555555)
+  %34 = tail call double @llvm.fmuladd.f64(double %26, double %33, double %31)
   br label %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE5LnFacEi.exit
 
 _ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE5LnFacEi.exit: ; preds = %7, %20, %24
-  %.0.i = phi double [ %23, %20 ], [ %33, %24 ], [ 0.000000e+00, %7 ]
-  %34 = fneg double %.0.i
-  %35 = tail call double @llvm.fmuladd.f64(double %5, double %4, double %34)
-  %36 = fmul double %2, 0x40078B56362CEF38
-  %37 = tail call double @sqrt(double noundef %36) #20
-  %38 = fadd double %37, 0x3FECC3EBD3BC711A
-  %39 = tail call double @llvm.fmuladd.f64(double %38, double 6.000000e+00, double %2)
-  %40 = fptosi double %39 to i32
-  %41 = sitofp i32 %40 to double
+  %.0.i = phi double [ %23, %20 ], [ %34, %24 ], [ 0.000000e+00, %7 ]
+  %35 = fneg double %.0.i
+  %36 = tail call double @llvm.fmuladd.f64(double %5, double %4, double %35)
+  %37 = fmul double %2, 0x40078B56362CEF38
+  %38 = tail call double @sqrt(double noundef %37) #20
+  %39 = fadd double %38, 0x3FECC3EBD3BC711A
+  %40 = tail call double @llvm.fmuladd.f64(double %39, double 6.000000e+00, double %2)
+  %41 = fptosi double %40 to i32
+  %42 = sitofp i32 %41 to double
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE5LnFacEi.exit
-  %42 = load atomic i8, ptr @_ZGVZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE23SamplingRandomGeneratorEvE3rnd acquire, align 8
-  %43 = icmp eq i8 %42, 0
-  br i1 %43, label %44, label %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE14RandomDouble01Ev.exit, !prof !34
+  %43 = load atomic i8, ptr @_ZGVZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE23SamplingRandomGeneratorEvE3rnd acquire, align 8
+  %44 = icmp eq i8 %43, 0
+  br i1 %44, label %45, label %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE14RandomDouble01Ev.exit, !prof !34
 
-44:                                               ; preds = %.backedge
-  %45 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE23SamplingRandomGeneratorEvE3rnd) #20
-  %.not.i.i = icmp eq i32 %45, 0
-  br i1 %.not.i.i, label %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE14RandomDouble01Ev.exit, label %46
+45:                                               ; preds = %.backedge
+  %46 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE23SamplingRandomGeneratorEvE3rnd) #20
+  %.not.i.i = icmp eq i32 %46, 0
+  br i1 %.not.i.i, label %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE14RandomDouble01Ev.exit, label %47
 
-46:                                               ; preds = %44
+47:                                               ; preds = %45
   invoke void @_ZN3vcg4math18MarsenneTwisterRNGC2Ev(ptr noundef nonnull align 8 dereferenceable(2508) @_ZZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE23SamplingRandomGeneratorEvE3rnd)
-          to label %47 unwind label %48
+          to label %48 unwind label %49
 
-47:                                               ; preds = %46
+48:                                               ; preds = %47
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE23SamplingRandomGeneratorEvE3rnd) #20
   br label %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE14RandomDouble01Ev.exit
 
-common.resume:                                    ; preds = %62, %48
-  %common.resume.op = phi { ptr, i32 } [ %49, %48 ], [ %63, %62 ]
+common.resume:                                    ; preds = %63, %49
+  %common.resume.op = phi { ptr, i32 } [ %50, %49 ], [ %64, %63 ]
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE23SamplingRandomGeneratorEvE3rnd) #20
   resume { ptr, i32 } %common.resume.op
 
-48:                                               ; preds = %46
-  %49 = landingpad { ptr, i32 }
+49:                                               ; preds = %47
+  %50 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE14RandomDouble01Ev.exit: ; preds = %.backedge, %44, %47
-  %50 = load ptr, ptr @_ZZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE23SamplingRandomGeneratorEvE3rnd, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 32
-  %52 = load ptr, ptr %51, align 8
-  %53 = tail call noundef double %52(ptr noundef nonnull align 8 dereferenceable(2508) @_ZZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE23SamplingRandomGeneratorEvE3rnd)
-  %54 = fcmp oeq double %53, 0.000000e+00
-  br i1 %54, label %.backedge.backedge, label %55
+_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE14RandomDouble01Ev.exit: ; preds = %.backedge, %45, %48
+  %51 = load ptr, ptr @_ZZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE23SamplingRandomGeneratorEvE3rnd, align 8
+  %52 = getelementptr inbounds i8, ptr %51, i64 32
+  %53 = load ptr, ptr %52, align 8
+  %54 = tail call noundef double %53(ptr noundef nonnull align 8 dereferenceable(2508) @_ZZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE23SamplingRandomGeneratorEvE3rnd)
+  %55 = fcmp oeq double %54, 0.000000e+00
+  br i1 %55, label %.backedge.backedge, label %56
 
-.backedge.backedge:                               ; preds = %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE14RandomDouble01Ev.exit, %111, %115, %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE14RandomDouble01Ev.exit32
+.backedge.backedge:                               ; preds = %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE14RandomDouble01Ev.exit, %113, %117, %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE14RandomDouble01Ev.exit32
   br label %.backedge, !llvm.loop !243
 
-55:                                               ; preds = %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE14RandomDouble01Ev.exit
-  %56 = load atomic i8, ptr @_ZGVZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE23SamplingRandomGeneratorEvE3rnd acquire, align 8
-  %57 = icmp eq i8 %56, 0
-  br i1 %57, label %58, label %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE14RandomDouble01Ev.exit32, !prof !34
+56:                                               ; preds = %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE14RandomDouble01Ev.exit
+  %57 = load atomic i8, ptr @_ZGVZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE23SamplingRandomGeneratorEvE3rnd acquire, align 8
+  %58 = icmp eq i8 %57, 0
+  br i1 %58, label %59, label %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE14RandomDouble01Ev.exit32, !prof !34
 
-58:                                               ; preds = %55
-  %59 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE23SamplingRandomGeneratorEvE3rnd) #20
-  %.not.i.i31 = icmp eq i32 %59, 0
-  br i1 %.not.i.i31, label %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE14RandomDouble01Ev.exit32, label %60
+59:                                               ; preds = %56
+  %60 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE23SamplingRandomGeneratorEvE3rnd) #20
+  %.not.i.i31 = icmp eq i32 %60, 0
+  br i1 %.not.i.i31, label %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE14RandomDouble01Ev.exit32, label %61
 
-60:                                               ; preds = %58
+61:                                               ; preds = %59
   invoke void @_ZN3vcg4math18MarsenneTwisterRNGC2Ev(ptr noundef nonnull align 8 dereferenceable(2508) @_ZZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE23SamplingRandomGeneratorEvE3rnd)
-          to label %61 unwind label %62
+          to label %62 unwind label %63
 
-61:                                               ; preds = %60
+62:                                               ; preds = %61
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE23SamplingRandomGeneratorEvE3rnd) #20
   br label %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE14RandomDouble01Ev.exit32
 
-62:                                               ; preds = %60
-  %63 = landingpad { ptr, i32 }
+63:                                               ; preds = %61
+  %64 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE14RandomDouble01Ev.exit32: ; preds = %55, %58, %61
-  %64 = load ptr, ptr @_ZZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE23SamplingRandomGeneratorEvE3rnd, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 32
-  %66 = load ptr, ptr %65, align 8
-  %67 = tail call noundef double %66(ptr noundef nonnull align 8 dereferenceable(2508) @_ZZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE23SamplingRandomGeneratorEvE3rnd)
-  %68 = fadd double %67, -5.000000e-01
-  %69 = fmul double %38, %68
-  %70 = fdiv double %69, %53
-  %71 = fadd double %2, %70
-  %72 = fcmp uge double %71, 0.000000e+00
-  %73 = fcmp ult double %71, %41
-  %or.cond = select i1 %72, i1 %73, i1 false
-  br i1 %or.cond, label %74, label %.backedge.backedge
+_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE14RandomDouble01Ev.exit32: ; preds = %56, %59, %62
+  %65 = load ptr, ptr @_ZZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE23SamplingRandomGeneratorEvE3rnd, align 8
+  %66 = getelementptr inbounds i8, ptr %65, i64 32
+  %67 = load ptr, ptr %66, align 8
+  %68 = tail call noundef double %67(ptr noundef nonnull align 8 dereferenceable(2508) @_ZZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE23SamplingRandomGeneratorEvE3rnd)
+  %69 = fadd double %68, -5.000000e-01
+  %70 = fmul double %39, %69
+  %71 = fdiv double %70, %54
+  %72 = fadd double %2, %71
+  %73 = fcmp uge double %72, 0.000000e+00
+  %74 = fcmp ult double %72, %42
+  %or.cond = select i1 %73, i1 %74, i1 false
+  br i1 %or.cond, label %75, label %.backedge.backedge
 
-74:                                               ; preds = %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE14RandomDouble01Ev.exit32
-  %75 = fptosi double %71 to i32
-  %76 = sitofp i32 %75 to double
-  %77 = icmp slt i32 %75, 1024
-  br i1 %77, label %78, label %95
+75:                                               ; preds = %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE14RandomDouble01Ev.exit32
+  %76 = fptosi double %72 to i32
+  %77 = sitofp i32 %76 to double
+  %78 = icmp slt i32 %76, 1024
+  br i1 %78, label %79, label %96
 
-78:                                               ; preds = %74
-  %79 = icmp slt i32 %75, 2
-  br i1 %79, label %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE5LnFacEi.exit38, label %80
+79:                                               ; preds = %75
+  %80 = icmp slt i32 %76, 2
+  br i1 %80, label %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE5LnFacEi.exit38, label %81
 
-80:                                               ; preds = %78
-  %81 = load i8, ptr @_ZZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE5LnFacEiE11initialized, align 1
-  %82 = trunc i8 %81 to i1
-  br i1 %82, label %91, label %83
+81:                                               ; preds = %79
+  %82 = load i8, ptr @_ZZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE5LnFacEiE11initialized, align 1
+  %83 = trunc i8 %82 to i1
+  br i1 %83, label %92, label %84
 
-83:                                               ; preds = %80
+84:                                               ; preds = %81
   store double 0.000000e+00, ptr @_ZZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE5LnFacEiE9fac_table, align 16
-  br label %84
+  br label %85
 
-84:                                               ; preds = %84, %83
-  %indvars.iv.i34 = phi i64 [ 1, %83 ], [ %indvars.iv.next.i36, %84 ]
-  %.01822.i35 = phi double [ 0.000000e+00, %83 ], [ %88, %84 ]
-  %85 = trunc nuw nsw i64 %indvars.iv.i34 to i32
-  %86 = uitofp nneg i32 %85 to double
-  %87 = tail call double @log(double noundef %86) #20
-  %88 = fadd double %.01822.i35, %87
-  %89 = getelementptr inbounds [1024 x double], ptr @_ZZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE5LnFacEiE9fac_table, i64 0, i64 %indvars.iv.i34
-  store double %88, ptr %89, align 8
+85:                                               ; preds = %85, %84
+  %indvars.iv.i34 = phi i64 [ 1, %84 ], [ %indvars.iv.next.i36, %85 ]
+  %.01822.i35 = phi double [ 0.000000e+00, %84 ], [ %89, %85 ]
+  %86 = trunc nuw nsw i64 %indvars.iv.i34 to i32
+  %87 = uitofp nneg i32 %86 to double
+  %88 = tail call double @log(double noundef %87) #20
+  %89 = fadd double %.01822.i35, %88
+  %90 = getelementptr inbounds [1024 x double], ptr @_ZZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE5LnFacEiE9fac_table, i64 0, i64 %indvars.iv.i34
+  store double %89, ptr %90, align 8
   %indvars.iv.next.i36 = add nuw nsw i64 %indvars.iv.i34, 1
   %exitcond.not.i37 = icmp eq i64 %indvars.iv.next.i36, 1024
-  br i1 %exitcond.not.i37, label %90, label %84, !llvm.loop !242
+  br i1 %exitcond.not.i37, label %91, label %85, !llvm.loop !242
 
-90:                                               ; preds = %84
+91:                                               ; preds = %85
   store i8 1, ptr @_ZZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE5LnFacEiE11initialized, align 1
-  br label %91
+  br label %92
 
-91:                                               ; preds = %90, %80
-  %92 = zext nneg i32 %75 to i64
-  %93 = getelementptr inbounds [1024 x double], ptr @_ZZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE5LnFacEiE9fac_table, i64 0, i64 %92
-  %94 = load double, ptr %93, align 8
+92:                                               ; preds = %91, %81
+  %93 = zext nneg i32 %76 to i64
+  %94 = getelementptr inbounds [1024 x double], ptr @_ZZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE5LnFacEiE9fac_table, i64 0, i64 %93
+  %95 = load double, ptr %94, align 8
   br label %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE5LnFacEi.exit38
 
-95:                                               ; preds = %74
-  %96 = fdiv double 1.000000e+00, %76
-  %97 = fadd double %76, 5.000000e-01
-  %98 = tail call double @log(double noundef %76) #20
-  %99 = fneg double %76
-  %100 = tail call double @llvm.fmuladd.f64(double %97, double %98, double %99)
-  %101 = fadd double %100, 0x3FED67F1C864BEB4
-  %102 = fmul double %96, %96
-  %103 = tail call double @llvm.fmuladd.f64(double %102, double 0xBF66C16C16C16C17, double 0x3FB5555555555555)
-  %104 = tail call double @llvm.fmuladd.f64(double %96, double %103, double %101)
+96:                                               ; preds = %75
+  %97 = uitofp nneg i32 %76 to double
+  %98 = fdiv double 1.000000e+00, %97
+  %99 = fadd double %97, 5.000000e-01
+  %100 = tail call double @log(double noundef %97) #20
+  %101 = fneg double %97
+  %102 = tail call double @llvm.fmuladd.f64(double %99, double %100, double %101)
+  %103 = fadd double %102, 0x3FED67F1C864BEB4
+  %104 = fmul double %98, %98
+  %105 = tail call double @llvm.fmuladd.f64(double %104, double 0xBF66C16C16C16C17, double 0x3FB5555555555555)
+  %106 = tail call double @llvm.fmuladd.f64(double %98, double %105, double %103)
   br label %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE5LnFacEi.exit38
 
-_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE5LnFacEi.exit38: ; preds = %78, %91, %95
-  %.0.i33 = phi double [ %94, %91 ], [ %104, %95 ], [ 0.000000e+00, %78 ]
-  %105 = fneg double %.0.i33
-  %106 = tail call double @llvm.fmuladd.f64(double %76, double %4, double %105)
-  %107 = fsub double %106, %35
-  %108 = fsub double 4.000000e+00, %53
-  %109 = tail call double @llvm.fmuladd.f64(double %53, double %108, double -3.000000e+00)
-  %110 = fcmp ult double %107, %109
-  br i1 %110, label %111, label %119
+_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE5LnFacEi.exit38: ; preds = %79, %92, %96
+  %.0.i33 = phi double [ %95, %92 ], [ %106, %96 ], [ 0.000000e+00, %79 ]
+  %107 = fneg double %.0.i33
+  %108 = tail call double @llvm.fmuladd.f64(double %77, double %4, double %107)
+  %109 = fsub double %108, %36
+  %110 = fsub double 4.000000e+00, %54
+  %111 = tail call double @llvm.fmuladd.f64(double %54, double %110, double -3.000000e+00)
+  %112 = fcmp ult double %109, %111
+  br i1 %112, label %113, label %121
 
-111:                                              ; preds = %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE5LnFacEi.exit38
-  %112 = fsub double %53, %107
-  %113 = fmul double %53, %112
-  %114 = fcmp ogt double %113, 1.000000e+00
-  br i1 %114, label %.backedge.backedge, label %115
+113:                                              ; preds = %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE5LnFacEi.exit38
+  %114 = fsub double %54, %109
+  %115 = fmul double %54, %114
+  %116 = fcmp ogt double %115, 1.000000e+00
+  br i1 %116, label %.backedge.backedge, label %117
 
-115:                                              ; preds = %111
-  %116 = tail call double @log(double noundef %53) #20
-  %117 = fmul double %116, 2.000000e+00
-  %118 = fcmp ugt double %117, %107
-  br i1 %118, label %.backedge.backedge, label %119
+117:                                              ; preds = %113
+  %118 = tail call double @log(double noundef %54) #20
+  %119 = fmul double %118, 2.000000e+00
+  %120 = fcmp ugt double %119, %109
+  br i1 %120, label %.backedge.backedge, label %121
 
-119:                                              ; preds = %115, %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE5LnFacEi.exit38
-  ret i32 %75
+121:                                              ; preds = %117, %_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE5LnFacEi.exit38
+  ret i32 %76
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
@@ -44315,7 +44317,7 @@ define linkonce_odr noundef i32 @_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSampl
   br i1 %8, label %.preheader.lr.ph, label %._crit_edge280
 
 .preheader.lr.ph:                                 ; preds = %4
-  %9 = sitofp i32 %2 to float
+  %9 = uitofp nneg i32 %2 to float
   %10 = insertelement <2 x float> poison, float %7, i64 0
   %11 = shufflevector <2 x float> %10, <2 x float> poison, <2 x i32> zeroinitializer
   br label %.preheader
@@ -69803,7 +69805,7 @@ _ZN3vcg3tri9ResamplerI6CMeshOS2_NS_4face24PointDistanceBaseFunctorIfEEE6Walker5E
 
 _ZN3vcg3tri9ResamplerI6CMeshOS2_NS_4face24PointDistanceBaseFunctorIfEEE6Walker5ExistERKNS_6Point3IiEESB_RP8CVertexO.exit192.thread: ; preds = %872, %877, %859, %847, %852, %865, %882
   %.11 = phi i32 [ %888, %882 ], [ %.10, %865 ], [ %.10, %852 ], [ %.10, %847 ], [ %.10, %859 ], [ %.10, %877 ], [ %.10, %872 ]
-  %905 = uitofp i32 %.11 to float
+  %905 = uitofp nneg i32 %.11 to float
   %906 = load ptr, ptr %1, align 8
   %907 = getelementptr inbounds i8, ptr %906, i64 8
   %908 = load <2 x float>, ptr %907, align 4
@@ -82630,6 +82632,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #24
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.sqrt.f64(double) #22
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -82637,9 +82642,6 @@ declare i32 @llvm.umax.i32(i32, i32) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #22
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.sqrt.f64(double) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #22

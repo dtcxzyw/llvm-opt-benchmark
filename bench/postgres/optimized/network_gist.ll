@@ -736,7 +736,7 @@ define dso_local i64 @inet_gist_penalty(ptr nocapture noundef readonly %0) local
   br i1 %33, label %34, label %37
 
 34:                                               ; preds = %24
-  %35 = sitofp i32 %32 to float
+  %35 = uitofp nneg i32 %32 to float
   %36 = fdiv float 1.000000e+00, %35
   br label %37
 

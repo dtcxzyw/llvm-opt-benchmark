@@ -6656,69 +6656,66 @@ define internal fastcc void @zisofs_detect_magic(ptr %.248.val, ptr noundef read
 40:                                               ; preds = %29
   %41 = zext i32 %31 to i64
   %42 = zext nneg i8 %35 to i64
-  %43 = shl nuw nsw i64 1, %42
-  %44 = add nsw i64 %41, -1
-  %45 = add nuw nsw i64 %44, %43
-  %46 = lshr i64 %45, %42
-  %47 = shl nuw nsw i64 %46, 2
-  %48 = add nuw nsw i64 %47, 20
-  %49 = icmp slt i64 %7, %48
-  br i1 %49, label %.loopexit, label %50
+  %43 = add nsw i64 %41, -1
+  %44 = lshr i64 %43, %42
+  %45 = add nuw nsw i64 %44, 1
+  %46 = shl nuw nsw i64 %45, 2
+  %47 = add nuw nsw i64 %46, 20
+  %48 = icmp slt i64 %7, %47
+  br i1 %48, label %.loopexit, label %49
 
-50:                                               ; preds = %40
-  %51 = getelementptr inbounds i8, ptr %.076, i64 %12
-  %52 = icmp ne i64 %46, 0
-  %53 = icmp sgt i64 %12, 23
-  %54 = select i1 %52, i1 %53, i1 false
-  br i1 %54, label %.lr.ph.preheader, label %._crit_edge
+49:                                               ; preds = %40
+  %50 = getelementptr inbounds i8, ptr %.076, i64 %12
+  %51 = icmp sgt i64 %12, 23
+  br i1 %51, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %50
-  %55 = getelementptr inbounds i8, ptr %.076, i64 16
-  %.pre = load i32, ptr %55, align 1
+.lr.ph.preheader:                                 ; preds = %49
+  %52 = getelementptr inbounds i8, ptr %.076, i64 16
+  %.pre = load i32, ptr %52, align 1
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %64
-  %56 = phi i32 [ %60, %64 ], [ %.pre, %.lr.ph.preheader ]
-  %.0744 = phi ptr [ %59, %64 ], [ %55, %.lr.ph.preheader ]
-  %.0773 = phi i64 [ %68, %64 ], [ %46, %.lr.ph.preheader ]
-  %.0782 = phi i64 [ %67, %64 ], [ %48, %.lr.ph.preheader ]
-  %57 = zext i32 %56 to i64
-  %.not89 = icmp eq i64 %.0782, %57
-  br i1 %.not89, label %58, label %.loopexit
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %61
+  %53 = phi i32 [ %57, %61 ], [ %.pre, %.lr.ph.preheader ]
+  %.0744 = phi ptr [ %56, %61 ], [ %52, %.lr.ph.preheader ]
+  %.0773 = phi i64 [ %65, %61 ], [ %45, %.lr.ph.preheader ]
+  %.0782 = phi i64 [ %64, %61 ], [ %47, %.lr.ph.preheader ]
+  %54 = zext i32 %53 to i64
+  %.not89 = icmp eq i64 %.0782, %54
+  br i1 %.not89, label %55, label %.loopexit
 
-58:                                               ; preds = %.lr.ph
-  %59 = getelementptr inbounds i8, ptr %.0744, i64 4
-  %60 = load i32, ptr %59, align 1
-  %61 = icmp ult i32 %60, %56
-  %62 = zext i32 %60 to i64
-  %63 = icmp ult i64 %7, %62
-  %or.cond92 = select i1 %61, i1 true, i1 %63
-  br i1 %or.cond92, label %.loopexit, label %64
+55:                                               ; preds = %.lr.ph
+  %56 = getelementptr inbounds i8, ptr %.0744, i64 4
+  %57 = load i32, ptr %56, align 1
+  %58 = icmp ult i32 %57, %53
+  %59 = zext i32 %57 to i64
+  %60 = icmp ult i64 %7, %59
+  %or.cond92 = select i1 %58, i1 true, i1 %60
+  br i1 %or.cond92, label %.loopexit, label %61
 
-64:                                               ; preds = %58
-  %65 = sub i32 %60, %56
-  %66 = zext i32 %65 to i64
-  %67 = add nuw nsw i64 %.0782, %66
-  %68 = add nsw i64 %.0773, -1
-  %69 = icmp ne i64 %68, 0
-  %70 = getelementptr inbounds i8, ptr %.0744, i64 12
-  %71 = icmp ule ptr %70, %51
-  %72 = select i1 %69, i1 %71, i1 false
-  br i1 %72, label %.lr.ph, label %._crit_edge, !llvm.loop !52
+61:                                               ; preds = %55
+  %62 = sub i32 %57, %53
+  %63 = zext i32 %62 to i64
+  %64 = add nuw nsw i64 %.0782, %63
+  %65 = add nsw i64 %.0773, -1
+  %66 = icmp ne i64 %65, 0
+  %67 = getelementptr inbounds i8, ptr %.0744, i64 12
+  %68 = icmp ule ptr %67, %50
+  %69 = select i1 %66, i1 %68, i1 false
+  br i1 %69, label %.lr.ph, label %._crit_edge, !llvm.loop !52
 
-._crit_edge:                                      ; preds = %64, %50
-  %73 = getelementptr inbounds i8, ptr %4, i64 192
-  %74 = getelementptr inbounds i8, ptr %4, i64 196
-  store i32 %31, ptr %74, align 4
-  store i8 4, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %4, i64 193
-  store i8 %35, ptr %75, align 1
-  %76 = load i8, ptr %8, align 8
-  %77 = and i8 %76, -3
-  store i8 %77, ptr %8, align 8
+._crit_edge:                                      ; preds = %61, %49
+  %70 = getelementptr inbounds i8, ptr %4, i64 192
+  %71 = getelementptr inbounds i8, ptr %4, i64 196
+  store i32 %31, ptr %71, align 4
+  store i8 4, ptr %70, align 8
+  %72 = getelementptr inbounds i8, ptr %4, i64 193
+  store i8 %35, ptr %72, align 1
+  %73 = load i8, ptr %8, align 8
+  %74 = and i8 %73, -3
+  store i8 %74, ptr %8, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %58, %.lr.ph, %40, %29, %26, %15, %._crit_edge
+.loopexit:                                        ; preds = %55, %.lr.ph, %40, %29, %26, %15, %._crit_edge
   ret void
 }
 

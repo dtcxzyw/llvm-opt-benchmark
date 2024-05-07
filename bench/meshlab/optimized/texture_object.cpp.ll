@@ -1479,7 +1479,7 @@ define void @_ZN13TextureObject20ComputeRelativeSizesEv(ptr dead_on_unwind noali
   br i1 %.not40, label %._crit_edge50, label %.lr.ph49
 
 .lr.ph49:                                         ; preds = %._crit_edge
-  %11 = sitofp i32 %.sroa.speculated26 to double
+  %11 = uitofp nneg i32 %.sroa.speculated26 to double
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = insertelement <2 x double> poison, double %11, i64 0

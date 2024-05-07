@@ -20048,7 +20048,7 @@ define noundef double @_Z13MatchingErrorRK17MatchingTransformRKSt6vectorIN3vcg6P
 
 _Z20MatchingErrorAverageRK17MatchingTransformRKSt6vectorIN3vcg6Point2IdEESaIS5_EES9_.exit: ; preds = %30, %.preheader.i
   %.012.lcssa.i = phi double [ 0.000000e+00, %.preheader.i ], [ %50, %30 ]
-  %54 = uitofp i64 %10 to double
+  %54 = uitofp nneg i64 %10 to double
   %55 = fdiv double %.012.lcssa.i, %54
   ret double %55
 }
@@ -20124,7 +20124,7 @@ define noundef double @_Z20MatchingErrorAverageRK17MatchingTransformRKSt6vectorI
 
 ._crit_edge:                                      ; preds = %30, %.preheader
   %.012.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %50, %30 ]
-  %54 = uitofp i64 %10 to double
+  %54 = uitofp nneg i64 %10 to double
   %55 = fdiv double %.012.lcssa, %54
   ret double %55
 }

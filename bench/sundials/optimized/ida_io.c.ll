@@ -1837,7 +1837,7 @@ define range(i32 -22, 1) i32 @IDAPrintAllStats(ptr noundef %0, ptr nocapture nou
 49:                                               ; preds = %7
   %50 = load i64, ptr %35, align 8
   %51 = sitofp i64 %50 to double
-  %52 = sitofp i64 %47 to double
+  %52 = uitofp nneg i64 %47 to double
   %53 = fdiv double %51, %52
   %54 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.32, double noundef %53) #8
   br label %55
@@ -1883,7 +1883,7 @@ define range(i32 -22, 1) i32 @IDAPrintAllStats(ptr noundef %0, ptr nocapture nou
 88:                                               ; preds = %61
   %89 = load i64, ptr %74, align 8
   %90 = sitofp i64 %89 to double
-  %91 = sitofp i64 %86 to double
+  %91 = uitofp nneg i64 %86 to double
   %92 = fdiv double %90, %91
   %93 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.42, double noundef %92) #8
   %94 = load i64, ptr %62, align 8
@@ -1953,7 +1953,7 @@ define range(i32 -22, 1) i32 @IDAPrintAllStats(ptr noundef %0, ptr nocapture nou
 152:                                              ; preds = %110
   %153 = load i64, ptr %138, align 8
   %154 = sitofp i64 %153 to double
-  %155 = sitofp i64 %150 to double
+  %155 = uitofp nneg i64 %150 to double
   %156 = fdiv double %154, %155
   %157 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.59, double noundef %156) #8
   br label %160
@@ -2003,7 +2003,7 @@ define range(i32 -22, 1) i32 @IDAPrintAllStats(ptr noundef %0, ptr nocapture nou
 193:                                              ; preds = %166
   %194 = load i64, ptr %179, align 8
   %195 = sitofp i64 %194 to double
-  %196 = sitofp i64 %191 to double
+  %196 = uitofp nneg i64 %191 to double
   %197 = fdiv double %195, %196
   %198 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.70, double noundef %197) #8
   %199 = load i64, ptr %167, align 8

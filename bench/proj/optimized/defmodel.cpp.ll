@@ -9555,7 +9555,7 @@ _ZN12_GLOBAL__N_17GridSet6gridAtEdd.exit:         ; preds = %_ZNSt3mapIPKN5osgeo
 301:                                              ; preds = %291
   %302 = extractelement <2 x double> %297, i64 0
   %303 = fadd double %302, 1.000000e+00
-  %304 = sitofp i32 %285 to double
+  %304 = uitofp nneg i32 %285 to double
   %305 = fadd double %51, %304
   %306 = fcmp ult double %303, %305
   br i1 %306, label %307, label %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit312.thread
@@ -9563,7 +9563,7 @@ _ZN12_GLOBAL__N_17GridSet6gridAtEdd.exit:         ; preds = %_ZNSt3mapIPKN5osgeo
 307:                                              ; preds = %301
   %308 = extractelement <2 x double> %297, i64 1
   %309 = fadd double %308, 1.000000e+00
-  %310 = sitofp i32 %289 to double
+  %310 = uitofp nneg i32 %289 to double
   %311 = fadd double %51, %310
   %312 = fcmp ult double %309, %311
   br i1 %312, label %313, label %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit312.thread

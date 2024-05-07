@@ -183,7 +183,7 @@ if.then15.i:                                      ; preds = %if.then.i
   br i1 %cmp37.i, label %if.then38.i, label %if.else.i
 
 if.then38.i:                                      ; preds = %if.then15.i
-  %conv.i = sitofp i64 %sub36.i to double
+  %conv.i = uitofp nneg i64 %sub36.i to double
   %conv39.i = sitofp i64 %spec.store.select.i to double
   %div.i = fdiv double %conv39.i, 1.000000e+03
   %div40.i = fdiv double %conv.i, %div.i

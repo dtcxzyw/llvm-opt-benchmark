@@ -630,7 +630,7 @@ for.inc184:                                       ; preds = %if.end38.i, %cond.e
 invoke.cont247:                                   ; preds = %_ZNSt12_Vector_baseIN5folly7TDigest8CentroidESaIS2_EE13_M_deallocateEPS2_m.exit.i458, %if.end.i436
   %compressed.sroa.0.0 = phi ptr [ %call5.i.i.i.i464, %_ZNSt12_Vector_baseIN5folly7TDigest8CentroidESaIS2_EE13_M_deallocateEPS2_m.exit.i458 ], [ null, %if.end.i436 ]
   %compressed.sroa.32.0 = phi ptr [ %add.ptr21.i460, %_ZNSt12_Vector_baseIN5folly7TDigest8CentroidESaIS2_EE13_M_deallocateEPS2_m.exit.i458 ], [ null, %if.end.i436 ]
-  %conv248 = uitofp i64 %20 to double
+  %conv248 = uitofp nneg i64 %20 to double
   %div.i = fdiv double 1.000000e+00, %conv248
   %cmp.i478 = fcmp ult double %div.i, 5.000000e-01
   br i1 %cmp.i478, label %if.else.i, label %if.then.i479
@@ -1315,7 +1315,7 @@ _ZNSt12_Vector_baseIN5folly7TDigest8CentroidESaIS2_EE13_M_deallocateEPS2_m.exit.
 invoke.cont18:                                    ; preds = %_ZNSt12_Vector_baseIN5folly7TDigest8CentroidESaIS2_EE13_M_deallocateEPS2_m.exit.i, %if.end.i
   %compressed.sroa.32.0 = phi ptr [ %add.ptr21.i, %_ZNSt12_Vector_baseIN5folly7TDigest8CentroidESaIS2_EE13_M_deallocateEPS2_m.exit.i ], [ null, %if.end.i ]
   %compressed.sroa.17.0 = phi ptr [ %call5.i.i.i.i166, %_ZNSt12_Vector_baseIN5folly7TDigest8CentroidESaIS2_EE13_M_deallocateEPS2_m.exit.i ], [ null, %if.end.i ]
-  %conv20 = uitofp i64 %2 to double
+  %conv20 = uitofp nneg i64 %2 to double
   %div.i = fdiv double 1.000000e+00, %conv20
   %cmp.i167 = fcmp ult double %div.i, 5.000000e-01
   br i1 %cmp.i167, label %if.else.i, label %if.then.i168

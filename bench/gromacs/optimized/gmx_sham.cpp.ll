@@ -1984,7 +1984,7 @@ _ZL13normalize_p_eiPdPKiPff.exit.thread:          ; preds = %._crit_edge978
 325:                                              ; preds = %.lr.ph.i556
   %326 = getelementptr inbounds float, ptr %224, i64 %indvars.iv.i557
   %327 = load float, ptr %326, align 4
-  %328 = sitofp i32 %323 to float
+  %328 = uitofp nneg i32 %323 to float
   %329 = fdiv float %327, %328
   store float %329, ptr %326, align 4
   br label %330

@@ -4291,7 +4291,7 @@ _ZNKSt6vectorIN3vcg6Point3IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %1
 
 .lr.ph.i:                                         ; preds = %_ZNKSt6vectorIN3vcg6Point3IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %176 = getelementptr inbounds %"class.vcg::Point3", ptr %175, i64 %170
-  %177 = sitofp i32 %49 to float
+  %177 = uitofp nneg i32 %49 to float
   %178 = fpext float %177 to double
   %wide.trip.count.i = zext nneg i32 %49 to i64
   br label %179

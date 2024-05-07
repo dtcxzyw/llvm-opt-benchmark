@@ -1904,7 +1904,7 @@ define void @_ZN3gmx8internal13SelectionData29computeAverageCoveredFractionEi(pt
   br i1 %or.cond, label %7, label %12
 
 7:                                                ; preds = %2
-  %8 = sitofp i32 %1 to float
+  %8 = uitofp nneg i32 %1 to float
   %9 = getelementptr inbounds i8, ptr %0, i64 288
   %10 = load float, ptr %9, align 8
   %11 = fdiv float %10, %8

@@ -5365,7 +5365,7 @@ define internal void @decode_zcl_drlc_temp_set_point(ptr nocapture noundef write
   br label %10
 
 4:                                                ; preds = %2
-  %5 = sitofp i16 %1 to float
+  %5 = uitofp nneg i16 %1 to float
   %6 = fdiv float %5, 1.000000e+02
   %7 = fpext float %6 to double
   %8 = load ptr, ptr @units_degree_celsius, align 8

@@ -55480,7 +55480,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE8AddFacesERS2_m.exit: ; preds = %24, %27
   br i1 %46, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader198
-  %47 = sitofp i32 %4 to double
+  %47 = uitofp nneg i32 %4 to double
   %48 = fpext float %1 to double
   br label %49
 
@@ -55533,7 +55533,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE8AddFacesERS2_m.exit: ; preds = %24, %27
   br i1 %or.cond236, label %.lr.ph206, label %.loopexit197
 
 .lr.ph206:                                        ; preds = %67
-  %70 = sitofp i32 %4 to double
+  %70 = uitofp nneg i32 %4 to double
   %71 = fpext float %2 to double
   br label %72
 

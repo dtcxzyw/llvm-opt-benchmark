@@ -2383,7 +2383,7 @@ _ZL13polyMinExtentPKfi.exit.i:                    ; preds = %._crit_edge.us.i.i,
   br i1 %.not258410.i, label %._crit_edge414.i, label %.lr.ph413.i
 
 .lr.ph413.i:                                      ; preds = %1029
-  %1052 = sitofp i32 %spec.select.i to float
+  %1052 = uitofp nneg i32 %spec.select.i to float
   %smin.i = call i32 @llvm.smin.i32(i32 %1049, i32 126)
   %reass.sub = sub i32 %smin.i, %.0795
   %1053 = add i32 %reass.sub, 1

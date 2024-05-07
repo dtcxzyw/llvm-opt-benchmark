@@ -2915,7 +2915,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.si
 
 620:                                              ; preds = %616
   %621 = add nsw i32 %618, -1
-  %622 = sitofp i32 %621 to double
+  %622 = uitofp nneg i32 %621 to double
   %623 = fmul double %609, %622
   %624 = fcmp ogt double %609, 0.000000e+00
   br i1 %624, label %625, label %631
@@ -10600,7 +10600,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit.i703:          ; preds = %2156, %2162, %2160,
   %2171 = getelementptr inbounds i8, ptr %2166, i64 8
   %2172 = getelementptr inbounds i8, ptr %2166, i64 16
   %2173 = add nsw i32 %2165, -1
-  %2174 = sitofp i32 %2173 to double
+  %2174 = uitofp nneg i32 %2173 to double
   %wide.trip.count.i.i = zext nneg i32 %2165 to i64
   br label %2175
 
@@ -17628,7 +17628,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit646: ;
   %494 = sitofp i32 %493 to double
   %495 = fmul double %491, %494
   %496 = fdiv double %489, %495
-  %497 = sitofp i32 %483 to float
+  %497 = uitofp nneg i32 %483 to float
   %498 = fadd float %497, 0xBEB4000000000000
   %499 = fpext float %498 to double
   %500 = fcmp olt double %496, %499

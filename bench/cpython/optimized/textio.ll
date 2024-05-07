@@ -6197,7 +6197,7 @@ if.then26:                                        ; preds = %if.end24
   %25 = load double, ptr %b2cratio, align 8
   %cmp27 = fcmp ogt double %25, 1.000000e+00
   %cond = select i1 %cmp27, double %25, double 1.000000e+00
-  %conv = sitofp i64 %size_hint to double
+  %conv = uitofp nneg i64 %size_hint to double
   %mul = fmul double %cond, %conv
   %conv29 = fptosi double %mul to i64
   br label %if.end30
@@ -6353,7 +6353,7 @@ textiowrapper_set_decoded_chars.exit:             ; preds = %if.end72, %if.then.
   %call68.val = load i64, ptr %50, align 8
   %cmp74 = icmp sgt i64 %call68.val, 0
   %conv77 = sitofp i64 %35 to double
-  %conv78 = sitofp i64 %call68.val to double
+  %conv78 = uitofp nneg i64 %call68.val to double
   %div = fdiv double %conv77, %conv78
   %51 = xor i32 %conv65, 1
   %.sink = select i1 %cmp74, double %div, double 0.000000e+00

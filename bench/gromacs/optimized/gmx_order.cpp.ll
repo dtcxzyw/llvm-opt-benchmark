@@ -1847,7 +1847,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit130.i:     ; preds = %632, %629
   br i1 %341, label %.lr.ph162.i, label %._crit_edge163.i
 
 .lr.ph162.i:                                      ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit130.i
-  %633 = sitofp i32 %238 to double
+  %633 = uitofp nneg i32 %238 to double
   %634 = uitofp nneg i32 %584 to float
   br label %635
 

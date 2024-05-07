@@ -8943,7 +8943,7 @@ if.then:                                          ; preds = %invoke.cont
   br i1 %cmp, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.then
-  %conv = sitofp i32 %1 to double
+  %conv = uitofp nneg i32 %1 to double
   %call4 = invoke noundef ptr @_ZN7rocksdb20NewBloomFilterPolicyEdb(double noundef %conv, i1 noundef zeroext false)
           to label %invoke.cont3 unwind label %lpad
 

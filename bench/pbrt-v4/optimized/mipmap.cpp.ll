@@ -610,7 +610,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 
 invoke.cont:                                      ; preds = %for.body.i, %sw.bb15
   %sum.0.lcssa.i = phi float [ 0.000000e+00, %sw.bb15 ], [ %add.i16, %for.body.i ]
-  %conv5.i = uitofp i64 %17 to float
+  %conv5.i = uitofp nneg i64 %17 to float
   %div.i = fdiv float %sum.0.lcssa.i, %conv5.i
   store i64 0, ptr %nStored.i.i15, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %.pre, null

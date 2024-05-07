@@ -546,7 +546,7 @@ define void @dgegs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
 
 325:                                              ; preds = %322, %316, %309
   %326 = phi i32 [ %260, %316 ], [ %260, %309 ], [ %324, %322 ]
-  %327 = sitofp i32 %326 to double
+  %327 = uitofp nneg i32 %326 to double
   store double %327, ptr %14, align 8, !tbaa !7
   br label %328
 

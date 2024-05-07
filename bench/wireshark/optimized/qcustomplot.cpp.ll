@@ -34462,7 +34462,7 @@ define void @_ZN15QCPAxisTickerPi12getTickLabelEdRK7QLocale5QChari(ptr dead_on_u
   br i1 %18, label %19, label %22
 
 19:                                               ; preds = %6
-  %20 = sitofp i32 %17 to double
+  %20 = uitofp nneg i32 %17 to double
   %21 = tail call double @fmod(double noundef %15, double noundef %20) #47
   br label %22
 
@@ -108935,7 +108935,7 @@ _ZNK8QPointerI7QCPAxisE4dataEv.exit169.thread:    ; preds = %_ZNK8QPointerI7QCPA
   %153 = fcmp ogt double %152, 1.000000e+00
   %.sroa.speculated207 = select i1 %153, double %152, double 1.000000e+00
   %154 = fmul double %.sroa.speculated207, 2.500000e-01
-  %155 = sitofp i32 %.0152296 to double
+  %155 = uitofp nneg i32 %.0152296 to double
   %156 = fdiv double %155, %154
   %157 = tail call double @llvm.copysign.f64(double 5.000000e-01, double %156)
   %158 = fadd double %156, %157
@@ -109082,7 +109082,7 @@ _ZNK8QPointerI7QCPAxisE4dataEv.exit169.thread:    ; preds = %_ZNK8QPointerI7QCPA
   %225 = fneg double %223
   %226 = select i1 %224, double %225, double %223
   %227 = fmul double %226, 2.500000e-01
-  %228 = sitofp i32 %.1153 to double
+  %228 = uitofp nneg i32 %.1153 to double
   %229 = fdiv double %228, %227
   %230 = tail call double @llvm.copysign.f64(double 5.000000e-01, double %229)
   %231 = fadd double %229, %230
@@ -135363,7 +135363,7 @@ _ZNK20QCPAbstractPlottable7keyAxisEv.exit:        ; preds = %112
   %140 = load double, ptr %139, align 8
   %141 = fmul double %140, 5.000000e-01
   %142 = add nsw i32 %135, -1
-  %143 = sitofp i32 %142 to double
+  %143 = uitofp nneg i32 %142 to double
   %144 = fdiv double %141, %143
   br label %145
 
@@ -135380,7 +135380,7 @@ _ZNK20QCPAbstractPlottable7keyAxisEv.exit:        ; preds = %112
   %152 = load double, ptr %151, align 8
   %153 = fmul double %152, 5.000000e-01
   %154 = add nsw i32 %147, -1
-  %155 = sitofp i32 %154 to double
+  %155 = uitofp nneg i32 %154 to double
   %156 = fdiv double %153, %155
   %157 = insertelement <2 x double> %149, double %156, i64 1
   br label %_ZNK20QCPAbstractPlottable7keyAxisEv.exit74
@@ -135393,7 +135393,7 @@ _ZNK20QCPAbstractPlottable7keyAxisEv.exit:        ; preds = %112
   %161 = load double, ptr %160, align 8
   %162 = fmul double %161, 5.000000e-01
   %163 = add nsw i32 %135, -1
-  %164 = sitofp i32 %163 to double
+  %164 = uitofp nneg i32 %163 to double
   %165 = fdiv double %162, %164
   br label %166
 
@@ -135410,7 +135410,7 @@ _ZNK20QCPAbstractPlottable7keyAxisEv.exit:        ; preds = %112
   %173 = load double, ptr %172, align 8
   %174 = fmul double %173, 5.000000e-01
   %175 = add nsw i32 %168, -1
-  %176 = sitofp i32 %175 to double
+  %176 = uitofp nneg i32 %175 to double
   %177 = fdiv double %174, %176
   %178 = insertelement <2 x double> %170, double %177, i64 0
   br label %_ZNK20QCPAbstractPlottable7keyAxisEv.exit74

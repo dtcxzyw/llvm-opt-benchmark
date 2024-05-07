@@ -3290,7 +3290,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit411.i:     ; preds = %1152, %1149
 .noexc356:                                        ; preds = %.noexc355
   store ptr %1251, ptr %49, align 8
   %1252 = icmp sgt i32 %.2358.i, 10000
-  %1253 = sitofp i32 %.2358.i to double
+  %1253 = uitofp nneg i32 %.2358.i to double
   %1254 = fdiv double 1.000000e+04, %1253
   %1255 = fptrunc double %1254 to float
   %.0340.i = select i1 %1252, float %1255, float 1.000000e+00
@@ -5398,7 +5398,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %19, %22
   %.not181 = icmp eq ptr %4, null
   %34 = add nsw i32 %1, -1
   %35 = icmp sgt i32 %7, 1
-  %36 = sitofp i32 %1 to double
+  %36 = uitofp nneg i32 %1 to double
   %37 = zext nneg i32 %34 to i64
   %wide.trip.count253 = zext nneg i32 %1 to i64
   %wide.trip.count = zext nneg i32 %7 to i64

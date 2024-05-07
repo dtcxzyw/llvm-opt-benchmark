@@ -1355,7 +1355,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %conv = sitofp i32 %scanlinesPerRow to double
+  %conv = uitofp nneg i32 %scanlinesPerRow to double
   %div = fdiv double 1.000000e+00, %conv
   %call = tail call noundef double @_ZNK7msdfgen10Projection10unprojectXEd(ptr noundef nonnull align 8 dereferenceable(32) %projection, double noundef 5.000000e-01)
   %2 = load i32, ptr %width, align 8
@@ -1506,7 +1506,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %conv = sitofp i32 %scanlinesPerRow to double
+  %conv = uitofp nneg i32 %scanlinesPerRow to double
   %div = fdiv double 1.000000e+00, %conv
   %call = tail call noundef double @_ZNK7msdfgen10Projection10unprojectXEd(ptr noundef nonnull align 8 dereferenceable(32) %projection, double noundef 5.000000e-01)
   %2 = load i32, ptr %width, align 8
@@ -1657,7 +1657,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %conv = sitofp i32 %scanlinesPerRow to double
+  %conv = uitofp nneg i32 %scanlinesPerRow to double
   %div = fdiv double 1.000000e+00, %conv
   %call = tail call noundef double @_ZNK7msdfgen10Projection10unprojectXEd(ptr noundef nonnull align 8 dereferenceable(32) %projection, double noundef 5.000000e-01)
   %2 = load i32, ptr %width, align 8

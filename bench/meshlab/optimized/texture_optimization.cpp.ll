@@ -3263,7 +3263,7 @@ _ZNSt6vectorIS_IP8MeshFaceSaIS1_EESaIS3_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPS
   %89 = fptosi <2 x double> %88 to <2 x i32>
   %90 = call <2 x i32> @llvm.smax.v2i32(<2 x i32> %89, <2 x i32> <i32 2, i32 2>)
   %91 = add nsw <2 x i32> %90, <i32 -2, i32 -2>
-  %92 = sitofp <2 x i32> %91 to <2 x double>
+  %92 = uitofp <2 x i32> %91 to <2 x double>
   %93 = fptosi <2 x double> %87 to <2 x i32>
   %94 = add nsw <2 x i32> %93, <i32 2, i32 2>
   %95 = call <2 x i32> @llvm.smin.v2i32(<2 x i32> %94, <2 x i32> %85)
@@ -3275,7 +3275,7 @@ _ZNSt6vectorIS_IP8MeshFaceSaIS1_EESaIS3_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPS
   %99 = fptosi <2 x double> %98 to <2 x i32>
   %100 = srem <2 x i32> %99, <i32 32, i32 32>
   %101 = sub nsw <2 x i32> <i32 32, i32 32>, %100
-  %102 = sitofp <2 x i32> %101 to <2 x double>
+  %102 = uitofp <2 x i32> %101 to <2 x double>
   %103 = fadd <2 x double> %96, %102
   br label %104
 

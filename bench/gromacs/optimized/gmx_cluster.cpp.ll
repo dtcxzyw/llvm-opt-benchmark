@@ -4305,7 +4305,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit327.i:     ; preds = %1529, %1526
 .lr.ph425.i:                                      ; preds = %1582
   %.not460.i = icmp eq i32 %.0251.lcssa.i, 1
   %1584 = add nsw i32 %.0251.lcssa.i, -1
-  %1585 = sitofp i32 %1584 to float
+  %1585 = uitofp nneg i32 %1584 to float
   %wide.trip.count486.i = zext nneg i32 %.0251.lcssa.i to i64
   br label %1586
 
@@ -4366,7 +4366,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit327.i:     ; preds = %1529, %1526
   br i1 %.not460.i, label %._crit_edge426.thread.i, label %1603
 
 1603:                                             ; preds = %._crit_edge426.i
-  %1604 = sitofp i32 %.0251.lcssa.i to float
+  %1604 = uitofp nneg i32 %.0251.lcssa.i to float
   %1605 = fdiv float %1602, %1604
   %1606 = fpext float %1605 to double
   %1607 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(1) @.str.239, double noundef %1606) #17

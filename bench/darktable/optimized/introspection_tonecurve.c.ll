@@ -2704,7 +2704,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
   %837 = phi i32 [ %835, %830 ], [ %823, %822 ]
   %838 = phi float [ %834, %830 ], [ %824, %822 ]
   %839 = icmp eq i32 %837, 0
-  %840 = sitofp i32 %837 to float
+  %840 = uitofp nneg i32 %837 to float
   %841 = fdiv reassoc nsz arcp contract afn float %838, %840
   %842 = select i1 %839, float 1.000000e+00, float %841
   %843 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %766
@@ -2805,7 +2805,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
   %923 = phi i32 [ %921, %916 ], [ %909, %908 ]
   %924 = phi float [ %920, %916 ], [ %910, %908 ]
   %925 = icmp eq i32 %923, 0
-  %926 = sitofp i32 %923 to float
+  %926 = uitofp nneg i32 %923 to float
   %927 = fdiv reassoc nsz arcp contract afn float %924, %926
   %928 = select i1 %925, float 1.000000e+00, float %927
   %929 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %852
@@ -2905,7 +2905,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
   %1008 = phi i32 [ %1006, %1001 ], [ %994, %993 ]
   %1009 = phi float [ %1005, %1001 ], [ %995, %993 ]
   %1010 = icmp eq i32 %1008, 0
-  %1011 = sitofp i32 %1008 to float
+  %1011 = uitofp nneg i32 %1008 to float
   %1012 = fdiv reassoc nsz arcp contract afn float %1009, %1011
   %1013 = select i1 %1010, float 1.000000e+00, float %1012
   %1014 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %933
@@ -3006,7 +3006,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
   %1094 = phi i32 [ %1092, %1087 ], [ %1080, %1079 ]
   %1095 = phi float [ %1091, %1087 ], [ %1081, %1079 ]
   %1096 = icmp eq i32 %1094, 0
-  %1097 = sitofp i32 %1094 to float
+  %1097 = uitofp nneg i32 %1094 to float
   %1098 = fdiv reassoc nsz arcp contract afn float %1095, %1097
   %1099 = select i1 %1096, float 1.000000e+00, float %1098
   %1100 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %1023
@@ -3106,7 +3106,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
   %1179 = phi float [ %1175, %1171 ], [ %1165, %1163 ]
   %1180 = getelementptr inbounds i8, ptr %8, i64 786528
   %1181 = icmp eq i32 %1178, 0
-  %1182 = sitofp i32 %1178 to float
+  %1182 = uitofp nneg i32 %1178 to float
   %1183 = fdiv reassoc nsz arcp contract afn float %1179, %1182
   %1184 = select i1 %1181, float 1.000000e+00, float %1183
   %1185 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %1104
@@ -5250,7 +5250,7 @@ define internal noundef i32 @dt_iop_tonecurve_draw(ptr noundef %0, ptr noundef %
   %430 = phi i32 [ %428, %423 ], [ %416, %415 ]
   %431 = phi float [ %427, %423 ], [ %417, %415 ]
   %432 = icmp eq i32 %430, 0
-  %433 = sitofp i32 %430 to float
+  %433 = uitofp nneg i32 %430 to float
   %434 = fdiv reassoc nsz arcp contract afn float %431, %433
   %435 = select i1 %432, float 1.000000e+00, float %434
   %436 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !144

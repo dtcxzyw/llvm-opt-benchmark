@@ -4397,7 +4397,7 @@ _ZNKSt6vectorIN3vcg6Point3IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %7
 
 .lr.ph.i:                                         ; preds = %_ZNKSt6vectorIN3vcg6Point3IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %12 = getelementptr %"class.vcg::Point3", ptr %11, i64 %6
-  %13 = sitofp i32 %2 to float
+  %13 = uitofp nneg i32 %2 to float
   %14 = fpext float %13 to double
   %wide.trip.count.i = zext nneg i32 %2 to i64
   br label %15
@@ -4890,7 +4890,7 @@ _ZNKSt6vectorIN3vcg6Point3IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %6
 
 .lr.ph.i:                                         ; preds = %_ZNKSt6vectorIN3vcg6Point3IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %11 = getelementptr %"class.vcg::Point3", ptr %10, i64 %5
-  %12 = sitofp i32 %2 to float
+  %12 = uitofp nneg i32 %2 to float
   %13 = fpext float %12 to double
   %wide.trip.count.i = zext nneg i32 %2 to i64
   br label %14
@@ -5073,7 +5073,7 @@ _ZN3vcg3tri13UpdateQualityI6CMeshOE12FaceConstantERS2_f.exit: ; preds = %.lr.ph.
   %28 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %27) #29
   %29 = getelementptr inbounds %"class.vcg::Point3", ptr %28, i64 %24
   %30 = ptrtoint ptr %29 to i64
-  %31 = sitofp i32 %2 to float
+  %31 = uitofp nneg i32 %2 to float
   %32 = fpext float %31 to double
   %wide.trip.count.i = zext nneg i32 %2 to i64
   br label %33
@@ -5579,7 +5579,7 @@ define linkonce_odr void @_ZN3vcg13EmbreeAdaptorI6CMeshOE21computeNormalAnalysis
   %10 = mul nuw nsw i64 %7, 12
   %11 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #29
   %12 = getelementptr inbounds %"class.vcg::Point3", ptr %11, i64 %7
-  %13 = sitofp i32 %2 to float
+  %13 = uitofp nneg i32 %2 to float
   %14 = fpext float %13 to double
   %wide.trip.count.i = zext nneg i32 %2 to i64
   br label %15
@@ -9646,7 +9646,7 @@ _ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS4_EESt4lessIS1_ESaISt4pair
   br label %150
 
 88:                                               ; preds = %69
-  %89 = sitofp i32 %51 to double
+  %89 = uitofp nneg i32 %51 to double
   %90 = fsub double %50, %89
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)

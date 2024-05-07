@@ -19,7 +19,7 @@ define void @dlacn2_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   br i1 %14, label %.loopexit, label %15
 
 15:                                               ; preds = %12
-  %16 = sitofp i32 %13 to double
+  %16 = uitofp nneg i32 %13 to double
   %17 = fdiv double 1.000000e+00, %16
   %18 = add nuw i32 %13, 1
   %19 = zext i32 %18 to i64
@@ -207,7 +207,7 @@ define void @dlacn2_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
 
 116:                                              ; preds = %.loopexit13
   %117 = add nsw i32 %.pr, -1
-  %118 = sitofp i32 %117 to double
+  %118 = uitofp nneg i32 %117 to double
   %119 = add nuw i32 %.pr, 1
   %120 = zext i32 %119 to i64
   br label %121

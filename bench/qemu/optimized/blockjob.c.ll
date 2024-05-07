@@ -407,7 +407,7 @@ if.end9:                                          ; preds = %if.end6
   br i1 %cmp.i, label %ratelimit_set_speed.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end9
-  %conv.i = uitofp i64 %speed to double
+  %conv.i = uitofp nneg i64 %speed to double
   %mul.i = fmul double %conv.i, 1.000000e+08
   %div.i = fdiv double %mul.i, 1.000000e+09
   %cmp6.i = fcmp ogt double %div.i, 1.000000e+00

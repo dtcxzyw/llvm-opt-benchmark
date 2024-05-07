@@ -181,7 +181,7 @@ trspeed.exit51.i:                                 ; preds = %45, %43, %40, %29
   br i1 %76, label %77, label %83
 
 77:                                               ; preds = %63
-  %78 = sitofp i64 %75 to double
+  %78 = uitofp nneg i64 %75 to double
   %79 = sitofp i64 %spec.store.select.i to double
   %80 = fdiv double %79, 1.000000e+03
   %81 = fdiv double %78, %80

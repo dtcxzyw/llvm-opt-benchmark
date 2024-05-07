@@ -2237,7 +2237,7 @@ define internal range(i32 -1, 1) i32 @OnUpdateMaxWastedPercentage(ptr nocapture 
 11:                                               ; preds = %6
   %12 = ptrtoint ptr %2 to i64
   %13 = getelementptr inbounds i8, ptr %3, i64 %12
-  %14 = sitofp i32 %8 to double
+  %14 = uitofp nneg i32 %8 to double
   %15 = fdiv double %14, 1.000000e+02
   store double %15, ptr %13, align 8
   br label %16

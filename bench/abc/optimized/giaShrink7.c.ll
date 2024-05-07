@@ -445,7 +445,7 @@ define i32 @Unm_ManPrintPairStats(ptr nocapture noundef readonly %0, i32 noundef
   br i1 %28, label %29, label %37
 
 29:                                               ; preds = %25
-  %30 = sitofp i32 %27 to double
+  %30 = uitofp nneg i32 %27 to double
   %31 = fmul double %30, 1.000000e+02
   %32 = trunc nuw nsw i64 %indvars.iv40 to i32
   %33 = uitofp nneg i32 %32 to double

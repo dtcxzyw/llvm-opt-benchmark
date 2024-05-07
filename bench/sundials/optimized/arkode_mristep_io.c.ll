@@ -1248,7 +1248,7 @@ define i32 @MRIStepPrintAllStats(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   %33 = getelementptr inbounds i8, ptr %32, i64 392
   %34 = load i64, ptr %33, align 8
   %35 = sitofp i64 %34 to double
-  %36 = sitofp i64 %29 to double
+  %36 = uitofp nneg i64 %29 to double
   %37 = fdiv double %35, %36
   %38 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.10, double noundef %37) #4
   br label %39
@@ -1303,7 +1303,7 @@ define i32 @MRIStepPrintAllStats(ptr noundef %0, ptr noundef %1, i32 noundef %2)
 81:                                               ; preds = %48
   %82 = load i64, ptr %65, align 8
   %83 = sitofp i64 %82 to double
-  %84 = sitofp i64 %79 to double
+  %84 = uitofp nneg i64 %79 to double
   %85 = fdiv double %83, %84
   %86 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.20, double noundef %85) #4
   %87 = load i64, ptr %53, align 8
@@ -1352,7 +1352,7 @@ define i32 @MRIStepPrintAllStats(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   %126 = getelementptr inbounds i8, ptr %125, i64 392
   %127 = load i64, ptr %126, align 8
   %128 = sitofp i64 %127 to double
-  %129 = sitofp i64 %122 to double
+  %129 = uitofp nneg i64 %122 to double
   %130 = fdiv double %128, %129
   %131 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.27, double noundef %130) #4
   br label %134
@@ -1411,7 +1411,7 @@ define i32 @MRIStepPrintAllStats(ptr noundef %0, ptr noundef %1, i32 noundef %2)
 176:                                              ; preds = %143
   %177 = load i64, ptr %160, align 8
   %178 = sitofp i64 %177 to double
-  %179 = sitofp i64 %174 to double
+  %179 = uitofp nneg i64 %174 to double
   %180 = fdiv double %178, %179
   %181 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.38, double noundef %180) #4
   %182 = load i64, ptr %148, align 8

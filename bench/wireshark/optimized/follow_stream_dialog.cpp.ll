@@ -6852,7 +6852,7 @@ _ZN11QBasicMutex6unlockEv.exit:                   ; preds = %_ZN11QBasicMutex4lo
   %25 = tail call noundef ptr @_ZNK19QAbstractScrollArea17verticalScrollBarEv(ptr noundef nonnull align 8 dereferenceable(40) %24)
   %26 = tail call noundef i32 @_ZNK15QAbstractSlider5valueEv(ptr noundef nonnull align 8 dereferenceable(40) %25)
   %27 = sitofp i32 %26 to double
-  %28 = sitofp i32 %19 to double
+  %28 = uitofp nneg i32 %19 to double
   %29 = fdiv double %27, %28
   br label %30
 

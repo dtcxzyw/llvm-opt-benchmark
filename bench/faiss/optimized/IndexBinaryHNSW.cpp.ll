@@ -3231,7 +3231,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_17Hamm
   %17 = tail call range(i64 0, 65) <8 x i64> @llvm.ctpop.v8i64(<8 x i64> %16)
   %18 = tail call i64 @llvm.vector.reduce.add.v8i64(<8 x i64> %17)
   %19 = trunc i64 %18 to i32
-  %20 = sitofp i32 %19 to float
+  %20 = uitofp nneg i32 %19 to float
   ret float %20
 }
 

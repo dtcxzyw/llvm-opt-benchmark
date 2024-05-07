@@ -46949,8 +46949,8 @@ if.end140:                                        ; preds = %invoke.cont130, %in
   br i1 %or.cond, label %if.then143, label %cleanup
 
 if.then143:                                       ; preds = %if.end140
-  %conv = sitofp i64 %73 to double
-  %conv144 = sitofp i64 %74 to double
+  %conv = uitofp nneg i64 %73 to double
+  %conv144 = uitofp nneg i64 %74 to double
   %div = fdiv double %conv, %conv144
   %75 = call double @llvm.ceil.f64(double %div)
   %conv145 = fptoui double %75 to i64

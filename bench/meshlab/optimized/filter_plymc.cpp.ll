@@ -89537,7 +89537,7 @@ _ZN3vcg3tri13TrivialWalkerINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS3_EEE6M
 
 _ZN3vcg3tri13TrivialWalkerINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS3_EEE6MCMeshENS_6VolumeINS_7VoxelfcEfEEE5ExistERKNS_6Point3IiEESF_RPNS6_8MCVertexE.exit170.thread: ; preds = %716, %721, %_ZN3vcg3tri13TrivialWalkerINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS3_EEE6MCMeshENS_6VolumeINS_7VoxelfcEfEEE5ExistERKNS_6Point3IiEESF_RPNS6_8MCVertexE.exit170
   %.11 = phi i32 [ %724, %721 ], [ %.10, %_ZN3vcg3tri13TrivialWalkerINS0_5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS3_EEE6MCMeshENS_6VolumeINS_7VoxelfcEfEEE5ExistERKNS_6Point3IiEESF_RPNS6_8MCVertexE.exit170 ], [ %.10, %716 ]
-  %739 = uitofp i32 %.11 to float
+  %739 = uitofp nneg i32 %.11 to float
   %740 = load ptr, ptr %1, align 8
   %741 = load <2 x float>, ptr %740, align 4
   %742 = insertelement <2 x float> poison, float %739, i64 0

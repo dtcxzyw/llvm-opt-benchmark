@@ -2642,7 +2642,7 @@ define void @_ZN3gmx15analysismodules3Msd14finishAnalysisEi(ptr nocapture nounde
   br label %_ZN3gmx15analysismodulesL17calculateFitIndexEidid.exit
 
 31:                                               ; preds = %2
-  %32 = sitofp i32 %12 to double
+  %32 = uitofp nneg i32 %12 to double
   %33 = fdiv double %32, %23
   %34 = tail call double @llvm.rint.f64(double %33)
   %35 = fptosi double %34 to i32
@@ -2668,7 +2668,7 @@ _ZN3gmx15analysismodulesL17calculateFitIndexEidid.exit: ; preds = %26, %31
   br label %_ZN3gmx15analysismodulesL17calculateFitIndexEidid.exit38
 
 47:                                               ; preds = %_ZN3gmx15analysismodulesL17calculateFitIndexEidid.exit
-  %48 = sitofp i32 %40 to double
+  %48 = uitofp nneg i32 %40 to double
   %49 = fdiv double %48, %23
   %50 = tail call double @llvm.rint.f64(double %49)
   %51 = fptosi double %50 to i32

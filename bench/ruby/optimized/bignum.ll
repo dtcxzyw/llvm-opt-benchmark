@@ -22501,7 +22501,7 @@ rb_integer_type_p.exit.thread134:                 ; preds = %112, %rb_integer_ty
 
 143:                                              ; preds = %138
   tail call void (ptr, ...) @rb_warn(ptr noundef nonnull @.str.14) #33
-  %144 = sitofp i64 %101 to double
+  %144 = uitofp nneg i64 %101 to double
   br label %225
 
 .preheader:                                       ; preds = %138, %bigtrunc.exit

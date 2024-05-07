@@ -2566,7 +2566,7 @@ if.else.i:                                        ; preds = %entry
 
 if.then3.i:                                       ; preds = %if.else.i
   %4 = load ptr, ptr @stderr, align 8
-  %conv4.i = uitofp i64 %2 to double
+  %conv4.i = uitofp nneg i64 %2 to double
   %div.i = fmul double %conv4.i, 0x3F50000000000000
   %call5.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.70, double noundef %div.i) #19
   br label %PrintBytes.exit
@@ -2607,7 +2607,7 @@ if.else.i6:                                       ; preds = %PrintBytes.exit
 
 if.then3.i17:                                     ; preds = %if.else.i6
   %10 = load ptr, ptr @stderr, align 8
-  %conv4.i18 = uitofp i64 %8 to double
+  %conv4.i18 = uitofp nneg i64 %8 to double
   %div.i19 = fmul double %conv4.i18, 0x3F50000000000000
   %call5.i20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.70, double noundef %div.i19) #19
   br label %PrintBytes.exit24

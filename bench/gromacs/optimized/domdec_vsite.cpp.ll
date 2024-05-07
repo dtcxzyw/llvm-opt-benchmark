@@ -151,7 +151,7 @@ _ZN3gmx9HashedMapIiE5clearEv.exit.i:              ; preds = %.lr.ph.i.i, %4
   br i1 %18, label %19, label %_ZN3gmx9HashedMapIiE23clearAndResizeHashTableEv.exit
 
 19:                                               ; preds = %_ZN3gmx9HashedMapIiE5clearEv.exit.i
-  %20 = sitofp i32 %8 to float
+  %20 = uitofp nneg i32 %8 to float
   %21 = fmul float %20, 3.500000e+00
   %22 = sitofp i32 %16 to float
   %23 = fcmp olt float %21, %22

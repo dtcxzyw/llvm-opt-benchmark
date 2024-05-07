@@ -2785,14 +2785,14 @@ if.else.i:                                        ; preds = %for.body158
 get_scale_min_k4.exit:                            ; preds = %if.then.i, %if.else.i
   %or14.sink.i = phi i8 [ %55, %if.then.i ], [ %or14.i, %if.else.i ]
   %storemerge.i = phi i8 [ %57, %if.then.i ], [ %or2715.i, %if.else.i ]
-  %conv169 = uitofp i8 %or14.sink.i to float
+  %conv169 = uitofp nneg i8 %or14.sink.i to float
   %mul170 = fmul float %53, %conv169
   %tobool = fcmp une float %mul170, 0.000000e+00
   br i1 %tobool, label %if.end172, label %for.inc218
 
 if.end172:                                        ; preds = %get_scale_min_k4.exit
   %67 = load float, ptr %arrayidx.i98, align 4
-  %conv178 = uitofp i8 %storemerge.i to float
+  %conv178 = uitofp nneg i8 %storemerge.i to float
   %mul179 = fmul float %67, %conv178
   %68 = shl nuw nsw i64 %indvars.iv154, 5
   br label %for.body183
@@ -2930,9 +2930,9 @@ if.else.i:                                        ; preds = %for.body9
 get_scale_min_k4.exit:                            ; preds = %if.then.i, %if.else.i
   %or14.sink.i = phi i8 [ %6, %if.then.i ], [ %or14.i, %if.else.i ]
   %storemerge.i = phi i8 [ %8, %if.then.i ], [ %or2715.i, %if.else.i ]
-  %conv13 = uitofp i8 %or14.sink.i to float
+  %conv13 = uitofp nneg i8 %or14.sink.i to float
   %mul = fmul float %1, %conv13
-  %conv15 = uitofp i8 %storemerge.i to float
+  %conv15 = uitofp nneg i8 %storemerge.i to float
   %18 = or disjoint i64 %indvars.iv58, 1
   %cmp.i27 = icmp ult i64 %18, 4
   %arrayidx.i37 = getelementptr inbounds i8, ptr %scales, i64 %18
@@ -2965,13 +2965,13 @@ if.else.i28:                                      ; preds = %get_scale_min_k4.ex
 get_scale_min_k4.exit39:                          ; preds = %if.then.i35, %if.else.i28
   %or14.sink.i33 = phi i8 [ %20, %if.then.i35 ], [ %or14.i31, %if.else.i28 ]
   %storemerge.i34 = phi i8 [ %22, %if.then.i35 ], [ %or2715.i32, %if.else.i28 ]
-  %conv23 = uitofp i8 %or14.sink.i33 to float
+  %conv23 = uitofp nneg i8 %or14.sink.i33 to float
   %mul24 = fmul float %1, %conv23
   %neg = fmul float %4, %conv15
   br label %for.body31
 
 for.cond38.preheader:                             ; preds = %for.body31
-  %conv26 = uitofp i8 %storemerge.i34 to float
+  %conv26 = uitofp nneg i8 %storemerge.i34 to float
   %neg47 = fmul float %4, %conv26
   br label %for.body41
 
@@ -3426,14 +3426,14 @@ if.else.i:                                        ; preds = %for.body158
 get_scale_min_k4.exit:                            ; preds = %if.then.i, %if.else.i
   %or14.sink.i = phi i8 [ %55, %if.then.i ], [ %or14.i, %if.else.i ]
   %storemerge.i = phi i8 [ %57, %if.then.i ], [ %or2715.i, %if.else.i ]
-  %conv169 = uitofp i8 %or14.sink.i to float
+  %conv169 = uitofp nneg i8 %or14.sink.i to float
   %mul170 = fmul float %53, %conv169
   %tobool = fcmp une float %mul170, 0.000000e+00
   br i1 %tobool, label %if.end172, label %for.inc218
 
 if.end172:                                        ; preds = %get_scale_min_k4.exit
   %67 = load float, ptr %arrayidx.i112, align 4
-  %conv178 = uitofp i8 %storemerge.i to float
+  %conv178 = uitofp nneg i8 %storemerge.i to float
   %mul179 = fmul float %67, %conv178
   %68 = shl nuw nsw i64 %indvars.iv170, 5
   br label %for.body183
@@ -3603,9 +3603,9 @@ if.else.i:                                        ; preds = %for.body13
 get_scale_min_k4.exit:                            ; preds = %if.then.i, %if.else.i
   %or14.sink.i = phi i8 [ %6, %if.then.i ], [ %or14.i, %if.else.i ]
   %storemerge.i = phi i8 [ %8, %if.then.i ], [ %or2715.i, %if.else.i ]
-  %conv17 = uitofp i8 %or14.sink.i to float
+  %conv17 = uitofp nneg i8 %or14.sink.i to float
   %mul = fmul float %1, %conv17
-  %conv19 = uitofp i8 %storemerge.i to float
+  %conv19 = uitofp nneg i8 %storemerge.i to float
   %18 = or disjoint i64 %indvars.iv69, 1
   %cmp.i36 = icmp ult i64 %18, 4
   %arrayidx.i46 = getelementptr inbounds i8, ptr %scales, i64 %18
@@ -3638,13 +3638,13 @@ if.else.i37:                                      ; preds = %get_scale_min_k4.ex
 get_scale_min_k4.exit48:                          ; preds = %if.then.i44, %if.else.i37
   %or14.sink.i42 = phi i8 [ %20, %if.then.i44 ], [ %or14.i40, %if.else.i37 ]
   %storemerge.i43 = phi i8 [ %22, %if.then.i44 ], [ %or2715.i41, %if.else.i37 ]
-  %conv27 = uitofp i8 %or14.sink.i42 to float
+  %conv27 = uitofp nneg i8 %or14.sink.i42 to float
   %mul28 = fmul float %1, %conv27
   %neg = fmul float %4, %conv19
   br label %for.body35
 
 for.cond48.preheader:                             ; preds = %for.body35
-  %conv30 = uitofp i8 %storemerge.i43 to float
+  %conv30 = uitofp nneg i8 %storemerge.i43 to float
   %neg65 = fmul float %4, %conv30
   br label %for.body51
 

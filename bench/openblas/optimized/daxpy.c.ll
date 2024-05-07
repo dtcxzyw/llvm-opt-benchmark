@@ -29,7 +29,7 @@ define void @daxpy_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   br i1 %21, label %22, label %28
 
 22:                                               ; preds = %18
-  %23 = sitofp i32 %8 to double
+  %23 = uitofp nneg i32 %8 to double
   %24 = fmul double %14, %23
   %25 = load double, ptr %2, align 8, !tbaa !7
   %26 = load double, ptr %4, align 8, !tbaa !7

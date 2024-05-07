@@ -4516,14 +4516,14 @@ define internal fastcc float @_ratio_get_aspect(ptr noundef %0, ptr noundef %1) 
   br i1 %30, label %31, label %35
 
 31:                                               ; preds = %27, %21
-  %32 = sitofp i32 %16 to float
-  %33 = sitofp i32 %18 to float
+  %32 = uitofp nneg i32 %16 to float
+  %33 = uitofp nneg i32 %18 to float
   %34 = fdiv reassoc nsz arcp contract afn float %32, %33
   br label %39
 
 35:                                               ; preds = %27
-  %36 = sitofp i32 %18 to float
-  %37 = sitofp i32 %16 to float
+  %36 = uitofp nneg i32 %18 to float
+  %37 = uitofp nneg i32 %16 to float
   %38 = fdiv reassoc nsz arcp contract afn float %36, %37
   br label %39
 

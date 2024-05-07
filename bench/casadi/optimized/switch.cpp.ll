@@ -5422,7 +5422,7 @@ _ZN6casadi14casadi_projectINS_6SXElemEEEvPKT_PKxPS2_S6_S7_.exit164: ; preds = %.
 
 246:                                              ; preds = %._crit_edge253
   %247 = add nsw i64 %.0107264, -1
-  %248 = sitofp i64 %247 to double
+  %248 = uitofp nneg i64 %247 to double
   invoke void @_ZN6casadi6SXElemC1Ed(ptr noundef nonnull align 8 dereferenceable(8) %13, double noundef %248)
           to label %249 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 

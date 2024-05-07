@@ -468,7 +468,7 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
   br i1 %.not253, label %._crit_edge288.loopexit, label %.lr.ph287, !llvm.loop !10
 
 ._crit_edge288.loopexit:                          ; preds = %179
-  %181 = sitofp i64 %.1234 to double
+  %181 = uitofp nneg i64 %.1234 to double
   br label %._crit_edge288
 
 ._crit_edge288:                                   ; preds = %._crit_edge288.loopexit, %158
@@ -520,7 +520,7 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
   %208 = call ptr @palloc(i64 noundef %207) #7
   %209 = getelementptr inbounds i8, ptr %18, i64 12
   %210 = getelementptr inbounds i8, ptr %18, i64 14
-  %211 = sitofp i32 %.0223.lcssa to double
+  %211 = uitofp nneg i32 %.0223.lcssa to double
   br label %212
 
 212:                                              ; preds = %198, %212
@@ -651,7 +651,7 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
   %296 = shl nsw i64 %295, 2
   %297 = call ptr @MemoryContextAlloc(ptr noundef %293, i64 noundef %296) #7
   %298 = sitofp i64 %.0229.lcssa to double
-  %299 = sitofp i32 %.0223.lcssa to double
+  %299 = uitofp nneg i32 %.0223.lcssa to double
   %300 = fdiv double %298, %299
   %301 = fptrunc double %300 to float
   %302 = zext nneg i32 %282 to i64

@@ -1108,7 +1108,7 @@ ehcleanup75:                                      ; preds = %ehcleanup74, %lpad6
   br label %eh.resume
 
 if.end77:                                         ; preds = %if.end40
-  %conv.i = uitofp i64 %call21 to double
+  %conv.i = uitofp nneg i64 %call21 to double
   %41 = load double, ptr %bytes_read_this_round_.i83, align 16
   %add.i = fadd double %41, %conv.i
   store double %add.i, ptr %bytes_read_this_round_.i83, align 16

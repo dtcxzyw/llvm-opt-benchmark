@@ -1076,7 +1076,7 @@ define void @_Z15calc_disres_R_6PK9t_commrecPK14gmx_multisim_tiPKiPA3_KfPK5t_pbc
   br i1 %154, label %155, label %181
 
 155:                                              ; preds = %151
-  %156 = sitofp i32 %153 to double
+  %156 = uitofp nneg i32 %153 to double
   %157 = fdiv double 1.000000e+00, %156
   %158 = fptrunc double %157 to float
   %159 = load i32, ptr %36, align 4

@@ -98,7 +98,7 @@ define i64 @amd_l_order(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   %42 = phi i64 [ %39, %.thread168 ], [ %37, %36 ]
   %43 = tail call ptr @SuiteSparse_malloc(i64 noundef %0, i64 noundef 8) #3
   %44 = tail call ptr @SuiteSparse_malloc(i64 noundef %0, i64 noundef 8) #3
-  %45 = sitofp i64 %0 to double
+  %45 = uitofp nneg i64 %0 to double
   %46 = fadd double %45, %45
   %47 = icmp ne ptr %43, null
   %48 = icmp ne ptr %44, null
@@ -139,7 +139,7 @@ define i64 @amd_l_order(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   br label %108
 
 67:                                               ; preds = %55
-  %68 = sitofp i64 %56 to double
+  %68 = uitofp nneg i64 %56 to double
   %69 = fadd double %46, %68
   %70 = tail call i64 @llvm.umax.i64(i64 %23, i64 1)
   %71 = uitofp nneg i64 %70 to double

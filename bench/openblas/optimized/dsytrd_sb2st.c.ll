@@ -284,9 +284,9 @@ define void @dsytrd_sb2st_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   br label %322
 
 169:                                              ; preds = %100
-  %170 = sitofp i32 %58 to float
+  %170 = uitofp nneg i32 %58 to float
   %171 = add nsw i32 %58, -1
-  %172 = sitofp i32 %171 to float
+  %172 = uitofp nneg i32 %171 to float
   %173 = fdiv float %172, %170
   %174 = fadd float %173, 5.000000e-01
   %175 = fcmp ogt float %174, 0.000000e+00

@@ -1213,7 +1213,7 @@ for.end:                                          ; preds = %for.inc
   br i1 %cmp32, label %if.then33, label %for.end54
 
 if.then33:                                        ; preds = %for.end, %for.cond.preheader
-  %conv35 = uitofp i64 %conv27 to double
+  %conv35 = uitofp nneg i64 %conv27 to double
   %sub = fsub double %mul, %conv35
   %mul36 = fmul double %sub, 8.000000e+00
   %conv37 = fptoui double %mul36 to i64

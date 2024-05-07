@@ -6444,12 +6444,12 @@ lor.lhs.false49:                                  ; preds = %lor.lhs.false
   br i1 %or.cond135, label %cleanup116, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false49
-  %conv69 = sitofp i16 %sub.i154 to float
+  %conv69 = uitofp nneg i16 %sub.i154 to float
   %conv74 = uitofp i16 %16 to float
   %div75 = fdiv nsz float %conv69, %conv74
   %mul = fmul nsz float %div75, 5.120000e+02
   %conv76 = fptosi float %mul to i16
-  %conv79 = sitofp i16 %sub13.i160 to float
+  %conv79 = uitofp nneg i16 %sub13.i160 to float
   %div85 = fdiv nsz float %conv79, %conv74
   %mul86 = fmul nsz float %div85, 5.120000e+02
   %conv87 = fptosi float %mul86 to i16

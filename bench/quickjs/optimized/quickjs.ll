@@ -16701,7 +16701,7 @@ compute_bytecode_size.exit:                       ; preds = %334, %345, %348
   %353 = sitofp i32 %.4.i to double
   %354 = fadd double %.sroa.61.0439, %353
   %355 = add i64 %.sroa.58.0438, 1
-  %356 = sitofp i32 %.1.i to double
+  %356 = uitofp nneg i32 %.1.i to double
   %357 = fadd double %.sroa.0.0435, %356
   br label %compute_value_size.exit299
 
@@ -33035,7 +33035,7 @@ is_math_mode.exit:                                ; preds = %2
   br i1 %11, label %JS_ThrowOutOfMemory.exit, label %12
 
 12:                                               ; preds = %10
-  %13 = sitofp i64 %1 to double
+  %13 = uitofp nneg i64 %1 to double
   %14 = bitcast double %13 to i64
   br label %JS_ThrowOutOfMemory.exit
 
@@ -113287,7 +113287,7 @@ js_get_fast_array.exit.thread:                    ; preds = %42, %50, %46, %54
   br i1 %91, label %.thread, label %92
 
 92:                                               ; preds = %90
-  %93 = sitofp i64 %43 to double
+  %93 = uitofp nneg i64 %43 to double
   %94 = bitcast double %93 to i64
   br label %.thread
 
@@ -190661,7 +190661,7 @@ JS_DupValue.exit167:                              ; preds = %.lr.ph211, %187
 .loopexit:                                        ; preds = %JS_DupValue.exit164, %199, %._crit_edge, %._crit_edge212
   %.6 = phi ptr [ %.4.lcssa, %._crit_edge212 ], [ %.1.lcssa, %._crit_edge ], [ %201, %199 ], [ %168, %JS_DupValue.exit164 ]
   %204 = icmp ult i64 %89, 2147483648
-  %205 = sitofp i64 %89 to double
+  %205 = uitofp nneg i64 %89 to double
   %206 = bitcast double %205 to i64
   %.sroa.0128.0 = select i1 %204, i64 %89, i64 %206
   %.sroa.3.0 = select i1 %204, i64 0, i64 7
@@ -212229,7 +212229,7 @@ JS_ToFloat64.exit.thread:                         ; preds = %JS_ToFloat64.exit.t
   br i1 %53, label %59, label %54
 
 54:                                               ; preds = %51
-  %55 = sitofp i32 %31 to double
+  %55 = uitofp nneg i32 %31 to double
   %56 = fcmp olt double %52, %55
   br i1 %56, label %57, label %JS_ToInt32Clamp.exit.thread
 
@@ -212238,7 +212238,7 @@ JS_ToFloat64.exit.thread:                         ; preds = %JS_ToFloat64.exit.t
   br label %JS_ToInt32Clamp.exit.thread
 
 59:                                               ; preds = %51
-  %60 = sitofp i32 %24 to double
+  %60 = uitofp nneg i32 %24 to double
   %61 = fadd double %52, %60
   %62 = fcmp olt double %61, 0.000000e+00
   br i1 %62, label %JS_ToInt32Clamp.exit, label %63

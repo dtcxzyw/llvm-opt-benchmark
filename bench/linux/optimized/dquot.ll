@@ -5854,12 +5854,12 @@ define dso_local i32 @dquot_resume(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %12 = zext i32 %1 to i64
   br label %13
 
-13:                                               ; preds = %51, %8
-  %14 = phi i64 [ 0, %8 ], [ %53, %51 ]
-  %15 = phi i32 [ 0, %8 ], [ %52, %51 ]
+13:                                               ; preds = %49, %8
+  %14 = phi i64 [ 0, %8 ], [ %51, %49 ]
+  %15 = phi i32 [ 0, %8 ], [ %50, %49 ]
   %16 = icmp eq i64 %14, %12
   %17 = or i1 %9, %16
-  br i1 %17, label %18, label %51
+  br i1 %17, label %18, label %49
 
 18:                                               ; preds = %13
   %19 = load i32, ptr %3, align 8
@@ -5867,61 +5867,59 @@ define dso_local i32 @dquot_resume(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %21 = shl nuw nsw i32 64, %20
   %22 = and i32 %19, %21
   %23 = icmp eq i32 %22, 0
-  br i1 %23, label %51, label %24
+  br i1 %23, label %49, label %24
 
 24:                                               ; preds = %18
   tail call void @_raw_spin_lock(ptr noundef nonnull @dq_state_lock) #12
   %25 = load i32, ptr %3, align 8
-  %26 = shl nuw nsw i32 9, %20
-  %27 = and i32 %25, %26
-  %28 = shl nuw nsw i32 73, %20
-  %29 = xor i32 %28, -1
-  %30 = and i32 %25, %29
-  store i32 %30, ptr %3, align 8
+  %26 = shl nuw nsw i32 73, %20
+  %27 = xor i32 %26, -1
+  %28 = and i32 %25, %27
+  store i32 %28, ptr %3, align 8
   tail call void @_raw_spin_unlock(ptr noundef nonnull @dq_state_lock) #12
-  %31 = lshr i32 %27, %20
-  %32 = and i32 %31, 73
-  %33 = getelementptr [3 x %struct.mem_dqinfo], ptr %10, i64 0, i64 %14, i32 1
-  %34 = load i32, ptr %33, align 8
-  %35 = tail call i32 @dquot_load_quota_sb(ptr noundef %0, i32 noundef %20, i32 noundef %34, i32 noundef %32)
-  %36 = icmp slt i32 %35, 0
-  br i1 %36, label %37, label %51
+  %29 = lshr i32 %25, %20
+  %30 = and i32 %29, 9
+  %31 = getelementptr [3 x %struct.mem_dqinfo], ptr %10, i64 0, i64 %14, i32 1
+  %32 = load i32, ptr %31, align 8
+  %33 = tail call i32 @dquot_load_quota_sb(ptr noundef %0, i32 noundef %20, i32 noundef %32, i32 noundef %30)
+  %34 = icmp slt i32 %33, 0
+  br i1 %34, label %35, label %49
 
-37:                                               ; preds = %24
-  %38 = getelementptr [3 x ptr], ptr %11, i64 0, i64 %14
-  %39 = load ptr, ptr %38, align 8
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %51, label %41
+35:                                               ; preds = %24
+  %36 = getelementptr [3 x ptr], ptr %11, i64 0, i64 %14
+  %37 = load ptr, ptr %36, align 8
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %49, label %39
 
-41:                                               ; preds = %37
-  %42 = load i32, ptr %3, align 8
-  %43 = and i32 %42, 512
-  %44 = icmp eq i32 %43, 0
-  br i1 %44, label %45, label %50
+39:                                               ; preds = %35
+  %40 = load i32, ptr %3, align 8
+  %41 = and i32 %40, 512
+  %42 = icmp eq i32 %41, 0
+  br i1 %42, label %43, label %48
 
-45:                                               ; preds = %41
-  %46 = getelementptr inbounds i8, ptr %39, i64 160
-  tail call void @down_write(ptr noundef %46) #12
-  %47 = getelementptr inbounds i8, ptr %39, i64 12
-  %48 = load i32, ptr %47, align 4
-  %49 = and i32 %48, -33
-  store i32 %49, ptr %47, align 4
-  tail call void @up_write(ptr noundef %46) #12
-  br label %50
+43:                                               ; preds = %39
+  %44 = getelementptr inbounds i8, ptr %37, i64 160
+  tail call void @down_write(ptr noundef %44) #12
+  %45 = getelementptr inbounds i8, ptr %37, i64 12
+  %46 = load i32, ptr %45, align 4
+  %47 = and i32 %46, -33
+  store i32 %47, ptr %45, align 4
+  tail call void @up_write(ptr noundef %44) #12
+  br label %48
 
-50:                                               ; preds = %45, %41
-  store ptr null, ptr %38, align 8
-  tail call void @iput(ptr noundef nonnull %39) #12
-  br label %51
+48:                                               ; preds = %43, %39
+  store ptr null, ptr %36, align 8
+  tail call void @iput(ptr noundef nonnull %37) #12
+  br label %49
 
-51:                                               ; preds = %50, %37, %24, %18, %13
-  %52 = phi i32 [ %35, %24 ], [ %15, %18 ], [ %15, %13 ], [ %35, %37 ], [ %35, %50 ]
-  %53 = add nuw nsw i64 %14, 1
-  %54 = icmp eq i64 %53, 3
-  br i1 %54, label %55, label %13, !llvm.loop !100
+49:                                               ; preds = %48, %35, %24, %18, %13
+  %50 = phi i32 [ %33, %24 ], [ %15, %18 ], [ %15, %13 ], [ %33, %35 ], [ %33, %48 ]
+  %51 = add nuw nsw i64 %14, 1
+  %52 = icmp eq i64 %51, 3
+  br i1 %52, label %53, label %13, !llvm.loop !100
 
-55:                                               ; preds = %51
-  ret i32 %52
+53:                                               ; preds = %49
+  ret i32 %50
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

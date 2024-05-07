@@ -10301,7 +10301,7 @@ define float @TextToFloat(ptr nocapture noundef readonly %0) local_unnamed_addr 
   %9 = phi i8 [ %13, %.lr.ph ], [ %7, %6 ]
   %.03140 = phi float [ %11, %.lr.ph ], [ 0.000000e+00, %6 ]
   %narrow37 = add nsw i8 %9, -48
-  %10 = sitofp i8 %narrow37 to float
+  %10 = uitofp nneg i8 %narrow37 to float
   %11 = tail call float @llvm.fmuladd.f32(float %.03140, float 1.000000e+01, float %10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = getelementptr inbounds i8, ptr %.033, i64 %indvars.iv.next
@@ -10345,7 +10345,7 @@ define float @TextToFloat(ptr nocapture noundef readonly %0) local_unnamed_addr 
   %.047 = phi float [ 1.000000e+01, %.lr.ph49.preheader ], [ %28, %.lr.ph49 ]
   %.13246 = phi float [ %.031.lcssa, %.lr.ph49.preheader ], [ %27, %.lr.ph49 ]
   %narrow = add nsw i8 %24, -48
-  %25 = sitofp i8 %narrow to float
+  %25 = uitofp nneg i8 %narrow to float
   %26 = fdiv float %25, %.047
   %27 = fadd float %.13246, %26
   %28 = fmul float %.047, 1.000000e+01

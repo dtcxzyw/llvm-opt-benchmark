@@ -1867,7 +1867,7 @@ if.then263:                                       ; preds = %if.end260
   br label %if.end311
 
 if.else271:                                       ; preds = %if.end260
-  %conv.i285 = uitofp i64 %n.0380 to double
+  %conv.i285 = uitofp nneg i64 %n.0380 to double
   store double %conv.i285, ptr %retval.0.i.i.i.i.i.i140, align 8
   %call280 = call ptr @_ZN6hermes2vm15valueToSymbolIDERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %retval.0.i.i.i.i.i.i140) #8
   %cmp.i.i286.not = icmp eq ptr %call280, inttoptr (i64 -1 to ptr)
@@ -2192,7 +2192,7 @@ if.end.i.i.i.i.i.i90:                             ; preds = %if.end98
 _ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.exit: ; preds = %if.then.i.i.i.i.i.i93, %if.end.i.i.i.i.i.i90
   %35 = phi double [ 0.000000e+00, %if.then.i.i.i.i.i.i93 ], [ %.pre, %if.end.i.i.i.i.i.i90 ]
   %retval.0.i.i.i.i.i.i92 = phi ptr [ %33, %if.then.i.i.i.i.i.i93 ], [ %call7.i.i.i.i.i.i91, %if.end.i.i.i.i.i.i90 ]
-  %conv106 = uitofp i64 %19 to double
+  %conv106 = uitofp nneg i64 %19 to double
   %cmp107220 = fcmp olt double %35, %conv106
   br i1 %cmp107220, label %for.body.lr.ph, label %for.end
 
@@ -6576,7 +6576,7 @@ _ZN6hermes2vm13MutableHandleINS0_8JSObjectEEC2ERNS0_15HandleRootOwnerEPS2_.exit:
   store ptr %retval.0.i.i.i.i.i.i68, ptr %descObjHandle, align 8
   %33 = load ptr, ptr %next_.i, align 8
   %34 = load i32, ptr %curChunkIndex_.i, align 8
-  %conv73 = uitofp i64 %14 to double
+  %conv73 = uitofp nneg i64 %14 to double
   %35 = load double, ptr %retval.0.i.i.i.i.i.i50, align 8
   %cmp74108 = fcmp olt double %35, %conv73
   br i1 %cmp74108, label %while.body.lr.ph, label %while.end
@@ -6918,7 +6918,7 @@ _ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.ex
   %retval.0.i.i.i.i.i.i79 = phi ptr [ %34, %if.then.i.i.i.i.i.i80 ], [ %call7.i.i.i.i.i.i78, %if.end.i.i.i.i.i.i77 ]
   %36 = load ptr, ptr %next_.i, align 8
   %37 = load i32, ptr %curChunkIndex_.i, align 8
-  %conv76 = uitofp i64 %14 to double
+  %conv76 = uitofp nneg i64 %14 to double
   %38 = load double, ptr %retval.0.i.i.i.i.i.i52, align 8
   %cmp77114 = fcmp olt double %38, %conv76
   br i1 %cmp77114, label %while.body.lr.ph, label %while.end
@@ -10277,7 +10277,7 @@ if.then160:                                       ; preds = %if.else
   br label %cleanup
 
 if.end163:                                        ; preds = %if.else
-  %conv.i98 = uitofp i64 %targetIndex.0121 to double
+  %conv.i98 = uitofp nneg i64 %targetIndex.0121 to double
   store double %conv.i98, ptr %inlineStorage_.i, align 8
   %call188 = call i32 @_ZN6hermes2vm8JSObject17defineOwnComputedENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEENS0_19DefinePropertyFlagsES7_NS0_11PropOpFlagsE(ptr %target.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %inlineStorage_.i, i32 319, ptr nonnull %incdec.ptr.i.i.i.i.i.i46, i32 1) #8
   %bf.cast.i.i103116.mask = and i32 %call188, 255

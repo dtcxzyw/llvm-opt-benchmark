@@ -81432,7 +81432,7 @@ _ZNKSt6vectorIN6casadi8SparsityESaIS1_EE2atEm.exit1084: ; preds = %2199
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %795, i8 0, i64 24, i1 false)
   store ptr %2234, ptr %796, align 8
   store i64 %2229, ptr %797, align 8
-  %2235 = sitofp i64 %2229 to double
+  %2235 = uitofp nneg i64 %2229 to double
   invoke void @_ZN6casadi6MatrixIxEC1Ed(ptr noundef nonnull align 8 dereferenceable(40) %5, double noundef %2235)
           to label %2236 unwind label %2240
 

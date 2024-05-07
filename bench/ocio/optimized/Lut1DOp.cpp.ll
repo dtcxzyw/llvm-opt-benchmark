@@ -996,7 +996,7 @@ if.end:                                           ; preds = %entry
 
 for.body.lr.ph:                                   ; preds = %if.end
   %sub = add nsw i32 %numElements, -1
-  %conv1 = sitofp i32 %sub to double
+  %conv1 = uitofp nneg i32 %sub to double
   %sub.i = fsub float %end, %start
   %cmp511 = icmp sgt i32 %numChannels, 0
   br i1 %cmp511, label %for.body.us.preheader, label %for.end9

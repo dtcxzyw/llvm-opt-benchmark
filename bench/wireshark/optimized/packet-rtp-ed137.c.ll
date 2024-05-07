@@ -1505,11 +1505,11 @@ proto_item_set_generated.exit53:                  ; preds = %proto_item_set_gene
   br label %100
 
 93:                                               ; preds = %proto_item_set_generated.exit53
-  %94 = uitofp i32 %5 to double
+  %94 = uitofp nneg i32 %5 to double
   %95 = fneg double %94
   %96 = call double @llvm.fmuladd.f64(double %95, double 1.250000e-01, double %74)
   %97 = fmul double %96, 5.000000e-01
-  %98 = uitofp i32 %6 to double
+  %98 = uitofp nneg i32 %6 to double
   %99 = call double @llvm.fmuladd.f64(double %98, double 1.250000e-01, double %97)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %88, i32 noundef 25, ptr noundef nonnull @.str.221, double noundef %99) #5
   br label %100

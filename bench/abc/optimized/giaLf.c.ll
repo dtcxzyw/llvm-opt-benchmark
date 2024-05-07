@@ -7609,7 +7609,7 @@ Lf_ObjCoArrival.exit:                             ; preds = %57, %.sink.split.i.
   br i1 %.not, label %.thread, label %72
 
 72:                                               ; preds = %69
-  %73 = sitofp i32 %.0142.lcssa to float
+  %73 = uitofp nneg i32 %.0142.lcssa to float
   %74 = fpext float %73 to double
   %75 = sitofp i32 %71 to double
   %76 = fadd double %75, 1.000000e+02
@@ -7626,7 +7626,7 @@ Lf_ObjCoArrival.exit:                             ; preds = %57, %.sink.split.i.
 .thread392:                                       ; preds = %._crit_edge, %72
   %80 = phi ptr [ %.pre, %72 ], [ %65, %._crit_edge ]
   %81 = phi i32 [ %.pre384, %72 ], [ %67, %._crit_edge ]
-  %82 = sitofp i32 %.0142.lcssa to double
+  %82 = uitofp nneg i32 %.0142.lcssa to double
   %83 = sitofp i32 %81 to double
   %84 = fadd double %83, 1.000000e-02
   %85 = fcmp ogt double %84, %82
@@ -8809,7 +8809,7 @@ Lf_ObjCoArrival2.exit:                            ; preds = %57, %.sink.split.i.
   br i1 %.not, label %.thread, label %72
 
 72:                                               ; preds = %69
-  %73 = sitofp i32 %.0.lcssa to float
+  %73 = uitofp nneg i32 %.0.lcssa to float
   %74 = fpext float %73 to double
   %75 = sitofp i32 %71 to double
   %76 = fadd double %75, 1.000000e+02
@@ -8826,7 +8826,7 @@ Lf_ObjCoArrival2.exit:                            ; preds = %57, %.sink.split.i.
 .thread321:                                       ; preds = %._crit_edge, %72
   %80 = phi ptr [ %.pre, %72 ], [ %65, %._crit_edge ]
   %81 = phi i32 [ %.pre314, %72 ], [ %67, %._crit_edge ]
-  %82 = sitofp i32 %.0.lcssa to double
+  %82 = uitofp nneg i32 %.0.lcssa to double
   %83 = sitofp i32 %81 to double
   %84 = fadd double %83, 1.000000e-02
   %85 = fcmp ogt double %84, %82

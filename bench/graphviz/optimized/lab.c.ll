@@ -845,7 +845,7 @@ define noalias noundef ptr @color_blend_rgb2lab(ptr noundef %0, i32 noundef %1) 
   %80 = getelementptr inbounds double, ptr %35, i64 %79
   %81 = load double, ptr %80, align 8
   %82 = add nsw i32 %1, -1
-  %83 = sitofp i32 %82 to double
+  %83 = uitofp nneg i32 %82 to double
   %84 = fdiv double %81, %83
   %85 = load double, ptr %35, align 8
   %86 = fadd double %84, %85

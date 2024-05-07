@@ -6969,7 +6969,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit85: ; preds = %_ZN3gmx14Log
   %769 = getelementptr inbounds [3 x float], ptr %99, i64 0, i64 %indvars.iv.i.i
   %770 = load float, ptr %769, align 4
   %771 = fmul float %768, %770
-  %772 = sitofp i32 %764 to float
+  %772 = uitofp nneg i32 %764 to float
   %773 = fdiv float %771, %772
   %774 = fcmp olt float %773, %.01112.i.i
   %.sroa.speculated.i.i = select i1 %774, float %773, float %.01112.i.i
@@ -9027,7 +9027,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit93.i:                ; preds = %176, %_ZNSt6vectorI
   %206 = getelementptr inbounds [3 x float], ptr %198, i64 0, i64 %indvars.iv.i.i
   %207 = load float, ptr %206, align 4
   %208 = fmul float %205, %207
-  %209 = sitofp i32 %201 to float
+  %209 = uitofp nneg i32 %201 to float
   %210 = fdiv float %208, %209
   %211 = fcmp olt float %210, %.01112.i.i
   %.sroa.speculated.i.i = select i1 %211, float %210, float %.01112.i.i
@@ -12713,7 +12713,7 @@ define internal fastcc void @_ZL13writeSettingsPN3gmx10TextWriterEP12gmx_domdec_
   %51 = getelementptr inbounds [3 x float], ptr %37, i64 0, i64 %indvars.iv131
   %52 = load float, ptr %51, align 4
   %53 = fmul float %50, %52
-  %54 = sitofp i32 %40 to float
+  %54 = uitofp nneg i32 %40 to float
   %55 = fdiv float %53, %54
   %56 = fdiv float %48, %55
   br label %57
@@ -14476,7 +14476,7 @@ define noundef zeroext i1 @_Z16change_dd_cutoffP9t_commrecPA3_KfN3gmx8ArrayRefIK
   %60 = load float, ptr %59, align 4
   %61 = fsub float %58, %60
   %62 = fmul float %47, %61
-  %63 = sitofp i32 %53 to float
+  %63 = uitofp nneg i32 %53 to float
   %64 = fmul float %62, %63
   %65 = fcmp olt float %64, %4
   br i1 %65, label %66, label %67
@@ -14534,7 +14534,7 @@ define noundef zeroext i1 @_Z16change_dd_cutoffP9t_commrecPA3_KfN3gmx8ArrayRefIK
   %98 = load float, ptr %97, align 4
   %99 = fsub float %96, %98
   %100 = fmul float %85, %99
-  %101 = sitofp i32 %91 to float
+  %101 = uitofp nneg i32 %91 to float
   %102 = fmul float %100, %101
   %103 = fcmp olt float %102, %4
   br i1 %103, label %104, label %105
@@ -14600,7 +14600,7 @@ define noundef zeroext i1 @_Z16change_dd_cutoffP9t_commrecPA3_KfN3gmx8ArrayRefIK
   %142 = load float, ptr %141, align 4
   %143 = fsub float %140, %142
   %144 = fmul float %129, %143
-  %145 = sitofp i32 %135 to float
+  %145 = uitofp nneg i32 %135 to float
   %146 = fmul float %144, %145
   %147 = fcmp olt float %146, %4
   br i1 %147, label %148, label %149

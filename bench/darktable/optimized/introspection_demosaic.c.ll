@@ -5405,7 +5405,7 @@ define void @process(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 3847:                                             ; preds = %3836, %3831, %3802
   %3848 = phi i8 [ %3803, %3802 ], [ %3832, %3831 ], [ %3846, %3836 ]
   %3849 = phi float [ %3804, %3802 ], [ %3833, %3831 ], [ %3845, %3836 ]
-  %3850 = uitofp i8 %3848 to float
+  %3850 = uitofp nneg i8 %3848 to float
   %3851 = fdiv reassoc nsz arcp contract afn float %3849, %3850
   store float %3851, ptr %3568, align 4, !tbaa !24
   store float %3851, ptr %3569, align 4, !tbaa !24
@@ -14821,7 +14821,7 @@ define internal fastcc void @vng_interpolate(ptr nocapture noundef %0, ptr nocap
   %3009 = phi i32 [ %3007, %3006 ], [ %2919, %2918 ]
   %3010 = getelementptr inbounds float, ptr %2159, i64 %2292
   %3011 = getelementptr [4 x float], ptr %15, i64 0, i64 %2292
-  %3012 = sitofp i32 %3009 to float
+  %3012 = uitofp nneg i32 %3009 to float
   %3013 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %3012
   br label %3028
 

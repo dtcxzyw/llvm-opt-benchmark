@@ -332,7 +332,7 @@ power.exit:                                       ; preds = %while.body.i
   %sub = add nsw i32 %cond, -1
   %sub_bucket_half_count_magnitude = getelementptr inbounds i8, ptr %cfg, i64 32
   store i32 %sub, ptr %sub_bucket_half_count_magnitude, align 8
-  %conv17 = sitofp i64 %lowest_discernible_value to double
+  %conv17 = uitofp nneg i64 %lowest_discernible_value to double
   %call18 = tail call double @log(double noundef %conv17) #21
   %div20 = fdiv double %call18, 0x3FE62E42FEFA39EF
   %cmp21 = fcmp ogt double %div20, 0x41DFFFFFFFC00000

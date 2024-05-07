@@ -17185,7 +17185,7 @@ invoke.cont326:                                   ; preds = %invoke.cont326.lr.p
   %S.i = getelementptr inbounds i8, ptr %add.ptr.i267, i64 8
   %141 = load double, ptr %S.i, align 8
   %sub.i = add nsw i64 %140, -1
-  %conv.i269 = sitofp i64 %sub.i to double
+  %conv.i269 = uitofp nneg i64 %sub.i to double
   %div.i = fdiv double %141, %conv.i269
   %cond.i = select i1 %cmp.i268, double %div.i, double 0.000000e+00
   %conv332 = fpext float %varSum.0406 to double
@@ -20346,7 +20346,7 @@ for.body.i635:                                    ; preds = %for.body.i635, %for
 
 invoke.cont433:                                   ; preds = %for.body.i635, %invoke.cont431
   %sum.0.lcssa.i = phi float [ 0.000000e+00, %invoke.cont431 ], [ %add.i, %for.body.i635 ]
-  %conv5.i = uitofp i64 %212 to float
+  %conv5.i = uitofp nneg i64 %212 to float
   %div.i = fdiv float %sum.0.lcssa.i, %conv5.i
   store i64 0, ptr %nStored.i.i630, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %.pre1964, null
@@ -20509,7 +20509,7 @@ for.body.i696:                                    ; preds = %for.body.i696, %for
 
 invoke.cont443:                                   ; preds = %for.body.i696, %invoke.cont441
   %sum.0.lcssa.i703 = phi float [ 0.000000e+00, %invoke.cont441 ], [ %add.i700, %for.body.i696 ]
-  %conv5.i704 = uitofp i64 %238 to float
+  %conv5.i704 = uitofp nneg i64 %238 to float
   %div.i705 = fdiv float %sum.0.lcssa.i703, %conv5.i704
   store i64 0, ptr %nStored.i.i690, align 8
   %tobool.not.i.i.i.i.i709 = icmp eq ptr %.pre1966, null
@@ -21988,7 +21988,7 @@ for.body.i1205:                                   ; preds = %for.body.i1205, %fo
 
 invoke.cont763:                                   ; preds = %for.body.i1205, %if.end761
   %sum.0.lcssa.i1212 = phi float [ 0.000000e+00, %if.end761 ], [ %add.i1209, %for.body.i1205 ]
-  %conv5.i1213 = uitofp i64 %437 to float
+  %conv5.i1213 = uitofp nneg i64 %437 to float
   %div.i1214 = fdiv float %sum.0.lcssa.i1212, %conv5.i1213
   store float %div.i1214, ptr %ref.tmp762, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %s.i)
@@ -23277,7 +23277,7 @@ for.cond190.preheader:                            ; preds = %invoke.cont166, %fo
   %indvars.iv387 = phi i64 [ 0, %invoke.cont166 ], [ %indvars.iv.next388, %for.inc203 ]
   %57 = trunc i64 %indvars.iv387 to i32
   %58 = sub i32 299, %57
-  %conv196 = sitofp i32 %58 to float
+  %conv196 = uitofp nneg i32 %58 to float
   %div = fdiv float %conv196, 2.990000e+02
   %agg.tmp193.sroa.2.0.insert.shift = shl nuw nsw i64 %indvars.iv387, 32
   br label %invoke.cont194
@@ -23456,7 +23456,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 
 invoke.cont254:                                   ; preds = %for.body.i, %invoke.cont252
   %sum.0.lcssa.i = phi float [ 0.000000e+00, %invoke.cont252 ], [ %add.i, %for.body.i ]
-  %conv5.i = uitofp i64 %67 to float
+  %conv5.i = uitofp nneg i64 %67 to float
   %div.i = fdiv float %sum.0.lcssa.i, %conv5.i
   %69 = call noundef float @llvm.fabs.f32(float %div.i)
   %70 = load float, ptr %maxValue, align 4
@@ -23636,7 +23636,7 @@ for.body.i213:                                    ; preds = %for.body.i213, %for
 
 invoke.cont355:                                   ; preds = %for.body.i213, %invoke.cont353
   %sum.0.lcssa.i220 = phi float [ 0.000000e+00, %invoke.cont353 ], [ %add.i217, %for.body.i213 ]
-  %conv5.i221 = uitofp i64 %83 to float
+  %conv5.i221 = uitofp nneg i64 %83 to float
   %div.i222 = fdiv float %sum.0.lcssa.i220, %conv5.i221
   %85 = load float, ptr %maxValue, align 4
   %div357 = fdiv float %div.i222, %85
@@ -30855,7 +30855,7 @@ for.body.i1109.us:                                ; preds = %for.body.i1109.us, 
 
 invoke.cont1173.us:                               ; preds = %for.body.i1109.us, %invoke.cont1171.us
   %sum.0.lcssa.i.us = phi float [ 0.000000e+00, %invoke.cont1171.us ], [ %add.i1112.us, %for.body.i1109.us ]
-  %conv5.i.us = uitofp i64 %423 to float
+  %conv5.i.us = uitofp nneg i64 %423 to float
   %div.i.us = fdiv float %sum.0.lcssa.i.us, %conv5.i.us
   %425 = load float, ptr %despikeLimit, align 4
   %cmp1175.us = fcmp olt float %div.i.us, %425
@@ -30966,9 +30966,9 @@ for.body.i7.i.i.i.i.i.i.us:                       ; preds = %for.body.i7.i.i.i.i
   br i1 %exitcond.not.i13.i.i.i.i.i.i.us, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit.i.i.i.i.us", label %for.body.i7.i.i.i.i.i.i.us, !llvm.loop !122
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit.i.i.i.i.us": ; preds = %for.body.i7.i.i.i.i.i.i.us
-  %conv5.i.i.i.i.i.i.i.us = uitofp i64 %432 to float
+  %conv5.i.i.i.i.i.i.i.us = uitofp nneg i64 %432 to float
   %div.i.i.i.i.i.i.i.us = fdiv float %sum.0.lcssa.i.i.i.i.i.i.i.us, %conv5.i.i.i.i.i.i.i.us
-  %conv5.i15.i.i.i.i.i.i.us = uitofp i64 %436 to float
+  %conv5.i15.i.i.i.i.i.i.us = uitofp nneg i64 %436 to float
   %div.i16.i.i.i.i.i.i.us = fdiv float %add.i11.i.i.i.i.i.i.us, %conv5.i15.i.i.i.i.i.i.us
   %cmp.i.i.i.i16.i.i.us = fcmp olt float %div.i.i.i.i.i.i.i.us, %div.i16.i.i.i.i.i.i.us
   br i1 %cmp.i.i.i.i16.i.i.us, label %for.body.i.i.i25.i.i.i.i.us, label %if.else7.i.i.i.i.us
@@ -31010,7 +31010,7 @@ for.body.i7.i.i40.i.i.i.i.us:                     ; preds = %for.body.i7.i.i40.i
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit53.i.i.i.i.us": ; preds = %for.body.i7.i.i40.i.i.i.i.us, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i32.i.i.i.i.us
   %sum.0.lcssa.i14.i.i47.i.i.i.i.us = phi float [ 0.000000e+00, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i32.i.i.i.i.us ], [ %add.i11.i.i44.i.i.i.i.us, %for.body.i7.i.i40.i.i.i.i.us ]
   %div.i.i.i49.i.i.i.i.us = fdiv float %add.i.i.i29.i.i.i.i.us, %conv5.i15.i.i.i.i.i.i.us
-  %conv5.i15.i.i50.i.i.i.i.us = uitofp i64 %441 to float
+  %conv5.i15.i.i50.i.i.i.i.us = uitofp nneg i64 %441 to float
   %div.i16.i.i51.i.i.i.i.us = fdiv float %sum.0.lcssa.i14.i.i47.i.i.i.i.us, %conv5.i15.i.i50.i.i.i.i.us
   %cmp.i.i52.i.i.i.i.us = fcmp olt float %div.i.i.i49.i.i.i.i.us, %div.i16.i.i51.i.i.i.i.us
   br i1 %cmp.i.i52.i.i.i.i.us, label %"_ZSt22__move_median_to_firstIPN4pbrt18ImageChannelValuesEN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEE3$_1EEEvT_SH_SH_SH_T0_.exit.i.i.i.us", label %if.else.i.i.i.i.us
@@ -31067,7 +31067,7 @@ for.body.i7.i.i75.i.i.i.i.us:                     ; preds = %for.body.i7.i.i75.i
   br label %"_ZSt22__move_median_to_firstIPN4pbrt18ImageChannelValuesEN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEE3$_1EEEvT_SH_SH_SH_T0_.exit.i.i.i.us"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit.thread.i.i.i.i.us": ; preds = %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i.i.i.i.i.us
-  %conv5.i.i.i160.i.i.i.i.us = uitofp i64 %432 to float
+  %conv5.i.i.i160.i.i.i.i.us = uitofp nneg i64 %432 to float
   br label %if.else7.i.i.i.i.us
 
 if.else7.i.i.i.i.us:                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit.thread.i.i.i.i.us", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit.i.i.i.i.us"
@@ -31121,7 +31121,7 @@ for.body.i7.i.i110.i.i.i.i.us:                    ; preds = %for.body.i7.i.i110.
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit123.i.i.i.i.us": ; preds = %for.body.i7.i.i110.i.i.i.i.us, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i102.i.i.i.i.us
   %sum.0.lcssa.i14.i.i117.i.i.i.i.us = phi float [ 0.000000e+00, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i102.i.i.i.i.us ], [ %add.i11.i.i114.i.i.i.i.us, %for.body.i7.i.i110.i.i.i.i.us ]
   %div.i.i.i119.i.i.i.i.us = fdiv float %sum.0.lcssa.i.i.i103.i.i.i.i.us, %conv5.i.i.i166.i.i.i.i.us
-  %conv5.i15.i.i120.i.i.i.i.us = uitofp i64 %454 to float
+  %conv5.i15.i.i120.i.i.i.i.us = uitofp nneg i64 %454 to float
   %div.i16.i.i121.i.i.i.i.us = fdiv float %sum.0.lcssa.i14.i.i117.i.i.i.i.us, %conv5.i15.i.i120.i.i.i.i.us
   %cmp.i.i122.i.i.i.i.us = fcmp olt float %div.i.i.i119.i.i.i.i.us, %div.i16.i.i121.i.i.i.i.us
   br i1 %cmp.i.i122.i.i.i.i.us, label %"_ZSt22__move_median_to_firstIPN4pbrt18ImageChannelValuesEN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEE3$_1EEEvT_SH_SH_SH_T0_.exit.i.i.i.us", label %if.else10.i.i.i.i.us
@@ -31532,7 +31532,7 @@ while.body.i.i17.i.i.us:                          ; preds = %_ZSt4swapIN4pbrt18I
   %__first.addr.0.i.i.i.i.us = phi ptr [ %add.ptr1.i.i.i.us, %.noexc1199.us ], [ %incdec.ptr9.i.i.i.i.us, %_ZSt4swapIN4pbrt18ImageChannelValuesEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_.exit.i.i.us ]
   %537 = load i64, ptr %nStored3.i.i.i.us, align 8
   %cmp5.not.i2.i.i.i11.i.i.i.us = icmp eq i64 %537, 0
-  %conv5.i15.i.i.i12.i.i.i.us = uitofp i64 %537 to float
+  %conv5.i15.i.i.i12.i.i.i.us = uitofp nneg i64 %537 to float
   br i1 %cmp5.not.i2.i.i.i11.i.i.i.us, label %while.body.split.us.i.i.i.i.us, label %while.body.split.i.i.i.i.us
 
 while.body.split.i.i.i.i.us:                      ; preds = %while.body.i.i17.i.i.us
@@ -31581,7 +31581,7 @@ for.body.i7.i.i.i30.i.i.i.us:                     ; preds = %for.body.i7.i.i.i30
   br i1 %exitcond.not.i13.i.i.i36.i.i.i.us, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit.loopexit.i.i.i.i.us", label %for.body.i7.i.i.i30.i.i.i.us, !llvm.loop !122
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit.loopexit.i.i.i.i.us": ; preds = %for.body.i7.i.i.i30.i.i.i.us
-  %conv5.i.i.i.i37.i.i.i.us = uitofp i64 %539 to float
+  %conv5.i.i.i.i37.i.i.i.us = uitofp nneg i64 %539 to float
   %div.i.i.i.i38.i.i.i.us = fdiv float %sum.0.lcssa.i.i.i.i29.i.i.i.us, %conv5.i.i.i.i37.i.i.i.us
   %div.i16.i.i.i39.i.i.i.us = fdiv float %add.i11.i.i.i34.i.i.i.us, %conv5.i15.i.i.i12.i.i.i.us
   %cmp.i.i.i40.i.i.i.us = fcmp olt float %div.i.i.i.i38.i.i.i.us, %div.i16.i.i.i39.i.i.i.us
@@ -31619,7 +31619,7 @@ for.body.i.i.i.us.i.i.i.i.us:                     ; preds = %for.body.i.i.i.us.i
 
 _ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i.us.i.i.i.i.us: ; preds = %for.body.i.i.i.us.i.i.i.i.us, %while.cond1.us.i.i.i.i.us
   %sum.0.lcssa.i.i.i.us.i.i.i.i.us = phi float [ 0.000000e+00, %while.cond1.us.i.i.i.i.us ], [ %add.i.i.i.us.i.i.i.i.us, %for.body.i.i.i.us.i.i.i.i.us ]
-  %conv5.i.i.i.us.i.i.i.i.us = uitofp i64 %544 to float
+  %conv5.i.i.i.us.i.i.i.i.us = uitofp nneg i64 %544 to float
   %div.i.i.i.us.i.i.i.i.us = fdiv float %sum.0.lcssa.i.i.i.us.i.i.i.i.us, %conv5.i.i.i.us.i.i.i.i.us
   %cmp.i.i.us.i.i.i.i.us = fcmp olt float %div.i.i.i.us.i.i.i.i.us, %div.i16.i.i.us.i.i.i.i.us
   %incdec.ptr.us.i.i.i.i.us = getelementptr inbounds i8, ptr %__first.addr.1.us.i.i.i.i.us, i64 48
@@ -31679,7 +31679,7 @@ for.body.i7.i.i32.i.i.i.i.us:                     ; preds = %for.body.i7.i.i32.i
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit45.i.i.i.i.us": ; preds = %for.body.i7.i.i32.i.i.i.i.us, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i24.i.i.i.i.us
   %sum.0.lcssa.i14.i.i39.i.i.i.i.us = phi float [ 0.000000e+00, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i24.i.i.i.i.us ], [ %add.i11.i.i36.i.i.i.i.us, %for.body.i7.i.i32.i.i.i.i.us ]
   %div.i.i.i41.i.i.i.i.us = fdiv float %sum.0.lcssa.i.i.i25.i.i.i.i.us, %conv5.i15.i.i.i12.i.i.i.us
-  %conv5.i15.i.i42.i.i.i.i.us = uitofp i64 %551 to float
+  %conv5.i15.i.i42.i.i.i.i.us = uitofp nneg i64 %551 to float
   %div.i16.i.i43.i.i.i.i.us = fdiv float %sum.0.lcssa.i14.i.i39.i.i.i.i.us, %conv5.i15.i.i42.i.i.i.i.us
   %cmp.i.i44.i.i.i.i.us = fcmp olt float %div.i.i.i41.i.i.i.i.us, %div.i16.i.i43.i.i.i.i.us
   br i1 %cmp.i.i44.i.i.i.i.us, label %while.cond4.i.i.i.i.us, label %while.end8.i.i.i.i.us, !llvm.loop !188
@@ -31770,9 +31770,9 @@ for.body.i7.i.i.i47.i.i.us:                       ; preds = %for.body.i7.i.i.i47
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit.i54.i.i.us": ; preds = %for.body.i7.i.i.i47.i.i.us, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i.i41.i.i.us
   %sum.0.lcssa.i14.i.i.i55.i.i.us = phi float [ 0.000000e+00, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i.i41.i.i.us ], [ %add.i11.i.i.i51.i.i.us, %for.body.i7.i.i.i47.i.i.us ]
-  %conv5.i.i.i.i56.i.i.us = uitofp i64 %556 to float
+  %conv5.i.i.i.i56.i.i.us = uitofp nneg i64 %556 to float
   %div.i.i.i.i57.i.i.us = fdiv float %sum.0.lcssa.i.i.i.i42.i.i.us, %conv5.i.i.i.i56.i.i.us
-  %conv5.i15.i.i.i58.i.i.us = uitofp i64 %560 to float
+  %conv5.i15.i.i.i58.i.i.us = uitofp nneg i64 %560 to float
   %div.i16.i.i.i59.i.i.us = fdiv float %sum.0.lcssa.i14.i.i.i55.i.i.us, %conv5.i15.i.i.i58.i.i.us
   %cmp.i.i.i60.i.i.us = fcmp olt float %div.i.i.i.i57.i.i.us, %div.i16.i.i.i59.i.i.us
   br i1 %cmp.i.i.i60.i.i.us, label %if.then2.i.i.i.us, label %if.else.i.i.i.us
@@ -31859,9 +31859,9 @@ for.body.i7.i.i.i.i86.i.i.us:                     ; preds = %for.body.i7.i.i.i.i
 
 invoke.cont.i.i93.i.i.us:                         ; preds = %for.body.i7.i.i.i.i86.i.i.us, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i.i.i78.i.i.us
   %sum.0.lcssa.i14.i.i.i.i.i.i.us = phi float [ 0.000000e+00, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i.i.i78.i.i.us ], [ %add.i11.i.i.i.i90.i.i.us, %for.body.i7.i.i.i.i86.i.i.us ]
-  %conv5.i.i.i.i.i94.i.i.us = uitofp i64 %568 to float
+  %conv5.i.i.i.i.i94.i.i.us = uitofp nneg i64 %568 to float
   %div.i.i.i.i.i95.i.i.us = fdiv float %sum.0.lcssa.i.i.i.i.i79.i.i.us, %conv5.i.i.i.i.i94.i.i.us
-  %conv5.i15.i.i.i.i96.i.i.us = uitofp i64 %571 to float
+  %conv5.i15.i.i.i.i96.i.i.us = uitofp nneg i64 %571 to float
   %div.i16.i.i.i.i97.i.i.us = fdiv float %sum.0.lcssa.i14.i.i.i.i.i.i.us, %conv5.i15.i.i.i.i96.i.i.us
   %cmp.i.i8.i.i.i.i.us = fcmp olt float %div.i.i.i.i.i95.i.i.us, %div.i16.i.i.i.i97.i.i.us
   br i1 %cmp.i.i8.i.i.i.i.us, label %while.body.i.i107.i.i.us, label %while.end.i.i.i.i.us
@@ -33065,9 +33065,9 @@ for.body.i7.i.i.i.i.i.us:                         ; preds = %for.body.i7.i.i.i.i
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit.i.i.i.us": ; preds = %for.body.i7.i.i.i.i.i.us, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i.i.i.i.us
   %sum.0.lcssa.i14.i.i.i.i.i.us = phi float [ 0.000000e+00, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i.i.i.i.us ], [ %add.i11.i.i.i.i.i.us, %for.body.i7.i.i.i.i.i.us ]
-  %conv5.i.i.i.i.i.i.us = uitofp i64 %798 to float
+  %conv5.i.i.i.i.i.i.us = uitofp nneg i64 %798 to float
   %div.i.i.i.i.i.i1185.us = fdiv float %sum.0.lcssa.i.i.i.i.i.i.us, %conv5.i.i.i.i.i.i.us
-  %conv5.i15.i.i.i.i.i.us = uitofp i64 %802 to float
+  %conv5.i15.i.i.i.i.i.us = uitofp nneg i64 %802 to float
   %div.i16.i.i.i.i.i.us = fdiv float %sum.0.lcssa.i14.i.i.i.i.i.us, %conv5.i15.i.i.i.i.i.us
   %cmp.i.i.i.i.i.us = fcmp olt float %div.i.i.i.i.i.i1185.us, %div.i16.i.i.i.i.i.us
   br i1 %cmp.i.i.i.i.i.us, label %if.then.i.i.i1186.us, label %for.inc.i.i.i.us
@@ -34475,7 +34475,7 @@ for.body.i1418.us:                                ; preds = %for.body.i1418.us, 
 
 invoke.cont1360.us:                               ; preds = %for.body.i1418.us, %invoke.cont1358.us
   %sum.0.lcssa.i1425.us = phi float [ 0.000000e+00, %invoke.cont1358.us ], [ %add.i1422.us, %for.body.i1418.us ]
-  %conv5.i1426.us = uitofp i64 %1015 to float
+  %conv5.i1426.us = uitofp nneg i64 %1015 to float
   %div.i1427.us = fdiv float %sum.0.lcssa.i1425.us, %conv5.i1426.us
   store i64 0, ptr %nStored.i.i1412, align 8
   %tobool.not.i.i.i.i.i1431.us = icmp eq ptr %.pre5276, null
@@ -57086,15 +57086,15 @@ for.body.i7.i.i.i.i:                              ; preds = %for.body.i7.i.i.i.i
   br i1 %exitcond.not.i13.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit.i.i", label %for.body.i7.i.i.i.i, !llvm.loop !122
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit.i.i": ; preds = %for.body.i7.i.i.i.i
-  %conv5.i.i.i.i.i = uitofp i64 %46 to float
+  %conv5.i.i.i.i.i = uitofp nneg i64 %46 to float
   %div.i.i.i.i.i = fdiv float %sum.0.lcssa.i.i.i.i.i, %conv5.i.i.i.i.i
-  %conv5.i15.i.i.i.i = uitofp i64 %49 to float
+  %conv5.i15.i.i.i.i = uitofp nneg i64 %49 to float
   %div.i16.i.i.i.i = fdiv float %add.i11.i.i.i.i, %conv5.i15.i.i.i.i
   %cmp.i.i.i.i = fcmp olt float %div.i.i.i.i.i, %div.i16.i.i.i.i
   br i1 %cmp.i.i.i.i, label %for.body.i.i.i7.i.i, label %if.else33.i.i
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit.thread.i.i": ; preds = %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i.i.i
-  %conv5.i.i.i152.i.i = uitofp i64 %46 to float
+  %conv5.i.i.i152.i.i = uitofp nneg i64 %46 to float
   br label %if.else33.i.i
 
 for.body.i.i.i7.i.i:                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit.i.i", %for.body.i.i.i7.i.i
@@ -57134,7 +57134,7 @@ for.body.i7.i.i22.i.i:                            ; preds = %for.body.i7.i.i22.i
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit35.i.i": ; preds = %for.body.i7.i.i22.i.i, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i14.i.i
   %sum.0.lcssa.i14.i.i29.i.i = phi float [ 0.000000e+00, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i14.i.i ], [ %add.i11.i.i26.i.i, %for.body.i7.i.i22.i.i ]
   %div.i.i.i31.i.i = fdiv float %add.i.i.i11.i.i, %conv5.i15.i.i.i.i
-  %conv5.i15.i.i32.i.i = uitofp i64 %54 to float
+  %conv5.i15.i.i32.i.i = uitofp nneg i64 %54 to float
   %div.i16.i.i33.i.i = fdiv float %sum.0.lcssa.i14.i.i29.i.i, %conv5.i15.i.i32.i.i
   %cmp.i.i34.i.i = fcmp olt float %div.i.i.i31.i.i, %div.i16.i.i33.i.i
   br i1 %cmp.i.i34.i.i, label %if.then12.i.i, label %if.else.i.i
@@ -57256,7 +57256,7 @@ for.body.i7.i.i96.i.i:                            ; preds = %for.body.i7.i.i96.i
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit109.i.i": ; preds = %for.body.i7.i.i96.i.i, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i88.i.i
   %sum.0.lcssa.i14.i.i103.i.i = phi float [ 0.000000e+00, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i88.i.i ], [ %add.i11.i.i100.i.i, %for.body.i7.i.i96.i.i ]
   %div.i.i.i105.i.i = fdiv float %sum.0.lcssa.i.i.i89.i.i, %conv5.i.i.i158.i.i
-  %conv5.i15.i.i106.i.i = uitofp i64 %70 to float
+  %conv5.i15.i.i106.i.i = uitofp nneg i64 %70 to float
   %div.i16.i.i107.i.i = fdiv float %sum.0.lcssa.i14.i.i103.i.i, %conv5.i15.i.i106.i.i
   %cmp.i.i108.i.i = fcmp olt float %div.i.i.i105.i.i, %div.i16.i.i107.i.i
   br i1 %cmp.i.i108.i.i, label %if.then39.i.i, label %if.else44.i.i
@@ -57342,7 +57342,7 @@ while.body.i.i6:                                  ; preds = %_ZSt4swapIN4pbrt18I
   %__last.sroa.0.0.i.i = phi ptr [ %storemerge114, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENS3_18ImageChannelValuesEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZ3catS9_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISK_EEE3$_0EEEvT_SP_SP_SP_T0_.exit.i" ], [ %__last.sroa.0.1.i.i, %_ZSt4swapIN4pbrt18ImageChannelValuesEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_.exit ]
   %85 = load i64, ptr %nStored.i.i1.i.i.i5.i, align 8
   %cmp5.not.i2.i.i.i7.i = icmp eq i64 %85, 0
-  %conv5.i15.i.i.i8.i = uitofp i64 %85 to float
+  %conv5.i15.i.i.i8.i = uitofp nneg i64 %85 to float
   br i1 %cmp5.not.i2.i.i.i7.i, label %while.body.split.us.i.i, label %while.body.split.i.i
 
 while.body.split.us.i.i:                          ; preds = %while.body.i.i6
@@ -57376,7 +57376,7 @@ for.body.i.i.i.us.i.i:                            ; preds = %for.body.i.i.i.us.i
 
 _ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i.us.i.i: ; preds = %for.body.i.i.i.us.i.i, %while.cond3.us.i.i
   %sum.0.lcssa.i.i.i.us.i.i = phi float [ 0.000000e+00, %while.cond3.us.i.i ], [ %add.i.i.i.us.i.i, %for.body.i.i.i.us.i.i ]
-  %conv5.i.i.i.us.i.i = uitofp i64 %86 to float
+  %conv5.i.i.i.us.i.i = uitofp nneg i64 %86 to float
   %div.i.i.i.us.i.i = fdiv float %sum.0.lcssa.i.i.i.us.i.i, %conv5.i.i.i.us.i.i
   %cmp.i.i.us.i.i = fcmp olt float %div.i.i.i.us.i.i, %div.i16.i.i.us.i.i
   %incdec.ptr.i.us.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.us.i.i, i64 56
@@ -57428,7 +57428,7 @@ for.body.i7.i.i.i26.i:                            ; preds = %for.body.i7.i.i.i26
   br i1 %exitcond.not.i13.i.i.i32.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit.loopexit.i.i", label %for.body.i7.i.i.i26.i, !llvm.loop !122
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit.loopexit.i.i": ; preds = %for.body.i7.i.i.i26.i
-  %conv5.i.i.i.i33.i = uitofp i64 %91 to float
+  %conv5.i.i.i.i33.i = uitofp nneg i64 %91 to float
   %div.i.i.i.i34.i = fdiv float %sum.0.lcssa.i.i.i.i25.i, %conv5.i.i.i.i33.i
   %div.i16.i.i.i35.i = fdiv float %add.i11.i.i.i30.i, %conv5.i15.i.i.i8.i
   %cmp.i.i.i36.i = fcmp olt float %div.i.i.i.i34.i, %div.i16.i.i.i35.i
@@ -57488,7 +57488,7 @@ for.body.i7.i.i23.i.i:                            ; preds = %for.body.i7.i.i23.i
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit36.i.i": ; preds = %for.body.i7.i.i23.i.i, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i15.i.i
   %sum.0.lcssa.i14.i.i30.i.i = phi float [ 0.000000e+00, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i15.i.i ], [ %add.i11.i.i27.i.i, %for.body.i7.i.i23.i.i ]
   %div.i.i.i32.i.i = fdiv float %sum.0.lcssa.i.i.i16.i.i, %conv5.i15.i.i.i8.i
-  %conv5.i15.i.i33.i.i = uitofp i64 %98 to float
+  %conv5.i15.i.i33.i.i = uitofp nneg i64 %98 to float
   %div.i16.i.i34.i.i = fdiv float %sum.0.lcssa.i14.i.i30.i.i, %conv5.i15.i.i33.i.i
   %cmp.i.i35.i.i = fcmp olt float %div.i.i.i32.i.i, %div.i16.i.i34.i.i
   br i1 %cmp.i.i35.i.i, label %while.cond10.i.i, label %while.end18.i.i, !llvm.loop !295
@@ -57936,9 +57936,9 @@ for.body.i7.i.i:                                  ; preds = %for.body.i7.i.i, %f
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit": ; preds = %for.body.i7.i.i, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i
   %sum.0.lcssa.i14.i.i = phi float [ 0.000000e+00, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i ], [ %add.i11.i.i, %for.body.i7.i.i ]
-  %conv5.i.i.i = uitofp i64 %0 to float
+  %conv5.i.i.i = uitofp nneg i64 %0 to float
   %div.i.i.i = fdiv float %sum.0.lcssa.i.i.i, %conv5.i.i.i
-  %conv5.i15.i.i = uitofp i64 %4 to float
+  %conv5.i15.i.i = uitofp nneg i64 %4 to float
   %div.i16.i.i = fdiv float %sum.0.lcssa.i14.i.i, %conv5.i15.i.i
   %cmp.i.i = fcmp olt float %div.i.i.i, %div.i16.i.i
   %spec.select = select i1 %cmp.i.i, i64 %sub3, i64 %mul
@@ -58073,9 +58073,9 @@ for.body.i7.i.i.i:                                ; preds = %for.body.i7.i.i.i, 
 
 "_ZN9__gnu_cxx5__ops14_Iter_comp_valIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESK_EEbT_RT0_.exit.i": ; preds = %for.body.i7.i.i.i, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i.i
   %sum.0.lcssa.i14.i.i.i = phi float [ 0.000000e+00, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i.i ], [ %add.i11.i.i.i, %for.body.i7.i.i.i ]
-  %conv5.i.i.i.i = uitofp i64 %19 to float
+  %conv5.i.i.i.i = uitofp nneg i64 %19 to float
   %div.i.i.i.i = fdiv float %sum.0.lcssa.i.i.i.i, %conv5.i.i.i.i
-  %conv5.i15.i.i.i = uitofp i64 %23 to float
+  %conv5.i15.i.i.i = uitofp nneg i64 %23 to float
   %div.i16.i.i.i = fdiv float %sum.0.lcssa.i14.i.i.i, %conv5.i15.i.i.i
   %cmp.i.i.i31 = fcmp olt float %div.i.i.i.i, %div.i16.i.i.i
   br i1 %cmp.i.i.i31, label %while.body.i, label %while.end.i.loopexit
@@ -58305,9 +58305,9 @@ for.body.i7.i.i:                                  ; preds = %for.body.i7.i.i, %f
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit": ; preds = %for.body.i7.i.i, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i
   %sum.0.lcssa.i14.i.i = phi float [ 0.000000e+00, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i ], [ %add.i11.i.i, %for.body.i7.i.i ]
-  %conv5.i.i.i = uitofp i64 %2 to float
+  %conv5.i.i.i = uitofp nneg i64 %2 to float
   %div.i.i.i = fdiv float %sum.0.lcssa.i.i.i, %conv5.i.i.i
-  %conv5.i15.i.i = uitofp i64 %6 to float
+  %conv5.i15.i.i = uitofp nneg i64 %6 to float
   %div.i16.i.i = fdiv float %sum.0.lcssa.i14.i.i, %conv5.i15.i.i
   %cmp.i.i = fcmp olt float %div.i.i.i, %div.i16.i.i
   br i1 %cmp.i.i, label %if.then9, label %if.else
@@ -58681,9 +58681,9 @@ for.body.i7.i.i:                                  ; preds = %for.body.i7.i.i, %f
 
 invoke.cont:                                      ; preds = %for.body.i7.i.i, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i
   %sum.0.lcssa.i14.i.i = phi float [ 0.000000e+00, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i ], [ %add.i11.i.i, %for.body.i7.i.i ]
-  %conv5.i.i.i = uitofp i64 %8 to float
+  %conv5.i.i.i = uitofp nneg i64 %8 to float
   %div.i.i.i = fdiv float %sum.0.lcssa.i.i.i, %conv5.i.i.i
-  %conv5.i15.i.i = uitofp i64 %11 to float
+  %conv5.i15.i.i = uitofp nneg i64 %11 to float
   %div.i16.i.i = fdiv float %sum.0.lcssa.i14.i.i, %conv5.i15.i.i
   %cmp.i.i = fcmp olt float %div.i.i.i, %div.i16.i.i
   br i1 %cmp.i.i, label %while.body, label %while.end
@@ -64628,7 +64628,7 @@ invoke.cont53.i.i.i:                              ; preds = %for.body.i203.i.i.i
           to label %invoke.cont56.i.i.i unwind label %lpad22.loopexit.split-lp.loopexit.split-lp.i.i.i
 
 invoke.cont56.i.i.i:                              ; preds = %invoke.cont53.i.i.i
-  %conv5.i.i.i.i = uitofp i64 %113 to float
+  %conv5.i.i.i.i = uitofp nneg i64 %113 to float
   %div.i.i.i.i = fdiv float %sum.0.lcssa.i.i.i.i, %conv5.i.i.i.i
   %conv55.i.i.i = fpext float %div.i.i.i.i to double
   %119 = load double, ptr %call57.i.i.i, align 8
@@ -69481,9 +69481,9 @@ for.body.i7.i.i:                                  ; preds = %for.body.i7.i.i, %f
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit": ; preds = %for.body.i7.i.i, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i
   %sum.0.lcssa.i14.i.i = phi float [ 0.000000e+00, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i ], [ %add.i11.i.i, %for.body.i7.i.i ]
-  %conv5.i.i.i = uitofp i64 %0 to float
+  %conv5.i.i.i = uitofp nneg i64 %0 to float
   %div.i.i.i = fdiv float %sum.0.lcssa.i.i.i, %conv5.i.i.i
-  %conv5.i15.i.i = uitofp i64 %4 to float
+  %conv5.i15.i.i = uitofp nneg i64 %4 to float
   %div.i16.i.i = fdiv float %sum.0.lcssa.i14.i.i, %conv5.i15.i.i
   %cmp.i.i = fcmp olt float %div.i.i.i, %div.i16.i.i
   %spec.select = select i1 %cmp.i.i, i64 %sub1, i64 %mul
@@ -69608,9 +69608,9 @@ for.body.i7.i.i.i:                                ; preds = %for.body.i7.i.i.i, 
 
 "_ZN9__gnu_cxx5__ops14_Iter_comp_valIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESF_EEbT_RT0_.exit.i": ; preds = %for.body.i7.i.i.i, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i.i
   %sum.0.lcssa.i14.i.i.i = phi float [ 0.000000e+00, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i.i ], [ %add.i11.i.i.i, %for.body.i7.i.i.i ]
-  %conv5.i.i.i.i = uitofp i64 %16 to float
+  %conv5.i.i.i.i = uitofp nneg i64 %16 to float
   %div.i.i.i.i = fdiv float %sum.0.lcssa.i.i.i.i, %conv5.i.i.i.i
-  %conv5.i15.i.i.i = uitofp i64 %20 to float
+  %conv5.i15.i.i.i = uitofp nneg i64 %20 to float
   %div.i16.i.i.i = fdiv float %sum.0.lcssa.i14.i.i.i, %conv5.i15.i.i.i
   %cmp.i.i.i = fcmp olt float %div.i.i.i.i, %div.i16.i.i.i
   br i1 %cmp.i.i.i, label %while.body.i, label %while.end.i

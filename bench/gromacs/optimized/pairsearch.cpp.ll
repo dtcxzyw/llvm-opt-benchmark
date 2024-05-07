@@ -56,7 +56,7 @@ define void @_ZNK19SearchCycleCounting11printCyclesEP8_IO_FILEN3gmx8ArrayRefIK14
   %10 = load i64, ptr %9, align 8
   %11 = uitofp i64 %10 to double
   %12 = fmul double %11, 0x3EB0C6F7A0B5ED8D
-  %13 = sitofp i32 %6 to double
+  %13 = uitofp nneg i32 %6 to double
   %14 = fdiv double %12, %13
   br label %_ZNK13nbnxn_cycle_t14averageMCyclesEv.exit
 
@@ -72,7 +72,7 @@ _ZNK13nbnxn_cycle_t14averageMCyclesEv.exit:       ; preds = %4, %8
   %20 = load i64, ptr %19, align 8
   %21 = uitofp i64 %20 to double
   %22 = fmul double %21, 0x3EB0C6F7A0B5ED8D
-  %23 = sitofp i32 %16 to double
+  %23 = uitofp nneg i32 %16 to double
   %24 = fdiv double %22, %23
   br label %_ZNK13nbnxn_cycle_t14averageMCyclesEv.exit14
 
@@ -97,7 +97,7 @@ _ZNK13nbnxn_cycle_t14averageMCyclesEv.exit16:     ; preds = %31
   %36 = load i64, ptr %35, align 8
   %37 = uitofp i64 %36 to double
   %38 = fmul double %37, 0x3EB0C6F7A0B5ED8D
-  %39 = sitofp i32 %33 to double
+  %39 = uitofp nneg i32 %33 to double
   %40 = fdiv double %38, %39
   %41 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.2, double noundef %40) #14
   br label %42
@@ -119,7 +119,7 @@ _ZNK13nbnxn_cycle_t14averageMCyclesEv.exit16:     ; preds = %31
   %49 = load i64, ptr %48, align 8
   %50 = uitofp i64 %49 to double
   %51 = fmul double %50, 0x3EB0C6F7A0B5ED8D
-  %52 = sitofp i32 %45 to double
+  %52 = uitofp nneg i32 %45 to double
   %53 = fdiv double %51, %52
   br label %_ZNK13nbnxn_cycle_t14averageMCyclesEv.exit20
 

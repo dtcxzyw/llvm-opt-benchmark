@@ -8110,7 +8110,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   br label %.body
 
 .lr.ph696.preheader:                              ; preds = %323
-  %330 = sitofp i32 %316 to float
+  %330 = uitofp nneg i32 %316 to float
   %331 = fdiv float 1.000000e+00, %330
   %wide.trip.count723 = zext nneg i32 %316 to i64
   br label %.lr.ph696
@@ -13891,7 +13891,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11EiPKdS4
   br label %_ZN10hypothesis8chi2_cdfEdi.exit
 
 154:                                              ; preds = %148
-  %155 = sitofp i32 %123 to double
+  %155 = uitofp nneg i32 %123 to double
   %156 = fmul double %155, 5.000000e-01
   %157 = fmul double %.291, 5.000000e-01
   %158 = invoke noundef double @_ZN6cephes7rlgammaEdd(double noundef %156, double noundef %157)

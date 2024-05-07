@@ -7787,7 +7787,7 @@ invoke.cont4:                                     ; preds = %while.cond.return.l
   %gen.sroa.4.1 = phi i64 [ %.narrow.i.i.i.i.i.i26.i.i.i.i.i.i, %while.cond.return.loopexit_crit_edge.i.i.i.i.i.i ], [ %.narrow.i.i.i.i.i.i.i.i.i.i.i.i, %for.body ]
   %gen.sroa.0.1 = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i24.i.i.i.i.i.i, %while.cond.return.loopexit_crit_edge.i.i.i.i.i.i ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i.i.i.i, %for.body ]
   %retval.0.i.i.i.i.i.i = phi i64 [ %coerce3.sroa.2.0.extract.trunc.i.i35.le.i.i.i.i.i.i, %while.cond.return.loopexit_crit_edge.i.i.i.i.i.i ], [ %coerce3.sroa.2.0.extract.trunc.i.i.i.i.i.i.i.i, %for.body ]
-  %conv = sitofp i64 %retval.0.i.i.i.i.i.i to double
+  %conv = uitofp nneg i64 %retval.0.i.i.i.i.i.i to double
   %div = fdiv double %conv, 1.000000e+12
   %add.ptr.i = getelementptr inbounds double, ptr %call5.i.i.i.i2.i.i17, i64 %indvars.iv
   store double %div, ptr %add.ptr.i, align 8
@@ -10842,7 +10842,7 @@ if.then.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i.
   br label %invoke.cont4
 
 if.end.i.i.i.i.i:                                 ; preds = %while.body.i.i.i.i.i
-  %conv5.i.i.i.i.i = uitofp i64 %conv.i.i.i.i.i to double
+  %conv5.i.i.i.i.i = uitofp nneg i64 %conv.i.i.i.i.i to double
   %div.i.i.i.i.i = fmul double %conv5.i.i.i.i.i, 0x3DF0000000000000
   %sub.i.i.i.i.i = fsub double %p.addr.0.i.i.i.i.i, %div.i.i.i.i.i
   %mul6.i.i.i.i.i = fmul double %sub.i.i.i.i.i, 0x41F0000000000000

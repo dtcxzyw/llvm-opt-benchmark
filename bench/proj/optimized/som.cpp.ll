@@ -582,7 +582,7 @@ define hidden noundef ptr @_Z36pj_projection_specific_setup_misrsomP8PJconsts(pt
   br label %23
 
 15:                                               ; preds = %6
-  %16 = sitofp i32 %.sroa.0.0.extract.trunc to double
+  %16 = uitofp nneg i32 %.sroa.0.0.extract.trunc to double
   %17 = tail call double @llvm.fmuladd.f64(double %16, double 0xBF9B9D1888886F13, double 0x40020DF19833D0B2)
   %18 = getelementptr inbounds i8, ptr %0, i64 440
   store double %17, ptr %18, align 8
@@ -680,7 +680,7 @@ define hidden noundef ptr @_Z33pj_projection_specific_setup_lsatP8PJconsts(ptr n
   br label %35
 
 25:                                               ; preds = %15
-  %26 = sitofp i32 %.sroa.0.0.extract.trunc to double
+  %26 = uitofp nneg i32 %.sroa.0.0.extract.trunc to double
   %27 = tail call double @llvm.fmuladd.f64(double %26, double 0xBF99A22612A153BB, double 0x4001FE5F9D39DB0D)
   %28 = tail call double @llvm.fmuladd.f64(double %26, double 0xBF9B9D1888886F13, double 0x40020DBE59F8A739)
   %.sink37 = select i1 %19, double %27, double %28

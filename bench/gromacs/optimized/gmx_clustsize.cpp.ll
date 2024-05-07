@@ -1186,7 +1186,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit377.i:     ; preds = %372, %369
   br i1 %376, label %384, label %377
 
 377:                                              ; preds = %375
-  %378 = sitofp i32 %238 to double
+  %378 = uitofp nneg i32 %238 to double
   %379 = load i32, ptr %26, align 4
   %380 = sitofp i32 %379 to double
   %381 = fmul double %380, 3.000000e+00
@@ -1890,7 +1890,7 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit413.i:     ; preds = %_ZL15gmx_srenew_imp
   br i1 %.not602.i, label %710, label %706
 
 706:                                              ; preds = %698
-  %707 = sitofp i32 %694 to float
+  %707 = uitofp nneg i32 %694 to float
   %708 = fadd float %.0300691.i, %707
   %709 = add nsw i32 %.0266696.i, 1
   br label %710
@@ -1913,7 +1913,7 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit413.i:     ; preds = %_ZL15gmx_srenew_imp
   br i1 %716, label %717, label %722
 
 717:                                              ; preds = %._crit_edge698.i
-  %718 = sitofp i32 %.1267.i to float
+  %718 = uitofp nneg i32 %.1267.i to float
   %719 = fdiv float %.1301.i, %718
   %720 = fpext float %719 to double
   %721 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %269, ptr noundef nonnull @.str.70, double noundef %714, double noundef %720) #17
@@ -2058,7 +2058,7 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit413.i:     ; preds = %_ZL15gmx_srenew_imp
   %.0298.lcssa.i = phi float [ 0.000000e+00, %.preheader618.i ], [ %.1299.i, %795 ]
   %796 = fpext float %.0298.lcssa.i to double
   %797 = fmul double %796, 2.000000e+00
-  %798 = sitofp i32 %.3275.i to double
+  %798 = uitofp nneg i32 %.3275.i to double
   %799 = fmul double %453, %798
   %800 = fmul double %799, 0x3F81072C483AF26D
   %801 = fdiv double %797, %800

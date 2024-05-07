@@ -1026,7 +1026,7 @@ do.body2:                                         ; preds = %entry
   br i1 %cmp.not, label %if.else6, label %do.body11
 
 if.else6:                                         ; preds = %do.body2
-  %conv7 = uitofp i32 %1 to x86_fp80
+  %conv7 = uitofp nneg i32 %1 to x86_fp80
   %conv8 = uitofp i16 %2 to x86_fp80
   tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 350, ptr noundef nonnull @__func__.qvirtqueue_add_indirect, ptr noundef nonnull @.str.15, x86_fp80 noundef %conv7, ptr noundef nonnull @.str.16, x86_fp80 noundef %conv8, i8 noundef signext 105) #6
   %.pre = load i16, ptr %elem, align 2

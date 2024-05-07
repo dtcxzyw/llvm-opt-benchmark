@@ -655,7 +655,7 @@ rbound_bsearch.exit:                              ; preds = %.lr.ph.i, %5
   %.0.lcssa.i = phi i32 [ -1, %5 ], [ %.1.i, %.lr.ph.i ]
   %18 = tail call i32 @llvm.smax.i32(i32 %.0.lcssa.i, i32 0)
   %19 = uitofp nneg i32 %18 to double
-  %20 = sitofp i32 %7 to double
+  %20 = uitofp nneg i32 %7 to double
   %21 = fdiv double %19, %20
   %22 = icmp sgt i32 %.0.lcssa.i, -1
   %23 = icmp slt i32 %.0.lcssa.i, %7
@@ -920,7 +920,7 @@ get_distance.exit:                                ; preds = %80, %85, %92, %96, 
   %106 = getelementptr inbounds i8, ptr %2, i64 8
   %107 = getelementptr inbounds i8, ptr %0, i64 292
   %108 = getelementptr inbounds i8, ptr %2, i64 10
-  %109 = sitofp i32 %9 to double
+  %109 = uitofp nneg i32 %9 to double
   br label %110
 
 110:                                              ; preds = %.lr.ph, %get_distance.exit51
@@ -1113,7 +1113,7 @@ get_position.exit:                                ; preds = %46, %47, %54, %62, 
   %83 = getelementptr inbounds i8, ptr %0, i64 292
   %84 = getelementptr inbounds i8, ptr %1, i64 8
   %85 = getelementptr inbounds i8, ptr %1, i64 10
-  %86 = sitofp i32 %14 to double
+  %86 = uitofp nneg i32 %14 to double
   %87 = zext nneg i32 %.1.i to i64
   %88 = sext i32 %26 to i64
   %smin = tail call i64 @llvm.smin.i64(i64 %87, i64 %88)

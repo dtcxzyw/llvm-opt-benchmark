@@ -527,7 +527,7 @@ define void @_Z25PrintFreeEnergyInfoToFileP8_IO_FILEPK8t_lambdaPK10t_expandedPK9
   br i1 %186, label %195, label %192
 
 192:                                              ; preds = %184
-  %193 = sitofp i32 %182 to float
+  %193 = uitofp nneg i32 %182 to float
   %194 = fdiv float %191, %193
   br label %206
 
@@ -612,7 +612,7 @@ define void @_Z25PrintFreeEnergyInfoToFileP8_IO_FILEPK8t_lambdaPK10t_expandedPK9
   br i1 %225, label %234, label %231
 
 231:                                              ; preds = %223
-  %232 = sitofp i32 %221 to float
+  %232 = uitofp nneg i32 %221 to float
   %233 = fdiv float %230, %232
   br label %245
 
@@ -1468,7 +1468,7 @@ _ZL34GenerateWeightedGibbsProbabilitiesPKfPdS1_iPff.exit.i: ; preds = %.lr.ph65.
   %415 = load ptr, ptr %414, align 8
   %416 = getelementptr inbounds float, ptr %415, i64 %indvars.iv583.i
   %417 = load float, ptr %416, align 4
-  %418 = sitofp i32 %401 to float
+  %418 = uitofp nneg i32 %401 to float
   %419 = load ptr, ptr %331, align 8
   %420 = getelementptr inbounds ptr, ptr %419, i64 %24
   %421 = load ptr, ptr %420, align 8
@@ -1505,7 +1505,7 @@ _ZL34GenerateWeightedGibbsProbabilitiesPKfPdS1_iPff.exit.i: ; preds = %.lr.ph65.
   %447 = load ptr, ptr %446, align 8
   %448 = getelementptr inbounds float, ptr %447, i64 %indvars.iv583.i
   %449 = load float, ptr %448, align 4
-  %450 = sitofp i32 %.0372.i to float
+  %450 = uitofp nneg i32 %.0372.i to float
   %451 = load ptr, ptr %332, align 8
   %452 = getelementptr inbounds ptr, ptr %451, i64 %334
   %453 = load ptr, ptr %452, align 8
@@ -1530,7 +1530,7 @@ _ZL34GenerateWeightedGibbsProbabilitiesPKfPdS1_iPff.exit.i: ; preds = %.lr.ph65.
   %467 = load ptr, ptr %466, align 8
   %468 = getelementptr inbounds float, ptr %467, i64 %indvars.iv583.i
   %469 = load float, ptr %468, align 4
-  %470 = sitofp i32 %.0371.i to float
+  %470 = uitofp nneg i32 %.0371.i to float
   %471 = load ptr, ptr %327, align 8
   %472 = getelementptr inbounds ptr, ptr %471, i64 %336
   %473 = load ptr, ptr %472, align 8
@@ -1603,10 +1603,10 @@ _ZL34GenerateWeightedGibbsProbabilitiesPKfPdS1_iPff.exit.i: ; preds = %.lr.ph65.
 
 518:                                              ; preds = %513, %509
   %.0357.i = phi float [ %512, %509 ], [ %517, %513 ]
-  %519 = sitofp i32 %401 to double
+  %519 = uitofp nneg i32 %401 to double
   %520 = fdiv double 1.000000e+00, %519
   %521 = fpext float %.0361.i to double
-  %522 = sitofp i32 %.0372.i to double
+  %522 = uitofp nneg i32 %.0372.i to double
   %523 = fdiv double 1.000000e+00, %522
   %524 = fpext float %.0353.i to double
   %525 = fmul double %523, %524
@@ -1659,10 +1659,10 @@ _ZL34GenerateWeightedGibbsProbabilitiesPKfPdS1_iPff.exit.i: ; preds = %.lr.ph65.
 
 554:                                              ; preds = %549, %545
   %.0356.i = phi float [ %548, %545 ], [ %553, %549 ]
-  %555 = sitofp i32 %.0371.i to double
+  %555 = uitofp nneg i32 %.0371.i to double
   %556 = fdiv double 1.000000e+00, %555
   %557 = fpext float %.0.i to double
-  %558 = sitofp i32 %401 to double
+  %558 = uitofp nneg i32 %401 to double
   %559 = fdiv double 1.000000e+00, %558
   %560 = fpext float %.0359.i to double
   %561 = fmul double %559, %560
@@ -1690,7 +1690,7 @@ _ZL34GenerateWeightedGibbsProbabilitiesPKfPdS1_iPff.exit.i: ; preds = %.lr.ph65.
 568:                                              ; preds = %.thread.i
   %569 = fpext float %358 to double
   %570 = sitofp i32 %401 to double
-  %571 = sitofp i32 %.0372.i to double
+  %571 = uitofp nneg i32 %.0372.i to double
   %572 = fdiv double %570, %571
   %573 = tail call double @log(double noundef %572) #19
   %574 = fadd double %573, %569
@@ -1730,8 +1730,8 @@ _ZL34GenerateWeightedGibbsProbabilitiesPKfPdS1_iPff.exit.i: ; preds = %.lr.ph65.
 
 590:                                              ; preds = %589
   %591 = fpext float %358 to double
-  %592 = sitofp i32 %.0371.i to double
-  %593 = sitofp i32 %401 to double
+  %592 = uitofp nneg i32 %.0371.i to double
+  %593 = uitofp nneg i32 %401 to double
   %594 = fdiv double %592, %593
   %595 = tail call double @log(double noundef %594) #19
   %596 = fadd double %595, %591

@@ -5730,7 +5730,7 @@ define double @zend_hex_strtod(ptr noundef %0, ptr noundef writeonly %1) local_u
 
 23:                                               ; preds = %.lr.ph, %17, %21
   %.031 = phi i8 [ %18, %17 ], [ %22, %21 ], [ %14, %.lr.ph ]
-  %24 = uitofp i8 %.031 to double
+  %24 = uitofp nneg i8 %.031 to double
   %25 = tail call double @llvm.fmuladd.f64(double %.041, double 1.600000e+01, double %24)
   %26 = load i8, ptr %13, align 1
   %.not = icmp eq i8 %26, 0
@@ -5770,7 +5770,7 @@ define double @zend_oct_strtod(ptr noundef %0, ptr noundef writeonly %1) local_u
   %.01830 = phi double [ %11, %.lr.ph ], [ 0.000000e+00, %.preheader ]
   %.02029 = phi ptr [ %8, %.lr.ph ], [ %0, %.preheader ]
   %8 = getelementptr inbounds i8, ptr %.02029, i64 1
-  %9 = sitofp i8 %7 to double
+  %9 = uitofp nneg i8 %7 to double
   %10 = tail call double @llvm.fmuladd.f64(double %.01830, double 8.000000e+00, double %9)
   %11 = fadd double %10, -4.800000e+01
   %12 = load i8, ptr %8, align 1
@@ -5831,7 +5831,7 @@ define double @zend_bin_strtod(ptr noundef %0, ptr noundef writeonly %1) local_u
   %.01727 = phi double [ %17, %.lr.ph ], [ 0.000000e+00, %.lr.ph.preheader ]
   %.126 = phi ptr [ %14, %.lr.ph ], [ %.126.ph, %.lr.ph.preheader ]
   %14 = getelementptr inbounds i8, ptr %.126, i64 1
-  %15 = sitofp i8 %13 to double
+  %15 = uitofp nneg i8 %13 to double
   %16 = tail call double @llvm.fmuladd.f64(double %.01727, double 2.000000e+00, double %15)
   %17 = fadd double %16, -4.800000e+01
   %18 = load i8, ptr %14, align 1

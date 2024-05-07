@@ -384,7 +384,7 @@ if.else:                                          ; preds = %if.end
 if.end12:                                         ; preds = %if.else, %if.end
   %unit.0 = phi i32 [ 107, %if.end ], [ %., %if.else ]
   %divisor.0 = phi double [ 1.000000e+03, %if.end ], [ %.3, %if.else ]
-  %conv = sitofp i64 %0 to double
+  %conv = uitofp nneg i64 %0 to double
   %div14 = fdiv double %conv, %divisor.0
   %div15 = fmul double %div14, 1.250000e-01
   tail call void (ptr, ptr, ...) @_ZN4base12StringPrintfB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull @.str.3, double noundef %div14, i32 noundef %unit.0, double noundef %div15, i32 noundef %unit.0)

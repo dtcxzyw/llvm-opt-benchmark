@@ -1283,7 +1283,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit217.i:     ; preds = %203, %200
   br i1 %495, label %496, label %516
 
 496:                                              ; preds = %489
-  %497 = sitofp i32 %494 to float
+  %497 = uitofp nneg i32 %494 to float
   %498 = load ptr, ptr %487, align 8
   %499 = getelementptr inbounds ptr, ptr %498, i64 %indvars.iv341.i.i
   %500 = load ptr, ptr %499, align 8

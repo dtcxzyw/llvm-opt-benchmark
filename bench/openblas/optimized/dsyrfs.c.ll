@@ -123,7 +123,7 @@ define void @dsyrfs_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %82 = add nuw nsw i32 %42, 1
   %83 = tail call double @dlamch_(ptr noundef nonnull @.str.3) #5
   %84 = tail call double @dlamch_(ptr noundef nonnull @.str.4) #5
-  %85 = sitofp i32 %82 to double
+  %85 = uitofp nneg i32 %82 to double
   %86 = fmul double %84, %85
   %87 = fdiv double %86, %83
   %88 = load i32, ptr %2, align 4, !tbaa !3

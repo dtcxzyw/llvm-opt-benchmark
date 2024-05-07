@@ -1693,7 +1693,7 @@ if.then:                                          ; preds = %timestr.exit
   %div2.i = fdiv double %conv13, %add.i
   call fastcc void @cvtstr(double noundef %div2.i, ptr noundef nonnull %s2)
   %call5 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.39, ptr noundef %op, i64 noundef %total, i64 noundef %count, i64 noundef %offset)
-  %conv9 = sitofp i32 %cnt to double
+  %conv9 = uitofp nneg i32 %cnt to double
   %3 = load i64, ptr %t, align 8
   %4 = load i64, ptr %tv_nsec.i, align 8
   %conv.i15 = sitofp i64 %3 to double
@@ -1712,7 +1712,7 @@ if.else:                                          ; preds = %timestr.exit
   %div.i22 = fdiv double %conv1.i21, 1.000000e+09
   %add.i23 = fadd double %div.i22, %conv.i20
   %div2.i24 = fdiv double %conv13, %add.i23
-  %conv15 = sitofp i32 %cnt to double
+  %conv15 = uitofp nneg i32 %cnt to double
   %div2.i29 = fdiv double %conv15, %add.i23
   %call17 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.41, i64 noundef %total, i32 noundef %cnt, ptr noundef nonnull %ts, double noundef %div2.i24, double noundef %div2.i29)
   br label %if.end
@@ -4182,7 +4182,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %conv4 = sitofp i64 %call to double
+  %conv4 = uitofp nneg i64 %call to double
   call fastcc void @cvtstr(double noundef %conv4, ptr noundef nonnull %s1)
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) %s1)
   br label %return
@@ -4556,7 +4556,7 @@ if.end21:                                         ; preds = %while.body
 while.end:                                        ; preds = %if.end21, %if.end14
   %count.1.lcssa = phi i64 [ 0, %if.end14 ], [ %spec.select33, %if.end21 ]
   %sum_alloc.0.lcssa = phi i64 [ 0, %if.end14 ], [ %spec.select, %if.end21 ]
-  %conv32 = sitofp i64 %retval.0.i to double
+  %conv32 = uitofp nneg i64 %retval.0.i to double
   call fastcc void @cvtstr(double noundef %conv32, ptr noundef nonnull %s1)
   %call34 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.166, i64 noundef %sum_alloc.0.lcssa, i64 noundef %count.1.lcssa, ptr noundef nonnull %s1)
   br label %return

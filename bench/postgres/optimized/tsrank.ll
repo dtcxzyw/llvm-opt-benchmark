@@ -481,7 +481,7 @@ cnt_length.exit61:                                ; preds = %.thread.i58
   br i1 %192, label %193, label %cnt_length.exit61.thread
 
 193:                                              ; preds = %cnt_length.exit61
-  %194 = sitofp i32 %spec.select.i60 to float
+  %194 = uitofp nneg i32 %spec.select.i60 to float
   %195 = fdiv float %.1, %194
   br label %cnt_length.exit61.thread
 
@@ -497,7 +497,7 @@ cnt_length.exit61.thread:                         ; preds = %173, %cnt_length.ex
   br i1 %199, label %200, label %203
 
 200:                                              ; preds = %197
-  %201 = sitofp i32 %198 to float
+  %201 = uitofp nneg i32 %198 to float
   %202 = fdiv float %.2, %201
   br label %203
 
@@ -1624,7 +1624,7 @@ cnt_length.exit125:                               ; preds = %.thread.i122
   br i1 %411, label %412, label %cnt_length.exit125.thread
 
 412:                                              ; preds = %cnt_length.exit125
-  %413 = sitofp i32 %spec.select.i124 to double
+  %413 = uitofp nneg i32 %spec.select.i124 to double
   %414 = fdiv double %.1, %413
   br label %cnt_length.exit125.thread
 
@@ -1636,7 +1636,7 @@ cnt_length.exit125.thread:                        ; preds = %393, %cnt_length.ex
   %or.cond5 = select i1 %416, i1 %417, i1 false
   %418 = fcmp ogt double %.087, 0.000000e+00
   %or.cond7 = select i1 %or.cond5, i1 %418, i1 false
-  %419 = sitofp i32 %.090 to double
+  %419 = uitofp nneg i32 %.090 to double
   %420 = fdiv double %419, %.087
   %421 = fdiv double %.2, %420
   %.3 = select i1 %or.cond7, double %421, double %.2
@@ -1650,7 +1650,7 @@ cnt_length.exit125.thread:                        ; preds = %393, %cnt_length.ex
   br i1 %425, label %426, label %429
 
 426:                                              ; preds = %423
-  %427 = sitofp i32 %424 to double
+  %427 = uitofp nneg i32 %424 to double
   %428 = fdiv double %.3, %427
   br label %429
 
@@ -1939,7 +1939,7 @@ define internal fastcc float @calc_rank_or(ptr nocapture noundef readonly %0, pt
 
 ._crit_edge76:                                    ; preds = %.loopexit, %3
   %.051.lcssa = phi float [ 0.000000e+00, %3 ], [ %.2, %.loopexit ]
-  %69 = sitofp i32 %11 to float
+  %69 = uitofp nneg i32 %11 to float
   %70 = fdiv float %.051.lcssa, %69
   %.3 = select i1 %12, float %70, float %.051.lcssa
   tail call void @pfree(ptr noundef %10) #11

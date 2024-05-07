@@ -2623,9 +2623,9 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i118:     ; preds = %638, %635
 
 842:                                              ; preds = %839
   %843 = load ptr, ptr @stderr, align 8
-  %844 = sitofp i32 %630 to double
+  %844 = uitofp nneg i32 %630 to double
   %845 = fmul double %844, 1.000000e+02
-  %846 = sitofp i32 %626 to double
+  %846 = uitofp nneg i32 %626 to double
   %847 = fdiv double %845, %846
   %848 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %843, ptr noundef nonnull @.str.292, double noundef %847) #28
   br label %849
@@ -2692,7 +2692,7 @@ _ZL11check_inputiiPiPffS0_ffilPK8t_filenmiiiiP7t_pargs.exit: ; preds = %829, %85
 
 871:                                              ; preds = %865
   %872 = fpext float %431 to double
-  %873 = sitofp i32 %857 to double
+  %873 = uitofp nneg i32 %857 to double
   %874 = fdiv double 1.000000e+00, %872
   %875 = fadd double %874, 1.000000e+00
   %876 = fdiv double %873, %875
@@ -2711,7 +2711,7 @@ _ZL11check_inputiiPiPffS0_ffilPK8t_filenmiiiiP7t_pargs.exit: ; preds = %829, %85
 
 887:                                              ; preds = %861
   %888 = load float, ptr %128, align 4
-  %889 = sitofp i32 %857 to float
+  %889 = uitofp nneg i32 %857 to float
   %890 = fmul float %888, %889
   %891 = call noundef float @llvm.floor.f32(float %890)
   %892 = fptosi float %891 to i32

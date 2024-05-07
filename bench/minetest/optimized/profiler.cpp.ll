@@ -1515,7 +1515,7 @@ if.then13:                                        ; preds = %_ZNKSt3mapINSt7__cx
 if.then15:                                        ; preds = %if.then13
   %second17 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 64
   %13 = load float, ptr %second17, align 8, !tbaa !34
-  %conv = sitofp i32 %12 to float
+  %conv = uitofp nneg i32 %12 to float
   %div = fdiv nsz float %13, %conv
   br label %cleanup24
 

@@ -193,7 +193,7 @@ invoke.cont5:                                     ; preds = %invoke.cont3
           to label %invoke.cont9 unwind label %lpad.loopexit.split-lp
 
 invoke.cont9:                                     ; preds = %invoke.cont5
-  %conv = sitofp i32 %add17.i.i to double
+  %conv = uitofp nneg i32 %add17.i.i to double
   store double %conv, ptr %normal_dist, align 8
   %_M_stddev.i.i = getelementptr inbounds i8, ptr %normal_dist, i64 8
   store <2 x double> <double 2.000000e+00, double 0.000000e+00>, ptr %_M_stddev.i.i, align 8

@@ -90290,7 +90290,7 @@ jar_xm_tremolo.exit:                              ; preds = %697, %708, %714, %7
   br label %jar_xm_tone_portamento.exit248
 
 870:                                              ; preds = %861
-  %871 = uitofp i8 %859 to float
+  %871 = uitofp nneg i8 %859 to float
   %872 = fmul float %871, 1.562500e-02
   %873 = load float, ptr %144, align 8
   %874 = fsub float %873, %872
@@ -119278,7 +119278,7 @@ setup_malloc.exit65:                              ; preds = %46, %55, %58, %64
   br i1 %78, label %.lr.ph.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %75
-  %79 = sitofp i32 %2 to double
+  %79 = uitofp nneg i32 %2 to double
   br label %82
 
 .preheader.i:                                     ; preds = %82, %75
@@ -119286,7 +119286,7 @@ setup_malloc.exit65:                              ; preds = %46, %55, %58, %64
   br i1 %80, label %.lr.ph39.i, label %compute_twiddle_factors.exit
 
 .lr.ph39.i:                                       ; preds = %.preheader.i
-  %81 = sitofp i32 %2 to double
+  %81 = uitofp nneg i32 %2 to double
   br label %109
 
 82:                                               ; preds = %82, %.lr.ph.i
@@ -119395,7 +119395,7 @@ setup_malloc.exit69:                              ; preds = %133, %137
   br i1 %144, label %.lr.ph.i70, label %compute_window.exit
 
 .lr.ph.i70:                                       ; preds = %142
-  %145 = sitofp i32 %143 to double
+  %145 = uitofp nneg i32 %143 to double
   %wide.trip.count.i = zext nneg i32 %143 to i64
   br label %146
 
@@ -120271,7 +120271,7 @@ define internal fastcc void @jar_xm_next_of_sample(ptr nocapture noundef readonl
   %26 = getelementptr inbounds i8, ptr %1, i64 176
   %27 = getelementptr inbounds [8 x float], ptr %26, i64 0, i64 %22
   %28 = load float, ptr %27, align 4
-  %29 = uitofp i64 %22 to float
+  %29 = uitofp nneg i64 %22 to float
   %30 = fmul float %29, 1.250000e-01
   %31 = fsub float 0.000000e+00, %28
   %32 = tail call float @llvm.fmuladd.f32(float %30, float %31, float %28)
@@ -120642,7 +120642,7 @@ define internal fastcc void @jar_xm_next_of_sample(ptr nocapture noundef readonl
   %229 = getelementptr inbounds i8, ptr %1, i64 176
   %230 = getelementptr inbounds [8 x float], ptr %229, i64 0, i64 %225
   %231 = load float, ptr %230, align 4
-  %232 = uitofp i64 %225 to float
+  %232 = uitofp nneg i64 %225 to float
   %233 = fmul float %232, 1.250000e-01
   %234 = fsub float %217, %231
   %235 = tail call float @llvm.fmuladd.f32(float %233, float %234, float %231)

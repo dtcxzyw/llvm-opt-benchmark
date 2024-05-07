@@ -33,7 +33,7 @@ define i32 @iparmq_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   br i1 %19, label %20, label %41
 
 20:                                               ; preds = %10
-  %21 = sitofp i32 %14 to float
+  %21 = uitofp nneg i32 %14 to float
   %22 = fpext float %21 to double
   %23 = tail call double @log(double noundef %22) #6
   %24 = fdiv double %23, 0x3FE62E42FEFA39EF

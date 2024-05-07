@@ -750,7 +750,7 @@ switch.lookup84:                                  ; preds = %102, %104
 351:                                              ; preds = %.lr.ph.i
   %352 = getelementptr inbounds float, ptr %120, i64 %indvars.iv59.i
   %353 = load float, ptr %352, align 4
-  %354 = sitofp i32 %349 to float
+  %354 = uitofp nneg i32 %349 to float
   %355 = fdiv float %353, %354
   store float %355, ptr %352, align 4
   %356 = getelementptr inbounds [3 x float], ptr %123, i64 %indvars.iv59.i

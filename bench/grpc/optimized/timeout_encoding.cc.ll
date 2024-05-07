@@ -331,8 +331,8 @@ if.end:                                           ; preds = %if.then
   br label %return
 
 if.end13:                                         ; preds = %_ZNK9grpc_core7Timeout10AsDurationEv.exit27
-  %conv = sitofp i64 %retval.sroa.0.0.i to double
-  %conv7 = sitofp i64 %retval.sroa.0.0.i8 to double
+  %conv = uitofp nneg i64 %retval.sroa.0.0.i to double
+  %conv7 = uitofp nneg i64 %retval.sroa.0.0.i8 to double
   %div = fdiv double %conv, %conv7
   %sub = fadd double %div, -1.000000e+00
   %mul = fmul double %sub, 1.000000e+02

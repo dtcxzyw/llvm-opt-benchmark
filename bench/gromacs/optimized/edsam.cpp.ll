@@ -11450,7 +11450,7 @@ _ZL14ed_constraintsN12_GLOBAL__N_121EssentialDynamicsTypeERK5edpar.exit.thread: 
   %297 = getelementptr inbounds i8, ptr %.sroa.0195.0247, i64 440
   %298 = getelementptr inbounds i8, ptr %.sroa.0195.0247, i64 184
   %299 = getelementptr inbounds i8, ptr %.sroa.0195.0247, i64 472
-  %300 = sitofp i64 %274 to float
+  %300 = uitofp nneg i64 %274 to float
   %301 = getelementptr inbounds i8, ptr %.sroa.0195.0247, i64 432
   br label %302
 

@@ -1571,7 +1571,7 @@ regex_selectivity.exit:                           ; preds = %47, %49, %51
   br i1 %86, label %87, label %93
 
 87:                                               ; preds = %85
-  %88 = sitofp i32 %65 to double
+  %88 = uitofp nneg i32 %65 to double
   %89 = call double @pow(double noundef 2.000000e-01, double noundef %88) #11
   %90 = fcmp ogt double %89, 0.000000e+00
   br i1 %90, label %91, label %93

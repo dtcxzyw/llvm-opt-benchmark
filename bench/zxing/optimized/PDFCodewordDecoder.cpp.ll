@@ -200,7 +200,7 @@ _ZN5ZXing6ReduceISt5arrayIiLm8EEiSt4plusIiEEET0_RKT_S5_T1_.exit.i11: ; preds = %
   br i1 %71, label %.preheader.i, label %.loopexit.i
 
 .preheader.i:                                     ; preds = %_ZN5ZXing6ReduceISt5arrayIiLm8EEiSt4plusIiEEET0_RKT_S5_T1_.exit.i11
-  %72 = sitofp i32 %70 to float
+  %72 = uitofp nneg i32 %70 to float
   br label %73
 
 73:                                               ; preds = %73, %.preheader.i

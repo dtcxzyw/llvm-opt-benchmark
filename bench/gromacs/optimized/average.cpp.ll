@@ -367,7 +367,7 @@ define void @_ZN3gmx25AnalysisDataAverageModule12dataFinishedEv(ptr noundef nonn
   %46 = getelementptr inbounds i8, ptr %39, i64 8
   %47 = load double, ptr %46, align 8
   %48 = add nsw i32 %43, -1
-  %49 = sitofp i32 %48 to double
+  %49 = uitofp nneg i32 %48 to double
   %50 = fdiv double %47, %49
   %51 = fptrunc double %50 to float
   br label %_ZNK3gmx25AnalysisDataFrameAverager8varianceEi.exit

@@ -8504,7 +8504,7 @@ lpad:                                             ; preds = %if.end.i, %invoke.c
 
 invoke.cont14:                                    ; preds = %invoke.cont.invoke.cont14_crit_edge, %invoke.cont.thread
   %10 = phi ptr [ %.pre, %invoke.cont.invoke.cont14_crit_edge ], [ %5, %invoke.cont.thread ]
-  %conv.i22 = uitofp i64 %i to double
+  %conv.i22 = uitofp nneg i64 %i to double
   %topGCScope_.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load ptr, ptr %topGCScope_.i.i.i.i, align 8
   %next_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 192
@@ -8762,7 +8762,7 @@ lpad:                                             ; preds = %if.end.i, %invoke.c
 
 invoke.cont14:                                    ; preds = %invoke.cont.invoke.cont14_crit_edge, %invoke.cont.thread
   %10 = phi ptr [ %.pre, %invoke.cont.invoke.cont14_crit_edge ], [ %5, %invoke.cont.thread ]
-  %conv.i22 = uitofp i64 %i to double
+  %conv.i22 = uitofp nneg i64 %i to double
   %topGCScope_.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load ptr, ptr %topGCScope_.i.i.i.i, align 8
   %next_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 192

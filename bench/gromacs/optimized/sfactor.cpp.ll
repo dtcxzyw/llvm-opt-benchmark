@@ -347,7 +347,7 @@ define void @_Z24compute_structure_factorP16structure_factorPA3_fP12reduced_atom
   br i1 %37, label %.lr.ph146, label %._crit_edge
 
 .lr.ph146:                                        ; preds = %8
-  %38 = sitofp i32 %25 to double
+  %38 = uitofp nneg i32 %25 to double
   %39 = icmp sgt i32 %.fr165, 0
   %40 = getelementptr inbounds i8, ptr %0, i64 32
   %41 = icmp sgt i32 %3, 0
@@ -2385,7 +2385,7 @@ common.ret29:                                     ; preds = %42, %9
 9:                                                ; preds = %5
   %10 = tail call noundef i32 @_Z16return_atom_typePKcP20gmx_structurefactors(ptr noundef nonnull @.str.53, ptr noundef %0)
   %11 = tail call noundef double @_Z4CMSFP20gmx_structurefactorsiidd(ptr noundef %0, i32 noundef %10, i32 noundef 0, double noundef %3, double noundef %4)
-  %12 = sitofp i32 %2 to double
+  %12 = uitofp nneg i32 %2 to double
   %13 = tail call noundef i32 @_Z16return_atom_typePKcP20gmx_structurefactors(ptr noundef nonnull @.str.54, ptr noundef %0)
   %14 = tail call noundef double @_Z4CMSFP20gmx_structurefactorsiidd(ptr noundef %0, i32 noundef %13, i32 noundef 0, double noundef %3, double noundef %4)
   %15 = tail call double @llvm.fmuladd.f64(double %12, double %14, double %11)

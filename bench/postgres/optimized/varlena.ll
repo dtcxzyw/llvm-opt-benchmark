@@ -3990,7 +3990,7 @@ define internal noundef zeroext i1 @varstr_abbrev_abort(i32 noundef %0, ptr noca
   br i1 %14, label %15, label %21
 
 15:                                               ; preds = %13
-  %16 = sitofp i32 %0 to double
+  %16 = uitofp nneg i32 %0 to double
   %17 = fdiv double %.023, %16
   %18 = getelementptr inbounds i8, ptr %4, i64 128
   %19 = load double, ptr %18, align 8

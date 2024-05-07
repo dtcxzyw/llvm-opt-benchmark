@@ -200,7 +200,7 @@ entry:
   %out = alloca %"class.std::__cxx11::basic_stringstream", align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %out)
   %conv = uitofp i64 %value to double
-  %conv1 = sitofp i32 %unitScale to double
+  %conv1 = uitofp nneg i32 %unitScale to double
   %sub = add nsw i32 %unitsSize, -1
   br label %while.cond
 

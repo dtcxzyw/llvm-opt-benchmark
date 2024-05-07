@@ -3109,7 +3109,7 @@ _queue_reboot_msg.exit.i:                         ; preds = %1099, %._crit_edge.
   %.9.i = phi i64 [ %1108, %1107 ], [ %.8.i, %1102 ], [ %.8.i, %1100 ]
   %1114 = load i64, ptr @_slurmctld_background.last_purge_job_time, align 8
   %1115 = call double @difftime(i64 noundef %.9.i, i64 noundef %1114) #20
-  %1116 = sitofp i32 %.089.i to double
+  %1116 = uitofp nneg i32 %.089.i to double
   %1117 = fcmp ult double %1115, %1116
   br i1 %1117, label %1134, label %1118
 

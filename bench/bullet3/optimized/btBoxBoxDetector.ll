@@ -236,7 +236,7 @@ for.end110:                                       ; preds = %for.body105, %if.en
 
 for.body116.lr.ph:                                ; preds = %for.end110
   %iret.addr.0100 = getelementptr inbounds i8, ptr %iret, i64 4
-  %conv117 = sitofp i32 %m to float
+  %conv117 = uitofp nneg i32 %m to float
   %div118 = fdiv float 0x401921FB60000000, %conv117
   %arrayidx121 = getelementptr inbounds [8 x float], ptr %A, i64 0, i64 %idxprom111
   %45 = load float, ptr %arrayidx121, align 4

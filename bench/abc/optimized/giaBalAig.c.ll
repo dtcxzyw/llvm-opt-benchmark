@@ -4816,7 +4816,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   %431 = load ptr, ptr %333, align 8
   %432 = tail call fastcc i32 @Hash_Int2ManInsert(ptr noundef %431, i32 noundef %426, i32 noundef %428)
   %433 = load ptr, ptr %347, align 8
-  %434 = sitofp i32 %422 to double
+  %434 = uitofp nneg i32 %422 to double
   %.val.i.i342 = load ptr, ptr %419, align 8
   %435 = getelementptr inbounds i32, ptr %.val.i.i342, i64 %418
   %436 = load i32, ptr %435, align 4
@@ -5250,11 +5250,11 @@ Vec_IntStart.exit384:                             ; preds = %Vec_IntAlloc.exit.t
   %633 = fmul double %632, 1.000000e+02
   %634 = fdiv double %633, %629
   %635 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %.0196.lcssa, double noundef %634)
-  %636 = sitofp i32 %.0194.lcssa to double
+  %636 = uitofp nneg i32 %.0194.lcssa to double
   %637 = fmul double %636, 1.000000e+02
   %638 = fdiv double %637, %629
   %639 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %.0194.lcssa, double noundef %638)
-  %640 = sitofp i32 %.0191.lcssa to double
+  %640 = uitofp nneg i32 %.0191.lcssa to double
   %641 = fmul double %640, 1.000000e+02
   %642 = fdiv double %641, %629
   %643 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %.0191.lcssa, double noundef %642)
@@ -7104,7 +7104,7 @@ Vec_QueIsMember.exit:                             ; preds = %137
   br label %Vec_QuePrio.exit.i.i
 
 157:                                              ; preds = %152
-  %158 = sitofp i32 %.088.pr to float
+  %158 = uitofp nneg i32 %.088.pr to float
   br label %Vec_QuePrio.exit.i.i
 
 Vec_QuePrio.exit.i.i:                             ; preds = %157, %154
@@ -7957,7 +7957,7 @@ Vec_FltFillExtra.exit:                            ; preds = %._crit_edge, %._cri
 
 302:                                              ; preds = %291
   %303 = load ptr, ptr %243, align 8
-  %304 = sitofp i32 %300 to double
+  %304 = uitofp nneg i32 %300 to double
   %305 = load i32, ptr %298, align 4
   %306 = getelementptr inbounds i8, ptr %298, i64 4
   %307 = load i32, ptr %306, align 4

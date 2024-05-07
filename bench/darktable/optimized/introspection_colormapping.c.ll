@@ -1506,7 +1506,7 @@ define internal noundef i32 @cluster_preview_draw(ptr noundef %0, ptr noundef %1
   %36 = add nsw i32 %14, -10
   %37 = sitofp i32 %36 to float
   %38 = add nsw i32 %33, -1
-  %39 = sitofp i32 %38 to float
+  %39 = uitofp nneg i32 %38 to float
   %40 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !119
   %41 = getelementptr inbounds i8, ptr %40, i64 1448
   %42 = load double, ptr %41, align 8, !tbaa !124
@@ -1514,7 +1514,7 @@ define internal noundef i32 @cluster_preview_draw(ptr noundef %0, ptr noundef %1
   %44 = fptrunc double %43 to float
   %45 = fmul reassoc nsz arcp contract afn float %44, %39
   %46 = fsub reassoc nsz arcp contract afn float %37, %45
-  %47 = sitofp i32 %33 to float
+  %47 = uitofp nneg i32 %33 to float
   %48 = fdiv reassoc nsz arcp contract afn float %46, %47
   %49 = icmp eq ptr %12, %0
   %50 = select i1 %49, i64 8208, i64 16500
@@ -3539,7 +3539,7 @@ define internal fastcc void @kmeans(ptr nocapture noundef readonly %0, i32 nound
   br label %.loopexit31
 
 460:                                              ; preds = %.loopexit32
-  %461 = sitofp i32 %457 to float
+  %461 = uitofp nneg i32 %457 to float
   br i1 %121, label %.preheader101, label %462
 
 462:                                              ; preds = %460

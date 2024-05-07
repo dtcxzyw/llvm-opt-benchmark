@@ -23,7 +23,7 @@ define dso_local range(i32 0, 23) i32 @get_memory(ptr nocapture noundef writeonl
   br label %14
 
 6:                                                ; preds = %1
-  %7 = sitofp i64 %2 to float
+  %7 = uitofp nneg i64 %2 to float
   %8 = fpext float %7 to double
   %9 = tail call i64 @sysconf(i32 noundef 30) #5
   %10 = sitofp i64 %9 to double

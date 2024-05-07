@@ -60,7 +60,7 @@ define range(i32 -1, 2) i32 @Fra_NodesAreEquiv(ptr noundef %0, ptr noundef %1, p
   br i1 %37, label %282, label %38
 
 38:                                               ; preds = %33
-  %39 = sitofp i32 %17 to double
+  %39 = uitofp nneg i32 %17 to double
   %40 = tail call double @pow(double noundef %39, double noundef 0x3FE6666666666666) #10
   %41 = fptosi double %40 to i32
   br label %42

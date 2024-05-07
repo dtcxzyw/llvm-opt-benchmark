@@ -4072,13 +4072,13 @@ _ZNSt6vectorIN5cmsys17RegularExpressionESaIS1_EE12emplace_backIJRKNSt7__cxx1112b
   br i1 %793, label %794, label %804
 
 794:                                              ; preds = %789
-  %795 = sitofp i32 %792 to float
+  %795 = uitofp nneg i32 %792 to float
   %796 = sitofp i32 %790 to float
   %797 = fdiv float %796, %795
   %798 = fmul float %797, 1.000000e+02
   store float %798, ptr %78, align 4
   %799 = add nuw nsw i32 %792, 10
-  %800 = sitofp i32 %799 to float
+  %800 = uitofp nneg i32 %799 to float
   %801 = add nsw i32 %790, 10
   %802 = sitofp i32 %801 to float
   %803 = fdiv float %802, %800

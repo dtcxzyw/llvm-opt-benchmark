@@ -495,7 +495,7 @@ define internal fastcc void @_ZL17gmx_stats_computeP9gmx_statsi(ptr nocapture no
 
 119:                                              ; preds = %._crit_edge
   %120 = add nsw i32 %4, -2
-  %121 = sitofp i32 %120 to double
+  %121 = uitofp nneg i32 %120 to double
   %122 = fdiv double %117, %121
   %123 = tail call double @sqrt(double noundef %122) #16
   %124 = getelementptr inbounds i8, ptr %0, i64 80

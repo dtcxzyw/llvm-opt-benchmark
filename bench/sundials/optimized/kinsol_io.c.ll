@@ -1222,7 +1222,7 @@ define range(i32 -2, 1) i32 @KINPrintAllStats(ptr noundef %0, ptr nocapture noun
 52:                                               ; preds = %28
   %53 = load i64, ptr %41, align 8
   %54 = sitofp i64 %53 to double
-  %55 = sitofp i64 %50 to double
+  %55 = uitofp nneg i64 %50 to double
   %56 = fdiv double %54, %55
   %57 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.34, double noundef %56) #9
   %58 = load i64, ptr %29, align 8
@@ -1292,7 +1292,7 @@ define range(i32 -2, 1) i32 @KINPrintAllStats(ptr noundef %0, ptr nocapture noun
 115:                                              ; preds = %91
   %116 = load i64, ptr %104, align 8
   %117 = sitofp i64 %116 to double
-  %118 = sitofp i64 %113 to double
+  %118 = uitofp nneg i64 %113 to double
   %119 = fdiv double %117, %118
   %120 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.50, double noundef %119) #9
   %121 = load i64, ptr %92, align 8

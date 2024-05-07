@@ -86,7 +86,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %conv = sitofp i64 %timeNS to double
+  %conv = uitofp nneg i64 %timeNS to double
   %div = fdiv double %conv, 1.000000e+09
   %call = tail call noundef nonnull align 8 dereferenceable(24) ptr (ptr, ptr, ...) @_ZN5eastl12basic_stringIcNS_9allocatorEE7sprintfEPKcz(ptr noundef nonnull align 8 dereferenceable(24) %sTime, ptr noundef nonnull @.str, double noundef %div)
   br label %if.end17
@@ -96,23 +96,24 @@ if.else:                                          ; preds = %entry
   br i1 %cmp1, label %if.then2, label %if.else6
 
 if.then2:                                         ; preds = %if.else
-  %conv3 = sitofp i64 %timeNS to double
+  %conv3 = uitofp nneg i64 %timeNS to double
   %div4 = fdiv double %conv3, 1.000000e+06
   %call5 = tail call noundef nonnull align 8 dereferenceable(24) ptr (ptr, ptr, ...) @_ZN5eastl12basic_stringIcNS_9allocatorEE7sprintfEPKcz(ptr noundef nonnull align 8 dereferenceable(24) %sTime, ptr noundef nonnull @.str.1, double noundef %div4)
   br label %if.end17
 
 if.else6:                                         ; preds = %if.else
   %cmp7 = icmp sgt i64 %timeNS, 1000
-  %conv9 = sitofp i64 %timeNS to double
   br i1 %cmp7, label %if.then8, label %if.else12
 
 if.then8:                                         ; preds = %if.else6
+  %conv9 = uitofp nneg i64 %timeNS to double
   %div10 = fdiv double %conv9, 1.000000e+03
   %call11 = tail call noundef nonnull align 8 dereferenceable(24) ptr (ptr, ptr, ...) @_ZN5eastl12basic_stringIcNS_9allocatorEE7sprintfEPKcz(ptr noundef nonnull align 8 dereferenceable(24) %sTime, ptr noundef nonnull @.str.2, double noundef %div10)
   br label %if.end17
 
 if.else12:                                        ; preds = %if.else6
-  %call15 = tail call noundef nonnull align 8 dereferenceable(24) ptr (ptr, ptr, ...) @_ZN5eastl12basic_stringIcNS_9allocatorEE7sprintfEPKcz(ptr noundef nonnull align 8 dereferenceable(24) %sTime, ptr noundef nonnull @.str.3, double noundef %conv9)
+  %conv13 = sitofp i64 %timeNS to double
+  %call15 = tail call noundef nonnull align 8 dereferenceable(24) ptr (ptr, ptr, ...) @_ZN5eastl12basic_stringIcNS_9allocatorEE7sprintfEPKcz(ptr noundef nonnull align 8 dereferenceable(24) %sTime, ptr noundef nonnull @.str.3, double noundef %conv13)
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then2, %if.else12, %if.then8, %if.then
@@ -550,7 +551,7 @@ invoke.cont:
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %invoke.cont
-  %conv.i = sitofp i64 %3 to double
+  %conv.i = uitofp nneg i64 %3 to double
   %div.i = fdiv double %conv.i, 1.000000e+09
   br label %if.else12.i.invoke
 
@@ -559,22 +560,26 @@ if.else.i:                                        ; preds = %invoke.cont
   br i1 %cmp1.i, label %if.then2.i, label %if.else6.i
 
 if.then2.i:                                       ; preds = %if.else.i
-  %conv3.i = sitofp i64 %3 to double
+  %conv3.i = uitofp nneg i64 %3 to double
   %div4.i = fdiv double %conv3.i, 1.000000e+06
   br label %if.else12.i.invoke
 
 if.else6.i:                                       ; preds = %if.else.i
   %cmp7.i = icmp sgt i64 %3, 1000
-  %conv9.i = sitofp i64 %3 to double
-  br i1 %cmp7.i, label %if.then8.i, label %if.else12.i.invoke
+  br i1 %cmp7.i, label %if.then8.i, label %if.else12.i
 
 if.then8.i:                                       ; preds = %if.else6.i
+  %conv9.i = uitofp nneg i64 %3 to double
   %div10.i = fdiv double %conv9.i, 1.000000e+03
   br label %if.else12.i.invoke
 
-if.else12.i.invoke:                               ; preds = %if.else6.i, %if.then.i, %if.then2.i, %if.then8.i
-  %4 = phi ptr [ @.str.2, %if.then8.i ], [ @.str.1, %if.then2.i ], [ @.str, %if.then.i ], [ @.str.3, %if.else6.i ]
-  %5 = phi double [ %div10.i, %if.then8.i ], [ %div4.i, %if.then2.i ], [ %div.i, %if.then.i ], [ %conv9.i, %if.else6.i ]
+if.else12.i:                                      ; preds = %if.else6.i
+  %conv13.i = sitofp i64 %3 to double
+  br label %if.else12.i.invoke
+
+if.else12.i.invoke:                               ; preds = %if.then.i, %if.then2.i, %if.then8.i, %if.else12.i
+  %4 = phi ptr [ @.str.3, %if.else12.i ], [ @.str.2, %if.then8.i ], [ @.str.1, %if.then2.i ], [ @.str, %if.then.i ]
+  %5 = phi double [ %conv13.i, %if.else12.i ], [ %div10.i, %if.then8.i ], [ %div4.i, %if.then2.i ], [ %div.i, %if.then.i ]
   %6 = invoke noundef nonnull align 8 dereferenceable(24) ptr (ptr, ptr, ...) @_ZN5eastl12basic_stringIcNS_9allocatorEE7sprintfEPKcz(ptr noundef nonnull align 8 dereferenceable(24) %sClockTime1, ptr noundef nonnull %4, double noundef %5)
           to label %invoke.cont28 unwind label %lpad27
 
@@ -582,38 +587,42 @@ invoke.cont28:                                    ; preds = %if.else12.i.invoke
   %mTime2NS = getelementptr inbounds i8, ptr %result, i64 56
   %7 = load i64, ptr %mTime2NS, align 8
   %cmp.i25 = icmp sgt i64 %7, 1000000000
-  br i1 %cmp.i25, label %if.then.i37, label %if.else.i26
+  br i1 %cmp.i25, label %if.then.i38, label %if.else.i26
 
-if.then.i37:                                      ; preds = %invoke.cont28
-  %conv.i38 = sitofp i64 %7 to double
-  %div.i39 = fdiv double %conv.i38, 1.000000e+09
-  br label %if.else12.i31.invoke
+if.then.i38:                                      ; preds = %invoke.cont28
+  %conv.i39 = uitofp nneg i64 %7 to double
+  %div.i40 = fdiv double %conv.i39, 1.000000e+09
+  br label %if.else12.i30.invoke
 
 if.else.i26:                                      ; preds = %invoke.cont28
   %cmp1.i27 = icmp sgt i64 %7, 1000000
-  br i1 %cmp1.i27, label %if.then2.i34, label %if.else6.i28
+  br i1 %cmp1.i27, label %if.then2.i35, label %if.else6.i28
 
-if.then2.i34:                                     ; preds = %if.else.i26
-  %conv3.i35 = sitofp i64 %7 to double
-  %div4.i36 = fdiv double %conv3.i35, 1.000000e+06
-  br label %if.else12.i31.invoke
+if.then2.i35:                                     ; preds = %if.else.i26
+  %conv3.i36 = uitofp nneg i64 %7 to double
+  %div4.i37 = fdiv double %conv3.i36, 1.000000e+06
+  br label %if.else12.i30.invoke
 
 if.else6.i28:                                     ; preds = %if.else.i26
   %cmp7.i29 = icmp sgt i64 %7, 1000
-  %conv9.i30 = sitofp i64 %7 to double
-  br i1 %cmp7.i29, label %if.then8.i32, label %if.else12.i31.invoke
+  br i1 %cmp7.i29, label %if.then8.i32, label %if.else12.i30
 
 if.then8.i32:                                     ; preds = %if.else6.i28
-  %div10.i33 = fdiv double %conv9.i30, 1.000000e+03
-  br label %if.else12.i31.invoke
+  %conv9.i33 = uitofp nneg i64 %7 to double
+  %div10.i34 = fdiv double %conv9.i33, 1.000000e+03
+  br label %if.else12.i30.invoke
 
-if.else12.i31.invoke:                             ; preds = %if.else6.i28, %if.then.i37, %if.then2.i34, %if.then8.i32
-  %8 = phi ptr [ @.str.2, %if.then8.i32 ], [ @.str.1, %if.then2.i34 ], [ @.str, %if.then.i37 ], [ @.str.3, %if.else6.i28 ]
-  %9 = phi double [ %div10.i33, %if.then8.i32 ], [ %div4.i36, %if.then2.i34 ], [ %div.i39, %if.then.i37 ], [ %conv9.i30, %if.else6.i28 ]
+if.else12.i30:                                    ; preds = %if.else6.i28
+  %conv13.i31 = sitofp i64 %7 to double
+  br label %if.else12.i30.invoke
+
+if.else12.i30.invoke:                             ; preds = %if.then.i38, %if.then2.i35, %if.then8.i32, %if.else12.i30
+  %8 = phi ptr [ @.str.3, %if.else12.i30 ], [ @.str.2, %if.then8.i32 ], [ @.str.1, %if.then2.i35 ], [ @.str, %if.then.i38 ]
+  %9 = phi double [ %conv13.i31, %if.else12.i30 ], [ %div10.i34, %if.then8.i32 ], [ %div4.i37, %if.then2.i35 ], [ %div.i40, %if.then.i38 ]
   %10 = invoke noundef nonnull align 8 dereferenceable(24) ptr (ptr, ptr, ...) @_ZN5eastl12basic_stringIcNS_9allocatorEE7sprintfEPKcz(ptr noundef nonnull align 8 dereferenceable(24) %sClockTime2, ptr noundef nonnull %8, double noundef %9)
           to label %invoke.cont29 unwind label %lpad27
 
-invoke.cont29:                                    ; preds = %if.else12.i31.invoke
+invoke.cont29:                                    ; preds = %if.else12.i30.invoke
   %mRemainingSizeField.i.i.i = getelementptr inbounds i8, ptr %result, i64 23
   %11 = load i8, ptr %mRemainingSizeField.i.i.i, align 1
   %tobool.i.i.i = icmp slt i8 %11, 0
@@ -621,42 +630,42 @@ invoke.cont29:                                    ; preds = %if.else12.i31.invok
   %spec.select.i.i = select i1 %tobool.i.i.i, ptr %12, ptr %result
   %13 = load i64, ptr %mTime1, align 8
   %14 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
-  %tobool.i.i.i50 = icmp slt i8 %14, 0
+  %tobool.i.i.i51 = icmp slt i8 %14, 0
   %15 = load ptr, ptr %sClockTime1, align 8
-  %spec.select.i.i51 = select i1 %tobool.i.i.i50, ptr %15, ptr %sClockTime1
+  %spec.select.i.i52 = select i1 %tobool.i.i.i51, ptr %15, ptr %sClockTime1
   %16 = load i64, ptr %mTime2, align 8
   %17 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i20, align 1
-  %tobool.i.i.i53 = icmp slt i8 %17, 0
+  %tobool.i.i.i54 = icmp slt i8 %17, 0
   %18 = load ptr, ptr %sClockTime2, align 8
-  %spec.select.i.i54 = select i1 %tobool.i.i.i53, ptr %18, ptr %sClockTime2
-  invoke void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef nonnull @.str.9, ptr noundef %spec.select.i.i, i64 noundef %13, ptr noundef %spec.select.i.i51, i64 noundef %16, ptr noundef %spec.select.i.i54, double noundef %cond, ptr noundef nonnull %cond26)
+  %spec.select.i.i55 = select i1 %tobool.i.i.i54, ptr %18, ptr %sClockTime2
+  invoke void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef nonnull @.str.9, ptr noundef %spec.select.i.i, i64 noundef %13, ptr noundef %spec.select.i.i52, i64 noundef %16, ptr noundef %spec.select.i.i55, double noundef %cond, ptr noundef nonnull %cond26)
           to label %invoke.cont34 unwind label %lpad27
 
 invoke.cont34:                                    ; preds = %invoke.cont29
-  %mRemainingSizeField.i.i.i55 = getelementptr inbounds i8, ptr %result, i64 87
-  %19 = load i8, ptr %mRemainingSizeField.i.i.i55, align 1
-  %tobool.i.i.i56 = icmp slt i8 %19, 0
+  %mRemainingSizeField.i.i.i56 = getelementptr inbounds i8, ptr %result, i64 87
+  %19 = load i8, ptr %mRemainingSizeField.i.i.i56, align 1
+  %tobool.i.i.i57 = icmp slt i8 %19, 0
   %mnSize.i.i.i = getelementptr inbounds i8, ptr %result, i64 72
   %20 = load i64, ptr %mnSize.i.i.i, align 8
   %conv.i.i.i = zext nneg i8 %19 to i64
   %sub.i.i.i = sub nsw i64 23, %conv.i.i.i
-  %cond.i.i = select i1 %tobool.i.i.i56, i64 %20, i64 %sub.i.i.i
+  %cond.i.i = select i1 %tobool.i.i.i57, i64 %20, i64 %sub.i.i.i
   %tobool36.not = icmp eq i64 %cond.i.i, 0
   br i1 %tobool36.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %invoke.cont34
   %msNotes = getelementptr inbounds i8, ptr %result, i64 64
   %21 = load ptr, ptr %msNotes, align 8
-  %spec.select.i.i59 = select i1 %tobool.i.i.i56, ptr %21, ptr %msNotes
-  invoke void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef nonnull @.str.10, ptr noundef %spec.select.i.i59)
+  %spec.select.i.i60 = select i1 %tobool.i.i.i57, ptr %21, ptr %msNotes
+  invoke void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef nonnull @.str.10, ptr noundef %spec.select.i.i60)
           to label %if.end unwind label %lpad27
 
-lpad27:                                           ; preds = %if.else12.i.invoke, %if.else12.i31.invoke, %if.end, %if.then, %invoke.cont29
+lpad27:                                           ; preds = %if.else12.i.invoke, %if.else12.i30.invoke, %if.end, %if.then, %invoke.cont29
   %22 = landingpad { ptr, i32 }
           cleanup
   %23 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i20, align 1
-  %tobool.i.i.i61 = icmp slt i8 %23, 0
-  br i1 %tobool.i.i.i61, label %if.then.i.i, label %ehcleanup
+  %tobool.i.i.i62 = icmp slt i8 %23, 0
+  br i1 %tobool.i.i.i62, label %if.then.i.i, label %ehcleanup
 
 if.then.i.i:                                      ; preds = %lpad27
   %24 = load ptr, ptr %sClockTime2, align 8
@@ -673,50 +682,50 @@ if.end:                                           ; preds = %if.then, %invoke.co
 
 invoke.cont40:                                    ; preds = %if.end
   %25 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i20, align 1
-  %tobool.i.i.i63 = icmp slt i8 %25, 0
-  br i1 %tobool.i.i.i63, label %if.then.i.i64, label %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit67
+  %tobool.i.i.i64 = icmp slt i8 %25, 0
+  br i1 %tobool.i.i.i64, label %if.then.i.i65, label %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit68
 
-if.then.i.i64:                                    ; preds = %invoke.cont40
+if.then.i.i65:                                    ; preds = %invoke.cont40
   %26 = load ptr, ptr %sClockTime2, align 8
-  %tobool.not.i.i.i65 = icmp eq ptr %26, null
-  br i1 %tobool.not.i.i.i65, label %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit67, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i66
+  %tobool.not.i.i.i66 = icmp eq ptr %26, null
+  br i1 %tobool.not.i.i.i66, label %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit68, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i67
 
-_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i66: ; preds = %if.then.i.i64
+_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i67: ; preds = %if.then.i.i65
   call void @_ZdaPv(ptr noundef nonnull %26) #15
-  br label %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit67
+  br label %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit68
 
-_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit67: ; preds = %invoke.cont40, %if.then.i.i64, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i66
+_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit68: ; preds = %invoke.cont40, %if.then.i.i65, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i67
   %27 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
-  %tobool.i.i.i69 = icmp slt i8 %27, 0
-  br i1 %tobool.i.i.i69, label %if.then.i.i70, label %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit73
+  %tobool.i.i.i70 = icmp slt i8 %27, 0
+  br i1 %tobool.i.i.i70, label %if.then.i.i71, label %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit74
 
-if.then.i.i70:                                    ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit67
+if.then.i.i71:                                    ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit68
   %28 = load ptr, ptr %sClockTime1, align 8
-  %tobool.not.i.i.i71 = icmp eq ptr %28, null
-  br i1 %tobool.not.i.i.i71, label %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit73, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i72
+  %tobool.not.i.i.i72 = icmp eq ptr %28, null
+  br i1 %tobool.not.i.i.i72, label %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit74, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i73
 
-_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i72: ; preds = %if.then.i.i70
+_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i73: ; preds = %if.then.i.i71
   call void @_ZdaPv(ptr noundef nonnull %28) #15
-  br label %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit73
+  br label %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit74
 
-_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit73: ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit67, %if.then.i.i70, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i72
+_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit74: ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit68, %if.then.i.i71, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i73
   ret void
 
 ehcleanup:                                        ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i, %if.then.i.i, %lpad27
   %29 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
-  %tobool.i.i.i75 = icmp slt i8 %29, 0
-  br i1 %tobool.i.i.i75, label %if.then.i.i76, label %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit79
+  %tobool.i.i.i76 = icmp slt i8 %29, 0
+  br i1 %tobool.i.i.i76, label %if.then.i.i77, label %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit80
 
-if.then.i.i76:                                    ; preds = %ehcleanup
+if.then.i.i77:                                    ; preds = %ehcleanup
   %30 = load ptr, ptr %sClockTime1, align 8
-  %tobool.not.i.i.i77 = icmp eq ptr %30, null
-  br i1 %tobool.not.i.i.i77, label %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit79, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i78
+  %tobool.not.i.i.i78 = icmp eq ptr %30, null
+  br i1 %tobool.not.i.i.i78, label %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit80, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i79
 
-_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i78: ; preds = %if.then.i.i76
+_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i79: ; preds = %if.then.i.i77
   call void @_ZdaPv(ptr noundef nonnull %30) #15
-  br label %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit79
+  br label %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit80
 
-_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit79: ; preds = %ehcleanup, %if.then.i.i76, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i78
+_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit80: ; preds = %ehcleanup, %if.then.i.i77, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i79
   resume { ptr, i32 } %22
 }
 

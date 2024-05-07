@@ -1939,7 +1939,7 @@ define internal fastcc i32 @dissect_rtcp_common(ptr noundef %0, ptr noundef %1, 
   %94 = tail call ptr @proto_item_add_subtree(ptr noundef %92, i32 noundef %93) #7
   %95 = load i32, ptr @hf_rtcp_version, align 4
   %96 = tail call ptr @proto_tree_add_item(ptr noundef %94, i32 noundef %95, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #7
-  br label %2254
+  br label %2263
 
 .lr.ph:                                           ; preds = %.preheader, %dissect_rtcp_sr.exit
   %.0461244 = phi i32 [ %.4, %dissect_rtcp_sr.exit ], [ 0, %.preheader ]
@@ -2123,7 +2123,7 @@ show_setup_info.exit:                             ; preds = %168, %165, %proto_i
     i8 -64, label %1628
     i8 -63, label %1643
     i8 -51, label %1664
-    i8 -50, label %1932
+    i8 -50, label %1941
   ]
 
 186:                                              ; preds = %174, %174
@@ -2543,7 +2543,7 @@ dissect_rtcp_sdes.exit:                           ; preds = %353, %288
 
 420:                                              ; preds = %416, %411
   %421 = call i32 @tvb_reported_length(ptr noundef %0) #7
-  br label %2254
+  br label %2263
 
 422:                                              ; preds = %395
   %423 = zext i16 %400 to i32
@@ -5056,13 +5056,13 @@ dissect_rtcp_rtpfb_nack.exit.us.i:                ; preds = %1720, %.loopexit.us
   %.not263.i.us.i = icmp eq i32 %1888, 0
   br i1 %.not263.i.us.i, label %._crit_edge258.i.us.i, label %.lr.ph257.i.us.i
 
-.lr.ph257.i.us.i:                                 ; preds = %._crit_edge.i.us.i, %1912
-  %indvars.iv278.i.us.i = phi i64 [ %indvars.iv.next279.i.us.i, %1912 ], [ 0, %._crit_edge.i.us.i ]
-  %.1255.i.us.i = phi i32 [ %1913, %1912 ], [ %.0197.lcssa.i.us.i, %._crit_edge.i.us.i ]
+.lr.ph257.i.us.i:                                 ; preds = %._crit_edge.i.us.i, %1921
+  %indvars.iv278.i.us.i = phi i64 [ %indvars.iv.next279.i.us.i, %1921 ], [ 0, %._crit_edge.i.us.i ]
+  %.1255.i.us.i = phi i32 [ %1922, %1921 ], [ %.0197.lcssa.i.us.i, %._crit_edge.i.us.i ]
   %1889 = getelementptr i8, ptr %1744, i64 %indvars.iv278.i.us.i
   %1890 = load i8, ptr %1889, align 1
   switch i8 %1890, label %._crit_edge258.i.us.i [
-    i8 1, label %1902
+    i8 1, label %1911
     i8 2, label %1891
   ]
 
@@ -5071,477 +5071,490 @@ dissect_rtcp_rtpfb_nack.exit.us.i:                ; preds = %1720, %.loopexit.us
   %1893 = call ptr @proto_tree_add_item(ptr noundef %1887, i32 noundef %1892, ptr noundef %0, i32 noundef %.1255.i.us.i, i32 noundef 2, i32 noundef 0) #7
   %1894 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.1255.i.us.i) #7
   %1895 = icmp slt i16 %1894, 0
-  %1896 = getelementptr i16, ptr %1749, i64 %indvars.iv278.i.us.i
-  %1897 = load i16, ptr %1896, align 2
-  %1898 = zext i16 %1897 to i32
-  %1899 = sitofp i16 %1894 to double
-  %1900 = fmul double %1899, 2.500000e+02
-  %1901 = fdiv double %1900, 1.000000e+03
-  %.str.965..str.966.i.us.i = select i1 %1895, ptr @.str.965, ptr @.str.966
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1893, ptr noundef nonnull %.str.965..str.966.i.us.i, i32 noundef %1898, double noundef %1901) #7
-  br label %1912
+  br i1 %1895, label %1904, label %1896
 
-1902:                                             ; preds = %.lr.ph257.i.us.i
-  %1903 = load i32, ptr @hf_rtcp_rtpfb_transport_cc_fci_recv_delta_1_byte, align 4
-  %1904 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %1887, i32 noundef %1903, ptr noundef %0, i32 noundef %.1255.i.us.i, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %9) #7
+1896:                                             ; preds = %1891
+  %1897 = zext nneg i16 %1894 to i32
+  %1898 = getelementptr i16, ptr %1749, i64 %indvars.iv278.i.us.i
+  %1899 = load i16, ptr %1898, align 2
+  %1900 = zext i16 %1899 to i32
+  %1901 = mul nuw nsw i32 %1897, 250
+  %1902 = uitofp nneg i32 %1901 to double
+  %1903 = fdiv double %1902, 1.000000e+03
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1893, ptr noundef nonnull @.str.966, i32 noundef %1900, double noundef %1903) #7
+  br label %1921
+
+1904:                                             ; preds = %1891
   %1905 = getelementptr i16, ptr %1749, i64 %indvars.iv278.i.us.i
   %1906 = load i16, ptr %1905, align 2
   %1907 = zext i16 %1906 to i32
-  %1908 = load i32, ptr %9, align 4
-  %1909 = uitofp i32 %1908 to double
-  %1910 = fmul double %1909, 2.500000e+02
-  %1911 = fdiv double %1910, 1.000000e+03
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1904, ptr noundef nonnull @.str.964, i32 noundef %1907, double noundef %1911) #7
-  br label %1912
+  %1908 = sitofp i16 %1894 to double
+  %1909 = fmul double %1908, 2.500000e+02
+  %1910 = fdiv double %1909, 1.000000e+03
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1893, ptr noundef nonnull @.str.965, i32 noundef %1907, double noundef %1910) #7
+  br label %1921
 
-1912:                                             ; preds = %1902, %1891
-  %.sink.i.us.i = phi i32 [ 1, %1902 ], [ 2, %1891 ]
-  %1913 = add i32 %.sink.i.us.i, %.1255.i.us.i
+1911:                                             ; preds = %.lr.ph257.i.us.i
+  %1912 = load i32, ptr @hf_rtcp_rtpfb_transport_cc_fci_recv_delta_1_byte, align 4
+  %1913 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %1887, i32 noundef %1912, ptr noundef %0, i32 noundef %.1255.i.us.i, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %9) #7
+  %1914 = getelementptr i16, ptr %1749, i64 %indvars.iv278.i.us.i
+  %1915 = load i16, ptr %1914, align 2
+  %1916 = zext i16 %1915 to i32
+  %1917 = load i32, ptr %9, align 4
+  %1918 = uitofp i32 %1917 to double
+  %1919 = fmul double %1918, 2.500000e+02
+  %1920 = fdiv double %1919, 1.000000e+03
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1913, ptr noundef nonnull @.str.964, i32 noundef %1916, double noundef %1920) #7
+  br label %1921
+
+1921:                                             ; preds = %1911, %1904, %1896
+  %.sink.i.us.i = phi i32 [ 1, %1911 ], [ 2, %1896 ], [ 2, %1904 ]
+  %1922 = add i32 %.sink.i.us.i, %.1255.i.us.i
   %indvars.iv.next279.i.us.i = add nuw nsw i64 %indvars.iv278.i.us.i, 1
-  %1914 = load i32, ptr %7, align 4
-  %1915 = zext i32 %1914 to i64
-  %1916 = icmp ult i64 %indvars.iv.next279.i.us.i, %1915
-  br i1 %1916, label %.lr.ph257.i.us.i, label %._crit_edge258.i.us.i, !llvm.loop !30
+  %1923 = load i32, ptr %7, align 4
+  %1924 = zext i32 %1923 to i64
+  %1925 = icmp ult i64 %indvars.iv.next279.i.us.i, %1924
+  br i1 %1925, label %.lr.ph257.i.us.i, label %._crit_edge258.i.us.i, !llvm.loop !30
 
-._crit_edge258.i.us.i:                            ; preds = %1912, %.lr.ph257.i.us.i, %._crit_edge.i.us.i
-  %.1.lcssa.i.us.i = phi i32 [ %.0197.lcssa.i.us.i, %._crit_edge.i.us.i ], [ %.1255.i.us.i, %.lr.ph257.i.us.i ], [ %1913, %1912 ]
+._crit_edge258.i.us.i:                            ; preds = %1921, %.lr.ph257.i.us.i, %._crit_edge.i.us.i
+  %.1.lcssa.i.us.i = phi i32 [ %.0197.lcssa.i.us.i, %._crit_edge.i.us.i ], [ %.1255.i.us.i, %.lr.ph257.i.us.i ], [ %1922, %1921 ]
   %.neg.i.us.i = sub i32 %.07892.us106.i, %.1.lcssa.i.us.i
-  %1917 = add i32 %.neg.i.us.i, %1691
-  %1918 = icmp sgt i32 %1917, 0
-  br i1 %1918, label %1919, label %dissect_rtcp_rtpfb_transport_cc.exit.us.i
+  %1926 = add i32 %.neg.i.us.i, %1691
+  %1927 = icmp sgt i32 %1926, 0
+  br i1 %1927, label %1928, label %dissect_rtcp_rtpfb_transport_cc.exit.us.i
 
-1919:                                             ; preds = %._crit_edge258.i.us.i
-  %1920 = load i32, ptr @hf_rtcp_rtpfb_transport_cc_fci_recv_delta_padding, align 4
-  %1921 = call ptr @proto_tree_add_item(ptr noundef %1887, i32 noundef %1920, ptr noundef %0, i32 noundef %.1.lcssa.i.us.i, i32 noundef %1917, i32 noundef 0) #7
-  %1922 = add i32 %.07892.us106.i, %1691
+1928:                                             ; preds = %._crit_edge258.i.us.i
+  %1929 = load i32, ptr @hf_rtcp_rtpfb_transport_cc_fci_recv_delta_padding, align 4
+  %1930 = call ptr @proto_tree_add_item(ptr noundef %1887, i32 noundef %1929, ptr noundef %0, i32 noundef %.1.lcssa.i.us.i, i32 noundef %1926, i32 noundef 0) #7
+  %1931 = add i32 %.07892.us106.i, %1691
   br label %dissect_rtcp_rtpfb_transport_cc.exit.us.i
 
-dissect_rtcp_rtpfb_transport_cc.exit.us.i:        ; preds = %1919, %._crit_edge258.i.us.i, %1883, %1816, %1787, %1775
-  %.26 = phi i32 [ 0, %1919 ], [ %.15, %._crit_edge258.i.us.i ], [ %.15, %1883 ], [ %.15, %1816 ], [ %.15, %1775 ], [ %.15, %1787 ]
-  %.0.i.us.i = phi i32 [ %1922, %1919 ], [ %.1.lcssa.i.us.i, %._crit_edge258.i.us.i ], [ %1885, %1883 ], [ %1818, %1816 ], [ %1777, %1775 ], [ %1789, %1787 ]
+dissect_rtcp_rtpfb_transport_cc.exit.us.i:        ; preds = %1928, %._crit_edge258.i.us.i, %1883, %1816, %1787, %1775
+  %.26 = phi i32 [ 0, %1928 ], [ %.15, %._crit_edge258.i.us.i ], [ %.15, %1883 ], [ %.15, %1816 ], [ %.15, %1775 ], [ %.15, %1787 ]
+  %.0.i.us.i = phi i32 [ %1931, %1928 ], [ %.1.lcssa.i.us.i, %._crit_edge258.i.us.i ], [ %1885, %1883 ], [ %1818, %1816 ], [ %1777, %1775 ], [ %1789, %1787 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  %1923 = sub i32 %.0.i.us.i, %.032964241
-  %1924 = icmp slt i32 %1923, %1674
-  br i1 %1924, label %.lr.ph.split.us105.i, label %dissect_rtcp_sr.exit, !llvm.loop !24
+  %1932 = sub i32 %.0.i.us.i, %.032964241
+  %1933 = icmp slt i32 %1932, %1674
+  br i1 %1933, label %.lr.ph.split.us105.i, label %dissect_rtcp_sr.exit, !llvm.loop !24
 
 .lr.ph.split.us111.i:                             ; preds = %.lr.ph.i396, %.lr.ph.i396, %.lr.ph.i396, %.lr.ph.i396, %.lr.ph.i396, %.lr.ph.i396, %.lr.ph.i396
-  %1925 = add i32 %1674, %.032964241
-  %1926 = load i32, ptr @hf_rtcp_fci, align 4
-  %1927 = call ptr @proto_tree_add_item(ptr noundef %114, i32 noundef %1926, ptr noundef %0, i32 noundef %1687, i32 noundef %1691, i32 noundef 0) #7
-  %1928 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %1927, ptr noundef nonnull @ei_rtcp_rtpfb_fmt_not_implemented) #7
+  %1934 = add i32 %1674, %.032964241
+  %1935 = load i32, ptr @hf_rtcp_fci, align 4
+  %1936 = call ptr @proto_tree_add_item(ptr noundef %114, i32 noundef %1935, ptr noundef %0, i32 noundef %1687, i32 noundef %1691, i32 noundef 0) #7
+  %1937 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %1936, ptr noundef nonnull @ei_rtcp_rtpfb_fmt_not_implemented) #7
   br label %dissect_rtcp_sr.exit
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i396
-  %1929 = add i32 %1674, %.032964241
-  %1930 = load i32, ptr @hf_rtcp_fci, align 4
-  %1931 = call ptr @proto_tree_add_item(ptr noundef %114, i32 noundef %1930, ptr noundef %0, i32 noundef %1687, i32 noundef %1691, i32 noundef 0) #7
+  %1938 = add i32 %1674, %.032964241
+  %1939 = load i32, ptr @hf_rtcp_fci, align 4
+  %1940 = call ptr @proto_tree_add_item(ptr noundef %114, i32 noundef %1939, ptr noundef %0, i32 noundef %1687, i32 noundef %1691, i32 noundef 0) #7
   br label %dissect_rtcp_sr.exit
 
-1932:                                             ; preds = %174
-  %1933 = load i32, ptr @hf_rtcp_psfb_fmt, align 4
-  %1934 = call ptr @proto_tree_add_item(ptr noundef %114, i32 noundef %1933, ptr noundef %0, i32 noundef %.032964241, i32 noundef 1, i32 noundef 0) #7
-  %1935 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.032964241) #7
-  %1936 = and i8 %1935, 31
-  %1937 = zext nneg i8 %1936 to i32
-  %1938 = load ptr, ptr %77, align 8
-  %1939 = call ptr @val_to_str_const(i32 noundef %1937, ptr noundef nonnull @rtcp_psfb_fmt_summary_vals, ptr noundef nonnull @.str.764) #7
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %1938, i32 noundef 25, ptr noundef nonnull @.str.967, ptr noundef %1939) #7
-  %1940 = load i32, ptr @hf_rtcp_pt, align 4
-  %1941 = call ptr @proto_tree_add_item(ptr noundef %114, i32 noundef %1940, ptr noundef %0, i32 noundef %97, i32 noundef 1, i32 noundef 0) #7
-  %1942 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %104) #7
-  %1943 = zext i16 %1942 to i32
-  %1944 = add nsw i32 %1943, -2
-  %1945 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %104) #7
-  %1946 = load i32, ptr @hf_rtcp_length, align 4
-  %1947 = call ptr @proto_tree_add_item(ptr noundef %114, i32 noundef %1946, ptr noundef %0, i32 noundef %104, i32 noundef 2, i32 noundef 0) #7
-  %1948 = zext i16 %1945 to i32
-  %1949 = shl nuw nsw i32 %1948, 2
-  %1950 = add nuw nsw i32 %1949, 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1947, ptr noundef nonnull @.str.873, i32 noundef %1950) #7
-  %1951 = add i32 %.032964241, 4
-  %1952 = load i32, ptr @hf_rtcp_ssrc_sender, align 4
-  %1953 = call ptr @proto_tree_add_item(ptr noundef %114, i32 noundef %1952, ptr noundef %0, i32 noundef %1951, i32 noundef 4, i32 noundef 0) #7
-  %1954 = add i32 %.032964241, 8
-  %1955 = load i32, ptr @hf_rtcp_ssrc_media_source, align 4
-  %1956 = call ptr @proto_tree_add_item(ptr noundef %114, i32 noundef %1955, ptr noundef %0, i32 noundef %1954, i32 noundef 4, i32 noundef 0) #7
-  %1957 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %1954) #7
-  %1958 = call ptr @val_to_str_const(i32 noundef %1957, ptr noundef nonnull @rtcp_ssrc_values, ptr noundef nonnull @.str.871) #7
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1956, ptr noundef nonnull @.str.868, ptr noundef %1958) #7
-  %1959 = add i32 %.032964241, 12
-  %1960 = icmp ugt i16 %105, 2
-  br i1 %1960, label %1961, label %1966
+1941:                                             ; preds = %174
+  %1942 = load i32, ptr @hf_rtcp_psfb_fmt, align 4
+  %1943 = call ptr @proto_tree_add_item(ptr noundef %114, i32 noundef %1942, ptr noundef %0, i32 noundef %.032964241, i32 noundef 1, i32 noundef 0) #7
+  %1944 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.032964241) #7
+  %1945 = and i8 %1944, 31
+  %1946 = zext nneg i8 %1945 to i32
+  %1947 = load ptr, ptr %77, align 8
+  %1948 = call ptr @val_to_str_const(i32 noundef %1946, ptr noundef nonnull @rtcp_psfb_fmt_summary_vals, ptr noundef nonnull @.str.764) #7
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %1947, i32 noundef 25, ptr noundef nonnull @.str.967, ptr noundef %1948) #7
+  %1949 = load i32, ptr @hf_rtcp_pt, align 4
+  %1950 = call ptr @proto_tree_add_item(ptr noundef %114, i32 noundef %1949, ptr noundef %0, i32 noundef %97, i32 noundef 1, i32 noundef 0) #7
+  %1951 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %104) #7
+  %1952 = zext i16 %1951 to i32
+  %1953 = add nsw i32 %1952, -2
+  %1954 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %104) #7
+  %1955 = load i32, ptr @hf_rtcp_length, align 4
+  %1956 = call ptr @proto_tree_add_item(ptr noundef %114, i32 noundef %1955, ptr noundef %0, i32 noundef %104, i32 noundef 2, i32 noundef 0) #7
+  %1957 = zext i16 %1954 to i32
+  %1958 = shl nuw nsw i32 %1957, 2
+  %1959 = add nuw nsw i32 %1958, 4
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1956, ptr noundef nonnull @.str.873, i32 noundef %1959) #7
+  %1960 = add i32 %.032964241, 4
+  %1961 = load i32, ptr @hf_rtcp_ssrc_sender, align 4
+  %1962 = call ptr @proto_tree_add_item(ptr noundef %114, i32 noundef %1961, ptr noundef %0, i32 noundef %1960, i32 noundef 4, i32 noundef 0) #7
+  %1963 = add i32 %.032964241, 8
+  %1964 = load i32, ptr @hf_rtcp_ssrc_media_source, align 4
+  %1965 = call ptr @proto_tree_add_item(ptr noundef %114, i32 noundef %1964, ptr noundef %0, i32 noundef %1963, i32 noundef 4, i32 noundef 0) #7
+  %1966 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %1963) #7
+  %1967 = call ptr @val_to_str_const(i32 noundef %1966, ptr noundef nonnull @rtcp_ssrc_values, ptr noundef nonnull @.str.871) #7
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1965, ptr noundef nonnull @.str.868, ptr noundef %1967) #7
+  %1968 = add i32 %.032964241, 12
+  %1969 = icmp ugt i16 %105, 2
+  br i1 %1969, label %1970, label %1975
 
-1961:                                             ; preds = %1932
-  %1962 = add nsw i32 %107, -8
-  %1963 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %1959, i32 noundef %1962) #7
-  %1964 = load ptr, ptr @rtcp_psfb_dissector_table, align 8
-  %1965 = call i32 @dissector_try_uint(ptr noundef %1964, i32 noundef %1937, ptr noundef %1963, ptr noundef nonnull %1, ptr noundef %114) #7
-  %.not.i408 = icmp eq i32 %1965, 0
-  br i1 %.not.i408, label %1966, label %dissect_rtcp_sr.exit
+1970:                                             ; preds = %1941
+  %1971 = add nsw i32 %107, -8
+  %1972 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %1968, i32 noundef %1971) #7
+  %1973 = load ptr, ptr @rtcp_psfb_dissector_table, align 8
+  %1974 = call i32 @dissector_try_uint(ptr noundef %1973, i32 noundef %1946, ptr noundef %1972, ptr noundef nonnull %1, ptr noundef %114) #7
+  %.not.i408 = icmp eq i32 %1974, 0
+  br i1 %.not.i408, label %1975, label %dissect_rtcp_sr.exit
 
-1966:                                             ; preds = %1961, %1932
-  %.not165.i = icmp eq i32 %1944, 0
+1975:                                             ; preds = %1970, %1941
+  %.not165.i = icmp eq i32 %1953, 0
   br i1 %.not165.i, label %._crit_edge.i399, label %.lr.ph.i397
 
-.lr.ph.i397:                                      ; preds = %1966
+.lr.ph.i397:                                      ; preds = %1975
   %.not.i.i398 = icmp eq ptr %110, null
-  switch i8 %1936, label %._crit_edge.i399 [
+  switch i8 %1945, label %._crit_edge.i399 [
     i8 1, label %.lr.ph.split.us.i407
     i8 2, label %.lr.ph.split.us138.i
     i8 4, label %.lr.ph.split.us147.i
     i8 15, label %.lr.ph.split.us156.i
   ]
 
-.lr.ph.split.us.i407:                             ; preds = %.lr.ph.i397, %1972
-  %.0114137.us.i = phi i32 [ %1982, %1972 ], [ %1959, %.lr.ph.i397 ]
-  %.0127135.us.i = phi i32 [ %1973, %1972 ], [ 0, %.lr.ph.i397 ]
-  %1967 = load i32, ptr @ett_ssrc, align 4
-  %1968 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %114, ptr noundef %0, i32 noundef %.0114137.us.i, i32 noundef 12, i32 noundef %1967, ptr noundef null, ptr noundef nonnull @.str.968) #7
-  %1969 = load i32, ptr @hf_rtcp_psfb_pli_ms_request_id, align 4
-  %1970 = call ptr @proto_tree_add_item(ptr noundef %1968, i32 noundef %1969, ptr noundef %0, i32 noundef %.0114137.us.i, i32 noundef 2, i32 noundef 0) #7
-  %1971 = add i32 %.0114137.us.i, 4
-  br label %1975
+.lr.ph.split.us.i407:                             ; preds = %.lr.ph.i397, %1981
+  %.0114137.us.i = phi i32 [ %1991, %1981 ], [ %1968, %.lr.ph.i397 ]
+  %.0127135.us.i = phi i32 [ %1982, %1981 ], [ 0, %.lr.ph.i397 ]
+  %1976 = load i32, ptr @ett_ssrc, align 4
+  %1977 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %114, ptr noundef %0, i32 noundef %.0114137.us.i, i32 noundef 12, i32 noundef %1976, ptr noundef null, ptr noundef nonnull @.str.968) #7
+  %1978 = load i32, ptr @hf_rtcp_psfb_pli_ms_request_id, align 4
+  %1979 = call ptr @proto_tree_add_item(ptr noundef %1977, i32 noundef %1978, ptr noundef %0, i32 noundef %.0114137.us.i, i32 noundef 2, i32 noundef 0) #7
+  %1980 = add i32 %.0114137.us.i, 4
+  br label %1984
 
-1972:                                             ; preds = %1975
-  %1973 = add i32 %.0127135.us.i, 3
-  %1974 = icmp ult i32 %1973, %1944
-  br i1 %1974, label %.lr.ph.split.us.i407, label %._crit_edge.i399, !llvm.loop !31
+1981:                                             ; preds = %1984
+  %1982 = add i32 %.0127135.us.i, 3
+  %1983 = icmp ult i32 %1982, %1953
+  br i1 %1983, label %.lr.ph.split.us.i407, label %._crit_edge.i399, !llvm.loop !31
 
-1975:                                             ; preds = %1975, %.lr.ph.split.us.i407
-  %.1134.us.i = phi i32 [ %1971, %.lr.ph.split.us.i407 ], [ %1982, %1975 ]
-  %.0115133.us.i = phi i32 [ 0, %.lr.ph.split.us.i407 ], [ %1979, %1975 ]
-  %1976 = load i32, ptr @hf_rtcp_psfb_pli_ms_sfr, align 4
-  %1977 = call ptr @proto_tree_add_item(ptr noundef %1968, i32 noundef %1976, ptr noundef %0, i32 noundef %.1134.us.i, i32 noundef 1, i32 noundef 0) #7
-  %1978 = shl nuw nsw i32 %.0115133.us.i, 3
-  %1979 = add nuw nsw i32 %.0115133.us.i, 1
-  %1980 = shl nuw nsw i32 %1979, 3
-  %1981 = add nsw i32 %1980, -1
-  call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %1977, ptr noundef nonnull @.str.969, i32 noundef %1978, i32 noundef %1981) #7
-  %1982 = add i32 %.1134.us.i, 1
-  %exitcond176.not.i = icmp eq i32 %1979, 8
-  br i1 %exitcond176.not.i, label %1972, label %1975, !llvm.loop !32
+1984:                                             ; preds = %1984, %.lr.ph.split.us.i407
+  %.1134.us.i = phi i32 [ %1980, %.lr.ph.split.us.i407 ], [ %1991, %1984 ]
+  %.0115133.us.i = phi i32 [ 0, %.lr.ph.split.us.i407 ], [ %1988, %1984 ]
+  %1985 = load i32, ptr @hf_rtcp_psfb_pli_ms_sfr, align 4
+  %1986 = call ptr @proto_tree_add_item(ptr noundef %1977, i32 noundef %1985, ptr noundef %0, i32 noundef %.1134.us.i, i32 noundef 1, i32 noundef 0) #7
+  %1987 = shl nuw nsw i32 %.0115133.us.i, 3
+  %1988 = add nuw nsw i32 %.0115133.us.i, 1
+  %1989 = shl nuw nsw i32 %1988, 3
+  %1990 = add nsw i32 %1989, -1
+  call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %1986, ptr noundef nonnull @.str.969, i32 noundef %1987, i32 noundef %1990) #7
+  %1991 = add i32 %.1134.us.i, 1
+  %exitcond176.not.i = icmp eq i32 %1988, 8
+  br i1 %exitcond176.not.i, label %1981, label %1984, !llvm.loop !32
 
 .lr.ph.split.us138.i:                             ; preds = %.lr.ph.i397, %.lr.ph.split.us138.i
-  %.0114137.us139.i = phi i32 [ %1992, %.lr.ph.split.us138.i ], [ %1959, %.lr.ph.i397 ]
-  %.0116136.us140.i = phi i32 [ %1984, %.lr.ph.split.us138.i ], [ 0, %.lr.ph.i397 ]
-  %1983 = load i32, ptr @ett_ssrc, align 4
-  %1984 = add nuw i32 %.0116136.us140.i, 1
-  %1985 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %114, ptr noundef %0, i32 noundef %.0114137.us139.i, i32 noundef 4, i32 noundef %1983, ptr noundef null, ptr noundef nonnull @.str.970, i32 noundef %1984) #7
-  %1986 = load i32, ptr @hf_rtcp_psfb_sli_first, align 4
-  %1987 = call ptr @proto_tree_add_item(ptr noundef %1985, i32 noundef %1986, ptr noundef %0, i32 noundef %.0114137.us139.i, i32 noundef 4, i32 noundef 0) #7
-  %1988 = load i32, ptr @hf_rtcp_psfb_sli_number, align 4
-  %1989 = call ptr @proto_tree_add_item(ptr noundef %1985, i32 noundef %1988, ptr noundef %0, i32 noundef %.0114137.us139.i, i32 noundef 4, i32 noundef 0) #7
-  %1990 = load i32, ptr @hf_rtcp_psfb_sli_picture_id, align 4
-  %1991 = call ptr @proto_tree_add_item(ptr noundef %1985, i32 noundef %1990, ptr noundef %0, i32 noundef %.0114137.us139.i, i32 noundef 4, i32 noundef 0) #7
-  %1992 = add i32 %.0114137.us139.i, 4
-  %exitcond.not.i406 = icmp eq i32 %1984, %1944
+  %.0114137.us139.i = phi i32 [ %2001, %.lr.ph.split.us138.i ], [ %1968, %.lr.ph.i397 ]
+  %.0116136.us140.i = phi i32 [ %1993, %.lr.ph.split.us138.i ], [ 0, %.lr.ph.i397 ]
+  %1992 = load i32, ptr @ett_ssrc, align 4
+  %1993 = add nuw i32 %.0116136.us140.i, 1
+  %1994 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %114, ptr noundef %0, i32 noundef %.0114137.us139.i, i32 noundef 4, i32 noundef %1992, ptr noundef null, ptr noundef nonnull @.str.970, i32 noundef %1993) #7
+  %1995 = load i32, ptr @hf_rtcp_psfb_sli_first, align 4
+  %1996 = call ptr @proto_tree_add_item(ptr noundef %1994, i32 noundef %1995, ptr noundef %0, i32 noundef %.0114137.us139.i, i32 noundef 4, i32 noundef 0) #7
+  %1997 = load i32, ptr @hf_rtcp_psfb_sli_number, align 4
+  %1998 = call ptr @proto_tree_add_item(ptr noundef %1994, i32 noundef %1997, ptr noundef %0, i32 noundef %.0114137.us139.i, i32 noundef 4, i32 noundef 0) #7
+  %1999 = load i32, ptr @hf_rtcp_psfb_sli_picture_id, align 4
+  %2000 = call ptr @proto_tree_add_item(ptr noundef %1994, i32 noundef %1999, ptr noundef %0, i32 noundef %.0114137.us139.i, i32 noundef 4, i32 noundef 0) #7
+  %2001 = add i32 %.0114137.us139.i, 4
+  %exitcond.not.i406 = icmp eq i32 %1993, %1953
   br i1 %exitcond.not.i406, label %._crit_edge.i399, label %.lr.ph.split.us138.i, !llvm.loop !31
 
 .lr.ph.split.us147.i:                             ; preds = %.lr.ph.i397, %.lr.ph.split.us147.i
-  %.0114137.us148.i = phi i32 [ %2004, %.lr.ph.split.us147.i ], [ %1959, %.lr.ph.i397 ]
-  %.0116136.us149.i = phi i32 [ %1994, %.lr.ph.split.us147.i ], [ 0, %.lr.ph.i397 ]
-  %.0127135.us150.i = phi i32 [ %2005, %.lr.ph.split.us147.i ], [ 0, %.lr.ph.i397 ]
-  %1993 = load i32, ptr @ett_ssrc, align 4
-  %1994 = add i32 %.0116136.us149.i, 1
-  %1995 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %114, ptr noundef %0, i32 noundef %.0114137.us148.i, i32 noundef 8, i32 noundef %1993, ptr noundef null, ptr noundef nonnull @.str.971, i32 noundef %1994) #7
-  %1996 = load i32, ptr @hf_rtcp_psfb_fir_fci_ssrc, align 4
-  %1997 = call ptr @proto_tree_add_item(ptr noundef %1995, i32 noundef %1996, ptr noundef %0, i32 noundef %.0114137.us148.i, i32 noundef 4, i32 noundef 0) #7
-  %1998 = add i32 %.0114137.us148.i, 4
-  %1999 = load i32, ptr @hf_rtcp_psfb_fir_fci_csn, align 4
-  %2000 = call ptr @proto_tree_add_item(ptr noundef %1995, i32 noundef %1999, ptr noundef %0, i32 noundef %1998, i32 noundef 1, i32 noundef 0) #7
-  %2001 = add i32 %.0114137.us148.i, 5
-  %2002 = load i32, ptr @hf_rtcp_psfb_fir_fci_reserved, align 4
-  %2003 = call ptr @proto_tree_add_item(ptr noundef %1995, i32 noundef %2002, ptr noundef %0, i32 noundef %2001, i32 noundef 3, i32 noundef 0) #7
-  %2004 = add i32 %.0114137.us148.i, 8
-  %2005 = add i32 %.0127135.us150.i, 2
-  %2006 = icmp ult i32 %2005, %1944
-  br i1 %2006, label %.lr.ph.split.us147.i, label %._crit_edge.i399, !llvm.loop !31
+  %.0114137.us148.i = phi i32 [ %2013, %.lr.ph.split.us147.i ], [ %1968, %.lr.ph.i397 ]
+  %.0116136.us149.i = phi i32 [ %2003, %.lr.ph.split.us147.i ], [ 0, %.lr.ph.i397 ]
+  %.0127135.us150.i = phi i32 [ %2014, %.lr.ph.split.us147.i ], [ 0, %.lr.ph.i397 ]
+  %2002 = load i32, ptr @ett_ssrc, align 4
+  %2003 = add i32 %.0116136.us149.i, 1
+  %2004 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %114, ptr noundef %0, i32 noundef %.0114137.us148.i, i32 noundef 8, i32 noundef %2002, ptr noundef null, ptr noundef nonnull @.str.971, i32 noundef %2003) #7
+  %2005 = load i32, ptr @hf_rtcp_psfb_fir_fci_ssrc, align 4
+  %2006 = call ptr @proto_tree_add_item(ptr noundef %2004, i32 noundef %2005, ptr noundef %0, i32 noundef %.0114137.us148.i, i32 noundef 4, i32 noundef 0) #7
+  %2007 = add i32 %.0114137.us148.i, 4
+  %2008 = load i32, ptr @hf_rtcp_psfb_fir_fci_csn, align 4
+  %2009 = call ptr @proto_tree_add_item(ptr noundef %2004, i32 noundef %2008, ptr noundef %0, i32 noundef %2007, i32 noundef 1, i32 noundef 0) #7
+  %2010 = add i32 %.0114137.us148.i, 5
+  %2011 = load i32, ptr @hf_rtcp_psfb_fir_fci_reserved, align 4
+  %2012 = call ptr @proto_tree_add_item(ptr noundef %2004, i32 noundef %2011, ptr noundef %0, i32 noundef %2010, i32 noundef 3, i32 noundef 0) #7
+  %2013 = add i32 %.0114137.us148.i, 8
+  %2014 = add i32 %.0127135.us150.i, 2
+  %2015 = icmp ult i32 %2014, %1953
+  br i1 %2015, label %.lr.ph.split.us147.i, label %._crit_edge.i399, !llvm.loop !31
 
-.lr.ph.split.us156.i:                             ; preds = %.lr.ph.i397, %2184
-  %.0114137.us157.i = phi i32 [ %.0.lcssa.i.us.i, %2184 ], [ %1959, %.lr.ph.i397 ]
-  %2007 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.0114137.us157.i) #7
-  %2008 = icmp eq i32 %2007, 1380273474
-  br i1 %2008, label %2154, label %2009
+.lr.ph.split.us156.i:                             ; preds = %.lr.ph.i397, %2193
+  %.0114137.us157.i = phi i32 [ %.0.lcssa.i.us.i, %2193 ], [ %1968, %.lr.ph.i397 ]
+  %2016 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.0114137.us157.i) #7
+  %2017 = icmp eq i32 %2016, 1380273474
+  br i1 %2017, label %2163, label %2018
 
-2009:                                             ; preds = %.lr.ph.split.us156.i
+2018:                                             ; preds = %.lr.ph.split.us156.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %2010 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0114137.us157.i) #7
-  %2011 = load i32, ptr @hf_rtcp_psfb_ms_type, align 4
-  %2012 = call ptr @proto_tree_add_item(ptr noundef %114, i32 noundef %2011, ptr noundef %0, i32 noundef %.0114137.us157.i, i32 noundef 2, i32 noundef 0) #7
-  %2013 = add i32 %.0114137.us157.i, 2
-  %2014 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %2013) #7
-  %2015 = add i16 %2014, -4
-  %2016 = load i32, ptr @hf_rtcp_psfb_ms_length, align 4
-  %2017 = call ptr @proto_tree_add_item(ptr noundef %114, i32 noundef %2016, ptr noundef %0, i32 noundef %2013, i32 noundef 2, i32 noundef 0) #7
-  %2018 = add i32 %.0114137.us157.i, 4
-  switch i16 %2010, label %2150 [
-    i16 1, label %2033
-    i16 3, label %2019
+  %2019 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0114137.us157.i) #7
+  %2020 = load i32, ptr @hf_rtcp_psfb_ms_type, align 4
+  %2021 = call ptr @proto_tree_add_item(ptr noundef %114, i32 noundef %2020, ptr noundef %0, i32 noundef %.0114137.us157.i, i32 noundef 2, i32 noundef 0) #7
+  %2022 = add i32 %.0114137.us157.i, 2
+  %2023 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %2022) #7
+  %2024 = add i16 %2023, -4
+  %2025 = load i32, ptr @hf_rtcp_psfb_ms_length, align 4
+  %2026 = call ptr @proto_tree_add_item(ptr noundef %114, i32 noundef %2025, ptr noundef %0, i32 noundef %2022, i32 noundef 2, i32 noundef 0) #7
+  %2027 = add i32 %.0114137.us157.i, 4
+  switch i16 %2019, label %2159 [
+    i16 1, label %2042
+    i16 3, label %2028
   ]
 
-2019:                                             ; preds = %2009
-  %2020 = zext i16 %2015 to i32
-  %2021 = load i32, ptr @ett_ms_ds, align 4
-  %2022 = call ptr @proto_tree_add_subtree(ptr noundef %114, ptr noundef %0, i32 noundef %2018, i32 noundef %2020, i32 noundef %2021, ptr noundef null, ptr noundef nonnull @.str.990) #7
-  %2023 = load ptr, ptr %77, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %2023, i32 noundef 25, ptr noundef nonnull @.str.991) #7
-  %.not208.i.us.i = icmp eq i16 %2015, 0
+2028:                                             ; preds = %2018
+  %2029 = zext i16 %2024 to i32
+  %2030 = load i32, ptr @ett_ms_ds, align 4
+  %2031 = call ptr @proto_tree_add_subtree(ptr noundef %114, ptr noundef %0, i32 noundef %2027, i32 noundef %2029, i32 noundef %2030, ptr noundef null, ptr noundef nonnull @.str.990) #7
+  %2032 = load ptr, ptr %77, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %2032, i32 noundef 25, ptr noundef nonnull @.str.991) #7
+  %.not208.i.us.i = icmp eq i16 %2024, 0
   br i1 %.not208.i.us.i, label %.thread.i, label %.lr.ph.i121.us.i
 
-.lr.ph.i121.us.i:                                 ; preds = %2019, %2026
-  %.3210.i.us.i = phi i32 [ %2031, %2026 ], [ %2018, %2019 ]
-  %.0200209.i.us.i = phi i16 [ %2032, %2026 ], [ %2015, %2019 ]
-  %2024 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.3210.i.us.i) #7
-  %2025 = icmp sgt i32 %2024, 3
-  br i1 %2025, label %2026, label %.thread.i
+.lr.ph.i121.us.i:                                 ; preds = %2028, %2035
+  %.3210.i.us.i = phi i32 [ %2040, %2035 ], [ %2027, %2028 ]
+  %.0200209.i.us.i = phi i16 [ %2041, %2035 ], [ %2024, %2028 ]
+  %2033 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.3210.i.us.i) #7
+  %2034 = icmp sgt i32 %2033, 3
+  br i1 %2034, label %2035, label %.thread.i
 
-2026:                                             ; preds = %.lr.ph.i121.us.i
-  %2027 = load i32, ptr @hf_rtcp_psfb_ms_msi, align 4
-  %2028 = call ptr @proto_tree_add_item(ptr noundef %2022, i32 noundef %2027, ptr noundef %0, i32 noundef %.3210.i.us.i, i32 noundef 4, i32 noundef 0) #7
-  %2029 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.3210.i.us.i) #7
-  %2030 = call ptr @val_to_str_const(i32 noundef %2029, ptr noundef nonnull @rtcp_ssrc_values, ptr noundef nonnull @.str.871) #7
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2028, ptr noundef nonnull @.str.868, ptr noundef %2030) #7
-  %2031 = add i32 %.3210.i.us.i, 4
-  %2032 = add i16 %.0200209.i.us.i, -2
-  %.not.i122.us.i = icmp eq i16 %2032, 0
+2035:                                             ; preds = %.lr.ph.i121.us.i
+  %2036 = load i32, ptr @hf_rtcp_psfb_ms_msi, align 4
+  %2037 = call ptr @proto_tree_add_item(ptr noundef %2031, i32 noundef %2036, ptr noundef %0, i32 noundef %.3210.i.us.i, i32 noundef 4, i32 noundef 0) #7
+  %2038 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.3210.i.us.i) #7
+  %2039 = call ptr @val_to_str_const(i32 noundef %2038, ptr noundef nonnull @rtcp_ssrc_values, ptr noundef nonnull @.str.871) #7
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2037, ptr noundef nonnull @.str.868, ptr noundef %2039) #7
+  %2040 = add i32 %.3210.i.us.i, 4
+  %2041 = add i16 %.0200209.i.us.i, -2
+  %.not.i122.us.i = icmp eq i16 %2041, 0
   br i1 %.not.i122.us.i, label %.thread.i, label %.lr.ph.i121.us.i, !llvm.loop !33
 
-2033:                                             ; preds = %2009
-  %2034 = zext i16 %2015 to i32
-  %2035 = load i32, ptr @ett_ms_vsr, align 4
-  %2036 = call ptr @proto_tree_add_subtree(ptr noundef %114, ptr noundef %0, i32 noundef %2018, i32 noundef %2034, i32 noundef %2035, ptr noundef nonnull %5, ptr noundef nonnull @.str.985) #7
-  %2037 = load ptr, ptr %77, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %2037, i32 noundef 25, ptr noundef nonnull @.str.986) #7
-  %2038 = load i32, ptr @hf_rtcp_psfb_ms_msi, align 4
-  %2039 = call ptr @proto_tree_add_item(ptr noundef %2036, i32 noundef %2038, ptr noundef %0, i32 noundef %2018, i32 noundef 4, i32 noundef 0) #7
-  store ptr %2039, ptr %5, align 8
-  %2040 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %2018) #7
-  %2041 = load ptr, ptr %5, align 8
-  %2042 = call ptr @val_to_str_const(i32 noundef %2040, ptr noundef nonnull @rtcp_ssrc_values, ptr noundef nonnull @.str.871) #7
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2041, ptr noundef nonnull @.str.868, ptr noundef %2042) #7
-  %2043 = add i32 %.0114137.us157.i, 8
-  %2044 = load i32, ptr @hf_rtcp_psfb_ms_vsr_request_id, align 4
-  %2045 = call ptr @proto_tree_add_item(ptr noundef %2036, i32 noundef %2044, ptr noundef %0, i32 noundef %2043, i32 noundef 2, i32 noundef 0) #7
-  %2046 = add i32 %.0114137.us157.i, 12
-  %2047 = load i32, ptr @hf_rtcp_psfb_ms_vsr_version, align 4
-  %2048 = call ptr @proto_tree_add_item(ptr noundef %2036, i32 noundef %2047, ptr noundef %0, i32 noundef %2046, i32 noundef 1, i32 noundef 0) #7
-  %2049 = add i32 %.0114137.us157.i, 13
-  %2050 = load i32, ptr @hf_rtcp_psfb_ms_vsr_key_frame_request, align 4
-  %2051 = call ptr @proto_tree_add_item(ptr noundef %2036, i32 noundef %2050, ptr noundef %0, i32 noundef %2049, i32 noundef 1, i32 noundef 0) #7
-  %2052 = add i32 %.0114137.us157.i, 14
-  %2053 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %2052) #7
-  %2054 = load i32, ptr @hf_rtcp_psfb_ms_vsr_num_entries, align 4
-  %2055 = call ptr @proto_tree_add_item(ptr noundef %2036, i32 noundef %2054, ptr noundef %0, i32 noundef %2052, i32 noundef 1, i32 noundef 0) #7
-  %2056 = add i32 %.0114137.us157.i, 15
-  %2057 = load i32, ptr @hf_rtcp_psfb_ms_vsr_entry_length, align 4
-  %2058 = call ptr @proto_tree_add_item(ptr noundef %2036, i32 noundef %2057, ptr noundef %0, i32 noundef %2056, i32 noundef 1, i32 noundef 0) #7
-  %2059 = add i32 %.0114137.us157.i, 20
-  %.not206219.i.us.i = icmp eq i8 %2053, 0
+2042:                                             ; preds = %2018
+  %2043 = zext i16 %2024 to i32
+  %2044 = load i32, ptr @ett_ms_vsr, align 4
+  %2045 = call ptr @proto_tree_add_subtree(ptr noundef %114, ptr noundef %0, i32 noundef %2027, i32 noundef %2043, i32 noundef %2044, ptr noundef nonnull %5, ptr noundef nonnull @.str.985) #7
+  %2046 = load ptr, ptr %77, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %2046, i32 noundef 25, ptr noundef nonnull @.str.986) #7
+  %2047 = load i32, ptr @hf_rtcp_psfb_ms_msi, align 4
+  %2048 = call ptr @proto_tree_add_item(ptr noundef %2045, i32 noundef %2047, ptr noundef %0, i32 noundef %2027, i32 noundef 4, i32 noundef 0) #7
+  store ptr %2048, ptr %5, align 8
+  %2049 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %2027) #7
+  %2050 = load ptr, ptr %5, align 8
+  %2051 = call ptr @val_to_str_const(i32 noundef %2049, ptr noundef nonnull @rtcp_ssrc_values, ptr noundef nonnull @.str.871) #7
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2050, ptr noundef nonnull @.str.868, ptr noundef %2051) #7
+  %2052 = add i32 %.0114137.us157.i, 8
+  %2053 = load i32, ptr @hf_rtcp_psfb_ms_vsr_request_id, align 4
+  %2054 = call ptr @proto_tree_add_item(ptr noundef %2045, i32 noundef %2053, ptr noundef %0, i32 noundef %2052, i32 noundef 2, i32 noundef 0) #7
+  %2055 = add i32 %.0114137.us157.i, 12
+  %2056 = load i32, ptr @hf_rtcp_psfb_ms_vsr_version, align 4
+  %2057 = call ptr @proto_tree_add_item(ptr noundef %2045, i32 noundef %2056, ptr noundef %0, i32 noundef %2055, i32 noundef 1, i32 noundef 0) #7
+  %2058 = add i32 %.0114137.us157.i, 13
+  %2059 = load i32, ptr @hf_rtcp_psfb_ms_vsr_key_frame_request, align 4
+  %2060 = call ptr @proto_tree_add_item(ptr noundef %2045, i32 noundef %2059, ptr noundef %0, i32 noundef %2058, i32 noundef 1, i32 noundef 0) #7
+  %2061 = add i32 %.0114137.us157.i, 14
+  %2062 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %2061) #7
+  %2063 = load i32, ptr @hf_rtcp_psfb_ms_vsr_num_entries, align 4
+  %2064 = call ptr @proto_tree_add_item(ptr noundef %2045, i32 noundef %2063, ptr noundef %0, i32 noundef %2061, i32 noundef 1, i32 noundef 0) #7
+  %2065 = add i32 %.0114137.us157.i, 15
+  %2066 = load i32, ptr @hf_rtcp_psfb_ms_vsr_entry_length, align 4
+  %2067 = call ptr @proto_tree_add_item(ptr noundef %2045, i32 noundef %2066, ptr noundef %0, i32 noundef %2065, i32 noundef 1, i32 noundef 0) #7
+  %2068 = add i32 %.0114137.us157.i, 20
+  %.not206219.i.us.i = icmp eq i8 %2062, 0
   br i1 %.not206219.i.us.i, label %.thread.i, label %.lr.ph222.i.us.i
 
-.lr.ph222.i.us.i:                                 ; preds = %2033, %2146
-  %indvars.iv233.i.us.i = phi i32 [ %indvars.iv.next234.i.us.i, %2146 ], [ 0, %2033 ]
-  %.in.i.us.i = phi i8 [ %2060, %2146 ], [ %2053, %2033 ]
-  %.0221.i.us.i = phi i32 [ %2149, %2146 ], [ %2059, %2033 ]
-  %2060 = add i8 %.in.i.us.i, -1
-  %2061 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.0221.i.us.i) #7
-  %2062 = icmp sgt i32 %2061, 67
-  br i1 %2062, label %2063, label %.thread.i
+.lr.ph222.i.us.i:                                 ; preds = %2042, %2155
+  %indvars.iv233.i.us.i = phi i32 [ %indvars.iv.next234.i.us.i, %2155 ], [ 0, %2042 ]
+  %.in.i.us.i = phi i8 [ %2069, %2155 ], [ %2062, %2042 ]
+  %.0221.i.us.i = phi i32 [ %2158, %2155 ], [ %2068, %2042 ]
+  %2069 = add i8 %.in.i.us.i, -1
+  %2070 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.0221.i.us.i) #7
+  %2071 = icmp sgt i32 %2070, 67
+  br i1 %2071, label %2072, label %.thread.i
 
-2063:                                             ; preds = %.lr.ph222.i.us.i
-  %2064 = load i32, ptr @ett_ms_vsr_entry, align 4
+2072:                                             ; preds = %.lr.ph222.i.us.i
+  %2073 = load i32, ptr @ett_ms_vsr_entry, align 4
   %indvars.iv.next234.i.us.i = add nuw nsw i32 %indvars.iv233.i.us.i, 1
-  %2065 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2036, ptr noundef %0, i32 noundef %.0221.i.us.i, i32 noundef 68, i32 noundef %2064, ptr noundef null, ptr noundef nonnull @.str.987, i32 noundef %indvars.iv.next234.i.us.i) #7
-  %2066 = load i32, ptr @hf_rtcp_psfb_ms_vsre_payload_type, align 4
-  %2067 = call ptr @proto_tree_add_item(ptr noundef %2065, i32 noundef %2066, ptr noundef %0, i32 noundef %.0221.i.us.i, i32 noundef 1, i32 noundef 0) #7
-  %2068 = add i32 %.0221.i.us.i, 1
-  %2069 = load i32, ptr @hf_rtcp_psfb_ms_vsre_ucconfig_mode, align 4
-  %2070 = call ptr @proto_tree_add_item(ptr noundef %2065, i32 noundef %2069, ptr noundef %0, i32 noundef %2068, i32 noundef 1, i32 noundef 0) #7
-  %2071 = add i32 %.0221.i.us.i, 2
-  %2072 = load i32, ptr @hf_rtcp_psfb_ms_vsre_no_sp_frames, align 4
-  %2073 = call ptr @proto_tree_add_item(ptr noundef %2065, i32 noundef %2072, ptr noundef %0, i32 noundef %2071, i32 noundef 1, i32 noundef 0) #7
-  %2074 = load i32, ptr @hf_rtcp_psfb_ms_vsre_baseline, align 4
-  %2075 = call ptr @proto_tree_add_item(ptr noundef %2065, i32 noundef %2074, ptr noundef %0, i32 noundef %2071, i32 noundef 1, i32 noundef 0) #7
-  %2076 = load i32, ptr @hf_rtcp_psfb_ms_vsre_cgs, align 4
-  %2077 = call ptr @proto_tree_add_item(ptr noundef %2065, i32 noundef %2076, ptr noundef %0, i32 noundef %2071, i32 noundef 1, i32 noundef 0) #7
-  %2078 = add i32 %.0221.i.us.i, 3
-  %2079 = load i32, ptr @hf_rtcp_psfb_ms_vsre_aspect_ratio_bitmask, align 4
-  %2080 = call ptr @proto_tree_add_item(ptr noundef %2065, i32 noundef %2079, ptr noundef %0, i32 noundef %2078, i32 noundef 1, i32 noundef 0) #7
-  %2081 = load i32, ptr @hf_rtcp_psfb_ms_vsre_aspect_ratio_20by3, align 4
-  %2082 = call ptr @proto_tree_add_item(ptr noundef %2065, i32 noundef %2081, ptr noundef %0, i32 noundef %2078, i32 noundef 1, i32 noundef 0) #7
-  %2083 = load i32, ptr @hf_rtcp_psfb_ms_vsre_aspect_ratio_9by16, align 4
-  %2084 = call ptr @proto_tree_add_item(ptr noundef %2065, i32 noundef %2083, ptr noundef %0, i32 noundef %2078, i32 noundef 1, i32 noundef 0) #7
-  %2085 = load i32, ptr @hf_rtcp_psfb_ms_vsre_aspect_ratio_3by4, align 4
-  %2086 = call ptr @proto_tree_add_item(ptr noundef %2065, i32 noundef %2085, ptr noundef %0, i32 noundef %2078, i32 noundef 1, i32 noundef 0) #7
-  %2087 = load i32, ptr @hf_rtcp_psfb_ms_vsre_aspect_ratio_1by1, align 4
-  %2088 = call ptr @proto_tree_add_item(ptr noundef %2065, i32 noundef %2087, ptr noundef %0, i32 noundef %2078, i32 noundef 1, i32 noundef 0) #7
-  %2089 = load i32, ptr @hf_rtcp_psfb_ms_vsre_aspect_ratio_16by9, align 4
-  %2090 = call ptr @proto_tree_add_item(ptr noundef %2065, i32 noundef %2089, ptr noundef %0, i32 noundef %2078, i32 noundef 1, i32 noundef 0) #7
-  %2091 = load i32, ptr @hf_rtcp_psfb_ms_vsre_aspect_ratio_4by3, align 4
-  %2092 = call ptr @proto_tree_add_item(ptr noundef %2065, i32 noundef %2091, ptr noundef %0, i32 noundef %2078, i32 noundef 1, i32 noundef 0) #7
-  %2093 = add i32 %.0221.i.us.i, 4
-  %2094 = load i32, ptr @hf_rtcp_psfb_ms_vsre_max_width, align 4
-  %2095 = call ptr @proto_tree_add_item(ptr noundef %2065, i32 noundef %2094, ptr noundef %0, i32 noundef %2093, i32 noundef 2, i32 noundef 0) #7
-  %2096 = add i32 %.0221.i.us.i, 6
-  %2097 = load i32, ptr @hf_rtcp_psfb_ms_vsre_max_height, align 4
-  %2098 = call ptr @proto_tree_add_item(ptr noundef %2065, i32 noundef %2097, ptr noundef %0, i32 noundef %2096, i32 noundef 2, i32 noundef 0) #7
-  %2099 = add i32 %.0221.i.us.i, 8
-  %2100 = load i32, ptr @hf_rtcp_psfb_ms_vsre_min_bitrate, align 4
-  %2101 = call ptr @proto_tree_add_item(ptr noundef %2065, i32 noundef %2100, ptr noundef %0, i32 noundef %2099, i32 noundef 4, i32 noundef 0) #7
-  %2102 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %2099) #7
-  %2103 = add i32 %.0221.i.us.i, 16
-  %2104 = load i32, ptr @hf_rtcp_psfb_ms_vsre_bitrate_per_level, align 4
-  %2105 = call ptr @proto_tree_add_item(ptr noundef %2065, i32 noundef %2104, ptr noundef %0, i32 noundef %2103, i32 noundef 4, i32 noundef 0) #7
-  %2106 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %2103) #7
-  %2107 = add i32 %.0221.i.us.i, 20
-  br label %2108
+  %2074 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2045, ptr noundef %0, i32 noundef %.0221.i.us.i, i32 noundef 68, i32 noundef %2073, ptr noundef null, ptr noundef nonnull @.str.987, i32 noundef %indvars.iv.next234.i.us.i) #7
+  %2075 = load i32, ptr @hf_rtcp_psfb_ms_vsre_payload_type, align 4
+  %2076 = call ptr @proto_tree_add_item(ptr noundef %2074, i32 noundef %2075, ptr noundef %0, i32 noundef %.0221.i.us.i, i32 noundef 1, i32 noundef 0) #7
+  %2077 = add i32 %.0221.i.us.i, 1
+  %2078 = load i32, ptr @hf_rtcp_psfb_ms_vsre_ucconfig_mode, align 4
+  %2079 = call ptr @proto_tree_add_item(ptr noundef %2074, i32 noundef %2078, ptr noundef %0, i32 noundef %2077, i32 noundef 1, i32 noundef 0) #7
+  %2080 = add i32 %.0221.i.us.i, 2
+  %2081 = load i32, ptr @hf_rtcp_psfb_ms_vsre_no_sp_frames, align 4
+  %2082 = call ptr @proto_tree_add_item(ptr noundef %2074, i32 noundef %2081, ptr noundef %0, i32 noundef %2080, i32 noundef 1, i32 noundef 0) #7
+  %2083 = load i32, ptr @hf_rtcp_psfb_ms_vsre_baseline, align 4
+  %2084 = call ptr @proto_tree_add_item(ptr noundef %2074, i32 noundef %2083, ptr noundef %0, i32 noundef %2080, i32 noundef 1, i32 noundef 0) #7
+  %2085 = load i32, ptr @hf_rtcp_psfb_ms_vsre_cgs, align 4
+  %2086 = call ptr @proto_tree_add_item(ptr noundef %2074, i32 noundef %2085, ptr noundef %0, i32 noundef %2080, i32 noundef 1, i32 noundef 0) #7
+  %2087 = add i32 %.0221.i.us.i, 3
+  %2088 = load i32, ptr @hf_rtcp_psfb_ms_vsre_aspect_ratio_bitmask, align 4
+  %2089 = call ptr @proto_tree_add_item(ptr noundef %2074, i32 noundef %2088, ptr noundef %0, i32 noundef %2087, i32 noundef 1, i32 noundef 0) #7
+  %2090 = load i32, ptr @hf_rtcp_psfb_ms_vsre_aspect_ratio_20by3, align 4
+  %2091 = call ptr @proto_tree_add_item(ptr noundef %2074, i32 noundef %2090, ptr noundef %0, i32 noundef %2087, i32 noundef 1, i32 noundef 0) #7
+  %2092 = load i32, ptr @hf_rtcp_psfb_ms_vsre_aspect_ratio_9by16, align 4
+  %2093 = call ptr @proto_tree_add_item(ptr noundef %2074, i32 noundef %2092, ptr noundef %0, i32 noundef %2087, i32 noundef 1, i32 noundef 0) #7
+  %2094 = load i32, ptr @hf_rtcp_psfb_ms_vsre_aspect_ratio_3by4, align 4
+  %2095 = call ptr @proto_tree_add_item(ptr noundef %2074, i32 noundef %2094, ptr noundef %0, i32 noundef %2087, i32 noundef 1, i32 noundef 0) #7
+  %2096 = load i32, ptr @hf_rtcp_psfb_ms_vsre_aspect_ratio_1by1, align 4
+  %2097 = call ptr @proto_tree_add_item(ptr noundef %2074, i32 noundef %2096, ptr noundef %0, i32 noundef %2087, i32 noundef 1, i32 noundef 0) #7
+  %2098 = load i32, ptr @hf_rtcp_psfb_ms_vsre_aspect_ratio_16by9, align 4
+  %2099 = call ptr @proto_tree_add_item(ptr noundef %2074, i32 noundef %2098, ptr noundef %0, i32 noundef %2087, i32 noundef 1, i32 noundef 0) #7
+  %2100 = load i32, ptr @hf_rtcp_psfb_ms_vsre_aspect_ratio_4by3, align 4
+  %2101 = call ptr @proto_tree_add_item(ptr noundef %2074, i32 noundef %2100, ptr noundef %0, i32 noundef %2087, i32 noundef 1, i32 noundef 0) #7
+  %2102 = add i32 %.0221.i.us.i, 4
+  %2103 = load i32, ptr @hf_rtcp_psfb_ms_vsre_max_width, align 4
+  %2104 = call ptr @proto_tree_add_item(ptr noundef %2074, i32 noundef %2103, ptr noundef %0, i32 noundef %2102, i32 noundef 2, i32 noundef 0) #7
+  %2105 = add i32 %.0221.i.us.i, 6
+  %2106 = load i32, ptr @hf_rtcp_psfb_ms_vsre_max_height, align 4
+  %2107 = call ptr @proto_tree_add_item(ptr noundef %2074, i32 noundef %2106, ptr noundef %0, i32 noundef %2105, i32 noundef 2, i32 noundef 0) #7
+  %2108 = add i32 %.0221.i.us.i, 8
+  %2109 = load i32, ptr @hf_rtcp_psfb_ms_vsre_min_bitrate, align 4
+  %2110 = call ptr @proto_tree_add_item(ptr noundef %2074, i32 noundef %2109, ptr noundef %0, i32 noundef %2108, i32 noundef 4, i32 noundef 0) #7
+  %2111 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %2108) #7
+  %2112 = add i32 %.0221.i.us.i, 16
+  %2113 = load i32, ptr @hf_rtcp_psfb_ms_vsre_bitrate_per_level, align 4
+  %2114 = call ptr @proto_tree_add_item(ptr noundef %2074, i32 noundef %2113, ptr noundef %0, i32 noundef %2112, i32 noundef 4, i32 noundef 0) #7
+  %2115 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %2112) #7
+  %2116 = add i32 %.0221.i.us.i, 20
+  br label %2117
 
-2108:                                             ; preds = %2108, %2063
-  %indvars.iv.i.us.i402 = phi i32 [ 0, %2063 ], [ %2113, %2108 ]
-  %.1216.i.us.i = phi i32 [ %2107, %2063 ], [ %2116, %2108 ]
-  %2109 = load i32, ptr @hf_rtcp_psfb_ms_vsre_bitrate_histogram, align 4
-  %2110 = call ptr @proto_tree_add_item(ptr noundef %2065, i32 noundef %2109, ptr noundef %0, i32 noundef %.1216.i.us.i, i32 noundef 2, i32 noundef 0) #7
-  store ptr %2110, ptr %5, align 8
-  %2111 = mul i32 %indvars.iv.i.us.i402, %2106
-  %2112 = add i32 %2111, %2102
-  %2113 = add nuw nsw i32 %indvars.iv.i.us.i402, 1
-  %2114 = mul i32 %2113, %2106
-  %2115 = add i32 %2114, %2102
-  call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %2110, ptr noundef nonnull @.str.988, i32 noundef %2112, i32 noundef %2115) #7
-  %2116 = add i32 %.1216.i.us.i, 2
-  %exitcond.not.i123.us.i = icmp eq i32 %2113, 10
-  br i1 %exitcond.not.i123.us.i, label %2117, label %2108, !llvm.loop !34
+2117:                                             ; preds = %2117, %2072
+  %indvars.iv.i.us.i402 = phi i32 [ 0, %2072 ], [ %2122, %2117 ]
+  %.1216.i.us.i = phi i32 [ %2116, %2072 ], [ %2125, %2117 ]
+  %2118 = load i32, ptr @hf_rtcp_psfb_ms_vsre_bitrate_histogram, align 4
+  %2119 = call ptr @proto_tree_add_item(ptr noundef %2074, i32 noundef %2118, ptr noundef %0, i32 noundef %.1216.i.us.i, i32 noundef 2, i32 noundef 0) #7
+  store ptr %2119, ptr %5, align 8
+  %2120 = mul i32 %indvars.iv.i.us.i402, %2115
+  %2121 = add i32 %2120, %2111
+  %2122 = add nuw nsw i32 %indvars.iv.i.us.i402, 1
+  %2123 = mul i32 %2122, %2115
+  %2124 = add i32 %2123, %2111
+  call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %2119, ptr noundef nonnull @.str.988, i32 noundef %2121, i32 noundef %2124) #7
+  %2125 = add i32 %.1216.i.us.i, 2
+  %exitcond.not.i123.us.i = icmp eq i32 %2122, 10
+  br i1 %exitcond.not.i123.us.i, label %2126, label %2117, !llvm.loop !34
 
-2117:                                             ; preds = %2108
-  %2118 = load i32, ptr @hf_rtcp_psfb_ms_vsre_frame_rate_mask, align 4
-  %2119 = call ptr @proto_tree_add_item(ptr noundef %2065, i32 noundef %2118, ptr noundef %0, i32 noundef %2116, i32 noundef 4, i32 noundef 0) #7
-  %2120 = add i32 %.1216.i.us.i, 5
-  %2121 = load i32, ptr @hf_rtcp_psfb_ms_vsre_frame_rate_60, align 4
-  %2122 = call ptr @proto_tree_add_item(ptr noundef %2065, i32 noundef %2121, ptr noundef %0, i32 noundef %2120, i32 noundef 1, i32 noundef 0) #7
-  %2123 = load i32, ptr @hf_rtcp_psfb_ms_vsre_frame_rate_50, align 4
-  %2124 = call ptr @proto_tree_add_item(ptr noundef %2065, i32 noundef %2123, ptr noundef %0, i32 noundef %2120, i32 noundef 1, i32 noundef 0) #7
-  %2125 = load i32, ptr @hf_rtcp_psfb_ms_vsre_frame_rate_30, align 4
-  %2126 = call ptr @proto_tree_add_item(ptr noundef %2065, i32 noundef %2125, ptr noundef %0, i32 noundef %2120, i32 noundef 1, i32 noundef 0) #7
-  %2127 = load i32, ptr @hf_rtcp_psfb_ms_vsre_frame_rate_25, align 4
-  %2128 = call ptr @proto_tree_add_item(ptr noundef %2065, i32 noundef %2127, ptr noundef %0, i32 noundef %2120, i32 noundef 1, i32 noundef 0) #7
-  %2129 = load i32, ptr @hf_rtcp_psfb_ms_vsre_frame_rate_15, align 4
-  %2130 = call ptr @proto_tree_add_item(ptr noundef %2065, i32 noundef %2129, ptr noundef %0, i32 noundef %2120, i32 noundef 1, i32 noundef 0) #7
-  %2131 = load i32, ptr @hf_rtcp_psfb_ms_vsre_frame_rate_12_5, align 4
-  %2132 = call ptr @proto_tree_add_item(ptr noundef %2065, i32 noundef %2131, ptr noundef %0, i32 noundef %2120, i32 noundef 1, i32 noundef 0) #7
-  %2133 = load i32, ptr @hf_rtcp_psfb_ms_vsre_frame_rate_7_5, align 4
-  %2134 = call ptr @proto_tree_add_item(ptr noundef %2065, i32 noundef %2133, ptr noundef %0, i32 noundef %2120, i32 noundef 1, i32 noundef 0) #7
-  %2135 = add i32 %.1216.i.us.i, 6
-  %2136 = load i32, ptr @hf_rtcp_psfb_ms_vsre_must_instances, align 4
-  %2137 = call ptr @proto_tree_add_item(ptr noundef %2065, i32 noundef %2136, ptr noundef %0, i32 noundef %2135, i32 noundef 2, i32 noundef 0) #7
-  %2138 = add i32 %.1216.i.us.i, 8
-  %2139 = load i32, ptr @hf_rtcp_psfb_ms_vsre_may_instances, align 4
-  %2140 = call ptr @proto_tree_add_item(ptr noundef %2065, i32 noundef %2139, ptr noundef %0, i32 noundef %2138, i32 noundef 2, i32 noundef 0) #7
-  %2141 = add i32 %.1216.i.us.i, 10
-  br label %2142
+2126:                                             ; preds = %2117
+  %2127 = load i32, ptr @hf_rtcp_psfb_ms_vsre_frame_rate_mask, align 4
+  %2128 = call ptr @proto_tree_add_item(ptr noundef %2074, i32 noundef %2127, ptr noundef %0, i32 noundef %2125, i32 noundef 4, i32 noundef 0) #7
+  %2129 = add i32 %.1216.i.us.i, 5
+  %2130 = load i32, ptr @hf_rtcp_psfb_ms_vsre_frame_rate_60, align 4
+  %2131 = call ptr @proto_tree_add_item(ptr noundef %2074, i32 noundef %2130, ptr noundef %0, i32 noundef %2129, i32 noundef 1, i32 noundef 0) #7
+  %2132 = load i32, ptr @hf_rtcp_psfb_ms_vsre_frame_rate_50, align 4
+  %2133 = call ptr @proto_tree_add_item(ptr noundef %2074, i32 noundef %2132, ptr noundef %0, i32 noundef %2129, i32 noundef 1, i32 noundef 0) #7
+  %2134 = load i32, ptr @hf_rtcp_psfb_ms_vsre_frame_rate_30, align 4
+  %2135 = call ptr @proto_tree_add_item(ptr noundef %2074, i32 noundef %2134, ptr noundef %0, i32 noundef %2129, i32 noundef 1, i32 noundef 0) #7
+  %2136 = load i32, ptr @hf_rtcp_psfb_ms_vsre_frame_rate_25, align 4
+  %2137 = call ptr @proto_tree_add_item(ptr noundef %2074, i32 noundef %2136, ptr noundef %0, i32 noundef %2129, i32 noundef 1, i32 noundef 0) #7
+  %2138 = load i32, ptr @hf_rtcp_psfb_ms_vsre_frame_rate_15, align 4
+  %2139 = call ptr @proto_tree_add_item(ptr noundef %2074, i32 noundef %2138, ptr noundef %0, i32 noundef %2129, i32 noundef 1, i32 noundef 0) #7
+  %2140 = load i32, ptr @hf_rtcp_psfb_ms_vsre_frame_rate_12_5, align 4
+  %2141 = call ptr @proto_tree_add_item(ptr noundef %2074, i32 noundef %2140, ptr noundef %0, i32 noundef %2129, i32 noundef 1, i32 noundef 0) #7
+  %2142 = load i32, ptr @hf_rtcp_psfb_ms_vsre_frame_rate_7_5, align 4
+  %2143 = call ptr @proto_tree_add_item(ptr noundef %2074, i32 noundef %2142, ptr noundef %0, i32 noundef %2129, i32 noundef 1, i32 noundef 0) #7
+  %2144 = add i32 %.1216.i.us.i, 6
+  %2145 = load i32, ptr @hf_rtcp_psfb_ms_vsre_must_instances, align 4
+  %2146 = call ptr @proto_tree_add_item(ptr noundef %2074, i32 noundef %2145, ptr noundef %0, i32 noundef %2144, i32 noundef 2, i32 noundef 0) #7
+  %2147 = add i32 %.1216.i.us.i, 8
+  %2148 = load i32, ptr @hf_rtcp_psfb_ms_vsre_may_instances, align 4
+  %2149 = call ptr @proto_tree_add_item(ptr noundef %2074, i32 noundef %2148, ptr noundef %0, i32 noundef %2147, i32 noundef 2, i32 noundef 0) #7
+  %2150 = add i32 %.1216.i.us.i, 10
+  br label %2151
 
-2142:                                             ; preds = %2142, %2117
-  %indvars.iv229.i.us.i = phi i32 [ 0, %2117 ], [ %indvars.iv.next230.i.us.i, %2142 ]
-  %.2218.i.us.i = phi i32 [ %2141, %2117 ], [ %2145, %2142 ]
-  %2143 = load i32, ptr @hf_rtcp_psfb_ms_vsre_quality_histogram, align 4
-  %2144 = call ptr @proto_tree_add_item(ptr noundef %2065, i32 noundef %2143, ptr noundef %0, i32 noundef %.2218.i.us.i, i32 noundef 2, i32 noundef 0) #7
-  store ptr %2144, ptr %5, align 8
+2151:                                             ; preds = %2151, %2126
+  %indvars.iv229.i.us.i = phi i32 [ 0, %2126 ], [ %indvars.iv.next230.i.us.i, %2151 ]
+  %.2218.i.us.i = phi i32 [ %2150, %2126 ], [ %2154, %2151 ]
+  %2152 = load i32, ptr @hf_rtcp_psfb_ms_vsre_quality_histogram, align 4
+  %2153 = call ptr @proto_tree_add_item(ptr noundef %2074, i32 noundef %2152, ptr noundef %0, i32 noundef %.2218.i.us.i, i32 noundef 2, i32 noundef 0) #7
+  store ptr %2153, ptr %5, align 8
   %indvars.iv.next230.i.us.i = add nuw nsw i32 %indvars.iv229.i.us.i, 1
-  call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %2144, ptr noundef nonnull @.str.989, i32 noundef %indvars.iv.next230.i.us.i) #7
-  %2145 = add i32 %.2218.i.us.i, 2
+  call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %2153, ptr noundef nonnull @.str.989, i32 noundef %indvars.iv.next230.i.us.i) #7
+  %2154 = add i32 %.2218.i.us.i, 2
   %exitcond232.not.i.us.i = icmp eq i32 %indvars.iv.next230.i.us.i, 8
-  br i1 %exitcond232.not.i.us.i, label %2146, label %2142, !llvm.loop !35
+  br i1 %exitcond232.not.i.us.i, label %2155, label %2151, !llvm.loop !35
 
-2146:                                             ; preds = %2142
-  %2147 = load i32, ptr @hf_rtcp_psfb_ms_vsre_max_pixels, align 4
-  %2148 = call ptr @proto_tree_add_item(ptr noundef %2065, i32 noundef %2147, ptr noundef %0, i32 noundef %2145, i32 noundef 4, i32 noundef 0) #7
-  %2149 = add i32 %.2218.i.us.i, 6
-  %.not206.i.us.i = icmp eq i8 %2060, 0
+2155:                                             ; preds = %2151
+  %2156 = load i32, ptr @hf_rtcp_psfb_ms_vsre_max_pixels, align 4
+  %2157 = call ptr @proto_tree_add_item(ptr noundef %2074, i32 noundef %2156, ptr noundef %0, i32 noundef %2154, i32 noundef 4, i32 noundef 0) #7
+  %2158 = add i32 %.2218.i.us.i, 6
+  %.not206.i.us.i = icmp eq i8 %2069, 0
   br i1 %.not206.i.us.i, label %.thread.i, label %.lr.ph222.i.us.i, !llvm.loop !36
 
-2150:                                             ; preds = %2009
-  %2151 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %2012, ptr noundef nonnull @ei_rtcp_psfb_ms_type) #7
-  %2152 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %2018) #7
-  %2153 = add i32 %2152, %2018
+2159:                                             ; preds = %2018
+  %2160 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %2021, ptr noundef nonnull @ei_rtcp_psfb_ms_type) #7
+  %2161 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %2027) #7
+  %2162 = add i32 %2161, %2027
   br label %.thread.i
 
-.thread.i:                                        ; preds = %2026, %.lr.ph.i121.us.i, %2146, %.lr.ph222.i.us.i, %2150, %2033, %2019
-  %.4.i.us.i = phi i32 [ %2153, %2150 ], [ %2059, %2033 ], [ %2018, %2019 ], [ %2149, %2146 ], [ %.0221.i.us.i, %.lr.ph222.i.us.i ], [ %.3210.i.us.i, %.lr.ph.i121.us.i ], [ %2031, %2026 ]
+.thread.i:                                        ; preds = %2035, %.lr.ph.i121.us.i, %2155, %.lr.ph222.i.us.i, %2159, %2042, %2028
+  %.4.i.us.i = phi i32 [ %2162, %2159 ], [ %2068, %2042 ], [ %2027, %2028 ], [ %2158, %2155 ], [ %.0221.i.us.i, %.lr.ph222.i.us.i ], [ %.3210.i.us.i, %.lr.ph.i121.us.i ], [ %2040, %2035 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %._crit_edge.i399
 
-2154:                                             ; preds = %.lr.ph.split.us156.i
-  %2155 = load i32, ptr @ett_ssrc, align 4
-  %2156 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %114, ptr noundef %0, i32 noundef %.0114137.us157.i, i32 noundef 8, i32 noundef %2155, ptr noundef null, ptr noundef nonnull @.str.982, i32 noundef 0) #7
-  %2157 = load i32, ptr @hf_rtcp_psfb_remb_fci_identifier, align 4
-  %2158 = call ptr @proto_tree_add_item(ptr noundef %2156, i32 noundef %2157, ptr noundef %0, i32 noundef %.0114137.us157.i, i32 noundef 4, i32 noundef 0) #7
-  %2159 = add i32 %.0114137.us157.i, 4
-  %2160 = load i32, ptr @hf_rtcp_psfb_remb_fci_number_ssrcs, align 4
-  %2161 = call ptr @proto_tree_add_item(ptr noundef %2156, i32 noundef %2160, ptr noundef %0, i32 noundef %2159, i32 noundef 1, i32 noundef 0) #7
-  %2162 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %2159) #7
-  %2163 = add i32 %.0114137.us157.i, 5
-  %2164 = load i32, ptr @hf_rtcp_psfb_remb_fci_exp, align 4
-  %2165 = call ptr @proto_tree_add_item(ptr noundef %2156, i32 noundef %2164, ptr noundef %0, i32 noundef %2163, i32 noundef 1, i32 noundef 0) #7
-  %2166 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %2163) #7
-  %2167 = lshr i8 %2166, 2
-  %2168 = load i32, ptr @hf_rtcp_psfb_remb_fci_mantissa, align 4
-  %2169 = call ptr @proto_tree_add_item(ptr noundef %2156, i32 noundef %2168, ptr noundef %0, i32 noundef %2163, i32 noundef 3, i32 noundef 0) #7
-  %2170 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %2159) #7
-  %2171 = and i32 %2170, 262143
-  %2172 = zext nneg i32 %2171 to i64
-  %2173 = zext nneg i8 %2167 to i64
-  %2174 = shl i64 %2172, %2173
-  %2175 = load i32, ptr @hf_rtcp_psfb_remb_fci_bitrate, align 4
-  %2176 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %2156, i32 noundef %2175, ptr noundef %0, i32 noundef %2163, i32 noundef 3, ptr noundef nonnull @.str.871, ptr noundef nonnull @.str.983, i64 noundef %2174) #7
-  %2177 = add i32 %.0114137.us157.i, 8
-  %2178 = zext i8 %2162 to i32
-  %.not50.i.us.i = icmp eq i8 %2162, 0
+2163:                                             ; preds = %.lr.ph.split.us156.i
+  %2164 = load i32, ptr @ett_ssrc, align 4
+  %2165 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %114, ptr noundef %0, i32 noundef %.0114137.us157.i, i32 noundef 8, i32 noundef %2164, ptr noundef null, ptr noundef nonnull @.str.982, i32 noundef 0) #7
+  %2166 = load i32, ptr @hf_rtcp_psfb_remb_fci_identifier, align 4
+  %2167 = call ptr @proto_tree_add_item(ptr noundef %2165, i32 noundef %2166, ptr noundef %0, i32 noundef %.0114137.us157.i, i32 noundef 4, i32 noundef 0) #7
+  %2168 = add i32 %.0114137.us157.i, 4
+  %2169 = load i32, ptr @hf_rtcp_psfb_remb_fci_number_ssrcs, align 4
+  %2170 = call ptr @proto_tree_add_item(ptr noundef %2165, i32 noundef %2169, ptr noundef %0, i32 noundef %2168, i32 noundef 1, i32 noundef 0) #7
+  %2171 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %2168) #7
+  %2172 = add i32 %.0114137.us157.i, 5
+  %2173 = load i32, ptr @hf_rtcp_psfb_remb_fci_exp, align 4
+  %2174 = call ptr @proto_tree_add_item(ptr noundef %2165, i32 noundef %2173, ptr noundef %0, i32 noundef %2172, i32 noundef 1, i32 noundef 0) #7
+  %2175 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %2172) #7
+  %2176 = lshr i8 %2175, 2
+  %2177 = load i32, ptr @hf_rtcp_psfb_remb_fci_mantissa, align 4
+  %2178 = call ptr @proto_tree_add_item(ptr noundef %2165, i32 noundef %2177, ptr noundef %0, i32 noundef %2172, i32 noundef 3, i32 noundef 0) #7
+  %2179 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %2168) #7
+  %2180 = and i32 %2179, 262143
+  %2181 = zext nneg i32 %2180 to i64
+  %2182 = zext nneg i8 %2176 to i64
+  %2183 = shl i64 %2181, %2182
+  %2184 = load i32, ptr @hf_rtcp_psfb_remb_fci_bitrate, align 4
+  %2185 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %2165, i32 noundef %2184, ptr noundef %0, i32 noundef %2172, i32 noundef 3, ptr noundef nonnull @.str.871, ptr noundef nonnull @.str.983, i64 noundef %2183) #7
+  %2186 = add i32 %.0114137.us157.i, 8
+  %2187 = zext i8 %2171 to i32
+  %.not50.i.us.i = icmp eq i8 %2171, 0
   br i1 %.not50.i.us.i, label %._crit_edge.i.us.i405, label %.lr.ph.i.us.i403
 
-.lr.ph.i.us.i403:                                 ; preds = %2154, %.lr.ph.i.us.i403
-  %.048.i.us.i = phi i32 [ %2181, %.lr.ph.i.us.i403 ], [ %2177, %2154 ]
-  %.04447.i.us.i = phi i32 [ %2182, %.lr.ph.i.us.i403 ], [ 0, %2154 ]
-  %2179 = load i32, ptr @hf_rtcp_psfb_remb_fci_ssrc, align 4
-  %2180 = call ptr @proto_tree_add_item(ptr noundef %2156, i32 noundef %2179, ptr noundef %0, i32 noundef %.048.i.us.i, i32 noundef 4, i32 noundef 0) #7
-  %2181 = add i32 %.048.i.us.i, 4
-  %2182 = add nuw nsw i32 %.04447.i.us.i, 1
-  %exitcond.not.i.us.i404 = icmp eq i32 %2182, %2178
+.lr.ph.i.us.i403:                                 ; preds = %2163, %.lr.ph.i.us.i403
+  %.048.i.us.i = phi i32 [ %2190, %.lr.ph.i.us.i403 ], [ %2186, %2163 ]
+  %.04447.i.us.i = phi i32 [ %2191, %.lr.ph.i.us.i403 ], [ 0, %2163 ]
+  %2188 = load i32, ptr @hf_rtcp_psfb_remb_fci_ssrc, align 4
+  %2189 = call ptr @proto_tree_add_item(ptr noundef %2165, i32 noundef %2188, ptr noundef %0, i32 noundef %.048.i.us.i, i32 noundef 4, i32 noundef 0) #7
+  %2190 = add i32 %.048.i.us.i, 4
+  %2191 = add nuw nsw i32 %.04447.i.us.i, 1
+  %exitcond.not.i.us.i404 = icmp eq i32 %2191, %2187
   br i1 %exitcond.not.i.us.i404, label %._crit_edge.i.us.i405, label %.lr.ph.i.us.i403, !llvm.loop !37
 
-._crit_edge.i.us.i405:                            ; preds = %.lr.ph.i.us.i403, %2154
-  %.0.lcssa.i.us.i = phi i32 [ %2177, %2154 ], [ %2181, %.lr.ph.i.us.i403 ]
-  br i1 %.not.i.i398, label %2184, label %2183
+._crit_edge.i.us.i405:                            ; preds = %.lr.ph.i.us.i403, %2163
+  %.0.lcssa.i.us.i = phi i32 [ %2186, %2163 ], [ %2190, %.lr.ph.i.us.i403 ]
+  br i1 %.not.i.i398, label %2193, label %2192
 
-2183:                                             ; preds = %._crit_edge.i.us.i405
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %110, ptr noundef nonnull @.str.984, i64 noundef %2174) #7
-  br label %2184
+2192:                                             ; preds = %._crit_edge.i.us.i405
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %110, ptr noundef nonnull @.str.984, i64 noundef %2183) #7
+  br label %2193
 
-2184:                                             ; preds = %2183, %._crit_edge.i.us.i405
-  %2185 = add nuw nsw i32 %2178, 2
-  %2186 = icmp ult i32 %2185, %1944
-  br i1 %2186, label %.lr.ph.split.us156.i, label %._crit_edge.i399, !llvm.loop !31
+2193:                                             ; preds = %2192, %._crit_edge.i.us.i405
+  %2194 = add nuw nsw i32 %2187, 2
+  %2195 = icmp ult i32 %2194, %1953
+  br i1 %2195, label %.lr.ph.split.us156.i, label %._crit_edge.i399, !llvm.loop !31
 
-._crit_edge.i399:                                 ; preds = %2184, %.lr.ph.split.us147.i, %.lr.ph.split.us138.i, %1972, %.thread.i, %.lr.ph.i397, %1966
-  %.0114.lcssa.i = phi i32 [ %1959, %1966 ], [ %1959, %.lr.ph.i397 ], [ %.4.i.us.i, %.thread.i ], [ %1982, %1972 ], [ %1992, %.lr.ph.split.us138.i ], [ %2004, %.lr.ph.split.us147.i ], [ %.0.lcssa.i.us.i, %2184 ]
+._crit_edge.i399:                                 ; preds = %2193, %.lr.ph.split.us147.i, %.lr.ph.split.us138.i, %1981, %.thread.i, %.lr.ph.i397, %1975
+  %.0114.lcssa.i = phi i32 [ %1968, %1975 ], [ %1968, %.lr.ph.i397 ], [ %.4.i.us.i, %.thread.i ], [ %1991, %1981 ], [ %2001, %.lr.ph.split.us138.i ], [ %2013, %.lr.ph.split.us147.i ], [ %.0.lcssa.i.us.i, %2193 ]
   %.neg.i400 = sub i32 %.032964241, %.0114.lcssa.i
-  %2187 = add i32 %.neg.i400, %108
-  %2188 = icmp sgt i32 %2187, 0
-  br i1 %2188, label %2189, label %dissect_rtcp_sr.exit
+  %2196 = add i32 %.neg.i400, %108
+  %2197 = icmp sgt i32 %2196, 0
+  br i1 %2197, label %2198, label %dissect_rtcp_sr.exit
 
-2189:                                             ; preds = %._crit_edge.i399
-  %2190 = load i32, ptr @hf_rtcp_fci, align 4
-  %2191 = call ptr @proto_tree_add_item(ptr noundef %114, i32 noundef %2190, ptr noundef %0, i32 noundef %.0114.lcssa.i, i32 noundef %2187, i32 noundef 0) #7
+2198:                                             ; preds = %._crit_edge.i399
+  %2199 = load i32, ptr @hf_rtcp_fci, align 4
+  %2200 = call ptr @proto_tree_add_item(ptr noundef %114, i32 noundef %2199, ptr noundef %0, i32 noundef %.0114.lcssa.i, i32 noundef %2196, i32 noundef 0) #7
   br label %dissect_rtcp_sr.exit
 
-dissect_rtcp_sr.exit:                             ; preds = %dissect_rtcp_rtpfb_transport_cc.exit.us.i, %.lr.ph.split.us99.i, %.lr.ph.split.us93.i, %dissect_rtcp_rtpfb_nack.exit.us.i, %2189, %._crit_edge.i399, %1961, %.lr.ph.split.i, %.lr.ph.split.us111.i, %1695, %1664, %._crit_edge56.i, %383, %282, %280, %277, %174, %285, %1643, %1628, %1613, %dissect_rtcp_rsi.exit, %1549, %dissect_rtcp_xr.exit, %dissect_rtcp_app.exit, %dissect_rtcp_sdes.exit
-  %.4 = phi i32 [ %179, %174 ], [ %179, %1643 ], [ %179, %1628 ], [ %179, %1613 ], [ %179, %dissect_rtcp_rsi.exit ], [ %179, %1549 ], [ %179, %dissect_rtcp_xr.exit ], [ %179, %dissect_rtcp_app.exit ], [ %179, %dissect_rtcp_sdes.exit ], [ %179, %285 ], [ %179, %277 ], [ %179, %280 ], [ %179, %282 ], [ %179, %383 ], [ %179, %._crit_edge56.i ], [ %179, %.lr.ph.split.i ], [ %179, %.lr.ph.split.us111.i ], [ %179, %1695 ], [ %179, %1664 ], [ %179, %1961 ], [ %179, %._crit_edge.i399 ], [ %179, %2189 ], [ %179, %dissect_rtcp_rtpfb_nack.exit.us.i ], [ %179, %.lr.ph.split.us93.i ], [ %179, %.lr.ph.split.us99.i ], [ %.26, %dissect_rtcp_rtpfb_transport_cc.exit.us.i ]
-  %.1 = phi i32 [ %97, %174 ], [ %1663, %1643 ], [ %1642, %1628 ], [ %1627, %1613 ], [ %1612, %dissect_rtcp_rsi.exit ], [ %1581, %1549 ], [ %.0.i381, %dissect_rtcp_xr.exit ], [ %.0.i376, %dissect_rtcp_app.exit ], [ %.0.lcssa.i, %dissect_rtcp_sdes.exit ], [ %287, %285 ], [ %279, %277 ], [ %230, %280 ], [ %284, %282 ], [ %.1.i, %383 ], [ %394, %._crit_edge56.i ], [ %1929, %.lr.ph.split.i ], [ %1925, %.lr.ph.split.us111.i ], [ %1696, %1695 ], [ %1687, %1664 ], [ %180, %1961 ], [ %.0114.lcssa.i, %._crit_edge.i399 ], [ %180, %2189 ], [ %1721, %dissect_rtcp_rtpfb_nack.exit.us.i ], [ %1725, %.lr.ph.split.us93.i ], [ %1729, %.lr.ph.split.us99.i ], [ %.0.i.us.i, %dissect_rtcp_rtpfb_transport_cc.exit.us.i ]
-  %2192 = load ptr, ptr %77, align 8
-  call void @col_set_fence(ptr noundef %2192, i32 noundef 25) #7
-  %2193 = call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.1, i32 noundef 4) #7
-  %.not354 = icmp eq i32 %2193, 0
+dissect_rtcp_sr.exit:                             ; preds = %dissect_rtcp_rtpfb_transport_cc.exit.us.i, %.lr.ph.split.us99.i, %.lr.ph.split.us93.i, %dissect_rtcp_rtpfb_nack.exit.us.i, %2198, %._crit_edge.i399, %1970, %.lr.ph.split.i, %.lr.ph.split.us111.i, %1695, %1664, %._crit_edge56.i, %383, %282, %280, %277, %174, %285, %1643, %1628, %1613, %dissect_rtcp_rsi.exit, %1549, %dissect_rtcp_xr.exit, %dissect_rtcp_app.exit, %dissect_rtcp_sdes.exit
+  %.4 = phi i32 [ %179, %174 ], [ %179, %1643 ], [ %179, %1628 ], [ %179, %1613 ], [ %179, %dissect_rtcp_rsi.exit ], [ %179, %1549 ], [ %179, %dissect_rtcp_xr.exit ], [ %179, %dissect_rtcp_app.exit ], [ %179, %dissect_rtcp_sdes.exit ], [ %179, %285 ], [ %179, %277 ], [ %179, %280 ], [ %179, %282 ], [ %179, %383 ], [ %179, %._crit_edge56.i ], [ %179, %.lr.ph.split.i ], [ %179, %.lr.ph.split.us111.i ], [ %179, %1695 ], [ %179, %1664 ], [ %179, %1970 ], [ %179, %._crit_edge.i399 ], [ %179, %2198 ], [ %179, %dissect_rtcp_rtpfb_nack.exit.us.i ], [ %179, %.lr.ph.split.us93.i ], [ %179, %.lr.ph.split.us99.i ], [ %.26, %dissect_rtcp_rtpfb_transport_cc.exit.us.i ]
+  %.1 = phi i32 [ %97, %174 ], [ %1663, %1643 ], [ %1642, %1628 ], [ %1627, %1613 ], [ %1612, %dissect_rtcp_rsi.exit ], [ %1581, %1549 ], [ %.0.i381, %dissect_rtcp_xr.exit ], [ %.0.i376, %dissect_rtcp_app.exit ], [ %.0.lcssa.i, %dissect_rtcp_sdes.exit ], [ %287, %285 ], [ %279, %277 ], [ %230, %280 ], [ %284, %282 ], [ %.1.i, %383 ], [ %394, %._crit_edge56.i ], [ %1938, %.lr.ph.split.i ], [ %1934, %.lr.ph.split.us111.i ], [ %1696, %1695 ], [ %1687, %1664 ], [ %180, %1970 ], [ %.0114.lcssa.i, %._crit_edge.i399 ], [ %180, %2198 ], [ %1721, %dissect_rtcp_rtpfb_nack.exit.us.i ], [ %1725, %.lr.ph.split.us93.i ], [ %1729, %.lr.ph.split.us99.i ], [ %.0.i.us.i, %dissect_rtcp_rtpfb_transport_cc.exit.us.i ]
+  %2201 = load ptr, ptr %77, align 8
+  call void @col_set_fence(ptr noundef %2201, i32 noundef 25) #7
+  %2202 = call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.1, i32 noundef 4) #7
+  %.not354 = icmp eq i32 %2202, 0
   br i1 %.not354, label %.critedge, label %.lr.ph, !llvm.loop !38
 
 .critedge:                                        ; preds = %dissect_rtcp_sr.exit, %.lr.ph, %.preheader, %dissect_rtcp_sr.exit.thread
@@ -5551,123 +5564,123 @@ dissect_rtcp_sr.exit:                             ; preds = %dissect_rtcp_rtpfb_
   %.0329.lcssa = phi i32 [ %200, %dissect_rtcp_sr.exit.thread ], [ 0, %.preheader ], [ %.032964241, %.lr.ph ], [ %.1, %dissect_rtcp_sr.exit ]
   %.0327.lcssa = phi ptr [ %114, %dissect_rtcp_sr.exit.thread ], [ null, %.preheader ], [ %.032766239, %.lr.ph ], [ %114, %dissect_rtcp_sr.exit ]
   %.not359 = icmp eq i32 %.04.lcssa, 0
-  br i1 %.not359, label %2206, label %2194
+  br i1 %.not359, label %2215, label %2203
 
-2194:                                             ; preds = %.critedge
-  %2195 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0331.lcssa) #7
-  %.not360 = icmp eq i8 %2195, 0
-  br i1 %.not360, label %2202, label %2196
+2203:                                             ; preds = %.critedge
+  %2204 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0331.lcssa) #7
+  %.not360 = icmp eq i8 %2204, 0
+  br i1 %.not360, label %2211, label %2205
 
-2196:                                             ; preds = %2194
-  %2197 = zext i8 %2195 to i32
-  %2198 = load i32, ptr @hf_rtcp_padding_data, align 4
-  %2199 = add nsw i32 %2197, -1
-  %2200 = call ptr @proto_tree_add_item(ptr noundef %.0327.lcssa, i32 noundef %2198, ptr noundef %0, i32 noundef %.0329.lcssa, i32 noundef %2199, i32 noundef 0) #7
-  %2201 = add i32 %2199, %.0329.lcssa
-  br label %2202
+2205:                                             ; preds = %2203
+  %2206 = zext i8 %2204 to i32
+  %2207 = load i32, ptr @hf_rtcp_padding_data, align 4
+  %2208 = add nsw i32 %2206, -1
+  %2209 = call ptr @proto_tree_add_item(ptr noundef %.0327.lcssa, i32 noundef %2207, ptr noundef %0, i32 noundef %.0329.lcssa, i32 noundef %2208, i32 noundef 0) #7
+  %2210 = add i32 %2208, %.0329.lcssa
+  br label %2211
 
-2202:                                             ; preds = %2196, %2194
-  %.2 = phi i32 [ %2201, %2196 ], [ %.0329.lcssa, %2194 ]
-  %2203 = load i32, ptr @hf_rtcp_padding_count, align 4
-  %2204 = call ptr @proto_tree_add_item(ptr noundef %.0327.lcssa, i32 noundef %2203, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef 0) #7
-  %2205 = add i32 %.2, 1
-  br label %2206
+2211:                                             ; preds = %2205, %2203
+  %.2 = phi i32 [ %2210, %2205 ], [ %.0329.lcssa, %2203 ]
+  %2212 = load i32, ptr @hf_rtcp_padding_count, align 4
+  %2213 = call ptr @proto_tree_add_item(ptr noundef %.0327.lcssa, i32 noundef %2212, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef 0) #7
+  %2214 = add i32 %.2, 1
+  br label %2215
 
-2206:                                             ; preds = %2202, %.critedge
-  %.3 = phi i32 [ %2205, %2202 ], [ %.0329.lcssa, %.critedge ]
-  br i1 %76, label %2207, label %2231
+2215:                                             ; preds = %2211, %.critedge
+  %.3 = phi i32 [ %2214, %2211 ], [ %.0329.lcssa, %.critedge ]
+  br i1 %76, label %2216, label %2240
 
-2207:                                             ; preds = %2206
+2216:                                             ; preds = %2215
   %.not361 = icmp eq ptr %.0335, null
-  br i1 %.not361, label %2229, label %2208
+  br i1 %.not361, label %2238, label %2217
 
-2208:                                             ; preds = %2207
-  %2209 = sub i32 %.0338, %.3
-  %2210 = call ptr @proto_tree_add_expert(ptr noundef %.0327.lcssa, ptr noundef nonnull %1, ptr noundef nonnull @ei_srtcp_encrypted_payload, ptr noundef %0, i32 noundef %.3, i32 noundef %2209) #7
-  %2211 = load i32, ptr @hf_srtcp_e, align 4
-  %2212 = call ptr @proto_tree_add_item(ptr noundef %.0327.lcssa, i32 noundef %2211, ptr noundef %0, i32 noundef %.0338, i32 noundef 4, i32 noundef 0) #7
-  %2213 = load i32, ptr @hf_srtcp_index, align 4
-  %2214 = call ptr @proto_tree_add_uint(ptr noundef %.0327.lcssa, i32 noundef %2213, ptr noundef %0, i32 noundef %.0338, i32 noundef 4, i32 noundef %.0337) #7
-  %2215 = add i32 %.0338, 4
-  %2216 = getelementptr inbounds i8, ptr %.0335, i64 8
-  %2217 = load i32, ptr %2216, align 4
-  %.not362 = icmp eq i32 %2217, 0
-  br i1 %.not362, label %2223, label %2218
+2217:                                             ; preds = %2216
+  %2218 = sub i32 %.0338, %.3
+  %2219 = call ptr @proto_tree_add_expert(ptr noundef %.0327.lcssa, ptr noundef nonnull %1, ptr noundef nonnull @ei_srtcp_encrypted_payload, ptr noundef %0, i32 noundef %.3, i32 noundef %2218) #7
+  %2220 = load i32, ptr @hf_srtcp_e, align 4
+  %2221 = call ptr @proto_tree_add_item(ptr noundef %.0327.lcssa, i32 noundef %2220, ptr noundef %0, i32 noundef %.0338, i32 noundef 4, i32 noundef 0) #7
+  %2222 = load i32, ptr @hf_srtcp_index, align 4
+  %2223 = call ptr @proto_tree_add_uint(ptr noundef %.0327.lcssa, i32 noundef %2222, ptr noundef %0, i32 noundef %.0338, i32 noundef 4, i32 noundef %.0337) #7
+  %2224 = add i32 %.0338, 4
+  %2225 = getelementptr inbounds i8, ptr %.0335, i64 8
+  %2226 = load i32, ptr %2225, align 4
+  %.not362 = icmp eq i32 %2226, 0
+  br i1 %.not362, label %2232, label %2227
 
-2218:                                             ; preds = %2208
-  %2219 = load i32, ptr @hf_srtcp_mki, align 4
-  %2220 = call ptr @proto_tree_add_item(ptr noundef %.0327.lcssa, i32 noundef %2219, ptr noundef %0, i32 noundef %2215, i32 noundef %2217, i32 noundef 0) #7
-  %2221 = load i32, ptr %2216, align 4
-  %2222 = add i32 %2221, %2215
-  br label %2223
+2227:                                             ; preds = %2217
+  %2228 = load i32, ptr @hf_srtcp_mki, align 4
+  %2229 = call ptr @proto_tree_add_item(ptr noundef %.0327.lcssa, i32 noundef %2228, ptr noundef %0, i32 noundef %2224, i32 noundef %2226, i32 noundef 0) #7
+  %2230 = load i32, ptr %2225, align 4
+  %2231 = add i32 %2230, %2224
+  br label %2232
 
-2223:                                             ; preds = %2218, %2208
-  %.1339 = phi i32 [ %2222, %2218 ], [ %2215, %2208 ]
-  %2224 = getelementptr inbounds i8, ptr %.0335, i64 12
-  %2225 = load i32, ptr %2224, align 4
-  %.not363 = icmp eq i32 %2225, 0
-  br i1 %.not363, label %proto_item_set_generated.exit, label %2226
+2232:                                             ; preds = %2227, %2217
+  %.1339 = phi i32 [ %2231, %2227 ], [ %2224, %2217 ]
+  %2233 = getelementptr inbounds i8, ptr %.0335, i64 12
+  %2234 = load i32, ptr %2233, align 4
+  %.not363 = icmp eq i32 %2234, 0
+  br i1 %.not363, label %proto_item_set_generated.exit, label %2235
 
-2226:                                             ; preds = %2223
-  %2227 = load i32, ptr @hf_srtcp_auth_tag, align 4
-  %2228 = call ptr @proto_tree_add_item(ptr noundef %.0327.lcssa, i32 noundef %2227, ptr noundef %0, i32 noundef %.1339, i32 noundef %2225, i32 noundef 0) #7
+2235:                                             ; preds = %2232
+  %2236 = load i32, ptr @hf_srtcp_auth_tag, align 4
+  %2237 = call ptr @proto_tree_add_item(ptr noundef %.0327.lcssa, i32 noundef %2236, ptr noundef %0, i32 noundef %.1339, i32 noundef %2234, i32 noundef 0) #7
   br label %proto_item_set_generated.exit
 
-2229:                                             ; preds = %2207
-  %2230 = call ptr @proto_tree_add_expert(ptr noundef %.0327.lcssa, ptr noundef nonnull %1, ptr noundef nonnull @ei_srtcp_encrypted_payload, ptr noundef %0, i32 noundef %.3, i32 noundef -1) #7
+2238:                                             ; preds = %2216
+  %2239 = call ptr @proto_tree_add_expert(ptr noundef %.0327.lcssa, ptr noundef nonnull %1, ptr noundef nonnull @ei_srtcp_encrypted_payload, ptr noundef %0, i32 noundef %.3, i32 noundef -1) #7
   br label %proto_item_set_generated.exit
 
-2231:                                             ; preds = %2206
-  %2232 = icmp eq i32 %.3, %.0330.lcssa
-  %2233 = load i32, ptr @hf_rtcp_length_check, align 4
-  br i1 %2232, label %2234, label %2243
+2240:                                             ; preds = %2215
+  %2241 = icmp eq i32 %.3, %.0330.lcssa
+  %2242 = load i32, ptr @hf_rtcp_length_check, align 4
+  br i1 %2241, label %2243, label %2252
 
-2234:                                             ; preds = %2231
-  %2235 = call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_boolean_format_value(ptr noundef %.0327.lcssa, i32 noundef %2233, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef 1, ptr noundef nonnull @.str.869, i32 noundef %.0330.lcssa) #7
-  %.not.i409 = icmp eq ptr %2235, null
-  br i1 %.not.i409, label %proto_item_set_generated.exit, label %2236
-
-2236:                                             ; preds = %2234
-  %2237 = getelementptr inbounds i8, ptr %2235, i64 32
-  %2238 = load ptr, ptr %2237, align 8
-  %.not5.i = icmp eq ptr %2238, null
-  br i1 %.not5.i, label %proto_item_set_generated.exit, label %2239
-
-2239:                                             ; preds = %2236
-  %2240 = getelementptr inbounds i8, ptr %2238, i64 28
-  %2241 = load i32, ptr %2240, align 4
-  %2242 = or i32 %2241, 2
-  store i32 %2242, ptr %2240, align 4
-  br label %proto_item_set_generated.exit
-
-2243:                                             ; preds = %2231
-  %2244 = call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_boolean_format_value(ptr noundef %.0327.lcssa, i32 noundef %2233, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.870, i32 noundef %.0330.lcssa, i32 noundef %.3) #7
-  %.not.i410 = icmp eq ptr %2244, null
-  br i1 %.not.i410, label %proto_item_set_generated.exit412, label %2245
+2243:                                             ; preds = %2240
+  %2244 = call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_boolean_format_value(ptr noundef %.0327.lcssa, i32 noundef %2242, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef 1, ptr noundef nonnull @.str.869, i32 noundef %.0330.lcssa) #7
+  %.not.i409 = icmp eq ptr %2244, null
+  br i1 %.not.i409, label %proto_item_set_generated.exit, label %2245
 
 2245:                                             ; preds = %2243
   %2246 = getelementptr inbounds i8, ptr %2244, i64 32
   %2247 = load ptr, ptr %2246, align 8
-  %.not5.i411 = icmp eq ptr %2247, null
-  br i1 %.not5.i411, label %proto_item_set_generated.exit412, label %2248
+  %.not5.i = icmp eq ptr %2247, null
+  br i1 %.not5.i, label %proto_item_set_generated.exit, label %2248
 
 2248:                                             ; preds = %2245
   %2249 = getelementptr inbounds i8, ptr %2247, i64 28
   %2250 = load i32, ptr %2249, align 4
   %2251 = or i32 %2250, 2
   store i32 %2251, ptr %2249, align 4
-  br label %proto_item_set_generated.exit412
-
-proto_item_set_generated.exit412:                 ; preds = %2243, %2245, %2248
-  %2252 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %2244, ptr noundef nonnull @ei_rtcp_length_check, ptr noundef nonnull @.str.604, i32 noundef %.0330.lcssa, i32 noundef %.3) #7
   br label %proto_item_set_generated.exit
 
-proto_item_set_generated.exit:                    ; preds = %2239, %2236, %2234, %proto_item_set_generated.exit412, %2229, %2226, %2223
-  %2253 = call i32 @tvb_captured_length(ptr noundef %0) #7
-  br label %2254
+2252:                                             ; preds = %2240
+  %2253 = call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_boolean_format_value(ptr noundef %.0327.lcssa, i32 noundef %2242, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.870, i32 noundef %.0330.lcssa, i32 noundef %.3) #7
+  %.not.i410 = icmp eq ptr %2253, null
+  br i1 %.not.i410, label %proto_item_set_generated.exit412, label %2254
 
-2254:                                             ; preds = %proto_item_set_generated.exit, %420, %86
-  %.0 = phi i32 [ 0, %86 ], [ %2253, %proto_item_set_generated.exit ], [ %421, %420 ]
+2254:                                             ; preds = %2252
+  %2255 = getelementptr inbounds i8, ptr %2253, i64 32
+  %2256 = load ptr, ptr %2255, align 8
+  %.not5.i411 = icmp eq ptr %2256, null
+  br i1 %.not5.i411, label %proto_item_set_generated.exit412, label %2257
+
+2257:                                             ; preds = %2254
+  %2258 = getelementptr inbounds i8, ptr %2256, i64 28
+  %2259 = load i32, ptr %2258, align 4
+  %2260 = or i32 %2259, 2
+  store i32 %2260, ptr %2258, align 4
+  br label %proto_item_set_generated.exit412
+
+proto_item_set_generated.exit412:                 ; preds = %2252, %2254, %2257
+  %2261 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %2253, ptr noundef nonnull @ei_rtcp_length_check, ptr noundef nonnull @.str.604, i32 noundef %.0330.lcssa, i32 noundef %.3) #7
+  br label %proto_item_set_generated.exit
+
+proto_item_set_generated.exit:                    ; preds = %2248, %2245, %2243, %proto_item_set_generated.exit412, %2238, %2235, %2232
+  %2262 = call i32 @tvb_captured_length(ptr noundef %0) #7
+  br label %2263
+
+2263:                                             ; preds = %proto_item_set_generated.exit, %420, %86
+  %.0 = phi i32 [ 0, %86 ], [ %2262, %proto_item_set_generated.exit ], [ %421, %420 ]
   ret i32 %.0
 }
 

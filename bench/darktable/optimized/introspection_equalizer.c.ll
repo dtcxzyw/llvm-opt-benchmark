@@ -181,7 +181,7 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
 92:                                               ; preds = %.loopexit83
   %93 = fsub reassoc nsz arcp contract afn float %38, %28
   %94 = add nsw i32 %54, -1
-  %95 = sitofp i32 %94 to float
+  %95 = uitofp nneg i32 %94 to float
   %96 = getelementptr inbounds i8, ptr %23, i64 24
   %97 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %95
   br label %716

@@ -5263,7 +5263,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %1640, %1637
 
 .lr.ph.i890:                                      ; preds = %.preheader82.i
   %1643 = uitofp nneg i32 %1469 to float
-  %1644 = sitofp i32 %31 to double
+  %1644 = uitofp nneg i32 %31 to double
   %wide.trip.count.i891 = zext nneg i32 %31 to i64
   br label %1645
 

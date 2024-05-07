@@ -1007,7 +1007,7 @@ if.else.i:                                        ; preds = %entry
   br i1 %cmp.i8.i, label %entry.if.then_crit_edge.i55.i, label %lor.lhs.false.i12.i
 
 entry.if.then_crit_edge.i55.i:                    ; preds = %if.else.i
-  %12 = sitofp i64 %0 to float
+  %12 = uitofp nneg i64 %0 to float
   %13 = fmul float %12, 0x43F0000000000000
   br label %if.then.i42.i
 
@@ -1212,7 +1212,7 @@ if.else.i:                                        ; preds = %entry
   br i1 %cmp.i8.i, label %entry.if.then_crit_edge.i55.i, label %lor.lhs.false.i12.i
 
 entry.if.then_crit_edge.i55.i:                    ; preds = %if.else.i
-  %12 = sitofp i64 %0 to double
+  %12 = uitofp nneg i64 %0 to double
   %13 = fmul double %12, 0x43F0000000000000
   br label %if.then.i42.i
 

@@ -985,7 +985,7 @@ sw.epilog:                                        ; preds = %if.end20, %for.end
   %and51 = and i64 %x.0.lcssa, 3
   %or52 = or i64 %shr, %and51
   %x.1 = select i1 %tobool49.not, i64 %x.0.lcssa, i64 %or52
-  %conv24.i = sitofp i64 %x.1 to double
+  %conv24.i = uitofp nneg i64 %x.1 to double
   %tobool25.not.i = icmp eq i32 %neg, 0
   %fneg.i = fneg double %conv24.i
   %n.0.i = select i1 %tobool25.not.i, double %conv24.i, double %fneg.i
@@ -1301,7 +1301,7 @@ plainnumber:                                      ; preds = %if.end141, %if.then
   br i1 %cmp169, label %if.else186, label %if.end172
 
 if.end172:                                        ; preds = %plainnumber
-  %conv173 = sitofp i64 %x.0.lcssa288 to double
+  %conv173 = uitofp nneg i64 %x.0.lcssa288 to double
   %tobool174.not = icmp eq i32 %neg, 0
   %fneg = fneg double %conv173
   %n.0 = select i1 %tobool174.not, double %conv173, double %fneg

@@ -416,7 +416,7 @@ lor.lhs.false.i:                                  ; preds = %while.end105, %if.e
   br i1 %cmp2.i, label %invoke.cont111, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %conv.i = sitofp i64 %51 to double
+  %conv.i = uitofp nneg i64 %51 to double
   %call.i149 = invoke double @uprv_log_75(double noundef %conv.i)
           to label %call.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -1467,7 +1467,7 @@ entry:
   br i1 %cmp, label %_ZNK6icu_756NFRule16expectedExponentEv.exit, label %if.else
 
 _ZNK6icu_756NFRule16expectedExponentEv.exit:      ; preds = %entry
-  %conv.i = sitofp i64 %newBaseValue to double
+  %conv.i = uitofp nneg i64 %newBaseValue to double
   %call.i = tail call double @uprv_log_75(double noundef %conv.i)
   %0 = load i32, ptr %radix, align 8
   %conv5.i = sitofp i32 %0 to double
@@ -1533,7 +1533,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp2, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %conv = sitofp i64 %1 to double
+  %conv = uitofp nneg i64 %1 to double
   %call = tail call double @uprv_log_75(double noundef %conv)
   %2 = load i32, ptr %radix, align 8
   %conv5 = sitofp i32 %2 to double
@@ -2113,7 +2113,7 @@ lor.lhs.false.i:                                  ; preds = %_ZN6icu_75L13util_a
   br i1 %cmp2.i, label %_ZNK6icu_756NFRule16expectedExponentEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %conv.i58 = sitofp i64 %17 to double
+  %conv.i58 = uitofp nneg i64 %17 to double
   %call.i59 = call double @uprv_log_75(double noundef %conv.i58)
   %18 = load i32, ptr %radix, align 8
   %conv5.i = sitofp i32 %18 to double

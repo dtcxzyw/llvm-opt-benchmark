@@ -2226,7 +2226,7 @@ _ZN3gmx30AnalysisNeighborhoodPairSearchD2Ev.exit: ; preds = %.critedge, %237, %2
 256:                                              ; preds = %._crit_edge
   %257 = uitofp nneg i32 %spec.select to double
   %258 = fmul double %257, 1.000000e+02
-  %259 = sitofp i32 %61 to double
+  %259 = uitofp nneg i32 %61 to double
   %260 = fdiv double %258, %259
   %261 = fptrunc double %260 to float
   br label %._crit_edge.thread

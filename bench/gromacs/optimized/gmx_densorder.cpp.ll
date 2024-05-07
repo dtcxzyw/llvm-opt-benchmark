@@ -847,7 +847,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %160, %156
           to label %.noexc27 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc27:                                         ; preds = %325
-  %330 = sitofp i32 %323 to double
+  %330 = uitofp nneg i32 %323 to double
   %331 = fmul double %330, 5.000000e-01
   %332 = fptrunc double %331 to float
   %333 = fmul float %332, %332

@@ -2997,8 +2997,8 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp3, label %return, label %if.else5
 
 if.else5:                                         ; preds = %if.else
-  %conv = uitofp i64 %size to double
-  %conv6 = uitofp i64 %.val18 to double
+  %conv = uitofp nneg i64 %size to double
+  %conv6 = uitofp nneg i64 %.val18 to double
   %mul = fmul double %conv6, 1.125000e+00
   %cmp7 = fcmp ult double %mul, %conv
   br i1 %cmp7, label %if.else15, label %if.then9

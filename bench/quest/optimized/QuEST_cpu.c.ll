@@ -5149,7 +5149,7 @@ define internal void @statevec_multiControlledMultiQubitUnitaryLocal.omp_outline
   %24 = load i64, ptr %2, align 8
   %25 = icmp sgt i64 %24, 0
   %.pre122 = load i32, ptr %0, align 4
-  br i1 %25, label %26, label %121
+  br i1 %25, label %26, label %120
 
 26:                                               ; preds = %16
   %27 = add nsw i64 %24, -1
@@ -5171,8 +5171,8 @@ define internal void @statevec_multiControlledMultiQubitUnitaryLocal.omp_outline
   br label %.preheader82
 
 .preheader82:                                     ; preds = %.preheader82.lr.ph, %.loopexit
-  %33 = phi i64 [ %29, %.preheader82.lr.ph ], [ %119, %.loopexit ]
-  %.07199 = phi i64 [ %30, %.preheader82.lr.ph ], [ %120, %.loopexit ]
+  %33 = phi i64 [ %29, %.preheader82.lr.ph ], [ %118, %.loopexit ]
+  %.07199 = phi i64 [ %30, %.preheader82.lr.ph ], [ %119, %.loopexit ]
   %34 = load i32, ptr %3, align 4
   %35 = icmp sgt i32 %34, 0
   br i1 %35, label %.lr.ph.preheader, label %._crit_edge
@@ -5228,49 +5228,48 @@ define internal void @statevec_multiControlledMultiQubitUnitaryLocal.omp_outline
   %indvars.iv112 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next113, %._crit_edge89.us ]
   br label %55
 
-55:                                               ; preds = %.preheader.us, %65
-  %indvars.iv107 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next108, %65 ]
-  %.06787.us = phi i64 [ %.0.lcssa, %.preheader.us ], [ %.1.us, %65 ]
+55:                                               ; preds = %.preheader.us, %64
+  %indvars.iv107 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next108, %64 ]
+  %.06787.us = phi i64 [ %.0.lcssa, %.preheader.us ], [ %.1.us, %64 ]
   %56 = shl nuw i64 1, %indvars.iv107
   %57 = and i64 %56, %indvars.iv112
-  %58 = lshr i64 %57, %indvars.iv107
-  %.not80.us = icmp eq i64 %58, 0
-  br i1 %.not80.us, label %65, label %59
+  %.not80.us = icmp eq i64 %57, 0
+  br i1 %.not80.us, label %64, label %58
 
-59:                                               ; preds = %55
-  %60 = getelementptr inbounds i32, ptr %52, i64 %indvars.iv107
-  %61 = load i32, ptr %60, align 4
-  %62 = zext nneg i32 %61 to i64
-  %63 = shl nuw i64 1, %62
-  %64 = xor i64 %63, %.06787.us
-  br label %65
+58:                                               ; preds = %55
+  %59 = getelementptr inbounds i32, ptr %52, i64 %indvars.iv107
+  %60 = load i32, ptr %59, align 4
+  %61 = zext nneg i32 %60 to i64
+  %62 = shl nuw i64 1, %61
+  %63 = xor i64 %62, %.06787.us
+  br label %64
 
-65:                                               ; preds = %59, %55
-  %.1.us = phi i64 [ %64, %59 ], [ %.06787.us, %55 ]
+64:                                               ; preds = %58, %55
+  %.1.us = phi i64 [ %63, %58 ], [ %.06787.us, %55 ]
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %exitcond111.not = icmp eq i64 %indvars.iv.next108, %wide.trip.count110
   br i1 %exitcond111.not, label %._crit_edge89.us, label %55
 
-._crit_edge89.us:                                 ; preds = %65
-  %66 = getelementptr inbounds i64, ptr %21, i64 %indvars.iv112
-  store i64 %.1.us, ptr %66, align 8
-  %67 = getelementptr inbounds double, ptr %53, i64 %.1.us
-  %68 = load double, ptr %67, align 8
-  %69 = getelementptr inbounds double, ptr %22, i64 %indvars.iv112
-  store double %68, ptr %69, align 8
-  %70 = getelementptr inbounds double, ptr %54, i64 %.1.us
-  %71 = load double, ptr %70, align 8
-  %72 = getelementptr inbounds double, ptr %23, i64 %indvars.iv112
-  store double %71, ptr %72, align 8
+._crit_edge89.us:                                 ; preds = %64
+  %65 = getelementptr inbounds i64, ptr %21, i64 %indvars.iv112
+  store i64 %.1.us, ptr %65, align 8
+  %66 = getelementptr inbounds double, ptr %53, i64 %.1.us
+  %67 = load double, ptr %66, align 8
+  %68 = getelementptr inbounds double, ptr %22, i64 %indvars.iv112
+  store double %67, ptr %68, align 8
+  %69 = getelementptr inbounds double, ptr %54, i64 %.1.us
+  %70 = load double, ptr %69, align 8
+  %71 = getelementptr inbounds double, ptr %23, i64 %indvars.iv112
+  store double %70, ptr %71, align 8
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
   %exitcond115.not = icmp eq i64 %indvars.iv.next113, %50
   br i1 %exitcond115.not, label %.preheader81, label %.preheader.us
 
 .preheader.lr.ph.split:                           ; preds = %.preheader.lr.ph
-  %73 = getelementptr inbounds double, ptr %53, i64 %.0.lcssa
-  %74 = load double, ptr %73, align 8
-  %75 = getelementptr inbounds double, ptr %54, i64 %.0.lcssa
-  %76 = load double, ptr %75, align 8
+  %72 = getelementptr inbounds double, ptr %53, i64 %.0.lcssa
+  %73 = load double, ptr %72, align 8
+  %74 = getelementptr inbounds double, ptr %54, i64 %.0.lcssa
+  %75 = load double, ptr %74, align 8
   br label %.preheader
 
 .preheader81:                                     ; preds = %.preheader, %._crit_edge89.us
@@ -5278,87 +5277,87 @@ define internal void @statevec_multiControlledMultiQubitUnitaryLocal.omp_outline
 
 .preheader:                                       ; preds = %.preheader.lr.ph.split, %.preheader
   %indvars.iv103 = phi i64 [ 0, %.preheader.lr.ph.split ], [ %indvars.iv.next104, %.preheader ]
-  %77 = getelementptr inbounds i64, ptr %21, i64 %indvars.iv103
-  store i64 %.0.lcssa, ptr %77, align 8
-  %78 = getelementptr inbounds double, ptr %22, i64 %indvars.iv103
-  store double %74, ptr %78, align 8
-  %79 = getelementptr inbounds double, ptr %23, i64 %indvars.iv103
-  store double %76, ptr %79, align 8
+  %76 = getelementptr inbounds i64, ptr %21, i64 %indvars.iv103
+  store i64 %.0.lcssa, ptr %76, align 8
+  %77 = getelementptr inbounds double, ptr %22, i64 %indvars.iv103
+  store double %73, ptr %77, align 8
+  %78 = getelementptr inbounds double, ptr %23, i64 %indvars.iv103
+  store double %75, ptr %78, align 8
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond106.not = icmp eq i64 %indvars.iv.next104, %50
   br i1 %exitcond106.not, label %.preheader81, label %.preheader
 
 .lr.ph97:                                         ; preds = %.preheader81, %._crit_edge95
   %indvars.iv119 = phi i64 [ %indvars.iv.next120, %._crit_edge95 ], [ 0, %.preheader81 ]
-  %80 = getelementptr inbounds i64, ptr %21, i64 %indvars.iv119
-  %81 = load i64, ptr %80, align 8
-  %82 = load ptr, ptr %12, align 8
-  %83 = getelementptr inbounds double, ptr %82, i64 %81
-  store double 0.000000e+00, ptr %83, align 8
-  %84 = load ptr, ptr %14, align 8
-  %85 = getelementptr inbounds double, ptr %84, i64 %81
-  store double 0.000000e+00, ptr %85, align 8
-  %86 = load i64, ptr %8, align 8
-  %87 = icmp sgt i64 %86, 0
-  br i1 %87, label %.lr.ph94, label %._crit_edge95
+  %79 = getelementptr inbounds i64, ptr %21, i64 %indvars.iv119
+  %80 = load i64, ptr %79, align 8
+  %81 = load ptr, ptr %12, align 8
+  %82 = getelementptr inbounds double, ptr %81, i64 %80
+  store double 0.000000e+00, ptr %82, align 8
+  %83 = load ptr, ptr %14, align 8
+  %84 = getelementptr inbounds double, ptr %83, i64 %80
+  store double 0.000000e+00, ptr %84, align 8
+  %85 = load i64, ptr %8, align 8
+  %86 = icmp sgt i64 %85, 0
+  br i1 %86, label %.lr.ph94, label %._crit_edge95
 
 .lr.ph94:                                         ; preds = %.lr.ph97, %.lr.ph94
   %indvars.iv116 = phi i64 [ %indvars.iv.next117, %.lr.ph94 ], [ 0, %.lr.ph97 ]
-  %88 = load ptr, ptr %31, align 8
-  %89 = getelementptr inbounds ptr, ptr %88, i64 %indvars.iv119
-  %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds double, ptr %90, i64 %indvars.iv116
-  %92 = load double, ptr %91, align 8
-  %93 = load ptr, ptr %32, align 8
-  %94 = getelementptr inbounds ptr, ptr %93, i64 %indvars.iv119
-  %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds double, ptr %95, i64 %indvars.iv116
-  %97 = load double, ptr %96, align 8
-  %98 = getelementptr inbounds double, ptr %22, i64 %indvars.iv116
-  %99 = load double, ptr %98, align 8
-  %100 = getelementptr inbounds double, ptr %23, i64 %indvars.iv116
-  %101 = load double, ptr %100, align 8
-  %102 = fneg double %101
-  %103 = fmul double %97, %102
-  %104 = call double @llvm.fmuladd.f64(double %99, double %92, double %103)
-  %105 = load ptr, ptr %12, align 8
-  %106 = getelementptr inbounds double, ptr %105, i64 %81
-  %107 = load double, ptr %106, align 8
-  %108 = fadd double %107, %104
-  store double %108, ptr %106, align 8
-  %109 = fmul double %92, %101
-  %110 = call double @llvm.fmuladd.f64(double %99, double %97, double %109)
-  %111 = load ptr, ptr %14, align 8
-  %112 = getelementptr inbounds double, ptr %111, i64 %81
-  %113 = load double, ptr %112, align 8
-  %114 = fadd double %110, %113
-  store double %114, ptr %112, align 8
+  %87 = load ptr, ptr %31, align 8
+  %88 = getelementptr inbounds ptr, ptr %87, i64 %indvars.iv119
+  %89 = load ptr, ptr %88, align 8
+  %90 = getelementptr inbounds double, ptr %89, i64 %indvars.iv116
+  %91 = load double, ptr %90, align 8
+  %92 = load ptr, ptr %32, align 8
+  %93 = getelementptr inbounds ptr, ptr %92, i64 %indvars.iv119
+  %94 = load ptr, ptr %93, align 8
+  %95 = getelementptr inbounds double, ptr %94, i64 %indvars.iv116
+  %96 = load double, ptr %95, align 8
+  %97 = getelementptr inbounds double, ptr %22, i64 %indvars.iv116
+  %98 = load double, ptr %97, align 8
+  %99 = getelementptr inbounds double, ptr %23, i64 %indvars.iv116
+  %100 = load double, ptr %99, align 8
+  %101 = fneg double %100
+  %102 = fmul double %96, %101
+  %103 = call double @llvm.fmuladd.f64(double %98, double %91, double %102)
+  %104 = load ptr, ptr %12, align 8
+  %105 = getelementptr inbounds double, ptr %104, i64 %80
+  %106 = load double, ptr %105, align 8
+  %107 = fadd double %106, %103
+  store double %107, ptr %105, align 8
+  %108 = fmul double %91, %100
+  %109 = call double @llvm.fmuladd.f64(double %98, double %96, double %108)
+  %110 = load ptr, ptr %14, align 8
+  %111 = getelementptr inbounds double, ptr %110, i64 %80
+  %112 = load double, ptr %111, align 8
+  %113 = fadd double %109, %112
+  store double %113, ptr %111, align 8
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
-  %115 = load i64, ptr %8, align 8
-  %116 = icmp sgt i64 %115, %indvars.iv.next117
-  br i1 %116, label %.lr.ph94, label %._crit_edge95
+  %114 = load i64, ptr %8, align 8
+  %115 = icmp sgt i64 %114, %indvars.iv.next117
+  br i1 %115, label %.lr.ph94, label %._crit_edge95
 
 ._crit_edge95:                                    ; preds = %.lr.ph94, %.lr.ph97
-  %117 = phi i64 [ %86, %.lr.ph97 ], [ %115, %.lr.ph94 ]
+  %116 = phi i64 [ %85, %.lr.ph97 ], [ %114, %.lr.ph94 ]
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
-  %118 = icmp sgt i64 %117, %indvars.iv.next120
-  br i1 %118, label %.lr.ph97, label %.loopexit.loopexit
+  %117 = icmp sgt i64 %116, %indvars.iv.next120
+  br i1 %117, label %.lr.ph97, label %.loopexit.loopexit
 
 .loopexit.loopexit:                               ; preds = %._crit_edge95
   %.pre = load i64, ptr %18, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %49, %.loopexit.loopexit, %.preheader81, %45
-  %119 = phi i64 [ %.pre, %.loopexit.loopexit ], [ %33, %.preheader81 ], [ %33, %45 ], [ %33, %49 ]
-  %120 = add nsw i64 %.07199, 1
-  %.not.not = icmp slt i64 %.07199, %119
+  %118 = phi i64 [ %.pre, %.loopexit.loopexit ], [ %33, %.preheader81 ], [ %33, %45 ], [ %33, %49 ]
+  %119 = add nsw i64 %.07199, 1
+  %.not.not = icmp slt i64 %.07199, %118
   br i1 %.not.not, label %.preheader82, label %._crit_edge100
 
 ._crit_edge100:                                   ; preds = %.loopexit, %26
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre122)
-  br label %121
+  br label %120
 
-121:                                              ; preds = %._crit_edge100, %16
+120:                                              ; preds = %._crit_edge100, %16
   call void @__kmpc_barrier(ptr nonnull @2, i32 %.pre122)
   ret void
 }

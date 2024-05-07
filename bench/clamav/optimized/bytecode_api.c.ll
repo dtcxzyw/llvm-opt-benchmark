@@ -4847,7 +4847,7 @@ define i32 @cli_bcapi_entropy_buffer(ptr nocapture noundef readnone %0, ptr noun
   br label %9
 
 .preheader:                                       ; preds = %9
-  %8 = sitofp i32 %2 to double
+  %8 = uitofp nneg i32 %2 to double
   br label %16
 
 9:                                                ; preds = %7, %9

@@ -1268,7 +1268,7 @@ define void @_ZN6colvar6gspath14prepareVectorsEv(ptr noundef nonnull align 8 der
   br i1 %83, label %97, label %84
 
 84:                                               ; preds = %._crit_edge
-  %85 = sitofp i64 %82 to double
+  %85 = uitofp nneg i64 %82 to double
   %86 = getelementptr inbounds i8, ptr %0, i64 2120
   %87 = load double, ptr %86, align 8
   %88 = fcmp olt double %87, %85
@@ -4439,7 +4439,7 @@ _ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEm.exit100: ; preds = %_ZNSt
   br i1 %382, label %388, label %383
 
 383:                                              ; preds = %._crit_edge309
-  %384 = sitofp i64 %381 to double
+  %384 = uitofp nneg i64 %381 to double
   %385 = getelementptr inbounds i8, ptr %0, i64 2120
   %386 = load double, ptr %385, align 8
   %387 = fcmp olt double %386, %384
@@ -8719,7 +8719,7 @@ _ZN11colvarvalueD2Ev.exit132:                     ; preds = %_ZNSt6vectorIdSaIdE
   br i1 %289, label %303, label %290
 
 290:                                              ; preds = %._crit_edge
-  %291 = sitofp i64 %288 to double
+  %291 = uitofp nneg i64 %288 to double
   %292 = getelementptr inbounds i8, ptr %0, i64 2088
   %293 = load double, ptr %292, align 8
   %294 = fcmp olt double %293, %291
@@ -11961,7 +11961,7 @@ _ZN11colvarvalueD2Ev.exit145:                     ; preds = %_ZNSt6vectorIdSaIdE
   br i1 %322, label %336, label %323
 
 323:                                              ; preds = %._crit_edge
-  %324 = sitofp i64 %321 to double
+  %324 = uitofp nneg i64 %321 to double
   %325 = getelementptr inbounds i8, ptr %0, i64 2088
   %326 = load double, ptr %325, align 8
   %327 = fcmp olt double %326, %324

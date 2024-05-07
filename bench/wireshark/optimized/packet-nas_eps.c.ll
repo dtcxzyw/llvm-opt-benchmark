@@ -2245,7 +2245,7 @@ calc_bitrate_ext.exit:                            ; preds = %63, %68, %70, %72
   br i1 %84, label %86, label %91
 
 86:                                               ; preds = %83
-  %87 = uitofp i32 %.1156 to float
+  %87 = uitofp nneg i32 %.1156 to float
   %88 = fdiv float %87, 1.000000e+03
   %89 = fpext float %88 to double
   %90 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1, i32 noundef %85, ptr noundef %0, i32 noundef %51, i32 noundef 1, i32 noundef %.1156, ptr noundef nonnull @.str.48, double noundef %89) #10
@@ -2320,7 +2320,7 @@ calc_bitrate_ext.exit183:                         ; preds = %103, %108, %110, %1
   br i1 %124, label %126, label %131
 
 126:                                              ; preds = %123
-  %127 = uitofp i32 %.1 to float
+  %127 = uitofp nneg i32 %.1 to float
   %128 = fdiv float %127, 1.000000e+03
   %129 = fpext float %128 to double
   %130 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1, i32 noundef %125, ptr noundef %0, i32 noundef %95, i32 noundef 1, i32 noundef %.1, ptr noundef nonnull @.str.48, double noundef %129) #10

@@ -51865,14 +51865,14 @@ _ZN8ImVectorIfE9push_backERKf.exit:               ; preds = %entry, %_ZNK8ImVect
   br i1 %cmp30, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %_ZN8ImVectorIfE9push_backERKf.exit
-  %conv4 = sitofp i32 %components to float
+  %conv4 = uitofp nneg i32 %components to float
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN8ImVectorIfE9push_backERKf.exit29
   %10 = phi i32 [ %inc.i, %for.body.lr.ph ], [ %inc.i18, %_ZN8ImVectorIfE9push_backERKf.exit29 ]
   %prev_split.032 = phi float [ %9, %for.body.lr.ph ], [ %conv6, %_ZN8ImVectorIfE9push_backERKf.exit29 ]
   %i.031 = phi i32 [ %sub, %for.body.lr.ph ], [ %dec, %_ZN8ImVectorIfE9push_backERKf.exit29 ]
-  %conv3 = sitofp i32 %i.031 to float
+  %conv3 = uitofp nneg i32 %i.031 to float
   %mul = fmul float %9, %conv3
   %div = fdiv float %mul, %conv4
   %conv5 = fptosi float %div to i32

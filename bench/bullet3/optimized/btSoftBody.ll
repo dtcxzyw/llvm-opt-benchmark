@@ -1839,7 +1839,7 @@ entry:
   br i1 %cmp.not15, label %for.end18, label %for.cond2.preheader.lr.ph
 
 for.cond2.preheader.lr.ph:                        ; preds = %entry
-  %conv6 = sitofp i32 %N to float
+  %conv6 = uitofp nneg i32 %N to float
   %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 1796
   %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 1800
   %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 1808
@@ -32691,7 +32691,7 @@ for.body64:                                       ; preds = %for.body64.lr.ph, %
   br i1 %cmp67, label %if.then68, label %if.else
 
 if.then68:                                        ; preds = %for.body64
-  %conv71 = sitofp i32 %36 to float
+  %conv71 = uitofp nneg i32 %36 to float
   %37 = load ptr, ptr %m_data.i68, align 8
   %m_area75 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %37, i64 %indvars.iv140, i32 8
   %38 = load float, ptr %m_area75, align 4

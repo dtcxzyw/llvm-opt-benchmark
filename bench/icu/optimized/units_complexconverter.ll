@@ -1893,7 +1893,7 @@ invoke.cont31:                                    ; preds = %invoke.cont23
   %8 = load ptr, ptr %fPool.i, align 8
   %arrayidx.i.i27 = getelementptr inbounds ptr, ptr %8, i64 %conv
   %9 = load ptr, ptr %arrayidx.i.i27, align 8
-  %conv33 = sitofp i64 %conv25 to double
+  %conv33 = uitofp nneg i64 %conv25 to double
   %call35 = invoke noundef double @_ZNK6icu_755units14UnitsConverter7convertEd(ptr noundef nonnull align 8 dereferenceable(376) %9, double noundef %conv33)
           to label %invoke.cont34 unwind label %lpad.loopexit.split-lp
 
@@ -1938,7 +1938,7 @@ invoke.cont60:                                    ; preds = %invoke.cont51
   %19 = load ptr, ptr %fPool.i, align 8
   %arrayidx.i.i32 = getelementptr inbounds ptr, ptr %19, i64 %indvars.iv
   %20 = load ptr, ptr %arrayidx.i.i32, align 8
-  %conv62 = sitofp i64 %conv54 to double
+  %conv62 = uitofp nneg i64 %conv54 to double
   %call64 = invoke noundef double @_ZNK6icu_755units14UnitsConverter7convertEd(ptr noundef nonnull align 8 dereferenceable(376) %20, double noundef %conv62)
           to label %invoke.cont63 unwind label %lpad.loopexit
 

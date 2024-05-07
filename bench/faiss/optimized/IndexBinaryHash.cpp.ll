@@ -3658,7 +3658,7 @@ _ZNKSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal
   %769 = call range(i64 0, 65) <8 x i64> @llvm.ctpop.v8i64(<8 x i64> %768)
   %770 = call i64 @llvm.vector.reduce.add.v8i64(<8 x i64> %769)
   %771 = trunc i64 %770 to i32
-  %772 = sitofp i32 %771 to float
+  %772 = uitofp nneg i32 %771 to float
   %773 = fcmp ogt float %731, %772
   br i1 %773, label %774, label %_ZN5faiss12_GLOBAL__N_118RangeSearchResults3addEfl.exit.i.i282.i.i
 
@@ -6854,7 +6854,7 @@ _ZNKSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal
   %972 = call range(i64 0, 65) <8 x i64> @llvm.ctpop.v8i64(<8 x i64> %971)
   %973 = call i64 @llvm.vector.reduce.add.v8i64(<8 x i64> %972)
   %974 = trunc i64 %973 to i32
-  %975 = sitofp i32 %974 to float
+  %975 = uitofp nneg i32 %974 to float
   %976 = load ptr, ptr %959, align 8
   %977 = getelementptr inbounds i64, ptr %976, i64 %.02847.i.i.i.i
   %978 = load i64, ptr %977, align 8
@@ -9435,7 +9435,7 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
   %454 = call range(i64 0, 65) <8 x i64> @llvm.ctpop.v8i64(<8 x i64> %453)
   %455 = call i64 @llvm.vector.reduce.add.v8i64(<8 x i64> %454)
   %456 = trunc i64 %455 to i32
-  %457 = sitofp i32 %456 to float
+  %457 = uitofp nneg i32 %456 to float
   %458 = fcmp ogt float %447, %457
   br i1 %458, label %459, label %_ZN5faiss12_GLOBAL__N_118RangeSearchResults3addEfl.exit.i.i124.i.i
 
@@ -11504,7 +11504,7 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
   %693 = call range(i64 0, 65) <8 x i64> @llvm.ctpop.v8i64(<8 x i64> %692)
   %694 = call i64 @llvm.vector.reduce.add.v8i64(<8 x i64> %693)
   %695 = trunc i64 %694 to i32
-  %696 = sitofp i32 %695 to float
+  %696 = uitofp nneg i32 %695 to float
   %697 = load i32, ptr %104, align 4
   %698 = sitofp i32 %697 to float
   %699 = fcmp ogt float %698, %696

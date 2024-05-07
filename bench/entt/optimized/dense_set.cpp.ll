@@ -81208,7 +81208,7 @@ _ZNSt12_Vector_baseISt4pairImmEN4test18throwing_allocatorIS1_EEE13_M_deallocateE
   br label %_ZNSt6vectorISt4pairImmEN4test18throwing_allocatorIS1_EEE7reserveEm.exit
 
 _ZNSt6vectorISt4pairImmEN4test18throwing_allocatorIS1_EEE7reserveEm.exit: ; preds = %_ZNSt12_Vector_baseISt4pairImmEN4test18throwing_allocatorIS1_EEE13_M_deallocateEPS1_m.exit.i, %if.end.i
-  %conv = uitofp i64 %cnt to float
+  %conv = uitofp nneg i64 %cnt to float
   %threshold.i = getelementptr inbounds i8, ptr %this, i64 96
   %6 = load float, ptr %threshold.i, align 8, !tbaa !817
   %div = fdiv float %conv, %6

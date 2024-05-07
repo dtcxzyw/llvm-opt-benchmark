@@ -110,7 +110,7 @@ define void @dpprfs_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %70 = add nuw nsw i32 %36, 1
   %71 = tail call double @dlamch_(ptr noundef nonnull @.str.3) #5
   %72 = tail call double @dlamch_(ptr noundef nonnull @.str.4) #5
-  %73 = sitofp i32 %70 to double
+  %73 = uitofp nneg i32 %70 to double
   %74 = fmul double %72, %73
   %75 = fdiv double %74, %71
   %76 = load i32, ptr %2, align 4, !tbaa !3

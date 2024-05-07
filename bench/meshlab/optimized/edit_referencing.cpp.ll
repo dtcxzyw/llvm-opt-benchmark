@@ -11613,7 +11613,7 @@ define linkonce_odr void @_ZN3vcg28ComputeSimilarityMatchMatrixIdEEvRSt6vectorIN
   br i1 %.not, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %3
-  %15 = uitofp i64 %14 to double
+  %15 = uitofp nneg i64 %14 to double
   %16 = fdiv double 0.000000e+00, %15
   br label %_ZNSt6vectorIN3vcg6Point3IdEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
 

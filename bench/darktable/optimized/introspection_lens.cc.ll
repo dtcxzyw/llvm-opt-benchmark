@@ -5851,7 +5851,7 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
 
 427:                                              ; preds = %424
   %428 = add nsw i32 %425, -1
-  %429 = sitofp i32 %428 to float
+  %429 = uitofp nneg i32 %428 to float
   %430 = getelementptr inbounds i8, ptr %227, i64 680
   %431 = getelementptr inbounds i8, ptr %224, i64 364
   %432 = getelementptr inbounds i8, ptr %224, i64 300
@@ -10300,7 +10300,7 @@ define internal fastcc noundef i32 @_ZL18_init_coeffs_md_v1PK10dt_image_tPK20dt_
 
 27:                                               ; preds = %24
   %28 = add nsw i32 %25, -1
-  %29 = sitofp i32 %28 to float
+  %29 = uitofp nneg i32 %28 to float
   %30 = icmp eq ptr %5, null
   %31 = getelementptr i8, ptr %1, i64 4
   %32 = getelementptr inbounds i8, ptr %1, i64 304

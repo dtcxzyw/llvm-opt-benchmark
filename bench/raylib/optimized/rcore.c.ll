@@ -42770,7 +42770,7 @@ define <2 x float> @GetScreenToWorld2D(<2 x float> %0, ptr nocapture noundef rea
 ; Function Attrs: nounwind uwtable
 define void @SetTargetFPS(i32 noundef %0) local_unnamed_addr #0 {
   %2 = icmp slt i32 %0, 1
-  %3 = sitofp i32 %0 to double
+  %3 = uitofp nneg i32 %0 to double
   %4 = fdiv double 1.000000e+00, %3
   %storemerge = select i1 %2, double 0.000000e+00, double %4
   store double %storemerge, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 3, i32 5), align 8
@@ -44722,7 +44722,7 @@ define void @PlayAutomationEvent(ptr nocapture noundef readonly byval(%struct.Au
   %125 = getelementptr inbounds i8, ptr %0, i64 8
   %126 = load i32, ptr %125, align 8
   %127 = icmp slt i32 %126, 1
-  %128 = sitofp i32 %126 to double
+  %128 = uitofp nneg i32 %126 to double
   %129 = fdiv double 1.000000e+00, %128
   %storemerge.i = select i1 %127, double 0.000000e+00, double %129
   store double %storemerge.i, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 3, i32 5), align 8

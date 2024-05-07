@@ -194,7 +194,7 @@ _ZN8facebook5velox6common3hll12_GLOBAL__N_121initializeInputStreamEPKc.exit: ; p
   %1 = load i16, ptr %add.ptr.i, align 2
   %conv = sext i16 %1 to i32
   %sub = sub nsw i32 67108864, %conv
-  %conv2.i = sitofp i32 %sub to double
+  %conv2.i = uitofp nneg i32 %sub to double
   %div.i = fdiv double 0x4190000000000000, %conv2.i
   %call.i = tail call double @log(double noundef %div.i) #21
   %mul3.i = fmul double %call.i, 0x4190000000000000

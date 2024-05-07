@@ -2777,7 +2777,7 @@ _ZL9dump_violP8_IO_FILEiP10t_dr_statsb.exit72.i:  ; preds = %.noexc271, %.lr.ph.
   br label %1078
 
 1069:                                             ; preds = %._crit_edge.split.us.us.us.us.i.i
-  %1070 = sitofp i32 %.147.us.us.us.us.i.i to float
+  %1070 = uitofp nneg i32 %.147.us.us.us.us.i.i to float
   %1071 = fdiv float %.151.us.us.us.us.i.i, %1070
   %1072 = fpext float %1071 to double
   %1073 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %161, ptr noundef nonnull @.str.108, double noundef %1072) #19
@@ -3309,7 +3309,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit276:       ; preds = %1150, %1153
   br label %.body248
 
 1273:                                             ; preds = %1268
-  %1274 = sitofp i32 %.0133230.i to double
+  %1274 = uitofp nneg i32 %.0133230.i to double
   %1275 = fdiv double 1.000000e+00, %1274
   %1276 = fptrunc double %1275 to float
   %1277 = getelementptr inbounds float, ptr %1240, i64 %1261

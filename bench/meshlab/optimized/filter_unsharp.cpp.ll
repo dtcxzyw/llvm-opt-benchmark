@@ -16457,7 +16457,7 @@ define linkonce_odr void @_ZN3vcg3tri6SmoothI6CMeshOE22VertexQualityLaplacianERS
 
 231:                                              ; preds = %228
   %232 = load float, ptr %224, align 4
-  %233 = sitofp i32 %226 to float
+  %233 = uitofp nneg i32 %226 to float
   %234 = fdiv float %232, %233
   %235 = getelementptr inbounds i8, ptr %.sroa.083.1133, i64 36
   store float %234, ptr %235, align 4
@@ -18637,7 +18637,7 @@ define linkonce_odr void @_ZN3vcg3tri6SmoothI6CMeshOE22VertexCoordLaplacianHCERS
   br i1 %350, label %351, label %393
 
 351:                                              ; preds = %.lr.ph225
-  %352 = sitofp i32 %349 to float
+  %352 = uitofp nneg i32 %349 to float
   %353 = load <2 x float>, ptr %347, align 4
   %354 = insertelement <2 x float> poison, float %352, i64 0
   %355 = shufflevector <2 x float> %354, <2 x float> poison, <2 x i32> zeroinitializer

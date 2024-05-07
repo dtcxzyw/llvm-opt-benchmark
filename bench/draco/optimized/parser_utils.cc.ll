@@ -415,7 +415,7 @@ _ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit52:     ; preds = %.lr.ph
   %25 = zext nneg i8 %23 to i32
   %26 = fmul double %.04491174, 1.000000e+01
   %27 = add nsw i32 %25, -48
-  %28 = sitofp i32 %27 to double
+  %28 = uitofp nneg i32 %27 to double
   %29 = fadd double %26, %28
   store i64 %24, ptr %6, align 8
   %30 = add i64 %24, 1
@@ -459,7 +459,7 @@ _ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit53:     ; preds = %.lr.ph181
   %44 = zext nneg i8 %42 to i32
   %45 = fmul double %.043103179, 1.000000e-01
   %46 = add nsw i32 %44, -48
-  %47 = sitofp i32 %46 to double
+  %47 = uitofp nneg i32 %46 to double
   %48 = tail call double @llvm.fmuladd.f64(double %47, double %45, double %.145102180)
   store i64 %43, ptr %6, align 8
   %49 = add i64 %43, 1

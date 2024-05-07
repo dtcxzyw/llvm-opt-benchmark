@@ -381,7 +381,7 @@ define internal fastcc double @tsquery_opr_selec(ptr noundef %0, ptr noundef %1,
   %.1100 = phi double [ 1.000000e+00, %79 ], [ %69, %77 ], [ 0.000000e+00, %75 ]
   %81 = fsub double 1.000000e+00, %.1100
   %82 = sitofp i32 %.197 to double
-  %83 = sitofp i32 %3 to double
+  %83 = uitofp nneg i32 %3 to double
   %84 = fdiv double %82, %83
   %85 = tail call double @llvm.fmuladd.f64(double %81, double %84, double %.2)
   %86 = fmul float %4, 5.000000e-01

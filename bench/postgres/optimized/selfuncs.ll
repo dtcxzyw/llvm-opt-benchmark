@@ -1466,7 +1466,7 @@ statistic_proc_security_check.exit:               ; preds = %.statistic_proc_sec
 
 130:                                              ; preds = %103, %123, %120, %116, %125
   %.0122 = phi double [ %spec.store.select, %125 ], [ 5.000000e-01, %116 ], [ 0.000000e+00, %120 ], [ 1.000000e+00, %123 ], [ 5.000000e-01, %103 ]
-  %131 = sitofp i32 %106 to double
+  %131 = uitofp nneg i32 %106 to double
   %132 = fadd double %.0122, %131
   %133 = load i32, ptr %36, align 8
   %134 = add i32 %133, -1
@@ -9173,7 +9173,7 @@ get_quals_from_indexclauses.exit:                 ; preds = %._crit_edge.i, %8, 
   %87 = uitofp i32 %86 to double
   %88 = fmul double %81, %87
   %89 = call double @llvm.ceil.f64(double %88)
-  %90 = sitofp i64 %78 to double
+  %90 = uitofp nneg i64 %78 to double
   %91 = fmul double %81, %90
   %92 = call double @llvm.ceil.f64(double %91)
   %93 = fsub double %51, %.

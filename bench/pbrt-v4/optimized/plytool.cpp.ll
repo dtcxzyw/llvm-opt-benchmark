@@ -12226,7 +12226,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.end.i.i.i.i.i.i.
   unreachable
 
 "_ZSt10__invoke_rIvRZZ8displaceSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEENK3$_1clEPN4pbrt6Point3IfEEPKNSA_7Normal3IfEEPKNSA_6Point2IfEEiEUllE_JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESP_E4typeEOSQ_DpOSR_.exit": ; preds = %invoke.cont.i.i.i, %if.end.i.i.i.i.i.i.i.i
-  %conv5.i.i.i.i = uitofp i64 %7 to float
+  %conv5.i.i.i.i = uitofp nneg i64 %7 to float
   %div.i.i.i.i = fdiv float %sum.0.lcssa.i.i.i.i, %conv5.i.i.i.i
   %15 = getelementptr inbounds i8, ptr %__functor.val, i64 32
   %16 = load ptr, ptr %15, align 8

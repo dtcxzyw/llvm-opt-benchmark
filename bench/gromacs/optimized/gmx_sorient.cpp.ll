@@ -1623,7 +1623,7 @@ _ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit:        ; preds = %650
   br i1 %679, label %680, label %696
 
 680:                                              ; preds = %654
-  %681 = sitofp i32 %649 to double
+  %681 = uitofp nneg i32 %649 to double
   %682 = fdiv double %.1206.lcssa, %681
   %683 = fdiv double %.1210.lcssa, %681
   %684 = load ptr, ptr @stderr, align 8

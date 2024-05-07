@@ -149589,7 +149589,7 @@ define void @"_ZN90_$LT$typst..visualize..color..Component$u20$as$u20$typst..fou
   br label %24
 
 68:                                               ; preds = %49
-  %69 = sitofp i64 %50 to double
+  %69 = uitofp nneg i64 %50 to double
   %70 = fdiv double %69, 2.550000e+02
   %71 = bitcast double %70 to i64
   %72 = and i64 %71, 9218868437227405312

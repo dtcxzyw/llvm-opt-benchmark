@@ -13476,7 +13476,7 @@ define void @GenImageGradientLinear(ptr dead_on_unwind noalias nocapture writabl
   %26 = insertelement <4 x i32> %25, i32 %.sroa.453.0.extract.shift, i64 3
   %27 = trunc <4 x i32> %26 to <4 x i8>
   %28 = icmp sgt i32 %2, 0
-  %29 = sitofp i32 %1 to float
+  %29 = uitofp nneg i32 %1 to float
   %30 = fmul float %15, %29
   %31 = sitofp i32 %2 to float
   %32 = fmul float %16, %31
@@ -13879,7 +13879,7 @@ define void @GenImagePerlinNoise(ptr dead_on_unwind noalias nocapture writable w
   %12 = icmp sgt i32 %1, 0
   %13 = sitofp i32 %1 to float
   %14 = fdiv float %5, %13
-  %15 = sitofp i32 %2 to float
+  %15 = uitofp nneg i32 %2 to float
   %16 = fdiv float %5, %15
   br i1 %12, label %.preheader.us.preheader, label %._crit_edge39
 
@@ -17479,7 +17479,7 @@ define void @ImageResizeCanvas(ptr nocapture noundef %0, i32 noundef %1, i32 nou
 
 35:                                               ; preds = %29
   %36 = sub nsw i32 0, %3
-  %37 = sitofp i32 %36 to float
+  %37 = uitofp nneg i32 %36 to float
   %38 = fadd float %32, %30
   %39 = fptosi float %37 to i32
   %40 = sext i32 %39 to i64
@@ -17504,7 +17504,7 @@ define void @ImageResizeCanvas(ptr nocapture noundef %0, i32 noundef %1, i32 nou
 
 49:                                               ; preds = %47
   %50 = sub nsw i32 0, %4
-  %51 = sitofp i32 %50 to float
+  %51 = uitofp nneg i32 %50 to float
   %52 = fadd float %33, %31
   %53 = fptosi float %51 to i32
   %54 = sext i32 %53 to i64
@@ -20337,7 +20337,7 @@ GetPixelDataSize.exit:                            ; preds = %54, %.thread
   %65 = icmp sgt i32 %58, 0
   %66 = sitofp i32 %58 to float
   %67 = fmul float %66, 5.000000e-01
-  %68 = sitofp i32 %59 to float
+  %68 = uitofp nneg i32 %59 to float
   %69 = fmul float %68, 5.000000e-01
   %70 = fmul <2 x float> %30, <float 5.000000e-01, float 5.000000e-01>
   %71 = extractelement <2 x i32> %29, i64 0

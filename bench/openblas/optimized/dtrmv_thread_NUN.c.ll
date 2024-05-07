@@ -42,7 +42,7 @@ define noundef i32 @dtrmv_thread_NUN(i64 noundef %0, ptr noundef %1, i64 noundef
 
 20:                                               ; preds = %7
   %21 = sitofp i32 %6 to double
-  %22 = sitofp i64 %0 to double
+  %22 = uitofp nneg i64 %0 to double
   %23 = sext i32 %6 to i64
   %24 = add nsw i64 %23, -1
   %25 = fneg double %22

@@ -2499,7 +2499,7 @@ _ZNSt3__14pairIN7mitsuba11BSDFSample3IfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EE
   %492 = fmul contract float %491, %484
   %493 = fmul contract float %102, 2.000000e+00
   %494 = fsub contract float %492, %493
-  %495 = uitofp i32 %.11130 to float
+  %495 = uitofp nneg i32 %.11130 to float
   %496 = fmul contract float %495, 0x400921FB60000000
   %497 = fadd contract float %496, %494
   %498 = fadd contract float %487, %497

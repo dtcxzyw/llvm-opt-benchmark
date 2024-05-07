@@ -7402,7 +7402,7 @@ define void @_ZN14SequenceDialog18goToAdjacentPacketEb(ptr nocapture noundef non
   %26 = sub nsw i32 %16, %11
   %27 = sitofp i32 %26 to double
   %storemerge = select i1 %25, double %27, double 0.000000e+00
-  %28 = sitofp i32 %16 to double
+  %28 = uitofp nneg i32 %16 to double
   %29 = getelementptr inbounds i8, ptr %24, i64 48
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 304
@@ -7437,21 +7437,21 @@ define void @_ZN14SequenceDialog18goToAdjacentPacketEb(ptr nocapture noundef non
   br label %59
 
 51:                                               ; preds = %41
-  br i1 %1, label %52, label %55
+  br i1 %1, label %52, label %56
 
 52:                                               ; preds = %51
-  %53 = fadd double %28, 3.000000e+00
-  %54 = fcmp olt double %53, %.sroa.2.0.copyload.i
-  br i1 %54, label %.thread89, label %59
+  %53 = add nuw i32 %16, 3
+  %54 = uitofp i32 %53 to double
+  %55 = fcmp ogt double %.sroa.2.0.copyload.i, %54
+  br i1 %55, label %.thread89, label %59
 
-55:                                               ; preds = %51
-  %56 = add nsw i32 %16, -3
-  %57 = sitofp i32 %56 to double
-  %58 = fcmp olt double %.sroa.0.0.copyload.i, %57
+56:                                               ; preds = %51
+  %57 = fadd double %28, -3.000000e+00
+  %58 = fcmp ogt double %57, %.sroa.0.0.copyload.i
   br i1 %58, label %.thread89, label %59
 
-59:                                               ; preds = %43, %55, %52, %33
-  %.0 = phi double [ %40, %33 ], [ %50, %43 ], [ %storemerge, %52 ], [ %storemerge, %55 ]
+59:                                               ; preds = %43, %56, %52, %33
+  %.0 = phi double [ %40, %33 ], [ %50, %43 ], [ %storemerge, %52 ], [ %storemerge, %56 ]
   %60 = fcmp ogt double %.0, 0.000000e+00
   br i1 %60, label %61, label %67
 
@@ -7474,8 +7474,8 @@ define void @_ZN14SequenceDialog18goToAdjacentPacketEb(ptr nocapture noundef non
   %.sroa.speculated = select i1 %71, double %70, double %.0
   br label %.thread89
 
-.thread89:                                        ; preds = %52, %55, %67, %69, %61
-  %.1 = phi double [ %.sroa.speculated81, %61 ], [ %.sroa.speculated, %69 ], [ %.0, %67 ], [ 0.000000e+00, %55 ], [ 0.000000e+00, %52 ]
+.thread89:                                        ; preds = %52, %56, %67, %69, %61
+  %.1 = phi double [ %.sroa.speculated81, %61 ], [ %.sroa.speculated, %69 ], [ %.0, %67 ], [ 0.000000e+00, %56 ], [ 0.000000e+00, %52 ]
   tail call void @_ZN7QCPAxis9moveRangeEd(ptr noundef nonnull align 8 dereferenceable(472) %30, double noundef %.1)
   br label %72
 

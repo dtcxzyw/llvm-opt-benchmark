@@ -348,7 +348,7 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit11
   %.0101143 = phi i8 [ 0, %.lr.ph ], [ %.2103, %118 ]
   %.0105142 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1106, %118 ]
   %59 = trunc nuw i64 %indvars.iv to i32
-  %60 = sitofp i32 %59 to double
+  %60 = uitofp nneg i32 %59 to double
   %61 = fmul double %13, %60
   %62 = invoke noundef double %4(double noundef %54, double noundef %61)
           to label %63 unwind label %.loopexit
@@ -392,7 +392,7 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit11
 
 76:                                               ; preds = %72
   %77 = add nsw i32 %59, -1
-  %78 = sitofp i32 %77 to double
+  %78 = uitofp nneg i32 %77 to double
   %79 = fmul double %13, %78
   %80 = invoke noundef double %4(double noundef %54, double noundef %79)
           to label %81 unwind label %.loopexit
@@ -3778,7 +3778,7 @@ _ZL10set_forcesP8_IO_FILEiidPdS1_i.exit:          ; preds = %.lr.ph125.i.i, %.pr
   br i1 %384, label %385, label %._crit_edge435.thread
 
 385:                                              ; preds = %._crit_edge435
-  %386 = sitofp i32 %.1138 to double
+  %386 = uitofp nneg i32 %.1138 to double
   %387 = fdiv double %.2, %386
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #22, !noalias !37

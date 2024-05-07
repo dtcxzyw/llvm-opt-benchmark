@@ -14899,7 +14899,7 @@ _ZN8ImVectorI18ImGuiOldColumnDataE7reserveEi.exit: ; preds = %if.then49, %if.end
   br i1 %cmp53.not185, label %for.end85, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN8ImVectorI18ImGuiOldColumnDataE7reserveEi.exit
-  %conv54 = sitofp i32 %columns_count to float
+  %conv54 = uitofp nneg i32 %columns_count to float
   %Data.i.i104 = getelementptr inbounds i8, ptr %call2, i64 104
   %.pre189 = load i32, ptr %Columns, align 8
   br label %for.body

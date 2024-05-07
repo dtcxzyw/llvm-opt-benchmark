@@ -632,7 +632,7 @@ define internal i32 @dissect_igmp_mquery(ptr noundef %0, ptr noundef %1, ptr nou
 25:                                               ; preds = %18, %11
   %.0.i.i = phi i32 [ %24, %18 ], [ %17, %11 ]
   %26 = load i32, ptr @hf_max_resp, align 4
-  %27 = uitofp i32 %.0.i.i to double
+  %27 = uitofp nneg i32 %.0.i.i to double
   %28 = fmul double %27, 1.000000e-01
   %29 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %12, i32 noundef %26, ptr noundef %0, i32 noundef %13, i32 noundef 1, i32 noundef %.0.i.i, ptr noundef nonnull @.str.190, double noundef %28, i32 noundef %17) #4
   br i1 %.not.i.i, label %dissect_v3_max_resp.exit.i, label %30

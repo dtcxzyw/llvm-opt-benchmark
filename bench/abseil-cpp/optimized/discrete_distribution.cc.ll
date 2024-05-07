@@ -104,7 +104,7 @@ invoke.cont:                                      ; preds = %_ZNSt12_Vector_base
   br i1 %cmp.i21.not264, label %_ZNSt6vectorImSaImEED2Ev.exit173, label %for.body21.lr.ph
 
 for.body21.lr.ph:                                 ; preds = %invoke.cont
-  %conv = uitofp i64 %sub.ptr.div.i to double
+  %conv = uitofp nneg i64 %sub.ptr.div.i to double
   %_M_finish.i22 = getelementptr inbounds i8, ptr %agg.result, i64 8
   br label %for.body21
 

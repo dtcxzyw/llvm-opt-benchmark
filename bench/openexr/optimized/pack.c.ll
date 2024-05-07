@@ -262,7 +262,7 @@ for.body61:                                       ; preds = %for.body61.lr.ph, %
   br i1 %cmp.i, label %uint_to_half.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body61
-  %conv.i = uitofp i32 %28 to float
+  %conv.i = uitofp nneg i32 %28 to float
   %29 = bitcast float %conv.i to i32
   %shr.i.i.i = lshr i32 %29, 16
   %30 = trunc nuw i32 %shr.i.i.i to i16

@@ -8242,7 +8242,7 @@ dt_ioppr_rgb_matrix_to_lab.exit.us:               ; preds = %98, %95
   %127 = fmul reassoc nsz arcp contract afn float %125, 0x3F847AE140000000
   %128 = getelementptr inbounds i8, ptr %4, i64 8
   store float %127, ptr %128, align 4, !tbaa !16
-  %129 = sitofp i32 %124 to float
+  %129 = uitofp nneg i32 %124 to float
   %130 = fmul reassoc nsz arcp contract afn float %123, 0x3F847AE140000000
   %131 = fdiv reassoc nsz arcp contract afn float %130, %129
   %132 = getelementptr inbounds i8, ptr %4, i64 4

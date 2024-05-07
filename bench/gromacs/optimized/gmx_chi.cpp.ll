@@ -3768,7 +3768,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit.i:             ; preds = %_ZSt6fill_nIPfmfET_
   br i1 %.not85352.i, label %._crit_edge355.i, label %.lr.ph354.i
 
 .lr.ph354.i:                                      ; preds = %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit.i
-  %1297 = sitofp i32 %300 to double
+  %1297 = uitofp nneg i32 %300 to double
   %1298 = fdiv double 3.600000e+02, %1297
   %1299 = fptrunc double %1298 to float
   %1300 = ptrtoint ptr %.0.i.i.i.i.i.i to i64

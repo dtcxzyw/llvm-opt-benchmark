@@ -114,7 +114,7 @@ define void @dstedc_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %133
 
 63:                                               ; preds = %58
-  %64 = sitofp i32 %56 to double
+  %64 = uitofp nneg i32 %56 to double
   %65 = tail call double @log(double noundef %64) #4
   %66 = fdiv double %65, 0x3FE62E42FEFA39EF
   %67 = fptosi double %66 to i32

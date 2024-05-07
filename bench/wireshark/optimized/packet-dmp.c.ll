@@ -5755,7 +5755,7 @@ define internal fastcc i32 @dissect_mts_identifier(ptr noundef %0, ptr noundef %
   %56 = zext nneg i32 %54 to i64
   %57 = tail call ptr @tvb_memdup(ptr noundef %55, ptr noundef %0, i32 noundef %3, i64 noundef %56) #13
   %58 = tail call ptr @wmem_packet_scope() #13
-  %59 = sitofp i32 %54 to double
+  %59 = uitofp nneg i32 %54 to double
   %60 = fmul double %59, 1.200000e+00
   %61 = fptoui double %60 to i64
   %62 = add i64 %61, 1
@@ -6456,7 +6456,7 @@ define internal fastcc noundef i32 @dissect_ipm_identifier(ptr noundef %0, ptr n
   %87 = zext nneg i32 %66 to i64
   %88 = call ptr @tvb_memdup(ptr noundef %86, ptr noundef %0, i32 noundef %24, i64 noundef %87) #13
   %89 = call ptr @wmem_packet_scope() #13
-  %90 = sitofp i32 %66 to double
+  %90 = uitofp nneg i32 %66 to double
   %91 = fmul double %90, 1.200000e+00
   %92 = fptoui double %91 to i64
   %93 = add i64 %92, 1

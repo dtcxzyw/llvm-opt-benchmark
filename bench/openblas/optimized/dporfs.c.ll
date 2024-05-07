@@ -123,7 +123,7 @@ define void @dporfs_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %81 = add nuw nsw i32 %41, 1
   %82 = tail call double @dlamch_(ptr noundef nonnull @.str.3) #5
   %83 = tail call double @dlamch_(ptr noundef nonnull @.str.4) #5
-  %84 = sitofp i32 %81 to double
+  %84 = uitofp nneg i32 %81 to double
   %85 = fmul double %83, %84
   %86 = fdiv double %85, %82
   %87 = load i32, ptr %2, align 4, !tbaa !3

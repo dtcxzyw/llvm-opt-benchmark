@@ -292,7 +292,7 @@ define noundef float @_Z6ca_phiiPKiPA3_f(i32 noundef %0, ptr nocapture noundef r
   %10 = alloca [3 x float], align 4
   %11 = alloca [3 x float], align 4
   %12 = icmp slt i32 %0, 5
-  br i1 %12, label %39, label %.lr.ph.preheader
+  br i1 %12, label %40, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %3
   %13 = add nsw i32 %0, -4
@@ -329,13 +329,14 @@ define noundef float @_Z6ca_phiiPKiPA3_f(i32 noundef %0, ptr nocapture noundef r
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %35 = fpext float %34 to double
-  %36 = sitofp i32 %13 to double
-  %37 = fdiv double %35, %36
-  %38 = fptrunc double %37 to float
-  br label %39
+  %36 = uitofp nneg i32 %0 to double
+  %37 = fadd double %36, -4.000000e+00
+  %38 = fdiv double %35, %37
+  %39 = fptrunc double %38 to float
+  br label %40
 
-39:                                               ; preds = %3, %._crit_edge
-  %.0 = phi float [ %38, %._crit_edge ], [ 0.000000e+00, %3 ]
+40:                                               ; preds = %3, %._crit_edge
+  %.0 = phi float [ %39, %._crit_edge ], [ 0.000000e+00, %3 ]
   ret float %.0
 }
 

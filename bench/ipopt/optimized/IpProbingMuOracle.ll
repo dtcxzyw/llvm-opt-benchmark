@@ -2998,7 +2998,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i276:               ; preds = %.noexc280, %._crit_
   %.0.i274 = phi double [ %746, %_ZNK5Ipopt6Vector4Nrm2Ev.exit.i276 ], [ %755, %.noexc283 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %756 = fadd double %.2, %.0.i274
-  %757 = sitofp i32 %614 to double
+  %757 = uitofp nneg i32 %614 to double
   %758 = fdiv double %756, %757
   br label %780
 
@@ -3035,7 +3035,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i276:               ; preds = %.noexc280, %._crit_
   br label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit124.thread
 
 777:                                              ; preds = %606
-  %778 = sitofp i32 %.230 to double
+  %778 = uitofp nneg i32 %.230 to double
   %779 = fdiv double %.2, %778
   %.not.i.i291 = icmp eq ptr %.sroa.0373.3, null
   br i1 %.not.i.i291, label %_ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit292, label %780

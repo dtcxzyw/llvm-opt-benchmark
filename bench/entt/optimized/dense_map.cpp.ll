@@ -100714,7 +100714,7 @@ _ZNSt12_Vector_baseIN4entt8internal14dense_map_nodeImmEEN4test18throwing_allocat
   br label %_ZNSt6vectorIN4entt8internal14dense_map_nodeImmEEN4test18throwing_allocatorIS3_EEE7reserveEm.exit
 
 _ZNSt6vectorIN4entt8internal14dense_map_nodeImmEEN4test18throwing_allocatorIS3_EEE7reserveEm.exit: ; preds = %_ZNSt12_Vector_baseIN4entt8internal14dense_map_nodeImmEEN4test18throwing_allocatorIS3_EEE13_M_deallocateEPS3_m.exit.i, %if.end.i
-  %conv = uitofp i64 %cnt to float
+  %conv = uitofp nneg i64 %cnt to float
   %threshold.i = getelementptr inbounds i8, ptr %this, i64 96
   %6 = load float, ptr %threshold.i, align 8, !tbaa !745
   %div = fdiv float %conv, %6

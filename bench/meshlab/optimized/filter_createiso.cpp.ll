@@ -7876,7 +7876,7 @@ _ZN3vcg3tri13TrivialWalkerI6CMeshONS_12SimpleVolumeINS_11SimpleVoxelIfEEEEE5Exis
 
 _ZN3vcg3tri13TrivialWalkerI6CMeshONS_12SimpleVolumeINS_11SimpleVoxelIfEEEEE5ExistERKNS_6Point3IiEESB_RP8CVertexO.exit170.thread: ; preds = %728, %733, %_ZN3vcg3tri13TrivialWalkerI6CMeshONS_12SimpleVolumeINS_11SimpleVoxelIfEEEEE5ExistERKNS_6Point3IiEESB_RP8CVertexO.exit170
   %.11 = phi i32 [ %735, %733 ], [ %.10, %_ZN3vcg3tri13TrivialWalkerI6CMeshONS_12SimpleVolumeINS_11SimpleVoxelIfEEEEE5ExistERKNS_6Point3IiEESB_RP8CVertexO.exit170 ], [ %.10, %728 ]
-  %752 = uitofp i32 %.11 to float
+  %752 = uitofp nneg i32 %.11 to float
   %753 = load ptr, ptr %1, align 8
   %754 = getelementptr inbounds i8, ptr %753, i64 8
   %755 = load <2 x float>, ptr %754, align 4

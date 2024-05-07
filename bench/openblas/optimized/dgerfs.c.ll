@@ -133,7 +133,7 @@ define void @dgerfs_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %87 = add nuw nsw i32 %46, 1
   %88 = tail call double @dlamch_(ptr noundef nonnull @.str.4) #5
   %89 = tail call double @dlamch_(ptr noundef nonnull @.str.5) #5
-  %90 = sitofp i32 %87 to double
+  %90 = uitofp nneg i32 %87 to double
   %91 = fmul double %89, %90
   %92 = fdiv double %91, %88
   %93 = load i32, ptr %2, align 4, !tbaa !3

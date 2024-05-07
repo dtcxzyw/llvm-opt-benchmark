@@ -5585,7 +5585,7 @@ if.end38.i:                                       ; preds = %for.inc.1.1.i
   br i1 %cmp39.not.i, label %_ZNK21MapblockMeshGenerator14getCornerLevelEii.exit, label %if.then40.i
 
 if.then40.i:                                      ; preds = %if.end38.i
-  %conv41.i = sitofp i32 %count.3.ph.1.1.i to float
+  %conv41.i = uitofp nneg i32 %count.3.ph.1.1.i to float
   %div.i = fdiv nsz float %sum.3.ph.1.1.i, %conv41.i
   br label %_ZNK21MapblockMeshGenerator14getCornerLevelEii.exit
 
@@ -5717,7 +5717,7 @@ if.end38.i.1:                                     ; preds = %for.inc.1.1.i.1
   br i1 %cmp39.not.i.1, label %_ZNK21MapblockMeshGenerator14getCornerLevelEii.exit.1, label %if.then40.i.1
 
 if.then40.i.1:                                    ; preds = %if.end38.i.1
-  %conv41.i.1 = sitofp i32 %count.3.ph.1.1.i.1 to float
+  %conv41.i.1 = uitofp nneg i32 %count.3.ph.1.1.i.1 to float
   %div.i.1 = fdiv nsz float %sum.3.ph.1.1.i.1, %conv41.i.1
   br label %_ZNK21MapblockMeshGenerator14getCornerLevelEii.exit.1
 
@@ -5850,7 +5850,7 @@ if.end38.i.196:                                   ; preds = %for.inc.1.1.i.194
   br i1 %cmp39.not.i.195, label %_ZNK21MapblockMeshGenerator14getCornerLevelEii.exit.1102, label %if.then40.i.199
 
 if.then40.i.199:                                  ; preds = %if.end38.i.196
-  %conv41.i.197 = sitofp i32 %count.3.ph.1.1.i.190 to float
+  %conv41.i.197 = uitofp nneg i32 %count.3.ph.1.1.i.190 to float
   %div.i.198 = fdiv nsz float %sum.3.ph.1.1.i.192, %conv41.i.197
   br label %_ZNK21MapblockMeshGenerator14getCornerLevelEii.exit.1102
 
@@ -5983,7 +5983,7 @@ if.end38.i.1.1:                                   ; preds = %for.inc.1.1.i.1.1
   br i1 %cmp39.not.i.1.1, label %_ZNK21MapblockMeshGenerator14getCornerLevelEii.exit.1.1, label %if.then40.i.1.1
 
 if.then40.i.1.1:                                  ; preds = %if.end38.i.1.1
-  %conv41.i.1.1 = sitofp i32 %count.3.ph.1.1.i.1.1 to float
+  %conv41.i.1.1 = uitofp nneg i32 %count.3.ph.1.1.i.1.1 to float
   %div.i.1.1 = fdiv nsz float %sum.3.ph.1.1.i.1.1, %conv41.i.1.1
   br label %_ZNK21MapblockMeshGenerator14getCornerLevelEii.exit.1.1
 
@@ -6139,7 +6139,7 @@ if.end38:                                         ; preds = %for.inc.1.1
   br i1 %cmp39.not, label %cleanup43, label %if.then40
 
 if.then40:                                        ; preds = %if.end38
-  %conv41 = sitofp i32 %count.3.ph.1.1 to float
+  %conv41 = uitofp nneg i32 %count.3.ph.1.1 to float
   %div = fdiv nsz float %sum.3.ph.1.1, %conv41
   br label %cleanup43
 

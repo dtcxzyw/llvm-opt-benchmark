@@ -17554,7 +17554,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   br i1 %60, label %61, label %65
 
 61:                                               ; preds = %59
-  %62 = sitofp i32 %2 to float
+  %62 = uitofp nneg i32 %2 to float
   store float %62, ptr %12, align 4
   invoke void @_ZN7Imf_2_522addDwaCompressionLevelERNS_6HeaderERKf(ptr noundef nonnull align 8 dereferenceable(25) %10, ptr noundef nonnull align 4 dereferenceable(4) %12)
           to label %65 unwind label %.loopexit.split-lp442

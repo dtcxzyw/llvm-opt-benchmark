@@ -2413,7 +2413,7 @@ _ZNK5ZXing6QRCode7Version9dimensionEv.exit357:    ; preds = %360, %358, %355, %3
   %.sroa.7565.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 48
   %365 = load <2 x double>, ptr %2, align 8
   store <2 x double> %365, ptr %.sroa.7565.0..sroa_idx, align 16
-  %366 = sitofp i32 %.sroa.15.0.i.i356 to double
+  %366 = uitofp nneg i32 %.sroa.15.0.i.i356 to double
   %367 = fadd double %366, -3.500000e+00
   store <2 x double> <double 3.500000e+00, double 3.500000e+00>, ptr %6, align 16, !alias.scope !62, !noalias !65
   %368 = getelementptr inbounds i8, ptr %6, i64 16
@@ -4623,7 +4623,7 @@ _ZN5ZXing6QRCodeL17EstimateDimensionERKNS_9BitMatrixENS_17ConcentricPatternES4_.
   %101 = fmul float %93, 5.000000e-01
   %102 = fadd float %101, %100
   %103 = add nsw i32 %.sink25.i, -1
-  %104 = sitofp i32 %103 to float
+  %104 = uitofp nneg i32 %103 to float
   %105 = call float @llvm.fmuladd.f32(float %104, float %93, float %102)
   %106 = load i32, ptr %6, align 4
   %107 = sitofp i32 %106 to float
@@ -5068,7 +5068,7 @@ _ZN5ZXing6ReduceISt5arrayItLm5EEtSt4plusItEEET0_RKT_S5_T1_.exit: ; preds = %.lr.
   %64 = fmul float %51, 5.000000e-01
   %65 = fadd float %64, %63
   %66 = add nsw i32 %56, -1
-  %67 = sitofp i32 %66 to float
+  %67 = uitofp nneg i32 %66 to float
   %68 = call float @llvm.fmuladd.f32(float %67, float %51, float %65)
   %69 = load i32, ptr %4, align 4
   %70 = sitofp i32 %69 to float

@@ -105,9 +105,9 @@ define void @_ZN3gmx14currentLambdasElRK8t_lambdai(ptr dead_on_unwind noalias no
   br i1 %54, label %55, label %_ZN3gmx12_GLOBAL__N_119currentGlobalLambdaEldidi.exit
 
 55:                                               ; preds = %53
-  %56 = sitofp i32 %47 to double
+  %56 = uitofp nneg i32 %47 to double
   %57 = add nsw i32 %51, -1
-  %58 = sitofp i32 %57 to double
+  %58 = uitofp nneg i32 %57 to double
   %59 = fdiv double %56, %58
   br label %_ZN3gmx12_GLOBAL__N_119currentGlobalLambdaEldidi.exit
 
@@ -148,7 +148,7 @@ _ZN3gmx12_GLOBAL__N_119currentGlobalLambdaEldidi.exit: ; preds = %53, %55, %60, 
   %76 = fcmp ogt double %70, 1.000000e+00
   %77 = select i1 %76, double 1.000000e+00, double %70
   %78 = add nsw i32 %51, -1
-  %79 = sitofp i32 %78 to double
+  %79 = uitofp nneg i32 %78 to double
   %80 = fmul double %77, %79
   %81 = tail call double @llvm.floor.f64(double %80)
   %82 = fptosi double %81 to i32

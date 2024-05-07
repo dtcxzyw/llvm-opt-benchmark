@@ -3125,7 +3125,7 @@ float_round_underflow.exit:                       ; preds = %55, %57
   br i1 %.not, label %rb_float_new_inline.exit, label %58
 
 58:                                               ; preds = %float_round_underflow.exit, %52
-  %59 = sitofp i32 %1 to double
+  %59 = uitofp nneg i32 %1 to double
   %60 = tail call double @pow(double noundef 1.000000e+01, double noundef %59) #23
   %61 = fmul double %.0.i, %60
   %62 = tail call double @llvm.floor.f64(double %61)
@@ -3468,7 +3468,7 @@ float_round_underflow.exit:                       ; preds = %55, %57
   br i1 %.not, label %rb_float_new_inline.exit, label %58
 
 58:                                               ; preds = %float_round_underflow.exit, %52
-  %59 = sitofp i32 %1 to double
+  %59 = uitofp nneg i32 %1 to double
   %60 = tail call double @pow(double noundef 1.000000e+01, double noundef %59) #23
   %61 = fmul double %.0.i, %60
   %62 = tail call double @llvm.ceil.f64(double %61)
@@ -8818,7 +8818,7 @@ define hidden i64 @rb_ulong_isqrt(i64 noundef %0) local_unnamed_addr #13 {
   br i1 %21, label %.lr.ph, label %.loopexit, !llvm.loop !21
 
 22:                                               ; preds = %1
-  %23 = uitofp i64 %0 to double
+  %23 = uitofp nneg i64 %0 to double
   %sqrt = tail call double @llvm.sqrt.f64(double %23)
   %24 = fptoui double %sqrt to i64
   br label %.loopexit
@@ -13468,7 +13468,7 @@ float_round_underflow.exit:                       ; preds = %153, %.thread
   br label %rb_float_new_inline.exit
 
 159:                                              ; preds = %155
-  %160 = sitofp i32 %.038 to double
+  %160 = uitofp nneg i32 %.038 to double
   %161 = call double @pow(double noundef 1.000000e+01, double noundef %160) #23
   switch i32 %23, label %180 [
     i32 1, label %162

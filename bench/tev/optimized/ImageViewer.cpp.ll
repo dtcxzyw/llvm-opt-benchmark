@@ -8543,7 +8543,7 @@ _ZN3tev11ImageViewer12setUiVisibleEb.exit:        ; preds = %._crit_edge122, %29
   br i1 %335, label %336, label %.thread
 
 336:                                              ; preds = %325
-  %337 = sitofp i32 %334 to float
+  %337 = uitofp nneg i32 %334 to float
   %338 = getelementptr inbounds i8, ptr %331, i64 136
   %339 = load float, ptr %338, align 8
   %340 = getelementptr inbounds i8, ptr %318, i64 44
@@ -8928,7 +8928,7 @@ _ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit52: ; preds = %_ZN3tev11Im
   br i1 %192, label %193, label %_ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit42
 
 193:                                              ; preds = %182
-  %194 = sitofp i32 %191 to float
+  %194 = uitofp nneg i32 %191 to float
   %195 = getelementptr inbounds i8, ptr %188, i64 136
   %196 = load float, ptr %195, align 8
   %197 = getelementptr inbounds i8, ptr %177, i64 44

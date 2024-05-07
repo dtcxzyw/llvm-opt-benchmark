@@ -1069,7 +1069,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZNSt6vectorIfSaIfE
           to label %_ZNSt6vectorIfSaIfEED2Ev.exit unwind label %103
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit
-  %88 = sitofp i64 %2 to float
+  %88 = uitofp nneg i64 %2 to float
   %89 = fmul float %88, %1
   %90 = fptosi float %89 to i32
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %90, i32 0)
@@ -2588,7 +2588,7 @@ default.unreachable23:                            ; preds = %8
 
 39:                                               ; preds = %35, %26, %18, %15
   %.021 = phi i8 [ %38, %35 ], [ %34, %26 ], [ %25, %18 ], [ %17, %15 ]
-  %40 = uitofp i8 %.021 to float
+  %40 = uitofp nneg i8 %.021 to float
   %41 = fadd float %40, 5.000000e-01
   %42 = fdiv float %41, 6.300000e+01
   %43 = load ptr, ptr %6, align 8
@@ -4295,7 +4295,7 @@ default.unreachable:                              ; preds = %18
   %109 = phi float [ %103, %92 ], [ %81, %65 ], [ %55, %40 ], [ %35, %25 ]
   %110 = phi float [ %101, %92 ], [ %79, %65 ], [ %53, %40 ], [ %33, %25 ]
   %.053.i = phi i8 [ %106, %92 ], [ %91, %65 ], [ %64, %40 ], [ %39, %25 ]
-  %111 = uitofp i8 %.053.i to float
+  %111 = uitofp nneg i8 %.053.i to float
   %112 = fadd float %111, 5.000000e-01
   %113 = fdiv float %112, 6.300000e+01
   %114 = tail call noundef float @llvm.fmuladd.f32(float %113, float %109, float %110)
@@ -4391,7 +4391,7 @@ default.unreachable:                              ; preds = %11
 
 42:                                               ; preds = %38, %29, %21, %18
   %.030.i = phi i8 [ %41, %38 ], [ %37, %29 ], [ %28, %21 ], [ %20, %18 ]
-  %43 = uitofp i8 %.030.i to float
+  %43 = uitofp nneg i8 %.030.i to float
   %44 = fadd float %43, 5.000000e-01
   %45 = fdiv float %44, 6.300000e+01
   %sext.i = shl i64 %.035.i, 32
@@ -5403,7 +5403,7 @@ default.unreachable:                              ; preds = %18
   %109 = phi float [ %103, %92 ], [ %81, %65 ], [ %55, %40 ], [ %35, %25 ]
   %110 = phi float [ %101, %92 ], [ %79, %65 ], [ %53, %40 ], [ %33, %25 ]
   %.051.i = phi i8 [ %106, %92 ], [ %91, %65 ], [ %64, %40 ], [ %39, %25 ]
-  %111 = uitofp i8 %.051.i to float
+  %111 = uitofp nneg i8 %.051.i to float
   %112 = fadd float %111, 5.000000e-01
   %113 = fdiv float %112, 6.300000e+01
   %114 = tail call noundef float @llvm.fmuladd.f32(float %113, float %109, float %110)
@@ -5498,7 +5498,7 @@ default.unreachable:                              ; preds = %11
 
 42:                                               ; preds = %38, %29, %21, %18
   %.028.i = phi i8 [ %41, %38 ], [ %37, %29 ], [ %28, %21 ], [ %20, %18 ]
-  %43 = uitofp i8 %.028.i to float
+  %43 = uitofp nneg i8 %.028.i to float
   %44 = fadd float %43, 5.000000e-01
   %45 = fdiv float %44, 6.300000e+01
   %sext.i = shl i64 %.033.i, 32
@@ -14067,7 +14067,7 @@ default.unreachable:                              ; preds = %11
 
 42:                                               ; preds = %38, %29, %21, %18
   %.030.i.i = phi i8 [ %41, %38 ], [ %37, %29 ], [ %28, %21 ], [ %20, %18 ]
-  %43 = uitofp i8 %.030.i.i to float
+  %43 = uitofp nneg i8 %.030.i.i to float
   %44 = fadd float %43, 5.000000e-01
   %45 = fdiv float %44, 6.300000e+01
   %sext.i.i = shl i64 %.035.i.i, 32
@@ -14185,7 +14185,7 @@ default.unreachable:                              ; preds = %29
 
 60:                                               ; preds = %56, %47, %39, %36
   %.030.i.i = phi i8 [ %59, %56 ], [ %55, %47 ], [ %46, %39 ], [ %38, %36 ]
-  %61 = uitofp i8 %.030.i.i to float
+  %61 = uitofp nneg i8 %.030.i.i to float
   %62 = fadd float %61, 5.000000e-01
   %63 = fdiv float %62, 6.300000e+01
   %sext.i.i = shl i64 %.035.i.i, 32
@@ -14407,7 +14407,7 @@ default.unreachable:                              ; preds = %25
 
 56:                                               ; preds = %52, %43, %35, %32
   %.030.i.i = phi i8 [ %55, %52 ], [ %51, %43 ], [ %42, %35 ], [ %34, %32 ]
-  %57 = uitofp i8 %.030.i.i to float
+  %57 = uitofp nneg i8 %.030.i.i to float
   %58 = fadd float %57, 5.000000e-01
   %59 = fdiv float %58, 6.300000e+01
   %sext.i.i = shl i64 %.035.i.i, 32
@@ -14617,7 +14617,7 @@ default.unreachable:                              ; preds = %11
 
 42:                                               ; preds = %38, %29, %21, %18
   %.030.i.i = phi i8 [ %41, %38 ], [ %37, %29 ], [ %28, %21 ], [ %20, %18 ]
-  %43 = uitofp i8 %.030.i.i to float
+  %43 = uitofp nneg i8 %.030.i.i to float
   %44 = fadd float %43, 5.000000e-01
   %45 = fdiv float %44, 6.300000e+01
   %sext.i.i = shl i64 %.035.i.i, 32
@@ -14737,7 +14737,7 @@ default.unreachable:                              ; preds = %31
 
 62:                                               ; preds = %58, %49, %41, %38
   %.030.i.i = phi i8 [ %61, %58 ], [ %57, %49 ], [ %48, %41 ], [ %40, %38 ]
-  %63 = uitofp i8 %.030.i.i to float
+  %63 = uitofp nneg i8 %.030.i.i to float
   %64 = fadd float %63, 5.000000e-01
   %65 = fdiv float %64, 6.300000e+01
   %sext.i.i = shl i64 %.035.i.i, 32
@@ -14960,7 +14960,7 @@ default.unreachable:                              ; preds = %27
 
 58:                                               ; preds = %54, %45, %37, %34
   %.030.i.i = phi i8 [ %57, %54 ], [ %53, %45 ], [ %44, %37 ], [ %36, %34 ]
-  %59 = uitofp i8 %.030.i.i to float
+  %59 = uitofp nneg i8 %.030.i.i to float
   %60 = fadd float %59, 5.000000e-01
   %61 = fdiv float %60, 6.300000e+01
   %sext.i.i = shl i64 %.035.i.i, 32
@@ -15169,7 +15169,7 @@ default.unreachable:                              ; preds = %11
 
 42:                                               ; preds = %38, %29, %21, %18
   %.030.i.i = phi i8 [ %41, %38 ], [ %37, %29 ], [ %28, %21 ], [ %20, %18 ]
-  %43 = uitofp i8 %.030.i.i to float
+  %43 = uitofp nneg i8 %.030.i.i to float
   %44 = fadd float %43, 5.000000e-01
   %45 = fdiv float %44, 6.300000e+01
   %sext.i.i = shl i64 %.035.i.i, 32
@@ -15279,7 +15279,7 @@ default.unreachable:                              ; preds = %23
 
 54:                                               ; preds = %50, %41, %33, %30
   %.030.i.i = phi i8 [ %53, %50 ], [ %49, %41 ], [ %40, %33 ], [ %32, %30 ]
-  %55 = uitofp i8 %.030.i.i to float
+  %55 = uitofp nneg i8 %.030.i.i to float
   %56 = fadd float %55, 5.000000e-01
   %57 = fdiv float %56, 6.300000e+01
   %sext.i.i = shl i64 %.035.i.i, 32
@@ -15493,7 +15493,7 @@ default.unreachable:                              ; preds = %19
 
 50:                                               ; preds = %46, %37, %29, %26
   %.030.i.i = phi i8 [ %49, %46 ], [ %45, %37 ], [ %36, %29 ], [ %28, %26 ]
-  %51 = uitofp i8 %.030.i.i to float
+  %51 = uitofp nneg i8 %.030.i.i to float
   %52 = fadd float %51, 5.000000e-01
   %53 = fdiv float %52, 6.300000e+01
   %sext.i.i = shl i64 %.035.i.i, 32
@@ -24315,7 +24315,7 @@ default.unreachable:                              ; preds = %13
 
 44:                                               ; preds = %40, %31, %23, %20
   %.028.i.i = phi i8 [ %43, %40 ], [ %39, %31 ], [ %30, %23 ], [ %22, %20 ]
-  %45 = uitofp i8 %.028.i.i to float
+  %45 = uitofp nneg i8 %.028.i.i to float
   %46 = fadd float %45, 5.000000e-01
   %47 = fdiv float %46, 6.300000e+01
   %sext.i.i = shl i64 %.033.i.i, 32
@@ -24435,7 +24435,7 @@ default.unreachable:                              ; preds = %31
 
 62:                                               ; preds = %58, %49, %41, %38
   %.028.i.i = phi i8 [ %61, %58 ], [ %57, %49 ], [ %48, %41 ], [ %40, %38 ]
-  %63 = uitofp i8 %.028.i.i to float
+  %63 = uitofp nneg i8 %.028.i.i to float
   %64 = fadd float %63, 5.000000e-01
   %65 = fdiv float %64, 6.300000e+01
   %sext.i.i = shl i64 %.033.i.i, 32
@@ -24659,7 +24659,7 @@ default.unreachable:                              ; preds = %27
 
 58:                                               ; preds = %54, %45, %37, %34
   %.028.i.i = phi i8 [ %57, %54 ], [ %53, %45 ], [ %44, %37 ], [ %36, %34 ]
-  %59 = uitofp i8 %.028.i.i to float
+  %59 = uitofp nneg i8 %.028.i.i to float
   %60 = fadd float %59, 5.000000e-01
   %61 = fdiv float %60, 6.300000e+01
   %sext.i.i = shl i64 %.033.i.i, 32
@@ -24817,7 +24817,7 @@ default.unreachable:                              ; preds = %13
 
 44:                                               ; preds = %40, %31, %23, %20
   %.028.i.i = phi i8 [ %43, %40 ], [ %39, %31 ], [ %30, %23 ], [ %22, %20 ]
-  %45 = uitofp i8 %.028.i.i to float
+  %45 = uitofp nneg i8 %.028.i.i to float
   %46 = fadd float %45, 5.000000e-01
   %47 = fdiv float %46, 6.300000e+01
   %sext.i.i = shl i64 %.033.i.i, 32
@@ -24939,7 +24939,7 @@ default.unreachable:                              ; preds = %33
 
 64:                                               ; preds = %60, %51, %43, %40
   %.028.i.i = phi i8 [ %63, %60 ], [ %59, %51 ], [ %50, %43 ], [ %42, %40 ]
-  %65 = uitofp i8 %.028.i.i to float
+  %65 = uitofp nneg i8 %.028.i.i to float
   %66 = fadd float %65, 5.000000e-01
   %67 = fdiv float %66, 6.300000e+01
   %sext.i.i = shl i64 %.033.i.i, 32
@@ -25164,7 +25164,7 @@ default.unreachable:                              ; preds = %29
 
 60:                                               ; preds = %56, %47, %39, %36
   %.028.i.i = phi i8 [ %59, %56 ], [ %55, %47 ], [ %46, %39 ], [ %38, %36 ]
-  %61 = uitofp i8 %.028.i.i to float
+  %61 = uitofp nneg i8 %.028.i.i to float
   %62 = fadd float %61, 5.000000e-01
   %63 = fdiv float %62, 6.300000e+01
   %sext.i.i = shl i64 %.033.i.i, 32
@@ -25321,7 +25321,7 @@ default.unreachable:                              ; preds = %13
 
 44:                                               ; preds = %40, %31, %23, %20
   %.028.i.i = phi i8 [ %43, %40 ], [ %39, %31 ], [ %30, %23 ], [ %22, %20 ]
-  %45 = uitofp i8 %.028.i.i to float
+  %45 = uitofp nneg i8 %.028.i.i to float
   %46 = fadd float %45, 5.000000e-01
   %47 = fdiv float %46, 6.300000e+01
   %sext.i.i = shl i64 %.033.i.i, 32
@@ -25433,7 +25433,7 @@ default.unreachable:                              ; preds = %25
 
 56:                                               ; preds = %52, %43, %35, %32
   %.028.i.i = phi i8 [ %55, %52 ], [ %51, %43 ], [ %42, %35 ], [ %34, %32 ]
-  %57 = uitofp i8 %.028.i.i to float
+  %57 = uitofp nneg i8 %.028.i.i to float
   %58 = fadd float %57, 5.000000e-01
   %59 = fdiv float %58, 6.300000e+01
   %sext.i.i = shl i64 %.033.i.i, 32
@@ -25649,7 +25649,7 @@ default.unreachable:                              ; preds = %21
 
 52:                                               ; preds = %48, %39, %31, %28
   %.028.i.i = phi i8 [ %51, %48 ], [ %47, %39 ], [ %38, %31 ], [ %30, %28 ]
-  %53 = uitofp i8 %.028.i.i to float
+  %53 = uitofp nneg i8 %.028.i.i to float
   %54 = fadd float %53, 5.000000e-01
   %55 = fdiv float %54, 6.300000e+01
   %sext.i.i = shl i64 %.033.i.i, 32

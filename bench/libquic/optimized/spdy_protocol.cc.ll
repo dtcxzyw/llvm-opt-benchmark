@@ -343,7 +343,7 @@ define dso_local noundef zeroext i8 @_ZN3net26Http2WeightToSpdy3PriorityEi(i32 n
 entry:
   %call = tail call noundef i32 @_ZN3net16ClampHttp2WeightEi(i32 noundef %weight)
   %sub = add nsw i32 %call, -1
-  %conv = sitofp i32 %sub to float
+  %conv = uitofp nneg i32 %sub to float
   %div = fdiv float %conv, 0x4042475060000000
   %sub1 = fsub float 7.000000e+00, %div
   %conv2 = fptoui float %sub1 to i8

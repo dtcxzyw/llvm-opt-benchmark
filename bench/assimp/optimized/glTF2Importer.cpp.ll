@@ -47218,7 +47218,7 @@ while.body232:                                    ; preds = %if.end215, %while.b
   %incdec.ptr.i90 = getelementptr inbounds i8, ptr %copy.sroa.0.7514, i64 1
   %conv236 = zext nneg i8 %22 to i32
   %sub237 = add nsw i32 %conv236, -48
-  %conv238 = sitofp i32 %sub237 to double
+  %conv238 = uitofp nneg i32 %sub237 to double
   %23 = tail call double @llvm.fmuladd.f64(double %d.1515, double 1.000000e+01, double %conv238)
   %24 = load i8, ptr %incdec.ptr.i90, align 1
   %25 = add i8 %24, -48
@@ -47293,7 +47293,7 @@ if.else303:                                       ; preds = %land.end296
   br i1 %cmp290, label %land.end296, label %if.end518.thread, !llvm.loop !432
 
 if.end518.thread:                                 ; preds = %if.else303
-  %conv317 = uitofp i64 %add310 to double
+  %conv317 = uitofp nneg i64 %add310 to double
   br label %if.then524
 
 land.rhs324.preheader:                            ; preds = %if.end279, %if.end318.thread584
@@ -47322,7 +47322,7 @@ while.body333:                                    ; preds = %land.rhs324
 if.then335:                                       ; preds = %while.body333
   %conv339 = zext nneg i8 %32 to i32
   %sub340 = add nsw i32 %conv339, -48
-  %conv341 = sitofp i32 %sub340 to double
+  %conv341 = uitofp nneg i32 %sub340 to double
   %33 = tail call double @llvm.fmuladd.f64(double %d.4533, double 1.000000e+01, double %conv341)
   %dec342 = add nsw i32 %expFrac.2535, -1
   %cmp343 = fcmp ogt double %33, 0.000000e+00

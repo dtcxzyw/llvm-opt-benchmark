@@ -1207,9 +1207,9 @@ if.then.i.i:                                      ; preds = %if.then.i
   %14 = bitcast i64 %13 to double
   %conv2.i.i = fptosi double %14 to i32
   %cmp3.i.i = icmp ult i32 %conv2.i.i, 134217729
-  %conv5.i.i = sitofp i32 %conv2.i.i to double
+  %conv5.i.i = uitofp nneg i32 %conv2.i.i to double
   %cmp6.i.i = fcmp oeq double %14, %conv5.i.i
-  %or.cond.i.i = and i1 %cmp3.i.i, %cmp6.i.i
+  %or.cond.i.i = select i1 %cmp3.i.i, i1 %cmp6.i.i, i1 false
   br i1 %or.cond.i.i, label %if.then8.i.i, label %countint.exit.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
@@ -1252,9 +1252,9 @@ if.then.i20:                                      ; preds = %counthash.exit
   %18 = bitcast i64 %17 to double
   %conv2.i = fptosi double %18 to i32
   %cmp3.i21 = icmp ult i32 %conv2.i, 134217729
-  %conv5.i = sitofp i32 %conv2.i to double
+  %conv5.i = uitofp nneg i32 %conv2.i to double
   %cmp6.i22 = fcmp oeq double %18, %conv5.i
-  %or.cond.i = and i1 %cmp3.i21, %cmp6.i22
+  %or.cond.i = select i1 %cmp3.i21, i1 %cmp6.i22, i1 false
   br i1 %or.cond.i, label %if.then8.i, label %countint.exit
 
 if.then8.i:                                       ; preds = %if.then.i20

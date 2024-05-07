@@ -3691,7 +3691,7 @@ _ZN9QPolygonFD2Ev.exit90:                         ; preds = %_ZN9QPolygonFaSEOS_
   br i1 %111, label %112, label %185
 
 112:                                              ; preds = %_ZN9QPolygonFD2Ev.exit90
-  %113 = sitofp i32 %.049 to double
+  %113 = uitofp nneg i32 %.049 to double
   store <2 x double> <double 0.000000e+00, double 1.000000e+00>, ptr %12, align 16
   store double %113, ptr %97, align 16
   store double 1.000000e+00, ptr %98, align 8
@@ -3782,7 +3782,7 @@ _ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i104: ; preds = %132
   br i1 %139, label %140, label %_ZN9QPolygonFD2Ev.exit118
 
 140:                                              ; preds = %138
-  %141 = sitofp i32 %.152 to double
+  %141 = uitofp nneg i32 %.152 to double
   store <2 x double> <double 0.000000e+00, double 2.000000e+00>, ptr %12, align 16
   store double %141, ptr %97, align 16
   store double 1.000000e+00, ptr %98, align 8

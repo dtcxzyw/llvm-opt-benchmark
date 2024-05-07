@@ -3171,7 +3171,7 @@ IsPagerNeeded.exit:                               ; preds = %.loopexit.i, %64, %
   br i1 %173, label %174, label %179
 
 174:                                              ; preds = %170
-  %175 = sitofp i32 %172 to double
+  %175 = uitofp nneg i32 %172 to double
   %176 = call double @log10(double noundef %175) #18
   %177 = fptosi double %176 to i32
   %178 = add i32 %177, 1

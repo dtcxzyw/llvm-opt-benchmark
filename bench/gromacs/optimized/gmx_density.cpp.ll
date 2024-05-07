@@ -1208,7 +1208,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i38:      ; preds = %443, %440
 
 .lr.ph5.i:                                        ; preds = %.noexc44
   %448 = fpext float %410 to double
-  %449 = sitofp i32 %406 to double
+  %449 = uitofp nneg i32 %406 to double
   %450 = fmul double %449, 5.000000e-01
   %451 = ashr i64 %.fr.i, 5
   %452 = icmp sgt i64 %451, 0

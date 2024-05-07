@@ -4234,7 +4234,7 @@ _ZN5NbnxmL26combine_bounding_box_pairsERKNS_4GridEN3gmx8ArrayRefIKNS_11BoundingB
   br i1 %exitcond.not.i, label %._crit_edge.i84, label %.lr.ph.i81, !llvm.loop !54
 
 ._crit_edge.i84:                                  ; preds = %.lr.ph.i81
-  %310 = sitofp i32 %.pre188 to double
+  %310 = uitofp nneg i32 %.pre188 to double
   %311 = fdiv double 1.000000e+00, %310
   %312 = fmul double %311, %302
   %313 = insertelement <2 x double> poison, double %311, i64 0

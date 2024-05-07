@@ -1379,7 +1379,7 @@ sw.bb48:                                          ; preds = %if.then45
   br i1 %cmp50, label %if.then52, label %if.end55
 
 if.then52:                                        ; preds = %sw.bb48
-  %conv53 = uitofp i64 %val to double
+  %conv53 = uitofp nneg i64 %val to double
   %data54 = getelementptr inbounds i8, ptr %p, i64 16
   %6 = load ptr, ptr %data54, align 8
   store double %conv53, ptr %6, align 8
@@ -2208,7 +2208,7 @@ sw.bb10:                                          ; preds = %if.then6
   br i1 %cmp12, label %if.then14, label %if.end16
 
 if.then14:                                        ; preds = %sw.bb10
-  %conv15 = uitofp i64 %8 to double
+  %conv15 = uitofp nneg i64 %8 to double
   store double %conv15, ptr %val, align 8
   br label %return
 

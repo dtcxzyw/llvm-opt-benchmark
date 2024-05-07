@@ -562,7 +562,7 @@ define void @_ZN5faiss16IndexIVFFastScan12add_with_idsElPKfPKl(ptr noundef nonnu
 32:                                               ; preds = %30
   %33 = tail call noundef double @_ZN5faiss12getmillisecsEv()
   %34 = getelementptr inbounds i8, ptr %0, i64 24
-  %35 = sitofp i64 %1 to double
+  %35 = uitofp nneg i64 %1 to double
   %36 = getelementptr inbounds i8, ptr %0, i64 8
   %.not110 = icmp eq ptr %3, null
   br label %37

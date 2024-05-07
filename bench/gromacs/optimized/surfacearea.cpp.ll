@@ -183,7 +183,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i: ; preds = %27
   br i1 %41, label %.preheader248.split.us.preheader.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit.i
 
 .preheader248.split.us.preheader.i.i:             ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i
-  %42 = sitofp i32 %.fr.i.i to float
+  %42 = uitofp nneg i32 %.fr.i.i to float
   br label %.lr.ph263.us.i.i
 
 .loopexit247.us.i.i:                              ; preds = %..loopexit246_crit_edge.us.us.i.i
@@ -1493,7 +1493,7 @@ _ZL6divarcffffffiiPfS_S_.exit174.us.us.us.i.i:    ; preds = %375, %270
   %1162 = tail call float @llvm.fmuladd.f32(float %1161, float %1161, float %1160)
   %1163 = tail call float @llvm.fmuladd.f32(float %1152, float %1152, float %1162)
   %1164 = fmul float %1163, %1159
-  %1165 = sitofp i32 %444 to float
+  %1165 = uitofp nneg i32 %444 to float
   %1166 = fneg float %1153
   %1167 = shufflevector <2 x float> %442, <2 x float> poison, <2 x i32> <i32 poison, i32 0>
   %1168 = insertelement <2 x float> %1167, float %443, i64 0
@@ -3018,7 +3018,7 @@ _ZL6divarcffffffiiPfS_S_.exit270.us.us.us.i.i:    ; preds = %1644, %1539
   %2430 = tail call float @llvm.fmuladd.f32(float %2429, float %2429, float %2428)
   %2431 = tail call float @llvm.fmuladd.f32(float %2420, float %2420, float %2430)
   %2432 = fmul float %2431, %2427
-  %2433 = sitofp i32 %1713 to float
+  %2433 = uitofp nneg i32 %1713 to float
   %2434 = fneg float %2421
   %2435 = shufflevector <2 x float> %1711, <2 x float> poison, <2 x i32> <i32 poison, i32 0>
   %2436 = insertelement <2 x float> %2435, float %1712, i64 0

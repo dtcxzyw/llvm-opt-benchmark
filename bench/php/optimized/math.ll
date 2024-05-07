@@ -2268,7 +2268,7 @@ define void @_php_math_basetozval(ptr noundef %0, i32 noundef %1, ptr nocapture 
   br i1 %63, label %.lr.ph114.lr.ph, label %.thread
 
 .lr.ph114.lr.ph:                                  ; preds = %.thread105
-  %64 = sitofp i32 %1 to double
+  %64 = uitofp nneg i32 %1 to double
   br label %.lr.ph114
 
 .lr.ph114:                                        ; preds = %.lr.ph114.lr.ph, %.outer
@@ -2343,7 +2343,7 @@ define void @_php_math_basetozval(ptr noundef %0, i32 noundef %1, ptr nocapture 
 
 91:                                               ; preds = %80, %89
   %.180 = phi double [ %.079.ph126, %80 ], [ %90, %89 ]
-  %92 = uitofp i8 %.085 to double
+  %92 = uitofp nneg i8 %.085 to double
   %93 = tail call double @llvm.fmuladd.f64(double %.180, double %64, double %92)
   br label %.outer
 
@@ -2485,7 +2485,7 @@ define ptr @_php_math_zvaltobase(ptr nocapture noundef readonly %0, i32 noundef 
 20:                                               ; preds = %15
   %21 = getelementptr inbounds i8, ptr %4, i64 64
   store i8 0, ptr %21, align 16
-  %22 = sitofp i32 %1 to double
+  %22 = uitofp nneg i32 %1 to double
   br label %23
 
 23:                                               ; preds = %23, %20

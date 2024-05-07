@@ -1828,7 +1828,7 @@ if.end.i:                                         ; preds = %land.lhs.true
   br i1 %cmp1.i, label %if.end34.thread86, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i
-  %conv6.i = uitofp i64 %8 to double
+  %conv6.i = uitofp nneg i64 %8 to double
   %10 = load i64, ptr %page_count.i, align 8
   %conv7.i = uitofp i64 %10 to double
   %div.i = fdiv double %conv6.i, %conv7.i

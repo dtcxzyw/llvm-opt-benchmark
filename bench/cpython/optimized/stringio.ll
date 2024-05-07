@@ -1624,7 +1624,7 @@ if.else.i.i:                                      ; preds = %if.then145.i
   br i1 %cmp4.i.i, label %if.end150.i, label %if.else6.i.i
 
 if.else6.i.i:                                     ; preds = %if.else.i.i
-  %conv7.i.i = uitofp i64 %39 to double
+  %conv7.i.i = uitofp nneg i64 %39 to double
   %mul.i.i = fmul double %conv7.i.i, 1.125000e+00
   %cmp8.i.i = fcmp ult double %mul.i.i, 1.000000e+00
   br i1 %cmp8.i.i, label %if.else16.i.i, label %if.end20.i.i
@@ -1670,7 +1670,7 @@ if.else.i85.i:                                    ; preds = %if.else156.i
   br i1 %cmp4.i86.i, label %if.end161.i, label %if.else6.i87.i
 
 if.else6.i87.i:                                   ; preds = %if.else.i85.i
-  %conv7.i88.i = uitofp i64 %41 to double
+  %conv7.i88.i = uitofp nneg i64 %41 to double
   %mul.i89.i = fmul double %conv7.i88.i, 1.125000e+00
   %cmp8.i90.i = fcmp ult double %mul.i89.i, 1.000000e+00
   br i1 %cmp8.i90.i, label %if.else16.i102.i, label %if.end20.i92.i
@@ -1813,8 +1813,8 @@ if.else.i.if.end9_crit_edge:                      ; preds = %if.else.i
   br label %if.end9
 
 if.else6.i:                                       ; preds = %if.else.i
-  %conv.i = uitofp i64 %add.i to double
-  %conv7.i = uitofp i64 %2 to double
+  %conv.i = uitofp nneg i64 %add.i to double
+  %conv7.i = uitofp nneg i64 %2 to double
   %mul.i = fmul double %conv7.i, 1.125000e+00
   %cmp8.i = fcmp ult double %mul.i, %conv.i
   br i1 %cmp8.i, label %if.else16.i, label %if.then10.i
@@ -1940,7 +1940,7 @@ if.else.i.i:                                      ; preds = %entry
   br i1 %cmp4.i.i, label %if.end.i, label %if.else6.i.i
 
 if.else6.i.i:                                     ; preds = %if.else.i.i
-  %conv7.i.i = uitofp i64 %0 to double
+  %conv7.i.i = uitofp nneg i64 %0 to double
   %mul.i.i = fmul double %conv7.i.i, 1.125000e+00
   %cmp8.i.i = fcmp ult double %mul.i.i, 1.000000e+00
   br i1 %cmp8.i.i, label %if.else16.i.i, label %if.end20.i.i
@@ -2414,8 +2414,8 @@ if.else.i.i:                                      ; preds = %if.end.i.i
   br i1 %cmp4.i.i, label %if.end20.i, label %if.else6.i.i
 
 if.else6.i.i:                                     ; preds = %if.else.i.i
-  %conv.i.i = uitofp i64 %add.i.i to double
-  %conv7.i.i = uitofp i64 %9 to double
+  %conv.i.i = uitofp nneg i64 %add.i.i to double
+  %conv7.i.i = uitofp nneg i64 %9 to double
   %mul.i.i = fmul double %conv7.i.i, 1.125000e+00
   %cmp8.i.i = fcmp ult double %mul.i.i, %conv.i.i
   br i1 %cmp8.i.i, label %if.else16.i.i, label %if.then10.i.i
@@ -2932,8 +2932,8 @@ if.else.i.if.end26_crit_edge.i:                   ; preds = %if.else.i.i
   br label %if.end26.i
 
 if.else6.i.i:                                     ; preds = %if.else.i.i
-  %conv.i47.i = uitofp i64 %add.i.i to double
-  %conv7.i.i = uitofp i64 %14 to double
+  %conv.i47.i = uitofp nneg i64 %add.i.i to double
+  %conv7.i.i = uitofp nneg i64 %14 to double
   %mul.i.i = fmul double %conv7.i.i, 1.125000e+00
   %cmp8.i.i = fcmp ult double %mul.i.i, %conv.i47.i
   br i1 %cmp8.i.i, label %if.else16.i.i, label %if.then10.i.i
@@ -3298,8 +3298,8 @@ if.else.i:                                        ; preds = %if.end.i50
   br i1 %cmp4.i, label %if.end39, label %if.else6.i
 
 if.else6.i:                                       ; preds = %if.else.i
-  %conv.i = uitofp i64 %add.i to double
-  %conv7.i = uitofp i64 %12 to double
+  %conv.i = uitofp nneg i64 %add.i to double
+  %conv7.i = uitofp nneg i64 %12 to double
   %mul.i = fmul double %conv7.i, 1.125000e+00
   %cmp8.i = fcmp ult double %mul.i, %conv.i
   br i1 %cmp8.i, label %if.else16.i, label %if.then10.i

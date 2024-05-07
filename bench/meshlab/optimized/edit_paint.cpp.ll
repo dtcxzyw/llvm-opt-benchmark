@@ -8448,7 +8448,7 @@ _Z11mergeColorsdRKN3vcg6Color4IhEES3_PS1_.exit:   ; preds = %389
   br label %.loopexit181
 
 408:                                              ; preds = %_Z5brush5Brushffff.exit
-  %409 = sitofp i32 %.1 to float
+  %409 = uitofp nneg i32 %.1 to float
   %410 = insertelement <2 x float> poison, float %409, i64 0
   %411 = shufflevector <2 x float> %410, <2 x float> poison, <2 x i32> zeroinitializer
   %412 = fdiv <2 x float> %331, %411
@@ -16552,7 +16552,7 @@ define void @_Z15generatePolygonRSt6vectorI7QPointFSaIS0_EEii(ptr nocapture noun
   br i1 %4, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %3
-  %5 = sitofp i32 %1 to double
+  %5 = uitofp nneg i32 %1 to double
   %6 = fdiv double 0x400921FB54442D18, %5
   %7 = fptrunc double %6 to float
   %8 = fmul double %5, 5.000000e-01
@@ -16666,7 +16666,7 @@ _ZNSt6vectorI7QPointFSaIS0_EE9push_backEOS0_.exit: ; preds = %24, %_ZNSt6vectorI
 
 .lr.ph109:                                        ; preds = %.preheader
   %52 = getelementptr inbounds i8, ptr %0, i64 8
-  %53 = sitofp i32 %2 to double
+  %53 = uitofp nneg i32 %2 to double
   %54 = getelementptr inbounds i8, ptr %0, i64 16
   %55 = zext nneg i32 %1 to i64
   %.pre = load ptr, ptr %52, align 8

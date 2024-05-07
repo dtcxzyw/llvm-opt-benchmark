@@ -17,7 +17,7 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp.not28, label %for.cond3.preheader, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %conv1 = sitofp i32 %sub to float
+  %conv1 = uitofp nneg i32 %sub to float
   %0 = add nuw nsw i32 %div, 1
   %wide.trip.count = zext nneg i32 %0 to i64
   %1 = fdiv reassoc nsz arcp float 1.000000e+00, %conv1
@@ -120,7 +120,7 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %sub = add nsw i32 %L, -1
-  %conv1 = sitofp i32 %sub to float
+  %conv1 = uitofp nneg i32 %sub to float
   %wide.trip.count = zext nneg i32 %L to i64
   %0 = fdiv reassoc nsz arcp float 1.000000e+00, %conv1
   br label %for.body
@@ -165,7 +165,7 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %sub = add nsw i32 %L, -1
-  %conv1 = sitofp i32 %sub to double
+  %conv1 = uitofp nneg i32 %sub to double
   %wide.trip.count = zext nneg i32 %L to i64
   %0 = fdiv reassoc nsz arcp double 1.000000e+00, %conv1
   %1 = fdiv reassoc nsz arcp double 1.000000e+00, %conv1
@@ -203,7 +203,7 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %sub = add nsw i32 %L, -1
-  %conv1 = sitofp i32 %sub to double
+  %conv1 = uitofp nneg i32 %sub to double
   %wide.trip.count = zext nneg i32 %L to i64
   %0 = fdiv reassoc nsz arcp double 1.000000e+00, %conv1
   %1 = fdiv reassoc nsz arcp double 1.000000e+00, %conv1
@@ -285,7 +285,7 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %sub = add nsw i32 %L, -1
-  %conv1 = sitofp i32 %sub to double
+  %conv1 = uitofp nneg i32 %sub to double
   %wide.trip.count = zext nneg i32 %L to i64
   %0 = fdiv reassoc nsz arcp double 1.000000e+00, %conv1
   %1 = fdiv reassoc nsz arcp double 1.000000e+00, %conv1
@@ -405,7 +405,7 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %sub = add nsw i32 %L, -1
-  %conv1 = sitofp i32 %sub to double
+  %conv1 = uitofp nneg i32 %sub to double
   %wide.trip.count = zext nneg i32 %L to i64
   %0 = fdiv reassoc nsz arcp double 1.000000e+00, %conv1
   br label %for.body
@@ -437,7 +437,7 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %sub = add nsw i32 %L, -1
-  %conv1 = sitofp i32 %sub to double
+  %conv1 = uitofp nneg i32 %sub to double
   %wide.trip.count = zext nneg i32 %L to i64
   %0 = fdiv reassoc nsz arcp double 1.000000e+00, %conv1
   br label %for.body
@@ -469,7 +469,7 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %sub = add nsw i32 %L, -1
-  %conv1 = sitofp i32 %sub to double
+  %conv1 = uitofp nneg i32 %sub to double
   %wide.trip.count = zext nneg i32 %L to i64
   %0 = fdiv reassoc nsz arcp double 1.000000e+00, %conv1
   %1 = fdiv reassoc nsz arcp double 1.000000e+00, %conv1
@@ -513,7 +513,7 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %sub = add nsw i32 %L, -1
-  %conv1 = sitofp i32 %sub to double
+  %conv1 = uitofp nneg i32 %sub to double
   %wide.trip.count = zext nneg i32 %L to i64
   %0 = fdiv reassoc nsz arcp double 1.000000e+00, %conv1
   %1 = fdiv reassoc nsz arcp double 1.000000e+00, %conv1
@@ -600,7 +600,7 @@ for.cond21.preheader:                             ; preds = %entry
   br i1 %cmp23.not38, label %for.cond37.preheader, label %for.body25.lr.ph
 
 for.body25.lr.ph:                                 ; preds = %for.cond21.preheader
-  %conv28 = sitofp i32 %L to float
+  %conv28 = uitofp nneg i32 %L to float
   %add29 = fadd reassoc nsz arcp float %conv28, 1.000000e+00
   %2 = add nuw nsw i32 %div22, 1
   %wide.trip.count56 = zext nneg i32 %2 to i64
@@ -722,7 +722,7 @@ if.then5:                                         ; preds = %if.else
 
 for.body.lr.ph.i:                                 ; preds = %if.then5
   %sub.i = add nsw i32 %L, -1
-  %conv1.i = sitofp i32 %sub.i to double
+  %conv1.i = uitofp nneg i32 %sub.i to double
   %wide.trip.count.i25 = zext nneg i32 %L to i64
   %0 = fdiv reassoc nsz arcp double 1.000000e+00, %conv1.i
   br label %for.body.i26
@@ -773,7 +773,7 @@ FLAC__window_rectangle.exit53:                    ; preds = %for.body.i48, %if.t
   br i1 %cmp15.i, label %for.cond.i.preheader, label %if.end40
 
 for.cond.i.preheader:                             ; preds = %FLAC__window_rectangle.exit53
-  %conv22.i = sitofp i32 %sub.i32 to double
+  %conv22.i = uitofp nneg i32 %sub.i32 to double
   %sub34.i = sub i32 %L, %conv14.i
   %5 = sext i32 %sub34.i to i64
   %wide.trip.count = zext nneg i32 %conv14.i to i64
@@ -833,7 +833,7 @@ FLAC__window_rectangle.exit44:                    ; preds = %for.body.i39, %if.e
   br i1 %cmp15, label %for.cond.preheader, label %if.end40
 
 for.cond.preheader:                               ; preds = %FLAC__window_rectangle.exit44
-  %conv22 = sitofp i32 %sub to double
+  %conv22 = uitofp nneg i32 %sub to double
   %sub34 = sub i32 %L, %conv14
   %15 = sext i32 %sub34 to i64
   %wide.trip.count70 = zext nneg i32 %conv14 to i64

@@ -596,7 +596,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %sub = add nsw i32 %.sroa.speculated.i, -1
-  %conv = sitofp i32 %sub to float
+  %conv = uitofp nneg i32 %sub to float
   %4 = load <2 x float>, ptr %positionInFace, align 4
   %5 = insertelement <2 x float> poison, float %conv, i64 0
   %6 = shufflevector <2 x float> %5, <2 x float> poison, <2 x i32> zeroinitializer

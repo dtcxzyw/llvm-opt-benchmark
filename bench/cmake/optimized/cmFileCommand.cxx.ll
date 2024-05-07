@@ -22399,7 +22399,7 @@ define internal noundef i32 @_ZN12_GLOBAL__N_130cmFileDownloadProgressCallbackEP
 9:                                                ; preds = %5
   %10 = load i64, ptr %0, align 8
   %11 = sitofp i64 %2 to double
-  %12 = sitofp i64 %1 to double
+  %12 = uitofp nneg i64 %1 to double
   %13 = fdiv double %11, %12
   %14 = fmul double %13, 1.000000e+02
   %15 = call i64 @lround(double noundef %14) #23
@@ -23798,7 +23798,7 @@ define internal noundef i32 @_ZN12_GLOBAL__N_128cmFileUploadProgressCallbackEPvl
 9:                                                ; preds = %5
   %10 = load i64, ptr %0, align 8
   %11 = sitofp i64 %4 to double
-  %12 = sitofp i64 %3 to double
+  %12 = uitofp nneg i64 %3 to double
   %13 = fdiv double %11, %12
   %14 = fmul double %13, 1.000000e+02
   %15 = call i64 @lround(double noundef %14) #23

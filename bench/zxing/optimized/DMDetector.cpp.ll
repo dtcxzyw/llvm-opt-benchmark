@@ -336,13 +336,13 @@ _ZN5ZXing15BitMatrixCursorINS_6PointTIiEEE10countEdgesEi.exit71.i: ; preds = %_Z
   %118 = sitofp i32 %117 to float
   %119 = fmul float %97, 5.000000e-01
   %120 = fadd float %119, %118
-  %121 = sitofp i32 %.07.lcssa.i70.i to float
+  %121 = uitofp nneg i32 %.07.lcssa.i70.i to float
   %122 = call float @llvm.fmuladd.f32(float %121, float %103, float %120)
   %123 = load i32, ptr %44, align 4, !noalias !4
   %124 = sitofp i32 %123 to float
   %125 = fmul float %101, 5.000000e-01
   %126 = fadd float %125, %124
-  %127 = sitofp i32 %.07.lcssa.i58.i to float
+  %127 = uitofp nneg i32 %.07.lcssa.i58.i to float
   %128 = call float @llvm.fmuladd.f32(float %127, float %103, float %126)
   %129 = fpext float %128 to double
   %130 = fcmp ult float %122, 0.000000e+00
@@ -1271,8 +1271,8 @@ _ZNK5ZXing14RegressionLine6lengthEv.exit.i.i:     ; preds = %488, %481
   store double %654, ptr %202, align 8, !noalias !15
   store double %655, ptr %.sroa.2.0..sroa_idx.i247.i.i, align 8, !noalias !15
   %656 = load ptr, ptr %42, align 8, !noalias !15
-  %657 = sitofp i32 %.0266.i.i to double
-  %658 = sitofp i32 %.0.i.i to double
+  %657 = uitofp nneg i32 %.0266.i.i to double
+  %658 = uitofp nneg i32 %.0.i.i to double
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, i8 0, i64 16, i1 false), !noalias !15
   store double %657, ptr %203, align 8, !alias.scope !18, !noalias !15
   store double 0.000000e+00, ptr %.sroa.24.0..sroa_idx.i.i.i.i, align 8, !alias.scope !18, !noalias !15
@@ -1860,7 +1860,7 @@ _ZNSt3mapIPKN5ZXing11ResultPointEiSt4lessIS3_ESaISt4pairIKS3_iEEE4findERS7_.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12), !noalias !21
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13), !noalias !21
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14), !noalias !21
-  %847 = sitofp i32 %832 to float
+  %847 = uitofp nneg i32 %832 to float
   %848 = load <2 x double>, ptr %.047.i, align 8, !noalias !21
   %849 = load <2 x double>, ptr %.1.i.i, align 8, !noalias !21
   %850 = extractelement <2 x double> %849, i64 0

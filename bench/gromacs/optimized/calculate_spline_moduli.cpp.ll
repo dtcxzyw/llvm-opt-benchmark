@@ -139,7 +139,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %5
   %27 = and i64 %26, 4294967295
   %28 = getelementptr inbounds double, ptr %13, i64 %27
   %29 = load double, ptr %28, align 8
-  %30 = sitofp i32 %25 to double
+  %30 = uitofp nneg i32 %25 to double
   %31 = and i64 %indvars.iv.next76, 4294967295
   %32 = getelementptr inbounds double, ptr %13, i64 %31
   %33 = load double, ptr %32, align 8
@@ -269,7 +269,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc37
   %15 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.0.i.i.i.i.i.ph, ptr %15, align 8
   %16 = icmp sgt i32 %2, 0
-  %17 = sitofp i32 %3 to double
+  %17 = uitofp nneg i32 %3 to double
   %wide.trip.count54 = zext nneg i32 %3 to i64
   br i1 %16, label %.preheader.us.preheader, label %.preheader.preheader
 
@@ -547,7 +547,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %_ZNSt6vectorI
   %.0.i.i.i.i.i.ph = phi ptr [ %24, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %26, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
   %29 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.0.i.i.i.i.i.ph, ptr %29, align 8
-  %30 = sitofp i32 %1 to double
+  %30 = uitofp nneg i32 %1 to double
   %31 = fdiv double 0x400921FB54442D18, %30
   %32 = add nuw i32 %1, 1
   %33 = lshr i32 %32, 1

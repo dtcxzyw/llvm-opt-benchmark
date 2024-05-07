@@ -8505,7 +8505,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_17HammingC
 
 29:                                               ; preds = %26, %22
   %30 = phi i64 [ %25, %22 ], [ %28, %26 ]
-  %31 = uitofp i32 %17 to float
+  %31 = uitofp nneg i32 %17 to float
   tail call void @_ZN5faiss16RangeQueryResult3addEfl(ptr noundef nonnull align 8 dereferenceable(24) %5, float noundef %31, i64 noundef %30)
   br label %32
 

@@ -11862,7 +11862,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit: ; preds = %11, %14
   br i1 %19, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit
-  %20 = sitofp i32 %3 to double
+  %20 = uitofp nneg i32 %3 to double
   %21 = fdiv double 0x401921FB54442D18, %20
   %22 = fmul float %2, 0.000000e+00
   %23 = fmul float %1, 0.000000e+00
@@ -15043,7 +15043,7 @@ define linkonce_odr void @_ZN3vcg9GenNormalIfE9FibonacciEiRSt6vectorINS_6Point3I
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %5 = sitofp i32 %0 to float
+  %5 = uitofp nneg i32 %0 to float
   %6 = fpext float %5 to double
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %7
@@ -16942,7 +16942,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE8AddFacesERS2_m.exit: ; preds = %24, %27
   br i1 %46, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader198
-  %47 = sitofp i32 %4 to double
+  %47 = uitofp nneg i32 %4 to double
   %48 = fpext float %1 to double
   br label %49
 
@@ -16995,7 +16995,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE8AddFacesERS2_m.exit: ; preds = %24, %27
   br i1 %or.cond236, label %.lr.ph206, label %.loopexit197
 
 .lr.ph206:                                        ; preds = %67
-  %70 = sitofp i32 %4 to double
+  %70 = uitofp nneg i32 %4 to double
   %71 = fpext float %2 to double
   br label %72
 

@@ -3641,7 +3641,7 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %sub = add nsw i32 %res, 1
-  %conv4 = sitofp i32 %sub to float
+  %conv4 = uitofp nneg i32 %sub to float
   %arrayidx16.i.i = getelementptr inbounds i8, ptr %from, i64 8
   %arrayidx18.i.i = getelementptr inbounds i8, ptr %to, i64 8
   %smax = tail call i32 @llvm.smax.i32(i32 %add, i32 1)
@@ -3772,7 +3772,7 @@ if.end:                                           ; preds = %entry
   %1 = shl nuw nsw i64 %conv, 2
   %call3 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %1) #24
   %sub = add nsw i32 %resy, -1
-  %conv6 = sitofp i32 %sub to float
+  %conv6 = uitofp nneg i32 %sub to float
   %arrayidx8.i.i = getelementptr inbounds i8, ptr %corner00, i64 4
   %arrayidx10.i.i = getelementptr inbounds i8, ptr %corner01, i64 4
   %arrayidx16.i.i = getelementptr inbounds i8, ptr %corner00, i64 8
@@ -3780,7 +3780,7 @@ if.end:                                           ; preds = %entry
   %arrayidx16.i.i124 = getelementptr inbounds i8, ptr %corner10, i64 8
   %arrayidx18.i.i125 = getelementptr inbounds i8, ptr %corner11, i64 8
   %sub14 = add nsw i32 %resx, -1
-  %conv15 = sitofp i32 %sub14 to float
+  %conv15 = uitofp nneg i32 %sub14 to float
   %2 = zext nneg i32 %resx to i64
   %wide.trip.count186 = zext nneg i32 %resy to i64
   %3 = insertelement <2 x float> poison, float %perturbation, i64 0
@@ -4041,13 +4041,13 @@ if.end:                                           ; preds = %entry
   %1 = shl nuw nsw i64 %conv, 2
   %call3 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %1) #24
   %sub = add nsw i32 %resy, -1
-  %conv6 = sitofp i32 %sub to float
+  %conv6 = uitofp nneg i32 %sub to float
   %arrayidx16.i.i = getelementptr inbounds i8, ptr %corner00, i64 8
   %arrayidx18.i.i = getelementptr inbounds i8, ptr %corner01, i64 8
   %arrayidx16.i.i180 = getelementptr inbounds i8, ptr %corner10, i64 8
   %arrayidx18.i.i181 = getelementptr inbounds i8, ptr %corner11, i64 8
   %sub14 = add nsw i32 %resx, -1
-  %conv15 = sitofp i32 %sub14 to float
+  %conv15 = uitofp nneg i32 %sub14 to float
   %2 = zext nneg i32 %resx to i64
   %wide.trip.count282 = zext nneg i32 %resy to i64
   br label %for.body.us
@@ -4453,7 +4453,7 @@ for.body8.lr.ph.i:                                ; preds = %if.then.i.i.i
   store ptr %call.i.i.i.i6, ptr %m_data.i.i, align 8
   store i32 %add, ptr %m_capacity.i.i, align 8
   store i32 %add, ptr %m_size.i.i, align 4
-  %conv9.i = sitofp i32 %add to float
+  %conv9.i = uitofp nneg i32 %add to float
   br label %for.cond1.preheader.i
 
 _ZZN17btSoftBodyHelpers15CreateEllipsoidER19btSoftBodyWorldInfoRK9btVector3S4_iEN10Hammersley8GenerateEPS2_i.exit.thread: ; preds = %entry

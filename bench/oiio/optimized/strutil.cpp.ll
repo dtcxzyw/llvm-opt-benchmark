@@ -5233,7 +5233,7 @@ if.else10:                                        ; preds = %if.else6
 if.end11:                                         ; preds = %if.else, %entry
   %.sink = phi double [ 0x3E10000000000000, %entry ], [ 0x3EB0000000000000, %if.else ]
   %units.0 = phi ptr [ @.str.17, %entry ], [ @.str.18, %if.else ]
-  %conv4 = sitofp i64 %bytes to double
+  %conv4 = uitofp nneg i64 %bytes to double
   %div5 = fmul double %.sink, %conv4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i4)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp5.i)

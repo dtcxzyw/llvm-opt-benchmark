@@ -12158,8 +12158,8 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %5721 = fadd reassoc nsz arcp contract afn float %5719, %5720
   %5722 = fadd reassoc nsz arcp contract afn float %5721, %5718
   %5723 = call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %5722)
-  %5724 = sitofp i32 %5714 to float
-  %5725 = sitofp i32 %5713 to float
+  %5724 = uitofp nneg i32 %5714 to float
+  %5725 = uitofp nneg i32 %5713 to float
   %5726 = uitofp nneg i32 %5712 to float
   %5727 = icmp ne i32 %5714, 0
   %5728 = icmp ne i32 %5713, 0

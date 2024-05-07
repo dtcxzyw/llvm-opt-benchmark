@@ -74100,7 +74100,7 @@ _ZNKSt6vectorIN6casadi8SparsityESaIS1_EE2atEm.exit1059: ; preds = %2181
 .noexc1314:                                       ; preds = %2214
   store ptr %2217, ptr %786, align 8
   store i64 %2212, ptr %787, align 8
-  %2218 = sitofp i64 %2212 to double
+  %2218 = uitofp nneg i64 %2212 to double
   invoke void @_ZN6casadi6MatrixIxEC1Ed(ptr noundef nonnull align 8 dereferenceable(40) %5, double noundef %2218)
           to label %2219 unwind label %2223
 

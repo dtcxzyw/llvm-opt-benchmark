@@ -1547,7 +1547,7 @@ if.then50:                                        ; preds = %if.then48
   br i1 %tobool.i688, label %if.end156, label %if.end156.sink.split
 
 if.else:                                          ; preds = %if.then48
-  %conv = sitofp i64 %13 to double
+  %conv = uitofp nneg i64 %13 to double
   %call103 = call ptr @_ZN2v86Number3NewEPNS_7IsolateEd(ptr noundef %18, double noundef %conv) #25
   %call119 = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call9, ptr %call2.i, ptr %17, ptr %call103) #25
   %tobool.i691 = trunc i16 %call119 to i1

@@ -1000,7 +1000,7 @@ _ZL13gmx_snew_implIdEvPKcS1_iRPT_m.exit200.preheader: ; preds = %_ZL13gmx_snew_i
 
 311:                                              ; preds = %._crit_edge467
   %312 = add nsw i32 %309, -1
-  %313 = sitofp i32 %312 to double
+  %313 = uitofp nneg i32 %312 to double
   %314 = fdiv double %303, %313
   %315 = call double @sqrt(double noundef %314) #21
   %316 = fptrunc double %315 to float
@@ -1569,9 +1569,9 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i217:     ; preds = %536, %533
 .lr.ph.i220:                                      ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit.i217
   %538 = icmp slt i32 %517, 2
   %539 = add nsw i32 %517, -1
-  %540 = sitofp i32 %539 to double
+  %540 = uitofp nneg i32 %539 to double
   %wide.trip.count.i.i = zext nneg i32 %517 to i64
-  %541 = sitofp i32 %517 to double
+  %541 = uitofp nneg i32 %517 to double
   br i1 %538, label %_ZL14cosine_contentiiPKf.exit.us.i, label %.lr.ph.split.preheader.i221
 
 .lr.ph.split.preheader.i221:                      ; preds = %.lr.ph.i220
@@ -2517,7 +2517,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i279:     ; preds = %887, %884
 
 890:                                              ; preds = %889
   %891 = add nsw i32 %856, -1
-  %892 = sitofp i32 %891 to float
+  %892 = uitofp nneg i32 %891 to float
   %893 = fmul float %858, %892
   %894 = fpext float %893 to double
   %895 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %883, ptr noundef nonnull @.str.212, double noundef %894, i32 noundef %856) #21
@@ -2649,14 +2649,14 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit340.preheader.i: ; preds = %_ZL13gmx_snew
 
 .lr.ph455.i:                                      ; preds = %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit340.preheader.i
   %935 = sitofp i32 %854 to float
-  %936 = sitofp i32 %856 to float
+  %936 = uitofp nneg i32 %856 to float
   %937 = fcmp ugt float %935, %936
   %938 = fmul float %858, %936
   %939 = fpext float %938 to double
   %invariant.gep.i280 = getelementptr i8, ptr %932, i64 8
   %940 = getelementptr inbounds i8, ptr %932, i64 4
   %941 = add nsw i32 %856, -1
-  %942 = sitofp i32 %941 to float
+  %942 = uitofp nneg i32 %941 to float
   %943 = fmul float %858, %942
   %invariant.gep425.i = getelementptr i8, ptr %931, i64 -8
   %944 = getelementptr inbounds i8, ptr %931, i64 4

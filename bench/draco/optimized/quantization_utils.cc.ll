@@ -53,7 +53,7 @@ define noundef zeroext i1 @_ZN5draco11Dequantizer4InitEfi(ptr nocapture noundef 
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %3
-  %6 = sitofp i32 %2 to float
+  %6 = uitofp nneg i32 %2 to float
   %7 = fdiv float %1, %6
   store float %7, ptr %0, align 4
   br label %8

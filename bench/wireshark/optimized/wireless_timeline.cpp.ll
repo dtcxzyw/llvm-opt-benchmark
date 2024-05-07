@@ -2447,7 +2447,7 @@ _ZN16WirelessTimeline14get_wlan_radioEj.exit185:  ; preds = %313
   %390 = fdiv float %356, %33
   %391 = fpext float %390 to double
   %392 = uitofp nneg i32 %389 to double
-  %393 = sitofp i32 %383 to float
+  %393 = uitofp nneg i32 %383 to float
   %394 = fdiv float %393, %33
   %395 = fpext float %394 to double
   store double %391, ptr %18, align 8

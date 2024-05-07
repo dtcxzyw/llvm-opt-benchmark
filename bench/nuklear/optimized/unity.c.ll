@@ -47000,7 +47000,7 @@ if.then27:                                        ; preds = %for.end
   %style.val = load float, ptr %7, align 4
   %8 = tail call i32 @llvm.smax.i32(i32 %3, i32 1)
   %cond.i = add nsw i32 %8, -1
-  %conv.i = sitofp i32 %cond.i to float
+  %conv.i = uitofp nneg i32 %cond.i to float
   %mul.i = fmul float %style.val, %conv.i
   %sub3.i = fsub float %6, %mul.i
   %sub = fsub float %sub3.i, %min_fixed_width.1
@@ -61223,6 +61223,8 @@ while.body.lr.ph:                                 ; preds = %while.body.lr.ph.lr
   %mul = fmul float %cond42, %conv454
   %idx.ext = sext i32 %text_len435.0.ph1641 to i64
   %add.ptr = getelementptr inbounds i8, ptr %retval.0.i7091521, i64 %idx.ext
+  %conv485 = uitofp nneg i32 %sub453 to float
+  %mul486 = fmul float %cond42, %conv485
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %nk_utf_decode.exit927
@@ -61271,7 +61273,7 @@ land.lhs.true464:                                 ; preds = %if.end462
 if.then472:                                       ; preds = %land.lhs.true464
   %sub491 = sub nsw i32 %text_len435.01609, %text_len435.0.ph1641
   %call492 = call fastcc <2 x float> @nk_text_calculate_text_bounds(ptr noundef nonnull %font, ptr noundef nonnull %add.ptr, i32 noundef %sub491, float noundef %cond42, ptr noundef nonnull %remaining476, ptr noundef nonnull %out_offset474, ptr noundef nonnull %glyph_offset473)
-  %selection_offset_start.sroa.0.0.vec.insert = insertelement <2 x float> %call492, float %mul, i64 1
+  %selection_offset_start.sroa.0.0.vec.insert = insertelement <2 x float> %call492, float %mul486, i64 1
   %idx.ext495 = sext i32 %text_len435.01609 to i64
   %add.ptr496 = getelementptr inbounds i8, ptr %retval.0.i7091521, i64 %idx.ext495
   br label %if.end497
@@ -75491,7 +75493,7 @@ if.end:                                           ; preds = %lor.lhs.false2
   %3 = load i32, ptr %columns, align 8
   %4 = tail call i32 @llvm.smax.i32(i32 %3, i32 1)
   %cond.i = add nsw i32 %4, -1
-  %conv.i = sitofp i32 %cond.i to float
+  %conv.i = uitofp nneg i32 %cond.i to float
   %mul.i = fmul float %spacing.sroa.0.0.copyload, %conv.i
   %sub3.i = fsub float %2, %mul.i
   %5 = load i32, ptr %row, align 8

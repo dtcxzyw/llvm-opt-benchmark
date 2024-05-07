@@ -4602,7 +4602,7 @@ cond.false:                                       ; preds = %_ZNSt7__cxx1112basi
   br i1 %cmp84, label %cond.end88, label %cond.false86
 
 cond.false86:                                     ; preds = %cond.false
-  %56 = uitofp i32 %55 to float
+  %56 = uitofp nneg i32 %55 to float
   br label %cond.end88
 
 cond.end88:                                       ; preds = %cond.false86, %cond.false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit316
@@ -4619,7 +4619,7 @@ cond.false94:                                     ; preds = %cond.end88
   br i1 %cmp96, label %cond.end102, label %cond.false98
 
 cond.false98:                                     ; preds = %cond.false94
-  %58 = uitofp i32 %57 to float
+  %58 = uitofp nneg i32 %57 to float
   br label %cond.end102
 
 cond.end102:                                      ; preds = %cond.false98, %cond.false94, %cond.end88

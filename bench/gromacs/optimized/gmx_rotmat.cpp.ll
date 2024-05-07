@@ -1016,7 +1016,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %192, %189
 
 .lr.ph199.i:                                      ; preds = %._crit_edge192.i
   %315 = add nsw i32 %.1131.i, -1
-  %316 = sitofp i32 %315 to double
+  %316 = uitofp nneg i32 %315 to double
   br label %317
 
 317:                                              ; preds = %326, %.lr.ph199.i

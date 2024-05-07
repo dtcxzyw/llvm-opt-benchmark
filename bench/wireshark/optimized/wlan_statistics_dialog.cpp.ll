@@ -7055,7 +7055,7 @@ define linkonce_odr void @_ZN25WlanStationTreeWidgetItem4drawEP8_addressi(ptr no
 34:                                               ; preds = %3
   %35 = sitofp i32 %31 to double
   %36 = fmul double %35, 1.000000e+02
-  %37 = sitofp i32 %2 to double
+  %37 = uitofp nneg i32 %2 to double
   %38 = fdiv double %36, %37
   store double %38, ptr %14, align 8
   call void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIdE8metaTypeE, ptr noundef nonnull %14)

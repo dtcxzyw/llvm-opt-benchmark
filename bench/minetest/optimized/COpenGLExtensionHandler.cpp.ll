@@ -7650,7 +7650,7 @@ while.cond11.i:                                   ; preds = %while.cond11.i.preh
   br i1 %or.cond49.i, label %while.body18.i, label %_ZN3irr4core8strtof10EPKcPS2_.exit
 
 while.body18.i:                                   ; preds = %while.cond11.i
-  %conv22.i = sitofp i8 %6 to float
+  %conv22.i = uitofp nneg i8 %6 to float
   %7 = tail call float @llvm.fmuladd.f32(float %floatValue.0.i, float 1.000000e+01, float %conv22.i)
   %incdec.ptr23.i = getelementptr inbounds i8, ptr %in.addr.1.i, i64 1
   %cmp24.i = fcmp ogt float %7, 0x47EFFFFFE0000000
@@ -7712,7 +7712,7 @@ while.cond11.i48:                                 ; preds = %while.cond11.i48.pr
   br i1 %or.cond49.i51, label %while.body18.i57, label %_ZN3irr4core8strtof10EPKcPS2_.exit77
 
 while.body18.i57:                                 ; preds = %while.cond11.i48
-  %conv22.i58 = sitofp i8 %14 to float
+  %conv22.i58 = uitofp nneg i8 %14 to float
   %15 = tail call float @llvm.fmuladd.f32(float %floatValue.0.i50, float 1.000000e+01, float %conv22.i58)
   %incdec.ptr23.i59 = getelementptr inbounds i8, ptr %in.addr.1.i49, i64 1
   %cmp24.i60 = fcmp ogt float %15, 0x47EFFFFFE0000000

@@ -51546,7 +51546,7 @@ if.end2:                                          ; preds = %while.end151.i, %if
   br i1 %or.cond396, label %if.then18, label %if.end34
 
 if.then18:                                        ; preds = %if.end2
-  %conv20 = uitofp i64 %i.3.i to float
+  %conv20 = uitofp nneg i64 %i.3.i to float
   %cmp22 = icmp slt i64 %exponent.3.i, 0
   br i1 %cmp22, label %if.then23, label %if.else
 
@@ -53889,7 +53889,7 @@ if.end2:                                          ; preds = %while.end151.i, %if
   br i1 %or.cond370, label %if.then18, label %if.end34
 
 if.then18:                                        ; preds = %if.end2
-  %conv20 = uitofp i64 %i.3.i to double
+  %conv20 = uitofp nneg i64 %i.3.i to double
   %cmp22 = icmp slt i64 %exponent.3.i, 0
   br i1 %cmp22, label %if.then23, label %if.else
 

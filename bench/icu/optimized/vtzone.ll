@@ -4578,7 +4578,7 @@ if.end53:                                         ; preds = %do.end
   %add = add nuw nsw i32 %mul55, %mul56
   %mul57 = mul nuw nsw i32 %mul30.i296, 1000
   %add58 = add nuw nsw i32 %add, %mul57
-  %conv59 = sitofp i32 %add58 to double
+  %conv59 = uitofp nneg i32 %add58 to double
   %add60 = fadd double %mul, %conv59
   %conv63 = sitofp i32 %offset to double
   %sub64 = fsub double %add60, %conv63
@@ -7261,7 +7261,7 @@ if.end10:                                         ; preds = %_ZN6icu_75L14toWall
 
 if.then13:                                        ; preds = %if.end10
   %sub = sub nsw i32 0, %call11
-  %conv = sitofp i32 %sub to double
+  %conv = uitofp nneg i32 %sub to double
   %add = fadd double %conv, %startTime
   br label %if.end20
 
@@ -7271,7 +7271,7 @@ if.else:                                          ; preds = %if.end10
 
 if.then15:                                        ; preds = %if.else
   %sub16 = add nsw i32 %call11, -86399999
-  %conv17 = sitofp i32 %sub16 to double
+  %conv17 = uitofp nneg i32 %sub16 to double
   %sub18 = fsub double %startTime, %conv17
   br label %if.end20
 

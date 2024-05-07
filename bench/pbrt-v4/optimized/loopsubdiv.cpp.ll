@@ -3275,7 +3275,7 @@ for.cond668.preheader:                            ; preds = %invoke.cont663
   br i1 %cmp6692688, label %invoke.cont702.lr.ph, label %invoke.cont884
 
 invoke.cont702.lr.ph:                             ; preds = %for.cond668.preheader
-  %conv673 = sitofp i32 %call654 to float
+  %conv673 = uitofp nneg i32 %call654 to float
   %wide.trip.count = zext nneg i32 %call654 to i64
   br label %invoke.cont702
 

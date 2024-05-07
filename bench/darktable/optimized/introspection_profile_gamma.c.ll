@@ -1158,7 +1158,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
   %227 = phi float [ %223, %220 ], [ %217, %215 ]
   %228 = getelementptr inbounds i8, ptr %6, i64 262156
   %229 = icmp eq i32 %226, 0
-  %230 = sitofp i32 %226 to float
+  %230 = uitofp nneg i32 %226 to float
   %231 = fdiv reassoc nsz arcp contract afn float %227, %230
   %232 = select i1 %229, float 1.000000e+00, float %231
   store float 1.000000e+00, ptr %228, align 4, !tbaa !6

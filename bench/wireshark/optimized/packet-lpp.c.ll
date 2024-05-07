@@ -14042,7 +14042,7 @@ define internal void @lpp_rsrq_Result_fmt(ptr nocapture noundef writeonly %0, i3
   br i1 %6, label %7, label %17
 
 7:                                                ; preds = %5
-  %8 = uitofp i32 %1 to float
+  %8 = uitofp nneg i32 %1 to float
   %9 = fmul float %8, 5.000000e-01
   %10 = fadd float %9, -2.000000e+01
   %11 = fpext float %10 to double
@@ -14140,7 +14140,7 @@ define internal void @lpp_nrsrq_Result_fmt(ptr nocapture noundef writeonly %0, i
   br i1 %6, label %7, label %17
 
 7:                                                ; preds = %5
-  %8 = uitofp i32 %1 to float
+  %8 = uitofp nneg i32 %1 to float
   %9 = fadd float %8, -1.000000e+00
   %10 = fmul float %9, 5.000000e-01
   %11 = fadd float %10, -3.400000e+01
@@ -14192,7 +14192,7 @@ define internal void @lpp_rsrq_Result_v1470_fmt(ptr nocapture noundef writeonly 
   br i1 %6, label %7, label %17
 
 7:                                                ; preds = %5
-  %8 = sitofp i32 %1 to float
+  %8 = uitofp nneg i32 %1 to float
   %9 = fmul float %8, 5.000000e-01
   %10 = fadd float %9, -2.000000e+01
   %11 = fpext float %10 to double

@@ -9695,7 +9695,7 @@ invoke.cont2927:                                  ; preds = %for.body2915
   %1564 = load i64, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
   %inc4.i6630 = add nsw i64 %1564, 1
   store i64 %inc4.i6630, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
-  %conv2925 = uitofp i32 %i2910.014940 to float
+  %conv2925 = uitofp nneg i32 %i2910.014940 to float
   %inc.i.i.i.i.i6638 = add nsw i64 %1562, 2
   store i64 %inc.i.i.i.i.i6638, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !326
   %inc5.i.i.i.i.i6639 = add nsw i64 %1563, 2
@@ -9979,7 +9979,7 @@ invoke.cont3007:                                  ; preds = %for.body2994
   %1623 = load i64, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
   %inc4.i6825 = add nsw i64 %1623, 1
   store i64 %inc4.i6825, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
-  %conv3005 = uitofp i32 %i2989.014944 to float
+  %conv3005 = uitofp nneg i32 %i2989.014944 to float
   %inc.i.i.i.i.i6833 = add nsw i64 %1621, 2
   store i64 %inc.i.i.i.i.i6833, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !339
   %inc5.i.i.i.i.i6834 = add nsw i64 %1622, 2
@@ -10666,7 +10666,7 @@ invoke.cont3195:                                  ; preds = %for.body3182
   %1753 = load i64, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
   %inc4.i7356 = add nsw i64 %1753, 1
   store i64 %inc4.i7356, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
-  %conv3193 = uitofp i32 %i3177.014953 to float
+  %conv3193 = uitofp nneg i32 %i3177.014953 to float
   %inc.i.i.i.i.i7364 = add nsw i64 %1751, 2
   store i64 %inc.i.i.i.i.i7364, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !371
   %inc5.i.i.i.i.i7365 = add nsw i64 %1752, 2
@@ -10948,7 +10948,7 @@ invoke.cont3277:                                  ; preds = %for.body3264
   %1816 = load i64, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
   %inc4.i7571 = add nsw i64 %1816, 1
   store i64 %inc4.i7571, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
-  %conv3275 = uitofp i32 %i3259.014957 to float
+  %conv3275 = uitofp nneg i32 %i3259.014957 to float
   %inc.i.i.i.i.i7579 = add nsw i64 %1814, 2
   store i64 %inc.i.i.i.i.i7579, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !394
   %inc5.i.i.i.i.i7580 = add nsw i64 %1815, 2

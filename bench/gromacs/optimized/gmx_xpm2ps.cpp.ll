@@ -5043,7 +5043,7 @@ _ZSt8_DestroyIP9t_inpfileS0_EvT_S2_RSaIT0_E.exit.i90.i: ; preds = %_ZSt8_Destroy
   br i1 %.not90.i, label %._crit_edge.loopexit.i, label %458
 
 ._crit_edge.loopexit.i:                           ; preds = %458
-  %469 = sitofp i32 %.sroa.speculated74.i to float
+  %469 = uitofp nneg i32 %.sroa.speculated74.i to float
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %449

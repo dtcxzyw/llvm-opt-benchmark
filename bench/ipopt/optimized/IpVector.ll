@@ -500,7 +500,7 @@ define void @_ZN5Ipopt6Vector4ScalEd(ptr noundef nonnull align 8 dereferenceable
   br i1 %90, label %91, label %97
 
 91:                                               ; preds = %84
-  %92 = sitofp i32 %89 to double
+  %92 = uitofp nneg i32 %89 to double
   %93 = tail call double @log(double noundef %1) #10
   %94 = getelementptr inbounds i8, ptr %0, i64 192
   %95 = load double, ptr %94, align 8

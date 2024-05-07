@@ -195,7 +195,7 @@ define noalias noundef ptr @putGraphs(i64 noundef %0, ptr nocapture noundef read
   %88 = tail call fastcc ptr @gv_calloc(i64 noundef %0, i64 noundef 32)
   %89 = getelementptr inbounds i8, ptr %3, i64 12
   %.not.i.i = icmp eq ptr %2, null
-  %90 = sitofp i32 %75 to double
+  %90 = uitofp nneg i32 %75 to double
   %91 = extractelement <2 x i32> %87, i64 1
   %.sroa.5.0.insert.ext.i = zext i32 %91 to i64
   %.sroa.5.0.insert.shift.i = shl nuw i64 %.sroa.5.0.insert.ext.i, 32
@@ -2865,7 +2865,7 @@ define internal fastcc void @genBox(ptr nocapture noundef readonly byval(%struct
   %75 = shl i32 %3, 1
   %76 = uitofp i32 %75 to double
   %77 = fadd double %74, %76
-  %78 = sitofp i32 %2 to double
+  %78 = uitofp nneg i32 %2 to double
   %79 = fdiv double %77, %78
   %80 = tail call double @llvm.ceil.f64(double %79)
   %81 = fptosi double %80 to i32
@@ -2942,7 +2942,7 @@ define internal fastcc void @placeGraph(i64 noundef %0, ptr nocapture noundef re
   %17 = shl i32 %5, 1
   %18 = uitofp i32 %17 to double
   %19 = fadd double %16, %18
-  %20 = sitofp i32 %4 to double
+  %20 = uitofp nneg i32 %4 to double
   %21 = fdiv double %19, %20
   %22 = tail call double @llvm.ceil.f64(double %21)
   %23 = fptosi double %22 to i32
@@ -3170,7 +3170,7 @@ define internal fastcc void @fillEdge(ptr nocapture noundef readonly %0, i64 %1,
   %17 = insertelement <2 x i32> poison, i32 %3, i64 0
   %18 = insertelement <2 x i32> %17, i32 %4, i64 1
   %19 = sitofp <2 x i32> %18 to <2 x double>
-  %20 = sitofp i32 %5 to double
+  %20 = uitofp nneg i32 %5 to double
   %21 = insertelement <2 x double> poison, double %20, i64 0
   %22 = shufflevector <2 x double> %21, <2 x double> poison, <2 x i32> zeroinitializer
   %23 = extractelement <2 x double> %19, i64 0
@@ -3196,13 +3196,13 @@ define internal fastcc void @fillEdge(ptr nocapture noundef readonly %0, i64 %1,
   br i1 %39, label %43, label %40
 
 40:                                               ; preds = %25
-  %41 = sitofp i32 %5 to double
+  %41 = uitofp nneg i32 %5 to double
   %42 = fdiv double %36, %41
   br label %48
 
 43:                                               ; preds = %25
   %44 = fadd double %36, 1.000000e+00
-  %45 = sitofp i32 %5 to double
+  %45 = uitofp nneg i32 %5 to double
   %46 = fdiv double %44, %45
   %47 = fadd double %46, -1.000000e+00
   br label %48
@@ -3213,13 +3213,13 @@ define internal fastcc void @fillEdge(ptr nocapture noundef readonly %0, i64 %1,
   br i1 %50, label %54, label %51
 
 51:                                               ; preds = %48
-  %52 = sitofp i32 %5 to double
+  %52 = uitofp nneg i32 %5 to double
   %53 = fdiv double %38, %52
   br label %59
 
 54:                                               ; preds = %48
   %55 = fadd double %38, 1.000000e+00
-  %56 = sitofp i32 %5 to double
+  %56 = uitofp nneg i32 %5 to double
   %57 = fdiv double %55, %56
   %58 = fadd double %57, -1.000000e+00
   br label %59

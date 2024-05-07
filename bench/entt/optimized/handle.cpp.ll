@@ -40438,7 +40438,7 @@ _ZNSt12_Vector_baseIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS0_16basic_
   br label %_ZNSt6vectorIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS0_16basic_sparse_setINS0_6entityESaIS5_EEEEEESaIS9_EE7reserveEm.exit
 
 _ZNSt6vectorIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS0_16basic_sparse_setINS0_6entityESaIS5_EEEEEESaIS9_EE7reserveEm.exit: ; preds = %_ZNSt12_Vector_baseIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS0_16basic_sparse_setINS0_6entityESaIS5_EEEEEESaIS9_EE13_M_deallocateEPS9_m.exit.i, %if.end.i
-  %conv = uitofp i64 %cnt to float
+  %conv = uitofp nneg i64 %cnt to float
   %threshold.i = getelementptr inbounds i8, ptr %this, i64 48
   %6 = load float, ptr %threshold.i, align 8, !tbaa !419
   %div = fdiv float %conv, %6

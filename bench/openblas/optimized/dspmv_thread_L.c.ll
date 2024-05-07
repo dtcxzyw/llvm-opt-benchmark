@@ -39,7 +39,7 @@ define noundef i32 @dspmv_thread_L(i64 noundef %0, double noundef %1, ptr nounde
 
 20:                                               ; preds = %9
   %21 = sitofp i32 %8 to double
-  %22 = sitofp i64 %0 to double
+  %22 = uitofp nneg i64 %0 to double
   %23 = sext i32 %8 to i64
   %24 = add nsw i64 %23, -1
   %25 = fneg double %22

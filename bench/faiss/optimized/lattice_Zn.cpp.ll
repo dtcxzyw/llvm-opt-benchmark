@@ -2419,7 +2419,7 @@ define internal fastcc void @_ZN5faiss12_GLOBAL__N_19sum_of_sqEfiif(ptr dead_on_
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %_ZNSt6vectorIfSaIfEED2Ev.exit49.us
   %.pre = phi ptr [ %.pre107, %_ZNSt6vectorIfSaIfEED2Ev.exit49.us ], [ null, %.lr.ph.split.us.preheader ]
   %.13679.us = phi i32 [ %32, %_ZNSt6vectorIfSaIfEED2Ev.exit49.us ], [ %2, %.lr.ph.split.us.preheader ]
-  %29 = sitofp i32 %.13679.us to float
+  %29 = uitofp nneg i32 %.13679.us to float
   %30 = fmul float %29, %29
   %31 = fsub float %1, %30
   invoke fastcc void @_ZN5faiss12_GLOBAL__N_19sum_of_sqEfiif(ptr dead_on_unwind noalias nonnull writable align 8 %5, float noundef %31, i32 noundef %.13679.us, i32 noundef %23)
@@ -2621,7 +2621,7 @@ _ZNSt6vectorIfSaIfEE9push_backERKf.exit.us.us:    ; preds = %_ZNSt6vectorIfSaIfE
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZNSt6vectorIfSaIfEED2Ev.exit49
   %.promoted = phi ptr [ %.promoted103, %_ZNSt6vectorIfSaIfEED2Ev.exit49 ], [ null, %.lr.ph ]
   %.13679 = phi i32 [ %150, %_ZNSt6vectorIfSaIfEED2Ev.exit49 ], [ %2, %.lr.ph ]
-  %106 = sitofp i32 %.13679 to float
+  %106 = uitofp nneg i32 %.13679 to float
   %107 = fmul float %106, %106
   %108 = fsub float %1, %107
   invoke fastcc void @_ZN5faiss12_GLOBAL__N_19sum_of_sqEfiif(ptr dead_on_unwind noalias nonnull writable align 8 %5, float noundef %108, i32 noundef %.13679, i32 noundef %23)

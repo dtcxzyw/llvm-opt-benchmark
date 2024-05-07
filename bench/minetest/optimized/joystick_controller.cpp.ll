@@ -3899,7 +3899,7 @@ if.end:                                           ; preds = %entry
   %add = add i16 %cond, %0
   %conv13 = sitofp i16 %add to float
   %sub17 = sub nsw i32 32767, %conv2
-  %conv18 = sitofp i32 %sub17 to float
+  %conv18 = uitofp nneg i32 %sub17 to float
   %div = fdiv nsz float %conv13, %conv18
   br label %cleanup
 
@@ -3928,7 +3928,7 @@ if.end.i:                                         ; preds = %entry
   %add.i = add i16 %cond.i, %0
   %conv13.i = sitofp i16 %add.i to float
   %sub17.i = sub nsw i32 32767, %conv2.i
-  %conv18.i = sitofp i32 %sub17.i to float
+  %conv18.i = uitofp nneg i32 %sub17.i to float
   %div.i = fdiv nsz float %conv13.i, %conv18.i
   br label %_ZN18JoystickController18getAxisWithoutDeadE12JoystickAxis.exit
 
@@ -3948,7 +3948,7 @@ if.end.i8:                                        ; preds = %_ZN18JoystickContro
   %add.i12 = add i16 %cond.i11, %4
   %conv13.i13 = sitofp i16 %add.i12 to float
   %sub17.i14 = sub nsw i32 32767, %conv2.i
-  %conv18.i15 = sitofp i32 %sub17.i14 to float
+  %conv18.i15 = uitofp nneg i32 %sub17.i14 to float
   %div.i16 = fdiv nsz float %conv13.i13, %conv18.i15
   br label %_ZN18JoystickController18getAxisWithoutDeadE12JoystickAxis.exit18
 
@@ -3980,7 +3980,7 @@ if.end.i:                                         ; preds = %entry
   %add.i = add i16 %cond.i, %0
   %conv13.i = sitofp i16 %add.i to float
   %sub17.i = sub nsw i32 32767, %conv2.i
-  %conv18.i = sitofp i32 %sub17.i to float
+  %conv18.i = uitofp nneg i32 %sub17.i to float
   %div.i = fdiv nsz float %conv13.i, %conv18.i
   %4 = fpext float %div.i to double
   br label %_ZN18JoystickController18getAxisWithoutDeadE12JoystickAxis.exit
@@ -4000,7 +4000,7 @@ if.end.i10:                                       ; preds = %_ZN18JoystickContro
   %add.i14 = add i16 %cond.i13, %5
   %conv13.i15 = sitofp i16 %add.i14 to float
   %sub17.i16 = sub nsw i32 32767, %conv2.i
-  %conv18.i17 = sitofp i32 %sub17.i16 to float
+  %conv18.i17 = uitofp nneg i32 %sub17.i16 to float
   %div.i18 = fdiv nsz float %conv13.i15, %conv18.i17
   %8 = fpext float %div.i18 to double
   br label %_ZN18JoystickController18getAxisWithoutDeadE12JoystickAxis.exit20

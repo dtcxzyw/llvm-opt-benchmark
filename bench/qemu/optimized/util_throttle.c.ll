@@ -626,7 +626,7 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp.i.i, label %for.body.i6.i.preheader, label %for.cond.preheader.i.i
 
 for.cond.preheader.i.i:                           ; preds = %if.end3
-  %conv1.i.i.i = sitofp i64 %sub.i.i to double
+  %conv1.i.i.i = uitofp nneg i64 %sub.i.i to double
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %throttle_leak_bucket.exit.i.i, %for.cond.preheader.i.i

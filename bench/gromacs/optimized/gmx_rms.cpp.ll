@@ -2927,8 +2927,8 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit916:       ; preds = %1064
   br i1 %.not8461448, label %._crit_edge1454.split, label %.lr.ph1453
 
 .lr.ph1453:                                       ; preds = %1205
-  %1208 = sitofp i32 %1206 to double
-  %1209 = fadd double %1208, 1.000000e+00
+  %1208 = add nuw i32 %1206, 1
+  %1209 = uitofp i32 %1208 to double
   %1210 = trunc nuw nsw i64 %indvars.iv1664 to i32
   br label %1211
 

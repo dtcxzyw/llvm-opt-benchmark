@@ -2632,7 +2632,7 @@ define dso_local noundef i64 @_ZNK4Type11SizeInBytesEv(ptr nocapture noundef non
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %12
-  %19 = sitofp i32 %16 to double
+  %19 = uitofp nneg i32 %16 to double
   %20 = fmul double %19, 1.250000e-01
   %21 = tail call double @llvm.ceil.f64(double %20)
   %22 = fmul double %21, 8.000000e+00

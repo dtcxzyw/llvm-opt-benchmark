@@ -1275,7 +1275,7 @@ define void @_ZN5faiss27ReproduceDistancesObjective18compute_mean_stdevEPKdmPdS3
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.022.lcssa = phi double [ 0.000000e+00, %4 ], [ %8, %.lr.ph ]
   %.0.lcssa = phi double [ 0.000000e+00, %4 ], [ %7, %.lr.ph ]
-  %9 = uitofp i64 %1 to double
+  %9 = uitofp nneg i64 %1 to double
   %10 = fdiv double %.0.lcssa, %9
   %11 = fdiv double %.022.lcssa, %9
   %12 = fneg double %10

@@ -1980,7 +1980,7 @@ _ZN5ZXing6ReduceIPKNS_6PointTIdEES2_St4plusIS2_EEET0_T_S8_S7_T1_.exit.i.i: ; pre
   %539 = sub i64 %537, %538
   %540 = ashr exact i64 %539, 4
   %541 = icmp sgt i64 %540, 3
-  %542 = sitofp i64 %540 to double
+  %542 = uitofp nneg i64 %540 to double
   %543 = fmul double %542, 1.250000e-01
   %544 = fcmp olt double %543, 8.000000e+00
   %545 = select i1 %544, double %543, double 8.000000e+00

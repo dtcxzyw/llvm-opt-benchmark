@@ -14025,7 +14025,7 @@ if.end13.i.i:                                     ; preds = %if.end.i46.i
   br i1 %or.cond1.i.i.i, label %if.then.i13.i.i, label %if.end9.i.i.i
 
 if.then.i13.i.i:                                  ; preds = %if.end13.i.i
-  %conv.i.i.i = uitofp i64 %i.5.i to double
+  %conv.i.i.i = uitofp nneg i64 %i.5.i to double
   %cmp4.i.i.i = icmp slt i64 %exponent.2.i, 0
   br i1 %cmp4.i.i.i, label %if.then5.i.i.i, label %if.else.i.i.i
 
@@ -16052,7 +16052,7 @@ if.end13.i.i:                                     ; preds = %if.end.i47.i
   br i1 %or.cond1.i.i.i, label %if.then.i13.i.i, label %if.end9.i.i.i
 
 if.then.i13.i.i:                                  ; preds = %if.end13.i.i
-  %conv.i.i.i = uitofp i64 %i.5.i to double
+  %conv.i.i.i = uitofp nneg i64 %i.5.i to double
   %cmp4.i.i.i = icmp slt i64 %exponent.2.i, 0
   br i1 %cmp4.i.i.i, label %if.then5.i.i.i, label %if.else.i.i.i
 
@@ -17420,7 +17420,7 @@ if.end13.i.i:                                     ; preds = %if.end.i47.i
   br i1 %or.cond1.i.i.i, label %if.then.i13.i.i, label %if.end9.i.i.i
 
 if.then.i13.i.i:                                  ; preds = %if.end13.i.i
-  %conv.i.i.i = uitofp i64 %i.5.i to double
+  %conv.i.i.i = uitofp nneg i64 %i.5.i to double
   %cmp4.i.i.i = icmp slt i64 %exponent.2.i, 0
   br i1 %cmp4.i.i.i, label %if.then5.i.i.i, label %if.else.i.i.i
 
@@ -18982,7 +18982,7 @@ if.end13.i.i:                                     ; preds = %if.end.i47.i
   br i1 %or.cond1.i.i.i, label %if.then.i13.i.i, label %if.end9.i.i.i
 
 if.then.i13.i.i:                                  ; preds = %if.end13.i.i
-  %conv.i.i.i = uitofp i64 %i.5.i to double
+  %conv.i.i.i = uitofp nneg i64 %i.5.i to double
   %cmp4.i.i.i = icmp slt i64 %exponent.2.i, 0
   br i1 %cmp4.i.i.i, label %if.then5.i.i.i, label %if.else.i.i.i
 

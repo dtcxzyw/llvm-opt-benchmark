@@ -264,7 +264,7 @@ scanArgs.exit:                                    ; preds = %51, %53
 countComponents.exit.i:                           ; preds = %.lr.ph55.i.i, %._crit_edge.i.i
   %.0.lcssa.i.i = phi i32 [ 0, %._crit_edge.i.i ], [ %spec.select.i.i, %.lr.ph55.i.i ]
   %84 = icmp sgt i32 %.033.lcssa.i.i, 0
-  %85 = sitofp i32 %.033.lcssa.i.i to float
+  %85 = uitofp nneg i32 %.033.lcssa.i.i to float
   %86 = fdiv float %.035.lcssa.i.i, %85
   %87 = fpext float %86 to double
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)

@@ -141,7 +141,7 @@ define void @dtprfs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %88 = add nuw nsw i32 %53, 1
   %89 = tail call double @dlamch_(ptr noundef nonnull @.str.6) #5
   %90 = tail call double @dlamch_(ptr noundef nonnull @.str.7) #5
-  %91 = sitofp i32 %88 to double
+  %91 = uitofp nneg i32 %88 to double
   %92 = fmul double %90, %91
   %93 = fdiv double %92, %89
   %94 = load i32, ptr %4, align 4, !tbaa !3

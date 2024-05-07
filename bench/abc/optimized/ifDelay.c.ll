@@ -2619,7 +2619,7 @@ define i32 @If_LutDecEval(ptr nocapture noundef readonly %0, ptr nocapture nound
 69:                                               ; preds = %68
   %.not64 = icmp eq i32 %3, 0
   %70 = add nsw i32 %.155, 2
-  %71 = sitofp i32 %70 to float
+  %71 = uitofp nneg i32 %70 to float
   br i1 %.not64, label %76, label %72
 
 72:                                               ; preds = %69

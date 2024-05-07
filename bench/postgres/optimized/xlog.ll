@@ -4481,7 +4481,7 @@ define internal fastcc void @ReadControlFile() unnamed_addr #0 {
   %narrow = mul nsw i32 %210, 8168
   %211 = add nsw i32 %narrow, -16
   store i32 %211, ptr @UsableBytesInSegment, align 4
-  %212 = sitofp i32 %203 to double
+  %212 = uitofp nneg i32 %203 to double
   %213 = load double, ptr @CheckPointCompletionTarget, align 8
   %214 = fadd double %213, 1.000000e+00
   %215 = fdiv double %212, %214

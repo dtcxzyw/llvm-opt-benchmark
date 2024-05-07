@@ -269,7 +269,7 @@ if.else:                                          ; preds = %entry
 
 if.then4:                                         ; preds = %if.else
   %conv5 = sext i32 %len to i64
-  %conv6 = uitofp i64 %micros to double
+  %conv6 = uitofp nneg i64 %micros to double
   %div = fdiv double %conv6, 1.000000e+03
   %call7 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %output, i64 noundef %conv5, ptr noundef nonnull @.str.2, double noundef %div) #22
   br label %return
@@ -281,7 +281,7 @@ if.else8:                                         ; preds = %if.else
 
 if.then12:                                        ; preds = %if.else8
   %conv13 = sext i32 %len to i64
-  %conv14 = uitofp i64 %micros to double
+  %conv14 = uitofp nneg i64 %micros to double
   %div15 = fdiv double %conv14, 1.000000e+06
   %call16 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %output, i64 noundef %conv13, ptr noundef nonnull @.str.3, double noundef %div15) #22
   br label %return

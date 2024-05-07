@@ -43327,7 +43327,7 @@ define internal void @lte_rrc_offsetDFN_r14_fmt(ptr nocapture noundef writeonly 
   br i1 %6, label %7, label %12
 
 7:                                                ; preds = %5
-  %8 = uitofp i32 %1 to float
+  %8 = uitofp nneg i32 %1 to float
   %9 = fdiv float %8, 1.000000e+03
   %10 = fpext float %9 to double
   %11 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.19122, double noundef %10, i32 noundef %1) #11
@@ -43454,7 +43454,7 @@ define internal void @lte_rrc_SL_CBR_r14_fmt(ptr nocapture noundef writeonly %0,
   br i1 %6, label %7, label %12
 
 7:                                                ; preds = %5
-  %8 = uitofp i32 %1 to float
+  %8 = uitofp nneg i32 %1 to float
   %9 = fdiv float %8, 1.000000e+02
   %10 = fpext float %9 to double
   %11 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.20078, double noundef %10, i32 noundef %1) #11
@@ -43602,7 +43602,7 @@ define internal void @lte_rrc_cr_Limit_r14_fmt(ptr nocapture noundef writeonly %
   br i1 %6, label %7, label %12
 
 7:                                                ; preds = %5
-  %8 = uitofp i32 %1 to float
+  %8 = uitofp nneg i32 %1 to float
   %9 = fdiv float %8, 1.000000e+04
   %10 = fpext float %9 to double
   %11 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.20365, double noundef %10, i32 noundef %1) #11
@@ -43689,7 +43689,7 @@ define internal void @lte_rrc_NRSRQ_Range_NB_r14_fmt(ptr nocapture noundef write
   br i1 %21, label %22, label %32
 
 22:                                               ; preds = %20
-  %23 = sitofp i32 %1 to float
+  %23 = uitofp nneg i32 %1 to float
   %24 = fadd float %23, -1.000000e+00
   %25 = fmul float %24, 5.000000e-01
   %26 = fpext float %25 to double
@@ -43713,7 +43713,7 @@ define internal void @lte_rrc_NRSRQ_Range_NB_r14_fmt(ptr nocapture noundef write
   br i1 %36, label %37, label %47
 
 37:                                               ; preds = %35
-  %38 = sitofp i32 %1 to float
+  %38 = uitofp nneg i32 %1 to float
   %39 = fadd float %38, -1.000000e+00
   %40 = fmul float %39, 5.000000e-01
   %41 = fadd float %40, -2.000000e+01

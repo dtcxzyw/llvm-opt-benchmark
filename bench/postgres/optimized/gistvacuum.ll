@@ -327,7 +327,7 @@ BufferGetPage.exit.i:                             ; preds = %74, %68
   %162 = load volatile i32, ptr @CritSectionCount, align 4
   %163 = add i32 %162, -1
   store volatile i32 %163, ptr @CritSectionCount, align 4
-  %164 = sitofp i32 %.183.i to double
+  %164 = uitofp nneg i32 %.183.i to double
   %165 = load double, ptr %50, align 8
   %166 = fadd double %165, %164
   store double %166, ptr %50, align 8

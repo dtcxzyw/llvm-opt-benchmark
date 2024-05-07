@@ -12049,7 +12049,7 @@ invoke.cont14:                                    ; preds = %_ZNSt7__cxx1112basi
 
 if.end.thread:                                    ; preds = %invoke.cont14
   %11 = load float, ptr %10, align 4, !tbaa !688
-  %conv21 = sitofp i16 %9 to float
+  %conv21 = uitofp nneg i16 %9 to float
   %cmp22 = fcmp nsz olt float %11, %conv21
   %cond = select nsz i1 %cmp22, float %11, float %conv21
   store float %cond, ptr %10, align 4, !tbaa !688

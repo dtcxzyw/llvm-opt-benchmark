@@ -1663,9 +1663,9 @@ _ZNSt6vectorI16WallCycleCounterSaIS0_EED2Ev.exit306: ; preds = %332, %331, %272
   br i1 %424, label %425, label %431
 
 425:                                              ; preds = %422
-  %426 = sitofp i32 %420 to double
+  %426 = uitofp nneg i32 %420 to double
   %427 = fdiv double %356, %426
-  %428 = sitofp i32 %423 to double
+  %428 = uitofp nneg i32 %423 to double
   %429 = fdiv double %393, %428
   %430 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.28, double noundef %427, double noundef %429, double noundef %419) #24
   br label %431
@@ -2036,7 +2036,7 @@ define internal fastcc void @_ZL14print_gputimesP8_IO_FILEPKcidd(ptr nocapture n
 
 9:                                                ; preds = %5
   %10 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 11, ptr noundef nonnull @.str.99, i32 noundef %2) #24
-  %11 = sitofp i32 %2 to double
+  %11 = uitofp nneg i32 %2 to double
   %12 = fdiv double %3, %11
   %13 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 11, ptr noundef nonnull @.str.104, double noundef %12) #24
   br label %15

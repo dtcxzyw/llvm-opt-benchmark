@@ -9326,7 +9326,7 @@ if.then8:                                         ; preds = %if.then
 if.end:                                           ; preds = %if.then
   %conv13 = zext nneg i8 %2 to i32
   %sub = add nsw i32 %conv13, -48
-  %conv14 = sitofp i32 %sub to double
+  %conv14 = uitofp nneg i32 %sub to double
   br label %return
 
 if.end15:                                         ; preds = %entry

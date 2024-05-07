@@ -1156,7 +1156,7 @@ define internal void @rr_pkt_pwr_ctrl_prm_par_fmt(ptr nocapture noundef writeonl
   br label %12
 
 7:                                                ; preds = %2
-  %8 = uitofp i32 %1 to float
+  %8 = uitofp nneg i32 %1 to float
   %9 = fmul float %8, 0x3FD99999A0000000
   %10 = fpext float %9 to double
   %11 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.384, double noundef %10, i32 noundef %1) #7

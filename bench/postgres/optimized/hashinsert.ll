@@ -271,7 +271,7 @@ BufferGetPage.exit.i:                             ; preds = %110, %104
 
 BufferGetPage.exit51.i:                           ; preds = %152, %148
   %.0.i.i50.i = phi ptr [ %151, %148 ], [ %154, %152 ]
-  %155 = sitofp i32 %.1.i to double
+  %155 = uitofp nneg i32 %.1.i to double
   %156 = getelementptr i8, ptr %.0.i.i50.i, i64 32
   %157 = load double, ptr %156, align 8
   %158 = fsub double %157, %155

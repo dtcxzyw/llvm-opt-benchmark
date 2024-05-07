@@ -517,7 +517,7 @@ invoke.cont17:                                    ; preds = %if.then14
   br i1 %cmp19.not, label %if.end64, label %if.then20
 
 if.then20:                                        ; preds = %invoke.cont17
-  %conv22 = uitofp i64 %i.i.6 to float
+  %conv22 = uitofp nneg i64 %i.i.6 to float
   %cmp24 = icmp slt i64 %exponent.i.2, 0
   br i1 %cmp24, label %if.then25, label %if.else
 
@@ -1342,7 +1342,7 @@ invoke.cont17:                                    ; preds = %if.then14
   br i1 %cmp19.not, label %if.end64, label %if.then20
 
 if.then20:                                        ; preds = %invoke.cont17
-  %conv22 = uitofp i64 %i.i.6 to double
+  %conv22 = uitofp nneg i64 %i.i.6 to double
   %cmp24 = icmp slt i64 %exponent.i.2, 0
   br i1 %cmp24, label %if.then25, label %if.else
 

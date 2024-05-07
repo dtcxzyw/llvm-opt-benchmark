@@ -1431,7 +1431,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %485, %488
   br i1 %501, label %.preheader.us.preheader.i, label %_ZL11average_acfbiiPPf.exit
 
 .preheader.us.preheader.i:                        ; preds = %500
-  %502 = sitofp i32 %4 to float
+  %502 = uitofp nneg i32 %4 to float
   %wide.trip.count31.i = zext nneg i32 %3 to i64
   %wide.trip.count26.i = zext nneg i32 %4 to i64
   br label %.preheader.us.i
@@ -1701,7 +1701,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit209:       ; preds = %536, %539
   br i1 %592, label %593, label %611
 
 593:                                              ; preds = %591
-  %594 = sitofp i32 %4 to float
+  %594 = uitofp nneg i32 %4 to float
   %595 = insertelement <2 x float> poison, float %594, i64 0
   %596 = shufflevector <2 x float> %595, <2 x float> poison, <2 x i32> zeroinitializer
   %597 = fdiv <2 x float> %588, %596
@@ -1713,7 +1713,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit209:       ; preds = %536, %539
   %603 = call noundef float @sqrtf(float noundef %602) #19
   %604 = fpext float %603 to double
   %605 = add nsw i32 %4, -1
-  %606 = sitofp i32 %605 to float
+  %606 = uitofp nneg i32 %605 to float
   %607 = fdiv float %602, %606
   %608 = call noundef float @sqrtf(float noundef %607) #19
   %609 = fpext float %608 to double

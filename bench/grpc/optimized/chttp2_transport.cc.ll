@@ -4207,11 +4207,11 @@ call321.i.noexc:                                  ; preds = %if.then317.i
   %179 = and i64 %call321.i172, 4294967296
   %tobool.i.i287.not.i = icmp eq i64 %179, 0
   %retval.0.i290.i = select i1 %tobool.i.i287.not.i, i32 %__u.val.i276.i, i32 %ref.tmp319.sroa.0.0.extract.trunc.i
-  %or.cond.i = icmp ult i32 %retval.0.i290.i, 1717986918
-  %conv328.i = sitofp i32 %retval.0.i290.i to double
+  %cmp329.i = icmp ult i32 %retval.0.i290.i, 1717986918
+  %conv328.i = uitofp nneg i32 %retval.0.i290.i to double
   %mul332.i = fmul double %conv328.i, 1.250000e+00
   %conv333.i = fptosi double %mul332.i to i32
-  %cond336.i = select i1 %or.cond.i, i32 %conv333.i, i32 %retval.0.i290.i
+  %cond336.i = select i1 %cmp329.i, i32 %conv333.i, i32 %retval.0.i290.i
   %cmp337.i = icmp sgt i32 %cond336.i, 16384
   br i1 %cmp337.i, label %if.then338.i, label %for.inc.i
 

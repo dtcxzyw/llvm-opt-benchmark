@@ -9826,7 +9826,7 @@ define linkonce_odr void @_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAl
   %93 = getelementptr inbounds i8, ptr %.sroa.0.7535, i64 1
   %94 = zext nneg i8 %87 to i32
   %95 = add nsw i32 %94, -48
-  %96 = sitofp i32 %95 to double
+  %96 = uitofp nneg i32 %95 to double
   %97 = tail call double @llvm.fmuladd.f64(double %.1200536, double 1.000000e+01, double %96)
   %98 = load i8, ptr %93, align 1
   %99 = add i8 %98, -48
@@ -9901,7 +9901,7 @@ define linkonce_odr void @_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAl
   br i1 %128, label %.lr.ph544, label %.critedge243.thread, !llvm.loop !84
 
 .critedge243.thread:                              ; preds = %118
-  %129 = uitofp i64 %124 to double
+  %129 = uitofp nneg i64 %124 to double
   br label %201
 
 .lr.ph558.preheader:                              ; preds = %112, %.thread624
@@ -9930,7 +9930,7 @@ define linkonce_odr void @_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAl
 135:                                              ; preds = %133
   %136 = zext nneg i8 %131 to i32
   %137 = add nsw i32 %136, -48
-  %138 = sitofp i32 %137 to double
+  %138 = uitofp nneg i32 %137 to double
   %139 = tail call double @llvm.fmuladd.f64(double %.4203555, double 1.000000e+01, double %138)
   %140 = add nsw i32 %.2173557, -1
   %141 = fcmp ogt double %139, 0.000000e+00

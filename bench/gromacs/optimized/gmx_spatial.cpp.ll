@@ -925,7 +925,7 @@ _ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i258.preheader.us.us.us: ;
 ._crit_edge471.loopexit:                          ; preds = %._crit_edge461.split.us.us.us
   %426 = sitofp i64 %416 to double
   %427 = sitofp i32 %.3212.us.us.us to double
-  %428 = sitofp i32 %spec.select244.us.us.us to double
+  %428 = uitofp nneg i32 %spec.select244.us.us.us to double
   br label %._crit_edge471
 
 ._crit_edge471:                                   ; preds = %._crit_edge471.loopexit, %.preheader365

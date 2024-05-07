@@ -4828,7 +4828,7 @@ _ZN8ImVectorI6ImVec2E7reserveEi.exit:             ; preds = %if.end, %if.end7.i
   br i1 %cmp5.not40, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN8ImVectorI6ImVec2E7reserveEi.exit
-  %conv6 = sitofp i32 %num_segments to float
+  %conv6 = uitofp nneg i32 %num_segments to float
   %sub = fsub float %a_max, %a_min
   %y = getelementptr inbounds i8, ptr %center, i64 4
   %Data.i.i32 = getelementptr inbounds i8, ptr %this, i64 128
@@ -8044,7 +8044,7 @@ if.else:                                          ; preds = %if.end
   %cond5.i = tail call i32 @llvm.umax.i32(i32 %1, i32 3)
   %conv = uitofp nneg i32 %cond5.i to float
   %2 = add nsw i32 %cond5.i, -1
-  %sub5 = sitofp i32 %2 to float
+  %sub5 = uitofp nneg i32 %2 to float
   %mul = fmul float %sub5, 0x401921FB60000000
   %div = fdiv float %mul, %conv
   %sub7 = fadd float %radius, -5.000000e-01
@@ -8091,7 +8091,7 @@ if.else:                                          ; preds = %if.end
   %cond5.i = tail call i32 @llvm.umax.i32(i32 %1, i32 3)
   %conv = uitofp nneg i32 %cond5.i to float
   %2 = add nsw i32 %cond5.i, -1
-  %sub = sitofp i32 %2 to float
+  %sub = uitofp nneg i32 %2 to float
   %mul = fmul float %sub, 0x401921FB60000000
   %div = fdiv float %mul, %conv
   tail call void @_ZN10ImDrawList9PathArcToERK6ImVec2fffi(ptr noundef nonnull align 8 dereferenceable(196) %this, ptr noundef nonnull align 4 dereferenceable(8) %center, float noundef %radius, float noundef 0.000000e+00, float noundef %div, i32 noundef %2)
@@ -8121,7 +8121,7 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %conv = sitofp i32 %num_segments to float
+  %conv = uitofp nneg i32 %num_segments to float
   %sub = fadd float %conv, -1.000000e+00
   %mul = fmul float %sub, 0x401921FB60000000
   %div = fdiv float %mul, %conv
@@ -8149,7 +8149,7 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %conv = sitofp i32 %num_segments to float
+  %conv = uitofp nneg i32 %num_segments to float
   %sub = fadd float %conv, -1.000000e+00
   %mul = fmul float %sub, 0x401921FB60000000
   %div = fdiv float %mul, %conv

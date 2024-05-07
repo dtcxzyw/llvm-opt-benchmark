@@ -1700,7 +1700,7 @@ f_zero_p.exit:                                    ; preds = %32, %32, %32, %32, 
   br i1 %.not14, label %f_zero_p.exit.thread, label %f_zero_p.exit.thread35
 
 f_zero_p.exit.thread:                             ; preds = %41, %rb_type.exit.i, %rb_type.exit.thread8.i, %f_zero_p.exit
-  %45 = sitofp i32 %0 to double
+  %45 = uitofp nneg i32 %0 to double
   %46 = load double, ptr @positive_inf, align 8
   %47 = fcmp olt double %46, %45
   br i1 %47, label %48, label %f_zero_p.exit.thread35
@@ -1952,7 +1952,7 @@ f_zero_p.exit:                                    ; preds = %41, %41, %41, %41, 
   br i1 %.not19, label %f_zero_p.exit.thread, label %f_zero_p.exit.thread45
 
 f_zero_p.exit.thread:                             ; preds = %50, %rb_type.exit.i, %rb_type.exit.thread8.i, %f_zero_p.exit
-  %54 = sitofp i32 %0 to double
+  %54 = uitofp nneg i32 %0 to double
   %55 = load double, ptr @positive_inf, align 8
   %56 = fcmp olt double %55, %54
   br i1 %56, label %57, label %f_zero_p.exit.thread45
@@ -2270,7 +2270,7 @@ f_zero_p.exit:                                    ; preds = %44, %44, %44, %44, 
   br i1 %.not24, label %f_zero_p.exit.thread, label %f_zero_p.exit.thread55
 
 f_zero_p.exit.thread:                             ; preds = %53, %rb_type.exit.i, %rb_type.exit.thread8.i, %f_zero_p.exit
-  %57 = sitofp i32 %0 to double
+  %57 = uitofp nneg i32 %0 to double
   %58 = load double, ptr @positive_inf, align 8
   %59 = fcmp olt double %58, %57
   br i1 %59, label %60, label %f_zero_p.exit.thread55
@@ -3408,7 +3408,7 @@ f_zero_p.exit:                                    ; preds = %52, %52, %52, %52, 
   br i1 %.not47, label %f_zero_p.exit.thread, label %f_zero_p.exit.thread87
 
 f_zero_p.exit.thread:                             ; preds = %61, %rb_type.exit.i, %rb_type.exit.thread8.i, %f_zero_p.exit
-  %65 = sitofp i32 %0 to double
+  %65 = uitofp nneg i32 %0 to double
   %66 = load double, ptr @positive_inf, align 8
   %67 = fcmp olt double %66, %65
   br i1 %67, label %68, label %f_zero_p.exit.thread87
@@ -9782,7 +9782,7 @@ f_zero_p.exit:                                    ; preds = %47, %47, %47, %47, 
   br i1 %.not36, label %f_zero_p.exit.thread, label %f_zero_p.exit.thread104
 
 f_zero_p.exit.thread:                             ; preds = %56, %rb_type.exit.i, %rb_type.exit.thread8.i, %f_zero_p.exit
-  %60 = sitofp i32 %0 to double
+  %60 = uitofp nneg i32 %0 to double
   %61 = load double, ptr @positive_inf, align 8
   %62 = fcmp olt double %61, %60
   br i1 %62, label %63, label %f_zero_p.exit.thread104
@@ -10378,7 +10378,7 @@ f_zero_p.exit:                                    ; preds = %50, %50, %50, %50, 
   br i1 %.not44, label %f_zero_p.exit.thread, label %f_zero_p.exit.thread118
 
 f_zero_p.exit.thread:                             ; preds = %59, %rb_type.exit.i, %rb_type.exit.thread8.i, %f_zero_p.exit
-  %63 = sitofp i32 %0 to double
+  %63 = uitofp nneg i32 %0 to double
   %64 = load double, ptr @positive_inf, align 8
   %65 = fcmp olt double %64, %63
   br i1 %65, label %66, label %f_zero_p.exit.thread118
@@ -11088,7 +11088,7 @@ f_zero_p.exit.i:                                  ; preds = %rb_type.exit.i.i, %
   br i1 %.not88.i, label %f_zero_p.exit.thread.i, label %f_zero_p.exit.thread194.i
 
 f_zero_p.exit.thread.i:                           ; preds = %f_zero_p.exit.i, %87, %rb_type.exit.thread8.i.i, %rb_type.exit.i.i
-  %91 = sitofp i32 %0 to double
+  %91 = uitofp nneg i32 %0 to double
   %92 = load double, ptr @positive_inf, align 8
   %93 = fcmp olt double %92, %91
   br i1 %93, label %94, label %f_zero_p.exit.thread194.i
@@ -11987,7 +11987,7 @@ f_zero_p.exit:                                    ; preds = %53, %53, %53, %53, 
   br i1 %.not52, label %f_zero_p.exit.thread, label %f_zero_p.exit.thread131
 
 f_zero_p.exit.thread:                             ; preds = %62, %rb_type.exit.i, %rb_type.exit.thread8.i, %f_zero_p.exit
-  %66 = sitofp i32 %0 to double
+  %66 = uitofp nneg i32 %0 to double
   %67 = load double, ptr @positive_inf, align 8
   %68 = fcmp olt double %67, %66
   br i1 %68, label %69, label %f_zero_p.exit.thread131

@@ -1275,7 +1275,7 @@ define double @zfp_stream_rate(ptr nocapture noundef readonly %0, i32 noundef %1
   br i1 %27, label %zfp_stream_compression_mode.exit, label %zfp_stream_compression_mode.exit.thread
 
 zfp_stream_compression_mode.exit:                 ; preds = %24
-  %28 = uitofp i32 %3 to double
+  %28 = uitofp nneg i32 %3 to double
   %29 = shl i32 %1, 1
   %30 = shl nuw i32 1, %29
   %31 = uitofp nneg i32 %30 to double

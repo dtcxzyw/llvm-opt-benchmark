@@ -1209,7 +1209,7 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
   %423 = fdiv double %420, %422
   %424 = fdiv double %423, 5.200000e+01
   %425 = fptrunc double %424 to float
-  %426 = uitofp i8 %404 to float
+  %426 = uitofp nneg i8 %404 to float
   %427 = fmul float %426, %425
   %428 = fcmp une float %427, 0.000000e+00
   br i1 %428, label %429, label %430

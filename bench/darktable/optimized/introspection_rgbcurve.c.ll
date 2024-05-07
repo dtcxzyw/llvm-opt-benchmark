@@ -2843,7 +2843,7 @@ define internal noundef i32 @_area_draw_callback(ptr noundef %0, ptr noundef %1,
 398:                                              ; preds = %392, %384
   %399 = phi i32 [ %397, %392 ], [ %385, %384 ]
   %400 = phi float [ %396, %392 ], [ %386, %384 ]
-  %401 = sitofp i32 %399 to float
+  %401 = uitofp nneg i32 %399 to float
   %402 = fdiv reassoc nsz arcp contract afn float %400, %401
   %403 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !95
   %404 = getelementptr inbounds i8, ptr %403, i64 1448
@@ -6591,7 +6591,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %588 = phi i32 [ %586, %581 ], [ %574, %573 ]
   %589 = phi float [ %585, %581 ], [ %575, %573 ]
   %590 = icmp eq i32 %588, 0
-  %591 = sitofp i32 %588 to float
+  %591 = uitofp nneg i32 %588 to float
   %592 = fdiv reassoc nsz arcp contract afn float %589, %591
   %593 = select i1 %590, float 1.000000e+00, float %592
   %594 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %518
@@ -6690,7 +6690,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %672 = phi i32 [ %670, %665 ], [ %658, %657 ]
   %673 = phi float [ %669, %665 ], [ %659, %657 ]
   %674 = icmp eq i32 %672, 0
-  %675 = sitofp i32 %672 to float
+  %675 = uitofp nneg i32 %672 to float
   %676 = fdiv reassoc nsz arcp contract afn float %673, %675
   %677 = select i1 %674, float 1.000000e+00, float %676
   %678 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %601
@@ -6789,7 +6789,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %756 = phi i32 [ %754, %749 ], [ %742, %741 ]
   %757 = phi float [ %753, %749 ], [ %743, %741 ]
   %758 = icmp eq i32 %756, 0
-  %759 = sitofp i32 %756 to float
+  %759 = uitofp nneg i32 %756 to float
   %760 = fdiv reassoc nsz arcp contract afn float %757, %759
   %761 = select i1 %758, float 1.000000e+00, float %760
   %762 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %685

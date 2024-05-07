@@ -82,7 +82,7 @@ define void @dorbdb2_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   %65 = tail call i32 @llvm.smax.i32(i32 %63, i32 %64)
   store i32 %64, ptr %23, align 4, !tbaa !3
   %66 = add nsw i32 %65, 1
-  %67 = sitofp i32 %66 to double
+  %67 = uitofp nneg i32 %66 to double
   store double %67, ptr %12, align 8, !tbaa !7
   %68 = icmp sgt i32 %37, %65
   %69 = or i1 %68, %38

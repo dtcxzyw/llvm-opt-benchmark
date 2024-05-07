@@ -531,7 +531,7 @@ for.end62.i.i:                                    ; preds = %for.inc60.i.i
   br i1 %cmp63.i.i, label %if.then65.i.i, label %if.end70.i.i
 
 if.then65.i.i:                                    ; preds = %for.end62.i.i
-  %conv66.i.i = uitofp i64 %byte_ix.099.i.i to double
+  %conv66.i.i = uitofp nneg i64 %byte_ix.099.i.i to double
   %mul67.i.i = fmul double %conv66.i.i, 7.000000e-02
   %div.i135.i = fdiv double %mul67.i.i, 2.000000e+03
   %add68.i.i = fadd double %div.i135.i, 7.700000e-01
@@ -1726,7 +1726,7 @@ for.end62.i.i233:                                 ; preds = %for.inc60.i.i229
   br i1 %cmp63.i.i235, label %if.then65.i.i630, label %if.end70.i.i236
 
 if.then65.i.i630:                                 ; preds = %for.end62.i.i233
-  %conv66.i.i631 = uitofp i64 %byte_ix.099.i.i217 to double
+  %conv66.i.i631 = uitofp nneg i64 %byte_ix.099.i.i217 to double
   %mul67.i.i632 = fmul double %conv66.i.i631, 7.000000e-02
   %div.i135.i633 = fdiv double %mul67.i.i632, 2.000000e+03
   %add68.i.i634 = fadd double %div.i135.i633, 7.700000e-01
@@ -2945,7 +2945,7 @@ for.end62.i.i873:                                 ; preds = %for.inc60.i.i869
   br i1 %cmp63.i.i875, label %if.then65.i.i1319, label %if.end70.i.i876
 
 if.then65.i.i1319:                                ; preds = %for.end62.i.i873
-  %conv66.i.i1320 = uitofp i64 %byte_ix.099.i.i857 to double
+  %conv66.i.i1320 = uitofp nneg i64 %byte_ix.099.i.i857 to double
   %mul67.i.i1321 = fmul double %conv66.i.i1320, 7.000000e-02
   %div.i135.i1322 = fdiv double %mul67.i.i1321, 2.000000e+03
   %add68.i.i1323 = fadd double %div.i135.i1322, 7.700000e-01

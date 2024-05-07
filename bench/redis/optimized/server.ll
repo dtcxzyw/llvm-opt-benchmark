@@ -13809,7 +13809,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp1, label %if.then2, label %if.else4
 
 if.then2:                                         ; preds = %if.else
-  %conv = uitofp i64 %n to double
+  %conv = uitofp nneg i64 %n to double
   %div = fmul double %conv, 0x3F50000000000000
   %call3 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %s, i64 noundef %size, ptr noundef nonnull @.str.322, double noundef %div) #38
   br label %if.end38
@@ -13819,7 +13819,7 @@ if.else4:                                         ; preds = %if.else
   br i1 %cmp5, label %if.then7, label %if.else11
 
 if.then7:                                         ; preds = %if.else4
-  %conv8 = uitofp i64 %n to double
+  %conv8 = uitofp nneg i64 %n to double
   %div9 = fmul double %conv8, 0x3EB0000000000000
   %call10 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %s, i64 noundef %size, ptr noundef nonnull @.str.323, double noundef %div9) #38
   br label %if.end38
@@ -13829,7 +13829,7 @@ if.else11:                                        ; preds = %if.else4
   br i1 %cmp12, label %if.then14, label %if.else18
 
 if.then14:                                        ; preds = %if.else11
-  %conv15 = uitofp i64 %n to double
+  %conv15 = uitofp nneg i64 %n to double
   %div16 = fmul double %conv15, 0x3E10000000000000
   %call17 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %s, i64 noundef %size, ptr noundef nonnull @.str.324, double noundef %div16) #38
   br label %if.end38
@@ -13839,7 +13839,7 @@ if.else18:                                        ; preds = %if.else11
   br i1 %cmp19, label %if.then21, label %if.else25
 
 if.then21:                                        ; preds = %if.else18
-  %conv22 = uitofp i64 %n to double
+  %conv22 = uitofp nneg i64 %n to double
   %div23 = fmul double %conv22, 0x3D70000000000000
   %call24 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %s, i64 noundef %size, ptr noundef nonnull @.str.325, double noundef %div23) #38
   br label %if.end38
@@ -13849,7 +13849,7 @@ if.else25:                                        ; preds = %if.else18
   br i1 %cmp26, label %if.then28, label %if.else32
 
 if.then28:                                        ; preds = %if.else25
-  %conv29 = uitofp i64 %n to double
+  %conv29 = uitofp nneg i64 %n to double
   %div30 = fmul double %conv29, 0x3CD0000000000000
   %call31 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %s, i64 noundef %size, ptr noundef nonnull @.str.326, double noundef %div30) #38
   br label %if.end38

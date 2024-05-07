@@ -31342,7 +31342,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 ._crit_edge326:                                   ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, %._crit_edge306
   %591 = call i64 @fwrite(ptr nonnull @.str.453, i64 6, i64 1, ptr nonnull %19)
   %592 = call i64 @fwrite(ptr nonnull @.str.454, i64 14, i64 1, ptr nonnull %19)
-  %593 = sitofp i32 %.0224.lcssa to double
+  %593 = uitofp nneg i32 %.0224.lcssa to double
   %594 = fmul double %593, 2.500000e-01
   %595 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %19, ptr noundef nonnull @.str.455, double noundef %594) #24
   %596 = call i64 @fwrite(ptr nonnull @.str.456, i64 4, i64 1, ptr nonnull %19)

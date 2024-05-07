@@ -143,7 +143,7 @@ define range(i32 0, 2) i32 @IMDS_given_dim(ptr noundef %0, i32 noundef %1, ptr n
 
 .preheader.lr.ph.i.i.i:                           ; preds = %.lr.ph.i.i
   %67 = tail call fastcc ptr @gv_calloc(i64 noundef %6, i64 noundef 4)
-  %68 = sitofp i32 %1 to float
+  %68 = uitofp nneg i32 %1 to float
   br label %.preheader.us.i.i.i
 
 .preheader.us.i.i.i:                              ; preds = %._crit_edge.us.i.i.i, %.preheader.lr.ph.i.i.i

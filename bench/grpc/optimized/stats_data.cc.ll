@@ -353,7 +353,7 @@ if.else3:                                         ; preds = %entry
   br i1 %cmp4, label %if.then5, label %return
 
 if.then5:                                         ; preds = %if.else3
-  %conv = sitofp i32 %value to double
+  %conv = uitofp nneg i32 %value to double
   %0 = bitcast double %conv to i64
   %sub = add i64 %0, -4613937818241073152
   %shr = lshr i64 %sub, 51
@@ -388,7 +388,7 @@ if.else3:                                         ; preds = %entry
   br i1 %cmp4, label %if.then5, label %return
 
 if.then5:                                         ; preds = %if.else3
-  %conv = sitofp i32 %value to double
+  %conv = uitofp nneg i32 %value to double
   %0 = bitcast double %conv to i64
   %sub = add i64 %0, -4613937818241073152
   %shr = lshr i64 %sub, 51
@@ -423,7 +423,7 @@ if.else3:                                         ; preds = %entry
   br i1 %cmp4, label %if.then5, label %return
 
 if.then5:                                         ; preds = %if.else3
-  %conv = sitofp i32 %value to double
+  %conv = uitofp nneg i32 %value to double
   %0 = bitcast double %conv to i64
   %sub = add i64 %0, -4611686018427387904
   %shr = lshr i64 %sub, 52
@@ -458,7 +458,7 @@ if.else3:                                         ; preds = %entry
   br i1 %cmp4, label %if.then5, label %if.else11
 
 if.then5:                                         ; preds = %if.else3
-  %conv = sitofp i32 %value to double
+  %conv = uitofp nneg i32 %value to double
   %0 = bitcast double %conv to i64
   %sub = add i64 %0, -4613937818241073152
   %shr = lshr i64 %sub, 51
@@ -498,7 +498,7 @@ if.else3:                                         ; preds = %entry
   br i1 %cmp4, label %if.then5, label %if.else11
 
 if.then5:                                         ; preds = %if.else3
-  %conv = sitofp i32 %value to double
+  %conv = uitofp nneg i32 %value to double
   %0 = bitcast double %conv to i64
   %sub = add i64 %0, -4613937818241073152
   %shr = lshr i64 %sub, 51

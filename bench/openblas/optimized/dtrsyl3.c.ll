@@ -4111,11 +4111,11 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %2634 = add nuw nsw i32 %468, 2
   store i32 %2634, ptr %12, align 4, !tbaa !3
   %2635 = call i32 @llvm.smax.i32(i32 %261, i32 %470)
-  %2636 = sitofp i32 %2635 to double
+  %2636 = uitofp nneg i32 %2635 to double
   store double %2636, ptr %14, align 8, !tbaa !7
   %2637 = shl nuw nsw i32 %470, 1
   %2638 = add nuw nsw i32 %2637, %261
-  %2639 = sitofp i32 %2638 to double
+  %2639 = uitofp nneg i32 %2638 to double
   %2640 = getelementptr double, ptr %88, i64 %.pre-phi447
   %2641 = getelementptr i8, ptr %2640, i64 16
   store double %2639, ptr %2641, align 8, !tbaa !7
@@ -4304,11 +4304,11 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %2755 = add nuw nsw i32 %468, 2
   store i32 %2755, ptr %12, align 4, !tbaa !3
   %2756 = call i32 @llvm.smax.i32(i32 %261, i32 %470)
-  %2757 = sitofp i32 %2756 to double
+  %2757 = uitofp nneg i32 %2756 to double
   store double %2757, ptr %14, align 8, !tbaa !7
   %2758 = shl nuw nsw i32 %470, 1
   %2759 = add nuw nsw i32 %2758, %261
-  %2760 = sitofp i32 %2759 to double
+  %2760 = uitofp nneg i32 %2759 to double
   %2761 = sext i32 %85 to i64
   %2762 = getelementptr double, ptr %88, i64 %2761
   %2763 = getelementptr i8, ptr %2762, i64 16

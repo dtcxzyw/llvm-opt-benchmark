@@ -472,7 +472,7 @@ define void @dhgeqz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %310 = fneg double %307
   %311 = getelementptr inbounds i8, ptr %29, i64 8
   %312 = getelementptr inbounds i8, ptr %29, i64 16
-  %313 = sitofp i32 %300 to double
+  %313 = uitofp nneg i32 %300 to double
   %314 = fmul double %168, %313
   %315 = fdiv double 1.000000e+00, %314
   %316 = fcmp ole <2 x double> %197, <double 1.000000e+00, double 1.000000e+00>

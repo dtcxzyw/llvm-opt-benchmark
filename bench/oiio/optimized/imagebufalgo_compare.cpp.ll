@@ -32019,7 +32019,7 @@ if.end.i:                                         ; preds = %call.i.noexc
           to label %.noexc24 unwind label %lpad
 
 .noexc24:                                         ; preds = %if.end.i
-  %conv.i = sitofp i32 %bins to float
+  %conv.i = uitofp nneg i32 %bins to float
   %sub.i = fsub float %max, %min
   %div.i = fdiv float %conv.i, %sub.i
   %cmp.not.i = icmp ne ptr %submin, null

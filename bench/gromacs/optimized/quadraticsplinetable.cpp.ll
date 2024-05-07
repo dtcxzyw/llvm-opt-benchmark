@@ -504,7 +504,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit66.i:           ; preds = %.noexc151
   %.091.i = phi i1 [ true, %.lr.ph.i ], [ %.285.i, %215 ]
   %.06090.i = phi i64 [ %146, %.lr.ph.i ], [ %.161.i, %215 ]
   %154 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %155 = sitofp i32 %154 to double
+  %155 = uitofp nneg i32 %154 to double
   %156 = fmul double %99, %155
   %157 = load float, ptr %24, align 8
   %158 = fcmp ule float %157, 0.000000e+00
@@ -2521,16 +2521,16 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit73.i:           ; preds = %176, %.noexc119
 
 205:                                              ; preds = %264, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %202, %.lr.ph.i ], [ %indvars.iv.next.i, %264 ]
-  %.095.i = phi i1 [ true, %.lr.ph.i ], [ %.286.i, %264 ]
-  %.06494.i = phi i32 [ %201, %.lr.ph.i ], [ %.165.i, %264 ]
+  %.094.i = phi i1 [ true, %.lr.ph.i ], [ %.286.i, %264 ]
+  %.06493.i = phi i32 [ %201, %.lr.ph.i ], [ %.165.i, %264 ]
   %206 = icmp ne i64 %indvars.iv.i, 0
   %or.cond.i.not = or i1 %206, %204
-  %spec.select.i = and i1 %or.cond.i.not, %.095.i
+  %spec.select.i = and i1 %or.cond.i.not, %.094.i
   %207 = trunc nuw nsw i64 %indvars.iv.i to i32
   br i1 %spec.select.i, label %208, label %.thread.i
 
 208:                                              ; preds = %205
-  %209 = sitofp i32 %207 to double
+  %209 = uitofp nneg i32 %207 to double
   %210 = fmul double %138, %209
   %211 = fdiv double %210, %.sroa.6.0.copyload
   %212 = fptoui double %211 to i64
@@ -2577,18 +2577,18 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit73.i:           ; preds = %176, %.noexc119
   %247 = fptrunc double %239 to float
   %248 = getelementptr inbounds float, ptr %.sroa.0236.2, i64 %indvars.iv.i
   store float %247, ptr %248, align 4
-  %249 = add nsw i32 %.06494.i, -1
+  %249 = add nsw i32 %.06493.i, -1
   br label %264
 
 .thread.i:                                        ; preds = %208, %205
-  %250 = sext i32 %.06494.i to i64
+  %250 = sext i32 %.06493.i to i64
   %251 = getelementptr inbounds float, ptr %.sroa.0249.2362, i64 %250
   %252 = load float, ptr %251, align 4
   %253 = fpext float %252 to double
   %254 = getelementptr inbounds float, ptr %.sroa.0236.2, i64 %250
   %255 = load float, ptr %254, align 4
   %256 = fpext float %255 to double
-  %257 = sub nsw i32 %207, %.06494.i
+  %257 = sub nsw i32 %207, %.06493.i
   %258 = sitofp i32 %257 to double
   %259 = fmul double %258, %256
   %260 = call double @llvm.fmuladd.f64(double %259, double %138, double %253)
@@ -2601,7 +2601,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit73.i:           ; preds = %176, %.noexc119
 
 264:                                              ; preds = %.thread.i, %244
   %.286.i = phi i1 [ true, %244 ], [ false, %.thread.i ]
-  %.165.i = phi i32 [ %249, %244 ], [ %.06494.i, %.thread.i ]
+  %.165.i = phi i32 [ %249, %244 ], [ %.06493.i, %.thread.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %265 = icmp sgt i64 %indvars.iv.i, 0
   br i1 %265, label %205, label %._crit_edge.i, !llvm.loop !18

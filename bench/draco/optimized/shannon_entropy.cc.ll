@@ -87,7 +87,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc28, %_ZNSt6ve
 
 21:                                               ; preds = %.lr.ph42
   %22 = add nsw i32 %.02139, 1
-  %23 = sitofp i32 %19 to double
+  %23 = uitofp nneg i32 %19 to double
   %24 = fdiv double %23, %17
   %25 = tail call double @log2(double noundef %24) #19
   %26 = tail call double @llvm.fmuladd.f64(double %23, double %25, double %.02238)
@@ -245,7 +245,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %38, %36, %34, %32, 
   br i1 %42, label %43, label %47
 
 43:                                               ; preds = %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
-  %44 = sitofp i32 %41 to double
+  %44 = uitofp nneg i32 %41 to double
   %45 = call noundef double @log2(double noundef %44) #19
   %46 = fmul double %45, %44
   %.pre48 = load i32, ptr %40, align 4
@@ -331,7 +331,7 @@ define noundef i64 @_ZN5draco21ShannonEntropyTracker19GetNumberOfDataBitsERKNS0_
   br i1 %4, label %13, label %5
 
 5:                                                ; preds = %1
-  %6 = sitofp i32 %3 to double
+  %6 = uitofp nneg i32 %3 to double
   %7 = tail call noundef double @log2(double noundef %6) #19
   %8 = load double, ptr %0, align 8
   %9 = fneg double %8

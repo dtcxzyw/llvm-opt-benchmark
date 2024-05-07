@@ -3312,7 +3312,7 @@ define void @cpu_freq_to_string(ptr noundef %0, i32 noundef %1, i32 noundef %2) 
   br label %40
 
 38:                                               ; preds = %34
-  %39 = uitofp i32 %2 to double
+  %39 = uitofp nneg i32 %2 to double
   tail call void @convert_num_unit2(double noundef %39, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef -2, i32 noundef 1000, i32 noundef 0) #11
   br label %40
 

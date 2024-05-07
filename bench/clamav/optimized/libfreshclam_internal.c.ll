@@ -3609,13 +3609,13 @@ define internal noundef i32 @xferinfo(ptr nocapture noundef %0, i64 noundef %1, 
   store i64 0, ptr %6, align 8
   %9 = sitofp i64 %1 to double
   %10 = icmp slt i64 %1, 1
-  br i1 %10, label %100, label %11
+  br i1 %10, label %104, label %11
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %13 = load i8, ptr %12, align 8
   %.not = icmp eq i8 %13, 0
-  br i1 %.not, label %14, label %100
+  br i1 %.not, label %14, label %104
 
 14:                                               ; preds = %11
   %15 = sitofp i64 %2 to double
@@ -3709,78 +3709,82 @@ define internal noundef i32 @xferinfo(ptr nocapture noundef %0, i64 noundef %1, 
   %60 = load ptr, ptr @stdout, align 8
   %61 = call i64 @fwrite(ptr nonnull @.str.174, i64 2, i64 1, ptr %60)
   %62 = icmp sgt i64 %2, 1048575
-  br i1 %62, label %63, label %67
+  br i1 %62, label %63, label %68
 
 63:                                               ; preds = %._crit_edge
-  %64 = fmul double %15, 0x3EB0000000000000
-  %65 = load ptr, ptr @stdout, align 8
-  %66 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %65, ptr noundef nonnull @.str.181, double noundef %64) #23
+  %64 = uitofp nneg i64 %2 to double
+  %65 = fmul double %64, 0x3EB0000000000000
+  %66 = load ptr, ptr @stdout, align 8
+  %67 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %66, ptr noundef nonnull @.str.181, double noundef %65) #23
   br label %printBytes.exit
 
-67:                                               ; preds = %._crit_edge
-  %68 = icmp sgt i64 %2, 1023
-  br i1 %68, label %69, label %73
+68:                                               ; preds = %._crit_edge
+  %69 = icmp sgt i64 %2, 1023
+  br i1 %69, label %70, label %75
 
-69:                                               ; preds = %67
-  %70 = fmul double %15, 0x3F50000000000000
-  %71 = load ptr, ptr @stdout, align 8
-  %72 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %71, ptr noundef nonnull @.str.183, double noundef %70) #23
+70:                                               ; preds = %68
+  %71 = uitofp nneg i64 %2 to double
+  %72 = fmul double %71, 0x3F50000000000000
+  %73 = load ptr, ptr @stdout, align 8
+  %74 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %73, ptr noundef nonnull @.str.183, double noundef %72) #23
   br label %printBytes.exit
 
-73:                                               ; preds = %67
-  %74 = load ptr, ptr @stdout, align 8
-  %75 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %74, ptr noundef nonnull @.str.185, i64 noundef %2) #23
-  br label %printBytes.exit
-
-printBytes.exit:                                  ; preds = %63, %69, %73
+75:                                               ; preds = %68
   %76 = load ptr, ptr @stdout, align 8
-  %fputc34 = call i32 @fputc(i32 47, ptr %76)
-  %77 = icmp sgt i64 %1, 1048575
-  br i1 %77, label %78, label %82
+  %77 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %76, ptr noundef nonnull @.str.185, i64 noundef %2) #23
+  br label %printBytes.exit
 
-78:                                               ; preds = %printBytes.exit
-  %79 = fmul double %9, 0x3EB0000000000000
-  %80 = load ptr, ptr @stdout, align 8
-  %81 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %80, ptr noundef nonnull @.str.182, double noundef %79) #23
+printBytes.exit:                                  ; preds = %63, %70, %75
+  %78 = load ptr, ptr @stdout, align 8
+  %fputc34 = call i32 @fputc(i32 47, ptr %78)
+  %79 = icmp sgt i64 %1, 1048575
+  br i1 %79, label %80, label %85
+
+80:                                               ; preds = %printBytes.exit
+  %81 = uitofp nneg i64 %1 to double
+  %82 = fmul double %81, 0x3EB0000000000000
+  %83 = load ptr, ptr @stdout, align 8
+  %84 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %83, ptr noundef nonnull @.str.182, double noundef %82) #23
   br label %printBytes.exit39
 
-82:                                               ; preds = %printBytes.exit
-  %83 = icmp sgt i64 %1, 1023
-  br i1 %83, label %84, label %88
+85:                                               ; preds = %printBytes.exit
+  %86 = icmp sgt i64 %1, 1023
+  br i1 %86, label %87, label %92
 
-84:                                               ; preds = %82
-  %85 = fmul double %9, 0x3F50000000000000
-  %86 = load ptr, ptr @stdout, align 8
-  %87 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %86, ptr noundef nonnull @.str.184, double noundef %85) #23
+87:                                               ; preds = %85
+  %88 = uitofp nneg i64 %1 to double
+  %89 = fmul double %88, 0x3F50000000000000
+  %90 = load ptr, ptr @stdout, align 8
+  %91 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %90, ptr noundef nonnull @.str.184, double noundef %89) #23
   br label %printBytes.exit39
 
-88:                                               ; preds = %82
-  %89 = load ptr, ptr @stdout, align 8
-  %90 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %89, ptr noundef nonnull @.str.186, i64 noundef %1) #23
+92:                                               ; preds = %85
+  %93 = load ptr, ptr @stdout, align 8
+  %94 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %93, ptr noundef nonnull @.str.186, i64 noundef %1) #23
   br label %printBytes.exit39
 
-printBytes.exit39:                                ; preds = %78, %84, %88
-  %91 = icmp slt i64 %2, %1
-  %92 = load ptr, ptr @stdout, align 8
-  br i1 %91, label %93, label %94
-
-93:                                               ; preds = %printBytes.exit39
-  %fputc36 = call i32 @fputc(i32 13, ptr %92)
-  br label %95
-
-94:                                               ; preds = %printBytes.exit39
-  %fputc35 = call i32 @fputc(i32 10, ptr %92)
-  store i8 1, ptr %12, align 8
-  br label %95
-
-95:                                               ; preds = %94, %93
+printBytes.exit39:                                ; preds = %80, %87, %92
+  %95 = icmp slt i64 %2, %1
   %96 = load ptr, ptr @stdout, align 8
-  %97 = call i64 @fwrite(ptr nonnull @.str.177, i64 5, i64 1, ptr %96)
-  %98 = load ptr, ptr @stdout, align 8
-  %99 = call i32 @fflush(ptr noundef %98)
-  br label %100
+  br i1 %95, label %97, label %98
 
-100:                                              ; preds = %5, %11, %95
+97:                                               ; preds = %printBytes.exit39
+  %fputc36 = call i32 @fputc(i32 13, ptr %96)
+  br label %99
+
+98:                                               ; preds = %printBytes.exit39
+  %fputc35 = call i32 @fputc(i32 10, ptr %96)
+  store i8 1, ptr %12, align 8
+  br label %99
+
+99:                                               ; preds = %98, %97
+  %100 = load ptr, ptr @stdout, align 8
+  %101 = call i64 @fwrite(ptr nonnull @.str.177, i64 5, i64 1, ptr %100)
+  %102 = load ptr, ptr @stdout, align 8
+  %103 = call i32 @fflush(ptr noundef %102)
+  br label %104
+
+104:                                              ; preds = %5, %11, %99
   ret i32 0
 }
 

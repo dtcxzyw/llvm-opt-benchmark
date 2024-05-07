@@ -1738,7 +1738,7 @@ _ZN3gmx12_GLOBAL__N_125getIntervalLengthPeriodicEddd.exit: ; preds = %13
   store i32 0, ptr %50, align 4
   %51 = icmp sgt i32 %.sink, 1
   %52 = add nsw i32 %.sink, -1
-  %53 = sitofp i32 %52 to double
+  %53 = uitofp nneg i32 %52 to double
   %54 = fdiv double %.0.i, %53
   %55 = select i1 %51, double %54, double 0.000000e+00
   %56 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1801,7 +1801,7 @@ _ZN3gmx12_GLOBAL__N_125getIntervalLengthPeriodicEddd.exit: ; preds = %20
   store double %.0.i, ptr %24, align 8
   %25 = icmp sgt i32 %4, 1
   %26 = add nsw i32 %4, -1
-  %27 = sitofp i32 %26 to double
+  %27 = uitofp nneg i32 %26 to double
   %28 = fdiv double %.0.i, %27
   %29 = select i1 %25, double %28, double %3
   %30 = getelementptr inbounds i8, ptr %0, i64 24

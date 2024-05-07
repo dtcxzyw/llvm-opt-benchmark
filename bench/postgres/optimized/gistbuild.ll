@@ -842,7 +842,7 @@ RelationGetSmgr.exit._crit_edge:                  ; preds = %RelationGetSmgr.exi
   %174 = fdiv double %171, %173
   %175 = uitofp i64 %169 to double
   %176 = fdiv double %175, %174
-  %177 = sitofp i32 %160 to double
+  %177 = uitofp nneg i32 %160 to double
   %178 = call double @pow(double noundef %176, double noundef %177) #10
   %179 = fmul double %178, 2.000000e+00
   br label %180

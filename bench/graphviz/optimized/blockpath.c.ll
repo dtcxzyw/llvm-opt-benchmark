@@ -1587,7 +1587,7 @@ reduce_edge_crossings.exit:                       ; preds = %reduce.exit.i, %728
   br i1 %.not.i93, label %._crit_edge.thread, label %.lr.ph.i94
 
 ._crit_edge.thread:                               ; preds = %reduce_edge_crossings.exit
-  %739 = uitofp i64 %.val to double
+  %739 = uitofp nneg i64 %.val to double
   %740 = fadd double %2, 0.000000e+00
   %741 = fmul double %740, %739
   %742 = fdiv double %741, 0x401921FB54442D18

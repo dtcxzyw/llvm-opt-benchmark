@@ -6666,7 +6666,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @width_bucket_float8(ptr
   %48 = fsub double %7, %5
   %49 = tail call double @llvm.fabs.f64(double %48)
   %50 = fcmp oeq double %49, 0x7FF0000000000000
-  %51 = sitofp i32 %10 to double
+  %51 = uitofp nneg i32 %10 to double
   br i1 %50, label %55, label %52
 
 52:                                               ; preds = %47
@@ -6727,7 +6727,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @width_bucket_float8(ptr
   %85 = fsub double %5, %7
   %86 = tail call double @llvm.fabs.f64(double %85)
   %87 = fcmp oeq double %86, 0x7FF0000000000000
-  %88 = sitofp i32 %10 to double
+  %88 = uitofp nneg i32 %10 to double
   br i1 %87, label %92, label %89
 
 89:                                               ; preds = %84

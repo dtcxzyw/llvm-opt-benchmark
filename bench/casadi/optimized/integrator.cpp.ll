@@ -31994,7 +31994,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit59: ; 
   %100 = getelementptr inbounds i8, ptr %0, i64 1544
   %101 = load double, ptr %100, align 8
   %102 = fsub double %99, %101
-  %103 = sitofp i64 %58 to double
+  %103 = uitofp nneg i64 %58 to double
   %104 = fdiv double %102, %103
   %105 = getelementptr inbounds i8, ptr %0, i64 1920
   %106 = load ptr, ptr %95, align 8
@@ -33276,7 +33276,7 @@ _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit:       ; preds = %.lr.ph.i, %6, %.pre
   %.0124 = phi i64 [ %26, %.lr.ph ], [ %51, %_ZN6casadi11casadi_axpyIdEEvxT_PKS1_PS1_.exit90 ]
   %51 = add nsw i64 %.0124, -1
   %52 = load double, ptr %29, align 8
-  %53 = sitofp i64 %51 to double
+  %53 = uitofp nneg i64 %51 to double
   %54 = tail call double @llvm.fmuladd.f64(double %53, double %33, double %52)
   %55 = load ptr, ptr %35, align 8
   %56 = load i64, ptr %36, align 8

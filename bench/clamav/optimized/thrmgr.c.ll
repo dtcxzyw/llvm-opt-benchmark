@@ -325,11 +325,11 @@ define internal fastcc void @print_queue(i32 noundef %0, ptr nocapture noundef r
   br i1 %.not48, label %20, label %.preheader
 
 20:                                               ; preds = %18
-  %21 = sitofp i64 %.243 to double
+  %21 = uitofp nneg i64 %.243 to double
   %22 = fdiv double %21, 1.000000e+06
-  %23 = sitofp i64 %.2 to double
+  %23 = uitofp nneg i64 %.2 to double
   %24 = fdiv double %23, 1.000000e+06
-  %25 = sitofp i64 %.138 to double
+  %25 = uitofp nneg i64 %.138 to double
   %26 = uitofp i32 %.1 to double
   %27 = fmul double %26, 1.000000e+06
   %28 = fdiv double %25, %27

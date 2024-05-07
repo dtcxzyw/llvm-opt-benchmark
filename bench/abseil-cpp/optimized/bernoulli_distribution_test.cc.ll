@@ -4812,7 +4812,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i.preh
   br i1 %cmp.not.i.i, label %if.end.i.i, label %_ZN4absl22bernoulli_distributionclINS_15random_internal10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEEEEbRT_.exit
 
 if.end.i.i:                                       ; preds = %while.body.i.i
-  %conv5.i.i = uitofp i64 %conv.i.i.fr to double
+  %conv5.i.i = uitofp nneg i64 %conv.i.i.fr to double
   %div.i.i = fmul double %conv5.i.i, 0x3DF0000000000000
   %sub.i.i = fsub double %p.addr.0.i.i, %div.i.i
   %mul6.i.i = fmul double %sub.i.i, 0x41F0000000000000
@@ -6700,7 +6700,7 @@ while.body.i.i:                                   ; preds = %if.end.i.i, %for.bo
   br i1 %cmp.not.i.i, label %if.end.i.i, label %invoke.cont3
 
 if.end.i.i:                                       ; preds = %while.body.i.i
-  %conv5.i.i = uitofp i64 %conv.i.i to double
+  %conv5.i.i = uitofp nneg i64 %conv.i.i to double
   %div.i.i = fmul double %conv5.i.i, 0x3DF0000000000000
   %sub.i.i = fsub double %p.addr.0.i.i, %div.i.i
   %mul6.i.i = fmul double %sub.i.i, 0x41F0000000000000
@@ -7856,7 +7856,7 @@ while.body.i.i:                                   ; preds = %if.end.i.i, %for.bo
   br i1 %cmp.not.i.i, label %if.end.i.i, label %invoke.cont2
 
 if.end.i.i:                                       ; preds = %while.body.i.i
-  %conv5.i.i = uitofp i64 %conv.i.i to double
+  %conv5.i.i = uitofp nneg i64 %conv.i.i to double
   %div.i.i = fmul double %conv5.i.i, 0x3DF0000000000000
   %sub.i.i = fsub double %p.addr.0.i.i, %div.i.i
   %mul6.i.i = fmul double %sub.i.i, 0x41F0000000000000

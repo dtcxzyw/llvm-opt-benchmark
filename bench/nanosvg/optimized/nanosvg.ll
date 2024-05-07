@@ -6328,7 +6328,7 @@ define internal fastcc void @nsvg__initPaint(ptr nocapture noundef writeonly %0,
   %121 = lshr i32 %120, 8
   %122 = and i32 %121, 16711680
   %123 = mul i32 %122, %57
-  %124 = sitofp i32 %117 to float
+  %124 = uitofp nneg i32 %117 to float
   %125 = fdiv float 1.000000e+00, %124
   %126 = and i32 %120, 255
   %127 = and i32 %99, 255
@@ -14354,7 +14354,7 @@ nsvg__normalize.exit:                             ; preds = %7
 
 153:                                              ; preds = %nsvg__normalize.exit
   %154 = add nsw i32 %spec.store.select.i, -1
-  %155 = sitofp i32 %154 to float
+  %155 = uitofp nneg i32 %154 to float
   %156 = fneg <2 x float> %73
   %157 = getelementptr inbounds i8, ptr %0, i64 24
   %158 = getelementptr inbounds i8, ptr %0, i64 28
@@ -14520,7 +14520,7 @@ nsvg__buttCap.exit:                               ; preds = %207, %.sink.split.i
   %spec.store.select.i131 = tail call i32 @llvm.smax.i32(i32 %252, i32 2)
   %.066.i = tail call i32 @llvm.smin.i32(i32 %spec.store.select.i131, i32 %spec.store.select.i)
   %253 = add nsw i32 %.066.i, -1
-  %254 = sitofp i32 %253 to float
+  %254 = uitofp nneg i32 %253 to float
   br label %255
 
 255:                                              ; preds = %nsvg__addEdge.exit88.i, %230
@@ -15866,7 +15866,7 @@ nsvg__addEdge.exit57.i:                           ; preds = %.sink.split.i48.i, 
   %979 = extractelement <2 x float> %779, i64 0
   %980 = fneg float %979
   %981 = add nsw i32 %spec.store.select.i, -1
-  %982 = sitofp i32 %981 to float
+  %982 = uitofp nneg i32 %981 to float
   %983 = getelementptr inbounds i8, ptr %0, i64 24
   %984 = getelementptr inbounds i8, ptr %0, i64 28
   %985 = getelementptr inbounds i8, ptr %0, i64 16

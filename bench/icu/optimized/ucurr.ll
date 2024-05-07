@@ -3700,7 +3700,7 @@ if.else.i:                                        ; preds = %if.then.i
   br i1 %cmp8.i, label %if.then9.i, label %ucurr_getRoundingIncrementForUsage_75.exit
 
 if.then9.i:                                       ; preds = %if.else.i
-  %conv.i = sitofp i32 %increment.0.i to double
+  %conv.i = uitofp nneg i32 %increment.0.i to double
   %idxprom.i = zext nneg i32 %fracDigits.0.i to i64
   %arrayidx10.i = getelementptr inbounds [10 x i32], ptr @_ZL5POW10, i64 0, i64 %idxprom.i
   %1 = load i32, ptr %arrayidx10.i, align 4
@@ -3753,7 +3753,7 @@ if.else:                                          ; preds = %sw.epilog
   br i1 %cmp8, label %if.then9, label %return
 
 if.then9:                                         ; preds = %if.else
-  %conv = sitofp i32 %increment.0 to double
+  %conv = uitofp nneg i32 %increment.0 to double
   %idxprom = zext nneg i32 %fracDigits.0 to i64
   %arrayidx10 = getelementptr inbounds [10 x i32], ptr @_ZL5POW10, i64 0, i64 %idxprom
   %1 = load i32, ptr %arrayidx10, align 4

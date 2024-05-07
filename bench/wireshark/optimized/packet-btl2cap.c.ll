@@ -1789,7 +1789,7 @@ dissect_configresponse.exit:                      ; preds = %377, %.thread67.i54
   br label %652
 
 640:                                              ; preds = %621
-  %641 = uitofp i16 %637 to double
+  %641 = uitofp nneg i16 %637 to double
   %642 = add nsw i32 %.0500583, 10
   %643 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %642) #8
   %644 = insertelement <2 x i16> poison, i16 %643, i64 0

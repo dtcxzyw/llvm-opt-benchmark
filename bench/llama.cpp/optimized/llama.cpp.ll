@@ -20062,7 +20062,7 @@ if.then385.i:                                     ; preds = %for.end383.i
           to label %for.cond388.preheader.i unwind label %lpad97.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 for.cond388.preheader.i:                          ; preds = %if.then385.i
-  %conv394.i = sitofp i64 %add380.i to float
+  %conv394.i = uitofp nneg i64 %add380.i to float
   br label %for.body391.i
 
 for.body391.i:                                    ; preds = %for.inc398.i, %for.cond388.preheader.i

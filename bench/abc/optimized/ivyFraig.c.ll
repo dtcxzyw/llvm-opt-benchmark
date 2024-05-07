@@ -2084,7 +2084,7 @@ Ivy_FraigNodesAreEquiv.exit.thread.i:             ; preds = %166
   br label %.sink.split
 
 170:                                              ; preds = %166
-  %171 = sitofp i32 %156 to double
+  %171 = uitofp nneg i32 %156 to double
   %172 = call double @pow(double noundef %171, double noundef 0x3FE6666666666666) #25
   %173 = fptosi double %172 to i32
   br label %174

@@ -20,7 +20,7 @@ define void @cblas_daxpy(i32 noundef %0, double noundef %1, ptr noundef %2, i32 
   br i1 %13, label %14, label %20
 
 14:                                               ; preds = %11
-  %15 = sitofp i32 %0 to double
+  %15 = uitofp nneg i32 %0 to double
   %16 = fmul double %15, %1
   %17 = load double, ptr %2, align 8, !tbaa !3
   %18 = load double, ptr %4, align 8, !tbaa !3

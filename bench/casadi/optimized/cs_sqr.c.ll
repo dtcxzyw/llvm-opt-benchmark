@@ -364,7 +364,7 @@ define internal fastcc range(i32 0, 2) i32 @cs_vcount(ptr nocapture noundef read
   br i1 %96, label %121, label %97
 
 97:                                               ; preds = %89
-  %98 = sitofp i32 %95 to double
+  %98 = uitofp nneg i32 %95 to double
   %99 = load double, ptr %79, align 8
   %100 = fadd double %99, %98
   store double %100, ptr %79, align 8

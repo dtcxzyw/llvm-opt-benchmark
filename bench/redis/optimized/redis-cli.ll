@@ -2188,7 +2188,7 @@ for.body105.lr.ph:                                ; preds = %for.cond81.while.co
   %idx.ext = zext nneg i32 %div to i64
   %add.ptr = getelementptr ptr, ptr %call39, i64 %idx.ext
   %sub = sub i32 %interleaved_len.0.lcssa, %div
-  %conv100 = sitofp i32 %div to float
+  %conv100 = uitofp nneg i32 %div to float
   %div101 = fdiv float 1.638400e+04, %conv100
   %sub114 = add nsw i32 %div, -1
   %32 = zext i32 %sub114 to i64
@@ -4042,7 +4042,7 @@ if.then69:                                        ; preds = %while.body55
 if.then73:                                        ; preds = %if.then69
   %conv74 = sitofp i32 %conv63.fr to double
   %mul75 = fmul double %conv74, 1.000000e+02
-  %conv77 = sitofp i32 %28 to double
+  %conv77 = uitofp nneg i32 %28 to double
   %div78 = fdiv double %mul75, %conv77
   %sub79 = fsub double 1.000000e+02, %div78
   %29 = fptrunc double %sub79 to float
@@ -7156,7 +7156,7 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp3, label %if.then4, label %if.else6
 
 if.then4:                                         ; preds = %if.else
-  %conv = sitofp i64 %n.addr.0 to double
+  %conv = uitofp nneg i64 %n.addr.0 to double
   %div = fmul double %conv, 0x3F50000000000000
   %call5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %s.addr.0, i64 noundef %size, ptr noundef nonnull @.str.111, double noundef %div) #33
   br label %if.end23
@@ -7166,7 +7166,7 @@ if.else6:                                         ; preds = %if.else
   br i1 %cmp7, label %if.then9, label %if.else13
 
 if.then9:                                         ; preds = %if.else6
-  %conv10 = sitofp i64 %n.addr.0 to double
+  %conv10 = uitofp nneg i64 %n.addr.0 to double
   %div11 = fmul double %conv10, 0x3EB0000000000000
   %call12 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %s.addr.0, i64 noundef %size, ptr noundef nonnull @.str.112, double noundef %div11) #33
   br label %if.end23
@@ -7176,7 +7176,7 @@ if.else13:                                        ; preds = %if.else6
   br i1 %cmp14, label %if.then16, label %if.end23
 
 if.then16:                                        ; preds = %if.else13
-  %conv17 = sitofp i64 %n.addr.0 to double
+  %conv17 = uitofp nneg i64 %n.addr.0 to double
   %div18 = fmul double %conv17, 0x3E10000000000000
   %call19 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %s.addr.0, i64 noundef %size, ptr noundef nonnull @.str.113, double noundef %div18) #33
   br label %if.end23
@@ -11375,7 +11375,7 @@ if.else.i50.i:                                    ; preds = %if.end.i49.i
   br i1 %cmp3.i.i, label %if.then4.i.i, label %if.else6.i.i
 
 if.then4.i.i:                                     ; preds = %if.else.i50.i
-  %conv.i.i182 = sitofp i64 %n.addr.0.i.i to double
+  %conv.i.i182 = uitofp nneg i64 %n.addr.0.i.i to double
   %div.i.i183 = fmul double %conv.i.i182, 0x3F50000000000000
   %call5.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %s.addr.0.i.i, i64 noundef 64, ptr noundef nonnull @.str.111, double noundef %div.i.i183) #33
   br label %bytesToHuman.exit.i
@@ -11385,7 +11385,7 @@ if.else6.i.i:                                     ; preds = %if.else.i50.i
   br i1 %cmp7.i.i, label %if.then9.i.i, label %if.else13.i.i
 
 if.then9.i.i:                                     ; preds = %if.else6.i.i
-  %conv10.i.i = sitofp i64 %n.addr.0.i.i to double
+  %conv10.i.i = uitofp nneg i64 %n.addr.0.i.i to double
   %div11.i.i = fmul double %conv10.i.i, 0x3EB0000000000000
   %call12.i.i181 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %s.addr.0.i.i, i64 noundef 64, ptr noundef nonnull @.str.112, double noundef %div11.i.i) #33
   br label %bytesToHuman.exit.i
@@ -11395,7 +11395,7 @@ if.else13.i.i:                                    ; preds = %if.else6.i.i
   br i1 %cmp14.i.i, label %if.then16.i.i, label %bytesToHuman.exit.i
 
 if.then16.i.i:                                    ; preds = %if.else13.i.i
-  %conv17.i.i = sitofp i64 %n.addr.0.i.i to double
+  %conv17.i.i = uitofp nneg i64 %n.addr.0.i.i to double
   %div18.i.i = fmul double %conv17.i.i, 0x3E10000000000000
   %call19.i.i180 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %s.addr.0.i.i, i64 noundef 64, ptr noundef nonnull @.str.113, double noundef %div18.i.i) #33
   br label %bytesToHuman.exit.i
@@ -12020,7 +12020,7 @@ if.then16.i:                                      ; preds = %if.end10.i270
   %div.i273 = fdiv double %conv11.i, %conv12.i
   %mul13.i = fmul double %div.i273, 1.000000e+03
   %call17.i274 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.720, i64 noundef %inc.i267, double noundef %div.i273, double noundef %mul13.i)
-  %conv18.i275 = sitofp i64 %max_latency.1.i to double
+  %conv18.i275 = uitofp nneg i64 %max_latency.1.i to double
   %div19.i = fdiv double %conv18.i275, %div.i273
   %call20.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.721, double noundef %div19.i)
   tail call void @exit(i32 noundef 0) #39
@@ -14547,7 +14547,7 @@ if.end143:                                        ; preds = %if.then138, %if.els
   br i1 %or.cond2, label %if.then151, label %if.end159
 
 if.then151:                                       ; preds = %if.end143
-  %conv152 = sitofp i64 %sub145 to double
+  %conv152 = uitofp nneg i64 %sub145 to double
   %div = fdiv double %conv152, 1.000000e+03
   %call153 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.735, double noundef %div)
   br label %if.end159

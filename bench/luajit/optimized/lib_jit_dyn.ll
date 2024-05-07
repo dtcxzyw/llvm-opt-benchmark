@@ -1463,7 +1463,7 @@ if.end35:                                         ; preds = %if.end26
   %23 = load ptr, ptr %top27, align 8
   %incdec.ptr = getelementptr inbounds i8, ptr %23, i64 8
   store ptr %incdec.ptr, ptr %top27, align 8
-  %conv.i = sitofp i32 %slot.0 to double
+  %conv.i = uitofp nneg i32 %slot.0 to double
   store double %conv.i, ptr %23, align 8
   br label %return
 

@@ -14531,7 +14531,7 @@ land.rhs:                                         ; preds = %land.rhs.preheader,
 
 while.body:                                       ; preds = %land.rhs
   %mul = fmul double %mantissa.0108, 1.000000e+01
-  %conv29 = sitofp i32 %sub25 to double
+  %conv29 = uitofp nneg i32 %sub25 to double
   %add = fadd double %mul, %conv29
   %incdec.ptr30 = getelementptr inbounds i8, ptr %curr.1109, i64 1
   %inc = add nuw nsw i32 %read.0110, 1
@@ -14572,7 +14572,7 @@ land.rhs48:                                       ; preds = %while.cond46.prehea
   br i1 %cmp51, label %while.body53, label %if.end77
 
 while.body53:                                     ; preds = %land.rhs48
-  %conv56 = sitofp i32 %sub50 to double
+  %conv56 = uitofp nneg i32 %sub50 to double
   %cmp57 = icmp ult i64 %indvars.iv, 8
   br i1 %cmp57, label %cond.true, label %cond.false
 

@@ -41500,7 +41500,7 @@ _ZNK10PolynomialILi1EE8integralEv.exit.critedge.i: ; preds = %20
   %48 = call double @llvm.fmuladd.f64(double %44, double %.01416.i, double %47)
   store double %48, ptr %46, align 8, !alias.scope !693
   %49 = trunc nuw i64 %indvars.iv19.i to i32
-  %50 = sitofp i32 %49 to double
+  %50 = uitofp nneg i32 %49 to double
   %51 = fmul double %19, %50
   %52 = fmul double %.01416.i, %51
   %53 = sub nuw nsw i64 %indvars.iv.next.i, %indvars.iv19.i
@@ -41587,7 +41587,7 @@ _ZNK10PolynomialILi2EE5scaleEd.exit:              ; preds = %76
   %86 = call double @llvm.fmuladd.f64(double %82, double %.01416.i58, double %85)
   store double %86, ptr %84, align 8, !alias.scope !704
   %87 = trunc nuw i64 %indvars.iv19.i57 to i32
-  %88 = sitofp i32 %87 to double
+  %88 = uitofp nneg i32 %87 to double
   %89 = fmul double %66, %88
   %90 = fmul double %.01416.i58, %89
   %91 = sub nuw nsw i64 %indvars.iv.next.i56, %indvars.iv19.i57
@@ -62826,7 +62826,7 @@ define linkonce_odr void @_ZN21BSplineEvaluationDataILi1EL12BoundaryType2EE17BSp
   %19 = call double @llvm.fmuladd.f64(double %indvars.iv.i.sroa.phi.sroa.speculated, double %.01416.i, double %18)
   store double %19, ptr %17, align 8
   %20 = trunc nuw i64 %indvars.iv19.i to i32
-  %21 = sitofp i32 %20 to double
+  %21 = uitofp nneg i32 %20 to double
   %22 = fmul double %12, %21
   %23 = fmul double %.01416.i, %22
   %24 = sub nuw nsw i64 %indvars.iv.next.i, %indvars.iv19.i
@@ -62922,7 +62922,7 @@ _ZNK10PolynomialILi1EE5scaleEd.exit:              ; preds = %52
   %61 = call double @llvm.fmuladd.f64(double %indvars.iv.i62.sroa.phi.sroa.speculated, double %.01416.i65, double %60)
   store double %61, ptr %59, align 8
   %62 = trunc nuw i64 %indvars.iv19.i64 to i32
-  %63 = sitofp i32 %62 to double
+  %63 = uitofp nneg i32 %62 to double
   %64 = fmul double %38, %63
   %65 = fmul double %.01416.i65, %64
   %66 = sub nuw nsw i64 %indvars.iv.next.i63, %indvars.iv19.i64

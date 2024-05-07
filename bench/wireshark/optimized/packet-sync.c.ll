@@ -142,7 +142,7 @@ define internal i32 @dissect_sync(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 25:                                               ; preds = %18
   %26 = add nsw i32 %19, -1
-  %27 = sitofp i32 %26 to double
+  %27 = uitofp nneg i32 %26 to double
   %28 = tail call double @llvm.fmuladd.f64(double %27, double 1.500000e+00, double 2.000000e+00)
   br label %29
 

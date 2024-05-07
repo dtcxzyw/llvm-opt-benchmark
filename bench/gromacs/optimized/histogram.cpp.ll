@@ -560,7 +560,7 @@ define void @_ZN3gmx8internal27BasicAverageHistogramModule12dataFinishedEv(ptr n
   %30 = getelementptr inbounds i8, ptr %23, i64 8
   %31 = load double, ptr %30, align 8
   %32 = add nsw i32 %27, -1
-  %33 = sitofp i32 %32 to double
+  %33 = uitofp nneg i32 %32 to double
   %34 = fdiv double %31, %33
   %35 = fptrunc double %34 to float
   br label %_ZNK3gmx25AnalysisDataFrameAverager8varianceEi.exit
@@ -2409,7 +2409,7 @@ define void @_ZN3gmx28AnalysisDataBinAverageModule12dataFinishedEv(ptr noundef n
   %30 = getelementptr inbounds i8, ptr %23, i64 8
   %31 = load double, ptr %30, align 8
   %32 = add nsw i32 %27, -1
-  %33 = sitofp i32 %32 to double
+  %33 = uitofp nneg i32 %32 to double
   %34 = fdiv double %31, %33
   %35 = fptrunc double %34 to float
   br label %_ZNK3gmx25AnalysisDataFrameAverager8varianceEi.exit
@@ -2693,7 +2693,7 @@ define void @_ZN3gmx25AnalysisHistogramSettingsC2ERKNS_36AnalysisHistogramSettin
 95:                                               ; preds = %91
   %96 = fsub float %82, %3
   %97 = add nsw i32 %84, -1
-  %98 = sitofp i32 %97 to float
+  %98 = uitofp nneg i32 %97 to float
   %99 = fdiv float %96, %98
   %100 = getelementptr inbounds i8, ptr %0, i64 8
   store float %99, ptr %100, align 4
@@ -2710,7 +2710,7 @@ define void @_ZN3gmx25AnalysisHistogramSettingsC2ERKNS_36AnalysisHistogramSettin
 
 109:                                              ; preds = %86
   %110 = fsub float %82, %3
-  %111 = sitofp i32 %84 to float
+  %111 = uitofp nneg i32 %84 to float
   %112 = fdiv float %110, %111
   %113 = getelementptr inbounds i8, ptr %0, i64 8
   store float %112, ptr %113, align 4

@@ -164,7 +164,7 @@ if.then:                                          ; preds = %for.end18
 
 if.end:                                           ; preds = %for.end18
   %cmp25 = icmp eq i64 %sum.0.lcssa61, 0
-  %conv27 = uitofp i64 %call21 to double
+  %conv27 = uitofp nneg i64 %call21 to double
   %conv28 = uitofp i64 %sum.0.lcssa61 to double
   %div = fdiv double %conv27, %conv28
   %cond = select i1 %cmp25, double 0.000000e+00, double %div

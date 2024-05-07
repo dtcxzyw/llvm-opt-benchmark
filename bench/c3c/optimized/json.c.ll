@@ -813,7 +813,7 @@ json_error.exit48.i:                              ; preds = %121, %118
   %.12528.i = phi i8 [ %133, %.lr.ph.i ], [ %.024.i, %.loopexit ]
   %128 = zext nneg i8 %.12528.i to i32
   %129 = add nsw i32 %128, -48
-  %130 = sitofp i32 %129 to double
+  %130 = uitofp nneg i32 %129 to double
   %131 = tail call double @llvm.fmuladd.f64(double %.02329.i, double 1.000000e+01, double %130)
   %132 = getelementptr inbounds i8, ptr %127, i64 1
   store ptr %132, ptr %2, align 8
@@ -844,7 +844,7 @@ json_error.exit48.i:                              ; preds = %121, %118
   %.02235.i = phi double [ %143, %.lr.ph39.i ], [ 0.000000e+00, %.preheader.i ]
   %139 = zext nneg i8 %.238.i to i32
   %140 = add nsw i32 %139, -48
-  %141 = sitofp i32 %140 to double
+  %141 = uitofp nneg i32 %140 to double
   %142 = fdiv double %141, %.036.i
   %143 = fadd double %.02235.i, %142
   %144 = fmul double %.036.i, 1.000000e+01

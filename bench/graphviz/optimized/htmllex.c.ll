@@ -2815,7 +2815,7 @@ doInt.exit.thread:                                ; preds = %7, %11, %15
 
 17:                                               ; preds = %13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %18 = sitofp i64 %4 to double
+  %18 = uitofp nneg i64 %4 to double
   %19 = getelementptr inbounds i8, ptr %0, i64 24
   store double %18, ptr %19, align 8
   br label %20

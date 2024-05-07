@@ -2768,7 +2768,7 @@ call.i.i168.i.noexc:                              ; preds = %_ZN9grpc_core20Glob
   %idxprom.i.i169.i = sext i32 %call.i.i168.i94 to i64
   %arrayidx.i.i170.i = getelementptr inbounds [20 x %"struct.std::atomic.21"], ptr %tcp_read_size.i.i, i64 0, i64 %idxprom.i.i169.i
   %154 = atomicrmw add ptr %arrayidx.i.i170.i, i64 1 monotonic, align 8
-  %conv.i.i = uitofp i64 %call56.i85 to double
+  %conv.i.i = uitofp nneg i64 %call56.i85 to double
   %155 = load double, ptr %bytes_read_this_round.i177.i, align 8
   %add.i.i = fadd double %155, %conv.i.i
   store double %add.i.i, ptr %bytes_read_this_round.i177.i, align 8

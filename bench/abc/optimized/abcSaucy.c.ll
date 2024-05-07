@@ -3022,7 +3022,7 @@ Abc_NtkCecSat_saucy.exit:                         ; preds = %104, %._crit_edge60
   br i1 %133, label %.preheader.preheader.i, label %reduceDB.exit
 
 .preheader.preheader.i:                           ; preds = %117
-  %134 = sitofp i32 %.val to double
+  %134 = uitofp nneg i32 %.val to double
   %135 = fdiv double %129, %134
   br label %.lr.ph.preheader.i
 

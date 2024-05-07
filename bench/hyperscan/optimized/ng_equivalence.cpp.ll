@@ -968,7 +968,7 @@ _ZNSt12_Vector_baseIN3ue28flat_setIPNS0_12_GLOBAL__N_110VertexInfoENS2_16VertexI
   br label %invoke.cont.i23
 
 invoke.cont.i23:                                  ; preds = %_ZNSt12_Vector_baseIN3ue28flat_setIPNS0_12_GLOBAL__N_110VertexInfoENS2_16VertexInfoPtrCmpESaIS4_EEESaIS7_EE13_M_deallocateEPS7_m.exit.i.i, %if.end.i.i18
-  %conv.i.i.i.i = uitofp i64 %sub.ptr.div.i.i to double
+  %conv.i.i.i.i = uitofp nneg i64 %sub.ptr.div.i.i to double
   %conv3.i.i.i.i = fptoui double %conv.i.i.i.i to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i), !noalias !22
   store i64 0, ptr %ref.tmp.i.i.i.i, align 8, !noalias !22

@@ -6083,7 +6083,7 @@ if.else306:                                       ; preds = %cond.end285
   br i1 %cmp309, label %for.body.lr.ph, label %if.end584
 
 for.body.lr.ph:                                   ; preds = %if.else306
-  %conv323 = sitofp i32 %conv252 to float
+  %conv323 = uitofp nneg i32 %conv252 to float
   %add324 = fadd reassoc nsz arcp float %sub271, %conv323
   %4 = fdiv reassoc nsz arcp float 1.000000e+00, %add324
   %5 = fdiv reassoc nsz arcp float 1.000000e+00, %add324
@@ -6190,7 +6190,7 @@ if.else429:                                       ; preds = %cond.end408
   br i1 %cmp433, label %for.body440.lr.ph, label %if.end584
 
 for.body440.lr.ph:                                ; preds = %if.else429
-  %conv450 = sitofp i32 %conv368 to float
+  %conv450 = uitofp nneg i32 %conv368 to float
   %add451 = fadd reassoc nsz arcp float %sub392, %conv450
   %18 = fdiv reassoc nsz arcp float 1.000000e+00, %add451
   %19 = fdiv reassoc nsz arcp float 1.000000e+00, %add451
@@ -6281,7 +6281,7 @@ if.end523:                                        ; preds = %if.then501, %cond.e
   %idxprom528 = zext i32 %31 to i64
   %parts531 = getelementptr inbounds [32 x %struct.FLAC__ApodizationSpecification], ptr %apodizations525, i64 0, i64 %idxprom528, i32 1, i32 0, i32 1
   store i32 %conv498, ptr %parts531, align 4
-  %conv532 = sitofp i32 %conv498 to float
+  %conv532 = uitofp nneg i32 %conv498 to float
   %div533 = fdiv reassoc nsz arcp float %p504.0, %conv532
   br label %if.end584.sink.split.sink.split.sink.split
 

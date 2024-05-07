@@ -10240,7 +10240,7 @@ define i32 @Mf_ManSetMapRefs(ptr nocapture noundef readonly %0) local_unnamed_ad
   br i1 %.not, label %.thread150, label %40
 
 40:                                               ; preds = %37
-  %41 = sitofp i32 %.0.lcssa to float
+  %41 = uitofp nneg i32 %.0.lcssa to float
   %42 = fpext float %41 to double
   %43 = sitofp i32 %39 to double
   %44 = fadd double %43, 1.000000e+02
@@ -10257,7 +10257,7 @@ define i32 @Mf_ManSetMapRefs(ptr nocapture noundef readonly %0) local_unnamed_ad
 .thread152:                                       ; preds = %.critedge, %40
   %48 = phi ptr [ %.pre, %40 ], [ %33, %.critedge ]
   %49 = phi i32 [ %.pre143, %40 ], [ %35, %.critedge ]
-  %50 = sitofp i32 %.0.lcssa to double
+  %50 = uitofp nneg i32 %.0.lcssa to double
   %51 = sitofp i32 %49 to double
   %52 = fadd double %51, 1.000000e-02
   %53 = fcmp ogt double %52, %50

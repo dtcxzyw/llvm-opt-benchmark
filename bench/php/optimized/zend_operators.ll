@@ -3853,7 +3853,7 @@ define internal fastcc range(i32 -1, 1) i32 @pow_function_base(ptr nocapture nou
   %27 = sitofp i64 %.07190 to double
   %28 = sitofp i64 %.07289 to double
   %29 = fmul double %28, %27
-  %30 = sitofp i64 %22 to double
+  %30 = uitofp nneg i64 %22 to double
   %31 = tail call double @pow(double noundef %28, double noundef %30) #27
   %32 = fmul double %29, %31
   store double %32, ptr %0, align 8

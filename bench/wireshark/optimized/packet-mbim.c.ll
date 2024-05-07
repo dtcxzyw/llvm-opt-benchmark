@@ -4099,7 +4099,7 @@ define internal void @mbim_snr_signal_state_fmt(ptr nocapture noundef writeonly 
   br i1 %6, label %7, label %17
 
 7:                                                ; preds = %5
-  %8 = uitofp i32 %1 to float
+  %8 = uitofp nneg i32 %1 to float
   %9 = fadd float %8, -1.000000e+00
   %10 = fmul float %9, 5.000000e-01
   %11 = fadd float %10, -2.300000e+01
@@ -4189,7 +4189,7 @@ define internal void @mbim_ecno_fmt(ptr nocapture noundef writeonly %0, i32 noun
   br i1 %6, label %7, label %13
 
 7:                                                ; preds = %5
-  %8 = uitofp i32 %1 to float
+  %8 = uitofp nneg i32 %1 to float
   %9 = fmul float %8, 5.000000e-01
   %10 = fadd float %9, -2.400000e+01
   %11 = fpext float %10 to double
@@ -4232,7 +4232,7 @@ define internal void @mbim_rsrq_fmt(ptr nocapture noundef writeonly %0, i32 noun
   br i1 %6, label %7, label %13
 
 7:                                                ; preds = %5
-  %8 = uitofp i32 %1 to float
+  %8 = uitofp nneg i32 %1 to float
   %9 = fmul float %8, 5.000000e-01
   %10 = fpext float %9 to double
   %11 = fadd double %10, -1.950000e+01

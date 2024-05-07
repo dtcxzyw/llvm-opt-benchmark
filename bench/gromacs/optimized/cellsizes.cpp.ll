@@ -651,7 +651,7 @@ define internal fastcc void @_ZL16set_pme_maxshiftP12gmx_domdec_tP9gmx_ddpmebPK1
   %38 = fpext float %37 to double
   %39 = fmul double %38, 0x3FEFF7CED916872B
   %40 = fptrunc double %39 to float
-  %41 = sitofp i32 %11 to float
+  %41 = uitofp nneg i32 %11 to float
   %invariant.gep = getelementptr i8, ptr %4, i64 4
   %42 = zext nneg i32 %11 to i64
   %43 = add nsw i32 %11, -1
@@ -1117,7 +1117,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i: ; preds = %105, %1
   br i1 %177, label %.lr.ph256.i.i.i, label %.loopexit243.i.i.i
 
 .lr.ph256.i.i.i:                                  ; preds = %.preheader242.i.i.i
-  %178 = sitofp i32 %163 to double
+  %178 = uitofp nneg i32 %163 to double
   %179 = fdiv double 1.000000e+00, %178
   %180 = fptrunc double %179 to float
   %wide.trip.count287.i.i.i = zext nneg i32 %163 to i64
@@ -2229,7 +2229,7 @@ define internal fastcc void @_ZL37dd_cell_sizes_dlb_root_enforce_limitsP12gmx_do
   br i1 %exitcond.not, label %._crit_edge, label %63, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %77
-  %78 = sitofp i32 %.0250 to float
+  %78 = uitofp nneg i32 %.0250 to float
   %79 = fneg float %78
   %80 = tail call float @llvm.fmuladd.f32(float %79, float %7, float %25)
   %81 = fdiv float %80, %.1258

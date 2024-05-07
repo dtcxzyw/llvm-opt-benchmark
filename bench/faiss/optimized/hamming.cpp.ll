@@ -23355,7 +23355,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_120hamming_range_searchINS_17Hamming
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %.lr.ph
-  %40 = sitofp i32 %36 to float
+  %40 = uitofp nneg i32 %36 to float
   invoke void @_ZN5faiss16RangeQueryResult3addEfl(ptr noundef nonnull align 8 dereferenceable(24) %29, float noundef %40, i64 noundef %.02734)
           to label %._crit_edge40 unwind label %.loopexit
 

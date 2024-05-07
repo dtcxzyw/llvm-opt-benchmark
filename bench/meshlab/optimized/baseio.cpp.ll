@@ -47320,7 +47320,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit308:            ; preds = %498, %511, %492
   br i1 %802, label %803, label %820
 
 803:                                              ; preds = %799
-  %804 = sitofp i32 %.3261 to float
+  %804 = uitofp nneg i32 %.3261 to float
   %805 = fmul float %804, 2.000000e+00
   %806 = extractelement <2 x float> %790, i64 0
   %807 = fdiv float %806, %805

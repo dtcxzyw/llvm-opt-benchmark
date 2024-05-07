@@ -22666,7 +22666,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %conv = sitofp i32 %precision to double
+  %conv = uitofp nneg i32 %precision to double
   %div = fmul double %conv, 1.250000e-01
   %1 = tail call double @llvm.fmuladd.f64(double %div, double 0x400A934F0979A371, double 1.000000e+00)
   %2 = tail call double @llvm.ceil.f64(double %1)

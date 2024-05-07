@@ -3680,7 +3680,7 @@ _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i347: ; preds = %_ZNKSt6vectorIdSa
 
 94:                                               ; preds = %90
   %95 = fsub double %5, %3
-  %96 = sitofp i32 %46 to double
+  %96 = uitofp nneg i32 %46 to double
   %97 = fdiv double %95, %96
   %98 = fcmp olt double %6, %4
   %or.cond211 = and i1 %98, %.0.in.i.not
@@ -3689,7 +3689,7 @@ _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i347: ; preds = %_ZNKSt6vectorIdSa
 .thread:                                          ; preds = %92
   %99 = fsub double %5, %3
   %100 = fadd double %99, 3.600000e+02
-  %101 = sitofp i32 %46 to double
+  %101 = uitofp nneg i32 %46 to double
   %102 = fdiv double %100, %101
   %103 = fcmp olt double %6, %4
   br i1 %103, label %.invoke453, label %109

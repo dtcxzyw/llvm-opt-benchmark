@@ -2631,7 +2631,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit248:            ; preds = %._ZNSt6vectorIdSaId
   %300 = load ptr, ptr %282, align 8
   %301 = getelementptr inbounds i8, ptr %300, i64 16
   store double 1.000000e+00, ptr %301, align 8
-  %302 = sitofp i64 %2 to double
+  %302 = uitofp nneg i64 %2 to double
   invoke void @_ZN6casadi2MXC1Ed(ptr noundef nonnull align 8 dereferenceable(8) %60, double noundef %302)
           to label %303 unwind label %353
 
@@ -7076,7 +7076,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit249: ;
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %53) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %54) #21
-  %240 = sitofp i64 %2 to double
+  %240 = uitofp nneg i64 %2 to double
   invoke void @_ZN6casadi2MXC1Ed(ptr noundef nonnull align 8 dereferenceable(8) %56, double noundef %240)
           to label %241 unwind label %289
 

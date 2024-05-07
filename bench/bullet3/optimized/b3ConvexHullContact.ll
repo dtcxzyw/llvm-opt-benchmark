@@ -7287,7 +7287,7 @@ for.body97:                                       ; preds = %for.body97.preheade
   br i1 %exitcond375.not, label %for.end107, label %for.body97, !llvm.loop !41
 
 for.end107:                                       ; preds = %for.body97
-  %conv = sitofp i32 %numReducedPoints.0 to float
+  %conv = uitofp nneg i32 %numReducedPoints.0 to float
   %w109 = getelementptr inbounds i8, ptr %arrayidx76, i64 76
   store float %conv, ptr %w109, align 4
   br label %if.end111
@@ -12078,7 +12078,7 @@ for.body125:                                      ; preds = %for.body125.prehead
   br i1 %exitcond425.not, label %for.end135, label %for.body125, !llvm.loop !60
 
 for.end135:                                       ; preds = %for.body125
-  %conv = sitofp i32 %numReducedPoints.0 to float
+  %conv = uitofp nneg i32 %numReducedPoints.0 to float
   %w137 = getelementptr inbounds i8, ptr %arrayidx104, i64 76
   store float %conv, ptr %w137, align 4
   br label %for.inc140

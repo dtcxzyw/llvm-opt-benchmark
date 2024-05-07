@@ -2253,7 +2253,7 @@ invoke.cont44:                                    ; preds = %invoke.cont41
 
 if.then47:                                        ; preds = %invoke.cont44
   %sub.i45 = add nsw i32 %.sroa.speculated, -1
-  %conv.i = sitofp i32 %sub.i45 to float
+  %conv.i = uitofp nneg i32 %sub.i45 to float
   %call.i46 = call float @logf(float noundef %conv.i) #23
   %div.i = fdiv float %call.i46, 0x3FE62E4300000000
   %conv2.i = fptosi float %div.i to i32

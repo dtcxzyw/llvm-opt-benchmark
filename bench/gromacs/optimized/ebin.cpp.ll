@@ -853,7 +853,7 @@ define void @_Z7pr_ebinP8_IO_FILEP6t_ebiniiiib(ptr nocapture noundef %0, ptr noc
   %79 = load ptr, ptr %33, align 8
   %80 = getelementptr inbounds %struct.t_energy, ptr %79, i64 %indvars.iv120, i32 2
   %81 = load double, ptr %80, align 8
-  %82 = sitofp i64 %74 to double
+  %82 = uitofp nneg i64 %74 to double
   %83 = fdiv double %81, %82
   %84 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.19, double noundef %83) #15
   br label %85

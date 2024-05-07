@@ -175,7 +175,7 @@ define void @dlatm7_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 92:                                               ; preds = %89
   %93 = add nsw i32 %90, -1
-  %94 = sitofp i32 %93 to double
+  %94 = uitofp nneg i32 %93 to double
   %95 = fdiv double -1.000000e+00, %94
   %96 = load double, ptr %1, align 8, !tbaa !7
   %97 = tail call double @pow(double noundef %96, double noundef %95) #6
@@ -245,7 +245,7 @@ define void @dlatm7_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %138 = fdiv double 1.000000e+00, %137
   %139 = fsub double 1.000000e+00, %138
   %140 = add nsw i32 %12, -1
-  %141 = sitofp i32 %140 to double
+  %141 = uitofp nneg i32 %140 to double
   %142 = fdiv double %139, %141
   %143 = add nuw i32 %12, 1
   %144 = zext i32 %143 to i64

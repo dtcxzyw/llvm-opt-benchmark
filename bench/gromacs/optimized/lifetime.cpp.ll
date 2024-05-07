@@ -903,7 +903,7 @@ _ZNSt15_Deque_iteratorIiRiPiEppEv.exit25:         ; preds = %._crit_edge116, %18
   %195 = load float, ptr %188, align 8
   %196 = fsub float %194, %195
   %197 = add nsw i32 %190, -1
-  %198 = sitofp i32 %197 to float
+  %198 = uitofp nneg i32 %197 to float
   %199 = fdiv float %196, %198
   br label %200
 

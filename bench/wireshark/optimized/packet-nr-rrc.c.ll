@@ -45391,7 +45391,7 @@ define internal void @nr_rrc_RSRQ_Range_fmt(ptr nocapture noundef writeonly %0, 
   br i1 %6, label %7, label %17
 
 7:                                                ; preds = %5
-  %8 = uitofp i32 %1 to float
+  %8 = uitofp nneg i32 %1 to float
   %9 = fadd float %8, -1.000000e+00
   %10 = fmul float %9, 5.000000e-01
   %11 = fadd float %10, -4.300000e+01
@@ -45475,7 +45475,7 @@ define internal void @nr_rrc_RSRQ_RangeEUTRA_r16_fmt(ptr nocapture noundef write
   br i1 %21, label %22, label %32
 
 22:                                               ; preds = %20
-  %23 = sitofp i32 %1 to float
+  %23 = uitofp nneg i32 %1 to float
   %24 = fadd float %23, -1.000000e+00
   %25 = fmul float %24, 5.000000e-01
   %26 = fpext float %25 to double
@@ -45499,7 +45499,7 @@ define internal void @nr_rrc_RSRQ_RangeEUTRA_r16_fmt(ptr nocapture noundef write
   br i1 %36, label %37, label %47
 
 37:                                               ; preds = %35
-  %38 = sitofp i32 %1 to float
+  %38 = uitofp nneg i32 %1 to float
   %39 = fadd float %38, -1.000000e+00
   %40 = fmul float %39, 5.000000e-01
   %41 = fadd float %40, -2.000000e+01
@@ -45532,7 +45532,7 @@ define internal void @nr_rrc_SINR_Range_fmt(ptr nocapture noundef writeonly %0, 
   br i1 %6, label %7, label %17
 
 7:                                                ; preds = %5
-  %8 = uitofp i32 %1 to float
+  %8 = uitofp nneg i32 %1 to float
   %9 = fadd float %8, -1.000000e+00
   %10 = fmul float %9, 5.000000e-01
   %11 = fadd float %10, -2.300000e+01
@@ -45565,7 +45565,7 @@ define internal void @nr_rrc_RSRQ_RangeEUTRA_fmt(ptr nocapture noundef writeonly
   br i1 %6, label %7, label %17
 
 7:                                                ; preds = %5
-  %8 = uitofp i32 %1 to float
+  %8 = uitofp nneg i32 %1 to float
   %9 = fmul float %8, 5.000000e-01
   %10 = fadd float %9, -2.000000e+01
   %11 = fpext float %10 to double
@@ -45656,7 +45656,7 @@ define internal void @nr_rrc_utra_FDD_EcN0_r16_fmt(ptr nocapture noundef writeon
   br i1 %6, label %7, label %17
 
 7:                                                ; preds = %5
-  %8 = uitofp i32 %1 to float
+  %8 = uitofp nneg i32 %1 to float
   %9 = fadd float %8, -1.000000e+00
   %10 = fmul float %9, 5.000000e-01
   %11 = fadd float %10, -2.400000e+01

@@ -2739,7 +2739,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
 
 if.then:                                          ; preds = %invoke.cont3
   %sub.i = add nsw i32 %conv, -1
-  %conv.i = sitofp i32 %sub.i to float
+  %conv.i = uitofp nneg i32 %sub.i to float
   %cmp8.not.i = icmp eq i64 %vertex_count, 0
   br i1 %cmp8.not.i, label %_ZN7meshoptL16computeVertexIdsEPjPKNS_7Vector3Emi.exit, label %for.body.i.preheader
 
@@ -2905,7 +2905,7 @@ for.body.i112:                                    ; preds = %_ZN7meshoptL16compu
 _ZN7meshoptL14countTrianglesEPKjS1_m.exit134:     ; preds = %for.body.i112, %_ZN7meshoptL16computeVertexIdsEPjPKNS_7Vector3Emi.exit110
   %result.0.lcssa.i133 = phi i64 [ 0, %_ZN7meshoptL16computeVertexIdsEPjPKNS_7Vector3Emi.exit110 ], [ %add17.i130, %for.body.i112 ]
   %conv37 = sitofp i32 %min_grid.0310 to float
-  %conv38 = uitofp i64 %min_triangles.1308 to float
+  %conv38 = uitofp nneg i64 %min_triangles.1308 to float
   %conv39 = sitofp i32 %cond31 to float
   %conv40 = uitofp i64 %result.0.lcssa.i133 to float
   %conv41 = sitofp i32 %max_grid.0309 to float

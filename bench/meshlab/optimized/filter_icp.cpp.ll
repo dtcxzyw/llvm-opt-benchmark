@@ -9329,7 +9329,7 @@ _ZNSt6vectorIN3vcg13OccupancyGridI6CMeshOfE9OGArcInfoESaIS4_EE5clearEv.exit: ; p
   %290 = getelementptr inbounds i8, ptr %.sroa.0161.0291, i64 36
   %291 = load i32, ptr %290, align 4
   store i32 %291, ptr %16, align 4
-  %292 = sitofp i32 %285 to float
+  %292 = uitofp nneg i32 %285 to float
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11)
   %293 = load ptr, ptr %270, align 8
@@ -11037,7 +11037,7 @@ _ZN3vcgmlIdEENS_6Point3IT_EERKNS_8Matrix44IS2_EERKS3_.exit.i: ; preds = %_ZN3vcg
 
 .loopexit:                                        ; preds = %_ZN3vcgmlIdEENS_6Point3IT_EERKNS_8Matrix44IS2_EERKS3_.exit.i, %321
   %430 = phi <2 x double> [ zeroinitializer, %321 ], [ %426, %_ZN3vcgmlIdEENS_6Point3IT_EERKNS_8Matrix44IS2_EERKS3_.exit.i ]
-  %431 = uitofp i64 %329 to double
+  %431 = uitofp nneg i64 %329 to double
   %432 = extractelement <2 x double> %430, i64 0
   %433 = fdiv double %432, %431
   %434 = extractelement <2 x double> %430, i64 1

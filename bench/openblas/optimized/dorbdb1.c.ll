@@ -85,7 +85,7 @@ define void @dorbdb1_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   %68 = add nsw i32 %43, -2
   store i32 %68, ptr %23, align 4, !tbaa !3
   %69 = add nsw i32 %67, 1
-  %70 = sitofp i32 %69 to double
+  %70 = uitofp nneg i32 %69 to double
   store double %70, ptr %12, align 8, !tbaa !7
   %71 = icmp sgt i32 %37, %67
   %72 = or i1 %71, %38

@@ -171,7 +171,7 @@ do.body10:                                        ; preds = %if.end, %if.else
 
 if.else16:                                        ; preds = %do.body10
   %conv17 = uitofp nneg i64 %and to x86_fp80
-  %conv18 = sitofp i64 %size to x86_fp80
+  %conv18 = uitofp nneg i64 %size to x86_fp80
   tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 265, ptr noundef nonnull @__func__.guest_alloc, ptr noundef nonnull @.str.5, x86_fp80 noundef %conv17, ptr noundef nonnull @.str.6, x86_fp80 noundef %conv18, i8 noundef signext 105) #11
   br label %do.end20
 

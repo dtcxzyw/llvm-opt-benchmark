@@ -5266,7 +5266,7 @@ define void @_Z12done_shellfcP8_IO_FILEP13gmx_shellfc_tl(ptr noundef %0, ptr nou
   br i1 %or.cond3, label %.thread, label %19
 
 .thread:                                          ; preds = %3
-  %7 = sitofp i64 %2 to double
+  %7 = uitofp nneg i64 %2 to double
   %8 = getelementptr inbounds i8, ptr %1, i64 376
   %9 = load i32, ptr %8, align 8
   %10 = sitofp i32 %9 to double

@@ -2994,7 +2994,7 @@ define void @agnostic_applyTrotterCircuit(ptr noundef byval(%struct.Qureg) align
   br i1 %or.cond, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %5
-  %8 = sitofp i32 %4 to double
+  %8 = uitofp nneg i32 %4 to double
   %9 = fdiv double %2, %8
   br label %10
 

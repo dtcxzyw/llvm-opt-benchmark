@@ -806,9 +806,9 @@ new.ctorloop171:                                  ; preds = %invoke.cont168
 arrayctor.cont177:                                ; preds = %new.ctorloop171, %invoke.cont168
   %mTextureCoords = getelementptr inbounds i8, ptr %call144, i64 112
   store ptr %call169, ptr %mTextureCoords, align 8
-  %conv179 = uitofp i32 %y.0309 to float
+  %conv179 = uitofp nneg i32 %y.0309 to float
   %div180 = fdiv float 1.000000e+00, %conv179
-  %conv181 = uitofp i32 %x.0310 to float
+  %conv181 = uitofp nneg i32 %x.0310 to float
   %div182 = fdiv float 1.000000e+00, %conv181
   br label %if.end183
 

@@ -7049,7 +7049,7 @@ _ZN12MeshDocument19RasterRangeIterator3endEv.exit._crit_edge: ; preds = %_ZNSt6v
 _ZNSt6vectorIfSaIfEED2Ev.exit81:                  ; preds = %4, %._crit_edge, %294
   %.019.lcssa163 = phi float [ %.019.lcssa, %._crit_edge ], [ %.019.lcssa, %294 ], [ 0.000000e+00, %4 ]
   %295 = phi i64 [ %11, %._crit_edge ], [ %11, %294 ], [ 0, %4 ]
-  %296 = uitofp i64 %295 to float
+  %296 = uitofp nneg i64 %295 to float
   %297 = fdiv float %.019.lcssa163, %296
   ret float %297
 }

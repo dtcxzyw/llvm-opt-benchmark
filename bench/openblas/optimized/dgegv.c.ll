@@ -969,7 +969,7 @@ define void @dgegv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
 
 .loopexit:                                        ; preds = %.thread44, %413, %622, %.loopexit51
   %625 = phi i32 [ %293, %.loopexit51 ], [ %624, %622 ], [ %293, %413 ], [ %293, %.thread44 ]
-  %626 = sitofp i32 %625 to double
+  %626 = uitofp nneg i32 %625 to double
   store double %626, ptr %14, align 8, !tbaa !7
   br label %627
 

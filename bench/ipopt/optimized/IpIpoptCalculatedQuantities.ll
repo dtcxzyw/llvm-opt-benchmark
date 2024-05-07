@@ -59973,7 +59973,7 @@ _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit105: ; preds = %_ZNK5Ipopt14It
           to label %269 unwind label %276
 
 269:                                              ; preds = %264
-  %270 = sitofp i32 %262 to double
+  %270 = uitofp nneg i32 %262 to double
   %271 = fdiv double %268, %270
   br label %280
 
@@ -60030,7 +60030,7 @@ _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit105: ; preds = %_ZNK5Ipopt14It
           to label %306 unwind label %276
 
 306:                                              ; preds = %301
-  %307 = sitofp i32 %299 to double
+  %307 = uitofp nneg i32 %299 to double
   %308 = fdiv double %305, %307
   br label %309
 
@@ -60914,7 +60914,7 @@ _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit105: ; preds = %_ZNK5Ipopt14It
           to label %269 unwind label %276
 
 269:                                              ; preds = %264
-  %270 = sitofp i32 %262 to double
+  %270 = uitofp nneg i32 %262 to double
   %271 = fdiv double %268, %270
   br label %280
 
@@ -60971,7 +60971,7 @@ _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit105: ; preds = %_ZNK5Ipopt14It
           to label %306 unwind label %276
 
 306:                                              ; preds = %301
-  %307 = sitofp i32 %299 to double
+  %307 = uitofp nneg i32 %299 to double
   %308 = fdiv double %305, %307
   br label %309
 
@@ -65980,7 +65980,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i113:               ; preds = %.noexc117, %._crit_
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %335 = load double, ptr %9, align 8
   %336 = fadd double %.0.i111, %335
-  %337 = sitofp i32 %224 to double
+  %337 = uitofp nneg i32 %224 to double
   %338 = fdiv double %336, %337
   br label %361
 
@@ -67188,7 +67188,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i113:               ; preds = %.noexc117, %._crit_
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %335 = load double, ptr %9, align 8
   %336 = fadd double %.0.i111, %335
-  %337 = sitofp i32 %224 to double
+  %337 = uitofp nneg i32 %224 to double
   %338 = fdiv double %336, %337
   br label %361
 

@@ -1451,7 +1451,7 @@ define dso_local ptr @expand_grouping_sets(ptr noundef readonly %0, i1 noundef z
 .lr.ph:                                           ; preds = %.preheader139
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = icmp sgt i32 %2, -1
-  %9 = sitofp i32 %2 to double
+  %9 = uitofp nneg i32 %2 to double
   br i1 %8, label %.lr.ph.split, label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us

@@ -7348,7 +7348,7 @@ define internal noundef range(i32 0, 2) i32 @_area_button_press_callback(ptr nou
   br i1 %377, label %379, label %421
 
 379:                                              ; preds = %375
-  %380 = sitofp i32 %369 to float
+  %380 = uitofp nneg i32 %369 to float
   %381 = icmp ult i32 %369, 32
   br i1 %381, label %.preheader43, label %383
 
@@ -7409,7 +7409,7 @@ define internal noundef range(i32 0, 2) i32 @_area_button_press_callback(ptr nou
 421:                                              ; preds = %375, %373
   %422 = phi i64 [ %374, %373 ], [ %378, %375 ]
   %423 = add nsw i32 %369, -1
-  %424 = sitofp i32 %423 to float
+  %424 = uitofp nneg i32 %423 to float
   %425 = icmp ult i64 %422, 32
   br i1 %425, label %.preheader42, label %426
 

@@ -1206,10 +1206,10 @@ fmap_readn.exit.thread.i:                         ; preds = %fmap_readn.exit.i, 
 
 446:                                              ; preds = %439, %427
   %.0533.i = phi i32 [ 32, %427 ], [ %..i, %439 ]
-  %447 = uitofp i32 %.4..4..4..4..4..i to double
+  %447 = uitofp nneg i32 %.4..4..4..4..4..i to double
   %448 = uitofp nneg i32 %.0533.i to double
   %449 = fdiv double %447, %448
-  %450 = uitofp i32 %78 to double
+  %450 = uitofp nneg i32 %78 to double
   %451 = fdiv double %450, %448
   %452 = shl nuw nsw i32 %.0533.i, 2
   %453 = mul nuw nsw i32 %452, %.0533.i

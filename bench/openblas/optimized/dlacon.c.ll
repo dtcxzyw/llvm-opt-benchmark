@@ -25,7 +25,7 @@ define void @dlacon_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   br i1 %13, label %.loopexit, label %14
 
 14:                                               ; preds = %11
-  %15 = sitofp i32 %12 to double
+  %15 = uitofp nneg i32 %12 to double
   %16 = fdiv double 1.000000e+00, %15
   %17 = add nuw i32 %12, 1
   %18 = zext i32 %17 to i64
@@ -215,7 +215,7 @@ define void @dlacon_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
 
 114:                                              ; preds = %.loopexit12
   %115 = add nsw i32 %.pr, -1
-  %116 = sitofp i32 %115 to double
+  %116 = uitofp nneg i32 %115 to double
   %117 = add nuw i32 %.pr, 1
   %118 = zext i32 %117 to i64
   br label %119

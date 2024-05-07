@@ -1779,7 +1779,7 @@ define noundef range(i32 0, 2) i32 @_ZN2mu9ParserInt8IsBinValEPKcPiPd(ptr nocapt
   %28 = trunc nuw nsw i64 %indvars.iv.next to i32
   %29 = sub nuw nsw i32 32, %19
   %30 = lshr i32 %14, %29
-  %31 = uitofp i32 %30 to double
+  %31 = uitofp nneg i32 %30 to double
   store double %31, ptr %2, align 8
   %32 = load i32, ptr %1, align 4
   %33 = add i32 %32, %28

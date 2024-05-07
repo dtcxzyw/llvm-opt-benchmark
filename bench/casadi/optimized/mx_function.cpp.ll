@@ -81952,7 +81952,7 @@ _ZNKSt6vectorIN6casadi8SparsityESaIS1_EE2atEm.exit981: ; preds = %2192
   store ptr %2228, ptr %719, align 8
   store i64 %2223, ptr %720, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
-  %2229 = sitofp i64 %2223 to double
+  %2229 = uitofp nneg i64 %2223 to double
   invoke void @_ZN6casadi6MatrixIxEC1Ed(ptr noundef nonnull align 8 dereferenceable(40) %5, double noundef %2229)
           to label %.noexc.i unwind label %2235
 

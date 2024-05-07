@@ -62009,7 +62009,7 @@ for.body.i.i.i.i.i.i.3:                           ; preds = %for.inc.i.i.i.i.i.i
 
 for.end.loopexit.i.i.i.i.i.i:                     ; preds = %for.body.i.i.i.i.i.i.3, %for.inc.i.i.i.i.i.i.2, %for.body.i.i.i.i.i.i.2, %for.inc.i.i.i.i.i.i.1, %for.body.i.i.i.i.i.i.1, %for.inc.i.i.i.i.i.i, %for.body.preheader.i.i.i.i.i.i
   %prefix.0.lcssa.ph.i.i.i.i.i.i = phi i64 [ %26, %for.inc.i.i.i.i.i.i ], [ 0, %for.body.preheader.i.i.i.i.i.i ], [ 1, %for.body.i.i.i.i.i.i.1 ], [ %26, %for.inc.i.i.i.i.i.i.1 ], [ 2, %for.body.i.i.i.i.i.i.2 ], [ %26, %for.inc.i.i.i.i.i.i.2 ], [ %spec.select, %for.body.i.i.i.i.i.i.3 ]
-  %35 = sitofp i64 %prefix.0.lcssa.ph.i.i.i.i.i.i to double
+  %35 = uitofp nneg i64 %prefix.0.lcssa.ph.i.i.i.i.i.i to double
   br label %_ZN6duckdb18UnaryLambdaWrapper9OperationIZNS_L14CachedFunctionIN19duckdb_jaro_winkler27CachedJaroWinklerSimilarityIcEEEEvRNS_6VectorES7_S7_mEUlRKNS_8string_tEE_S8_dEET1_T0_RNS_12ValidityMaskEmPv.exit.i.i
 
 _ZN6duckdb18UnaryLambdaWrapper9OperationIZNS_L14CachedFunctionIN19duckdb_jaro_winkler27CachedJaroWinklerSimilarityIcEEEEvRNS_6VectorES7_S7_mEUlRKNS_8string_tEE_S8_dEET1_T0_RNS_12ValidityMaskEmPv.exit.i.i: ; preds = %for.end.loopexit.i.i.i.i.i.i, %.noexc32
@@ -62277,7 +62277,7 @@ for.body.i.i.i.i.i.i.i.3:                         ; preds = %for.inc.i.i.i.i.i.i
 
 for.end.loopexit.i.i.i.i.i.i.i:                   ; preds = %for.body.i.i.i.i.i.i.i.3, %for.inc.i.i.i.i.i.i.i.2, %for.body.i.i.i.i.i.i.i.2, %for.inc.i.i.i.i.i.i.i.1, %for.body.i.i.i.i.i.i.i.1, %for.inc.i.i.i.i.i.i.i, %for.body.preheader.i.i.i.i.i.i.i
   %prefix.0.lcssa.ph.i.i.i.i.i.i.i = phi i64 [ %63, %for.inc.i.i.i.i.i.i.i ], [ 0, %for.body.preheader.i.i.i.i.i.i.i ], [ 1, %for.body.i.i.i.i.i.i.i.1 ], [ %63, %for.inc.i.i.i.i.i.i.i.1 ], [ 2, %for.body.i.i.i.i.i.i.i.2 ], [ %63, %for.inc.i.i.i.i.i.i.i.2 ], [ %spec.select104, %for.body.i.i.i.i.i.i.i.3 ]
-  %72 = sitofp i64 %prefix.0.lcssa.ph.i.i.i.i.i.i.i to double
+  %72 = uitofp nneg i64 %prefix.0.lcssa.ph.i.i.i.i.i.i.i to double
   br label %_ZN6duckdb18UnaryLambdaWrapper9OperationIZNS_L14CachedFunctionIN19duckdb_jaro_winkler27CachedJaroWinklerSimilarityIcEEEEvRNS_6VectorES7_S7_mEUlRKNS_8string_tEE_S8_dEET1_T0_RNS_12ValidityMaskEmPv.exit.i.i.i
 
 _ZN6duckdb18UnaryLambdaWrapper9OperationIZNS_L14CachedFunctionIN19duckdb_jaro_winkler27CachedJaroWinklerSimilarityIcEEEEvRNS_6VectorES7_S7_mEUlRKNS_8string_tEE_S8_dEET1_T0_RNS_12ValidityMaskEmPv.exit.i.i.i: ; preds = %for.end.loopexit.i.i.i.i.i.i.i, %for.body10.i.i.i
@@ -62378,7 +62378,7 @@ for.body.i.i.i.i123.i.i.i.3:                      ; preds = %for.inc.i.i.i.i130.
 
 for.end.loopexit.i.i.i.i128.i.i.i:                ; preds = %for.body.i.i.i.i123.i.i.i.3, %for.inc.i.i.i.i130.i.i.i.2, %for.body.i.i.i.i123.i.i.i.2, %for.inc.i.i.i.i130.i.i.i.1, %for.body.i.i.i.i123.i.i.i.1, %for.inc.i.i.i.i130.i.i.i, %for.body.preheader.i.i.i.i122.i.i.i
   %prefix.0.lcssa.ph.i.i.i.i129.i.i.i = phi i64 [ %78, %for.inc.i.i.i.i130.i.i.i ], [ 0, %for.body.preheader.i.i.i.i122.i.i.i ], [ 1, %for.body.i.i.i.i123.i.i.i.1 ], [ %78, %for.inc.i.i.i.i130.i.i.i.1 ], [ 2, %for.body.i.i.i.i123.i.i.i.2 ], [ %78, %for.inc.i.i.i.i130.i.i.i.2 ], [ %spec.select105, %for.body.i.i.i.i123.i.i.i.3 ]
-  %87 = sitofp i64 %prefix.0.lcssa.ph.i.i.i.i129.i.i.i to double
+  %87 = uitofp nneg i64 %prefix.0.lcssa.ph.i.i.i.i129.i.i.i to double
   br label %_ZN6duckdb18UnaryLambdaWrapper9OperationIZNS_L14CachedFunctionIN19duckdb_jaro_winkler27CachedJaroWinklerSimilarityIcEEEEvRNS_6VectorES7_S7_mEUlRKNS_8string_tEE_S8_dEET1_T0_RNS_12ValidityMaskEmPv.exit133.i.i.i
 
 _ZN6duckdb18UnaryLambdaWrapper9OperationIZNS_L14CachedFunctionIN19duckdb_jaro_winkler27CachedJaroWinklerSimilarityIcEEEEvRNS_6VectorES7_S7_mEUlRKNS_8string_tEE_S8_dEET1_T0_RNS_12ValidityMaskEmPv.exit133.i.i.i: ; preds = %for.end.loopexit.i.i.i.i128.i.i.i, %if.then21.i.i.i
@@ -62481,7 +62481,7 @@ for.body.i.i.i.i155.i.i.i.3:                      ; preds = %for.inc.i.i.i.i162.
 
 for.end.loopexit.i.i.i.i160.i.i.i:                ; preds = %for.body.i.i.i.i155.i.i.i.3, %for.inc.i.i.i.i162.i.i.i.2, %for.body.i.i.i.i155.i.i.i.2, %for.inc.i.i.i.i162.i.i.i.1, %for.body.i.i.i.i155.i.i.i.1, %for.inc.i.i.i.i162.i.i.i, %for.body.preheader.i.i.i.i154.i.i.i
   %prefix.0.lcssa.ph.i.i.i.i161.i.i.i = phi i64 [ %93, %for.inc.i.i.i.i162.i.i.i ], [ 0, %for.body.preheader.i.i.i.i154.i.i.i ], [ 1, %for.body.i.i.i.i155.i.i.i.1 ], [ %93, %for.inc.i.i.i.i162.i.i.i.1 ], [ 2, %for.body.i.i.i.i155.i.i.i.2 ], [ %93, %for.inc.i.i.i.i162.i.i.i.2 ], [ %spec.select106, %for.body.i.i.i.i155.i.i.i.3 ]
-  %102 = sitofp i64 %prefix.0.lcssa.ph.i.i.i.i161.i.i.i to double
+  %102 = uitofp nneg i64 %prefix.0.lcssa.ph.i.i.i.i161.i.i.i to double
   br label %_ZN6duckdb18UnaryLambdaWrapper9OperationIZNS_L14CachedFunctionIN19duckdb_jaro_winkler27CachedJaroWinklerSimilarityIcEEEEvRNS_6VectorES7_S7_mEUlRKNS_8string_tEE_S8_dEET1_T0_RNS_12ValidityMaskEmPv.exit165.i.i.i
 
 _ZN6duckdb18UnaryLambdaWrapper9OperationIZNS_L14CachedFunctionIN19duckdb_jaro_winkler27CachedJaroWinklerSimilarityIcEEEEvRNS_6VectorES7_S7_mEUlRKNS_8string_tEE_S8_dEET1_T0_RNS_12ValidityMaskEmPv.exit165.i.i.i: ; preds = %for.end.loopexit.i.i.i.i160.i.i.i, %for.body44.i.i.i
@@ -62679,7 +62679,7 @@ for.body.i.i.i.i.i90.i.i.3:                       ; preds = %for.inc.i.i.i.i.i97
 
 for.end.loopexit.i.i.i.i.i95.i.i:                 ; preds = %for.body.i.i.i.i.i90.i.i.3, %for.inc.i.i.i.i.i97.i.i.2, %for.body.i.i.i.i.i90.i.i.2, %for.inc.i.i.i.i.i97.i.i.1, %for.body.i.i.i.i.i90.i.i.1, %for.inc.i.i.i.i.i97.i.i, %for.body.preheader.i.i.i.i.i89.i.i
   %prefix.0.lcssa.ph.i.i.i.i.i96.i.i = phi i64 [ %121, %for.inc.i.i.i.i.i97.i.i ], [ 0, %for.body.preheader.i.i.i.i.i89.i.i ], [ 1, %for.body.i.i.i.i.i90.i.i.1 ], [ %121, %for.inc.i.i.i.i.i97.i.i.1 ], [ 2, %for.body.i.i.i.i.i90.i.i.2 ], [ %121, %for.inc.i.i.i.i.i97.i.i.2 ], [ %spec.select107, %for.body.i.i.i.i.i90.i.i.3 ]
-  %130 = sitofp i64 %prefix.0.lcssa.ph.i.i.i.i.i96.i.i to double
+  %130 = uitofp nneg i64 %prefix.0.lcssa.ph.i.i.i.i.i96.i.i to double
   br label %_ZN6duckdb18UnaryLambdaWrapper9OperationIZNS_L14CachedFunctionIN19duckdb_jaro_winkler27CachedJaroWinklerSimilarityIcEEEEvRNS_6VectorES7_S7_mEUlRKNS_8string_tEE_S8_dEET1_T0_RNS_12ValidityMaskEmPv.exit.i75.i.i
 
 _ZN6duckdb18UnaryLambdaWrapper9OperationIZNS_L14CachedFunctionIN19duckdb_jaro_winkler27CachedJaroWinklerSimilarityIcEEEEvRNS_6VectorES7_S7_mEUlRKNS_8string_tEE_S8_dEET1_T0_RNS_12ValidityMaskEmPv.exit.i75.i.i: ; preds = %for.end.loopexit.i.i.i.i.i95.i.i, %if.then3.i.i.i
@@ -62812,7 +62812,7 @@ for.body.i.i.i.i77.i.i.i.3:                       ; preds = %for.inc.i.i.i.i84.i
 
 for.end.loopexit.i.i.i.i82.i.i.i:                 ; preds = %for.body.i.i.i.i77.i.i.i.3, %for.inc.i.i.i.i84.i.i.i.2, %for.body.i.i.i.i77.i.i.i.2, %for.inc.i.i.i.i84.i.i.i.1, %for.body.i.i.i.i77.i.i.i.1, %for.inc.i.i.i.i84.i.i.i, %for.body.preheader.i.i.i.i76.i.i.i
   %prefix.0.lcssa.ph.i.i.i.i83.i.i.i = phi i64 [ %141, %for.inc.i.i.i.i84.i.i.i ], [ 0, %for.body.preheader.i.i.i.i76.i.i.i ], [ 1, %for.body.i.i.i.i77.i.i.i.1 ], [ %141, %for.inc.i.i.i.i84.i.i.i.1 ], [ 2, %for.body.i.i.i.i77.i.i.i.2 ], [ %141, %for.inc.i.i.i.i84.i.i.i.2 ], [ %spec.select108, %for.body.i.i.i.i77.i.i.i.3 ]
-  %150 = sitofp i64 %prefix.0.lcssa.ph.i.i.i.i83.i.i.i to double
+  %150 = uitofp nneg i64 %prefix.0.lcssa.ph.i.i.i.i83.i.i.i to double
   br label %_ZN6duckdb18UnaryLambdaWrapper9OperationIZNS_L14CachedFunctionIN19duckdb_jaro_winkler27CachedJaroWinklerSimilarityIcEEEEvRNS_6VectorES7_S7_mEUlRKNS_8string_tEE_S8_dEET1_T0_RNS_12ValidityMaskEmPv.exit87.i.i.i
 
 _ZN6duckdb18UnaryLambdaWrapper9OperationIZNS_L14CachedFunctionIN19duckdb_jaro_winkler27CachedJaroWinklerSimilarityIcEEEEvRNS_6VectorES7_S7_mEUlRKNS_8string_tEE_S8_dEET1_T0_RNS_12ValidityMaskEmPv.exit87.i.i.i: ; preds = %for.end.loopexit.i.i.i.i82.i.i.i, %_ZNK6duckdb15SelectionVector9get_indexEm.exit55.i.i.i

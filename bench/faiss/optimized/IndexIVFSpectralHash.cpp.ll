@@ -6337,7 +6337,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_110IVFScannerINS_17Hamming
   %7 = tail call range(i64 0, 65) <8 x i64> @llvm.ctpop.v8i64(<8 x i64> %6)
   %8 = tail call i64 @llvm.vector.reduce.add.v8i64(<8 x i64> %7)
   %9 = trunc i64 %8 to i32
-  %10 = sitofp i32 %9 to float
+  %10 = uitofp nneg i32 %9 to float
   ret float %10
 }
 
@@ -6367,7 +6367,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_110IVFScannerINS_17HammingCo
   %19 = tail call range(i64 0, 65) <8 x i64> @llvm.ctpop.v8i64(<8 x i64> %18)
   %20 = tail call i64 @llvm.vector.reduce.add.v8i64(<8 x i64> %19)
   %21 = trunc i64 %20 to i32
-  %22 = sitofp i32 %21 to float
+  %22 = uitofp nneg i32 %21 to float
   %23 = load float, ptr %4, align 4
   %24 = fcmp ogt float %23, %22
   br i1 %24, label %25, label %75
@@ -6501,7 +6501,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer6
   %15 = tail call range(i64 0, 65) <8 x i64> @llvm.ctpop.v8i64(<8 x i64> %14)
   %16 = tail call i64 @llvm.vector.reduce.add.v8i64(<8 x i64> %15)
   %17 = trunc i64 %16 to i32
-  %18 = sitofp i32 %17 to float
+  %18 = uitofp nneg i32 %17 to float
   %19 = fcmp olt float %18, %4
   br i1 %19, label %20, label %32
 

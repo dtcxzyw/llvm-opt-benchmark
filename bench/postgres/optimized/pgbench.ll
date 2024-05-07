@@ -3170,7 +3170,7 @@ disconnect_all.exit:                              ; preds = %finishCon.exit.i, %
 1063:                                             ; preds = %1058, %1053
   %1064 = phi i64 [ %.pr.i337, %1058 ], [ %1056, %1053 ]
   %.not113.i = icmp eq i64 %1064, 0
-  br i1 %.not113.i, label %1075, label %1065
+  br i1 %.not113.i, label %1076, label %1065
 
 1065:                                             ; preds = %1063
   %1066 = sitofp i64 %1064 to double
@@ -3178,315 +3178,316 @@ disconnect_all.exit:                              ; preds = %finishCon.exit.i, %
   %1068 = icmp sgt i64 %.sroa.1.0.lcssa, 0
   %1069 = sitofp i64 %.0243.lcssa to double
   %1070 = fmul double %1069, 1.000000e+02
-  %1071 = fdiv double %1070, %983
-  %1072 = select i1 %1068, double %1071, double 0.000000e+00
-  %1073 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.318, double noundef %1067, i64 noundef %.0243.lcssa, i64 noundef %.sroa.1.0.lcssa, double noundef %1072) #25
+  %1071 = uitofp nneg i64 %.sroa.1.0.lcssa to double
+  %1072 = fdiv double %1070, %1071
+  %1073 = select i1 %1068, double %1072, double 0.000000e+00
+  %1074 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.318, double noundef %1067, i64 noundef %.0243.lcssa, i64 noundef %.sroa.1.0.lcssa, double noundef %1073) #25
   %.pre.i333 = load i64, ptr @latency_limit, align 8
-  %1074 = icmp ne i64 %.pre.i333, 0
-  br label %1075
+  %1075 = icmp ne i64 %.pre.i333, 0
+  br label %1076
 
-1075:                                             ; preds = %1065, %1063
-  %1076 = phi i1 [ %1074, %1065 ], [ false, %1063 ]
-  %1077 = load double, ptr @throttle_delay, align 8
-  %1078 = fcmp une double %1077, 0.000000e+00
-  %1079 = load i32, ptr @progress, align 4
-  %1080 = icmp ne i32 %1079, 0
-  %or.cond3.i = select i1 %1078, i1 true, i1 %1080
-  %or.cond5.i = select i1 %or.cond3.i, i1 true, i1 %1076
-  br i1 %or.cond5.i, label %1081, label %1096
+1076:                                             ; preds = %1065, %1063
+  %1077 = phi i1 [ %1075, %1065 ], [ false, %1063 ]
+  %1078 = load double, ptr @throttle_delay, align 8
+  %1079 = fcmp une double %1078, 0.000000e+00
+  %1080 = load i32, ptr @progress, align 4
+  %1081 = icmp ne i32 %1080, 0
+  %or.cond3.i = select i1 %1079, i1 true, i1 %1081
+  %or.cond5.i = select i1 %or.cond3.i, i1 true, i1 %1077
+  br i1 %or.cond5.i, label %1082, label %1097
 
-1081:                                             ; preds = %1075
-  %1082 = icmp sgt i64 %.sroa.30.0.lcssa, 0
-  br i1 %1082, label %1083, label %printSimpleStats.exit.i
+1082:                                             ; preds = %1076
+  %1083 = icmp sgt i64 %.sroa.30.0.lcssa, 0
+  br i1 %1083, label %1084, label %printSimpleStats.exit.i
 
-1083:                                             ; preds = %1081
-  %1084 = sitofp i64 %.sroa.30.0.lcssa to double
-  %1085 = extractelement <2 x double> %963, i64 0
-  %1086 = fdiv double %1085, %1084
-  %1087 = extractelement <2 x double> %963, i64 1
-  %1088 = fdiv double %1087, %1084
-  %1089 = fneg double %1086
-  %1090 = call double @llvm.fmuladd.f64(double %1089, double %1086, double %1088)
-  %1091 = call double @sqrt(double noundef %1090) #25
-  %1092 = fmul double %1086, 1.000000e-03
-  %1093 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.341, ptr noundef nonnull @.str.319, double noundef %1092) #25
-  %1094 = fmul double %1091, 1.000000e-03
-  %1095 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.342, ptr noundef nonnull @.str.319, double noundef %1094) #25
+1084:                                             ; preds = %1082
+  %1085 = uitofp nneg i64 %.sroa.30.0.lcssa to double
+  %1086 = extractelement <2 x double> %963, i64 0
+  %1087 = fdiv double %1086, %1085
+  %1088 = extractelement <2 x double> %963, i64 1
+  %1089 = fdiv double %1088, %1085
+  %1090 = fneg double %1087
+  %1091 = call double @llvm.fmuladd.f64(double %1090, double %1087, double %1089)
+  %1092 = call double @sqrt(double noundef %1091) #25
+  %1093 = fmul double %1087, 1.000000e-03
+  %1094 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.341, ptr noundef nonnull @.str.319, double noundef %1093) #25
+  %1095 = fmul double %1092, 1.000000e-03
+  %1096 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.342, ptr noundef nonnull @.str.319, double noundef %1095) #25
   br label %printSimpleStats.exit.i
 
-1096:                                             ; preds = %1075
-  %1097 = fmul double %981, 1.000000e-03
-  %1098 = load i32, ptr @nclients, align 4
-  %1099 = sitofp i32 %1098 to double
-  %1100 = fmul double %1097, %1099
-  %1101 = fdiv double %1100, %1028
-  %1102 = icmp sgt i64 %978, 0
-  %1103 = select i1 %1102, ptr @.str.321, ptr @.str.148
-  %1104 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.320, double noundef %1101, ptr noundef nonnull %1103) #25
+1097:                                             ; preds = %1076
+  %1098 = fmul double %981, 1.000000e-03
+  %1099 = load i32, ptr @nclients, align 4
+  %1100 = sitofp i32 %1099 to double
+  %1101 = fmul double %1098, %1100
+  %1102 = fdiv double %1101, %1028
+  %1103 = icmp sgt i64 %978, 0
+  %1104 = select i1 %1103, ptr @.str.321, ptr @.str.148
+  %1105 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.320, double noundef %1102, ptr noundef nonnull %1104) #25
   br label %printSimpleStats.exit.i
 
-printSimpleStats.exit.i:                          ; preds = %1096, %1083, %1081
-  %1105 = load double, ptr @throttle_delay, align 8
-  %1106 = fcmp une double %1105, 0.000000e+00
-  br i1 %1106, label %1107, label %1112
+printSimpleStats.exit.i:                          ; preds = %1097, %1084, %1082
+  %1106 = load double, ptr @throttle_delay, align 8
+  %1107 = fcmp une double %1106, 0.000000e+00
+  br i1 %1107, label %1108, label %1113
 
-1107:                                             ; preds = %printSimpleStats.exit.i
-  %1108 = fmul double %.sroa.52.0.lcssa, 1.000000e-03
-  %1109 = fdiv double %1108, %983
-  %1110 = fmul double %.sroa.49.0.lcssa, 1.000000e-03
-  %1111 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.322, double noundef %1109, double noundef %1110) #25
-  br label %1112
+1108:                                             ; preds = %printSimpleStats.exit.i
+  %1109 = fmul double %.sroa.52.0.lcssa, 1.000000e-03
+  %1110 = fdiv double %1109, %983
+  %1111 = fmul double %.sroa.49.0.lcssa, 1.000000e-03
+  %1112 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.322, double noundef %1110, double noundef %1111) #25
+  br label %1113
 
-1112:                                             ; preds = %1107, %printSimpleStats.exit.i
-  %1113 = load i8, ptr @is_connect, align 1
-  %1114 = trunc i8 %1113 to i1
-  br i1 %1114, label %1115, label %1121
+1113:                                             ; preds = %1108, %printSimpleStats.exit.i
+  %1114 = load i8, ptr @is_connect, align 1
+  %1115 = trunc i8 %1114 to i1
+  br i1 %1115, label %1116, label %1122
 
-1115:                                             ; preds = %1112
-  %1116 = sitofp i64 %.0237.lcssa to double
-  %1117 = fmul double %1116, 1.000000e-03
-  %1118 = sitofp i64 %979 to double
-  %1119 = fdiv double %1117, %1118
-  %1120 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.323, double noundef %1119) #25
-  br label %1125
+1116:                                             ; preds = %1113
+  %1117 = sitofp i64 %.0237.lcssa to double
+  %1118 = fmul double %1117, 1.000000e-03
+  %1119 = sitofp i64 %979 to double
+  %1120 = fdiv double %1118, %1119
+  %1121 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.323, double noundef %1120) #25
+  br label %1126
 
-1121:                                             ; preds = %1112
-  %1122 = sitofp i64 %977 to double
-  %1123 = fmul double %1122, 1.000000e-03
-  %1124 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.325, double noundef %1123) #25
-  br label %1125
+1122:                                             ; preds = %1113
+  %1123 = sitofp i64 %977 to double
+  %1124 = fmul double %1123, 1.000000e-03
+  %1125 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.325, double noundef %1124) #25
+  br label %1126
 
-1125:                                             ; preds = %1121, %1115
-  %.str.326.sink.i = phi ptr [ @.str.326, %1121 ], [ @.str.324, %1115 ]
-  %1126 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull %.str.326.sink.i, double noundef %984) #25
-  %1127 = load i8, ptr @per_script_stats, align 1
-  %1128 = trunc i8 %1127 to i1
-  br i1 %1128, label %1134, label %1129
+1126:                                             ; preds = %1122, %1116
+  %.str.326.sink.i = phi ptr [ @.str.326, %1122 ], [ @.str.324, %1116 ]
+  %1127 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull %.str.326.sink.i, double noundef %984) #25
+  %1128 = load i8, ptr @per_script_stats, align 1
+  %1129 = trunc i8 %1128 to i1
+  br i1 %1129, label %1135, label %1130
 
-1129:                                             ; preds = %1125
-  %1130 = load i8, ptr @report_per_command, align 1
-  %1131 = trunc i8 %1130 to i1
-  %1132 = load i32, ptr @num_scripts, align 4
-  %1133 = icmp sgt i32 %1132, 0
-  %or.cond126.i = select i1 %1131, i1 %1133, i1 false
+1130:                                             ; preds = %1126
+  %1131 = load i8, ptr @report_per_command, align 1
+  %1132 = trunc i8 %1131 to i1
+  %1133 = load i32, ptr @num_scripts, align 4
+  %1134 = icmp sgt i32 %1133, 0
+  %or.cond126.i = select i1 %1132, i1 %1134, i1 false
   br i1 %or.cond126.i, label %.lr.ph124.i.preheader, label %printResults.exit
 
-1134:                                             ; preds = %1125
+1135:                                             ; preds = %1126
   %.old.i = load i32, ptr @num_scripts, align 4
   %.old125.i = icmp sgt i32 %.old.i, 0
   br i1 %.old125.i, label %.lr.ph124.i.preheader, label %printResults.exit
 
-.lr.ph124.i.preheader:                            ; preds = %1134, %1129
+.lr.ph124.i.preheader:                            ; preds = %1135, %1130
   br label %.lr.ph124.i
 
 .lr.ph124.i:                                      ; preds = %.lr.ph124.i.preheader, %.loopexit.i
   %indvars.iv.i334 = phi i64 [ %indvars.iv.next.i335, %.loopexit.i ], [ 0, %.lr.ph124.i.preheader ]
-  %1135 = load i8, ptr @per_script_stats, align 1
-  %1136 = trunc i8 %1135 to i1
-  br i1 %1136, label %1137, label %printSimpleStats.exit119.i
+  %1136 = load i8, ptr @per_script_stats, align 1
+  %1137 = trunc i8 %1136 to i1
+  br i1 %1137, label %1138, label %printSimpleStats.exit119.i
 
-1137:                                             ; preds = %.lr.ph124.i
-  %1138 = getelementptr [128 x %struct.ParsedScript], ptr @sql_script, i64 0, i64 %indvars.iv.i334
-  %1139 = getelementptr i8, ptr %1138, i64 64
-  %.val117.i = load i64, ptr %1139, align 16
-  %1140 = getelementptr i8, ptr %1138, i64 72
-  %.val118.i = load i64, ptr %1140, align 8
-  %1141 = add i64 %.val118.i, %.val117.i
-  %1142 = getelementptr inbounds i8, ptr %1138, i64 32
-  %1143 = load i64, ptr %1142, align 16
-  %1144 = getelementptr inbounds i8, ptr %1138, i64 40
-  %1145 = load i64, ptr %1144, align 8
-  %1146 = add i64 %1141, %1143
-  %1147 = add i64 %1146, %1145
-  %1148 = load ptr, ptr %1138, align 16
-  %1149 = getelementptr inbounds i8, ptr %1138, i64 8
-  %1150 = load i32, ptr %1149, align 8
-  %1151 = sitofp i32 %1150 to double
-  %1152 = fmul double %1151, 1.000000e+02
-  %1153 = load i64, ptr @total_weight, align 8
-  %1154 = sitofp i64 %1153 to double
-  %1155 = fdiv double %1152, %1154
-  %1156 = sitofp i64 %1143 to double
-  %1157 = fmul double %1156, 1.000000e+02
-  %1158 = fdiv double %1157, %983
-  %1159 = fdiv double %1156, %982
-  %1160 = trunc i64 %indvars.iv.i334 to i32
-  %1161 = add i32 %1160, 1
-  %1162 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.327, i32 noundef %1161, ptr noundef %1148, i32 noundef %1150, double noundef %1155, i64 noundef %1143, double noundef %1158, double noundef %1159) #25
-  %1163 = sitofp i64 %1141 to double
-  %1164 = fmul double %1163, 1.000000e+02
-  %1165 = sitofp i64 %1147 to double
-  %1166 = fdiv double %1164, %1165
-  %1167 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.328, i64 noundef %1141, double noundef %1166) #25
-  %1168 = load i8, ptr @failures_detailed, align 1
-  %1169 = trunc i8 %1168 to i1
-  br i1 %1169, label %1170, label %1181
+1138:                                             ; preds = %.lr.ph124.i
+  %1139 = getelementptr [128 x %struct.ParsedScript], ptr @sql_script, i64 0, i64 %indvars.iv.i334
+  %1140 = getelementptr i8, ptr %1139, i64 64
+  %.val117.i = load i64, ptr %1140, align 16
+  %1141 = getelementptr i8, ptr %1139, i64 72
+  %.val118.i = load i64, ptr %1141, align 8
+  %1142 = add i64 %.val118.i, %.val117.i
+  %1143 = getelementptr inbounds i8, ptr %1139, i64 32
+  %1144 = load i64, ptr %1143, align 16
+  %1145 = getelementptr inbounds i8, ptr %1139, i64 40
+  %1146 = load i64, ptr %1145, align 8
+  %1147 = add i64 %1142, %1144
+  %1148 = add i64 %1147, %1146
+  %1149 = load ptr, ptr %1139, align 16
+  %1150 = getelementptr inbounds i8, ptr %1139, i64 8
+  %1151 = load i32, ptr %1150, align 8
+  %1152 = sitofp i32 %1151 to double
+  %1153 = fmul double %1152, 1.000000e+02
+  %1154 = load i64, ptr @total_weight, align 8
+  %1155 = sitofp i64 %1154 to double
+  %1156 = fdiv double %1153, %1155
+  %1157 = sitofp i64 %1144 to double
+  %1158 = fmul double %1157, 1.000000e+02
+  %1159 = fdiv double %1158, %983
+  %1160 = fdiv double %1157, %982
+  %1161 = trunc i64 %indvars.iv.i334 to i32
+  %1162 = add i32 %1161, 1
+  %1163 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.327, i32 noundef %1162, ptr noundef %1149, i32 noundef %1151, double noundef %1156, i64 noundef %1144, double noundef %1159, double noundef %1160) #25
+  %1164 = sitofp i64 %1142 to double
+  %1165 = fmul double %1164, 1.000000e+02
+  %1166 = sitofp i64 %1148 to double
+  %1167 = fdiv double %1165, %1166
+  %1168 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.328, i64 noundef %1142, double noundef %1167) #25
+  %1169 = load i8, ptr @failures_detailed, align 1
+  %1170 = trunc i8 %1169 to i1
+  br i1 %1170, label %1171, label %1182
 
-1170:                                             ; preds = %1137
-  %1171 = load i64, ptr %1139, align 16
-  %1172 = sitofp i64 %1171 to double
-  %1173 = fmul double %1172, 1.000000e+02
-  %1174 = fdiv double %1173, %1165
-  %1175 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.329, i64 noundef %1171, double noundef %1174) #25
-  %1176 = load i64, ptr %1140, align 8
-  %1177 = sitofp i64 %1176 to double
-  %1178 = fmul double %1177, 1.000000e+02
-  %1179 = fdiv double %1178, %1165
-  %1180 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.330, i64 noundef %1176, double noundef %1179) #25
-  br label %1181
+1171:                                             ; preds = %1138
+  %1172 = load i64, ptr %1140, align 16
+  %1173 = sitofp i64 %1172 to double
+  %1174 = fmul double %1173, 1.000000e+02
+  %1175 = fdiv double %1174, %1166
+  %1176 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.329, i64 noundef %1172, double noundef %1175) #25
+  %1177 = load i64, ptr %1141, align 8
+  %1178 = sitofp i64 %1177 to double
+  %1179 = fmul double %1178, 1.000000e+02
+  %1180 = fdiv double %1179, %1166
+  %1181 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.330, i64 noundef %1177, double noundef %1180) #25
+  br label %1182
 
-1181:                                             ; preds = %1170, %1137
-  %1182 = load i32, ptr @max_tries, align 4
-  %.not114.i = icmp eq i32 %1182, 1
-  br i1 %.not114.i, label %1193, label %1183
+1182:                                             ; preds = %1171, %1138
+  %1183 = load i32, ptr @max_tries, align 4
+  %.not114.i = icmp eq i32 %1183, 1
+  br i1 %.not114.i, label %1194, label %1184
 
-1183:                                             ; preds = %1181
-  %1184 = getelementptr inbounds i8, ptr %1138, i64 56
-  %1185 = load i64, ptr %1184, align 8
-  %1186 = sitofp i64 %1185 to double
-  %1187 = fmul double %1186, 1.000000e+02
-  %1188 = fdiv double %1187, %1165
-  %1189 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.331, i64 noundef %1185, double noundef %1188) #25
-  %1190 = getelementptr inbounds i8, ptr %1138, i64 48
-  %1191 = load i64, ptr %1190, align 16
-  %1192 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.332, i64 noundef %1191) #25
-  br label %1193
+1184:                                             ; preds = %1182
+  %1185 = getelementptr inbounds i8, ptr %1139, i64 56
+  %1186 = load i64, ptr %1185, align 8
+  %1187 = sitofp i64 %1186 to double
+  %1188 = fmul double %1187, 1.000000e+02
+  %1189 = fdiv double %1188, %1166
+  %1190 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.331, i64 noundef %1186, double noundef %1189) #25
+  %1191 = getelementptr inbounds i8, ptr %1139, i64 48
+  %1192 = load i64, ptr %1191, align 16
+  %1193 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.332, i64 noundef %1192) #25
+  br label %1194
 
-1193:                                             ; preds = %1183, %1181
-  %1194 = load double, ptr @throttle_delay, align 8
-  %1195 = fcmp une double %1194, 0.000000e+00
-  %1196 = load i64, ptr @latency_limit, align 8
-  %1197 = icmp ne i64 %1196, 0
-  %or.cond7.i = select i1 %1195, i1 %1197, i1 false
-  %1198 = icmp sgt i64 %1147, 0
-  %or.cond9.i = select i1 %or.cond7.i, i1 %1198, i1 false
-  br i1 %or.cond9.i, label %1199, label %1205
+1194:                                             ; preds = %1184, %1182
+  %1195 = load double, ptr @throttle_delay, align 8
+  %1196 = fcmp une double %1195, 0.000000e+00
+  %1197 = load i64, ptr @latency_limit, align 8
+  %1198 = icmp ne i64 %1197, 0
+  %or.cond7.i = select i1 %1196, i1 %1198, i1 false
+  %1199 = icmp sgt i64 %1148, 0
+  %or.cond9.i = select i1 %or.cond7.i, i1 %1199, i1 false
+  br i1 %or.cond9.i, label %1200, label %1206
 
-1199:                                             ; preds = %1193
-  %1200 = load i64, ptr %1144, align 8
-  %1201 = sitofp i64 %1200 to double
-  %1202 = fmul double %1201, 1.000000e+02
-  %1203 = fdiv double %1202, %1165
-  %1204 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.333, i64 noundef %1200, double noundef %1203) #25
-  br label %1205
+1200:                                             ; preds = %1194
+  %1201 = load i64, ptr %1145, align 8
+  %1202 = sitofp i64 %1201 to double
+  %1203 = fmul double %1202, 1.000000e+02
+  %1204 = fdiv double %1203, %1166
+  %1205 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.333, i64 noundef %1201, double noundef %1204) #25
+  br label %1206
 
-1205:                                             ; preds = %1199, %1193
-  %1206 = getelementptr inbounds i8, ptr %1138, i64 80
-  %1207 = load i64, ptr %1206, align 16
-  %1208 = icmp sgt i64 %1207, 0
-  br i1 %1208, label %1209, label %printSimpleStats.exit119.i
+1206:                                             ; preds = %1200, %1194
+  %1207 = getelementptr inbounds i8, ptr %1139, i64 80
+  %1208 = load i64, ptr %1207, align 16
+  %1209 = icmp sgt i64 %1208, 0
+  br i1 %1209, label %1210, label %printSimpleStats.exit119.i
 
-1209:                                             ; preds = %1205
-  %1210 = getelementptr inbounds i8, ptr %1138, i64 104
-  %1211 = load double, ptr %1210, align 8
-  %1212 = sitofp i64 %1207 to double
-  %1213 = fdiv double %1211, %1212
-  %1214 = getelementptr inbounds i8, ptr %1138, i64 112
-  %1215 = load double, ptr %1214, align 16
-  %1216 = fdiv double %1215, %1212
-  %1217 = fneg double %1213
-  %1218 = call double @llvm.fmuladd.f64(double %1217, double %1213, double %1216)
-  %1219 = call double @sqrt(double noundef %1218) #25
-  %1220 = fmul double %1213, 1.000000e-03
-  %1221 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.341, ptr noundef nonnull @.str.334, double noundef %1220) #25
-  %1222 = fmul double %1219, 1.000000e-03
-  %1223 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.342, ptr noundef nonnull @.str.334, double noundef %1222) #25
+1210:                                             ; preds = %1206
+  %1211 = getelementptr inbounds i8, ptr %1139, i64 104
+  %1212 = load double, ptr %1211, align 8
+  %1213 = uitofp nneg i64 %1208 to double
+  %1214 = fdiv double %1212, %1213
+  %1215 = getelementptr inbounds i8, ptr %1139, i64 112
+  %1216 = load double, ptr %1215, align 16
+  %1217 = fdiv double %1216, %1213
+  %1218 = fneg double %1214
+  %1219 = call double @llvm.fmuladd.f64(double %1218, double %1214, double %1217)
+  %1220 = call double @sqrt(double noundef %1219) #25
+  %1221 = fmul double %1214, 1.000000e-03
+  %1222 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.341, ptr noundef nonnull @.str.334, double noundef %1221) #25
+  %1223 = fmul double %1220, 1.000000e-03
+  %1224 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.342, ptr noundef nonnull @.str.334, double noundef %1223) #25
   br label %printSimpleStats.exit119.i
 
-printSimpleStats.exit119.i:                       ; preds = %1209, %1205, %.lr.ph124.i
-  %1224 = load i8, ptr @report_per_command, align 1
-  %1225 = trunc i8 %1224 to i1
-  br i1 %1225, label %1226, label %.loopexit.i
+printSimpleStats.exit119.i:                       ; preds = %1210, %1206, %.lr.ph124.i
+  %1225 = load i8, ptr @report_per_command, align 1
+  %1226 = trunc i8 %1225 to i1
+  br i1 %1226, label %1227, label %.loopexit.i
 
-1226:                                             ; preds = %printSimpleStats.exit119.i
-  %1227 = load i8, ptr @per_script_stats, align 1
-  %1228 = trunc i8 %1227 to i1
-  %1229 = select i1 %1228, ptr @.str.336, ptr @.str.148
-  %1230 = load i32, ptr @max_tries, align 4
-  %1231 = icmp eq i32 %1230, 1
-  %1232 = select i1 %1231, ptr @.str.337, ptr @.str.338
-  %1233 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.335, ptr noundef nonnull %1229, ptr noundef nonnull %1232) #25
-  %1234 = getelementptr [128 x %struct.ParsedScript], ptr @sql_script, i64 0, i64 %indvars.iv.i334, i32 2
-  %1235 = load ptr, ptr %1234, align 16
-  %1236 = load ptr, ptr %1235, align 8
-  %.not115121.i = icmp eq ptr %1236, null
+1227:                                             ; preds = %printSimpleStats.exit119.i
+  %1228 = load i8, ptr @per_script_stats, align 1
+  %1229 = trunc i8 %1228 to i1
+  %1230 = select i1 %1229, ptr @.str.336, ptr @.str.148
+  %1231 = load i32, ptr @max_tries, align 4
+  %1232 = icmp eq i32 %1231, 1
+  %1233 = select i1 %1232, ptr @.str.337, ptr @.str.338
+  %1234 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.335, ptr noundef nonnull %1230, ptr noundef nonnull %1233) #25
+  %1235 = getelementptr [128 x %struct.ParsedScript], ptr @sql_script, i64 0, i64 %indvars.iv.i334, i32 2
+  %1236 = load ptr, ptr %1235, align 16
+  %1237 = load ptr, ptr %1236, align 8
+  %.not115121.i = icmp eq ptr %1237, null
   br i1 %.not115121.i, label %.loopexit.i, label %.lr.ph.i336
 
-.lr.ph.i336:                                      ; preds = %1226, %1273
-  %1237 = phi ptr [ %1275, %1273 ], [ %1236, %1226 ]
-  %.0102122.i = phi ptr [ %1274, %1273 ], [ %1235, %1226 ]
-  %1238 = getelementptr inbounds i8, ptr %1237, i64 2120
-  %1239 = load i32, ptr @max_tries, align 4
-  %1240 = icmp eq i32 %1239, 1
-  %1241 = load i64, ptr %1238, align 8
-  %1242 = icmp sgt i64 %1241, 0
-  br i1 %1240, label %1243, label %1257
+.lr.ph.i336:                                      ; preds = %1227, %1274
+  %1238 = phi ptr [ %1276, %1274 ], [ %1237, %1227 ]
+  %.0102122.i = phi ptr [ %1275, %1274 ], [ %1236, %1227 ]
+  %1239 = getelementptr inbounds i8, ptr %1238, i64 2120
+  %1240 = load i32, ptr @max_tries, align 4
+  %1241 = icmp eq i32 %1240, 1
+  %1242 = load i64, ptr %1239, align 8
+  %1243 = icmp sgt i64 %1242, 0
+  br i1 %1241, label %1244, label %1258
 
-1243:                                             ; preds = %.lr.ph.i336
-  br i1 %1242, label %1244, label %1250
+1244:                                             ; preds = %.lr.ph.i336
+  br i1 %1243, label %1245, label %1251
 
-1244:                                             ; preds = %1243
-  %1245 = getelementptr inbounds i8, ptr %1237, i64 2144
-  %1246 = load double, ptr %1245, align 8
-  %1247 = fmul double %1246, 1.000000e+03
-  %1248 = sitofp i64 %1241 to double
-  %1249 = fdiv double %1247, %1248
-  br label %1250
+1245:                                             ; preds = %1244
+  %1246 = getelementptr inbounds i8, ptr %1238, i64 2144
+  %1247 = load double, ptr %1246, align 8
+  %1248 = fmul double %1247, 1.000000e+03
+  %1249 = uitofp nneg i64 %1242 to double
+  %1250 = fdiv double %1248, %1249
+  br label %1251
 
-1250:                                             ; preds = %1244, %1243
-  %1251 = phi double [ %1249, %1244 ], [ 0.000000e+00, %1243 ]
-  %1252 = getelementptr inbounds i8, ptr %1237, i64 2168
-  %1253 = load i64, ptr %1252, align 8
-  %1254 = getelementptr inbounds i8, ptr %1237, i64 24
-  %1255 = load ptr, ptr %1254, align 8
-  %1256 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.339, double noundef %1251, i64 noundef %1253, ptr noundef %1255) #25
-  br label %1273
+1251:                                             ; preds = %1245, %1244
+  %1252 = phi double [ %1250, %1245 ], [ 0.000000e+00, %1244 ]
+  %1253 = getelementptr inbounds i8, ptr %1238, i64 2168
+  %1254 = load i64, ptr %1253, align 8
+  %1255 = getelementptr inbounds i8, ptr %1238, i64 24
+  %1256 = load ptr, ptr %1255, align 8
+  %1257 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.339, double noundef %1252, i64 noundef %1254, ptr noundef %1256) #25
+  br label %1274
 
-1257:                                             ; preds = %.lr.ph.i336
-  br i1 %1242, label %1258, label %1264
+1258:                                             ; preds = %.lr.ph.i336
+  br i1 %1243, label %1259, label %1265
 
-1258:                                             ; preds = %1257
-  %1259 = getelementptr inbounds i8, ptr %1237, i64 2144
-  %1260 = load double, ptr %1259, align 8
-  %1261 = fmul double %1260, 1.000000e+03
-  %1262 = sitofp i64 %1241 to double
-  %1263 = fdiv double %1261, %1262
-  br label %1264
+1259:                                             ; preds = %1258
+  %1260 = getelementptr inbounds i8, ptr %1238, i64 2144
+  %1261 = load double, ptr %1260, align 8
+  %1262 = fmul double %1261, 1.000000e+03
+  %1263 = uitofp nneg i64 %1242 to double
+  %1264 = fdiv double %1262, %1263
+  br label %1265
 
-1264:                                             ; preds = %1258, %1257
-  %1265 = phi double [ %1263, %1258 ], [ 0.000000e+00, %1257 ]
-  %1266 = getelementptr inbounds i8, ptr %1237, i64 2168
-  %1267 = load i64, ptr %1266, align 8
-  %1268 = getelementptr inbounds i8, ptr %1237, i64 2160
-  %1269 = load i64, ptr %1268, align 8
-  %1270 = getelementptr inbounds i8, ptr %1237, i64 24
-  %1271 = load ptr, ptr %1270, align 8
-  %1272 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.340, double noundef %1265, i64 noundef %1267, i64 noundef %1269, ptr noundef %1271) #25
-  br label %1273
+1265:                                             ; preds = %1259, %1258
+  %1266 = phi double [ %1264, %1259 ], [ 0.000000e+00, %1258 ]
+  %1267 = getelementptr inbounds i8, ptr %1238, i64 2168
+  %1268 = load i64, ptr %1267, align 8
+  %1269 = getelementptr inbounds i8, ptr %1238, i64 2160
+  %1270 = load i64, ptr %1269, align 8
+  %1271 = getelementptr inbounds i8, ptr %1238, i64 24
+  %1272 = load ptr, ptr %1271, align 8
+  %1273 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.340, double noundef %1266, i64 noundef %1268, i64 noundef %1270, ptr noundef %1272) #25
+  br label %1274
 
-1273:                                             ; preds = %1264, %1250
-  %1274 = getelementptr i8, ptr %.0102122.i, i64 8
-  %1275 = load ptr, ptr %1274, align 8
-  %.not115.i = icmp eq ptr %1275, null
+1274:                                             ; preds = %1265, %1251
+  %1275 = getelementptr i8, ptr %.0102122.i, i64 8
+  %1276 = load ptr, ptr %1275, align 8
+  %.not115.i = icmp eq ptr %1276, null
   br i1 %.not115.i, label %.loopexit.i, label %.lr.ph.i336, !llvm.loop !30
 
-.loopexit.i:                                      ; preds = %1273, %1226, %printSimpleStats.exit119.i
+.loopexit.i:                                      ; preds = %1274, %1227, %printSimpleStats.exit119.i
   %indvars.iv.next.i335 = add nuw nsw i64 %indvars.iv.i334, 1
-  %1276 = load i32, ptr @num_scripts, align 4
-  %1277 = sext i32 %1276 to i64
-  %1278 = icmp slt i64 %indvars.iv.next.i335, %1277
-  br i1 %1278, label %.lr.ph124.i, label %printResults.exit, !llvm.loop !31
+  %1277 = load i32, ptr @num_scripts, align 4
+  %1278 = sext i32 %1277 to i64
+  %1279 = icmp slt i64 %indvars.iv.next.i335, %1278
+  br i1 %1279, label %.lr.ph124.i, label %printResults.exit, !llvm.loop !31
 
-printResults.exit:                                ; preds = %.loopexit.i, %1050, %1129, %1134
-  %1279 = call i32 @pthread_barrier_destroy(ptr noundef nonnull @barrier) #25
+printResults.exit:                                ; preds = %.loopexit.i, %1050, %1130, %1135
+  %1280 = call i32 @pthread_barrier_destroy(ptr noundef nonnull @barrier) #25
   %.not274 = icmp eq i32 %.0234.lcssa, 0
-  br i1 %.not274, label %1281, label %1280
+  br i1 %.not274, label %1282, label %1281
 
-1280:                                             ; preds = %printResults.exit
+1281:                                             ; preds = %printResults.exit
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.125) #25
-  br label %1281
+  br label %1282
 
-1281:                                             ; preds = %1280, %printResults.exit
+1282:                                             ; preds = %1281, %printResults.exit
   ret i32 %.0234.lcssa
 }
 
@@ -8394,7 +8395,7 @@ define internal fastcc void @initPopulateTable(ptr noundef %0, ptr noundef %1, i
 
 .lr.ph:                                           ; preds = %32
   %41 = getelementptr inbounds i8, ptr %6, i64 8
-  %42 = sitofp i64 %12 to double
+  %42 = uitofp nneg i64 %12 to double
   %43 = select i1 %.not, i32 13, i32 10
   %44 = getelementptr inbounds i8, ptr %5, i64 8
   br label %45
@@ -11457,7 +11458,7 @@ define internal fastcc i64 @getZipfianRand(ptr noundef %0, i64 noundef %1, i64 n
 .preheader.i:                                     ; preds = %4
   %9 = fdiv double -1.000000e+00, %7
   %10 = fadd double %exp2.i, -1.000000e+00
-  %11 = sitofp i64 %6 to double
+  %11 = uitofp nneg i64 %6 to double
   %12 = insertelement <2 x double> poison, double %10, i64 0
   %13 = insertelement <2 x double> %12, double %exp2.i, i64 1
   br label %14

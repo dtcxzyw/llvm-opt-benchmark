@@ -36274,7 +36274,7 @@ _ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS4_EESt4lessIS1_ESaISt4pair
   br label %150
 
 88:                                               ; preds = %69
-  %89 = sitofp i32 %51 to double
+  %89 = uitofp nneg i32 %51 to double
   %90 = fsub double %50, %89
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)

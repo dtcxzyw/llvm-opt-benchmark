@@ -1579,9 +1579,9 @@ _ZL11calc_gyro_zPA3_fS0_iPKiP6t_atomifP8_IO_FILE.exit: ; preds = %532, %._crit_e
   br i1 %582, label %583, label %._crit_edge.thread
 
 583:                                              ; preds = %._crit_edge
-  %584 = sitofp i32 %579 to float
+  %584 = uitofp nneg i32 %579 to float
   %585 = fdiv float %.193, %584
-  %586 = sitofp i32 %579 to double
+  %586 = uitofp nneg i32 %579 to double
   %587 = fdiv double 1.000000e+00, %586
   %588 = fptrunc double %587 to float
   %589 = fmul float %572, %588

@@ -4319,7 +4319,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 
 invoke.cont513:                                   ; preds = %for.body.i, %invoke.cont511
   %sum.0.lcssa.i = phi float [ 0.000000e+00, %invoke.cont511 ], [ %add.i, %for.body.i ]
-  %conv5.i = uitofp i64 %79 to float
+  %conv5.i = uitofp nneg i64 %79 to float
   %div.i = fdiv float %sum.0.lcssa.i, %conv5.i
   store i64 0, ptr %nStored.i.i215, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %.pre, null
@@ -7896,7 +7896,7 @@ land.lhs.true:                                    ; preds = %do.end
 if.then33:                                        ; preds = %land.lhs.true
   %apertureRadius = getelementptr inbounds i8, ptr %arrayidx.i, i64 12
   %28 = load float, ptr %apertureRadius, align 4
-  %29 = sitofp <2 x i32> %23 to <2 x float>
+  %29 = uitofp <2 x i32> %23 to <2 x float>
   %30 = insertelement <2 x float> poison, float %28, i64 0
   %31 = shufflevector <2 x float> %30, <2 x float> poison, <2 x i32> zeroinitializer
   %32 = fdiv <2 x float> %22, %31

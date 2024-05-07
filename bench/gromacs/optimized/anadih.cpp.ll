@@ -643,7 +643,7 @@ define void @_Z17low_ana_dih_transbPKcbS0_iPPfN3gmx8ArrayRefI7t_dlistEEiiS0_PiS1
   %35 = load float, ptr %34, align 4
   %36 = load float, ptr %11, align 4
   %37 = fsub float %35, %36
-  %38 = sitofp i32 %32 to float
+  %38 = uitofp nneg i32 %32 to float
   %39 = fdiv float %37, %38
   %40 = load ptr, ptr @stderr, align 8
   %41 = tail call i64 @fwrite(ptr nonnull @.str.9, i64 31, i64 1, ptr %40) #26
@@ -688,7 +688,7 @@ define void @_Z17low_ana_dih_transbPKcbS0_iPPfN3gmx8ArrayRefI7t_dlistEEiiS0_PiS1
   br label %110
 
 .lr.ph210:                                        ; preds = %.split203.us
-  %55 = sitofp i32 %7 to float
+  %55 = uitofp nneg i32 %7 to float
   %smax = tail call i32 @llvm.smax.i32(i32 %7, i32 2)
   %wide.trip.count268 = zext nneg i32 %8 to i64
   %wide.trip.count = zext nneg i32 %smax to i64
@@ -780,11 +780,11 @@ define void @_Z17low_ana_dih_transbPKcbS0_iPPfN3gmx8ArrayRefI7t_dlistEEiiS0_PiS1
   br i1 %99, label %100, label %110
 
 100:                                              ; preds = %._crit_edge
-  %101 = sitofp i32 %7 to float
+  %101 = uitofp nneg i32 %7 to float
   %102 = fmul float %39, %101
   %103 = sitofp i32 %8 to float
   %104 = fmul float %102, %103
-  %105 = sitofp i32 %.2141 to float
+  %105 = uitofp nneg i32 %.2141 to float
   %106 = fdiv float %104, %105
   %107 = load ptr, ptr @stderr, align 8
   %108 = fpext float %106 to double
@@ -1087,7 +1087,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit173: ;
 
 207:                                              ; preds = %201
   %208 = trunc nsw i64 %indvars.iv306 to i32
-  %209 = sitofp i32 %7 to float
+  %209 = uitofp nneg i32 %7 to float
   %210 = fmul float %39, %209
   br i1 %2, label %211, label %240
 
@@ -1168,7 +1168,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit185:       ; preds = %220, %223
   br i1 %.not, label %.lr.ph241._crit_edge, label %228
 
 228:                                              ; preds = %.lr.ph241
-  %229 = sitofp i32 %.pre to float
+  %229 = uitofp nneg i32 %.pre to float
   %230 = fdiv float %210, %229
   %231 = fpext float %230 to double
   %232 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %219, ptr noundef nonnull @.str.17, double noundef %231, i32 noundef %227) #20

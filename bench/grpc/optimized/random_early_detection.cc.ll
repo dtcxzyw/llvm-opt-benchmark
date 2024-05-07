@@ -89,7 +89,7 @@ if.then.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i.
   br label %_ZN4absl12lts_202308029BernoulliIRNS0_9BitGenRefEEEbOT_d.exit
 
 if.end.i.i.i.i.i:                                 ; preds = %while.body.i.i.i.i.i
-  %conv5.i.i.i.i.i = uitofp i64 %conv.i.i.i.i.i to double
+  %conv5.i.i.i.i.i = uitofp nneg i64 %conv.i.i.i.i.i to double
   %div.i.i.i.i.i = fmul double %conv5.i.i.i.i.i, 0x3DF0000000000000
   %sub.i.i.i.i.i = fsub double %p.addr.0.i.i.i.i.i, %div.i.i.i.i.i
   %mul6.i.i.i.i.i = fmul double %sub.i.i.i.i.i, 0x41F0000000000000

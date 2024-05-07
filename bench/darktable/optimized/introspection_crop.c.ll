@@ -845,10 +845,10 @@ define internal fastcc void @_commit_box(ptr noundef %0, ptr nocapture noundef %
 
 74:                                               ; preds = %70
   %75 = load float, ptr %6, align 16, !tbaa !22
-  %76 = sitofp i32 %68 to float
+  %76 = uitofp nneg i32 %68 to float
   %77 = fdiv reassoc nsz arcp contract afn float %75, %76
   %78 = load float, ptr %36, align 4, !tbaa !22
-  %79 = sitofp i32 %72 to float
+  %79 = uitofp nneg i32 %72 to float
   %80 = fdiv reassoc nsz arcp contract afn float %78, %79
   %81 = load float, ptr %39, align 8, !tbaa !22
   %82 = fdiv reassoc nsz arcp contract afn float %81, %76
@@ -1580,14 +1580,14 @@ define internal fastcc float @_aspect_ratio_get(ptr noundef %0, ptr noundef %1) 
   br i1 %30, label %31, label %35
 
 31:                                               ; preds = %27, %21
-  %32 = sitofp i32 %16 to float
-  %33 = sitofp i32 %18 to float
+  %32 = uitofp nneg i32 %16 to float
+  %33 = uitofp nneg i32 %18 to float
   %34 = fdiv reassoc nsz arcp contract afn float %32, %33
   br label %39
 
 35:                                               ; preds = %27
-  %36 = sitofp i32 %18 to float
-  %37 = sitofp i32 %16 to float
+  %36 = uitofp nneg i32 %18 to float
+  %37 = uitofp nneg i32 %16 to float
   %38 = fdiv reassoc nsz arcp contract afn float %36, %37
   br label %39
 

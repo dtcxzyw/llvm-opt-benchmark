@@ -5922,14 +5922,14 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   %.0115.lcssa = phi i32 [ %45, %..critedge2_crit_edge ], [ %70, %52 ]
   %.0.lcssa = phi i32 [ %45, %..critedge2_crit_edge ], [ %71, %52 ]
   %72 = add nuw nsw i32 %.0116.lcssa, %.0117.lcssa
-  %73 = sitofp i32 %72 to double
+  %73 = uitofp nneg i32 %72 to double
   %74 = fmul double %73, 5.000000e-01
   %75 = fptrunc double %74 to float
   %76 = zext i32 %35 to i64
   %77 = getelementptr inbounds float, ptr %20, i64 %76
   store float %75, ptr %77, align 4
   %78 = add nuw nsw i32 %.0.lcssa, %.0115.lcssa
-  %79 = sitofp i32 %78 to double
+  %79 = uitofp nneg i32 %78 to double
   %80 = fmul double %79, 5.000000e-01
   %81 = fptrunc double %80 to float
   %82 = getelementptr inbounds float, ptr %21, i64 %76

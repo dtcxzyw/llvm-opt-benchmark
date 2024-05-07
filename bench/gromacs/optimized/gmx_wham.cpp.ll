@@ -3101,7 +3101,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i232:     ; preds = %970, %967
 .lr.ph55.i:                                       ; preds = %949, %_ZNSt10filesystem7__cxx114pathD2Ev.exit.i232
   %.0175.i = phi ptr [ %966, %_ZNSt10filesystem7__cxx114pathD2Ev.exit.i232 ], [ null, %949 ]
   %putchar.i215 = call i32 @putchar(i32 10)
-  %977 = sitofp i32 %580 to double
+  %977 = uitofp nneg i32 %580 to double
   %.not207.i = icmp eq ptr %.0175.i, null
   br label %978
 
@@ -3172,7 +3172,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i232:     ; preds = %970, %967
   %1013 = fptosi float %1012 to i32
   %spec.store.select.i = call i32 @llvm.umax.i32(i32 %1013, i32 1)
   %1014 = getelementptr inbounds i8, ptr %987, i64 112
-  %1015 = sitofp i32 %990 to float
+  %1015 = uitofp nneg i32 %990 to float
   %1016 = getelementptr inbounds i8, ptr %987, i64 72
   %1017 = zext nneg i32 %990 to i64
   %1018 = sext i32 %spec.store.select.i to i64
@@ -4250,7 +4250,7 @@ _ZL19computeAverageForceP16t_UmbrellaWindowiP15UmbrellaOptions.exit.i: ; preds =
   br i1 %1489, label %1490, label %._crit_edge30.thread.i
 
 1490:                                             ; preds = %._crit_edge30.i
-  %1491 = sitofp i32 %.1101.lcssa.i to double
+  %1491 = uitofp nneg i32 %.1101.lcssa.i to double
   %1492 = fdiv double %.193.lcssa.i, %1491
   br label %1500
 
@@ -6179,7 +6179,7 @@ define internal fastcc void @_ZL17symmetrizeProfilePdP15UmbrellaOptions(ptr noca
 
 34:                                               ; preds = %.lr.ph
   %35 = add nsw i32 %31, -1
-  %36 = sitofp i32 %35 to double
+  %36 = uitofp nneg i32 %35 to double
   %37 = fadd double %36, 5.000000e-01
   %38 = tail call double @llvm.fmuladd.f64(double %37, double %8, double %5)
   %39 = fsub double %27, %38

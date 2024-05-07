@@ -4254,7 +4254,7 @@ for.body:                                         ; preds = %for.cond
   %add5.i = add nsw i64 %conv4.i, 32768
   %or.i = or i64 %shl3.i, %add5.i
   %or6.i = or i64 %or.i, %shl.i
-  %conv7.i = sitofp i64 %or6.i to double
+  %conv7.i = uitofp nneg i64 %or6.i to double
   invoke void @lua_pushnumber(ptr noundef %1, double noundef %conv7.i)
           to label %invoke.cont41 unwind label %lpad38
 

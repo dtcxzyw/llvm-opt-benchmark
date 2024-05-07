@@ -964,7 +964,7 @@ entry:
   br i1 %cmp27, label %for.body.lr.ph, label %for.cond38.preheader
 
 for.body.lr.ph:                                   ; preds = %entry
-  %conv3 = sitofp i32 %n to double
+  %conv3 = uitofp nneg i32 %n to double
   br label %for.body
 
 for.cond38.preheader:                             ; preds = %for.body, %entry
@@ -972,7 +972,7 @@ for.cond38.preheader:                             ; preds = %for.body, %entry
   br i1 %cmp3930, label %for.body41.lr.ph, label %for.end67
 
 for.body41.lr.ph:                                 ; preds = %for.cond38.preheader
-  %conv46 = sitofp i32 %n to double
+  %conv46 = uitofp nneg i32 %n to double
   br label %for.body41
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -1053,7 +1053,7 @@ entry:
   br i1 %cmp5, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %conv1 = sitofp i32 %shr to double
+  %conv1 = uitofp nneg i32 %shr to double
   %wide.trip.count = zext nneg i32 %shr to i64
   br label %for.body
 
@@ -1340,7 +1340,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %cmp27.i, label %for.body.lr.ph.i, label %for.cond38.preheader.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end
-  %conv3.i = sitofp i32 %n to double
+  %conv3.i = uitofp nneg i32 %n to double
   br label %for.body.i
 
 for.cond38.preheader.i:                           ; preds = %for.body.i, %if.end
@@ -1348,7 +1348,7 @@ for.cond38.preheader.i:                           ; preds = %for.body.i, %if.end
   br i1 %cmp3930.i, label %for.body41.lr.ph.i, label %compute_twiddle_factors.exit
 
 for.body41.lr.ph.i:                               ; preds = %for.cond38.preheader.i
-  %conv46.i = sitofp i32 %n to double
+  %conv46.i = uitofp nneg i32 %n to double
   br label %for.body41.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -1457,7 +1457,7 @@ if.end50:                                         ; preds = %setup_malloc.exit10
   br i1 %cmp5.i, label %for.body.lr.ph.i112, label %compute_window.exit
 
 for.body.lr.ph.i112:                              ; preds = %if.end50
-  %conv1.i = sitofp i32 %shr.i111 to double
+  %conv1.i = uitofp nneg i32 %shr.i111 to double
   %wide.trip.count.i = zext nneg i32 %shr.i111 to i64
   br label %for.body.i113
 

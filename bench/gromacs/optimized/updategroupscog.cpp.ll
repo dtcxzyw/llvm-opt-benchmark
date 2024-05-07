@@ -1272,7 +1272,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %303, label %304, label %315
 
 304:                                              ; preds = %297
-  %305 = sitofp i32 %302 to float
+  %305 = uitofp nneg i32 %302 to float
   %306 = getelementptr inbounds %"class.gmx::BasicVector", ptr %298, i64 %.02470
   %307 = fdiv float 1.000000e+00, %305
   %308 = load <2 x float>, ptr %306, align 4
@@ -1369,7 +1369,7 @@ _ZN3gmx9HashedMapIiE5clearEv.exit.i:              ; preds = %.lr.ph.i.i, %_ZNSt6
   br i1 %28, label %29, label %_ZN3gmx9HashedMapIiE23clearAndResizeHashTableEv.exit
 
 29:                                               ; preds = %_ZN3gmx9HashedMapIiE5clearEv.exit.i
-  %30 = sitofp i32 %18 to float
+  %30 = uitofp nneg i32 %18 to float
   %31 = fmul float %30, 3.500000e+00
   %32 = sitofp i32 %26 to float
   %33 = fcmp olt float %31, %32

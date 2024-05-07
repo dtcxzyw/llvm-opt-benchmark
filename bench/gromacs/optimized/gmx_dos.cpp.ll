@@ -923,7 +923,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit349:       ; preds = %238, %241
   %346 = fdiv float %344, %345
   %347 = fpext float %346 to double
   %348 = icmp sgt i32 %.1279, 0
-  %349 = sitofp i32 %.1279 to double
+  %349 = uitofp nneg i32 %.1279 to double
   %350 = fdiv double %.1297, %349
   %.2300 = select i1 %348, double %350, double %.1299
   %351 = load i8, ptr @_ZZ7gmx_dosiPPcE8bVerbose, align 1
@@ -980,7 +980,7 @@ _ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit352:      ; preds = %364
 .lr.ph505:                                        ; preds = %371
   %372 = getelementptr inbounds i8, ptr %9, i64 2328
   %373 = lshr i64 %indvars.iv.next573, 1
-  %374 = sitofp i32 %173 to float
+  %374 = uitofp nneg i32 %173 to float
   %375 = getelementptr inbounds i8, ptr %361, i64 8
   %376 = and i64 %373, 2147483647
   br label %.lr.ph501

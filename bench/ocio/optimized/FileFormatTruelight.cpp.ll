@@ -2224,9 +2224,9 @@ invoke.cont61:                                    ; preds = %invoke.cont56
 
 for.body.lr.ph:                                   ; preds = %invoke.cont61
   %sub = add nsw i32 %.sroa.speculated, -1
-  %conv68 = sitofp i32 %sub to float
+  %conv68 = uitofp nneg i32 %sub to float
   %sub69 = add nsw i32 %.sroa.speculated103, -1
-  %conv70 = sitofp i32 %sub69 to float
+  %conv70 = uitofp nneg i32 %sub69 to float
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc

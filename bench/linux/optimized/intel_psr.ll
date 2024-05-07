@@ -8206,7 +8206,7 @@ define internal fastcc void @intel_psr_status(ptr noundef %0, ptr noundef %1) un
 26:                                               ; preds = %19
   %27 = load i8, ptr %20, align 1, !range !5, !noundef !6
   %28 = icmp eq i8 %27, 0
-  br i1 %28, label %257, label %29
+  br i1 %28, label %256, label %29
 
 29:                                               ; preds = %26, %19
   %30 = getelementptr inbounds i8, ptr %5, i64 8928
@@ -8244,7 +8244,7 @@ define internal fastcc void @intel_psr_status(ptr noundef %0, ptr noundef %1) un
   %52 = icmp eq i8 %51, 0
   %53 = select i1 %52, ptr @.str.131, ptr @.str.130
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.121, ptr noundef nonnull %53) #10
-  br label %256
+  br label %255
 
 54:                                               ; preds = %44
   %55 = load i8, ptr %32, align 8, !range !5, !noundef !6
@@ -8447,7 +8447,7 @@ define internal fastcc void @intel_psr_status(ptr noundef %0, ptr noundef %1) un
 210:                                              ; preds = %205, %194
   %211 = load i8, ptr %118, align 1, !range !5, !noundef !6
   %212 = icmp eq i8 %211, 0
-  br i1 %212, label %256, label %213
+  br i1 %212, label %255, label %213
 
 213:                                              ; preds = %210
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #10
@@ -8487,36 +8487,35 @@ define internal fastcc void @intel_psr_status(ptr noundef %0, ptr noundef %1) un
   br label %238
 
 238:                                              ; preds = %238, %237
-  %239 = phi i32 [ 0, %237 ], [ %249, %238 ]
+  %239 = phi i32 [ 0, %237 ], [ %248, %238 ]
   %240 = udiv i32 %239, 3
   %241 = zext nneg i32 %240 to i64
   %242 = getelementptr [3 x i32], ptr %3, i64 0, i64 %241
   %243 = load i32, ptr %242, align 4
   %244 = urem i32 %239, 3
   %245 = mul nuw nsw i32 %244, 10
-  %246 = shl nuw nsw i32 1023, %245
-  %247 = and i32 %246, %243
-  %248 = lshr i32 %247, %245
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.128, i32 noundef %239, i32 noundef %248) #10
-  %249 = add nuw nsw i32 %239, 1
-  %250 = icmp eq i32 %249, 8
-  br i1 %250, label %251, label %238, !llvm.loop !142
+  %246 = lshr i32 %243, %245
+  %247 = and i32 %246, 1023
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.128, i32 noundef %239, i32 noundef %247) #10
+  %248 = add nuw nsw i32 %239, 1
+  %249 = icmp eq i32 %248, 8
+  br i1 %249, label %250, label %238, !llvm.loop !142
 
-251:                                              ; preds = %238
-  %252 = getelementptr inbounds i8, ptr %1, i64 3304
-  %253 = load i8, ptr %252, align 8, !range !5, !noundef !6
-  %254 = icmp eq i8 %253, 0
-  %255 = select i1 %254, ptr @.str.119, ptr @.str.132
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.129, ptr noundef nonnull %255) #10
+250:                                              ; preds = %238
+  %251 = getelementptr inbounds i8, ptr %1, i64 3304
+  %252 = load i8, ptr %251, align 8, !range !5, !noundef !6
+  %253 = icmp eq i8 %252, 0
+  %254 = select i1 %253, ptr @.str.119, ptr @.str.132
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.129, ptr noundef nonnull %254) #10
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #10
-  br label %256
+  br label %255
 
-256:                                              ; preds = %251, %210, %49
+255:                                              ; preds = %250, %210, %49
   tail call void @mutex_unlock(ptr noundef %6) #10
   tail call void @intel_runtime_pm_put_unchecked(ptr noundef %30) #10
-  br label %257
+  br label %256
 
-257:                                              ; preds = %256, %26
+256:                                              ; preds = %255, %26
   ret void
 }
 

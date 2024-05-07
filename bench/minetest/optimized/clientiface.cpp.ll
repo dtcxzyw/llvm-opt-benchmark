@@ -2115,7 +2115,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 
 if.then92:                                        ; preds = %cond.end
   %conv94 = sext i16 %add88 to i32
-  %conv96 = sitofp i16 %87 to float
+  %conv96 = uitofp nneg i16 %87 to float
   %div = fmul nsz float %conv96, 6.250000e-02
   %89 = call nsz noundef float @llvm.ceil.f32(float %div)
   %conv98 = fptoui float %89 to i32

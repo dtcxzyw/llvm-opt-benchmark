@@ -578,7 +578,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   br i1 %or.cond.i, label %_ZN19OpenColorIO_v2_4dev13CalcHueWeightEffff.exit, label %if.end25
 
 _ZN19OpenColorIO_v2_4dev13CalcHueWeightEffff.exit: ; preds = %for.body
-  %conv3.i = sitofp i32 %conv.i to float
+  %conv3.i = uitofp nneg i32 %conv.i to float
   %sub4.i = fsub float %5, %conv3.i
   %idxprom.i = zext nneg i32 %conv.i to i64
   %arrayidx.i = getelementptr inbounds [4 x [4 x float]], ptr @_ZZN19OpenColorIO_v2_4dev13CalcHueWeightEffffE2_M, i64 0, i64 %idxprom.i
@@ -711,7 +711,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   br i1 %or.cond.i, label %_ZN19OpenColorIO_v2_4dev13CalcHueWeightEffff.exit, label %if.end37
 
 _ZN19OpenColorIO_v2_4dev13CalcHueWeightEffff.exit: ; preds = %for.body
-  %conv3.i = sitofp i32 %conv.i to float
+  %conv3.i = uitofp nneg i32 %conv.i to float
   %sub4.i = fsub float %5, %conv3.i
   %idxprom.i = zext nneg i32 %conv.i to i64
   %arrayidx.i = getelementptr inbounds [4 x [4 x float]], ptr @_ZZN19OpenColorIO_v2_4dev13CalcHueWeightEffffE2_M, i64 0, i64 %idxprom.i
@@ -839,7 +839,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   br i1 %or.cond.i, label %_ZN19OpenColorIO_v2_4dev13CalcHueWeightEffff.exit, label %if.end
 
 _ZN19OpenColorIO_v2_4dev13CalcHueWeightEffff.exit: ; preds = %for.body
-  %conv3.i = sitofp i32 %conv.i to float
+  %conv3.i = uitofp nneg i32 %conv.i to float
   %sub4.i = fsub float %6, %conv3.i
   %idxprom.i = zext nneg i32 %conv.i to i64
   %arrayidx.i = getelementptr inbounds [4 x [4 x float]], ptr @_ZZN19OpenColorIO_v2_4dev13CalcHueWeightEffffE2_M, i64 0, i64 %idxprom.i
@@ -945,7 +945,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   br i1 %or.cond.i, label %_ZN19OpenColorIO_v2_4dev13CalcHueWeightEffff.exit, label %if.end
 
 _ZN19OpenColorIO_v2_4dev13CalcHueWeightEffff.exit: ; preds = %for.body
-  %conv3.i = sitofp i32 %conv.i to float
+  %conv3.i = uitofp nneg i32 %conv.i to float
   %sub4.i = fsub float %6, %conv3.i
   %idxprom.i = zext nneg i32 %conv.i to i64
   %arrayidx.i = getelementptr inbounds [4 x [4 x float]], ptr @_ZZN19OpenColorIO_v2_4dev13CalcHueWeightEffffE2_M, i64 0, i64 %idxprom.i

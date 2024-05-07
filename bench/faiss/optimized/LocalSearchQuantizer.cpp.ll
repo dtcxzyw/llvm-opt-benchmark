@@ -1653,7 +1653,7 @@ define internal void @_ZN5faiss20LocalSearchQuantizer5trainEmPKf.omp_outlined(pt
   br i1 %.not48, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %.preheader
-  %20 = uitofp i64 %19 to float
+  %20 = uitofp nneg i64 %19 to float
   br label %._crit_edge42
 
 .lr.ph:                                           ; preds = %.preheader

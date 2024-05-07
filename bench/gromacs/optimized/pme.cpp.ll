@@ -1978,7 +1978,7 @@ define noundef float @_Z21getGridSpacingFromBoxPA3_KfPKi(ptr nocapture noundef r
   %15 = load float, ptr %14, align 4
   %16 = tail call noundef float @llvm.fmuladd.f32(float %15, float %15, float %13)
   %sqrt.i = tail call noundef float @llvm.sqrt.f32(float %16)
-  %17 = sitofp i32 %5 to float
+  %17 = uitofp nneg i32 %5 to float
   %18 = fdiv float %sqrt.i, %17
   br label %19
 
@@ -2177,7 +2177,7 @@ _Z18minimalPmeGridSizei.exit:                     ; preds = %41
 
 67:                                               ; preds = %66
   call void @_ZNSt10filesystem7__cxx114pathC2IA119_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 1 dereferenceable(119) @.str.15, i8 noundef zeroext 2)
-  %68 = sitofp i32 %1 to double
+  %68 = uitofp nneg i32 %1 to double
   %69 = sitofp i32 %4 to double
   %70 = fdiv double %68, %69
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %19, i32 noundef 537, ptr noundef nonnull @.str.20, double noundef %70, i32 noundef %0) #25
@@ -3161,7 +3161,7 @@ _ZNK15EwaldBoxZScaler8scaleBoxEPA3_KfPA3_f.exit:  ; preds = %296, %282
   %318 = load float, ptr %317, align 4
   %319 = call noundef float @llvm.fmuladd.f32(float %318, float %318, float %316)
   %sqrt.i.i = call noundef float @llvm.sqrt.f32(float %319)
-  %320 = sitofp i32 %308 to float
+  %320 = uitofp nneg i32 %308 to float
   %321 = fdiv float %sqrt.i.i, %320
   br label %322
 

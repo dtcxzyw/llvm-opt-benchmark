@@ -3540,7 +3540,7 @@ declare noundef i32 @_Z15lodepng_convertPhPKhPK16LodePNGColorModeS4_jj(ptr nound
 define internal fastcc void @_ZN7lodepngL24convertToXYZ_gamma_tableEPfmmPK11LodePNGInfojPKNS_10LodePNGICCE(ptr nocapture noundef writeonly %out, i64 noundef %n, i64 noundef %c, ptr nocapture noundef readonly %info, i32 noundef %use_icc, ptr nocapture noundef readonly %icc) unnamed_addr #9 {
 entry:
   %sub = add nsw i64 %n, -1
-  %conv = uitofp i64 %sub to float
+  %conv = uitofp nneg i64 %sub to float
   %div = fdiv float 1.000000e+00, %conv
   %tobool.not = icmp eq i32 %use_icc, 0
   br i1 %tobool.not, label %if.else, label %for.cond.preheader

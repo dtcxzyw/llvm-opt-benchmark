@@ -735,7 +735,7 @@ _ZL9isea_ptddiPN12_GLOBAL__N_17isea_ptE.exit35.i: ; preds = %254, %237
 
 288:                                              ; preds = %283
   %289 = add nsw i32 %.pre.i.i, -1
-  %290 = sitofp i32 %289 to double
+  %290 = uitofp nneg i32 %289 to double
   %291 = fmul double %290, 5.000000e-01
   %292 = tail call noundef double @pow(double noundef 3.000000e+00, double noundef %291) #16
   %293 = tail call double @llvm.floor.f64(double %292)
@@ -1041,7 +1041,7 @@ _ZL16isea_dddi_ap3oddPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptES3_.exit.i: ; preds
   %85 = phi i32 [ %32, %30 ], [ %.pre.i, %83 ]
   %86 = sitofp i32 %85 to double
   %87 = fmul double %86, 5.000000e-01
-  %88 = sitofp i32 %28 to double
+  %88 = uitofp nneg i32 %28 to double
   %89 = tail call noundef double @pow(double noundef %88, double noundef %87) #16
   %90 = tail call double @llvm.fabs.f64(double %89)
   %91 = fcmp ogt double %90, 0x41DFFFFFFFC00000

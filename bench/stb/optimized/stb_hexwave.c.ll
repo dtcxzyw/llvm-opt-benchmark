@@ -1100,7 +1100,7 @@ for.cond133.preheader:                            ; preds = %for.cond107.for.inc
 
 for.cond137.preheader.lr.ph:                      ; preds = %for.cond107.preheader.lr.ph, %for.cond133.preheader
   %cmp138122 = icmp slt i32 %div, %spec.store.select106
-  %conv157 = sitofp i32 %oversample to float
+  %conv157 = uitofp nneg i32 %oversample to float
   %div158 = fdiv float 1.000000e+00, %conv157
   br i1 %cmp138122, label %for.cond137.preheader.us.preheader, label %for.end169
 

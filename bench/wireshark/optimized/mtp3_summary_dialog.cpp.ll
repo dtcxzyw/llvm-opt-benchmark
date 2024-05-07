@@ -3906,7 +3906,7 @@ _ZN7QStringD2Ev.exit805:                          ; preds = %1123, %_ZN17QArrayD
   store i64 %1143, ptr %963, align 16
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   %1144 = sitofp i32 %.047.lcssa to double
-  %1145 = sitofp i32 %.048.lcssa to double
+  %1145 = uitofp nneg i32 %.048.lcssa to double
   %1146 = fdiv double %1144, %1145
   invoke void @_ZNK7QString3argEdici5QChar(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %102, ptr noundef nonnull align 8 dereferenceable(24) %103, double noundef %1146, i32 noundef 1, i8 noundef signext 102, i32 noundef 1, i16 32)
           to label %1147 unwind label %1160
@@ -4615,7 +4615,7 @@ _ZN7QStringD2Ev.exit952:                          ; preds = %1354, %_ZN17QArrayD
   store i64 %1376, ptr %1374, align 16
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   %1377 = sitofp i32 %1087 to double
-  %1378 = sitofp i32 %1086 to double
+  %1378 = uitofp nneg i32 %1086 to double
   %1379 = fdiv double %1377, %1378
   invoke void @_ZNK7QString3argEdici5QChar(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %118, ptr noundef nonnull align 8 dereferenceable(24) %119, double noundef %1379, i32 noundef 1, i8 noundef signext 102, i32 noundef 1, i16 32)
           to label %1380 unwind label %1396

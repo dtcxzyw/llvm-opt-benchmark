@@ -2410,8 +2410,8 @@ define internal fastcc void @grouping_planner(ptr noundef %0, double noundef %1)
   %60 = icmp slt i64 %spec.store.select.sink.i, 0
   %61 = icmp slt i64 %spec.store.select76.sink.i, 0
   %or.cond78.i = select i1 %60, i1 true, i1 %61
-  %62 = sitofp i64 %spec.store.select.sink.i to double
-  %63 = sitofp i64 %spec.store.select76.sink.i to double
+  %62 = uitofp nneg i64 %spec.store.select.sink.i to double
+  %63 = uitofp nneg i64 %spec.store.select76.sink.i to double
   %64 = fadd double %62, %63
   %.0.i = select i1 %or.cond78.i, double 1.000000e-01, double %64
   %65 = fcmp ult double %1, 1.000000e+00
@@ -2429,7 +2429,7 @@ define internal fastcc void @grouping_planner(ptr noundef %0, double noundef %1)
 71:                                               ; preds = %59
   %72 = fcmp ogt double %1, 0.000000e+00
   %73 = fcmp ult double %.0.i, 1.000000e+00
-  %or.cond77.i = and i1 %72, %73
+  %or.cond77.i = select i1 %72, i1 %73, i1 false
   br i1 %or.cond77.i, label %74, label %preprocess_limit.exit
 
 74:                                               ; preds = %71
@@ -2445,7 +2445,7 @@ define internal fastcc void @grouping_planner(ptr noundef %0, double noundef %1)
 
 80:                                               ; preds = %77
   %81 = icmp slt i64 %spec.store.select76.sink.i, 0
-  %82 = sitofp i64 %spec.store.select76.sink.i to double
+  %82 = uitofp nneg i64 %spec.store.select76.sink.i to double
   %.1.i = select i1 %81, double 1.000000e-01, double %82
   %83 = fcmp ult double %1, 1.000000e+00
   %84 = fcmp ult double %.1.i, 1.000000e+00
@@ -10469,7 +10469,7 @@ list_length.exit256:                              ; preds = %list_length.exit254
   %199 = zext nneg i32 %197 to i64
   %200 = shl nuw nsw i64 %199, 2
   %201 = tail call ptr @palloc(i64 noundef %200) #12
-  %202 = sitofp i32 %197 to double
+  %202 = uitofp nneg i32 %197 to double
   %203 = fmul double %202, 2.000000e+01
   %204 = fdiv double %192, %203
   %205 = fcmp ogt double %204, 1.000000e+00

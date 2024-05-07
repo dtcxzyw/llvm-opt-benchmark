@@ -2589,7 +2589,7 @@ define internal noundef i32 @_lib_timeline_draw_callback(ptr noundef %0, ptr nou
 
 1046:                                             ; preds = %1042
   call void @dt_gui_gtk_set_source_rgba(ptr noundef %1, i32 noundef 23, float noundef 0x3FE99999A0000000) #17
-  %1047 = sitofp i32 %1036 to double
+  %1047 = uitofp nneg i32 %1036 to double
   call void @cairo_move_to(ptr noundef %1, double noundef %1047, double noundef 0.000000e+00) #17
   %1048 = load i32, ptr %18, align 4, !tbaa !67
   %1049 = sitofp i32 %1048 to double

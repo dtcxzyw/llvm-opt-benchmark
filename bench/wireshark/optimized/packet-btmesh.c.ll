@@ -4753,7 +4753,7 @@ define internal void @format_percentage_8(ptr nocapture noundef writeonly %0, i3
   br label %13
 
 9:                                                ; preds = %5
-  %10 = uitofp i32 %1 to double
+  %10 = uitofp nneg i32 %1 to double
   %11 = fmul double %10, 5.000000e-01
   %12 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.2164, double noundef %11) #16
   br label %13
@@ -4824,7 +4824,7 @@ define internal void @format_decihour_8(ptr nocapture noundef writeonly %0, i32 
   br label %12
 
 8:                                                ; preds = %5
-  %9 = uitofp i32 %1 to double
+  %9 = uitofp nneg i32 %1 to double
   %10 = fdiv double %9, 1.000000e+01
   %11 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.2167, double noundef %10) #16
   br label %12

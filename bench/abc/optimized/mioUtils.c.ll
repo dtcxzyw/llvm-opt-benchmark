@@ -4048,7 +4048,7 @@ define void @Mio_LibraryMultiArea(ptr noundef %0, double noundef %1) local_unnam
   br i1 %6, label %13, label %7
 
 7:                                                ; preds = %.lr.ph
-  %8 = sitofp i32 %5 to double
+  %8 = uitofp nneg i32 %5 to double
   %9 = tail call double @pow(double noundef %8, double noundef %1) #30
   %10 = getelementptr inbounds i8, ptr %.09, i64 8
   %11 = load double, ptr %10, align 8
@@ -4082,7 +4082,7 @@ define void @Mio_LibraryMultiDelay(ptr noundef %0, double noundef %1) local_unna
   br i1 %6, label %.loopexit, label %7
 
 7:                                                ; preds = %.lr.ph26
-  %8 = sitofp i32 %5 to double
+  %8 = uitofp nneg i32 %5 to double
   %9 = tail call double @pow(double noundef %8, double noundef %1) #30
   %10 = getelementptr inbounds i8, ptr %.01925, i64 80
   %11 = load double, ptr %10, align 8

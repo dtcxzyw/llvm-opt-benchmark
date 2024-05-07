@@ -2871,7 +2871,7 @@ define dso_local zeroext i1 @BgBufferSync(ptr noundef %0) local_unnamed_addr #0 
   br label %54
 
 47:                                               ; preds = %41
-  %48 = sitofp i64 %.050 to float
+  %48 = uitofp nneg i64 %.050 to float
   %49 = uitofp i32 %5 to float
   %50 = fdiv float %48, %49
   %51 = fsub float %50, %.pre
@@ -2985,7 +2985,7 @@ define dso_local zeroext i1 @BgBufferSync(ptr noundef %0) local_unnamed_addr #0 
 
 113:                                              ; preds = %.loopexit
   %114 = sub i32 %.2, %78
-  %115 = sitofp i32 %110 to float
+  %115 = uitofp nneg i32 %110 to float
   %116 = uitofp i32 %114 to float
   %117 = fdiv float %115, %116
   %118 = load float, ptr @BgBufferSync.smoothed_density, align 4

@@ -4338,7 +4338,7 @@ _ZN3gmx14LogEntryWriter10appendTextEPKc.exit432:  ; preds = %1019
           to label %.noexc440 unwind label %1007
 
 .noexc440:                                        ; preds = %1038
-  %1040 = sitofp i64 %.pr10271161 to double
+  %1040 = uitofp nneg i64 %.pr10271161 to double
   %1041 = getelementptr inbounds i8, ptr %630, i64 88
   %1042 = load double, ptr %1041, align 8
   %1043 = fmul double %1042, %1040

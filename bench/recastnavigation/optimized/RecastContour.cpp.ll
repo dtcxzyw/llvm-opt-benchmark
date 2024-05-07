@@ -118,7 +118,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %27, %36
   br i1 %58, label %59, label %70
 
 59:                                               ; preds = %_ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit
-  %60 = sitofp i32 %32 to float
+  %60 = uitofp nneg i32 %32 to float
   %61 = getelementptr inbounds i8, ptr %1, i64 52
   %62 = load float, ptr %61, align 4
   %63 = fmul float %62, %60

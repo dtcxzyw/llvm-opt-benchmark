@@ -2854,7 +2854,7 @@ if.end3:                                          ; preds = %if.end
   br label %return
 
 if.then6:                                         ; preds = %if.end
-  %conv = sitofp i32 %frame_padding to float
+  %conv = uitofp nneg i32 %frame_padding to float
   store float %conv, ptr %ref.tmp, align 4
   %y.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
   store float %conv, ptr %y.i, align 4
@@ -4959,7 +4959,7 @@ if.end.i:                                         ; preds = %if.then45
   %y.i27 = getelementptr inbounds i8, ptr %7, i64 14656
   %9 = load float, ptr %y.i27, align 4
   %add.i = fadd float %8, %9
-  %conv.i = sitofp i32 %popup_max_height_in_items.0 to float
+  %conv.i = uitofp nneg i32 %popup_max_height_in_items.0 to float
   %neg.i = fneg float %9
   %10 = tail call float @llvm.fmuladd.f32(float %add.i, float %conv.i, float %neg.i)
   %y5.i = getelementptr inbounds i8, ptr %7, i64 14588
@@ -5269,7 +5269,7 @@ if.end.i:                                         ; preds = %if.then4
   %y.i20 = getelementptr inbounds i8, ptr %3, i64 14656
   %5 = load float, ptr %y.i20, align 4
   %add.i = fadd float %4, %5
-  %conv.i = sitofp i32 %popup_max_height_in_items to float
+  %conv.i = uitofp nneg i32 %popup_max_height_in_items to float
   %neg.i = fneg float %5
   %6 = tail call float @llvm.fmuladd.f32(float %add.i, float %conv.i, float %neg.i)
   %y5.i = getelementptr inbounds i8, ptr %3, i64 14588
@@ -5805,7 +5805,7 @@ if.end.i.i:                                       ; preds = %if.then4.i
   %y.i20.i = getelementptr inbounds i8, ptr %0, i64 14656
   %5 = load float, ptr %y.i20.i, align 4
   %add.i.i = fadd float %4, %5
-  %conv.i.i = sitofp i32 %height_in_items to float
+  %conv.i.i = uitofp nneg i32 %height_in_items to float
   %neg.i.i = fneg float %5
   %6 = tail call float @llvm.fmuladd.f32(float %add.i.i, float %conv.i.i, float %neg.i.i)
   %y5.i.i = getelementptr inbounds i8, ptr %0, i64 14588
@@ -8017,7 +8017,7 @@ land.lhs.true67:                                  ; preds = %if.end61
   br i1 %cmp74, label %if.then75, label %if.end78
 
 if.then75:                                        ; preds = %land.lhs.true67
-  %conv69 = sitofp i32 %sub68 to float
+  %conv69 = uitofp nneg i32 %sub68 to float
   %div = fdiv float %adjust_delta.2, %conv69
   br label %if.end78
 
@@ -9094,7 +9094,7 @@ land.lhs.true67:                                  ; preds = %if.end61
   br i1 %cmp74, label %if.then75, label %if.end78
 
 if.then75:                                        ; preds = %land.lhs.true67
-  %conv69 = sitofp i64 %sub68 to float
+  %conv69 = uitofp nneg i64 %sub68 to float
   %div = fdiv float %adjust_delta.2, %conv69
   br label %if.end78
 
@@ -19935,7 +19935,7 @@ _ZL22InputTextCalcTextSizeWP12ImGuiContextPKtS2_PS2_P6ImVec2b.exit1164: ; preds 
   %retval.sroa.0.0.vec.insert6.i1137 = insertelement <2 x float> poison, float %line_width.0.ph.i1130, i64 0
   %retval.sroa.0.2.i1138 = select i1 %cmp13.i1136, <2 x float> %retval.sroa.0.0.vec.insert6.i1137, <2 x float> %retval.sroa.0.0.ph.i1126
   %ref.tmp1496.sroa.0.0.vec.extract = extractelement <2 x float> %retval.sroa.0.2.i1138, i64 0
-  %conv1504 = sitofp i32 %searches_result_line_no.sroa.7.4 to float
+  %conv1504 = uitofp nneg i32 %searches_result_line_no.sroa.7.4 to float
   %mul1506 = fmul float %.val881, %conv1504
   br label %if.end1508
 
@@ -24587,7 +24587,7 @@ if.then134:                                       ; preds = %if.end95
   %ItemInnerSpacing135 = getelementptr inbounds i8, ptr %0, i64 14660
   %42 = load float, ptr %ItemInnerSpacing135, align 4
   %sub137 = add nsw i32 %cond57, -1
-  %conv138 = sitofp i32 %sub137 to float
+  %conv138 = uitofp nneg i32 %sub137 to float
   %neg = fneg float %42
   %43 = call float @llvm.fmuladd.f32(float %neg, float %conv138, float %sub)
   %conv139 = uitofp nneg i32 %cond57 to float
@@ -30270,7 +30270,7 @@ if.then64:                                        ; preds = %land.lhs.true.i
   %cmp1.i = fcmp ogt float %div, 0x3FEFFF2E40000000
   %cond.i126 = select i1 %cmp1.i, float 0x3FEFFF2E40000000, float %div
   %cond5.i = select i1 %cmp.i125, float 0.000000e+00, float %cond.i126
-  %conv76 = sitofp i32 %add61 to float
+  %conv76 = uitofp nneg i32 %add61 to float
   %mul = fmul float %cond5.i, %conv76
   %conv77 = fptosi float %mul to i32
   %add78 = add nsw i32 %conv77, %values_offset
@@ -30337,7 +30337,7 @@ cond.end119:                                      ; preds = %cond.false116, %con
   br i1 %cmp128168, label %for.body129.lr.ph, label %if.end184
 
 for.body129.lr.ph:                                ; preds = %cond.end119
-  %conv131 = sitofp i32 %add61 to float
+  %conv131 = uitofp nneg i32 %add61 to float
   %add135 = add i32 %values_offset, 1
   %34 = fsub <2 x float> %16, %15
   %35 = extractelement <2 x float> %34, i64 1
@@ -33924,7 +33924,7 @@ if.end325:                                        ; preds = %for.body311
   %142 = load i32, ptr %arrayidx.i364, align 4
   %idxprom.i366 = sext i32 %142 to i64
   %arrayidx.i367 = getelementptr inbounds %struct.ImGuiTabItem, ptr %141, i64 %idxprom.i366
-  %conv322 = sitofp i32 %conv321 to float
+  %conv322 = uitofp nneg i32 %conv321 to float
   %cmp.i371 = fcmp ole float %conv322, 1.000000e+00
   %cond.i372 = select i1 %cmp.i371, float 1.000000e+00, float %conv322
   %143 = getelementptr i8, ptr %arrayidx.i367, i64 4
@@ -39916,7 +39916,7 @@ if.then64:                                        ; preds = %land.lhs.true.i
   %cmp1.i = fcmp ogt float %div, 0x3FEFFF2E40000000
   %cond.i38 = select i1 %cmp1.i, float 0x3FEFFF2E40000000, float %div
   %cond5.i = select i1 %cmp.i37, float 0.000000e+00, float %cond.i38
-  %conv76 = sitofp i32 %add61 to float
+  %conv76 = uitofp nneg i32 %add61 to float
   %mul = fmul float %cond5.i, %conv76
   %conv77 = fptosi float %mul to i32
   %add78 = add nsw i32 %conv77, %values_offset
@@ -40000,7 +40000,7 @@ cond.end119:                                      ; preds = %cond.false116, %con
   br i1 %cmp12821, label %for.body129.lr.ph, label %if.end184
 
 for.body129.lr.ph:                                ; preds = %cond.end119
-  %conv131 = sitofp i32 %add61 to float
+  %conv131 = uitofp nneg i32 %add61 to float
   %add135 = add i32 %values_offset, 1
   %44 = fsub <2 x float> %16, %15
   %45 = extractelement <2 x float> %44, i64 1

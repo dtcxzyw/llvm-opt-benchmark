@@ -455,7 +455,7 @@ define noundef float @_Z17evaluate_integraliPKfS0_S0_fPf(i32 noundef %0, ptr noc
   br i1 %137, label %138, label %.split.us.thread
 
 138:                                              ; preds = %.split.us
-  %139 = sitofp i32 %.us-phi69 to double
+  %139 = uitofp nneg i32 %.us-phi69 to double
   %140 = insertelement <2 x double> poison, double %139, i64 0
   %141 = shufflevector <2 x double> %140, <2 x double> poison, <2 x i32> zeroinitializer
   %142 = fdiv <2 x double> %136, %141

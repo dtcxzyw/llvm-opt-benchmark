@@ -312,7 +312,7 @@ for.body147.us.us:                                ; preds = %for.cond144.prehead
   br i1 %cmp.i109.us.us, label %uint_to_half.exit.us.us, label %if.end.i110.us.us
 
 if.end.i110.us.us:                                ; preds = %for.body147.us.us
-  %conv.i111.us.us = uitofp i32 %src142.0.val.us.us to float
+  %conv.i111.us.us = uitofp nneg i32 %src142.0.val.us.us to float
   %22 = bitcast float %conv.i111.us.us to i32
   %shr.i.i.i112.us.us = lshr i32 %22, 16
   %23 = trunc nuw i32 %shr.i.i.i112.us.us to i16
@@ -894,7 +894,7 @@ for.body151.us.us:                                ; preds = %for.cond148.prehead
   br i1 %cmp.i110.us.us, label %uint_to_half.exit.us.us, label %if.end.i111.us.us
 
 if.end.i111.us.us:                                ; preds = %for.body151.us.us
-  %conv.i112.us.us = uitofp i32 %src146.0.val.us.us to float
+  %conv.i112.us.us = uitofp nneg i32 %src146.0.val.us.us to float
   %20 = bitcast float %conv.i112.us.us to i32
   %shr.i.i.i113.us.us = lshr i32 %20, 16
   %21 = trunc nuw i32 %shr.i.i.i113.us.us to i16
@@ -2717,7 +2717,7 @@ for.body135:                                      ; preds = %for.body135.lr.ph, 
   br i1 %cmp.i99, label %uint_to_half.exit, label %if.end.i100
 
 if.end.i100:                                      ; preds = %for.body135
-  %conv.i101 = uitofp i32 %src130.0.val to float
+  %conv.i101 = uitofp nneg i32 %src130.0.val to float
   %33 = bitcast float %conv.i101 to i32
   %shr.i.i.i102 = lshr i32 %33, 16
   %34 = trunc nuw i32 %shr.i.i.i102 to i16

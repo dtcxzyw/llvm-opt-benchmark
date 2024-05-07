@@ -130,7 +130,7 @@ define internal void @compute_tsvector_stats(ptr noundef %0, ptr nocapture nound
 
 56:                                               ; preds = %53, %36
   %57 = phi i64 [ %44, %36 ], [ %55, %53 ]
-  %58 = uitofp i64 %57 to double
+  %58 = uitofp nneg i64 %57 to double
   %59 = fadd double %.0136175, %58
   %60 = call ptr @pg_detoast_datum(ptr noundef nonnull %33) #11
   %61 = getelementptr inbounds i8, ptr %60, i64 8
@@ -327,7 +327,7 @@ prune_lexemes_hashtable.exit:                     ; preds = %110, %94
   br i1 %.not, label %._crit_edge189.loopexit, label %.lr.ph188, !llvm.loop !9
 
 ._crit_edge189.loopexit:                          ; preds = %155
-  %157 = sitofp i32 %.1141 to double
+  %157 = uitofp nneg i32 %.1141 to double
   br label %._crit_edge189
 
 ._crit_edge189:                                   ; preds = %._crit_edge189.loopexit, %123

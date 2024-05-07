@@ -5337,7 +5337,7 @@ define void @_ZN5faiss18CenteringTransform5trainElPKf(ptr noundef nonnull align 
   br i1 %.not30, label %._crit_edge29, label %.lr.ph28
 
 .lr.ph28:                                         ; preds = %.preheader
-  %45 = sitofp i64 %1 to float
+  %45 = uitofp nneg i64 %1 to float
   br label %59
 
 .lr.ph:                                           ; preds = %.preheader22, %.lr.ph

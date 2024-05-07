@@ -8003,7 +8003,7 @@ default.unreachable164.i:                         ; preds = %.noexc56
   br i1 %821, label %.lr.ph.i45, label %._crit_edge.i44
 
 .lr.ph.i45:                                       ; preds = %818
-  %822 = uitofp i32 %820 to double
+  %822 = uitofp nneg i32 %820 to double
   br label %824
 
 823:                                              ; preds = %.noexc99

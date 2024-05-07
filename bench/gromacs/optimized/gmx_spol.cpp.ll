@@ -1077,7 +1077,7 @@ _ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit:        ; preds = %421
   br i1 %433, label %434, label %452
 
 434:                                              ; preds = %424
-  %435 = sitofp i32 %.1148.lcssa to double
+  %435 = uitofp nneg i32 %.1148.lcssa to double
   %436 = insertelement <2 x double> poison, double %435, i64 0
   %437 = shufflevector <2 x double> %436, <2 x double> poison, <2 x i32> zeroinitializer
   %438 = fdiv <2 x double> %413, %437

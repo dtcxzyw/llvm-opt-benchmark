@@ -3038,7 +3038,7 @@ define range(i32 -22, 1) i32 @CVodePrintAllStats(ptr noundef %0, ptr nocapture n
 49:                                               ; preds = %7
   %50 = load i64, ptr %41, align 8
   %51 = sitofp i64 %50 to double
-  %52 = sitofp i64 %47 to double
+  %52 = uitofp nneg i64 %47 to double
   %53 = fdiv double %51, %52
   %54 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.36, double noundef %53) #9
   br label %55
@@ -3084,7 +3084,7 @@ define range(i32 -22, 1) i32 @CVodePrintAllStats(ptr noundef %0, ptr nocapture n
 88:                                               ; preds = %61
   %89 = load i64, ptr %74, align 8
   %90 = sitofp i64 %89 to double
-  %91 = sitofp i64 %86 to double
+  %91 = uitofp nneg i64 %86 to double
   %92 = fdiv double %90, %91
   %93 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.46, double noundef %92) #9
   %94 = load i64, ptr %62, align 8
@@ -3307,7 +3307,7 @@ define range(i32 -22, 1) i32 @CVodePrintAllStats(ptr noundef %0, ptr nocapture n
 251:                                              ; preds = %209
   %252 = load i64, ptr %243, align 8
   %253 = sitofp i64 %252 to double
-  %254 = sitofp i64 %249 to double
+  %254 = uitofp nneg i64 %249 to double
   %255 = fdiv double %253, %254
   %256 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.81, double noundef %255) #9
   br label %259
@@ -3357,7 +3357,7 @@ define range(i32 -22, 1) i32 @CVodePrintAllStats(ptr noundef %0, ptr nocapture n
 292:                                              ; preds = %265
   %293 = load i64, ptr %278, align 8
   %294 = sitofp i64 %293 to double
-  %295 = sitofp i64 %290 to double
+  %295 = uitofp nneg i64 %290 to double
   %296 = fdiv double %294, %295
   %297 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.92, double noundef %296) #9
   %298 = load i64, ptr %266, align 8

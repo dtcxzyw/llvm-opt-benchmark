@@ -4841,7 +4841,7 @@ _ZN6casadidvERKNS_6SXElemES2_.exit657:            ; preds = %1130
 1165:                                             ; preds = %1163
   call void @_ZN6casadi6SXElemC1Ed(ptr noundef nonnull align 8 dereferenceable(8) %83, double noundef 1.000000e+00)
   %1166 = sub nsw i64 0, %1153
-  %1167 = sitofp i64 %1166 to double
+  %1167 = uitofp nneg i64 %1166 to double
   invoke void @_ZN6casadi6SXElemC1Ed(ptr noundef nonnull align 8 dereferenceable(8) %85, double noundef %1167)
           to label %1168 unwind label %1169
 
@@ -4887,7 +4887,7 @@ _ZN6casadidvERKNS_6SXElemES2_.exit660:            ; preds = %_ZN6casadi17Generic
 
 1178:                                             ; preds = %1176
   %1179 = add nsw i64 %1153, -1
-  %1180 = sitofp i64 %1179 to double
+  %1180 = uitofp nneg i64 %1179 to double
   call void @_ZN6casadi6SXElemC1Ed(ptr noundef nonnull align 8 dereferenceable(8) %87, double noundef %1180)
   invoke void @_ZN6casadi6SXElem6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %86, i64 noundef 8, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %87)
           to label %_ZN6casadi17GenericExpressionINS_6SXElemEE3powERKS1_S4_.exit662 unwind label %1181

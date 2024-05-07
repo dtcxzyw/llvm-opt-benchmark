@@ -14981,7 +14981,7 @@ _ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stri
 
 286:                                              ; preds = %._crit_edge255
   %287 = load double, ptr %31, align 8
-  %288 = sitofp i32 %249 to double
+  %288 = uitofp nneg i32 %249 to double
   %289 = fdiv double %287, %288
   %290 = fptrunc double %289 to float
   br label %._crit_edge255.thread
@@ -69887,7 +69887,7 @@ _ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stri
   br i1 %220, label %221, label %._crit_edge241.thread
 
 221:                                              ; preds = %._crit_edge241
-  %222 = sitofp i32 %.fr to double
+  %222 = uitofp nneg i32 %.fr to double
   %223 = fdiv double %255, %222
   %224 = fptrunc double %223 to float
   br label %._crit_edge241.thread

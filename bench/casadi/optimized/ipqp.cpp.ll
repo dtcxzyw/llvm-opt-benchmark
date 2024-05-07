@@ -9088,7 +9088,7 @@ _ZN6casadi11casadi_axpyIdEEvxT_PKS1_PS1_.exit200: ; preds = %.lr.ph.i195, %._cri
   br i1 %295, label %296, label %300
 
 296:                                              ; preds = %._crit_edge220
-  %297 = sitofp i64 %294 to double
+  %297 = uitofp nneg i64 %294 to double
   %298 = load double, ptr %187, align 8
   %299 = fdiv double %298, %297
   store double %299, ptr %187, align 8

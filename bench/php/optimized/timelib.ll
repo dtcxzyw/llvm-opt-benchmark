@@ -364,19 +364,27 @@ declare double @llvm.floor.f64(double) #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @timelib_hms_to_decimal_hour(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #10 {
-  %5 = sitofp i32 %0 to double
-  %6 = insertelement <2 x i32> poison, i32 %1, i64 0
-  %7 = insertelement <2 x i32> %6, i32 %2, i64 1
-  %8 = sitofp <2 x i32> %7 to <2 x double>
-  %9 = fdiv <2 x double> %8, <double 6.000000e+01, double 3.600000e+03>
-  %10 = extractelement <2 x double> %9, i64 0
-  %11 = fsub double %5, %10
-  %12 = extractelement <2 x double> %9, i64 1
-  %13 = fsub double %11, %12
-  %14 = fadd double %10, %5
-  %15 = fadd double %14, %12
-  %16 = icmp slt i32 %0, 0
-  %storemerge = select i1 %16, double %13, double %15
+  %5 = icmp sgt i32 %0, -1
+  %6 = sitofp i32 %1 to double
+  %7 = fdiv double %6, 6.000000e+01
+  %8 = sitofp i32 %2 to double
+  %9 = fdiv double %8, 3.600000e+03
+  br i1 %5, label %10, label %14
+
+10:                                               ; preds = %4
+  %11 = uitofp nneg i32 %0 to double
+  %12 = fadd double %7, %11
+  %13 = fadd double %12, %9
+  br label %18
+
+14:                                               ; preds = %4
+  %15 = sitofp i32 %0 to double
+  %16 = fsub double %15, %7
+  %17 = fsub double %16, %9
+  br label %18
+
+18:                                               ; preds = %14, %10
+  %storemerge = phi double [ %17, %14 ], [ %13, %10 ]
   store double %storemerge, ptr %3, align 8
   ret void
 }
@@ -384,29 +392,30 @@ define hidden void @timelib_hms_to_decimal_hour(i32 noundef %0, i32 noundef %1, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @timelib_hmsf_to_decimal_hour(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #10 {
   %6 = icmp sgt i32 %0, -1
-  %7 = sitofp i32 %0 to double
-  %8 = sitofp i32 %1 to double
-  %9 = fdiv double %8, 6.000000e+01
-  %10 = sitofp i32 %2 to double
-  %11 = fdiv double %10, 3.600000e+03
-  %12 = sitofp i32 %3 to double
-  %13 = fdiv double %12, 3.600000e+09
-  br i1 %6, label %14, label %18
+  %7 = sitofp i32 %1 to double
+  %8 = fdiv double %7, 6.000000e+01
+  %9 = sitofp i32 %2 to double
+  %10 = fdiv double %9, 3.600000e+03
+  %11 = sitofp i32 %3 to double
+  %12 = fdiv double %11, 3.600000e+09
+  br i1 %6, label %13, label %18
 
-14:                                               ; preds = %5
-  %15 = fadd double %9, %7
-  %16 = fadd double %15, %11
-  %17 = fadd double %16, %13
-  br label %22
+13:                                               ; preds = %5
+  %14 = uitofp nneg i32 %0 to double
+  %15 = fadd double %8, %14
+  %16 = fadd double %15, %10
+  %17 = fadd double %16, %12
+  br label %23
 
 18:                                               ; preds = %5
-  %19 = fsub double %7, %9
-  %20 = fsub double %19, %11
-  %21 = fsub double %20, %13
-  br label %22
+  %19 = sitofp i32 %0 to double
+  %20 = fsub double %19, %8
+  %21 = fsub double %20, %10
+  %22 = fsub double %21, %12
+  br label %23
 
-22:                                               ; preds = %18, %14
-  %storemerge = phi double [ %21, %18 ], [ %17, %14 ]
+23:                                               ; preds = %18, %13
+  %storemerge = phi double [ %22, %18 ], [ %17, %13 ]
   store double %storemerge, ptr %4, align 8
   ret void
 }

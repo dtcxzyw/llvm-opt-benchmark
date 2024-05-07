@@ -129,7 +129,7 @@ for.end:                                          ; preds = %entry, %for.end.loo
   br i1 %cmp642.not, label %for.end35.thread, label %for.body8.lr.ph
 
 for.end35.thread:                                 ; preds = %for.end
-  %conv3752 = uitofp i32 %13 to double
+  %conv3752 = uitofp nneg i32 %13 to double
   %div53 = fdiv double 0.000000e+00, %conv3752
   %mean_time54 = getelementptr inbounds i8, ptr %stats, i64 24
   store double %div53, ptr %mean_time54, align 8

@@ -105,7 +105,7 @@ if.then26:                                        ; preds = %if.else
           to label %invoke.cont32 unwind label %lpad
 
 invoke.cont32:                                    ; preds = %if.then26
-  %conv34 = uitofp i64 %bytes to double
+  %conv34 = uitofp nneg i64 %bytes to double
   %div35 = fmul double %conv34, 0x3E10000000000000
   %call37 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %call33, double noundef %div35)
           to label %invoke.cont36 unwind label %lpad
@@ -123,7 +123,7 @@ if.then43:                                        ; preds = %if.else40
           to label %invoke.cont49 unwind label %lpad
 
 invoke.cont49:                                    ; preds = %if.then43
-  %conv51 = uitofp i64 %bytes to double
+  %conv51 = uitofp nneg i64 %bytes to double
   %div52 = fmul double %conv51, 0x3EB0000000000000
   %call54 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %call50, double noundef %div52)
           to label %invoke.cont53 unwind label %lpad
@@ -141,7 +141,7 @@ if.then60:                                        ; preds = %if.else57
           to label %invoke.cont66 unwind label %lpad
 
 invoke.cont66:                                    ; preds = %if.then60
-  %conv68 = uitofp i64 %bytes to double
+  %conv68 = uitofp nneg i64 %bytes to double
   %div69 = fmul double %conv68, 0x3F50000000000000
   %call71 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %call67, double noundef %div69)
           to label %invoke.cont70 unwind label %lpad
@@ -283,7 +283,7 @@ if.then27:                                        ; preds = %if.else
           to label %invoke.cont33 unwind label %lpad
 
 invoke.cont33:                                    ; preds = %if.then27
-  %conv35 = uitofp i64 %number to double
+  %conv35 = uitofp nneg i64 %number to double
   %div36 = fdiv double %conv35, 1.000000e+09
   %call38 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %call34, double noundef %div36)
           to label %invoke.cont37 unwind label %lpad
@@ -301,7 +301,7 @@ if.then44:                                        ; preds = %if.else41
           to label %invoke.cont50 unwind label %lpad
 
 invoke.cont50:                                    ; preds = %if.then44
-  %conv52 = uitofp i64 %number to double
+  %conv52 = uitofp nneg i64 %number to double
   %div53 = fdiv double %conv52, 1.000000e+06
   %call55 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %call51, double noundef %div53)
           to label %invoke.cont54 unwind label %lpad
@@ -319,7 +319,7 @@ if.then61:                                        ; preds = %if.else58
           to label %invoke.cont67 unwind label %lpad
 
 invoke.cont67:                                    ; preds = %if.then61
-  %conv69 = uitofp i64 %number to double
+  %conv69 = uitofp nneg i64 %number to double
   %div70 = fdiv double %conv69, 1.000000e+03
   %call72 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %call68, double noundef %div70)
           to label %invoke.cont71 unwind label %lpad

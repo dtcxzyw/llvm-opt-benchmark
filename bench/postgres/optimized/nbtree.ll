@@ -1651,7 +1651,7 @@ btreevacuumposting.exit.thread.i:                 ; preds = %213, %205, %btreeva
 251:                                              ; preds = %246
   %reass.sub = sub nsw i32 %244, %243
   %252 = add nsw i32 %reass.sub, 1
-  %253 = sitofp i32 %252 to double
+  %253 = uitofp nneg i32 %252 to double
   %254 = load double, ptr %55, align 8
   %255 = fadd double %254, %253
   store double %255, ptr %55, align 8

@@ -333,7 +333,7 @@ _ZNSt6vectorIN3gmx19EnergyAnalysisFrameESaIS1_EE12emplace_backIJRdRlS5_RiS5_S5_E
   br label %86
 
 72:                                               ; preds = %_ZNSt6vectorIN3gmx19EnergyAnalysisFrameESaIS1_EE12emplace_backIJRdRlS5_RiS5_S5_EEERS1_DpOT_.exit
-  %73 = sitofp i64 %67 to double
+  %73 = uitofp nneg i64 %67 to double
   %74 = sitofp i32 %.1 to double
   %75 = getelementptr inbounds i8, ptr %0, i64 160
   %76 = load double, ptr %75, align 8
@@ -361,7 +361,7 @@ _ZNSt6vectorIN3gmx19EnergyAnalysisFrameESaIS1_EE12emplace_backIJRdRlS5_RiS5_S5_E
   br i1 %91, label %92, label %99
 
 92:                                               ; preds = %86
-  %93 = sitofp i64 %90 to double
+  %93 = uitofp nneg i64 %90 to double
   %94 = fdiv double %.pre-phi, %93
   %95 = getelementptr inbounds i8, ptr %0, i64 96
   store double %94, ptr %95, align 8
@@ -663,7 +663,7 @@ define i64 @_ZNK3gmx10EnergyTerm13errorEstimateEj(ptr nocapture noundef nonnull 
   %.022.lcssa = phi double [ 0.000000e+00, %9 ], [ %32, %.lr.ph ]
   %.0.lcssa = phi i64 [ 0, %9 ], [ %36, %.lr.ph ]
   %39 = icmp sgt i64 %.0.lcssa, 0
-  %40 = sitofp i64 %.0.lcssa to double
+  %40 = uitofp nneg i64 %.0.lcssa to double
   %41 = fdiv double %.022.lcssa, %40
   %42 = extractelement <2 x double> %10, i64 1
   %43 = fadd double %42, %41

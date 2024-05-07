@@ -1800,7 +1800,7 @@ average_edge_length.exit:                         ; preds = %66, %._crit_edge.i
   %121 = fneg double %116
   %122 = fdiv double %121, %.0233
   %123 = getelementptr inbounds i8, ptr %2, i64 48
-  %124 = sitofp i32 %34 to double
+  %124 = uitofp nneg i32 %34 to double
   %125 = getelementptr inbounds i8, ptr %12, i64 8
   %126 = getelementptr inbounds i8, ptr %12, i64 176
   %127 = shl nuw nsw i64 %117, 3
@@ -3852,7 +3852,7 @@ attach_edge_label_coordinates.exit:               ; preds = %._crit_edge121.i.lo
   br i1 %exitcond60.not.i, label %._crit_edge52.loopexit.i, label %.lr.ph51.i
 
 ._crit_edge52.loopexit.i:                         ; preds = %._crit_edge.i169
-  %321 = sitofp i32 %.0..i to double
+  %321 = uitofp nneg i32 %.0..i to double
   %322 = fmul double %321, 8.000000e-01
   br label %._crit_edge52.i
 
@@ -4556,7 +4556,7 @@ spring_electrical_embedding_slow.exit:            ; preds = %543, %365, %349, %5
   br i1 %exitcond107.not.i.i, label %._crit_edge63.split.us.us.i.i, label %.lr.ph62.us.i.i
 
 .lr.ph68.us.i.i:                                  ; preds = %._crit_edge63.split.us.us.i.i
-  %618 = sitofp i32 %.152.us.us.i.i to double
+  %618 = uitofp nneg i32 %.152.us.us.i.i to double
   %619 = fdiv double 5.000000e-01, %618
   %620 = mul nuw nsw i64 %indvars.iv113.i.i, %345
   %invariant.gep117.i.i = getelementptr inbounds double, ptr %.0141, i64 %620
@@ -4704,7 +4704,7 @@ prolongate.exit:                                  ; preds = %.loopexit30.us.i, %
   br i1 %exitcond92.not.i, label %.lr.ph76.i, label %.preheader69.us.i
 
 .lr.ph76.i:                                       ; preds = %._crit_edge.us.i
-  %677 = sitofp i32 %14 to double
+  %677 = uitofp nneg i32 %14 to double
   br label %684
 
 .preheader.us.i201:                               ; preds = %684, %._crit_edge.us81.i

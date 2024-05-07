@@ -3084,7 +3084,7 @@ define internal void @ulp_CPICH_Ec_N0_fmt(ptr nocapture noundef writeonly %0, i3
   br label %17
 
 9:                                                ; preds = %5
-  %10 = uitofp i32 %1 to float
+  %10 = uitofp nneg i32 %1 to float
   %11 = fmul float %10, 5.000000e-01
   %12 = fpext float %11 to double
   %13 = fadd double %12, -2.450000e+01

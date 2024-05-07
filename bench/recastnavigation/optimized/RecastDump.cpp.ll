@@ -1157,7 +1157,7 @@ _ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i: ; preds = %2
   br i1 %12, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit, label %13
 
 13:                                               ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i
-  %14 = sitofp i32 %11 to float
+  %14 = uitofp nneg i32 %11 to float
   %15 = fdiv float %14, 1.000000e+03
   %16 = fpext float %15 to double
   %17 = fmul float %4, %14
@@ -1179,7 +1179,7 @@ _ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i53: ; preds = %_ZL7logLi
   br i1 %25, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit54, label %26
 
 26:                                               ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i53
-  %27 = sitofp i32 %24 to float
+  %27 = uitofp nneg i32 %24 to float
   %28 = fdiv float %27, 1.000000e+03
   %29 = fpext float %28 to double
   %30 = fmul float %4, %27
@@ -1201,7 +1201,7 @@ _ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i55: ; preds = %_ZL7logLi
   br i1 %38, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit56, label %39
 
 39:                                               ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i55
-  %40 = sitofp i32 %37 to float
+  %40 = uitofp nneg i32 %37 to float
   %41 = fdiv float %40, 1.000000e+03
   %42 = fpext float %41 to double
   %43 = fmul float %4, %40
@@ -1223,7 +1223,7 @@ _ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i57: ; preds = %_ZL7logLi
   br i1 %51, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit58, label %52
 
 52:                                               ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i57
-  %53 = sitofp i32 %50 to float
+  %53 = uitofp nneg i32 %50 to float
   %54 = fdiv float %53, 1.000000e+03
   %55 = fpext float %54 to double
   %56 = fmul float %4, %53
@@ -1245,7 +1245,7 @@ _ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i59: ; preds = %_ZL7logLi
   br i1 %64, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit60, label %65
 
 65:                                               ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i59
-  %66 = sitofp i32 %63 to float
+  %66 = uitofp nneg i32 %63 to float
   %67 = fdiv float %66, 1.000000e+03
   %68 = fpext float %67 to double
   %69 = fmul float %4, %66
@@ -1267,7 +1267,7 @@ _ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i61: ; preds = %_ZL7logLi
   br i1 %77, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit62, label %78
 
 78:                                               ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i61
-  %79 = sitofp i32 %76 to float
+  %79 = uitofp nneg i32 %76 to float
   %80 = fdiv float %79, 1.000000e+03
   %81 = fpext float %80 to double
   %82 = fmul float %4, %79
@@ -1289,7 +1289,7 @@ _ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i63: ; preds = %_ZL7logLi
   br i1 %90, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit64, label %91
 
 91:                                               ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i63
-  %92 = sitofp i32 %89 to float
+  %92 = uitofp nneg i32 %89 to float
   %93 = fdiv float %92, 1.000000e+03
   %94 = fpext float %93 to double
   %95 = fmul float %4, %92
@@ -1311,7 +1311,7 @@ _ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i65: ; preds = %_ZL7logLi
   br i1 %103, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit66, label %104
 
 104:                                              ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i65
-  %105 = sitofp i32 %102 to float
+  %105 = uitofp nneg i32 %102 to float
   %106 = fdiv float %105, 1.000000e+03
   %107 = fpext float %106 to double
   %108 = fmul float %4, %105
@@ -1333,7 +1333,7 @@ _ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i67: ; preds = %_ZL7logLi
   br i1 %116, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit68, label %117
 
 117:                                              ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i67
-  %118 = sitofp i32 %115 to float
+  %118 = uitofp nneg i32 %115 to float
   %119 = fdiv float %118, 1.000000e+03
   %120 = fpext float %119 to double
   %121 = fmul float %4, %118
@@ -1355,7 +1355,7 @@ _ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i69: ; preds = %_ZL7logLi
   br i1 %129, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit70, label %130
 
 130:                                              ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i69
-  %131 = sitofp i32 %128 to float
+  %131 = uitofp nneg i32 %128 to float
   %132 = fdiv float %131, 1.000000e+03
   %133 = fpext float %132 to double
   %134 = fmul float %4, %131
@@ -1377,7 +1377,7 @@ _ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i71: ; preds = %_ZL7logLi
   br i1 %142, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit72, label %143
 
 143:                                              ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i71
-  %144 = sitofp i32 %141 to float
+  %144 = uitofp nneg i32 %141 to float
   %145 = fdiv float %144, 1.000000e+03
   %146 = fpext float %145 to double
   %147 = fmul float %4, %144
@@ -1399,7 +1399,7 @@ _ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i73: ; preds = %_ZL7logLi
   br i1 %155, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit74, label %156
 
 156:                                              ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i73
-  %157 = sitofp i32 %154 to float
+  %157 = uitofp nneg i32 %154 to float
   %158 = fdiv float %157, 1.000000e+03
   %159 = fpext float %158 to double
   %160 = fmul float %4, %157
@@ -1421,7 +1421,7 @@ _ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i75: ; preds = %_ZL7logLi
   br i1 %168, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit76, label %169
 
 169:                                              ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i75
-  %170 = sitofp i32 %167 to float
+  %170 = uitofp nneg i32 %167 to float
   %171 = fdiv float %170, 1.000000e+03
   %172 = fpext float %171 to double
   %173 = fmul float %4, %170
@@ -1443,7 +1443,7 @@ _ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i77: ; preds = %_ZL7logLi
   br i1 %181, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit78, label %182
 
 182:                                              ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i77
-  %183 = sitofp i32 %180 to float
+  %183 = uitofp nneg i32 %180 to float
   %184 = fdiv float %183, 1.000000e+03
   %185 = fpext float %184 to double
   %186 = fmul float %4, %183
@@ -1465,7 +1465,7 @@ _ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i79: ; preds = %_ZL7logLi
   br i1 %194, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit80, label %195
 
 195:                                              ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i79
-  %196 = sitofp i32 %193 to float
+  %196 = uitofp nneg i32 %193 to float
   %197 = fdiv float %196, 1.000000e+03
   %198 = fpext float %197 to double
   %199 = fmul float %4, %196
@@ -1487,7 +1487,7 @@ _ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i81: ; preds = %_ZL7logLi
   br i1 %207, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit82, label %208
 
 208:                                              ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i81
-  %209 = sitofp i32 %206 to float
+  %209 = uitofp nneg i32 %206 to float
   %210 = fdiv float %209, 1.000000e+03
   %211 = fpext float %210 to double
   %212 = fmul float %4, %209
@@ -1509,7 +1509,7 @@ _ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i83: ; preds = %_ZL7logLi
   br i1 %220, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit84, label %221
 
 221:                                              ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i83
-  %222 = sitofp i32 %219 to float
+  %222 = uitofp nneg i32 %219 to float
   %223 = fdiv float %222, 1.000000e+03
   %224 = fpext float %223 to double
   %225 = fmul float %4, %222
@@ -1531,7 +1531,7 @@ _ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i85: ; preds = %_ZL7logLi
   br i1 %233, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit86, label %234
 
 234:                                              ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i85
-  %235 = sitofp i32 %232 to float
+  %235 = uitofp nneg i32 %232 to float
   %236 = fdiv float %235, 1.000000e+03
   %237 = fpext float %236 to double
   %238 = fmul float %4, %235
@@ -1553,7 +1553,7 @@ _ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i87: ; preds = %_ZL7logLi
   br i1 %246, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit88, label %247
 
 247:                                              ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i87
-  %248 = sitofp i32 %245 to float
+  %248 = uitofp nneg i32 %245 to float
   %249 = fdiv float %248, 1.000000e+03
   %250 = fpext float %249 to double
   %251 = fmul float %4, %248
@@ -1575,7 +1575,7 @@ _ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i89: ; preds = %_ZL7logLi
   br i1 %259, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit90, label %260
 
 260:                                              ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i89
-  %261 = sitofp i32 %258 to float
+  %261 = uitofp nneg i32 %258 to float
   %262 = fdiv float %261, 1.000000e+03
   %263 = fpext float %262 to double
   %264 = fmul float %4, %261
@@ -1597,7 +1597,7 @@ _ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i91: ; preds = %_ZL7logLi
   br i1 %272, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit92, label %273
 
 273:                                              ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i91
-  %274 = sitofp i32 %271 to float
+  %274 = uitofp nneg i32 %271 to float
   %275 = fdiv float %274, 1.000000e+03
   %276 = fpext float %275 to double
   %277 = fmul float %4, %274
@@ -1619,7 +1619,7 @@ _ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i93: ; preds = %_ZL7logLi
   br i1 %285, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit94, label %286
 
 286:                                              ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i93
-  %287 = sitofp i32 %284 to float
+  %287 = uitofp nneg i32 %284 to float
   %288 = fdiv float %287, 1.000000e+03
   %289 = fpext float %288 to double
   %290 = fmul float %4, %287
@@ -1641,7 +1641,7 @@ _ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i95: ; preds = %_ZL7logLi
   br i1 %298, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit96, label %299
 
 299:                                              ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i95
-  %300 = sitofp i32 %297 to float
+  %300 = uitofp nneg i32 %297 to float
   %301 = fdiv float %300, 1.000000e+03
   %302 = fpext float %301 to double
   %303 = fmul float %4, %300
@@ -1663,7 +1663,7 @@ _ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i97: ; preds = %_ZL7logLi
   br i1 %311, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit98, label %312
 
 312:                                              ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i97
-  %313 = sitofp i32 %310 to float
+  %313 = uitofp nneg i32 %310 to float
   %314 = fdiv float %313, 1.000000e+03
   %315 = fpext float %314 to double
   %316 = fmul float %4, %313
@@ -1685,7 +1685,7 @@ _ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i99: ; preds = %_ZL7logLi
   br i1 %324, label %_ZL7logLineR9rcContext12rcTimerLabelPKcf.exit100, label %325
 
 325:                                              ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit.i99
-  %326 = sitofp i32 %323 to float
+  %326 = uitofp nneg i32 %323 to float
   %327 = fdiv float %326, 1.000000e+03
   %328 = fpext float %327 to double
   %329 = fmul float %4, %326

@@ -82373,7 +82373,7 @@ _ZN10ttf_parser4Face14capital_height17hf4f84181875d2ad1E.exit: ; preds = %110, %
   br i1 %137, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hfbfff6efde72224cE.exit", label %138
 
 138:                                              ; preds = %_ZN10ttf_parser4Face14capital_height17hf4f84181875d2ad1E.exit
-  %139 = sitofp i16 %.sroa.3.0.i to double
+  %139 = uitofp nneg i16 %.sroa.3.0.i to double
   %140 = fdiv double %139, %19
   %141 = bitcast double %140 to i64
   %142 = and i64 %141, 9218868437227405312
@@ -82460,7 +82460,7 @@ _ZN10ttf_parser4Face8x_height17hb0bee07ff904b9feE.exit: ; preds = %146, %_ZN10tt
   br i1 %173, label %_ZN10ttf_parser6parser6Stream7read_at17hdb858725c101a281E.exit.i136, label %174
 
 174:                                              ; preds = %_ZN10ttf_parser4Face8x_height17hb0bee07ff904b9feE.exit
-  %175 = sitofp i16 %.sroa.3.0.i125 to double
+  %175 = uitofp nneg i16 %.sroa.3.0.i125 to double
   %176 = fdiv double %175, %19
   %177 = bitcast double %176 to i64
   %178 = and i64 %177, 9218868437227405312

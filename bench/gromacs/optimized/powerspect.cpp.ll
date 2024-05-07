@@ -83,7 +83,7 @@ define void @_Z13powerspectavgPPPfiiiN3gmx8ArrayRefIKNSt7__cxx1112basic_stringIc
 .lr.ph:                                           ; preds = %19
   %27 = getelementptr inbounds i8, ptr %0, i64 8
   %28 = icmp sgt i32 %13, 0
-  %29 = sitofp i32 %1 to float
+  %29 = uitofp nneg i32 %1 to float
   %wide.trip.count.i = zext nneg i32 %13 to i64
   %wide.trip.count76 = zext nneg i32 %1 to i64
   br i1 %28, label %.lr.ph.i.us, label %_ZL14addtoavgenergyP9t_complexPfii.exit53

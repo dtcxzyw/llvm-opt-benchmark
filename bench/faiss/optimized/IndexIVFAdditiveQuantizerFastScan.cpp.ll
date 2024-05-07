@@ -1091,7 +1091,7 @@ _ZNSt6vectorIfSaIfEEC2ERKS1_.exit:                ; preds = %44, %64
 
 .lr.ph:                                           ; preds = %70
   %76 = ashr exact i64 %61, 2
-  %77 = sitofp i32 %72 to float
+  %77 = uitofp nneg i32 %72 to float
   %umax = call i64 @llvm.umax.i64(i64 %76, i64 1)
   br label %78
 
