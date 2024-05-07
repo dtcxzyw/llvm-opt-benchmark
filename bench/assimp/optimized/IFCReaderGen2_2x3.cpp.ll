@@ -312,7 +312,7 @@ entry:
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %cmp = icmp ult i64 %sub.ptr.sub.i.i, 48
+  %cmp = icmp ult i64 %sub.ptr.sub.i.i, 33
   br i1 %cmp, label %if.then, label %do.body
 
 if.then:                                          ; preds = %entry
@@ -1606,7 +1606,7 @@ entry:
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %cmp = icmp ult i64 %sub.ptr.sub.i.i, 32
+  %cmp = icmp ult i64 %sub.ptr.sub.i.i, 17
   br i1 %cmp, label %if.then, label %do.body
 
 if.then:                                          ; preds = %entry
@@ -4032,7 +4032,7 @@ entry:
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %cmp = icmp ult i64 %sub.ptr.sub.i.i, 80
+  %cmp = icmp ult i64 %sub.ptr.sub.i.i, 65
   br i1 %cmp, label %if.then, label %do.body
 
 if.then:                                          ; preds = %entry
@@ -7061,7 +7061,7 @@ entry:
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %cmp = icmp ult i64 %sub.ptr.sub.i.i, 32
+  %cmp = icmp ult i64 %sub.ptr.sub.i.i, 17
   br i1 %cmp, label %if.then, label %do.body
 
 if.then:                                          ; preds = %entry
@@ -7938,7 +7938,7 @@ entry:
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %cmp = icmp ult i64 %sub.ptr.sub.i.i, 32
+  %cmp = icmp ult i64 %sub.ptr.sub.i.i, 17
   br i1 %cmp, label %if.then, label %do.body
 
 if.then:                                          ; preds = %entry
@@ -9887,7 +9887,7 @@ entry:
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %cmp = icmp ult i64 %sub.ptr.sub.i.i, 32
+  %cmp = icmp ult i64 %sub.ptr.sub.i.i, 17
   br i1 %cmp, label %if.then, label %do.body
 
 if.then:                                          ; preds = %entry
@@ -10212,7 +10212,7 @@ entry:
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %cmp = icmp ult i64 %sub.ptr.sub.i.i, 32
+  %cmp = icmp ult i64 %sub.ptr.sub.i.i, 17
   br i1 %cmp, label %if.then, label %do.body
 
 if.then:                                          ; preds = %entry
@@ -10943,7 +10943,7 @@ entry:
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %cmp = icmp ult i64 %sub.ptr.sub.i.i, 32
+  %cmp = icmp ult i64 %sub.ptr.sub.i.i, 17
   br i1 %cmp, label %if.then, label %do.body
 
 if.then:                                          ; preds = %entry
@@ -11896,7 +11896,7 @@ entry:
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %cmp = icmp ult i64 %sub.ptr.sub.i.i, 32
+  %cmp = icmp ult i64 %sub.ptr.sub.i.i, 17
   br i1 %cmp, label %if.then, label %do.body
 
 if.then:                                          ; preds = %entry
@@ -12386,7 +12386,7 @@ entry:
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %cmp = icmp ult i64 %sub.ptr.sub.i.i, 32
+  %cmp = icmp ult i64 %sub.ptr.sub.i.i, 17
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -15768,7 +15768,7 @@ entry:
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %cmp = icmp ult i64 %sub.ptr.sub.i.i, 32
+  %cmp = icmp ult i64 %sub.ptr.sub.i.i, 17
   br i1 %cmp, label %if.then, label %do.body
 
 if.then:                                          ; preds = %entry
@@ -16701,7 +16701,7 @@ entry:
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %cmp = icmp ult i64 %sub.ptr.sub.i.i, 48
+  %cmp = icmp ult i64 %sub.ptr.sub.i.i, 33
   br i1 %cmp, label %if.then, label %do.body
 
 if.then:                                          ; preds = %entry
@@ -17222,7 +17222,7 @@ entry:
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %cmp = icmp ult i64 %sub.ptr.sub.i.i, 80
+  %cmp = icmp ult i64 %sub.ptr.sub.i.i, 65
   br i1 %cmp, label %if.then, label %do.body
 
 if.then:                                          ; preds = %entry
@@ -17497,7 +17497,7 @@ entry:
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %cmp = icmp ult i64 %sub.ptr.sub.i.i, 144
+  %cmp = icmp ult i64 %sub.ptr.sub.i.i, 129
   br i1 %cmp, label %if.then, label %do.body
 
 if.then:                                          ; preds = %entry
@@ -21463,7 +21463,7 @@ if.end:                                           ; preds = %dynamic_cast.end
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %cmp = icmp ult i64 %sub.ptr.sub.i.i, 32
+  %cmp = icmp ult i64 %sub.ptr.sub.i.i, 17
   br i1 %cmp, label %if.then7, label %if.end9
 
 if.then7:                                         ; preds = %if.end
@@ -22989,7 +22989,7 @@ if.end:                                           ; preds = %dynamic_cast.end
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %cmp = icmp ult i64 %sub.ptr.sub.i.i, 48
+  %cmp = icmp ult i64 %sub.ptr.sub.i.i, 33
   br i1 %cmp, label %if.then7, label %if.end9
 
 if.then7:                                         ; preds = %if.end

@@ -12570,7 +12570,7 @@ define hidden void @_ZN5osgeo4proj2io9WKTParser7Private9buildUnitERKN7dropbox6ox
   %29 = ptrtoint ptr %26 to i64
   %30 = ptrtoint ptr %27 to i64
   %31 = sub i64 %29, %30
-  %32 = icmp ult i64 %31, 16
+  %32 = icmp ult i64 %31, 9
   br i1 %32, label %35, label %36
 
 33:                                               ; preds = %4
@@ -12632,7 +12632,7 @@ _ZNK5osgeo4proj2io7WKTNode7Private12lookForChildERKNSt7__cxx1112basic_stringIcSt
   %60 = ptrtoint ptr %58 to i64
   %61 = ptrtoint ptr %59 to i64
   %62 = sub i64 %60, %61
-  %63 = icmp ult i64 %62, 16
+  %63 = icmp ult i64 %62, 9
   br i1 %63, label %64, label %.thread
 
 64:                                               ; preds = %53
@@ -14176,7 +14176,7 @@ define hidden void @_ZN5osgeo4proj2io9WKTParser7Private14buildEllipsoidERKN7drop
   %16 = ptrtoint ptr %14 to i64
   %17 = ptrtoint ptr %15 to i64
   %18 = sub i64 %16, %17
-  %19 = icmp ult i64 %18, 24
+  %19 = icmp ult i64 %18, 17
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %3
@@ -14449,7 +14449,7 @@ define hidden void @_ZN5osgeo4proj2io9WKTParser7Private18buildPrimeMeridianERKN7
   %31 = ptrtoint ptr %29 to i64
   %32 = ptrtoint ptr %30 to i64
   %33 = sub i64 %31, %32
-  %34 = icmp ult i64 %33, 16
+  %34 = icmp ult i64 %33, 9
   br i1 %34, label %35, label %36
 
 35:                                               ; preds = %4
@@ -20282,7 +20282,7 @@ define hidden void @_ZN5osgeo4proj2io9WKTParser7Private13buildMeridianERKN7dropb
   %12 = ptrtoint ptr %10 to i64
   %13 = ptrtoint ptr %11 to i64
   %14 = sub i64 %12, %13
-  %15 = icmp ult i64 %14, 16
+  %15 = icmp ult i64 %14, 9
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %3
@@ -20410,7 +20410,7 @@ define hidden void @_ZN5osgeo4proj2io9WKTParser7Private9buildAxisERKN7dropbox6ox
   %38 = ptrtoint ptr %36 to i64
   %39 = ptrtoint ptr %37 to i64
   %40 = sub i64 %38, %39
-  %41 = icmp ult i64 %40, 16
+  %41 = icmp ult i64 %40, 9
   br i1 %41, label %42, label %43
 
 42:                                               ; preds = %7
@@ -22108,7 +22108,7 @@ _ZNK5osgeo4proj2io7WKTNode19countChildrenOfNameERKNSt7__cxx1112basic_stringIcSt1
   %95 = ptrtoint ptr %93 to i64
   %96 = ptrtoint ptr %94 to i64
   %97 = sub i64 %95, %96
-  %98 = icmp ult i64 %97, 16
+  %98 = icmp ult i64 %97, 9
   br i1 %98, label %99, label %103
 
 99:                                               ; preds = %88
@@ -32892,7 +32892,7 @@ define hidden void @_ZN5osgeo4proj2io9WKTParser7Private17consumeParametersERKN7d
   %51 = ptrtoint ptr %49 to i64
   %52 = ptrtoint ptr %50 to i64
   %53 = sub i64 %51, %52
-  %54 = icmp ult i64 %53, 16
+  %54 = icmp ult i64 %53, 9
   br i1 %54, label %55, label %58
 
 55:                                               ; preds = %47
@@ -33799,7 +33799,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEED2
   %465 = ptrtoint ptr %463 to i64
   %466 = ptrtoint ptr %464 to i64
   %467 = sub i64 %465, %466
-  %468 = icmp ult i64 %467, 16
+  %468 = icmp ult i64 %467, 9
   br i1 %468, label %469, label %472
 
 469:                                              ; preds = %461
@@ -43271,7 +43271,7 @@ define hidden noundef ptr @_ZN5osgeo4proj2io9WKTParser7Private14getESRIMappingER
   %52 = ptrtoint ptr %50 to i64
   %53 = ptrtoint ptr %51 to i64
   %54 = sub i64 %52, %53
-  %55 = icmp ult i64 %54, 16
+  %55 = icmp ult i64 %54, 9
   br i1 %55, label %56, label %60
 
 56:                                               ; preds = %45
@@ -46810,7 +46810,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_N5osgeo4proj2io
   %636 = ptrtoint ptr %634 to i64
   %637 = ptrtoint ptr %635 to i64
   %638 = sub i64 %636, %637
-  %639 = icmp ult i64 %638, 16
+  %639 = icmp ult i64 %638, 9
   br i1 %639, label %640, label %642
 
 640:                                              ; preds = %629
@@ -47277,7 +47277,7 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %819, %808
   %847 = ptrtoint ptr %845 to i64
   %848 = ptrtoint ptr %846 to i64
   %849 = sub i64 %847, %848
-  %850 = icmp ult i64 %849, 16
+  %850 = icmp ult i64 %849, 9
   br i1 %850, label %851, label %853
 
 851:                                              ; preds = %840

@@ -1093,7 +1093,7 @@ define dso_local noundef zeroext i1 @_Z13cmFileCommandRKSt6vectorINSt7__cxx1112b
   %9 = ptrtoint ptr %7 to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
-  %12 = icmp ult i64 %11, 64
+  %12 = icmp ult i64 %11, 33
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %2
@@ -1689,7 +1689,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_121HandleDownloadCommandERKS
   %152 = ptrtoint ptr %151 to i64
   %153 = ptrtoint ptr %149 to i64
   %154 = sub i64 %152, %153
-  %155 = icmp ult i64 %154, 64
+  %155 = icmp ult i64 %154, 33
   br i1 %155, label %156, label %166
 
 156:                                              ; preds = %2
@@ -4964,7 +4964,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119HandleUploadCommandERKSt6
   %109 = ptrtoint ptr %107 to i64
   %110 = ptrtoint ptr %108 to i64
   %111 = sub i64 %109, %110
-  %112 = icmp ult i64 %111, 96
+  %112 = icmp ult i64 %111, 65
   br i1 %112, label %113, label %123
 
 113:                                              ; preds = %2
@@ -7350,7 +7350,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_117HandleReadCommandERKSt6ve
   %26 = ptrtoint ptr %24 to i64
   %27 = ptrtoint ptr %25 to i64
   %28 = sub i64 %26, %27
-  %29 = icmp ult i64 %28, 96
+  %29 = icmp ult i64 %28, 65
   br i1 %29, label %30, label %40
 
 30:                                               ; preds = %2
@@ -8097,7 +8097,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_120HandleStringsCommandERKSt
   %40 = ptrtoint ptr %38 to i64
   %41 = ptrtoint ptr %39 to i64
   %42 = sub i64 %40, %41
-  %43 = icmp ult i64 %42, 96
+  %43 = icmp ult i64 %42, 65
   br i1 %43, label %44, label %54
 
 44:                                               ; preds = %2
@@ -9801,7 +9801,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_112HandleRenameERKSt6vectorI
   %24 = ptrtoint ptr %22 to i64
   %25 = ptrtoint ptr %23 to i64
   %26 = sub i64 %24, %25
-  %27 = icmp ult i64 %26, 96
+  %27 = icmp ult i64 %26, 65
   br i1 %27, label %28, label %38
 
 28:                                               ; preds = %2
@@ -10345,7 +10345,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_114HandleCopyFileERKSt6vecto
   %27 = ptrtoint ptr %25 to i64
   %28 = ptrtoint ptr %26 to i64
   %29 = sub i64 %27, %28
-  %30 = icmp ult i64 %29, 96
+  %30 = icmp ult i64 %29, 65
   br i1 %30, label %31, label %41
 
 31:                                               ; preds = %2
@@ -13769,7 +13769,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_121HandleRealPathCommandERKS
   %23 = ptrtoint ptr %21 to i64
   %24 = ptrtoint ptr %22 to i64
   %25 = sub i64 %23, %24
-  %26 = icmp ult i64 %25, 96
+  %26 = icmp ult i64 %25, 65
   br i1 %26, label %27, label %37
 
 27:                                               ; preds = %2
@@ -14928,7 +14928,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_121HandleGenerateCommandERKS
   %42 = ptrtoint ptr %40 to i64
   %43 = ptrtoint ptr %41 to i64
   %44 = sub i64 %42, %43
-  %45 = icmp ult i64 %44, 160
+  %45 = icmp ult i64 %44, 129
   br i1 %45, label %46, label %56
 
 46:                                               ; preds = %2
@@ -15985,7 +15985,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_117HandleLockCommandERKSt6ve
   %33 = ptrtoint ptr %31 to i64
   %34 = ptrtoint ptr %32 to i64
   %35 = sub i64 %33, %34
-  %36 = icmp ult i64 %35, 64
+  %36 = icmp ult i64 %35, 33
   br i1 %36, label %37, label %47
 
 37:                                               ; preds = %2
@@ -17011,7 +17011,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_123HandleCreateLinkCommandER
   %30 = ptrtoint ptr %28 to i64
   %31 = ptrtoint ptr %29 to i64
   %32 = sub i64 %30, %31
-  %33 = icmp ult i64 %32, 96
+  %33 = icmp ult i64 %32, 65
   br i1 %33, label %34, label %44
 
 34:                                               ; preds = %2
