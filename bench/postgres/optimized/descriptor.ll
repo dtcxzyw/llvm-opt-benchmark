@@ -634,7 +634,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local noundef nonnull ptr @descriptor_variable(ptr noundef %0, i32 noundef %1) local_unnamed_addr #8 {
+define dso_local noundef ptr @descriptor_variable(ptr noundef %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr [2 x [128 x i8]], ptr @descriptor_variable.descriptor_names, i64 0, i64 %3
   %5 = tail call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %0, i64 noundef 128) #11

@@ -168,7 +168,7 @@ define dso_local noundef ptr @ruby_node_name(i32 noundef %0) local_unnamed_addr 
 declare void @rb_bug(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local nonnull ptr @rb_ast_newnode(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #2 {
+define dso_local ptr @rb_ast_newnode(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %cond.i = icmp eq i32 %1, 59

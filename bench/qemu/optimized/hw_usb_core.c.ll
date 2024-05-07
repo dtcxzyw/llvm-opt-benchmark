@@ -2086,7 +2086,7 @@ for.end64:                                        ; preds = %for.inc62
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local nonnull ptr @usb_ep_get(ptr noundef readnone %dev, i32 noundef %pid, i32 noundef %ep) local_unnamed_addr #1 {
+define dso_local ptr @usb_ep_get(ptr noundef readnone %dev, i32 noundef %pid, i32 noundef %ep) local_unnamed_addr #1 {
 entry:
   %cmp.not = icmp eq ptr %dev, null
   br i1 %cmp.not, label %if.else, label %if.end

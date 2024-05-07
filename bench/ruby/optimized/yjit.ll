@@ -970,7 +970,7 @@ define hidden ptr @rb_yjit_get_proc_ptr(i64 noundef %0) local_unnamed_addr #4 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define hidden nonnull ptr @rb_insn_name(i64 noundef %0) local_unnamed_addr #8 {
+define hidden ptr @rb_insn_name(i64 noundef %0) local_unnamed_addr #8 {
   %2 = getelementptr [210 x i16], ptr @rb_vm_insn_name_offset, i64 0, i64 %0
   %3 = load i16, ptr %2, align 2
   %4 = zext i16 %3 to i64

@@ -842,7 +842,7 @@ brin_minmax_multi_get_values.exit:                ; preds = %37, %39
   %129 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %128, ptr noundef nonnull @.str.2, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #12
   %130 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %129, ptr @CurrentMemoryContext, align 8
-  %131 = call fastcc ptr @build_expanded_ranges(ptr noundef nonnull %117, i32 noundef %16, ptr noundef nonnull %.086, ptr noundef nonnull %4)
+  %131 = call fastcc ptr @build_expanded_ranges(ptr noundef %117, i32 noundef %16, ptr noundef nonnull %.086, ptr noundef nonnull %4)
   %132 = getelementptr inbounds i8, ptr %7, i64 40
   %133 = zext i16 %17 to i64
   %134 = add nsw i64 %133, -1
@@ -923,7 +923,7 @@ build_distances.exit.i.i:                         ; preds = %._crit_edge.i.i.i, 
   %172 = sitofp i32 %171 to double
   %173 = fmul double %172, 5.000000e-01
   %174 = fptosi double %173 to i32
-  %175 = tail call fastcc i32 @reduce_expanded_ranges(ptr noundef %131, i32 noundef %155, ptr noundef %.0.i41.i.i, i32 noundef %174, ptr noundef nonnull %117, i32 noundef %16)
+  %175 = tail call fastcc i32 @reduce_expanded_ranges(ptr noundef %131, i32 noundef %155, ptr noundef %.0.i41.i.i, i32 noundef %174, ptr noundef %117, i32 noundef %16)
   store i32 0, ptr %106, align 8
   %176 = icmp sgt i32 %175, 0
   br i1 %176, label %.lr.ph.i42.i.i, label %._crit_edge.thread.i.i.i
@@ -1029,13 +1029,13 @@ ensure_free_space_in_buffer.exit.i:               ; preds = %store_expanded_rang
   %221 = getelementptr [0 x i64], ptr %216, i64 0, i64 %220
   %222 = load i64, ptr %221, align 8
   %223 = tail call fastcc ptr @minmax_multi_get_strategy_procinfo(ptr noundef readonly %7, i16 noundef zeroext %17, i32 noundef %.val.i, i16 noundef zeroext 1)
-  %224 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %223, i32 noundef %16, i64 noundef %12, i64 noundef %217) #12
+  %224 = tail call i64 @FunctionCall2Coll(ptr noundef %223, i32 noundef %16, i64 noundef %12, i64 noundef %217) #12
   %.not.i.i31.i = icmp eq i64 %224, 0
   br i1 %.not.i.i31.i, label %225, label %.loopexit3.i.i
 
 225:                                              ; preds = %215
   %226 = tail call fastcc ptr @minmax_multi_get_strategy_procinfo(ptr noundef readonly %7, i16 noundef zeroext %17, i32 noundef %.val.i, i16 noundef zeroext 5)
-  %227 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %226, i32 noundef %16, i64 noundef %12, i64 noundef %222) #12
+  %227 = tail call i64 @FunctionCall2Coll(ptr noundef %226, i32 noundef %16, i64 noundef %12, i64 noundef %222) #12
   %.not44.i.i.i = icmp eq i64 %227, 0
   br i1 %.not44.i.i.i, label %228, label %.loopexit3.i.i
 
@@ -1069,7 +1069,7 @@ ensure_free_space_in_buffer.exit.i:               ; preds = %store_expanded_rang
   %241 = sext i32 %240 to i64
   %242 = getelementptr [0 x i64], ptr %216, i64 0, i64 %241
   %243 = load i64, ptr %242, align 8
-  %244 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %223, i32 noundef %16, i64 noundef %12, i64 noundef %239) #12
+  %244 = tail call i64 @FunctionCall2Coll(ptr noundef %223, i32 noundef %16, i64 noundef %12, i64 noundef %239) #12
   %.not45.i.i.i = icmp eq i64 %244, 0
   br i1 %.not45.i.i.i, label %248, label %245
 
@@ -1080,7 +1080,7 @@ ensure_free_space_in_buffer.exit.i:               ; preds = %store_expanded_rang
   br i1 %.not55.i.i.i, label %234, label %.loopexit3.i.i
 
 248:                                              ; preds = %234
-  %249 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %226, i32 noundef %16, i64 noundef %12, i64 noundef %243) #12
+  %249 = tail call i64 @FunctionCall2Coll(ptr noundef %226, i32 noundef %16, i64 noundef %12, i64 noundef %243) #12
   %.not46.i.i.i = icmp eq i64 %249, 0
   br i1 %.not46.i.i.i, label %range_contains_value.exit.thread.i, label %.outer.i.i.i
 
@@ -1135,7 +1135,7 @@ ensure_free_space_in_buffer.exit.i:               ; preds = %store_expanded_rang
   %indvars.iv.i.i = phi i64 [ %273, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %274 ]
   %282 = getelementptr [0 x i64], ptr %272, i64 0, i64 %indvars.iv.i.i
   %283 = load i64, ptr %282, align 8
-  %284 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %250, i32 noundef %16, i64 noundef %12, i64 noundef %283) #12
+  %284 = tail call i64 @FunctionCall2Coll(ptr noundef %250, i32 noundef %16, i64 noundef %12, i64 noundef %283) #12
   %.not2.i.i = icmp eq i64 %284, 0
   br i1 %.not2.i.i, label %274, label %range_contains_value.exit.thread.i
 
@@ -1184,7 +1184,7 @@ range_add_value.exit:                             ; preds = %range_contains_valu
 declare ptr @get_fn_opclass_options(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @minmax_multi_get_strategy_procinfo(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, i32 noundef %2, i16 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc ptr @minmax_multi_get_strategy_procinfo(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, i32 noundef %2, i16 noundef zeroext %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = zext i16 %1 to i64
   %7 = add nsw i64 %6, -1
@@ -1338,7 +1338,7 @@ minmax_multi_get_procinfo.exit.i:                 ; preds = %46, %42, %34, %18
   store ptr %48, ptr @CurrentMemoryContext, align 8
   %50 = getelementptr inbounds i8, ptr %5, i64 4
   %51 = load i32, ptr %50, align 4
-  %52 = call fastcc ptr @build_expanded_ranges(ptr noundef nonnull %22, i32 noundef %51, ptr noundef nonnull %5, ptr noundef nonnull %4)
+  %52 = call fastcc ptr @build_expanded_ranges(ptr noundef %22, i32 noundef %51, ptr noundef nonnull %5, ptr noundef nonnull %4)
   %53 = load i32, ptr %50, align 4
   %54 = load i32, ptr %4, align 4
   %55 = icmp eq i32 %54, 1
@@ -1380,7 +1380,7 @@ minmax_multi_get_procinfo.exit.i:                 ; preds = %46, %42, %34, %18
 build_distances.exit.i:                           ; preds = %._crit_edge.i.i, %minmax_multi_get_procinfo.exit.i
   %70 = phi i32 [ %.pre.i, %._crit_edge.i.i ], [ %53, %minmax_multi_get_procinfo.exit.i ]
   %.0.i28.i = phi ptr [ %60, %._crit_edge.i.i ], [ null, %minmax_multi_get_procinfo.exit.i ]
-  %71 = tail call fastcc i32 @reduce_expanded_ranges(ptr noundef %52, i32 noundef %54, ptr noundef %.0.i28.i, i32 noundef %7, ptr noundef nonnull %22, i32 noundef %70)
+  %71 = tail call fastcc i32 @reduce_expanded_ranges(ptr noundef %52, i32 noundef %54, ptr noundef %.0.i28.i, i32 noundef %7, ptr noundef %22, i32 noundef %70)
   store i32 0, ptr %8, align 8
   %72 = icmp sgt i32 %71, 0
   br i1 %72, label %.lr.ph.i29.i, label %._crit_edge.thread.i.i
@@ -2024,7 +2024,7 @@ minmax_multi_get_strategy_procinfo.exit:          ; preds = %74, %102
 
 108:                                              ; preds = %49
   %109 = tail call fastcc ptr @minmax_multi_get_strategy_procinfo(ptr noundef %4, i16 noundef zeroext %53, i32 noundef %55, i16 noundef zeroext 5)
-  %110 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %109, i32 noundef %15, i64 noundef %42, i64 noundef %57) #12
+  %110 = tail call i64 @FunctionCall2Coll(ptr noundef %109, i32 noundef %15, i64 noundef %42, i64 noundef %57) #12
   %.not119 = icmp eq i64 %110, 0
   br i1 %.not119, label %165, label %.thread
 
@@ -2120,7 +2120,7 @@ minmax_multi_get_strategy_procinfo.exit105:       ; preds = %125, %153
 
 165:                                              ; preds = %108
   %166 = tail call fastcc ptr @minmax_multi_get_strategy_procinfo(ptr noundef %4, i16 noundef zeroext %53, i32 noundef %55, i16 noundef zeroext 1)
-  %167 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %166, i32 noundef %15, i64 noundef %47, i64 noundef %57) #12
+  %167 = tail call i64 @FunctionCall2Coll(ptr noundef %166, i32 noundef %15, i64 noundef %47, i64 noundef %57) #12
   %.not120 = icmp eq i64 %167, 0
   br i1 %.not120, label %48, label %.thread
 
@@ -2494,7 +2494,7 @@ fill_expanded_ranges.exit82:                      ; preds = %123, %.preheader.i7
   %144 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %16, i64 0, i64 %18, i32 2
   %145 = load i32, ptr %144, align 4
   %146 = tail call fastcc ptr @minmax_multi_get_strategy_procinfo(ptr noundef %4, i16 noundef zeroext %13, i32 noundef %145, i16 noundef zeroext 1)
-  %147 = tail call fastcc i32 @sort_expanded_ranges(ptr noundef nonnull %146, i32 noundef %12, ptr noundef %51, i32 noundef %45)
+  %147 = tail call fastcc i32 @sort_expanded_ranges(ptr noundef %146, i32 noundef %12, ptr noundef %51, i32 noundef %45)
   br label %.outer.i
 
 .outer.i:                                         ; preds = %169, %fill_expanded_ranges.exit82
@@ -2518,7 +2518,7 @@ fill_expanded_ranges.exit82:                      ; preds = %123, %.preheader.i7
   %indvars.iv.next.i85 = add nsw i64 %indvars.iv.i84, 1
   %157 = getelementptr %struct.ExpandedRange, ptr %51, i64 %indvars.iv.next.i85
   %158 = load i64, ptr %157, align 8
-  %159 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %146, i32 noundef %12, i64 noundef %156, i64 noundef %158) #12
+  %159 = tail call i64 @FunctionCall2Coll(ptr noundef %146, i32 noundef %12, i64 noundef %156, i64 noundef %158) #12
   %.not.i = icmp eq i64 %159, 0
   br i1 %.not.i, label %160, label %151, !llvm.loop !22
 
@@ -2528,7 +2528,7 @@ fill_expanded_ranges.exit82:                      ; preds = %123, %.preheader.i7
   %163 = load i64, ptr %161, align 8
   %164 = getelementptr inbounds i8, ptr %157, i64 8
   %165 = load i64, ptr %164, align 8
-  %166 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %146, i32 noundef %12, i64 noundef %163, i64 noundef %165) #12
+  %166 = tail call i64 @FunctionCall2Coll(ptr noundef %146, i32 noundef %12, i64 noundef %163, i64 noundef %165) #12
   %.not31.i = icmp eq i64 %166, 0
   br i1 %.not31.i, label %169, label %167
 
@@ -2625,7 +2625,7 @@ build_distances.exit:                             ; preds = %minmax_multi_get_pr
   %.0.i87 = phi ptr [ %203, %._crit_edge.i ], [ null, %minmax_multi_get_procinfo.exit ]
   %213 = getelementptr inbounds i8, ptr %31, i64 36
   %214 = load i32, ptr %213, align 4
-  %215 = tail call fastcc i32 @reduce_expanded_ranges(ptr noundef %51, i32 noundef %.030.ph.i, ptr noundef %.0.i87, i32 noundef %214, ptr noundef nonnull %146, i32 noundef %12)
+  %215 = tail call fastcc i32 @reduce_expanded_ranges(ptr noundef %51, i32 noundef %.030.ph.i, ptr noundef %.0.i87, i32 noundef %214, ptr noundef %146, i32 noundef %12)
   store i32 0, ptr %35, align 8
   %216 = icmp sgt i32 %215, 0
   br i1 %216, label %.lr.ph.i91, label %._crit_edge.thread.i

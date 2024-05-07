@@ -2197,7 +2197,7 @@ _ZN16wasmtime_runtime8instance8Instance9table_ptr17had503ab2c6bdfcddE.llvm.36229
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @_ZN16wasmtime_runtime8instance8Instance17vmctx_plus_offset17h131c61f3e451030bE(ptr noalias noundef readonly align 16 dereferenceable(160) %0, i32 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
+define hidden noundef ptr @_ZN16wasmtime_runtime8instance8Instance17vmctx_plus_offset17h131c61f3e451030bE(ptr noalias noundef readonly align 16 dereferenceable(160) %0, i32 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 160
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   %5 = load ptr, ptr %4, align 16, !nonnull !4, !noundef !4
@@ -2211,7 +2211,7 @@ define hidden noundef nonnull ptr @_ZN16wasmtime_runtime8instance8Instance17vmct
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @_ZN16wasmtime_runtime8instance8Instance17vmctx_plus_offset17h263957e3033a27cbE(ptr noalias noundef readonly align 16 dereferenceable(160) %0, i32 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
+define hidden noundef ptr @_ZN16wasmtime_runtime8instance8Instance17vmctx_plus_offset17h263957e3033a27cbE(ptr noalias noundef readonly align 16 dereferenceable(160) %0, i32 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 160
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   %5 = load ptr, ptr %4, align 16, !nonnull !4, !noundef !4
@@ -2225,7 +2225,7 @@ define hidden noundef nonnull ptr @_ZN16wasmtime_runtime8instance8Instance17vmct
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @_ZN16wasmtime_runtime8instance8Instance17vmctx_plus_offset17h279e57cbaa953136E(ptr noalias noundef readonly align 16 dereferenceable(160) %0, i32 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
+define hidden noundef ptr @_ZN16wasmtime_runtime8instance8Instance17vmctx_plus_offset17h279e57cbaa953136E(ptr noalias noundef readonly align 16 dereferenceable(160) %0, i32 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 160
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   %5 = load ptr, ptr %4, align 16, !nonnull !4, !noundef !4
@@ -2239,7 +2239,7 @@ define hidden noundef nonnull ptr @_ZN16wasmtime_runtime8instance8Instance17vmct
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @_ZN16wasmtime_runtime8instance8Instance17vmctx_plus_offset17h9b89fd358f4ec951E(ptr noalias noundef readonly align 16 dereferenceable(160) %0, i32 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
+define hidden noundef ptr @_ZN16wasmtime_runtime8instance8Instance17vmctx_plus_offset17h9b89fd358f4ec951E(ptr noalias noundef readonly align 16 dereferenceable(160) %0, i32 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 160
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   %5 = load ptr, ptr %4, align 16, !nonnull !4, !noundef !4
@@ -2253,7 +2253,7 @@ define hidden noundef nonnull ptr @_ZN16wasmtime_runtime8instance8Instance17vmct
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @_ZN16wasmtime_runtime8instance8Instance17vmctx_plus_offset17h9db65e7d21e7edc7E(ptr noalias noundef readonly align 16 dereferenceable(160) %0, i32 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
+define hidden noundef ptr @_ZN16wasmtime_runtime8instance8Instance17vmctx_plus_offset17h9db65e7d21e7edc7E(ptr noalias noundef readonly align 16 dereferenceable(160) %0, i32 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 160
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   %5 = load ptr, ptr %4, align 16, !nonnull !4, !noundef !4
@@ -2267,7 +2267,7 @@ define hidden noundef nonnull ptr @_ZN16wasmtime_runtime8instance8Instance17vmct
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @_ZN16wasmtime_runtime8instance8Instance17vmctx_plus_offset17hd199ba9dc69621a9E(ptr noalias noundef readonly align 16 dereferenceable(160) %0, i32 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
+define hidden noundef ptr @_ZN16wasmtime_runtime8instance8Instance17vmctx_plus_offset17hd199ba9dc69621a9E(ptr noalias noundef readonly align 16 dereferenceable(160) %0, i32 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 160
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   %5 = load ptr, ptr %4, align 16, !nonnull !4, !noundef !4
@@ -2281,7 +2281,7 @@ define hidden noundef nonnull ptr @_ZN16wasmtime_runtime8instance8Instance17vmct
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @_ZN16wasmtime_runtime8instance8Instance21vmctx_plus_offset_mut17h0716b14fee97c912E(ptr noundef nonnull align 16 %0, i32 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
+define hidden noundef ptr @_ZN16wasmtime_runtime8instance8Instance21vmctx_plus_offset_mut17h0716b14fee97c912E(ptr noundef nonnull align 16 %0, i32 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 160
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   %5 = load ptr, ptr %4, align 16, !nonnull !4, !noundef !4
@@ -2295,7 +2295,7 @@ define hidden noundef nonnull ptr @_ZN16wasmtime_runtime8instance8Instance21vmct
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @_ZN16wasmtime_runtime8instance8Instance21vmctx_plus_offset_mut17h185e99cceabcedffE(ptr noundef nonnull align 16 %0, i32 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
+define hidden noundef ptr @_ZN16wasmtime_runtime8instance8Instance21vmctx_plus_offset_mut17h185e99cceabcedffE(ptr noundef nonnull align 16 %0, i32 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 160
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   %5 = load ptr, ptr %4, align 16, !nonnull !4, !noundef !4
@@ -2309,7 +2309,7 @@ define hidden noundef nonnull ptr @_ZN16wasmtime_runtime8instance8Instance21vmct
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @_ZN16wasmtime_runtime8instance8Instance21vmctx_plus_offset_mut17h1c3216242ff313c9E(ptr noundef nonnull align 16 %0, i32 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
+define hidden noundef ptr @_ZN16wasmtime_runtime8instance8Instance21vmctx_plus_offset_mut17h1c3216242ff313c9E(ptr noundef nonnull align 16 %0, i32 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 160
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   %5 = load ptr, ptr %4, align 16, !nonnull !4, !noundef !4
@@ -2323,7 +2323,7 @@ define hidden noundef nonnull ptr @_ZN16wasmtime_runtime8instance8Instance21vmct
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @_ZN16wasmtime_runtime8instance8Instance21vmctx_plus_offset_mut17h1f3955bd8e60c61fE(ptr noundef nonnull align 16 %0, i32 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
+define hidden noundef ptr @_ZN16wasmtime_runtime8instance8Instance21vmctx_plus_offset_mut17h1f3955bd8e60c61fE(ptr noundef nonnull align 16 %0, i32 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 160
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   %5 = load ptr, ptr %4, align 16, !nonnull !4, !noundef !4
@@ -2337,7 +2337,7 @@ define hidden noundef nonnull ptr @_ZN16wasmtime_runtime8instance8Instance21vmct
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @_ZN16wasmtime_runtime8instance8Instance21vmctx_plus_offset_mut17h3565d53f25603bc1E(ptr noundef nonnull align 16 %0, i32 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
+define hidden noundef ptr @_ZN16wasmtime_runtime8instance8Instance21vmctx_plus_offset_mut17h3565d53f25603bc1E(ptr noundef nonnull align 16 %0, i32 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 160
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   %5 = load ptr, ptr %4, align 16, !nonnull !4, !noundef !4
@@ -2351,7 +2351,7 @@ define hidden noundef nonnull ptr @_ZN16wasmtime_runtime8instance8Instance21vmct
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @_ZN16wasmtime_runtime8instance8Instance21vmctx_plus_offset_mut17h44a4fba0ce68f1b9E(ptr noundef nonnull align 16 %0, i32 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
+define hidden noundef ptr @_ZN16wasmtime_runtime8instance8Instance21vmctx_plus_offset_mut17h44a4fba0ce68f1b9E(ptr noundef nonnull align 16 %0, i32 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 160
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   %5 = load ptr, ptr %4, align 16, !nonnull !4, !noundef !4
@@ -2365,7 +2365,7 @@ define hidden noundef nonnull ptr @_ZN16wasmtime_runtime8instance8Instance21vmct
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @_ZN16wasmtime_runtime8instance8Instance21vmctx_plus_offset_mut17h44dad5c7bd4af19dE(ptr noundef nonnull align 16 %0, i32 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
+define hidden noundef ptr @_ZN16wasmtime_runtime8instance8Instance21vmctx_plus_offset_mut17h44dad5c7bd4af19dE(ptr noundef nonnull align 16 %0, i32 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 160
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   %5 = load ptr, ptr %4, align 16, !nonnull !4, !noundef !4
@@ -2379,7 +2379,7 @@ define hidden noundef nonnull ptr @_ZN16wasmtime_runtime8instance8Instance21vmct
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @_ZN16wasmtime_runtime8instance8Instance21vmctx_plus_offset_mut17h50a315439d64ad41E(ptr noundef nonnull align 16 %0, i32 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
+define hidden noundef ptr @_ZN16wasmtime_runtime8instance8Instance21vmctx_plus_offset_mut17h50a315439d64ad41E(ptr noundef nonnull align 16 %0, i32 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 160
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   %5 = load ptr, ptr %4, align 16, !nonnull !4, !noundef !4
@@ -2393,7 +2393,7 @@ define hidden noundef nonnull ptr @_ZN16wasmtime_runtime8instance8Instance21vmct
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @_ZN16wasmtime_runtime8instance8Instance21vmctx_plus_offset_mut17h6e0e93498ae6365cE(ptr noundef nonnull align 16 %0, i32 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
+define hidden noundef ptr @_ZN16wasmtime_runtime8instance8Instance21vmctx_plus_offset_mut17h6e0e93498ae6365cE(ptr noundef nonnull align 16 %0, i32 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 160
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   %5 = load ptr, ptr %4, align 16, !nonnull !4, !noundef !4
@@ -2407,7 +2407,7 @@ define hidden noundef nonnull ptr @_ZN16wasmtime_runtime8instance8Instance21vmct
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @_ZN16wasmtime_runtime8instance8Instance21vmctx_plus_offset_mut17h725f65b8d7c9e61fE(ptr noundef nonnull align 16 %0, i32 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
+define hidden noundef ptr @_ZN16wasmtime_runtime8instance8Instance21vmctx_plus_offset_mut17h725f65b8d7c9e61fE(ptr noundef nonnull align 16 %0, i32 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 160
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   %5 = load ptr, ptr %4, align 16, !nonnull !4, !noundef !4
@@ -2421,7 +2421,7 @@ define hidden noundef nonnull ptr @_ZN16wasmtime_runtime8instance8Instance21vmct
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @_ZN16wasmtime_runtime8instance8Instance21vmctx_plus_offset_mut17h94d0a7eb4d8403eaE(ptr noundef nonnull align 16 %0, i32 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
+define hidden noundef ptr @_ZN16wasmtime_runtime8instance8Instance21vmctx_plus_offset_mut17h94d0a7eb4d8403eaE(ptr noundef nonnull align 16 %0, i32 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 160
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   %5 = load ptr, ptr %4, align 16, !nonnull !4, !noundef !4
@@ -2435,7 +2435,7 @@ define hidden noundef nonnull ptr @_ZN16wasmtime_runtime8instance8Instance21vmct
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @_ZN16wasmtime_runtime8instance8Instance21vmctx_plus_offset_mut17h967732e838c976bbE(ptr noundef nonnull align 16 %0, i32 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
+define hidden noundef ptr @_ZN16wasmtime_runtime8instance8Instance21vmctx_plus_offset_mut17h967732e838c976bbE(ptr noundef nonnull align 16 %0, i32 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 160
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   %5 = load ptr, ptr %4, align 16, !nonnull !4, !noundef !4
@@ -2449,7 +2449,7 @@ define hidden noundef nonnull ptr @_ZN16wasmtime_runtime8instance8Instance21vmct
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @_ZN16wasmtime_runtime8instance8Instance21vmctx_plus_offset_mut17hab8a5bdb4a658ae8E(ptr noundef nonnull align 16 %0, i32 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
+define hidden noundef ptr @_ZN16wasmtime_runtime8instance8Instance21vmctx_plus_offset_mut17hab8a5bdb4a658ae8E(ptr noundef nonnull align 16 %0, i32 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 160
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   %5 = load ptr, ptr %4, align 16, !nonnull !4, !noundef !4
@@ -2463,7 +2463,7 @@ define hidden noundef nonnull ptr @_ZN16wasmtime_runtime8instance8Instance21vmct
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @_ZN16wasmtime_runtime8instance8Instance21vmctx_plus_offset_mut17hb5dcc67d75b1b44bE(ptr noundef nonnull align 16 %0, i32 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
+define hidden noundef ptr @_ZN16wasmtime_runtime8instance8Instance21vmctx_plus_offset_mut17hb5dcc67d75b1b44bE(ptr noundef nonnull align 16 %0, i32 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 160
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   %5 = load ptr, ptr %4, align 16, !nonnull !4, !noundef !4
@@ -2477,7 +2477,7 @@ define hidden noundef nonnull ptr @_ZN16wasmtime_runtime8instance8Instance21vmct
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @_ZN16wasmtime_runtime8instance8Instance21vmctx_plus_offset_mut17hb8a9b0141a1aac2bE(ptr noundef nonnull align 16 %0, i32 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
+define hidden noundef ptr @_ZN16wasmtime_runtime8instance8Instance21vmctx_plus_offset_mut17hb8a9b0141a1aac2bE(ptr noundef nonnull align 16 %0, i32 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 160
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   %5 = load ptr, ptr %4, align 16, !nonnull !4, !noundef !4
@@ -2491,7 +2491,7 @@ define hidden noundef nonnull ptr @_ZN16wasmtime_runtime8instance8Instance21vmct
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @_ZN16wasmtime_runtime8instance8Instance21vmctx_plus_offset_mut17hbc1578b1308116b0E(ptr noundef nonnull align 16 %0, i32 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
+define hidden noundef ptr @_ZN16wasmtime_runtime8instance8Instance21vmctx_plus_offset_mut17hbc1578b1308116b0E(ptr noundef nonnull align 16 %0, i32 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 160
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   %5 = load ptr, ptr %4, align 16, !nonnull !4, !noundef !4
@@ -2505,7 +2505,7 @@ define hidden noundef nonnull ptr @_ZN16wasmtime_runtime8instance8Instance21vmct
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @_ZN16wasmtime_runtime8instance8Instance21vmctx_plus_offset_mut17hd60dfb91e0898e8bE(ptr noundef nonnull align 16 %0, i32 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
+define hidden noundef ptr @_ZN16wasmtime_runtime8instance8Instance21vmctx_plus_offset_mut17hd60dfb91e0898e8bE(ptr noundef nonnull align 16 %0, i32 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 160
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   %5 = load ptr, ptr %4, align 16, !nonnull !4, !noundef !4
@@ -2519,7 +2519,7 @@ define hidden noundef nonnull ptr @_ZN16wasmtime_runtime8instance8Instance21vmct
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @_ZN16wasmtime_runtime8instance8Instance21vmctx_plus_offset_mut17hf151a9fa9a8a4294E(ptr noundef nonnull align 16 %0, i32 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
+define hidden noundef ptr @_ZN16wasmtime_runtime8instance8Instance21vmctx_plus_offset_mut17hf151a9fa9a8a4294E(ptr noundef nonnull align 16 %0, i32 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 160
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   %5 = load ptr, ptr %4, align 16, !nonnull !4, !noundef !4
@@ -2533,7 +2533,7 @@ define hidden noundef nonnull ptr @_ZN16wasmtime_runtime8instance8Instance21vmct
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @_ZN16wasmtime_runtime8instance8Instance21vmctx_plus_offset_mut17hf23cb04b64685a63E(ptr noundef nonnull align 16 %0, i32 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
+define hidden noundef ptr @_ZN16wasmtime_runtime8instance8Instance21vmctx_plus_offset_mut17hf23cb04b64685a63E(ptr noundef nonnull align 16 %0, i32 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 160
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   %5 = load ptr, ptr %4, align 16, !nonnull !4, !noundef !4

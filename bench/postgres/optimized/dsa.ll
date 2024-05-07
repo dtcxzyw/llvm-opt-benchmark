@@ -1834,7 +1834,7 @@ check_for_freed_segments.exit:                    ; preds = %3, %check_for_freed
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @get_segment_by_index(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @get_segment_by_index(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = getelementptr [1024 x %struct.dsa_segment_map], ptr %3, i64 0, i64 %1
   %5 = getelementptr inbounds i8, ptr %4, i64 8

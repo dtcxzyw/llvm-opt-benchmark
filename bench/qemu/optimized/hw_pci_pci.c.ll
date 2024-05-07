@@ -2904,7 +2904,7 @@ if.end:                                           ; preds = %for.inc.i, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(none) uwtable
-define dso_local nonnull ptr @get_class_desc(i32 noundef %class) local_unnamed_addr #8 {
+define dso_local ptr @get_class_desc(i32 noundef %class) local_unnamed_addr #8 {
 entry:
   br label %land.rhs
 

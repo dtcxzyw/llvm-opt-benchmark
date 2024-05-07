@@ -396,68 +396,68 @@ define dso_local i64 @brin_inclusion_consistent(ptr nocapture noundef readonly %
 
 27:                                               ; preds = %14
   %28 = tail call fastcc ptr @inclusion_get_strategy_procinfo(ptr noundef %4, i16 noundef zeroext %19, i32 noundef %21, i16 noundef zeroext 4)
-  %29 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %28, i32 noundef %9, i64 noundef %24, i64 noundef %23) #4
+  %29 = tail call i64 @FunctionCall2Coll(ptr noundef %28, i32 noundef %9, i64 noundef %24, i64 noundef %23) #4
   %.not157 = icmp eq i64 %29, 0
   %30 = zext i1 %.not157 to i64
   br label %105
 
 31:                                               ; preds = %14
   %32 = tail call fastcc ptr @inclusion_get_strategy_procinfo(ptr noundef %4, i16 noundef zeroext %19, i32 noundef %21, i16 noundef zeroext 5)
-  %33 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %32, i32 noundef %9, i64 noundef %24, i64 noundef %23) #4
+  %33 = tail call i64 @FunctionCall2Coll(ptr noundef %32, i32 noundef %9, i64 noundef %24, i64 noundef %23) #4
   %.not156 = icmp eq i64 %33, 0
   %34 = zext i1 %.not156 to i64
   br label %105
 
 35:                                               ; preds = %14
   %36 = tail call fastcc ptr @inclusion_get_strategy_procinfo(ptr noundef %4, i16 noundef zeroext %19, i32 noundef %21, i16 noundef zeroext 1)
-  %37 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %36, i32 noundef %9, i64 noundef %24, i64 noundef %23) #4
+  %37 = tail call i64 @FunctionCall2Coll(ptr noundef %36, i32 noundef %9, i64 noundef %24, i64 noundef %23) #4
   %.not155 = icmp eq i64 %37, 0
   %38 = zext i1 %.not155 to i64
   br label %105
 
 39:                                               ; preds = %14
   %40 = tail call fastcc ptr @inclusion_get_strategy_procinfo(ptr noundef %4, i16 noundef zeroext %19, i32 noundef %21, i16 noundef zeroext 2)
-  %41 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %40, i32 noundef %9, i64 noundef %24, i64 noundef %23) #4
+  %41 = tail call i64 @FunctionCall2Coll(ptr noundef %40, i32 noundef %9, i64 noundef %24, i64 noundef %23) #4
   %.not154 = icmp eq i64 %41, 0
   %42 = zext i1 %.not154 to i64
   br label %105
 
 43:                                               ; preds = %14
   %44 = tail call fastcc ptr @inclusion_get_strategy_procinfo(ptr noundef %4, i16 noundef zeroext %19, i32 noundef %21, i16 noundef zeroext 12)
-  %45 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %44, i32 noundef %9, i64 noundef %24, i64 noundef %23) #4
+  %45 = tail call i64 @FunctionCall2Coll(ptr noundef %44, i32 noundef %9, i64 noundef %24, i64 noundef %23) #4
   %.not153 = icmp eq i64 %45, 0
   %46 = zext i1 %.not153 to i64
   br label %105
 
 47:                                               ; preds = %14
   %48 = tail call fastcc ptr @inclusion_get_strategy_procinfo(ptr noundef %4, i16 noundef zeroext %19, i32 noundef %21, i16 noundef zeroext 11)
-  %49 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %48, i32 noundef %9, i64 noundef %24, i64 noundef %23) #4
+  %49 = tail call i64 @FunctionCall2Coll(ptr noundef %48, i32 noundef %9, i64 noundef %24, i64 noundef %23) #4
   %.not152 = icmp eq i64 %49, 0
   %50 = zext i1 %.not152 to i64
   br label %105
 
 51:                                               ; preds = %14
   %52 = tail call fastcc ptr @inclusion_get_strategy_procinfo(ptr noundef %4, i16 noundef zeroext %19, i32 noundef %21, i16 noundef zeroext 10)
-  %53 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %52, i32 noundef %9, i64 noundef %24, i64 noundef %23) #4
+  %53 = tail call i64 @FunctionCall2Coll(ptr noundef %52, i32 noundef %9, i64 noundef %24, i64 noundef %23) #4
   %.not151 = icmp eq i64 %53, 0
   %54 = zext i1 %.not151 to i64
   br label %105
 
 55:                                               ; preds = %14
   %56 = tail call fastcc ptr @inclusion_get_strategy_procinfo(ptr noundef %4, i16 noundef zeroext %19, i32 noundef %21, i16 noundef zeroext 9)
-  %57 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %56, i32 noundef %9, i64 noundef %24, i64 noundef %23) #4
+  %57 = tail call i64 @FunctionCall2Coll(ptr noundef %56, i32 noundef %9, i64 noundef %24, i64 noundef %23) #4
   %.not150 = icmp eq i64 %57, 0
   %58 = zext i1 %.not150 to i64
   br label %105
 
 59:                                               ; preds = %14, %14, %14, %14, %14
   %60 = tail call fastcc ptr @inclusion_get_strategy_procinfo(ptr noundef %4, i16 noundef zeroext %19, i32 noundef %21, i16 noundef zeroext %26)
-  %61 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %60, i32 noundef %9, i64 noundef %24, i64 noundef %23) #4
+  %61 = tail call i64 @FunctionCall2Coll(ptr noundef %60, i32 noundef %9, i64 noundef %24, i64 noundef %23) #4
   br label %105
 
 62:                                               ; preds = %14, %14, %14
   %63 = tail call fastcc ptr @inclusion_get_strategy_procinfo(ptr noundef %4, i16 noundef zeroext %19, i32 noundef %21, i16 noundef zeroext 3)
-  %64 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %63, i32 noundef %9, i64 noundef %24, i64 noundef %23) #4
+  %64 = tail call i64 @FunctionCall2Coll(ptr noundef %63, i32 noundef %9, i64 noundef %24, i64 noundef %23) #4
   %.not149 = icmp eq i64 %64, 0
   br i1 %.not149, label %65, label %105
 
@@ -469,18 +469,18 @@ define dso_local i64 @brin_inclusion_consistent(ptr nocapture noundef readonly %
 
 69:                                               ; preds = %14
   %70 = tail call fastcc ptr @inclusion_get_strategy_procinfo(ptr noundef %4, i16 noundef zeroext %19, i32 noundef %21, i16 noundef zeroext 3)
-  %71 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %70, i32 noundef %9, i64 noundef %24, i64 noundef %23) #4
+  %71 = tail call i64 @FunctionCall2Coll(ptr noundef %70, i32 noundef %9, i64 noundef %24, i64 noundef %23) #4
   %.not148 = icmp eq i64 %71, 0
   br i1 %.not148, label %72, label %105
 
 72:                                               ; preds = %69
   %73 = tail call fastcc ptr @inclusion_get_strategy_procinfo(ptr noundef %4, i16 noundef zeroext %19, i32 noundef %21, i16 noundef zeroext 17)
-  %74 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %73, i32 noundef %9, i64 noundef %24, i64 noundef %23) #4
+  %74 = tail call i64 @FunctionCall2Coll(ptr noundef %73, i32 noundef %9, i64 noundef %24, i64 noundef %23) #4
   br label %105
 
 75:                                               ; preds = %14, %14
   %76 = tail call fastcc ptr @inclusion_get_strategy_procinfo(ptr noundef %4, i16 noundef zeroext %19, i32 noundef %21, i16 noundef zeroext 5)
-  %77 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %76, i32 noundef %9, i64 noundef %24, i64 noundef %23) #4
+  %77 = tail call i64 @FunctionCall2Coll(ptr noundef %76, i32 noundef %9, i64 noundef %24, i64 noundef %23) #4
   %.not147 = icmp eq i64 %77, 0
   br i1 %.not147, label %105, label %78
 
@@ -492,7 +492,7 @@ define dso_local i64 @brin_inclusion_consistent(ptr nocapture noundef readonly %
 
 82:                                               ; preds = %14, %14
   %83 = tail call fastcc ptr @inclusion_get_strategy_procinfo(ptr noundef %4, i16 noundef zeroext %19, i32 noundef %21, i16 noundef zeroext 7)
-  %84 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %83, i32 noundef %9, i64 noundef %24, i64 noundef %23) #4
+  %84 = tail call i64 @FunctionCall2Coll(ptr noundef %83, i32 noundef %9, i64 noundef %24, i64 noundef %23) #4
   %.not146 = icmp eq i64 %84, 0
   br i1 %.not146, label %85, label %105
 
@@ -504,7 +504,7 @@ define dso_local i64 @brin_inclusion_consistent(ptr nocapture noundef readonly %
 
 89:                                               ; preds = %14
   %90 = tail call fastcc ptr @inclusion_get_strategy_procinfo(ptr noundef %4, i16 noundef zeroext %19, i32 noundef %21, i16 noundef zeroext 1)
-  %91 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %90, i32 noundef %9, i64 noundef %24, i64 noundef %23) #4
+  %91 = tail call i64 @FunctionCall2Coll(ptr noundef %90, i32 noundef %9, i64 noundef %24, i64 noundef %23) #4
   %.not145 = icmp eq i64 %91, 0
   br i1 %.not145, label %105, label %92
 
@@ -516,7 +516,7 @@ define dso_local i64 @brin_inclusion_consistent(ptr nocapture noundef readonly %
 
 96:                                               ; preds = %14
   %97 = tail call fastcc ptr @inclusion_get_strategy_procinfo(ptr noundef %4, i16 noundef zeroext %19, i32 noundef %21, i16 noundef zeroext 1)
-  %98 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %97, i32 noundef %9, i64 noundef %24, i64 noundef %23) #4
+  %98 = tail call i64 @FunctionCall2Coll(ptr noundef %97, i32 noundef %9, i64 noundef %24, i64 noundef %23) #4
   %.not144 = icmp eq i64 %98, 0
   %99 = zext i1 %.not144 to i64
   br label %105
@@ -536,7 +536,7 @@ define dso_local i64 @brin_inclusion_consistent(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @inclusion_get_strategy_procinfo(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, i32 noundef %2, i16 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc ptr @inclusion_get_strategy_procinfo(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, i32 noundef %2, i16 noundef zeroext %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = zext i16 %1 to i64
   %7 = add nsw i64 %6, -1

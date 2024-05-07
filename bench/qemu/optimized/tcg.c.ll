@@ -4445,7 +4445,7 @@ tcg_temp_new_internal.exit:                       ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef nonnull ptr @tcg_temp_new_internal(i32 noundef %type, i32 noundef %kind) unnamed_addr #0 {
+define internal fastcc noundef ptr @tcg_temp_new_internal(i32 noundef %type, i32 noundef %kind) unnamed_addr #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8

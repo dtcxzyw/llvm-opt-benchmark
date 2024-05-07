@@ -5056,7 +5056,7 @@ define hidden void @"_ZN16wasmtime_runtime8instance8Instance15defined_globals28_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @_ZN16wasmtime_runtime8instance8Instance17vmctx_plus_offset17hda06671cab1bdc17E(ptr noalias noundef readonly align 16 dereferenceable(160) %0, i32 noundef %1) unnamed_addr #11 personality ptr @rust_eh_personality {
+define hidden noundef ptr @_ZN16wasmtime_runtime8instance8Instance17vmctx_plus_offset17hda06671cab1bdc17E(ptr noalias noundef readonly align 16 dereferenceable(160) %0, i32 noundef %1) unnamed_addr #11 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 160
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   %5 = load ptr, ptr %4, align 16, !nonnull !4, !noundef !4

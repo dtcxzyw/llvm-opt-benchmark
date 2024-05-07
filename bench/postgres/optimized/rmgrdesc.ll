@@ -35,7 +35,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.23 = private unnamed_addr constant [9 x i8] c"rmid: %d\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local nonnull ptr @GetRmgrDesc(i8 noundef zeroext %0) local_unnamed_addr #0 {
+define dso_local ptr @GetRmgrDesc(i8 noundef zeroext %0) local_unnamed_addr #0 {
   %2 = zext i8 %0 to i64
   %3 = icmp ult i8 %0, 22
   br i1 %3, label %4, label %6

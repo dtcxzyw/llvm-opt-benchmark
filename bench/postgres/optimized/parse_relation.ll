@@ -5902,7 +5902,7 @@ specialAttNum.exit.thread:                        ; preds = %30, %specialAttNum.
 declare i32 @namestrcmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local nonnull ptr @attnumAttName(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @attnumAttName(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp slt i32 %1, 1
   br i1 %3, label %4, label %8
 

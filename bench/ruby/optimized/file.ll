@@ -976,7 +976,7 @@ declare void @rb_str_set_len(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare i64 @rb_str_resize(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local nonnull ptr @rb_enc_path_next(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2) local_unnamed_addr #0 {
+define dso_local ptr @rb_enc_path_next(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2) local_unnamed_addr #0 {
   %4 = icmp ult ptr %0, %1
   br i1 %4, label %.lr.ph, label %.critedge
 
@@ -1046,7 +1046,7 @@ define dso_local ptr @rb_enc_path_last_separator(ptr noundef nonnull %0, ptr nou
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local nonnull ptr @rb_enc_path_end(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2) local_unnamed_addr #0 {
+define dso_local ptr @rb_enc_path_end(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2) local_unnamed_addr #0 {
   %4 = icmp ult ptr %0, %1
   br i1 %4, label %5, label %8
 

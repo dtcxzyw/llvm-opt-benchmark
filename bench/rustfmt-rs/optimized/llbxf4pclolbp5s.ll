@@ -25886,140 +25886,140 @@ define hidden { ptr, i64 } @"_ZN8thin_vec16ThinVec$LT$T$GT$8as_slice17hf3592b0ba
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @"_ZN8thin_vec16ThinVec$LT$T$GT$8data_raw17h12d5504378429421E.llvm.13158159170862922693"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #15 personality ptr @rust_eh_personality {
+define hidden noundef ptr @"_ZN8thin_vec16ThinVec$LT$T$GT$8data_raw17h12d5504378429421E.llvm.13158159170862922693"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #15 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %3 = getelementptr i8, ptr %2, i64 16
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @"_ZN8thin_vec16ThinVec$LT$T$GT$8data_raw17h1ab5da2269c75c08E.llvm.13158159170862922693"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #15 personality ptr @rust_eh_personality {
+define hidden noundef ptr @"_ZN8thin_vec16ThinVec$LT$T$GT$8data_raw17h1ab5da2269c75c08E.llvm.13158159170862922693"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #15 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %3 = getelementptr i8, ptr %2, i64 16
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @"_ZN8thin_vec16ThinVec$LT$T$GT$8data_raw17h1f06ab9df39e4e66E.llvm.13158159170862922693"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #15 personality ptr @rust_eh_personality {
+define hidden noundef ptr @"_ZN8thin_vec16ThinVec$LT$T$GT$8data_raw17h1f06ab9df39e4e66E.llvm.13158159170862922693"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #15 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %3 = getelementptr i8, ptr %2, i64 16
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @"_ZN8thin_vec16ThinVec$LT$T$GT$8data_raw17h1fb03fe20a37f8f7E.llvm.13158159170862922693"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #15 personality ptr @rust_eh_personality {
+define hidden noundef ptr @"_ZN8thin_vec16ThinVec$LT$T$GT$8data_raw17h1fb03fe20a37f8f7E.llvm.13158159170862922693"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #15 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %3 = getelementptr i8, ptr %2, i64 16
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @"_ZN8thin_vec16ThinVec$LT$T$GT$8data_raw17h218cecdc731ce7bdE.llvm.13158159170862922693"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #15 personality ptr @rust_eh_personality {
+define hidden noundef ptr @"_ZN8thin_vec16ThinVec$LT$T$GT$8data_raw17h218cecdc731ce7bdE.llvm.13158159170862922693"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #15 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %3 = getelementptr i8, ptr %2, i64 16
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @"_ZN8thin_vec16ThinVec$LT$T$GT$8data_raw17h2225b8720d3ca314E.llvm.13158159170862922693"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #15 personality ptr @rust_eh_personality {
+define hidden noundef ptr @"_ZN8thin_vec16ThinVec$LT$T$GT$8data_raw17h2225b8720d3ca314E.llvm.13158159170862922693"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #15 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %3 = getelementptr i8, ptr %2, i64 16
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @"_ZN8thin_vec16ThinVec$LT$T$GT$8data_raw17h3b0fdeca79f22bd4E.llvm.13158159170862922693"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #15 personality ptr @rust_eh_personality {
+define hidden noundef ptr @"_ZN8thin_vec16ThinVec$LT$T$GT$8data_raw17h3b0fdeca79f22bd4E.llvm.13158159170862922693"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #15 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %3 = getelementptr i8, ptr %2, i64 16
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @"_ZN8thin_vec16ThinVec$LT$T$GT$8data_raw17h3cc559c7ebfb1e5dE.llvm.13158159170862922693"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #15 personality ptr @rust_eh_personality {
+define hidden noundef ptr @"_ZN8thin_vec16ThinVec$LT$T$GT$8data_raw17h3cc559c7ebfb1e5dE.llvm.13158159170862922693"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #15 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %3 = getelementptr i8, ptr %2, i64 16
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @"_ZN8thin_vec16ThinVec$LT$T$GT$8data_raw17h3e115d3bbe4b5f08E.llvm.13158159170862922693"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #15 personality ptr @rust_eh_personality {
+define hidden noundef ptr @"_ZN8thin_vec16ThinVec$LT$T$GT$8data_raw17h3e115d3bbe4b5f08E.llvm.13158159170862922693"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #15 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %3 = getelementptr i8, ptr %2, i64 16
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @"_ZN8thin_vec16ThinVec$LT$T$GT$8data_raw17h40032e910352400bE.llvm.13158159170862922693"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #15 personality ptr @rust_eh_personality {
+define hidden noundef ptr @"_ZN8thin_vec16ThinVec$LT$T$GT$8data_raw17h40032e910352400bE.llvm.13158159170862922693"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #15 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %3 = getelementptr i8, ptr %2, i64 16
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @"_ZN8thin_vec16ThinVec$LT$T$GT$8data_raw17h407912f6fc34dac2E.llvm.13158159170862922693"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #15 personality ptr @rust_eh_personality {
+define hidden noundef ptr @"_ZN8thin_vec16ThinVec$LT$T$GT$8data_raw17h407912f6fc34dac2E.llvm.13158159170862922693"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #15 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %3 = getelementptr i8, ptr %2, i64 16
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @"_ZN8thin_vec16ThinVec$LT$T$GT$8data_raw17h4980d8585428ffceE.llvm.13158159170862922693"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #15 personality ptr @rust_eh_personality {
+define hidden noundef ptr @"_ZN8thin_vec16ThinVec$LT$T$GT$8data_raw17h4980d8585428ffceE.llvm.13158159170862922693"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #15 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %3 = getelementptr i8, ptr %2, i64 16
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @"_ZN8thin_vec16ThinVec$LT$T$GT$8data_raw17h5aa30b2e9ea5cfcfE.llvm.13158159170862922693"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #15 personality ptr @rust_eh_personality {
+define hidden noundef ptr @"_ZN8thin_vec16ThinVec$LT$T$GT$8data_raw17h5aa30b2e9ea5cfcfE.llvm.13158159170862922693"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #15 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %3 = getelementptr i8, ptr %2, i64 16
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @"_ZN8thin_vec16ThinVec$LT$T$GT$8data_raw17h71036599e7ea9fa6E.llvm.13158159170862922693"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #15 personality ptr @rust_eh_personality {
+define hidden noundef ptr @"_ZN8thin_vec16ThinVec$LT$T$GT$8data_raw17h71036599e7ea9fa6E.llvm.13158159170862922693"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #15 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %3 = getelementptr i8, ptr %2, i64 16
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @"_ZN8thin_vec16ThinVec$LT$T$GT$8data_raw17h7f9352d6c9739e6bE.llvm.13158159170862922693"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #15 personality ptr @rust_eh_personality {
+define hidden noundef ptr @"_ZN8thin_vec16ThinVec$LT$T$GT$8data_raw17h7f9352d6c9739e6bE.llvm.13158159170862922693"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #15 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %3 = getelementptr i8, ptr %2, i64 16
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @"_ZN8thin_vec16ThinVec$LT$T$GT$8data_raw17h84a2826ed6ad3d21E.llvm.13158159170862922693"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #15 personality ptr @rust_eh_personality {
+define hidden noundef ptr @"_ZN8thin_vec16ThinVec$LT$T$GT$8data_raw17h84a2826ed6ad3d21E.llvm.13158159170862922693"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #15 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %3 = getelementptr i8, ptr %2, i64 16
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @"_ZN8thin_vec16ThinVec$LT$T$GT$8data_raw17h94d861ca8d75a245E.llvm.13158159170862922693"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #15 personality ptr @rust_eh_personality {
+define hidden noundef ptr @"_ZN8thin_vec16ThinVec$LT$T$GT$8data_raw17h94d861ca8d75a245E.llvm.13158159170862922693"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #15 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %3 = getelementptr i8, ptr %2, i64 16
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @"_ZN8thin_vec16ThinVec$LT$T$GT$8data_raw17h9eb17a1ff0ddf280E.llvm.13158159170862922693"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #15 personality ptr @rust_eh_personality {
+define hidden noundef ptr @"_ZN8thin_vec16ThinVec$LT$T$GT$8data_raw17h9eb17a1ff0ddf280E.llvm.13158159170862922693"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #15 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %3 = getelementptr i8, ptr %2, i64 16
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @"_ZN8thin_vec16ThinVec$LT$T$GT$8data_raw17hb6b4497a814fa708E.llvm.13158159170862922693"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #15 personality ptr @rust_eh_personality {
+define hidden noundef ptr @"_ZN8thin_vec16ThinVec$LT$T$GT$8data_raw17hb6b4497a814fa708E.llvm.13158159170862922693"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #15 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %3 = getelementptr i8, ptr %2, i64 16
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @"_ZN8thin_vec16ThinVec$LT$T$GT$8data_raw17hd6edb1a6eda5976fE.llvm.13158159170862922693"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #15 personality ptr @rust_eh_personality {
+define hidden noundef ptr @"_ZN8thin_vec16ThinVec$LT$T$GT$8data_raw17hd6edb1a6eda5976fE.llvm.13158159170862922693"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #15 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %3 = getelementptr i8, ptr %2, i64 16
   ret ptr %3

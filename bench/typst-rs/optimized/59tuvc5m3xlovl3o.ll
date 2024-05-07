@@ -1000,7 +1000,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @"switch.table._ZN67_$LT$typst..math..matrix..Delimiter$u20$as$u20$core..fmt..Debug$GT$3fmt17hf3254484d174323aE.484" = private unnamed_addr constant [5 x ptr] [ptr @anon.863986d00e4103fb69f29fe2b65b0919.940, ptr @anon.863986d00e4103fb69f29fe2b65b0919.941, ptr @anon.863986d00e4103fb69f29fe2b65b0919.942, ptr @anon.863986d00e4103fb69f29fe2b65b0919.943, ptr @anon.863986d00e4103fb69f29fe2b65b0919.944], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$24__iterator_get_unchecked17h5bf297d00988e6e6E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef align 8 dereferenceable(32) ptr @"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$24__iterator_get_unchecked17h5bf297d00988e6e6E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = load ptr, ptr %0, align 8, !alias.scope !5, !nonnull !4, !noundef !4
@@ -1010,7 +1010,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN100_$LT$core.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$24__iterator_get_unchecked17hc3033ba881d68cd8E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef align 8 dereferenceable(8) ptr @"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$24__iterator_get_unchecked17hc3033ba881d68cd8E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = load ptr, ptr %0, align 8, !alias.scope !10, !nonnull !4, !noundef !4

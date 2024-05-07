@@ -5295,7 +5295,7 @@ declare void @qemu_init_arch_modules() local_unnamed_addr #2
 declare void @qemu_init_subsystems() local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef nonnull ptr @lookup_opt(i32 noundef %argc, ptr noundef %argv, ptr nocapture noundef writeonly %poptarg, ptr nocapture noundef %poptind) unnamed_addr #1 {
+define internal fastcc noundef ptr @lookup_opt(i32 noundef %argc, ptr noundef %argv, ptr nocapture noundef writeonly %poptarg, ptr nocapture noundef %poptind) unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %poptind, align 4
   %idxprom = sext i32 %0 to i64

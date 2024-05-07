@@ -5149,7 +5149,7 @@ declare ptr @PyType_FromSpec(ptr noundef) local_unnamed_addr #1
 declare i32 @PyModule_AddType(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @get_change_3_2_0(i32 noundef %n) #7 {
+define internal ptr @get_change_3_2_0(i32 noundef %n) #7 {
 entry:
   %cmp = icmp ugt i32 %n, 1114111
   br i1 %cmp, label %if.end, label %if.else

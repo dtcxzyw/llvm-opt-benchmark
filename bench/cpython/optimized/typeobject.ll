@@ -1330,7 +1330,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table._PyType_GetTextSignatureFromInternalDoc = private unnamed_addr constant [10 x ptr] [ptr @.str.24, ptr @.str.27, ptr @.str.24, ptr @.str.24, ptr @.str.25, ptr @.str.28, ptr @.str.24, ptr @.str.24, ptr @.str.26, ptr @.str.29], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden nonnull ptr @_PyStaticType_GetState(ptr noundef readnone %interp, ptr nocapture noundef readonly %self) local_unnamed_addr #0 {
+define hidden ptr @_PyStaticType_GetState(ptr noundef readnone %interp, ptr nocapture noundef readonly %self) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 360
   %self.val = load ptr, ptr %0, align 8

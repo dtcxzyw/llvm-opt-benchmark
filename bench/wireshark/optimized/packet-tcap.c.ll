@@ -2364,7 +2364,7 @@ proto_item_set_generated.exit70:                  ; preds = %find_tcaphash_end.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull ptr @tcapsrt_razinfo() local_unnamed_addr #2 {
+define hidden noundef ptr @tcapsrt_razinfo() local_unnamed_addr #2 {
   %1 = load i32, ptr @tcapsrt_global_current, align 4
   %2 = add i32 %1, 1
   %3 = icmp eq i32 %2, 10

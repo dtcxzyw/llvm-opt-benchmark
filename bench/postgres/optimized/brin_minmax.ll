@@ -95,7 +95,7 @@ define dso_local range(i64 0, 2) i64 @brin_minmax_add_value(ptr nocapture nounde
   %43 = getelementptr inbounds i8, ptr %7, i64 8
   %44 = load ptr, ptr %43, align 8
   %45 = load i64, ptr %44, align 8
-  %46 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %42, i32 noundef %11, i64 noundef %9, i64 noundef %45) #4
+  %46 = tail call i64 @FunctionCall2Coll(ptr noundef %42, i32 noundef %11, i64 noundef %9, i64 noundef %45) #4
   %47 = icmp ne i64 %46, 0
   br i1 %47, label %48, label %62
 
@@ -130,7 +130,7 @@ define dso_local range(i64 0, 2) i64 @brin_minmax_add_value(ptr nocapture nounde
   %65 = load ptr, ptr %43, align 8
   %66 = getelementptr i8, ptr %65, i64 8
   %67 = load i64, ptr %66, align 8
-  %68 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %64, i32 noundef %11, i64 noundef %9, i64 noundef %67) #4
+  %68 = tail call i64 @FunctionCall2Coll(ptr noundef %64, i32 noundef %11, i64 noundef %9, i64 noundef %67) #4
   %.not = icmp eq i64 %68, 0
   br i1 %.not, label %85, label %69
 
@@ -174,7 +174,7 @@ define dso_local range(i64 0, 2) i64 @brin_minmax_add_value(ptr nocapture nounde
 declare i64 @datumCopy(i64 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @minmax_get_strategy_procinfo(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, i32 noundef %2, i16 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc ptr @minmax_get_strategy_procinfo(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, i32 noundef %2, i16 noundef zeroext %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = zext i16 %1 to i64
   %7 = add nsw i64 %6, -1
@@ -299,7 +299,7 @@ define dso_local i64 @brin_minmax_consistent(ptr nocapture noundef readonly %0) 
   %27 = getelementptr inbounds i8, ptr %7, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = load i64, ptr %28, align 8
-  %30 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %26, i32 noundef %12, i64 noundef %29, i64 noundef %18) #4
+  %30 = tail call i64 @FunctionCall2Coll(ptr noundef %26, i32 noundef %12, i64 noundef %29, i64 noundef %18) #4
   %.not = icmp eq i64 %30, 0
   br i1 %.not, label %47, label %31
 
@@ -329,7 +329,7 @@ define dso_local i64 @brin_minmax_consistent(ptr nocapture noundef readonly %0) 
   %.sink41 = phi ptr [ %39, %35 ], [ %34, %31 ], [ %24, %21 ]
   %.sink = phi ptr [ %36, %35 ], [ %32, %31 ], [ %22, %21 ]
   %45 = load i64, ptr %.sink41, align 8
-  %46 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %.sink, i32 noundef %12, i64 noundef %45, i64 noundef %18) #4
+  %46 = tail call i64 @FunctionCall2Coll(ptr noundef %.sink, i32 noundef %12, i64 noundef %45, i64 noundef %18) #4
   br label %47
 
 47:                                               ; preds = %.sink.split, %25
@@ -373,7 +373,7 @@ define dso_local noundef i64 @brin_minmax_union(ptr nocapture noundef readonly %
   %26 = getelementptr inbounds i8, ptr %7, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = load i64, ptr %27, align 8
-  %29 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %22, i32 noundef %12, i64 noundef %25, i64 noundef %28) #4
+  %29 = tail call i64 @FunctionCall2Coll(ptr noundef %22, i32 noundef %12, i64 noundef %25, i64 noundef %28) #4
   %.not = icmp eq i64 %29, 0
   br i1 %.not, label %46, label %30
 
@@ -413,7 +413,7 @@ define dso_local noundef i64 @brin_minmax_union(ptr nocapture noundef readonly %
   %52 = load ptr, ptr %26, align 8
   %53 = getelementptr i8, ptr %52, i64 8
   %54 = load i64, ptr %53, align 8
-  %55 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %48, i32 noundef %12, i64 noundef %51, i64 noundef %54) #4
+  %55 = tail call i64 @FunctionCall2Coll(ptr noundef %48, i32 noundef %12, i64 noundef %51, i64 noundef %54) #4
   %.not34 = icmp eq i64 %55, 0
   br i1 %.not34, label %75, label %56
 

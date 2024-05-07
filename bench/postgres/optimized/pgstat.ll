@@ -987,7 +987,7 @@ define dso_local void @pgstat_reset(i32 noundef %0, i32 noundef %1, i32 noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull ptr @pgstat_get_kind_info(i32 noundef %0) local_unnamed_addr #7 {
+define dso_local noundef ptr @pgstat_get_kind_info(i32 noundef %0) local_unnamed_addr #7 {
   %2 = zext i32 %0 to i64
   %3 = getelementptr [12 x %struct.PgStat_KindInfo], ptr @pgstat_kind_infos, i64 0, i64 %2
   ret ptr %3

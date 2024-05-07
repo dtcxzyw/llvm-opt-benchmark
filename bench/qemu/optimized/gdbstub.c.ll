@@ -1051,7 +1051,7 @@ declare void @g_free(ptr noundef) #3
 declare ptr @g_ptr_array_free(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef nonnull ptr @gdb_find_static_feature(ptr nocapture noundef readonly %xmlname) local_unnamed_addr #0 {
+define dso_local noundef ptr @gdb_find_static_feature(ptr nocapture noundef readonly %xmlname) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @gdb_static_features, align 8
   %tobool.not5 = icmp eq ptr %0, null

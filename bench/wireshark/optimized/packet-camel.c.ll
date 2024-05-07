@@ -3315,7 +3315,7 @@ camelsrt_display_DeltaTime.exit:                  ; preds = %43, %proto_item_set
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef nonnull ptr @camelsrt_razinfo() local_unnamed_addr #2 {
+define hidden noundef ptr @camelsrt_razinfo() local_unnamed_addr #2 {
   %1 = load i32, ptr @camelsrt_global_current, align 4
   %2 = add i32 %1, 1
   %3 = icmp eq i32 %2, 10
