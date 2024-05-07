@@ -1090,8 +1090,8 @@ define hidden i32 @dissect_ulmap_ie(ptr noundef %0, ptr noundef %1, i32 noundef 
   %94 = sdiv i32 %2, 2
   %95 = shl nuw nsw i32 %93, 1
   %96 = add nuw nsw i32 %7, 9
-  %97 = add nuw nsw i32 %96, %95
-  %98 = lshr i32 %97, 1
+  %97 = lshr i32 %96, 1
+  %98 = add nuw nsw i32 %97, %93
   %99 = load i32, ptr @ett_290b, align 4
   %100 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %0, ptr noundef %4, i32 noundef %94, i32 noundef %98, i32 noundef %99, ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 11) #4
   %101 = load i32, ptr @hf_ulmap_ie_cid, align 4

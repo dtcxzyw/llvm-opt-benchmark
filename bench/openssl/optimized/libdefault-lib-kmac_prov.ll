@@ -791,19 +791,19 @@ encode_string.exit.i:                             ; preds = %get_encode_size.exi
   tail call void @ERR_new() #7
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 511, ptr noundef nonnull @__func__.encode_string) #7
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 202, ptr noundef null) #7
-  br label %5
+  br label %4
 
 if.end.i:                                         ; preds = %for.end.i.i, %if.end6
   %tmp_len.0.ph.i = phi i64 [ 0, %if.end6 ], [ %add1.i.i, %for.end.i.i ]
-  %2 = add nuw nsw i64 %conv, 1
-  %sub.i.i = add nuw nsw i64 %2, %tmp_len.0.ph.i
-  %3 = urem i64 %sub.i.i, %conv
-  %mul.i6.i = sub nsw i64 %sub.i.i, %3
+  %conv9.i.i = add nuw nsw i64 %conv, 1
+  %sub.i.i = add nuw nsw i64 %conv9.i.i, %tmp_len.0.ph.i
+  %2 = urem i64 %sub.i.i, %conv
+  %mul.i6.i = sub nsw i64 %sub.i.i, %2
   store i64 %mul.i6.i, ptr %key_len, align 8
   %cmp.i = icmp ult i64 %mul.i6.i, 673
   %cmp12.i.i = icmp ult i32 %call2, 256
   %or.cond8 = select i1 %cmp.i, i1 %cmp12.i.i, i1 false
-  br i1 %or.cond8, label %if.end19.i.i, label %5
+  br i1 %or.cond8, label %if.end19.i.i, label %4
 
 if.end19.i.i:                                     ; preds = %if.end.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %kctx, i64 69
@@ -822,8 +822,8 @@ if.end19.i.i:                                     ; preds = %if.end.i
   %conv30.i.i = ashr exact i64 %sext.i.i, 32
   %add31.i.i = add nsw i64 %conv, -1
   %sub32.i.i = add nsw i64 %add31.i.i, %conv30.i.i
-  %4 = urem i64 %sub32.i.i, %conv
-  %mul34.i.i = sub nuw nsw i64 %sub32.i.i, %4
+  %3 = urem i64 %sub32.i.i, %conv
+  %mul34.i.i = sub nuw nsw i64 %sub32.i.i, %3
   %conv35.i.i = trunc i64 %mul34.i.i to i32
   %cmp36.not.i.i = icmp eq i32 %conv35.i.i, %conv29.i.i
   br i1 %cmp36.not.i.i, label %kmac_bytepad_encode_key.exit, label %if.then38.i.i
@@ -839,12 +839,12 @@ kmac_bytepad_encode_key.exit:                     ; preds = %if.end19.i.i, %if.t
   call void @llvm.lifetime.end.p0(i64 516, ptr nonnull %tmp.i)
   br label %return
 
-5:                                                ; preds = %encode_string.exit.i, %if.end.i
+4:                                                ; preds = %encode_string.exit.i, %if.end.i
   call void @llvm.lifetime.end.p0(i64 516, ptr nonnull %tmp.i)
   br label %return
 
-return:                                           ; preds = %5, %kmac_bytepad_encode_key.exit, %if.then5, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.then5 ], [ 0, %5 ], [ 1, %kmac_bytepad_encode_key.exit ]
+return:                                           ; preds = %4, %kmac_bytepad_encode_key.exit, %if.then5, %if.then
+  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.then5 ], [ 0, %4 ], [ 1, %kmac_bytepad_encode_key.exit ]
   ret i32 %retval.0
 }
 

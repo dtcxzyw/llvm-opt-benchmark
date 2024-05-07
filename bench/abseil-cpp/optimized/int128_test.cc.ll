@@ -47030,14 +47030,14 @@ _ZN7testing15AssertionResultD2Ev.exit311:         ; preds = %if.end107, %_ZNKSt1
   %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %ref.tmp111, align 16
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0.this1.sroa_idx.i, align 8
   %53 = or i64 %agg.tmp.sroa.0.0.copyload.i, %agg.tmp110.sroa.0.0.copyload
-  %coerce2.sroa.2.0.insert.shift67.i.i = or i64 %agg.tmp.sroa.2.0.copyload.i, %agg.tmp110.sroa.2.0.copyload
+  %coerce3.sroa.2.0.extract.shift.i.i = or i64 %agg.tmp.sroa.2.0.copyload.i, %agg.tmp110.sroa.2.0.copyload
   store i64 %53, ptr %ref.tmp111, align 16
-  store i64 %coerce2.sroa.2.0.insert.shift67.i.i, ptr %agg.tmp.sroa.2.0.this1.sroa_idx.i, align 8
+  store i64 %coerce3.sroa.2.0.extract.shift.i.i, ptr %agg.tmp.sroa.2.0.this1.sroa_idx.i, align 8
   %coerce.sroa.2.0.insert.ext.i.i.i318 = zext i64 %agg.tmp110.sroa.2.0.copyload to i128
   %coerce.sroa.2.0.insert.shift.i.i.i319 = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i.i318, 64
   %coerce.sroa.0.0.insert.ext.i.i.i320 = zext i64 %agg.tmp110.sroa.0.0.copyload to i128
   %coerce.sroa.0.0.insert.insert.i.i.i321 = or disjoint i128 %coerce.sroa.2.0.insert.shift.i.i.i319, %coerce.sroa.0.0.insert.ext.i.i.i320
-  %coerce2.sroa.2.0.insert.ext.i.i.i322 = zext i64 %coerce2.sroa.2.0.insert.shift67.i.i to i128
+  %coerce2.sroa.2.0.insert.ext.i.i.i322 = zext i64 %coerce3.sroa.2.0.extract.shift.i.i to i128
   %coerce2.sroa.2.0.insert.shift.i.i.i323 = shl nuw i128 %coerce2.sroa.2.0.insert.ext.i.i.i322, 64
   %coerce2.sroa.0.0.insert.ext.i.i.i324 = zext i64 %53 to i128
   %coerce2.sroa.0.0.insert.insert.i.i.i325 = or disjoint i128 %coerce2.sroa.2.0.insert.shift.i.i.i323, %coerce2.sroa.0.0.insert.ext.i.i.i324
@@ -48293,11 +48293,11 @@ invoke.cont445:                                   ; preds = %_ZNKSt14default_del
   %or = or i64 %156, %153
   %conv.i812 = sext i64 %or to i128
   store i128 %conv.i812, ptr %ref.tmp434, align 16
-  %coerce2.sroa.2.0.insert.shift67.i815 = or i64 %175, %174
+  %coerce3.sroa.2.0.extract.shift.i815 = or i64 %175, %174
   store i64 %or, ptr %ref.tmp438, align 16
-  store i64 %coerce2.sroa.2.0.insert.shift67.i815, ptr %149, align 8
+  store i64 %coerce3.sroa.2.0.extract.shift.i815, ptr %149, align 8
   %187 = ashr i64 %or, 63
-  %cmp.i.i.i832 = icmp eq i64 %187, %coerce2.sroa.2.0.insert.shift67.i815
+  %cmp.i.i.i832 = icmp eq i64 %187, %coerce3.sroa.2.0.extract.shift.i815
   br i1 %cmp.i.i.i832, label %if.then.i.i834, label %if.end.i.i833
 
 if.then.i.i834:                                   ; preds = %invoke.cont445
@@ -48405,11 +48405,11 @@ invoke.cont478:                                   ; preds = %_ZNKSt14default_del
   %xor = xor i64 %156, %153
   %conv.i859 = sext i64 %xor to i128
   store i128 %conv.i859, ptr %ref.tmp467, align 16
-  %coerce.sroa.2.0.insert.shift78.i862 = xor i64 %175, %174
+  %coerce3.sroa.2.0.extract.shift.i862 = xor i64 %175, %174
   store i64 %xor, ptr %ref.tmp471, align 16
-  store i64 %coerce.sroa.2.0.insert.shift78.i862, ptr %150, align 8
+  store i64 %coerce3.sroa.2.0.extract.shift.i862, ptr %150, align 8
   %198 = ashr i64 %xor, 63
-  %cmp.i.i.i880 = icmp eq i64 %198, %coerce.sroa.2.0.insert.shift78.i862
+  %cmp.i.i.i880 = icmp eq i64 %198, %coerce3.sroa.2.0.extract.shift.i862
   br i1 %cmp.i.i.i880, label %if.then.i.i882, label %if.end.i.i881
 
 if.then.i.i882:                                   ; preds = %invoke.cont478
@@ -48625,10 +48625,10 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 invoke.cont543:                                   ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i954, %if.end529
   store ptr null, ptr %message_.i.i936, align 8
   store i128 %conv.i812, ptr %ref.tmp532, align 16
-  %coerce2.sroa.2.0.insert.shift67.i.i962 = or i64 %209, %175
+  %coerce3.sroa.2.0.extract.shift.i.i962 = or i64 %209, %175
   store i64 %or, ptr %ref.tmp540, align 16
-  store i64 %coerce2.sroa.2.0.insert.shift67.i.i962, ptr %agg.tmp.sroa.2.0.this1.sroa_idx.i960, align 8
-  %cmp.i.i.i977 = icmp eq i64 %187, %coerce2.sroa.2.0.insert.shift67.i.i962
+  store i64 %coerce3.sroa.2.0.extract.shift.i.i962, ptr %agg.tmp.sroa.2.0.this1.sroa_idx.i960, align 8
+  %cmp.i.i.i977 = icmp eq i64 %187, %coerce3.sroa.2.0.extract.shift.i.i962
   br i1 %cmp.i.i.i977, label %if.then.i.i979, label %if.end.i.i978
 
 if.then.i.i979:                                   ; preds = %invoke.cont543
@@ -48734,10 +48734,10 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 invoke.cont575:                                   ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i1002, %if.end561
   store ptr null, ptr %message_.i.i984, align 8
   store i128 %conv.i859, ptr %ref.tmp564, align 16
-  %coerce.sroa.2.0.insert.shift78.i.i1010 = xor i64 %209, %175
+  %coerce3.sroa.2.0.extract.shift.i.i1010 = xor i64 %209, %175
   store i64 %xor, ptr %ref.tmp572, align 16
-  store i64 %coerce.sroa.2.0.insert.shift78.i.i1010, ptr %agg.tmp.sroa.2.0.this1.sroa_idx.i1008, align 8
-  %cmp.i.i.i1026 = icmp eq i64 %198, %coerce.sroa.2.0.insert.shift78.i.i1010
+  store i64 %coerce3.sroa.2.0.extract.shift.i.i1010, ptr %agg.tmp.sroa.2.0.this1.sroa_idx.i1008, align 8
+  %cmp.i.i.i1026 = icmp eq i64 %198, %coerce3.sroa.2.0.extract.shift.i.i1010
   br i1 %cmp.i.i.i1026, label %if.then.i.i1028, label %if.end.i.i1027
 
 if.then.i.i1028:                                  ; preds = %invoke.cont575
