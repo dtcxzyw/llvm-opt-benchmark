@@ -15111,123 +15111,98 @@ define internal fastcc void @green_equilibration_favg(ptr noundef %0, ptr nounde
   %93 = shufflevector <4 x i64> %92, <4 x i64> poison, <4 x i32> zeroinitializer
   %94 = or disjoint <4 x i64> %93, <i64 0, i64 2, i64 4, i64 6>
   %95 = shufflevector <2 x double> %49, <2 x double> poison, <4 x i32> zeroinitializer
-  %96 = shufflevector <2 x double> %49, <2 x double> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
+  %96 = icmp eq i64 %82, %89
   %97 = select i1 %83, i1 true, i1 %88
-  %98 = fdiv reassoc nsz arcp contract afn <4 x double> %95, %96
   %shift = shufflevector <2 x double> %49, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %99 = fdiv reassoc nsz arcp contract afn <2 x double> %49, %shift
-  %100 = extractelement <2 x double> %99, i64 0
-  br i1 %97, label %.split.us, label %.split
+  %98 = fdiv reassoc nsz arcp contract afn <2 x double> %49, %shift
+  %99 = extractelement <2 x double> %98, i64 0
+  br i1 %97, label %.split.us, label %.split.preheader
+
+.split.preheader:                                 ; preds = %63
+  %100 = shufflevector <2 x double> %49, <2 x double> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
+  %101 = fdiv reassoc nsz arcp contract afn <4 x double> <double 1.000000e+00, double 1.000000e+00, double 1.000000e+00, double 1.000000e+00>, %100
+  br label %.split
 
 .split.us:                                        ; preds = %63, %.loopexit.us
-  %101 = phi i64 [ %115, %.loopexit.us ], [ 0, %63 ]
-  %102 = mul nsw i64 %101, %17
-  br label %103
+  %102 = phi i64 [ %116, %.loopexit.us ], [ 0, %63 ]
+  %103 = mul nsw i64 %102, %17
+  br label %104
 
-103:                                              ; preds = %103, %.split.us
-  %104 = phi i64 [ %113, %103 ], [ %25, %.split.us ]
-  %105 = add nsw i64 %104, %102
-  %106 = getelementptr inbounds float, ptr %1, i64 %105
-  %107 = load float, ptr %106, align 4, !tbaa !24
-  %108 = fpext float %107 to double
-  %109 = fmul reassoc nsz arcp contract afn double %100, %108
-  %110 = fptrunc double %109 to float
-  %111 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %110, float 0.000000e+00)
-  %112 = getelementptr inbounds float, ptr %0, i64 %105
-  store float %111, ptr %112, align 4, !tbaa !24
-  %113 = add nuw nsw i64 %104, 2
-  %114 = icmp slt i64 %113, %28
-  br i1 %114, label %103, label %.loopexit.us, !llvm.loop !178
+104:                                              ; preds = %104, %.split.us
+  %105 = phi i64 [ %114, %104 ], [ %25, %.split.us ]
+  %106 = add nsw i64 %105, %103
+  %107 = getelementptr inbounds float, ptr %1, i64 %106
+  %108 = load float, ptr %107, align 4, !tbaa !24
+  %109 = fpext float %108 to double
+  %110 = fmul reassoc nsz arcp contract afn double %99, %109
+  %111 = fptrunc double %110 to float
+  %112 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %111, float 0.000000e+00)
+  %113 = getelementptr inbounds float, ptr %0, i64 %106
+  store float %112, ptr %113, align 4, !tbaa !24
+  %114 = add nuw nsw i64 %105, 2
+  %115 = icmp slt i64 %114, %28
+  br i1 %115, label %104, label %.loopexit.us, !llvm.loop !178
 
-.loopexit.us:                                     ; preds = %103
-  %115 = add nuw nsw i64 %101, 2
-  %116 = icmp slt i64 %115, %21
-  br i1 %116, label %.split.us, label %.loopexit4
+.loopexit.us:                                     ; preds = %104
+  %116 = add nuw nsw i64 %102, 2
+  %117 = icmp slt i64 %116, %21
+  br i1 %117, label %.split.us, label %.loopexit4
 
-.split:                                           ; preds = %63
-  %117 = icmp eq i64 %82, %89
-  br i1 %117, label %.split.split.us, label %.split.split
-
-.split.split.us:                                  ; preds = %.split, %136
-  %118 = phi i64 [ %137, %136 ], [ 0, %.split ]
+.split:                                           ; preds = %.split.preheader, %.loopexit
+  %118 = phi i64 [ %149, %.loopexit ], [ 0, %.split.preheader ]
   %119 = mul nuw nsw i64 %118, %17
   %120 = insertelement <4 x i64> poison, i64 %119, i64 0
   %121 = shufflevector <4 x i64> %120, <4 x i64> poison, <4 x i32> zeroinitializer
   br label %122
 
-122:                                              ; preds = %122, %.split.split.us
-  %123 = phi i64 [ 0, %.split.split.us ], [ %133, %122 ]
-  %124 = phi <4 x i64> [ %94, %.split.split.us ], [ %134, %122 ]
+122:                                              ; preds = %122, %.split
+  %123 = phi i64 [ 0, %.split ], [ %134, %122 ]
+  %124 = phi <4 x i64> [ %94, %.split ], [ %135, %122 ]
   %125 = add nsw <4 x i64> %124, %121
   %126 = getelementptr inbounds float, ptr %1, <4 x i64> %125
   %127 = tail call <4 x float> @llvm.masked.gather.v4f32.v4p0(<4 x ptr> %126, i32 4, <4 x i1> <i1 true, i1 true, i1 true, i1 true>, <4 x float> poison), !tbaa !24, !alias.scope !179
   %128 = fpext <4 x float> %127 to <4 x double>
-  %129 = fmul reassoc nsz arcp contract afn <4 x double> %98, %128
-  %130 = fptrunc <4 x double> %129 to <4 x float>
-  %131 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.maxnum.v4f32(<4 x float> %130, <4 x float> zeroinitializer)
-  %132 = getelementptr inbounds float, ptr %0, <4 x i64> %125
-  tail call void @llvm.masked.scatter.v4f32.v4p0(<4 x float> %131, <4 x ptr> %132, i32 4, <4 x i1> <i1 true, i1 true, i1 true, i1 true>), !tbaa !24, !alias.scope !182, !noalias !179
-  %133 = add nuw i64 %123, 4
-  %134 = add <4 x i64> %124, <i64 8, i64 8, i64 8, i64 8>
-  %135 = icmp eq i64 %133, %82
-  br i1 %135, label %136, label %122, !llvm.loop !184
+  %129 = fmul reassoc nsz arcp contract afn <4 x double> %95, %128
+  %130 = fmul reassoc nsz arcp contract afn <4 x double> %129, %101
+  %131 = fptrunc <4 x double> %130 to <4 x float>
+  %132 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.maxnum.v4f32(<4 x float> %131, <4 x float> zeroinitializer)
+  %133 = getelementptr inbounds float, ptr %0, <4 x i64> %125
+  tail call void @llvm.masked.scatter.v4f32.v4p0(<4 x float> %132, <4 x ptr> %133, i32 4, <4 x i1> <i1 true, i1 true, i1 true, i1 true>), !tbaa !24, !alias.scope !182, !noalias !179
+  %134 = add nuw i64 %123, 4
+  %135 = add <4 x i64> %124, <i64 8, i64 8, i64 8, i64 8>
+  %136 = icmp eq i64 %134, %89
+  br i1 %136, label %137, label %122, !llvm.loop !184
 
-136:                                              ; preds = %122
-  %137 = add nuw nsw i64 %118, 2
-  %138 = icmp slt i64 %137, %21
-  br i1 %138, label %.split.split.us, label %.loopexit4
+137:                                              ; preds = %122
+  br i1 %96, label %.loopexit, label %.preheader9
 
-.split.split:                                     ; preds = %.split, %.loopexit
-  %139 = phi i64 [ %168, %.loopexit ], [ 0, %.split ]
-  %140 = mul nuw nsw i64 %139, %17
-  %141 = insertelement <4 x i64> poison, i64 %140, i64 0
-  %142 = shufflevector <4 x i64> %141, <4 x i64> poison, <4 x i32> zeroinitializer
-  br label %143
+.preheader9:                                      ; preds = %137, %.preheader9
+  %138 = phi i64 [ %147, %.preheader9 ], [ %91, %137 ]
+  %139 = add nsw i64 %138, %119
+  %140 = getelementptr inbounds float, ptr %1, i64 %139
+  %141 = load float, ptr %140, align 4, !tbaa !24
+  %142 = fpext float %141 to double
+  %143 = fmul reassoc nsz arcp contract afn double %99, %142
+  %144 = fptrunc double %143 to float
+  %145 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %144, float 0.000000e+00)
+  %146 = getelementptr inbounds float, ptr %0, i64 %139
+  store float %145, ptr %146, align 4, !tbaa !24
+  %147 = add nuw nsw i64 %138, 2
+  %148 = icmp slt i64 %147, %28
+  br i1 %148, label %.preheader9, label %.loopexit, !llvm.loop !178
 
-143:                                              ; preds = %143, %.split.split
-  %144 = phi i64 [ 0, %.split.split ], [ %154, %143 ]
-  %145 = phi <4 x i64> [ %94, %.split.split ], [ %155, %143 ]
-  %146 = add nsw <4 x i64> %145, %142
-  %147 = getelementptr inbounds float, ptr %1, <4 x i64> %146
-  %148 = tail call <4 x float> @llvm.masked.gather.v4f32.v4p0(<4 x ptr> %147, i32 4, <4 x i1> <i1 true, i1 true, i1 true, i1 true>, <4 x float> poison), !tbaa !24, !alias.scope !179
-  %149 = fpext <4 x float> %148 to <4 x double>
-  %150 = fmul reassoc nsz arcp contract afn <4 x double> %98, %149
-  %151 = fptrunc <4 x double> %150 to <4 x float>
-  %152 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.maxnum.v4f32(<4 x float> %151, <4 x float> zeroinitializer)
-  %153 = getelementptr inbounds float, ptr %0, <4 x i64> %146
-  tail call void @llvm.masked.scatter.v4f32.v4p0(<4 x float> %152, <4 x ptr> %153, i32 4, <4 x i1> <i1 true, i1 true, i1 true, i1 true>), !tbaa !24, !alias.scope !182, !noalias !179
-  %154 = add nuw i64 %144, 4
-  %155 = add <4 x i64> %145, <i64 8, i64 8, i64 8, i64 8>
-  %156 = icmp eq i64 %154, %89
-  br i1 %156, label %.preheader10, label %143, !llvm.loop !184
-
-.preheader10:                                     ; preds = %143, %.preheader10
-  %157 = phi i64 [ %166, %.preheader10 ], [ %91, %143 ]
-  %158 = add nsw i64 %157, %140
-  %159 = getelementptr inbounds float, ptr %1, i64 %158
-  %160 = load float, ptr %159, align 4, !tbaa !24
-  %161 = fpext float %160 to double
-  %162 = fmul reassoc nsz arcp contract afn double %100, %161
-  %163 = fptrunc double %162 to float
-  %164 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %163, float 0.000000e+00)
-  %165 = getelementptr inbounds float, ptr %0, i64 %158
-  store float %164, ptr %165, align 4, !tbaa !24
-  %166 = add nuw nsw i64 %157, 2
-  %167 = icmp slt i64 %166, %28
-  br i1 %167, label %.preheader10, label %.loopexit, !llvm.loop !178
-
-.loopexit:                                        ; preds = %.preheader10
-  %168 = add nuw nsw i64 %139, 2
-  %169 = icmp slt i64 %168, %21
-  br i1 %169, label %.split.split, label %.loopexit4
+.loopexit:                                        ; preds = %.preheader9, %137
+  %149 = add nuw nsw i64 %118, 2
+  %150 = icmp slt i64 %149, %21
+  br i1 %150, label %.split, label %.loopexit4
 
 .preheader5:                                      ; preds = %23, %.preheader5
-  %170 = phi i64 [ %171, %.preheader5 ], [ 0, %23 ]
-  %171 = add i64 %170, 2
-  %172 = icmp ult i64 %171, %21
-  br i1 %172, label %.preheader5, label %.loopexit4
+  %151 = phi i64 [ %152, %.preheader5 ], [ 0, %23 ]
+  %152 = add i64 %151, 2
+  %153 = icmp ult i64 %152, %21
+  br i1 %153, label %.preheader5, label %.loopexit4
 
-.loopexit4:                                       ; preds = %.preheader5, %.loopexit, %136, %.loopexit.us, %55, %7
+.loopexit4:                                       ; preds = %.preheader5, %.loopexit, %.loopexit.us, %55, %7
   ret void
 }
 
