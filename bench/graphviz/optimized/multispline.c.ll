@@ -258,9 +258,9 @@ bbox.exit:                                        ; preds = %gv_alloc.exit, %._c
   %81 = zext nneg i32 %1 to i64
   br label %._crit_edge142
 
-._crit_edge142:                                   ; preds = %._crit_edge142.loopexit, %.preheader
-  %.085.lcssa = phi i32 [ 4, %.preheader ], [ %.186.lcssa, %._crit_edge142.loopexit ]
-  %.1.lcssa = phi i64 [ 0, %.preheader ], [ %81, %._crit_edge142.loopexit ]
+._crit_edge142:                                   ; preds = %.preheader, %._crit_edge142.loopexit
+  %.085.lcssa = phi i32 [ %.186.lcssa, %._crit_edge142.loopexit ], [ 4, %.preheader ]
+  %.1.lcssa = phi i64 [ %81, %._crit_edge142.loopexit ], [ 0, %.preheader ]
   %82 = getelementptr inbounds i32, ptr %13, i64 %.1.lcssa
   store i32 %.085.lcssa, ptr %82, align 4
   %83 = tail call fastcc ptr @gv_calloc(i64 noundef %40, i64 noundef 8)
@@ -269,8 +269,7 @@ bbox.exit:                                        ; preds = %gv_alloc.exit, %._c
   br i1 %85, label %.lr.ph147.preheader, label %._crit_edge148
 
 .lr.ph147.preheader:                              ; preds = %._crit_edge142
-  %smax = tail call i32 @llvm.smax.i32(i32 %39, i32 1)
-  %wide.trip.count194 = zext nneg i32 %smax to i64
+  %wide.trip.count194 = zext i32 %39 to i64
   br label %.lr.ph147
 
 .lr.ph147:                                        ; preds = %.lr.ph147.preheader, %.lr.ph147

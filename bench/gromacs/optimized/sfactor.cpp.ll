@@ -2478,7 +2478,7 @@ define noundef ptr @_Z26gmx_structurefactors_tableP20gmx_structurefactorsfffi(pt
 
 .lr.ph.us.preheader:                              ; preds = %.lr.ph40
   %21 = sext i32 %6 to i64
-  %wide.trip.count62 = zext nneg i32 %7 to i64
+  %wide.trip.count61 = zext nneg i32 %7 to i64
   %wide.trip.count51 = zext nneg i32 %4 to i64
   %wide.trip.count56 = zext nneg i32 %4 to i64
   br label %.lr.ph.us
@@ -2512,8 +2512,8 @@ define noundef ptr @_Z26gmx_structurefactors_tableP20gmx_structurefactorsfffi(pt
 
 ._crit_edge.us:                                   ; preds = %.lr.ph.split.us44, %_Z4CMSFP20gmx_structurefactorsiidd.exit.us.us
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
-  %exitcond63.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count62
-  br i1 %exitcond63.not, label %._crit_edge41, label %.lr.ph.us, !llvm.loop !37
+  %exitcond62.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count61
+  br i1 %exitcond62.not, label %._crit_edge41, label %.lr.ph.us, !llvm.loop !37
 
 .lr.ph.split.us.us:                               ; preds = %.lr.ph.us, %_Z4CMSFP20gmx_structurefactorsiidd.exit.us.us
   %indvars.iv53 = phi i64 [ %indvars.iv.next54, %_Z4CMSFP20gmx_structurefactorsiidd.exit.us.us ], [ 0, %.lr.ph.us ]
