@@ -37582,84 +37582,84 @@ _ZNSt3__116__constrain_hashB8ne190000Emm.exit34.us: ; preds = %.preheader.split.
 
 _ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_NS_4pairIS6_PKN7mitsuba6Struct5FieldEEEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSF_SM_.exit.us: ; preds = %.lr.ph.i.i.i.us, %.preheader.i.i.i.us, %100, %90, %88
   %108 = phi i1 [ false, %88 ], [ %103, %100 ], [ false, %90 ], [ true, %.preheader.i.i.i.us ], [ %.not20.i.i.i.us, %.lr.ph.i.i.i.us ]
-  %109 = xor i1 %108, true
-  %brmerge.not.us = and i1 %.0.us, %109
+  %.not31.us = xor i1 %.0.us, true
+  %brmerge.us = or i1 %108, %.not31.us
   %.0.mux.us = or i1 %108, %.0.us
-  br i1 %brmerge.not.us, label %.critedge, label %.preheader.split.us, !llvm.loop !460
+  br i1 %brmerge.us, label %.preheader.split.us, label %.critedge, !llvm.loop !460
 
 .preheader.split:                                 ; preds = %.preheader, %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_NS_4pairIS6_PKN7mitsuba6Struct5FieldEEEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSF_SM_.exit
-  %.021 = phi ptr [ %110, %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_NS_4pairIS6_PKN7mitsuba6Struct5FieldEEEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSF_SM_.exit ], [ %70, %.preheader ]
+  %.021 = phi ptr [ %109, %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_NS_4pairIS6_PKN7mitsuba6Struct5FieldEEEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSF_SM_.exit ], [ %70, %.preheader ]
   %.0 = phi i1 [ %.0.mux, %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_NS_4pairIS6_PKN7mitsuba6Struct5FieldEEEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSF_SM_.exit ], [ false, %.preheader ]
-  %110 = load ptr, ptr %.021, align 8
-  %.not28 = icmp eq ptr %110, null
-  br i1 %.not28, label %.critedge, label %111
+  %109 = load ptr, ptr %.021, align 8
+  %.not28 = icmp eq ptr %109, null
+  br i1 %.not28, label %.critedge, label %110
 
-111:                                              ; preds = %.preheader.split
-  %112 = getelementptr inbounds i8, ptr %110, i64 8
-  %113 = load i64, ptr %112, align 8
-  %114 = icmp ult i64 %113, %.023
-  br i1 %114, label %_ZNSt3__116__constrain_hashB8ne190000Emm.exit34, label %115
+110:                                              ; preds = %.preheader.split
+  %111 = getelementptr inbounds i8, ptr %109, i64 8
+  %112 = load i64, ptr %111, align 8
+  %113 = icmp ult i64 %112, %.023
+  br i1 %113, label %_ZNSt3__116__constrain_hashB8ne190000Emm.exit34, label %114
 
-115:                                              ; preds = %111
-  %116 = urem i64 %113, %.023
+114:                                              ; preds = %110
+  %115 = urem i64 %112, %.023
   br label %_ZNSt3__116__constrain_hashB8ne190000Emm.exit34
 
-_ZNSt3__116__constrain_hashB8ne190000Emm.exit34:  ; preds = %111, %115
-  %117 = phi i64 [ %116, %115 ], [ %113, %111 ]
-  %118 = icmp eq i64 %117, %67
-  br i1 %118, label %119, label %.critedge
+_ZNSt3__116__constrain_hashB8ne190000Emm.exit34:  ; preds = %110, %114
+  %116 = phi i64 [ %115, %114 ], [ %112, %110 ]
+  %117 = icmp eq i64 %116, %67
+  br i1 %117, label %118, label %.critedge
 
-119:                                              ; preds = %_ZNSt3__116__constrain_hashB8ne190000Emm.exit34
-  %120 = icmp eq i64 %113, %1
-  br i1 %120, label %121, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_NS_4pairIS6_PKN7mitsuba6Struct5FieldEEEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSF_SM_.exit
+118:                                              ; preds = %_ZNSt3__116__constrain_hashB8ne190000Emm.exit34
+  %119 = icmp eq i64 %112, %1
+  br i1 %119, label %120, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_NS_4pairIS6_PKN7mitsuba6Struct5FieldEEEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSF_SM_.exit
 
-121:                                              ; preds = %119
-  %122 = getelementptr inbounds i8, ptr %110, i64 16
-  %123 = load i8, ptr %122, align 8
-  %124 = and i8 %123, 1
-  %.not.i.i.i.i = icmp eq i8 %124, 0
-  %125 = getelementptr inbounds i8, ptr %110, i64 24
-  %126 = load i64, ptr %125, align 8
-  %127 = lshr i8 %123, 1
-  %128 = zext nneg i8 %127 to i64
-  %129 = select i1 %.not.i.i.i.i, i64 %128, i64 %126
-  %.not.i.i.i35 = icmp eq i64 %129, %78
-  br i1 %.not.i.i.i35, label %130, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_NS_4pairIS6_PKN7mitsuba6Struct5FieldEEEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSF_SM_.exit
+120:                                              ; preds = %118
+  %121 = getelementptr inbounds i8, ptr %109, i64 16
+  %122 = load i8, ptr %121, align 8
+  %123 = and i8 %122, 1
+  %.not.i.i.i.i = icmp eq i8 %123, 0
+  %124 = getelementptr inbounds i8, ptr %109, i64 24
+  %125 = load i64, ptr %124, align 8
+  %126 = lshr i8 %122, 1
+  %127 = zext nneg i8 %126 to i64
+  %128 = select i1 %.not.i.i.i.i, i64 %127, i64 %125
+  %.not.i.i.i35 = icmp eq i64 %128, %78
+  br i1 %.not.i.i.i35, label %129, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_NS_4pairIS6_PKN7mitsuba6Struct5FieldEEEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSF_SM_.exit
 
-130:                                              ; preds = %121
-  br i1 %.not.i.i.i.i, label %.preheader.i.i.i, label %131
+129:                                              ; preds = %120
+  br i1 %.not.i.i.i.i, label %.preheader.i.i.i, label %130
 
-.preheader.i.i.i:                                 ; preds = %130
-  %.not1924.i.i.i = icmp ult i8 %123, 2
+.preheader.i.i.i:                                 ; preds = %129
+  %.not1924.i.i.i = icmp ult i8 %122, 2
   br i1 %.not1924.i.i.i, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_NS_4pairIS6_PKN7mitsuba6Struct5FieldEEEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSF_SM_.exit, label %.lr.ph.i.i.i
 
-131:                                              ; preds = %130
-  %132 = getelementptr inbounds i8, ptr %110, i64 32
-  %133 = load ptr, ptr %132, align 8
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr %133, ptr %82, i64 %126)
-  %134 = icmp eq i32 %bcmp.i.i.i, 0
+130:                                              ; preds = %129
+  %131 = getelementptr inbounds i8, ptr %109, i64 32
+  %132 = load ptr, ptr %131, align 8
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr %132, ptr %82, i64 %125)
+  %133 = icmp eq i32 %bcmp.i.i.i, 0
   br label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_NS_4pairIS6_PKN7mitsuba6Struct5FieldEEEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSF_SM_.exit
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %.lr.ph.i.i.i
-  %.027.i.i.i = phi ptr [ %138, %.lr.ph.i.i.i ], [ %82, %.preheader.i.i.i ]
-  %.01526.pn.i.i.i = phi ptr [ %.01526.i.i.i, %.lr.ph.i.i.i ], [ %122, %.preheader.i.i.i ]
-  %.01625.i.i.i = phi i64 [ %137, %.lr.ph.i.i.i ], [ %128, %.preheader.i.i.i ]
+  %.027.i.i.i = phi ptr [ %137, %.lr.ph.i.i.i ], [ %82, %.preheader.i.i.i ]
+  %.01526.pn.i.i.i = phi ptr [ %.01526.i.i.i, %.lr.ph.i.i.i ], [ %121, %.preheader.i.i.i ]
+  %.01625.i.i.i = phi i64 [ %136, %.lr.ph.i.i.i ], [ %127, %.preheader.i.i.i ]
   %.01526.i.i.i = getelementptr inbounds i8, ptr %.01526.pn.i.i.i, i64 1
-  %135 = load i8, ptr %.01526.i.i.i, align 1
-  %136 = load i8, ptr %.027.i.i.i, align 1
-  %.not20.i.i.i = icmp eq i8 %135, %136
-  %137 = add nsw i64 %.01625.i.i.i, -1
-  %138 = getelementptr inbounds i8, ptr %.027.i.i.i, i64 1
-  %.not19.i.i.i = icmp ne i64 %137, 0
+  %134 = load i8, ptr %.01526.i.i.i, align 1
+  %135 = load i8, ptr %.027.i.i.i, align 1
+  %.not20.i.i.i = icmp eq i8 %134, %135
+  %136 = add nsw i64 %.01625.i.i.i, -1
+  %137 = getelementptr inbounds i8, ptr %.027.i.i.i, i64 1
+  %.not19.i.i.i = icmp ne i64 %136, 0
   %or.cond50.not = select i1 %.not20.i.i.i, i1 %.not19.i.i.i, i1 false
   br i1 %or.cond50.not, label %.lr.ph.i.i.i, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_NS_4pairIS6_PKN7mitsuba6Struct5FieldEEEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSF_SM_.exit, !llvm.loop !6
 
-_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_NS_4pairIS6_PKN7mitsuba6Struct5FieldEEEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSF_SM_.exit: ; preds = %.lr.ph.i.i.i, %131, %.preheader.i.i.i, %121, %119
-  %139 = phi i1 [ false, %119 ], [ %134, %131 ], [ false, %121 ], [ true, %.preheader.i.i.i ], [ %.not20.i.i.i, %.lr.ph.i.i.i ]
-  %140 = xor i1 %139, true
-  %brmerge.not = and i1 %.0, %140
-  %.0.mux = or i1 %139, %.0
-  br i1 %brmerge.not, label %.critedge, label %.preheader.split, !llvm.loop !460
+_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_NS_4pairIS6_PKN7mitsuba6Struct5FieldEEEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSF_SM_.exit: ; preds = %.lr.ph.i.i.i, %130, %.preheader.i.i.i, %120, %118
+  %138 = phi i1 [ false, %118 ], [ %133, %130 ], [ false, %120 ], [ true, %.preheader.i.i.i ], [ %.not20.i.i.i, %.lr.ph.i.i.i ]
+  %.not31 = xor i1 %.0, true
+  %brmerge = or i1 %138, %.not31
+  %.0.mux = or i1 %138, %.0
+  br i1 %brmerge, label %.preheader.split, label %.critedge, !llvm.loop !460
 
 .critedge:                                        ; preds = %.preheader.split, %_ZNSt3__116__constrain_hashB8ne190000Emm.exit34, %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_NS_4pairIS6_PKN7mitsuba6Struct5FieldEEEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSF_SM_.exit, %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_NS_4pairIS6_PKN7mitsuba6Struct5FieldEEEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSF_SM_.exit.us, %_ZNSt3__116__constrain_hashB8ne190000Emm.exit34.us, %.preheader.split.us, %_ZNSt3__116__constrain_hashB8ne190000Emm.exit
   %.122 = phi ptr [ null, %_ZNSt3__116__constrain_hashB8ne190000Emm.exit ], [ %.021.us, %.preheader.split.us ], [ %.021.us, %_ZNSt3__116__constrain_hashB8ne190000Emm.exit34.us ], [ %.021.us, %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_NS_4pairIS6_PKN7mitsuba6Struct5FieldEEEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSF_SM_.exit.us ], [ %.021, %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_NS_4pairIS6_PKN7mitsuba6Struct5FieldEEEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSF_SM_.exit ], [ %.021, %_ZNSt3__116__constrain_hashB8ne190000Emm.exit34 ], [ %.021, %.preheader.split ]
