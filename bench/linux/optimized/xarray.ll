@@ -3744,7 +3744,7 @@ define dso_local ptr @__xa_cmpxchg(ptr noundef %0, i64 noundef %1, ptr noundef r
   %14 = icmp ule ptr %3, inttoptr (i64 1026 to ptr)
   %15 = and i1 %14, %13
   call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
-  br i1 %15, label %26, label %16, !prof !29
+  br i1 %15, label %25, label %16, !prof !29
 
 16:                                               ; preds = %5
   %17 = getelementptr inbounds i8, ptr %6, i64 16
@@ -3757,96 +3757,104 @@ define dso_local ptr @__xa_cmpxchg(ptr noundef %0, i64 noundef %1, ptr noundef r
   %19 = icmp eq ptr %2, null
   br label %.split
 
-.split.us:                                        ; preds = %16, %24
+.split.us:                                        ; preds = %16, %.backedge.us
   %20 = call ptr @xas_load(ptr noundef nonnull %6)
   %21 = icmp eq ptr %20, %2
-  br i1 %21, label %22, label %24
+  br i1 %21, label %22, label %.backedge.us
 
 22:                                               ; preds = %.split.us
   %23 = call ptr @xas_store(ptr noundef nonnull %6, ptr noundef null)
-  br label %24
+  br label %.backedge.us
 
-24:                                               ; preds = %22, %.split.us
-  %25 = call fastcc zeroext i1 @__xas_nomem(ptr noundef nonnull %6, i32 noundef %4)
-  br i1 %25, label %.split.us, label %.split5.us, !llvm.loop !58
+.backedge.us:                                     ; preds = %22, %.split.us
+  %24 = call fastcc zeroext i1 @__xas_nomem(ptr noundef nonnull %6, i32 noundef %4)
+  br i1 %24, label %.split.us, label %.split7.us, !llvm.loop !58
 
-26:                                               ; preds = %5
+25:                                               ; preds = %5
   tail call void asm sideeffect "221: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 221b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 221) #8, !srcloc !59
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1609, i32 2307, i64 12) #8, !srcloc !60
   tail call void asm sideeffect "222: nop\0A\09.pushsection .discard.instr_end\0A\09.long 222b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 222) #8, !srcloc !61
   br label %78
 
-.split:                                           ; preds = %.split.preheader, %.loopexit
-  %27 = call ptr @xas_load(ptr noundef nonnull %6)
-  %28 = icmp eq ptr %27, %2
-  br i1 %28, label %29, label %.loopexit
+.split:                                           ; preds = %.split.backedge, %.split.preheader
+  %26 = call ptr @xas_load(ptr noundef nonnull %6)
+  %27 = icmp eq ptr %26, %2
+  br i1 %27, label %28, label %.loopexit
 
-29:                                               ; preds = %.split
-  %30 = call ptr @xas_store(ptr noundef nonnull %6, ptr noundef nonnull %3)
-  %31 = load i32, ptr %18, align 4
-  %32 = and i32 %31, 4
-  %33 = icmp ne i32 %32, 0
-  %34 = and i1 %19, %33
-  br i1 %34, label %35, label %.loopexit
+28:                                               ; preds = %.split
+  %29 = call ptr @xas_store(ptr noundef nonnull %6, ptr noundef nonnull %3)
+  %30 = load i32, ptr %18, align 4
+  %31 = and i32 %30, 4
+  %32 = icmp ne i32 %31, 0
+  %33 = and i1 %19, %32
+  br i1 %33, label %34, label %.loopexit
 
-35:                                               ; preds = %29
-  %36 = load ptr, ptr %9, align 8
-  %37 = ptrtoint ptr %36 to i64
-  %38 = and i64 %37, 3
-  %39 = icmp eq i64 %38, 0
-  br i1 %39, label %40, label %.loopexit
+34:                                               ; preds = %28
+  %35 = load ptr, ptr %9, align 8
+  %36 = ptrtoint ptr %35 to i64
+  %37 = and i64 %36, 3
+  %38 = icmp eq i64 %37, 0
+  br i1 %38, label %39, label %.thread
 
-40:                                               ; preds = %35
-  %41 = icmp eq ptr %36, null
-  br i1 %41, label %.loopexit3, label %.preheader
+39:                                               ; preds = %34
+  %40 = icmp eq ptr %35, null
+  br i1 %40, label %.loopexit4, label %.preheader
 
-.preheader:                                       ; preds = %40, %53
-  %42 = phi ptr [ %54, %53 ], [ %8, %40 ]
-  %43 = phi ptr [ %56, %53 ], [ %36, %40 ]
-  %44 = load i8, ptr %42, align 1
-  %45 = zext i8 %44 to i64
-  %46 = getelementptr inbounds i8, ptr %43, i64 552
-  %47 = tail call i8 asm sideeffect " btrq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %46, i64 %45) #8, !srcloc !11
-  %48 = icmp ult i8 %47, 2
-  tail call void @llvm.assume(i1 %48)
-  %49 = icmp eq i8 %47, 0
-  br i1 %49, label %.loopexit, label %50
+.preheader:                                       ; preds = %39, %52
+  %41 = phi ptr [ %53, %52 ], [ %8, %39 ]
+  %42 = phi ptr [ %55, %52 ], [ %35, %39 ]
+  %43 = load i8, ptr %41, align 1
+  %44 = zext i8 %43 to i64
+  %45 = getelementptr inbounds i8, ptr %42, i64 552
+  %46 = tail call i8 asm sideeffect " btrq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %45, i64 %44) #8, !srcloc !11
+  %47 = icmp ult i8 %46, 2
+  tail call void @llvm.assume(i1 %47)
+  %48 = icmp eq i8 %46, 0
+  br i1 %48, label %.loopexit, label %49
 
-50:                                               ; preds = %.preheader
-  %51 = load i64, ptr %46, align 8
-  %52 = icmp eq i64 %51, 0
-  br i1 %52, label %53, label %.loopexit
+49:                                               ; preds = %.preheader
+  %50 = load i64, ptr %45, align 8
+  %51 = icmp eq i64 %50, 0
+  br i1 %51, label %52, label %.loopexit
 
-53:                                               ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %43, i64 1
-  %55 = getelementptr inbounds i8, ptr %43, i64 8
-  %56 = load ptr, ptr %55, align 8
-  %57 = icmp eq ptr %56, null
-  br i1 %57, label %.loopexit3, label %.preheader, !llvm.loop !22
+52:                                               ; preds = %49
+  %53 = getelementptr inbounds i8, ptr %42, i64 1
+  %54 = getelementptr inbounds i8, ptr %42, i64 8
+  %55 = load ptr, ptr %54, align 8
+  %56 = icmp eq ptr %55, null
+  br i1 %56, label %.loopexit4, label %.preheader, !llvm.loop !22
 
-.loopexit3:                                       ; preds = %53, %40
-  %58 = load ptr, ptr %6, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 4
-  %60 = load i32, ptr %59, align 4
-  %61 = and i32 %60, 67108864
-  %62 = icmp eq i32 %61, 0
-  br i1 %62, label %.loopexit, label %63
+.loopexit4:                                       ; preds = %52, %39
+  %57 = load ptr, ptr %6, align 8
+  %58 = getelementptr inbounds i8, ptr %57, i64 4
+  %59 = load i32, ptr %58, align 4
+  %60 = and i32 %59, 67108864
+  %61 = icmp eq i32 %60, 0
+  br i1 %61, label %.loopexit, label %62
 
-63:                                               ; preds = %.loopexit3
-  %64 = and i32 %60, -67108865
-  store i32 %64, ptr %59, align 4
+62:                                               ; preds = %.loopexit4
+  %63 = and i32 %59, -67108865
+  store i32 %63, ptr %58, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %50, %.preheader, %63, %.loopexit3, %35, %29, %.split
+.loopexit:                                        ; preds = %49, %.preheader, %62, %.loopexit4, %28, %.split
+  %64 = call fastcc zeroext i1 @__xas_nomem(ptr noundef nonnull %6, i32 noundef %4)
+  br i1 %64, label %.split.backedge, label %.split7.us
+
+.split.backedge:                                  ; preds = %.loopexit, %.thread
+  br label %.split, !llvm.loop !58
+
+.thread:                                          ; preds = %34
   %65 = call fastcc zeroext i1 @__xas_nomem(ptr noundef nonnull %6, i32 noundef %4)
-  br i1 %65, label %.split, label %.split5.us, !llvm.loop !58
+  br i1 %65, label %.split.backedge, label %.thread3
 
-.split5.us:                                       ; preds = %.loopexit, %24
-  %.us-phi = phi ptr [ %20, %24 ], [ %27, %.loopexit ]
+.split7.us:                                       ; preds = %.loopexit, %.backedge.us
+  %.us-phi = phi ptr [ %20, %.backedge.us ], [ %26, %.loopexit ]
   %66 = icmp eq ptr %.us-phi, inttoptr (i64 1030 to ptr)
-  br i1 %66, label %78, label %67
+  br i1 %66, label %78, label %.thread3
 
-67:                                               ; preds = %.split5.us
+.thread3:                                         ; preds = %.thread, %.split7.us
+  %67 = phi ptr [ %.us-phi, %.split7.us ], [ %26, %.thread ]
   %68 = load ptr, ptr %9, align 8
   %69 = ptrtoint ptr %68 to i64
   %70 = and i64 %69, 3
@@ -3856,11 +3864,11 @@ define dso_local ptr @__xa_cmpxchg(ptr noundef %0, i64 noundef %1, ptr noundef r
   %74 = and i64 %69, 17179869180
   %75 = icmp eq i64 %74, 0
   %76 = select i1 %73, i1 true, i1 %75
-  %77 = select i1 %76, ptr %.us-phi, ptr %68
+  %77 = select i1 %76, ptr %67, ptr %68
   br label %78
 
-78:                                               ; preds = %67, %.split5.us, %26
-  %79 = phi ptr [ inttoptr (i64 -86 to ptr), %26 ], [ null, %.split5.us ], [ %77, %67 ]
+78:                                               ; preds = %.thread3, %.split7.us, %25
+  %79 = phi ptr [ inttoptr (i64 -86 to ptr), %25 ], [ null, %.split7.us ], [ %77, %.thread3 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #8
   ret ptr %79
 }
