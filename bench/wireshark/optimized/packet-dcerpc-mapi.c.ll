@@ -16140,53 +16140,117 @@ define hidden i32 @mapi_dissect_enum_FOLDER_FLAGS(ptr noundef %0, i32 noundef %1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mapi_dissect_struct_CreateFolder_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = alloca i16, align 2
-  %10 = alloca i8, align 1
-  %11 = alloca i8, align 1
-  %12 = getelementptr inbounds i8, ptr %4, i64 32
-  %13 = load i32, ptr %12, align 8
-  store i32 1, ptr %12, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i16, align 2
+  %12 = alloca i8, align 1
+  %13 = alloca i8, align 1
+  %14 = getelementptr inbounds i8, ptr %4, i64 32
+  %15 = load i32, ptr %14, align 8
+  store i32 1, ptr %14, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %18, label %14
+  br i1 %.not, label %20, label %16
 
-14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %1, i32 noundef -1, i32 noundef 0) #5
-  %16 = load i32, ptr @ett_mapi_CreateFolder_req, align 4
-  %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
-  br label %18
+16:                                               ; preds = %8
+  %17 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %1, i32 noundef -1, i32 noundef 0) #5
+  %18 = load i32, ptr @ett_mapi_CreateFolder_req, align 4
+  %19 = tail call ptr @proto_item_add_subtree(ptr noundef %17, i32 noundef %18) #5
+  br label %20
 
-18:                                               ; preds = %14, %8
-  %.062 = phi ptr [ %17, %14 ], [ null, %8 ]
-  %.0 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %19 = load i32, ptr @hf_mapi_LogonId, align 4
-  %20 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.062, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
-  %21 = load i32, ptr @hf_mapi_InputHandleIndex, align 4
-  %22 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.062, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
-  %23 = load i32, ptr @hf_mapi_OutputHandleIndex, align 4
+20:                                               ; preds = %16, %8
+  %.062 = phi ptr [ %19, %16 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %16 ], [ null, %8 ]
+  %21 = load i32, ptr @hf_mapi_LogonId, align 4
+  %22 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.062, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
+  %23 = load i32, ptr @hf_mapi_InputHandleIndex, align 4
   %24 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.062, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #5
-  %25 = load i32, ptr @hf_mapi_CreateFolder_req_ulFolderType, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11)
-  store i8 0, ptr %11, align 1
-  %26 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.062, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, ptr noundef nonnull %11) #5
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
-  %27 = load i32, ptr @hf_mapi_CreateFolder_req_ulType, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
-  store i8 0, ptr %10, align 1
-  %28 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.062, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, ptr noundef nonnull %10) #5
-  %29 = load i8, ptr %10, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
-  %30 = load i32, ptr @hf_mapi_CreateFolder_req_ulFlags, align 4
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9)
-  store i16 0, ptr %9, align 2
-  %31 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.062, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %30, ptr noundef nonnull %9) #5
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9)
-  %32 = zext i8 %29 to i32
-  %33 = call fastcc i32 @mapi_dissect_LPTSTR(ptr noundef %0, i32 noundef %31, ptr noundef %2, ptr noundef %.062, ptr noundef %5, i32 noundef %32)
-  %34 = call fastcc i32 @mapi_dissect_LPTSTR(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.062, ptr noundef %5, i32 noundef %32)
-  %35 = sub i32 %34, %1
-  call void @proto_item_set_len(ptr noundef %.0, i32 noundef %35) #5
-  store i32 %13, ptr %12, align 8
-  ret i32 %34
+  %25 = load i32, ptr @hf_mapi_OutputHandleIndex, align 4
+  %26 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.062, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 noundef 0) #5
+  %27 = load i32, ptr @hf_mapi_CreateFolder_req_ulFolderType, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13)
+  store i8 0, ptr %13, align 1
+  %28 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.062, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, ptr noundef nonnull %13) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13)
+  %29 = load i32, ptr @hf_mapi_CreateFolder_req_ulType, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12)
+  store i8 0, ptr %12, align 1
+  %30 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.062, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, ptr noundef nonnull %12) #5
+  %31 = load i8, ptr %12, align 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12)
+  %32 = load i32, ptr @hf_mapi_CreateFolder_req_ulFlags, align 4
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %11)
+  store i16 0, ptr %11, align 2
+  %33 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %.062, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, ptr noundef nonnull %11) #5
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
+  store ptr null, ptr %10, align 8
+  %.not.i.i = icmp eq ptr %.062, null
+  br i1 %.not.i.i, label %37, label %34
+
+34:                                               ; preds = %20
+  %35 = load i32, ptr @ett_mapi_LPTSTR, align 4
+  %36 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.062, ptr noundef %0, i32 noundef %33, i32 noundef -1, i32 noundef %35, ptr noundef nonnull %10, ptr noundef nonnull @.str.6155) #5
+  br label %37
+
+37:                                               ; preds = %34, %20
+  %.021.i.i = phi ptr [ %36, %34 ], [ null, %20 ]
+  switch i8 %31, label %mapi_dissect_element_CreateFolder_req_FolderName.exit [
+    i8 0, label %38
+    i8 1, label %41
+  ]
+
+38:                                               ; preds = %37
+  %39 = load i32, ptr @hf_mapi_LPTSTR_lpszA, align 4
+  %40 = call i32 @dissect_null_term_string(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.021.i.i, ptr noundef %5, i32 noundef %39, i32 noundef 0) #5
+  br label %mapi_dissect_element_CreateFolder_req_FolderName.exit
+
+41:                                               ; preds = %37
+  %42 = load i32, ptr @hf_mapi_LPTSTR_lpszW, align 4
+  %43 = call i32 @dissect_null_term_wstring(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.021.i.i, ptr noundef %5, i32 noundef %42, i32 noundef 0) #5
+  br label %mapi_dissect_element_CreateFolder_req_FolderName.exit
+
+mapi_dissect_element_CreateFolder_req_FolderName.exit: ; preds = %37, %38, %41
+  %.0.i.i = phi i32 [ %33, %37 ], [ %43, %41 ], [ %40, %38 ]
+  %44 = load ptr, ptr %10, align 8
+  %45 = sub i32 %.0.i.i, %33
+  call void @proto_item_set_len(ptr noundef %44, i32 noundef %45) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  store ptr null, ptr %9, align 8
+  br i1 %.not.i.i, label %49, label %46
+
+46:                                               ; preds = %mapi_dissect_element_CreateFolder_req_FolderName.exit
+  %47 = load i32, ptr @ett_mapi_LPTSTR, align 4
+  %48 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.062, ptr noundef %0, i32 noundef %.0.i.i, i32 noundef -1, i32 noundef %47, ptr noundef nonnull %9, ptr noundef nonnull @.str.6155) #5
+  br label %49
+
+49:                                               ; preds = %46, %mapi_dissect_element_CreateFolder_req_FolderName.exit
+  %.021.i.i66 = phi ptr [ %48, %46 ], [ null, %mapi_dissect_element_CreateFolder_req_FolderName.exit ]
+  switch i8 %31, label %mapi_dissect_element_CreateFolder_req_FolderComment.exit [
+    i8 0, label %50
+    i8 1, label %53
+  ]
+
+50:                                               ; preds = %49
+  %51 = load i32, ptr @hf_mapi_LPTSTR_lpszA, align 4
+  %52 = call i32 @dissect_null_term_string(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.021.i.i66, ptr noundef %5, i32 noundef %51, i32 noundef 0) #5
+  br label %mapi_dissect_element_CreateFolder_req_FolderComment.exit
+
+53:                                               ; preds = %49
+  %54 = load i32, ptr @hf_mapi_LPTSTR_lpszW, align 4
+  %55 = call i32 @dissect_null_term_wstring(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.021.i.i66, ptr noundef %5, i32 noundef %54, i32 noundef 0) #5
+  br label %mapi_dissect_element_CreateFolder_req_FolderComment.exit
+
+mapi_dissect_element_CreateFolder_req_FolderComment.exit: ; preds = %49, %50, %53
+  %.0.i.i67 = phi i32 [ %.0.i.i, %49 ], [ %55, %53 ], [ %52, %50 ]
+  %56 = load ptr, ptr %9, align 8
+  %57 = sub i32 %.0.i.i67, %.0.i.i
+  call void @proto_item_set_len(ptr noundef %56, i32 noundef %57) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  %58 = sub i32 %.0.i.i67, %1
+  call void @proto_item_set_len(ptr noundef %.0, i32 noundef %58) #5
+  store i32 %15, ptr %14, align 8
+  ret i32 %.0.i.i67
 }
 
 ; Function Attrs: nounwind uwtable
@@ -18980,34 +19044,52 @@ define hidden noundef i32 @mapi_dissect_struct_AbortSubmit_repl(ptr noundef %0, 
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mapi_dissect_struct_MoveFolder_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 32
-  %10 = load i32, ptr %9, align 8
-  store i32 1, ptr %9, align 8
+  %9 = alloca ptr, align 8
+  %10 = getelementptr inbounds i8, ptr %4, i64 32
+  %11 = load i32, ptr %10, align 8
+  store i32 1, ptr %10, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %15, label %11
+  br i1 %.not, label %16, label %12
 
-11:                                               ; preds = %8
-  %12 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %1, i32 noundef -1, i32 noundef 0) #5
-  %13 = load i32, ptr @ett_mapi_MoveFolder_req, align 4
-  %14 = tail call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #5
-  br label %15
+12:                                               ; preds = %8
+  %13 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %1, i32 noundef -1, i32 noundef 0) #5
+  %14 = load i32, ptr @ett_mapi_MoveFolder_req, align 4
+  %15 = tail call ptr @proto_item_add_subtree(ptr noundef %13, i32 noundef %14) #5
+  br label %16
 
-15:                                               ; preds = %11, %8
-  %.044 = phi ptr [ %14, %11 ], [ null, %8 ]
-  %.0 = phi ptr [ %12, %11 ], [ null, %8 ]
-  %16 = load i32, ptr @hf_mapi_LogonId, align 4
-  %17 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.044, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %16, i32 noundef 0) #5
-  %18 = load i32, ptr @hf_mapi_MoveFolder_req_WantAsynchronous, align 4
-  %19 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %17, ptr noundef %2, ptr noundef %.044, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %18, i32 noundef 0) #5
-  %20 = load i32, ptr @hf_mapi_MoveFolder_req_UseUnicode, align 4
-  %21 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %19, ptr noundef %2, ptr noundef %.044, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %20, i32 noundef 0) #5
-  %22 = load i32, ptr @hf_mapi_MoveFolder_req_FolderId, align 4
-  %23 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %.044, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, ptr noundef null) #5
-  %24 = tail call fastcc i32 @mapi_dissect_Folder_name(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.044, ptr noundef %5, i32 noundef 0)
-  %25 = sub i32 %24, %1
-  tail call void @proto_item_set_len(ptr noundef %.0, i32 noundef %25) #5
-  store i32 %10, ptr %9, align 8
-  ret i32 %24
+16:                                               ; preds = %12, %8
+  %.044 = phi ptr [ %15, %12 ], [ null, %8 ]
+  %.0 = phi ptr [ %13, %12 ], [ null, %8 ]
+  %17 = load i32, ptr @hf_mapi_LogonId, align 4
+  %18 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.044, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %17, i32 noundef 0) #5
+  %19 = load i32, ptr @hf_mapi_MoveFolder_req_WantAsynchronous, align 4
+  %20 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %.044, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
+  %21 = load i32, ptr @hf_mapi_MoveFolder_req_UseUnicode, align 4
+  %22 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.044, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
+  %23 = load i32, ptr @hf_mapi_MoveFolder_req_FolderId, align 4
+  %24 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.044, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, ptr noundef null) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  store ptr null, ptr %9, align 8
+  %.not.i.i = icmp eq ptr %.044, null
+  br i1 %.not.i.i, label %mapi_dissect_element_MoveFolder_req_NewFolderName.exit, label %25
+
+25:                                               ; preds = %16
+  %26 = load i32, ptr @ett_mapi_Folder_name, align 4
+  %27 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.044, ptr noundef %0, i32 noundef %24, i32 noundef -1, i32 noundef %26, ptr noundef nonnull %9, ptr noundef nonnull @.str.6158) #5
+  br label %mapi_dissect_element_MoveFolder_req_NewFolderName.exit
+
+mapi_dissect_element_MoveFolder_req_NewFolderName.exit: ; preds = %25, %16
+  %.021.i.i = phi ptr [ %27, %25 ], [ null, %16 ]
+  %28 = load i32, ptr @hf_mapi_Folder_name_lpszA, align 4
+  %29 = call i32 @dissect_null_term_string(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.021.i.i, ptr noundef %5, i32 noundef %28, i32 noundef 0) #5
+  %30 = load ptr, ptr %9, align 8
+  %31 = sub i32 %29, %24
+  call void @proto_item_set_len(ptr noundef %30, i32 noundef %31) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  %32 = sub i32 %29, %1
+  call void @proto_item_set_len(ptr noundef %.0, i32 noundef %32) #5
+  store i32 %11, ptr %10, align 8
+  ret i32 %29
 }
 
 ; Function Attrs: nounwind uwtable
@@ -19037,36 +19119,54 @@ define hidden i32 @mapi_dissect_struct_MoveFolder_repl(ptr noundef %0, i32 nound
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mapi_dissect_struct_CopyFolder_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 32
-  %10 = load i32, ptr %9, align 8
-  store i32 1, ptr %9, align 8
+  %9 = alloca ptr, align 8
+  %10 = getelementptr inbounds i8, ptr %4, i64 32
+  %11 = load i32, ptr %10, align 8
+  store i32 1, ptr %10, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %15, label %11
+  br i1 %.not, label %16, label %12
 
-11:                                               ; preds = %8
-  %12 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %1, i32 noundef -1, i32 noundef 0) #5
-  %13 = load i32, ptr @ett_mapi_CopyFolder_req, align 4
-  %14 = tail call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #5
-  br label %15
+12:                                               ; preds = %8
+  %13 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %1, i32 noundef -1, i32 noundef 0) #5
+  %14 = load i32, ptr @ett_mapi_CopyFolder_req, align 4
+  %15 = tail call ptr @proto_item_add_subtree(ptr noundef %13, i32 noundef %14) #5
+  br label %16
 
-15:                                               ; preds = %11, %8
-  %.050 = phi ptr [ %14, %11 ], [ null, %8 ]
-  %.0 = phi ptr [ %12, %11 ], [ null, %8 ]
-  %16 = load i32, ptr @hf_mapi_LogonId, align 4
-  %17 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.050, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %16, i32 noundef 0) #5
-  %18 = load i32, ptr @hf_mapi_CopyFolder_req_WantAsynchronous, align 4
-  %19 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %17, ptr noundef %2, ptr noundef %.050, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %18, i32 noundef 0) #5
-  %20 = load i32, ptr @hf_mapi_CopyFolder_req_WantRecursive, align 4
-  %21 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %19, ptr noundef %2, ptr noundef %.050, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %20, i32 noundef 0) #5
-  %22 = load i32, ptr @hf_mapi_CopyFolder_req_UseUnicode, align 4
-  %23 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %.050, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, i32 noundef 0) #5
-  %24 = load i32, ptr @hf_mapi_CopyFolder_req_FolderId, align 4
-  %25 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.050, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %24, ptr noundef null) #5
-  %26 = tail call fastcc i32 @mapi_dissect_Folder_name(ptr noundef %0, i32 noundef %25, ptr noundef %2, ptr noundef %.050, ptr noundef %5, i32 noundef 0)
-  %27 = sub i32 %26, %1
-  tail call void @proto_item_set_len(ptr noundef %.0, i32 noundef %27) #5
-  store i32 %10, ptr %9, align 8
-  ret i32 %26
+16:                                               ; preds = %12, %8
+  %.050 = phi ptr [ %15, %12 ], [ null, %8 ]
+  %.0 = phi ptr [ %13, %12 ], [ null, %8 ]
+  %17 = load i32, ptr @hf_mapi_LogonId, align 4
+  %18 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.050, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %17, i32 noundef 0) #5
+  %19 = load i32, ptr @hf_mapi_CopyFolder_req_WantAsynchronous, align 4
+  %20 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %.050, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
+  %21 = load i32, ptr @hf_mapi_CopyFolder_req_WantRecursive, align 4
+  %22 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.050, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
+  %23 = load i32, ptr @hf_mapi_CopyFolder_req_UseUnicode, align 4
+  %24 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.050, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #5
+  %25 = load i32, ptr @hf_mapi_CopyFolder_req_FolderId, align 4
+  %26 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.050, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, ptr noundef null) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  store ptr null, ptr %9, align 8
+  %.not.i.i = icmp eq ptr %.050, null
+  br i1 %.not.i.i, label %mapi_dissect_element_CopyFolder_req_NewFolderName.exit, label %27
+
+27:                                               ; preds = %16
+  %28 = load i32, ptr @ett_mapi_Folder_name, align 4
+  %29 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.050, ptr noundef %0, i32 noundef %26, i32 noundef -1, i32 noundef %28, ptr noundef nonnull %9, ptr noundef nonnull @.str.6158) #5
+  br label %mapi_dissect_element_CopyFolder_req_NewFolderName.exit
+
+mapi_dissect_element_CopyFolder_req_NewFolderName.exit: ; preds = %27, %16
+  %.021.i.i = phi ptr [ %29, %27 ], [ null, %16 ]
+  %30 = load i32, ptr @hf_mapi_Folder_name_lpszA, align 4
+  %31 = call i32 @dissect_null_term_string(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.021.i.i, ptr noundef %5, i32 noundef %30, i32 noundef 0) #5
+  %32 = load ptr, ptr %9, align 8
+  %33 = sub i32 %31, %26
+  call void @proto_item_set_len(ptr noundef %32, i32 noundef %33) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  %34 = sub i32 %31, %1
+  call void @proto_item_set_len(ptr noundef %.0, i32 noundef %34) #5
+  store i32 %11, ptr %10, align 8
+  ret i32 %31
 }
 
 ; Function Attrs: nounwind uwtable
@@ -26273,43 +26373,6 @@ mapi_dissect_element_SRestriction_CTR_resExist.exit: ; preds = %56, %60
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @mapi_dissect_LPTSTR(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
-  %7 = alloca ptr, align 8
-  store ptr null, ptr %7, align 8
-  %.not = icmp eq ptr %3, null
-  br i1 %.not, label %11, label %8
-
-8:                                                ; preds = %6
-  %9 = load i32, ptr @ett_mapi_LPTSTR, align 4
-  %10 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %3, ptr noundef %0, i32 noundef %1, i32 noundef -1, i32 noundef %9, ptr noundef nonnull %7, ptr noundef nonnull @.str.6155) #5
-  br label %11
-
-11:                                               ; preds = %8, %6
-  %.021 = phi ptr [ %10, %8 ], [ null, %6 ]
-  switch i32 %5, label %18 [
-    i32 0, label %12
-    i32 1, label %15
-  ]
-
-12:                                               ; preds = %11
-  %13 = load i32, ptr @hf_mapi_LPTSTR_lpszA, align 4
-  %14 = call i32 @dissect_null_term_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.021, ptr noundef %4, i32 noundef %13, i32 noundef 0) #5
-  br label %18
-
-15:                                               ; preds = %11
-  %16 = load i32, ptr @hf_mapi_LPTSTR_lpszW, align 4
-  %17 = call i32 @dissect_null_term_wstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.021, ptr noundef %4, i32 noundef %16, i32 noundef 0) #5
-  br label %18
-
-18:                                               ; preds = %15, %12, %11
-  %.0 = phi i32 [ %1, %11 ], [ %17, %15 ], [ %14, %12 ]
-  %19 = load ptr, ptr %7, align 8
-  %20 = sub i32 %.0, %1
-  call void @proto_item_set_len(ptr noundef %19, i32 noundef %20) #5
-  ret i32 %.0
-}
-
-; Function Attrs: nounwind uwtable
 define internal i32 @mapi_dissect_element_DeleteMessages_req_message_ids_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = load i32, ptr @hf_mapi_DeleteMessages_req_message_ids, align 4
   %8 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7, ptr noundef null) #5
@@ -26441,43 +26504,6 @@ define internal i32 @mapi_dissect_element_MoveCopyMessages_req_message_id_(ptr n
   %7 = load i32, ptr @hf_mapi_MoveCopyMessages_req_message_id, align 4
   %8 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7, ptr noundef null) #5
   ret i32 %8
-}
-
-; Function Attrs: nounwind uwtable
-define internal fastcc i32 @mapi_dissect_Folder_name(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
-  %7 = alloca ptr, align 8
-  store ptr null, ptr %7, align 8
-  %.not = icmp eq ptr %3, null
-  br i1 %.not, label %11, label %8
-
-8:                                                ; preds = %6
-  %9 = load i32, ptr @ett_mapi_Folder_name, align 4
-  %10 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %3, ptr noundef %0, i32 noundef %1, i32 noundef -1, i32 noundef %9, ptr noundef nonnull %7, ptr noundef nonnull @.str.6158) #5
-  br label %11
-
-11:                                               ; preds = %8, %6
-  %.021 = phi ptr [ %10, %8 ], [ null, %6 ]
-  switch i32 %5, label %18 [
-    i32 0, label %12
-    i32 1, label %15
-  ]
-
-12:                                               ; preds = %11
-  %13 = load i32, ptr @hf_mapi_Folder_name_lpszA, align 4
-  %14 = call i32 @dissect_null_term_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.021, ptr noundef %4, i32 noundef %13, i32 noundef 0) #5
-  br label %18
-
-15:                                               ; preds = %11
-  %16 = load i32, ptr @hf_mapi_Folder_name_lpszW, align 4
-  %17 = call i32 @dissect_null_term_wstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.021, ptr noundef %4, i32 noundef %16, i32 noundef 0) #5
-  br label %18
-
-18:                                               ; preds = %15, %12, %11
-  %.0 = phi i32 [ %1, %11 ], [ %17, %15 ], [ %14, %12 ]
-  %19 = load ptr, ptr %7, align 8
-  %20 = sub i32 %.0, %1
-  call void @proto_item_set_len(ptr noundef %19, i32 noundef %20) #5
-  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

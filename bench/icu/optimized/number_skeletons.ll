@@ -4027,10 +4027,10 @@ if.then131:                                       ; preds = %do.body129
 
 if.end132:                                        ; preds = %do.body129
   store i8 1, ptr %unitWidth, align 1
-  %switch.tableidx128 = add i32 %cond.i, -31
-  %switch.tableidx128. = tail call i32 @llvm.umin.i32(i32 %switch.tableidx128, i32 7)
+  %switch.tableidx136 = add i32 %cond.i, -31
+  %switch.tableidx136. = tail call i32 @llvm.umin.i32(i32 %switch.tableidx136, i32 7)
   %unitWidth136 = getelementptr inbounds i8, ptr %macros, i64 152
-  store i32 %switch.tableidx128., ptr %unitWidth136, align 8
+  store i32 %switch.tableidx136., ptr %unitWidth136, align 8
   br label %return
 
 do.body138:                                       ; preds = %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit
@@ -4045,9 +4045,10 @@ if.then140:                                       ; preds = %do.body138
 
 if.end141:                                        ; preds = %do.body138
   store i8 1, ptr %sign, align 1
-  %call144 = tail call noundef i32 @_ZN6icu_756number4impl14stem_to_object11signDisplayENS1_8skeleton8StemEnumE(i32 noundef %cond.i)
+  %switch.tableidx137 = add i32 %cond.i, -38
+  %switch.tableidx137. = tail call i32 @llvm.umin.i32(i32 %switch.tableidx137, i32 9)
   %sign145 = getelementptr inbounds i8, ptr %macros, i64 156
-  store i32 %call144, ptr %sign145, align 4
+  store i32 %switch.tableidx137., ptr %sign145, align 4
   br label %return
 
 do.body147:                                       ; preds = %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit

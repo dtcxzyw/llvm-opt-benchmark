@@ -216,8 +216,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.186 = private unnamed_addr constant [5 x i8] c"coff\00", align 1
 @.str.187 = private unnamed_addr constant [4 x i8] c"elf\00", align 1
 @.str.188 = private unnamed_addr constant [6 x i8] c"macho\00", align 1
-@switch.table._ZN4llvh6Triple15getArchTypeNameENS0_8ArchTypeE = private unnamed_addr constant [51 x i64] [i64 7, i64 3, i64 5, i64 7, i64 10, i64 3, i64 3, i64 5, i64 5, i64 7, i64 4, i64 6, i64 6, i64 8, i64 6, i64 5, i64 7, i64 9, i64 11, i64 4, i64 6, i64 7, i64 7, i64 5, i64 7, i64 7, i64 5, i64 3, i64 5, i64 5, i64 7, i64 4, i64 6, i64 5, i64 5, i64 7, i64 4, i64 4, i64 5, i64 7, i64 5, i64 7, i64 4, i64 6, i64 7, i64 5, i64 5, i64 6, i64 6, i64 14, i64 14], align 8
-@switch.table._ZN4llvh6Triple15getArchTypeNameENS0_8ArchTypeE.2 = private unnamed_addr constant [51 x ptr] [ptr @.str, ptr @.str.3, ptr @.str.4, ptr @.str.1, ptr @.str.2, ptr @.str.5, ptr @.str.6, ptr @.str.7, ptr @.str.8, ptr @.str.9, ptr @.str.10, ptr @.str.11, ptr @.str.12, ptr @.str.13, ptr @.str.14, ptr @.str.15, ptr @.str.18, ptr @.str.16, ptr @.str.17, ptr @.str.19, ptr @.str.20, ptr @.str.21, ptr @.str.22, ptr @.str.23, ptr @.str.24, ptr @.str.25, ptr @.str.26, ptr @.str.27, ptr @.str.28, ptr @.str.29, ptr @.str.30, ptr @.str.31, ptr @.str.32, ptr @.str.33, ptr @.str.34, ptr @.str.35, ptr @.str.36, ptr @.str.37, ptr @.str.38, ptr @.str.39, ptr @.str.40, ptr @.str.41, ptr @.str.42, ptr @.str.43, ptr @.str.44, ptr @.str.46, ptr @.str.45, ptr @.str.47, ptr @.str.48, ptr @.str.49, ptr @.str.50], align 8
 @switch.table._ZN4llvh6Triple17getArchTypePrefixENS0_8ArchTypeE = private unnamed_addr constant [48 x ptr] [ptr @.str.3, ptr @.str.3, ptr @.str.1, ptr @.str.1, ptr @.str.5, ptr @.str.6, ptr @.str.52, ptr @.str.52, ptr @.str.9, ptr @.str.10, ptr @.str.10, ptr @.str.10, ptr @.str.10, ptr null, ptr @.str.15, ptr @.str.51, ptr @.str.51, ptr @.str.51, ptr @.str.19, ptr @.str.20, ptr @.str.57, ptr @.str.57, ptr @.str.23, ptr @.str.23, ptr @.str.23, ptr @.str.53, ptr null, ptr null, ptr @.str.3, ptr @.str.3, ptr @.str.54, ptr @.str.54, ptr @.str.33, ptr @.str.55, ptr @.str.55, ptr @.str.36, ptr @.str.37, ptr @.str.38, ptr @.str.38, ptr @.str.40, ptr @.str.40, ptr @.str.42, ptr @.str.42, ptr @.str.44, ptr @.str.46, ptr @.str.45, ptr @.str.56, ptr @.str.56], align 8
 @switch.table._ZN4llvh6Triple17getArchTypePrefixENS0_8ArchTypeE.3 = private unnamed_addr constant [48 x i64] [i64 3, i64 3, i64 7, i64 7, i64 3, i64 3, i64 3, i64 3, i64 7, i64 4, i64 4, i64 4, i64 4, i64 0, i64 5, i64 3, i64 3, i64 3, i64 4, i64 6, i64 5, i64 5, i64 5, i64 5, i64 5, i64 4, i64 0, i64 0, i64 3, i64 3, i64 3, i64 3, i64 5, i64 4, i64 4, i64 4, i64 4, i64 5, i64 5, i64 5, i64 5, i64 4, i64 4, i64 7, i64 5, i64 5, i64 4, i64 4], align 8
 @switch.table._ZL9parseArchN4llvh9StringRefE = private unnamed_addr constant [3 x i32] [i32 1, i32 29, i32 3], align 4
@@ -225,16 +223,18 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table._ZL12parseSubArchN4llvh9StringRefE = private unnamed_addr constant [28 x i32] [i32 22, i32 20, i32 21, i32 21, i32 16, i32 18, i32 19, i32 18, i32 17, i32 10, i32 15, i32 10, i32 12, i32 11, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 7, i32 8, i32 9, i32 21, i32 21, i32 21, i32 13, i32 14], align 4
 @switch.table._ZN4llvh6Triple9normalizeB5cxx11ENS_9StringRefE = private unnamed_addr constant [3 x i64] [i64 3, i64 5, i64 4], align 8
 @switch.table._ZN4llvh6Triple9normalizeB5cxx11ENS_9StringRefE.8 = private unnamed_addr constant [3 x ptr] [ptr @.str.187, ptr @.str.188, ptr @.str.56], align 8
+@switch.table._ZN4llvh6Triple7setArchENS0_8ArchTypeE = private unnamed_addr constant [51 x i64] [i64 7, i64 3, i64 5, i64 7, i64 10, i64 3, i64 3, i64 5, i64 5, i64 7, i64 4, i64 6, i64 6, i64 8, i64 6, i64 5, i64 7, i64 9, i64 11, i64 4, i64 6, i64 7, i64 7, i64 5, i64 7, i64 7, i64 5, i64 3, i64 5, i64 5, i64 7, i64 4, i64 6, i64 5, i64 5, i64 7, i64 4, i64 4, i64 5, i64 7, i64 5, i64 7, i64 4, i64 6, i64 7, i64 5, i64 5, i64 6, i64 6, i64 14, i64 14], align 8
+@switch.table._ZN4llvh6Triple7setArchENS0_8ArchTypeE.11 = private unnamed_addr constant [51 x ptr] [ptr @.str, ptr @.str.3, ptr @.str.4, ptr @.str.1, ptr @.str.2, ptr @.str.5, ptr @.str.6, ptr @.str.7, ptr @.str.8, ptr @.str.9, ptr @.str.10, ptr @.str.11, ptr @.str.12, ptr @.str.13, ptr @.str.14, ptr @.str.15, ptr @.str.18, ptr @.str.16, ptr @.str.17, ptr @.str.19, ptr @.str.20, ptr @.str.21, ptr @.str.22, ptr @.str.23, ptr @.str.24, ptr @.str.25, ptr @.str.26, ptr @.str.27, ptr @.str.28, ptr @.str.29, ptr @.str.30, ptr @.str.31, ptr @.str.32, ptr @.str.33, ptr @.str.34, ptr @.str.35, ptr @.str.36, ptr @.str.37, ptr @.str.38, ptr @.str.39, ptr @.str.40, ptr @.str.41, ptr @.str.42, ptr @.str.43, ptr @.str.44, ptr @.str.46, ptr @.str.45, ptr @.str.47, ptr @.str.48, ptr @.str.49, ptr @.str.50], align 8
 @switch.table._ZN4llvh6Triple9setVendorENS0_10VendorTypeE = private unnamed_addr constant [17 x i64] [i64 7, i64 5, i64 2, i64 4, i64 3, i64 3, i64 3, i64 3, i64 3, i64 3, i64 6, i64 3, i64 6, i64 3, i64 4, i64 4, i64 2], align 8
-@switch.table._ZN4llvh6Triple9setVendorENS0_10VendorTypeE.11 = private unnamed_addr constant [17 x ptr] [ptr @.str, ptr @.str.58, ptr @.str.59, ptr @.str.60, ptr @.str.61, ptr @.str.62, ptr @.str.63, ptr @.str.64, ptr @.str.65, ptr @.str.66, ptr @.str.67, ptr @.str.68, ptr @.str.69, ptr @.str.70, ptr @.str.71, ptr @.str.72, ptr @.str.73], align 8
+@switch.table._ZN4llvh6Triple9setVendorENS0_10VendorTypeE.12 = private unnamed_addr constant [17 x ptr] [ptr @.str, ptr @.str.58, ptr @.str.59, ptr @.str.60, ptr @.str.61, ptr @.str.62, ptr @.str.63, ptr @.str.64, ptr @.str.65, ptr @.str.66, ptr @.str.67, ptr @.str.68, ptr @.str.69, ptr @.str.70, ptr @.str.71, ptr @.str.72, ptr @.str.73], align 8
 @switch.table._ZN4llvh6Triple5setOSENS0_6OSTypeE = private unnamed_addr constant [33 x i64] [i64 7, i64 6, i64 8, i64 6, i64 9, i64 7, i64 7, i64 3, i64 8, i64 5, i64 3, i64 6, i64 6, i64 7, i64 7, i64 7, i64 5, i64 5, i64 5, i64 4, i64 3, i64 3, i64 4, i64 4, i64 6, i64 3, i64 8, i64 4, i64 7, i64 6, i64 7, i64 6, i64 6], align 8
-@switch.table._ZN4llvh6Triple5setOSENS0_6OSTypeE.12 = private unnamed_addr constant [33 x ptr] [ptr @.str, ptr @.str.74, ptr @.str.75, ptr @.str.76, ptr @.str.77, ptr @.str.78, ptr @.str.79, ptr @.str.80, ptr @.str.81, ptr @.str.82, ptr @.str.83, ptr @.str.84, ptr @.str.85, ptr @.str.86, ptr @.str.87, ptr @.str.88, ptr @.str.89, ptr @.str.90, ptr @.str.91, ptr @.str.92, ptr @.str.93, ptr @.str.94, ptr @.str.95, ptr @.str.96, ptr @.str.97, ptr @.str.98, ptr @.str.99, ptr @.str.100, ptr @.str.101, ptr @.str.102, ptr @.str.103, ptr @.str.104, ptr @.str.105], align 8
-@switch.table._ZN4llvh6Triple14setEnvironmentENS0_15EnvironmentTypeE.14 = private unnamed_addr constant [19 x i64] [i64 7, i64 3, i64 9, i64 8, i64 7, i64 9, i64 6, i64 6, i64 4, i64 6, i64 7, i64 4, i64 8, i64 10, i64 4, i64 7, i64 6, i64 7, i64 9], align 8
-@switch.table._ZN4llvh6Triple14setEnvironmentENS0_15EnvironmentTypeE.15 = private unnamed_addr constant [19 x ptr] [ptr @.str, ptr @.str.106, ptr @.str.107, ptr @.str.108, ptr @.str.110, ptr @.str.109, ptr @.str.111, ptr @.str.112, ptr @.str.113, ptr @.str.114, ptr @.str.115, ptr @.str.116, ptr @.str.117, ptr @.str.118, ptr @.str.119, ptr @.str.120, ptr @.str.121, ptr @.str.122, ptr @.str.123], align 8
-@switch.table._ZN4llvh6Triple15setObjectFormatENS0_16ObjectFormatTypeE.19 = private unnamed_addr constant [5 x i64] [i64 0, i64 4, i64 3, i64 5, i64 4], align 8
-@switch.table._ZN4llvh6Triple15setObjectFormatENS0_16ObjectFormatTypeE.20 = private unnamed_addr constant [5 x ptr] [ptr @.str.137, ptr @.str.186, ptr @.str.187, ptr @.str.188, ptr @.str.56], align 8
+@switch.table._ZN4llvh6Triple5setOSENS0_6OSTypeE.13 = private unnamed_addr constant [33 x ptr] [ptr @.str, ptr @.str.74, ptr @.str.75, ptr @.str.76, ptr @.str.77, ptr @.str.78, ptr @.str.79, ptr @.str.80, ptr @.str.81, ptr @.str.82, ptr @.str.83, ptr @.str.84, ptr @.str.85, ptr @.str.86, ptr @.str.87, ptr @.str.88, ptr @.str.89, ptr @.str.90, ptr @.str.91, ptr @.str.92, ptr @.str.93, ptr @.str.94, ptr @.str.95, ptr @.str.96, ptr @.str.97, ptr @.str.98, ptr @.str.99, ptr @.str.100, ptr @.str.101, ptr @.str.102, ptr @.str.103, ptr @.str.104, ptr @.str.105], align 8
+@switch.table._ZN4llvh6Triple14setEnvironmentENS0_15EnvironmentTypeE.15 = private unnamed_addr constant [19 x i64] [i64 7, i64 3, i64 9, i64 8, i64 7, i64 9, i64 6, i64 6, i64 4, i64 6, i64 7, i64 4, i64 8, i64 10, i64 4, i64 7, i64 6, i64 7, i64 9], align 8
+@switch.table._ZN4llvh6Triple14setEnvironmentENS0_15EnvironmentTypeE.16 = private unnamed_addr constant [19 x ptr] [ptr @.str, ptr @.str.106, ptr @.str.107, ptr @.str.108, ptr @.str.110, ptr @.str.109, ptr @.str.111, ptr @.str.112, ptr @.str.113, ptr @.str.114, ptr @.str.115, ptr @.str.116, ptr @.str.117, ptr @.str.118, ptr @.str.119, ptr @.str.120, ptr @.str.121, ptr @.str.122, ptr @.str.123], align 8
+@switch.table._ZN4llvh6Triple15setObjectFormatENS0_16ObjectFormatTypeE.20 = private unnamed_addr constant [5 x i64] [i64 0, i64 4, i64 3, i64 5, i64 4], align 8
+@switch.table._ZN4llvh6Triple15setObjectFormatENS0_16ObjectFormatTypeE.21 = private unnamed_addr constant [5 x ptr] [ptr @.str.137, ptr @.str.186, ptr @.str.187, ptr @.str.188, ptr @.str.56], align 8
 @switch.table._ZNK4llvh6Triple16getARMCPUForArchENS_9StringRefE = private unnamed_addr constant [6 x ptr] [ptr @.str.147, ptr @.str.147, ptr @.str.148, ptr @.str.148, ptr @.str.147, ptr @.str.147], align 8
-@switch.table._ZNK4llvh6Triple16getARMCPUForArchENS_9StringRefE.21 = private unnamed_addr constant [6 x i64] [i64 10, i64 10, i64 9, i64 9, i64 10, i64 10], align 8
+@switch.table._ZNK4llvh6Triple16getARMCPUForArchENS_9StringRefE.22 = private unnamed_addr constant [6 x i64] [i64 10, i64 10, i64 9, i64 9, i64 10, i64 10], align 8
 
 @_ZN4llvh6TripleC1ERKNS_5TwineE = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN4llvh6TripleC2ERKNS_5TwineE
 @_ZN4llvh6TripleC1ERKNS_5TwineES3_S3_ = hidden unnamed_addr alias void (ptr, ptr, ptr, ptr), ptr @_ZN4llvh6TripleC2ERKNS_5TwineES3_S3_
@@ -244,10 +244,10 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden { ptr, i64 } @_ZN4llvh6Triple15getArchTypeNameENS0_8ArchTypeE(i32 noundef %Kind) local_unnamed_addr #0 align 2 {
 entry:
   %0 = sext i32 %Kind to i64
-  %switch.gep = getelementptr inbounds [51 x i64], ptr @switch.table._ZN4llvh6Triple15getArchTypeNameENS0_8ArchTypeE, i64 0, i64 %0
+  %switch.gep = getelementptr inbounds [51 x i64], ptr @switch.table._ZN4llvh6Triple7setArchENS0_8ArchTypeE, i64 0, i64 %0
   %switch.load = load i64, ptr %switch.gep, align 8
   %1 = sext i32 %Kind to i64
-  %switch.gep103 = getelementptr inbounds [51 x ptr], ptr @switch.table._ZN4llvh6Triple15getArchTypeNameENS0_8ArchTypeE.2, i64 0, i64 %1
+  %switch.gep103 = getelementptr inbounds [51 x ptr], ptr @switch.table._ZN4llvh6Triple7setArchENS0_8ArchTypeE.11, i64 0, i64 %1
   %switch.load104 = load ptr, ptr %switch.gep103, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load104, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -288,7 +288,7 @@ entry:
   %switch.gep = getelementptr inbounds [17 x i64], ptr @switch.table._ZN4llvh6Triple9setVendorENS0_10VendorTypeE, i64 0, i64 %0
   %switch.load = load i64, ptr %switch.gep, align 8
   %1 = sext i32 %Kind to i64
-  %switch.gep35 = getelementptr inbounds [17 x ptr], ptr @switch.table._ZN4llvh6Triple9setVendorENS0_10VendorTypeE.11, i64 0, i64 %1
+  %switch.gep35 = getelementptr inbounds [17 x ptr], ptr @switch.table._ZN4llvh6Triple9setVendorENS0_10VendorTypeE.12, i64 0, i64 %1
   %switch.load36 = load ptr, ptr %switch.gep35, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load36, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -302,7 +302,7 @@ entry:
   %switch.gep = getelementptr inbounds [33 x i64], ptr @switch.table._ZN4llvh6Triple5setOSENS0_6OSTypeE, i64 0, i64 %0
   %switch.load = load i64, ptr %switch.gep, align 8
   %1 = sext i32 %Kind to i64
-  %switch.gep67 = getelementptr inbounds [33 x ptr], ptr @switch.table._ZN4llvh6Triple5setOSENS0_6OSTypeE.12, i64 0, i64 %1
+  %switch.gep67 = getelementptr inbounds [33 x ptr], ptr @switch.table._ZN4llvh6Triple5setOSENS0_6OSTypeE.13, i64 0, i64 %1
   %switch.load68 = load ptr, ptr %switch.gep67, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load68, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -313,10 +313,10 @@ entry:
 define hidden { ptr, i64 } @_ZN4llvh6Triple22getEnvironmentTypeNameENS0_15EnvironmentTypeE(i32 noundef %Kind) local_unnamed_addr #0 align 2 {
 entry:
   %0 = sext i32 %Kind to i64
-  %switch.gep = getelementptr inbounds [19 x i64], ptr @switch.table._ZN4llvh6Triple14setEnvironmentENS0_15EnvironmentTypeE.14, i64 0, i64 %0
+  %switch.gep = getelementptr inbounds [19 x i64], ptr @switch.table._ZN4llvh6Triple14setEnvironmentENS0_15EnvironmentTypeE.15, i64 0, i64 %0
   %switch.load = load i64, ptr %switch.gep, align 8
   %1 = sext i32 %Kind to i64
-  %switch.gep39 = getelementptr inbounds [19 x ptr], ptr @switch.table._ZN4llvh6Triple14setEnvironmentENS0_15EnvironmentTypeE.15, i64 0, i64 %1
+  %switch.gep39 = getelementptr inbounds [19 x ptr], ptr @switch.table._ZN4llvh6Triple14setEnvironmentENS0_15EnvironmentTypeE.16, i64 0, i64 %1
   %switch.load40 = load ptr, ptr %switch.gep39, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load40, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -3790,14 +3790,14 @@ entry:
   %Environment.i = getelementptr inbounds i8, ptr %this, i64 48
   %2 = load i32, ptr %Environment.i, align 8
   %3 = sext i32 %2 to i64
-  %switch.gep = getelementptr inbounds [19 x i64], ptr @switch.table._ZN4llvh6Triple14setEnvironmentENS0_15EnvironmentTypeE.14, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds [19 x i64], ptr @switch.table._ZN4llvh6Triple14setEnvironmentENS0_15EnvironmentTypeE.15, i64 0, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %cmp.i.not = icmp ult i64 %1, %switch.load
   br i1 %cmp.i.not, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %4 = sext i32 %2 to i64
-  %switch.gep18 = getelementptr inbounds [19 x ptr], ptr @switch.table._ZN4llvh6Triple14setEnvironmentENS0_15EnvironmentTypeE.15, i64 0, i64 %4
+  %switch.gep18 = getelementptr inbounds [19 x ptr], ptr @switch.table._ZN4llvh6Triple14setEnvironmentENS0_15EnvironmentTypeE.16, i64 0, i64 %4
   %switch.load19 = load ptr, ptr %switch.gep18, align 8
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %switch.load19, i64 %switch.load)
   %5 = icmp eq i32 %bcmp, 0
@@ -3896,7 +3896,7 @@ entry:
 
 if.end.i40:                                       ; preds = %entry
   %4 = sext i32 %2 to i64
-  %switch.gep59 = getelementptr inbounds [33 x ptr], ptr @switch.table._ZN4llvh6Triple5setOSENS0_6OSTypeE.12, i64 0, i64 %4
+  %switch.gep59 = getelementptr inbounds [33 x ptr], ptr @switch.table._ZN4llvh6Triple5setOSENS0_6OSTypeE.13, i64 0, i64 %4
   %switch.load60 = load ptr, ptr %switch.gep59, align 8
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %switch.load60, i64 %switch.load)
   %5 = icmp eq i32 %bcmp, 0
@@ -4147,10 +4147,13 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4llvh6Triple7setArchENS0_8ArchTypeE(ptr noundef nonnull align 8 dereferenceable(56) %this, i32 noundef %Kind) local_unnamed_addr #4 align 2 {
 entry:
-  %call = tail call { ptr, i64 } @_ZN4llvh6Triple15getArchTypeNameENS0_8ArchTypeE(i32 noundef %Kind)
-  %0 = extractvalue { ptr, i64 } %call, 0
-  %1 = extractvalue { ptr, i64 } %call, 1
-  tail call void @_ZN4llvh6Triple11setArchNameENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr %0, i64 %1)
+  %0 = sext i32 %Kind to i64
+  %switch.gep = getelementptr inbounds [51 x i64], ptr @switch.table._ZN4llvh6Triple7setArchENS0_8ArchTypeE, i64 0, i64 %0
+  %switch.load = load i64, ptr %switch.gep, align 8
+  %1 = sext i32 %Kind to i64
+  %switch.gep1 = getelementptr inbounds [51 x ptr], ptr @switch.table._ZN4llvh6Triple7setArchENS0_8ArchTypeE.11, i64 0, i64 %1
+  %switch.load2 = load ptr, ptr %switch.gep1, align 8
+  tail call void @_ZN4llvh6Triple11setArchNameENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nonnull %switch.load2, i64 %switch.load)
   ret void
 }
 
@@ -4337,7 +4340,7 @@ entry:
   %switch.gep = getelementptr inbounds [17 x i64], ptr @switch.table._ZN4llvh6Triple9setVendorENS0_10VendorTypeE, i64 0, i64 %0
   %switch.load = load i64, ptr %switch.gep, align 8
   %1 = sext i32 %Kind to i64
-  %switch.gep1 = getelementptr inbounds [17 x ptr], ptr @switch.table._ZN4llvh6Triple9setVendorENS0_10VendorTypeE.11, i64 0, i64 %1
+  %switch.gep1 = getelementptr inbounds [17 x ptr], ptr @switch.table._ZN4llvh6Triple9setVendorENS0_10VendorTypeE.12, i64 0, i64 %1
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   tail call void @_ZN4llvh6Triple13setVendorNameENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nonnull %switch.load2, i64 %switch.load)
   ret void
@@ -4430,7 +4433,7 @@ entry:
   %switch.gep = getelementptr inbounds [33 x i64], ptr @switch.table._ZN4llvh6Triple5setOSENS0_6OSTypeE, i64 0, i64 %0
   %switch.load = load i64, ptr %switch.gep, align 8
   %1 = sext i32 %Kind to i64
-  %switch.gep1 = getelementptr inbounds [33 x ptr], ptr @switch.table._ZN4llvh6Triple5setOSENS0_6OSTypeE.12, i64 0, i64 %1
+  %switch.gep1 = getelementptr inbounds [33 x ptr], ptr @switch.table._ZN4llvh6Triple5setOSENS0_6OSTypeE.13, i64 0, i64 %1
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   tail call void @_ZN4llvh6Triple9setOSNameENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nonnull %switch.load2, i64 %switch.load)
   ret void
@@ -4641,20 +4644,20 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %3 = sext i32 %Kind to i64
-  %switch.gep = getelementptr inbounds [19 x i64], ptr @switch.table._ZN4llvh6Triple14setEnvironmentENS0_15EnvironmentTypeE.14, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds [19 x i64], ptr @switch.table._ZN4llvh6Triple14setEnvironmentENS0_15EnvironmentTypeE.15, i64 0, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = sext i32 %Kind to i64
-  %switch.gep66 = getelementptr inbounds [19 x ptr], ptr @switch.table._ZN4llvh6Triple14setEnvironmentENS0_15EnvironmentTypeE.15, i64 0, i64 %4
+  %switch.gep66 = getelementptr inbounds [19 x ptr], ptr @switch.table._ZN4llvh6Triple14setEnvironmentENS0_15EnvironmentTypeE.16, i64 0, i64 %4
   %switch.load67 = load ptr, ptr %switch.gep66, align 8
   tail call void @_ZN4llvh6Triple18setEnvironmentNameENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nonnull %switch.load67, i64 %switch.load)
   br label %return
 
 switch.lookup68:                                  ; preds = %entry
   %5 = sext i32 %Kind to i64
-  %switch.gep69 = getelementptr inbounds [19 x i64], ptr @switch.table._ZN4llvh6Triple14setEnvironmentENS0_15EnvironmentTypeE.14, i64 0, i64 %5
+  %switch.gep69 = getelementptr inbounds [19 x i64], ptr @switch.table._ZN4llvh6Triple14setEnvironmentENS0_15EnvironmentTypeE.15, i64 0, i64 %5
   %switch.load70 = load i64, ptr %switch.gep69, align 8
   %6 = sext i32 %Kind to i64
-  %switch.gep71 = getelementptr inbounds [19 x ptr], ptr @switch.table._ZN4llvh6Triple14setEnvironmentENS0_15EnvironmentTypeE.15, i64 0, i64 %6
+  %switch.gep71 = getelementptr inbounds [19 x ptr], ptr @switch.table._ZN4llvh6Triple14setEnvironmentENS0_15EnvironmentTypeE.16, i64 0, i64 %6
   %switch.load72 = load ptr, ptr %switch.gep71, align 8
   store ptr %switch.load72, ptr %ref.tmp7, align 8
   %7 = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
@@ -4667,10 +4670,10 @@ switch.lookup68:                                  ; preds = %entry
   %RHSKind6.i.i.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 17
   store i8 3, ptr %RHSKind6.i.i.i, align 1, !alias.scope !235
   %8 = sext i32 %0 to i64
-  %switch.gep74 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN4llvh6Triple15setObjectFormatENS0_16ObjectFormatTypeE.19, i64 0, i64 %8
+  %switch.gep74 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN4llvh6Triple15setObjectFormatENS0_16ObjectFormatTypeE.20, i64 0, i64 %8
   %switch.load75 = load i64, ptr %switch.gep74, align 8
   %9 = sext i32 %0 to i64
-  %switch.gep76 = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN4llvh6Triple15setObjectFormatENS0_16ObjectFormatTypeE.20, i64 0, i64 %9
+  %switch.gep76 = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN4llvh6Triple15setObjectFormatENS0_16ObjectFormatTypeE.21, i64 0, i64 %9
   %switch.load77 = load ptr, ptr %switch.gep76, align 8
   store ptr %switch.load77, ptr %ref.tmp11, align 8
   %10 = getelementptr inbounds i8, ptr %ref.tmp11, i64 8
@@ -4830,10 +4833,10 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %1 = sext i32 %Kind to i64
-  %switch.gep = getelementptr inbounds [5 x i64], ptr @switch.table._ZN4llvh6Triple15setObjectFormatENS0_16ObjectFormatTypeE.19, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [5 x i64], ptr @switch.table._ZN4llvh6Triple15setObjectFormatENS0_16ObjectFormatTypeE.20, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = sext i32 %Kind to i64
-  %switch.gep51 = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN4llvh6Triple15setObjectFormatENS0_16ObjectFormatTypeE.20, i64 0, i64 %2
+  %switch.gep51 = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN4llvh6Triple15setObjectFormatENS0_16ObjectFormatTypeE.21, i64 0, i64 %2
   %switch.load52 = load ptr, ptr %switch.gep51, align 8
   tail call void @_ZN4llvh6Triple18setEnvironmentNameENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nonnull %switch.load52, i64 %switch.load)
   br label %return
@@ -4906,10 +4909,10 @@ _ZN4llvhplERKNS_5TwineES2_.exit:                  ; preds = %entry, %_ZN4llvh9St
   %RHSKind6.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 17
   store i8 3, ptr %RHSKind6.i.i.i, align 1, !alias.scope !279
   %4 = sext i32 %Kind to i64
-  %switch.gep54 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN4llvh6Triple15setObjectFormatENS0_16ObjectFormatTypeE.19, i64 0, i64 %4
+  %switch.gep54 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN4llvh6Triple15setObjectFormatENS0_16ObjectFormatTypeE.20, i64 0, i64 %4
   %switch.load55 = load i64, ptr %switch.gep54, align 8
   %5 = sext i32 %Kind to i64
-  %switch.gep56 = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN4llvh6Triple15setObjectFormatENS0_16ObjectFormatTypeE.20, i64 0, i64 %5
+  %switch.gep56 = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN4llvh6Triple15setObjectFormatENS0_16ObjectFormatTypeE.21, i64 0, i64 %5
   %switch.load57 = load ptr, ptr %switch.gep56, align 8
   store ptr %switch.load57, ptr %ref.tmp11, align 8
   %6 = getelementptr inbounds i8, ptr %ref.tmp11, i64 8
@@ -5851,7 +5854,7 @@ switch.lookup:                                    ; preds = %sw.bb31
   %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZNK4llvh6Triple16getARMCPUForArchENS_9StringRefE, i64 0, i64 %10
   %switch.load = load ptr, ptr %switch.gep, align 8
   %11 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep44 = getelementptr inbounds [6 x i64], ptr @switch.table._ZNK4llvh6Triple16getARMCPUForArchENS_9StringRefE.21, i64 0, i64 %11
+  %switch.gep44 = getelementptr inbounds [6 x i64], ptr @switch.table._ZNK4llvh6Triple16getARMCPUForArchENS_9StringRefE.22, i64 0, i64 %11
   %switch.load45 = load i64, ptr %switch.gep44, align 8
   br label %return
 

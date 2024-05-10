@@ -1773,883 +1773,1192 @@ declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #0
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @dissect_rdm_mdb_param_data(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i16 noundef zeroext %3, i8 noundef zeroext %4, i16 noundef zeroext %5) unnamed_addr #1 {
   %7 = icmp slt i16 %3, 0
-  br i1 %7, label %8, label %112
+  br i1 %7, label %8, label %154
 
 8:                                                ; preds = %6
   %cond.i = icmp eq i16 %5, 25972
-  br i1 %cond.i, label %9, label %107
+  br i1 %cond.i, label %9, label %149
 
 9:                                                ; preds = %8
-  switch i16 %3, label %102 [
+  switch i16 %3, label %144 [
     i16 -32511, label %10
-    i16 -32510, label %12
-    i16 -32509, label %14
-    i16 -32508, label %16
-    i16 -32507, label %18
-    i16 -32506, label %20
-    i16 -32505, label %22
-    i16 -32504, label %24
-    i16 -32503, label %26
-    i16 -32502, label %28
-    i16 -32501, label %30
-    i16 -32500, label %32
-    i16 -32499, label %34
-    i16 -32498, label %36
-    i16 -32497, label %38
+    i16 -32510, label %14
+    i16 -32509, label %16
+    i16 -32508, label %20
+    i16 -32507, label %24
+    i16 -32506, label %26
+    i16 -32505, label %30
+    i16 -32504, label %34
+    i16 -32503, label %36
+    i16 -32502, label %40
+    i16 -32501, label %44
+    i16 -32500, label %46
+    i16 -32499, label %50
+    i16 -32498, label %54
+    i16 -32497, label %58
     i16 -32496, label %dissect_manufacturer_specific_pid.exit
-    i16 -32495, label %40
-    i16 -32494, label %42
-    i16 -32493, label %44
-    i16 -32492, label %46
-    i16 -32491, label %48
-    i16 -32490, label %50
-    i16 -32489, label %52
-    i16 -32488, label %54
-    i16 -32487, label %56
-    i16 -32486, label %58
-    i16 -32485, label %60
-    i16 -32484, label %62
-    i16 -32483, label %64
-    i16 -32482, label %66
-    i16 -32481, label %68
-    i16 -32480, label %70
-    i16 -32479, label %72
-    i16 -32478, label %74
-    i16 -32477, label %76
-    i16 -32476, label %78
-    i16 -32475, label %80
-    i16 -32474, label %82
-    i16 -32464, label %84
+    i16 -32495, label %62
+    i16 -32494, label %66
+    i16 -32493, label %70
+    i16 -32492, label %72
+    i16 -32491, label %74
+    i16 -32490, label %76
+    i16 -32489, label %78
+    i16 -32488, label %80
+    i16 -32487, label %82
+    i16 -32486, label %84
+    i16 -32485, label %86
+    i16 -32484, label %88
+    i16 -32483, label %90
+    i16 -32482, label %92
+    i16 -32481, label %94
+    i16 -32480, label %98
+    i16 -32479, label %100
+    i16 -32478, label %104
+    i16 -32477, label %106
+    i16 -32476, label %110
+    i16 -32475, label %112
+    i16 -32474, label %114
+    i16 -32464, label %116
     i16 -28672, label %dissect_manufacturer_specific_pid.exit
     i16 -28671, label %dissect_manufacturer_specific_pid.exit
     i16 -28670, label %dissect_manufacturer_specific_pid.exit
     i16 -28669, label %dissect_manufacturer_specific_pid.exit
     i16 -28668, label %dissect_manufacturer_specific_pid.exit
     i16 -28667, label %dissect_manufacturer_specific_pid.exit
-    i16 -24576, label %86
-    i16 -24575, label %88
+    i16 -24576, label %118
+    i16 -24575, label %122
     i16 -24574, label %dissect_manufacturer_specific_pid.exit
     i16 -24573, label %dissect_manufacturer_specific_pid.exit
-    i16 -24572, label %90
-    i16 -24571, label %92
-    i16 -24570, label %94
+    i16 -24572, label %124
+    i16 -24571, label %128
+    i16 -24570, label %132
     i16 -24569, label %dissect_manufacturer_specific_pid.exit
-    i16 -20480, label %96
-    i16 -8192, label %98
-    i16 -8191, label %100
+    i16 -20480, label %136
+    i16 -8192, label %140
+    i16 -8191, label %142
     i16 -4096, label %dissect_manufacturer_specific_pid.exit
   ]
 
 10:                                               ; preds = %9
-  %11 = tail call fastcc i32 @dissect_etc_pd_led_curve(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
-  br label %dissect_manufacturer_specific_pid.exit
+  switch i8 %2, label %dissect_manufacturer_specific_pid.exit [
+    i8 33, label %11
+    i8 48, label %11
+  ]
 
-12:                                               ; preds = %9
-  %13 = tail call fastcc i32 @dissect_etc_pd_led_curve_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+11:                                               ; preds = %10, %10
+  %12 = load i32, ptr @hf_etc_pd_led_curve, align 4
+  %13 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %12, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
   br label %dissect_manufacturer_specific_pid.exit
 
 14:                                               ; preds = %9
-  %15 = tail call fastcc i32 @dissect_etc_pd_led_strobe(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  %15 = tail call fastcc i32 @dissect_etc_pd_led_curve_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
 16:                                               ; preds = %9
-  %17 = tail call fastcc i32 @dissect_etc_pd_led_output_mode(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
-  br label %dissect_manufacturer_specific_pid.exit
+  switch i8 %2, label %dissect_manufacturer_specific_pid.exit [
+    i8 33, label %17
+    i8 48, label %17
+  ]
 
-18:                                               ; preds = %9
-  %19 = tail call fastcc i32 @dissect_etc_pd_led_output_mode_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+17:                                               ; preds = %16, %16
+  %18 = load i32, ptr @hf_etc_pd_led_strobe, align 4
+  %19 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %18, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
   br label %dissect_manufacturer_specific_pid.exit
 
 20:                                               ; preds = %9
-  %21 = tail call fastcc i32 @dissect_etc_pd_led_red_shift(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
-  br label %dissect_manufacturer_specific_pid.exit
+  switch i8 %2, label %dissect_manufacturer_specific_pid.exit [
+    i8 33, label %21
+    i8 48, label %21
+  ]
 
-22:                                               ; preds = %9
-  %23 = tail call fastcc i32 @dissect_etc_pd_led_white_point(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+21:                                               ; preds = %20, %20
+  %22 = load i32, ptr @hf_etc_pd_led_output_mode, align 4
+  %23 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %22, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
   br label %dissect_manufacturer_specific_pid.exit
 
 24:                                               ; preds = %9
-  %25 = tail call fastcc i32 @dissect_etc_pd_led_white_point_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  %25 = tail call fastcc i32 @dissect_etc_pd_led_output_mode_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
 26:                                               ; preds = %9
-  %27 = tail call fastcc i32 @dissect_etc_pd_led_frequency(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
-  br label %dissect_manufacturer_specific_pid.exit
+  switch i8 %2, label %dissect_manufacturer_specific_pid.exit [
+    i8 33, label %27
+    i8 48, label %27
+  ]
 
-28:                                               ; preds = %9
-  %29 = tail call fastcc i32 @dissect_etc_pd_dmx_data_loss_behavior(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+27:                                               ; preds = %26, %26
+  %28 = load i32, ptr @hf_etc_pd_led_red_shift, align 4
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %28, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
   br label %dissect_manufacturer_specific_pid.exit
 
 30:                                               ; preds = %9
-  %31 = tail call fastcc i32 @dissect_etc_pd_dmx_data_loss_behavior_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
-  br label %dissect_manufacturer_specific_pid.exit
+  switch i8 %2, label %dissect_manufacturer_specific_pid.exit [
+    i8 33, label %31
+    i8 48, label %31
+  ]
 
-32:                                               ; preds = %9
-  %33 = tail call fastcc i32 @dissect_etc_pd_led_plus_seven(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+31:                                               ; preds = %30, %30
+  %32 = load i32, ptr @hf_etc_pd_led_white_point, align 4
+  %33 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %32, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
   br label %dissect_manufacturer_specific_pid.exit
 
 34:                                               ; preds = %9
-  %35 = tail call fastcc i32 @dissect_etc_pd_backlight_brightness(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  %35 = tail call fastcc i32 @dissect_etc_pd_led_white_point_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
 36:                                               ; preds = %9
-  %37 = tail call fastcc i32 @dissect_etc_pd_backlight_timeout(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
-  br label %dissect_manufacturer_specific_pid.exit
+  switch i8 %2, label %dissect_manufacturer_specific_pid.exit [
+    i8 33, label %37
+    i8 48, label %37
+  ]
 
-38:                                               ; preds = %9
-  %39 = tail call fastcc i32 @dissect_etc_pd_status_indicators(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+37:                                               ; preds = %36, %36
+  %38 = load i32, ptr @hf_etc_pd_led_frequency, align 4
+  %39 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %38, ptr noundef %0, i32 noundef 23, i32 noundef 2, i32 noundef 0) #2
   br label %dissect_manufacturer_specific_pid.exit
 
 40:                                               ; preds = %9
-  %41 = tail call fastcc i32 @dissect_etc_pd_overtemp_mode(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
-  br label %dissect_manufacturer_specific_pid.exit
+  switch i8 %2, label %dissect_manufacturer_specific_pid.exit [
+    i8 33, label %41
+    i8 48, label %41
+  ]
 
-42:                                               ; preds = %9
-  %43 = tail call fastcc i32 @dissect_etc_pd_simple_setup_mode(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+41:                                               ; preds = %40, %40
+  %42 = load i32, ptr @hf_etc_pd_dmx_data_loss_behavior, align 4
+  %43 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %42, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
   br label %dissect_manufacturer_specific_pid.exit
 
 44:                                               ; preds = %9
-  %45 = tail call fastcc i32 @dissect_etc_pd_led_strobe_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  %45 = tail call fastcc i32 @dissect_etc_pd_dmx_data_loss_behavior_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
 46:                                               ; preds = %9
-  %47 = tail call fastcc i32 @dissect_etc_pd_red_shift_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
-  br label %dissect_manufacturer_specific_pid.exit
+  switch i8 %2, label %dissect_manufacturer_specific_pid.exit [
+    i8 33, label %47
+    i8 48, label %47
+  ]
 
-48:                                               ; preds = %9
-  %49 = tail call fastcc i32 @dissect_etc_pd_plus_seven_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+47:                                               ; preds = %46, %46
+  %48 = load i32, ptr @hf_etc_pd_led_plus_seven, align 4
+  %49 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %48, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
   br label %dissect_manufacturer_specific_pid.exit
 
 50:                                               ; preds = %9
-  %51 = tail call fastcc i32 @dissect_etc_pd_backlight_timeout_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
-  br label %dissect_manufacturer_specific_pid.exit
+  switch i8 %2, label %dissect_manufacturer_specific_pid.exit [
+    i8 33, label %51
+    i8 48, label %51
+  ]
 
-52:                                               ; preds = %9
-  %53 = tail call fastcc i32 @dissect_etc_pd_simple_setup_mode_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+51:                                               ; preds = %50, %50
+  %52 = load i32, ptr @hf_etc_pd_backlight_brightness, align 4
+  %53 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %52, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
   br label %dissect_manufacturer_specific_pid.exit
 
 54:                                               ; preds = %9
-  %55 = tail call fastcc i32 @dissect_etc_pd_overtemp_mode_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
-  br label %dissect_manufacturer_specific_pid.exit
+  switch i8 %2, label %dissect_manufacturer_specific_pid.exit [
+    i8 33, label %55
+    i8 48, label %55
+  ]
 
-56:                                               ; preds = %9
-  %57 = tail call fastcc i32 @dissect_etc_pd_led_requested_xy(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+55:                                               ; preds = %54, %54
+  %56 = load i32, ptr @hf_etc_pd_backlight_timeout, align 4
+  %57 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %56, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
   br label %dissect_manufacturer_specific_pid.exit
 
 58:                                               ; preds = %9
-  %59 = tail call fastcc i32 @dissect_etc_pd_led_current_xy(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
-  br label %dissect_manufacturer_specific_pid.exit
+  switch i8 %2, label %dissect_manufacturer_specific_pid.exit [
+    i8 33, label %59
+    i8 48, label %59
+  ]
 
-60:                                               ; preds = %9
-  %61 = tail call fastcc i32 @dissect_etc_pd_current_pwm(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+59:                                               ; preds = %58, %58
+  %60 = load i32, ptr @hf_etc_pd_status_indicators, align 4
+  %61 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %60, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
   br label %dissect_manufacturer_specific_pid.exit
 
 62:                                               ; preds = %9
-  %63 = tail call fastcc i32 @dissect_etc_pd_tristimulus(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
-  br label %dissect_manufacturer_specific_pid.exit
+  switch i8 %2, label %dissect_manufacturer_specific_pid.exit [
+    i8 33, label %63
+    i8 48, label %63
+  ]
 
-64:                                               ; preds = %9
-  %65 = tail call fastcc i32 @dissect_etc_pd_led_information(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+63:                                               ; preds = %62, %62
+  %64 = load i32, ptr @hf_etc_pd_overtemp_mode, align 4
+  %65 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %64, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
   br label %dissect_manufacturer_specific_pid.exit
 
 66:                                               ; preds = %9
-  %67 = tail call fastcc i32 @dissect_etc_pd_preset_config(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
-  br label %dissect_manufacturer_specific_pid.exit
+  switch i8 %2, label %dissect_manufacturer_specific_pid.exit [
+    i8 33, label %67
+    i8 48, label %67
+  ]
 
-68:                                               ; preds = %9
-  %69 = tail call fastcc i32 @dissect_etc_pd_sequence_playback(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+67:                                               ; preds = %66, %66
+  %68 = load i32, ptr @hf_etc_pd_simple_setup_mode, align 4
+  %69 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %68, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
   br label %dissect_manufacturer_specific_pid.exit
 
 70:                                               ; preds = %9
-  %71 = tail call fastcc i32 @dissect_etc_pd_sequence_config(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  %71 = tail call fastcc i32 @dissect_etc_pd_led_strobe_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
 72:                                               ; preds = %9
-  %73 = tail call fastcc i32 @dissect_etc_pd_low_power_timeout(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  %73 = tail call fastcc i32 @dissect_etc_pd_red_shift_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
 74:                                               ; preds = %9
-  %75 = tail call fastcc i32 @dissect_etc_pd_low_power_timeout_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  %75 = tail call fastcc i32 @dissect_etc_pd_plus_seven_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
 76:                                               ; preds = %9
-  %77 = tail call fastcc i32 @dissect_etc_pd_led_enum_frequency(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  %77 = tail call fastcc i32 @dissect_etc_pd_backlight_timeout_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
 78:                                               ; preds = %9
-  %79 = tail call fastcc i32 @dissect_etc_pd_led_enum_frequency_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  %79 = tail call fastcc i32 @dissect_etc_pd_simple_setup_mode_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
 80:                                               ; preds = %9
-  %81 = tail call fastcc i32 @dissect_etc_pd_rgbi_preset_config(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  %81 = tail call fastcc i32 @dissect_etc_pd_overtemp_mode_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
 82:                                               ; preds = %9
-  %83 = tail call fastcc i32 @dissect_etc_pd_cct_preset_config(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  %83 = tail call fastcc i32 @dissect_etc_pd_led_requested_xy(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
 84:                                               ; preds = %9
-  %85 = tail call fastcc i32 @dissect_etc_pd_supplementary_device_version(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  %85 = tail call fastcc i32 @dissect_etc_pd_led_current_xy(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
 86:                                               ; preds = %9
-  %87 = tail call fastcc i32 @dissect_etc_pd_power_command(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  %87 = tail call fastcc i32 @dissect_etc_pd_current_pwm(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
 88:                                               ; preds = %9
-  %89 = tail call fastcc i32 @dissect_etc_pd_power_command_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  %89 = tail call fastcc i32 @dissect_etc_pd_tristimulus(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
 90:                                               ; preds = %9
-  %91 = tail call fastcc i32 @dissect_etc_pd_dali_short_address(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  %91 = tail call fastcc i32 @dissect_etc_pd_led_information(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
 92:                                               ; preds = %9
-  %93 = tail call fastcc i32 @dissect_etc_pd_dali_group_membership(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  %93 = tail call fastcc i32 @dissect_etc_pd_preset_config(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
 94:                                               ; preds = %9
-  %95 = tail call fastcc i32 @dissect_etc_pd_auto_bind(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
-  br label %dissect_manufacturer_specific_pid.exit
+  switch i8 %2, label %dissect_manufacturer_specific_pid.exit [
+    i8 33, label %95
+    i8 48, label %95
+  ]
 
-96:                                               ; preds = %9
-  %97 = tail call fastcc i32 @dissect_etc_pd_packet_delay(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+95:                                               ; preds = %94, %94
+  %96 = load i32, ptr @hf_etc_pd_sequence_playback_sequence_number, align 4
+  %97 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %96, ptr noundef %0, i32 noundef 23, i32 noundef 2, i32 noundef 0) #2
   br label %dissect_manufacturer_specific_pid.exit
 
 98:                                               ; preds = %9
-  %99 = tail call fastcc i32 @dissect_etc_pd_has_enum_text(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  %99 = tail call fastcc i32 @dissect_etc_pd_sequence_config(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
 100:                                              ; preds = %9
-  %101 = tail call fastcc i32 @dissect_etc_pd_get_enum_text(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
-  br label %dissect_manufacturer_specific_pid.exit
-
-102:                                              ; preds = %9
-  %103 = load i32, ptr @hf_rdm_parameter_data_raw, align 4
-  %104 = zext i8 %4 to i32
-  %105 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %103, ptr noundef %0, i32 noundef 23, i32 noundef %104, i32 noundef 0) #2
-  %106 = add nuw nsw i32 %104, 23
-  br label %dissect_manufacturer_specific_pid.exit
-
-107:                                              ; preds = %8
-  %108 = load i32, ptr @hf_rdm_parameter_data_raw, align 4
-  %109 = zext i8 %4 to i32
-  %110 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %108, ptr noundef %0, i32 noundef 23, i32 noundef %109, i32 noundef 0) #2
-  %111 = add nuw nsw i32 %109, 23
-  br label %dissect_manufacturer_specific_pid.exit
-
-112:                                              ; preds = %6
-  switch i16 %3, label %357 [
-    i16 513, label %113
-    i16 32, label %115
-    i16 240, label %119
-    i16 96, label %121
-    i16 128, label %123
-    i16 130, label %129
-    i16 1024, label %131
-    i16 1025, label %133
-    i16 1026, label %135
-    i16 512, label %137
-    i16 129, label %139
-    i16 1, label %145
-    i16 2, label %147
-    i16 3, label %149
-    i16 16, label %151
-    i16 17, label %153
-    i16 21, label %155
-    i16 48, label %157
-    i16 49, label %159
-    i16 50, label %dissect_manufacturer_specific_pid.exit
-    i16 51, label %161
-    i16 80, label %163
-    i16 81, label %165
-    i16 112, label %167
-    i16 144, label %169
-    i16 160, label %173
-    i16 176, label %175
-    i16 192, label %177
-    i16 193, label %183
-    i16 194, label %187
-    i16 224, label %193
-    i16 225, label %195
-    i16 288, label %197
-    i16 289, label %199
-    i16 290, label %201
-    i16 320, label %203
-    i16 321, label %205
-    i16 322, label %207
-    i16 514, label %209
-    i16 832, label %211
-    i16 833, label %213
-    i16 834, label %215
-    i16 835, label %217
-    i16 836, label %219
-    i16 837, label %221
-    i16 838, label %223
-    i16 839, label %225
-    i16 840, label %227
-    i16 1027, label %229
-    i16 1028, label %231
-    i16 1029, label %233
-    i16 1088, label %235
-    i16 1280, label %237
-    i16 1281, label %239
-    i16 1536, label %241
-    i16 1537, label %243
-    i16 1538, label %245
-    i16 1539, label %247
-    i16 1600, label %249
-    i16 1601, label %251
-    i16 1602, label %253
-    i16 1792, label %255
-    i16 1793, label %257
-    i16 1794, label %259
-    i16 1795, label %261
-    i16 1796, label %263
-    i16 1797, label %265
-    i16 1798, label %267
-    i16 1799, label %269
-    i16 1800, label %273
-    i16 1801, label %277
-    i16 1802, label %281
-    i16 1803, label %283
-    i16 1804, label %285
-    i16 1805, label %287
-    i16 4096, label %289
-    i16 4097, label %291
-    i16 4112, label %295
-    i16 4128, label %297
-    i16 4129, label %299
-    i16 4144, label %301
-    i16 4145, label %303
-    i16 4160, label %305
-    i16 4161, label %307
-    i16 4162, label %309
-    i16 4163, label %311
-    i16 4164, label %313
-    i16 2318, label %315
-    i16 2319, label %317
-    i16 2304, label %319
-    i16 2049, label %321
-    i16 2307, label %323
-    i16 2310, label %325
-    i16 2308, label %327
-    i16 2309, label %329
-    i16 2311, label %331
-    i16 2313, label %333
-    i16 2314, label %335
-    i16 2317, label %337
-    i16 2306, label %339
-    i16 2312, label %341
-    i16 2316, label %343
-    i16 2315, label %345
-    i16 2050, label %347
-    i16 2305, label %349
-    i16 2048, label %353
-    i16 2051, label %355
+  switch i8 %2, label %dissect_manufacturer_specific_pid.exit [
+    i8 33, label %101
+    i8 48, label %101
   ]
 
-113:                                              ; preds = %112
-  %114 = tail call fastcc i32 @dissect_rdm_pd_sensor_value(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+101:                                              ; preds = %100, %100
+  %102 = load i32, ptr @hf_etc_pd_low_power_timeout, align 4
+  %103 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %102, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
   br label %dissect_manufacturer_specific_pid.exit
 
-115:                                              ; preds = %112
+104:                                              ; preds = %9
+  %105 = tail call fastcc i32 @dissect_etc_pd_low_power_timeout_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  br label %dissect_manufacturer_specific_pid.exit
+
+106:                                              ; preds = %9
+  switch i8 %2, label %dissect_manufacturer_specific_pid.exit [
+    i8 33, label %107
+    i8 48, label %107
+  ]
+
+107:                                              ; preds = %106, %106
+  %108 = load i32, ptr @hf_etc_pd_led_enum_frequency, align 4
+  %109 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %108, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
+  br label %dissect_manufacturer_specific_pid.exit
+
+110:                                              ; preds = %9
+  %111 = tail call fastcc i32 @dissect_etc_pd_led_enum_frequency_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  br label %dissect_manufacturer_specific_pid.exit
+
+112:                                              ; preds = %9
+  %113 = tail call fastcc i32 @dissect_etc_pd_rgbi_preset_config(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  br label %dissect_manufacturer_specific_pid.exit
+
+114:                                              ; preds = %9
+  %115 = tail call fastcc i32 @dissect_etc_pd_cct_preset_config(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  br label %dissect_manufacturer_specific_pid.exit
+
+116:                                              ; preds = %9
+  %117 = tail call fastcc i32 @dissect_etc_pd_supplementary_device_version(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  br label %dissect_manufacturer_specific_pid.exit
+
+118:                                              ; preds = %9
+  switch i8 %2, label %dissect_manufacturer_specific_pid.exit [
+    i8 33, label %119
+    i8 48, label %119
+  ]
+
+119:                                              ; preds = %118, %118
+  %120 = load i32, ptr @hf_etc_pd_power_command, align 4
+  %121 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %120, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
+  br label %dissect_manufacturer_specific_pid.exit
+
+122:                                              ; preds = %9
+  %123 = tail call fastcc i32 @dissect_etc_pd_power_command_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  br label %dissect_manufacturer_specific_pid.exit
+
+124:                                              ; preds = %9
+  switch i8 %2, label %dissect_manufacturer_specific_pid.exit [
+    i8 33, label %125
+    i8 48, label %125
+  ]
+
+125:                                              ; preds = %124, %124
+  %126 = load i32, ptr @hf_etc_pd_dali_short_address, align 4
+  %127 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %126, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
+  br label %dissect_manufacturer_specific_pid.exit
+
+128:                                              ; preds = %9
+  switch i8 %2, label %dissect_manufacturer_specific_pid.exit [
+    i8 33, label %129
+    i8 48, label %129
+  ]
+
+129:                                              ; preds = %128, %128
+  %130 = load i32, ptr @hf_etc_pd_dali_group_membership, align 4
+  %131 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %130, ptr noundef %0, i32 noundef 23, i32 noundef 2, i32 noundef 0) #2
+  br label %dissect_manufacturer_specific_pid.exit
+
+132:                                              ; preds = %9
+  switch i8 %2, label %dissect_manufacturer_specific_pid.exit [
+    i8 33, label %133
+    i8 48, label %133
+  ]
+
+133:                                              ; preds = %132, %132
+  %134 = load i32, ptr @hf_etc_pd_auto_bind, align 4
+  %135 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %134, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
+  br label %dissect_manufacturer_specific_pid.exit
+
+136:                                              ; preds = %9
+  switch i8 %2, label %dissect_manufacturer_specific_pid.exit [
+    i8 33, label %137
+    i8 48, label %137
+  ]
+
+137:                                              ; preds = %136, %136
+  %138 = load i32, ptr @hf_etc_pd_packet_delay, align 4
+  %139 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %138, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
+  br label %dissect_manufacturer_specific_pid.exit
+
+140:                                              ; preds = %9
+  %141 = tail call fastcc i32 @dissect_etc_pd_has_enum_text(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  br label %dissect_manufacturer_specific_pid.exit
+
+142:                                              ; preds = %9
+  %143 = tail call fastcc i32 @dissect_etc_pd_get_enum_text(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  br label %dissect_manufacturer_specific_pid.exit
+
+144:                                              ; preds = %9
+  %145 = load i32, ptr @hf_rdm_parameter_data_raw, align 4
+  %146 = zext i8 %4 to i32
+  %147 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %145, ptr noundef %0, i32 noundef 23, i32 noundef %146, i32 noundef 0) #2
+  %148 = add nuw nsw i32 %146, 23
+  br label %dissect_manufacturer_specific_pid.exit
+
+149:                                              ; preds = %8
+  %150 = load i32, ptr @hf_rdm_parameter_data_raw, align 4
+  %151 = zext i8 %4 to i32
+  %152 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %150, ptr noundef %0, i32 noundef 23, i32 noundef %151, i32 noundef 0) #2
+  %153 = add nuw nsw i32 %151, 23
+  br label %dissect_manufacturer_specific_pid.exit
+
+154:                                              ; preds = %6
+  switch i16 %3, label %443 [
+    i16 513, label %155
+    i16 32, label %157
+    i16 240, label %161
+    i16 96, label %165
+    i16 128, label %167
+    i16 130, label %173
+    i16 1024, label %175
+    i16 1025, label %179
+    i16 1026, label %183
+    i16 512, label %187
+    i16 129, label %189
+    i16 1, label %195
+    i16 2, label %197
+    i16 3, label %199
+    i16 16, label %201
+    i16 17, label %203
+    i16 21, label %205
+    i16 48, label %207
+    i16 49, label %209
+    i16 50, label %dissect_manufacturer_specific_pid.exit
+    i16 51, label %211
+    i16 80, label %215
+    i16 81, label %217
+    i16 112, label %219
+    i16 144, label %221
+    i16 160, label %225
+    i16 176, label %227
+    i16 192, label %231
+    i16 193, label %237
+    i16 194, label %241
+    i16 224, label %247
+    i16 225, label %249
+    i16 288, label %251
+    i16 289, label %253
+    i16 290, label %255
+    i16 320, label %257
+    i16 321, label %259
+    i16 322, label %261
+    i16 514, label %263
+    i16 832, label %265
+    i16 833, label %267
+    i16 834, label %269
+    i16 835, label %273
+    i16 836, label %275
+    i16 837, label %277
+    i16 838, label %279
+    i16 839, label %281
+    i16 840, label %283
+    i16 1027, label %285
+    i16 1028, label %289
+    i16 1029, label %293
+    i16 1088, label %297
+    i16 1280, label %301
+    i16 1281, label %305
+    i16 1536, label %309
+    i16 1537, label %313
+    i16 1538, label %317
+    i16 1539, label %321
+    i16 1600, label %323
+    i16 1601, label %325
+    i16 1602, label %327
+    i16 1792, label %329
+    i16 1793, label %331
+    i16 1794, label %333
+    i16 1795, label %335
+    i16 1796, label %337
+    i16 1797, label %339
+    i16 1798, label %341
+    i16 1799, label %343
+    i16 1800, label %347
+    i16 1801, label %351
+    i16 1802, label %355
+    i16 1803, label %357
+    i16 1804, label %359
+    i16 1805, label %361
+    i16 4096, label %363
+    i16 4097, label %367
+    i16 4112, label %371
+    i16 4128, label %375
+    i16 4129, label %379
+    i16 4144, label %381
+    i16 4145, label %383
+    i16 4160, label %385
+    i16 4161, label %389
+    i16 4162, label %391
+    i16 4163, label %393
+    i16 4164, label %397
+    i16 2318, label %401
+    i16 2319, label %403
+    i16 2304, label %405
+    i16 2049, label %407
+    i16 2307, label %409
+    i16 2310, label %411
+    i16 2308, label %413
+    i16 2309, label %415
+    i16 2311, label %417
+    i16 2313, label %419
+    i16 2314, label %421
+    i16 2317, label %423
+    i16 2306, label %425
+    i16 2312, label %427
+    i16 2316, label %429
+    i16 2315, label %431
+    i16 2050, label %433
+    i16 2305, label %435
+    i16 2048, label %439
+    i16 2051, label %441
+  ]
+
+155:                                              ; preds = %154
+  %156 = tail call fastcc i32 @dissect_rdm_pd_sensor_value(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  br label %dissect_manufacturer_specific_pid.exit
+
+157:                                              ; preds = %154
   %cond.i514 = icmp eq i8 %2, 32
-  br i1 %cond.i514, label %116, label %dissect_manufacturer_specific_pid.exit
+  br i1 %cond.i514, label %158, label %dissect_manufacturer_specific_pid.exit
 
-116:                                              ; preds = %115
-  %117 = load i32, ptr @hf_rdm_pd_queued_message_status, align 4
-  %118 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %117, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
+158:                                              ; preds = %157
+  %159 = load i32, ptr @hf_rdm_pd_queued_message_status, align 4
+  %160 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %159, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
   br label %dissect_manufacturer_specific_pid.exit
 
-119:                                              ; preds = %112
-  %120 = tail call fastcc i32 @dissect_rdm_pd_dmx_start_address(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+161:                                              ; preds = %154
+  switch i8 %2, label %dissect_manufacturer_specific_pid.exit [
+    i8 48, label %162
+    i8 33, label %162
+  ]
+
+162:                                              ; preds = %161, %161
+  %163 = load i32, ptr @hf_rdm_pd_dmx_start_address, align 4
+  %164 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %163, ptr noundef %0, i32 noundef 23, i32 noundef 2, i32 noundef 0) #2
   br label %dissect_manufacturer_specific_pid.exit
 
-121:                                              ; preds = %112
-  %122 = tail call fastcc i32 @dissect_rdm_pd_device_info(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i16 noundef zeroext %5)
+165:                                              ; preds = %154
+  %166 = tail call fastcc i32 @dissect_rdm_pd_device_info(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i16 noundef zeroext %5)
   br label %dissect_manufacturer_specific_pid.exit
 
-123:                                              ; preds = %112
-  %cond.i516 = icmp eq i8 %2, 33
-  br i1 %cond.i516, label %124, label %dissect_manufacturer_specific_pid.exit
+167:                                              ; preds = %154
+  %cond.i517 = icmp eq i8 %2, 33
+  br i1 %cond.i517, label %168, label %dissect_manufacturer_specific_pid.exit
 
-124:                                              ; preds = %123
-  %125 = load i32, ptr @hf_rdm_pd_device_model_description, align 4
-  %126 = zext i8 %4 to i32
-  %127 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %125, ptr noundef %0, i32 noundef 23, i32 noundef %126, i32 noundef 0) #2
-  %128 = add nuw nsw i32 %126, 23
+168:                                              ; preds = %167
+  %169 = load i32, ptr @hf_rdm_pd_device_model_description, align 4
+  %170 = zext i8 %4 to i32
+  %171 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %169, ptr noundef %0, i32 noundef 23, i32 noundef %170, i32 noundef 0) #2
+  %172 = add nuw nsw i32 %170, 23
   br label %dissect_manufacturer_specific_pid.exit
 
-129:                                              ; preds = %112
-  %130 = tail call fastcc i32 @dissect_rdm_pd_device_label(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+173:                                              ; preds = %154
+  %174 = tail call fastcc i32 @dissect_rdm_pd_device_label(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
-131:                                              ; preds = %112
-  %132 = tail call fastcc i32 @dissect_rdm_pd_device_hours(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+175:                                              ; preds = %154
+  switch i8 %2, label %dissect_manufacturer_specific_pid.exit [
+    i8 48, label %176
+    i8 33, label %176
+  ]
+
+176:                                              ; preds = %175, %175
+  %177 = load i32, ptr @hf_rdm_pd_device_hours, align 4
+  %178 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %177, ptr noundef %0, i32 noundef 23, i32 noundef 4, i32 noundef 0) #2
   br label %dissect_manufacturer_specific_pid.exit
 
-133:                                              ; preds = %112
-  %134 = tail call fastcc i32 @dissect_rdm_pd_lamp_hours(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+179:                                              ; preds = %154
+  switch i8 %2, label %dissect_manufacturer_specific_pid.exit [
+    i8 48, label %180
+    i8 33, label %180
+  ]
+
+180:                                              ; preds = %179, %179
+  %181 = load i32, ptr @hf_rdm_pd_lamp_hours, align 4
+  %182 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %181, ptr noundef %0, i32 noundef 23, i32 noundef 4, i32 noundef 0) #2
   br label %dissect_manufacturer_specific_pid.exit
 
-135:                                              ; preds = %112
-  %136 = tail call fastcc i32 @dissect_rdm_pd_lamp_strikes(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
-  br label %dissect_manufacturer_specific_pid.exit
+183:                                              ; preds = %154
+  switch i8 %2, label %dissect_manufacturer_specific_pid.exit [
+    i8 48, label %184
+    i8 33, label %184
+  ]
 
-137:                                              ; preds = %112
-  %138 = tail call fastcc i32 @dissect_rdm_pd_sensor_definition(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
-  br label %dissect_manufacturer_specific_pid.exit
-
-139:                                              ; preds = %112
-  %cond.i518 = icmp eq i8 %2, 33
-  br i1 %cond.i518, label %140, label %dissect_manufacturer_specific_pid.exit
-
-140:                                              ; preds = %139
-  %141 = load i32, ptr @hf_rdm_pd_manu_label, align 4
-  %142 = zext i8 %4 to i32
-  %143 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %141, ptr noundef %0, i32 noundef 23, i32 noundef %142, i32 noundef 0) #2
-  %144 = add nuw nsw i32 %142, 23
-  br label %dissect_manufacturer_specific_pid.exit
-
-145:                                              ; preds = %112
-  %146 = tail call fastcc i32 @dissect_rdm_pd_disc_unique_branch(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
-  br label %dissect_manufacturer_specific_pid.exit
-
-147:                                              ; preds = %112
-  %148 = tail call fastcc i32 @dissect_rdm_pd_disc_mute(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
-  br label %dissect_manufacturer_specific_pid.exit
-
-149:                                              ; preds = %112
-  %150 = tail call fastcc i32 @dissect_rdm_pd_disc_un_mute(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
-  br label %dissect_manufacturer_specific_pid.exit
-
-151:                                              ; preds = %112
-  %152 = tail call fastcc i32 @dissect_rdm_pd_proxied_devices(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
-  br label %dissect_manufacturer_specific_pid.exit
-
-153:                                              ; preds = %112
-  %154 = tail call fastcc i32 @dissect_rdm_pd_proxied_device_count(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
-  br label %dissect_manufacturer_specific_pid.exit
-
-155:                                              ; preds = %112
-  %156 = tail call fastcc i32 @dissect_rdm_pd_comms_status(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
-  br label %dissect_manufacturer_specific_pid.exit
-
-157:                                              ; preds = %112
-  %158 = tail call fastcc i32 @dissect_rdm_pd_status_messages(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
-  br label %dissect_manufacturer_specific_pid.exit
-
-159:                                              ; preds = %112
-  %160 = tail call fastcc i32 @dissect_rdm_pd_status_id_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
-  br label %dissect_manufacturer_specific_pid.exit
-
-161:                                              ; preds = %112
-  %162 = tail call fastcc i32 @dissect_rdm_pd_sub_device_status_report_threshold(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
-  br label %dissect_manufacturer_specific_pid.exit
-
-163:                                              ; preds = %112
-  %164 = tail call fastcc i32 @dissect_rdm_pd_supported_parameters(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4, i16 noundef zeroext %5)
-  br label %dissect_manufacturer_specific_pid.exit
-
-165:                                              ; preds = %112
-  %166 = tail call fastcc i32 @dissect_rdm_pd_parameter_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4, i16 noundef zeroext %5)
-  br label %dissect_manufacturer_specific_pid.exit
-
-167:                                              ; preds = %112
-  %168 = tail call fastcc i32 @dissect_rdm_pd_product_detail_id_list(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
-  br label %dissect_manufacturer_specific_pid.exit
-
-169:                                              ; preds = %112
-  %cond.i520 = icmp eq i8 %2, 33
-  br i1 %cond.i520, label %170, label %dissect_manufacturer_specific_pid.exit
-
-170:                                              ; preds = %169
-  %171 = load i32, ptr @hf_rdm_pd_factory_defaults, align 4
-  %172 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %171, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
-  br label %dissect_manufacturer_specific_pid.exit
-
-173:                                              ; preds = %112
-  %174 = tail call fastcc i32 @dissect_rdm_pd_language_capabilities(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
-  br label %dissect_manufacturer_specific_pid.exit
-
-175:                                              ; preds = %112
-  %176 = tail call fastcc i32 @dissect_rdm_pd_language(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
-  br label %dissect_manufacturer_specific_pid.exit
-
-177:                                              ; preds = %112
-  %cond.i522 = icmp eq i8 %2, 33
-  br i1 %cond.i522, label %178, label %dissect_manufacturer_specific_pid.exit
-
-178:                                              ; preds = %177
-  %179 = load i32, ptr @hf_rdm_pd_software_version_label, align 4
-  %180 = zext i8 %4 to i32
-  %181 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %179, ptr noundef %0, i32 noundef 23, i32 noundef %180, i32 noundef 0) #2
-  %182 = add nuw nsw i32 %180, 23
-  br label %dissect_manufacturer_specific_pid.exit
-
-183:                                              ; preds = %112
-  %cond.i524 = icmp eq i8 %2, 33
-  br i1 %cond.i524, label %184, label %dissect_manufacturer_specific_pid.exit
-
-184:                                              ; preds = %183
-  %185 = load i32, ptr @hf_rdm_pd_boot_software_version_id, align 4
+184:                                              ; preds = %183, %183
+  %185 = load i32, ptr @hf_rdm_pd_lamp_strikes, align 4
   %186 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %185, ptr noundef %0, i32 noundef 23, i32 noundef 4, i32 noundef 0) #2
   br label %dissect_manufacturer_specific_pid.exit
 
-187:                                              ; preds = %112
-  %cond.i526 = icmp eq i8 %2, 33
-  br i1 %cond.i526, label %188, label %dissect_manufacturer_specific_pid.exit
+187:                                              ; preds = %154
+  %188 = tail call fastcc i32 @dissect_rdm_pd_sensor_definition(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  br label %dissect_manufacturer_specific_pid.exit
+
+189:                                              ; preds = %154
+  %cond.i522 = icmp eq i8 %2, 33
+  br i1 %cond.i522, label %190, label %dissect_manufacturer_specific_pid.exit
+
+190:                                              ; preds = %189
+  %191 = load i32, ptr @hf_rdm_pd_manu_label, align 4
+  %192 = zext i8 %4 to i32
+  %193 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %191, ptr noundef %0, i32 noundef 23, i32 noundef %192, i32 noundef 0) #2
+  %194 = add nuw nsw i32 %192, 23
+  br label %dissect_manufacturer_specific_pid.exit
+
+195:                                              ; preds = %154
+  %196 = tail call fastcc i32 @dissect_rdm_pd_disc_unique_branch(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  br label %dissect_manufacturer_specific_pid.exit
+
+197:                                              ; preds = %154
+  %198 = tail call fastcc i32 @dissect_rdm_pd_disc_mute(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  br label %dissect_manufacturer_specific_pid.exit
+
+199:                                              ; preds = %154
+  %200 = tail call fastcc i32 @dissect_rdm_pd_disc_un_mute(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  br label %dissect_manufacturer_specific_pid.exit
+
+201:                                              ; preds = %154
+  %202 = tail call fastcc i32 @dissect_rdm_pd_proxied_devices(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  br label %dissect_manufacturer_specific_pid.exit
+
+203:                                              ; preds = %154
+  %204 = tail call fastcc i32 @dissect_rdm_pd_proxied_device_count(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  br label %dissect_manufacturer_specific_pid.exit
+
+205:                                              ; preds = %154
+  %206 = tail call fastcc i32 @dissect_rdm_pd_comms_status(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+  br label %dissect_manufacturer_specific_pid.exit
+
+207:                                              ; preds = %154
+  %208 = tail call fastcc i32 @dissect_rdm_pd_status_messages(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  br label %dissect_manufacturer_specific_pid.exit
+
+209:                                              ; preds = %154
+  %210 = tail call fastcc i32 @dissect_rdm_pd_status_id_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  br label %dissect_manufacturer_specific_pid.exit
+
+211:                                              ; preds = %154
+  switch i8 %2, label %dissect_manufacturer_specific_pid.exit [
+    i8 48, label %212
+    i8 33, label %212
+  ]
+
+212:                                              ; preds = %211, %211
+  %213 = load i32, ptr @hf_rdm_pd_sub_device_status_report_threshold_status_type, align 4
+  %214 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %213, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
+  br label %dissect_manufacturer_specific_pid.exit
+
+215:                                              ; preds = %154
+  %216 = tail call fastcc i32 @dissect_rdm_pd_supported_parameters(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4, i16 noundef zeroext %5)
+  br label %dissect_manufacturer_specific_pid.exit
+
+217:                                              ; preds = %154
+  %218 = tail call fastcc i32 @dissect_rdm_pd_parameter_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4, i16 noundef zeroext %5)
+  br label %dissect_manufacturer_specific_pid.exit
+
+219:                                              ; preds = %154
+  %220 = tail call fastcc i32 @dissect_rdm_pd_product_detail_id_list(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  br label %dissect_manufacturer_specific_pid.exit
+
+221:                                              ; preds = %154
+  %cond.i525 = icmp eq i8 %2, 33
+  br i1 %cond.i525, label %222, label %dissect_manufacturer_specific_pid.exit
+
+222:                                              ; preds = %221
+  %223 = load i32, ptr @hf_rdm_pd_factory_defaults, align 4
+  %224 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %223, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
+  br label %dissect_manufacturer_specific_pid.exit
+
+225:                                              ; preds = %154
+  %226 = tail call fastcc i32 @dissect_rdm_pd_language_capabilities(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+  br label %dissect_manufacturer_specific_pid.exit
+
+227:                                              ; preds = %154
+  switch i8 %2, label %dissect_manufacturer_specific_pid.exit [
+    i8 48, label %228
+    i8 33, label %228
+  ]
+
+228:                                              ; preds = %227, %227
+  %229 = load i32, ptr @hf_rdm_pd_language_code, align 4
+  %230 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %229, ptr noundef %0, i32 noundef 23, i32 noundef 2, i32 noundef 0) #2
+  br label %dissect_manufacturer_specific_pid.exit
+
+231:                                              ; preds = %154
+  %cond.i528 = icmp eq i8 %2, 33
+  br i1 %cond.i528, label %232, label %dissect_manufacturer_specific_pid.exit
 
-188:                                              ; preds = %187
-  %189 = load i32, ptr @hf_rdm_pd_boot_software_version_label, align 4
-  %190 = zext i8 %4 to i32
-  %191 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %189, ptr noundef %0, i32 noundef 23, i32 noundef %190, i32 noundef 0) #2
-  %192 = add nuw nsw i32 %190, 23
+232:                                              ; preds = %231
+  %233 = load i32, ptr @hf_rdm_pd_software_version_label, align 4
+  %234 = zext i8 %4 to i32
+  %235 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %233, ptr noundef %0, i32 noundef 23, i32 noundef %234, i32 noundef 0) #2
+  %236 = add nuw nsw i32 %234, 23
   br label %dissect_manufacturer_specific_pid.exit
 
-193:                                              ; preds = %112
-  %194 = tail call fastcc i32 @dissect_rdm_pd_dmx_personality(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+237:                                              ; preds = %154
+  %cond.i530 = icmp eq i8 %2, 33
+  br i1 %cond.i530, label %238, label %dissect_manufacturer_specific_pid.exit
+
+238:                                              ; preds = %237
+  %239 = load i32, ptr @hf_rdm_pd_boot_software_version_id, align 4
+  %240 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %239, ptr noundef %0, i32 noundef 23, i32 noundef 4, i32 noundef 0) #2
+  br label %dissect_manufacturer_specific_pid.exit
+
+241:                                              ; preds = %154
+  %cond.i532 = icmp eq i8 %2, 33
+  br i1 %cond.i532, label %242, label %dissect_manufacturer_specific_pid.exit
+
+242:                                              ; preds = %241
+  %243 = load i32, ptr @hf_rdm_pd_boot_software_version_label, align 4
+  %244 = zext i8 %4 to i32
+  %245 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %243, ptr noundef %0, i32 noundef 23, i32 noundef %244, i32 noundef 0) #2
+  %246 = add nuw nsw i32 %244, 23
   br label %dissect_manufacturer_specific_pid.exit
 
-195:                                              ; preds = %112
-  %196 = tail call fastcc i32 @dissect_rdm_pd_dmx_personality_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+247:                                              ; preds = %154
+  %248 = tail call fastcc i32 @dissect_rdm_pd_dmx_personality(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
-197:                                              ; preds = %112
-  %198 = tail call fastcc i32 @dissect_rdm_pd_slot_info(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+249:                                              ; preds = %154
+  %250 = tail call fastcc i32 @dissect_rdm_pd_dmx_personality_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
-199:                                              ; preds = %112
-  %200 = tail call fastcc i32 @dissect_rdm_pd_slot_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+251:                                              ; preds = %154
+  %252 = tail call fastcc i32 @dissect_rdm_pd_slot_info(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
-201:                                              ; preds = %112
-  %202 = tail call fastcc i32 @dissect_rdm_pd_slot_value(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+253:                                              ; preds = %154
+  %254 = tail call fastcc i32 @dissect_rdm_pd_slot_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
-203:                                              ; preds = %112
-  %204 = tail call fastcc i32 @dissect_rdm_pd_dmx_block_address(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+255:                                              ; preds = %154
+  %256 = tail call fastcc i32 @dissect_rdm_pd_slot_value(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
-205:                                              ; preds = %112
-  %206 = tail call fastcc i32 @dissect_rdm_pd_dmx_fail_mode(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+257:                                              ; preds = %154
+  %258 = tail call fastcc i32 @dissect_rdm_pd_dmx_block_address(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
-207:                                              ; preds = %112
-  %208 = tail call fastcc i32 @dissect_rdm_pd_dmx_startup_mode(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+259:                                              ; preds = %154
+  %260 = tail call fastcc i32 @dissect_rdm_pd_dmx_fail_mode(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
-209:                                              ; preds = %112
-  %210 = tail call fastcc i32 @dissect_rdm_pd_record_sensors(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+261:                                              ; preds = %154
+  %262 = tail call fastcc i32 @dissect_rdm_pd_dmx_startup_mode(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
-211:                                              ; preds = %112
-  %212 = tail call fastcc i32 @dissect_rdm_pd_dimmer_info(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+263:                                              ; preds = %154
+  %264 = tail call fastcc i32 @dissect_rdm_pd_record_sensors(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
-213:                                              ; preds = %112
-  %214 = tail call fastcc i32 @dissect_rdm_pd_minimum_level(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+265:                                              ; preds = %154
+  %266 = tail call fastcc i32 @dissect_rdm_pd_dimmer_info(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
-215:                                              ; preds = %112
-  %216 = tail call fastcc i32 @dissect_rdm_pd_maximum_level(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+267:                                              ; preds = %154
+  %268 = tail call fastcc i32 @dissect_rdm_pd_minimum_level(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
-217:                                              ; preds = %112
-  %218 = tail call fastcc i32 @dissect_rdm_pd_curve(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+269:                                              ; preds = %154
+  switch i8 %2, label %dissect_manufacturer_specific_pid.exit [
+    i8 33, label %270
+    i8 48, label %270
+  ]
+
+270:                                              ; preds = %269, %269
+  %271 = load i32, ptr @hf_rdm_pd_maximum_level_level, align 4
+  %272 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %271, ptr noundef %0, i32 noundef 23, i32 noundef 2, i32 noundef 0) #2
+  br label %dissect_manufacturer_specific_pid.exit
+
+273:                                              ; preds = %154
+  %274 = tail call fastcc i32 @dissect_rdm_pd_curve(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
-219:                                              ; preds = %112
-  %220 = tail call fastcc i32 @dissect_rdm_pd_curve_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+275:                                              ; preds = %154
+  %276 = tail call fastcc i32 @dissect_rdm_pd_curve_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
-221:                                              ; preds = %112
-  %222 = tail call fastcc i32 @dissect_rdm_pd_output_response_time(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+277:                                              ; preds = %154
+  %278 = tail call fastcc i32 @dissect_rdm_pd_output_response_time(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
-223:                                              ; preds = %112
-  %224 = tail call fastcc i32 @dissect_rdm_pd_output_response_time_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+279:                                              ; preds = %154
+  %280 = tail call fastcc i32 @dissect_rdm_pd_output_response_time_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
-225:                                              ; preds = %112
-  %226 = tail call fastcc i32 @dissect_rdm_pd_modulation_frequency(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+281:                                              ; preds = %154
+  %282 = tail call fastcc i32 @dissect_rdm_pd_modulation_frequency(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
-227:                                              ; preds = %112
-  %228 = tail call fastcc i32 @dissect_rdm_pd_modulation_frequency_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+283:                                              ; preds = %154
+  %284 = tail call fastcc i32 @dissect_rdm_pd_modulation_frequency_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
+
+285:                                              ; preds = %154
+  switch i8 %2, label %dissect_manufacturer_specific_pid.exit [
+    i8 48, label %286
+    i8 33, label %286
+  ]
 
-229:                                              ; preds = %112
-  %230 = tail call fastcc i32 @dissect_rdm_pd_lamp_state(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+286:                                              ; preds = %285, %285
+  %287 = load i32, ptr @hf_rdm_pd_lamp_state, align 4
+  %288 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %287, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
   br label %dissect_manufacturer_specific_pid.exit
 
-231:                                              ; preds = %112
-  %232 = tail call fastcc i32 @dissect_rdm_pd_lamp_on_mode(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+289:                                              ; preds = %154
+  switch i8 %2, label %dissect_manufacturer_specific_pid.exit [
+    i8 48, label %290
+    i8 33, label %290
+  ]
+
+290:                                              ; preds = %289, %289
+  %291 = load i32, ptr @hf_rdm_pd_lamp_on_mode, align 4
+  %292 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %291, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
   br label %dissect_manufacturer_specific_pid.exit
+
+293:                                              ; preds = %154
+  switch i8 %2, label %dissect_manufacturer_specific_pid.exit [
+    i8 48, label %294
+    i8 33, label %294
+  ]
 
-233:                                              ; preds = %112
-  %234 = tail call fastcc i32 @dissect_rdm_pd_device_power_cycles(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+294:                                              ; preds = %293, %293
+  %295 = load i32, ptr @hf_rdm_pd_device_power_cycles, align 4
+  %296 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %295, ptr noundef %0, i32 noundef 23, i32 noundef 4, i32 noundef 0) #2
   br label %dissect_manufacturer_specific_pid.exit
 
-235:                                              ; preds = %112
-  %236 = tail call fastcc i32 @dissect_rdm_pd_burn_in(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+297:                                              ; preds = %154
+  switch i8 %2, label %dissect_manufacturer_specific_pid.exit [
+    i8 33, label %298
+    i8 48, label %298
+  ]
+
+298:                                              ; preds = %297, %297
+  %299 = load i32, ptr @hf_rdm_pd_burn_in, align 4
+  %300 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %299, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
   br label %dissect_manufacturer_specific_pid.exit
+
+301:                                              ; preds = %154
+  switch i8 %2, label %dissect_manufacturer_specific_pid.exit [
+    i8 48, label %302
+    i8 33, label %302
+  ]
 
-237:                                              ; preds = %112
-  %238 = tail call fastcc i32 @dissect_rdm_pd_display_invert(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+302:                                              ; preds = %301, %301
+  %303 = load i32, ptr @hf_rdm_pd_display_invert, align 4
+  %304 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %303, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
   br label %dissect_manufacturer_specific_pid.exit
 
-239:                                              ; preds = %112
-  %240 = tail call fastcc i32 @dissect_rdm_pd_display_level(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+305:                                              ; preds = %154
+  switch i8 %2, label %dissect_manufacturer_specific_pid.exit [
+    i8 48, label %306
+    i8 33, label %306
+  ]
+
+306:                                              ; preds = %305, %305
+  %307 = load i32, ptr @hf_rdm_pd_display_level, align 4
+  %308 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %307, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
   br label %dissect_manufacturer_specific_pid.exit
+
+309:                                              ; preds = %154
+  switch i8 %2, label %dissect_manufacturer_specific_pid.exit [
+    i8 48, label %310
+    i8 33, label %310
+  ]
 
-241:                                              ; preds = %112
-  %242 = tail call fastcc i32 @dissect_rdm_pd_pan_invert(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+310:                                              ; preds = %309, %309
+  %311 = load i32, ptr @hf_rdm_pd_pan_invert, align 4
+  %312 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %311, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
   br label %dissect_manufacturer_specific_pid.exit
 
-243:                                              ; preds = %112
-  %244 = tail call fastcc i32 @dissect_rdm_pd_tilt_invert(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+313:                                              ; preds = %154
+  switch i8 %2, label %dissect_manufacturer_specific_pid.exit [
+    i8 48, label %314
+    i8 33, label %314
+  ]
+
+314:                                              ; preds = %313, %313
+  %315 = load i32, ptr @hf_rdm_pd_tilt_invert, align 4
+  %316 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %315, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
   br label %dissect_manufacturer_specific_pid.exit
+
+317:                                              ; preds = %154
+  switch i8 %2, label %dissect_manufacturer_specific_pid.exit [
+    i8 48, label %318
+    i8 33, label %318
+  ]
 
-245:                                              ; preds = %112
-  %246 = tail call fastcc i32 @dissect_rdm_pd_pan_tilt_swap(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+318:                                              ; preds = %317, %317
+  %319 = load i32, ptr @hf_rdm_pd_tilt_swap, align 4
+  %320 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %319, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
   br label %dissect_manufacturer_specific_pid.exit
 
-247:                                              ; preds = %112
-  %248 = tail call fastcc i32 @dissect_rdm_pd_real_time_clock(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+321:                                              ; preds = %154
+  %322 = tail call fastcc i32 @dissect_rdm_pd_real_time_clock(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
-249:                                              ; preds = %112
-  %250 = tail call fastcc i32 @dissect_rdm_pd_lock_pin(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+323:                                              ; preds = %154
+  %324 = tail call fastcc i32 @dissect_rdm_pd_lock_pin(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
-251:                                              ; preds = %112
-  %252 = tail call fastcc i32 @dissect_rdm_pd_lock_state(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+325:                                              ; preds = %154
+  %326 = tail call fastcc i32 @dissect_rdm_pd_lock_state(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
-253:                                              ; preds = %112
-  %254 = tail call fastcc i32 @dissect_rdm_pd_lock_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+327:                                              ; preds = %154
+  %328 = tail call fastcc i32 @dissect_rdm_pd_lock_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
-255:                                              ; preds = %112
-  %256 = tail call fastcc i32 @dissect_rdm_pd_list_interfaces(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+329:                                              ; preds = %154
+  %330 = tail call fastcc i32 @dissect_rdm_pd_list_interfaces(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
-257:                                              ; preds = %112
-  %258 = tail call fastcc i32 @dissect_rdm_pd_interface_label(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+331:                                              ; preds = %154
+  %332 = tail call fastcc i32 @dissect_rdm_pd_interface_label(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
-259:                                              ; preds = %112
-  %260 = tail call fastcc i32 @dissect_rdm_pd_hardware_address_type1(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+333:                                              ; preds = %154
+  %334 = tail call fastcc i32 @dissect_rdm_pd_hardware_address_type1(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
-261:                                              ; preds = %112
-  %262 = tail call fastcc i32 @dissect_rdm_pd_dhcp_mode(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+335:                                              ; preds = %154
+  %336 = tail call fastcc i32 @dissect_rdm_pd_dhcp_mode(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
-263:                                              ; preds = %112
-  %264 = tail call fastcc i32 @dissect_rdm_pd_zeroconf_mode(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+337:                                              ; preds = %154
+  %338 = tail call fastcc i32 @dissect_rdm_pd_zeroconf_mode(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
-265:                                              ; preds = %112
-  %266 = tail call fastcc i32 @dissect_rdm_pd_current_address(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+339:                                              ; preds = %154
+  %340 = tail call fastcc i32 @dissect_rdm_pd_current_address(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
-267:                                              ; preds = %112
-  %268 = tail call fastcc i32 @dissect_rdm_pd_static_address(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+341:                                              ; preds = %154
+  %342 = tail call fastcc i32 @dissect_rdm_pd_static_address(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
-269:                                              ; preds = %112
-  %cond.i528 = icmp eq i8 %2, 48
-  br i1 %cond.i528, label %270, label %dissect_manufacturer_specific_pid.exit
+343:                                              ; preds = %154
+  %cond.i544 = icmp eq i8 %2, 48
+  br i1 %cond.i544, label %344, label %dissect_manufacturer_specific_pid.exit
 
-270:                                              ; preds = %269
-  %271 = load i32, ptr @hf_rdm_pd_interface_renew_dhcp_interface_identifier, align 4
-  %272 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %271, ptr noundef %0, i32 noundef 23, i32 noundef 4, i32 noundef 0) #2
+344:                                              ; preds = %343
+  %345 = load i32, ptr @hf_rdm_pd_interface_renew_dhcp_interface_identifier, align 4
+  %346 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %345, ptr noundef %0, i32 noundef 23, i32 noundef 4, i32 noundef 0) #2
   br label %dissect_manufacturer_specific_pid.exit
 
-273:                                              ; preds = %112
-  %cond.i530 = icmp eq i8 %2, 48
-  br i1 %cond.i530, label %274, label %dissect_manufacturer_specific_pid.exit
+347:                                              ; preds = %154
+  %cond.i546 = icmp eq i8 %2, 48
+  br i1 %cond.i546, label %348, label %dissect_manufacturer_specific_pid.exit
 
-274:                                              ; preds = %273
-  %275 = load i32, ptr @hf_rdm_pd_interface_release_dhcp_interface_identifier, align 4
-  %276 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %275, ptr noundef %0, i32 noundef 23, i32 noundef 4, i32 noundef 0) #2
+348:                                              ; preds = %347
+  %349 = load i32, ptr @hf_rdm_pd_interface_release_dhcp_interface_identifier, align 4
+  %350 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %349, ptr noundef %0, i32 noundef 23, i32 noundef 4, i32 noundef 0) #2
   br label %dissect_manufacturer_specific_pid.exit
 
-277:                                              ; preds = %112
-  %cond.i532 = icmp eq i8 %2, 48
-  br i1 %cond.i532, label %278, label %dissect_manufacturer_specific_pid.exit
+351:                                              ; preds = %154
+  %cond.i548 = icmp eq i8 %2, 48
+  br i1 %cond.i548, label %352, label %dissect_manufacturer_specific_pid.exit
 
-278:                                              ; preds = %277
-  %279 = load i32, ptr @hf_rdm_pd_interface_apply_configuration_interface_identifier, align 4
-  %280 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %279, ptr noundef %0, i32 noundef 23, i32 noundef 4, i32 noundef 0) #2
+352:                                              ; preds = %351
+  %353 = load i32, ptr @hf_rdm_pd_interface_apply_configuration_interface_identifier, align 4
+  %354 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %353, ptr noundef %0, i32 noundef 23, i32 noundef 4, i32 noundef 0) #2
   br label %dissect_manufacturer_specific_pid.exit
 
-281:                                              ; preds = %112
-  %282 = tail call fastcc i32 @dissect_rdm_pd_ipv4_default_route(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+355:                                              ; preds = %154
+  %356 = tail call fastcc i32 @dissect_rdm_pd_ipv4_default_route(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
-283:                                              ; preds = %112
-  %284 = tail call fastcc i32 @dissect_rdm_pd_dns_ipv4_name_server(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+357:                                              ; preds = %154
+  %358 = tail call fastcc i32 @dissect_rdm_pd_dns_ipv4_name_server(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
-285:                                              ; preds = %112
-  %286 = tail call fastcc i32 @dissect_rdm_pd_dns_hostname(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+359:                                              ; preds = %154
+  %360 = tail call fastcc i32 @dissect_rdm_pd_dns_hostname(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
-287:                                              ; preds = %112
-  %288 = tail call fastcc i32 @dissect_rdm_pd_dns_domain_name(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+361:                                              ; preds = %154
+  %362 = tail call fastcc i32 @dissect_rdm_pd_dns_domain_name(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
-289:                                              ; preds = %112
-  %290 = tail call fastcc i32 @dissect_rdm_pd_identify_device(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+363:                                              ; preds = %154
+  switch i8 %2, label %dissect_manufacturer_specific_pid.exit [
+    i8 48, label %.sink.split.i
+    i8 33, label %364
+  ]
+
+364:                                              ; preds = %363
+  br label %.sink.split.i
+
+.sink.split.i:                                    ; preds = %364, %363
+  %hf_rdm_pd_identify_device_state.sink.i = phi ptr [ @hf_rdm_pd_identify_device_state, %364 ], [ @hf_rdm_pd_identify_device, %363 ]
+  %365 = load i32, ptr %hf_rdm_pd_identify_device_state.sink.i, align 4
+  %366 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %365, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
   br label %dissect_manufacturer_specific_pid.exit
 
-291:                                              ; preds = %112
-  %cond.i534 = icmp eq i8 %2, 48
-  br i1 %cond.i534, label %292, label %dissect_manufacturer_specific_pid.exit
+367:                                              ; preds = %154
+  %cond.i551 = icmp eq i8 %2, 48
+  br i1 %cond.i551, label %368, label %dissect_manufacturer_specific_pid.exit
 
-292:                                              ; preds = %291
-  %293 = load i32, ptr @hf_rdm_pd_reset_device, align 4
-  %294 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %293, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
+368:                                              ; preds = %367
+  %369 = load i32, ptr @hf_rdm_pd_reset_device, align 4
+  %370 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %369, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
   br label %dissect_manufacturer_specific_pid.exit
 
-295:                                              ; preds = %112
-  %296 = tail call fastcc i32 @dissect_rdm_pd_power_state(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+371:                                              ; preds = %154
+  switch i8 %2, label %dissect_manufacturer_specific_pid.exit [
+    i8 48, label %372
+    i8 33, label %372
+  ]
+
+372:                                              ; preds = %371, %371
+  %373 = load i32, ptr @hf_rdm_pd_power_state, align 4
+  %374 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %373, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
   br label %dissect_manufacturer_specific_pid.exit
+
+375:                                              ; preds = %154
+  switch i8 %2, label %dissect_manufacturer_specific_pid.exit [
+    i8 48, label %.sink.split.i554
+    i8 33, label %376
+  ]
 
-297:                                              ; preds = %112
-  %298 = tail call fastcc i32 @dissect_rdm_pd_perform_selftest(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+376:                                              ; preds = %375
+  br label %.sink.split.i554
+
+.sink.split.i554:                                 ; preds = %376, %375
+  %hf_rdm_pd_selftest_state.sink.i = phi ptr [ @hf_rdm_pd_selftest_state, %376 ], [ @hf_rdm_pd_selftest_nr, %375 ]
+  %377 = load i32, ptr %hf_rdm_pd_selftest_state.sink.i, align 4
+  %378 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %377, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
   br label %dissect_manufacturer_specific_pid.exit
 
-299:                                              ; preds = %112
-  %300 = tail call fastcc i32 @dissect_rdm_pd_self_test_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+379:                                              ; preds = %154
+  %380 = tail call fastcc i32 @dissect_rdm_pd_self_test_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
-301:                                              ; preds = %112
-  %302 = tail call fastcc i32 @dissect_rdm_pd_capture_preset(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+381:                                              ; preds = %154
+  %382 = tail call fastcc i32 @dissect_rdm_pd_capture_preset(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
-303:                                              ; preds = %112
-  %304 = tail call fastcc i32 @dissect_rdm_pd_preset_playback(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+383:                                              ; preds = %154
+  %384 = tail call fastcc i32 @dissect_rdm_pd_preset_playback(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
+
+385:                                              ; preds = %154
+  switch i8 %2, label %dissect_manufacturer_specific_pid.exit [
+    i8 33, label %386
+    i8 48, label %386
+  ]
 
-305:                                              ; preds = %112
-  %306 = tail call fastcc i32 @dissect_rdm_pd_identify_mode(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+386:                                              ; preds = %385, %385
+  %387 = load i32, ptr @hf_rdm_pd_identify_mode, align 4
+  %388 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %387, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
   br label %dissect_manufacturer_specific_pid.exit
 
-307:                                              ; preds = %112
-  %308 = tail call fastcc i32 @dissect_rdm_pd_preset_info(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+389:                                              ; preds = %154
+  %390 = tail call fastcc i32 @dissect_rdm_pd_preset_info(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
-309:                                              ; preds = %112
-  %310 = tail call fastcc i32 @dissect_rdm_pd_preset_status(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+391:                                              ; preds = %154
+  %392 = tail call fastcc i32 @dissect_rdm_pd_preset_status(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
-311:                                              ; preds = %112
-  %312 = tail call fastcc i32 @dissect_rdm_pd_preset_mergemode(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+393:                                              ; preds = %154
+  switch i8 %2, label %dissect_manufacturer_specific_pid.exit [
+    i8 33, label %394
+    i8 48, label %394
+  ]
+
+394:                                              ; preds = %393, %393
+  %395 = load i32, ptr @hf_rdm_pd_preset_mergemode, align 4
+  %396 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %395, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
   br label %dissect_manufacturer_specific_pid.exit
+
+397:                                              ; preds = %154
+  switch i8 %2, label %dissect_manufacturer_specific_pid.exit [
+    i8 33, label %398
+    i8 48, label %398
+  ]
 
-313:                                              ; preds = %112
-  %314 = tail call fastcc i32 @dissect_rdm_pd_power_on_self_test(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+398:                                              ; preds = %397, %397
+  %399 = load i32, ptr @hf_rdm_pd_power_on_self_test, align 4
+  %400 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %399, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
   br label %dissect_manufacturer_specific_pid.exit
 
-315:                                              ; preds = %112
-  %316 = tail call fastcc i32 @dissect_rdm_pd_background_queued_status_policy(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+401:                                              ; preds = %154
+  %402 = tail call fastcc i32 @dissect_rdm_pd_background_queued_status_policy(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
-317:                                              ; preds = %112
-  %318 = tail call fastcc i32 @dissect_rdm_pd_background_queued_status_policy_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+403:                                              ; preds = %154
+  %404 = tail call fastcc i32 @dissect_rdm_pd_background_queued_status_policy_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
-319:                                              ; preds = %112
-  %320 = tail call fastcc i32 @dissect_rdm_pd_endpoint_list(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+405:                                              ; preds = %154
+  %406 = tail call fastcc i32 @dissect_rdm_pd_endpoint_list(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
-321:                                              ; preds = %112
-  %322 = tail call fastcc i32 @dissect_rdm_pd_search_domain(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+407:                                              ; preds = %154
+  %408 = tail call fastcc i32 @dissect_rdm_pd_search_domain(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
-323:                                              ; preds = %112
-  %324 = tail call fastcc i32 @dissect_rdm_pd_endpoint_to_universe(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+409:                                              ; preds = %154
+  %410 = tail call fastcc i32 @dissect_rdm_pd_endpoint_to_universe(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
-325:                                              ; preds = %112
-  %326 = tail call fastcc i32 @dissect_rdm_pd_rdm_traffic_enable(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+411:                                              ; preds = %154
+  %412 = tail call fastcc i32 @dissect_rdm_pd_rdm_traffic_enable(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
-327:                                              ; preds = %112
-  %328 = tail call fastcc i32 @dissect_rdm_pd_endpoint_mode(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+413:                                              ; preds = %154
+  %414 = tail call fastcc i32 @dissect_rdm_pd_endpoint_mode(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
-329:                                              ; preds = %112
-  %330 = tail call fastcc i32 @dissect_rdm_pd_endpoint_label(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+415:                                              ; preds = %154
+  %416 = tail call fastcc i32 @dissect_rdm_pd_endpoint_label(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
-331:                                              ; preds = %112
-  %332 = tail call fastcc i32 @dissect_rdm_pd_discovery_state(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+417:                                              ; preds = %154
+  %418 = tail call fastcc i32 @dissect_rdm_pd_discovery_state(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
-333:                                              ; preds = %112
-  %334 = tail call fastcc i32 @dissect_rdm_pd_endpoint_timing(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+419:                                              ; preds = %154
+  %420 = tail call fastcc i32 @dissect_rdm_pd_endpoint_timing(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
-335:                                              ; preds = %112
-  %336 = tail call fastcc i32 @dissect_rdm_pd_endpoint_timing_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+421:                                              ; preds = %154
+  %422 = tail call fastcc i32 @dissect_rdm_pd_endpoint_timing_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
-337:                                              ; preds = %112
-  %338 = tail call fastcc i32 @dissect_rdm_pd_binding_control_fields(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+423:                                              ; preds = %154
+  %424 = tail call fastcc i32 @dissect_rdm_pd_binding_control_fields(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
-339:                                              ; preds = %112
-  %340 = tail call fastcc i32 @dissect_rdm_pd_identify_endpoint(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+425:                                              ; preds = %154
+  %426 = tail call fastcc i32 @dissect_rdm_pd_identify_endpoint(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
-341:                                              ; preds = %112
-  %342 = tail call fastcc i32 @dissect_rdm_pd_background_discovery(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+427:                                              ; preds = %154
+  %428 = tail call fastcc i32 @dissect_rdm_pd_background_discovery(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
-343:                                              ; preds = %112
-  %344 = tail call fastcc i32 @dissect_rdm_pd_endpoint_responder_list_change(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+429:                                              ; preds = %154
+  %430 = tail call fastcc i32 @dissect_rdm_pd_endpoint_responder_list_change(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
-345:                                              ; preds = %112
-  %346 = tail call fastcc i32 @dissect_rdm_pd_endpoint_responders(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+431:                                              ; preds = %154
+  %432 = tail call fastcc i32 @dissect_rdm_pd_endpoint_responders(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
-347:                                              ; preds = %112
-  %348 = tail call fastcc i32 @dissect_rdm_pd_tcp_comms_status(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
+433:                                              ; preds = %154
+  %434 = tail call fastcc i32 @dissect_rdm_pd_tcp_comms_status(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %4)
   br label %dissect_manufacturer_specific_pid.exit
 
-349:                                              ; preds = %112
-  %cond.i536 = icmp eq i8 %2, 33
-  br i1 %cond.i536, label %350, label %dissect_manufacturer_specific_pid.exit
+435:                                              ; preds = %154
+  %cond.i559 = icmp eq i8 %2, 33
+  br i1 %cond.i559, label %436, label %dissect_manufacturer_specific_pid.exit
 
-350:                                              ; preds = %349
-  %351 = load i32, ptr @hf_rdm_pd_endpoint_list_change_change_number, align 4
-  %352 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %351, ptr noundef %0, i32 noundef 23, i32 noundef 4, i32 noundef 0) #2
+436:                                              ; preds = %435
+  %437 = load i32, ptr @hf_rdm_pd_endpoint_list_change_change_number, align 4
+  %438 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %437, ptr noundef %0, i32 noundef 23, i32 noundef 4, i32 noundef 0) #2
   br label %dissect_manufacturer_specific_pid.exit
 
-353:                                              ; preds = %112
-  %354 = tail call fastcc i32 @dissect_rdm_pd_component_scope(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+439:                                              ; preds = %154
+  %440 = tail call fastcc i32 @dissect_rdm_pd_component_scope(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
-355:                                              ; preds = %112
-  %356 = tail call fastcc i32 @dissect_rdm_pd_broker_status(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
+441:                                              ; preds = %154
+  %442 = tail call fastcc i32 @dissect_rdm_pd_broker_status(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2)
   br label %dissect_manufacturer_specific_pid.exit
 
-357:                                              ; preds = %112
-  %358 = load i32, ptr @hf_rdm_parameter_data_raw, align 4
-  %359 = zext i8 %4 to i32
-  %360 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %358, ptr noundef %0, i32 noundef 23, i32 noundef %359, i32 noundef 0) #2
-  %361 = add nuw nsw i32 %359, 23
+443:                                              ; preds = %154
+  %444 = load i32, ptr @hf_rdm_parameter_data_raw, align 4
+  %445 = zext i8 %4 to i32
+  %446 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %444, ptr noundef %0, i32 noundef 23, i32 noundef %445, i32 noundef 0) #2
+  %447 = add nuw nsw i32 %445, 23
   br label %dissect_manufacturer_specific_pid.exit
 
-dissect_manufacturer_specific_pid.exit:           ; preds = %350, %349, %292, %291, %278, %277, %274, %273, %270, %269, %188, %187, %184, %183, %178, %177, %170, %169, %112, %140, %139, %124, %123, %116, %115, %107, %102, %100, %98, %96, %94, %92, %90, %88, %86, %84, %82, %80, %78, %76, %74, %72, %70, %68, %66, %64, %62, %60, %58, %56, %54, %52, %50, %48, %46, %44, %42, %40, %38, %36, %34, %32, %30, %28, %26, %24, %22, %20, %18, %16, %14, %12, %10, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %113, %119, %121, %129, %131, %133, %135, %137, %145, %147, %149, %151, %153, %155, %157, %159, %161, %163, %165, %167, %173, %175, %193, %195, %197, %199, %201, %203, %205, %207, %209, %211, %213, %215, %217, %219, %221, %223, %225, %227, %229, %231, %233, %235, %237, %239, %241, %243, %245, %247, %249, %251, %253, %255, %257, %259, %261, %263, %265, %267, %281, %283, %285, %287, %289, %295, %297, %299, %301, %303, %305, %307, %309, %311, %313, %315, %317, %319, %321, %323, %325, %327, %329, %331, %333, %335, %337, %339, %341, %343, %345, %347, %353, %355, %357
-  %.0 = phi i32 [ %361, %357 ], [ %356, %355 ], [ %354, %353 ], [ %348, %347 ], [ %346, %345 ], [ %344, %343 ], [ %342, %341 ], [ %340, %339 ], [ %338, %337 ], [ %336, %335 ], [ %334, %333 ], [ %332, %331 ], [ %330, %329 ], [ %328, %327 ], [ %326, %325 ], [ %324, %323 ], [ %322, %321 ], [ %320, %319 ], [ %318, %317 ], [ %316, %315 ], [ %314, %313 ], [ %312, %311 ], [ %310, %309 ], [ %308, %307 ], [ %306, %305 ], [ %304, %303 ], [ %302, %301 ], [ %300, %299 ], [ %298, %297 ], [ %296, %295 ], [ %290, %289 ], [ %288, %287 ], [ %286, %285 ], [ %284, %283 ], [ %282, %281 ], [ %268, %267 ], [ %266, %265 ], [ %264, %263 ], [ %262, %261 ], [ %260, %259 ], [ %258, %257 ], [ %256, %255 ], [ %254, %253 ], [ %252, %251 ], [ %250, %249 ], [ %248, %247 ], [ %246, %245 ], [ %244, %243 ], [ %242, %241 ], [ %240, %239 ], [ %238, %237 ], [ %236, %235 ], [ %234, %233 ], [ %232, %231 ], [ %230, %229 ], [ %228, %227 ], [ %226, %225 ], [ %224, %223 ], [ %222, %221 ], [ %220, %219 ], [ %218, %217 ], [ %216, %215 ], [ %214, %213 ], [ %212, %211 ], [ %210, %209 ], [ %208, %207 ], [ %206, %205 ], [ %204, %203 ], [ %202, %201 ], [ %200, %199 ], [ %198, %197 ], [ %196, %195 ], [ %194, %193 ], [ %176, %175 ], [ %174, %173 ], [ %168, %167 ], [ %166, %165 ], [ %164, %163 ], [ %162, %161 ], [ %160, %159 ], [ %158, %157 ], [ %156, %155 ], [ %154, %153 ], [ %152, %151 ], [ %150, %149 ], [ %148, %147 ], [ %146, %145 ], [ %138, %137 ], [ %136, %135 ], [ %134, %133 ], [ %132, %131 ], [ %130, %129 ], [ %122, %121 ], [ %120, %119 ], [ %114, %113 ], [ %111, %107 ], [ %106, %102 ], [ %101, %100 ], [ %99, %98 ], [ %97, %96 ], [ %95, %94 ], [ %93, %92 ], [ %91, %90 ], [ %89, %88 ], [ %87, %86 ], [ 23, %9 ], [ 23, %9 ], [ 23, %9 ], [ 23, %9 ], [ 23, %9 ], [ 23, %9 ], [ 23, %9 ], [ 23, %9 ], [ %85, %84 ], [ %83, %82 ], [ %81, %80 ], [ %79, %78 ], [ %77, %76 ], [ %75, %74 ], [ %73, %72 ], [ %71, %70 ], [ %69, %68 ], [ %67, %66 ], [ %65, %64 ], [ %63, %62 ], [ %61, %60 ], [ %59, %58 ], [ %57, %56 ], [ %55, %54 ], [ %53, %52 ], [ %51, %50 ], [ %49, %48 ], [ %47, %46 ], [ %45, %44 ], [ %43, %42 ], [ %41, %40 ], [ %39, %38 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ 23, %9 ], [ 23, %9 ], [ 23, %9 ], [ 24, %116 ], [ 23, %115 ], [ %128, %124 ], [ 23, %123 ], [ %144, %140 ], [ 23, %139 ], [ 23, %112 ], [ 24, %170 ], [ 23, %169 ], [ %182, %178 ], [ 23, %177 ], [ 27, %184 ], [ 23, %183 ], [ %192, %188 ], [ 23, %187 ], [ 27, %270 ], [ 23, %269 ], [ 27, %274 ], [ 23, %273 ], [ 27, %278 ], [ 23, %277 ], [ 24, %292 ], [ 23, %291 ], [ 27, %350 ], [ 23, %349 ]
+dissect_manufacturer_specific_pid.exit:           ; preds = %436, %435, %398, %397, %394, %393, %386, %385, %.sink.split.i554, %375, %372, %371, %368, %367, %.sink.split.i, %363, %352, %351, %348, %347, %344, %343, %318, %317, %314, %313, %310, %309, %306, %305, %302, %301, %298, %297, %294, %293, %290, %289, %286, %285, %270, %269, %242, %241, %238, %237, %232, %231, %228, %227, %222, %221, %212, %211, %154, %190, %189, %184, %183, %180, %179, %176, %175, %168, %167, %162, %161, %158, %157, %149, %144, %142, %140, %137, %136, %133, %132, %129, %128, %125, %124, %122, %119, %118, %116, %114, %112, %110, %107, %106, %104, %101, %100, %98, %95, %94, %92, %90, %88, %86, %84, %82, %80, %78, %76, %74, %72, %70, %67, %66, %63, %62, %59, %58, %55, %54, %51, %50, %47, %46, %44, %41, %40, %37, %36, %34, %31, %30, %27, %26, %24, %21, %20, %17, %16, %14, %11, %10, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %155, %165, %173, %187, %195, %197, %199, %201, %203, %205, %207, %209, %215, %217, %219, %225, %247, %249, %251, %253, %255, %257, %259, %261, %263, %265, %267, %273, %275, %277, %279, %281, %283, %321, %323, %325, %327, %329, %331, %333, %335, %337, %339, %341, %355, %357, %359, %361, %379, %381, %383, %389, %391, %401, %403, %405, %407, %409, %411, %413, %415, %417, %419, %421, %423, %425, %427, %429, %431, %433, %439, %441, %443
+  %.0 = phi i32 [ %447, %443 ], [ %442, %441 ], [ %440, %439 ], [ %434, %433 ], [ %432, %431 ], [ %430, %429 ], [ %428, %427 ], [ %426, %425 ], [ %424, %423 ], [ %422, %421 ], [ %420, %419 ], [ %418, %417 ], [ %416, %415 ], [ %414, %413 ], [ %412, %411 ], [ %410, %409 ], [ %408, %407 ], [ %406, %405 ], [ %404, %403 ], [ %402, %401 ], [ %392, %391 ], [ %390, %389 ], [ %384, %383 ], [ %382, %381 ], [ %380, %379 ], [ %362, %361 ], [ %360, %359 ], [ %358, %357 ], [ %356, %355 ], [ %342, %341 ], [ %340, %339 ], [ %338, %337 ], [ %336, %335 ], [ %334, %333 ], [ %332, %331 ], [ %330, %329 ], [ %328, %327 ], [ %326, %325 ], [ %324, %323 ], [ %322, %321 ], [ %284, %283 ], [ %282, %281 ], [ %280, %279 ], [ %278, %277 ], [ %276, %275 ], [ %274, %273 ], [ %268, %267 ], [ %266, %265 ], [ %264, %263 ], [ %262, %261 ], [ %260, %259 ], [ %258, %257 ], [ %256, %255 ], [ %254, %253 ], [ %252, %251 ], [ %250, %249 ], [ %248, %247 ], [ %226, %225 ], [ %220, %219 ], [ %218, %217 ], [ %216, %215 ], [ %210, %209 ], [ %208, %207 ], [ %206, %205 ], [ %204, %203 ], [ %202, %201 ], [ %200, %199 ], [ %198, %197 ], [ %196, %195 ], [ %188, %187 ], [ %174, %173 ], [ %166, %165 ], [ %156, %155 ], [ %153, %149 ], [ %148, %144 ], [ %143, %142 ], [ %141, %140 ], [ %123, %122 ], [ 23, %9 ], [ 23, %9 ], [ 23, %9 ], [ 23, %9 ], [ 23, %9 ], [ 23, %9 ], [ 23, %9 ], [ 23, %9 ], [ %117, %116 ], [ %115, %114 ], [ %113, %112 ], [ %111, %110 ], [ %105, %104 ], [ %99, %98 ], [ %93, %92 ], [ %91, %90 ], [ %89, %88 ], [ %87, %86 ], [ %85, %84 ], [ %83, %82 ], [ %81, %80 ], [ %79, %78 ], [ %77, %76 ], [ %75, %74 ], [ %73, %72 ], [ %71, %70 ], [ %45, %44 ], [ %35, %34 ], [ %25, %24 ], [ %15, %14 ], [ 23, %10 ], [ 24, %11 ], [ 23, %16 ], [ 24, %17 ], [ 23, %20 ], [ 24, %21 ], [ 23, %26 ], [ 24, %27 ], [ 23, %30 ], [ 24, %31 ], [ 23, %36 ], [ 25, %37 ], [ 23, %40 ], [ 24, %41 ], [ 23, %46 ], [ 24, %47 ], [ 23, %50 ], [ 24, %51 ], [ 23, %54 ], [ 24, %55 ], [ 23, %58 ], [ 24, %59 ], [ 23, %9 ], [ 23, %62 ], [ 24, %63 ], [ 23, %66 ], [ 24, %67 ], [ 23, %94 ], [ 25, %95 ], [ 23, %100 ], [ 24, %101 ], [ 23, %106 ], [ 24, %107 ], [ 23, %118 ], [ 24, %119 ], [ 23, %124 ], [ 24, %125 ], [ 23, %128 ], [ 25, %129 ], [ 23, %132 ], [ 24, %133 ], [ 23, %9 ], [ 23, %136 ], [ 24, %137 ], [ 23, %9 ], [ 24, %158 ], [ 23, %157 ], [ 23, %161 ], [ 25, %162 ], [ %172, %168 ], [ 23, %167 ], [ 23, %175 ], [ 27, %176 ], [ 23, %179 ], [ 27, %180 ], [ 23, %183 ], [ 27, %184 ], [ %194, %190 ], [ 23, %189 ], [ 23, %154 ], [ 23, %211 ], [ 24, %212 ], [ 24, %222 ], [ 23, %221 ], [ 23, %227 ], [ 25, %228 ], [ %236, %232 ], [ 23, %231 ], [ 27, %238 ], [ 23, %237 ], [ %246, %242 ], [ 23, %241 ], [ 23, %269 ], [ 25, %270 ], [ 23, %285 ], [ 24, %286 ], [ 23, %289 ], [ 24, %290 ], [ 23, %293 ], [ 27, %294 ], [ 23, %297 ], [ 24, %298 ], [ 23, %301 ], [ 24, %302 ], [ 23, %305 ], [ 24, %306 ], [ 23, %309 ], [ 24, %310 ], [ 23, %313 ], [ 24, %314 ], [ 23, %317 ], [ 24, %318 ], [ 27, %344 ], [ 23, %343 ], [ 27, %348 ], [ 23, %347 ], [ 27, %352 ], [ 23, %351 ], [ 23, %363 ], [ 24, %.sink.split.i ], [ 24, %368 ], [ 23, %367 ], [ 23, %371 ], [ 24, %372 ], [ 23, %375 ], [ 24, %.sink.split.i554 ], [ 23, %385 ], [ 24, %386 ], [ 23, %393 ], [ 24, %394 ], [ 23, %397 ], [ 24, %398 ], [ 27, %436 ], [ 23, %435 ]
   ret i32 %.0
 }
 
@@ -2696,23 +3005,6 @@ define internal fastcc i32 @dissect_rdm_pd_sensor_value(ptr noundef %0, ptr noun
 22:                                               ; preds = %13, %8, %18, %5, %4
   %.1 = phi i32 [ 23, %4 ], [ 26, %8 ], [ %21, %18 ], [ 30, %13 ], [ 24, %5 ]
   ret i32 %.1
-}
-
-; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_dmx_start_address(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
-  switch i8 %2, label %7 [
-    i8 48, label %4
-    i8 33, label %4
-  ]
-
-4:                                                ; preds = %3, %3
-  %5 = load i32, ptr @hf_rdm_pd_dmx_start_address, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 23, i32 noundef 2, i32 noundef 0) #2
-  br label %7
-
-7:                                                ; preds = %4, %3
-  %.0 = phi i32 [ 23, %3 ], [ 25, %4 ]
-  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2767,57 +3059,6 @@ define internal fastcc i32 @dissect_rdm_pd_device_label(ptr noundef %0, ptr noun
 
 10:                                               ; preds = %5, %4
   %.0 = phi i32 [ 23, %4 ], [ %9, %5 ]
-  ret i32 %.0
-}
-
-; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_device_hours(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
-  switch i8 %2, label %7 [
-    i8 48, label %4
-    i8 33, label %4
-  ]
-
-4:                                                ; preds = %3, %3
-  %5 = load i32, ptr @hf_rdm_pd_device_hours, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 23, i32 noundef 4, i32 noundef 0) #2
-  br label %7
-
-7:                                                ; preds = %4, %3
-  %.0 = phi i32 [ 23, %3 ], [ 27, %4 ]
-  ret i32 %.0
-}
-
-; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_lamp_hours(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
-  switch i8 %2, label %7 [
-    i8 48, label %4
-    i8 33, label %4
-  ]
-
-4:                                                ; preds = %3, %3
-  %5 = load i32, ptr @hf_rdm_pd_lamp_hours, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 23, i32 noundef 4, i32 noundef 0) #2
-  br label %7
-
-7:                                                ; preds = %4, %3
-  %.0 = phi i32 [ 23, %3 ], [ 27, %4 ]
-  ret i32 %.0
-}
-
-; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_lamp_strikes(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
-  switch i8 %2, label %7 [
-    i8 48, label %4
-    i8 33, label %4
-  ]
-
-4:                                                ; preds = %3, %3
-  %5 = load i32, ptr @hf_rdm_pd_lamp_strikes, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 23, i32 noundef 4, i32 noundef 0) #2
-  br label %7
-
-7:                                                ; preds = %4, %3
-  %.0 = phi i32 [ 23, %3 ], [ 27, %4 ]
   ret i32 %.0
 }
 
@@ -3049,23 +3290,6 @@ define internal fastcc i32 @dissect_rdm_pd_status_id_description(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_sub_device_status_report_threshold(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
-  switch i8 %2, label %7 [
-    i8 48, label %4
-    i8 33, label %4
-  ]
-
-4:                                                ; preds = %3, %3
-  %5 = load i32, ptr @hf_rdm_pd_sub_device_status_report_threshold_status_type, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
-  br label %7
-
-7:                                                ; preds = %4, %3
-  %.0 = phi i32 [ 23, %3 ], [ 24, %4 ]
-  ret i32 %.0
-}
-
-; Function Attrs: nounwind uwtable
 define internal fastcc i32 @dissect_rdm_pd_supported_parameters(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i16 noundef zeroext %4) unnamed_addr #1 {
   %cond = icmp eq i8 %2, 33
   %6 = icmp ugt i8 %3, 1
@@ -3205,23 +3429,6 @@ define internal fastcc i32 @dissect_rdm_pd_language_capabilities(ptr noundef %0,
 .loopexit:                                        ; preds = %.preheader, %4
   %.1 = phi i32 [ 23, %4 ], [ %8, %.preheader ]
   ret i32 %.1
-}
-
-; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_language(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
-  switch i8 %2, label %7 [
-    i8 48, label %4
-    i8 33, label %4
-  ]
-
-4:                                                ; preds = %3, %3
-  %5 = load i32, ptr @hf_rdm_pd_language_code, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 23, i32 noundef 2, i32 noundef 0) #2
-  br label %7
-
-7:                                                ; preds = %4, %3
-  %.0 = phi i32 [ 23, %3 ], [ 25, %4 ]
-  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3520,23 +3727,6 @@ define internal fastcc noundef i32 @dissect_rdm_pd_minimum_level(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_maximum_level(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
-  switch i8 %2, label %7 [
-    i8 33, label %4
-    i8 48, label %4
-  ]
-
-4:                                                ; preds = %3, %3
-  %5 = load i32, ptr @hf_rdm_pd_maximum_level_level, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 23, i32 noundef 2, i32 noundef 0) #2
-  br label %7
-
-7:                                                ; preds = %4, %3
-  %.0 = phi i32 [ 23, %3 ], [ 25, %4 ]
-  ret i32 %.0
-}
-
-; Function Attrs: nounwind uwtable
 define internal fastcc noundef i32 @dissect_rdm_pd_curve(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %9 [
     i8 33, label %4
@@ -3689,159 +3879,6 @@ define internal fastcc i32 @dissect_rdm_pd_modulation_frequency_description(ptr 
 
 16:                                               ; preds = %8, %5, %4
   %.0 = phi i32 [ 23, %4 ], [ %15, %8 ], [ 24, %5 ]
-  ret i32 %.0
-}
-
-; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_lamp_state(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
-  switch i8 %2, label %7 [
-    i8 48, label %4
-    i8 33, label %4
-  ]
-
-4:                                                ; preds = %3, %3
-  %5 = load i32, ptr @hf_rdm_pd_lamp_state, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
-  br label %7
-
-7:                                                ; preds = %4, %3
-  %.0 = phi i32 [ 23, %3 ], [ 24, %4 ]
-  ret i32 %.0
-}
-
-; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_lamp_on_mode(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
-  switch i8 %2, label %7 [
-    i8 48, label %4
-    i8 33, label %4
-  ]
-
-4:                                                ; preds = %3, %3
-  %5 = load i32, ptr @hf_rdm_pd_lamp_on_mode, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
-  br label %7
-
-7:                                                ; preds = %4, %3
-  %.0 = phi i32 [ 23, %3 ], [ 24, %4 ]
-  ret i32 %.0
-}
-
-; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_device_power_cycles(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
-  switch i8 %2, label %7 [
-    i8 48, label %4
-    i8 33, label %4
-  ]
-
-4:                                                ; preds = %3, %3
-  %5 = load i32, ptr @hf_rdm_pd_device_power_cycles, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 23, i32 noundef 4, i32 noundef 0) #2
-  br label %7
-
-7:                                                ; preds = %4, %3
-  %.0 = phi i32 [ 23, %3 ], [ 27, %4 ]
-  ret i32 %.0
-}
-
-; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_burn_in(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
-  switch i8 %2, label %7 [
-    i8 33, label %4
-    i8 48, label %4
-  ]
-
-4:                                                ; preds = %3, %3
-  %5 = load i32, ptr @hf_rdm_pd_burn_in, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
-  br label %7
-
-7:                                                ; preds = %4, %3
-  %.0 = phi i32 [ 23, %3 ], [ 24, %4 ]
-  ret i32 %.0
-}
-
-; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_display_invert(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
-  switch i8 %2, label %7 [
-    i8 48, label %4
-    i8 33, label %4
-  ]
-
-4:                                                ; preds = %3, %3
-  %5 = load i32, ptr @hf_rdm_pd_display_invert, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
-  br label %7
-
-7:                                                ; preds = %4, %3
-  %.0 = phi i32 [ 23, %3 ], [ 24, %4 ]
-  ret i32 %.0
-}
-
-; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_display_level(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
-  switch i8 %2, label %7 [
-    i8 48, label %4
-    i8 33, label %4
-  ]
-
-4:                                                ; preds = %3, %3
-  %5 = load i32, ptr @hf_rdm_pd_display_level, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
-  br label %7
-
-7:                                                ; preds = %4, %3
-  %.0 = phi i32 [ 23, %3 ], [ 24, %4 ]
-  ret i32 %.0
-}
-
-; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_pan_invert(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
-  switch i8 %2, label %7 [
-    i8 48, label %4
-    i8 33, label %4
-  ]
-
-4:                                                ; preds = %3, %3
-  %5 = load i32, ptr @hf_rdm_pd_pan_invert, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
-  br label %7
-
-7:                                                ; preds = %4, %3
-  %.0 = phi i32 [ 23, %3 ], [ 24, %4 ]
-  ret i32 %.0
-}
-
-; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_tilt_invert(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
-  switch i8 %2, label %7 [
-    i8 48, label %4
-    i8 33, label %4
-  ]
-
-4:                                                ; preds = %3, %3
-  %5 = load i32, ptr @hf_rdm_pd_tilt_invert, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
-  br label %7
-
-7:                                                ; preds = %4, %3
-  %.0 = phi i32 [ 23, %3 ], [ 24, %4 ]
-  ret i32 %.0
-}
-
-; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_pan_tilt_swap(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
-  switch i8 %2, label %7 [
-    i8 48, label %4
-    i8 33, label %4
-  ]
-
-4:                                                ; preds = %3, %3
-  %5 = load i32, ptr @hf_rdm_pd_tilt_swap, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
-  br label %7
-
-7:                                                ; preds = %4, %3
-  %.0 = phi i32 [ 23, %3 ], [ 24, %4 ]
   ret i32 %.0
 }
 
@@ -4214,65 +4251,6 @@ define internal fastcc i32 @dissect_rdm_pd_dns_domain_name(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_identify_device(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
-  switch i8 %2, label %7 [
-    i8 48, label %.sink.split
-    i8 33, label %4
-  ]
-
-4:                                                ; preds = %3
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %3, %4
-  %hf_rdm_pd_identify_device_state.sink = phi ptr [ @hf_rdm_pd_identify_device_state, %4 ], [ @hf_rdm_pd_identify_device, %3 ]
-  %5 = load i32, ptr %hf_rdm_pd_identify_device_state.sink, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
-  br label %7
-
-7:                                                ; preds = %.sink.split, %3
-  %.0 = phi i32 [ 23, %3 ], [ 24, %.sink.split ]
-  ret i32 %.0
-}
-
-; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_power_state(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
-  switch i8 %2, label %7 [
-    i8 48, label %4
-    i8 33, label %4
-  ]
-
-4:                                                ; preds = %3, %3
-  %5 = load i32, ptr @hf_rdm_pd_power_state, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
-  br label %7
-
-7:                                                ; preds = %4, %3
-  %.0 = phi i32 [ 23, %3 ], [ 24, %4 ]
-  ret i32 %.0
-}
-
-; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_perform_selftest(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
-  switch i8 %2, label %7 [
-    i8 48, label %.sink.split
-    i8 33, label %4
-  ]
-
-4:                                                ; preds = %3
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %3, %4
-  %hf_rdm_pd_selftest_state.sink = phi ptr [ @hf_rdm_pd_selftest_state, %4 ], [ @hf_rdm_pd_selftest_nr, %3 ]
-  %5 = load i32, ptr %hf_rdm_pd_selftest_state.sink, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
-  br label %7
-
-7:                                                ; preds = %.sink.split, %3
-  %.0 = phi i32 [ 23, %3 ], [ 24, %.sink.split ]
-  ret i32 %.0
-}
-
-; Function Attrs: nounwind uwtable
 define internal fastcc i32 @dissect_rdm_pd_self_test_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %16 [
     i8 32, label %5
@@ -4336,23 +4314,6 @@ define internal fastcc noundef i32 @dissect_rdm_pd_preset_playback(ptr noundef %
 
 9:                                                ; preds = %4, %3
   %.0 = phi i32 [ 23, %3 ], [ 26, %4 ]
-  ret i32 %.0
-}
-
-; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_identify_mode(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
-  switch i8 %2, label %7 [
-    i8 33, label %4
-    i8 48, label %4
-  ]
-
-4:                                                ; preds = %3, %3
-  %5 = load i32, ptr @hf_rdm_pd_identify_mode, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
-  br label %7
-
-7:                                                ; preds = %4, %3
-  %.0 = phi i32 [ 23, %3 ], [ 24, %4 ]
   ret i32 %.0
 }
 
@@ -4448,40 +4409,6 @@ define internal fastcc noundef i32 @dissect_rdm_pd_preset_status(ptr noundef %0,
 
 29:                                               ; preds = %18, %7, %4, %3
   %.0 = phi i32 [ 23, %3 ], [ 32, %18 ], [ 32, %7 ], [ 25, %4 ]
-  ret i32 %.0
-}
-
-; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_preset_mergemode(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
-  switch i8 %2, label %7 [
-    i8 33, label %4
-    i8 48, label %4
-  ]
-
-4:                                                ; preds = %3, %3
-  %5 = load i32, ptr @hf_rdm_pd_preset_mergemode, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
-  br label %7
-
-7:                                                ; preds = %4, %3
-  %.0 = phi i32 [ 23, %3 ], [ 24, %4 ]
-  ret i32 %.0
-}
-
-; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rdm_pd_power_on_self_test(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
-  switch i8 %2, label %7 [
-    i8 33, label %4
-    i8 48, label %4
-  ]
-
-4:                                                ; preds = %3, %3
-  %5 = load i32, ptr @hf_rdm_pd_power_on_self_test, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
-  br label %7
-
-7:                                                ; preds = %4, %3
-  %.0 = phi i32 [ 23, %3 ], [ 24, %4 ]
   ret i32 %.0
 }
 
@@ -5035,23 +4962,6 @@ define internal fastcc noundef i32 @dissect_rdm_pd_broker_status(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_etc_pd_led_curve(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
-  switch i8 %2, label %7 [
-    i8 33, label %4
-    i8 48, label %4
-  ]
-
-4:                                                ; preds = %3, %3
-  %5 = load i32, ptr @hf_etc_pd_led_curve, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
-  br label %7
-
-7:                                                ; preds = %4, %3
-  %.0 = phi i32 [ 23, %3 ], [ 24, %4 ]
-  ret i32 %.0
-}
-
-; Function Attrs: nounwind uwtable
 define internal fastcc i32 @dissect_etc_pd_led_curve_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %16 [
     i8 32, label %5
@@ -5075,40 +4985,6 @@ define internal fastcc i32 @dissect_etc_pd_led_curve_description(ptr noundef %0,
 
 16:                                               ; preds = %8, %5, %4
   %.0 = phi i32 [ 23, %4 ], [ %15, %8 ], [ 24, %5 ]
-  ret i32 %.0
-}
-
-; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_etc_pd_led_strobe(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
-  switch i8 %2, label %7 [
-    i8 33, label %4
-    i8 48, label %4
-  ]
-
-4:                                                ; preds = %3, %3
-  %5 = load i32, ptr @hf_etc_pd_led_strobe, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
-  br label %7
-
-7:                                                ; preds = %4, %3
-  %.0 = phi i32 [ 23, %3 ], [ 24, %4 ]
-  ret i32 %.0
-}
-
-; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_etc_pd_led_output_mode(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
-  switch i8 %2, label %7 [
-    i8 33, label %4
-    i8 48, label %4
-  ]
-
-4:                                                ; preds = %3, %3
-  %5 = load i32, ptr @hf_etc_pd_led_output_mode, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
-  br label %7
-
-7:                                                ; preds = %4, %3
-  %.0 = phi i32 [ 23, %3 ], [ 24, %4 ]
   ret i32 %.0
 }
 
@@ -5140,40 +5016,6 @@ define internal fastcc i32 @dissect_etc_pd_led_output_mode_description(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_etc_pd_led_red_shift(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
-  switch i8 %2, label %7 [
-    i8 33, label %4
-    i8 48, label %4
-  ]
-
-4:                                                ; preds = %3, %3
-  %5 = load i32, ptr @hf_etc_pd_led_red_shift, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
-  br label %7
-
-7:                                                ; preds = %4, %3
-  %.0 = phi i32 [ 23, %3 ], [ 24, %4 ]
-  ret i32 %.0
-}
-
-; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_etc_pd_led_white_point(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
-  switch i8 %2, label %7 [
-    i8 33, label %4
-    i8 48, label %4
-  ]
-
-4:                                                ; preds = %3, %3
-  %5 = load i32, ptr @hf_etc_pd_led_white_point, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
-  br label %7
-
-7:                                                ; preds = %4, %3
-  %.0 = phi i32 [ 23, %3 ], [ 24, %4 ]
-  ret i32 %.0
-}
-
-; Function Attrs: nounwind uwtable
 define internal fastcc i32 @dissect_etc_pd_led_white_point_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %16 [
     i8 32, label %5
@@ -5201,40 +5043,6 @@ define internal fastcc i32 @dissect_etc_pd_led_white_point_description(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_etc_pd_led_frequency(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
-  switch i8 %2, label %7 [
-    i8 33, label %4
-    i8 48, label %4
-  ]
-
-4:                                                ; preds = %3, %3
-  %5 = load i32, ptr @hf_etc_pd_led_frequency, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 23, i32 noundef 2, i32 noundef 0) #2
-  br label %7
-
-7:                                                ; preds = %4, %3
-  %.0 = phi i32 [ 23, %3 ], [ 25, %4 ]
-  ret i32 %.0
-}
-
-; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_etc_pd_dmx_data_loss_behavior(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
-  switch i8 %2, label %7 [
-    i8 33, label %4
-    i8 48, label %4
-  ]
-
-4:                                                ; preds = %3, %3
-  %5 = load i32, ptr @hf_etc_pd_dmx_data_loss_behavior, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
-  br label %7
-
-7:                                                ; preds = %4, %3
-  %.0 = phi i32 [ 23, %3 ], [ 24, %4 ]
-  ret i32 %.0
-}
-
-; Function Attrs: nounwind uwtable
 define internal fastcc i32 @dissect_etc_pd_dmx_data_loss_behavior_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %16 [
     i8 32, label %5
@@ -5258,108 +5066,6 @@ define internal fastcc i32 @dissect_etc_pd_dmx_data_loss_behavior_description(pt
 
 16:                                               ; preds = %8, %5, %4
   %.0 = phi i32 [ 23, %4 ], [ %15, %8 ], [ 24, %5 ]
-  ret i32 %.0
-}
-
-; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_etc_pd_led_plus_seven(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
-  switch i8 %2, label %7 [
-    i8 33, label %4
-    i8 48, label %4
-  ]
-
-4:                                                ; preds = %3, %3
-  %5 = load i32, ptr @hf_etc_pd_led_plus_seven, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
-  br label %7
-
-7:                                                ; preds = %4, %3
-  %.0 = phi i32 [ 23, %3 ], [ 24, %4 ]
-  ret i32 %.0
-}
-
-; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_etc_pd_backlight_brightness(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
-  switch i8 %2, label %7 [
-    i8 33, label %4
-    i8 48, label %4
-  ]
-
-4:                                                ; preds = %3, %3
-  %5 = load i32, ptr @hf_etc_pd_backlight_brightness, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
-  br label %7
-
-7:                                                ; preds = %4, %3
-  %.0 = phi i32 [ 23, %3 ], [ 24, %4 ]
-  ret i32 %.0
-}
-
-; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_etc_pd_backlight_timeout(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
-  switch i8 %2, label %7 [
-    i8 33, label %4
-    i8 48, label %4
-  ]
-
-4:                                                ; preds = %3, %3
-  %5 = load i32, ptr @hf_etc_pd_backlight_timeout, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
-  br label %7
-
-7:                                                ; preds = %4, %3
-  %.0 = phi i32 [ 23, %3 ], [ 24, %4 ]
-  ret i32 %.0
-}
-
-; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_etc_pd_status_indicators(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
-  switch i8 %2, label %7 [
-    i8 33, label %4
-    i8 48, label %4
-  ]
-
-4:                                                ; preds = %3, %3
-  %5 = load i32, ptr @hf_etc_pd_status_indicators, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
-  br label %7
-
-7:                                                ; preds = %4, %3
-  %.0 = phi i32 [ 23, %3 ], [ 24, %4 ]
-  ret i32 %.0
-}
-
-; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_etc_pd_overtemp_mode(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
-  switch i8 %2, label %7 [
-    i8 33, label %4
-    i8 48, label %4
-  ]
-
-4:                                                ; preds = %3, %3
-  %5 = load i32, ptr @hf_etc_pd_overtemp_mode, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
-  br label %7
-
-7:                                                ; preds = %4, %3
-  %.0 = phi i32 [ 23, %3 ], [ 24, %4 ]
-  ret i32 %.0
-}
-
-; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_etc_pd_simple_setup_mode(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
-  switch i8 %2, label %7 [
-    i8 33, label %4
-    i8 48, label %4
-  ]
-
-4:                                                ; preds = %3, %3
-  %5 = load i32, ptr @hf_etc_pd_simple_setup_mode, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
-  br label %7
-
-7:                                                ; preds = %4, %3
-  %.0 = phi i32 [ 23, %3 ], [ 24, %4 ]
   ret i32 %.0
 }
 
@@ -5680,23 +5386,6 @@ define internal fastcc noundef i32 @dissect_etc_pd_preset_config(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_etc_pd_sequence_playback(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
-  switch i8 %2, label %7 [
-    i8 33, label %4
-    i8 48, label %4
-  ]
-
-4:                                                ; preds = %3, %3
-  %5 = load i32, ptr @hf_etc_pd_sequence_playback_sequence_number, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 23, i32 noundef 2, i32 noundef 0) #2
-  br label %7
-
-7:                                                ; preds = %4, %3
-  %.0 = phi i32 [ 23, %3 ], [ 25, %4 ]
-  ret i32 %.0
-}
-
-; Function Attrs: nounwind uwtable
 define internal fastcc noundef i32 @dissect_etc_pd_sequence_config(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
   switch i8 %2, label %33 [
     i8 32, label %4
@@ -5756,23 +5445,6 @@ define internal fastcc noundef i32 @dissect_etc_pd_sequence_config(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_etc_pd_low_power_timeout(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
-  switch i8 %2, label %7 [
-    i8 33, label %4
-    i8 48, label %4
-  ]
-
-4:                                                ; preds = %3, %3
-  %5 = load i32, ptr @hf_etc_pd_low_power_timeout, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
-  br label %7
-
-7:                                                ; preds = %4, %3
-  %.0 = phi i32 [ 23, %3 ], [ 24, %4 ]
-  ret i32 %.0
-}
-
-; Function Attrs: nounwind uwtable
 define internal fastcc i32 @dissect_etc_pd_low_power_timeout_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %16 [
     i8 32, label %5
@@ -5796,23 +5468,6 @@ define internal fastcc i32 @dissect_etc_pd_low_power_timeout_description(ptr nou
 
 16:                                               ; preds = %8, %5, %4
   %.0 = phi i32 [ 23, %4 ], [ %15, %8 ], [ 24, %5 ]
-  ret i32 %.0
-}
-
-; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_etc_pd_led_enum_frequency(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
-  switch i8 %2, label %7 [
-    i8 33, label %4
-    i8 48, label %4
-  ]
-
-4:                                                ; preds = %3, %3
-  %5 = load i32, ptr @hf_etc_pd_led_enum_frequency, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
-  br label %7
-
-7:                                                ; preds = %4, %3
-  %.0 = phi i32 [ 23, %3 ], [ 24, %4 ]
   ret i32 %.0
 }
 
@@ -5947,23 +5602,6 @@ define internal fastcc i32 @dissect_etc_pd_supplementary_device_version(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_etc_pd_power_command(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
-  switch i8 %2, label %7 [
-    i8 33, label %4
-    i8 48, label %4
-  ]
-
-4:                                                ; preds = %3, %3
-  %5 = load i32, ptr @hf_etc_pd_power_command, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
-  br label %7
-
-7:                                                ; preds = %4, %3
-  %.0 = phi i32 [ 23, %3 ], [ 24, %4 ]
-  ret i32 %.0
-}
-
-; Function Attrs: nounwind uwtable
 define internal fastcc i32 @dissect_etc_pd_power_command_description(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #1 {
   switch i8 %2, label %16 [
     i8 32, label %5
@@ -5987,74 +5625,6 @@ define internal fastcc i32 @dissect_etc_pd_power_command_description(ptr noundef
 
 16:                                               ; preds = %8, %5, %4
   %.0 = phi i32 [ 23, %4 ], [ %15, %8 ], [ 24, %5 ]
-  ret i32 %.0
-}
-
-; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_etc_pd_dali_short_address(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
-  switch i8 %2, label %7 [
-    i8 33, label %4
-    i8 48, label %4
-  ]
-
-4:                                                ; preds = %3, %3
-  %5 = load i32, ptr @hf_etc_pd_dali_short_address, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
-  br label %7
-
-7:                                                ; preds = %4, %3
-  %.0 = phi i32 [ 23, %3 ], [ 24, %4 ]
-  ret i32 %.0
-}
-
-; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_etc_pd_dali_group_membership(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
-  switch i8 %2, label %7 [
-    i8 33, label %4
-    i8 48, label %4
-  ]
-
-4:                                                ; preds = %3, %3
-  %5 = load i32, ptr @hf_etc_pd_dali_group_membership, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 23, i32 noundef 2, i32 noundef 0) #2
-  br label %7
-
-7:                                                ; preds = %4, %3
-  %.0 = phi i32 [ 23, %3 ], [ 25, %4 ]
-  ret i32 %.0
-}
-
-; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_etc_pd_auto_bind(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
-  switch i8 %2, label %7 [
-    i8 33, label %4
-    i8 48, label %4
-  ]
-
-4:                                                ; preds = %3, %3
-  %5 = load i32, ptr @hf_etc_pd_auto_bind, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
-  br label %7
-
-7:                                                ; preds = %4, %3
-  %.0 = phi i32 [ 23, %3 ], [ 24, %4 ]
-  ret i32 %.0
-}
-
-; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_etc_pd_packet_delay(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #1 {
-  switch i8 %2, label %7 [
-    i8 33, label %4
-    i8 48, label %4
-  ]
-
-4:                                                ; preds = %3, %3
-  %5 = load i32, ptr @hf_etc_pd_packet_delay, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0) #2
-  br label %7
-
-7:                                                ; preds = %4, %3
-  %.0 = phi i32 [ 23, %3 ], [ 24, %4 ]
   ret i32 %.0
 }
 

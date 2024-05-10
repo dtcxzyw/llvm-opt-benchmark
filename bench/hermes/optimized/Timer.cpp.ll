@@ -130,7 +130,7 @@ $_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvh10TimerGr
 
 $_ZNK4llvh13format_objectIJidEE7snprintEPcj = comdat any
 
-$_ZN4llvh9StringMapINS_5TimerENS_15MallocAllocatorEED2Ev = comdat any
+$_ZN4llvh14StringMapEntryISt4pairIPNS_10TimerGroupENS_9StringMapINS_5TimerENS_15MallocAllocatorEEEEE7DestroyIS6_EEvRT_ = comdat any
 
 $_ZTVN4llvh2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE = comdat any
 
@@ -4676,14 +4676,15 @@ for.end.i:                                        ; preds = %for.cond.loopexit.i
 if.then.i.i:                                      ; preds = %for.end.i
   %7 = load i32, ptr %NumBuckets.i.i, align 8
   %cmp.not5.i.i = icmp eq i32 %7, 0
-  br i1 %cmp.not5.i.i, label %_ZN12_GLOBAL__N_112Name2PairMapD2Ev.exit, label %for.body.preheader.i.i
+  br i1 %cmp.not5.i.i, label %_ZN12_GLOBAL__N_112Name2PairMapD2Ev.exit, label %for.body.lr.ph.i.i
 
-for.body.preheader.i.i:                           ; preds = %if.then.i.i
+for.body.lr.ph.i.i:                               ; preds = %if.then.i.i
+  %Allocator.i.i = getelementptr inbounds i8, ptr %Ptr, i64 24
   %8 = zext i32 %7 to i64
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.preheader.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
+for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
   %9 = load ptr, ptr %Ptr, align 8
   %arrayidx.i.i = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv.i.i
   %10 = load ptr, ptr %arrayidx.i.i, align 8
@@ -4694,9 +4695,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   ]
 
 if.then4.i.i:                                     ; preds = %for.body.i.i
-  %second.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 16
-  tail call void @_ZN4llvh9StringMapINS_5TimerENS_15MallocAllocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %second.i.i.i.i.i) #21
-  tail call void @free(ptr noundef nonnull %10) #21
+  tail call void @_ZN4llvh14StringMapEntryISt4pairIPNS_10TimerGroupENS_9StringMapINS_5TimerENS_15MallocAllocatorEEEEE7DestroyIS6_EEvRT_(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 1 dereferenceable(1) %Allocator.i.i)
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.then4.i.i, %for.body.i.i, %for.body.i.i
@@ -4715,61 +4714,63 @@ delete.end:                                       ; preds = %_ZN12_GLOBAL__N_112
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN4llvh9StringMapINS_5TimerENS_15MallocAllocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #0 comdat align 2 {
+define linkonce_odr hidden void @_ZN4llvh14StringMapEntryISt4pairIPNS_10TimerGroupENS_9StringMapINS_5TimerENS_15MallocAllocatorEEEEE7DestroyIS6_EEvRT_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 1 dereferenceable(1) %Allocator) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %NumItems.i = getelementptr inbounds i8, ptr %this, i64 12
-  %0 = load i32, ptr %NumItems.i, align 4
-  %cmp.i = icmp eq i32 %0, 0
-  br i1 %cmp.i, label %if.end5, label %if.then
+  %second.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %NumItems.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 28
+  %0 = load i32, ptr %NumItems.i.i.i.i, align 4
+  %cmp.i.i.i.i = icmp eq i32 %0, 0
+  br i1 %cmp.i.i.i.i, label %_ZN4llvh14StringMapEntryISt4pairIPNS_10TimerGroupENS_9StringMapINS_5TimerENS_15MallocAllocatorEEEEED2Ev.exit, label %if.then.i.i.i
 
-if.then:                                          ; preds = %entry
-  %NumBuckets = getelementptr inbounds i8, ptr %this, i64 8
-  %1 = load i32, ptr %NumBuckets, align 8
-  %cmp.not5 = icmp eq i32 %1, 0
-  br i1 %cmp.not5, label %if.end5, label %for.body.preheader
+if.then.i.i.i:                                    ; preds = %entry
+  %NumBuckets.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %1 = load i32, ptr %NumBuckets.i.i.i, align 8
+  %cmp.not5.i.i.i = icmp eq i32 %1, 0
+  br i1 %cmp.not5.i.i.i, label %_ZN4llvh14StringMapEntryISt4pairIPNS_10TimerGroupENS_9StringMapINS_5TimerENS_15MallocAllocatorEEEEED2Ev.exit, label %for.body.preheader.i.i.i
 
-for.body.preheader:                               ; preds = %if.then
+for.body.preheader.i.i.i:                         ; preds = %if.then.i.i.i
   %2 = zext i32 %1 to i64
-  br label %for.body
+  br label %for.body.i.i.i
 
-for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
-  %3 = load ptr, ptr %this, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
-  %4 = load ptr, ptr %arrayidx, align 8
-  %magicptr = ptrtoint ptr %4 to i64
-  switch i64 %magicptr, label %if.then4 [
-    i64 0, label %for.inc
-    i64 -8, label %for.inc
+for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %for.body.preheader.i.i.i
+  %indvars.iv.i.i.i = phi i64 [ 0, %for.body.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %for.inc.i.i.i ]
+  %3 = load ptr, ptr %second.i.i, align 8
+  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv.i.i.i
+  %4 = load ptr, ptr %arrayidx.i.i.i, align 8
+  %magicptr.i.i.i = ptrtoint ptr %4 to i64
+  switch i64 %magicptr.i.i.i, label %if.then4.i.i.i [
+    i64 0, label %for.inc.i.i.i
+    i64 -8, label %for.inc.i.i.i
   ]
 
-if.then4:                                         ; preds = %for.body
-  %TG.i.i.i = getelementptr inbounds i8, ptr %4, i64 144
-  %5 = load ptr, ptr %TG.i.i.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %5, null
-  br i1 %tobool.not.i.i.i, label %_ZN4llvh14StringMapEntryINS_5TimerEE7DestroyINS_15MallocAllocatorEEEvRT_.exit, label %if.end.i.i.i
+if.then4.i.i.i:                                   ; preds = %for.body.i.i.i
+  %TG.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 144
+  %5 = load ptr, ptr %TG.i.i.i.i.i.i, align 8
+  %tobool.not.i.i.i.i.i.i = icmp eq ptr %5, null
+  br i1 %tobool.not.i.i.i.i.i.i, label %_ZN4llvh14StringMapEntryINS_5TimerEE7DestroyINS_15MallocAllocatorEEEvRT_.exit.i.i.i, label %if.end.i.i.i.i.i.i
 
-if.end.i.i.i:                                     ; preds = %if.then4
-  %second.i.i = getelementptr inbounds i8, ptr %4, i64 8
-  tail call void @_ZN4llvh10TimerGroup11removeTimerERNS_5TimerE(ptr noundef nonnull align 8 dereferenceable(112) %5, ptr noundef nonnull align 8 dereferenceable(160) %second.i.i)
-  br label %_ZN4llvh14StringMapEntryINS_5TimerEE7DestroyINS_15MallocAllocatorEEEvRT_.exit
+if.end.i.i.i.i.i.i:                               ; preds = %if.then4.i.i.i
+  %second.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  tail call void @_ZN4llvh10TimerGroup11removeTimerERNS_5TimerE(ptr noundef nonnull align 8 dereferenceable(112) %5, ptr noundef nonnull align 8 dereferenceable(160) %second.i.i.i.i.i)
+  br label %_ZN4llvh14StringMapEntryINS_5TimerEE7DestroyINS_15MallocAllocatorEEEvRT_.exit.i.i.i
 
-_ZN4llvh14StringMapEntryINS_5TimerEE7DestroyINS_15MallocAllocatorEEEvRT_.exit: ; preds = %if.then4, %if.end.i.i.i
-  %Description.i.i.i = getelementptr inbounds i8, ptr %4, i64 104
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Description.i.i.i) #21
-  %Name.i.i.i = getelementptr inbounds i8, ptr %4, i64 72
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Name.i.i.i) #21
+_ZN4llvh14StringMapEntryINS_5TimerEE7DestroyINS_15MallocAllocatorEEEvRT_.exit.i.i.i: ; preds = %if.end.i.i.i.i.i.i, %if.then4.i.i.i
+  %Description.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 104
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Description.i.i.i.i.i.i) #21
+  %Name.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 72
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Name.i.i.i.i.i.i) #21
   tail call void @free(ptr noundef nonnull %4) #21
-  br label %for.inc
+  br label %for.inc.i.i.i
 
-for.inc:                                          ; preds = %for.body, %for.body, %_ZN4llvh14StringMapEntryINS_5TimerEE7DestroyINS_15MallocAllocatorEEEvRT_.exit
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp.not = icmp eq i64 %indvars.iv.next, %2
-  br i1 %cmp.not, label %if.end5, label %for.body, !llvm.loop !98
+for.inc.i.i.i:                                    ; preds = %_ZN4llvh14StringMapEntryINS_5TimerEE7DestroyINS_15MallocAllocatorEEEvRT_.exit.i.i.i, %for.body.i.i.i, %for.body.i.i.i
+  %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
+  %cmp.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %2
+  br i1 %cmp.not.i.i.i, label %_ZN4llvh14StringMapEntryISt4pairIPNS_10TimerGroupENS_9StringMapINS_5TimerENS_15MallocAllocatorEEEEED2Ev.exit, label %for.body.i.i.i, !llvm.loop !98
 
-if.end5:                                          ; preds = %for.inc, %if.then, %entry
-  %6 = load ptr, ptr %this, align 8
+_ZN4llvh14StringMapEntryISt4pairIPNS_10TimerGroupENS_9StringMapINS_5TimerENS_15MallocAllocatorEEEEED2Ev.exit: ; preds = %for.inc.i.i.i, %entry, %if.then.i.i.i
+  %6 = load ptr, ptr %second.i.i, align 8
   tail call void @free(ptr noundef %6) #21
+  tail call void @free(ptr noundef nonnull %this) #21
   ret void
 }
 

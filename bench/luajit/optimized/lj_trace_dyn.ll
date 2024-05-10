@@ -260,131 +260,120 @@ land.lhs.true2:                                   ; preds = %if.then
   br i1 %cmp3, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %land.lhs.true2
-  tail call fastcc void @trace_flushroot(ptr noundef nonnull %J, ptr noundef nonnull %3)
-  br label %if.end6
+  %startpt.i = getelementptr inbounds i8, ptr %3, i64 64
+  %5 = load i64, ptr %startpt.i, align 8
+  %6 = inttoptr i64 %5 to ptr
+  %startins.i.i = getelementptr inbounds i8, ptr %3, i64 80
+  %7 = load i32, ptr %startins.i.i, align 8
+  %and.i.i = and i32 %7, 255
+  %startpc.i.i = getelementptr inbounds i8, ptr %3, i64 72
+  %8 = load i64, ptr %startpc.i.i, align 8
+  %9 = inttoptr i64 %8 to ptr
+  %cmp.i.i = icmp eq i32 %and.i.i, 88
+  br i1 %cmp.i.i, label %trace_unpatch.exit.i, label %if.end.i.i
 
-if.end6:                                          ; preds = %if.then, %land.lhs.true2, %if.then5, %land.lhs.true, %entry
-  ret void
-}
-
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @trace_flushroot(ptr nocapture noundef readonly %J, ptr nocapture noundef readonly %T) unnamed_addr #6 {
-entry:
-  %startpt = getelementptr inbounds i8, ptr %T, i64 64
-  %0 = load i64, ptr %startpt, align 8
-  %1 = inttoptr i64 %0 to ptr
-  %startins.i = getelementptr inbounds i8, ptr %T, i64 80
-  %2 = load i32, ptr %startins.i, align 8
-  %and.i = and i32 %2, 255
-  %startpc.i = getelementptr inbounds i8, ptr %T, i64 72
-  %3 = load i64, ptr %startpc.i, align 8
-  %4 = inttoptr i64 %3 to ptr
-  %cmp.i = icmp eq i32 %and.i, 88
-  br i1 %cmp.i, label %trace_unpatch.exit, label %if.end.i
-
-if.end.i:                                         ; preds = %entry
-  %5 = load i32, ptr %4, align 4
-  %trunc.i = trunc i32 %5 to i8
-  switch i8 %trunc.i, label %trace_unpatch.exit [
-    i8 81, label %sw.bb.i
-    i8 84, label %sw.bb4.i
-    i8 87, label %sw.bb4.i
-    i8 88, label %sw.bb6.i
-    i8 91, label %sw.bb17.i
+if.end.i.i:                                       ; preds = %if.then5
+  %10 = load i32, ptr %9, align 4
+  %trunc.i.i = trunc i32 %10 to i8
+  switch i8 %trunc.i.i, label %trace_unpatch.exit.i [
+    i8 81, label %sw.bb.i.i
+    i8 84, label %sw.bb4.i.i
+    i8 87, label %sw.bb4.i.i
+    i8 88, label %sw.bb6.i.i
+    i8 91, label %sw.bb17.i.i
   ]
 
-sw.bb.i:                                          ; preds = %if.end.i
-  store i32 %2, ptr %4, align 4
-  %6 = load i32, ptr %startins.i, align 8
-  %shr.i = lshr i32 %6, 16
-  %conv.i = zext nneg i32 %shr.i to i64
-  %7 = getelementptr i32, ptr %4, i64 %conv.i
-  %add.ptr.i = getelementptr i8, ptr %7, i64 -131072
-  store i8 77, ptr %add.ptr.i, align 1
-  br label %trace_unpatch.exit
+sw.bb.i.i:                                        ; preds = %if.end.i.i
+  store i32 %7, ptr %9, align 4
+  %11 = load i32, ptr %startins.i.i, align 8
+  %shr.i.i = lshr i32 %11, 16
+  %conv.i.i = zext nneg i32 %shr.i.i to i64
+  %12 = getelementptr i32, ptr %9, i64 %conv.i.i
+  %add.ptr.i.i = getelementptr i8, ptr %12, i64 -131072
+  store i8 77, ptr %add.ptr.i.i, align 1
+  br label %trace_unpatch.exit.i
 
-sw.bb4.i:                                         ; preds = %if.end.i, %if.end.i
-  store i32 %2, ptr %4, align 4
-  br label %trace_unpatch.exit
+sw.bb4.i.i:                                       ; preds = %if.end.i.i, %if.end.i.i
+  store i32 %7, ptr %9, align 4
+  br label %trace_unpatch.exit.i
 
-sw.bb6.i:                                         ; preds = %if.end.i
-  %shr7.i = lshr i32 %5, 16
-  %conv8.i = zext nneg i32 %shr7.i to i64
-  %8 = getelementptr i32, ptr %4, i64 %conv8.i
-  %add.ptr10.i = getelementptr i8, ptr %8, i64 -131064
-  %9 = load i32, ptr %add.ptr10.i, align 4
-  %and11.i = and i32 %9, 255
-  %cmp12.i = icmp eq i32 %and11.i, 84
-  br i1 %cmp12.i, label %if.then14.i, label %trace_unpatch.exit
+sw.bb6.i.i:                                       ; preds = %if.end.i.i
+  %shr7.i.i = lshr i32 %10, 16
+  %conv8.i.i = zext nneg i32 %shr7.i.i to i64
+  %13 = getelementptr i32, ptr %9, i64 %conv8.i.i
+  %add.ptr10.i.i = getelementptr i8, ptr %13, i64 -131064
+  %14 = load i32, ptr %add.ptr10.i.i, align 4
+  %and11.i.i = and i32 %14, 255
+  %cmp12.i.i = icmp eq i32 %and11.i.i, 84
+  br i1 %cmp12.i.i, label %if.then14.i.i, label %trace_unpatch.exit.i
 
-if.then14.i:                                      ; preds = %sw.bb6.i
-  store i32 %2, ptr %add.ptr10.i, align 4
-  br label %trace_unpatch.exit
+if.then14.i.i:                                    ; preds = %sw.bb6.i.i
+  store i32 %7, ptr %add.ptr10.i.i, align 4
+  br label %trace_unpatch.exit.i
 
-sw.bb17.i:                                        ; preds = %if.end.i
-  store i32 %2, ptr %4, align 4
-  br label %trace_unpatch.exit
+sw.bb17.i.i:                                      ; preds = %if.end.i.i
+  store i32 %7, ptr %9, align 4
+  br label %trace_unpatch.exit.i
 
-trace_unpatch.exit:                               ; preds = %entry, %if.end.i, %sw.bb.i, %sw.bb4.i, %sw.bb6.i, %if.then14.i, %sw.bb17.i
-  %trace = getelementptr inbounds i8, ptr %1, i64 62
-  %10 = load i16, ptr %trace, align 2
-  %traceno = getelementptr inbounds i8, ptr %T, i64 104
-  %11 = load i16, ptr %traceno, align 8
-  %cmp = icmp eq i16 %10, %11
-  br i1 %cmp, label %if.end29.sink.split, label %if.else
+trace_unpatch.exit.i:                             ; preds = %sw.bb17.i.i, %if.then14.i.i, %sw.bb6.i.i, %sw.bb4.i.i, %sw.bb.i.i, %if.end.i.i, %if.then5
+  %trace.i = getelementptr inbounds i8, ptr %6, i64 62
+  %15 = load i16, ptr %trace.i, align 2
+  %traceno.i = getelementptr inbounds i8, ptr %3, i64 104
+  %16 = load i16, ptr %traceno.i, align 8
+  %cmp.i = icmp eq i16 %15, %16
+  br i1 %cmp.i, label %if.end29.sink.split.i, label %if.else.i
 
-if.else:                                          ; preds = %trace_unpatch.exit
-  %tobool.not = icmp eq i16 %10, 0
-  br i1 %tobool.not, label %if.end29, label %if.then5
+if.else.i:                                        ; preds = %trace_unpatch.exit.i
+  %tobool.not.i = icmp eq i16 %15, 0
+  br i1 %tobool.not.i, label %if.end6, label %if.then5.i
 
-if.then5:                                         ; preds = %if.else
-  %trace6 = getelementptr inbounds i8, ptr %J, i64 384
-  %12 = load ptr, ptr %trace6, align 8
-  %idxprom = zext i16 %10 to i64
-  %arrayidx = getelementptr inbounds %struct.GCRef, ptr %12, i64 %idxprom
-  %13 = load i64, ptr %arrayidx, align 8
-  %tobool9.not = icmp eq i64 %13, 0
-  br i1 %tobool9.not, label %if.end29, label %for.cond.preheader
+if.then5.i:                                       ; preds = %if.else.i
+  %17 = load ptr, ptr %trace, align 8
+  %idxprom.i = zext i16 %15 to i64
+  %arrayidx.i = getelementptr inbounds %struct.GCRef, ptr %17, i64 %idxprom.i
+  %18 = load i64, ptr %arrayidx.i, align 8
+  %tobool9.not.i = icmp eq i64 %18, 0
+  br i1 %tobool9.not.i, label %if.end6, label %for.cond.preheader.i
 
-for.cond.preheader:                               ; preds = %if.then5
-  %T2.018 = inttoptr i64 %13 to ptr
-  %nextroot1119 = getelementptr inbounds i8, ptr %T2.018, i64 110
-  %14 = load i16, ptr %nextroot1119, align 2
-  %tobool12.not20 = icmp eq i16 %14, 0
-  br i1 %tobool12.not20, label %if.end29, label %for.body.preheader
+for.cond.preheader.i:                             ; preds = %if.then5.i
+  %T2.018.i = inttoptr i64 %18 to ptr
+  %nextroot1119.i = getelementptr inbounds i8, ptr %T2.018.i, i64 110
+  %19 = load i16, ptr %nextroot1119.i, align 2
+  %tobool12.not20.i = icmp eq i16 %19, 0
+  br i1 %tobool12.not20.i, label %if.end6, label %for.body.i.preheader
 
-for.body.preheader:                               ; preds = %for.cond.preheader
-  %cmp1725 = icmp eq i16 %14, %11
-  br i1 %cmp1725, label %if.then19, label %for.inc
+for.body.i.preheader:                             ; preds = %for.cond.preheader.i
+  %cmp17.i8 = icmp eq i16 %19, %16
+  br i1 %cmp17.i8, label %if.then19.i, label %for.inc.i
 
-for.body:                                         ; preds = %for.inc
-  %cmp17 = icmp eq i16 %17, %11
-  br i1 %cmp17, label %if.then19, label %for.inc, !llvm.loop !5
+for.body.i:                                       ; preds = %for.inc.i
+  %cmp17.i = icmp eq i16 %22, %16
+  br i1 %cmp17.i, label %if.then19.i, label %for.inc.i, !llvm.loop !5
 
-if.then19:                                        ; preds = %for.body, %for.body.preheader
-  %T2.021.lcssa = phi ptr [ %T2.018, %for.body.preheader ], [ %T2.0, %for.body ]
-  %nextroot11.le = getelementptr inbounds i8, ptr %T2.021.lcssa, i64 110
-  br label %if.end29.sink.split
+if.then19.i:                                      ; preds = %for.body.i, %for.body.i.preheader
+  %T2.021.i.lcssa = phi ptr [ %T2.018.i, %for.body.i.preheader ], [ %T2.0.i, %for.body.i ]
+  %nextroot11.le.i = getelementptr inbounds i8, ptr %T2.021.i.lcssa, i64 110
+  br label %if.end29.sink.split.i
 
-for.inc:                                          ; preds = %for.body.preheader, %for.body
-  %15 = phi i16 [ %17, %for.body ], [ %14, %for.body.preheader ]
-  %idxprom24 = zext i16 %15 to i64
-  %arrayidx25 = getelementptr inbounds %struct.GCRef, ptr %12, i64 %idxprom24
-  %16 = load i64, ptr %arrayidx25, align 8
-  %T2.0 = inttoptr i64 %16 to ptr
-  %nextroot11 = getelementptr inbounds i8, ptr %T2.0, i64 110
-  %17 = load i16, ptr %nextroot11, align 2
-  %tobool12.not = icmp eq i16 %17, 0
-  br i1 %tobool12.not, label %if.end29, label %for.body, !llvm.loop !5
+for.inc.i:                                        ; preds = %for.body.i.preheader, %for.body.i
+  %20 = phi i16 [ %22, %for.body.i ], [ %19, %for.body.i.preheader ]
+  %idxprom24.i = zext i16 %20 to i64
+  %arrayidx25.i = getelementptr inbounds %struct.GCRef, ptr %17, i64 %idxprom24.i
+  %21 = load i64, ptr %arrayidx25.i, align 8
+  %T2.0.i = inttoptr i64 %21 to ptr
+  %nextroot11.i = getelementptr inbounds i8, ptr %T2.0.i, i64 110
+  %22 = load i16, ptr %nextroot11.i, align 2
+  %tobool12.not.i = icmp eq i16 %22, 0
+  br i1 %tobool12.not.i, label %if.end6, label %for.body.i, !llvm.loop !5
 
-if.end29.sink.split:                              ; preds = %trace_unpatch.exit, %if.then19
-  %nextroot11.le.sink = phi ptr [ %nextroot11.le, %if.then19 ], [ %trace, %trace_unpatch.exit ]
-  %nextroot20 = getelementptr inbounds i8, ptr %T, i64 110
-  %18 = load i16, ptr %nextroot20, align 2
-  store i16 %18, ptr %nextroot11.le.sink, align 2
-  br label %if.end29
+if.end29.sink.split.i:                            ; preds = %if.then19.i, %trace_unpatch.exit.i
+  %nextroot11.le.sink.i = phi ptr [ %nextroot11.le.i, %if.then19.i ], [ %trace.i, %trace_unpatch.exit.i ]
+  %nextroot20.i = getelementptr inbounds i8, ptr %3, i64 110
+  %23 = load i16, ptr %nextroot20.i, align 2
+  store i16 %23, ptr %nextroot11.le.sink.i, align 2
+  br label %if.end6
 
-if.end29:                                         ; preds = %for.inc, %if.end29.sink.split, %for.cond.preheader, %if.else, %if.then5
+if.end6:                                          ; preds = %for.inc.i, %if.end29.sink.split.i, %for.cond.preheader.i, %if.then5.i, %if.else.i, %if.then, %land.lhs.true2, %land.lhs.true, %entry
   ret void
 }
 
@@ -393,27 +382,139 @@ define hidden void @lj_trace_flushproto(ptr nocapture noundef readonly %g, ptr n
 entry:
   %trace = getelementptr inbounds i8, ptr %pt, i64 62
   %0 = load i16, ptr %trace, align 2
-  %cmp.not3 = icmp eq i16 %0, 0
-  br i1 %cmp.not3, label %while.end, label %while.body.lr.ph
+  %cmp.not5 = icmp eq i16 %0, 0
+  br i1 %cmp.not5, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %J = getelementptr inbounds i8, ptr %g, i64 728
   %trace4 = getelementptr inbounds i8, ptr %g, i64 1112
   br label %while.body
 
-while.body:                                       ; preds = %while.body.lr.ph, %while.body
-  %1 = phi i16 [ %0, %while.body.lr.ph ], [ %5, %while.body ]
+while.body:                                       ; preds = %while.body.lr.ph, %trace_flushroot.exit
+  %1 = phi i16 [ %0, %while.body.lr.ph ], [ %24, %trace_flushroot.exit ]
   %2 = load ptr, ptr %trace4, align 8
   %idxprom = zext i16 %1 to i64
   %arrayidx = getelementptr inbounds %struct.GCRef, ptr %2, i64 %idxprom
   %3 = load i64, ptr %arrayidx, align 8
   %4 = inttoptr i64 %3 to ptr
-  tail call fastcc void @trace_flushroot(ptr noundef nonnull %J, ptr noundef %4)
-  %5 = load i16, ptr %trace, align 2
-  %cmp.not = icmp eq i16 %5, 0
+  %startpt.i = getelementptr inbounds i8, ptr %4, i64 64
+  %5 = load i64, ptr %startpt.i, align 8
+  %6 = inttoptr i64 %5 to ptr
+  %startins.i.i = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = load i32, ptr %startins.i.i, align 8
+  %and.i.i = and i32 %7, 255
+  %startpc.i.i = getelementptr inbounds i8, ptr %4, i64 72
+  %8 = load i64, ptr %startpc.i.i, align 8
+  %9 = inttoptr i64 %8 to ptr
+  %cmp.i.i = icmp eq i32 %and.i.i, 88
+  br i1 %cmp.i.i, label %trace_unpatch.exit.i, label %if.end.i.i
+
+if.end.i.i:                                       ; preds = %while.body
+  %10 = load i32, ptr %9, align 4
+  %trunc.i.i = trunc i32 %10 to i8
+  switch i8 %trunc.i.i, label %trace_unpatch.exit.i [
+    i8 81, label %sw.bb.i.i
+    i8 84, label %sw.bb4.i.i
+    i8 87, label %sw.bb4.i.i
+    i8 88, label %sw.bb6.i.i
+    i8 91, label %sw.bb17.i.i
+  ]
+
+sw.bb.i.i:                                        ; preds = %if.end.i.i
+  store i32 %7, ptr %9, align 4
+  %11 = load i32, ptr %startins.i.i, align 8
+  %shr.i.i = lshr i32 %11, 16
+  %conv.i.i = zext nneg i32 %shr.i.i to i64
+  %12 = getelementptr i32, ptr %9, i64 %conv.i.i
+  %add.ptr.i.i = getelementptr i8, ptr %12, i64 -131072
+  store i8 77, ptr %add.ptr.i.i, align 1
+  br label %trace_unpatch.exit.i
+
+sw.bb4.i.i:                                       ; preds = %if.end.i.i, %if.end.i.i
+  store i32 %7, ptr %9, align 4
+  br label %trace_unpatch.exit.i
+
+sw.bb6.i.i:                                       ; preds = %if.end.i.i
+  %shr7.i.i = lshr i32 %10, 16
+  %conv8.i.i = zext nneg i32 %shr7.i.i to i64
+  %13 = getelementptr i32, ptr %9, i64 %conv8.i.i
+  %add.ptr10.i.i = getelementptr i8, ptr %13, i64 -131064
+  %14 = load i32, ptr %add.ptr10.i.i, align 4
+  %and11.i.i = and i32 %14, 255
+  %cmp12.i.i = icmp eq i32 %and11.i.i, 84
+  br i1 %cmp12.i.i, label %if.then14.i.i, label %trace_unpatch.exit.i
+
+if.then14.i.i:                                    ; preds = %sw.bb6.i.i
+  store i32 %7, ptr %add.ptr10.i.i, align 4
+  br label %trace_unpatch.exit.i
+
+sw.bb17.i.i:                                      ; preds = %if.end.i.i
+  store i32 %7, ptr %9, align 4
+  br label %trace_unpatch.exit.i
+
+trace_unpatch.exit.i:                             ; preds = %sw.bb17.i.i, %if.then14.i.i, %sw.bb6.i.i, %sw.bb4.i.i, %sw.bb.i.i, %if.end.i.i, %while.body
+  %trace.i = getelementptr inbounds i8, ptr %6, i64 62
+  %15 = load i16, ptr %trace.i, align 2
+  %traceno.i = getelementptr inbounds i8, ptr %4, i64 104
+  %16 = load i16, ptr %traceno.i, align 8
+  %cmp.i = icmp eq i16 %15, %16
+  br i1 %cmp.i, label %if.end29.sink.split.i, label %if.else.i
+
+if.else.i:                                        ; preds = %trace_unpatch.exit.i
+  %tobool.not.i = icmp eq i16 %15, 0
+  br i1 %tobool.not.i, label %trace_flushroot.exit, label %if.then5.i
+
+if.then5.i:                                       ; preds = %if.else.i
+  %17 = load ptr, ptr %trace4, align 8
+  %idxprom.i = zext i16 %15 to i64
+  %arrayidx.i = getelementptr inbounds %struct.GCRef, ptr %17, i64 %idxprom.i
+  %18 = load i64, ptr %arrayidx.i, align 8
+  %tobool9.not.i = icmp eq i64 %18, 0
+  br i1 %tobool9.not.i, label %trace_flushroot.exit, label %for.cond.preheader.i
+
+for.cond.preheader.i:                             ; preds = %if.then5.i
+  %T2.018.i = inttoptr i64 %18 to ptr
+  %nextroot1119.i = getelementptr inbounds i8, ptr %T2.018.i, i64 110
+  %19 = load i16, ptr %nextroot1119.i, align 2
+  %tobool12.not20.i = icmp eq i16 %19, 0
+  br i1 %tobool12.not20.i, label %trace_flushroot.exit, label %for.body.i.preheader
+
+for.body.i.preheader:                             ; preds = %for.cond.preheader.i
+  %cmp17.i4 = icmp eq i16 %19, %16
+  br i1 %cmp17.i4, label %if.then19.i, label %for.inc.i
+
+for.body.i:                                       ; preds = %for.inc.i
+  %cmp17.i = icmp eq i16 %22, %16
+  br i1 %cmp17.i, label %if.then19.i, label %for.inc.i, !llvm.loop !5
+
+if.then19.i:                                      ; preds = %for.body.i, %for.body.i.preheader
+  %T2.021.i.lcssa = phi ptr [ %T2.018.i, %for.body.i.preheader ], [ %T2.0.i, %for.body.i ]
+  %nextroot11.le.i = getelementptr inbounds i8, ptr %T2.021.i.lcssa, i64 110
+  br label %if.end29.sink.split.i
+
+for.inc.i:                                        ; preds = %for.body.i.preheader, %for.body.i
+  %20 = phi i16 [ %22, %for.body.i ], [ %19, %for.body.i.preheader ]
+  %idxprom24.i = zext i16 %20 to i64
+  %arrayidx25.i = getelementptr inbounds %struct.GCRef, ptr %17, i64 %idxprom24.i
+  %21 = load i64, ptr %arrayidx25.i, align 8
+  %T2.0.i = inttoptr i64 %21 to ptr
+  %nextroot11.i = getelementptr inbounds i8, ptr %T2.0.i, i64 110
+  %22 = load i16, ptr %nextroot11.i, align 2
+  %tobool12.not.i = icmp eq i16 %22, 0
+  br i1 %tobool12.not.i, label %trace_flushroot.exit, label %for.body.i, !llvm.loop !5
+
+if.end29.sink.split.i:                            ; preds = %if.then19.i, %trace_unpatch.exit.i
+  %nextroot11.le.sink.i = phi ptr [ %nextroot11.le.i, %if.then19.i ], [ %trace.i, %trace_unpatch.exit.i ]
+  %nextroot20.i = getelementptr inbounds i8, ptr %4, i64 110
+  %23 = load i16, ptr %nextroot20.i, align 2
+  store i16 %23, ptr %nextroot11.le.sink.i, align 2
+  br label %trace_flushroot.exit
+
+trace_flushroot.exit:                             ; preds = %for.inc.i, %if.else.i, %if.then5.i, %for.cond.preheader.i, %if.end29.sink.split.i
+  %24 = load i16, ptr %trace, align 2
+  %cmp.not = icmp eq i16 %24, 0
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !6
 
-while.end:                                        ; preds = %while.body, %entry
+while.end:                                        ; preds = %trace_flushroot.exit, %entry
   ret void
 }
 
@@ -433,8 +534,8 @@ entry:
 if.end:                                           ; preds = %entry
   %sizetrace = getelementptr inbounds i8, ptr %1, i64 1124
   %4 = load i32, ptr %sizetrace, align 4
-  %cmp26 = icmp ugt i32 %4, 1
-  br i1 %cmp26, label %for.body.lr.ph, label %for.end
+  %cmp28 = icmp ugt i32 %4, 1
+  br i1 %cmp28, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end
   %conv3 = zext i32 %4 to i64
@@ -442,10 +543,10 @@ for.body.lr.ph:                                   ; preds = %if.end
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %i.027.in = phi i64 [ %conv3, %for.body.lr.ph ], [ %i.027, %for.inc ]
-  %i.027 = add nsw i64 %i.027.in, -1
+  %i.029.in = phi i64 [ %conv3, %for.body.lr.ph ], [ %i.029, %for.inc ]
+  %i.029 = add nsw i64 %i.029.in, -1
   %5 = load ptr, ptr %trace, align 8
-  %arrayidx = getelementptr inbounds %struct.GCRef, ptr %5, i64 %i.027
+  %arrayidx = getelementptr inbounds %struct.GCRef, ptr %5, i64 %i.029
   %6 = load i64, ptr %arrayidx, align 8
   %7 = inttoptr i64 %6 to ptr
   %tobool5.not = icmp eq i64 %6, 0
@@ -458,21 +559,131 @@ if.then6:                                         ; preds = %for.body
   br i1 %cmp8, label %if.then10, label %if.end11
 
 if.then10:                                        ; preds = %if.then6
-  tail call fastcc void @trace_flushroot(ptr noundef nonnull %J1, ptr noundef nonnull %7)
+  %startpt.i = getelementptr inbounds i8, ptr %7, i64 64
+  %9 = load i64, ptr %startpt.i, align 8
+  %10 = inttoptr i64 %9 to ptr
+  %startins.i.i = getelementptr inbounds i8, ptr %7, i64 80
+  %11 = load i32, ptr %startins.i.i, align 8
+  %and.i.i = and i32 %11, 255
+  %startpc.i.i = getelementptr inbounds i8, ptr %7, i64 72
+  %12 = load i64, ptr %startpc.i.i, align 8
+  %13 = inttoptr i64 %12 to ptr
+  %cmp.i.i = icmp eq i32 %and.i.i, 88
+  br i1 %cmp.i.i, label %trace_unpatch.exit.i, label %if.end.i.i
+
+if.end.i.i:                                       ; preds = %if.then10
+  %14 = load i32, ptr %13, align 4
+  %trunc.i.i = trunc i32 %14 to i8
+  switch i8 %trunc.i.i, label %trace_unpatch.exit.i [
+    i8 81, label %sw.bb.i.i
+    i8 84, label %sw.bb4.i.i
+    i8 87, label %sw.bb4.i.i
+    i8 88, label %sw.bb6.i.i
+    i8 91, label %sw.bb17.i.i
+  ]
+
+sw.bb.i.i:                                        ; preds = %if.end.i.i
+  store i32 %11, ptr %13, align 4
+  %15 = load i32, ptr %startins.i.i, align 8
+  %shr.i.i = lshr i32 %15, 16
+  %conv.i.i = zext nneg i32 %shr.i.i to i64
+  %16 = getelementptr i32, ptr %13, i64 %conv.i.i
+  %add.ptr.i.i = getelementptr i8, ptr %16, i64 -131072
+  store i8 77, ptr %add.ptr.i.i, align 1
+  br label %trace_unpatch.exit.i
+
+sw.bb4.i.i:                                       ; preds = %if.end.i.i, %if.end.i.i
+  store i32 %11, ptr %13, align 4
+  br label %trace_unpatch.exit.i
+
+sw.bb6.i.i:                                       ; preds = %if.end.i.i
+  %shr7.i.i = lshr i32 %14, 16
+  %conv8.i.i = zext nneg i32 %shr7.i.i to i64
+  %17 = getelementptr i32, ptr %13, i64 %conv8.i.i
+  %add.ptr10.i.i = getelementptr i8, ptr %17, i64 -131064
+  %18 = load i32, ptr %add.ptr10.i.i, align 4
+  %and11.i.i = and i32 %18, 255
+  %cmp12.i.i = icmp eq i32 %and11.i.i, 84
+  br i1 %cmp12.i.i, label %if.then14.i.i, label %trace_unpatch.exit.i
+
+if.then14.i.i:                                    ; preds = %sw.bb6.i.i
+  store i32 %11, ptr %add.ptr10.i.i, align 4
+  br label %trace_unpatch.exit.i
+
+sw.bb17.i.i:                                      ; preds = %if.end.i.i
+  store i32 %11, ptr %13, align 4
+  br label %trace_unpatch.exit.i
+
+trace_unpatch.exit.i:                             ; preds = %sw.bb17.i.i, %if.then14.i.i, %sw.bb6.i.i, %sw.bb4.i.i, %sw.bb.i.i, %if.end.i.i, %if.then10
+  %trace.i = getelementptr inbounds i8, ptr %10, i64 62
+  %19 = load i16, ptr %trace.i, align 2
+  %traceno.i = getelementptr inbounds i8, ptr %7, i64 104
+  %20 = load i16, ptr %traceno.i, align 8
+  %cmp.i = icmp eq i16 %19, %20
+  br i1 %cmp.i, label %if.end29.sink.split.i, label %if.else.i
+
+if.else.i:                                        ; preds = %trace_unpatch.exit.i
+  %tobool.not.i = icmp eq i16 %19, 0
+  br i1 %tobool.not.i, label %if.end11, label %if.then5.i
+
+if.then5.i:                                       ; preds = %if.else.i
+  %21 = load ptr, ptr %trace, align 8
+  %idxprom.i = zext i16 %19 to i64
+  %arrayidx.i = getelementptr inbounds %struct.GCRef, ptr %21, i64 %idxprom.i
+  %22 = load i64, ptr %arrayidx.i, align 8
+  %tobool9.not.i = icmp eq i64 %22, 0
+  br i1 %tobool9.not.i, label %if.end11, label %for.cond.preheader.i
+
+for.cond.preheader.i:                             ; preds = %if.then5.i
+  %T2.018.i = inttoptr i64 %22 to ptr
+  %nextroot1119.i = getelementptr inbounds i8, ptr %T2.018.i, i64 110
+  %23 = load i16, ptr %nextroot1119.i, align 2
+  %tobool12.not20.i = icmp eq i16 %23, 0
+  br i1 %tobool12.not20.i, label %if.end11, label %for.body.i.preheader
+
+for.body.i.preheader:                             ; preds = %for.cond.preheader.i
+  %cmp17.i26 = icmp eq i16 %23, %20
+  br i1 %cmp17.i26, label %if.then19.i, label %for.inc.i
+
+for.body.i:                                       ; preds = %for.inc.i
+  %cmp17.i = icmp eq i16 %26, %20
+  br i1 %cmp17.i, label %if.then19.i, label %for.inc.i, !llvm.loop !5
+
+if.then19.i:                                      ; preds = %for.body.i, %for.body.i.preheader
+  %T2.021.i.lcssa = phi ptr [ %T2.018.i, %for.body.i.preheader ], [ %T2.0.i, %for.body.i ]
+  %nextroot11.le.i = getelementptr inbounds i8, ptr %T2.021.i.lcssa, i64 110
+  br label %if.end29.sink.split.i
+
+for.inc.i:                                        ; preds = %for.body.i.preheader, %for.body.i
+  %24 = phi i16 [ %26, %for.body.i ], [ %23, %for.body.i.preheader ]
+  %idxprom24.i = zext i16 %24 to i64
+  %arrayidx25.i = getelementptr inbounds %struct.GCRef, ptr %21, i64 %idxprom24.i
+  %25 = load i64, ptr %arrayidx25.i, align 8
+  %T2.0.i = inttoptr i64 %25 to ptr
+  %nextroot11.i = getelementptr inbounds i8, ptr %T2.0.i, i64 110
+  %26 = load i16, ptr %nextroot11.i, align 2
+  %tobool12.not.i = icmp eq i16 %26, 0
+  br i1 %tobool12.not.i, label %if.end11, label %for.body.i, !llvm.loop !5
+
+if.end29.sink.split.i:                            ; preds = %if.then19.i, %trace_unpatch.exit.i
+  %nextroot11.le.sink.i = phi ptr [ %nextroot11.le.i, %if.then19.i ], [ %trace.i, %trace_unpatch.exit.i ]
+  %nextroot20.i = getelementptr inbounds i8, ptr %7, i64 110
+  %27 = load i16, ptr %nextroot20.i, align 2
+  store i16 %27, ptr %nextroot11.le.sink.i, align 2
   br label %if.end11
 
-if.end11:                                         ; preds = %if.then10, %if.then6
+if.end11:                                         ; preds = %for.inc.i, %if.end29.sink.split.i, %for.cond.preheader.i, %if.then5.i, %if.else.i, %if.then6
   %link = getelementptr inbounds i8, ptr %7, i64 106
   store i16 0, ptr %link, align 2
   %traceno = getelementptr inbounds i8, ptr %7, i64 104
   store i16 0, ptr %traceno, align 8
-  %9 = load ptr, ptr %trace, align 8
-  %arrayidx13 = getelementptr inbounds %struct.GCRef, ptr %9, i64 %i.027
+  %28 = load ptr, ptr %trace, align 8
+  %arrayidx13 = getelementptr inbounds %struct.GCRef, ptr %28, i64 %i.029
   store i64 0, ptr %arrayidx13, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.end11
-  %cmp = icmp ugt i64 %i.027.in, 2
+  %cmp = icmp sgt i64 %i.029.in, 2
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.inc, %if.end
@@ -485,12 +696,12 @@ for.end:                                          ; preds = %for.inc, %if.end
   tail call void @lj_mcode_free(ptr noundef nonnull %J1) #13
   %exitstubgroup = getelementptr inbounds i8, ptr %1, i64 2424
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %exitstubgroup, i8 0, i64 128, i1 false)
-  %10 = load i64, ptr %glref, align 8
-  %11 = inttoptr i64 %10 to ptr
-  %vmevmask = getelementptr inbounds i8, ptr %11, i64 147
-  %12 = load i8, ptr %vmevmask, align 1
-  %13 = and i8 %12, 2
-  %tobool22.not = icmp eq i8 %13, 0
+  %29 = load i64, ptr %glref, align 8
+  %30 = inttoptr i64 %29 to ptr
+  %vmevmask = getelementptr inbounds i8, ptr %30, i64 147
+  %31 = load i8, ptr %vmevmask, align 1
+  %32 = and i8 %31, 2
+  %tobool22.not = icmp eq i8 %32, 0
   br i1 %tobool22.not, label %return, label %if.then23
 
 if.then23:                                        ; preds = %for.end
@@ -500,13 +711,13 @@ if.then23:                                        ; preds = %for.end
 
 if.then25:                                        ; preds = %if.then23
   %top = getelementptr inbounds i8, ptr %L, i64 40
-  %14 = load ptr, ptr %top, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %14, i64 8
+  %33 = load ptr, ptr %top, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %33, i64 8
   store ptr %incdec.ptr, ptr %top, align 8
   %call26 = tail call ptr @lj_str_new(ptr noundef nonnull %L, ptr noundef nonnull @.str, i64 noundef 5) #13
-  %15 = ptrtoint ptr %call26 to i64
-  %or.i = or i64 %15, -703687441776640
-  store i64 %or.i, ptr %14, align 8
+  %34 = ptrtoint ptr %call26 to i64
+  %or.i = or i64 %34, -703687441776640
+  store i64 %or.i, ptr %33, align 8
   tail call void @lj_vmevent_call(ptr noundef nonnull %L, i64 noundef %call) #13
   br label %return
 

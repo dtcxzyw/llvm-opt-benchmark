@@ -609,8 +609,6 @@ $_ZN3fmt2v97vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS
 
 $_ZN3fmt2v96detail5valueINS0_20basic_format_contextINS0_8appenderEcEEE17format_custom_argISt6vectorIN4LIEF2PE16ResourcesManager4TYPEESaISC_EENS0_9formatterISE_cvEEEEvPvRNS0_26basic_format_parse_contextIcNS1_13error_handlerEEERS5_ = comdat any
 
-$_ZN3fmt2v915range_formatterIN4LIEF2PE16ResourcesManager4TYPEEcvE5parseINS0_26basic_format_parse_contextIcNS0_6detail13error_handlerEEEEEDTcldtfp_5beginEERT_ = comdat any
-
 $_ZNK3fmt2v915range_formatterIN4LIEF2PE16ResourcesManager4TYPEEcvE6formatIRKSt6vectorIS5_SaIS5_EENS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEEOT_RT0_ = comdat any
 
 $_ZNK3fmt2v99formatterIN4LIEF2PE16ResourcesManager4TYPEEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEERKS5_RT_ = comdat any
@@ -42732,100 +42730,90 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(
 declare void @llvm.assume(i1 noundef) #15
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN3fmt2v96detail5valueINS0_20basic_format_contextINS0_8appenderEcEEE17format_custom_argISt6vectorIN4LIEF2PE16ResourcesManager4TYPEESaISC_EENS0_9formatterISE_cvEEEEvPvRNS0_26basic_format_parse_contextIcNS1_13error_handlerEEERS5_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) #3 comdat align 2 {
+define linkonce_odr hidden void @_ZN3fmt2v96detail5valueINS0_20basic_format_contextINS0_8appenderEcEEE17format_custom_argISt6vectorIN4LIEF2PE16ResourcesManager4TYPEESaISC_EENS0_9formatterISE_cvEEEEvPvRNS0_26basic_format_parse_contextIcNS1_13error_handlerEEERS5_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.fmt::v9::formatter", align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds i8, ptr %4, i64 1
+  %6 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 0, ptr %4, align 8
-  store ptr @_ZN3fmt2v96detail14string_literalIcJLc44ELc32EEE5valueE, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
-  store i64 2, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
-  store ptr @_ZN3fmt2v96detail14string_literalIcJLc91EEE5valueE, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 32
-  store i64 1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 40
-  store ptr @_ZN3fmt2v96detail14string_literalIcJLc93EEE5valueE, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 48
-  store i64 1, ptr %10, align 8
-  %11 = call noundef ptr @_ZN3fmt2v915range_formatterIN4LIEF2PE16ResourcesManager4TYPEEcvE5parseINS0_26basic_format_parse_contextIcNS0_6detail13error_handlerEEEEEDTcldtfp_5beginEERT_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(20) %1)
+  store ptr @_ZN3fmt2v96detail14string_literalIcJLc44ELc32EEE5valueE, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %4, i64 16
+  store i64 2, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %4, i64 24
+  store ptr @_ZN3fmt2v96detail14string_literalIcJLc91EEE5valueE, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %4, i64 32
+  store i64 1, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %4, i64 40
+  store ptr @_ZN3fmt2v96detail14string_literalIcJLc93EEE5valueE, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %4, i64 48
+  store i64 1, ptr %11, align 8
   %12 = load ptr, ptr %1, align 8
-  %13 = ptrtoint ptr %11 to i64
-  %14 = ptrtoint ptr %12 to i64
-  %15 = sub i64 %13, %14
-  %16 = getelementptr inbounds i8, ptr %12, i64 %15
-  store ptr %16, ptr %1, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
-  %18 = load i64, ptr %17, align 8
-  %19 = sub i64 %18, %15
-  store i64 %19, ptr %17, align 8
-  %20 = call ptr @_ZNK3fmt2v915range_formatterIN4LIEF2PE16ResourcesManager4TYPEEcvE6formatIRKSt6vectorIS5_SaIS5_EENS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEEOT_RT0_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(32) %2)
-  store ptr %20, ptr %2, align 8
-  ret void
-}
+  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = load i64, ptr %13, align 8
+  %15 = icmp eq i64 %14, 0
+  br i1 %15, label %_ZN3fmt2v96detail23range_default_formatterILNS0_12range_formatE3ESt6vectorIN4LIEF2PE16ResourcesManager4TYPEESaIS8_EEcvE5parseINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEDTcldtfp_5beginEERT_.exit, label %16
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZN3fmt2v915range_formatterIN4LIEF2PE16ResourcesManager4TYPEEcvE5parseINS0_26basic_format_parse_contextIcNS0_6detail13error_handlerEEEEEDTcldtfp_5beginEERT_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(20) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
-  %5 = load i64, ptr %4, align 8
-  %6 = icmp eq i64 %5, 0
-  br i1 %6, label %29, label %7
-
-7:                                                ; preds = %2
-  %8 = load i8, ptr %3, align 1
-  switch i8 %8, label %12 [
-    i8 125, label %29
-    i8 110, label %9
+16:                                               ; preds = %3
+  %17 = load i8, ptr %12, align 1
+  switch i8 %17, label %20 [
+    i8 125, label %_ZN3fmt2v96detail23range_default_formatterILNS0_12range_formatE3ESt6vectorIN4LIEF2PE16ResourcesManager4TYPEESaIS8_EEcvE5parseINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEDTcldtfp_5beginEERT_.exit
+    i8 110, label %18
   ]
 
-9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
-  %11 = getelementptr inbounds i8, ptr %3, i64 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false)
-  %.pr = load i8, ptr %11, align 1
-  br label %12
+18:                                               ; preds = %16
+  %19 = getelementptr inbounds i8, ptr %12, i64 1
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false)
+  %.pr.i.i = load i8, ptr %19, align 1
+  br label %20
 
-12:                                               ; preds = %7, %9
-  %13 = phi i8 [ %8, %7 ], [ %.pr, %9 ]
-  %.018 = phi ptr [ %3, %7 ], [ %11, %9 ]
-  switch i8 %13, label %14 [
-    i8 125, label %29
-    i8 58, label %19
+20:                                               ; preds = %18, %16
+  %21 = phi i8 [ %17, %16 ], [ %.pr.i.i, %18 ]
+  %.018.i.i = phi ptr [ %12, %16 ], [ %19, %18 ]
+  switch i8 %21, label %22 [
+    i8 125, label %_ZN3fmt2v96detail23range_default_formatterILNS0_12range_formatE3ESt6vectorIN4LIEF2PE16ResourcesManager4TYPEESaIS8_EEcvE5parseINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEDTcldtfp_5beginEERT_.exit
+    i8 58, label %27
   ]
 
-14:                                               ; preds = %12
-  %15 = tail call ptr @__cxa_allocate_exception(i64 16) #20
-  invoke void @_ZN3fmt2v912format_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull @.str.177)
-          to label %16 unwind label %17
+22:                                               ; preds = %20
+  %23 = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  invoke void @_ZN3fmt2v912format_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull @.str.177)
+          to label %24 unwind label %25
 
-16:                                               ; preds = %14
-  tail call void @__cxa_throw(ptr nonnull %15, ptr nonnull @_ZTIN3fmt2v912format_errorE, ptr nonnull @_ZN3fmt2v912format_errorD2Ev) #22
+24:                                               ; preds = %22
+  tail call void @__cxa_throw(ptr nonnull %23, ptr nonnull @_ZTIN3fmt2v912format_errorE, ptr nonnull @_ZN3fmt2v912format_errorD2Ev) #22
   unreachable
 
-17:                                               ; preds = %14
-  %18 = landingpad { ptr, i32 }
+25:                                               ; preds = %22
+  %26 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %15) #20
-  resume { ptr, i32 } %18
+  tail call void @__cxa_free_exception(ptr %23) #20
+  resume { ptr, i32 } %26
 
-19:                                               ; preds = %12
-  %20 = getelementptr inbounds i8, ptr %0, i64 1
-  store i8 1, ptr %20, align 1
-  %21 = getelementptr inbounds i8, ptr %.018, i64 1
-  %22 = load ptr, ptr %1, align 8
-  %23 = ptrtoint ptr %21 to i64
-  %24 = ptrtoint ptr %22 to i64
-  %25 = sub i64 %23, %24
-  %26 = getelementptr inbounds i8, ptr %22, i64 %25
-  store ptr %26, ptr %1, align 8
-  %27 = load i64, ptr %4, align 8
-  %28 = sub i64 %27, %25
-  store i64 %28, ptr %4, align 8
-  br label %29
+27:                                               ; preds = %20
+  store i8 1, ptr %5, align 1
+  %28 = getelementptr inbounds i8, ptr %.018.i.i, i64 1
+  %29 = ptrtoint ptr %28 to i64
+  %30 = ptrtoint ptr %12 to i64
+  %31 = sub i64 %29, %30
+  %32 = getelementptr inbounds i8, ptr %12, i64 %31
+  store ptr %32, ptr %1, align 8
+  %33 = sub i64 %14, %31
+  store i64 %33, ptr %13, align 8
+  br label %_ZN3fmt2v96detail23range_default_formatterILNS0_12range_formatE3ESt6vectorIN4LIEF2PE16ResourcesManager4TYPEESaIS8_EEcvE5parseINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEDTcldtfp_5beginEERT_.exit
 
-29:                                               ; preds = %12, %2, %7, %19
-  %.0 = phi ptr [ %26, %19 ], [ %3, %7 ], [ %3, %2 ], [ %.018, %12 ]
-  ret ptr %.0
+_ZN3fmt2v96detail23range_default_formatterILNS0_12range_formatE3ESt6vectorIN4LIEF2PE16ResourcesManager4TYPEESaIS8_EEcvE5parseINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEDTcldtfp_5beginEERT_.exit: ; preds = %3, %16, %20, %27
+  %34 = phi i64 [ %33, %27 ], [ %14, %16 ], [ 0, %3 ], [ %14, %20 ]
+  %35 = phi ptr [ %32, %27 ], [ %12, %16 ], [ %12, %3 ], [ %12, %20 ]
+  %.0.i.i = phi ptr [ %32, %27 ], [ %12, %16 ], [ %12, %3 ], [ %.018.i.i, %20 ]
+  %36 = ptrtoint ptr %.0.i.i to i64
+  %37 = ptrtoint ptr %35 to i64
+  %38 = sub i64 %36, %37
+  %39 = getelementptr inbounds i8, ptr %35, i64 %38
+  store ptr %39, ptr %1, align 8
+  %40 = sub i64 %34, %38
+  store i64 %40, ptr %13, align 8
+  %41 = call ptr @_ZNK3fmt2v915range_formatterIN4LIEF2PE16ResourcesManager4TYPEEcvE6formatIRKSt6vectorIS5_SaIS5_EENS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEEOT_RT0_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  store ptr %41, ptr %2, align 8
+  ret void
 }
 
 ; Function Attrs: mustprogress uwtable

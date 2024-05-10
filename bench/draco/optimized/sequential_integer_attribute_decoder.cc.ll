@@ -175,8 +175,6 @@ $_ZN5draco44MeshPredictionSchemeTexCoordsPortableDecoderIiNS_37PredictionSchemeW
 
 $_ZN5draco46MeshPredictionSchemeTexCoordsPortablePredictorIiNS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEE21ComputePredictedValueILb0EEEbNS_9IndexTypeIjNS_21CornerIndex_tag_type_EEEPKii = comdat any
 
-$_ZN5draco7IntSqrtEm = comdat any
-
 $_ZNK5draco17GeometryAttribute12ConvertValueIlEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEaPT_ = comdat any
 
 $_ZN5draco48MeshPredictionSchemeGeometricNormalPredictorAreaIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEED2Ev = comdat any
@@ -8181,7 +8179,7 @@ _ZNKSt6vectorIiSaIiEE2atEm.exit63:                ; preds = %_ZNKSt6vectorIiSaIi
   %49 = icmp slt i32 %48, %3
   %50 = icmp slt i32 %44, %3
   %or.cond = select i1 %49, i1 %50, i1 false
-  br i1 %or.cond, label %51, label %241
+  br i1 %or.cond, label %51, label %248
 
 51:                                               ; preds = %_ZNKSt6vectorIiSaIiEE2atEm.exit63
   %52 = shl nsw i32 %44, 1
@@ -8331,7 +8329,7 @@ _ZNK5draco7VectorDIlLi3EEmiERKS1_.exit:           ; preds = %126, %_ZNK5draco7Ve
 
 _ZNK5draco7VectorDIlLi3EE11SquaredNormEv.exit:    ; preds = %_ZNK5draco7VectorDIlLi3EEmiERKS1_.exit
   %.not = icmp eq i64 %136, 0
-  br i1 %.not, label %241, label %137
+  br i1 %.not, label %248, label %137
 
 137:                                              ; preds = %_ZNK5draco7VectorDIlLi3EE11SquaredNormEv.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !114)
@@ -8486,131 +8484,125 @@ _ZNK5draco7VectorDIlLi3EEmiERKS1_.exit96:         ; preds = %197, %_ZNK5draco7Ve
 
 _ZNK5draco7VectorDIlLi3EE11SquaredNormEv.exit101: ; preds = %_ZNK5draco7VectorDIlLi3EEmiERKS1_.exit96
   %208 = mul i64 %207, %136
-  %209 = call noundef i64 @_ZN5draco7IntSqrtEm(i64 noundef %208)
-  %210 = mul nsw i64 %209, %152
-  %211 = mul i64 %151, %209
-  %212 = getelementptr inbounds i8, ptr %0, i64 24
-  %213 = load ptr, ptr %212, align 8
-  %214 = getelementptr inbounds i8, ptr %0, i64 40
-  %215 = load ptr, ptr %214, align 8
-  %216 = getelementptr inbounds i8, ptr %0, i64 48
-  %217 = load i32, ptr %216, align 8
-  %218 = icmp eq ptr %213, %215
-  %219 = icmp eq i32 %217, 0
-  %220 = select i1 %218, i1 %219, i1 false
-  br i1 %220, label %.loopexit, label %221
+  switch i64 %208, label %.lr.ph.i [
+    i64 0, label %_ZN5draco7IntSqrtEm.exit
+    i64 1, label %.preheader.i.preheader
+  ]
 
-221:                                              ; preds = %_ZNK5draco7VectorDIlLi3EE11SquaredNormEv.exit101
-  %222 = zext i32 %217 to i64
-  %223 = add nsw i64 %222, -1
-  %224 = sdiv i64 %223, 64
-  %225 = getelementptr inbounds i64, ptr %215, i64 %224
-  %226 = and i64 %223, -9223372036854775745
-  %227 = icmp ugt i64 %226, -9223372036854775808
-  %storemerge.idx.i.i.i.i.i = select i1 %227, i64 -8, i64 0
-  %storemerge.i.i.i.i.i = getelementptr inbounds i8, ptr %225, i64 %storemerge.idx.i.i.i.i.i
-  %228 = and i64 %223, 63
-  %229 = shl nuw i64 1, %228
-  %230 = load i64, ptr %storemerge.i.i.i.i.i, align 8
-  %231 = and i64 %230, %229
-  %.not261 = icmp eq i64 %231, 0
-  %232 = add i32 %217, -1
-  store i32 %232, ptr %216, align 8
-  br i1 %219, label %233, label %_ZNSt6vectorIbSaIbEE8pop_backEv.exit
+.lr.ph.i:                                         ; preds = %_ZNK5draco7VectorDIlLi3EE11SquaredNormEv.exit101, %.lr.ph.i
+  %.018.i = phi i64 [ %209, %.lr.ph.i ], [ 1, %_ZNK5draco7VectorDIlLi3EE11SquaredNormEv.exit101 ]
+  %.01317.i = phi i64 [ %210, %.lr.ph.i ], [ %208, %_ZNK5draco7VectorDIlLi3EE11SquaredNormEv.exit101 ]
+  %209 = shl i64 %.018.i, 1
+  %210 = lshr i64 %.01317.i, 2
+  %211 = icmp ugt i64 %.01317.i, 7
+  br i1 %211, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !136
 
-233:                                              ; preds = %221
-  store i32 63, ptr %216, align 8
-  %234 = getelementptr inbounds i8, ptr %215, i64 -8
-  store ptr %234, ptr %214, align 8
+.preheader.i.preheader:                           ; preds = %.lr.ph.i, %_ZNK5draco7VectorDIlLi3EE11SquaredNormEv.exit101
+  %.1.i.ph = phi i64 [ %208, %_ZNK5draco7VectorDIlLi3EE11SquaredNormEv.exit101 ], [ %209, %.lr.ph.i ]
+  br label %.preheader.i
+
+.preheader.i:                                     ; preds = %.preheader.i.preheader, %.preheader.i
+  %.1.i = phi i64 [ %214, %.preheader.i ], [ %.1.i.ph, %.preheader.i.preheader ]
+  %212 = udiv i64 %208, %.1.i
+  %213 = add i64 %212, %.1.i
+  %214 = lshr i64 %213, 1
+  %215 = mul i64 %214, %214
+  %216 = icmp ugt i64 %215, %208
+  br i1 %216, label %.preheader.i, label %_ZN5draco7IntSqrtEm.exit, !llvm.loop !137
+
+_ZN5draco7IntSqrtEm.exit:                         ; preds = %.preheader.i, %_ZNK5draco7VectorDIlLi3EE11SquaredNormEv.exit101
+  %.014.i = phi i64 [ %208, %_ZNK5draco7VectorDIlLi3EE11SquaredNormEv.exit101 ], [ %214, %.preheader.i ]
+  %217 = mul nsw i64 %.014.i, %152
+  %218 = mul i64 %151, %.014.i
+  %219 = getelementptr inbounds i8, ptr %0, i64 24
+  %220 = load ptr, ptr %219, align 8
+  %221 = getelementptr inbounds i8, ptr %0, i64 40
+  %222 = load ptr, ptr %221, align 8
+  %223 = getelementptr inbounds i8, ptr %0, i64 48
+  %224 = load i32, ptr %223, align 8
+  %225 = icmp eq ptr %220, %222
+  %226 = icmp eq i32 %224, 0
+  %227 = select i1 %225, i1 %226, i1 false
+  br i1 %227, label %.loopexit, label %228
+
+228:                                              ; preds = %_ZN5draco7IntSqrtEm.exit
+  %229 = zext i32 %224 to i64
+  %230 = add nsw i64 %229, -1
+  %231 = sdiv i64 %230, 64
+  %232 = getelementptr inbounds i64, ptr %222, i64 %231
+  %233 = and i64 %230, -9223372036854775745
+  %234 = icmp ugt i64 %233, -9223372036854775808
+  %storemerge.idx.i.i.i.i.i = select i1 %234, i64 -8, i64 0
+  %storemerge.i.i.i.i.i = getelementptr inbounds i8, ptr %232, i64 %storemerge.idx.i.i.i.i.i
+  %235 = and i64 %230, 63
+  %236 = shl nuw i64 1, %235
+  %237 = load i64, ptr %storemerge.i.i.i.i.i, align 8
+  %238 = and i64 %237, %236
+  %.not261 = icmp eq i64 %238, 0
+  %239 = add i32 %224, -1
+  store i32 %239, ptr %223, align 8
+  br i1 %226, label %240, label %_ZNSt6vectorIbSaIbEE8pop_backEv.exit
+
+240:                                              ; preds = %228
+  store i32 63, ptr %223, align 8
+  %241 = getelementptr inbounds i8, ptr %222, i64 -8
+  store ptr %241, ptr %221, align 8
   br label %_ZNSt6vectorIbSaIbEE8pop_backEv.exit
 
-_ZNSt6vectorIbSaIbEE8pop_backEv.exit:             ; preds = %221, %233
-  %235 = sub i64 0, %211
-  %.pn.p = select i1 %.not261, i64 %211, i64 %235
+_ZNSt6vectorIbSaIbEE8pop_backEv.exit:             ; preds = %228, %240
+  %242 = sub i64 0, %218
+  %.pn.p = select i1 %.not261, i64 %218, i64 %242
   %.pn = add i64 %168, %.pn.p
-  %236 = sub i64 0, %210
-  %.pn262.p = select i1 %.not261, i64 %236, i64 %210
+  %243 = sub i64 0, %217
+  %.pn262.p = select i1 %.not261, i64 %243, i64 %217
   %.pn262 = add i64 %167, %.pn262.p
   %.sroa.0166.0 = sdiv i64 %.pn262, %136
   %.sroa.4.0 = sdiv i64 %.pn, %136
-  %237 = trunc i64 %.sroa.0166.0 to i32
-  %238 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 %237, ptr %238, align 8
-  %239 = trunc i64 %.sroa.4.0 to i32
-  %240 = getelementptr inbounds i8, ptr %0, i64 20
-  store i32 %239, ptr %240, align 4
+  %244 = trunc i64 %.sroa.0166.0 to i32
+  %245 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 %244, ptr %245, align 8
+  %246 = trunc i64 %.sroa.4.0 to i32
+  %247 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 %246, ptr %247, align 4
   br label %.loopexit
 
-241:                                              ; preds = %_ZNK5draco7VectorDIlLi3EE11SquaredNormEv.exit, %_ZNKSt6vectorIiSaIiEE2atEm.exit63
-  br i1 %50, label %242, label %244
+248:                                              ; preds = %_ZNK5draco7VectorDIlLi3EE11SquaredNormEv.exit, %_ZNKSt6vectorIiSaIiEE2atEm.exit63
+  br i1 %50, label %249, label %251
 
-242:                                              ; preds = %241
-  %243 = shl nsw i32 %44, 1
+249:                                              ; preds = %248
+  %250 = shl nsw i32 %44, 1
   br label %.loopexit.loopexit.critedge
 
-244:                                              ; preds = %241
-  %245 = icmp sgt i32 %3, 0
-  br i1 %245, label %247, label %.preheader
+251:                                              ; preds = %248
+  %252 = icmp sgt i32 %3, 0
+  br i1 %252, label %254, label %.preheader
 
-.preheader:                                       ; preds = %244
-  %246 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 0, ptr %246, align 8
+.preheader:                                       ; preds = %251
+  %253 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 0, ptr %253, align 8
   br label %.loopexit
 
-247:                                              ; preds = %244
-  %248 = shl nuw i32 %3, 1
-  %249 = add i32 %248, -2
+254:                                              ; preds = %251
+  %255 = shl nuw i32 %3, 1
+  %256 = add i32 %255, -2
   br label %.loopexit.loopexit.critedge
 
-.loopexit.loopexit.critedge:                      ; preds = %247, %242
-  %.052 = phi i32 [ %243, %242 ], [ %249, %247 ]
-  %250 = getelementptr inbounds i8, ptr %0, i64 16
-  %251 = sext i32 %.052 to i64
-  %invariant.gep = getelementptr i32, ptr %2, i64 %251
-  %252 = load i32, ptr %invariant.gep, align 4
-  store i32 %252, ptr %250, align 8
+.loopexit.loopexit.critedge:                      ; preds = %254, %249
+  %.052 = phi i32 [ %250, %249 ], [ %256, %254 ]
+  %257 = getelementptr inbounds i8, ptr %0, i64 16
+  %258 = sext i32 %.052 to i64
+  %invariant.gep = getelementptr i32, ptr %2, i64 %258
+  %259 = load i32, ptr %invariant.gep, align 4
+  store i32 %259, ptr %257, align 8
   %gep.c = getelementptr i8, ptr %invariant.gep, i64 4
-  %253 = load i32, ptr %gep.c, align 4
-  %254 = getelementptr inbounds i8, ptr %0, i64 20
-  store i32 %253, ptr %254, align 4
+  %260 = load i32, ptr %gep.c, align 4
+  %261 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 %260, ptr %261, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit.critedge, %.preheader, %_ZNK5draco7VectorDIlLi3EE11SquaredNormEv.exit101, %_ZNK5draco7VectorDIlLi2EEmlERKl.exit.critedge, %157, %_ZNK5draco7VectorDIlLi3EE3DotERKS1_.exit, %_ZNSt6vectorIbSaIbEE8pop_backEv.exit, %73
-  %.053 = phi i1 [ true, %73 ], [ true, %_ZNSt6vectorIbSaIbEE8pop_backEv.exit ], [ false, %_ZNK5draco7VectorDIlLi3EE3DotERKS1_.exit ], [ false, %157 ], [ false, %_ZNK5draco7VectorDIlLi2EEmlERKl.exit.critedge ], [ false, %_ZNK5draco7VectorDIlLi3EE11SquaredNormEv.exit101 ], [ true, %.preheader ], [ true, %.loopexit.loopexit.critedge ]
+.loopexit:                                        ; preds = %.loopexit.loopexit.critedge, %.preheader, %_ZN5draco7IntSqrtEm.exit, %_ZNK5draco7VectorDIlLi2EEmlERKl.exit.critedge, %157, %_ZNK5draco7VectorDIlLi3EE3DotERKS1_.exit, %_ZNSt6vectorIbSaIbEE8pop_backEv.exit, %73
+  %.053 = phi i1 [ true, %73 ], [ true, %_ZNSt6vectorIbSaIbEE8pop_backEv.exit ], [ false, %_ZNK5draco7VectorDIlLi3EE3DotERKS1_.exit ], [ false, %157 ], [ false, %_ZNK5draco7VectorDIlLi2EEmlERKl.exit.critedge ], [ false, %_ZN5draco7IntSqrtEm.exit ], [ true, %.preheader ], [ true, %.loopexit.loopexit.critedge ]
   ret i1 %.053
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZN5draco7IntSqrtEm(i64 noundef %0) local_unnamed_addr #6 comdat {
-  switch i64 %0, label %.lr.ph [
-    i64 0, label %.loopexit
-    i64 1, label %.preheader.preheader
-  ]
-
-.lr.ph:                                           ; preds = %1, %.lr.ph
-  %.018 = phi i64 [ %2, %.lr.ph ], [ 1, %1 ]
-  %.01317 = phi i64 [ %3, %.lr.ph ], [ %0, %1 ]
-  %2 = shl i64 %.018, 1
-  %3 = lshr i64 %.01317, 2
-  %4 = icmp ugt i64 %.01317, 7
-  br i1 %4, label %.lr.ph, label %.preheader.preheader, !llvm.loop !136
-
-.preheader.preheader:                             ; preds = %.lr.ph, %1
-  %.1.ph = phi i64 [ %0, %1 ], [ %2, %.lr.ph ]
-  br label %.preheader
-
-.preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %.1 = phi i64 [ %7, %.preheader ], [ %.1.ph, %.preheader.preheader ]
-  %5 = udiv i64 %0, %.1
-  %6 = add i64 %5, %.1
-  %7 = lshr i64 %6, 1
-  %8 = mul i64 %7, %7
-  %9 = icmp ugt i64 %8, %0
-  br i1 %9, label %.preheader, label %.loopexit, !llvm.loop !137
-
-.loopexit:                                        ; preds = %.preheader, %1
-  %.014 = phi i64 [ %0, %1 ], [ %7, %.preheader ]
-  ret i64 %.014
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -15088,7 +15080,7 @@ _ZNKSt6vectorIiSaIiEE2atEm.exit65:                ; preds = %_ZNKSt6vectorIiSaIi
   %48 = icmp slt i32 %47, %3
   %49 = icmp slt i32 %43, %3
   %or.cond = select i1 %48, i1 %49, i1 false
-  br i1 %or.cond, label %50, label %240
+  br i1 %or.cond, label %50, label %247
 
 50:                                               ; preds = %_ZNKSt6vectorIiSaIiEE2atEm.exit65
   %51 = shl nsw i32 %43, 1
@@ -15238,7 +15230,7 @@ _ZNK5draco7VectorDIlLi3EEmiERKS1_.exit:           ; preds = %125, %_ZNK5draco7Ve
 
 _ZNK5draco7VectorDIlLi3EE11SquaredNormEv.exit:    ; preds = %_ZNK5draco7VectorDIlLi3EEmiERKS1_.exit
   %.not = icmp eq i64 %135, 0
-  br i1 %.not, label %240, label %136
+  br i1 %.not, label %247, label %136
 
 136:                                              ; preds = %_ZNK5draco7VectorDIlLi3EE11SquaredNormEv.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !260)
@@ -15393,97 +15385,124 @@ _ZNK5draco7VectorDIlLi3EEmiERKS1_.exit99:         ; preds = %196, %_ZNK5draco7Ve
 
 _ZNK5draco7VectorDIlLi3EE11SquaredNormEv.exit104: ; preds = %_ZNK5draco7VectorDIlLi3EEmiERKS1_.exit99
   %207 = mul i64 %206, %135
-  %208 = call noundef i64 @_ZN5draco7IntSqrtEm(i64 noundef %207)
-  %209 = mul nsw i64 %208, %151
-  %210 = mul i64 %150, %208
-  %211 = getelementptr inbounds i8, ptr %0, i64 24
-  %212 = load ptr, ptr %211, align 8
-  %213 = getelementptr inbounds i8, ptr %0, i64 40
-  %214 = load ptr, ptr %213, align 8
-  %215 = getelementptr inbounds i8, ptr %0, i64 48
-  %216 = load i32, ptr %215, align 8
-  %217 = icmp eq ptr %212, %214
-  %218 = icmp eq i32 %216, 0
-  %219 = select i1 %217, i1 %218, i1 false
-  br i1 %219, label %.loopexit, label %220
+  switch i64 %207, label %.lr.ph.i [
+    i64 0, label %_ZN5draco7IntSqrtEm.exit
+    i64 1, label %.preheader.i.preheader
+  ]
 
-220:                                              ; preds = %_ZNK5draco7VectorDIlLi3EE11SquaredNormEv.exit104
-  %221 = zext i32 %216 to i64
-  %222 = add nsw i64 %221, -1
-  %223 = sdiv i64 %222, 64
-  %224 = getelementptr inbounds i64, ptr %214, i64 %223
-  %225 = and i64 %222, -9223372036854775745
-  %226 = icmp ugt i64 %225, -9223372036854775808
-  %storemerge.idx.i.i.i.i.i = select i1 %226, i64 -8, i64 0
-  %storemerge.i.i.i.i.i = getelementptr inbounds i8, ptr %224, i64 %storemerge.idx.i.i.i.i.i
-  %227 = and i64 %222, 63
-  %228 = shl nuw i64 1, %227
-  %229 = load i64, ptr %storemerge.i.i.i.i.i, align 8
-  %230 = and i64 %229, %228
-  %.not270 = icmp eq i64 %230, 0
-  %231 = add i32 %216, -1
-  store i32 %231, ptr %215, align 8
-  br i1 %218, label %232, label %_ZNSt6vectorIbSaIbEE8pop_backEv.exit
+.lr.ph.i:                                         ; preds = %_ZNK5draco7VectorDIlLi3EE11SquaredNormEv.exit104, %.lr.ph.i
+  %.018.i = phi i64 [ %208, %.lr.ph.i ], [ 1, %_ZNK5draco7VectorDIlLi3EE11SquaredNormEv.exit104 ]
+  %.01317.i = phi i64 [ %209, %.lr.ph.i ], [ %207, %_ZNK5draco7VectorDIlLi3EE11SquaredNormEv.exit104 ]
+  %208 = shl i64 %.018.i, 1
+  %209 = lshr i64 %.01317.i, 2
+  %210 = icmp ugt i64 %.01317.i, 7
+  br i1 %210, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !136
 
-232:                                              ; preds = %220
-  store i32 63, ptr %215, align 8
-  %233 = getelementptr inbounds i8, ptr %214, i64 -8
-  store ptr %233, ptr %213, align 8
+.preheader.i.preheader:                           ; preds = %.lr.ph.i, %_ZNK5draco7VectorDIlLi3EE11SquaredNormEv.exit104
+  %.1.i.ph = phi i64 [ %207, %_ZNK5draco7VectorDIlLi3EE11SquaredNormEv.exit104 ], [ %208, %.lr.ph.i ]
+  br label %.preheader.i
+
+.preheader.i:                                     ; preds = %.preheader.i.preheader, %.preheader.i
+  %.1.i = phi i64 [ %213, %.preheader.i ], [ %.1.i.ph, %.preheader.i.preheader ]
+  %211 = udiv i64 %207, %.1.i
+  %212 = add i64 %211, %.1.i
+  %213 = lshr i64 %212, 1
+  %214 = mul i64 %213, %213
+  %215 = icmp ugt i64 %214, %207
+  br i1 %215, label %.preheader.i, label %_ZN5draco7IntSqrtEm.exit, !llvm.loop !137
+
+_ZN5draco7IntSqrtEm.exit:                         ; preds = %.preheader.i, %_ZNK5draco7VectorDIlLi3EE11SquaredNormEv.exit104
+  %.014.i = phi i64 [ %207, %_ZNK5draco7VectorDIlLi3EE11SquaredNormEv.exit104 ], [ %213, %.preheader.i ]
+  %216 = mul nsw i64 %.014.i, %151
+  %217 = mul i64 %150, %.014.i
+  %218 = getelementptr inbounds i8, ptr %0, i64 24
+  %219 = load ptr, ptr %218, align 8
+  %220 = getelementptr inbounds i8, ptr %0, i64 40
+  %221 = load ptr, ptr %220, align 8
+  %222 = getelementptr inbounds i8, ptr %0, i64 48
+  %223 = load i32, ptr %222, align 8
+  %224 = icmp eq ptr %219, %221
+  %225 = icmp eq i32 %223, 0
+  %226 = select i1 %224, i1 %225, i1 false
+  br i1 %226, label %.loopexit, label %227
+
+227:                                              ; preds = %_ZN5draco7IntSqrtEm.exit
+  %228 = zext i32 %223 to i64
+  %229 = add nsw i64 %228, -1
+  %230 = sdiv i64 %229, 64
+  %231 = getelementptr inbounds i64, ptr %221, i64 %230
+  %232 = and i64 %229, -9223372036854775745
+  %233 = icmp ugt i64 %232, -9223372036854775808
+  %storemerge.idx.i.i.i.i.i = select i1 %233, i64 -8, i64 0
+  %storemerge.i.i.i.i.i = getelementptr inbounds i8, ptr %231, i64 %storemerge.idx.i.i.i.i.i
+  %234 = and i64 %229, 63
+  %235 = shl nuw i64 1, %234
+  %236 = load i64, ptr %storemerge.i.i.i.i.i, align 8
+  %237 = and i64 %236, %235
+  %.not270 = icmp eq i64 %237, 0
+  %238 = add i32 %223, -1
+  store i32 %238, ptr %222, align 8
+  br i1 %225, label %239, label %_ZNSt6vectorIbSaIbEE8pop_backEv.exit
+
+239:                                              ; preds = %227
+  store i32 63, ptr %222, align 8
+  %240 = getelementptr inbounds i8, ptr %221, i64 -8
+  store ptr %240, ptr %220, align 8
   br label %_ZNSt6vectorIbSaIbEE8pop_backEv.exit
 
-_ZNSt6vectorIbSaIbEE8pop_backEv.exit:             ; preds = %220, %232
-  %234 = sub i64 0, %210
-  %.pn.p = select i1 %.not270, i64 %210, i64 %234
+_ZNSt6vectorIbSaIbEE8pop_backEv.exit:             ; preds = %227, %239
+  %241 = sub i64 0, %217
+  %.pn.p = select i1 %.not270, i64 %217, i64 %241
   %.pn = add i64 %167, %.pn.p
-  %235 = sub i64 0, %209
-  %.pn271.p = select i1 %.not270, i64 %235, i64 %209
+  %242 = sub i64 0, %216
+  %.pn271.p = select i1 %.not270, i64 %242, i64 %216
   %.pn271 = add i64 %166, %.pn271.p
   %.sroa.0169.0 = sdiv i64 %.pn271, %135
   %.sroa.4.0 = sdiv i64 %.pn, %135
-  %236 = trunc i64 %.sroa.0169.0 to i32
-  %237 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 %236, ptr %237, align 8
-  %238 = trunc i64 %.sroa.4.0 to i32
-  %239 = getelementptr inbounds i8, ptr %0, i64 20
-  store i32 %238, ptr %239, align 4
+  %243 = trunc i64 %.sroa.0169.0 to i32
+  %244 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 %243, ptr %244, align 8
+  %245 = trunc i64 %.sroa.4.0 to i32
+  %246 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 %245, ptr %246, align 4
   br label %.loopexit
 
-240:                                              ; preds = %_ZNK5draco7VectorDIlLi3EE11SquaredNormEv.exit, %_ZNKSt6vectorIiSaIiEE2atEm.exit65
-  br i1 %49, label %241, label %243
+247:                                              ; preds = %_ZNK5draco7VectorDIlLi3EE11SquaredNormEv.exit, %_ZNKSt6vectorIiSaIiEE2atEm.exit65
+  br i1 %49, label %248, label %250
 
-241:                                              ; preds = %240
-  %242 = shl nsw i32 %43, 1
+248:                                              ; preds = %247
+  %249 = shl nsw i32 %43, 1
   br label %.loopexit.loopexit.critedge
 
-243:                                              ; preds = %240
-  %244 = icmp sgt i32 %3, 0
-  br i1 %244, label %246, label %.preheader
+250:                                              ; preds = %247
+  %251 = icmp sgt i32 %3, 0
+  br i1 %251, label %253, label %.preheader
 
-.preheader:                                       ; preds = %243
-  %245 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 0, ptr %245, align 8
+.preheader:                                       ; preds = %250
+  %252 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 0, ptr %252, align 8
   br label %.loopexit
 
-246:                                              ; preds = %243
-  %247 = shl nuw i32 %3, 1
-  %248 = add i32 %247, -2
+253:                                              ; preds = %250
+  %254 = shl nuw i32 %3, 1
+  %255 = add i32 %254, -2
   br label %.loopexit.loopexit.critedge
 
-.loopexit.loopexit.critedge:                      ; preds = %246, %241
-  %.052 = phi i32 [ %242, %241 ], [ %248, %246 ]
-  %249 = getelementptr inbounds i8, ptr %0, i64 16
-  %250 = sext i32 %.052 to i64
-  %invariant.gep = getelementptr i32, ptr %2, i64 %250
-  %251 = load i32, ptr %invariant.gep, align 4
-  store i32 %251, ptr %249, align 8
+.loopexit.loopexit.critedge:                      ; preds = %253, %248
+  %.052 = phi i32 [ %249, %248 ], [ %255, %253 ]
+  %256 = getelementptr inbounds i8, ptr %0, i64 16
+  %257 = sext i32 %.052 to i64
+  %invariant.gep = getelementptr i32, ptr %2, i64 %257
+  %258 = load i32, ptr %invariant.gep, align 4
+  store i32 %258, ptr %256, align 8
   %gep.c = getelementptr i8, ptr %invariant.gep, i64 4
-  %252 = load i32, ptr %gep.c, align 4
-  %253 = getelementptr inbounds i8, ptr %0, i64 20
-  store i32 %252, ptr %253, align 4
+  %259 = load i32, ptr %gep.c, align 4
+  %260 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 %259, ptr %260, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit.critedge, %.preheader, %_ZNK5draco7VectorDIlLi3EE11SquaredNormEv.exit104, %_ZNK5draco7VectorDIlLi2EEmlERKl.exit.critedge, %156, %_ZNK5draco7VectorDIlLi3EE3DotERKS1_.exit, %_ZNSt6vectorIbSaIbEE8pop_backEv.exit, %72
-  %.053 = phi i1 [ true, %72 ], [ true, %_ZNSt6vectorIbSaIbEE8pop_backEv.exit ], [ false, %_ZNK5draco7VectorDIlLi3EE3DotERKS1_.exit ], [ false, %156 ], [ false, %_ZNK5draco7VectorDIlLi2EEmlERKl.exit.critedge ], [ false, %_ZNK5draco7VectorDIlLi3EE11SquaredNormEv.exit104 ], [ true, %.preheader ], [ true, %.loopexit.loopexit.critedge ]
+.loopexit:                                        ; preds = %.loopexit.loopexit.critedge, %.preheader, %_ZN5draco7IntSqrtEm.exit, %_ZNK5draco7VectorDIlLi2EEmlERKl.exit.critedge, %156, %_ZNK5draco7VectorDIlLi3EE3DotERKS1_.exit, %_ZNSt6vectorIbSaIbEE8pop_backEv.exit, %72
+  %.053 = phi i1 [ true, %72 ], [ true, %_ZNSt6vectorIbSaIbEE8pop_backEv.exit ], [ false, %_ZNK5draco7VectorDIlLi3EE3DotERKS1_.exit ], [ false, %156 ], [ false, %_ZNK5draco7VectorDIlLi2EEmlERKl.exit.critedge ], [ false, %_ZN5draco7IntSqrtEm.exit ], [ true, %.preheader ], [ true, %.loopexit.loopexit.critedge ]
   ret i1 %.053
 }
 

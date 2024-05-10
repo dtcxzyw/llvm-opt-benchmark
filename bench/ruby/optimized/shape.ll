@@ -723,113 +723,317 @@ define hidden noundef zeroext i1 @rb_shape_get_iv_index_with_hint(i32 noundef %0
   %9 = getelementptr %struct.rb_shape, ptr %7, i64 %8
   %10 = load i32, ptr %3, align 4
   %11 = icmp eq i32 %10, -1
-  br i1 %11, label %12, label %14
+  br i1 %11, label %12, label %62
 
 12:                                               ; preds = %4
   store i32 %0, ptr %3, align 4
-  %13 = tail call zeroext i1 @rb_shape_get_iv_index(ptr noundef %9, i64 noundef %1, ptr noundef nonnull %2)
-  br label %67
+  %13 = getelementptr inbounds i8, ptr %9, i64 32
+  %14 = load ptr, ptr %13, align 8
+  %.not.i.i = icmp eq ptr %14, null
+  br i1 %.not.i.i, label %.loopexit.i, label %15
 
-14:                                               ; preds = %4
-  %15 = zext i32 %10 to i64
-  %16 = getelementptr %struct.rb_shape, ptr %7, i64 %15
-  %17 = getelementptr inbounds i8, ptr %9, i64 32
-  %18 = load ptr, ptr %17, align 8
-  %.not = icmp eq ptr %18, null
-  br i1 %.not, label %.preheader72, label %19
+15:                                               ; preds = %12
+  %16 = getelementptr inbounds i8, ptr %9, i64 16
+  %17 = load i32, ptr %16, align 8
+  %18 = icmp ugt i32 %17, 9
+  br i1 %18, label %.lr.ph.i.i.i, label %.loopexit.i
 
-19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %9, i64 16
-  %21 = load i32, ptr %20, align 8
-  %22 = icmp ugt i32 %21, 9
-  %spec.select = select i1 %22, i32 2, i32 2147483647
-  br label %.preheader72
+.lr.ph.i.i.i:                                     ; preds = %15
+  %19 = load ptr, ptr @rb_shape_tree_ptr, align 8
+  %20 = getelementptr inbounds i8, ptr %19, i64 24
+  br label %21
 
-.preheader72:                                     ; preds = %19, %14
-  %.156.ph = phi i32 [ %spec.select, %19 ], [ 2147483647, %14 ]
-  br label %23
+21:                                               ; preds = %tailrecurse.backedge.i.i.i, %.lr.ph.i.i.i
+  %.tr16.i.i.i = phi ptr [ %14, %.lr.ph.i.i.i ], [ %32, %tailrecurse.backedge.i.i.i ]
+  %22 = load i64, ptr %.tr16.i.i.i, align 8
+  %23 = icmp eq i64 %22, %1
+  br i1 %23, label %shape_cache_get_iv_index.exit.i, label %24
 
-23:                                               ; preds = %.preheader72, %57
-  %.156 = phi i32 [ %62, %57 ], [ %.156.ph, %.preheader72 ]
-  %.04055 = phi ptr [ %.141.lcssa, %57 ], [ %16, %.preheader72 ]
-  %.04354 = phi ptr [ %61, %57 ], [ %9, %.preheader72 ]
-  %24 = getelementptr inbounds i8, ptr %.04354, i64 16
-  %25 = load i32, ptr %24, align 8
-  %26 = icmp ugt i32 %25, %5
-  br i1 %26, label %.preheader, label %.critedge
+24:                                               ; preds = %21
+  %25 = icmp ugt i64 %22, %1
+  br i1 %25, label %26, label %34
 
-.preheader:                                       ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %.04055, i64 16
-  %28 = load i32, ptr %27, align 8
-  %29 = icmp ugt i32 %28, %25
-  br i1 %29, label %.lr.ph, label %._crit_edge
+26:                                               ; preds = %24
+  %27 = getelementptr i8, ptr %.tr16.i.i.i, i64 16
+  %.val.i.i.i = load i32, ptr %27, align 8
+  %28 = icmp eq i32 %.val.i.i.i, 0
+  br i1 %28, label %.loopexit.i, label %tailrecurse.backedge.i.i.i
+
+tailrecurse.backedge.i.i.i:                       ; preds = %34, %26
+  %.val13.sink.i.i.i = phi i32 [ %.val13.i.i.i, %34 ], [ %.val.i.i.i, %26 ]
+  %29 = load ptr, ptr %20, align 8
+  %30 = add i32 %.val13.sink.i.i.i, -1
+  %31 = zext i32 %30 to i64
+  %32 = getelementptr %struct.redblack_node, ptr %29, i64 %31
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %.loopexit.i, label %21
+
+34:                                               ; preds = %24
+  %35 = getelementptr i8, ptr %.tr16.i.i.i, i64 20
+  %.val13.i.i.i = load i32, ptr %35, align 4
+  %36 = icmp eq i32 %.val13.i.i.i, 0
+  br i1 %36, label %.loopexit.i, label %tailrecurse.backedge.i.i.i
+
+shape_cache_get_iv_index.exit.i:                  ; preds = %21
+  %37 = getelementptr i8, ptr %.tr16.i.i.i, i64 8
+  %.val.i.i = load ptr, ptr %37, align 8
+  %38 = ptrtoint ptr %.val.i.i to i64
+  %39 = and i64 %38, -2
+  %40 = inttoptr i64 %39 to ptr
+  br label %shape_get_iv_index.exit.sink.split.i
+
+.loopexit.i:                                      ; preds = %34, %tailrecurse.backedge.i.i.i, %26, %15, %12
+  %41 = getelementptr inbounds i8, ptr %9, i64 28
+  %42 = load i32, ptr %41, align 4
+  %.not11.i.i = icmp eq i32 %42, -1
+  br i1 %.not11.i.i, label %rb_shape_get_iv_index.exit, label %.lr.ph.i.i
+
+.lr.ph.i.i:                                       ; preds = %.loopexit.i
+  %43 = load ptr, ptr @rb_shape_tree_ptr, align 8
+  br label %44
+
+44:                                               ; preds = %53, %.lr.ph.i.i
+  %45 = phi i32 [ %42, %.lr.ph.i.i ], [ %58, %53 ]
+  %.0812.i.i = phi ptr [ %9, %.lr.ph.i.i ], [ %56, %53 ]
+  %46 = getelementptr inbounds i8, ptr %.0812.i.i, i64 8
+  %47 = load i64, ptr %46, align 8
+  %48 = icmp eq i64 %47, %1
+  br i1 %48, label %49, label %53
+
+49:                                               ; preds = %44
+  %50 = getelementptr inbounds i8, ptr %.0812.i.i, i64 24
+  %51 = load i8, ptr %50, align 8
+  switch i8 %51, label %53 [
+    i8 1, label %shape_get_iv_index.exit.sink.split.i
+    i8 0, label %rb_shape_get_iv_index.exit
+    i8 3, label %rb_shape_get_iv_index.exit
+    i8 4, label %52
+    i8 2, label %52
+  ]
+
+52:                                               ; preds = %49, %49
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.3) #14
+  unreachable
+
+53:                                               ; preds = %49, %44
+  %54 = load ptr, ptr %43, align 8
+  %55 = zext i32 %45 to i64
+  %56 = getelementptr %struct.rb_shape, ptr %54, i64 %55
+  %57 = getelementptr inbounds i8, ptr %56, i64 28
+  %58 = load i32, ptr %57, align 4
+  %.not.i6.i = icmp eq i32 %58, -1
+  br i1 %.not.i6.i, label %rb_shape_get_iv_index.exit, label %44, !llvm.loop !10
+
+shape_get_iv_index.exit.sink.split.i:             ; preds = %49, %shape_cache_get_iv_index.exit.i
+  %.0812.i.lcssa.sink.i = phi ptr [ %40, %shape_cache_get_iv_index.exit.i ], [ %.0812.i.i, %49 ]
+  %59 = getelementptr inbounds i8, ptr %.0812.i.lcssa.sink.i, i64 16
+  %60 = load i32, ptr %59, align 8
+  %61 = add i32 %60, -1
+  store i32 %61, ptr %2, align 4
+  br label %rb_shape_get_iv_index.exit
+
+62:                                               ; preds = %4
+  %63 = zext i32 %10 to i64
+  %64 = getelementptr %struct.rb_shape, ptr %7, i64 %63
+  %65 = getelementptr inbounds i8, ptr %9, i64 32
+  %66 = load ptr, ptr %65, align 8
+  %.not = icmp eq ptr %66, null
+  br i1 %.not, label %.preheader125, label %67
+
+67:                                               ; preds = %62
+  %68 = getelementptr inbounds i8, ptr %9, i64 16
+  %69 = load i32, ptr %68, align 8
+  %70 = icmp ugt i32 %69, 9
+  %spec.select = select i1 %70, i32 2, i32 2147483647
+  br label %.preheader125
+
+.preheader125:                                    ; preds = %67, %62
+  %.181.ph = phi i32 [ %spec.select, %67 ], [ 2147483647, %62 ]
+  br label %71
+
+71:                                               ; preds = %.preheader125, %105
+  %.181 = phi i32 [ %110, %105 ], [ %.181.ph, %.preheader125 ]
+  %.04080 = phi ptr [ %.141.lcssa, %105 ], [ %64, %.preheader125 ]
+  %.04379 = phi ptr [ %109, %105 ], [ %9, %.preheader125 ]
+  %72 = getelementptr inbounds i8, ptr %.04379, i64 16
+  %73 = load i32, ptr %72, align 8
+  %74 = icmp ugt i32 %73, %5
+  br i1 %74, label %.preheader, label %.critedge
+
+.preheader:                                       ; preds = %71
+  %75 = getelementptr inbounds i8, ptr %.04080, i64 16
+  %76 = load i32, ptr %75, align 8
+  %77 = icmp ugt i32 %76, %73
+  br i1 %77, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.14153 = phi ptr [ %33, %.lr.ph ], [ %.04055, %.preheader ]
-  %30 = getelementptr inbounds i8, ptr %.14153, i64 28
-  %31 = load i32, ptr %30, align 4
-  %32 = zext i32 %31 to i64
-  %33 = getelementptr %struct.rb_shape, ptr %7, i64 %32
-  %34 = getelementptr inbounds i8, ptr %33, i64 16
-  %35 = load i32, ptr %34, align 8
-  %36 = icmp ugt i32 %35, %25
-  br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  %.14178 = phi ptr [ %81, %.lr.ph ], [ %.04080, %.preheader ]
+  %78 = getelementptr inbounds i8, ptr %.14178, i64 28
+  %79 = load i32, ptr %78, align 4
+  %80 = zext i32 %79 to i64
+  %81 = getelementptr %struct.rb_shape, ptr %7, i64 %80
+  %82 = getelementptr inbounds i8, ptr %81, i64 16
+  %83 = load i32, ptr %82, align 8
+  %84 = icmp ugt i32 %83, %73
+  br i1 %84, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.141.lcssa = phi ptr [ %.04055, %.preheader ], [ %33, %.lr.ph ]
-  %37 = icmp eq ptr %.141.lcssa, %.04354
-  br i1 %37, label %38, label %44
+  %.141.lcssa = phi ptr [ %.04080, %.preheader ], [ %81, %.lr.ph ]
+  %85 = icmp eq ptr %.141.lcssa, %.04379
+  br i1 %85, label %86, label %92
 
-38:                                               ; preds = %._crit_edge
-  %39 = ptrtoint ptr %.04354 to i64
-  %40 = ptrtoint ptr %7 to i64
-  %41 = sub i64 %39, %40
-  %42 = sdiv exact i64 %41, 40
-  %43 = trunc i64 %42 to i32
-  store i32 %43, ptr %3, align 4
-  br label %67
+86:                                               ; preds = %._crit_edge
+  %87 = ptrtoint ptr %.04379 to i64
+  %88 = ptrtoint ptr %7 to i64
+  %89 = sub i64 %87, %88
+  %90 = sdiv exact i64 %89, 40
+  %91 = trunc i64 %90 to i32
+  store i32 %91, ptr %3, align 4
+  br label %rb_shape_get_iv_index.exit
 
-44:                                               ; preds = %._crit_edge
-  %45 = getelementptr inbounds i8, ptr %.04354, i64 8
-  %46 = load i64, ptr %45, align 8
-  %47 = icmp eq i64 %46, %1
-  br i1 %47, label %48, label %57
+92:                                               ; preds = %._crit_edge
+  %93 = getelementptr inbounds i8, ptr %.04379, i64 8
+  %94 = load i64, ptr %93, align 8
+  %95 = icmp eq i64 %94, %1
+  br i1 %95, label %96, label %105
 
-48:                                               ; preds = %44
-  %49 = add i32 %25, -1
-  store i32 %49, ptr %2, align 4
-  %50 = load ptr, ptr @rb_shape_tree_ptr, align 8
-  %51 = load ptr, ptr %50, align 8
-  %52 = ptrtoint ptr %.04354 to i64
-  %53 = ptrtoint ptr %51 to i64
-  %54 = sub i64 %52, %53
-  %55 = sdiv exact i64 %54, 40
-  %56 = trunc i64 %55 to i32
-  store i32 %56, ptr %3, align 4
-  br label %67
+96:                                               ; preds = %92
+  %97 = add i32 %73, -1
+  store i32 %97, ptr %2, align 4
+  %98 = load ptr, ptr @rb_shape_tree_ptr, align 8
+  %99 = load ptr, ptr %98, align 8
+  %100 = ptrtoint ptr %.04379 to i64
+  %101 = ptrtoint ptr %99 to i64
+  %102 = sub i64 %100, %101
+  %103 = sdiv exact i64 %102, 40
+  %104 = trunc i64 %103 to i32
+  store i32 %104, ptr %3, align 4
+  br label %rb_shape_get_iv_index.exit
 
-57:                                               ; preds = %44
-  %58 = getelementptr inbounds i8, ptr %.04354, i64 28
-  %59 = load i32, ptr %58, align 4
-  %60 = zext i32 %59 to i64
-  %61 = getelementptr %struct.rb_shape, ptr %7, i64 %60
-  %62 = add nsw i32 %.156, -1
-  %63 = icmp sgt i32 %.156, 1
-  br i1 %63, label %23, label %.critedge, !llvm.loop !11
+105:                                              ; preds = %92
+  %106 = getelementptr inbounds i8, ptr %.04379, i64 28
+  %107 = load i32, ptr %106, align 4
+  %108 = zext i32 %107 to i64
+  %109 = getelementptr %struct.rb_shape, ptr %7, i64 %108
+  %110 = add nsw i32 %.181, -1
+  %111 = icmp sgt i32 %.181, 1
+  br i1 %111, label %71, label %.critedge, !llvm.loop !12
 
-.critedge:                                        ; preds = %57, %23
-  %.043.lcssa = phi ptr [ %61, %57 ], [ %.04354, %23 ]
-  %64 = getelementptr inbounds i8, ptr %.043.lcssa, i64 32
-  %65 = load ptr, ptr %64, align 8
-  %.not46 = icmp eq ptr %65, null
+.critedge:                                        ; preds = %105, %71
+  %.043.lcssa = phi ptr [ %109, %105 ], [ %.04379, %71 ]
+  %112 = getelementptr inbounds i8, ptr %.043.lcssa, i64 32
+  %113 = load ptr, ptr %112, align 8
+  %.not46 = icmp eq ptr %113, null
   %spec.select48 = select i1 %.not, ptr %.043.lcssa, ptr %9
-  %spec.select49 = select i1 %.not46, ptr %spec.select48, ptr %.043.lcssa
+  %spec.select67 = select i1 %.not46, ptr %spec.select48, ptr %.043.lcssa
   store i32 %0, ptr %3, align 4
-  %66 = tail call zeroext i1 @rb_shape_get_iv_index(ptr noundef %spec.select49, i64 noundef %1, ptr noundef nonnull %2)
-  br label %67
+  %114 = getelementptr inbounds i8, ptr %spec.select67, i64 32
+  %115 = load ptr, ptr %114, align 8
+  %.not.i.i49 = icmp eq ptr %115, null
+  br i1 %.not.i.i49, label %.loopexit.i50, label %116
 
-67:                                               ; preds = %.critedge, %48, %38, %12
-  %.042 = phi i1 [ %13, %12 ], [ true, %38 ], [ true, %48 ], [ %66, %.critedge ]
+116:                                              ; preds = %.critedge
+  %117 = getelementptr inbounds i8, ptr %spec.select67, i64 16
+  %118 = load i32, ptr %117, align 8
+  %119 = icmp ugt i32 %118, 9
+  br i1 %119, label %.lr.ph.i.i.i58, label %.loopexit.i50
+
+.lr.ph.i.i.i58:                                   ; preds = %116
+  %120 = load ptr, ptr @rb_shape_tree_ptr, align 8
+  %121 = getelementptr inbounds i8, ptr %120, i64 24
+  br label %122
+
+122:                                              ; preds = %tailrecurse.backedge.i.i.i61, %.lr.ph.i.i.i58
+  %.tr16.i.i.i59 = phi ptr [ %115, %.lr.ph.i.i.i58 ], [ %133, %tailrecurse.backedge.i.i.i61 ]
+  %123 = load i64, ptr %.tr16.i.i.i59, align 8
+  %124 = icmp eq i64 %123, %1
+  br i1 %124, label %shape_cache_get_iv_index.exit.i64, label %125
+
+125:                                              ; preds = %122
+  %126 = icmp ugt i64 %123, %1
+  br i1 %126, label %127, label %135
+
+127:                                              ; preds = %125
+  %128 = getelementptr i8, ptr %.tr16.i.i.i59, i64 16
+  %.val.i.i.i63 = load i32, ptr %128, align 8
+  %129 = icmp eq i32 %.val.i.i.i63, 0
+  br i1 %129, label %.loopexit.i50, label %tailrecurse.backedge.i.i.i61
+
+tailrecurse.backedge.i.i.i61:                     ; preds = %135, %127
+  %.val13.sink.i.i.i62 = phi i32 [ %.val13.i.i.i60, %135 ], [ %.val.i.i.i63, %127 ]
+  %130 = load ptr, ptr %121, align 8
+  %131 = add i32 %.val13.sink.i.i.i62, -1
+  %132 = zext i32 %131 to i64
+  %133 = getelementptr %struct.redblack_node, ptr %130, i64 %132
+  %134 = icmp eq ptr %133, null
+  br i1 %134, label %.loopexit.i50, label %122
+
+135:                                              ; preds = %125
+  %136 = getelementptr i8, ptr %.tr16.i.i.i59, i64 20
+  %.val13.i.i.i60 = load i32, ptr %136, align 4
+  %137 = icmp eq i32 %.val13.i.i.i60, 0
+  br i1 %137, label %.loopexit.i50, label %tailrecurse.backedge.i.i.i61
+
+shape_cache_get_iv_index.exit.i64:                ; preds = %122
+  %138 = getelementptr i8, ptr %.tr16.i.i.i59, i64 8
+  %.val.i.i65 = load ptr, ptr %138, align 8
+  %139 = ptrtoint ptr %.val.i.i65 to i64
+  %140 = and i64 %139, -2
+  %141 = inttoptr i64 %140 to ptr
+  br label %shape_get_iv_index.exit.sink.split.i56
+
+.loopexit.i50:                                    ; preds = %135, %tailrecurse.backedge.i.i.i61, %127, %116, %.critedge
+  %142 = getelementptr inbounds i8, ptr %spec.select67, i64 28
+  %143 = load i32, ptr %142, align 4
+  %.not11.i.i51 = icmp eq i32 %143, -1
+  br i1 %.not11.i.i51, label %rb_shape_get_iv_index.exit, label %.lr.ph.i.i52
+
+.lr.ph.i.i52:                                     ; preds = %.loopexit.i50
+  %144 = load ptr, ptr @rb_shape_tree_ptr, align 8
+  br label %145
+
+145:                                              ; preds = %154, %.lr.ph.i.i52
+  %146 = phi i32 [ %143, %.lr.ph.i.i52 ], [ %159, %154 ]
+  %.0812.i.i53 = phi ptr [ %spec.select67, %.lr.ph.i.i52 ], [ %157, %154 ]
+  %147 = getelementptr inbounds i8, ptr %.0812.i.i53, i64 8
+  %148 = load i64, ptr %147, align 8
+  %149 = icmp eq i64 %148, %1
+  br i1 %149, label %150, label %154
+
+150:                                              ; preds = %145
+  %151 = getelementptr inbounds i8, ptr %.0812.i.i53, i64 24
+  %152 = load i8, ptr %151, align 8
+  switch i8 %152, label %154 [
+    i8 1, label %shape_get_iv_index.exit.sink.split.i56
+    i8 0, label %rb_shape_get_iv_index.exit
+    i8 3, label %rb_shape_get_iv_index.exit
+    i8 4, label %153
+    i8 2, label %153
+  ]
+
+153:                                              ; preds = %150, %150
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.3) #14
+  unreachable
+
+154:                                              ; preds = %150, %145
+  %155 = load ptr, ptr %144, align 8
+  %156 = zext i32 %146 to i64
+  %157 = getelementptr %struct.rb_shape, ptr %155, i64 %156
+  %158 = getelementptr inbounds i8, ptr %157, i64 28
+  %159 = load i32, ptr %158, align 4
+  %.not.i6.i54 = icmp eq i32 %159, -1
+  br i1 %.not.i6.i54, label %rb_shape_get_iv_index.exit, label %145, !llvm.loop !10
+
+shape_get_iv_index.exit.sink.split.i56:           ; preds = %150, %shape_cache_get_iv_index.exit.i64
+  %.0812.i.lcssa.sink.i57 = phi ptr [ %141, %shape_cache_get_iv_index.exit.i64 ], [ %.0812.i.i53, %150 ]
+  %160 = getelementptr inbounds i8, ptr %.0812.i.lcssa.sink.i57, i64 16
+  %161 = load i32, ptr %160, align 8
+  %162 = add i32 %161, -1
+  store i32 %162, ptr %2, align 4
+  br label %rb_shape_get_iv_index.exit
+
+rb_shape_get_iv_index.exit:                       ; preds = %154, %150, %150, %53, %49, %49, %shape_get_iv_index.exit.sink.split.i56, %.loopexit.i50, %shape_get_iv_index.exit.sink.split.i, %.loopexit.i, %96, %86
+  %.042 = phi i1 [ true, %86 ], [ true, %96 ], [ false, %.loopexit.i ], [ true, %shape_get_iv_index.exit.sink.split.i ], [ false, %.loopexit.i50 ], [ true, %shape_get_iv_index.exit.sink.split.i56 ], [ false, %49 ], [ false, %49 ], [ false, %53 ], [ false, %150 ], [ false, %150 ], [ false, %154 ]
   ret i1 %.042
 }
 
@@ -930,7 +1134,7 @@ shape_cache_get_iv_index.exit:                    ; preds = %12
   %48 = getelementptr inbounds i8, ptr %47, i64 28
   %49 = load i32, ptr %48, align 4
   %.not.i6 = icmp eq i32 %49, -1
-  br i1 %.not.i6, label %shape_get_iv_index.exit, label %35, !llvm.loop !12
+  br i1 %.not.i6, label %shape_get_iv_index.exit, label %35, !llvm.loop !10
 
 shape_get_iv_index.exit.sink.split:               ; preds = %40, %shape_cache_get_iv_index.exit
   %.0812.i.lcssa.sink = phi ptr [ %31, %shape_cache_get_iv_index.exit ], [ %.0812.i, %40 ]

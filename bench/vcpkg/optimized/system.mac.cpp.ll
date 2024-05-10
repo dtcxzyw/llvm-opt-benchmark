@@ -599,9 +599,9 @@ define dso_local void @_ZN5vcpkg17get_user_mac_hashB5cxx11Ev(ptr dead_on_unwind 
   br i1 %10, label %13, label %.preheader
 
 .preheader:                                       ; preds = %1
-  %.01233 = load ptr, ptr %2, align 8
-  %.not34 = icmp eq ptr %.01233, null
-  br i1 %.not34, label %._crit_edge, label %.lr.ph
+  %.01234 = load ptr, ptr %2, align 8
+  %.not35 = icmp eq ptr %.01234, null
+  br i1 %.not35, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %11 = getelementptr inbounds i8, ptr %4, i64 8
@@ -629,7 +629,7 @@ define dso_local void @_ZN5vcpkg17get_user_mac_hashB5cxx11Ev(ptr dead_on_unwind 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #7
-  br label %52
+  br label %70
 
 17:                                               ; preds = %.noexc, %13
   %18 = landingpad { ptr, i32 }
@@ -639,135 +639,196 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 .body:                                            ; preds = %15, %17
   %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #7
-  br label %54
+  br label %72
 
-19:                                               ; preds = %.lr.ph, %46
-  %.01235 = phi ptr [ %.01233, %.lr.ph ], [ %.012, %46 ]
-  %20 = getelementptr inbounds i8, ptr %.01235, i64 24
+19:                                               ; preds = %.lr.ph, %64
+  %.01236 = phi ptr [ %.01234, %.lr.ph ], [ %.012, %64 ]
+  %20 = getelementptr inbounds i8, ptr %.01236, i64 24
   %21 = load ptr, ptr %20, align 8
   %.not16 = icmp eq ptr %21, null
-  br i1 %.not16, label %46, label %22
+  br i1 %.not16, label %64, label %22
 
 22:                                               ; preds = %19
   %23 = load i16, ptr %21, align 2
   %.not17 = icmp eq i16 %23, 17
-  br i1 %.not17, label %24, label %46
+  br i1 %.not17, label %24, label %64
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %.01235, i64 16
+  %25 = getelementptr inbounds i8, ptr %.01236, i64 16
   %26 = load i32, ptr %25, align 8
   %27 = and i32 %26, 73
   %or.cond23.not = icmp eq i32 %27, 65
-  br i1 %or.cond23.not, label %28, label %46
+  br i1 %or.cond23.not, label %28, label %64
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds i8, ptr %21, i64 11
   %30 = load i8, ptr %29, align 1
   %.not21 = icmp eq i8 %30, 6
-  br i1 %.not21, label %31, label %46
+  br i1 %.not21, label %31, label %64
 
 31:                                               ; preds = %28
   %32 = getelementptr inbounds i8, ptr %21, i64 12
   store ptr %32, ptr %4, align 8
   store i64 6, ptr %11, align 8
   invoke void @_ZN5vcpkg19mac_bytes_to_stringB5cxx11ERKNS_4SpanIcEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %4)
-          to label %33 unwind label %41
+          to label %33 unwind label %59
 
 33:                                               ; preds = %31
   call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(32) %5) #7
   %34 = load ptr, ptr %6, align 8
   %35 = load i64, ptr %12, align 8
-  %36 = call noundef zeroext i1 @_ZN5vcpkg26is_valid_mac_for_telemetryENS_10StringViewE(ptr %34, i64 %35)
-  br i1 %36, label %37, label %.critedge
+  %.not.i.i = icmp eq i64 %35, 17
+  br i1 %.not.i.i, label %.preheader.i.i, label %.critedge
 
-37:                                               ; preds = %33
+.preheader.i.i:                                   ; preds = %33, %_ZN5vcpkg10ParserBase12is_hex_digitEDi.exit.thread.i.i
+  %.013.i.i = phi i64 [ %50, %_ZN5vcpkg10ParserBase12is_hex_digitEDi.exit.thread.i.i ], [ 0, %33 ]
+  %36 = lshr i64 18724, %.013.i.i
+  %37 = and i64 %36, 1
+  %.not7.i.i = icmp eq i64 %37, 0
+  br i1 %.not7.i.i, label %41, label %38
+
+38:                                               ; preds = %.preheader.i.i
+  %39 = getelementptr inbounds i8, ptr %34, i64 %.013.i.i
+  %40 = load i8, ptr %39, align 1
+  %.not8.i.i = icmp eq i8 %40, 58
+  br i1 %.not8.i.i, label %41, label %.critedge
+
+41:                                               ; preds = %38, %.preheader.i.i
+  %42 = lshr i64 112347, %.013.i.i
+  %43 = and i64 %42, 1
+  %.not9.i.i = icmp eq i64 %43, 0
+  br i1 %.not9.i.i, label %_ZN5vcpkg10ParserBase12is_hex_digitEDi.exit.thread.i.i, label %44
+
+44:                                               ; preds = %41
+  %45 = getelementptr inbounds i8, ptr %34, i64 %.013.i.i
+  %46 = load i8, ptr %45, align 1
+  %.fr.i.i = freeze i8 %46
+  %47 = sext i8 %.fr.i.i to i32
+  %48 = add nsw i32 %47, -48
+  %49 = icmp ult i32 %48, 10
+  br i1 %49, label %_ZN5vcpkg10ParserBase12is_hex_digitEDi.exit.thread.i.i, label %switch.early.test.i.i
+
+switch.early.test.i.i:                            ; preds = %44
+  switch i8 %.fr.i.i, label %.critedge [
+    i8 102, label %_ZN5vcpkg10ParserBase12is_hex_digitEDi.exit.thread.i.i
+    i8 101, label %_ZN5vcpkg10ParserBase12is_hex_digitEDi.exit.thread.i.i
+    i8 100, label %_ZN5vcpkg10ParserBase12is_hex_digitEDi.exit.thread.i.i
+    i8 99, label %_ZN5vcpkg10ParserBase12is_hex_digitEDi.exit.thread.i.i
+    i8 98, label %_ZN5vcpkg10ParserBase12is_hex_digitEDi.exit.thread.i.i
+    i8 97, label %_ZN5vcpkg10ParserBase12is_hex_digitEDi.exit.thread.i.i
+    i8 70, label %_ZN5vcpkg10ParserBase12is_hex_digitEDi.exit.thread.i.i
+    i8 69, label %_ZN5vcpkg10ParserBase12is_hex_digitEDi.exit.thread.i.i
+    i8 68, label %_ZN5vcpkg10ParserBase12is_hex_digitEDi.exit.thread.i.i
+    i8 67, label %_ZN5vcpkg10ParserBase12is_hex_digitEDi.exit.thread.i.i
+    i8 66, label %_ZN5vcpkg10ParserBase12is_hex_digitEDi.exit.thread.i.i
+    i8 65, label %_ZN5vcpkg10ParserBase12is_hex_digitEDi.exit.thread.i.i
+  ]
+
+_ZN5vcpkg10ParserBase12is_hex_digitEDi.exit.thread.i.i: ; preds = %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %44, %41
+  %50 = add nuw nsw i64 %.013.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %50, 17
+  br i1 %exitcond.not.i.i, label %_ZN5vcpkg27validate_mac_address_formatENS_10StringViewE.exit.i, label %.preheader.i.i, !llvm.loop !5
+
+_ZN5vcpkg27validate_mac_address_formatENS_10StringViewE.exit.i: ; preds = %_ZN5vcpkg10ParserBase12is_hex_digitEDi.exit.thread.i.i
+  %51 = call noundef zeroext i1 @_ZN5vcpkgeqENS_10StringViewES0_(ptr nonnull @.str, i64 17, ptr %34, i64 17) #7
+  br i1 %51, label %.critedge, label %52
+
+52:                                               ; preds = %_ZN5vcpkg27validate_mac_address_formatENS_10StringViewE.exit.i
+  %53 = call noundef zeroext i1 @_ZN5vcpkgeqENS_10StringViewES0_(ptr nonnull @.str.1, i64 17, ptr %34, i64 17) #7
+  br i1 %53, label %.critedge, label %_ZN5vcpkg26is_valid_mac_for_telemetryENS_10StringViewE.exit
+
+_ZN5vcpkg26is_valid_mac_for_telemetryENS_10StringViewE.exit: ; preds = %52
+  %54 = call noundef zeroext i1 @_ZN5vcpkgeqENS_10StringViewES0_(ptr nonnull @.str.2, i64 17, ptr %34, i64 17) #7
+  br i1 %54, label %.critedge, label %55
+
+55:                                               ; preds = %_ZN5vcpkg26is_valid_mac_for_telemetryENS_10StringViewE.exit
   call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(32) %5) #7
-  %38 = load ptr, ptr %7, align 8
-  %39 = getelementptr inbounds i8, ptr %7, i64 8
-  %40 = load i64, ptr %39, align 8
-  invoke void @_ZN5vcpkg4Hash15get_string_hashB5cxx11ENS_10StringViewENS0_9AlgorithmE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr %38, i64 %40, i32 noundef 0)
-          to label %45 unwind label %43
+  %56 = load ptr, ptr %7, align 8
+  %57 = getelementptr inbounds i8, ptr %7, i64 8
+  %58 = load i64, ptr %57, align 8
+  invoke void @_ZN5vcpkg4Hash15get_string_hashB5cxx11ENS_10StringViewENS0_9AlgorithmE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr %56, i64 %58, i32 noundef 0)
+          to label %63 unwind label %61
 
-41:                                               ; preds = %31
-  %42 = landingpad { ptr, i32 }
+59:                                               ; preds = %31
+  %60 = landingpad { ptr, i32 }
           cleanup
-  br label %54
+  br label %72
 
-43:                                               ; preds = %37
-  %44 = landingpad { ptr, i32 }
+61:                                               ; preds = %55
+  %62 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #7
-  br label %54
+  br label %72
 
-45:                                               ; preds = %37
+63:                                               ; preds = %55
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #7
-  br label %52
+  br label %70
 
-.critedge:                                        ; preds = %33
+.critedge:                                        ; preds = %38, %switch.early.test.i.i, %52, %_ZN5vcpkg27validate_mac_address_formatENS_10StringViewE.exit.i, %33, %_ZN5vcpkg26is_valid_mac_for_telemetryENS_10StringViewE.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #7
-  br label %46
+  br label %64
 
-46:                                               ; preds = %.critedge, %28, %19, %22, %24
-  %.012 = load ptr, ptr %.01235, align 8
+64:                                               ; preds = %.critedge, %28, %19, %22, %24
+  %.012 = load ptr, ptr %.01236, align 8
   %.not = icmp eq ptr %.012, null
   br i1 %.not, label %._crit_edge, label %19, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %46, %.preheader
+._crit_edge:                                      ; preds = %64, %.preheader
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #7
-  %47 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
-          to label %.noexc26 unwind label %50
+  %65 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
+          to label %.noexc26 unwind label %68
 
 .noexc26:                                         ; preds = %._crit_edge
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %47, ptr noundef nonnull align 1 dereferenceable(1) %8)
-          to label %.noexc27 unwind label %50
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %65, ptr noundef nonnull align 1 dereferenceable(1) %8)
+          to label %.noexc27 unwind label %68
 
 .noexc27:                                         ; preds = %.noexc26
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds ([2 x i8], ptr @.str.4, i64 0, i64 1))
-          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit30 unwind label %48
+          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit30 unwind label %66
 
-48:                                               ; preds = %.noexc27
-  %49 = landingpad { ptr, i32 }
+66:                                               ; preds = %.noexc27
+  %67 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) #7
   br label %.body28
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit30: ; preds = %.noexc27
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #7
-  br label %52
+  br label %70
 
-50:                                               ; preds = %.noexc26, %._crit_edge
-  %51 = landingpad { ptr, i32 }
+68:                                               ; preds = %.noexc26, %._crit_edge
+  %69 = landingpad { ptr, i32 }
           cleanup
   br label %.body28
 
-.body28:                                          ; preds = %48, %50
-  %eh.lpad-body29 = phi { ptr, i32 } [ %51, %50 ], [ %49, %48 ]
+.body28:                                          ; preds = %66, %68
+  %eh.lpad-body29 = phi { ptr, i32 } [ %69, %68 ], [ %67, %66 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #7
-  br label %54
+  br label %72
 
-52:                                               ; preds = %45, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit30, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
+70:                                               ; preds = %63, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit30, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
   %.val = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %_ZZN5vcpkg17get_user_mac_hashB5cxx11EvEN13ifaddrs_guardD2Ev.exit, label %53
+  br i1 %.not.i, label %_ZZN5vcpkg17get_user_mac_hashB5cxx11EvEN13ifaddrs_guardD2Ev.exit, label %71
 
-53:                                               ; preds = %52
+71:                                               ; preds = %70
   call void @freeifaddrs(ptr noundef nonnull %.val) #7
   br label %_ZZN5vcpkg17get_user_mac_hashB5cxx11EvEN13ifaddrs_guardD2Ev.exit
 
-_ZZN5vcpkg17get_user_mac_hashB5cxx11EvEN13ifaddrs_guardD2Ev.exit: ; preds = %52, %53
+_ZZN5vcpkg17get_user_mac_hashB5cxx11EvEN13ifaddrs_guardD2Ev.exit: ; preds = %70, %71
   ret void
 
-54:                                               ; preds = %.body28, %43, %41, %.body
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %44, %43 ], [ %42, %41 ], [ %eh.lpad-body29, %.body28 ]
+72:                                               ; preds = %.body28, %61, %59, %.body
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %62, %61 ], [ %60, %59 ], [ %eh.lpad-body29, %.body28 ]
   %.val24 = load ptr, ptr %2, align 8
   %.not.i31 = icmp eq ptr %.val24, null
-  br i1 %.not.i31, label %_ZZN5vcpkg17get_user_mac_hashB5cxx11EvEN13ifaddrs_guardD2Ev.exit32, label %55
+  br i1 %.not.i31, label %_ZZN5vcpkg17get_user_mac_hashB5cxx11EvEN13ifaddrs_guardD2Ev.exit32, label %73
 
-55:                                               ; preds = %54
+73:                                               ; preds = %72
   call void @freeifaddrs(ptr noundef nonnull %.val24) #7
   br label %_ZZN5vcpkg17get_user_mac_hashB5cxx11EvEN13ifaddrs_guardD2Ev.exit32
 
-_ZZN5vcpkg17get_user_mac_hashB5cxx11EvEN13ifaddrs_guardD2Ev.exit32: ; preds = %54, %55
+_ZZN5vcpkg17get_user_mac_hashB5cxx11EvEN13ifaddrs_guardD2Ev.exit32: ; preds = %72, %73
   resume { ptr, i32 } %.pn
 }
 

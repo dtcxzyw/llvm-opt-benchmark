@@ -59282,19 +59282,71 @@ define void @ws_manuf_dump(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br i1 %22, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %23 = getelementptr inbounds i8, ptr %3, i64 8
-  %24 = getelementptr inbounds i8, ptr %3, i64 16
-  br label %25
+  %23 = getelementptr inbounds i8, ptr %3, i64 5
+  %24 = getelementptr inbounds i8, ptr %3, i64 1
+  %25 = getelementptr inbounds i8, ptr %3, i64 2
+  %26 = getelementptr inbounds i8, ptr %3, i64 3
+  %27 = getelementptr inbounds i8, ptr %3, i64 4
+  %28 = getelementptr inbounds i8, ptr %3, i64 8
+  %29 = getelementptr inbounds i8, ptr %3, i64 16
+  br label %30
 
-25:                                               ; preds = %.lr.ph, %25
-  %26 = call ptr @ws_manuf_block_str(ptr noundef nonnull %4, i64 noundef 64, ptr noundef nonnull %3)
-  %27 = load ptr, ptr %23, align 8
-  %28 = load ptr, ptr %24, align 8
-  %29 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef nonnull %4, ptr noundef %27, ptr noundef %28) #11
-  %30 = call zeroext i1 @ws_manuf_iter_next(ptr noundef nonnull %2, ptr noundef nonnull %3)
-  br i1 %30, label %25, label %._crit_edge, !llvm.loop !6
+30:                                               ; preds = %.lr.ph, %ws_manuf_block_str.exit
+  %31 = load i8, ptr %23, align 1
+  switch i8 %31, label %62 [
+    i8 24, label %32
+    i8 28, label %40
+    i8 36, label %50
+  ]
 
-._crit_edge:                                      ; preds = %25, %1
+32:                                               ; preds = %30
+  %33 = load i8, ptr %3, align 8
+  %34 = zext i8 %33 to i32
+  %35 = load i8, ptr %24, align 1
+  %36 = zext i8 %35 to i32
+  %37 = load i8, ptr %25, align 2
+  %38 = zext i8 %37 to i32
+  %39 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %4, i64 noundef 64, ptr noundef nonnull @.str.3, i32 noundef %34, i32 noundef %36, i32 noundef %38) #11
+  br label %ws_manuf_block_str.exit
+
+40:                                               ; preds = %30
+  %41 = load i8, ptr %3, align 8
+  %42 = zext i8 %41 to i32
+  %43 = load i8, ptr %24, align 1
+  %44 = zext i8 %43 to i32
+  %45 = load i8, ptr %25, align 2
+  %46 = zext i8 %45 to i32
+  %47 = load i8, ptr %26, align 1
+  %48 = zext i8 %47 to i32
+  %49 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %4, i64 noundef 64, ptr noundef nonnull @.str.4, i32 noundef %42, i32 noundef %44, i32 noundef %46, i32 noundef %48) #11
+  br label %ws_manuf_block_str.exit
+
+50:                                               ; preds = %30
+  %51 = load i8, ptr %3, align 8
+  %52 = zext i8 %51 to i32
+  %53 = load i8, ptr %24, align 1
+  %54 = zext i8 %53 to i32
+  %55 = load i8, ptr %25, align 2
+  %56 = zext i8 %55 to i32
+  %57 = load i8, ptr %26, align 1
+  %58 = zext i8 %57 to i32
+  %59 = load i8, ptr %27, align 4
+  %60 = zext i8 %59 to i32
+  %61 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %4, i64 noundef 64, ptr noundef nonnull @.str.5, i32 noundef %52, i32 noundef %54, i32 noundef %56, i32 noundef %58, i32 noundef %60) #11
+  br label %ws_manuf_block_str.exit
+
+62:                                               ; preds = %30
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 352, ptr noundef nonnull @__func__.ws_manuf_block_str, ptr noundef nonnull @.str.2) #12
+  unreachable
+
+ws_manuf_block_str.exit:                          ; preds = %32, %40, %50
+  %63 = load ptr, ptr %28, align 8
+  %64 = load ptr, ptr %29, align 8
+  %65 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef nonnull %4, ptr noundef %63, ptr noundef %64) #11
+  %66 = call zeroext i1 @ws_manuf_iter_next(ptr noundef nonnull %2, ptr noundef nonnull %3)
+  br i1 %66, label %30, label %._crit_edge, !llvm.loop !6
+
+._crit_edge:                                      ; preds = %ws_manuf_block_str.exit, %1
   ret void
 }
 

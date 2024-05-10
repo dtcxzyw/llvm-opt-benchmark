@@ -579,9 +579,9 @@ $_ZZN4node11Environment29DecreaseWaitingRequestCounterEvE4args = comdat any
 @.str.317 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_node_zlib.cc, ptr null }]
 @switch.table._ZN4node12_GLOBAL__N_110ZlibStream6ParamsERKN2v820FunctionCallbackInfoINS2_5ValueEEE.26 = private unnamed_addr constant [9 x ptr] [ptr @.str.14, ptr @.str.174, ptr @.str.12, ptr @.str.11, ptr @.str.10, ptr @.str.9, ptr @.str.174, ptr @.str.7, ptr @.str.8], align 8
-@switch.table._ZN4node12_GLOBAL__N_111ZlibContext13SetDictionaryEv = private unnamed_addr constant [9 x ptr] [ptr @.str.14, ptr @.str.13, ptr @.str.12, ptr @.str.11, ptr @.str.10, ptr @.str.9, ptr @.str.174, ptr @.str.7, ptr @.str.8], align 8
+@switch.table._ZN4node12_GLOBAL__N_111ZlibContext11ResetStreamEv.28 = private unnamed_addr constant [9 x ptr] [ptr @.str.14, ptr @.str.13, ptr @.str.12, ptr @.str.11, ptr @.str.10, ptr @.str.9, ptr @.str.174, ptr @.str.7, ptr @.str.8], align 8
 @switch.table._ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE10CheckErrorEv = private unnamed_addr constant [6 x ptr] [ptr @.str.13, ptr @.str.12, ptr @.str.11, ptr @.str.10, ptr @.str.9, ptr @.str.6], align 8
-@switch.table._ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE10CheckErrorEv.28 = private unnamed_addr constant [6 x ptr] [ptr @.str.14, ptr @.str.174, ptr @.str.12, ptr @.str.11, ptr @.str.10, ptr @.str.9], align 8
+@switch.table._ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE10CheckErrorEv.29 = private unnamed_addr constant [6 x ptr] [ptr @.str.14, ptr @.str.174, ptr @.str.12, ptr @.str.11, ptr @.str.10, ptr @.str.9], align 8
 
 declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 
@@ -6377,7 +6377,7 @@ if.then.i19:                                      ; preds = %if.end56
 
 switch.lookup:                                    ; preds = %if.then.i19
   %28 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [9 x ptr], ptr @switch.table._ZN4node12_GLOBAL__N_111ZlibContext13SetDictionaryEv, i64 0, i64 %28
+  %switch.gep = getelementptr inbounds [9 x ptr], ptr @switch.table._ZN4node12_GLOBAL__N_111ZlibContext11ResetStreamEv.28, i64 0, i64 %28
   br label %if.then59.sink.split
 
 if.end.i18:                                       ; preds = %if.end56
@@ -8817,7 +8817,6 @@ declare noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull al
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZN4node12_GLOBAL__N_111ZlibContext8InitZlibEv(ptr noundef nonnull align 8 dereferenceable(224) %this) unnamed_addr #3 align 2 {
 entry:
-  %tmp = alloca %"struct.node::(anonymous namespace)::CompressionError", align 8
   %mutex_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @uv_mutex_lock(ptr noundef nonnull %mutex_) #22
   %zlib_init_done_ = getelementptr inbounds i8, ptr %this, i64 48
@@ -8867,19 +8866,20 @@ sw.epilog:                                        ; preds = %sw.bb2, %sw.bb
   %call5.sink = phi i32 [ %call5, %sw.bb2 ], [ %call, %sw.bb ]
   %err_6 = getelementptr inbounds i8, ptr %this, i64 52
   store i32 %call5.sink, ptr %err_6, align 4
+  %err_7 = getelementptr inbounds i8, ptr %this, i64 52
   %cmp.not = icmp eq i32 %call5.sink, 0
+  %dictionary_.i = getelementptr inbounds i8, ptr %this, i64 88
+  %7 = load ptr, ptr %dictionary_.i, align 8
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
+  %8 = load ptr, ptr %_M_finish.i.i.i, align 8
   br i1 %cmp.not, label %if.end10, label %if.then8
 
 if.then8:                                         ; preds = %sw.epilog
-  %dictionary_ = getelementptr inbounds i8, ptr %this, i64 88
-  %7 = load ptr, ptr %dictionary_, align 8
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  %8 = load ptr, ptr %_M_finish.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %8, %7
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIhSaIhEE5clearEv.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then8
-  store ptr %7, ptr %_M_finish.i.i, align 8
+  store ptr %7, ptr %_M_finish.i.i.i, align 8
   br label %_ZNSt6vectorIhSaIhEE5clearEv.exit
 
 _ZNSt6vectorIhSaIhEE5clearEv.exit:                ; preds = %if.then8, %if.then.i.i
@@ -8887,11 +8887,46 @@ _ZNSt6vectorIhSaIhEE5clearEv.exit:                ; preds = %if.then8, %if.then.
   br label %cleanup
 
 if.end10:                                         ; preds = %sw.epilog
-  call fastcc void @_ZN4node12_GLOBAL__N_111ZlibContext13SetDictionaryEv(ptr noalias nonnull align 8 %tmp, ptr noundef nonnull align 8 dereferenceable(224) %this)
+  %cmp.i.i.i = icmp eq ptr %7, %8
+  br i1 %cmp.i.i.i, label %_ZN4node12_GLOBAL__N_111ZlibContext13SetDictionaryEv.exit, label %if.end.i
+
+if.end.i:                                         ; preds = %if.end10
+  store i32 0, ptr %err_7, align 4, !noalias !42
+  %9 = load i32, ptr %mode_, align 4, !noalias !42
+  switch i32 %9, label %_ZN4node12_GLOBAL__N_111ZlibContext13SetDictionaryEv.exit [
+    i32 1, label %sw.bb.i
+    i32 5, label %sw.bb.i
+    i32 6, label %sw.bb8.i
+  ]
+
+sw.bb.i:                                          ; preds = %if.end.i, %if.end.i
+  %strm_.i = getelementptr inbounds i8, ptr %this, i64 112
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %8 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %7 to i64
+  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
+  %conv.i = trunc i64 %sub.ptr.sub.i.i to i32
+  %call6.i = tail call i32 @deflateSetDictionary(ptr noundef nonnull %strm_.i, ptr noundef %7, i32 noundef %conv.i) #22, !noalias !42
+  br label %sw.epilog.i
+
+sw.bb8.i:                                         ; preds = %if.end.i
+  %strm_9.i = getelementptr inbounds i8, ptr %this, i64 112
+  %sub.ptr.lhs.cast.i3.i = ptrtoint ptr %8 to i64
+  %sub.ptr.rhs.cast.i4.i = ptrtoint ptr %7 to i64
+  %sub.ptr.sub.i5.i = sub i64 %sub.ptr.lhs.cast.i3.i, %sub.ptr.rhs.cast.i4.i
+  %conv14.i = trunc i64 %sub.ptr.sub.i5.i to i32
+  %call15.i = tail call i32 @inflateSetDictionary(ptr noundef nonnull %strm_9.i, ptr noundef %7, i32 noundef %conv14.i) #22, !noalias !42
+  br label %sw.epilog.i
+
+sw.epilog.i:                                      ; preds = %sw.bb8.i, %sw.bb.i
+  %10 = phi i32 [ %call15.i, %sw.bb8.i ], [ %call6.i, %sw.bb.i ]
+  store i32 %10, ptr %err_7, align 4, !noalias !42
+  br label %_ZN4node12_GLOBAL__N_111ZlibContext13SetDictionaryEv.exit
+
+_ZN4node12_GLOBAL__N_111ZlibContext13SetDictionaryEv.exit: ; preds = %sw.epilog.i, %if.end.i, %if.end10
   store i8 1, ptr %zlib_init_done_, align 8
   br label %cleanup
 
-cleanup:                                          ; preds = %entry, %if.end10, %_ZNSt6vectorIhSaIhEE5clearEv.exit
+cleanup:                                          ; preds = %entry, %_ZN4node12_GLOBAL__N_111ZlibContext13SetDictionaryEv.exit, %_ZNSt6vectorIhSaIhEE5clearEv.exit
   %retval.0 = xor i1 %tobool, true
   tail call void @uv_mutex_unlock(ptr noundef nonnull %mutex_) #22
   ret i1 %retval.0
@@ -8924,17 +8959,17 @@ if.then:                                          ; preds = %entry
 
 switch.lookup:                                    ; preds = %if.then
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [9 x ptr], ptr @switch.table._ZN4node12_GLOBAL__N_111ZlibContext13SetDictionaryEv, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds [9 x ptr], ptr @switch.table._ZN4node12_GLOBAL__N_111ZlibContext11ResetStreamEv.28, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit
 
 _ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit: ; preds = %if.then, %switch.lookup
   %retval.0.i.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.174, %if.then ]
-  store ptr %spec.select.i, ptr %agg.result, align 8, !alias.scope !42
+  store ptr %spec.select.i, ptr %agg.result, align 8, !alias.scope !45
   %code3.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr %retval.0.i.i, ptr %code3.i.i, align 8, !alias.scope !42
+  store ptr %retval.0.i.i, ptr %code3.i.i, align 8, !alias.scope !45
   %err4.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store i32 %0, ptr %err4.i.i, align 8, !alias.scope !42
+  store i32 %0, ptr %err4.i.i, align 8, !alias.scope !45
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -8971,117 +9006,106 @@ if.then11:                                        ; preds = %sw.epilog
   %this.val3 = load ptr, ptr %6, align 8
   %cmp.not.i4 = icmp eq ptr %this.val3, null
   %spec.select.i5 = select i1 %cmp.not.i4, ptr @.str.179, ptr %this.val3
-  %switch.tableidx21 = add i32 %5, 6
-  %7 = icmp ult i32 %switch.tableidx21, 9
-  br i1 %7, label %switch.lookup20, label %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit18
+  %switch.tableidx22 = add i32 %5, 6
+  %7 = icmp ult i32 %switch.tableidx22, 9
+  br i1 %7, label %switch.lookup21, label %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit18
 
-switch.lookup20:                                  ; preds = %if.then11
-  %8 = zext nneg i32 %switch.tableidx21 to i64
-  %switch.gep22 = getelementptr inbounds [9 x ptr], ptr @switch.table._ZN4node12_GLOBAL__N_111ZlibContext13SetDictionaryEv, i64 0, i64 %8
-  %switch.load23 = load ptr, ptr %switch.gep22, align 8
+switch.lookup21:                                  ; preds = %if.then11
+  %8 = zext nneg i32 %switch.tableidx22 to i64
+  %switch.gep23 = getelementptr inbounds [9 x ptr], ptr @switch.table._ZN4node12_GLOBAL__N_111ZlibContext11ResetStreamEv.28, i64 0, i64 %8
+  %switch.load24 = load ptr, ptr %switch.gep23, align 8
   br label %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit18
 
-_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit18: ; preds = %if.then11, %switch.lookup20
-  %retval.0.i.i7 = phi ptr [ %switch.load23, %switch.lookup20 ], [ @.str.174, %if.then11 ]
-  store ptr %spec.select.i5, ptr %agg.result, align 8, !alias.scope !45
+_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit18: ; preds = %if.then11, %switch.lookup21
+  %retval.0.i.i7 = phi ptr [ %switch.load24, %switch.lookup21 ], [ @.str.174, %if.then11 ]
+  store ptr %spec.select.i5, ptr %agg.result, align 8, !alias.scope !48
   %code3.i.i8 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr %retval.0.i.i7, ptr %code3.i.i8, align 8, !alias.scope !45
+  store ptr %retval.0.i.i7, ptr %code3.i.i8, align 8, !alias.scope !48
   %err4.i.i9 = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store i32 %5, ptr %err4.i.i9, align 8, !alias.scope !45
+  store i32 %5, ptr %err4.i.i9, align 8, !alias.scope !48
   br label %return
 
 if.end12:                                         ; preds = %if.end, %sw.epilog
-  tail call fastcc void @_ZN4node12_GLOBAL__N_111ZlibContext13SetDictionaryEv(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(224) %this)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !51)
+  %dictionary_.i = getelementptr inbounds i8, ptr %this, i64 88
+  %9 = load ptr, ptr %dictionary_.i, align 8, !noalias !51
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
+  %10 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !51
+  %cmp.i.i.i = icmp eq ptr %9, %10
+  br i1 %cmp.i.i.i, label %if.then.i, label %if.end.i
+
+if.then.i:                                        ; preds = %if.end12
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false), !alias.scope !51
   br label %return
 
-return:                                           ; preds = %if.end12, %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit18, %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit
+if.end.i:                                         ; preds = %if.end12
+  store i32 0, ptr %err_, align 4, !noalias !51
+  %11 = load i32, ptr %mode_, align 4, !noalias !51
+  switch i32 %11, label %if.end19.i [
+    i32 1, label %sw.bb.i
+    i32 5, label %sw.bb.i
+    i32 6, label %sw.bb8.i
+  ]
+
+sw.bb.i:                                          ; preds = %if.end.i, %if.end.i
+  %strm_.i = getelementptr inbounds i8, ptr %this, i64 112
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %10 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %9 to i64
+  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
+  %conv.i = trunc i64 %sub.ptr.sub.i.i to i32
+  %call6.i = tail call i32 @deflateSetDictionary(ptr noundef nonnull %strm_.i, ptr noundef %9, i32 noundef %conv.i) #22, !noalias !51
+  br label %sw.epilog.i
+
+sw.bb8.i:                                         ; preds = %if.end.i
+  %strm_9.i = getelementptr inbounds i8, ptr %this, i64 112
+  %sub.ptr.lhs.cast.i3.i = ptrtoint ptr %10 to i64
+  %sub.ptr.rhs.cast.i4.i = ptrtoint ptr %9 to i64
+  %sub.ptr.sub.i5.i = sub i64 %sub.ptr.lhs.cast.i3.i, %sub.ptr.rhs.cast.i4.i
+  %conv14.i = trunc i64 %sub.ptr.sub.i5.i to i32
+  %call15.i = tail call i32 @inflateSetDictionary(ptr noundef nonnull %strm_9.i, ptr noundef %9, i32 noundef %conv14.i) #22, !noalias !51
+  br label %sw.epilog.i
+
+sw.epilog.i:                                      ; preds = %sw.bb8.i, %sw.bb.i
+  %12 = phi i32 [ %call15.i, %sw.bb8.i ], [ %call6.i, %sw.bb.i ]
+  store i32 %12, ptr %err_, align 4, !noalias !51
+  %cmp.not.i19 = icmp eq i32 %12, 0
+  br i1 %cmp.not.i19, label %if.end19.i, label %if.then18.i
+
+if.then18.i:                                      ; preds = %sw.epilog.i
+  %13 = getelementptr inbounds i8, ptr %this, i64 160
+  %this.val1.i = load ptr, ptr %13, align 8, !noalias !51
+  %cmp.not.i.i = icmp eq ptr %this.val1.i, null
+  %spec.select.i.i = select i1 %cmp.not.i.i, ptr @.str.173, ptr %this.val1.i
+  %switch.tableidx26 = add i32 %12, 6
+  %14 = icmp ult i32 %switch.tableidx26, 9
+  br i1 %14, label %switch.lookup25, label %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit.i
+
+switch.lookup25:                                  ; preds = %if.then18.i
+  %15 = zext nneg i32 %switch.tableidx26 to i64
+  %switch.gep27 = getelementptr inbounds [9 x ptr], ptr @switch.table._ZN4node12_GLOBAL__N_111ZlibContext11ResetStreamEv.28, i64 0, i64 %15
+  %switch.load28 = load ptr, ptr %switch.gep27, align 8
+  br label %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit.i
+
+_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit.i: ; preds = %if.then18.i, %switch.lookup25
+  %retval.0.i.i.i = phi ptr [ %switch.load28, %switch.lookup25 ], [ @.str.174, %if.then18.i ]
+  store ptr %spec.select.i.i, ptr %agg.result, align 8, !alias.scope !54
+  %code3.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store ptr %retval.0.i.i.i, ptr %code3.i.i.i, align 8, !alias.scope !54
+  %err4.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  store i32 %12, ptr %err4.i.i.i, align 8, !alias.scope !54
+  br label %return
+
+if.end19.i:                                       ; preds = %sw.epilog.i, %if.end.i
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false), !alias.scope !51
+  br label %return
+
+return:                                           ; preds = %if.end19.i, %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit.i, %if.then.i, %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit18, %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit
   ret void
 }
 
 declare i32 @deflateInit2_(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 declare i32 @inflateInit2_(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
-
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4node12_GLOBAL__N_111ZlibContext13SetDictionaryEv(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(224) %this) unnamed_addr #3 align 2 {
-entry:
-  %dictionary_ = getelementptr inbounds i8, ptr %this, i64 88
-  %0 = load ptr, ptr %dictionary_, align 8
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  %1 = load ptr, ptr %_M_finish.i.i, align 8
-  %cmp.i.i = icmp eq ptr %0, %1
-  br i1 %cmp.i.i, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %err_ = getelementptr inbounds i8, ptr %this, i64 52
-  store i32 0, ptr %err_, align 4
-  %mode_ = getelementptr inbounds i8, ptr %this, i64 68
-  %2 = load i32, ptr %mode_, align 4
-  switch i32 %2, label %if.end19 [
-    i32 1, label %sw.bb
-    i32 5, label %sw.bb
-    i32 6, label %sw.bb8
-  ]
-
-sw.bb:                                            ; preds = %if.end, %if.end
-  %strm_ = getelementptr inbounds i8, ptr %this, i64 112
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %conv = trunc i64 %sub.ptr.sub.i to i32
-  %call6 = tail call i32 @deflateSetDictionary(ptr noundef nonnull %strm_, ptr noundef %0, i32 noundef %conv) #22
-  br label %sw.epilog
-
-sw.bb8:                                           ; preds = %if.end
-  %strm_9 = getelementptr inbounds i8, ptr %this, i64 112
-  %sub.ptr.lhs.cast.i3 = ptrtoint ptr %1 to i64
-  %sub.ptr.rhs.cast.i4 = ptrtoint ptr %0 to i64
-  %sub.ptr.sub.i5 = sub i64 %sub.ptr.lhs.cast.i3, %sub.ptr.rhs.cast.i4
-  %conv14 = trunc i64 %sub.ptr.sub.i5 to i32
-  %call15 = tail call i32 @inflateSetDictionary(ptr noundef nonnull %strm_9, ptr noundef %0, i32 noundef %conv14) #22
-  br label %sw.epilog
-
-sw.epilog:                                        ; preds = %sw.bb8, %sw.bb
-  %3 = phi i32 [ %call15, %sw.bb8 ], [ %call6, %sw.bb ]
-  store i32 %3, ptr %err_, align 4
-  %cmp.not = icmp eq i32 %3, 0
-  br i1 %cmp.not, label %if.end19, label %if.then18
-
-if.then18:                                        ; preds = %sw.epilog
-  %4 = getelementptr inbounds i8, ptr %this, i64 160
-  %this.val1 = load ptr, ptr %4, align 8
-  %cmp.not.i = icmp eq ptr %this.val1, null
-  %spec.select.i = select i1 %cmp.not.i, ptr @.str.173, ptr %this.val1
-  %switch.tableidx = add i32 %3, 6
-  %5 = icmp ult i32 %switch.tableidx, 9
-  br i1 %5, label %switch.lookup, label %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit
-
-switch.lookup:                                    ; preds = %if.then18
-  %6 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [9 x ptr], ptr @switch.table._ZN4node12_GLOBAL__N_111ZlibContext13SetDictionaryEv, i64 0, i64 %6
-  %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit
-
-_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit: ; preds = %if.then18, %switch.lookup
-  %retval.0.i.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.174, %if.then18 ]
-  store ptr %spec.select.i, ptr %agg.result, align 8, !alias.scope !48
-  %code3.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr %retval.0.i.i, ptr %code3.i.i, align 8, !alias.scope !48
-  %err4.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store i32 %3, ptr %err4.i.i, align 8, !alias.scope !48
-  br label %return
-
-if.end19:                                         ; preds = %if.end, %sw.epilog
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
-  br label %return
-
-return:                                           ; preds = %if.end19, %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit, %if.then
-  ret void
-}
 
 declare i32 @deflateSetDictionary(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
@@ -9093,9 +9117,9 @@ declare i32 @inflateReset(ptr noundef) local_unnamed_addr #0
 define internal fastcc noundef zeroext i1 @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE10CheckErrorEv(ptr noundef nonnull align 8 dereferenceable(464) %this) unnamed_addr #3 align 2 {
 entry:
   %err = alloca %"struct.node::(anonymous namespace)::CompressionError", align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !51)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !57)
   %err_.i = getelementptr inbounds i8, ptr %this, i64 292
-  %0 = load i32, ptr %err_.i, align 4, !noalias !51
+  %0 = load i32, ptr %err_.i, align 4, !noalias !57
   switch i32 %0, label %sw.default.i [
     i32 0, label %sw.bb.i
     i32 -5, label %sw.bb.i
@@ -9105,17 +9129,17 @@ entry:
 
 sw.bb.i:                                          ; preds = %entry, %entry
   %avail_out.i = getelementptr inbounds i8, ptr %this, i64 384
-  %1 = load i32, ptr %avail_out.i, align 8, !noalias !51
+  %1 = load i32, ptr %avail_out.i, align 8, !noalias !57
   %cmp.not.i = icmp ne i32 %1, 0
   %flush_.i = getelementptr inbounds i8, ptr %this, i64 296
-  %2 = load i32, ptr %flush_.i, align 8, !noalias !51
+  %2 = load i32, ptr %flush_.i, align 8, !noalias !57
   %cmp2.i = icmp eq i32 %2, 4
   %or.cond.i = select i1 %cmp.not.i, i1 %cmp2.i, i1 false
   br i1 %or.cond.i, label %if.then.i, label %return
 
 if.then.i:                                        ; preds = %sw.bb.i
   %3 = getelementptr inbounds i8, ptr %this, i64 400
-  %this.val7.i = load ptr, ptr %3, align 8, !noalias !51
+  %this.val7.i = load ptr, ptr %3, align 8, !noalias !57
   %cmp.not.i.i = icmp eq ptr %this.val7.i, null
   %spec.select.i.i = select i1 %cmp.not.i.i, ptr @.str.183, ptr %this.val7.i
   %switch.tableidx = add i32 %0, 5
@@ -9130,21 +9154,21 @@ switch.lookup:                                    ; preds = %if.then.i
 
 _ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit.i: ; preds = %if.then.i, %switch.lookup
   %retval.0.i.i.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.174, %if.then.i ]
-  store ptr %spec.select.i.i, ptr %err, align 8, !alias.scope !54
+  store ptr %spec.select.i.i, ptr %err, align 8, !alias.scope !60
   %code3.i.i.i = getelementptr inbounds i8, ptr %err, i64 8
-  store ptr %retval.0.i.i.i, ptr %code3.i.i.i, align 8, !alias.scope !54
+  store ptr %retval.0.i.i.i, ptr %code3.i.i.i, align 8, !alias.scope !60
   %err4.i.i.i = getelementptr inbounds i8, ptr %err, i64 16
-  store i32 %0, ptr %err4.i.i.i, align 8, !alias.scope !54
+  store i32 %0, ptr %err4.i.i.i, align 8, !alias.scope !60
   br label %if.end
 
 sw.bb4.i:                                         ; preds = %entry
   %dictionary_.i = getelementptr inbounds i8, ptr %this, i64 328
-  %6 = load ptr, ptr %dictionary_.i, align 8, !noalias !51
+  %6 = load ptr, ptr %dictionary_.i, align 8, !noalias !57
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 336
-  %7 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !51
+  %7 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !57
   %cmp.i.i.i = icmp eq ptr %6, %7
   %8 = getelementptr inbounds i8, ptr %this, i64 400
-  %this.val5.i = load ptr, ptr %8, align 8, !noalias !51
+  %this.val5.i = load ptr, ptr %8, align 8, !noalias !57
   %cmp.not.i8.i = icmp eq ptr %this.val5.i, null
   %code3.i.i12.i = getelementptr inbounds i8, ptr %err, i64 8
   %err4.i.i13.i = getelementptr inbounds i8, ptr %err, i64 16
@@ -9152,21 +9176,21 @@ sw.bb4.i:                                         ; preds = %entry
 
 _ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit22.i: ; preds = %sw.bb4.i
   %spec.select.i9.i = select i1 %cmp.not.i8.i, ptr @.str.184, ptr %this.val5.i
-  store ptr %spec.select.i9.i, ptr %err, align 8, !alias.scope !57
-  store ptr @.str.8, ptr %code3.i.i12.i, align 8, !alias.scope !57
-  store i32 2, ptr %err4.i.i13.i, align 8, !alias.scope !57
+  store ptr %spec.select.i9.i, ptr %err, align 8, !alias.scope !63
+  store ptr @.str.8, ptr %code3.i.i12.i, align 8, !alias.scope !63
+  store i32 2, ptr %err4.i.i13.i, align 8, !alias.scope !63
   br label %if.end
 
 _ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit37.i: ; preds = %sw.bb4.i
   %spec.select.i24.i = select i1 %cmp.not.i8.i, ptr @.str.185, ptr %this.val5.i
-  store ptr %spec.select.i24.i, ptr %err, align 8, !alias.scope !60
-  store ptr @.str.8, ptr %code3.i.i12.i, align 8, !alias.scope !60
-  store i32 2, ptr %err4.i.i13.i, align 8, !alias.scope !60
+  store ptr %spec.select.i24.i, ptr %err, align 8, !alias.scope !66
+  store ptr @.str.8, ptr %code3.i.i12.i, align 8, !alias.scope !66
+  store i32 2, ptr %err4.i.i13.i, align 8, !alias.scope !66
   br label %if.end
 
 sw.default.i:                                     ; preds = %entry
   %9 = getelementptr inbounds i8, ptr %this, i64 400
-  %this.val1.i = load ptr, ptr %9, align 8, !noalias !51
+  %this.val1.i = load ptr, ptr %9, align 8, !noalias !57
   %cmp.not.i38.i = icmp eq ptr %this.val1.i, null
   %spec.select.i39.i = select i1 %cmp.not.i38.i, ptr @.str.186, ptr %this.val1.i
   %10 = icmp ugt i32 %0, -7
@@ -9175,17 +9199,17 @@ sw.default.i:                                     ; preds = %entry
 switch.lookup5:                                   ; preds = %sw.default.i
   %switch.tableidx6 = add nsw i32 %0, 6
   %11 = sext i32 %switch.tableidx6 to i64
-  %switch.gep7 = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE10CheckErrorEv.28, i64 0, i64 %11
+  %switch.gep7 = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE10CheckErrorEv.29, i64 0, i64 %11
   %switch.load8 = load ptr, ptr %switch.gep7, align 8
   br label %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit52.i
 
 _ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit52.i: ; preds = %sw.default.i, %switch.lookup5
   %retval.0.i.i41.i = phi ptr [ %switch.load8, %switch.lookup5 ], [ @.str.174, %sw.default.i ]
-  store ptr %spec.select.i39.i, ptr %err, align 8, !alias.scope !63
+  store ptr %spec.select.i39.i, ptr %err, align 8, !alias.scope !69
   %code3.i.i42.i = getelementptr inbounds i8, ptr %err, i64 8
-  store ptr %retval.0.i.i41.i, ptr %code3.i.i42.i, align 8, !alias.scope !63
+  store ptr %retval.0.i.i41.i, ptr %code3.i.i42.i, align 8, !alias.scope !69
   %err4.i.i43.i = getelementptr inbounds i8, ptr %err, i64 16
-  store i32 %0, ptr %err4.i.i43.i, align 8, !alias.scope !63
+  store i32 %0, ptr %err4.i.i43.i, align 8, !alias.scope !69
   br label %if.end
 
 if.end:                                           ; preds = %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit.i, %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit22.i, %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit37.i, %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit52.i
@@ -11023,11 +11047,11 @@ _ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEE3RefEv.exi
   br i1 %tobool.i.i.i, label %if.then52.i, label %_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEE10CheckErrorEv.exit.i
 
 _ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEE10CheckErrorEv.exit.i: ; preds = %_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEE3RefEv.exit.i
-  store ptr @.str.275, ptr %err.i.i, align 8, !alias.scope !66
+  store ptr @.str.275, ptr %err.i.i, align 8, !alias.scope !72
   %code3.i.i.i.i = getelementptr inbounds i8, ptr %err.i.i, i64 8
-  store ptr @.str.276, ptr %code3.i.i.i.i, align 8, !alias.scope !66
+  store ptr @.str.276, ptr %code3.i.i.i.i, align 8, !alias.scope !72
   %err4.i.i.i.i = getelementptr inbounds i8, ptr %err.i.i, i64 16
-  store i32 -1, ptr %err4.i.i.i.i, align 8, !alias.scope !66
+  store i32 -1, ptr %err4.i.i.i.i, align 8, !alias.scope !72
   call fastcc void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEE9EmitErrorERKNS0_16CompressionErrorE(ptr noundef nonnull align 8 dereferenceable(336) %retval.i17.0.i, ptr noundef nonnull align 8 dereferenceable(20) %err.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %err.i.i)
   br label %if.end54.i
@@ -11298,23 +11322,23 @@ _ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEE10InitStre
   tail call void @_ZN2v86Object16SetInternalFieldEiNS_5LocalINS_4DataEEE(ptr noundef nonnull align 1 dereferenceable(1) %retval.sroa.0.0.i.i.i, i32 noundef 3, ptr %retval.i172.sroa.0.0) #22
   %init_done_.i = getelementptr inbounds i8, ptr %retval.i17.0.i, i64 208
   store i8 1, ptr %init_done_.i, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !69)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !75)
   %alloc_.i = getelementptr inbounds i8, ptr %retval.i17.0.i, i64 296
-  store ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEE14AllocForBrotliEPvm, ptr %alloc_.i, align 8, !noalias !69
+  store ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEE14AllocForBrotliEPvm, ptr %alloc_.i, align 8, !noalias !75
   %free_.i = getelementptr inbounds i8, ptr %retval.i17.0.i, i64 304
-  store ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEE11FreeForZlibEPvS4_, ptr %free_.i, align 8, !noalias !69
+  store ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEE11FreeForZlibEPvS4_, ptr %free_.i, align 8, !noalias !75
   %alloc_opaque_.i = getelementptr inbounds i8, ptr %retval.i17.0.i, i64 312
-  store ptr %retval.i17.0.i, ptr %alloc_opaque_.i, align 8, !noalias !69
+  store ptr %retval.i17.0.i, ptr %alloc_opaque_.i, align 8, !noalias !75
   %state_.i = getelementptr i8, ptr %retval.i17.0.i, i64 328
-  %call.i = tail call ptr @BrotliEncoderCreateInstance(ptr noundef nonnull @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEE14AllocForBrotliEPvm, ptr noundef nonnull @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEE11FreeForZlibEPvS4_, ptr noundef nonnull %retval.i17.0.i) #22, !noalias !69
-  %37 = load ptr, ptr %state_.i, align 8, !noalias !69
-  store ptr %call.i, ptr %state_.i, align 8, !noalias !69
+  %call.i = tail call ptr @BrotliEncoderCreateInstance(ptr noundef nonnull @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEE14AllocForBrotliEPvm, ptr noundef nonnull @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEE11FreeForZlibEPvS4_, ptr noundef nonnull %retval.i17.0.i) #22, !noalias !75
+  %37 = load ptr, ptr %state_.i, align 8, !noalias !75
+  store ptr %call.i, ptr %state_.i, align 8, !noalias !75
   %tobool.not.i.i.i = icmp eq ptr %37, null
   br i1 %tobool.not.i.i.i, label %_ZNSt10unique_ptrI24BrotliEncoderStateStructN4node15FunctionDeleterIS0_XadL_Z28BrotliEncoderDestroyInstanceEEEEE5resetEPS0_.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEE10InitStreamEPjN2v85LocalINS5_8FunctionEEE.exit
-  tail call void @BrotliEncoderDestroyInstance(ptr noundef nonnull %37) #22, !noalias !69
-  %.pr.i = load ptr, ptr %state_.i, align 8, !noalias !69
+  tail call void @BrotliEncoderDestroyInstance(ptr noundef nonnull %37) #22, !noalias !75
+  %.pr.i = load ptr, ptr %state_.i, align 8, !noalias !75
   br label %_ZNSt10unique_ptrI24BrotliEncoderStateStructN4node15FunctionDeleterIS0_XadL_Z28BrotliEncoderDestroyInstanceEEEEE5resetEPS0_.exit.i
 
 _ZNSt10unique_ptrI24BrotliEncoderStateStructN4node15FunctionDeleterIS0_XadL_Z28BrotliEncoderDestroyInstanceEEEEE5resetEPS0_.exit.i: ; preds = %if.then.i.i.i, %_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEE10InitStreamEPjN2v85LocalINS5_8FunctionEEE.exit
@@ -11323,9 +11347,9 @@ _ZNSt10unique_ptrI24BrotliEncoderStateStructN4node15FunctionDeleterIS0_XadL_Z28B
   br i1 %cmp.i.not.i.not, label %if.then76, label %lor.lhs.false.i160
 
 if.then76:                                        ; preds = %_ZNSt10unique_ptrI24BrotliEncoderStateStructN4node15FunctionDeleterIS0_XadL_Z28BrotliEncoderDestroyInstanceEEEEE5resetEPS0_.exit.i
-  store ptr @.str.293, ptr %err, align 8, !alias.scope !69
+  store ptr @.str.293, ptr %err, align 8, !alias.scope !75
   %code3.i.i = getelementptr inbounds i8, ptr %err, i64 8
-  store ptr @.str.294, ptr %code3.i.i, align 8, !alias.scope !69
+  store ptr @.str.294, ptr %code3.i.i, align 8, !alias.scope !75
   %err4.i.i = getelementptr inbounds i8, ptr %err, i64 16
   br label %cleanup.sink.split
 
@@ -11418,7 +11442,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 if.end122:                                        ; preds = %for.body
   %call124.val = load ptr, ptr %state_.i, align 8
   %60 = trunc nuw nsw i64 %indvars.iv to i32
-  %call2.i = tail call i32 @BrotliEncoderSetParameter(ptr noundef %call124.val, i32 noundef %60, i32 noundef %59) #22, !noalias !72
+  %call2.i = tail call i32 @BrotliEncoderSetParameter(ptr noundef %call124.val, i32 noundef %60, i32 noundef %59) #22, !noalias !78
   %tobool.not.i = icmp eq i32 %call2.i, 0
   br i1 %tobool.not.i, label %if.then128, label %for.inc
 
@@ -11430,7 +11454,7 @@ if.then128:                                       ; preds = %if.end122
 for.inc:                                          ; preds = %if.end122, %for.body
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %call118
-  br i1 %exitcond.not, label %cleanup, label %for.body, !llvm.loop !75
+  br i1 %exitcond.not, label %cleanup, label %for.body, !llvm.loop !81
 
 cleanup.sink.split:                               ; preds = %if.then76, %if.then128
   %ref.tmp123.sroa.4.0.err.sroa_idx.sink = phi ptr [ %ref.tmp123.sroa.4.0.err.sroa_idx, %if.then128 ], [ %err4.i.i, %if.then76 ]
@@ -11526,24 +11550,24 @@ _ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit: ; preds = %if.
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !76)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !82)
   %alloc_.i = getelementptr inbounds i8, ptr %retval.i17.0.i, i64 296
-  %10 = load ptr, ptr %alloc_.i, align 8, !noalias !76
+  %10 = load ptr, ptr %alloc_.i, align 8, !noalias !82
   %free_.i = getelementptr inbounds i8, ptr %retval.i17.0.i, i64 304
-  %11 = load ptr, ptr %free_.i, align 8, !noalias !76
+  %11 = load ptr, ptr %free_.i, align 8, !noalias !82
   %alloc_opaque_.i = getelementptr inbounds i8, ptr %retval.i17.0.i, i64 312
-  %12 = load ptr, ptr %alloc_opaque_.i, align 8, !noalias !76
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !79)
+  %12 = load ptr, ptr %alloc_opaque_.i, align 8, !noalias !82
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !85)
   %state_.i.i = getelementptr inbounds i8, ptr %retval.i17.0.i, i64 328
-  %call.i.i = tail call ptr @BrotliEncoderCreateInstance(ptr noundef %10, ptr noundef %11, ptr noundef %12) #22, !noalias !82
-  %13 = load ptr, ptr %state_.i.i, align 8, !noalias !82
-  store ptr %call.i.i, ptr %state_.i.i, align 8, !noalias !82
+  %call.i.i = tail call ptr @BrotliEncoderCreateInstance(ptr noundef %10, ptr noundef %11, ptr noundef %12) #22, !noalias !88
+  %13 = load ptr, ptr %state_.i.i, align 8, !noalias !88
+  store ptr %call.i.i, ptr %state_.i.i, align 8, !noalias !88
   %tobool.not.i.i.i.i = icmp eq ptr %13, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt10unique_ptrI24BrotliEncoderStateStructN4node15FunctionDeleterIS0_XadL_Z28BrotliEncoderDestroyInstanceEEEEE5resetEPS0_.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %do.end
-  tail call void @BrotliEncoderDestroyInstance(ptr noundef nonnull %13) #22, !noalias !82
-  %.pr.i.i = load ptr, ptr %state_.i.i, align 8, !noalias !82
+  tail call void @BrotliEncoderDestroyInstance(ptr noundef nonnull %13) #22, !noalias !88
+  %.pr.i.i = load ptr, ptr %state_.i.i, align 8, !noalias !88
   br label %_ZNSt10unique_ptrI24BrotliEncoderStateStructN4node15FunctionDeleterIS0_XadL_Z28BrotliEncoderDestroyInstanceEEEEE5resetEPS0_.exit.i.i
 
 _ZNSt10unique_ptrI24BrotliEncoderStateStructN4node15FunctionDeleterIS0_XadL_Z28BrotliEncoderDestroyInstanceEEEEE5resetEPS0_.exit.i.i: ; preds = %if.then.i.i.i.i, %do.end
@@ -11552,11 +11576,11 @@ _ZNSt10unique_ptrI24BrotliEncoderStateStructN4node15FunctionDeleterIS0_XadL_Z28B
   br i1 %cmp.i.not.i.i.not, label %if.then13, label %if.end14
 
 if.then13:                                        ; preds = %_ZNSt10unique_ptrI24BrotliEncoderStateStructN4node15FunctionDeleterIS0_XadL_Z28BrotliEncoderDestroyInstanceEEEEE5resetEPS0_.exit.i.i
-  store ptr @.str.293, ptr %err, align 8, !alias.scope !82
+  store ptr @.str.293, ptr %err, align 8, !alias.scope !88
   %code3.i.i.i = getelementptr inbounds i8, ptr %err, i64 8
-  store ptr @.str.294, ptr %code3.i.i.i, align 8, !alias.scope !82
+  store ptr @.str.294, ptr %code3.i.i.i, align 8, !alias.scope !88
   %err4.i.i.i = getelementptr inbounds i8, ptr %err, i64 16
-  store i32 -1, ptr %err4.i.i.i, align 8, !alias.scope !82
+  store i32 -1, ptr %err4.i.i.i, align 8, !alias.scope !88
   call fastcc void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEE9EmitErrorERKNS0_16CompressionErrorE(ptr noundef nonnull align 8 dereferenceable(336) %retval.i17.0.i, ptr noundef nonnull align 8 dereferenceable(20) %err)
   br label %if.end14
 
@@ -11687,13 +11711,13 @@ if.then8.i.i:                                     ; preds = %for.cond.i.i.i.i.i.
 
 if.end.i.i.i:                                     ; preds = %if.then8.i.i
   %_M_first3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %tracker, i64 72
-  %14 = load ptr, ptr %_M_first3.i.i.i.i.i.i.i, align 8, !noalias !83
+  %14 = load ptr, ptr %_M_first3.i.i.i.i.i.i.i, align 8, !noalias !89
   %cmp.i.i.i1.i.i.i = icmp eq ptr %12, %14
   br i1 %cmp.i.i.i1.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNKSt5stackIPN4node18MemoryRetainerNodeESt5dequeIS2_SaIS2_EEE3topEv.exit.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i
   %_M_node5.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %tracker, i64 88
-  %15 = load ptr, ptr %_M_node5.i.i.i.i.i.i.i, align 8, !noalias !83
+  %15 = load ptr, ptr %_M_node5.i.i.i.i.i.i.i, align 8, !noalias !89
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 -8
   %16 = load ptr, ptr %add.ptr.i.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 512
@@ -11914,11 +11938,11 @@ do.end9:                                          ; preds = %entry
   br i1 %tobool.i.i, label %if.end19, label %_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEE10CheckErrorEv.exit
 
 _ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEE10CheckErrorEv.exit: ; preds = %do.end9
-  store ptr @.str.275, ptr %err.i, align 8, !alias.scope !86
+  store ptr @.str.275, ptr %err.i, align 8, !alias.scope !92
   %code3.i.i.i = getelementptr inbounds i8, ptr %err.i, i64 8
-  store ptr @.str.276, ptr %code3.i.i.i, align 8, !alias.scope !86
+  store ptr @.str.276, ptr %code3.i.i.i, align 8, !alias.scope !92
   %err4.i.i.i = getelementptr inbounds i8, ptr %err.i, i64 16
-  store i32 -1, ptr %err4.i.i.i, align 8, !alias.scope !86
+  store i32 -1, ptr %err4.i.i.i, align 8, !alias.scope !92
   call fastcc void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEE9EmitErrorERKNS0_16CompressionErrorE(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef nonnull align 8 dereferenceable(20) %err.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %err.i)
   br label %cleanup
@@ -13672,38 +13696,38 @@ _ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEE3RefEv.exi
   %92 = load ptr, ptr %vfn.i87, align 8
   tail call void %92(ptr noundef nonnull align 8 dereferenceable(368) %retval.i17.0.i) #22
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %err.i.i)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !89)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !95)
   %error_.i.i.i = getelementptr inbounds i8, ptr %retval.i17.0.i, i64 324
-  %93 = load i32, ptr %error_.i.i.i, align 4, !noalias !89
+  %93 = load i32, ptr %error_.i.i.i, align 4, !noalias !95
   %cmp.not.i.i.i = icmp eq i32 %93, 0
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %_ZNK4node12_GLOBAL__N_120BrotliDecoderContext12GetErrorInfoEv.exit.i.i
 
 if.else.i.i.i:                                    ; preds = %_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEE3RefEv.exit.i
-  %94 = load i32, ptr %flush_.i.i, align 8, !noalias !89
+  %94 = load i32, ptr %flush_.i.i, align 8, !noalias !95
   %cmp3.i.i.i = icmp eq i32 %94, 2
   %last_result_.i.i.i = getelementptr inbounds i8, ptr %retval.i17.0.i, i64 320
-  %95 = load i32, ptr %last_result_.i.i.i, align 8, !noalias !89
+  %95 = load i32, ptr %last_result_.i.i.i, align 8, !noalias !95
   %cmp4.i.i.i = icmp eq i32 %95, 2
   %or.cond.i.i.i = select i1 %cmp3.i.i.i, i1 %cmp4.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %_ZNK4node12_GLOBAL__N_120BrotliDecoderContext12GetErrorInfoEv.exit.thread4.i.i, label %if.then52.i
 
 _ZNK4node12_GLOBAL__N_120BrotliDecoderContext12GetErrorInfoEv.exit.thread4.i.i: ; preds = %if.else.i.i.i
-  store ptr @.str.183, ptr %err.i.i, align 8, !alias.scope !89
+  store ptr @.str.183, ptr %err.i.i, align 8, !alias.scope !95
   %code3.i1.i.i.i = getelementptr inbounds i8, ptr %err.i.i, i64 8
-  store ptr @.str.13, ptr %code3.i1.i.i.i, align 8, !alias.scope !89
+  store ptr @.str.13, ptr %code3.i1.i.i.i, align 8, !alias.scope !95
   %err4.i2.i.i.i = getelementptr inbounds i8, ptr %err.i.i, i64 16
-  store i32 -5, ptr %err4.i2.i.i.i, align 8, !alias.scope !89
+  store i32 -5, ptr %err4.i2.i.i.i, align 8, !alias.scope !95
   br label %_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEE10CheckErrorEv.exit.i
 
 _ZNK4node12_GLOBAL__N_120BrotliDecoderContext12GetErrorInfoEv.exit.i.i: ; preds = %_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEE3RefEv.exit.i
   %error_string_.i.i.i = getelementptr inbounds i8, ptr %retval.i17.0.i, i64 328
-  %call.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %error_string_.i.i.i) #22, !noalias !89
-  %96 = load i32, ptr %error_.i.i.i, align 4, !noalias !89
-  store ptr @.str.309, ptr %err.i.i, align 8, !alias.scope !89
+  %call.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %error_string_.i.i.i) #22, !noalias !95
+  %96 = load i32, ptr %error_.i.i.i, align 4, !noalias !95
+  store ptr @.str.309, ptr %err.i.i, align 8, !alias.scope !95
   %code3.i.i.i.i = getelementptr inbounds i8, ptr %err.i.i, i64 8
-  store ptr %call.i.i.i, ptr %code3.i.i.i.i, align 8, !alias.scope !89
+  store ptr %call.i.i.i, ptr %code3.i.i.i.i, align 8, !alias.scope !95
   %err4.i.i.i.i = getelementptr inbounds i8, ptr %err.i.i, i64 16
-  store i32 %96, ptr %err4.i.i.i.i, align 8, !alias.scope !89
+  store i32 %96, ptr %err4.i.i.i.i, align 8, !alias.scope !95
   %97 = icmp eq ptr %call.i.i.i, null
   br i1 %97, label %if.then52.i, label %_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEE10CheckErrorEv.exit.i
 
@@ -13978,23 +14002,23 @@ _ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEE10InitStre
   tail call void @_ZN2v86Object16SetInternalFieldEiNS_5LocalINS_4DataEEE(ptr noundef nonnull align 1 dereferenceable(1) %retval.sroa.0.0.i.i.i, i32 noundef 3, ptr %retval.i172.sroa.0.0) #22
   %init_done_.i = getelementptr inbounds i8, ptr %retval.i17.0.i, i64 208
   store i8 1, ptr %init_done_.i, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !92)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !98)
   %alloc_.i = getelementptr inbounds i8, ptr %retval.i17.0.i, i64 296
-  store ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEE14AllocForBrotliEPvm, ptr %alloc_.i, align 8, !noalias !92
+  store ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEE14AllocForBrotliEPvm, ptr %alloc_.i, align 8, !noalias !98
   %free_.i = getelementptr inbounds i8, ptr %retval.i17.0.i, i64 304
-  store ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEE11FreeForZlibEPvS4_, ptr %free_.i, align 8, !noalias !92
+  store ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEE11FreeForZlibEPvS4_, ptr %free_.i, align 8, !noalias !98
   %alloc_opaque_.i = getelementptr inbounds i8, ptr %retval.i17.0.i, i64 312
-  store ptr %retval.i17.0.i, ptr %alloc_opaque_.i, align 8, !noalias !92
+  store ptr %retval.i17.0.i, ptr %alloc_opaque_.i, align 8, !noalias !98
   %state_.i = getelementptr i8, ptr %retval.i17.0.i, i64 360
-  %call.i = tail call ptr @BrotliDecoderCreateInstance(ptr noundef nonnull @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEE14AllocForBrotliEPvm, ptr noundef nonnull @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEE11FreeForZlibEPvS4_, ptr noundef nonnull %retval.i17.0.i) #22, !noalias !92
-  %37 = load ptr, ptr %state_.i, align 8, !noalias !92
-  store ptr %call.i, ptr %state_.i, align 8, !noalias !92
+  %call.i = tail call ptr @BrotliDecoderCreateInstance(ptr noundef nonnull @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEE14AllocForBrotliEPvm, ptr noundef nonnull @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEE11FreeForZlibEPvS4_, ptr noundef nonnull %retval.i17.0.i) #22, !noalias !98
+  %37 = load ptr, ptr %state_.i, align 8, !noalias !98
+  store ptr %call.i, ptr %state_.i, align 8, !noalias !98
   %tobool.not.i.i.i = icmp eq ptr %37, null
   br i1 %tobool.not.i.i.i, label %_ZNSt10unique_ptrI24BrotliDecoderStateStructN4node15FunctionDeleterIS0_XadL_Z28BrotliDecoderDestroyInstanceEEEEE5resetEPS0_.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEE10InitStreamEPjN2v85LocalINS5_8FunctionEEE.exit
-  tail call void @BrotliDecoderDestroyInstance(ptr noundef nonnull %37) #22, !noalias !92
-  %.pr.i = load ptr, ptr %state_.i, align 8, !noalias !92
+  tail call void @BrotliDecoderDestroyInstance(ptr noundef nonnull %37) #22, !noalias !98
+  %.pr.i = load ptr, ptr %state_.i, align 8, !noalias !98
   br label %_ZNSt10unique_ptrI24BrotliDecoderStateStructN4node15FunctionDeleterIS0_XadL_Z28BrotliDecoderDestroyInstanceEEEEE5resetEPS0_.exit.i
 
 _ZNSt10unique_ptrI24BrotliDecoderStateStructN4node15FunctionDeleterIS0_XadL_Z28BrotliDecoderDestroyInstanceEEEEE5resetEPS0_.exit.i: ; preds = %if.then.i.i.i, %_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEE10InitStreamEPjN2v85LocalINS5_8FunctionEEE.exit
@@ -14003,9 +14027,9 @@ _ZNSt10unique_ptrI24BrotliDecoderStateStructN4node15FunctionDeleterIS0_XadL_Z28B
   br i1 %cmp.i.not.i.not, label %if.then76, label %lor.lhs.false.i160
 
 if.then76:                                        ; preds = %_ZNSt10unique_ptrI24BrotliDecoderStateStructN4node15FunctionDeleterIS0_XadL_Z28BrotliDecoderDestroyInstanceEEEEE5resetEPS0_.exit.i
-  store ptr @.str.293, ptr %err, align 8, !alias.scope !92
+  store ptr @.str.293, ptr %err, align 8, !alias.scope !98
   %code3.i.i = getelementptr inbounds i8, ptr %err, i64 8
-  store ptr @.str.294, ptr %code3.i.i, align 8, !alias.scope !92
+  store ptr @.str.294, ptr %code3.i.i, align 8, !alias.scope !98
   %err4.i.i = getelementptr inbounds i8, ptr %err, i64 16
   br label %cleanup.sink.split
 
@@ -14098,7 +14122,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 if.end122:                                        ; preds = %for.body
   %call124.val = load ptr, ptr %state_.i, align 8
   %60 = trunc nuw nsw i64 %indvars.iv to i32
-  %call2.i = tail call i32 @BrotliDecoderSetParameter(ptr noundef %call124.val, i32 noundef %60, i32 noundef %59) #22, !noalias !95
+  %call2.i = tail call i32 @BrotliDecoderSetParameter(ptr noundef %call124.val, i32 noundef %60, i32 noundef %59) #22, !noalias !101
   %tobool.not.i = icmp eq i32 %call2.i, 0
   br i1 %tobool.not.i, label %if.then128, label %for.inc
 
@@ -14110,7 +14134,7 @@ if.then128:                                       ; preds = %if.end122
 for.inc:                                          ; preds = %if.end122, %for.body
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %call118
-  br i1 %exitcond.not, label %cleanup, label %for.body, !llvm.loop !98
+  br i1 %exitcond.not, label %cleanup, label %for.body, !llvm.loop !104
 
 cleanup.sink.split:                               ; preds = %if.then76, %if.then128
   %ref.tmp123.sroa.4.0.err.sroa_idx.sink = phi ptr [ %ref.tmp123.sroa.4.0.err.sroa_idx, %if.then128 ], [ %err4.i.i, %if.then76 ]
@@ -14206,24 +14230,24 @@ _ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit: ; preds = %if.
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !99)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !105)
   %alloc_.i = getelementptr inbounds i8, ptr %retval.i17.0.i, i64 296
-  %10 = load ptr, ptr %alloc_.i, align 8, !noalias !99
+  %10 = load ptr, ptr %alloc_.i, align 8, !noalias !105
   %free_.i = getelementptr inbounds i8, ptr %retval.i17.0.i, i64 304
-  %11 = load ptr, ptr %free_.i, align 8, !noalias !99
+  %11 = load ptr, ptr %free_.i, align 8, !noalias !105
   %alloc_opaque_.i = getelementptr inbounds i8, ptr %retval.i17.0.i, i64 312
-  %12 = load ptr, ptr %alloc_opaque_.i, align 8, !noalias !99
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !102)
+  %12 = load ptr, ptr %alloc_opaque_.i, align 8, !noalias !105
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !108)
   %state_.i.i = getelementptr inbounds i8, ptr %retval.i17.0.i, i64 360
-  %call.i.i = tail call ptr @BrotliDecoderCreateInstance(ptr noundef %10, ptr noundef %11, ptr noundef %12) #22, !noalias !105
-  %13 = load ptr, ptr %state_.i.i, align 8, !noalias !105
-  store ptr %call.i.i, ptr %state_.i.i, align 8, !noalias !105
+  %call.i.i = tail call ptr @BrotliDecoderCreateInstance(ptr noundef %10, ptr noundef %11, ptr noundef %12) #22, !noalias !111
+  %13 = load ptr, ptr %state_.i.i, align 8, !noalias !111
+  store ptr %call.i.i, ptr %state_.i.i, align 8, !noalias !111
   %tobool.not.i.i.i.i = icmp eq ptr %13, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt10unique_ptrI24BrotliDecoderStateStructN4node15FunctionDeleterIS0_XadL_Z28BrotliDecoderDestroyInstanceEEEEE5resetEPS0_.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %do.end
-  tail call void @BrotliDecoderDestroyInstance(ptr noundef nonnull %13) #22, !noalias !105
-  %.pr.i.i = load ptr, ptr %state_.i.i, align 8, !noalias !105
+  tail call void @BrotliDecoderDestroyInstance(ptr noundef nonnull %13) #22, !noalias !111
+  %.pr.i.i = load ptr, ptr %state_.i.i, align 8, !noalias !111
   br label %_ZNSt10unique_ptrI24BrotliDecoderStateStructN4node15FunctionDeleterIS0_XadL_Z28BrotliDecoderDestroyInstanceEEEEE5resetEPS0_.exit.i.i
 
 _ZNSt10unique_ptrI24BrotliDecoderStateStructN4node15FunctionDeleterIS0_XadL_Z28BrotliDecoderDestroyInstanceEEEEE5resetEPS0_.exit.i.i: ; preds = %if.then.i.i.i.i, %do.end
@@ -14232,11 +14256,11 @@ _ZNSt10unique_ptrI24BrotliDecoderStateStructN4node15FunctionDeleterIS0_XadL_Z28B
   br i1 %cmp.i.not.i.i.not, label %if.then13, label %if.end14
 
 if.then13:                                        ; preds = %_ZNSt10unique_ptrI24BrotliDecoderStateStructN4node15FunctionDeleterIS0_XadL_Z28BrotliDecoderDestroyInstanceEEEEE5resetEPS0_.exit.i.i
-  store ptr @.str.293, ptr %err, align 8, !alias.scope !105
+  store ptr @.str.293, ptr %err, align 8, !alias.scope !111
   %code3.i.i.i = getelementptr inbounds i8, ptr %err, i64 8
-  store ptr @.str.294, ptr %code3.i.i.i, align 8, !alias.scope !105
+  store ptr @.str.294, ptr %code3.i.i.i, align 8, !alias.scope !111
   %err4.i.i.i = getelementptr inbounds i8, ptr %err, i64 16
-  store i32 -1, ptr %err4.i.i.i, align 8, !alias.scope !105
+  store i32 -1, ptr %err4.i.i.i, align 8, !alias.scope !111
   call fastcc void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEE9EmitErrorERKNS0_16CompressionErrorE(ptr noundef nonnull align 8 dereferenceable(368) %retval.i17.0.i, ptr noundef nonnull align 8 dereferenceable(20) %err)
   br label %if.end14
 
@@ -14367,13 +14391,13 @@ if.then8.i.i:                                     ; preds = %for.cond.i.i.i.i.i.
 
 if.end.i.i.i:                                     ; preds = %if.then8.i.i
   %_M_first3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %tracker, i64 72
-  %14 = load ptr, ptr %_M_first3.i.i.i.i.i.i.i, align 8, !noalias !106
+  %14 = load ptr, ptr %_M_first3.i.i.i.i.i.i.i, align 8, !noalias !112
   %cmp.i.i.i1.i.i.i = icmp eq ptr %12, %14
   br i1 %cmp.i.i.i1.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNKSt5stackIPN4node18MemoryRetainerNodeESt5dequeIS2_SaIS2_EEE3topEv.exit.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i
   %_M_node5.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %tracker, i64 88
-  %15 = load ptr, ptr %_M_node5.i.i.i.i.i.i.i, align 8, !noalias !106
+  %15 = load ptr, ptr %_M_node5.i.i.i.i.i.i.i, align 8, !noalias !112
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 -8
   %16 = load ptr, ptr %add.ptr.i.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 512
@@ -14566,7 +14590,7 @@ if.then22.i:                                      ; preds = %do.end14.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26.i, i64 noundef 4) #22
   %6 = load i32, ptr %error_.i, align 4
   %call29.i = call ptr @BrotliDecoderErrorString(i32 noundef %6) #22
-  %call.i1.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26.i, ptr noundef %call29.i) #22, !noalias !109
+  %call.i1.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26.i, ptr noundef %call29.i) #22, !noalias !115
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %call.i1.i) #22
   %error_string_.i = getelementptr inbounds i8, ptr %this, i64 328
   %call30.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %error_string_.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #22
@@ -14620,39 +14644,39 @@ do.end9:                                          ; preds = %entry
   %call2.i = call ptr %4(ptr noundef nonnull align 8 dereferenceable(872) %3) #22
   call void @_ZN2v87Context5EnterEv(ptr noundef nonnull align 1 dereferenceable(1) %call2.i) #22
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %err.i)
-  call void @llvm.experimental.noalias.scope.decl(metadata !112)
+  call void @llvm.experimental.noalias.scope.decl(metadata !118)
   %error_.i.i = getelementptr inbounds i8, ptr %this, i64 324
-  %5 = load i32, ptr %error_.i.i, align 4, !noalias !112
+  %5 = load i32, ptr %error_.i.i, align 4, !noalias !118
   %cmp.not.i.i = icmp eq i32 %5, 0
   br i1 %cmp.not.i.i, label %if.else.i.i, label %_ZNK4node12_GLOBAL__N_120BrotliDecoderContext12GetErrorInfoEv.exit.i
 
 if.else.i.i:                                      ; preds = %do.end9
   %flush_.i.i = getelementptr inbounds i8, ptr %this, i64 288
-  %6 = load i32, ptr %flush_.i.i, align 8, !noalias !112
+  %6 = load i32, ptr %flush_.i.i, align 8, !noalias !118
   %cmp3.i.i = icmp eq i32 %6, 2
   %last_result_.i.i = getelementptr inbounds i8, ptr %this, i64 320
-  %7 = load i32, ptr %last_result_.i.i, align 8, !noalias !112
+  %7 = load i32, ptr %last_result_.i.i, align 8, !noalias !118
   %cmp4.i.i = icmp eq i32 %7, 2
   %or.cond.i.i = select i1 %cmp3.i.i, i1 %cmp4.i.i, i1 false
   br i1 %or.cond.i.i, label %_ZNK4node12_GLOBAL__N_120BrotliDecoderContext12GetErrorInfoEv.exit.thread4.i, label %if.end19
 
 _ZNK4node12_GLOBAL__N_120BrotliDecoderContext12GetErrorInfoEv.exit.thread4.i: ; preds = %if.else.i.i
-  store ptr @.str.183, ptr %err.i, align 8, !alias.scope !112
+  store ptr @.str.183, ptr %err.i, align 8, !alias.scope !118
   %code3.i1.i.i = getelementptr inbounds i8, ptr %err.i, i64 8
-  store ptr @.str.13, ptr %code3.i1.i.i, align 8, !alias.scope !112
+  store ptr @.str.13, ptr %code3.i1.i.i, align 8, !alias.scope !118
   %err4.i2.i.i = getelementptr inbounds i8, ptr %err.i, i64 16
-  store i32 -5, ptr %err4.i2.i.i, align 8, !alias.scope !112
+  store i32 -5, ptr %err4.i2.i.i, align 8, !alias.scope !118
   br label %_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEE10CheckErrorEv.exit
 
 _ZNK4node12_GLOBAL__N_120BrotliDecoderContext12GetErrorInfoEv.exit.i: ; preds = %do.end9
   %error_string_.i.i = getelementptr inbounds i8, ptr %this, i64 328
-  %call.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %error_string_.i.i) #22, !noalias !112
-  %8 = load i32, ptr %error_.i.i, align 4, !noalias !112
-  store ptr @.str.309, ptr %err.i, align 8, !alias.scope !112
+  %call.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %error_string_.i.i) #22, !noalias !118
+  %8 = load i32, ptr %error_.i.i, align 4, !noalias !118
+  store ptr @.str.309, ptr %err.i, align 8, !alias.scope !118
   %code3.i.i.i = getelementptr inbounds i8, ptr %err.i, i64 8
-  store ptr %call.i.i, ptr %code3.i.i.i, align 8, !alias.scope !112
+  store ptr %call.i.i, ptr %code3.i.i.i, align 8, !alias.scope !118
   %err4.i.i.i = getelementptr inbounds i8, ptr %err.i, i64 16
-  store i32 %8, ptr %err4.i.i.i, align 8, !alias.scope !112
+  store i32 %8, ptr %err4.i.i.i, align 8, !alias.scope !118
   %9 = icmp eq ptr %call.i.i, null
   br i1 %9, label %if.end19, label %_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEE10CheckErrorEv.exit
 
@@ -15384,8 +15408,8 @@ attributes #26 = { cold }
 !40 = distinct !{!40, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv"}
 !41 = distinct !{!41, !10}
 !42 = !{!43}
-!43 = distinct !{!43, !44, !"_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc: %agg.result"}
-!44 = distinct !{!44, !"_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc"}
+!43 = distinct !{!43, !44, !"_ZN4node12_GLOBAL__N_111ZlibContext13SetDictionaryEv: %agg.result"}
+!44 = distinct !{!44, !"_ZN4node12_GLOBAL__N_111ZlibContext13SetDictionaryEv"}
 !45 = !{!46}
 !46 = distinct !{!46, !47, !"_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc: %agg.result"}
 !47 = distinct !{!47, !"_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc"}
@@ -15393,66 +15417,72 @@ attributes #26 = { cold }
 !49 = distinct !{!49, !50, !"_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc: %agg.result"}
 !50 = distinct !{!50, !"_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc"}
 !51 = !{!52}
-!52 = distinct !{!52, !53, !"_ZNK4node12_GLOBAL__N_111ZlibContext12GetErrorInfoEv: %agg.result"}
-!53 = distinct !{!53, !"_ZNK4node12_GLOBAL__N_111ZlibContext12GetErrorInfoEv"}
+!52 = distinct !{!52, !53, !"_ZN4node12_GLOBAL__N_111ZlibContext13SetDictionaryEv: %agg.result"}
+!53 = distinct !{!53, !"_ZN4node12_GLOBAL__N_111ZlibContext13SetDictionaryEv"}
 !54 = !{!55, !52}
 !55 = distinct !{!55, !56, !"_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc: %agg.result"}
 !56 = distinct !{!56, !"_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc"}
-!57 = !{!58, !52}
-!58 = distinct !{!58, !59, !"_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc: %agg.result"}
-!59 = distinct !{!59, !"_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc"}
-!60 = !{!61, !52}
+!57 = !{!58}
+!58 = distinct !{!58, !59, !"_ZNK4node12_GLOBAL__N_111ZlibContext12GetErrorInfoEv: %agg.result"}
+!59 = distinct !{!59, !"_ZNK4node12_GLOBAL__N_111ZlibContext12GetErrorInfoEv"}
+!60 = !{!61, !58}
 !61 = distinct !{!61, !62, !"_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc: %agg.result"}
 !62 = distinct !{!62, !"_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc"}
-!63 = !{!64, !52}
+!63 = !{!64, !58}
 !64 = distinct !{!64, !65, !"_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc: %agg.result"}
 !65 = distinct !{!65, !"_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc"}
-!66 = !{!67}
-!67 = distinct !{!67, !68, !"_ZNK4node12_GLOBAL__N_120BrotliEncoderContext12GetErrorInfoEv: %agg.result"}
-!68 = distinct !{!68, !"_ZNK4node12_GLOBAL__N_120BrotliEncoderContext12GetErrorInfoEv"}
-!69 = !{!70}
-!70 = distinct !{!70, !71, !"_ZN4node12_GLOBAL__N_120BrotliEncoderContext4InitEPFPvS2_mEPFvS2_S2_ES2_: %agg.result"}
-!71 = distinct !{!71, !"_ZN4node12_GLOBAL__N_120BrotliEncoderContext4InitEPFPvS2_mEPFvS2_S2_ES2_"}
+!66 = !{!67, !58}
+!67 = distinct !{!67, !68, !"_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc: %agg.result"}
+!68 = distinct !{!68, !"_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc"}
+!69 = !{!70, !58}
+!70 = distinct !{!70, !71, !"_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc: %agg.result"}
+!71 = distinct !{!71, !"_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc"}
 !72 = !{!73}
-!73 = distinct !{!73, !74, !"_ZN4node12_GLOBAL__N_120BrotliEncoderContext9SetParamsEij: %agg.result"}
-!74 = distinct !{!74, !"_ZN4node12_GLOBAL__N_120BrotliEncoderContext9SetParamsEij"}
-!75 = distinct !{!75, !10}
-!76 = !{!77}
-!77 = distinct !{!77, !78, !"_ZN4node12_GLOBAL__N_120BrotliEncoderContext11ResetStreamEv: %agg.result"}
-!78 = distinct !{!78, !"_ZN4node12_GLOBAL__N_120BrotliEncoderContext11ResetStreamEv"}
-!79 = !{!80}
-!80 = distinct !{!80, !81, !"_ZN4node12_GLOBAL__N_120BrotliEncoderContext4InitEPFPvS2_mEPFvS2_S2_ES2_: %agg.result"}
-!81 = distinct !{!81, !"_ZN4node12_GLOBAL__N_120BrotliEncoderContext4InitEPFPvS2_mEPFvS2_S2_ES2_"}
-!82 = !{!80, !77}
-!83 = !{!84}
-!84 = distinct !{!84, !85, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv: %agg.result"}
-!85 = distinct !{!85, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv"}
-!86 = !{!87}
-!87 = distinct !{!87, !88, !"_ZNK4node12_GLOBAL__N_120BrotliEncoderContext12GetErrorInfoEv: %agg.result"}
-!88 = distinct !{!88, !"_ZNK4node12_GLOBAL__N_120BrotliEncoderContext12GetErrorInfoEv"}
+!73 = distinct !{!73, !74, !"_ZNK4node12_GLOBAL__N_120BrotliEncoderContext12GetErrorInfoEv: %agg.result"}
+!74 = distinct !{!74, !"_ZNK4node12_GLOBAL__N_120BrotliEncoderContext12GetErrorInfoEv"}
+!75 = !{!76}
+!76 = distinct !{!76, !77, !"_ZN4node12_GLOBAL__N_120BrotliEncoderContext4InitEPFPvS2_mEPFvS2_S2_ES2_: %agg.result"}
+!77 = distinct !{!77, !"_ZN4node12_GLOBAL__N_120BrotliEncoderContext4InitEPFPvS2_mEPFvS2_S2_ES2_"}
+!78 = !{!79}
+!79 = distinct !{!79, !80, !"_ZN4node12_GLOBAL__N_120BrotliEncoderContext9SetParamsEij: %agg.result"}
+!80 = distinct !{!80, !"_ZN4node12_GLOBAL__N_120BrotliEncoderContext9SetParamsEij"}
+!81 = distinct !{!81, !10}
+!82 = !{!83}
+!83 = distinct !{!83, !84, !"_ZN4node12_GLOBAL__N_120BrotliEncoderContext11ResetStreamEv: %agg.result"}
+!84 = distinct !{!84, !"_ZN4node12_GLOBAL__N_120BrotliEncoderContext11ResetStreamEv"}
+!85 = !{!86}
+!86 = distinct !{!86, !87, !"_ZN4node12_GLOBAL__N_120BrotliEncoderContext4InitEPFPvS2_mEPFvS2_S2_ES2_: %agg.result"}
+!87 = distinct !{!87, !"_ZN4node12_GLOBAL__N_120BrotliEncoderContext4InitEPFPvS2_mEPFvS2_S2_ES2_"}
+!88 = !{!86, !83}
 !89 = !{!90}
-!90 = distinct !{!90, !91, !"_ZNK4node12_GLOBAL__N_120BrotliDecoderContext12GetErrorInfoEv: %agg.result"}
-!91 = distinct !{!91, !"_ZNK4node12_GLOBAL__N_120BrotliDecoderContext12GetErrorInfoEv"}
+!90 = distinct !{!90, !91, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv: %agg.result"}
+!91 = distinct !{!91, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv"}
 !92 = !{!93}
-!93 = distinct !{!93, !94, !"_ZN4node12_GLOBAL__N_120BrotliDecoderContext4InitEPFPvS2_mEPFvS2_S2_ES2_: %agg.result"}
-!94 = distinct !{!94, !"_ZN4node12_GLOBAL__N_120BrotliDecoderContext4InitEPFPvS2_mEPFvS2_S2_ES2_"}
+!93 = distinct !{!93, !94, !"_ZNK4node12_GLOBAL__N_120BrotliEncoderContext12GetErrorInfoEv: %agg.result"}
+!94 = distinct !{!94, !"_ZNK4node12_GLOBAL__N_120BrotliEncoderContext12GetErrorInfoEv"}
 !95 = !{!96}
-!96 = distinct !{!96, !97, !"_ZN4node12_GLOBAL__N_120BrotliDecoderContext9SetParamsEij: %agg.result"}
-!97 = distinct !{!97, !"_ZN4node12_GLOBAL__N_120BrotliDecoderContext9SetParamsEij"}
-!98 = distinct !{!98, !10}
-!99 = !{!100}
-!100 = distinct !{!100, !101, !"_ZN4node12_GLOBAL__N_120BrotliDecoderContext11ResetStreamEv: %agg.result"}
-!101 = distinct !{!101, !"_ZN4node12_GLOBAL__N_120BrotliDecoderContext11ResetStreamEv"}
-!102 = !{!103}
-!103 = distinct !{!103, !104, !"_ZN4node12_GLOBAL__N_120BrotliDecoderContext4InitEPFPvS2_mEPFvS2_S2_ES2_: %agg.result"}
-!104 = distinct !{!104, !"_ZN4node12_GLOBAL__N_120BrotliDecoderContext4InitEPFPvS2_mEPFvS2_S2_ES2_"}
-!105 = !{!103, !100}
-!106 = !{!107}
-!107 = distinct !{!107, !108, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv: %agg.result"}
-!108 = distinct !{!108, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv"}
-!109 = !{!110}
-!110 = distinct !{!110, !111, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_: %agg.result"}
-!111 = distinct !{!111, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_"}
+!96 = distinct !{!96, !97, !"_ZNK4node12_GLOBAL__N_120BrotliDecoderContext12GetErrorInfoEv: %agg.result"}
+!97 = distinct !{!97, !"_ZNK4node12_GLOBAL__N_120BrotliDecoderContext12GetErrorInfoEv"}
+!98 = !{!99}
+!99 = distinct !{!99, !100, !"_ZN4node12_GLOBAL__N_120BrotliDecoderContext4InitEPFPvS2_mEPFvS2_S2_ES2_: %agg.result"}
+!100 = distinct !{!100, !"_ZN4node12_GLOBAL__N_120BrotliDecoderContext4InitEPFPvS2_mEPFvS2_S2_ES2_"}
+!101 = !{!102}
+!102 = distinct !{!102, !103, !"_ZN4node12_GLOBAL__N_120BrotliDecoderContext9SetParamsEij: %agg.result"}
+!103 = distinct !{!103, !"_ZN4node12_GLOBAL__N_120BrotliDecoderContext9SetParamsEij"}
+!104 = distinct !{!104, !10}
+!105 = !{!106}
+!106 = distinct !{!106, !107, !"_ZN4node12_GLOBAL__N_120BrotliDecoderContext11ResetStreamEv: %agg.result"}
+!107 = distinct !{!107, !"_ZN4node12_GLOBAL__N_120BrotliDecoderContext11ResetStreamEv"}
+!108 = !{!109}
+!109 = distinct !{!109, !110, !"_ZN4node12_GLOBAL__N_120BrotliDecoderContext4InitEPFPvS2_mEPFvS2_S2_ES2_: %agg.result"}
+!110 = distinct !{!110, !"_ZN4node12_GLOBAL__N_120BrotliDecoderContext4InitEPFPvS2_mEPFvS2_S2_ES2_"}
+!111 = !{!109, !106}
 !112 = !{!113}
-!113 = distinct !{!113, !114, !"_ZNK4node12_GLOBAL__N_120BrotliDecoderContext12GetErrorInfoEv: %agg.result"}
-!114 = distinct !{!114, !"_ZNK4node12_GLOBAL__N_120BrotliDecoderContext12GetErrorInfoEv"}
+!113 = distinct !{!113, !114, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv: %agg.result"}
+!114 = distinct !{!114, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv"}
+!115 = !{!116}
+!116 = distinct !{!116, !117, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_: %agg.result"}
+!117 = distinct !{!117, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_"}
+!118 = !{!119}
+!119 = distinct !{!119, !120, !"_ZNK4node12_GLOBAL__N_120BrotliDecoderContext12GetErrorInfoEv: %agg.result"}
+!120 = distinct !{!120, !"_ZNK4node12_GLOBAL__N_120BrotliDecoderContext12GetErrorInfoEv"}

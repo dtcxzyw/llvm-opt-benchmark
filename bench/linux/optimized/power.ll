@@ -907,57 +907,102 @@ declare dso_local i32 @acpi_execute_simple_method(ptr noundef, ptr noundef, i64 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @acpi_enable_wakeup_device_power(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = icmp eq ptr %0, null
-  br i1 %3, label %28, label %4
+  %3 = alloca [3 x %union.acpi_object], align 16
+  %4 = alloca %struct.acpi_object_list, align 8
+  %5 = icmp eq ptr %0, null
+  br i1 %5, label %45, label %6
 
-4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 456
-  %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %8 = icmp eq i8 %7, 0
-  br i1 %8, label %28, label %9
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds i8, ptr %0, i64 456
+  %8 = load i8, ptr %7, align 8
+  %9 = and i8 %8, 1
+  %10 = icmp eq i8 %9, 0
+  br i1 %10, label %45, label %11
 
-9:                                                ; preds = %4
+11:                                               ; preds = %6
   tail call void @mutex_lock(ptr noundef nonnull @acpi_device_lock) #10
-  %10 = getelementptr inbounds i8, ptr %0, i64 488
-  %11 = load i32, ptr %10, align 8
-  %12 = add i32 %11, 1
-  store i32 %12, ptr %10, align 8
-  %13 = icmp eq i32 %11, 0
-  br i1 %13, label %14, label %26
+  %12 = getelementptr inbounds i8, ptr %0, i64 488
+  %13 = load i32, ptr %12, align 8
+  %14 = add i32 %13, 1
+  store i32 %14, ptr %12, align 8
+  %15 = icmp eq i32 %13, 0
+  br i1 %15, label %16, label %43
 
-14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 440
-  %16 = tail call fastcc i32 @acpi_power_on_list(ptr noundef %15)
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %22, label %18
+16:                                               ; preds = %11
+  %17 = getelementptr inbounds i8, ptr %0, i64 440
+  %18 = tail call fastcc i32 @acpi_power_on_list(ptr noundef %17)
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %24, label %20
 
-18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %0, i64 616
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %19, ptr noundef nonnull @.str.5) #12
-  %20 = load i8, ptr %5, align 8
-  %21 = and i8 %20, -2
-  store i8 %21, ptr %5, align 8
-  br label %26
+20:                                               ; preds = %16
+  %21 = getelementptr inbounds i8, ptr %0, i64 616
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %21, ptr noundef nonnull @.str.5) #12
+  %22 = load i8, ptr %7, align 8
+  %23 = and i8 %22, -2
+  store i8 %23, ptr %7, align 8
+  br label %43
 
-22:                                               ; preds = %14
-  %23 = tail call i32 @acpi_device_sleep_wake(ptr noundef nonnull %0, i32 noundef 1, i32 noundef %1, i32 noundef 3), !range !22
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %26, label %25
+24:                                               ; preds = %16
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %3, i8 0, i64 72, i1 false), !annotation !11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
+  store i64 3, ptr %4, align 8, !annotation !11
+  %25 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %3, ptr %25, align 8
+  store i32 1, ptr %3, align 16
+  %26 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 1, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %3, i64 24
+  store i32 1, ptr %27, align 8
+  %28 = sext i32 %1 to i64
+  %29 = getelementptr inbounds i8, ptr %3, i64 32
+  store i64 %28, ptr %29, align 16
+  %30 = getelementptr inbounds i8, ptr %3, i64 48
+  store i32 1, ptr %30, align 16
+  %31 = getelementptr inbounds i8, ptr %3, i64 56
+  store i64 3, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %33 = load ptr, ptr %32, align 8
+  %34 = call i32 @acpi_evaluate_object(ptr noundef %33, ptr noundef nonnull @.str, ptr noundef nonnull %4, ptr noundef null) #10
+  switch i32 %34, label %38 [
+    i32 0, label %acpi_device_sleep_wake.exit.thread
+    i32 5, label %35
+  ]
 
-25:                                               ; preds = %22
-  tail call fastcc void @acpi_power_off_list(ptr noundef %15)
-  store i32 0, ptr %10, align 8
-  br label %26
+35:                                               ; preds = %24
+  %36 = load ptr, ptr %32, align 8
+  %37 = call i32 @acpi_execute_simple_method(ptr noundef %36, ptr noundef nonnull @.str.3, i64 noundef 1) #10
+  switch i32 %37, label %38 [
+    i32 5, label %acpi_device_sleep_wake.exit.thread
+    i32 0, label %acpi_device_sleep_wake.exit.thread
+  ]
 
-26:                                               ; preds = %25, %22, %18, %9
-  %27 = phi i32 [ 0, %9 ], [ %16, %18 ], [ %23, %25 ], [ 0, %22 ]
+acpi_device_sleep_wake.exit.thread:               ; preds = %24, %35, %35
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3) #10
+  br label %43
+
+38:                                               ; preds = %35, %24
+  %39 = phi ptr [ @.str.2, %24 ], [ @.str.4, %35 ]
+  %40 = load ptr, ptr %32, align 8
+  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str.1, ptr noundef %40, ptr noundef nonnull %39) #10
+  %41 = load i8, ptr %7, align 8
+  %42 = and i8 %41, -2
+  store i8 %42, ptr %7, align 8
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3) #10
+  tail call fastcc void @acpi_power_off_list(ptr noundef %17)
+  store i32 0, ptr %12, align 8
+  br label %43
+
+43:                                               ; preds = %acpi_device_sleep_wake.exit.thread, %38, %20, %11
+  %44 = phi i32 [ 0, %11 ], [ %18, %20 ], [ -19, %38 ], [ 0, %acpi_device_sleep_wake.exit.thread ]
   tail call void @mutex_unlock(ptr noundef nonnull @acpi_device_lock) #10
-  br label %28
+  br label %45
 
-28:                                               ; preds = %26, %4, %2
-  %29 = phi i32 [ %27, %26 ], [ -22, %4 ], [ -22, %2 ]
-  ret i32 %29
+45:                                               ; preds = %43, %6, %2
+  %46 = phi i32 [ %44, %43 ], [ -22, %6 ], [ -22, %2 ]
+  ret i32 %46
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -975,7 +1020,7 @@ define internal fastcc noundef i32 @acpi_power_on_list(ptr noundef readonly %0) 
   %8 = load ptr, ptr %7, align 8
   %9 = tail call fastcc i32 @acpi_power_on(ptr noundef %8)
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %2, label %11, !llvm.loop !23
+  br i1 %10, label %2, label %11, !llvm.loop !22
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds i8, ptr %4, i64 8
@@ -1021,7 +1066,7 @@ define internal fastcc noundef i32 @acpi_power_on_list(ptr noundef readonly %0) 
   %36 = getelementptr inbounds i8, ptr %15, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, %0
-  br i1 %38, label %.loopexit, label %.preheader, !llvm.loop !24
+  br i1 %38, label %.loopexit, label %.preheader, !llvm.loop !23
 
 .loopexit:                                        ; preds = %2, %35, %11
   %39 = phi i32 [ %9, %11 ], [ %9, %35 ], [ 0, %2 ]
@@ -1088,7 +1133,7 @@ define internal fastcc void @acpi_power_off_list(ptr noundef readonly %0) unname
   %34 = tail call fastcc i32 @acpi_power_on(ptr noundef %33)
   %35 = load ptr, ptr %31, align 8
   %36 = icmp eq ptr %35, %0
-  br i1 %36, label %.loopexit, label %.preheader, !llvm.loop !25
+  br i1 %36, label %.loopexit, label %.preheader, !llvm.loop !24
 
 .loopexit:                                        ; preds = %5, %.preheader, %1, %26
   ret void
@@ -1096,105 +1141,149 @@ define internal fastcc void @acpi_power_off_list(ptr noundef readonly %0) unname
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 -22, 1) i32 @acpi_disable_wakeup_device_power(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = icmp eq ptr %0, null
-  br i1 %2, label %58, label %3
+  %2 = alloca [3 x %union.acpi_object], align 16
+  %3 = alloca %struct.acpi_object_list, align 8
+  %4 = icmp eq ptr %0, null
+  br i1 %4, label %74, label %5
 
-3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 456
-  %5 = load i8, ptr %4, align 8
-  %6 = and i8 %5, 1
-  %7 = icmp eq i8 %6, 0
-  br i1 %7, label %58, label %8
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds i8, ptr %0, i64 456
+  %7 = load i8, ptr %6, align 8
+  %8 = and i8 %7, 1
+  %9 = icmp eq i8 %8, 0
+  br i1 %9, label %74, label %10
 
-8:                                                ; preds = %3
+10:                                               ; preds = %5
   tail call void @mutex_lock(ptr noundef nonnull @acpi_device_lock) #10
-  %9 = getelementptr inbounds i8, ptr %0, i64 488
-  %10 = load i32, ptr %9, align 8
-  %11 = icmp slt i32 %10, 1
-  br i1 %11, label %.thread, label %12
+  %11 = getelementptr inbounds i8, ptr %0, i64 488
+  %12 = load i32, ptr %11, align 8
+  %13 = icmp slt i32 %12, 1
+  br i1 %13, label %.thread, label %14
 
-12:                                               ; preds = %8
-  %13 = add nsw i32 %10, -1
-  store i32 %13, ptr %9, align 8
-  %14 = icmp eq i32 %10, 1
-  br i1 %14, label %15, label %.thread
+14:                                               ; preds = %10
+  %15 = add nsw i32 %12, -1
+  store i32 %15, ptr %11, align 8
+  %16 = icmp eq i32 %12, 1
+  br i1 %16, label %17, label %.thread
 
-15:                                               ; preds = %12
-  %16 = tail call i32 @acpi_device_sleep_wake(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0, i32 noundef 0), !range !22
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %.thread
-
-18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 440
-  %20 = load ptr, ptr %19, align 8
-  %21 = icmp eq ptr %20, %19
-  br i1 %21, label %.thread, label %.preheader
-
-.preheader:                                       ; preds = %18, %43
-  %22 = phi ptr [ %49, %43 ], [ %20, %18 ]
-  %23 = phi i32 [ %48, %43 ], [ 0, %18 ]
-  %24 = getelementptr inbounds i8, ptr %22, i64 16
+17:                                               ; preds = %14
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %2) #10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %2, i8 0, i64 72, i1 false), !annotation !11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
+  store i64 3, ptr %3, align 8, !annotation !11
+  %18 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %2, ptr %18, align 8
+  store i32 1, ptr %2, align 16
+  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  store i64 0, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %2, i64 24
+  store i32 1, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %2, i64 32
+  store i64 0, ptr %21, align 16
+  %22 = getelementptr inbounds i8, ptr %2, i64 48
+  store i32 1, ptr %22, align 16
+  %23 = getelementptr inbounds i8, ptr %2, i64 56
+  store i64 0, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %0, i64 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 1440
-  tail call void @mutex_lock(ptr noundef %26) #10
-  %27 = getelementptr inbounds i8, ptr %25, i64 1432
-  %28 = load i32, ptr %27, align 8
-  %29 = icmp eq i32 %28, 0
-  br i1 %29, label %43, label %30
+  %26 = call i32 @acpi_evaluate_object(ptr noundef %25, ptr noundef nonnull @.str, ptr noundef nonnull %3, ptr noundef null) #10
+  switch i32 %26, label %acpi_device_sleep_wake.exit [
+    i32 0, label %34
+    i32 5, label %27
+  ]
 
-30:                                               ; preds = %.preheader
-  %31 = add i32 %28, -1
-  store i32 %31, ptr %27, align 8
-  %32 = icmp eq i32 %31, 0
-  br i1 %32, label %33, label %43
+27:                                               ; preds = %17
+  %28 = load ptr, ptr %24, align 8
+  %29 = call i32 @acpi_execute_simple_method(ptr noundef %28, ptr noundef nonnull @.str.3, i64 noundef 0) #10
+  switch i32 %29, label %acpi_device_sleep_wake.exit [
+    i32 5, label %34
+    i32 0, label %34
+  ]
 
-33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %25, i64 8
-  %35 = load ptr, ptr %34, align 8
-  %36 = tail call i32 @acpi_evaluate_object(ptr noundef %35, ptr noundef nonnull @.str.17, ptr noundef null, ptr noundef null) #10
-  %37 = icmp ne i32 %36, 0
-  %38 = getelementptr inbounds i8, ptr %25, i64 1436
-  %39 = sext i1 %37 to i8
-  store i8 %39, ptr %38, align 4
-  br i1 %37, label %40, label %43
-
-40:                                               ; preds = %33
-  %41 = load i32, ptr %27, align 8
-  %42 = add i32 %41, 1
-  store i32 %42, ptr %27, align 8
-  br label %43
-
-43:                                               ; preds = %40, %33, %30, %.preheader
-  %44 = phi i1 [ true, %.preheader ], [ false, %40 ], [ true, %33 ], [ true, %30 ]
-  %45 = phi i32 [ 0, %.preheader ], [ -19, %40 ], [ 0, %33 ], [ 0, %30 ]
-  tail call void @mutex_unlock(ptr noundef %26) #10
-  %46 = icmp ne i32 %23, 0
-  %47 = select i1 %44, i1 true, i1 %46
-  %48 = select i1 %47, i32 %23, i32 %45
-  %49 = load ptr, ptr %22, align 8
-  %50 = icmp eq ptr %49, %19
-  br i1 %50, label %51, label %.preheader, !llvm.loop !26
-
-51:                                               ; preds = %43
-  %52 = icmp eq i32 %48, 0
-  br i1 %52, label %.thread, label %53
-
-53:                                               ; preds = %51
-  %54 = getelementptr inbounds i8, ptr %0, i64 616
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %54, ptr noundef nonnull @.str.6) #12
-  %55 = load i8, ptr %4, align 8
-  %56 = and i8 %55, -2
-  store i8 %56, ptr %4, align 8
+acpi_device_sleep_wake.exit:                      ; preds = %17, %27
+  %30 = phi ptr [ @.str.2, %17 ], [ @.str.4, %27 ]
+  %31 = load ptr, ptr %24, align 8
+  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str.1, ptr noundef %31, ptr noundef nonnull %30) #10
+  %32 = load i8, ptr %6, align 8
+  %33 = and i8 %32, -2
+  store i8 %33, ptr %6, align 8
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %2) #10
   br label %.thread
 
-.thread:                                          ; preds = %18, %53, %51, %15, %12, %8
-  %57 = phi i32 [ 0, %8 ], [ 0, %12 ], [ %16, %15 ], [ %48, %53 ], [ 0, %51 ], [ 0, %18 ]
-  tail call void @mutex_unlock(ptr noundef nonnull @acpi_device_lock) #10
-  br label %58
+34:                                               ; preds = %17, %27, %27
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %2) #10
+  %35 = getelementptr inbounds i8, ptr %0, i64 440
+  %36 = load ptr, ptr %35, align 8
+  %37 = icmp eq ptr %36, %35
+  br i1 %37, label %.thread, label %.preheader
 
-58:                                               ; preds = %.thread, %3, %1
-  %59 = phi i32 [ %57, %.thread ], [ -22, %3 ], [ -22, %1 ]
-  ret i32 %59
+.preheader:                                       ; preds = %34, %59
+  %38 = phi ptr [ %65, %59 ], [ %36, %34 ]
+  %39 = phi i32 [ %64, %59 ], [ 0, %34 ]
+  %40 = getelementptr inbounds i8, ptr %38, i64 16
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds i8, ptr %41, i64 1440
+  tail call void @mutex_lock(ptr noundef %42) #10
+  %43 = getelementptr inbounds i8, ptr %41, i64 1432
+  %44 = load i32, ptr %43, align 8
+  %45 = icmp eq i32 %44, 0
+  br i1 %45, label %59, label %46
+
+46:                                               ; preds = %.preheader
+  %47 = add i32 %44, -1
+  store i32 %47, ptr %43, align 8
+  %48 = icmp eq i32 %47, 0
+  br i1 %48, label %49, label %59
+
+49:                                               ; preds = %46
+  %50 = getelementptr inbounds i8, ptr %41, i64 8
+  %51 = load ptr, ptr %50, align 8
+  %52 = tail call i32 @acpi_evaluate_object(ptr noundef %51, ptr noundef nonnull @.str.17, ptr noundef null, ptr noundef null) #10
+  %53 = icmp ne i32 %52, 0
+  %54 = getelementptr inbounds i8, ptr %41, i64 1436
+  %55 = sext i1 %53 to i8
+  store i8 %55, ptr %54, align 4
+  br i1 %53, label %56, label %59
+
+56:                                               ; preds = %49
+  %57 = load i32, ptr %43, align 8
+  %58 = add i32 %57, 1
+  store i32 %58, ptr %43, align 8
+  br label %59
+
+59:                                               ; preds = %56, %49, %46, %.preheader
+  %60 = phi i1 [ true, %.preheader ], [ false, %56 ], [ true, %49 ], [ true, %46 ]
+  %61 = phi i32 [ 0, %.preheader ], [ -19, %56 ], [ 0, %49 ], [ 0, %46 ]
+  tail call void @mutex_unlock(ptr noundef %42) #10
+  %62 = icmp ne i32 %39, 0
+  %63 = select i1 %60, i1 true, i1 %62
+  %64 = select i1 %63, i32 %39, i32 %61
+  %65 = load ptr, ptr %38, align 8
+  %66 = icmp eq ptr %65, %35
+  br i1 %66, label %67, label %.preheader, !llvm.loop !25
+
+67:                                               ; preds = %59
+  %68 = icmp eq i32 %64, 0
+  br i1 %68, label %.thread, label %69
+
+69:                                               ; preds = %67
+  %70 = getelementptr inbounds i8, ptr %0, i64 616
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %70, ptr noundef nonnull @.str.6) #12
+  %71 = load i8, ptr %6, align 8
+  %72 = and i8 %71, -2
+  store i8 %72, ptr %6, align 8
+  br label %.thread
+
+.thread:                                          ; preds = %34, %acpi_device_sleep_wake.exit, %69, %67, %14, %10
+  %73 = phi i32 [ 0, %10 ], [ 0, %14 ], [ -19, %acpi_device_sleep_wake.exit ], [ %64, %69 ], [ 0, %67 ], [ 0, %34 ]
+  tail call void @mutex_unlock(ptr noundef nonnull @acpi_device_lock) #10
+  br label %74
+
+74:                                               ; preds = %.thread, %5, %1
+  %75 = phi i32 [ %73, %.thread ], [ -22, %5 ], [ -22, %1 ]
+  ret i32 %75
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1272,7 +1361,7 @@ define dso_local noundef i32 @acpi_power_get_inferred_state(ptr noundef %0, ptr 
 .thread8:                                         ; preds = %34, %9
   %39 = add nuw nsw i64 %10, 1
   %40 = icmp eq i64 %39, 4
-  br i1 %40, label %41, label %9, !llvm.loop !27
+  br i1 %40, label %41, label %9, !llvm.loop !26
 
 41:                                               ; preds = %.thread8
   %42 = getelementptr i8, ptr %0, i64 376
@@ -1437,7 +1526,7 @@ thread-pre-split:                                 ; preds = %8
   %10 = getelementptr i8, ptr %9, i64 20
   %11 = load i32, ptr %10, align 4
   %12 = icmp ugt i32 %11, %6
-  br i1 %12, label %13, label %thread-pre-split, !llvm.loop !28
+  br i1 %12, label %13, label %thread-pre-split, !llvm.loop !27
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds i8, ptr %0, i64 1408
@@ -1551,7 +1640,7 @@ define dso_local void @acpi_resume_power_resources() local_unnamed_addr #0 align
   call void @mutex_unlock(ptr noundef %5) #10
   %43 = load ptr, ptr %4, align 8
   %44 = icmp eq ptr %43, @acpi_power_resource_list
-  br i1 %44, label %.loopexit6, label %.preheader5, !llvm.loop !29
+  br i1 %44, label %.loopexit6, label %.preheader5, !llvm.loop !28
 
 .loopexit6:                                       ; preds = %.loopexit, %0
   call void @mutex_unlock(ptr noundef nonnull @power_resource_list_lock) #10
@@ -1599,7 +1688,7 @@ define dso_local void @acpi_turn_off_unused_power_resources() local_unnamed_addr
   %22 = getelementptr inbounds i8, ptr %6, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, @acpi_power_resource_list
-  br i1 %24, label %.loopexit, label %.preheader, !llvm.loop !30
+  br i1 %24, label %.loopexit, label %.preheader, !llvm.loop !29
 
 .loopexit:                                        ; preds = %21, %3
   tail call void @mutex_unlock(ptr noundef nonnull @power_resource_list_lock) #10
@@ -1756,7 +1845,7 @@ attributes #12 = { cold nounwind }
 !19 = distinct !{!19, !6, !7}
 !20 = distinct !{!20, !6, !7}
 !21 = distinct !{!21, !6, !7}
-!22 = !{i32 -19, i32 1}
+!22 = distinct !{!22, !6, !7}
 !23 = distinct !{!23, !6, !7}
 !24 = distinct !{!24, !6, !7}
 !25 = distinct !{!25, !6, !7}
@@ -1764,4 +1853,3 @@ attributes #12 = { cold nounwind }
 !27 = distinct !{!27, !6, !7}
 !28 = distinct !{!28, !6, !7}
 !29 = distinct !{!29, !6, !7}
-!30 = distinct !{!30, !6, !7}

@@ -1218,23 +1218,58 @@ declare void @agmethod_upd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @agsafeset(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %5 = tail call ptr @agraphof(ptr noundef %0) #7
-  %6 = load i32, ptr %0, align 8
-  %7 = and i32 %6, 3
-  %8 = tail call ptr @agattr(ptr noundef %5, i32 noundef %7, ptr noundef %1, ptr noundef null)
-  %.not = icmp eq ptr %8, null
-  br i1 %.not, label %9, label %14
+  %5 = alloca %struct.Agsym_s, align 8
+  %6 = tail call ptr @agraphof(ptr noundef %0) #7
+  %7 = load i32, ptr %0, align 8
+  %8 = and i32 %7, 3
+  %9 = icmp eq ptr %6, null
+  br i1 %9, label %10, label %15
 
-9:                                                ; preds = %4
-  %10 = tail call ptr @agraphof(ptr noundef nonnull %0) #7
-  %11 = load i32, ptr %0, align 8
-  %12 = and i32 %11, 3
-  %13 = tail call ptr @agattr(ptr noundef %10, i32 noundef %12, ptr noundef %1, ptr noundef %3)
-  br label %14
+10:                                               ; preds = %4
+  %11 = load ptr, ptr @ProtoGraph, align 8
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %13, label %15
 
-14:                                               ; preds = %9, %4
-  %.0 = phi ptr [ %8, %4 ], [ %13, %9 ]
-  %15 = tail call i32 @agxset(ptr noundef nonnull %0, ptr noundef %.0, ptr noundef %2)
+13:                                               ; preds = %10
+  %14 = tail call ptr @agopen(ptr noundef null, i32 21, ptr noundef null) #7
+  store ptr %14, ptr @ProtoGraph, align 8
+  br label %15
+
+15:                                               ; preds = %13, %10, %4
+  %.09.i = phi ptr [ %6, %4 ], [ %14, %13 ], [ %11, %10 ]
+  %16 = tail call ptr @aggetrec(ptr noundef %.09.i, ptr noundef nonnull @DataDictName, i32 noundef 0) #7
+  %.not.i.i.i12.i = icmp eq ptr %16, null
+  br i1 %.not.i.i.i12.i, label %agattr.exit.thread, label %switch.lookup
+
+switch.lookup:                                    ; preds = %15
+  %17 = zext nneg i32 %8 to i64
+  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table.agcopyattr, i64 0, i64 %17
+  %switch.load = load i64, ptr %switch.gep, align 8
+  %18 = getelementptr inbounds i8, ptr %16, i64 %switch.load
+  %.0.i.i14.i = load ptr, ptr %18, align 8
+  %.not.i15.i = icmp eq ptr %.0.i.i14.i, null
+  br i1 %.not.i15.i, label %agattr.exit.thread, label %agattr.exit
+
+agattr.exit:                                      ; preds = %switch.lookup
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
+  %19 = getelementptr inbounds i8, ptr %5, i64 16
+  store ptr %1, ptr %19, align 8
+  %20 = load ptr, ptr %.0.i.i14.i, align 8
+  %21 = call ptr %20(ptr noundef nonnull %.0.i.i14.i, ptr noundef nonnull %5, i32 noundef 4) #7
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
+  %.not = icmp eq ptr %21, null
+  br i1 %.not, label %agattr.exit.thread, label %26
+
+agattr.exit.thread:                               ; preds = %15, %switch.lookup, %agattr.exit
+  %22 = call ptr @agraphof(ptr noundef nonnull %0) #7
+  %23 = load i32, ptr %0, align 8
+  %24 = and i32 %23, 3
+  %25 = call ptr @agattr(ptr noundef %22, i32 noundef %24, ptr noundef %1, ptr noundef %3)
+  br label %26
+
+26:                                               ; preds = %agattr.exit.thread, %agattr.exit
+  %.0 = phi ptr [ %21, %agattr.exit ], [ %25, %agattr.exit.thread ]
+  %27 = call i32 @agxset(ptr noundef nonnull %0, ptr noundef %.0, ptr noundef %2)
   ret i32 0
 }
 

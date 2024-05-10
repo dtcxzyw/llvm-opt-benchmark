@@ -1344,18 +1344,89 @@ return:                                           ; preds = %cleanup.action, %sw
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i64 0, 10) i64 @_ZN3net13SpdyConstants23GetDataFrameMinimumSizeENS_16SpdyMajorVersionE(i32 noundef %version) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i64 0, 10) i64 @_ZN3net13SpdyConstants23GetDataFrameMinimumSizeENS_16SpdyMajorVersionE(i32 noundef %version) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %call = tail call noundef i64 @_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE(i32 noundef %version)
-  ret i64 %call
+  %ref.tmp2.i = alloca %"class.logging::LogMessage", align 8
+  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %ref.tmp2.i)
+  switch i32 %version, label %sw.epilog.i [
+    i32 1, label %_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE.exit
+    i32 2, label %sw.bb1.i
+  ]
+
+sw.bb1.i:                                         ; preds = %entry
+  br label %_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE.exit
+
+sw.epilog.i:                                      ; preds = %entry
+  %call.i = tail call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
+  br i1 %call.i, label %cond.false.i, label %_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE.exit
+
+cond.false.i:                                     ; preds = %sw.epilog.i
+  call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2.i, ptr noundef nonnull @.str, i32 noundef 701, i32 noundef 2)
+  %stream_.i.i = getelementptr inbounds i8, ptr %ref.tmp2.i, i64 8
+  %call5.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i.i, ptr noundef nonnull @.str.13)
+          to label %invoke.cont4.i unwind label %lpad.i
+
+invoke.cont4.i:                                   ; preds = %cond.false.i
+  %call7.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call5.i, i32 noundef %version)
+          to label %cleanup.action.i unwind label %lpad.i
+
+cleanup.action.i:                                 ; preds = %invoke.cont4.i
+  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2.i) #15
+  br label %_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE.exit
+
+lpad.i:                                           ; preds = %invoke.cont4.i, %cond.false.i
+  %0 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2.i) #15
+  resume { ptr, i32 } %0
+
+_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE.exit: ; preds = %entry, %sw.bb1.i, %sw.epilog.i, %cleanup.action.i
+  %retval.0.i = phi i64 [ 9, %sw.bb1.i ], [ 8, %entry ], [ 0, %sw.epilog.i ], [ 0, %cleanup.action.i ]
+  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %ref.tmp2.i)
+  ret i64 %retval.0.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i64 16777215, 16777225) i64 @_ZN3net13SpdyConstants20GetMaxFrameSizeLimitENS_16SpdyMajorVersionE(i32 noundef %version) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i64 16777215, 16777225) i64 @_ZN3net13SpdyConstants20GetMaxFrameSizeLimitENS_16SpdyMajorVersionE(i32 noundef %version) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %call = tail call noundef i64 @_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE(i32 noundef %version)
-  %add = add nuw nsw i64 %call, 16777215
-  ret i64 %add
+  %ref.tmp2.i = alloca %"class.logging::LogMessage", align 8
+  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %ref.tmp2.i)
+  switch i32 %version, label %sw.epilog.i [
+    i32 1, label %_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE.exit
+    i32 2, label %sw.bb1.i
+  ]
+
+sw.bb1.i:                                         ; preds = %entry
+  br label %_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE.exit
+
+sw.epilog.i:                                      ; preds = %entry
+  %call.i = tail call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
+  br i1 %call.i, label %cond.false.i, label %_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE.exit
+
+cond.false.i:                                     ; preds = %sw.epilog.i
+  call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2.i, ptr noundef nonnull @.str, i32 noundef 701, i32 noundef 2)
+  %stream_.i.i = getelementptr inbounds i8, ptr %ref.tmp2.i, i64 8
+  %call5.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i.i, ptr noundef nonnull @.str.13)
+          to label %invoke.cont4.i unwind label %lpad.i
+
+invoke.cont4.i:                                   ; preds = %cond.false.i
+  %call7.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call5.i, i32 noundef %version)
+          to label %cleanup.action.i unwind label %lpad.i
+
+cleanup.action.i:                                 ; preds = %invoke.cont4.i
+  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2.i) #15
+  br label %_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE.exit
+
+lpad.i:                                           ; preds = %invoke.cont4.i, %cond.false.i
+  %0 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2.i) #15
+  resume { ptr, i32 } %0
+
+_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE.exit: ; preds = %entry, %sw.bb1.i, %sw.epilog.i, %cleanup.action.i
+  %retval.0.i = phi i64 [ 16777224, %sw.bb1.i ], [ 16777223, %entry ], [ 16777215, %sw.epilog.i ], [ 16777215, %cleanup.action.i ]
+  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %ref.tmp2.i)
+  ret i64 %retval.0.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

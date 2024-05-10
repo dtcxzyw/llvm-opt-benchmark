@@ -532,94 +532,180 @@ RSTRING_PTR.exit:                                 ; preds = %28, %32
 define internal i64 @ip_addr(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
   %4 = alloca %union.union_sockaddr, align 8
   %5 = alloca i32, align 4
-  %6 = alloca i32, align 4
   store i32 2048, ptr %5, align 4
-  %7 = tail call i64 @rb_io_taint_check(i64 noundef %2) #6
-  %8 = inttoptr i64 %7 to ptr
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
-  %10 = load ptr, ptr %9, align 8
-  tail call void @rb_io_check_closed(ptr noundef %10) #6
-  %11 = icmp slt i32 %0, 1
-  br i1 %11, label %15, label %12
+  %6 = tail call i64 @rb_io_taint_check(i64 noundef %2) #6
+  %7 = inttoptr i64 %6 to ptr
+  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %9 = load ptr, ptr %8, align 8
+  tail call void @rb_io_check_closed(ptr noundef %9) #6
+  %10 = icmp slt i32 %0, 1
+  br i1 %10, label %rsock_revlookup_flag.exit, label %11
 
-12:                                               ; preds = %3
-  %13 = load i64, ptr %1, align 8
-  %14 = call i32 @rsock_revlookup_flag(i64 noundef %13, ptr noundef nonnull %6)
-  %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %15, label %19
+11:                                               ; preds = %3
+  %12 = load i64, ptr %1, align 8
+  switch i64 %12, label %13 [
+    i64 20, label %.sink.split.i
+    i64 0, label %rsock_revlookup_flag.exit.thread
+    i64 4, label %rsock_revlookup_flag.exit
+  ]
 
-15:                                               ; preds = %12, %3
-  %16 = getelementptr inbounds i8, ptr %10, i64 20
-  %17 = load i32, ptr %16, align 4
-  %18 = and i32 %17, 256
-  store i32 %18, ptr %6, align 4
-  br label %19
+13:                                               ; preds = %11
+  %14 = and i64 %12, 255
+  %15 = icmp eq i64 %14, 12
+  br i1 %15, label %Check_Type.exit.i, label %16
 
-19:                                               ; preds = %15, %12
-  %20 = getelementptr inbounds i8, ptr %10, i64 16
-  %21 = load i32, ptr %20, align 8
-  %22 = call i32 @getsockname(i32 noundef %21, ptr nonnull %4, ptr noundef nonnull %5) #6
-  %23 = icmp slt i32 %22, 0
-  br i1 %23, label %24, label %27
+16:                                               ; preds = %13
+  %17 = and i64 %12, 7
+  %18 = icmp ne i64 %17, 0
+  %19 = icmp eq i64 %12, 0
+  %20 = or i1 %19, %18
+  br i1 %20, label %RB_SYMBOL_P.exit.thread27.i.i, label %RB_SYMBOL_P.exit.i.i
 
-24:                                               ; preds = %19
-  %25 = call ptr @rb_errno_ptr() #6
-  %26 = load i32, ptr %25, align 4
-  call void @rb_syserr_fail(i32 noundef %26, ptr noundef nonnull @.str.15) #7
+RB_SYMBOL_P.exit.i.i:                             ; preds = %16
+  %21 = inttoptr i64 %12 to ptr
+  %22 = load i64, ptr %21, align 8
+  %23 = and i64 %22, 31
+  %24 = icmp eq i64 %23, 20
+  br i1 %24, label %Check_Type.exit.i, label %RB_SYMBOL_P.exit.thread27.i.i
+
+RB_SYMBOL_P.exit.thread27.i.i:                    ; preds = %RB_SYMBOL_P.exit.i.i, %16
+  tail call void @rb_unexpected_type(i64 noundef %12, i32 noundef 20) #8
   unreachable
 
-27:                                               ; preds = %19
-  %28 = load i32, ptr %5, align 4
-  %29 = load i32, ptr %6, align 4
-  %30 = call i64 @rsock_ipaddr(ptr noundef nonnull %4, i32 noundef %28, i32 noundef %29) #6
-  ret i64 %30
+Check_Type.exit.i:                                ; preds = %RB_SYMBOL_P.exit.i.i, %13
+  %25 = tail call i64 @rb_sym2id(i64 noundef %12) #6
+  %26 = load i64, ptr @id_numeric, align 8
+  %27 = icmp eq i64 %25, %26
+  br i1 %27, label %rsock_revlookup_flag.exit.thread, label %28
+
+28:                                               ; preds = %Check_Type.exit.i
+  %29 = load i64, ptr @id_hostname, align 8
+  %30 = icmp eq i64 %25, %29
+  br i1 %30, label %rsock_revlookup_flag.exit.thread, label %31
+
+31:                                               ; preds = %28
+  %32 = load i64, ptr @rb_eArgError, align 8
+  %33 = tail call ptr @rb_id2name(i64 noundef %25) #6
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %32, ptr noundef nonnull @.str, ptr noundef %33) #7
+  unreachable
+
+.sink.split.i:                                    ; preds = %11
+  br label %rsock_revlookup_flag.exit.thread
+
+rsock_revlookup_flag.exit:                        ; preds = %11, %3
+  %34 = getelementptr inbounds i8, ptr %9, i64 20
+  %35 = load i32, ptr %34, align 4
+  %36 = and i32 %35, 256
+  br label %rsock_revlookup_flag.exit.thread
+
+rsock_revlookup_flag.exit.thread:                 ; preds = %11, %.sink.split.i, %Check_Type.exit.i, %28, %rsock_revlookup_flag.exit
+  %.1 = phi i32 [ %36, %rsock_revlookup_flag.exit ], [ 0, %.sink.split.i ], [ 0, %28 ], [ 1, %Check_Type.exit.i ], [ 1, %11 ]
+  %37 = getelementptr inbounds i8, ptr %9, i64 16
+  %38 = load i32, ptr %37, align 8
+  %39 = call i32 @getsockname(i32 noundef %38, ptr nonnull %4, ptr noundef nonnull %5) #6
+  %40 = icmp slt i32 %39, 0
+  br i1 %40, label %41, label %44
+
+41:                                               ; preds = %rsock_revlookup_flag.exit.thread
+  %42 = call ptr @rb_errno_ptr() #6
+  %43 = load i32, ptr %42, align 4
+  call void @rb_syserr_fail(i32 noundef %43, ptr noundef nonnull @.str.15) #7
+  unreachable
+
+44:                                               ; preds = %rsock_revlookup_flag.exit.thread
+  %45 = load i32, ptr %5, align 4
+  %46 = call i64 @rsock_ipaddr(ptr noundef nonnull %4, i32 noundef %45, i32 noundef %.1) #6
+  ret i64 %46
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @ip_peeraddr(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
   %4 = alloca %union.union_sockaddr, align 8
   %5 = alloca i32, align 4
-  %6 = alloca i32, align 4
   store i32 2048, ptr %5, align 4
-  %7 = tail call i64 @rb_io_taint_check(i64 noundef %2) #6
-  %8 = inttoptr i64 %7 to ptr
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
-  %10 = load ptr, ptr %9, align 8
-  tail call void @rb_io_check_closed(ptr noundef %10) #6
-  %11 = icmp slt i32 %0, 1
-  br i1 %11, label %15, label %12
+  %6 = tail call i64 @rb_io_taint_check(i64 noundef %2) #6
+  %7 = inttoptr i64 %6 to ptr
+  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %9 = load ptr, ptr %8, align 8
+  tail call void @rb_io_check_closed(ptr noundef %9) #6
+  %10 = icmp slt i32 %0, 1
+  br i1 %10, label %rsock_revlookup_flag.exit, label %11
 
-12:                                               ; preds = %3
-  %13 = load i64, ptr %1, align 8
-  %14 = call i32 @rsock_revlookup_flag(i64 noundef %13, ptr noundef nonnull %6)
-  %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %15, label %19
+11:                                               ; preds = %3
+  %12 = load i64, ptr %1, align 8
+  switch i64 %12, label %13 [
+    i64 20, label %.sink.split.i
+    i64 0, label %rsock_revlookup_flag.exit.thread
+    i64 4, label %rsock_revlookup_flag.exit
+  ]
 
-15:                                               ; preds = %12, %3
-  %16 = getelementptr inbounds i8, ptr %10, i64 20
-  %17 = load i32, ptr %16, align 4
-  %18 = and i32 %17, 256
-  store i32 %18, ptr %6, align 4
-  br label %19
+13:                                               ; preds = %11
+  %14 = and i64 %12, 255
+  %15 = icmp eq i64 %14, 12
+  br i1 %15, label %Check_Type.exit.i, label %16
 
-19:                                               ; preds = %15, %12
-  %20 = getelementptr inbounds i8, ptr %10, i64 16
-  %21 = load i32, ptr %20, align 8
-  %22 = call i32 @getpeername(i32 noundef %21, ptr nonnull %4, ptr noundef nonnull %5) #6
-  %23 = icmp slt i32 %22, 0
-  br i1 %23, label %24, label %27
+16:                                               ; preds = %13
+  %17 = and i64 %12, 7
+  %18 = icmp ne i64 %17, 0
+  %19 = icmp eq i64 %12, 0
+  %20 = or i1 %19, %18
+  br i1 %20, label %RB_SYMBOL_P.exit.thread27.i.i, label %RB_SYMBOL_P.exit.i.i
 
-24:                                               ; preds = %19
-  %25 = call ptr @rb_errno_ptr() #6
-  %26 = load i32, ptr %25, align 4
-  call void @rb_syserr_fail(i32 noundef %26, ptr noundef nonnull @.str.16) #7
+RB_SYMBOL_P.exit.i.i:                             ; preds = %16
+  %21 = inttoptr i64 %12 to ptr
+  %22 = load i64, ptr %21, align 8
+  %23 = and i64 %22, 31
+  %24 = icmp eq i64 %23, 20
+  br i1 %24, label %Check_Type.exit.i, label %RB_SYMBOL_P.exit.thread27.i.i
+
+RB_SYMBOL_P.exit.thread27.i.i:                    ; preds = %RB_SYMBOL_P.exit.i.i, %16
+  tail call void @rb_unexpected_type(i64 noundef %12, i32 noundef 20) #8
   unreachable
 
-27:                                               ; preds = %19
-  %28 = load i32, ptr %5, align 4
-  %29 = load i32, ptr %6, align 4
-  %30 = call i64 @rsock_ipaddr(ptr noundef nonnull %4, i32 noundef %28, i32 noundef %29) #6
-  ret i64 %30
+Check_Type.exit.i:                                ; preds = %RB_SYMBOL_P.exit.i.i, %13
+  %25 = tail call i64 @rb_sym2id(i64 noundef %12) #6
+  %26 = load i64, ptr @id_numeric, align 8
+  %27 = icmp eq i64 %25, %26
+  br i1 %27, label %rsock_revlookup_flag.exit.thread, label %28
+
+28:                                               ; preds = %Check_Type.exit.i
+  %29 = load i64, ptr @id_hostname, align 8
+  %30 = icmp eq i64 %25, %29
+  br i1 %30, label %rsock_revlookup_flag.exit.thread, label %31
+
+31:                                               ; preds = %28
+  %32 = load i64, ptr @rb_eArgError, align 8
+  %33 = tail call ptr @rb_id2name(i64 noundef %25) #6
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %32, ptr noundef nonnull @.str, ptr noundef %33) #7
+  unreachable
+
+.sink.split.i:                                    ; preds = %11
+  br label %rsock_revlookup_flag.exit.thread
+
+rsock_revlookup_flag.exit:                        ; preds = %11, %3
+  %34 = getelementptr inbounds i8, ptr %9, i64 20
+  %35 = load i32, ptr %34, align 4
+  %36 = and i32 %35, 256
+  br label %rsock_revlookup_flag.exit.thread
+
+rsock_revlookup_flag.exit.thread:                 ; preds = %11, %.sink.split.i, %Check_Type.exit.i, %28, %rsock_revlookup_flag.exit
+  %.1 = phi i32 [ %36, %rsock_revlookup_flag.exit ], [ 0, %.sink.split.i ], [ 0, %28 ], [ 1, %Check_Type.exit.i ], [ 1, %11 ]
+  %37 = getelementptr inbounds i8, ptr %9, i64 16
+  %38 = load i32, ptr %37, align 8
+  %39 = call i32 @getpeername(i32 noundef %38, ptr nonnull %4, ptr noundef nonnull %5) #6
+  %40 = icmp slt i32 %39, 0
+  br i1 %40, label %41, label %44
+
+41:                                               ; preds = %rsock_revlookup_flag.exit.thread
+  %42 = call ptr @rb_errno_ptr() #6
+  %43 = load i32, ptr %42, align 4
+  call void @rb_syserr_fail(i32 noundef %43, ptr noundef nonnull @.str.16) #7
+  unreachable
+
+44:                                               ; preds = %rsock_revlookup_flag.exit.thread
+  %45 = load i32, ptr %5, align 4
+  %46 = call i64 @rsock_ipaddr(ptr noundef nonnull %4, i32 noundef %45, i32 noundef %.1) #6
+  ret i64 %46
 }
 
 ; Function Attrs: nounwind uwtable

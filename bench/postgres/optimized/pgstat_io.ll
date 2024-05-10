@@ -43,60 +43,163 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @pgstat_bktype_io_stats_valid(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 512
-  br label %.preheader26
+  %3 = icmp eq i32 %1, 2
+  %4 = and i32 %1, -2
+  %or.cond15.i.i = icmp eq i32 %4, 6
+  %or.cond23.i.i = icmp eq i32 %4, 2
+  %5 = icmp eq i32 %1, 7
+  %6 = and i32 %1, -5
+  %or.cond7.i = icmp eq i32 %6, 2
+  %or.cond9.i = or i1 %5, %or.cond7.i
+  %7 = getelementptr inbounds i8, ptr %0, i64 512
+  br label %.preheader30
 
-.preheader26:                                     ; preds = %2, %21
-  %.not42 = phi i1 [ true, %2 ], [ false, %21 ]
-  %indvars.iv40 = phi i64 [ 0, %2 ], [ 1, %21 ]
-  %4 = trunc nuw nsw i64 %indvars.iv40 to i32
+.preheader30:                                     ; preds = %2, %41
+  %8 = phi i1 [ false, %2 ], [ true, %41 ]
+  %.not48 = phi i1 [ true, %2 ], [ false, %41 ]
+  %indvars.iv46 = phi i64 [ 0, %2 ], [ 1, %41 ]
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader26, %20
-  %indvars.iv36 = phi i64 [ 0, %.preheader26 ], [ %indvars.iv.next37, %20 ]
-  %5 = trunc nuw nsw i64 %indvars.iv36 to i32
-  br label %6
+.preheader:                                       ; preds = %.preheader30, %40
+  %indvars.iv42 = phi i64 [ 0, %.preheader30 ], [ %indvars.iv.next43, %40 ]
+  %9 = icmp ne i64 %indvars.iv42, 2
+  %or.cond.i.i = and i1 %8, %9
+  %10 = icmp eq i64 %indvars.iv42, 2
+  %or.cond13.i.i = and i1 %8, %10
+  %11 = icmp eq i64 %indvars.iv42, 3
+  %or.cond21.i.i = and i1 %3, %11
+  %12 = icmp eq i64 %indvars.iv42, 1
+  %or.cond25.not.i.i.not37 = and i1 %or.cond23.i.i, %12
+  %13 = icmp eq i64 %indvars.iv42, 0
+  %or.cond17.i = icmp ugt i64 %indvars.iv42, 1
+  %14 = icmp ne i64 %indvars.iv42, 3
+  %spec.select.not53.i = and i1 %or.cond17.i, %14
+  %brmerge = or i1 %or.cond21.i.i, %or.cond25.not.i.i.not37
+  %15 = trunc nuw nsw i64 %indvars.iv42 to i32
+  %16 = trunc nuw nsw i64 %indvars.iv42 to i32
+  br label %17
 
-6:                                                ; preds = %.preheader, %19
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %19 ]
-  %7 = trunc nuw nsw i64 %indvars.iv to i32
-  %8 = tail call zeroext i1 @pgstat_tracks_io_op(i32 noundef %1, i32 noundef %4, i32 noundef %5, i32 noundef %7)
-  br i1 %8, label %9, label %16
+17:                                               ; preds = %.preheader, %39
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %39 ]
+  switch i32 %1, label %pgstat_tracks_io_op.exit.thread [
+    i32 13, label %18
+    i32 11, label %18
+    i32 10, label %18
+    i32 9, label %18
+    i32 7, label %18
+    i32 6, label %18
+    i32 2, label %18
+    i32 3, label %18
+    i32 4, label %18
+    i32 5, label %18
+  ]
 
-9:                                                ; preds = %6
-  %10 = getelementptr [2 x [4 x [8 x i64]]], ptr %3, i64 0, i64 %indvars.iv40, i64 %indvars.iv36, i64 %indvars.iv
-  %11 = load i64, ptr %10, align 8
-  %.not25 = icmp eq i64 %11, 0
-  br i1 %.not25, label %19, label %12
+18:                                               ; preds = %17, %17, %17, %17, %17, %17, %17, %17, %17, %17
+  br i1 %or.cond.i.i, label %pgstat_tracks_io_op.exit.thread, label %19
 
-12:                                               ; preds = %9
-  %13 = getelementptr [2 x [4 x [8 x i64]]], ptr %0, i64 0, i64 %indvars.iv40, i64 %indvars.iv36, i64 %indvars.iv
-  %14 = load i64, ptr %13, align 8
-  %15 = icmp slt i64 %14, 1
-  br i1 %15, label %.loopexit, label %19
+19:                                               ; preds = %18
+  switch i32 %1, label %switch.edge.thread.i.i [
+    i32 10, label %switch.edge.i.i
+    i32 7, label %switch.edge.i.i
+    i32 6, label %switch.edge.i.i
+    i32 3, label %switch.edge.i.i
+    i32 2, label %switch.edge.i.i
+    i32 11, label %switch.edge.i.i
+  ]
 
-16:                                               ; preds = %6
-  %17 = getelementptr [2 x [4 x [8 x i64]]], ptr %0, i64 0, i64 %indvars.iv40, i64 %indvars.iv36, i64 %indvars.iv
-  %18 = load i64, ptr %17, align 8
-  %.not = icmp eq i64 %18, 0
-  br i1 %.not, label %19, label %.loopexit
+switch.edge.i.i:                                  ; preds = %19, %19, %19, %19, %19, %19
+  br i1 %or.cond13.i.i, label %pgstat_tracks_io_op.exit.thread, label %switch.edge.thread.i.i
 
-19:                                               ; preds = %16, %9, %12
+switch.edge.thread.i.i:                           ; preds = %switch.edge.i.i, %19
+  br i1 %or.cond15.i.i, label %20, label %21
+
+20:                                               ; preds = %switch.edge.thread.i.i
+  switch i32 %15, label %22 [
+    i32 3, label %pgstat_tracks_io_op.exit.thread
+    i32 1, label %pgstat_tracks_io_op.exit.thread
+    i32 0, label %pgstat_tracks_io_op.exit.thread
+  ]
+
+21:                                               ; preds = %switch.edge.thread.i.i
+  br i1 %brmerge, label %pgstat_tracks_io_op.exit.thread, label %pgstat_tracks_io_object.exit.thread48.i
+
+22:                                               ; preds = %20
+  %23 = trunc nuw nsw i64 %indvars.iv to i32
+  switch i32 %23, label %pgstat_tracks_io_object.exit.thread48.i [
+    i32 4, label %pgstat_tracks_io_op.exit.thread
+    i32 3, label %pgstat_tracks_io_op.exit.thread
+    i32 0, label %pgstat_tracks_io_op.exit.thread
+  ]
+
+pgstat_tracks_io_object.exit.thread48.i:          ; preds = %21, %22
+  %24 = icmp eq i64 %indvars.iv, 1
+  %or.cond11.i = and i1 %or.cond9.i, %24
+  br i1 %or.cond11.i, label %pgstat_tracks_io_op.exit.thread, label %25
+
+25:                                               ; preds = %pgstat_tracks_io_object.exit.thread48.i
+  br i1 %8, label %26, label %28
+
+26:                                               ; preds = %25
+  %27 = trunc nuw nsw i64 %indvars.iv to i32
+  switch i32 %27, label %28 [
+    i32 7, label %pgstat_tracks_io_op.exit.thread
+    i32 2, label %pgstat_tracks_io_op.exit.thread
+  ]
+
+28:                                               ; preds = %26, %25
+  %or.cond15.i = and i1 %13, %24
+  br i1 %or.cond15.i, label %pgstat_tracks_io_op.exit.thread, label %29
+
+29:                                               ; preds = %28
+  %.not.i = icmp eq i64 %indvars.iv, 5
+  br i1 %.not.i, label %switch.early.test.i, label %pgstat_tracks_io_op.exit
+
+switch.early.test.i:                              ; preds = %29
+  switch i32 %16, label %pgstat_tracks_io_op.exit.thread [
+    i32 3, label %pgstat_tracks_io_op.exit.thread28
+    i32 1, label %pgstat_tracks_io_op.exit.thread28
+    i32 0, label %pgstat_tracks_io_op.exit.thread28
+  ]
+
+pgstat_tracks_io_op.exit:                         ; preds = %29
+  %30 = icmp ne i64 %indvars.iv, 2
+  %or.cond21.not.i = or i1 %spec.select.not53.i, %30
+  br i1 %or.cond21.not.i, label %pgstat_tracks_io_op.exit.thread28, label %pgstat_tracks_io_op.exit.thread
+
+pgstat_tracks_io_op.exit.thread28:                ; preds = %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %pgstat_tracks_io_op.exit
+  %31 = getelementptr [2 x [4 x [8 x i64]]], ptr %7, i64 0, i64 %indvars.iv46, i64 %indvars.iv42, i64 %indvars.iv
+  %32 = load i64, ptr %31, align 8
+  %.not25 = icmp eq i64 %32, 0
+  br i1 %.not25, label %39, label %33
+
+33:                                               ; preds = %pgstat_tracks_io_op.exit.thread28
+  %34 = getelementptr [2 x [4 x [8 x i64]]], ptr %0, i64 0, i64 %indvars.iv46, i64 %indvars.iv42, i64 %indvars.iv
+  %35 = load i64, ptr %34, align 8
+  %36 = icmp slt i64 %35, 1
+  br i1 %36, label %.loopexit, label %39
+
+pgstat_tracks_io_op.exit.thread:                  ; preds = %21, %17, %20, %20, %20, %switch.edge.i.i, %18, %switch.early.test.i, %28, %26, %26, %pgstat_tracks_io_object.exit.thread48.i, %22, %22, %22, %pgstat_tracks_io_op.exit
+  %37 = getelementptr [2 x [4 x [8 x i64]]], ptr %0, i64 0, i64 %indvars.iv46, i64 %indvars.iv42, i64 %indvars.iv
+  %38 = load i64, ptr %37, align 8
+  %.not = icmp eq i64 %38, 0
+  br i1 %.not, label %39, label %.loopexit
+
+39:                                               ; preds = %pgstat_tracks_io_op.exit.thread, %pgstat_tracks_io_op.exit.thread28, %33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %20, label %6, !llvm.loop !5
+  br i1 %exitcond.not, label %40, label %17, !llvm.loop !5
 
-20:                                               ; preds = %19
-  %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
-  %exitcond39.not = icmp eq i64 %indvars.iv.next37, 4
-  br i1 %exitcond39.not, label %21, label %.preheader, !llvm.loop !7
+40:                                               ; preds = %39
+  %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
+  %exitcond45.not = icmp eq i64 %indvars.iv.next43, 4
+  br i1 %exitcond45.not, label %41, label %.preheader, !llvm.loop !7
 
-21:                                               ; preds = %20
-  br i1 %.not42, label %.preheader26, label %.loopexit, !llvm.loop !8
+41:                                               ; preds = %40
+  br i1 %.not48, label %.preheader30, label %.loopexit, !llvm.loop !8
 
-.loopexit:                                        ; preds = %21, %16, %12
-  %22 = phi i1 [ false, %12 ], [ false, %16 ], [ true, %21 ]
-  ret i1 %22
+.loopexit:                                        ; preds = %41, %pgstat_tracks_io_op.exit.thread, %33
+  %42 = phi i1 [ false, %33 ], [ false, %pgstat_tracks_io_op.exit.thread ], [ true, %41 ]
+  ret i1 %42
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

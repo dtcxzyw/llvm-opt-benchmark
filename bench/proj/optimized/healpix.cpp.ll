@@ -51,7 +51,7 @@ define hidden noundef ptr @pj_healpix(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z36pj_projection_specific_setup_healpixP8PJconsts(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #8
+  %2 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #10
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %6
 
@@ -93,7 +93,7 @@ define hidden noundef ptr @_Z36pj_projection_specific_setup_healpixP8PJconsts(pt
 27:                                               ; preds = %24
   %28 = getelementptr inbounds i8, ptr %25, i64 24
   %29 = load ptr, ptr %28, align 8
-  tail call void @free(ptr noundef %29) #9
+  tail call void @free(ptr noundef %29) #11
   br label %_ZL26pj_healpix_data_destructorP8PJconstsi.exit
 
 _ZL26pj_healpix_data_destructorP8PJconstsi.exit:  ; preds = %24, %27
@@ -111,7 +111,7 @@ _ZL26pj_healpix_data_destructorP8PJconstsi.exit:  ; preds = %24, %27
   %38 = getelementptr inbounds i8, ptr %0, i64 168
   %39 = load double, ptr %38, align 8
   %40 = fmul double %36, 5.000000e-01
-  %41 = tail call double @sqrt(double noundef %40) #9
+  %41 = tail call double @sqrt(double noundef %40) #11
   %42 = fmul double %39, %41
   store double %42, ptr %38, align 8
   %43 = load double, ptr %17, align 8
@@ -155,7 +155,7 @@ define internal noundef ptr @_ZL26pj_healpix_data_destructorP8PJconstsi(ptr noun
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %6, i64 24
   %10 = load ptr, ptr %9, align 8
-  tail call void @free(ptr noundef %10) #9
+  tail call void @free(ptr noundef %10) #11
   br label %.sink.split
 
 .sink.split:                                      ; preds = %4, %8
@@ -182,7 +182,7 @@ declare noundef i32 @_Z24pj_calc_ellipsoid_paramsP8PJconstsdd(ptr noundef, doubl
 define internal { double, double } @_ZL17e_healpix_forward5PJ_LPP8PJconsts(double %0, double %1, ptr nocapture noundef readonly %2) #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call double @sin(double noundef %1) #9
+  %6 = tail call double @sin(double noundef %1) #11
   %7 = getelementptr inbounds i8, ptr %2, i64 208
   %8 = load double, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %2, i64 216
@@ -205,11 +205,11 @@ define internal { double, double } @_ZL17e_healpix_forward5PJ_LPP8PJconsts(doubl
 
 _ZL8auth_latP8PJconstsdi.exit:                    ; preds = %3, %18
   %.0.i = phi double [ %22, %18 ], [ %15, %3 ]
-  %23 = tail call double @asin(double noundef %.0.i) #9
+  %23 = tail call double @asin(double noundef %.0.i) #11
   %24 = load ptr, ptr %4, align 8
   %25 = tail call double @llvm.fabs.f64(double %23)
   %26 = fcmp ugt double %25, 0x3FE759EDD04F68DE
-  %27 = tail call double @sin(double noundef %23) #9
+  %27 = tail call double @sin(double noundef %23) #11
   br i1 %26, label %30, label %28
 
 28:                                               ; preds = %_ZL8auth_latP8PJconstsdi.exit
@@ -220,7 +220,7 @@ _ZL8auth_latP8PJconstsdi.exit:                    ; preds = %3, %18
   %31 = tail call double @llvm.fabs.f64(double %27)
   %32 = fsub double 1.000000e+00, %31
   %33 = fmul double %32, 3.000000e+00
-  %34 = tail call double @sqrt(double noundef %33) #9
+  %34 = tail call double @sqrt(double noundef %33) #11
   %35 = fmul double %0, 2.000000e+00
   %36 = fdiv double %35, 0x400921FB54442D18
   %37 = fadd double %36, 2.000000e+00
@@ -245,13 +245,13 @@ _ZL14healpix_sphere5PJ_LP.exit:                   ; preds = %28, %30
   %50 = getelementptr inbounds i8, ptr %24, i64 8
   %51 = load double, ptr %50, align 8
   %52 = fneg double %51
-  %53 = tail call double @cos(double noundef %52) #9
-  %54 = tail call double @sin(double noundef %52) #9
+  %53 = tail call double @cos(double noundef %52) #11
+  %54 = tail call double @sin(double noundef %52) #11
   %55 = fneg double %54
   %56 = fmul double %.sroa.3.0.i, %55
   %57 = tail call double @llvm.fmuladd.f64(double %.sroa.014.0.i, double %53, double %56)
-  %58 = tail call double @cos(double noundef %52) #9
-  %59 = tail call double @sin(double noundef %52) #9
+  %58 = tail call double @cos(double noundef %52) #11
+  %59 = tail call double @sin(double noundef %52) #11
   %60 = fmul double %.sroa.014.0.i, %59
   %61 = tail call double @llvm.fmuladd.f64(double %.sroa.3.0.i, double %58, double %60)
   %.fca.0.insert.i10 = insertvalue { double, double } poison, double %57, 0
@@ -265,13 +265,13 @@ define internal { double, double } @_ZL17e_healpix_inverse5PJ_XYP8PJconsts(doubl
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load double, ptr %6, align 8
-  %8 = tail call double @cos(double noundef %7) #9
-  %9 = tail call double @sin(double noundef %7) #9
+  %8 = tail call double @cos(double noundef %7) #11
+  %9 = tail call double @sin(double noundef %7) #11
   %10 = fneg double %9
   %11 = fmul double %10, %1
   %12 = tail call double @llvm.fmuladd.f64(double %0, double %8, double %11)
-  %13 = tail call double @cos(double noundef %7) #9
-  %14 = tail call double @sin(double noundef %7) #9
+  %13 = tail call double @cos(double noundef %7) #11
+  %14 = tail call double @sin(double noundef %7) #11
   %15 = fmul double %14, %0
   %16 = tail call double @llvm.fmuladd.f64(double %1, double %13, double %15)
   br label %.lr.ph.i.i
@@ -364,7 +364,7 @@ _ZL8in_imageddiii.exit.thread:                    ; preds = %20, %_ZL8in_imagedd
 60:                                               ; preds = %_ZL8in_imageddiii.exit.thread
   %61 = fmul double %16, 8.000000e+00
   %62 = fdiv double %61, 0x4022D97C7F3321D2
-  %63 = tail call double @asin(double noundef %62) #9
+  %63 = tail call double @asin(double noundef %62) #11
   br label %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit
 
 64:                                               ; preds = %_ZL8in_imageddiii.exit.thread
@@ -392,7 +392,7 @@ _ZL8in_imageddiii.exit.thread:                    ; preds = %20, %_ZL8in_imagedd
   %square.i = fmul double %75, %75
   %83 = fdiv double %square.i, 3.000000e+00
   %84 = fsub double 1.000000e+00, %83
-  %85 = tail call double @asin(double noundef %84) #9
+  %85 = tail call double @asin(double noundef %84) #11
   %86 = fmul double %82, %85
   br label %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit
 
@@ -427,7 +427,7 @@ define internal { double, double } @_ZL17s_healpix_forward5PJ_LPP8PJconsts(doubl
   %5 = load ptr, ptr %4, align 8
   %6 = tail call double @llvm.fabs.f64(double %1)
   %7 = fcmp ugt double %6, 0x3FE759EDD04F68DE
-  %8 = tail call double @sin(double noundef %1) #9
+  %8 = tail call double @sin(double noundef %1) #11
   br i1 %7, label %11, label %9
 
 9:                                                ; preds = %3
@@ -438,7 +438,7 @@ define internal { double, double } @_ZL17s_healpix_forward5PJ_LPP8PJconsts(doubl
   %12 = tail call double @llvm.fabs.f64(double %8)
   %13 = fsub double 1.000000e+00, %12
   %14 = fmul double %13, 3.000000e+00
-  %15 = tail call double @sqrt(double noundef %14) #9
+  %15 = tail call double @sqrt(double noundef %14) #11
   %16 = fmul double %0, 2.000000e+00
   %17 = fdiv double %16, 0x400921FB54442D18
   %18 = fadd double %17, 2.000000e+00
@@ -463,13 +463,13 @@ _ZL14healpix_sphere5PJ_LP.exit:                   ; preds = %9, %11
   %31 = getelementptr inbounds i8, ptr %5, i64 8
   %32 = load double, ptr %31, align 8
   %33 = fneg double %32
-  %34 = tail call double @cos(double noundef %33) #9
-  %35 = tail call double @sin(double noundef %33) #9
+  %34 = tail call double @cos(double noundef %33) #11
+  %35 = tail call double @sin(double noundef %33) #11
   %36 = fneg double %35
   %37 = fmul double %.sroa.3.0.i, %36
   %38 = tail call double @llvm.fmuladd.f64(double %.sroa.014.0.i, double %34, double %37)
-  %39 = tail call double @cos(double noundef %33) #9
-  %40 = tail call double @sin(double noundef %33) #9
+  %39 = tail call double @cos(double noundef %33) #11
+  %40 = tail call double @sin(double noundef %33) #11
   %41 = fmul double %.sroa.014.0.i, %40
   %42 = tail call double @llvm.fmuladd.f64(double %.sroa.3.0.i, double %39, double %41)
   %.fca.0.insert.i8 = insertvalue { double, double } poison, double %38, 0
@@ -483,13 +483,13 @@ define internal { double, double } @_ZL17s_healpix_inverse5PJ_XYP8PJconsts(doubl
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load double, ptr %6, align 8
-  %8 = tail call double @cos(double noundef %7) #9
-  %9 = tail call double @sin(double noundef %7) #9
+  %8 = tail call double @cos(double noundef %7) #11
+  %9 = tail call double @sin(double noundef %7) #11
   %10 = fneg double %9
   %11 = fmul double %10, %1
   %12 = tail call double @llvm.fmuladd.f64(double %0, double %8, double %11)
-  %13 = tail call double @cos(double noundef %7) #9
-  %14 = tail call double @sin(double noundef %7) #9
+  %13 = tail call double @cos(double noundef %7) #11
+  %14 = tail call double @sin(double noundef %7) #11
   %15 = fmul double %14, %0
   %16 = tail call double @llvm.fmuladd.f64(double %1, double %13, double %15)
   br label %.lr.ph.i.i
@@ -582,7 +582,7 @@ _ZL8in_imageddiii.exit.thread:                    ; preds = %20, %_ZL8in_imagedd
 60:                                               ; preds = %_ZL8in_imageddiii.exit.thread
   %61 = fmul double %16, 8.000000e+00
   %62 = fdiv double %61, 0x4022D97C7F3321D2
-  %63 = tail call double @asin(double noundef %62) #9
+  %63 = tail call double @asin(double noundef %62) #11
   br label %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit
 
 64:                                               ; preds = %_ZL8in_imageddiii.exit.thread
@@ -610,7 +610,7 @@ _ZL8in_imageddiii.exit.thread:                    ; preds = %20, %_ZL8in_imagedd
   %square.i = fmul double %75, %75
   %83 = fdiv double %square.i, 3.000000e+00
   %84 = fsub double 1.000000e+00, %83
-  %85 = tail call double @asin(double noundef %84) #9
+  %85 = tail call double @asin(double noundef %84) #11
   %86 = fmul double %82, %85
   br label %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit
 
@@ -664,7 +664,7 @@ define hidden noundef ptr @pj_rhealpix(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z37pj_projection_specific_setup_rhealpixP8PJconsts(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #8
+  %2 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #10
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %6
 
@@ -702,7 +702,7 @@ define hidden noundef ptr @_Z37pj_projection_specific_setup_rhealpixP8PJconsts(p
 21:                                               ; preds = %18
   %22 = getelementptr inbounds i8, ptr %19, i64 24
   %23 = load ptr, ptr %22, align 8
-  tail call void @free(ptr noundef %23) #9
+  tail call void @free(ptr noundef %23) #11
   br label %_ZL26pj_healpix_data_destructorP8PJconstsi.exit
 
 _ZL26pj_healpix_data_destructorP8PJconstsi.exit:  ; preds = %18, %21
@@ -722,7 +722,7 @@ _ZL26pj_healpix_data_destructorP8PJconstsi.exit:  ; preds = %18, %21
 29:                                               ; preds = %26
   %30 = getelementptr inbounds i8, ptr %27, i64 24
   %31 = load ptr, ptr %30, align 8
-  tail call void @free(ptr noundef %31) #9
+  tail call void @free(ptr noundef %31) #11
   br label %_ZL26pj_healpix_data_destructorP8PJconstsi.exit46
 
 _ZL26pj_healpix_data_destructorP8PJconstsi.exit46: ; preds = %26, %29
@@ -750,7 +750,7 @@ _ZL26pj_healpix_data_destructorP8PJconstsi.exit46: ; preds = %26, %29
 44:                                               ; preds = %41
   %45 = getelementptr inbounds i8, ptr %42, i64 24
   %46 = load ptr, ptr %45, align 8
-  tail call void @free(ptr noundef %46) #9
+  tail call void @free(ptr noundef %46) #11
   br label %_ZL26pj_healpix_data_destructorP8PJconstsi.exit49
 
 _ZL26pj_healpix_data_destructorP8PJconstsi.exit49: ; preds = %41, %44
@@ -768,7 +768,7 @@ _ZL26pj_healpix_data_destructorP8PJconstsi.exit49: ; preds = %41, %44
   %55 = getelementptr inbounds i8, ptr %0, i64 168
   %56 = load double, ptr %55, align 8
   %57 = fmul double %53, 5.000000e-01
-  %58 = tail call double @sqrt(double noundef %57) #9
+  %58 = tail call double @sqrt(double noundef %57) #11
   %59 = fmul double %56, %58
   store double %59, ptr %55, align 8
   %60 = fdiv double 1.000000e+00, %59
@@ -796,9 +796,11 @@ declare void @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef, ptr noundef, ...) l
 
 ; Function Attrs: mustprogress uwtable
 define internal { double, double } @_ZL18e_rhealpix_forward5PJ_LPP8PJconsts(double %0, double %1, ptr nocapture noundef readonly %2) #0 {
+  %.sroa.051.i = alloca double, align 16
+  %.sroa.252.i = alloca double, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call double @sin(double noundef %1) #9
+  %6 = tail call double @sin(double noundef %1) #11
   %7 = getelementptr inbounds i8, ptr %2, i64 208
   %8 = load double, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %2, i64 216
@@ -821,10 +823,10 @@ define internal { double, double } @_ZL18e_rhealpix_forward5PJ_LPP8PJconsts(doub
 
 _ZL8auth_latP8PJconstsdi.exit:                    ; preds = %3, %18
   %.0.i = phi double [ %22, %18 ], [ %15, %3 ]
-  %23 = tail call double @asin(double noundef %.0.i) #9
+  %23 = tail call double @asin(double noundef %.0.i) #11
   %24 = tail call double @llvm.fabs.f64(double %23)
   %25 = fcmp ugt double %24, 0x3FE759EDD04F68DE
-  %26 = tail call double @sin(double noundef %23) #9
+  %26 = tail call double @sin(double noundef %23) #11
   br i1 %25, label %29, label %27
 
 27:                                               ; preds = %_ZL8auth_latP8PJconstsdi.exit
@@ -835,7 +837,7 @@ _ZL8auth_latP8PJconstsdi.exit:                    ; preds = %3, %18
   %30 = tail call double @llvm.fabs.f64(double %26)
   %31 = fsub double 1.000000e+00, %30
   %32 = fmul double %31, 3.000000e+00
-  %33 = tail call double @sqrt(double noundef %32) #9
+  %33 = tail call double @sqrt(double noundef %32) #11
   %34 = fmul double %0, 2.000000e+00
   %35 = fdiv double %34, 0x400921FB54442D18
   %36 = fadd double %35, 2.000000e+00
@@ -860,8 +862,144 @@ _ZL14healpix_sphere5PJ_LP.exit:                   ; preds = %27, %29
   %49 = load i32, ptr %5, align 8
   %50 = getelementptr inbounds i8, ptr %5, i64 4
   %51 = load i32, ptr %50, align 4
-  %52 = tail call fastcc { double, double } @_ZL12combine_capsddiii(double noundef %.sroa.014.0.i, double noundef %.sroa.3.0.i, i32 noundef %49, i32 noundef %51, i32 noundef 0)
-  ret { double, double } %52
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.051.i)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.252.i)
+  %52 = fcmp ogt double %.sroa.3.0.i, 0x3FE921FB54442D18
+  br i1 %52, label %55, label %53
+
+53:                                               ; preds = %_ZL14healpix_sphere5PJ_LP.exit
+  %54 = fcmp olt double %.sroa.3.0.i, 0xBFE921FB54442D18
+  br i1 %54, label %55, label %_ZL12combine_capsddiii.exit
+
+55:                                               ; preds = %53, %_ZL14healpix_sphere5PJ_LP.exit
+  %.0.i.i = phi double [ 0x3FF921FB54442D18, %_ZL14healpix_sphere5PJ_LP.exit ], [ 0xBFF921FB54442D18, %53 ]
+  %56 = fcmp olt double %.sroa.014.0.i, 0xBFF921FB54442D18
+  br i1 %56, label %64, label %57
+
+57:                                               ; preds = %55
+  %58 = fcmp oge double %.sroa.014.0.i, 0xBFF921FB54442D18
+  %59 = fcmp olt double %.sroa.014.0.i, 0.000000e+00
+  %or.cond.i.i = and i1 %58, %59
+  br i1 %or.cond.i.i, label %64, label %60
+
+60:                                               ; preds = %57
+  %61 = fcmp oge double %.sroa.014.0.i, 0.000000e+00
+  %62 = fcmp olt double %.sroa.014.0.i, 0x3FF921FB54442D18
+  %or.cond3.i.i = and i1 %61, %62
+  br i1 %or.cond3.i.i, label %64, label %63
+
+63:                                               ; preds = %60
+  br label %64
+
+64:                                               ; preds = %63, %60, %57, %55
+  %.sroa.039.0.ph.i = phi i32 [ 2, %60 ], [ 1, %57 ], [ 0, %55 ], [ 3, %63 ]
+  %.sroa.19.0.ph.i = phi double [ 0x3FE921FB54442D18, %60 ], [ 0xBFE921FB54442D18, %57 ], [ 0xC002D97C7F3321D2, %55 ], [ 0x4002D97C7F3321D2, %63 ]
+  br i1 %52, label %65, label %73
+
+65:                                               ; preds = %64
+  %66 = sub nsw i32 %.sroa.039.0.ph.i, %49
+  switch i32 %66, label %_ZL10vector_subPKdS0_Pd.exit.critedge.i [
+    i32 -3, label %72
+    i32 1, label %67
+    i32 2, label %68
+    i32 3, label %69
+    i32 -1, label %70
+    i32 -2, label %71
+  ]
+
+67:                                               ; preds = %65
+  br label %_ZL10vector_subPKdS0_Pd.exit.critedge.i
+
+68:                                               ; preds = %65
+  br label %_ZL10vector_subPKdS0_Pd.exit.critedge.i
+
+69:                                               ; preds = %65
+  br label %_ZL10vector_subPKdS0_Pd.exit.critedge.i
+
+70:                                               ; preds = %65
+  br label %_ZL10vector_subPKdS0_Pd.exit.critedge.i
+
+71:                                               ; preds = %65
+  br label %_ZL10vector_subPKdS0_Pd.exit.critedge.i
+
+72:                                               ; preds = %65
+  br label %_ZL10vector_subPKdS0_Pd.exit.critedge.i
+
+73:                                               ; preds = %64
+  %.neg19.i = sub nsw i32 %51, %.sroa.039.0.ph.i
+  switch i32 %.neg19.i, label %_ZL10vector_subPKdS0_Pd.exit.critedge.i [
+    i32 -3, label %79
+    i32 1, label %74
+    i32 2, label %75
+    i32 3, label %76
+    i32 -1, label %77
+    i32 -2, label %78
+  ]
+
+74:                                               ; preds = %73
+  br label %_ZL10vector_subPKdS0_Pd.exit.critedge.i
+
+75:                                               ; preds = %73
+  br label %_ZL10vector_subPKdS0_Pd.exit.critedge.i
+
+76:                                               ; preds = %73
+  br label %_ZL10vector_subPKdS0_Pd.exit.critedge.i
+
+77:                                               ; preds = %73
+  br label %_ZL10vector_subPKdS0_Pd.exit.critedge.i
+
+78:                                               ; preds = %73
+  br label %_ZL10vector_subPKdS0_Pd.exit.critedge.i
+
+79:                                               ; preds = %73
+  br label %_ZL10vector_subPKdS0_Pd.exit.critedge.i
+
+_ZL10vector_subPKdS0_Pd.exit.critedge.i:          ; preds = %79, %78, %77, %76, %75, %74, %73, %72, %71, %70, %69, %68, %67, %65
+  %.0.i23.sink.i = phi i64 [ 6, %72 ], [ 5, %71 ], [ 4, %70 ], [ 3, %69 ], [ 2, %68 ], [ 1, %67 ], [ 0, %65 ], [ 6, %79 ], [ 5, %78 ], [ 4, %77 ], [ 3, %76 ], [ 2, %75 ], [ 1, %74 ], [ 0, %73 ]
+  %80 = phi i32 [ %49, %72 ], [ %49, %71 ], [ %49, %70 ], [ %49, %69 ], [ %49, %68 ], [ %49, %67 ], [ %49, %65 ], [ %51, %79 ], [ %51, %78 ], [ %51, %77 ], [ %51, %76 ], [ %51, %75 ], [ %51, %74 ], [ %51, %73 ]
+  %81 = phi double [ 0x3FF921FB54442D18, %72 ], [ 0x3FF921FB54442D18, %71 ], [ 0x3FF921FB54442D18, %70 ], [ 0x3FF921FB54442D18, %69 ], [ 0x3FF921FB54442D18, %68 ], [ 0x3FF921FB54442D18, %67 ], [ 0x3FF921FB54442D18, %65 ], [ 0xBFF921FB54442D18, %79 ], [ 0xBFF921FB54442D18, %78 ], [ 0xBFF921FB54442D18, %77 ], [ 0xBFF921FB54442D18, %76 ], [ 0xBFF921FB54442D18, %75 ], [ 0xBFF921FB54442D18, %74 ], [ 0xBFF921FB54442D18, %73 ]
+  %82 = getelementptr inbounds [7 x [2 x [2 x double]]], ptr @_ZL3rot, i64 0, i64 %.0.i23.sink.i
+  %83 = fsub double %.sroa.014.0.i, %.sroa.19.0.ph.i
+  %84 = fsub double %.sroa.3.0.i, %.0.i.i
+  br label %85
+
+85:                                               ; preds = %93, %_ZL10vector_subPKdS0_Pd.exit.critedge.i
+  %86 = phi i1 [ true, %_ZL10vector_subPKdS0_Pd.exit.critedge.i ], [ false, %93 ]
+  %indvars.iv18.i.sroa.phi.i = phi ptr [ %.sroa.051.i, %_ZL10vector_subPKdS0_Pd.exit.critedge.i ], [ %.sroa.252.i, %93 ]
+  %indvars.iv18.i.i = phi i64 [ 0, %_ZL10vector_subPKdS0_Pd.exit.critedge.i ], [ 1, %93 ]
+  br label %87
+
+87:                                               ; preds = %87, %85
+  %88 = phi i1 [ true, %85 ], [ false, %87 ]
+  %indvars.iv.i27.sroa.phi.sroa.speculated.i = phi double [ %83, %85 ], [ %84, %87 ]
+  %indvars.iv.i27.i = phi i64 [ 0, %85 ], [ 1, %87 ]
+  %89 = phi double [ 0.000000e+00, %85 ], [ %92, %87 ]
+  %90 = getelementptr inbounds [2 x double], ptr %82, i64 %indvars.iv18.i.i, i64 %indvars.iv.i27.i
+  %91 = load double, ptr %90, align 8
+  %92 = tail call double @llvm.fmuladd.f64(double %91, double %indvars.iv.i27.sroa.phi.sroa.speculated.i, double %89)
+  br i1 %88, label %87, label %93, !llvm.loop !7
+
+93:                                               ; preds = %87
+  store double %92, ptr %indvars.iv18.i.sroa.phi.i, align 8
+  br i1 %86, label %85, label %_ZL11dot_productPA2_KdPS_Pd.exit.i, !llvm.loop !8
+
+_ZL11dot_productPA2_KdPS_Pd.exit.i:               ; preds = %93
+  %94 = sitofp i32 %80 to double
+  %95 = tail call double @llvm.fmuladd.f64(double %94, double 0x3FF921FB54442D18, double 0xC002D97C7F3321D2)
+  %.sroa.051.i.0..sroa.051.i.0..sroa.051.i.0..sroa.051.0..i = load double, ptr %.sroa.051.i, align 16
+  %96 = fadd double %95, %.sroa.051.i.0..sroa.051.i.0..sroa.051.i.0..sroa.051.0..i
+  %.sroa.252.i.0..sroa.252.i.0..sroa.252.i.0..sroa.252.0..i = load double, ptr %.sroa.252.i, align 8
+  %97 = fadd double %81, %.sroa.252.i.0..sroa.252.i.0..sroa.252.i.0..sroa.252.0..i
+  br label %_ZL12combine_capsddiii.exit
+
+_ZL12combine_capsddiii.exit:                      ; preds = %53, %_ZL11dot_productPA2_KdPS_Pd.exit.i
+  %.sroa.0.0.i = phi double [ %96, %_ZL11dot_productPA2_KdPS_Pd.exit.i ], [ %.sroa.014.0.i, %53 ]
+  %.sroa.3.0.i13 = phi double [ %97, %_ZL11dot_productPA2_KdPS_Pd.exit.i ], [ %.sroa.3.0.i, %53 ]
+  %.fca.0.insert.i14 = insertvalue { double, double } poison, double %.sroa.0.0.i, 0
+  %.fca.1.insert.i15 = insertvalue { double, double } %.fca.0.insert.i14, double %.sroa.3.0.i13, 1
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.051.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.252.i)
+  ret { double, double } %.fca.1.insert.i15
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -891,7 +1029,7 @@ define internal { double, double } @_ZL18e_rhealpix_inverse5PJ_XYP8PJconsts(doub
 19:                                               ; preds = %13
   %20 = fmul double %16, 8.000000e+00
   %21 = fdiv double %20, 0x4022D97C7F3321D2
-  %22 = tail call double @asin(double noundef %21) #9
+  %22 = tail call double @asin(double noundef %21) #11
   br label %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit
 
 23:                                               ; preds = %13
@@ -919,7 +1057,7 @@ define internal { double, double } @_ZL18e_rhealpix_inverse5PJ_XYP8PJconsts(doub
   %square.i = fmul double %34, %34
   %42 = fdiv double %square.i, 3.000000e+00
   %43 = fsub double 1.000000e+00, %42
-  %44 = tail call double @asin(double noundef %43) #9
+  %44 = tail call double @asin(double noundef %43) #11
   %45 = fmul double %41, %44
   br label %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit
 
@@ -948,13 +1086,15 @@ _ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit:   ; preds = %19, %25, %46
   ret { double, double } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define internal { double, double } @_ZL18s_rhealpix_forward5PJ_LPP8PJconsts(double %0, double %1, ptr nocapture noundef readonly %2) #4 {
+; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
+define internal { double, double } @_ZL18s_rhealpix_forward5PJ_LPP8PJconsts(double %0, double %1, ptr nocapture noundef readonly %2) #5 {
+  %.sroa.051.i = alloca double, align 16
+  %.sroa.252.i = alloca double, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8
   %6 = tail call double @llvm.fabs.f64(double %1)
   %7 = fcmp ugt double %6, 0x3FE759EDD04F68DE
-  %8 = tail call double @sin(double noundef %1) #9
+  %8 = tail call double @sin(double noundef %1) #11
   br i1 %7, label %11, label %9
 
 9:                                                ; preds = %3
@@ -965,7 +1105,7 @@ define internal { double, double } @_ZL18s_rhealpix_forward5PJ_LPP8PJconsts(doub
   %12 = tail call double @llvm.fabs.f64(double %8)
   %13 = fsub double 1.000000e+00, %12
   %14 = fmul double %13, 3.000000e+00
-  %15 = tail call double @sqrt(double noundef %14) #9
+  %15 = tail call double @sqrt(double noundef %14) #11
   %16 = fmul double %0, 2.000000e+00
   %17 = fdiv double %16, 0x400921FB54442D18
   %18 = fadd double %17, 2.000000e+00
@@ -990,8 +1130,144 @@ _ZL14healpix_sphere5PJ_LP.exit:                   ; preds = %9, %11
   %31 = load i32, ptr %5, align 8
   %32 = getelementptr inbounds i8, ptr %5, i64 4
   %33 = load i32, ptr %32, align 4
-  %34 = tail call fastcc { double, double } @_ZL12combine_capsddiii(double noundef %.sroa.014.0.i, double noundef %.sroa.3.0.i, i32 noundef %31, i32 noundef %33, i32 noundef 0)
-  ret { double, double } %34
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.051.i)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.252.i)
+  %34 = fcmp ogt double %.sroa.3.0.i, 0x3FE921FB54442D18
+  br i1 %34, label %37, label %35
+
+35:                                               ; preds = %_ZL14healpix_sphere5PJ_LP.exit
+  %36 = fcmp olt double %.sroa.3.0.i, 0xBFE921FB54442D18
+  br i1 %36, label %37, label %_ZL12combine_capsddiii.exit
+
+37:                                               ; preds = %35, %_ZL14healpix_sphere5PJ_LP.exit
+  %.0.i.i = phi double [ 0x3FF921FB54442D18, %_ZL14healpix_sphere5PJ_LP.exit ], [ 0xBFF921FB54442D18, %35 ]
+  %38 = fcmp olt double %.sroa.014.0.i, 0xBFF921FB54442D18
+  br i1 %38, label %46, label %39
+
+39:                                               ; preds = %37
+  %40 = fcmp oge double %.sroa.014.0.i, 0xBFF921FB54442D18
+  %41 = fcmp olt double %.sroa.014.0.i, 0.000000e+00
+  %or.cond.i.i = and i1 %40, %41
+  br i1 %or.cond.i.i, label %46, label %42
+
+42:                                               ; preds = %39
+  %43 = fcmp oge double %.sroa.014.0.i, 0.000000e+00
+  %44 = fcmp olt double %.sroa.014.0.i, 0x3FF921FB54442D18
+  %or.cond3.i.i = and i1 %43, %44
+  br i1 %or.cond3.i.i, label %46, label %45
+
+45:                                               ; preds = %42
+  br label %46
+
+46:                                               ; preds = %45, %42, %39, %37
+  %.sroa.039.0.ph.i = phi i32 [ 2, %42 ], [ 1, %39 ], [ 0, %37 ], [ 3, %45 ]
+  %.sroa.19.0.ph.i = phi double [ 0x3FE921FB54442D18, %42 ], [ 0xBFE921FB54442D18, %39 ], [ 0xC002D97C7F3321D2, %37 ], [ 0x4002D97C7F3321D2, %45 ]
+  br i1 %34, label %47, label %55
+
+47:                                               ; preds = %46
+  %48 = sub nsw i32 %.sroa.039.0.ph.i, %31
+  switch i32 %48, label %_ZL10vector_subPKdS0_Pd.exit.critedge.i [
+    i32 -3, label %54
+    i32 1, label %49
+    i32 2, label %50
+    i32 3, label %51
+    i32 -1, label %52
+    i32 -2, label %53
+  ]
+
+49:                                               ; preds = %47
+  br label %_ZL10vector_subPKdS0_Pd.exit.critedge.i
+
+50:                                               ; preds = %47
+  br label %_ZL10vector_subPKdS0_Pd.exit.critedge.i
+
+51:                                               ; preds = %47
+  br label %_ZL10vector_subPKdS0_Pd.exit.critedge.i
+
+52:                                               ; preds = %47
+  br label %_ZL10vector_subPKdS0_Pd.exit.critedge.i
+
+53:                                               ; preds = %47
+  br label %_ZL10vector_subPKdS0_Pd.exit.critedge.i
+
+54:                                               ; preds = %47
+  br label %_ZL10vector_subPKdS0_Pd.exit.critedge.i
+
+55:                                               ; preds = %46
+  %.neg19.i = sub nsw i32 %33, %.sroa.039.0.ph.i
+  switch i32 %.neg19.i, label %_ZL10vector_subPKdS0_Pd.exit.critedge.i [
+    i32 -3, label %61
+    i32 1, label %56
+    i32 2, label %57
+    i32 3, label %58
+    i32 -1, label %59
+    i32 -2, label %60
+  ]
+
+56:                                               ; preds = %55
+  br label %_ZL10vector_subPKdS0_Pd.exit.critedge.i
+
+57:                                               ; preds = %55
+  br label %_ZL10vector_subPKdS0_Pd.exit.critedge.i
+
+58:                                               ; preds = %55
+  br label %_ZL10vector_subPKdS0_Pd.exit.critedge.i
+
+59:                                               ; preds = %55
+  br label %_ZL10vector_subPKdS0_Pd.exit.critedge.i
+
+60:                                               ; preds = %55
+  br label %_ZL10vector_subPKdS0_Pd.exit.critedge.i
+
+61:                                               ; preds = %55
+  br label %_ZL10vector_subPKdS0_Pd.exit.critedge.i
+
+_ZL10vector_subPKdS0_Pd.exit.critedge.i:          ; preds = %61, %60, %59, %58, %57, %56, %55, %54, %53, %52, %51, %50, %49, %47
+  %.0.i23.sink.i = phi i64 [ 6, %54 ], [ 5, %53 ], [ 4, %52 ], [ 3, %51 ], [ 2, %50 ], [ 1, %49 ], [ 0, %47 ], [ 6, %61 ], [ 5, %60 ], [ 4, %59 ], [ 3, %58 ], [ 2, %57 ], [ 1, %56 ], [ 0, %55 ]
+  %62 = phi i32 [ %31, %54 ], [ %31, %53 ], [ %31, %52 ], [ %31, %51 ], [ %31, %50 ], [ %31, %49 ], [ %31, %47 ], [ %33, %61 ], [ %33, %60 ], [ %33, %59 ], [ %33, %58 ], [ %33, %57 ], [ %33, %56 ], [ %33, %55 ]
+  %63 = phi double [ 0x3FF921FB54442D18, %54 ], [ 0x3FF921FB54442D18, %53 ], [ 0x3FF921FB54442D18, %52 ], [ 0x3FF921FB54442D18, %51 ], [ 0x3FF921FB54442D18, %50 ], [ 0x3FF921FB54442D18, %49 ], [ 0x3FF921FB54442D18, %47 ], [ 0xBFF921FB54442D18, %61 ], [ 0xBFF921FB54442D18, %60 ], [ 0xBFF921FB54442D18, %59 ], [ 0xBFF921FB54442D18, %58 ], [ 0xBFF921FB54442D18, %57 ], [ 0xBFF921FB54442D18, %56 ], [ 0xBFF921FB54442D18, %55 ]
+  %64 = getelementptr inbounds [7 x [2 x [2 x double]]], ptr @_ZL3rot, i64 0, i64 %.0.i23.sink.i
+  %65 = fsub double %.sroa.014.0.i, %.sroa.19.0.ph.i
+  %66 = fsub double %.sroa.3.0.i, %.0.i.i
+  br label %67
+
+67:                                               ; preds = %75, %_ZL10vector_subPKdS0_Pd.exit.critedge.i
+  %68 = phi i1 [ true, %_ZL10vector_subPKdS0_Pd.exit.critedge.i ], [ false, %75 ]
+  %indvars.iv18.i.sroa.phi.i = phi ptr [ %.sroa.051.i, %_ZL10vector_subPKdS0_Pd.exit.critedge.i ], [ %.sroa.252.i, %75 ]
+  %indvars.iv18.i.i = phi i64 [ 0, %_ZL10vector_subPKdS0_Pd.exit.critedge.i ], [ 1, %75 ]
+  br label %69
+
+69:                                               ; preds = %69, %67
+  %70 = phi i1 [ true, %67 ], [ false, %69 ]
+  %indvars.iv.i27.sroa.phi.sroa.speculated.i = phi double [ %65, %67 ], [ %66, %69 ]
+  %indvars.iv.i27.i = phi i64 [ 0, %67 ], [ 1, %69 ]
+  %71 = phi double [ 0.000000e+00, %67 ], [ %74, %69 ]
+  %72 = getelementptr inbounds [2 x double], ptr %64, i64 %indvars.iv18.i.i, i64 %indvars.iv.i27.i
+  %73 = load double, ptr %72, align 8
+  %74 = tail call double @llvm.fmuladd.f64(double %73, double %indvars.iv.i27.sroa.phi.sroa.speculated.i, double %71)
+  br i1 %70, label %69, label %75, !llvm.loop !7
+
+75:                                               ; preds = %69
+  store double %74, ptr %indvars.iv18.i.sroa.phi.i, align 8
+  br i1 %68, label %67, label %_ZL11dot_productPA2_KdPS_Pd.exit.i, !llvm.loop !8
+
+_ZL11dot_productPA2_KdPS_Pd.exit.i:               ; preds = %75
+  %76 = sitofp i32 %62 to double
+  %77 = tail call double @llvm.fmuladd.f64(double %76, double 0x3FF921FB54442D18, double 0xC002D97C7F3321D2)
+  %.sroa.051.i.0..sroa.051.i.0..sroa.051.i.0..sroa.051.0..i = load double, ptr %.sroa.051.i, align 16
+  %78 = fadd double %77, %.sroa.051.i.0..sroa.051.i.0..sroa.051.i.0..sroa.051.0..i
+  %.sroa.252.i.0..sroa.252.i.0..sroa.252.i.0..sroa.252.0..i = load double, ptr %.sroa.252.i, align 8
+  %79 = fadd double %63, %.sroa.252.i.0..sroa.252.i.0..sroa.252.i.0..sroa.252.0..i
+  br label %_ZL12combine_capsddiii.exit
+
+_ZL12combine_capsddiii.exit:                      ; preds = %35, %_ZL11dot_productPA2_KdPS_Pd.exit.i
+  %.sroa.0.0.i = phi double [ %78, %_ZL11dot_productPA2_KdPS_Pd.exit.i ], [ %.sroa.014.0.i, %35 ]
+  %.sroa.3.0.i9 = phi double [ %79, %_ZL11dot_productPA2_KdPS_Pd.exit.i ], [ %.sroa.3.0.i, %35 ]
+  %.fca.0.insert.i10 = insertvalue { double, double } poison, double %.sroa.0.0.i, 0
+  %.fca.1.insert.i11 = insertvalue { double, double } %.fca.0.insert.i10, double %.sroa.3.0.i9, 1
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.051.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.252.i)
+  ret { double, double } %.fca.1.insert.i11
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1021,7 +1297,7 @@ define internal { double, double } @_ZL18s_rhealpix_inverse5PJ_XYP8PJconsts(doub
 19:                                               ; preds = %13
   %20 = fmul double %16, 8.000000e+00
   %21 = fdiv double %20, 0x4022D97C7F3321D2
-  %22 = tail call double @asin(double noundef %21) #9
+  %22 = tail call double @asin(double noundef %21) #11
   br label %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit
 
 23:                                               ; preds = %13
@@ -1049,7 +1325,7 @@ define internal { double, double } @_ZL18s_rhealpix_inverse5PJ_XYP8PJconsts(doub
   %square.i = fmul double %34, %34
   %42 = fdiv double %square.i, 3.000000e+00
   %43 = fsub double 1.000000e+00, %42
-  %44 = tail call double @asin(double noundef %43) #9
+  %44 = tail call double @asin(double noundef %43) #11
   %45 = fmul double %41, %44
   br label %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit
 
@@ -1070,13 +1346,13 @@ _ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit:   ; preds = %46, %25, %19, %11
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @sin(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #6
+declare double @llvm.fabs.f64(double) #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @asin(double noundef) local_unnamed_addr #3
@@ -1087,13 +1363,13 @@ declare noundef double @_Z10pj_authlatdPd(double noundef, ptr noundef) local_unn
 declare double @cos(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #6
+declare double @llvm.fmuladd.f64(double, double, double) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.floor.f64(double) #6
+declare double @llvm.floor.f64(double) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZL8in_imageddiii(double noundef %0, double noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #7 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL8in_imageddiii(double noundef %0, double noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #8 {
   %6 = alloca [12 x [2 x double]], align 16
   %7 = icmp eq i32 %2, 0
   br i1 %7, label %.lr.ph.i, label %46
@@ -1308,7 +1584,7 @@ _ZL6pnpolyiPA2_ddd.exit:                          ; preds = %81, %11, %._crit_ed
 declare void @_Z22proj_context_errno_setP6pj_ctxi(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc { double, double } @_ZL12combine_capsddiii(double noundef %0, double noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #7 {
+define internal fastcc { double, double } @_ZL12combine_capsddiii(double noundef %0, double noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #8 {
   %.sroa.051 = alloca double, align 16
   %.sroa.252 = alloca double, align 8
   %6 = icmp eq i32 %4, 0
@@ -1624,16 +1900,24 @@ _ZL7get_capddiii.exit:                            ; preds = %21, %9, %_ZL11dot_p
   ret { double, double } %.fca.1.insert
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind allocsize(0,1) }
-attributes #9 = { nounwind }
+attributes #5 = { mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nounwind allocsize(0,1) }
+attributes #11 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

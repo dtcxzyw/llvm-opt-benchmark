@@ -4192,7 +4192,7 @@ define internal i32 @packet_sendmsg(ptr nocapture noundef readonly %0, ptr nound
   %662 = load i32, ptr %8, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #19
-  br label %1042
+  br label %1049
 
 663:                                              ; preds = %3
   %664 = load ptr, ptr %1, align 8
@@ -4230,7 +4230,7 @@ define internal i32 @packet_sendmsg(ptr nocapture noundef readonly %0, ptr nound
   %679 = getelementptr inbounds i8, ptr %1, i64 8
   %680 = load i32, ptr %679, align 8
   %681 = icmp ult i32 %680, 20
-  br i1 %681, label %1040, label %682
+  br i1 %681, label %1047, label %682
 
 682:                                              ; preds = %678
   %683 = sext i32 %680 to i64
@@ -4239,7 +4239,7 @@ define internal i32 @packet_sendmsg(ptr nocapture noundef readonly %0, ptr nound
   %686 = zext i8 %685 to i64
   %687 = add nuw nsw i64 %686, 12
   %688 = icmp ugt i64 %687, %683
-  br i1 %688, label %1040, label %689
+  br i1 %688, label %1047, label %689
 
 689:                                              ; preds = %682
   %690 = getelementptr inbounds i8, ptr %664, i64 2
@@ -4277,7 +4277,7 @@ define internal i32 @packet_sendmsg(ptr nocapture noundef readonly %0, ptr nound
   %714 = phi i16 [ %677, %675 ], [ %691, %710 ], [ %691, %689 ]
   %715 = phi ptr [ %670, %675 ], [ %696, %710 ], [ %696, %689 ]
   %716 = icmp eq ptr %715, null
-  br i1 %716, label %1040, label %717, !prof !18
+  br i1 %716, label %1047, label %717, !prof !18
 
 717:                                              ; preds = %712
   store i32 -100, ptr %4, align 4
@@ -4522,7 +4522,7 @@ define internal i32 @packet_sendmsg(ptr nocapture noundef readonly %0, ptr nound
 878:                                              ; preds = %875
   %879 = call i32 %876(ptr noundef nonnull %843, ptr noundef nonnull %715, i16 noundef zeroext %871, ptr noundef %713, ptr noundef null, i32 noundef %823) #19
   %880 = icmp slt i32 %879, 0
-  br i1 %880, label %1037, label %.thread97, !prof !72
+  br i1 %880, label %1044, label %.thread97, !prof !72
 
 881:                                              ; preds = %845
   %882 = icmp eq i32 %744, 0
@@ -4562,7 +4562,7 @@ define internal i32 @packet_sendmsg(ptr nocapture noundef readonly %0, ptr nound
   %904 = call i32 @skb_copy_datagram_from_iter(ptr noundef nonnull %843, i32 noundef %902, ptr noundef %903, i32 noundef %823) #19
   store i32 %904, ptr %4, align 4
   %905 = icmp eq i32 %904, 0
-  br i1 %905, label %906, label %1037
+  br i1 %905, label %906, label %1044
 
 906:                                              ; preds = %.thread97
   %907 = load i16, ptr %736, align 4
@@ -4621,7 +4621,7 @@ define internal i32 @packet_sendmsg(ptr nocapture noundef readonly %0, ptr nound
 
 942:                                              ; preds = %939, %937, %933, %929, %914
   store i32 -22, ptr %4, align 4
-  br label %1037
+  br label %1044
 
 943:                                              ; preds = %939
   %944 = load i32, ptr %726, align 4
@@ -4706,7 +4706,7 @@ define internal i32 @packet_sendmsg(ptr nocapture noundef readonly %0, ptr nound
 
 1002:                                             ; preds = %989, %985
   store i32 -90, ptr %4, align 4
-  br label %1037
+  br label %1044
 
 1003:                                             ; preds = %989, %978, %975
   %1004 = getelementptr inbounds i8, ptr %843, i64 176
@@ -4734,66 +4734,85 @@ define internal i32 @packet_sendmsg(ptr nocapture noundef readonly %0, ptr nound
 
 1017:                                             ; preds = %1013, %1003
   call fastcc void @packet_parse_headers(ptr noundef nonnull %843, ptr noundef %0)
-  br i1 %745, label %1024, label %1018
+  br i1 %745, label %virtio_net_hdr_set_proto.exit, label %1018
 
 1018:                                             ; preds = %1017
   %1019 = call fastcc i32 @virtio_net_hdr_to_skb(ptr noundef nonnull %843, ptr noundef nonnull %6)
   store i32 %1019, ptr %4, align 4
   %1020 = icmp eq i32 %1019, 0
-  br i1 %1020, label %1021, label %1037
+  br i1 %1020, label %1021, label %1044
 
 1021:                                             ; preds = %1018
   %1022 = zext i8 %666 to i64
   %1023 = add i64 %784, %1022
-  call fastcc void @virtio_net_hdr_set_proto(ptr noundef nonnull %843, ptr noundef nonnull %6)
-  br label %1024
+  %1024 = load i16, ptr %1004, align 8
+  %1025 = icmp eq i16 %1024, 0
+  br i1 %1025, label %1026, label %virtio_net_hdr_set_proto.exit
 
-1024:                                             ; preds = %1021, %1017
-  %1025 = phi i64 [ %784, %1017 ], [ %1023, %1021 ]
-  %1026 = call fastcc i32 @packet_xmit(ptr noundef %10, ptr noundef nonnull %843)
-  store i32 %1026, ptr %4, align 4
-  %1027 = icmp eq i32 %1026, 0
-  br i1 %1027, label %1033, label %1028, !prof !22
+1026:                                             ; preds = %1021
+  %1027 = load i8, ptr %796, align 1
+  %1028 = and i8 %1027, 127
+  switch i8 %1028, label %virtio_net_hdr_set_proto.exit [
+    i8 1, label %1030
+    i8 3, label %1030
+    i8 5, label %1030
+    i8 4, label %1029
+  ]
 
-1028:                                             ; preds = %1024
-  %1029 = icmp sgt i32 %1026, 0
-  br i1 %1029, label %1030, label %.thread95
+1029:                                             ; preds = %1026
+  br label %1030
 
-1030:                                             ; preds = %1028
-  %1031 = icmp eq i32 %1026, 2
-  %1032 = select i1 %1031, i32 0, i32 -105
-  store i32 %1032, ptr %4, align 4
-  br i1 %1031, label %1033, label %.thread95
+1030:                                             ; preds = %1029, %1026, %1026, %1026
+  %1031 = phi i16 [ -8826, %1029 ], [ 8, %1026 ], [ 8, %1026 ], [ 8, %1026 ]
+  store i16 %1031, ptr %1004, align 8
+  br label %virtio_net_hdr_set_proto.exit
 
-1033:                                             ; preds = %1030, %1024
-  %1034 = getelementptr inbounds i8, ptr %715, i64 1280
-  %1035 = load ptr, ptr %1034, align 8
-  call void asm sideeffect "decl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %1035, ptr elementtype(i32) %1035) #19, !srcloc !9
-  %1036 = trunc i64 %1025 to i32
-  br label %1040
+virtio_net_hdr_set_proto.exit:                    ; preds = %1030, %1026, %1021, %1017
+  %1032 = phi i64 [ %784, %1017 ], [ %1023, %1021 ], [ %1023, %1026 ], [ %1023, %1030 ]
+  %1033 = call fastcc i32 @packet_xmit(ptr noundef %10, ptr noundef nonnull %843)
+  store i32 %1033, ptr %4, align 4
+  %1034 = icmp eq i32 %1033, 0
+  br i1 %1034, label %1040, label %1035, !prof !22
 
-1037:                                             ; preds = %1018, %1002, %942, %.thread97, %878
+1035:                                             ; preds = %virtio_net_hdr_set_proto.exit
+  %1036 = icmp sgt i32 %1033, 0
+  br i1 %1036, label %1037, label %.thread95
+
+1037:                                             ; preds = %1035
+  %1038 = icmp eq i32 %1033, 2
+  %1039 = select i1 %1038, i32 0, i32 -105
+  store i32 %1039, ptr %4, align 4
+  br i1 %1038, label %1040, label %.thread95
+
+1040:                                             ; preds = %1037, %virtio_net_hdr_set_proto.exit
+  %1041 = getelementptr inbounds i8, ptr %715, i64 1280
+  %1042 = load ptr, ptr %1041, align 8
+  call void asm sideeffect "decl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %1042, ptr elementtype(i32) %1042) #19, !srcloc !9
+  %1043 = trunc i64 %1032 to i32
+  br label %1047
+
+1044:                                             ; preds = %1018, %1002, %942, %.thread97, %878
   call void @kfree_skb_reason(ptr noundef nonnull %843, i32 noundef 2) #19
   br label %.thread95
 
-.thread95:                                        ; preds = %783, %1028, %807, %717, %732, %1037, %1030, %799, %793, %702, %.thread94
-  %.ph100 = phi ptr [ %715, %.thread94 ], [ %696, %702 ], [ %715, %793 ], [ %715, %799 ], [ %715, %1030 ], [ %715, %1037 ], [ %715, %783 ], [ %715, %732 ], [ %715, %717 ], [ %715, %807 ], [ %715, %1028 ]
-  %1038 = getelementptr inbounds i8, ptr %.ph100, i64 1280
-  %1039 = load ptr, ptr %1038, align 8
-  call void asm sideeffect "decl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %1039, ptr elementtype(i32) %1039) #19, !srcloc !9
+.thread95:                                        ; preds = %783, %1035, %807, %717, %732, %1044, %1037, %799, %793, %702, %.thread94
+  %.ph100 = phi ptr [ %715, %.thread94 ], [ %696, %702 ], [ %715, %793 ], [ %715, %799 ], [ %715, %1037 ], [ %715, %1044 ], [ %715, %783 ], [ %715, %732 ], [ %715, %717 ], [ %715, %807 ], [ %715, %1035 ]
+  %1045 = getelementptr inbounds i8, ptr %.ph100, i64 1280
+  %1046 = load ptr, ptr %1045, align 8
+  call void asm sideeffect "decl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %1046, ptr elementtype(i32) %1046) #19, !srcloc !9
   %.pre177 = load i32, ptr %4, align 4
-  br label %1040
+  br label %1047
 
-1040:                                             ; preds = %678, %682, %.thread95, %712, %1033
-  %1041 = phi i32 [ %1036, %1033 ], [ -6, %712 ], [ %.pre177, %.thread95 ], [ -22, %682 ], [ -22, %678 ]
+1047:                                             ; preds = %678, %682, %.thread95, %712, %1040
+  %1048 = phi i32 [ %1043, %1040 ], [ -6, %712 ], [ %.pre177, %.thread95 ], [ -22, %682 ], [ -22, %678 ]
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %6) #19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #19
-  br label %1042
+  br label %1049
 
-1042:                                             ; preds = %1040, %661
-  %1043 = phi i32 [ %662, %661 ], [ %1041, %1040 ]
-  ret i32 %1043
+1049:                                             ; preds = %1047, %661
+  %1050 = phi i32 [ %662, %661 ], [ %1048, %1047 ]
+  ret i32 %1050
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

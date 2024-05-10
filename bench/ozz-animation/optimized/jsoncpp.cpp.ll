@@ -7824,13 +7824,13 @@ _ZN4Json9OurReader11getNextCharEv.exit:           ; preds = %_ZN4Json9OurReader1
     i8 56, label %39
     i8 57, label %39
     i8 45, label %83
-    i8 116, label %105
-    i8 102, label %120
-    i8 110, label %135
-    i8 78, label %150
-    i8 73, label %169
-    i8 44, label %188
-    i8 58, label %189
+    i8 116, label %148
+    i8 102, label %163
+    i8 110, label %178
+    i8 78, label %193
+    i8 73, label %212
+    i8 44, label %231
+    i8 58, label %232
     i8 0, label %_ZN4Json9OurReader11getNextCharEv.exit.thread
   ]
 
@@ -7996,210 +7996,312 @@ _ZN4Json9OurReader11getNextCharEv.exit5.i:        ; preds = %28, %26, %_ZN4Json9
   br i1 %82, label %.lr.ph49.i, label %.critedge, !llvm.loop !157
 
 83:                                               ; preds = %_ZN4Json9OurReader11getNextCharEv.exit
-  %84 = tail call noundef zeroext i1 @_ZN4Json9OurReader10readNumberEb(ptr noundef nonnull align 8 dereferenceable(281) %0, i1 noundef zeroext true)
-  br i1 %84, label %85, label %86
+  %.not.i29.not = icmp eq ptr %15, %13
+  br i1 %.not.i29.not, label %.preheader, label %84
 
-85:                                               ; preds = %83
+84:                                               ; preds = %83
+  %85 = load i8, ptr %15, align 1
+  %86 = icmp eq i8 %85, 73
+  br i1 %86, label %128, label %.preheader
+
+.preheader:                                       ; preds = %84, %83
+  br label %87
+
+87:                                               ; preds = %.preheader, %89
+  %.03345.i30 = phi ptr [ %90, %89 ], [ %15, %.preheader ]
+  store ptr %.03345.i30, ptr %3, align 8
+  %88 = icmp ult ptr %.03345.i30, %13
+  br i1 %88, label %89, label %.loopexit
+
+89:                                               ; preds = %87
+  %90 = getelementptr inbounds i8, ptr %.03345.i30, i64 1
+  %91 = load i8, ptr %.03345.i30, align 1
+  %92 = add i8 %91, -48
+  %93 = icmp ult i8 %92, 10
+  br i1 %93, label %87, label %94, !llvm.loop !155
+
+94:                                               ; preds = %89
+  %95 = icmp eq i8 %91, 46
+  br i1 %95, label %96, label %.loopexit44.i31
+
+96:                                               ; preds = %94
+  store ptr %90, ptr %3, align 8
+  %97 = icmp ult ptr %90, %13
+  br i1 %97, label %98, label %.loopexit
+
+98:                                               ; preds = %96
+  %99 = getelementptr inbounds i8, ptr %.03345.i30, i64 2
+  %100 = load i8, ptr %90, align 1
+  %101 = add i8 %100, -48
+  %102 = icmp ult i8 %101, 10
+  br i1 %102, label %.lr.ph.i40, label %.loopexit44.i31
+
+.lr.ph.i40:                                       ; preds = %98, %104
+  %.33646.i41 = phi ptr [ %105, %104 ], [ %99, %98 ]
+  store ptr %.33646.i41, ptr %3, align 8
+  %103 = icmp ult ptr %.33646.i41, %13
+  br i1 %103, label %104, label %.loopexit
+
+104:                                              ; preds = %.lr.ph.i40
+  %105 = getelementptr inbounds i8, ptr %.33646.i41, i64 1
+  %106 = load i8, ptr %.33646.i41, align 1
+  %107 = add i8 %106, -48
+  %108 = icmp ult i8 %107, 10
+  br i1 %108, label %.lr.ph.i40, label %.loopexit44.i31, !llvm.loop !156
+
+.loopexit44.i31:                                  ; preds = %104, %98, %94
+  %.5.i32 = phi ptr [ %90, %94 ], [ %99, %98 ], [ %105, %104 ]
+  %.2.i33 = phi i8 [ %91, %94 ], [ %100, %98 ], [ %106, %104 ]
+  %109 = and i8 %.2.i33, -33
+  %or.cond.i34 = icmp eq i8 %109, 69
+  br i1 %or.cond.i34, label %110, label %.loopexit
+
+110:                                              ; preds = %.loopexit44.i31
+  store ptr %.5.i32, ptr %3, align 8
+  %111 = icmp ult ptr %.5.i32, %13
+  br i1 %111, label %112, label %.loopexit
+
+112:                                              ; preds = %110
+  %113 = getelementptr inbounds i8, ptr %.5.i32, i64 1
+  %114 = load i8, ptr %.5.i32, align 1
+  switch i8 %114, label %.thread.i35 [
+    i8 45, label %115
+    i8 43, label %115
+  ]
+
+115:                                              ; preds = %112, %112
+  store ptr %113, ptr %3, align 8
+  %116 = icmp ult ptr %113, %13
+  br i1 %116, label %117, label %.loopexit
+
+117:                                              ; preds = %115
+  %118 = getelementptr inbounds i8, ptr %.5.i32, i64 2
+  %119 = load i8, ptr %113, align 1
+  br label %.thread.i35
+
+.thread.i35:                                      ; preds = %117, %112
+  %.8.i36 = phi ptr [ %113, %112 ], [ %118, %117 ]
+  %.3.i37 = phi i8 [ %114, %112 ], [ %119, %117 ]
+  %120 = add i8 %.3.i37, -48
+  %121 = icmp ult i8 %120, 10
+  br i1 %121, label %.lr.ph49.i38, label %.loopexit
+
+.lr.ph49.i38:                                     ; preds = %.thread.i35, %123
+  %.948.i39 = phi ptr [ %124, %123 ], [ %.8.i36, %.thread.i35 ]
+  store ptr %.948.i39, ptr %3, align 8
+  %122 = icmp ult ptr %.948.i39, %13
+  br i1 %122, label %123, label %.loopexit
+
+123:                                              ; preds = %.lr.ph49.i38
+  %124 = getelementptr inbounds i8, ptr %.948.i39, i64 1
+  %125 = load i8, ptr %.948.i39, align 1
+  %126 = add i8 %125, -48
+  %127 = icmp ult i8 %126, 10
+  br i1 %127, label %.lr.ph49.i38, label %.loopexit, !llvm.loop !157
+
+.loopexit:                                        ; preds = %87, %.lr.ph.i40, %123, %.lr.ph49.i38, %.loopexit44.i31, %.thread.i35, %96, %115, %110
   store i32 6, ptr %1, align 8
   br label %.critedge
 
-86:                                               ; preds = %83
+128:                                              ; preds = %84
+  %129 = getelementptr inbounds i8, ptr %12, i64 2
+  store ptr %129, ptr %3, align 8
   store i32 12, ptr %1, align 8
-  %87 = getelementptr inbounds i8, ptr %0, i64 275
-  %88 = load i8, ptr %87, align 1
-  %89 = trunc i8 %88 to i1
-  br i1 %89, label %90, label %.critedge24
+  %130 = getelementptr inbounds i8, ptr %0, i64 275
+  %131 = load i8, ptr %130, align 1
+  %132 = trunc i8 %131 to i1
+  br i1 %132, label %133, label %.critedge24
 
-90:                                               ; preds = %86
-  %91 = load ptr, ptr %4, align 8
-  %92 = load ptr, ptr %3, align 8
-  %93 = ptrtoint ptr %91 to i64
-  %94 = ptrtoint ptr %92 to i64
-  %95 = sub i64 %93, %94
-  %96 = icmp slt i64 %95, 7
-  br i1 %96, label %.critedge24, label %.preheader.i
+133:                                              ; preds = %128
+  %134 = load ptr, ptr %4, align 8
+  %135 = load ptr, ptr %3, align 8
+  %136 = ptrtoint ptr %134 to i64
+  %137 = ptrtoint ptr %135 to i64
+  %138 = sub i64 %136, %137
+  %139 = icmp slt i64 %138, 7
+  br i1 %139, label %.critedge24, label %.preheader.i
 
-.preheader.i:                                     ; preds = %90, %98
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %98 ], [ 7, %90 ]
-  %97 = icmp eq i64 %indvars.iv.i, 0
-  br i1 %97, label %103, label %98
+.preheader.i:                                     ; preds = %133, %141
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %141 ], [ 7, %133 ]
+  %140 = icmp eq i64 %indvars.iv.i, 0
+  br i1 %140, label %146, label %141
 
-98:                                               ; preds = %.preheader.i
+141:                                              ; preds = %.preheader.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %99 = getelementptr inbounds i8, ptr %92, i64 %indvars.iv.next.i
-  %100 = load i8, ptr %99, align 1
-  %101 = getelementptr inbounds i8, ptr @.str.26, i64 %indvars.iv.next.i
-  %102 = load i8, ptr %101, align 1
-  %.not10.i = icmp eq i8 %100, %102
+  %142 = getelementptr inbounds i8, ptr %135, i64 %indvars.iv.next.i
+  %143 = load i8, ptr %142, align 1
+  %144 = getelementptr inbounds i8, ptr @.str.26, i64 %indvars.iv.next.i
+  %145 = load i8, ptr %144, align 1
+  %.not10.i = icmp eq i8 %143, %145
   br i1 %.not10.i, label %.preheader.i, label %.critedge24, !llvm.loop !158
 
-103:                                              ; preds = %.preheader.i
-  %104 = getelementptr inbounds i8, ptr %92, i64 7
-  store ptr %104, ptr %3, align 8
+146:                                              ; preds = %.preheader.i
+  %147 = getelementptr inbounds i8, ptr %135, i64 7
+  store ptr %147, ptr %3, align 8
   br label %.critedge
 
-105:                                              ; preds = %_ZN4Json9OurReader11getNextCharEv.exit
+148:                                              ; preds = %_ZN4Json9OurReader11getNextCharEv.exit
   store i32 7, ptr %1, align 8
-  %106 = load ptr, ptr %4, align 8
-  %107 = load ptr, ptr %3, align 8
-  %108 = ptrtoint ptr %106 to i64
-  %109 = ptrtoint ptr %107 to i64
-  %110 = sub i64 %108, %109
-  %111 = icmp slt i64 %110, 3
-  br i1 %111, label %.critedge24, label %.preheader.i29
+  %149 = load ptr, ptr %4, align 8
+  %150 = load ptr, ptr %3, align 8
+  %151 = ptrtoint ptr %149 to i64
+  %152 = ptrtoint ptr %150 to i64
+  %153 = sub i64 %151, %152
+  %154 = icmp slt i64 %153, 3
+  br i1 %154, label %.critedge24, label %.preheader.i43
 
-.preheader.i29:                                   ; preds = %105, %113
-  %indvars.iv.i30 = phi i64 [ %indvars.iv.next.i31, %113 ], [ 3, %105 ]
-  %112 = icmp eq i64 %indvars.iv.i30, 0
-  br i1 %112, label %118, label %113
+.preheader.i43:                                   ; preds = %148, %156
+  %indvars.iv.i44 = phi i64 [ %indvars.iv.next.i45, %156 ], [ 3, %148 ]
+  %155 = icmp eq i64 %indvars.iv.i44, 0
+  br i1 %155, label %161, label %156
 
-113:                                              ; preds = %.preheader.i29
-  %indvars.iv.next.i31 = add nsw i64 %indvars.iv.i30, -1
-  %114 = getelementptr inbounds i8, ptr %107, i64 %indvars.iv.next.i31
-  %115 = load i8, ptr %114, align 1
-  %116 = getelementptr inbounds i8, ptr @.str.4, i64 %indvars.iv.next.i31
-  %117 = load i8, ptr %116, align 1
-  %.not10.i32 = icmp eq i8 %115, %117
-  br i1 %.not10.i32, label %.preheader.i29, label %.critedge24, !llvm.loop !158
+156:                                              ; preds = %.preheader.i43
+  %indvars.iv.next.i45 = add nsw i64 %indvars.iv.i44, -1
+  %157 = getelementptr inbounds i8, ptr %150, i64 %indvars.iv.next.i45
+  %158 = load i8, ptr %157, align 1
+  %159 = getelementptr inbounds i8, ptr @.str.4, i64 %indvars.iv.next.i45
+  %160 = load i8, ptr %159, align 1
+  %.not10.i46 = icmp eq i8 %158, %160
+  br i1 %.not10.i46, label %.preheader.i43, label %.critedge24, !llvm.loop !158
 
-118:                                              ; preds = %.preheader.i29
-  %119 = getelementptr inbounds i8, ptr %107, i64 3
-  store ptr %119, ptr %3, align 8
+161:                                              ; preds = %.preheader.i43
+  %162 = getelementptr inbounds i8, ptr %150, i64 3
+  store ptr %162, ptr %3, align 8
   br label %.critedge
 
-120:                                              ; preds = %_ZN4Json9OurReader11getNextCharEv.exit
+163:                                              ; preds = %_ZN4Json9OurReader11getNextCharEv.exit
   store i32 8, ptr %1, align 8
-  %121 = load ptr, ptr %4, align 8
-  %122 = load ptr, ptr %3, align 8
-  %123 = ptrtoint ptr %121 to i64
-  %124 = ptrtoint ptr %122 to i64
-  %125 = sub i64 %123, %124
-  %126 = icmp slt i64 %125, 4
-  br i1 %126, label %.critedge24, label %.preheader.i35
+  %164 = load ptr, ptr %4, align 8
+  %165 = load ptr, ptr %3, align 8
+  %166 = ptrtoint ptr %164 to i64
+  %167 = ptrtoint ptr %165 to i64
+  %168 = sub i64 %166, %167
+  %169 = icmp slt i64 %168, 4
+  br i1 %169, label %.critedge24, label %.preheader.i49
 
-.preheader.i35:                                   ; preds = %120, %128
-  %indvars.iv.i36 = phi i64 [ %indvars.iv.next.i37, %128 ], [ 4, %120 ]
-  %127 = icmp eq i64 %indvars.iv.i36, 0
-  br i1 %127, label %133, label %128
+.preheader.i49:                                   ; preds = %163, %171
+  %indvars.iv.i50 = phi i64 [ %indvars.iv.next.i51, %171 ], [ 4, %163 ]
+  %170 = icmp eq i64 %indvars.iv.i50, 0
+  br i1 %170, label %176, label %171
 
-128:                                              ; preds = %.preheader.i35
-  %indvars.iv.next.i37 = add nsw i64 %indvars.iv.i36, -1
-  %129 = getelementptr inbounds i8, ptr %122, i64 %indvars.iv.next.i37
-  %130 = load i8, ptr %129, align 1
-  %131 = getelementptr inbounds i8, ptr @.str.5, i64 %indvars.iv.next.i37
-  %132 = load i8, ptr %131, align 1
-  %.not10.i38 = icmp eq i8 %130, %132
-  br i1 %.not10.i38, label %.preheader.i35, label %.critedge24, !llvm.loop !158
+171:                                              ; preds = %.preheader.i49
+  %indvars.iv.next.i51 = add nsw i64 %indvars.iv.i50, -1
+  %172 = getelementptr inbounds i8, ptr %165, i64 %indvars.iv.next.i51
+  %173 = load i8, ptr %172, align 1
+  %174 = getelementptr inbounds i8, ptr @.str.5, i64 %indvars.iv.next.i51
+  %175 = load i8, ptr %174, align 1
+  %.not10.i52 = icmp eq i8 %173, %175
+  br i1 %.not10.i52, label %.preheader.i49, label %.critedge24, !llvm.loop !158
 
-133:                                              ; preds = %.preheader.i35
-  %134 = getelementptr inbounds i8, ptr %122, i64 4
-  store ptr %134, ptr %3, align 8
+176:                                              ; preds = %.preheader.i49
+  %177 = getelementptr inbounds i8, ptr %165, i64 4
+  store ptr %177, ptr %3, align 8
   br label %.critedge
 
-135:                                              ; preds = %_ZN4Json9OurReader11getNextCharEv.exit
+178:                                              ; preds = %_ZN4Json9OurReader11getNextCharEv.exit
   store i32 9, ptr %1, align 8
-  %136 = load ptr, ptr %4, align 8
-  %137 = load ptr, ptr %3, align 8
-  %138 = ptrtoint ptr %136 to i64
-  %139 = ptrtoint ptr %137 to i64
-  %140 = sub i64 %138, %139
-  %141 = icmp slt i64 %140, 3
-  br i1 %141, label %.critedge24, label %.preheader.i41
+  %179 = load ptr, ptr %4, align 8
+  %180 = load ptr, ptr %3, align 8
+  %181 = ptrtoint ptr %179 to i64
+  %182 = ptrtoint ptr %180 to i64
+  %183 = sub i64 %181, %182
+  %184 = icmp slt i64 %183, 3
+  br i1 %184, label %.critedge24, label %.preheader.i55
 
-.preheader.i41:                                   ; preds = %135, %143
-  %indvars.iv.i42 = phi i64 [ %indvars.iv.next.i43, %143 ], [ 3, %135 ]
-  %142 = icmp eq i64 %indvars.iv.i42, 0
-  br i1 %142, label %148, label %143
+.preheader.i55:                                   ; preds = %178, %186
+  %indvars.iv.i56 = phi i64 [ %indvars.iv.next.i57, %186 ], [ 3, %178 ]
+  %185 = icmp eq i64 %indvars.iv.i56, 0
+  br i1 %185, label %191, label %186
 
-143:                                              ; preds = %.preheader.i41
-  %indvars.iv.next.i43 = add nsw i64 %indvars.iv.i42, -1
-  %144 = getelementptr inbounds i8, ptr %137, i64 %indvars.iv.next.i43
-  %145 = load i8, ptr %144, align 1
-  %146 = getelementptr inbounds i8, ptr @.str.6, i64 %indvars.iv.next.i43
-  %147 = load i8, ptr %146, align 1
-  %.not10.i44 = icmp eq i8 %145, %147
-  br i1 %.not10.i44, label %.preheader.i41, label %.critedge24, !llvm.loop !158
+186:                                              ; preds = %.preheader.i55
+  %indvars.iv.next.i57 = add nsw i64 %indvars.iv.i56, -1
+  %187 = getelementptr inbounds i8, ptr %180, i64 %indvars.iv.next.i57
+  %188 = load i8, ptr %187, align 1
+  %189 = getelementptr inbounds i8, ptr @.str.6, i64 %indvars.iv.next.i57
+  %190 = load i8, ptr %189, align 1
+  %.not10.i58 = icmp eq i8 %188, %190
+  br i1 %.not10.i58, label %.preheader.i55, label %.critedge24, !llvm.loop !158
 
-148:                                              ; preds = %.preheader.i41
-  %149 = getelementptr inbounds i8, ptr %137, i64 3
-  store ptr %149, ptr %3, align 8
+191:                                              ; preds = %.preheader.i55
+  %192 = getelementptr inbounds i8, ptr %180, i64 3
+  store ptr %192, ptr %3, align 8
   br label %.critedge
 
-150:                                              ; preds = %_ZN4Json9OurReader11getNextCharEv.exit
-  %151 = getelementptr inbounds i8, ptr %0, i64 275
-  %152 = load i8, ptr %151, align 1
-  %153 = trunc i8 %152 to i1
-  br i1 %153, label %154, label %.critedge24
+193:                                              ; preds = %_ZN4Json9OurReader11getNextCharEv.exit
+  %194 = getelementptr inbounds i8, ptr %0, i64 275
+  %195 = load i8, ptr %194, align 1
+  %196 = trunc i8 %195 to i1
+  br i1 %196, label %197, label %.critedge24
 
-154:                                              ; preds = %150
+197:                                              ; preds = %193
   store i32 10, ptr %1, align 8
-  %155 = load ptr, ptr %4, align 8
-  %156 = load ptr, ptr %3, align 8
-  %157 = ptrtoint ptr %155 to i64
-  %158 = ptrtoint ptr %156 to i64
-  %159 = sub i64 %157, %158
-  %160 = icmp slt i64 %159, 2
-  br i1 %160, label %.critedge24, label %.preheader.i47
+  %198 = load ptr, ptr %4, align 8
+  %199 = load ptr, ptr %3, align 8
+  %200 = ptrtoint ptr %198 to i64
+  %201 = ptrtoint ptr %199 to i64
+  %202 = sub i64 %200, %201
+  %203 = icmp slt i64 %202, 2
+  br i1 %203, label %.critedge24, label %.preheader.i61
 
-.preheader.i47:                                   ; preds = %154, %162
-  %indvars.iv.i48 = phi i64 [ %indvars.iv.next.i49, %162 ], [ 2, %154 ]
-  %161 = icmp eq i64 %indvars.iv.i48, 0
-  br i1 %161, label %167, label %162
+.preheader.i61:                                   ; preds = %197, %205
+  %indvars.iv.i62 = phi i64 [ %indvars.iv.next.i63, %205 ], [ 2, %197 ]
+  %204 = icmp eq i64 %indvars.iv.i62, 0
+  br i1 %204, label %210, label %205
 
-162:                                              ; preds = %.preheader.i47
-  %indvars.iv.next.i49 = add nsw i64 %indvars.iv.i48, -1
-  %163 = getelementptr inbounds i8, ptr %156, i64 %indvars.iv.next.i49
-  %164 = load i8, ptr %163, align 1
-  %165 = getelementptr inbounds i8, ptr @.str.27, i64 %indvars.iv.next.i49
-  %166 = load i8, ptr %165, align 1
-  %.not10.i50 = icmp eq i8 %164, %166
-  br i1 %.not10.i50, label %.preheader.i47, label %.critedge24, !llvm.loop !158
+205:                                              ; preds = %.preheader.i61
+  %indvars.iv.next.i63 = add nsw i64 %indvars.iv.i62, -1
+  %206 = getelementptr inbounds i8, ptr %199, i64 %indvars.iv.next.i63
+  %207 = load i8, ptr %206, align 1
+  %208 = getelementptr inbounds i8, ptr @.str.27, i64 %indvars.iv.next.i63
+  %209 = load i8, ptr %208, align 1
+  %.not10.i64 = icmp eq i8 %207, %209
+  br i1 %.not10.i64, label %.preheader.i61, label %.critedge24, !llvm.loop !158
 
-167:                                              ; preds = %.preheader.i47
-  %168 = getelementptr inbounds i8, ptr %156, i64 2
-  store ptr %168, ptr %3, align 8
+210:                                              ; preds = %.preheader.i61
+  %211 = getelementptr inbounds i8, ptr %199, i64 2
+  store ptr %211, ptr %3, align 8
   br label %.critedge
 
-169:                                              ; preds = %_ZN4Json9OurReader11getNextCharEv.exit
-  %170 = getelementptr inbounds i8, ptr %0, i64 275
-  %171 = load i8, ptr %170, align 1
-  %172 = trunc i8 %171 to i1
-  br i1 %172, label %173, label %.critedge24
+212:                                              ; preds = %_ZN4Json9OurReader11getNextCharEv.exit
+  %213 = getelementptr inbounds i8, ptr %0, i64 275
+  %214 = load i8, ptr %213, align 1
+  %215 = trunc i8 %214 to i1
+  br i1 %215, label %216, label %.critedge24
 
-173:                                              ; preds = %169
+216:                                              ; preds = %212
   store i32 11, ptr %1, align 8
-  %174 = load ptr, ptr %4, align 8
-  %175 = load ptr, ptr %3, align 8
-  %176 = ptrtoint ptr %174 to i64
-  %177 = ptrtoint ptr %175 to i64
-  %178 = sub i64 %176, %177
-  %179 = icmp slt i64 %178, 7
-  br i1 %179, label %.critedge24, label %.preheader.i53
+  %217 = load ptr, ptr %4, align 8
+  %218 = load ptr, ptr %3, align 8
+  %219 = ptrtoint ptr %217 to i64
+  %220 = ptrtoint ptr %218 to i64
+  %221 = sub i64 %219, %220
+  %222 = icmp slt i64 %221, 7
+  br i1 %222, label %.critedge24, label %.preheader.i67
 
-.preheader.i53:                                   ; preds = %173, %181
-  %indvars.iv.i54 = phi i64 [ %indvars.iv.next.i55, %181 ], [ 7, %173 ]
-  %180 = icmp eq i64 %indvars.iv.i54, 0
-  br i1 %180, label %186, label %181
+.preheader.i67:                                   ; preds = %216, %224
+  %indvars.iv.i68 = phi i64 [ %indvars.iv.next.i69, %224 ], [ 7, %216 ]
+  %223 = icmp eq i64 %indvars.iv.i68, 0
+  br i1 %223, label %229, label %224
 
-181:                                              ; preds = %.preheader.i53
-  %indvars.iv.next.i55 = add nsw i64 %indvars.iv.i54, -1
-  %182 = getelementptr inbounds i8, ptr %175, i64 %indvars.iv.next.i55
-  %183 = load i8, ptr %182, align 1
-  %184 = getelementptr inbounds i8, ptr @.str.26, i64 %indvars.iv.next.i55
-  %185 = load i8, ptr %184, align 1
-  %.not10.i56 = icmp eq i8 %183, %185
-  br i1 %.not10.i56, label %.preheader.i53, label %.critedge24, !llvm.loop !158
+224:                                              ; preds = %.preheader.i67
+  %indvars.iv.next.i69 = add nsw i64 %indvars.iv.i68, -1
+  %225 = getelementptr inbounds i8, ptr %218, i64 %indvars.iv.next.i69
+  %226 = load i8, ptr %225, align 1
+  %227 = getelementptr inbounds i8, ptr @.str.26, i64 %indvars.iv.next.i69
+  %228 = load i8, ptr %227, align 1
+  %.not10.i70 = icmp eq i8 %226, %228
+  br i1 %.not10.i70, label %.preheader.i67, label %.critedge24, !llvm.loop !158
 
-186:                                              ; preds = %.preheader.i53
-  %187 = getelementptr inbounds i8, ptr %175, i64 7
-  store ptr %187, ptr %3, align 8
+229:                                              ; preds = %.preheader.i67
+  %230 = getelementptr inbounds i8, ptr %218, i64 7
+  store ptr %230, ptr %3, align 8
   br label %.critedge
 
-188:                                              ; preds = %_ZN4Json9OurReader11getNextCharEv.exit
+231:                                              ; preds = %_ZN4Json9OurReader11getNextCharEv.exit
   store i32 13, ptr %1, align 8
   br label %.critedge
 
-189:                                              ; preds = %_ZN4Json9OurReader11getNextCharEv.exit
+232:                                              ; preds = %_ZN4Json9OurReader11getNextCharEv.exit
   store i32 14, ptr %1, align 8
   br label %.critedge
 
@@ -8207,14 +8309,14 @@ _ZN4Json9OurReader11getNextCharEv.exit.thread:    ; preds = %_ZN4Json9OurReader1
   store i32 0, ptr %1, align 8
   br label %.critedge
 
-.critedge24:                                      ; preds = %181, %162, %143, %128, %113, %98, %_ZN4Json9OurReader11getNextCharEv.exit5.i, %173, %154, %135, %120, %105, %90, %21, %35, %37, %86, %150, %169, %_ZN4Json9OurReader11getNextCharEv.exit
+.critedge24:                                      ; preds = %224, %205, %186, %171, %156, %141, %_ZN4Json9OurReader11getNextCharEv.exit5.i, %216, %197, %178, %163, %148, %133, %21, %35, %37, %128, %193, %212, %_ZN4Json9OurReader11getNextCharEv.exit
   store i32 16, ptr %1, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %42, %.lr.ph.i28, %78, %.lr.ph49.i, %_ZN4Json9OurReader11getNextCharEv.exit.i, %186, %167, %148, %133, %118, %103, %35, %37, %.thread.i, %70, %65, %.loopexit44.i, %51, %_ZN4Json9OurReader11getNextCharEv.exit.thread, %189, %188, %85, %20, %19, %18, %17, %.critedge24
-  %190 = load ptr, ptr %3, align 8
-  %191 = getelementptr inbounds i8, ptr %1, i64 16
-  store ptr %190, ptr %191, align 8
+.critedge:                                        ; preds = %42, %.lr.ph.i28, %78, %.lr.ph49.i, %_ZN4Json9OurReader11getNextCharEv.exit.i, %229, %210, %191, %176, %161, %146, %35, %37, %.thread.i, %70, %65, %.loopexit44.i, %51, %_ZN4Json9OurReader11getNextCharEv.exit.thread, %232, %231, %.loopexit, %20, %19, %18, %17, %.critedge24
+  %233 = load ptr, ptr %3, align 8
+  %234 = getelementptr inbounds i8, ptr %1, i64 16
+  store ptr %233, ptr %234, align 8
   ret i1 true
 }
 

@@ -1111,8 +1111,6 @@ $_ZN9grpc_core13ClientChannel17SubchannelWrapper14WatcherWrapper39ApplyUpdateInC
 
 $_ZNSt8optionalIN4absl12lts_202308024CordEED2Ev = comdat any
 
-$_ZNSt14_Function_base13_Base_managerIZN9grpc_core13ClientChannel17SubchannelWrapper14WatcherWrapper25OnConnectivityStateChangeENS1_13RefCountedPtrINS1_10Subchannel33ConnectivityStateWatcherInterfaceEEE23grpc_connectivity_stateRKN4absl12lts_202308026StatusEEUlvE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation = comdat any
-
 $_ZN9grpc_core18ChildPolicyHandlerC2ENS_19LoadBalancingPolicy4ArgsEPNS_9TraceFlagE = comdat any
 
 $_ZN9grpc_core21DefaultConfigSelectorD2Ev = comdat any
@@ -42098,11 +42096,13 @@ _ZSt10__invoke_rIvRZN9grpc_core13ClientChannel17SubchannelWrapper14WatcherWrappe
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef zeroext i1 @_ZNSt17_Function_handlerIFvvEZN9grpc_core13ClientChannel17SubchannelWrapper14WatcherWrapper25OnConnectivityStateChangeENS1_13RefCountedPtrINS1_10Subchannel33ConnectivityStateWatcherInterfaceEEE23grpc_connectivity_stateRKN4absl12lts_202308026StatusEEUlvE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #3 comdat align 2 {
+define linkonce_odr noundef zeroext i1 @_ZNSt17_Function_handlerIFvvEZN9grpc_core13ClientChannel17SubchannelWrapper14WatcherWrapper25OnConnectivityStateChangeENS1_13RefCountedPtrINS1_10Subchannel33ConnectivityStateWatcherInterfaceEEE23grpc_connectivity_stateRKN4absl12lts_202308026StatusEEUlvE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  switch i32 %__op, label %sw.default [
+  switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
     i32 1, label %sw.bb1
+    i32 3, label %sw.bb6.i
+    i32 2, label %sw.bb4.i
   ]
 
 sw.bb:                                            ; preds = %entry
@@ -42114,11 +42114,56 @@ sw.bb1:                                           ; preds = %entry
   store ptr %0, ptr %__dest, align 8
   br label %sw.epilog
 
-sw.default:                                       ; preds = %entry
-  %call4 = tail call noundef zeroext i1 @_ZNSt14_Function_base13_Base_managerIZN9grpc_core13ClientChannel17SubchannelWrapper14WatcherWrapper25OnConnectivityStateChangeENS1_13RefCountedPtrINS1_10Subchannel33ConnectivityStateWatcherInterfaceEEE23grpc_connectivity_stateRKN4absl12lts_202308026StatusEEUlvE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op)
+sw.bb4.i:                                         ; preds = %entry
+  %1 = load ptr, ptr %__source, align 8
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #41
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %1, i64 12, i1 false)
+  %2 = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
+  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = load i64, ptr %3, align 8
+  store i64 %4, ptr %2, align 8
+  %and.i.i.i.i.i.i.i = and i64 %4, 1
+  %cmp.i.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i.i.i, 0
+  br i1 %cmp.i.i.i.i.i.i.i, label %_ZNSt14_Function_base13_Base_managerIZN9grpc_core13ClientChannel17SubchannelWrapper14WatcherWrapper25OnConnectivityStateChangeENS1_13RefCountedPtrINS1_10Subchannel33ConnectivityStateWatcherInterfaceEEE23grpc_connectivity_stateRKN4absl12lts_202308026StatusEEUlvE_E15_M_init_functorIRKSF_EEvRSt9_Any_dataOT_.exit.i, label %if.then.i.i.i.i.i.i
+
+if.then.i.i.i.i.i.i:                              ; preds = %sw.bb4.i
+  %sub.i.i.i.i.i.i.i = add nsw i64 %4, -1
+  %5 = inttoptr i64 %sub.i.i.i.i.i.i.i to ptr
+  %6 = atomicrmw add ptr %5, i32 1 monotonic, align 4
+  br label %_ZNSt14_Function_base13_Base_managerIZN9grpc_core13ClientChannel17SubchannelWrapper14WatcherWrapper25OnConnectivityStateChangeENS1_13RefCountedPtrINS1_10Subchannel33ConnectivityStateWatcherInterfaceEEE23grpc_connectivity_stateRKN4absl12lts_202308026StatusEEUlvE_E15_M_init_functorIRKSF_EEvRSt9_Any_dataOT_.exit.i
+
+_ZNSt14_Function_base13_Base_managerIZN9grpc_core13ClientChannel17SubchannelWrapper14WatcherWrapper25OnConnectivityStateChangeENS1_13RefCountedPtrINS1_10Subchannel33ConnectivityStateWatcherInterfaceEEE23grpc_connectivity_stateRKN4absl12lts_202308026StatusEEUlvE_E15_M_init_functorIRKSF_EEvRSt9_Any_dataOT_.exit.i: ; preds = %if.then.i.i.i.i.i.i, %sw.bb4.i
+  store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.default, %sw.bb1, %sw.bb
+sw.bb6.i:                                         ; preds = %entry
+  %7 = load ptr, ptr %__dest, align 8
+  %isnull.i.i = icmp eq ptr %7, null
+  br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
+
+delete.notnull.i.i:                               ; preds = %sw.bb6.i
+  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %9 = load i64, ptr %8, align 8
+  %and.i.i.i.i.i.i = and i64 %9, 1
+  %cmp.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i.i, 0
+  br i1 %cmp.i.i.i.i.i.i, label %_ZZN9grpc_core13ClientChannel17SubchannelWrapper14WatcherWrapper25OnConnectivityStateChangeENS_13RefCountedPtrINS_10Subchannel33ConnectivityStateWatcherInterfaceEEE23grpc_connectivity_stateRKN4absl12lts_202308026StatusEENUlvE_D2Ev.exit.i.i, label %if.then.i.i.i.i.i
+
+if.then.i.i.i.i.i:                                ; preds = %delete.notnull.i.i
+  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %9)
+          to label %_ZZN9grpc_core13ClientChannel17SubchannelWrapper14WatcherWrapper25OnConnectivityStateChangeENS_13RefCountedPtrINS_10Subchannel33ConnectivityStateWatcherInterfaceEEE23grpc_connectivity_stateRKN4absl12lts_202308026StatusEENUlvE_D2Ev.exit.i.i unwind label %terminate.lpad.i.i.i.i
+
+terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
+  %10 = landingpad { ptr, i32 }
+          catch ptr null
+  %11 = extractvalue { ptr, i32 } %10, 0
+  tail call void @__clang_call_terminate(ptr %11) #38
+  unreachable
+
+_ZZN9grpc_core13ClientChannel17SubchannelWrapper14WatcherWrapper25OnConnectivityStateChangeENS_13RefCountedPtrINS_10Subchannel33ConnectivityStateWatcherInterfaceEEE23grpc_connectivity_stateRKN4absl12lts_202308026StatusEENUlvE_D2Ev.exit.i.i: ; preds = %if.then.i.i.i.i.i, %delete.notnull.i.i
+  tail call void @_ZdlPv(ptr noundef nonnull %7) #40
+  br label %sw.epilog
+
+sw.epilog:                                        ; preds = %entry, %_ZZN9grpc_core13ClientChannel17SubchannelWrapper14WatcherWrapper25OnConnectivityStateChangeENS_13RefCountedPtrINS_10Subchannel33ConnectivityStateWatcherInterfaceEEE23grpc_connectivity_stateRKN4absl12lts_202308026StatusEENUlvE_D2Ev.exit.i.i, %sw.bb6.i, %_ZNSt14_Function_base13_Base_managerIZN9grpc_core13ClientChannel17SubchannelWrapper14WatcherWrapper25OnConnectivityStateChangeENS1_13RefCountedPtrINS1_10Subchannel33ConnectivityStateWatcherInterfaceEEE23grpc_connectivity_stateRKN4absl12lts_202308026StatusEEUlvE_E15_M_init_functorIRKSF_EEvRSt9_Any_dataOT_.exit.i, %sw.bb1, %sw.bb
   ret i1 false
 }
 
@@ -42474,78 +42519,6 @@ _ZNSt14_Optional_baseIN4absl12lts_202308024CordELb0ELb0EED2Ev.exit: ; preds = %e
 }
 
 declare void @_ZN4absl12lts_202308024Cord15DestroyCordSlowEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef zeroext i1 @_ZNSt14_Function_base13_Base_managerIZN9grpc_core13ClientChannel17SubchannelWrapper14WatcherWrapper25OnConnectivityStateChangeENS1_13RefCountedPtrINS1_10Subchannel33ConnectivityStateWatcherInterfaceEEE23grpc_connectivity_stateRKN4absl12lts_202308026StatusEEUlvE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  switch i32 %__op, label %sw.epilog [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb1
-    i32 2, label %sw.bb4
-    i32 3, label %sw.bb6
-  ]
-
-sw.bb:                                            ; preds = %entry
-  store ptr @_ZTIZN9grpc_core13ClientChannel17SubchannelWrapper14WatcherWrapper25OnConnectivityStateChangeENS_13RefCountedPtrINS_10Subchannel33ConnectivityStateWatcherInterfaceEEE23grpc_connectivity_stateRKN4absl12lts_202308026StatusEEUlvE_, ptr %__dest, align 8
-  br label %sw.epilog
-
-sw.bb1:                                           ; preds = %entry
-  %0 = load ptr, ptr %__source, align 8
-  store ptr %0, ptr %__dest, align 8
-  br label %sw.epilog
-
-sw.bb4:                                           ; preds = %entry
-  %1 = load ptr, ptr %__source, align 8
-  %call.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #41
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %call.i.i, ptr noundef nonnull align 8 dereferenceable(12) %1, i64 12, i1 false)
-  %2 = getelementptr inbounds i8, ptr %call.i.i, i64 16
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
-  %4 = load i64, ptr %3, align 8
-  store i64 %4, ptr %2, align 8
-  %and.i.i.i.i.i.i = and i64 %4, 1
-  %cmp.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i.i.i, label %_ZNSt14_Function_base13_Base_managerIZN9grpc_core13ClientChannel17SubchannelWrapper14WatcherWrapper25OnConnectivityStateChangeENS1_13RefCountedPtrINS1_10Subchannel33ConnectivityStateWatcherInterfaceEEE23grpc_connectivity_stateRKN4absl12lts_202308026StatusEEUlvE_E15_M_init_functorIRKSF_EEvRSt9_Any_dataOT_.exit, label %if.then.i.i.i.i.i
-
-if.then.i.i.i.i.i:                                ; preds = %sw.bb4
-  %sub.i.i.i.i.i.i = add nsw i64 %4, -1
-  %5 = inttoptr i64 %sub.i.i.i.i.i.i to ptr
-  %6 = atomicrmw add ptr %5, i32 1 monotonic, align 4
-  br label %_ZNSt14_Function_base13_Base_managerIZN9grpc_core13ClientChannel17SubchannelWrapper14WatcherWrapper25OnConnectivityStateChangeENS1_13RefCountedPtrINS1_10Subchannel33ConnectivityStateWatcherInterfaceEEE23grpc_connectivity_stateRKN4absl12lts_202308026StatusEEUlvE_E15_M_init_functorIRKSF_EEvRSt9_Any_dataOT_.exit
-
-_ZNSt14_Function_base13_Base_managerIZN9grpc_core13ClientChannel17SubchannelWrapper14WatcherWrapper25OnConnectivityStateChangeENS1_13RefCountedPtrINS1_10Subchannel33ConnectivityStateWatcherInterfaceEEE23grpc_connectivity_stateRKN4absl12lts_202308026StatusEEUlvE_E15_M_init_functorIRKSF_EEvRSt9_Any_dataOT_.exit: ; preds = %sw.bb4, %if.then.i.i.i.i.i
-  store ptr %call.i.i, ptr %__dest, align 8
-  br label %sw.epilog
-
-sw.bb6:                                           ; preds = %entry
-  %7 = load ptr, ptr %__dest, align 8
-  %isnull.i = icmp eq ptr %7, null
-  br i1 %isnull.i, label %sw.epilog, label %delete.notnull.i
-
-delete.notnull.i:                                 ; preds = %sw.bb6
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
-  %9 = load i64, ptr %8, align 8
-  %and.i.i.i.i.i = and i64 %9, 1
-  %cmp.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i.i, label %_ZZN9grpc_core13ClientChannel17SubchannelWrapper14WatcherWrapper25OnConnectivityStateChangeENS_13RefCountedPtrINS_10Subchannel33ConnectivityStateWatcherInterfaceEEE23grpc_connectivity_stateRKN4absl12lts_202308026StatusEENUlvE_D2Ev.exit.i, label %if.then.i.i.i.i
-
-if.then.i.i.i.i:                                  ; preds = %delete.notnull.i
-  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %9)
-          to label %_ZZN9grpc_core13ClientChannel17SubchannelWrapper14WatcherWrapper25OnConnectivityStateChangeENS_13RefCountedPtrINS_10Subchannel33ConnectivityStateWatcherInterfaceEEE23grpc_connectivity_stateRKN4absl12lts_202308026StatusEENUlvE_D2Ev.exit.i unwind label %terminate.lpad.i.i.i
-
-terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
-  %10 = landingpad { ptr, i32 }
-          catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #38
-  unreachable
-
-_ZZN9grpc_core13ClientChannel17SubchannelWrapper14WatcherWrapper25OnConnectivityStateChangeENS_13RefCountedPtrINS_10Subchannel33ConnectivityStateWatcherInterfaceEEE23grpc_connectivity_stateRKN4absl12lts_202308026StatusEENUlvE_D2Ev.exit.i: ; preds = %if.then.i.i.i.i, %delete.notnull.i
-  tail call void @_ZdlPv(ptr noundef nonnull %7) #40
-  br label %sw.epilog
-
-sw.epilog:                                        ; preds = %_ZZN9grpc_core13ClientChannel17SubchannelWrapper14WatcherWrapper25OnConnectivityStateChangeENS_13RefCountedPtrINS_10Subchannel33ConnectivityStateWatcherInterfaceEEE23grpc_connectivity_stateRKN4absl12lts_202308026StatusEENUlvE_D2Ev.exit.i, %sw.bb6, %_ZNSt14_Function_base13_Base_managerIZN9grpc_core13ClientChannel17SubchannelWrapper14WatcherWrapper25OnConnectivityStateChangeENS1_13RefCountedPtrINS1_10Subchannel33ConnectivityStateWatcherInterfaceEEE23grpc_connectivity_stateRKN4absl12lts_202308026StatusEEUlvE_E15_M_init_functorIRKSF_EEvRSt9_Any_dataOT_.exit, %sw.bb1, %sw.bb, %entry
-  ret i1 false
-}
 
 declare void @_ZN9grpc_core10Subchannel28CancelConnectivityStateWatchEPNS0_33ConnectivityStateWatcherInterfaceE(ptr noundef nonnull align 8 dereferenceable(928), ptr noundef) local_unnamed_addr #0
 

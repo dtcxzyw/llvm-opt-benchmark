@@ -810,69 +810,72 @@ define internal noundef i32 @dissect_bitcoin_msg_addr(ptr noundef %0, ptr nocapt
   %8 = tail call ptr @proto_item_add_subtree(ptr noundef %6, i32 noundef %7) #4
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #4
   %10 = icmp ult i8 %9, -3
-  br i1 %10, label %11, label %13
+  br i1 %10, label %12, label %11
 
 11:                                               ; preds = %4
-  %12 = zext i8 %9 to i64
-  br label %get_varint.exit
-
-13:                                               ; preds = %4
-  switch i8 %9, label %20 [
-    i8 -3, label %14
-    i8 -2, label %17
+  switch i8 %9, label %26 [
+    i8 -3, label %16
+    i8 -2, label %21
   ]
 
-14:                                               ; preds = %13
-  %15 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 1) #4
-  %16 = zext i16 %15 to i64
-  br label %get_varint.exit
+12:                                               ; preds = %4
+  %13 = zext i8 %9 to i64
+  %14 = load i32, ptr @hf_msg_addr_count8, align 4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %14, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #4
+  br label %add_varint_item.exit
 
-17:                                               ; preds = %13
-  %18 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 1) #4
-  %19 = zext i32 %18 to i64
-  br label %get_varint.exit
+16:                                               ; preds = %11
+  %17 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 1) #4
+  %18 = zext i16 %17 to i64
+  %19 = load i32, ptr @hf_msg_addr_count16, align 4
+  %20 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %19, ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef -2147483648) #4
+  br label %add_varint_item.exit
 
-20:                                               ; preds = %13
-  %21 = tail call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef 1) #4
-  br label %get_varint.exit
-
-get_varint.exit:                                  ; preds = %11, %14, %17, %20
-  %.025 = phi i32 [ 1, %11 ], [ 9, %20 ], [ 5, %17 ], [ 3, %14 ]
-  %.sink.i = phi i64 [ %12, %11 ], [ %21, %20 ], [ %19, %17 ], [ %16, %14 ]
-  %22 = load i32, ptr @hf_msg_addr_count8, align 4
-  %23 = load i32, ptr @hf_msg_addr_count16, align 4
+21:                                               ; preds = %11
+  %22 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 1) #4
+  %23 = zext i32 %22 to i64
   %24 = load i32, ptr @hf_msg_addr_count32, align 4
-  %25 = load i32, ptr @hf_msg_addr_count64, align 4
-  tail call fastcc void @add_varint_item(ptr noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef %.025, i32 noundef %22, i32 noundef %23, i32 noundef %24, i32 noundef %25)
-  %.not26 = icmp eq i64 %.sink.i, 0
-  br i1 %.not26, label %._crit_edge, label %.lr.ph
+  %25 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %24, ptr noundef %0, i32 noundef 1, i32 noundef 4, i32 noundef -2147483648) #4
+  br label %add_varint_item.exit
 
-.lr.ph:                                           ; preds = %get_varint.exit, %.lr.ph
-  %.028 = phi i32 [ %42, %.lr.ph ], [ %.025, %get_varint.exit ]
-  %.02427 = phi i64 [ %43, %.lr.ph ], [ %.sink.i, %get_varint.exit ]
-  %26 = load i32, ptr @hf_msg_addr_address, align 4
-  %27 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %26, ptr noundef %0, i32 noundef %.028, i32 noundef 30, i32 noundef 0) #4
-  %28 = add i32 %.028, 4
-  %29 = load i32, ptr @ett_address, align 4
-  %30 = tail call ptr @proto_item_add_subtree(ptr noundef %27, i32 noundef %29) #4
-  %31 = load i32, ptr @hf_address_services, align 4
-  %32 = load i32, ptr @ett_services, align 4
-  %33 = tail call ptr @proto_tree_add_bitmask(ptr noundef %30, ptr noundef %0, i32 noundef %28, i32 noundef %31, i32 noundef %32, ptr noundef nonnull @services_hf_flags, i32 noundef -2147483648) #4
-  %34 = add i32 %.028, 12
-  %35 = load i32, ptr @hf_address_address, align 4
-  %36 = tail call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %35, ptr noundef %0, i32 noundef %34, i32 noundef 16, i32 noundef 0) #4
-  %37 = add i32 %.028, 28
-  %38 = load i32, ptr @hf_address_port, align 4
-  %39 = tail call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %38, ptr noundef %0, i32 noundef %37, i32 noundef 2, i32 noundef 0) #4
-  %40 = load i32, ptr @hf_msg_addr_timestamp, align 4
-  %41 = tail call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %40, ptr noundef %0, i32 noundef %.028, i32 noundef 4, i32 noundef -2147483630) #4
-  %42 = add i32 %.028, 30
-  %43 = add i64 %.02427, -1
-  %.not = icmp eq i64 %43, 0
+26:                                               ; preds = %11
+  %27 = tail call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef 1) #4
+  %28 = load i32, ptr @hf_msg_addr_count64, align 4
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %28, ptr noundef %0, i32 noundef 1, i32 noundef 8, i32 noundef -2147483648) #4
+  br label %add_varint_item.exit
+
+add_varint_item.exit:                             ; preds = %12, %16, %21, %26
+  %.sink.i31 = phi i64 [ %13, %12 ], [ %18, %16 ], [ %23, %21 ], [ %27, %26 ]
+  %.02529 = phi i32 [ 1, %12 ], [ 3, %16 ], [ 5, %21 ], [ 9, %26 ]
+  %.not42 = icmp eq i64 %.sink.i31, 0
+  br i1 %.not42, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %add_varint_item.exit, %.lr.ph
+  %.044 = phi i32 [ %46, %.lr.ph ], [ %.02529, %add_varint_item.exit ]
+  %.02443 = phi i64 [ %47, %.lr.ph ], [ %.sink.i31, %add_varint_item.exit ]
+  %30 = load i32, ptr @hf_msg_addr_address, align 4
+  %31 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %30, ptr noundef %0, i32 noundef %.044, i32 noundef 30, i32 noundef 0) #4
+  %32 = add i32 %.044, 4
+  %33 = load i32, ptr @ett_address, align 4
+  %34 = tail call ptr @proto_item_add_subtree(ptr noundef %31, i32 noundef %33) #4
+  %35 = load i32, ptr @hf_address_services, align 4
+  %36 = load i32, ptr @ett_services, align 4
+  %37 = tail call ptr @proto_tree_add_bitmask(ptr noundef %34, ptr noundef %0, i32 noundef %32, i32 noundef %35, i32 noundef %36, ptr noundef nonnull @services_hf_flags, i32 noundef -2147483648) #4
+  %38 = add i32 %.044, 12
+  %39 = load i32, ptr @hf_address_address, align 4
+  %40 = tail call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %39, ptr noundef %0, i32 noundef %38, i32 noundef 16, i32 noundef 0) #4
+  %41 = add i32 %.044, 28
+  %42 = load i32, ptr @hf_address_port, align 4
+  %43 = tail call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %42, ptr noundef %0, i32 noundef %41, i32 noundef 2, i32 noundef 0) #4
+  %44 = load i32, ptr @hf_msg_addr_timestamp, align 4
+  %45 = tail call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %44, ptr noundef %0, i32 noundef %.044, i32 noundef 4, i32 noundef -2147483630) #4
+  %46 = add i32 %.044, 30
+  %47 = add i64 %.02443, -1
+  %.not = icmp eq i64 %47, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
-._crit_edge:                                      ; preds = %.lr.ph, %get_varint.exit
-  %.0.lcssa = phi i32 [ %.025, %get_varint.exit ], [ %42, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %add_varint_item.exit
+  %.0.lcssa = phi i32 [ %.02529, %add_varint_item.exit ], [ %46, %.lr.ph ]
   ret i32 %.0.lcssa
 }
 
@@ -884,171 +887,174 @@ define internal noundef i32 @dissect_bitcoin_msg_addrv2(ptr noundef %0, ptr noun
   %8 = tail call ptr @proto_item_add_subtree(ptr noundef %6, i32 noundef %7) #4
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #4
   %10 = icmp ult i8 %9, -3
-  br i1 %10, label %11, label %13
+  br i1 %10, label %12, label %11
 
 11:                                               ; preds = %4
-  %12 = zext i8 %9 to i64
-  br label %get_varint.exit
-
-13:                                               ; preds = %4
-  switch i8 %9, label %20 [
-    i8 -3, label %14
-    i8 -2, label %17
+  switch i8 %9, label %26 [
+    i8 -3, label %16
+    i8 -2, label %21
   ]
 
-14:                                               ; preds = %13
-  %15 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 1) #4
-  %16 = zext i16 %15 to i64
-  br label %get_varint.exit
+12:                                               ; preds = %4
+  %13 = zext i8 %9 to i64
+  %14 = load i32, ptr @hf_msg_addrv2_count8, align 4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %14, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #4
+  br label %add_varint_item.exit
 
-17:                                               ; preds = %13
-  %18 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 1) #4
-  %19 = zext i32 %18 to i64
-  br label %get_varint.exit
+16:                                               ; preds = %11
+  %17 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 1) #4
+  %18 = zext i16 %17 to i64
+  %19 = load i32, ptr @hf_msg_addrv2_count16, align 4
+  %20 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %19, ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef -2147483648) #4
+  br label %add_varint_item.exit
 
-20:                                               ; preds = %13
-  %21 = tail call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef 1) #4
-  br label %get_varint.exit
-
-get_varint.exit:                                  ; preds = %11, %14, %17, %20
-  %.081 = phi i32 [ 1, %11 ], [ 9, %20 ], [ 5, %17 ], [ 3, %14 ]
-  %.sink.i = phi i64 [ %12, %11 ], [ %21, %20 ], [ %19, %17 ], [ %16, %14 ]
-  %22 = load i32, ptr @hf_msg_addrv2_count8, align 4
-  %23 = load i32, ptr @hf_msg_addrv2_count16, align 4
+21:                                               ; preds = %11
+  %22 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 1) #4
+  %23 = zext i32 %22 to i64
   %24 = load i32, ptr @hf_msg_addrv2_count32, align 4
-  %25 = load i32, ptr @hf_msg_addrv2_count64, align 4
-  tail call fastcc void @add_varint_item(ptr noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef %.081, i32 noundef %22, i32 noundef %23, i32 noundef %24, i32 noundef %25)
-  %.not83 = icmp eq i64 %.sink.i, 0
-  br i1 %.not83, label %._crit_edge, label %.lr.ph
+  %25 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %24, ptr noundef %0, i32 noundef 1, i32 noundef 4, i32 noundef -2147483648) #4
+  br label %add_varint_item.exit
 
-.lr.ph:                                           ; preds = %get_varint.exit, %84
-  %.085 = phi i32 [ %88, %84 ], [ %.081, %get_varint.exit ]
-  %.08284 = phi i64 [ %89, %84 ], [ %.sink.i, %get_varint.exit ]
-  %26 = load i32, ptr @hf_msg_addrv2_item, align 4
-  %27 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %26, ptr noundef %0, i32 noundef %.085, i32 noundef -1, i32 noundef 0) #4
-  %28 = load i32, ptr @ett_addr_list, align 4
-  %29 = tail call ptr @proto_item_add_subtree(ptr noundef %27, i32 noundef %28) #4
-  %30 = load i32, ptr @hf_msg_addrv2_timestamp, align 4
-  %31 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %30, ptr noundef %0, i32 noundef %.085, i32 noundef 4, i32 noundef -2147483630) #4
-  %32 = add i32 %.085, 4
-  %33 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %32) #4
-  %34 = icmp ult i8 %33, -3
-  br i1 %34, label %35, label %37
+26:                                               ; preds = %11
+  %27 = tail call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef 1) #4
+  %28 = load i32, ptr @hf_msg_addrv2_count64, align 4
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %28, ptr noundef %0, i32 noundef 1, i32 noundef 8, i32 noundef -2147483648) #4
+  br label %add_varint_item.exit
 
-35:                                               ; preds = %.lr.ph
-  %36 = zext i8 %33 to i64
+add_varint_item.exit:                             ; preds = %12, %16, %21, %26
+  %.sink.i88 = phi i64 [ %13, %12 ], [ %18, %16 ], [ %23, %21 ], [ %27, %26 ]
+  %.08186 = phi i32 [ 1, %12 ], [ 3, %16 ], [ 5, %21 ], [ 9, %26 ]
+  %.not99 = icmp eq i64 %.sink.i88, 0
+  br i1 %.not99, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %add_varint_item.exit, %88
+  %.0101 = phi i32 [ %92, %88 ], [ %.08186, %add_varint_item.exit ]
+  %.082100 = phi i64 [ %93, %88 ], [ %.sink.i88, %add_varint_item.exit ]
+  %30 = load i32, ptr @hf_msg_addrv2_item, align 4
+  %31 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %30, ptr noundef %0, i32 noundef %.0101, i32 noundef -1, i32 noundef 0) #4
+  %32 = load i32, ptr @ett_addr_list, align 4
+  %33 = tail call ptr @proto_item_add_subtree(ptr noundef %31, i32 noundef %32) #4
+  %34 = load i32, ptr @hf_msg_addrv2_timestamp, align 4
+  %35 = tail call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %34, ptr noundef %0, i32 noundef %.0101, i32 noundef 4, i32 noundef -2147483630) #4
+  %36 = add i32 %.0101, 4
+  %37 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %36) #4
+  %38 = icmp ult i8 %37, -3
+  br i1 %38, label %39, label %41
+
+39:                                               ; preds = %.lr.ph
+  %40 = zext i8 %37 to i64
   br label %get_varint.exit65
 
-37:                                               ; preds = %.lr.ph
-  %38 = add i32 %.085, 5
-  switch i8 %33, label %45 [
-    i8 -3, label %39
-    i8 -2, label %42
+41:                                               ; preds = %.lr.ph
+  %42 = add i32 %.0101, 5
+  switch i8 %37, label %49 [
+    i8 -3, label %43
+    i8 -2, label %46
   ]
 
-39:                                               ; preds = %37
-  %40 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %38) #4
-  %41 = zext i16 %40 to i64
+43:                                               ; preds = %41
+  %44 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %42) #4
+  %45 = zext i16 %44 to i64
   br label %get_varint.exit65
 
-42:                                               ; preds = %37
-  %43 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %38) #4
-  %44 = zext i32 %43 to i64
+46:                                               ; preds = %41
+  %47 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %42) #4
+  %48 = zext i32 %47 to i64
   br label %get_varint.exit65
 
-45:                                               ; preds = %37
-  %46 = tail call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %38) #4
+49:                                               ; preds = %41
+  %50 = tail call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %42) #4
   br label %get_varint.exit65
 
-get_varint.exit65:                                ; preds = %35, %39, %42, %45
-  %.1 = phi i32 [ 1, %35 ], [ 9, %45 ], [ 5, %42 ], [ 3, %39 ]
-  %.sink.i64 = phi i64 [ %36, %35 ], [ %46, %45 ], [ %44, %42 ], [ %41, %39 ]
-  %47 = load i32, ptr @hf_msg_addrv2_services, align 4
-  %48 = load i32, ptr @ett_services, align 4
-  %49 = tail call ptr @proto_tree_add_bitmask_value(ptr noundef %29, ptr noundef %0, i32 noundef %32, i32 noundef %47, i32 noundef %48, ptr noundef nonnull @services_hf_flags, i64 noundef %.sink.i64) #4
-  tail call void @proto_item_set_len(ptr noundef %49, i32 noundef %.1) #4
-  %50 = add i32 %.1, %32
-  %51 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %50) #4
-  %52 = load i32, ptr @hf_msg_addrv2_network, align 4
-  %53 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %52, ptr noundef %0, i32 noundef %50, i32 noundef 1, i32 noundef -2147483648) #4
-  %54 = add i32 %50, 1
+get_varint.exit65:                                ; preds = %39, %43, %46, %49
+  %.1 = phi i32 [ 1, %39 ], [ 9, %49 ], [ 5, %46 ], [ 3, %43 ]
+  %.sink.i64 = phi i64 [ %40, %39 ], [ %50, %49 ], [ %48, %46 ], [ %45, %43 ]
+  %51 = load i32, ptr @hf_msg_addrv2_services, align 4
+  %52 = load i32, ptr @ett_services, align 4
+  %53 = tail call ptr @proto_tree_add_bitmask_value(ptr noundef %33, ptr noundef %0, i32 noundef %36, i32 noundef %51, i32 noundef %52, ptr noundef nonnull @services_hf_flags, i64 noundef %.sink.i64) #4
+  tail call void @proto_item_set_len(ptr noundef %53, i32 noundef %.1) #4
+  %54 = add i32 %.1, %36
   %55 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %54) #4
-  %56 = icmp ult i8 %55, -3
-  br i1 %56, label %57, label %59
+  %56 = load i32, ptr @hf_msg_addrv2_network, align 4
+  %57 = tail call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %56, ptr noundef %0, i32 noundef %54, i32 noundef 1, i32 noundef -2147483648) #4
+  %58 = add i32 %54, 1
+  %59 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %58) #4
+  %60 = icmp ult i8 %59, -3
+  br i1 %60, label %61, label %63
 
-57:                                               ; preds = %get_varint.exit65
-  %58 = zext i8 %55 to i64
+61:                                               ; preds = %get_varint.exit65
+  %62 = zext i8 %59 to i64
   br label %get_varint.exit67
 
-59:                                               ; preds = %get_varint.exit65
-  %60 = add i32 %50, 2
-  switch i8 %55, label %67 [
-    i8 -3, label %61
-    i8 -2, label %64
+63:                                               ; preds = %get_varint.exit65
+  %64 = add i32 %54, 2
+  switch i8 %59, label %71 [
+    i8 -3, label %65
+    i8 -2, label %68
   ]
 
-61:                                               ; preds = %59
-  %62 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %60) #4
-  %63 = zext i16 %62 to i64
+65:                                               ; preds = %63
+  %66 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %64) #4
+  %67 = zext i16 %66 to i64
   br label %get_varint.exit67
 
-64:                                               ; preds = %59
-  %65 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %60) #4
-  %66 = zext i32 %65 to i64
+68:                                               ; preds = %63
+  %69 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %64) #4
+  %70 = zext i32 %69 to i64
   br label %get_varint.exit67
 
-67:                                               ; preds = %59
-  %68 = tail call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %60) #4
+71:                                               ; preds = %63
+  %72 = tail call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %64) #4
   br label %get_varint.exit67
 
-get_varint.exit67:                                ; preds = %57, %61, %64, %67
-  %.2 = phi i32 [ 1, %57 ], [ 9, %67 ], [ 5, %64 ], [ 3, %61 ]
-  %.sink.i66 = phi i64 [ %58, %57 ], [ %68, %67 ], [ %66, %64 ], [ %63, %61 ]
-  %69 = add i32 %.2, %54
-  %70 = trunc i64 %.sink.i66 to i32
-  switch i8 %51, label %81 [
-    i8 1, label %71
-    i8 2, label %76
+get_varint.exit67:                                ; preds = %61, %65, %68, %71
+  %.2 = phi i32 [ 1, %61 ], [ 9, %71 ], [ 5, %68 ], [ 3, %65 ]
+  %.sink.i66 = phi i64 [ %62, %61 ], [ %72, %71 ], [ %70, %68 ], [ %67, %65 ]
+  %73 = add i32 %.2, %58
+  %74 = trunc i64 %.sink.i66 to i32
+  switch i8 %55, label %85 [
+    i8 1, label %75
+    i8 2, label %80
   ]
 
-71:                                               ; preds = %get_varint.exit67
-  %72 = load i32, ptr @hf_msg_addrv2_address_ipv4, align 4
-  %73 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %72, ptr noundef %0, i32 noundef %69, i32 noundef %70, i32 noundef 0) #4
+75:                                               ; preds = %get_varint.exit67
+  %76 = load i32, ptr @hf_msg_addrv2_address_ipv4, align 4
+  %77 = tail call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %76, ptr noundef %0, i32 noundef %73, i32 noundef %74, i32 noundef 0) #4
   %.not63 = icmp eq i64 %.sink.i66, 4
-  br i1 %.not63, label %84, label %74
+  br i1 %.not63, label %88, label %78
 
-74:                                               ; preds = %71
-  %75 = tail call ptr @proto_tree_add_expert(ptr noundef %29, ptr noundef %1, ptr noundef nonnull @ei_bitcoin_address_length, ptr noundef %0, i32 noundef %69, i32 noundef %70) #4
-  br label %84
+78:                                               ; preds = %75
+  %79 = tail call ptr @proto_tree_add_expert(ptr noundef %33, ptr noundef %1, ptr noundef nonnull @ei_bitcoin_address_length, ptr noundef %0, i32 noundef %73, i32 noundef %74) #4
+  br label %88
 
-76:                                               ; preds = %get_varint.exit67
-  %77 = load i32, ptr @hf_msg_addrv2_address_ipv6, align 4
-  %78 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %77, ptr noundef %0, i32 noundef %69, i32 noundef %70, i32 noundef 0) #4
+80:                                               ; preds = %get_varint.exit67
+  %81 = load i32, ptr @hf_msg_addrv2_address_ipv6, align 4
+  %82 = tail call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %81, ptr noundef %0, i32 noundef %73, i32 noundef %74, i32 noundef 0) #4
   %.not62 = icmp eq i64 %.sink.i66, 16
-  br i1 %.not62, label %84, label %79
+  br i1 %.not62, label %88, label %83
 
-79:                                               ; preds = %76
-  %80 = tail call ptr @proto_tree_add_expert(ptr noundef %29, ptr noundef %1, ptr noundef nonnull @ei_bitcoin_address_length, ptr noundef %0, i32 noundef %69, i32 noundef %70) #4
-  br label %84
+83:                                               ; preds = %80
+  %84 = tail call ptr @proto_tree_add_expert(ptr noundef %33, ptr noundef %1, ptr noundef nonnull @ei_bitcoin_address_length, ptr noundef %0, i32 noundef %73, i32 noundef %74) #4
+  br label %88
 
-81:                                               ; preds = %get_varint.exit67
-  %82 = load i32, ptr @hf_msg_addrv2_address_other, align 4
-  %83 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %82, ptr noundef %0, i32 noundef %69, i32 noundef %70, i32 noundef 0) #4
-  br label %84
+85:                                               ; preds = %get_varint.exit67
+  %86 = load i32, ptr @hf_msg_addrv2_address_other, align 4
+  %87 = tail call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %86, ptr noundef %0, i32 noundef %73, i32 noundef %74, i32 noundef 0) #4
+  br label %88
 
-84:                                               ; preds = %76, %79, %71, %74, %81
-  %.pre-phi = phi i32 [ 16, %76 ], [ %70, %79 ], [ 4, %71 ], [ %70, %74 ], [ %70, %81 ]
-  %85 = add i32 %69, %.pre-phi
-  %86 = load i32, ptr @hf_msg_addrv2_port, align 4
-  %87 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %86, ptr noundef %0, i32 noundef %85, i32 noundef 2, i32 noundef 0) #4
-  %88 = add i32 %85, 2
-  tail call void @proto_item_set_end(ptr noundef %27, ptr noundef %0, i32 noundef %88) #4
-  %89 = add i64 %.08284, -1
-  %.not = icmp eq i64 %89, 0
+88:                                               ; preds = %80, %83, %75, %78, %85
+  %.pre-phi = phi i32 [ 16, %80 ], [ %74, %83 ], [ 4, %75 ], [ %74, %78 ], [ %74, %85 ]
+  %89 = add i32 %73, %.pre-phi
+  %90 = load i32, ptr @hf_msg_addrv2_port, align 4
+  %91 = tail call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %90, ptr noundef %0, i32 noundef %89, i32 noundef 2, i32 noundef 0) #4
+  %92 = add i32 %89, 2
+  tail call void @proto_item_set_end(ptr noundef %31, ptr noundef %0, i32 noundef %92) #4
+  %93 = add i64 %.082100, -1
+  %.not = icmp eq i64 %93, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %84, %get_varint.exit
-  %.0.lcssa = phi i32 [ %.081, %get_varint.exit ], [ %88, %84 ]
+._crit_edge:                                      ; preds = %88, %add_varint_item.exit
+  %.0.lcssa = phi i32 [ %.08186, %add_varint_item.exit ], [ %92, %88 ]
   ret i32 %.0.lcssa
 }
 
@@ -1060,60 +1066,63 @@ define internal noundef i32 @dissect_bitcoin_msg_inv(ptr noundef %0, ptr nocaptu
   %8 = tail call ptr @proto_item_add_subtree(ptr noundef %6, i32 noundef %7) #4
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #4
   %10 = icmp ult i8 %9, -3
-  br i1 %10, label %11, label %13
+  br i1 %10, label %12, label %11
 
 11:                                               ; preds = %4
-  %12 = zext i8 %9 to i64
-  br label %get_varint.exit
-
-13:                                               ; preds = %4
-  switch i8 %9, label %20 [
-    i8 -3, label %14
-    i8 -2, label %17
+  switch i8 %9, label %26 [
+    i8 -3, label %16
+    i8 -2, label %21
   ]
 
-14:                                               ; preds = %13
-  %15 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 1) #4
-  %16 = zext i16 %15 to i64
-  br label %get_varint.exit
+12:                                               ; preds = %4
+  %13 = zext i8 %9 to i64
+  %14 = load i32, ptr @hf_msg_inv_count8, align 4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %14, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #4
+  br label %add_varint_item.exit
 
-17:                                               ; preds = %13
-  %18 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 1) #4
-  %19 = zext i32 %18 to i64
-  br label %get_varint.exit
+16:                                               ; preds = %11
+  %17 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 1) #4
+  %18 = zext i16 %17 to i64
+  %19 = load i32, ptr @hf_msg_inv_count16, align 4
+  %20 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %19, ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef -2147483648) #4
+  br label %add_varint_item.exit
 
-20:                                               ; preds = %13
-  %21 = tail call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef 1) #4
-  br label %get_varint.exit
-
-get_varint.exit:                                  ; preds = %11, %14, %17, %20
-  %.025 = phi i32 [ 1, %11 ], [ 9, %20 ], [ 5, %17 ], [ 3, %14 ]
-  %.sink.i = phi i64 [ %12, %11 ], [ %21, %20 ], [ %19, %17 ], [ %16, %14 ]
-  %22 = load i32, ptr @hf_msg_inv_count8, align 4
-  %23 = load i32, ptr @hf_msg_inv_count16, align 4
+21:                                               ; preds = %11
+  %22 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 1) #4
+  %23 = zext i32 %22 to i64
   %24 = load i32, ptr @hf_msg_inv_count32, align 4
-  %25 = load i32, ptr @hf_msg_inv_count64, align 4
-  tail call fastcc void @add_varint_item(ptr noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef %.025, i32 noundef %22, i32 noundef %23, i32 noundef %24, i32 noundef %25)
-  %.not26 = icmp eq i64 %.sink.i, 0
-  br i1 %.not26, label %._crit_edge, label %.lr.ph
+  %25 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %24, ptr noundef %0, i32 noundef 1, i32 noundef 4, i32 noundef -2147483648) #4
+  br label %add_varint_item.exit
 
-.lr.ph:                                           ; preds = %get_varint.exit, %.lr.ph
-  %.028 = phi i32 [ %33, %.lr.ph ], [ %.025, %get_varint.exit ]
-  %.02427 = phi i64 [ %34, %.lr.ph ], [ %.sink.i, %get_varint.exit ]
-  %26 = load i32, ptr @ett_inv_list, align 4
-  %27 = tail call ptr @proto_tree_add_subtree(ptr noundef %8, ptr noundef %0, i32 noundef %.028, i32 noundef 36, i32 noundef %26, ptr noundef null, ptr noundef nonnull @.str.316) #4
-  %28 = load i32, ptr @hf_msg_inv_type, align 4
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %28, ptr noundef %0, i32 noundef %.028, i32 noundef 4, i32 noundef -2147483648) #4
-  %30 = add i32 %.028, 4
-  %31 = load i32, ptr @hf_msg_inv_hash, align 4
-  %32 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %31, ptr noundef %0, i32 noundef %30, i32 noundef 32, i32 noundef 0) #4
-  %33 = add i32 %.028, 36
-  %34 = add i64 %.02427, -1
-  %.not = icmp eq i64 %34, 0
+26:                                               ; preds = %11
+  %27 = tail call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef 1) #4
+  %28 = load i32, ptr @hf_msg_inv_count64, align 4
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %28, ptr noundef %0, i32 noundef 1, i32 noundef 8, i32 noundef -2147483648) #4
+  br label %add_varint_item.exit
+
+add_varint_item.exit:                             ; preds = %12, %16, %21, %26
+  %.sink.i31 = phi i64 [ %13, %12 ], [ %18, %16 ], [ %23, %21 ], [ %27, %26 ]
+  %.02529 = phi i32 [ 1, %12 ], [ 3, %16 ], [ 5, %21 ], [ 9, %26 ]
+  %.not42 = icmp eq i64 %.sink.i31, 0
+  br i1 %.not42, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %add_varint_item.exit, %.lr.ph
+  %.044 = phi i32 [ %37, %.lr.ph ], [ %.02529, %add_varint_item.exit ]
+  %.02443 = phi i64 [ %38, %.lr.ph ], [ %.sink.i31, %add_varint_item.exit ]
+  %30 = load i32, ptr @ett_inv_list, align 4
+  %31 = tail call ptr @proto_tree_add_subtree(ptr noundef %8, ptr noundef %0, i32 noundef %.044, i32 noundef 36, i32 noundef %30, ptr noundef null, ptr noundef nonnull @.str.316) #4
+  %32 = load i32, ptr @hf_msg_inv_type, align 4
+  %33 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %32, ptr noundef %0, i32 noundef %.044, i32 noundef 4, i32 noundef -2147483648) #4
+  %34 = add i32 %.044, 4
+  %35 = load i32, ptr @hf_msg_inv_hash, align 4
+  %36 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %35, ptr noundef %0, i32 noundef %34, i32 noundef 32, i32 noundef 0) #4
+  %37 = add i32 %.044, 36
+  %38 = add i64 %.02443, -1
+  %.not = icmp eq i64 %38, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %.lr.ph, %get_varint.exit
-  %.0.lcssa = phi i32 [ %.025, %get_varint.exit ], [ %33, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %add_varint_item.exit
+  %.0.lcssa = phi i32 [ %.02529, %add_varint_item.exit ], [ %37, %.lr.ph ]
   ret i32 %.0.lcssa
 }
 
@@ -1125,60 +1134,63 @@ define internal noundef i32 @dissect_bitcoin_msg_getdata(ptr noundef %0, ptr noc
   %8 = tail call ptr @proto_item_add_subtree(ptr noundef %6, i32 noundef %7) #4
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #4
   %10 = icmp ult i8 %9, -3
-  br i1 %10, label %11, label %13
+  br i1 %10, label %12, label %11
 
 11:                                               ; preds = %4
-  %12 = zext i8 %9 to i64
-  br label %get_varint.exit
-
-13:                                               ; preds = %4
-  switch i8 %9, label %20 [
-    i8 -3, label %14
-    i8 -2, label %17
+  switch i8 %9, label %26 [
+    i8 -3, label %16
+    i8 -2, label %21
   ]
 
-14:                                               ; preds = %13
-  %15 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 1) #4
-  %16 = zext i16 %15 to i64
-  br label %get_varint.exit
+12:                                               ; preds = %4
+  %13 = zext i8 %9 to i64
+  %14 = load i32, ptr @hf_msg_getdata_count8, align 4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %14, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #4
+  br label %add_varint_item.exit
 
-17:                                               ; preds = %13
-  %18 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 1) #4
-  %19 = zext i32 %18 to i64
-  br label %get_varint.exit
+16:                                               ; preds = %11
+  %17 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 1) #4
+  %18 = zext i16 %17 to i64
+  %19 = load i32, ptr @hf_msg_getdata_count16, align 4
+  %20 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %19, ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef -2147483648) #4
+  br label %add_varint_item.exit
 
-20:                                               ; preds = %13
-  %21 = tail call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef 1) #4
-  br label %get_varint.exit
-
-get_varint.exit:                                  ; preds = %11, %14, %17, %20
-  %.025 = phi i32 [ 1, %11 ], [ 9, %20 ], [ 5, %17 ], [ 3, %14 ]
-  %.sink.i = phi i64 [ %12, %11 ], [ %21, %20 ], [ %19, %17 ], [ %16, %14 ]
-  %22 = load i32, ptr @hf_msg_getdata_count8, align 4
-  %23 = load i32, ptr @hf_msg_getdata_count16, align 4
+21:                                               ; preds = %11
+  %22 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 1) #4
+  %23 = zext i32 %22 to i64
   %24 = load i32, ptr @hf_msg_getdata_count32, align 4
-  %25 = load i32, ptr @hf_msg_getdata_count64, align 4
-  tail call fastcc void @add_varint_item(ptr noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef %.025, i32 noundef %22, i32 noundef %23, i32 noundef %24, i32 noundef %25)
-  %.not26 = icmp eq i64 %.sink.i, 0
-  br i1 %.not26, label %._crit_edge, label %.lr.ph
+  %25 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %24, ptr noundef %0, i32 noundef 1, i32 noundef 4, i32 noundef -2147483648) #4
+  br label %add_varint_item.exit
 
-.lr.ph:                                           ; preds = %get_varint.exit, %.lr.ph
-  %.028 = phi i32 [ %33, %.lr.ph ], [ %.025, %get_varint.exit ]
-  %.02427 = phi i64 [ %34, %.lr.ph ], [ %.sink.i, %get_varint.exit ]
-  %26 = load i32, ptr @ett_getdata_list, align 4
-  %27 = tail call ptr @proto_tree_add_subtree(ptr noundef %8, ptr noundef %0, i32 noundef %.028, i32 noundef 36, i32 noundef %26, ptr noundef null, ptr noundef nonnull @.str.316) #4
-  %28 = load i32, ptr @hf_msg_getdata_type, align 4
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %28, ptr noundef %0, i32 noundef %.028, i32 noundef 4, i32 noundef -2147483648) #4
-  %30 = add i32 %.028, 4
-  %31 = load i32, ptr @hf_msg_getdata_hash, align 4
-  %32 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %31, ptr noundef %0, i32 noundef %30, i32 noundef 32, i32 noundef 0) #4
-  %33 = add i32 %.028, 36
-  %34 = add i64 %.02427, -1
-  %.not = icmp eq i64 %34, 0
+26:                                               ; preds = %11
+  %27 = tail call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef 1) #4
+  %28 = load i32, ptr @hf_msg_getdata_count64, align 4
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %28, ptr noundef %0, i32 noundef 1, i32 noundef 8, i32 noundef -2147483648) #4
+  br label %add_varint_item.exit
+
+add_varint_item.exit:                             ; preds = %12, %16, %21, %26
+  %.sink.i31 = phi i64 [ %13, %12 ], [ %18, %16 ], [ %23, %21 ], [ %27, %26 ]
+  %.02529 = phi i32 [ 1, %12 ], [ 3, %16 ], [ 5, %21 ], [ 9, %26 ]
+  %.not42 = icmp eq i64 %.sink.i31, 0
+  br i1 %.not42, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %add_varint_item.exit, %.lr.ph
+  %.044 = phi i32 [ %37, %.lr.ph ], [ %.02529, %add_varint_item.exit ]
+  %.02443 = phi i64 [ %38, %.lr.ph ], [ %.sink.i31, %add_varint_item.exit ]
+  %30 = load i32, ptr @ett_getdata_list, align 4
+  %31 = tail call ptr @proto_tree_add_subtree(ptr noundef %8, ptr noundef %0, i32 noundef %.044, i32 noundef 36, i32 noundef %30, ptr noundef null, ptr noundef nonnull @.str.316) #4
+  %32 = load i32, ptr @hf_msg_getdata_type, align 4
+  %33 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %32, ptr noundef %0, i32 noundef %.044, i32 noundef 4, i32 noundef -2147483648) #4
+  %34 = add i32 %.044, 4
+  %35 = load i32, ptr @hf_msg_getdata_hash, align 4
+  %36 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %35, ptr noundef %0, i32 noundef %34, i32 noundef 32, i32 noundef 0) #4
+  %37 = add i32 %.044, 36
+  %38 = add i64 %.02443, -1
+  %.not = icmp eq i64 %38, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %.lr.ph, %get_varint.exit
-  %.0.lcssa = phi i32 [ %.025, %get_varint.exit ], [ %33, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %add_varint_item.exit
+  %.0.lcssa = phi i32 [ %.02529, %add_varint_item.exit ], [ %37, %.lr.ph ]
   ret i32 %.0.lcssa
 }
 
@@ -1192,60 +1204,62 @@ define internal noundef i32 @dissect_bitcoin_msg_getblocks(ptr noundef %0, ptr n
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648) #4
   %11 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #4
   %12 = icmp ult i8 %11, -3
-  br i1 %12, label %13, label %15
+  br i1 %12, label %14, label %13
 
 13:                                               ; preds = %4
-  %14 = zext i8 %11 to i64
-  br label %get_varint.exit
-
-15:                                               ; preds = %4
-  switch i8 %11, label %22 [
-    i8 -3, label %16
-    i8 -2, label %19
+  switch i8 %11, label %28 [
+    i8 -3, label %18
+    i8 -2, label %23
   ]
 
-16:                                               ; preds = %15
-  %17 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 5) #4
-  %18 = zext i16 %17 to i64
-  br label %get_varint.exit
+14:                                               ; preds = %4
+  %15 = zext i8 %11 to i64
+  %16 = load i32, ptr @hf_msg_getblocks_count8, align 4
+  %17 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %16, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef -2147483648) #4
+  br label %add_varint_item.exit
 
-19:                                               ; preds = %15
-  %20 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 5) #4
-  %21 = zext i32 %20 to i64
-  br label %get_varint.exit
+18:                                               ; preds = %13
+  %19 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 5) #4
+  %20 = zext i16 %19 to i64
+  %21 = load i32, ptr @hf_msg_getblocks_count16, align 4
+  %22 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %21, ptr noundef %0, i32 noundef 5, i32 noundef 2, i32 noundef -2147483648) #4
+  br label %add_varint_item.exit
 
-22:                                               ; preds = %15
-  %23 = tail call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef 5) #4
-  br label %get_varint.exit
-
-get_varint.exit:                                  ; preds = %13, %16, %19, %22
-  %.026 = phi i32 [ 1, %13 ], [ 9, %22 ], [ 5, %19 ], [ 3, %16 ]
-  %.sink.i = phi i64 [ %14, %13 ], [ %23, %22 ], [ %21, %19 ], [ %18, %16 ]
-  %24 = load i32, ptr @hf_msg_getblocks_count8, align 4
-  %25 = load i32, ptr @hf_msg_getblocks_count16, align 4
+23:                                               ; preds = %13
+  %24 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 5) #4
+  %25 = zext i32 %24 to i64
   %26 = load i32, ptr @hf_msg_getblocks_count32, align 4
-  %27 = load i32, ptr @hf_msg_getblocks_count64, align 4
-  tail call fastcc void @add_varint_item(ptr noundef %8, ptr noundef %0, i32 noundef 4, i32 noundef %.026, i32 noundef %24, i32 noundef %25, i32 noundef %26, i32 noundef %27)
-  %28 = add nuw nsw i32 %.026, 4
-  %.not27 = icmp eq i64 %.sink.i, 0
-  br i1 %.not27, label %._crit_edge, label %.lr.ph
+  %27 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %26, ptr noundef %0, i32 noundef 5, i32 noundef 4, i32 noundef -2147483648) #4
+  br label %add_varint_item.exit
 
-.lr.ph:                                           ; preds = %get_varint.exit, %.lr.ph
-  %.029 = phi i32 [ %31, %.lr.ph ], [ %28, %get_varint.exit ]
-  %.02528 = phi i64 [ %32, %.lr.ph ], [ %.sink.i, %get_varint.exit ]
-  %29 = load i32, ptr @hf_msg_getblocks_start, align 4
-  %30 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %29, ptr noundef %0, i32 noundef %.029, i32 noundef 32, i32 noundef 0) #4
-  %31 = add i32 %.029, 32
-  %32 = add i64 %.02528, -1
-  %.not = icmp eq i64 %32, 0
+28:                                               ; preds = %13
+  %29 = tail call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef 5) #4
+  %30 = load i32, ptr @hf_msg_getblocks_count64, align 4
+  %31 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %30, ptr noundef %0, i32 noundef 5, i32 noundef 8, i32 noundef -2147483648) #4
+  br label %add_varint_item.exit
+
+add_varint_item.exit:                             ; preds = %14, %18, %23, %28
+  %.sink.i32 = phi i64 [ %15, %14 ], [ %20, %18 ], [ %25, %23 ], [ %29, %28 ]
+  %.02630 = phi i32 [ 5, %14 ], [ 7, %18 ], [ 9, %23 ], [ 13, %28 ]
+  %.not43 = icmp eq i64 %.sink.i32, 0
+  br i1 %.not43, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %add_varint_item.exit, %.lr.ph
+  %.045 = phi i32 [ %34, %.lr.ph ], [ %.02630, %add_varint_item.exit ]
+  %.02544 = phi i64 [ %35, %.lr.ph ], [ %.sink.i32, %add_varint_item.exit ]
+  %32 = load i32, ptr @hf_msg_getblocks_start, align 4
+  %33 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %32, ptr noundef %0, i32 noundef %.045, i32 noundef 32, i32 noundef 0) #4
+  %34 = add i32 %.045, 32
+  %35 = add i64 %.02544, -1
+  %.not = icmp eq i64 %35, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %.lr.ph, %get_varint.exit
-  %.0.lcssa = phi i32 [ %28, %get_varint.exit ], [ %31, %.lr.ph ]
-  %33 = load i32, ptr @hf_msg_getblocks_stop, align 4
-  %34 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %33, ptr noundef %0, i32 noundef %.0.lcssa, i32 noundef 32, i32 noundef 0) #4
-  %35 = add i32 %.0.lcssa, 32
-  ret i32 %35
+._crit_edge:                                      ; preds = %.lr.ph, %add_varint_item.exit
+  %.0.lcssa = phi i32 [ %.02630, %add_varint_item.exit ], [ %34, %.lr.ph ]
+  %36 = load i32, ptr @hf_msg_getblocks_stop, align 4
+  %37 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %36, ptr noundef %0, i32 noundef %.0.lcssa, i32 noundef 32, i32 noundef 0) #4
+  %38 = add i32 %.0.lcssa, 32
+  ret i32 %38
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1258,60 +1272,62 @@ define internal noundef i32 @dissect_bitcoin_msg_getheaders(ptr noundef %0, ptr 
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648) #4
   %11 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #4
   %12 = icmp ult i8 %11, -3
-  br i1 %12, label %13, label %15
+  br i1 %12, label %14, label %13
 
 13:                                               ; preds = %4
-  %14 = zext i8 %11 to i64
-  br label %get_varint.exit
-
-15:                                               ; preds = %4
-  switch i8 %11, label %22 [
-    i8 -3, label %16
-    i8 -2, label %19
+  switch i8 %11, label %28 [
+    i8 -3, label %18
+    i8 -2, label %23
   ]
 
-16:                                               ; preds = %15
-  %17 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 5) #4
-  %18 = zext i16 %17 to i64
-  br label %get_varint.exit
+14:                                               ; preds = %4
+  %15 = zext i8 %11 to i64
+  %16 = load i32, ptr @hf_msg_getheaders_count8, align 4
+  %17 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %16, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef -2147483648) #4
+  br label %add_varint_item.exit
 
-19:                                               ; preds = %15
-  %20 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 5) #4
-  %21 = zext i32 %20 to i64
-  br label %get_varint.exit
+18:                                               ; preds = %13
+  %19 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 5) #4
+  %20 = zext i16 %19 to i64
+  %21 = load i32, ptr @hf_msg_getheaders_count16, align 4
+  %22 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %21, ptr noundef %0, i32 noundef 5, i32 noundef 2, i32 noundef -2147483648) #4
+  br label %add_varint_item.exit
 
-22:                                               ; preds = %15
-  %23 = tail call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef 5) #4
-  br label %get_varint.exit
-
-get_varint.exit:                                  ; preds = %13, %16, %19, %22
-  %.026 = phi i32 [ 1, %13 ], [ 9, %22 ], [ 5, %19 ], [ 3, %16 ]
-  %.sink.i = phi i64 [ %14, %13 ], [ %23, %22 ], [ %21, %19 ], [ %18, %16 ]
-  %24 = load i32, ptr @hf_msg_getheaders_count8, align 4
-  %25 = load i32, ptr @hf_msg_getheaders_count16, align 4
+23:                                               ; preds = %13
+  %24 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 5) #4
+  %25 = zext i32 %24 to i64
   %26 = load i32, ptr @hf_msg_getheaders_count32, align 4
-  %27 = load i32, ptr @hf_msg_getheaders_count64, align 4
-  tail call fastcc void @add_varint_item(ptr noundef %8, ptr noundef %0, i32 noundef 4, i32 noundef %.026, i32 noundef %24, i32 noundef %25, i32 noundef %26, i32 noundef %27)
-  %28 = add nuw nsw i32 %.026, 4
-  %.not27 = icmp eq i64 %.sink.i, 0
-  br i1 %.not27, label %._crit_edge, label %.lr.ph
+  %27 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %26, ptr noundef %0, i32 noundef 5, i32 noundef 4, i32 noundef -2147483648) #4
+  br label %add_varint_item.exit
 
-.lr.ph:                                           ; preds = %get_varint.exit, %.lr.ph
-  %.029 = phi i32 [ %31, %.lr.ph ], [ %28, %get_varint.exit ]
-  %.02528 = phi i64 [ %32, %.lr.ph ], [ %.sink.i, %get_varint.exit ]
-  %29 = load i32, ptr @hf_msg_getheaders_start, align 4
-  %30 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %29, ptr noundef %0, i32 noundef %.029, i32 noundef 32, i32 noundef 0) #4
-  %31 = add i32 %.029, 32
-  %32 = add i64 %.02528, -1
-  %.not = icmp eq i64 %32, 0
+28:                                               ; preds = %13
+  %29 = tail call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef 5) #4
+  %30 = load i32, ptr @hf_msg_getheaders_count64, align 4
+  %31 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %30, ptr noundef %0, i32 noundef 5, i32 noundef 8, i32 noundef -2147483648) #4
+  br label %add_varint_item.exit
+
+add_varint_item.exit:                             ; preds = %14, %18, %23, %28
+  %.sink.i32 = phi i64 [ %15, %14 ], [ %20, %18 ], [ %25, %23 ], [ %29, %28 ]
+  %.02630 = phi i32 [ 5, %14 ], [ 7, %18 ], [ 9, %23 ], [ 13, %28 ]
+  %.not43 = icmp eq i64 %.sink.i32, 0
+  br i1 %.not43, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %add_varint_item.exit, %.lr.ph
+  %.045 = phi i32 [ %34, %.lr.ph ], [ %.02630, %add_varint_item.exit ]
+  %.02544 = phi i64 [ %35, %.lr.ph ], [ %.sink.i32, %add_varint_item.exit ]
+  %32 = load i32, ptr @hf_msg_getheaders_start, align 4
+  %33 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %32, ptr noundef %0, i32 noundef %.045, i32 noundef 32, i32 noundef 0) #4
+  %34 = add i32 %.045, 32
+  %35 = add i64 %.02544, -1
+  %.not = icmp eq i64 %35, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %.lr.ph, %get_varint.exit
-  %.0.lcssa = phi i32 [ %28, %get_varint.exit ], [ %31, %.lr.ph ]
-  %33 = load i32, ptr @hf_msg_getheaders_stop, align 4
-  %34 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %33, ptr noundef %0, i32 noundef %.0.lcssa, i32 noundef 32, i32 noundef 0) #4
-  %35 = add i32 %.0.lcssa, 32
-  ret i32 %35
+._crit_edge:                                      ; preds = %.lr.ph, %add_varint_item.exit
+  %.0.lcssa = phi i32 [ %.02630, %add_varint_item.exit ], [ %34, %.lr.ph ]
+  %36 = load i32, ptr @hf_msg_getheaders_stop, align 4
+  %37 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %36, ptr noundef %0, i32 noundef %.0.lcssa, i32 noundef 32, i32 noundef 0) #4
+  %38 = add i32 %.0.lcssa, 32
+  ret i32 %38
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1321,7 +1337,7 @@ define internal noundef i32 @dissect_bitcoin_msg_tx(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_bitcoin_msg_block(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_bitcoin_msg_block(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = load i32, ptr @hf_bitcoin_msg_block, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
   %7 = load i32, ptr @ett_bitcoin_msg, align 4
@@ -1340,58 +1356,60 @@ define internal i32 @dissect_bitcoin_msg_block(ptr noundef %0, ptr noundef %1, p
   %20 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %19, ptr noundef %0, i32 noundef 76, i32 noundef 4, i32 noundef -2147483648) #4
   %21 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 80) #4
   %22 = icmp ult i8 %21, -3
-  br i1 %22, label %23, label %25
+  br i1 %22, label %24, label %23
 
 23:                                               ; preds = %4
-  %24 = zext i8 %21 to i64
-  br label %get_varint.exit
-
-25:                                               ; preds = %4
-  switch i8 %21, label %32 [
-    i8 -3, label %26
-    i8 -2, label %29
+  switch i8 %21, label %38 [
+    i8 -3, label %28
+    i8 -2, label %33
   ]
 
-26:                                               ; preds = %25
-  %27 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 81) #4
-  %28 = zext i16 %27 to i64
-  br label %get_varint.exit
+24:                                               ; preds = %4
+  %25 = zext i8 %21 to i64
+  %26 = load i32, ptr @hf_msg_block_transactions8, align 4
+  %27 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %26, ptr noundef %0, i32 noundef 80, i32 noundef 1, i32 noundef -2147483648) #4
+  br label %add_varint_item.exit
 
-29:                                               ; preds = %25
-  %30 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 81) #4
-  %31 = zext i32 %30 to i64
-  br label %get_varint.exit
+28:                                               ; preds = %23
+  %29 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 81) #4
+  %30 = zext i16 %29 to i64
+  %31 = load i32, ptr @hf_msg_block_transactions16, align 4
+  %32 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %31, ptr noundef %0, i32 noundef 81, i32 noundef 2, i32 noundef -2147483648) #4
+  br label %add_varint_item.exit
 
-32:                                               ; preds = %25
-  %33 = tail call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef 81) #4
-  br label %get_varint.exit
-
-get_varint.exit:                                  ; preds = %23, %26, %29, %32
-  %.046 = phi i32 [ 1, %23 ], [ 9, %32 ], [ 5, %29 ], [ 3, %26 ]
-  %.sink.i = phi i64 [ %24, %23 ], [ %33, %32 ], [ %31, %29 ], [ %28, %26 ]
-  %34 = load i32, ptr @hf_msg_block_transactions8, align 4
-  %35 = load i32, ptr @hf_msg_block_transactions16, align 4
+33:                                               ; preds = %23
+  %34 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 81) #4
+  %35 = zext i32 %34 to i64
   %36 = load i32, ptr @hf_msg_block_transactions32, align 4
-  %37 = load i32, ptr @hf_msg_block_transactions64, align 4
-  tail call fastcc void @add_varint_item(ptr noundef %8, ptr noundef %0, i32 noundef 80, i32 noundef %.046, i32 noundef %34, i32 noundef %35, i32 noundef %36, i32 noundef %37)
-  %38 = or disjoint i32 %.046, 80
-  %.not = icmp eq i64 %.sink.i, 0
+  %37 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %36, ptr noundef %0, i32 noundef 81, i32 noundef 4, i32 noundef -2147483648) #4
+  br label %add_varint_item.exit
+
+38:                                               ; preds = %23
+  %39 = tail call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef 81) #4
+  %40 = load i32, ptr @hf_msg_block_transactions64, align 4
+  %41 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %40, ptr noundef %0, i32 noundef 81, i32 noundef 8, i32 noundef -2147483648) #4
+  br label %add_varint_item.exit
+
+add_varint_item.exit:                             ; preds = %24, %28, %33, %38
+  %.sink.i52 = phi i64 [ %25, %24 ], [ %30, %28 ], [ %35, %33 ], [ %39, %38 ]
+  %.04650 = phi i32 [ 81, %24 ], [ 83, %28 ], [ 85, %33 ], [ 89, %38 ]
+  %.not = icmp eq i64 %.sink.i52, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %get_varint.exit, %.lr.ph
-  %.049 = phi i32 [ %40, %.lr.ph ], [ %38, %get_varint.exit ]
-  %.04148 = phi i32 [ %39, %.lr.ph ], [ 0, %get_varint.exit ]
-  %.04547 = phi i64 [ %41, %.lr.ph ], [ %.sink.i, %get_varint.exit ]
-  %39 = add i32 %.04148, 1
-  %40 = tail call fastcc i32 @dissect_bitcoin_msg_tx_common(ptr noundef %0, i32 noundef %.049, ptr noundef %1, ptr noundef %8, i32 noundef %39)
-  %41 = add i64 %.04547, -1
-  %42 = icmp ne i64 %41, 0
-  %43 = icmp ult i32 %40, 2147483647
-  %44 = and i1 %42, %43
-  br i1 %44, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+.lr.ph:                                           ; preds = %add_varint_item.exit, %.lr.ph
+  %.065 = phi i32 [ %43, %.lr.ph ], [ %.04650, %add_varint_item.exit ]
+  %.04164 = phi i32 [ %42, %.lr.ph ], [ 0, %add_varint_item.exit ]
+  %.04563 = phi i64 [ %44, %.lr.ph ], [ %.sink.i52, %add_varint_item.exit ]
+  %42 = add i32 %.04164, 1
+  %43 = tail call fastcc i32 @dissect_bitcoin_msg_tx_common(ptr noundef %0, i32 noundef %.065, ptr noundef %1, ptr noundef %8, i32 noundef %42)
+  %44 = add i64 %.04563, -1
+  %45 = icmp ne i64 %44, 0
+  %46 = icmp ult i32 %43, 2147483647
+  %47 = and i1 %45, %46
+  br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %.lr.ph, %get_varint.exit
-  %.0.lcssa = phi i32 [ %38, %get_varint.exit ], [ %40, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %add_varint_item.exit
+  %.0.lcssa = phi i32 [ %.04650, %add_varint_item.exit ], [ %43, %.lr.ph ]
   ret i32 %.0.lcssa
 }
 
@@ -1425,60 +1443,63 @@ define internal noundef i32 @dissect_bitcoin_msg_notfound(ptr noundef %0, ptr no
   %8 = tail call ptr @proto_item_add_subtree(ptr noundef %6, i32 noundef %7) #4
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #4
   %10 = icmp ult i8 %9, -3
-  br i1 %10, label %11, label %13
+  br i1 %10, label %12, label %11
 
 11:                                               ; preds = %4
-  %12 = zext i8 %9 to i64
-  br label %get_varint.exit
-
-13:                                               ; preds = %4
-  switch i8 %9, label %20 [
-    i8 -3, label %14
-    i8 -2, label %17
+  switch i8 %9, label %26 [
+    i8 -3, label %16
+    i8 -2, label %21
   ]
 
-14:                                               ; preds = %13
-  %15 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 1) #4
-  %16 = zext i16 %15 to i64
-  br label %get_varint.exit
+12:                                               ; preds = %4
+  %13 = zext i8 %9 to i64
+  %14 = load i32, ptr @hf_msg_notfound_count8, align 4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %14, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #4
+  br label %add_varint_item.exit
 
-17:                                               ; preds = %13
-  %18 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 1) #4
-  %19 = zext i32 %18 to i64
-  br label %get_varint.exit
+16:                                               ; preds = %11
+  %17 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 1) #4
+  %18 = zext i16 %17 to i64
+  %19 = load i32, ptr @hf_msg_notfound_count16, align 4
+  %20 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %19, ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef -2147483648) #4
+  br label %add_varint_item.exit
 
-20:                                               ; preds = %13
-  %21 = tail call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef 1) #4
-  br label %get_varint.exit
-
-get_varint.exit:                                  ; preds = %11, %14, %17, %20
-  %.025 = phi i32 [ 1, %11 ], [ 9, %20 ], [ 5, %17 ], [ 3, %14 ]
-  %.sink.i = phi i64 [ %12, %11 ], [ %21, %20 ], [ %19, %17 ], [ %16, %14 ]
-  %22 = load i32, ptr @hf_msg_notfound_count8, align 4
-  %23 = load i32, ptr @hf_msg_notfound_count16, align 4
+21:                                               ; preds = %11
+  %22 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 1) #4
+  %23 = zext i32 %22 to i64
   %24 = load i32, ptr @hf_msg_notfound_count32, align 4
-  %25 = load i32, ptr @hf_msg_notfound_count64, align 4
-  tail call fastcc void @add_varint_item(ptr noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef %.025, i32 noundef %22, i32 noundef %23, i32 noundef %24, i32 noundef %25)
-  %.not26 = icmp eq i64 %.sink.i, 0
-  br i1 %.not26, label %._crit_edge, label %.lr.ph
+  %25 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %24, ptr noundef %0, i32 noundef 1, i32 noundef 4, i32 noundef -2147483648) #4
+  br label %add_varint_item.exit
 
-.lr.ph:                                           ; preds = %get_varint.exit, %.lr.ph
-  %.028 = phi i32 [ %33, %.lr.ph ], [ %.025, %get_varint.exit ]
-  %.02427 = phi i64 [ %34, %.lr.ph ], [ %.sink.i, %get_varint.exit ]
-  %26 = load i32, ptr @ett_notfound_list, align 4
-  %27 = tail call ptr @proto_tree_add_subtree(ptr noundef %8, ptr noundef %0, i32 noundef %.028, i32 noundef 36, i32 noundef %26, ptr noundef null, ptr noundef nonnull @.str.316) #4
-  %28 = load i32, ptr @hf_msg_notfound_type, align 4
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %28, ptr noundef %0, i32 noundef %.028, i32 noundef 4, i32 noundef -2147483648) #4
-  %30 = add i32 %.028, 4
-  %31 = load i32, ptr @hf_msg_notfound_hash, align 4
-  %32 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %31, ptr noundef %0, i32 noundef %30, i32 noundef 32, i32 noundef 0) #4
-  %33 = add i32 %.028, 36
-  %34 = add i64 %.02427, -1
-  %.not = icmp eq i64 %34, 0
+26:                                               ; preds = %11
+  %27 = tail call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef 1) #4
+  %28 = load i32, ptr @hf_msg_notfound_count64, align 4
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %28, ptr noundef %0, i32 noundef 1, i32 noundef 8, i32 noundef -2147483648) #4
+  br label %add_varint_item.exit
+
+add_varint_item.exit:                             ; preds = %12, %16, %21, %26
+  %.sink.i31 = phi i64 [ %13, %12 ], [ %18, %16 ], [ %23, %21 ], [ %27, %26 ]
+  %.02529 = phi i32 [ 1, %12 ], [ 3, %16 ], [ 5, %21 ], [ 9, %26 ]
+  %.not42 = icmp eq i64 %.sink.i31, 0
+  br i1 %.not42, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %add_varint_item.exit, %.lr.ph
+  %.044 = phi i32 [ %37, %.lr.ph ], [ %.02529, %add_varint_item.exit ]
+  %.02443 = phi i64 [ %38, %.lr.ph ], [ %.sink.i31, %add_varint_item.exit ]
+  %30 = load i32, ptr @ett_notfound_list, align 4
+  %31 = tail call ptr @proto_tree_add_subtree(ptr noundef %8, ptr noundef %0, i32 noundef %.044, i32 noundef 36, i32 noundef %30, ptr noundef null, ptr noundef nonnull @.str.316) #4
+  %32 = load i32, ptr @hf_msg_notfound_type, align 4
+  %33 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %32, ptr noundef %0, i32 noundef %.044, i32 noundef 4, i32 noundef -2147483648) #4
+  %34 = add i32 %.044, 4
+  %35 = load i32, ptr @hf_msg_notfound_hash, align 4
+  %36 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %35, ptr noundef %0, i32 noundef %34, i32 noundef 32, i32 noundef 0) #4
+  %37 = add i32 %.044, 36
+  %38 = add i64 %.02443, -1
+  %.not = icmp eq i64 %38, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %.lr.ph, %get_varint.exit
-  %.0.lcssa = phi i32 [ %.025, %get_varint.exit ], [ %33, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %add_varint_item.exit
+  %.0.lcssa = phi i32 [ %.02529, %add_varint_item.exit ], [ %37, %.lr.ph ]
   ret i32 %.0.lcssa
 }
 
@@ -1523,105 +1544,108 @@ define internal noundef i32 @dissect_bitcoin_msg_headers(ptr noundef %0, ptr noc
   %8 = tail call ptr @proto_item_add_subtree(ptr noundef %6, i32 noundef %7) #4
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #4
   %10 = icmp ult i8 %9, -3
-  br i1 %10, label %11, label %13
+  br i1 %10, label %12, label %11
 
 11:                                               ; preds = %4
-  %12 = zext i8 %9 to i64
-  br label %get_varint.exit
-
-13:                                               ; preds = %4
-  switch i8 %9, label %20 [
-    i8 -3, label %14
-    i8 -2, label %17
+  switch i8 %9, label %26 [
+    i8 -3, label %16
+    i8 -2, label %21
   ]
 
-14:                                               ; preds = %13
-  %15 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 1) #4
-  %16 = zext i16 %15 to i64
-  br label %get_varint.exit
+12:                                               ; preds = %4
+  %13 = zext i8 %9 to i64
+  %14 = load i32, ptr @hf_msg_headers_count8, align 4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %14, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #4
+  br label %add_varint_item.exit
 
-17:                                               ; preds = %13
-  %18 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 1) #4
-  %19 = zext i32 %18 to i64
-  br label %get_varint.exit
+16:                                               ; preds = %11
+  %17 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 1) #4
+  %18 = zext i16 %17 to i64
+  %19 = load i32, ptr @hf_msg_headers_count16, align 4
+  %20 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %19, ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef -2147483648) #4
+  br label %add_varint_item.exit
 
-20:                                               ; preds = %13
-  %21 = tail call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef 1) #4
-  br label %get_varint.exit
-
-get_varint.exit:                                  ; preds = %11, %14, %17, %20
-  %.051 = phi i32 [ 1, %11 ], [ 9, %20 ], [ 5, %17 ], [ 3, %14 ]
-  %.sink.i = phi i64 [ %12, %11 ], [ %21, %20 ], [ %19, %17 ], [ %16, %14 ]
-  %22 = load i32, ptr @hf_msg_headers_count8, align 4
-  %23 = load i32, ptr @hf_msg_headers_count16, align 4
+21:                                               ; preds = %11
+  %22 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 1) #4
+  %23 = zext i32 %22 to i64
   %24 = load i32, ptr @hf_msg_headers_count32, align 4
-  %25 = load i32, ptr @hf_msg_headers_count64, align 4
-  tail call fastcc void @add_varint_item(ptr noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef %.051, i32 noundef %22, i32 noundef %23, i32 noundef %24, i32 noundef %25)
-  %.not53 = icmp eq i64 %.sink.i, 0
-  br i1 %.not53, label %._crit_edge, label %.lr.ph
+  %25 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %24, ptr noundef %0, i32 noundef 1, i32 noundef 4, i32 noundef -2147483648) #4
+  br label %add_varint_item.exit
 
-.lr.ph:                                           ; preds = %get_varint.exit, %get_varint.exit45
-  %.055 = phi i32 [ %60, %get_varint.exit45 ], [ %.051, %get_varint.exit ]
-  %.05254 = phi i64 [ %62, %get_varint.exit45 ], [ %.sink.i, %get_varint.exit ]
-  %26 = load i32, ptr @ett_bitcoin_msg, align 4
-  %27 = tail call ptr @proto_tree_add_subtree(ptr noundef %8, ptr noundef %0, i32 noundef %.055, i32 noundef -1, i32 noundef %26, ptr noundef null, ptr noundef nonnull @.str.318) #4
-  %28 = load i32, ptr @hf_msg_headers_version, align 4
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %28, ptr noundef %0, i32 noundef %.055, i32 noundef 4, i32 noundef -2147483648) #4
-  %30 = add i32 %.055, 4
-  %31 = load i32, ptr @hf_msg_headers_prev_block, align 4
-  %32 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %31, ptr noundef %0, i32 noundef %30, i32 noundef 32, i32 noundef 0) #4
-  %33 = add i32 %.055, 36
-  %34 = load i32, ptr @hf_msg_headers_merkle_root, align 4
-  %35 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %34, ptr noundef %0, i32 noundef %33, i32 noundef 32, i32 noundef 0) #4
-  %36 = add i32 %.055, 68
-  %37 = load i32, ptr @hf_msg_headers_time, align 4
-  %38 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %37, ptr noundef %0, i32 noundef %36, i32 noundef 4, i32 noundef -2147483630) #4
-  %39 = add i32 %.055, 72
-  %40 = load i32, ptr @hf_msg_headers_bits, align 4
-  %41 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %40, ptr noundef %0, i32 noundef %39, i32 noundef 4, i32 noundef -2147483648) #4
-  %42 = add i32 %.055, 76
-  %43 = load i32, ptr @hf_msg_headers_nonce, align 4
-  %44 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %43, ptr noundef %0, i32 noundef %42, i32 noundef 4, i32 noundef -2147483648) #4
-  %45 = add i32 %.055, 80
-  %46 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %45) #4
-  %47 = icmp ult i8 %46, -3
-  br i1 %47, label %get_varint.exit45, label %48
+26:                                               ; preds = %11
+  %27 = tail call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef 1) #4
+  %28 = load i32, ptr @hf_msg_headers_count64, align 4
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %28, ptr noundef %0, i32 noundef 1, i32 noundef 8, i32 noundef -2147483648) #4
+  br label %add_varint_item.exit
 
-48:                                               ; preds = %.lr.ph
-  %49 = add i32 %.055, 81
-  switch i8 %46, label %54 [
-    i8 -3, label %50
-    i8 -2, label %52
+add_varint_item.exit:                             ; preds = %12, %16, %21, %26
+  %.sink.i58 = phi i64 [ %13, %12 ], [ %18, %16 ], [ %23, %21 ], [ %27, %26 ]
+  %.05156 = phi i32 [ 1, %12 ], [ 3, %16 ], [ 5, %21 ], [ 9, %26 ]
+  %.not69 = icmp eq i64 %.sink.i58, 0
+  br i1 %.not69, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %add_varint_item.exit, %get_varint.exit45
+  %.071 = phi i32 [ %64, %get_varint.exit45 ], [ %.05156, %add_varint_item.exit ]
+  %.05270 = phi i64 [ %66, %get_varint.exit45 ], [ %.sink.i58, %add_varint_item.exit ]
+  %30 = load i32, ptr @ett_bitcoin_msg, align 4
+  %31 = tail call ptr @proto_tree_add_subtree(ptr noundef %8, ptr noundef %0, i32 noundef %.071, i32 noundef -1, i32 noundef %30, ptr noundef null, ptr noundef nonnull @.str.318) #4
+  %32 = load i32, ptr @hf_msg_headers_version, align 4
+  %33 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %32, ptr noundef %0, i32 noundef %.071, i32 noundef 4, i32 noundef -2147483648) #4
+  %34 = add i32 %.071, 4
+  %35 = load i32, ptr @hf_msg_headers_prev_block, align 4
+  %36 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %35, ptr noundef %0, i32 noundef %34, i32 noundef 32, i32 noundef 0) #4
+  %37 = add i32 %.071, 36
+  %38 = load i32, ptr @hf_msg_headers_merkle_root, align 4
+  %39 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %38, ptr noundef %0, i32 noundef %37, i32 noundef 32, i32 noundef 0) #4
+  %40 = add i32 %.071, 68
+  %41 = load i32, ptr @hf_msg_headers_time, align 4
+  %42 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %41, ptr noundef %0, i32 noundef %40, i32 noundef 4, i32 noundef -2147483630) #4
+  %43 = add i32 %.071, 72
+  %44 = load i32, ptr @hf_msg_headers_bits, align 4
+  %45 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %44, ptr noundef %0, i32 noundef %43, i32 noundef 4, i32 noundef -2147483648) #4
+  %46 = add i32 %.071, 76
+  %47 = load i32, ptr @hf_msg_headers_nonce, align 4
+  %48 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %47, ptr noundef %0, i32 noundef %46, i32 noundef 4, i32 noundef -2147483648) #4
+  %49 = add i32 %.071, 80
+  %50 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %49) #4
+  %51 = icmp ult i8 %50, -3
+  br i1 %51, label %get_varint.exit45, label %52
+
+52:                                               ; preds = %.lr.ph
+  %53 = add i32 %.071, 81
+  switch i8 %50, label %58 [
+    i8 -3, label %54
+    i8 -2, label %56
   ]
 
-50:                                               ; preds = %48
-  %51 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %49) #4
+54:                                               ; preds = %52
+  %55 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %53) #4
   br label %get_varint.exit45
 
-52:                                               ; preds = %48
-  %53 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %49) #4
+56:                                               ; preds = %52
+  %57 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %53) #4
   br label %get_varint.exit45
 
-54:                                               ; preds = %48
-  %55 = tail call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %49) #4
+58:                                               ; preds = %52
+  %59 = tail call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %53) #4
   br label %get_varint.exit45
 
-get_varint.exit45:                                ; preds = %.lr.ph, %50, %52, %54
-  %.1 = phi i32 [ 9, %54 ], [ 5, %52 ], [ 3, %50 ], [ 1, %.lr.ph ]
-  %56 = load i32, ptr @hf_msg_headers_count8, align 4
-  %57 = load i32, ptr @hf_msg_headers_count16, align 4
-  %58 = load i32, ptr @hf_msg_headers_count32, align 4
-  %59 = load i32, ptr @hf_msg_headers_count64, align 4
-  tail call fastcc void @add_varint_item(ptr noundef %27, ptr noundef %0, i32 noundef %45, i32 noundef %.1, i32 noundef %56, i32 noundef %57, i32 noundef %58, i32 noundef %59)
-  %60 = add i32 %.1, %45
-  %61 = or disjoint i32 %.1, 80
-  tail call void @proto_item_set_len(ptr noundef %27, i32 noundef %61) #4
-  %62 = add i64 %.05254, -1
-  %.not = icmp eq i64 %62, 0
+get_varint.exit45:                                ; preds = %.lr.ph, %54, %56, %58
+  %.1 = phi i32 [ 9, %58 ], [ 5, %56 ], [ 3, %54 ], [ 1, %.lr.ph ]
+  %60 = load i32, ptr @hf_msg_headers_count8, align 4
+  %61 = load i32, ptr @hf_msg_headers_count16, align 4
+  %62 = load i32, ptr @hf_msg_headers_count32, align 4
+  %63 = load i32, ptr @hf_msg_headers_count64, align 4
+  tail call fastcc void @add_varint_item(ptr noundef %31, ptr noundef %0, i32 noundef %49, i32 noundef %.1, i32 noundef %60, i32 noundef %61, i32 noundef %62, i32 noundef %63)
+  %64 = add i32 %.1, %49
+  %65 = or disjoint i32 %.1, 80
+  tail call void @proto_item_set_len(ptr noundef %31, i32 noundef %65) #4
+  %66 = add i64 %.05270, -1
+  %.not = icmp eq i64 %66, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %get_varint.exit45, %get_varint.exit
-  %.0.lcssa = phi i32 [ %.051, %get_varint.exit ], [ %60, %get_varint.exit45 ]
+._crit_edge:                                      ; preds = %get_varint.exit45, %add_varint_item.exit
+  %.0.lcssa = phi i32 [ %.05156, %add_varint_item.exit ], [ %64, %get_varint.exit45 ]
   ret i32 %.0.lcssa
 }
 
@@ -1695,103 +1719,112 @@ define internal noundef i32 @dissect_bitcoin_msg_merkleblock(ptr noundef %0, ptr
   %22 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %21, ptr noundef %0, i32 noundef 80, i32 noundef 4, i32 noundef -2147483648) #4
   %23 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 84) #4
   %24 = icmp ult i8 %23, -3
-  br i1 %24, label %25, label %27
+  br i1 %24, label %26, label %25
 
 25:                                               ; preds = %4
-  %26 = zext i8 %23 to i64
-  br label %get_varint.exit
-
-27:                                               ; preds = %4
-  switch i8 %23, label %34 [
-    i8 -3, label %28
-    i8 -2, label %31
+  switch i8 %23, label %46 [
+    i8 -3, label %32
+    i8 -2, label %39
   ]
 
-28:                                               ; preds = %27
-  %29 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 85) #4
-  %30 = zext i16 %29 to i64
-  br label %get_varint.exit
+26:                                               ; preds = %4
+  %27 = zext i8 %23 to i64
+  %28 = load i32, ptr @ett_bitcoin_msg, align 4
+  %29 = tail call ptr @proto_tree_add_subtree(ptr noundef %8, ptr noundef %0, i32 noundef 84, i32 noundef -1, i32 noundef %28, ptr noundef null, ptr noundef nonnull @.str.319) #4
+  %30 = load i32, ptr @hf_msg_merkleblock_hashes_count8, align 4
+  %31 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %30, ptr noundef %0, i32 noundef 84, i32 noundef 1, i32 noundef -2147483648) #4
+  br label %add_varint_item.exit
 
-31:                                               ; preds = %27
-  %32 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 85) #4
-  %33 = zext i32 %32 to i64
-  br label %get_varint.exit
+32:                                               ; preds = %25
+  %33 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 85) #4
+  %34 = zext i16 %33 to i64
+  %35 = load i32, ptr @ett_bitcoin_msg, align 4
+  %36 = tail call ptr @proto_tree_add_subtree(ptr noundef %8, ptr noundef %0, i32 noundef 84, i32 noundef -1, i32 noundef %35, ptr noundef null, ptr noundef nonnull @.str.319) #4
+  %37 = load i32, ptr @hf_msg_merkleblock_hashes_count16, align 4
+  %38 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %37, ptr noundef %0, i32 noundef 85, i32 noundef 2, i32 noundef -2147483648) #4
+  br label %add_varint_item.exit
 
-34:                                               ; preds = %27
-  %35 = tail call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef 85) #4
-  br label %get_varint.exit
+39:                                               ; preds = %25
+  %40 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 85) #4
+  %41 = zext i32 %40 to i64
+  %42 = load i32, ptr @ett_bitcoin_msg, align 4
+  %43 = tail call ptr @proto_tree_add_subtree(ptr noundef %8, ptr noundef %0, i32 noundef 84, i32 noundef -1, i32 noundef %42, ptr noundef null, ptr noundef nonnull @.str.319) #4
+  %44 = load i32, ptr @hf_msg_merkleblock_hashes_count32, align 4
+  %45 = tail call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %44, ptr noundef %0, i32 noundef 85, i32 noundef 4, i32 noundef -2147483648) #4
+  br label %add_varint_item.exit
 
-get_varint.exit:                                  ; preds = %25, %28, %31, %34
-  %.068 = phi i32 [ 1, %25 ], [ 9, %34 ], [ 5, %31 ], [ 3, %28 ]
-  %.sink.i = phi i64 [ %26, %25 ], [ %35, %34 ], [ %33, %31 ], [ %30, %28 ]
-  %36 = load i32, ptr @ett_bitcoin_msg, align 4
-  %37 = tail call ptr @proto_tree_add_subtree(ptr noundef %8, ptr noundef %0, i32 noundef 84, i32 noundef -1, i32 noundef %36, ptr noundef null, ptr noundef nonnull @.str.319) #4
-  %38 = load i32, ptr @hf_msg_merkleblock_hashes_count8, align 4
-  %39 = load i32, ptr @hf_msg_merkleblock_hashes_count16, align 4
-  %40 = load i32, ptr @hf_msg_merkleblock_hashes_count32, align 4
-  %41 = load i32, ptr @hf_msg_merkleblock_hashes_count64, align 4
-  tail call fastcc void @add_varint_item(ptr noundef %37, ptr noundef %0, i32 noundef 84, i32 noundef %.068, i32 noundef %38, i32 noundef %39, i32 noundef %40, i32 noundef %41)
-  %42 = add nuw nsw i32 %.068, 84
-  %.not69 = icmp eq i64 %.sink.i, 0
-  br i1 %.not69, label %._crit_edge, label %.lr.ph
+46:                                               ; preds = %25
+  %47 = tail call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef 85) #4
+  %48 = load i32, ptr @ett_bitcoin_msg, align 4
+  %49 = tail call ptr @proto_tree_add_subtree(ptr noundef %8, ptr noundef %0, i32 noundef 84, i32 noundef -1, i32 noundef %48, ptr noundef null, ptr noundef nonnull @.str.319) #4
+  %50 = load i32, ptr @hf_msg_merkleblock_hashes_count64, align 4
+  %51 = tail call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %50, ptr noundef %0, i32 noundef 85, i32 noundef 8, i32 noundef -2147483648) #4
+  br label %add_varint_item.exit
 
-.lr.ph:                                           ; preds = %get_varint.exit, %.lr.ph
-  %.071 = phi i32 [ %45, %.lr.ph ], [ %42, %get_varint.exit ]
-  %.06770 = phi i64 [ %46, %.lr.ph ], [ %.sink.i, %get_varint.exit ]
-  %43 = load i32, ptr @hf_msg_merkleblock_hashes_hash, align 4
-  %44 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %43, ptr noundef %0, i32 noundef %.071, i32 noundef 32, i32 noundef 0) #4
-  %45 = add i32 %.071, 32
-  %46 = add i64 %.06770, -1
-  %.not = icmp eq i64 %46, 0
+add_varint_item.exit:                             ; preds = %26, %32, %39, %46
+  %52 = phi ptr [ %29, %26 ], [ %36, %32 ], [ %43, %39 ], [ %49, %46 ]
+  %.sink.i74 = phi i64 [ %27, %26 ], [ %34, %32 ], [ %41, %39 ], [ %47, %46 ]
+  %.06872 = phi i32 [ 85, %26 ], [ 87, %32 ], [ 89, %39 ], [ 93, %46 ]
+  %.not85 = icmp eq i64 %.sink.i74, 0
+  br i1 %.not85, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %add_varint_item.exit, %.lr.ph
+  %.087 = phi i32 [ %55, %.lr.ph ], [ %.06872, %add_varint_item.exit ]
+  %.06786 = phi i64 [ %56, %.lr.ph ], [ %.sink.i74, %add_varint_item.exit ]
+  %53 = load i32, ptr @hf_msg_merkleblock_hashes_hash, align 4
+  %54 = tail call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %53, ptr noundef %0, i32 noundef %.087, i32 noundef 32, i32 noundef 0) #4
+  %55 = add i32 %.087, 32
+  %56 = add i64 %.06786, -1
+  %.not = icmp eq i64 %56, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %.lr.ph, %get_varint.exit
-  %.0.lcssa = phi i32 [ %42, %get_varint.exit ], [ %45, %.lr.ph ]
-  %47 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0.lcssa) #4
-  %48 = icmp ult i8 %47, -3
-  br i1 %48, label %49, label %51
+._crit_edge:                                      ; preds = %.lr.ph, %add_varint_item.exit
+  %.0.lcssa = phi i32 [ %.06872, %add_varint_item.exit ], [ %55, %.lr.ph ]
+  %57 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0.lcssa) #4
+  %58 = icmp ult i8 %57, -3
+  br i1 %58, label %59, label %61
 
-49:                                               ; preds = %._crit_edge
-  %50 = zext i8 %47 to i64
+59:                                               ; preds = %._crit_edge
+  %60 = zext i8 %57 to i64
   br label %get_varint.exit59
 
-51:                                               ; preds = %._crit_edge
-  %52 = add i32 %.0.lcssa, 1
-  switch i8 %47, label %59 [
-    i8 -3, label %53
-    i8 -2, label %56
+61:                                               ; preds = %._crit_edge
+  %62 = add i32 %.0.lcssa, 1
+  switch i8 %57, label %69 [
+    i8 -3, label %63
+    i8 -2, label %66
   ]
 
-53:                                               ; preds = %51
-  %54 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %52) #4
-  %55 = zext i16 %54 to i64
+63:                                               ; preds = %61
+  %64 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %62) #4
+  %65 = zext i16 %64 to i64
   br label %get_varint.exit59
 
-56:                                               ; preds = %51
-  %57 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %52) #4
-  %58 = zext i32 %57 to i64
+66:                                               ; preds = %61
+  %67 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %62) #4
+  %68 = zext i32 %67 to i64
   br label %get_varint.exit59
 
-59:                                               ; preds = %51
-  %60 = tail call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %52) #4
+69:                                               ; preds = %61
+  %70 = tail call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %62) #4
   br label %get_varint.exit59
 
-get_varint.exit59:                                ; preds = %49, %53, %56, %59
-  %.1 = phi i32 [ 1, %49 ], [ 9, %59 ], [ 5, %56 ], [ 3, %53 ]
-  %.sink.i58 = phi i64 [ %50, %49 ], [ %60, %59 ], [ %58, %56 ], [ %55, %53 ]
-  %61 = load i32, ptr @ett_bitcoin_msg, align 4
-  %62 = tail call ptr @proto_tree_add_subtree(ptr noundef %8, ptr noundef %0, i32 noundef %.0.lcssa, i32 noundef -1, i32 noundef %61, ptr noundef null, ptr noundef nonnull @.str.320) #4
-  %63 = load i32, ptr @hf_msg_merkleblock_flags_size8, align 4
-  %64 = load i32, ptr @hf_msg_merkleblock_flags_size16, align 4
-  %65 = load i32, ptr @hf_msg_merkleblock_flags_size32, align 4
-  %66 = load i32, ptr @hf_msg_merkleblock_flags_size64, align 4
-  tail call fastcc void @add_varint_item(ptr noundef %62, ptr noundef %0, i32 noundef %.0.lcssa, i32 noundef %.1, i32 noundef %63, i32 noundef %64, i32 noundef %65, i32 noundef %66)
-  %67 = add i32 %.1, %.0.lcssa
-  %68 = load i32, ptr @hf_msg_merkleblock_flags_data, align 4
-  %69 = trunc i64 %.sink.i58 to i32
-  %70 = tail call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %68, ptr noundef %0, i32 noundef %67, i32 noundef %69, i32 noundef 131072) #4
-  %71 = add i32 %67, %69
-  ret i32 %71
+get_varint.exit59:                                ; preds = %59, %63, %66, %69
+  %.1 = phi i32 [ 1, %59 ], [ 9, %69 ], [ 5, %66 ], [ 3, %63 ]
+  %.sink.i58 = phi i64 [ %60, %59 ], [ %70, %69 ], [ %68, %66 ], [ %65, %63 ]
+  %71 = load i32, ptr @ett_bitcoin_msg, align 4
+  %72 = tail call ptr @proto_tree_add_subtree(ptr noundef %8, ptr noundef %0, i32 noundef %.0.lcssa, i32 noundef -1, i32 noundef %71, ptr noundef null, ptr noundef nonnull @.str.320) #4
+  %73 = load i32, ptr @hf_msg_merkleblock_flags_size8, align 4
+  %74 = load i32, ptr @hf_msg_merkleblock_flags_size16, align 4
+  %75 = load i32, ptr @hf_msg_merkleblock_flags_size32, align 4
+  %76 = load i32, ptr @hf_msg_merkleblock_flags_size64, align 4
+  tail call fastcc void @add_varint_item(ptr noundef %72, ptr noundef %0, i32 noundef %.0.lcssa, i32 noundef %.1, i32 noundef %73, i32 noundef %74, i32 noundef %75, i32 noundef %76)
+  %77 = add i32 %.1, %.0.lcssa
+  %78 = load i32, ptr @hf_msg_merkleblock_flags_data, align 4
+  %79 = trunc i64 %.sink.i58 to i32
+  %80 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %78, ptr noundef %0, i32 noundef %77, i32 noundef %79, i32 noundef 131072) #4
+  %81 = add i32 %77, %79
+  ret i32 %81
 }
 
 ; Function Attrs: nounwind uwtable

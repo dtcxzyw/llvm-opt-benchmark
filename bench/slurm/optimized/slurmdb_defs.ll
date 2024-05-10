@@ -6723,111 +6723,153 @@ define internal range(i32 -1, 2) i32 @_slurmdb_addto_qos_char_list_internal(ptr 
   %.0 = phi i32 [ %14, %13 ], [ %11, %9 ]
   %17 = getelementptr inbounds i8, ptr %2, i64 8
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call i32 @str_2_slurmdb_qos(ptr noundef %18, ptr noundef nonnull %.025)
-  %20 = icmp eq i32 %19, -2
-  br i1 %20, label %21, label %37
+  %.not.i = icmp eq ptr %18, null
+  br i1 %.not.i, label %19, label %21
+
+19:                                               ; preds = %16
+  %20 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.9) #20
+  br label %str_2_slurmdb_qos.exit.thread
 
 21:                                               ; preds = %16
-  %22 = load ptr, ptr %17, align 8
+  %22 = load i8, ptr %.025, align 1
+  switch i8 %22, label %25 [
+    i8 43, label %23
+    i8 45, label %23
+  ]
+
+23:                                               ; preds = %21, %21
+  %24 = getelementptr inbounds i8, ptr %.025, i64 1
+  br label %25
+
+25:                                               ; preds = %23, %21
+  %.0.i = phi ptr [ %24, %23 ], [ %.025, %21 ]
+  %26 = tail call ptr @list_iterator_create(ptr noundef nonnull %18) #20
+  br label %27
+
+27:                                               ; preds = %29, %25
+  %28 = tail call ptr @list_next(ptr noundef %26) #20
+  %.not19.i = icmp eq ptr %28, null
+  br i1 %.not19.i, label %.critedge.i, label %29
+
+29:                                               ; preds = %27
+  %30 = getelementptr inbounds i8, ptr %28, i64 256
+  %31 = load ptr, ptr %30, align 8
+  %32 = tail call i32 @xstrcasecmp(ptr noundef nonnull %.0.i, ptr noundef %31) #20
+  %.not20.i = icmp eq i32 %32, 0
+  br i1 %.not20.i, label %str_2_slurmdb_qos.exit, label %27, !llvm.loop !12
+
+.critedge.i:                                      ; preds = %27
+  tail call void @list_iterator_destroy(ptr noundef %26) #20
+  br label %str_2_slurmdb_qos.exit.thread
+
+str_2_slurmdb_qos.exit:                           ; preds = %29
+  tail call void @list_iterator_destroy(ptr noundef %26) #20
+  %33 = getelementptr inbounds i8, ptr %28, i64 8
+  %34 = load i32, ptr %33, align 8
+  %35 = icmp eq i32 %34, -2
+  br i1 %35, label %str_2_slurmdb_qos.exit.thread, label %51
+
+str_2_slurmdb_qos.exit.thread:                    ; preds = %.critedge.i, %19, %str_2_slurmdb_qos.exit
+  %36 = load ptr, ptr %17, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr null, ptr %4, align 8
-  %.not.i = icmp eq ptr %22, null
-  br i1 %.not.i, label %_get_qos_list_str.exit, label %23
+  %.not.i29 = icmp eq ptr %36, null
+  br i1 %.not.i29, label %_get_qos_list_str.exit, label %37
 
-23:                                               ; preds = %21
-  %24 = tail call ptr @list_iterator_create(ptr noundef nonnull %22) #20
-  %25 = tail call ptr @list_next(ptr noundef %24) #20
-  %.not911.i = icmp eq ptr %25, null
+37:                                               ; preds = %str_2_slurmdb_qos.exit.thread
+  %38 = tail call ptr @list_iterator_create(ptr noundef nonnull %36) #20
+  %39 = tail call ptr @list_next(ptr noundef %38) #20
+  %.not911.i = icmp eq ptr %39, null
   br i1 %.not911.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %23, %32
-  %26 = phi ptr [ %33, %32 ], [ %25, %23 ]
-  %27 = load ptr, ptr %4, align 8
-  %.not10.i = icmp eq ptr %27, null
-  %28 = getelementptr inbounds i8, ptr %26, i64 256
-  %29 = load ptr, ptr %28, align 8
-  br i1 %.not10.i, label %31, label %30
+.lr.ph.i:                                         ; preds = %37, %46
+  %40 = phi ptr [ %47, %46 ], [ %39, %37 ]
+  %41 = load ptr, ptr %4, align 8
+  %.not10.i = icmp eq ptr %41, null
+  %42 = getelementptr inbounds i8, ptr %40, i64 256
+  %43 = load ptr, ptr %42, align 8
+  br i1 %.not10.i, label %45, label %44
 
-30:                                               ; preds = %.lr.ph.i
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.206, ptr noundef %29) #20
-  br label %32
+44:                                               ; preds = %.lr.ph.i
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.206, ptr noundef %43) #20
+  br label %46
 
-31:                                               ; preds = %.lr.ph.i
-  call void @_xstrcat(ptr noundef nonnull %4, ptr noundef %29) #20
-  br label %32
+45:                                               ; preds = %.lr.ph.i
+  call void @_xstrcat(ptr noundef nonnull %4, ptr noundef %43) #20
+  br label %46
 
-32:                                               ; preds = %31, %30
-  %33 = call ptr @list_next(ptr noundef %24) #20
-  %.not9.i = icmp eq ptr %33, null
+46:                                               ; preds = %45, %44
+  %47 = call ptr @list_next(ptr noundef %38) #20
+  %.not9.i = icmp eq ptr %47, null
   br i1 %.not9.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !26
 
-._crit_edge.i:                                    ; preds = %32, %23
-  call void @list_iterator_destroy(ptr noundef %24) #20
-  %34 = load ptr, ptr %4, align 8
+._crit_edge.i:                                    ; preds = %46, %37
+  call void @list_iterator_destroy(ptr noundef %38) #20
+  %48 = load ptr, ptr %4, align 8
   br label %_get_qos_list_str.exit
 
-_get_qos_list_str.exit:                           ; preds = %21, %._crit_edge.i
-  %.0.i = phi ptr [ %34, %._crit_edge.i ], [ null, %21 ]
+_get_qos_list_str.exit:                           ; preds = %str_2_slurmdb_qos.exit.thread, %._crit_edge.i
+  %.0.i30 = phi ptr [ %48, %._crit_edge.i ], [ null, %str_2_slurmdb_qos.exit.thread ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  store ptr %.0.i, ptr %6, align 8
-  %35 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.203, ptr noundef nonnull %.025, ptr noundef %.0.i) #20
+  store ptr %.0.i30, ptr %6, align 8
+  %49 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.203, ptr noundef nonnull %.025, ptr noundef %.0.i30) #20
   call void @slurm_xfree(ptr noundef nonnull %6) #20
-  %36 = call i32 @list_flush(ptr noundef %0) #20
-  br label %61
+  %50 = call i32 @list_flush(ptr noundef %0) #20
+  br label %75
 
-37:                                               ; preds = %16
+51:                                               ; preds = %str_2_slurmdb_qos.exit
   %.not = icmp eq i32 %.0, 0
-  br i1 %.not, label %47, label %38
+  br i1 %.not, label %61, label %52
 
-38:                                               ; preds = %37
-  %39 = getelementptr inbounds i8, ptr %2, i64 1
-  %40 = load i8, ptr %39, align 1
-  %41 = trunc i8 %40 to i1
-  br i1 %41, label %42, label %45
+52:                                               ; preds = %51
+  %53 = getelementptr inbounds i8, ptr %2, i64 1
+  %54 = load i8, ptr %53, align 1
+  %55 = trunc i8 %54 to i1
+  br i1 %55, label %56, label %59
 
-42:                                               ; preds = %38
-  %43 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.204) #20
-  %44 = tail call i32 @list_flush(ptr noundef %0) #20
-  br label %61
+56:                                               ; preds = %52
+  %57 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.204) #20
+  %58 = tail call i32 @list_flush(ptr noundef %0) #20
+  br label %75
 
-45:                                               ; preds = %38
+59:                                               ; preds = %52
   store i8 1, ptr %2, align 8
-  %46 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.205, i32 noundef %.0, i32 noundef %19) #20
-  br label %56
+  %60 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.205, i32 noundef %.0, i32 noundef %34) #20
+  br label %70
 
-47:                                               ; preds = %37
-  %48 = load i8, ptr %2, align 8
-  %49 = trunc i8 %48 to i1
-  br i1 %49, label %50, label %53
+61:                                               ; preds = %51
+  %62 = load i8, ptr %2, align 8
+  %63 = trunc i8 %62 to i1
+  br i1 %63, label %64, label %67
 
-50:                                               ; preds = %47
-  %51 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.204) #20
-  %52 = tail call i32 @list_flush(ptr noundef %0) #20
-  br label %61
+64:                                               ; preds = %61
+  %65 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.204) #20
+  %66 = tail call i32 @list_flush(ptr noundef %0) #20
+  br label %75
 
-53:                                               ; preds = %47
-  %54 = getelementptr inbounds i8, ptr %2, i64 1
-  store i8 1, ptr %54, align 1
-  %55 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.187, i32 noundef %19) #20
-  br label %56
+67:                                               ; preds = %61
+  %68 = getelementptr inbounds i8, ptr %2, i64 1
+  store i8 1, ptr %68, align 1
+  %69 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.187, i32 noundef %34) #20
+  br label %70
 
-56:                                               ; preds = %53, %45
-  %57 = phi ptr [ %55, %53 ], [ %46, %45 ]
-  store ptr %57, ptr %5, align 8
-  %58 = tail call ptr @list_find_first(ptr noundef %0, ptr noundef nonnull @slurm_find_char_in_list, ptr noundef %57) #20
-  %.not28 = icmp eq ptr %58, null
-  br i1 %.not28, label %59, label %60
+70:                                               ; preds = %67, %59
+  %71 = phi ptr [ %69, %67 ], [ %60, %59 ]
+  store ptr %71, ptr %5, align 8
+  %72 = tail call ptr @list_find_first(ptr noundef %0, ptr noundef nonnull @slurm_find_char_in_list, ptr noundef %71) #20
+  %.not28 = icmp eq ptr %72, null
+  br i1 %.not28, label %73, label %74
 
-59:                                               ; preds = %56
-  tail call void @list_append(ptr noundef %0, ptr noundef %57) #20
-  br label %61
+73:                                               ; preds = %70
+  tail call void @list_append(ptr noundef %0, ptr noundef %71) #20
+  br label %75
 
-60:                                               ; preds = %56
+74:                                               ; preds = %70
   call void @slurm_xfree(ptr noundef nonnull %5) #20
-  br label %61
+  br label %75
 
-61:                                               ; preds = %60, %59, %50, %42, %_get_qos_list_str.exit
-  %.024 = phi i32 [ -1, %_get_qos_list_str.exit ], [ -1, %42 ], [ 0, %60 ], [ 1, %59 ], [ -1, %50 ]
+75:                                               ; preds = %74, %73, %64, %56, %_get_qos_list_str.exit
+  %.024 = phi i32 [ -1, %_get_qos_list_str.exit ], [ -1, %56 ], [ 0, %74 ], [ 1, %73 ], [ -1, %64 ]
   ret i32 %.024
 }
 

@@ -457,118 +457,192 @@ r_fix_conflicts.exit:                             ; preds = %53, %56, %59, %62, 
   %81 = load ptr, ptr %4, align 8
   %82 = load i32, ptr %81, align 4
   %83 = icmp slt i32 %80, %82
-  br i1 %83, label %94, label %84
+  %.pre137 = load i32, ptr %36, align 8
+  br i1 %83, label %93, label %84
 
 84:                                               ; preds = %r_fix_conflicts.exit
-  %85 = load i32, ptr %36, align 8
   store i32 %82, ptr %36, align 8
   store i32 %80, ptr %38, align 8
-  %86 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_0, i32 noundef 204) #2
-  %.not.i101 = icmp eq i32 %86, 0
-  br i1 %.not.i101, label %87, label %88
+  %85 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_0, i32 noundef 204) #2
+  %.not.i101 = icmp eq i32 %85, 0
+  br i1 %.not.i101, label %86, label %87
+
+86:                                               ; preds = %84
+  store i32 %.pre137, ptr %36, align 8
+  br label %93
 
 87:                                               ; preds = %84
-  store i32 %85, ptr %36, align 8
-  br label %94
-
-88:                                               ; preds = %84
-  %89 = load i32, ptr %6, align 8
-  %90 = getelementptr inbounds i8, ptr %0, i64 20
-  store i32 %89, ptr %90, align 4
-  store i32 %85, ptr %36, align 8
+  %88 = load i32, ptr %6, align 8
+  %89 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 %88, ptr %89, align 4
+  store i32 %.pre137, ptr %36, align 8
   %.val24.i = load ptr, ptr %4, align 8
   %.val24.val.i = load i32, ptr %.val24.i, align 4
-  %.not.i.not.i = icmp sgt i32 %.val24.val.i, %89
-  br i1 %.not.i.not.i, label %94, label %91
+  %.not.i.not.i = icmp sgt i32 %.val24.val.i, %88
+  br i1 %.not.i.not.i, label %93, label %90
 
-91:                                               ; preds = %88
-  %92 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
-  %93 = icmp slt i32 %92, 0
-  br i1 %93, label %r_step1.exit, label %94
+90:                                               ; preds = %87
+  %91 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
+  %92 = icmp slt i32 %91, 0
+  br i1 %92, label %r_step1.exit, label %._crit_edge
 
-94:                                               ; preds = %87, %r_fix_conflicts.exit, %88, %91
+._crit_edge:                                      ; preds = %90
+  %.pre = load i32, ptr %36, align 8
+  br label %93
+
+93:                                               ; preds = %._crit_edge, %86, %r_fix_conflicts.exit, %87
+  %94 = phi i32 [ %.pre, %._crit_edge ], [ %.pre137, %86 ], [ %.pre137, %r_fix_conflicts.exit ], [ %.pre137, %87 ]
   %95 = load i32, ptr %2, align 4
   store i32 %95, ptr %6, align 8
-  %96 = tail call fastcc i32 @r_fix_chdz(ptr noundef nonnull %0)
-  %97 = icmp slt i32 %96, 0
-  br i1 %97, label %r_step1.exit, label %98
+  store i32 %95, ptr %38, align 8
+  %96 = add i32 %95, -1
+  %.not.i103 = icmp sgt i32 %96, %94
+  br i1 %.not.i103, label %97, label %113
 
-98:                                               ; preds = %94
-  %99 = load i32, ptr %2, align 4
-  store i32 %99, ptr %6, align 8
-  %100 = getelementptr inbounds i8, ptr %0, i64 20
-  br label %101
+97:                                               ; preds = %93
+  %98 = load ptr, ptr %0, align 8
+  %99 = sext i32 %96 to i64
+  %100 = getelementptr i8, ptr %98, i64 %99
+  %101 = load i8, ptr %100, align 1
+  switch i8 %101, label %113 [
+    i8 -115, label %102
+    i8 -66, label %102
+  ]
 
-101:                                              ; preds = %110, %98
-  %102 = load i32, ptr %6, align 8
-  %103 = load ptr, ptr %4, align 8
-  %104 = load i32, ptr %103, align 4
-  %105 = icmp slt i32 %102, %104
-  br i1 %105, label %.loopexit, label %106
+102:                                              ; preds = %97, %97
+  %103 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_3, i32 noundef 2) #2
+  %.not26.i = icmp eq i32 %103, 0
+  br i1 %.not26.i, label %113, label %104
 
-106:                                              ; preds = %101
-  %107 = load i32, ptr %36, align 8
-  store i32 %104, ptr %36, align 8
-  store i32 %102, ptr %38, align 8
-  %108 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_1, i32 noundef 62) #2
-  %.not.i103 = icmp eq i32 %108, 0
-  br i1 %.not.i103, label %109, label %110
+104:                                              ; preds = %102
+  %105 = load i32, ptr %6, align 8
+  %106 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 %105, ptr %106, align 4
+  switch i32 %103, label %113 [
+    i32 1, label %107
+    i32 2, label %110
+  ]
 
-109:                                              ; preds = %106
-  store i32 %107, ptr %36, align 8
-  br label %.loopexit
+107:                                              ; preds = %104
+  %108 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @s_8) #2
+  %109 = icmp slt i32 %108, 0
+  br i1 %109, label %r_step1.exit, label %113
 
-110:                                              ; preds = %106
-  %111 = load i32, ptr %6, align 8
-  store i32 %111, ptr %100, align 4
-  store i32 %107, ptr %36, align 8
-  %112 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
-  %113 = icmp slt i32 %112, 0
-  br i1 %113, label %r_step1.exit, label %101
+110:                                              ; preds = %104
+  %111 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @s_9) #2
+  %112 = icmp slt i32 %111, 0
+  br i1 %112, label %r_step1.exit, label %113
 
-.loopexit:                                        ; preds = %101, %109
+113:                                              ; preds = %104, %107, %110, %97, %93, %102
   %114 = load i32, ptr %2, align 4
   store i32 %114, ptr %6, align 8
-  %115 = tail call fastcc i32 @r_fix_chdz(ptr noundef nonnull %0)
-  %116 = icmp slt i32 %115, 0
-  br i1 %116, label %r_step1.exit, label %117
+  %115 = getelementptr inbounds i8, ptr %0, i64 20
+  br label %116
 
-117:                                              ; preds = %.loopexit
-  %118 = load i32, ptr %2, align 4
-  store i32 %118, ptr %6, align 8
-  store i32 %118, ptr %38, align 8
-  %119 = add i32 %118, -1
-  %120 = load i32, ptr %36, align 8
-  %.not.i105 = icmp sgt i32 %119, %120
-  br i1 %.not.i105, label %121, label %132
+116:                                              ; preds = %124, %113
+  %117 = load i32, ptr %6, align 8
+  %118 = load ptr, ptr %4, align 8
+  %119 = load i32, ptr %118, align 4
+  %120 = icmp slt i32 %117, %119
+  %.pre138 = load i32, ptr %36, align 8
+  br i1 %120, label %.loopexit, label %121
 
-121:                                              ; preds = %117
-  %122 = load ptr, ptr %0, align 8
-  %123 = sext i32 %119 to i64
-  %124 = getelementptr i8, ptr %122, i64 %123
-  %125 = load i8, ptr %124, align 1
-  %.not14.i = icmp eq i8 %125, 100
-  br i1 %.not14.i, label %126, label %132
+121:                                              ; preds = %116
+  store i32 %119, ptr %36, align 8
+  store i32 %117, ptr %38, align 8
+  %122 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_1, i32 noundef 62) #2
+  %.not.i105 = icmp eq i32 %122, 0
+  br i1 %.not.i105, label %123, label %124
 
-126:                                              ; preds = %121
-  %127 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_4, i32 noundef 1) #2
-  %.not15.i = icmp eq i32 %127, 0
-  br i1 %.not15.i, label %132, label %128
+123:                                              ; preds = %121
+  store i32 %.pre138, ptr %36, align 8
+  br label %.loopexit
 
-128:                                              ; preds = %126
-  %129 = load i32, ptr %6, align 8
-  store i32 %129, ptr %100, align 4
-  %130 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @s_10) #2
-  %131 = icmp slt i32 %130, 0
-  br i1 %131, label %r_step1.exit, label %132
+124:                                              ; preds = %121
+  %125 = load i32, ptr %6, align 8
+  store i32 %125, ptr %115, align 4
+  store i32 %.pre138, ptr %36, align 8
+  %126 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
+  %127 = icmp slt i32 %126, 0
+  br i1 %127, label %r_step1.exit, label %116
 
-132:                                              ; preds = %121, %117, %126, %128
-  %133 = load i32, ptr %36, align 8
-  store i32 %133, ptr %6, align 8
+.loopexit:                                        ; preds = %116, %123
+  %128 = load i32, ptr %2, align 4
+  store i32 %128, ptr %6, align 8
+  store i32 %128, ptr %38, align 8
+  %129 = add i32 %128, -1
+  %.not.i107 = icmp sgt i32 %129, %.pre138
+  br i1 %.not.i107, label %130, label %145
+
+130:                                              ; preds = %.loopexit
+  %131 = load ptr, ptr %0, align 8
+  %132 = sext i32 %129 to i64
+  %133 = getelementptr i8, ptr %131, i64 %132
+  %134 = load i8, ptr %133, align 1
+  switch i8 %134, label %145 [
+    i8 -115, label %135
+    i8 -66, label %135
+  ]
+
+135:                                              ; preds = %130, %130
+  %136 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_3, i32 noundef 2) #2
+  %.not26.i109 = icmp eq i32 %136, 0
+  br i1 %.not26.i109, label %145, label %137
+
+137:                                              ; preds = %135
+  %138 = load i32, ptr %6, align 8
+  store i32 %138, ptr %115, align 4
+  switch i32 %136, label %145 [
+    i32 1, label %139
+    i32 2, label %142
+  ]
+
+139:                                              ; preds = %137
+  %140 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @s_8) #2
+  %141 = icmp slt i32 %140, 0
+  br i1 %141, label %r_step1.exit, label %145
+
+142:                                              ; preds = %137
+  %143 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @s_9) #2
+  %144 = icmp slt i32 %143, 0
+  br i1 %144, label %r_step1.exit, label %145
+
+145:                                              ; preds = %137, %139, %142, %130, %.loopexit, %135
+  %146 = load i32, ptr %2, align 4
+  store i32 %146, ptr %6, align 8
+  store i32 %146, ptr %38, align 8
+  %147 = add i32 %146, -1
+  %148 = load i32, ptr %36, align 8
+  %.not.i111 = icmp sgt i32 %147, %148
+  br i1 %.not.i111, label %149, label %160
+
+149:                                              ; preds = %145
+  %150 = load ptr, ptr %0, align 8
+  %151 = sext i32 %147 to i64
+  %152 = getelementptr i8, ptr %150, i64 %151
+  %153 = load i8, ptr %152, align 1
+  %.not14.i = icmp eq i8 %153, 100
+  br i1 %.not14.i, label %154, label %160
+
+154:                                              ; preds = %149
+  %155 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_4, i32 noundef 1) #2
+  %.not15.i = icmp eq i32 %155, 0
+  br i1 %.not15.i, label %160, label %156
+
+156:                                              ; preds = %154
+  %157 = load i32, ptr %6, align 8
+  store i32 %157, ptr %115, align 4
+  %158 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @s_10) #2
+  %159 = icmp slt i32 %158, 0
+  br i1 %159, label %r_step1.exit, label %160
+
+160:                                              ; preds = %149, %145, %154, %156
+  %161 = load i32, ptr %36, align 8
+  store i32 %161, ptr %6, align 8
   br label %r_step1.exit
 
-r_step1.exit:                                     ; preds = %110, %77, %74, %71, %68, %65, %62, %59, %56, %128, %91, %.loopexit, %94, %132
-  %.0 = phi i32 [ 1, %132 ], [ %96, %94 ], [ %115, %.loopexit ], [ %92, %91 ], [ %130, %128 ], [ %78, %77 ], [ %75, %74 ], [ %72, %71 ], [ %69, %68 ], [ %66, %65 ], [ %63, %62 ], [ %60, %59 ], [ %57, %56 ], [ %112, %110 ]
+r_step1.exit:                                     ; preds = %124, %77, %74, %71, %68, %65, %62, %59, %56, %156, %142, %139, %110, %107, %90, %160
+  %.0 = phi i32 [ 1, %160 ], [ %91, %90 ], [ %108, %107 ], [ %111, %110 ], [ %140, %139 ], [ %143, %142 ], [ %158, %156 ], [ %78, %77 ], [ %75, %74 ], [ %72, %71 ], [ %69, %68 ], [ %66, %65 ], [ %63, %62 ], [ %60, %59 ], [ %57, %56 ], [ %126, %124 ]
   ret i32 %.0
 }
 
@@ -579,60 +653,6 @@ declare i32 @skip_utf8(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local
 declare i32 @out_grouping_U(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 declare i32 @in_grouping_U(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 2) i32 @r_fix_chdz(ptr noundef %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 %3, ptr %4, align 8
-  %5 = add i32 %3, -1
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  %7 = load i32, ptr %6, align 8
-  %.not = icmp sgt i32 %5, %7
-  br i1 %.not, label %8, label %25
-
-8:                                                ; preds = %1
-  %9 = load ptr, ptr %0, align 8
-  %10 = sext i32 %5 to i64
-  %11 = getelementptr i8, ptr %9, i64 %10
-  %12 = load i8, ptr %11, align 1
-  switch i8 %12, label %25 [
-    i8 -115, label %13
-    i8 -66, label %13
-  ]
-
-13:                                               ; preds = %8, %8
-  %14 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_3, i32 noundef 2) #2
-  %.not26 = icmp eq i32 %14, 0
-  br i1 %.not26, label %25, label %15
-
-15:                                               ; preds = %13
-  %16 = load i32, ptr %2, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 20
-  store i32 %16, ptr %17, align 4
-  switch i32 %14, label %24 [
-    i32 1, label %18
-    i32 2, label %21
-  ]
-
-18:                                               ; preds = %15
-  %19 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @s_8) #2
-  %20 = icmp slt i32 %19, 0
-  br i1 %20, label %25, label %24
-
-21:                                               ; preds = %15
-  %22 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @s_9) #2
-  %23 = icmp slt i32 %22, 0
-  br i1 %23, label %25, label %24
-
-24:                                               ; preds = %21, %18, %15
-  br label %25
-
-25:                                               ; preds = %21, %18, %13, %1, %8, %24
-  %.0 = phi i32 [ 1, %24 ], [ 0, %8 ], [ 0, %1 ], [ 0, %13 ], [ %19, %18 ], [ %22, %21 ]
-  ret i32 %.0
-}
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @lithuanian_UTF_8_create_env() local_unnamed_addr #0 {

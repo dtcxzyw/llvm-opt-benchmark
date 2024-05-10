@@ -738,8 +738,88 @@ declare ptr @list_concat(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @contain_nonstrict_functions(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call zeroext i1 @contain_nonstrict_functions_walker(ptr noundef %0, ptr noundef null)
-  ret i1 %2
+  %2 = icmp eq ptr %0, null
+  br i1 %2, label %contain_nonstrict_functions_walker.exit, label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %1, %tailrecurse.backedge.i
+  %.tr49.i = phi ptr [ %.tr.be.i, %tailrecurse.backedge.i ], [ %0, %1 ]
+  %3 = load i32, ptr %.tr49.i, align 4
+  switch i32 %3, label %15 [
+    i32 9, label %contain_nonstrict_functions_walker.exit
+    i32 10, label %contain_nonstrict_functions_walker.exit
+    i32 11, label %contain_nonstrict_functions_walker.exit
+    i32 12, label %4
+  ]
+
+4:                                                ; preds = %.lr.ph.i
+  %5 = getelementptr inbounds i8, ptr %.tr49.i, i64 48
+  %6 = load ptr, ptr %5, align 8
+  %.not.i = icmp eq ptr %6, null
+  br i1 %.not.i, label %7, label %contain_nonstrict_functions_walker.exit
+
+7:                                                ; preds = %4
+  %8 = getelementptr inbounds i8, ptr %.tr49.i, i64 4
+  %9 = load i32, ptr %8, align 4
+  %10 = tail call ptr @getSubscriptingRoutines(i32 noundef %9, ptr noundef null) #9
+  %.not44.i = icmp eq ptr %10, null
+  br i1 %.not44.i, label %contain_nonstrict_functions_walker.exit, label %11
+
+11:                                               ; preds = %7
+  %12 = getelementptr inbounds i8, ptr %10, i64 16
+  %13 = load i8, ptr %12, align 8
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %thread-pre-split.i, label %contain_nonstrict_functions_walker.exit
+
+thread-pre-split.i:                               ; preds = %11
+  %.pr.i = load i32, ptr %.tr49.i, align 4
+  br label %15
+
+15:                                               ; preds = %thread-pre-split.i, %.lr.ph.i
+  %16 = phi i32 [ %.pr.i, %thread-pre-split.i ], [ %3, %.lr.ph.i ]
+  switch i32 %16, label %.thread.i [
+    i32 16, label %contain_nonstrict_functions_walker.exit
+    i32 17, label %contain_nonstrict_functions_walker.exit
+    i32 19, label %17
+    i32 20, label %contain_nonstrict_functions_walker.exit
+    i32 21, label %contain_nonstrict_functions_walker.exit
+    i32 22, label %contain_nonstrict_functions_walker.exit
+    i32 24, label %contain_nonstrict_functions_walker.exit
+    i32 26, label %tailrecurse.backedge.i
+    i32 27, label %tailrecurse.backedge.i
+    i32 30, label %contain_nonstrict_functions_walker.exit
+    i32 33, label %contain_nonstrict_functions_walker.exit
+    i32 34, label %contain_nonstrict_functions_walker.exit
+    i32 35, label %contain_nonstrict_functions_walker.exit
+    i32 36, label %contain_nonstrict_functions_walker.exit
+    i32 37, label %contain_nonstrict_functions_walker.exit
+    i32 39, label %contain_nonstrict_functions_walker.exit
+    i32 45, label %contain_nonstrict_functions_walker.exit
+    i32 46, label %contain_nonstrict_functions_walker.exit
+  ]
+
+17:                                               ; preds = %15
+  %18 = getelementptr inbounds i8, ptr %.tr49.i, i64 4
+  %19 = load i32, ptr %18, align 4
+  %switch.i = icmp ult i32 %19, 2
+  br i1 %switch.i, label %contain_nonstrict_functions_walker.exit, label %.thread.i
+
+tailrecurse.backedge.i:                           ; preds = %15, %15
+  %.tr.be.in.i = getelementptr inbounds i8, ptr %.tr49.i, i64 8
+  %.tr.be.i = load ptr, ptr %.tr.be.in.i, align 8
+  %20 = icmp eq ptr %.tr.be.i, null
+  br i1 %20, label %contain_nonstrict_functions_walker.exit, label %.lr.ph.i
+
+.thread.i:                                        ; preds = %15, %17
+  %21 = tail call zeroext i1 @check_functions_in_node(ptr noundef nonnull %.tr49.i, ptr noundef nonnull @contain_nonstrict_functions_checker, ptr noundef null) #9
+  br i1 %21, label %contain_nonstrict_functions_walker.exit, label %22
+
+22:                                               ; preds = %.thread.i
+  %23 = tail call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %.tr49.i, ptr noundef nonnull @contain_nonstrict_functions_walker, ptr noundef null) #9
+  br label %contain_nonstrict_functions_walker.exit
+
+contain_nonstrict_functions_walker.exit:          ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %4, %7, %11, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %tailrecurse.backedge.i, %1, %17, %.thread.i, %22
+  %.0.i = phi i1 [ %23, %22 ], [ true, %17 ], [ true, %.thread.i ], [ false, %1 ], [ true, %15 ], [ true, %15 ], [ true, %15 ], [ true, %15 ], [ true, %15 ], [ true, %15 ], [ true, %15 ], [ true, %15 ], [ true, %15 ], [ true, %15 ], [ true, %15 ], [ true, %15 ], [ true, %15 ], [ true, %15 ], [ true, %15 ], [ true, %7 ], [ true, %11 ], [ true, %4 ], [ true, %.lr.ph.i ], [ true, %.lr.ph.i ], [ true, %.lr.ph.i ], [ false, %tailrecurse.backedge.i ]
+  ret i1 %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5469,7 +5549,7 @@ thread-pre-split:                                 ; preds = %298
   br i1 %308, label %309, label %311
 
 309:                                              ; preds = %305
-  %310 = call zeroext i1 @contain_nonstrict_functions_walker(ptr noundef %292, ptr noundef null)
+  %310 = call zeroext i1 @contain_nonstrict_functions(ptr noundef %292)
   br i1 %310, label %list_length.exit63.thread, label %311
 
 311:                                              ; preds = %309, %305

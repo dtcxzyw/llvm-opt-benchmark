@@ -1129,8 +1129,8 @@ define hidden void @"_ZN22aws_smithy_runtime_api6client12orchestrator26Orchestra
 7:                                                ; preds = %6, %2
   %8 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr68drop_in_place$LT$aws_smithy_types..byte_stream..error..ErrorKind$GT$17h2a124e61d8806190E.llvm.13640993958878838948"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-          to label %"_ZN4core3ptr64drop_in_place$LT$aws_smithy_types..byte_stream..error..Error$GT$17hb6539f67845e0d4bE.exit.i.i" unwind label %9
+  invoke void @"_ZN4core3ptr64drop_in_place$LT$aws_smithy_types..byte_stream..error..Error$GT$17hb6539f67845e0d4bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1) #22
+          to label %11 unwind label %9
 
 9:                                                ; preds = %7
   %10 = landingpad { ptr, i32 }
@@ -1138,7 +1138,7 @@ define hidden void @"_ZN22aws_smithy_runtime_api6client12orchestrator26Orchestra
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #20
   unreachable
 
-"_ZN4core3ptr64drop_in_place$LT$aws_smithy_types..byte_stream..error..Error$GT$17hb6539f67845e0d4bE.exit.i.i": ; preds = %7
+11:                                               ; preds = %7
   resume { ptr, i32 } %8
 
 "_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h4b25f705565405e0E.llvm.7732229130619922905.exit": ; preds = %.noexc.i.i
@@ -3018,8 +3018,8 @@ define hidden { ptr, ptr } @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$
 7:                                                ; preds = %6, %2
   %8 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr68drop_in_place$LT$aws_smithy_types..byte_stream..error..ErrorKind$GT$17h2a124e61d8806190E.llvm.13640993958878838948"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-          to label %"_ZN4core3ptr64drop_in_place$LT$aws_smithy_types..byte_stream..error..Error$GT$17hb6539f67845e0d4bE.exit.i" unwind label %9
+  invoke void @"_ZN4core3ptr64drop_in_place$LT$aws_smithy_types..byte_stream..error..Error$GT$17hb6539f67845e0d4bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) #22
+          to label %11 unwind label %9
 
 9:                                                ; preds = %7
   %10 = landingpad { ptr, i32 }
@@ -3027,14 +3027,14 @@ define hidden { ptr, ptr } @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #20
   unreachable
 
-"_ZN4core3ptr64drop_in_place$LT$aws_smithy_types..byte_stream..error..Error$GT$17hb6539f67845e0d4bE.exit.i": ; preds = %7
+11:                                               ; preds = %7
   resume { ptr, i32 } %8
 
 "_ZN146_$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$u20$as$u20$core..convert..From$LT$E$GT$$GT$4from17h59f4bb1f4be73062E.exit": ; preds = %.noexc.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
-  %11 = insertvalue { ptr, ptr } poison, ptr %4, 0
-  %12 = insertvalue { ptr, ptr } %11, ptr @anon.53d869f0664223b6d57b989c23a3c619.35.llvm.1658197872865421663, 1
-  ret { ptr, ptr } %12
+  %12 = insertvalue { ptr, ptr } poison, ptr %4, 0
+  %13 = insertvalue { ptr, ptr } %12, ptr @anon.53d869f0664223b6d57b989c23a3c619.35.llvm.1658197872865421663, 1
+  ret { ptr, ptr } %13
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -4064,7 +4064,7 @@ declare hidden void @"_ZN4core3ptr123drop_in_place$LT$aws_sdk_glue..types..error
 declare hidden void @"_ZN4core3ptr52drop_in_place$LT$aws_smithy_types..body..SdkBody$GT$17he37fa81788c629aaE"(ptr noalias noundef align 8 dereferenceable(88)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN4core3ptr68drop_in_place$LT$aws_smithy_types..byte_stream..error..ErrorKind$GT$17h2a124e61d8806190E.llvm.13640993958878838948"(ptr noalias noundef align 8 dereferenceable(24)) unnamed_addr #0
+declare hidden void @"_ZN4core3ptr64drop_in_place$LT$aws_smithy_types..byte_stream..error..Error$GT$17hb6539f67845e0d4bE"(ptr noalias noundef align 8 dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN4core3ptr67drop_in_place$LT$aws_smithy_runtime_api..http..headers..Headers$GT$17h20f97c3a01e9fd92E"(ptr noalias noundef align 8 dereferenceable(96)) unnamed_addr #0

@@ -130,8 +130,6 @@ $_ZNSt17_Function_handlerIFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 
 $_ZNSt17_Function_handlerIFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt5_BindIFPFvS5_RKS5_ES5_St12_PlaceholderILi1EEEEE10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation = comdat any
 
-$_ZNSt14_Function_base13_Base_managerISt5_BindIFPFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS7_ES7_St12_PlaceholderILi1EEEEE10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation = comdat any
-
 $_ZNSt15_Sp_counted_ptrIPN7openvdb5v11_02io14StreamMetadataELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
 
 $_ZNSt15_Sp_counted_ptrIPN7openvdb5v11_02io14StreamMetadataELN9__gnu_cxx12_Lock_policyE2EED0Ev = comdat any
@@ -4384,38 +4382,13 @@ _ZSt10__invoke_rIvRSt5_BindIFPFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef zeroext i1 @_ZNSt17_Function_handlerIFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt5_BindIFPFvS5_RKS5_ES5_St12_PlaceholderILi1EEEEE10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 comdat align 2 {
-entry:
-  switch i32 %__op, label %sw.default [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb1
-  ]
-
-sw.bb:                                            ; preds = %entry
-  store ptr @_ZTISt5_BindIFPFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_ES5_St12_PlaceholderILi1EEEE, ptr %__dest, align 8
-  br label %sw.epilog
-
-sw.bb1:                                           ; preds = %entry
-  %0 = load ptr, ptr %__source, align 8
-  store ptr %0, ptr %__dest, align 8
-  br label %sw.epilog
-
-sw.default:                                       ; preds = %entry
-  %call4 = tail call noundef zeroext i1 @_ZNSt14_Function_base13_Base_managerISt5_BindIFPFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS7_ES7_St12_PlaceholderILi1EEEEE10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op)
-  br label %sw.epilog
-
-sw.epilog:                                        ; preds = %sw.default, %sw.bb1, %sw.bb
-  ret i1 false
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef zeroext i1 @_ZNSt14_Function_base13_Base_managerISt5_BindIFPFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS7_ES7_St12_PlaceholderILi1EEEEE10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef zeroext i1 @_ZNSt17_Function_handlerIFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt5_BindIFPFvS5_RKS5_ES5_St12_PlaceholderILi1EEEEE10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
     i32 1, label %sw.bb1
-    i32 2, label %sw.bb4
-    i32 3, label %sw.bb6
+    i32 3, label %sw.bb6.i
+    i32 2, label %sw.bb4.i
   ]
 
 sw.bb:                                            ; preds = %entry
@@ -4427,38 +4400,38 @@ sw.bb1:                                           ; preds = %entry
   store ptr %0, ptr %__dest, align 8
   br label %sw.epilog
 
-sw.bb4:                                           ; preds = %entry
+sw.bb4.i:                                         ; preds = %entry
   %1 = load ptr, ptr %__source, align 8
-  %call.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20
   %2 = load ptr, ptr %1, align 8
-  store ptr %2, ptr %call.i.i, align 8
-  %_M_bound_args.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
-  %_M_bound_args3.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_bound_args.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %_M_bound_args3.i.i.i)
-          to label %_ZNSt14_Function_base13_Base_managerISt5_BindIFPFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS7_ES7_St12_PlaceholderILi1EEEEE15_M_init_functorIRKSF_EEvRSt9_Any_dataOT_.exit unwind label %lpad.i.i
+  store ptr %2, ptr %call.i.i.i, align 8
+  %_M_bound_args.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
+  %_M_bound_args3.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_bound_args.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %_M_bound_args3.i.i.i.i)
+          to label %_ZNSt14_Function_base13_Base_managerISt5_BindIFPFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS7_ES7_St12_PlaceholderILi1EEEEE15_M_init_functorIRKSF_EEvRSt9_Any_dataOT_.exit.i unwind label %lpad.i.i.i
 
-lpad.i.i:                                         ; preds = %sw.bb4
+lpad.i.i.i:                                       ; preds = %sw.bb4.i
   %3 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call.i.i) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %call.i.i.i) #21
   resume { ptr, i32 } %3
 
-_ZNSt14_Function_base13_Base_managerISt5_BindIFPFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS7_ES7_St12_PlaceholderILi1EEEEE15_M_init_functorIRKSF_EEvRSt9_Any_dataOT_.exit: ; preds = %sw.bb4
-  store ptr %call.i.i, ptr %__dest, align 8
+_ZNSt14_Function_base13_Base_managerISt5_BindIFPFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS7_ES7_St12_PlaceholderILi1EEEEE15_M_init_functorIRKSF_EEvRSt9_Any_dataOT_.exit.i: ; preds = %sw.bb4.i
+  store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
 
-sw.bb6:                                           ; preds = %entry
+sw.bb6.i:                                         ; preds = %entry
   %4 = load ptr, ptr %__dest, align 8
-  %isnull.i = icmp eq ptr %4, null
-  br i1 %isnull.i, label %sw.epilog, label %delete.notnull.i
+  %isnull.i.i = icmp eq ptr %4, null
+  br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
 
-delete.notnull.i:                                 ; preds = %sw.bb6
-  %_M_bound_args.i.i = getelementptr inbounds i8, ptr %4, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_bound_args.i.i) #22
+delete.notnull.i.i:                               ; preds = %sw.bb6.i
+  %_M_bound_args.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_bound_args.i.i.i) #22
   tail call void @_ZdlPv(ptr noundef nonnull %4) #21
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %delete.notnull.i, %sw.bb6, %_ZNSt14_Function_base13_Base_managerISt5_BindIFPFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS7_ES7_St12_PlaceholderILi1EEEEE15_M_init_functorIRKSF_EEvRSt9_Any_dataOT_.exit, %sw.bb1, %sw.bb, %entry
+sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %_ZNSt14_Function_base13_Base_managerISt5_BindIFPFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS7_ES7_St12_PlaceholderILi1EEEEE15_M_init_functorIRKSF_EEvRSt9_Any_dataOT_.exit.i, %sw.bb1, %sw.bb
   ret i1 false
 }
 

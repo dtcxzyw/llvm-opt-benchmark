@@ -1759,7 +1759,7 @@ $_ZSt10__do_visitINSt8__detail9__variant21__deduce_visit_resultIN8pybind116handl
 
 $_ZNSt8__detail9__variant14_UninitializedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EEC2IJRA6_KcEEESt16in_place_index_tILm0EEDpOT_ = comdat any
 
-$_ZN8pybind116detail14variant_casterISt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE16load_alternativeIS3_JiS9_EEEbNS_6handleEbNS0_9type_listIJT_DpT0_EEE = comdat any
+$_ZN8pybind116detail14variant_casterISt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE4loadENS_6handleEb = comdat any
 
 $_ZN8pybind116detail14variant_casterISt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE16load_alternativeIS9_JEEEbNS_6handleEbNS0_9type_listIJT_DpT0_EEE = comdat any
 
@@ -86750,142 +86750,230 @@ define internal ptr @"_ZZN8pybind1112cpp_function10initializeIZ18test_submodule_
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 1
   %9 = icmp ne i64 %8, 0
-  br i1 %9, label %10, label %12
+  %10 = invoke noundef zeroext i1 @_ZN8pybind116detail14variant_casterISt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE4loadENS_6handleEb(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr %.sroa.0.0.copyload.i.i.i, i1 noundef zeroext %9)
+          to label %_ZN8pybind116detail15argument_loaderIJRKSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEE9load_argsERNS0_13function_callE.exit.i unwind label %11
 
-10:                                               ; preds = %1
-  %11 = invoke noundef zeroext i1 @_ZN8pybind116detail14variant_casterISt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE16load_alternativeIS3_JiS9_EEEbNS_6handleEbNS0_9type_listIJT_DpT0_EEE(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr %.sroa.0.0.copyload.i.i.i, i1 noundef zeroext false)
-          to label %.noexc.i unwind label %14
+_ZN8pybind116detail15argument_loaderIJRKSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEE9load_argsERNS0_13function_callE.exit.i: ; preds = %1
+  br i1 %10, label %15, label %28
 
-.noexc.i:                                         ; preds = %10
-  br i1 %11, label %_ZN8pybind116detail15argument_loaderIJRKSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEE9load_argsERNS0_13function_callE.exit.thread.i, label %12
-
-12:                                               ; preds = %.noexc.i, %1
-  %13 = invoke noundef zeroext i1 @_ZN8pybind116detail14variant_casterISt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE16load_alternativeIS3_JiS9_EEEbNS_6handleEbNS0_9type_listIJT_DpT0_EEE(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr %.sroa.0.0.copyload.i.i.i, i1 noundef zeroext %9)
-          to label %_ZN8pybind116detail15argument_loaderIJRKSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEE9load_argsERNS0_13function_callE.exit.i unwind label %14
-
-_ZN8pybind116detail15argument_loaderIJRKSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEE9load_argsERNS0_13function_callE.exit.i: ; preds = %12
-  br i1 %13, label %_ZN8pybind116detail15argument_loaderIJRKSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEE9load_argsERNS0_13function_callE.exit.thread.i, label %30
-
-14:                                               ; preds = %switch.lookup, %12, %10
-  %15 = landingpad { ptr, i32 }
+11:                                               ; preds = %switch.lookup, %1
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %16 = getelementptr inbounds i8, ptr %2, i64 32
-  %17 = load i8, ptr %16, align 8
-  %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i23.i = icmp ult i8 %17, 2
-  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i23.i, label %_ZN8pybind116detail15argument_loaderIJRKSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEED2Ev.exit24.i, label %34
+  %13 = getelementptr inbounds i8, ptr %2, i64 32
+  %14 = load i8, ptr %13, align 8
+  %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i22.i = icmp ult i8 %14, 2
+  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i22.i, label %_ZN8pybind116detail15argument_loaderIJRKSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEED2Ev.exit23.i, label %32
 
-_ZN8pybind116detail15argument_loaderIJRKSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEE9load_argsERNS0_13function_callE.exit.thread.i: ; preds = %_ZN8pybind116detail15argument_loaderIJRKSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEE9load_argsERNS0_13function_callE.exit.i, %.noexc.i
-  %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 89
-  %20 = load i16, ptr %19, align 1
-  %21 = and i16 %20, 32
-  %.not.i = icmp eq i16 %21, 0
+15:                                               ; preds = %_ZN8pybind116detail15argument_loaderIJRKSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEE9load_argsERNS0_13function_callE.exit.i
+  %16 = load ptr, ptr %0, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 89
+  %18 = load i16, ptr %17, align 1
+  %19 = and i16 %18, 32
+  %.not.i = icmp eq i16 %19, 0
   br i1 %.not.i, label %switch.lookup, label %_ZN8pybind114noneD2Ev.exit.i
 
-_ZN8pybind114noneD2Ev.exit.i:                     ; preds = %_ZN8pybind116detail15argument_loaderIJRKSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEE9load_argsERNS0_13function_callE.exit.thread.i
-  %22 = load i64, ptr @_Py_NoneStruct, align 8
-  %23 = add nsw i64 %22, 1
-  store i64 %23, ptr @_Py_NoneStruct, align 8
-  br label %30
+_ZN8pybind114noneD2Ev.exit.i:                     ; preds = %15
+  %20 = load i64, ptr @_Py_NoneStruct, align 8
+  %21 = add nsw i64 %20, 1
+  store i64 %21, ptr @_Py_NoneStruct, align 8
+  br label %28
 
-switch.lookup:                                    ; preds = %_ZN8pybind116detail15argument_loaderIJRKSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEE9load_argsERNS0_13function_callE.exit.thread.i
-  %24 = getelementptr inbounds i8, ptr %18, i64 88
-  %25 = load i8, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %2, i64 32
-  %.val19.i = load i8, ptr %26, align 8
-  %27 = sext i8 %.val19.i to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZZN8pybind1112cpp_function10initializeIZ18test_submodule_stlRNS_7module_EE4$_42PKcJRKSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESY_", i64 0, i64 %27
+switch.lookup:                                    ; preds = %15
+  %22 = getelementptr inbounds i8, ptr %16, i64 88
+  %23 = load i8, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %2, i64 32
+  %.val19.i = load i8, ptr %24, align 8
+  %25 = sext i8 %.val19.i to i64
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZZN8pybind1112cpp_function10initializeIZ18test_submodule_stlRNS_7module_EE4$_42PKcJRKSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESY_", i64 0, i64 %25
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 88
-  %.sroa.01.0.copyload.i = load ptr, ptr %28, align 8
-  %29 = invoke ptr @_ZN8pybind116detail11type_casterIcvE4castEPKcNS_19return_value_policyENS_6handleE(ptr noundef nonnull %switch.load, i8 noundef zeroext %25, ptr %.sroa.01.0.copyload.i)
-          to label %30 unwind label %14
+  %26 = getelementptr inbounds i8, ptr %0, i64 88
+  %.sroa.01.0.copyload.i = load ptr, ptr %26, align 8
+  %27 = invoke ptr @_ZN8pybind116detail11type_casterIcvE4castEPKcNS_19return_value_policyENS_6handleE(ptr noundef nonnull %switch.load, i8 noundef zeroext %23, ptr %.sroa.01.0.copyload.i)
+          to label %28 unwind label %11
 
-30:                                               ; preds = %switch.lookup, %_ZN8pybind114noneD2Ev.exit.i, %_ZN8pybind116detail15argument_loaderIJRKSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEE9load_argsERNS0_13function_callE.exit.i
-  %.sroa.0.1.i = phi ptr [ inttoptr (i64 1 to ptr), %_ZN8pybind116detail15argument_loaderIJRKSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEE9load_argsERNS0_13function_callE.exit.i ], [ @_Py_NoneStruct, %_ZN8pybind114noneD2Ev.exit.i ], [ %29, %switch.lookup ]
-  %31 = getelementptr inbounds i8, ptr %2, i64 32
-  %32 = load i8, ptr %31, align 8
-  %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i8 %32, 2
-  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZZN8pybind1112cpp_function10initializeIZ18test_submodule_stlRNS_7module_EE4$_42PKcJRKSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESY_.exit", label %33
+28:                                               ; preds = %switch.lookup, %_ZN8pybind114noneD2Ev.exit.i, %_ZN8pybind116detail15argument_loaderIJRKSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEE9load_argsERNS0_13function_callE.exit.i
+  %.sroa.0.1.i = phi ptr [ inttoptr (i64 1 to ptr), %_ZN8pybind116detail15argument_loaderIJRKSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEE9load_argsERNS0_13function_callE.exit.i ], [ @_Py_NoneStruct, %_ZN8pybind114noneD2Ev.exit.i ], [ %27, %switch.lookup ]
+  %29 = getelementptr inbounds i8, ptr %2, i64 32
+  %30 = load i8, ptr %29, align 8
+  %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i8 %30, 2
+  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZZN8pybind1112cpp_function10initializeIZ18test_submodule_stlRNS_7module_EE4$_42PKcJRKSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESY_.exit", label %31
 
-33:                                               ; preds = %30
+31:                                               ; preds = %28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #27
   br label %"_ZZN8pybind1112cpp_function10initializeIZ18test_submodule_stlRNS_7module_EE4$_42PKcJRKSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESY_.exit"
 
-34:                                               ; preds = %14
+32:                                               ; preds = %11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #27
-  br label %_ZN8pybind116detail15argument_loaderIJRKSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEED2Ev.exit24.i
+  br label %_ZN8pybind116detail15argument_loaderIJRKSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEED2Ev.exit23.i
 
-_ZN8pybind116detail15argument_loaderIJRKSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEED2Ev.exit24.i: ; preds = %34, %14
-  resume { ptr, i32 } %15
+_ZN8pybind116detail15argument_loaderIJRKSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEED2Ev.exit23.i: ; preds = %32, %11
+  resume { ptr, i32 } %12
 
-"_ZZN8pybind1112cpp_function10initializeIZ18test_submodule_stlRNS_7module_EE4$_42PKcJRKSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESY_.exit": ; preds = %30, %33
+"_ZZN8pybind1112cpp_function10initializeIZ18test_submodule_stlRNS_7module_EE4$_42PKcJRKSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESY_.exit": ; preds = %28, %31
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
   ret ptr %.sroa.0.1.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZN8pybind116detail14variant_casterISt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE16load_alternativeIS3_JiS9_EEEbNS_6handleEbNS0_9type_listIJT_DpT0_EEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr %1, i1 noundef zeroext %2) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef zeroext i1 @_ZN8pybind116detail14variant_casterISt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE4loadENS_6handleEb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr %1, i1 noundef zeroext %2) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.pybind11::detail::type_caster.563", align 4
-  %5 = icmp eq ptr %1, @_Py_NoneStruct
-  br i1 %5, label %6, label %10
+  br i1 %2, label %5, label %36
 
-6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
-  %8 = load i8, ptr %7, align 8
-  switch i8 %8, label %9 [
-    i8 0, label %_ZNSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSIS0_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS0_iS6_EE4typeEE18is_constructible_vISE_SB_E15is_assignable_vIRSE_SB_EERS7_E4typeESC_.exit
-    i8 1, label %_ZNSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7emplaceILm0EJS0_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS0_iS6_EE4typeEDpT0_EERSC_E4typeEDpOSD_.exit.i
+5:                                                ; preds = %3
+  %6 = icmp eq ptr %1, @_Py_NoneStruct
+  br i1 %6, label %7, label %11
+
+7:                                                ; preds = %5
+  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = load i8, ptr %8, align 8
+  switch i8 %9, label %10 [
+    i8 0, label %_ZN8pybind116detail14variant_casterISt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE16load_alternativeIS3_JiS9_EEEbNS_6handleEbNS0_9type_listIJT_DpT0_EEE.exit11
+    i8 1, label %_ZNSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7emplaceILm0EJS0_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS0_iS6_EE4typeEDpT0_EERSC_E4typeEDpOSD_.exit.i.i
   ]
 
-9:                                                ; preds = %6
+10:                                               ; preds = %7
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #27
-  br label %_ZNSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7emplaceILm0EJS0_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS0_iS6_EE4typeEDpT0_EERSC_E4typeEDpOSD_.exit.i
+  br label %_ZNSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7emplaceILm0EJS0_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS0_iS6_EE4typeEDpT0_EERSC_E4typeEDpOSD_.exit.i.i
 
-_ZNSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7emplaceILm0EJS0_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS0_iS6_EE4typeEDpT0_EERSC_E4typeEDpOSD_.exit.i: ; preds = %9, %6
-  store i8 0, ptr %7, align 8
-  br label %_ZNSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSIS0_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS0_iS6_EE4typeEE18is_constructible_vISE_SB_E15is_assignable_vIRSE_SB_EERS7_E4typeESC_.exit
+_ZNSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7emplaceILm0EJS0_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS0_iS6_EE4typeEDpT0_EERSC_E4typeEDpOSD_.exit.i.i: ; preds = %10, %7
+  store i8 0, ptr %8, align 8
+  br label %_ZN8pybind116detail14variant_casterISt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE16load_alternativeIS3_JiS9_EEEbNS_6handleEbNS0_9type_listIJT_DpT0_EEE.exit11
 
-10:                                               ; preds = %3
+11:                                               ; preds = %5
+  %.not27.i = icmp eq ptr %1, null
+  br i1 %.not27.i, label %_ZN8pybind116detail14variant_casterISt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE16load_alternativeIS3_JiS9_EEEbNS_6handleEbNS0_9type_listIJT_DpT0_EEE.exit, label %12
+
+12:                                               ; preds = %11
+  %13 = getelementptr i8, ptr %1, i64 8
+  %.val18.i = load ptr, ptr %13, align 8
+  %.not.i.i = icmp eq ptr %.val18.i, @PyFloat_Type
+  br i1 %.not.i.i, label %_ZN8pybind116detail14variant_casterISt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE16load_alternativeIS3_JiS9_EEEbNS_6handleEbNS0_9type_listIJT_DpT0_EEE.exit, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i
+
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i: ; preds = %12
+  %14 = tail call i32 @PyType_IsSubtype(ptr noundef %.val18.i, ptr noundef nonnull @PyFloat_Type)
+  %.not28.i = icmp eq i32 %14, 0
+  br i1 %.not28.i, label %15, label %_ZN8pybind116detail14variant_casterISt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE16load_alternativeIS3_JiS9_EEEbNS_6handleEbNS0_9type_listIJT_DpT0_EEE.exit
+
+15:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i
+  %16 = load ptr, ptr %13, align 8
+  %17 = getelementptr i8, ptr %16, i64 168
+  %.val.i = load i64, ptr %17, align 8
+  %18 = and i64 %.val.i, 16777216
+  %.not11.i = icmp eq i64 %18, 0
+  br i1 %.not11.i, label %19, label %21
+
+19:                                               ; preds = %15
+  %20 = tail call noundef i32 @PyIndex_Check(ptr noundef nonnull %1)
+  %.not12.i = icmp eq i32 %20, 0
+  br i1 %.not12.i, label %_ZN8pybind116detail14variant_casterISt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE16load_alternativeIS3_JiS9_EEEbNS_6handleEbNS0_9type_listIJT_DpT0_EEE.exit, label %21
+
+21:                                               ; preds = %19, %15
+  %22 = tail call i64 @PyLong_AsLong(ptr noundef nonnull %1)
+  %23 = icmp eq i64 %22, -1
+  br i1 %23, label %24, label %27
+
+24:                                               ; preds = %21
+  %25 = tail call ptr @PyErr_Occurred()
+  %26 = icmp eq ptr %25, null
+  br label %27
+
+27:                                               ; preds = %24, %21
+  %.not15.i = phi i1 [ true, %21 ], [ %26, %24 ]
+  %28 = add i64 %22, 2147483648
+  %.not13.i = icmp ult i64 %28, 4294967296
+  %or.cond.i = and i1 %.not13.i, %.not15.i
+  br i1 %or.cond.i, label %30, label %29
+
+29:                                               ; preds = %27
+  tail call void @PyErr_Clear()
+  br label %_ZN8pybind116detail14variant_casterISt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE16load_alternativeIS3_JiS9_EEEbNS_6handleEbNS0_9type_listIJT_DpT0_EEE.exit
+
+30:                                               ; preds = %27
+  %31 = trunc i64 %22 to i32
+  %32 = getelementptr inbounds i8, ptr %0, i64 32
+  %33 = load i8, ptr %32, align 8
+  switch i8 %33, label %34 [
+    i8 1, label %_ZSt3getILm1EJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSB_.exit.i.i.i
+    i8 0, label %_ZNSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7emplaceILm1EJiEEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS0_iS6_EE4typeEDpT0_EERSC_E4typeEDpOSD_.exit.i.i.i
+  ]
+
+_ZSt3getILm1EJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSB_.exit.i.i.i: ; preds = %30
+  store i32 %31, ptr %0, align 8
+  br label %_ZN8pybind116detail14variant_casterISt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE16load_alternativeIS3_JiS9_EEEbNS_6handleEbNS0_9type_listIJT_DpT0_EEE.exit11
+
+34:                                               ; preds = %30
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #27
+  br label %_ZNSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7emplaceILm1EJiEEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS0_iS6_EE4typeEDpT0_EERSC_E4typeEDpOSD_.exit.i.i.i
+
+_ZNSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7emplaceILm1EJiEEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS0_iS6_EE4typeEDpT0_EERSC_E4typeEDpOSD_.exit.i.i.i: ; preds = %34, %30
+  store i32 %31, ptr %0, align 8
+  store i8 1, ptr %32, align 8
+  br label %_ZN8pybind116detail14variant_casterISt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE16load_alternativeIS3_JiS9_EEEbNS_6handleEbNS0_9type_listIJT_DpT0_EEE.exit11
+
+_ZN8pybind116detail14variant_casterISt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE16load_alternativeIS3_JiS9_EEEbNS_6handleEbNS0_9type_listIJT_DpT0_EEE.exit: ; preds = %12, %29, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i, %19, %11
+  %35 = tail call noundef zeroext i1 @_ZN8pybind116detail14variant_casterISt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE16load_alternativeIS9_JEEEbNS_6handleEbNS0_9type_listIJT_DpT0_EEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr %1, i1 noundef zeroext false)
+  br i1 %35, label %_ZN8pybind116detail14variant_casterISt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE16load_alternativeIS3_JiS9_EEEbNS_6handleEbNS0_9type_listIJT_DpT0_EEE.exit11, label %36
+
+36:                                               ; preds = %_ZN8pybind116detail14variant_casterISt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE16load_alternativeIS3_JiS9_EEEbNS_6handleEbNS0_9type_listIJT_DpT0_EEE.exit, %3
+  %37 = icmp eq ptr %1, @_Py_NoneStruct
+  br i1 %37, label %38, label %42
+
+38:                                               ; preds = %36
+  %39 = getelementptr inbounds i8, ptr %0, i64 32
+  %40 = load i8, ptr %39, align 8
+  switch i8 %40, label %41 [
+    i8 0, label %_ZN8pybind116detail14variant_casterISt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE16load_alternativeIS3_JiS9_EEEbNS_6handleEbNS0_9type_listIJT_DpT0_EEE.exit11
+    i8 1, label %_ZNSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7emplaceILm0EJS0_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS0_iS6_EE4typeEDpT0_EERSC_E4typeEDpOSD_.exit.i.i10
+  ]
+
+41:                                               ; preds = %38
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #27
+  br label %_ZNSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7emplaceILm0EJS0_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS0_iS6_EE4typeEDpT0_EERSC_E4typeEDpOSD_.exit.i.i10
+
+_ZNSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7emplaceILm0EJS0_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS0_iS6_EE4typeEDpT0_EERSC_E4typeEDpOSD_.exit.i.i10: ; preds = %41, %38
+  store i8 0, ptr %39, align 8
+  br label %_ZN8pybind116detail14variant_casterISt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE16load_alternativeIS3_JiS9_EEEbNS_6handleEbNS0_9type_listIJT_DpT0_EEE.exit11
+
+42:                                               ; preds = %36
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 0, ptr %4, align 4
-  %11 = call noundef zeroext i1 @_ZN8pybind116detail11type_casterIivE4loadENS_6handleEb(ptr noundef nonnull align 4 dereferenceable(4) %4, ptr %1, i1 noundef zeroext %2)
-  br i1 %11, label %12, label %18
+  %43 = call noundef zeroext i1 @_ZN8pybind116detail11type_casterIivE4loadENS_6handleEb(ptr noundef nonnull align 4 dereferenceable(4) %4, ptr %1, i1 noundef zeroext %2)
+  br i1 %43, label %44, label %50
 
-12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
-  %14 = load i8, ptr %13, align 8
-  switch i8 %14, label %16 [
-    i8 1, label %_ZSt3getILm1EJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSB_.exit.i.i
-    i8 0, label %_ZNSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7emplaceILm1EJiEEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS0_iS6_EE4typeEDpT0_EERSC_E4typeEDpOSD_.exit.i.i
+44:                                               ; preds = %42
+  %45 = getelementptr inbounds i8, ptr %0, i64 32
+  %46 = load i8, ptr %45, align 8
+  switch i8 %46, label %48 [
+    i8 1, label %_ZSt3getILm1EJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSB_.exit.i.i.i9
+    i8 0, label %_ZNSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7emplaceILm1EJiEEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS0_iS6_EE4typeEDpT0_EERSC_E4typeEDpOSD_.exit.i.i.i8
   ]
 
-_ZSt3getILm1EJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSB_.exit.i.i: ; preds = %12
-  %15 = load i32, ptr %4, align 4
-  store i32 %15, ptr %0, align 8
-  br label %_ZN8pybind116detail14variant_casterISt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE16load_alternativeIiJS9_EEEbNS_6handleEbNS0_9type_listIJT_DpT0_EEE.exit
+_ZSt3getILm1EJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSB_.exit.i.i.i9: ; preds = %44
+  %47 = load i32, ptr %4, align 4
+  store i32 %47, ptr %0, align 8
+  br label %_ZN8pybind116detail14variant_casterISt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE16load_alternativeIiJS9_EEEbNS_6handleEbNS0_9type_listIJT_DpT0_EEE.exit.i5
 
-16:                                               ; preds = %12
+48:                                               ; preds = %44
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #27
-  br label %_ZNSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7emplaceILm1EJiEEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS0_iS6_EE4typeEDpT0_EERSC_E4typeEDpOSD_.exit.i.i
+  br label %_ZNSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7emplaceILm1EJiEEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS0_iS6_EE4typeEDpT0_EERSC_E4typeEDpOSD_.exit.i.i.i8
 
-_ZNSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7emplaceILm1EJiEEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS0_iS6_EE4typeEDpT0_EERSC_E4typeEDpOSD_.exit.i.i: ; preds = %16, %12
-  %17 = load i32, ptr %4, align 4
-  store i32 %17, ptr %0, align 8
-  store i8 1, ptr %13, align 8
-  br label %_ZN8pybind116detail14variant_casterISt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE16load_alternativeIiJS9_EEEbNS_6handleEbNS0_9type_listIJT_DpT0_EEE.exit
+_ZNSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7emplaceILm1EJiEEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS0_iS6_EE4typeEDpT0_EERSC_E4typeEDpOSD_.exit.i.i.i8: ; preds = %48, %44
+  %49 = load i32, ptr %4, align 4
+  store i32 %49, ptr %0, align 8
+  store i8 1, ptr %45, align 8
+  br label %_ZN8pybind116detail14variant_casterISt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE16load_alternativeIiJS9_EEEbNS_6handleEbNS0_9type_listIJT_DpT0_EEE.exit.i5
 
-18:                                               ; preds = %10
-  %19 = call noundef zeroext i1 @_ZN8pybind116detail14variant_casterISt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE16load_alternativeIS9_JEEEbNS_6handleEbNS0_9type_listIJT_DpT0_EEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr %1, i1 noundef zeroext %2)
-  br label %_ZN8pybind116detail14variant_casterISt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE16load_alternativeIiJS9_EEEbNS_6handleEbNS0_9type_listIJT_DpT0_EEE.exit
+50:                                               ; preds = %42
+  %51 = call noundef zeroext i1 @_ZN8pybind116detail14variant_casterISt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE16load_alternativeIS9_JEEEbNS_6handleEbNS0_9type_listIJT_DpT0_EEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr %1, i1 noundef zeroext %2)
+  br label %_ZN8pybind116detail14variant_casterISt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE16load_alternativeIiJS9_EEEbNS_6handleEbNS0_9type_listIJT_DpT0_EEE.exit.i5
 
-_ZN8pybind116detail14variant_casterISt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE16load_alternativeIiJS9_EEEbNS_6handleEbNS0_9type_listIJT_DpT0_EEE.exit: ; preds = %_ZSt3getILm1EJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSB_.exit.i.i, %_ZNSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7emplaceILm1EJiEEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS0_iS6_EE4typeEDpT0_EERSC_E4typeEDpOSD_.exit.i.i, %18
-  %.0.i = phi i1 [ %19, %18 ], [ true, %_ZSt3getILm1EJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSB_.exit.i.i ], [ true, %_ZNSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7emplaceILm1EJiEEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS0_iS6_EE4typeEDpT0_EERSC_E4typeEDpOSD_.exit.i.i ]
+_ZN8pybind116detail14variant_casterISt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE16load_alternativeIiJS9_EEEbNS_6handleEbNS0_9type_listIJT_DpT0_EEE.exit.i5: ; preds = %50, %_ZNSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7emplaceILm1EJiEEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS0_iS6_EE4typeEDpT0_EERSC_E4typeEDpOSD_.exit.i.i.i8, %_ZSt3getILm1EJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSB_.exit.i.i.i9
+  %.0.i.i6 = phi i1 [ %51, %50 ], [ true, %_ZSt3getILm1EJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSB_.exit.i.i.i9 ], [ true, %_ZNSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7emplaceILm1EJiEEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS0_iS6_EE4typeEDpT0_EERSC_E4typeEDpOSD_.exit.i.i.i8 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  br label %_ZNSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSIS0_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS0_iS6_EE4typeEE18is_constructible_vISE_SB_E15is_assignable_vIRSE_SB_EERS7_E4typeESC_.exit
+  br label %_ZN8pybind116detail14variant_casterISt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE16load_alternativeIS3_JiS9_EEEbNS_6handleEbNS0_9type_listIJT_DpT0_EEE.exit11
 
-_ZNSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEaSIS0_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS0_iS6_EE4typeEE18is_constructible_vISE_SB_E15is_assignable_vIRSE_SB_EERS7_E4typeESC_.exit: ; preds = %_ZNSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7emplaceILm0EJS0_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS0_iS6_EE4typeEDpT0_EERSC_E4typeEDpOSD_.exit.i, %6, %_ZN8pybind116detail14variant_casterISt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE16load_alternativeIiJS9_EEEbNS_6handleEbNS0_9type_listIJT_DpT0_EEE.exit
-  %.0 = phi i1 [ %.0.i, %_ZN8pybind116detail14variant_casterISt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE16load_alternativeIiJS9_EEEbNS_6handleEbNS0_9type_listIJT_DpT0_EEE.exit ], [ true, %6 ], [ true, %_ZNSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7emplaceILm0EJS0_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS0_iS6_EE4typeEDpT0_EERSC_E4typeEDpOSD_.exit.i ]
+_ZN8pybind116detail14variant_casterISt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE16load_alternativeIS3_JiS9_EEEbNS_6handleEbNS0_9type_listIJT_DpT0_EEE.exit11: ; preds = %_ZNSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7emplaceILm1EJiEEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS0_iS6_EE4typeEDpT0_EERSC_E4typeEDpOSD_.exit.i.i.i, %_ZSt3getILm1EJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSB_.exit.i.i.i, %_ZNSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7emplaceILm0EJS0_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS0_iS6_EE4typeEDpT0_EERSC_E4typeEDpOSD_.exit.i.i, %7, %_ZN8pybind116detail14variant_casterISt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE16load_alternativeIiJS9_EEEbNS_6handleEbNS0_9type_listIJT_DpT0_EEE.exit.i5, %_ZNSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7emplaceILm0EJS0_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS0_iS6_EE4typeEDpT0_EERSC_E4typeEDpOSD_.exit.i.i10, %38, %_ZN8pybind116detail14variant_casterISt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE16load_alternativeIS3_JiS9_EEEbNS_6handleEbNS0_9type_listIJT_DpT0_EEE.exit
+  %.0 = phi i1 [ true, %_ZN8pybind116detail14variant_casterISt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE16load_alternativeIS3_JiS9_EEEbNS_6handleEbNS0_9type_listIJT_DpT0_EEE.exit ], [ %.0.i.i6, %_ZN8pybind116detail14variant_casterISt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE16load_alternativeIiJS9_EEEbNS_6handleEbNS0_9type_listIJT_DpT0_EEE.exit.i5 ], [ true, %38 ], [ true, %_ZNSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7emplaceILm0EJS0_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS0_iS6_EE4typeEDpT0_EERSC_E4typeEDpOSD_.exit.i.i10 ], [ true, %7 ], [ true, %_ZNSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7emplaceILm0EJS0_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS0_iS6_EE4typeEDpT0_EERSC_E4typeEDpOSD_.exit.i.i ], [ true, %_ZSt3getILm1EJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSB_.exit.i.i.i ], [ true, %_ZNSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7emplaceILm1EJiEEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS0_iS6_EE4typeEDpT0_EERSC_E4typeEDpOSD_.exit.i.i.i ]
   ret i1 %.0
 }
 

@@ -119,7 +119,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.mk_binary = private unnamed_addr constant [10 x i8] c"mk_binary\00", align 1
 @__func__.set_push = private unnamed_addr constant [9 x i8] c"set_push\00", align 1
 @__func__.mk_minus = private unnamed_addr constant [9 x i8] c"mk_minus\00", align 1
-@switch.table.dfvm_opcode_tostr = private unnamed_addr constant [50 x ptr] [ptr @.str, ptr @.str.1, ptr @.str.2, ptr @.str.3, ptr @.str.4, ptr @.str.5, ptr @.str.6, ptr @.str.7, ptr @.str.8, ptr @.str.9, ptr @.str.10, ptr @.str.11, ptr @.str.12, ptr @.str.13, ptr @.str.14, ptr @.str.15, ptr @.str.16, ptr @.str.17, ptr @.str.18, ptr @.str.19, ptr @.str.20, ptr @.str.21, ptr @.str.22, ptr @.str.23, ptr @.str.24, ptr @.str.25, ptr @.str.26, ptr @.str.27, ptr @.str.28, ptr @.str.29, ptr @.str.30, ptr @.str.31, ptr @.str.32, ptr @.str.33, ptr @.str.34, ptr @.str.35, ptr @.str.36, ptr @.str.37, ptr @.str.38, ptr @.str.39, ptr @.str.40, ptr @.str.41, ptr @.str.42, ptr @.str.43, ptr @.str.44, ptr @.str.45, ptr @.str.46, ptr @.str.47, ptr @.str.48, ptr @.str.49], align 8
+@switch.table.dfvm_dump_str = private unnamed_addr constant [50 x ptr] [ptr @.str, ptr @.str.1, ptr @.str.2, ptr @.str.3, ptr @.str.4, ptr @.str.5, ptr @.str.6, ptr @.str.7, ptr @.str.8, ptr @.str.9, ptr @.str.10, ptr @.str.11, ptr @.str.12, ptr @.str.13, ptr @.str.14, ptr @.str.15, ptr @.str.16, ptr @.str.17, ptr @.str.18, ptr @.str.19, ptr @.str.20, ptr @.str.21, ptr @.str.22, ptr @.str.23, ptr @.str.24, ptr @.str.25, ptr @.str.26, ptr @.str.27, ptr @.str.28, ptr @.str.29, ptr @.str.30, ptr @.str.31, ptr @.str.32, ptr @.str.33, ptr @.str.34, ptr @.str.35, ptr @.str.36, ptr @.str.37, ptr @.str.38, ptr @.str.39, ptr @.str.40, ptr @.str.41, ptr @.str.42, ptr @.str.43, ptr @.str.44, ptr @.str.45, ptr @.str.46, ptr @.str.47, ptr @.str.48, ptr @.str.49], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef nonnull ptr @dfvm_opcode_tostr(i32 noundef %0) local_unnamed_addr #0 {
@@ -128,7 +128,7 @@ define hidden noundef nonnull ptr @dfvm_opcode_tostr(i32 noundef %0) local_unnam
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [50 x ptr], ptr @switch.table.dfvm_opcode_tostr, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds [50 x ptr], ptr @switch.table.dfvm_dump_str, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -656,9 +656,9 @@ define hidden ptr @dfvm_dump_str(ptr noundef %0, ptr nocapture noundef readonly 
   %wide.trip.count = zext nneg i32 %23 to i64
   br label %28
 
-28:                                               ; preds = %.lr.ph, %193
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %193 ]
-  %.03739 = phi ptr [ null, %.lr.ph ], [ %.2, %193 ]
+28:                                               ; preds = %.lr.ph, %194
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %194 ]
+  %.03739 = phi ptr [ null, %.lr.ph ], [ %.2, %194 ]
   %29 = load ptr, ptr %1, align 8
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr ptr, ptr %30, i64 %indvars.iv
@@ -666,522 +666,532 @@ define hidden ptr @dfvm_dump_str(ptr noundef %0, ptr nocapture noundef readonly 
   %33 = load i64, ptr %25, align 8
   %34 = getelementptr inbounds i8, ptr %32, i64 4
   %35 = load i32, ptr %34, align 4
-  %36 = tail call ptr @dfvm_opcode_tostr(i32 noundef %35)
-  %37 = trunc nuw nsw i64 %indvars.iv to i32
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %4, ptr noundef nonnull @.str.56, i32 noundef %37, ptr noundef nonnull %36) #11
-  %38 = load i32, ptr %34, align 4
-  switch i32 %38, label %39 [
-    i32 5, label %193
-    i32 34, label %193
-    i32 49, label %193
+  %36 = icmp ult i32 %35, 50
+  br i1 %36, label %switch.lookup, label %dfvm_opcode_tostr.exit
+
+switch.lookup:                                    ; preds = %28
+  %37 = zext nneg i32 %35 to i64
+  %switch.gep = getelementptr inbounds [50 x ptr], ptr @switch.table.dfvm_dump_str, i64 0, i64 %37
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  br label %dfvm_opcode_tostr.exit
+
+dfvm_opcode_tostr.exit:                           ; preds = %28, %switch.lookup
+  %.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.50, %28 ]
+  %38 = trunc nuw nsw i64 %indvars.iv to i32
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.56, i32 noundef %38, ptr noundef nonnull %.0.i) #11
+  %39 = load i32, ptr %34, align 4
+  switch i32 %39, label %40 [
+    i32 5, label %194
+    i32 34, label %194
+    i32 49, label %194
   ]
 
-39:                                               ; preds = %28
-  %40 = load i64, ptr %25, align 8
-  %41 = sub i64 %40, %33
-  %.not.i = icmp ult i64 %41, 24
-  br i1 %.not.i, label %42, label %indent.exit
+40:                                               ; preds = %dfvm_opcode_tostr.exit
+  %41 = load i64, ptr %25, align 8
+  %42 = sub i64 %41, %33
+  %.not.i = icmp ult i64 %42, 24
+  br i1 %.not.i, label %43, label %indent.exit
 
-42:                                               ; preds = %39
-  %43 = sub nuw nsw i64 24, %41
-  tail call void @wmem_strbuf_append_c_count(ptr noundef nonnull %4, i8 noundef signext 32, i64 noundef %43) #11
+43:                                               ; preds = %40
+  %44 = sub nuw nsw i64 24, %42
+  tail call void @wmem_strbuf_append_c_count(ptr noundef nonnull %4, i8 noundef signext 32, i64 noundef %44) #11
   br label %indent.exit
 
-indent.exit:                                      ; preds = %39, %42
-  %44 = getelementptr inbounds i8, ptr %32, i64 8
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %32, i64 16
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %32, i64 24
-  %49 = load ptr, ptr %48, align 8
-  %50 = tail call fastcc ptr @dfvm_value_tostr(ptr noundef %45)
-  %51 = tail call fastcc ptr @dfvm_value_tostr(ptr noundef %47)
-  %52 = tail call fastcc ptr @dfvm_value_tostr(ptr noundef %49)
-  %53 = tail call fastcc ptr @value_type_tostr(ptr noundef %45, i1 noundef zeroext %27)
-  %54 = tail call fastcc ptr @value_type_tostr(ptr noundef %47, i1 noundef zeroext %27)
-  %55 = tail call fastcc ptr @value_type_tostr(ptr noundef %49, i1 noundef zeroext %27)
-  %56 = load i64, ptr %25, align 8
-  %57 = load i32, ptr %34, align 4
-  switch i32 %57, label %append_op_args.exit [
-    i32 3, label %58
-    i32 4, label %59
-    i32 7, label %60
-    i32 8, label %65
-    i32 9, label %70
-    i32 10, label %75
-    i32 11, label %80
-    i32 45, label %85
-    i32 46, label %109
-    i32 47, label %114
-    i32 35, label %122
-    i32 36, label %127
-    i32 37, label %132
-    i32 12, label %137
-    i32 13, label %138
-    i32 14, label %139
-    i32 15, label %140
-    i32 16, label %141
-    i32 17, label %141
-    i32 18, label %142
-    i32 19, label %142
-    i32 20, label %143
-    i32 21, label %143
-    i32 22, label %144
-    i32 23, label %144
-    i32 48, label %145
-    i32 24, label %146
-    i32 25, label %146
-    i32 26, label %147
-    i32 27, label %147
-    i32 28, label %148
-    i32 29, label %148
-    i32 30, label %148
-    i32 31, label %148
-    i32 32, label %149
-    i32 33, label %150
-    i32 38, label %151
-    i32 39, label %156
-    i32 40, label %161
-    i32 41, label %166
-    i32 42, label %171
-    i32 43, label %176
-    i32 44, label %181
-    i32 1, label %186
-    i32 2, label %186
-    i32 6, label %189
-    i32 5, label %191
-    i32 34, label %191
-    i32 0, label %191
-    i32 49, label %191
+indent.exit:                                      ; preds = %40, %43
+  %45 = getelementptr inbounds i8, ptr %32, i64 8
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr inbounds i8, ptr %32, i64 16
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds i8, ptr %32, i64 24
+  %50 = load ptr, ptr %49, align 8
+  %51 = tail call fastcc ptr @dfvm_value_tostr(ptr noundef %46)
+  %52 = tail call fastcc ptr @dfvm_value_tostr(ptr noundef %48)
+  %53 = tail call fastcc ptr @dfvm_value_tostr(ptr noundef %50)
+  %54 = tail call fastcc ptr @value_type_tostr(ptr noundef %46, i1 noundef zeroext %27)
+  %55 = tail call fastcc ptr @value_type_tostr(ptr noundef %48, i1 noundef zeroext %27)
+  %56 = tail call fastcc ptr @value_type_tostr(ptr noundef %50, i1 noundef zeroext %27)
+  %57 = load i64, ptr %25, align 8
+  %58 = load i32, ptr %34, align 4
+  switch i32 %58, label %append_op_args.exit [
+    i32 3, label %59
+    i32 4, label %60
+    i32 7, label %61
+    i32 8, label %66
+    i32 9, label %71
+    i32 10, label %76
+    i32 11, label %81
+    i32 45, label %86
+    i32 46, label %110
+    i32 47, label %115
+    i32 35, label %123
+    i32 36, label %128
+    i32 37, label %133
+    i32 12, label %138
+    i32 13, label %139
+    i32 14, label %140
+    i32 15, label %141
+    i32 16, label %142
+    i32 17, label %142
+    i32 18, label %143
+    i32 19, label %143
+    i32 20, label %144
+    i32 21, label %144
+    i32 22, label %145
+    i32 23, label %145
+    i32 48, label %146
+    i32 24, label %147
+    i32 25, label %147
+    i32 26, label %148
+    i32 27, label %148
+    i32 28, label %149
+    i32 29, label %149
+    i32 30, label %149
+    i32 31, label %149
+    i32 32, label %150
+    i32 33, label %151
+    i32 38, label %152
+    i32 39, label %157
+    i32 40, label %162
+    i32 41, label %167
+    i32 42, label %172
+    i32 43, label %177
+    i32 44, label %182
+    i32 1, label %187
+    i32 2, label %187
+    i32 6, label %190
+    i32 5, label %192
+    i32 34, label %192
+    i32 0, label %192
+    i32 49, label %192
   ]
 
-58:                                               ; preds = %indent.exit
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.66, ptr noundef %50, ptr noundef %53) #11
-  br label %append_op_args.exit
-
 59:                                               ; preds = %indent.exit
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.67, ptr noundef %50, ptr noundef %51, ptr noundef %53) #11
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.66, ptr noundef %51, ptr noundef %54) #11
   br label %append_op_args.exit
 
 60:                                               ; preds = %indent.exit
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.66, ptr noundef %50, ptr noundef %53) #11
-  %61 = load i64, ptr %25, align 8
-  %62 = sub i64 %61, %56
-  %.not.i.i = icmp ult i64 %62, 16
-  br i1 %.not.i.i, label %63, label %indent.exit.i
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.67, ptr noundef %51, ptr noundef %52, ptr noundef %54) #11
+  br label %append_op_args.exit
 
-63:                                               ; preds = %60
-  %64 = sub nuw nsw i64 16, %62
-  tail call void @wmem_strbuf_append_c_count(ptr noundef nonnull %4, i8 noundef signext 32, i64 noundef %64) #11
+61:                                               ; preds = %indent.exit
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.66, ptr noundef %51, ptr noundef %54) #11
+  %62 = load i64, ptr %25, align 8
+  %63 = sub i64 %62, %57
+  %.not.i.i = icmp ult i64 %63, 16
+  br i1 %.not.i.i, label %64, label %indent.exit.i
+
+64:                                               ; preds = %61
+  %65 = sub nuw nsw i64 16, %63
+  tail call void @wmem_strbuf_append_c_count(ptr noundef nonnull %4, i8 noundef signext 32, i64 noundef %65) #11
   br label %indent.exit.i
 
-indent.exit.i:                                    ; preds = %63, %60
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.100, ptr noundef %51) #11
+indent.exit.i:                                    ; preds = %64, %61
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.100, ptr noundef %52) #11
   br label %append_op_args.exit
 
-65:                                               ; preds = %indent.exit
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.67, ptr noundef %50, ptr noundef %52, ptr noundef %53) #11
-  %66 = load i64, ptr %25, align 8
-  %67 = sub i64 %66, %56
-  %.not.i239.i = icmp ult i64 %67, 16
-  br i1 %.not.i239.i, label %68, label %indent.exit240.i
+66:                                               ; preds = %indent.exit
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.67, ptr noundef %51, ptr noundef %53, ptr noundef %54) #11
+  %67 = load i64, ptr %25, align 8
+  %68 = sub i64 %67, %57
+  %.not.i239.i = icmp ult i64 %68, 16
+  br i1 %.not.i239.i, label %69, label %indent.exit240.i
 
-68:                                               ; preds = %65
-  %69 = sub nuw nsw i64 16, %67
-  tail call void @wmem_strbuf_append_c_count(ptr noundef nonnull %4, i8 noundef signext 32, i64 noundef %69) #11
+69:                                               ; preds = %66
+  %70 = sub nuw nsw i64 16, %68
+  tail call void @wmem_strbuf_append_c_count(ptr noundef nonnull %4, i8 noundef signext 32, i64 noundef %70) #11
   br label %indent.exit240.i
 
-indent.exit240.i:                                 ; preds = %68, %65
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.100, ptr noundef %51) #11
+indent.exit240.i:                                 ; preds = %69, %66
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.100, ptr noundef %52) #11
   br label %append_op_args.exit
 
-70:                                               ; preds = %indent.exit
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.68, ptr noundef %50, ptr noundef %53) #11
-  %71 = load i64, ptr %25, align 8
-  %72 = sub i64 %71, %56
-  %.not.i241.i = icmp ult i64 %72, 16
-  br i1 %.not.i241.i, label %73, label %indent.exit242.i
+71:                                               ; preds = %indent.exit
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.68, ptr noundef %51, ptr noundef %54) #11
+  %72 = load i64, ptr %25, align 8
+  %73 = sub i64 %72, %57
+  %.not.i241.i = icmp ult i64 %73, 16
+  br i1 %.not.i241.i, label %74, label %indent.exit242.i
 
-73:                                               ; preds = %70
-  %74 = sub nuw nsw i64 16, %72
-  tail call void @wmem_strbuf_append_c_count(ptr noundef nonnull %4, i8 noundef signext 32, i64 noundef %74) #11
+74:                                               ; preds = %71
+  %75 = sub nuw nsw i64 16, %73
+  tail call void @wmem_strbuf_append_c_count(ptr noundef nonnull %4, i8 noundef signext 32, i64 noundef %75) #11
   br label %indent.exit242.i
 
-indent.exit242.i:                                 ; preds = %73, %70
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.100, ptr noundef %51) #11
+indent.exit242.i:                                 ; preds = %74, %71
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.100, ptr noundef %52) #11
   br label %append_op_args.exit
 
-75:                                               ; preds = %indent.exit
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.69, ptr noundef %50, ptr noundef %52, ptr noundef %53) #11
-  %76 = load i64, ptr %25, align 8
-  %77 = sub i64 %76, %56
-  %.not.i243.i = icmp ult i64 %77, 16
-  br i1 %.not.i243.i, label %78, label %indent.exit244.i
+76:                                               ; preds = %indent.exit
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.69, ptr noundef %51, ptr noundef %53, ptr noundef %54) #11
+  %77 = load i64, ptr %25, align 8
+  %78 = sub i64 %77, %57
+  %.not.i243.i = icmp ult i64 %78, 16
+  br i1 %.not.i243.i, label %79, label %indent.exit244.i
 
-78:                                               ; preds = %75
-  %79 = sub nuw nsw i64 16, %77
-  tail call void @wmem_strbuf_append_c_count(ptr noundef nonnull %4, i8 noundef signext 32, i64 noundef %79) #11
+79:                                               ; preds = %76
+  %80 = sub nuw nsw i64 16, %78
+  tail call void @wmem_strbuf_append_c_count(ptr noundef nonnull %4, i8 noundef signext 32, i64 noundef %80) #11
   br label %indent.exit244.i
 
-indent.exit244.i:                                 ; preds = %78, %75
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.100, ptr noundef %51) #11
+indent.exit244.i:                                 ; preds = %79, %76
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.100, ptr noundef %52) #11
   br label %append_op_args.exit
 
-80:                                               ; preds = %indent.exit
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.66, ptr noundef %50, ptr noundef %53) #11
-  %81 = load i64, ptr %25, align 8
-  %82 = sub i64 %81, %56
-  %.not.i245.i = icmp ult i64 %82, 16
-  br i1 %.not.i245.i, label %83, label %indent.exit246.i
+81:                                               ; preds = %indent.exit
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.66, ptr noundef %51, ptr noundef %54) #11
+  %82 = load i64, ptr %25, align 8
+  %83 = sub i64 %82, %57
+  %.not.i245.i = icmp ult i64 %83, 16
+  br i1 %.not.i245.i, label %84, label %indent.exit246.i
 
-83:                                               ; preds = %80
-  %84 = sub nuw nsw i64 16, %82
-  tail call void @wmem_strbuf_append_c_count(ptr noundef nonnull %4, i8 noundef signext 32, i64 noundef %84) #11
+84:                                               ; preds = %81
+  %85 = sub nuw nsw i64 16, %83
+  tail call void @wmem_strbuf_append_c_count(ptr noundef nonnull %4, i8 noundef signext 32, i64 noundef %85) #11
   br label %indent.exit246.i
 
-indent.exit246.i:                                 ; preds = %83, %80
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.100, ptr noundef %51) #11
+indent.exit246.i:                                 ; preds = %84, %81
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.100, ptr noundef %52) #11
   br label %append_op_args.exit
 
-85:                                               ; preds = %indent.exit
-  %86 = getelementptr inbounds i8, ptr %49, i64 8
-  %87 = load i32, ptr %86, align 8
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.101, ptr noundef %50) #11
-  %.not.i247.i = icmp eq i32 %87, 0
-  br i1 %.not.i247.i, label %append_call_function.exit.i, label %88
+86:                                               ; preds = %indent.exit
+  %87 = getelementptr inbounds i8, ptr %50, i64 8
+  %88 = load i32, ptr %87, align 8
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.101, ptr noundef %51) #11
+  %.not.i247.i = icmp eq i32 %88, 0
+  br i1 %.not.i247.i, label %append_call_function.exit.i, label %89
 
-88:                                               ; preds = %85
-  %89 = tail call ptr @g_string_new(ptr noundef null) #11
+89:                                               ; preds = %86
+  %90 = tail call ptr @g_string_new(ptr noundef null) #11
   %.not26.i.i = icmp eq ptr %.03739, null
   br i1 %.not26.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %88, %.lr.ph.i.i
-  %.025.i.i = phi ptr [ @.str.63, %.lr.ph.i.i ], [ @.str.96, %88 ]
-  %.02024.i.i = phi ptr [ %99, %.lr.ph.i.i ], [ %.03739, %88 ]
-  %.02123.i.i = phi i32 [ %97, %.lr.ph.i.i ], [ 0, %88 ]
-  %90 = tail call ptr @g_string_prepend(ptr noundef %89, ptr noundef nonnull %.025.i.i) #11
-  %91 = load ptr, ptr %.02024.i.i, align 8
-  %92 = tail call ptr @g_string_prepend(ptr noundef %89, ptr noundef %91) #11
-  %93 = getelementptr inbounds i8, ptr %.02024.i.i, i64 8
-  %94 = load ptr, ptr %93, align 8
+.lr.ph.i.i:                                       ; preds = %89, %.lr.ph.i.i
+  %.025.i.i = phi ptr [ @.str.63, %.lr.ph.i.i ], [ @.str.96, %89 ]
+  %.02024.i.i = phi ptr [ %100, %.lr.ph.i.i ], [ %.03739, %89 ]
+  %.02123.i.i = phi i32 [ %98, %.lr.ph.i.i ], [ 0, %89 ]
+  %91 = tail call ptr @g_string_prepend(ptr noundef %90, ptr noundef nonnull %.025.i.i) #11
+  %92 = load ptr, ptr %.02024.i.i, align 8
+  %93 = tail call ptr @g_string_prepend(ptr noundef %90, ptr noundef %92) #11
+  %94 = getelementptr inbounds i8, ptr %.02024.i.i, i64 8
   %95 = load ptr, ptr %94, align 8
-  %96 = tail call ptr @g_string_prepend(ptr noundef %89, ptr noundef %95) #11
-  %97 = add nuw i32 %.02123.i.i, 1
-  %98 = getelementptr inbounds i8, ptr %94, i64 8
-  %99 = load ptr, ptr %98, align 8
-  %100 = icmp ne ptr %99, null
-  %101 = icmp ult i32 %97, %87
-  %102 = select i1 %100, i1 %101, i1 false
-  br i1 %102, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !4
+  %96 = load ptr, ptr %95, align 8
+  %97 = tail call ptr @g_string_prepend(ptr noundef %90, ptr noundef %96) #11
+  %98 = add nuw i32 %.02123.i.i, 1
+  %99 = getelementptr inbounds i8, ptr %95, i64 8
+  %100 = load ptr, ptr %99, align 8
+  %101 = icmp ne ptr %100, null
+  %102 = icmp ult i32 %98, %88
+  %103 = select i1 %101, i1 %102, i1 false
+  br i1 %103, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !4
 
-._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %88
-  %103 = load ptr, ptr %89, align 8
-  tail call void @wmem_strbuf_append(ptr noundef %4, ptr noundef %103) #11
-  %104 = tail call ptr @g_string_free(ptr noundef nonnull %89, i32 noundef 1) #11
+._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %89
+  %104 = load ptr, ptr %90, align 8
+  tail call void @wmem_strbuf_append(ptr noundef %4, ptr noundef %104) #11
+  %105 = tail call ptr @g_string_free(ptr noundef nonnull %90, i32 noundef 1) #11
   br label %append_call_function.exit.i
 
-append_call_function.exit.i:                      ; preds = %._crit_edge.i.i, %85
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %4, ptr noundef nonnull @.str.102, ptr noundef %53) #11
-  %105 = load i64, ptr %25, align 8
-  %106 = sub i64 %105, %56
-  %.not.i248.i = icmp ult i64 %106, 16
-  br i1 %.not.i248.i, label %107, label %indent.exit249.i
+append_call_function.exit.i:                      ; preds = %._crit_edge.i.i, %86
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %4, ptr noundef nonnull @.str.102, ptr noundef %54) #11
+  %106 = load i64, ptr %25, align 8
+  %107 = sub i64 %106, %57
+  %.not.i248.i = icmp ult i64 %107, 16
+  br i1 %.not.i248.i, label %108, label %indent.exit249.i
 
-107:                                              ; preds = %append_call_function.exit.i
-  %108 = sub nuw nsw i64 16, %106
-  tail call void @wmem_strbuf_append_c_count(ptr noundef nonnull %4, i8 noundef signext 32, i64 noundef %108) #11
+108:                                              ; preds = %append_call_function.exit.i
+  %109 = sub nuw nsw i64 16, %107
+  tail call void @wmem_strbuf_append_c_count(ptr noundef nonnull %4, i8 noundef signext 32, i64 noundef %109) #11
   br label %indent.exit249.i
 
-indent.exit249.i:                                 ; preds = %107, %append_call_function.exit.i
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.100, ptr noundef %51) #11
+indent.exit249.i:                                 ; preds = %108, %append_call_function.exit.i
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.100, ptr noundef %52) #11
   br label %append_op_args.exit
 
-109:                                              ; preds = %indent.exit
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.66, ptr noundef %50, ptr noundef %53) #11
-  %110 = tail call noalias ptr @g_strdup(ptr noundef %50) #11
-  %111 = tail call ptr @g_slist_prepend(ptr noundef %.03739, ptr noundef %110) #11
-  %112 = tail call noalias ptr @g_strdup(ptr noundef %53) #11
-  %113 = tail call ptr @g_slist_prepend(ptr noundef %111, ptr noundef %112) #11
+110:                                              ; preds = %indent.exit
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.66, ptr noundef %51, ptr noundef %54) #11
+  %111 = tail call noalias ptr @g_strdup(ptr noundef %51) #11
+  %112 = tail call ptr @g_slist_prepend(ptr noundef %.03739, ptr noundef %111) #11
+  %113 = tail call noalias ptr @g_strdup(ptr noundef %54) #11
+  %114 = tail call ptr @g_slist_prepend(ptr noundef %112, ptr noundef %113) #11
   br label %append_op_args.exit
 
-114:                                              ; preds = %indent.exit
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.70, ptr noundef %50) #11
-  %115 = getelementptr inbounds i8, ptr %45, i64 8
-  %116 = load i32, ptr %115, align 8
+115:                                              ; preds = %indent.exit
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.70, ptr noundef %51) #11
+  %116 = getelementptr inbounds i8, ptr %46, i64 8
+  %117 = load i32, ptr %116, align 8
   %.not10.i.i = icmp eq ptr %.03739, null
-  %.not911.i.i = icmp eq i32 %116, 0
+  %.not911.i.i = icmp eq i32 %117, 0
   %or.cond12.i.i = or i1 %.not10.i.i, %.not911.i.i
   br i1 %or.cond12.i.i, label %append_op_args.exit, label %.lr.ph.i250.i
 
-.lr.ph.i250.i:                                    ; preds = %114, %.lr.ph.i250.i
-  %.014.i.i = phi i32 [ %117, %.lr.ph.i250.i ], [ %116, %114 ]
-  %.0813.i.i = phi ptr [ %121, %.lr.ph.i250.i ], [ %.03739, %114 ]
-  %117 = add i32 %.014.i.i, -1
-  %118 = load ptr, ptr %.0813.i.i, align 8
-  tail call void @g_free(ptr noundef %118) #11
-  %119 = tail call ptr @g_slist_delete_link(ptr noundef nonnull %.0813.i.i, ptr noundef nonnull %.0813.i.i) #11
-  %120 = load ptr, ptr %119, align 8
-  tail call void @g_free(ptr noundef %120) #11
-  %121 = tail call ptr @g_slist_delete_link(ptr noundef nonnull %119, ptr noundef nonnull %119) #11
-  %.not.i251.i = icmp eq ptr %121, null
-  %.not9.i.i = icmp eq i32 %117, 0
+.lr.ph.i250.i:                                    ; preds = %115, %.lr.ph.i250.i
+  %.014.i.i = phi i32 [ %118, %.lr.ph.i250.i ], [ %117, %115 ]
+  %.0813.i.i = phi ptr [ %122, %.lr.ph.i250.i ], [ %.03739, %115 ]
+  %118 = add i32 %.014.i.i, -1
+  %119 = load ptr, ptr %.0813.i.i, align 8
+  tail call void @g_free(ptr noundef %119) #11
+  %120 = tail call ptr @g_slist_delete_link(ptr noundef nonnull %.0813.i.i, ptr noundef nonnull %.0813.i.i) #11
+  %121 = load ptr, ptr %120, align 8
+  tail call void @g_free(ptr noundef %121) #11
+  %122 = tail call ptr @g_slist_delete_link(ptr noundef nonnull %120, ptr noundef nonnull %120) #11
+  %.not.i251.i = icmp eq ptr %122, null
+  %.not9.i.i = icmp eq i32 %118, 0
   %or.cond.i.i = select i1 %.not.i251.i, i1 true, i1 %.not9.i.i
   br i1 %or.cond.i.i, label %append_op_args.exit, label %.lr.ph.i250.i, !llvm.loop !6
 
-122:                                              ; preds = %indent.exit
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.71, ptr noundef %50, ptr noundef %52, ptr noundef %53) #11
-  %123 = load i64, ptr %25, align 8
-  %124 = sub i64 %123, %56
-  %.not.i252.i = icmp ult i64 %124, 16
-  br i1 %.not.i252.i, label %125, label %indent.exit253.i
+123:                                              ; preds = %indent.exit
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.71, ptr noundef %51, ptr noundef %53, ptr noundef %54) #11
+  %124 = load i64, ptr %25, align 8
+  %125 = sub i64 %124, %57
+  %.not.i252.i = icmp ult i64 %125, 16
+  br i1 %.not.i252.i, label %126, label %indent.exit253.i
 
-125:                                              ; preds = %122
-  %126 = sub nuw nsw i64 16, %124
-  tail call void @wmem_strbuf_append_c_count(ptr noundef nonnull %4, i8 noundef signext 32, i64 noundef %126) #11
+126:                                              ; preds = %123
+  %127 = sub nuw nsw i64 16, %125
+  tail call void @wmem_strbuf_append_c_count(ptr noundef nonnull %4, i8 noundef signext 32, i64 noundef %127) #11
   br label %indent.exit253.i
 
-indent.exit253.i:                                 ; preds = %125, %122
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.100, ptr noundef %51) #11
-  br label %append_op_args.exit
-
-127:                                              ; preds = %indent.exit
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.66, ptr noundef %50, ptr noundef %53) #11
-  %128 = load i64, ptr %25, align 8
-  %129 = sub i64 %128, %56
-  %.not.i254.i = icmp ult i64 %129, 16
-  br i1 %.not.i254.i, label %130, label %indent.exit255.i
-
-130:                                              ; preds = %127
-  %131 = sub nuw nsw i64 16, %129
-  tail call void @wmem_strbuf_append_c_count(ptr noundef nonnull %4, i8 noundef signext 32, i64 noundef %131) #11
-  br label %indent.exit255.i
-
-indent.exit255.i:                                 ; preds = %130, %127
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.100, ptr noundef %51) #11
-  br label %append_op_args.exit
-
-132:                                              ; preds = %indent.exit
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.72, ptr noundef %50, ptr noundef %51, ptr noundef %54) #11
-  %133 = load i64, ptr %25, align 8
-  %134 = sub i64 %133, %56
-  %.not.i256.i = icmp ult i64 %134, 16
-  br i1 %.not.i256.i, label %135, label %indent.exit257.i
-
-135:                                              ; preds = %132
-  %136 = sub nuw nsw i64 16, %134
-  tail call void @wmem_strbuf_append_c_count(ptr noundef nonnull %4, i8 noundef signext 32, i64 noundef %136) #11
-  br label %indent.exit257.i
-
-indent.exit257.i:                                 ; preds = %135, %132
+indent.exit253.i:                                 ; preds = %126, %123
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.100, ptr noundef %52) #11
   br label %append_op_args.exit
 
-137:                                              ; preds = %indent.exit
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.73, ptr noundef %50, ptr noundef %53, ptr noundef %51, ptr noundef %54) #11
+128:                                              ; preds = %indent.exit
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.66, ptr noundef %51, ptr noundef %54) #11
+  %129 = load i64, ptr %25, align 8
+  %130 = sub i64 %129, %57
+  %.not.i254.i = icmp ult i64 %130, 16
+  br i1 %.not.i254.i, label %131, label %indent.exit255.i
+
+131:                                              ; preds = %128
+  %132 = sub nuw nsw i64 16, %130
+  tail call void @wmem_strbuf_append_c_count(ptr noundef nonnull %4, i8 noundef signext 32, i64 noundef %132) #11
+  br label %indent.exit255.i
+
+indent.exit255.i:                                 ; preds = %131, %128
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.100, ptr noundef %52) #11
+  br label %append_op_args.exit
+
+133:                                              ; preds = %indent.exit
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.72, ptr noundef %51, ptr noundef %52, ptr noundef %55) #11
+  %134 = load i64, ptr %25, align 8
+  %135 = sub i64 %134, %57
+  %.not.i256.i = icmp ult i64 %135, 16
+  br i1 %.not.i256.i, label %136, label %indent.exit257.i
+
+136:                                              ; preds = %133
+  %137 = sub nuw nsw i64 16, %135
+  tail call void @wmem_strbuf_append_c_count(ptr noundef nonnull %4, i8 noundef signext 32, i64 noundef %137) #11
+  br label %indent.exit257.i
+
+indent.exit257.i:                                 ; preds = %136, %133
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.100, ptr noundef %53) #11
   br label %append_op_args.exit
 
 138:                                              ; preds = %indent.exit
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.74, ptr noundef %50, ptr noundef %53, ptr noundef %51, ptr noundef %54) #11
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.73, ptr noundef %51, ptr noundef %54, ptr noundef %52, ptr noundef %55) #11
   br label %append_op_args.exit
 
 139:                                              ; preds = %indent.exit
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.75, ptr noundef %50, ptr noundef %53, ptr noundef %51, ptr noundef %54) #11
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.74, ptr noundef %51, ptr noundef %54, ptr noundef %52, ptr noundef %55) #11
   br label %append_op_args.exit
 
 140:                                              ; preds = %indent.exit
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.76, ptr noundef %50, ptr noundef %53, ptr noundef %51, ptr noundef %54) #11
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.75, ptr noundef %51, ptr noundef %54, ptr noundef %52, ptr noundef %55) #11
   br label %append_op_args.exit
 
-141:                                              ; preds = %indent.exit, %indent.exit
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.77, ptr noundef %50, ptr noundef %53, ptr noundef %51, ptr noundef %54) #11
+141:                                              ; preds = %indent.exit
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.76, ptr noundef %51, ptr noundef %54, ptr noundef %52, ptr noundef %55) #11
   br label %append_op_args.exit
 
 142:                                              ; preds = %indent.exit, %indent.exit
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.78, ptr noundef %50, ptr noundef %53, ptr noundef %51, ptr noundef %54) #11
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.77, ptr noundef %51, ptr noundef %54, ptr noundef %52, ptr noundef %55) #11
   br label %append_op_args.exit
 
 143:                                              ; preds = %indent.exit, %indent.exit
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.79, ptr noundef %50, ptr noundef %53, ptr noundef %51, ptr noundef %54) #11
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.78, ptr noundef %51, ptr noundef %54, ptr noundef %52, ptr noundef %55) #11
   br label %append_op_args.exit
 
 144:                                              ; preds = %indent.exit, %indent.exit
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.80, ptr noundef %50, ptr noundef %53, ptr noundef %51, ptr noundef %54) #11
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.79, ptr noundef %51, ptr noundef %54, ptr noundef %52, ptr noundef %55) #11
   br label %append_op_args.exit
 
-145:                                              ; preds = %indent.exit
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.66, ptr noundef %50, ptr noundef %53) #11
+145:                                              ; preds = %indent.exit, %indent.exit
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.80, ptr noundef %51, ptr noundef %54, ptr noundef %52, ptr noundef %55) #11
   br label %append_op_args.exit
 
-146:                                              ; preds = %indent.exit, %indent.exit
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.81, ptr noundef %50, ptr noundef %53, ptr noundef %51, ptr noundef %54) #11
+146:                                              ; preds = %indent.exit
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.66, ptr noundef %51, ptr noundef %54) #11
   br label %append_op_args.exit
 
 147:                                              ; preds = %indent.exit, %indent.exit
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.82, ptr noundef %50, ptr noundef %53, ptr noundef %51, ptr noundef %54) #11
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.81, ptr noundef %51, ptr noundef %54, ptr noundef %52, ptr noundef %55) #11
   br label %append_op_args.exit
 
-148:                                              ; preds = %indent.exit, %indent.exit, %indent.exit, %indent.exit
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.66, ptr noundef %50, ptr noundef %53) #11
+148:                                              ; preds = %indent.exit, %indent.exit
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.82, ptr noundef %51, ptr noundef %54, ptr noundef %52, ptr noundef %55) #11
   br label %append_op_args.exit
 
-149:                                              ; preds = %indent.exit
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.66, ptr noundef %50, ptr noundef %53) #11
+149:                                              ; preds = %indent.exit, %indent.exit, %indent.exit, %indent.exit
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.66, ptr noundef %51, ptr noundef %54) #11
   br label %append_op_args.exit
 
 150:                                              ; preds = %indent.exit
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.83, ptr noundef %50, ptr noundef %53, ptr noundef %51, ptr noundef %54) #11
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.66, ptr noundef %51, ptr noundef %54) #11
   br label %append_op_args.exit
 
 151:                                              ; preds = %indent.exit
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.84, ptr noundef %50, ptr noundef %53, ptr noundef %51, ptr noundef %54) #11
-  %152 = load i64, ptr %25, align 8
-  %153 = sub i64 %152, %56
-  %.not.i258.i = icmp ult i64 %153, 16
-  br i1 %.not.i258.i, label %154, label %indent.exit259.i
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.83, ptr noundef %51, ptr noundef %54, ptr noundef %52, ptr noundef %55) #11
+  br label %append_op_args.exit
 
-154:                                              ; preds = %151
-  %155 = sub nuw nsw i64 16, %153
-  tail call void @wmem_strbuf_append_c_count(ptr noundef nonnull %4, i8 noundef signext 32, i64 noundef %155) #11
+152:                                              ; preds = %indent.exit
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.84, ptr noundef %51, ptr noundef %54, ptr noundef %52, ptr noundef %55) #11
+  %153 = load i64, ptr %25, align 8
+  %154 = sub i64 %153, %57
+  %.not.i258.i = icmp ult i64 %154, 16
+  br i1 %.not.i258.i, label %155, label %indent.exit259.i
+
+155:                                              ; preds = %152
+  %156 = sub nuw nsw i64 16, %154
+  tail call void @wmem_strbuf_append_c_count(ptr noundef nonnull %4, i8 noundef signext 32, i64 noundef %156) #11
   br label %indent.exit259.i
 
-indent.exit259.i:                                 ; preds = %154, %151
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.100, ptr noundef %52) #11
+indent.exit259.i:                                 ; preds = %155, %152
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.100, ptr noundef %53) #11
   br label %append_op_args.exit
 
-156:                                              ; preds = %indent.exit
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.85, ptr noundef %50, ptr noundef %53) #11
-  %157 = load i64, ptr %25, align 8
-  %158 = sub i64 %157, %56
-  %.not.i260.i = icmp ult i64 %158, 16
-  br i1 %.not.i260.i, label %159, label %indent.exit261.i
+157:                                              ; preds = %indent.exit
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.85, ptr noundef %51, ptr noundef %54) #11
+  %158 = load i64, ptr %25, align 8
+  %159 = sub i64 %158, %57
+  %.not.i260.i = icmp ult i64 %159, 16
+  br i1 %.not.i260.i, label %160, label %indent.exit261.i
 
-159:                                              ; preds = %156
-  %160 = sub nuw nsw i64 16, %158
-  tail call void @wmem_strbuf_append_c_count(ptr noundef nonnull %4, i8 noundef signext 32, i64 noundef %160) #11
+160:                                              ; preds = %157
+  %161 = sub nuw nsw i64 16, %159
+  tail call void @wmem_strbuf_append_c_count(ptr noundef nonnull %4, i8 noundef signext 32, i64 noundef %161) #11
   br label %indent.exit261.i
 
-indent.exit261.i:                                 ; preds = %159, %156
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.100, ptr noundef %51) #11
+indent.exit261.i:                                 ; preds = %160, %157
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.100, ptr noundef %52) #11
   br label %append_op_args.exit
 
-161:                                              ; preds = %indent.exit
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.86, ptr noundef %50, ptr noundef %53, ptr noundef %51, ptr noundef %54) #11
-  %162 = load i64, ptr %25, align 8
-  %163 = sub i64 %162, %56
-  %.not.i262.i = icmp ult i64 %163, 16
-  br i1 %.not.i262.i, label %164, label %indent.exit263.i
+162:                                              ; preds = %indent.exit
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.86, ptr noundef %51, ptr noundef %54, ptr noundef %52, ptr noundef %55) #11
+  %163 = load i64, ptr %25, align 8
+  %164 = sub i64 %163, %57
+  %.not.i262.i = icmp ult i64 %164, 16
+  br i1 %.not.i262.i, label %165, label %indent.exit263.i
 
-164:                                              ; preds = %161
-  %165 = sub nuw nsw i64 16, %163
-  tail call void @wmem_strbuf_append_c_count(ptr noundef nonnull %4, i8 noundef signext 32, i64 noundef %165) #11
+165:                                              ; preds = %162
+  %166 = sub nuw nsw i64 16, %164
+  tail call void @wmem_strbuf_append_c_count(ptr noundef nonnull %4, i8 noundef signext 32, i64 noundef %166) #11
   br label %indent.exit263.i
 
-indent.exit263.i:                                 ; preds = %164, %161
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.100, ptr noundef %52) #11
+indent.exit263.i:                                 ; preds = %165, %162
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.100, ptr noundef %53) #11
   br label %append_op_args.exit
 
-166:                                              ; preds = %indent.exit
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.87, ptr noundef %50, ptr noundef %53, ptr noundef %51, ptr noundef %54) #11
-  %167 = load i64, ptr %25, align 8
-  %168 = sub i64 %167, %56
-  %.not.i264.i = icmp ult i64 %168, 16
-  br i1 %.not.i264.i, label %169, label %indent.exit265.i
+167:                                              ; preds = %indent.exit
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.87, ptr noundef %51, ptr noundef %54, ptr noundef %52, ptr noundef %55) #11
+  %168 = load i64, ptr %25, align 8
+  %169 = sub i64 %168, %57
+  %.not.i264.i = icmp ult i64 %169, 16
+  br i1 %.not.i264.i, label %170, label %indent.exit265.i
 
-169:                                              ; preds = %166
-  %170 = sub nuw nsw i64 16, %168
-  tail call void @wmem_strbuf_append_c_count(ptr noundef nonnull %4, i8 noundef signext 32, i64 noundef %170) #11
+170:                                              ; preds = %167
+  %171 = sub nuw nsw i64 16, %169
+  tail call void @wmem_strbuf_append_c_count(ptr noundef nonnull %4, i8 noundef signext 32, i64 noundef %171) #11
   br label %indent.exit265.i
 
-indent.exit265.i:                                 ; preds = %169, %166
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.100, ptr noundef %52) #11
+indent.exit265.i:                                 ; preds = %170, %167
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.100, ptr noundef %53) #11
   br label %append_op_args.exit
 
-171:                                              ; preds = %indent.exit
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.88, ptr noundef %50, ptr noundef %53, ptr noundef %51, ptr noundef %54) #11
-  %172 = load i64, ptr %25, align 8
-  %173 = sub i64 %172, %56
-  %.not.i266.i = icmp ult i64 %173, 16
-  br i1 %.not.i266.i, label %174, label %indent.exit267.i
+172:                                              ; preds = %indent.exit
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.88, ptr noundef %51, ptr noundef %54, ptr noundef %52, ptr noundef %55) #11
+  %173 = load i64, ptr %25, align 8
+  %174 = sub i64 %173, %57
+  %.not.i266.i = icmp ult i64 %174, 16
+  br i1 %.not.i266.i, label %175, label %indent.exit267.i
 
-174:                                              ; preds = %171
-  %175 = sub nuw nsw i64 16, %173
-  tail call void @wmem_strbuf_append_c_count(ptr noundef nonnull %4, i8 noundef signext 32, i64 noundef %175) #11
+175:                                              ; preds = %172
+  %176 = sub nuw nsw i64 16, %174
+  tail call void @wmem_strbuf_append_c_count(ptr noundef nonnull %4, i8 noundef signext 32, i64 noundef %176) #11
   br label %indent.exit267.i
 
-indent.exit267.i:                                 ; preds = %174, %171
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.100, ptr noundef %52) #11
+indent.exit267.i:                                 ; preds = %175, %172
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.100, ptr noundef %53) #11
   br label %append_op_args.exit
 
-176:                                              ; preds = %indent.exit
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.89, ptr noundef %50, ptr noundef %53, ptr noundef %51, ptr noundef %54) #11
-  %177 = load i64, ptr %25, align 8
-  %178 = sub i64 %177, %56
-  %.not.i268.i = icmp ult i64 %178, 16
-  br i1 %.not.i268.i, label %179, label %indent.exit269.i
+177:                                              ; preds = %indent.exit
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.89, ptr noundef %51, ptr noundef %54, ptr noundef %52, ptr noundef %55) #11
+  %178 = load i64, ptr %25, align 8
+  %179 = sub i64 %178, %57
+  %.not.i268.i = icmp ult i64 %179, 16
+  br i1 %.not.i268.i, label %180, label %indent.exit269.i
 
-179:                                              ; preds = %176
-  %180 = sub nuw nsw i64 16, %178
-  tail call void @wmem_strbuf_append_c_count(ptr noundef nonnull %4, i8 noundef signext 32, i64 noundef %180) #11
+180:                                              ; preds = %177
+  %181 = sub nuw nsw i64 16, %179
+  tail call void @wmem_strbuf_append_c_count(ptr noundef nonnull %4, i8 noundef signext 32, i64 noundef %181) #11
   br label %indent.exit269.i
 
-indent.exit269.i:                                 ; preds = %179, %176
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.100, ptr noundef %52) #11
+indent.exit269.i:                                 ; preds = %180, %177
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.100, ptr noundef %53) #11
   br label %append_op_args.exit
 
-181:                                              ; preds = %indent.exit
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.90, ptr noundef %50, ptr noundef %53, ptr noundef %51, ptr noundef %54) #11
-  %182 = load i64, ptr %25, align 8
-  %183 = sub i64 %182, %56
-  %.not.i270.i = icmp ult i64 %183, 16
-  br i1 %.not.i270.i, label %184, label %indent.exit271.i
+182:                                              ; preds = %indent.exit
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.90, ptr noundef %51, ptr noundef %54, ptr noundef %52, ptr noundef %55) #11
+  %183 = load i64, ptr %25, align 8
+  %184 = sub i64 %183, %57
+  %.not.i270.i = icmp ult i64 %184, 16
+  br i1 %.not.i270.i, label %185, label %indent.exit271.i
 
-184:                                              ; preds = %181
-  %185 = sub nuw nsw i64 16, %183
-  tail call void @wmem_strbuf_append_c_count(ptr noundef nonnull %4, i8 noundef signext 32, i64 noundef %185) #11
+185:                                              ; preds = %182
+  %186 = sub nuw nsw i64 16, %184
+  tail call void @wmem_strbuf_append_c_count(ptr noundef nonnull %4, i8 noundef signext 32, i64 noundef %186) #11
   br label %indent.exit271.i
 
-indent.exit271.i:                                 ; preds = %184, %181
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.100, ptr noundef %52) #11
+indent.exit271.i:                                 ; preds = %185, %182
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.100, ptr noundef %53) #11
   br label %append_op_args.exit
 
-186:                                              ; preds = %indent.exit, %indent.exit
-  %187 = getelementptr inbounds i8, ptr %45, i64 8
-  %188 = load i32, ptr %187, align 8
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.91, i32 noundef %188) #11
+187:                                              ; preds = %indent.exit, %indent.exit
+  %188 = getelementptr inbounds i8, ptr %46, i64 8
+  %189 = load i32, ptr %188, align 8
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.91, i32 noundef %189) #11
   br label %append_op_args.exit
 
-189:                                              ; preds = %indent.exit
-  %.not.i34 = icmp eq ptr %50, null
-  br i1 %.not.i34, label %append_op_args.exit, label %190
+190:                                              ; preds = %indent.exit
+  %.not.i34 = icmp eq ptr %51, null
+  br i1 %.not.i34, label %append_op_args.exit, label %191
 
-190:                                              ; preds = %189
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.66, ptr noundef nonnull %50, ptr noundef %53) #11
+191:                                              ; preds = %190
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.66, ptr noundef nonnull %51, ptr noundef %54) #11
   br label %append_op_args.exit
 
-191:                                              ; preds = %indent.exit, %indent.exit, %indent.exit, %indent.exit
-  %192 = tail call ptr @dfvm_opcode_tostr(i32 noundef %57)
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.57, i32 noundef 7, ptr noundef nonnull @.str.58, i64 noundef 630, ptr noundef nonnull @__func__.append_op_args, ptr noundef nonnull @.str.59, ptr noundef nonnull %192) #13
+192:                                              ; preds = %indent.exit, %indent.exit, %indent.exit, %indent.exit
+  %193 = tail call ptr @dfvm_opcode_tostr(i32 noundef %58)
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.57, i32 noundef 7, ptr noundef nonnull @.str.58, i64 noundef 630, ptr noundef nonnull @__func__.append_op_args, ptr noundef nonnull @.str.59, ptr noundef nonnull %193) #13
   unreachable
 
-append_op_args.exit:                              ; preds = %.lr.ph.i250.i, %114, %indent.exit, %58, %59, %indent.exit.i, %indent.exit240.i, %indent.exit242.i, %indent.exit244.i, %indent.exit246.i, %indent.exit249.i, %109, %indent.exit253.i, %indent.exit255.i, %indent.exit257.i, %137, %138, %139, %140, %141, %142, %143, %144, %145, %146, %147, %148, %149, %150, %indent.exit259.i, %indent.exit261.i, %indent.exit263.i, %indent.exit265.i, %indent.exit267.i, %indent.exit269.i, %indent.exit271.i, %186, %189, %190
-  %.1 = phi ptr [ %.03739, %indent.exit ], [ %.03739, %189 ], [ %.03739, %190 ], [ %.03739, %186 ], [ %.03739, %indent.exit271.i ], [ %.03739, %indent.exit269.i ], [ %.03739, %indent.exit267.i ], [ %.03739, %indent.exit265.i ], [ %.03739, %indent.exit263.i ], [ %.03739, %indent.exit261.i ], [ %.03739, %indent.exit259.i ], [ %.03739, %150 ], [ %.03739, %149 ], [ %.03739, %148 ], [ %.03739, %147 ], [ %.03739, %146 ], [ %.03739, %145 ], [ %.03739, %144 ], [ %.03739, %143 ], [ %.03739, %142 ], [ %.03739, %141 ], [ %.03739, %140 ], [ %.03739, %139 ], [ %.03739, %138 ], [ %.03739, %137 ], [ %.03739, %indent.exit257.i ], [ %.03739, %indent.exit255.i ], [ %.03739, %indent.exit253.i ], [ %113, %109 ], [ %.03739, %indent.exit249.i ], [ %.03739, %indent.exit246.i ], [ %.03739, %indent.exit244.i ], [ %.03739, %indent.exit242.i ], [ %.03739, %indent.exit240.i ], [ %.03739, %indent.exit.i ], [ %.03739, %59 ], [ %.03739, %58 ], [ %.03739, %114 ], [ %121, %.lr.ph.i250.i ]
-  tail call void @g_free(ptr noundef %50) #11
+append_op_args.exit:                              ; preds = %.lr.ph.i250.i, %115, %indent.exit, %59, %60, %indent.exit.i, %indent.exit240.i, %indent.exit242.i, %indent.exit244.i, %indent.exit246.i, %indent.exit249.i, %110, %indent.exit253.i, %indent.exit255.i, %indent.exit257.i, %138, %139, %140, %141, %142, %143, %144, %145, %146, %147, %148, %149, %150, %151, %indent.exit259.i, %indent.exit261.i, %indent.exit263.i, %indent.exit265.i, %indent.exit267.i, %indent.exit269.i, %indent.exit271.i, %187, %190, %191
+  %.1 = phi ptr [ %.03739, %indent.exit ], [ %.03739, %190 ], [ %.03739, %191 ], [ %.03739, %187 ], [ %.03739, %indent.exit271.i ], [ %.03739, %indent.exit269.i ], [ %.03739, %indent.exit267.i ], [ %.03739, %indent.exit265.i ], [ %.03739, %indent.exit263.i ], [ %.03739, %indent.exit261.i ], [ %.03739, %indent.exit259.i ], [ %.03739, %151 ], [ %.03739, %150 ], [ %.03739, %149 ], [ %.03739, %148 ], [ %.03739, %147 ], [ %.03739, %146 ], [ %.03739, %145 ], [ %.03739, %144 ], [ %.03739, %143 ], [ %.03739, %142 ], [ %.03739, %141 ], [ %.03739, %140 ], [ %.03739, %139 ], [ %.03739, %138 ], [ %.03739, %indent.exit257.i ], [ %.03739, %indent.exit255.i ], [ %.03739, %indent.exit253.i ], [ %114, %110 ], [ %.03739, %indent.exit249.i ], [ %.03739, %indent.exit246.i ], [ %.03739, %indent.exit244.i ], [ %.03739, %indent.exit242.i ], [ %.03739, %indent.exit240.i ], [ %.03739, %indent.exit.i ], [ %.03739, %60 ], [ %.03739, %59 ], [ %.03739, %115 ], [ %122, %.lr.ph.i250.i ]
   tail call void @g_free(ptr noundef %51) #11
   tail call void @g_free(ptr noundef %52) #11
   tail call void @g_free(ptr noundef %53) #11
   tail call void @g_free(ptr noundef %54) #11
   tail call void @g_free(ptr noundef %55) #11
-  br label %193
+  tail call void @g_free(ptr noundef %56) #11
+  br label %194
 
-193:                                              ; preds = %append_op_args.exit, %28, %28, %28
-  %.2 = phi ptr [ %.1, %append_op_args.exit ], [ %.03739, %28 ], [ %.03739, %28 ], [ %.03739, %28 ]
+194:                                              ; preds = %append_op_args.exit, %dfvm_opcode_tostr.exit, %dfvm_opcode_tostr.exit, %dfvm_opcode_tostr.exit
+  %.2 = phi ptr [ %.1, %append_op_args.exit ], [ %.03739, %dfvm_opcode_tostr.exit ], [ %.03739, %dfvm_opcode_tostr.exit ], [ %.03739, %dfvm_opcode_tostr.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %193, %.critedge
-  %194 = tail call ptr @wmem_strbuf_finalize(ptr noundef %4) #11
-  ret ptr %194
+._crit_edge:                                      ; preds = %194, %.critedge
+  %195 = tail call ptr @wmem_strbuf_finalize(ptr noundef %4) #11
+  ret ptr %195
 }
 
 declare noalias ptr @wmem_strbuf_new(ptr noundef, ptr noundef) local_unnamed_addr #4

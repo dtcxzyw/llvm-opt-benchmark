@@ -3512,37 +3512,28 @@ invoke.cont2:                                     ; preds = %invoke.cont
           to label %for.cond.preheader unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 for.cond.preheader:                               ; preds = %invoke.cont2
-  %cmp60.not = icmp eq i32 %call, 0
-  br i1 %cmp60.not, label %for.end, label %for.body
+  %cmp66.not = icmp eq i32 %call, 0
+  br i1 %cmp66.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %invoke.cont4
   %indvars.iv = phi i64 [ %indvars.iv.next, %invoke.cont4 ], [ 0, %for.cond.preheader ]
-  %call.i20 = invoke noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
-          to label %call.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
-
-call.i.noexc:                                     ; preds = %for.body
-  %call2.i21 = invoke noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
-          to label %call2.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
-
-call2.i.noexc:                                    ; preds = %call.i.noexc
-  %call3.i22 = invoke noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
+  %call5 = invoke { <2 x float>, float } @_ZN6Assimp11XFileParser11ReadVector3Ev(ptr noundef nonnull align 8 dereferenceable(56) %this)
           to label %invoke.cont4 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-invoke.cont4:                                     ; preds = %call2.i.noexc
-  %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %call.i20, i64 0
-  %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %call2.i21, i64 1
-  call void @_ZN6Assimp11XFileParser16TestForSeparatorEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
+invoke.cont4:                                     ; preds = %for.body
+  %call5.fca.0.extract = extractvalue { <2 x float>, float } %call5, 0
+  %call5.fca.1.extract = extractvalue { <2 x float>, float } %call5, 1
   %0 = load ptr, ptr %mPositions, align 8
   %add.ptr.i = getelementptr inbounds %class.aiVector3t, ptr %0, i64 %indvars.iv
-  store <2 x float> %retval.sroa.0.4.vec.insert.i, ptr %add.ptr.i, align 4
+  store <2 x float> %call5.fca.0.extract, ptr %add.ptr.i, align 4
   %ref.tmp.sroa.2.0.call8.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
-  store float %call3.i22, ptr %ref.tmp.sroa.2.0.call8.sroa_idx, align 4
+  store float %call5.fca.1.extract, ptr %ref.tmp.sroa.2.0.call8.sroa_idx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %conv
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !16
 
 lpad.loopexit:                                    ; preds = %while.cond
-  %lpad.loopexit46 = landingpad { ptr, i32 }
+  %lpad.loopexit45 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
@@ -3556,7 +3547,7 @@ lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %for.body16
           cleanup
   br label %ehcleanup
 
-lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %call2.i.noexc, %call.i.noexc, %for.body
+lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %for.body
   %lpad.loopexit57 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -3593,12 +3584,12 @@ if.else.i:                                        ; preds = %invoke.cont9
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIN6Assimp5XFile4FaceESaIS2_EE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i
-  %add.ptr.i23 = getelementptr inbounds %"struct.Assimp::XFile::Face", ptr %2, i64 %conv11
-  %tobool.not.i.i = icmp eq ptr %1, %add.ptr.i23
+  %add.ptr.i20 = getelementptr inbounds %"struct.Assimp::XFile::Face", ptr %2, i64 %conv11
+  %tobool.not.i.i = icmp eq ptr %1, %add.ptr.i20
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIN6Assimp5XFile4FaceESaIS2_EE6resizeEm.exit, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %if.then5.i, %_ZSt8_DestroyIN6Assimp5XFile4FaceEEvPT_.exit.i.i.i.i.i
-  %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %_ZSt8_DestroyIN6Assimp5XFile4FaceEEvPT_.exit.i.i.i.i.i ], [ %add.ptr.i23, %if.then5.i ]
+  %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %_ZSt8_DestroyIN6Assimp5XFile4FaceEEvPT_.exit.i.i.i.i.i ], [ %add.ptr.i20, %if.then5.i ]
   %3 = load ptr, ptr %__first.addr.04.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN6Assimp5XFile4FaceEEvPT_.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
@@ -3613,31 +3604,38 @@ _ZSt8_DestroyIN6Assimp5XFile4FaceEEvPT_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.i.i, !llvm.loop !17
 
 invoke.cont.i.i:                                  ; preds = %_ZSt8_DestroyIN6Assimp5XFile4FaceEEvPT_.exit.i.i.i.i.i
-  store ptr %add.ptr.i23, ptr %_M_finish.i.i, align 8
+  store ptr %add.ptr.i20, ptr %_M_finish.i.i, align 8
   br label %_ZNSt6vectorIN6Assimp5XFile4FaceESaIS2_EE6resizeEm.exit
 
 _ZNSt6vectorIN6Assimp5XFile4FaceESaIS2_EE6resizeEm.exit: ; preds = %if.then.i, %if.else.i, %if.then5.i, %invoke.cont.i.i
-  %cmp1564.not = icmp eq i32 %call10, 0
-  br i1 %cmp1564.not, label %while.cond.preheader, label %for.body16
+  %cmp1570.not = icmp eq i32 %call10, 0
+  br i1 %cmp1570.not, label %while.cond.preheader, label %for.body16.lr.ph
 
-for.body16:                                       ; preds = %_ZNSt6vectorIN6Assimp5XFile4FaceESaIS2_EE6resizeEm.exit, %for.end32
-  %indvars.iv68 = phi i64 [ %indvars.iv.next69, %for.end32 ], [ 0, %_ZNSt6vectorIN6Assimp5XFile4FaceESaIS2_EE6resizeEm.exit ]
+for.body16.lr.ph:                                 ; preds = %_ZNSt6vectorIN6Assimp5XFile4FaceESaIS2_EE6resizeEm.exit
+  %mIsBinaryFormat.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mP.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mEnd.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mLineNumber.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  br label %for.body16
+
+for.body16:                                       ; preds = %for.body16.lr.ph, %for.inc34
+  %indvars.iv81 = phi i64 [ 0, %for.body16.lr.ph ], [ %indvars.iv.next82, %for.inc34 ]
   %call18 = invoke noundef i32 @_ZN6Assimp11XFileParser7ReadIntEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
           to label %invoke.cont17 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont17:                                    ; preds = %for.body16
   %4 = load ptr, ptr %mPosFaces, align 8
-  %add.ptr.i24 = getelementptr inbounds %"struct.Assimp::XFile::Face", ptr %4, i64 %indvars.iv68
-  %cmp2362.not = icmp eq i32 %call18, 0
-  br i1 %cmp2362.not, label %for.end32, label %for.body24.lr.ph
+  %add.ptr.i21 = getelementptr inbounds %"struct.Assimp::XFile::Face", ptr %4, i64 %indvars.iv81
+  %cmp2368.not = icmp eq i32 %call18, 0
+  br i1 %cmp2368.not, label %for.end32, label %for.body24.lr.ph
 
 for.body24.lr.ph:                                 ; preds = %invoke.cont17
-  %_M_finish.i.i25 = getelementptr inbounds i8, ptr %add.ptr.i24, i64 8
-  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %add.ptr.i24, i64 16
+  %_M_finish.i.i22 = getelementptr inbounds i8, ptr %add.ptr.i21, i64 8
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %add.ptr.i21, i64 16
   br label %for.body24
 
 for.body24:                                       ; preds = %for.body24.lr.ph, %for.inc30
-  %b.063 = phi i32 [ 0, %for.body24.lr.ph ], [ %inc31, %for.inc30 ]
+  %b.069 = phi i32 [ 0, %for.body24.lr.ph ], [ %inc31, %for.inc30 ]
   %call26 = invoke noundef i32 @_ZN6Assimp11XFileParser7ReadIntEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
           to label %invoke.cont25 unwind label %lpad.loopexit.split-lp.loopexit
 
@@ -3646,20 +3644,20 @@ invoke.cont25:                                    ; preds = %for.body24
   br i1 %cmp27.not, label %for.inc30, label %if.then
 
 if.then:                                          ; preds = %invoke.cont25
-  %5 = load ptr, ptr %_M_finish.i.i25, align 8
+  %5 = load ptr, ptr %_M_finish.i.i22, align 8
   %6 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %5, %6
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
   store i32 %call26, ptr %5, align 4
-  %7 = load ptr, ptr %_M_finish.i.i25, align 8
+  %7 = load ptr, ptr %_M_finish.i.i22, align 8
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %7, i64 4
-  store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i25, align 8
+  store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i22, align 8
   br label %for.inc30
 
 if.else.i.i:                                      ; preds = %if.then
-  %8 = load ptr, ptr %add.ptr.i24, align 8
+  %8 = load ptr, ptr %add.ptr.i21, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
@@ -3668,9 +3666,9 @@ if.else.i.i:                                      ; preds = %if.then
 
 if.then.i.i.i.i:                                  ; preds = %if.else.i.i
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.110) #24
-          to label %.noexc26 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.noexc23 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc26:                                         ; preds = %if.then.i.i.i.i
+.noexc23:                                         ; preds = %if.then.i.i.i.i
   unreachable
 
 _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
@@ -3685,11 +3683,11 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
 
 cond.true.i.i.i.i:                                ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i.i, 2
-  %call5.i.i.i.i.i.i27 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #25
+  %call5.i.i.i.i.i.i24 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #25
           to label %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i.i unwind label %lpad.loopexit.split-lp.loopexit
 
 _ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i.i: ; preds = %cond.true.i.i.i.i, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i
-  %cond.i10.i.i.i = phi ptr [ null, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i ], [ %call5.i.i.i.i.i.i27, %cond.true.i.i.i.i ]
+  %cond.i10.i.i.i = phi ptr [ null, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i ], [ %call5.i.i.i.i.i.i24, %cond.true.i.i.i.i ]
   %add.ptr.i.i.i = getelementptr inbounds i32, ptr %cond.i10.i.i.i, i64 %sub.ptr.div.i.i.i.i.i
   store i32 %call26, ptr %add.ptr.i.i.i, align 4
   %cmp.i.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i, 0
@@ -3710,24 +3708,130 @@ if.then.i18.i.i.i:                                ; preds = %_ZNSt6vectorIjSaIjE
   br label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i: ; preds = %if.then.i18.i.i.i, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit17.i.i.i
-  store ptr %cond.i10.i.i.i, ptr %add.ptr.i24, align 8
-  store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i25, align 8
+  store ptr %cond.i10.i.i.i, ptr %add.ptr.i21, align 8
+  store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i22, align 8
   %add.ptr19.i.i.i = getelementptr inbounds i32, ptr %cond.i10.i.i.i, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8
   br label %for.inc30
 
 for.inc30:                                        ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i, %if.then.i.i, %invoke.cont25
-  %inc31 = add nuw i32 %b.063, 1
-  %exitcond67.not = icmp eq i32 %inc31, %call18
-  br i1 %exitcond67.not, label %for.end32, label %for.body24, !llvm.loop !18
+  %inc31 = add nuw i32 %b.069, 1
+  %exitcond80.not = icmp eq i32 %inc31, %call18
+  br i1 %exitcond80.not, label %for.end32, label %for.body24, !llvm.loop !18
 
 for.end32:                                        ; preds = %for.inc30, %invoke.cont17
-  call void @_ZN6Assimp11XFileParser16TestForSeparatorEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
-  %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
-  %exitcond72.not = icmp eq i64 %indvars.iv.next69, %conv11
-  br i1 %exitcond72.not, label %while.cond.preheader, label %for.body16, !llvm.loop !19
+  %10 = load i8, ptr %mIsBinaryFormat.i, align 8
+  %tobool.i = trunc i8 %10 to i1
+  br i1 %tobool.i, label %for.inc34, label %while.cond.preheader.i.i
 
-while.cond.preheader:                             ; preds = %for.end32, %_ZNSt6vectorIN6Assimp5XFile4FaceESaIS2_EE6resizeEm.exit
+while.cond.preheader.i.i:                         ; preds = %for.end32
+  %11 = load ptr, ptr %mEnd.i.i, align 8
+  %mP.promoted11.i.i = load ptr, ptr %mP.i.i, align 8
+  %cmp1016.i.i = icmp ult ptr %mP.promoted11.i.i, %11
+  br i1 %cmp1016.i.i, label %land.rhs.lr.ph.preheader.i.i, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i
+
+land.rhs.lr.ph.preheader.i.i:                     ; preds = %while.cond.preheader.i.i
+  %mLineNumber.promoted18.i.i = load i32, ptr %mLineNumber.i.i, align 8
+  br label %land.rhs.i.i
+
+land.rhs.i.i:                                     ; preds = %land.rhs.i.i.backedge, %land.rhs.lr.ph.preheader.i.i
+  %mLineNumber.promoted21.i.i = phi i32 [ %mLineNumber.promoted18.i.i, %land.rhs.lr.ph.preheader.i.i ], [ %mLineNumber.promoted21.i.i.be, %land.rhs.i.i.backedge ]
+  %12 = phi i32 [ %mLineNumber.promoted18.i.i, %land.rhs.lr.ph.preheader.i.i ], [ %.be, %land.rhs.i.i.backedge ]
+  %13 = phi ptr [ %mP.promoted11.i.i, %land.rhs.lr.ph.preheader.i.i ], [ %.be100, %land.rhs.i.i.backedge ]
+  %14 = load i8, ptr %13, align 1
+  %conv.i.i = zext i8 %14 to i32
+  %call.i.i = call i32 @isspace(i32 noundef %conv.i.i) #23
+  %tobool5.not.i.i = icmp eq i32 %call.i.i, 0
+  br i1 %tobool5.not.i.i, label %if.end17.i.i, label %while.body6.i.i
+
+while.body6.i.i:                                  ; preds = %land.rhs.i.i
+  %cmp9.i.i = icmp eq i8 %14, 10
+  br i1 %cmp9.i.i, label %if.then10.i.i, label %if.end11.i.i
+
+if.then10.i.i:                                    ; preds = %while.body6.i.i
+  %inc.i.i = add i32 %12, 1
+  store i32 %inc.i.i, ptr %mLineNumber.i.i, align 8
+  br label %if.end11.i.i
+
+if.end11.i.i:                                     ; preds = %if.then10.i.i, %while.body6.i.i
+  %mLineNumber.promoted19.i.i = phi i32 [ %inc.i.i, %if.then10.i.i ], [ %mLineNumber.promoted21.i.i, %while.body6.i.i ]
+  %15 = phi i32 [ %inc.i.i, %if.then10.i.i ], [ %12, %while.body6.i.i ]
+  %incdec.ptr.i.i25 = getelementptr inbounds i8, ptr %13, i64 1
+  store ptr %incdec.ptr.i.i25, ptr %mP.i.i, align 8
+  %cmp.i.i = icmp ult ptr %incdec.ptr.i.i25, %11
+  br i1 %cmp.i.i, label %land.rhs.i.i.backedge, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i
+
+land.rhs.i.i.backedge:                            ; preds = %if.end11.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i
+  %mLineNumber.promoted21.i.i.be = phi i32 [ %mLineNumber.promoted19.i.i, %if.end11.i.i ], [ %mLineNumber.promoted20.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ]
+  %.be = phi i32 [ %15, %if.end11.i.i ], [ %mLineNumber.promoted20.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ]
+  %.be100 = phi ptr [ %incdec.ptr.i.i25, %if.end11.i.i ], [ %incdec.ptr.i12.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ]
+  br label %land.rhs.i.i, !llvm.loop !14
+
+if.end17.i.i:                                     ; preds = %land.rhs.i.i
+  switch i8 %14, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i [
+    i8 47, label %land.lhs.true.i.i
+    i8 35, label %while.body.i.i.i.preheader
+  ]
+
+land.lhs.true.i.i:                                ; preds = %if.end17.i.i
+  %arrayidx22.i.i = getelementptr inbounds i8, ptr %13, i64 1
+  %16 = load i8, ptr %arrayidx22.i.i, align 1
+  %cmp24.i.i = icmp eq i8 %16, 47
+  br i1 %cmp24.i.i, label %while.body.i.i.i.preheader, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i
+
+while.body.i.i.i.preheader:                       ; preds = %land.lhs.true.i.i, %if.end17.i.i
+  br label %while.body.i.i.i
+
+while.body.i.i.i:                                 ; preds = %while.body.i.i.i.preheader, %if.end9.i.i.i
+  %17 = phi ptr [ %incdec.ptr11.i.i.i, %if.end9.i.i.i ], [ %13, %while.body.i.i.i.preheader ]
+  %18 = load i8, ptr %17, align 1
+  switch i8 %18, label %if.end9.i.i.i [
+    i8 10, label %if.then7.i.i.i
+    i8 13, label %if.then7.i.i.i
+  ]
+
+if.then7.i.i.i:                                   ; preds = %while.body.i.i.i, %while.body.i.i.i
+  %incdec.ptr.i.i.i26 = getelementptr inbounds i8, ptr %17, i64 1
+  store ptr %incdec.ptr.i.i.i26, ptr %mP.i.i, align 8
+  %inc.i.i.i = add i32 %mLineNumber.promoted21.i.i, 1
+  store i32 %inc.i.i.i, ptr %mLineNumber.i.i, align 8
+  br label %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i
+
+if.end9.i.i.i:                                    ; preds = %while.body.i.i.i
+  %incdec.ptr11.i.i.i = getelementptr inbounds i8, ptr %17, i64 1
+  store ptr %incdec.ptr11.i.i.i, ptr %mP.i.i, align 8
+  %exitcond.not.i.i.i = icmp eq ptr %incdec.ptr11.i.i.i, %11
+  br i1 %exitcond.not.i.i.i, label %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i, label %while.body.i.i.i, !llvm.loop !7
+
+_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i: ; preds = %if.end9.i.i.i, %if.then7.i.i.i
+  %mLineNumber.promoted20.i.i = phi i32 [ %inc.i.i.i, %if.then7.i.i.i ], [ %mLineNumber.promoted21.i.i, %if.end9.i.i.i ]
+  %incdec.ptr.i12.i.i = phi ptr [ %incdec.ptr.i.i.i26, %if.then7.i.i.i ], [ %incdec.ptr11.i.i.i, %if.end9.i.i.i ]
+  %cmp10.i.i = icmp ult ptr %incdec.ptr.i12.i.i, %11
+  br i1 %cmp10.i.i, label %land.rhs.i.i.backedge, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i
+
+_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i: ; preds = %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i, %land.lhs.true.i.i, %if.end17.i.i, %if.end11.i.i, %while.cond.preheader.i.i
+  %19 = phi ptr [ %mP.promoted11.i.i, %while.cond.preheader.i.i ], [ %incdec.ptr.i12.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ], [ %13, %land.lhs.true.i.i ], [ %13, %if.end17.i.i ], [ %incdec.ptr.i.i25, %if.end11.i.i ]
+  %cmp.not.i = icmp ult ptr %19, %11
+  br i1 %cmp.not.i, label %if.end3.i, label %for.inc34
+
+if.end3.i:                                        ; preds = %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i
+  %20 = load i8, ptr %19, align 1
+  switch i8 %20, label %for.inc34 [
+    i8 59, label %if.then9.i
+    i8 44, label %if.then9.i
+  ]
+
+if.then9.i:                                       ; preds = %if.end3.i, %if.end3.i
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %19, i64 1
+  store ptr %incdec.ptr.i, ptr %mP.i.i, align 8
+  br label %for.inc34
+
+for.inc34:                                        ; preds = %if.then9.i, %if.end3.i, %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i, %for.end32
+  %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
+  %exitcond85.not = icmp eq i64 %indvars.iv.next82, %conv11
+  br i1 %exitcond85.not, label %while.cond.preheader, label %for.body16, !llvm.loop !19
+
+while.cond.preheader:                             ; preds = %for.inc34, %_ZNSt6vectorIN6Assimp5XFile4FaceESaIS2_EE6resizeEm.exit
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.preheader, %cleanup
@@ -3746,83 +3850,83 @@ invoke.cont41:                                    ; preds = %if.then39
   unreachable
 
 lpad40.loopexit:                                  ; preds = %if.then68.invoke, %if.then48, %if.then53, %if.then58, %if.then63, %if.then73, %if.then78, %if.else80, %invoke.cont81
-  %lpad.loopexit48 = landingpad { ptr, i32 }
+  %lpad.loopexit47 = landingpad { ptr, i32 }
           cleanup
   br label %lpad40
 
 lpad40.loopexit.split-lp:                         ; preds = %if.then39
-  %lpad.loopexit.split-lp49 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp48 = landingpad { ptr, i32 }
           cleanup
   br label %lpad40
 
 lpad40:                                           ; preds = %lpad40.loopexit.split-lp, %lpad40.loopexit
-  %lpad.phi50 = phi { ptr, i32 } [ %lpad.loopexit48, %lpad40.loopexit ], [ %lpad.loopexit.split-lp49, %lpad40.loopexit.split-lp ]
+  %lpad.phi49 = phi { ptr, i32 } [ %lpad.loopexit47, %lpad40.loopexit ], [ %lpad.loopexit.split-lp48, %lpad40.loopexit.split-lp ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %objectName) #22
   br label %ehcleanup
 
 if.else:                                          ; preds = %invoke.cont37
   %call.i = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %objectName, ptr noundef nonnull @.str.20) #22
-  %cmp.i28 = icmp eq i32 %call.i, 0
-  br i1 %cmp.i28, label %while.end, label %if.else45
+  %cmp.i27 = icmp eq i32 %call.i, 0
+  br i1 %cmp.i27, label %while.end, label %if.else45
 
 if.else45:                                        ; preds = %if.else
-  %call.i29 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %objectName, ptr noundef nonnull @.str.29) #22
-  %cmp.i30 = icmp eq i32 %call.i29, 0
-  br i1 %cmp.i30, label %if.then48, label %if.else50
+  %call.i28 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %objectName, ptr noundef nonnull @.str.29) #22
+  %cmp.i29 = icmp eq i32 %call.i28, 0
+  br i1 %cmp.i29, label %if.then48, label %if.else50
 
 if.then48:                                        ; preds = %if.else45
   invoke void @_ZN6Assimp11XFileParser26ParseDataObjectMeshNormalsEPNS_5XFile4MeshE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %pMesh)
           to label %cleanup unwind label %lpad40.loopexit
 
 if.else50:                                        ; preds = %if.else45
-  %call.i31 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %objectName, ptr noundef nonnull @.str.30) #22
-  %cmp.i32 = icmp eq i32 %call.i31, 0
-  br i1 %cmp.i32, label %if.then53, label %if.else55
+  %call.i30 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %objectName, ptr noundef nonnull @.str.30) #22
+  %cmp.i31 = icmp eq i32 %call.i30, 0
+  br i1 %cmp.i31, label %if.then53, label %if.else55
 
 if.then53:                                        ; preds = %if.else50
   invoke void @_ZN6Assimp11XFileParser32ParseDataObjectMeshTextureCoordsEPNS_5XFile4MeshE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %pMesh)
           to label %cleanup unwind label %lpad40.loopexit
 
 if.else55:                                        ; preds = %if.else50
-  %call.i33 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %objectName, ptr noundef nonnull @.str.31) #22
-  %cmp.i34 = icmp eq i32 %call.i33, 0
-  br i1 %cmp.i34, label %if.then58, label %if.else60
+  %call.i32 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %objectName, ptr noundef nonnull @.str.31) #22
+  %cmp.i33 = icmp eq i32 %call.i32, 0
+  br i1 %cmp.i33, label %if.then58, label %if.else60
 
 if.then58:                                        ; preds = %if.else55
   invoke void @_ZN6Assimp11XFileParser31ParseDataObjectMeshVertexColorsEPNS_5XFile4MeshE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %pMesh)
           to label %cleanup unwind label %lpad40.loopexit
 
 if.else60:                                        ; preds = %if.else55
-  %call.i35 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %objectName, ptr noundef nonnull @.str.32) #22
-  %cmp.i36 = icmp eq i32 %call.i35, 0
-  br i1 %cmp.i36, label %if.then63, label %if.else65
+  %call.i34 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %objectName, ptr noundef nonnull @.str.32) #22
+  %cmp.i35 = icmp eq i32 %call.i34, 0
+  br i1 %cmp.i35, label %if.then63, label %if.else65
 
 if.then63:                                        ; preds = %if.else60
   invoke void @_ZN6Assimp11XFileParser31ParseDataObjectMeshMaterialListEPNS_5XFile4MeshE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %pMesh)
           to label %cleanup unwind label %lpad40.loopexit
 
 if.else65:                                        ; preds = %if.else60
-  %call.i37 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %objectName, ptr noundef nonnull @.str.33) #22
-  %cmp.i38 = icmp eq i32 %call.i37, 0
-  br i1 %cmp.i38, label %if.then68.invoke, label %if.else70
+  %call.i36 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %objectName, ptr noundef nonnull @.str.33) #22
+  %cmp.i37 = icmp eq i32 %call.i36, 0
+  br i1 %cmp.i37, label %if.then68.invoke, label %if.else70
 
 if.then68.invoke:                                 ; preds = %invoke.cont81, %if.else65
   invoke void @_ZN6Assimp11XFileParser22ParseUnknownDataObjectEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
           to label %cleanup unwind label %lpad40.loopexit
 
 if.else70:                                        ; preds = %if.else65
-  %call.i39 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %objectName, ptr noundef nonnull @.str.34) #22
-  %cmp.i40 = icmp eq i32 %call.i39, 0
-  br i1 %cmp.i40, label %if.then73, label %if.else75
+  %call.i38 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %objectName, ptr noundef nonnull @.str.34) #22
+  %cmp.i39 = icmp eq i32 %call.i38, 0
+  br i1 %cmp.i39, label %if.then73, label %if.else75
 
 if.then73:                                        ; preds = %if.else70
   invoke void @_ZN6Assimp11XFileParser29ParseDataObjectSkinMeshHeaderEPNS_5XFile4MeshE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr poison)
           to label %cleanup unwind label %lpad40.loopexit
 
 if.else75:                                        ; preds = %if.else70
-  %call.i41 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %objectName, ptr noundef nonnull @.str.35) #22
-  %cmp.i42 = icmp eq i32 %call.i41, 0
-  br i1 %cmp.i42, label %if.then78, label %if.else80
+  %call.i40 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %objectName, ptr noundef nonnull @.str.35) #22
+  %cmp.i41 = icmp eq i32 %call.i40, 0
+  br i1 %cmp.i41, label %if.then78, label %if.else80
 
 if.then78:                                        ; preds = %if.else75
   invoke void @_ZN6Assimp11XFileParser26ParseDataObjectSkinWeightsEPNS_5XFile4MeshE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %pMesh)
@@ -3846,7 +3950,7 @@ while.end:                                        ; preds = %if.else
   ret void
 
 ehcleanup:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit, %lpad40
-  %.pn = phi { ptr, i32 } [ %lpad.phi50, %lpad40 ], [ %lpad.loopexit46, %lpad.loopexit ], [ %lpad.loopexit51, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit54, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit57, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp58, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi49, %lpad40 ], [ %lpad.loopexit45, %lpad.loopexit ], [ %lpad.loopexit51, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit54, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit57, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp58, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name) #22
   resume { ptr, i32 } %.pn
 }
@@ -4064,6 +4168,8 @@ entry:
   %ref.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3 = alloca %"class.std::allocator", align 1
   %ref.tmp6 = alloca %"class.std::__cxx11::basic_string", align 8
+  %ref.tmp20 = alloca %struct.aiColor3D, align 8
+  %ref.tmp24 = alloca %struct.aiColor3D, align 8
   %objectName = alloca %"class.std::__cxx11::basic_string", align 8
   %texname = alloca %"class.std::__cxx11::basic_string", align 8
   %texname54 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4150,12 +4256,12 @@ invoke.cont10:                                    ; preds = %if.then5.i, %if.end
   br label %if.end
 
 lpad.loopexit:                                    ; preds = %while.cond
-  %lpad.loopexit71 = landingpad { ptr, i32 }
+  %lpad.loopexit49 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup72
 
-lpad.loopexit.split-lp:                           ; preds = %entry, %if.end, %invoke.cont16, %invoke.cont13, %call.i20.noexc, %call2.i21.noexc, %call3.i22.noexc, %invoke.cont18, %call.i27.noexc, %call2.i28.noexc, %invoke.cont21, %call.i35.noexc, %call2.i36.noexc
-  %lpad.loopexit.split-lp72 = landingpad { ptr, i32 }
+lpad.loopexit.split-lp:                           ; preds = %entry, %if.end, %invoke.cont13, %invoke.cont16, %invoke.cont18, %invoke.cont21
+  %lpad.loopexit.split-lp50 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup72
 
@@ -4192,77 +4298,46 @@ if.end:                                           ; preds = %invoke.cont10, %inv
 invoke.cont13:                                    ; preds = %if.end
   %mIsReference = getelementptr inbounds i8, ptr %pMaterial, i64 32
   store i8 0, ptr %mIsReference, align 8
-  %call.i2023 = invoke noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
-          to label %call.i20.noexc unwind label %lpad.loopexit.split-lp
-
-call.i20.noexc:                                   ; preds = %invoke.cont13
-  %call2.i2124 = invoke noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
-          to label %call2.i21.noexc unwind label %lpad.loopexit.split-lp
-
-call2.i21.noexc:                                  ; preds = %call.i20.noexc
-  %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %call.i2023, i64 0
-  %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %call2.i2124, i64 1
-  %call3.i2225 = invoke noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
-          to label %call3.i22.noexc unwind label %lpad.loopexit.split-lp
-
-call3.i22.noexc:                                  ; preds = %call2.i21.noexc
-  %call4.i26 = invoke noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
+  %call17 = invoke { <2 x float>, <2 x float> } @_ZN6Assimp11XFileParser8ReadRGBAEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
           to label %invoke.cont16 unwind label %lpad.loopexit.split-lp
 
-invoke.cont16:                                    ; preds = %call3.i22.noexc
-  %retval.sroa.4.8.vec.insert.i = insertelement <2 x float> poison, float %call3.i2225, i64 0
-  %retval.sroa.4.12.vec.insert.i = insertelement <2 x float> %retval.sroa.4.8.vec.insert.i, float %call4.i26, i64 1
-  call void @_ZN6Assimp11XFileParser16TestForSeparatorEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
+invoke.cont16:                                    ; preds = %invoke.cont13
+  %6 = extractvalue { <2 x float>, <2 x float> } %call17, 0
+  %7 = extractvalue { <2 x float>, <2 x float> } %call17, 1
   %mDiffuse = getelementptr inbounds i8, ptr %pMaterial, i64 36
-  store <2 x float> %retval.sroa.0.4.vec.insert.i, ptr %mDiffuse, align 4
+  store <2 x float> %6, ptr %mDiffuse, align 4
   %ref.tmp15.sroa.2.0.mDiffuse.sroa_idx = getelementptr inbounds i8, ptr %pMaterial, i64 44
-  store <2 x float> %retval.sroa.4.12.vec.insert.i, ptr %ref.tmp15.sroa.2.0.mDiffuse.sroa_idx, align 4
+  store <2 x float> %7, ptr %ref.tmp15.sroa.2.0.mDiffuse.sroa_idx, align 4
   %call19 = invoke noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
           to label %invoke.cont18 unwind label %lpad.loopexit.split-lp
 
 invoke.cont18:                                    ; preds = %invoke.cont16
   %mSpecularExponent = getelementptr inbounds i8, ptr %pMaterial, i64 52
   store float %call19, ptr %mSpecularExponent, align 4
-  %call.i2730 = invoke noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
-          to label %call.i27.noexc unwind label %lpad.loopexit.split-lp
-
-call.i27.noexc:                                   ; preds = %invoke.cont18
-  %call2.i2831 = invoke noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
-          to label %call2.i28.noexc unwind label %lpad.loopexit.split-lp
-
-call2.i28.noexc:                                  ; preds = %call.i27.noexc
-  %call3.i2932 = invoke noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
+  invoke void @_ZN6Assimp11XFileParser7ReadRGBEv(ptr nonnull sret(%struct.aiColor3D) align 4 %ref.tmp20, ptr noundef nonnull align 8 dereferenceable(56) %this)
           to label %invoke.cont21 unwind label %lpad.loopexit.split-lp
 
-invoke.cont21:                                    ; preds = %call2.i28.noexc
-  call void @_ZN6Assimp11XFileParser16TestForSeparatorEv(ptr noundef nonnull align 8 dereferenceable(56) %this), !noalias !26
+invoke.cont21:                                    ; preds = %invoke.cont18
   %mSpecular = getelementptr inbounds i8, ptr %pMaterial, i64 56
-  store float %call.i2730, ptr %mSpecular, align 4
-  %g3.i = getelementptr inbounds i8, ptr %pMaterial, i64 60
-  store float %call2.i2831, ptr %g3.i, align 4
+  %8 = load <2 x float>, ptr %ref.tmp20, align 8
+  store <2 x float> %8, ptr %mSpecular, align 4
+  %b.i = getelementptr inbounds i8, ptr %ref.tmp20, i64 8
+  %9 = load float, ptr %b.i, align 8
   %b4.i = getelementptr inbounds i8, ptr %pMaterial, i64 64
-  store float %call3.i2932, ptr %b4.i, align 4
-  %call.i3538 = invoke noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
-          to label %call.i35.noexc unwind label %lpad.loopexit.split-lp
-
-call.i35.noexc:                                   ; preds = %invoke.cont21
-  %call2.i3639 = invoke noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
-          to label %call2.i36.noexc unwind label %lpad.loopexit.split-lp
-
-call2.i36.noexc:                                  ; preds = %call.i35.noexc
-  %call3.i3740 = invoke noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
+  store float %9, ptr %b4.i, align 4
+  invoke void @_ZN6Assimp11XFileParser7ReadRGBEv(ptr nonnull sret(%struct.aiColor3D) align 4 %ref.tmp24, ptr noundef nonnull align 8 dereferenceable(56) %this)
           to label %invoke.cont25 unwind label %lpad.loopexit.split-lp
 
-invoke.cont25:                                    ; preds = %call2.i36.noexc
-  call void @_ZN6Assimp11XFileParser16TestForSeparatorEv(ptr noundef nonnull align 8 dereferenceable(56) %this), !noalias !29
+invoke.cont25:                                    ; preds = %invoke.cont21
   %mEmissive = getelementptr inbounds i8, ptr %pMaterial, i64 68
-  store float %call.i3538, ptr %mEmissive, align 4
-  %g3.i43 = getelementptr inbounds i8, ptr %pMaterial, i64 72
-  store float %call2.i3639, ptr %g3.i43, align 4
-  %b4.i45 = getelementptr inbounds i8, ptr %pMaterial, i64 76
-  store float %call3.i3740, ptr %b4.i45, align 4
-  %_M_finish.i58 = getelementptr inbounds i8, ptr %pMaterial, i64 88
-  %_M_end_of_storage.i59 = getelementptr inbounds i8, ptr %pMaterial, i64 96
+  %10 = load <2 x float>, ptr %ref.tmp24, align 8
+  store <2 x float> %10, ptr %mEmissive, align 4
+  %b.i22 = getelementptr inbounds i8, ptr %ref.tmp24, i64 8
+  %11 = load float, ptr %b.i22, align 8
+  %b4.i23 = getelementptr inbounds i8, ptr %pMaterial, i64 76
+  store float %11, ptr %b4.i23, align 4
+  %_M_finish.i36 = getelementptr inbounds i8, ptr %pMaterial, i64 88
+  %_M_end_of_storage.i37 = getelementptr inbounds i8, ptr %pMaterial, i64 96
   %mTextures57 = getelementptr inbounds i8, ptr %pMaterial, i64 80
   br label %while.cond
 
@@ -4283,29 +4358,29 @@ invoke.cont32:                                    ; preds = %if.then30
   unreachable
 
 lpad31.loopexit:                                  ; preds = %if.else62, %invoke.cont63, %invoke.cont65
-  %lpad.loopexit73 = landingpad { ptr, i32 }
+  %lpad.loopexit51 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup71
 
 lpad31.loopexit.split-lp:                         ; preds = %if.then30
-  %lpad.loopexit.split-lp74 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp52 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup71
 
 if.else:                                          ; preds = %invoke.cont28
-  %call.i46 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %objectName, ptr noundef nonnull @.str.20) #22
-  %cmp.i47 = icmp eq i32 %call.i46, 0
-  br i1 %cmp.i47, label %while.end, label %if.else36
+  %call.i24 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %objectName, ptr noundef nonnull @.str.20) #22
+  %cmp.i25 = icmp eq i32 %call.i24, 0
+  br i1 %cmp.i25, label %while.end, label %if.else36
 
 if.else36:                                        ; preds = %if.else
-  %call.i48 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %objectName, ptr noundef nonnull @.str.50) #22
-  %cmp.i49 = icmp eq i32 %call.i48, 0
-  br i1 %cmp.i49, label %if.then41, label %lor.lhs.false
+  %call.i26 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %objectName, ptr noundef nonnull @.str.50) #22
+  %cmp.i27 = icmp eq i32 %call.i26, 0
+  br i1 %cmp.i27, label %if.then41, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.else36
-  %call.i50 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %objectName, ptr noundef nonnull @.str.51) #22
-  %cmp.i51 = icmp eq i32 %call.i50, 0
-  br i1 %cmp.i51, label %if.then41, label %if.else47
+  %call.i28 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %objectName, ptr noundef nonnull @.str.51) #22
+  %cmp.i29 = icmp eq i32 %call.i28, 0
+  br i1 %cmp.i29, label %if.then41, label %if.else47
 
 if.then41:                                        ; preds = %lor.lhs.false, %if.else36
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %texname) #22
@@ -4313,34 +4388,34 @@ if.then41:                                        ; preds = %lor.lhs.false, %if.
           to label %invoke.cont43 unwind label %lpad42
 
 invoke.cont43:                                    ; preds = %if.then41
-  %6 = load ptr, ptr %_M_finish.i58, align 8
-  %7 = load ptr, ptr %_M_end_of_storage.i59, align 8
-  %cmp.not.i = icmp eq ptr %6, %7
+  %12 = load ptr, ptr %_M_finish.i36, align 8
+  %13 = load ptr, ptr %_M_end_of_storage.i37, align 8
+  %cmp.not.i = icmp eq ptr %12, %13
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont43
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %texname)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %texname)
           to label %cleanup.sink.split.sink.split unwind label %lpad42
 
 if.else.i:                                        ; preds = %invoke.cont43
-  invoke void @_ZNSt6vectorIN6Assimp5XFile8TexEntryESaIS2_EE17_M_realloc_insertIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %mTextures57, ptr %6, ptr noundef nonnull align 8 dereferenceable(32) %texname)
+  invoke void @_ZNSt6vectorIN6Assimp5XFile8TexEntryESaIS2_EE17_M_realloc_insertIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %mTextures57, ptr %12, ptr noundef nonnull align 8 dereferenceable(32) %texname)
           to label %cleanup.sink.split unwind label %lpad42
 
 lpad42:                                           ; preds = %if.else.i, %if.then.i, %if.then41
-  %8 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %texname) #22
   br label %ehcleanup71
 
 if.else47:                                        ; preds = %lor.lhs.false
-  %call.i54 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %objectName, ptr noundef nonnull @.str.52) #22
-  %cmp.i55 = icmp eq i32 %call.i54, 0
-  br i1 %cmp.i55, label %if.then53, label %lor.lhs.false50
+  %call.i32 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %objectName, ptr noundef nonnull @.str.52) #22
+  %cmp.i33 = icmp eq i32 %call.i32, 0
+  br i1 %cmp.i33, label %if.then53, label %lor.lhs.false50
 
 lor.lhs.false50:                                  ; preds = %if.else47
-  %call.i56 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %objectName, ptr noundef nonnull @.str.53) #22
-  %cmp.i57 = icmp eq i32 %call.i56, 0
-  br i1 %cmp.i57, label %if.then53, label %if.else62
+  %call.i34 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %objectName, ptr noundef nonnull @.str.53) #22
+  %cmp.i35 = icmp eq i32 %call.i34, 0
+  br i1 %cmp.i35, label %if.then53, label %if.else62
 
 if.then53:                                        ; preds = %lor.lhs.false50, %if.else47
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %texname54) #22
@@ -4349,21 +4424,21 @@ if.then53:                                        ; preds = %lor.lhs.false50, %i
 
 invoke.cont56:                                    ; preds = %if.then53
   store i8 1, ptr %ref.tmp58, align 1
-  %9 = load ptr, ptr %_M_finish.i58, align 8
-  %10 = load ptr, ptr %_M_end_of_storage.i59, align 8
-  %cmp.not.i60 = icmp eq ptr %9, %10
-  br i1 %cmp.not.i60, label %if.else.i65, label %if.then.i61
+  %15 = load ptr, ptr %_M_finish.i36, align 8
+  %16 = load ptr, ptr %_M_end_of_storage.i37, align 8
+  %cmp.not.i38 = icmp eq ptr %15, %16
+  br i1 %cmp.not.i38, label %if.else.i43, label %if.then.i39
 
-if.then.i61:                                      ; preds = %invoke.cont56
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %texname54)
+if.then.i39:                                      ; preds = %invoke.cont56
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %texname54)
           to label %cleanup.sink.split.sink.split unwind label %lpad55
 
-if.else.i65:                                      ; preds = %invoke.cont56
-  invoke void @_ZNSt6vectorIN6Assimp5XFile8TexEntryESaIS2_EE17_M_realloc_insertIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %mTextures57, ptr %9, ptr noundef nonnull align 8 dereferenceable(32) %texname54, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp58)
+if.else.i43:                                      ; preds = %invoke.cont56
+  invoke void @_ZNSt6vectorIN6Assimp5XFile8TexEntryESaIS2_EE17_M_realloc_insertIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %mTextures57, ptr %15, ptr noundef nonnull align 8 dereferenceable(32) %texname54, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp58)
           to label %cleanup.sink.split unwind label %lpad55
 
-lpad55:                                           ; preds = %if.else.i65, %if.then.i61, %if.then53
-  %11 = landingpad { ptr, i32 }
+lpad55:                                           ; preds = %if.else.i43, %if.then.i39, %if.then53
+  %17 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %texname54) #22
   br label %ehcleanup71
@@ -4380,19 +4455,19 @@ invoke.cont65:                                    ; preds = %invoke.cont63
   invoke void @_ZN6Assimp11XFileParser22ParseUnknownDataObjectEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
           to label %cleanup unwind label %lpad31.loopexit
 
-cleanup.sink.split.sink.split:                    ; preds = %if.then.i61, %if.then.i
-  %.sink76 = phi ptr [ %6, %if.then.i ], [ %9, %if.then.i61 ]
-  %.sink = phi i8 [ 0, %if.then.i ], [ 1, %if.then.i61 ]
-  %texname.sink.ph = phi ptr [ %texname, %if.then.i ], [ %texname54, %if.then.i61 ]
-  %mIsNormalMap.i.i.i.i62 = getelementptr inbounds i8, ptr %.sink76, i64 32
-  store i8 %.sink, ptr %mIsNormalMap.i.i.i.i62, align 8
-  %12 = load ptr, ptr %_M_finish.i58, align 8
-  %incdec.ptr.i63 = getelementptr inbounds i8, ptr %12, i64 40
-  store ptr %incdec.ptr.i63, ptr %_M_finish.i58, align 8
+cleanup.sink.split.sink.split:                    ; preds = %if.then.i39, %if.then.i
+  %.sink54 = phi ptr [ %12, %if.then.i ], [ %15, %if.then.i39 ]
+  %.sink = phi i8 [ 0, %if.then.i ], [ 1, %if.then.i39 ]
+  %texname.sink.ph = phi ptr [ %texname, %if.then.i ], [ %texname54, %if.then.i39 ]
+  %mIsNormalMap.i.i.i.i40 = getelementptr inbounds i8, ptr %.sink54, i64 32
+  store i8 %.sink, ptr %mIsNormalMap.i.i.i.i40, align 8
+  %18 = load ptr, ptr %_M_finish.i36, align 8
+  %incdec.ptr.i41 = getelementptr inbounds i8, ptr %18, i64 40
+  store ptr %incdec.ptr.i41, ptr %_M_finish.i36, align 8
   br label %cleanup.sink.split
 
-cleanup.sink.split:                               ; preds = %cleanup.sink.split.sink.split, %if.else.i65, %if.else.i
-  %texname.sink = phi ptr [ %texname, %if.else.i ], [ %texname54, %if.else.i65 ], [ %texname.sink.ph, %cleanup.sink.split.sink.split ]
+cleanup.sink.split:                               ; preds = %cleanup.sink.split.sink.split, %if.else.i43, %if.else.i
+  %texname.sink = phi ptr [ %texname, %if.else.i ], [ %texname54, %if.else.i43 ], [ %texname.sink.ph, %cleanup.sink.split.sink.split ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %texname.sink) #22
   br label %cleanup
 
@@ -4401,7 +4476,7 @@ cleanup:                                          ; preds = %cleanup.sink.split,
   br label %while.cond
 
 ehcleanup71:                                      ; preds = %lpad31.loopexit, %lpad31.loopexit.split-lp, %lpad55, %lpad42
-  %.pn10 = phi { ptr, i32 } [ %8, %lpad42 ], [ %11, %lpad55 ], [ %lpad.loopexit73, %lpad31.loopexit ], [ %lpad.loopexit.split-lp74, %lpad31.loopexit.split-lp ]
+  %.pn10 = phi { ptr, i32 } [ %14, %lpad42 ], [ %17, %lpad55 ], [ %lpad.loopexit51, %lpad31.loopexit ], [ %lpad.loopexit.split-lp52, %lpad31.loopexit.split-lp ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %objectName) #22
   br label %ehcleanup72
 
@@ -4411,7 +4486,7 @@ while.end:                                        ; preds = %if.else
   ret void
 
 ehcleanup72:                                      ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %ehcleanup71, %ehcleanup12
-  %.pn10.pn = phi { ptr, i32 } [ %.pn10, %ehcleanup71 ], [ %.pn.pn, %ehcleanup12 ], [ %lpad.loopexit71, %lpad.loopexit ], [ %lpad.loopexit.split-lp72, %lpad.loopexit.split-lp ]
+  %.pn10.pn = phi { ptr, i32 } [ %.pn10, %ehcleanup71 ], [ %.pn.pn, %ehcleanup12 ], [ %lpad.loopexit49, %lpad.loopexit ], [ %lpad.loopexit.split-lp50, %lpad.loopexit.split-lp ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %matName) #22
   resume { ptr, i32 } %.pn10.pn
 }
@@ -4519,7 +4594,7 @@ if.end23:                                         ; preds = %if.end15, %if.else
   %spec.select = add i32 %counter.08, %dec.sink
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %t9) #22
   %cmp7.not = icmp eq i32 %spec.select, 0
-  br i1 %cmp7.not, label %while.end24, label %while.body8, !llvm.loop !32
+  br i1 %cmp7.not, label %while.end24, label %while.body8, !llvm.loop !26
 
 while.end24:                                      ; preds = %if.end23
   ret void
@@ -5338,7 +5413,7 @@ if.end50:                                         ; preds = %while.body
   %incdec.ptr54 = getelementptr inbounds i8, ptr %22, i64 1
   store ptr %incdec.ptr54, ptr %mP.i9, align 8
   %exitcond.not = icmp eq ptr %incdec.ptr54, %scevgep
-  br i1 %exitcond.not, label %if.end.i, label %while.body, !llvm.loop !33
+  br i1 %exitcond.not, label %if.end.i, label %while.body, !llvm.loop !27
 
 if.end.i:                                         ; preds = %while.body, %if.end50, %while.cond.preheader
   %number.0.lcssa = phi i32 [ 0, %while.cond.preheader ], [ %add, %if.end50 ], [ %number.021, %while.body ]
@@ -5436,11 +5511,11 @@ _ZNKSt6vectorI10aiVector3tIfESaIS1_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.e
 for.body.i.i.i.i:                                 ; preds = %_ZNKSt6vectorI10aiVector3tIfESaIS1_EE12_M_check_lenEmPKc.exit.i, %for.body.i.i.i.i
   %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %call5.i.i.i.i, %_ZNKSt6vectorI10aiVector3tIfESaIS1_EE12_M_check_lenEmPKc.exit.i ]
   %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %1, %_ZNKSt6vectorI10aiVector3tIfESaIS1_EE12_M_check_lenEmPKc.exit.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %__cur.07.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %__first.addr.06.i.i.i.i, i64 12, i1 false), !alias.scope !34
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %__cur.07.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %__first.addr.06.i.i.i.i, i64 12, i1 false), !alias.scope !28
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 12
   %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 12
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %0
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorI10aiVector3tIfESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i, label %for.body.i.i.i.i, !llvm.loop !38
+  br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorI10aiVector3tIfESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i, label %for.body.i.i.i.i, !llvm.loop !32
 
 _ZNSt6vectorI10aiVector3tIfESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; preds = %for.body.i.i.i.i, %_ZNKSt6vectorI10aiVector3tIfESaIS1_EE12_M_check_lenEmPKc.exit.i
   %tobool.not.i27.i = icmp eq ptr %1, null
@@ -5479,11 +5554,121 @@ if.end6:                                          ; preds = %invoke.cont.i, %if.
 define hidden { <2 x float>, float } @_ZN6Assimp11XFileParser11ReadVector3Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
-  %retval.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %call, i64 0
   %call2 = tail call noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
-  %retval.sroa.0.4.vec.insert = insertelement <2 x float> %retval.sroa.0.0.vec.insert, float %call2, i64 1
   %call3 = tail call noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
-  tail call void @_ZN6Assimp11XFileParser16TestForSeparatorEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
+  %mIsBinaryFormat.i = getelementptr inbounds i8, ptr %this, i64 8
+  %0 = load i8, ptr %mIsBinaryFormat.i, align 8
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %_ZN6Assimp11XFileParser16TestForSeparatorEv.exit, label %while.cond.preheader.i.i
+
+while.cond.preheader.i.i:                         ; preds = %entry
+  %mP.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mEnd.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %1 = load ptr, ptr %mEnd.i.i, align 8
+  %mP.promoted11.i.i = load ptr, ptr %mP.i.i, align 8
+  %cmp1016.i.i = icmp ult ptr %mP.promoted11.i.i, %1
+  br i1 %cmp1016.i.i, label %land.rhs.lr.ph.preheader.i.i, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i
+
+land.rhs.lr.ph.preheader.i.i:                     ; preds = %while.cond.preheader.i.i
+  %mLineNumber.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %mLineNumber.promoted18.i.i = load i32, ptr %mLineNumber.i.i, align 8
+  br label %land.rhs.i.i
+
+land.rhs.i.i:                                     ; preds = %land.rhs.i.i.backedge, %land.rhs.lr.ph.preheader.i.i
+  %mLineNumber.promoted21.i.i = phi i32 [ %mLineNumber.promoted18.i.i, %land.rhs.lr.ph.preheader.i.i ], [ %mLineNumber.promoted21.i.i.be, %land.rhs.i.i.backedge ]
+  %2 = phi i32 [ %mLineNumber.promoted18.i.i, %land.rhs.lr.ph.preheader.i.i ], [ %.be, %land.rhs.i.i.backedge ]
+  %3 = phi ptr [ %mP.promoted11.i.i, %land.rhs.lr.ph.preheader.i.i ], [ %.be34, %land.rhs.i.i.backedge ]
+  %4 = load i8, ptr %3, align 1
+  %conv.i.i = zext i8 %4 to i32
+  %call.i.i = tail call i32 @isspace(i32 noundef %conv.i.i) #23
+  %tobool5.not.i.i = icmp eq i32 %call.i.i, 0
+  br i1 %tobool5.not.i.i, label %if.end17.i.i, label %while.body6.i.i
+
+while.body6.i.i:                                  ; preds = %land.rhs.i.i
+  %cmp9.i.i = icmp eq i8 %4, 10
+  br i1 %cmp9.i.i, label %if.then10.i.i, label %if.end11.i.i
+
+if.then10.i.i:                                    ; preds = %while.body6.i.i
+  %inc.i.i = add i32 %2, 1
+  store i32 %inc.i.i, ptr %mLineNumber.i.i, align 8
+  br label %if.end11.i.i
+
+if.end11.i.i:                                     ; preds = %if.then10.i.i, %while.body6.i.i
+  %mLineNumber.promoted19.i.i = phi i32 [ %inc.i.i, %if.then10.i.i ], [ %mLineNumber.promoted21.i.i, %while.body6.i.i ]
+  %5 = phi i32 [ %inc.i.i, %if.then10.i.i ], [ %2, %while.body6.i.i ]
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 1
+  store ptr %incdec.ptr.i.i, ptr %mP.i.i, align 8
+  %cmp.i.i = icmp ult ptr %incdec.ptr.i.i, %1
+  br i1 %cmp.i.i, label %land.rhs.i.i.backedge, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i
+
+land.rhs.i.i.backedge:                            ; preds = %if.end11.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i
+  %mLineNumber.promoted21.i.i.be = phi i32 [ %mLineNumber.promoted19.i.i, %if.end11.i.i ], [ %mLineNumber.promoted20.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ]
+  %.be = phi i32 [ %5, %if.end11.i.i ], [ %mLineNumber.promoted20.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ]
+  %.be34 = phi ptr [ %incdec.ptr.i.i, %if.end11.i.i ], [ %incdec.ptr.i12.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ]
+  br label %land.rhs.i.i, !llvm.loop !14
+
+if.end17.i.i:                                     ; preds = %land.rhs.i.i
+  switch i8 %4, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i [
+    i8 47, label %land.lhs.true.i.i
+    i8 35, label %while.body.i.i.i.preheader
+  ]
+
+land.lhs.true.i.i:                                ; preds = %if.end17.i.i
+  %arrayidx22.i.i = getelementptr inbounds i8, ptr %3, i64 1
+  %6 = load i8, ptr %arrayidx22.i.i, align 1
+  %cmp24.i.i = icmp eq i8 %6, 47
+  br i1 %cmp24.i.i, label %while.body.i.i.i.preheader, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i
+
+while.body.i.i.i.preheader:                       ; preds = %land.lhs.true.i.i, %if.end17.i.i
+  br label %while.body.i.i.i
+
+while.body.i.i.i:                                 ; preds = %while.body.i.i.i.preheader, %if.end9.i.i.i
+  %7 = phi ptr [ %incdec.ptr11.i.i.i, %if.end9.i.i.i ], [ %3, %while.body.i.i.i.preheader ]
+  %8 = load i8, ptr %7, align 1
+  switch i8 %8, label %if.end9.i.i.i [
+    i8 10, label %if.then7.i.i.i
+    i8 13, label %if.then7.i.i.i
+  ]
+
+if.then7.i.i.i:                                   ; preds = %while.body.i.i.i, %while.body.i.i.i
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %7, i64 1
+  store ptr %incdec.ptr.i.i.i, ptr %mP.i.i, align 8
+  %inc.i.i.i = add i32 %mLineNumber.promoted21.i.i, 1
+  store i32 %inc.i.i.i, ptr %mLineNumber.i.i, align 8
+  br label %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i
+
+if.end9.i.i.i:                                    ; preds = %while.body.i.i.i
+  %incdec.ptr11.i.i.i = getelementptr inbounds i8, ptr %7, i64 1
+  store ptr %incdec.ptr11.i.i.i, ptr %mP.i.i, align 8
+  %exitcond.not.i.i.i = icmp eq ptr %incdec.ptr11.i.i.i, %1
+  br i1 %exitcond.not.i.i.i, label %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i, label %while.body.i.i.i, !llvm.loop !7
+
+_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i: ; preds = %if.end9.i.i.i, %if.then7.i.i.i
+  %mLineNumber.promoted20.i.i = phi i32 [ %inc.i.i.i, %if.then7.i.i.i ], [ %mLineNumber.promoted21.i.i, %if.end9.i.i.i ]
+  %incdec.ptr.i12.i.i = phi ptr [ %incdec.ptr.i.i.i, %if.then7.i.i.i ], [ %incdec.ptr11.i.i.i, %if.end9.i.i.i ]
+  %cmp10.i.i = icmp ult ptr %incdec.ptr.i12.i.i, %1
+  br i1 %cmp10.i.i, label %land.rhs.i.i.backedge, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i
+
+_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i: ; preds = %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i, %land.lhs.true.i.i, %if.end17.i.i, %if.end11.i.i, %while.cond.preheader.i.i
+  %9 = phi ptr [ %mP.promoted11.i.i, %while.cond.preheader.i.i ], [ %incdec.ptr.i12.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ], [ %3, %land.lhs.true.i.i ], [ %3, %if.end17.i.i ], [ %incdec.ptr.i.i, %if.end11.i.i ]
+  %cmp.not.i = icmp ult ptr %9, %1
+  br i1 %cmp.not.i, label %if.end3.i, label %_ZN6Assimp11XFileParser16TestForSeparatorEv.exit
+
+if.end3.i:                                        ; preds = %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i
+  %10 = load i8, ptr %9, align 1
+  switch i8 %10, label %_ZN6Assimp11XFileParser16TestForSeparatorEv.exit [
+    i8 59, label %if.then9.i
+    i8 44, label %if.then9.i
+  ]
+
+if.then9.i:                                       ; preds = %if.end3.i, %if.end3.i
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %9, i64 1
+  store ptr %incdec.ptr.i, ptr %mP.i.i, align 8
+  br label %_ZN6Assimp11XFileParser16TestForSeparatorEv.exit
+
+_ZN6Assimp11XFileParser16TestForSeparatorEv.exit: ; preds = %entry, %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i, %if.end3.i, %if.then9.i
+  %retval.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %call, i64 0
+  %retval.sroa.0.4.vec.insert = insertelement <2 x float> %retval.sroa.0.0.vec.insert, float %call2, i64 1
   %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %retval.sroa.0.4.vec.insert, 0
   %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %call3, 1
   ret { <2 x float>, float } %.fca.1.insert
@@ -5663,25 +5848,22 @@ entry:
   %mNormals = getelementptr inbounds i8, ptr %pMesh, i64 80
   %conv = zext i32 %call to i64
   tail call void @_ZNSt6vectorI10aiVector3tIfESaIS1_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %mNormals, i64 noundef %conv)
-  %cmp32.not = icmp eq i32 %call, 0
-  br i1 %cmp32.not, label %for.end, label %for.body
+  %cmp41.not = icmp eq i32 %call, 0
+  br i1 %cmp41.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %entry ]
-  %call.i = tail call noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
-  %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %call.i, i64 0
-  %call2.i = tail call noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
-  %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %call2.i, i64 1
-  %call3.i = tail call noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
-  tail call void @_ZN6Assimp11XFileParser16TestForSeparatorEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
+  %call2 = tail call { <2 x float>, float } @_ZN6Assimp11XFileParser11ReadVector3Ev(ptr noundef nonnull align 8 dereferenceable(56) %this)
+  %call2.fca.0.extract = extractvalue { <2 x float>, float } %call2, 0
+  %call2.fca.1.extract = extractvalue { <2 x float>, float } %call2, 1
   %0 = load ptr, ptr %mNormals, align 8
   %add.ptr.i = getelementptr inbounds %class.aiVector3t, ptr %0, i64 %indvars.iv
-  store <2 x float> %retval.sroa.0.4.vec.insert.i, ptr %add.ptr.i, align 4
+  store <2 x float> %call2.fca.0.extract, ptr %add.ptr.i, align 4
   %ref.tmp.sroa.2.0.call5.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
-  store float %call3.i, ptr %ref.tmp.sroa.2.0.call5.sroa_idx, align 4
+  store float %call2.fca.1.extract, ptr %ref.tmp.sroa.2.0.call5.sroa_idx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %conv
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !39
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !33
 
 for.end:                                          ; preds = %for.body, %entry
   %call6 = tail call noundef i32 @_ZN6Assimp11XFileParser7ReadIntEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
@@ -5751,15 +5933,19 @@ invoke.cont.i.i:                                  ; preds = %_ZSt8_DestroyIN6Ass
   br label %_ZNSt6vectorIN6Assimp5XFile4FaceESaIS2_EE6resizeEm.exit
 
 _ZNSt6vectorIN6Assimp5XFile4FaceESaIS2_EE6resizeEm.exit: ; preds = %if.then.i, %if.else.i, %if.then5.i, %invoke.cont.i.i
+  %mIsBinaryFormat.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mP.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mEnd.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mLineNumber.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %umax = tail call i32 @llvm.umax.i32(i32 %call6, i32 1)
-  %wide.trip.count42 = zext i32 %umax to i64
+  %wide.trip.count58 = zext i32 %umax to i64
   br label %for.body16
 
-for.body16:                                       ; preds = %_ZNSt6vectorIN6Assimp5XFile4FaceESaIS2_EE6resizeEm.exit, %for.end33
-  %indvars.iv39 = phi i64 [ 0, %_ZNSt6vectorIN6Assimp5XFile4FaceESaIS2_EE6resizeEm.exit ], [ %indvars.iv.next40, %for.end33 ]
+for.body16:                                       ; preds = %_ZNSt6vectorIN6Assimp5XFile4FaceESaIS2_EE6resizeEm.exit, %_ZN6Assimp11XFileParser16TestForSeparatorEv.exit
+  %indvars.iv55 = phi i64 [ 0, %_ZNSt6vectorIN6Assimp5XFile4FaceESaIS2_EE6resizeEm.exit ], [ %indvars.iv.next56, %_ZN6Assimp11XFileParser16TestForSeparatorEv.exit ]
   %call17 = tail call noundef i32 @_ZN6Assimp11XFileParser7ReadIntEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
   %6 = load ptr, ptr %mNormFaces, align 8
-  %add.ptr.i17 = getelementptr inbounds %"struct.Assimp::XFile::Face", ptr %6, i64 %indvars.iv39
+  %add.ptr.i17 = getelementptr inbounds %"struct.Assimp::XFile::Face", ptr %6, i64 %indvars.iv55
   %7 = load ptr, ptr %add.ptr.i17, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %7, null
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i17, i8 0, i64 24, i1 false)
@@ -5771,9 +5957,9 @@ if.then.i.i.i.i.i.i:                              ; preds = %for.body16
 
 _ZN6Assimp5XFile4FaceD2Ev.exit:                   ; preds = %if.then.i.i.i.i.i.i, %for.body16
   %8 = load ptr, ptr %mNormFaces, align 8
-  %add.ptr.i18 = getelementptr inbounds %"struct.Assimp::XFile::Face", ptr %8, i64 %indvars.iv39
-  %cmp2734.not = icmp eq i32 %call17, 0
-  br i1 %cmp2734.not, label %for.end33, label %for.body28.lr.ph
+  %add.ptr.i18 = getelementptr inbounds %"struct.Assimp::XFile::Face", ptr %8, i64 %indvars.iv55
+  %cmp2743.not = icmp eq i32 %call17, 0
+  br i1 %cmp2743.not, label %for.end33, label %for.body28.lr.ph
 
 for.body28.lr.ph:                                 ; preds = %_ZN6Assimp5XFile4FaceD2Ev.exit
   %_M_finish.i.i19 = getelementptr inbounds i8, ptr %add.ptr.i18, i64 8
@@ -5781,7 +5967,7 @@ for.body28.lr.ph:                                 ; preds = %_ZN6Assimp5XFile4Fa
   br label %for.body28
 
 for.body28:                                       ; preds = %for.body28.lr.ph, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
-  %b.035 = phi i32 [ 0, %for.body28.lr.ph ], [ %inc32, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit ]
+  %b.044 = phi i32 [ 0, %for.body28.lr.ph ], [ %inc32, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit ]
   %call30 = tail call noundef i32 @_ZN6Assimp11XFileParser7ReadIntEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
   %9 = load ptr, ptr %_M_finish.i.i19, align 8
   %10 = load ptr, ptr %_M_end_of_storage.i.i, align 8
@@ -5851,25 +6037,131 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
 
 _ZNSt6vectorIjSaIjEE9push_backEOj.exit:           ; preds = %if.then.i.i, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i
-  %inc32 = add nuw i32 %b.035, 1
-  %exitcond38.not = icmp eq i32 %inc32, %call17
-  br i1 %exitcond38.not, label %for.end33, label %for.body28, !llvm.loop !40
+  %inc32 = add nuw i32 %b.044, 1
+  %exitcond54.not = icmp eq i32 %inc32, %call17
+  br i1 %exitcond54.not, label %for.end33, label %for.body28, !llvm.loop !34
 
 for.end33:                                        ; preds = %_ZNSt6vectorIjSaIjEE9push_backEOj.exit, %_ZN6Assimp5XFile4FaceD2Ev.exit
-  tail call void @_ZN6Assimp11XFileParser16TestForSeparatorEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
-  %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
-  %exitcond43.not = icmp eq i64 %indvars.iv.next40, %wide.trip.count42
-  br i1 %exitcond43.not, label %if.end37, label %for.body16, !llvm.loop !41
+  %14 = load i8, ptr %mIsBinaryFormat.i, align 8
+  %tobool.i = trunc i8 %14 to i1
+  br i1 %tobool.i, label %_ZN6Assimp11XFileParser16TestForSeparatorEv.exit, label %while.cond.preheader.i.i
 
-if.end37:                                         ; preds = %for.end33, %if.end
+while.cond.preheader.i.i:                         ; preds = %for.end33
+  %15 = load ptr, ptr %mEnd.i.i, align 8
+  %mP.promoted11.i.i = load ptr, ptr %mP.i.i, align 8
+  %cmp1016.i.i = icmp ult ptr %mP.promoted11.i.i, %15
+  br i1 %cmp1016.i.i, label %land.rhs.lr.ph.preheader.i.i, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i
+
+land.rhs.lr.ph.preheader.i.i:                     ; preds = %while.cond.preheader.i.i
+  %mLineNumber.promoted18.i.i = load i32, ptr %mLineNumber.i.i, align 8
+  br label %land.rhs.i.i
+
+land.rhs.i.i:                                     ; preds = %land.rhs.i.i.backedge, %land.rhs.lr.ph.preheader.i.i
+  %mLineNumber.promoted21.i.i = phi i32 [ %mLineNumber.promoted18.i.i, %land.rhs.lr.ph.preheader.i.i ], [ %mLineNumber.promoted21.i.i.be, %land.rhs.i.i.backedge ]
+  %16 = phi i32 [ %mLineNumber.promoted18.i.i, %land.rhs.lr.ph.preheader.i.i ], [ %.be, %land.rhs.i.i.backedge ]
+  %17 = phi ptr [ %mP.promoted11.i.i, %land.rhs.lr.ph.preheader.i.i ], [ %.be74, %land.rhs.i.i.backedge ]
+  %18 = load i8, ptr %17, align 1
+  %conv.i.i = zext i8 %18 to i32
+  %call.i.i = tail call i32 @isspace(i32 noundef %conv.i.i) #23
+  %tobool5.not.i.i = icmp eq i32 %call.i.i, 0
+  br i1 %tobool5.not.i.i, label %if.end17.i.i, label %while.body6.i.i
+
+while.body6.i.i:                                  ; preds = %land.rhs.i.i
+  %cmp9.i.i = icmp eq i8 %18, 10
+  br i1 %cmp9.i.i, label %if.then10.i.i, label %if.end11.i.i
+
+if.then10.i.i:                                    ; preds = %while.body6.i.i
+  %inc.i.i = add i32 %16, 1
+  store i32 %inc.i.i, ptr %mLineNumber.i.i, align 8
+  br label %if.end11.i.i
+
+if.end11.i.i:                                     ; preds = %if.then10.i.i, %while.body6.i.i
+  %mLineNumber.promoted19.i.i = phi i32 [ %inc.i.i, %if.then10.i.i ], [ %mLineNumber.promoted21.i.i, %while.body6.i.i ]
+  %19 = phi i32 [ %inc.i.i, %if.then10.i.i ], [ %16, %while.body6.i.i ]
+  %incdec.ptr.i.i23 = getelementptr inbounds i8, ptr %17, i64 1
+  store ptr %incdec.ptr.i.i23, ptr %mP.i.i, align 8
+  %cmp.i.i = icmp ult ptr %incdec.ptr.i.i23, %15
+  br i1 %cmp.i.i, label %land.rhs.i.i.backedge, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i
+
+land.rhs.i.i.backedge:                            ; preds = %if.end11.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i
+  %mLineNumber.promoted21.i.i.be = phi i32 [ %mLineNumber.promoted19.i.i, %if.end11.i.i ], [ %mLineNumber.promoted20.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ]
+  %.be = phi i32 [ %19, %if.end11.i.i ], [ %mLineNumber.promoted20.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ]
+  %.be74 = phi ptr [ %incdec.ptr.i.i23, %if.end11.i.i ], [ %incdec.ptr.i12.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ]
+  br label %land.rhs.i.i, !llvm.loop !14
+
+if.end17.i.i:                                     ; preds = %land.rhs.i.i
+  switch i8 %18, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i [
+    i8 47, label %land.lhs.true.i.i
+    i8 35, label %while.body.i.i.i.preheader
+  ]
+
+land.lhs.true.i.i:                                ; preds = %if.end17.i.i
+  %arrayidx22.i.i = getelementptr inbounds i8, ptr %17, i64 1
+  %20 = load i8, ptr %arrayidx22.i.i, align 1
+  %cmp24.i.i = icmp eq i8 %20, 47
+  br i1 %cmp24.i.i, label %while.body.i.i.i.preheader, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i
+
+while.body.i.i.i.preheader:                       ; preds = %land.lhs.true.i.i, %if.end17.i.i
+  br label %while.body.i.i.i
+
+while.body.i.i.i:                                 ; preds = %while.body.i.i.i.preheader, %if.end9.i.i.i
+  %21 = phi ptr [ %incdec.ptr11.i.i.i, %if.end9.i.i.i ], [ %17, %while.body.i.i.i.preheader ]
+  %22 = load i8, ptr %21, align 1
+  switch i8 %22, label %if.end9.i.i.i [
+    i8 10, label %if.then7.i.i.i
+    i8 13, label %if.then7.i.i.i
+  ]
+
+if.then7.i.i.i:                                   ; preds = %while.body.i.i.i, %while.body.i.i.i
+  %incdec.ptr.i.i.i24 = getelementptr inbounds i8, ptr %21, i64 1
+  store ptr %incdec.ptr.i.i.i24, ptr %mP.i.i, align 8
+  %inc.i.i.i = add i32 %mLineNumber.promoted21.i.i, 1
+  store i32 %inc.i.i.i, ptr %mLineNumber.i.i, align 8
+  br label %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i
+
+if.end9.i.i.i:                                    ; preds = %while.body.i.i.i
+  %incdec.ptr11.i.i.i = getelementptr inbounds i8, ptr %21, i64 1
+  store ptr %incdec.ptr11.i.i.i, ptr %mP.i.i, align 8
+  %exitcond.not.i.i.i = icmp eq ptr %incdec.ptr11.i.i.i, %15
+  br i1 %exitcond.not.i.i.i, label %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i, label %while.body.i.i.i, !llvm.loop !7
+
+_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i: ; preds = %if.end9.i.i.i, %if.then7.i.i.i
+  %mLineNumber.promoted20.i.i = phi i32 [ %inc.i.i.i, %if.then7.i.i.i ], [ %mLineNumber.promoted21.i.i, %if.end9.i.i.i ]
+  %incdec.ptr.i12.i.i = phi ptr [ %incdec.ptr.i.i.i24, %if.then7.i.i.i ], [ %incdec.ptr11.i.i.i, %if.end9.i.i.i ]
+  %cmp10.i.i = icmp ult ptr %incdec.ptr.i12.i.i, %15
+  br i1 %cmp10.i.i, label %land.rhs.i.i.backedge, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i
+
+_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i: ; preds = %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i, %land.lhs.true.i.i, %if.end17.i.i, %if.end11.i.i, %while.cond.preheader.i.i
+  %23 = phi ptr [ %mP.promoted11.i.i, %while.cond.preheader.i.i ], [ %incdec.ptr.i12.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ], [ %17, %land.lhs.true.i.i ], [ %17, %if.end17.i.i ], [ %incdec.ptr.i.i23, %if.end11.i.i ]
+  %cmp.not.i = icmp ult ptr %23, %15
+  br i1 %cmp.not.i, label %if.end3.i, label %_ZN6Assimp11XFileParser16TestForSeparatorEv.exit
+
+if.end3.i:                                        ; preds = %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i
+  %24 = load i8, ptr %23, align 1
+  switch i8 %24, label %_ZN6Assimp11XFileParser16TestForSeparatorEv.exit [
+    i8 59, label %if.then9.i
+    i8 44, label %if.then9.i
+  ]
+
+if.then9.i:                                       ; preds = %if.end3.i, %if.end3.i
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %23, i64 1
+  store ptr %incdec.ptr.i, ptr %mP.i.i, align 8
+  br label %_ZN6Assimp11XFileParser16TestForSeparatorEv.exit
+
+_ZN6Assimp11XFileParser16TestForSeparatorEv.exit: ; preds = %for.end33, %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i, %if.end3.i, %if.then9.i
+  %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
+  %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
+  br i1 %exitcond59.not, label %if.end37, label %for.body16, !llvm.loop !35
+
+if.end37:                                         ; preds = %_ZN6Assimp11XFileParser16TestForSeparatorEv.exit, %if.end
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @_ZN6Assimp11XFileParser12GetNextTokenB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(56) %this)
   %call.i.i.i = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull @.str.20) #22
   %cmp.i.i.not.i = icmp eq i32 %call.i.i.i, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #22
-  br i1 %cmp.i.i.not.i, label %_ZN6Assimp11XFileParser20CheckForClosingBraceEv.exit, label %if.then.i23
+  br i1 %cmp.i.i.not.i, label %_ZN6Assimp11XFileParser20CheckForClosingBraceEv.exit, label %if.then.i25
 
-if.then.i23:                                      ; preds = %if.end37
+if.then.i25:                                      ; preds = %if.end37
   call void @_ZN6Assimp11XFileParser14ThrowExceptionIJRA24_KcEEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 1 dereferenceable(24) @.str.71) #24
   unreachable
 
@@ -5922,17 +6214,13 @@ if.end6:                                          ; preds = %if.end
 
 for.body:                                         ; preds = %if.end6, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %if.end6 ]
-  %call.i = tail call noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
-  %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %call.i, i64 0
-  %call2.i = tail call noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
-  %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %call2.i, i64 1
-  tail call void @_ZN6Assimp11XFileParser16TestForSeparatorEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
+  %call9 = tail call <2 x float> @_ZN6Assimp11XFileParser11ReadVector2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this)
   %3 = load ptr, ptr %arrayidx, align 8
   %add.ptr.i = getelementptr inbounds %class.aiVector2t, ptr %3, i64 %indvars.iv
-  store <2 x float> %retval.sroa.0.4.vec.insert.i, ptr %add.ptr.i, align 4
+  store <2 x float> %call9, ptr %add.ptr.i, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %conv
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !42
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !36
 
 for.end:                                          ; preds = %for.body, %if.end6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
@@ -6020,8 +6308,8 @@ invoke.cont.i.i:                                  ; preds = %if.then7.i
   br label %_ZNSt6vectorI9aiColor4tIfESaIS1_EE6resizeEmRKS1_.exit
 
 _ZNSt6vectorI9aiColor4tIfESaIS1_EE6resizeEmRKS1_.exit: ; preds = %if.then.i, %if.else.i, %if.then7.i, %invoke.cont.i.i
-  %cmp826.not = icmp eq i32 %call, 0
-  br i1 %cmp826.not, label %for.end, label %for.body.lr.ph
+  %cmp825.not = icmp eq i32 %call, 0
+  br i1 %cmp825.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZNSt6vectorI9aiColor4tIfESaIS1_EE6resizeEmRKS1_.exit
   %mIsBinaryFormat = getelementptr inbounds i8, ptr %this, i64 8
@@ -6031,7 +6319,7 @@ for.body.lr.ph:                                   ; preds = %_ZNSt6vectorI9aiCol
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %a.027 = phi i32 [ 0, %for.body.lr.ph ], [ %inc30, %for.inc ]
+  %a.026 = phi i32 [ 0, %for.body.lr.ph ], [ %inc30, %for.inc ]
   %call9 = call noundef i32 @_ZN6Assimp11XFileParser7ReadIntEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
   %conv10 = zext i32 %call9 to i64
   %5 = load ptr, ptr %_M_finish.i, align 8
@@ -6048,28 +6336,22 @@ if.then14:                                        ; preds = %for.body
   unreachable
 
 if.end15:                                         ; preds = %for.body
-  %call.i = call noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
-  %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %call.i, i64 0
-  %call2.i = call noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
-  %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %call2.i, i64 1
-  %call3.i = call noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
-  %retval.sroa.4.8.vec.insert.i = insertelement <2 x float> poison, float %call3.i, i64 0
-  %call4.i = call noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
-  %retval.sroa.4.12.vec.insert.i = insertelement <2 x float> %retval.sroa.4.8.vec.insert.i, float %call4.i, i64 1
-  call void @_ZN6Assimp11XFileParser16TestForSeparatorEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
-  %7 = load ptr, ptr %arrayidx, align 8
-  %add.ptr.i15 = getelementptr inbounds %class.aiColor4t, ptr %7, i64 %conv10
-  store <2 x float> %retval.sroa.0.4.vec.insert.i, ptr %add.ptr.i15, align 4
+  %call17 = call { <2 x float>, <2 x float> } @_ZN6Assimp11XFileParser8ReadRGBAEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
+  %7 = extractvalue { <2 x float>, <2 x float> } %call17, 0
+  %8 = extractvalue { <2 x float>, <2 x float> } %call17, 1
+  %9 = load ptr, ptr %arrayidx, align 8
+  %add.ptr.i15 = getelementptr inbounds %class.aiColor4t, ptr %9, i64 %conv10
+  store <2 x float> %7, ptr %add.ptr.i15, align 4
   %ref.tmp16.sroa.2.0.call19.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i15, i64 8
-  store <2 x float> %retval.sroa.4.12.vec.insert.i, ptr %ref.tmp16.sroa.2.0.call19.sroa_idx, align 4
-  %8 = load i8, ptr %mIsBinaryFormat, align 8
-  %tobool = trunc i8 %8 to i1
+  store <2 x float> %8, ptr %ref.tmp16.sroa.2.0.call19.sroa_idx, align 4
+  %10 = load i8, ptr %mIsBinaryFormat, align 8
+  %tobool = trunc i8 %10 to i1
   br i1 %tobool, label %for.inc, label %while.cond.preheader.i
 
 while.cond.preheader.i:                           ; preds = %if.end15
-  %9 = load ptr, ptr %mEnd.i, align 8
+  %11 = load ptr, ptr %mEnd.i, align 8
   %mP.promoted11.i = load ptr, ptr %mP.i, align 8
-  %cmp1016.i = icmp ult ptr %mP.promoted11.i, %9
+  %cmp1016.i = icmp ult ptr %mP.promoted11.i, %11
   br i1 %cmp1016.i, label %land.rhs.lr.ph.preheader.i, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exitthread-pre-split
 
 land.rhs.lr.ph.preheader.i:                       ; preds = %while.cond.preheader.i
@@ -6078,101 +6360,101 @@ land.rhs.lr.ph.preheader.i:                       ; preds = %while.cond.preheade
 
 land.rhs.i:                                       ; preds = %land.rhs.i.backedge, %land.rhs.lr.ph.preheader.i
   %mLineNumber.promoted21.i = phi i32 [ %mLineNumber.promoted18.i, %land.rhs.lr.ph.preheader.i ], [ %mLineNumber.promoted21.i.be, %land.rhs.i.backedge ]
-  %10 = phi i32 [ %mLineNumber.promoted18.i, %land.rhs.lr.ph.preheader.i ], [ %.be, %land.rhs.i.backedge ]
-  %11 = phi ptr [ %mP.promoted11.i, %land.rhs.lr.ph.preheader.i ], [ %.be53, %land.rhs.i.backedge ]
-  %12 = load i8, ptr %11, align 1
-  %conv.i = zext i8 %12 to i32
-  %call.i16 = call i32 @isspace(i32 noundef %conv.i) #23
-  %tobool5.not.i = icmp eq i32 %call.i16, 0
+  %12 = phi i32 [ %mLineNumber.promoted18.i, %land.rhs.lr.ph.preheader.i ], [ %.be, %land.rhs.i.backedge ]
+  %13 = phi ptr [ %mP.promoted11.i, %land.rhs.lr.ph.preheader.i ], [ %.be52, %land.rhs.i.backedge ]
+  %14 = load i8, ptr %13, align 1
+  %conv.i = zext i8 %14 to i32
+  %call.i = call i32 @isspace(i32 noundef %conv.i) #23
+  %tobool5.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool5.not.i, label %if.end17.i, label %while.body6.i
 
 while.body6.i:                                    ; preds = %land.rhs.i
-  %cmp9.i = icmp eq i8 %12, 10
+  %cmp9.i = icmp eq i8 %14, 10
   br i1 %cmp9.i, label %if.then10.i, label %if.end11.i
 
 if.then10.i:                                      ; preds = %while.body6.i
-  %inc.i = add i32 %10, 1
+  %inc.i = add i32 %12, 1
   store i32 %inc.i, ptr %mLineNumber.i, align 8
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.then10.i, %while.body6.i
   %mLineNumber.promoted19.i = phi i32 [ %inc.i, %if.then10.i ], [ %mLineNumber.promoted21.i, %while.body6.i ]
-  %13 = phi i32 [ %inc.i, %if.then10.i ], [ %10, %while.body6.i ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %11, i64 1
+  %15 = phi i32 [ %inc.i, %if.then10.i ], [ %12, %while.body6.i ]
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %13, i64 1
   store ptr %incdec.ptr.i, ptr %mP.i, align 8
-  %cmp.i17 = icmp ult ptr %incdec.ptr.i, %9
-  br i1 %cmp.i17, label %land.rhs.i.backedge, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exitthread-pre-split
+  %cmp.i16 = icmp ult ptr %incdec.ptr.i, %11
+  br i1 %cmp.i16, label %land.rhs.i.backedge, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exitthread-pre-split
 
 land.rhs.i.backedge:                              ; preds = %if.end11.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i
   %mLineNumber.promoted21.i.be = phi i32 [ %mLineNumber.promoted19.i, %if.end11.i ], [ %mLineNumber.promoted20.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
-  %.be = phi i32 [ %13, %if.end11.i ], [ %mLineNumber.promoted20.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
-  %.be53 = phi ptr [ %incdec.ptr.i, %if.end11.i ], [ %incdec.ptr.i12.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
+  %.be = phi i32 [ %15, %if.end11.i ], [ %mLineNumber.promoted20.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
+  %.be52 = phi ptr [ %incdec.ptr.i, %if.end11.i ], [ %incdec.ptr.i12.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ]
   br label %land.rhs.i, !llvm.loop !14
 
 if.end17.i:                                       ; preds = %land.rhs.i
-  switch i8 %12, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit [
+  switch i8 %14, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit [
     i8 47, label %land.lhs.true.i
     i8 35, label %while.body.i.i.preheader
   ]
 
 land.lhs.true.i:                                  ; preds = %if.end17.i
-  %arrayidx22.i = getelementptr inbounds i8, ptr %11, i64 1
-  %14 = load i8, ptr %arrayidx22.i, align 1
-  %cmp24.i = icmp eq i8 %14, 47
+  %arrayidx22.i = getelementptr inbounds i8, ptr %13, i64 1
+  %16 = load i8, ptr %arrayidx22.i, align 1
+  %cmp24.i = icmp eq i8 %16, 47
   br i1 %cmp24.i, label %while.body.i.i.preheader, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exitthread-pre-split
 
 while.body.i.i.preheader:                         ; preds = %land.lhs.true.i, %if.end17.i
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i.preheader, %if.end9.i.i
-  %15 = phi ptr [ %incdec.ptr11.i.i, %if.end9.i.i ], [ %11, %while.body.i.i.preheader ]
-  %16 = load i8, ptr %15, align 1
-  switch i8 %16, label %if.end9.i.i [
+  %17 = phi ptr [ %incdec.ptr11.i.i, %if.end9.i.i ], [ %13, %while.body.i.i.preheader ]
+  %18 = load i8, ptr %17, align 1
+  switch i8 %18, label %if.end9.i.i [
     i8 10, label %if.then7.i.i
     i8 13, label %if.then7.i.i
   ]
 
 if.then7.i.i:                                     ; preds = %while.body.i.i, %while.body.i.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %15, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %17, i64 1
   store ptr %incdec.ptr.i.i, ptr %mP.i, align 8
   %inc.i.i = add i32 %mLineNumber.promoted21.i, 1
   store i32 %inc.i.i, ptr %mLineNumber.i, align 8
   br label %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i
 
 if.end9.i.i:                                      ; preds = %while.body.i.i
-  %incdec.ptr11.i.i = getelementptr inbounds i8, ptr %15, i64 1
+  %incdec.ptr11.i.i = getelementptr inbounds i8, ptr %17, i64 1
   store ptr %incdec.ptr11.i.i, ptr %mP.i, align 8
-  %exitcond.not.i.i = icmp eq ptr %incdec.ptr11.i.i, %9
+  %exitcond.not.i.i = icmp eq ptr %incdec.ptr11.i.i, %11
   br i1 %exitcond.not.i.i, label %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i, label %while.body.i.i, !llvm.loop !7
 
 _ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i: ; preds = %if.end9.i.i, %if.then7.i.i
   %mLineNumber.promoted20.i = phi i32 [ %inc.i.i, %if.then7.i.i ], [ %mLineNumber.promoted21.i, %if.end9.i.i ]
   %incdec.ptr.i12.i = phi ptr [ %incdec.ptr.i.i, %if.then7.i.i ], [ %incdec.ptr11.i.i, %if.end9.i.i ]
-  %cmp10.i = icmp ult ptr %incdec.ptr.i12.i, %9
+  %cmp10.i = icmp ult ptr %incdec.ptr.i12.i, %11
   br i1 %cmp10.i, label %land.rhs.i.backedge, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exitthread-pre-split
 
 _ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exitthread-pre-split: ; preds = %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i, %land.lhs.true.i, %if.end11.i, %while.cond.preheader.i
-  %.ph = phi ptr [ %mP.promoted11.i, %while.cond.preheader.i ], [ %incdec.ptr.i12.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ], [ %11, %land.lhs.true.i ], [ %incdec.ptr.i, %if.end11.i ]
+  %.ph = phi ptr [ %mP.promoted11.i, %while.cond.preheader.i ], [ %incdec.ptr.i12.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i ], [ %13, %land.lhs.true.i ], [ %incdec.ptr.i, %if.end11.i ]
   %.pr = load i8, ptr %.ph, align 1
   br label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit
 
 _ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit: ; preds = %if.end17.i, %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exitthread-pre-split
-  %17 = phi i8 [ %.pr, %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exitthread-pre-split ], [ %12, %if.end17.i ]
-  %18 = phi ptr [ %.ph, %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exitthread-pre-split ], [ %11, %if.end17.i ]
-  switch i8 %17, label %for.inc [
+  %19 = phi i8 [ %.pr, %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exitthread-pre-split ], [ %14, %if.end17.i ]
+  %20 = phi ptr [ %.ph, %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exitthread-pre-split ], [ %13, %if.end17.i ]
+  switch i8 %19, label %for.inc [
     i8 59, label %if.then26
     i8 44, label %if.then26
   ]
 
 if.then26:                                        ; preds = %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit, %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit
-  %incdec.ptr = getelementptr inbounds i8, ptr %18, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %20, i64 1
   store ptr %incdec.ptr, ptr %mP.i, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit, %if.end15, %if.then26
-  %inc30 = add nuw i32 %a.027, 1
+  %inc30 = add nuw i32 %a.026, 1
   %exitcond.not = icmp eq i32 %inc30, %call
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !43
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !37
 
 for.end:                                          ; preds = %for.inc, %_ZNSt6vectorI9aiColor4tIfESaIS1_EE6resizeEmRKS1_.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
@@ -6180,9 +6462,9 @@ for.end:                                          ; preds = %for.inc, %_ZNSt6vec
   %call.i.i.i = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull @.str.20) #22
   %cmp.i.i.not.i = icmp eq i32 %call.i.i.i, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #22
-  br i1 %cmp.i.i.not.i, label %_ZN6Assimp11XFileParser20CheckForClosingBraceEv.exit, label %if.then.i18
+  br i1 %cmp.i.i.not.i, label %_ZN6Assimp11XFileParser20CheckForClosingBraceEv.exit, label %if.then.i17
 
-if.then.i18:                                      ; preds = %for.end
+if.then.i17:                                      ; preds = %for.end
   call void @_ZN6Assimp11XFileParser14ThrowExceptionIJRA24_KcEEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 1 dereferenceable(24) @.str.71) #24
   unreachable
 
@@ -6302,7 +6584,7 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS
 _ZNSt6vectorIjSaIjEE9push_backEOj.exit:           ; preds = %if.then.i.i, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i
   %inc = add nuw i32 %a.066, 1
   %exitcond.not = icmp eq i32 %inc, %call2
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !44
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !38
 
 for.end:                                          ; preds = %_ZNSt6vectorIjSaIjEE9push_backEOj.exit, %for.cond.preheader
   %mIsBinaryFormat = getelementptr inbounds i8, ptr %this, i64 8
@@ -6449,7 +6731,7 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %if.then.i, %_ZNSt6v
   %sub.ptr.sub.i21 = sub i64 %sub.ptr.lhs.cast.i19, %sub.ptr.rhs.cast.i20
   %sub.ptr.div.i22 = sdiv exact i64 %sub.ptr.sub.i21, 24
   %cmp21 = icmp ult i64 %sub.ptr.div.i17, %sub.ptr.div.i22
-  br i1 %cmp21, label %while.body, label %while.cond25.preheader, !llvm.loop !45
+  br i1 %cmp21, label %while.body, label %while.cond25.preheader, !llvm.loop !39
 
 if.then30:                                        ; preds = %cleanup, %while.cond25.preheader
   invoke void @_ZN6Assimp11XFileParser14ThrowExceptionIJRA57_KcEEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 1 dereferenceable(57) @.str.44) #24
@@ -6907,7 +7189,7 @@ _ZNSt6vectorIN6Assimp5XFile10BoneWeightESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9
 for.inc:                                          ; preds = %_ZNSt6vectorIN6Assimp5XFile10BoneWeightESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %if.then.i33
   %inc = add nuw i32 %a.064, 1
   %exitcond.not = icmp eq i32 %inc, %call8
-  br i1 %exitcond.not, label %for.body18, label %for.body, !llvm.loop !46
+  br i1 %exitcond.not, label %for.body18, label %for.body, !llvm.loop !40
 
 lpad.loopexit:                                    ; preds = %for.body18
   %lpad.loopexit58 = landingpad { ptr, i32 }
@@ -6940,7 +7222,7 @@ invoke.cont19:                                    ; preds = %for.body18
   store float %call20, ptr %mWeight, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond68.not = icmp eq i64 %indvars.iv.next, %conv
-  br i1 %exitcond68.not, label %for.end26, label %for.body18, !llvm.loop !47
+  br i1 %exitcond68.not, label %for.end26, label %for.body18, !llvm.loop !41
 
 for.end26:                                        ; preds = %invoke.cont19, %_ZNSt6vectorIN6Assimp5XFile10BoneWeightESaIS2_EE7reserveEm.exit
   %call28 = invoke noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
@@ -7247,7 +7529,7 @@ land.rhs.preheader:                               ; preds = %if.end11
 land.rhs:                                         ; preds = %while.body
   %14 = load i8, ptr %16, align 1
   %cmp18.not = icmp eq i8 %14, 34
-  br i1 %cmp18.not, label %while.end, label %while.body, !llvm.loop !48
+  br i1 %cmp18.not, label %while.end, label %while.body, !llvm.loop !42
 
 while.body:                                       ; preds = %land.rhs.preheader, %land.rhs
   %15 = phi ptr [ %16, %land.rhs ], [ %incdec.ptr, %land.rhs.preheader ]
@@ -7257,7 +7539,7 @@ while.body:                                       ; preds = %land.rhs.preheader,
   %16 = load ptr, ptr %mP.i, align 8
   %17 = load ptr, ptr %mEnd.i, align 8
   %cmp15 = icmp ult ptr %16, %17
-  br i1 %cmp15, label %land.rhs, label %while.end, !llvm.loop !48
+  br i1 %cmp15, label %land.rhs, label %while.end, !llvm.loop !42
 
 while.end:                                        ; preds = %while.body, %land.rhs, %land.rhs.preheader, %if.end11
   %.lcssa9 = phi ptr [ %incdec.ptr, %if.end11 ], [ %incdec.ptr, %land.rhs.preheader ], [ %16, %land.rhs ], [ %16, %while.body ]
@@ -7461,14 +7743,14 @@ _ZNKSt6vectorI10aiVector2tIfESaIS1_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.e
 for.body.i.i.i.i:                                 ; preds = %_ZNKSt6vectorI10aiVector2tIfESaIS1_EE12_M_check_lenEmPKc.exit.i, %for.body.i.i.i.i
   %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %call5.i.i.i.i, %_ZNKSt6vectorI10aiVector2tIfESaIS1_EE12_M_check_lenEmPKc.exit.i ]
   %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %1, %_ZNKSt6vectorI10aiVector2tIfESaIS1_EE12_M_check_lenEmPKc.exit.i ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !49)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
-  %6 = load i64, ptr %__first.addr.06.i.i.i.i, align 4, !alias.scope !52, !noalias !49
-  store i64 %6, ptr %__cur.07.i.i.i.i, align 4, !alias.scope !49, !noalias !52
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !43)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
+  %6 = load i64, ptr %__first.addr.06.i.i.i.i, align 4, !alias.scope !46, !noalias !43
+  store i64 %6, ptr %__cur.07.i.i.i.i, align 4, !alias.scope !43, !noalias !46
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 8
   %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %0
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorI10aiVector2tIfESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i, label %for.body.i.i.i.i, !llvm.loop !54
+  br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorI10aiVector2tIfESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i, label %for.body.i.i.i.i, !llvm.loop !48
 
 _ZNSt6vectorI10aiVector2tIfESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; preds = %for.body.i.i.i.i, %_ZNKSt6vectorI10aiVector2tIfESaIS1_EE12_M_check_lenEmPKc.exit.i
   %tobool.not.i27.i = icmp eq ptr %1, null
@@ -7507,10 +7789,120 @@ if.end6:                                          ; preds = %invoke.cont.i, %if.
 define hidden <2 x float> @_ZN6Assimp11XFileParser11ReadVector2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #9 align 2 {
 entry:
   %call = tail call noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
-  %retval.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %call, i64 0
   %call2 = tail call noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
+  %mIsBinaryFormat.i = getelementptr inbounds i8, ptr %this, i64 8
+  %0 = load i8, ptr %mIsBinaryFormat.i, align 8
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %_ZN6Assimp11XFileParser16TestForSeparatorEv.exit, label %while.cond.preheader.i.i
+
+while.cond.preheader.i.i:                         ; preds = %entry
+  %mP.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mEnd.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %1 = load ptr, ptr %mEnd.i.i, align 8
+  %mP.promoted11.i.i = load ptr, ptr %mP.i.i, align 8
+  %cmp1016.i.i = icmp ult ptr %mP.promoted11.i.i, %1
+  br i1 %cmp1016.i.i, label %land.rhs.lr.ph.preheader.i.i, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i
+
+land.rhs.lr.ph.preheader.i.i:                     ; preds = %while.cond.preheader.i.i
+  %mLineNumber.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %mLineNumber.promoted18.i.i = load i32, ptr %mLineNumber.i.i, align 8
+  br label %land.rhs.i.i
+
+land.rhs.i.i:                                     ; preds = %land.rhs.i.i.backedge, %land.rhs.lr.ph.preheader.i.i
+  %mLineNumber.promoted21.i.i = phi i32 [ %mLineNumber.promoted18.i.i, %land.rhs.lr.ph.preheader.i.i ], [ %mLineNumber.promoted21.i.i.be, %land.rhs.i.i.backedge ]
+  %2 = phi i32 [ %mLineNumber.promoted18.i.i, %land.rhs.lr.ph.preheader.i.i ], [ %.be, %land.rhs.i.i.backedge ]
+  %3 = phi ptr [ %mP.promoted11.i.i, %land.rhs.lr.ph.preheader.i.i ], [ %.be34, %land.rhs.i.i.backedge ]
+  %4 = load i8, ptr %3, align 1
+  %conv.i.i = zext i8 %4 to i32
+  %call.i.i = tail call i32 @isspace(i32 noundef %conv.i.i) #23
+  %tobool5.not.i.i = icmp eq i32 %call.i.i, 0
+  br i1 %tobool5.not.i.i, label %if.end17.i.i, label %while.body6.i.i
+
+while.body6.i.i:                                  ; preds = %land.rhs.i.i
+  %cmp9.i.i = icmp eq i8 %4, 10
+  br i1 %cmp9.i.i, label %if.then10.i.i, label %if.end11.i.i
+
+if.then10.i.i:                                    ; preds = %while.body6.i.i
+  %inc.i.i = add i32 %2, 1
+  store i32 %inc.i.i, ptr %mLineNumber.i.i, align 8
+  br label %if.end11.i.i
+
+if.end11.i.i:                                     ; preds = %if.then10.i.i, %while.body6.i.i
+  %mLineNumber.promoted19.i.i = phi i32 [ %inc.i.i, %if.then10.i.i ], [ %mLineNumber.promoted21.i.i, %while.body6.i.i ]
+  %5 = phi i32 [ %inc.i.i, %if.then10.i.i ], [ %2, %while.body6.i.i ]
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 1
+  store ptr %incdec.ptr.i.i, ptr %mP.i.i, align 8
+  %cmp.i.i = icmp ult ptr %incdec.ptr.i.i, %1
+  br i1 %cmp.i.i, label %land.rhs.i.i.backedge, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i
+
+land.rhs.i.i.backedge:                            ; preds = %if.end11.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i
+  %mLineNumber.promoted21.i.i.be = phi i32 [ %mLineNumber.promoted19.i.i, %if.end11.i.i ], [ %mLineNumber.promoted20.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ]
+  %.be = phi i32 [ %5, %if.end11.i.i ], [ %mLineNumber.promoted20.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ]
+  %.be34 = phi ptr [ %incdec.ptr.i.i, %if.end11.i.i ], [ %incdec.ptr.i12.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ]
+  br label %land.rhs.i.i, !llvm.loop !14
+
+if.end17.i.i:                                     ; preds = %land.rhs.i.i
+  switch i8 %4, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i [
+    i8 47, label %land.lhs.true.i.i
+    i8 35, label %while.body.i.i.i.preheader
+  ]
+
+land.lhs.true.i.i:                                ; preds = %if.end17.i.i
+  %arrayidx22.i.i = getelementptr inbounds i8, ptr %3, i64 1
+  %6 = load i8, ptr %arrayidx22.i.i, align 1
+  %cmp24.i.i = icmp eq i8 %6, 47
+  br i1 %cmp24.i.i, label %while.body.i.i.i.preheader, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i
+
+while.body.i.i.i.preheader:                       ; preds = %land.lhs.true.i.i, %if.end17.i.i
+  br label %while.body.i.i.i
+
+while.body.i.i.i:                                 ; preds = %while.body.i.i.i.preheader, %if.end9.i.i.i
+  %7 = phi ptr [ %incdec.ptr11.i.i.i, %if.end9.i.i.i ], [ %3, %while.body.i.i.i.preheader ]
+  %8 = load i8, ptr %7, align 1
+  switch i8 %8, label %if.end9.i.i.i [
+    i8 10, label %if.then7.i.i.i
+    i8 13, label %if.then7.i.i.i
+  ]
+
+if.then7.i.i.i:                                   ; preds = %while.body.i.i.i, %while.body.i.i.i
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %7, i64 1
+  store ptr %incdec.ptr.i.i.i, ptr %mP.i.i, align 8
+  %inc.i.i.i = add i32 %mLineNumber.promoted21.i.i, 1
+  store i32 %inc.i.i.i, ptr %mLineNumber.i.i, align 8
+  br label %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i
+
+if.end9.i.i.i:                                    ; preds = %while.body.i.i.i
+  %incdec.ptr11.i.i.i = getelementptr inbounds i8, ptr %7, i64 1
+  store ptr %incdec.ptr11.i.i.i, ptr %mP.i.i, align 8
+  %exitcond.not.i.i.i = icmp eq ptr %incdec.ptr11.i.i.i, %1
+  br i1 %exitcond.not.i.i.i, label %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i, label %while.body.i.i.i, !llvm.loop !7
+
+_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i: ; preds = %if.end9.i.i.i, %if.then7.i.i.i
+  %mLineNumber.promoted20.i.i = phi i32 [ %inc.i.i.i, %if.then7.i.i.i ], [ %mLineNumber.promoted21.i.i, %if.end9.i.i.i ]
+  %incdec.ptr.i12.i.i = phi ptr [ %incdec.ptr.i.i.i, %if.then7.i.i.i ], [ %incdec.ptr11.i.i.i, %if.end9.i.i.i ]
+  %cmp10.i.i = icmp ult ptr %incdec.ptr.i12.i.i, %1
+  br i1 %cmp10.i.i, label %land.rhs.i.i.backedge, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i
+
+_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i: ; preds = %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i, %land.lhs.true.i.i, %if.end17.i.i, %if.end11.i.i, %while.cond.preheader.i.i
+  %9 = phi ptr [ %mP.promoted11.i.i, %while.cond.preheader.i.i ], [ %incdec.ptr.i12.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ], [ %3, %land.lhs.true.i.i ], [ %3, %if.end17.i.i ], [ %incdec.ptr.i.i, %if.end11.i.i ]
+  %cmp.not.i = icmp ult ptr %9, %1
+  br i1 %cmp.not.i, label %if.end3.i, label %_ZN6Assimp11XFileParser16TestForSeparatorEv.exit
+
+if.end3.i:                                        ; preds = %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i
+  %10 = load i8, ptr %9, align 1
+  switch i8 %10, label %_ZN6Assimp11XFileParser16TestForSeparatorEv.exit [
+    i8 59, label %if.then9.i
+    i8 44, label %if.then9.i
+  ]
+
+if.then9.i:                                       ; preds = %if.end3.i, %if.end3.i
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %9, i64 1
+  store ptr %incdec.ptr.i, ptr %mP.i.i, align 8
+  br label %_ZN6Assimp11XFileParser16TestForSeparatorEv.exit
+
+_ZN6Assimp11XFileParser16TestForSeparatorEv.exit: ; preds = %entry, %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i, %if.end3.i, %if.then9.i
+  %retval.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %call, i64 0
   %retval.sroa.0.4.vec.insert = insertelement <2 x float> %retval.sroa.0.0.vec.insert, float %call2, i64 1
-  tail call void @_ZN6Assimp11XFileParser16TestForSeparatorEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
   ret <2 x float> %retval.sroa.0.4.vec.insert
 }
 
@@ -7644,14 +8036,124 @@ eh.resume:                                        ; preds = %lpad3, %lpad
 define hidden { <2 x float>, <2 x float> } @_ZN6Assimp11XFileParser8ReadRGBAEv(ptr noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
-  %retval.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %call, i64 0
   %call2 = tail call noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
-  %retval.sroa.0.4.vec.insert = insertelement <2 x float> %retval.sroa.0.0.vec.insert, float %call2, i64 1
   %call3 = tail call noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
-  %retval.sroa.4.8.vec.insert = insertelement <2 x float> poison, float %call3, i64 0
   %call4 = tail call noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
+  %mIsBinaryFormat.i = getelementptr inbounds i8, ptr %this, i64 8
+  %0 = load i8, ptr %mIsBinaryFormat.i, align 8
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %_ZN6Assimp11XFileParser16TestForSeparatorEv.exit, label %while.cond.preheader.i.i
+
+while.cond.preheader.i.i:                         ; preds = %entry
+  %mP.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mEnd.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %1 = load ptr, ptr %mEnd.i.i, align 8
+  %mP.promoted11.i.i = load ptr, ptr %mP.i.i, align 8
+  %cmp1016.i.i = icmp ult ptr %mP.promoted11.i.i, %1
+  br i1 %cmp1016.i.i, label %land.rhs.lr.ph.preheader.i.i, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i
+
+land.rhs.lr.ph.preheader.i.i:                     ; preds = %while.cond.preheader.i.i
+  %mLineNumber.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %mLineNumber.promoted18.i.i = load i32, ptr %mLineNumber.i.i, align 8
+  br label %land.rhs.i.i
+
+land.rhs.i.i:                                     ; preds = %land.rhs.i.i.backedge, %land.rhs.lr.ph.preheader.i.i
+  %mLineNumber.promoted21.i.i = phi i32 [ %mLineNumber.promoted18.i.i, %land.rhs.lr.ph.preheader.i.i ], [ %mLineNumber.promoted21.i.i.be, %land.rhs.i.i.backedge ]
+  %2 = phi i32 [ %mLineNumber.promoted18.i.i, %land.rhs.lr.ph.preheader.i.i ], [ %.be, %land.rhs.i.i.backedge ]
+  %3 = phi ptr [ %mP.promoted11.i.i, %land.rhs.lr.ph.preheader.i.i ], [ %.be31, %land.rhs.i.i.backedge ]
+  %4 = load i8, ptr %3, align 1
+  %conv.i.i = zext i8 %4 to i32
+  %call.i.i = tail call i32 @isspace(i32 noundef %conv.i.i) #23
+  %tobool5.not.i.i = icmp eq i32 %call.i.i, 0
+  br i1 %tobool5.not.i.i, label %if.end17.i.i, label %while.body6.i.i
+
+while.body6.i.i:                                  ; preds = %land.rhs.i.i
+  %cmp9.i.i = icmp eq i8 %4, 10
+  br i1 %cmp9.i.i, label %if.then10.i.i, label %if.end11.i.i
+
+if.then10.i.i:                                    ; preds = %while.body6.i.i
+  %inc.i.i = add i32 %2, 1
+  store i32 %inc.i.i, ptr %mLineNumber.i.i, align 8
+  br label %if.end11.i.i
+
+if.end11.i.i:                                     ; preds = %if.then10.i.i, %while.body6.i.i
+  %mLineNumber.promoted19.i.i = phi i32 [ %inc.i.i, %if.then10.i.i ], [ %mLineNumber.promoted21.i.i, %while.body6.i.i ]
+  %5 = phi i32 [ %inc.i.i, %if.then10.i.i ], [ %2, %while.body6.i.i ]
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 1
+  store ptr %incdec.ptr.i.i, ptr %mP.i.i, align 8
+  %cmp.i.i = icmp ult ptr %incdec.ptr.i.i, %1
+  br i1 %cmp.i.i, label %land.rhs.i.i.backedge, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i
+
+land.rhs.i.i.backedge:                            ; preds = %if.end11.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i
+  %mLineNumber.promoted21.i.i.be = phi i32 [ %mLineNumber.promoted19.i.i, %if.end11.i.i ], [ %mLineNumber.promoted20.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ]
+  %.be = phi i32 [ %5, %if.end11.i.i ], [ %mLineNumber.promoted20.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ]
+  %.be31 = phi ptr [ %incdec.ptr.i.i, %if.end11.i.i ], [ %incdec.ptr.i12.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ]
+  br label %land.rhs.i.i, !llvm.loop !14
+
+if.end17.i.i:                                     ; preds = %land.rhs.i.i
+  switch i8 %4, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i [
+    i8 47, label %land.lhs.true.i.i
+    i8 35, label %while.body.i.i.i.preheader
+  ]
+
+land.lhs.true.i.i:                                ; preds = %if.end17.i.i
+  %arrayidx22.i.i = getelementptr inbounds i8, ptr %3, i64 1
+  %6 = load i8, ptr %arrayidx22.i.i, align 1
+  %cmp24.i.i = icmp eq i8 %6, 47
+  br i1 %cmp24.i.i, label %while.body.i.i.i.preheader, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i
+
+while.body.i.i.i.preheader:                       ; preds = %land.lhs.true.i.i, %if.end17.i.i
+  br label %while.body.i.i.i
+
+while.body.i.i.i:                                 ; preds = %while.body.i.i.i.preheader, %if.end9.i.i.i
+  %7 = phi ptr [ %incdec.ptr11.i.i.i, %if.end9.i.i.i ], [ %3, %while.body.i.i.i.preheader ]
+  %8 = load i8, ptr %7, align 1
+  switch i8 %8, label %if.end9.i.i.i [
+    i8 10, label %if.then7.i.i.i
+    i8 13, label %if.then7.i.i.i
+  ]
+
+if.then7.i.i.i:                                   ; preds = %while.body.i.i.i, %while.body.i.i.i
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %7, i64 1
+  store ptr %incdec.ptr.i.i.i, ptr %mP.i.i, align 8
+  %inc.i.i.i = add i32 %mLineNumber.promoted21.i.i, 1
+  store i32 %inc.i.i.i, ptr %mLineNumber.i.i, align 8
+  br label %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i
+
+if.end9.i.i.i:                                    ; preds = %while.body.i.i.i
+  %incdec.ptr11.i.i.i = getelementptr inbounds i8, ptr %7, i64 1
+  store ptr %incdec.ptr11.i.i.i, ptr %mP.i.i, align 8
+  %exitcond.not.i.i.i = icmp eq ptr %incdec.ptr11.i.i.i, %1
+  br i1 %exitcond.not.i.i.i, label %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i, label %while.body.i.i.i, !llvm.loop !7
+
+_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i: ; preds = %if.end9.i.i.i, %if.then7.i.i.i
+  %mLineNumber.promoted20.i.i = phi i32 [ %inc.i.i.i, %if.then7.i.i.i ], [ %mLineNumber.promoted21.i.i, %if.end9.i.i.i ]
+  %incdec.ptr.i12.i.i = phi ptr [ %incdec.ptr.i.i.i, %if.then7.i.i.i ], [ %incdec.ptr11.i.i.i, %if.end9.i.i.i ]
+  %cmp10.i.i = icmp ult ptr %incdec.ptr.i12.i.i, %1
+  br i1 %cmp10.i.i, label %land.rhs.i.i.backedge, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i
+
+_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i: ; preds = %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i, %land.lhs.true.i.i, %if.end17.i.i, %if.end11.i.i, %while.cond.preheader.i.i
+  %9 = phi ptr [ %mP.promoted11.i.i, %while.cond.preheader.i.i ], [ %incdec.ptr.i12.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ], [ %3, %land.lhs.true.i.i ], [ %3, %if.end17.i.i ], [ %incdec.ptr.i.i, %if.end11.i.i ]
+  %cmp.not.i = icmp ult ptr %9, %1
+  br i1 %cmp.not.i, label %if.end3.i, label %_ZN6Assimp11XFileParser16TestForSeparatorEv.exit
+
+if.end3.i:                                        ; preds = %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i
+  %10 = load i8, ptr %9, align 1
+  switch i8 %10, label %_ZN6Assimp11XFileParser16TestForSeparatorEv.exit [
+    i8 59, label %if.then9.i
+    i8 44, label %if.then9.i
+  ]
+
+if.then9.i:                                       ; preds = %if.end3.i, %if.end3.i
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %9, i64 1
+  store ptr %incdec.ptr.i, ptr %mP.i.i, align 8
+  br label %_ZN6Assimp11XFileParser16TestForSeparatorEv.exit
+
+_ZN6Assimp11XFileParser16TestForSeparatorEv.exit: ; preds = %entry, %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i, %if.end3.i, %if.then9.i
+  %retval.sroa.4.8.vec.insert = insertelement <2 x float> poison, float %call3, i64 0
   %retval.sroa.4.12.vec.insert = insertelement <2 x float> %retval.sroa.4.8.vec.insert, float %call4, i64 1
-  tail call void @_ZN6Assimp11XFileParser16TestForSeparatorEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
+  %retval.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %call, i64 0
+  %retval.sroa.0.4.vec.insert = insertelement <2 x float> %retval.sroa.0.0.vec.insert, float %call2, i64 1
   %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %retval.sroa.0.4.vec.insert, 0
   %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %retval.sroa.4.12.vec.insert, 1
   ret { <2 x float>, <2 x float> } %.fca.1.insert
@@ -7852,7 +8354,117 @@ entry:
   store float %call2, ptr %g.i, align 4
   %call3 = tail call noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
   store float %call3, ptr %b.i, align 4
-  tail call void @_ZN6Assimp11XFileParser16TestForSeparatorEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
+  %mIsBinaryFormat.i = getelementptr inbounds i8, ptr %this, i64 8
+  %0 = load i8, ptr %mIsBinaryFormat.i, align 8
+  %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %_ZN6Assimp11XFileParser16TestForSeparatorEv.exit, label %while.cond.preheader.i.i
+
+while.cond.preheader.i.i:                         ; preds = %entry
+  %mP.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mEnd.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %1 = load ptr, ptr %mEnd.i.i, align 8
+  %mP.promoted11.i.i = load ptr, ptr %mP.i.i, align 8
+  %cmp1016.i.i = icmp ult ptr %mP.promoted11.i.i, %1
+  br i1 %cmp1016.i.i, label %land.rhs.lr.ph.preheader.i.i, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i
+
+land.rhs.lr.ph.preheader.i.i:                     ; preds = %while.cond.preheader.i.i
+  %mLineNumber.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %mLineNumber.promoted18.i.i = load i32, ptr %mLineNumber.i.i, align 8
+  br label %land.rhs.i.i
+
+land.rhs.i.i:                                     ; preds = %land.rhs.i.i.backedge, %land.rhs.lr.ph.preheader.i.i
+  %mLineNumber.promoted21.i.i = phi i32 [ %mLineNumber.promoted18.i.i, %land.rhs.lr.ph.preheader.i.i ], [ %mLineNumber.promoted21.i.i.be, %land.rhs.i.i.backedge ]
+  %2 = phi i32 [ %mLineNumber.promoted18.i.i, %land.rhs.lr.ph.preheader.i.i ], [ %.be, %land.rhs.i.i.backedge ]
+  %3 = phi ptr [ %mP.promoted11.i.i, %land.rhs.lr.ph.preheader.i.i ], [ %.be29, %land.rhs.i.i.backedge ]
+  %4 = load i8, ptr %3, align 1
+  %conv.i.i = zext i8 %4 to i32
+  %call.i.i = tail call i32 @isspace(i32 noundef %conv.i.i) #23
+  %tobool5.not.i.i = icmp eq i32 %call.i.i, 0
+  br i1 %tobool5.not.i.i, label %if.end17.i.i, label %while.body6.i.i
+
+while.body6.i.i:                                  ; preds = %land.rhs.i.i
+  %cmp9.i.i = icmp eq i8 %4, 10
+  br i1 %cmp9.i.i, label %if.then10.i.i, label %if.end11.i.i
+
+if.then10.i.i:                                    ; preds = %while.body6.i.i
+  %inc.i.i = add i32 %2, 1
+  store i32 %inc.i.i, ptr %mLineNumber.i.i, align 8
+  br label %if.end11.i.i
+
+if.end11.i.i:                                     ; preds = %if.then10.i.i, %while.body6.i.i
+  %mLineNumber.promoted19.i.i = phi i32 [ %inc.i.i, %if.then10.i.i ], [ %mLineNumber.promoted21.i.i, %while.body6.i.i ]
+  %5 = phi i32 [ %inc.i.i, %if.then10.i.i ], [ %2, %while.body6.i.i ]
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 1
+  store ptr %incdec.ptr.i.i, ptr %mP.i.i, align 8
+  %cmp.i.i = icmp ult ptr %incdec.ptr.i.i, %1
+  br i1 %cmp.i.i, label %land.rhs.i.i.backedge, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i
+
+land.rhs.i.i.backedge:                            ; preds = %if.end11.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i
+  %mLineNumber.promoted21.i.i.be = phi i32 [ %mLineNumber.promoted19.i.i, %if.end11.i.i ], [ %mLineNumber.promoted20.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ]
+  %.be = phi i32 [ %5, %if.end11.i.i ], [ %mLineNumber.promoted20.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ]
+  %.be29 = phi ptr [ %incdec.ptr.i.i, %if.end11.i.i ], [ %incdec.ptr.i12.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ]
+  br label %land.rhs.i.i, !llvm.loop !14
+
+if.end17.i.i:                                     ; preds = %land.rhs.i.i
+  switch i8 %4, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i [
+    i8 47, label %land.lhs.true.i.i
+    i8 35, label %while.body.i.i.i.preheader
+  ]
+
+land.lhs.true.i.i:                                ; preds = %if.end17.i.i
+  %arrayidx22.i.i = getelementptr inbounds i8, ptr %3, i64 1
+  %6 = load i8, ptr %arrayidx22.i.i, align 1
+  %cmp24.i.i = icmp eq i8 %6, 47
+  br i1 %cmp24.i.i, label %while.body.i.i.i.preheader, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i
+
+while.body.i.i.i.preheader:                       ; preds = %land.lhs.true.i.i, %if.end17.i.i
+  br label %while.body.i.i.i
+
+while.body.i.i.i:                                 ; preds = %while.body.i.i.i.preheader, %if.end9.i.i.i
+  %7 = phi ptr [ %incdec.ptr11.i.i.i, %if.end9.i.i.i ], [ %3, %while.body.i.i.i.preheader ]
+  %8 = load i8, ptr %7, align 1
+  switch i8 %8, label %if.end9.i.i.i [
+    i8 10, label %if.then7.i.i.i
+    i8 13, label %if.then7.i.i.i
+  ]
+
+if.then7.i.i.i:                                   ; preds = %while.body.i.i.i, %while.body.i.i.i
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %7, i64 1
+  store ptr %incdec.ptr.i.i.i, ptr %mP.i.i, align 8
+  %inc.i.i.i = add i32 %mLineNumber.promoted21.i.i, 1
+  store i32 %inc.i.i.i, ptr %mLineNumber.i.i, align 8
+  br label %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i
+
+if.end9.i.i.i:                                    ; preds = %while.body.i.i.i
+  %incdec.ptr11.i.i.i = getelementptr inbounds i8, ptr %7, i64 1
+  store ptr %incdec.ptr11.i.i.i, ptr %mP.i.i, align 8
+  %exitcond.not.i.i.i = icmp eq ptr %incdec.ptr11.i.i.i, %1
+  br i1 %exitcond.not.i.i.i, label %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i, label %while.body.i.i.i, !llvm.loop !7
+
+_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i: ; preds = %if.end9.i.i.i, %if.then7.i.i.i
+  %mLineNumber.promoted20.i.i = phi i32 [ %inc.i.i.i, %if.then7.i.i.i ], [ %mLineNumber.promoted21.i.i, %if.end9.i.i.i ]
+  %incdec.ptr.i12.i.i = phi ptr [ %incdec.ptr.i.i.i, %if.then7.i.i.i ], [ %incdec.ptr11.i.i.i, %if.end9.i.i.i ]
+  %cmp10.i.i = icmp ult ptr %incdec.ptr.i12.i.i, %1
+  br i1 %cmp10.i.i, label %land.rhs.i.i.backedge, label %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i
+
+_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i: ; preds = %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i, %land.lhs.true.i.i, %if.end17.i.i, %if.end11.i.i, %while.cond.preheader.i.i
+  %9 = phi ptr [ %mP.promoted11.i.i, %while.cond.preheader.i.i ], [ %incdec.ptr.i12.i.i, %_ZN6Assimp11XFileParser18ReadUntilEndOfLineEv.exit.i.i ], [ %3, %land.lhs.true.i.i ], [ %3, %if.end17.i.i ], [ %incdec.ptr.i.i, %if.end11.i.i ]
+  %cmp.not.i = icmp ult ptr %9, %1
+  br i1 %cmp.not.i, label %if.end3.i, label %_ZN6Assimp11XFileParser16TestForSeparatorEv.exit
+
+if.end3.i:                                        ; preds = %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i
+  %10 = load i8, ptr %9, align 1
+  switch i8 %10, label %_ZN6Assimp11XFileParser16TestForSeparatorEv.exit [
+    i8 59, label %if.then9.i
+    i8 44, label %if.then9.i
+  ]
+
+if.then9.i:                                       ; preds = %if.end3.i, %if.end3.i
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %9, i64 1
+  store ptr %incdec.ptr.i, ptr %mP.i.i, align 8
+  br label %_ZN6Assimp11XFileParser16TestForSeparatorEv.exit
+
+_ZN6Assimp11XFileParser16TestForSeparatorEv.exit: ; preds = %entry, %_ZN6Assimp11XFileParser22FindNextNoneWhiteSpaceEv.exit.i, %if.end3.i, %if.then9.i
   ret void
 }
 
@@ -7894,7 +8506,7 @@ while.body:                                       ; preds = %if.end, %while.body
   %call5 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKc(ptr noundef nonnull align 8 dereferenceable(32) %pName, i64 noundef %call4, i64 noundef 2, ptr noundef nonnull @.str.69)
   %call3 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %pName, ptr noundef nonnull @.str.68, i64 noundef 0) #22
   %cmp.not = icmp eq i64 %call3, -1
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !55
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !49
 
 while.end:                                        ; preds = %while.body, %if.end
   ret void
@@ -8209,11 +8821,11 @@ _ZNSt12_Vector_baseI9aiQuatKeySaIS0_EE11_M_allocateEm.exit.i.i: ; preds = %cond.
 for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_baseI9aiQuatKeySaIS0_EE11_M_allocateEm.exit.i.i, %for.body.i.i.i.i.i
   %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i10.i.i, %_ZNSt12_Vector_baseI9aiQuatKeySaIS0_EE11_M_allocateEm.exit.i.i ]
   %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %4, %_ZNSt12_Vector_baseI9aiQuatKeySaIS0_EE11_M_allocateEm.exit.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.07.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i.i.i, i64 24, i1 false), !alias.scope !56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.07.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i.i.i, i64 24, i1 false), !alias.scope !50
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 24
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %1
-  br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorI9aiQuatKeySaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit19.i.i, label %for.body.i.i.i.i.i, !llvm.loop !60
+  br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorI9aiQuatKeySaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit19.i.i, label %for.body.i.i.i.i.i, !llvm.loop !54
 
 _ZNSt6vectorI9aiQuatKeySaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit19.i.i: ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseI9aiQuatKeySaIS0_EE11_M_allocateEm.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i10.i.i, %_ZNSt12_Vector_baseI9aiQuatKeySaIS0_EE11_M_allocateEm.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
@@ -8264,12 +8876,9 @@ if.then16:                                        ; preds = %sw.bb13
 
 if.end17:                                         ; preds = %sw.bb13
   %conv19 = uitofp i32 %call3 to double
-  %call.i = call noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
-  %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %call.i, i64 0
-  %call2.i = call noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
-  %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %call2.i, i64 1
-  %call3.i = call noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
-  call void @_ZN6Assimp11XFileParser16TestForSeparatorEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
+  %call21 = call { <2 x float>, float } @_ZN6Assimp11XFileParser11ReadVector3Ev(ptr noundef nonnull align 8 dereferenceable(56) %this)
+  %call21.fca.0.extract = extractvalue { <2 x float>, float } %call21, 0
+  %call21.fca.1.extract = extractvalue { <2 x float>, float } %call21, 1
   br i1 %cmp23, label %if.then24, label %if.else
 
 if.then24:                                        ; preds = %if.end17
@@ -8281,9 +8890,9 @@ if.then24:                                        ; preds = %if.end17
 if.then.i10:                                      ; preds = %if.then24
   store double %conv19, ptr %7, align 8
   %key18.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
-  store <2 x float> %retval.sroa.0.4.vec.insert.i, ptr %key18.sroa.6.0..sroa_idx, align 8
+  store <2 x float> %call21.fca.0.extract, ptr %key18.sroa.6.0..sroa_idx, align 8
   %key18.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
-  store float %call3.i, ptr %key18.sroa.7.0..sroa_idx, align 8
+  store float %call21.fca.1.extract, ptr %key18.sroa.7.0..sroa_idx, align 8
   %9 = load ptr, ptr %_M_finish.i7, align 8
   %incdec.ptr.i11 = getelementptr inbounds i8, ptr %9, i64 24
   store ptr %incdec.ptr.i11, ptr %_M_finish.i7, align 8
@@ -8321,20 +8930,20 @@ _ZNSt12_Vector_baseI11aiVectorKeySaIS0_EE11_M_allocateEm.exit.i.i: ; preds = %co
   %add.ptr.i.i28 = getelementptr inbounds %struct.aiVectorKey, ptr %cond.i10.i.i27, i64 %sub.ptr.div.i.i.i.i18
   store double %conv19, ptr %add.ptr.i.i28, align 8
   %key18.sroa.6.0.add.ptr.i.i28.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i28, i64 8
-  store <2 x float> %retval.sroa.0.4.vec.insert.i, ptr %key18.sroa.6.0.add.ptr.i.i28.sroa_idx, align 8
+  store <2 x float> %call21.fca.0.extract, ptr %key18.sroa.6.0.add.ptr.i.i28.sroa_idx, align 8
   %key18.sroa.7.0.add.ptr.i.i28.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i28, i64 16
-  store float %call3.i, ptr %key18.sroa.7.0.add.ptr.i.i28.sroa_idx, align 8
+  store float %call21.fca.1.extract, ptr %key18.sroa.7.0.add.ptr.i.i28.sroa_idx, align 8
   %cmp.not5.i.i.i.i.i29 = icmp eq ptr %10, %7
   br i1 %cmp.not5.i.i.i.i.i29, label %_ZNSt6vectorI11aiVectorKeySaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit19.i.i, label %for.body.i.i.i.i.i30
 
 for.body.i.i.i.i.i30:                             ; preds = %_ZNSt12_Vector_baseI11aiVectorKeySaIS0_EE11_M_allocateEm.exit.i.i, %for.body.i.i.i.i.i30
   %__cur.07.i.i.i.i.i31 = phi ptr [ %incdec.ptr1.i.i.i.i.i34, %for.body.i.i.i.i.i30 ], [ %cond.i10.i.i27, %_ZNSt12_Vector_baseI11aiVectorKeySaIS0_EE11_M_allocateEm.exit.i.i ]
   %__first.addr.06.i.i.i.i.i32 = phi ptr [ %incdec.ptr.i.i.i.i.i33, %for.body.i.i.i.i.i30 ], [ %10, %_ZNSt12_Vector_baseI11aiVectorKeySaIS0_EE11_M_allocateEm.exit.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.07.i.i.i.i.i31, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i.i.i32, i64 24, i1 false), !alias.scope !61
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.07.i.i.i.i.i31, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i.i.i32, i64 24, i1 false), !alias.scope !55
   %incdec.ptr.i.i.i.i.i33 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i32, i64 24
   %incdec.ptr1.i.i.i.i.i34 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i31, i64 24
   %cmp.not.i.i.i.i.i35 = icmp eq ptr %incdec.ptr.i.i.i.i.i33, %7
-  br i1 %cmp.not.i.i.i.i.i35, label %_ZNSt6vectorI11aiVectorKeySaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit19.i.i, label %for.body.i.i.i.i.i30, !llvm.loop !65
+  br i1 %cmp.not.i.i.i.i.i35, label %_ZNSt6vectorI11aiVectorKeySaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit19.i.i, label %for.body.i.i.i.i.i30, !llvm.loop !59
 
 _ZNSt6vectorI11aiVectorKeySaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit19.i.i: ; preds = %for.body.i.i.i.i.i30, %_ZNSt12_Vector_baseI11aiVectorKeySaIS0_EE11_M_allocateEm.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i36 = phi ptr [ %cond.i10.i.i27, %_ZNSt12_Vector_baseI11aiVectorKeySaIS0_EE11_M_allocateEm.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i34, %for.body.i.i.i.i.i30 ]
@@ -8362,9 +8971,9 @@ if.else:                                          ; preds = %if.end17
 if.then.i45:                                      ; preds = %if.else
   store double %conv19, ptr %12, align 8
   %key18.sroa.6.0..sroa_idx156 = getelementptr inbounds i8, ptr %12, i64 8
-  store <2 x float> %retval.sroa.0.4.vec.insert.i, ptr %key18.sroa.6.0..sroa_idx156, align 8
+  store <2 x float> %call21.fca.0.extract, ptr %key18.sroa.6.0..sroa_idx156, align 8
   %key18.sroa.7.0..sroa_idx160 = getelementptr inbounds i8, ptr %12, i64 16
-  store float %call3.i, ptr %key18.sroa.7.0..sroa_idx160, align 8
+  store float %call21.fca.1.extract, ptr %key18.sroa.7.0..sroa_idx160, align 8
   %14 = load ptr, ptr %_M_finish.i42, align 8
   %incdec.ptr.i46 = getelementptr inbounds i8, ptr %14, i64 24
   store ptr %incdec.ptr.i46, ptr %_M_finish.i42, align 8
@@ -8402,20 +9011,20 @@ _ZNSt12_Vector_baseI11aiVectorKeySaIS0_EE11_M_allocateEm.exit.i.i63: ; preds = %
   %add.ptr.i.i65 = getelementptr inbounds %struct.aiVectorKey, ptr %cond.i10.i.i64, i64 %sub.ptr.div.i.i.i.i54
   store double %conv19, ptr %add.ptr.i.i65, align 8
   %key18.sroa.6.0.add.ptr.i.i65.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i65, i64 8
-  store <2 x float> %retval.sroa.0.4.vec.insert.i, ptr %key18.sroa.6.0.add.ptr.i.i65.sroa_idx, align 8
+  store <2 x float> %call21.fca.0.extract, ptr %key18.sroa.6.0.add.ptr.i.i65.sroa_idx, align 8
   %key18.sroa.7.0.add.ptr.i.i65.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i65, i64 16
-  store float %call3.i, ptr %key18.sroa.7.0.add.ptr.i.i65.sroa_idx, align 8
+  store float %call21.fca.1.extract, ptr %key18.sroa.7.0.add.ptr.i.i65.sroa_idx, align 8
   %cmp.not5.i.i.i.i.i66 = icmp eq ptr %15, %12
   br i1 %cmp.not5.i.i.i.i.i66, label %_ZNSt6vectorI11aiVectorKeySaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit19.i.i73, label %for.body.i.i.i.i.i67
 
 for.body.i.i.i.i.i67:                             ; preds = %_ZNSt12_Vector_baseI11aiVectorKeySaIS0_EE11_M_allocateEm.exit.i.i63, %for.body.i.i.i.i.i67
   %__cur.07.i.i.i.i.i68 = phi ptr [ %incdec.ptr1.i.i.i.i.i71, %for.body.i.i.i.i.i67 ], [ %cond.i10.i.i64, %_ZNSt12_Vector_baseI11aiVectorKeySaIS0_EE11_M_allocateEm.exit.i.i63 ]
   %__first.addr.06.i.i.i.i.i69 = phi ptr [ %incdec.ptr.i.i.i.i.i70, %for.body.i.i.i.i.i67 ], [ %15, %_ZNSt12_Vector_baseI11aiVectorKeySaIS0_EE11_M_allocateEm.exit.i.i63 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.07.i.i.i.i.i68, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i.i.i69, i64 24, i1 false), !alias.scope !66
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.07.i.i.i.i.i68, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i.i.i69, i64 24, i1 false), !alias.scope !60
   %incdec.ptr.i.i.i.i.i70 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i69, i64 24
   %incdec.ptr1.i.i.i.i.i71 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i68, i64 24
   %cmp.not.i.i.i.i.i72 = icmp eq ptr %incdec.ptr.i.i.i.i.i70, %12
-  br i1 %cmp.not.i.i.i.i.i72, label %_ZNSt6vectorI11aiVectorKeySaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit19.i.i73, label %for.body.i.i.i.i.i67, !llvm.loop !65
+  br i1 %cmp.not.i.i.i.i.i72, label %_ZNSt6vectorI11aiVectorKeySaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit19.i.i73, label %for.body.i.i.i.i.i67, !llvm.loop !59
 
 _ZNSt6vectorI11aiVectorKeySaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit19.i.i73: ; preds = %for.body.i.i.i.i.i67, %_ZNSt12_Vector_baseI11aiVectorKeySaIS0_EE11_M_allocateEm.exit.i.i63
   %__cur.0.lcssa.i.i.i.i.i74 = phi ptr [ %cond.i10.i.i64, %_ZNSt12_Vector_baseI11aiVectorKeySaIS0_EE11_M_allocateEm.exit.i.i63 ], [ %incdec.ptr1.i.i.i.i.i71, %for.body.i.i.i.i.i67 ]
@@ -8574,11 +9183,11 @@ _ZNSt12_Vector_baseIN6Assimp5XFile9MatrixKeyESaIS2_EE11_M_allocateEm.exit.i.i: ;
 for.body.i.i.i.i.i105:                            ; preds = %_ZNSt12_Vector_baseIN6Assimp5XFile9MatrixKeyESaIS2_EE11_M_allocateEm.exit.i.i, %for.body.i.i.i.i.i105
   %__cur.07.i.i.i.i.i106 = phi ptr [ %incdec.ptr1.i.i.i.i.i109, %for.body.i.i.i.i.i105 ], [ %cond.i10.i.i102, %_ZNSt12_Vector_baseIN6Assimp5XFile9MatrixKeyESaIS2_EE11_M_allocateEm.exit.i.i ]
   %__first.addr.06.i.i.i.i.i107 = phi ptr [ %incdec.ptr.i.i.i.i.i108, %for.body.i.i.i.i.i105 ], [ %20, %_ZNSt12_Vector_baseIN6Assimp5XFile9MatrixKeyESaIS2_EE11_M_allocateEm.exit.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %__cur.07.i.i.i.i.i106, ptr noundef nonnull align 8 dereferenceable(72) %__first.addr.06.i.i.i.i.i107, i64 72, i1 false), !alias.scope !70
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %__cur.07.i.i.i.i.i106, ptr noundef nonnull align 8 dereferenceable(72) %__first.addr.06.i.i.i.i.i107, i64 72, i1 false), !alias.scope !64
   %incdec.ptr.i.i.i.i.i108 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i107, i64 72
   %incdec.ptr1.i.i.i.i.i109 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i106, i64 72
   %cmp.not.i.i.i.i.i110 = icmp eq ptr %incdec.ptr.i.i.i.i.i108, %17
-  br i1 %cmp.not.i.i.i.i.i110, label %_ZNSt6vectorIN6Assimp5XFile9MatrixKeyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i, label %for.body.i.i.i.i.i105, !llvm.loop !74
+  br i1 %cmp.not.i.i.i.i.i110, label %_ZNSt6vectorIN6Assimp5XFile9MatrixKeyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i, label %for.body.i.i.i.i.i105, !llvm.loop !68
 
 _ZNSt6vectorIN6Assimp5XFile9MatrixKeyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i: ; preds = %for.body.i.i.i.i.i105, %_ZNSt12_Vector_baseIN6Assimp5XFile9MatrixKeyESaIS2_EE11_M_allocateEm.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i111 = phi ptr [ %cond.i10.i.i102, %_ZNSt12_Vector_baseIN6Assimp5XFile9MatrixKeyESaIS2_EE11_M_allocateEm.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i109, %for.body.i.i.i.i.i105 ]
@@ -8661,7 +9270,7 @@ _ZN6Assimp11XFileParser17CheckForSeparatorEv.exit: ; preds = %sw.epilog, %if.end
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %token.i)
   %inc = add nuw i32 %a.0188, 1
   %exitcond.not = icmp eq i32 %inc, %call2
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !75
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !69
 
 for.end:                                          ; preds = %_ZN6Assimp11XFileParser17CheckForSeparatorEv.exit, %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i130)
@@ -9495,7 +10104,7 @@ for.inc:                                          ; preds = %for.body, %delete.n
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %cmp = icmp ugt i64 %sub.ptr.div.i, %conv
-  br i1 %cmp, label %for.body, label %for.cond6.preheader, !llvm.loop !76
+  br i1 %cmp, label %for.body, label %for.cond6.preheader, !llvm.loop !70
 
 for.body10:                                       ; preds = %for.cond6.preheader, %for.inc17
   %9 = phi ptr [ %12, %for.inc17 ], [ %3, %for.cond6.preheader ]
@@ -9524,7 +10133,7 @@ for.inc17:                                        ; preds = %for.body10, %delete
   %sub.ptr.sub.i9 = sub i64 %sub.ptr.lhs.cast.i7, %sub.ptr.rhs.cast.i8
   %sub.ptr.div.i10 = ashr exact i64 %sub.ptr.sub.i9, 3
   %cmp9 = icmp ugt i64 %sub.ptr.div.i10, %conv7
-  br i1 %cmp9, label %for.body10, label %for.end19, !llvm.loop !77
+  br i1 %cmp9, label %for.body10, label %for.end19, !llvm.loop !71
 
 for.end19:                                        ; preds = %for.inc17, %for.cond6.preheader
   %.lcssa = phi ptr [ %3, %for.cond6.preheader ], [ %12, %for.inc17 ]
@@ -9652,7 +10261,7 @@ _ZSt8_DestroyIN6Assimp5XFile4BoneEEvPT_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i) #22
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 120
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
-  br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !78
+  br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !72
 
 invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyIN6Assimp5XFile4BoneEEvPT_.exit.i.i.i.i
   %.pr.i = load ptr, ptr %mBones, align 8
@@ -9942,7 +10551,7 @@ for.inc:                                          ; preds = %for.body, %_ZN6Assi
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %cmp = icmp ugt i64 %sub.ptr.div.i, %conv
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !79
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !73
 
 for.end:                                          ; preds = %for.inc, %entry
   %.lcssa = phi ptr [ %1, %entry ], [ %9, %for.inc ]
@@ -11133,7 +11742,7 @@ for.inc.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.09.i.i.i.i, i64 40
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__cur.010.i.i.i.i, i64 40
   %cmp.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %3
-  br i1 %cmp.i.not.i.i.i.i, label %invoke.cont11, label %for.body.i.i.i.i, !llvm.loop !80
+  br i1 %cmp.i.not.i.i.i.i, label %invoke.cont11, label %for.body.i.i.i.i, !llvm.loop !74
 
 lpad.i.i.i.i:                                     ; preds = %for.body.i.i.i.i
   %5 = landingpad { ptr, i32 }
@@ -11282,7 +11891,7 @@ for.inc:                                          ; preds = %.noexc
   %incdec.ptr = getelementptr inbounds i8, ptr %__first.addr.011, i64 112
   %incdec.ptr1 = getelementptr inbounds i8, ptr %__cur.012, i64 112
   %cmp.not = icmp eq ptr %incdec.ptr, %__last
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !81
+  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !75
 
 lpad:                                             ; preds = %for.body
   %8 = landingpad { ptr, i32 }
@@ -11799,19 +12408,19 @@ _ZNKSt6vectorIN6Assimp5XFile4FaceESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = %i
 for.body.i.i.i:                                   ; preds = %_ZNKSt6vectorIN6Assimp5XFile4FaceESaIS2_EE12_M_check_lenEmPKc.exit, %for.body.i.i.i
   %__cur.07.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.body.i.i.i ], [ %call5.i.i.i, %_ZNKSt6vectorIN6Assimp5XFile4FaceESaIS2_EE12_M_check_lenEmPKc.exit ]
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNKSt6vectorIN6Assimp5XFile4FaceESaIS2_EE12_M_check_lenEmPKc.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !82)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !85)
-  %6 = load <2 x ptr>, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !85, !noalias !82
-  store <2 x ptr> %6, ptr %__cur.07.i.i.i, align 8, !alias.scope !82, !noalias !85
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !76)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !79)
+  %6 = load <2 x ptr>, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !79, !noalias !76
+  store <2 x ptr> %6, ptr %__cur.07.i.i.i, align 8, !alias.scope !76, !noalias !79
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 16
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 16
-  %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !85, !noalias !82
-  store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !82, !noalias !85
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i, i8 0, i64 24, i1 false), !alias.scope !85, !noalias !82
+  %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !79, !noalias !76
+  store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !76, !noalias !79
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i, i8 0, i64 24, i1 false), !alias.scope !79, !noalias !76
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 24
   %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 24
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %0
-  br i1 %cmp.not.i.i.i, label %_ZNSt6vectorIN6Assimp5XFile4FaceESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %for.body.i.i.i, !llvm.loop !87
+  br i1 %cmp.not.i.i.i, label %_ZNSt6vectorIN6Assimp5XFile4FaceESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %for.body.i.i.i, !llvm.loop !81
 
 _ZNSt6vectorIN6Assimp5XFile4FaceESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %for.body.i.i.i, %_ZNKSt6vectorIN6Assimp5XFile4FaceESaIS2_EE12_M_check_lenEmPKc.exit
   %tobool.not.i27 = icmp eq ptr %1, null
@@ -12103,26 +12712,26 @@ _ZNSt12_Vector_baseIN6Assimp5XFile4BoneESaIS2_EE11_M_allocateEm.exit: ; preds = 
 for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_baseIN6Assimp5XFile4BoneESaIS2_EE11_M_allocateEm.exit, %for.body.i.i.i
   %__cur.07.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.body.i.i.i ], [ %cond.i10, %_ZNSt12_Vector_baseIN6Assimp5XFile4BoneESaIS2_EE11_M_allocateEm.exit ]
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNSt12_Vector_baseIN6Assimp5XFile4BoneESaIS2_EE11_M_allocateEm.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !88)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !91)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !82)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !85)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #22
   %mWeights.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 32
   %mWeights3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 32
-  %3 = load <2 x ptr>, ptr %mWeights3.i.i.i.i.i.i.i, align 8, !alias.scope !91, !noalias !88
-  store <2 x ptr> %3, ptr %mWeights.i.i.i.i.i.i.i, align 8, !alias.scope !88, !noalias !91
+  %3 = load <2 x ptr>, ptr %mWeights3.i.i.i.i.i.i.i, align 8, !alias.scope !85, !noalias !82
+  store <2 x ptr> %3, ptr %mWeights.i.i.i.i.i.i.i, align 8, !alias.scope !82, !noalias !85
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 48
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 48
-  %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !91, !noalias !88
-  store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !88, !noalias !91
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mWeights3.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !91, !noalias !88
+  %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !85, !noalias !82
+  store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !82, !noalias !85
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mWeights3.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !85, !noalias !82
   %mOffsetMatrix.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 56
   %mOffsetMatrix4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %mOffsetMatrix.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %mOffsetMatrix4.i.i.i.i.i.i.i, i64 64, i1 false), !alias.scope !93
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %mOffsetMatrix.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %mOffsetMatrix4.i.i.i.i.i.i.i, i64 64, i1 false), !alias.scope !87
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #22
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 120
   %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 120
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
-  br i1 %cmp.not.i.i.i, label %_ZNSt6vectorIN6Assimp5XFile4BoneESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %for.body.i.i.i, !llvm.loop !94
+  br i1 %cmp.not.i.i.i, label %_ZNSt6vectorIN6Assimp5XFile4BoneESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %for.body.i.i.i, !llvm.loop !88
 
 _ZNSt6vectorIN6Assimp5XFile4BoneESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseIN6Assimp5XFile4BoneESaIS2_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseIN6Assimp5XFile4BoneESaIS2_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
@@ -12133,26 +12742,26 @@ _ZNSt6vectorIN6Assimp5XFile4BoneESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; pr
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN6Assimp5XFile4BoneESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %for.body.i.i.i12
   %__cur.07.i.i.i13 = phi ptr [ %incdec.ptr1.i.i.i24, %for.body.i.i.i12 ], [ %incdec.ptr, %_ZNSt6vectorIN6Assimp5XFile4BoneESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i23, %for.body.i.i.i12 ], [ %__position.coerce, %_ZNSt6vectorIN6Assimp5XFile4BoneESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !95)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !98)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !89)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !92)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i13, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #22
   %mWeights.i.i.i.i.i.i.i15 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 32
   %mWeights3.i.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 32
-  %5 = load <2 x ptr>, ptr %mWeights3.i.i.i.i.i.i.i16, align 8, !alias.scope !98, !noalias !95
-  store <2 x ptr> %5, ptr %mWeights.i.i.i.i.i.i.i15, align 8, !alias.scope !95, !noalias !98
+  %5 = load <2 x ptr>, ptr %mWeights3.i.i.i.i.i.i.i16, align 8, !alias.scope !92, !noalias !89
+  store <2 x ptr> %5, ptr %mWeights.i.i.i.i.i.i.i15, align 8, !alias.scope !89, !noalias !92
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i19 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 48
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i20 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 48
-  %6 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i20, align 8, !alias.scope !98, !noalias !95
-  store ptr %6, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i19, align 8, !alias.scope !95, !noalias !98
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mWeights3.i.i.i.i.i.i.i16, i8 0, i64 24, i1 false), !alias.scope !98, !noalias !95
+  %6 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i20, align 8, !alias.scope !92, !noalias !89
+  store ptr %6, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i19, align 8, !alias.scope !89, !noalias !92
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mWeights3.i.i.i.i.i.i.i16, i8 0, i64 24, i1 false), !alias.scope !92, !noalias !89
   %mOffsetMatrix.i.i.i.i.i.i.i21 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 56
   %mOffsetMatrix4.i.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %mOffsetMatrix.i.i.i.i.i.i.i21, ptr noundef nonnull align 8 dereferenceable(64) %mOffsetMatrix4.i.i.i.i.i.i.i22, i64 64, i1 false), !alias.scope !100
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %mOffsetMatrix.i.i.i.i.i.i.i21, ptr noundef nonnull align 8 dereferenceable(64) %mOffsetMatrix4.i.i.i.i.i.i.i22, i64 64, i1 false), !alias.scope !94
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #22
   %incdec.ptr.i.i.i23 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 120
   %incdec.ptr1.i.i.i24 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 120
   %cmp.not.i.i.i25 = icmp eq ptr %incdec.ptr.i.i.i23, %0
-  br i1 %cmp.not.i.i.i25, label %_ZNSt6vectorIN6Assimp5XFile4BoneESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit27, label %for.body.i.i.i12, !llvm.loop !94
+  br i1 %cmp.not.i.i.i25, label %_ZNSt6vectorIN6Assimp5XFile4BoneESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit27, label %for.body.i.i.i12, !llvm.loop !88
 
 _ZNSt6vectorIN6Assimp5XFile4BoneESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit27: ; preds = %for.body.i.i.i12, %_ZNSt6vectorIN6Assimp5XFile4BoneESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
   %__cur.0.lcssa.i.i.i26 = phi ptr [ %incdec.ptr, %_ZNSt6vectorIN6Assimp5XFile4BoneESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ], [ %incdec.ptr1.i.i.i24, %for.body.i.i.i12 ]
@@ -13049,7 +13658,7 @@ for.body.i.i.i.i.i:                               ; preds = %if.then11, %for.bod
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i, i64 16
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i, i64 16
   %cmp.i.i.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %1
-  br i1 %cmp.i.i.not.i.i.i.i.i, label %invoke.cont, label %for.body.i.i.i.i.i, !llvm.loop !101
+  br i1 %cmp.i.i.not.i.i.i.i.i, label %invoke.cont, label %for.body.i.i.i.i.i, !llvm.loop !95
 
 invoke.cont:                                      ; preds = %for.body.i.i.i.i.i
   %2 = load ptr, ptr %_M_finish, align 8
@@ -13078,7 +13687,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont20, %for
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %__tmp.sroa.6.8.__first.addr.04.i.i.i.sroa_idx, ptr noundef nonnull align 1 dereferenceable(15) %__tmp.sroa.6, i64 15, i1 false)
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 16
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr24
-  br i1 %cmp.not.i.i.i, label %if.end94, label %for.body.i.i.i, !llvm.loop !102
+  br i1 %cmp.not.i.i.i, label %if.end94, label %for.body.i.i.i, !llvm.loop !96
 
 if.else:                                          ; preds = %if.then4
   %sub = sub i64 %__n, %sub.ptr.div.i
@@ -13094,7 +13703,7 @@ for.body.i.i.i.i:                                 ; preds = %if.else, %for.body.
   %dec.i.i.i.i = add i64 %__n.addr.05.i.i.i.i, -1
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__cur.06.i.i.i.i, i64 16
   %cmp.not.i.i.i.i = icmp eq i64 %dec.i.i.i.i, 0
-  br i1 %cmp.not.i.i.i.i, label %invoke.cont27, label %for.body.i.i.i.i, !llvm.loop !103
+  br i1 %cmp.not.i.i.i.i, label %invoke.cont27, label %for.body.i.i.i.i, !llvm.loop !97
 
 invoke.cont27:                                    ; preds = %for.body.i.i.i.i, %if.else
   %3 = phi ptr [ %1, %if.else ], [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ]
@@ -13114,7 +13723,7 @@ for.body.i.i.i.i.i50:                             ; preds = %invoke.cont27, %for
   %incdec.ptr.i.i.i.i.i.i53 = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i52, i64 16
   %incdec.ptr.i.i.i.i.i54 = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i51, i64 16
   %cmp.i.i.not.i.i.i.i.i55 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i53, %1
-  br i1 %cmp.i.i.not.i.i.i.i.i55, label %for.body.i.i.i59.preheader, label %for.body.i.i.i.i.i50, !llvm.loop !101
+  br i1 %cmp.i.i.not.i.i.i.i.i55, label %for.body.i.i.i59.preheader, label %for.body.i.i.i.i.i50, !llvm.loop !95
 
 for.body.i.i.i59.preheader:                       ; preds = %for.body.i.i.i.i.i50
   %4 = load ptr, ptr %_M_finish, align 8
@@ -13129,7 +13738,7 @@ for.body.i.i.i59:                                 ; preds = %for.body.i.i.i59.pr
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %__tmp.sroa.6.8.__first.addr.04.i.i.i60.sroa_idx, ptr noundef nonnull align 1 dereferenceable(15) %__tmp.sroa.6, i64 15, i1 false)
   %incdec.ptr.i.i.i61 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i60, i64 16
   %cmp.not.i.i.i62 = icmp eq ptr %incdec.ptr.i.i.i61, %1
-  br i1 %cmp.not.i.i.i62, label %if.end94, label %for.body.i.i.i59, !llvm.loop !102
+  br i1 %cmp.not.i.i.i62, label %if.end94, label %for.body.i.i.i59, !llvm.loop !96
 
 if.else42:                                        ; preds = %if.then
   %5 = load ptr, ptr %this, align 8
@@ -13172,7 +13781,7 @@ for.body.i.i.i.i66:                               ; preds = %_ZNSt12_Vector_base
   %dec.i.i.i.i69 = add i64 %__n.addr.05.i.i.i.i68, -1
   %incdec.ptr.i.i.i.i70 = getelementptr inbounds i8, ptr %__cur.06.i.i.i.i67, i64 16
   %cmp.not.i.i.i.i71 = icmp eq i64 %dec.i.i.i.i69, 0
-  br i1 %cmp.not.i.i.i.i71, label %invoke.cont57, label %for.body.i.i.i.i66, !llvm.loop !103
+  br i1 %cmp.not.i.i.i.i71, label %invoke.cont57, label %for.body.i.i.i.i66, !llvm.loop !97
 
 invoke.cont57:                                    ; preds = %for.body.i.i.i.i66
   %cmp.i.i.not7.i.i.i.i.i74 = icmp eq ptr %5, %__position.coerce
@@ -13185,7 +13794,7 @@ for.body.i.i.i.i.i75:                             ; preds = %invoke.cont57, %for
   %incdec.ptr.i.i.i.i.i.i78 = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i77, i64 16
   %incdec.ptr.i.i.i.i.i79 = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i76, i64 16
   %cmp.i.i.not.i.i.i.i.i80 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i78, %__position.coerce
-  br i1 %cmp.i.i.not.i.i.i.i.i80, label %invoke.cont60, label %for.body.i.i.i.i.i75, !llvm.loop !101
+  br i1 %cmp.i.i.not.i.i.i.i.i80, label %invoke.cont60, label %for.body.i.i.i.i.i75, !llvm.loop !95
 
 invoke.cont60:                                    ; preds = %for.body.i.i.i.i.i75, %invoke.cont57
   %__cur.0.lcssa.i.i.i.i.i81 = phi ptr [ %cond.i64, %invoke.cont57 ], [ %incdec.ptr.i.i.i.i.i79, %for.body.i.i.i.i.i75 ]
@@ -13200,7 +13809,7 @@ for.body.i.i.i.i.i83:                             ; preds = %invoke.cont60, %for
   %incdec.ptr.i.i.i.i.i.i86 = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i85, i64 16
   %incdec.ptr.i.i.i.i.i87 = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i84, i64 16
   %cmp.i.i.not.i.i.i.i.i88 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i86, %1
-  br i1 %cmp.i.i.not.i.i.i.i.i88, label %invoke.cont64, label %for.body.i.i.i.i.i83, !llvm.loop !101
+  br i1 %cmp.i.i.not.i.i.i.i.i88, label %invoke.cont64, label %for.body.i.i.i.i.i83, !llvm.loop !95
 
 invoke.cont64:                                    ; preds = %for.body.i.i.i.i.i83, %invoke.cont60
   %__cur.0.lcssa.i.i.i.i.i89 = phi ptr [ %add.ptr62, %invoke.cont60 ], [ %incdec.ptr.i.i.i.i.i87, %for.body.i.i.i.i.i83 ]
@@ -13936,19 +14545,19 @@ invoke.cont:                                      ; preds = %_ZNSt12_Vector_base
 for.body.i.i.i:                                   ; preds = %invoke.cont, %for.body.i.i.i
   %__cur.07.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.body.i.i.i ], [ %cond.i17, %invoke.cont ]
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %invoke.cont ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !104)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !107)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !98)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !101)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #22
   %mIsNormalMap.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 32
   %mIsNormalMap3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 32
-  %3 = load i8, ptr %mIsNormalMap3.i.i.i.i.i.i.i, align 8, !alias.scope !107, !noalias !104
+  %3 = load i8, ptr %mIsNormalMap3.i.i.i.i.i.i.i, align 8, !alias.scope !101, !noalias !98
   %frombool.i.i.i.i.i.i.i = and i8 %3, 1
-  store i8 %frombool.i.i.i.i.i.i.i, ptr %mIsNormalMap.i.i.i.i.i.i.i, align 8, !alias.scope !104, !noalias !107
+  store i8 %frombool.i.i.i.i.i.i.i, ptr %mIsNormalMap.i.i.i.i.i.i.i, align 8, !alias.scope !98, !noalias !101
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #22
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 40
   %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 40
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
-  br i1 %cmp.not.i.i.i, label %_ZNSt6vectorIN6Assimp5XFile8TexEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %for.body.i.i.i, !llvm.loop !109
+  br i1 %cmp.not.i.i.i, label %_ZNSt6vectorIN6Assimp5XFile8TexEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %for.body.i.i.i, !llvm.loop !103
 
 _ZNSt6vectorIN6Assimp5XFile8TexEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
@@ -13959,19 +14568,19 @@ _ZNSt6vectorIN6Assimp5XFile8TexEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: 
 for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorIN6Assimp5XFile8TexEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %for.body.i.i.i19
   %__cur.07.i.i.i20 = phi ptr [ %incdec.ptr1.i.i.i26, %for.body.i.i.i19 ], [ %incdec.ptr, %_ZNSt6vectorIN6Assimp5XFile8TexEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
   %__first.addr.06.i.i.i21 = phi ptr [ %incdec.ptr.i.i.i25, %for.body.i.i.i19 ], [ %__position.coerce, %_ZNSt6vectorIN6Assimp5XFile8TexEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !110)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !113)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !104)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !107)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i20, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i21) #22
   %mIsNormalMap.i.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %__cur.07.i.i.i20, i64 32
   %mIsNormalMap3.i.i.i.i.i.i.i23 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i21, i64 32
-  %4 = load i8, ptr %mIsNormalMap3.i.i.i.i.i.i.i23, align 8, !alias.scope !113, !noalias !110
+  %4 = load i8, ptr %mIsNormalMap3.i.i.i.i.i.i.i23, align 8, !alias.scope !107, !noalias !104
   %frombool.i.i.i.i.i.i.i24 = and i8 %4, 1
-  store i8 %frombool.i.i.i.i.i.i.i24, ptr %mIsNormalMap.i.i.i.i.i.i.i22, align 8, !alias.scope !110, !noalias !113
+  store i8 %frombool.i.i.i.i.i.i.i24, ptr %mIsNormalMap.i.i.i.i.i.i.i22, align 8, !alias.scope !104, !noalias !107
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i21) #22
   %incdec.ptr.i.i.i25 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i21, i64 40
   %incdec.ptr1.i.i.i26 = getelementptr inbounds i8, ptr %__cur.07.i.i.i20, i64 40
   %cmp.not.i.i.i27 = icmp eq ptr %incdec.ptr.i.i.i25, %0
-  br i1 %cmp.not.i.i.i27, label %_ZNSt6vectorIN6Assimp5XFile8TexEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit29, label %for.body.i.i.i19, !llvm.loop !109
+  br i1 %cmp.not.i.i.i27, label %_ZNSt6vectorIN6Assimp5XFile8TexEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit29, label %for.body.i.i.i19, !llvm.loop !103
 
 _ZNSt6vectorIN6Assimp5XFile8TexEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit29: ; preds = %for.body.i.i.i19, %_ZNSt6vectorIN6Assimp5XFile8TexEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
   %__cur.0.lcssa.i.i.i28 = phi ptr [ %incdec.ptr, %_ZNSt6vectorIN6Assimp5XFile8TexEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ], [ %incdec.ptr1.i.i.i26, %for.body.i.i.i19 ]
@@ -14081,19 +14690,19 @@ invoke.cont:                                      ; preds = %_ZNSt12_Vector_base
 for.body.i.i.i:                                   ; preds = %invoke.cont, %for.body.i.i.i
   %__cur.07.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.body.i.i.i ], [ %cond.i17, %invoke.cont ]
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %invoke.cont ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !115)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !118)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !109)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !112)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #22
   %mIsNormalMap.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 32
   %mIsNormalMap3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 32
-  %4 = load i8, ptr %mIsNormalMap3.i.i.i.i.i.i.i, align 8, !alias.scope !118, !noalias !115
+  %4 = load i8, ptr %mIsNormalMap3.i.i.i.i.i.i.i, align 8, !alias.scope !112, !noalias !109
   %frombool.i.i.i.i.i.i.i = and i8 %4, 1
-  store i8 %frombool.i.i.i.i.i.i.i, ptr %mIsNormalMap.i.i.i.i.i.i.i, align 8, !alias.scope !115, !noalias !118
+  store i8 %frombool.i.i.i.i.i.i.i, ptr %mIsNormalMap.i.i.i.i.i.i.i, align 8, !alias.scope !109, !noalias !112
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #22
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 40
   %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 40
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
-  br i1 %cmp.not.i.i.i, label %_ZNSt6vectorIN6Assimp5XFile8TexEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %for.body.i.i.i, !llvm.loop !109
+  br i1 %cmp.not.i.i.i, label %_ZNSt6vectorIN6Assimp5XFile8TexEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %for.body.i.i.i, !llvm.loop !103
 
 _ZNSt6vectorIN6Assimp5XFile8TexEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
@@ -14104,19 +14713,19 @@ _ZNSt6vectorIN6Assimp5XFile8TexEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: 
 for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorIN6Assimp5XFile8TexEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %for.body.i.i.i19
   %__cur.07.i.i.i20 = phi ptr [ %incdec.ptr1.i.i.i26, %for.body.i.i.i19 ], [ %incdec.ptr, %_ZNSt6vectorIN6Assimp5XFile8TexEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
   %__first.addr.06.i.i.i21 = phi ptr [ %incdec.ptr.i.i.i25, %for.body.i.i.i19 ], [ %__position.coerce, %_ZNSt6vectorIN6Assimp5XFile8TexEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !120)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !123)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !114)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !117)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i20, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i21) #22
   %mIsNormalMap.i.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %__cur.07.i.i.i20, i64 32
   %mIsNormalMap3.i.i.i.i.i.i.i23 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i21, i64 32
-  %5 = load i8, ptr %mIsNormalMap3.i.i.i.i.i.i.i23, align 8, !alias.scope !123, !noalias !120
+  %5 = load i8, ptr %mIsNormalMap3.i.i.i.i.i.i.i23, align 8, !alias.scope !117, !noalias !114
   %frombool.i.i.i.i.i.i.i24 = and i8 %5, 1
-  store i8 %frombool.i.i.i.i.i.i.i24, ptr %mIsNormalMap.i.i.i.i.i.i.i22, align 8, !alias.scope !120, !noalias !123
+  store i8 %frombool.i.i.i.i.i.i.i24, ptr %mIsNormalMap.i.i.i.i.i.i.i22, align 8, !alias.scope !114, !noalias !117
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i21) #22
   %incdec.ptr.i.i.i25 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i21, i64 40
   %incdec.ptr1.i.i.i26 = getelementptr inbounds i8, ptr %__cur.07.i.i.i20, i64 40
   %cmp.not.i.i.i27 = icmp eq ptr %incdec.ptr.i.i.i25, %0
-  br i1 %cmp.not.i.i.i27, label %_ZNSt6vectorIN6Assimp5XFile8TexEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit29, label %for.body.i.i.i19, !llvm.loop !109
+  br i1 %cmp.not.i.i.i27, label %_ZNSt6vectorIN6Assimp5XFile8TexEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit29, label %for.body.i.i.i19, !llvm.loop !103
 
 _ZNSt6vectorIN6Assimp5XFile8TexEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit29: ; preds = %for.body.i.i.i19, %_ZNSt6vectorIN6Assimp5XFile8TexEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
   %__cur.0.lcssa.i.i.i28 = phi ptr [ %incdec.ptr, %_ZNSt6vectorIN6Assimp5XFile8TexEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ], [ %incdec.ptr1.i.i.i26, %for.body.i.i.i19 ]
@@ -16628,7 +17237,7 @@ for.body.i.i:                                     ; preds = %.noexc, %for.body.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.07.i.i, i64 1
   %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %__result.sroa.0.06.i.i, i64 1
   %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %call2.i
-  br i1 %cmp.i.not.i.i, label %cleanup.action, label %for.body.i.i, !llvm.loop !125
+  br i1 %cmp.i.not.i.i, label %cleanup.action, label %for.body.i.i, !llvm.loop !119
 
 cond.end.thread4:                                 ; preds = %entry
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #22
@@ -16706,7 +17315,7 @@ if.end12.us:                                      ; preds = %if.end18.us
   %sub.us = zext nneg i8 %narrow.us to i64
   %add.us = add i64 %mul.us, %sub.us
   %cmp15.us = icmp ult i64 %add.us, %add.us82
-  br i1 %cmp15.us, label %if.then16, label %if.end18.us, !llvm.loop !126
+  br i1 %cmp15.us, label %if.then16, label %if.end18.us, !llvm.loop !120
 
 if.end18.us:                                      ; preds = %if.end12.lr.ph, %if.end12.us
   %add.us82 = phi i64 [ %add.us, %if.end12.us ], [ %sub.us79, %if.end12.lr.ph ]
@@ -16717,7 +17326,7 @@ if.end18.us:                                      ; preds = %if.end12.lr.ph, %if
   %3 = load i8, ptr %incdec.ptr.us, align 1
   %4 = add i8 %3, -58
   %or.cond14.us = icmp ult i8 %4, -10
-  br i1 %or.cond14.us, label %for.end, label %if.end12.us, !llvm.loop !126
+  br i1 %or.cond14.us, label %for.end, label %if.end12.us, !llvm.loop !120
 
 if.then:                                          ; preds = %entry
   %exception = tail call ptr @__cxa_allocate_exception(i64 16) #22
@@ -16762,7 +17371,7 @@ if.end12:                                         ; preds = %if.end29
   %sub = zext nneg i8 %narrow to i64
   %add = add i64 %mul, %sub
   %cmp15 = icmp ult i64 %add, %add77
-  br i1 %cmp15, label %if.then16, label %if.end18, !llvm.loop !126
+  br i1 %cmp15, label %if.then16, label %if.end18, !llvm.loop !120
 
 if.then16:                                        ; preds = %if.end12, %if.end12.us
   %storemerge64 = phi ptr [ %incdec.ptr.us, %if.end12.us ], [ %incdec.ptr, %if.end12 ]
@@ -16798,7 +17407,7 @@ while.body:                                       ; preds = %while.cond.preheade
   %10 = load i8, ptr %incdec.ptr27, align 1
   %11 = add i8 %10, -48
   %or.cond15 = icmp ult i8 %11, 10
-  br i1 %or.cond15, label %while.body, label %while.end, !llvm.loop !127
+  br i1 %or.cond15, label %while.body, label %while.end, !llvm.loop !121
 
 while.end:                                        ; preds = %while.body, %while.cond.preheader
   %.lcssa = phi ptr [ %incdec.ptr, %while.cond.preheader ], [ %incdec.ptr27, %while.body ]
@@ -16809,7 +17418,7 @@ if.end29:                                         ; preds = %if.end18
   %12 = load i8, ptr %incdec.ptr, align 1
   %13 = add i8 %12, -58
   %or.cond14 = icmp ult i8 %13, -10
-  br i1 %or.cond14, label %for.end, label %if.end12, !llvm.loop !126
+  br i1 %or.cond14, label %for.end, label %if.end12, !llvm.loop !120
 
 for.end:                                          ; preds = %if.end29, %if.end18.us
   %storemerge = phi ptr [ %incdec.ptr.us, %if.end18.us ], [ %incdec.ptr, %if.end29 ]
@@ -17384,105 +17993,99 @@ attributes #27 = { noreturn nounwind }
 !23 = !{!24}
 !24 = distinct !{!24, !25, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_: %agg.result"}
 !25 = distinct !{!25, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_"}
-!26 = !{!27}
-!27 = distinct !{!27, !28, !"_ZN6Assimp11XFileParser7ReadRGBEv: %agg.result"}
-!28 = distinct !{!28, !"_ZN6Assimp11XFileParser7ReadRGBEv"}
-!29 = !{!30}
-!30 = distinct !{!30, !31, !"_ZN6Assimp11XFileParser7ReadRGBEv: %agg.result"}
-!31 = distinct !{!31, !"_ZN6Assimp11XFileParser7ReadRGBEv"}
+!26 = distinct !{!26, !5}
+!27 = distinct !{!27, !5}
+!28 = !{!29, !31}
+!29 = distinct !{!29, !30, !"_ZSt19__relocate_object_aI10aiVector3tIfES1_SaIS1_EEvPT_PT0_RT1_: %__dest"}
+!30 = distinct !{!30, !"_ZSt19__relocate_object_aI10aiVector3tIfES1_SaIS1_EEvPT_PT0_RT1_"}
+!31 = distinct !{!31, !30, !"_ZSt19__relocate_object_aI10aiVector3tIfES1_SaIS1_EEvPT_PT0_RT1_: %__orig"}
 !32 = distinct !{!32, !5}
 !33 = distinct !{!33, !5}
-!34 = !{!35, !37}
-!35 = distinct !{!35, !36, !"_ZSt19__relocate_object_aI10aiVector3tIfES1_SaIS1_EEvPT_PT0_RT1_: %__dest"}
-!36 = distinct !{!36, !"_ZSt19__relocate_object_aI10aiVector3tIfES1_SaIS1_EEvPT_PT0_RT1_"}
-!37 = distinct !{!37, !36, !"_ZSt19__relocate_object_aI10aiVector3tIfES1_SaIS1_EEvPT_PT0_RT1_: %__orig"}
+!34 = distinct !{!34, !5}
+!35 = distinct !{!35, !5}
+!36 = distinct !{!36, !5}
+!37 = distinct !{!37, !5}
 !38 = distinct !{!38, !5}
 !39 = distinct !{!39, !5}
 !40 = distinct !{!40, !5}
 !41 = distinct !{!41, !5}
 !42 = distinct !{!42, !5}
-!43 = distinct !{!43, !5}
-!44 = distinct !{!44, !5}
-!45 = distinct !{!45, !5}
-!46 = distinct !{!46, !5}
-!47 = distinct !{!47, !5}
+!43 = !{!44}
+!44 = distinct !{!44, !45, !"_ZSt19__relocate_object_aI10aiVector2tIfES1_SaIS1_EEvPT_PT0_RT1_: %__dest"}
+!45 = distinct !{!45, !"_ZSt19__relocate_object_aI10aiVector2tIfES1_SaIS1_EEvPT_PT0_RT1_"}
+!46 = !{!47}
+!47 = distinct !{!47, !45, !"_ZSt19__relocate_object_aI10aiVector2tIfES1_SaIS1_EEvPT_PT0_RT1_: %__orig"}
 !48 = distinct !{!48, !5}
-!49 = !{!50}
-!50 = distinct !{!50, !51, !"_ZSt19__relocate_object_aI10aiVector2tIfES1_SaIS1_EEvPT_PT0_RT1_: %__dest"}
-!51 = distinct !{!51, !"_ZSt19__relocate_object_aI10aiVector2tIfES1_SaIS1_EEvPT_PT0_RT1_"}
-!52 = !{!53}
-!53 = distinct !{!53, !51, !"_ZSt19__relocate_object_aI10aiVector2tIfES1_SaIS1_EEvPT_PT0_RT1_: %__orig"}
+!49 = distinct !{!49, !5}
+!50 = !{!51, !53}
+!51 = distinct !{!51, !52, !"_ZSt19__relocate_object_aI9aiQuatKeyS0_SaIS0_EEvPT_PT0_RT1_: %__dest"}
+!52 = distinct !{!52, !"_ZSt19__relocate_object_aI9aiQuatKeyS0_SaIS0_EEvPT_PT0_RT1_"}
+!53 = distinct !{!53, !52, !"_ZSt19__relocate_object_aI9aiQuatKeyS0_SaIS0_EEvPT_PT0_RT1_: %__orig"}
 !54 = distinct !{!54, !5}
-!55 = distinct !{!55, !5}
-!56 = !{!57, !59}
-!57 = distinct !{!57, !58, !"_ZSt19__relocate_object_aI9aiQuatKeyS0_SaIS0_EEvPT_PT0_RT1_: %__dest"}
-!58 = distinct !{!58, !"_ZSt19__relocate_object_aI9aiQuatKeyS0_SaIS0_EEvPT_PT0_RT1_"}
-!59 = distinct !{!59, !58, !"_ZSt19__relocate_object_aI9aiQuatKeyS0_SaIS0_EEvPT_PT0_RT1_: %__orig"}
-!60 = distinct !{!60, !5}
-!61 = !{!62, !64}
-!62 = distinct !{!62, !63, !"_ZSt19__relocate_object_aI11aiVectorKeyS0_SaIS0_EEvPT_PT0_RT1_: %__dest"}
-!63 = distinct !{!63, !"_ZSt19__relocate_object_aI11aiVectorKeyS0_SaIS0_EEvPT_PT0_RT1_"}
-!64 = distinct !{!64, !63, !"_ZSt19__relocate_object_aI11aiVectorKeyS0_SaIS0_EEvPT_PT0_RT1_: %__orig"}
-!65 = distinct !{!65, !5}
-!66 = !{!67, !69}
-!67 = distinct !{!67, !68, !"_ZSt19__relocate_object_aI11aiVectorKeyS0_SaIS0_EEvPT_PT0_RT1_: %__dest"}
-!68 = distinct !{!68, !"_ZSt19__relocate_object_aI11aiVectorKeyS0_SaIS0_EEvPT_PT0_RT1_"}
-!69 = distinct !{!69, !68, !"_ZSt19__relocate_object_aI11aiVectorKeyS0_SaIS0_EEvPT_PT0_RT1_: %__orig"}
-!70 = !{!71, !73}
-!71 = distinct !{!71, !72, !"_ZSt19__relocate_object_aIN6Assimp5XFile9MatrixKeyES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
-!72 = distinct !{!72, !"_ZSt19__relocate_object_aIN6Assimp5XFile9MatrixKeyES2_SaIS2_EEvPT_PT0_RT1_"}
-!73 = distinct !{!73, !72, !"_ZSt19__relocate_object_aIN6Assimp5XFile9MatrixKeyES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
+!55 = !{!56, !58}
+!56 = distinct !{!56, !57, !"_ZSt19__relocate_object_aI11aiVectorKeyS0_SaIS0_EEvPT_PT0_RT1_: %__dest"}
+!57 = distinct !{!57, !"_ZSt19__relocate_object_aI11aiVectorKeyS0_SaIS0_EEvPT_PT0_RT1_"}
+!58 = distinct !{!58, !57, !"_ZSt19__relocate_object_aI11aiVectorKeyS0_SaIS0_EEvPT_PT0_RT1_: %__orig"}
+!59 = distinct !{!59, !5}
+!60 = !{!61, !63}
+!61 = distinct !{!61, !62, !"_ZSt19__relocate_object_aI11aiVectorKeyS0_SaIS0_EEvPT_PT0_RT1_: %__dest"}
+!62 = distinct !{!62, !"_ZSt19__relocate_object_aI11aiVectorKeyS0_SaIS0_EEvPT_PT0_RT1_"}
+!63 = distinct !{!63, !62, !"_ZSt19__relocate_object_aI11aiVectorKeyS0_SaIS0_EEvPT_PT0_RT1_: %__orig"}
+!64 = !{!65, !67}
+!65 = distinct !{!65, !66, !"_ZSt19__relocate_object_aIN6Assimp5XFile9MatrixKeyES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
+!66 = distinct !{!66, !"_ZSt19__relocate_object_aIN6Assimp5XFile9MatrixKeyES2_SaIS2_EEvPT_PT0_RT1_"}
+!67 = distinct !{!67, !66, !"_ZSt19__relocate_object_aIN6Assimp5XFile9MatrixKeyES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
+!68 = distinct !{!68, !5}
+!69 = distinct !{!69, !5}
+!70 = distinct !{!70, !5}
+!71 = distinct !{!71, !5}
+!72 = distinct !{!72, !5}
+!73 = distinct !{!73, !5}
 !74 = distinct !{!74, !5}
 !75 = distinct !{!75, !5}
-!76 = distinct !{!76, !5}
-!77 = distinct !{!77, !5}
-!78 = distinct !{!78, !5}
-!79 = distinct !{!79, !5}
-!80 = distinct !{!80, !5}
+!76 = !{!77}
+!77 = distinct !{!77, !78, !"_ZSt19__relocate_object_aIN6Assimp5XFile4FaceES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
+!78 = distinct !{!78, !"_ZSt19__relocate_object_aIN6Assimp5XFile4FaceES2_SaIS2_EEvPT_PT0_RT1_"}
+!79 = !{!80}
+!80 = distinct !{!80, !78, !"_ZSt19__relocate_object_aIN6Assimp5XFile4FaceES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
 !81 = distinct !{!81, !5}
 !82 = !{!83}
-!83 = distinct !{!83, !84, !"_ZSt19__relocate_object_aIN6Assimp5XFile4FaceES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
-!84 = distinct !{!84, !"_ZSt19__relocate_object_aIN6Assimp5XFile4FaceES2_SaIS2_EEvPT_PT0_RT1_"}
+!83 = distinct !{!83, !84, !"_ZSt19__relocate_object_aIN6Assimp5XFile4BoneES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
+!84 = distinct !{!84, !"_ZSt19__relocate_object_aIN6Assimp5XFile4BoneES2_SaIS2_EEvPT_PT0_RT1_"}
 !85 = !{!86}
-!86 = distinct !{!86, !84, !"_ZSt19__relocate_object_aIN6Assimp5XFile4FaceES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
-!87 = distinct !{!87, !5}
-!88 = !{!89}
-!89 = distinct !{!89, !90, !"_ZSt19__relocate_object_aIN6Assimp5XFile4BoneES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
-!90 = distinct !{!90, !"_ZSt19__relocate_object_aIN6Assimp5XFile4BoneES2_SaIS2_EEvPT_PT0_RT1_"}
-!91 = !{!92}
-!92 = distinct !{!92, !90, !"_ZSt19__relocate_object_aIN6Assimp5XFile4BoneES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
-!93 = !{!89, !92}
-!94 = distinct !{!94, !5}
-!95 = !{!96}
-!96 = distinct !{!96, !97, !"_ZSt19__relocate_object_aIN6Assimp5XFile4BoneES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
-!97 = distinct !{!97, !"_ZSt19__relocate_object_aIN6Assimp5XFile4BoneES2_SaIS2_EEvPT_PT0_RT1_"}
+!86 = distinct !{!86, !84, !"_ZSt19__relocate_object_aIN6Assimp5XFile4BoneES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
+!87 = !{!83, !86}
+!88 = distinct !{!88, !5}
+!89 = !{!90}
+!90 = distinct !{!90, !91, !"_ZSt19__relocate_object_aIN6Assimp5XFile4BoneES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
+!91 = distinct !{!91, !"_ZSt19__relocate_object_aIN6Assimp5XFile4BoneES2_SaIS2_EEvPT_PT0_RT1_"}
+!92 = !{!93}
+!93 = distinct !{!93, !91, !"_ZSt19__relocate_object_aIN6Assimp5XFile4BoneES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
+!94 = !{!90, !93}
+!95 = distinct !{!95, !5}
+!96 = distinct !{!96, !5}
+!97 = distinct !{!97, !5}
 !98 = !{!99}
-!99 = distinct !{!99, !97, !"_ZSt19__relocate_object_aIN6Assimp5XFile4BoneES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
-!100 = !{!96, !99}
-!101 = distinct !{!101, !5}
-!102 = distinct !{!102, !5}
+!99 = distinct !{!99, !100, !"_ZSt19__relocate_object_aIN6Assimp5XFile8TexEntryES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
+!100 = distinct !{!100, !"_ZSt19__relocate_object_aIN6Assimp5XFile8TexEntryES2_SaIS2_EEvPT_PT0_RT1_"}
+!101 = !{!102}
+!102 = distinct !{!102, !100, !"_ZSt19__relocate_object_aIN6Assimp5XFile8TexEntryES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
 !103 = distinct !{!103, !5}
 !104 = !{!105}
 !105 = distinct !{!105, !106, !"_ZSt19__relocate_object_aIN6Assimp5XFile8TexEntryES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
 !106 = distinct !{!106, !"_ZSt19__relocate_object_aIN6Assimp5XFile8TexEntryES2_SaIS2_EEvPT_PT0_RT1_"}
 !107 = !{!108}
 !108 = distinct !{!108, !106, !"_ZSt19__relocate_object_aIN6Assimp5XFile8TexEntryES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
-!109 = distinct !{!109, !5}
-!110 = !{!111}
-!111 = distinct !{!111, !112, !"_ZSt19__relocate_object_aIN6Assimp5XFile8TexEntryES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
-!112 = distinct !{!112, !"_ZSt19__relocate_object_aIN6Assimp5XFile8TexEntryES2_SaIS2_EEvPT_PT0_RT1_"}
-!113 = !{!114}
-!114 = distinct !{!114, !112, !"_ZSt19__relocate_object_aIN6Assimp5XFile8TexEntryES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
-!115 = !{!116}
-!116 = distinct !{!116, !117, !"_ZSt19__relocate_object_aIN6Assimp5XFile8TexEntryES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
-!117 = distinct !{!117, !"_ZSt19__relocate_object_aIN6Assimp5XFile8TexEntryES2_SaIS2_EEvPT_PT0_RT1_"}
-!118 = !{!119}
-!119 = distinct !{!119, !117, !"_ZSt19__relocate_object_aIN6Assimp5XFile8TexEntryES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
-!120 = !{!121}
-!121 = distinct !{!121, !122, !"_ZSt19__relocate_object_aIN6Assimp5XFile8TexEntryES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
-!122 = distinct !{!122, !"_ZSt19__relocate_object_aIN6Assimp5XFile8TexEntryES2_SaIS2_EEvPT_PT0_RT1_"}
-!123 = !{!124}
-!124 = distinct !{!124, !122, !"_ZSt19__relocate_object_aIN6Assimp5XFile8TexEntryES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
-!125 = distinct !{!125, !5}
-!126 = distinct !{!126, !5}
-!127 = distinct !{!127, !5}
+!109 = !{!110}
+!110 = distinct !{!110, !111, !"_ZSt19__relocate_object_aIN6Assimp5XFile8TexEntryES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
+!111 = distinct !{!111, !"_ZSt19__relocate_object_aIN6Assimp5XFile8TexEntryES2_SaIS2_EEvPT_PT0_RT1_"}
+!112 = !{!113}
+!113 = distinct !{!113, !111, !"_ZSt19__relocate_object_aIN6Assimp5XFile8TexEntryES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
+!114 = !{!115}
+!115 = distinct !{!115, !116, !"_ZSt19__relocate_object_aIN6Assimp5XFile8TexEntryES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
+!116 = distinct !{!116, !"_ZSt19__relocate_object_aIN6Assimp5XFile8TexEntryES2_SaIS2_EEvPT_PT0_RT1_"}
+!117 = !{!118}
+!118 = distinct !{!118, !116, !"_ZSt19__relocate_object_aIN6Assimp5XFile8TexEntryES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
+!119 = distinct !{!119, !5}
+!120 = distinct !{!120, !5}
+!121 = distinct !{!121, !5}

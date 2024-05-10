@@ -2177,9 +2177,41 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp6, label %if.then10, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %call7 = tail call fastcc i32 @rsa_check_padding(ptr noundef nonnull %ctx, ptr noundef null, ptr noundef %mdname, i32 noundef %call5)
-  %tobool.not = icmp eq i32 %call7, 0
-  br i1 %tobool.not, label %if.end11, label %if.end12
+  %pad_mode.i = getelementptr inbounds i8, ptr %ctx, i64 104
+  %3 = load i32, ptr %pad_mode.i, align 8
+  switch i32 %3, label %if.end12 [
+    i32 3, label %if.then8
+    i32 5, label %sw.bb2.i
+    i32 6, label %sw.bb6.i
+  ]
+
+sw.bb2.i:                                         ; preds = %lor.lhs.false
+  %call.i = tail call i32 @RSA_X931_hash_id(i32 noundef %call5) #11
+  %cmp3.i = icmp eq i32 %call.i, -1
+  br i1 %cmp3.i, label %if.then8, label %if.end12
+
+sw.bb6.i:                                         ; preds = %lor.lhs.false
+  %min_saltlen.i = getelementptr inbounds i8, ptr %ctx, i64 180
+  %4 = load i32, ptr %min_saltlen.i, align 4
+  %cmp7.not.i = icmp eq i32 %4, -1
+  %cmp12.not.i = icmp eq ptr %mdname, null
+  %or.cond = or i1 %cmp12.not.i, %cmp7.not.i
+  br i1 %or.cond, label %if.end12, label %land.lhs.true13.i
+
+land.lhs.true13.i:                                ; preds = %sw.bb6.i
+  %mgf1_md.i = getelementptr inbounds i8, ptr %ctx, i64 112
+  %5 = load ptr, ptr %mgf1_md.i, align 8
+  %call14.i = tail call i32 @EVP_MD_is_a(ptr noundef %5, ptr noundef nonnull %mdname) #11
+  %tobool15.not.i = icmp eq i32 %call14.i, 0
+  br i1 %tobool15.not.i, label %if.then8, label %if.end12
+
+if.then8:                                         ; preds = %lor.lhs.false, %land.lhs.true13.i, %sw.bb2.i
+  %.sink8.i = phi i32 [ 135, %sw.bb2.i ], [ 144, %land.lhs.true13.i ], [ 129, %lor.lhs.false ]
+  %.sink.i = phi i32 [ 170, %sw.bb2.i ], [ 174, %land.lhs.true13.i ], [ 168, %lor.lhs.false ]
+  tail call void @ERR_new() #11
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink8.i, ptr noundef nonnull @__func__.rsa_check_padding) #11
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef %.sink.i, ptr noundef null) #11
+  br label %if.end11
 
 if.then10:                                        ; preds = %if.end3
   tail call void @ERR_new() #11
@@ -2187,11 +2219,11 @@ if.then10:                                        ; preds = %if.end3
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 174, ptr noundef nonnull @.str.6, ptr noundef %mdname) #11
   br label %if.end11
 
-if.end11:                                         ; preds = %lor.lhs.false, %if.then10
+if.end11:                                         ; preds = %if.then8, %if.then10
   tail call void @EVP_MD_free(ptr noundef nonnull %call) #11
   br label %return
 
-if.end12:                                         ; preds = %lor.lhs.false
+if.end12:                                         ; preds = %lor.lhs.false, %sw.bb6.i, %land.lhs.true13.i, %sw.bb2.i
   %mgf1_mdname = getelementptr inbounds i8, ptr %ctx, i64 124
   %call13 = tail call i64 @OPENSSL_strlcpy(ptr noundef nonnull %mgf1_mdname, ptr noundef %mdname, i64 noundef 50) #11
   %cmp14 = icmp ugt i64 %call13, 49
@@ -2206,8 +2238,8 @@ if.then15:                                        ; preds = %if.end12
 
 if.end16:                                         ; preds = %if.end12
   %mgf1_md = getelementptr inbounds i8, ptr %ctx, i64 112
-  %3 = load ptr, ptr %mgf1_md, align 8
-  tail call void @EVP_MD_free(ptr noundef %3) #11
+  %6 = load ptr, ptr %mgf1_md, align 8
+  tail call void @EVP_MD_free(ptr noundef %6) #11
   store ptr %call, ptr %mgf1_md, align 8
   %mgf1_mdnid = getelementptr inbounds i8, ptr %ctx, i64 120
   store i32 %call5, ptr %mgf1_mdnid, align 8

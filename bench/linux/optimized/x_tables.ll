@@ -3057,18 +3057,18 @@ define internal ptr @xt_match_seq_start(ptr nocapture noundef readonly %0, ptr n
   store i8 0, ptr %5, align 8
   %6 = load i64, ptr %1, align 8
   %7 = icmp sgt i64 %6, 0
-  br i1 %7, label %.preheader, label %.loopexit
+  br i1 %7, label %.preheader, label %xt_mttg_seq_next.exit.thread
 
 .preheader:                                       ; preds = %2
   %8 = getelementptr i8, ptr %0, i64 104
   br label %14
 
-9:                                                ; preds = %14
+9:                                                ; preds = %43, %xt_mttg_seq_next.exit
   %10 = add i32 %15, 1
   %11 = zext i32 %10 to i64
   %12 = load i64, ptr %1, align 8
   %13 = icmp sgt i64 %12, %11
-  br i1 %13, label %14, label %.loopexit, !llvm.loop !60
+  br i1 %13, label %14, label %xt_mttg_seq_next.exit.thread, !llvm.loop !60
 
 14:                                               ; preds = %.preheader, %9
   %15 = phi i32 [ %10, %9 ], [ 0, %.preheader ]
@@ -3078,13 +3078,71 @@ define internal ptr @xt_match_seq_start(ptr nocapture noundef readonly %0, ptr n
   %.val.val = load ptr, ptr %16, align 8
   %17 = getelementptr i8, ptr %.val.val, i64 592
   %.val.val.val = load ptr, ptr %17, align 8
-  %18 = tail call fastcc ptr @xt_mttg_seq_next(ptr %.val.val.val, ptr %.val1, ptr noundef null, i1 noundef zeroext false)
-  %19 = icmp eq ptr %18, null
-  br i1 %19, label %.loopexit, label %9
+  %18 = ptrtoint ptr %.val.val.val to i64
+  %19 = getelementptr inbounds i8, ptr %.val1, i64 16
+  %20 = load i8, ptr %19, align 8
+  switch i8 %20, label %xt_mttg_seq_next.exit.thread [
+    i8 0, label %21
+    i8 1, label %26
+    i8 2, label %43
+  ]
 
-.loopexit:                                        ; preds = %14, %9, %2
-  %20 = phi ptr [ %4, %2 ], [ %4, %9 ], [ null, %14 ]
-  ret ptr %20
+21:                                               ; preds = %14
+  store i8 1, ptr %19, align 8
+  %22 = load ptr, ptr @xt, align 8
+  tail call void @mutex_lock(ptr noundef %22) #20
+  %23 = load ptr, ptr @xt, align 8
+  %24 = getelementptr inbounds i8, ptr %23, i64 32
+  %25 = getelementptr inbounds i8, ptr %.val1, i64 8
+  store ptr %24, ptr %25, align 8
+  store ptr %24, ptr %.val1, align 8
+  br label %xt_mttg_seq_next.exit
+
+26:                                               ; preds = %14
+  %27 = getelementptr inbounds i8, ptr %.val1, i64 8
+  %28 = load ptr, ptr %27, align 8
+  %29 = load ptr, ptr %28, align 8
+  store ptr %29, ptr %27, align 8
+  %30 = load ptr, ptr %.val1, align 8
+  %31 = icmp eq ptr %29, %30
+  br i1 %31, label %32, label %xt_mttg_seq_next.exit
+
+32:                                               ; preds = %26
+  %33 = load ptr, ptr @xt, align 8
+  tail call void @mutex_unlock(ptr noundef %33) #20
+  %34 = load ptr, ptr @xt, align 8
+  %35 = and i64 %18, 255
+  %36 = getelementptr %struct.xt_af, ptr %34, i64 %35
+  tail call void @mutex_lock(ptr noundef %36) #20
+  %37 = load ptr, ptr @xt, align 8
+  %38 = getelementptr %struct.xt_af, ptr %37, i64 %35, i32 1
+  store ptr %38, ptr %27, align 8
+  store ptr %38, ptr %.val1, align 8
+  %39 = load i8, ptr %19, align 8
+  %40 = zext i8 %39 to i64
+  %41 = getelementptr [3 x i8], ptr @xt_mttg_seq_next.next_class, i64 0, i64 %40
+  %42 = load i8, ptr %41, align 1
+  store i8 %42, ptr %19, align 8
+  br label %xt_mttg_seq_next.exit
+
+43:                                               ; preds = %14
+  %44 = getelementptr inbounds i8, ptr %.val1, i64 8
+  %45 = load ptr, ptr %44, align 8
+  %46 = load ptr, ptr %45, align 8
+  store ptr %46, ptr %44, align 8
+  %47 = load ptr, ptr %.val1, align 8
+  %48 = icmp eq ptr %46, %47
+  %49 = icmp eq ptr %.val1, null
+  %or.cond = or i1 %49, %48
+  br i1 %or.cond, label %xt_mttg_seq_next.exit.thread, label %9
+
+xt_mttg_seq_next.exit:                            ; preds = %21, %26, %32
+  %.old = icmp eq ptr %.val1, null
+  br i1 %.old, label %xt_mttg_seq_next.exit.thread, label %9
+
+xt_mttg_seq_next.exit.thread:                     ; preds = %14, %43, %xt_mttg_seq_next.exit, %9, %2
+  %50 = phi ptr [ %4, %2 ], [ null, %14 ], [ null, %43 ], [ %4, %9 ], [ null, %xt_mttg_seq_next.exit ]
+  ret ptr %50
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -3256,18 +3314,18 @@ define internal ptr @xt_target_seq_start(ptr nocapture noundef readonly %0, ptr 
   store i8 0, ptr %5, align 8
   %6 = load i64, ptr %1, align 8
   %7 = icmp sgt i64 %6, 0
-  br i1 %7, label %.preheader, label %.loopexit
+  br i1 %7, label %.preheader, label %xt_mttg_seq_next.exit.thread
 
 .preheader:                                       ; preds = %2
   %8 = getelementptr i8, ptr %0, i64 104
   br label %14
 
-9:                                                ; preds = %14
+9:                                                ; preds = %43, %xt_mttg_seq_next.exit
   %10 = add i32 %15, 1
   %11 = zext i32 %10 to i64
   %12 = load i64, ptr %1, align 8
   %13 = icmp sgt i64 %12, %11
-  br i1 %13, label %14, label %.loopexit, !llvm.loop !60
+  br i1 %13, label %14, label %xt_mttg_seq_next.exit.thread, !llvm.loop !60
 
 14:                                               ; preds = %.preheader, %9
   %15 = phi i32 [ %10, %9 ], [ 0, %.preheader ]
@@ -3277,13 +3335,71 @@ define internal ptr @xt_target_seq_start(ptr nocapture noundef readonly %0, ptr 
   %.val.val = load ptr, ptr %16, align 8
   %17 = getelementptr i8, ptr %.val.val, i64 592
   %.val.val.val = load ptr, ptr %17, align 8
-  %18 = tail call fastcc ptr @xt_mttg_seq_next(ptr %.val.val.val, ptr %.val1, ptr noundef null, i1 noundef zeroext true)
-  %19 = icmp eq ptr %18, null
-  br i1 %19, label %.loopexit, label %9
+  %18 = ptrtoint ptr %.val.val.val to i64
+  %19 = getelementptr inbounds i8, ptr %.val1, i64 16
+  %20 = load i8, ptr %19, align 8
+  switch i8 %20, label %xt_mttg_seq_next.exit.thread [
+    i8 0, label %21
+    i8 1, label %26
+    i8 2, label %43
+  ]
 
-.loopexit:                                        ; preds = %14, %9, %2
-  %20 = phi ptr [ %4, %2 ], [ %4, %9 ], [ null, %14 ]
-  ret ptr %20
+21:                                               ; preds = %14
+  store i8 1, ptr %19, align 8
+  %22 = load ptr, ptr @xt, align 8
+  tail call void @mutex_lock(ptr noundef %22) #20
+  %23 = load ptr, ptr @xt, align 8
+  %24 = getelementptr inbounds i8, ptr %23, i64 48
+  %25 = getelementptr inbounds i8, ptr %.val1, i64 8
+  store ptr %24, ptr %25, align 8
+  store ptr %24, ptr %.val1, align 8
+  br label %xt_mttg_seq_next.exit
+
+26:                                               ; preds = %14
+  %27 = getelementptr inbounds i8, ptr %.val1, i64 8
+  %28 = load ptr, ptr %27, align 8
+  %29 = load ptr, ptr %28, align 8
+  store ptr %29, ptr %27, align 8
+  %30 = load ptr, ptr %.val1, align 8
+  %31 = icmp eq ptr %29, %30
+  br i1 %31, label %32, label %xt_mttg_seq_next.exit
+
+32:                                               ; preds = %26
+  %33 = load ptr, ptr @xt, align 8
+  tail call void @mutex_unlock(ptr noundef %33) #20
+  %34 = load ptr, ptr @xt, align 8
+  %35 = and i64 %18, 255
+  %36 = getelementptr %struct.xt_af, ptr %34, i64 %35
+  tail call void @mutex_lock(ptr noundef %36) #20
+  %37 = load ptr, ptr @xt, align 8
+  %38 = getelementptr %struct.xt_af, ptr %37, i64 %35, i32 2
+  store ptr %38, ptr %27, align 8
+  store ptr %38, ptr %.val1, align 8
+  %39 = load i8, ptr %19, align 8
+  %40 = zext i8 %39 to i64
+  %41 = getelementptr [3 x i8], ptr @xt_mttg_seq_next.next_class, i64 0, i64 %40
+  %42 = load i8, ptr %41, align 1
+  store i8 %42, ptr %19, align 8
+  br label %xt_mttg_seq_next.exit
+
+43:                                               ; preds = %14
+  %44 = getelementptr inbounds i8, ptr %.val1, i64 8
+  %45 = load ptr, ptr %44, align 8
+  %46 = load ptr, ptr %45, align 8
+  store ptr %46, ptr %44, align 8
+  %47 = load ptr, ptr %.val1, align 8
+  %48 = icmp eq ptr %46, %47
+  %49 = icmp eq ptr %.val1, null
+  %or.cond = or i1 %49, %48
+  br i1 %or.cond, label %xt_mttg_seq_next.exit.thread, label %9
+
+xt_mttg_seq_next.exit:                            ; preds = %21, %26, %32
+  %.old = icmp eq ptr %.val1, null
+  br i1 %.old, label %xt_mttg_seq_next.exit.thread, label %9
+
+xt_mttg_seq_next.exit.thread:                     ; preds = %14, %43, %xt_mttg_seq_next.exit, %9, %2
+  %50 = phi ptr [ %4, %2 ], [ null, %14 ], [ null, %43 ], [ %4, %9 ], [ null, %xt_mttg_seq_next.exit ]
+  ret ptr %50
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

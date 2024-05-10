@@ -12417,7 +12417,25 @@ if.then98:                                        ; preds = %if.end92, %if.end92
   br i1 %cmp99, label %if.then100, label %if.else102
 
 if.then100:                                       ; preds = %if.then98
-  tail call fastcc void @_ZL27stbi__bmp_set_mask_defaultsP14stbi__bmp_datai(ptr noundef nonnull %info, i32 noundef 0)
+  switch i32 %32, label %if.else11.i [
+    i32 16, label %if.then4.i
+    i32 32, label %if.then7.i
+  ]
+
+if.then4.i:                                       ; preds = %if.then100
+  store i32 31744, ptr %mr, align 4
+  store i32 992, ptr %mg, align 4
+  store i32 31, ptr %mb, align 4
+  br label %return
+
+if.then7.i:                                       ; preds = %if.then100
+  store <4 x i32> <i32 16711680, i32 65280, i32 255, i32 -16777216>, ptr %mr, align 4
+  %all_a.i = getelementptr inbounds i8, ptr %info, i64 28
+  store i32 0, ptr %all_a.i, align 4
+  br label %return
+
+if.else11.i:                                      ; preds = %if.then100
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %mr, i8 0, i64 16, i1 false)
   br label %return
 
 if.else102:                                       ; preds = %if.then98
@@ -12475,10 +12493,10 @@ if.end151:                                        ; preds = %if.then149, %if.end
   br label %for.body
 
 for.body:                                         ; preds = %if.end151, %for.body
-  %i.0156 = phi i32 [ 0, %if.end151 ], [ %inc, %for.body ]
-  %call.i148 = tail call fastcc noundef i32 @_ZL13stbi__get16leP13stbi__context(ptr noundef %s)
-  %call1.i149 = tail call fastcc noundef i32 @_ZL13stbi__get16leP13stbi__context(ptr noundef %s)
-  %inc = add nuw nsw i32 %i.0156, 1
+  %i.0158 = phi i32 [ 0, %if.end151 ], [ %inc, %for.body ]
+  %call.i150 = tail call fastcc noundef i32 @_ZL13stbi__get16leP13stbi__context(ptr noundef %s)
+  %call1.i151 = tail call fastcc noundef i32 @_ZL13stbi__get16leP13stbi__context(ptr noundef %s)
+  %inc = add nuw nsw i32 %i.0158, 1
   %exitcond.not = icmp eq i32 %inc, 12
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !98
 
@@ -12493,8 +12511,8 @@ if.then156:                                       ; preds = %for.end
   %call160 = tail call fastcc noundef i32 @_ZL13stbi__get32leP13stbi__context(ptr noundef %s)
   br label %return
 
-return:                                           ; preds = %if.end46, %for.end, %if.then156, %if.then104, %if.then100, %if.end92, %if.then135, %if.else124, %if.then119, %if.then72, %if.then60, %if.then54, %if.then42, %if.then26, %if.then13, %if.then
-  %retval.0 = phi ptr [ null, %if.then ], [ null, %if.then13 ], [ null, %if.then26 ], [ null, %if.then42 ], [ null, %if.then54 ], [ null, %if.then60 ], [ null, %if.then72 ], [ null, %if.then119 ], [ null, %if.else124 ], [ null, %if.then135 ], [ inttoptr (i64 1 to ptr), %if.end92 ], [ inttoptr (i64 1 to ptr), %if.then100 ], [ inttoptr (i64 1 to ptr), %if.then104 ], [ inttoptr (i64 1 to ptr), %if.then156 ], [ inttoptr (i64 1 to ptr), %for.end ], [ inttoptr (i64 1 to ptr), %if.end46 ]
+return:                                           ; preds = %if.else11.i, %if.then7.i, %if.then4.i, %if.end46, %for.end, %if.then156, %if.then104, %if.end92, %if.then135, %if.else124, %if.then119, %if.then72, %if.then60, %if.then54, %if.then42, %if.then26, %if.then13, %if.then
+  %retval.0 = phi ptr [ null, %if.then ], [ null, %if.then13 ], [ null, %if.then26 ], [ null, %if.then42 ], [ null, %if.then54 ], [ null, %if.then60 ], [ null, %if.then72 ], [ null, %if.then119 ], [ null, %if.else124 ], [ null, %if.then135 ], [ inttoptr (i64 1 to ptr), %if.end92 ], [ inttoptr (i64 1 to ptr), %if.then104 ], [ inttoptr (i64 1 to ptr), %if.then156 ], [ inttoptr (i64 1 to ptr), %for.end ], [ inttoptr (i64 1 to ptr), %if.end46 ], [ inttoptr (i64 1 to ptr), %if.then4.i ], [ inttoptr (i64 1 to ptr), %if.then7.i ], [ inttoptr (i64 1 to ptr), %if.else11.i ]
   ret ptr %retval.0
 }
 

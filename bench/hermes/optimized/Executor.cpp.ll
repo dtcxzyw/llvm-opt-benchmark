@@ -61,8 +61,6 @@ $_ZN6hermes5regex7ContextINS0_16UTF16RegexTraitsEE9backtrackERN4llvh11SmallVecto
 
 $_ZN6hermes5regex18bracketMatchesCharINS0_16UTF16RegexTraitsEEEbRKNS0_7ContextIT_EEPKNS0_11BracketInsnEPKNS0_14BracketRange32ENS4_9CodePointE = comdat any
 
-$_ZNK6hermes5regex16UTF16RegexTraits16characterHasTypeEjNS0_14CharacterClass4TypeE = comdat any
-
 $_ZN6hermes5regex7ContextINS0_16UTF16RegexTraitsEE22prepareToEnterLoopBodyEPNS0_5StateIS2_EEPKNS0_13BeginLoopInsnERN4llvh11SmallVectorINS3_13BacktrackInsnELj64EEE = comdat any
 
 $_ZN6hermes5regex7ContextINS0_16UTF16RegexTraitsEE15matchWidth1LoopEPKNS0_14Width1LoopInsnEPNS0_5StateIS2_EERN4llvh11SmallVectorINS3_13BacktrackInsnELj64EEE = comdat any
@@ -3344,7 +3342,6 @@ return:                                           ; preds = %sw.epilog, %entry, 
 define linkonce_odr hidden noundef zeroext i1 @_ZN6hermes5regex18bracketMatchesCharINS0_16UTF16RegexTraitsEEEbRKNS0_7ContextIT_EEPKNS0_11BracketInsnEPKNS0_14BracketRange32ENS4_9CodePointE(ptr noundef nonnull align 8 dereferenceable(188) %ctx, ptr noundef %insn, ptr noundef %ranges, i32 noundef %ch) local_unnamed_addr #0 comdat {
 entry:
   %ref.tmp5 = alloca [3 x i8], align 1
-  %traits_ = getelementptr inbounds i8, ptr %ctx, i64 48
   %positiveCharClasses = getelementptr inbounds i8, ptr %insn, i64 5
   %bf.load = load i8, ptr %positiveCharClasses, align 1
   %0 = and i8 %bf.load, 126
@@ -3357,69 +3354,150 @@ if.then:                                          ; preds = %entry
   store i8 2, ptr %arrayinit.element, align 1
   %arrayinit.element6 = getelementptr inbounds i8, ptr %ref.tmp5, i64 2
   store i8 4, ptr %arrayinit.element6, align 1
+  %bf.lshr10 = lshr i8 %bf.load, 1
+  %1 = and i32 %ch, -33
+  %2 = add i32 %1, -65
+  %or.cond13.i = icmp ult i32 %2, 26
+  %3 = add i32 %ch, -48
+  %or.cond2.i = icmp ult i32 %3, 10
+  %cmp16.i = icmp eq i32 %ch, 95
+  %4 = or i1 %or.cond13.i, %cmp16.i
+  %spec.select.i = or i1 %4, %or.cond2.i
+  %5 = add i32 %ch, -8192
+  %or.cond6.i.i = icmp ult i32 %5, 11
+  %bf.lshr22 = lshr i8 %bf.load, 4
+  %bf.clear23 = and i8 %bf.lshr22, 7
   br label %for.body
 
 for.body:                                         ; preds = %if.then, %for.inc
-  %__begin3.0.idx21 = phi i64 [ 0, %if.then ], [ %__begin3.0.add, %for.inc ]
-  %__begin3.0.ptr = getelementptr inbounds i8, ptr %ref.tmp5, i64 %__begin3.0.idx21
-  %1 = load i8, ptr %__begin3.0.ptr, align 1
-  %bf.load9 = load i8, ptr %positiveCharClasses, align 1
-  %bf.lshr10 = lshr i8 %bf.load9, 1
-  %bf.clear11 = and i8 %1, 7
+  %__begin3.0.idx42 = phi i64 [ 0, %if.then ], [ %__begin3.0.add, %for.inc ]
+  %__begin3.0.ptr = getelementptr inbounds i8, ptr %ref.tmp5, i64 %__begin3.0.idx42
+  %6 = load i8, ptr %__begin3.0.ptr, align 1
+  %bf.clear11 = and i8 %6, 7
   %and18 = and i8 %bf.clear11, %bf.lshr10
   %tobool13.not = icmp eq i8 %and18, 0
   br i1 %tobool13.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
-  %call14 = tail call noundef zeroext i1 @_ZNK6hermes5regex16UTF16RegexTraits16characterHasTypeEjNS0_14CharacterClass4TypeE(ptr noundef nonnull align 8 dereferenceable(136) %traits_, i32 noundef %ch, i8 noundef zeroext %1)
-  %bf.load21.pre = load i8, ptr %positiveCharClasses, align 1
-  br i1 %call14, label %if.then15, label %if.end
+  switch i8 %6, label %sw.epilog.i [
+    i8 1, label %sw.bb.i
+    i8 2, label %sw.bb3.i
+    i8 4, label %_ZNK6hermes5regex16UTF16RegexTraits16characterHasTypeEjNS0_14CharacterClass4TypeE.exit
+  ]
 
-if.then15:                                        ; preds = %land.lhs.true
-  %bf.clear17 = and i8 %bf.load21.pre, 1
+sw.bb.i:                                          ; preds = %land.lhs.true
+  br i1 %or.cond2.i, label %if.then15, label %if.end
+
+sw.bb3.i:                                         ; preds = %land.lhs.true
+  switch i32 %ch, label %lor.lhs.false12.i.i [
+    i32 65279, label %if.then15
+    i32 5760, label %if.then15
+    i32 160, label %if.then15
+    i32 32, label %if.then15
+    i32 12, label %if.then15
+    i32 11, label %if.then15
+    i32 9, label %if.then15
+  ]
+
+lor.lhs.false12.i.i:                              ; preds = %sw.bb3.i
+  br i1 %or.cond6.i.i, label %if.then15, label %switch.early.test.i.i
+
+switch.early.test.i.i:                            ; preds = %lor.lhs.false12.i.i
+  switch i32 %ch, label %if.end [
+    i32 8287, label %if.then15
+    i32 8239, label %if.then15
+    i32 12288, label %if.then15
+    i32 8232, label %if.then15
+    i32 13, label %if.then15
+    i32 10, label %if.then15
+    i32 8233, label %if.then15
+  ]
+
+sw.epilog.i:                                      ; preds = %land.lhs.true
+  unreachable
+
+_ZNK6hermes5regex16UTF16RegexTraits16characterHasTypeEjNS0_14CharacterClass4TypeE.exit: ; preds = %land.lhs.true
+  br i1 %spec.select.i, label %if.then15, label %if.end
+
+if.then15:                                        ; preds = %lor.lhs.false12.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %sw.bb3.i, %sw.bb3.i, %sw.bb3.i, %sw.bb3.i, %sw.bb3.i, %sw.bb3.i, %sw.bb3.i, %sw.bb.i, %_ZNK6hermes5regex16UTF16RegexTraits16characterHasTypeEjNS0_14CharacterClass4TypeE.exit
+  %bf.clear17 = and i8 %bf.load, 1
   %tobool19 = icmp eq i8 %bf.clear17, 0
   br label %return
 
-if.end:                                           ; preds = %land.lhs.true, %for.body
-  %bf.load21 = phi i8 [ %bf.load21.pre, %land.lhs.true ], [ %bf.load9, %for.body ]
-  %bf.lshr22 = lshr i8 %bf.load21, 4
-  %and2619 = and i8 %bf.clear11, %bf.lshr22
+if.end:                                           ; preds = %switch.early.test.i.i, %sw.bb.i, %_ZNK6hermes5regex16UTF16RegexTraits16characterHasTypeEjNS0_14CharacterClass4TypeE.exit, %for.body
+  %and2619 = and i8 %bf.clear23, %6
   %tobool27.not = icmp eq i8 %and2619, 0
   br i1 %tobool27.not, label %for.inc, label %land.lhs.true28
 
 land.lhs.true28:                                  ; preds = %if.end
-  %call29 = tail call noundef zeroext i1 @_ZNK6hermes5regex16UTF16RegexTraits16characterHasTypeEjNS0_14CharacterClass4TypeE(ptr noundef nonnull align 8 dereferenceable(136) %traits_, i32 noundef %ch, i8 noundef zeroext %1)
-  br i1 %call29, label %for.inc, label %if.then30
+  switch i8 %6, label %sw.epilog.i33 [
+    i8 1, label %sw.bb.i32
+    i8 2, label %sw.bb3.i27
+    i8 4, label %_ZNK6hermes5regex16UTF16RegexTraits16characterHasTypeEjNS0_14CharacterClass4TypeE.exit34
+  ]
 
-if.then30:                                        ; preds = %land.lhs.true28
-  %bf.load32 = load i8, ptr %positiveCharClasses, align 1
-  %bf.clear33 = and i8 %bf.load32, 1
+sw.bb.i32:                                        ; preds = %land.lhs.true28
+  br i1 %or.cond2.i, label %for.inc, label %if.then30
+
+sw.bb3.i27:                                       ; preds = %land.lhs.true28
+  switch i32 %ch, label %lor.lhs.false12.i.i28 [
+    i32 65279, label %for.inc
+    i32 5760, label %for.inc
+    i32 160, label %for.inc
+    i32 32, label %for.inc
+    i32 12, label %for.inc
+    i32 11, label %for.inc
+    i32 9, label %for.inc
+  ]
+
+lor.lhs.false12.i.i28:                            ; preds = %sw.bb3.i27
+  br i1 %or.cond6.i.i, label %for.inc, label %switch.early.test.i.i30
+
+switch.early.test.i.i30:                          ; preds = %lor.lhs.false12.i.i28
+  switch i32 %ch, label %if.then30 [
+    i32 8287, label %for.inc
+    i32 8239, label %for.inc
+    i32 12288, label %for.inc
+    i32 8232, label %for.inc
+    i32 13, label %for.inc
+    i32 10, label %for.inc
+    i32 8233, label %for.inc
+  ]
+
+sw.epilog.i33:                                    ; preds = %land.lhs.true28
+  unreachable
+
+_ZNK6hermes5regex16UTF16RegexTraits16characterHasTypeEjNS0_14CharacterClass4TypeE.exit34: ; preds = %land.lhs.true28
+  br i1 %spec.select.i, label %for.inc, label %if.then30
+
+if.then30:                                        ; preds = %switch.early.test.i.i30, %sw.bb.i32, %_ZNK6hermes5regex16UTF16RegexTraits16characterHasTypeEjNS0_14CharacterClass4TypeE.exit34
+  %bf.clear33 = and i8 %bf.load, 1
   %tobool36 = icmp eq i8 %bf.clear33, 0
   br label %return
 
-for.inc:                                          ; preds = %if.end, %land.lhs.true28
-  %__begin3.0.add = add nuw nsw i64 %__begin3.0.idx21, 1
+for.inc:                                          ; preds = %lor.lhs.false12.i.i28, %switch.early.test.i.i30, %switch.early.test.i.i30, %switch.early.test.i.i30, %switch.early.test.i.i30, %switch.early.test.i.i30, %switch.early.test.i.i30, %switch.early.test.i.i30, %sw.bb3.i27, %sw.bb3.i27, %sw.bb3.i27, %sw.bb3.i27, %sw.bb3.i27, %sw.bb3.i27, %sw.bb3.i27, %sw.bb.i32, %if.end, %_ZNK6hermes5regex16UTF16RegexTraits16characterHasTypeEjNS0_14CharacterClass4TypeE.exit34
+  %__begin3.0.add = add nuw nsw i64 %__begin3.0.idx42, 1
   %cmp.not = icmp eq i64 %__begin3.0.add, 3
   br i1 %cmp.not, label %if.end38, label %for.body
 
 if.end38:                                         ; preds = %for.inc, %entry
   %rangeCount = getelementptr inbounds i8, ptr %insn, i64 1
-  %2 = load i32, ptr %rangeCount, align 1
-  %conv39 = zext i32 %2 to i64
+  %7 = load i32, ptr %rangeCount, align 1
+  %conv39 = zext i32 %7 to i64
   %add.ptr.i.i.i = getelementptr inbounds %"struct.hermes::regex::BracketRange32", ptr %ranges, i64 %conv39
-  %cmp.not7.not.i.i = icmp eq i32 %2, 0
+  %cmp.not7.not.i.i = icmp eq i32 %7, 0
   br i1 %cmp.not7.not.i.i, label %_ZNK6hermes5regex16UTF16RegexTraits13rangesContainEN4llvh8ArrayRefINS0_14BracketRange32EEEj.exit, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.end38, %for.inc.i.i
   %__begin2.08.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ %ranges, %if.end38 ]
-  %3 = load i32, ptr %__begin2.08.i.i, align 1
-  %cmp2.not.i.i = icmp ugt i32 %3, %ch
+  %8 = load i32, ptr %__begin2.08.i.i, align 1
+  %cmp2.not.i.i = icmp ugt i32 %8, %ch
   br i1 %cmp2.not.i.i, label %for.inc.i.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %for.body.i.i
   %end.i.i = getelementptr inbounds i8, ptr %__begin2.08.i.i, i64 4
-  %4 = load i32, ptr %end.i.i, align 1
-  %cmp3.not.i.i = icmp ult i32 %4, %ch
+  %9 = load i32, ptr %end.i.i, align 1
+  %cmp3.not.i.i = icmp ult i32 %9, %ch
   br i1 %cmp3.not.i.i, label %for.inc.i.i, label %_ZNK6hermes5regex16UTF16RegexTraits13rangesContainEN4llvh8ArrayRefINS0_14BracketRange32EEEj.exit
 
 for.inc.i.i:                                      ; preds = %land.lhs.true.i.i, %for.body.i.i
@@ -3429,76 +3507,12 @@ for.inc.i.i:                                      ; preds = %land.lhs.true.i.i, 
 
 _ZNK6hermes5regex16UTF16RegexTraits13rangesContainEN4llvh8ArrayRefINS0_14BracketRange32EEEj.exit: ; preds = %land.lhs.true.i.i, %for.inc.i.i, %if.end38
   %cmp.not.lcssa.i.i = phi i1 [ false, %if.end38 ], [ false, %for.inc.i.i ], [ true, %land.lhs.true.i.i ]
-  %bf.load45 = load i8, ptr %positiveCharClasses, align 1
-  %5 = trunc i8 %bf.load45 to i1
-  %tobool49 = xor i1 %cmp.not.lcssa.i.i, %5
+  %10 = trunc i8 %bf.load to i1
+  %tobool49 = xor i1 %cmp.not.lcssa.i.i, %10
   br label %return
 
 return:                                           ; preds = %_ZNK6hermes5regex16UTF16RegexTraits13rangesContainEN4llvh8ArrayRefINS0_14BracketRange32EEEj.exit, %if.then30, %if.then15
   %retval.0 = phi i1 [ %tobool19, %if.then15 ], [ %tobool36, %if.then30 ], [ %tobool49, %_ZNK6hermes5regex16UTF16RegexTraits13rangesContainEN4llvh8ArrayRefINS0_14BracketRange32EEEj.exit ]
-  ret i1 %retval.0
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNK6hermes5regex16UTF16RegexTraits16characterHasTypeEjNS0_14CharacterClass4TypeE(ptr noundef nonnull align 8 dereferenceable(136) %this, i32 noundef %c, i8 noundef zeroext %type) local_unnamed_addr #0 comdat align 2 {
-entry:
-  switch i8 %type, label %sw.epilog [
-    i8 1, label %sw.bb
-    i8 2, label %sw.bb3
-    i8 4, label %sw.bb5
-  ]
-
-sw.bb:                                            ; preds = %entry
-  %0 = add i32 %c, -48
-  %1 = icmp ult i32 %0, 10
-  br label %return
-
-sw.bb3:                                           ; preds = %entry
-  switch i32 %c, label %lor.lhs.false12.i [
-    i32 65279, label %return
-    i32 5760, label %return
-    i32 160, label %return
-    i32 32, label %return
-    i32 12, label %return
-    i32 11, label %return
-    i32 9, label %return
-  ]
-
-lor.lhs.false12.i:                                ; preds = %sw.bb3
-  %2 = add i32 %c, -8192
-  %or.cond6.i = icmp ult i32 %2, 11
-  br i1 %or.cond6.i, label %return, label %switch.early.test.i
-
-switch.early.test.i:                              ; preds = %lor.lhs.false12.i
-  switch i32 %c, label %lor.rhs.i15 [
-    i32 8287, label %return
-    i32 8239, label %return
-    i32 12288, label %return
-    i32 8232, label %return
-    i32 13, label %return
-    i32 10, label %return
-    i32 8233, label %return
-  ]
-
-lor.rhs.i15:                                      ; preds = %switch.early.test.i
-  br label %return
-
-sw.bb5:                                           ; preds = %entry
-  %3 = and i32 %c, -33
-  %4 = add i32 %3, -65
-  %or.cond13 = icmp ult i32 %4, 26
-  %5 = add i32 %c, -48
-  %or.cond2 = icmp ult i32 %5, 10
-  %or.cond14 = or i1 %or.cond2, %or.cond13
-  %cmp16 = icmp eq i32 %c, 95
-  %spec.select = or i1 %cmp16, %or.cond14
-  br label %return
-
-sw.epilog:                                        ; preds = %entry
-  unreachable
-
-return:                                           ; preds = %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %lor.lhs.false12.i, %sw.bb3, %sw.bb3, %sw.bb3, %sw.bb3, %sw.bb3, %sw.bb3, %sw.bb3, %lor.rhs.i15, %sw.bb5, %sw.bb
-  %retval.0 = phi i1 [ %1, %sw.bb ], [ %spec.select, %sw.bb5 ], [ false, %lor.rhs.i15 ], [ true, %sw.bb3 ], [ true, %sw.bb3 ], [ true, %sw.bb3 ], [ true, %sw.bb3 ], [ true, %sw.bb3 ], [ true, %sw.bb3 ], [ true, %sw.bb3 ], [ true, %switch.early.test.i ], [ true, %switch.early.test.i ], [ true, %switch.early.test.i ], [ true, %lor.lhs.false12.i ], [ true, %switch.early.test.i ], [ true, %switch.early.test.i ], [ true, %switch.early.test.i ], [ true, %switch.early.test.i ]
   ret i1 %retval.0
 }
 

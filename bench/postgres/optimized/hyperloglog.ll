@@ -82,20 +82,66 @@ define dso_local void @initHyperLogLogError(ptr nocapture noundef %0, double nou
   %sqrt = tail call double @llvm.sqrt.f64(double %5)
   %6 = fdiv double 1.040000e+00, %sqrt
   %7 = fcmp olt double %6, %1
-  br i1 %7, label %.split.loop.exit, label %8
+  br i1 %7, label %9, label %8
 
 8:                                                ; preds = %3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %.split.loop.exit9, label %3, !llvm.loop !5
+  br i1 %exitcond.not, label %.thread, label %3, !llvm.loop !5
 
-.split.loop.exit:                                 ; preds = %3
-  %9 = trunc nuw nsw i64 %indvars.iv to i8
-  br label %.split.loop.exit9
+9:                                                ; preds = %3
+  %10 = trunc nuw nsw i64 %indvars.iv to i8
+  %11 = add nsw i8 %10, -17
+  %or.cond.i = icmp ult i8 %11, -13
+  br i1 %or.cond.i, label %12, label %.thread
 
-.split.loop.exit9:                                ; preds = %8, %.split.loop.exit
-  %.0.lcssa = phi i8 [ %9, %.split.loop.exit ], [ 16, %8 ]
-  tail call void @initHyperLogLog(ptr noundef %0, i8 noundef zeroext %.0.lcssa)
+12:                                               ; preds = %9
+  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  tail call void @llvm.assume(i1 %13)
+  %14 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 71, ptr noundef nonnull @__func__.initHyperLogLog) #11
+  unreachable
+
+.thread:                                          ; preds = %8, %9
+  %.0.lcssa11 = phi i8 [ %10, %9 ], [ 16, %8 ]
+  store i8 %.0.lcssa11, ptr %0, align 8
+  %15 = zext nneg i8 %.0.lcssa11 to i64
+  %16 = shl nuw nsw i64 1, %15
+  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %16, ptr %17, align 8
+  %18 = or disjoint i64 %16, 1
+  %19 = getelementptr inbounds i8, ptr %0, i64 32
+  store i64 %18, ptr %19, align 8
+  %20 = tail call ptr @palloc0(i64 noundef %18) #11
+  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %20, ptr %21, align 8
+  %22 = load i64, ptr %17, align 8
+  switch i64 %22, label %25 [
+    i64 16, label %initHyperLogLog.exit
+    i64 32, label %23
+    i64 64, label %24
+  ]
+
+23:                                               ; preds = %.thread
+  br label %initHyperLogLog.exit
+
+24:                                               ; preds = %.thread
+  br label %initHyperLogLog.exit
+
+25:                                               ; preds = %.thread
+  %26 = uitofp i64 %22 to double
+  %27 = fdiv double 1.079000e+00, %26
+  %28 = fadd double %27, 1.000000e+00
+  %29 = fdiv double 7.213000e-01, %28
+  br label %initHyperLogLog.exit
+
+initHyperLogLog.exit:                             ; preds = %.thread, %23, %24, %25
+  %.0.i = phi double [ %29, %25 ], [ 7.090000e-01, %24 ], [ 6.970000e-01, %23 ], [ 6.730000e-01, %.thread ]
+  %30 = uitofp i64 %22 to double
+  %31 = fmul double %.0.i, %30
+  %32 = fmul double %31, %30
+  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  store double %32, ptr %33, align 8
   ret void
 }
 

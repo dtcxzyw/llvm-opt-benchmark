@@ -475,7 +475,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @get_new_crc_ctl_reg(ptr no
 
 8:                                                ; preds = %4
   %9 = load i32, ptr %2, align 4
-  switch i32 %9, label %86 [
+  switch i32 %9, label %ivb_pipe_crc_ctl_reg.exit [
     i32 13, label %.thread
     i32 8, label %11
     i32 0, label %10
@@ -491,7 +491,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @get_new_crc_ctl_reg(ptr no
 11:                                               ; preds = %8, %.thread, %10
   %12 = phi i32 [ 0, %10 ], [ -1073741824, %.thread ], [ -1073741824, %8 ]
   store i32 %12, ptr %3, align 4
-  br label %86
+  br label %ivb_pipe_crc_ctl_reg.exit
 
 13:                                               ; preds = %4
   %14 = icmp ult i16 %6, 5
@@ -509,7 +509,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @get_new_crc_ctl_reg(ptr no
 
 19:                                               ; preds = %18, %15
   %20 = phi i32 [ %.pr, %18 ], [ %16, %15 ]
-  switch i32 %20, label %86 [
+  switch i32 %20, label %ivb_pipe_crc_ctl_reg.exit [
     i32 8, label %21
     i32 9, label %22
     i32 0, label %29
@@ -517,7 +517,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @get_new_crc_ctl_reg(ptr no
 
 21:                                               ; preds = %19
   store i32 -2147483648, ptr %3, align 4
-  br label %86
+  br label %ivb_pipe_crc_ctl_reg.exit
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds i8, ptr %0, i64 2624
@@ -525,15 +525,15 @@ define internal fastcc noundef range(i32 -22, 1) i32 @get_new_crc_ctl_reg(ptr no
   %25 = getelementptr inbounds i8, ptr %24, i64 28
   %26 = load i16, ptr %25, align 4
   %27 = icmp sgt i16 %26, -1
-  br i1 %27, label %86, label %28
+  br i1 %27, label %ivb_pipe_crc_ctl_reg.exit, label %28
 
 28:                                               ; preds = %22
   store i32 -1073741824, ptr %3, align 4
-  br label %86
+  br label %ivb_pipe_crc_ctl_reg.exit
 
 29:                                               ; preds = %19
   store i32 0, ptr %3, align 4
-  br label %86
+  br label %ivb_pipe_crc_ctl_reg.exit
 
 30:                                               ; preds = %13
   %31 = getelementptr inbounds i8, ptr %0, i64 7184
@@ -555,7 +555,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @get_new_crc_ctl_reg(ptr no
 
 40:                                               ; preds = %39, %36
   %41 = phi i32 [ %.pr1, %39 ], [ %37, %36 ]
-  switch i32 %41, label %86 [
+  switch i32 %41, label %ivb_pipe_crc_ctl_reg.exit [
     i32 8, label %42
     i32 10, label %49
     i32 11, label %43
@@ -565,7 +565,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @get_new_crc_ctl_reg(ptr no
 
 42:                                               ; preds = %40
   store i32 -2147483648, ptr %3, align 4
-  br label %86
+  br label %ivb_pipe_crc_ctl_reg.exit
 
 43:                                               ; preds = %40
   br label %49
@@ -574,11 +574,11 @@ define internal fastcc noundef range(i32 -22, 1) i32 @get_new_crc_ctl_reg(ptr no
   %45 = load i32, ptr %31, align 4
   %46 = and i32 %45, 16777216
   %47 = icmp eq i32 %46, 0
-  br i1 %47, label %86, label %49
+  br i1 %47, label %ivb_pipe_crc_ctl_reg.exit, label %49
 
 48:                                               ; preds = %40
   store i32 0, ptr %3, align 4
-  br label %86
+  br label %ivb_pipe_crc_ctl_reg.exit
 
 49:                                               ; preds = %44, %43, %40
   %50 = phi i32 [ -1207959552, %43 ], [ -1342177280, %40 ], [ -1744830464, %44 ]
@@ -592,7 +592,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @get_new_crc_ctl_reg(ptr no
   %57 = getelementptr inbounds i8, ptr %0, i64 7512
   %58 = load ptr, ptr %57, align 8
   %59 = tail call i32 %58(ptr noundef %56, i32 %55, i1 noundef zeroext true) #6
-  switch i32 %1, label %86 [
+  switch i32 %1, label %ivb_pipe_crc_ctl_reg.exit [
     i32 0, label %62
     i32 1, label %60
     i32 2, label %61
@@ -614,7 +614,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @get_new_crc_ctl_reg(ptr no
   %69 = getelementptr inbounds i8, ptr %0, i64 7544
   %70 = load ptr, ptr %69, align 8
   tail call void %70(ptr noundef %56, i32 %68, i32 noundef %64, i1 noundef zeroext true) #6
-  br label %86
+  br label %ivb_pipe_crc_ctl_reg.exit
 
 71:                                               ; preds = %30
   %72 = and i64 %33, 786432
@@ -623,7 +623,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @get_new_crc_ctl_reg(ptr no
 
 74:                                               ; preds = %71
   %75 = load i32, ptr %2, align 4
-  switch i32 %75, label %86 [
+  switch i32 %75, label %ivb_pipe_crc_ctl_reg.exit [
     i32 13, label %.thread2
     i32 1, label %76
     i32 2, label %77
@@ -637,35 +637,59 @@ define internal fastcc noundef range(i32 -22, 1) i32 @get_new_crc_ctl_reg(ptr no
 
 76:                                               ; preds = %74
   store i32 -2147483648, ptr %3, align 4
-  br label %86
+  br label %ivb_pipe_crc_ctl_reg.exit
 
 77:                                               ; preds = %74
   store i32 -1879048192, ptr %3, align 4
-  br label %86
+  br label %ivb_pipe_crc_ctl_reg.exit
 
 78:                                               ; preds = %74, %.thread2
   store i32 -1610612736, ptr %3, align 4
-  br label %86
+  br label %ivb_pipe_crc_ctl_reg.exit
 
 79:                                               ; preds = %74
   store i32 0, ptr %3, align 4
-  br label %86
+  br label %ivb_pipe_crc_ctl_reg.exit
 
 80:                                               ; preds = %71
   %81 = icmp ult i16 %6, 9
-  br i1 %81, label %82, label %84
+  br i1 %81, label %82, label %89
 
 82:                                               ; preds = %80
-  %83 = tail call fastcc i32 @ivb_pipe_crc_ctl_reg(ptr noundef %2, ptr noundef %3)
-  br label %86
+  %83 = load i32, ptr %2, align 4
+  switch i32 %83, label %ivb_pipe_crc_ctl_reg.exit [
+    i32 13, label %.thread.i
+    i32 1, label %87
+    i32 2, label %84
+    i32 8, label %85
+    i32 0, label %86
+  ]
 
-84:                                               ; preds = %80
-  %85 = tail call fastcc i32 @skl_pipe_crc_ctl_reg(ptr noundef %2, ptr noundef %3)
-  br label %86
+.thread.i:                                        ; preds = %82
+  store i32 8, ptr %2, align 4
+  br label %85
 
-86:                                               ; preds = %74, %8, %84, %82, %79, %78, %77, %76, %62, %49, %48, %44, %42, %40, %29, %28, %22, %21, %19, %11
-  %87 = phi i32 [ %83, %82 ], [ %85, %84 ], [ 0, %11 ], [ -22, %22 ], [ -22, %19 ], [ 0, %29 ], [ 0, %28 ], [ 0, %21 ], [ -22, %44 ], [ -22, %40 ], [ -22, %49 ], [ 0, %48 ], [ 0, %42 ], [ 0, %62 ], [ 0, %79 ], [ 0, %78 ], [ 0, %77 ], [ 0, %76 ], [ -22, %8 ], [ -22, %74 ]
-  ret i32 %87
+84:                                               ; preds = %82
+  br label %87
+
+85:                                               ; preds = %.thread.i, %82
+  br label %87
+
+86:                                               ; preds = %82
+  br label %87
+
+87:                                               ; preds = %86, %85, %84, %82
+  %88 = phi i32 [ -1610612736, %84 ], [ -1073741824, %85 ], [ 0, %86 ], [ -2147483648, %82 ]
+  store i32 %88, ptr %3, align 4
+  br label %ivb_pipe_crc_ctl_reg.exit
+
+89:                                               ; preds = %80
+  %90 = tail call fastcc i32 @skl_pipe_crc_ctl_reg(ptr noundef %2, ptr noundef %3)
+  br label %ivb_pipe_crc_ctl_reg.exit
+
+ivb_pipe_crc_ctl_reg.exit:                        ; preds = %74, %8, %87, %82, %89, %79, %78, %77, %76, %62, %49, %48, %44, %42, %40, %29, %28, %22, %21, %19, %11
+  %91 = phi i32 [ %90, %89 ], [ 0, %11 ], [ -22, %22 ], [ -22, %19 ], [ 0, %29 ], [ 0, %28 ], [ 0, %21 ], [ -22, %44 ], [ -22, %40 ], [ -22, %49 ], [ 0, %48 ], [ 0, %42 ], [ 0, %62 ], [ 0, %79 ], [ 0, %78 ], [ 0, %77 ], [ 0, %76 ], [ 0, %87 ], [ -22, %82 ], [ -22, %8 ], [ -22, %74 ]
+  ret i32 %91
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -814,40 +838,6 @@ declare dso_local void @__drm_atomic_state_free(ptr noundef) local_unnamed_addr 
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @refcount_warn_saturate(ptr noundef, i32 noundef) local_unnamed_addr #3
-
-; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal fastcc noundef range(i32 -22, 1) i32 @ivb_pipe_crc_ctl_reg(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #5 align 16 {
-  %3 = load i32, ptr %0, align 4
-  switch i32 %3, label %9 [
-    i32 13, label %.thread
-    i32 1, label %7
-    i32 2, label %4
-    i32 8, label %5
-    i32 0, label %6
-  ]
-
-.thread:                                          ; preds = %2
-  store i32 8, ptr %0, align 4
-  br label %5
-
-4:                                                ; preds = %2
-  br label %7
-
-5:                                                ; preds = %2, %.thread
-  br label %7
-
-6:                                                ; preds = %2
-  br label %7
-
-7:                                                ; preds = %2, %6, %5, %4
-  %8 = phi i32 [ -1610612736, %4 ], [ -1073741824, %5 ], [ 0, %6 ], [ -2147483648, %2 ]
-  store i32 %8, ptr %1, align 4
-  br label %9
-
-9:                                                ; preds = %2, %7
-  %10 = phi i32 [ 0, %7 ], [ -22, %2 ]
-  ret i32 %10
-}
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
 define internal fastcc noundef range(i32 -22, 1) i32 @skl_pipe_crc_ctl_reg(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #5 align 16 {

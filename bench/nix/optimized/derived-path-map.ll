@@ -49,8 +49,6 @@ $_ZNSt17_Function_handlerIFRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stri
 
 $_ZNSt17_Function_handlerIFRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE9ChildNodeERKNS0_17SingleDerivedPathEEZNSD_10ensureSlotESI_EUlRKT_E_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation = comdat any
 
-$_ZZN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EEE10ensureSlotERKNS_17SingleDerivedPathEENKUlRKT_E_clISD_EERDaSI_ = comdat any
-
 $_ZNSt18bad_variant_accessD2Ev = comdat any
 
 $_ZNSt18bad_variant_accessD0Ev = comdat any
@@ -168,8 +166,8 @@ define weak_odr noundef nonnull align 8 dereferenceable(96) ptr @_ZN3nix14Derive
   store ptr @_ZNSt17_Function_handlerIFRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE9ChildNodeERKNS0_17SingleDerivedPathEEZNSD_10ensureSlotESI_EUlRKT_E_E9_M_invokeERKSt9_Any_dataSI_, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 48
   %7 = load i8, ptr %6, align 8
-  switch i8 %7, label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i [
-    i8 -1, label %.invoke35
+  switch i8 %7, label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i [
+    i8 -1, label %.invoke34
     i8 0, label %8
   ]
 
@@ -177,42 +175,42 @@ define weak_odr noundef nonnull align 8 dereferenceable(96) ptr @_ZN3nix14Derive
   %9 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZNSt3mapIN3nix9StorePathENS0_14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EEE9ChildNodeESA_IS1_ESaISt4pairIKS1_SF_EEEixERSI_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %_ZNKSt8functionIFRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE9ChildNodeERKNS0_17SingleDerivedPathEEEclESI_.exit unwind label %47
 
-_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i: ; preds = %2
+_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i: ; preds = %2
   %10 = load ptr, ptr %1, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 48
   %12 = load i8, ptr %11, align 8
-  switch i8 %12, label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i13 [
-    i8 -1, label %.invoke35
+  switch i8 %12, label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i12 [
+    i8 -1, label %.invoke34
     i8 0, label %13
   ]
 
-13:                                               ; preds = %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i
+13:                                               ; preds = %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i
   %14 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZNSt3mapIN3nix9StorePathENS0_14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EEE9ChildNodeESA_IS1_ESaISt4pairIKS1_SF_EEEixERSI_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %.noexc9 unwind label %47
 
-_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i13: ; preds = %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i
+_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i12: ; preds = %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i
   %15 = load ptr, ptr %10, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 48
   %17 = load i8, ptr %16, align 8
-  switch i8 %17, label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i21 [
-    i8 -1, label %.invoke35
+  switch i8 %17, label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i20 [
+    i8 -1, label %.invoke34
     i8 0, label %18
   ]
 
-18:                                               ; preds = %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i13
+18:                                               ; preds = %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i12
   %19 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZNSt3mapIN3nix9StorePathENS0_14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EEE9ChildNodeESA_IS1_ESaISt4pairIKS1_SF_EEEixERSI_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %15)
-          to label %.noexc17 unwind label %47
+          to label %.noexc16 unwind label %47
 
-_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i21: ; preds = %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i13
+_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i20: ; preds = %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i12
   %20 = load ptr, ptr %15, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 48
   %22 = load i8, ptr %21, align 8
-  switch i8 %22, label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i30 [
-    i8 -1, label %.invoke35
+  switch i8 %22, label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i29 [
+    i8 -1, label %.invoke34
     i8 0, label %25
   ]
 
-.invoke35:                                        ; preds = %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i21, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i, %2, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i13
+.invoke34:                                        ; preds = %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i20, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i, %2, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i12
   %23 = call ptr @__cxa_allocate_exception(i64 16) #17
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2), ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 8
@@ -220,47 +218,47 @@ _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_
   invoke void @__cxa_throw(ptr nonnull %23, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #18
           to label %.cont unwind label %47
 
-.cont:                                            ; preds = %.invoke35
+.cont:                                            ; preds = %.invoke34
   unreachable
 
-25:                                               ; preds = %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i21
+25:                                               ; preds = %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i20
   %26 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZNSt3mapIN3nix9StorePathENS0_14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EEE9ChildNodeESA_IS1_ESaISt4pairIKS1_SF_EEEixERSI_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %20)
-          to label %.noexc24 unwind label %47
+          to label %.noexc23 unwind label %47
 
-_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i30: ; preds = %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i21
+_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i29: ; preds = %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i20
   %27 = load ptr, ptr %20, align 8
   %28 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZNSt17_Function_handlerIFRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE9ChildNodeERKNS0_17SingleDerivedPathEEZNSD_10ensureSlotESI_EUlRKT_E_E9_M_invokeERKSt9_Any_dataSI_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(49) %27)
-          to label %.noexc33 unwind label %47
+          to label %.noexc32 unwind label %47
 
-.noexc33:                                         ; preds = %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i30
+.noexc32:                                         ; preds = %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i29
   %29 = getelementptr inbounds i8, ptr %28, i64 48
   %30 = getelementptr inbounds i8, ptr %20, i64 16
   %31 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix14DerivedPathMapISt3setIS5_St4lessIS5_ESaIS5_EEE9ChildNodeESA_SaISt4pairIKS5_SE_EEEixERSG_(ptr noundef nonnull align 8 dereferenceable(48) %29, ptr noundef nonnull align 8 dereferenceable(32) %30)
-          to label %.noexc24 unwind label %47
+          to label %.noexc23 unwind label %47
 
-.noexc24:                                         ; preds = %.noexc33, %25
-  %.0.i.i.i29 = phi ptr [ %26, %25 ], [ %31, %.noexc33 ]
-  %32 = getelementptr inbounds i8, ptr %.0.i.i.i29, i64 48
+.noexc23:                                         ; preds = %25, %.noexc32
+  %.0.i.i.i.i.i.i28 = phi ptr [ %26, %25 ], [ %31, %.noexc32 ]
+  %32 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i28, i64 48
   %33 = getelementptr inbounds i8, ptr %15, i64 16
   %34 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix14DerivedPathMapISt3setIS5_St4lessIS5_ESaIS5_EEE9ChildNodeESA_SaISt4pairIKS5_SE_EEEixERSG_(ptr noundef nonnull align 8 dereferenceable(48) %32, ptr noundef nonnull align 8 dereferenceable(32) %33)
-          to label %.noexc17 unwind label %47
+          to label %.noexc16 unwind label %47
 
-.noexc17:                                         ; preds = %.noexc24, %18
-  %.0.i.i.i20 = phi ptr [ %19, %18 ], [ %34, %.noexc24 ]
-  %35 = getelementptr inbounds i8, ptr %.0.i.i.i20, i64 48
+.noexc16:                                         ; preds = %18, %.noexc23
+  %.0.i.i.i.i.i.i19 = phi ptr [ %19, %18 ], [ %34, %.noexc23 ]
+  %35 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i19, i64 48
   %36 = getelementptr inbounds i8, ptr %10, i64 16
   %37 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix14DerivedPathMapISt3setIS5_St4lessIS5_ESaIS5_EEE9ChildNodeESA_SaISt4pairIKS5_SE_EEEixERSG_(ptr noundef nonnull align 8 dereferenceable(48) %35, ptr noundef nonnull align 8 dereferenceable(32) %36)
           to label %.noexc9 unwind label %47
 
-.noexc9:                                          ; preds = %.noexc17, %13
-  %.0.i.i.i12 = phi ptr [ %14, %13 ], [ %37, %.noexc17 ]
-  %38 = getelementptr inbounds i8, ptr %.0.i.i.i12, i64 48
+.noexc9:                                          ; preds = %13, %.noexc16
+  %.0.i.i.i.i.i.i11 = phi ptr [ %14, %13 ], [ %37, %.noexc16 ]
+  %38 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i11, i64 48
   %39 = getelementptr inbounds i8, ptr %1, i64 16
   %40 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix14DerivedPathMapISt3setIS5_St4lessIS5_ESaIS5_EEE9ChildNodeESA_SaISt4pairIKS5_SE_EEEixERSG_(ptr noundef nonnull align 8 dereferenceable(48) %38, ptr noundef nonnull align 8 dereferenceable(32) %39)
           to label %_ZNKSt8functionIFRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE9ChildNodeERKNS0_17SingleDerivedPathEEEclESI_.exit unwind label %47
 
-_ZNKSt8functionIFRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE9ChildNodeERKNS0_17SingleDerivedPathEEEclESI_.exit: ; preds = %.noexc9, %8
-  %.0.i.i.i = phi ptr [ %9, %8 ], [ %40, %.noexc9 ]
+_ZNKSt8functionIFRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE9ChildNodeERKNS0_17SingleDerivedPathEEEclESI_.exit: ; preds = %8, %.noexc9
+  %.0.i.i.i.i.i.i = phi ptr [ %9, %8 ], [ %40, %.noexc9 ]
   %41 = load ptr, ptr %4, align 8
   %.not.i.i4 = icmp eq ptr %41, null
   br i1 %.not.i.i4, label %_ZNSt8functionIFRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE9ChildNodeERKNS0_17SingleDerivedPathEEED2Ev.exit, label %42
@@ -277,9 +275,9 @@ _ZNKSt8functionIFRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11ch
   unreachable
 
 _ZNSt8functionIFRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE9ChildNodeERKNS0_17SingleDerivedPathEEED2Ev.exit: ; preds = %_ZNKSt8functionIFRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE9ChildNodeERKNS0_17SingleDerivedPathEEEclESI_.exit, %42
-  ret ptr %.0.i.i.i
+  ret ptr %.0.i.i.i.i.i.i
 
-47:                                               ; preds = %.invoke35, %.noexc33, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i30, %25, %.noexc24, %18, %.noexc17, %13, %.noexc9, %8
+47:                                               ; preds = %.invoke34, %.noexc32, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i29, %25, %.noexc23, %18, %.noexc16, %13, %.noexc9, %8
   %48 = landingpad { ptr, i32 }
           cleanup
   %49 = load ptr, ptr %4, align 8
@@ -1006,8 +1004,51 @@ declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(96) ptr @_ZNSt17_Function_handlerIFRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE9ChildNodeERKNS0_17SingleDerivedPathEEZNSD_10ensureSlotESI_EUlRKT_E_E9_M_invokeERKSt9_Any_dataSI_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(49) %1) #2 comdat align 2 {
-  %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZZN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EEE10ensureSlotERKNS_17SingleDerivedPathEENKUlRKT_E_clISD_EERDaSI_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(49) %1)
-  ret ptr %3
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %1, i64 48
+  %6 = load i8, ptr %5, align 8
+  switch i8 %6, label %13 [
+    i8 -1, label %7
+    i8 0, label %10
+  ]
+
+7:                                                ; preds = %2
+  %8 = tail call ptr @__cxa_allocate_exception(i64 16) #17
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2), ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr @.str, ptr %9, align 8
+  tail call void @__cxa_throw(ptr nonnull %8, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #18
+  unreachable
+
+10:                                               ; preds = %2
+  %11 = load ptr, ptr %0, align 8
+  %12 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZNSt3mapIN3nix9StorePathENS0_14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EEE9ChildNodeESA_IS1_ESaISt4pairIKS1_SF_EEEixERSI_(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  br label %_ZSt10__invoke_rIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE9ChildNodeERZNSD_10ensureSlotERKNS0_17SingleDerivedPathEEUlRKT_E_JSI_EENSt9enable_ifIX16is_invocable_r_vISJ_T0_DpT1_EESJ_E4typeEOSP_DpOSQ_.exit
+
+13:                                               ; preds = %2
+  %14 = getelementptr inbounds i8, ptr %4, i64 16
+  %15 = load ptr, ptr %14, align 8
+  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %15, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %16, label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i
+
+16:                                               ; preds = %13
+  tail call void @_ZSt25__throw_bad_function_callv() #18
+  unreachable
+
+_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i: ; preds = %13
+  %17 = load ptr, ptr %1, align 8
+  %18 = getelementptr inbounds i8, ptr %4, i64 24
+  %19 = load ptr, ptr %18, align 8
+  %20 = tail call noundef nonnull align 8 dereferenceable(96) ptr %19(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(49) %17)
+  %21 = getelementptr inbounds i8, ptr %20, i64 48
+  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %23 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix14DerivedPathMapISt3setIS5_St4lessIS5_ESaIS5_EEE9ChildNodeESA_SaISt4pairIKS5_SE_EEEixERSG_(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull align 8 dereferenceable(32) %22)
+  br label %_ZSt10__invoke_rIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE9ChildNodeERZNSD_10ensureSlotERKNS0_17SingleDerivedPathEEUlRKT_E_JSI_EENSt9enable_ifIX16is_invocable_r_vISJ_T0_DpT1_EESJ_E4typeEOSP_DpOSQ_.exit
+
+_ZSt10__invoke_rIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE9ChildNodeERZNSD_10ensureSlotERKNS0_17SingleDerivedPathEEUlRKT_E_JSI_EENSt9enable_ifIX16is_invocable_r_vISJ_T0_DpT1_EESJ_E4typeEOSP_DpOSQ_.exit: ; preds = %10, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i
+  %.0.i.i.i.i.i = phi ptr [ %23, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i ], [ %12, %10 ]
+  ret ptr %.0.i.i.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1032,55 +1073,6 @@ define linkonce_odr noundef zeroext i1 @_ZNSt17_Function_handlerIFRN3nix14Derive
 
 _ZNSt14_Function_base13_Base_managerIZN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EEE10ensureSlotERKNS1_17SingleDerivedPathEEUlRKT_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.exit: ; preds = %3, %6, %5, %4
   ret i1 false
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(96) ptr @_ZZN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EEE10ensureSlotERKNS_17SingleDerivedPathEENKUlRKT_E_clISD_EERDaSI_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(49) %1) local_unnamed_addr #2 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 48
-  %6 = load i8, ptr %5, align 8
-  switch i8 %6, label %13 [
-    i8 -1, label %7
-    i8 0, label %10
-  ]
-
-7:                                                ; preds = %2
-  %8 = tail call ptr @__cxa_allocate_exception(i64 16) #17
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2), ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
-  store ptr @.str, ptr %9, align 8
-  tail call void @__cxa_throw(ptr nonnull %8, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #18
-  unreachable
-
-10:                                               ; preds = %2
-  %11 = load ptr, ptr %0, align 8
-  %12 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZNSt3mapIN3nix9StorePathENS0_14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EEE9ChildNodeESA_IS1_ESaISt4pairIKS1_SF_EEEixERSI_(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  br label %_ZSt5visitB5cxx11IN3nix10overloadedIJZZNS0_14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EEE10ensureSlotERKNS0_17SingleDerivedPathEENKUlRKT_E_clISF_EERDaSK_EUlRKNS0_17DerivedPathOpaqueEE_ZZNSE_10ensureSlotESH_ENKSM_ISF_EESN_SK_EUlRKNS0_22SingleDerivedPathBuiltEE_EEEJRKSt7variantIJSO_SS_EEEENSt13invoke_resultISI_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalIS13_EEEEE4typeEE4typeEOS1C_EEEE4typeEOSI_DpOS13_.exit
-
-13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %4, i64 16
-  %15 = load ptr, ptr %14, align 8
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %15, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %16, label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i
-
-16:                                               ; preds = %13
-  tail call void @_ZSt25__throw_bad_function_callv() #18
-  unreachable
-
-_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i: ; preds = %13
-  %17 = load ptr, ptr %1, align 8
-  %18 = getelementptr inbounds i8, ptr %4, i64 24
-  %19 = load ptr, ptr %18, align 8
-  %20 = tail call noundef nonnull align 8 dereferenceable(96) ptr %19(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(49) %17)
-  %21 = getelementptr inbounds i8, ptr %20, i64 48
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
-  %23 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix14DerivedPathMapISt3setIS5_St4lessIS5_ESaIS5_EEE9ChildNodeESA_SaISt4pairIKS5_SE_EEEixERSG_(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull align 8 dereferenceable(32) %22)
-  br label %_ZSt5visitB5cxx11IN3nix10overloadedIJZZNS0_14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EEE10ensureSlotERKNS0_17SingleDerivedPathEENKUlRKT_E_clISF_EERDaSK_EUlRKNS0_17DerivedPathOpaqueEE_ZZNSE_10ensureSlotESH_ENKSM_ISF_EESN_SK_EUlRKNS0_22SingleDerivedPathBuiltEE_EEEJRKSt7variantIJSO_SS_EEEENSt13invoke_resultISI_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalIS13_EEEEE4typeEE4typeEOS1C_EEEE4typeEOSI_DpOS13_.exit
-
-_ZSt5visitB5cxx11IN3nix10overloadedIJZZNS0_14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EEE10ensureSlotERKNS0_17SingleDerivedPathEENKUlRKT_E_clISF_EERDaSK_EUlRKNS0_17DerivedPathOpaqueEE_ZZNSE_10ensureSlotESH_ENKSM_ISF_EESN_SK_EUlRKNS0_22SingleDerivedPathBuiltEE_EEEJRKSt7variantIJSO_SS_EEEENSt13invoke_resultISI_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalIS13_EEEEE4typeEE4typeEOS1C_EEEE4typeEOSI_DpOS13_.exit: ; preds = %10, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i
-  %.0.i.i = phi ptr [ %23, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i ], [ %12, %10 ]
-  ret ptr %.0.i.i
 }
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr

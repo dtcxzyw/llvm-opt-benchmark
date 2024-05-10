@@ -883,8 +883,118 @@ return:                                           ; preds = %if.end34, %lor.lhs.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK12PointedThingneERKS_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(69) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(69) %pt2) local_unnamed_addr #8 align 2 {
 entry:
-  %call = tail call noundef zeroext i1 @_ZNK12PointedThingeqERKS_(ptr noundef nonnull align 4 dereferenceable(69) %this, ptr noundef nonnull align 4 dereferenceable(69) %pt2)
-  %lnot = xor i1 %call, true
+  %0 = load i8, ptr %this, align 4, !tbaa !4
+  %1 = load i8, ptr %pt2, align 4, !tbaa !4
+  %cmp.not.i = icmp eq i8 %0, %1
+  br i1 %cmp.not.i, label %if.end.i, label %_ZNK12PointedThingeqERKS_.exit
+
+if.end.i:                                         ; preds = %entry
+  switch i8 %0, label %if.end34.i [
+    i8 1, label %if.then7.i
+    i8 2, label %if.then22.i
+  ]
+
+if.then7.i:                                       ; preds = %if.end.i
+  %node_undersurface.i = getelementptr inbounds i8, ptr %this, i64 2
+  %node_undersurface8.i = getelementptr inbounds i8, ptr %pt2, i64 2
+  %2 = load i16, ptr %node_undersurface.i, align 2, !tbaa !23
+  %3 = load i16, ptr %node_undersurface8.i, align 2, !tbaa !23
+  %cmp.i.i.i = icmp eq i16 %2, %3
+  br i1 %cmp.i.i.i, label %land.lhs.true.i.i.i, label %_ZNK12PointedThingeqERKS_.exit
+
+land.lhs.true.i.i.i:                              ; preds = %if.then7.i
+  %Y.i.i.i = getelementptr inbounds i8, ptr %this, i64 4
+  %4 = load i16, ptr %Y.i.i.i, align 4, !tbaa !24
+  %Y5.i.i.i = getelementptr inbounds i8, ptr %pt2, i64 4
+  %5 = load i16, ptr %Y5.i.i.i, align 4, !tbaa !24
+  %cmp7.i.i.i = icmp eq i16 %4, %5
+  br i1 %cmp7.i.i.i, label %_ZNK3irr4core8vector3dIsEneERKS2_.exit.i, label %_ZNK12PointedThingeqERKS_.exit
+
+_ZNK3irr4core8vector3dIsEneERKS2_.exit.i:         ; preds = %land.lhs.true.i.i.i
+  %Z.i.i.i = getelementptr inbounds i8, ptr %this, i64 6
+  %6 = load i16, ptr %Z.i.i.i, align 2, !tbaa !25
+  %Z9.i.i.i = getelementptr inbounds i8, ptr %pt2, i64 6
+  %7 = load i16, ptr %Z9.i.i.i, align 2, !tbaa !25
+  %cmp11.i.i.not.i = icmp eq i16 %6, %7
+  br i1 %cmp11.i.i.not.i, label %lor.lhs.false.i, label %_ZNK12PointedThingeqERKS_.exit
+
+lor.lhs.false.i:                                  ; preds = %_ZNK3irr4core8vector3dIsEneERKS2_.exit.i
+  %node_abovesurface.i = getelementptr inbounds i8, ptr %this, i64 8
+  %node_abovesurface9.i = getelementptr inbounds i8, ptr %pt2, i64 8
+  %8 = load i16, ptr %node_abovesurface.i, align 4, !tbaa !23
+  %9 = load i16, ptr %node_abovesurface9.i, align 4, !tbaa !23
+  %cmp.i.i41.i = icmp eq i16 %8, %9
+  br i1 %cmp.i.i41.i, label %land.lhs.true.i.i43.i, label %_ZNK12PointedThingeqERKS_.exit
+
+land.lhs.true.i.i43.i:                            ; preds = %lor.lhs.false.i
+  %Y.i.i44.i = getelementptr inbounds i8, ptr %this, i64 10
+  %10 = load i16, ptr %Y.i.i44.i, align 2, !tbaa !24
+  %Y5.i.i45.i = getelementptr inbounds i8, ptr %pt2, i64 10
+  %11 = load i16, ptr %Y5.i.i45.i, align 2, !tbaa !24
+  %cmp7.i.i46.i = icmp eq i16 %10, %11
+  br i1 %cmp7.i.i46.i, label %_ZNK3irr4core8vector3dIsEneERKS2_.exit51.i, label %_ZNK12PointedThingeqERKS_.exit
+
+_ZNK3irr4core8vector3dIsEneERKS2_.exit51.i:       ; preds = %land.lhs.true.i.i43.i
+  %Z.i.i48.i = getelementptr inbounds i8, ptr %this, i64 12
+  %12 = load i16, ptr %Z.i.i48.i, align 4, !tbaa !25
+  %Z9.i.i49.i = getelementptr inbounds i8, ptr %pt2, i64 12
+  %13 = load i16, ptr %Z9.i.i49.i, align 4, !tbaa !25
+  %cmp11.i.i50.not.i = icmp eq i16 %12, %13
+  br i1 %cmp11.i.i50.not.i, label %lor.lhs.false11.i, label %_ZNK12PointedThingeqERKS_.exit
+
+lor.lhs.false11.i:                                ; preds = %_ZNK3irr4core8vector3dIsEneERKS2_.exit51.i
+  %node_real_undersurface.i = getelementptr inbounds i8, ptr %this, i64 14
+  %node_real_undersurface12.i = getelementptr inbounds i8, ptr %pt2, i64 14
+  %14 = load i16, ptr %node_real_undersurface.i, align 2, !tbaa !23
+  %15 = load i16, ptr %node_real_undersurface12.i, align 2, !tbaa !23
+  %cmp.i.i52.i = icmp eq i16 %14, %15
+  br i1 %cmp.i.i52.i, label %land.lhs.true.i.i54.i, label %_ZNK12PointedThingeqERKS_.exit
+
+land.lhs.true.i.i54.i:                            ; preds = %lor.lhs.false11.i
+  %Y.i.i55.i = getelementptr inbounds i8, ptr %this, i64 16
+  %16 = load i16, ptr %Y.i.i55.i, align 4, !tbaa !24
+  %Y5.i.i56.i = getelementptr inbounds i8, ptr %pt2, i64 16
+  %17 = load i16, ptr %Y5.i.i56.i, align 4, !tbaa !24
+  %cmp7.i.i57.i = icmp eq i16 %16, %17
+  br i1 %cmp7.i.i57.i, label %_ZNK3irr4core8vector3dIsEneERKS2_.exit62.i, label %_ZNK12PointedThingeqERKS_.exit
+
+_ZNK3irr4core8vector3dIsEneERKS2_.exit62.i:       ; preds = %land.lhs.true.i.i54.i
+  %Z.i.i59.i = getelementptr inbounds i8, ptr %this, i64 18
+  %18 = load i16, ptr %Z.i.i59.i, align 2, !tbaa !25
+  %Z9.i.i60.i = getelementptr inbounds i8, ptr %pt2, i64 18
+  %19 = load i16, ptr %Z9.i.i60.i, align 2, !tbaa !25
+  %cmp11.i.i61.not.i = icmp eq i16 %18, %19
+  br i1 %cmp11.i.i61.not.i, label %lor.lhs.false14.i, label %_ZNK12PointedThingeqERKS_.exit
+
+lor.lhs.false14.i:                                ; preds = %_ZNK3irr4core8vector3dIsEneERKS2_.exit62.i
+  %pointability.i = getelementptr inbounds i8, ptr %this, i64 68
+  %20 = load i8, ptr %pointability.i, align 4, !tbaa !22
+  %pointability15.i = getelementptr inbounds i8, ptr %pt2, i64 68
+  %21 = load i8, ptr %pointability15.i, align 4, !tbaa !22
+  %cmp16.not.i = icmp eq i8 %20, %21
+  br i1 %cmp16.not.i, label %if.end34.i, label %_ZNK12PointedThingeqERKS_.exit
+
+if.then22.i:                                      ; preds = %if.end.i
+  %object_id.i = getelementptr inbounds i8, ptr %this, i64 20
+  %22 = load i16, ptr %object_id.i, align 4, !tbaa !16
+  %object_id24.i = getelementptr inbounds i8, ptr %pt2, i64 20
+  %23 = load i16, ptr %object_id24.i, align 4, !tbaa !16
+  %cmp26.not.i = icmp eq i16 %22, %23
+  br i1 %cmp26.not.i, label %lor.lhs.false27.i, label %_ZNK12PointedThingeqERKS_.exit
+
+lor.lhs.false27.i:                                ; preds = %if.then22.i
+  %pointability28.i = getelementptr inbounds i8, ptr %this, i64 68
+  %24 = load i8, ptr %pointability28.i, align 4, !tbaa !22
+  %pointability29.i = getelementptr inbounds i8, ptr %pt2, i64 68
+  %25 = load i8, ptr %pointability29.i, align 4, !tbaa !22
+  %cmp30.not.i = icmp eq i8 %24, %25
+  br i1 %cmp30.not.i, label %if.end34.i, label %_ZNK12PointedThingeqERKS_.exit
+
+if.end34.i:                                       ; preds = %lor.lhs.false27.i, %lor.lhs.false14.i, %if.end.i
+  br label %_ZNK12PointedThingeqERKS_.exit
+
+_ZNK12PointedThingeqERKS_.exit:                   ; preds = %entry, %if.then7.i, %land.lhs.true.i.i.i, %_ZNK3irr4core8vector3dIsEneERKS2_.exit.i, %lor.lhs.false.i, %land.lhs.true.i.i43.i, %_ZNK3irr4core8vector3dIsEneERKS2_.exit51.i, %lor.lhs.false11.i, %land.lhs.true.i.i54.i, %_ZNK3irr4core8vector3dIsEneERKS2_.exit62.i, %lor.lhs.false14.i, %if.then22.i, %lor.lhs.false27.i, %if.end34.i
+  %lnot = phi i1 [ false, %if.end34.i ], [ true, %entry ], [ true, %lor.lhs.false14.i ], [ true, %_ZNK3irr4core8vector3dIsEneERKS2_.exit62.i ], [ true, %_ZNK3irr4core8vector3dIsEneERKS2_.exit51.i ], [ true, %_ZNK3irr4core8vector3dIsEneERKS2_.exit.i ], [ true, %lor.lhs.false27.i ], [ true, %if.then22.i ], [ true, %land.lhs.true.i.i.i ], [ true, %if.then7.i ], [ true, %land.lhs.true.i.i43.i ], [ true, %lor.lhs.false.i ], [ true, %land.lhs.true.i.i54.i ], [ true, %lor.lhs.false11.i ]
   ret i1 %lnot
 }
 

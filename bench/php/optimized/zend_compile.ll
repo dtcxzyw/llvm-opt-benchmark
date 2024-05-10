@@ -370,7 +370,7 @@ define hidden void @zend_assert_valid_class_name(ptr noundef %0) local_unnamed_a
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
-  %5 = tail call ptr @memrchr(ptr noundef nonnull %2, i32 noundef 92, i64 noundef %4) #29
+  %5 = tail call ptr @memrchr(ptr noundef nonnull %2, i32 noundef 92, i64 noundef %4) #27
   %.not.i.not.i = icmp eq ptr %5, null
   %6 = getelementptr inbounds i8, ptr %5, i64 1
   %7 = getelementptr inbounds i8, ptr %2, i64 %4
@@ -390,7 +390,7 @@ define hidden void @zend_assert_valid_class_name(ptr noundef %0) local_unnamed_a
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %11
-  %17 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %.014.i, i64 noundef %.013.i, ptr noundef nonnull %12, i64 noundef %.013.i) #30
+  %17 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %.014.i, i64 noundef %.013.i, ptr noundef nonnull %12, i64 noundef %.013.i) #28
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %22, label %19
 
@@ -401,7 +401,7 @@ define hidden void @zend_assert_valid_class_name(ptr noundef %0) local_unnamed_a
   br i1 %.not.not.i, label %zend_is_reserved_class_name.exit, label %11
 
 22:                                               ; preds = %16
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str, ptr noundef nonnull %2) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str, ptr noundef nonnull %2) #29
   unreachable
 
 zend_is_reserved_class_name.exit:                 ; preds = %19
@@ -432,7 +432,7 @@ define hidden void @zend_oparray_context_end(ptr nocapture noundef readonly %0) 
   br i1 %.not, label %4, label %3
 
 3:                                                ; preds = %1
-  tail call void @_efree(ptr noundef nonnull %2) #30
+  tail call void @_efree(ptr noundef nonnull %2) #28
   store ptr null, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 22, i32 7), align 8
   br label %4
 
@@ -442,9 +442,9 @@ define hidden void @zend_oparray_context_end(ptr nocapture noundef readonly %0) 
   br i1 %.not2, label %8, label %6
 
 6:                                                ; preds = %4
-  tail call void @zend_hash_destroy(ptr noundef nonnull %5) #30
+  tail call void @zend_hash_destroy(ptr noundef nonnull %5) #28
   %7 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 22, i32 8), align 8
-  tail call void @_efree_56(ptr noundef %7) #30
+  tail call void @_efree_56(ptr noundef %7) #28
   store ptr null, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 22, i32 8), align 8
   br label %8
 
@@ -464,7 +464,7 @@ define hidden void @zend_file_context_begin(ptr nocapture noundef writeonly %0) 
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 23), i64 104, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 23), i8 0, i64 18, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 23, i32 4), i8 0, i64 24, i1 false)
-  tail call void @_zend_hash_init(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 23, i32 7), i32 noundef 8, ptr noundef null, i1 noundef zeroext false) #30
+  tail call void @_zend_hash_init(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 23, i32 7), i32 noundef 8, ptr noundef null, i1 noundef zeroext false) #28
   ret void
 }
 
@@ -495,7 +495,7 @@ define hidden void @zend_file_context_end(ptr nocapture noundef readonly %0) loc
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %7
-  tail call void @_efree(ptr noundef nonnull %2) #30
+  tail call void @_efree(ptr noundef nonnull %2) #28
   br label %13
 
 13:                                               ; preds = %12, %7, %3
@@ -503,16 +503,16 @@ define hidden void @zend_file_context_end(ptr nocapture noundef readonly %0) loc
   br label %zend_end_namespace.exit
 
 zend_end_namespace.exit:                          ; preds = %1, %13
-  tail call void @zend_hash_destroy(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 23, i32 7)) #30
+  tail call void @zend_hash_destroy(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 23, i32 7)) #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 23), ptr noundef nonnull align 8 dereferenceable(104) %0, i64 104, i1 false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zend_init_compiler_data_structures() local_unnamed_addr #0 {
-  tail call void @zend_stack_init(ptr noundef nonnull @compiler_globals, i32 noundef 12) #30
-  tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 33), i32 noundef 32) #30
-  tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45), i32 noundef 4) #30
+  tail call void @zend_stack_init(ptr noundef nonnull @compiler_globals, i32 noundef 12) #28
+  tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 33), i32 noundef 32) #28
+  tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45), i32 noundef 4) #28
   store ptr null, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 1), align 8
   store i8 0, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 9), align 1
   store i8 0, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 15), align 8
@@ -526,7 +526,7 @@ declare void @zend_stack_init(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @init_compiler() local_unnamed_addr #0 {
-  %1 = tail call noalias dereferenceable_or_null(65536) ptr @_emalloc_large(i64 noundef 65536) #32
+  %1 = tail call noalias dereferenceable_or_null(65536) ptr @_emalloc_large(i64 noundef 65536) #30
   %2 = getelementptr inbounds i8, ptr %1, i64 24
   store ptr %2, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %1, i64 65536
@@ -537,17 +537,17 @@ define hidden void @init_compiler() local_unnamed_addr #0 {
   store ptr %1, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 24), align 8
   store ptr null, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 4), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 22), i8 0, i64 56, i1 false)
-  tail call void @zend_stack_init(ptr noundef nonnull @compiler_globals, i32 noundef 12) #30
-  tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 33), i32 noundef 32) #30
-  tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45), i32 noundef 4) #30
+  tail call void @zend_stack_init(ptr noundef nonnull @compiler_globals, i32 noundef 12) #28
+  tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 33), i32 noundef 32) #28
+  tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45), i32 noundef 4) #28
   store ptr null, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 1), align 8
   store i8 0, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 9), align 1
   store i8 0, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 15), align 8
   store i8 0, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 30), align 2
   store ptr null, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 34), align 8
   store i32 0, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 35), align 8
-  tail call void @zend_init_rsrc_list() #30
-  tail call void @zend_stream_init() #30
+  tail call void @zend_init_rsrc_list() #28
+  tail call void @zend_stream_init() #28
   store i8 0, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 11), align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 40), i8 0, i64 32, i1 false)
   ret void
@@ -588,26 +588,26 @@ define hidden void @shutdown_compiler() local_unnamed_addr #0 {
   br i1 %.not10.i, label %14, label %13
 
 13:                                               ; preds = %11
-  tail call void @free(ptr noundef nonnull %1) #30
+  tail call void @free(ptr noundef nonnull %1) #28
   br label %zend_restore_compiled_filename.exit
 
 14:                                               ; preds = %11
-  tail call void @_efree(ptr noundef nonnull %1) #30
+  tail call void @_efree(ptr noundef nonnull %1) #28
   br label %zend_restore_compiled_filename.exit
 
 zend_restore_compiled_filename.exit:              ; preds = %0, %2, %6, %13, %14
   store ptr null, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 2), align 8
-  tail call void @zend_stack_destroy(ptr noundef nonnull @compiler_globals) #30
-  tail call void @zend_stack_destroy(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 33)) #30
-  tail call void @zend_stack_destroy(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  tail call void @zend_stack_destroy(ptr noundef nonnull @compiler_globals) #28
+  tail call void @zend_stack_destroy(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 33)) #28
+  tail call void @zend_stack_destroy(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   %15 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 40), align 8
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %18, label %16
 
 16:                                               ; preds = %zend_restore_compiled_filename.exit
-  tail call void @zend_hash_destroy(ptr noundef nonnull %15) #30
+  tail call void @zend_hash_destroy(ptr noundef nonnull %15) #28
   %17 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 40), align 8
-  tail call void @_efree_56(ptr noundef %17) #30
+  tail call void @_efree_56(ptr noundef %17) #28
   store ptr null, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 40), align 8
   br label %18
 
@@ -617,9 +617,9 @@ zend_restore_compiled_filename.exit:              ; preds = %0, %2, %6, %13, %14
   br i1 %.not3, label %22, label %20
 
 20:                                               ; preds = %18
-  tail call void @zend_hash_destroy(ptr noundef nonnull %19) #30
+  tail call void @zend_hash_destroy(ptr noundef nonnull %19) #28
   %21 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 41), align 8
-  tail call void @_efree_56(ptr noundef %21) #30
+  tail call void @_efree_56(ptr noundef %21) #28
   store ptr null, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 41), align 8
   br label %22
 
@@ -629,9 +629,9 @@ zend_restore_compiled_filename.exit:              ; preds = %0, %2, %6, %13, %14
   br i1 %.not4, label %26, label %24
 
 24:                                               ; preds = %22
-  tail call void @zend_hash_destroy(ptr noundef nonnull %23) #30
+  tail call void @zend_hash_destroy(ptr noundef nonnull %23) #28
   %25 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 42), align 8
-  tail call void @_efree_56(ptr noundef %25) #30
+  tail call void @_efree_56(ptr noundef %25) #28
   store ptr null, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 42), align 8
   br label %26
 
@@ -668,11 +668,11 @@ define void @zend_restore_compiled_filename(ptr noundef %0) local_unnamed_addr #
   br i1 %.not10, label %15, label %14
 
 14:                                               ; preds = %12
-  tail call void @free(ptr noundef nonnull %2) #30
+  tail call void @free(ptr noundef nonnull %2) #28
   br label %16
 
 15:                                               ; preds = %12
-  tail call void @_efree(ptr noundef nonnull %2) #30
+  tail call void @_efree(ptr noundef nonnull %2) #28
   br label %16
 
 16:                                               ; preds = %3, %14, %15, %7, %1
@@ -724,7 +724,7 @@ define zeroext i1 @zend_is_compiling() local_unnamed_addr #7 {
 define hidden ptr @zval_make_interned_string(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @zend_new_interned_string, align 8
   %3 = load ptr, ptr %0, align 8
-  %4 = tail call ptr %2(ptr noundef %3) #30
+  %4 = tail call ptr %2(ptr noundef %3) #28
   store ptr %4, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 4
   %6 = load i32, ptr %5, align 4
@@ -749,7 +749,7 @@ define hidden void @zend_stop_lexing() local_unnamed_addr #0 {
 
 2:                                                ; preds = %0
   %3 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 24), align 8
-  tail call void %1(i32 noundef 2, i32 noundef 0, i32 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef %3) #30
+  tail call void %1(i32 noundef 2, i32 noundef 0, i32 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef %3) #28
   br label %4
 
 4:                                                ; preds = %2, %0
@@ -860,7 +860,7 @@ zend_modifier_token_to_string.exit:               ; preds = %.thread, %17, %19, 
   %26 = phi ptr [ %18, %23 ], [ %18, %22 ], [ %18, %21 ], [ %18, %20 ], [ %18, %19 ], [ %18, %17 ], [ %7, %.thread ], [ %18, %24 ]
   %.023 = phi ptr [ %.0, %23 ], [ %.0, %22 ], [ %.0, %21 ], [ %.0, %20 ], [ %.0, %19 ], [ %.0, %17 ], [ @.str.1, %.thread ], [ %.0, %24 ]
   %.0.i = phi ptr [ @.str.47, %23 ], [ @.str.46, %22 ], [ @.str.35, %21 ], [ @.str.45, %20 ], [ @.str.44, %19 ], [ @.str.43, %17 ], [ @.str.48, %.thread ], [ @.str.48, %24 ]
-  %27 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %26, i64 noundef 0, ptr noundef nonnull @.str.5, ptr noundef nonnull %.0.i, ptr noundef nonnull %.023) #30
+  %27 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %26, i64 noundef 0, ptr noundef nonnull @.str.5, ptr noundef nonnull %.0.i, ptr noundef nonnull %.023) #28
   br label %28
 
 28:                                               ; preds = %5, %5, %6, %10, %8, %2, %zend_modifier_token_to_string.exit, %4, %3
@@ -992,7 +992,7 @@ zend_add_member_modifier.exit:                    ; preds = %52
 zend_add_member_modifier.exit.thread:             ; preds = %14, %18, %21, %23, %25, %zend_add_member_modifier.exit, %52, %50, %48, %45, %41
   %.us-phi28 = phi ptr [ @.str.12, %41 ], [ @.str.6, %45 ], [ @.str.13, %48 ], [ @.str.7, %50 ], [ @.str.8, %52 ], [ @.str.14, %zend_add_member_modifier.exit ], [ @.str.12, %14 ], [ @.str.6, %18 ], [ @.str.13, %21 ], [ @.str.7, %23 ], [ @.str.8, %25 ]
   %54 = load ptr, ptr @zend_ce_compile_error, align 8
-  %55 = tail call ptr @zend_throw_exception(ptr noundef %54, ptr noundef nonnull %.us-phi28, i64 noundef 0) #30
+  %55 = tail call ptr @zend_throw_exception(ptr noundef %54, ptr noundef nonnull %.us-phi28, i64 noundef 0) #28
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.split.us, %zend_add_member_modifier.exit.us, %.lr.ph.split, %29, %2, %zend_add_member_modifier.exit.thread
@@ -1041,7 +1041,7 @@ define hidden noundef i32 @zend_add_member_modifier(i32 noundef %0, i32 noundef 
 .sink.split:                                      ; preds = %16, %14, %12, %10, %7, %3
   %.str.14.sink = phi ptr [ @.str.12, %3 ], [ @.str.6, %7 ], [ @.str.13, %10 ], [ @.str.7, %12 ], [ @.str.8, %14 ], [ @.str.14, %16 ]
   %20 = load ptr, ptr @zend_ce_compile_error, align 8
-  %21 = tail call ptr @zend_throw_exception(ptr noundef %20, ptr noundef nonnull %.str.14.sink, i64 noundef 0) #30
+  %21 = tail call ptr @zend_throw_exception(ptr noundef %20, ptr noundef nonnull %.str.14.sink, i64 noundef 0) #28
   br label %22
 
 22:                                               ; preds = %.sink.split, %16
@@ -1075,7 +1075,7 @@ define hidden noundef i32 @zend_add_class_modifier(i32 noundef %0, i32 noundef %
 .sink.split:                                      ; preds = %10, %8, %6, %2
   %.str.9.sink = phi ptr [ @.str.6, %2 ], [ @.str.7, %6 ], [ @.str.8, %8 ], [ @.str.9, %10 ]
   %12 = load ptr, ptr @zend_ce_compile_error, align 8
-  %13 = tail call ptr @zend_throw_exception(ptr noundef %12, ptr noundef nonnull %.str.9.sink, i64 noundef 0) #30
+  %13 = tail call ptr @zend_throw_exception(ptr noundef %12, ptr noundef nonnull %.str.9.sink, i64 noundef 0) #28
   br label %14
 
 14:                                               ; preds = %.sink.split, %10
@@ -1106,7 +1106,7 @@ define hidden noundef i32 @zend_add_anonymous_class_modifier(i32 noundef %0, i32
 .sink.split:                                      ; preds = %7, %5, %2
   %.str.8.sink = phi ptr [ @.str.10, %2 ], [ @.str.11, %5 ], [ @.str.8, %7 ]
   %10 = load ptr, ptr @zend_ce_compile_error, align 8
-  %11 = tail call ptr @zend_throw_exception(ptr noundef %10, ptr noundef nonnull %.str.8.sink, i64 noundef 0) #30
+  %11 = tail call ptr @zend_throw_exception(ptr noundef %10, ptr noundef nonnull %.str.8.sink, i64 noundef 0) #28
   br label %12
 
 12:                                               ; preds = %.sink.split, %7
@@ -1122,7 +1122,7 @@ define ptr @zend_create_member_string(ptr noundef %0, ptr noundef %1) local_unna
   %6 = getelementptr inbounds i8, ptr %1, i64 24
   %7 = getelementptr inbounds i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = tail call ptr @zend_string_concat3(ptr noundef nonnull %3, i64 noundef %5, ptr noundef nonnull @.str.15, i64 noundef 2, ptr noundef nonnull %6, i64 noundef %8) #30
+  %9 = tail call ptr @zend_string_concat3(ptr noundef nonnull %3, i64 noundef %5, ptr noundef nonnull @.str.15, i64 noundef 2, ptr noundef nonnull %6, i64 noundef %8) #28
   ret ptr %9
 }
 
@@ -1139,7 +1139,7 @@ define hidden ptr @zend_resolve_class_name_ast(ptr nocapture noundef readonly %0
   br i1 %.not, label %7, label %6
 
 6:                                                ; preds = %1
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.16) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.16) #29
   unreachable
 
 7:                                                ; preds = %1
@@ -1161,7 +1161,7 @@ define internal fastcc ptr @zend_resolve_class_name(ptr noundef %0, i32 noundef 
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 24
-  %8 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %7, i64 noundef 4, ptr noundef nonnull @.str.21, i64 noundef 4) #30
+  %8 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %7, i64 noundef 4, ptr noundef nonnull @.str.21, i64 noundef 4) #28
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %27, label %thread-pre-split.i
 
@@ -1176,7 +1176,7 @@ thread-pre-split.i:                               ; preds = %6
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds i8, ptr %0, i64 24
-  %14 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %13, i64 noundef 6, ptr noundef nonnull @.str.22, i64 noundef 6) #30
+  %14 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %13, i64 noundef 6, ptr noundef nonnull @.str.22, i64 noundef 6) #28
   %.not13.i = icmp eq i32 %14, 0
   br i1 %.not13.i, label %27, label %._crit_edge.i
 
@@ -1197,7 +1197,7 @@ thread-pre-split.i:                               ; preds = %6
 23:                                               ; preds = %15
   %24 = getelementptr inbounds i8, ptr %0, i64 24
   %25 = getelementptr inbounds i8, ptr %19, i64 24
-  %26 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %24, i64 noundef %16, ptr noundef nonnull %25, i64 noundef %16) #30
+  %26 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %24, i64 noundef %16, ptr noundef nonnull %25, i64 noundef %16) #28
   %.not14.i = icmp eq i32 %26, 0
   br i1 %.not14.i, label %27, label %zend_get_class_fetch_type.exit
 
@@ -1209,12 +1209,12 @@ thread-pre-split.i:                               ; preds = %6
 
 28:                                               ; preds = %27
   %29 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.49, ptr noundef nonnull %29) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.49, ptr noundef nonnull %29) #29
   unreachable
 
 30:                                               ; preds = %27
   %31 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.50, ptr noundef nonnull %31) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.50, ptr noundef nonnull %31) #29
   unreachable
 
 32:                                               ; preds = %27
@@ -1249,7 +1249,7 @@ zend_get_class_fetch_type.exit:                   ; preds = %23, %15
   %45 = load i64, ptr %44, align 8
   %46 = getelementptr inbounds i8, ptr %0, i64 24
   %47 = load i64, ptr %3, align 8
-  %48 = tail call ptr @zend_string_concat3(ptr noundef nonnull %43, i64 noundef %45, ptr noundef nonnull @.str.51, i64 noundef 1, ptr noundef nonnull %46, i64 noundef %47) #30
+  %48 = tail call ptr @zend_string_concat3(ptr noundef nonnull %43, i64 noundef %45, ptr noundef nonnull @.str.51, i64 noundef 1, ptr noundef nonnull %46, i64 noundef %47) #28
   br label %zend_prefix_with_ns.exit
 
 49:                                               ; preds = %40
@@ -1277,7 +1277,7 @@ zend_get_class_fetch_type.exit:                   ; preds = %23, %15
   %63 = add i64 %62, -1
   %64 = add i64 %62, 31
   %65 = and i64 %64, -8
-  %66 = tail call noalias ptr @_emalloc(i64 noundef %65) #32
+  %66 = tail call noalias ptr @_emalloc(i64 noundef %65) #30
   store i32 1, ptr %66, align 4
   %67 = getelementptr inbounds i8, ptr %66, i64 4
   store i32 22, ptr %67, align 4
@@ -1294,7 +1294,7 @@ zend_get_class_fetch_type.exit:                   ; preds = %23, %15
   br i1 %73, label %74, label %76
 
 74:                                               ; preds = %60
-  %75 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %70, i64 noundef 4, ptr noundef nonnull @.str.21, i64 noundef 4) #30
+  %75 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %70, i64 noundef 4, ptr noundef nonnull @.str.21, i64 noundef 4) #28
   %.not.i125 = icmp eq i32 %75, 0
   br i1 %.not.i125, label %92, label %thread-pre-split.i126
 
@@ -1308,7 +1308,7 @@ thread-pre-split.i126:                            ; preds = %74
   br i1 %78, label %79, label %81
 
 79:                                               ; preds = %76
-  %80 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %70, i64 noundef 6, ptr noundef nonnull @.str.22, i64 noundef 6) #30
+  %80 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %70, i64 noundef 6, ptr noundef nonnull @.str.22, i64 noundef 6) #28
   %.not13.i122 = icmp eq i32 %80, 0
   br i1 %.not13.i122, label %92, label %._crit_edge.i123
 
@@ -1328,12 +1328,12 @@ thread-pre-split.i126:                            ; preds = %74
 
 89:                                               ; preds = %81
   %90 = getelementptr inbounds i8, ptr %85, i64 24
-  %91 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %70, i64 noundef %82, ptr noundef nonnull %90, i64 noundef %82) #30
+  %91 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %70, i64 noundef %82, ptr noundef nonnull %90, i64 noundef %82) #28
   %.not14.i121 = icmp eq i32 %91, 0
   br i1 %.not14.i121, label %92, label %zend_prefix_with_ns.exit
 
 92:                                               ; preds = %74, %79, %89
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.49, ptr noundef nonnull %70) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.49, ptr noundef nonnull %70) #29
   unreachable
 
 93:                                               ; preds = %56
@@ -1357,7 +1357,7 @@ thread-pre-split.i126:                            ; preds = %74
 102:                                              ; preds = %100
   %103 = getelementptr inbounds i8, ptr %0, i64 24
   %104 = load i64, ptr %3, align 8
-  %105 = tail call ptr @memchr(ptr noundef nonnull %103, i32 noundef 92, i64 noundef %104) #29
+  %105 = tail call ptr @memchr(ptr noundef nonnull %103, i32 noundef 92, i64 noundef %104) #27
   %.not111 = icmp eq ptr %105, null
   br i1 %.not111, label %121, label %106
 
@@ -1365,7 +1365,7 @@ thread-pre-split.i126:                            ; preds = %74
   %107 = ptrtoint ptr %105 to i64
   %108 = ptrtoint ptr %103 to i64
   %109 = sub i64 %107, %108
-  %110 = tail call ptr @zend_hash_str_find_ptr_lc(ptr noundef nonnull %101, ptr noundef nonnull %103, i64 noundef %109) #30
+  %110 = tail call ptr @zend_hash_str_find_ptr_lc(ptr noundef nonnull %101, ptr noundef nonnull %103, i64 noundef %109) #28
   %.not114 = icmp eq ptr %110, null
   br i1 %.not114, label %130, label %111
 
@@ -1378,11 +1378,11 @@ thread-pre-split.i126:                            ; preds = %74
   %117 = load i64, ptr %3, align 8
   %118 = xor i64 %109, -1
   %119 = add i64 %117, %118
-  %120 = tail call ptr @zend_string_concat3(ptr noundef nonnull %112, i64 noundef %114, ptr noundef nonnull @.str.51, i64 noundef 1, ptr noundef nonnull %116, i64 noundef %119) #30
+  %120 = tail call ptr @zend_string_concat3(ptr noundef nonnull %112, i64 noundef %114, ptr noundef nonnull @.str.51, i64 noundef 1, ptr noundef nonnull %116, i64 noundef %119) #28
   br label %zend_prefix_with_ns.exit
 
 121:                                              ; preds = %102
-  %122 = tail call ptr @zend_hash_find_ptr_lc(ptr noundef nonnull %101, ptr noundef nonnull %0) #30
+  %122 = tail call ptr @zend_hash_find_ptr_lc(ptr noundef nonnull %101, ptr noundef nonnull %0) #28
   %.not112 = icmp eq ptr %122, null
   br i1 %.not112, label %130, label %123
 
@@ -1410,7 +1410,7 @@ thread-pre-split.i126:                            ; preds = %74
   %135 = load i64, ptr %134, align 8
   %136 = getelementptr inbounds i8, ptr %0, i64 24
   %137 = load i64, ptr %3, align 8
-  %138 = tail call ptr @zend_string_concat3(ptr noundef nonnull %133, i64 noundef %135, ptr noundef nonnull @.str.51, i64 noundef 1, ptr noundef nonnull %136, i64 noundef %137) #30
+  %138 = tail call ptr @zend_string_concat3(ptr noundef nonnull %133, i64 noundef %135, ptr noundef nonnull @.str.51, i64 noundef 1, ptr noundef nonnull %136, i64 noundef %137) #28
   br label %zend_prefix_with_ns.exit
 
 139:                                              ; preds = %130
@@ -1487,13 +1487,13 @@ define noundef i32 @do_bind_function(ptr noundef %0, ptr nocapture noundef reado
   store ptr %0, ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 13, ptr %6, align 8
-  %7 = call ptr @zend_hash_add(ptr noundef %4, ptr noundef %5, ptr noundef nonnull %3) #30
+  %7 = call ptr @zend_hash_add(ptr noundef %4, ptr noundef %5, ptr noundef nonnull %3) #28
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %10
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %1, align 8
-  call fastcc void @do_bind_function_error(ptr noundef %9, ptr noundef %0, i1 noundef zeroext false) #33
+  call fastcc void @do_bind_function_error(ptr noundef %9, ptr noundef %0, i1 noundef zeroext false) #31
   unreachable
 
 10:                                               ; preds = %2
@@ -1534,7 +1534,7 @@ define noundef i32 @do_bind_function(ptr noundef %0, ptr nocapture noundef reado
 
 29:                                               ; preds = %26
   %30 = load ptr, ptr %1, align 8
-  call void @_zend_observer_function_declared_notify(ptr noundef nonnull %0, ptr noundef %30) #30
+  call void @_zend_observer_function_declared_notify(ptr noundef nonnull %0, ptr noundef %30) #28
   br label %zend_observer_function_declared_notify.exit
 
 zend_observer_function_declared_notify.exit:      ; preds = %26, %29
@@ -1546,7 +1546,7 @@ define internal fastcc void @do_bind_function_error(ptr noundef %0, ptr noundef 
   %4 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 5), align 8
   %5 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 10), align 8
   %6 = select i1 %2, ptr %4, ptr %5
-  %7 = tail call ptr @zend_hash_find_known_hash(ptr noundef %6, ptr noundef %0) #30
+  %7 = tail call ptr @zend_hash_find_known_hash(ptr noundef %6, ptr noundef %0) #28
   %8 = select i1 %2, i32 64, i32 1
   %9 = icmp ne ptr %7, null
   tail call void @llvm.assume(i1 %9)
@@ -1574,7 +1574,7 @@ define internal fastcc void @do_bind_function_error(ptr noundef %0, ptr noundef 
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 24
   %24 = load i32, ptr %23, align 8
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef %8, ptr noundef nonnull @.str.52, ptr noundef nonnull %17, ptr noundef nonnull %20, i32 noundef %24) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef %8, ptr noundef nonnull @.str.52, ptr noundef nonnull %17, ptr noundef nonnull %20, i32 noundef %24) #29
   unreachable
 
 25:                                               ; preds = %13, %3
@@ -1583,7 +1583,7 @@ define internal fastcc void @do_bind_function_error(ptr noundef %0, ptr noundef 
   %.pn.in = getelementptr inbounds i8, ptr %.21, i64 8
   %.pn = load ptr, ptr %.pn.in, align 8
   %26 = getelementptr inbounds i8, ptr %.pn, i64 24
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef %8, ptr noundef nonnull @.str.53, ptr noundef nonnull %26) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef %8, ptr noundef nonnull @.str.53, ptr noundef nonnull %26) #29
   unreachable
 }
 
@@ -1604,7 +1604,7 @@ define ptr @zend_bind_class_in_slot(ptr noundef %0, ptr nocapture noundef readon
   br i1 %.not39, label %14, label %16
 
 14:                                               ; preds = %3
-  %15 = tail call ptr @zend_hash_set_bucket_key(ptr noundef %12, ptr noundef nonnull %0, ptr noundef %13) #30
+  %15 = tail call ptr @zend_hash_set_bucket_key(ptr noundef %12, ptr noundef nonnull %0, ptr noundef %13) #28
   %.not45 = icmp eq ptr %15, null
   br i1 %.not45, label %19, label %24
 
@@ -1612,16 +1612,16 @@ define ptr @zend_bind_class_in_slot(ptr noundef %0, ptr nocapture noundef readon
   store ptr %5, ptr %4, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 13, ptr %17, align 8
-  %18 = call ptr @zend_hash_add(ptr noundef %12, ptr noundef %13, ptr noundef nonnull %4) #30
+  %18 = call ptr @zend_hash_add(ptr noundef %12, ptr noundef %13, ptr noundef nonnull %4) #28
   %.not40.not = icmp eq ptr %18, null
   br i1 %.not40.not, label %19, label %24
 
 19:                                               ; preds = %14, %16
-  %20 = call ptr @zend_get_object_type_case(ptr noundef nonnull %5, i1 noundef zeroext false) #30
+  %20 = call ptr @zend_get_object_type_case(ptr noundef nonnull %5, i1 noundef zeroext false) #28
   %21 = getelementptr inbounds i8, ptr %5, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 24
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.17, ptr noundef %20, ptr noundef nonnull %23) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.17, ptr noundef %20, ptr noundef nonnull %23) #29
   unreachable
 
 24:                                               ; preds = %14, %16
@@ -1637,12 +1637,12 @@ define ptr @zend_bind_class_in_slot(ptr noundef %0, ptr nocapture noundef readon
 
 30:                                               ; preds = %27
   %31 = load ptr, ptr %1, align 8
-  call void @_zend_observer_class_linked_notify(ptr noundef nonnull %5, ptr noundef %31) #30
+  call void @_zend_observer_class_linked_notify(ptr noundef nonnull %5, ptr noundef %31) #28
   br label %zend_observer_class_linked_notify.exit
 
 32:                                               ; preds = %24
   %33 = load ptr, ptr %1, align 8
-  %34 = call ptr @zend_do_link_class(ptr noundef nonnull %5, ptr noundef %2, ptr noundef %33) #30
+  %34 = call ptr @zend_do_link_class(ptr noundef nonnull %5, ptr noundef %2, ptr noundef %33) #28
   %.not42 = icmp eq ptr %34, null
   br i1 %.not42, label %41, label %35
 
@@ -1656,7 +1656,7 @@ define ptr @zend_bind_class_in_slot(ptr noundef %0, ptr nocapture noundef readon
 
 39:                                               ; preds = %35
   %40 = load ptr, ptr %1, align 8
-  call void @_zend_observer_class_linked_notify(ptr noundef nonnull %34, ptr noundef %40) #30
+  call void @_zend_observer_class_linked_notify(ptr noundef nonnull %34, ptr noundef %40) #28
   br label %zend_observer_class_linked_notify.exit
 
 41:                                               ; preds = %32
@@ -1665,15 +1665,15 @@ define ptr @zend_bind_class_in_slot(ptr noundef %0, ptr nocapture noundef readon
   br i1 %.not39, label %44, label %50
 
 44:                                               ; preds = %41
-  %45 = call ptr @zend_hash_find(ptr noundef %42, ptr noundef %43) #30
+  %45 = call ptr @zend_hash_find(ptr noundef %42, ptr noundef %43) #28
   %46 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 11), align 8
   %47 = getelementptr inbounds i8, ptr %1, i64 16
   %48 = load ptr, ptr %47, align 8
-  %49 = call ptr @zend_hash_set_bucket_key(ptr noundef %46, ptr noundef %45, ptr noundef %48) #30
+  %49 = call ptr @zend_hash_set_bucket_key(ptr noundef %46, ptr noundef %45, ptr noundef %48) #28
   br label %zend_observer_class_linked_notify.exit
 
 50:                                               ; preds = %41
-  %51 = call i32 @zend_hash_del(ptr noundef %42, ptr noundef %43) #30
+  %51 = call i32 @zend_hash_del(ptr noundef %42, ptr noundef %43) #28
   br label %zend_observer_class_linked_notify.exit
 
 zend_observer_class_linked_notify.exit:           ; preds = %39, %35, %30, %27, %44, %50
@@ -1697,14 +1697,14 @@ define range(i32 -1, 1) i32 @do_bind_class(ptr nocapture noundef readonly %0, pt
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 11), align 8
   %5 = load ptr, ptr %3, align 8
-  %6 = tail call ptr @zend_hash_find_known_hash(ptr noundef %4, ptr noundef %5) #30
+  %6 = tail call ptr @zend_hash_find_known_hash(ptr noundef %4, ptr noundef %5) #28
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %19
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 11), align 8
   %9 = load ptr, ptr %0, align 8
-  %10 = tail call ptr @zend_hash_find(ptr noundef %8, ptr noundef %9) #30
+  %10 = tail call ptr @zend_hash_find(ptr noundef %8, ptr noundef %9) #28
   %.not19 = icmp eq ptr %10, null
   br i1 %.not19, label %13, label %11
 
@@ -1716,11 +1716,11 @@ define range(i32 -1, 1) i32 @do_bind_class(ptr nocapture noundef readonly %0, pt
   %.0 = phi ptr [ %12, %11 ], [ null, %7 ]
   %14 = icmp ne ptr %.0, null
   tail call void @llvm.assume(i1 %14)
-  %15 = tail call ptr @zend_get_object_type_case(ptr noundef nonnull %.0, i1 noundef zeroext false) #30
+  %15 = tail call ptr @zend_get_object_type_case(ptr noundef nonnull %.0, i1 noundef zeroext false) #28
   %16 = getelementptr inbounds i8, ptr %.0, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 24
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.17, ptr noundef %15, ptr noundef nonnull %18) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.17, ptr noundef %15, ptr noundef nonnull %18) #29
   unreachable
 
 19:                                               ; preds = %2
@@ -1810,7 +1810,7 @@ define hidden ptr @zend_type_to_string_resolved(ptr %0, i32 %1, ptr noundef %2) 
   %38 = getelementptr inbounds i8, ptr %24, i64 16
   %39 = load i64, ptr %38, align 8
   %40 = getelementptr inbounds i8, ptr %.091200, i64 4
-  %41 = tail call ptr @zend_string_concat3(ptr noundef nonnull %34, i64 noundef %36, ptr noundef nonnull @.str.58, i64 noundef 1, ptr noundef nonnull %37, i64 noundef %39) #30
+  %41 = tail call ptr @zend_string_concat3(ptr noundef nonnull %34, i64 noundef %36, ptr noundef nonnull @.str.58, i64 noundef 1, ptr noundef nonnull %37, i64 noundef %39) #28
   %42 = load i32, ptr %40, align 4
   %43 = and i32 %42, 64
   %.not.i = icmp eq i32 %43, 0
@@ -1831,11 +1831,11 @@ define hidden ptr @zend_type_to_string_resolved(ptr %0, i32 %1, ptr noundef %2) 
   br i1 %.not39.i, label %52, label %51
 
 51:                                               ; preds = %49
-  tail call void @free(ptr noundef nonnull %.091200) #30
+  tail call void @free(ptr noundef nonnull %.091200) #28
   br label %add_type_string.exit
 
 52:                                               ; preds = %49
-  tail call void @_efree(ptr noundef nonnull %.091200) #30
+  tail call void @_efree(ptr noundef nonnull %.091200) #28
   br label %add_type_string.exit
 
 add_type_string.exit:                             ; preds = %26, %30, %33, %44, %51, %52
@@ -1861,11 +1861,11 @@ add_type_string.exit:                             ; preds = %26, %30, %33, %44, 
   br i1 %.not101, label %64, label %63
 
 63:                                               ; preds = %61
-  tail call void @free(ptr noundef nonnull %24) #30
+  tail call void @free(ptr noundef nonnull %24) #28
   br label %65
 
 64:                                               ; preds = %61
-  tail call void @_efree(ptr noundef nonnull %24) #30
+  tail call void @_efree(ptr noundef nonnull %24) #28
   br label %65
 
 65:                                               ; preds = %add_type_string.exit, %63, %64, %56, %16
@@ -1934,7 +1934,7 @@ add_type_string.exit:                             ; preds = %26, %30, %33, %44, 
   %99 = getelementptr inbounds i8, ptr %81, i64 16
   %100 = load i64, ptr %99, align 8
   %101 = getelementptr inbounds i8, ptr %.2, i64 4
-  %102 = tail call ptr @zend_string_concat3(ptr noundef nonnull %95, i64 noundef %97, ptr noundef nonnull @.str.58, i64 noundef 1, ptr noundef nonnull %98, i64 noundef %100) #30
+  %102 = tail call ptr @zend_string_concat3(ptr noundef nonnull %95, i64 noundef %97, ptr noundef nonnull @.str.58, i64 noundef 1, ptr noundef nonnull %98, i64 noundef %100) #28
   %103 = load i32, ptr %101, align 4
   %104 = and i32 %103, 64
   %.not.i120 = icmp eq i32 %104, 0
@@ -1955,11 +1955,11 @@ add_type_string.exit:                             ; preds = %26, %30, %33, %44, 
   br i1 %.not39.i122, label %113, label %112
 
 112:                                              ; preds = %110
-  tail call void @free(ptr noundef nonnull %.2) #30
+  tail call void @free(ptr noundef nonnull %.2) #28
   br label %add_type_string.exit124
 
 113:                                              ; preds = %110
-  tail call void @_efree(ptr noundef nonnull %.2) #30
+  tail call void @_efree(ptr noundef nonnull %.2) #28
   br label %add_type_string.exit124
 
 114:                                              ; preds = %.loopexit.thread, %.thread, %.loopexit
@@ -1982,7 +1982,7 @@ add_type_string.exit:                             ; preds = %26, %30, %33, %44, 
 
 123:                                              ; preds = %120
   %124 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 17), align 8
-  %125 = tail call ptr @zend_get_called_scope(ptr noundef %124) #30
+  %125 = tail call ptr @zend_get_called_scope(ptr noundef %124) #28
   %.not105 = icmp eq ptr %125, null
   br i1 %.not105, label %129, label %126
 
@@ -2017,7 +2017,7 @@ add_type_string.exit:                             ; preds = %26, %30, %33, %44, 
   %143 = getelementptr inbounds i8, ptr %.093, i64 16
   %144 = load i64, ptr %143, align 8
   %145 = getelementptr inbounds i8, ptr %.2191, i64 4
-  %146 = tail call ptr @zend_string_concat3(ptr noundef nonnull %139, i64 noundef %141, ptr noundef nonnull @.str.58, i64 noundef 1, ptr noundef nonnull %142, i64 noundef %144) #30
+  %146 = tail call ptr @zend_string_concat3(ptr noundef nonnull %139, i64 noundef %141, ptr noundef nonnull @.str.58, i64 noundef 1, ptr noundef nonnull %142, i64 noundef %144) #28
   %147 = load i32, ptr %145, align 4
   %148 = and i32 %147, 64
   %.not.i125 = icmp eq i32 %148, 0
@@ -2038,11 +2038,11 @@ add_type_string.exit:                             ; preds = %26, %30, %33, %44, 
   br i1 %.not39.i127, label %157, label %156
 
 156:                                              ; preds = %154
-  tail call void @free(ptr noundef nonnull %.2191) #30
+  tail call void @free(ptr noundef nonnull %.2191) #28
   br label %add_type_string.exit129
 
 157:                                              ; preds = %154
-  tail call void @_efree(ptr noundef nonnull %.2191) #30
+  tail call void @_efree(ptr noundef nonnull %.2191) #28
   br label %add_type_string.exit129
 
 add_type_string.exit129:                          ; preds = %157, %156, %149, %138, %135, %131, %114
@@ -2079,7 +2079,7 @@ add_type_string.exit129:                          ; preds = %157, %156, %149, %1
   %176 = getelementptr inbounds i8, ptr %162, i64 16
   %177 = load i64, ptr %176, align 8
   %178 = getelementptr inbounds i8, ptr %.3, i64 4
-  %179 = tail call ptr @zend_string_concat3(ptr noundef nonnull %172, i64 noundef %174, ptr noundef nonnull @.str.58, i64 noundef 1, ptr noundef nonnull %175, i64 noundef %177) #30
+  %179 = tail call ptr @zend_string_concat3(ptr noundef nonnull %172, i64 noundef %174, ptr noundef nonnull @.str.58, i64 noundef 1, ptr noundef nonnull %175, i64 noundef %177) #28
   %180 = load i32, ptr %178, align 4
   %181 = and i32 %180, 64
   %.not.i130 = icmp eq i32 %181, 0
@@ -2100,11 +2100,11 @@ add_type_string.exit129:                          ; preds = %157, %156, %149, %1
   br i1 %.not39.i132, label %190, label %189
 
 189:                                              ; preds = %187
-  tail call void @free(ptr noundef nonnull %.3) #30
+  tail call void @free(ptr noundef nonnull %.3) #28
   br label %add_type_string.exit134
 
 190:                                              ; preds = %187
-  tail call void @_efree(ptr noundef nonnull %.3) #30
+  tail call void @_efree(ptr noundef nonnull %.3) #28
   br label %add_type_string.exit134
 
 add_type_string.exit134:                          ; preds = %190, %189, %182, %171, %168, %164, %add_type_string.exit129
@@ -2141,7 +2141,7 @@ add_type_string.exit134:                          ; preds = %190, %189, %182, %1
   %209 = getelementptr inbounds i8, ptr %195, i64 16
   %210 = load i64, ptr %209, align 8
   %211 = getelementptr inbounds i8, ptr %.4, i64 4
-  %212 = tail call ptr @zend_string_concat3(ptr noundef nonnull %205, i64 noundef %207, ptr noundef nonnull @.str.58, i64 noundef 1, ptr noundef nonnull %208, i64 noundef %210) #30
+  %212 = tail call ptr @zend_string_concat3(ptr noundef nonnull %205, i64 noundef %207, ptr noundef nonnull @.str.58, i64 noundef 1, ptr noundef nonnull %208, i64 noundef %210) #28
   %213 = load i32, ptr %211, align 4
   %214 = and i32 %213, 64
   %.not.i135 = icmp eq i32 %214, 0
@@ -2162,11 +2162,11 @@ add_type_string.exit134:                          ; preds = %190, %189, %182, %1
   br i1 %.not39.i137, label %223, label %222
 
 222:                                              ; preds = %220
-  tail call void @free(ptr noundef nonnull %.4) #30
+  tail call void @free(ptr noundef nonnull %.4) #28
   br label %add_type_string.exit139
 
 223:                                              ; preds = %220
-  tail call void @_efree(ptr noundef nonnull %.4) #30
+  tail call void @_efree(ptr noundef nonnull %.4) #28
   br label %add_type_string.exit139
 
 add_type_string.exit139:                          ; preds = %223, %222, %215, %204, %201, %197, %add_type_string.exit134
@@ -2203,7 +2203,7 @@ add_type_string.exit139:                          ; preds = %223, %222, %215, %2
   %242 = getelementptr inbounds i8, ptr %228, i64 16
   %243 = load i64, ptr %242, align 8
   %244 = getelementptr inbounds i8, ptr %.5, i64 4
-  %245 = tail call ptr @zend_string_concat3(ptr noundef nonnull %238, i64 noundef %240, ptr noundef nonnull @.str.58, i64 noundef 1, ptr noundef nonnull %241, i64 noundef %243) #30
+  %245 = tail call ptr @zend_string_concat3(ptr noundef nonnull %238, i64 noundef %240, ptr noundef nonnull @.str.58, i64 noundef 1, ptr noundef nonnull %241, i64 noundef %243) #28
   %246 = load i32, ptr %244, align 4
   %247 = and i32 %246, 64
   %.not.i140 = icmp eq i32 %247, 0
@@ -2224,11 +2224,11 @@ add_type_string.exit139:                          ; preds = %223, %222, %215, %2
   br i1 %.not39.i142, label %256, label %255
 
 255:                                              ; preds = %253
-  tail call void @free(ptr noundef nonnull %.5) #30
+  tail call void @free(ptr noundef nonnull %.5) #28
   br label %add_type_string.exit144
 
 256:                                              ; preds = %253
-  tail call void @_efree(ptr noundef nonnull %.5) #30
+  tail call void @_efree(ptr noundef nonnull %.5) #28
   br label %add_type_string.exit144
 
 add_type_string.exit144:                          ; preds = %256, %255, %248, %237, %234, %230, %add_type_string.exit139
@@ -2265,7 +2265,7 @@ add_type_string.exit144:                          ; preds = %256, %255, %248, %2
   %275 = getelementptr inbounds i8, ptr %261, i64 16
   %276 = load i64, ptr %275, align 8
   %277 = getelementptr inbounds i8, ptr %.6, i64 4
-  %278 = tail call ptr @zend_string_concat3(ptr noundef nonnull %271, i64 noundef %273, ptr noundef nonnull @.str.58, i64 noundef 1, ptr noundef nonnull %274, i64 noundef %276) #30
+  %278 = tail call ptr @zend_string_concat3(ptr noundef nonnull %271, i64 noundef %273, ptr noundef nonnull @.str.58, i64 noundef 1, ptr noundef nonnull %274, i64 noundef %276) #28
   %279 = load i32, ptr %277, align 4
   %280 = and i32 %279, 64
   %.not.i145 = icmp eq i32 %280, 0
@@ -2286,11 +2286,11 @@ add_type_string.exit144:                          ; preds = %256, %255, %248, %2
   br i1 %.not39.i147, label %289, label %288
 
 288:                                              ; preds = %286
-  tail call void @free(ptr noundef nonnull %.6) #30
+  tail call void @free(ptr noundef nonnull %.6) #28
   br label %add_type_string.exit149
 
 289:                                              ; preds = %286
-  tail call void @_efree(ptr noundef nonnull %.6) #30
+  tail call void @_efree(ptr noundef nonnull %.6) #28
   br label %add_type_string.exit149
 
 add_type_string.exit149:                          ; preds = %289, %288, %281, %270, %267, %263, %add_type_string.exit144
@@ -2327,7 +2327,7 @@ add_type_string.exit149:                          ; preds = %289, %288, %281, %2
   %308 = getelementptr inbounds i8, ptr %294, i64 16
   %309 = load i64, ptr %308, align 8
   %310 = getelementptr inbounds i8, ptr %.7, i64 4
-  %311 = tail call ptr @zend_string_concat3(ptr noundef nonnull %304, i64 noundef %306, ptr noundef nonnull @.str.58, i64 noundef 1, ptr noundef nonnull %307, i64 noundef %309) #30
+  %311 = tail call ptr @zend_string_concat3(ptr noundef nonnull %304, i64 noundef %306, ptr noundef nonnull @.str.58, i64 noundef 1, ptr noundef nonnull %307, i64 noundef %309) #28
   %312 = load i32, ptr %310, align 4
   %313 = and i32 %312, 64
   %.not.i150 = icmp eq i32 %313, 0
@@ -2348,11 +2348,11 @@ add_type_string.exit149:                          ; preds = %289, %288, %281, %2
   br i1 %.not39.i152, label %322, label %321
 
 321:                                              ; preds = %319
-  tail call void @free(ptr noundef nonnull %.7) #30
+  tail call void @free(ptr noundef nonnull %.7) #28
   br label %add_type_string.exit154
 
 322:                                              ; preds = %319
-  tail call void @_efree(ptr noundef nonnull %.7) #30
+  tail call void @_efree(ptr noundef nonnull %.7) #28
   br label %add_type_string.exit154
 
 add_type_string.exit154:                          ; preds = %322, %321, %314, %303, %300, %296, %add_type_string.exit149
@@ -2389,7 +2389,7 @@ add_type_string.exit154:                          ; preds = %322, %321, %314, %3
   %341 = getelementptr inbounds i8, ptr %327, i64 16
   %342 = load i64, ptr %341, align 8
   %343 = getelementptr inbounds i8, ptr %.8, i64 4
-  %344 = tail call ptr @zend_string_concat3(ptr noundef nonnull %337, i64 noundef %339, ptr noundef nonnull @.str.58, i64 noundef 1, ptr noundef nonnull %340, i64 noundef %342) #30
+  %344 = tail call ptr @zend_string_concat3(ptr noundef nonnull %337, i64 noundef %339, ptr noundef nonnull @.str.58, i64 noundef 1, ptr noundef nonnull %340, i64 noundef %342) #28
   %345 = load i32, ptr %343, align 4
   %346 = and i32 %345, 64
   %.not.i155 = icmp eq i32 %346, 0
@@ -2410,11 +2410,11 @@ add_type_string.exit154:                          ; preds = %322, %321, %314, %3
   br i1 %.not39.i157, label %355, label %354
 
 354:                                              ; preds = %352
-  tail call void @free(ptr noundef nonnull %.8) #30
+  tail call void @free(ptr noundef nonnull %.8) #28
   br label %add_type_string.exit159
 
 355:                                              ; preds = %352
-  tail call void @_efree(ptr noundef nonnull %.8) #30
+  tail call void @_efree(ptr noundef nonnull %.8) #28
   br label %add_type_string.exit159
 
 add_type_string.exit159:                          ; preds = %355, %354, %347, %336, %333, %329, %add_type_string.exit154
@@ -2451,7 +2451,7 @@ add_type_string.exit159:                          ; preds = %355, %354, %347, %3
   %375 = getelementptr inbounds i8, ptr %361, i64 16
   %376 = load i64, ptr %375, align 8
   %377 = getelementptr inbounds i8, ptr %.9, i64 4
-  %378 = tail call ptr @zend_string_concat3(ptr noundef nonnull %371, i64 noundef %373, ptr noundef nonnull @.str.58, i64 noundef 1, ptr noundef nonnull %374, i64 noundef %376) #30
+  %378 = tail call ptr @zend_string_concat3(ptr noundef nonnull %371, i64 noundef %373, ptr noundef nonnull @.str.58, i64 noundef 1, ptr noundef nonnull %374, i64 noundef %376) #28
   %379 = load i32, ptr %377, align 4
   %380 = and i32 %379, 64
   %.not.i160 = icmp eq i32 %380, 0
@@ -2472,11 +2472,11 @@ add_type_string.exit159:                          ; preds = %355, %354, %347, %3
   br i1 %.not39.i162, label %389, label %388
 
 388:                                              ; preds = %386
-  tail call void @free(ptr noundef nonnull %.9) #30
+  tail call void @free(ptr noundef nonnull %.9) #28
   br label %add_type_string.exit164
 
 389:                                              ; preds = %386
-  tail call void @_efree(ptr noundef nonnull %.9) #30
+  tail call void @_efree(ptr noundef nonnull %.9) #28
   br label %add_type_string.exit164
 
 390:                                              ; preds = %add_type_string.exit159
@@ -2512,7 +2512,7 @@ add_type_string.exit159:                          ; preds = %355, %354, %347, %3
   %409 = getelementptr inbounds i8, ptr %395, i64 16
   %410 = load i64, ptr %409, align 8
   %411 = getelementptr inbounds i8, ptr %.9, i64 4
-  %412 = tail call ptr @zend_string_concat3(ptr noundef nonnull %405, i64 noundef %407, ptr noundef nonnull @.str.58, i64 noundef 1, ptr noundef nonnull %408, i64 noundef %410) #30
+  %412 = tail call ptr @zend_string_concat3(ptr noundef nonnull %405, i64 noundef %407, ptr noundef nonnull @.str.58, i64 noundef 1, ptr noundef nonnull %408, i64 noundef %410) #28
   %413 = load i32, ptr %411, align 4
   %414 = and i32 %413, 64
   %.not.i165 = icmp eq i32 %414, 0
@@ -2533,11 +2533,11 @@ add_type_string.exit159:                          ; preds = %355, %354, %347, %3
   br i1 %.not39.i167, label %423, label %422
 
 422:                                              ; preds = %420
-  tail call void @free(ptr noundef nonnull %.9) #30
+  tail call void @free(ptr noundef nonnull %.9) #28
   br label %add_type_string.exit164
 
 423:                                              ; preds = %420
-  tail call void @_efree(ptr noundef nonnull %.9) #30
+  tail call void @_efree(ptr noundef nonnull %.9) #28
   br label %add_type_string.exit164
 
 424:                                              ; preds = %390
@@ -2573,7 +2573,7 @@ add_type_string.exit159:                          ; preds = %355, %354, %347, %3
   %443 = getelementptr inbounds i8, ptr %429, i64 16
   %444 = load i64, ptr %443, align 8
   %445 = getelementptr inbounds i8, ptr %.9, i64 4
-  %446 = tail call ptr @zend_string_concat3(ptr noundef nonnull %439, i64 noundef %441, ptr noundef nonnull @.str.58, i64 noundef 1, ptr noundef nonnull %442, i64 noundef %444) #30
+  %446 = tail call ptr @zend_string_concat3(ptr noundef nonnull %439, i64 noundef %441, ptr noundef nonnull @.str.58, i64 noundef 1, ptr noundef nonnull %442, i64 noundef %444) #28
   %447 = load i32, ptr %445, align 4
   %448 = and i32 %447, 64
   %.not.i170 = icmp eq i32 %448, 0
@@ -2594,11 +2594,11 @@ add_type_string.exit159:                          ; preds = %355, %354, %347, %3
   br i1 %.not39.i172, label %457, label %456
 
 456:                                              ; preds = %454
-  tail call void @free(ptr noundef nonnull %.9) #30
+  tail call void @free(ptr noundef nonnull %.9) #28
   br label %add_type_string.exit164
 
 457:                                              ; preds = %454
-  tail call void @_efree(ptr noundef nonnull %.9) #30
+  tail call void @_efree(ptr noundef nonnull %.9) #28
   br label %add_type_string.exit164
 
 add_type_string.exit164:                          ; preds = %457, %456, %449, %438, %435, %431, %423, %422, %415, %404, %401, %397, %389, %388, %381, %370, %367, %363, %424
@@ -2635,7 +2635,7 @@ add_type_string.exit164:                          ; preds = %457, %456, %449, %4
   %476 = getelementptr inbounds i8, ptr %462, i64 16
   %477 = load i64, ptr %476, align 8
   %478 = getelementptr inbounds i8, ptr %.10, i64 4
-  %479 = tail call ptr @zend_string_concat3(ptr noundef nonnull %472, i64 noundef %474, ptr noundef nonnull @.str.58, i64 noundef 1, ptr noundef nonnull %475, i64 noundef %477) #30
+  %479 = tail call ptr @zend_string_concat3(ptr noundef nonnull %472, i64 noundef %474, ptr noundef nonnull @.str.58, i64 noundef 1, ptr noundef nonnull %475, i64 noundef %477) #28
   %480 = load i32, ptr %478, align 4
   %481 = and i32 %480, 64
   %.not.i175 = icmp eq i32 %481, 0
@@ -2656,11 +2656,11 @@ add_type_string.exit164:                          ; preds = %457, %456, %449, %4
   br i1 %.not39.i177, label %490, label %489
 
 489:                                              ; preds = %487
-  tail call void @free(ptr noundef nonnull %.10) #30
+  tail call void @free(ptr noundef nonnull %.10) #28
   br label %add_type_string.exit179
 
 490:                                              ; preds = %487
-  tail call void @_efree(ptr noundef nonnull %.10) #30
+  tail call void @_efree(ptr noundef nonnull %.10) #28
   br label %add_type_string.exit179
 
 add_type_string.exit179:                          ; preds = %490, %489, %482, %471, %468, %464, %add_type_string.exit164
@@ -2697,7 +2697,7 @@ add_type_string.exit179:                          ; preds = %490, %489, %482, %4
   %509 = getelementptr inbounds i8, ptr %495, i64 16
   %510 = load i64, ptr %509, align 8
   %511 = getelementptr inbounds i8, ptr %.11, i64 4
-  %512 = tail call ptr @zend_string_concat3(ptr noundef nonnull %505, i64 noundef %507, ptr noundef nonnull @.str.58, i64 noundef 1, ptr noundef nonnull %508, i64 noundef %510) #30
+  %512 = tail call ptr @zend_string_concat3(ptr noundef nonnull %505, i64 noundef %507, ptr noundef nonnull @.str.58, i64 noundef 1, ptr noundef nonnull %508, i64 noundef %510) #28
   %513 = load i32, ptr %511, align 4
   %514 = and i32 %513, 64
   %.not.i180 = icmp eq i32 %514, 0
@@ -2718,11 +2718,11 @@ add_type_string.exit179:                          ; preds = %490, %489, %482, %4
   br i1 %.not39.i182, label %523, label %522
 
 522:                                              ; preds = %520
-  tail call void @free(ptr noundef nonnull %.11) #30
+  tail call void @free(ptr noundef nonnull %.11) #28
   br label %add_type_string.exit184
 
 523:                                              ; preds = %520
-  tail call void @_efree(ptr noundef nonnull %.11) #30
+  tail call void @_efree(ptr noundef nonnull %.11) #28
   br label %add_type_string.exit184
 
 add_type_string.exit184:                          ; preds = %523, %522, %515, %504, %501, %497, %add_type_string.exit179
@@ -2739,15 +2739,15 @@ add_type_string.exit184:                          ; preds = %523, %522, %515, %5
   %527 = getelementptr inbounds i8, ptr %.12, i64 24
   %528 = getelementptr inbounds i8, ptr %.12, i64 16
   %529 = load i64, ptr %528, align 8
-  %530 = tail call ptr @memchr(ptr noundef nonnull %527, i32 noundef 124, i64 noundef %529) #29
+  %530 = tail call ptr @memchr(ptr noundef nonnull %527, i32 noundef 124, i64 noundef %529) #27
   %531 = icmp ne ptr %530, null
-  %532 = tail call ptr @memchr(ptr noundef nonnull %527, i32 noundef 38, i64 noundef %529) #29
+  %532 = tail call ptr @memchr(ptr noundef nonnull %527, i32 noundef 38, i64 noundef %529) #27
   %533 = icmp ne ptr %532, null
   %brmerge = select i1 %531, i1 true, i1 %533
   br i1 %brmerge, label %558, label %534
 
 534:                                              ; preds = %526
-  %535 = tail call ptr @zend_string_concat2(ptr noundef nonnull @.str.18, i64 noundef 1, ptr noundef nonnull %527, i64 noundef %529) #30
+  %535 = tail call ptr @zend_string_concat2(ptr noundef nonnull @.str.18, i64 noundef 1, ptr noundef nonnull %527, i64 noundef %529) #28
   %536 = getelementptr inbounds i8, ptr %.12, i64 4
   %537 = load i32, ptr %536, align 4
   %538 = and i32 %537, 64
@@ -2769,11 +2769,11 @@ add_type_string.exit184:                          ; preds = %523, %522, %515, %5
   br i1 %.not119, label %547, label %546
 
 546:                                              ; preds = %544
-  tail call void @free(ptr noundef nonnull %.12) #30
+  tail call void @free(ptr noundef nonnull %.12) #28
   br label %add_type_string.exit124
 
 547:                                              ; preds = %544
-  tail call void @_efree(ptr noundef nonnull %.12) #30
+  tail call void @_efree(ptr noundef nonnull %.12) #28
   br label %add_type_string.exit124
 
 548:                                              ; preds = %525
@@ -2800,7 +2800,7 @@ add_type_string.exit184:                          ; preds = %523, %522, %515, %5
   %563 = getelementptr inbounds i8, ptr %561, i64 16
   %564 = load i64, ptr %563, align 8
   %565 = getelementptr inbounds i8, ptr %.12, i64 4
-  %566 = tail call ptr @zend_string_concat3(ptr noundef nonnull %527, i64 noundef %529, ptr noundef nonnull @.str.58, i64 noundef 1, ptr noundef nonnull %562, i64 noundef %564) #30
+  %566 = tail call ptr @zend_string_concat3(ptr noundef nonnull %527, i64 noundef %529, ptr noundef nonnull @.str.58, i64 noundef 1, ptr noundef nonnull %562, i64 noundef %564) #28
   %567 = load i32, ptr %565, align 4
   %568 = and i32 %567, 64
   %.not.i185 = icmp eq i32 %568, 0
@@ -2821,11 +2821,11 @@ add_type_string.exit184:                          ; preds = %523, %522, %515, %5
   br i1 %.not39.i187, label %577, label %576
 
 576:                                              ; preds = %574
-  tail call void @free(ptr noundef nonnull %.12) #30
+  tail call void @free(ptr noundef nonnull %.12) #28
   br label %add_type_string.exit124
 
 577:                                              ; preds = %574
-  tail call void @_efree(ptr noundef nonnull %.12) #30
+  tail call void @_efree(ptr noundef nonnull %.12) #28
   br label %add_type_string.exit124
 
 add_type_string.exit124:                          ; preds = %577, %576, %569, %558, %555, %548, %113, %112, %105, %94, %91, %86, %add_type_string.exit184, %534, %546, %547, %539
@@ -2884,7 +2884,7 @@ define internal fastcc ptr @add_intersection_type(ptr noundef %0, ptr noundef re
   %27 = getelementptr inbounds i8, ptr %13, i64 16
   %28 = load i64, ptr %27, align 8
   %29 = getelementptr inbounds i8, ptr %.062, i64 4
-  %30 = tail call ptr @zend_string_concat3(ptr noundef nonnull %23, i64 noundef %25, ptr noundef nonnull @.str.57, i64 noundef 1, ptr noundef nonnull %26, i64 noundef %28) #30
+  %30 = tail call ptr @zend_string_concat3(ptr noundef nonnull %23, i64 noundef %25, ptr noundef nonnull @.str.57, i64 noundef 1, ptr noundef nonnull %26, i64 noundef %28) #28
   %31 = load i32, ptr %29, align 4
   %32 = and i32 %31, 64
   %.not40.i = icmp eq i32 %32, 0
@@ -2905,11 +2905,11 @@ define internal fastcc ptr @add_intersection_type(ptr noundef %0, ptr noundef re
   br i1 %.not41.i, label %41, label %40
 
 40:                                               ; preds = %38
-  tail call void @free(ptr noundef nonnull %.062) #30
+  tail call void @free(ptr noundef nonnull %.062) #28
   br label %add_type_string.exit
 
 41:                                               ; preds = %38
-  tail call void @_efree(ptr noundef nonnull %.062) #30
+  tail call void @_efree(ptr noundef nonnull %.062) #28
   br label %add_type_string.exit
 
 add_type_string.exit:                             ; preds = %15, %19, %22, %33, %40, %41
@@ -2935,11 +2935,11 @@ add_type_string.exit:                             ; preds = %15, %19, %22, %33, 
   br i1 %.not57, label %53, label %52
 
 52:                                               ; preds = %50
-  tail call void @free(ptr noundef nonnull %13) #30
+  tail call void @free(ptr noundef nonnull %13) #28
   br label %54
 
 53:                                               ; preds = %50
-  tail call void @_efree(ptr noundef nonnull %13) #30
+  tail call void @_efree(ptr noundef nonnull %13) #28
   br label %54
 
 54:                                               ; preds = %add_type_string.exit, %52, %53, %45
@@ -2957,7 +2957,7 @@ add_type_string.exit:                             ; preds = %15, %19, %22, %33, 
   %59 = getelementptr inbounds i8, ptr %.0.lcssa, i64 24
   %60 = getelementptr inbounds i8, ptr %.0.lcssa, i64 16
   %61 = load i64, ptr %60, align 8
-  %62 = tail call ptr @zend_string_concat3(ptr noundef nonnull @.str.54, i64 noundef 1, ptr noundef nonnull %59, i64 noundef %61, ptr noundef nonnull @.str.55, i64 noundef 1) #30
+  %62 = tail call ptr @zend_string_concat3(ptr noundef nonnull @.str.54, i64 noundef 1, ptr noundef nonnull %59, i64 noundef %61, ptr noundef nonnull @.str.55, i64 noundef 1) #28
   %63 = getelementptr inbounds i8, ptr %.0.lcssa, i64 4
   %64 = load i32, ptr %63, align 4
   %65 = and i32 %64, 64
@@ -2979,11 +2979,11 @@ add_type_string.exit:                             ; preds = %15, %19, %22, %33, 
   br i1 %.not52, label %74, label %73
 
 73:                                               ; preds = %71
-  tail call void @free(ptr noundef nonnull %.0.lcssa) #30
+  tail call void @free(ptr noundef nonnull %.0.lcssa) #28
   br label %75
 
 74:                                               ; preds = %71
-  tail call void @_efree(ptr noundef nonnull %.0.lcssa) #30
+  tail call void @_efree(ptr noundef nonnull %.0.lcssa) #28
   br label %75
 
 75:                                               ; preds = %58, %73, %74, %66, %._crit_edge
@@ -3012,7 +3012,7 @@ add_type_string.exit:                             ; preds = %15, %19, %22, %33, 
   %89 = getelementptr inbounds i8, ptr %.1, i64 16
   %90 = load i64, ptr %89, align 8
   %91 = getelementptr inbounds i8, ptr %0, i64 4
-  %92 = tail call ptr @zend_string_concat3(ptr noundef nonnull %85, i64 noundef %87, ptr noundef nonnull @.str.58, i64 noundef 1, ptr noundef nonnull %88, i64 noundef %90) #30
+  %92 = tail call ptr @zend_string_concat3(ptr noundef nonnull %85, i64 noundef %87, ptr noundef nonnull @.str.58, i64 noundef 1, ptr noundef nonnull %88, i64 noundef %90) #28
   %93 = load i32, ptr %91, align 4
   %94 = and i32 %93, 64
   %.not.i = icmp eq i32 %94, 0
@@ -3033,11 +3033,11 @@ add_type_string.exit:                             ; preds = %15, %19, %22, %33, 
   br i1 %.not39.i, label %103, label %102
 
 102:                                              ; preds = %100
-  tail call void @free(ptr noundef nonnull %0) #30
+  tail call void @free(ptr noundef nonnull %0) #28
   br label %add_type_string.exit60
 
 103:                                              ; preds = %100
-  tail call void @_efree(ptr noundef nonnull %0) #30
+  tail call void @_efree(ptr noundef nonnull %0) #28
   br label %add_type_string.exit60
 
 add_type_string.exit60:                           ; preds = %77, %81, %84, %95, %102, %103
@@ -3063,11 +3063,11 @@ add_type_string.exit60:                           ; preds = %77, %81, %84, %95, 
   br i1 %.not54, label %115, label %114
 
 114:                                              ; preds = %112
-  tail call void @free(ptr noundef nonnull %.1) #30
+  tail call void @free(ptr noundef nonnull %.1) #28
   br label %116
 
 115:                                              ; preds = %112
-  tail call void @_efree(ptr noundef nonnull %.1) #30
+  tail call void @_efree(ptr noundef nonnull %.1) #28
   br label %116
 
 116:                                              ; preds = %107, %115, %114, %add_type_string.exit60
@@ -3087,7 +3087,7 @@ define internal fastcc ptr @resolve_class_name(ptr noundef %0, ptr noundef reado
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 24
-  %10 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %9, i64 noundef 4, ptr noundef nonnull @.str.21, i64 noundef 4) #30
+  %10 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %9, i64 noundef 4, ptr noundef nonnull @.str.21, i64 noundef 4) #28
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %.sink.split, label %thread-pre-split
 
@@ -3102,7 +3102,7 @@ thread-pre-split:                                 ; preds = %8
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds i8, ptr %0, i64 24
-  %16 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %15, i64 noundef 6, ptr noundef nonnull @.str.22, i64 noundef 6) #30
+  %16 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %15, i64 noundef 6, ptr noundef nonnull @.str.22, i64 noundef 6) #28
   %.not83 = icmp eq i32 %16, 0
   br i1 %.not83, label %17, label %22
 
@@ -3121,7 +3121,7 @@ thread-pre-split:                                 ; preds = %8
 22:                                               ; preds = %.sink.split, %17, %14, %11, %2
   %.076 = phi ptr [ %0, %14 ], [ %0, %17 ], [ %0, %11 ], [ %0, %2 ], [ %21, %.sink.split ]
   %23 = getelementptr inbounds i8, ptr %.076, i64 24
-  %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #29
+  %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #27
   %25 = getelementptr inbounds i8, ptr %.076, i64 16
   %26 = load i64, ptr %25, align 8
   %.not85 = icmp eq i64 %24, %26
@@ -3131,7 +3131,7 @@ thread-pre-split:                                 ; preds = %8
   tail call void @llvm.assume(i1 %3)
   %28 = and i64 %24, -8
   %29 = add i64 %28, 32
-  %30 = tail call noalias ptr @_emalloc(i64 noundef %29) #32
+  %30 = tail call noalias ptr @_emalloc(i64 noundef %29) #30
   store i32 1, ptr %30, align 4
   %31 = getelementptr inbounds i8, ptr %30, i64 4
   store i32 22, ptr %31, align 4
@@ -3185,11 +3185,11 @@ define noalias noundef ptr @zend_mangle_property_name(ptr nocapture noundef read
   br i1 %4, label %10, label %12
 
 10:                                               ; preds = %5
-  %11 = tail call noalias ptr @__zend_malloc(i64 noundef %9) #32
+  %11 = tail call noalias ptr @__zend_malloc(i64 noundef %9) #30
   br label %14
 
 12:                                               ; preds = %5
-  %13 = tail call noalias ptr @_emalloc(i64 noundef %9) #32
+  %13 = tail call noalias ptr @_emalloc(i64 noundef %9) #30
   br label %14
 
 14:                                               ; preds = %12, %10
@@ -3249,7 +3249,7 @@ define range(i32 -1, 1) i32 @zend_unmangle_property_name_ex(ptr noundef %0, ptr 
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %16, %14
-  tail call void (i32, ptr, ...) @zend_error(i32 noundef 8, ptr noundef nonnull @.str.19) #30
+  tail call void (i32, ptr, ...) @zend_error(i32 noundef 8, ptr noundef nonnull @.str.19) #28
   store ptr %8, ptr %2, align 8
   %.not58 = icmp eq ptr %3, null
   br i1 %.not58, label %48, label %21
@@ -3260,7 +3260,7 @@ define range(i32 -1, 1) i32 @zend_unmangle_property_name_ex(ptr noundef %0, ptr 
 
 23:                                               ; preds = %16
   %24 = add i64 %6, -2
-  %25 = tail call i64 @strnlen(ptr noundef nonnull %17, i64 noundef %24) #29
+  %25 = tail call i64 @strnlen(ptr noundef nonnull %17, i64 noundef %24) #27
   %.not53 = icmp ult i64 %25, %24
   br i1 %.not53, label %26, label %30
 
@@ -3272,7 +3272,7 @@ define range(i32 -1, 1) i32 @zend_unmangle_property_name_ex(ptr noundef %0, ptr 
   br i1 %.not54, label %33, label %30
 
 30:                                               ; preds = %26, %23
-  tail call void (i32, ptr, ...) @zend_error(i32 noundef 8, ptr noundef nonnull @.str.20) #30
+  tail call void (i32, ptr, ...) @zend_error(i32 noundef 8, ptr noundef nonnull @.str.20) #28
   store ptr %8, ptr %2, align 8
   %.not57 = icmp eq ptr %3, null
   br i1 %.not57, label %48, label %31
@@ -3288,7 +3288,7 @@ define range(i32 -1, 1) i32 @zend_unmangle_property_name_ex(ptr noundef %0, ptr 
   %36 = load i64, ptr %5, align 8
   %reass.sub = sub i64 %36, %25
   %37 = add i64 %reass.sub, -2
-  %38 = tail call i64 @strnlen(ptr noundef nonnull %35, i64 noundef %37) #29
+  %38 = tail call i64 @strnlen(ptr noundef nonnull %35, i64 noundef %37) #27
   %39 = add nuw i64 %25, 2
   %40 = add i64 %39, %38
   %.not55 = icmp eq i64 %40, %36
@@ -3329,7 +3329,7 @@ define hidden range(i32 0, 4) i32 @zend_get_class_fetch_type(ptr noundef %0) loc
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 24
-  %7 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %6, i64 noundef 4, ptr noundef nonnull @.str.21, i64 noundef 4) #30
+  %7 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %6, i64 noundef 4, ptr noundef nonnull @.str.21, i64 noundef 4) #28
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %27, label %thread-pre-split
 
@@ -3344,7 +3344,7 @@ thread-pre-split:                                 ; preds = %5
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds i8, ptr %0, i64 24
-  %13 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %12, i64 noundef 6, ptr noundef nonnull @.str.22, i64 noundef 6) #30
+  %13 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %12, i64 noundef 6, ptr noundef nonnull @.str.22, i64 noundef 6) #28
   %.not13 = icmp eq i32 %13, 0
   br i1 %.not13, label %27, label %._crit_edge
 
@@ -3365,7 +3365,7 @@ thread-pre-split:                                 ; preds = %5
 22:                                               ; preds = %14
   %23 = getelementptr inbounds i8, ptr %0, i64 24
   %24 = getelementptr inbounds i8, ptr %18, i64 24
-  %25 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %23, i64 noundef %15, ptr noundef nonnull %24, i64 noundef %15) #30
+  %25 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %23, i64 noundef %15, ptr noundef nonnull %24, i64 noundef %15) #28
   %.not14 = icmp eq i32 %25, 0
   br i1 %.not14, label %27, label %26
 
@@ -3382,7 +3382,7 @@ declare i32 @zend_binary_strcasecmp(ptr noundef, i64 noundef, ptr noundef, i64 n
 ; Function Attrs: nounwind uwtable
 define noundef zeroext i1 @zend_is_auto_global_str(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 7), align 8
-  %4 = tail call ptr @zend_hash_str_find(ptr noundef %3, ptr noundef %0, i64 noundef %1) #30
+  %4 = tail call ptr @zend_hash_str_find(ptr noundef %3, ptr noundef %0, i64 noundef %1) #28
   %.not = icmp ne ptr %4, null
   br i1 %.not, label %5, label %16
 
@@ -3397,7 +3397,7 @@ define noundef zeroext i1 @zend_is_auto_global_str(ptr noundef %0, i64 noundef %
   %11 = getelementptr inbounds i8, ptr %6, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %6, align 8
-  %14 = tail call zeroext i1 %12(ptr noundef %13) #30
+  %14 = tail call zeroext i1 %12(ptr noundef %13) #28
   %15 = zext i1 %14 to i8
   store i8 %15, ptr %7, align 1
   br label %16
@@ -3409,7 +3409,7 @@ define noundef zeroext i1 @zend_is_auto_global_str(ptr noundef %0, i64 noundef %
 ; Function Attrs: nounwind uwtable
 define noundef zeroext i1 @zend_is_auto_global(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 7), align 8
-  %3 = tail call ptr @zend_hash_find(ptr noundef %2, ptr noundef %0) #30
+  %3 = tail call ptr @zend_hash_find(ptr noundef %2, ptr noundef %0) #28
   %.not = icmp ne ptr %3, null
   br i1 %.not, label %4, label %15
 
@@ -3424,7 +3424,7 @@ define noundef zeroext i1 @zend_is_auto_global(ptr noundef %0) local_unnamed_add
   %10 = getelementptr inbounds i8, ptr %5, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %5, align 8
-  %13 = tail call zeroext i1 %11(ptr noundef %12) #30
+  %13 = tail call zeroext i1 %11(ptr noundef %12) #28
   %14 = zext i1 %13 to i8
   store i8 %14, ptr %6, align 1
   br label %15
@@ -3441,7 +3441,7 @@ define range(i32 -1, 1) i32 @zend_register_auto_global(ptr noundef %0, i1 nounde
   store ptr null, ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 13, ptr %7, align 8
-  %8 = call ptr @zend_hash_add(ptr noundef %6, ptr noundef %0, ptr noundef nonnull %4) #30
+  %8 = call ptr @zend_hash_add(ptr noundef %6, ptr noundef %0, ptr noundef nonnull %4) #28
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %19, label %9
 
@@ -3453,11 +3453,11 @@ define range(i32 -1, 1) i32 @zend_register_auto_global(ptr noundef %0, i1 nounde
   br i1 %.not50, label %15, label %13
 
 13:                                               ; preds = %9
-  %14 = call noalias dereferenceable_or_null(24) ptr @__zend_malloc(i64 noundef 24) #32
+  %14 = call noalias dereferenceable_or_null(24) ptr @__zend_malloc(i64 noundef 24) #30
   br label %17
 
 15:                                               ; preds = %9
-  %16 = call noalias ptr @_emalloc_24() #30
+  %16 = call noalias ptr @_emalloc_24() #28
   br label %17
 
 17:                                               ; preds = %15, %13
@@ -3519,7 +3519,7 @@ define void @zend_activate_auto_globals() local_unnamed_addr #0 {
 
 24:                                               ; preds = %21
   %25 = load ptr, ptr %15, align 8
-  %26 = tail call zeroext i1 %23(ptr noundef %25) #30
+  %26 = tail call zeroext i1 %23(ptr noundef %25) #28
   %27 = getelementptr inbounds i8, ptr %15, i64 17
   %28 = zext i1 %26 to i8
   store i8 %28, ptr %27, align 1
@@ -3554,7 +3554,7 @@ define hidden i32 @zendlex(ptr noundef %0) local_unnamed_addr #0 {
   br label %8
 
 8:                                                ; preds = %5, %1
-  %9 = call i32 @lex_scan(ptr noundef nonnull %2, ptr noundef %0) #30
+  %9 = call i32 @lex_scan(ptr noundef nonnull %2, ptr noundef %0) #28
   %10 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
   %.not = icmp eq ptr %10, null
   %11 = icmp eq i32 %9, 406
@@ -3581,11 +3581,11 @@ define void @zend_initialize_class_data(ptr noundef %0, i1 noundef zeroext %1) l
   %9 = getelementptr inbounds i8, ptr %0, i64 40
   %10 = getelementptr inbounds i8, ptr %0, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
-  tail call void @_zend_hash_init(ptr noundef nonnull %10, i32 noundef 8, ptr noundef null, i1 noundef zeroext %4) #30
+  tail call void @_zend_hash_init(ptr noundef nonnull %10, i32 noundef 8, ptr noundef null, i1 noundef zeroext %4) #28
   %11 = getelementptr inbounds i8, ptr %0, i64 176
-  tail call void @_zend_hash_init(ptr noundef nonnull %11, i32 noundef 8, ptr noundef null, i1 noundef zeroext %4) #30
+  tail call void @_zend_hash_init(ptr noundef nonnull %11, i32 noundef 8, ptr noundef null, i1 noundef zeroext %4) #28
   %12 = getelementptr inbounds i8, ptr %0, i64 64
-  tail call void @_zend_hash_init(ptr noundef nonnull %12, i32 noundef 8, ptr noundef nonnull @zend_function_dtor, i1 noundef zeroext %4) #30
+  tail call void @_zend_hash_init(ptr noundef nonnull %12, i32 noundef 8, ptr noundef nonnull @zend_function_dtor, i1 noundef zeroext %4) #28
   %13 = getelementptr inbounds i8, ptr %0, i64 488
   store ptr null, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 56
@@ -3676,7 +3676,7 @@ define hidden noundef ptr @zend_ast_append_str(ptr noundef returned %0, ptr noca
 24:                                               ; preds = %21
   %25 = add i64 %15, 33
   %26 = and i64 %25, -8
-  %27 = tail call ptr @_erealloc(ptr noundef nonnull %6, i64 noundef %26) #34
+  %27 = tail call ptr @_erealloc(ptr noundef nonnull %6, i64 noundef %26) #32
   %28 = getelementptr inbounds i8, ptr %27, i64 16
   store i64 %16, ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %27, i64 8
@@ -3690,7 +3690,7 @@ define hidden noundef ptr @zend_ast_append_str(ptr noundef returned %0, ptr noca
 33:                                               ; preds = %21, %2
   %34 = add i64 %15, 33
   %35 = and i64 %34, -8
-  %36 = tail call noalias ptr @_emalloc(i64 noundef %35) #32
+  %36 = tail call noalias ptr @_emalloc(i64 noundef %35) #30
   store i32 1, ptr %36, align 4
   %37 = getelementptr inbounds i8, ptr %36, i64 4
   store i32 22, ptr %37, align 4
@@ -3744,7 +3744,7 @@ define hidden noundef ptr @zend_ast_append_str(ptr noundef returned %0, ptr noca
   br i1 %65, label %66, label %67
 
 66:                                               ; preds = %61
-  tail call void @_efree(ptr noundef nonnull %10) #30
+  tail call void @_efree(ptr noundef nonnull %10) #28
   br label %67
 
 67:                                               ; preds = %50, %66, %61
@@ -3776,7 +3776,7 @@ define hidden noundef ptr @zend_negate_num_string(ptr noundef returned %0) local
   br i1 %10, label %11, label %18
 
 11:                                               ; preds = %8
-  %12 = tail call noalias ptr @_emalloc_32() #30
+  %12 = tail call noalias ptr @_emalloc_32() #28
   store i32 1, ptr %12, align 4
   %13 = getelementptr inbounds i8, ptr %12, i64 4
   store i32 22, ptr %13, align 4
@@ -3822,7 +3822,7 @@ define hidden noundef ptr @zend_negate_num_string(ptr noundef returned %0) local
 34:                                               ; preds = %31
   %35 = add i64 %25, 33
   %36 = and i64 %35, -8
-  %37 = tail call ptr @_erealloc(ptr noundef nonnull %23, i64 noundef %36) #34
+  %37 = tail call ptr @_erealloc(ptr noundef nonnull %23, i64 noundef %36) #32
   %38 = getelementptr inbounds i8, ptr %37, i64 16
   store i64 %26, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %37, i64 8
@@ -3836,7 +3836,7 @@ define hidden noundef ptr @zend_negate_num_string(ptr noundef returned %0) local
 43:                                               ; preds = %31, %21
   %44 = add i64 %25, 33
   %45 = and i64 %44, -8
-  %46 = tail call noalias ptr @_emalloc(i64 noundef %45) #32
+  %46 = tail call noalias ptr @_emalloc(i64 noundef %45) #30
   store i32 1, ptr %46, align 4
   %47 = getelementptr inbounds i8, ptr %46, i64 4
   store i32 22, ptr %47, align 4
@@ -4028,7 +4028,7 @@ define hidden void @zend_emit_final_return(i1 noundef zeroext %0) local_unnamed_
   %22 = load ptr, ptr %21, align 8
   %23 = zext i32 %20 to i64
   %24 = shl nuw nsw i64 %23, 5
-  %25 = tail call ptr @_erealloc(ptr noundef %22, i64 noundef %24) #34
+  %25 = tail call ptr @_erealloc(ptr noundef %22, i64 noundef %24) #32
   store ptr %25, ptr %21, align 8
   br label %zend_emit_op.exit
 
@@ -4109,7 +4109,7 @@ define internal fastcc ptr @zend_emit_op(ptr noundef writeonly %0, i8 noundef ze
   %13 = load ptr, ptr %12, align 8
   %14 = zext i32 %11 to i64
   %15 = shl nuw nsw i64 %14, 5
-  %16 = tail call ptr @_erealloc(ptr noundef %13, i64 noundef %15) #34
+  %16 = tail call ptr @_erealloc(ptr noundef %13, i64 noundef %15) #32
   store ptr %16, ptr %12, align 8
   br label %get_next_op.exit
 
@@ -4174,7 +4174,7 @@ get_next_op.exit:                                 ; preds = %._crit_edge.i, %10
   %44 = load ptr, ptr %43, align 8
   %45 = sext i32 %41 to i64
   %46 = shl nsw i64 %45, 4
-  %47 = tail call ptr @_erealloc(ptr noundef %44, i64 noundef %46) #34
+  %47 = tail call ptr @_erealloc(ptr noundef %44, i64 noundef %46) #32
   store ptr %47, ptr %43, align 8
   br label %48
 
@@ -4188,7 +4188,7 @@ get_next_op.exit:                                 ; preds = %._crit_edge.i, %10
 
 52:                                               ; preds = %48
   %53 = load ptr, ptr @zend_new_interned_string, align 8
-  %54 = tail call ptr %53(ptr noundef %.pre.i.i) #30
+  %54 = tail call ptr %53(ptr noundef %.pre.i.i) #28
   store ptr %54, ptr %33, align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 4
   %56 = load i32, ptr %55, align 4
@@ -4260,7 +4260,7 @@ zend_add_literal.exit:                            ; preds = %48, %52, %58
   %83 = load ptr, ptr %82, align 8
   %84 = sext i32 %80 to i64
   %85 = shl nsw i64 %84, 4
-  %86 = tail call ptr @_erealloc(ptr noundef %83, i64 noundef %85) #34
+  %86 = tail call ptr @_erealloc(ptr noundef %83, i64 noundef %85) #32
   store ptr %86, ptr %82, align 8
   br label %87
 
@@ -4274,7 +4274,7 @@ zend_add_literal.exit:                            ; preds = %48, %52, %58
 
 91:                                               ; preds = %87
   %92 = load ptr, ptr @zend_new_interned_string, align 8
-  %93 = tail call ptr %92(ptr noundef %.pre.i.i31) #30
+  %93 = tail call ptr %92(ptr noundef %.pre.i.i31) #28
   store ptr %93, ptr %72, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 4
   %95 = load i32, ptr %94, align 4
@@ -4383,14 +4383,14 @@ define internal fastcc void @zend_emit_return_type_check(ptr noundef %0, ptr noc
   %17 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 1), align 8
   %.not36 = icmp eq ptr %17, null
   %18 = select i1 %.not36, ptr @.str.60, ptr @.str.2
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.59, ptr noundef nonnull %18) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.59, ptr noundef nonnull %18) #29
   unreachable
 
 19:                                               ; preds = %12, %9
   %20 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 1), align 8
   %.not35 = icmp eq ptr %20, null
   %21 = select i1 %.not35, ptr @.str.60, ptr @.str.2
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.61, ptr noundef nonnull %21) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.61, ptr noundef nonnull %21) #29
   unreachable
 
 22:                                               ; preds = %6
@@ -4404,7 +4404,7 @@ define internal fastcc void @zend_emit_return_type_check(ptr noundef %0, ptr noc
   %26 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 1), align 8
   %.not33 = icmp eq ptr %26, null
   %27 = select i1 %.not33, ptr @.str.60, ptr @.str.2
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.62, ptr noundef nonnull %27) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.62, ptr noundef nonnull %27) #29
   unreachable
 
 28:                                               ; preds = %22
@@ -4421,11 +4421,11 @@ define internal fastcc void @zend_emit_return_type_check(ptr noundef %0, ptr noc
   br i1 %.not29, label %34, label %33
 
 33:                                               ; preds = %29
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.63, ptr noundef nonnull %32) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.63, ptr noundef nonnull %32) #29
   unreachable
 
 34:                                               ; preds = %29
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.64, ptr noundef nonnull %32) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.64, ptr noundef nonnull %32) #29
   unreachable
 
 35:                                               ; preds = %28
@@ -4658,7 +4658,7 @@ define hidden void @zend_resolve_goto_label(ptr noundef %0, ptr noundef %1) loca
 
 20:                                               ; preds = %2
   %21 = load ptr, ptr %17, align 8
-  %22 = tail call ptr @zend_hash_find(ptr noundef nonnull %18, ptr noundef %21) #30
+  %22 = tail call ptr @zend_hash_find(ptr noundef nonnull %18, ptr noundef %21) #28
   %.not = icmp eq ptr %22, null
   br i1 %.not, label %.thread, label %27
 
@@ -4670,7 +4670,7 @@ define hidden void @zend_resolve_goto_label(ptr noundef %0, ptr noundef %1) loca
   store i32 %24, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
   %25 = load ptr, ptr %17, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 24
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.24, ptr noundef nonnull %26) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.24, ptr noundef nonnull %26) #29
   unreachable
 
 27:                                               ; preds = %20
@@ -4693,7 +4693,7 @@ define hidden void @zend_resolve_goto_label(ptr noundef %0, ptr noundef %1) loca
 
 37:                                               ; preds = %32
   %38 = load ptr, ptr %17, align 8
-  tail call void @_efree(ptr noundef %38) #30
+  tail call void @_efree(ptr noundef %38) #28
   br label %39
 
 39:                                               ; preds = %27, %32, %37
@@ -4734,7 +4734,7 @@ define hidden void @zend_resolve_goto_label(ptr noundef %0, ptr noundef %1) loca
   %52 = getelementptr inbounds i8, ptr %1, i64 24
   %53 = load i32, ptr %52, align 8
   store i32 %53, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.25) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.25) #29
   unreachable
 
 54:                                               ; preds = %49
@@ -4825,7 +4825,7 @@ define hidden void @zend_resolve_goto_label(ptr noundef %0, ptr noundef %1) loca
   store i8 0, ptr %93, align 1
   %94 = getelementptr inbounds i8, ptr %.068100, i64 -16
   store i32 -1, ptr %94, align 8
-  tail call void @zend_vm_set_opcode_handler(ptr noundef nonnull %87) #30
+  tail call void @zend_vm_set_opcode_handler(ptr noundef nonnull %87) #28
   %.not82 = icmp eq i32 %86, 0
   br i1 %.not82, label %._crit_edge103, label %.lr.ph102
 
@@ -4866,7 +4866,7 @@ define hidden noundef zeroext i1 @zend_handle_encoding_declaration(ptr nocapture
 
 20:                                               ; preds = %6
   %21 = getelementptr inbounds i8, ptr %16, i64 24
-  %22 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %21, i64 noundef 8, ptr noundef nonnull @.str.26, i64 noundef 8) #30
+  %22 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %21, i64 noundef 8, ptr noundef nonnull @.str.26, i64 noundef 8) #28
   %.not = icmp eq i32 %22, 0
   br i1 %.not, label %23, label %69
 
@@ -4877,7 +4877,7 @@ define hidden noundef zeroext i1 @zend_handle_encoding_declaration(ptr nocapture
 
 25:                                               ; preds = %23
   %26 = load ptr, ptr @zend_ce_compile_error, align 8
-  %27 = tail call ptr @zend_throw_exception(ptr noundef %26, ptr noundef nonnull @.str.27, i64 noundef 0) #30
+  %27 = tail call ptr @zend_throw_exception(ptr noundef %26, ptr noundef nonnull @.str.27, i64 noundef 0) #28
   br label %.loopexit
 
 28:                                               ; preds = %23
@@ -4907,25 +4907,25 @@ define hidden noundef zeroext i1 @zend_handle_encoding_declaration(ptr nocapture
   br label %46
 
 44:                                               ; preds = %31
-  %45 = tail call ptr @zval_get_string_func(ptr noundef nonnull %32) #30
+  %45 = tail call ptr @zval_get_string_func(ptr noundef nonnull %32) #28
   br label %46
 
 46:                                               ; preds = %36, %41, %44
   %47 = phi ptr [ %45, %44 ], [ %37, %41 ], [ %37, %36 ]
   store i8 1, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 30), align 2
   %48 = getelementptr inbounds i8, ptr %47, i64 24
-  %49 = tail call ptr @zend_multibyte_fetch_encoding(ptr noundef nonnull %48) #30
+  %49 = tail call ptr @zend_multibyte_fetch_encoding(ptr noundef nonnull %48) #28
   %.not56 = icmp eq ptr %49, null
   br i1 %.not56, label %50, label %51
 
 50:                                               ; preds = %46
-  tail call void (i32, ptr, ...) @zend_error(i32 noundef 128, ptr noundef nonnull @.str.28, ptr noundef nonnull %48) #30
+  tail call void (i32, ptr, ...) @zend_error(i32 noundef 128, ptr noundef nonnull @.str.28, ptr noundef nonnull %48) #28
   br label %58
 
 51:                                               ; preds = %46
   %52 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 19), align 8
   %53 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 21), align 8
-  %54 = tail call i32 @zend_multibyte_set_filter(ptr noundef nonnull %49) #30
+  %54 = tail call i32 @zend_multibyte_set_filter(ptr noundef nonnull %49) #28
   %55 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 19), align 8
   %.not57 = icmp eq ptr %52, %55
   br i1 %.not57, label %56, label %57
@@ -4937,7 +4937,7 @@ define hidden noundef zeroext i1 @zend_handle_encoding_declaration(ptr nocapture
   br i1 %or.cond, label %58, label %57
 
 57:                                               ; preds = %56, %51
-  tail call void @zend_multibyte_yyinput_again(ptr noundef %52, ptr noundef %53) #30
+  tail call void @zend_multibyte_yyinput_again(ptr noundef %52, ptr noundef %53) #28
   br label %58
 
 58:                                               ; preds = %56, %57, %50
@@ -4957,11 +4957,11 @@ define hidden noundef zeroext i1 @zend_handle_encoding_declaration(ptr nocapture
   br i1 %66, label %67, label %69
 
 67:                                               ; preds = %62
-  tail call void @_efree(ptr noundef nonnull %47) #30
+  tail call void @_efree(ptr noundef nonnull %47) #28
   br label %69
 
 68:                                               ; preds = %28
-  tail call void (i32, ptr, ...) @zend_error(i32 noundef 128, ptr noundef nonnull @.str.29) #30
+  tail call void (i32, ptr, ...) @zend_error(i32 noundef 128, ptr noundef nonnull @.str.29) #28
   br label %69
 
 69:                                               ; preds = %6, %20, %58, %67, %62, %68
@@ -5088,7 +5088,7 @@ define noundef zeroext i1 @zend_is_op_long_compatible(ptr nocapture noundef read
   br i1 %or.cond, label %12, label %14
 
 12:                                               ; preds = %9
-  %13 = tail call i64 @zend_dval_to_lval_slow(double noundef %6) #30
+  %13 = tail call i64 @zend_dval_to_lval_slow(double noundef %6) #28
   br label %16
 
 14:                                               ; preds = %9
@@ -5113,7 +5113,7 @@ thread-pre-split:                                 ; preds = %16
 22:                                               ; preds = %19
   store double 0.000000e+00, ptr %2, align 8
   %23 = load ptr, ptr %0, align 8
-  %24 = call zeroext i8 @is_numeric_str_function(ptr noundef %23, ptr noundef null, ptr noundef nonnull %2) #30
+  %24 = call zeroext i8 @is_numeric_str_function(ptr noundef %23, ptr noundef null, ptr noundef nonnull %2) #28
   switch i8 %24, label %39 [
     i8 0, label %40
     i8 5, label %25
@@ -5132,7 +5132,7 @@ thread-pre-split:                                 ; preds = %16
   br i1 %or.cond3, label %32, label %34
 
 32:                                               ; preds = %29
-  %33 = call i64 @zend_dval_to_lval_slow(double noundef %26) #30
+  %33 = call i64 @zend_dval_to_lval_slow(double noundef %26) #28
   br label %36
 
 34:                                               ; preds = %29
@@ -5236,7 +5236,7 @@ define zeroext i1 @zend_binary_op_produces_error(i32 noundef %0, ptr nocapture n
 38:                                               ; preds = %33
   %39 = getelementptr inbounds i8, ptr %34, i64 16
   %40 = load i64, ptr %39, align 8
-  %41 = tail call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %35, i64 noundef %40, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null, ptr noundef null) #30
+  %41 = tail call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %35, i64 noundef %40, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null, ptr noundef null) #28
   %42 = icmp eq i8 %41, 0
   br i1 %42, label %.critedge, label %._crit_edge
 
@@ -5259,7 +5259,7 @@ define zeroext i1 @zend_binary_op_produces_error(i32 noundef %0, ptr nocapture n
 51:                                               ; preds = %46
   %52 = getelementptr inbounds i8, ptr %47, i64 16
   %53 = load i64, ptr %52, align 8
-  %54 = tail call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %48, i64 noundef %53, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null, ptr noundef null) #30
+  %54 = tail call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %48, i64 noundef %53, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null, ptr noundef null) #28
   %55 = icmp eq i8 %54, 0
   br i1 %55, label %.critedge, label %56
 
@@ -5279,7 +5279,7 @@ define zeroext i1 @zend_binary_op_produces_error(i32 noundef %0, ptr nocapture n
   br label %64
 
 62:                                               ; preds = %57
-  %63 = tail call i64 @zval_get_long_func(ptr noundef nonnull %2, i1 noundef zeroext false) #30
+  %63 = tail call i64 @zval_get_long_func(ptr noundef nonnull %2, i1 noundef zeroext false) #28
   br label %64
 
 64:                                               ; preds = %62, %60
@@ -5297,7 +5297,7 @@ define zeroext i1 @zend_binary_op_produces_error(i32 noundef %0, ptr nocapture n
   br label %74
 
 72:                                               ; preds = %67
-  %73 = tail call double @zval_get_double_func(ptr noundef nonnull %2) #30
+  %73 = tail call double @zval_get_double_func(ptr noundef nonnull %2) #28
   br label %74
 
 74:                                               ; preds = %72, %70
@@ -5323,7 +5323,7 @@ switch.early.test.thread:                         ; preds = %74
   br label %86
 
 84:                                               ; preds = %79
-  %85 = tail call i64 @zval_get_long_func(ptr noundef nonnull %2, i1 noundef zeroext false) #30
+  %85 = tail call i64 @zval_get_long_func(ptr noundef nonnull %2, i1 noundef zeroext false) #28
   br label %86
 
 86:                                               ; preds = %84, %82
@@ -5392,13 +5392,13 @@ define hidden void @zend_const_expr_to_zval(ptr nocapture noundef writeonly %0, 
   br i1 %.not, label %15, label %9
 
 9:                                                ; preds = %3
-  %10 = call ptr @zend_ast_copy(ptr noundef nonnull %7) #30
+  %10 = call ptr @zend_ast_copy(ptr noundef nonnull %7) #28
   store ptr %10, ptr %5, align 8
   %11 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 267, ptr %11, align 8
   %12 = load ptr, ptr %1, align 8
-  call void @zend_ast_destroy(ptr noundef %12) #30
-  %13 = call ptr @zend_ast_create_zval(ptr noundef nonnull %5) #30
+  call void @zend_ast_destroy(ptr noundef %12) #28
+  %13 = call ptr @zend_ast_create_zval(ptr noundef nonnull %5) #28
   store ptr %13, ptr %1, align 8
   %.pre = load i16, ptr %13, align 8
   %14 = icmp eq i16 %.pre, 64
@@ -5460,7 +5460,7 @@ define internal fastcc void @zend_eval_const_expr(ptr nocapture noundef %0) unna
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %12 to i64
   %17 = sub i64 %15, %16
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %17) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %17) #29
   unreachable
 
 zend_check_stack_limit.exit:                      ; preds = %10
@@ -5547,7 +5547,7 @@ zend_check_stack_limit.exit:                      ; preds = %10
   %48 = getelementptr inbounds i8, ptr %43, i64 8
   %49 = icmp eq i16 %46, 522
   %50 = select i1 %49, ptr @is_smaller_function, ptr @is_smaller_or_equal_function
-  %51 = call i32 %50(ptr noundef nonnull %4, ptr noundef nonnull %48, ptr noundef nonnull %47) #30, !callees !5
+  %51 = call i32 %50(ptr noundef nonnull %4, ptr noundef nonnull %48, ptr noundef nonnull %47) #28, !callees !5
   br label %351
 
 52:                                               ; preds = %zend_check_stack_limit.exit, %zend_check_stack_limit.exit
@@ -5562,7 +5562,7 @@ zend_check_stack_limit.exit:                      ; preds = %10
 
 57:                                               ; preds = %52
   %58 = getelementptr inbounds i8, ptr %55, i64 8
-  %59 = tail call i32 @zend_is_true(ptr noundef nonnull %58) #30
+  %59 = tail call i32 @zend_is_true(ptr noundef nonnull %58) #28
   %60 = icmp ne i32 %59, 0
   %61 = load i16, ptr %11, align 8
   %62 = icmp eq i16 %61, 525
@@ -5583,7 +5583,7 @@ zend_check_stack_limit.exit:                      ; preds = %10
 
 70:                                               ; preds = %67
   %71 = getelementptr inbounds i8, ptr %68, i64 8
-  %72 = tail call i32 @zend_is_true(ptr noundef nonnull %71) #30
+  %72 = tail call i32 @zend_is_true(ptr noundef nonnull %71) #28
   %73 = icmp ne i32 %72, 0
   %74 = load i16, ptr %11, align 8
   %75 = icmp eq i16 %74, 525
@@ -5652,7 +5652,7 @@ zend_check_stack_limit.exit:                      ; preds = %10
 110:                                              ; preds = %105
   %111 = getelementptr inbounds i8, ptr %106, i64 16
   %112 = load i64, ptr %111, align 8
-  %113 = tail call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %107, i64 noundef %112, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null, ptr noundef null) #30
+  %113 = tail call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %107, i64 noundef %112, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null, ptr noundef null) #28
   %114 = icmp eq i8 %113, 0
   br i1 %114, label %zend_try_ct_eval_unary_pm.exit.thread, label %zend_try_ct_eval_unary_pm.exit
 
@@ -5661,8 +5661,8 @@ zend_try_ct_eval_unary_pm.exit.thread:            ; preds = %110, %105, %97
   br label %common.ret673
 
 zend_try_ct_eval_unary_pm.exit:                   ; preds = %97, %110
-  %115 = tail call ptr @get_binary_op(i32 noundef 3) #30
-  %116 = call i32 %115(ptr noundef nonnull %4, ptr noundef nonnull %99, ptr noundef nonnull %2) #30
+  %115 = tail call ptr @get_binary_op(i32 noundef 3) #28
+  %116 = call i32 %115(ptr noundef nonnull %4, ptr noundef nonnull %99, ptr noundef nonnull %2) #28
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   br label %351
 
@@ -5709,13 +5709,13 @@ common.ret673:                                    ; preds = %241, %zend_try_ct_e
   %137 = load ptr, ptr %136, align 8
   store ptr %137, ptr %.tr.ph375, align 8
   store ptr null, ptr %136, align 8
-  tail call void @zend_ast_destroy(ptr noundef nonnull %11) #30
+  tail call void @zend_ast_destroy(ptr noundef nonnull %11) #28
   br label %common.ret673
 
 138:                                              ; preds = %131
   store ptr %127, ptr %.tr.ph375, align 8
   store ptr null, ptr %118, align 8
-  tail call void @zend_ast_destroy(ptr noundef nonnull %11) #30
+  tail call void @zend_ast_destroy(ptr noundef nonnull %11) #28
   br label %common.ret673
 
 139:                                              ; preds = %zend_check_stack_limit.exit
@@ -5738,7 +5738,7 @@ common.ret673:                                    ; preds = %241, %zend_try_ct_e
 
 tailrecurse:                                      ; preds = %139
   %147 = getelementptr inbounds i8, ptr %141, i64 8
-  %148 = tail call i32 @zend_is_true(ptr noundef nonnull %147) #30
+  %148 = tail call i32 @zend_is_true(ptr noundef nonnull %147) #28
   %149 = sub nsw i32 2, %148
   %150 = sext i32 %149 to i64
   %151 = getelementptr inbounds [1 x ptr], ptr %140, i64 0, i64 %150
@@ -5748,7 +5748,7 @@ tailrecurse:                                      ; preds = %139
   %spec.select = getelementptr inbounds i8, ptr %151, i64 %spec.select.idx
   %154 = load ptr, ptr %spec.select, align 8
   store ptr null, ptr %spec.select, align 8
-  tail call void @zend_ast_destroy(ptr noundef nonnull %11) #30
+  tail call void @zend_ast_destroy(ptr noundef nonnull %11) #28
   store ptr %154, ptr %.tr.ph375, align 8
   %.not = icmp eq ptr %154, null
   br i1 %.not, label %common.ret673, label %10
@@ -5761,7 +5761,7 @@ tailrecurse:                                      ; preds = %139
   br i1 %159, label %160, label %161
 
 160:                                              ; preds = %155
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.172) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.172) #29
   unreachable
 
 161:                                              ; preds = %155
@@ -5774,7 +5774,7 @@ tailrecurse:                                      ; preds = %139
 165:                                              ; preds = %161
   %166 = and i16 %163, -3
   store i16 %166, ptr %162, align 2
-  tail call void (i32, ptr, ...) @zend_error(i32 noundef 64, ptr noundef nonnull @.str.170) #30
+  tail call void (i32, ptr, ...) @zend_error(i32 noundef 64, ptr noundef nonnull @.str.170) #28
   %.pre = load i16, ptr %162, align 2
   br label %167
 
@@ -5832,7 +5832,7 @@ tailrecurse:                                      ; preds = %139
 192:                                              ; preds = %189
   %193 = load ptr, ptr %185, align 8
   %194 = load i64, ptr %186, align 8
-  %195 = tail call ptr @zend_hash_index_find(ptr noundef %193, i64 noundef %194) #30
+  %195 = tail call ptr @zend_hash_index_find(ptr noundef %193, i64 noundef %194) #28
   %.not298 = icmp eq ptr %195, null
   br i1 %.not298, label %common.ret673, label %196
 
@@ -5879,16 +5879,16 @@ tailrecurse:                                      ; preds = %139
   br i1 %or.cond311, label %.critedge, label %220
 
 220:                                              ; preds = %216, %213
-  %221 = call zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef nonnull %208, i64 noundef %210, ptr noundef nonnull %3) #30
+  %221 = call zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef nonnull %208, i64 noundef %210, ptr noundef nonnull %3) #28
   br i1 %221, label %222, label %.critedge
 
 222:                                              ; preds = %220
   %223 = load i64, ptr %3, align 8
-  %224 = call ptr @zend_hash_index_find(ptr noundef %206, i64 noundef %223) #30
+  %224 = call ptr @zend_hash_index_find(ptr noundef %206, i64 noundef %223) #28
   br label %226
 
 .critedge:                                        ; preds = %205, %215, %216, %220
-  %225 = call ptr @zend_hash_find(ptr noundef %206, ptr noundef nonnull %207) #30
+  %225 = call ptr @zend_hash_find(ptr noundef %206, ptr noundef nonnull %207) #28
   br label %226
 
 226:                                              ; preds = %.critedge, %222
@@ -5937,7 +5937,7 @@ tailrecurse:                                      ; preds = %139
 246:                                              ; preds = %241
   %247 = getelementptr inbounds i8, ptr %242, i64 16
   %248 = load i64, ptr %247, align 8
-  %249 = call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %243, i64 noundef %248, ptr noundef nonnull %5, ptr noundef null, i1 noundef zeroext true, ptr noundef null, ptr noundef null) #30
+  %249 = call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %243, i64 noundef %248, ptr noundef nonnull %5, ptr noundef null, i1 noundef zeroext true, ptr noundef null, ptr noundef null) #28
   %250 = icmp ne i8 %249, 4
   %251 = load i64, ptr %5, align 8
   %252 = icmp slt i64 %251, 0
@@ -6007,7 +6007,7 @@ tailrecurse:                                      ; preds = %139
   br i1 %293, label %294, label %common.ret673
 
 294:                                              ; preds = %289
-  call void @_efree(ptr noundef nonnull %281) #30
+  call void @_efree(ptr noundef nonnull %281) #28
   br label %common.ret673
 
 295:                                              ; preds = %270
@@ -6023,7 +6023,7 @@ tailrecurse:                                      ; preds = %139
   br i1 %300, label %301, label %351
 
 301:                                              ; preds = %296
-  call void @_efree(ptr noundef nonnull %281) #30
+  call void @_efree(ptr noundef nonnull %281) #28
   br label %351
 
 302:                                              ; preds = %zend_check_stack_limit.exit
@@ -6075,7 +6075,7 @@ tailrecurse:                                      ; preds = %139
   br i1 %328, label %329, label %common.ret673
 
 329:                                              ; preds = %324
-  call void @_efree(ptr noundef nonnull %314) #30
+  call void @_efree(ptr noundef nonnull %314) #28
   br label %common.ret673
 
 330:                                              ; preds = %313
@@ -6091,7 +6091,7 @@ tailrecurse:                                      ; preds = %139
   br i1 %335, label %336, label %351
 
 336:                                              ; preds = %331
-  call void @_efree(ptr noundef nonnull %314) #30
+  call void @_efree(ptr noundef nonnull %314) #28
   br label %351
 
 337:                                              ; preds = %zend_check_stack_limit.exit
@@ -6124,8 +6124,8 @@ tailrecurse:                                      ; preds = %139
   br label %tailrecurse.outer.backedge
 
 351:                                              ; preds = %zend_try_ct_eval_unary_pm.exit, %337, %330, %336, %331, %295, %301, %296, %268, %266, %258, %233, %227, %196, %202, %87, %77, %80, %30, %64, %45
-  call void @zend_ast_destroy(ptr noundef nonnull %11) #30
-  %352 = call ptr @zend_ast_create_zval(ptr noundef nonnull %4) #30
+  call void @zend_ast_destroy(ptr noundef nonnull %11) #28
+  %352 = call ptr @zend_ast_create_zval(ptr noundef nonnull %4) #28
   store ptr %352, ptr %.tr.ph375, align 8
   br label %common.ret673
 }
@@ -6169,7 +6169,7 @@ define internal void @zend_compile_const_expr(ptr nocapture noundef %0, ptr noun
   ]
 
 zend_is_allowed_in_const_expr.exit:               ; preds = %7
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.65) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.65) #29
   unreachable
 
 9:                                                ; preds = %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7
@@ -6190,7 +6190,7 @@ zend_is_allowed_in_const_expr.exit:               ; preds = %7
   br i1 %.not.i, label %15, label %14
 
 14:                                               ; preds = %10
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.67) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.67) #29
   unreachable
 
 15:                                               ; preds = %10
@@ -6201,7 +6201,7 @@ zend_is_allowed_in_const_expr.exit:               ; preds = %7
   br i1 %.not39.i, label %21, label %19
 
 19:                                               ; preds = %15
-  tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.68) #30
+  tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.68) #28
   %.pre.i = load i16, ptr %12, align 8
   %20 = icmp eq i16 %.pre.i, 64
   br label %21
@@ -6217,7 +6217,7 @@ zend_is_allowed_in_const_expr.exit:               ; preds = %7
 
 27:                                               ; preds = %21
   %28 = getelementptr inbounds i8, ptr %23, i64 24
-  %29 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %28, i64 noundef 4, ptr noundef nonnull @.str.21, i64 noundef 4) #30
+  %29 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %28, i64 noundef 4, ptr noundef nonnull @.str.21, i64 noundef 4) #28
   %.not.i.i = icmp eq i32 %29, 0
   br i1 %.not.i.i, label %zend_compile_const_expr_class_const.exit, label %thread-pre-split.i.i
 
@@ -6232,7 +6232,7 @@ thread-pre-split.i.i:                             ; preds = %27
 
 33:                                               ; preds = %30
   %34 = getelementptr inbounds i8, ptr %23, i64 24
-  %35 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %34, i64 noundef 6, ptr noundef nonnull @.str.22, i64 noundef 6) #30
+  %35 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %34, i64 noundef 6, ptr noundef nonnull @.str.22, i64 noundef 6) #28
   %.not13.i.i = icmp eq i32 %35, 0
   br i1 %.not13.i.i, label %zend_compile_const_expr_class_const.exit, label %._crit_edge.i.i
 
@@ -6253,12 +6253,12 @@ thread-pre-split.i.i:                             ; preds = %27
 44:                                               ; preds = %36
   %45 = getelementptr inbounds i8, ptr %23, i64 24
   %46 = getelementptr inbounds i8, ptr %40, i64 24
-  %47 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %45, i64 noundef %37, ptr noundef nonnull %46, i64 noundef %37) #30
+  %47 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %45, i64 noundef %37, ptr noundef nonnull %46, i64 noundef %37) #28
   %.not14.i.i = icmp eq i32 %47, 0
   br i1 %.not14.i.i, label %48, label %zend_get_class_fetch_type.exit.i
 
 48:                                               ; preds = %44
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.69) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.69) #29
   unreachable
 
 zend_get_class_fetch_type.exit.i:                 ; preds = %44, %36
@@ -6270,7 +6270,7 @@ zend_get_class_fetch_type.exit.i:                 ; preds = %44, %36
   br i1 %.not.i43.i, label %zend_resolve_class_name_ast.exit.i, label %52
 
 52:                                               ; preds = %zend_get_class_fetch_type.exit.i
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.16) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.16) #29
   unreachable
 
 zend_resolve_class_name_ast.exit.i:               ; preds = %zend_get_class_fetch_type.exit.i
@@ -6295,7 +6295,7 @@ zend_resolve_class_name_ast.exit.i:               ; preds = %zend_get_class_fetc
   br i1 %65, label %66, label %67
 
 66:                                               ; preds = %61
-  tail call void @_efree(ptr noundef nonnull %23) #30
+  tail call void @_efree(ptr noundef nonnull %23) #28
   br label %67
 
 67:                                               ; preds = %66, %61, %zend_resolve_class_name_ast.exit.i
@@ -6331,7 +6331,7 @@ zend_compile_const_expr_class_const.exit:         ; preds = %27, %33, %67, %68
   br i1 %.not.i18, label %83, label %82
 
 82:                                               ; preds = %78
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.70) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.70) #29
   unreachable
 
 83:                                               ; preds = %78
@@ -6344,7 +6344,7 @@ zend_compile_const_expr_class_const.exit:         ; preds = %27, %33, %67, %68
 
 89:                                               ; preds = %83
   %90 = getelementptr inbounds i8, ptr %85, i64 24
-  %91 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %90, i64 noundef 4, ptr noundef nonnull @.str.21, i64 noundef 4) #30
+  %91 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %90, i64 noundef 4, ptr noundef nonnull @.str.21, i64 noundef 4) #28
   %.not.i.i22 = icmp eq i32 %91, 0
   br i1 %.not.i.i22, label %110, label %thread-pre-split.i.i23
 
@@ -6359,7 +6359,7 @@ thread-pre-split.i.i23:                           ; preds = %89
 
 95:                                               ; preds = %92
   %96 = getelementptr inbounds i8, ptr %85, i64 24
-  %97 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %96, i64 noundef 6, ptr noundef nonnull @.str.22, i64 noundef 6) #30
+  %97 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %96, i64 noundef 6, ptr noundef nonnull @.str.22, i64 noundef 6) #28
   %.not13.i.i19 = icmp eq i32 %97, 0
   br i1 %.not13.i.i19, label %110, label %._crit_edge.i.i20
 
@@ -6380,7 +6380,7 @@ thread-pre-split.i.i23:                           ; preds = %89
 106:                                              ; preds = %98
   %107 = getelementptr inbounds i8, ptr %85, i64 24
   %108 = getelementptr inbounds i8, ptr %102, i64 24
-  %109 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %107, i64 noundef %99, ptr noundef nonnull %108, i64 noundef %99) #30
+  %109 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %107, i64 noundef %99, ptr noundef nonnull %108, i64 noundef %99) #28
   br label %123
 
 110:                                              ; preds = %95, %89
@@ -6406,15 +6406,15 @@ thread-pre-split.i.i23:                           ; preds = %89
   br i1 %.not23.i, label %122, label %121
 
 121:                                              ; preds = %119
-  tail call void @free(ptr noundef nonnull %85) #30
+  tail call void @free(ptr noundef nonnull %85) #28
   br label %zend_compile_const_expr_class_name.exit
 
 122:                                              ; preds = %119
-  tail call void @_efree(ptr noundef nonnull %85) #30
+  tail call void @_efree(ptr noundef nonnull %85) #28
   br label %zend_compile_const_expr_class_name.exit
 
 123:                                              ; preds = %106, %98
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.71) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.71) #29
   unreachable
 
 zend_compile_const_expr_class_name.exit:          ; preds = %110, %114, %121, %122
@@ -6463,21 +6463,21 @@ zend_compile_const_expr_class_name.exit:          ; preds = %110, %114, %121, %1
   br i1 %149, label %150, label %151
 
 150:                                              ; preds = %145
-  call void @_efree(ptr noundef nonnull %137) #30
+  call void @_efree(ptr noundef nonnull %137) #28
   br label %151
 
 151:                                              ; preds = %150, %145, %141
-  call void @zend_ast_destroy(ptr noundef nonnull %5) #30
-  %152 = call ptr @zend_ast_create_zval(ptr noundef nonnull %4) #30
+  call void @zend_ast_destroy(ptr noundef nonnull %5) #28
+  %152 = call ptr @zend_ast_create_zval(ptr noundef nonnull %4) #28
   br label %zend_compile_const_expr_const.exit
 
 153:                                              ; preds = %125
-  call void @zend_ast_destroy(ptr noundef nonnull %5) #30
+  call void @zend_ast_destroy(ptr noundef nonnull %5) #28
   %154 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 23, i32 1), align 8
   %155 = icmp eq ptr %154, null
   %.not35.i = select i1 %139, i1 true, i1 %155
   %156 = select i1 %.not35.i, i16 0, i16 2048
-  %157 = call ptr @zend_ast_create_constant(ptr noundef %137, i16 noundef zeroext %156) #30
+  %157 = call ptr @zend_ast_create_constant(ptr noundef %137, i16 noundef zeroext %156) #28
   br label %zend_compile_const_expr_const.exit
 
 zend_compile_const_expr_const.exit:               ; preds = %151, %153
@@ -6492,8 +6492,8 @@ zend_compile_const_expr_const.exit:               ; preds = %151, %153
   %160 = load i16, ptr %159, align 2
   %161 = icmp eq i16 %160, 346
   tail call void @llvm.assume(i1 %161)
-  tail call void @zend_ast_destroy(ptr noundef nonnull %5) #30
-  %162 = tail call ptr @zend_ast_create_0(i16 noundef zeroext 2) #30
+  tail call void @zend_ast_destroy(ptr noundef nonnull %5) #28
+  %162 = tail call ptr @zend_ast_create_0(i16 noundef zeroext 2) #28
   store ptr %162, ptr %0, align 8
   br label %zend_compile_const_expr_args.exit
 
@@ -6503,7 +6503,7 @@ zend_compile_const_expr_const.exit:               ; preds = %151, %153
   br i1 %165, label %167, label %166
 
 166:                                              ; preds = %163
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.66) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.66) #29
   unreachable
 
 167:                                              ; preds = %163
@@ -6516,11 +6516,11 @@ zend_compile_const_expr_const.exit:               ; preds = %151, %153
   ]
 
 170:                                              ; preds = %167
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.72) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.72) #29
   unreachable
 
 171:                                              ; preds = %167
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.73) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.73) #29
   unreachable
 
 172:                                              ; preds = %167
@@ -6530,7 +6530,7 @@ zend_compile_const_expr_const.exit:               ; preds = %151, %153
   br i1 %.not.i.i26, label %zend_resolve_class_name_ast.exit.i27, label %175
 
 175:                                              ; preds = %172
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.16) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.16) #29
   unreachable
 
 zend_resolve_class_name_ast.exit.i27:             ; preds = %172
@@ -6547,7 +6547,7 @@ zend_resolve_class_name_ast.exit.i27:             ; preds = %172
 
 185:                                              ; preds = %zend_resolve_class_name_ast.exit.i27
   %186 = getelementptr inbounds i8, ptr %181, i64 24
-  %187 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %186, i64 noundef 4, ptr noundef nonnull @.str.21, i64 noundef 4) #30
+  %187 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %186, i64 noundef 4, ptr noundef nonnull @.str.21, i64 noundef 4) #28
   %.not.i29.i = icmp eq i32 %187, 0
   br i1 %.not.i29.i, label %206, label %thread-pre-split.i.i34
 
@@ -6562,7 +6562,7 @@ thread-pre-split.i.i34:                           ; preds = %185
 
 191:                                              ; preds = %188
   %192 = getelementptr inbounds i8, ptr %181, i64 24
-  %193 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %192, i64 noundef 6, ptr noundef nonnull @.str.22, i64 noundef 6) #30
+  %193 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %192, i64 noundef 6, ptr noundef nonnull @.str.22, i64 noundef 6) #28
   %.not13.i.i31 = icmp eq i32 %193, 0
   br i1 %.not13.i.i31, label %206, label %._crit_edge.i.i32
 
@@ -6583,12 +6583,12 @@ thread-pre-split.i.i34:                           ; preds = %185
 202:                                              ; preds = %194
   %203 = getelementptr inbounds i8, ptr %181, i64 24
   %204 = getelementptr inbounds i8, ptr %198, i64 24
-  %205 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %203, i64 noundef %195, ptr noundef nonnull %204, i64 noundef %195) #30
+  %205 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %203, i64 noundef %195, ptr noundef nonnull %204, i64 noundef %195) #28
   %.not14.i.i29 = icmp eq i32 %205, 0
   br i1 %.not14.i.i29, label %zend_get_class_fetch_type.exit.i30, label %206
 
 zend_get_class_fetch_type.exit.i30:               ; preds = %202
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.74) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.74) #29
   unreachable
 
 206:                                              ; preds = %202, %194, %191, %185
@@ -6613,7 +6613,7 @@ zend_get_class_fetch_type.exit.i30:               ; preds = %202
 
 216:                                              ; preds = %211
   %217 = load ptr, ptr %176, align 8
-  tail call void @rc_dtor_func(ptr noundef %217) #30
+  tail call void @rc_dtor_func(ptr noundef %217) #28
   br label %zend_compile_const_expr_new.exit
 
 zend_compile_const_expr_new.exit:                 ; preds = %206, %211, %216
@@ -6650,7 +6650,7 @@ zend_compile_const_expr_new.exit:                 ; preds = %206, %211, %216
   ]
 
 230:                                              ; preds = %226
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.75) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.75) #29
   unreachable
 
 231:                                              ; preds = %226
@@ -6658,7 +6658,7 @@ zend_compile_const_expr_new.exit:                 ; preds = %206, %211, %216
   br i1 %232, label %233, label %234
 
 233:                                              ; preds = %231
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.76) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.76) #29
   unreachable
 
 234:                                              ; preds = %231, %226
@@ -6677,7 +6677,7 @@ zend_compile_const_expr_new.exit:                 ; preds = %206, %211, %216
   br label %zend_compile_const_expr_args.exit
 
 zend_compile_const_expr_args.exit:                ; preds = %236, %._crit_edge.i, %222, %zend_compile_const_expr_new.exit, %158, %zend_compile_const_expr_const.exit, %zend_compile_const_expr_class_name.exit, %zend_compile_const_expr_class_const.exit, %9
-  call void @zend_ast_apply(ptr noundef nonnull %5, ptr noundef nonnull @zend_compile_const_expr, ptr noundef %1) #30
+  call void @zend_ast_apply(ptr noundef nonnull %5, ptr noundef nonnull @zend_compile_const_expr, ptr noundef %1) #28
   br label %238
 
 238:                                              ; preds = %7, %2, %zend_compile_const_expr_args.exit
@@ -6766,7 +6766,7 @@ define hidden void @zend_compile_top_stmt(ptr noundef %0) local_unnamed_addr #0 
   br i1 %31, label %zend_verify_namespace.exit, label %32
 
 32:                                               ; preds = %29
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.160) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.160) #29
   unreachable
 
 zend_verify_namespace.exit:                       ; preds = %7, %.preheader, %29, %26, %24, %24, %1
@@ -6824,7 +6824,7 @@ define internal fastcc void @zend_compile_func_decl(ptr noundef %0, ptr nocaptur
   %45 = ptrtoint ptr %34 to i64
   %46 = sub i64 %38, %45
   %. = tail call i64 @llvm.umax.i64(i64 %46, i64 264)
-  %47 = tail call noalias ptr @_emalloc(i64 noundef %.) #32
+  %47 = tail call noalias ptr @_emalloc(i64 noundef %.) #30
   %48 = getelementptr inbounds i8, ptr %47, i64 24
   %49 = getelementptr inbounds i8, ptr %47, i64 264
   store ptr %49, ptr %47, align 8
@@ -6839,7 +6839,7 @@ define internal fastcc void @zend_compile_func_decl(ptr noundef %0, ptr nocaptur
 53:                                               ; preds = %44, %42
   %.0170 = phi ptr [ %35, %42 ], [ %48, %44 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %20, i8 0, i64 64, i1 false)
-  tail call void @init_op_array(ptr noundef %.0170, i8 noundef zeroext 2, i32 noundef 64) #30
+  tail call void @init_op_array(ptr noundef %.0170, i8 noundef zeroext 2, i32 noundef 64) #28
   %54 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 21), align 4
   %55 = and i32 %54, 32768
   %.not = icmp eq i32 %55, 0
@@ -6927,7 +6927,7 @@ define internal fastcc void @zend_compile_func_decl(ptr noundef %0, ptr nocaptur
   br i1 %.not67.i, label %100, label %99
 
 99:                                               ; preds = %90
-  tail call void (i32, ptr, ...) @zend_error(i32 noundef 64, ptr noundef nonnull @.str.79) #30
+  tail call void (i32, ptr, ...) @zend_error(i32 noundef 64, ptr noundef nonnull @.str.79) #28
   br label %100
 
 100:                                              ; preds = %99, %90
@@ -6945,12 +6945,12 @@ define internal fastcc void @zend_compile_func_decl(ptr noundef %0, ptr nocaptur
 
 zend_is_constructor.exit.i:                       ; preds = %103
   %107 = getelementptr inbounds i8, ptr %92, i64 24
-  %108 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %107, i64 noundef 11, ptr noundef nonnull @.str.90, i64 noundef 11) #30
+  %108 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %107, i64 noundef 11, ptr noundef nonnull @.str.90, i64 noundef 11) #28
   %.not.i.i = icmp eq i32 %108, 0
   br i1 %.not.i.i, label %109, label %zend_is_constructor.exit.thread.i
 
 zend_is_constructor.exit.thread.i:                ; preds = %zend_is_constructor.exit.i, %103
-  tail call void (i32, ptr, ...) @zend_error(i32 noundef 128, ptr noundef nonnull @.str.80) #30
+  tail call void (i32, ptr, ...) @zend_error(i32 noundef 128, ptr noundef nonnull @.str.80) #28
   br label %109
 
 109:                                              ; preds = %zend_is_constructor.exit.thread.i, %zend_is_constructor.exit.i, %100
@@ -6970,7 +6970,7 @@ zend_is_constructor.exit.thread.i:                ; preds = %zend_is_constructor
   %114 = load ptr, ptr %113, align 8
   %115 = getelementptr inbounds i8, ptr %114, i64 24
   %116 = getelementptr inbounds i8, ptr %92, i64 24
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.81, ptr noundef nonnull %115, ptr noundef nonnull %116) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.81, ptr noundef nonnull %115, ptr noundef nonnull %116) #29
   unreachable
 
 117:                                              ; preds = %110
@@ -6981,7 +6981,7 @@ zend_is_constructor.exit.thread.i:                ; preds = %zend_is_constructor
   %120 = load ptr, ptr %119, align 8
   %121 = getelementptr inbounds i8, ptr %120, i64 24
   %122 = getelementptr inbounds i8, ptr %92, i64 24
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.82, ptr noundef nonnull %121, ptr noundef nonnull %122) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.82, ptr noundef nonnull %121, ptr noundef nonnull %122) #29
   unreachable
 
 123:                                              ; preds = %117
@@ -6994,7 +6994,7 @@ zend_is_constructor.exit.thread.i:                ; preds = %zend_is_constructor
   %127 = load ptr, ptr %126, align 8
   %128 = getelementptr inbounds i8, ptr %127, i64 24
   %129 = getelementptr inbounds i8, ptr %92, i64 24
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.83, ptr noundef nonnull %128, ptr noundef nonnull %129) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.83, ptr noundef nonnull %128, ptr noundef nonnull %129) #29
   unreachable
 
 130:                                              ; preds = %123
@@ -7026,7 +7026,7 @@ zend_is_constructor.exit.thread.i:                ; preds = %zend_is_constructor
   %144 = load ptr, ptr %143, align 8
   %145 = getelementptr inbounds i8, ptr %144, i64 24
   %146 = getelementptr inbounds i8, ptr %92, i64 24
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.84, ptr noundef nonnull %142, ptr noundef nonnull %145, ptr noundef nonnull %146) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.84, ptr noundef nonnull %142, ptr noundef nonnull %145, ptr noundef nonnull %146) #29
   unreachable
 
 147:                                              ; preds = %138, %136
@@ -7038,7 +7038,7 @@ zend_is_constructor.exit.thread.i:                ; preds = %zend_is_constructor
   %151 = load ptr, ptr %150, align 8
   %152 = getelementptr inbounds i8, ptr %151, i64 24
   %153 = getelementptr inbounds i8, ptr %92, i64 24
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.87, ptr noundef nonnull %149, ptr noundef nonnull %152, ptr noundef nonnull %153) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.87, ptr noundef nonnull %149, ptr noundef nonnull %152, ptr noundef nonnull %153) #29
   unreachable
 
 154:                                              ; preds = %147
@@ -7055,7 +7055,7 @@ zend_is_constructor.exit.thread.i:                ; preds = %zend_is_constructor
   %160 = load ptr, ptr %159, align 8
   %161 = getelementptr inbounds i8, ptr %160, i64 24
   %162 = getelementptr inbounds i8, ptr %92, i64 24
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.88, ptr noundef nonnull %161, ptr noundef nonnull %162) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.88, ptr noundef nonnull %161, ptr noundef nonnull %162) #29
   unreachable
 
 163:                                              ; preds = %157, %154
@@ -7076,14 +7076,14 @@ zend_is_constructor.exit.thread.i:                ; preds = %zend_is_constructor
 171:                                              ; preds = %168, %163
   %172 = getelementptr inbounds i8, ptr %.0170, i64 8
   store ptr %92, ptr %172, align 8
-  %173 = tail call ptr @zend_string_tolower_ex(ptr noundef nonnull %92, i1 noundef zeroext false) #30
+  %173 = tail call ptr @zend_string_tolower_ex(ptr noundef nonnull %92, i1 noundef zeroext false) #28
   %174 = load ptr, ptr @zend_new_interned_string, align 8
-  %175 = tail call ptr %174(ptr noundef %173) #30
+  %175 = tail call ptr %174(ptr noundef %173) #28
   %176 = getelementptr inbounds i8, ptr %93, i64 64
   store ptr %.0170, ptr %17, align 8
   %177 = getelementptr inbounds i8, ptr %17, i64 8
   store i32 13, ptr %177, align 8
-  %178 = call ptr @zend_hash_add(ptr noundef nonnull %176, ptr noundef %175, ptr noundef nonnull %17) #30
+  %178 = call ptr @zend_hash_add(ptr noundef nonnull %176, ptr noundef %175, ptr noundef nonnull %17) #28
   %.not77.i = icmp eq ptr %178, null
   br i1 %.not77.i, label %179, label %184
 
@@ -7092,11 +7092,11 @@ zend_is_constructor.exit.thread.i:                ; preds = %zend_is_constructor
   %181 = load ptr, ptr %180, align 8
   %182 = getelementptr inbounds i8, ptr %181, i64 24
   %183 = getelementptr inbounds i8, ptr %92, i64 24
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.89, ptr noundef nonnull %182, ptr noundef nonnull %183) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.89, ptr noundef nonnull %182, ptr noundef nonnull %183) #29
   unreachable
 
 184:                                              ; preds = %171
-  call void @zend_add_magic_method(ptr noundef nonnull %93, ptr noundef nonnull %.0170, ptr noundef %175) #30
+  call void @zend_add_magic_method(ptr noundef nonnull %93, ptr noundef nonnull %.0170, ptr noundef %175) #28
   %185 = getelementptr inbounds i8, ptr %175, i64 16
   %186 = load i64, ptr %185, align 8
   %187 = icmp eq i64 %186, 10
@@ -7151,9 +7151,9 @@ zend_is_constructor.exit.thread.i:                ; preds = %zend_is_constructor
   store i32 %204, ptr %194, align 8
   %205 = zext i32 %204 to i64
   %206 = shl nuw nsw i64 %205, 4
-  %207 = call ptr @_erealloc(ptr noundef %.pre.i.i, i64 noundef %206) #34
+  %207 = call ptr @_erealloc(ptr noundef %.pre.i.i, i64 noundef %206) #32
   store ptr %207, ptr %.phi.trans.insert.i.i, align 8
-  %208 = call noalias ptr @_emalloc_40() #30
+  %208 = call noalias ptr @_emalloc_40() #28
   store i32 1, ptr %208, align 4
   %209 = getelementptr inbounds i8, ptr %208, i64 4
   store i32 22, ptr %209, align 4
@@ -7171,7 +7171,7 @@ zend_is_constructor.exit.thread.i:                ; preds = %zend_is_constructor
   %217 = zext i32 %216 to i64
   %218 = getelementptr inbounds %struct._zend_class_name, ptr %214, i64 %217
   store ptr %208, ptr %218, align 8
-  %219 = call noalias ptr @_emalloc_40() #30
+  %219 = call noalias ptr @_emalloc_40() #28
   store i32 1, ptr %219, align 4
   %220 = getelementptr inbounds i8, ptr %219, i64 4
   store i32 22, ptr %220, align 4
@@ -7209,7 +7209,7 @@ zend_begin_method_decl.exit:                      ; preds = %202, %184, %188, %1
   %237 = getelementptr inbounds i8, ptr %.val, i64 24
   %238 = getelementptr inbounds i8, ptr %.val, i64 16
   %239 = load i64, ptr %238, align 8
-  %240 = tail call ptr @zend_string_concat3(ptr noundef nonnull %234, i64 noundef %236, ptr noundef nonnull @.str.51, i64 noundef 1, ptr noundef nonnull %237, i64 noundef %239) #30
+  %240 = tail call ptr @zend_string_concat3(ptr noundef nonnull %234, i64 noundef %236, ptr noundef nonnull @.str.51, i64 noundef 1, ptr noundef nonnull %237, i64 noundef %239) #28
   br label %zend_prefix_with_ns.exit.i
 
 241:                                              ; preds = %230
@@ -7229,13 +7229,13 @@ zend_prefix_with_ns.exit.i:                       ; preds = %245, %241, %233
   %.0.i.i = phi ptr [ %240, %233 ], [ %.val, %245 ], [ %.val, %241 ]
   %248 = getelementptr inbounds i8, ptr %.0170, i64 8
   store ptr %.0.i.i, ptr %248, align 8
-  %249 = tail call ptr @zend_string_tolower_ex(ptr noundef %.0.i.i, i1 noundef zeroext false) #30
+  %249 = tail call ptr @zend_string_tolower_ex(ptr noundef %.0.i.i, i1 noundef zeroext false) #28
   %250 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 23, i32 5), align 8
   %.not.i197 = icmp eq ptr %250, null
   br i1 %.not.i197, label %265, label %251
 
 251:                                              ; preds = %zend_prefix_with_ns.exit.i
-  %252 = tail call ptr @zend_hash_find_ptr_lc(ptr noundef nonnull %250, ptr noundef nonnull %.val) #30
+  %252 = tail call ptr @zend_hash_find_ptr_lc(ptr noundef nonnull %250, ptr noundef nonnull %.val) #28
   %.not50.i = icmp eq ptr %252, null
   br i1 %.not50.i, label %265, label %253
 
@@ -7250,13 +7250,13 @@ zend_prefix_with_ns.exit.i:                       ; preds = %245, %241, %233
 259:                                              ; preds = %253
   %260 = getelementptr inbounds i8, ptr %249, i64 24
   %261 = getelementptr inbounds i8, ptr %252, i64 24
-  %262 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %260, i64 noundef %255, ptr noundef nonnull %261, i64 noundef %255) #30
+  %262 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %260, i64 noundef %255, ptr noundef nonnull %261, i64 noundef %255) #28
   %.not51.i = icmp eq i32 %262, 0
   br i1 %.not51.i, label %265, label %263
 
 263:                                              ; preds = %259, %253
   %264 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.93, ptr noundef nonnull %264) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.93, ptr noundef nonnull %264) #29
   unreachable
 
 265:                                              ; preds = %259, %251, %zend_prefix_with_ns.exit.i
@@ -7272,7 +7272,7 @@ zend_prefix_with_ns.exit.i:                       ; preds = %245, %241, %233
   br i1 %.not52.i, label %271, label %.critedge.i
 
 271:                                              ; preds = %269
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.95) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.95) #29
   unreachable
 
 .critedge.i:                                      ; preds = %269, %265
@@ -7283,17 +7283,17 @@ zend_prefix_with_ns.exit.i:                       ; preds = %245, %241, %233
 
 275:                                              ; preds = %.critedge.i
   %276 = getelementptr inbounds i8, ptr %.val, i64 24
-  %277 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %276, i64 noundef 6, ptr noundef nonnull @.str.96, i64 noundef 6) #30
+  %277 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %276, i64 noundef 6, ptr noundef nonnull @.str.96, i64 noundef 6) #28
   %.not53.i = icmp eq i32 %277, 0
   br i1 %.not53.i, label %278, label %279
 
 278:                                              ; preds = %275
-  tail call void (i32, ptr, ...) @zend_error(i32 noundef 64, ptr noundef nonnull @.str.97) #30
+  tail call void (i32, ptr, ...) @zend_error(i32 noundef 64, ptr noundef nonnull @.str.97) #28
   br label %279
 
 279:                                              ; preds = %278, %275, %.critedge.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16)
-  %280 = tail call ptr @zend_hash_find(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 23, i32 7), ptr noundef nonnull %249) #30
+  %280 = tail call ptr @zend_hash_find(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 23, i32 7), ptr noundef nonnull %249) #28
   %.not.i57.i = icmp eq ptr %280, null
   br i1 %.not.i57.i, label %284, label %281
 
@@ -7307,7 +7307,7 @@ zend_prefix_with_ns.exit.i:                       ; preds = %245, %241, %233
   store i64 2, ptr %16, align 8
   %285 = getelementptr inbounds i8, ptr %16, i64 8
   store i32 4, ptr %285, align 8
-  %286 = call ptr @zend_hash_add_new(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 23, i32 7), ptr noundef nonnull %249, ptr noundef nonnull %16) #30
+  %286 = call ptr @zend_hash_add_new(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 23, i32 7), ptr noundef nonnull %249, ptr noundef nonnull %16) #28
   br label %zend_register_seen_symbol.exit.i
 
 zend_register_seen_symbol.exit.i:                 ; preds = %284, %281
@@ -7324,7 +7324,7 @@ zend_register_seen_symbol.exit.i:                 ; preds = %284, %281
   %293 = load ptr, ptr %292, align 8
   %294 = zext i32 %291 to i64
   %295 = shl nuw nsw i64 %294, 3
-  %296 = call ptr @_erealloc(ptr noundef %293, i64 noundef %295) #34
+  %296 = call ptr @_erealloc(ptr noundef %293, i64 noundef %295) #32
   store ptr %296, ptr %292, align 8
   %297 = zext i32 %290 to i64
   %298 = getelementptr inbounds ptr, ptr %296, i64 %297
@@ -7356,7 +7356,7 @@ zend_register_seen_symbol.exit.i:                 ; preds = %284, %281
   %310 = load ptr, ptr %309, align 8
   %311 = zext i32 %308 to i64
   %312 = shl nuw nsw i64 %311, 5
-  %313 = call ptr @_erealloc(ptr noundef %310, i64 noundef %312) #34
+  %313 = call ptr @_erealloc(ptr noundef %310, i64 noundef %312) #32
   store ptr %313, ptr %309, align 8
   br label %get_next_op.exit.i.i
 
@@ -7436,7 +7436,7 @@ get_next_op.exit.i.i:                             ; preds = %307, %._crit_edge.i
   %352 = load ptr, ptr %351, align 8
   %353 = zext i32 %350 to i64
   %354 = shl nuw nsw i64 %353, 5
-  %355 = call ptr @_erealloc(ptr noundef %352, i64 noundef %354) #34
+  %355 = call ptr @_erealloc(ptr noundef %352, i64 noundef %354) #32
   store ptr %355, ptr %351, align 8
   br label %get_next_op.exit.i
 
@@ -7504,14 +7504,14 @@ get_next_op.exit.i:                               ; preds = %349, %._crit_edge.i
   %385 = load ptr, ptr %384, align 8
   %386 = sext i32 %382 to i64
   %387 = shl nsw i64 %386, 4
-  %388 = call ptr @_erealloc(ptr noundef %385, i64 noundef %387) #34
+  %388 = call ptr @_erealloc(ptr noundef %385, i64 noundef %387) #32
   store ptr %388, ptr %384, align 8
   br label %zend_add_literal.exit.i
 
 zend_add_literal.exit.i:                          ; preds = %383, %._crit_edge13.i.i
   %.val.i.i = phi ptr [ %.val.pre.i.i, %._crit_edge13.i.i ], [ %388, %383 ]
   %389 = load ptr, ptr @zend_new_interned_string, align 8
-  %390 = call ptr %389(ptr noundef %249) #30
+  %390 = call ptr %389(ptr noundef %249) #28
   %391 = getelementptr inbounds i8, ptr %390, i64 4
   %392 = load i32, ptr %391, align 4
   %393 = and i32 %392, 64
@@ -7543,7 +7543,7 @@ zend_begin_func_decl.exit:                        ; preds = %zend_register_seen_
 403:                                              ; preds = %zend_begin_func_decl.exit
   %404 = getelementptr inbounds i8, ptr %23, i64 8
   %405 = load i32, ptr %404, align 8
-  call void @_zend_hash_init(ptr noundef nonnull %20, i32 noundef %405, ptr noundef null, i1 noundef zeroext false) #30
+  call void @_zend_hash_init(ptr noundef nonnull %20, i32 noundef %405, ptr noundef null, i1 noundef zeroext false) #28
   call fastcc void @find_implicit_binds_recursively(ptr noundef nonnull %20, ptr noundef %27)
   %406 = load i32, ptr %404, align 8
   %.not.i203 = icmp eq i32 %406, 0
@@ -7564,7 +7564,7 @@ zend_begin_func_decl.exit:                        ; preds = %zend_register_seen_
   call void @llvm.assume(i1 %414)
   %415 = getelementptr inbounds i8, ptr %412, i64 8
   %416 = load ptr, ptr %415, align 8
-  %417 = call i32 @zend_hash_del(ptr noundef nonnull %20, ptr noundef %416) #30
+  %417 = call i32 @zend_hash_del(ptr noundef nonnull %20, ptr noundef %416) #28
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %418 = load i32, ptr %404, align 8
   %419 = zext i32 %418 to i64
@@ -7584,7 +7584,7 @@ find_implicit_binds.exit:                         ; preds = %408, %403
   br i1 %.not.i205, label %427, label %429
 
 427:                                              ; preds = %424
-  %428 = call ptr @_zend_new_array_0() #30
+  %428 = call ptr @_zend_new_array_0() #28
   store ptr %428, ptr %425, align 8
   br label %429
 
@@ -7614,7 +7614,7 @@ find_implicit_binds.exit:                         ; preds = %408, %403
   %443 = getelementptr inbounds i8, ptr %.028.i, i64 24
   %444 = load ptr, ptr %443, align 8
   %445 = load ptr, ptr %425, align 8
-  %446 = call ptr @zend_hash_add(ptr noundef %445, ptr noundef %444, ptr noundef nonnull @executor_globals) #30
+  %446 = call ptr @zend_hash_add(ptr noundef %445, ptr noundef %444, ptr noundef nonnull @executor_globals) #28
   %447 = load ptr, ptr %425, align 8
   %448 = getelementptr inbounds i8, ptr %447, i64 16
   %449 = load ptr, ptr %448, align 8
@@ -7655,7 +7655,7 @@ find_implicit_binds.exit:                         ; preds = %408, %403
   br i1 %.not53.i208, label %469, label %.lr.ph.i209
 
 469:                                              ; preds = %466
-  %470 = call ptr @_zend_new_array_0() #30
+  %470 = call ptr @_zend_new_array_0() #28
   store ptr %470, ptr %467, align 8
   %.pre.i215 = load i32, ptr %464, align 8
   %471 = icmp eq i32 %.pre.i215, 0
@@ -7675,7 +7675,7 @@ find_implicit_binds.exit:                         ; preds = %408, %403
   %478 = getelementptr inbounds i8, ptr %475, i64 8
   %479 = load ptr, ptr @zend_new_interned_string, align 8
   %480 = load ptr, ptr %478, align 8
-  %481 = call ptr %479(ptr noundef %480) #30
+  %481 = call ptr %479(ptr noundef %480) #28
   store ptr %481, ptr %478, align 8
   %482 = getelementptr inbounds i8, ptr %481, i64 4
   %483 = load i32, ptr %482, align 4
@@ -7707,16 +7707,16 @@ zval_make_interned_string.exit.i:                 ; preds = %485, %473
   br i1 %499, label %500, label %.critedge2.i
 
 500:                                              ; preds = %494
-  %501 = call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %481, ptr noundef nonnull %492) #30
+  %501 = call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %481, ptr noundef nonnull %492) #28
   br i1 %501, label %.critedge.i214, label %.critedge2.i
 
 .critedge.i214:                                   ; preds = %500, %zval_make_interned_string.exit.i
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.98) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.98) #29
   unreachable
 
 .critedge2.i:                                     ; preds = %500, %494
   %502 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 7), align 8
-  %503 = call ptr @zend_hash_find(ptr noundef %502, ptr noundef nonnull %481) #30
+  %503 = call ptr @zend_hash_find(ptr noundef %502, ptr noundef nonnull %481) #28
   %.not.i55.not.i = icmp eq ptr %503, null
   br i1 %.not.i55.not.i, label %zend_is_auto_global.exit.i, label %504
 
@@ -7731,23 +7731,23 @@ zval_make_interned_string.exit.i:                 ; preds = %485, %473
   %510 = getelementptr inbounds i8, ptr %505, i64 8
   %511 = load ptr, ptr %510, align 8
   %512 = load ptr, ptr %505, align 8
-  %513 = call zeroext i1 %511(ptr noundef %512) #30
+  %513 = call zeroext i1 %511(ptr noundef %512) #28
   %514 = zext i1 %513 to i8
   store i8 %514, ptr %506, align 1
   br label %515
 
 515:                                              ; preds = %509, %504
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.99) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.99) #29
   unreachable
 
 zend_is_auto_global.exit.i:                       ; preds = %.critedge2.i
   %516 = load ptr, ptr %467, align 8
-  %517 = call ptr @zend_hash_add(ptr noundef %516, ptr noundef nonnull %481, ptr noundef nonnull @executor_globals) #30
+  %517 = call ptr @zend_hash_add(ptr noundef %516, ptr noundef nonnull %481, ptr noundef nonnull @executor_globals) #28
   %.not54.i212 = icmp eq ptr %517, null
   br i1 %.not54.i212, label %518, label %519
 
 518:                                              ; preds = %zend_is_auto_global.exit.i
-  call void (i32, ptr, ...) @zend_error_noreturn_unchecked(i32 noundef 64, ptr noundef nonnull @.str.100, ptr noundef nonnull %481) #31
+  call void (i32, ptr, ...) @zend_error_noreturn_unchecked(i32 noundef 64, ptr noundef nonnull @.str.100, ptr noundef nonnull %481) #29
   unreachable
 
 519:                                              ; preds = %zend_is_auto_global.exit.i
@@ -7793,7 +7793,7 @@ compile_implicit_lexical_binds.exit:              ; preds = %519, %460, %469, %4
   %543 = getelementptr inbounds i8, ptr %.0170, i64 48
   call fastcc void @zend_compile_attributes(ptr noundef nonnull %543, ptr noundef nonnull %541, i32 noundef 0, i32 noundef %spec.store.select, i32 noundef 0)
   %544 = load ptr, ptr %543, align 8
-  %545 = call ptr @zend_get_attribute_str(ptr noundef %544, ptr noundef nonnull @.str.77, i64 noundef 8) #30
+  %545 = call ptr @zend_get_attribute_str(ptr noundef %544, ptr noundef nonnull @.str.77, i64 noundef 8) #28
   %.not185 = icmp eq ptr %545, null
   br i1 %.not185, label %549, label %546
 
@@ -7829,7 +7829,7 @@ compile_implicit_lexical_binds.exit:              ; preds = %519, %460, %469, %4
   store i32 0, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 22, i32 6), align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 22, i32 7), i8 0, i64 17, i1 false)
   store i8 62, ptr %21, align 4
-  %558 = call i32 @zend_stack_push(ptr noundef nonnull @compiler_globals, ptr noundef nonnull %21) #30
+  %558 = call i32 @zend_stack_push(ptr noundef nonnull @compiler_globals, ptr noundef nonnull %21) #28
   br i1 %31, label %559, label %566
 
 559:                                              ; preds = %557
@@ -7864,7 +7864,7 @@ compile_implicit_lexical_binds.exit:              ; preds = %519, %460, %469, %4
 573:                                              ; preds = %566
   %574 = add i32 %572, 1
   %575 = zext i32 %574 to i64
-  %576 = call noalias ptr @_safe_emalloc(i64 noundef 32, i64 noundef %575, i64 noundef 0) #30
+  %576 = call noalias ptr @_safe_emalloc(i64 noundef 32, i64 noundef %575, i64 noundef 0) #28
   store ptr null, ptr %576, align 8
   %577 = getelementptr inbounds i8, ptr %576, i64 8
   br i1 %569, label %578, label %587
@@ -7909,7 +7909,7 @@ compile_implicit_lexical_binds.exit:              ; preds = %519, %460, %469, %4
   br i1 %or.cond283.i, label %603, label %597
 
 597:                                              ; preds = %589
-  call void (i32, ptr, ...) @zend_error(i32 noundef 8192, ptr noundef nonnull @.str.106) #30
+  call void (i32, ptr, ...) @zend_error(i32 noundef 8192, ptr noundef nonnull @.str.106) #28
   br label %603
 
 598:                                              ; preds = %566
@@ -7918,7 +7918,7 @@ compile_implicit_lexical_binds.exit:              ; preds = %519, %460, %469, %4
 
 600:                                              ; preds = %598
   %601 = zext i32 %572 to i64
-  %602 = call noalias ptr @_safe_emalloc(i64 noundef 32, i64 noundef %601, i64 noundef 0) #30
+  %602 = call noalias ptr @_safe_emalloc(i64 noundef 32, i64 noundef %601, i64 noundef 0) #28
   br label %603
 
 603:                                              ; preds = %600, %597, %589
@@ -7990,7 +7990,7 @@ compile_implicit_lexical_binds.exit:              ; preds = %519, %460, %469, %4
   %640 = getelementptr inbounds i8, ptr %632, i64 8
   %641 = load ptr, ptr @zend_new_interned_string, align 8
   %642 = load ptr, ptr %640, align 8
-  %643 = call ptr %641(ptr noundef %642) #30
+  %643 = call ptr %641(ptr noundef %642) #28
   store ptr %643, ptr %640, align 8
   %644 = getelementptr inbounds i8, ptr %643, i64 4
   %645 = load i32, ptr %644, align 4
@@ -8011,7 +8011,7 @@ zval_make_interned_string.exit.i220:              ; preds = %647, %626
   %.not255.i = icmp eq i32 %652, 0
   %653 = and i32 %651, 135
   %654 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 7), align 8
-  %655 = call ptr @zend_hash_find(ptr noundef %654, ptr noundef nonnull %643) #30
+  %655 = call ptr @zend_hash_find(ptr noundef %654, ptr noundef nonnull %643) #28
   %.not.i288.not.i = icmp eq ptr %655, null
   br i1 %.not.i288.not.i, label %zend_is_auto_global.exit.i221, label %656
 
@@ -8026,14 +8026,14 @@ zval_make_interned_string.exit.i220:              ; preds = %647, %626
   %662 = getelementptr inbounds i8, ptr %657, i64 8
   %663 = load ptr, ptr %662, align 8
   %664 = load ptr, ptr %657, align 8
-  %665 = call zeroext i1 %663(ptr noundef %664) #30
+  %665 = call zeroext i1 %663(ptr noundef %664) #28
   %666 = zext i1 %665 to i8
   store i8 %666, ptr %658, align 1
   br label %667
 
 667:                                              ; preds = %661, %656
   %668 = getelementptr inbounds i8, ptr %643, i64 24
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.107, ptr noundef nonnull %668) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.107, ptr noundef nonnull %668) #29
   unreachable
 
 zend_is_auto_global.exit.i221:                    ; preds = %zval_make_interned_string.exit.i220
@@ -8046,7 +8046,7 @@ zend_is_auto_global.exit.i221:                    ; preds = %zval_make_interned_
 
 673:                                              ; preds = %zend_is_auto_global.exit.i221
   %674 = getelementptr inbounds i8, ptr %643, i64 24
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.108, ptr noundef nonnull %674) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.108, ptr noundef nonnull %674) #29
   unreachable
 
 675:                                              ; preds = %zend_is_auto_global.exit.i221
@@ -8065,11 +8065,11 @@ zend_is_auto_global.exit.i221:                    ; preds = %zval_make_interned_
   br i1 %685, label %686, label %.critedge3.i
 
 686:                                              ; preds = %680
-  %687 = call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %643, ptr noundef nonnull %678) #30
+  %687 = call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %643, ptr noundef nonnull %678) #28
   br i1 %687, label %.critedge.i231, label %.critedge3.i
 
 .critedge.i231:                                   ; preds = %686, %675
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.109) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.109) #29
   unreachable
 
 .critedge3.i:                                     ; preds = %686, %680
@@ -8079,7 +8079,7 @@ zend_is_auto_global.exit.i221:                    ; preds = %zval_make_interned_
   br i1 %.not257.i, label %691, label %690
 
 690:                                              ; preds = %.critedge3.i
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.110) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.110) #29
   unreachable
 
 691:                                              ; preds = %.critedge3.i
@@ -8094,7 +8094,7 @@ zend_is_auto_global.exit.i221:                    ; preds = %zval_make_interned_
   br i1 %.not259.i, label %722, label %695
 
 695:                                              ; preds = %692
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.111) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.111) #29
   unreachable
 
 696:                                              ; preds = %691
@@ -8118,12 +8118,12 @@ zend_is_auto_global.exit.i221:                    ; preds = %zval_make_interned_
   br i1 %.not.i289.i, label %708, label %703
 
 703:                                              ; preds = %698
-  %704 = call ptr @zend_ast_copy(ptr noundef nonnull %701) #30
+  %704 = call ptr @zend_ast_copy(ptr noundef nonnull %701) #28
   store ptr %704, ptr %8, align 8
   store i32 267, ptr %608, align 8
   %705 = load ptr, ptr %633, align 8
-  call void @zend_ast_destroy(ptr noundef %705) #30
-  %706 = call ptr @zend_ast_create_zval(ptr noundef nonnull %8) #30
+  call void @zend_ast_destroy(ptr noundef %705) #28
+  %706 = call ptr @zend_ast_create_zval(ptr noundef nonnull %8) #28
   store ptr %706, ptr %633, align 8
   %.pre.i.i230 = load i16, ptr %706, align 8
   %707 = icmp eq i16 %.pre.i.i230, 64
@@ -8220,7 +8220,7 @@ zend_const_expr_to_zval.exit.i:                   ; preds = %716, %708
   br i1 %.not266.i, label %750, label %749
 
 749:                                              ; preds = %736
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.112) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.112) #29
   unreachable
 
 750:                                              ; preds = %736
@@ -8229,7 +8229,7 @@ zend_const_expr_to_zval.exit.i:                   ; preds = %716, %708
   br i1 %.not267.i, label %753, label %752
 
 752:                                              ; preds = %750
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.113) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.113) #29
   unreachable
 
 753:                                              ; preds = %750
@@ -8261,15 +8261,15 @@ zend_const_expr_to_zval.exit.i:                   ; preds = %716, %708
   br i1 %or.cond.i.i, label %765, label %zend_is_valid_default_value.exit.i
 
 765:                                              ; preds = %762
-  call void @convert_to_double(ptr noundef nonnull %607) #30
+  call void @convert_to_double(ptr noundef nonnull %607) #28
   br label %zend_is_valid_default_value.exit.thread.i
 
 zend_is_valid_default_value.exit.i:               ; preds = %762
   %766 = call ptr @zend_type_to_string(ptr %746, i32 %747)
-  %767 = call ptr @zend_get_type_by_const(i32 noundef %740) #30
+  %767 = call ptr @zend_get_type_by_const(i32 noundef %740) #28
   %768 = getelementptr inbounds i8, ptr %643, i64 24
   %769 = getelementptr inbounds i8, ptr %766, i64 24
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.114, ptr noundef %767, ptr noundef nonnull %768, ptr noundef nonnull %769) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.114, ptr noundef %767, ptr noundef nonnull %768, ptr noundef nonnull %769) #29
   unreachable
 
 zend_is_valid_default_value.exit.thread.i:        ; preds = %765, %755, %754, %753, %753, %735
@@ -8298,12 +8298,12 @@ zend_is_valid_default_value.exit.thread.i:        ; preds = %765, %755, %754, %7
   %784 = getelementptr inbounds i8, ptr %781, i64 8
   %785 = load ptr, ptr %784, align 8
   %786 = getelementptr inbounds i8, ptr %785, i64 24
-  call void (i32, ptr, ...) @zend_error(i32 noundef 8192, ptr noundef nonnull @.str.115, ptr noundef nonnull %779, ptr noundef nonnull %786) #30
+  call void (i32, ptr, ...) @zend_error(i32 noundef 8192, ptr noundef nonnull @.str.115, ptr noundef nonnull %779, ptr noundef nonnull %786) #28
   br label %787
 
 787:                                              ; preds = %777, %774
   store i8 0, ptr %10, align 8
-  call void @zval_ptr_dtor(ptr noundef nonnull %607) #30
+  call void @zval_ptr_dtor(ptr noundef nonnull %607) #28
   br label %788
 
 788:                                              ; preds = %787, %770, %zend_is_valid_default_value.exit.thread.i
@@ -8443,12 +8443,12 @@ zend_alloc_cache_slots.exit.i:                    ; preds = %zend_type_get_num_c
 
 zend_is_constructor.exit.i222:                    ; preds = %843
   %849 = getelementptr inbounds i8, ptr %845, i64 24
-  %850 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %849, i64 noundef 11, ptr noundef nonnull @.str.90, i64 noundef 11) #30
+  %850 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %849, i64 noundef 11, ptr noundef nonnull @.str.90, i64 noundef 11) #28
   %.not.i297.i = icmp eq i32 %850, 0
   br i1 %.not.i297.i, label %851, label %.critedge286.i
 
 .critedge286.i:                                   ; preds = %zend_is_constructor.exit.i222, %843, %839
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.116) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.116) #29
   unreachable
 
 851:                                              ; preds = %zend_is_constructor.exit.i222
@@ -8466,19 +8466,19 @@ zend_is_constructor.exit.i222:                    ; preds = %843
   br i1 %.not272.i, label %860, label %859
 
 859:                                              ; preds = %855, %851
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.117) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.117) #29
   unreachable
 
 860:                                              ; preds = %855
   br i1 %.not255.i, label %862, label %861
 
 861:                                              ; preds = %860
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.118) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.118) #29
   unreachable
 
 862:                                              ; preds = %860
   %863 = getelementptr inbounds i8, ptr %842, i64 120
-  %864 = call ptr @zend_hash_find(ptr noundef nonnull %863, ptr noundef %643) #30
+  %864 = call ptr @zend_hash_find(ptr noundef nonnull %863, ptr noundef %643) #28
   %.not273.i = icmp eq ptr %864, null
   br i1 %.not273.i, label %870, label %865
 
@@ -8487,7 +8487,7 @@ zend_is_constructor.exit.i222:                    ; preds = %843
   %867 = load ptr, ptr %866, align 8
   %868 = getelementptr inbounds i8, ptr %867, i64 24
   %869 = getelementptr inbounds i8, ptr %643, i64 24
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.119, ptr noundef nonnull %868, ptr noundef nonnull %869) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.119, ptr noundef nonnull %868, ptr noundef nonnull %869) #29
   unreachable
 
 870:                                              ; preds = %862
@@ -8504,7 +8504,7 @@ zend_is_constructor.exit.i222:                    ; preds = %843
   %878 = getelementptr inbounds i8, ptr %877, i64 24
   %879 = getelementptr inbounds i8, ptr %643, i64 24
   %880 = getelementptr inbounds i8, ptr %875, i64 24
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.120, ptr noundef nonnull %878, ptr noundef nonnull %879, ptr noundef nonnull %880) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.120, ptr noundef nonnull %878, ptr noundef nonnull %879, ptr noundef nonnull %880) #29
   unreachable
 
 881:                                              ; preds = %870
@@ -8546,7 +8546,7 @@ zend_is_constructor.exit.i222:                    ; preds = %843
   %896 = load ptr, ptr %895, align 8
   %897 = getelementptr inbounds i8, ptr %896, i64 24
   %898 = getelementptr inbounds i8, ptr %643, i64 24
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.121, ptr noundef nonnull %897, ptr noundef nonnull %898) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.121, ptr noundef nonnull %897, ptr noundef nonnull %898) #29
   unreachable
 
 899:                                              ; preds = %.thread.i, %888
@@ -8576,7 +8576,7 @@ zend_is_constructor.exit.i222:                    ; preds = %843
 911:                                              ; preds = %908, %900, %899
   %912 = phi ptr [ null, %899 ], [ %904, %908 ], [ %904, %900 ]
   %913 = or i32 %.0234.i, 32
-  %914 = call ptr @zend_declare_typed_property(ptr noundef nonnull %842, ptr noundef %643, ptr noundef nonnull %13, i32 noundef %913, ptr noundef %912, ptr noundef nonnull byval(%struct.zend_type) align 8 %12) #30
+  %914 = call ptr @zend_declare_typed_property(ptr noundef nonnull %842, ptr noundef %643, ptr noundef nonnull %13, i32 noundef %913, ptr noundef %912, ptr noundef nonnull byval(%struct.zend_type) align 8 %12) #28
   br i1 %.not261.i, label %917, label %915
 
 915:                                              ; preds = %911
@@ -8789,7 +8789,7 @@ zend_compile_params.exit:                         ; preds = %994, %598, %zend_se
   %1011 = load ptr, ptr %1010, align 8
   %1012 = zext i32 %1009 to i64
   %1013 = shl nuw nsw i64 %1012, 5
-  %1014 = call ptr @_erealloc(ptr noundef %1011, i64 noundef %1013) #34
+  %1014 = call ptr @_erealloc(ptr noundef %1011, i64 noundef %1013) #32
   store ptr %1014, ptr %1010, align 8
   br label %zend_emit_op.exit
 
@@ -8865,7 +8865,7 @@ zend_emit_op.exit:                                ; preds = %._crit_edge.i.i236,
 
 zend_compile_implicit_closure_uses.exit:          ; preds = %1049, %1031
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @zend_hash_destroy(ptr noundef nonnull %20) #30
+  call void @zend_hash_destroy(ptr noundef nonnull %20) #28
   br label %1095
 
 1051:                                             ; preds = %1028
@@ -8922,7 +8922,7 @@ zend_compile_implicit_closure_uses.exit:          ; preds = %1049, %1031
   br i1 %1080, label %1081, label %.critedge2.i248
 
 1081:                                             ; preds = %1076
-  %1082 = call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %1074, ptr noundef nonnull %1066) #30
+  %1082 = call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %1074, ptr noundef nonnull %1066) #28
   br i1 %1082, label %.critedge.i251, label %..critedge2_crit_edge.i
 
 ..critedge2_crit_edge.i:                          ; preds = %1081
@@ -8930,7 +8930,7 @@ zend_compile_implicit_closure_uses.exit:          ; preds = %1049, %1031
   br label %.critedge2.i248
 
 .critedge.i251:                                   ; preds = %1081, %1070
-  call void (i32, ptr, ...) @zend_error_noreturn_unchecked(i32 noundef 64, ptr noundef nonnull @.str.150, ptr noundef %1066) #31
+  call void (i32, ptr, ...) @zend_error_noreturn_unchecked(i32 noundef 64, ptr noundef nonnull @.str.150, ptr noundef %1066) #29
   unreachable
 
 .critedge2.i248:                                  ; preds = %..critedge2_crit_edge.i, %1076
@@ -8991,7 +8991,7 @@ zend_compile_closure_uses.exit:                   ; preds = %._crit_edge.i243, %
   br i1 %.not191, label %.critedge, label %.thread
 
 .critedge:                                        ; preds = %1100, %1103
-  %1110 = call ptr @zend_ast_create_1(i16 noundef zeroext 279, ptr noundef %27) #30
+  %1110 = call ptr @zend_ast_create_1(i16 noundef zeroext 279, ptr noundef %27) #28
   store ptr %1110, ptr %26, align 8
   br label %.thread
 
@@ -9004,7 +9004,7 @@ zend_compile_closure_uses.exit:                   ; preds = %._crit_edge.i243, %
   %1112 = load i32, ptr %67, align 4
   store i32 %1112, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
   %1113 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 1), align 8
-  call void @zend_check_magic_method_implementation(ptr noundef %1113, ptr noundef %.0170, ptr noundef %.0173, i32 noundef 64) #30
+  call void @zend_check_magic_method_implementation(ptr noundef %1113, ptr noundef %.0170, ptr noundef %.0173, i32 noundef 64) #28
   br label %1120
 
 1114:                                             ; preds = %.thread
@@ -9015,12 +9015,12 @@ zend_compile_closure_uses.exit:                   ; preds = %._crit_edge.i243, %
   store ptr %.0170, ptr %18, align 8
   %1117 = getelementptr inbounds i8, ptr %18, i64 8
   store i32 13, ptr %1117, align 8
-  %1118 = call ptr @zend_hash_add(ptr noundef %1116, ptr noundef %.0173, ptr noundef nonnull %18) #30
+  %1118 = call ptr @zend_hash_add(ptr noundef %1116, ptr noundef %.0173, ptr noundef nonnull %18) #28
   %.not192 = icmp eq ptr %1118, null
   br i1 %.not192, label %1119, label %1120
 
 1119:                                             ; preds = %1115
-  call fastcc void @do_bind_function_error(ptr noundef %.0173, ptr noundef %.0170, i1 noundef zeroext true) #33
+  call fastcc void @do_bind_function_error(ptr noundef %.0173, ptr noundef %.0170, i1 noundef zeroext true) #31
   unreachable
 
 1120:                                             ; preds = %1115, %1111
@@ -9053,7 +9053,7 @@ zend_compile_closure_uses.exit:                   ; preds = %._crit_edge.i243, %
   %1133 = load ptr, ptr %1132, align 8
   %1134 = zext i32 %1131 to i64
   %1135 = shl nuw nsw i64 %1134, 5
-  %1136 = call ptr @_erealloc(ptr noundef %1133, i64 noundef %1135) #34
+  %1136 = call ptr @_erealloc(ptr noundef %1133, i64 noundef %1135) #32
   store ptr %1136, ptr %1132, align 8
   br label %get_next_op.exit.i254
 
@@ -9086,13 +9086,13 @@ get_next_op.exit.i254:                            ; preds = %1130, %._crit_edge.
 zend_do_extended_stmt.exit:                       ; preds = %1120, %get_next_op.exit.i254
   call void @zend_emit_final_return(i1 noundef zeroext false)
   %1150 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 4), align 8
-  call void @pass_two(ptr noundef %1150) #30
+  call void @pass_two(ptr noundef %1150) #28
   %1151 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 22, i32 7), align 8
   %.not.i258 = icmp eq ptr %1151, null
   br i1 %.not.i258, label %1153, label %1152
 
 1152:                                             ; preds = %zend_do_extended_stmt.exit
-  call void @_efree(ptr noundef nonnull %1151) #30
+  call void @_efree(ptr noundef nonnull %1151) #28
   store ptr null, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 22, i32 7), align 8
   br label %1153
 
@@ -9102,14 +9102,14 @@ zend_do_extended_stmt.exit:                       ; preds = %1120, %get_next_op.
   br i1 %.not2.i, label %zend_oparray_context_end.exit, label %1155
 
 1155:                                             ; preds = %1153
-  call void @zend_hash_destroy(ptr noundef nonnull %1154) #30
+  call void @zend_hash_destroy(ptr noundef nonnull %1154) #28
   %1156 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 22, i32 8), align 8
-  call void @_efree_56(ptr noundef %1156) #30
+  call void @_efree_56(ptr noundef %1156) #28
   br label %zend_oparray_context_end.exit
 
 zend_oparray_context_end.exit:                    ; preds = %1153, %1155
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 22), ptr noundef nonnull readonly align 8 dereferenceable(56) %19, i64 56, i1 false)
-  call void @zend_stack_del_top(ptr noundef nonnull @compiler_globals) #30
+  call void @zend_stack_del_top(ptr noundef nonnull @compiler_globals) #28
   br i1 %2, label %1157, label %zend_observer_function_declared_notify.exit
 
 1157:                                             ; preds = %zend_oparray_context_end.exit
@@ -9118,7 +9118,7 @@ zend_oparray_context_end.exit:                    ; preds = %1153, %1155
   br i1 %1159, label %1160, label %zend_observer_function_declared_notify.exit
 
 1160:                                             ; preds = %1157
-  call void @_zend_observer_function_declared_notify(ptr noundef %.0170, ptr noundef %.0173) #30
+  call void @_zend_observer_function_declared_notify(ptr noundef %.0170, ptr noundef %.0173) #28
   br label %zend_observer_function_declared_notify.exit
 
 .critedge195:                                     ; preds = %1114
@@ -9151,7 +9151,7 @@ zend_oparray_context_end.exit:                    ; preds = %1153, %1155
   %1173 = load ptr, ptr %1172, align 8
   %1174 = zext i32 %1171 to i64
   %1175 = shl nuw nsw i64 %1174, 5
-  %1176 = call ptr @_erealloc(ptr noundef %1173, i64 noundef %1175) #34
+  %1176 = call ptr @_erealloc(ptr noundef %1173, i64 noundef %1175) #32
   store ptr %1176, ptr %1172, align 8
   br label %get_next_op.exit.i261
 
@@ -9184,13 +9184,13 @@ get_next_op.exit.i261:                            ; preds = %1170, %._crit_edge.
 zend_do_extended_stmt.exit265:                    ; preds = %.critedge195, %get_next_op.exit.i261
   call void @zend_emit_final_return(i1 noundef zeroext false)
   %1190 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 4), align 8
-  call void @pass_two(ptr noundef %1190) #30
+  call void @pass_two(ptr noundef %1190) #28
   %1191 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 22, i32 7), align 8
   %.not.i266 = icmp eq ptr %1191, null
   br i1 %.not.i266, label %1193, label %1192
 
 1192:                                             ; preds = %zend_do_extended_stmt.exit265
-  call void @_efree(ptr noundef nonnull %1191) #30
+  call void @_efree(ptr noundef nonnull %1191) #28
   store ptr null, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 22, i32 7), align 8
   br label %1193
 
@@ -9200,14 +9200,14 @@ zend_do_extended_stmt.exit265:                    ; preds = %.critedge195, %get_
   br i1 %.not2.i267, label %zend_oparray_context_end.exit268, label %1195
 
 1195:                                             ; preds = %1193
-  call void @zend_hash_destroy(ptr noundef nonnull %1194) #30
+  call void @zend_hash_destroy(ptr noundef nonnull %1194) #28
   %1196 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 22, i32 8), align 8
-  call void @_efree_56(ptr noundef %1196) #30
+  call void @_efree_56(ptr noundef %1196) #28
   br label %zend_oparray_context_end.exit268
 
 zend_oparray_context_end.exit268:                 ; preds = %1193, %1195
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 22), ptr noundef nonnull readonly align 8 dereferenceable(56) %19, i64 56, i1 false)
-  call void @zend_stack_del_top(ptr noundef nonnull @compiler_globals) #30
+  call void @zend_stack_del_top(ptr noundef nonnull @compiler_globals) #28
   br label %zend_observer_function_declared_notify.exit
 
 zend_observer_function_declared_notify.exit:      ; preds = %1160, %1157, %zend_oparray_context_end.exit268, %zend_oparray_context_end.exit
@@ -9227,7 +9227,7 @@ zend_observer_function_declared_notify.exit:      ; preds = %1160, %1157, %zend_
   br i1 %1204, label %1205, label %1206
 
 1205:                                             ; preds = %1200
-  call void @_efree(ptr noundef nonnull %.0173) #30
+  call void @_efree(ptr noundef nonnull %.0173) #28
   br label %1206
 
 1206:                                             ; preds = %1200, %1205, %zend_observer_function_declared_notify.exit
@@ -9271,7 +9271,7 @@ define internal fastcc void @zend_compile_class_decl(ptr nocapture noundef write
   %29 = ptrtoint ptr %18 to i64
   %30 = sub i64 %22, %29
   %. = tail call i64 @llvm.umax.i64(i64 %30, i64 536)
-  %31 = tail call noalias ptr @_emalloc(i64 noundef %.) #32
+  %31 = tail call noalias ptr @_emalloc(i64 noundef %.) #30
   %32 = getelementptr inbounds i8, ptr %31, i64 24
   %33 = getelementptr inbounds i8, ptr %31, i64 536
   store ptr %33, ptr %31, align 8
@@ -9303,14 +9303,14 @@ define internal fastcc void @zend_compile_class_decl(ptr nocapture noundef write
   br i1 %.not313, label %48, label %47
 
 47:                                               ; preds = %44
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.151) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.151) #29
   unreachable
 
 48:                                               ; preds = %44
   %49 = getelementptr inbounds i8, ptr %46, i64 24
   %50 = getelementptr inbounds i8, ptr %46, i64 16
   %51 = load i64, ptr %50, align 8
-  %52 = tail call ptr @memrchr(ptr noundef nonnull %49, i32 noundef 92, i64 noundef %51) #29
+  %52 = tail call ptr @memrchr(ptr noundef nonnull %49, i32 noundef 92, i64 noundef %51) #27
   %.not.i.not.i.i = icmp eq ptr %52, null
   %53 = getelementptr inbounds i8, ptr %52, i64 1
   %54 = getelementptr inbounds i8, ptr %49, i64 %51
@@ -9330,7 +9330,7 @@ define internal fastcc void @zend_compile_class_decl(ptr nocapture noundef write
   br i1 %62, label %63, label %66
 
 63:                                               ; preds = %58
-  %64 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %.014.i.i, i64 noundef %.013.i.i, ptr noundef nonnull %59, i64 noundef %.013.i.i) #30
+  %64 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %.014.i.i, i64 noundef %.013.i.i, ptr noundef nonnull %59, i64 noundef %.013.i.i) #28
   %65 = icmp eq i32 %64, 0
   br i1 %65, label %69, label %66
 
@@ -9341,7 +9341,7 @@ define internal fastcc void @zend_compile_class_decl(ptr nocapture noundef write
   br i1 %.not.not.i.i, label %zend_assert_valid_class_name.exit, label %58
 
 69:                                               ; preds = %63
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str, ptr noundef nonnull %49) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str, ptr noundef nonnull %49) #29
   unreachable
 
 zend_assert_valid_class_name.exit:                ; preds = %66
@@ -9354,7 +9354,7 @@ zend_assert_valid_class_name.exit:                ; preds = %66
   %73 = getelementptr inbounds i8, ptr %70, i64 16
   %74 = load i64, ptr %73, align 8
   %75 = load i64, ptr %50, align 8
-  %76 = tail call ptr @zend_string_concat3(ptr noundef nonnull %72, i64 noundef %74, ptr noundef nonnull @.str.51, i64 noundef 1, ptr noundef nonnull %49, i64 noundef %75) #30
+  %76 = tail call ptr @zend_string_concat3(ptr noundef nonnull %72, i64 noundef %74, ptr noundef nonnull @.str.51, i64 noundef 1, ptr noundef nonnull %49, i64 noundef %75) #28
   br label %zend_prefix_with_ns.exit
 
 77:                                               ; preds = %zend_assert_valid_class_name.exit
@@ -9373,14 +9373,14 @@ zend_assert_valid_class_name.exit:                ; preds = %66
 zend_prefix_with_ns.exit:                         ; preds = %71, %77, %81
   %.0.i = phi ptr [ %76, %71 ], [ %46, %81 ], [ %46, %77 ]
   %84 = load ptr, ptr @zend_new_interned_string, align 8
-  %85 = tail call ptr %84(ptr noundef %.0.i) #30
-  %86 = tail call ptr @zend_string_tolower_ex(ptr noundef %85, i1 noundef zeroext false) #30
+  %85 = tail call ptr %84(ptr noundef %.0.i) #28
+  %86 = tail call ptr @zend_string_tolower_ex(ptr noundef %85, i1 noundef zeroext false) #28
   %87 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 23, i32 4), align 8
   %.not314 = icmp eq ptr %87, null
   br i1 %.not314, label %102, label %88
 
 88:                                               ; preds = %zend_prefix_with_ns.exit
-  %89 = tail call ptr @zend_hash_find_ptr_lc(ptr noundef nonnull %87, ptr noundef nonnull %46) #30
+  %89 = tail call ptr @zend_hash_find_ptr_lc(ptr noundef nonnull %87, ptr noundef nonnull %46) #28
   %.not315 = icmp eq ptr %89, null
   br i1 %.not315, label %102, label %90
 
@@ -9395,18 +9395,18 @@ zend_prefix_with_ns.exit:                         ; preds = %71, %77, %81
 96:                                               ; preds = %90
   %97 = getelementptr inbounds i8, ptr %86, i64 24
   %98 = getelementptr inbounds i8, ptr %89, i64 24
-  %99 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %97, i64 noundef %92, ptr noundef nonnull %98, i64 noundef %92) #30
+  %99 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %97, i64 noundef %92, ptr noundef nonnull %98, i64 noundef %92) #28
   %.not316 = icmp eq i32 %99, 0
   br i1 %.not316, label %102, label %100
 
 100:                                              ; preds = %96, %90
   %101 = getelementptr inbounds i8, ptr %85, i64 24
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.152, ptr noundef nonnull %101) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.152, ptr noundef nonnull %101) #29
   unreachable
 
 102:                                              ; preds = %88, %96, %zend_prefix_with_ns.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %103 = tail call ptr @zend_hash_find(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 23, i32 7), ptr noundef %86) #30
+  %103 = tail call ptr @zend_hash_find(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 23, i32 7), ptr noundef %86) #28
   %.not.i357 = icmp eq ptr %103, null
   br i1 %.not.i357, label %107, label %104
 
@@ -9420,7 +9420,7 @@ zend_prefix_with_ns.exit:                         ; preds = %71, %77, %81
   store i64 1, ptr %5, align 8
   %108 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 4, ptr %108, align 8
-  %109 = call ptr @zend_hash_add_new(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 23, i32 7), ptr noundef %86, ptr noundef nonnull %5) #30
+  %109 = call ptr @zend_hash_add_new(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 23, i32 7), ptr noundef %86, ptr noundef nonnull %5) #28
   br label %zend_register_seen_symbol.exit
 
 zend_register_seen_symbol.exit:                   ; preds = %104, %107
@@ -9450,7 +9450,7 @@ zend_register_seen_symbol.exit:                   ; preds = %104, %107
   br i1 %119, label %120, label %121
 
 120:                                              ; preds = %115
-  tail call void @_efree(ptr noundef nonnull %.0289) #30
+  tail call void @_efree(ptr noundef nonnull %.0289) #28
   br label %121
 
 121:                                              ; preds = %111, %120, %115, %110
@@ -9474,7 +9474,7 @@ zend_register_seen_symbol.exit:                   ; preds = %104, %107
   br i1 %130, label %131, label %132
 
 131:                                              ; preds = %126
-  tail call void @_efree(ptr noundef nonnull %.0290) #30
+  tail call void @_efree(ptr noundef nonnull %.0290) #28
   br label %132
 
 132:                                              ; preds = %122, %131, %126, %121
@@ -9511,7 +9511,7 @@ zend_register_seen_symbol.exit:                   ; preds = %104, %107
   %152 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 44), align 8
   %153 = add i32 %152, 1
   store i32 %153, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 44), align 8
-  %154 = tail call ptr (i64, ptr, ...) @zend_strpprintf(i64 noundef 0, ptr noundef nonnull @.str.156, ptr noundef nonnull %150, i32 noundef 0, ptr noundef nonnull %151, i32 noundef %136, i32 noundef %152) #30
+  %154 = tail call ptr (i64, ptr, ...) @zend_strpprintf(i64 noundef 0, ptr noundef nonnull @.str.156, ptr noundef nonnull %150, i32 noundef 0, ptr noundef nonnull %151, i32 noundef %136, i32 noundef %152) #28
   %155 = getelementptr inbounds i8, ptr %.0.i359, i64 4
   %156 = load i32, ptr %155, align 4
   %157 = and i32 %156, 64
@@ -9533,19 +9533,19 @@ zend_register_seen_symbol.exit:                   ; preds = %104, %107
   br i1 %.not24.i, label %166, label %165
 
 165:                                              ; preds = %163
-  tail call void @free(ptr noundef nonnull %.0.i359) #30
+  tail call void @free(ptr noundef nonnull %.0.i359) #28
   br label %zend_generate_anon_class_name.exit
 
 166:                                              ; preds = %163
-  tail call void @_efree(ptr noundef nonnull %.0.i359) #30
+  tail call void @_efree(ptr noundef nonnull %.0.i359) #28
   br label %zend_generate_anon_class_name.exit
 
 zend_generate_anon_class_name.exit:               ; preds = %149, %158, %165, %166
   %167 = load ptr, ptr @zend_new_interned_string, align 8
-  %168 = tail call ptr %167(ptr noundef %154) #30
-  %169 = tail call ptr @zend_string_tolower_ex(ptr noundef %168, i1 noundef zeroext false) #30
+  %168 = tail call ptr %167(ptr noundef %154) #28
+  %169 = tail call ptr @zend_string_tolower_ex(ptr noundef %168, i1 noundef zeroext false) #28
   %170 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 6), align 8
-  %171 = tail call ptr @zend_hash_find(ptr noundef %170, ptr noundef %169) #30
+  %171 = tail call ptr @zend_hash_find(ptr noundef %170, ptr noundef %169) #28
   %.not312 = icmp eq ptr %171, null
   br i1 %.not312, label %.loopexit, label %110
 
@@ -9553,7 +9553,7 @@ zend_generate_anon_class_name.exit:               ; preds = %149, %158, %165, %1
   %.1291 = phi ptr [ %86, %zend_register_seen_symbol.exit ], [ %169, %zend_generate_anon_class_name.exit ]
   %.1 = phi ptr [ %85, %zend_register_seen_symbol.exit ], [ %168, %zend_generate_anon_class_name.exit ]
   %172 = load ptr, ptr @zend_new_interned_string, align 8
-  %173 = call ptr %172(ptr noundef %.1291) #30
+  %173 = call ptr %172(ptr noundef %.1291) #28
   store i8 2, ptr %.0, align 8
   %174 = getelementptr inbounds i8, ptr %.0, i64 8
   store ptr %.1, ptr %174, align 8
@@ -9569,11 +9569,11 @@ zend_generate_anon_class_name.exit:               ; preds = %149, %158, %165, %1
   %179 = getelementptr inbounds i8, ptr %.0, i64 40
   %180 = getelementptr inbounds i8, ptr %.0, i64 120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %179, i8 0, i64 16, i1 false)
-  call void @_zend_hash_init(ptr noundef nonnull %180, i32 noundef 8, ptr noundef null, i1 noundef zeroext false) #30
+  call void @_zend_hash_init(ptr noundef nonnull %180, i32 noundef 8, ptr noundef null, i1 noundef zeroext false) #28
   %181 = getelementptr inbounds i8, ptr %.0, i64 176
-  call void @_zend_hash_init(ptr noundef nonnull %181, i32 noundef 8, ptr noundef null, i1 noundef zeroext false) #30
+  call void @_zend_hash_init(ptr noundef nonnull %181, i32 noundef 8, ptr noundef null, i1 noundef zeroext false) #28
   %182 = getelementptr inbounds i8, ptr %.0, i64 64
-  call void @_zend_hash_init(ptr noundef nonnull %182, i32 noundef 8, ptr noundef nonnull @zend_function_dtor, i1 noundef zeroext false) #30
+  call void @_zend_hash_init(ptr noundef nonnull %182, i32 noundef 8, ptr noundef nonnull @zend_function_dtor, i1 noundef zeroext false) #28
   %183 = getelementptr inbounds i8, ptr %.0, i64 488
   store ptr null, ptr %183, align 8
   %184 = getelementptr inbounds i8, ptr %.0, i64 56
@@ -9613,7 +9613,7 @@ zend_initialize_class_data.exit:                  ; preds = %.loopexit, %197
 
 201:                                              ; preds = %zend_initialize_class_data.exit
   %202 = load ptr, ptr %174, align 8
-  call void @zend_alloc_ce_cache(ptr noundef %202) #30
+  call void @zend_alloc_ce_cache(ptr noundef %202) #28
   br label %203
 
 203:                                              ; preds = %201, %zend_initialize_class_data.exit
@@ -9626,9 +9626,9 @@ zend_initialize_class_data.exit:                  ; preds = %.loopexit, %197
   %207 = load i32, ptr %176, align 4
   %208 = or i32 %207, 1024
   store i32 %208, ptr %176, align 4
-  %209 = call ptr @zend_map_ptr_new() #30
+  %209 = call ptr @zend_map_ptr_new() #28
   store ptr %209, ptr %184, align 8
-  %210 = call ptr @zend_map_ptr_new() #30
+  %210 = call ptr @zend_map_ptr_new() #28
   store ptr %210, ptr %185, align 8
   br label %211
 
@@ -9725,7 +9725,7 @@ zend_initialize_class_data.exit:                  ; preds = %.loopexit, %197
   %257 = load i32, ptr %256, align 8
   %258 = zext i32 %257 to i64
   %259 = shl nuw nsw i64 %258, 4
-  %260 = call noalias ptr @_emalloc(i64 noundef %259) #32
+  %260 = call noalias ptr @_emalloc(i64 noundef %259) #30
   %261 = load i32, ptr %256, align 8
   %.not.i361 = icmp eq i32 %261, 0
   br i1 %.not.i361, label %zend_compile_implements.exit, label %.lr.ph.i
@@ -9741,7 +9741,7 @@ zend_initialize_class_data.exit:                  ; preds = %.loopexit, %197
   %266 = call fastcc ptr @zend_resolve_const_class_name_reference(ptr noundef %265, ptr noundef nonnull @.str.155)
   %267 = getelementptr inbounds %struct._zend_class_name, ptr %260, i64 %indvars.iv.i
   store ptr %266, ptr %267, align 8
-  %268 = call ptr @zend_string_tolower_ex(ptr noundef %266, i1 noundef zeroext false) #30
+  %268 = call ptr @zend_string_tolower_ex(ptr noundef %266, i1 noundef zeroext false) #28
   %269 = getelementptr inbounds i8, ptr %267, i64 8
   store ptr %268, ptr %269, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -9788,7 +9788,7 @@ zend_compile_implements.exit:                     ; preds = %263, %254
 286:                                              ; preds = %284, %279
   %287 = call ptr @zend_type_to_string(ptr %281, i32 %282)
   %288 = getelementptr inbounds i8, ptr %287, i64 24
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.158, ptr noundef nonnull %288) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.158, ptr noundef nonnull %288) #29
   unreachable
 
 289:                                              ; preds = %284
@@ -9797,12 +9797,12 @@ zend_compile_implements.exit:                     ; preds = %263, %254
 zend_compile_enum_backing_type.exit:              ; preds = %284, %289
   %.sink.i = phi i32 [ 6, %289 ], [ 4, %284 ]
   store i32 %.sink.i, ptr %191, align 8
-  call void @zend_type_release(ptr %281, i32 %282, i1 noundef zeroext false) #30
+  call void @zend_type_release(ptr %281, i32 %282, i1 noundef zeroext false) #28
   br label %290
 
 290:                                              ; preds = %zend_compile_enum_backing_type.exit, %278
-  call void @zend_enum_add_interfaces(ptr noundef nonnull %.0) #30
-  call void @zend_enum_register_props(ptr noundef nonnull %.0) #30
+  call void @zend_enum_add_interfaces(ptr noundef nonnull %.0) #28
+  call void @zend_enum_register_props(ptr noundef nonnull %.0) #28
   br label %291
 
 291:                                              ; preds = %290, %275
@@ -9815,7 +9815,7 @@ zend_compile_enum_backing_type.exit:              ; preds = %284, %289
   br i1 %295, label %296, label %297
 
 296:                                              ; preds = %291
-  call void @zend_verify_abstract_class(ptr noundef nonnull %.0) #30
+  call void @zend_verify_abstract_class(ptr noundef nonnull %.0) #28
   br label %297
 
 297:                                              ; preds = %296, %291
@@ -9854,7 +9854,7 @@ zend_compile_enum_backing_type.exit:              ; preds = %284, %289
 
 312:                                              ; preds = %311
   %313 = load ptr, ptr %194, align 8
-  %314 = call ptr @zend_lookup_class_ex(ptr noundef %313, ptr noundef null, i32 noundef 128) #30
+  %314 = call ptr @zend_lookup_class_ex(ptr noundef %313, ptr noundef null, i32 noundef 128) #28
   %.not335 = icmp eq ptr %314, null
   br i1 %.not335, label %369, label %315
 
@@ -9885,7 +9885,7 @@ zend_compile_enum_backing_type.exit:              ; preds = %284, %289
   br i1 %327, label %.thread, label %369
 
 .thread:                                          ; preds = %315, %317, %323, %320
-  %328 = call ptr @zend_try_early_bind(ptr noundef nonnull %.0, ptr noundef nonnull %314, ptr noundef %173, ptr noundef null) #30
+  %328 = call ptr @zend_try_early_bind(ptr noundef nonnull %.0, ptr noundef nonnull %314, ptr noundef %173, ptr noundef null) #28
   %.not340 = icmp eq ptr %328, null
   br i1 %.not340, label %369, label %329
 
@@ -9911,11 +9911,11 @@ zend_compile_enum_backing_type.exit:              ; preds = %284, %289
   br i1 %.not342, label %341, label %340
 
 340:                                              ; preds = %338
-  call void @free(ptr noundef nonnull %173) #30
+  call void @free(ptr noundef nonnull %173) #28
   br label %zend_observer_class_linked_notify.exit
 
 341:                                              ; preds = %338
-  call void @_efree(ptr noundef nonnull %173) #30
+  call void @_efree(ptr noundef nonnull %173) #28
   br label %zend_observer_class_linked_notify.exit
 
 342:                                              ; preds = %311
@@ -9923,7 +9923,7 @@ zend_compile_enum_backing_type.exit:              ; preds = %284, %289
   store ptr %.0, ptr %6, align 8
   %344 = getelementptr inbounds i8, ptr %6, i64 8
   store i32 13, ptr %344, align 8
-  %345 = call ptr @zend_hash_add(ptr noundef %343, ptr noundef %173, ptr noundef nonnull %6) #30
+  %345 = call ptr @zend_hash_add(ptr noundef %343, ptr noundef %173, ptr noundef nonnull %6) #28
   %.not331 = icmp eq ptr %345, null
   br i1 %.not331, label %366, label %346
 
@@ -9949,16 +9949,16 @@ zend_compile_enum_backing_type.exit:              ; preds = %284, %289
   br i1 %.not334, label %358, label %357
 
 357:                                              ; preds = %355
-  call void @free(ptr noundef nonnull %173) #30
+  call void @free(ptr noundef nonnull %173) #28
   br label %359
 
 358:                                              ; preds = %355
-  call void @_efree(ptr noundef nonnull %173) #30
+  call void @_efree(ptr noundef nonnull %173) #28
   br label %359
 
 359:                                              ; preds = %350, %358, %357, %346
-  call void @zend_build_properties_info_table(ptr noundef nonnull %.0) #30
-  call void @zend_inheritance_check_override(ptr noundef nonnull %.0) #30
+  call void @zend_build_properties_info_table(ptr noundef nonnull %.0) #28
+  call void @zend_inheritance_check_override(ptr noundef nonnull %.0) #28
   %360 = load i32, ptr %176, align 4
   %361 = or i32 %360, 8
   store i32 %361, ptr %176, align 4
@@ -9967,15 +9967,15 @@ zend_compile_enum_backing_type.exit:              ; preds = %284, %289
   br i1 %363, label %364, label %zend_observer_class_linked_notify.exit
 
 364:                                              ; preds = %359
-  call void @_zend_observer_class_linked_notify(ptr noundef nonnull %.0, ptr noundef nonnull %173) #30
+  call void @_zend_observer_class_linked_notify(ptr noundef nonnull %.0, ptr noundef nonnull %173) #28
   br label %zend_observer_class_linked_notify.exit
 
 365:                                              ; preds = %310
   br i1 %.not323, label %366, label %369
 
 366:                                              ; preds = %365, %342
-  call void @zend_build_properties_info_table(ptr noundef nonnull %.0) #30
-  call void @zend_inheritance_check_override(ptr noundef nonnull %.0) #30
+  call void @zend_build_properties_info_table(ptr noundef nonnull %.0) #28
+  call void @zend_inheritance_check_override(ptr noundef nonnull %.0) #28
   %367 = load i32, ptr %176, align 4
   %368 = or i32 %367, 8
   store i32 %368, ptr %176, align 4
@@ -10003,7 +10003,7 @@ zend_compile_enum_backing_type.exit:              ; preds = %284, %289
   %378 = load ptr, ptr %377, align 8
   %379 = zext i32 %376 to i64
   %380 = shl nuw nsw i64 %379, 5
-  %381 = call ptr @_erealloc(ptr noundef %378, i64 noundef %380) #34
+  %381 = call ptr @_erealloc(ptr noundef %378, i64 noundef %380) #32
   store ptr %381, ptr %377, align 8
   br label %get_next_op.exit
 
@@ -10035,7 +10035,7 @@ get_next_op.exit:                                 ; preds = %._crit_edge.i, %375
   br i1 %.not343, label %425, label %396
 
 396:                                              ; preds = %get_next_op.exit
-  %397 = call ptr @zend_string_tolower_ex(ptr noundef nonnull %395, i1 noundef zeroext false) #30
+  %397 = call ptr @zend_string_tolower_ex(ptr noundef nonnull %395, i1 noundef zeroext false) #28
   store i8 1, ptr %388, align 2
   %398 = getelementptr inbounds i8, ptr %397, i64 4
   %399 = load i32, ptr %398, align 4
@@ -10065,14 +10065,14 @@ get_next_op.exit:                                 ; preds = %._crit_edge.i, %375
   %409 = load ptr, ptr %408, align 8
   %410 = sext i32 %406 to i64
   %411 = shl nsw i64 %410, 4
-  %412 = call ptr @_erealloc(ptr noundef %409, i64 noundef %411) #34
+  %412 = call ptr @_erealloc(ptr noundef %409, i64 noundef %411) #32
   store ptr %412, ptr %408, align 8
   br label %zend_add_literal.exit
 
 zend_add_literal.exit:                            ; preds = %._crit_edge13.i, %407
   %.val.i = phi ptr [ %.val.pre.i, %._crit_edge13.i ], [ %412, %407 ]
   %413 = load ptr, ptr @zend_new_interned_string, align 8
-  %414 = call ptr %413(ptr noundef %397) #30
+  %414 = call ptr %413(ptr noundef %397) #28
   %415 = getelementptr inbounds i8, ptr %414, i64 4
   %416 = load i32, ptr %415, align 4
   %417 = and i32 %416, 64
@@ -10121,14 +10121,14 @@ zend_add_literal.exit:                            ; preds = %._crit_edge13.i, %4
   %437 = load ptr, ptr %436, align 8
   %438 = sext i32 %434 to i64
   %439 = shl nsw i64 %438, 4
-  %440 = call ptr @_erealloc(ptr noundef %437, i64 noundef %439) #34
+  %440 = call ptr @_erealloc(ptr noundef %437, i64 noundef %439) #32
   store ptr %440, ptr %436, align 8
   br label %zend_add_literal.exit376
 
 zend_add_literal.exit376:                         ; preds = %._crit_edge13.i373, %435
   %.val.i370 = phi ptr [ %.val.pre.i375, %._crit_edge13.i373 ], [ %440, %435 ]
   %441 = load ptr, ptr @zend_new_interned_string, align 8
-  %442 = call ptr %441(ptr noundef %173) #30
+  %442 = call ptr %441(ptr noundef %173) #28
   %443 = getelementptr inbounds i8, ptr %442, i64 4
   %444 = load i32, ptr %443, align 4
   %445 = and i32 %444, 64
@@ -10201,13 +10201,13 @@ zend_make_var_result.exit:                        ; preds = %469, %480
   store ptr %.0, ptr %7, align 8
   %483 = getelementptr inbounds i8, ptr %7, i64 8
   store i32 13, ptr %483, align 8
-  %484 = call ptr @zend_hash_add(ptr noundef %482, ptr noundef %173, ptr noundef nonnull %7) #30
+  %484 = call ptr @zend_hash_add(ptr noundef %482, ptr noundef %173, ptr noundef nonnull %7) #28
   %.not355 = icmp eq ptr %484, null
   br i1 %.not355, label %485, label %zend_observer_class_linked_notify.exit
 
 485:                                              ; preds = %zend_make_var_result.exit
   %486 = getelementptr inbounds i8, ptr %.1, i64 24
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.154, ptr noundef nonnull %486) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.154, ptr noundef nonnull %486) #29
   unreachable
 
 487:                                              ; preds = %.preheader, %498
@@ -10232,7 +10232,7 @@ zend_make_var_result.exit:                        ; preds = %469, %480
   br i1 %496, label %497, label %498
 
 497:                                              ; preds = %492
-  call void @_efree(ptr noundef nonnull %.0384) #30
+  call void @_efree(ptr noundef nonnull %.0384) #28
   br label %498
 
 498:                                              ; preds = %488, %497, %492, %487
@@ -10244,13 +10244,13 @@ zend_make_var_result.exit:                        ; preds = %469, %480
   %504 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 44), align 8
   %505 = add i32 %504, 1
   store i32 %505, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 44), align 8
-  %506 = call ptr (i64, ptr, ...) @zend_strpprintf(i64 noundef 0, ptr noundef nonnull @.str.159, i32 noundef 0, ptr noundef nonnull %455, ptr noundef nonnull %503, i32 noundef %499, i32 noundef %504) #30
+  %506 = call ptr (i64, ptr, ...) @zend_strpprintf(i64 noundef 0, ptr noundef nonnull @.str.159, i32 noundef 0, ptr noundef nonnull %455, ptr noundef nonnull %503, i32 noundef %499, i32 noundef %504) #28
   %507 = load ptr, ptr @zend_new_interned_string, align 8
-  %508 = call ptr %507(ptr noundef %506) #30
+  %508 = call ptr %507(ptr noundef %506) #28
   %509 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 6), align 8
   store ptr %.0, ptr %8, align 8
   store i32 13, ptr %456, align 8
-  %510 = call ptr @zend_hash_add(ptr noundef %509, ptr noundef %508, ptr noundef nonnull %8) #30
+  %510 = call ptr @zend_hash_add(ptr noundef %509, ptr noundef %508, ptr noundef nonnull %8) #28
   %.not349 = icmp eq ptr %510, null
   br i1 %.not349, label %487, label %511
 
@@ -10283,14 +10283,14 @@ zend_make_var_result.exit:                        ; preds = %469, %480
   %523 = load ptr, ptr %522, align 8
   %524 = sext i32 %520 to i64
   %525 = shl nsw i64 %524, 4
-  %526 = call ptr @_erealloc(ptr noundef %523, i64 noundef %525) #34
+  %526 = call ptr @_erealloc(ptr noundef %523, i64 noundef %525) #32
   store ptr %526, ptr %522, align 8
   br label %zend_add_literal_string.exit
 
 zend_add_literal_string.exit:                     ; preds = %._crit_edge13.i.i, %521
   %.val.i.i = phi ptr [ %.val.pre.i.i, %._crit_edge13.i.i ], [ %526, %521 ]
   %527 = load ptr, ptr @zend_new_interned_string, align 8
-  %528 = call ptr %527(ptr noundef %508) #30
+  %528 = call ptr %527(ptr noundef %508) #28
   %529 = getelementptr inbounds i8, ptr %528, i64 4
   %530 = load i32, ptr %529, align 4
   %531 = and i32 %530, 64
@@ -10413,7 +10413,7 @@ zend_is_unticked_stmt.exit:                       ; preds = %8
   %17 = load ptr, ptr %16, align 8
   %18 = zext i32 %15 to i64
   %19 = shl nuw nsw i64 %18, 5
-  %20 = tail call ptr @_erealloc(ptr noundef %17, i64 noundef %19) #34
+  %20 = tail call ptr @_erealloc(ptr noundef %17, i64 noundef %19) #32
   store ptr %20, ptr %16, align 8
   br label %zend_do_extended_stmt.exit
 
@@ -10539,7 +10539,7 @@ zend_is_unticked_stmt.exit.thread:                ; preds = %zend_is_unticked_st
 
 55:                                               ; preds = %53
   %56 = select i1 %52, ptr @.str.220, ptr @.str.221
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.219, ptr noundef nonnull %56) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.219, ptr noundef nonnull %56) #29
   unreachable
 
 57:                                               ; preds = %53
@@ -10556,7 +10556,7 @@ zend_is_unticked_stmt.exit.thread:                ; preds = %zend_is_unticked_st
 
 64:                                               ; preds = %60, %57
   %65 = select i1 %52, ptr @.str.220, ptr @.str.221
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.222, ptr noundef nonnull %65) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.222, ptr noundef nonnull %65) #29
   unreachable
 
 66:                                               ; preds = %60, %49
@@ -10567,7 +10567,7 @@ zend_is_unticked_stmt.exit.thread:                ; preds = %zend_is_unticked_st
 
 69:                                               ; preds = %66
   %70 = select i1 %52, ptr @.str.220, ptr @.str.221
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.223, ptr noundef nonnull %70) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.223, ptr noundef nonnull %70) #29
   unreachable
 
 71:                                               ; preds = %66
@@ -10580,7 +10580,7 @@ zend_is_unticked_stmt.exit.thread:                ; preds = %zend_is_unticked_st
   %76 = select i1 %75, ptr @.str.220, ptr @.str.221
   %77 = icmp eq i64 %.039.i, 1
   %78 = select i1 %77, ptr @.str.136, ptr @.str.225
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.224, ptr noundef nonnull %76, i64 noundef %.039.i, ptr noundef nonnull %78) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.224, ptr noundef nonnull %76, i64 noundef %.039.i, ptr noundef nonnull %78) #29
   unreachable
 
 79:                                               ; preds = %71
@@ -10627,23 +10627,23 @@ zend_is_unticked_stmt.exit.thread:                ; preds = %zend_is_unticked_st
   br i1 %99, label %101, label %102
 
 101:                                              ; preds = %100
-  tail call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str.226) #30
+  tail call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str.226) #28
   br label %107
 
 102:                                              ; preds = %100
-  tail call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str.227, i64 noundef 2) #30
+  tail call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str.227, i64 noundef 2) #28
   br label %107
 
 103:                                              ; preds = %95
   br i1 %99, label %104, label %105
 
 104:                                              ; preds = %103
-  tail call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str.228, i64 noundef %.039.i, i64 noundef %.039.i) #30
+  tail call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str.228, i64 noundef %.039.i, i64 noundef %.039.i) #28
   br label %107
 
 105:                                              ; preds = %103
   %106 = add nuw nsw i64 %.039.i, 1
-  tail call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str.229, i64 noundef %.039.i, i64 noundef %.039.i, i64 noundef %106) #30
+  tail call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str.229, i64 noundef %.039.i, i64 noundef %.039.i, i64 noundef %106) #28
   br label %107
 
 107:                                              ; preds = %105, %104, %102, %101, %._crit_edge.i, %79
@@ -10669,7 +10669,7 @@ zend_is_unticked_stmt.exit.thread:                ; preds = %zend_is_unticked_st
   %117 = load ptr, ptr %116, align 8
   %118 = zext i32 %115 to i64
   %119 = shl nuw nsw i64 %118, 5
-  %120 = tail call ptr @_erealloc(ptr noundef %117, i64 noundef %119) #34
+  %120 = tail call ptr @_erealloc(ptr noundef %117, i64 noundef %119) #32
   store ptr %120, ptr %116, align 8
   br label %zend_compile_break_continue.exit
 
@@ -10814,11 +10814,11 @@ zend_compile_break_continue.exit:                 ; preds = %._crit_edge.i.i.i, 
   %170 = ptrtoint ptr %169 to i64
   %171 = ptrtoint ptr %166 to i64
   %172 = sub i64 %170, %171
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %172) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %172) #29
   unreachable
 
 zend_check_stack_limit.exit:                      ; preds = %165
-  %173 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %173 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   tail call fastcc void @zend_compile_expr_inner(ptr noundef null, ptr noundef nonnull %0)
   tail call fastcc void @zend_short_circuiting_commit(i32 noundef %173, ptr noundef null, ptr noundef nonnull %0)
   br label %zend_compile_stmt_list.exit
@@ -10880,7 +10880,7 @@ zend_is_unticked_stmt.exit45:                     ; preds = %176
   %194 = load ptr, ptr %193, align 8
   %195 = zext i32 %192 to i64
   %196 = shl nuw nsw i64 %195, 5
-  %197 = call ptr @_erealloc(ptr noundef %194, i64 noundef %196) #34
+  %197 = call ptr @_erealloc(ptr noundef %194, i64 noundef %196) #32
   store ptr %197, ptr %193, align 8
   br label %get_next_op.exit.i48
 
@@ -10927,9 +10927,9 @@ define internal fastcc void @zend_reset_import_tables() unnamed_addr #0 {
   br i1 %.not, label %4, label %2
 
 2:                                                ; preds = %0
-  tail call void @zend_hash_destroy(ptr noundef nonnull %1) #30
+  tail call void @zend_hash_destroy(ptr noundef nonnull %1) #28
   %3 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 23, i32 4), align 8
-  tail call void @_efree(ptr noundef %3) #30
+  tail call void @_efree(ptr noundef %3) #28
   store ptr null, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 23, i32 4), align 8
   br label %4
 
@@ -10939,9 +10939,9 @@ define internal fastcc void @zend_reset_import_tables() unnamed_addr #0 {
   br i1 %.not3, label %8, label %6
 
 6:                                                ; preds = %4
-  tail call void @zend_hash_destroy(ptr noundef nonnull %5) #30
+  tail call void @zend_hash_destroy(ptr noundef nonnull %5) #28
   %7 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 23, i32 5), align 8
-  tail call void @_efree(ptr noundef %7) #30
+  tail call void @_efree(ptr noundef %7) #28
   store ptr null, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 23, i32 5), align 8
   br label %8
 
@@ -10951,9 +10951,9 @@ define internal fastcc void @zend_reset_import_tables() unnamed_addr #0 {
   br i1 %.not4, label %12, label %10
 
 10:                                               ; preds = %8
-  tail call void @zend_hash_destroy(ptr noundef nonnull %9) #30
+  tail call void @zend_hash_destroy(ptr noundef nonnull %9) #28
   %11 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 23, i32 6), align 8
-  tail call void @_efree(ptr noundef %11) #30
+  tail call void @_efree(ptr noundef %11) #28
   store ptr null, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 23, i32 6), align 8
   br label %12
 
@@ -11034,7 +11034,7 @@ define internal fastcc i32 @zend_add_literal(ptr nocapture noundef %0) unnamed_a
   %11 = load ptr, ptr %10, align 8
   %12 = sext i32 %8 to i64
   %13 = shl nsw i64 %12, 4
-  %14 = tail call ptr @_erealloc(ptr noundef %11, i64 noundef %13) #34
+  %14 = tail call ptr @_erealloc(ptr noundef %11, i64 noundef %13) #32
   store ptr %14, ptr %10, align 8
   br label %15
 
@@ -11048,7 +11048,7 @@ define internal fastcc i32 @zend_add_literal(ptr nocapture noundef %0) unnamed_a
 
 19:                                               ; preds = %15
   %20 = load ptr, ptr @zend_new_interned_string, align 8
-  %21 = tail call ptr %20(ptr noundef %.pre.i) #30
+  %21 = tail call ptr %20(ptr noundef %.pre.i) #28
   store ptr %21, ptr %0, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 4
   %23 = load i32, ptr %22, align 4
@@ -11097,7 +11097,7 @@ define internal fastcc noundef zeroext i1 @zend_try_ct_eval_const(ptr noundef %0
   br i1 %2, label %zend_get_unqualified_name.exit, label %8
 
 8:                                                ; preds = %3
-  %9 = tail call ptr @memrchr(ptr noundef nonnull %5, i32 noundef 92, i64 noundef %7) #29
+  %9 = tail call ptr @memrchr(ptr noundef nonnull %5, i32 noundef 92, i64 noundef %7) #27
   %.not.i.not = icmp eq ptr %9, null
   br i1 %.not.i.not, label %zend_get_unqualified_name.exit, label %10
 
@@ -11117,7 +11117,7 @@ zend_get_unqualified_name.exit:                   ; preds = %10, %8, %3
   br i1 %or.cond, label %17, label %.thread
 
 17:                                               ; preds = %zend_get_unqualified_name.exit
-  %18 = tail call ptr @_zend_get_special_const(ptr noundef nonnull %.153, i64 noundef %.1) #30
+  %18 = tail call ptr @_zend_get_special_const(ptr noundef nonnull %.153, i64 noundef %.1) #28
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %.thread, label %19
 
@@ -11132,7 +11132,7 @@ zend_get_unqualified_name.exit:                   ; preds = %10, %8, %3
 
 .thread:                                          ; preds = %zend_get_unqualified_name.exit, %17
   %24 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 12), align 8
-  %25 = tail call ptr @zend_hash_find(ptr noundef %24, ptr noundef nonnull %1) #30
+  %25 = tail call ptr @zend_hash_find(ptr noundef %24, ptr noundef nonnull %1) #28
   %.not46 = icmp eq ptr %25, null
   br i1 %.not46, label %can_ct_eval_const.exit, label %26
 
@@ -11221,7 +11221,7 @@ zend_get_unqualified_name.exit:                   ; preds = %10, %8, %3
   br label %can_ct_eval_const.exit
 
 70:                                               ; preds = %60
-  tail call void @zval_copy_ctor_func(ptr noundef nonnull %0) #30
+  tail call void @zval_copy_ctor_func(ptr noundef nonnull %0) #28
   br label %can_ct_eval_const.exit
 
 can_ct_eval_const.exit:                           ; preds = %43, %46, %48, %51, %.thread, %26, %67, %70, %54, %19
@@ -11247,7 +11247,7 @@ define internal fastcc ptr @zend_resolve_non_class_name(ptr noundef %0, i32 noun
   %13 = add i64 %12, -1
   %14 = add i64 %12, 31
   %15 = and i64 %14, -8
-  %16 = tail call noalias ptr @_emalloc(i64 noundef %15) #32
+  %16 = tail call noalias ptr @_emalloc(i64 noundef %15) #30
   store i32 1, ptr %16, align 4
   %17 = getelementptr inbounds i8, ptr %16, i64 4
   store i32 22, ptr %17, align 4
@@ -11293,7 +11293,7 @@ define internal fastcc ptr @zend_resolve_non_class_name(ptr noundef %0, i32 noun
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %0, i64 16
   %37 = load i64, ptr %36, align 8
-  %38 = tail call ptr @zend_string_concat3(ptr noundef nonnull %33, i64 noundef %35, ptr noundef nonnull @.str.51, i64 noundef 1, ptr noundef nonnull %6, i64 noundef %37) #30
+  %38 = tail call ptr @zend_string_concat3(ptr noundef nonnull %33, i64 noundef %35, ptr noundef nonnull @.str.51, i64 noundef 1, ptr noundef nonnull %6, i64 noundef %37) #28
   br label %zend_prefix_with_ns.exit
 
 39:                                               ; preds = %30
@@ -11317,7 +11317,7 @@ define internal fastcc ptr @zend_resolve_non_class_name(ptr noundef %0, i32 noun
   br i1 %3, label %48, label %51
 
 48:                                               ; preds = %47
-  %49 = tail call ptr @zend_hash_find(ptr noundef nonnull %4, ptr noundef nonnull %0) #30
+  %49 = tail call ptr @zend_hash_find(ptr noundef nonnull %4, ptr noundef nonnull %0) #28
   %.not117 = icmp eq ptr %49, null
   br i1 %.not117, label %.thread, label %.thread128
 
@@ -11326,7 +11326,7 @@ define internal fastcc ptr @zend_resolve_non_class_name(ptr noundef %0, i32 noun
   br label %53
 
 51:                                               ; preds = %47
-  %52 = tail call ptr @zend_hash_find_ptr_lc(ptr noundef nonnull %4, ptr noundef nonnull %0) #30
+  %52 = tail call ptr @zend_hash_find_ptr_lc(ptr noundef nonnull %4, ptr noundef nonnull %0) #28
   %.not118 = icmp eq ptr %52, null
   br i1 %.not118, label %.thread, label %53
 
@@ -11348,7 +11348,7 @@ define internal fastcc ptr @zend_resolve_non_class_name(ptr noundef %0, i32 noun
 .thread:                                          ; preds = %48, %51, %46
   %60 = getelementptr inbounds i8, ptr %0, i64 16
   %61 = load i64, ptr %60, align 8
-  %62 = tail call ptr @memchr(ptr noundef nonnull %6, i32 noundef 92, i64 noundef %61) #29
+  %62 = tail call ptr @memchr(ptr noundef nonnull %6, i32 noundef 92, i64 noundef %61) #27
   %.not134 = icmp eq ptr %62, null
   br i1 %.not134, label %.thread132, label %63
 
@@ -11362,7 +11362,7 @@ define internal fastcc ptr @zend_resolve_non_class_name(ptr noundef %0, i32 noun
   %66 = ptrtoint ptr %62 to i64
   %67 = ptrtoint ptr %6 to i64
   %68 = sub i64 %66, %67
-  %69 = tail call ptr @zend_hash_str_find_ptr_lc(ptr noundef nonnull %64, ptr noundef nonnull %6, i64 noundef %68) #30
+  %69 = tail call ptr @zend_hash_str_find_ptr_lc(ptr noundef nonnull %64, ptr noundef nonnull %6, i64 noundef %68) #28
   %.not119 = icmp eq ptr %69, null
   br i1 %.not119, label %.thread132, label %70
 
@@ -11375,7 +11375,7 @@ define internal fastcc ptr @zend_resolve_non_class_name(ptr noundef %0, i32 noun
   %76 = load i64, ptr %60, align 8
   %77 = xor i64 %68, -1
   %78 = add i64 %76, %77
-  %79 = tail call ptr @zend_string_concat3(ptr noundef nonnull %71, i64 noundef %73, ptr noundef nonnull @.str.51, i64 noundef 1, ptr noundef nonnull %75, i64 noundef %78) #30
+  %79 = tail call ptr @zend_string_concat3(ptr noundef nonnull %71, i64 noundef %73, ptr noundef nonnull @.str.51, i64 noundef 1, ptr noundef nonnull %75, i64 noundef %78) #28
   br label %zend_prefix_with_ns.exit
 
 .thread132:                                       ; preds = %.thread, %65, %63
@@ -11388,7 +11388,7 @@ define internal fastcc ptr @zend_resolve_non_class_name(ptr noundef %0, i32 noun
   %83 = getelementptr inbounds i8, ptr %80, i64 16
   %84 = load i64, ptr %83, align 8
   %85 = load i64, ptr %60, align 8
-  %86 = tail call ptr @zend_string_concat3(ptr noundef nonnull %82, i64 noundef %84, ptr noundef nonnull @.str.51, i64 noundef 1, ptr noundef nonnull %6, i64 noundef %85) #30
+  %86 = tail call ptr @zend_string_concat3(ptr noundef nonnull %82, i64 noundef %84, ptr noundef nonnull @.str.51, i64 noundef 1, ptr noundef nonnull %6, i64 noundef %85) #28
   br label %zend_prefix_with_ns.exit
 
 87:                                               ; preds = %.thread132
@@ -11531,7 +11531,7 @@ define internal fastcc void @zend_compile_attributes(ptr noundef %0, ptr nocaptu
   br i1 %33, label %34, label %35
 
 34:                                               ; preds = %31
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.101) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.101) #29
   unreachable
 
 35:                                               ; preds = %31, %23
@@ -11545,7 +11545,7 @@ define internal fastcc void @zend_compile_attributes(ptr noundef %0, ptr nocaptu
   br i1 %.not.i, label %zend_resolve_class_name_ast.exit, label %41
 
 41:                                               ; preds = %35
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.16) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.16) #29
   unreachable
 
 zend_resolve_class_name_ast.exit:                 ; preds = %35
@@ -11555,10 +11555,10 @@ zend_resolve_class_name_ast.exit:                 ; preds = %35
   %45 = load i16, ptr %44, align 2
   %46 = zext i16 %45 to i32
   %47 = call fastcc ptr @zend_resolve_class_name(ptr noundef %43, i32 noundef %46)
-  %48 = call ptr @zend_string_tolower_ex(ptr noundef %47, i1 noundef zeroext false) #30
+  %48 = call ptr @zend_string_tolower_ex(ptr noundef %47, i1 noundef zeroext false) #28
   %49 = load ptr, ptr %29, align 8
   %.not169 = icmp eq ptr %49, null
-  %50 = call ptr @zend_internal_attribute_get(ptr noundef %48) #30
+  %50 = call ptr @zend_internal_attribute_get(ptr noundef %48) #28
   %51 = getelementptr inbounds i8, ptr %48, i64 4
   %52 = load i32, ptr %51, align 4
   %53 = and i32 %52, 64
@@ -11580,11 +11580,11 @@ zend_resolve_class_name_ast.exit:                 ; preds = %35
   br i1 %.not171, label %62, label %61
 
 61:                                               ; preds = %59
-  call void @free(ptr noundef nonnull %48) #30
+  call void @free(ptr noundef nonnull %48) #28
   br label %63
 
 62:                                               ; preds = %59
-  call void @_efree(ptr noundef nonnull %48) #30
+  call void @_efree(ptr noundef nonnull %48) #28
   br label %63
 
 63:                                               ; preds = %54, %62, %61, %zend_resolve_class_name_ast.exit
@@ -11624,11 +11624,11 @@ zend_resolve_class_name_ast.exit:                 ; preds = %35
   br i1 %.not176, label %82, label %81
 
 81:                                               ; preds = %79
-  call void @free(ptr noundef nonnull %47) #30
+  call void @free(ptr noundef nonnull %47) #28
   br label %.loopexit185
 
 82:                                               ; preds = %79
-  call void @_efree(ptr noundef nonnull %47) #30
+  call void @_efree(ptr noundef nonnull %47) #28
   br label %.loopexit185
 
 83:                                               ; preds = %64, %63
@@ -11648,7 +11648,7 @@ zend_resolve_class_name_ast.exit:                 ; preds = %35
   %93 = phi i32 [ %91, %89 ], [ 0, %83 ]
   %94 = getelementptr inbounds i8, ptr %25, i64 4
   %95 = load i32, ptr %94, align 4
-  %96 = call ptr @zend_add_attribute(ptr noundef %0, ptr noundef %47, i32 noundef %93, i32 noundef %88, i32 noundef %2, i32 noundef %95) #30
+  %96 = call ptr @zend_add_attribute(ptr noundef %0, ptr noundef %47, i32 noundef %93, i32 noundef %88, i32 noundef %2, i32 noundef %95) #28
   %97 = getelementptr inbounds i8, ptr %47, i64 4
   %98 = load i32, ptr %97, align 4
   %99 = and i32 %98, 64
@@ -11670,11 +11670,11 @@ zend_resolve_class_name_ast.exit:                 ; preds = %35
   br i1 %.not180, label %108, label %107
 
 107:                                              ; preds = %105
-  call void @free(ptr noundef nonnull %47) #30
+  call void @free(ptr noundef nonnull %47) #28
   br label %109
 
 108:                                              ; preds = %105
-  call void @_efree(ptr noundef nonnull %47) #30
+  call void @_efree(ptr noundef nonnull %47) #28
   br label %109
 
 109:                                              ; preds = %100, %108, %107, %92
@@ -11706,7 +11706,7 @@ zend_resolve_class_name_ast.exit:                 ; preds = %35
   ]
 
 121:                                              ; preds = %117
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.102) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.102) #29
   unreachable
 
 122:                                              ; preds = %117
@@ -11757,7 +11757,7 @@ zend_resolve_class_name_ast.exit:                 ; preds = %35
   br i1 %148, label %149, label %.critedge2
 
 149:                                              ; preds = %143
-  %150 = call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %139, ptr noundef nonnull %141) #30
+  %150 = call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %139, ptr noundef nonnull %141) #28
   br i1 %150, label %..critedge_crit_edge, label %.critedge2
 
 ..critedge_crit_edge:                             ; preds = %149
@@ -11767,7 +11767,7 @@ zend_resolve_class_name_ast.exit:                 ; preds = %35
 .critedge:                                        ; preds = %140, %..critedge_crit_edge
   %151 = phi ptr [ %.pre, %..critedge_crit_edge ], [ %141, %140 ]
   %152 = getelementptr inbounds i8, ptr %151, i64 24
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.103, ptr noundef nonnull %152) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.103, ptr noundef nonnull %152) #29
   unreachable
 
 .critedge2:                                       ; preds = %.lr.ph, %149, %143
@@ -11779,7 +11779,7 @@ zend_resolve_class_name_ast.exit:                 ; preds = %35
   br i1 %.0151191, label %154, label %.loopexit184
 
 154:                                              ; preds = %153
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.76) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.76) #29
   unreachable
 
 .loopexit184:                                     ; preds = %.critedge2, %135, %153
@@ -11797,12 +11797,12 @@ zend_resolve_class_name_ast.exit:                 ; preds = %35
   br i1 %.not.i183, label %163, label %158
 
 158:                                              ; preds = %.loopexit184
-  %159 = call ptr @zend_ast_copy(ptr noundef nonnull %156) #30
+  %159 = call ptr @zend_ast_copy(ptr noundef nonnull %156) #28
   store ptr %159, ptr %7, align 8
   store i32 267, ptr %13, align 8
   %160 = load ptr, ptr %.0150, align 8
-  call void @zend_ast_destroy(ptr noundef %160) #30
-  %161 = call ptr @zend_ast_create_zval(ptr noundef nonnull %7) #30
+  call void @zend_ast_destroy(ptr noundef %160) #28
+  %161 = call ptr @zend_ast_create_zval(ptr noundef nonnull %7) #28
   store ptr %161, ptr %.0150, align 8
   %.pre.i = load i16, ptr %161, align 8
   %162 = icmp eq i16 %.pre.i, 64
@@ -11897,7 +11897,7 @@ zend_const_expr_to_zval.exit:                     ; preds = %163, %172
 205:                                              ; preds = %201
   %206 = getelementptr inbounds i8, ptr %202, i64 8
   %207 = load ptr, ptr %206, align 8
-  %208 = call ptr @zend_internal_attribute_get(ptr noundef %207) #30
+  %208 = call ptr @zend_internal_attribute_get(ptr noundef %207) #28
   %209 = icmp eq ptr %208, null
   br i1 %209, label %236, label %210
 
@@ -11910,14 +11910,14 @@ zend_const_expr_to_zval.exit:                     ; preds = %163, %172
 
 214:                                              ; preds = %210
   %215 = getelementptr inbounds i8, ptr %208, i64 8
-  %216 = call ptr @zend_get_attribute_target_names(i32 noundef %3) #30
+  %216 = call ptr @zend_get_attribute_target_names(i32 noundef %3) #28
   %217 = load i32, ptr %215, align 8
-  %218 = call ptr @zend_get_attribute_target_names(i32 noundef %217) #30
+  %218 = call ptr @zend_get_attribute_target_names(i32 noundef %217) #28
   %219 = load ptr, ptr %202, align 8
   %220 = getelementptr inbounds i8, ptr %219, i64 24
   %221 = getelementptr inbounds i8, ptr %216, i64 24
   %222 = getelementptr inbounds i8, ptr %218, i64 24
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.104, ptr noundef nonnull %220, ptr noundef nonnull %221, ptr noundef nonnull %222) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.104, ptr noundef nonnull %220, ptr noundef nonnull %221, ptr noundef nonnull %222) #29
   unreachable
 
 223:                                              ; preds = %210
@@ -11927,13 +11927,13 @@ zend_const_expr_to_zval.exit:                     ; preds = %163, %172
 
 225:                                              ; preds = %223
   %226 = load ptr, ptr %0, align 8
-  %227 = call zeroext i1 @zend_is_attribute_repeated(ptr noundef %226, ptr noundef nonnull %202) #30
+  %227 = call zeroext i1 @zend_is_attribute_repeated(ptr noundef %226, ptr noundef nonnull %202) #28
   br i1 %227, label %228, label %231
 
 228:                                              ; preds = %225
   %229 = load ptr, ptr %202, align 8
   %230 = getelementptr inbounds i8, ptr %229, i64 24
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.105, ptr noundef nonnull %230) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.105, ptr noundef nonnull %230) #29
   unreachable
 
 231:                                              ; preds = %225, %223
@@ -11944,7 +11944,7 @@ zend_const_expr_to_zval.exit:                     ; preds = %163, %172
 
 234:                                              ; preds = %231
   %235 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 1), align 8
-  call void %233(ptr noundef nonnull %202, i32 noundef %3, ptr noundef %235) #30
+  call void %233(ptr noundef nonnull %202, i32 noundef %3, ptr noundef %235) #28
   br label %236
 
 236:                                              ; preds = %231, %234, %201, %205, %197
@@ -11970,7 +11970,7 @@ define internal fastcc void @zend_mark_function_as_generator() unnamed_addr #0 {
   br i1 %.not, label %5, label %6
 
 5:                                                ; preds = %0
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.145) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.145) #29
   unreachable
 
 6:                                                ; preds = %0
@@ -12036,7 +12036,7 @@ define internal fastcc void @zend_mark_function_as_generator() unnamed_addr #0 {
 42:                                               ; preds = %32
   %43 = getelementptr inbounds i8, ptr %33, i64 24
   %44 = getelementptr inbounds i8, ptr %38, i64 24
-  %45 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %43, i64 noundef %35, ptr noundef nonnull %44, i64 noundef %35) #30
+  %45 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %43, i64 noundef %35, ptr noundef nonnull %44, i64 noundef %35) #28
   %.not.i = icmp eq i32 %45, 0
   br i1 %.not.i, label %.thread, label %._crit_edge.i
 
@@ -12051,7 +12051,7 @@ define internal fastcc void @zend_mark_function_as_generator() unnamed_addr #0 {
 
 49:                                               ; preds = %46
   %50 = getelementptr inbounds i8, ptr %33, i64 24
-  %51 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %50, i64 noundef 8, ptr noundef nonnull @.str.147, i64 noundef 8) #30
+  %51 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %50, i64 noundef 8, ptr noundef nonnull @.str.147, i64 noundef 8) #28
   %.not12.i = icmp eq i32 %51, 0
   br i1 %.not12.i, label %.thread, label %thread-pre-split.i
 
@@ -12066,7 +12066,7 @@ thread-pre-split.i:                               ; preds = %49
 
 is_generator_compatible_class_type.exit:          ; preds = %52
   %55 = getelementptr inbounds i8, ptr %33, i64 24
-  %56 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %55, i64 noundef 9, ptr noundef nonnull @.str.148, i64 noundef 9) #30
+  %56 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %55, i64 noundef 9, ptr noundef nonnull @.str.148, i64 noundef 9) #28
   %.not13.i = icmp eq i32 %56, 0
   br i1 %.not13.i, label %.thread, label %is_generator_compatible_class_type.exit.thread18
 
@@ -12083,7 +12083,7 @@ is_generator_compatible_class_type.exit.thread18: ; preds = %52, %28, %is_genera
   %61 = load i32, ptr %14, align 8
   %62 = call ptr @zend_type_to_string(ptr %60, i32 %61)
   %63 = getelementptr inbounds i8, ptr %62, i64 24
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.146, ptr noundef nonnull %63) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.146, ptr noundef nonnull %63) #29
   unreachable
 
 .thread:                                          ; preds = %42, %49, %is_generator_compatible_class_type.exit, %10, %.loopexit, %6
@@ -12130,7 +12130,7 @@ define internal fastcc ptr @zend_emit_op_tmp(ptr noundef writeonly %0, i8 nounde
   %13 = load ptr, ptr %12, align 8
   %14 = zext i32 %11 to i64
   %15 = shl nuw nsw i64 %14, 5
-  %16 = tail call ptr @_erealloc(ptr noundef %13, i64 noundef %15) #34
+  %16 = tail call ptr @_erealloc(ptr noundef %13, i64 noundef %15) #32
   store ptr %16, ptr %12, align 8
   br label %get_next_op.exit
 
@@ -12195,7 +12195,7 @@ get_next_op.exit:                                 ; preds = %._crit_edge.i, %10
   %44 = load ptr, ptr %43, align 8
   %45 = sext i32 %41 to i64
   %46 = shl nsw i64 %45, 4
-  %47 = tail call ptr @_erealloc(ptr noundef %44, i64 noundef %46) #34
+  %47 = tail call ptr @_erealloc(ptr noundef %44, i64 noundef %46) #32
   store ptr %47, ptr %43, align 8
   br label %48
 
@@ -12209,7 +12209,7 @@ get_next_op.exit:                                 ; preds = %._crit_edge.i, %10
 
 52:                                               ; preds = %48
   %53 = load ptr, ptr @zend_new_interned_string, align 8
-  %54 = tail call ptr %53(ptr noundef %.pre.i.i) #30
+  %54 = tail call ptr %53(ptr noundef %.pre.i.i) #28
   store ptr %54, ptr %33, align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 4
   %56 = load i32, ptr %55, align 4
@@ -12281,7 +12281,7 @@ zend_add_literal.exit:                            ; preds = %48, %52, %58
   %83 = load ptr, ptr %82, align 8
   %84 = sext i32 %80 to i64
   %85 = shl nsw i64 %84, 4
-  %86 = tail call ptr @_erealloc(ptr noundef %83, i64 noundef %85) #34
+  %86 = tail call ptr @_erealloc(ptr noundef %83, i64 noundef %85) #32
   store ptr %86, ptr %82, align 8
   br label %87
 
@@ -12295,7 +12295,7 @@ zend_add_literal.exit:                            ; preds = %48, %52, %58
 
 91:                                               ; preds = %87
   %92 = load ptr, ptr @zend_new_interned_string, align 8
-  %93 = tail call ptr %92(ptr noundef %.pre.i.i31) #30
+  %93 = tail call ptr %92(ptr noundef %.pre.i.i31) #28
   store ptr %93, ptr %72, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 4
   %95 = load i32, ptr %94, align 4
@@ -12406,7 +12406,7 @@ define internal fastcc void @find_implicit_binds_recursively(ptr noundef %0, ptr
   %18 = getelementptr inbounds i8, ptr %10, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 7), align 8
-  %21 = tail call ptr @zend_hash_find(ptr noundef %20, ptr noundef %19) #30
+  %21 = tail call ptr @zend_hash_find(ptr noundef %20, ptr noundef %19) #28
   %.not.i.not = icmp eq ptr %21, null
   br i1 %.not.i.not, label %zend_is_auto_global.exit, label %22
 
@@ -12421,7 +12421,7 @@ define internal fastcc void @find_implicit_binds_recursively(ptr noundef %0, ptr
   %28 = getelementptr inbounds i8, ptr %23, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr %23, align 8
-  %31 = tail call zeroext i1 %29(ptr noundef %30) #30
+  %31 = tail call zeroext i1 %29(ptr noundef %30) #28
   %32 = zext i1 %31 to i8
   store i8 %32, ptr %24, align 1
   br label %.critedge
@@ -12442,11 +12442,11 @@ zend_is_auto_global.exit:                         ; preds = %17
   br i1 %42, label %43, label %.critedge2
 
 43:                                               ; preds = %37
-  %44 = tail call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %19, ptr noundef nonnull %35) #30
+  %44 = tail call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %19, ptr noundef nonnull %35) #28
   br i1 %44, label %.critedge, label %.critedge2
 
 .critedge2:                                       ; preds = %37, %43
-  %45 = tail call ptr @zend_hash_add_empty_element(ptr noundef %0, ptr noundef nonnull %19) #30
+  %45 = tail call ptr @zend_hash_add_empty_element(ptr noundef %0, ptr noundef nonnull %19) #28
   br label %.critedge
 
 46:                                               ; preds = %13, %8
@@ -12515,7 +12515,7 @@ tailrecurse.backedge:                             ; preds = %46, %76
   tail call void @llvm.assume(i1 %69)
   %70 = getelementptr inbounds i8, ptr %67, i64 8
   %71 = load ptr, ptr %70, align 8
-  %72 = tail call ptr @zend_hash_add_empty_element(ptr noundef %0, ptr noundef %71) #30
+  %72 = tail call ptr @zend_hash_add_empty_element(ptr noundef %0, ptr noundef %71) #28
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
   %73 = load i32, ptr %62, align 8
   %74 = zext i32 %73 to i64
@@ -12568,7 +12568,7 @@ define internal fastcc i32 @lookup_cv(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not, label %5, label %7
 
 5:                                                ; preds = %1
-  %6 = tail call i64 @zend_string_hash_func(ptr noundef nonnull %0) #30
+  %6 = tail call i64 @zend_string_hash_func(ptr noundef nonnull %0) #28
   br label %7
 
 7:                                                ; preds = %1, %5
@@ -12606,7 +12606,7 @@ define internal fastcc i32 @lookup_cv(ptr noundef %0) unnamed_addr #0 {
   br i1 %28, label %29, label %.critedge2
 
 29:                                               ; preds = %24
-  %30 = tail call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %18, ptr noundef nonnull %0) #30
+  %30 = tail call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %18, ptr noundef nonnull %0) #28
   br i1 %30, label %.critedge.loopexit, label %..critedge2_crit_edge
 
 ..critedge2_crit_edge:                            ; preds = %29
@@ -12635,7 +12635,7 @@ define internal fastcc i32 @lookup_cv(ptr noundef %0) unnamed_addr #0 {
   %39 = load ptr, ptr %38, align 8
   %40 = sext i32 %37 to i64
   %41 = shl nsw i64 %40, 3
-  %42 = tail call ptr @_erealloc(ptr noundef %39, i64 noundef %41) #34
+  %42 = tail call ptr @_erealloc(ptr noundef %39, i64 noundef %41) #32
   store ptr %42, ptr %38, align 8
   br label %43
 
@@ -12719,7 +12719,7 @@ define internal fastcc { ptr, i32 } @zend_compile_typename_ex(ptr nocapture noun
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %13
-  %22 = tail call noalias ptr @_emalloc(i64 noundef %19) #32
+  %22 = tail call noalias ptr @_emalloc(i64 noundef %19) #30
   br label %25
 
 23:                                               ; preds = %13
@@ -12858,7 +12858,7 @@ define internal fastcc { ptr, i32 } @zend_compile_typename_ex(ptr nocapture noun
 80:                                               ; preds = %.lr.ph.i
   %81 = getelementptr inbounds i8, ptr %73, i64 24
   %82 = getelementptr inbounds i8, ptr %76, i64 24
-  %83 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %81, i64 noundef %75, ptr noundef nonnull %82, i64 noundef %75) #30
+  %83 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %81, i64 noundef %75, ptr noundef nonnull %82, i64 noundef %75) #28
   %.not.i = icmp eq i32 %83, 0
   br i1 %.not.i, label %84, label %86
 
@@ -12911,13 +12911,13 @@ define internal fastcc { ptr, i32 } @zend_compile_typename_ex(ptr nocapture noun
 102:                                              ; preds = %98
   %103 = getelementptr inbounds i8, ptr %.045.i, i64 24
   %104 = getelementptr inbounds i8, ptr %.0.i, i64 24
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.131, ptr noundef nonnull %103, ptr noundef nonnull %104) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.131, ptr noundef nonnull %103, ptr noundef nonnull %104) #29
   unreachable
 
 105:                                              ; preds = %98
   %106 = getelementptr inbounds i8, ptr %.0.i, i64 24
   %107 = getelementptr inbounds i8, ptr %.045.i, i64 24
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.132, ptr noundef nonnull %106, ptr noundef nonnull %107) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.132, ptr noundef nonnull %106, ptr noundef nonnull %107) #29
   unreachable
 
 108:                                              ; preds = %56
@@ -12950,7 +12950,7 @@ define internal fastcc { ptr, i32 } @zend_compile_typename_ex(ptr nocapture noun
 
 122:                                              ; preds = %116
   %123 = getelementptr inbounds i8, ptr %117, i64 24
-  %124 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %123, i64 noundef %119, ptr noundef nonnull %115, i64 noundef %119) #30
+  %124 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %123, i64 noundef %119, ptr noundef nonnull %115, i64 noundef %119) #28
   %.not21.i = icmp eq i32 %124, 0
   br i1 %.not21.i, label %125, label %132
 
@@ -12961,7 +12961,7 @@ define internal fastcc { ptr, i32 } @zend_compile_typename_ex(ptr nocapture noun
   %129 = call ptr @zend_type_to_string(ptr %127, i32 %128)
   %130 = getelementptr inbounds i8, ptr %129, i64 24
   %131 = getelementptr inbounds i8, ptr %126, i64 24
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.132, ptr noundef nonnull %130, ptr noundef nonnull %131) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.132, ptr noundef nonnull %130, ptr noundef nonnull %131) #29
   unreachable
 
 132:                                              ; preds = %122, %116
@@ -12990,7 +12990,7 @@ zend_are_intersection_types_redundant.exit:       ; preds = %._crit_edge.i, %zen
   br i1 %145, label %146, label %147
 
 146:                                              ; preds = %140
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.122) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.122) #29
   unreachable
 
 147:                                              ; preds = %140
@@ -13007,7 +13007,7 @@ zend_are_intersection_types_redundant.exit:       ; preds = %._crit_edge.i, %zen
 151:                                              ; preds = %147
   %152 = call ptr @zend_type_to_string(ptr null, i32 %150)
   %153 = getelementptr inbounds i8, ptr %152, i64 24
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.123, ptr noundef nonnull %153) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.123, ptr noundef nonnull %153) #29
   unreachable
 
 154:                                              ; preds = %147
@@ -13025,7 +13025,7 @@ zend_are_intersection_types_redundant.exit:       ; preds = %._crit_edge.i, %zen
   br i1 %or.cond3, label %162, label %163
 
 162:                                              ; preds = %158, %154
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.124) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.124) #29
   unreachable
 
 163:                                              ; preds = %158
@@ -13113,7 +13113,7 @@ zend_are_intersection_types_redundant.exit:       ; preds = %._crit_edge.i, %zen
   %202 = ptrtoint ptr %189 to i64
   %203 = sub i64 %195, %202
   %. = call i64 @llvm.umax.i64(i64 %201, i64 %203)
-  %204 = call noalias ptr @_emalloc(i64 noundef %.) #32
+  %204 = call noalias ptr @_emalloc(i64 noundef %.) #30
   %205 = getelementptr inbounds i8, ptr %204, i64 24
   %206 = getelementptr inbounds i8, ptr %205, i64 %192
   store ptr %206, ptr %204, align 8
@@ -13144,7 +13144,7 @@ zend_are_intersection_types_redundant.exit:       ; preds = %._crit_edge.i, %zen
   br i1 %20, label %218, label %219
 
 218:                                              ; preds = %._crit_edge594.thread
-  call void @_efree(ptr noundef nonnull %26) #30
+  call void @_efree(ptr noundef nonnull %26) #28
   br label %219
 
 219:                                              ; preds = %._crit_edge594.thread, %218
@@ -13164,7 +13164,7 @@ zend_are_intersection_types_redundant.exit:       ; preds = %._crit_edge.i, %zen
 224:                                              ; preds = %221
   %225 = call ptr @zend_type_to_string(ptr %.sroa.0197.3, i32 %.sroa.12.3)
   %226 = getelementptr inbounds i8, ptr %225, i64 24
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.125, ptr noundef nonnull %226) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.125, ptr noundef nonnull %226) #29
   unreachable
 
 227:                                              ; preds = %11
@@ -13195,7 +13195,7 @@ zend_are_intersection_types_redundant.exit:       ; preds = %._crit_edge.i, %zen
   %246 = ptrtoint ptr %233 to i64
   %247 = sub i64 %239, %246
   %.508 = tail call i64 @llvm.umax.i64(i64 %245, i64 %247)
-  %248 = tail call noalias ptr @_emalloc(i64 noundef %.508) #32
+  %248 = tail call noalias ptr @_emalloc(i64 noundef %.508) #30
   %249 = getelementptr inbounds i8, ptr %248, i64 24
   %250 = getelementptr inbounds i8, ptr %249, i64 %236
   store ptr %250, ptr %248, align 8
@@ -13231,7 +13231,7 @@ zend_are_intersection_types_redundant.exit:       ; preds = %._crit_edge.i, %zen
 265:                                              ; preds = %258
   %266 = tail call ptr @zend_type_to_string(ptr %262, i32 %263)
   %267 = getelementptr inbounds i8, ptr %266, i64 24
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.126, ptr noundef nonnull %267) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.126, ptr noundef nonnull %267) #29
   unreachable
 
 268:                                              ; preds = %258
@@ -13244,7 +13244,7 @@ zend_are_intersection_types_redundant.exit:       ; preds = %._crit_edge.i, %zen
 272:                                              ; preds = %268
   %273 = tail call ptr @zend_type_to_string(ptr null, i32 %263)
   %274 = getelementptr inbounds i8, ptr %273, i64 24
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.126, ptr noundef nonnull %274) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.126, ptr noundef nonnull %274) #29
   unreachable
 
 275:                                              ; preds = %268
@@ -13255,7 +13255,7 @@ zend_are_intersection_types_redundant.exit:       ; preds = %._crit_edge.i, %zen
 
 279:                                              ; preds = %275
   %280 = getelementptr inbounds i8, ptr %262, i64 24
-  %281 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %280, i64 noundef 4, ptr noundef nonnull @.str.21, i64 noundef 4) #30
+  %281 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %280, i64 noundef 4, ptr noundef nonnull @.str.21, i64 noundef 4) #28
   %.not486 = icmp eq i32 %281, 0
   br i1 %.not486, label %288, label %thread-pre-split
 
@@ -13270,13 +13270,13 @@ thread-pre-split:                                 ; preds = %279
 
 285:                                              ; preds = %282
   %286 = getelementptr inbounds i8, ptr %262, i64 24
-  %287 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %286, i64 noundef 6, ptr noundef nonnull @.str.22, i64 noundef 6) #30
+  %287 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %286, i64 noundef 6, ptr noundef nonnull @.str.22, i64 noundef 6) #28
   %.not487 = icmp eq i32 %287, 0
   br i1 %.not487, label %288, label %290
 
 288:                                              ; preds = %285, %279
   %289 = getelementptr inbounds i8, ptr %262, i64 24
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.126, ptr noundef nonnull %289) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.126, ptr noundef nonnull %289) #29
   unreachable
 
 290:                                              ; preds = %285, %282
@@ -13321,7 +13321,7 @@ thread-pre-split:                                 ; preds = %279
   %311 = ptrtoint ptr %300 to i64
   %312 = sub i64 %304, %311
   %.509 = tail call i64 @llvm.umax.i64(i64 %312, i64 48)
-  %313 = tail call noalias ptr @_emalloc(i64 noundef %.509) #32
+  %313 = tail call noalias ptr @_emalloc(i64 noundef %.509) #30
   %314 = getelementptr inbounds i8, ptr %313, i64 24
   %315 = getelementptr inbounds i8, ptr %313, i64 48
   store ptr %315, ptr %313, align 8
@@ -13359,7 +13359,7 @@ thread-pre-split:                                 ; preds = %279
   br i1 %brmerge, label %.thread, label %328
 
 328:                                              ; preds = %325
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.127) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.127) #29
   unreachable
 
 .thread:                                          ; preds = %325
@@ -13369,7 +13369,7 @@ thread-pre-split:                                 ; preds = %279
   br i1 %brmerge511, label %.thread.thread, label %330
 
 330:                                              ; preds = %.thread
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.128) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.128) #29
   unreachable
 
 .thread.thread:                                   ; preds = %319, %.thread
@@ -13407,7 +13407,7 @@ thread-pre-split:                                 ; preds = %279
   br i1 %or.cond8, label %342, label %.thread526
 
 342:                                              ; preds = %338
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.129) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.129) #29
   unreachable
 
 343:                                              ; preds = %.thread.thread.thread
@@ -13422,7 +13422,7 @@ thread-pre-split:                                 ; preds = %279
   br i1 %or.cond10, label %348, label %.thread526
 
 348:                                              ; preds = %344
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.130) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.130) #29
   unreachable
 
 .thread526:                                       ; preds = %338, %344, %343
@@ -13475,7 +13475,7 @@ zend_is_scope_known.exit:                         ; preds = %13
   br i1 %.not109, label %.thread, label %19
 
 19:                                               ; preds = %zend_is_scope_known.exit
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.133) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.133) #29
   unreachable
 
 20:                                               ; preds = %7
@@ -13516,7 +13516,7 @@ zend_is_scope_known.exit:                         ; preds = %13
   br i1 %35, label %36, label %39
 
 36:                                               ; preds = %30
-  %37 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %29, i64 noundef %32, ptr noundef nonnull %31, i64 noundef %32) #30
+  %37 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %29, i64 noundef %32, ptr noundef nonnull %31, i64 noundef %32) #28
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %42, label %39
 
@@ -13540,9 +13540,9 @@ zend_is_scope_known.exit:                         ; preds = %13
   br i1 %.not94.not, label %48, label %51
 
 48:                                               ; preds = %46
-  %49 = tail call ptr @zend_string_tolower_ex(ptr noundef nonnull %27, i1 noundef zeroext false) #30
+  %49 = tail call ptr @zend_string_tolower_ex(ptr noundef nonnull %27, i1 noundef zeroext false) #28
   %50 = getelementptr inbounds i8, ptr %49, i64 24
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.134, ptr noundef nonnull %50) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.134, ptr noundef nonnull %50) #29
   unreachable
 
 51:                                               ; preds = %46
@@ -13584,7 +13584,7 @@ zend_is_scope_known.exit:                         ; preds = %13
 
 69:                                               ; preds = %65
   %70 = getelementptr inbounds i8, ptr %63, i64 24
-  %71 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %70, i64 noundef 4, ptr noundef nonnull @.str.21, i64 noundef 4) #30
+  %71 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %70, i64 noundef 4, ptr noundef nonnull @.str.21, i64 noundef 4) #28
   %.not.i.i = icmp eq i32 %71, 0
   br i1 %.not.i.i, label %120, label %thread-pre-split.i.i
 
@@ -13599,7 +13599,7 @@ thread-pre-split.i.i:                             ; preds = %69
 
 75:                                               ; preds = %72
   %76 = getelementptr inbounds i8, ptr %63, i64 24
-  %77 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %76, i64 noundef 6, ptr noundef nonnull @.str.22, i64 noundef 6) #30
+  %77 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %76, i64 noundef 6, ptr noundef nonnull @.str.22, i64 noundef 6) #28
   %.not13.i.i = icmp eq i32 %77, 0
   br i1 %.not13.i.i, label %120, label %._crit_edge.i.i
 
@@ -13620,7 +13620,7 @@ thread-pre-split.i.i:                             ; preds = %69
 86:                                               ; preds = %78
   %87 = getelementptr inbounds i8, ptr %63, i64 24
   %88 = getelementptr inbounds i8, ptr %82, i64 24
-  %89 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %87, i64 noundef %79, ptr noundef nonnull %88, i64 noundef %79) #30
+  %89 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %87, i64 noundef %79, ptr noundef nonnull %88, i64 noundef %79) #28
   %.not14.i.i = icmp eq i32 %89, 0
   br i1 %.not14.i.i, label %120, label %zend_get_class_fetch_type_ast.exit
 
@@ -13634,7 +13634,7 @@ zend_get_class_fetch_type_ast.exit:               ; preds = %78, %86, %.thread10
   br i1 %.not.i97, label %zend_resolve_class_name_ast.exit, label %94
 
 94:                                               ; preds = %zend_get_class_fetch_type_ast.exit
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.16) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.16) #29
   unreachable
 
 zend_resolve_class_name_ast.exit:                 ; preds = %zend_get_class_fetch_type_ast.exit
@@ -13645,7 +13645,7 @@ zend_resolve_class_name_ast.exit:                 ; preds = %zend_get_class_fetc
   %99 = getelementptr inbounds i8, ptr %98, i64 24
   %100 = getelementptr inbounds i8, ptr %98, i64 16
   %101 = load i64, ptr %100, align 8
-  %102 = tail call ptr @memrchr(ptr noundef nonnull %99, i32 noundef 92, i64 noundef %101) #29
+  %102 = tail call ptr @memrchr(ptr noundef nonnull %99, i32 noundef 92, i64 noundef %101) #27
   %.not.i.not.i.i = icmp eq ptr %102, null
   %103 = getelementptr inbounds i8, ptr %102, i64 1
   %104 = getelementptr inbounds i8, ptr %99, i64 %101
@@ -13665,7 +13665,7 @@ zend_resolve_class_name_ast.exit:                 ; preds = %zend_get_class_fetc
   br i1 %112, label %113, label %116
 
 113:                                              ; preds = %108
-  %114 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %.014.i.i, i64 noundef %.013.i.i, ptr noundef nonnull %109, i64 noundef %.013.i.i) #30
+  %114 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %.014.i.i, i64 noundef %.013.i.i, ptr noundef nonnull %109, i64 noundef %.013.i.i) #28
   %115 = icmp eq i32 %114, 0
   br i1 %115, label %119, label %116
 
@@ -13676,7 +13676,7 @@ zend_resolve_class_name_ast.exit:                 ; preds = %zend_get_class_fetc
   br i1 %.not.not.i.i, label %zend_assert_valid_class_name.exit, label %108
 
 119:                                              ; preds = %113
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str, ptr noundef nonnull %99) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str, ptr noundef nonnull %99) #29
   unreachable
 
 120:                                              ; preds = %86, %75, %69
@@ -13715,7 +13715,7 @@ zend_is_scope_known.exit.i:                       ; preds = %128
 137:                                              ; preds = %zend_is_scope_known.exit.i
   %138 = select i1 %121, ptr @.str.22, ptr @.str.35
   %139 = select i1 %122, ptr @.str.21, ptr %138
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.139, ptr noundef nonnull %139) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.139, ptr noundef nonnull %139) #29
   unreachable
 
 140:                                              ; preds = %130
@@ -13725,7 +13725,7 @@ zend_is_scope_known.exit.i:                       ; preds = %128
   br i1 %.not7.i, label %143, label %zend_ensure_valid_class_fetch_type.exit
 
 143:                                              ; preds = %140
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.140) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.140) #29
   unreachable
 
 zend_ensure_valid_class_fetch_type.exit:          ; preds = %120, %124, %130, %zend_is_scope_known.exit.i, %140
@@ -13780,7 +13780,7 @@ zend_assert_valid_class_name.exit:                ; preds = %116, %zend_ensure_v
   br i1 %.not.i100, label %zend_is_not_imported.exit.thread, label %zend_is_not_imported.exit
 
 zend_is_not_imported.exit:                        ; preds = %163
-  %167 = tail call ptr @zend_hash_find_ptr_lc(ptr noundef nonnull %166, ptr noundef nonnull %63) #30
+  %167 = tail call ptr @zend_hash_find_ptr_lc(ptr noundef nonnull %166, ptr noundef nonnull %63) #28
   %168 = icmp eq ptr %167, null
   br i1 %168, label %zend_is_not_imported.exit.thread, label %.thread107
 
@@ -13793,17 +13793,17 @@ zend_is_not_imported.exit.thread:                 ; preds = %163, %zend_is_not_i
   br i1 %.not93, label %173, label %172
 
 172:                                              ; preds = %zend_is_not_imported.exit.thread
-  tail call void (i32, ptr, ...) @zend_error(i32 noundef 128, ptr noundef nonnull @.str.137, ptr noundef nonnull %154, ptr noundef nonnull %165, ptr noundef nonnull %171, ptr noundef nonnull %170) #30
+  tail call void (i32, ptr, ...) @zend_error(i32 noundef 128, ptr noundef nonnull @.str.137, ptr noundef nonnull %154, ptr noundef nonnull %165, ptr noundef nonnull %171, ptr noundef nonnull %170) #28
   br label %.thread107
 
 173:                                              ; preds = %zend_is_not_imported.exit.thread
-  tail call void (i32, ptr, ...) @zend_error(i32 noundef 128, ptr noundef nonnull @.str.138, ptr noundef nonnull %154, ptr noundef nonnull %171, ptr noundef nonnull %170) #30
+  tail call void (i32, ptr, ...) @zend_error(i32 noundef 128, ptr noundef nonnull @.str.138, ptr noundef nonnull %154, ptr noundef nonnull %171, ptr noundef nonnull %170) #28
   br label %.thread107
 
 .thread107:                                       ; preds = %.critedge, %172, %173, %zend_is_not_imported.exit, %zend_assert_valid_class_name.exit
   %174 = load ptr, ptr @zend_new_interned_string, align 8
-  %175 = tail call ptr %174(ptr noundef %.075) #30
-  tail call void @zend_alloc_ce_cache(ptr noundef %175) #30
+  %175 = tail call ptr %174(ptr noundef %.075) #28
+  tail call void @zend_alloc_ce_cache(ptr noundef %175) #28
   br label %176
 
 176:                                              ; preds = %56, %51, %.thread, %.fold.split, %.fold.split95, %20, %.thread107, %52
@@ -13873,7 +13873,7 @@ define internal fastcc void @zend_is_type_list_redundant_by_single_type(ptr noca
 
 32:                                               ; preds = %26
   %33 = getelementptr inbounds i8, ptr %27, i64 24
-  %34 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %33, i64 noundef %29, ptr noundef nonnull %11, i64 noundef %29) #30
+  %34 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %33, i64 noundef %29, ptr noundef nonnull %11, i64 noundef %29) #28
   %.not21.i = icmp eq i32 %34, 0
   br i1 %.not21.i, label %35, label %42
 
@@ -13884,7 +13884,7 @@ define internal fastcc void @zend_is_type_list_redundant_by_single_type(ptr noca
   %39 = call ptr @zend_type_to_string(ptr %37, i32 %38)
   %40 = getelementptr inbounds i8, ptr %39, i64 24
   %41 = getelementptr inbounds i8, ptr %36, i64 24
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.132, ptr noundef nonnull %40, ptr noundef nonnull %41) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.132, ptr noundef nonnull %40, ptr noundef nonnull %41) #29
   unreachable
 
 42:                                               ; preds = %32, %26
@@ -13905,14 +13905,14 @@ zend_is_intersection_type_redundant_by_single_type.exit: ; preds = %42
 
 50:                                               ; preds = %45
   %51 = getelementptr inbounds i8, ptr %17, i64 24
-  %52 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %51, i64 noundef %47, ptr noundef nonnull %11, i64 noundef %47) #30
+  %52 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %51, i64 noundef %47, ptr noundef nonnull %11, i64 noundef %47) #28
   %.not22 = icmp eq i32 %52, 0
   br i1 %.not22, label %53, label %56
 
 53:                                               ; preds = %50
   %54 = call ptr @zend_type_to_string(ptr nonnull %1, i32 %2)
   %55 = getelementptr inbounds i8, ptr %54, i64 24
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.123, ptr noundef nonnull %55) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.123, ptr noundef nonnull %55) #29
   unreachable
 
 56:                                               ; preds = %45, %50, %zend_is_intersection_type_redundant_by_single_type.exit
@@ -13989,7 +13989,7 @@ define internal fastcc void @zend_compile_static_var_common(ptr noundef %0, ptr 
   br label %14
 
 14:                                               ; preds = %10, %7
-  %15 = tail call ptr @_zend_new_array_0() #30
+  %15 = tail call ptr @_zend_new_array_0() #28
   %16 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 4), align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 104
   store ptr %15, ptr %17, align 8
@@ -13997,7 +13997,7 @@ define internal fastcc void @zend_compile_static_var_common(ptr noundef %0, ptr 
 
 18:                                               ; preds = %14, %3
   %19 = phi ptr [ %15, %14 ], [ %6, %3 ]
-  %20 = tail call ptr @zend_hash_update(ptr noundef %19, ptr noundef %0, ptr noundef %1) #30
+  %20 = tail call ptr @zend_hash_update(ptr noundef %19, ptr noundef %0, ptr noundef %1) #28
   %21 = load ptr, ptr @zend_known_strings, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 152
   %23 = load ptr, ptr %22, align 8
@@ -14013,11 +14013,11 @@ define internal fastcc void @zend_compile_static_var_common(ptr noundef %0, ptr 
   br i1 %30, label %31, label %.critedge2
 
 31:                                               ; preds = %25
-  %32 = tail call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %0, ptr noundef nonnull %23) #30
+  %32 = tail call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %0, ptr noundef nonnull %23) #28
   br i1 %32, label %.critedge, label %.critedge2
 
 .critedge:                                        ; preds = %18, %31
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.149) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.149) #29
   unreachable
 
 .critedge2:                                       ; preds = %25, %31
@@ -14042,7 +14042,7 @@ define internal fastcc void @zend_compile_static_var_common(ptr noundef %0, ptr 
   %41 = load ptr, ptr %40, align 8
   %42 = zext i32 %39 to i64
   %43 = shl nuw nsw i64 %42, 5
-  %44 = tail call ptr @_erealloc(ptr noundef %41, i64 noundef %43) #34
+  %44 = tail call ptr @_erealloc(ptr noundef %41, i64 noundef %43) #32
   store ptr %44, ptr %40, align 8
   br label %zend_emit_op.exit
 
@@ -14111,7 +14111,7 @@ define internal fastcc ptr @zend_resolve_const_class_name_reference(ptr nocaptur
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds i8, ptr %6, i64 24
-  %16 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %15, i64 noundef 4, ptr noundef nonnull @.str.21, i64 noundef 4) #30
+  %16 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %15, i64 noundef 4, ptr noundef nonnull @.str.21, i64 noundef 4) #28
   %.not.i.i = icmp eq i32 %16, 0
   br i1 %.not.i.i, label %35, label %thread-pre-split.i.i
 
@@ -14126,7 +14126,7 @@ thread-pre-split.i.i:                             ; preds = %14
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds i8, ptr %6, i64 24
-  %22 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %21, i64 noundef 6, ptr noundef nonnull @.str.22, i64 noundef 6) #30
+  %22 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %21, i64 noundef 6, ptr noundef nonnull @.str.22, i64 noundef 6) #28
   %.not13.i.i = icmp eq i32 %22, 0
   br i1 %.not13.i.i, label %35, label %._crit_edge.i.i
 
@@ -14147,13 +14147,13 @@ thread-pre-split.i.i:                             ; preds = %14
 31:                                               ; preds = %23
   %32 = getelementptr inbounds i8, ptr %6, i64 24
   %33 = getelementptr inbounds i8, ptr %27, i64 24
-  %34 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %32, i64 noundef %24, ptr noundef nonnull %33, i64 noundef %24) #30
+  %34 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %32, i64 noundef %24, ptr noundef nonnull %33, i64 noundef %24) #28
   %.not14.i.i = icmp eq i32 %34, 0
   br i1 %.not14.i.i, label %35, label %zend_get_class_fetch_type_ast.exit
 
 35:                                               ; preds = %14, %20, %31
   %36 = getelementptr inbounds i8, ptr %6, i64 24
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.157, ptr noundef nonnull %36, ptr noundef %1) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.157, ptr noundef nonnull %36, ptr noundef %1) #29
   unreachable
 
 zend_get_class_fetch_type_ast.exit:               ; preds = %23, %31, %2
@@ -14199,12 +14199,12 @@ define internal fastcc void @zend_compile_global_var(ptr nocapture noundef reado
   %12 = ptrtoint ptr %11 to i64
   %13 = ptrtoint ptr %8 to i64
   %14 = sub i64 %12, %13
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %14) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %14) #29
   unreachable
 
 zend_check_stack_limit.exit:                      ; preds = %1
   %15 = load ptr, ptr %7, align 8
-  %16 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %16 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %3, ptr noundef %15)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %16, ptr noundef nonnull %3, ptr noundef %15)
   %17 = load i8, ptr %3, align 8
@@ -14217,7 +14217,7 @@ zend_check_stack_limit.exit:                      ; preds = %1
 
 21:                                               ; preds = %zend_check_stack_limit.exit
   %22 = getelementptr inbounds i8, ptr %3, i64 8
-  call void @_convert_to_string(ptr noundef nonnull %22) #30
+  call void @_convert_to_string(ptr noundef nonnull %22) #28
   br label %23
 
 23:                                               ; preds = %21, %zend_check_stack_limit.exit
@@ -14255,7 +14255,7 @@ zend_check_stack_limit.exit:                      ; preds = %1
   br i1 %45, label %is_this_fetch.exit, label %is_this_fetch.exit.thread
 
 is_this_fetch.exit:                               ; preds = %40
-  %46 = call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %35, ptr noundef nonnull %38) #30
+  %46 = call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %35, ptr noundef nonnull %38) #28
   br i1 %46, label %is_this_fetch.exit.thread14, label %is_this_fetch.exit.is_this_fetch.exit.thread_crit_edge
 
 is_this_fetch.exit.is_this_fetch.exit.thread_crit_edge: ; preds = %is_this_fetch.exit
@@ -14263,7 +14263,7 @@ is_this_fetch.exit.is_this_fetch.exit.thread_crit_edge: ; preds = %is_this_fetch
   br label %is_this_fetch.exit.thread
 
 is_this_fetch.exit.thread14:                      ; preds = %33, %is_this_fetch.exit
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.161) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.161) #29
   unreachable
 
 is_this_fetch.exit.thread:                        ; preds = %is_this_fetch.exit.is_this_fetch.exit.thread_crit_edge, %23, %26, %40, %29
@@ -14307,11 +14307,11 @@ is_this_fetch.exit.thread:                        ; preds = %is_this_fetch.exit.
   br label %70
 
 70:                                               ; preds = %61, %67, %56
-  %71 = call ptr @zend_ast_create_znode(ptr noundef nonnull %3) #30
-  %72 = call ptr @zend_ast_create_1(i16 noundef zeroext 256, ptr noundef %71) #30
+  %71 = call ptr @zend_ast_create_znode(ptr noundef nonnull %3) #28
+  %72 = call ptr @zend_ast_create_1(i16 noundef zeroext 256, ptr noundef %71) #28
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
-  %73 = call ptr @zend_ast_create_znode(ptr noundef nonnull %4) #30
-  %74 = call ptr @zend_ast_create_2(i16 noundef zeroext 519, ptr noundef %72, ptr noundef %73) #30
+  %73 = call ptr @zend_ast_create_znode(ptr noundef nonnull %4) #28
+  %74 = call ptr @zend_ast_create_2(i16 noundef zeroext 519, ptr noundef %72, ptr noundef %73) #28
   %75 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 32), align 8
   %.not.i.i = icmp ugt ptr %9, %75
   br i1 %.not.i.i, label %zend_compile_expr.exit, label %76
@@ -14321,11 +14321,11 @@ is_this_fetch.exit.thread:                        ; preds = %is_this_fetch.exit.
   %78 = ptrtoint ptr %77 to i64
   %79 = ptrtoint ptr %75 to i64
   %80 = sub i64 %78, %79
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %80) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %80) #29
   unreachable
 
 zend_compile_expr.exit:                           ; preds = %70
-  %81 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %81 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %2, ptr noundef %74)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %81, ptr noundef nonnull %2, ptr noundef %74)
   call fastcc void @zend_do_free(ptr noundef nonnull %2)
@@ -14361,11 +14361,11 @@ define internal fastcc void @zend_compile_static_var(ptr nocapture noundef %0) u
   br i1 %18, label %19, label %.critedge2
 
 19:                                               ; preds = %13
-  %20 = tail call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %8, ptr noundef nonnull %11) #30
+  %20 = tail call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %8, ptr noundef nonnull %11) #28
   br i1 %20, label %.critedge, label %.critedge2
 
 .critedge:                                        ; preds = %1, %19
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.149) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.149) #29
   unreachable
 
 .critedge2:                                       ; preds = %13, %19
@@ -14389,7 +14389,7 @@ define internal fastcc void @zend_compile_static_var(ptr nocapture noundef %0) u
   br label %31
 
 31:                                               ; preds = %27, %24
-  %32 = tail call ptr @_zend_new_array_0() #30
+  %32 = tail call ptr @_zend_new_array_0() #28
   %33 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 4), align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 104
   store ptr %32, ptr %34, align 8
@@ -14397,12 +14397,12 @@ define internal fastcc void @zend_compile_static_var(ptr nocapture noundef %0) u
 
 35:                                               ; preds = %31, %.critedge2
   %36 = phi ptr [ %32, %31 ], [ %23, %.critedge2 ]
-  %37 = tail call ptr @zend_hash_find(ptr noundef %36, ptr noundef nonnull %8) #30
+  %37 = tail call ptr @zend_hash_find(ptr noundef %36, ptr noundef nonnull %8) #28
   %.not54 = icmp eq ptr %37, null
   br i1 %.not54, label %39, label %38
 
 38:                                               ; preds = %35
-  tail call void (i32, ptr, ...) @zend_error_noreturn_unchecked(i32 noundef 64, ptr noundef nonnull @.str.162, ptr noundef nonnull %8) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn_unchecked(i32 noundef 64, ptr noundef nonnull @.str.162, ptr noundef nonnull %8) #29
   unreachable
 
 39:                                               ; preds = %35
@@ -14440,7 +14440,7 @@ define internal fastcc void @zend_compile_static_var(ptr nocapture noundef %0) u
   %55 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 4), align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 104
   %57 = load ptr, ptr %56, align 8
-  %58 = tail call ptr @zend_hash_update(ptr noundef %57, ptr noundef nonnull %8, ptr noundef nonnull @executor_globals) #30
+  %58 = tail call ptr @zend_hash_update(ptr noundef %57, ptr noundef nonnull %8, ptr noundef nonnull @executor_globals) #28
   %59 = getelementptr inbounds i8, ptr %58, i64 10
   %60 = load i16, ptr %59, align 2
   %61 = or i16 %60, 1
@@ -14474,7 +14474,7 @@ define internal fastcc void @zend_compile_static_var(ptr nocapture noundef %0) u
   %78 = load ptr, ptr %77, align 8
   %79 = zext i32 %76 to i64
   %80 = shl nuw nsw i64 %79, 5
-  %81 = tail call ptr @_erealloc(ptr noundef %78, i64 noundef %80) #34
+  %81 = tail call ptr @_erealloc(ptr noundef %78, i64 noundef %80) #32
   store ptr %81, ptr %77, align 8
   br label %zend_emit_op.exit
 
@@ -14516,11 +14516,11 @@ zend_emit_op.exit:                                ; preds = %._crit_edge.i.i, %7
   %100 = ptrtoint ptr %99 to i64
   %101 = ptrtoint ptr %96 to i64
   %102 = sub i64 %100, %101
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %102) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %102) #29
   unreachable
 
 zend_check_stack_limit.exit:                      ; preds = %zend_emit_op.exit
-  %103 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %103 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %2, ptr noundef nonnull %41)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %103, ptr noundef nonnull %2, ptr noundef nonnull %41)
   %104 = call fastcc ptr @zend_emit_op(ptr noundef null, i8 noundef zeroext -73, ptr noundef null, ptr noundef nonnull %2)
@@ -14614,7 +14614,7 @@ is_global_var_fetch.exit:                         ; preds = %21
   br i1 %.not, label %31, label %32
 
 31:                                               ; preds = %28
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.163) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.163) #29
   unreachable
 
 32:                                               ; preds = %28
@@ -14628,11 +14628,11 @@ is_global_var_fetch.exit:                         ; preds = %21
   %37 = ptrtoint ptr %36 to i64
   %38 = ptrtoint ptr %33 to i64
   %39 = sub i64 %37, %38
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %39) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %39) #29
   unreachable
 
 zend_check_stack_limit.exit:                      ; preds = %32
-  %40 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %40 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %3, ptr noundef nonnull %30)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %40, ptr noundef nonnull %3, ptr noundef nonnull %30)
   %41 = load i8, ptr %3, align 8
@@ -14645,7 +14645,7 @@ zend_check_stack_limit.exit:                      ; preds = %32
 
 45:                                               ; preds = %zend_check_stack_limit.exit
   %46 = getelementptr inbounds i8, ptr %3, i64 8
-  call void @_convert_to_string(ptr noundef nonnull %46) #30
+  call void @_convert_to_string(ptr noundef nonnull %46) #28
   br label %47
 
 47:                                               ; preds = %45, %zend_check_stack_limit.exit
@@ -14685,7 +14685,7 @@ zend_check_stack_limit.exit:                      ; preds = %32
   br i1 %71, label %is_this_fetch.exit, label %is_this_fetch.exit.thread
 
 is_this_fetch.exit:                               ; preds = %66
-  %72 = tail call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %61, ptr noundef nonnull %64) #30
+  %72 = tail call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %61, ptr noundef nonnull %64) #28
   br i1 %72, label %is_this_fetch.exit.thread26, label %is_this_fetch.exit.is_this_fetch.exit.thread_crit_edge
 
 is_this_fetch.exit.is_this_fetch.exit.thread_crit_edge: ; preds = %is_this_fetch.exit
@@ -14693,7 +14693,7 @@ is_this_fetch.exit.is_this_fetch.exit.thread_crit_edge: ; preds = %is_this_fetch
   br label %is_this_fetch.exit.thread
 
 is_this_fetch.exit.thread26:                      ; preds = %59, %is_this_fetch.exit
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.164) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.164) #29
   unreachable
 
 is_this_fetch.exit.thread:                        ; preds = %is_this_fetch.exit.is_this_fetch.exit.thread_crit_edge, %50, %66, %55
@@ -14718,12 +14718,12 @@ is_this_fetch.exit.thread:                        ; preds = %is_this_fetch.exit.
   %82 = ptrtoint ptr %81 to i64
   %83 = ptrtoint ptr %78 to i64
   %84 = sub i64 %82, %83
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %84) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %84) #29
   unreachable
 
 zend_compile_expr.exit:                           ; preds = %77
   %85 = load ptr, ptr %51, align 8
-  %86 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %86 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %2, ptr noundef %85)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %86, ptr noundef nonnull %2, ptr noundef %85)
   %87 = load i8, ptr %2, align 8
@@ -14736,7 +14736,7 @@ zend_compile_expr.exit:                           ; preds = %77
 
 91:                                               ; preds = %zend_compile_expr.exit
   %92 = getelementptr inbounds i8, ptr %2, i64 8
-  call void @_convert_to_string(ptr noundef nonnull %92) #30
+  call void @_convert_to_string(ptr noundef nonnull %92) #28
   br label %93
 
 93:                                               ; preds = %91, %zend_compile_expr.exit
@@ -14749,7 +14749,7 @@ zend_compile_expr.exit:                           ; preds = %77
   %98 = getelementptr inbounds i8, ptr %2, i64 8
   %99 = load ptr, ptr %98, align 8
   %100 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 7), align 8
-  %101 = call ptr @zend_hash_find(ptr noundef %100, ptr noundef %99) #30
+  %101 = call ptr @zend_hash_find(ptr noundef %100, ptr noundef %99) #28
   %.not.i22.not = icmp eq ptr %101, null
   br i1 %.not.i22.not, label %zend_compile_simple_var_no_cv.exit, label %102
 
@@ -14764,7 +14764,7 @@ zend_compile_expr.exit:                           ; preds = %77
   %108 = getelementptr inbounds i8, ptr %103, i64 8
   %109 = load ptr, ptr %108, align 8
   %110 = load ptr, ptr %103, align 8
-  %111 = call zeroext i1 %109(ptr noundef %110) #30
+  %111 = call zeroext i1 %109(ptr noundef %110) #28
   %112 = zext i1 %111 to i8
   store i8 %112, ptr %104, align 1
   br label %zend_compile_simple_var_no_cv.exit
@@ -14779,7 +14779,7 @@ zend_compile_simple_var_no_cv.exit:               ; preds = %93, %97, %107, %102
   br label %128
 
 .thread:                                          ; preds = %7, %12, %21, %17, %is_global_var_fetch.exit
-  %115 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 33)) #30
+  %115 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 33)) #28
   %116 = tail call fastcc ptr @zend_delayed_compile_dim(ptr noundef null, ptr noundef nonnull %5, i32 noundef 5, i1 noundef zeroext false)
   %117 = tail call fastcc ptr @zend_delayed_compile_end(i32 noundef %115)
   %118 = getelementptr inbounds i8, ptr %117, i64 28
@@ -14787,7 +14787,7 @@ zend_compile_simple_var_no_cv.exit:               ; preds = %93, %97, %107, %102
   br label %128
 
 119:                                              ; preds = %1, %1
-  %120 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 33)) #30
+  %120 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 33)) #28
   %121 = tail call fastcc ptr @zend_delayed_compile_prop(ptr noundef null, ptr noundef nonnull %5, i32 noundef 5)
   %122 = tail call fastcc ptr @zend_delayed_compile_end(i32 noundef %120)
   %123 = getelementptr inbounds i8, ptr %122, i64 28
@@ -14866,11 +14866,11 @@ tailrecurse.i:                                    ; preds = %tailrecurse.i.prehe
   br label %tailrecurse.i
 
 21:                                               ; preds = %tailrecurse.i, %tailrecurse.i
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.218) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.218) #29
   unreachable
 
 zend_ast_is_short_circuited.exit:                 ; preds = %tailrecurse.i
-  %22 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %22 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   %23 = call fastcc ptr @zend_compile_var_inner(ptr noundef nonnull %2, ptr noundef nonnull %4, i32 noundef 1, i1 noundef zeroext true)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %22, ptr noundef nonnull %2, ptr noundef nonnull %4)
   br label %32
@@ -14886,11 +14886,11 @@ zend_is_variable.exit:                            ; preds = %16, %14
   %28 = ptrtoint ptr %27 to i64
   %29 = ptrtoint ptr %24 to i64
   %30 = sub i64 %28, %29
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %30) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %30) #29
   unreachable
 
 zend_check_stack_limit.exit:                      ; preds = %zend_is_variable.exit
-  %31 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %31 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %2, ptr noundef nonnull %4)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %31, ptr noundef nonnull %2, ptr noundef nonnull %4)
   br label %32
@@ -14913,13 +14913,13 @@ zend_check_stack_limit.exit:                      ; preds = %zend_is_variable.ex
   br i1 %or.cond30, label %42, label %zend_has_finally.exit.thread
 
 42:                                               ; preds = %37
-  %43 = call i32 @zend_stack_count(ptr noundef nonnull @compiler_globals) #30
-  %44 = call ptr @zend_stack_top(ptr noundef nonnull @compiler_globals) #30
+  %43 = call i32 @zend_stack_count(ptr noundef nonnull @compiler_globals) #28
+  %44 = call ptr @zend_stack_top(ptr noundef nonnull @compiler_globals) #28
   %.not.i.i = icmp eq ptr %44, null
   br i1 %.not.i.i, label %zend_has_finally.exit.thread, label %45
 
 45:                                               ; preds = %42
-  %46 = call ptr @zend_stack_base(ptr noundef nonnull @compiler_globals) #30
+  %46 = call ptr @zend_stack_base(ptr noundef nonnull @compiler_globals) #28
   %.not1314.i.i = icmp ult ptr %44, %46
   br i1 %.not1314.i.i, label %zend_has_finally.exit.thread, label %.lr.ph.i.preheader.i
 
@@ -14987,7 +14987,7 @@ zend_has_finally.exit.thread:                     ; preds = %.lr.ph.i.i, %50, %5
   %71 = and i8 %70, 6
   %.not28 = icmp eq i8 %71, 0
   %.4 = select i1 %.not28, ptr null, ptr %2
-  %72 = call i32 @zend_stack_count(ptr noundef nonnull @compiler_globals) #30
+  %72 = call i32 @zend_stack_count(ptr noundef nonnull @compiler_globals) #28
   %73 = add nsw i32 %72, 1
   %74 = sext i32 %73 to i64
   %75 = call fastcc zeroext i1 @zend_handle_loops_and_finally_ex(i64 noundef %74, ptr noundef %.4)
@@ -15059,13 +15059,13 @@ define internal fastcc void @zend_compile_echo(ptr nocapture noundef readonly %0
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %9) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %9) #29
   unreachable
 
 zend_check_stack_limit.exit:                      ; preds = %1
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %12 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %2, ptr noundef %11)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %12, ptr noundef nonnull %2, ptr noundef %11)
   %13 = call fastcc ptr @zend_emit_op(ptr noundef null, i8 noundef zeroext -120, ptr noundef nonnull %2, ptr noundef null)
@@ -15087,19 +15087,19 @@ define internal fastcc void @zend_compile_goto(ptr nocapture noundef readonly %0
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %9) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %9) #29
   unreachable
 
 zend_check_stack_limit.exit:                      ; preds = %1
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %12 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %2, ptr noundef %11)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %12, ptr noundef nonnull %2, ptr noundef %11)
   %13 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 4), align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 84
   %15 = load i32, ptr %14, align 4
-  %16 = call i32 @zend_stack_count(ptr noundef nonnull @compiler_globals) #30
+  %16 = call i32 @zend_stack_count(ptr noundef nonnull @compiler_globals) #28
   %17 = add nsw i32 %16, 1
   %18 = sext i32 %17 to i64
   %19 = call fastcc zeroext i1 @zend_handle_loops_and_finally_ex(i64 noundef %18, ptr noundef null)
@@ -15127,9 +15127,9 @@ define internal fastcc void @zend_compile_label(i16 %.8.val.0.val, ptr %.8.val.8
   br i1 %.not, label %4, label %6
 
 4:                                                ; preds = %0
-  %5 = tail call noalias ptr @_emalloc_56() #30
+  %5 = tail call noalias ptr @_emalloc_56() #28
   store ptr %5, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 22, i32 8), align 8
-  tail call void @_zend_hash_init(ptr noundef %5, i32 noundef 8, ptr noundef nonnull @label_ptr_dtor, i1 noundef zeroext false) #30
+  tail call void @_zend_hash_init(ptr noundef %5, i32 noundef 8, ptr noundef nonnull @label_ptr_dtor, i1 noundef zeroext false) #28
   %.pre = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 22, i32 8), align 8
   br label %6
 
@@ -15142,7 +15142,7 @@ define internal fastcc void @zend_compile_label(i16 %.8.val.0.val, ptr %.8.val.8
   store ptr null, ptr %1, align 8
   %12 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 13, ptr %12, align 8
-  %13 = call ptr @zend_hash_add(ptr noundef %7, ptr noundef %.8.val.8.val, ptr noundef nonnull %1) #30
+  %13 = call ptr @zend_hash_add(ptr noundef %7, ptr noundef %.8.val.8.val, ptr noundef nonnull %1) #28
   %.not53 = icmp eq ptr %13, null
   br i1 %.not53, label %.critedge, label %14
 
@@ -15154,16 +15154,16 @@ define internal fastcc void @zend_compile_label(i16 %.8.val.0.val, ptr %.8.val.8
   br i1 %.not54, label %20, label %18
 
 18:                                               ; preds = %14
-  %19 = call noalias dereferenceable_or_null(8) ptr @__zend_malloc(i64 noundef 8) #32
+  %19 = call noalias dereferenceable_or_null(8) ptr @__zend_malloc(i64 noundef 8) #30
   br label %23
 
 20:                                               ; preds = %14
-  %21 = call noalias ptr @_emalloc_8() #30
+  %21 = call noalias ptr @_emalloc_8() #28
   br label %23
 
 .critedge:                                        ; preds = %6
   %22 = getelementptr inbounds i8, ptr %.8.val.8.val, i64 24
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.230, ptr noundef nonnull %22) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.230, ptr noundef nonnull %22) #29
   unreachable
 
 23:                                               ; preds = %18, %20
@@ -15204,7 +15204,7 @@ define internal fastcc void @zend_compile_while(ptr nocapture noundef readonly %
   %16 = load ptr, ptr %15, align 8
   %17 = zext i32 %14 to i64
   %18 = shl nuw nsw i64 %17, 5
-  %19 = tail call ptr @_erealloc(ptr noundef %16, i64 noundef %18) #34
+  %19 = tail call ptr @_erealloc(ptr noundef %16, i64 noundef %18) #32
   store ptr %19, ptr %15, align 8
   br label %zend_emit_jump.exit
 
@@ -15243,7 +15243,7 @@ zend_emit_jump.exit:                              ; preds = %._crit_edge.i.i.i, 
   %36 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 22, i32 7), align 8
   %37 = sext i32 %35 to i64
   %38 = mul nsw i64 %37, 20
-  %39 = tail call ptr @_erealloc(ptr noundef %36, i64 noundef %38) #34
+  %39 = tail call ptr @_erealloc(ptr noundef %36, i64 noundef %38) #32
   store ptr %39, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 22, i32 7), align 8
   %40 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 22, i32 6), align 8
   %41 = sext i32 %40 to i64
@@ -15255,7 +15255,7 @@ zend_emit_jump.exit:                              ; preds = %._crit_edge.i.i.i, 
   store i8 0, ptr %2, align 4
   %45 = getelementptr i8, ptr %42, i64 -20
   store i32 -1, ptr %45, align 4
-  %46 = call i32 @zend_stack_push(ptr noundef nonnull @compiler_globals, ptr noundef nonnull %2) #30
+  %46 = call i32 @zend_stack_push(ptr noundef nonnull @compiler_globals, ptr noundef nonnull %2) #28
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %2)
   %47 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 4), align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 84
@@ -15293,11 +15293,11 @@ zend_update_jump_target.exit:                     ; preds = %58, %60
   %66 = ptrtoint ptr %65 to i64
   %67 = ptrtoint ptr %62 to i64
   %68 = sub i64 %66, %67
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %68) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %68) #29
   unreachable
 
 zend_check_stack_limit.exit:                      ; preds = %zend_update_jump_target.exit
-  %69 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %69 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %3, ptr noundef %5)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %69, ptr noundef nonnull %3, ptr noundef %5)
   %70 = call fastcc i32 @zend_emit_cond_jump(i8 noundef zeroext 44, ptr noundef nonnull %3, i32 noundef %49)
@@ -15315,7 +15315,7 @@ zend_check_stack_limit.exit:                      ; preds = %zend_update_jump_ta
   %80 = getelementptr inbounds i8, ptr %77, i64 12
   %81 = load i32, ptr %80, align 4
   store i32 %81, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 22, i32 5), align 4
-  call void @zend_stack_del_top(ptr noundef nonnull @compiler_globals) #30
+  call void @zend_stack_del_top(ptr noundef nonnull @compiler_globals) #28
   ret void
 }
 
@@ -15337,7 +15337,7 @@ define internal fastcc void @zend_compile_do_while(ptr nocapture noundef readonl
   %11 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 22, i32 7), align 8
   %12 = sext i32 %10 to i64
   %13 = mul nsw i64 %12, 20
-  %14 = tail call ptr @_erealloc(ptr noundef %11, i64 noundef %13) #34
+  %14 = tail call ptr @_erealloc(ptr noundef %11, i64 noundef %13) #32
   store ptr %14, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 22, i32 7), align 8
   %15 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 22, i32 6), align 8
   %16 = sext i32 %15 to i64
@@ -15349,7 +15349,7 @@ define internal fastcc void @zend_compile_do_while(ptr nocapture noundef readonl
   store i8 0, ptr %2, align 4
   %20 = getelementptr i8, ptr %17, i64 -20
   store i32 -1, ptr %20, align 4
-  %21 = call i32 @zend_stack_push(ptr noundef nonnull @compiler_globals, ptr noundef nonnull %2) #30
+  %21 = call i32 @zend_stack_push(ptr noundef nonnull @compiler_globals, ptr noundef nonnull %2) #28
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %2)
   %22 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 4), align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 84
@@ -15365,14 +15365,14 @@ define internal fastcc void @zend_compile_do_while(ptr nocapture noundef readonl
   %29 = ptrtoint ptr %28 to i64
   %30 = ptrtoint ptr %25 to i64
   %31 = sub i64 %29, %30
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %31) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %31) #29
   unreachable
 
 zend_check_stack_limit.exit:                      ; preds = %1
   %32 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 4), align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 84
   %34 = load i32, ptr %33, align 4
-  %35 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %35 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %3, ptr noundef %7)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %35, ptr noundef nonnull %3, ptr noundef %7)
   %36 = call fastcc i32 @zend_emit_cond_jump(i8 noundef zeroext 44, ptr noundef nonnull %3, i32 noundef %24)
@@ -15390,7 +15390,7 @@ zend_check_stack_limit.exit:                      ; preds = %1
   %46 = getelementptr inbounds i8, ptr %43, i64 12
   %47 = load i32, ptr %46, align 4
   store i32 %47, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 22, i32 5), align 4
-  call void @zend_stack_del_top(ptr noundef nonnull @compiler_globals) #30
+  call void @zend_stack_del_top(ptr noundef nonnull @compiler_globals) #28
   ret void
 }
 
@@ -15437,11 +15437,11 @@ define internal fastcc void @zend_compile_for(ptr nocapture noundef readonly %0)
   %23 = ptrtoint ptr %22 to i64
   %24 = ptrtoint ptr %19 to i64
   %25 = sub i64 %23, %24
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %25) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %25) #29
   unreachable
 
 zend_compile_expr.exit:                           ; preds = %16
-  %26 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %26 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %3, ptr noundef %18)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %26, ptr noundef nonnull %3, ptr noundef %18)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -15473,7 +15473,7 @@ zend_compile_expr_list.exit:                      ; preds = %zend_compile_expr.e
   %38 = load ptr, ptr %37, align 8
   %39 = zext i32 %36 to i64
   %40 = shl nuw nsw i64 %39, 5
-  %41 = call ptr @_erealloc(ptr noundef %38, i64 noundef %40) #34
+  %41 = call ptr @_erealloc(ptr noundef %38, i64 noundef %40) #32
   store ptr %41, ptr %37, align 8
   br label %zend_emit_jump.exit
 
@@ -15512,7 +15512,7 @@ zend_emit_jump.exit:                              ; preds = %._crit_edge.i.i.i, 
   %58 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 22, i32 7), align 8
   %59 = sext i32 %57 to i64
   %60 = mul nsw i64 %59, 20
-  %61 = call ptr @_erealloc(ptr noundef %58, i64 noundef %60) #34
+  %61 = call ptr @_erealloc(ptr noundef %58, i64 noundef %60) #32
   store ptr %61, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 22, i32 7), align 8
   %62 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 22, i32 6), align 8
   %63 = sext i32 %62 to i64
@@ -15524,7 +15524,7 @@ zend_emit_jump.exit:                              ; preds = %._crit_edge.i.i.i, 
   store i8 0, ptr %2, align 4
   %67 = getelementptr i8, ptr %64, i64 -20
   store i32 -1, ptr %67, align 4
-  %68 = call i32 @zend_stack_push(ptr noundef nonnull @compiler_globals, ptr noundef nonnull %2) #30
+  %68 = call i32 @zend_stack_push(ptr noundef nonnull @compiler_globals, ptr noundef nonnull %2) #28
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %2)
   %69 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 4), align 8
   %70 = getelementptr inbounds i8, ptr %69, i64 84
@@ -15563,11 +15563,11 @@ zend_emit_jump.exit:                              ; preds = %._crit_edge.i.i.i, 
   %85 = ptrtoint ptr %84 to i64
   %86 = ptrtoint ptr %81 to i64
   %87 = sub i64 %85, %86
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %87) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %87) #29
   unreachable
 
 zend_compile_expr.exit19:                         ; preds = %78
-  %88 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %88 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %3, ptr noundef %80)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %88, ptr noundef nonnull %3, ptr noundef %80)
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
@@ -15630,11 +15630,11 @@ zend_update_jump_target_to_next.exit:             ; preds = %100, %102
   %114 = ptrtoint ptr %113 to i64
   %115 = ptrtoint ptr %110 to i64
   %116 = sub i64 %114, %115
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %116) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %116) #29
   unreachable
 
 zend_compile_expr.exit21:                         ; preds = %107
-  %117 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %117 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %3, ptr noundef %109)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %117, ptr noundef nonnull %3, ptr noundef %109)
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
@@ -15671,7 +15671,7 @@ zend_compile_expr_list.exit15:                    ; preds = %zend_compile_expr.e
   %132 = load ptr, ptr %131, align 8
   %133 = zext i32 %130 to i64
   %134 = shl nuw nsw i64 %133, 5
-  %135 = call ptr @_erealloc(ptr noundef %132, i64 noundef %134) #34
+  %135 = call ptr @_erealloc(ptr noundef %132, i64 noundef %134) #32
   store ptr %135, ptr %131, align 8
   br label %get_next_op.exit.i
 
@@ -15717,7 +15717,7 @@ zend_do_extended_stmt.exit:                       ; preds = %zend_compile_expr_l
   %159 = getelementptr inbounds i8, ptr %156, i64 12
   %160 = load i32, ptr %159, align 4
   store i32 %160, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 22, i32 5), align 4
-  call void @zend_stack_del_top(ptr noundef nonnull @compiler_globals) #30
+  call void @zend_stack_del_top(ptr noundef nonnull @compiler_globals) #28
   ret void
 }
 
@@ -15815,11 +15815,11 @@ zend_is_variable.exit:                            ; preds = %tailrecurse.i.i, %z
   ]
 
 32:                                               ; preds = %30
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.231) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.231) #29
   unreachable
 
 33:                                               ; preds = %30
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.232) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.232) #29
   unreachable
 
 34:                                               ; preds = %30, %zend_is_variable.exit
@@ -15848,7 +15848,7 @@ zend_is_variable.exit:                            ; preds = %tailrecurse.i.i, %z
   br i1 %brmerge.not, label %44, label %47
 
 44:                                               ; preds = %43
-  %45 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %45 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   %46 = call fastcc ptr @zend_compile_var_inner(ptr noundef nonnull %6, ptr noundef nonnull %11, i32 noundef 1, i1 noundef zeroext true)
   br label %56
 
@@ -15863,11 +15863,11 @@ zend_is_variable.exit:                            ; preds = %tailrecurse.i.i, %z
   %52 = ptrtoint ptr %51 to i64
   %53 = ptrtoint ptr %48 to i64
   %54 = sub i64 %52, %53
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %54) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %54) #29
   unreachable
 
 zend_check_stack_limit.exit:                      ; preds = %47
-  %55 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %55 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %6, ptr noundef nonnull %11)
   br label %56
 
@@ -15901,7 +15901,7 @@ zend_check_stack_limit.exit:                      ; preds = %47
   br label %zend_separate_if_call_and_write.exit
 
 67:                                               ; preds = %58
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.217) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.217) #29
   unreachable
 
 zend_separate_if_call_and_write.exit:             ; preds = %61, %57, %56
@@ -15921,7 +15921,7 @@ zend_separate_if_call_and_write.exit:             ; preds = %61, %57, %56
   %77 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 22, i32 7), align 8
   %78 = sext i32 %76 to i64
   %79 = mul nsw i64 %78, 20
-  %80 = call ptr @_erealloc(ptr noundef %77, i64 noundef %79) #34
+  %80 = call ptr @_erealloc(ptr noundef %77, i64 noundef %79) #32
   store ptr %80, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 22, i32 7), align 8
   %81 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 22, i32 6), align 8
   %82 = sext i32 %81 to i64
@@ -15953,7 +15953,7 @@ zend_begin_loop.exit:                             ; preds = %zend_separate_if_ca
   store i8 %.sink, ptr %5, align 4
   %96 = getelementptr i8, ptr %83, i64 -20
   store i32 %storemerge.i, ptr %96, align 4
-  %97 = call i32 @zend_stack_push(ptr noundef nonnull @compiler_globals, ptr noundef nonnull %5) #30
+  %97 = call i32 @zend_stack_push(ptr noundef nonnull @compiler_globals, ptr noundef nonnull %5) #28
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
   %98 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 4), align 8
   %99 = getelementptr inbounds i8, ptr %98, i64 84
@@ -15994,11 +15994,11 @@ zend_begin_loop.exit:                             ; preds = %zend_separate_if_ca
   br i1 %125, label %is_this_fetch.exit, label %is_this_fetch.exit.thread.thread76
 
 is_this_fetch.exit:                               ; preds = %120
-  %126 = call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %115, ptr noundef nonnull %118) #30
+  %126 = call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %115, ptr noundef nonnull %118) #28
   br i1 %126, label %is_this_fetch.exit.thread68, label %is_this_fetch.exit.thread
 
 is_this_fetch.exit.thread68:                      ; preds = %113, %is_this_fetch.exit
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.233) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.233) #29
   unreachable
 
 is_this_fetch.exit.thread:                        ; preds = %is_this_fetch.exit
@@ -16047,7 +16047,7 @@ is_this_fetch.exit.thread.thread76:               ; preds = %109, %120, %104, %i
   %145 = load ptr, ptr %144, align 8
   %146 = sext i32 %142 to i64
   %147 = shl nsw i64 %146, 4
-  %148 = call ptr @_erealloc(ptr noundef %145, i64 noundef %147) #34
+  %148 = call ptr @_erealloc(ptr noundef %145, i64 noundef %147) #32
   store ptr %148, ptr %144, align 8
   br label %149
 
@@ -16061,7 +16061,7 @@ is_this_fetch.exit.thread.thread76:               ; preds = %109, %120, %104, %i
 
 153:                                              ; preds = %149
   %154 = load ptr, ptr @zend_new_interned_string, align 8
-  %155 = call ptr %154(ptr noundef %.pre.i.i) #30
+  %155 = call ptr %154(ptr noundef %.pre.i.i) #28
   store ptr %155, ptr %135, align 8
   %156 = getelementptr inbounds i8, ptr %155, i64 4
   %157 = load i32, ptr %156, align 4
@@ -16145,8 +16145,8 @@ is_this_fetch.exit.thread.thread:                 ; preds = %zend_begin_loop.exi
 
 199:                                              ; preds = %198
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  %200 = call ptr @zend_ast_create_znode(ptr noundef nonnull %8) #30
-  %201 = call ptr @zend_ast_create_2(i16 noundef zeroext 519, ptr noundef nonnull %.0, ptr noundef %200) #30
+  %200 = call ptr @zend_ast_create_znode(ptr noundef nonnull %8) #28
+  %201 = call ptr @zend_ast_create_2(i16 noundef zeroext 519, ptr noundef nonnull %.0, ptr noundef %200) #28
   %202 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 32), align 8
   %203 = call ptr @llvm.frameaddress.p0(i32 0)
   %.not.i.i = icmp ugt ptr %203, %202
@@ -16157,11 +16157,11 @@ is_this_fetch.exit.thread.thread:                 ; preds = %zend_begin_loop.exi
   %206 = ptrtoint ptr %205 to i64
   %207 = ptrtoint ptr %202 to i64
   %208 = sub i64 %206, %207
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %208) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %208) #29
   unreachable
 
 zend_compile_expr.exit:                           ; preds = %199
-  %209 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %209 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %4, ptr noundef %201)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %209, ptr noundef nonnull %4, ptr noundef %201)
   call fastcc void @zend_do_free(ptr noundef nonnull %4)
@@ -16170,8 +16170,8 @@ zend_compile_expr.exit:                           ; preds = %199
 
 210:                                              ; preds = %198
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  %211 = call ptr @zend_ast_create_znode(ptr noundef nonnull %8) #30
-  %212 = call ptr @zend_ast_create_2(i16 noundef zeroext 518, ptr noundef nonnull %.0, ptr noundef %211) #30
+  %211 = call ptr @zend_ast_create_znode(ptr noundef nonnull %8) #28
+  %212 = call ptr @zend_ast_create_2(i16 noundef zeroext 518, ptr noundef nonnull %.0, ptr noundef %211) #28
   %213 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 32), align 8
   %214 = call ptr @llvm.frameaddress.p0(i32 0)
   %.not.i.i63 = icmp ugt ptr %214, %213
@@ -16182,11 +16182,11 @@ zend_compile_expr.exit:                           ; preds = %199
   %217 = ptrtoint ptr %216 to i64
   %218 = ptrtoint ptr %213 to i64
   %219 = sub i64 %217, %218
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %219) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %219) #29
   unreachable
 
 zend_compile_expr.exit64:                         ; preds = %210
-  %220 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %220 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %3, ptr noundef %212)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %220, ptr noundef nonnull %3, ptr noundef %212)
   call fastcc void @zend_do_free(ptr noundef nonnull %3)
@@ -16237,8 +16237,8 @@ zend_compile_expr.exit64:                         ; preds = %210
 
 zend_make_tmp_result.exit:                        ; preds = %237, %247
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
-  %248 = call ptr @zend_ast_create_znode(ptr noundef nonnull %9) #30
-  %249 = call ptr @zend_ast_create_2(i16 noundef zeroext 518, ptr noundef nonnull %15, ptr noundef %248) #30
+  %248 = call ptr @zend_ast_create_znode(ptr noundef nonnull %9) #28
+  %249 = call ptr @zend_ast_create_2(i16 noundef zeroext 518, ptr noundef nonnull %15, ptr noundef %248) #28
   %250 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 32), align 8
   %251 = call ptr @llvm.frameaddress.p0(i32 0)
   %.not.i.i65 = icmp ugt ptr %251, %250
@@ -16249,11 +16249,11 @@ zend_make_tmp_result.exit:                        ; preds = %237, %247
   %254 = ptrtoint ptr %253 to i64
   %255 = ptrtoint ptr %250 to i64
   %256 = sub i64 %254, %255
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %256) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %256) #29
   unreachable
 
 zend_compile_expr.exit66:                         ; preds = %zend_make_tmp_result.exit
-  %257 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %257 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %2, ptr noundef %249)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %257, ptr noundef nonnull %2, ptr noundef %249)
   call fastcc void @zend_do_free(ptr noundef nonnull %2)
@@ -16286,7 +16286,7 @@ zend_compile_expr.exit66:                         ; preds = %zend_make_tmp_resul
   %269 = load ptr, ptr %268, align 8
   %270 = zext i32 %267 to i64
   %271 = shl nuw nsw i64 %270, 5
-  %272 = call ptr @_erealloc(ptr noundef %269, i64 noundef %271) #34
+  %272 = call ptr @_erealloc(ptr noundef %269, i64 noundef %271) #32
   store ptr %272, ptr %268, align 8
   br label %zend_emit_jump.exit
 
@@ -16345,7 +16345,7 @@ zend_emit_jump.exit:                              ; preds = %._crit_edge.i.i.i, 
   %309 = getelementptr inbounds i8, ptr %306, i64 12
   %310 = load i32, ptr %309, align 4
   store i32 %310, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 22, i32 5), align 4
-  call void @zend_stack_del_top(ptr noundef nonnull @compiler_globals) #30
+  call void @zend_stack_del_top(ptr noundef nonnull @compiler_globals) #28
   %311 = call fastcc ptr @zend_emit_op(ptr noundef null, i8 noundef zeroext 127, ptr noundef nonnull %7, ptr noundef null)
   ret void
 }
@@ -16361,7 +16361,7 @@ define internal fastcc void @zend_compile_if(ptr nocapture noundef readonly %0) 
 6:                                                ; preds = %1
   %7 = add i32 %4, -1
   %8 = zext i32 %7 to i64
-  %9 = tail call noalias ptr @_safe_emalloc(i64 noundef 4, i64 noundef %8, i64 noundef 0) #30
+  %9 = tail call noalias ptr @_safe_emalloc(i64 noundef 4, i64 noundef %8, i64 noundef 0) #28
   %.pre = load i32, ptr %3, align 8
   br label %10
 
@@ -16422,7 +16422,7 @@ define internal fastcc void @zend_compile_if(ptr nocapture noundef readonly %0) 
   %36 = load ptr, ptr %35, align 8
   %37 = zext i32 %34 to i64
   %38 = shl nuw nsw i64 %37, 5
-  %39 = call ptr @_erealloc(ptr noundef %36, i64 noundef %38) #34
+  %39 = call ptr @_erealloc(ptr noundef %36, i64 noundef %38) #32
   store ptr %39, ptr %35, align 8
   br label %get_next_op.exit.i
 
@@ -16463,11 +16463,11 @@ zend_do_extended_stmt.exit:                       ; preds = %get_next_op.exit.i,
   %57 = ptrtoint ptr %56 to i64
   %58 = ptrtoint ptr %53 to i64
   %59 = sub i64 %57, %58
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %59) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %59) #29
   unreachable
 
 zend_check_stack_limit.exit:                      ; preds = %zend_do_extended_stmt.exit
-  %60 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %60 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %2, ptr noundef nonnull %18)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %60, ptr noundef nonnull %2, ptr noundef nonnull %18)
   %61 = call fastcc i32 @zend_emit_cond_jump(i8 noundef zeroext 43, ptr noundef nonnull %2, i32 noundef 0)
@@ -16503,7 +16503,7 @@ zend_check_stack_limit.exit:                      ; preds = %zend_do_extended_st
   %76 = load ptr, ptr %75, align 8
   %77 = zext i32 %74 to i64
   %78 = shl nuw nsw i64 %77, 5
-  %79 = call ptr @_erealloc(ptr noundef %76, i64 noundef %78) #34
+  %79 = call ptr @_erealloc(ptr noundef %76, i64 noundef %78) #32
   store ptr %79, ptr %75, align 8
   br label %zend_emit_jump.exit
 
@@ -16613,7 +16613,7 @@ zend_update_jump_target_to_next.exit39:           ; preds = %127, %129
   br i1 %134, label %.lr.ph45, label %._crit_edge46
 
 ._crit_edge46:                                    ; preds = %zend_update_jump_target_to_next.exit39
-  call void @_efree(ptr noundef nonnull %.031) #30
+  call void @_efree(ptr noundef nonnull %.031) #28
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %10, %._crit_edge46, %._crit_edge
@@ -16640,13 +16640,13 @@ define internal fastcc void @zend_compile_switch(ptr nocapture noundef readonly 
   %14 = ptrtoint ptr %13 to i64
   %15 = ptrtoint ptr %10 to i64
   %16 = sub i64 %14, %15
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %16) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %16) #29
   unreachable
 
 zend_check_stack_limit.exit:                      ; preds = %1
   %17 = getelementptr inbounds i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %19 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %3, ptr noundef %18)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %19, ptr noundef nonnull %3, ptr noundef %18)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %2)
@@ -16659,7 +16659,7 @@ zend_check_stack_limit.exit:                      ; preds = %1
   %23 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 22, i32 7), align 8
   %24 = sext i32 %22 to i64
   %25 = mul nsw i64 %24, 20
-  %26 = call ptr @_erealloc(ptr noundef %23, i64 noundef %25) #34
+  %26 = call ptr @_erealloc(ptr noundef %23, i64 noundef %25) #32
   store ptr %26, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 22, i32 7), align 8
   %27 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 22, i32 6), align 8
   %28 = sext i32 %27 to i64
@@ -16691,7 +16691,7 @@ zend_begin_loop.exit:                             ; preds = %zend_check_stack_li
   store i8 %.sink, ptr %2, align 4
   %42 = getelementptr i8, ptr %29, i64 -20
   store i32 %storemerge.i, ptr %42, align 4
-  %43 = call i32 @zend_stack_push(ptr noundef nonnull @compiler_globals, ptr noundef nonnull %2) #30
+  %43 = call i32 @zend_stack_push(ptr noundef nonnull @compiler_globals, ptr noundef nonnull %2) #28
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %2)
   store i8 2, ptr %4, align 8
   %44 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 4), align 8
@@ -16759,7 +16759,7 @@ zend_begin_loop.exit:                             ; preds = %zend_check_stack_li
 74:                                               ; preds = %69
   %75 = getelementptr inbounds i8, ptr %70, i64 16
   %76 = load i64, ptr %75, align 8
-  %77 = call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %71, i64 noundef %76, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null, ptr noundef null) #30
+  %77 = call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %71, i64 noundef %76, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null, ptr noundef null) #28
   %.not50.i = icmp eq i8 %77, 0
   br i1 %.not50.i, label %.thread.i, label %determine_switch_jumptable_type.exit.thread
 
@@ -16788,9 +16788,9 @@ should_use_jumptable.exit:                        ; preds = %81
   br i1 %85, label %86, label %determine_switch_jumptable_type.exit.thread
 
 86:                                               ; preds = %should_use_jumptable.exit
-  %87 = call noalias ptr @_emalloc_56() #30
+  %87 = call noalias ptr @_emalloc_56() #28
   %88 = load i32, ptr %49, align 8
-  call void @_zend_hash_init(ptr noundef %87, i32 noundef %88, ptr noundef null, i1 noundef zeroext false) #30
+  call void @_zend_hash_init(ptr noundef %87, i32 noundef %88, ptr noundef null, i1 noundef zeroext false) #28
   store i8 1, ptr %5, align 8
   %89 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %87, ptr %89, align 8
@@ -16840,7 +16840,7 @@ determine_switch_jumptable_type.exit.thread:      ; preds = %57, %60, %66, %74, 
   %.093 = phi i32 [ %117, %109 ], [ -1, %should_use_jumptable.exit ], [ -1, %determine_switch_jumptable_type.exit ], [ -1, %zend_begin_loop.exit ], [ -1, %81 ], [ -1, %74 ], [ -1, %66 ], [ -1, %60 ], [ -1, %57 ]
   %118 = load i32, ptr %49, align 8
   %119 = zext i32 %118 to i64
-  %120 = call noalias ptr @_safe_emalloc(i64 noundef 4, i64 noundef %119, i64 noundef 0) #30
+  %120 = call noalias ptr @_safe_emalloc(i64 noundef 4, i64 noundef %119, i64 noundef 0) #28
   %121 = load i32, ptr %49, align 8
   %.not138 = icmp eq i32 %121, 0
   br i1 %.not138, label %._crit_edge, label %.lr.ph
@@ -16870,7 +16870,7 @@ determine_switch_jumptable_type.exit.thread:      ; preds = %57, %60, %66, %74, 
   %134 = getelementptr inbounds i8, ptr %128, i64 4
   %135 = load i32, ptr %134, align 4
   store i32 %135, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.241) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.241) #29
   unreachable
 
 136:                                              ; preds = %126
@@ -16883,11 +16883,11 @@ determine_switch_jumptable_type.exit.thread:      ; preds = %57, %60, %66, %74, 
   %140 = ptrtoint ptr %139 to i64
   %141 = ptrtoint ptr %137 to i64
   %142 = sub i64 %140, %141
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %142) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %142) #29
   unreachable
 
 zend_check_stack_limit.exit124:                   ; preds = %136
-  %143 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %143 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %6, ptr noundef nonnull %130)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %143, ptr noundef nonnull %6, ptr noundef nonnull %130)
   %144 = load i8, ptr %3, align 8
@@ -16948,7 +16948,7 @@ zend_check_stack_limit.exit124:                   ; preds = %136
   %171 = load ptr, ptr %170, align 8
   %172 = sext i32 %168 to i64
   %173 = shl nsw i64 %172, 4
-  %174 = call ptr @_erealloc(ptr noundef %171, i64 noundef %173) #34
+  %174 = call ptr @_erealloc(ptr noundef %171, i64 noundef %173) #32
   store ptr %174, ptr %170, align 8
   br label %175
 
@@ -16961,7 +16961,7 @@ zend_check_stack_limit.exit124:                   ; preds = %136
 
 178:                                              ; preds = %175
   %179 = load ptr, ptr @zend_new_interned_string, align 8
-  %180 = call ptr %179(ptr noundef %.pre.i.i) #30
+  %180 = call ptr %179(ptr noundef %.pre.i.i) #28
   store ptr %180, ptr %48, align 8
   %181 = getelementptr inbounds i8, ptr %180, i64 4
   %182 = load i32, ptr %181, align 4
@@ -17064,7 +17064,7 @@ zend_add_literal.exit:                            ; preds = %175, %178, %184
   %229 = load ptr, ptr %228, align 8
   %230 = zext i32 %227 to i64
   %231 = shl nuw nsw i64 %230, 5
-  %232 = call ptr @_erealloc(ptr noundef %229, i64 noundef %231) #34
+  %232 = call ptr @_erealloc(ptr noundef %229, i64 noundef %231) #32
   store ptr %232, ptr %228, align 8
   br label %zend_emit_jump.exit
 
@@ -17225,12 +17225,12 @@ zend_update_jump_target_to_next.exit:             ; preds = %307, %309
 
 321:                                              ; preds = %zend_update_jump_target_to_next.exit
   %322 = load i64, ptr %313, align 8
-  %323 = call ptr @zend_hash_index_add(ptr noundef nonnull %.094, i64 noundef %322, ptr noundef nonnull %7) #30
+  %323 = call ptr @zend_hash_index_add(ptr noundef nonnull %.094, i64 noundef %322, ptr noundef nonnull %7) #28
   br label %346
 
 324:                                              ; preds = %zend_update_jump_target_to_next.exit
   %325 = load ptr, ptr %313, align 8
-  %326 = call ptr @zend_hash_add(ptr noundef nonnull %.094, ptr noundef %325, ptr noundef nonnull %7) #30
+  %326 = call ptr @zend_hash_add(ptr noundef nonnull %.094, ptr noundef %325, ptr noundef nonnull %7) #28
   br label %346
 
 327:                                              ; preds = %.lr.ph136.split
@@ -17329,7 +17329,7 @@ zend_update_jump_target_to_next.exit121:          ; preds = %359, %361
   %381 = getelementptr inbounds i8, ptr %378, i64 12
   %382 = load i32, ptr %381, align 4
   store i32 %382, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 22, i32 5), align 4
-  call void @zend_stack_del_top(ptr noundef nonnull @compiler_globals) #30
+  call void @zend_stack_del_top(ptr noundef nonnull @compiler_globals) #28
   %383 = load i8, ptr %3, align 8
   %384 = and i8 %383, 6
   %.not100 = icmp eq i8 %384, 0
@@ -17364,11 +17364,11 @@ zend_update_jump_target_to_next.exit121:          ; preds = %359, %361
 
 399:                                              ; preds = %394
   %400 = load ptr, ptr %391, align 8
-  call void @rc_dtor_func(ptr noundef %400) #30
+  call void @rc_dtor_func(ptr noundef %400) #28
   br label %401
 
 401:                                              ; preds = %388, %399, %394, %390, %385
-  call void @_efree(ptr noundef %120) #30
+  call void @_efree(ptr noundef %120) #28
   ret void
 }
 
@@ -17385,7 +17385,7 @@ define internal fastcc void @zend_compile_try(ptr nocapture noundef readonly %0)
   %10 = getelementptr inbounds i8, ptr %7, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = zext i32 %11 to i64
-  %13 = tail call noalias ptr @_safe_emalloc(i64 noundef 4, i64 noundef %12, i64 noundef 0) #30
+  %13 = tail call noalias ptr @_safe_emalloc(i64 noundef 4, i64 noundef %12, i64 noundef 0) #28
   %14 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 22, i32 3), align 4
   %15 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 22, i32 4), align 8
   %16 = load i32, ptr %10, align 8
@@ -17395,7 +17395,7 @@ define internal fastcc void @zend_compile_try(ptr nocapture noundef readonly %0)
   br i1 %or.cond, label %20, label %19
 
 19:                                               ; preds = %1
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.242) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.242) #29
   unreachable
 
 20:                                               ; preds = %1
@@ -17464,7 +17464,7 @@ define internal fastcc void @zend_compile_try(ptr nocapture noundef readonly %0)
   %52 = load ptr, ptr %51, align 8
   %53 = zext i32 %50 to i64
   %54 = shl nuw nsw i64 %53, 5
-  %55 = tail call ptr @_erealloc(ptr noundef %52, i64 noundef %54) #34
+  %55 = tail call ptr @_erealloc(ptr noundef %52, i64 noundef %54) #32
   store ptr %55, ptr %51, align 8
   br label %zend_emit_op.exit
 
@@ -17505,7 +17505,7 @@ zend_emit_op.exit:                                ; preds = %._crit_edge.i.i, %4
   %75 = getelementptr inbounds i8, ptr %69, i64 144
   %76 = load ptr, ptr %75, align 8
   %77 = sext i32 %74 to i64
-  %78 = tail call ptr @_safe_erealloc(ptr noundef %76, i64 noundef 16, i64 noundef %77, i64 noundef 0) #30
+  %78 = tail call ptr @_safe_erealloc(ptr noundef %76, i64 noundef 16, i64 noundef %77, i64 noundef 0) #28
   store ptr %78, ptr %75, align 8
   %79 = zext i32 %73 to i64
   %80 = getelementptr inbounds %struct._zend_try_catch_element, ptr %78, i64 %79
@@ -17546,7 +17546,7 @@ zend_emit_op.exit:                                ; preds = %._crit_edge.i.i, %4
   store i32 %94, ptr %97, align 4
   %98 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 %73, ptr %98, align 4
-  %99 = call i32 @zend_stack_push(ptr noundef nonnull @compiler_globals, ptr noundef nonnull %2) #30
+  %99 = call i32 @zend_stack_push(ptr noundef nonnull @compiler_globals, ptr noundef nonnull %2) #28
   br label %100
 
 100:                                              ; preds = %91, %.loopexit
@@ -17578,7 +17578,7 @@ zend_emit_op.exit:                                ; preds = %._crit_edge.i.i, %4
   %111 = load ptr, ptr %110, align 8
   %112 = zext i32 %109 to i64
   %113 = shl nuw nsw i64 %112, 5
-  %114 = call ptr @_erealloc(ptr noundef %111, i64 noundef %113) #34
+  %114 = call ptr @_erealloc(ptr noundef %111, i64 noundef %113) #32
   store ptr %114, ptr %110, align 8
   br label %115
 
@@ -17640,7 +17640,7 @@ zend_emit_op.exit:                                ; preds = %._crit_edge.i.i, %4
   %144 = getelementptr inbounds i8, ptr %138, i64 8
   %145 = load ptr, ptr @zend_new_interned_string, align 8
   %146 = load ptr, ptr %144, align 8
-  %147 = call ptr %145(ptr noundef %146) #30
+  %147 = call ptr %145(ptr noundef %146) #28
   store ptr %147, ptr %144, align 8
   %148 = getelementptr inbounds i8, ptr %147, i64 4
   %149 = load i32, ptr %148, align 4
@@ -17663,7 +17663,7 @@ zval_make_interned_string.exit:                   ; preds = %151, %141, %132
   %158 = load i32, ptr %157, align 8
   %159 = add i32 %158, -1
   %160 = zext i32 %159 to i64
-  %161 = call noalias ptr @_safe_emalloc(i64 noundef 4, i64 noundef %160, i64 noundef 0) #30
+  %161 = call noalias ptr @_safe_emalloc(i64 noundef 4, i64 noundef %160, i64 noundef 0) #28
   %162 = getelementptr inbounds i8, ptr %134, i64 4
   %163 = load i32, ptr %162, align 4
   store i32 %163, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
@@ -17715,7 +17715,7 @@ zval_make_interned_string.exit:                   ; preds = %151, %141, %132
 
 186:                                              ; preds = %180
   %187 = getelementptr inbounds i8, ptr %182, i64 24
-  %188 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %187, i64 noundef 4, ptr noundef nonnull @.str.21, i64 noundef 4) #30
+  %188 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %187, i64 noundef 4, ptr noundef nonnull @.str.21, i64 noundef 4) #28
   %.not.i.i.i150 = icmp eq i32 %188, 0
   br i1 %.not.i.i.i150, label %207, label %thread-pre-split.i.i.i
 
@@ -17730,7 +17730,7 @@ thread-pre-split.i.i.i:                           ; preds = %186
 
 192:                                              ; preds = %189
   %193 = getelementptr inbounds i8, ptr %182, i64 24
-  %194 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %193, i64 noundef 6, ptr noundef nonnull @.str.22, i64 noundef 6) #30
+  %194 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %193, i64 noundef 6, ptr noundef nonnull @.str.22, i64 noundef 6) #28
   %.not13.i.i.i = icmp eq i32 %194, 0
   br i1 %.not13.i.i.i, label %207, label %._crit_edge.i.i.i148
 
@@ -17751,12 +17751,12 @@ thread-pre-split.i.i.i:                           ; preds = %186
 203:                                              ; preds = %195
   %204 = getelementptr inbounds i8, ptr %182, i64 24
   %205 = getelementptr inbounds i8, ptr %199, i64 24
-  %206 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %204, i64 noundef %196, ptr noundef nonnull %205, i64 noundef %196) #30
+  %206 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %204, i64 noundef %196, ptr noundef nonnull %205, i64 noundef %196) #28
   %.not14.i.i.i = icmp eq i32 %206, 0
   br i1 %.not14.i.i.i, label %207, label %zend_is_const_default_class_ref.exit
 
 207:                                              ; preds = %169, %186, %192, %203
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.243) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.243) #29
   unreachable
 
 zend_is_const_default_class_ref.exit:             ; preds = %195, %203, %176
@@ -17800,7 +17800,7 @@ zend_is_const_default_class_ref.exit:             ; preds = %195, %203, %176
   %226 = load ptr, ptr %225, align 8
   %227 = zext i32 %224 to i64
   %228 = shl nuw nsw i64 %227, 5
-  %229 = call ptr @_erealloc(ptr noundef %226, i64 noundef %228) #34
+  %229 = call ptr @_erealloc(ptr noundef %226, i64 noundef %228) #32
   store ptr %229, ptr %225, align 8
   br label %get_next_op.exit
 
@@ -17838,7 +17838,7 @@ get_next_op.exit:                                 ; preds = %._crit_edge.i, %223
   br i1 %.not.i152, label %zend_resolve_class_name_ast.exit, label %247
 
 247:                                              ; preds = %get_next_op.exit
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.16) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.16) #29
   unreachable
 
 zend_resolve_class_name_ast.exit:                 ; preds = %get_next_op.exit
@@ -17875,14 +17875,14 @@ zend_resolve_class_name_ast.exit:                 ; preds = %get_next_op.exit
   %264 = load ptr, ptr %263, align 8
   %265 = sext i32 %261 to i64
   %266 = shl nsw i64 %265, 4
-  %267 = call ptr @_erealloc(ptr noundef %264, i64 noundef %266) #34
+  %267 = call ptr @_erealloc(ptr noundef %264, i64 noundef %266) #32
   store ptr %267, ptr %263, align 8
   br label %zend_add_literal_string.exit.i
 
 zend_add_literal_string.exit.i:                   ; preds = %262, %._crit_edge13.i.i.i
   %.val.i.i.i = phi ptr [ %.val.pre.i.i.i, %._crit_edge13.i.i.i ], [ %267, %262 ]
   %268 = load ptr, ptr @zend_new_interned_string, align 8
-  %269 = call ptr %268(ptr noundef %252) #30
+  %269 = call ptr %268(ptr noundef %252) #28
   %270 = getelementptr inbounds i8, ptr %269, i64 4
   %271 = load i32, ptr %270, align 4
   %272 = and i32 %271, 64
@@ -17898,7 +17898,7 @@ zend_add_literal_string.exit.i:                   ; preds = %262, %._crit_edge13
   store i32 %275, ptr %278, align 8
   %279 = getelementptr inbounds i8, ptr %277, i64 12
   store i32 0, ptr %279, align 4
-  %280 = call ptr @zend_string_tolower_ex(ptr noundef %269, i1 noundef zeroext false) #30
+  %280 = call ptr @zend_string_tolower_ex(ptr noundef %269, i1 noundef zeroext false) #28
   %281 = getelementptr inbounds i8, ptr %280, i64 4
   %282 = load i32, ptr %281, align 4
   %283 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 4), align 8
@@ -17927,14 +17927,14 @@ zend_add_literal_string.exit.i:                   ; preds = %262, %._crit_edge13
   %292 = load ptr, ptr %291, align 8
   %293 = sext i32 %289 to i64
   %294 = shl nsw i64 %293, 4
-  %295 = call ptr @_erealloc(ptr noundef %292, i64 noundef %294) #34
+  %295 = call ptr @_erealloc(ptr noundef %292, i64 noundef %294) #32
   store ptr %295, ptr %291, align 8
   br label %zend_add_class_name_literal.exit
 
 zend_add_class_name_literal.exit:                 ; preds = %._crit_edge13.i.i7.i, %290
   %.val.i.i4.i = phi ptr [ %.val.pre.i.i9.i, %._crit_edge13.i.i7.i ], [ %295, %290 ]
   %296 = load ptr, ptr @zend_new_interned_string, align 8
-  %297 = call ptr %296(ptr noundef %280) #30
+  %297 = call ptr %296(ptr noundef %280) #28
   %298 = getelementptr inbounds i8, ptr %297, i64 4
   %299 = load i32, ptr %298, align 4
   %300 = and i32 %299, 64
@@ -17974,11 +17974,11 @@ zend_add_class_name_literal.exit:                 ; preds = %._crit_edge13.i.i7.
   br i1 %321, label %322, label %324
 
 322:                                              ; preds = %317
-  %323 = call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %153, ptr noundef nonnull %315) #30
+  %323 = call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %153, ptr noundef nonnull %315) #28
   br i1 %323, label %.critedge, label %324
 
 .critedge:                                        ; preds = %312, %322
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.233) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.233) #29
   unreachable
 
 324:                                              ; preds = %322, %317
@@ -17989,7 +17989,7 @@ zend_add_class_name_literal.exit:                 ; preds = %._crit_edge13.i.i7.
   br i1 %.not.i155, label %327, label %329
 
 327:                                              ; preds = %324
-  %328 = call i64 @zend_string_hash_func(ptr noundef nonnull %153) #30
+  %328 = call i64 @zend_string_hash_func(ptr noundef nonnull %153) #28
   br label %329
 
 329:                                              ; preds = %327, %324
@@ -18026,7 +18026,7 @@ zend_add_class_name_literal.exit:                 ; preds = %._crit_edge13.i.i7.
   br i1 %349, label %350, label %.critedge2.i
 
 350:                                              ; preds = %345
-  %351 = call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %339, ptr noundef nonnull %153) #30
+  %351 = call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %339, ptr noundef nonnull %153) #28
   br i1 %351, label %.critedge.loopexit.i, label %..critedge2_crit_edge.i
 
 ..critedge2_crit_edge.i:                          ; preds = %350
@@ -18055,7 +18055,7 @@ zend_add_class_name_literal.exit:                 ; preds = %._crit_edge13.i.i7.
   %360 = load ptr, ptr %359, align 8
   %361 = sext i32 %358 to i64
   %362 = shl nsw i64 %361, 3
-  %363 = call ptr @_erealloc(ptr noundef %360, i64 noundef %362) #34
+  %363 = call ptr @_erealloc(ptr noundef %360, i64 noundef %362) #32
   store ptr %363, ptr %359, align 8
   br label %364
 
@@ -18130,7 +18130,7 @@ lookup_cv.exit:                                   ; preds = %370, %.critedge.loo
   %391 = load ptr, ptr %390, align 8
   %392 = zext i32 %389 to i64
   %393 = shl nuw nsw i64 %392, 5
-  %394 = call ptr @_erealloc(ptr noundef %391, i64 noundef %393) #34
+  %394 = call ptr @_erealloc(ptr noundef %391, i64 noundef %393) #32
   store ptr %394, ptr %390, align 8
   br label %zend_emit_jump.exit163
 
@@ -18213,7 +18213,7 @@ zend_update_jump_target_to_next.exit:             ; preds = %431, %433
 
 ._crit_edge:                                      ; preds = %zend_update_jump_target_to_next.exit, %.preheader189
   %.0126.lcssa240 = phi i32 [ %210, %.preheader189 ], [ %.0126.lcssa239, %zend_update_jump_target_to_next.exit ]
-  call void @_efree(ptr noundef %161) #30
+  call void @_efree(ptr noundef %161) #28
   call fastcc void @zend_compile_stmt(ptr noundef %140)
   br i1 %156, label %439, label %.critedge146
 
@@ -18239,7 +18239,7 @@ zend_update_jump_target_to_next.exit:             ; preds = %431, %433
   %448 = load ptr, ptr %447, align 8
   %449 = zext i32 %446 to i64
   %450 = shl nuw nsw i64 %449, 5
-  %451 = call ptr @_erealloc(ptr noundef %448, i64 noundef %450) #34
+  %451 = call ptr @_erealloc(ptr noundef %448, i64 noundef %450) #32
   store ptr %451, ptr %447, align 8
   br label %zend_emit_jump.exit168
 
@@ -18334,14 +18334,14 @@ zend_update_jump_target_to_next.exit170:          ; preds = %490, %492
   %499 = getelementptr inbounds i8, ptr %498, i64 84
   %500 = load i32, ptr %499, align 4
   %501 = add i32 %500, 1
-  call void @zend_stack_del_top(ptr noundef nonnull @compiler_globals) #30
+  call void @zend_stack_del_top(ptr noundef nonnull @compiler_globals) #28
   store i8 -97, ptr %3, align 4
   %502 = getelementptr inbounds i8, ptr %3, i64 1
   store i8 2, ptr %502, align 1
   %503 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 22, i32 3), align 4
   %504 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 %503, ptr %504, align 4
-  %505 = call i32 @zend_stack_push(ptr noundef nonnull @compiler_globals, ptr noundef nonnull %3) #30
+  %505 = call i32 @zend_stack_push(ptr noundef nonnull @compiler_globals, ptr noundef nonnull %3) #28
   %506 = getelementptr inbounds i8, ptr %9, i64 4
   %507 = load i32, ptr %506, align 4
   store i32 %507, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
@@ -18366,7 +18366,7 @@ zend_update_jump_target_to_next.exit170:          ; preds = %490, %492
   %516 = load ptr, ptr %515, align 8
   %517 = zext i32 %514 to i64
   %518 = shl nuw nsw i64 %517, 5
-  %519 = call ptr @_erealloc(ptr noundef %516, i64 noundef %518) #34
+  %519 = call ptr @_erealloc(ptr noundef %516, i64 noundef %518) #32
   store ptr %519, ptr %515, align 8
   br label %zend_emit_op.exit175
 
@@ -18419,7 +18419,7 @@ zend_emit_op.exit175:                             ; preds = %._crit_edge.i.i172,
   %542 = load ptr, ptr %541, align 8
   %543 = zext i32 %540 to i64
   %544 = shl nuw nsw i64 %543, 5
-  %545 = call ptr @_erealloc(ptr noundef %542, i64 noundef %544) #34
+  %545 = call ptr @_erealloc(ptr noundef %542, i64 noundef %544) #32
   store ptr %545, ptr %541, align 8
   br label %zend_emit_op.exit180
 
@@ -18482,7 +18482,7 @@ zend_emit_op.exit180:                             ; preds = %._crit_edge.i.i177,
   %578 = load ptr, ptr %577, align 8
   %579 = zext i32 %576 to i64
   %580 = shl nuw nsw i64 %579, 5
-  %581 = call ptr @_erealloc(ptr noundef %578, i64 noundef %580) #34
+  %581 = call ptr @_erealloc(ptr noundef %578, i64 noundef %580) #32
   store ptr %581, ptr %577, align 8
   br label %zend_emit_op.exit185
 
@@ -18538,12 +18538,12 @@ zend_emit_op.exit185:                             ; preds = %._crit_edge.i.i182,
 
 zend_update_jump_target_to_next.exit187:          ; preds = %605, %607
   store i32 %14, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 22, i32 3), align 4
-  call void @zend_stack_del_top(ptr noundef nonnull @compiler_globals) #30
+  call void @zend_stack_del_top(ptr noundef nonnull @compiler_globals) #28
   br label %609
 
 609:                                              ; preds = %zend_update_jump_target_to_next.exit187, %._crit_edge209
   store i32 %15, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 22, i32 4), align 8
-  call void @_efree(ptr noundef %13) #30
+  call void @_efree(ptr noundef %13) #28
   ret void
 }
 
@@ -18591,7 +18591,7 @@ define internal fastcc void @zend_compile_declare(ptr noundef readonly %0) unnam
 
 30:                                               ; preds = %18
   %31 = getelementptr inbounds i8, ptr %27, i64 24
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.245, ptr noundef nonnull %31) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.245, ptr noundef nonnull %31) #29
   unreachable
 
 32:                                               ; preds = %18
@@ -18602,7 +18602,7 @@ define internal fastcc void @zend_compile_declare(ptr noundef readonly %0) unnam
 
 36:                                               ; preds = %32
   %37 = getelementptr inbounds i8, ptr %27, i64 24
-  %38 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %37, i64 noundef 5, ptr noundef nonnull @.str.246, i64 noundef 5) #30
+  %38 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %37, i64 noundef 5, ptr noundef nonnull @.str.246, i64 noundef 5) #28
   %.not53 = icmp eq i32 %38, 0
   br i1 %.not53, label %39, label %thread-pre-split
 
@@ -18618,12 +18618,12 @@ define internal fastcc void @zend_compile_declare(ptr noundef readonly %0) unnam
   br i1 %.not.i, label %47, label %42
 
 42:                                               ; preds = %39
-  %43 = call ptr @zend_ast_copy(ptr noundef nonnull %40) #30
+  %43 = call ptr @zend_ast_copy(ptr noundef nonnull %40) #28
   store ptr %43, ptr %5, align 8
   store i32 267, ptr %15, align 8
   %44 = load ptr, ptr %23, align 8
-  call void @zend_ast_destroy(ptr noundef %44) #30
-  %45 = call ptr @zend_ast_create_zval(ptr noundef nonnull %5) #30
+  call void @zend_ast_destroy(ptr noundef %44) #28
+  %45 = call ptr @zend_ast_create_zval(ptr noundef nonnull %5) #28
   store ptr %45, ptr %23, align 8
   %.pre.i = load i16, ptr %45, align 8
   %46 = icmp eq i16 %.pre.i, 64
@@ -18663,7 +18663,7 @@ zend_const_expr_to_zval.exit:                     ; preds = %47, %56
   br label %65
 
 63:                                               ; preds = %zend_const_expr_to_zval.exit
-  %64 = call i64 @zval_get_long_func(ptr noundef nonnull %6, i1 noundef zeroext false) #30
+  %64 = call i64 @zval_get_long_func(ptr noundef nonnull %6, i1 noundef zeroext false) #28
   br label %65
 
 65:                                               ; preds = %63, %61
@@ -18685,7 +18685,7 @@ zend_const_expr_to_zval.exit:                     ; preds = %47, %56
 
 73:                                               ; preds = %68
   %74 = load ptr, ptr %6, align 8
-  call void @rc_dtor_func(ptr noundef %74) #30
+  call void @rc_dtor_func(ptr noundef %74) #28
   br label %zend_is_first_statement.exit
 
 thread-pre-split:                                 ; preds = %36
@@ -18699,7 +18699,7 @@ thread-pre-split:                                 ; preds = %36
 
 78:                                               ; preds = %75
   %79 = getelementptr inbounds i8, ptr %27, i64 24
-  %80 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %79, i64 noundef 8, ptr noundef nonnull @.str.26, i64 noundef 8) #30
+  %80 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %79, i64 noundef 8, ptr noundef nonnull @.str.26, i64 noundef 8) #28
   %.not56 = icmp eq i32 %80, 0
   br i1 %.not56, label %81, label %._crit_edge98
 
@@ -18739,7 +18739,7 @@ thread-pre-split:                                 ; preds = %36
   br i1 %or.cond26.i, label %.lr.ph.split.i, label %.loopexit
 
 .loopexit:                                        ; preds = %81, %92, %90
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.247) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.247) #29
   unreachable
 
 95:                                               ; preds = %._crit_edge98, %75
@@ -18749,7 +18749,7 @@ thread-pre-split:                                 ; preds = %36
 
 98:                                               ; preds = %95
   %99 = getelementptr inbounds i8, ptr %27, i64 24
-  %100 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %99, i64 noundef 12, ptr noundef nonnull @.str.248, i64 noundef 12) #30
+  %100 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %99, i64 noundef 12, ptr noundef nonnull @.str.248, i64 noundef 12) #28
   %.not57 = icmp eq i32 %100, 0
   br i1 %.not57, label %101, label %145
 
@@ -18785,7 +18785,7 @@ thread-pre-split:                                 ; preds = %36
   br i1 %or.cond26.i67, label %.lr.ph.split.i63, label %.loopexit77
 
 .loopexit77:                                      ; preds = %101, %112, %110
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.249) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.249) #29
   unreachable
 
 zend_is_first_statement.exit69:                   ; preds = %.lr.ph.split.i63
@@ -18794,7 +18794,7 @@ zend_is_first_statement.exit69:                   ; preds = %.lr.ph.split.i63
   br i1 %.not58, label %117, label %116
 
 116:                                              ; preds = %zend_is_first_statement.exit69
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.250) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.250) #29
   unreachable
 
 117:                                              ; preds = %zend_is_first_statement.exit69
@@ -18809,12 +18809,12 @@ zend_is_first_statement.exit69:                   ; preds = %.lr.ph.split.i63
   br i1 %.not.i70, label %125, label %120
 
 120:                                              ; preds = %117
-  %121 = call ptr @zend_ast_copy(ptr noundef nonnull %118) #30
+  %121 = call ptr @zend_ast_copy(ptr noundef nonnull %118) #28
   store ptr %121, ptr %3, align 8
   store i32 267, ptr %14, align 8
   %122 = load ptr, ptr %23, align 8
-  call void @zend_ast_destroy(ptr noundef %122) #30
-  %123 = call ptr @zend_ast_create_zval(ptr noundef nonnull %3) #30
+  call void @zend_ast_destroy(ptr noundef %122) #28
+  %123 = call ptr @zend_ast_create_zval(ptr noundef nonnull %3) #28
   store ptr %123, ptr %23, align 8
   %.pre.i71 = load i16, ptr %123, align 8
   %124 = icmp eq i16 %.pre.i71, 64
@@ -18848,7 +18848,7 @@ zend_const_expr_to_zval.exit73:                   ; preds = %125, %133
   br i1 %or.cond76, label %137, label %138
 
 137:                                              ; preds = %zend_const_expr_to_zval.exit73
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.251) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.251) #29
   unreachable
 
 138:                                              ; preds = %zend_const_expr_to_zval.exit73
@@ -18865,7 +18865,7 @@ zend_const_expr_to_zval.exit73:                   ; preds = %125, %133
 
 145:                                              ; preds = %98, %95
   %146 = getelementptr inbounds i8, ptr %27, i64 24
-  call void (i32, ptr, ...) @zend_error(i32 noundef 128, ptr noundef nonnull @.str.252, ptr noundef nonnull %146) #30
+  call void (i32, ptr, ...) @zend_error(i32 noundef 128, ptr noundef nonnull @.str.252, ptr noundef nonnull %146) #28
   br label %zend_is_first_statement.exit
 
 zend_is_first_statement.exit:                     ; preds = %.lr.ph.split.i, %73, %68, %65, %145, %140, %138
@@ -18904,7 +18904,7 @@ define internal fastcc void @zend_compile_enum_case(ptr nocapture noundef %0) un
   br i1 %.not, label %12, label %13
 
 12:                                               ; preds = %1
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.253) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.253) #29
   unreachable
 
 13:                                               ; preds = %1
@@ -18916,7 +18916,7 @@ define internal fastcc void @zend_compile_enum_case(ptr nocapture noundef %0) un
   %18 = getelementptr inbounds i8, ptr %15, i64 8
   %19 = load ptr, ptr @zend_new_interned_string, align 8
   %20 = load ptr, ptr %18, align 8
-  %21 = tail call ptr %19(ptr noundef %20) #30
+  %21 = tail call ptr %19(ptr noundef %20) #28
   store ptr %21, ptr %18, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 4
   %23 = load i32, ptr %22, align 4
@@ -18949,7 +18949,7 @@ zval_make_interned_string.exit:                   ; preds = %13, %25
   %.sink = phi i32 [ 262, %32 ], [ 6, %zval_make_interned_string.exit ]
   %36 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 %.sink, ptr %36, align 8
-  %37 = call ptr @zend_ast_create_zval(ptr noundef nonnull %4) #30
+  %37 = call ptr @zend_ast_create_zval(ptr noundef nonnull %4) #28
   store ptr %21, ptr %5, align 8
   %38 = load i32, ptr %22, align 4
   %39 = and i32 %38, 64
@@ -18966,7 +18966,7 @@ zval_make_interned_string.exit:                   ; preds = %13, %25
   %.sink66 = phi i32 [ 262, %40 ], [ 6, %35 ]
   %44 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 %.sink66, ptr %44, align 8
-  %45 = call ptr @zend_ast_create_zval(ptr noundef nonnull %5) #30
+  %45 = call ptr @zend_ast_create_zval(ptr noundef nonnull %5) #28
   %46 = getelementptr inbounds i8, ptr %0, i64 16
   %47 = load ptr, ptr %46, align 8
   store ptr null, ptr %46, align 8
@@ -18980,7 +18980,7 @@ zval_make_interned_string.exit:                   ; preds = %13, %25
 52:                                               ; preds = %43
   %53 = getelementptr inbounds i8, ptr %21, i64 24
   %54 = getelementptr inbounds i8, ptr %28, i64 24
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.254, ptr noundef nonnull %53, ptr noundef nonnull %54) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.254, ptr noundef nonnull %53, ptr noundef nonnull %54) #29
   unreachable
 
 55:                                               ; preds = %43
@@ -18992,11 +18992,11 @@ zval_make_interned_string.exit:                   ; preds = %13, %25
 58:                                               ; preds = %55
   %59 = getelementptr inbounds i8, ptr %21, i64 24
   %60 = getelementptr inbounds i8, ptr %28, i64 24
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.255, ptr noundef nonnull %59, ptr noundef nonnull %60) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.255, ptr noundef nonnull %59, ptr noundef nonnull %60) #29
   unreachable
 
 61:                                               ; preds = %55
-  %62 = call ptr @zend_ast_create_3(i16 noundef zeroext 778, ptr noundef %37, ptr noundef %45, ptr noundef %47) #30
+  %62 = call ptr @zend_ast_create_3(i16 noundef zeroext 778, ptr noundef %37, ptr noundef %45, ptr noundef %47) #28
   store ptr %62, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
@@ -19009,12 +19009,12 @@ zval_make_interned_string.exit:                   ; preds = %13, %25
   br i1 %.not.i65, label %70, label %65
 
 65:                                               ; preds = %61
-  %66 = call ptr @zend_ast_copy(ptr noundef nonnull %63) #30
+  %66 = call ptr @zend_ast_copy(ptr noundef nonnull %63) #28
   store ptr %66, ptr %3, align 8
   %67 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 267, ptr %67, align 8
-  call void @zend_ast_destroy(ptr noundef nonnull %63) #30
-  %68 = call ptr @zend_ast_create_zval(ptr noundef nonnull %3) #30
+  call void @zend_ast_destroy(ptr noundef nonnull %63) #28
+  %68 = call ptr @zend_ast_create_zval(ptr noundef nonnull %3) #28
   %.pre.i = load i16, ptr %68, align 8
   %69 = icmp eq i16 %.pre.i, 64
   br label %70
@@ -19068,12 +19068,12 @@ zend_const_expr_to_zval.exit:                     ; preds = %70, %79
 
 95:                                               ; preds = %84, %92, %zend_const_expr_to_zval.exit
   %.0 = phi ptr [ null, %zend_const_expr_to_zval.exit ], [ %88, %92 ], [ %88, %84 ]
-  %96 = call ptr @zend_declare_class_constant_ex(ptr noundef nonnull %8, ptr noundef nonnull %21, ptr noundef nonnull %7, i32 noundef 1, ptr noundef %.0) #30
+  %96 = call ptr @zend_declare_class_constant_ex(ptr noundef nonnull %8, ptr noundef nonnull %21, ptr noundef nonnull %7, i32 noundef 1, ptr noundef %.0) #28
   %97 = getelementptr inbounds i8, ptr %96, i64 12
   %98 = load i32, ptr %97, align 4
   %99 = or i32 %98, 64
   store i32 %99, ptr %97, align 4
-  call void @zend_ast_destroy(ptr noundef nonnull %72) #30
+  call void @zend_ast_destroy(ptr noundef nonnull %72) #28
   %100 = getelementptr inbounds i8, ptr %0, i64 32
   %101 = load ptr, ptr %100, align 8
   %.not64 = icmp eq ptr %101, null
@@ -19116,7 +19116,7 @@ define internal fastcc void @zend_compile_prop_group(ptr nocapture noundef reado
   br i1 %.not.i, label %23, label %22
 
 22:                                               ; preds = %1
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.256) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.256) #29
   unreachable
 
 23:                                               ; preds = %1
@@ -19143,7 +19143,7 @@ define internal fastcc void @zend_compile_prop_group(ptr nocapture noundef reado
   %30 = getelementptr inbounds i8, ptr %16, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 24
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.257, ptr noundef nonnull %32) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.257, ptr noundef nonnull %32) #29
   unreachable
 
 33:                                               ; preds = %173, %.lr.ph.i
@@ -19162,7 +19162,7 @@ define internal fastcc void @zend_compile_prop_group(ptr nocapture noundef reado
   %43 = getelementptr inbounds i8, ptr %37, i64 8
   %44 = load ptr, ptr @zend_new_interned_string, align 8
   %45 = load ptr, ptr %43, align 8
-  %46 = call ptr %44(ptr noundef %45) #30
+  %46 = call ptr %44(ptr noundef %45) #28
   store ptr %46, ptr %43, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 4
   %48 = load i32, ptr %47, align 4
@@ -19198,7 +19198,7 @@ zval_make_interned_string.exit.i:                 ; preds = %50, %33
   %61 = getelementptr inbounds i8, ptr %60, i64 24
   %62 = getelementptr inbounds i8, ptr %46, i64 24
   %63 = getelementptr inbounds i8, ptr %58, i64 24
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.120, ptr noundef nonnull %61, ptr noundef nonnull %62, ptr noundef nonnull %63) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.120, ptr noundef nonnull %61, ptr noundef nonnull %62, ptr noundef nonnull %63) #29
   unreachable
 
 64:                                               ; preds = %52, %zval_make_interned_string.exit.i
@@ -19225,7 +19225,7 @@ zval_make_interned_string.exit.i:                 ; preds = %50, %33
 
 76:                                               ; preds = %73, %65, %64
   %.066.i = phi ptr [ null, %64 ], [ %69, %73 ], [ %69, %65 ]
-  %77 = call ptr @zend_hash_find(ptr noundef nonnull %26, ptr noundef nonnull %46) #30
+  %77 = call ptr @zend_hash_find(ptr noundef nonnull %26, ptr noundef nonnull %46) #28
   %.not75.i = icmp eq ptr %77, null
   br i1 %.not75.i, label %83, label %78
 
@@ -19234,7 +19234,7 @@ zval_make_interned_string.exit.i:                 ; preds = %50, %33
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr inbounds i8, ptr %80, i64 24
   %82 = getelementptr inbounds i8, ptr %46, i64 24
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.119, ptr noundef nonnull %81, ptr noundef nonnull %82) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.119, ptr noundef nonnull %81, ptr noundef nonnull %82) #29
   unreachable
 
 83:                                               ; preds = %76
@@ -19254,12 +19254,12 @@ zval_make_interned_string.exit.i:                 ; preds = %50, %33
   br i1 %.not.i85.i, label %93, label %88
 
 88:                                               ; preds = %85
-  %89 = call ptr @zend_ast_copy(ptr noundef nonnull %86) #30
+  %89 = call ptr @zend_ast_copy(ptr noundef nonnull %86) #28
   store ptr %89, ptr %3, align 8
   store i32 267, ptr %27, align 8
   %90 = load ptr, ptr %38, align 8
-  call void @zend_ast_destroy(ptr noundef %90) #30
-  %91 = call ptr @zend_ast_create_zval(ptr noundef nonnull %3) #30
+  call void @zend_ast_destroy(ptr noundef %90) #28
+  %91 = call ptr @zend_ast_create_zval(ptr noundef nonnull %3) #28
   store ptr %91, ptr %38, align 8
   %.pre.i.i = load i16, ptr %91, align 8
   %92 = icmp eq i16 %.pre.i.i, 64
@@ -19313,7 +19313,7 @@ zend_const_expr_to_zval.exit.i:                   ; preds = %101, %93
   br i1 %or.cond.i.i, label %116, label %zend_is_valid_default_value.exit.i
 
 116:                                              ; preds = %113
-  call void @convert_to_double(ptr noundef nonnull %5) #30
+  call void @convert_to_double(ptr noundef nonnull %5) #28
   br label %zend_is_valid_default_value.exit.thread.i
 
 zend_is_valid_default_value.exit.i:               ; preds = %113
@@ -19336,17 +19336,17 @@ zend_is_valid_default_value.exit.i:               ; preds = %113
   %127 = call ptr @zend_type_to_string(ptr %126, i32 %125)
   %128 = getelementptr inbounds i8, ptr %118, i64 24
   %129 = getelementptr inbounds i8, ptr %127, i64 24
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.258, ptr noundef nonnull %128, ptr noundef nonnull %129) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.258, ptr noundef nonnull %128, ptr noundef nonnull %129) #29
   unreachable
 
 130:                                              ; preds = %121, %zend_is_valid_default_value.exit.i
-  %131 = call ptr @zend_zval_value_name(ptr noundef nonnull %5) #30
+  %131 = call ptr @zend_zval_value_name(ptr noundef nonnull %5) #28
   %132 = getelementptr inbounds i8, ptr %16, i64 8
   %133 = load ptr, ptr %132, align 8
   %134 = getelementptr inbounds i8, ptr %133, i64 24
   %135 = getelementptr inbounds i8, ptr %46, i64 24
   %136 = getelementptr inbounds i8, ptr %118, i64 24
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.259, ptr noundef %131, ptr noundef nonnull %134, ptr noundef nonnull %135, ptr noundef nonnull %136) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.259, ptr noundef %131, ptr noundef nonnull %134, ptr noundef nonnull %135, ptr noundef nonnull %136) #29
   unreachable
 
 137:                                              ; preds = %83
@@ -19383,7 +19383,7 @@ zend_is_valid_default_value.exit.thread.i:        ; preds = %141, %140, %116, %1
   %151 = load ptr, ptr %150, align 8
   %152 = getelementptr inbounds i8, ptr %151, i64 24
   %153 = getelementptr inbounds i8, ptr %46, i64 24
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.121, ptr noundef nonnull %152, ptr noundef nonnull %153) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.121, ptr noundef nonnull %152, ptr noundef nonnull %153) #29
   unreachable
 
 154:                                              ; preds = %146
@@ -19396,7 +19396,7 @@ zend_is_valid_default_value.exit.thread.i:        ; preds = %141, %140, %116, %1
   %159 = load ptr, ptr %158, align 8
   %160 = getelementptr inbounds i8, ptr %159, i64 24
   %161 = getelementptr inbounds i8, ptr %46, i64 24
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.260, ptr noundef nonnull %160, ptr noundef nonnull %161) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.260, ptr noundef nonnull %160, ptr noundef nonnull %161) #29
   unreachable
 
 162:                                              ; preds = %154
@@ -19409,11 +19409,11 @@ zend_is_valid_default_value.exit.thread.i:        ; preds = %141, %140, %116, %1
   %166 = load ptr, ptr %165, align 8
   %167 = getelementptr inbounds i8, ptr %166, i64 24
   %168 = getelementptr inbounds i8, ptr %46, i64 24
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.261, ptr noundef nonnull %167, ptr noundef nonnull %168) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.261, ptr noundef nonnull %167, ptr noundef nonnull %168) #29
   unreachable
 
 169:                                              ; preds = %162, %zend_is_valid_default_value.exit.thread.i
-  %170 = call ptr @zend_declare_typed_property(ptr noundef nonnull %16, ptr noundef nonnull %46, ptr noundef nonnull %5, i32 noundef %spec.select.i, ptr noundef %.066.i, ptr noundef nonnull byval(%struct.zend_type) align 8 %6) #30
+  %170 = call ptr @zend_declare_typed_property(ptr noundef nonnull %16, ptr noundef nonnull %46, ptr noundef nonnull %5, i32 noundef %spec.select.i, ptr noundef %.066.i, ptr noundef nonnull byval(%struct.zend_type) align 8 %6) #28
   br i1 %.not84.i, label %173, label %171
 
 171:                                              ; preds = %169
@@ -19483,7 +19483,7 @@ define internal fastcc void @zend_compile_class_const_group(ptr nocapture nounde
   %31 = getelementptr inbounds i8, ptr %26, i64 8
   %32 = load ptr, ptr @zend_new_interned_string, align 8
   %33 = load ptr, ptr %31, align 8
-  %34 = tail call ptr %32(ptr noundef %33) #30
+  %34 = tail call ptr %32(ptr noundef %33) #28
   store ptr %34, ptr %31, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 4
   %36 = load i32, ptr %35, align 4
@@ -19549,7 +19549,7 @@ zval_make_interned_string.exit.us.i:              ; preds = %38, %.lr.ph.split.u
   %66 = getelementptr inbounds i8, ptr %60, i64 8
   %67 = load ptr, ptr @zend_new_interned_string, align 8
   %68 = load ptr, ptr %66, align 8
-  %69 = call ptr %67(ptr noundef %68) #30
+  %69 = call ptr %67(ptr noundef %68) #28
   store ptr %69, ptr %66, align 8
   %70 = getelementptr inbounds i8, ptr %69, i64 4
   %71 = load i32, ptr %70, align 4
@@ -19611,7 +19611,7 @@ zval_make_interned_string.exit.i:                 ; preds = %73, %.lr.ph.split.i
   %96 = getelementptr inbounds i8, ptr %95, i64 24
   %97 = getelementptr inbounds i8, ptr %.us-phi.i, i64 24
   %98 = getelementptr inbounds i8, ptr %93, i64 24
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.262, ptr noundef nonnull %96, ptr noundef nonnull %97, ptr noundef nonnull %98) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.262, ptr noundef nonnull %96, ptr noundef nonnull %97, ptr noundef nonnull %98) #29
   unreachable
 
 99:                                               ; preds = %88, %86
@@ -19630,16 +19630,16 @@ zval_make_interned_string.exit.i:                 ; preds = %73, %.lr.ph.split.i
   %103 = load ptr, ptr %102, align 8
   %104 = getelementptr inbounds i8, ptr %103, i64 24
   %105 = getelementptr inbounds i8, ptr %34, i64 24
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.263, ptr noundef nonnull %104, ptr noundef nonnull %105) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.263, ptr noundef nonnull %104, ptr noundef nonnull %105) #29
   unreachable
 
 106:                                              ; preds = %99
-  %107 = call ptr @zend_ast_copy(ptr noundef nonnull %100) #30
+  %107 = call ptr @zend_ast_copy(ptr noundef nonnull %100) #28
   store ptr %107, ptr %3, align 8
   store i32 267, ptr %22, align 8
   %108 = load ptr, ptr %61, align 8
-  call void @zend_ast_destroy(ptr noundef %108) #30
-  %109 = call ptr @zend_ast_create_zval(ptr noundef nonnull %3) #30
+  call void @zend_ast_destroy(ptr noundef %108) #28
+  %109 = call ptr @zend_ast_create_zval(ptr noundef nonnull %3) #28
   store ptr %109, ptr %61, align 8
   %.pre.i.i = load i16, ptr %109, align 8
   %110 = icmp eq i16 %.pre.i.i, 64
@@ -19695,23 +19695,23 @@ zend_const_expr_to_zval.exit.i:                   ; preds = %120, %111
   br i1 %or.cond.i.i, label %135, label %zend_is_valid_default_value.exit.i
 
 135:                                              ; preds = %132
-  call void @convert_to_double(ptr noundef nonnull %5) #30
+  call void @convert_to_double(ptr noundef nonnull %5) #28
   br label %zend_is_valid_default_value.exit.thread.i
 
 zend_is_valid_default_value.exit.i:               ; preds = %132
   %136 = load ptr, ptr %6, align 8
   %137 = call ptr @zend_type_to_string(ptr %136, i32 %126)
-  %138 = call ptr @zend_zval_type_name(ptr noundef nonnull %5) #30
+  %138 = call ptr @zend_zval_type_name(ptr noundef nonnull %5) #28
   %139 = getelementptr inbounds i8, ptr %16, i64 8
   %140 = load ptr, ptr %139, align 8
   %141 = getelementptr inbounds i8, ptr %140, i64 24
   %142 = getelementptr inbounds i8, ptr %69, i64 24
   %143 = getelementptr inbounds i8, ptr %137, i64 24
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.264, ptr noundef %138, ptr noundef nonnull %141, ptr noundef nonnull %142, ptr noundef nonnull %143) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.264, ptr noundef %138, ptr noundef nonnull %141, ptr noundef nonnull %142, ptr noundef nonnull %143) #29
   unreachable
 
 zend_is_valid_default_value.exit.thread.i:        ; preds = %135, %128, %125, %zend_const_expr_to_zval.exit.i
-  %144 = call ptr @zend_declare_typed_class_constant(ptr noundef %16, ptr noundef nonnull %69, ptr noundef nonnull %5, i32 noundef %15, ptr noundef %87, ptr noundef nonnull byval(%struct.zend_type) align 8 %6) #30
+  %144 = call ptr @zend_declare_typed_class_constant(ptr noundef %16, ptr noundef nonnull %69, ptr noundef nonnull %5, i32 noundef %15, ptr noundef %87, ptr noundef nonnull byval(%struct.zend_type) align 8 %6) #28
   br i1 %.not56.i, label %147, label %145
 
 145:                                              ; preds = %zend_is_valid_default_value.exit.thread.i
@@ -19743,7 +19743,7 @@ define internal fastcc void @zend_compile_use_trait(ptr nocapture readonly %.8.v
   %8 = add i32 %7, %5
   %9 = zext i32 %8 to i64
   %10 = shl nuw nsw i64 %9, 4
-  %11 = tail call ptr @_erealloc(ptr noundef %3, i64 noundef %10) #34
+  %11 = tail call ptr @_erealloc(ptr noundef %3, i64 noundef %10) #32
   store ptr %11, ptr %2, align 8
   %12 = load i32, ptr %6, align 8
   %.not6 = icmp eq i32 %12, 0
@@ -19773,7 +19773,7 @@ define internal fastcc void @zend_compile_use_trait(ptr nocapture readonly %.8.v
   %26 = getelementptr inbounds i8, ptr %1, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 24
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.265, ptr noundef nonnull %25, ptr noundef nonnull %28) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.265, ptr noundef nonnull %25, ptr noundef nonnull %28) #29
   unreachable
 
 29:                                               ; preds = %15
@@ -19788,7 +19788,7 @@ define internal fastcc void @zend_compile_use_trait(ptr nocapture readonly %.8.v
   %37 = zext i32 %36 to i64
   %38 = getelementptr inbounds %struct._zend_class_name, ptr %35, i64 %37
   %39 = load ptr, ptr %38, align 8
-  %40 = tail call ptr @zend_string_tolower_ex(ptr noundef %39, i1 noundef zeroext false) #30
+  %40 = tail call ptr @zend_string_tolower_ex(ptr noundef %39, i1 noundef zeroext false) #28
   %41 = load ptr, ptr %2, align 8
   %42 = load i32, ptr %4, align 4
   %43 = zext i32 %42 to i64
@@ -19835,7 +19835,7 @@ define internal fastcc void @zend_compile_use_trait(ptr nocapture readonly %.8.v
   %63 = zext i32 %62 to i64
   %64 = shl nuw nsw i64 %63, 3
   %65 = add nuw nsw i64 %64, 32
-  %66 = tail call noalias ptr @_emalloc(i64 noundef %65) #32
+  %66 = tail call noalias ptr @_emalloc(i64 noundef %65) #30
   %67 = getelementptr i8, ptr %.val, i64 8
   %.val.i = load ptr, ptr %67, align 8
   %68 = getelementptr i8, ptr %.val, i64 16
@@ -19903,7 +19903,7 @@ zend_compile_method_ref.exit.i:                   ; preds = %78, %77
 
 99:                                               ; preds = %95
   %100 = getelementptr inbounds i8, ptr %91, i64 24
-  %101 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %100, i64 noundef 4, ptr noundef nonnull @.str.21, i64 noundef 4) #30
+  %101 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %100, i64 noundef 4, ptr noundef nonnull @.str.21, i64 noundef 4) #28
   %.not.i.i.i = icmp eq i32 %101, 0
   br i1 %.not.i.i.i, label %120, label %thread-pre-split.i.i.i
 
@@ -19918,7 +19918,7 @@ thread-pre-split.i.i.i:                           ; preds = %99
 
 105:                                              ; preds = %102
   %106 = getelementptr inbounds i8, ptr %91, i64 24
-  %107 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %106, i64 noundef 6, ptr noundef nonnull @.str.22, i64 noundef 6) #30
+  %107 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %106, i64 noundef 6, ptr noundef nonnull @.str.22, i64 noundef 6) #28
   %.not13.i.i.i = icmp eq i32 %107, 0
   br i1 %.not13.i.i.i, label %120, label %._crit_edge.i.i.i
 
@@ -19939,13 +19939,13 @@ thread-pre-split.i.i.i:                           ; preds = %99
 116:                                              ; preds = %108
   %117 = getelementptr inbounds i8, ptr %91, i64 24
   %118 = getelementptr inbounds i8, ptr %112, i64 24
-  %119 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %117, i64 noundef %109, ptr noundef nonnull %118, i64 noundef %109) #30
+  %119 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %117, i64 noundef %109, ptr noundef nonnull %118, i64 noundef %109) #28
   %.not14.i.i.i = icmp eq i32 %119, 0
   br i1 %.not14.i.i.i, label %120, label %zend_resolve_const_class_name_reference.exit
 
 120:                                              ; preds = %116, %105, %99
   %121 = getelementptr inbounds i8, ptr %91, i64 24
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.157, ptr noundef nonnull %121, ptr noundef nonnull @.str.266) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.157, ptr noundef nonnull %121, ptr noundef nonnull @.str.266) #29
   unreachable
 
 zend_resolve_const_class_name_reference.exit:     ; preds = %85, %108, %116
@@ -19979,7 +19979,7 @@ zend_compile_trait_precedence.exit:               ; preds = %.preheader.i.i, %._
   %.1.i.i = phi i64 [ 0, %._crit_edge.i ], [ %.0.i.i, %.preheader.i.i ]
   %135 = shl i64 %.1.i.i, 3
   %136 = add i64 %135, 16
-  %137 = tail call ptr @_erealloc(ptr noundef %131, i64 noundef %136) #34
+  %137 = tail call ptr @_erealloc(ptr noundef %131, i64 noundef %136) #32
   %138 = getelementptr inbounds ptr, ptr %137, i64 %.1.i.i
   store ptr %66, ptr %138, align 8
   %139 = getelementptr i8, ptr %138, i64 8
@@ -19996,7 +19996,7 @@ zend_compile_trait_precedence.exit:               ; preds = %.preheader.i.i, %._
   br i1 %.not.i.i44, label %146, label %145
 
 145:                                              ; preds = %140
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.267) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.267) #29
   unreachable
 
 146:                                              ; preds = %140
@@ -20005,11 +20005,11 @@ zend_compile_trait_precedence.exit:               ; preds = %.preheader.i.i, %._
   br i1 %.not2.i.i, label %zend_check_trait_alias_modifiers.exit.i, label %148
 
 148:                                              ; preds = %146
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.268) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.268) #29
   unreachable
 
 zend_check_trait_alias_modifiers.exit.i:          ; preds = %146
-  %149 = tail call noalias ptr @_emalloc_32() #30
+  %149 = tail call noalias ptr @_emalloc_32() #28
   %150 = getelementptr i8, ptr %.val, i64 8
   %.val.i45 = load ptr, ptr %150, align 8
   %151 = getelementptr i8, ptr %.val, i64 16
@@ -20089,7 +20089,7 @@ zend_compile_trait_alias.exit:                    ; preds = %.preheader.i.i50, %
   %.1.i.i53 = phi i64 [ 0, %176 ], [ %.0.i.i51, %.preheader.i.i50 ]
   %184 = shl i64 %.1.i.i53, 3
   %185 = add i64 %184, 16
-  %186 = tail call ptr @_erealloc(ptr noundef %180, i64 noundef %185) #34
+  %186 = tail call ptr @_erealloc(ptr noundef %180, i64 noundef %185) #32
   %187 = getelementptr inbounds ptr, ptr %186, i64 %.1.i.i53
   store ptr %149, ptr %187, align 8
   %188 = getelementptr i8, ptr %187, i64 8
@@ -20146,7 +20146,7 @@ define internal fastcc void @zend_compile_group_use(ptr nocapture noundef readon
   %26 = getelementptr inbounds i8, ptr %24, i64 24
   %27 = getelementptr inbounds i8, ptr %24, i64 16
   %28 = load i64, ptr %27, align 8
-  %29 = tail call ptr @zend_string_concat3(ptr noundef nonnull %13, i64 noundef %25, ptr noundef nonnull @.str.51, i64 noundef 1, ptr noundef nonnull %26, i64 noundef %28) #30
+  %29 = tail call ptr @zend_string_concat3(ptr noundef nonnull %13, i64 noundef %25, ptr noundef nonnull @.str.51, i64 noundef 1, ptr noundef nonnull %26, i64 noundef %28) #28
   %30 = getelementptr inbounds i8, ptr %24, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = and i32 %31, 64
@@ -20163,7 +20163,7 @@ define internal fastcc void @zend_compile_group_use(ptr nocapture noundef readon
   br i1 %37, label %38, label %39
 
 38:                                               ; preds = %33
-  tail call void @_efree(ptr noundef nonnull %24) #30
+  tail call void @_efree(ptr noundef nonnull %24) #28
   br label %39
 
 39:                                               ; preds = %16, %38, %33
@@ -20175,7 +20175,7 @@ define internal fastcc void @zend_compile_group_use(ptr nocapture noundef readon
   %43 = select i1 %.not42, i32 262, i32 6
   %44 = getelementptr inbounds i8, ptr %20, i64 16
   store i32 %43, ptr %44, align 8
-  %45 = tail call ptr @zend_ast_create_list_1(i16 noundef zeroext 143, ptr noundef nonnull %18) #30
+  %45 = tail call ptr @zend_ast_create_list_1(i16 noundef zeroext 143, ptr noundef nonnull %18) #28
   %46 = load i16, ptr %15, align 2
   %.not43 = icmp eq i16 %46, 0
   br i1 %.not43, label %47, label %50
@@ -20206,391 +20206,438 @@ define internal fastcc void @zend_compile_use(ptr nocapture noundef readonly %0)
   %3 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 23, i32 1), align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 2
   %5 = load i16, ptr %4, align 2
-  %6 = zext i16 %5 to i32
-  switch i16 %5, label %19 [
-    i16 1, label %7
-    i16 2, label %11
-    i16 4, label %15
+  switch i16 %5, label %18 [
+    i16 1, label %6
+    i16 2, label %10
+    i16 4, label %14
   ]
 
-7:                                                ; preds = %1
-  %8 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 23, i32 4), align 8
-  %.not2.i = icmp eq ptr %8, null
-  br i1 %.not2.i, label %9, label %zend_get_import_ht.exit
+6:                                                ; preds = %1
+  %7 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 23, i32 4), align 8
+  %.not2.i = icmp eq ptr %7, null
+  br i1 %.not2.i, label %8, label %zend_get_import_ht.exit
 
-9:                                                ; preds = %7
-  %10 = tail call noalias ptr @_emalloc_56() #30
-  store ptr %10, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 23, i32 4), align 8
+8:                                                ; preds = %6
+  %9 = tail call noalias ptr @_emalloc_56() #28
+  store ptr %9, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 23, i32 4), align 8
   br label %.sink.split.i
 
-11:                                               ; preds = %1
-  %12 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 23, i32 5), align 8
-  %.not1.i = icmp eq ptr %12, null
-  br i1 %.not1.i, label %13, label %zend_get_import_ht.exit
+10:                                               ; preds = %1
+  %11 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 23, i32 5), align 8
+  %.not1.i = icmp eq ptr %11, null
+  br i1 %.not1.i, label %12, label %zend_get_import_ht.exit
 
-13:                                               ; preds = %11
-  %14 = tail call noalias ptr @_emalloc_56() #30
-  store ptr %14, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 23, i32 5), align 8
+12:                                               ; preds = %10
+  %13 = tail call noalias ptr @_emalloc_56() #28
+  store ptr %13, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 23, i32 5), align 8
   br label %.sink.split.i
 
-15:                                               ; preds = %1
-  %16 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 23, i32 6), align 8
-  %.not.i = icmp eq ptr %16, null
-  br i1 %.not.i, label %17, label %zend_get_import_ht.exit
+14:                                               ; preds = %1
+  %15 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 23, i32 6), align 8
+  %.not.i = icmp eq ptr %15, null
+  br i1 %.not.i, label %16, label %zend_get_import_ht.exit
 
-17:                                               ; preds = %15
-  %18 = tail call noalias ptr @_emalloc_56() #30
-  store ptr %18, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 23, i32 6), align 8
+16:                                               ; preds = %14
+  %17 = tail call noalias ptr @_emalloc_56() #28
+  store ptr %17, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 23, i32 6), align 8
   br label %.sink.split.i
 
-19:                                               ; preds = %1
+18:                                               ; preds = %1
   unreachable
 
-.sink.split.i:                                    ; preds = %17, %13, %9
-  %.sink.i = phi ptr [ %18, %17 ], [ %14, %13 ], [ %10, %9 ]
-  %.0.in.ph.i = phi ptr [ getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 23, i32 6), %17 ], [ getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 23, i32 5), %13 ], [ getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 23, i32 4), %9 ]
-  tail call void @_zend_hash_init(ptr noundef %.sink.i, i32 noundef 8, ptr noundef nonnull @str_dtor, i1 noundef zeroext false) #30
+.sink.split.i:                                    ; preds = %16, %12, %8
+  %.sink.i = phi ptr [ %17, %16 ], [ %13, %12 ], [ %9, %8 ]
+  %.0.in.ph.i = phi ptr [ getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 23, i32 6), %16 ], [ getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 23, i32 5), %12 ], [ getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 23, i32 4), %8 ]
+  tail call void @_zend_hash_init(ptr noundef %.sink.i, i32 noundef 8, ptr noundef nonnull @str_dtor, i1 noundef zeroext false) #28
   %.0.i.pre = load ptr, ptr %.0.in.ph.i, align 8
   br label %zend_get_import_ht.exit
 
-zend_get_import_ht.exit:                          ; preds = %7, %11, %15, %.sink.split.i
-  %.0.i = phi ptr [ %8, %7 ], [ %12, %11 ], [ %16, %15 ], [ %.0.i.pre, %.sink.split.i ]
-  %20 = icmp eq i16 %5, 4
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
-  %22 = load i32, ptr %21, align 8
-  %.not261 = icmp eq i32 %22, 0
-  br i1 %.not261, label %._crit_edge, label %.lr.ph
+zend_get_import_ht.exit:                          ; preds = %6, %10, %14, %.sink.split.i
+  %.0.i = phi ptr [ %7, %6 ], [ %11, %10 ], [ %15, %14 ], [ %.0.i.pre, %.sink.split.i ]
+  %19 = icmp eq i16 %5, 4
+  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = load i32, ptr %20, align 8
+  %.not264 = icmp eq i32 %21, 0
+  br i1 %.not264, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %zend_get_import_ht.exit
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds i8, ptr %0, i64 16
   %.not222 = icmp eq ptr %3, null
-  %24 = icmp eq i16 %5, 1
-  %25 = getelementptr inbounds i8, ptr %3, i64 16
-  %26 = getelementptr inbounds i8, ptr %3, i64 24
-  %27 = zext nneg i16 %5 to i64
-  %28 = getelementptr inbounds i8, ptr %2, i64 8
-  br label %29
+  %23 = icmp eq i16 %5, 1
+  %24 = getelementptr inbounds i8, ptr %3, i64 16
+  %25 = getelementptr inbounds i8, ptr %3, i64 24
+  %26 = zext nneg i16 %5 to i64
+  %27 = getelementptr inbounds i8, ptr %2, i64 8
+  br label %28
 
-29:                                               ; preds = %.lr.ph, %200
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %200 ]
-  %30 = getelementptr inbounds [1 x ptr], ptr %23, i64 0, i64 %indvars.iv
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 8
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %31, i64 16
-  %35 = load ptr, ptr %34, align 8
-  %36 = load i16, ptr %33, align 8
-  %37 = icmp eq i16 %36, 64
-  call void @llvm.assume(i1 %37)
-  %38 = getelementptr inbounds i8, ptr %33, i64 8
-  %39 = load ptr, ptr %38, align 8
-  %.not = icmp eq ptr %35, null
-  br i1 %.not, label %51, label %40
+28:                                               ; preds = %.lr.ph, %205
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %205 ]
+  %29 = getelementptr inbounds [1 x ptr], ptr %22, i64 0, i64 %indvars.iv
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds i8, ptr %30, i64 16
+  %34 = load ptr, ptr %33, align 8
+  %35 = load i16, ptr %32, align 8
+  %36 = icmp eq i16 %35, 64
+  call void @llvm.assume(i1 %36)
+  %37 = getelementptr inbounds i8, ptr %32, i64 8
+  %38 = load ptr, ptr %37, align 8
+  %.not = icmp eq ptr %34, null
+  br i1 %.not, label %50, label %39
 
-40:                                               ; preds = %29
-  %41 = load i16, ptr %35, align 8
-  %42 = icmp eq i16 %41, 64
-  call void @llvm.assume(i1 %42)
-  %43 = getelementptr inbounds i8, ptr %35, i64 8
-  %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 4
-  %46 = load i32, ptr %45, align 4
-  %47 = and i32 %46, 64
-  %.not223 = icmp eq i32 %47, 0
-  br i1 %.not223, label %48, label %78
+39:                                               ; preds = %28
+  %40 = load i16, ptr %34, align 8
+  %41 = icmp eq i16 %40, 64
+  call void @llvm.assume(i1 %41)
+  %42 = getelementptr inbounds i8, ptr %34, i64 8
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds i8, ptr %43, i64 4
+  %45 = load i32, ptr %44, align 4
+  %46 = and i32 %45, 64
+  %.not223 = icmp eq i32 %46, 0
+  br i1 %.not223, label %47, label %77
 
-48:                                               ; preds = %40
-  %49 = load i32, ptr %44, align 4
-  %50 = add i32 %49, 1
-  store i32 %50, ptr %44, align 4
-  br label %78
+47:                                               ; preds = %39
+  %48 = load i32, ptr %43, align 4
+  %49 = add i32 %48, 1
+  store i32 %49, ptr %43, align 4
+  br label %77
 
-51:                                               ; preds = %29
-  %52 = getelementptr inbounds i8, ptr %39, i64 24
-  %53 = getelementptr inbounds i8, ptr %39, i64 16
-  %54 = load i64, ptr %53, align 8
-  %55 = call ptr @memrchr(ptr noundef nonnull %52, i32 noundef 92, i64 noundef %54) #29
-  %.not.i231.not = icmp eq ptr %55, null
-  br i1 %.not.i231.not, label %zend_get_unqualified_name.exit, label %56
+50:                                               ; preds = %28
+  %51 = getelementptr inbounds i8, ptr %38, i64 24
+  %52 = getelementptr inbounds i8, ptr %38, i64 16
+  %53 = load i64, ptr %52, align 8
+  %54 = call ptr @memrchr(ptr noundef nonnull %51, i32 noundef 92, i64 noundef %53) #27
+  %.not.i231.not = icmp eq ptr %54, null
+  br i1 %.not.i231.not, label %zend_get_unqualified_name.exit, label %55
 
-56:                                               ; preds = %51
-  %57 = getelementptr inbounds i8, ptr %55, i64 1
-  %58 = getelementptr inbounds i8, ptr %52, i64 %54
-  %59 = ptrtoint ptr %58 to i64
-  %60 = ptrtoint ptr %57 to i64
-  %61 = sub i64 %59, %60
-  %62 = and i64 %61, -8
-  %63 = add i64 %62, 32
-  %64 = call noalias ptr @_emalloc(i64 noundef %63) #32
-  store i32 1, ptr %64, align 4
-  %65 = getelementptr inbounds i8, ptr %64, i64 4
-  store i32 22, ptr %65, align 4
-  %66 = getelementptr inbounds i8, ptr %64, i64 8
-  store i64 0, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %64, i64 16
-  store i64 %61, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %64, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %68, ptr nonnull align 1 %57, i64 %61, i1 false)
-  %69 = getelementptr inbounds [1 x i8], ptr %68, i64 0, i64 %61
-  store i8 0, ptr %69, align 1
-  br label %78
+55:                                               ; preds = %50
+  %56 = getelementptr inbounds i8, ptr %54, i64 1
+  %57 = getelementptr inbounds i8, ptr %51, i64 %53
+  %58 = ptrtoint ptr %57 to i64
+  %59 = ptrtoint ptr %56 to i64
+  %60 = sub i64 %58, %59
+  %61 = and i64 %60, -8
+  %62 = add i64 %61, 32
+  %63 = call noalias ptr @_emalloc(i64 noundef %62) #30
+  store i32 1, ptr %63, align 4
+  %64 = getelementptr inbounds i8, ptr %63, i64 4
+  store i32 22, ptr %64, align 4
+  %65 = getelementptr inbounds i8, ptr %63, i64 8
+  store i64 0, ptr %65, align 8
+  %66 = getelementptr inbounds i8, ptr %63, i64 16
+  store i64 %60, ptr %66, align 8
+  %67 = getelementptr inbounds i8, ptr %63, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %67, ptr nonnull align 1 %56, i64 %60, i1 false)
+  %68 = getelementptr inbounds [1 x i8], ptr %67, i64 0, i64 %60
+  store i8 0, ptr %68, align 1
+  br label %77
 
-zend_get_unqualified_name.exit:                   ; preds = %51
-  %70 = getelementptr inbounds i8, ptr %39, i64 4
-  %71 = load i32, ptr %70, align 4
-  %72 = and i32 %71, 64
-  %.not221 = icmp eq i32 %72, 0
-  br i1 %.not221, label %73, label %76
+zend_get_unqualified_name.exit:                   ; preds = %50
+  %69 = getelementptr inbounds i8, ptr %38, i64 4
+  %70 = load i32, ptr %69, align 4
+  %71 = and i32 %70, 64
+  %.not221 = icmp eq i32 %71, 0
+  br i1 %.not221, label %72, label %75
 
-73:                                               ; preds = %zend_get_unqualified_name.exit
-  %74 = load i32, ptr %39, align 4
-  %75 = add i32 %74, 1
-  store i32 %75, ptr %39, align 4
-  br label %76
+72:                                               ; preds = %zend_get_unqualified_name.exit
+  %73 = load i32, ptr %38, align 4
+  %74 = add i32 %73, 1
+  store i32 %74, ptr %38, align 4
+  br label %75
 
-76:                                               ; preds = %73, %zend_get_unqualified_name.exit
-  br i1 %.not222, label %77, label %78
+75:                                               ; preds = %72, %zend_get_unqualified_name.exit
+  br i1 %.not222, label %76, label %77
 
-77:                                               ; preds = %76
-  call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str.269, ptr noundef nonnull %52) #30
-  br label %78
+76:                                               ; preds = %75
+  call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str.269, ptr noundef nonnull %51) #28
+  br label %77
 
-78:                                               ; preds = %40, %48, %56, %77, %76
-  %.0214 = phi ptr [ %64, %56 ], [ %39, %77 ], [ %39, %76 ], [ %44, %48 ], [ %44, %40 ]
-  br i1 %20, label %79, label %86
+77:                                               ; preds = %39, %47, %55, %76, %75
+  %.0214 = phi ptr [ %63, %55 ], [ %38, %76 ], [ %38, %75 ], [ %43, %47 ], [ %43, %39 ]
+  br i1 %19, label %78, label %85
 
-79:                                               ; preds = %78
-  %80 = getelementptr inbounds i8, ptr %.0214, i64 4
-  %81 = load i32, ptr %80, align 4
-  %82 = and i32 %81, 64
-  %.not224 = icmp eq i32 %82, 0
-  br i1 %.not224, label %83, label %zend_is_reserved_class_name.exit
+78:                                               ; preds = %77
+  %79 = getelementptr inbounds i8, ptr %.0214, i64 4
+  %80 = load i32, ptr %79, align 4
+  %81 = and i32 %80, 64
+  %.not224 = icmp eq i32 %81, 0
+  br i1 %.not224, label %82, label %zend_is_reserved_class_name.exit
 
-83:                                               ; preds = %79
-  %84 = load i32, ptr %.0214, align 4
-  %85 = add i32 %84, 1
-  store i32 %85, ptr %.0214, align 4
+82:                                               ; preds = %78
+  %83 = load i32, ptr %.0214, align 4
+  %84 = add i32 %83, 1
+  store i32 %84, ptr %.0214, align 4
   br label %zend_is_reserved_class_name.exit
 
-86:                                               ; preds = %78
-  %87 = call ptr @zend_string_tolower_ex(ptr noundef nonnull %.0214, i1 noundef zeroext false) #30
-  br i1 %24, label %88, label %zend_is_reserved_class_name.exit
+85:                                               ; preds = %77
+  %86 = call ptr @zend_string_tolower_ex(ptr noundef nonnull %.0214, i1 noundef zeroext false) #28
+  br i1 %23, label %87, label %zend_is_reserved_class_name.exit
 
-88:                                               ; preds = %86
-  %89 = getelementptr inbounds i8, ptr %.0214, i64 24
-  %90 = getelementptr inbounds i8, ptr %.0214, i64 16
-  %91 = load i64, ptr %90, align 8
-  %92 = call ptr @memrchr(ptr noundef nonnull %89, i32 noundef 92, i64 noundef %91) #29
-  %.not.i.not.i = icmp eq ptr %92, null
-  %93 = getelementptr inbounds i8, ptr %92, i64 1
-  %94 = getelementptr inbounds i8, ptr %89, i64 %91
-  %95 = ptrtoint ptr %94 to i64
-  %96 = ptrtoint ptr %93 to i64
-  %97 = sub i64 %95, %96
-  %.014.i = select i1 %.not.i.not.i, ptr %89, ptr %93
-  %.013.i = select i1 %.not.i.not.i, i64 %91, i64 %97
-  br label %98
+87:                                               ; preds = %85
+  %88 = getelementptr inbounds i8, ptr %.0214, i64 24
+  %89 = getelementptr inbounds i8, ptr %.0214, i64 16
+  %90 = load i64, ptr %89, align 8
+  %91 = call ptr @memrchr(ptr noundef nonnull %88, i32 noundef 92, i64 noundef %90) #27
+  %.not.i.not.i = icmp eq ptr %91, null
+  %92 = getelementptr inbounds i8, ptr %91, i64 1
+  %93 = getelementptr inbounds i8, ptr %88, i64 %90
+  %94 = ptrtoint ptr %93 to i64
+  %95 = ptrtoint ptr %92 to i64
+  %96 = sub i64 %94, %95
+  %.014.i = select i1 %.not.i.not.i, ptr %88, ptr %92
+  %.013.i = select i1 %.not.i.not.i, i64 %90, i64 %96
+  br label %97
 
-98:                                               ; preds = %106, %88
-  %99 = phi ptr [ @.str.30, %88 ], [ %108, %106 ]
-  %.015.i = phi ptr [ @reserved_class_names, %88 ], [ %107, %106 ]
-  %100 = getelementptr inbounds i8, ptr %.015.i, i64 8
-  %101 = load i64, ptr %100, align 8
-  %102 = icmp eq i64 %.013.i, %101
-  br i1 %102, label %103, label %106
+97:                                               ; preds = %105, %87
+  %98 = phi ptr [ @.str.30, %87 ], [ %107, %105 ]
+  %.015.i = phi ptr [ @reserved_class_names, %87 ], [ %106, %105 ]
+  %99 = getelementptr inbounds i8, ptr %.015.i, i64 8
+  %100 = load i64, ptr %99, align 8
+  %101 = icmp eq i64 %.013.i, %100
+  br i1 %101, label %102, label %105
 
-103:                                              ; preds = %98
-  %104 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %.014.i, i64 noundef %.013.i, ptr noundef nonnull %99, i64 noundef %.013.i) #30
-  %105 = icmp eq i32 %104, 0
-  br i1 %105, label %109, label %106
+102:                                              ; preds = %97
+  %103 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %.014.i, i64 noundef %.013.i, ptr noundef nonnull %98, i64 noundef %.013.i) #28
+  %104 = icmp eq i32 %103, 0
+  br i1 %104, label %108, label %105
 
-106:                                              ; preds = %103, %98
-  %107 = getelementptr inbounds i8, ptr %.015.i, i64 16
-  %108 = load ptr, ptr %107, align 8
-  %.not.not.i = icmp eq ptr %108, null
-  br i1 %.not.not.i, label %zend_is_reserved_class_name.exit, label %98
+105:                                              ; preds = %102, %97
+  %106 = getelementptr inbounds i8, ptr %.015.i, i64 16
+  %107 = load ptr, ptr %106, align 8
+  %.not.not.i = icmp eq ptr %107, null
+  br i1 %.not.not.i, label %zend_is_reserved_class_name.exit, label %97
 
-109:                                              ; preds = %103
-  %110 = getelementptr inbounds i8, ptr %39, i64 24
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.270, ptr noundef nonnull %110, ptr noundef nonnull %89, ptr noundef nonnull %89) #31
+108:                                              ; preds = %102
+  %109 = getelementptr inbounds i8, ptr %38, i64 24
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.270, ptr noundef nonnull %109, ptr noundef nonnull %88, ptr noundef nonnull %88) #29
   unreachable
 
-zend_is_reserved_class_name.exit:                 ; preds = %106, %83, %79, %86
-  %.0213246 = phi ptr [ %87, %86 ], [ %.0214, %79 ], [ %.0214, %83 ], [ %87, %106 ]
-  br i1 %.not222, label %148, label %111
+zend_is_reserved_class_name.exit:                 ; preds = %105, %82, %78, %85
+  %.0213249 = phi ptr [ %86, %85 ], [ %.0214, %78 ], [ %.0214, %82 ], [ %86, %105 ]
+  br i1 %.not222, label %149, label %110
 
-111:                                              ; preds = %zend_is_reserved_class_name.exit
-  %112 = load i64, ptr %25, align 8
-  %113 = add i64 %112, 1
-  %114 = getelementptr inbounds i8, ptr %.0214, i64 16
-  %115 = load i64, ptr %114, align 8
-  %116 = add i64 %113, %115
-  %117 = and i64 %116, -8
-  %118 = add i64 %117, 32
-  %119 = call noalias ptr @_emalloc(i64 noundef %118) #32
-  store i32 1, ptr %119, align 4
-  %120 = getelementptr inbounds i8, ptr %119, i64 4
-  store i32 22, ptr %120, align 4
-  %121 = getelementptr inbounds i8, ptr %119, i64 8
-  store i64 0, ptr %121, align 8
-  %122 = getelementptr inbounds i8, ptr %119, i64 16
-  store i64 %116, ptr %122, align 8
-  %123 = getelementptr inbounds i8, ptr %119, i64 24
-  %124 = load i64, ptr %25, align 8
-  %125 = call ptr @zend_str_tolower_copy(ptr noundef nonnull %123, ptr noundef nonnull %26, i64 noundef %124) #30
-  %126 = load i64, ptr %25, align 8
-  %127 = getelementptr inbounds [1 x i8], ptr %123, i64 0, i64 %126
-  store i8 92, ptr %127, align 1
-  %128 = getelementptr inbounds i8, ptr %127, i64 1
-  %129 = getelementptr inbounds i8, ptr %.0213246, i64 24
-  %130 = getelementptr inbounds i8, ptr %.0213246, i64 16
-  %131 = load i64, ptr %130, align 8
-  %132 = add i64 %131, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %128, ptr nonnull align 8 %129, i64 %132, i1 false)
-  %133 = call ptr @zend_hash_find(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 23, i32 7), ptr noundef nonnull %119) #30
-  %.not.i232 = icmp eq ptr %133, null
+110:                                              ; preds = %zend_is_reserved_class_name.exit
+  %111 = load i64, ptr %24, align 8
+  %112 = add i64 %111, 1
+  %113 = getelementptr inbounds i8, ptr %.0214, i64 16
+  %114 = load i64, ptr %113, align 8
+  %115 = add i64 %112, %114
+  %116 = and i64 %115, -8
+  %117 = add i64 %116, 32
+  %118 = call noalias ptr @_emalloc(i64 noundef %117) #30
+  store i32 1, ptr %118, align 4
+  %119 = getelementptr inbounds i8, ptr %118, i64 4
+  store i32 22, ptr %119, align 4
+  %120 = getelementptr inbounds i8, ptr %118, i64 8
+  store i64 0, ptr %120, align 8
+  %121 = getelementptr inbounds i8, ptr %118, i64 16
+  store i64 %115, ptr %121, align 8
+  %122 = getelementptr inbounds i8, ptr %118, i64 24
+  %123 = load i64, ptr %24, align 8
+  %124 = call ptr @zend_str_tolower_copy(ptr noundef nonnull %122, ptr noundef nonnull %25, i64 noundef %123) #28
+  %125 = load i64, ptr %24, align 8
+  %126 = getelementptr inbounds [1 x i8], ptr %122, i64 0, i64 %125
+  store i8 92, ptr %126, align 1
+  %127 = getelementptr inbounds i8, ptr %126, i64 1
+  %128 = getelementptr inbounds i8, ptr %.0213249, i64 24
+  %129 = getelementptr inbounds i8, ptr %.0213249, i64 16
+  %130 = load i64, ptr %129, align 8
+  %131 = add i64 %130, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %127, ptr nonnull align 8 %128, i64 %131, i1 false)
+  %132 = call ptr @zend_hash_find(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 23, i32 7), ptr noundef nonnull %118) #28
+  %.not.i232 = icmp eq ptr %132, null
   br i1 %.not.i232, label %zend_check_already_in_use.exit, label %zend_have_seen_symbol.exit
 
-zend_have_seen_symbol.exit:                       ; preds = %111
-  %134 = load i64, ptr %133, align 8
-  %135 = and i64 %134, %27
-  %.not248 = icmp eq i64 %135, 0
-  br i1 %.not248, label %zend_check_already_in_use.exit, label %136
+zend_have_seen_symbol.exit:                       ; preds = %110
+  %133 = load i64, ptr %132, align 8
+  %134 = and i64 %133, %26
+  %.not251 = icmp eq i64 %134, 0
+  br i1 %.not251, label %zend_check_already_in_use.exit, label %135
 
-136:                                              ; preds = %zend_have_seen_symbol.exit
-  %137 = getelementptr inbounds i8, ptr %39, i64 16
-  %138 = load i64, ptr %137, align 8
-  %139 = load i64, ptr %122, align 8
-  %140 = icmp eq i64 %138, %139
-  br i1 %140, label %141, label %144
+135:                                              ; preds = %zend_have_seen_symbol.exit
+  %136 = getelementptr inbounds i8, ptr %38, i64 16
+  %137 = load i64, ptr %136, align 8
+  %138 = load i64, ptr %121, align 8
+  %139 = icmp eq i64 %137, %138
+  br i1 %139, label %140, label %143
 
-141:                                              ; preds = %136
-  %142 = getelementptr inbounds i8, ptr %39, i64 24
-  %143 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %142, i64 noundef %138, ptr noundef nonnull %123, i64 noundef %138) #30
-  %.not.i233 = icmp eq i32 %143, 0
-  br i1 %.not.i233, label %zend_check_already_in_use.exit, label %144
+140:                                              ; preds = %135
+  %141 = getelementptr inbounds i8, ptr %38, i64 24
+  %142 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %141, i64 noundef %137, ptr noundef nonnull %122, i64 noundef %137) #28
+  %.not.i233 = icmp eq i32 %142, 0
+  br i1 %.not.i233, label %zend_check_already_in_use.exit, label %143
 
-144:                                              ; preds = %141, %136
-  %145 = call fastcc ptr @zend_get_use_type_str(i32 noundef %6)
-  %146 = getelementptr inbounds i8, ptr %39, i64 24
-  %147 = getelementptr inbounds i8, ptr %.0214, i64 24
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.271, ptr noundef nonnull %145, ptr noundef nonnull %146, ptr noundef nonnull %147) #31
+143:                                              ; preds = %140, %135
+  switch i16 %5, label %146 [
+    i16 1, label %zend_get_use_type_str.exit.i
+    i16 2, label %144
+    i16 4, label %145
+  ]
+
+144:                                              ; preds = %143
+  br label %zend_get_use_type_str.exit.i
+
+145:                                              ; preds = %143
+  br label %zend_get_use_type_str.exit.i
+
+146:                                              ; preds = %143
   unreachable
 
-zend_check_already_in_use.exit:                   ; preds = %111, %141, %zend_have_seen_symbol.exit
-  call void @_efree(ptr noundef nonnull %119) #30
-  br label %zend_check_already_in_use.exit237
-
-148:                                              ; preds = %zend_is_reserved_class_name.exit
-  %149 = call ptr @zend_hash_find(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 23, i32 7), ptr noundef %.0213246) #30
-  %.not.i234 = icmp eq ptr %149, null
-  br i1 %.not.i234, label %zend_check_already_in_use.exit237, label %zend_have_seen_symbol.exit235
-
-zend_have_seen_symbol.exit235:                    ; preds = %148
-  %150 = load i64, ptr %149, align 8
-  %151 = and i64 %150, %27
-  %.not249 = icmp eq i64 %151, 0
-  br i1 %.not249, label %zend_check_already_in_use.exit237, label %152
-
-152:                                              ; preds = %zend_have_seen_symbol.exit235
-  %153 = getelementptr inbounds i8, ptr %39, i64 16
-  %154 = load i64, ptr %153, align 8
-  %155 = getelementptr inbounds i8, ptr %.0213246, i64 16
-  %156 = load i64, ptr %155, align 8
-  %157 = icmp eq i64 %154, %156
-  br i1 %157, label %158, label %162
-
-158:                                              ; preds = %152
-  %159 = getelementptr inbounds i8, ptr %39, i64 24
-  %160 = getelementptr inbounds i8, ptr %.0213246, i64 24
-  %161 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %159, i64 noundef %154, ptr noundef nonnull %160, i64 noundef %154) #30
-  %.not.i236 = icmp eq i32 %161, 0
-  br i1 %.not.i236, label %zend_check_already_in_use.exit237, label %162
-
-162:                                              ; preds = %158, %152
-  %163 = call fastcc ptr @zend_get_use_type_str(i32 noundef %6)
-  %164 = getelementptr inbounds i8, ptr %39, i64 24
-  %165 = getelementptr inbounds i8, ptr %.0214, i64 24
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.271, ptr noundef nonnull %163, ptr noundef nonnull %164, ptr noundef nonnull %165) #31
+zend_get_use_type_str.exit.i:                     ; preds = %145, %144, %143
+  %.0.i.i = phi ptr [ @.str.273, %145 ], [ @.str.272, %144 ], [ @.str.136, %143 ]
+  %147 = getelementptr inbounds i8, ptr %38, i64 24
+  %148 = getelementptr inbounds i8, ptr %.0214, i64 24
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.271, ptr noundef nonnull %.0.i.i, ptr noundef nonnull %147, ptr noundef nonnull %148) #29
   unreachable
 
-zend_check_already_in_use.exit237:                ; preds = %148, %158, %zend_have_seen_symbol.exit235, %zend_check_already_in_use.exit
-  %166 = getelementptr inbounds i8, ptr %39, i64 4
-  %167 = load i32, ptr %166, align 4
-  %168 = and i32 %167, 64
-  %.not226 = icmp eq i32 %168, 0
-  br i1 %.not226, label %169, label %172
+zend_check_already_in_use.exit:                   ; preds = %110, %140, %zend_have_seen_symbol.exit
+  call void @_efree(ptr noundef nonnull %118) #28
+  br label %zend_check_already_in_use.exit239
 
-169:                                              ; preds = %zend_check_already_in_use.exit237
-  %170 = load i32, ptr %39, align 4
-  %171 = add i32 %170, 1
-  store i32 %171, ptr %39, align 4
-  br label %172
+149:                                              ; preds = %zend_is_reserved_class_name.exit
+  %150 = call ptr @zend_hash_find(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 23, i32 7), ptr noundef %.0213249) #28
+  %.not.i234 = icmp eq ptr %150, null
+  br i1 %.not.i234, label %zend_check_already_in_use.exit239, label %zend_have_seen_symbol.exit235
 
-172:                                              ; preds = %zend_check_already_in_use.exit237, %169
-  %173 = load ptr, ptr @zend_new_interned_string, align 8
-  %174 = call ptr %173(ptr noundef nonnull %39) #30
-  store ptr %174, ptr %2, align 8
-  store i32 13, ptr %28, align 8
-  %175 = call ptr @zend_hash_add(ptr noundef %.0.i, ptr noundef %.0213246, ptr noundef nonnull %2) #30
-  %.not227 = icmp eq ptr %175, null
-  br i1 %.not227, label %176, label %180
+zend_have_seen_symbol.exit235:                    ; preds = %149
+  %151 = load i64, ptr %150, align 8
+  %152 = and i64 %151, %26
+  %.not252 = icmp eq i64 %152, 0
+  br i1 %.not252, label %zend_check_already_in_use.exit239, label %153
 
-176:                                              ; preds = %172
-  %177 = call fastcc ptr @zend_get_use_type_str(i32 noundef %6)
-  %178 = getelementptr inbounds i8, ptr %174, i64 24
-  %179 = getelementptr inbounds i8, ptr %.0214, i64 24
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.271, ptr noundef nonnull %177, ptr noundef nonnull %178, ptr noundef nonnull %179) #31
+153:                                              ; preds = %zend_have_seen_symbol.exit235
+  %154 = getelementptr inbounds i8, ptr %38, i64 16
+  %155 = load i64, ptr %154, align 8
+  %156 = getelementptr inbounds i8, ptr %.0213249, i64 16
+  %157 = load i64, ptr %156, align 8
+  %158 = icmp eq i64 %155, %157
+  br i1 %158, label %159, label %163
+
+159:                                              ; preds = %153
+  %160 = getelementptr inbounds i8, ptr %38, i64 24
+  %161 = getelementptr inbounds i8, ptr %.0213249, i64 24
+  %162 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %160, i64 noundef %155, ptr noundef nonnull %161, i64 noundef %155) #28
+  %.not.i238 = icmp eq i32 %162, 0
+  br i1 %.not.i238, label %zend_check_already_in_use.exit239, label %163
+
+163:                                              ; preds = %159, %153
+  switch i16 %5, label %166 [
+    i16 1, label %zend_get_use_type_str.exit.i236
+    i16 2, label %164
+    i16 4, label %165
+  ]
+
+164:                                              ; preds = %163
+  br label %zend_get_use_type_str.exit.i236
+
+165:                                              ; preds = %163
+  br label %zend_get_use_type_str.exit.i236
+
+166:                                              ; preds = %163
   unreachable
 
-180:                                              ; preds = %172
-  %181 = getelementptr inbounds i8, ptr %.0213246, i64 4
-  %182 = load i32, ptr %181, align 4
-  %183 = and i32 %182, 64
-  %.not229 = icmp eq i32 %183, 0
-  br i1 %.not229, label %184, label %190
+zend_get_use_type_str.exit.i236:                  ; preds = %165, %164, %163
+  %.0.i.i237 = phi ptr [ @.str.273, %165 ], [ @.str.272, %164 ], [ @.str.136, %163 ]
+  %167 = getelementptr inbounds i8, ptr %38, i64 24
+  %168 = getelementptr inbounds i8, ptr %.0214, i64 24
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.271, ptr noundef nonnull %.0.i.i237, ptr noundef nonnull %167, ptr noundef nonnull %168) #29
+  unreachable
 
-184:                                              ; preds = %180
-  %185 = load i32, ptr %.0213246, align 4
-  %186 = icmp ne i32 %185, 0
-  call void @llvm.assume(i1 %186)
-  %187 = add i32 %185, -1
-  store i32 %187, ptr %.0213246, align 4
-  %188 = icmp eq i32 %187, 0
-  br i1 %188, label %189, label %190
+zend_check_already_in_use.exit239:                ; preds = %149, %159, %zend_have_seen_symbol.exit235, %zend_check_already_in_use.exit
+  %169 = getelementptr inbounds i8, ptr %38, i64 4
+  %170 = load i32, ptr %169, align 4
+  %171 = and i32 %170, 64
+  %.not226 = icmp eq i32 %171, 0
+  br i1 %.not226, label %172, label %175
 
-189:                                              ; preds = %184
-  call void @_efree(ptr noundef nonnull %.0213246) #30
-  br label %190
+172:                                              ; preds = %zend_check_already_in_use.exit239
+  %173 = load i32, ptr %38, align 4
+  %174 = add i32 %173, 1
+  store i32 %174, ptr %38, align 4
+  br label %175
 
-190:                                              ; preds = %184, %189, %180
-  %191 = getelementptr inbounds i8, ptr %.0214, i64 4
-  %192 = load i32, ptr %191, align 4
-  %193 = and i32 %192, 64
-  %.not230 = icmp eq i32 %193, 0
-  br i1 %.not230, label %194, label %200
+175:                                              ; preds = %zend_check_already_in_use.exit239, %172
+  %176 = load ptr, ptr @zend_new_interned_string, align 8
+  %177 = call ptr %176(ptr noundef nonnull %38) #28
+  store ptr %177, ptr %2, align 8
+  store i32 13, ptr %27, align 8
+  %178 = call ptr @zend_hash_add(ptr noundef %.0.i, ptr noundef %.0213249, ptr noundef nonnull %2) #28
+  %.not227 = icmp eq ptr %178, null
+  br i1 %.not227, label %179, label %185
 
-194:                                              ; preds = %190
-  %195 = load i32, ptr %.0214, align 4
-  %196 = icmp ne i32 %195, 0
-  call void @llvm.assume(i1 %196)
-  %197 = add i32 %195, -1
-  store i32 %197, ptr %.0214, align 4
-  %198 = icmp eq i32 %197, 0
-  br i1 %198, label %199, label %200
+179:                                              ; preds = %175
+  switch i16 %5, label %182 [
+    i16 1, label %zend_get_use_type_str.exit
+    i16 2, label %180
+    i16 4, label %181
+  ]
 
-199:                                              ; preds = %194
-  call void @_efree(ptr noundef nonnull %.0214) #30
-  br label %200
+180:                                              ; preds = %179
+  br label %zend_get_use_type_str.exit
 
-200:                                              ; preds = %190, %199, %194
+181:                                              ; preds = %179
+  br label %zend_get_use_type_str.exit
+
+182:                                              ; preds = %179
+  unreachable
+
+zend_get_use_type_str.exit:                       ; preds = %179, %180, %181
+  %.0.i240 = phi ptr [ @.str.273, %181 ], [ @.str.272, %180 ], [ @.str.136, %179 ]
+  %183 = getelementptr inbounds i8, ptr %177, i64 24
+  %184 = getelementptr inbounds i8, ptr %.0214, i64 24
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.271, ptr noundef nonnull %.0.i240, ptr noundef nonnull %183, ptr noundef nonnull %184) #29
+  unreachable
+
+185:                                              ; preds = %175
+  %186 = getelementptr inbounds i8, ptr %.0213249, i64 4
+  %187 = load i32, ptr %186, align 4
+  %188 = and i32 %187, 64
+  %.not229 = icmp eq i32 %188, 0
+  br i1 %.not229, label %189, label %195
+
+189:                                              ; preds = %185
+  %190 = load i32, ptr %.0213249, align 4
+  %191 = icmp ne i32 %190, 0
+  call void @llvm.assume(i1 %191)
+  %192 = add i32 %190, -1
+  store i32 %192, ptr %.0213249, align 4
+  %193 = icmp eq i32 %192, 0
+  br i1 %193, label %194, label %195
+
+194:                                              ; preds = %189
+  call void @_efree(ptr noundef nonnull %.0213249) #28
+  br label %195
+
+195:                                              ; preds = %189, %194, %185
+  %196 = getelementptr inbounds i8, ptr %.0214, i64 4
+  %197 = load i32, ptr %196, align 4
+  %198 = and i32 %197, 64
+  %.not230 = icmp eq i32 %198, 0
+  br i1 %.not230, label %199, label %205
+
+199:                                              ; preds = %195
+  %200 = load i32, ptr %.0214, align 4
+  %201 = icmp ne i32 %200, 0
+  call void @llvm.assume(i1 %201)
+  %202 = add i32 %200, -1
+  store i32 %202, ptr %.0214, align 4
+  %203 = icmp eq i32 %202, 0
+  br i1 %203, label %204, label %205
+
+204:                                              ; preds = %199
+  call void @_efree(ptr noundef nonnull %.0214) #28
+  br label %205
+
+205:                                              ; preds = %195, %204, %199
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %201 = load i32, ptr %21, align 8
-  %202 = zext i32 %201 to i64
-  %203 = icmp ult i64 %indvars.iv.next, %202
-  br i1 %203, label %29, label %._crit_edge
+  %206 = load i32, ptr %20, align 8
+  %207 = zext i32 %206 to i64
+  %208 = icmp ult i64 %indvars.iv.next, %207
+  br i1 %208, label %28, label %._crit_edge
 
-._crit_edge:                                      ; preds = %200, %zend_get_import_ht.exit
+._crit_edge:                                      ; preds = %205, %zend_get_import_ht.exit
   ret void
 }
 
@@ -20640,12 +20687,12 @@ define internal fastcc void @zend_compile_const_decl(ptr nocapture noundef reado
   br i1 %.not.i, label %33, label %28
 
 28:                                               ; preds = %16
-  %29 = call ptr @zend_ast_copy(ptr noundef nonnull %26) #30
+  %29 = call ptr @zend_ast_copy(ptr noundef nonnull %26) #28
   store ptr %29, ptr %4, align 8
   store i32 267, ptr %11, align 8
   %30 = load ptr, ptr %21, align 8
-  call void @zend_ast_destroy(ptr noundef %30) #30
-  %31 = call ptr @zend_ast_create_zval(ptr noundef nonnull %4) #30
+  call void @zend_ast_destroy(ptr noundef %30) #28
+  %31 = call ptr @zend_ast_create_zval(ptr noundef nonnull %4) #28
   store ptr %31, ptr %21, align 8
   %.pre.i = load i16, ptr %31, align 8
   %32 = icmp eq i16 %.pre.i, 64
@@ -20682,12 +20729,12 @@ zend_const_expr_to_zval.exit:                     ; preds = %33, %41
   br i1 %or.cond, label %48, label %.thread
 
 48:                                               ; preds = %zend_const_expr_to_zval.exit
-  %49 = call ptr @_zend_get_special_const(ptr noundef nonnull %44, i64 noundef %46) #30
+  %49 = call ptr @_zend_get_special_const(ptr noundef nonnull %44, i64 noundef %46) #28
   %.not = icmp eq ptr %49, null
   br i1 %.not, label %.thread, label %50
 
 50:                                               ; preds = %48
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.274, ptr noundef nonnull %44) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.274, ptr noundef nonnull %44) #29
   unreachable
 
 .thread:                                          ; preds = %zend_const_expr_to_zval.exit, %48
@@ -20700,7 +20747,7 @@ zend_const_expr_to_zval.exit:                     ; preds = %33, %41
   %54 = getelementptr inbounds i8, ptr %51, i64 16
   %55 = load i64, ptr %54, align 8
   %56 = load i64, ptr %45, align 8
-  %57 = call ptr @zend_string_concat3(ptr noundef nonnull %53, i64 noundef %55, ptr noundef nonnull @.str.51, i64 noundef 1, ptr noundef nonnull %44, i64 noundef %56) #30
+  %57 = call ptr @zend_string_concat3(ptr noundef nonnull %53, i64 noundef %55, ptr noundef nonnull @.str.51, i64 noundef 1, ptr noundef nonnull %44, i64 noundef %56) #28
   br label %zend_prefix_with_ns.exit
 
 58:                                               ; preds = %.thread
@@ -20719,13 +20766,13 @@ zend_const_expr_to_zval.exit:                     ; preds = %33, %41
 zend_prefix_with_ns.exit:                         ; preds = %52, %58, %62
   %.0.i = phi ptr [ %57, %52 ], [ %25, %62 ], [ %25, %58 ]
   %65 = load ptr, ptr @zend_new_interned_string, align 8
-  %66 = call ptr %65(ptr noundef %.0.i) #30
+  %66 = call ptr %65(ptr noundef %.0.i) #28
   %67 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 23, i32 6), align 8
   %.not59 = icmp eq ptr %67, null
   br i1 %.not59, label %.critedge, label %68
 
 68:                                               ; preds = %zend_prefix_with_ns.exit
-  %69 = call ptr @zend_hash_find(ptr noundef nonnull %67, ptr noundef nonnull %25) #30
+  %69 = call ptr @zend_hash_find(ptr noundef nonnull %67, ptr noundef nonnull %25) #28
   %.not60 = icmp eq ptr %69, null
   br i1 %.not60, label %.critedge, label %70
 
@@ -20743,12 +20790,12 @@ zend_prefix_with_ns.exit:                         ; preds = %52, %58, %62
   br i1 %78, label %79, label %.critedge3
 
 79:                                               ; preds = %73
-  %80 = call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %71, ptr noundef nonnull %66) #30
+  %80 = call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %71, ptr noundef nonnull %66) #28
   br i1 %80, label %.critedge, label %.critedge3
 
 .critedge3:                                       ; preds = %73, %79
   %81 = getelementptr inbounds i8, ptr %66, i64 24
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.275, ptr noundef nonnull %81) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.275, ptr noundef nonnull %81) #29
   unreachable
 
 .critedge:                                        ; preds = %68, %70, %79, %zend_prefix_with_ns.exit
@@ -20762,7 +20809,7 @@ zend_prefix_with_ns.exit:                         ; preds = %52, %58, %62
   store i32 %85, ptr %14, align 8
   %86 = call fastcc ptr @zend_emit_op(ptr noundef null, i8 noundef zeroext -113, ptr noundef nonnull %5, ptr noundef nonnull %6)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  %87 = call ptr @zend_hash_find(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 23, i32 7), ptr noundef %66) #30
+  %87 = call ptr @zend_hash_find(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 23, i32 7), ptr noundef %66) #28
   %.not.i65 = icmp eq ptr %87, null
   br i1 %.not.i65, label %91, label %88
 
@@ -20775,7 +20822,7 @@ zend_prefix_with_ns.exit:                         ; preds = %52, %58, %62
 91:                                               ; preds = %.critedge
   store i64 4, ptr %2, align 8
   store i32 4, ptr %15, align 8
-  %92 = call ptr @zend_hash_add_new(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 23, i32 7), ptr noundef nonnull %66, ptr noundef nonnull %2) #30
+  %92 = call ptr @zend_hash_add_new(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 23, i32 7), ptr noundef nonnull %66, ptr noundef nonnull %2) #28
   br label %zend_register_seen_symbol.exit
 
 zend_register_seen_symbol.exit:                   ; preds = %88, %91
@@ -20808,14 +20855,14 @@ define internal fastcc void @zend_compile_namespace(ptr noundef readonly %0) unn
   br i1 %brmerge.not, label %11, label %20
 
 11:                                               ; preds = %9
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.276) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.276) #29
   unreachable
 
 12:                                               ; preds = %1
   br i1 %6, label %14, label %13
 
 13:                                               ; preds = %12
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.276) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.276) #29
   unreachable
 
 14:                                               ; preds = %12
@@ -20829,7 +20876,7 @@ define internal fastcc void @zend_compile_namespace(ptr noundef readonly %0) unn
   br i1 %18, label %19, label %zend_is_first_statement.exit.thread
 
 19:                                               ; preds = %16, %14
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.277) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.277) #29
   unreachable
 
 20:                                               ; preds = %9
@@ -20878,7 +20925,7 @@ define internal fastcc void @zend_compile_namespace(ptr noundef readonly %0) unn
   br i1 %38, label %zend_is_first_statement.exit, label %.lr.ph
 
 .loopexit:                                        ; preds = %34, %30, %.critedge
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.278) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.278) #29
   unreachable
 
 zend_is_first_statement.exit:                     ; preds = %.lr.ph.split.us.backedge.i, %20, %.lr.ph.split.us.i.preheader
@@ -20902,7 +20949,7 @@ zend_is_first_statement.exit:                     ; preds = %.lr.ph.split.us.bac
   br i1 %47, label %48, label %zend_is_first_statement.exit.thread
 
 48:                                               ; preds = %43
-  tail call void @_efree(ptr noundef nonnull %10) #30
+  tail call void @_efree(ptr noundef nonnull %10) #28
   br label %zend_is_first_statement.exit.thread
 
 zend_is_first_statement.exit.thread:              ; preds = %16, %39, %48, %43, %zend_is_first_statement.exit
@@ -20922,12 +20969,12 @@ zend_is_first_statement.exit.thread:              ; preds = %16, %39, %48, %43, 
 
 57:                                               ; preds = %49
   %58 = getelementptr inbounds i8, ptr %53, i64 24
-  %59 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %58, i64 noundef 9, ptr noundef nonnull @.str.279, i64 noundef 9) #30
+  %59 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %58, i64 noundef 9, ptr noundef nonnull @.str.279, i64 noundef 9) #28
   %.not43 = icmp eq i32 %59, 0
   br i1 %.not43, label %60, label %61
 
 60:                                               ; preds = %57
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.280, ptr noundef nonnull %58) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.280, ptr noundef nonnull %58) #29
   unreachable
 
 61:                                               ; preds = %57, %49
@@ -20976,7 +21023,7 @@ zend_is_first_statement.exit.thread:              ; preds = %16, %39, %48, %43, 
   br i1 %79, label %80, label %81
 
 80:                                               ; preds = %75
-  tail call void @_efree(ptr noundef nonnull %70) #30
+  tail call void @_efree(ptr noundef nonnull %70) #28
   br label %81
 
 81:                                               ; preds = %80, %75, %71
@@ -21001,7 +21048,7 @@ define internal fastcc void @zend_compile_halt_compiler(i16 %.8.val.0.val, i64 %
   br i1 %6, label %7, label %zend_mangle_property_name.exit
 
 7:                                                ; preds = %4
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.281) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.281) #29
   unreachable
 
 zend_mangle_property_name.exit:                   ; preds = %4, %0
@@ -21012,7 +21059,7 @@ zend_mangle_property_name.exit:                   ; preds = %4, %0
   %12 = add i64 %11, 26
   %13 = and i64 %12, -8
   %14 = add i64 %13, 32
-  %15 = tail call noalias ptr @_emalloc(i64 noundef %14) #32
+  %15 = tail call noalias ptr @_emalloc(i64 noundef %14) #30
   store i32 1, ptr %15, align 4
   %16 = getelementptr inbounds i8, ptr %15, i64 4
   store i32 22, ptr %16, align 4
@@ -21027,7 +21074,7 @@ zend_mangle_property_name.exit:                   ; preds = %4, %0
   %21 = getelementptr inbounds i8, ptr %15, i64 50
   %22 = add i64 %11, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %21, ptr nonnull readonly align 1 %9, i64 %22, i1 false)
-  tail call void @zend_register_long_constant(ptr noundef nonnull %19, i64 noundef %12, i64 noundef %.8.val.8.val, i32 noundef 0, i32 noundef 0) #30
+  tail call void @zend_register_long_constant(ptr noundef nonnull %19, i64 noundef %12, i64 noundef %.8.val.8.val, i32 noundef 0, i32 noundef 0) #28
   %23 = load i32, ptr %16, align 4
   %24 = and i32 %23, 64
   %.not = icmp eq i32 %24, 0
@@ -21043,7 +21090,7 @@ zend_mangle_property_name.exit:                   ; preds = %4, %0
   br i1 %29, label %30, label %31
 
 30:                                               ; preds = %25
-  tail call void @_efree(ptr noundef nonnull %15) #30
+  tail call void @_efree(ptr noundef nonnull %15) #28
   br label %31
 
 31:                                               ; preds = %25, %30, %zend_mangle_property_name.exit
@@ -21062,11 +21109,11 @@ define internal fastcc void @zend_compile_expr(ptr noundef %0, ptr noundef %1) u
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %9) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %9) #29
   unreachable
 
 zend_check_stack_limit.exit:                      ; preds = %2
-  %10 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %10 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   tail call fastcc void @zend_compile_expr_inner(ptr noundef %0, ptr noundef %1)
   tail call fastcc void @zend_short_circuiting_commit(i32 noundef %10, ptr noundef %0, ptr noundef %1)
   ret void
@@ -21303,7 +21350,7 @@ define internal fastcc void @zend_do_free(ptr noundef %0) unnamed_addr #0 {
 
 104:                                              ; preds = %99
   %105 = load ptr, ptr %96, align 8
-  tail call void @rc_dtor_func(ptr noundef %105) #30
+  tail call void @rc_dtor_func(ptr noundef %105) #28
   br label %.loopexit
 
 .loopexit:                                        ; preds = %93, %64, %1, %91, %89, %61, %62, %95, %99, %104, %27, %27, %78, %31, %30, %28
@@ -21328,7 +21375,7 @@ define internal fastcc range(i32 -1, 1) i32 @zend_try_compile_cv(ptr nocapture n
 
 10:                                               ; preds = %4
   %11 = load ptr, ptr %5, align 8
-  %12 = tail call ptr %9(ptr noundef %11) #30
+  %12 = tail call ptr %9(ptr noundef %11) #28
   store ptr %12, ptr %5, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 4
   %14 = load i32, ptr %13, align 4
@@ -21342,14 +21389,14 @@ define internal fastcc range(i32 -1, 1) i32 @zend_try_compile_cv(ptr nocapture n
   br label %zval_make_interned_string.exit
 
 18:                                               ; preds = %4
-  %19 = tail call ptr @zval_get_string_func(ptr noundef nonnull %5) #30
-  %20 = tail call ptr %9(ptr noundef %19) #30
+  %19 = tail call ptr @zval_get_string_func(ptr noundef nonnull %5) #28
+  %20 = tail call ptr %9(ptr noundef %19) #28
   br label %zval_make_interned_string.exit
 
 zval_make_interned_string.exit:                   ; preds = %16, %10, %18
   %.0 = phi ptr [ %20, %18 ], [ %12, %10 ], [ %12, %16 ]
   %21 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 7), align 8
-  %22 = tail call ptr @zend_hash_find(ptr noundef %21, ptr noundef %.0) #30
+  %22 = tail call ptr @zend_hash_find(ptr noundef %21, ptr noundef %.0) #28
   %.not.i26.not = icmp eq ptr %22, null
   br i1 %.not.i26.not, label %zend_is_auto_global.exit, label %23
 
@@ -21364,7 +21411,7 @@ zval_make_interned_string.exit:                   ; preds = %16, %10, %18
   %29 = getelementptr inbounds i8, ptr %24, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %24, align 8
-  %32 = tail call zeroext i1 %30(ptr noundef %31) #30
+  %32 = tail call zeroext i1 %30(ptr noundef %31) #28
   %33 = zext i1 %32 to i8
   store i8 %33, ptr %25, align 1
   br label %zend_is_auto_global.exit.thread
@@ -21395,7 +21442,7 @@ zend_is_auto_global.exit:                         ; preds = %zval_make_interned_
   br i1 %45, label %46, label %zend_is_auto_global.exit.thread
 
 46:                                               ; preds = %41
-  tail call void @_efree(ptr noundef nonnull %.0) #30
+  tail call void @_efree(ptr noundef nonnull %.0) #28
   br label %zend_is_auto_global.exit.thread
 
 zend_is_auto_global.exit.thread:                  ; preds = %28, %23, %1, %zend_is_auto_global.exit, %41, %46, %37
@@ -21418,11 +21465,11 @@ define internal fastcc void @zend_ensure_writable_variable(ptr nocapture noundef
   ]
 
 3:                                                ; preds = %1
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.165) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.165) #29
   unreachable
 
 4:                                                ; preds = %1, %1, %1
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.166) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.166) #29
   unreachable
 
 tailrecurse.i:                                    ; preds = %1, %6
@@ -21445,7 +21492,7 @@ tailrecurse.i:                                    ; preds = %1, %6
   br label %tailrecurse.i
 
 9:                                                ; preds = %tailrecurse.i, %tailrecurse.i
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.167) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.167) #29
   unreachable
 
 zend_ast_is_short_circuited.exit:                 ; preds = %tailrecurse.i
@@ -21480,7 +21527,7 @@ is_globals_fetch.exit:                            ; preds = %20
   br i1 %.not.i, label %27, label %is_globals_fetch.exit.thread
 
 27:                                               ; preds = %is_globals_fetch.exit
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.168) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.168) #29
   unreachable
 
 is_globals_fetch.exit.thread:                     ; preds = %zend_ast_is_short_circuited.exit, %11, %20, %16, %is_globals_fetch.exit
@@ -21500,13 +21547,13 @@ define internal fastcc ptr @zend_compile_simple_var_no_cv(ptr noundef %0, ptr no
   %10 = ptrtoint ptr %9 to i64
   %11 = ptrtoint ptr %6 to i64
   %12 = sub i64 %10, %11
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %12) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %12) #29
   unreachable
 
 zend_compile_expr.exit:                           ; preds = %4
   %13 = getelementptr inbounds i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %15 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %5, ptr noundef %14)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %15, ptr noundef nonnull %5, ptr noundef %14)
   %16 = load i8, ptr %5, align 8
@@ -21519,7 +21566,7 @@ zend_compile_expr.exit:                           ; preds = %4
 
 20:                                               ; preds = %zend_compile_expr.exit
   %21 = getelementptr inbounds i8, ptr %5, i64 8
-  call void @_convert_to_string(ptr noundef nonnull %21) #30
+  call void @_convert_to_string(ptr noundef nonnull %21) #28
   br label %22
 
 22:                                               ; preds = %20, %zend_compile_expr.exit
@@ -21543,7 +21590,7 @@ zend_compile_expr.exit:                           ; preds = %4
   %31 = getelementptr inbounds i8, ptr %5, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 7), align 8
-  %34 = call ptr @zend_hash_find(ptr noundef %33, ptr noundef %32) #30
+  %34 = call ptr @zend_hash_find(ptr noundef %33, ptr noundef %32) #28
   %.not.i.not = icmp eq ptr %34, null
   br i1 %.not.i.not, label %zend_is_auto_global.exit, label %35
 
@@ -21558,7 +21605,7 @@ zend_compile_expr.exit:                           ; preds = %4
   %41 = getelementptr inbounds i8, ptr %36, i64 8
   %42 = load ptr, ptr %41, align 8
   %43 = load ptr, ptr %36, align 8
-  %44 = call zeroext i1 %42(ptr noundef %43) #30
+  %44 = call zeroext i1 %42(ptr noundef %43) #28
   %45 = zext i1 %44 to i8
   store i8 %45, ptr %37, align 1
   br label %zend_is_auto_global.exit
@@ -21664,11 +21711,11 @@ zend_short_circuiting_mark_inner.exit:            ; preds = %5, %13
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %17 to i64
   %23 = sub i64 %21, %22
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %23) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %23) #29
   unreachable
 
 zend_compile_expr.exit:                           ; preds = %zend_short_circuiting_mark_inner.exit
-  %24 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %24 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %7, ptr noundef %11)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %24, ptr noundef nonnull %7, ptr noundef %11)
   br i1 %4, label %25, label %27
@@ -21702,7 +21749,7 @@ zend_compile_expr.exit:                           ; preds = %zend_short_circuiti
   br i1 %.not, label %44, label %43
 
 43:                                               ; preds = %33
-  call void @_convert_to_string(ptr noundef nonnull %40) #30
+  call void @_convert_to_string(ptr noundef nonnull %40) #28
   %.pre = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 4), align 8
   br label %44
 
@@ -21886,7 +21933,7 @@ define internal fastcc ptr @zend_delayed_emit_op(ptr noundef writeonly %0, i8 no
   %30 = load ptr, ptr %29, align 8
   %31 = sext i32 %27 to i64
   %32 = shl nsw i64 %31, 4
-  %33 = tail call ptr @_erealloc(ptr noundef %30, i64 noundef %32) #34
+  %33 = tail call ptr @_erealloc(ptr noundef %30, i64 noundef %32) #32
   store ptr %33, ptr %29, align 8
   br label %34
 
@@ -21900,7 +21947,7 @@ define internal fastcc ptr @zend_delayed_emit_op(ptr noundef writeonly %0, i8 no
 
 38:                                               ; preds = %34
   %39 = load ptr, ptr @zend_new_interned_string, align 8
-  %40 = tail call ptr %39(ptr noundef %.pre.i.i) #30
+  %40 = tail call ptr %39(ptr noundef %.pre.i.i) #28
   store ptr %40, ptr %19, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 4
   %42 = load i32, ptr %41, align 4
@@ -21972,7 +22019,7 @@ zend_add_literal.exit:                            ; preds = %34, %38, %44
   %69 = load ptr, ptr %68, align 8
   %70 = sext i32 %66 to i64
   %71 = shl nsw i64 %70, 4
-  %72 = tail call ptr @_erealloc(ptr noundef %69, i64 noundef %71) #34
+  %72 = tail call ptr @_erealloc(ptr noundef %69, i64 noundef %71) #32
   store ptr %72, ptr %68, align 8
   br label %73
 
@@ -21986,7 +22033,7 @@ zend_add_literal.exit:                            ; preds = %34, %38, %44
 
 77:                                               ; preds = %73
   %78 = load ptr, ptr @zend_new_interned_string, align 8
-  %79 = tail call ptr %78(ptr noundef %.pre.i.i20) #30
+  %79 = tail call ptr %78(ptr noundef %.pre.i.i20) #28
   store ptr %79, ptr %58, align 8
   %80 = getelementptr inbounds i8, ptr %79, i64 4
   %81 = load i32, ptr %80, align 4
@@ -22038,8 +22085,8 @@ zend_make_var_result.exit:                        ; preds = %93
   br label %99
 
 99:                                               ; preds = %zend_make_var_result.exit, %93
-  %100 = call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 33), ptr noundef nonnull %5) #30
-  %101 = call ptr @zend_stack_top(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 33)) #30
+  %100 = call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 33), ptr noundef nonnull %5) #28
+  %101 = call ptr @zend_stack_top(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 33)) #28
   ret ptr %101
 }
 
@@ -22055,7 +22102,7 @@ define internal fastcc ptr @zend_delayed_compile_dim(ptr noundef %0, ptr nocaptu
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %4
-  tail call void (i32, ptr, ...) @zend_error(i32 noundef 64, ptr noundef nonnull @.str.170) #30
+  tail call void (i32, ptr, ...) @zend_error(i32 noundef 64, ptr noundef nonnull @.str.170) #28
   br label %11
 
 11:                                               ; preds = %10, %4
@@ -22107,7 +22154,7 @@ is_globals_fetch.exit:                            ; preds = %26
   br i1 %34, label %35, label %36
 
 35:                                               ; preds = %33
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.171) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.171) #29
   unreachable
 
 36:                                               ; preds = %33
@@ -22121,11 +22168,11 @@ is_globals_fetch.exit:                            ; preds = %26
   %41 = ptrtoint ptr %40 to i64
   %42 = ptrtoint ptr %37 to i64
   %43 = sub i64 %41, %42
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %43) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %43) #29
   unreachable
 
 zend_compile_expr.exit:                           ; preds = %36
-  %44 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %44 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %6, ptr noundef nonnull %15)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %44, ptr noundef nonnull %6, ptr noundef nonnull %15)
   %45 = load i8, ptr %6, align 8
@@ -22138,7 +22185,7 @@ zend_compile_expr.exit:                           ; preds = %36
 
 49:                                               ; preds = %zend_compile_expr.exit
   %50 = getelementptr inbounds i8, ptr %6, i64 8
-  call void @_convert_to_string(ptr noundef nonnull %50) #30
+  call void @_convert_to_string(ptr noundef nonnull %50) #28
   br label %51
 
 51:                                               ; preds = %49, %zend_compile_expr.exit
@@ -22280,7 +22327,7 @@ zend_short_circuiting_mark_inner.exit:            ; preds = %11, %17, %26, %22, 
   br label %zend_separate_if_call_and_write.exit
 
 100:                                              ; preds = %91
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.217) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.217) #29
   unreachable
 
 zend_separate_if_call_and_write.exit:             ; preds = %89, %89, %89, %90, %94
@@ -22295,11 +22342,11 @@ zend_separate_if_call_and_write.exit:             ; preds = %89, %89, %89, %90, 
   ]
 
 103:                                              ; preds = %102, %102
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.172) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.172) #29
   unreachable
 
 104:                                              ; preds = %102
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.163) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.163) #29
   unreachable
 
 105:                                              ; preds = %102
@@ -22317,11 +22364,11 @@ zend_separate_if_call_and_write.exit:             ; preds = %89, %89, %89, %90, 
   %111 = ptrtoint ptr %110 to i64
   %112 = ptrtoint ptr %107 to i64
   %113 = sub i64 %111, %112
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %113) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %113) #29
   unreachable
 
 zend_compile_expr.exit51:                         ; preds = %106
-  %114 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %114 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %6, ptr noundef nonnull %15)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %114, ptr noundef nonnull %6, ptr noundef nonnull %15)
   br label %115
@@ -22407,8 +22454,8 @@ zend_adjust_for_fetch_type.exit:                  ; preds = %72, %69, %65, %62, 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @zend_delayed_compile_end(i32 noundef %0) unnamed_addr #0 {
-  %2 = tail call ptr @zend_stack_base(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 33)) #30
-  %3 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 33)) #30
+  %2 = tail call ptr @zend_stack_base(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 33)) #28
+  %3 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 33)) #28
   %4 = icmp uge i32 %3, %0
   tail call void @llvm.assume(i1 %4)
   %5 = icmp ugt i32 %3, %0
@@ -22448,7 +22495,7 @@ define internal fastcc ptr @zend_delayed_compile_end(i32 noundef %0) unnamed_add
   %19 = load ptr, ptr %18, align 8
   %20 = zext i32 %17 to i64
   %21 = shl nuw nsw i64 %20, 5
-  %22 = tail call ptr @_erealloc(ptr noundef %19, i64 noundef %21) #34
+  %22 = tail call ptr @_erealloc(ptr noundef %19, i64 noundef %21) #32
   store ptr %22, ptr %18, align 8
   br label %get_next_op.exit
 
@@ -22537,7 +22584,7 @@ define internal fastcc ptr @zend_delayed_compile_var(ptr noundef %0, ptr noundef
   br label %21
 
 18:                                               ; preds = %4
-  %19 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %19 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   %20 = tail call fastcc ptr @zend_compile_var_inner(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, i1 noundef zeroext false)
   tail call fastcc void @zend_short_circuiting_commit(i32 noundef %19, ptr noundef %0, ptr noundef nonnull %1)
   br label %21
@@ -22581,7 +22628,7 @@ define internal fastcc void @zend_handle_numeric_dim(ptr nocapture noundef reado
   br i1 %or.cond, label %.critedge, label %22
 
 22:                                               ; preds = %18, %15
-  %23 = call zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef nonnull %10, i64 noundef %12, ptr noundef nonnull %3) #30
+  %23 = call zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef nonnull %10, i64 noundef %12, ptr noundef nonnull %3) #28
   br i1 %23, label %24, label %.critedge
 
 24:                                               ; preds = %22
@@ -22611,7 +22658,7 @@ define internal fastcc void @zend_handle_numeric_dim(ptr nocapture noundef reado
   %34 = load ptr, ptr %33, align 8
   %35 = sext i32 %31 to i64
   %36 = shl nsw i64 %35, 4
-  %37 = call ptr @_erealloc(ptr noundef %34, i64 noundef %36) #34
+  %37 = call ptr @_erealloc(ptr noundef %34, i64 noundef %36) #32
   store ptr %37, ptr %33, align 8
   br label %38
 
@@ -22624,7 +22671,7 @@ define internal fastcc void @zend_handle_numeric_dim(ptr nocapture noundef reado
 
 41:                                               ; preds = %38
   %42 = load ptr, ptr @zend_new_interned_string, align 8
-  %43 = call ptr %42(ptr noundef %.pre.i.i) #30
+  %43 = call ptr %42(ptr noundef %.pre.i.i) #28
   store ptr %43, ptr %4, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 4
   %45 = load i32, ptr %44, align 4
@@ -22711,7 +22758,7 @@ define internal fastcc ptr @zend_compile_simple_var(ptr noundef %0, ptr nocaptur
   br i1 %28, label %is_this_fetch.exit, label %is_this_fetch.exit.thread.thread
 
 is_this_fetch.exit:                               ; preds = %23
-  %29 = tail call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %18, ptr noundef nonnull %21) #30
+  %29 = tail call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %18, ptr noundef nonnull %21) #28
   br i1 %29, label %is_this_fetch.exit.thread32, label %is_this_fetch.exit.thread
 
 is_this_fetch.exit.thread32:                      ; preds = %16, %is_this_fetch.exit
@@ -22736,7 +22783,7 @@ is_this_fetch.exit.thread32:                      ; preds = %16, %is_this_fetch.
   %38 = load ptr, ptr %37, align 8
   %39 = zext i32 %36 to i64
   %40 = shl nuw nsw i64 %39, 5
-  %41 = tail call ptr @_erealloc(ptr noundef %38, i64 noundef %40) #34
+  %41 = tail call ptr @_erealloc(ptr noundef %38, i64 noundef %40) #32
   store ptr %41, ptr %37, align 8
   br label %get_next_op.exit.i
 
@@ -22873,7 +22920,7 @@ is_globals_fetch.exit:                            ; preds = %90
   %106 = load ptr, ptr %105, align 8
   %107 = zext i32 %104 to i64
   %108 = shl nuw nsw i64 %107, 5
-  %109 = tail call ptr @_erealloc(ptr noundef %106, i64 noundef %108) #34
+  %109 = tail call ptr @_erealloc(ptr noundef %106, i64 noundef %108) #32
   store ptr %109, ptr %105, align 8
   br label %get_next_op.exit.i25
 
@@ -23011,7 +23058,7 @@ define internal fastcc ptr @zend_delayed_compile_prop(ptr noundef %0, ptr nocapt
   br i1 %36, label %is_this_fetch.exit, label %zend_short_circuiting_mark_inner.exit
 
 is_this_fetch.exit:                               ; preds = %31
-  %37 = tail call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %26, ptr noundef nonnull %29) #30
+  %37 = tail call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %26, ptr noundef nonnull %29) #28
   br i1 %37, label %is_this_fetch.exit.thread67, label %is_this_fetch.exit.is_this_fetch.exit.threadthread-pre-split_crit_edge
 
 is_this_fetch.exit.is_this_fetch.exit.threadthread-pre-split_crit_edge: ; preds = %is_this_fetch.exit
@@ -23057,7 +23104,7 @@ this_guaranteed_exists.exit.thread:               ; preds = %is_this_fetch.exit.
   %53 = load ptr, ptr %52, align 8
   %54 = zext i32 %51 to i64
   %55 = shl nuw nsw i64 %54, 5
-  %56 = tail call ptr @_erealloc(ptr noundef %53, i64 noundef %55) #34
+  %56 = tail call ptr @_erealloc(ptr noundef %53, i64 noundef %55) #32
   store ptr %56, ptr %52, align 8
   br label %get_next_op.exit.i
 
@@ -23198,7 +23245,7 @@ zend_short_circuiting_mark_inner.exit:            ; preds = %15, %31, %20, %is_t
   br label %zend_separate_if_call_and_write.exit
 
 116:                                              ; preds = %107
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.217) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.217) #29
   unreachable
 
 zend_separate_if_call_and_write.exit:             ; preds = %105, %105, %105, %106, %110
@@ -23210,10 +23257,10 @@ zend_separate_if_call_and_write.exit:             ; preds = %105, %105, %105, %1
   br i1 %119, label %120, label %.loopexit
 
 120:                                              ; preds = %117
-  %121 = call ptr @zend_stack_base(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 33)) #30
+  %121 = call ptr @zend_stack_base(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 33)) #28
   %122 = getelementptr inbounds i8, ptr %5, i64 8
   %123 = load i32, ptr %122, align 8
-  %124 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 33)) #30
+  %124 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 33)) #28
   %.not5869 = icmp eq i32 %124, 0
   br i1 %.not5869, label %.critedge, label %.lr.ph.preheader
 
@@ -23298,7 +23345,7 @@ zend_separate_if_call_and_write.exit:             ; preds = %105, %105, %105, %1
   %158 = load ptr, ptr %157, align 8
   %159 = zext i32 %156 to i64
   %160 = shl nuw nsw i64 %159, 5
-  %161 = call ptr @_erealloc(ptr noundef %158, i64 noundef %160) #34
+  %161 = call ptr @_erealloc(ptr noundef %158, i64 noundef %160) #32
   store ptr %161, ptr %157, align 8
   br label %get_next_op.exit
 
@@ -23389,7 +23436,7 @@ get_next_op.exit:                                 ; preds = %._crit_edge.i, %155
   br label %zend_emit_jmp_null.exit
 
 zend_emit_jmp_null.exit:                          ; preds = %206, %208
-  %212 = call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45), ptr noundef nonnull %4) #30
+  %212 = call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45), ptr noundef nonnull %4) #28
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   br label %213
 
@@ -23404,11 +23451,11 @@ zend_emit_jmp_null.exit:                          ; preds = %206, %208
   %218 = ptrtoint ptr %217 to i64
   %219 = ptrtoint ptr %214 to i64
   %220 = sub i64 %218, %219
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %220) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %220) #29
   unreachable
 
 zend_compile_expr.exit:                           ; preds = %213
-  %221 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %221 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %6, ptr noundef %10)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %221, ptr noundef nonnull %6, ptr noundef %10)
   %222 = call fastcc ptr @zend_delayed_emit_op(ptr noundef %0, i8 noundef zeroext 82, ptr noundef nonnull %5, ptr noundef nonnull %6)
@@ -23431,7 +23478,7 @@ zend_compile_expr.exit:                           ; preds = %213
   br i1 %.not60, label %237, label %236
 
 236:                                              ; preds = %226
-  call void @_convert_to_string(ptr noundef nonnull %233) #30
+  call void @_convert_to_string(ptr noundef nonnull %233) #28
   %.pre86 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 4), align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre86, i64 176
   %.pre87 = load ptr, ptr %.phi.trans.insert, align 8
@@ -23451,7 +23498,7 @@ zend_compile_expr.exit:                           ; preds = %213
   br i1 %.not61, label %244, label %246
 
 244:                                              ; preds = %237
-  %245 = call i64 @zend_string_hash_func(ptr noundef nonnull %241) #30
+  %245 = call i64 @zend_string_hash_func(ptr noundef nonnull %241) #28
   %.pre89 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 4), align 8
   br label %246
 
@@ -23584,13 +23631,13 @@ thread-pre-split:                                 ; preds = %4
   br label %557
 
 20:                                               ; preds = %16, %thread-pre-split
-  %21 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 33)) #30
+  %21 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 33)) #28
   %22 = tail call fastcc ptr @zend_delayed_compile_dim(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, i1 noundef zeroext %3)
   %23 = tail call fastcc ptr @zend_delayed_compile_end(i32 noundef %21)
   br label %557
 
 24:                                               ; preds = %16, %16, %thread-pre-split, %thread-pre-split
-  %25 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 33)) #30
+  %25 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 33)) #28
   %26 = tail call fastcc ptr @zend_delayed_compile_prop(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2)
   br i1 %3, label %27, label %zend_compile_prop.exit
 
@@ -23639,11 +23686,11 @@ zend_compile_prop.exit:                           ; preds = %24, %27
   %51 = ptrtoint ptr %50 to i64
   %52 = ptrtoint ptr %47 to i64
   %53 = sub i64 %51, %52
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %53) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %53) #29
   unreachable
 
 zend_compile_expr.exit60:                         ; preds = %46
-  %54 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %54 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %10, ptr noundef nonnull %36)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %54, ptr noundef nonnull %10, ptr noundef nonnull %36)
   %55 = getelementptr inbounds i8, ptr %1, i64 4
@@ -23667,7 +23714,7 @@ zend_compile_expr.exit60:                         ; preds = %46
 
 66:                                               ; preds = %59
   %67 = getelementptr inbounds i8, ptr %62, i64 24
-  %68 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %67, i64 noundef 6, ptr noundef nonnull @.str.96, i64 noundef 6) #30
+  %68 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %67, i64 noundef 6, ptr noundef nonnull @.str.96, i64 noundef 6) #28
   %.not127.i = icmp ne i32 %68, 0
   %brmerge.i = select i1 %.not127.i, i1 true, i1 %40
   br i1 %brmerge.i, label %74, label %69
@@ -23689,9 +23736,9 @@ zend_compile_expr.exit60:                         ; preds = %46
 77:                                               ; preds = %57
   %78 = getelementptr inbounds i8, ptr %10, i64 8
   %79 = load ptr, ptr %78, align 8
-  %80 = tail call ptr @zend_string_tolower_ex(ptr noundef %79, i1 noundef zeroext false) #30
+  %80 = tail call ptr @zend_string_tolower_ex(ptr noundef %79, i1 noundef zeroext false) #28
   %81 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 5), align 8
-  %82 = tail call ptr @zend_hash_find(ptr noundef %81, ptr noundef %80) #30
+  %82 = tail call ptr @zend_hash_find(ptr noundef %81, ptr noundef %80) #28
   %.not116.i = icmp eq ptr %82, null
   br i1 %.not116.i, label %.critedge129.i, label %83
 
@@ -23734,15 +23781,15 @@ zend_compile_expr.exit60:                         ; preds = %46
   br i1 %.not120.i, label %104, label %103
 
 103:                                              ; preds = %101
-  tail call void @free(ptr noundef nonnull %80) #30
+  tail call void @free(ptr noundef nonnull %80) #28
   br label %105
 
 104:                                              ; preds = %101
-  tail call void @_efree(ptr noundef nonnull %80) #30
+  tail call void @_efree(ptr noundef nonnull %80) #28
   br label %105
 
 105:                                              ; preds = %104, %103, %96, %90
-  call void @zval_ptr_dtor(ptr noundef nonnull %78) #30
+  call void @zval_ptr_dtor(ptr noundef nonnull %78) #28
   br label %zend_compile_call.exit
 
 .critedge.i:                                      ; preds = %83, %88
@@ -23804,7 +23851,7 @@ fbc_is_finalized.exit:                            ; preds = %.critedge.i
   br i1 %133, label %134, label %135
 
 134:                                              ; preds = %129
-  tail call void @_efree(ptr noundef nonnull %80) #30
+  tail call void @_efree(ptr noundef nonnull %80) #28
   br label %135
 
 135:                                              ; preds = %134, %129, %.critedge129.i
@@ -23838,15 +23885,15 @@ fbc_is_finalized.exit:                            ; preds = %.critedge.i
   br i1 %149, label %150, label %151
 
 150:                                              ; preds = %145
-  tail call void @_efree(ptr noundef nonnull %80) #30
+  tail call void @_efree(ptr noundef nonnull %80) #28
   br label %151
 
 151:                                              ; preds = %150, %145, %141
-  call void @zval_ptr_dtor(ptr noundef nonnull %78) #30
+  call void @zval_ptr_dtor(ptr noundef nonnull %78) #28
   br label %zend_compile_call.exit
 
 152:                                              ; preds = %138, %.thread86
-  call void @zval_ptr_dtor(ptr noundef nonnull %78) #30
+  call void @zval_ptr_dtor(ptr noundef nonnull %78) #28
   store ptr %80, ptr %78, align 8
   %153 = getelementptr inbounds i8, ptr %10, i64 16
   store i32 262, ptr %153, align 8
@@ -23876,7 +23923,7 @@ zend_compile_call.exit:                           ; preds = %zend_compile_expr.e
   %167 = load ptr, ptr %166, align 8
   %168 = getelementptr inbounds i8, ptr %1, i64 24
   %169 = load ptr, ptr %168, align 8
-  %170 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %170 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   %171 = load i16, ptr %165, align 8
   %172 = icmp eq i16 %171, 256
   br i1 %172, label %173, label %is_this_fetch.exit.thread
@@ -23912,7 +23959,7 @@ zend_compile_call.exit:                           ; preds = %zend_compile_expr.e
   br i1 %194, label %is_this_fetch.exit, label %zend_short_circuiting_mark_inner.exit
 
 is_this_fetch.exit:                               ; preds = %189
-  %195 = tail call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %184, ptr noundef nonnull %187) #30
+  %195 = tail call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %184, ptr noundef nonnull %187) #28
   br i1 %195, label %is_this_fetch.exit.thread88, label %is_this_fetch.exit.is_this_fetch.exit.threadthread-pre-split_crit_edge
 
 is_this_fetch.exit.is_this_fetch.exit.threadthread-pre-split_crit_edge: ; preds = %is_this_fetch.exit
@@ -23958,7 +24005,7 @@ this_guaranteed_exists.exit.thread:               ; preds = %is_this_fetch.exit.
   %211 = load ptr, ptr %210, align 8
   %212 = zext i32 %209 to i64
   %213 = shl nuw nsw i64 %212, 5
-  %214 = tail call ptr @_erealloc(ptr noundef %211, i64 noundef %213) #34
+  %214 = tail call ptr @_erealloc(ptr noundef %211, i64 noundef %213) #32
   store ptr %214, ptr %210, align 8
   br label %get_next_op.exit.i
 
@@ -24059,12 +24106,12 @@ zend_short_circuiting_mark_inner.exit:            ; preds = %173, %189, %178, %i
   %261 = ptrtoint ptr %260 to i64
   %262 = ptrtoint ptr %257 to i64
   %263 = sub i64 %261, %262
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %263) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %263) #29
   unreachable
 
 zend_compile_expr.exit67:                         ; preds = %zend_short_circuiting_mark_inner.exit
   %264 = icmp eq i16 %.pr, 769
-  %265 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %265 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %8, ptr noundef nonnull %165)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %265, ptr noundef nonnull %8, ptr noundef nonnull %165)
   br i1 %264, label %266, label %295
@@ -24113,7 +24160,7 @@ zend_compile_expr.exit67:                         ; preds = %zend_short_circuiti
   br label %zend_emit_jmp_null.exit
 
 zend_emit_jmp_null.exit:                          ; preds = %288, %290
-  %294 = call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45), ptr noundef nonnull %5) #30
+  %294 = call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45), ptr noundef nonnull %5) #28
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   br label %295
 
@@ -24128,11 +24175,11 @@ zend_emit_jmp_null.exit:                          ; preds = %288, %290
   %299 = ptrtoint ptr %298 to i64
   %300 = ptrtoint ptr %296 to i64
   %301 = sub i64 %299, %300
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %301) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %301) #29
   unreachable
 
 zend_compile_expr.exit64:                         ; preds = %295
-  %302 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %302 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %9, ptr noundef %167)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %302, ptr noundef nonnull %9, ptr noundef %167)
   %303 = call fastcc ptr @zend_emit_op(ptr noundef null, i8 noundef zeroext 112, ptr noundef nonnull %8, ptr noundef null)
@@ -24147,7 +24194,7 @@ zend_compile_expr.exit64:                         ; preds = %295
   br i1 %.not.i53, label %310, label %309
 
 309:                                              ; preds = %306
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.215) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.215) #29
   unreachable
 
 310:                                              ; preds = %306
@@ -24206,7 +24253,7 @@ zend_compile_expr.exit64:                         ; preds = %295
   %346 = getelementptr inbounds i8, ptr %345, i64 16
   %347 = load ptr, ptr %346, align 8
   %348 = getelementptr inbounds i8, ptr %334, i64 64
-  %349 = call ptr @zend_hash_find(ptr noundef nonnull %348, ptr noundef %347) #30
+  %349 = call ptr @zend_hash_find(ptr noundef nonnull %348, ptr noundef %347) #28
   %.not48.i = icmp eq ptr %349, null
   br i1 %.not48.i, label %.thread90, label %350
 
@@ -24231,12 +24278,12 @@ zend_compile_expr.exit64:                         ; preds = %295
   br i1 %359, label %360, label %zend_compile_method_call.exit
 
 360:                                              ; preds = %.thread90
-  %361 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %361 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   %.not51.i = icmp eq i32 %170, %361
   br i1 %.not51.i, label %zend_compile_method_call.exit, label %362
 
 362:                                              ; preds = %360
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.216) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.216) #29
   unreachable
 
 zend_compile_method_call.exit:                    ; preds = %.thread90, %360
@@ -24283,11 +24330,11 @@ zend_short_circuiting_mark_inner.exit80:          ; preds = %363, %371
   %379 = ptrtoint ptr %378 to i64
   %380 = ptrtoint ptr %375 to i64
   %381 = sub i64 %379, %380
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %381) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %381) #29
   unreachable
 
 zend_compile_expr.exit79:                         ; preds = %zend_short_circuiting_mark_inner.exit80
-  %382 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %382 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %7, ptr noundef %367)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %382, ptr noundef nonnull %7, ptr noundef %367)
   %383 = load i8, ptr %7, align 8
@@ -24302,7 +24349,7 @@ zend_compile_expr.exit79:                         ; preds = %zend_short_circuiti
   br i1 %.not.i57, label %390, label %389
 
 389:                                              ; preds = %385
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.215) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.215) #29
   unreachable
 
 390:                                              ; preds = %385
@@ -24314,12 +24361,12 @@ zend_compile_expr.exit79:                         ; preds = %zend_short_circuiti
 
 zend_is_constructor.exit:                         ; preds = %390
   %395 = getelementptr inbounds i8, ptr %391, i64 24
-  %396 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %395, i64 noundef 11, ptr noundef nonnull @.str.90, i64 noundef 11) #30
+  %396 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %395, i64 noundef 11, ptr noundef nonnull @.str.90, i64 noundef 11) #28
   %.not.i77 = icmp eq i32 %396, 0
   br i1 %.not.i77, label %397, label %zend_is_constructor.exit.thread
 
 397:                                              ; preds = %zend_is_constructor.exit
-  call void @zval_ptr_dtor(ptr noundef nonnull %386) #30
+  call void @zval_ptr_dtor(ptr noundef nonnull %386) #28
   store i8 0, ptr %7, align 8
   br label %zend_is_constructor.exit.thread
 
@@ -24345,7 +24392,7 @@ zend_is_constructor.exit.thread:                  ; preds = %390, %397, %zend_is
   %406 = load ptr, ptr %405, align 8
   %407 = zext i32 %404 to i64
   %408 = shl nuw nsw i64 %407, 5
-  %409 = call ptr @_erealloc(ptr noundef %406, i64 noundef %408) #34
+  %409 = call ptr @_erealloc(ptr noundef %406, i64 noundef %408) #32
   store ptr %409, ptr %405, align 8
   br label %get_next_op.exit
 
@@ -24418,7 +24465,7 @@ get_next_op.exit:                                 ; preds = %._crit_edge.i, %403
   %443 = load ptr, ptr %442, align 8
   %444 = sext i32 %440 to i64
   %445 = shl nsw i64 %444, 4
-  %446 = call ptr @_erealloc(ptr noundef %443, i64 noundef %445) #34
+  %446 = call ptr @_erealloc(ptr noundef %443, i64 noundef %445) #32
   store ptr %446, ptr %442, align 8
   br label %447
 
@@ -24432,7 +24479,7 @@ get_next_op.exit:                                 ; preds = %._crit_edge.i, %403
 
 451:                                              ; preds = %447
   %452 = load ptr, ptr @zend_new_interned_string, align 8
-  %453 = call ptr %452(ptr noundef %.pre.i.i.i) #30
+  %453 = call ptr %452(ptr noundef %.pre.i.i.i) #28
   store ptr %453, ptr %432, align 8
   %454 = getelementptr inbounds i8, ptr %453, i64 4
   %455 = load i32, ptr %454, align 4
@@ -24537,7 +24584,7 @@ zend_set_class_name_op1.exit:                     ; preds = %425, %zend_add_lite
   %504 = getelementptr inbounds i8, ptr %503, i64 16
   %505 = load ptr, ptr %504, align 8
   %506 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 6), align 8
-  %507 = call ptr @zend_hash_find(ptr noundef %506, ptr noundef %505) #30
+  %507 = call ptr @zend_hash_find(ptr noundef %506, ptr noundef %505) #28
   %.not63.i = icmp eq ptr %507, null
   br i1 %.not63.i, label %509, label %.thread102
 
@@ -24563,7 +24610,7 @@ zend_set_class_name_op1.exit:                     ; preds = %425, %zend_add_lite
 519:                                              ; preds = %511
   %520 = getelementptr inbounds i8, ptr %513, i64 24
   %521 = getelementptr inbounds i8, ptr %505, i64 24
-  %522 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %520, i64 noundef %515, ptr noundef nonnull %521, i64 noundef %515) #30
+  %522 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %520, i64 noundef %515, ptr noundef nonnull %521, i64 noundef %515) #28
   %.not64.i = icmp eq i32 %522, 0
   br i1 %.not64.i, label %select.unfold, label %.thread99
 
@@ -24621,7 +24668,7 @@ select.unfold:                                    ; preds = %527, %519
   ]
 
 547:                                              ; preds = %546, %546, %546
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.173) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.173) #29
   unreachable
 
 548:                                              ; preds = %546
@@ -24635,11 +24682,11 @@ select.unfold:                                    ; preds = %527, %519
   %553 = ptrtoint ptr %552 to i64
   %554 = ptrtoint ptr %549 to i64
   %555 = sub i64 %553, %554
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %555) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %555) #29
   unreachable
 
 zend_compile_expr.exit:                           ; preds = %548
-  %556 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %556 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   tail call fastcc void @zend_compile_expr_inner(ptr noundef %0, ptr noundef nonnull %1)
   tail call fastcc void @zend_short_circuiting_commit(i32 noundef %556, ptr noundef %0, ptr noundef nonnull %1)
   br label %557
@@ -24674,7 +24721,7 @@ zend_ast_kind_is_short_circuited.exit:            ; preds = %3
   br i1 %.not, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %.critedge
-  %8 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %8 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   %.not1820 = icmp eq i32 %8, %0
   br i1 %.not1820, label %.loopexit, label %.lr.ph
 
@@ -24685,7 +24732,7 @@ zend_ast_kind_is_short_circuited.exit:            ; preds = %3
   br label %12
 
 12:                                               ; preds = %.lr.ph, %60
-  %13 = tail call ptr @zend_stack_top(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %13 = tail call ptr @zend_stack_top(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   %14 = load i32, ptr %13, align 4
   %15 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 4), align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 88
@@ -24729,7 +24776,7 @@ zend_ast_kind_is_short_circuited.exit:            ; preds = %3
   %36 = load ptr, ptr %35, align 8
   %37 = sext i32 %33 to i64
   %38 = shl nsw i64 %37, 4
-  %39 = tail call ptr @_erealloc(ptr noundef %36, i64 noundef %38) #34
+  %39 = tail call ptr @_erealloc(ptr noundef %36, i64 noundef %38) #32
   store ptr %39, ptr %35, align 8
   br label %40
 
@@ -24742,7 +24789,7 @@ zend_ast_kind_is_short_circuited.exit:            ; preds = %3
 
 43:                                               ; preds = %40
   %44 = load ptr, ptr @zend_new_interned_string, align 8
-  %45 = tail call ptr %44(ptr noundef %.pre.i.i) #30
+  %45 = tail call ptr %44(ptr noundef %.pre.i.i) #28
   store ptr %45, ptr %9, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 4
   %47 = load i32, ptr %46, align 4
@@ -24784,8 +24831,8 @@ zend_add_literal.exit:                            ; preds = %40, %43, %49
   %67 = load i32, ptr %66, align 4
   %68 = or i32 %65, %67
   store i32 %68, ptr %66, align 4
-  tail call void @zend_stack_del_top(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
-  %69 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  tail call void @zend_stack_del_top(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
+  %69 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   %.not18 = icmp eq i32 %69, %0
   br i1 %.not18, label %.loopexit, label %12
 
@@ -24813,11 +24860,11 @@ define internal fastcc void @zend_compile_memoized_expr(ptr noundef %0, ptr noun
   %12 = ptrtoint ptr %11 to i64
   %13 = ptrtoint ptr %8 to i64
   %14 = sub i64 %12, %13
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %14) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %14) #29
   unreachable
 
 zend_compile_expr.exit:                           ; preds = %7
-  %15 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %15 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   tail call fastcc void @zend_compile_expr_inner(ptr noundef %0, ptr noundef %1)
   tail call fastcc void @zend_short_circuiting_commit(i32 noundef %15, ptr noundef %0, ptr noundef %1)
   store i32 1, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 35), align 8
@@ -24864,11 +24911,11 @@ zend_compile_expr.exit:                           ; preds = %7
   br i1 %.not83, label %38, label %36
 
 36:                                               ; preds = %30
-  %37 = call noalias dereferenceable_or_null(24) ptr @__zend_malloc(i64 noundef 24) #32
+  %37 = call noalias dereferenceable_or_null(24) ptr @__zend_malloc(i64 noundef 24) #30
   br label %40
 
 38:                                               ; preds = %30
-  %39 = call noalias ptr @_emalloc_24() #30
+  %39 = call noalias ptr @_emalloc_24() #28
   br label %40
 
 40:                                               ; preds = %38, %36
@@ -24877,7 +24924,7 @@ zend_compile_expr.exit:                           ; preds = %7
   store ptr %41, ptr %3, align 8
   %42 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 13, ptr %42, align 8
-  %43 = call ptr @zend_hash_index_update(ptr noundef nonnull %31, i64 noundef %32, ptr noundef nonnull %3) #30
+  %43 = call ptr @zend_hash_index_update(ptr noundef nonnull %31, i64 noundef %32, ptr noundef nonnull %3) #28
   %44 = load ptr, ptr %43, align 8
   %45 = icmp ne ptr %44, null
   call void @llvm.assume(i1 %45)
@@ -24888,7 +24935,7 @@ zend_compile_expr.exit:                           ; preds = %7
   tail call void @llvm.assume(i1 %47)
   %48 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 34), align 8
   %49 = ptrtoint ptr %1 to i64
-  %50 = tail call ptr @zend_hash_index_find(ptr noundef %48, i64 noundef %49) #30
+  %50 = tail call ptr @zend_hash_index_find(ptr noundef %48, i64 noundef %49) #28
   %.not = icmp ne ptr %50, null
   tail call void @llvm.assume(i1 %.not)
   %51 = load ptr, ptr %50, align 8, !nonnull !4, !noundef !4
@@ -24937,7 +24984,7 @@ define internal fastcc void @zend_compile_dynamic_call(ptr noundef %0, ptr nound
   %14 = getelementptr inbounds i8, ptr %13, i64 24
   %15 = getelementptr inbounds i8, ptr %13, i64 16
   %16 = load i64, ptr %15, align 8
-  %17 = tail call ptr @memrchr(ptr noundef nonnull %14, i32 noundef 58, i64 noundef %16) #29
+  %17 = tail call ptr @memrchr(ptr noundef nonnull %14, i32 noundef 58, i64 noundef %16) #27
   %18 = icmp ugt ptr %17, %14
   br i1 %18, label %19, label %79
 
@@ -24954,7 +25001,7 @@ define internal fastcc void @zend_compile_dynamic_call(ptr noundef %0, ptr nound
   %27 = add nsw i64 %26, -1
   %28 = add i64 %26, 31
   %29 = and i64 %28, -8
-  %30 = tail call noalias ptr @_emalloc(i64 noundef %29) #32
+  %30 = tail call noalias ptr @_emalloc(i64 noundef %29) #30
   store i32 1, ptr %30, align 4
   %31 = getelementptr inbounds i8, ptr %30, i64 4
   store i32 22, ptr %31, align 4
@@ -24972,7 +25019,7 @@ define internal fastcc void @zend_compile_dynamic_call(ptr noundef %0, ptr nound
   %39 = add i64 %37, %38
   %40 = and i64 %39, -8
   %41 = add i64 %40, 32
-  %42 = tail call noalias ptr @_emalloc(i64 noundef %41) #32
+  %42 = tail call noalias ptr @_emalloc(i64 noundef %41) #30
   store i32 1, ptr %42, align 4
   %43 = getelementptr inbounds i8, ptr %42, i64 4
   store i32 22, ptr %43, align 4
@@ -25005,7 +25052,7 @@ define internal fastcc void @zend_compile_dynamic_call(ptr noundef %0, ptr nound
   %56 = load ptr, ptr %55, align 8
   %57 = zext i32 %54 to i64
   %58 = shl nuw nsw i64 %57, 5
-  %59 = tail call ptr @_erealloc(ptr noundef %56, i64 noundef %58) #34
+  %59 = tail call ptr @_erealloc(ptr noundef %56, i64 noundef %58) #32
   store ptr %59, ptr %55, align 8
   br label %get_next_op.exit
 
@@ -25045,7 +25092,7 @@ get_next_op.exit:                                 ; preds = %._crit_edge.i, %53
   %78 = add i32 %77, 16
   store i32 %78, ptr %76, align 4
   store i32 %77, ptr %69, align 8
-  tail call void @zval_ptr_dtor(ptr noundef nonnull %8) #30
+  tail call void @zval_ptr_dtor(ptr noundef nonnull %8) #28
   br label %112
 
 79:                                               ; preds = %19, %12
@@ -25070,7 +25117,7 @@ get_next_op.exit:                                 ; preds = %._crit_edge.i, %53
   %88 = load ptr, ptr %87, align 8
   %89 = zext i32 %86 to i64
   %90 = shl nuw nsw i64 %89, 5
-  %91 = tail call ptr @_erealloc(ptr noundef %88, i64 noundef %90) #34
+  %91 = tail call ptr @_erealloc(ptr noundef %88, i64 noundef %90) #32
   store ptr %91, ptr %87, align 8
   br label %get_next_op.exit151
 
@@ -25179,7 +25226,7 @@ define internal fastcc void @zend_compile_assert(ptr noundef %0, ptr noundef %1,
   %18 = load ptr, ptr %17, align 8
   %19 = zext i32 %16 to i64
   %20 = shl nuw nsw i64 %19, 5
-  %21 = tail call ptr @_erealloc(ptr noundef %18, i64 noundef %20) #34
+  %21 = tail call ptr @_erealloc(ptr noundef %18, i64 noundef %20) #32
   store ptr %21, ptr %17, align 8
   br label %zend_emit_op.exit
 
@@ -25267,7 +25314,7 @@ fbc_is_finalized.exit.thread:                     ; preds = %35, %fbc_is_finaliz
   %59 = load ptr, ptr %58, align 8
   %60 = zext i32 %57 to i64
   %61 = shl nuw nsw i64 %60, 5
-  %62 = tail call ptr @_erealloc(ptr noundef %59, i64 noundef %61) #34
+  %62 = tail call ptr @_erealloc(ptr noundef %59, i64 noundef %61) #32
   store ptr %62, ptr %58, align 8
   br label %zend_emit_op.exit109
 
@@ -25317,15 +25364,15 @@ zend_emit_op.exit109:                             ; preds = %._crit_edge.i.i106,
 86:                                               ; preds = %77
   %87 = getelementptr inbounds i8, ptr %1, i64 16
   %88 = load ptr, ptr %87, align 8
-  %89 = call ptr @zend_ast_export(ptr noundef nonnull @.str.174, ptr noundef %88, ptr noundef nonnull @.str.55) #30
-  %90 = call ptr @zend_ast_create_zval_from_str(ptr noundef %89) #30
+  %89 = call ptr @zend_ast_export(ptr noundef nonnull @.str.174, ptr noundef %88, ptr noundef nonnull @.str.55) #28
+  %90 = call ptr @zend_ast_create_zval_from_str(ptr noundef %89) #28
   %91 = load ptr, ptr %87, align 8
   %92 = load i16, ptr %91, align 8
   %93 = icmp eq i16 %92, 549
   br i1 %93, label %94, label %103
 
 94:                                               ; preds = %86
-  %95 = call noalias ptr @_emalloc_40() #30
+  %95 = call noalias ptr @_emalloc_40() #28
   store i32 1, ptr %95, align 4
   %96 = getelementptr inbounds i8, ptr %95, i64 4
   store i32 22, ptr %96, align 4
@@ -25337,13 +25384,13 @@ zend_emit_op.exit109:                             ; preds = %._crit_edge.i.i106,
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %99, ptr noundef nonnull align 1 dereferenceable(11) @.str.175, i64 11, i1 false)
   %100 = getelementptr inbounds i8, ptr %95, i64 35
   store i8 0, ptr %100, align 1
-  %101 = call ptr @zend_ast_create_zval_from_str(ptr noundef nonnull %95) #30
-  %102 = call ptr @zend_ast_create_2(i16 noundef zeroext 549, ptr noundef %101, ptr noundef %90) #30
+  %101 = call ptr @zend_ast_create_zval_from_str(ptr noundef nonnull %95) #28
+  %102 = call ptr @zend_ast_create_2(i16 noundef zeroext 549, ptr noundef %101, ptr noundef %90) #28
   br label %103
 
 103:                                              ; preds = %94, %86
   %.0100 = phi ptr [ %102, %94 ], [ %90, %86 ]
-  %104 = call ptr @zend_ast_list_add(ptr noundef nonnull %1, ptr noundef %.0100) #30
+  %104 = call ptr @zend_ast_list_add(ptr noundef nonnull %1, ptr noundef %.0100) #28
   br label %105
 
 105:                                              ; preds = %103, %77
@@ -25390,7 +25437,7 @@ zend_emit_op.exit109:                             ; preds = %._crit_edge.i.i106,
   %128 = load ptr, ptr %127, align 8
   %129 = sext i32 %125 to i64
   %130 = shl nsw i64 %129, 4
-  %131 = call ptr @_erealloc(ptr noundef %128, i64 noundef %130) #34
+  %131 = call ptr @_erealloc(ptr noundef %128, i64 noundef %130) #32
   store ptr %131, ptr %127, align 8
   br label %132
 
@@ -25404,7 +25451,7 @@ zend_emit_op.exit109:                             ; preds = %._crit_edge.i.i106,
 
 136:                                              ; preds = %132
   %137 = load ptr, ptr @zend_new_interned_string, align 8
-  %138 = call ptr %137(ptr noundef %.pre.i.i111) #30
+  %138 = call ptr %137(ptr noundef %.pre.i.i111) #28
   store ptr %138, ptr %118, align 8
   %139 = getelementptr inbounds i8, ptr %138, i64 4
   %140 = load i32, ptr %139, align 4
@@ -25459,7 +25506,7 @@ zend_add_literal.exit:                            ; preds = %132, %136, %142
   br i1 %164, label %165, label %166
 
 165:                                              ; preds = %160
-  tail call void @_efree(ptr noundef nonnull %2) #30
+  tail call void @_efree(ptr noundef nonnull %2) #28
   br label %166
 
 166:                                              ; preds = %156, %165, %160, %155
@@ -25528,7 +25575,7 @@ zend_args_contain_unpack_or_named.exit.thread:    ; preds = %11, %zend_args_cont
   %31 = getelementptr i8, ptr %30, i64 32
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 5), align 8
-  %34 = tail call ptr @zend_hash_find(ptr noundef %33, ptr noundef %32) #30
+  %34 = tail call ptr @zend_hash_find(ptr noundef %33, ptr noundef %32) #28
   %.not59 = icmp eq ptr %34, null
   br i1 %.not59, label %.thread, label %35
 
@@ -25679,7 +25726,7 @@ find_frameless_function_info.exit:                ; preds = %find_frameless_func
   %98 = load ptr, ptr %97, align 8
   %99 = zext i32 %96 to i64
   %100 = shl nuw nsw i64 %99, 5
-  %101 = call ptr @_erealloc(ptr noundef %98, i64 noundef %100) #34
+  %101 = call ptr @_erealloc(ptr noundef %98, i64 noundef %100) #32
   store ptr %101, ptr %97, align 8
   br label %get_next_op.exit
 
@@ -25741,7 +25788,7 @@ get_next_op.exit:                                 ; preds = %._crit_edge.i, %95
   %129 = load ptr, ptr %128, align 8
   %130 = zext i32 %127 to i64
   %131 = shl nuw nsw i64 %130, 5
-  %132 = call ptr @_erealloc(ptr noundef %129, i64 noundef %131) #34
+  %132 = call ptr @_erealloc(ptr noundef %129, i64 noundef %131) #32
   store ptr %132, ptr %128, align 8
   br label %zend_emit_jump.exit
 
@@ -25826,7 +25873,7 @@ zend_emit_jump.exit:                              ; preds = %._crit_edge.i.i.i, 
   %179 = load ptr, ptr %178, align 8
   %180 = sext i32 %176 to i64
   %181 = shl nsw i64 %180, 4
-  %182 = call ptr @_erealloc(ptr noundef %179, i64 noundef %181) #34
+  %182 = call ptr @_erealloc(ptr noundef %179, i64 noundef %181) #32
   store ptr %182, ptr %178, align 8
   br label %183
 
@@ -25840,7 +25887,7 @@ zend_emit_jump.exit:                              ; preds = %._crit_edge.i.i.i, 
 
 187:                                              ; preds = %183
   %188 = load ptr, ptr @zend_new_interned_string, align 8
-  %189 = call ptr %188(ptr noundef %.pre.i.i) #30
+  %189 = call ptr %188(ptr noundef %.pre.i.i) #28
   store ptr %189, ptr %169, align 8
   %190 = getelementptr inbounds i8, ptr %189, i64 4
   %191 = load i32, ptr %190, align 4
@@ -25988,13 +26035,13 @@ zend_args_contain_unpack_or_named.exit.thread:    ; preds = %13, %zend_args_cont
   %35 = ptrtoint ptr %34 to i64
   %36 = ptrtoint ptr %31 to i64
   %37 = sub i64 %35, %36
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %37) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %37) #29
   unreachable
 
 zend_compile_expr.exit.i22:                       ; preds = %30
   %38 = getelementptr inbounds i8, ptr %2, i64 16
   %39 = load ptr, ptr %38, align 8
-  %40 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %40 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %7, ptr noundef %39)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %40, ptr noundef nonnull %7, ptr noundef %39)
   %41 = load i8, ptr %7, align 8
@@ -26033,7 +26080,7 @@ zend_compile_expr.exit.i22:                       ; preds = %30
 
 60:                                               ; preds = %56
   %61 = load ptr, ptr %44, align 8
-  call void @_efree(ptr noundef %61) #30
+  call void @_efree(ptr noundef %61) #28
   br label %zend_compile_func_strlen.exit
 
 62:                                               ; preds = %43, %zend_compile_expr.exit.i22
@@ -26096,13 +26143,13 @@ zend_compile_func_strlen.exit:                    ; preds = %29, %48, %56, %60, 
   %80 = ptrtoint ptr %79 to i64
   %81 = ptrtoint ptr %76 to i64
   %82 = sub i64 %80, %81
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %82) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %82) #29
   unreachable
 
 zend_compile_expr.exit.i:                         ; preds = %75
   %83 = getelementptr inbounds i8, ptr %2, i64 16
   %84 = load ptr, ptr %83, align 8
-  %85 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %85 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %8, ptr noundef %84)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %85, ptr noundef nonnull %8, ptr noundef %84)
   %86 = call fastcc ptr @zend_emit_op_tmp(ptr noundef %0, i8 noundef zeroext 123, ptr noundef nonnull %8, ptr noundef null)
@@ -26321,7 +26368,7 @@ zend_try_compile_special_func_ex.exit.thread37:   ; preds = %134
   br i1 %165, label %166, label %.critedge53.i
 
 166:                                              ; preds = %162
-  %167 = tail call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %1, ptr noundef nonnull %160) #30
+  %167 = tail call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %1, ptr noundef nonnull %160) #28
   br i1 %167, label %.critedge51.i, label %..critedge53.i_crit_edge
 
 ..critedge53.i_crit_edge:                         ; preds = %166
@@ -26362,13 +26409,13 @@ zend_try_compile_special_func_ex.exit.thread37:   ; preds = %134
   %177 = ptrtoint ptr %176 to i64
   %178 = ptrtoint ptr %173 to i64
   %179 = sub i64 %177, %178
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %179) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %179) #29
   unreachable
 
 zend_compile_expr.exit.i100:                      ; preds = %172
   %180 = getelementptr inbounds i8, ptr %2, i64 16
   %181 = load ptr, ptr %180, align 8
-  %182 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %182 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %6, ptr noundef %181)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %182, ptr noundef nonnull %6, ptr noundef %181)
   %183 = call fastcc ptr @zend_emit_op_tmp(ptr noundef %0, i8 noundef zeroext -66, ptr noundef nonnull %6, ptr noundef null)
@@ -26592,7 +26639,7 @@ define internal fastcc noundef zeroext i1 @zend_compile_call_common(ptr noundef 
   ]
 
 20:                                               ; preds = %12
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.212) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.212) #29
   unreachable
 
 21:                                               ; preds = %12
@@ -26638,7 +26685,7 @@ define internal fastcc noundef zeroext i1 @zend_compile_call_common(ptr noundef 
   %42 = load ptr, ptr %41, align 8
   %43 = zext i32 %40 to i64
   %44 = shl nuw nsw i64 %43, 5
-  %45 = tail call ptr @_erealloc(ptr noundef %42, i64 noundef %44) #34
+  %45 = tail call ptr @_erealloc(ptr noundef %42, i64 noundef %44) #32
   store ptr %45, ptr %41, align 8
   br label %get_next_op.exit.i
 
@@ -26738,7 +26785,7 @@ get_next_op.exit.i:                               ; preds = %39, %._crit_edge.i.
   br i1 %91, label %92, label %93
 
 92:                                               ; preds = %90
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.213) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.213) #29
   unreachable
 
 93:                                               ; preds = %90
@@ -26752,13 +26799,13 @@ get_next_op.exit.i:                               ; preds = %39, %._crit_edge.i.
   %98 = ptrtoint ptr %97 to i64
   %99 = ptrtoint ptr %94 to i64
   %100 = sub i64 %98, %99
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %100) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %100) #29
   unreachable
 
 zend_compile_expr.exit118:                        ; preds = %93
   %101 = getelementptr inbounds i8, ptr %88, i64 8
   %102 = load ptr, ptr %101, align 8
-  %103 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %103 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %5, ptr noundef %102)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %103, ptr noundef nonnull %5, ptr noundef %102)
   %104 = call fastcc ptr @zend_emit_op(ptr noundef null, i8 noundef zeroext -91, ptr noundef nonnull %5, ptr noundef null)
@@ -26777,7 +26824,7 @@ zend_compile_expr.exit118:                        ; preds = %93
   %113 = getelementptr inbounds i8, ptr %110, i64 8
   %114 = load ptr, ptr @zend_new_interned_string, align 8
   %115 = load ptr, ptr %113, align 8
-  %116 = call ptr %114(ptr noundef %115) #30
+  %116 = call ptr %114(ptr noundef %115) #28
   store ptr %116, ptr %113, align 8
   %117 = getelementptr inbounds i8, ptr %116, i64 4
   %118 = load i32, ptr %117, align 4
@@ -26845,7 +26892,7 @@ zval_make_interned_string.exit:                   ; preds = %108, %120
   br i1 %148, label %149, label %.critedge2.i
 
 149:                                              ; preds = %144
-  %150 = call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %142, ptr noundef nonnull %116) #30
+  %150 = call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %142, ptr noundef nonnull %116) #28
   br i1 %150, label %.critedge.i115, label %..critedge2_crit_edge.i
 
 ..critedge2_crit_edge.i:                          ; preds = %149
@@ -26868,7 +26915,7 @@ zval_make_interned_string.exit:                   ; preds = %108, %120
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %.critedge4.i ]
   %157 = getelementptr inbounds %struct._zend_internal_arg_info, ptr %132, i64 %indvars.iv.i
   %158 = load ptr, ptr %157, align 8
-  %159 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %158) #29
+  %159 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %158) #27
   %160 = icmp eq i64 %134, %159
   br i1 %160, label %161, label %.critedge4.i
 
@@ -26914,7 +26961,7 @@ zend_get_arg_num.exit:                            ; preds = %.critedge4.i, %.cri
   br i1 %176, label %177, label %178
 
 177:                                              ; preds = %175
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.214) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.214) #29
   unreachable
 
 178:                                              ; preds = %175
@@ -26922,7 +26969,7 @@ zend_get_arg_num.exit:                            ; preds = %.critedge4.i, %.cri
   br i1 %179, label %180, label %181
 
 180:                                              ; preds = %178
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.76) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.76) #29
   unreachable
 
 181:                                              ; preds = %178
@@ -26978,7 +27025,7 @@ is_globals_fetch.exit:                            ; preds = %195
   br i1 %.not.i110, label %zend_is_call.exit.thread, label %tailrecurse.i.preheader
 
 zend_is_call.exit.thread:                         ; preds = %184, %184, %184, %184, %is_globals_fetch.exit
-  %202 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %202 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   %203 = call fastcc ptr @zend_compile_var_inner(ptr noundef nonnull %5, ptr noundef nonnull %.0192.i, i32 noundef 0, i1 noundef zeroext false)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %202, ptr noundef nonnull %5, ptr noundef nonnull %.0192.i)
   %204 = load i8, ptr %5, align 8
@@ -27137,13 +27184,13 @@ zend_ast_is_short_circuited.exit:                 ; preds = %tailrecurse.i
   br i1 %.not163, label %.critedge263.i, label %274
 
 274:                                              ; preds = %267
-  %275 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %275 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   %276 = call fastcc ptr @zend_compile_var_inner(ptr noundef nonnull %5, ptr noundef nonnull %.0192.i, i32 noundef 1, i1 noundef zeroext true)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %275, ptr noundef nonnull %5, ptr noundef nonnull %.0192.i)
   br label %.critedge269.i
 
 .critedge263.i:                                   ; preds = %267, %262
-  %277 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %277 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   %278 = call fastcc ptr @zend_compile_var_inner(ptr noundef nonnull %5, ptr noundef nonnull %.0192.i, i32 noundef 0, i1 noundef zeroext false)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %277, ptr noundef nonnull %5, ptr noundef nonnull %.0192.i)
   %279 = load i8, ptr %5, align 8
@@ -27197,7 +27244,7 @@ zend_ast_is_short_circuited.exit:                 ; preds = %tailrecurse.i
   br i1 %309, label %is_this_fetch.exit, label %is_this_fetch.exit.thread
 
 is_this_fetch.exit:                               ; preds = %304
-  %310 = call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %299, ptr noundef nonnull %302) #30
+  %310 = call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %299, ptr noundef nonnull %302) #28
   br i1 %310, label %is_this_fetch.exit.thread138, label %is_this_fetch.exit.thread
 
 is_this_fetch.exit.thread138:                     ; preds = %297, %is_this_fetch.exit
@@ -27222,7 +27269,7 @@ is_this_fetch.exit.thread138:                     ; preds = %297, %is_this_fetch
   %319 = load ptr, ptr %318, align 8
   %320 = zext i32 %317 to i64
   %321 = shl nuw nsw i64 %320, 5
-  %322 = call ptr @_erealloc(ptr noundef %319, i64 noundef %321) #34
+  %322 = call ptr @_erealloc(ptr noundef %319, i64 noundef %321) #32
   store ptr %322, ptr %318, align 8
   br label %get_next_op.exit.i101
 
@@ -27319,7 +27366,7 @@ is_this_fetch.exit.thread:                        ; preds = %283, %288, %304, %2
   %370 = load ptr, ptr %369, align 8
   %371 = zext i32 %368 to i64
   %372 = shl nuw nsw i64 %371, 5
-  %373 = call ptr @_erealloc(ptr noundef %370, i64 noundef %372) #34
+  %373 = call ptr @_erealloc(ptr noundef %370, i64 noundef %372) #32
   store ptr %373, ptr %369, align 8
   br label %zend_emit_op.exit99
 
@@ -27391,14 +27438,14 @@ zend_emit_op.exit99:                              ; preds = %._crit_edge.i.i96, 
   %404 = load ptr, ptr %403, align 8
   %405 = sext i32 %401 to i64
   %406 = shl nsw i64 %405, 4
-  %407 = call ptr @_erealloc(ptr noundef %404, i64 noundef %406) #34
+  %407 = call ptr @_erealloc(ptr noundef %404, i64 noundef %406) #32
   store ptr %407, ptr %403, align 8
   br label %zend_add_literal_string.exit93
 
 zend_add_literal_string.exit93:                   ; preds = %._crit_edge13.i.i90, %402
   %.val.i.i87 = phi ptr [ %.val.pre.i.i92, %._crit_edge13.i.i90 ], [ %407, %402 ]
   %408 = load ptr, ptr @zend_new_interned_string, align 8
-  %409 = call ptr %408(ptr noundef %.0125) #30
+  %409 = call ptr %408(ptr noundef %.0125) #28
   %410 = getelementptr inbounds i8, ptr %409, i64 4
   %411 = load i32, ptr %410, align 4
   %412 = and i32 %411, 64
@@ -27429,7 +27476,7 @@ zend_add_literal_string.exit93:                   ; preds = %._crit_edge13.i.i90
 
 425:                                              ; preds = %424, %zend_add_literal_string.exit93
   %.1126 = phi ptr [ null, %424 ], [ %409, %zend_add_literal_string.exit93 ]
-  %426 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %426 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   %427 = call fastcc ptr @zend_compile_var_inner(ptr noundef nonnull %5, ptr noundef nonnull %.0192.i, i32 noundef 4, i1 noundef zeroext true)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %426, ptr noundef nonnull %5, ptr noundef nonnull %.0192.i)
   br label %.critedge269.i
@@ -27445,11 +27492,11 @@ zend_is_variable.exit:                            ; preds = %tailrecurse.i, %tai
   %432 = ptrtoint ptr %431 to i64
   %433 = ptrtoint ptr %428 to i64
   %434 = sub i64 %432, %433
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %434) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %434) #29
   unreachable
 
 zend_compile_expr.exit:                           ; preds = %zend_is_variable.exit
-  %435 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %435 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %5, ptr noundef nonnull %.0192.i)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %435, ptr noundef nonnull %5, ptr noundef nonnull %.0192.i)
   %436 = load i8, ptr %5, align 8
@@ -27624,14 +27671,14 @@ zend_compile_expr.exit:                           ; preds = %zend_is_variable.ex
   %519 = load ptr, ptr %518, align 8
   %520 = sext i32 %516 to i64
   %521 = shl nsw i64 %520, 4
-  %522 = call ptr @_erealloc(ptr noundef %519, i64 noundef %521) #34
+  %522 = call ptr @_erealloc(ptr noundef %519, i64 noundef %521) #32
   store ptr %522, ptr %518, align 8
   br label %zend_add_literal_string.exit
 
 zend_add_literal_string.exit:                     ; preds = %._crit_edge13.i.i, %517
   %.val.i.i = phi ptr [ %.val.pre.i.i, %._crit_edge13.i.i ], [ %522, %517 ]
   %523 = load ptr, ptr @zend_new_interned_string, align 8
-  %524 = call ptr %523(ptr noundef nonnull %.2127) #30
+  %524 = call ptr %523(ptr noundef nonnull %.2127) #28
   %525 = getelementptr inbounds i8, ptr %524, i64 4
   %526 = load i32, ptr %525, align 4
   %527 = and i32 %526, 64
@@ -27705,7 +27752,7 @@ zend_add_literal_string.exit:                     ; preds = %._crit_edge13.i.i, 
   %558 = load ptr, ptr %557, align 8
   %559 = zext i32 %556 to i64
   %560 = shl nuw nsw i64 %559, 5
-  %561 = call ptr @_erealloc(ptr noundef %558, i64 noundef %560) #34
+  %561 = call ptr @_erealloc(ptr noundef %558, i64 noundef %560) #32
   store ptr %561, ptr %557, align 8
   br label %zend_emit_op.exit78
 
@@ -27767,7 +27814,7 @@ zend_compile_args.exit:                           ; preds = %80, %._crit_edge, %
   %585 = load ptr, ptr %584, align 8
   %586 = zext i32 %583 to i64
   %587 = shl nuw nsw i64 %586, 5
-  %588 = call ptr @_erealloc(ptr noundef %585, i64 noundef %587) #34
+  %588 = call ptr @_erealloc(ptr noundef %585, i64 noundef %587) #32
   store ptr %588, ptr %584, align 8
   br label %get_next_op.exit.i51
 
@@ -27917,7 +27964,7 @@ zend_get_call_op.exit:                            ; preds = %638, %640, %650, %6
   %661 = load ptr, ptr %660, align 8
   %662 = zext i32 %659 to i64
   %663 = shl nuw nsw i64 %662, 5
-  %664 = call ptr @_erealloc(ptr noundef %661, i64 noundef %663) #34
+  %664 = call ptr @_erealloc(ptr noundef %661, i64 noundef %663) #32
   store ptr %664, ptr %660, align 8
   br label %get_next_op.exit.i62
 
@@ -28018,7 +28065,7 @@ zend_emit_op.exit:                                ; preds = %get_next_op.exit.i6
   %712 = load ptr, ptr %711, align 8
   %713 = zext i32 %710 to i64
   %714 = shl nuw nsw i64 %713, 5
-  %715 = call ptr @_erealloc(ptr noundef %712, i64 noundef %714) #34
+  %715 = call ptr @_erealloc(ptr noundef %712, i64 noundef %714) #32
   store ptr %715, ptr %711, align 8
   br label %get_next_op.exit.i69
 
@@ -28082,14 +28129,14 @@ define internal fastcc i32 @zend_add_class_name_literal(ptr noundef %0) unnamed_
   %13 = load ptr, ptr %12, align 8
   %14 = sext i32 %10 to i64
   %15 = shl nsw i64 %14, 4
-  %16 = tail call ptr @_erealloc(ptr noundef %13, i64 noundef %15) #34
+  %16 = tail call ptr @_erealloc(ptr noundef %13, i64 noundef %15) #32
   store ptr %16, ptr %12, align 8
   br label %zend_add_literal_string.exit
 
 zend_add_literal_string.exit:                     ; preds = %._crit_edge13.i.i, %11
   %.val.i.i = phi ptr [ %.val.pre.i.i, %._crit_edge13.i.i ], [ %16, %11 ]
   %17 = load ptr, ptr @zend_new_interned_string, align 8
-  %18 = tail call ptr %17(ptr noundef %0) #30
+  %18 = tail call ptr %17(ptr noundef %0) #28
   %19 = getelementptr inbounds i8, ptr %18, i64 4
   %20 = load i32, ptr %19, align 4
   %21 = and i32 %20, 64
@@ -28105,7 +28152,7 @@ zend_add_literal_string.exit:                     ; preds = %._crit_edge13.i.i, 
   store i32 %24, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %26, i64 12
   store i32 0, ptr %28, align 4
-  %29 = tail call ptr @zend_string_tolower_ex(ptr noundef %18, i1 noundef zeroext false) #30
+  %29 = tail call ptr @zend_string_tolower_ex(ptr noundef %18, i1 noundef zeroext false) #28
   %30 = getelementptr inbounds i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 4), align 8
@@ -28134,14 +28181,14 @@ zend_add_literal_string.exit:                     ; preds = %._crit_edge13.i.i, 
   %41 = load ptr, ptr %40, align 8
   %42 = sext i32 %38 to i64
   %43 = shl nsw i64 %42, 4
-  %44 = tail call ptr @_erealloc(ptr noundef %41, i64 noundef %43) #34
+  %44 = tail call ptr @_erealloc(ptr noundef %41, i64 noundef %43) #32
   store ptr %44, ptr %40, align 8
   br label %zend_add_literal_string.exit10
 
 zend_add_literal_string.exit10:                   ; preds = %._crit_edge13.i.i7, %39
   %.val.i.i4 = phi ptr [ %.val.pre.i.i9, %._crit_edge13.i.i7 ], [ %44, %39 ]
   %45 = load ptr, ptr @zend_new_interned_string, align 8
-  %46 = tail call ptr %45(ptr noundef %29) #30
+  %46 = tail call ptr %45(ptr noundef %29) #28
   %47 = getelementptr inbounds i8, ptr %46, i64 4
   %48 = load i32, ptr %47, align 4
   %49 = and i32 %48, 64
@@ -28190,14 +28237,14 @@ define internal fastcc i32 @zend_add_func_name_literal(ptr noundef %0) unnamed_a
   %13 = load ptr, ptr %12, align 8
   %14 = sext i32 %10 to i64
   %15 = shl nsw i64 %14, 4
-  %16 = tail call ptr @_erealloc(ptr noundef %13, i64 noundef %15) #34
+  %16 = tail call ptr @_erealloc(ptr noundef %13, i64 noundef %15) #32
   store ptr %16, ptr %12, align 8
   br label %zend_add_literal_string.exit
 
 zend_add_literal_string.exit:                     ; preds = %._crit_edge13.i.i, %11
   %.val.i.i = phi ptr [ %.val.pre.i.i, %._crit_edge13.i.i ], [ %16, %11 ]
   %17 = load ptr, ptr @zend_new_interned_string, align 8
-  %18 = tail call ptr %17(ptr noundef %0) #30
+  %18 = tail call ptr %17(ptr noundef %0) #28
   %19 = getelementptr inbounds i8, ptr %18, i64 4
   %20 = load i32, ptr %19, align 4
   %21 = and i32 %20, 64
@@ -28213,7 +28260,7 @@ zend_add_literal_string.exit:                     ; preds = %._crit_edge13.i.i, 
   store i32 %24, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %26, i64 12
   store i32 0, ptr %28, align 4
-  %29 = tail call ptr @zend_string_tolower_ex(ptr noundef %18, i1 noundef zeroext false) #30
+  %29 = tail call ptr @zend_string_tolower_ex(ptr noundef %18, i1 noundef zeroext false) #28
   %30 = getelementptr inbounds i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 4), align 8
@@ -28242,14 +28289,14 @@ zend_add_literal_string.exit:                     ; preds = %._crit_edge13.i.i, 
   %41 = load ptr, ptr %40, align 8
   %42 = sext i32 %38 to i64
   %43 = shl nsw i64 %42, 4
-  %44 = tail call ptr @_erealloc(ptr noundef %41, i64 noundef %43) #34
+  %44 = tail call ptr @_erealloc(ptr noundef %41, i64 noundef %43) #32
   store ptr %44, ptr %40, align 8
   br label %zend_add_literal_string.exit10
 
 zend_add_literal_string.exit10:                   ; preds = %._crit_edge13.i.i7, %39
   %.val.i.i4 = phi ptr [ %.val.pre.i.i9, %._crit_edge13.i.i7 ], [ %44, %39 ]
   %45 = load ptr, ptr @zend_new_interned_string, align 8
-  %46 = tail call ptr %45(ptr noundef %29) #30
+  %46 = tail call ptr %45(ptr noundef %29) #28
   %47 = getelementptr inbounds i8, ptr %46, i64 4
   %48 = load i32, ptr %47, align 4
   %49 = and i32 %48, 64
@@ -28298,14 +28345,14 @@ define internal fastcc i32 @zend_add_ns_func_name_literal(ptr noundef %0) unname
   %13 = load ptr, ptr %12, align 8
   %14 = sext i32 %10 to i64
   %15 = shl nsw i64 %14, 4
-  %16 = tail call ptr @_erealloc(ptr noundef %13, i64 noundef %15) #34
+  %16 = tail call ptr @_erealloc(ptr noundef %13, i64 noundef %15) #32
   store ptr %16, ptr %12, align 8
   br label %zend_add_literal_string.exit
 
 zend_add_literal_string.exit:                     ; preds = %._crit_edge13.i.i, %11
   %.val.i.i = phi ptr [ %.val.pre.i.i, %._crit_edge13.i.i ], [ %16, %11 ]
   %17 = load ptr, ptr @zend_new_interned_string, align 8
-  %18 = tail call ptr %17(ptr noundef %0) #30
+  %18 = tail call ptr %17(ptr noundef %0) #28
   %19 = getelementptr inbounds i8, ptr %18, i64 4
   %20 = load i32, ptr %19, align 4
   %21 = and i32 %20, 64
@@ -28321,7 +28368,7 @@ zend_add_literal_string.exit:                     ; preds = %._crit_edge13.i.i, 
   store i32 %24, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %26, i64 12
   store i32 0, ptr %28, align 4
-  %29 = tail call ptr @zend_string_tolower_ex(ptr noundef %18, i1 noundef zeroext false) #30
+  %29 = tail call ptr @zend_string_tolower_ex(ptr noundef %18, i1 noundef zeroext false) #28
   %30 = getelementptr inbounds i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 4), align 8
@@ -28350,14 +28397,14 @@ zend_add_literal_string.exit:                     ; preds = %._crit_edge13.i.i, 
   %41 = load ptr, ptr %40, align 8
   %42 = sext i32 %38 to i64
   %43 = shl nsw i64 %42, 4
-  %44 = tail call ptr @_erealloc(ptr noundef %41, i64 noundef %43) #34
+  %44 = tail call ptr @_erealloc(ptr noundef %41, i64 noundef %43) #32
   store ptr %44, ptr %40, align 8
   br label %zend_add_literal_string.exit56
 
 zend_add_literal_string.exit56:                   ; preds = %._crit_edge13.i.i53, %39
   %.val.i.i50 = phi ptr [ %.val.pre.i.i55, %._crit_edge13.i.i53 ], [ %44, %39 ]
   %45 = load ptr, ptr @zend_new_interned_string, align 8
-  %46 = tail call ptr %45(ptr noundef %29) #30
+  %46 = tail call ptr %45(ptr noundef %29) #28
   %47 = getelementptr inbounds i8, ptr %46, i64 4
   %48 = load i32, ptr %47, align 4
   %49 = and i32 %48, 64
@@ -28376,7 +28423,7 @@ zend_add_literal_string.exit56:                   ; preds = %._crit_edge13.i.i53
   %57 = getelementptr inbounds i8, ptr %18, i64 24
   %58 = getelementptr inbounds i8, ptr %18, i64 16
   %59 = load i64, ptr %58, align 8
-  %60 = tail call ptr @memrchr(ptr noundef nonnull %57, i32 noundef 92, i64 noundef %59) #29
+  %60 = tail call ptr @memrchr(ptr noundef nonnull %57, i32 noundef 92, i64 noundef %59) #27
   %.not.i.not = icmp eq ptr %60, null
   br i1 %.not.i.not, label %zend_get_unqualified_name.exit, label %61
 
@@ -28388,7 +28435,7 @@ zend_add_literal_string.exit56:                   ; preds = %._crit_edge13.i.i53
   %66 = sub i64 %64, %65
   %67 = and i64 %66, -8
   %68 = add i64 %67, 32
-  %69 = tail call noalias ptr @_emalloc(i64 noundef %68) #32
+  %69 = tail call noalias ptr @_emalloc(i64 noundef %68) #30
   store i32 1, ptr %69, align 4
   %70 = getelementptr inbounds i8, ptr %69, i64 4
   store i32 22, ptr %70, align 4
@@ -28397,7 +28444,7 @@ zend_add_literal_string.exit56:                   ; preds = %._crit_edge13.i.i53
   %72 = getelementptr inbounds i8, ptr %69, i64 16
   store i64 %66, ptr %72, align 8
   %73 = getelementptr inbounds i8, ptr %69, i64 24
-  %74 = tail call ptr @zend_str_tolower_copy(ptr noundef nonnull %73, ptr noundef nonnull %62, i64 noundef %66) #30
+  %74 = tail call ptr @zend_str_tolower_copy(ptr noundef nonnull %73, ptr noundef nonnull %62, i64 noundef %66) #28
   %75 = load i32, ptr %70, align 4
   %76 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 4), align 8
   %77 = getelementptr inbounds i8, ptr %76, i64 168
@@ -28425,14 +28472,14 @@ zend_add_literal_string.exit56:                   ; preds = %._crit_edge13.i.i53
   %85 = load ptr, ptr %84, align 8
   %86 = sext i32 %82 to i64
   %87 = shl nsw i64 %86, 4
-  %88 = tail call ptr @_erealloc(ptr noundef %85, i64 noundef %87) #34
+  %88 = tail call ptr @_erealloc(ptr noundef %85, i64 noundef %87) #32
   store ptr %88, ptr %84, align 8
   br label %zend_add_literal_string.exit66
 
 zend_add_literal_string.exit66:                   ; preds = %._crit_edge13.i.i63, %83
   %.val.i.i60 = phi ptr [ %.val.pre.i.i65, %._crit_edge13.i.i63 ], [ %88, %83 ]
   %89 = load ptr, ptr @zend_new_interned_string, align 8
-  %90 = tail call ptr %89(ptr noundef nonnull %69) #30
+  %90 = tail call ptr %89(ptr noundef nonnull %69) #28
   %91 = getelementptr inbounds i8, ptr %90, i64 4
   %92 = load i32, ptr %91, align 4
   %93 = and i32 %92, 64
@@ -28461,40 +28508,6 @@ declare ptr @zend_ast_export(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare ptr @zend_ast_list_add(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 declare ptr @zend_str_tolower_copy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
-
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc zeroext i1 @zend_args_contain_unpack_or_named(ptr nocapture noundef readonly %0) unnamed_addr #20 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load i32, ptr %2, align 8
-  %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph
-
-.lr.ph:                                           ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = zext i32 %3 to i64
-  br label %6
-
-6:                                                ; preds = %.lr.ph, %11
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %7 = phi i1 [ true, %.lr.ph ], [ %12, %11 ]
-  %8 = getelementptr inbounds [1 x ptr], ptr %4, i64 0, i64 %indvars.iv
-  %9 = load ptr, ptr %8, align 8
-  %10 = load i16, ptr %9, align 8
-  switch i16 %10, label %11 [
-    i16 258, label %._crit_edge
-    i16 549, label %._crit_edge
-  ]
-
-11:                                               ; preds = %6
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %12 = icmp ult i64 %indvars.iv.next, %5
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %5
-  br i1 %exitcond.not, label %._crit_edge, label %6
-
-._crit_edge:                                      ; preds = %6, %6, %11, %1
-  %.lcssa = phi i1 [ false, %1 ], [ %12, %11 ], [ %7, %6 ], [ %7, %6 ]
-  ret i1 %.lcssa
-}
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @zend_compile_frameless_icall_ex(ptr noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
@@ -28551,14 +28564,14 @@ find_frameless_function_offset.exit:              ; preds = %4, %13
   %31 = ptrtoint ptr %30 to i64
   %32 = ptrtoint ptr %27 to i64
   %33 = sub i64 %31, %32
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %33) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %33) #29
   unreachable
 
 zend_compile_expr.exit:                           ; preds = %26
   %34 = getelementptr inbounds [1 x ptr], ptr %21, i64 0, i64 %indvars.iv
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds [3 x %struct._znode], ptr %5, i64 0, i64 %indvars.iv
-  %37 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %37 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %36, ptr noundef %35)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %37, ptr noundef nonnull %36, ptr noundef %35)
   br label %45
@@ -28569,7 +28582,7 @@ zend_compile_expr.exit:                           ; preds = %26
   %41 = getelementptr inbounds [3 x %struct._znode], ptr %5, i64 0, i64 %indvars.iv
   store i8 1, ptr %41, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 8
-  %43 = call i32 @zend_get_default_from_internal_arg_info(ptr noundef nonnull %42, ptr noundef %40) #30
+  %43 = call i32 @zend_get_default_from_internal_arg_info(ptr noundef nonnull %42, ptr noundef %40) #28
   %44 = icmp ne i32 %43, -1
   call void @llvm.assume(i1 %44)
   br label %45
@@ -28603,7 +28616,7 @@ zend_compile_expr.exit:                           ; preds = %26
   %56 = load ptr, ptr %55, align 8
   %57 = zext i32 %54 to i64
   %58 = shl nuw nsw i64 %57, 5
-  %59 = call ptr @_erealloc(ptr noundef %56, i64 noundef %58) #34
+  %59 = call ptr @_erealloc(ptr noundef %56, i64 noundef %58) #32
   store ptr %59, ptr %55, align 8
   br label %get_next_op.exit.i
 
@@ -28706,7 +28719,7 @@ zend_emit_op_tmp.exit:                            ; preds = %get_next_op.exit.i,
   %108 = load ptr, ptr %107, align 8
   %109 = sext i32 %105 to i64
   %110 = shl nsw i64 %109, 4
-  %111 = call ptr @_erealloc(ptr noundef %108, i64 noundef %110) #34
+  %111 = call ptr @_erealloc(ptr noundef %108, i64 noundef %110) #32
   store ptr %111, ptr %107, align 8
   br label %112
 
@@ -28720,7 +28733,7 @@ zend_emit_op_tmp.exit:                            ; preds = %get_next_op.exit.i,
 
 116:                                              ; preds = %112
   %117 = load ptr, ptr @zend_new_interned_string, align 8
-  %118 = call ptr %117(ptr noundef %.pre.i.i34) #30
+  %118 = call ptr %117(ptr noundef %.pre.i.i34) #28
   store ptr %118, ptr %97, align 8
   %119 = getelementptr inbounds i8, ptr %118, i64 4
   %120 = load i32, ptr %119, align 4
@@ -28790,7 +28803,7 @@ zend_add_literal.exit:                            ; preds = %112, %116, %122
   %148 = load ptr, ptr %147, align 8
   %149 = sext i32 %145 to i64
   %150 = shl nsw i64 %149, 4
-  %151 = call ptr @_erealloc(ptr noundef %148, i64 noundef %150) #34
+  %151 = call ptr @_erealloc(ptr noundef %148, i64 noundef %150) #32
   store ptr %151, ptr %147, align 8
   br label %152
 
@@ -28804,7 +28817,7 @@ zend_add_literal.exit:                            ; preds = %112, %116, %122
 
 156:                                              ; preds = %152
   %157 = load ptr, ptr @zend_new_interned_string, align 8
-  %158 = call ptr %157(ptr noundef %.pre.i.i39) #30
+  %158 = call ptr %157(ptr noundef %.pre.i.i39) #28
   store ptr %158, ptr %137, align 16
   %159 = getelementptr inbounds i8, ptr %158, i64 4
   %160 = load i32, ptr %159, align 4
@@ -28869,13 +28882,13 @@ define internal fastcc range(i32 -1, 1) i32 @zend_compile_func_typecheck(ptr nou
   %12 = ptrtoint ptr %11 to i64
   %13 = ptrtoint ptr %8 to i64
   %14 = sub i64 %12, %13
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %14) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %14) #29
   unreachable
 
 zend_compile_expr.exit:                           ; preds = %7
   %15 = getelementptr inbounds i8, ptr %1, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %17 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %4, ptr noundef %16)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %17, ptr noundef nonnull %4, ptr noundef %16)
   %18 = call fastcc ptr @zend_emit_op_tmp(ptr noundef %0, i8 noundef zeroext 123, ptr noundef nonnull %4, ptr noundef null)
@@ -28910,13 +28923,13 @@ define internal fastcc range(i32 -1, 1) i32 @zend_compile_func_is_scalar(ptr nou
   %11 = ptrtoint ptr %10 to i64
   %12 = ptrtoint ptr %7 to i64
   %13 = sub i64 %11, %12
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %13) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %13) #29
   unreachable
 
 zend_compile_expr.exit:                           ; preds = %6
   %14 = getelementptr inbounds i8, ptr %1, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %16 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %3, ptr noundef %15)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %16, ptr noundef nonnull %3, ptr noundef %15)
   %17 = call fastcc ptr @zend_emit_op_tmp(ptr noundef %0, i8 noundef zeroext 123, ptr noundef nonnull %3, ptr noundef null)
@@ -28948,13 +28961,13 @@ define internal fastcc range(i32 -1, 1) i32 @zend_compile_func_cast(ptr noundef 
   %12 = ptrtoint ptr %11 to i64
   %13 = ptrtoint ptr %8 to i64
   %14 = sub i64 %12, %13
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %14) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %14) #29
   unreachable
 
 zend_compile_expr.exit:                           ; preds = %7
   %15 = getelementptr inbounds i8, ptr %1, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %17 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %4, ptr noundef %16)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %17, ptr noundef nonnull %4, ptr noundef %16)
   %18 = icmp eq i32 %2, 18
@@ -29012,7 +29025,7 @@ define internal fastcc range(i32 -1, 1) i32 @zend_compile_func_defined(ptr nound
   br label %25
 
 23:                                               ; preds = %10
-  %24 = tail call ptr @zval_get_string_func(ptr noundef nonnull %11) #30
+  %24 = tail call ptr @zval_get_string_func(ptr noundef nonnull %11) #28
   br label %25
 
 25:                                               ; preds = %15, %20, %23
@@ -29020,12 +29033,12 @@ define internal fastcc range(i32 -1, 1) i32 @zend_compile_func_defined(ptr nound
   %27 = getelementptr inbounds i8, ptr %26, i64 24
   %28 = getelementptr inbounds i8, ptr %26, i64 16
   %29 = load i64, ptr %28, align 8
-  %30 = tail call ptr @memrchr(ptr noundef nonnull %27, i32 noundef 92, i64 noundef %29) #29
+  %30 = tail call ptr @memrchr(ptr noundef nonnull %27, i32 noundef 92, i64 noundef %29) #27
   %.not59 = icmp eq ptr %30, null
   br i1 %.not59, label %31, label %33
 
 31:                                               ; preds = %25
-  %32 = tail call ptr @memrchr(ptr noundef nonnull %27, i32 noundef 58, i64 noundef %29) #29
+  %32 = tail call ptr @memrchr(ptr noundef nonnull %27, i32 noundef 58, i64 noundef %29) #27
   %.not60 = icmp eq ptr %32, null
   br i1 %.not60, label %43, label %33
 
@@ -29046,7 +29059,7 @@ define internal fastcc range(i32 -1, 1) i32 @zend_compile_func_defined(ptr nound
   br i1 %41, label %42, label %73
 
 42:                                               ; preds = %37
-  tail call void @_efree(ptr noundef nonnull %26) #30
+  tail call void @_efree(ptr noundef nonnull %26) #28
   br label %73
 
 43:                                               ; preds = %31
@@ -29071,11 +29084,11 @@ define internal fastcc range(i32 -1, 1) i32 @zend_compile_func_defined(ptr nound
   br i1 %54, label %55, label %56
 
 55:                                               ; preds = %50
-  tail call void @_efree(ptr noundef nonnull %26) #30
+  tail call void @_efree(ptr noundef nonnull %26) #28
   br label %56
 
 56:                                               ; preds = %50, %55, %46
-  tail call void @zval_ptr_dtor(ptr noundef nonnull %44) #30
+  tail call void @zval_ptr_dtor(ptr noundef nonnull %44) #28
   %57 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 3, ptr %57, align 8
   store i8 1, ptr %0, align 8
@@ -29111,7 +29124,7 @@ define internal fastcc range(i32 -1, 1) i32 @zend_compile_func_defined(ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -1, 1) i32 @zend_compile_func_chr(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) unnamed_addr #21 {
+define internal fastcc range(i32 -1, 1) i32 @zend_compile_func_chr(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) unnamed_addr #20 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 1
@@ -29157,7 +29170,7 @@ define internal fastcc range(i32 -1, 1) i32 @zend_compile_func_cufa(ptr noundef 
   %8 = getelementptr inbounds i8, ptr %1, i64 8
   %9 = load i32, ptr %8, align 8
   %.not = icmp eq i32 %9, 2
-  br i1 %.not, label %10, label %219
+  br i1 %.not, label %10, label %224
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds i8, ptr %1, i64 16
@@ -29170,19 +29183,19 @@ define internal fastcc range(i32 -1, 1) i32 @zend_compile_func_cufa(ptr noundef 
 15:                                               ; preds = %10
   %16 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 32), align 8
   %17 = tail call ptr @llvm.frameaddress.p0(i32 0)
-  %.not.i.i71 = icmp ugt ptr %17, %16
-  br i1 %.not.i.i71, label %zend_compile_expr.exit72, label %18
+  %.not.i.i73 = icmp ugt ptr %17, %16
+  br i1 %.not.i.i73, label %zend_compile_expr.exit74, label %18
 
 18:                                               ; preds = %15
   %19 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 31), align 8
   %20 = ptrtoint ptr %19 to i64
   %21 = ptrtoint ptr %16 to i64
   %22 = sub i64 %20, %21
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %22) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %22) #29
   unreachable
 
-zend_compile_expr.exit72:                         ; preds = %15
-  %23 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+zend_compile_expr.exit74:                         ; preds = %15
+  %23 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %4, ptr noundef %12)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %23, ptr noundef nonnull %4, ptr noundef %12)
   %24 = call fastcc ptr @zend_emit_op(ptr noundef null, i8 noundef zeroext 118, ptr noundef null, ptr noundef nonnull %4)
@@ -29194,48 +29207,48 @@ zend_compile_expr.exit72:                         ; preds = %15
   %.not.i = icmp eq i32 %28, 0
   br i1 %.not.i, label %29, label %32
 
-29:                                               ; preds = %zend_compile_expr.exit72
+29:                                               ; preds = %zend_compile_expr.exit74
   %30 = load i32, ptr %2, align 4
   %31 = add i32 %30, 1
   store i32 %31, ptr %2, align 4
   br label %32
 
-32:                                               ; preds = %29, %zend_compile_expr.exit72
-  %33 = phi i32 [ 262, %29 ], [ 6, %zend_compile_expr.exit72 ]
+32:                                               ; preds = %29, %zend_compile_expr.exit74
+  %33 = phi i32 [ 262, %29 ], [ 6, %zend_compile_expr.exit74 ]
   %34 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 4), align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 168
   %36 = load i32, ptr %35, align 8
   %37 = add nsw i32 %36, 1
   store i32 %37, ptr %35, align 8
   %38 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 22, i32 2), align 8
-  %.not.i69 = icmp slt i32 %36, %38
-  br i1 %.not.i69, label %._crit_edge13.i, label %.lr.ph.i
+  %.not.i70 = icmp slt i32 %36, %38
+  br i1 %.not.i70, label %._crit_edge13.i, label %.lr.ph.i71
 
 ._crit_edge13.i:                                  ; preds = %32
   %.phi.trans.insert.i = getelementptr i8, ptr %34, i64 176
   %.val.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %zend_add_literal.exit
 
-.lr.ph.i:                                         ; preds = %32, %.lr.ph.i
-  %39 = phi i32 [ %40, %.lr.ph.i ], [ %38, %32 ]
+.lr.ph.i71:                                       ; preds = %32, %.lr.ph.i71
+  %39 = phi i32 [ %40, %.lr.ph.i71 ], [ %38, %32 ]
   %40 = add nsw i32 %39, 16
   %.not9.i = icmp slt i32 %36, %40
-  br i1 %.not9.i, label %41, label %.lr.ph.i
+  br i1 %.not9.i, label %41, label %.lr.ph.i71
 
-41:                                               ; preds = %.lr.ph.i
+41:                                               ; preds = %.lr.ph.i71
   store i32 %40, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 22, i32 2), align 8
   %42 = getelementptr inbounds i8, ptr %34, i64 176
   %43 = load ptr, ptr %42, align 8
   %44 = sext i32 %40 to i64
   %45 = shl nsw i64 %44, 4
-  %46 = call ptr @_erealloc(ptr noundef %43, i64 noundef %45) #34
+  %46 = call ptr @_erealloc(ptr noundef %43, i64 noundef %45) #32
   store ptr %46, ptr %42, align 8
   br label %zend_add_literal.exit
 
 zend_add_literal.exit:                            ; preds = %._crit_edge13.i, %41
   %.val.i = phi ptr [ %.val.pre.i, %._crit_edge13.i ], [ %46, %41 ]
   %47 = load ptr, ptr @zend_new_interned_string, align 8
-  %48 = call ptr %47(ptr noundef %2) #30
+  %48 = call ptr %47(ptr noundef %2) #28
   %49 = getelementptr inbounds i8, ptr %48, i64 4
   %50 = load i32, ptr %49, align 4
   %51 = and i32 %50, 64
@@ -29260,28 +29273,28 @@ zend_compile_init_user_func.exit:                 ; preds = %10, %zend_add_liter
   %59 = load ptr, ptr %58, align 8
   %60 = load i16, ptr %59, align 8
   %61 = icmp eq i16 %60, 516
-  br i1 %61, label %62, label %137
+  br i1 %61, label %62, label %142
 
 62:                                               ; preds = %zend_compile_init_user_func.exit
   %63 = getelementptr inbounds i8, ptr %59, i64 8
   %64 = load ptr, ptr %63, align 8
   %65 = load i16, ptr %64, align 8
   %66 = icmp eq i16 %65, 64
-  br i1 %66, label %67, label %137
+  br i1 %66, label %67, label %142
 
 67:                                               ; preds = %62
   %68 = getelementptr inbounds i8, ptr %64, i64 8
   %69 = getelementptr inbounds i8, ptr %64, i64 16
   %70 = load i8, ptr %69, align 8
   %71 = icmp eq i8 %70, 6
-  br i1 %71, label %72, label %137
+  br i1 %71, label %72, label %142
 
 72:                                               ; preds = %67
   %73 = getelementptr inbounds i8, ptr %59, i64 16
   %74 = load ptr, ptr %73, align 8
   %75 = load i16, ptr %74, align 8
   %76 = icmp eq i16 %75, 128
-  br i1 %76, label %77, label %137
+  br i1 %76, label %77, label %142
 
 77:                                               ; preds = %72
   %78 = load ptr, ptr %68, align 8
@@ -29293,256 +29306,279 @@ zend_compile_init_user_func.exit:                 ; preds = %10, %zend_add_liter
   %84 = getelementptr inbounds i8, ptr %83, i64 16
   %85 = load i64, ptr %84, align 8
   %86 = icmp eq i64 %85, 11
-  br i1 %86, label %87, label %127
+  br i1 %86, label %87, label %.thread
 
 87:                                               ; preds = %77
   %88 = getelementptr inbounds i8, ptr %83, i64 24
-  %89 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %88, i64 noundef 11, ptr noundef nonnull @.str.206, i64 noundef 11) #30
+  %89 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %88, i64 noundef 11, ptr noundef nonnull @.str.206, i64 noundef 11) #28
   %.not60 = icmp eq i32 %89, 0
-  br i1 %.not60, label %90, label %127
+  br i1 %.not60, label %90, label %.thread
 
 90:                                               ; preds = %87
-  %91 = call fastcc zeroext i1 @zend_args_contain_unpack_or_named(ptr noundef nonnull %74)
-  br i1 %91, label %127, label %92
+  %91 = getelementptr inbounds i8, ptr %74, i64 8
+  %92 = load i32, ptr %91, align 8
+  %.not.i63 = icmp eq i32 %92, 0
+  br i1 %.not.i63, label %.thread, label %.lr.ph.i
 
-92:                                               ; preds = %90
-  %93 = getelementptr inbounds i8, ptr %74, i64 8
-  %94 = load i32, ptr %93, align 8
-  %95 = icmp eq i32 %94, 3
-  br i1 %95, label %96, label %127
+.lr.ph.i:                                         ; preds = %90
+  %93 = getelementptr inbounds i8, ptr %74, i64 16
+  %94 = zext i32 %92 to i64
+  br label %95
 
-96:                                               ; preds = %92
-  %97 = getelementptr inbounds i8, ptr %74, i64 16
-  %98 = getelementptr inbounds i8, ptr %74, i64 24
-  %99 = load ptr, ptr %98, align 8
-  %100 = load i16, ptr %99, align 8
-  %101 = icmp eq i16 %100, 64
-  br i1 %101, label %102, label %127
+95:                                               ; preds = %100, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %100 ]
+  %96 = phi i1 [ true, %.lr.ph.i ], [ %101, %100 ]
+  %97 = getelementptr inbounds [1 x ptr], ptr %93, i64 0, i64 %indvars.iv.i
+  %98 = load ptr, ptr %97, align 8
+  %99 = load i16, ptr %98, align 8
+  switch i16 %99, label %100 [
+    i16 258, label %zend_args_contain_unpack_or_named.exit
+    i16 549, label %zend_args_contain_unpack_or_named.exit
+  ]
 
-102:                                              ; preds = %96
-  %103 = getelementptr inbounds i8, ptr %99, i64 8
-  %104 = getelementptr inbounds i8, ptr %99, i64 16
-  %105 = load i8, ptr %104, align 8
-  %106 = icmp eq i8 %105, 4
-  br i1 %106, label %107, label %127
+100:                                              ; preds = %95
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %101 = icmp ult i64 %indvars.iv.next.i, %94
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %94
+  br i1 %exitcond.not.i, label %zend_args_contain_unpack_or_named.exit, label %95
 
-107:                                              ; preds = %102
-  %108 = load i64, ptr %103, align 8
-  %or.cond = icmp ult i64 %108, 2147483648
-  br i1 %or.cond, label %109, label %127
+zend_args_contain_unpack_or_named.exit:           ; preds = %95, %95, %100
+  %.lcssa.i = phi i1 [ %101, %100 ], [ %96, %95 ], [ %96, %95 ]
+  %102 = icmp ne i32 %92, 3
+  %or.cond77.not = or i1 %102, %.lcssa.i
+  br i1 %or.cond77.not, label %.thread, label %103
 
-109:                                              ; preds = %107
-  %110 = load ptr, ptr %97, align 8
-  call fastcc void @zend_compile_expr(ptr noundef nonnull %5, ptr noundef %110)
-  %111 = getelementptr inbounds i8, ptr %74, i64 32
-  %112 = load ptr, ptr %111, align 8
-  call fastcc void @zend_compile_expr(ptr noundef nonnull %7, ptr noundef %112)
-  %113 = call fastcc ptr @zend_emit_op(ptr noundef null, i8 noundef zeroext 119, ptr noundef nonnull %5, ptr noundef nonnull %7)
-  %114 = load i64, ptr %103, align 8
-  %115 = trunc i64 %114 to i32
-  %116 = getelementptr inbounds i8, ptr %113, i64 20
-  store i32 %115, ptr %116, align 4
-  %117 = call fastcc ptr @zend_emit_op(ptr noundef %0, i8 noundef zeroext 60, ptr noundef null, ptr noundef null)
-  %118 = getelementptr inbounds i8, ptr %83, i64 4
-  %119 = load i32, ptr %118, align 4
-  %120 = and i32 %119, 64
-  %.not61 = icmp eq i32 %120, 0
-  br i1 %.not61, label %121, label %219
+103:                                              ; preds = %zend_args_contain_unpack_or_named.exit
+  %104 = getelementptr inbounds i8, ptr %74, i64 24
+  %105 = load ptr, ptr %104, align 8
+  %106 = load i16, ptr %105, align 8
+  %107 = icmp eq i16 %106, 64
+  br i1 %107, label %108, label %.thread
 
-121:                                              ; preds = %109
-  %122 = load i32, ptr %83, align 4
-  %123 = icmp ne i32 %122, 0
-  call void @llvm.assume(i1 %123)
-  %124 = add i32 %122, -1
-  store i32 %124, ptr %83, align 4
-  %125 = icmp eq i32 %124, 0
-  br i1 %125, label %126, label %219
+108:                                              ; preds = %103
+  %109 = getelementptr inbounds i8, ptr %105, i64 8
+  %110 = getelementptr inbounds i8, ptr %105, i64 16
+  %111 = load i8, ptr %110, align 8
+  %112 = icmp eq i8 %111, 4
+  br i1 %112, label %113, label %.thread
 
-126:                                              ; preds = %121
-  call void @_efree(ptr noundef nonnull %83) #30
-  br label %219
+113:                                              ; preds = %108
+  %114 = load i64, ptr %109, align 8
+  %or.cond = icmp ult i64 %114, 2147483648
+  br i1 %or.cond, label %115, label %.thread
 
-127:                                              ; preds = %102, %107, %96, %92, %90, %87, %77
-  %128 = getelementptr inbounds i8, ptr %83, i64 4
-  %129 = load i32, ptr %128, align 4
-  %130 = and i32 %129, 64
-  %.not62 = icmp eq i32 %130, 0
-  br i1 %.not62, label %131, label %137
+115:                                              ; preds = %113
+  %116 = load ptr, ptr %93, align 8
+  call fastcc void @zend_compile_expr(ptr noundef nonnull %5, ptr noundef %116)
+  %117 = getelementptr inbounds i8, ptr %74, i64 32
+  %118 = load ptr, ptr %117, align 8
+  call fastcc void @zend_compile_expr(ptr noundef nonnull %7, ptr noundef %118)
+  %119 = call fastcc ptr @zend_emit_op(ptr noundef null, i8 noundef zeroext 119, ptr noundef nonnull %5, ptr noundef nonnull %7)
+  %120 = load i64, ptr %109, align 8
+  %121 = trunc i64 %120 to i32
+  %122 = getelementptr inbounds i8, ptr %119, i64 20
+  store i32 %121, ptr %122, align 4
+  %123 = call fastcc ptr @zend_emit_op(ptr noundef %0, i8 noundef zeroext 60, ptr noundef null, ptr noundef null)
+  %124 = getelementptr inbounds i8, ptr %83, i64 4
+  %125 = load i32, ptr %124, align 4
+  %126 = and i32 %125, 64
+  %.not61 = icmp eq i32 %126, 0
+  br i1 %.not61, label %127, label %224
 
-131:                                              ; preds = %127
-  %132 = load i32, ptr %83, align 4
-  %133 = icmp ne i32 %132, 0
-  call void @llvm.assume(i1 %133)
-  %134 = add i32 %132, -1
-  store i32 %134, ptr %83, align 4
-  %135 = icmp eq i32 %134, 0
-  br i1 %135, label %136, label %137
+127:                                              ; preds = %115
+  %128 = load i32, ptr %83, align 4
+  %129 = icmp ne i32 %128, 0
+  call void @llvm.assume(i1 %129)
+  %130 = add i32 %128, -1
+  store i32 %130, ptr %83, align 4
+  %131 = icmp eq i32 %130, 0
+  br i1 %131, label %132, label %224
 
-136:                                              ; preds = %131
-  call void @_efree(ptr noundef nonnull %83) #30
-  br label %137
+132:                                              ; preds = %127
+  call void @_efree(ptr noundef nonnull %83) #28
+  br label %224
 
-137:                                              ; preds = %127, %136, %131, %72, %67, %62, %zend_compile_init_user_func.exit
-  %138 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 32), align 8
-  %139 = call ptr @llvm.frameaddress.p0(i32 0)
-  %.not.i.i = icmp ugt ptr %139, %138
-  br i1 %.not.i.i, label %zend_compile_expr.exit, label %140
+.thread:                                          ; preds = %90, %108, %113, %103, %zend_args_contain_unpack_or_named.exit, %87, %77
+  %133 = getelementptr inbounds i8, ptr %83, i64 4
+  %134 = load i32, ptr %133, align 4
+  %135 = and i32 %134, 64
+  %.not62 = icmp eq i32 %135, 0
+  br i1 %.not62, label %136, label %142
 
-140:                                              ; preds = %137
-  %141 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 31), align 8
-  %142 = ptrtoint ptr %141 to i64
-  %143 = ptrtoint ptr %138 to i64
-  %144 = sub i64 %142, %143
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %144) #31
+136:                                              ; preds = %.thread
+  %137 = load i32, ptr %83, align 4
+  %138 = icmp ne i32 %137, 0
+  call void @llvm.assume(i1 %138)
+  %139 = add i32 %137, -1
+  store i32 %139, ptr %83, align 4
+  %140 = icmp eq i32 %139, 0
+  br i1 %140, label %141, label %142
+
+141:                                              ; preds = %136
+  call void @_efree(ptr noundef nonnull %83) #28
+  br label %142
+
+142:                                              ; preds = %.thread, %141, %136, %72, %67, %62, %zend_compile_init_user_func.exit
+  %143 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 32), align 8
+  %144 = call ptr @llvm.frameaddress.p0(i32 0)
+  %.not.i.i = icmp ugt ptr %144, %143
+  br i1 %.not.i.i, label %zend_compile_expr.exit, label %145
+
+145:                                              ; preds = %142
+  %146 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 31), align 8
+  %147 = ptrtoint ptr %146 to i64
+  %148 = ptrtoint ptr %143 to i64
+  %149 = sub i64 %147, %148
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %149) #29
   unreachable
 
-zend_compile_expr.exit:                           ; preds = %137
-  %145 = load ptr, ptr %58, align 8
-  %146 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
-  call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %5, ptr noundef %145)
-  call fastcc void @zend_short_circuiting_commit(i32 noundef %146, ptr noundef nonnull %5, ptr noundef %145)
-  %147 = call fastcc ptr @zend_emit_op(ptr noundef null, i8 noundef zeroext 119, ptr noundef nonnull %5, ptr noundef null)
-  %148 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 4), align 8
-  %149 = getelementptr inbounds i8, ptr %148, i64 84
-  %150 = load i32, ptr %149, align 4
-  %151 = add i32 %150, 1
-  store i32 %151, ptr %149, align 4
-  %152 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 22), align 8
-  %.not.i.i63 = icmp ult i32 %150, %152
-  br i1 %.not.i.i63, label %._crit_edge.i.i, label %153
+zend_compile_expr.exit:                           ; preds = %142
+  %150 = load ptr, ptr %58, align 8
+  %151 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
+  call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %5, ptr noundef %150)
+  call fastcc void @zend_short_circuiting_commit(i32 noundef %151, ptr noundef nonnull %5, ptr noundef %150)
+  %152 = call fastcc ptr @zend_emit_op(ptr noundef null, i8 noundef zeroext 119, ptr noundef nonnull %5, ptr noundef null)
+  %153 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 4), align 8
+  %154 = getelementptr inbounds i8, ptr %153, i64 84
+  %155 = load i32, ptr %154, align 4
+  %156 = add i32 %155, 1
+  store i32 %156, ptr %154, align 4
+  %157 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 22), align 8
+  %.not.i.i64 = icmp ult i32 %155, %157
+  br i1 %.not.i.i64, label %._crit_edge.i.i, label %158
 
 ._crit_edge.i.i:                                  ; preds = %zend_compile_expr.exit
-  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %148, i64 88
+  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %153, i64 88
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
   br label %zend_emit_op.exit
 
-153:                                              ; preds = %zend_compile_expr.exit
-  %154 = shl i32 %152, 2
-  store i32 %154, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 22), align 8
-  %155 = getelementptr inbounds i8, ptr %148, i64 88
-  %156 = load ptr, ptr %155, align 8
-  %157 = zext i32 %154 to i64
-  %158 = shl nuw nsw i64 %157, 5
-  %159 = call ptr @_erealloc(ptr noundef %156, i64 noundef %158) #34
-  store ptr %159, ptr %155, align 8
+158:                                              ; preds = %zend_compile_expr.exit
+  %159 = shl i32 %157, 2
+  store i32 %159, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 22), align 8
+  %160 = getelementptr inbounds i8, ptr %153, i64 88
+  %161 = load ptr, ptr %160, align 8
+  %162 = zext i32 %159 to i64
+  %163 = shl nuw nsw i64 %162, 5
+  %164 = call ptr @_erealloc(ptr noundef %161, i64 noundef %163) #32
+  store ptr %164, ptr %160, align 8
   br label %zend_emit_op.exit
 
-zend_emit_op.exit:                                ; preds = %._crit_edge.i.i, %153
-  %160 = phi ptr [ %.pre.i.i, %._crit_edge.i.i ], [ %159, %153 ]
-  %161 = zext i32 %150 to i64
-  %162 = getelementptr inbounds %struct._zend_op, ptr %160, i64 %161
-  %163 = getelementptr inbounds i8, ptr %162, i64 28
-  store i8 0, ptr %163, align 4
-  %164 = getelementptr inbounds i8, ptr %162, i64 29
-  store i8 0, ptr %164, align 1
-  %165 = getelementptr inbounds i8, ptr %162, i64 8
-  store i32 -1, ptr %165, align 8
-  %166 = getelementptr inbounds i8, ptr %162, i64 30
-  store i8 0, ptr %166, align 2
-  %167 = getelementptr inbounds i8, ptr %162, i64 12
-  store i32 -1, ptr %167, align 4
-  %168 = getelementptr inbounds i8, ptr %162, i64 31
-  store i8 0, ptr %168, align 1
-  %169 = getelementptr inbounds i8, ptr %162, i64 16
-  store i32 -1, ptr %169, align 8
-  %170 = getelementptr inbounds i8, ptr %162, i64 20
-  store i32 0, ptr %170, align 4
-  %171 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
-  %172 = getelementptr inbounds i8, ptr %162, i64 24
-  store i32 %171, ptr %172, align 8
-  store i8 -57, ptr %163, align 4
-  %173 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 4), align 8
-  %174 = getelementptr inbounds i8, ptr %173, i64 84
-  %175 = load i32, ptr %174, align 4
-  %176 = add i32 %175, 1
-  store i32 %176, ptr %174, align 4
-  %177 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 22), align 8
-  %.not.i.i64 = icmp ult i32 %175, %177
-  br i1 %.not.i.i64, label %._crit_edge.i.i65, label %178
+zend_emit_op.exit:                                ; preds = %._crit_edge.i.i, %158
+  %165 = phi ptr [ %.pre.i.i, %._crit_edge.i.i ], [ %164, %158 ]
+  %166 = zext i32 %155 to i64
+  %167 = getelementptr inbounds %struct._zend_op, ptr %165, i64 %166
+  %168 = getelementptr inbounds i8, ptr %167, i64 28
+  store i8 0, ptr %168, align 4
+  %169 = getelementptr inbounds i8, ptr %167, i64 29
+  store i8 0, ptr %169, align 1
+  %170 = getelementptr inbounds i8, ptr %167, i64 8
+  store i32 -1, ptr %170, align 8
+  %171 = getelementptr inbounds i8, ptr %167, i64 30
+  store i8 0, ptr %171, align 2
+  %172 = getelementptr inbounds i8, ptr %167, i64 12
+  store i32 -1, ptr %172, align 4
+  %173 = getelementptr inbounds i8, ptr %167, i64 31
+  store i8 0, ptr %173, align 1
+  %174 = getelementptr inbounds i8, ptr %167, i64 16
+  store i32 -1, ptr %174, align 8
+  %175 = getelementptr inbounds i8, ptr %167, i64 20
+  store i32 0, ptr %175, align 4
+  %176 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  %177 = getelementptr inbounds i8, ptr %167, i64 24
+  store i32 %176, ptr %177, align 8
+  store i8 -57, ptr %168, align 4
+  %178 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 4), align 8
+  %179 = getelementptr inbounds i8, ptr %178, i64 84
+  %180 = load i32, ptr %179, align 4
+  %181 = add i32 %180, 1
+  store i32 %181, ptr %179, align 4
+  %182 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 22), align 8
+  %.not.i.i65 = icmp ult i32 %180, %182
+  br i1 %.not.i.i65, label %._crit_edge.i.i66, label %183
 
-._crit_edge.i.i65:                                ; preds = %zend_emit_op.exit
-  %.phi.trans.insert.i.i66 = getelementptr inbounds i8, ptr %173, i64 88
-  %.pre.i.i67 = load ptr, ptr %.phi.trans.insert.i.i66, align 8
+._crit_edge.i.i66:                                ; preds = %zend_emit_op.exit
+  %.phi.trans.insert.i.i67 = getelementptr inbounds i8, ptr %178, i64 88
+  %.pre.i.i68 = load ptr, ptr %.phi.trans.insert.i.i67, align 8
   br label %get_next_op.exit.i
 
-178:                                              ; preds = %zend_emit_op.exit
-  %179 = shl i32 %177, 2
-  store i32 %179, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 22), align 8
-  %180 = getelementptr inbounds i8, ptr %173, i64 88
-  %181 = load ptr, ptr %180, align 8
-  %182 = zext i32 %179 to i64
-  %183 = shl nuw nsw i64 %182, 5
-  %184 = call ptr @_erealloc(ptr noundef %181, i64 noundef %183) #34
-  store ptr %184, ptr %180, align 8
+183:                                              ; preds = %zend_emit_op.exit
+  %184 = shl i32 %182, 2
+  store i32 %184, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 22), align 8
+  %185 = getelementptr inbounds i8, ptr %178, i64 88
+  %186 = load ptr, ptr %185, align 8
+  %187 = zext i32 %184 to i64
+  %188 = shl nuw nsw i64 %187, 5
+  %189 = call ptr @_erealloc(ptr noundef %186, i64 noundef %188) #32
+  store ptr %189, ptr %185, align 8
   br label %get_next_op.exit.i
 
-get_next_op.exit.i:                               ; preds = %178, %._crit_edge.i.i65
-  %185 = phi ptr [ %.pre.i.i67, %._crit_edge.i.i65 ], [ %184, %178 ]
-  %186 = zext i32 %175 to i64
-  %187 = getelementptr inbounds %struct._zend_op, ptr %185, i64 %186
-  %188 = getelementptr inbounds i8, ptr %187, i64 28
-  store i8 0, ptr %188, align 4
-  %189 = getelementptr inbounds i8, ptr %187, i64 29
-  store i8 0, ptr %189, align 1
-  %190 = getelementptr inbounds i8, ptr %187, i64 8
-  store i32 -1, ptr %190, align 8
-  %191 = getelementptr inbounds i8, ptr %187, i64 30
-  store i8 0, ptr %191, align 2
-  %192 = getelementptr inbounds i8, ptr %187, i64 12
-  store i32 -1, ptr %192, align 4
-  %193 = getelementptr inbounds i8, ptr %187, i64 31
-  store i8 0, ptr %193, align 1
-  %194 = getelementptr inbounds i8, ptr %187, i64 16
-  store i32 -1, ptr %194, align 8
-  %195 = getelementptr inbounds i8, ptr %187, i64 20
-  store i32 0, ptr %195, align 4
-  %196 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
-  %197 = getelementptr inbounds i8, ptr %187, i64 24
-  store i32 %196, ptr %197, align 8
-  store i8 60, ptr %188, align 4
+get_next_op.exit.i:                               ; preds = %183, %._crit_edge.i.i66
+  %190 = phi ptr [ %.pre.i.i68, %._crit_edge.i.i66 ], [ %189, %183 ]
+  %191 = zext i32 %180 to i64
+  %192 = getelementptr inbounds %struct._zend_op, ptr %190, i64 %191
+  %193 = getelementptr inbounds i8, ptr %192, i64 28
+  store i8 0, ptr %193, align 4
+  %194 = getelementptr inbounds i8, ptr %192, i64 29
+  store i8 0, ptr %194, align 1
+  %195 = getelementptr inbounds i8, ptr %192, i64 8
+  store i32 -1, ptr %195, align 8
+  %196 = getelementptr inbounds i8, ptr %192, i64 30
+  store i8 0, ptr %196, align 2
+  %197 = getelementptr inbounds i8, ptr %192, i64 12
+  store i32 -1, ptr %197, align 4
+  %198 = getelementptr inbounds i8, ptr %192, i64 31
+  store i8 0, ptr %198, align 1
+  %199 = getelementptr inbounds i8, ptr %192, i64 16
+  store i32 -1, ptr %199, align 8
+  %200 = getelementptr inbounds i8, ptr %192, i64 20
+  store i32 0, ptr %200, align 4
+  %201 = load i32, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
+  %202 = getelementptr inbounds i8, ptr %192, i64 24
+  store i32 %201, ptr %202, align 8
+  store i8 60, ptr %193, align 4
   %.not24.i = icmp eq ptr %0, null
-  br i1 %.not24.i, label %zend_emit_op.exit68, label %198
+  br i1 %.not24.i, label %zend_emit_op.exit69, label %203
 
-198:                                              ; preds = %get_next_op.exit.i
-  store i8 4, ptr %193, align 1
-  %199 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 4), align 8
-  %200 = getelementptr inbounds i8, ptr %199, i64 72
-  %201 = load i32, ptr %200, align 8
-  %202 = add i32 %201, 1
-  store i32 %202, ptr %200, align 8
-  store i32 %201, ptr %194, align 8
-  %203 = load i8, ptr %193, align 1
-  store i8 %203, ptr %0, align 8
-  %204 = icmp eq i8 %203, 1
-  %205 = getelementptr inbounds i8, ptr %0, i64 8
-  br i1 %204, label %206, label %217
+203:                                              ; preds = %get_next_op.exit.i
+  store i8 4, ptr %198, align 1
+  %204 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 4), align 8
+  %205 = getelementptr inbounds i8, ptr %204, i64 72
+  %206 = load i32, ptr %205, align 8
+  %207 = add i32 %206, 1
+  store i32 %207, ptr %205, align 8
+  store i32 %206, ptr %199, align 8
+  %208 = load i8, ptr %198, align 1
+  store i8 %208, ptr %0, align 8
+  %209 = icmp eq i8 %208, 1
+  %210 = getelementptr inbounds i8, ptr %0, i64 8
+  br i1 %209, label %211, label %222
 
-206:                                              ; preds = %198
-  %207 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 4), align 8
-  %208 = getelementptr inbounds i8, ptr %207, i64 176
-  %209 = load ptr, ptr %208, align 8
-  %210 = load i32, ptr %194, align 8
-  %211 = zext i32 %210 to i64
-  %212 = getelementptr inbounds %struct._zval_struct, ptr %209, i64 %211
-  %213 = load ptr, ptr %212, align 8
-  %214 = getelementptr inbounds i8, ptr %212, i64 8
-  %215 = load i32, ptr %214, align 8
-  store ptr %213, ptr %205, align 8
-  %216 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 %215, ptr %216, align 8
-  br label %zend_emit_op.exit68
+211:                                              ; preds = %203
+  %212 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 4), align 8
+  %213 = getelementptr inbounds i8, ptr %212, i64 176
+  %214 = load ptr, ptr %213, align 8
+  %215 = load i32, ptr %199, align 8
+  %216 = zext i32 %215 to i64
+  %217 = getelementptr inbounds %struct._zval_struct, ptr %214, i64 %216
+  %218 = load ptr, ptr %217, align 8
+  %219 = getelementptr inbounds i8, ptr %217, i64 8
+  %220 = load i32, ptr %219, align 8
+  store ptr %218, ptr %210, align 8
+  %221 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 %220, ptr %221, align 8
+  br label %zend_emit_op.exit69
 
-217:                                              ; preds = %198
-  %218 = load i32, ptr %194, align 8
-  store i32 %218, ptr %205, align 8
-  br label %zend_emit_op.exit68
+222:                                              ; preds = %203
+  %223 = load i32, ptr %199, align 8
+  store i32 %223, ptr %210, align 8
+  br label %zend_emit_op.exit69
 
-zend_emit_op.exit68:                              ; preds = %get_next_op.exit.i, %206, %217
-  store i32 1, ptr %195, align 4
-  br label %219
+zend_emit_op.exit69:                              ; preds = %get_next_op.exit.i, %211, %222
+  store i32 1, ptr %200, align 4
+  br label %224
 
-219:                                              ; preds = %109, %126, %121, %3, %zend_emit_op.exit68
-  %.0 = phi i32 [ 0, %zend_emit_op.exit68 ], [ -1, %3 ], [ 0, %121 ], [ 0, %126 ], [ 0, %109 ]
+224:                                              ; preds = %115, %132, %127, %3, %zend_emit_op.exit69
+  %.0 = phi i32 [ 0, %zend_emit_op.exit69 ], [ -1, %3 ], [ 0, %127 ], [ 0, %132 ], [ 0, %115 ]
   ret i32 %.0
 }
 
@@ -29575,11 +29611,11 @@ define internal fastcc range(i32 -1, 1) i32 @zend_compile_func_cuf(ptr noundef w
   %20 = ptrtoint ptr %19 to i64
   %21 = ptrtoint ptr %16 to i64
   %22 = sub i64 %20, %21
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %22) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %22) #29
   unreachable
 
 zend_compile_expr.exit21:                         ; preds = %15
-  %23 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %23 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %4, ptr noundef %11)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %23, ptr noundef nonnull %4, ptr noundef %11)
   %24 = call fastcc ptr @zend_emit_op(ptr noundef null, i8 noundef zeroext 118, ptr noundef null, ptr noundef nonnull %4)
@@ -29625,14 +29661,14 @@ zend_compile_expr.exit21:                         ; preds = %15
   %43 = load ptr, ptr %42, align 8
   %44 = sext i32 %40 to i64
   %45 = shl nsw i64 %44, 4
-  %46 = call ptr @_erealloc(ptr noundef %43, i64 noundef %45) #34
+  %46 = call ptr @_erealloc(ptr noundef %43, i64 noundef %45) #32
   store ptr %46, ptr %42, align 8
   br label %zend_add_literal.exit
 
 zend_add_literal.exit:                            ; preds = %._crit_edge13.i, %41
   %.val.i = phi ptr [ %.val.pre.i, %._crit_edge13.i ], [ %46, %41 ]
   %47 = load ptr, ptr @zend_new_interned_string, align 8
-  %48 = call ptr %47(ptr noundef %2) #30
+  %48 = call ptr %47(ptr noundef %2) #28
   %49 = getelementptr inbounds i8, ptr %48, i64 4
   %50 = load i32, ptr %49, align 4
   %51 = and i32 %50, 64
@@ -29672,13 +29708,13 @@ zend_compile_init_user_func.exit:                 ; preds = %9, %zend_add_litera
   %65 = ptrtoint ptr %64 to i64
   %66 = ptrtoint ptr %62 to i64
   %67 = sub i64 %65, %66
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %67) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %67) #29
   unreachable
 
 zend_compile_expr.exit:                           ; preds = %61
   %68 = getelementptr inbounds [1 x ptr], ptr %10, i64 0, i64 %indvars.iv
   %69 = load ptr, ptr %68, align 8
-  %70 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %70 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %5, ptr noundef %69)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %70, ptr noundef nonnull %5, ptr noundef %69)
   %71 = call fastcc ptr @zend_emit_op(ptr noundef null, i8 noundef zeroext 120, ptr noundef nonnull %5, ptr noundef null)
@@ -29717,7 +29753,7 @@ zend_compile_expr.exit:                           ; preds = %61
   %88 = load ptr, ptr %87, align 8
   %89 = zext i32 %86 to i64
   %90 = shl nuw nsw i64 %89, 5
-  %91 = call ptr @_erealloc(ptr noundef %88, i64 noundef %90) #34
+  %91 = call ptr @_erealloc(ptr noundef %88, i64 noundef %90) #32
   store ptr %91, ptr %87, align 8
   br label %get_next_op.exit.i
 
@@ -29812,7 +29848,7 @@ define internal fastcc range(i32 -1, 1) i32 @zend_compile_func_in_array(ptr noun
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds i8, ptr %12, i64 8
-  %16 = tail call i32 @zend_is_true(ptr noundef nonnull %15) #30
+  %16 = tail call i32 @zend_is_true(ptr noundef nonnull %15) #28
   %17 = icmp ne i32 %16, 0
   br label %53
 
@@ -29851,7 +29887,7 @@ define internal fastcc range(i32 -1, 1) i32 @zend_compile_func_in_array(ptr noun
   br i1 %41, label %42, label %122
 
 42:                                               ; preds = %37
-  call void @_efree(ptr noundef nonnull %29) #30
+  call void @_efree(ptr noundef nonnull %29) #28
   br label %122
 
 43:                                               ; preds = %18
@@ -29867,13 +29903,13 @@ define internal fastcc range(i32 -1, 1) i32 @zend_compile_func_in_array(ptr noun
   br i1 %48, label %49, label %50
 
 49:                                               ; preds = %44
-  call void @_efree(ptr noundef nonnull %29) #30
+  call void @_efree(ptr noundef nonnull %29) #28
   br label %50
 
 50:                                               ; preds = %44, %49, %43
-  %51 = call i32 @zend_is_true(ptr noundef nonnull %5) #30
+  %51 = call i32 @zend_is_true(ptr noundef nonnull %5) #28
   %52 = icmp ne i32 %51, 0
-  call void @zval_ptr_dtor(ptr noundef nonnull %5) #30
+  call void @zval_ptr_dtor(ptr noundef nonnull %5) #28
   br label %53
 
 53:                                               ; preds = %2, %14, %50
@@ -29898,7 +29934,7 @@ define internal fastcc range(i32 -1, 1) i32 @zend_compile_func_in_array(ptr noun
   br i1 %.not113, label %109, label %65
 
 65:                                               ; preds = %61
-  %66 = call ptr @_zend_new_array(i32 noundef %64) #30
+  %66 = call ptr @_zend_new_array(i32 noundef %64) #28
   %67 = getelementptr inbounds i8, ptr %7, i64 8
   store i32 3, ptr %67, align 8
   %68 = getelementptr inbounds i8, ptr %62, i64 24
@@ -29934,12 +29970,12 @@ define internal fastcc range(i32 -1, 1) i32 @zend_compile_func_in_array(ptr noun
 
 81:                                               ; preds = %.lr.ph128
   %82 = load ptr, ptr %.0101127, align 8
-  %83 = call ptr @zend_hash_add(ptr noundef %66, ptr noundef %82, ptr noundef nonnull %7) #30
+  %83 = call ptr @zend_hash_add(ptr noundef %66, ptr noundef %82, ptr noundef nonnull %7) #28
   br label %87
 
 84:                                               ; preds = %.lr.ph128
   %85 = load i64, ptr %.0101127, align 8
-  %86 = call ptr @zend_hash_index_add(ptr noundef %66, i64 noundef %85, ptr noundef nonnull %7) #30
+  %86 = call ptr @zend_hash_index_add(ptr noundef %66, i64 noundef %85, ptr noundef nonnull %7) #28
   br label %87
 
 87:                                               ; preds = %.lr.ph128, %81, %84
@@ -29976,7 +30012,7 @@ define internal fastcc range(i32 -1, 1) i32 @zend_compile_func_in_array(ptr noun
 100:                                              ; preds = %95
   %101 = getelementptr inbounds i8, ptr %96, i64 16
   %102 = load i64, ptr %101, align 8
-  %103 = call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %97, i64 noundef %102, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null, ptr noundef null) #30
+  %103 = call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %97, i64 noundef %102, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null, ptr noundef null) #28
   %.not116 = icmp eq i8 %103, 0
   br i1 %.not116, label %..thread_crit_edge, label %.critedge
 
@@ -29986,7 +30022,7 @@ define internal fastcc range(i32 -1, 1) i32 @zend_compile_func_in_array(ptr noun
 
 .thread:                                          ; preds = %..thread_crit_edge, %95
   %104 = phi ptr [ %.pre, %..thread_crit_edge ], [ %96, %95 ]
-  %105 = call ptr @zend_hash_add(ptr noundef %66, ptr noundef %104, ptr noundef nonnull %7) #30
+  %105 = call ptr @zend_hash_add(ptr noundef %66, ptr noundef %104, ptr noundef nonnull %7) #28
   br label %106
 
 106:                                              ; preds = %.lr.ph, %.thread
@@ -29996,13 +30032,13 @@ define internal fastcc range(i32 -1, 1) i32 @zend_compile_func_in_array(ptr noun
   br i1 %.not114, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %106, %87, %90, %76
-  call void @zend_array_destroy(ptr noundef %62) #30
+  call void @zend_array_destroy(ptr noundef %62) #28
   store ptr %66, ptr %59, align 8
   br label %109
 
 .critedge:                                        ; preds = %100, %.lr.ph, %.lr.ph128
-  call void @zend_array_destroy(ptr noundef %66) #30
-  call void @zend_array_destroy(ptr noundef %62) #30
+  call void @zend_array_destroy(ptr noundef %66) #28
+  call void @zend_array_destroy(ptr noundef %62) #28
   br label %122
 
 109:                                              ; preds = %.loopexit, %61
@@ -30017,12 +30053,12 @@ define internal fastcc range(i32 -1, 1) i32 @zend_compile_func_in_array(ptr noun
   %114 = ptrtoint ptr %113 to i64
   %115 = ptrtoint ptr %110 to i64
   %116 = sub i64 %114, %115
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %116) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %116) #29
   unreachable
 
 zend_compile_expr.exit:                           ; preds = %109
   %117 = load ptr, ptr %54, align 8
-  %118 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %118 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %4, ptr noundef %117)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %118, ptr noundef nonnull %4, ptr noundef %117)
   %119 = call fastcc ptr @zend_emit_op_tmp(ptr noundef %0, i8 noundef zeroext -67, ptr noundef nonnull %4, ptr noundef nonnull %3)
@@ -30068,7 +30104,7 @@ define internal fastcc range(i32 -1, 1) i32 @zend_compile_func_get_class(ptr nou
   %15 = load ptr, ptr %14, align 8
   %16 = zext i32 %13 to i64
   %17 = shl nuw nsw i64 %16, 5
-  %18 = tail call ptr @_erealloc(ptr noundef %15, i64 noundef %17) #34
+  %18 = tail call ptr @_erealloc(ptr noundef %15, i64 noundef %17) #32
   store ptr %18, ptr %14, align 8
   br label %get_next_op.exit.i
 
@@ -30144,13 +30180,13 @@ get_next_op.exit.i:                               ; preds = %12, %._crit_edge.i.
   %58 = ptrtoint ptr %57 to i64
   %59 = ptrtoint ptr %54 to i64
   %60 = sub i64 %58, %59
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %60) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %60) #29
   unreachable
 
 zend_compile_expr.exit:                           ; preds = %53
   %61 = getelementptr inbounds i8, ptr %1, i64 16
   %62 = load ptr, ptr %61, align 8
-  %63 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %63 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %3, ptr noundef %62)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %63, ptr noundef nonnull %3, ptr noundef %62)
   %64 = call fastcc ptr @zend_emit_op_tmp(ptr noundef %0, i8 noundef zeroext -65, ptr noundef nonnull %3, ptr noundef null)
@@ -30188,7 +30224,7 @@ define internal fastcc range(i32 -1, 1) i32 @zend_compile_func_get_called_class(
   %11 = load ptr, ptr %10, align 8
   %12 = zext i32 %9 to i64
   %13 = shl nuw nsw i64 %12, 5
-  %14 = tail call ptr @_erealloc(ptr noundef %11, i64 noundef %13) #34
+  %14 = tail call ptr @_erealloc(ptr noundef %11, i64 noundef %13) #32
   store ptr %14, ptr %10, align 8
   br label %get_next_op.exit.i
 
@@ -30277,13 +30313,13 @@ define internal fastcc range(i32 -1, 1) i32 @zend_compile_func_gettype(ptr nound
   %11 = ptrtoint ptr %10 to i64
   %12 = ptrtoint ptr %7 to i64
   %13 = sub i64 %11, %12
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %13) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %13) #29
   unreachable
 
 zend_compile_expr.exit:                           ; preds = %6
   %14 = getelementptr inbounds i8, ptr %1, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %16 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %3, ptr noundef %15)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %16, ptr noundef nonnull %3, ptr noundef %15)
   %17 = call fastcc ptr @zend_emit_op_tmp(ptr noundef %0, i8 noundef zeroext -63, ptr noundef nonnull %3, ptr noundef null)
@@ -30329,7 +30365,7 @@ define internal fastcc range(i32 -1, 1) i32 @zend_compile_func_num_args(ptr noun
   %18 = load ptr, ptr %17, align 8
   %19 = zext i32 %16 to i64
   %20 = shl nuw nsw i64 %19, 5
-  %21 = tail call ptr @_erealloc(ptr noundef %18, i64 noundef %20) #34
+  %21 = tail call ptr @_erealloc(ptr noundef %18, i64 noundef %20) #32
   store ptr %21, ptr %17, align 8
   br label %get_next_op.exit.i
 
@@ -30434,7 +30470,7 @@ define internal fastcc range(i32 -1, 1) i32 @zend_compile_func_get_args(ptr noun
   %18 = load ptr, ptr %17, align 8
   %19 = zext i32 %16 to i64
   %20 = shl nuw nsw i64 %19, 5
-  %21 = tail call ptr @_erealloc(ptr noundef %18, i64 noundef %20) #34
+  %21 = tail call ptr @_erealloc(ptr noundef %18, i64 noundef %20) #32
   store ptr %21, ptr %17, align 8
   br label %get_next_op.exit.i
 
@@ -30577,7 +30613,7 @@ define internal fastcc range(i32 -1, 1) i32 @zend_compile_func_array_slice(ptr n
 
 54:                                               ; preds = %37
   %55 = getelementptr inbounds i8, ptr %43, i64 24
-  %56 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %55, i64 noundef 13, ptr noundef nonnull @.str.205, i64 noundef 13) #30
+  %56 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %55, i64 noundef 13, ptr noundef nonnull @.str.205, i64 noundef 13) #28
   %.not51 = icmp eq i32 %56, 0
   br i1 %.not51, label %57, label %81
 
@@ -30621,7 +30657,7 @@ define internal fastcc range(i32 -1, 1) i32 @zend_compile_func_array_slice(ptr n
   br i1 %79, label %80, label %91
 
 80:                                               ; preds = %75
-  call void @_efree(ptr noundef nonnull %43) #30
+  call void @_efree(ptr noundef nonnull %43) #28
   br label %91
 
 81:                                               ; preds = %65, %61, %57, %54, %37
@@ -30641,7 +30677,7 @@ define internal fastcc range(i32 -1, 1) i32 @zend_compile_func_array_slice(ptr n
   br i1 %89, label %90, label %91
 
 90:                                               ; preds = %85
-  tail call void @_efree(ptr noundef nonnull %43) #30
+  tail call void @_efree(ptr noundef nonnull %43) #28
   br label %91
 
 91:                                               ; preds = %2, %8, %12, %17, %22, %27, %32, %85, %90, %81, %68, %80, %75
@@ -30669,13 +30705,13 @@ define internal fastcc range(i32 -1, 1) i32 @zend_compile_func_array_key_exists(
   %12 = ptrtoint ptr %11 to i64
   %13 = ptrtoint ptr %8 to i64
   %14 = sub i64 %12, %13
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %14) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %14) #29
   unreachable
 
 zend_compile_expr.exit:                           ; preds = %7
   %15 = getelementptr inbounds i8, ptr %1, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %17 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %4, ptr noundef %16)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %17, ptr noundef nonnull %4, ptr noundef %16)
   %18 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 32), align 8
@@ -30687,13 +30723,13 @@ zend_compile_expr.exit:                           ; preds = %7
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %18 to i64
   %23 = sub i64 %21, %22
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %23) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %23) #29
   unreachable
 
 zend_compile_expr.exit5:                          ; preds = %zend_compile_expr.exit
   %24 = getelementptr inbounds i8, ptr %1, i64 24
   %25 = load ptr, ptr %24, align 8
-  %26 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %26 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %3, ptr noundef %25)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %26, ptr noundef nonnull %3, ptr noundef %25)
   %27 = call fastcc ptr @zend_emit_op_tmp(ptr noundef %0, i8 noundef zeroext -62, ptr noundef nonnull %4, ptr noundef nonnull %3)
@@ -30719,9 +30755,9 @@ define internal fastcc range(i32 -1, 1) i32 @zend_try_compile_ct_bound_init_user
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call ptr @zend_string_tolower_ex(ptr noundef %9, i1 noundef zeroext false) #30
+  %10 = tail call ptr @zend_string_tolower_ex(ptr noundef %9, i1 noundef zeroext false) #28
   %11 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 5), align 8
-  %12 = tail call ptr @zend_hash_find(ptr noundef %11, ptr noundef %10) #30
+  %12 = tail call ptr @zend_hash_find(ptr noundef %11, ptr noundef %10) #28
   %.not65 = icmp eq ptr %12, null
   br i1 %.not65, label %.thread, label %13
 
@@ -30785,7 +30821,7 @@ fbc_is_finalized.exit:                            ; preds = %13
   br i1 %42, label %43, label %114
 
 43:                                               ; preds = %38
-  tail call void @_efree(ptr noundef nonnull %10) #30
+  tail call void @_efree(ptr noundef nonnull %10) #28
   br label %114
 
 .thread82:                                        ; preds = %22, %19, %29, %27
@@ -30810,7 +30846,7 @@ fbc_is_finalized.exit:                            ; preds = %13
   %52 = load ptr, ptr %51, align 8
   %53 = zext i32 %50 to i64
   %54 = shl nuw nsw i64 %53, 5
-  %55 = tail call ptr @_erealloc(ptr noundef %52, i64 noundef %54) #34
+  %55 = tail call ptr @_erealloc(ptr noundef %52, i64 noundef %54) #32
   store ptr %55, ptr %51, align 8
   br label %zend_emit_op.exit
 
@@ -30890,14 +30926,14 @@ zend_emit_op.exit:                                ; preds = %._crit_edge.i.i, %4
   %94 = load ptr, ptr %93, align 8
   %95 = sext i32 %91 to i64
   %96 = shl nsw i64 %95, 4
-  %97 = tail call ptr @_erealloc(ptr noundef %94, i64 noundef %96) #34
+  %97 = tail call ptr @_erealloc(ptr noundef %94, i64 noundef %96) #32
   store ptr %97, ptr %93, align 8
   br label %zend_add_literal.exit
 
 zend_add_literal.exit:                            ; preds = %._crit_edge13.i, %92
   %.val.i = phi ptr [ %.val.pre.i, %._crit_edge13.i ], [ %97, %92 ]
   %98 = load ptr, ptr @zend_new_interned_string, align 8
-  %99 = tail call ptr %98(ptr noundef %10) #30
+  %99 = tail call ptr %98(ptr noundef %10) #28
   %100 = getelementptr inbounds i8, ptr %99, i64 4
   %101 = load i32, ptr %100, align 4
   %102 = and i32 %101, 64
@@ -30938,7 +30974,7 @@ define internal fastcc noundef zeroext i1 @zend_try_ct_eval_array(ptr noundef %0
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %2
-  tail call void (i32, ptr, ...) @zend_error(i32 noundef 64, ptr noundef nonnull @.str.208) #30
+  tail call void (i32, ptr, ...) @zend_error(i32 noundef 64, ptr noundef nonnull @.str.208) #28
   br label %8
 
 8:                                                ; preds = %7, %2
@@ -30975,7 +31011,7 @@ define internal fastcc noundef zeroext i1 @zend_try_ct_eval_array(ptr noundef %0
   br label %22
 
 22:                                               ; preds = %17, %16
-  tail call void (i32, ptr, ...) @zend_error(i32 noundef 64, ptr noundef nonnull @.str.209) #30
+  tail call void (i32, ptr, ...) @zend_error(i32 noundef 64, ptr noundef nonnull @.str.209) #28
   br label %23
 
 23:                                               ; preds = %22, %12
@@ -31041,7 +31077,7 @@ define internal fastcc noundef zeroext i1 @zend_try_ct_eval_array(ptr noundef %0
   br label %.loopexit211
 
 47:                                               ; preds = %45
-  %48 = tail call ptr @_zend_new_array(i32 noundef %42) #30
+  %48 = tail call ptr @_zend_new_array(i32 noundef %42) #28
   store ptr %48, ptr %0, align 8
   %49 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 775, ptr %49, align 8
@@ -31119,16 +31155,16 @@ define internal fastcc noundef zeroext i1 @zend_try_ct_eval_array(ptr noundef %0
   br i1 %.not200, label %89, label %87
 
 87:                                               ; preds = %85
-  %88 = call ptr @zend_hash_update(ptr noundef %86, ptr noundef nonnull %.1176, ptr noundef nonnull %.0171227) #30
+  %88 = call ptr @zend_hash_update(ptr noundef %86, ptr noundef nonnull %.1176, ptr noundef nonnull %.0171227) #28
   br label %92
 
 89:                                               ; preds = %85
-  %90 = call ptr @zend_hash_next_index_insert(ptr noundef %86, ptr noundef nonnull %.0171227) #30
+  %90 = call ptr @zend_hash_next_index_insert(ptr noundef %86, ptr noundef nonnull %.0171227) #28
   %.not201 = icmp eq ptr %90, null
   br i1 %.not201, label %91, label %92
 
 91:                                               ; preds = %89
-  call void @zval_ptr_dtor(ptr noundef nonnull %0) #30
+  call void @zval_ptr_dtor(ptr noundef nonnull %0) #28
   br label %.loopexit211
 
 92:                                               ; preds = %87, %89
@@ -31150,7 +31186,7 @@ define internal fastcc noundef zeroext i1 @zend_try_ct_eval_array(ptr noundef %0
   br i1 %.not198, label %.loopexit, label %.lr.ph230
 
 101:                                              ; preds = %62
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.210) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.210) #29
   unreachable
 
 102:                                              ; preds = %52
@@ -31191,7 +31227,7 @@ define internal fastcc noundef zeroext i1 @zend_try_ct_eval_array(ptr noundef %0
 118:                                              ; preds = %112
   %119 = load ptr, ptr %0, align 8
   %120 = load i64, ptr %115, align 8
-  %121 = call ptr @zend_hash_index_update(ptr noundef %119, i64 noundef %120, ptr noundef nonnull %59) #30
+  %121 = call ptr @zend_hash_index_update(ptr noundef %119, i64 noundef %120, ptr noundef nonnull %59) #28
   br label %.loopexit
 
 122:                                              ; preds = %112
@@ -31220,16 +31256,16 @@ define internal fastcc noundef zeroext i1 @zend_try_ct_eval_array(ptr noundef %0
   br i1 %or.cond210, label %.critedge, label %137
 
 137:                                              ; preds = %133, %130
-  %138 = call zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef nonnull %125, i64 noundef %127, ptr noundef nonnull %3) #30
+  %138 = call zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef nonnull %125, i64 noundef %127, ptr noundef nonnull %3) #28
   br i1 %138, label %139, label %.critedge
 
 139:                                              ; preds = %137
   %140 = load i64, ptr %3, align 8
-  %141 = call ptr @zend_hash_index_update(ptr noundef %123, i64 noundef %140, ptr noundef nonnull %59) #30
+  %141 = call ptr @zend_hash_index_update(ptr noundef %123, i64 noundef %140, ptr noundef nonnull %59) #28
   br label %.loopexit
 
 .critedge:                                        ; preds = %122, %132, %133, %137
-  %142 = call ptr @zend_hash_update(ptr noundef %123, ptr noundef nonnull %124, ptr noundef nonnull %59) #30
+  %142 = call ptr @zend_hash_update(ptr noundef %123, ptr noundef nonnull %124, ptr noundef nonnull %59) #28
   br label %.loopexit
 
 143:                                              ; preds = %112
@@ -31245,7 +31281,7 @@ define internal fastcc noundef zeroext i1 @zend_try_ct_eval_array(ptr noundef %0
   br i1 %or.cond, label %150, label %152
 
 150:                                              ; preds = %147
-  %151 = call i64 @zend_dval_to_lval_slow(double noundef %144) #30
+  %151 = call i64 @zend_dval_to_lval_slow(double noundef %144) #28
   %.pre = load double, ptr %115, align 8
   br label %154
 
@@ -31278,41 +31314,41 @@ define internal fastcc noundef zeroext i1 @zend_try_ct_eval_array(ptr noundef %0
 
 166:                                              ; preds = %161
   %167 = load ptr, ptr %59, align 8
-  call void @rc_dtor_func(ptr noundef %167) #30
+  call void @rc_dtor_func(ptr noundef %167) #28
   br label %168
 
 168:                                              ; preds = %166, %161, %158
-  call void @zval_ptr_dtor(ptr noundef nonnull %0) #30
+  call void @zval_ptr_dtor(ptr noundef nonnull %0) #28
   br label %.loopexit211
 
 169:                                              ; preds = %154
   %170 = load ptr, ptr %0, align 8
-  %171 = call ptr @zend_hash_index_update(ptr noundef %170, i64 noundef %.0172, ptr noundef nonnull %59) #30
+  %171 = call ptr @zend_hash_index_update(ptr noundef %170, i64 noundef %.0172, ptr noundef nonnull %59) #28
   br label %.loopexit
 
 172:                                              ; preds = %112
   %173 = load ptr, ptr %0, align 8
-  %174 = call ptr @zend_hash_index_update(ptr noundef %173, i64 noundef 0, ptr noundef nonnull %59) #30
+  %174 = call ptr @zend_hash_index_update(ptr noundef %173, i64 noundef 0, ptr noundef nonnull %59) #28
   br label %.loopexit
 
 175:                                              ; preds = %112
   %176 = load ptr, ptr %0, align 8
-  %177 = call ptr @zend_hash_index_update(ptr noundef %176, i64 noundef 1, ptr noundef nonnull %59) #30
+  %177 = call ptr @zend_hash_index_update(ptr noundef %176, i64 noundef 1, ptr noundef nonnull %59) #28
   br label %.loopexit
 
 178:                                              ; preds = %112
   %179 = load ptr, ptr %0, align 8
   %180 = load ptr, ptr @zend_empty_string, align 8
-  %181 = call ptr @zend_hash_update(ptr noundef %179, ptr noundef %180, ptr noundef nonnull %59) #30
+  %181 = call ptr @zend_hash_update(ptr noundef %179, ptr noundef %180, ptr noundef nonnull %59) #28
   br label %.loopexit
 
 182:                                              ; preds = %112
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.211) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.211) #29
   unreachable
 
 183:                                              ; preds = %109
   %184 = load ptr, ptr %0, align 8
-  %185 = call ptr @zend_hash_next_index_insert(ptr noundef %184, ptr noundef nonnull %59) #30
+  %185 = call ptr @zend_hash_next_index_insert(ptr noundef %184, ptr noundef nonnull %59) #28
   %.not192 = icmp eq ptr %185, null
   br i1 %.not192, label %186, label %.loopexit
 
@@ -31334,11 +31370,11 @@ define internal fastcc noundef zeroext i1 @zend_try_ct_eval_array(ptr noundef %0
 
 194:                                              ; preds = %189
   %195 = load ptr, ptr %59, align 8
-  call void @rc_dtor_func(ptr noundef %195) #30
+  call void @rc_dtor_func(ptr noundef %195) #28
   br label %196
 
 196:                                              ; preds = %194, %189, %186
-  call void @zval_ptr_dtor(ptr noundef nonnull %0) #30
+  call void @zval_ptr_dtor(ptr noundef nonnull %0) #28
   br label %.loopexit211
 
 .loopexit:                                        ; preds = %99, %66, %139, %.critedge, %178, %175, %172, %169, %118, %183
@@ -31381,11 +31417,11 @@ define internal fastcc void @zend_compile_class_ref(ptr noundef %0, ptr noundef 
   %11 = ptrtoint ptr %10 to i64
   %12 = ptrtoint ptr %7 to i64
   %13 = sub i64 %11, %12
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %13) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %13) #29
   unreachable
 
 zend_compile_expr.exit:                           ; preds = %6
-  %14 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %14 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %4, ptr noundef nonnull %1)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %14, ptr noundef nonnull %4, ptr noundef nonnull %1)
   %15 = load i8, ptr %4, align 8
@@ -31399,7 +31435,7 @@ zend_compile_expr.exit:                           ; preds = %6
   br i1 %.not61, label %21, label %20
 
 20:                                               ; preds = %17
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.16) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.16) #29
   unreachable
 
 21:                                               ; preds = %17
@@ -31412,7 +31448,7 @@ zend_compile_expr.exit:                           ; preds = %6
 
 27:                                               ; preds = %21
   %28 = getelementptr inbounds i8, ptr %23, i64 24
-  %29 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %28, i64 noundef 4, ptr noundef nonnull @.str.21, i64 noundef 4) #30
+  %29 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %28, i64 noundef 4, ptr noundef nonnull @.str.21, i64 noundef 4) #28
   %.not.i = icmp eq i32 %29, 0
   br i1 %.not.i, label %54, label %thread-pre-split.i
 
@@ -31427,7 +31463,7 @@ thread-pre-split.i:                               ; preds = %27
 
 33:                                               ; preds = %30
   %34 = getelementptr inbounds i8, ptr %23, i64 24
-  %35 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %34, i64 noundef 6, ptr noundef nonnull @.str.22, i64 noundef 6) #30
+  %35 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %34, i64 noundef 6, ptr noundef nonnull @.str.22, i64 noundef 6) #28
   %.not13.i = icmp eq i32 %35, 0
   br i1 %.not13.i, label %54, label %._crit_edge.i
 
@@ -31448,7 +31484,7 @@ thread-pre-split.i:                               ; preds = %27
 44:                                               ; preds = %36
   %45 = getelementptr inbounds i8, ptr %23, i64 24
   %46 = getelementptr inbounds i8, ptr %40, i64 24
-  %47 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %45, i64 noundef %37, ptr noundef nonnull %46, i64 noundef %37) #30
+  %47 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %45, i64 noundef %37, ptr noundef nonnull %46, i64 noundef %37) #28
   %.not14.i = icmp eq i32 %47, 0
   br i1 %.not14.i, label %54, label %zend_get_class_fetch_type.exit
 
@@ -31501,7 +31537,7 @@ zend_is_scope_known.exit.i:                       ; preds = %62
 71:                                               ; preds = %zend_is_scope_known.exit.i
   %72 = select i1 %55, ptr @.str.22, ptr @.str.35
   %73 = select i1 %56, ptr @.str.21, ptr %72
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.139, ptr noundef nonnull %73) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.139, ptr noundef nonnull %73) #29
   unreachable
 
 74:                                               ; preds = %64
@@ -31511,7 +31547,7 @@ zend_is_scope_known.exit.i:                       ; preds = %62
   br i1 %.not7.i, label %77, label %zend_ensure_valid_class_fetch_type.exit
 
 77:                                               ; preds = %74
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.140) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.140) #29
   unreachable
 
 zend_ensure_valid_class_fetch_type.exit:          ; preds = %54, %58, %64, %zend_is_scope_known.exit.i, %74
@@ -31540,7 +31576,7 @@ zend_ensure_valid_class_fetch_type.exit:          ; preds = %54, %58, %64, %zend
   br i1 %88, label %89, label %182
 
 89:                                               ; preds = %84
-  call void @_efree(ptr noundef nonnull %23) #30
+  call void @_efree(ptr noundef nonnull %23) #28
   br label %182
 
 90:                                               ; preds = %zend_compile_expr.exit
@@ -31566,7 +31602,7 @@ zend_ensure_valid_class_fetch_type.exit:          ; preds = %54, %58, %64, %zend
   br i1 %.not.i66, label %zend_resolve_class_name_ast.exit, label %102
 
 102:                                              ; preds = %97
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.16) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.16) #29
   unreachable
 
 zend_resolve_class_name_ast.exit:                 ; preds = %97
@@ -31596,7 +31632,7 @@ zend_resolve_class_name_ast.exit:                 ; preds = %97
 
 120:                                              ; preds = %114
   %121 = getelementptr inbounds i8, ptr %116, i64 24
-  %122 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %121, i64 noundef 4, ptr noundef nonnull @.str.21, i64 noundef 4) #30
+  %122 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %121, i64 noundef 4, ptr noundef nonnull @.str.21, i64 noundef 4) #28
   %.not.i72 = icmp eq i32 %122, 0
   br i1 %.not.i72, label %156, label %thread-pre-split.i73
 
@@ -31611,7 +31647,7 @@ thread-pre-split.i73:                             ; preds = %120
 
 126:                                              ; preds = %123
   %127 = getelementptr inbounds i8, ptr %116, i64 24
-  %128 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %127, i64 noundef 6, ptr noundef nonnull @.str.22, i64 noundef 6) #30
+  %128 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %127, i64 noundef 6, ptr noundef nonnull @.str.22, i64 noundef 6) #28
   %.not13.i69 = icmp eq i32 %128, 0
   br i1 %.not13.i69, label %156, label %._crit_edge.i70
 
@@ -31632,7 +31668,7 @@ thread-pre-split.i73:                             ; preds = %120
 137:                                              ; preds = %129
   %138 = getelementptr inbounds i8, ptr %116, i64 24
   %139 = getelementptr inbounds i8, ptr %133, i64 24
-  %140 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %138, i64 noundef %130, ptr noundef nonnull %139, i64 noundef %130) #30
+  %140 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %138, i64 noundef %130, ptr noundef nonnull %139, i64 noundef %130) #28
   %.not14.i68 = icmp eq i32 %140, 0
   br i1 %.not14.i68, label %156, label %zend_get_class_fetch_type.exit75
 
@@ -31647,7 +31683,7 @@ zend_get_class_fetch_type.exit75:                 ; preds = %137, %129
   br i1 %.not.i76, label %zend_resolve_class_name_ast.exit77, label %145
 
 145:                                              ; preds = %zend_get_class_fetch_type.exit75
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.16) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.16) #29
   unreachable
 
 zend_resolve_class_name_ast.exit77:               ; preds = %zend_get_class_fetch_type.exit75
@@ -31703,7 +31739,7 @@ zend_is_scope_known.exit.i84:                     ; preds = %164
 173:                                              ; preds = %zend_is_scope_known.exit.i84
   %174 = select i1 %157, ptr @.str.22, ptr @.str.35
   %175 = select i1 %158, ptr @.str.21, ptr %174
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.139, ptr noundef nonnull %175) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.139, ptr noundef nonnull %175) #29
   unreachable
 
 176:                                              ; preds = %166
@@ -31713,7 +31749,7 @@ zend_is_scope_known.exit.i84:                     ; preds = %164
   br i1 %.not7.i83, label %179, label %zend_ensure_valid_class_fetch_type.exit86
 
 179:                                              ; preds = %176
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.140) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.140) #29
   unreachable
 
 zend_ensure_valid_class_fetch_type.exit86:        ; preds = %156, %160, %166, %zend_is_scope_known.exit.i84, %176
@@ -31730,7 +31766,7 @@ zend_ensure_valid_class_fetch_type.exit86:        ; preds = %156, %160, %166, %z
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @zend_get_compatible_func_or_null(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
-  %4 = tail call ptr @zend_hash_find(ptr noundef nonnull %3, ptr noundef %1) #30
+  %4 = tail call ptr @zend_hash_find(ptr noundef nonnull %3, ptr noundef %1) #28
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.thread, label %5
 
@@ -31779,7 +31815,7 @@ define internal fastcc noundef ptr @zend_get_compatible_func_or_null(ptr noundef
   %29 = getelementptr inbounds i8, ptr %28, i64 16
   %.in = select i1 %.not29, ptr %16, ptr %29
   %30 = load ptr, ptr %.in, align 8
-  %31 = tail call zeroext i1 @zend_check_protected(ptr noundef %30, ptr noundef %11) #30
+  %31 = tail call zeroext i1 @zend_check_protected(ptr noundef %30, ptr noundef %11) #28
   br i1 %31, label %.thread, label %32
 
 32:                                               ; preds = %26, %22, %15, %13
@@ -31794,12 +31830,12 @@ declare zeroext i1 @zend_check_protected(ptr noundef, ptr noundef) local_unnamed
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @zend_handle_loops_and_finally_ex(i64 noundef %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = tail call ptr @zend_stack_top(ptr noundef nonnull @compiler_globals) #30
+  %3 = tail call ptr @zend_stack_top(ptr noundef nonnull @compiler_globals) #28
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.loopexit, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call ptr @zend_stack_base(ptr noundef nonnull @compiler_globals) #30
+  %5 = tail call ptr @zend_stack_base(ptr noundef nonnull @compiler_globals) #28
   %.not4358 = icmp ult ptr %3, %5
   br i1 %.not4358, label %._crit_edge, label %.lr.ph
 
@@ -31842,7 +31878,7 @@ define internal fastcc zeroext i1 @zend_handle_loops_and_finally_ex(i64 noundef 
   %20 = load ptr, ptr %19, align 8
   %21 = zext i32 %18 to i64
   %22 = shl nuw nsw i64 %21, 5
-  %23 = tail call ptr @_erealloc(ptr noundef %20, i64 noundef %22) #34
+  %23 = tail call ptr @_erealloc(ptr noundef %20, i64 noundef %22) #32
   store ptr %23, ptr %19, align 8
   br label %get_next_op.exit
 
@@ -31909,7 +31945,7 @@ get_next_op.exit:                                 ; preds = %._crit_edge.i, %17
   %52 = load ptr, ptr %51, align 8
   %53 = sext i32 %49 to i64
   %54 = shl nsw i64 %53, 4
-  %55 = tail call ptr @_erealloc(ptr noundef %52, i64 noundef %54) #34
+  %55 = tail call ptr @_erealloc(ptr noundef %52, i64 noundef %54) #32
   store ptr %55, ptr %51, align 8
   br label %56
 
@@ -31922,7 +31958,7 @@ get_next_op.exit:                                 ; preds = %._crit_edge.i, %17
 
 59:                                               ; preds = %56
   %60 = load ptr, ptr @zend_new_interned_string, align 8
-  %61 = tail call ptr %60(ptr noundef %.pre.i.i) #30
+  %61 = tail call ptr %60(ptr noundef %.pre.i.i) #28
   store ptr %61, ptr %6, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 4
   %63 = load i32, ptr %62, align 4
@@ -31983,7 +32019,7 @@ zend_add_literal.exit:                            ; preds = %56, %59, %65
   %86 = load ptr, ptr %85, align 8
   %87 = zext i32 %84 to i64
   %88 = shl nuw nsw i64 %87, 5
-  %89 = tail call ptr @_erealloc(ptr noundef %86, i64 noundef %88) #34
+  %89 = tail call ptr @_erealloc(ptr noundef %86, i64 noundef %88) #32
   store ptr %89, ptr %85, align 8
   br label %get_next_op.exit51
 
@@ -32056,7 +32092,7 @@ get_next_op.exit51:                               ; preds = %._crit_edge.i48, %8
   %124 = load ptr, ptr %123, align 8
   %125 = zext i32 %122 to i64
   %126 = shl nuw nsw i64 %125, 5
-  %127 = tail call ptr @_erealloc(ptr noundef %124, i64 noundef %126) #34
+  %127 = tail call ptr @_erealloc(ptr noundef %124, i64 noundef %126) #32
   store ptr %127, ptr %123, align 8
   br label %get_next_op.exit56
 
@@ -32113,7 +32149,7 @@ get_next_op.exit56:                               ; preds = %._crit_edge.i53, %1
 ; Function Attrs: nounwind uwtable
 define internal void @label_ptr_dtor(ptr nocapture noundef readonly %0) #0 {
   %2 = load ptr, ptr %0, align 8
-  tail call void @_efree_8(ptr noundef %2) #30
+  tail call void @_efree_8(ptr noundef %2) #28
   ret void
 }
 
@@ -32186,7 +32222,7 @@ zend_is_smart_branch.exit:                        ; preds = %zend_is_smart_branc
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc zeroext i1 @zend_propagate_list_refs(ptr nocapture noundef readonly %0) unnamed_addr #22 {
+define internal fastcc zeroext i1 @zend_propagate_list_refs(ptr nocapture noundef readonly %0) unnamed_addr #21 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %.not18 = icmp eq i32 %3, 0
@@ -32309,7 +32345,7 @@ list_is_keyed.exit:                               ; preds = %12, %19, %16
   %30 = getelementptr inbounds i8, ptr %2, i64 8
   %31 = load ptr, ptr @zend_new_interned_string, align 8
   %32 = load ptr, ptr %30, align 8
-  %33 = tail call ptr %31(ptr noundef %32) #30
+  %33 = tail call ptr %31(ptr noundef %32) #28
   store ptr %33, ptr %30, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 4
   %35 = load i32, ptr %34, align 4
@@ -32347,7 +32383,7 @@ zval_make_interned_string.exit:                   ; preds = %37, %29, %25, %list
   br i1 %.0.i, label %49, label %155
 
 49:                                               ; preds = %48
-  call void (i32, ptr, ...) @zend_error(i32 noundef 64, ptr noundef nonnull @.str.234) #30
+  call void (i32, ptr, ...) @zend_error(i32 noundef 64, ptr noundef nonnull @.str.234) #28
   br label %50
 
 50:                                               ; preds = %49, %44
@@ -32356,7 +32392,7 @@ zval_make_interned_string.exit:                   ; preds = %37, %29, %25, %list
   br i1 %52, label %53, label %54
 
 53:                                               ; preds = %50
-  call void (i32, ptr, ...) @zend_error(i32 noundef 64, ptr noundef nonnull @.str.235) #30
+  call void (i32, ptr, ...) @zend_error(i32 noundef 64, ptr noundef nonnull @.str.235) #28
   br label %54
 
 54:                                               ; preds = %53, %50
@@ -32381,17 +32417,17 @@ zval_make_interned_string.exit:                   ; preds = %37, %29, %25, %list
   %65 = ptrtoint ptr %64 to i64
   %66 = ptrtoint ptr %61 to i64
   %67 = sub i64 %65, %66
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %67) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %67) #29
   unreachable
 
 zend_compile_expr.exit:                           ; preds = %.split
-  %68 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %68 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %8, ptr noundef nonnull %58)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %68, ptr noundef nonnull %8, ptr noundef nonnull %58)
   br label %80
 
 .split50:                                         ; preds = %60
-  call void (i32, ptr, ...) @zend_error(i32 noundef 64, ptr noundef nonnull @.str.236) #30
+  call void (i32, ptr, ...) @zend_error(i32 noundef 64, ptr noundef nonnull @.str.236) #28
   %69 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 32), align 8
   %70 = call ptr @llvm.frameaddress.p0(i32 0)
   %.not.i.i60 = icmp ugt ptr %70, %69
@@ -32402,11 +32438,11 @@ zend_compile_expr.exit:                           ; preds = %.split
   %73 = ptrtoint ptr %72 to i64
   %74 = ptrtoint ptr %69 to i64
   %75 = sub i64 %73, %74
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %75) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %75) #29
   unreachable
 
 zend_compile_expr.exit61:                         ; preds = %.split50
-  %76 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %76 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %8, ptr noundef null)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %76, ptr noundef nonnull %8, ptr noundef null)
   br label %80
@@ -32415,7 +32451,7 @@ zend_compile_expr.exit61:                         ; preds = %.split50
   br i1 %59, label %79, label %78
 
 78:                                               ; preds = %77
-  call void (i32, ptr, ...) @zend_error(i32 noundef 64, ptr noundef nonnull @.str.236) #30
+  call void (i32, ptr, ...) @zend_error(i32 noundef 64, ptr noundef nonnull @.str.236) #28
   br label %79
 
 79:                                               ; preds = %78, %77
@@ -32453,7 +32489,7 @@ zend_compile_expr.exit61:                         ; preds = %.split50
   br i1 %95, label %96, label %97
 
 96:                                               ; preds = %92
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.238) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.238) #29
   unreachable
 
 97:                                               ; preds = %92
@@ -32461,7 +32497,7 @@ zend_compile_expr.exit61:                         ; preds = %.split50
   br i1 %.not.i62, label %zend_verify_list_assign_target.exit, label %98
 
 98:                                               ; preds = %97
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.239) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.239) #29
   unreachable
 
 99:                                               ; preds = %89
@@ -32514,7 +32550,7 @@ tailrecurse.i.i.i:                                ; preds = %tailrecurse.i.i.i.p
   br label %tailrecurse.i.i.i
 
 .loopexit.i:                                      ; preds = %._crit_edge.i.i, %tailrecurse.i.i.i, %tailrecurse.i.i.i
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.240) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.240) #29
   unreachable
 
 zend_verify_list_assign_target.exit:              ; preds = %tailrecurse.i.i.i, %97
@@ -32567,8 +32603,8 @@ zend_verify_list_assign_target.exit:              ; preds = %tailrecurse.i.i.i, 
 
 133:                                              ; preds = %131
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  %134 = call ptr @zend_ast_create_znode(ptr noundef nonnull %7) #30
-  %135 = call ptr @zend_ast_create_2(i16 noundef zeroext 519, ptr noundef nonnull %56, ptr noundef %134) #30
+  %134 = call ptr @zend_ast_create_znode(ptr noundef nonnull %7) #28
+  %135 = call ptr @zend_ast_create_2(i16 noundef zeroext 519, ptr noundef nonnull %56, ptr noundef %134) #28
   %136 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 32), align 8
   %137 = call ptr @llvm.frameaddress.p0(i32 0)
   %.not.i.i63 = icmp ugt ptr %137, %136
@@ -32579,11 +32615,11 @@ zend_verify_list_assign_target.exit:              ; preds = %tailrecurse.i.i.i, 
   %140 = ptrtoint ptr %139 to i64
   %141 = ptrtoint ptr %136 to i64
   %142 = sub i64 %140, %141
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %142) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %142) #29
   unreachable
 
 zend_compile_expr.exit64:                         ; preds = %133
-  %143 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %143 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %6, ptr noundef %135)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %143, ptr noundef nonnull %6, ptr noundef %135)
   call fastcc void @zend_do_free(ptr noundef nonnull %6)
@@ -32592,8 +32628,8 @@ zend_compile_expr.exit64:                         ; preds = %133
 
 144:                                              ; preds = %131
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  %145 = call ptr @zend_ast_create_znode(ptr noundef nonnull %7) #30
-  %146 = call ptr @zend_ast_create_2(i16 noundef zeroext 518, ptr noundef nonnull %56, ptr noundef %145) #30
+  %145 = call ptr @zend_ast_create_znode(ptr noundef nonnull %7) #28
+  %146 = call ptr @zend_ast_create_2(i16 noundef zeroext 518, ptr noundef nonnull %56, ptr noundef %145) #28
   %147 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 32), align 8
   %148 = call ptr @llvm.frameaddress.p0(i32 0)
   %.not.i.i65 = icmp ugt ptr %148, %147
@@ -32604,11 +32640,11 @@ zend_compile_expr.exit64:                         ; preds = %133
   %151 = ptrtoint ptr %150 to i64
   %152 = ptrtoint ptr %147 to i64
   %153 = sub i64 %151, %152
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %153) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %153) #29
   unreachable
 
 zend_compile_expr.exit66:                         ; preds = %144
-  %154 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %154 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %5, ptr noundef %146)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %154, ptr noundef nonnull %5, ptr noundef %146)
   call fastcc void @zend_do_free(ptr noundef nonnull %5)
@@ -32629,7 +32665,7 @@ zend_compile_expr.exit66:                         ; preds = %144
   br i1 %160, label %._crit_edge.thread, label %161
 
 ._crit_edge.thread:                               ; preds = %4, %zval_make_interned_string.exit, %._crit_edge
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.237) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.237) #29
   unreachable
 
 161:                                              ; preds = %._crit_edge
@@ -32662,28 +32698,6 @@ declare ptr @zend_declare_typed_class_constant(ptr noundef, ptr noundef, ptr nou
 
 declare ptr @zend_ast_create_list_1(i16 noundef zeroext, ptr noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef nonnull ptr @zend_get_use_type_str(i32 noundef %0) unnamed_addr #23 {
-  switch i32 %0, label %4 [
-    i32 1, label %5
-    i32 2, label %2
-    i32 4, label %3
-  ]
-
-2:                                                ; preds = %1
-  br label %5
-
-3:                                                ; preds = %1
-  br label %5
-
-4:                                                ; preds = %1
-  unreachable
-
-5:                                                ; preds = %1, %3, %2
-  %.0 = phi ptr [ @.str.273, %3 ], [ @.str.272, %2 ], [ @.str.136, %1 ]
-  ret ptr %.0
-}
-
 ; Function Attrs: nounwind uwtable
 define internal void @str_dtor(ptr nocapture noundef readonly %0) #0 {
   %2 = load ptr, ptr %0, align 8
@@ -32703,7 +32717,7 @@ define internal void @str_dtor(ptr nocapture noundef readonly %0) #0 {
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %6
-  tail call void @_efree(ptr noundef nonnull %2) #30
+  tail call void @_efree(ptr noundef nonnull %2) #28
   br label %12
 
 12:                                               ; preds = %6, %11, %1
@@ -32815,7 +32829,7 @@ define internal fastcc void @zend_compile_expr_inner(ptr noundef %0, ptr noundef
   br label %64
 
 25:                                               ; preds = %9, %9, %9, %9, %9, %9, %9, %9, %9
-  %26 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %26 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   %27 = tail call fastcc ptr @zend_compile_var_inner(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 0, i1 noundef zeroext false)
   tail call fastcc void @zend_short_circuiting_commit(i32 noundef %26, ptr noundef %0, ptr noundef nonnull %1)
   br label %64
@@ -32966,7 +32980,7 @@ define internal fastcc void @zend_compile_expr_inner(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare ptr @llvm.frameaddress.p0(i32 immarg) #24
+declare ptr @llvm.frameaddress.p0(i32 immarg) #22
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @zend_compile_assign(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
@@ -33013,11 +33027,11 @@ define internal fastcc void @zend_compile_assign(ptr noundef %0, ptr nocapture n
   br i1 %34, label %is_this_fetch.exit, label %is_this_fetch.exit.thread
 
 is_this_fetch.exit:                               ; preds = %29
-  %35 = tail call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %24, ptr noundef nonnull %27) #30
+  %35 = tail call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %24, ptr noundef nonnull %27) #28
   br i1 %35, label %is_this_fetch.exit.thread69, label %is_this_fetch.exit.thread
 
 is_this_fetch.exit.thread69:                      ; preds = %22, %is_this_fetch.exit
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.233) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.233) #29
   unreachable
 
 is_this_fetch.exit.thread:                        ; preds = %2, %13, %29, %18, %is_this_fetch.exit
@@ -33067,7 +33081,7 @@ is_global_var_fetch.exit:                         ; preds = %51
   br i1 %.not.i.i, label %.thread, label %.thread72
 
 .thread:                                          ; preds = %is_this_fetch.exit.thread, %is_global_var_fetch.exit
-  %58 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 33)) #30
+  %58 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 33)) #28
   %59 = call fastcc ptr @zend_delayed_compile_var(ptr noundef nonnull %4, ptr noundef nonnull %8, i32 noundef 1, i1 noundef zeroext false)
   %60 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 32), align 8
   %61 = call ptr @llvm.frameaddress.p0(i32 0)
@@ -33079,11 +33093,11 @@ is_global_var_fetch.exit:                         ; preds = %51
   %64 = ptrtoint ptr %63 to i64
   %65 = ptrtoint ptr %60 to i64
   %66 = sub i64 %64, %65
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %66) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %66) #29
   unreachable
 
 zend_compile_expr.exit:                           ; preds = %.thread
-  %67 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %67 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %5, ptr noundef %10)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %67, ptr noundef nonnull %5, ptr noundef %10)
   %68 = call fastcc ptr @zend_delayed_compile_end(i32 noundef %58)
@@ -33098,7 +33112,7 @@ zend_compile_expr.exit:                           ; preds = %.thread
   br label %186
 
 74:                                               ; preds = %is_this_fetch.exit.thread
-  %75 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 33)) #30
+  %75 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 33)) #28
   %76 = tail call fastcc ptr @zend_delayed_compile_var(ptr noundef %0, ptr noundef nonnull %8, i32 noundef 1, i1 noundef zeroext false)
   %77 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 32), align 8
   %78 = tail call ptr @llvm.frameaddress.p0(i32 0)
@@ -33110,11 +33124,11 @@ zend_compile_expr.exit:                           ; preds = %.thread
   %81 = ptrtoint ptr %80 to i64
   %82 = ptrtoint ptr %77 to i64
   %83 = sub i64 %81, %82
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %83) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %83) #29
   unreachable
 
 zend_compile_expr.exit58:                         ; preds = %74
-  %84 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %84 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %5, ptr noundef %10)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %84, ptr noundef nonnull %5, ptr noundef %10)
   %85 = call fastcc ptr @zend_delayed_compile_end(i32 noundef %75)
@@ -33127,7 +33141,7 @@ zend_compile_expr.exit58:                         ; preds = %74
   br label %186
 
 .thread72:                                        ; preds = %37, %42, %51, %47, %is_global_var_fetch.exit
-  %89 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 33)) #30
+  %89 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 33)) #28
   %90 = tail call fastcc ptr @zend_delayed_compile_dim(ptr noundef %0, ptr noundef nonnull %8, i32 noundef 1, i1 noundef zeroext false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   %91 = tail call fastcc zeroext i1 @zend_is_assign_to_self(ptr noundef nonnull %8, ptr noundef %10)
@@ -33169,7 +33183,7 @@ zend_compile_expr.exit58:                         ; preds = %74
   br i1 %116, label %is_this_fetch.exit67, label %is_this_fetch.exit67.thread
 
 is_this_fetch.exit67:                             ; preds = %111
-  %117 = tail call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %106, ptr noundef nonnull %109) #30
+  %117 = tail call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %106, ptr noundef nonnull %109) #28
   br i1 %117, label %is_this_fetch.exit67.thread75, label %is_this_fetch.exit67.thread
 
 is_this_fetch.exit67.thread:                      ; preds = %92, %95, %111, %100, %is_this_fetch.exit67
@@ -33198,11 +33212,11 @@ is_this_fetch.exit67.thread75:                    ; preds = %104, %is_this_fetch
   %129 = ptrtoint ptr %128 to i64
   %130 = ptrtoint ptr %125 to i64
   %131 = sub i64 %129, %130
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %131) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %131) #29
   unreachable
 
 zend_compile_expr.exit65:                         ; preds = %is_this_fetch.exit67.thread75
-  %132 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %132 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %5, ptr noundef %10)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %132, ptr noundef nonnull %5, ptr noundef %10)
   br label %zend_compile_expr_with_potential_assign_to_self.exit
@@ -33219,7 +33233,7 @@ zend_compile_expr_with_potential_assign_to_self.exit: ; preds = %121, %123, %zen
   br label %186
 
 137:                                              ; preds = %is_this_fetch.exit.thread, %is_this_fetch.exit.thread
-  %138 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 33)) #30
+  %138 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 33)) #28
   %139 = tail call fastcc ptr @zend_delayed_compile_prop(ptr noundef %0, ptr noundef nonnull %8, i32 noundef 1)
   %140 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 32), align 8
   %141 = tail call ptr @llvm.frameaddress.p0(i32 0)
@@ -33231,11 +33245,11 @@ zend_compile_expr_with_potential_assign_to_self.exit: ; preds = %121, %123, %zen
   %144 = ptrtoint ptr %143 to i64
   %145 = ptrtoint ptr %140 to i64
   %146 = sub i64 %144, %145
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %146) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %146) #29
   unreachable
 
 zend_compile_expr.exit60:                         ; preds = %137
-  %147 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %147 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %5, ptr noundef %10)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %147, ptr noundef nonnull %5, ptr noundef %10)
   %148 = call fastcc ptr @zend_delayed_compile_end(i32 noundef %138)
@@ -33269,7 +33283,7 @@ tailrecurse.i.preheader:                          ; preds = %154, %154, %154, %1
   br label %tailrecurse.i
 
 zend_is_variable_or_call.exit:                    ; preds = %154
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.283) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.283) #29
   unreachable
 
 tailrecurse.i:                                    ; preds = %tailrecurse.i.preheader, %156
@@ -33292,11 +33306,11 @@ tailrecurse.i:                                    ; preds = %tailrecurse.i.prehe
   br label %tailrecurse.i
 
 159:                                              ; preds = %tailrecurse.i, %tailrecurse.i
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.218) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.218) #29
   unreachable
 
 zend_ast_is_short_circuited.exit:                 ; preds = %tailrecurse.i
-  %160 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %160 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   %161 = call fastcc ptr @zend_compile_var_inner(ptr noundef nonnull %5, ptr noundef nonnull %10, i32 noundef 1, i1 noundef zeroext true)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %160, ptr noundef nonnull %5, ptr noundef nonnull %10)
   %162 = call fastcc ptr @zend_emit_op(ptr noundef nonnull %5, i8 noundef zeroext -116, ptr noundef nonnull %5, ptr noundef null)
@@ -33332,11 +33346,11 @@ zend_ast_is_short_circuited.exit:                 ; preds = %tailrecurse.i
   %178 = ptrtoint ptr %177 to i64
   %179 = ptrtoint ptr %174 to i64
   %180 = sub i64 %178, %179
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %180) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %180) #29
   unreachable
 
 zend_compile_expr.exit63:                         ; preds = %173
-  %181 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %181 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %5, ptr noundef nonnull %10)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %181, ptr noundef nonnull %5, ptr noundef nonnull %10)
   br label %182
@@ -33397,11 +33411,11 @@ define internal fastcc void @zend_compile_assign_ref(ptr noundef %0, ptr nocaptu
   br i1 %32, label %is_this_fetch.exit, label %is_this_fetch.exit.thread
 
 is_this_fetch.exit:                               ; preds = %27
-  %33 = tail call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %22, ptr noundef nonnull %25) #30
+  %33 = tail call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %22, ptr noundef nonnull %25) #28
   br i1 %33, label %is_this_fetch.exit.thread41, label %is_this_fetch.exit.thread
 
 is_this_fetch.exit.thread41:                      ; preds = %20, %is_this_fetch.exit
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.233) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.233) #29
   unreachable
 
 is_this_fetch.exit.thread:                        ; preds = %2, %11, %27, %16, %is_this_fetch.exit
@@ -33427,7 +33441,7 @@ tailrecurse.i:                                    ; preds = %35, %is_this_fetch.
   br label %tailrecurse.i
 
 38:                                               ; preds = %tailrecurse.i, %tailrecurse.i
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.218) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.218) #29
   unreachable
 
 zend_ast_is_short_circuited.exit:                 ; preds = %tailrecurse.i
@@ -33463,13 +33477,13 @@ is_globals_fetch.exit:                            ; preds = %50
   br i1 %.not.i, label %57, label %is_globals_fetch.exit.thread
 
 57:                                               ; preds = %is_globals_fetch.exit
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.284) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.284) #29
   unreachable
 
 is_globals_fetch.exit.thread:                     ; preds = %zend_ast_is_short_circuited.exit, %41, %50, %46, %is_globals_fetch.exit
-  %58 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 33)) #30
+  %58 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 33)) #28
   %59 = call fastcc ptr @zend_delayed_compile_var(ptr noundef nonnull %3, ptr noundef nonnull %6, i32 noundef 1, i1 noundef zeroext true)
-  %60 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %60 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   %61 = call fastcc ptr @zend_compile_var_inner(ptr noundef nonnull %4, ptr noundef nonnull %8, i32 noundef 1, i1 noundef zeroext true)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %60, ptr noundef nonnull %4, ptr noundef nonnull %8)
   %62 = load i16, ptr %6, align 8
@@ -33511,7 +33525,7 @@ is_globals_fetch.exit.thread:                     ; preds = %zend_ast_is_short_c
   ]
 
 78:                                               ; preds = %77, %77, %77, %77
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.217) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.217) #29
   unreachable
 
 zend_is_call.exit:                                ; preds = %74
@@ -33612,7 +33626,7 @@ define internal fastcc void @zend_compile_new(ptr noundef writeonly %0, ptr noca
   %22 = load ptr, ptr %21, align 8
   %23 = zext i32 %20 to i64
   %24 = shl nuw nsw i64 %23, 5
-  %25 = call ptr @_erealloc(ptr noundef %22, i64 noundef %24) #34
+  %25 = call ptr @_erealloc(ptr noundef %22, i64 noundef %24) #32
   store ptr %25, ptr %21, align 8
   br label %get_next_op.exit.i
 
@@ -33730,7 +33744,7 @@ zend_emit_op.exit:                                ; preds = %get_next_op.exit.i,
   %84 = load ptr, ptr %83, align 8
   %85 = sext i32 %81 to i64
   %86 = shl nsw i64 %85, 4
-  %87 = call ptr @_erealloc(ptr noundef %84, i64 noundef %86) #34
+  %87 = call ptr @_erealloc(ptr noundef %84, i64 noundef %86) #32
   store ptr %87, ptr %83, align 8
   br label %88
 
@@ -33744,7 +33758,7 @@ zend_emit_op.exit:                                ; preds = %get_next_op.exit.i,
 
 92:                                               ; preds = %88
   %93 = load ptr, ptr @zend_new_interned_string, align 8
-  %94 = call ptr %93(ptr noundef %.pre.i.i14) #30
+  %94 = call ptr %93(ptr noundef %.pre.i.i14) #28
   store ptr %94, ptr %73, align 8
   %95 = getelementptr inbounds i8, ptr %94, i64 4
   %96 = load i32, ptr %95, align 4
@@ -33796,13 +33810,13 @@ define internal fastcc void @zend_compile_clone(ptr noundef %0, ptr nocapture no
   %8 = ptrtoint ptr %7 to i64
   %9 = ptrtoint ptr %4 to i64
   %10 = sub i64 %8, %9
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %10) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %10) #29
   unreachable
 
 zend_compile_expr.exit:                           ; preds = %2
   %11 = getelementptr inbounds i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %13 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %3, ptr noundef %12)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %13, ptr noundef nonnull %3, ptr noundef %12)
   %14 = call fastcc ptr @zend_emit_op_tmp(ptr noundef %0, i8 noundef zeroext 110, ptr noundef nonnull %3, ptr noundef null)
@@ -33866,7 +33880,7 @@ is_global_var_fetch.exit:                         ; preds = %28
   br i1 %.not.i.i, label %.thread, label %.thread54
 
 .thread:                                          ; preds = %2, %is_global_var_fetch.exit
-  %35 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 33)) #30
+  %35 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 33)) #28
   %36 = call fastcc ptr @zend_delayed_compile_var(ptr noundef nonnull %4, ptr noundef nonnull %7, i32 noundef 2, i1 noundef zeroext false)
   %37 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 32), align 8
   %38 = call ptr @llvm.frameaddress.p0(i32 0)
@@ -33878,11 +33892,11 @@ is_global_var_fetch.exit:                         ; preds = %28
   %41 = ptrtoint ptr %40 to i64
   %42 = ptrtoint ptr %37 to i64
   %43 = sub i64 %41, %42
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %43) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %43) #29
   unreachable
 
 zend_compile_expr.exit:                           ; preds = %.thread
-  %44 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %44 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %5, ptr noundef %9)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %44, ptr noundef nonnull %5, ptr noundef %9)
   %45 = call fastcc ptr @zend_delayed_compile_end(i32 noundef %35)
@@ -33892,7 +33906,7 @@ zend_compile_expr.exit:                           ; preds = %.thread
   br label %134
 
 48:                                               ; preds = %2
-  %49 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 33)) #30
+  %49 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 33)) #28
   %50 = tail call fastcc ptr @zend_delayed_compile_var(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 2, i1 noundef zeroext false)
   %51 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 32), align 8
   %52 = tail call ptr @llvm.frameaddress.p0(i32 0)
@@ -33904,11 +33918,11 @@ zend_compile_expr.exit:                           ; preds = %.thread
   %55 = ptrtoint ptr %54 to i64
   %56 = ptrtoint ptr %51 to i64
   %57 = sub i64 %55, %56
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %57) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %57) #29
   unreachable
 
 zend_compile_expr.exit48:                         ; preds = %48
-  %58 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %58 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %5, ptr noundef %9)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %58, ptr noundef nonnull %5, ptr noundef %9)
   %59 = call fastcc ptr @zend_delayed_compile_end(i32 noundef %49)
@@ -33926,7 +33940,7 @@ zend_compile_expr.exit48:                         ; preds = %48
   br label %134
 
 .thread54:                                        ; preds = %14, %19, %28, %24, %is_global_var_fetch.exit
-  %66 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 33)) #30
+  %66 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 33)) #28
   %67 = tail call fastcc ptr @zend_delayed_compile_dim(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 2, i1 noundef zeroext false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   %68 = tail call fastcc zeroext i1 @zend_is_assign_to_self(ptr noundef nonnull %7, ptr noundef %9)
@@ -33968,7 +33982,7 @@ zend_compile_expr.exit48:                         ; preds = %48
   br i1 %93, label %is_this_fetch.exit, label %is_this_fetch.exit.thread
 
 is_this_fetch.exit:                               ; preds = %88
-  %94 = tail call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %83, ptr noundef nonnull %86) #30
+  %94 = tail call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %83, ptr noundef nonnull %86) #28
   br i1 %94, label %is_this_fetch.exit.thread57, label %is_this_fetch.exit.thread
 
 is_this_fetch.exit.thread:                        ; preds = %69, %72, %88, %77, %is_this_fetch.exit
@@ -33997,11 +34011,11 @@ is_this_fetch.exit.thread57:                      ; preds = %81, %is_this_fetch.
   %106 = ptrtoint ptr %105 to i64
   %107 = ptrtoint ptr %102 to i64
   %108 = sub i64 %106, %107
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %108) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %108) #29
   unreachable
 
 zend_compile_expr.exit52:                         ; preds = %is_this_fetch.exit.thread57
-  %109 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %109 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %5, ptr noundef %9)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %109, ptr noundef nonnull %5, ptr noundef %9)
   br label %zend_compile_expr_with_potential_assign_to_self.exit
@@ -34020,7 +34034,7 @@ zend_compile_expr_with_potential_assign_to_self.exit: ; preds = %98, %100, %zend
   br label %134
 
 115:                                              ; preds = %2, %2
-  %116 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 33)) #30
+  %116 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 33)) #28
   %117 = tail call fastcc ptr @zend_delayed_compile_prop(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 2)
   %118 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 32), align 8
   %119 = tail call ptr @llvm.frameaddress.p0(i32 0)
@@ -34032,11 +34046,11 @@ zend_compile_expr_with_potential_assign_to_self.exit: ; preds = %98, %100, %zend
   %122 = ptrtoint ptr %121 to i64
   %123 = ptrtoint ptr %118 to i64
   %124 = sub i64 %122, %123
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %124) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %124) #29
   unreachable
 
 zend_compile_expr.exit50:                         ; preds = %115
-  %125 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %125 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %5, ptr noundef %9)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %125, ptr noundef nonnull %5, ptr noundef %9)
   %126 = call fastcc ptr @zend_delayed_compile_end(i32 noundef %116)
@@ -34078,13 +34092,13 @@ define internal fastcc void @zend_compile_binary_op(ptr noundef %0, ptr nocaptur
   %13 = ptrtoint ptr %12 to i64
   %14 = ptrtoint ptr %9 to i64
   %15 = sub i64 %13, %14
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %15) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %15) #29
   unreachable
 
 zend_compile_expr.exit:                           ; preds = %2
   %16 = getelementptr inbounds i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %18 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %3, ptr noundef %17)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %18, ptr noundef nonnull %3, ptr noundef %17)
   %19 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 32), align 8
@@ -34096,11 +34110,11 @@ zend_compile_expr.exit:                           ; preds = %2
   %22 = ptrtoint ptr %21 to i64
   %23 = ptrtoint ptr %19 to i64
   %24 = sub i64 %22, %23
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %24) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %24) #29
   unreachable
 
 zend_compile_expr.exit73:                         ; preds = %zend_compile_expr.exit
-  %25 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %25 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %4, ptr noundef %6)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %25, ptr noundef nonnull %4, ptr noundef %6)
   %26 = load i8, ptr %3, align 8
@@ -34119,11 +34133,11 @@ zend_compile_expr.exit73:                         ; preds = %zend_compile_expr.e
 
 35:                                               ; preds = %30
   %36 = getelementptr inbounds i8, ptr %0, i64 8
-  %37 = call ptr @get_binary_op(i32 noundef %31) #30
-  %38 = call i32 %37(ptr noundef nonnull %36, ptr noundef nonnull %32, ptr noundef nonnull %33) #30
+  %37 = call ptr @get_binary_op(i32 noundef %31) #28
+  %38 = call i32 %37(ptr noundef nonnull %36, ptr noundef nonnull %32, ptr noundef nonnull %33) #28
   store i8 1, ptr %0, align 8
-  call void @zval_ptr_dtor(ptr noundef nonnull %32) #30
-  call void @zval_ptr_dtor(ptr noundef nonnull %33) #30
+  call void @zval_ptr_dtor(ptr noundef nonnull %32) #28
+  call void @zval_ptr_dtor(ptr noundef nonnull %33) #28
   br label %130
 
 zend_try_ct_eval_binary_op.exit:                  ; preds = %30, %zend_compile_expr.exit73
@@ -34257,7 +34271,7 @@ zend_try_ct_eval_binary_op.exit:                  ; preds = %30, %zend_compile_e
 
 109:                                              ; preds = %103
   %110 = getelementptr inbounds i8, ptr %3, i64 8
-  call void @_convert_to_string(ptr noundef nonnull %110) #30
+  call void @_convert_to_string(ptr noundef nonnull %110) #28
   br label %111
 
 111:                                              ; preds = %103, %106, %109, %100
@@ -34281,7 +34295,7 @@ zend_try_ct_eval_binary_op.exit:                  ; preds = %30, %zend_compile_e
 
 120:                                              ; preds = %114
   %121 = getelementptr inbounds i8, ptr %4, i64 8
-  call void @_convert_to_string(ptr noundef nonnull %121) #30
+  call void @_convert_to_string(ptr noundef nonnull %121) #28
   br label %122
 
 122:                                              ; preds = %114, %117, %120, %111
@@ -34325,11 +34339,11 @@ define internal fastcc void @zend_compile_greater(ptr noundef %0, ptr nocapture 
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
   %17 = sub i64 %15, %16
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %17) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %17) #29
   unreachable
 
 zend_compile_expr.exit:                           ; preds = %2
-  %18 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %18 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %3, ptr noundef %6)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %18, ptr noundef nonnull %3, ptr noundef %6)
   %19 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 32), align 8
@@ -34341,11 +34355,11 @@ zend_compile_expr.exit:                           ; preds = %2
   %22 = ptrtoint ptr %21 to i64
   %23 = ptrtoint ptr %19 to i64
   %24 = sub i64 %22, %23
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %24) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %24) #29
   unreachable
 
 zend_compile_expr.exit15:                         ; preds = %zend_compile_expr.exit
-  %25 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %25 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %4, ptr noundef %8)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %25, ptr noundef nonnull %4, ptr noundef %8)
   %26 = load i8, ptr %3, align 8
@@ -34363,9 +34377,9 @@ zend_compile_expr.exit15:                         ; preds = %zend_compile_expr.e
   %34 = getelementptr inbounds i8, ptr %4, i64 8
   %35 = icmp eq i16 %32, 522
   %36 = select i1 %35, ptr @is_smaller_function, ptr @is_smaller_or_equal_function
-  %37 = call i32 %36(ptr noundef nonnull %31, ptr noundef nonnull %34, ptr noundef nonnull %33) #30, !callees !5
-  call void @zval_ptr_dtor(ptr noundef nonnull %33) #30
-  call void @zval_ptr_dtor(ptr noundef nonnull %34) #30
+  %37 = call i32 %36(ptr noundef nonnull %31, ptr noundef nonnull %34, ptr noundef nonnull %33) #28, !callees !5
+  call void @zval_ptr_dtor(ptr noundef nonnull %33) #28
+  call void @zval_ptr_dtor(ptr noundef nonnull %34) #28
   br label %43
 
 38:                                               ; preds = %zend_compile_expr.exit15
@@ -34394,13 +34408,13 @@ define internal fastcc void @zend_compile_unary_op(ptr noundef %0, ptr nocapture
   %10 = ptrtoint ptr %9 to i64
   %11 = ptrtoint ptr %6 to i64
   %12 = sub i64 %10, %11
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %12) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %12) #29
   unreachable
 
 zend_compile_expr.exit:                           ; preds = %2
   %13 = getelementptr inbounds i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %15 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %3, ptr noundef %14)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %15, ptr noundef nonnull %3, ptr noundef %14)
   %16 = load i8, ptr %3, align 8
@@ -34429,10 +34443,10 @@ zend_unary_op_produces_error.exit.i:              ; preds = %27
   br i1 %29, label %30, label %zend_try_ct_eval_unary_op.exit.thread
 
 30:                                               ; preds = %zend_unary_op_produces_error.exit.i, %23, %18
-  %31 = call ptr @get_unary_op(i32 noundef %19) #30
-  %32 = call i32 %31(ptr noundef nonnull %20, ptr noundef nonnull %21) #30
+  %31 = call ptr @get_unary_op(i32 noundef %19) #28
+  %32 = call i32 %31(ptr noundef nonnull %20, ptr noundef nonnull %21) #28
   store i8 1, ptr %0, align 8
-  call void @zval_ptr_dtor(ptr noundef nonnull %21) #30
+  call void @zval_ptr_dtor(ptr noundef nonnull %21) #28
   br label %35
 
 zend_try_ct_eval_unary_op.exit.thread:            ; preds = %27, %zend_unary_op_produces_error.exit.i, %zend_compile_expr.exit
@@ -34465,11 +34479,11 @@ define internal fastcc void @zend_compile_unary_pm(ptr noundef %0, ptr nocapture
   %14 = ptrtoint ptr %13 to i64
   %15 = ptrtoint ptr %10 to i64
   %16 = sub i64 %14, %15
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %16) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %16) #29
   unreachable
 
 zend_compile_expr.exit:                           ; preds = %2
-  %17 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %17 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %4, ptr noundef %7)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %17, ptr noundef nonnull %4, ptr noundef %7)
   %18 = load i8, ptr %4, align 8
@@ -34503,7 +34517,7 @@ zend_compile_expr.exit:                           ; preds = %2
 33:                                               ; preds = %28
   %34 = getelementptr inbounds i8, ptr %29, i64 16
   %35 = load i64, ptr %34, align 8
-  %36 = call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %30, i64 noundef %35, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null, ptr noundef null) #30
+  %36 = call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %30, i64 noundef %35, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null, ptr noundef null) #28
   %37 = icmp eq i8 %36, 0
   br i1 %37, label %.zend_try_ct_eval_unary_pm.exit.thread_crit_edge, label %38
 
@@ -34517,11 +34531,11 @@ zend_try_ct_eval_unary_pm.exit.thread:            ; preds = %.zend_try_ct_eval_u
   br label %41
 
 38:                                               ; preds = %33, %20
-  %39 = call ptr @get_binary_op(i32 noundef 3) #30
-  %40 = call i32 %39(ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef nonnull %3) #30
+  %39 = call ptr @get_binary_op(i32 noundef 3) #28
+  %40 = call i32 %39(ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef nonnull %3) #28
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   store i8 1, ptr %0, align 8
-  call void @zval_ptr_dtor(ptr noundef nonnull %22) #30
+  call void @zval_ptr_dtor(ptr noundef nonnull %22) #28
   br label %48
 
 41:                                               ; preds = %zend_try_ct_eval_unary_pm.exit.thread, %zend_compile_expr.exit
@@ -34562,11 +34576,11 @@ define internal fastcc void @zend_compile_short_circuiting(ptr noundef %0, ptr n
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
   %17 = sub i64 %15, %16
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %17) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %17) #29
   unreachable
 
 zend_compile_expr.exit:                           ; preds = %2
-  %18 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %18 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %3, ptr noundef %6)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %18, ptr noundef nonnull %3, ptr noundef %6)
   %19 = load i8, ptr %3, align 8
@@ -34580,7 +34594,7 @@ zend_compile_expr.exit:                           ; preds = %2
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds i8, ptr %3, i64 8
-  %26 = call i32 @zend_is_true(ptr noundef nonnull %25) #30
+  %26 = call i32 @zend_is_true(ptr noundef nonnull %25) #28
   %.not = icmp eq i32 %26, 0
   br i1 %.not, label %33, label %thread-pre-split
 
@@ -34595,14 +34609,14 @@ thread-pre-split:                                 ; preds = %24
 
 30:                                               ; preds = %27
   %31 = getelementptr inbounds i8, ptr %3, i64 8
-  %32 = call i32 @zend_is_true(ptr noundef nonnull %31) #30
+  %32 = call i32 @zend_is_true(ptr noundef nonnull %31) #28
   %.not40 = icmp eq i32 %32, 0
   br i1 %.not40, label %38, label %33
 
 33:                                               ; preds = %30, %24
   store i8 1, ptr %0, align 8
   %34 = getelementptr inbounds i8, ptr %3, i64 8
-  %35 = call i32 @zend_is_true(ptr noundef nonnull %34) #30
+  %35 = call i32 @zend_is_true(ptr noundef nonnull %34) #28
   %.not42 = icmp eq i32 %35, 0
   %36 = select i1 %.not42, i32 2, i32 3
   %37 = getelementptr inbounds i8, ptr %0, i64 16
@@ -34619,11 +34633,11 @@ thread-pre-split:                                 ; preds = %24
   %42 = ptrtoint ptr %41 to i64
   %43 = ptrtoint ptr %39 to i64
   %44 = sub i64 %42, %43
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %44) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %44) #29
   unreachable
 
 zend_compile_expr.exit44:                         ; preds = %38
-  %45 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %45 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %4, ptr noundef %8)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %45, ptr noundef nonnull %4, ptr noundef %8)
   %46 = load i8, ptr %4, align 8
@@ -34633,12 +34647,12 @@ zend_compile_expr.exit44:                         ; preds = %38
 48:                                               ; preds = %zend_compile_expr.exit44
   store i8 1, ptr %0, align 8
   %49 = getelementptr inbounds i8, ptr %4, i64 8
-  %50 = call i32 @zend_is_true(ptr noundef nonnull %49) #30
+  %50 = call i32 @zend_is_true(ptr noundef nonnull %49) #28
   %.not41 = icmp eq i32 %50, 0
   %51 = select i1 %.not41, i32 2, i32 3
   %52 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %51, ptr %52, align 8
-  call void @zval_ptr_dtor(ptr noundef nonnull %49) #30
+  call void @zval_ptr_dtor(ptr noundef nonnull %49) #28
   br label %55
 
 53:                                               ; preds = %zend_compile_expr.exit44
@@ -34647,7 +34661,7 @@ zend_compile_expr.exit44:                         ; preds = %38
 
 55:                                               ; preds = %48, %53, %33
   %56 = getelementptr inbounds i8, ptr %3, i64 8
-  call void @zval_ptr_dtor(ptr noundef nonnull %56) #30
+  call void @zval_ptr_dtor(ptr noundef nonnull %56) #28
   br label %zend_update_jump_target_to_next.exit
 
 57:                                               ; preds = %zend_compile_expr.exit
@@ -34719,11 +34733,11 @@ zend_make_tmp_result.exit:                        ; preds = %94, %83, %68
   %99 = ptrtoint ptr %98 to i64
   %100 = ptrtoint ptr %96 to i64
   %101 = sub i64 %99, %100
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %101) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %101) #29
   unreachable
 
 zend_compile_expr.exit46:                         ; preds = %zend_make_tmp_result.exit
-  %102 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %102 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %4, ptr noundef %8)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %102, ptr noundef nonnull %4, ptr noundef %8)
   %103 = call fastcc ptr @zend_emit_op(ptr noundef null, i8 noundef zeroext 52, ptr noundef nonnull %4, ptr noundef null)
@@ -34761,7 +34775,7 @@ zend_compile_expr.exit46:                         ; preds = %zend_make_tmp_resul
   %118 = load ptr, ptr %117, align 8
   %119 = sext i32 %115 to i64
   %120 = shl nsw i64 %119, 4
-  %121 = call ptr @_erealloc(ptr noundef %118, i64 noundef %120) #34
+  %121 = call ptr @_erealloc(ptr noundef %118, i64 noundef %120) #32
   store ptr %121, ptr %117, align 8
   br label %122
 
@@ -34775,7 +34789,7 @@ zend_compile_expr.exit46:                         ; preds = %zend_make_tmp_resul
 
 126:                                              ; preds = %122
   %127 = load ptr, ptr @zend_new_interned_string, align 8
-  %128 = call ptr %127(ptr noundef %.pre.i.i51) #30
+  %128 = call ptr %127(ptr noundef %.pre.i.i51) #28
   store ptr %128, ptr %108, align 8
   %129 = getelementptr inbounds i8, ptr %128, i64 4
   %130 = load i32, ptr %129, align 4
@@ -34854,7 +34868,7 @@ define internal fastcc void @zend_compile_post_incdec(ptr noundef %0, ptr nocapt
   ]
 
 9:                                                ; preds = %2, %2
-  %10 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 33)) #30
+  %10 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 33)) #28
   %11 = tail call fastcc ptr @zend_delayed_compile_prop(ptr noundef null, ptr noundef nonnull %5, i32 noundef 2)
   %12 = tail call fastcc ptr @zend_delayed_compile_end(i32 noundef %10)
   %13 = load i16, ptr %1, align 8
@@ -34940,7 +34954,7 @@ define internal fastcc void @zend_compile_post_incdec(ptr noundef %0, ptr nocapt
   br label %zend_make_tmp_result.exit
 
 67:                                               ; preds = %2
-  %68 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %68 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   %69 = call fastcc ptr @zend_compile_var_inner(ptr noundef nonnull %3, ptr noundef nonnull %5, i32 noundef 2, i1 noundef zeroext false)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %68, ptr noundef nonnull %3, ptr noundef nonnull %5)
   %.not = icmp eq ptr %69, null
@@ -34986,7 +35000,7 @@ define internal fastcc void @zend_compile_pre_incdec(ptr noundef %0, ptr nocaptu
   ]
 
 9:                                                ; preds = %2, %2
-  %10 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 33)) #30
+  %10 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 33)) #28
   %11 = tail call fastcc ptr @zend_delayed_compile_prop(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 2)
   %12 = tail call fastcc ptr @zend_delayed_compile_end(i32 noundef %10)
   %13 = load i16, ptr %1, align 8
@@ -35012,7 +35026,7 @@ define internal fastcc void @zend_compile_pre_incdec(ptr noundef %0, ptr nocaptu
   br label %39
 
 25:                                               ; preds = %2
-  %26 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %26 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   %27 = call fastcc ptr @zend_compile_var_inner(ptr noundef nonnull %3, ptr noundef nonnull %5, i32 noundef 2, i1 noundef zeroext false)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %26, ptr noundef nonnull %3, ptr noundef nonnull %5)
   %.not = icmp eq ptr %27, null
@@ -35053,13 +35067,13 @@ define internal fastcc void @zend_compile_cast(ptr noundef %0, ptr nocapture nou
   %8 = ptrtoint ptr %7 to i64
   %9 = ptrtoint ptr %4 to i64
   %10 = sub i64 %8, %9
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %10) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %10) #29
   unreachable
 
 zend_compile_expr.exit:                           ; preds = %2
   %11 = getelementptr inbounds i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %13 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %3, ptr noundef %12)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %13, ptr noundef nonnull %3, ptr noundef %12)
   %14 = getelementptr inbounds i8, ptr %1, i64 2
@@ -35074,7 +35088,7 @@ zend_compile_expr.exit:                           ; preds = %2
   br label %24
 
 18:                                               ; preds = %zend_compile_expr.exit
-  call void (i32, ptr, ...) @zend_error(i32 noundef 64, ptr noundef nonnull @.str.285) #30
+  call void (i32, ptr, ...) @zend_error(i32 noundef 64, ptr noundef nonnull @.str.285) #28
   br label %24
 
 19:                                               ; preds = %zend_compile_expr.exit
@@ -35123,7 +35137,7 @@ define internal fastcc void @zend_compile_conditional(ptr noundef %0, ptr nocapt
   br i1 %cond, label %.thread, label %.sink.split
 
 .thread:                                          ; preds = %22
-  tail call void (i32, ptr, ...) @zend_error(i32 noundef 64, ptr noundef nonnull @.str.287) #30
+  tail call void (i32, ptr, ...) @zend_error(i32 noundef 64, ptr noundef nonnull @.str.287) #28
   br label %25
 
 23:                                               ; preds = %19
@@ -35151,11 +35165,11 @@ define internal fastcc void @zend_compile_conditional(ptr noundef %0, ptr nocapt
   %34 = ptrtoint ptr %33 to i64
   %35 = ptrtoint ptr %30 to i64
   %36 = sub i64 %34, %35
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %36) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %36) #29
   unreachable
 
 zend_compile_expr.exit49:                         ; preds = %25
-  %37 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %37 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %3, ptr noundef %26)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %37, ptr noundef nonnull %3, ptr noundef %26)
   %38 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 4), align 8
@@ -35171,11 +35185,11 @@ zend_compile_expr.exit49:                         ; preds = %25
   %45 = ptrtoint ptr %44 to i64
   %46 = ptrtoint ptr %42 to i64
   %47 = sub i64 %45, %46
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %47) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %47) #29
   unreachable
 
 zend_compile_expr.exit47:                         ; preds = %zend_compile_expr.exit49
-  %48 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %48 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %4, ptr noundef %27)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %48, ptr noundef nonnull %4, ptr noundef %27)
   %49 = call fastcc ptr @zend_emit_op_tmp(ptr noundef null, i8 noundef zeroext 31, ptr noundef nonnull %4, ptr noundef null)
@@ -35213,7 +35227,7 @@ zend_compile_expr.exit47:                         ; preds = %zend_compile_expr.e
   %64 = load ptr, ptr %63, align 8
   %65 = sext i32 %61 to i64
   %66 = shl nsw i64 %65, 4
-  %67 = call ptr @_erealloc(ptr noundef %64, i64 noundef %66) #34
+  %67 = call ptr @_erealloc(ptr noundef %64, i64 noundef %66) #32
   store ptr %67, ptr %63, align 8
   br label %68
 
@@ -35227,7 +35241,7 @@ zend_compile_expr.exit47:                         ; preds = %zend_compile_expr.e
 
 72:                                               ; preds = %68
   %73 = load ptr, ptr @zend_new_interned_string, align 8
-  %74 = call ptr %73(ptr noundef %.pre.i.i40) #30
+  %74 = call ptr %73(ptr noundef %.pre.i.i40) #28
   store ptr %74, ptr %54, align 8
   %75 = getelementptr inbounds i8, ptr %74, i64 4
   %76 = load i32, ptr %75, align 4
@@ -35291,7 +35305,7 @@ zend_update_jump_target_to_next.exit35:           ; preds = %100, %102
 
 .sink.split:                                      ; preds = %23, %22
   %.str.288.sink = phi ptr [ @.str.286, %22 ], [ @.str.288, %23 ]
-  tail call void (i32, ptr, ...) @zend_error(i32 noundef 64, ptr noundef nonnull %.str.288.sink) #30
+  tail call void (i32, ptr, ...) @zend_error(i32 noundef 64, ptr noundef nonnull %.str.288.sink) #28
   br label %104
 
 104:                                              ; preds = %.sink.split, %24
@@ -35305,11 +35319,11 @@ zend_update_jump_target_to_next.exit35:           ; preds = %100, %102
   %109 = ptrtoint ptr %108 to i64
   %110 = ptrtoint ptr %105 to i64
   %111 = sub i64 %109, %110
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %111) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %111) #29
   unreachable
 
 zend_compile_expr.exit:                           ; preds = %104
-  %112 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %112 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %5, ptr noundef nonnull %9)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %112, ptr noundef nonnull %5, ptr noundef nonnull %9)
   %113 = call fastcc i32 @zend_emit_cond_jump(i8 noundef zeroext 43, ptr noundef nonnull %5, i32 noundef 0)
@@ -35322,11 +35336,11 @@ zend_compile_expr.exit:                           ; preds = %104
   %117 = ptrtoint ptr %116 to i64
   %118 = ptrtoint ptr %114 to i64
   %119 = sub i64 %117, %118
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %119) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %119) #29
   unreachable
 
 zend_compile_expr.exit28:                         ; preds = %zend_compile_expr.exit
-  %120 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %120 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %6, ptr noundef nonnull %11)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %120, ptr noundef nonnull %6, ptr noundef nonnull %11)
   %121 = call fastcc ptr @zend_emit_op_tmp(ptr noundef %0, i8 noundef zeroext 31, ptr noundef nonnull %6, ptr noundef null)
@@ -35351,7 +35365,7 @@ zend_compile_expr.exit28:                         ; preds = %zend_compile_expr.e
   %130 = load ptr, ptr %129, align 8
   %131 = zext i32 %128 to i64
   %132 = shl nuw nsw i64 %131, 5
-  %133 = call ptr @_erealloc(ptr noundef %130, i64 noundef %132) #34
+  %133 = call ptr @_erealloc(ptr noundef %130, i64 noundef %132) #32
   store ptr %133, ptr %129, align 8
   br label %zend_emit_jump.exit
 
@@ -35412,11 +35426,11 @@ zend_update_jump_target_to_next.exit:             ; preds = %156, %158
   %163 = ptrtoint ptr %162 to i64
   %164 = ptrtoint ptr %160 to i64
   %165 = sub i64 %163, %164
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %165) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %165) #29
   unreachable
 
 zend_compile_expr.exit30:                         ; preds = %zend_update_jump_target_to_next.exit
-  %166 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %166 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %7, ptr noundef %13)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %166, ptr noundef nonnull %7, ptr noundef %13)
   %167 = call fastcc ptr @zend_emit_op(ptr noundef null, i8 noundef zeroext 31, ptr noundef nonnull %7, ptr noundef null)
@@ -35454,7 +35468,7 @@ zend_compile_expr.exit30:                         ; preds = %zend_update_jump_ta
   %182 = load ptr, ptr %181, align 8
   %183 = sext i32 %179 to i64
   %184 = shl nsw i64 %183, 4
-  %185 = call ptr @_erealloc(ptr noundef %182, i64 noundef %184) #34
+  %185 = call ptr @_erealloc(ptr noundef %182, i64 noundef %184) #32
   store ptr %185, ptr %181, align 8
   br label %186
 
@@ -35468,7 +35482,7 @@ zend_compile_expr.exit30:                         ; preds = %zend_update_jump_ta
 
 190:                                              ; preds = %186
   %191 = load ptr, ptr @zend_new_interned_string, align 8
-  %192 = call ptr %191(ptr noundef %.pre.i.i) #30
+  %192 = call ptr %191(ptr noundef %.pre.i.i) #28
   store ptr %192, ptr %172, align 8
   %193 = getelementptr inbounds i8, ptr %192, i64 4
   %194 = load i32, ptr %193, align 4
@@ -35536,7 +35550,7 @@ define internal fastcc void @zend_compile_coalesce(ptr noundef %0, ptr nocapture
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %9 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   %10 = call fastcc ptr @zend_compile_var_inner(ptr noundef nonnull %3, ptr noundef %6, i32 noundef 3, i1 noundef zeroext false)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %9, ptr noundef nonnull %3, ptr noundef %6)
   %11 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 4), align 8
@@ -35553,11 +35567,11 @@ define internal fastcc void @zend_compile_coalesce(ptr noundef %0, ptr nocapture
   %19 = ptrtoint ptr %18 to i64
   %20 = ptrtoint ptr %15 to i64
   %21 = sub i64 %19, %20
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %21) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %21) #29
   unreachable
 
 zend_compile_expr.exit:                           ; preds = %2
-  %22 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %22 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %4, ptr noundef %8)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %22, ptr noundef nonnull %4, ptr noundef %8)
   %23 = call fastcc ptr @zend_emit_op_tmp(ptr noundef null, i8 noundef zeroext 31, ptr noundef nonnull %4, ptr noundef null)
@@ -35595,7 +35609,7 @@ zend_compile_expr.exit:                           ; preds = %2
   %38 = load ptr, ptr %37, align 8
   %39 = sext i32 %35 to i64
   %40 = shl nsw i64 %39, 4
-  %41 = call ptr @_erealloc(ptr noundef %38, i64 noundef %40) #34
+  %41 = call ptr @_erealloc(ptr noundef %38, i64 noundef %40) #32
   store ptr %41, ptr %37, align 8
   br label %42
 
@@ -35609,7 +35623,7 @@ zend_compile_expr.exit:                           ; preds = %2
 
 46:                                               ; preds = %42
   %47 = load ptr, ptr @zend_new_interned_string, align 8
-  %48 = call ptr %47(ptr noundef %.pre.i.i) #30
+  %48 = call ptr %47(ptr noundef %.pre.i.i) #28
   store ptr %48, ptr %28, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 4
   %50 = load i32, ptr %49, align 4
@@ -35704,19 +35718,19 @@ define internal fastcc void @zend_compile_assign_coalesce(ptr noundef %0, ptr no
   br i1 %37, label %is_this_fetch.exit, label %is_this_fetch.exit.thread
 
 is_this_fetch.exit:                               ; preds = %32
-  %38 = tail call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %27, ptr noundef nonnull %30) #30
+  %38 = tail call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %27, ptr noundef nonnull %30) #28
   br i1 %38, label %is_this_fetch.exit.thread76, label %is_this_fetch.exit.thread
 
 is_this_fetch.exit.thread76:                      ; preds = %25, %is_this_fetch.exit
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.233) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.233) #29
   unreachable
 
 is_this_fetch.exit.thread:                        ; preds = %2, %16, %32, %21, %is_this_fetch.exit
-  %39 = tail call noalias ptr @_emalloc_56() #30
+  %39 = tail call noalias ptr @_emalloc_56() #28
   store ptr %39, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 34), align 8
-  tail call void @_zend_hash_init(ptr noundef %39, i32 noundef 0, ptr noundef nonnull @znode_dtor, i1 noundef zeroext false) #30
+  tail call void @_zend_hash_init(ptr noundef %39, i32 noundef 0, ptr noundef nonnull @znode_dtor, i1 noundef zeroext false) #28
   store i32 1, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 35), align 8
-  %40 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %40 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   %41 = call fastcc ptr @zend_compile_var_inner(ptr noundef nonnull %4, ptr noundef nonnull %9, i32 noundef 3, i1 noundef zeroext false)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %40, ptr noundef nonnull %4, ptr noundef nonnull %9)
   %42 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 4), align 8
@@ -35769,7 +35783,7 @@ is_this_fetch.exit.thread:                        ; preds = %2, %16, %32, %21, %
   br i1 %74, label %is_this_fetch.exit74, label %is_this_fetch.exit74.thread
 
 is_this_fetch.exit74:                             ; preds = %69
-  %75 = call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %64, ptr noundef nonnull %67) #30
+  %75 = call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %64, ptr noundef nonnull %67) #28
   br i1 %75, label %is_this_fetch.exit74.thread79, label %is_this_fetch.exit74.thread
 
 is_this_fetch.exit74.thread:                      ; preds = %50, %53, %69, %58, %is_this_fetch.exit74
@@ -35798,11 +35812,11 @@ is_this_fetch.exit74.thread79:                    ; preds = %62, %is_this_fetch.
   %87 = ptrtoint ptr %86 to i64
   %88 = ptrtoint ptr %83 to i64
   %89 = sub i64 %87, %88
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %89) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %89) #29
   unreachable
 
 zend_compile_expr.exit72:                         ; preds = %is_this_fetch.exit74.thread79
-  %90 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %90 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %6, ptr noundef %11)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %90, ptr noundef nonnull %6, ptr noundef %11)
   br label %zend_compile_expr_with_potential_assign_to_self.exit
@@ -35822,18 +35836,18 @@ zend_compile_expr_with_potential_assign_to_self.exit: ; preds = %79, %81, %zend_
   %96 = ptrtoint ptr %95 to i64
   %97 = ptrtoint ptr %92 to i64
   %98 = sub i64 %96, %97
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %98) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %98) #29
   unreachable
 
 zend_compile_expr.exit:                           ; preds = %91
-  %99 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %99 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %6, ptr noundef %11)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %99, ptr noundef nonnull %6, ptr noundef %11)
   br label %100
 
 100:                                              ; preds = %zend_compile_expr.exit, %zend_compile_expr_with_potential_assign_to_self.exit
   store i32 2, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 35), align 8
-  %101 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %101 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   %102 = call fastcc ptr @zend_compile_var_inner(ptr noundef nonnull %5, ptr noundef nonnull %9, i32 noundef 1, i1 noundef zeroext false)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %101, ptr noundef nonnull %5, ptr noundef nonnull %9)
   %103 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 4), align 8
@@ -35960,7 +35974,7 @@ is_global_var_fetch.exit:                         ; preds = %126
   %162 = load ptr, ptr %161, align 8
   %163 = sext i32 %159 to i64
   %164 = shl nsw i64 %163, 4
-  %165 = call ptr @_erealloc(ptr noundef %162, i64 noundef %164) #34
+  %165 = call ptr @_erealloc(ptr noundef %162, i64 noundef %164) #32
   store ptr %165, ptr %161, align 8
   br label %166
 
@@ -35974,7 +35988,7 @@ is_global_var_fetch.exit:                         ; preds = %126
 
 170:                                              ; preds = %166
   %171 = load ptr, ptr @zend_new_interned_string, align 8
-  %172 = call ptr %171(ptr noundef %.pre.i.i) #30
+  %172 = call ptr %171(ptr noundef %.pre.i.i) #28
   store ptr %172, ptr %152, align 8
   %173 = getelementptr inbounds i8, ptr %172, i64 4
   %174 = load i32, ptr %173, align 4
@@ -36071,7 +36085,7 @@ zend_add_literal.exit:                            ; preds = %166, %170, %176
   %219 = load ptr, ptr %218, align 8
   %220 = zext i32 %217 to i64
   %221 = shl nuw nsw i64 %220, 5
-  %222 = call ptr @_erealloc(ptr noundef %219, i64 noundef %221) #34
+  %222 = call ptr @_erealloc(ptr noundef %219, i64 noundef %221) #32
   store ptr %222, ptr %218, align 8
   br label %zend_emit_jump.exit
 
@@ -36214,9 +36228,9 @@ zend_update_jump_target_to_next.exit:             ; preds = %245, %247
 
 zend_update_jump_target_to_next.exit68:           ; preds = %294, %292, %281, %279
   %296 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 34), align 8
-  call void @zend_hash_destroy(ptr noundef %296) #30
+  call void @zend_hash_destroy(ptr noundef %296) #28
   %297 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 34), align 8
-  call void @_efree_56(ptr noundef %297) #30
+  call void @_efree_56(ptr noundef %297) #28
   store ptr %12, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 34), align 8
   store i32 %13, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 35), align 8
   ret void
@@ -36235,13 +36249,13 @@ define internal fastcc void @zend_compile_print(ptr nocapture noundef writeonly 
   %8 = ptrtoint ptr %7 to i64
   %9 = ptrtoint ptr %4 to i64
   %10 = sub i64 %8, %9
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %10) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %10) #29
   unreachable
 
 zend_compile_expr.exit:                           ; preds = %2
   %11 = getelementptr inbounds i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %13 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %3, ptr noundef %12)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %13, ptr noundef nonnull %3, ptr noundef %12)
   %14 = call fastcc ptr @zend_emit_op(ptr noundef null, i8 noundef zeroext -120, ptr noundef nonnull %3, ptr noundef null)
@@ -36274,11 +36288,11 @@ define internal fastcc void @zend_compile_exit(ptr noundef writeonly %0, ptr noc
   %11 = ptrtoint ptr %10 to i64
   %12 = ptrtoint ptr %7 to i64
   %13 = sub i64 %11, %12
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %13) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %13) #29
   unreachable
 
 zend_compile_expr.exit:                           ; preds = %6
-  %14 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %14 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %3, ptr noundef nonnull %5)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %14, ptr noundef nonnull %3, ptr noundef nonnull %5)
   br label %16
@@ -36332,11 +36346,11 @@ define internal fastcc void @zend_compile_yield(ptr noundef %0, ptr nocapture no
   %18 = ptrtoint ptr %17 to i64
   %19 = ptrtoint ptr %14 to i64
   %20 = sub i64 %18, %19
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %20) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %20) #29
   unreachable
 
 zend_compile_expr.exit:                           ; preds = %13
-  %21 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %21 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %4, ptr noundef nonnull %8)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %21, ptr noundef nonnull %4, ptr noundef nonnull %8)
   br label %22
@@ -36364,7 +36378,7 @@ zend_compile_expr.exit:                           ; preds = %13
   ]
 
 .thread25:                                        ; preds = %25, %25, %25, %25, %25
-  %26 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %26 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   %27 = call fastcc ptr @zend_compile_var_inner(ptr noundef nonnull %3, ptr noundef nonnull %6, i32 noundef 1, i1 noundef zeroext true)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %26, ptr noundef nonnull %3, ptr noundef nonnull %6)
   %28 = call fastcc ptr @zend_emit_op(ptr noundef %0, i8 noundef zeroext -96, ptr noundef nonnull %3, ptr noundef %.015)
@@ -36381,11 +36395,11 @@ zend_is_variable.exit:                            ; preds = %25, %24
   %33 = ptrtoint ptr %32 to i64
   %34 = ptrtoint ptr %29 to i64
   %35 = sub i64 %33, %34
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %35) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %35) #29
   unreachable
 
 36:                                               ; preds = %zend_is_variable.exit
-  %37 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %37 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %3, ptr noundef nonnull %6)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %37, ptr noundef nonnull %3, ptr noundef nonnull %6)
   %38 = call fastcc ptr @zend_emit_op(ptr noundef %0, i8 noundef zeroext -96, ptr noundef nonnull %3, ptr noundef %.015)
@@ -36424,7 +36438,7 @@ define internal fastcc void @zend_compile_yield_from(ptr noundef %0, ptr nocaptu
   br i1 %.not, label %11, label %10
 
 10:                                               ; preds = %2
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.289) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.289) #29
   unreachable
 
 11:                                               ; preds = %2
@@ -36438,11 +36452,11 @@ define internal fastcc void @zend_compile_yield_from(ptr noundef %0, ptr nocaptu
   %16 = ptrtoint ptr %15 to i64
   %17 = ptrtoint ptr %12 to i64
   %18 = sub i64 %16, %17
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %18) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %18) #29
   unreachable
 
 zend_compile_expr.exit:                           ; preds = %11
-  %19 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %19 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %3, ptr noundef %5)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %19, ptr noundef nonnull %3, ptr noundef %5)
   %20 = call fastcc ptr @zend_emit_op_tmp(ptr noundef %0, i8 noundef zeroext -90, ptr noundef nonnull %3, ptr noundef null)
@@ -36465,13 +36479,13 @@ define internal fastcc void @zend_compile_instanceof(ptr noundef %0, ptr nocaptu
   %11 = ptrtoint ptr %10 to i64
   %12 = ptrtoint ptr %7 to i64
   %13 = sub i64 %11, %12
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %13) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %13) #29
   unreachable
 
 zend_compile_expr.exit:                           ; preds = %2
   %14 = getelementptr inbounds i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %16 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %3, ptr noundef %15)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %16, ptr noundef nonnull %3, ptr noundef %15)
   %17 = load i8, ptr %3, align 8
@@ -36553,7 +36567,7 @@ define internal fastcc void @zend_compile_include_or_eval(ptr noundef %0, ptr no
   %17 = load ptr, ptr %16, align 8
   %18 = zext i32 %15 to i64
   %19 = shl nuw nsw i64 %18, 5
-  %20 = tail call ptr @_erealloc(ptr noundef %17, i64 noundef %19) #34
+  %20 = tail call ptr @_erealloc(ptr noundef %17, i64 noundef %19) #32
   store ptr %20, ptr %16, align 8
   br label %get_next_op.exit.i
 
@@ -36594,11 +36608,11 @@ zend_do_extended_fcall_begin.exit:                ; preds = %2, %get_next_op.exi
   %38 = ptrtoint ptr %37 to i64
   %39 = ptrtoint ptr %34 to i64
   %40 = sub i64 %38, %39
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %40) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %40) #29
   unreachable
 
 zend_compile_expr.exit:                           ; preds = %zend_do_extended_fcall_begin.exit
-  %41 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %41 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %3, ptr noundef %5)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %41, ptr noundef nonnull %3, ptr noundef %5)
   %42 = call fastcc ptr @zend_emit_op(ptr noundef %0, i8 noundef zeroext 73, ptr noundef nonnull %3, ptr noundef null)
@@ -36634,7 +36648,7 @@ zend_compile_expr.exit:                           ; preds = %zend_do_extended_fc
   %58 = load ptr, ptr %57, align 8
   %59 = zext i32 %56 to i64
   %60 = shl nuw nsw i64 %59, 5
-  %61 = call ptr @_erealloc(ptr noundef %58, i64 noundef %60) #34
+  %61 = call ptr @_erealloc(ptr noundef %58, i64 noundef %60) #32
   store ptr %61, ptr %57, align 8
   br label %get_next_op.exit.i8
 
@@ -36691,7 +36705,7 @@ zend_is_variable.exit:                            ; preds = %2
   br i1 %8, label %9, label %20
 
 9:                                                ; preds = %zend_is_variable.exit
-  %10 = tail call ptr @zend_ast_create_1(i16 noundef zeroext 270, ptr noundef nonnull %5) #30
+  %10 = tail call ptr @zend_ast_create_1(i16 noundef zeroext 270, ptr noundef nonnull %5) #28
   %11 = getelementptr inbounds i8, ptr %10, i64 2
   store i16 14, ptr %11, align 2
   %12 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 32), align 8
@@ -36704,17 +36718,17 @@ zend_is_variable.exit:                            ; preds = %2
   %16 = ptrtoint ptr %15 to i64
   %17 = ptrtoint ptr %12 to i64
   %18 = sub i64 %16, %17
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %18) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %18) #29
   unreachable
 
 zend_compile_expr.exit:                           ; preds = %9
-  %19 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %19 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   tail call fastcc void @zend_compile_expr_inner(ptr noundef %0, ptr noundef nonnull %10)
   tail call fastcc void @zend_short_circuiting_commit(i32 noundef %19, ptr noundef %0, ptr noundef nonnull %10)
   br label %182
 
 20:                                               ; preds = %zend_is_variable.exit
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.290) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.290) #29
   unreachable
 
 21:                                               ; preds = %2
@@ -36794,7 +36808,7 @@ is_global_var_fetch.exit:                         ; preds = %56
   br i1 %.not, label %66, label %67
 
 66:                                               ; preds = %63
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.172) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.172) #29
   unreachable
 
 67:                                               ; preds = %63
@@ -36808,11 +36822,11 @@ is_global_var_fetch.exit:                         ; preds = %56
   %72 = ptrtoint ptr %71 to i64
   %73 = ptrtoint ptr %68 to i64
   %74 = sub i64 %72, %73
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %74) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %74) #29
   unreachable
 
 zend_compile_expr.exit52:                         ; preds = %67
-  %75 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %75 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %3, ptr noundef nonnull %65)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %75, ptr noundef nonnull %3, ptr noundef nonnull %65)
   %76 = load i8, ptr %3, align 8
@@ -36825,7 +36839,7 @@ zend_compile_expr.exit52:                         ; preds = %67
 
 80:                                               ; preds = %zend_compile_expr.exit52
   %81 = getelementptr inbounds i8, ptr %3, i64 8
-  call void @_convert_to_string(ptr noundef nonnull %81) #30
+  call void @_convert_to_string(ptr noundef nonnull %81) #28
   br label %82
 
 82:                                               ; preds = %80, %zend_compile_expr.exit52
@@ -36843,7 +36857,7 @@ zend_compile_expr.exit52:                         ; preds = %67
   %90 = load i16, ptr %89, align 2
   %91 = or i16 %90, -32768
   store i16 %91, ptr %89, align 2
-  %92 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 33)) #30
+  %92 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 33)) #28
   %93 = tail call fastcc ptr @zend_delayed_compile_dim(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 3, i1 noundef zeroext false)
   %94 = tail call fastcc ptr @zend_delayed_compile_end(i32 noundef %92)
   %95 = getelementptr inbounds i8, ptr %94, i64 28
@@ -36872,7 +36886,7 @@ zend_compile_expr.exit52:                         ; preds = %67
   br i1 %107, label %is_this_fetch.exit, label %is_this_fetch.exit.thread
 
 is_this_fetch.exit:                               ; preds = %104
-  %108 = tail call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %32, ptr noundef nonnull %102) #30
+  %108 = tail call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %32, ptr noundef nonnull %102) #28
   br i1 %108, label %is_this_fetch.exit.thread62, label %is_this_fetch.exit.is_this_fetch.exit.thread_crit_edge
 
 is_this_fetch.exit.is_this_fetch.exit.thread_crit_edge: ; preds = %is_this_fetch.exit
@@ -36901,7 +36915,7 @@ is_this_fetch.exit.thread62:                      ; preds = %99, %is_this_fetch.
   %117 = load ptr, ptr %116, align 8
   %118 = zext i32 %115 to i64
   %119 = shl nuw nsw i64 %118, 5
-  %120 = tail call ptr @_erealloc(ptr noundef %117, i64 noundef %119) #34
+  %120 = tail call ptr @_erealloc(ptr noundef %117, i64 noundef %119) #32
   store ptr %120, ptr %116, align 8
   br label %get_next_op.exit.i
 
@@ -36991,7 +37005,7 @@ is_this_fetch.exit.thread:                        ; preds = %26, %21, %is_this_f
   br label %174
 
 166:                                              ; preds = %.thread56
-  %167 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 33)) #30
+  %167 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 33)) #28
   %168 = tail call fastcc ptr @zend_delayed_compile_prop(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 3)
   %169 = tail call fastcc ptr @zend_delayed_compile_end(i32 noundef %167)
   %170 = getelementptr inbounds i8, ptr %169, i64 28
@@ -37051,7 +37065,7 @@ define internal fastcc void @zend_compile_silence(ptr noundef %0, ptr nocapture 
   %15 = load ptr, ptr %14, align 8
   %16 = zext i32 %13 to i64
   %17 = shl nuw nsw i64 %16, 5
-  %18 = tail call ptr @_erealloc(ptr noundef %15, i64 noundef %17) #34
+  %18 = tail call ptr @_erealloc(ptr noundef %15, i64 noundef %17) #32
   store ptr %18, ptr %14, align 8
   br label %get_next_op.exit.i
 
@@ -37127,13 +37141,13 @@ zend_emit_op_tmp.exit:                            ; preds = %39, %49
   %57 = ptrtoint ptr %56 to i64
   %58 = ptrtoint ptr %53 to i64
   %59 = sub i64 %57, %58
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %59) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %59) #29
   unreachable
 
 zend_compile_expr.exit9:                          ; preds = %52
   %60 = getelementptr inbounds i8, ptr %6, i64 8
   %61 = load ptr, ptr %60, align 8
-  %62 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %62 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %3, ptr noundef %61)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %62, ptr noundef nonnull %3, ptr noundef %61)
   %63 = load i8, ptr %3, align 8
@@ -37146,7 +37160,7 @@ zend_compile_expr.exit9:                          ; preds = %52
 
 67:                                               ; preds = %zend_compile_expr.exit9
   %68 = getelementptr inbounds i8, ptr %3, i64 8
-  call void @_convert_to_string(ptr noundef nonnull %68) #30
+  call void @_convert_to_string(ptr noundef nonnull %68) #28
   br label %69
 
 69:                                               ; preds = %67, %zend_compile_expr.exit9
@@ -37159,7 +37173,7 @@ zend_compile_expr.exit9:                          ; preds = %52
   %74 = getelementptr inbounds i8, ptr %3, i64 8
   %75 = load ptr, ptr %74, align 8
   %76 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 7), align 8
-  %77 = call ptr @zend_hash_find(ptr noundef %76, ptr noundef %75) #30
+  %77 = call ptr @zend_hash_find(ptr noundef %76, ptr noundef %75) #28
   %.not.i7.not = icmp eq ptr %77, null
   br i1 %.not.i7.not, label %zend_compile_simple_var_no_cv.exit, label %78
 
@@ -37174,7 +37188,7 @@ zend_compile_expr.exit9:                          ; preds = %52
   %84 = getelementptr inbounds i8, ptr %79, i64 8
   %85 = load ptr, ptr %84, align 8
   %86 = load ptr, ptr %79, align 8
-  %87 = call zeroext i1 %85(ptr noundef %86) #30
+  %87 = call zeroext i1 %85(ptr noundef %86) #28
   %88 = zext i1 %87 to i8
   store i8 %88, ptr %80, align 1
   br label %zend_compile_simple_var_no_cv.exit
@@ -37200,11 +37214,11 @@ zend_compile_simple_var_no_cv.exit:               ; preds = %69, %73, %83, %78
   %96 = ptrtoint ptr %95 to i64
   %97 = ptrtoint ptr %92 to i64
   %98 = sub i64 %96, %97
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %98) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %98) #29
   unreachable
 
 zend_compile_expr.exit:                           ; preds = %91
-  %99 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %99 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   tail call fastcc void @zend_compile_expr_inner(ptr noundef %0, ptr noundef nonnull %6)
   tail call fastcc void @zend_short_circuiting_commit(i32 noundef %99, ptr noundef %0, ptr noundef nonnull %6)
   br label %100
@@ -37219,7 +37233,7 @@ define internal fastcc void @zend_compile_shell_exec(ptr noundef %0, ptr nocaptu
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call noalias ptr @_emalloc_40() #30
+  %6 = tail call noalias ptr @_emalloc_40() #28
   store i32 1, ptr %6, align 4
   %7 = getelementptr inbounds i8, ptr %6, i64 4
   store i32 22, ptr %7, align 4
@@ -37234,9 +37248,9 @@ define internal fastcc void @zend_compile_shell_exec(ptr noundef %0, ptr nocaptu
   store ptr %6, ptr %3, align 8
   %12 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 262, ptr %12, align 8
-  %13 = call ptr @zend_ast_create_zval(ptr noundef nonnull %3) #30
-  %14 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 128, ptr noundef %5) #30
-  %15 = call ptr @zend_ast_create_2(i16 noundef zeroext 516, ptr noundef %13, ptr noundef %14) #30
+  %13 = call ptr @zend_ast_create_zval(ptr noundef nonnull %3) #28
+  %14 = call ptr @zend_ast_create_list_1(i16 noundef zeroext 128, ptr noundef %5) #28
+  %15 = call ptr @zend_ast_create_2(i16 noundef zeroext 516, ptr noundef %13, ptr noundef %14) #28
   %16 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 32), align 8
   %17 = call ptr @llvm.frameaddress.p0(i32 0)
   %.not.i.i = icmp ugt ptr %17, %16
@@ -37247,14 +37261,14 @@ define internal fastcc void @zend_compile_shell_exec(ptr noundef %0, ptr nocaptu
   %20 = ptrtoint ptr %19 to i64
   %21 = ptrtoint ptr %16 to i64
   %22 = sub i64 %20, %21
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %22) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %22) #29
   unreachable
 
 zend_compile_expr.exit:                           ; preds = %2
-  %23 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %23 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef %0, ptr noundef %15)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %23, ptr noundef %0, ptr noundef %15)
-  call void @zval_ptr_dtor(ptr noundef nonnull %3) #30
+  call void @zval_ptr_dtor(ptr noundef nonnull %3) #28
   ret void
 }
 
@@ -37294,7 +37308,7 @@ define internal fastcc void @zend_compile_array(ptr noundef %0, ptr nocapture no
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %17
-  call void (i32, ptr, ...) @zend_error(i32 noundef 64, ptr noundef nonnull @.str.209) #30
+  call void (i32, ptr, ...) @zend_error(i32 noundef 64, ptr noundef nonnull @.str.209) #28
   br label %22
 
 22:                                               ; preds = %21, %17
@@ -37315,11 +37329,11 @@ define internal fastcc void @zend_compile_array(ptr noundef %0, ptr nocapture no
   %32 = ptrtoint ptr %31 to i64
   %33 = ptrtoint ptr %28 to i64
   %34 = sub i64 %32, %33
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %34) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %34) #29
   unreachable
 
 zend_compile_expr.exit:                           ; preds = %27
-  %35 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %35 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %4, ptr noundef %24)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %35, ptr noundef nonnull %4, ptr noundef %24)
   %36 = icmp eq i64 %indvars.iv, 0
@@ -37347,7 +37361,7 @@ zend_compile_expr.exit:                           ; preds = %27
   %46 = load ptr, ptr %45, align 8
   %47 = zext i32 %44 to i64
   %48 = shl nuw nsw i64 %47, 5
-  %49 = call ptr @_erealloc(ptr noundef %46, i64 noundef %48) #34
+  %49 = call ptr @_erealloc(ptr noundef %46, i64 noundef %48) #32
   store ptr %49, ptr %45, align 8
   br label %get_next_op.exit.i
 
@@ -37445,7 +37459,7 @@ zend_emit_op_tmp.exit:                            ; preds = %80, %70, %get_next_
   %96 = load ptr, ptr %95, align 8
   %97 = sext i32 %93 to i64
   %98 = shl nsw i64 %97, 4
-  %99 = call ptr @_erealloc(ptr noundef %96, i64 noundef %98) #34
+  %99 = call ptr @_erealloc(ptr noundef %96, i64 noundef %98) #32
   store ptr %99, ptr %95, align 8
   br label %100
 
@@ -37458,7 +37472,7 @@ zend_emit_op_tmp.exit:                            ; preds = %80, %70, %get_next_
 
 103:                                              ; preds = %100
   %104 = load ptr, ptr @zend_new_interned_string, align 8
-  %105 = call ptr %104(ptr noundef %.pre.i.i65) #30
+  %105 = call ptr %104(ptr noundef %.pre.i.i65) #28
   store ptr %105, ptr %6, align 8
   %106 = getelementptr inbounds i8, ptr %105, i64 4
   %107 = load i32, ptr %106, align 4
@@ -37510,11 +37524,11 @@ zend_add_literal.exit:                            ; preds = %100, %103, %109
   %132 = ptrtoint ptr %131 to i64
   %133 = ptrtoint ptr %128 to i64
   %134 = sub i64 %132, %133
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %134) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %134) #29
   unreachable
 
 zend_compile_expr.exit67:                         ; preds = %127
-  %135 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %135 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %5, ptr noundef nonnull %122)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %135, ptr noundef nonnull %5, ptr noundef nonnull %122)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -37550,11 +37564,11 @@ zend_compile_expr.exit67:                         ; preds = %127
   br i1 %or.cond.i, label %zend_handle_numeric_op.exit, label %154
 
 154:                                              ; preds = %150, %147
-  %155 = call zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef nonnull %142, i64 noundef %144, ptr noundef nonnull %3) #30
+  %155 = call zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef nonnull %142, i64 noundef %144, ptr noundef nonnull %3) #28
   br i1 %155, label %156, label %zend_handle_numeric_op.exit
 
 156:                                              ; preds = %154
-  call void @zval_ptr_dtor(ptr noundef nonnull %13) #30
+  call void @zval_ptr_dtor(ptr noundef nonnull %13) #28
   %157 = load i64, ptr %3, align 8
   store i64 %157, ptr %13, align 8
   store i32 4, ptr %14, align 8
@@ -37570,7 +37584,7 @@ zend_handle_numeric_op.exit:                      ; preds = %zend_compile_expr.e
 
 159:                                              ; preds = %158
   call fastcc void @zend_ensure_writable_variable(ptr noundef %24)
-  %160 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %160 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   %161 = call fastcc ptr @zend_compile_var_inner(ptr noundef nonnull %4, ptr noundef %24, i32 noundef 1, i1 noundef zeroext true)
   br label %171
 
@@ -37585,11 +37599,11 @@ zend_handle_numeric_op.exit:                      ; preds = %zend_compile_expr.e
   %167 = ptrtoint ptr %166 to i64
   %168 = ptrtoint ptr %163 to i64
   %169 = sub i64 %167, %168
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %169) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %169) #29
   unreachable
 
 zend_compile_expr.exit70:                         ; preds = %162
-  %170 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %170 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %4, ptr noundef %24)
   br label %171
 
@@ -37645,7 +37659,7 @@ zend_compile_expr.exit70:                         ; preds = %162
   %196 = load ptr, ptr %195, align 8
   %197 = sext i32 %193 to i64
   %198 = shl nsw i64 %197, 4
-  %199 = call ptr @_erealloc(ptr noundef %196, i64 noundef %198) #34
+  %199 = call ptr @_erealloc(ptr noundef %196, i64 noundef %198) #32
   store ptr %199, ptr %195, align 8
   br label %200
 
@@ -37658,7 +37672,7 @@ zend_compile_expr.exit70:                         ; preds = %162
 
 203:                                              ; preds = %200
   %204 = load ptr, ptr @zend_new_interned_string, align 8
-  %205 = call ptr %204(ptr noundef %.pre.i.i75) #30
+  %205 = call ptr %204(ptr noundef %.pre.i.i75) #28
   store ptr %205, ptr %6, align 8
   %206 = getelementptr inbounds i8, ptr %205, i64 4
   %207 = load i32, ptr %206, align 4
@@ -37841,7 +37855,7 @@ define internal fastcc void @zend_compile_const(ptr noundef %0, ptr nocapture re
   br i1 %51, label %52, label %120
 
 52:                                               ; preds = %47
-  tail call void @_efree(ptr noundef nonnull %11) #30
+  tail call void @_efree(ptr noundef nonnull %11) #28
   br label %120
 
 .critedge2:                                       ; preds = %30, %26, %.lr.ph, %24, %18, %22, %.critedge
@@ -37869,7 +37883,7 @@ define internal fastcc void @zend_compile_const(ptr noundef %0, ptr nocapture re
   br i1 %65, label %66, label %120
 
 66:                                               ; preds = %61
-  tail call void @_efree(ptr noundef nonnull %11) #30
+  tail call void @_efree(ptr noundef nonnull %11) #28
   br label %120
 
 67:                                               ; preds = %.critedge2
@@ -37894,7 +37908,7 @@ define internal fastcc void @zend_compile_const(ptr noundef %0, ptr nocapture re
   %76 = load ptr, ptr %75, align 8
   %77 = zext i32 %74 to i64
   %78 = shl nuw nsw i64 %77, 5
-  %79 = tail call ptr @_erealloc(ptr noundef %76, i64 noundef %78) #34
+  %79 = tail call ptr @_erealloc(ptr noundef %76, i64 noundef %78) #32
   store ptr %79, ptr %75, align 8
   br label %get_next_op.exit.i
 
@@ -38012,7 +38026,7 @@ define internal fastcc void @zend_compile_class_const(ptr noundef %0, ptr nocapt
   br i1 %.not.i, label %zend_resolve_class_name_ast.exit, label %21
 
 21:                                               ; preds = %18
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.16) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.16) #29
   unreachable
 
 zend_resolve_class_name_ast.exit:                 ; preds = %18
@@ -38046,7 +38060,7 @@ zend_resolve_class_name_ast.exit:                 ; preds = %18
   br i1 %40, label %41, label %83
 
 41:                                               ; preds = %36
-  tail call void @_efree(ptr noundef nonnull %29) #30
+  tail call void @_efree(ptr noundef nonnull %29) #28
   br label %83
 
 42:                                               ; preds = %zend_resolve_class_name_ast.exit
@@ -38066,7 +38080,7 @@ zend_resolve_class_name_ast.exit:                 ; preds = %18
   br i1 %50, label %51, label %52
 
 51:                                               ; preds = %46
-  tail call void @_efree(ptr noundef nonnull %29) #30
+  tail call void @_efree(ptr noundef nonnull %29) #28
   br label %52
 
 52:                                               ; preds = %14, %46, %51, %42, %11, %2
@@ -38081,11 +38095,11 @@ zend_resolve_class_name_ast.exit:                 ; preds = %18
   %57 = ptrtoint ptr %56 to i64
   %58 = ptrtoint ptr %53 to i64
   %59 = sub i64 %57, %58
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %59) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %59) #29
   unreachable
 
 zend_compile_expr.exit:                           ; preds = %52
-  %60 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %60 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %4, ptr noundef %8)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %60, ptr noundef nonnull %4, ptr noundef %8)
   %61 = call fastcc ptr @zend_emit_op_tmp(ptr noundef %0, i8 noundef zeroext -75, ptr noundef null, ptr noundef nonnull %4)
@@ -38173,7 +38187,7 @@ define internal fastcc void @zend_compile_class_name(ptr noundef %0, ptr nocaptu
   %21 = load ptr, ptr %20, align 8
   %22 = zext i32 %19 to i64
   %23 = shl nuw nsw i64 %22, 5
-  %24 = tail call ptr @_erealloc(ptr noundef %21, i64 noundef %23) #34
+  %24 = tail call ptr @_erealloc(ptr noundef %21, i64 noundef %23) #32
   store ptr %24, ptr %20, align 8
   br label %get_next_op.exit.i
 
@@ -38250,7 +38264,7 @@ zend_emit_op_tmp.exit:                            ; preds = %get_next_op.exit.i,
 
 65:                                               ; preds = %zend_emit_op_tmp.exit
   %66 = getelementptr inbounds i8, ptr %61, i64 24
-  %67 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %66, i64 noundef 4, ptr noundef nonnull @.str.21, i64 noundef 4) #30
+  %67 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %66, i64 noundef 4, ptr noundef nonnull @.str.21, i64 noundef 4) #28
   %.not.i = icmp eq i32 %67, 0
   br i1 %.not.i, label %zend_get_class_fetch_type.exit, label %thread-pre-split.i
 
@@ -38265,7 +38279,7 @@ thread-pre-split.i:                               ; preds = %65
 
 71:                                               ; preds = %68
   %72 = getelementptr inbounds i8, ptr %61, i64 24
-  %73 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %72, i64 noundef 6, ptr noundef nonnull @.str.22, i64 noundef 6) #30
+  %73 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %72, i64 noundef 6, ptr noundef nonnull @.str.22, i64 noundef 6) #28
   %.not13.i = icmp eq i32 %73, 0
   br i1 %.not13.i, label %zend_get_class_fetch_type.exit, label %._crit_edge.i
 
@@ -38286,7 +38300,7 @@ thread-pre-split.i:                               ; preds = %65
 82:                                               ; preds = %74
   %83 = getelementptr inbounds i8, ptr %61, i64 24
   %84 = getelementptr inbounds i8, ptr %78, i64 24
-  %85 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %83, i64 noundef %75, ptr noundef nonnull %84, i64 noundef %75) #30
+  %85 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %83, i64 noundef %75, ptr noundef nonnull %84, i64 noundef %75) #28
   %.not14.i = icmp eq i32 %85, 0
   br i1 %.not14.i, label %zend_get_class_fetch_type.exit, label %86
 
@@ -38309,11 +38323,11 @@ zend_get_class_fetch_type.exit:                   ; preds = %65, %71, %82, %86
   %92 = ptrtoint ptr %91 to i64
   %93 = ptrtoint ptr %88 to i64
   %94 = sub i64 %92, %93
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %94) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %94) #29
   unreachable
 
 zend_compile_expr.exit:                           ; preds = %87
-  %95 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %95 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %3, ptr noundef nonnull %5)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %95, ptr noundef nonnull %3, ptr noundef nonnull %5)
   %96 = load i8, ptr %3, align 8
@@ -38322,8 +38336,8 @@ zend_compile_expr.exit:                           ; preds = %87
 
 98:                                               ; preds = %zend_compile_expr.exit
   %99 = getelementptr inbounds i8, ptr %3, i64 8
-  %100 = call ptr @zend_zval_value_name(ptr noundef nonnull %99) #30
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.293, ptr noundef %100) #31
+  %100 = call ptr @zend_zval_value_name(ptr noundef nonnull %99) #28
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.293, ptr noundef %100) #29
   unreachable
 
 101:                                              ; preds = %zend_compile_expr.exit
@@ -38390,7 +38404,7 @@ define internal fastcc void @zend_compile_encaps_list(ptr nocapture noundef %0, 
 
 .sink.split:                                      ; preds = %26, %24
   %.str.294.sink = phi ptr [ @.str.294, %24 ], [ @.str.295, %26 ]
-  call void (i32, ptr, ...) @zend_error(i32 noundef 8192, ptr noundef nonnull %.str.294.sink) #30
+  call void (i32, ptr, ...) @zend_error(i32 noundef 8192, ptr noundef nonnull %.str.294.sink) #28
   br label %29
 
 29:                                               ; preds = %.sink.split, %22, %26, %16
@@ -38404,11 +38418,11 @@ define internal fastcc void @zend_compile_encaps_list(ptr nocapture noundef %0, 
   %34 = ptrtoint ptr %33 to i64
   %35 = ptrtoint ptr %30 to i64
   %36 = sub i64 %34, %35
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %36) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %36) #29
   unreachable
 
 zend_compile_expr.exit:                           ; preds = %29
-  %37 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %37 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %2, ptr noundef nonnull %18)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %37, ptr noundef nonnull %2, ptr noundef nonnull %18)
   %38 = load i8, ptr %2, align 8
@@ -38421,7 +38435,7 @@ zend_compile_expr.exit:                           ; preds = %29
   br i1 %.not134, label %43, label %42
 
 42:                                               ; preds = %40
-  call void @_convert_to_string(ptr noundef nonnull %11) #30
+  call void @_convert_to_string(ptr noundef nonnull %11) #28
   br label %43
 
 43:                                               ; preds = %42, %40
@@ -38432,7 +38446,7 @@ zend_compile_expr.exit:                           ; preds = %29
   br i1 %47, label %48, label %49
 
 48:                                               ; preds = %43
-  call void @zval_ptr_dtor(ptr noundef nonnull %11) #30
+  call void @zval_ptr_dtor(ptr noundef nonnull %11) #28
   br label %228
 
 49:                                               ; preds = %43
@@ -38441,8 +38455,8 @@ zend_compile_expr.exit:                           ; preds = %29
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %49
-  %53 = call i32 @concat_function(ptr noundef nonnull %14, ptr noundef nonnull %14, ptr noundef nonnull %11) #30
-  call void @zval_ptr_dtor(ptr noundef nonnull %11) #30
+  %53 = call i32 @concat_function(ptr noundef nonnull %14, ptr noundef nonnull %14, ptr noundef nonnull %11) #28
+  call void @zval_ptr_dtor(ptr noundef nonnull %11) #28
   br label %228
 
 54:                                               ; preds = %49
@@ -38471,7 +38485,7 @@ zend_compile_expr.exit:                           ; preds = %29
   %64 = load ptr, ptr %63, align 8
   %65 = zext i32 %62 to i64
   %66 = shl nuw nsw i64 %65, 5
-  %67 = call ptr @_erealloc(ptr noundef %64, i64 noundef %66) #34
+  %67 = call ptr @_erealloc(ptr noundef %64, i64 noundef %66) #32
   store ptr %67, ptr %63, align 8
   br label %get_next_op.exit
 
@@ -38556,7 +38570,7 @@ get_next_op.exit:                                 ; preds = %._crit_edge.i, %61
   %104 = load ptr, ptr %103, align 8
   %105 = zext i32 %102 to i64
   %106 = shl nuw nsw i64 %105, 5
-  %107 = call ptr @_erealloc(ptr noundef %104, i64 noundef %106) #34
+  %107 = call ptr @_erealloc(ptr noundef %104, i64 noundef %106) #32
   store ptr %107, ptr %103, align 8
   br label %get_next_op.exit.i
 
@@ -38626,7 +38640,7 @@ get_next_op.exit.i:                               ; preds = %101, %._crit_edge.i
   %136 = load ptr, ptr %135, align 8
   %137 = sext i32 %133 to i64
   %138 = shl nsw i64 %137, 4
-  %139 = call ptr @_erealloc(ptr noundef %136, i64 noundef %138) #34
+  %139 = call ptr @_erealloc(ptr noundef %136, i64 noundef %138) #32
   store ptr %139, ptr %135, align 8
   br label %140
 
@@ -38639,7 +38653,7 @@ get_next_op.exit.i:                               ; preds = %101, %._crit_edge.i
 
 143:                                              ; preds = %140
   %144 = load ptr, ptr @zend_new_interned_string, align 8
-  %145 = call ptr %144(ptr noundef %.pre.i.i.i) #30
+  %145 = call ptr %144(ptr noundef %.pre.i.i.i) #28
   store ptr %145, ptr %8, align 8
   %146 = getelementptr inbounds i8, ptr %145, i64 4
   %147 = load i32, ptr %146, align 4
@@ -38702,7 +38716,7 @@ zend_add_literal.exit.i:                          ; preds = %149, %143, %140
   %171 = load ptr, ptr %170, align 8
   %172 = sext i32 %168 to i64
   %173 = shl nsw i64 %172, 4
-  %174 = call ptr @_erealloc(ptr noundef %171, i64 noundef %173) #34
+  %174 = call ptr @_erealloc(ptr noundef %171, i64 noundef %173) #32
   store ptr %174, ptr %170, align 8
   br label %175
 
@@ -38715,7 +38729,7 @@ zend_add_literal.exit.i:                          ; preds = %149, %143, %140
 
 178:                                              ; preds = %175
   %179 = load ptr, ptr @zend_new_interned_string, align 8
-  %180 = call ptr %179(ptr noundef %.pre.i.i34.i) #30
+  %180 = call ptr %179(ptr noundef %.pre.i.i34.i) #28
   store ptr %180, ptr %11, align 8
   %181 = getelementptr inbounds i8, ptr %180, i64 4
   %182 = load i32, ptr %181, align 4
@@ -38778,7 +38792,7 @@ zend_add_literal.exit39.i:                        ; preds = %184, %178, %175
   %206 = load ptr, ptr %205, align 8
   %207 = sext i32 %203 to i64
   %208 = shl nsw i64 %207, 4
-  %209 = call ptr @_erealloc(ptr noundef %206, i64 noundef %208) #34
+  %209 = call ptr @_erealloc(ptr noundef %206, i64 noundef %208) #32
   store ptr %209, ptr %205, align 8
   br label %210
 
@@ -38791,7 +38805,7 @@ zend_add_literal.exit39.i:                        ; preds = %184, %178, %175
 
 213:                                              ; preds = %210
   %214 = load ptr, ptr @zend_new_interned_string, align 8
-  %215 = call ptr %214(ptr noundef %.pre.i.i44.i) #30
+  %215 = call ptr %214(ptr noundef %.pre.i.i44.i) #28
   store ptr %215, ptr %8, align 8
   %216 = getelementptr inbounds i8, ptr %215, i64 4
   %217 = load i32, ptr %216, align 4
@@ -39187,7 +39201,7 @@ define internal fastcc void @zend_compile_magic_const(ptr noundef writeonly %0, 
   %23 = load ptr, ptr %22, align 8
   %24 = zext i32 %21 to i64
   %25 = shl nuw nsw i64 %24, 5
-  %26 = tail call ptr @_erealloc(ptr noundef %23, i64 noundef %25) #34
+  %26 = tail call ptr @_erealloc(ptr noundef %23, i64 noundef %25) #32
   store ptr %26, ptr %22, align 8
   br label %get_next_op.exit.i
 
@@ -39272,13 +39286,13 @@ define internal fastcc void @zend_compile_throw(ptr noundef writeonly %0, ptr no
   %8 = ptrtoint ptr %7 to i64
   %9 = ptrtoint ptr %4 to i64
   %10 = sub i64 %8, %9
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %10) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %10) #29
   unreachable
 
 zend_compile_expr.exit:                           ; preds = %2
   %11 = getelementptr inbounds i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %13 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %3, ptr noundef %12)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %13, ptr noundef nonnull %3, ptr noundef %12)
   %14 = call fastcc ptr @zend_emit_op(ptr noundef null, i8 noundef zeroext 108, ptr noundef nonnull %3, ptr noundef null)
@@ -39316,13 +39330,13 @@ define internal fastcc void @zend_compile_match(ptr noundef %0, ptr nocapture no
   %14 = ptrtoint ptr %13 to i64
   %15 = ptrtoint ptr %10 to i64
   %16 = sub i64 %14, %15
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %16) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %16) #29
   unreachable
 
 zend_compile_expr.exit:                           ; preds = %2
   %17 = getelementptr inbounds i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %19 = tail call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %3, ptr noundef %18)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %19, ptr noundef nonnull %3, ptr noundef %18)
   %20 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 4), align 8
@@ -39452,7 +39466,7 @@ can_match_use_jumptable.exit:                     ; preds = %.loopexit.i, %can_m
   %72 = getelementptr inbounds i8, ptr %66, i64 4
   %73 = load i32, ptr %72, align 4
   store i32 %73, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 3), align 8
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.297) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.297) #29
   unreachable
 
 74:                                               ; preds = %69, %64
@@ -39466,8 +39480,8 @@ can_match_use_jumptable.exit:                     ; preds = %.loopexit.i, %can_m
   br i1 %62, label %75, label %._crit_edge.thread
 
 75:                                               ; preds = %._crit_edge
-  %76 = call noalias ptr @_emalloc_56() #30
-  call void @_zend_hash_init(ptr noundef %76, i32 noundef %.1.i, ptr noundef null, i1 noundef zeroext false) #30
+  %76 = call noalias ptr @_emalloc_56() #28
+  call void @_zend_hash_init(ptr noundef %76, i32 noundef %.1.i, ptr noundef null, i1 noundef zeroext false) #28
   store i8 1, ptr %4, align 8
   %77 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %76, ptr %77, align 8
@@ -39504,7 +39518,7 @@ can_match_use_jumptable.exit:                     ; preds = %.loopexit.i, %can_m
   %.0.lcssa354 = phi i8 [ %.0.lcssa, %._crit_edge ], [ 0, %zend_compile_expr.exit ]
   %.0.lcssa.i234350353 = phi i32 [ %.1.i, %._crit_edge ], [ 0, %zend_compile_expr.exit ]
   %96 = zext i32 %.0.lcssa.i234350353 to i64
-  %97 = call noalias ptr @_safe_emalloc(i64 noundef 4, i64 noundef %96, i64 noundef 0) #30
+  %97 = call noalias ptr @_safe_emalloc(i64 noundef 4, i64 noundef %96, i64 noundef 0) #28
   %98 = load i32, ptr %24, align 8
   %.not306 = icmp eq i32 %98, 0
   br i1 %.not306, label %._crit_edge288, label %.lr.ph287
@@ -39546,13 +39560,13 @@ can_match_use_jumptable.exit:                     ; preds = %.loopexit.i, %can_m
   %113 = ptrtoint ptr %112 to i64
   %114 = ptrtoint ptr %110 to i64
   %115 = sub i64 %113, %114
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %115) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %115) #29
   unreachable
 
 116:                                              ; preds = %109
   %117 = getelementptr inbounds [1 x ptr], ptr %108, i64 0, i64 %indvars.iv325
   %118 = load ptr, ptr %117, align 8
-  %119 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %119 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %5, ptr noundef %118)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %119, ptr noundef nonnull %5, ptr noundef %118)
   %120 = load i8, ptr %3, align 8
@@ -39666,7 +39680,7 @@ zend_emit_cond_jump.exit:                         ; preds = %142, %146, %154, %1
   %169 = load ptr, ptr %168, align 8
   %170 = zext i32 %167 to i64
   %171 = shl nuw nsw i64 %170, 5
-  %172 = call ptr @_erealloc(ptr noundef %169, i64 noundef %171) #34
+  %172 = call ptr @_erealloc(ptr noundef %169, i64 noundef %171) #32
   store ptr %172, ptr %168, align 8
   br label %zend_emit_op.exit
 
@@ -39741,7 +39755,7 @@ zend_emit_op.exit:                                ; preds = %166, %._crit_edge.i
   %203 = load ptr, ptr %202, align 8
   %204 = zext i32 %201 to i64
   %205 = shl nuw nsw i64 %204, 5
-  %206 = call ptr @_erealloc(ptr noundef %203, i64 noundef %205) #34
+  %206 = call ptr @_erealloc(ptr noundef %203, i64 noundef %205) #32
   store ptr %206, ptr %202, align 8
   br label %.thread241
 
@@ -39756,7 +39770,7 @@ zend_emit_op.exit:                                ; preds = %166, %._crit_edge.i
   %215 = trunc i64 %214 to i32
   %.pre346 = load i32, ptr %24, align 8
   %216 = zext i32 %.pre346 to i64
-  %217 = call noalias ptr @_safe_emalloc(i64 noundef 4, i64 noundef %216, i64 noundef 0) #30
+  %217 = call noalias ptr @_safe_emalloc(i64 noundef 4, i64 noundef %216, i64 noundef 0) #28
   %218 = trunc nuw i8 %.0.lcssa to i1
   br i1 %218, label %282, label %zend_update_jump_target_to_next.exit
 
@@ -39787,7 +39801,7 @@ zend_emit_op.exit:                                ; preds = %166, %._crit_edge.i
   store i32 0, ptr %224, align 8
   %232 = load i32, ptr %24, align 8
   %233 = zext i32 %232 to i64
-  %234 = call noalias ptr @_safe_emalloc(i64 noundef 4, i64 noundef %233, i64 noundef 0) #30
+  %234 = call noalias ptr @_safe_emalloc(i64 noundef 4, i64 noundef %233, i64 noundef 0) #28
   %235 = trunc nuw i8 %.0.lcssa354 to i1
   br i1 %235, label %282, label %.thread254
 
@@ -40018,12 +40032,12 @@ zend_update_jump_target_to_next.exit185:          ; preds = %341, %339, %.lr.ph2
 
 353:                                              ; preds = %zend_update_jump_target_to_next.exit185
   %354 = load i64, ptr %345, align 8
-  %355 = call ptr @zend_hash_index_add(ptr noundef nonnull %.0142239249374, i64 noundef %354, ptr noundef nonnull %6) #30
+  %355 = call ptr @zend_hash_index_add(ptr noundef nonnull %.0142239249374, i64 noundef %354, ptr noundef nonnull %6) #28
   br label %359
 
 356:                                              ; preds = %zend_update_jump_target_to_next.exit185
   %357 = load ptr, ptr %345, align 8
-  %358 = call ptr @zend_hash_add(ptr noundef nonnull %.0142239249374, ptr noundef %357, ptr noundef nonnull %6) #30
+  %358 = call ptr @zend_hash_add(ptr noundef nonnull %.0142239249374, ptr noundef %357, ptr noundef nonnull %6) #28
   br label %359
 
 359:                                              ; preds = %353, %356
@@ -40084,11 +40098,11 @@ zend_update_jump_target_to_next.exit187:          ; preds = %376, %374, %364
   %388 = ptrtoint ptr %387 to i64
   %389 = ptrtoint ptr %385 to i64
   %390 = sub i64 %388, %389
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %390) #31
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.282, i64 noundef %390) #29
   unreachable
 
 zend_compile_expr.exit189:                        ; preds = %.loopexit
-  %391 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #30
+  %391 = call i32 @zend_stack_count(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 45)) #28
   call fastcc void @zend_compile_expr_inner(ptr noundef nonnull %7, ptr noundef %298)
   call fastcc void @zend_short_circuiting_commit(i32 noundef %391, ptr noundef nonnull %7, ptr noundef %298)
   br i1 %.0152295, label %392, label %394
@@ -40132,7 +40146,7 @@ zend_compile_expr.exit189:                        ; preds = %.loopexit
   %409 = load ptr, ptr %408, align 8
   %410 = sext i32 %406 to i64
   %411 = shl nsw i64 %410, 4
-  %412 = call ptr @_erealloc(ptr noundef %409, i64 noundef %411) #34
+  %412 = call ptr @_erealloc(ptr noundef %409, i64 noundef %411) #32
   store ptr %412, ptr %408, align 8
   br label %413
 
@@ -40145,7 +40159,7 @@ zend_compile_expr.exit189:                        ; preds = %.loopexit
 
 416:                                              ; preds = %413
   %417 = load ptr, ptr @zend_new_interned_string, align 8
-  %418 = call ptr %417(ptr noundef %.pre.i.i194) #30
+  %418 = call ptr %417(ptr noundef %.pre.i.i194) #28
   store ptr %418, ptr %290, align 8
   %419 = getelementptr inbounds i8, ptr %418, i64 4
   %420 = load i32, ptr %419, align 4
@@ -40199,7 +40213,7 @@ zend_add_literal.exit199:                         ; preds = %413, %416, %422
   %442 = load ptr, ptr %441, align 8
   %443 = zext i32 %440 to i64
   %444 = shl nuw nsw i64 %443, 5
-  %445 = call ptr @_erealloc(ptr noundef %442, i64 noundef %444) #34
+  %445 = call ptr @_erealloc(ptr noundef %442, i64 noundef %444) #32
   store ptr %445, ptr %441, align 8
   br label %zend_emit_jump.exit204
 
@@ -40325,7 +40339,7 @@ zend_update_jump_target_to_next.exit206:          ; preds = %479, %481
 
 503:                                              ; preds = %498
   %504 = load ptr, ptr %495, align 8
-  call void @rc_dtor_func(ptr noundef %504) #30
+  call void @rc_dtor_func(ptr noundef %504) #28
   br label %505
 
 505:                                              ; preds = %492, %503, %498, %494, %489
@@ -40333,11 +40347,11 @@ zend_update_jump_target_to_next.exit206:          ; preds = %479, %481
   br i1 %.not169, label %507, label %506
 
 506:                                              ; preds = %505
-  call void @_efree(ptr noundef nonnull %.0143238251373377383) #30
+  call void @_efree(ptr noundef nonnull %.0143238251373377383) #28
   br label %507
 
 507:                                              ; preds = %506, %505
-  call void @_efree(ptr noundef %486) #30
+  call void @_efree(ptr noundef %486) #28
   ret void
 }
 
@@ -40399,7 +40413,7 @@ define internal fastcc zeroext i1 @zend_is_assign_to_self(ptr nocapture noundef 
   br label %29
 
 27:                                               ; preds = %14
-  %28 = tail call ptr @zval_get_string_func(ptr noundef nonnull %15) #30
+  %28 = tail call ptr @zval_get_string_func(ptr noundef nonnull %15) #28
   br label %29
 
 29:                                               ; preds = %19, %24, %27
@@ -40429,7 +40443,7 @@ define internal fastcc zeroext i1 @zend_is_assign_to_self(ptr nocapture noundef 
   br label %48
 
 46:                                               ; preds = %29
-  %47 = tail call ptr @zval_get_string_func(ptr noundef nonnull %34) #30
+  %47 = tail call ptr @zval_get_string_func(ptr noundef nonnull %34) #28
   br label %48
 
 48:                                               ; preds = %38, %43, %46
@@ -40446,7 +40460,7 @@ define internal fastcc zeroext i1 @zend_is_assign_to_self(ptr nocapture noundef 
   br i1 %56, label %57, label %59
 
 57:                                               ; preds = %51
-  %58 = tail call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %30, ptr noundef nonnull %49) #30
+  %58 = tail call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %30, ptr noundef nonnull %49) #28
   br label %59
 
 59:                                               ; preds = %51, %57, %48
@@ -40467,7 +40481,7 @@ define internal fastcc zeroext i1 @zend_is_assign_to_self(ptr nocapture noundef 
   br i1 %68, label %69, label %70
 
 69:                                               ; preds = %64
-  tail call void @_efree(ptr noundef nonnull %30) #30
+  tail call void @_efree(ptr noundef nonnull %30) #28
   br label %70
 
 70:                                               ; preds = %64, %69, %59
@@ -40487,7 +40501,7 @@ define internal fastcc zeroext i1 @zend_is_assign_to_self(ptr nocapture noundef 
   br i1 %78, label %79, label %.critedge
 
 79:                                               ; preds = %74
-  tail call void @_efree(ptr noundef nonnull %49) #30
+  tail call void @_efree(ptr noundef nonnull %49) #28
   br label %.critedge
 
 .critedge:                                        ; preds = %.preheader, %70, %79, %74, %.critedge.thread, %2, %4
@@ -40501,8 +40515,8 @@ define internal fastcc noundef zeroext i1 @zend_try_ct_eval_binary_op(ptr nounde
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @get_binary_op(i32 noundef %1) #30
-  %8 = tail call i32 %7(ptr noundef %0, ptr noundef %2, ptr noundef %3) #30
+  %7 = tail call ptr @get_binary_op(i32 noundef %1) #28
+  %8 = tail call i32 %7(ptr noundef %0, ptr noundef %2, ptr noundef %3) #28
   br label %9
 
 9:                                                ; preds = %4, %6
@@ -40536,8 +40550,8 @@ zend_unary_op_produces_error.exit:                ; preds = %9
   br i1 %11, label %zend_unary_op_produces_error.exit.thread, label %zend_unary_op_produces_error.exit.thread9
 
 zend_unary_op_produces_error.exit.thread:         ; preds = %3, %5, %zend_unary_op_produces_error.exit
-  %12 = tail call ptr @get_unary_op(i32 noundef %1) #30
-  %13 = tail call i32 %12(ptr noundef %0, ptr noundef %2) #30
+  %12 = tail call ptr @get_unary_op(i32 noundef %1) #28
+  %13 = tail call i32 %12(ptr noundef %0, ptr noundef %2) #28
   br label %zend_unary_op_produces_error.exit.thread9
 
 zend_unary_op_produces_error.exit.thread9:        ; preds = %9, %zend_unary_op_produces_error.exit, %zend_unary_op_produces_error.exit.thread
@@ -40573,11 +40587,11 @@ define internal void @znode_dtor(ptr nocapture noundef readonly %0) #0 {
 
 14:                                               ; preds = %9
   %15 = load ptr, ptr %6, align 8
-  tail call void @rc_dtor_func(ptr noundef %15) #30
+  tail call void @rc_dtor_func(ptr noundef %15) #28
   br label %16
 
 16:                                               ; preds = %5, %9, %14, %1
-  tail call void @_efree(ptr noundef nonnull %2) #30
+  tail call void @_efree(ptr noundef nonnull %2) #28
   ret void
 }
 
@@ -40611,14 +40625,14 @@ define internal fastcc i32 @zend_add_const_name_literal(ptr noundef %0, i1 nound
   %14 = load ptr, ptr %13, align 8
   %15 = sext i32 %11 to i64
   %16 = shl nsw i64 %15, 4
-  %17 = tail call ptr @_erealloc(ptr noundef %14, i64 noundef %16) #34
+  %17 = tail call ptr @_erealloc(ptr noundef %14, i64 noundef %16) #32
   store ptr %17, ptr %13, align 8
   br label %zend_add_literal_string.exit
 
 zend_add_literal_string.exit:                     ; preds = %._crit_edge13.i.i, %12
   %.val.i.i = phi ptr [ %.val.pre.i.i, %._crit_edge13.i.i ], [ %17, %12 ]
   %18 = load ptr, ptr @zend_new_interned_string, align 8
-  %19 = tail call ptr %18(ptr noundef %0) #30
+  %19 = tail call ptr %18(ptr noundef %0) #28
   %20 = getelementptr inbounds i8, ptr %19, i64 4
   %21 = load i32, ptr %20, align 4
   %22 = and i32 %21, 64
@@ -40637,7 +40651,7 @@ zend_add_literal_string.exit:                     ; preds = %._crit_edge13.i.i, 
   %30 = getelementptr inbounds i8, ptr %19, i64 16
   %31 = load i64, ptr %30, align 8
   %32 = getelementptr inbounds i8, ptr %19, i64 24
-  %33 = tail call ptr @memrchr(ptr noundef nonnull %32, i32 noundef 92, i64 noundef %31) #29
+  %33 = tail call ptr @memrchr(ptr noundef nonnull %32, i32 noundef 92, i64 noundef %31) #27
   %.not = icmp eq ptr %33, null
   br i1 %.not, label %76, label %34
 
@@ -40651,7 +40665,7 @@ zend_add_literal_string.exit:                     ; preds = %._crit_edge13.i.i, 
   %41 = sub i64 %40, %36
   %42 = and i64 %31, -8
   %43 = add i64 %42, 32
-  %44 = tail call noalias ptr @_emalloc(i64 noundef %43) #32
+  %44 = tail call noalias ptr @_emalloc(i64 noundef %43) #30
   store i32 1, ptr %44, align 4
   %45 = getelementptr inbounds i8, ptr %44, i64 4
   store i32 22, ptr %45, align 4
@@ -40663,7 +40677,7 @@ zend_add_literal_string.exit:                     ; preds = %._crit_edge13.i.i, 
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %48, ptr nonnull align 1 %32, i64 %31, i1 false)
   %49 = getelementptr inbounds [1 x i8], ptr %48, i64 0, i64 %31
   store i8 0, ptr %49, align 1
-  tail call void @zend_str_tolower(ptr noundef nonnull %48, i64 noundef %39) #30
+  tail call void @zend_str_tolower(ptr noundef nonnull %48, i64 noundef %39) #28
   %50 = load i32, ptr %45, align 4
   %51 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 4), align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 168
@@ -40691,14 +40705,14 @@ zend_add_literal_string.exit:                     ; preds = %._crit_edge13.i.i, 
   %60 = load ptr, ptr %59, align 8
   %61 = sext i32 %57 to i64
   %62 = shl nsw i64 %61, 4
-  %63 = tail call ptr @_erealloc(ptr noundef %60, i64 noundef %62) #34
+  %63 = tail call ptr @_erealloc(ptr noundef %60, i64 noundef %62) #32
   store ptr %63, ptr %59, align 8
   br label %zend_add_literal_string.exit135
 
 zend_add_literal_string.exit135:                  ; preds = %._crit_edge13.i.i132, %58
   %.val.i.i129 = phi ptr [ %.val.pre.i.i134, %._crit_edge13.i.i132 ], [ %63, %58 ]
   %64 = load ptr, ptr @zend_new_interned_string, align 8
-  %65 = tail call ptr %64(ptr noundef nonnull %44) #30
+  %65 = tail call ptr %64(ptr noundef nonnull %44) #28
   %66 = getelementptr inbounds i8, ptr %65, i64 4
   %67 = load i32, ptr %66, align 4
   %68 = and i32 %67, 64
@@ -40721,7 +40735,7 @@ zend_add_literal_string.exit135:                  ; preds = %._crit_edge13.i.i13
   %.0 = phi ptr [ %35, %zend_add_literal_string.exit135 ], [ %32, %zend_add_literal_string.exit ]
   %77 = and i64 %.0121, -8
   %78 = add i64 %77, 32
-  %79 = tail call noalias ptr @_emalloc(i64 noundef %78) #32
+  %79 = tail call noalias ptr @_emalloc(i64 noundef %78) #30
   store i32 1, ptr %79, align 4
   %80 = getelementptr inbounds i8, ptr %79, i64 4
   store i32 22, ptr %80, align 4
@@ -40760,14 +40774,14 @@ zend_add_literal_string.exit135:                  ; preds = %._crit_edge13.i.i13
   %95 = load ptr, ptr %94, align 8
   %96 = sext i32 %92 to i64
   %97 = shl nsw i64 %96, 4
-  %98 = tail call ptr @_erealloc(ptr noundef %95, i64 noundef %97) #34
+  %98 = tail call ptr @_erealloc(ptr noundef %95, i64 noundef %97) #32
   store ptr %98, ptr %94, align 8
   br label %zend_add_literal_string.exit145
 
 zend_add_literal_string.exit145:                  ; preds = %._crit_edge13.i.i142, %93
   %.val.i.i139 = phi ptr [ %.val.pre.i.i144, %._crit_edge13.i.i142 ], [ %98, %93 ]
   %99 = load ptr, ptr @zend_new_interned_string, align 8
-  %100 = tail call ptr %99(ptr noundef nonnull %79) #30
+  %100 = tail call ptr %99(ptr noundef nonnull %79) #28
   %101 = getelementptr inbounds i8, ptr %100, i64 4
   %102 = load i32, ptr %101, align 4
   %103 = and i32 %102, 64
@@ -40801,7 +40815,7 @@ define internal fastcc noundef zeroext i1 @zend_try_ct_eval_class_const(ptr noun
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %1, i64 24
-  %10 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %9, i64 noundef 4, ptr noundef nonnull @.str.21, i64 noundef 4) #30
+  %10 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %9, i64 noundef 4, ptr noundef nonnull @.str.21, i64 noundef 4) #28
   %.not.i = icmp eq i32 %10, 0
   br i1 %.not.i, label %zend_get_class_fetch_type.exit, label %thread-pre-split.i
 
@@ -40816,7 +40830,7 @@ thread-pre-split.i:                               ; preds = %8
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds i8, ptr %1, i64 24
-  %16 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %15, i64 noundef 6, ptr noundef nonnull @.str.22, i64 noundef 6) #30
+  %16 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %15, i64 noundef 6, ptr noundef nonnull @.str.22, i64 noundef 6) #28
   %.not13.i = icmp eq i32 %16, 0
   br i1 %.not13.i, label %zend_get_class_fetch_type.exit, label %._crit_edge.i
 
@@ -40837,7 +40851,7 @@ thread-pre-split.i:                               ; preds = %8
 25:                                               ; preds = %17
   %26 = getelementptr inbounds i8, ptr %1, i64 24
   %27 = getelementptr inbounds i8, ptr %21, i64 24
-  %28 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %26, i64 noundef %18, ptr noundef nonnull %27, i64 noundef %18) #30
+  %28 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %26, i64 noundef %18, ptr noundef nonnull %27, i64 noundef %18) #28
   %.not14.i = icmp eq i32 %28, 0
   br i1 %.not14.i, label %zend_get_class_fetch_type.exit, label %zend_get_class_fetch_type.exit.thread
 
@@ -40884,7 +40898,7 @@ zend_is_scope_known.exit.i:                       ; preds = %33
 class_name_refers_to_active_ce.exit:              ; preds = %.thread101
   %47 = getelementptr inbounds i8, ptr %1, i64 24
   %48 = getelementptr inbounds i8, ptr %43, i64 24
-  %49 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %47, i64 noundef %41, ptr noundef nonnull %48, i64 noundef %41) #30
+  %49 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %47, i64 noundef %41, ptr noundef nonnull %48, i64 noundef %41) #28
   %.not7.i = icmp eq i32 %49, 0
   br i1 %.not7.i, label %class_name_refers_to_active_ce.exit.class_name_refers_to_active_ce.exit.thread81_crit_edge, label %.thread89
 
@@ -40895,7 +40909,7 @@ class_name_refers_to_active_ce.exit.class_name_refers_to_active_ce.exit.thread81
 class_name_refers_to_active_ce.exit.thread81:     ; preds = %class_name_refers_to_active_ce.exit.class_name_refers_to_active_ce.exit.thread81_crit_edge, %zend_is_scope_known.exit.i
   %50 = phi ptr [ %.pre, %class_name_refers_to_active_ce.exit.class_name_refers_to_active_ce.exit.thread81_crit_edge ], [ %29, %zend_is_scope_known.exit.i ]
   %51 = getelementptr inbounds i8, ptr %50, i64 176
-  %52 = tail call ptr @zend_hash_find(ptr noundef nonnull %51, ptr noundef %2) #30
+  %52 = tail call ptr @zend_hash_find(ptr noundef nonnull %51, ptr noundef %2) #28
   %.not70 = icmp eq ptr %52, null
   br i1 %.not70, label %.thread83, label %61
 
@@ -40907,13 +40921,13 @@ class_name_refers_to_active_ce.exit.thread81:     ; preds = %class_name_refers_t
 
 55:                                               ; preds = %.thread89
   %56 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 6), align 8
-  %57 = tail call ptr @zend_hash_find_ptr_lc(ptr noundef %56, ptr noundef nonnull %1) #30
+  %57 = tail call ptr @zend_hash_find_ptr_lc(ptr noundef %56, ptr noundef nonnull %1) #28
   %.not68 = icmp eq ptr %57, null
   br i1 %.not68, label %.thread83, label %58
 
 58:                                               ; preds = %55
   %59 = getelementptr inbounds i8, ptr %57, i64 176
-  %60 = tail call ptr @zend_hash_find(ptr noundef nonnull %59, ptr noundef %2) #30
+  %60 = tail call ptr @zend_hash_find(ptr noundef nonnull %59, ptr noundef %2) #28
   %.not69 = icmp eq ptr %60, null
   br i1 %.not69, label %.thread83, label %61
 
@@ -40970,7 +40984,7 @@ class_name_refers_to_active_ce.exit.thread81:     ; preds = %class_name_refers_t
 
 86:                                               ; preds = %82
   %87 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 6), align 8
-  %88 = tail call ptr @zend_hash_find_ptr_lc(ptr noundef %87, ptr noundef nonnull %81) #30
+  %88 = tail call ptr @zend_hash_find_ptr_lc(ptr noundef %87, ptr noundef nonnull %81) #28
   %.not23.i = icmp eq ptr %88, null
   br i1 %.not23.i, label %.thread83, label %89
 
@@ -41017,7 +41031,7 @@ zend_verify_ct_const_access.exit.thread99:        ; preds = %89, %75, %zend_veri
   br label %.thread83
 
 109:                                              ; preds = %99
-  tail call void @zval_copy_ctor_func(ptr noundef nonnull %0) #30
+  tail call void @zval_copy_ctor_func(ptr noundef nonnull %0) #28
   br label %.thread83
 
 110:                                              ; preds = %zend_verify_ct_const_access.exit.thread99
@@ -41058,7 +41072,7 @@ zend_verify_ct_const_access.exit.thread99:        ; preds = %89, %75, %zend_veri
   br label %.thread83
 
 129:                                              ; preds = %119
-  tail call void @zval_copy_ctor_func(ptr noundef nonnull %0) #30
+  tail call void @zval_copy_ctor_func(ptr noundef nonnull %0) #28
   br label %.thread83
 
 .thread83:                                        ; preds = %.lr.ph.i, %86, %69, %64, %58, %class_name_refers_to_active_ce.exit.thread81, %31, %33, %zend_is_scope_known.exit.i, %zend_get_class_fetch_type.exit, %112, %110, %126, %129, %115, %106, %109, %94, %zend_verify_ct_const_access.exit, %61, %.thread89, %55
@@ -41079,7 +41093,7 @@ define internal fastcc noundef zeroext i1 @zend_try_compile_const_expr_resolve_c
   br i1 %.not35, label %8, label %7
 
 7:                                                ; preds = %4
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.16) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.16) #29
   unreachable
 
 8:                                                ; preds = %4
@@ -41092,7 +41106,7 @@ define internal fastcc noundef zeroext i1 @zend_try_compile_const_expr_resolve_c
 
 14:                                               ; preds = %8
   %15 = getelementptr inbounds i8, ptr %10, i64 24
-  %16 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %15, i64 noundef 4, ptr noundef nonnull @.str.21, i64 noundef 4) #30
+  %16 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %15, i64 noundef 4, ptr noundef nonnull @.str.21, i64 noundef 4) #28
   %.not.i = icmp eq i32 %16, 0
   br i1 %.not.i, label %35, label %thread-pre-split.i
 
@@ -41107,7 +41121,7 @@ thread-pre-split.i:                               ; preds = %14
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds i8, ptr %10, i64 24
-  %22 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %21, i64 noundef 6, ptr noundef nonnull @.str.22, i64 noundef 6) #30
+  %22 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %21, i64 noundef 6, ptr noundef nonnull @.str.22, i64 noundef 6) #28
   %.not13.i = icmp eq i32 %22, 0
   br i1 %.not13.i, label %35, label %._crit_edge.i
 
@@ -41128,7 +41142,7 @@ thread-pre-split.i:                               ; preds = %14
 31:                                               ; preds = %23
   %32 = getelementptr inbounds i8, ptr %10, i64 24
   %33 = getelementptr inbounds i8, ptr %27, i64 24
-  %34 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %32, i64 noundef %24, ptr noundef nonnull %33, i64 noundef %24) #30
+  %34 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %32, i64 noundef %24, ptr noundef nonnull %33, i64 noundef %24) #28
   %.not14.i = icmp eq i32 %34, 0
   br i1 %.not14.i, label %35, label %zend_ensure_valid_class_fetch_type.exit.thread
 
@@ -41169,7 +41183,7 @@ zend_is_scope_known.exit.i:                       ; preds = %43
 52:                                               ; preds = %zend_is_scope_known.exit.i
   %53 = select i1 %36, ptr @.str.22, ptr @.str.35
   %54 = select i1 %37, ptr @.str.21, ptr %53
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.139, ptr noundef nonnull %54) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.139, ptr noundef nonnull %54) #29
   unreachable
 
 55:                                               ; preds = %45
@@ -41179,7 +41193,7 @@ zend_is_scope_known.exit.i:                       ; preds = %43
   br i1 %.not7.i, label %58, label %.thread
 
 58:                                               ; preds = %55
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.140) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.140) #29
   unreachable
 
 zend_ensure_valid_class_fetch_type.exit:          ; preds = %35, %39, %45, %zend_is_scope_known.exit.i
@@ -41282,7 +41296,7 @@ zend_ensure_valid_class_fetch_type.exit.thread:   ; preds = %31, %23
   br i1 %.not.i50, label %zend_resolve_class_name_ast.exit, label %102
 
 102:                                              ; preds = %zend_ensure_valid_class_fetch_type.exit.thread
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.16) #31
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.16) #29
   unreachable
 
 zend_resolve_class_name_ast.exit:                 ; preds = %zend_ensure_valid_class_fetch_type.exit.thread
@@ -41365,7 +41379,7 @@ define internal fastcc noundef ptr @zend_compile_rope_add_ex(ptr noundef returne
   %25 = load ptr, ptr %24, align 8
   %26 = sext i32 %22 to i64
   %27 = shl nsw i64 %26, 4
-  %28 = tail call ptr @_erealloc(ptr noundef %25, i64 noundef %27) #34
+  %28 = tail call ptr @_erealloc(ptr noundef %25, i64 noundef %27) #32
   store ptr %28, ptr %24, align 8
   br label %29
 
@@ -41379,7 +41393,7 @@ define internal fastcc noundef ptr @zend_compile_rope_add_ex(ptr noundef returne
 
 33:                                               ; preds = %29
   %34 = load ptr, ptr @zend_new_interned_string, align 8
-  %35 = tail call ptr %34(ptr noundef %.pre.i.i) #30
+  %35 = tail call ptr %34(ptr noundef %.pre.i.i) #28
   store ptr %35, ptr %15, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 4
   %37 = load i32, ptr %36, align 4
@@ -41448,7 +41462,7 @@ zend_add_literal.exit:                            ; preds = %29, %33, %39
   %67 = load ptr, ptr %66, align 8
   %68 = sext i32 %64 to i64
   %69 = shl nsw i64 %68, 4
-  %70 = tail call ptr @_erealloc(ptr noundef %67, i64 noundef %69) #34
+  %70 = tail call ptr @_erealloc(ptr noundef %67, i64 noundef %69) #32
   store ptr %70, ptr %66, align 8
   br label %71
 
@@ -41462,7 +41476,7 @@ zend_add_literal.exit:                            ; preds = %29, %33, %39
 
 75:                                               ; preds = %71
   %76 = load ptr, ptr @zend_new_interned_string, align 8
-  %77 = tail call ptr %76(ptr noundef %.pre.i.i32) #30
+  %77 = tail call ptr %76(ptr noundef %.pre.i.i32) #28
   store ptr %77, ptr %57, align 8
   %78 = getelementptr inbounds i8, ptr %77, i64 4
   %79 = load i32, ptr %78, align 4
@@ -41531,7 +41545,7 @@ zend_add_literal.exit37:                          ; preds = %71, %75, %81
   %109 = load ptr, ptr %108, align 8
   %110 = sext i32 %106 to i64
   %111 = shl nsw i64 %110, 4
-  %112 = tail call ptr @_erealloc(ptr noundef %109, i64 noundef %111) #34
+  %112 = tail call ptr @_erealloc(ptr noundef %109, i64 noundef %111) #32
   store ptr %112, ptr %108, align 8
   br label %113
 
@@ -41545,7 +41559,7 @@ zend_add_literal.exit37:                          ; preds = %71, %75, %81
 
 117:                                              ; preds = %113
   %118 = load ptr, ptr @zend_new_interned_string, align 8
-  %119 = tail call ptr %118(ptr noundef %.pre.i.i42) #30
+  %119 = tail call ptr %118(ptr noundef %.pre.i.i42) #28
   store ptr %119, ptr %99, align 8
   %120 = getelementptr inbounds i8, ptr %119, i64 4
   %121 = load i32, ptr %120, align 4
@@ -41631,7 +41645,7 @@ define internal fastcc noundef zeroext i1 @zend_try_ct_eval_magic_const(ptr noca
   %23 = load i64, ptr %22, align 8
   %24 = and i64 %23, -8
   %25 = add i64 %24, 32
-  %26 = tail call noalias ptr @_emalloc(i64 noundef %25) #32
+  %26 = tail call noalias ptr @_emalloc(i64 noundef %25) #30
   store i32 1, ptr %26, align 4
   %27 = getelementptr inbounds i8, ptr %26, i64 4
   store i32 22, ptr %27, align 4
@@ -41727,7 +41741,7 @@ zend_dirname.exit._crit_edge:                     ; preds = %zend_dirname.exit
   br i1 %50, label %51, label %58
 
 51:                                               ; preds = %48
-  %52 = tail call dereferenceable_or_null(4128) ptr @_erealloc(ptr noundef nonnull %26, i64 noundef 4128) #34
+  %52 = tail call dereferenceable_or_null(4128) ptr @_erealloc(ptr noundef nonnull %26, i64 noundef 4128) #32
   %53 = getelementptr inbounds i8, ptr %52, i64 16
   store i64 4096, ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %52, i64 8
@@ -41739,7 +41753,7 @@ zend_dirname.exit._crit_edge:                     ; preds = %zend_dirname.exit
   br label %72
 
 58:                                               ; preds = %45, %48
-  %59 = tail call noalias dereferenceable_or_null(4128) ptr @_emalloc_large(i64 noundef 4128) #32
+  %59 = tail call noalias dereferenceable_or_null(4128) ptr @_emalloc_large(i64 noundef 4128) #30
   store i32 1, ptr %59, align 4
   %60 = getelementptr inbounds i8, ptr %59, i64 4
   store i32 22, ptr %60, align 4
@@ -41767,8 +41781,8 @@ zend_dirname.exit._crit_edge:                     ; preds = %zend_dirname.exit
 72:                                               ; preds = %58, %68, %51
   %.0 = phi ptr [ %52, %51 ], [ %59, %68 ], [ %59, %58 ]
   %73 = getelementptr inbounds i8, ptr %.0, i64 24
-  %74 = tail call ptr @getcwd(ptr noundef nonnull %73, i64 noundef 4096) #30
-  %75 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %73) #29
+  %74 = tail call ptr @getcwd(ptr noundef nonnull %73, i64 noundef 4096) #28
+  %75 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %73) #27
   %76 = getelementptr inbounds i8, ptr %.0, i64 16
   store i64 %75, ptr %76, align 8
   br label %.critedge
@@ -41856,7 +41870,7 @@ zend_dirname.exit._crit_edge:                     ; preds = %zend_dirname.exit
   %116 = getelementptr inbounds i8, ptr %106, i64 24
   %117 = getelementptr inbounds i8, ptr %106, i64 16
   %118 = load i64, ptr %117, align 8
-  %119 = tail call ptr @zend_string_concat3(ptr noundef nonnull %113, i64 noundef %115, ptr noundef nonnull @.str.15, i64 noundef 2, ptr noundef nonnull %116, i64 noundef %118) #30
+  %119 = tail call ptr @zend_string_concat3(ptr noundef nonnull %113, i64 noundef %115, ptr noundef nonnull @.str.15, i64 noundef 2, ptr noundef nonnull %116, i64 noundef %118) #28
   store ptr %119, ptr %0, align 8
   br label %.sink.split
 
@@ -41982,25 +41996,25 @@ zend_dirname.exit._crit_edge:                     ; preds = %zend_dirname.exit
 }
 
 ; Function Attrs: nounwind
-declare ptr @getcwd(ptr noundef, i64 noundef) local_unnamed_addr #25
+declare ptr @getcwd(ptr noundef, i64 noundef) local_unnamed_addr #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #26
+declare double @llvm.fabs.f64(double) #24
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #27
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #26
+declare i32 @llvm.umin.i32(i32, i32) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #28
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #28
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #26
+declare i64 @llvm.umax.i64(i64, i64) #24
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -42022,21 +42036,19 @@ attributes #16 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" 
 attributes #17 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #25 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #26 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #27 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #28 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #29 = { nounwind willreturn memory(read) }
-attributes #30 = { nounwind }
-attributes #31 = { noreturn nounwind }
-attributes #32 = { nounwind allocsize(0) }
-attributes #33 = { noreturn }
-attributes #34 = { nounwind allocsize(1) }
+attributes #20 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #23 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #25 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #26 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #27 = { nounwind willreturn memory(read) }
+attributes #28 = { nounwind }
+attributes #29 = { noreturn nounwind }
+attributes #30 = { nounwind allocsize(0) }
+attributes #31 = { noreturn }
+attributes #32 = { nounwind allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

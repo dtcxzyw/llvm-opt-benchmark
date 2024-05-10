@@ -1073,71 +1073,71 @@ _ZN8uu_split6number18DynamicWidthNumber6digits17h38a546c753bd274aE.exit: ; preds
 
 82:                                               ; preds = %78
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h202299a46474c8b4E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5, i64 noundef 0, i64 noundef %81)
-          to label %.lr.ph.i.i.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, !noalias !151
+          to label %.lr.ph.i.i.i.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, !noalias !151
 
-.lr.ph.i.i.i.i:                                   ; preds = %82
-  switch i8 %.val16, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1666ed106f163ef3E.llvm.11137950688059199535.exit.i.i.i.i" [
-    i8 10, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1666ed106f163ef3E.llvm.11137950688059199535.exit.us.i.i.i.i"
-    i8 16, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1666ed106f163ef3E.llvm.11137950688059199535.exit.us10.i.i.i.i"
-    i8 26, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1666ed106f163ef3E.llvm.11137950688059199535.exit.us14.i.i.i.i"
+.lr.ph.i.i.i.i.i:                                 ; preds = %82
+  switch i8 %.val16, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1666ed106f163ef3E.llvm.11137950688059199535.exit.i.i.i.i.i" [
+    i8 10, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1666ed106f163ef3E.llvm.11137950688059199535.exit.us.i.i.i.i.i"
+    i8 16, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1666ed106f163ef3E.llvm.11137950688059199535.exit.us10.i.i.i.i.i"
+    i8 26, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1666ed106f163ef3E.llvm.11137950688059199535.exit.us14.i.i.i.i.i"
   ]
 
-"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1666ed106f163ef3E.llvm.11137950688059199535.exit.us.i.i.i.i": ; preds = %.lr.ph.i.i.i.i, %.noexc3.i
-  %.sroa.0.07.us.i.i.i.i = phi i64 [ %83, %.noexc3.i ], [ 0, %.lr.ph.i.i.i.i ]
+"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1666ed106f163ef3E.llvm.11137950688059199535.exit.us.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i, %.noexc3.i
+  %.sroa.0.07.us.i.i.i.i.i = phi i64 [ %83, %.noexc3.i ], [ 0, %.lr.ph.i.i.i.i.i ]
   invoke void @_ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.11137950688059199535(ptr noalias noundef nonnull align 8 dereferenceable(24) %5, i32 noundef 57)
           to label %.noexc3.i unwind label %.loopexit.split-lp.loopexit.i, !noalias !151
 
-.noexc3.i:                                        ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1666ed106f163ef3E.llvm.11137950688059199535.exit.us.i.i.i.i"
-  %83 = add nuw i64 %.sroa.0.07.us.i.i.i.i, 1
-  %exitcond20.not.i.i.i.i = icmp eq i64 %83, %81
-  br i1 %exitcond20.not.i.i.i.i, label %.loopexit, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1666ed106f163ef3E.llvm.11137950688059199535.exit.us.i.i.i.i"
+.noexc3.i:                                        ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1666ed106f163ef3E.llvm.11137950688059199535.exit.us.i.i.i.i.i"
+  %83 = add nuw i64 %.sroa.0.07.us.i.i.i.i.i, 1
+  %exitcond20.not.i.i.i.i.i = icmp eq i64 %83, %81
+  br i1 %exitcond20.not.i.i.i.i.i, label %.loopexit, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1666ed106f163ef3E.llvm.11137950688059199535.exit.us.i.i.i.i.i"
 
-"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1666ed106f163ef3E.llvm.11137950688059199535.exit.us10.i.i.i.i": ; preds = %.lr.ph.i.i.i.i, %.noexc4.i
-  %.sroa.0.07.us9.i.i.i.i = phi i64 [ %84, %.noexc4.i ], [ 0, %.lr.ph.i.i.i.i ]
+"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1666ed106f163ef3E.llvm.11137950688059199535.exit.us10.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i, %.noexc4.i
+  %.sroa.0.07.us9.i.i.i.i.i = phi i64 [ %84, %.noexc4.i ], [ 0, %.lr.ph.i.i.i.i.i ]
   invoke void @_ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.11137950688059199535(ptr noalias noundef nonnull align 8 dereferenceable(24) %5, i32 noundef 102)
           to label %.noexc4.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.i, !noalias !151
 
-.noexc4.i:                                        ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1666ed106f163ef3E.llvm.11137950688059199535.exit.us10.i.i.i.i"
-  %84 = add nuw i64 %.sroa.0.07.us9.i.i.i.i, 1
-  %exitcond19.not.i.i.i.i = icmp eq i64 %84, %81
-  br i1 %exitcond19.not.i.i.i.i, label %.loopexit, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1666ed106f163ef3E.llvm.11137950688059199535.exit.us10.i.i.i.i"
+.noexc4.i:                                        ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1666ed106f163ef3E.llvm.11137950688059199535.exit.us10.i.i.i.i.i"
+  %84 = add nuw i64 %.sroa.0.07.us9.i.i.i.i.i, 1
+  %exitcond19.not.i.i.i.i.i = icmp eq i64 %84, %81
+  br i1 %exitcond19.not.i.i.i.i.i, label %.loopexit, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1666ed106f163ef3E.llvm.11137950688059199535.exit.us10.i.i.i.i.i"
 
-"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1666ed106f163ef3E.llvm.11137950688059199535.exit.us14.i.i.i.i": ; preds = %.lr.ph.i.i.i.i, %.noexc5.i
-  %.sroa.0.07.us13.i.i.i.i = phi i64 [ %85, %.noexc5.i ], [ 0, %.lr.ph.i.i.i.i ]
+"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1666ed106f163ef3E.llvm.11137950688059199535.exit.us14.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i, %.noexc5.i
+  %.sroa.0.07.us13.i.i.i.i.i = phi i64 [ %85, %.noexc5.i ], [ 0, %.lr.ph.i.i.i.i.i ]
   invoke void @_ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.11137950688059199535(ptr noalias noundef nonnull align 8 dereferenceable(24) %5, i32 noundef 122)
           to label %.noexc5.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, !noalias !151
 
-.noexc5.i:                                        ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1666ed106f163ef3E.llvm.11137950688059199535.exit.us14.i.i.i.i"
-  %85 = add nuw i64 %.sroa.0.07.us13.i.i.i.i, 1
-  %exitcond.not.i.i.i.i = icmp eq i64 %85, %81
-  br i1 %exitcond.not.i.i.i.i, label %.loopexit, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1666ed106f163ef3E.llvm.11137950688059199535.exit.us14.i.i.i.i"
+.noexc5.i:                                        ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1666ed106f163ef3E.llvm.11137950688059199535.exit.us14.i.i.i.i.i"
+  %85 = add nuw i64 %.sroa.0.07.us13.i.i.i.i.i, 1
+  %exitcond.not.i.i.i.i.i = icmp eq i64 %85, %81
+  br i1 %exitcond.not.i.i.i.i.i, label %.loopexit, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1666ed106f163ef3E.llvm.11137950688059199535.exit.us14.i.i.i.i.i"
 
-"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1666ed106f163ef3E.llvm.11137950688059199535.exit.i.i.i.i": ; preds = %.lr.ph.i.i.i.i, %.noexc6.i
-  %.sroa.0.07.i.i.i.i = phi i64 [ %86, %.noexc6.i ], [ 0, %.lr.ph.i.i.i.i ]
+"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1666ed106f163ef3E.llvm.11137950688059199535.exit.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i, %.noexc6.i
+  %.sroa.0.07.i.i.i.i.i = phi i64 [ %86, %.noexc6.i ], [ 0, %.lr.ph.i.i.i.i.i ]
   invoke void @_ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.11137950688059199535(ptr noalias noundef nonnull align 8 dereferenceable(24) %5, i32 noundef 0)
           to label %.noexc6.i unwind label %.loopexit.i25, !noalias !151
 
-.noexc6.i:                                        ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1666ed106f163ef3E.llvm.11137950688059199535.exit.i.i.i.i"
-  %86 = add nuw i64 %.sroa.0.07.i.i.i.i, 1
-  %exitcond21.not.i.i.i.i = icmp eq i64 %86, %81
-  br i1 %exitcond21.not.i.i.i.i, label %.loopexit, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1666ed106f163ef3E.llvm.11137950688059199535.exit.i.i.i.i"
+.noexc6.i:                                        ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1666ed106f163ef3E.llvm.11137950688059199535.exit.i.i.i.i.i"
+  %86 = add nuw i64 %.sroa.0.07.i.i.i.i.i, 1
+  %exitcond21.not.i.i.i.i.i = icmp eq i64 %86, %81
+  br i1 %exitcond21.not.i.i.i.i.i, label %.loopexit, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1666ed106f163ef3E.llvm.11137950688059199535.exit.i.i.i.i.i"
 
-.loopexit.i25:                                    ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1666ed106f163ef3E.llvm.11137950688059199535.exit.i.i.i.i"
+.loopexit.i25:                                    ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1666ed106f163ef3E.llvm.11137950688059199535.exit.i.i.i.i.i"
   %lpad.loopexit.i26 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp.i23
 
-.loopexit.split-lp.loopexit.i:                    ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1666ed106f163ef3E.llvm.11137950688059199535.exit.us.i.i.i.i"
+.loopexit.split-lp.loopexit.i:                    ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1666ed106f163ef3E.llvm.11137950688059199535.exit.us.i.i.i.i.i"
   %lpad.loopexit7.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp.i23
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.i:  ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1666ed106f163ef3E.llvm.11137950688059199535.exit.us10.i.i.i.i"
+.loopexit.split-lp.loopexit.split-lp.loopexit.i:  ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1666ed106f163ef3E.llvm.11137950688059199535.exit.us10.i.i.i.i.i"
   %lpad.loopexit11.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp.i23
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1666ed106f163ef3E.llvm.11137950688059199535.exit.us14.i.i.i.i"
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1666ed106f163ef3E.llvm.11137950688059199535.exit.us14.i.i.i.i.i"
   %lpad.loopexit14.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp.i23

@@ -111,7 +111,7 @@ module asm ".previous\09\09\09\09\09"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @battery_hook_unregister(ptr noundef %0) #0 align 16 {
-  tail call void @mutex_lock(ptr noundef nonnull @hook_mutex) #12
+  tail call void @mutex_lock(ptr noundef nonnull @hook_mutex) #11
   %2 = load ptr, ptr @acpi_battery_list, align 8
   %3 = icmp eq ptr %2, @acpi_battery_list
   br i1 %3, label %.loopexit, label %4
@@ -125,13 +125,13 @@ define dso_local void @battery_hook_unregister(ptr noundef %0) #0 align 16 {
   %8 = load ptr, ptr %5, align 8
   %9 = getelementptr i8, ptr %7, i64 -136
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 %8(ptr noundef %10, ptr noundef %0) #12
+  %11 = tail call i32 %8(ptr noundef %10, ptr noundef %0) #11
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %6
   %14 = load ptr, ptr %9, align 8
-  tail call void @power_supply_changed(ptr noundef %14) #12
+  tail call void @power_supply_changed(ptr noundef %14) #11
   br label %15
 
 15:                                               ; preds = %13, %6
@@ -149,15 +149,15 @@ define dso_local void @battery_hook_unregister(ptr noundef %0) #0 align 16 {
   store volatile ptr %21, ptr %20, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %18, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %19, align 8
-  tail call void @mutex_unlock(ptr noundef nonnull @hook_mutex) #12
+  tail call void @mutex_unlock(ptr noundef nonnull @hook_mutex) #11
   %23 = load ptr, ptr %0, align 8
-  %24 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, ptr noundef %23) #13
+  %24 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, ptr noundef %23) #12
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @__battery_hook_unregister(ptr noundef %0) unnamed_addr #0 align 16 {
-  tail call void @mutex_lock(ptr noundef nonnull @hook_mutex) #12
+  tail call void @mutex_lock(ptr noundef nonnull @hook_mutex) #11
   %2 = load ptr, ptr @acpi_battery_list, align 8
   %3 = icmp eq ptr %2, @acpi_battery_list
   br i1 %3, label %.loopexit, label %4
@@ -171,13 +171,13 @@ define internal fastcc void @__battery_hook_unregister(ptr noundef %0) unnamed_a
   %8 = load ptr, ptr %5, align 8
   %9 = getelementptr i8, ptr %7, i64 -136
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 %8(ptr noundef %10, ptr noundef %0) #12
+  %11 = tail call i32 %8(ptr noundef %10, ptr noundef %0) #11
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %6
   %14 = load ptr, ptr %9, align 8
-  tail call void @power_supply_changed(ptr noundef %14) #12
+  tail call void @power_supply_changed(ptr noundef %14) #11
   br label %15
 
 15:                                               ; preds = %13, %6
@@ -195,15 +195,15 @@ define internal fastcc void @__battery_hook_unregister(ptr noundef %0) unnamed_a
   store volatile ptr %21, ptr %20, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %18, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %19, align 8
-  tail call void @mutex_unlock(ptr noundef nonnull @hook_mutex) #12
+  tail call void @mutex_unlock(ptr noundef nonnull @hook_mutex) #11
   %23 = load ptr, ptr %0, align 8
-  %24 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, ptr noundef %23) #13
+  %24 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, ptr noundef %23) #12
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @battery_hook_register(ptr noundef %0) #0 align 16 {
-  tail call void @mutex_lock(ptr noundef nonnull @hook_mutex) #12
+  tail call void @mutex_lock(ptr noundef nonnull @hook_mutex) #11
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   store volatile ptr %2, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
@@ -227,13 +227,13 @@ define dso_local void @battery_hook_register(ptr noundef %0) #0 align 16 {
   %12 = load ptr, ptr %9, align 8
   %13 = getelementptr i8, ptr %11, i64 -136
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call i32 %12(ptr noundef %14, ptr noundef %0) #12
+  %15 = tail call i32 %12(ptr noundef %14, ptr noundef %0) #11
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %39, label %17
 
 17:                                               ; preds = %10
   %18 = load ptr, ptr %0, align 8
-  %19 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, ptr noundef %18) #13
+  %19 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, ptr noundef %18) #12
   %20 = load ptr, ptr @acpi_battery_list, align 8
   %21 = icmp eq ptr %20, @acpi_battery_list
   br i1 %21, label %.loopexit, label %22
@@ -247,13 +247,13 @@ define dso_local void @battery_hook_register(ptr noundef %0) #0 align 16 {
   %26 = load ptr, ptr %23, align 8
   %27 = getelementptr i8, ptr %25, i64 -136
   %28 = load ptr, ptr %27, align 8
-  %29 = tail call i32 %26(ptr noundef %28, ptr noundef %0) #12
+  %29 = tail call i32 %26(ptr noundef %28, ptr noundef %0) #11
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %24
   %32 = load ptr, ptr %27, align 8
-  tail call void @power_supply_changed(ptr noundef %32) #12
+  tail call void @power_supply_changed(ptr noundef %32) #11
   br label %33
 
 33:                                               ; preds = %31, %24
@@ -273,7 +273,7 @@ define dso_local void @battery_hook_register(ptr noundef %0) #0 align 16 {
 
 39:                                               ; preds = %10
   %40 = load ptr, ptr %13, align 8
-  tail call void @power_supply_changed(ptr noundef %40) #12
+  tail call void @power_supply_changed(ptr noundef %40) #11
   %41 = load ptr, ptr %11, align 8
   %42 = icmp eq ptr %41, @acpi_battery_list
   br i1 %42, label %.loopexit4, label %10, !llvm.loop !8
@@ -281,8 +281,8 @@ define dso_local void @battery_hook_register(ptr noundef %0) #0 align 16 {
 .loopexit4:                                       ; preds = %39, %.loopexit, %1
   %43 = phi ptr [ @.str.2, %.loopexit ], [ @.str.1, %1 ], [ @.str.1, %39 ]
   %44 = load ptr, ptr %0, align 8
-  %45 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull %43, ptr noundef %44) #13
-  tail call void @mutex_unlock(ptr noundef nonnull @hook_mutex) #12
+  %45 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull %43, ptr noundef %44) #12
+  tail call void @mutex_unlock(ptr noundef nonnull @hook_mutex) #11
   ret void
 }
 
@@ -326,13 +326,13 @@ define internal void @battery_hook_exit() #4 section ".exit.text" align 16 {
 define internal void @acpi_battery_exit() #4 section ".exit.text" align 16 {
   %1 = load i64, ptr @async_cookie, align 8
   %2 = add i64 %1, 1
-  tail call void @async_synchronize_cookie(i64 noundef %2) #12
+  tail call void @async_synchronize_cookie(i64 noundef %2) #11
   %3 = load i8, ptr @battery_driver_registered, align 1, !range !10, !noundef !11
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %0
-  tail call void @acpi_bus_unregister_driver(ptr noundef nonnull @acpi_battery_driver) #12
+  tail call void @acpi_bus_unregister_driver(ptr noundef nonnull @acpi_battery_driver) #11
   %6 = load ptr, ptr @battery_hook_list, align 8
   %7 = icmp eq ptr %6, @battery_hook_list
   br i1 %7, label %.loopexit, label %.preheader
@@ -362,7 +362,7 @@ define internal noundef range(i32 -19, 1) i32 @acpi_battery_init() #4 section ".
   br i1 %2, label %3, label %5
 
 3:                                                ; preds = %0
-  %4 = tail call i64 @async_schedule_node(ptr noundef nonnull @acpi_battery_init_async, ptr noundef null, i32 noundef -1) #12
+  %4 = tail call i64 @async_schedule_node(ptr noundef nonnull @acpi_battery_init_async, ptr noundef null, i32 noundef -1) #11
   store i64 %4, ptr @async_cookie, align 8
   br label %5
 
@@ -384,7 +384,7 @@ define internal i32 @acpi_battery_add(ptr noundef %0) #0 align 16 {
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 10), align 16
-  %9 = tail call noalias noundef align 8 dereferenceable_or_null(576) ptr @kmalloc_trace(ptr noundef %8, i32 noundef 3520, i64 noundef 576) #14
+  %9 = tail call noalias noundef align 8 dereferenceable_or_null(576) ptr @kmalloc_trace(ptr noundef %8, i32 noundef 3520, i64 noundef 576) #13
   %10 = icmp eq ptr %9, null
   br i1 %10, label %48, label %11
 
@@ -398,18 +398,18 @@ define internal i32 @acpi_battery_add(ptr noundef %0) #0 align 16 {
   store i64 34184252253036898, ptr %15, align 1
   %16 = getelementptr inbounds i8, ptr %0, i64 608
   store ptr %9, ptr %16, align 8
-  tail call void @__mutex_init(ptr noundef nonnull %9, ptr noundef nonnull @.str.5, ptr noundef nonnull @acpi_battery_add.__key) #12
+  tail call void @__mutex_init(ptr noundef nonnull %9, ptr noundef nonnull @.str.5, ptr noundef nonnull @acpi_battery_add.__key) #11
   %17 = getelementptr inbounds i8, ptr %9, i64 32
-  tail call void @__mutex_init(ptr noundef %17, ptr noundef nonnull @.str.7, ptr noundef nonnull @acpi_battery_add.__key.6) #12
+  tail call void @__mutex_init(ptr noundef %17, ptr noundef nonnull @.str.7, ptr noundef nonnull @acpi_battery_add.__key.6) #11
   %18 = load ptr, ptr %12, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call zeroext i1 @acpi_has_method(ptr noundef %20, ptr noundef nonnull @.str.8) #12
+  %21 = tail call zeroext i1 @acpi_has_method(ptr noundef %20, ptr noundef nonnull @.str.8) #11
   br i1 %21, label %22, label %.preheader
 
 22:                                               ; preds = %11
   %23 = getelementptr inbounds i8, ptr %9, i64 568
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %23, i32 2, ptr elementtype(i8) %23) #12, !srcloc !12
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %23, i32 2, ptr elementtype(i8) %23) #11, !srcloc !12
   br label %.preheader
 
 .preheader:                                       ; preds = %22, %11
@@ -422,7 +422,7 @@ define internal i32 @acpi_battery_add(ptr noundef %0) #0 align 16 {
   br i1 %27, label %31, label %28
 
 28:                                               ; preds = %24
-  tail call void @msleep(i32 noundef 20) #12
+  tail call void @msleep(i32 noundef 20) #11
   %29 = add nsw i32 %25, -1
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %.loopexit, label %24, !llvm.loop !13
@@ -433,27 +433,27 @@ define internal i32 @acpi_battery_add(ptr noundef %0) #0 align 16 {
   %34 = and i32 %33, 16
   %35 = icmp eq i32 %34, 0
   %36 = select i1 %35, ptr @.str.11, ptr @.str.10
-  %37 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.9, ptr noundef %13, ptr noundef nonnull %36) #13
+  %37 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.9, ptr noundef %13, ptr noundef nonnull %36) #12
   %38 = getelementptr inbounds i8, ptr %9, i64 176
   store ptr @battery_notify, ptr %38, align 8
-  %39 = tail call i32 @register_pm_notifier(ptr noundef %38) #12
+  %39 = tail call i32 @register_pm_notifier(ptr noundef %38) #11
   %40 = getelementptr inbounds i8, ptr %0, i64 616
-  tail call void @device_set_wakeup_capable(ptr noundef %40, i1 noundef zeroext true) #12
-  %41 = tail call i32 @device_wakeup_enable(ptr noundef %40) #12
-  %42 = tail call i32 @acpi_dev_install_notify_handler(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @acpi_battery_notify, ptr noundef nonnull %0) #12
+  tail call void @device_set_wakeup_capable(ptr noundef %40, i1 noundef zeroext true) #11
+  %41 = tail call i32 @device_wakeup_enable(ptr noundef %40) #11
+  %42 = tail call i32 @acpi_dev_install_notify_handler(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @acpi_battery_notify, ptr noundef nonnull %0) #11
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %48, label %44
 
 44:                                               ; preds = %31
-  %45 = tail call i32 @device_wakeup_disable(ptr noundef %40) #12
-  tail call void @device_set_wakeup_capable(ptr noundef %40, i1 noundef zeroext false) #12
-  %46 = tail call i32 @unregister_pm_notifier(ptr noundef %38) #12
+  %45 = tail call i32 @device_wakeup_disable(ptr noundef %40) #11
+  tail call void @device_set_wakeup_capable(ptr noundef %40, i1 noundef zeroext false) #11
+  %46 = tail call i32 @unregister_pm_notifier(ptr noundef %38) #11
   br label %.loopexit
 
 .loopexit:                                        ; preds = %28, %44
   %47 = phi i32 [ %42, %44 ], [ %26, %28 ]
   tail call fastcc void @sysfs_remove_battery(ptr noundef nonnull %9)
-  tail call void @kfree(ptr noundef nonnull %9) #12
+  tail call void @kfree(ptr noundef nonnull %9) #11
   br label %48
 
 48:                                               ; preds = %.loopexit, %31, %7, %3, %1
@@ -473,14 +473,14 @@ define internal void @acpi_battery_remove(ptr noundef %0) #0 align 16 {
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %3
-  tail call void @acpi_dev_remove_notify_handler(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @acpi_battery_notify) #12
+  tail call void @acpi_dev_remove_notify_handler(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @acpi_battery_notify) #11
   %8 = getelementptr inbounds i8, ptr %0, i64 616
-  %9 = tail call i32 @device_wakeup_disable(ptr noundef %8) #12
-  tail call void @device_set_wakeup_capable(ptr noundef %8, i1 noundef zeroext false) #12
+  %9 = tail call i32 @device_wakeup_disable(ptr noundef %8) #11
+  tail call void @device_set_wakeup_capable(ptr noundef %8, i1 noundef zeroext false) #11
   %10 = getelementptr inbounds i8, ptr %5, i64 176
-  %11 = tail call i32 @unregister_pm_notifier(ptr noundef %10) #12
+  %11 = tail call i32 @unregister_pm_notifier(ptr noundef %10) #11
   tail call fastcc void @sysfs_remove_battery(ptr noundef nonnull %5)
-  tail call void @kfree(ptr noundef nonnull %5) #12
+  tail call void @kfree(ptr noundef nonnull %5) #11
   br label %12
 
 12:                                               ; preds = %7, %3, %1
@@ -569,7 +569,7 @@ define internal void @acpi_battery_notify(ptr nocapture readnone %0, i32 noundef
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %7
-  tail call void @msleep(i32 noundef 1000) #12
+  tail call void @msleep(i32 noundef 1000) #11
   br label %12
 
 12:                                               ; preds = %11, %7
@@ -616,13 +616,13 @@ define internal void @acpi_battery_notify(ptr nocapture readnone %0, i32 noundef
   %40 = load i32, ptr %39, align 8
   %41 = lshr i32 %40, 4
   %42 = and i32 %41, 1
-  %43 = tail call i32 @acpi_bus_generate_netlink_event(ptr noundef %27, ptr noundef %35, i8 noundef zeroext %36, i32 noundef %42) #12
+  %43 = tail call i32 @acpi_bus_generate_netlink_event(ptr noundef %27, ptr noundef %35, i8 noundef zeroext %36, i32 noundef %42) #11
   %44 = load ptr, ptr %37, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 112
   %46 = load i32, ptr %45, align 8
   %47 = lshr i32 %46, 4
   %48 = and i32 %47, 1
-  %49 = tail call i32 @acpi_notifier_call_chain(ptr noundef %2, i32 noundef %1, i32 noundef %48) #12
+  %49 = tail call i32 @acpi_notifier_call_chain(ptr noundef %2, i32 noundef %1, i32 noundef %48) #11
   %50 = icmp eq ptr %9, null
   br i1 %50, label %55, label %51
 
@@ -632,7 +632,7 @@ define internal void @acpi_battery_notify(ptr nocapture readnone %0, i32 noundef
   br i1 %53, label %55, label %54
 
 54:                                               ; preds = %51
-  tail call void @power_supply_changed(ptr noundef nonnull %52) #12
+  tail call void @power_supply_changed(ptr noundef nonnull %52) #11
   br label %55
 
 55:                                               ; preds = %54, %51, %34, %3
@@ -645,14 +645,14 @@ declare dso_local i32 @unregister_pm_notifier(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @sysfs_remove_battery(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @mutex_lock(ptr noundef %2) #12
+  tail call void @mutex_lock(ptr noundef %2) #11
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %25, label %6
 
 6:                                                ; preds = %1
-  tail call void @mutex_lock(ptr noundef nonnull @hook_mutex) #12
+  tail call void @mutex_lock(ptr noundef nonnull @hook_mutex) #11
   %7 = load ptr, ptr @battery_hook_list, align 8
   %8 = icmp eq ptr %7, @battery_hook_list
   br i1 %8, label %.loopexit, label %.preheader
@@ -663,7 +663,7 @@ define internal fastcc void @sysfs_remove_battery(ptr noundef %0) unnamed_addr #
   %11 = getelementptr i8, ptr %9, i64 -8
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %3, align 8
-  %14 = tail call i32 %12(ptr noundef %13, ptr noundef %10) #12
+  %14 = tail call i32 %12(ptr noundef %13, ptr noundef %10) #11
   %15 = load ptr, ptr %9, align 8
   %16 = icmp eq ptr %15, @battery_hook_list
   br i1 %16, label %.loopexit, label %.preheader, !llvm.loop !15
@@ -678,17 +678,17 @@ define internal fastcc void @sysfs_remove_battery(ptr noundef %0) unnamed_addr #
   store volatile ptr %20, ptr %19, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %17, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %18, align 8
-  tail call void @mutex_unlock(ptr noundef nonnull @hook_mutex) #12
+  tail call void @mutex_unlock(ptr noundef nonnull @hook_mutex) #11
   %22 = load ptr, ptr %3, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 56
-  tail call void @device_remove_file(ptr noundef %23, ptr noundef nonnull @alarm_attr) #12
+  tail call void @device_remove_file(ptr noundef %23, ptr noundef nonnull @alarm_attr) #11
   %24 = load ptr, ptr %3, align 8
-  tail call void @power_supply_unregister(ptr noundef %24) #12
+  tail call void @power_supply_unregister(ptr noundef %24) #11
   store ptr null, ptr %3, align 8
   br label %25
 
 25:                                               ; preds = %.loopexit, %1
-  tail call void @mutex_unlock(ptr noundef %2) #12
+  tail call void @mutex_unlock(ptr noundef %2) #11
   ret void
 }
 
@@ -702,7 +702,7 @@ declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 nound
 define internal fastcc i32 @acpi_battery_update(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call i32 @acpi_bus_get_status(ptr noundef %3) #12
+  %4 = tail call i32 @acpi_bus_get_status(ptr noundef %3) #11
   %5 = icmp eq i32 %4, 0
   %6 = load ptr, ptr %2, align 8
   br i1 %5, label %10, label %7
@@ -710,7 +710,7 @@ define internal fastcc i32 @acpi_battery_update(ptr noundef %0) unnamed_addr #0 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %6, i64 8
   %9 = load ptr, ptr %8, align 8
-  tail call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str.13, ptr noundef %9, ptr noundef nonnull @.str.14) #12
+  tail call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str.13, ptr noundef %9, ptr noundef nonnull @.str.14) #11
   br label %135
 
 10:                                               ; preds = %1
@@ -772,7 +772,7 @@ define internal fastcc i32 @acpi_battery_update(ptr noundef %0) unnamed_addr #0 
   br i1 %44, label %45, label %51
 
 45:                                               ; preds = %41
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %29, i32 4, ptr elementtype(i8) %29) #12, !srcloc !12
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %29, i32 4, ptr elementtype(i8) %29) #11, !srcloc !12
   %46 = getelementptr inbounds i8, ptr %0, i64 240
   %47 = load i32, ptr %46, align 8
   store i32 %47, ptr %34, align 4
@@ -795,12 +795,12 @@ define internal fastcc i32 @acpi_battery_update(ptr noundef %0) unnamed_addr #0 
   br i1 %58, label %93, label %59
 
 59:                                               ; preds = %55
-  %60 = tail call i32 @dmi_name_in_vendors(ptr noundef nonnull @.str.22) #12
+  %60 = tail call i32 @dmi_name_in_vendors(ptr noundef nonnull @.str.22) #11
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %93, label %62
 
 62:                                               ; preds = %59
-  %63 = tail call ptr @dmi_get_system_info(i32 noundef 8) #12
+  %63 = tail call ptr @dmi_get_system_info(i32 noundef 8) #11
   %64 = icmp eq ptr %63, null
   br i1 %64, label %93, label %65
 
@@ -810,7 +810,7 @@ define internal fastcc i32 @acpi_battery_update(ptr noundef %0) unnamed_addr #0 
   br i1 %67, label %68, label %93
 
 68:                                               ; preds = %65
-  %69 = tail call i32 @dmi_walk(ptr noundef nonnull @find_battery, ptr noundef %0) #12
+  %69 = tail call i32 @dmi_walk(ptr noundef nonnull @find_battery, ptr noundef %0) #11
   %70 = load volatile i64, ptr %29, align 8
   %71 = and i64 %70, 8
   %72 = icmp eq i64 %71, 0
@@ -876,7 +876,7 @@ define internal fastcc i32 @acpi_battery_update(ptr noundef %0) unnamed_addr #0 
   br i1 %107, label %108, label %110
 
 108:                                              ; preds = %104
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %29, i32 16, ptr elementtype(i8) %29) #12, !srcloc !12
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %29, i32 16, ptr elementtype(i8) %29) #11, !srcloc !12
   %109 = load i32, ptr %34, align 4
   store i32 %109, ptr %105, align 8
   br label %110
@@ -916,7 +916,7 @@ define internal fastcc i32 @acpi_battery_update(ptr noundef %0) unnamed_addr #0 
 132:                                              ; preds = %126, %117
   %133 = load ptr, ptr %2, align 8
   %134 = getelementptr inbounds i8, ptr %133, i64 616
-  tail call void @acpi_pm_wakeup_event(ptr noundef %134) #12
+  tail call void @acpi_pm_wakeup_event(ptr noundef %134) #11
   br label %135
 
 135:                                              ; preds = %7, %132, %126, %122, %114, %25, %21, %15
@@ -956,17 +956,17 @@ define internal fastcc noundef i32 @acpi_battery_get_info(ptr noundef %0) unname
 
 23:                                               ; preds = %.thread, %13
   %24 = phi i32 [ %15, %13 ], [ %36, %.thread ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
   store i64 -1, ptr %2, align 8
   store ptr null, ptr %16, align 8
-  call void @mutex_lock(ptr noundef %0) #12
+  call void @mutex_lock(ptr noundef %0) #11
   %25 = load ptr, ptr %7, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq i32 %24, 0
   %29 = select i1 %28, ptr @.str.15, ptr @.str.8
-  %30 = call i32 @acpi_evaluate_object(ptr noundef %27, ptr noundef nonnull %29, ptr noundef null, ptr noundef nonnull %2) #12
-  call void @mutex_unlock(ptr noundef %0) #12
+  %30 = call i32 @acpi_evaluate_object(ptr noundef %27, ptr noundef nonnull %29, ptr noundef null, ptr noundef nonnull %2) #11
+  call void @mutex_unlock(ptr noundef %0) #11
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %38, label %.thread
 
@@ -974,9 +974,9 @@ define internal fastcc noundef i32 @acpi_battery_get_info(ptr noundef %0) unname
   %32 = load ptr, ptr %7, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 8
   %34 = load ptr, ptr %33, align 8
-  %35 = call ptr @acpi_format_exception(i32 noundef %30) #12
-  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str.13, ptr noundef %34, ptr noundef nonnull @.str.16, ptr noundef nonnull %29, ptr noundef %35) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #12
+  %35 = call ptr @acpi_format_exception(i32 noundef %30) #11
+  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str.13, ptr noundef %34, ptr noundef nonnull @.str.16, ptr noundef nonnull %29, ptr noundef %35) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
   %36 = add nsw i32 %24, -1
   %37 = icmp sgt i32 %24, 0
   br i1 %37, label %23, label %.loopexit, !llvm.loop !16
@@ -1036,12 +1036,12 @@ define internal fastcc noundef i32 @acpi_battery_get_info(ptr noundef %0) unname
   %72 = getelementptr inbounds i8, ptr %56, i64 8
   %73 = load ptr, ptr %72, align 8
   %74 = zext nneg i32 %71 to i64
-  %75 = call i64 @strscpy(ptr noundef %62, ptr noundef %73, i64 noundef %74) #12
+  %75 = call i64 @strscpy(ptr noundef %62, ptr noundef %73, i64 noundef %74) #11
   br label %88
 
 76:                                               ; preds = %64
   %77 = getelementptr inbounds i8, ptr %56, i64 8
-  %78 = call i64 @strscpy(ptr noundef %62, ptr noundef %77, i64 noundef 9) #12
+  %78 = call i64 @strscpy(ptr noundef %62, ptr noundef %77, i64 noundef 9) #11
   br label %88
 
 79:                                               ; preds = %64
@@ -1117,12 +1117,12 @@ define internal fastcc noundef i32 @acpi_battery_get_info(ptr noundef %0) unname
   %119 = getelementptr inbounds i8, ptr %103, i64 8
   %120 = load ptr, ptr %119, align 8
   %121 = zext nneg i32 %118 to i64
-  %122 = call i64 @strscpy(ptr noundef %109, ptr noundef %120, i64 noundef %121) #12
+  %122 = call i64 @strscpy(ptr noundef %109, ptr noundef %120, i64 noundef %121) #11
   br label %135
 
 123:                                              ; preds = %111
   %124 = getelementptr inbounds i8, ptr %103, i64 8
-  %125 = call i64 @strscpy(ptr noundef %109, ptr noundef %124, i64 noundef 9) #12
+  %125 = call i64 @strscpy(ptr noundef %109, ptr noundef %124, i64 noundef 9) #11
   br label %135
 
 126:                                              ; preds = %111
@@ -1195,12 +1195,12 @@ define internal fastcc noundef i32 @acpi_battery_get_info(ptr noundef %0) unname
   %165 = getelementptr inbounds i8, ptr %149, i64 8
   %166 = load ptr, ptr %165, align 8
   %167 = zext nneg i32 %164 to i64
-  %168 = call i64 @strscpy(ptr noundef %155, ptr noundef %166, i64 noundef %167) #12
+  %168 = call i64 @strscpy(ptr noundef %155, ptr noundef %166, i64 noundef %167) #11
   br label %181
 
 169:                                              ; preds = %157
   %170 = getelementptr inbounds i8, ptr %149, i64 8
-  %171 = call i64 @strscpy(ptr noundef %155, ptr noundef %170, i64 noundef 9) #12
+  %171 = call i64 @strscpy(ptr noundef %155, ptr noundef %170, i64 noundef 9) #11
   br label %181
 
 172:                                              ; preds = %157
@@ -1288,8 +1288,8 @@ extract_package.exit:                             ; preds = %181, %142, %135, %9
 
 219:                                              ; preds = %210, %214, %218
   %220 = load ptr, ptr %16, align 8
-  call void @kfree(ptr noundef %220) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #12
+  call void @kfree(ptr noundef %220) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread, %219
@@ -1301,7 +1301,7 @@ extract_package.exit:                             ; preds = %181, %142, %135, %9
   br i1 %225, label %226, label %228
 
 226:                                              ; preds = %.loopexit
-  %227 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.17) #13
+  %227 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.17) #12
   br label %228
 
 228:                                              ; preds = %226, %.loopexit, %1
@@ -1315,16 +1315,16 @@ define internal fastcc void @acpi_battery_init_alarm(ptr noundef %0) unnamed_add
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call zeroext i1 @acpi_has_method(ptr noundef %5, ptr noundef nonnull @.str.18) #12
+  %6 = tail call zeroext i1 @acpi_has_method(ptr noundef %5, ptr noundef nonnull @.str.18) #11
   %7 = getelementptr inbounds i8, ptr %0, i64 568
   br i1 %6, label %9, label %8
 
 8:                                                ; preds = %1
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %7, i32 -2, ptr elementtype(i8) %7) #12, !srcloc !18
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %7, i32 -2, ptr elementtype(i8) %7) #11, !srcloc !18
   br label %33
 
 9:                                                ; preds = %1
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %7, i32 1, ptr elementtype(i8) %7) #12, !srcloc !12
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %7, i32 1, ptr elementtype(i8) %7) #11, !srcloc !12
   %10 = getelementptr inbounds i8, ptr %0, i64 296
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 0
@@ -1351,14 +1351,14 @@ define internal fastcc void @acpi_battery_init_alarm(ptr noundef %0) unnamed_add
   br i1 %25, label %33, label %26
 
 26:                                               ; preds = %22
-  tail call void @mutex_lock(ptr noundef %0) #12
+  tail call void @mutex_lock(ptr noundef %0) #11
   %27 = load ptr, ptr %2, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %10, align 8
   %31 = sext i32 %30 to i64
-  %32 = tail call i32 @acpi_execute_simple_method(ptr noundef %29, ptr noundef nonnull @.str.18, i64 noundef %31) #12
-  tail call void @mutex_unlock(ptr noundef %0) #12
+  %32 = tail call i32 @acpi_execute_simple_method(ptr noundef %29, ptr noundef nonnull @.str.18, i64 noundef %31) #11
+  tail call void @mutex_unlock(ptr noundef %0) #11
   br label %33
 
 33:                                               ; preds = %26, %22, %16, %8
@@ -1368,7 +1368,7 @@ define internal fastcc void @acpi_battery_init_alarm(ptr noundef %0) unnamed_add
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef range(i32 -19, 1) i32 @acpi_battery_get_state(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.acpi_buffer, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
   store i64 -1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr null, ptr %3, align 8
@@ -1389,19 +1389,19 @@ define internal fastcc noundef range(i32 -19, 1) i32 @acpi_battery_get_state(ptr
 14:                                               ; preds = %10
   %15 = load volatile i64, ptr @jiffies, align 64
   %16 = load i32, ptr @cache_time, align 4
-  %17 = tail call i64 @__msecs_to_jiffies(i32 noundef %16) #12
+  %17 = tail call i64 @__msecs_to_jiffies(i32 noundef %16) #11
   %18 = add i64 %12, %17
   %19 = sub i64 %15, %18
   %20 = icmp slt i64 %19, 0
   br i1 %20, label %119, label %21
 
 21:                                               ; preds = %14, %10
-  tail call void @mutex_lock(ptr noundef %0) #12
+  tail call void @mutex_lock(ptr noundef %0) #11
   %22 = load ptr, ptr %4, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
-  %25 = call i32 @acpi_evaluate_object(ptr noundef %24, ptr noundef nonnull @.str.19, ptr noundef null, ptr noundef nonnull %2) #12
-  call void @mutex_unlock(ptr noundef %0) #12
+  %25 = call i32 @acpi_evaluate_object(ptr noundef %24, ptr noundef nonnull @.str.19, ptr noundef null, ptr noundef nonnull %2) #11
+  call void @mutex_unlock(ptr noundef %0) #11
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %32, label %27
 
@@ -1409,8 +1409,8 @@ define internal fastcc noundef range(i32 -19, 1) i32 @acpi_battery_get_state(ptr
   %28 = load ptr, ptr %4, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
-  %31 = call ptr @acpi_format_exception(i32 noundef %25) #12
-  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str.13, ptr noundef %30, ptr noundef nonnull @.str.20, ptr noundef %31) #12
+  %31 = call ptr @acpi_format_exception(i32 noundef %25) #11
+  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str.13, ptr noundef %30, ptr noundef nonnull @.str.20, ptr noundef %31) #11
   br label %119
 
 32:                                               ; preds = %21
@@ -1458,7 +1458,7 @@ extract_package.exit:                             ; preds = %39, %55, %32
   %60 = phi i32 [ -14, %32 ], [ 0, %55 ], [ -14, %39 ]
   %61 = load volatile i64, ptr @jiffies, align 64
   store i64 %61, ptr %11, align 8
-  call void @kfree(ptr noundef %33) #12
+  call void @kfree(ptr noundef %33) #11
   %62 = getelementptr inbounds i8, ptr %0, i64 560
   %63 = load i32, ptr %62, align 8
   %64 = icmp eq i32 %63, 1
@@ -1484,7 +1484,7 @@ extract_package.exit:                             ; preds = %39, %55, %32
 
 76:                                               ; preds = %73
   store i1 true, ptr @acpi_battery_get_state.__already_done, align 1
-  %77 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.21) #13
+  %77 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.21) #12
   br label %78
 
 78:                                               ; preds = %76, %73, %69, %65, %extract_package.exit
@@ -1553,14 +1553,14 @@ extract_package.exit:                             ; preds = %39, %55, %32
 
 119:                                              ; preds = %118, %112, %108, %27, %14, %1
   %120 = phi i32 [ -19, %27 ], [ 0, %1 ], [ 0, %14 ], [ %60, %118 ], [ %60, %112 ], [ %60, %108 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
   ret i32 %120
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @sysfs_add_battery(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.power_supply_config, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #11
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false)
   store ptr %0, ptr %3, align 8
@@ -1614,7 +1614,7 @@ define internal fastcc i32 @sysfs_add_battery(ptr noundef %0) unnamed_addr #0 al
   %32 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr @acpi_battery_get_property, ptr %32, align 8
   %33 = getelementptr inbounds i8, ptr %28, i64 616
-  %34 = call ptr @power_supply_register_no_ws(ptr noundef %33, ptr noundef %30, ptr noundef nonnull %2) #12
+  %34 = call ptr @power_supply_register_no_ws(ptr noundef %33, ptr noundef %30, ptr noundef nonnull %2) #11
   %35 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %34, ptr %35, align 8
   %36 = icmp ugt ptr %34, inttoptr (i64 -4096 to ptr)
@@ -1627,7 +1627,7 @@ define internal fastcc i32 @sysfs_add_battery(ptr noundef %0) unnamed_addr #0 al
   br label %85
 
 40:                                               ; preds = %22
-  call void @mutex_lock(ptr noundef nonnull @hook_mutex) #12
+  call void @mutex_lock(ptr noundef nonnull @hook_mutex) #11
   %41 = getelementptr inbounds i8, ptr %0, i64 200
   store volatile ptr %41, ptr %41, align 8
   %42 = getelementptr inbounds i8, ptr %0, i64 208
@@ -1649,13 +1649,13 @@ define internal fastcc i32 @sysfs_add_battery(ptr noundef %0) unnamed_addr #0 al
   %50 = getelementptr i8, ptr %47, i64 -16
   %51 = load ptr, ptr %50, align 8
   %52 = load ptr, ptr %35, align 8
-  %53 = call i32 %51(ptr noundef %52, ptr noundef %48) #12
+  %53 = call i32 %51(ptr noundef %52, ptr noundef %48) #11
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %80, label %55
 
 55:                                               ; preds = %.preheader
   %56 = load ptr, ptr %48, align 8
-  %57 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.29, ptr noundef %56) #13
+  %57 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.29, ptr noundef %56) #12
   %58 = load ptr, ptr @acpi_battery_list, align 8
   %59 = icmp eq ptr %58, @acpi_battery_list
   br i1 %59, label %.loopexit, label %60
@@ -1669,13 +1669,13 @@ define internal fastcc i32 @sysfs_add_battery(ptr noundef %0) unnamed_addr #0 al
   %64 = load ptr, ptr %61, align 8
   %65 = getelementptr i8, ptr %63, i64 -136
   %66 = load ptr, ptr %65, align 8
-  %67 = call i32 %64(ptr noundef %66, ptr noundef %48) #12
+  %67 = call i32 %64(ptr noundef %66, ptr noundef %48) #11
   %68 = icmp eq i32 %67, 0
   br i1 %68, label %69, label %71
 
 69:                                               ; preds = %62
   %70 = load ptr, ptr %65, align 8
-  call void @power_supply_changed(ptr noundef %70) #12
+  call void @power_supply_changed(ptr noundef %70) #11
   br label %71
 
 71:                                               ; preds = %69, %62
@@ -1693,7 +1693,7 @@ define internal fastcc i32 @sysfs_add_battery(ptr noundef %0) unnamed_addr #0 al
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %47, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %74, align 8
   %78 = load ptr, ptr %48, align 8
-  %79 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, ptr noundef %78) #13
+  %79 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, ptr noundef %78) #12
   br label %80
 
 80:                                               ; preds = %.loopexit, %.preheader
@@ -1701,15 +1701,15 @@ define internal fastcc i32 @sysfs_add_battery(ptr noundef %0) unnamed_addr #0 al
   br i1 %81, label %.loopexit15, label %.preheader, !llvm.loop !20
 
 .loopexit15:                                      ; preds = %80, %40
-  call void @mutex_unlock(ptr noundef nonnull @hook_mutex) #12
+  call void @mutex_unlock(ptr noundef nonnull @hook_mutex) #11
   %82 = load ptr, ptr %35, align 8
   %83 = getelementptr inbounds i8, ptr %82, i64 56
-  %84 = call i32 @device_create_file(ptr noundef %83, ptr noundef nonnull @alarm_attr) #12
+  %84 = call i32 @device_create_file(ptr noundef %83, ptr noundef nonnull @alarm_attr) #11
   br label %85
 
 85:                                               ; preds = %.loopexit15, %37
   %86 = phi i32 [ %39, %37 ], [ %84, %.loopexit15 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #11
   ret i32 %86
 }
 
@@ -1791,7 +1791,7 @@ define internal void @find_battery(ptr nocapture noundef readonly %0, ptr nounde
 
 31:                                               ; preds = %19
   %32 = getelementptr inbounds i8, ptr %1, i64 568
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %32, i32 8, ptr elementtype(i8) %32) #12, !srcloc !12
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %32, i32 8, ptr elementtype(i8) %32) #11, !srcloc !12
   br label %33
 
 33:                                               ; preds = %31, %19, %5, %2
@@ -1803,7 +1803,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 -22, 1) i32 @acpi_battery_get_property(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #0 align 16 {
-  %4 = tail call ptr @power_supply_get_drvdata(ptr noundef %0) #12
+  %4 = tail call ptr @power_supply_get_drvdata(ptr noundef %0) #11
   %5 = getelementptr inbounds i8, ptr %4, i64 168
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 112
@@ -1817,34 +1817,34 @@ define internal noundef range(i32 -22, 1) i32 @acpi_battery_get_property(ptr nou
   switch i32 %1, label %.thread [
     i32 0, label %15
     i32 3, label %._crit_edge
-    i32 6, label %45
-    i32 7, label %64
-    i32 11, label %67
-    i32 12, label %73
-    i32 17, label %79
-    i32 20, label %79
-    i32 22, label %85
-    i32 41, label %85
-    i32 24, label %90
-    i32 43, label %90
-    i32 26, label %95
-    i32 45, label %95
-    i32 47, label %101
-    i32 51, label %115
-    i32 73, label %138
-    i32 74, label %140
-    i32 75, label %142
+    i32 6, label %51
+    i32 7, label %70
+    i32 11, label %73
+    i32 12, label %79
+    i32 17, label %85
+    i32 20, label %85
+    i32 22, label %91
+    i32 41, label %91
+    i32 24, label %96
+    i32 43, label %96
+    i32 26, label %101
+    i32 45, label %101
+    i32 47, label %107
+    i32 51, label %121
+    i32 73, label %150
+    i32 74, label %152
+    i32 75, label %154
   ]
 
 ._crit_edge:                                      ; preds = %11
   %.pre = load ptr, ptr %5, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 112
-  %.pre6 = load i32, ptr %.phi.trans.insert, align 8
-  br label %41
+  %.pre10 = load i32, ptr %.phi.trans.insert, align 8
+  br label %47
 
 13:                                               ; preds = %3
   %14 = icmp eq i32 %1, 3
-  br i1 %14, label %41, label %.thread
+  br i1 %14, label %47, label %.thread
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds i8, ptr %4, i64 556
@@ -1858,7 +1858,7 @@ define internal noundef range(i32 -22, 1) i32 @acpi_battery_get_property(ptr nou
   br i1 %21, label %25, label %22
 
 22:                                               ; preds = %20
-  %23 = tail call i32 @power_supply_is_system_supplied() #12
+  %23 = tail call i32 @power_supply_is_system_supplied() #11
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %29, label %25
 
@@ -1886,76 +1886,84 @@ define internal noundef range(i32 -22, 1) i32 @acpi_battery_get_property(ptr nou
   br label %.thread
 
 36:                                               ; preds = %32
-  %37 = tail call fastcc i32 @acpi_battery_is_charged(ptr noundef %4), !range !21
-  %38 = icmp eq i32 %37, 0
-  br i1 %38, label %40, label %39
+  %37 = icmp eq i32 %17, 0
+  br i1 %37, label %38, label %acpi_battery_is_charged.exit.thread
 
-39:                                               ; preds = %36
+38:                                               ; preds = %36
+  %39 = getelementptr inbounds i8, ptr %4, i64 232
+  %40 = load i32, ptr %39, align 8
+  switch i32 %40, label %41 [
+    i32 -1, label %acpi_battery_is_charged.exit.thread
+    i32 0, label %acpi_battery_is_charged.exit.thread
+  ]
+
+41:                                               ; preds = %38
+  %42 = getelementptr inbounds i8, ptr %4, i64 244
+  %43 = load i32, ptr %42, align 4
+  %44 = icmp eq i32 %43, %40
+  br i1 %44, label %acpi_battery_is_charged.exit.thread7, label %acpi_battery_is_charged.exit
+
+acpi_battery_is_charged.exit:                     ; preds = %41
+  %45 = getelementptr inbounds i8, ptr %4, i64 240
+  %46 = load i32, ptr %45, align 8
+  %.not9 = icmp sgt i32 %46, %40
+  br i1 %.not9, label %acpi_battery_is_charged.exit.thread, label %acpi_battery_is_charged.exit.thread7
+
+acpi_battery_is_charged.exit.thread7:             ; preds = %41, %acpi_battery_is_charged.exit
   store i32 4, ptr %2, align 8
   br label %.thread
 
-40:                                               ; preds = %36
+acpi_battery_is_charged.exit.thread:              ; preds = %38, %38, %36, %acpi_battery_is_charged.exit
   store i32 3, ptr %2, align 8
   br label %.thread
 
-41:                                               ; preds = %._crit_edge, %13
-  %42 = phi i32 [ %.pre6, %._crit_edge ], [ %8, %13 ]
-  %43 = lshr i32 %42, 4
-  %44 = and i32 %43, 1
-  store i32 %44, ptr %2, align 8
+47:                                               ; preds = %._crit_edge, %13
+  %48 = phi i32 [ %.pre10, %._crit_edge ], [ %8, %13 ]
+  %49 = lshr i32 %48, 4
+  %50 = and i32 %49, 1
+  store i32 %50, ptr %2, align 8
   br label %.thread
 
-45:                                               ; preds = %11
-  %46 = getelementptr inbounds i8, ptr %4, i64 428
-  %47 = tail call i32 @strcasecmp(ptr noundef nonnull @.str.24, ptr noundef %46)
-  %48 = icmp eq i32 %47, 0
-  br i1 %48, label %62, label %49
-
-49:                                               ; preds = %45
-  %50 = tail call i32 @strcasecmp(ptr noundef nonnull @.str.25, ptr noundef %46)
-  %51 = icmp eq i32 %50, 0
-  br i1 %51, label %62, label %52
-
-52:                                               ; preds = %49
-  %53 = tail call i32 @strcasecmp(ptr noundef nonnull @.str.26, ptr noundef %46)
+51:                                               ; preds = %11
+  %52 = getelementptr inbounds i8, ptr %4, i64 428
+  %53 = tail call i32 @strcasecmp(ptr noundef nonnull @.str.24, ptr noundef %52)
   %54 = icmp eq i32 %53, 0
-  br i1 %54, label %62, label %55
+  br i1 %54, label %68, label %55
 
-55:                                               ; preds = %52
-  %56 = tail call i32 @strncasecmp(ptr noundef nonnull @.str.27, ptr noundef %46, i64 noundef 6)
+55:                                               ; preds = %51
+  %56 = tail call i32 @strcasecmp(ptr noundef nonnull @.str.25, ptr noundef %52)
   %57 = icmp eq i32 %56, 0
-  br i1 %57, label %62, label %58
+  br i1 %57, label %68, label %58
 
 58:                                               ; preds = %55
-  %59 = tail call i32 @strcasecmp(ptr noundef nonnull @.str.28, ptr noundef %46)
+  %59 = tail call i32 @strcasecmp(ptr noundef nonnull @.str.26, ptr noundef %52)
   %60 = icmp eq i32 %59, 0
-  %61 = select i1 %60, i32 3, i32 0
-  br label %62
+  br i1 %60, label %68, label %61
 
-62:                                               ; preds = %58, %55, %52, %49, %45
-  %63 = phi i32 [ 5, %45 ], [ 1, %49 ], [ 2, %52 ], [ 2, %55 ], [ %61, %58 ]
-  store i32 %63, ptr %2, align 8
+61:                                               ; preds = %58
+  %62 = tail call i32 @strncasecmp(ptr noundef nonnull @.str.27, ptr noundef %52, i64 noundef 6)
+  %63 = icmp eq i32 %62, 0
+  br i1 %63, label %68, label %64
+
+64:                                               ; preds = %61
+  %65 = tail call i32 @strcasecmp(ptr noundef nonnull @.str.28, ptr noundef %52)
+  %66 = icmp eq i32 %65, 0
+  %67 = select i1 %66, i32 3, i32 0
+  br label %68
+
+68:                                               ; preds = %64, %61, %58, %55, %51
+  %69 = phi i32 [ 5, %51 ], [ 1, %55 ], [ 2, %58 ], [ 2, %61 ], [ %67, %64 ]
+  store i32 %69, ptr %2, align 8
   br label %.thread
 
-64:                                               ; preds = %11
-  %65 = getelementptr inbounds i8, ptr %4, i64 264
-  %66 = load i32, ptr %65, align 8
-  store i32 %66, ptr %2, align 8
-  br label %.thread
-
-67:                                               ; preds = %11
-  %68 = getelementptr inbounds i8, ptr %4, i64 252
-  %69 = load i32, ptr %68, align 4
-  %70 = icmp eq i32 %69, -1
-  br i1 %70, label %.thread, label %71
-
-71:                                               ; preds = %67
-  %72 = mul i32 %69, 1000
+70:                                               ; preds = %11
+  %71 = getelementptr inbounds i8, ptr %4, i64 264
+  %72 = load i32, ptr %71, align 8
   store i32 %72, ptr %2, align 8
   br label %.thread
 
 73:                                               ; preds = %11
-  %74 = getelementptr inbounds i8, ptr %4, i64 236
+  %74 = getelementptr inbounds i8, ptr %4, i64 252
   %75 = load i32, ptr %74, align 4
   %76 = icmp eq i32 %75, -1
   br i1 %76, label %.thread, label %77
@@ -1965,8 +1973,8 @@ define internal noundef range(i32 -22, 1) i32 @acpi_battery_get_property(ptr nou
   store i32 %78, ptr %2, align 8
   br label %.thread
 
-79:                                               ; preds = %11, %11
-  %80 = getelementptr inbounds i8, ptr %4, i64 228
+79:                                               ; preds = %11
+  %80 = getelementptr inbounds i8, ptr %4, i64 236
   %81 = load i32, ptr %80, align 4
   %82 = icmp eq i32 %81, -1
   br i1 %82, label %.thread, label %83
@@ -1977,132 +1985,162 @@ define internal noundef range(i32 -22, 1) i32 @acpi_battery_get_property(ptr nou
   br label %.thread
 
 85:                                               ; preds = %11, %11
-  %86 = getelementptr inbounds i8, ptr %4, i64 240
-  %87 = load i32, ptr %86, align 8
-  switch i32 %87, label %88 [
+  %86 = getelementptr inbounds i8, ptr %4, i64 228
+  %87 = load i32, ptr %86, align 4
+  %88 = icmp eq i32 %87, -1
+  br i1 %88, label %.thread, label %89
+
+89:                                               ; preds = %85
+  %90 = mul i32 %87, 1000
+  store i32 %90, ptr %2, align 8
+  br label %.thread
+
+91:                                               ; preds = %11, %11
+  %92 = getelementptr inbounds i8, ptr %4, i64 240
+  %93 = load i32, ptr %92, align 8
+  switch i32 %93, label %94 [
     i32 0, label %.thread
     i32 -1, label %.thread
   ]
 
-88:                                               ; preds = %85
-  %89 = mul i32 %87, 1000
-  store i32 %89, ptr %2, align 8
+94:                                               ; preds = %91
+  %95 = mul i32 %93, 1000
+  store i32 %95, ptr %2, align 8
   br label %.thread
 
-90:                                               ; preds = %11, %11
-  %91 = getelementptr inbounds i8, ptr %4, i64 244
-  %92 = load i32, ptr %91, align 4
-  switch i32 %92, label %93 [
+96:                                               ; preds = %11, %11
+  %97 = getelementptr inbounds i8, ptr %4, i64 244
+  %98 = load i32, ptr %97, align 4
+  switch i32 %98, label %99 [
     i32 0, label %.thread
     i32 -1, label %.thread
   ]
 
-93:                                               ; preds = %90
-  %94 = mul i32 %92, 1000
-  store i32 %94, ptr %2, align 8
-  br label %.thread
-
-95:                                               ; preds = %11, %11
-  %96 = getelementptr inbounds i8, ptr %4, i64 232
-  %97 = load i32, ptr %96, align 8
-  %98 = icmp eq i32 %97, -1
-  br i1 %98, label %.thread, label %99
-
-99:                                               ; preds = %95
-  %100 = mul i32 %97, 1000
+99:                                               ; preds = %96
+  %100 = mul i32 %98, 1000
   store i32 %100, ptr %2, align 8
   br label %.thread
 
-101:                                              ; preds = %11
-  %102 = getelementptr inbounds i8, ptr %4, i64 244
-  %103 = load i32, ptr %102, align 4
-  switch i32 %103, label %107 [
-    i32 0, label %104
-    i32 -1, label %104
+101:                                              ; preds = %11, %11
+  %102 = getelementptr inbounds i8, ptr %4, i64 232
+  %103 = load i32, ptr %102, align 8
+  %104 = icmp eq i32 %103, -1
+  br i1 %104, label %.thread, label %105
+
+105:                                              ; preds = %101
+  %106 = mul i32 %103, 1000
+  store i32 %106, ptr %2, align 8
+  br label %.thread
+
+107:                                              ; preds = %11
+  %108 = getelementptr inbounds i8, ptr %4, i64 244
+  %109 = load i32, ptr %108, align 4
+  switch i32 %109, label %113 [
+    i32 0, label %110
+    i32 -1, label %110
   ]
 
-104:                                              ; preds = %101, %101
-  %105 = getelementptr inbounds i8, ptr %4, i64 240
-  %106 = load i32, ptr %105, align 8
-  switch i32 %106, label %107 [
+110:                                              ; preds = %107, %107
+  %111 = getelementptr inbounds i8, ptr %4, i64 240
+  %112 = load i32, ptr %111, align 8
+  switch i32 %112, label %113 [
     i32 0, label %.thread
     i32 -1, label %.thread
   ]
 
-107:                                              ; preds = %104, %101
-  %108 = phi i32 [ %103, %101 ], [ %106, %104 ]
-  %109 = getelementptr inbounds i8, ptr %4, i64 232
-  %110 = load i32, ptr %109, align 8
-  %111 = icmp eq i32 %110, -1
-  br i1 %111, label %.thread, label %112
+113:                                              ; preds = %110, %107
+  %114 = phi i32 [ %109, %107 ], [ %112, %110 ]
+  %115 = getelementptr inbounds i8, ptr %4, i64 232
+  %116 = load i32, ptr %115, align 8
+  %117 = icmp eq i32 %116, -1
+  br i1 %117, label %.thread, label %118
 
-112:                                              ; preds = %107
-  %113 = mul i32 %110, 100
-  %114 = sdiv i32 %113, %108
-  store i32 %114, ptr %2, align 8
+118:                                              ; preds = %113
+  %119 = mul i32 %116, 100
+  %120 = sdiv i32 %119, %114
+  store i32 %120, ptr %2, align 8
   br label %.thread
 
-115:                                              ; preds = %11
-  %116 = getelementptr inbounds i8, ptr %4, i64 556
-  %117 = load i32, ptr %116, align 4
-  %118 = and i32 %117, 4
-  %119 = icmp eq i32 %118, 0
-  br i1 %119, label %121, label %120
+121:                                              ; preds = %11
+  %122 = getelementptr inbounds i8, ptr %4, i64 556
+  %123 = load i32, ptr %122, align 4
+  %124 = and i32 %123, 4
+  %125 = icmp eq i32 %124, 0
+  br i1 %125, label %127, label %126
 
-120:                                              ; preds = %115
+126:                                              ; preds = %121
   store i32 1, ptr %2, align 8
   br label %.thread
 
-121:                                              ; preds = %115
-  %122 = getelementptr inbounds i8, ptr %4, i64 568
-  %123 = load volatile i64, ptr %122, align 8
-  %124 = and i64 %123, 1
-  %125 = icmp eq i64 %124, 0
-  br i1 %125, label %133, label %126
+127:                                              ; preds = %121
+  %128 = getelementptr inbounds i8, ptr %4, i64 568
+  %129 = load volatile i64, ptr %128, align 8
+  %130 = and i64 %129, 1
+  %131 = icmp eq i64 %130, 0
+  br i1 %131, label %139, label %132
 
-126:                                              ; preds = %121
-  %127 = getelementptr inbounds i8, ptr %4, i64 232
-  %128 = load i32, ptr %127, align 8
-  %129 = getelementptr inbounds i8, ptr %4, i64 296
-  %130 = load i32, ptr %129, align 8
-  %131 = icmp sgt i32 %128, %130
-  br i1 %131, label %133, label %132
+132:                                              ; preds = %127
+  %133 = getelementptr inbounds i8, ptr %4, i64 232
+  %134 = load i32, ptr %133, align 8
+  %135 = getelementptr inbounds i8, ptr %4, i64 296
+  %136 = load i32, ptr %135, align 8
+  %137 = icmp sgt i32 %134, %136
+  br i1 %137, label %139, label %138
 
-132:                                              ; preds = %126
+138:                                              ; preds = %132
   store i32 2, ptr %2, align 8
   br label %.thread
 
-133:                                              ; preds = %126, %121
-  %134 = tail call fastcc i32 @acpi_battery_is_charged(ptr noundef %4), !range !21
-  %135 = icmp eq i32 %134, 0
-  br i1 %135, label %137, label %136
+139:                                              ; preds = %132, %127
+  %140 = icmp eq i32 %123, 0
+  br i1 %140, label %141, label %acpi_battery_is_charged.exit6.thread
 
-136:                                              ; preds = %133
+141:                                              ; preds = %139
+  %142 = getelementptr inbounds i8, ptr %4, i64 232
+  %143 = load i32, ptr %142, align 8
+  switch i32 %143, label %144 [
+    i32 -1, label %acpi_battery_is_charged.exit6.thread
+    i32 0, label %acpi_battery_is_charged.exit6.thread
+  ]
+
+144:                                              ; preds = %141
+  %145 = getelementptr inbounds i8, ptr %4, i64 244
+  %146 = load i32, ptr %145, align 4
+  %147 = icmp eq i32 %146, %143
+  br i1 %147, label %acpi_battery_is_charged.exit6.thread8, label %acpi_battery_is_charged.exit6
+
+acpi_battery_is_charged.exit6:                    ; preds = %144
+  %148 = getelementptr inbounds i8, ptr %4, i64 240
+  %149 = load i32, ptr %148, align 8
+  %.not = icmp sgt i32 %149, %143
+  br i1 %.not, label %acpi_battery_is_charged.exit6.thread, label %acpi_battery_is_charged.exit6.thread8
+
+acpi_battery_is_charged.exit6.thread8:            ; preds = %144, %acpi_battery_is_charged.exit6
   store i32 5, ptr %2, align 8
   br label %.thread
 
-137:                                              ; preds = %133
+acpi_battery_is_charged.exit6.thread:             ; preds = %141, %141, %139, %acpi_battery_is_charged.exit6
   store i32 3, ptr %2, align 8
   br label %.thread
 
-138:                                              ; preds = %11
-  %139 = getelementptr inbounds i8, ptr %4, i64 300
-  store ptr %139, ptr %2, align 8
+150:                                              ; preds = %11
+  %151 = getelementptr inbounds i8, ptr %4, i64 300
+  store ptr %151, ptr %2, align 8
   br label %.thread
 
-140:                                              ; preds = %11
-  %141 = getelementptr inbounds i8, ptr %4, i64 492
-  store ptr %141, ptr %2, align 8
+152:                                              ; preds = %11
+  %153 = getelementptr inbounds i8, ptr %4, i64 492
+  store ptr %153, ptr %2, align 8
   br label %.thread
 
-142:                                              ; preds = %11
-  %143 = getelementptr inbounds i8, ptr %4, i64 364
-  store ptr %143, ptr %2, align 8
+154:                                              ; preds = %11
+  %155 = getelementptr inbounds i8, ptr %4, i64 364
+  store ptr %155, ptr %2, align 8
   br label %.thread
 
-.thread:                                          ; preds = %104, %104, %142, %140, %138, %137, %136, %132, %120, %112, %107, %99, %95, %93, %90, %90, %88, %85, %85, %83, %79, %77, %73, %71, %67, %64, %62, %41, %40, %39, %35, %30, %13, %11
-  %144 = phi i32 [ -19, %13 ], [ 0, %142 ], [ 0, %140 ], [ 0, %138 ], [ 0, %120 ], [ 0, %132 ], [ 0, %136 ], [ 0, %137 ], [ 0, %112 ], [ 0, %99 ], [ 0, %93 ], [ 0, %88 ], [ 0, %83 ], [ 0, %77 ], [ 0, %71 ], [ 0, %64 ], [ 0, %62 ], [ 0, %41 ], [ 0, %30 ], [ 0, %35 ], [ 0, %39 ], [ 0, %40 ], [ -19, %67 ], [ -19, %73 ], [ -19, %79 ], [ -19, %85 ], [ -19, %85 ], [ -19, %90 ], [ -19, %90 ], [ -19, %95 ], [ -19, %107 ], [ -22, %11 ], [ -19, %104 ], [ -19, %104 ]
-  ret i32 %144
+.thread:                                          ; preds = %110, %110, %154, %152, %150, %acpi_battery_is_charged.exit6.thread, %acpi_battery_is_charged.exit6.thread8, %138, %126, %118, %113, %105, %101, %99, %96, %96, %94, %91, %91, %89, %85, %83, %79, %77, %73, %70, %68, %47, %acpi_battery_is_charged.exit.thread, %acpi_battery_is_charged.exit.thread7, %35, %30, %13, %11
+  %156 = phi i32 [ -19, %13 ], [ 0, %154 ], [ 0, %152 ], [ 0, %150 ], [ 0, %126 ], [ 0, %138 ], [ 0, %acpi_battery_is_charged.exit6.thread8 ], [ 0, %acpi_battery_is_charged.exit6.thread ], [ 0, %118 ], [ 0, %105 ], [ 0, %99 ], [ 0, %94 ], [ 0, %89 ], [ 0, %83 ], [ 0, %77 ], [ 0, %70 ], [ 0, %68 ], [ 0, %47 ], [ 0, %30 ], [ 0, %35 ], [ 0, %acpi_battery_is_charged.exit.thread7 ], [ 0, %acpi_battery_is_charged.exit.thread ], [ -19, %73 ], [ -19, %79 ], [ -19, %85 ], [ -19, %91 ], [ -19, %91 ], [ -19, %96 ], [ -19, %96 ], [ -19, %101 ], [ -19, %113 ], [ -22, %11 ], [ -19, %110 ], [ -19, %110 ]
+  ret i32 %156
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -2114,39 +2152,6 @@ declare dso_local i32 @device_create_file(ptr noundef, ptr noundef) local_unname
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @power_supply_get_drvdata(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal fastcc range(i32 0, 2) i32 @acpi_battery_is_charged(ptr nocapture noundef readonly %0) unnamed_addr #8 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 556
-  %3 = load i32, ptr %2, align 4
-  %4 = icmp eq i32 %3, 0
-  br i1 %4, label %5, label %17
-
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 232
-  %7 = load i32, ptr %6, align 8
-  switch i32 %7, label %8 [
-    i32 -1, label %17
-    i32 0, label %17
-  ]
-
-8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 244
-  %10 = load i32, ptr %9, align 4
-  %11 = icmp eq i32 %10, %7
-  br i1 %11, label %17, label %12
-
-12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 240
-  %14 = load i32, ptr %13, align 8
-  %15 = icmp sle i32 %14, %7
-  %16 = zext i1 %15 to i32
-  br label %17
-
-17:                                               ; preds = %12, %8, %5, %5, %1
-  %18 = phi i32 [ 0, %1 ], [ 0, %5 ], [ 0, %5 ], [ 1, %8 ], [ %16, %12 ]
-  ret i32 %18
-}
-
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @power_supply_is_system_supplied() local_unnamed_addr #2
 
@@ -2157,11 +2162,11 @@ declare dso_local i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) 
 define internal noundef range(i64 -2147483648, 2147483648) i64 @acpi_battery_alarm_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call ptr @power_supply_get_drvdata(ptr noundef %5) #12
+  %6 = tail call ptr @power_supply_get_drvdata(ptr noundef %5) #11
   %7 = getelementptr inbounds i8, ptr %6, i64 296
   %8 = load i32, ptr %7, align 8
   %9 = mul i32 %8, 1000
-  %10 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.31, i32 noundef %9) #12
+  %10 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.31, i32 noundef %9) #11
   %11 = sext i32 %10 to i64
   ret i64 %11
 }
@@ -2169,11 +2174,11 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @acpi_battery_ala
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i64 @acpi_battery_alarm_store(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, i64 noundef returned %3) #0 align 16 {
   %5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
-  store i64 0, ptr %5, align 8, !annotation !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
+  store i64 0, ptr %5, align 8, !annotation !21
   %6 = getelementptr inbounds i8, ptr %0, i64 120
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call ptr @power_supply_get_drvdata(ptr noundef %7) #12
+  %8 = tail call ptr @power_supply_get_drvdata(ptr noundef %7) #11
   %9 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef %2, ptr noundef nonnull @.str.32, ptr noundef nonnull %5)
   %10 = icmp eq i32 %9, 1
   br i1 %10, label %11, label %16
@@ -2203,27 +2208,27 @@ define internal noundef i64 @acpi_battery_alarm_store(ptr nocapture noundef read
   br i1 %27, label %36, label %28
 
 28:                                               ; preds = %23
-  call void @mutex_lock(ptr noundef %8) #12
+  call void @mutex_lock(ptr noundef %8) #11
   %29 = load ptr, ptr %17, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds i8, ptr %8, i64 296
   %33 = load i32, ptr %32, align 8
   %34 = sext i32 %33 to i64
-  %35 = call i32 @acpi_execute_simple_method(ptr noundef %31, ptr noundef nonnull @.str.18, i64 noundef %34) #12
-  call void @mutex_unlock(ptr noundef %8) #12
+  %35 = call i32 @acpi_execute_simple_method(ptr noundef %31, ptr noundef nonnull @.str.18, i64 noundef %34) #11
+  call void @mutex_unlock(ptr noundef %8) #11
   br label %36
 
 36:                                               ; preds = %28, %23, %16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
   ret i64 %3
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare dso_local noundef i32 @sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @device_set_wakeup_capable(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
@@ -2265,7 +2270,7 @@ define internal noundef range(i32 -22, 1) i32 @acpi_battery_resume(ptr noundef r
   store i64 0, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %5, i64 168
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 @acpi_bus_get_status(ptr noundef %10) #12
+  %11 = tail call i32 @acpi_bus_get_status(ptr noundef %10) #11
   %12 = icmp eq i32 %11, 0
   %13 = load ptr, ptr %9, align 8
   br i1 %12, label %17, label %14
@@ -2273,7 +2278,7 @@ define internal noundef range(i32 -22, 1) i32 @acpi_battery_resume(ptr noundef r
 14:                                               ; preds = %7
   %15 = getelementptr inbounds i8, ptr %13, i64 8
   %16 = load ptr, ptr %15, align 8
-  tail call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str.13, ptr noundef %16, ptr noundef nonnull @.str.14) #12
+  tail call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str.13, ptr noundef %16, ptr noundef nonnull @.str.14) #11
   br label %23
 
 17:                                               ; preds = %7
@@ -2295,12 +2300,12 @@ define internal noundef range(i32 -22, 1) i32 @acpi_battery_resume(ptr noundef r
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal void @acpi_battery_init_async(ptr nocapture readnone %0, i64 %1) #4 section ".init.text" align 16 {
-  %3 = tail call zeroext i1 @acpi_quirk_skip_acpi_ac_and_battery() #12
+  %3 = tail call zeroext i1 @acpi_quirk_skip_acpi_ac_and_battery() #11
   br i1 %3, label %9, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call i32 @dmi_check_system(ptr noundef nonnull @bat_dmi_table) #12
-  %6 = tail call i32 @acpi_bus_register_driver(ptr noundef nonnull @acpi_battery_driver) #12
+  %5 = tail call i32 @dmi_check_system(ptr noundef nonnull @bat_dmi_table) #11
+  %6 = tail call i32 @acpi_bus_register_driver(ptr noundef nonnull @acpi_battery_driver) #11
   %7 = icmp eq i32 %6, 0
   %8 = zext i1 %7 to i8
   store i8 %8, ptr @battery_driver_registered, align 1
@@ -2323,25 +2328,25 @@ declare dso_local i32 @dmi_check_system(ptr noundef) local_unnamed_addr #2
 declare dso_local i32 @acpi_bus_register_driver(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: none, inaccessiblemem: none)
-define internal noundef i32 @battery_bix_broken_package_quirk(ptr nocapture readnone %0) #10 section ".init.text" align 16 {
+define internal noundef i32 @battery_bix_broken_package_quirk(ptr nocapture readnone %0) #9 section ".init.text" align 16 {
   store i1 true, ptr @battery_bix_broken_package, align 4
   ret i32 0
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: none, inaccessiblemem: none)
-define internal noundef i32 @battery_notification_delay_quirk(ptr nocapture readnone %0) #10 section ".init.text" align 16 {
+define internal noundef i32 @battery_notification_delay_quirk(ptr nocapture readnone %0) #9 section ".init.text" align 16 {
   store i1 true, ptr @battery_notification_delay_ms, align 4
   ret i32 0
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: none, inaccessiblemem: none)
-define internal noundef i32 @battery_ac_is_broken_quirk(ptr nocapture readnone %0) #10 section ".init.text" align 16 {
+define internal noundef i32 @battery_ac_is_broken_quirk(ptr nocapture readnone %0) #9 section ".init.text" align 16 {
   store i1 true, ptr @battery_ac_is_broken, align 4
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #11
+declare i32 @llvm.umin.i32(i32, i32) #10
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -2351,13 +2356,12 @@ attributes #4 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsiz
 attributes #5 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #9 = { nofree nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #10 = { cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: none, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nounwind }
-attributes #13 = { cold nounwind }
-attributes #14 = { nounwind allocsize(2) }
+attributes #8 = { nofree nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #9 = { cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: none, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nounwind }
+attributes #12 = { cold nounwind }
+attributes #13 = { nounwind allocsize(2) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 
@@ -2382,5 +2386,4 @@ attributes #14 = { nounwind allocsize(2) }
 !18 = !{i64 2148529007, i64 2148529046, i64 2148529067, i64 2148529104, i64 2148529127, i64 2148528997}
 !19 = !{!"branch_weights", i32 2000, i32 1}
 !20 = distinct !{!20, !6, !7}
-!21 = !{i32 0, i32 2}
-!22 = !{!"auto-init"}
+!21 = !{!"auto-init"}

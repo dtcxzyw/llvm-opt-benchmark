@@ -1600,107 +1600,132 @@ define hidden void @delete_avpl_transform(ptr noundef %0) local_unnamed_addr #0 
 
 ; Function Attrs: nounwind uwtable
 define hidden void @avpl_transform(ptr nocapture noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
-  %.not46 = icmp eq ptr %1, null
-  br i1 %.not46, label %.loopexit, label %.lr.ph
+  %.not48 = icmp eq ptr %1, null
+  br i1 %.not48, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %2, %45
-  %.047 = phi ptr [ %47, %45 ], [ %1, %2 ]
-  %3 = getelementptr inbounds i8, ptr %.047, i64 24
+.lr.ph:                                           ; preds = %2, %new_avpl_from_match.exit.thread
+  %.049 = phi ptr [ %53, %new_avpl_from_match.exit.thread ], [ %1, %2 ]
+  %3 = getelementptr inbounds i8, ptr %.049, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %.047, i64 8
+  %6 = getelementptr inbounds i8, ptr %.049, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call ptr @new_avpl_from_match(i32 noundef %4, ptr noundef %5, ptr noundef nonnull %0, ptr noundef %7, i32 noundef 1)
-  %.not38 = icmp eq ptr %8, null
-  br i1 %.not38, label %45, label %9
-
-9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds i8, ptr %.047, i64 28
-  %11 = load i32, ptr %10, align 4
-  switch i32 %11, label %45 [
-    i32 0, label %.loopexit.sink.split
-    i32 1, label %.loopexit.sink.split.sink.split
-    i32 2, label %12
+  switch i32 %4, label %new_avpl_from_match.exit.thread [
+    i32 1, label %8
+    i32 2, label %10
+    i32 3, label %12
+    i32 0, label %14
   ]
 
-12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
-  %14 = load ptr, ptr %13, align 8
-  %15 = load ptr, ptr %14, align 8
-  %.not3948 = icmp eq ptr %15, null
-  br i1 %.not3948, label %.loopexit.sink.split.sink.split, label %.lr.ph51.preheader
+8:                                                ; preds = %.lr.ph
+  %9 = tail call ptr @new_avpl_pairs_match(ptr noundef %5, ptr noundef nonnull readonly %0, ptr noundef readonly %7, i32 noundef 1, i32 noundef 1)
+  br label %new_avpl_from_match.exit
 
-.lr.ph51.preheader:                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %8, i64 24
-  %17 = load ptr, ptr %16, align 8
-  br label %.lr.ph51
+10:                                               ; preds = %.lr.ph
+  %11 = tail call ptr @new_avpl_loose_match(ptr noundef %5, ptr noundef nonnull readonly %0, ptr noundef readonly %7, i32 noundef 1)
+  br label %new_avpl_from_match.exit
 
-.lr.ph51:                                         ; preds = %.lr.ph51.preheader, %43
-  %18 = phi ptr [ %44, %43 ], [ %15, %.lr.ph51.preheader ]
-  %.03250 = phi ptr [ %.1, %43 ], [ %17, %.lr.ph51.preheader ]
-  %.03349 = phi ptr [ %.134, %43 ], [ %14, %.lr.ph51.preheader ]
-  %19 = load ptr, ptr %.03250, align 8
-  %.not40 = icmp eq ptr %19, null
-  br i1 %.not40, label %.loopexit.sink.split.sink.split, label %20
+12:                                               ; preds = %.lr.ph
+  %13 = tail call ptr @new_avpl_pairs_match(ptr noundef %5, ptr noundef nonnull readonly %0, ptr noundef readonly %7, i32 noundef 0, i32 noundef 1)
+  br label %new_avpl_from_match.exit
 
-20:                                               ; preds = %.lr.ph51
-  %21 = load ptr, ptr %18, align 8
-  %22 = load ptr, ptr %19, align 8
-  %23 = icmp eq ptr %21, %22
-  br i1 %23, label %24, label %40
+14:                                               ; preds = %.lr.ph
+  %15 = tail call ptr @new_avpl_from_avpl(ptr noundef %5, ptr noundef nonnull readonly %0, i32 noundef 1)
+  tail call void @merge_avpl(ptr noundef %15, ptr noundef readonly %7, i32 noundef 1)
+  br label %new_avpl_from_match.exit
 
-24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %18, i64 8
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %19, i64 8
-  %28 = load ptr, ptr %27, align 8
-  %29 = icmp eq ptr %26, %28
-  br i1 %29, label %30, label %40
+new_avpl_from_match.exit:                         ; preds = %8, %10, %12, %14
+  %.0.i = phi ptr [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %9, %8 ]
+  %.not38 = icmp eq ptr %.0.i, null
+  br i1 %.not38, label %new_avpl_from_match.exit.thread, label %16
 
-30:                                               ; preds = %24
-  %31 = getelementptr inbounds i8, ptr %.03349, i64 8
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %.03349, i64 16
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
-  store ptr %32, ptr %35, align 8
-  %36 = load ptr, ptr %33, align 8
-  %37 = getelementptr inbounds i8, ptr %32, i64 16
-  store ptr %36, ptr %37, align 8
-  tail call void @g_slice_free1(i64 noundef 40, ptr noundef nonnull %.03349) #12
-  %38 = getelementptr inbounds i8, ptr %.03250, i64 8
+16:                                               ; preds = %new_avpl_from_match.exit
+  %17 = getelementptr inbounds i8, ptr %.049, i64 28
+  %18 = load i32, ptr %17, align 4
+  switch i32 %18, label %new_avpl_from_match.exit.thread [
+    i32 0, label %.loopexit.sink.split
+    i32 1, label %.loopexit.sink.split.sink.split
+    i32 2, label %19
+  ]
+
+19:                                               ; preds = %16
+  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = load ptr, ptr %20, align 8
+  %22 = load ptr, ptr %21, align 8
+  %.not3950 = icmp eq ptr %22, null
+  br i1 %.not3950, label %.loopexit.sink.split.sink.split, label %.lr.ph53.preheader
+
+.lr.ph53.preheader:                               ; preds = %19
+  %23 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %24 = load ptr, ptr %23, align 8
+  br label %.lr.ph53
+
+.lr.ph53:                                         ; preds = %.lr.ph53.preheader, %50
+  %25 = phi ptr [ %51, %50 ], [ %22, %.lr.ph53.preheader ]
+  %.03252 = phi ptr [ %.1, %50 ], [ %24, %.lr.ph53.preheader ]
+  %.03351 = phi ptr [ %.134, %50 ], [ %21, %.lr.ph53.preheader ]
+  %26 = load ptr, ptr %.03252, align 8
+  %.not40 = icmp eq ptr %26, null
+  br i1 %.not40, label %.loopexit.sink.split.sink.split, label %27
+
+27:                                               ; preds = %.lr.ph53
+  %28 = load ptr, ptr %25, align 8
+  %29 = load ptr, ptr %26, align 8
+  %30 = icmp eq ptr %28, %29
+  br i1 %30, label %31, label %47
+
+31:                                               ; preds = %27
+  %32 = getelementptr inbounds i8, ptr %25, i64 8
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds i8, ptr %26, i64 8
+  %35 = load ptr, ptr %34, align 8
+  %36 = icmp eq ptr %33, %35
+  br i1 %36, label %37, label %47
+
+37:                                               ; preds = %31
+  %38 = getelementptr inbounds i8, ptr %.03351, i64 8
   %39 = load ptr, ptr %38, align 8
-  br label %43
+  %40 = getelementptr inbounds i8, ptr %.03351, i64 16
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds i8, ptr %41, i64 8
+  store ptr %39, ptr %42, align 8
+  %43 = load ptr, ptr %40, align 8
+  %44 = getelementptr inbounds i8, ptr %39, i64 16
+  store ptr %43, ptr %44, align 8
+  tail call void @g_slice_free1(i64 noundef 40, ptr noundef nonnull %.03351) #12
+  %45 = getelementptr inbounds i8, ptr %.03252, i64 8
+  %46 = load ptr, ptr %45, align 8
+  br label %50
 
-40:                                               ; preds = %24, %20
-  %41 = getelementptr inbounds i8, ptr %.03349, i64 8
-  %42 = load ptr, ptr %41, align 8
-  br label %43
+47:                                               ; preds = %31, %27
+  %48 = getelementptr inbounds i8, ptr %.03351, i64 8
+  %49 = load ptr, ptr %48, align 8
+  br label %50
 
-43:                                               ; preds = %40, %30
-  %.134 = phi ptr [ %32, %30 ], [ %42, %40 ]
-  %.1 = phi ptr [ %39, %30 ], [ %.03250, %40 ]
-  %44 = load ptr, ptr %.134, align 8
-  %.not39 = icmp eq ptr %44, null
-  br i1 %.not39, label %.loopexit.sink.split.sink.split, label %.lr.ph51, !llvm.loop !19
+50:                                               ; preds = %47, %37
+  %.134 = phi ptr [ %39, %37 ], [ %49, %47 ]
+  %.1 = phi ptr [ %46, %37 ], [ %.03252, %47 ]
+  %51 = load ptr, ptr %.134, align 8
+  %.not39 = icmp eq ptr %51, null
+  br i1 %.not39, label %.loopexit.sink.split.sink.split, label %.lr.ph53, !llvm.loop !19
 
-45:                                               ; preds = %.lr.ph, %9
-  %46 = getelementptr inbounds i8, ptr %.047, i64 40
-  %47 = load ptr, ptr %46, align 8
-  %.not = icmp eq ptr %47, null
+new_avpl_from_match.exit.thread:                  ; preds = %.lr.ph, %new_avpl_from_match.exit, %16
+  %52 = getelementptr inbounds i8, ptr %.049, i64 40
+  %53 = load ptr, ptr %52, align 8
+  %.not = icmp eq ptr %53, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !20
 
-.loopexit.sink.split.sink.split:                  ; preds = %9, %43, %.lr.ph51, %12
-  %48 = getelementptr inbounds i8, ptr %.047, i64 16
-  %49 = load ptr, ptr %48, align 8
-  tail call void @merge_avpl(ptr noundef nonnull %0, ptr noundef %49, i32 noundef 1)
+.loopexit.sink.split.sink.split:                  ; preds = %16, %50, %.lr.ph53, %19
+  %54 = getelementptr inbounds i8, ptr %.049, i64 16
+  %55 = load ptr, ptr %54, align 8
+  tail call void @merge_avpl(ptr noundef nonnull %0, ptr noundef %55, i32 noundef 1)
   br label %.loopexit.sink.split
 
-.loopexit.sink.split:                             ; preds = %9, %.loopexit.sink.split.sink.split
-  tail call void @delete_avpl(ptr noundef nonnull %8, i32 noundef 1)
+.loopexit.sink.split:                             ; preds = %16, %.loopexit.sink.split.sink.split
+  tail call void @delete_avpl(ptr noundef nonnull %.0.i, i32 noundef 1)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %45, %.loopexit.sink.split, %2
+.loopexit:                                        ; preds = %new_avpl_from_match.exit.thread, %.loopexit.sink.split, %2
   ret void
 }
 

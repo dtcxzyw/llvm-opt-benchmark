@@ -1313,7 +1313,78 @@ if.end4:                                          ; preds = %if.then.i.i7, %if.t
 define dso_local void @tcg_gen_setcondi_i32(i32 noundef %cond, ptr noundef %ret, ptr noundef %arg1, i32 noundef %arg2) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @tcg_constant_i32(i32 noundef %arg2) #5
-  tail call void @tcg_gen_setcond_i32(i32 noundef %cond, ptr noundef %ret, ptr noundef %arg1, ptr noundef %call)
+  switch i32 %cond, label %if.else3.i [
+    i32 1, label %if.then.i
+    i32 0, label %if.then2.i
+  ]
+
+if.then.i:                                        ; preds = %entry
+  %call.i.i = tail call ptr @tcg_constant_i32(i32 noundef 1) #5
+  %cmp.not.i.i.i = icmp eq ptr %call.i.i, %ret
+  br i1 %cmp.not.i.i.i, label %tcg_gen_setcond_i32.exit, label %if.then.i.i.i
+
+if.then.i.i.i:                                    ; preds = %if.then.i
+  %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %1 = load ptr, ptr %0, align 8
+  %2 = ptrtoint ptr %ret to i64
+  %add.ptr.i.i.i.i.i.i = getelementptr i8, ptr %1, i64 %2
+  %3 = ptrtoint ptr %add.ptr.i.i.i.i.i.i to i64
+  %4 = ptrtoint ptr %call.i.i to i64
+  %add.ptr.i.i1.i.i.i.i = getelementptr i8, ptr %1, i64 %4
+  %5 = ptrtoint ptr %add.ptr.i.i1.i.i.i.i to i64
+  %call.i.i.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 5, i32 noundef 2) #5
+  %args.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 32
+  store i64 %3, ptr %args.i.i.i.i.i, align 8
+  %arrayidx2.i.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i.i, i64 40
+  store i64 %5, ptr %arrayidx2.i.i.i.i.i, align 8
+  br label %tcg_gen_setcond_i32.exit
+
+if.then2.i:                                       ; preds = %entry
+  %call.i5.i = tail call ptr @tcg_constant_i32(i32 noundef 0) #5
+  %cmp.not.i.i6.i = icmp eq ptr %call.i5.i, %ret
+  br i1 %cmp.not.i.i6.i, label %tcg_gen_setcond_i32.exit, label %if.then.i.i7.i
+
+if.then.i.i7.i:                                   ; preds = %if.then2.i
+  %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %7 = load ptr, ptr %6, align 8
+  %8 = ptrtoint ptr %ret to i64
+  %add.ptr.i.i.i.i.i8.i = getelementptr i8, ptr %7, i64 %8
+  %9 = ptrtoint ptr %add.ptr.i.i.i.i.i8.i to i64
+  %10 = ptrtoint ptr %call.i5.i to i64
+  %add.ptr.i.i1.i.i.i9.i = getelementptr i8, ptr %7, i64 %10
+  %11 = ptrtoint ptr %add.ptr.i.i1.i.i.i9.i to i64
+  %call.i.i.i.i10.i = tail call ptr @tcg_emit_op(i32 noundef 5, i32 noundef 2) #5
+  %args.i.i.i.i11.i = getelementptr inbounds i8, ptr %call.i.i.i.i10.i, i64 32
+  store i64 %9, ptr %args.i.i.i.i11.i, align 8
+  %arrayidx2.i.i.i.i12.i = getelementptr i8, ptr %call.i.i.i.i10.i, i64 40
+  store i64 %11, ptr %arrayidx2.i.i.i.i12.i, align 8
+  br label %tcg_gen_setcond_i32.exit
+
+if.else3.i:                                       ; preds = %entry
+  %conv.i = zext i32 %cond to i64
+  %12 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %13 = load ptr, ptr %12, align 8
+  %14 = ptrtoint ptr %ret to i64
+  %add.ptr.i.i.i.i = getelementptr i8, ptr %13, i64 %14
+  %15 = ptrtoint ptr %add.ptr.i.i.i.i to i64
+  %16 = ptrtoint ptr %arg1 to i64
+  %add.ptr.i.i1.i.i = getelementptr i8, ptr %13, i64 %16
+  %17 = ptrtoint ptr %add.ptr.i.i1.i.i to i64
+  %18 = ptrtoint ptr %call to i64
+  %add.ptr.i.i2.i.i = getelementptr i8, ptr %13, i64 %18
+  %19 = ptrtoint ptr %add.ptr.i.i2.i.i to i64
+  %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 6, i32 noundef 4) #5
+  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  store i64 %15, ptr %args.i.i.i, align 8
+  %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
+  store i64 %17, ptr %arrayidx2.i.i.i, align 8
+  %arrayidx4.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 48
+  store i64 %19, ptr %arrayidx4.i.i.i, align 8
+  %arrayidx6.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 56
+  store i64 %conv.i, ptr %arrayidx6.i.i.i, align 8
+  br label %tcg_gen_setcond_i32.exit
+
+tcg_gen_setcond_i32.exit:                         ; preds = %if.then.i, %if.then.i.i.i, %if.then2.i, %if.then.i.i7.i, %if.else3.i
   ret void
 }
 
@@ -1399,7 +1470,78 @@ if.end4:                                          ; preds = %if.then.i.i7, %if.t
 define dso_local void @tcg_gen_negsetcondi_i32(i32 noundef %cond, ptr noundef %ret, ptr noundef %arg1, i32 noundef %arg2) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @tcg_constant_i32(i32 noundef %arg2) #5
-  tail call void @tcg_gen_negsetcond_i32(i32 noundef %cond, ptr noundef %ret, ptr noundef %arg1, ptr noundef %call)
+  switch i32 %cond, label %if.else3.i [
+    i32 1, label %if.then.i
+    i32 0, label %if.then2.i
+  ]
+
+if.then.i:                                        ; preds = %entry
+  %call.i.i = tail call ptr @tcg_constant_i32(i32 noundef -1) #5
+  %cmp.not.i.i.i = icmp eq ptr %call.i.i, %ret
+  br i1 %cmp.not.i.i.i, label %tcg_gen_negsetcond_i32.exit, label %if.then.i.i.i
+
+if.then.i.i.i:                                    ; preds = %if.then.i
+  %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %1 = load ptr, ptr %0, align 8
+  %2 = ptrtoint ptr %ret to i64
+  %add.ptr.i.i.i.i.i.i = getelementptr i8, ptr %1, i64 %2
+  %3 = ptrtoint ptr %add.ptr.i.i.i.i.i.i to i64
+  %4 = ptrtoint ptr %call.i.i to i64
+  %add.ptr.i.i1.i.i.i.i = getelementptr i8, ptr %1, i64 %4
+  %5 = ptrtoint ptr %add.ptr.i.i1.i.i.i.i to i64
+  %call.i.i.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 5, i32 noundef 2) #5
+  %args.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 32
+  store i64 %3, ptr %args.i.i.i.i.i, align 8
+  %arrayidx2.i.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i.i, i64 40
+  store i64 %5, ptr %arrayidx2.i.i.i.i.i, align 8
+  br label %tcg_gen_negsetcond_i32.exit
+
+if.then2.i:                                       ; preds = %entry
+  %call.i5.i = tail call ptr @tcg_constant_i32(i32 noundef 0) #5
+  %cmp.not.i.i6.i = icmp eq ptr %call.i5.i, %ret
+  br i1 %cmp.not.i.i6.i, label %tcg_gen_negsetcond_i32.exit, label %if.then.i.i7.i
+
+if.then.i.i7.i:                                   ; preds = %if.then2.i
+  %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %7 = load ptr, ptr %6, align 8
+  %8 = ptrtoint ptr %ret to i64
+  %add.ptr.i.i.i.i.i8.i = getelementptr i8, ptr %7, i64 %8
+  %9 = ptrtoint ptr %add.ptr.i.i.i.i.i8.i to i64
+  %10 = ptrtoint ptr %call.i5.i to i64
+  %add.ptr.i.i1.i.i.i9.i = getelementptr i8, ptr %7, i64 %10
+  %11 = ptrtoint ptr %add.ptr.i.i1.i.i.i9.i to i64
+  %call.i.i.i.i10.i = tail call ptr @tcg_emit_op(i32 noundef 5, i32 noundef 2) #5
+  %args.i.i.i.i11.i = getelementptr inbounds i8, ptr %call.i.i.i.i10.i, i64 32
+  store i64 %9, ptr %args.i.i.i.i11.i, align 8
+  %arrayidx2.i.i.i.i12.i = getelementptr i8, ptr %call.i.i.i.i10.i, i64 40
+  store i64 %11, ptr %arrayidx2.i.i.i.i12.i, align 8
+  br label %tcg_gen_negsetcond_i32.exit
+
+if.else3.i:                                       ; preds = %entry
+  %conv.i = zext i32 %cond to i64
+  %12 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %13 = load ptr, ptr %12, align 8
+  %14 = ptrtoint ptr %ret to i64
+  %add.ptr.i.i.i.i = getelementptr i8, ptr %13, i64 %14
+  %15 = ptrtoint ptr %add.ptr.i.i.i.i to i64
+  %16 = ptrtoint ptr %arg1 to i64
+  %add.ptr.i.i1.i.i = getelementptr i8, ptr %13, i64 %16
+  %17 = ptrtoint ptr %add.ptr.i.i1.i.i to i64
+  %18 = ptrtoint ptr %call to i64
+  %add.ptr.i.i2.i.i = getelementptr i8, ptr %13, i64 %18
+  %19 = ptrtoint ptr %add.ptr.i.i2.i.i to i64
+  %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 7, i32 noundef 4) #5
+  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  store i64 %15, ptr %args.i.i.i, align 8
+  %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
+  store i64 %17, ptr %arrayidx2.i.i.i, align 8
+  %arrayidx4.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 48
+  store i64 %19, ptr %arrayidx4.i.i.i, align 8
+  %arrayidx6.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 56
+  store i64 %conv.i, ptr %arrayidx6.i.i.i, align 8
+  br label %tcg_gen_negsetcond_i32.exit
+
+tcg_gen_negsetcond_i32.exit:                      ; preds = %if.then.i, %if.then.i.i.i, %if.then2.i, %if.then.i.i7.i, %if.else3.i
   ret void
 }
 
@@ -5643,7 +5785,78 @@ if.end4:                                          ; preds = %if.end.i.i7, %if.th
 define dso_local void @tcg_gen_setcondi_i64(i32 noundef %cond, ptr noundef %ret, ptr noundef %arg1, i64 noundef %arg2) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @tcg_constant_i64(i64 noundef %arg2) #5
-  tail call void @tcg_gen_setcond_i64(i32 noundef %cond, ptr noundef %ret, ptr noundef %arg1, ptr noundef %call)
+  switch i32 %cond, label %if.else3.i [
+    i32 1, label %if.then.i
+    i32 0, label %if.then2.i
+  ]
+
+if.then.i:                                        ; preds = %entry
+  %call.i.i = tail call ptr @tcg_constant_i64(i64 noundef 1) #5
+  %cmp.i.i.i = icmp eq ptr %call.i.i, %ret
+  br i1 %cmp.i.i.i, label %tcg_gen_setcond_i64.exit, label %if.end.i.i.i
+
+if.end.i.i.i:                                     ; preds = %if.then.i
+  %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %1 = load ptr, ptr %0, align 8
+  %2 = ptrtoint ptr %ret to i64
+  %add.ptr.i.i.i.i.i.i.i = getelementptr i8, ptr %1, i64 %2
+  %3 = ptrtoint ptr %add.ptr.i.i.i.i.i.i.i to i64
+  %4 = ptrtoint ptr %call.i.i to i64
+  %add.ptr.i.i.i1.i.i.i.i = getelementptr i8, ptr %1, i64 %4
+  %5 = ptrtoint ptr %add.ptr.i.i.i1.i.i.i.i to i64
+  %call.i.i.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 63, i32 noundef 2) #5
+  %args.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 32
+  store i64 %3, ptr %args.i.i.i.i.i, align 8
+  %arrayidx2.i.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i.i, i64 40
+  store i64 %5, ptr %arrayidx2.i.i.i.i.i, align 8
+  br label %tcg_gen_setcond_i64.exit
+
+if.then2.i:                                       ; preds = %entry
+  %call.i5.i = tail call ptr @tcg_constant_i64(i64 noundef 0) #5
+  %cmp.i.i6.i = icmp eq ptr %call.i5.i, %ret
+  br i1 %cmp.i.i6.i, label %tcg_gen_setcond_i64.exit, label %if.end.i.i7.i
+
+if.end.i.i7.i:                                    ; preds = %if.then2.i
+  %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %7 = load ptr, ptr %6, align 8
+  %8 = ptrtoint ptr %ret to i64
+  %add.ptr.i.i.i.i.i.i8.i = getelementptr i8, ptr %7, i64 %8
+  %9 = ptrtoint ptr %add.ptr.i.i.i.i.i.i8.i to i64
+  %10 = ptrtoint ptr %call.i5.i to i64
+  %add.ptr.i.i.i1.i.i.i9.i = getelementptr i8, ptr %7, i64 %10
+  %11 = ptrtoint ptr %add.ptr.i.i.i1.i.i.i9.i to i64
+  %call.i.i.i.i10.i = tail call ptr @tcg_emit_op(i32 noundef 63, i32 noundef 2) #5
+  %args.i.i.i.i11.i = getelementptr inbounds i8, ptr %call.i.i.i.i10.i, i64 32
+  store i64 %9, ptr %args.i.i.i.i11.i, align 8
+  %arrayidx2.i.i.i.i12.i = getelementptr i8, ptr %call.i.i.i.i10.i, i64 40
+  store i64 %11, ptr %arrayidx2.i.i.i.i12.i, align 8
+  br label %tcg_gen_setcond_i64.exit
+
+if.else3.i:                                       ; preds = %entry
+  %conv.i = zext i32 %cond to i64
+  %12 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %13 = load ptr, ptr %12, align 8
+  %14 = ptrtoint ptr %ret to i64
+  %add.ptr.i.i.i.i.i = getelementptr i8, ptr %13, i64 %14
+  %15 = ptrtoint ptr %add.ptr.i.i.i.i.i to i64
+  %16 = ptrtoint ptr %arg1 to i64
+  %add.ptr.i.i.i1.i.i = getelementptr i8, ptr %13, i64 %16
+  %17 = ptrtoint ptr %add.ptr.i.i.i1.i.i to i64
+  %18 = ptrtoint ptr %call to i64
+  %add.ptr.i.i.i2.i.i = getelementptr i8, ptr %13, i64 %18
+  %19 = ptrtoint ptr %add.ptr.i.i.i2.i.i to i64
+  %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 64, i32 noundef 4) #5
+  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  store i64 %15, ptr %args.i.i.i, align 8
+  %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
+  store i64 %17, ptr %arrayidx2.i.i.i, align 8
+  %arrayidx4.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 48
+  store i64 %19, ptr %arrayidx4.i.i.i, align 8
+  %arrayidx6.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 56
+  store i64 %conv.i, ptr %arrayidx6.i.i.i, align 8
+  br label %tcg_gen_setcond_i64.exit
+
+tcg_gen_setcond_i64.exit:                         ; preds = %if.then.i, %if.end.i.i.i, %if.then2.i, %if.end.i.i7.i, %if.else3.i
   ret void
 }
 
@@ -5651,7 +5864,78 @@ entry:
 define dso_local void @tcg_gen_negsetcondi_i64(i32 noundef %cond, ptr noundef %ret, ptr noundef %arg1, i64 noundef %arg2) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @tcg_constant_i64(i64 noundef %arg2) #5
-  tail call void @tcg_gen_negsetcond_i64(i32 noundef %cond, ptr noundef %ret, ptr noundef %arg1, ptr noundef %call)
+  switch i32 %cond, label %if.else3.i [
+    i32 1, label %if.then.i
+    i32 0, label %if.then2.i
+  ]
+
+if.then.i:                                        ; preds = %entry
+  %call.i.i = tail call ptr @tcg_constant_i64(i64 noundef -1) #5
+  %cmp.i.i.i = icmp eq ptr %call.i.i, %ret
+  br i1 %cmp.i.i.i, label %tcg_gen_negsetcond_i64.exit, label %if.end.i.i.i
+
+if.end.i.i.i:                                     ; preds = %if.then.i
+  %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %1 = load ptr, ptr %0, align 8
+  %2 = ptrtoint ptr %ret to i64
+  %add.ptr.i.i.i.i.i.i.i = getelementptr i8, ptr %1, i64 %2
+  %3 = ptrtoint ptr %add.ptr.i.i.i.i.i.i.i to i64
+  %4 = ptrtoint ptr %call.i.i to i64
+  %add.ptr.i.i.i1.i.i.i.i = getelementptr i8, ptr %1, i64 %4
+  %5 = ptrtoint ptr %add.ptr.i.i.i1.i.i.i.i to i64
+  %call.i.i.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 63, i32 noundef 2) #5
+  %args.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 32
+  store i64 %3, ptr %args.i.i.i.i.i, align 8
+  %arrayidx2.i.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i.i, i64 40
+  store i64 %5, ptr %arrayidx2.i.i.i.i.i, align 8
+  br label %tcg_gen_negsetcond_i64.exit
+
+if.then2.i:                                       ; preds = %entry
+  %call.i5.i = tail call ptr @tcg_constant_i64(i64 noundef 0) #5
+  %cmp.i.i6.i = icmp eq ptr %call.i5.i, %ret
+  br i1 %cmp.i.i6.i, label %tcg_gen_negsetcond_i64.exit, label %if.end.i.i7.i
+
+if.end.i.i7.i:                                    ; preds = %if.then2.i
+  %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %7 = load ptr, ptr %6, align 8
+  %8 = ptrtoint ptr %ret to i64
+  %add.ptr.i.i.i.i.i.i8.i = getelementptr i8, ptr %7, i64 %8
+  %9 = ptrtoint ptr %add.ptr.i.i.i.i.i.i8.i to i64
+  %10 = ptrtoint ptr %call.i5.i to i64
+  %add.ptr.i.i.i1.i.i.i9.i = getelementptr i8, ptr %7, i64 %10
+  %11 = ptrtoint ptr %add.ptr.i.i.i1.i.i.i9.i to i64
+  %call.i.i.i.i10.i = tail call ptr @tcg_emit_op(i32 noundef 63, i32 noundef 2) #5
+  %args.i.i.i.i11.i = getelementptr inbounds i8, ptr %call.i.i.i.i10.i, i64 32
+  store i64 %9, ptr %args.i.i.i.i11.i, align 8
+  %arrayidx2.i.i.i.i12.i = getelementptr i8, ptr %call.i.i.i.i10.i, i64 40
+  store i64 %11, ptr %arrayidx2.i.i.i.i12.i, align 8
+  br label %tcg_gen_negsetcond_i64.exit
+
+if.else3.i:                                       ; preds = %entry
+  %conv.i = zext i32 %cond to i64
+  %12 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %13 = load ptr, ptr %12, align 8
+  %14 = ptrtoint ptr %ret to i64
+  %add.ptr.i.i.i.i.i = getelementptr i8, ptr %13, i64 %14
+  %15 = ptrtoint ptr %add.ptr.i.i.i.i.i to i64
+  %16 = ptrtoint ptr %arg1 to i64
+  %add.ptr.i.i.i1.i.i = getelementptr i8, ptr %13, i64 %16
+  %17 = ptrtoint ptr %add.ptr.i.i.i1.i.i to i64
+  %18 = ptrtoint ptr %call to i64
+  %add.ptr.i.i.i2.i.i = getelementptr i8, ptr %13, i64 %18
+  %19 = ptrtoint ptr %add.ptr.i.i.i2.i.i to i64
+  %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 65, i32 noundef 4) #5
+  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  store i64 %15, ptr %args.i.i.i, align 8
+  %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
+  store i64 %17, ptr %arrayidx2.i.i.i, align 8
+  %arrayidx4.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 48
+  store i64 %19, ptr %arrayidx4.i.i.i, align 8
+  %arrayidx6.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 56
+  store i64 %conv.i, ptr %arrayidx6.i.i.i, align 8
+  br label %tcg_gen_negsetcond_i64.exit
+
+tcg_gen_negsetcond_i64.exit:                      ; preds = %if.then.i, %if.end.i.i.i, %if.then2.i, %if.end.i.i7.i, %if.else3.i
   ret void
 }
 

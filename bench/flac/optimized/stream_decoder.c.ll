@@ -5317,8 +5317,10 @@ return:                                           ; preds = %if.end6, %sw.bb2, %
 ; Function Attrs: nounwind sspstrong uwtable
 define range(i32 0, 2) i32 @FLAC__stream_decoder_seek_absolute(ptr noundef %decoder, i64 noundef %sample) local_unnamed_addr #0 {
 entry:
+  %got_a_frame.i.i53 = alloca i32, align 4
   %lower_bound.i = alloca i64, align 8
   %upper_bound.i = alloca i64, align 8
+  %got_a_frame.i.i = alloca i32, align 4
   %length = alloca i64, align 8
   %0 = load ptr, ptr %decoder, align 8
   %1 = load i32, ptr %0, align 8
@@ -5368,11 +5370,11 @@ if.end34:                                         ; preds = %if.end24
   br i1 %switch29, label %while.body.i, label %if.end34.if.end56_crit_edge
 
 if.end34.if.end56_crit_edge:                      ; preds = %if.end34
-  %.pre126 = load ptr, ptr %private_, align 8
+  %.pre132 = load ptr, ptr %private_, align 8
   br label %if.end56
 
 while.body.i:                                     ; preds = %if.end34, %sw.epilog.i
-  %13 = phi i32 [ %.pre125, %sw.epilog.i ], [ %12, %if.end34 ]
+  %13 = phi i32 [ %.pre131, %sw.epilog.i ], [ %12, %if.end34 ]
   %14 = phi ptr [ %.pre, %sw.epilog.i ], [ %11, %if.end34 ]
   switch i32 %13, label %return.sink.split.sink.split [
     i32 0, label %sw.bb.i
@@ -5395,7 +5397,7 @@ sw.bb1.i:                                         ; preds = %while.body.i
 
 sw.epilog.i:                                      ; preds = %sw.bb1.i, %sw.bb.i
   %.pre = load ptr, ptr %decoder, align 8
-  %.pre125 = load i32, ptr %.pre, align 8
+  %.pre131 = load i32, ptr %.pre, align 8
   br label %while.body.i
 
 if.end46:                                         ; preds = %while.body.i, %while.body.i, %while.body.i, %while.body.i
@@ -5409,12 +5411,12 @@ FLAC__stream_decoder_get_total_samples.exit44:    ; preds = %if.end46
   %total_samples.i42 = getelementptr inbounds i8, ptr %15, i64 512
   %17 = load i64, ptr %total_samples.i42, align 8
   %18 = add i64 %17, -1
-  %or.cond150.not = icmp ult i64 %18, %sample
-  br i1 %or.cond150.not, label %return.sink.split, label %if.end56
+  %or.cond157.not = icmp ult i64 %18, %sample
+  br i1 %or.cond157.not, label %return.sink.split, label %if.end56
 
 if.end56:                                         ; preds = %if.end34.if.end56_crit_edge, %if.end46, %FLAC__stream_decoder_get_total_samples.exit44
   %19 = phi ptr [ %11, %if.end34.if.end56_crit_edge ], [ %14, %if.end46 ], [ %14, %FLAC__stream_decoder_get_total_samples.exit44 ]
-  %20 = phi ptr [ %.pre126, %if.end34.if.end56_crit_edge ], [ %15, %if.end46 ], [ %15, %FLAC__stream_decoder_get_total_samples.exit44 ]
+  %20 = phi ptr [ %.pre132, %if.end34.if.end56_crit_edge ], [ %15, %if.end46 ], [ %15, %FLAC__stream_decoder_get_total_samples.exit44 ]
   %21 = load i32, ptr %20, align 8
   %tobool58.not = icmp eq i32 %21, 0
   %22 = load i64, ptr %length, align 8
@@ -5435,8 +5437,8 @@ FLAC__stream_decoder_get_total_samples.exit.i:    ; preds = %cond.true.i.i, %con
   %cond.i.i = phi i64 [ %24, %cond.true.i.i ], [ 0, %cond.true ]
   %target_sample1.i = getelementptr inbounds i8, ptr %20, i64 8912
   store i64 %sample, ptr %target_sample1.i, align 8
-  %cmp2.not54.not.i = icmp eq i64 %22, 0
-  br i1 %cmp2.not54.not.i, label %return.sink.split.sink.split.i, label %lor.lhs.false.preheader.i
+  %cmp2.not63.not.i = icmp eq i64 %22, 0
+  br i1 %cmp2.not63.not.i, label %return.sink.split.sink.split.i, label %lor.lhs.false.preheader.i
 
 lor.lhs.false.preheader.i:                        ; preds = %FLAC__stream_decoder_get_total_samples.exit.i
   %cmp.i = icmp eq i64 %cond.i.i, 0
@@ -5445,40 +5447,40 @@ lor.lhs.false.preheader.i:                        ; preds = %FLAC__stream_decode
   br label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %for.inc.i, %lor.lhs.false.preheader.i
-  %BINARY_SEARCH_AFTER_ITERATION.162.i = phi i32 [ %BINARY_SEARCH_AFTER_ITERATION.2.i, %for.inc.i ], [ %spec.select45.i, %lor.lhs.false.preheader.i ]
-  %iteration.061.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %lor.lhs.false.preheader.i ]
-  %pos.060.i = phi i64 [ %pos.2.i, %for.inc.i ], [ 0, %lor.lhs.false.preheader.i ]
-  %this_frame_sample.059.i = phi i64 [ %this_frame_sample.1.i, %for.inc.i ], [ -1, %lor.lhs.false.preheader.i ]
-  %right_sample.158.i = phi i64 [ %right_sample.2.i, %for.inc.i ], [ %spec.select.i, %lor.lhs.false.preheader.i ]
-  %left_sample.057.i = phi i64 [ %left_sample.1.i, %for.inc.i ], [ 0, %lor.lhs.false.preheader.i ]
-  %right_pos.056.i = phi i64 [ %right_pos.1.i, %for.inc.i ], [ %22, %lor.lhs.false.preheader.i ]
-  %left_pos.055.i = phi i64 [ %left_pos.1.i, %for.inc.i ], [ 0, %lor.lhs.false.preheader.i ]
-  %sub.i = sub i64 %right_pos.056.i, %left_pos.055.i
+  %BINARY_SEARCH_AFTER_ITERATION.171.i = phi i32 [ %BINARY_SEARCH_AFTER_ITERATION.2.i, %for.inc.i ], [ %spec.select45.i, %lor.lhs.false.preheader.i ]
+  %iteration.070.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %lor.lhs.false.preheader.i ]
+  %pos.069.i = phi i64 [ %pos.2.i, %for.inc.i ], [ 0, %lor.lhs.false.preheader.i ]
+  %this_frame_sample.068.i = phi i64 [ %this_frame_sample.1.i, %for.inc.i ], [ -1, %lor.lhs.false.preheader.i ]
+  %right_sample.167.i = phi i64 [ %right_sample.2.i, %for.inc.i ], [ %spec.select.i, %lor.lhs.false.preheader.i ]
+  %left_sample.066.i = phi i64 [ %left_sample.1.i, %for.inc.i ], [ 0, %lor.lhs.false.preheader.i ]
+  %right_pos.065.i = phi i64 [ %right_pos.1.i, %for.inc.i ], [ %22, %lor.lhs.false.preheader.i ]
+  %left_pos.064.i = phi i64 [ %left_pos.1.i, %for.inc.i ], [ 0, %lor.lhs.false.preheader.i ]
+  %sub.i = sub i64 %right_pos.065.i, %left_pos.064.i
   %cmp3.i = icmp ult i64 %sub.i, 9
   br i1 %cmp3.i, label %return.sink.split.sink.split.i, label %if.end5.i
 
 if.end5.i:                                        ; preds = %lor.lhs.false.i
-  %cmp6.i = icmp ne i32 %iteration.061.i, 0
-  %cmp8.i = icmp ule i64 %this_frame_sample.059.i, %sample
-  %sub10.i = sub i64 %sample, %this_frame_sample.059.i
+  %cmp6.i = icmp ne i32 %iteration.070.i, 0
+  %cmp8.i = icmp ule i64 %this_frame_sample.068.i, %sample
+  %sub10.i = sub i64 %sample, %this_frame_sample.068.i
   %cmp11.i = icmp ult i64 %sub10.i, 131071
-  %.not51.i = and i1 %cmp8.i, %cmp11.i
-  %or.cond46.not.i = select i1 %cmp6.i, i1 %.not51.i, i1 false
+  %.not60.i = and i1 %cmp8.i, %cmp11.i
+  %or.cond46.not.i = select i1 %cmp6.i, i1 %.not60.i, i1 false
   br i1 %or.cond46.not.i, label %if.end36.i, label %if.then12.i
 
 if.then12.i:                                      ; preds = %if.end5.i
-  %cmp13.not.i = icmp ult i32 %iteration.061.i, %BINARY_SEARCH_AFTER_ITERATION.162.i
+  %cmp13.not.i = icmp ult i32 %iteration.070.i, %BINARY_SEARCH_AFTER_ITERATION.171.i
   br i1 %cmp13.not.i, label %if.else.i, label %if.then14.i
 
 if.then14.i:                                      ; preds = %if.then12.i
-  %add.i = add i64 %left_pos.055.i, %right_pos.056.i
+  %add.i = add i64 %left_pos.064.i, %right_pos.065.i
   %div44.i = lshr i64 %add.i, 1
   br label %if.end22.i
 
 if.else.i:                                        ; preds = %if.then12.i
-  %sub15.i = sub i64 %sample, %left_sample.057.i
+  %sub15.i = sub i64 %sample, %left_sample.066.i
   %conv.i = uitofp i64 %sub15.i to double
-  %sub16.i = sub i64 %right_sample.158.i, %left_sample.057.i
+  %sub16.i = sub i64 %right_sample.167.i, %left_sample.066.i
   %conv17.i = uitofp i64 %sub16.i to double
   %conv20.i = uitofp i64 %sub.i to double
   %25 = fmul reassoc nsz arcp double %conv20.i, %conv.i
@@ -5546,150 +5548,198 @@ FLAC__stream_decoder_flush.exit.i:                ; preds = %if.then7.i.i, %if.e
   br i1 %tobool11.not.i.not.i, label %return.sink.split.sink.split, label %if.end36.i
 
 if.end36.i:                                       ; preds = %FLAC__stream_decoder_flush.exit.i, %if.end5.i
-  %pos.2.i = phi i64 [ %pos.1.i, %FLAC__stream_decoder_flush.exit.i ], [ %pos.060.i, %if.end5.i ]
+  %pos.2.i = phi i64 [ %pos.1.i, %FLAC__stream_decoder_flush.exit.i ], [ %pos.069.i, %if.end5.i ]
   %42 = load ptr, ptr %private_, align 8
   %got_a_frame.i = getelementptr inbounds i8, ptr %42, i64 8924
   store i32 0, ptr %got_a_frame.i, align 4
-  %call38.i = call i32 @FLAC__stream_decoder_process_single(ptr noundef nonnull %decoder)
-  %tobool39.not.i = icmp eq i32 %call38.i, 0
-  %.pre.i = load ptr, ptr %decoder, align 8
-  br i1 %tobool39.not.i, label %return.sink.split.i, label %lor.lhs.false40.i
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %got_a_frame.i.i)
+  br label %while.body.i.i
 
-lor.lhs.false40.i:                                ; preds = %if.end36.i
-  %43 = load i32, ptr %.pre.i, align 8
-  %cmp43.i = icmp eq i32 %43, 7
-  br i1 %cmp43.i, label %return.sink.split.i, label %if.end48.i
+while.body.i.i:                                   ; preds = %while.body.i.i.backedge, %if.end36.i
+  %43 = load ptr, ptr %decoder, align 8
+  %44 = load i32, ptr %43, align 8
+  switch i32 %44, label %FLAC__stream_decoder_process_single.exit.thread.i [
+    i32 0, label %sw.bb.i.i
+    i32 1, label %FLAC__stream_decoder_process_single.exit.i
+    i32 2, label %sw.bb5.i.i
+    i32 3, label %sw.bb10.i.i
+    i32 4, label %FLAC__stream_decoder_process_single.exit.thread57.i
+    i32 7, label %FLAC__stream_decoder_process_single.exit.thread57.i
+  ]
+
+sw.bb.i.i:                                        ; preds = %while.body.i.i
+  %call.i50.i = call fastcc i32 @find_metadata_(ptr noundef nonnull %decoder)
+  %tobool.not.i51.i = icmp eq i32 %call.i50.i, 0
+  br i1 %tobool.not.i51.i, label %FLAC__stream_decoder_process_single.exit.thread.i, label %while.body.i.i.backedge
+
+sw.bb5.i.i:                                       ; preds = %while.body.i.i
+  %call6.i.i = call fastcc i32 @frame_sync_(ptr noundef nonnull %decoder)
+  %tobool7.not.i.i = icmp eq i32 %call6.i.i, 0
+  br i1 %tobool7.not.i.i, label %FLAC__stream_decoder_process_single.exit.thread57.i, label %while.body.i.i.backedge
+
+sw.bb10.i.i:                                      ; preds = %while.body.i.i
+  %call11.i.i = call fastcc i32 @read_frame_(ptr noundef nonnull %decoder, ptr noundef nonnull %got_a_frame.i.i, i32 noundef 1)
+  %tobool12.not.i.i = icmp eq i32 %call11.i.i, 0
+  br i1 %tobool12.not.i.i, label %FLAC__stream_decoder_process_single.exit.thread.i, label %if.end14.i.i
+
+if.end14.i.i:                                     ; preds = %sw.bb10.i.i
+  %45 = load i32, ptr %got_a_frame.i.i, align 4
+  %tobool15.not.i.i = icmp eq i32 %45, 0
+  br i1 %tobool15.not.i.i, label %while.body.i.i.backedge, label %FLAC__stream_decoder_process_single.exit.thread57.i
+
+while.body.i.i.backedge:                          ; preds = %if.end14.i.i, %sw.bb5.i.i, %sw.bb.i.i
+  br label %while.body.i.i
+
+FLAC__stream_decoder_process_single.exit.thread.i: ; preds = %sw.bb10.i.i, %sw.bb.i.i, %while.body.i.i
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %got_a_frame.i.i)
+  br label %return.sink.split.sink.split.i
+
+FLAC__stream_decoder_process_single.exit.thread57.i: ; preds = %if.end14.i.i, %sw.bb5.i.i, %while.body.i.i, %while.body.i.i
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %got_a_frame.i.i)
+  br label %lor.lhs.false40.i
+
+FLAC__stream_decoder_process_single.exit.i:       ; preds = %while.body.i.i
+  %call2.i.i = call fastcc i32 @read_metadata_(ptr noundef nonnull %decoder)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %got_a_frame.i.i)
+  %tobool39.not.i = icmp eq i32 %call2.i.i, 0
+  br i1 %tobool39.not.i, label %return.sink.split.sink.split.i, label %lor.lhs.false40.i
+
+lor.lhs.false40.i:                                ; preds = %FLAC__stream_decoder_process_single.exit.i, %FLAC__stream_decoder_process_single.exit.thread57.i
+  %46 = load ptr, ptr %decoder, align 8
+  %47 = load i32, ptr %46, align 8
+  %cmp43.i = icmp eq i32 %47, 7
+  br i1 %cmp43.i, label %return.sink.split.sink.split.i, label %if.end48.i
 
 if.end48.i:                                       ; preds = %lor.lhs.false40.i
-  %44 = load ptr, ptr %private_, align 8
-  %got_a_frame50.i = getelementptr inbounds i8, ptr %44, i64 8924
-  %45 = load i32, ptr %got_a_frame50.i, align 4
-  %tobool51.not.i = icmp eq i32 %45, 0
+  %48 = load ptr, ptr %private_, align 8
+  %got_a_frame50.i = getelementptr inbounds i8, ptr %48, i64 8924
+  %49 = load i32, ptr %got_a_frame50.i, align 4
+  %tobool51.not.i = icmp eq i32 %49, 0
   br i1 %tobool51.not.i, label %if.then52.i, label %if.else59.i
 
 if.then52.i:                                      ; preds = %if.end48.i
   br i1 %or.cond46.not.i, label %return.sink.split.i, label %for.inc.i
 
 if.else59.i:                                      ; preds = %if.end48.i
-  %is_seeking.i = getelementptr inbounds i8, ptr %44, i64 5128
-  %46 = load i32, ptr %is_seeking.i, align 8
-  %tobool61.not.i = icmp eq i32 %46, 0
+  %is_seeking.i = getelementptr inbounds i8, ptr %48, i64 5128
+  %50 = load i32, ptr %is_seeking.i, align 8
+  %tobool61.not.i = icmp eq i32 %50, 0
   br i1 %tobool61.not.i, label %return.sink.split.sink.split, label %if.else63.i
 
 if.else63.i:                                      ; preds = %if.else59.i
-  %number.i = getelementptr inbounds i8, ptr %44, i64 5280
-  %47 = load i64, ptr %number.i, align 8
+  %number.i = getelementptr inbounds i8, ptr %48, i64 5280
+  %51 = load i64, ptr %number.i, align 8
   br i1 %or.cond46.not.i, label %for.inc.i, label %if.then66.i
 
 if.then66.i:                                      ; preds = %if.else63.i
-  %cmp67.not.i = icmp ugt i64 %47, %sample
+  %cmp67.not.i = icmp ugt i64 %51, %sample
   br i1 %cmp67.not.i, label %if.else76.i, label %if.then69.i
 
 if.then69.i:                                      ; preds = %if.then66.i
-  %cmp70.i = icmp eq i64 %left_pos.055.i, %pos.2.i
+  %cmp70.i = icmp eq i64 %left_pos.064.i, %pos.2.i
   br i1 %cmp70.i, label %return.sink.split.i, label %for.inc.i
 
 if.else76.i:                                      ; preds = %if.then66.i
-  %cmp77.i = icmp eq i64 %right_pos.056.i, %pos.2.i
+  %cmp77.i = icmp eq i64 %right_pos.065.i, %pos.2.i
   br i1 %cmp77.i, label %return.sink.split.i, label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.else76.i, %if.then69.i, %if.else63.i, %if.then52.i
-  %left_pos.1.i = phi i64 [ %left_pos.055.i, %if.else63.i ], [ %left_pos.055.i, %if.then52.i ], [ %pos.2.i, %if.then69.i ], [ %left_pos.055.i, %if.else76.i ]
-  %right_pos.1.i = phi i64 [ %right_pos.056.i, %if.else63.i ], [ %pos.2.i, %if.then52.i ], [ %right_pos.056.i, %if.then69.i ], [ %pos.2.i, %if.else76.i ]
-  %left_sample.1.i = phi i64 [ %left_sample.057.i, %if.else63.i ], [ %left_sample.057.i, %if.then52.i ], [ %47, %if.then69.i ], [ %left_sample.057.i, %if.else76.i ]
-  %right_sample.2.i = phi i64 [ %right_sample.158.i, %if.else63.i ], [ %right_sample.158.i, %if.then52.i ], [ %right_sample.158.i, %if.then69.i ], [ %47, %if.else76.i ]
-  %this_frame_sample.1.i = phi i64 [ %47, %if.else63.i ], [ %this_frame_sample.059.i, %if.then52.i ], [ %47, %if.then69.i ], [ %47, %if.else76.i ]
-  %BINARY_SEARCH_AFTER_ITERATION.2.i = phi i32 [ %BINARY_SEARCH_AFTER_ITERATION.162.i, %if.else63.i ], [ 0, %if.then52.i ], [ %BINARY_SEARCH_AFTER_ITERATION.162.i, %if.then69.i ], [ %BINARY_SEARCH_AFTER_ITERATION.162.i, %if.else76.i ]
-  %inc.i = add i32 %iteration.061.i, 1
+  %left_pos.1.i = phi i64 [ %left_pos.064.i, %if.else63.i ], [ %left_pos.064.i, %if.then52.i ], [ %pos.2.i, %if.then69.i ], [ %left_pos.064.i, %if.else76.i ]
+  %right_pos.1.i = phi i64 [ %right_pos.065.i, %if.else63.i ], [ %pos.2.i, %if.then52.i ], [ %right_pos.065.i, %if.then69.i ], [ %pos.2.i, %if.else76.i ]
+  %left_sample.1.i = phi i64 [ %left_sample.066.i, %if.else63.i ], [ %left_sample.066.i, %if.then52.i ], [ %51, %if.then69.i ], [ %left_sample.066.i, %if.else76.i ]
+  %right_sample.2.i = phi i64 [ %right_sample.167.i, %if.else63.i ], [ %right_sample.167.i, %if.then52.i ], [ %right_sample.167.i, %if.then69.i ], [ %51, %if.else76.i ]
+  %this_frame_sample.1.i = phi i64 [ %51, %if.else63.i ], [ %this_frame_sample.068.i, %if.then52.i ], [ %51, %if.then69.i ], [ %51, %if.else76.i ]
+  %BINARY_SEARCH_AFTER_ITERATION.2.i = phi i32 [ %BINARY_SEARCH_AFTER_ITERATION.171.i, %if.else63.i ], [ 0, %if.then52.i ], [ %BINARY_SEARCH_AFTER_ITERATION.171.i, %if.then69.i ], [ %BINARY_SEARCH_AFTER_ITERATION.171.i, %if.else76.i ]
+  %inc.i = add i32 %iteration.070.i, 1
   %cmp2.not.i = icmp ugt i64 %right_pos.1.i, %left_pos.1.i
   br i1 %cmp2.not.i, label %lor.lhs.false.i, label %return.sink.split.sink.split.i
 
-return.sink.split.sink.split.i:                   ; preds = %for.inc.i, %if.end22.i, %lor.lhs.false.i, %FLAC__stream_decoder_get_total_samples.exit.i
-  %48 = load ptr, ptr %decoder, align 8
+return.sink.split.sink.split.i:                   ; preds = %for.inc.i, %lor.lhs.false40.i, %FLAC__stream_decoder_process_single.exit.i, %if.end22.i, %lor.lhs.false.i, %FLAC__stream_decoder_process_single.exit.thread.i, %FLAC__stream_decoder_get_total_samples.exit.i
+  %52 = load ptr, ptr %decoder, align 8
   br label %return.sink.split.i
 
-return.sink.split.i:                              ; preds = %if.else76.i, %if.then69.i, %if.then52.i, %lor.lhs.false40.i, %if.end36.i, %return.sink.split.sink.split.i
-  %.pre.lcssa66.sink.i = phi ptr [ %48, %return.sink.split.sink.split.i ], [ %.pre.i, %if.end36.i ], [ %.pre.i, %lor.lhs.false40.i ], [ %.pre.i, %if.then52.i ], [ %.pre.i, %if.then69.i ], [ %.pre.i, %if.else76.i ]
-  store i32 6, ptr %.pre.lcssa66.sink.i, align 8
+return.sink.split.i:                              ; preds = %if.else76.i, %if.then69.i, %if.then52.i, %return.sink.split.sink.split.i
+  %.lcssa74.sink.i = phi ptr [ %52, %return.sink.split.sink.split.i ], [ %46, %if.then52.i ], [ %46, %if.then69.i ], [ %46, %if.else76.i ]
+  store i32 6, ptr %.lcssa74.sink.i, align 8
   br label %return.sink.split.sink.split
 
 cond.false:                                       ; preds = %if.end56
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %lower_bound.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %upper_bound.i)
   %first_frame_offset1.i = getelementptr inbounds i8, ptr %20, i64 8896
-  %49 = load i64, ptr %first_frame_offset1.i, align 8
-  %has_stream_info.i.i54 = getelementptr inbounds i8, ptr %20, i64 456
-  %50 = load i32, ptr %has_stream_info.i.i54, align 8
-  %tobool.not.i.i55 = icmp eq i32 %50, 0
-  br i1 %tobool.not.i.i55, label %FLAC__stream_decoder_get_total_samples.exit.i58, label %cond.true.i.i56
+  %53 = load i64, ptr %first_frame_offset1.i, align 8
+  %has_stream_info.i.i55 = getelementptr inbounds i8, ptr %20, i64 456
+  %54 = load i32, ptr %has_stream_info.i.i55, align 8
+  %tobool.not.i.i56 = icmp eq i32 %54, 0
+  br i1 %tobool.not.i.i56, label %FLAC__stream_decoder_get_total_samples.exit.i59, label %cond.true.i.i57
 
-cond.true.i.i56:                                  ; preds = %cond.false
-  %total_samples.i.i57 = getelementptr inbounds i8, ptr %20, i64 512
-  %51 = load i64, ptr %total_samples.i.i57, align 8
-  br label %FLAC__stream_decoder_get_total_samples.exit.i58
+cond.true.i.i57:                                  ; preds = %cond.false
+  %total_samples.i.i58 = getelementptr inbounds i8, ptr %20, i64 512
+  %55 = load i64, ptr %total_samples.i.i58, align 8
+  br label %FLAC__stream_decoder_get_total_samples.exit.i59
 
-FLAC__stream_decoder_get_total_samples.exit.i58:  ; preds = %cond.true.i.i56, %cond.false
-  %cond.i.i59 = phi i64 [ %51, %cond.true.i.i56 ], [ 0, %cond.false ]
+FLAC__stream_decoder_get_total_samples.exit.i59:  ; preds = %cond.true.i.i57, %cond.false
+  %cond.i.i60 = phi i64 [ %55, %cond.true.i.i57 ], [ 0, %cond.false ]
   %data.i = getelementptr inbounds i8, ptr %20, i64 480
-  %52 = load i32, ptr %data.i, align 8
+  %56 = load i32, ptr %data.i, align 8
   %max_blocksize7.i = getelementptr inbounds i8, ptr %20, i64 484
-  %53 = load i32, ptr %max_blocksize7.i, align 4
+  %57 = load i32, ptr %max_blocksize7.i, align 4
   %max_framesize11.i = getelementptr inbounds i8, ptr %20, i64 492
-  %54 = load i32, ptr %max_framesize11.i, align 4
+  %58 = load i32, ptr %max_framesize11.i, align 4
   %min_framesize15.i = getelementptr inbounds i8, ptr %20, i64 488
-  %55 = load i32, ptr %min_framesize15.i, align 8
+  %59 = load i32, ptr %min_framesize15.i, align 8
   %channels.i.i = getelementptr inbounds i8, ptr %19, i64 8
-  %56 = load i32, ptr %channels.i.i, align 8
+  %60 = load i32, ptr %channels.i.i, align 8
   %bits_per_sample.i.i = getelementptr inbounds i8, ptr %19, i64 16
-  %57 = load i32, ptr %bits_per_sample.i.i, align 8
+  %61 = load i32, ptr %bits_per_sample.i.i, align 8
   %has_seek_table.i = getelementptr inbounds i8, ptr %20, i64 460
-  %58 = load i32, ptr %has_seek_table.i, align 4
-  %tobool.not.i60 = icmp eq i32 %58, 0
+  %62 = load i32, ptr %has_seek_table.i, align 4
+  %tobool.not.i61 = icmp eq i32 %62, 0
   %data21.i = getelementptr inbounds i8, ptr %20, i64 656
-  %spec.select.i61 = select i1 %tobool.not.i60, ptr null, ptr %data21.i
-  %cmp.i62 = icmp eq i32 %56, 0
-  br i1 %cmp.i62, label %if.then.i, label %if.end.i
+  %spec.select.i62 = select i1 %tobool.not.i61, ptr null, ptr %data21.i
+  %cmp.i63 = icmp eq i32 %60, 0
+  br i1 %cmp.i63, label %if.then.i, label %if.end.i
 
-if.then.i:                                        ; preds = %FLAC__stream_decoder_get_total_samples.exit.i58
+if.then.i:                                        ; preds = %FLAC__stream_decoder_get_total_samples.exit.i59
   %channels25.i = getelementptr inbounds i8, ptr %20, i64 500
-  %59 = load i32, ptr %channels25.i, align 4
+  %63 = load i32, ptr %channels25.i, align 4
   br label %if.end.i
 
-if.end.i:                                         ; preds = %if.then.i, %FLAC__stream_decoder_get_total_samples.exit.i58
-  %channels.0.i = phi i32 [ %59, %if.then.i ], [ %56, %FLAC__stream_decoder_get_total_samples.exit.i58 ]
-  %cmp26.i = icmp eq i32 %57, 0
-  br i1 %cmp26.i, label %if.then27.i, label %if.end31.i63
+if.end.i:                                         ; preds = %if.then.i, %FLAC__stream_decoder_get_total_samples.exit.i59
+  %channels.0.i = phi i32 [ %63, %if.then.i ], [ %60, %FLAC__stream_decoder_get_total_samples.exit.i59 ]
+  %cmp26.i = icmp eq i32 %61, 0
+  br i1 %cmp26.i, label %if.then27.i, label %if.end31.i64
 
 if.then27.i:                                      ; preds = %if.end.i
   %bits_per_sample.i = getelementptr inbounds i8, ptr %20, i64 504
-  %60 = load i32, ptr %bits_per_sample.i, align 8
-  br label %if.end31.i63
+  %64 = load i32, ptr %bits_per_sample.i, align 8
+  br label %if.end31.i64
 
-if.end31.i63:                                     ; preds = %if.then27.i, %if.end.i
-  %bps.0.i = phi i32 [ %60, %if.then27.i ], [ %57, %if.end.i ]
-  %cmp32.not.i = icmp eq i32 %54, 0
-  br i1 %cmp32.not.i, label %if.else.i77, label %if.then33.i
+if.end31.i64:                                     ; preds = %if.then27.i, %if.end.i
+  %bps.0.i = phi i32 [ %64, %if.then27.i ], [ %61, %if.end.i ]
+  %cmp32.not.i = icmp eq i32 %58, 0
+  br i1 %cmp32.not.i, label %if.else.i79, label %if.then33.i
 
-if.then33.i:                                      ; preds = %if.end31.i63
-  %add.i64 = add i32 %55, %54
-  %div139.i = lshr i32 %add.i64, 1
+if.then33.i:                                      ; preds = %if.end31.i64
+  %add.i65 = add i32 %59, %58
+  %div139.i = lshr i32 %add.i65, 1
   %add34.i = add nuw i32 %div139.i, 1
   br label %if.end47.i
 
-if.else.i77:                                      ; preds = %if.end31.i63
-  %cmp35.i = icmp eq i32 %52, %53
-  %cmp36.i = icmp ne i32 %52, 0
+if.else.i79:                                      ; preds = %if.end31.i64
+  %cmp35.i = icmp eq i32 %56, %57
+  %cmp36.i = icmp ne i32 %56, 0
   %or.cond.i = and i1 %cmp36.i, %cmp35.i
   br i1 %or.cond.i, label %if.then37.i, label %if.else41.i
 
-if.then37.i:                                      ; preds = %if.else.i77
-  %mul.i78 = mul i32 %channels.0.i, %52
-  %mul38.i = mul i32 %mul.i78, %bps.0.i
+if.then37.i:                                      ; preds = %if.else.i79
+  %mul.i80 = mul i32 %channels.0.i, %56
+  %mul38.i = mul i32 %mul.i80, %bps.0.i
   %div39138.i = lshr i32 %mul38.i, 3
   %add40.i = add nuw nsw i32 %div39138.i, 64
   br label %if.end47.i
 
-if.else41.i:                                      ; preds = %if.else.i77
+if.else41.i:                                      ; preds = %if.else.i79
   %mul42.i = shl i32 %channels.0.i, 12
   %mul43.i = mul i32 %mul42.i, %bps.0.i
   %div44137.i = lshr exact i32 %mul43.i, 3
@@ -5698,24 +5748,24 @@ if.else41.i:                                      ; preds = %if.else.i77
 
 if.end47.i:                                       ; preds = %if.else41.i, %if.then37.i, %if.then33.i
   %approx_bytes_per_frame.0.i = phi i32 [ %add34.i, %if.then33.i ], [ %add40.i, %if.then37.i ], [ %add45.i, %if.else41.i ]
-  store i64 %49, ptr %lower_bound.i, align 8
+  store i64 %53, ptr %lower_bound.i, align 8
   store i64 %22, ptr %upper_bound.i, align 8
-  %cmp48.not.i = icmp eq i64 %cond.i.i59, 0
-  %cond52.i = select i1 %cmp48.not.i, i64 %sample, i64 %cond.i.i59
-  %61 = load i32, ptr %19, align 8
-  %cmp53.i = icmp eq i32 %61, 2
+  %cmp48.not.i = icmp eq i64 %cond.i.i60, 0
+  %cond52.i = select i1 %cmp48.not.i, i64 %sample, i64 %cond.i.i60
+  %65 = load i32, ptr %19, align 8
+  %cmp53.i = icmp eq i32 %65, 2
   br i1 %cmp53.i, label %land.lhs.true54.i, label %if.end76.i
 
 land.lhs.true54.i:                                ; preds = %if.end47.i
   %samples_decoded.i = getelementptr inbounds i8, ptr %20, i64 448
-  %62 = load i64, ptr %samples_decoded.i, align 8
-  %cmp56.not.i = icmp eq i64 %62, 0
+  %66 = load i64, ptr %samples_decoded.i, align 8
+  %cmp56.not.i = icmp eq i64 %66, 0
   br i1 %cmp56.not.i, label %if.end76.i, label %if.then57.i
 
 if.then57.i:                                      ; preds = %land.lhs.true54.i
-  %cmp60.i = icmp ugt i64 %62, %sample
-  %63 = load i32, ptr %20, align 8
-  %tobool.not.i145.i = icmp eq i32 %63, 0
+  %cmp60.i = icmp ugt i64 %66, %sample
+  %67 = load i32, ptr %20, align 8
+  %tobool.not.i145.i = icmp eq i32 %67, 0
   br i1 %cmp60.i, label %if.then61.i, label %if.else68.i
 
 if.then61.i:                                      ; preds = %if.then57.i
@@ -5723,38 +5773,38 @@ if.then61.i:                                      ; preds = %if.then57.i
 
 if.end.i.i73:                                     ; preds = %if.then61.i
   %tell_callback.i.i = getelementptr inbounds i8, ptr %20, i64 24
-  %64 = load ptr, ptr %tell_callback.i.i, align 8
-  %cmp.i.i74 = icmp eq ptr %64, null
+  %68 = load ptr, ptr %tell_callback.i.i, align 8
+  %cmp.i.i74 = icmp eq ptr %68, null
   br i1 %cmp.i.i74, label %if.end76.i, label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %if.end.i.i73
   %client_data.i.i = getelementptr inbounds i8, ptr %20, i64 72
-  %65 = load ptr, ptr %client_data.i.i, align 8
-  %call.i.i75 = call i32 %64(ptr noundef nonnull %decoder, ptr noundef nonnull %upper_bound.i, ptr noundef %65) #21
+  %69 = load ptr, ptr %client_data.i.i, align 8
+  %call.i.i75 = call i32 %68(ptr noundef nonnull %decoder, ptr noundef nonnull %upper_bound.i, ptr noundef %69) #21
   %cmp7.not.i.i = icmp eq i32 %call.i.i75, 0
   br i1 %cmp7.not.i.i, label %if.end9.i.i, label %if.end76.i
 
 if.end9.i.i:                                      ; preds = %if.end3.i.i
-  %66 = load ptr, ptr %private_, align 8
-  %input.i.i76 = getelementptr inbounds i8, ptr %66, i64 88
-  %67 = load ptr, ptr %input.i.i76, align 8
-  %call11.i.i = call i32 @FLAC__bitreader_is_consumed_byte_aligned(ptr noundef %67) #21
-  %tobool12.not.i.i = icmp eq i32 %call11.i.i, 0
-  br i1 %tobool12.not.i.i, label %if.end76.i, label %if.then64.i
+  %70 = load ptr, ptr %private_, align 8
+  %input.i.i76 = getelementptr inbounds i8, ptr %70, i64 88
+  %71 = load ptr, ptr %input.i.i76, align 8
+  %call11.i.i77 = call i32 @FLAC__bitreader_is_consumed_byte_aligned(ptr noundef %71) #21
+  %tobool12.not.i.i78 = icmp eq i32 %call11.i.i77, 0
+  br i1 %tobool12.not.i.i78, label %if.end76.i, label %if.then64.i
 
 if.then64.i:                                      ; preds = %if.end9.i.i
-  %68 = load ptr, ptr %private_, align 8
-  %input.i.i.i = getelementptr inbounds i8, ptr %68, i64 88
-  %69 = load ptr, ptr %input.i.i.i, align 8
-  %call.i.i.i = call i32 @FLAC__bitreader_get_input_bits_unconsumed(ptr noundef %69) #21
+  %72 = load ptr, ptr %private_, align 8
+  %input.i.i.i = getelementptr inbounds i8, ptr %72, i64 88
+  %73 = load ptr, ptr %input.i.i.i, align 8
+  %call.i.i.i = call i32 @FLAC__bitreader_get_input_bits_unconsumed(ptr noundef %73) #21
   %div1.i.i.i = lshr i32 %call.i.i.i, 3
   %conv.i.i = zext nneg i32 %div1.i.i.i to i64
-  %70 = load i64, ptr %upper_bound.i, align 8
-  %sub.i.i = sub i64 %70, %conv.i.i
+  %74 = load i64, ptr %upper_bound.i, align 8
+  %sub.i.i = sub i64 %74, %conv.i.i
   store i64 %sub.i.i, ptr %upper_bound.i, align 8
-  %71 = load ptr, ptr %private_, align 8
-  %samples_decoded66.i = getelementptr inbounds i8, ptr %71, i64 448
-  %72 = load i64, ptr %samples_decoded66.i, align 8
+  %75 = load ptr, ptr %private_, align 8
+  %samples_decoded66.i = getelementptr inbounds i8, ptr %75, i64 448
+  %76 = load i64, ptr %samples_decoded66.i, align 8
   br label %if.end76.i
 
 if.else68.i:                                      ; preds = %if.then57.i
@@ -5762,77 +5812,77 @@ if.else68.i:                                      ; preds = %if.then57.i
 
 if.end.i149.i:                                    ; preds = %if.else68.i
   %tell_callback.i150.i = getelementptr inbounds i8, ptr %20, i64 24
-  %73 = load ptr, ptr %tell_callback.i150.i, align 8
-  %cmp.i151.i = icmp eq ptr %73, null
+  %77 = load ptr, ptr %tell_callback.i150.i, align 8
+  %cmp.i151.i = icmp eq ptr %77, null
   br i1 %cmp.i151.i, label %if.end76.i, label %if.end3.i152.i
 
 if.end3.i152.i:                                   ; preds = %if.end.i149.i
   %client_data.i153.i = getelementptr inbounds i8, ptr %20, i64 72
-  %74 = load ptr, ptr %client_data.i153.i, align 8
-  %call.i154.i = call i32 %73(ptr noundef nonnull %decoder, ptr noundef nonnull %lower_bound.i, ptr noundef %74) #21
+  %78 = load ptr, ptr %client_data.i153.i, align 8
+  %call.i154.i = call i32 %77(ptr noundef nonnull %decoder, ptr noundef nonnull %lower_bound.i, ptr noundef %78) #21
   %cmp7.not.i155.i = icmp eq i32 %call.i154.i, 0
   br i1 %cmp7.not.i155.i, label %if.end9.i156.i, label %if.end76.i
 
 if.end9.i156.i:                                   ; preds = %if.end3.i152.i
-  %75 = load ptr, ptr %private_, align 8
-  %input.i157.i = getelementptr inbounds i8, ptr %75, i64 88
-  %76 = load ptr, ptr %input.i157.i, align 8
-  %call11.i158.i = call i32 @FLAC__bitreader_is_consumed_byte_aligned(ptr noundef %76) #21
+  %79 = load ptr, ptr %private_, align 8
+  %input.i157.i = getelementptr inbounds i8, ptr %79, i64 88
+  %80 = load ptr, ptr %input.i157.i, align 8
+  %call11.i158.i = call i32 @FLAC__bitreader_is_consumed_byte_aligned(ptr noundef %80) #21
   %tobool12.not.i159.i = icmp eq i32 %call11.i158.i, 0
   br i1 %tobool12.not.i159.i, label %if.end76.i, label %if.then71.i
 
 if.then71.i:                                      ; preds = %if.end9.i156.i
-  %77 = load ptr, ptr %private_, align 8
-  %input.i.i161.i = getelementptr inbounds i8, ptr %77, i64 88
-  %78 = load ptr, ptr %input.i.i161.i, align 8
-  %call.i.i162.i = call i32 @FLAC__bitreader_get_input_bits_unconsumed(ptr noundef %78) #21
+  %81 = load ptr, ptr %private_, align 8
+  %input.i.i161.i = getelementptr inbounds i8, ptr %81, i64 88
+  %82 = load ptr, ptr %input.i.i161.i, align 8
+  %call.i.i162.i = call i32 @FLAC__bitreader_get_input_bits_unconsumed(ptr noundef %82) #21
   %div1.i.i163.i = lshr i32 %call.i.i162.i, 3
   %conv.i164.i = zext nneg i32 %div1.i.i163.i to i64
-  %79 = load i64, ptr %lower_bound.i, align 8
-  %sub.i165.i = sub i64 %79, %conv.i164.i
+  %83 = load i64, ptr %lower_bound.i, align 8
+  %sub.i165.i = sub i64 %83, %conv.i164.i
   store i64 %sub.i165.i, ptr %lower_bound.i, align 8
-  %80 = load ptr, ptr %private_, align 8
-  %samples_decoded73.i = getelementptr inbounds i8, ptr %80, i64 448
-  %81 = load i64, ptr %samples_decoded73.i, align 8
+  %84 = load ptr, ptr %private_, align 8
+  %samples_decoded73.i = getelementptr inbounds i8, ptr %84, i64 448
+  %85 = load i64, ptr %samples_decoded73.i, align 8
   br label %if.end76.i
 
 if.end76.i:                                       ; preds = %if.then71.i, %if.end9.i156.i, %if.end3.i152.i, %if.end.i149.i, %if.else68.i, %if.then64.i, %if.end9.i.i, %if.end3.i.i, %if.end.i.i73, %if.then61.i, %land.lhs.true54.i, %if.end47.i
-  %upper_bound_sample.0.i = phi i64 [ %72, %if.then64.i ], [ %cond52.i, %if.then71.i ], [ %cond52.i, %land.lhs.true54.i ], [ %cond52.i, %if.end47.i ], [ %cond52.i, %if.then61.i ], [ %cond52.i, %if.end.i.i73 ], [ %cond52.i, %if.end3.i.i ], [ %cond52.i, %if.end9.i.i ], [ %cond52.i, %if.else68.i ], [ %cond52.i, %if.end.i149.i ], [ %cond52.i, %if.end3.i152.i ], [ %cond52.i, %if.end9.i156.i ]
-  %lower_bound_sample.0.i = phi i64 [ 0, %if.then64.i ], [ %81, %if.then71.i ], [ 0, %land.lhs.true54.i ], [ 0, %if.end47.i ], [ 0, %if.then61.i ], [ 0, %if.end.i.i73 ], [ 0, %if.end3.i.i ], [ 0, %if.end9.i.i ], [ 0, %if.else68.i ], [ 0, %if.end.i149.i ], [ 0, %if.end3.i152.i ], [ 0, %if.end9.i156.i ]
-  br i1 %tobool.not.i60, label %if.end161.i, label %if.then78.i
+  %upper_bound_sample.0.i = phi i64 [ %76, %if.then64.i ], [ %cond52.i, %if.then71.i ], [ %cond52.i, %land.lhs.true54.i ], [ %cond52.i, %if.end47.i ], [ %cond52.i, %if.then61.i ], [ %cond52.i, %if.end.i.i73 ], [ %cond52.i, %if.end3.i.i ], [ %cond52.i, %if.end9.i.i ], [ %cond52.i, %if.else68.i ], [ %cond52.i, %if.end.i149.i ], [ %cond52.i, %if.end3.i152.i ], [ %cond52.i, %if.end9.i156.i ]
+  %lower_bound_sample.0.i = phi i64 [ 0, %if.then64.i ], [ %85, %if.then71.i ], [ 0, %land.lhs.true54.i ], [ 0, %if.end47.i ], [ 0, %if.then61.i ], [ 0, %if.end.i.i73 ], [ 0, %if.end3.i.i ], [ 0, %if.end9.i.i ], [ 0, %if.else68.i ], [ 0, %if.end.i149.i ], [ 0, %if.end3.i152.i ], [ 0, %if.end9.i156.i ]
+  br i1 %tobool.not.i61, label %if.end161.i, label %if.then78.i
 
 if.then78.i:                                      ; preds = %if.end76.i
-  %82 = load i64, ptr %lower_bound.i, align 8
-  %83 = load i64, ptr %upper_bound.i, align 8
-  %84 = load i32, ptr %data21.i, align 8
-  %cmp79255.i = icmp sgt i32 %84, 0
-  br i1 %cmp79255.i, label %for.body.lr.ph.i, label %if.end157.i
+  %86 = load i64, ptr %lower_bound.i, align 8
+  %87 = load i64, ptr %upper_bound.i, align 8
+  %88 = load i32, ptr %data21.i, align 8
+  %cmp79267.i = icmp sgt i32 %88, 0
+  br i1 %cmp79267.i, label %for.body.lr.ph.i, label %if.end157.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then78.i
   %points.i = getelementptr inbounds i8, ptr %20, i64 664
-  %85 = load ptr, ptr %points.i, align 8
-  %86 = load i64, ptr @FLAC__STREAM_METADATA_SEEKPOINT_PLACEHOLDER, align 8
-  %87 = add i64 %cond.i.i59, -1
-  %88 = zext nneg i32 %84 to i64
+  %89 = load ptr, ptr %points.i, align 8
+  %90 = load i64, ptr @FLAC__STREAM_METADATA_SEEKPOINT_PLACEHOLDER, align 8
+  %91 = add i64 %cond.i.i60, -1
+  %92 = zext nneg i32 %88 to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i72, %for.body.lr.ph.i
-  %indvars.iv.i = phi i64 [ %88, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i72 ]
+  %indvars.iv.i = phi i64 [ %92, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i72 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %arrayidx.i = getelementptr inbounds %struct.FLAC__StreamMetadata_SeekPoint, ptr %85, i64 %indvars.iv.next.i
-  %89 = load i64, ptr %arrayidx.i, align 8
-  %cmp80.not.i = icmp eq i64 %89, %86
+  %arrayidx.i = getelementptr inbounds %struct.FLAC__StreamMetadata_SeekPoint, ptr %89, i64 %indvars.iv.next.i
+  %93 = load i64, ptr %arrayidx.i, align 8
+  %cmp80.not.i = icmp eq i64 %93, %90
   br i1 %cmp80.not.i, label %for.inc.i72, label %land.lhs.true81.i
 
 land.lhs.true81.i:                                ; preds = %for.body.i
   %frame_samples.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
-  %90 = load i32, ptr %frame_samples.i, align 8
-  %cmp85.not.i = icmp eq i32 %90, 0
-  %or.cond140.i = icmp ult i64 %87, %89
-  %or.cond227.not231.i = select i1 %cmp85.not.i, i1 true, i1 %or.cond140.i
-  %cmp98.not.i = icmp ugt i64 %89, %sample
-  %or.cond228.i = or i1 %cmp98.not.i, %or.cond227.not231.i
-  br i1 %or.cond228.i, label %for.inc.i72, label %if.then102.i
+  %94 = load i32, ptr %frame_samples.i, align 8
+  %cmp85.not.i = icmp eq i32 %94, 0
+  %or.cond140.i = icmp ult i64 %91, %93
+  %or.cond239.not243.i = select i1 %cmp85.not.i, i1 true, i1 %or.cond140.i
+  %cmp98.not.i = icmp ugt i64 %93, %sample
+  %or.cond240.i = or i1 %cmp98.not.i, %or.cond239.not243.i
+  br i1 %or.cond240.i, label %for.inc.i72, label %if.then102.i
 
 for.inc.i72:                                      ; preds = %land.lhs.true81.i, %for.body.i
   %cmp79.i = icmp ugt i64 %indvars.iv.i, 1
@@ -5840,349 +5890,396 @@ for.inc.i72:                                      ; preds = %land.lhs.true81.i, 
 
 if.then102.i:                                     ; preds = %land.lhs.true81.i
   %stream_offset.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
-  %91 = load i64, ptr %stream_offset.i, align 8
-  %add106.i = add i64 %91, %49
+  %95 = load i64, ptr %stream_offset.i, align 8
+  %add106.i = add i64 %95, %53
   br label %for.body115.lr.ph.i
 
 for.body115.lr.ph.i:                              ; preds = %for.inc.i72, %if.then102.i
-  %new_lower_bound.0.i = phi i64 [ %add106.i, %if.then102.i ], [ %82, %for.inc.i72 ]
-  %new_lower_bound_sample.0.i = phi i64 [ %89, %if.then102.i ], [ %lower_bound_sample.0.i, %for.inc.i72 ]
-  %points116.i = getelementptr inbounds i8, ptr %spec.select.i61, i64 8
-  %92 = load ptr, ptr %points116.i, align 8
+  %new_lower_bound.0.i = phi i64 [ %add106.i, %if.then102.i ], [ %86, %for.inc.i72 ]
+  %new_lower_bound_sample.0.i = phi i64 [ %93, %if.then102.i ], [ %lower_bound_sample.0.i, %for.inc.i72 ]
+  %points116.i = getelementptr inbounds i8, ptr %spec.select.i62, i64 8
+  %96 = load ptr, ptr %points116.i, align 8
   br label %for.body115.i
 
 for.body115.i:                                    ; preds = %for.inc143.i, %for.body115.lr.ph.i
-  %indvars.iv314.i = phi i64 [ 0, %for.body115.lr.ph.i ], [ %indvars.iv.next315.i, %for.inc143.i ]
-  %arrayidx118.i = getelementptr inbounds %struct.FLAC__StreamMetadata_SeekPoint, ptr %92, i64 %indvars.iv314.i
-  %93 = load i64, ptr %arrayidx118.i, align 8
-  %cmp120.not.i = icmp eq i64 %93, %86
+  %indvars.iv326.i = phi i64 [ 0, %for.body115.lr.ph.i ], [ %indvars.iv.next327.i, %for.inc143.i ]
+  %arrayidx118.i = getelementptr inbounds %struct.FLAC__StreamMetadata_SeekPoint, ptr %96, i64 %indvars.iv326.i
+  %97 = load i64, ptr %arrayidx118.i, align 8
+  %cmp120.not.i = icmp eq i64 %97, %90
   br i1 %cmp120.not.i, label %for.inc143.i, label %land.lhs.true121.i
 
 land.lhs.true121.i:                               ; preds = %for.body115.i
   %frame_samples125.i = getelementptr inbounds i8, ptr %arrayidx118.i, i64 16
-  %94 = load i32, ptr %frame_samples125.i, align 8
-  %cmp126.not.i = icmp ne i32 %94, 0
-  %or.cond141.i = icmp uge i64 %87, %93
-  %or.cond229.i = select i1 %cmp126.not.i, i1 %or.cond141.i, i1 false
-  %cmp140.i = icmp ugt i64 %93, %sample
-  %or.cond230.i = and i1 %cmp140.i, %or.cond229.i
-  br i1 %or.cond230.i, label %if.then147.i, label %for.inc143.i
+  %98 = load i32, ptr %frame_samples125.i, align 8
+  %cmp126.not.i = icmp ne i32 %98, 0
+  %or.cond141.i = icmp uge i64 %91, %97
+  %or.cond241.i = select i1 %cmp126.not.i, i1 %or.cond141.i, i1 false
+  %cmp140.i = icmp ugt i64 %97, %sample
+  %or.cond242.i = and i1 %cmp140.i, %or.cond241.i
+  br i1 %or.cond242.i, label %if.then147.i, label %for.inc143.i
 
 for.inc143.i:                                     ; preds = %land.lhs.true121.i, %for.body115.i
-  %indvars.iv.next315.i = add nuw nsw i64 %indvars.iv314.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next315.i, %88
+  %indvars.iv.next327.i = add nuw nsw i64 %indvars.iv326.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next327.i, %92
   br i1 %exitcond.not.i, label %if.end157.i, label %for.body115.i, !llvm.loop !36
 
 if.then147.i:                                     ; preds = %land.lhs.true121.i
-  %idxprom149.i = and i64 %indvars.iv314.i, 4294967295
-  %arrayidx150.i = getelementptr inbounds %struct.FLAC__StreamMetadata_SeekPoint, ptr %92, i64 %idxprom149.i
+  %idxprom149.i = and i64 %indvars.iv326.i, 4294967295
+  %arrayidx150.i = getelementptr inbounds %struct.FLAC__StreamMetadata_SeekPoint, ptr %96, i64 %idxprom149.i
   %stream_offset151.i = getelementptr inbounds i8, ptr %arrayidx150.i, i64 8
-  %95 = load i64, ptr %stream_offset151.i, align 8
-  %add152.i = add i64 %95, %49
-  %96 = load i64, ptr %arrayidx150.i, align 8
+  %99 = load i64, ptr %stream_offset151.i, align 8
+  %add152.i = add i64 %99, %53
+  %100 = load i64, ptr %arrayidx150.i, align 8
   br label %if.end157.i
 
 if.end157.i:                                      ; preds = %for.inc143.i, %if.then147.i, %if.then78.i
-  %new_lower_bound_sample.0323.i = phi i64 [ %new_lower_bound_sample.0.i, %if.then147.i ], [ %lower_bound_sample.0.i, %if.then78.i ], [ %new_lower_bound_sample.0.i, %for.inc143.i ]
-  %new_lower_bound.0322.i = phi i64 [ %new_lower_bound.0.i, %if.then147.i ], [ %82, %if.then78.i ], [ %new_lower_bound.0.i, %for.inc143.i ]
-  %new_upper_bound.0.i = phi i64 [ %add152.i, %if.then147.i ], [ %83, %if.then78.i ], [ %83, %for.inc143.i ]
-  %new_upper_bound_sample.0.i = phi i64 [ %96, %if.then147.i ], [ %upper_bound_sample.0.i, %if.then78.i ], [ %upper_bound_sample.0.i, %for.inc143.i ]
-  %cmp158.not.i = icmp ult i64 %new_upper_bound.0.i, %new_lower_bound.0322.i
+  %new_lower_bound_sample.0333.i = phi i64 [ %new_lower_bound_sample.0.i, %if.then147.i ], [ %lower_bound_sample.0.i, %if.then78.i ], [ %new_lower_bound_sample.0.i, %for.inc143.i ]
+  %new_lower_bound.0332.i = phi i64 [ %new_lower_bound.0.i, %if.then147.i ], [ %86, %if.then78.i ], [ %new_lower_bound.0.i, %for.inc143.i ]
+  %new_upper_bound.0.i = phi i64 [ %add152.i, %if.then147.i ], [ %87, %if.then78.i ], [ %87, %for.inc143.i ]
+  %new_upper_bound_sample.0.i = phi i64 [ %100, %if.then147.i ], [ %upper_bound_sample.0.i, %if.then78.i ], [ %upper_bound_sample.0.i, %for.inc143.i ]
+  %cmp158.not.i = icmp ult i64 %new_upper_bound.0.i, %new_lower_bound.0332.i
   br i1 %cmp158.not.i, label %if.end161.i, label %if.then159.i
 
 if.then159.i:                                     ; preds = %if.end157.i
-  store i64 %new_lower_bound.0322.i, ptr %lower_bound.i, align 8
+  store i64 %new_lower_bound.0332.i, ptr %lower_bound.i, align 8
   store i64 %new_upper_bound.0.i, ptr %upper_bound.i, align 8
   br label %if.end161.i
 
 if.end161.i:                                      ; preds = %if.then159.i, %if.end157.i, %if.end76.i
   %upper_bound_sample.1.i = phi i64 [ %new_upper_bound_sample.0.i, %if.then159.i ], [ %upper_bound_sample.0.i, %if.end157.i ], [ %upper_bound_sample.0.i, %if.end76.i ]
-  %lower_bound_sample.1.i = phi i64 [ %new_lower_bound_sample.0323.i, %if.then159.i ], [ %lower_bound_sample.0.i, %if.end157.i ], [ %lower_bound_sample.0.i, %if.end76.i ]
+  %lower_bound_sample.1.i = phi i64 [ %new_lower_bound_sample.0333.i, %if.then159.i ], [ %lower_bound_sample.0.i, %if.end157.i ], [ %lower_bound_sample.0.i, %if.end76.i ]
   %cmp162.i = icmp eq i64 %upper_bound_sample.1.i, %lower_bound_sample.1.i
   %inc164.i = zext i1 %cmp162.i to i64
   %spec.select142.i = add i64 %upper_bound_sample.1.i, %inc164.i
-  %97 = load ptr, ptr %private_, align 8
-  %target_sample167.i = getelementptr inbounds i8, ptr %97, i64 8912
+  %101 = load ptr, ptr %private_, align 8
+  %target_sample167.i = getelementptr inbounds i8, ptr %101, i64 8912
   store i64 %sample, ptr %target_sample167.i, align 8
-  %cmp177.not267.i = icmp ult i64 %lower_bound_sample.1.i, %spec.select142.i
-  %cmp177.not.fr272.i = freeze i1 %cmp177.not267.i
-  br i1 %cmp177.not.fr272.i, label %while.body.outer.split.us.lr.ph.preheader.i, label %while.body.i65
+  %cmp177.not279.i = icmp ult i64 %lower_bound_sample.1.i, %spec.select142.i
+  %cmp177.not.fr284.i = freeze i1 %cmp177.not279.i
+  br i1 %cmp177.not.fr284.i, label %while.body.outer.split.us.lr.ph.preheader.i, label %while.body.i66
 
 while.body.outer.split.us.lr.ph.preheader.i:      ; preds = %if.end161.i
-  %sub190270.i = sub i64 %spec.select142.i, %lower_bound_sample.1.i
+  %sub190282.i = sub i64 %spec.select142.i, %lower_bound_sample.1.i
   br label %while.body.outer.split.us.lr.ph.i
 
 while.body.outer.split.us.lr.ph.i:                ; preds = %if.end326.i, %while.body.outer.split.us.lr.ph.preheader.i
-  %conv191.pn.in.i = phi i64 [ %sub190.i, %if.end326.i ], [ %sub190270.i, %while.body.outer.split.us.lr.ph.preheader.i ]
-  %lower_bound_sample.2.ph.ph278.i = phi i64 [ %lower_bound_sample.3.i, %if.end326.i ], [ %lower_bound_sample.1.i, %while.body.outer.split.us.lr.ph.preheader.i ]
-  %upper_bound_sample.3.ph.ph277.i = phi i64 [ %upper_bound_sample.4.i, %if.end326.i ], [ %spec.select142.i, %while.body.outer.split.us.lr.ph.preheader.i ]
-  %approx_bytes_per_frame.1.ph.ph276.i = phi i32 [ %approx_bytes_per_frame.2.i, %if.end326.i ], [ %approx_bytes_per_frame.0.i, %while.body.outer.split.us.lr.ph.preheader.i ]
-  %first_seek.0.ph.ph275.i = phi i32 [ 0, %if.end326.i ], [ 1, %while.body.outer.split.us.lr.ph.preheader.i ]
-  %conv279.in.i = sub i64 %sample, %lower_bound_sample.2.ph.ph278.i
-  %conv279.i = uitofp i64 %conv279.in.i to double
+  %conv191.pn.in.i = phi i64 [ %sub190.i, %if.end326.i ], [ %sub190282.i, %while.body.outer.split.us.lr.ph.preheader.i ]
+  %lower_bound_sample.2.ph.ph290.i = phi i64 [ %lower_bound_sample.3.i, %if.end326.i ], [ %lower_bound_sample.1.i, %while.body.outer.split.us.lr.ph.preheader.i ]
+  %upper_bound_sample.3.ph.ph289.i = phi i64 [ %upper_bound_sample.4.i, %if.end326.i ], [ %spec.select142.i, %while.body.outer.split.us.lr.ph.preheader.i ]
+  %approx_bytes_per_frame.1.ph.ph288.i = phi i32 [ %approx_bytes_per_frame.2.i, %if.end326.i ], [ %approx_bytes_per_frame.0.i, %while.body.outer.split.us.lr.ph.preheader.i ]
+  %first_seek.0.ph.ph287.i = phi i32 [ 0, %if.end326.i ], [ 1, %while.body.outer.split.us.lr.ph.preheader.i ]
+  %conv291.in.i = sub i64 %sample, %lower_bound_sample.2.ph.ph290.i
+  %conv291.i = uitofp i64 %conv291.in.i to double
   %conv191.pn.i = uitofp i64 %conv191.pn.in.i to double
-  %98 = fdiv reassoc nsz arcp double 1.000000e+00, %conv191.pn.i
+  %102 = fdiv reassoc nsz arcp double 1.000000e+00, %conv191.pn.i
   br label %while.body.outer.split.us.i
 
 while.body.outer.split.us.i:                      ; preds = %if.end274.i, %while.body.outer.split.us.lr.ph.i
-  %approx_bytes_per_frame.1.ph265.i = phi i32 [ %approx_bytes_per_frame.1.ph.ph276.i, %while.body.outer.split.us.lr.ph.i ], [ %cond280.i, %if.end274.i ]
-  %first_seek.0.ph264.i = phi i32 [ %first_seek.0.ph.ph275.i, %while.body.outer.split.us.lr.ph.i ], [ 0, %if.end274.i ]
-  %conv198262.pn.pn.i = zext i32 %approx_bytes_per_frame.1.ph265.i to i64
+  %approx_bytes_per_frame.1.ph277.i = phi i32 [ %approx_bytes_per_frame.1.ph.ph288.i, %while.body.outer.split.us.lr.ph.i ], [ %cond280.i, %if.end274.i ]
+  %first_seek.0.ph276.i = phi i32 [ %first_seek.0.ph.ph287.i, %while.body.outer.split.us.lr.ph.i ], [ 0, %if.end274.i ]
+  %conv198274.pn.pn.i = zext i32 %approx_bytes_per_frame.1.ph277.i to i64
   br label %while.body.us.i
 
 while.body.us.i:                                  ; preds = %land.lhs.true241.us.i, %while.body.outer.split.us.i
   %tobool186.us.i = phi i1 [ true, %land.lhs.true241.us.i ], [ false, %while.body.outer.split.us.i ]
-  %99 = load ptr, ptr %decoder, align 8
-  %100 = load i32, ptr %99, align 8
-  %.off.us.i = add i32 %100, -7
+  %103 = load ptr, ptr %decoder, align 8
+  %104 = load i32, ptr %103, align 8
+  %.off.us.i = add i32 %104, -7
   %switch.us.i = icmp ult i32 %.off.us.i, 2
   br i1 %switch.us.i, label %seek_to_absolute_sample_.exit, label %if.end176.us.i
 
 if.end176.us.i:                                   ; preds = %while.body.us.i
-  %101 = load i64, ptr %lower_bound.i, align 8
-  %102 = load i64, ptr %upper_bound.i, align 8
-  %cmp179.us.i = icmp ugt i64 %101, %102
-  %cmp181.us.i = icmp ugt i64 %102, 9223372036854775806
+  %105 = load i64, ptr %lower_bound.i, align 8
+  %106 = load i64, ptr %upper_bound.i, align 8
+  %cmp179.us.i = icmp ugt i64 %105, %106
+  %cmp181.us.i = icmp ugt i64 %106, 9223372036854775806
   %or.cond1.us.i = or i1 %cmp179.us.i, %cmp181.us.i
-  br i1 %or.cond1.us.i, label %return.sink.split.i66, label %if.end185.us.i
+  br i1 %or.cond1.us.i, label %return.sink.split.i67, label %if.end185.us.i
 
 if.end185.us.i:                                   ; preds = %if.end176.us.i
   br i1 %tobool186.us.i, label %if.end200.us.i, label %if.else188.us.i
 
 if.else188.us.i:                                  ; preds = %if.end185.us.i
-  %sub193.us.i = sub i64 %102, %101
+  %sub193.us.i = sub i64 %106, %105
   %conv194.us.i = uitofp i64 %sub193.us.i to double
-  %103 = fmul reassoc nsz arcp double %conv279.i, %conv194.us.i
-  %104 = fmul reassoc nsz arcp double %103, %98
-  %conv196.us.i = fptosi double %104 to i64
-  %add197.us.i = sub i64 %101, %conv198262.pn.pn.i
+  %107 = fmul reassoc nsz arcp double %conv291.i, %conv194.us.i
+  %108 = fmul reassoc nsz arcp double %107, %102
+  %conv196.us.i = fptosi double %108 to i64
+  %add197.us.i = sub i64 %105, %conv198274.pn.pn.i
   %sub199.us.i = add i64 %add197.us.i, %conv196.us.i
   br label %if.end200.us.i
 
 if.end200.us.i:                                   ; preds = %if.else188.us.i, %if.end185.us.i
-  %pos.0.us.i = phi i64 [ %sub199.us.i, %if.else188.us.i ], [ %101, %if.end185.us.i ]
-  %cmp201.not.us.i = icmp slt i64 %pos.0.us.i, %102
-  %sub204.us.i = add nsw i64 %102, -1
+  %pos.0.us.i = phi i64 [ %sub199.us.i, %if.else188.us.i ], [ %105, %if.end185.us.i ]
+  %cmp201.not.us.i = icmp slt i64 %pos.0.us.i, %106
+  %sub204.us.i = add nsw i64 %106, -1
   %spec.select143.us.i = select i1 %cmp201.not.us.i, i64 %pos.0.us.i, i64 %sub204.us.i
-  %pos.2.us.i = call i64 @llvm.smax.i64(i64 %spec.select143.us.i, i64 %101)
-  %105 = load ptr, ptr %private_, align 8
-  %seek_callback.us.i = getelementptr inbounds i8, ptr %105, i64 16
-  %106 = load ptr, ptr %seek_callback.us.i, align 8
-  %client_data.us.i = getelementptr inbounds i8, ptr %105, i64 72
-  %107 = load ptr, ptr %client_data.us.i, align 8
-  %call212.us.i = call i32 %106(ptr noundef nonnull %decoder, i64 noundef %pos.2.us.i, ptr noundef %107) #21
+  %pos.2.us.i = call i64 @llvm.smax.i64(i64 %spec.select143.us.i, i64 %105)
+  %109 = load ptr, ptr %private_, align 8
+  %seek_callback.us.i = getelementptr inbounds i8, ptr %109, i64 16
+  %110 = load ptr, ptr %seek_callback.us.i, align 8
+  %client_data.us.i = getelementptr inbounds i8, ptr %109, i64 72
+  %111 = load ptr, ptr %client_data.us.i, align 8
+  %call212.us.i = call i32 %110(ptr noundef nonnull %decoder, i64 noundef %pos.2.us.i, ptr noundef %111) #21
   %cmp213.not.us.i = icmp eq i32 %call212.us.i, 0
-  br i1 %cmp213.not.us.i, label %if.end218.us.i, label %return.sink.split.sink.split.i68
+  br i1 %cmp213.not.us.i, label %if.end218.us.i, label %return.sink.split.sink.split.i69
 
 if.end218.us.i:                                   ; preds = %if.end200.us.i
-  %108 = load ptr, ptr %private_, align 8
-  %internal_reset_hack.i.us.i = getelementptr inbounds i8, ptr %108, i64 5124
-  %109 = load i32, ptr %internal_reset_hack.i.us.i, align 4
-  %tobool.not.i168.us.i = icmp eq i32 %109, 0
+  %112 = load ptr, ptr %private_, align 8
+  %internal_reset_hack.i.us.i = getelementptr inbounds i8, ptr %112, i64 5124
+  %113 = load i32, ptr %internal_reset_hack.i.us.i, align 4
+  %tobool.not.i168.us.i = icmp eq i32 %113, 0
   br i1 %tobool.not.i168.us.i, label %land.lhs.true.i.us.i, label %if.end.i169.us.i
 
 land.lhs.true.i.us.i:                             ; preds = %if.end218.us.i
-  %110 = load ptr, ptr %decoder, align 8
-  %111 = load i32, ptr %110, align 8
-  %cmp.i174.us.i = icmp eq i32 %111, 9
+  %114 = load ptr, ptr %decoder, align 8
+  %115 = load i32, ptr %114, align 8
+  %cmp.i174.us.i = icmp eq i32 %115, 9
   br i1 %cmp.i174.us.i, label %seek_to_absolute_sample_.exit, label %if.end.i169.us.i
 
 if.end.i169.us.i:                                 ; preds = %land.lhs.true.i.us.i, %if.end218.us.i
-  %samples_decoded.i.us.i = getelementptr inbounds i8, ptr %108, i64 448
+  %samples_decoded.i.us.i = getelementptr inbounds i8, ptr %112, i64 448
   store i64 0, ptr %samples_decoded.i.us.i, align 8
-  %112 = load ptr, ptr %private_, align 8
-  %do_md5_checking.i.us.i = getelementptr inbounds i8, ptr %112, i64 5120
+  %116 = load ptr, ptr %private_, align 8
+  %do_md5_checking.i.us.i = getelementptr inbounds i8, ptr %116, i64 5120
   store i32 0, ptr %do_md5_checking.i.us.i, align 8
-  %113 = load ptr, ptr %private_, align 8
-  %last_seen_framesync.i.us.i = getelementptr inbounds i8, ptr %113, i64 8904
+  %117 = load ptr, ptr %private_, align 8
+  %last_seen_framesync.i.us.i = getelementptr inbounds i8, ptr %117, i64 8904
   store i64 0, ptr %last_seen_framesync.i.us.i, align 8
-  %114 = load ptr, ptr %private_, align 8
-  %last_frame_is_set.i.us.i = getelementptr inbounds i8, ptr %114, i64 8888
+  %118 = load ptr, ptr %private_, align 8
+  %last_frame_is_set.i.us.i = getelementptr inbounds i8, ptr %118, i64 8888
   store i32 0, ptr %last_frame_is_set.i.us.i, align 8
-  %115 = load ptr, ptr %private_, align 8
-  %116 = load i32, ptr %115, align 8
-  %tobool6.not.i.us.i = icmp eq i32 %116, 0
+  %119 = load ptr, ptr %private_, align 8
+  %120 = load i32, ptr %119, align 8
+  %tobool6.not.i.us.i = icmp eq i32 %120, 0
   br i1 %tobool6.not.i.us.i, label %FLAC__stream_decoder_flush.exit.us.i, label %if.then7.i.us.i
 
 if.then7.i.us.i:                                  ; preds = %if.end.i169.us.i
-  %117 = load ptr, ptr %decoder, align 8
-  %ogg_decoder_aspect.i.us.i = getelementptr inbounds i8, ptr %117, i64 32
+  %121 = load ptr, ptr %decoder, align 8
+  %ogg_decoder_aspect.i.us.i = getelementptr inbounds i8, ptr %121, i64 32
   call void @FLAC__ogg_decoder_aspect_flush(ptr noundef nonnull %ogg_decoder_aspect.i.us.i) #21
   %.pre.i.us.i = load ptr, ptr %private_, align 8
   br label %FLAC__stream_decoder_flush.exit.us.i
 
 FLAC__stream_decoder_flush.exit.us.i:             ; preds = %if.then7.i.us.i, %if.end.i169.us.i
-  %118 = phi ptr [ %.pre.i.us.i, %if.then7.i.us.i ], [ %115, %if.end.i169.us.i ]
-  %input.i171.us.i = getelementptr inbounds i8, ptr %118, i64 88
-  %119 = load ptr, ptr %input.i171.us.i, align 8
-  %call.i172.us.i = call i32 @FLAC__bitreader_clear(ptr noundef %119) #21
+  %122 = phi ptr [ %.pre.i.us.i, %if.then7.i.us.i ], [ %119, %if.end.i169.us.i ]
+  %input.i171.us.i = getelementptr inbounds i8, ptr %122, i64 88
+  %123 = load ptr, ptr %input.i171.us.i, align 8
+  %call.i172.us.i = call i32 @FLAC__bitreader_clear(ptr noundef %123) #21
   %tobool11.not.i.not.us.i = icmp eq i32 %call.i172.us.i, 0
-  %120 = load ptr, ptr %decoder, align 8
+  %124 = load ptr, ptr %decoder, align 8
   %..i.us.i = select i1 %tobool11.not.i.not.us.i, i32 8, i32 2
-  store i32 %..i.us.i, ptr %120, align 8
+  store i32 %..i.us.i, ptr %124, align 8
   br i1 %tobool11.not.i.not.us.i, label %seek_to_absolute_sample_.exit, label %if.end222.us.i
 
 if.end222.us.i:                                   ; preds = %FLAC__stream_decoder_flush.exit.us.i
-  %121 = load ptr, ptr %private_, align 8
-  %unparseable_frame_count.us.i = getelementptr inbounds i8, ptr %121, i64 8920
+  %125 = load ptr, ptr %private_, align 8
+  %unparseable_frame_count.us.i = getelementptr inbounds i8, ptr %125, i64 8920
   store i32 0, ptr %unparseable_frame_count.us.i, align 8
-  %call224.us.i = call i32 @FLAC__stream_decoder_process_single(ptr noundef nonnull %decoder)
-  %tobool225.not.us.i = icmp eq i32 %call224.us.i, 0
-  %.pre.i69 = load ptr, ptr %decoder, align 8
-  %.pre318.i = load i32, ptr %.pre.i69, align 8
-  %cmp239.not.us.i = icmp eq i32 %.pre318.i, 7
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %got_a_frame.i.i53)
+  br label %while.body.i.us.i
+
+while.body.i.us.i:                                ; preds = %while.body.i.us.i.backedge, %if.end222.us.i
+  %126 = load ptr, ptr %decoder, align 8
+  %127 = load i32, ptr %126, align 8
+  switch i32 %127, label %FLAC__stream_decoder_process_single.exit.thread.us.i [
+    i32 0, label %sw.bb.i.us.i
+    i32 1, label %FLAC__stream_decoder_process_single.exit.us.i
+    i32 2, label %sw.bb5.i.us.i
+    i32 3, label %sw.bb10.i.us.i
+    i32 4, label %FLAC__stream_decoder_process_single.exit.thread232.us.i
+    i32 7, label %FLAC__stream_decoder_process_single.exit.thread232.us.i
+  ]
+
+sw.bb10.i.us.i:                                   ; preds = %while.body.i.us.i
+  %call11.i176.us.i = call fastcc i32 @read_frame_(ptr noundef nonnull %decoder, ptr noundef nonnull %got_a_frame.i.i53, i32 noundef 1)
+  %tobool12.not.i177.us.i = icmp eq i32 %call11.i176.us.i, 0
+  br i1 %tobool12.not.i177.us.i, label %FLAC__stream_decoder_process_single.exit.thread.us.i, label %if.end14.i178.us.i
+
+if.end14.i178.us.i:                               ; preds = %sw.bb10.i.us.i
+  %128 = load i32, ptr %got_a_frame.i.i53, align 4
+  %tobool15.not.i.us.i = icmp eq i32 %128, 0
+  br i1 %tobool15.not.i.us.i, label %while.body.i.us.i.backedge, label %FLAC__stream_decoder_process_single.exit.thread232.us.i
+
+sw.bb5.i.us.i:                                    ; preds = %while.body.i.us.i
+  %call6.i.us.i = call fastcc i32 @frame_sync_(ptr noundef nonnull %decoder)
+  %tobool7.not.i.us.i = icmp eq i32 %call6.i.us.i, 0
+  br i1 %tobool7.not.i.us.i, label %FLAC__stream_decoder_process_single.exit.thread232.us.i, label %while.body.i.us.i.backedge
+
+FLAC__stream_decoder_process_single.exit.thread232.us.i: ; preds = %sw.bb5.i.us.i, %if.end14.i178.us.i, %while.body.i.us.i, %while.body.i.us.i
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %got_a_frame.i.i53)
+  br label %lor.lhs.false226.us.i
+
+FLAC__stream_decoder_process_single.exit.us.i:    ; preds = %while.body.i.us.i
+  %call2.i.us.i = call fastcc i32 @read_metadata_(ptr noundef nonnull %decoder)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %got_a_frame.i.i53)
+  %tobool225.not.us.i = icmp eq i32 %call2.i.us.i, 0
   br i1 %tobool225.not.us.i, label %if.then236.us.i, label %lor.lhs.false226.us.i
 
-lor.lhs.false226.us.i:                            ; preds = %if.end222.us.i
-  br i1 %cmp239.not.us.i, label %return.sink.split.i66, label %lor.lhs.false231.us.i
+lor.lhs.false226.us.i:                            ; preds = %FLAC__stream_decoder_process_single.exit.us.i, %FLAC__stream_decoder_process_single.exit.thread232.us.i
+  %129 = load ptr, ptr %decoder, align 8
+  %130 = load i32, ptr %129, align 8
+  %cmp229.us.i = icmp eq i32 %130, 7
+  br i1 %cmp229.us.i, label %if.then236.us.i, label %lor.lhs.false231.us.i
 
 lor.lhs.false231.us.i:                            ; preds = %lor.lhs.false226.us.i
-  %122 = load ptr, ptr %private_, align 8
-  %samples_decoded233.us.i = getelementptr inbounds i8, ptr %122, i64 448
-  %123 = load i64, ptr %samples_decoded233.us.i, align 8
-  %cmp234.us.i = icmp eq i64 %123, 0
-  br i1 %cmp234.us.i, label %land.lhs.true241.us.i, label %if.end253.split.us.i
+  %131 = load ptr, ptr %private_, align 8
+  %samples_decoded233.us.i = getelementptr inbounds i8, ptr %131, i64 448
+  %132 = load i64, ptr %samples_decoded233.us.i, align 8
+  %cmp234.us.i = icmp eq i64 %132, 0
+  br i1 %cmp234.us.i, label %if.then236.us.i, label %if.end253.split.us.i
 
-if.then236.us.i:                                  ; preds = %if.end222.us.i
-  br i1 %cmp239.not.us.i, label %return.sink.split.i66, label %if.then236.us.i.land.lhs.true241.us.i_crit_edge
+sw.bb.i.us.i:                                     ; preds = %while.body.i.us.i
+  %call.i179.us.i = call fastcc i32 @find_metadata_(ptr noundef nonnull %decoder)
+  %tobool.not.i180.us.i = icmp eq i32 %call.i179.us.i, 0
+  br i1 %tobool.not.i180.us.i, label %FLAC__stream_decoder_process_single.exit.thread.us.i, label %while.body.i.us.i.backedge
 
-if.then236.us.i.land.lhs.true241.us.i_crit_edge:  ; preds = %if.then236.us.i
-  %.pre127 = load ptr, ptr %private_, align 8
-  br label %land.lhs.true241.us.i
+while.body.i.us.i.backedge:                       ; preds = %sw.bb.i.us.i, %sw.bb5.i.us.i, %if.end14.i178.us.i
+  br label %while.body.i.us.i
 
-land.lhs.true241.us.i:                            ; preds = %if.then236.us.i.land.lhs.true241.us.i_crit_edge, %lor.lhs.false231.us.i
-  %124 = phi ptr [ %.pre127, %if.then236.us.i.land.lhs.true241.us.i_crit_edge ], [ %122, %lor.lhs.false231.us.i ]
-  %eof_callback.us.i = getelementptr inbounds i8, ptr %124, i64 40
-  %125 = load ptr, ptr %eof_callback.us.i, align 8
-  %client_data244.us.i = getelementptr inbounds i8, ptr %124, i64 72
-  %126 = load ptr, ptr %client_data244.us.i, align 8
-  %call245.us.i = call i32 %125(ptr noundef nonnull %decoder, ptr noundef %126) #21
+FLAC__stream_decoder_process_single.exit.thread.us.i: ; preds = %sw.bb.i.us.i, %sw.bb10.i.us.i, %while.body.i.us.i
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %got_a_frame.i.i53)
+  br label %if.then236.us.i
+
+if.then236.us.i:                                  ; preds = %FLAC__stream_decoder_process_single.exit.thread.us.i, %lor.lhs.false231.us.i, %lor.lhs.false226.us.i, %FLAC__stream_decoder_process_single.exit.us.i
+  %133 = load ptr, ptr %decoder, align 8
+  %134 = load i32, ptr %133, align 8
+  %cmp239.not.us.i = icmp eq i32 %134, 7
+  br i1 %cmp239.not.us.i, label %return.sink.split.i67, label %land.lhs.true241.us.i
+
+land.lhs.true241.us.i:                            ; preds = %if.then236.us.i
+  %135 = load ptr, ptr %private_, align 8
+  %eof_callback.us.i = getelementptr inbounds i8, ptr %135, i64 40
+  %136 = load ptr, ptr %eof_callback.us.i, align 8
+  %client_data244.us.i = getelementptr inbounds i8, ptr %135, i64 72
+  %137 = load ptr, ptr %client_data244.us.i, align 8
+  %call245.us.i = call i32 %136(ptr noundef nonnull %decoder, ptr noundef %137) #21
   %tobool246.us.i = icmp eq i32 %call245.us.i, 0
   %or.cond2.us.i = or i1 %tobool186.us.i, %tobool246.us.i
-  br i1 %or.cond2.us.i, label %return.sink.split.sink.split.i68, label %while.body.us.i
+  br i1 %or.cond2.us.i, label %return.sink.split.sink.split.i69, label %while.body.us.i
 
 if.end253.split.us.i:                             ; preds = %lor.lhs.false231.us.i
-  %is_seeking.i70 = getelementptr inbounds i8, ptr %122, i64 5128
-  %127 = load i32, ptr %is_seeking.i70, align 8
-  %tobool255.not.i = icmp eq i32 %127, 0
+  %is_seeking.i70 = getelementptr inbounds i8, ptr %131, i64 5128
+  %138 = load i32, ptr %is_seeking.i70, align 8
+  %tobool255.not.i = icmp eq i32 %138, 0
   br i1 %tobool255.not.i, label %seek_to_absolute_sample_.exit, label %if.end257.i
 
-while.body.i65:                                   ; preds = %if.end326.i, %if.end161.i
-  %128 = load ptr, ptr %decoder, align 8
-  %129 = load i32, ptr %128, align 8
-  %.off.i = add i32 %129, -7
+while.body.i66:                                   ; preds = %if.end326.i, %if.end161.i
+  %139 = load ptr, ptr %decoder, align 8
+  %140 = load i32, ptr %139, align 8
+  %.off.i = add i32 %140, -7
   %switch.i = icmp ult i32 %.off.i, 2
-  br i1 %switch.i, label %seek_to_absolute_sample_.exit, label %return.sink.split.i66
+  br i1 %switch.i, label %seek_to_absolute_sample_.exit, label %return.sink.split.i67
 
 if.end257.i:                                      ; preds = %if.end253.split.us.i
-  %last_frame.i = getelementptr inbounds i8, ptr %122, i64 5256
-  %number.i71 = getelementptr inbounds i8, ptr %122, i64 5280
-  %130 = load i64, ptr %number.i71, align 8
-  %131 = load i32, ptr %last_frame.i, align 8
-  %conv262.i = zext i32 %131 to i64
-  %add263.i = add i64 %130, %conv262.i
-  %cmp264.i = icmp ult i64 %add263.i, %upper_bound_sample.3.ph.ph277.i
-  %tobool267.i = icmp ne i32 %first_seek.0.ph264.i, 0
+  %last_frame.i = getelementptr inbounds i8, ptr %131, i64 5256
+  %number.i71 = getelementptr inbounds i8, ptr %131, i64 5280
+  %141 = load i64, ptr %number.i71, align 8
+  %142 = load i32, ptr %last_frame.i, align 8
+  %conv262.i = zext i32 %142 to i64
+  %add263.i = add i64 %141, %conv262.i
+  %cmp264.i = icmp ult i64 %add263.i, %upper_bound_sample.3.ph.ph289.i
+  %tobool267.i = icmp ne i32 %first_seek.0.ph276.i, 0
   %or.cond3.i = or i1 %tobool267.i, %cmp264.i
   br i1 %or.cond3.i, label %if.end281.i, label %if.then268.i
 
 if.then268.i:                                     ; preds = %if.end257.i
-  %132 = load i64, ptr %lower_bound.i, align 8
-  %cmp269.i = icmp eq i64 %pos.2.us.i, %132
-  br i1 %cmp269.i, label %return.sink.split.i66, label %if.end274.i
+  %143 = load i64, ptr %lower_bound.i, align 8
+  %cmp269.i = icmp eq i64 %pos.2.us.i, %143
+  br i1 %cmp269.i, label %return.sink.split.i67, label %if.end274.i
 
 if.end274.i:                                      ; preds = %if.then268.i
-  %tobool275.not.i = icmp eq i32 %approx_bytes_per_frame.1.ph265.i, 0
-  %mul277.i = shl i32 %approx_bytes_per_frame.1.ph265.i, 1
+  %tobool275.not.i = icmp eq i32 %approx_bytes_per_frame.1.ph277.i, 0
+  %mul277.i = shl i32 %approx_bytes_per_frame.1.ph277.i, 1
   %cond280.i = select i1 %tobool275.not.i, i32 16, i32 %mul277.i
   br label %while.body.outer.split.us.i
 
 if.end281.i:                                      ; preds = %if.end257.i
-  %cmp282.i = icmp ult i64 %130, %lower_bound_sample.2.ph.ph278.i
-  br i1 %cmp282.i, label %return.sink.split.i66, label %if.end287.i
+  %cmp282.i = icmp ult i64 %141, %lower_bound_sample.2.ph.ph290.i
+  br i1 %cmp282.i, label %return.sink.split.i67, label %if.end287.i
 
 if.end287.i:                                      ; preds = %if.end281.i
-  %cmp288.i = icmp ugt i64 %130, %sample
-  %133 = load i32, ptr %122, align 8
-  %tobool.not.i176.i = icmp eq i32 %133, 0
+  %cmp288.i = icmp ugt i64 %141, %sample
+  %144 = load i32, ptr %131, align 8
+  %tobool.not.i182.i = icmp eq i32 %144, 0
   br i1 %cmp288.i, label %if.then290.i, label %if.else308.i
 
 if.then290.i:                                     ; preds = %if.end287.i
-  br i1 %tobool.not.i176.i, label %if.end.i178.i, label %return.sink.split.sink.split.i68
+  br i1 %tobool.not.i182.i, label %if.end.i184.i, label %return.sink.split.sink.split.i69
 
-if.end.i178.i:                                    ; preds = %if.then290.i
-  %tell_callback.i179.i = getelementptr inbounds i8, ptr %122, i64 24
-  %134 = load ptr, ptr %tell_callback.i179.i, align 8
-  %cmp.i180.i = icmp eq ptr %134, null
-  br i1 %cmp.i180.i, label %return.sink.split.sink.split.i68, label %if.end3.i181.i
+if.end.i184.i:                                    ; preds = %if.then290.i
+  %tell_callback.i185.i = getelementptr inbounds i8, ptr %131, i64 24
+  %145 = load ptr, ptr %tell_callback.i185.i, align 8
+  %cmp.i186.i = icmp eq ptr %145, null
+  br i1 %cmp.i186.i, label %return.sink.split.sink.split.i69, label %if.end3.i187.i
 
-if.end3.i181.i:                                   ; preds = %if.end.i178.i
-  %client_data.i182.i = getelementptr inbounds i8, ptr %122, i64 72
-  %135 = load ptr, ptr %client_data.i182.i, align 8
-  %call.i183.i = call i32 %134(ptr noundef nonnull %decoder, ptr noundef nonnull %upper_bound.i, ptr noundef %135) #21
-  %cmp7.not.i184.i = icmp eq i32 %call.i183.i, 0
-  br i1 %cmp7.not.i184.i, label %if.end9.i185.i, label %return.sink.split.sink.split.i68
+if.end3.i187.i:                                   ; preds = %if.end.i184.i
+  %client_data.i188.i = getelementptr inbounds i8, ptr %131, i64 72
+  %146 = load ptr, ptr %client_data.i188.i, align 8
+  %call.i189.i = call i32 %145(ptr noundef nonnull %decoder, ptr noundef nonnull %upper_bound.i, ptr noundef %146) #21
+  %cmp7.not.i190.i = icmp eq i32 %call.i189.i, 0
+  br i1 %cmp7.not.i190.i, label %if.end9.i191.i, label %return.sink.split.sink.split.i69
 
-if.end9.i185.i:                                   ; preds = %if.end3.i181.i
-  %136 = load ptr, ptr %private_, align 8
-  %input.i186.i = getelementptr inbounds i8, ptr %136, i64 88
-  %137 = load ptr, ptr %input.i186.i, align 8
-  %call11.i187.i = call i32 @FLAC__bitreader_is_consumed_byte_aligned(ptr noundef %137) #21
-  %tobool12.not.i188.i = icmp eq i32 %call11.i187.i, 0
-  br i1 %tobool12.not.i188.i, label %return.sink.split.sink.split.i68, label %FLAC__stream_decoder_get_decode_position.exit195.i
+if.end9.i191.i:                                   ; preds = %if.end3.i187.i
+  %147 = load ptr, ptr %private_, align 8
+  %input.i192.i = getelementptr inbounds i8, ptr %147, i64 88
+  %148 = load ptr, ptr %input.i192.i, align 8
+  %call11.i193.i = call i32 @FLAC__bitreader_is_consumed_byte_aligned(ptr noundef %148) #21
+  %tobool12.not.i194.i = icmp eq i32 %call11.i193.i, 0
+  br i1 %tobool12.not.i194.i, label %return.sink.split.sink.split.i69, label %FLAC__stream_decoder_get_decode_position.exit201.i
 
-FLAC__stream_decoder_get_decode_position.exit195.i: ; preds = %if.end9.i185.i
-  %138 = load ptr, ptr %private_, align 8
-  %input.i.i190.i = getelementptr inbounds i8, ptr %138, i64 88
-  %139 = load ptr, ptr %input.i.i190.i, align 8
-  %call.i.i191.i = call i32 @FLAC__bitreader_get_input_bits_unconsumed(ptr noundef %139) #21
-  %div1.i.i192.i = lshr i32 %call.i.i191.i, 3
-  %conv.i193.i = zext nneg i32 %div1.i.i192.i to i64
-  %140 = load i64, ptr %upper_bound.i, align 8
-  %sub.i194.i = sub i64 %140, %conv.i193.i
-  store i64 %sub.i194.i, ptr %upper_bound.i, align 8
+FLAC__stream_decoder_get_decode_position.exit201.i: ; preds = %if.end9.i191.i
+  %149 = load ptr, ptr %private_, align 8
+  %input.i.i196.i = getelementptr inbounds i8, ptr %149, i64 88
+  %150 = load ptr, ptr %input.i.i196.i, align 8
+  %call.i.i197.i = call i32 @FLAC__bitreader_get_input_bits_unconsumed(ptr noundef %150) #21
+  %div1.i.i198.i = lshr i32 %call.i.i197.i, 3
+  %conv.i199.i = zext nneg i32 %div1.i.i198.i to i64
+  %151 = load i64, ptr %upper_bound.i, align 8
+  %sub.i200.i = sub i64 %151, %conv.i199.i
+  store i64 %sub.i200.i, ptr %upper_bound.i, align 8
   br label %if.end326.i
 
 if.else308.i:                                     ; preds = %if.end287.i
-  br i1 %tobool.not.i176.i, label %if.end.i199.i, label %return.sink.split.sink.split.i68
+  br i1 %tobool.not.i182.i, label %if.end.i205.i, label %return.sink.split.sink.split.i69
 
-if.end.i199.i:                                    ; preds = %if.else308.i
-  %tell_callback.i200.i = getelementptr inbounds i8, ptr %122, i64 24
-  %141 = load ptr, ptr %tell_callback.i200.i, align 8
-  %cmp.i201.i = icmp eq ptr %141, null
-  br i1 %cmp.i201.i, label %return.sink.split.sink.split.i68, label %if.end3.i202.i
+if.end.i205.i:                                    ; preds = %if.else308.i
+  %tell_callback.i206.i = getelementptr inbounds i8, ptr %131, i64 24
+  %152 = load ptr, ptr %tell_callback.i206.i, align 8
+  %cmp.i207.i = icmp eq ptr %152, null
+  br i1 %cmp.i207.i, label %return.sink.split.sink.split.i69, label %if.end3.i208.i
 
-if.end3.i202.i:                                   ; preds = %if.end.i199.i
-  %client_data.i203.i = getelementptr inbounds i8, ptr %122, i64 72
-  %142 = load ptr, ptr %client_data.i203.i, align 8
-  %call.i204.i = call i32 %141(ptr noundef nonnull %decoder, ptr noundef nonnull %lower_bound.i, ptr noundef %142) #21
-  %cmp7.not.i205.i = icmp eq i32 %call.i204.i, 0
-  br i1 %cmp7.not.i205.i, label %if.end9.i206.i, label %return.sink.split.sink.split.i68
+if.end3.i208.i:                                   ; preds = %if.end.i205.i
+  %client_data.i209.i = getelementptr inbounds i8, ptr %131, i64 72
+  %153 = load ptr, ptr %client_data.i209.i, align 8
+  %call.i210.i = call i32 %152(ptr noundef nonnull %decoder, ptr noundef nonnull %lower_bound.i, ptr noundef %153) #21
+  %cmp7.not.i211.i = icmp eq i32 %call.i210.i, 0
+  br i1 %cmp7.not.i211.i, label %if.end9.i212.i, label %return.sink.split.sink.split.i69
 
-if.end9.i206.i:                                   ; preds = %if.end3.i202.i
-  %143 = load ptr, ptr %private_, align 8
-  %input.i207.i = getelementptr inbounds i8, ptr %143, i64 88
-  %144 = load ptr, ptr %input.i207.i, align 8
-  %call11.i208.i = call i32 @FLAC__bitreader_is_consumed_byte_aligned(ptr noundef %144) #21
-  %tobool12.not.i209.i = icmp eq i32 %call11.i208.i, 0
-  br i1 %tobool12.not.i209.i, label %return.sink.split.sink.split.i68, label %FLAC__stream_decoder_get_decode_position.exit216.i
+if.end9.i212.i:                                   ; preds = %if.end3.i208.i
+  %154 = load ptr, ptr %private_, align 8
+  %input.i213.i = getelementptr inbounds i8, ptr %154, i64 88
+  %155 = load ptr, ptr %input.i213.i, align 8
+  %call11.i214.i = call i32 @FLAC__bitreader_is_consumed_byte_aligned(ptr noundef %155) #21
+  %tobool12.not.i215.i = icmp eq i32 %call11.i214.i, 0
+  br i1 %tobool12.not.i215.i, label %return.sink.split.sink.split.i69, label %FLAC__stream_decoder_get_decode_position.exit222.i
 
-FLAC__stream_decoder_get_decode_position.exit216.i: ; preds = %if.end9.i206.i
-  %145 = load ptr, ptr %private_, align 8
-  %input.i.i211.i = getelementptr inbounds i8, ptr %145, i64 88
-  %146 = load ptr, ptr %input.i.i211.i, align 8
-  %call.i.i212.i = call i32 @FLAC__bitreader_get_input_bits_unconsumed(ptr noundef %146) #21
-  %div1.i.i213.i = lshr i32 %call.i.i212.i, 3
-  %conv.i214.i = zext nneg i32 %div1.i.i213.i to i64
-  %147 = load i64, ptr %lower_bound.i, align 8
-  %sub.i215.i = sub i64 %147, %conv.i214.i
-  store i64 %sub.i215.i, ptr %lower_bound.i, align 8
+FLAC__stream_decoder_get_decode_position.exit222.i: ; preds = %if.end9.i212.i
+  %156 = load ptr, ptr %private_, align 8
+  %input.i.i217.i = getelementptr inbounds i8, ptr %156, i64 88
+  %157 = load ptr, ptr %input.i.i217.i, align 8
+  %call.i.i218.i = call i32 @FLAC__bitreader_get_input_bits_unconsumed(ptr noundef %157) #21
+  %div1.i.i219.i = lshr i32 %call.i.i218.i, 3
+  %conv.i220.i = zext nneg i32 %div1.i.i219.i to i64
+  %158 = load i64, ptr %lower_bound.i, align 8
+  %sub.i221.i = sub i64 %158, %conv.i220.i
+  store i64 %sub.i221.i, ptr %lower_bound.i, align 8
   br label %if.end326.i
 
-if.end326.i:                                      ; preds = %FLAC__stream_decoder_get_decode_position.exit216.i, %FLAC__stream_decoder_get_decode_position.exit195.i
-  %.pn.i = phi i64 [ %sub.i194.i, %FLAC__stream_decoder_get_decode_position.exit195.i ], [ %sub.i215.i, %FLAC__stream_decoder_get_decode_position.exit216.i ]
-  %upper_bound_sample.4.i = phi i64 [ %add263.i, %FLAC__stream_decoder_get_decode_position.exit195.i ], [ %upper_bound_sample.3.ph.ph277.i, %FLAC__stream_decoder_get_decode_position.exit216.i ]
-  %lower_bound_sample.3.i = phi i64 [ %lower_bound_sample.2.ph.ph278.i, %FLAC__stream_decoder_get_decode_position.exit195.i ], [ %add263.i, %FLAC__stream_decoder_get_decode_position.exit216.i ]
+if.end326.i:                                      ; preds = %FLAC__stream_decoder_get_decode_position.exit222.i, %FLAC__stream_decoder_get_decode_position.exit201.i
+  %.pn.i = phi i64 [ %sub.i200.i, %FLAC__stream_decoder_get_decode_position.exit201.i ], [ %sub.i221.i, %FLAC__stream_decoder_get_decode_position.exit222.i ]
+  %upper_bound_sample.4.i = phi i64 [ %add263.i, %FLAC__stream_decoder_get_decode_position.exit201.i ], [ %upper_bound_sample.3.ph.ph289.i, %FLAC__stream_decoder_get_decode_position.exit222.i ]
+  %lower_bound_sample.3.i = phi i64 [ %lower_bound_sample.2.ph.ph290.i, %FLAC__stream_decoder_get_decode_position.exit201.i ], [ %add263.i, %FLAC__stream_decoder_get_decode_position.exit222.i ]
   %approx_bytes_per_frame.2.in.in.in.in.i = sub i64 %.pn.i, %pos.2.us.i
   %approx_bytes_per_frame.2.in.in.in.i = shl i64 %approx_bytes_per_frame.2.in.in.in.in.i, 1
   %approx_bytes_per_frame.2.in.in.i = udiv i64 %approx_bytes_per_frame.2.in.in.in.i, 3
@@ -6191,30 +6288,30 @@ if.end326.i:                                      ; preds = %FLAC__stream_decode
   %cmp177.not.i = icmp ult i64 %lower_bound_sample.3.i, %upper_bound_sample.4.i
   %sub190.i = sub i64 %upper_bound_sample.4.i, %lower_bound_sample.3.i
   %cmp177.not.fr.i = freeze i1 %cmp177.not.i
-  br i1 %cmp177.not.fr.i, label %while.body.outer.split.us.lr.ph.i, label %while.body.i65
+  br i1 %cmp177.not.fr.i, label %while.body.outer.split.us.lr.ph.i, label %while.body.i66
 
-return.sink.split.sink.split.i68:                 ; preds = %if.end9.i206.i, %if.end3.i202.i, %if.end.i199.i, %if.else308.i, %if.end9.i185.i, %if.end3.i181.i, %if.end.i178.i, %if.then290.i, %land.lhs.true241.us.i, %if.end200.us.i
-  %.pre319.i = load ptr, ptr %decoder, align 8
-  br label %return.sink.split.i66
+return.sink.split.sink.split.i69:                 ; preds = %if.end9.i212.i, %if.end3.i208.i, %if.end.i205.i, %if.else308.i, %if.end9.i191.i, %if.end3.i187.i, %if.end.i184.i, %if.then290.i, %land.lhs.true241.us.i, %if.end200.us.i
+  %.pre.i = load ptr, ptr %decoder, align 8
+  br label %return.sink.split.i67
 
-return.sink.split.i66:                            ; preds = %if.end281.i, %if.then268.i, %if.then236.us.i, %lor.lhs.false226.us.i, %if.end176.us.i, %return.sink.split.sink.split.i68, %while.body.i65
-  %.sink.i = phi ptr [ %128, %while.body.i65 ], [ %.pre319.i, %return.sink.split.sink.split.i68 ], [ %.pre.i69, %lor.lhs.false226.us.i ], [ %.pre.i69, %if.then236.us.i ], [ %99, %if.end176.us.i ], [ %.pre.i69, %if.then268.i ], [ %.pre.i69, %if.end281.i ]
+return.sink.split.i67:                            ; preds = %if.end281.i, %if.then268.i, %if.then236.us.i, %if.end176.us.i, %return.sink.split.sink.split.i69, %while.body.i66
+  %.sink.i = phi ptr [ %139, %while.body.i66 ], [ %.pre.i, %return.sink.split.sink.split.i69 ], [ %133, %if.then236.us.i ], [ %103, %if.end176.us.i ], [ %129, %if.then268.i ], [ %129, %if.end281.i ]
   store i32 6, ptr %.sink.i, align 8
   br label %seek_to_absolute_sample_.exit
 
-seek_to_absolute_sample_.exit:                    ; preds = %if.end253.split.us.i, %while.body.us.i, %land.lhs.true.i.us.i, %FLAC__stream_decoder_flush.exit.us.i, %while.body.i65, %return.sink.split.i66
-  %retval.0.i67 = phi i32 [ 0, %while.body.i65 ], [ 0, %return.sink.split.i66 ], [ 0, %FLAC__stream_decoder_flush.exit.us.i ], [ 0, %land.lhs.true.i.us.i ], [ 0, %while.body.us.i ], [ 1, %if.end253.split.us.i ]
+seek_to_absolute_sample_.exit:                    ; preds = %if.end253.split.us.i, %while.body.us.i, %land.lhs.true.i.us.i, %FLAC__stream_decoder_flush.exit.us.i, %while.body.i66, %return.sink.split.i67
+  %retval.0.i68 = phi i32 [ 0, %while.body.i66 ], [ 0, %return.sink.split.i67 ], [ 0, %FLAC__stream_decoder_flush.exit.us.i ], [ 0, %land.lhs.true.i.us.i ], [ 0, %while.body.us.i ], [ 1, %if.end253.split.us.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %lower_bound.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %upper_bound.i)
   br label %return.sink.split.sink.split
 
 return.sink.split.sink.split:                     ; preds = %sw.bb1.i, %sw.bb.i, %while.body.i, %land.lhs.true.i.i, %FLAC__stream_decoder_flush.exit.i, %if.else59.i, %seek_to_absolute_sample_.exit, %return.sink.split.i, %if.end24
-  %retval.0.ph.ph = phi i32 [ 0, %if.end24 ], [ %retval.0.i67, %seek_to_absolute_sample_.exit ], [ 0, %return.sink.split.i ], [ 0, %FLAC__stream_decoder_flush.exit.i ], [ 1, %if.else59.i ], [ 0, %land.lhs.true.i.i ], [ 0, %while.body.i ], [ 0, %sw.bb.i ], [ 0, %sw.bb1.i ]
-  %148 = load ptr, ptr %private_, align 8
+  %retval.0.ph.ph = phi i32 [ 0, %if.end24 ], [ %retval.0.i68, %seek_to_absolute_sample_.exit ], [ 0, %return.sink.split.i ], [ 0, %FLAC__stream_decoder_flush.exit.i ], [ 1, %if.else59.i ], [ 0, %land.lhs.true.i.i ], [ 0, %while.body.i ], [ 0, %sw.bb.i ], [ 0, %sw.bb1.i ]
+  %159 = load ptr, ptr %private_, align 8
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %return.sink.split.sink.split, %FLAC__stream_decoder_get_total_samples.exit44
-  %.sink = phi ptr [ %15, %FLAC__stream_decoder_get_total_samples.exit44 ], [ %148, %return.sink.split.sink.split ]
+  %.sink = phi ptr [ %15, %FLAC__stream_decoder_get_total_samples.exit44 ], [ %159, %return.sink.split.sink.split ]
   %retval.0.ph = phi i32 [ 0, %FLAC__stream_decoder_get_total_samples.exit44 ], [ %retval.0.ph.ph, %return.sink.split.sink.split ]
   %is_seeking62 = getelementptr inbounds i8, ptr %.sink, i64 5128
   store i32 0, ptr %is_seeking62, align 8

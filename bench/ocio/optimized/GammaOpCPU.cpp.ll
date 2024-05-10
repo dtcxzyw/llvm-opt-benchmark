@@ -604,78 +604,350 @@ sw.bb21:                                          ; preds = %entry, %entry
   %call5.i.i.i3.i.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #18, !noalias !28
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !28
-  %_M_weak_count.i.i.i.i.i.i268 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
-  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i268, align 4, !noalias !28
-  %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
-  br i1 %fastPower, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev18GammaBasicOpCPUSSEEED2Ev.exit, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev15GammaBasicOpCPUEED2Ev.exit
+  %_M_weak_count.i.i.i.i.i.i267 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
+  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i267, align 4, !noalias !28
+  br i1 %fastPower, label %if.then23, label %if.else25
 
-_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev18GammaBasicOpCPUSSEEED2Ev.exit: ; preds = %sw.bb21
+if.then23:                                        ; preds = %sw.bb21
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev18GammaBasicOpCPUSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !29
-  tail call void @_ZN19OpenColorIO_v2_4dev15GammaBasicOpCPUC2ERSt10shared_ptrIKNS_11GammaOpDataEE(ptr noundef nonnull align 8 dereferenceable(24) %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %gamma), !noalias !29
+  %m_redGamma.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
+  %m_grnGamma.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 28
+  %m_bluGamma.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
+  %cond = icmp eq i32 %1, 0
+  %m_redParams.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 176
+  %10 = load ptr, ptr %m_redParams.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !29
+  %11 = load double, ptr %10, align 8, !noalias !29
+  br i1 %cond, label %cond.end.i.i.i.i.i.i.i.i.i.i, label %cond.end.i.i.i.i.i.i.i.i.i.i.thread
+
+cond.end.i.i.i.i.i.i.i.i.i.i.thread:              ; preds = %if.then23
+  %div.i.i.i.i.i.i.i.i.i.i = fdiv double 1.000000e+00, %11
+  %conv.i.i.i.i.i.i.i.i.i.i607 = fptrunc double %div.i.i.i.i.i.i.i.i.i.i to float
+  store float %conv.i.i.i.i.i.i.i.i.i.i607, ptr %m_redGamma.i.i.i.i.i.i.i.i.i, align 8, !noalias !29
+  %m_greenParams.i15.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 200
+  %12 = load ptr, ptr %m_greenParams.i15.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !29
+  %13 = load double, ptr %12, align 8, !noalias !29
+  %div20.i.i.i.i.i.i.i.i.i.i = fdiv double 1.000000e+00, %13
+  %conv23.i.i.i.i.i.i.i.i.i.i609 = fptrunc double %div20.i.i.i.i.i.i.i.i.i.i to float
+  store float %conv23.i.i.i.i.i.i.i.i.i.i609, ptr %m_grnGamma.i.i.i.i.i.i.i.i.i, align 4, !noalias !29
+  %m_blueParams.i16.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 224
+  %14 = load ptr, ptr %m_blueParams.i16.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !29
+  %15 = load double, ptr %14, align 8, !noalias !29
+  %div33.i.i.i.i.i.i.i.i.i.i = fdiv double 1.000000e+00, %15
+  %conv36.i.i.i.i.i.i.i.i.i.i611 = fptrunc double %div33.i.i.i.i.i.i.i.i.i.i to float
+  store float %conv36.i.i.i.i.i.i.i.i.i.i611, ptr %m_bluGamma.i.i.i.i.i.i.i.i.i, align 8, !noalias !29
+  %m_alphaParams.i17.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 248
+  %16 = load ptr, ptr %m_alphaParams.i17.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !29
+  %17 = load double, ptr %16, align 8, !noalias !29
+  %div46.i.i.i.i.i.i.i.i.i.i = fdiv double 1.000000e+00, %17
+  br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev18GammaBasicOpCPUSSEEED2Ev.exit
+
+cond.end.i.i.i.i.i.i.i.i.i.i:                     ; preds = %if.then23
+  %conv.i.i.i.i.i.i.i.i.i.i = fptrunc double %11 to float
+  store float %conv.i.i.i.i.i.i.i.i.i.i, ptr %m_redGamma.i.i.i.i.i.i.i.i.i, align 8, !noalias !29
+  %m_greenParams.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 200
+  %18 = load ptr, ptr %m_greenParams.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !29
+  %19 = load double, ptr %18, align 8, !noalias !29
+  %conv23.i.i.i.i.i.i.i.i.i.i = fptrunc double %19 to float
+  store float %conv23.i.i.i.i.i.i.i.i.i.i, ptr %m_grnGamma.i.i.i.i.i.i.i.i.i, align 4, !noalias !29
+  %m_blueParams.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 224
+  %20 = load ptr, ptr %m_blueParams.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !29
+  %21 = load double, ptr %20, align 8, !noalias !29
+  %conv36.i.i.i.i.i.i.i.i.i.i = fptrunc double %21 to float
+  store float %conv36.i.i.i.i.i.i.i.i.i.i, ptr %m_bluGamma.i.i.i.i.i.i.i.i.i, align 8, !noalias !29
+  %m_alphaParams.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 248
+  %22 = load ptr, ptr %m_alphaParams.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !29
+  %23 = load double, ptr %22, align 8, !noalias !29
+  br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev18GammaBasicOpCPUSSEEED2Ev.exit
+
+_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev18GammaBasicOpCPUSSEEED2Ev.exit: ; preds = %cond.end.i.i.i.i.i.i.i.i.i.i.thread, %cond.end.i.i.i.i.i.i.i.i.i.i
+  %cond48.i.i.i.i.i.i.i.i.i.i = phi double [ %23, %cond.end.i.i.i.i.i.i.i.i.i.i ], [ %div46.i.i.i.i.i.i.i.i.i.i, %cond.end.i.i.i.i.i.i.i.i.i.i.thread ]
+  %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
+  %m_alpGamma.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 36
+  %conv49.i.i.i.i.i.i.i.i.i.i = fptrunc double %cond48.i.i.i.i.i.i.i.i.i.i to float
+  store float %conv49.i.i.i.i.i.i.i.i.i.i, ptr %m_alpGamma.i.i.i.i.i.i.i.i.i, align 4, !noalias !29
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev18GammaBasicOpCPUSSEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !29
   store ptr %_M_impl.i.i.i.i.i.i, ptr %agg.result, align 8
   %_M_refcount.i.i269 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %call5.i.i.i3.i.i.i.i, ptr %_M_refcount.i.i269, align 8
   br label %return
 
-_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev15GammaBasicOpCPUEED2Ev.exit: ; preds = %sw.bb21
+if.else25:                                        ; preds = %sw.bb21
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev15GammaBasicOpCPUESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !32
-  tail call void @_ZN19OpenColorIO_v2_4dev15GammaBasicOpCPUC2ERSt10shared_ptrIKNS_11GammaOpDataEE(ptr noundef nonnull align 8 dereferenceable(24) %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %gamma), !noalias !32
-  store ptr %_M_impl.i.i.i.i.i.i, ptr %agg.result, align 8
+  %_M_impl.i.i.i.i.i.i305 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev15GammaBasicOpCPUE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i305, align 8, !noalias !32
+  %m_redGamma.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
+  %m_grnGamma.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 28
+  %m_bluGamma.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
+  %cond631 = icmp eq i32 %1, 0
+  %m_redParams.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 176
+  %24 = load ptr, ptr %m_redParams.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !32
+  %25 = load double, ptr %24, align 8, !noalias !32
+  br i1 %cond631, label %cond.end.i.i.i.i.i.i.i.i.i, label %cond.end.i.i.i.i.i.i.i.i.i.thread
+
+cond.end.i.i.i.i.i.i.i.i.i.thread:                ; preds = %if.else25
+  %div.i.i.i.i.i.i.i.i.i = fdiv double 1.000000e+00, %25
+  %conv.i.i.i.i.i.i.i.i.i613 = fptrunc double %div.i.i.i.i.i.i.i.i.i to float
+  store float %conv.i.i.i.i.i.i.i.i.i613, ptr %m_redGamma.i.i.i.i.i.i.i.i, align 8, !noalias !32
+  %m_greenParams.i15.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 200
+  %26 = load ptr, ptr %m_greenParams.i15.i.i.i.i.i.i.i.i.i, align 8, !noalias !32
+  %27 = load double, ptr %26, align 8, !noalias !32
+  %div20.i.i.i.i.i.i.i.i.i = fdiv double 1.000000e+00, %27
+  %conv23.i.i.i.i.i.i.i.i.i615 = fptrunc double %div20.i.i.i.i.i.i.i.i.i to float
+  store float %conv23.i.i.i.i.i.i.i.i.i615, ptr %m_grnGamma.i.i.i.i.i.i.i.i, align 4, !noalias !32
+  %m_blueParams.i16.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 224
+  %28 = load ptr, ptr %m_blueParams.i16.i.i.i.i.i.i.i.i.i, align 8, !noalias !32
+  %29 = load double, ptr %28, align 8, !noalias !32
+  %div33.i.i.i.i.i.i.i.i.i = fdiv double 1.000000e+00, %29
+  %conv36.i.i.i.i.i.i.i.i.i617 = fptrunc double %div33.i.i.i.i.i.i.i.i.i to float
+  store float %conv36.i.i.i.i.i.i.i.i.i617, ptr %m_bluGamma.i.i.i.i.i.i.i.i, align 8, !noalias !32
+  %m_alphaParams.i17.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 248
+  %30 = load ptr, ptr %m_alphaParams.i17.i.i.i.i.i.i.i.i.i, align 8, !noalias !32
+  %31 = load double, ptr %30, align 8, !noalias !32
+  %div46.i.i.i.i.i.i.i.i.i = fdiv double 1.000000e+00, %31
+  br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev15GammaBasicOpCPUEED2Ev.exit
+
+cond.end.i.i.i.i.i.i.i.i.i:                       ; preds = %if.else25
+  %conv.i.i.i.i.i.i.i.i.i = fptrunc double %25 to float
+  store float %conv.i.i.i.i.i.i.i.i.i, ptr %m_redGamma.i.i.i.i.i.i.i.i, align 8, !noalias !32
+  %m_greenParams.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 200
+  %32 = load ptr, ptr %m_greenParams.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !32
+  %33 = load double, ptr %32, align 8, !noalias !32
+  %conv23.i.i.i.i.i.i.i.i.i = fptrunc double %33 to float
+  store float %conv23.i.i.i.i.i.i.i.i.i, ptr %m_grnGamma.i.i.i.i.i.i.i.i, align 4, !noalias !32
+  %m_blueParams.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 224
+  %34 = load ptr, ptr %m_blueParams.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !32
+  %35 = load double, ptr %34, align 8, !noalias !32
+  %conv36.i.i.i.i.i.i.i.i.i = fptrunc double %35 to float
+  store float %conv36.i.i.i.i.i.i.i.i.i, ptr %m_bluGamma.i.i.i.i.i.i.i.i, align 8, !noalias !32
+  %m_alphaParams.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 248
+  %36 = load ptr, ptr %m_alphaParams.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !32
+  %37 = load double, ptr %36, align 8, !noalias !32
+  br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev15GammaBasicOpCPUEED2Ev.exit
+
+_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev15GammaBasicOpCPUEED2Ev.exit: ; preds = %cond.end.i.i.i.i.i.i.i.i.i.thread, %cond.end.i.i.i.i.i.i.i.i.i
+  %cond48.i.i.i.i.i.i.i.i.i = phi double [ %37, %cond.end.i.i.i.i.i.i.i.i.i ], [ %div46.i.i.i.i.i.i.i.i.i, %cond.end.i.i.i.i.i.i.i.i.i.thread ]
+  %m_alpGamma.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 36
+  %conv49.i.i.i.i.i.i.i.i.i = fptrunc double %cond48.i.i.i.i.i.i.i.i.i to float
+  store float %conv49.i.i.i.i.i.i.i.i.i, ptr %m_alpGamma.i.i.i.i.i.i.i.i, align 4, !noalias !32
+  store ptr %_M_impl.i.i.i.i.i.i305, ptr %agg.result, align 8
   %_M_refcount.i.i307 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %call5.i.i.i3.i.i.i.i, ptr %_M_refcount.i.i307, align 8
   br label %return
 
 sw.bb27:                                          ; preds = %entry, %entry
-  %call5.i.i.i3.i.i.i.i341 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #18, !noalias !28
-  %_M_use_count.i.i.i.i.i.i342 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i341, i64 8
-  store i32 1, ptr %_M_use_count.i.i.i.i.i.i342, align 8, !noalias !28
-  %_M_weak_count.i.i.i.i.i.i343 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i341, i64 12
-  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i343, align 4, !noalias !28
-  %_M_impl.i.i.i.i.i.i344 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i341, i64 16
-  %_M_refcount.i.i345 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  br i1 %fastPower, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev24GammaBasicMirrorOpCPUSSEEED2Ev.exit, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev21GammaBasicMirrorOpCPUEED2Ev.exit
+  %call5.i.i.i3.i.i.i.i340 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #18, !noalias !28
+  %_M_use_count.i.i.i.i.i.i341 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i340, i64 8
+  store i32 1, ptr %_M_use_count.i.i.i.i.i.i341, align 8, !noalias !28
+  %_M_weak_count.i.i.i.i.i.i342 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i340, i64 12
+  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i342, align 4, !noalias !28
+  %m_redGamma.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i340, i64 24
+  %m_grnGamma.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i340, i64 28
+  %m_bluGamma.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i340, i64 32
+  %cond633 = icmp eq i32 %1, 2
+  %m_redParams.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 176
+  %cond634 = icmp eq i32 %1, 2
+  %m_greenParams.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 200
+  %cond635 = icmp eq i32 %1, 2
+  %m_blueParams.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 224
+  %cond636 = icmp eq i32 %1, 2
+  %m_alphaParams.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 248
+  br i1 %fastPower, label %if.then29, label %if.else31
 
-_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev24GammaBasicMirrorOpCPUSSEEED2Ev.exit: ; preds = %sw.bb27
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev24GammaBasicMirrorOpCPUSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i341, align 8, !noalias !35
-  tail call void @_ZN19OpenColorIO_v2_4dev15GammaBasicOpCPUC2ERSt10shared_ptrIKNS_11GammaOpDataEE(ptr noundef nonnull writeonly align 8 dereferenceable(24) %_M_impl.i.i.i.i.i.i344, ptr noundef nonnull readonly align 8 dereferenceable(16) %gamma), !noalias !35
+if.then29:                                        ; preds = %sw.bb27
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev24GammaBasicMirrorOpCPUSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i340, align 8, !noalias !35
+  %38 = load ptr, ptr %m_redParams.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !35
+  %39 = load double, ptr %38, align 8, !noalias !35
+  %div.i.i.i.i.i.i.i.i.i.i.i = fdiv double 1.000000e+00, %39
+  %cond.i.i.i.i.i.i.i.i.i.i.i = select i1 %cond633, double %39, double %div.i.i.i.i.i.i.i.i.i.i.i
+  %conv.i.i.i.i.i.i.i.i.i.i.i = fptrunc double %cond.i.i.i.i.i.i.i.i.i.i.i to float
+  store float %conv.i.i.i.i.i.i.i.i.i.i.i, ptr %m_redGamma.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !35
+  %40 = load ptr, ptr %m_greenParams.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !35
+  %41 = load double, ptr %40, align 8, !noalias !35
+  %div20.i.i.i.i.i.i.i.i.i.i.i = fdiv double 1.000000e+00, %41
+  %cond22.i.i.i.i.i.i.i.i.i.i.i = select i1 %cond634, double %41, double %div20.i.i.i.i.i.i.i.i.i.i.i
+  %conv23.i.i.i.i.i.i.i.i.i.i.i = fptrunc double %cond22.i.i.i.i.i.i.i.i.i.i.i to float
+  store float %conv23.i.i.i.i.i.i.i.i.i.i.i, ptr %m_grnGamma.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !35
+  %42 = load ptr, ptr %m_blueParams.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !35
+  %43 = load double, ptr %42, align 8, !noalias !35
+  %div33.i.i.i.i.i.i.i.i.i.i.i = fdiv double 1.000000e+00, %43
+  %cond35.i.i.i.i.i.i.i.i.i.i.i = select i1 %cond635, double %43, double %div33.i.i.i.i.i.i.i.i.i.i.i
+  %conv36.i.i.i.i.i.i.i.i.i.i.i = fptrunc double %cond35.i.i.i.i.i.i.i.i.i.i.i to float
+  store float %conv36.i.i.i.i.i.i.i.i.i.i.i, ptr %m_bluGamma.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !35
+  %44 = load ptr, ptr %m_alphaParams.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !35
+  %45 = load double, ptr %44, align 8, !noalias !35
+  %div46.i.i.i.i.i.i.i.i.i.i.i = fdiv double 1.000000e+00, %45
+  %cond48.i.i.i.i.i.i.i.i.i.i.i = select i1 %cond636, double %45, double %div46.i.i.i.i.i.i.i.i.i.i.i
+  %_M_impl.i.i.i.i.i.i344 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i340, i64 16
+  %m_alpGamma.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i340, i64 36
+  %conv49.i.i.i.i.i.i.i.i.i.i.i = fptrunc double %cond48.i.i.i.i.i.i.i.i.i.i.i to float
+  store float %conv49.i.i.i.i.i.i.i.i.i.i.i, ptr %m_alpGamma.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !35
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev24GammaBasicMirrorOpCPUSSEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i344, align 8, !noalias !35
   store ptr %_M_impl.i.i.i.i.i.i344, ptr %agg.result, align 8
-  store ptr %call5.i.i.i3.i.i.i.i341, ptr %_M_refcount.i.i345, align 8
+  %_M_refcount.i.i345 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store ptr %call5.i.i.i3.i.i.i.i340, ptr %_M_refcount.i.i345, align 8
   br label %return
 
-_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev21GammaBasicMirrorOpCPUEED2Ev.exit: ; preds = %sw.bb27
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev21GammaBasicMirrorOpCPUESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i341, align 8, !noalias !38
-  tail call void @_ZN19OpenColorIO_v2_4dev15GammaBasicOpCPUC2ERSt10shared_ptrIKNS_11GammaOpDataEE(ptr noundef nonnull writeonly align 8 dereferenceable(24) %_M_impl.i.i.i.i.i.i344, ptr noundef nonnull readonly align 8 dereferenceable(16) %gamma), !noalias !38
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GammaBasicMirrorOpCPUE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i344, align 8, !noalias !38
-  store ptr %_M_impl.i.i.i.i.i.i344, ptr %agg.result, align 8
-  store ptr %call5.i.i.i3.i.i.i.i341, ptr %_M_refcount.i.i345, align 8
+if.else31:                                        ; preds = %sw.bb27
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev21GammaBasicMirrorOpCPUESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i340, align 8, !noalias !38
+  %46 = load ptr, ptr %m_redParams.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !38
+  %47 = load double, ptr %46, align 8, !noalias !38
+  %div.i.i.i.i.i.i.i.i.i.i418 = fdiv double 1.000000e+00, %47
+  %cond.i.i.i.i.i.i.i.i.i.i388 = select i1 %cond633, double %47, double %div.i.i.i.i.i.i.i.i.i.i418
+  %conv.i.i.i.i.i.i.i.i.i.i389 = fptrunc double %cond.i.i.i.i.i.i.i.i.i.i388 to float
+  store float %conv.i.i.i.i.i.i.i.i.i.i389, ptr %m_redGamma.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !38
+  %48 = load ptr, ptr %m_greenParams.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !38
+  %49 = load double, ptr %48, align 8, !noalias !38
+  %div20.i.i.i.i.i.i.i.i.i.i415 = fdiv double 1.000000e+00, %49
+  %cond22.i.i.i.i.i.i.i.i.i.i393 = select i1 %cond634, double %49, double %div20.i.i.i.i.i.i.i.i.i.i415
+  %conv23.i.i.i.i.i.i.i.i.i.i394 = fptrunc double %cond22.i.i.i.i.i.i.i.i.i.i393 to float
+  store float %conv23.i.i.i.i.i.i.i.i.i.i394, ptr %m_grnGamma.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !38
+  %50 = load ptr, ptr %m_blueParams.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !38
+  %51 = load double, ptr %50, align 8, !noalias !38
+  %div33.i.i.i.i.i.i.i.i.i.i412 = fdiv double 1.000000e+00, %51
+  %cond35.i.i.i.i.i.i.i.i.i.i398 = select i1 %cond635, double %51, double %div33.i.i.i.i.i.i.i.i.i.i412
+  %conv36.i.i.i.i.i.i.i.i.i.i399 = fptrunc double %cond35.i.i.i.i.i.i.i.i.i.i398 to float
+  store float %conv36.i.i.i.i.i.i.i.i.i.i399, ptr %m_bluGamma.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !38
+  %52 = load ptr, ptr %m_alphaParams.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !38
+  %53 = load double, ptr %52, align 8, !noalias !38
+  %div46.i.i.i.i.i.i.i.i.i.i409 = fdiv double 1.000000e+00, %53
+  %cond48.i.i.i.i.i.i.i.i.i.i402 = select i1 %cond636, double %53, double %div46.i.i.i.i.i.i.i.i.i.i409
+  %_M_impl.i.i.i.i.i.i404 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i340, i64 16
+  %m_alpGamma.i.i.i.i.i.i.i.i.i405 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i340, i64 36
+  %conv49.i.i.i.i.i.i.i.i.i.i406 = fptrunc double %cond48.i.i.i.i.i.i.i.i.i.i402 to float
+  store float %conv49.i.i.i.i.i.i.i.i.i.i406, ptr %m_alpGamma.i.i.i.i.i.i.i.i.i405, align 4, !noalias !38
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GammaBasicMirrorOpCPUE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i404, align 8, !noalias !38
+  store ptr %_M_impl.i.i.i.i.i.i404, ptr %agg.result, align 8
+  %_M_refcount.i.i419 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store ptr %call5.i.i.i3.i.i.i.i340, ptr %_M_refcount.i.i419, align 8
   br label %return
 
 sw.bb33:                                          ; preds = %entry, %entry
-  %call5.i.i.i3.i.i.i.i417 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #18, !noalias !28
-  %_M_use_count.i.i.i.i.i.i418 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i417, i64 8
-  store i32 1, ptr %_M_use_count.i.i.i.i.i.i418, align 8, !noalias !28
-  %_M_weak_count.i.i.i.i.i.i419 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i417, i64 12
-  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i419, align 4, !noalias !28
-  %_M_impl.i.i.i.i.i.i420 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i417, i64 16
-  %_M_refcount.i.i421 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  br i1 %fastPower, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev26GammaBasicPassThruOpCPUSSEEED2Ev.exit, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev23GammaBasicPassThruOpCPUEED2Ev.exit
+  %call5.i.i.i3.i.i.i.i452 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #18, !noalias !28
+  %_M_use_count.i.i.i.i.i.i453 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i452, i64 8
+  store i32 1, ptr %_M_use_count.i.i.i.i.i.i453, align 8, !noalias !28
+  %_M_weak_count.i.i.i.i.i.i454 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i452, i64 12
+  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i454, align 4, !noalias !28
+  %m_redGamma.i.i.i.i.i.i.i.i.i.i455 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i452, i64 24
+  %m_grnGamma.i.i.i.i.i.i.i.i.i.i456 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i452, i64 28
+  %m_bluGamma.i.i.i.i.i.i.i.i.i.i457 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i452, i64 32
+  %cond641 = icmp eq i32 %1, 4
+  %m_redParams.i.i.i.i.i.i.i.i.i.i.i.i460 = getelementptr inbounds i8, ptr %0, i64 176
+  br i1 %fastPower, label %if.then35, label %if.else37
 
-_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev26GammaBasicPassThruOpCPUSSEEED2Ev.exit: ; preds = %sw.bb33
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev26GammaBasicPassThruOpCPUSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i417, align 8, !noalias !41
-  tail call void @_ZN19OpenColorIO_v2_4dev15GammaBasicOpCPUC2ERSt10shared_ptrIKNS_11GammaOpDataEE(ptr noundef nonnull writeonly align 8 dereferenceable(24) %_M_impl.i.i.i.i.i.i420, ptr noundef nonnull readonly align 8 dereferenceable(16) %gamma), !noalias !41
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev26GammaBasicPassThruOpCPUSSEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i420, align 8, !noalias !41
-  store ptr %_M_impl.i.i.i.i.i.i420, ptr %agg.result, align 8
-  store ptr %call5.i.i.i3.i.i.i.i417, ptr %_M_refcount.i.i421, align 8
+if.then35:                                        ; preds = %sw.bb33
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev26GammaBasicPassThruOpCPUSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i452, align 8, !noalias !41
+  %54 = load ptr, ptr %m_redParams.i.i.i.i.i.i.i.i.i.i.i.i460, align 8, !noalias !41
+  %55 = load double, ptr %54, align 8, !noalias !41
+  br i1 %cond641, label %cond.end.i.i.i.i.i.i.i.i.i.i.i461.thread, label %cond.end.i.i.i.i.i.i.i.i.i.i.i461
+
+cond.end.i.i.i.i.i.i.i.i.i.i.i461.thread:         ; preds = %if.then35
+  %conv.i.i.i.i.i.i.i.i.i.i.i463619 = fptrunc double %55 to float
+  store float %conv.i.i.i.i.i.i.i.i.i.i.i463619, ptr %m_redGamma.i.i.i.i.i.i.i.i.i.i455, align 8, !noalias !41
+  %m_greenParams.i.i.i.i.i.i.i.i.i.i.i.i465 = getelementptr inbounds i8, ptr %0, i64 200
+  %56 = load ptr, ptr %m_greenParams.i.i.i.i.i.i.i.i.i.i.i.i465, align 8, !noalias !41
+  %57 = load double, ptr %56, align 8, !noalias !41
+  %conv23.i.i.i.i.i.i.i.i.i.i.i468621 = fptrunc double %57 to float
+  store float %conv23.i.i.i.i.i.i.i.i.i.i.i468621, ptr %m_grnGamma.i.i.i.i.i.i.i.i.i.i456, align 4, !noalias !41
+  %m_blueParams.i.i.i.i.i.i.i.i.i.i.i.i470 = getelementptr inbounds i8, ptr %0, i64 224
+  %58 = load ptr, ptr %m_blueParams.i.i.i.i.i.i.i.i.i.i.i.i470, align 8, !noalias !41
+  %59 = load double, ptr %58, align 8, !noalias !41
+  %conv36.i.i.i.i.i.i.i.i.i.i.i473623 = fptrunc double %59 to float
+  store float %conv36.i.i.i.i.i.i.i.i.i.i.i473623, ptr %m_bluGamma.i.i.i.i.i.i.i.i.i.i457, align 8, !noalias !41
+  %m_alphaParams.i.i.i.i.i.i.i.i.i.i.i.i475 = getelementptr inbounds i8, ptr %0, i64 248
+  %60 = load ptr, ptr %m_alphaParams.i.i.i.i.i.i.i.i.i.i.i.i475, align 8, !noalias !41
+  %61 = load double, ptr %60, align 8, !noalias !41
+  br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev26GammaBasicPassThruOpCPUSSEEED2Ev.exit
+
+cond.end.i.i.i.i.i.i.i.i.i.i.i461:                ; preds = %if.then35
+  %div.i.i.i.i.i.i.i.i.i.i.i492 = fdiv double 1.000000e+00, %55
+  %conv.i.i.i.i.i.i.i.i.i.i.i463 = fptrunc double %div.i.i.i.i.i.i.i.i.i.i.i492 to float
+  store float %conv.i.i.i.i.i.i.i.i.i.i.i463, ptr %m_redGamma.i.i.i.i.i.i.i.i.i.i455, align 8, !noalias !41
+  %m_greenParams.i15.i.i.i.i.i.i.i.i.i.i.i488 = getelementptr inbounds i8, ptr %0, i64 200
+  %62 = load ptr, ptr %m_greenParams.i15.i.i.i.i.i.i.i.i.i.i.i488, align 8, !noalias !41
+  %63 = load double, ptr %62, align 8, !noalias !41
+  %div20.i.i.i.i.i.i.i.i.i.i.i489 = fdiv double 1.000000e+00, %63
+  %conv23.i.i.i.i.i.i.i.i.i.i.i468 = fptrunc double %div20.i.i.i.i.i.i.i.i.i.i.i489 to float
+  store float %conv23.i.i.i.i.i.i.i.i.i.i.i468, ptr %m_grnGamma.i.i.i.i.i.i.i.i.i.i456, align 4, !noalias !41
+  %m_blueParams.i16.i.i.i.i.i.i.i.i.i.i.i485 = getelementptr inbounds i8, ptr %0, i64 224
+  %64 = load ptr, ptr %m_blueParams.i16.i.i.i.i.i.i.i.i.i.i.i485, align 8, !noalias !41
+  %65 = load double, ptr %64, align 8, !noalias !41
+  %div33.i.i.i.i.i.i.i.i.i.i.i486 = fdiv double 1.000000e+00, %65
+  %conv36.i.i.i.i.i.i.i.i.i.i.i473 = fptrunc double %div33.i.i.i.i.i.i.i.i.i.i.i486 to float
+  store float %conv36.i.i.i.i.i.i.i.i.i.i.i473, ptr %m_bluGamma.i.i.i.i.i.i.i.i.i.i457, align 8, !noalias !41
+  %m_alphaParams.i17.i.i.i.i.i.i.i.i.i.i.i482 = getelementptr inbounds i8, ptr %0, i64 248
+  %66 = load ptr, ptr %m_alphaParams.i17.i.i.i.i.i.i.i.i.i.i.i482, align 8, !noalias !41
+  %67 = load double, ptr %66, align 8, !noalias !41
+  %div46.i.i.i.i.i.i.i.i.i.i.i483 = fdiv double 1.000000e+00, %67
+  br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev26GammaBasicPassThruOpCPUSSEEED2Ev.exit
+
+_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev26GammaBasicPassThruOpCPUSSEEED2Ev.exit: ; preds = %cond.end.i.i.i.i.i.i.i.i.i.i.i461, %cond.end.i.i.i.i.i.i.i.i.i.i.i461.thread
+  %cond48.i.i.i.i.i.i.i.i.i.i.i476 = phi double [ %61, %cond.end.i.i.i.i.i.i.i.i.i.i.i461.thread ], [ %div46.i.i.i.i.i.i.i.i.i.i.i483, %cond.end.i.i.i.i.i.i.i.i.i.i.i461 ]
+  %_M_impl.i.i.i.i.i.i478 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i452, i64 16
+  %m_alpGamma.i.i.i.i.i.i.i.i.i.i479 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i452, i64 36
+  %conv49.i.i.i.i.i.i.i.i.i.i.i480 = fptrunc double %cond48.i.i.i.i.i.i.i.i.i.i.i476 to float
+  store float %conv49.i.i.i.i.i.i.i.i.i.i.i480, ptr %m_alpGamma.i.i.i.i.i.i.i.i.i.i479, align 4, !noalias !41
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev26GammaBasicPassThruOpCPUSSEE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i478, align 8, !noalias !41
+  store ptr %_M_impl.i.i.i.i.i.i478, ptr %agg.result, align 8
+  %_M_refcount.i.i493 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store ptr %call5.i.i.i3.i.i.i.i452, ptr %_M_refcount.i.i493, align 8
   br label %return
 
-_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev23GammaBasicPassThruOpCPUEED2Ev.exit: ; preds = %sw.bb33
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev23GammaBasicPassThruOpCPUESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i417, align 8, !noalias !44
-  tail call void @_ZN19OpenColorIO_v2_4dev15GammaBasicOpCPUC2ERSt10shared_ptrIKNS_11GammaOpDataEE(ptr noundef nonnull writeonly align 8 dereferenceable(24) %_M_impl.i.i.i.i.i.i420, ptr noundef nonnull readonly align 8 dereferenceable(16) %gamma), !noalias !44
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev23GammaBasicPassThruOpCPUE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i420, align 8, !noalias !44
-  store ptr %_M_impl.i.i.i.i.i.i420, ptr %agg.result, align 8
-  store ptr %call5.i.i.i3.i.i.i.i417, ptr %_M_refcount.i.i421, align 8
+if.else37:                                        ; preds = %sw.bb33
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev23GammaBasicPassThruOpCPUESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i452, align 8, !noalias !44
+  %68 = load ptr, ptr %m_redParams.i.i.i.i.i.i.i.i.i.i.i.i460, align 8, !noalias !44
+  %69 = load double, ptr %68, align 8, !noalias !44
+  br i1 %cond641, label %cond.end.i.i.i.i.i.i.i.i.i.i535.thread, label %cond.end.i.i.i.i.i.i.i.i.i.i535
+
+cond.end.i.i.i.i.i.i.i.i.i.i535.thread:           ; preds = %if.else37
+  %conv.i.i.i.i.i.i.i.i.i.i537625 = fptrunc double %69 to float
+  store float %conv.i.i.i.i.i.i.i.i.i.i537625, ptr %m_redGamma.i.i.i.i.i.i.i.i.i.i455, align 8, !noalias !44
+  %m_greenParams.i.i.i.i.i.i.i.i.i.i.i539 = getelementptr inbounds i8, ptr %0, i64 200
+  %70 = load ptr, ptr %m_greenParams.i.i.i.i.i.i.i.i.i.i.i539, align 8, !noalias !44
+  %71 = load double, ptr %70, align 8, !noalias !44
+  %conv23.i.i.i.i.i.i.i.i.i.i542627 = fptrunc double %71 to float
+  store float %conv23.i.i.i.i.i.i.i.i.i.i542627, ptr %m_grnGamma.i.i.i.i.i.i.i.i.i.i456, align 4, !noalias !44
+  %m_blueParams.i.i.i.i.i.i.i.i.i.i.i544 = getelementptr inbounds i8, ptr %0, i64 224
+  %72 = load ptr, ptr %m_blueParams.i.i.i.i.i.i.i.i.i.i.i544, align 8, !noalias !44
+  %73 = load double, ptr %72, align 8, !noalias !44
+  %conv36.i.i.i.i.i.i.i.i.i.i547629 = fptrunc double %73 to float
+  store float %conv36.i.i.i.i.i.i.i.i.i.i547629, ptr %m_bluGamma.i.i.i.i.i.i.i.i.i.i457, align 8, !noalias !44
+  %m_alphaParams.i.i.i.i.i.i.i.i.i.i.i549 = getelementptr inbounds i8, ptr %0, i64 248
+  %74 = load ptr, ptr %m_alphaParams.i.i.i.i.i.i.i.i.i.i.i549, align 8, !noalias !44
+  %75 = load double, ptr %74, align 8, !noalias !44
+  br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev23GammaBasicPassThruOpCPUEED2Ev.exit
+
+cond.end.i.i.i.i.i.i.i.i.i.i535:                  ; preds = %if.else37
+  %div.i.i.i.i.i.i.i.i.i.i566 = fdiv double 1.000000e+00, %69
+  %conv.i.i.i.i.i.i.i.i.i.i537 = fptrunc double %div.i.i.i.i.i.i.i.i.i.i566 to float
+  store float %conv.i.i.i.i.i.i.i.i.i.i537, ptr %m_redGamma.i.i.i.i.i.i.i.i.i.i455, align 8, !noalias !44
+  %m_greenParams.i15.i.i.i.i.i.i.i.i.i.i562 = getelementptr inbounds i8, ptr %0, i64 200
+  %76 = load ptr, ptr %m_greenParams.i15.i.i.i.i.i.i.i.i.i.i562, align 8, !noalias !44
+  %77 = load double, ptr %76, align 8, !noalias !44
+  %div20.i.i.i.i.i.i.i.i.i.i563 = fdiv double 1.000000e+00, %77
+  %conv23.i.i.i.i.i.i.i.i.i.i542 = fptrunc double %div20.i.i.i.i.i.i.i.i.i.i563 to float
+  store float %conv23.i.i.i.i.i.i.i.i.i.i542, ptr %m_grnGamma.i.i.i.i.i.i.i.i.i.i456, align 4, !noalias !44
+  %m_blueParams.i16.i.i.i.i.i.i.i.i.i.i559 = getelementptr inbounds i8, ptr %0, i64 224
+  %78 = load ptr, ptr %m_blueParams.i16.i.i.i.i.i.i.i.i.i.i559, align 8, !noalias !44
+  %79 = load double, ptr %78, align 8, !noalias !44
+  %div33.i.i.i.i.i.i.i.i.i.i560 = fdiv double 1.000000e+00, %79
+  %conv36.i.i.i.i.i.i.i.i.i.i547 = fptrunc double %div33.i.i.i.i.i.i.i.i.i.i560 to float
+  store float %conv36.i.i.i.i.i.i.i.i.i.i547, ptr %m_bluGamma.i.i.i.i.i.i.i.i.i.i457, align 8, !noalias !44
+  %m_alphaParams.i17.i.i.i.i.i.i.i.i.i.i556 = getelementptr inbounds i8, ptr %0, i64 248
+  %80 = load ptr, ptr %m_alphaParams.i17.i.i.i.i.i.i.i.i.i.i556, align 8, !noalias !44
+  %81 = load double, ptr %80, align 8, !noalias !44
+  %div46.i.i.i.i.i.i.i.i.i.i557 = fdiv double 1.000000e+00, %81
+  br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev23GammaBasicPassThruOpCPUEED2Ev.exit
+
+_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev23GammaBasicPassThruOpCPUEED2Ev.exit: ; preds = %cond.end.i.i.i.i.i.i.i.i.i.i535, %cond.end.i.i.i.i.i.i.i.i.i.i535.thread
+  %cond48.i.i.i.i.i.i.i.i.i.i550 = phi double [ %75, %cond.end.i.i.i.i.i.i.i.i.i.i535.thread ], [ %div46.i.i.i.i.i.i.i.i.i.i557, %cond.end.i.i.i.i.i.i.i.i.i.i535 ]
+  %_M_impl.i.i.i.i.i.i552 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i452, i64 16
+  %m_alpGamma.i.i.i.i.i.i.i.i.i553 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i452, i64 36
+  %conv49.i.i.i.i.i.i.i.i.i.i554 = fptrunc double %cond48.i.i.i.i.i.i.i.i.i.i550 to float
+  store float %conv49.i.i.i.i.i.i.i.i.i.i554, ptr %m_alpGamma.i.i.i.i.i.i.i.i.i553, align 4, !noalias !44
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev23GammaBasicPassThruOpCPUE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i552, align 8, !noalias !44
+  store ptr %_M_impl.i.i.i.i.i.i552, ptr %agg.result, align 8
+  %_M_refcount.i.i567 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store ptr %call5.i.i.i3.i.i.i.i452, ptr %_M_refcount.i.i567, align 8
   br label %return
 
 sw.epilog:                                        ; preds = %entry
@@ -688,12 +960,12 @@ invoke.cont:                                      ; preds = %sw.epilog
   unreachable
 
 lpad:                                             ; preds = %sw.epilog
-  %10 = landingpad { ptr, i32 }
+  %82 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_free_exception(ptr %exception) #19
-  resume { ptr, i32 } %10
+  resume { ptr, i32 } %82
 
-return:                                           ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev23GammaBasicPassThruOpCPUEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev26GammaBasicPassThruOpCPUSSEEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev21GammaBasicMirrorOpCPUEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev24GammaBasicMirrorOpCPUSSEEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev15GammaBasicOpCPUEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev18GammaBasicOpCPUSSEEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev27GammaMoncurveMirrorOpCPURevEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev30GammaMoncurveMirrorOpCPURevSSEEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev27GammaMoncurveMirrorOpCPUFwdEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev30GammaMoncurveMirrorOpCPUFwdSSEEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev21GammaMoncurveOpCPURevEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev24GammaMoncurveOpCPURevSSEEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev21GammaMoncurveOpCPUFwdEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev24GammaMoncurveOpCPUFwdSSEEED2Ev.exit
+return:                                           ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev23GammaBasicPassThruOpCPUEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev26GammaBasicPassThruOpCPUSSEEED2Ev.exit, %if.else31, %if.then29, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev15GammaBasicOpCPUEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev18GammaBasicOpCPUSSEEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev27GammaMoncurveMirrorOpCPURevEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev30GammaMoncurveMirrorOpCPURevSSEEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev27GammaMoncurveMirrorOpCPUFwdEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev30GammaMoncurveMirrorOpCPUFwdSSEEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev21GammaMoncurveOpCPURevEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev24GammaMoncurveOpCPURevSSEEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev21GammaMoncurveOpCPUFwdEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev24GammaMoncurveOpCPUFwdSSEEED2Ev.exit
   ret void
 }
 
@@ -1094,9 +1366,115 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev21GammaBasicMirrorOpCPUC2ERSt10shared_ptrIKNS_11GammaOpDataEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %gamma) unnamed_addr #4 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev21GammaBasicMirrorOpCPUC2ERSt10shared_ptrIKNS_11GammaOpDataEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %gamma) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @_ZN19OpenColorIO_v2_4dev15GammaBasicOpCPUC2ERSt10shared_ptrIKNS_11GammaOpDataEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(16) %gamma)
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev15GammaBasicOpCPUE, i64 0, i32 0, i64 2), ptr %this, align 8
+  %m_redGamma.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_grnGamma.i = getelementptr inbounds i8, ptr %this, i64 12
+  %m_bluGamma.i = getelementptr inbounds i8, ptr %this, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %m_redGamma.i, i8 0, i64 16, i1 false)
+  %0 = load ptr, ptr %gamma, align 8
+  %m_style.i.i.i = getelementptr inbounds i8, ptr %0, i64 168
+  %1 = load i32, ptr %m_style.i.i.i, align 8
+  switch i32 %1, label %cond.false.i.i [
+    i32 4, label %cond.true.i.i
+    i32 2, label %cond.true.i.i
+    i32 0, label %cond.true.i.i
+  ]
+
+cond.true.i.i:                                    ; preds = %entry, %entry, %entry
+  %m_redParams.i.i.i = getelementptr inbounds i8, ptr %0, i64 176
+  %2 = load ptr, ptr %m_redParams.i.i.i, align 8
+  %3 = load double, ptr %2, align 8
+  br label %cond.end.i.i
+
+cond.false.i.i:                                   ; preds = %entry
+  %m_redParams.i14.i.i = getelementptr inbounds i8, ptr %0, i64 176
+  %4 = load ptr, ptr %m_redParams.i14.i.i, align 8
+  %5 = load double, ptr %4, align 8
+  %div.i.i = fdiv double 1.000000e+00, %5
+  br label %cond.end.i.i
+
+cond.end.i.i:                                     ; preds = %cond.false.i.i, %cond.true.i.i
+  %cond.i.i = phi double [ %3, %cond.true.i.i ], [ %div.i.i, %cond.false.i.i ]
+  %conv.i.i = fptrunc double %cond.i.i to float
+  store float %conv.i.i, ptr %m_redGamma.i, align 8
+  switch i32 %1, label %cond.false16.i.i [
+    i32 4, label %cond.true12.i.i
+    i32 2, label %cond.true12.i.i
+    i32 0, label %cond.true12.i.i
+  ]
+
+cond.true12.i.i:                                  ; preds = %cond.end.i.i, %cond.end.i.i, %cond.end.i.i
+  %6 = load ptr, ptr %gamma, align 8
+  %m_greenParams.i.i.i = getelementptr inbounds i8, ptr %6, i64 200
+  %7 = load ptr, ptr %m_greenParams.i.i.i, align 8
+  %8 = load double, ptr %7, align 8
+  br label %cond.end21.i.i
+
+cond.false16.i.i:                                 ; preds = %cond.end.i.i
+  %9 = load ptr, ptr %gamma, align 8
+  %m_greenParams.i15.i.i = getelementptr inbounds i8, ptr %9, i64 200
+  %10 = load ptr, ptr %m_greenParams.i15.i.i, align 8
+  %11 = load double, ptr %10, align 8
+  %div20.i.i = fdiv double 1.000000e+00, %11
+  br label %cond.end21.i.i
+
+cond.end21.i.i:                                   ; preds = %cond.false16.i.i, %cond.true12.i.i
+  %cond22.i.i = phi double [ %8, %cond.true12.i.i ], [ %div20.i.i, %cond.false16.i.i ]
+  %conv23.i.i = fptrunc double %cond22.i.i to float
+  store float %conv23.i.i, ptr %m_grnGamma.i, align 4
+  switch i32 %1, label %cond.false29.i.i [
+    i32 4, label %cond.true25.i.i
+    i32 2, label %cond.true25.i.i
+    i32 0, label %cond.true25.i.i
+  ]
+
+cond.true25.i.i:                                  ; preds = %cond.end21.i.i, %cond.end21.i.i, %cond.end21.i.i
+  %12 = load ptr, ptr %gamma, align 8
+  %m_blueParams.i.i.i = getelementptr inbounds i8, ptr %12, i64 224
+  %13 = load ptr, ptr %m_blueParams.i.i.i, align 8
+  %14 = load double, ptr %13, align 8
+  br label %cond.end34.i.i
+
+cond.false29.i.i:                                 ; preds = %cond.end21.i.i
+  %15 = load ptr, ptr %gamma, align 8
+  %m_blueParams.i16.i.i = getelementptr inbounds i8, ptr %15, i64 224
+  %16 = load ptr, ptr %m_blueParams.i16.i.i, align 8
+  %17 = load double, ptr %16, align 8
+  %div33.i.i = fdiv double 1.000000e+00, %17
+  br label %cond.end34.i.i
+
+cond.end34.i.i:                                   ; preds = %cond.false29.i.i, %cond.true25.i.i
+  %cond35.i.i = phi double [ %14, %cond.true25.i.i ], [ %div33.i.i, %cond.false29.i.i ]
+  %conv36.i.i = fptrunc double %cond35.i.i to float
+  store float %conv36.i.i, ptr %m_bluGamma.i, align 8
+  switch i32 %1, label %cond.false42.i.i [
+    i32 4, label %cond.true38.i.i
+    i32 2, label %cond.true38.i.i
+    i32 0, label %cond.true38.i.i
+  ]
+
+cond.true38.i.i:                                  ; preds = %cond.end34.i.i, %cond.end34.i.i, %cond.end34.i.i
+  %18 = load ptr, ptr %gamma, align 8
+  %m_alphaParams.i.i.i = getelementptr inbounds i8, ptr %18, i64 248
+  %19 = load ptr, ptr %m_alphaParams.i.i.i, align 8
+  %20 = load double, ptr %19, align 8
+  br label %_ZN19OpenColorIO_v2_4dev15GammaBasicOpCPUC2ERSt10shared_ptrIKNS_11GammaOpDataEE.exit
+
+cond.false42.i.i:                                 ; preds = %cond.end34.i.i
+  %21 = load ptr, ptr %gamma, align 8
+  %m_alphaParams.i17.i.i = getelementptr inbounds i8, ptr %21, i64 248
+  %22 = load ptr, ptr %m_alphaParams.i17.i.i, align 8
+  %23 = load double, ptr %22, align 8
+  %div46.i.i = fdiv double 1.000000e+00, %23
+  br label %_ZN19OpenColorIO_v2_4dev15GammaBasicOpCPUC2ERSt10shared_ptrIKNS_11GammaOpDataEE.exit
+
+_ZN19OpenColorIO_v2_4dev15GammaBasicOpCPUC2ERSt10shared_ptrIKNS_11GammaOpDataEE.exit: ; preds = %cond.true38.i.i, %cond.false42.i.i
+  %cond48.i.i = phi double [ %20, %cond.true38.i.i ], [ %div46.i.i, %cond.false42.i.i ]
+  %m_alpGamma.i = getelementptr inbounds i8, ptr %this, i64 20
+  %conv49.i.i = fptrunc double %cond48.i.i to float
+  store float %conv49.i.i, ptr %m_alpGamma.i, align 4
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GammaBasicMirrorOpCPUE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
@@ -1265,9 +1643,115 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev23GammaBasicPassThruOpCPUC2ERSt10shared_ptrIKNS_11GammaOpDataEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %gamma) unnamed_addr #4 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev23GammaBasicPassThruOpCPUC2ERSt10shared_ptrIKNS_11GammaOpDataEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %gamma) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @_ZN19OpenColorIO_v2_4dev15GammaBasicOpCPUC2ERSt10shared_ptrIKNS_11GammaOpDataEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(16) %gamma)
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev15GammaBasicOpCPUE, i64 0, i32 0, i64 2), ptr %this, align 8
+  %m_redGamma.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_grnGamma.i = getelementptr inbounds i8, ptr %this, i64 12
+  %m_bluGamma.i = getelementptr inbounds i8, ptr %this, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %m_redGamma.i, i8 0, i64 16, i1 false)
+  %0 = load ptr, ptr %gamma, align 8
+  %m_style.i.i.i = getelementptr inbounds i8, ptr %0, i64 168
+  %1 = load i32, ptr %m_style.i.i.i, align 8
+  switch i32 %1, label %cond.false.i.i [
+    i32 4, label %cond.true.i.i
+    i32 2, label %cond.true.i.i
+    i32 0, label %cond.true.i.i
+  ]
+
+cond.true.i.i:                                    ; preds = %entry, %entry, %entry
+  %m_redParams.i.i.i = getelementptr inbounds i8, ptr %0, i64 176
+  %2 = load ptr, ptr %m_redParams.i.i.i, align 8
+  %3 = load double, ptr %2, align 8
+  br label %cond.end.i.i
+
+cond.false.i.i:                                   ; preds = %entry
+  %m_redParams.i14.i.i = getelementptr inbounds i8, ptr %0, i64 176
+  %4 = load ptr, ptr %m_redParams.i14.i.i, align 8
+  %5 = load double, ptr %4, align 8
+  %div.i.i = fdiv double 1.000000e+00, %5
+  br label %cond.end.i.i
+
+cond.end.i.i:                                     ; preds = %cond.false.i.i, %cond.true.i.i
+  %cond.i.i = phi double [ %3, %cond.true.i.i ], [ %div.i.i, %cond.false.i.i ]
+  %conv.i.i = fptrunc double %cond.i.i to float
+  store float %conv.i.i, ptr %m_redGamma.i, align 8
+  switch i32 %1, label %cond.false16.i.i [
+    i32 4, label %cond.true12.i.i
+    i32 2, label %cond.true12.i.i
+    i32 0, label %cond.true12.i.i
+  ]
+
+cond.true12.i.i:                                  ; preds = %cond.end.i.i, %cond.end.i.i, %cond.end.i.i
+  %6 = load ptr, ptr %gamma, align 8
+  %m_greenParams.i.i.i = getelementptr inbounds i8, ptr %6, i64 200
+  %7 = load ptr, ptr %m_greenParams.i.i.i, align 8
+  %8 = load double, ptr %7, align 8
+  br label %cond.end21.i.i
+
+cond.false16.i.i:                                 ; preds = %cond.end.i.i
+  %9 = load ptr, ptr %gamma, align 8
+  %m_greenParams.i15.i.i = getelementptr inbounds i8, ptr %9, i64 200
+  %10 = load ptr, ptr %m_greenParams.i15.i.i, align 8
+  %11 = load double, ptr %10, align 8
+  %div20.i.i = fdiv double 1.000000e+00, %11
+  br label %cond.end21.i.i
+
+cond.end21.i.i:                                   ; preds = %cond.false16.i.i, %cond.true12.i.i
+  %cond22.i.i = phi double [ %8, %cond.true12.i.i ], [ %div20.i.i, %cond.false16.i.i ]
+  %conv23.i.i = fptrunc double %cond22.i.i to float
+  store float %conv23.i.i, ptr %m_grnGamma.i, align 4
+  switch i32 %1, label %cond.false29.i.i [
+    i32 4, label %cond.true25.i.i
+    i32 2, label %cond.true25.i.i
+    i32 0, label %cond.true25.i.i
+  ]
+
+cond.true25.i.i:                                  ; preds = %cond.end21.i.i, %cond.end21.i.i, %cond.end21.i.i
+  %12 = load ptr, ptr %gamma, align 8
+  %m_blueParams.i.i.i = getelementptr inbounds i8, ptr %12, i64 224
+  %13 = load ptr, ptr %m_blueParams.i.i.i, align 8
+  %14 = load double, ptr %13, align 8
+  br label %cond.end34.i.i
+
+cond.false29.i.i:                                 ; preds = %cond.end21.i.i
+  %15 = load ptr, ptr %gamma, align 8
+  %m_blueParams.i16.i.i = getelementptr inbounds i8, ptr %15, i64 224
+  %16 = load ptr, ptr %m_blueParams.i16.i.i, align 8
+  %17 = load double, ptr %16, align 8
+  %div33.i.i = fdiv double 1.000000e+00, %17
+  br label %cond.end34.i.i
+
+cond.end34.i.i:                                   ; preds = %cond.false29.i.i, %cond.true25.i.i
+  %cond35.i.i = phi double [ %14, %cond.true25.i.i ], [ %div33.i.i, %cond.false29.i.i ]
+  %conv36.i.i = fptrunc double %cond35.i.i to float
+  store float %conv36.i.i, ptr %m_bluGamma.i, align 8
+  switch i32 %1, label %cond.false42.i.i [
+    i32 4, label %cond.true38.i.i
+    i32 2, label %cond.true38.i.i
+    i32 0, label %cond.true38.i.i
+  ]
+
+cond.true38.i.i:                                  ; preds = %cond.end34.i.i, %cond.end34.i.i, %cond.end34.i.i
+  %18 = load ptr, ptr %gamma, align 8
+  %m_alphaParams.i.i.i = getelementptr inbounds i8, ptr %18, i64 248
+  %19 = load ptr, ptr %m_alphaParams.i.i.i, align 8
+  %20 = load double, ptr %19, align 8
+  br label %_ZN19OpenColorIO_v2_4dev15GammaBasicOpCPUC2ERSt10shared_ptrIKNS_11GammaOpDataEE.exit
+
+cond.false42.i.i:                                 ; preds = %cond.end34.i.i
+  %21 = load ptr, ptr %gamma, align 8
+  %m_alphaParams.i17.i.i = getelementptr inbounds i8, ptr %21, i64 248
+  %22 = load ptr, ptr %m_alphaParams.i17.i.i, align 8
+  %23 = load double, ptr %22, align 8
+  %div46.i.i = fdiv double 1.000000e+00, %23
+  br label %_ZN19OpenColorIO_v2_4dev15GammaBasicOpCPUC2ERSt10shared_ptrIKNS_11GammaOpDataEE.exit
+
+_ZN19OpenColorIO_v2_4dev15GammaBasicOpCPUC2ERSt10shared_ptrIKNS_11GammaOpDataEE.exit: ; preds = %cond.true38.i.i, %cond.false42.i.i
+  %cond48.i.i = phi double [ %20, %cond.true38.i.i ], [ %div46.i.i, %cond.false42.i.i ]
+  %m_alpGamma.i = getelementptr inbounds i8, ptr %this, i64 20
+  %conv49.i.i = fptrunc double %cond48.i.i to float
+  store float %conv49.i.i, ptr %m_alpGamma.i, align 4
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev23GammaBasicPassThruOpCPUE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }

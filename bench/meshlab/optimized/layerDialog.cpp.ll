@@ -19474,122 +19474,157 @@ define void @_ZN11LayerDialog5resetEv(ptr nocapture noundef nonnull readonly ali
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN11LayerDialog13setCurrentTabERK15MLRenderingData(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
-  %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %55, label %6
+  %3 = alloca %class.QString, align 8
+  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %_ZN11LayerDialog15actionActivatedEP17MLRenderingAction.exit, label %7
 
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 1368
-  %8 = load ptr, ptr %7, align 8
-  %.not.i = icmp eq ptr %8, null
-  br i1 %.not.i, label %55, label %9
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds i8, ptr %5, i64 1368
+  %9 = load ptr, ptr %8, align 8
+  %.not.i = icmp eq ptr %9, null
+  br i1 %.not.i, label %_ZN11LayerDialog15actionActivatedEP17MLRenderingAction.exit, label %10
 
-9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %8, i64 48
-  %11 = tail call noundef ptr @_ZN12MeshDocument2mmEv(ptr noundef nonnull align 8 dereferenceable(192) %10)
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %55, label %13
+10:                                               ; preds = %7
+  %11 = getelementptr inbounds i8, ptr %9, i64 48
+  %12 = tail call noundef ptr @_ZN12MeshDocument2mmEv(ptr noundef nonnull align 8 dereferenceable(192) %11)
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %_ZN11LayerDialog15actionActivatedEP17MLRenderingAction.exit, label %14
 
-13:                                               ; preds = %9
-  %14 = load ptr, ptr %3, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 1368
-  %16 = load ptr, ptr %15, align 8
-  %.not.i16 = icmp eq ptr %16, null
-  %17 = getelementptr inbounds i8, ptr %16, i64 48
-  %spec.select.i17 = select i1 %.not.i16, ptr null, ptr %17
-  %18 = tail call noundef ptr @_ZN12MeshDocument2mmEv(ptr noundef nonnull align 8 dereferenceable(192) %spec.select.i17)
-  %19 = getelementptr inbounds i8, ptr %18, i64 1224
-  %20 = load i32, ptr %19, align 8
-  %21 = load i64, ptr %1, align 8
-  %22 = and i64 %21, 8
-  %.not.i18 = icmp eq i64 %22, 0
+14:                                               ; preds = %10
+  %15 = load ptr, ptr %4, align 8
+  %16 = getelementptr inbounds i8, ptr %15, i64 1368
+  %17 = load ptr, ptr %16, align 8
+  %.not.i16 = icmp eq ptr %17, null
+  %18 = getelementptr inbounds i8, ptr %17, i64 48
+  %spec.select.i17 = select i1 %.not.i16, ptr null, ptr %18
+  %19 = tail call noundef ptr @_ZN12MeshDocument2mmEv(ptr noundef nonnull align 8 dereferenceable(192) %spec.select.i17)
+  %20 = getelementptr inbounds i8, ptr %19, i64 1224
+  %21 = load i32, ptr %20, align 8
+  %22 = load i64, ptr %1, align 8
+  %23 = and i64 %22, 8
+  %.not.i18 = icmp eq i64 %23, 0
   br i1 %.not.i18, label %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE17isPrimitiveActiveENS_20GLMeshAttributesInfo18PRIMITIVE_MODALITYE.exit.thread, label %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE17isPrimitiveActiveENS_20GLMeshAttributesInfo18PRIMITIVE_MODALITYE.exit
 
-_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE17isPrimitiveActiveENS_20GLMeshAttributesInfo18PRIMITIVE_MODALITYE.exit: ; preds = %13
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 27
-  %26 = load i8, ptr %25, align 1
-  %27 = trunc i8 %26 to i1
-  br i1 %27, label %28, label %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE17isPrimitiveActiveENS_20GLMeshAttributesInfo18PRIMITIVE_MODALITYE.exit.thread
+_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE17isPrimitiveActiveENS_20GLMeshAttributesInfo18PRIMITIVE_MODALITYE.exit: ; preds = %14
+  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 27
+  %27 = load i8, ptr %26, align 1
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %29, label %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE17isPrimitiveActiveENS_20GLMeshAttributesInfo18PRIMITIVE_MODALITYE.exit.thread
 
-28:                                               ; preds = %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE17isPrimitiveActiveENS_20GLMeshAttributesInfo18PRIMITIVE_MODALITYE.exit
-  %29 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #26
-  invoke void @_ZN22MLRenderingSolidActionC1EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %29, i32 noundef %20, ptr noundef null)
-          to label %51 unwind label %30
+29:                                               ; preds = %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE17isPrimitiveActiveENS_20GLMeshAttributesInfo18PRIMITIVE_MODALITYE.exit
+  %30 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #26
+  invoke void @_ZN22MLRenderingSolidActionC1EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %30, i32 noundef %21, ptr noundef null)
+          to label %52 unwind label %31
 
-30:                                               ; preds = %28
-  %31 = landingpad { ptr, i32 }
+31:                                               ; preds = %29
+  %32 = landingpad { ptr, i32 }
           cleanup
-  br label %56
+  tail call void @_ZdlPv(ptr noundef nonnull %30) #23
+  br label %common.resume
 
-_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE17isPrimitiveActiveENS_20GLMeshAttributesInfo18PRIMITIVE_MODALITYE.exit.thread: ; preds = %13, %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE17isPrimitiveActiveENS_20GLMeshAttributesInfo18PRIMITIVE_MODALITYE.exit
-  %32 = and i64 %21, 2
-  %.not.i19 = icmp eq i64 %32, 0
+_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE17isPrimitiveActiveENS_20GLMeshAttributesInfo18PRIMITIVE_MODALITYE.exit.thread: ; preds = %14, %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE17isPrimitiveActiveENS_20GLMeshAttributesInfo18PRIMITIVE_MODALITYE.exit
+  %33 = and i64 %22, 2
+  %.not.i19 = icmp eq i64 %33, 0
   br i1 %.not.i19, label %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE17isPrimitiveActiveENS_20GLMeshAttributesInfo18PRIMITIVE_MODALITYE.exit21.thread, label %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE17isPrimitiveActiveENS_20GLMeshAttributesInfo18PRIMITIVE_MODALITYE.exit21
 
 _ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE17isPrimitiveActiveENS_20GLMeshAttributesInfo18PRIMITIVE_MODALITYE.exit21: ; preds = %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE17isPrimitiveActiveENS_20GLMeshAttributesInfo18PRIMITIVE_MODALITYE.exit.thread
-  %33 = getelementptr inbounds i8, ptr %1, i64 8
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 9
-  %36 = load i8, ptr %35, align 1
-  %37 = trunc i8 %36 to i1
-  br i1 %37, label %38, label %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE17isPrimitiveActiveENS_20GLMeshAttributesInfo18PRIMITIVE_MODALITYE.exit21.thread
+  %34 = getelementptr inbounds i8, ptr %1, i64 8
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 9
+  %37 = load i8, ptr %36, align 1
+  %38 = trunc i8 %37 to i1
+  br i1 %38, label %39, label %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE17isPrimitiveActiveENS_20GLMeshAttributesInfo18PRIMITIVE_MODALITYE.exit21.thread
 
-38:                                               ; preds = %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE17isPrimitiveActiveENS_20GLMeshAttributesInfo18PRIMITIVE_MODALITYE.exit21
-  %39 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #26
-  invoke void @_ZN21MLRenderingWireActionC1EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %39, i32 noundef %20, ptr noundef null)
-          to label %51 unwind label %40
+39:                                               ; preds = %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE17isPrimitiveActiveENS_20GLMeshAttributesInfo18PRIMITIVE_MODALITYE.exit21
+  %40 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #26
+  invoke void @_ZN21MLRenderingWireActionC1EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %40, i32 noundef %21, ptr noundef null)
+          to label %52 unwind label %41
 
-40:                                               ; preds = %38
-  %41 = landingpad { ptr, i32 }
+41:                                               ; preds = %39
+  %42 = landingpad { ptr, i32 }
           cleanup
-  br label %56
+  tail call void @_ZdlPv(ptr noundef nonnull %40) #23
+  br label %common.resume
 
 _ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE17isPrimitiveActiveENS_20GLMeshAttributesInfo18PRIMITIVE_MODALITYE.exit21.thread: ; preds = %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE17isPrimitiveActiveENS_20GLMeshAttributesInfo18PRIMITIVE_MODALITYE.exit.thread, %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE17isPrimitiveActiveENS_20GLMeshAttributesInfo18PRIMITIVE_MODALITYE.exit21
-  %42 = and i64 %21, 1
-  %.not.i22 = icmp eq i64 %42, 0
-  br i1 %.not.i22, label %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE17isPrimitiveActiveENS_20GLMeshAttributesInfo18PRIMITIVE_MODALITYE.exit24.thread, label %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE17isPrimitiveActiveENS_20GLMeshAttributesInfo18PRIMITIVE_MODALITYE.exit24
+  %43 = and i64 %22, 1
+  %.not.i22 = icmp eq i64 %43, 0
+  br i1 %.not.i22, label %_ZN11LayerDialog15actionActivatedEP17MLRenderingAction.exit, label %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE17isPrimitiveActiveENS_20GLMeshAttributesInfo18PRIMITIVE_MODALITYE.exit24
 
 _ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE17isPrimitiveActiveENS_20GLMeshAttributesInfo18PRIMITIVE_MODALITYE.exit24: ; preds = %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE17isPrimitiveActiveENS_20GLMeshAttributesInfo18PRIMITIVE_MODALITYE.exit21.thread
-  %43 = getelementptr inbounds i8, ptr %1, i64 8
-  %44 = load ptr, ptr %43, align 8
-  %45 = load i8, ptr %44, align 1
-  %46 = trunc i8 %45 to i1
-  br i1 %46, label %47, label %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE17isPrimitiveActiveENS_20GLMeshAttributesInfo18PRIMITIVE_MODALITYE.exit24.thread
+  %44 = getelementptr inbounds i8, ptr %1, i64 8
+  %45 = load ptr, ptr %44, align 8
+  %46 = load i8, ptr %45, align 1
+  %47 = trunc i8 %46 to i1
+  br i1 %47, label %48, label %_ZN11LayerDialog15actionActivatedEP17MLRenderingAction.exit
 
-47:                                               ; preds = %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE17isPrimitiveActiveENS_20GLMeshAttributesInfo18PRIMITIVE_MODALITYE.exit24
-  %48 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #26
-  invoke void @_ZN23MLRenderingPointsActionC1EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %48, i32 noundef %20, ptr noundef null)
-          to label %51 unwind label %49
+48:                                               ; preds = %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE17isPrimitiveActiveENS_20GLMeshAttributesInfo18PRIMITIVE_MODALITYE.exit24
+  %49 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #26
+  invoke void @_ZN23MLRenderingPointsActionC1EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %49, i32 noundef %21, ptr noundef null)
+          to label %52 unwind label %50
 
-49:                                               ; preds = %47
-  %50 = landingpad { ptr, i32 }
+50:                                               ; preds = %48
+  %51 = landingpad { ptr, i32 }
           cleanup
-  br label %56
+  tail call void @_ZdlPv(ptr noundef nonnull %49) #23
+  br label %common.resume
 
-_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE17isPrimitiveActiveENS_20GLMeshAttributesInfo18PRIMITIVE_MODALITYE.exit24.thread: ; preds = %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE17isPrimitiveActiveENS_20GLMeshAttributesInfo18PRIMITIVE_MODALITYE.exit21.thread, %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE17isPrimitiveActiveENS_20GLMeshAttributesInfo18PRIMITIVE_MODALITYE.exit24
-  tail call void @_ZN11LayerDialog15actionActivatedEP17MLRenderingAction(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef null)
-  br label %55
-
-51:                                               ; preds = %28, %38, %47
-  %.011.ph = phi ptr [ %48, %47 ], [ %39, %38 ], [ %29, %28 ]
-  tail call void @_ZN11LayerDialog15actionActivatedEP17MLRenderingAction(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull %.011.ph)
-  %52 = load ptr, ptr %.011.ph, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 32
+52:                                               ; preds = %29, %39, %48
+  %.011.ph = phi ptr [ %49, %48 ], [ %40, %39 ], [ %30, %29 ]
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  %53 = getelementptr inbounds i8, ptr %0, i64 248
   %54 = load ptr, ptr %53, align 8
-  tail call void %54(ptr noundef nonnull align 8 dereferenceable(16) %.011.ph) #22
-  br label %55
+  %55 = tail call noundef i32 @_ZNK17MLRenderingAction6meshIdEv(ptr noundef nonnull align 8 dereferenceable(16) %.011.ph)
+  call void @_ZNK7QAction4textEv(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %.011.ph)
+  invoke void @_ZN24MLRenderingParametersTab9switchTabEiRK7QString(ptr noundef nonnull align 8 dereferenceable(72) %54, i32 noundef %55, ptr noundef nonnull align 8 dereferenceable(8) %3)
+          to label %56 unwind label %61
 
-55:                                               ; preds = %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE17isPrimitiveActiveENS_20GLMeshAttributesInfo18PRIMITIVE_MODALITYE.exit24.thread, %2, %6, %9, %51
+56:                                               ; preds = %52
+  %57 = load ptr, ptr %3, align 8
+  %58 = load atomic i32, ptr %57 monotonic, align 4
+  switch i32 %58, label %_ZN9QtPrivate8RefCount5derefEv.exit.i.i [
+    i32 0, label %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i
+    i32 -1, label %63
+  ]
+
+_ZN9QtPrivate8RefCount5derefEv.exit.i.i:          ; preds = %56
+  %59 = atomicrmw sub ptr %57, i32 1 seq_cst, align 4
+  %.not.i.i = icmp eq i32 %59, 1
+  br i1 %.not.i.i, label %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i, label %63
+
+_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i: ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.i.i
+  %.pre.i.i = load ptr, ptr %3, align 8
+  br label %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i
+
+_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i:  ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i, %56
+  %60 = phi ptr [ %.pre.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i ], [ %57, %56 ]
+  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %60, i64 noundef 2, i64 noundef 8) #22
+  br label %63
+
+common.resume:                                    ; preds = %31, %41, %50, %61
+  %common.resume.op = phi { ptr, i32 } [ %62, %61 ], [ %32, %31 ], [ %42, %41 ], [ %51, %50 ]
+  resume { ptr, i32 } %common.resume.op
+
+61:                                               ; preds = %52
+  %62 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #22
+  br label %common.resume
+
+63:                                               ; preds = %56, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  %64 = load ptr, ptr %.011.ph, align 8
+  %65 = getelementptr inbounds i8, ptr %64, i64 32
+  %66 = load ptr, ptr %65, align 8
+  call void %66(ptr noundef nonnull align 8 dereferenceable(16) %.011.ph) #22
+  br label %_ZN11LayerDialog15actionActivatedEP17MLRenderingAction.exit
+
+_ZN11LayerDialog15actionActivatedEP17MLRenderingAction.exit: ; preds = %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE17isPrimitiveActiveENS_20GLMeshAttributesInfo18PRIMITIVE_MODALITYE.exit24, %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE17isPrimitiveActiveENS_20GLMeshAttributesInfo18PRIMITIVE_MODALITYE.exit21.thread, %2, %7, %10, %63
   ret void
-
-56:                                               ; preds = %49, %40, %30
-  %.sink = phi ptr [ %48, %49 ], [ %39, %40 ], [ %29, %30 ]
-  %.pn = phi { ptr, i32 } [ %50, %49 ], [ %41, %40 ], [ %31, %30 ]
-  tail call void @_ZdlPv(ptr noundef nonnull %.sink) #23
-  resume { ptr, i32 } %.pn
 }
 
 declare void @_ZN22MLRenderingSolidActionC1EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, ptr noundef) unnamed_addr #1

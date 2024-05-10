@@ -77,45 +77,29 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E = external local_unnamed_addr global { i64 }
 @_ZN12tracing_core8metadata9MAX_LEVEL17ha260197560d85766E = external local_unnamed_addr global { i64 }
 
-; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef range(i8 0, 3) i8 @_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E(ptr noundef nonnull align 8 %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
-  %3 = load atomic i8, ptr %2 monotonic, align 8
-  %4 = icmp ult i8 %3, 3
-  br i1 %4, label %switch.lookup, label %5
-
-5:                                                ; preds = %1
-  %6 = tail call noundef i8 @_ZN12tracing_core8callsite15DefaultCallsite8register17hd822f56d9a4bdb1cE(ptr noundef nonnull align 8 %0), !range !4
-  br label %switch.lookup
-
-switch.lookup:                                    ; preds = %1, %5
-  %.0 = phi i8 [ %6, %5 ], [ %3, %1 ]
-  ret i8 %.0
-}
-
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef i128 @_ZN12tracing_core8callsite8Callsite15private_type_id17h73284c4f6e2ef550E(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 {
+define internal noundef i128 @_ZN12tracing_core8callsite8Callsite15private_type_id17h73284c4f6e2ef550E(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 {
   ret i128 151503467054422383495612077547344170962
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr41drop_in_place$LT$core..fmt..Arguments$GT$17hc6a08d95c567c5abE"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #1 {
+define internal void @"_ZN4core3ptr41drop_in_place$LT$core..fmt..Arguments$GT$17hc6a08d95c567c5abE"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #0 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr60drop_in_place$LT$tracing_core..callsite..DefaultCallsite$GT$17h58f95ca22b8ab369E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #1 {
+define internal void @"_ZN4core3ptr60drop_in_place$LT$tracing_core..callsite..DefaultCallsite$GT$17h58f95ca22b8ab369E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #0 {
   ret void
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define internal noundef nonnull align 8 dereferenceable(120) ptr @"_ZN92_$LT$tracing_core..callsite..DefaultCallsite$u20$as$u20$tracing_core..callsite..Callsite$GT$8metadata17h4bf71c292fb7e6b9E"(ptr nocapture noundef nonnull readonly align 8 %0) unnamed_addr #2 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
+define internal noundef nonnull align 8 dereferenceable(120) ptr @"_ZN92_$LT$tracing_core..callsite..DefaultCallsite$u20$as$u20$tracing_core..callsite..Callsite$GT$8metadata17h4bf71c292fb7e6b9E"(ptr nocapture noundef nonnull readonly align 8 %0) unnamed_addr #1 {
+  %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN92_$LT$ockam_transport_ble..driver..packet..PacketBuffer$u20$as$u20$core..default..Default$GT$7default17h2d2e6ab0c4e0fcc5E"(ptr noalias nocapture noundef writeonly sret({ [1024 x i8], i64, i64, i64 }) align 8 dereferenceable(1048) %0) unnamed_addr #3 {
+define void @"_ZN92_$LT$ockam_transport_ble..driver..packet..PacketBuffer$u20$as$u20$core..default..Default$GT$7default17h2d2e6ab0c4e0fcc5E"(ptr noalias nocapture noundef writeonly sret({ [1024 x i8], i64, i64, i64 }) align 8 dereferenceable(1048) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1024
   store i64 18, ptr %2, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %0, i8 0, i64 1024, i1 false)
@@ -125,14 +109,14 @@ define void @"_ZN92_$LT$ockam_transport_ble..driver..packet..PacketBuffer$u20$as
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN19ockam_transport_ble6driver6packet12PacketBuffer10packet_len17h57ddec822fdc6a08E(ptr noalias nocapture noundef readonly align 8 dereferenceable(1048) %0) unnamed_addr #4 {
+define noundef i64 @_ZN19ockam_transport_ble6driver6packet12PacketBuffer10packet_len17h57ddec822fdc6a08E(ptr noalias nocapture noundef readonly align 8 dereferenceable(1048) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1032
-  %3 = load i64, ptr %2, align 8, !noundef !5
+  %3 = load i64, ptr %2, align 8, !noundef !4
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN19ockam_transport_ble6driver6packet12PacketBuffer5reset17h8c24119263ef02d1E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(1048) %0) unnamed_addr #3 {
+define void @_ZN19ockam_transport_ble6driver6packet12PacketBuffer5reset17h8c24119263ef02d1E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(1048) %0) unnamed_addr #2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %0, i8 0, i64 1024, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1024
   store i64 18, ptr %.sroa.4.0..sroa_idx, align 8
@@ -142,7 +126,7 @@ define void @_ZN19ockam_transport_ble6driver6packet12PacketBuffer5reset17h8c2411
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN19ockam_transport_ble6driver6packet12PacketBuffer11from_packet17h4477e49702919656E(ptr noalias nocapture noundef writeonly sret({ [1024 x i8], i64, i64, i64 }) align 8 dereferenceable(1048) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #5 {
+define void @_ZN19ockam_transport_ble6driver6packet12PacketBuffer11from_packet17h4477e49702919656E(ptr noalias nocapture noundef writeonly sret({ [1024 x i8], i64, i64, i64 }) align 8 dereferenceable(1048) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #4 {
   %4 = alloca { [1024 x i8], i64, i64, i64 }, align 8
   %5 = alloca i64, align 8
   %6 = alloca [2 x { ptr, ptr }], align 8
@@ -173,7 +157,7 @@ define void @_ZN19ockam_transport_ble6driver6packet12PacketBuffer11from_packet17
   store i64 %2, ptr %.1032..1032..sroa_idx, align 8
   %.1040..1040..sroa_idx = getelementptr inbounds i8, ptr %4, i64 1040
   store i64 0, ptr %.1040..1040..sroa_idx, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !alias.scope !7, !noalias !11
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !alias.scope !6, !noalias !10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1048) %0, ptr noundef nonnull align 8 dereferenceable(1048) %4, i64 1048, i1 false)
   call void @llvm.lifetime.end.p0(i64 1048, ptr nonnull %4)
   ret void
@@ -186,131 +170,143 @@ define void @_ZN19ockam_transport_ble6driver6packet12PacketBuffer11from_packet17
 25:                                               ; preds = %23
   %26 = icmp ult i64 %24, 5
   tail call void @llvm.assume(i1 %26)
-  %27 = tail call fastcc noundef i8 @_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E(ptr noundef nonnull align 8 @_ZN19ockam_transport_ble6driver6packet12PacketBuffer11from_packet10__CALLSITE17heb772cb1abbcda09E), !range !4
-  %28 = icmp eq i8 %27, 0
-  br i1 %28, label %.critedge68, label %29
+  %27 = load atomic i8, ptr getelementptr inbounds (<{ ptr, [10 x i8], [6 x i8] }>, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer11from_packet10__CALLSITE17heb772cb1abbcda09E, i64 0, i32 1, i64 8) monotonic, align 8
+  switch i8 %27, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit [
+    i8 0, label %.critedge68
+    i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.thread
+    i8 2, label %28
+  ]
 
-29:                                               ; preds = %25
-  %30 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer11from_packet10__CALLSITE17heb772cb1abbcda09E, align 8, !nonnull !5, !align !6, !noundef !5
-  %31 = tail call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h93f7a5195e90a5dfE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %30, i8 noundef %27)
-  br i1 %31, label %32, label %.critedge68
+28:                                               ; preds = %25
+  br label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.thread
 
-32:                                               ; preds = %29
+_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit: ; preds = %25
+  %29 = tail call noundef i8 @_ZN12tracing_core8callsite15DefaultCallsite8register17hd822f56d9a4bdb1cE(ptr noundef nonnull align 8 @_ZN19ockam_transport_ble6driver6packet12PacketBuffer11from_packet10__CALLSITE17heb772cb1abbcda09E), !range !12
+  %30 = icmp eq i8 %29, 0
+  br i1 %30, label %.critedge68, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.thread
+
+_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.thread: ; preds = %25, %28, %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit
+  %.0.i105 = phi i8 [ %29, %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit ], [ 2, %28 ], [ %27, %25 ]
+  %31 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer11from_packet10__CALLSITE17heb772cb1abbcda09E, align 8, !nonnull !4, !align !5, !noundef !4
+  %32 = tail call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h93f7a5195e90a5dfE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %31, i8 noundef %.0.i105)
+  br i1 %32, label %33, label %.critedge68
+
+33:                                               ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.thread
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21)
-  %33 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer11from_packet10__CALLSITE17heb772cb1abbcda09E, align 8, !nonnull !5, !align !6, !noundef !5
-  %34 = getelementptr inbounds i8, ptr %33, i64 48
-  %35 = getelementptr inbounds i8, ptr %33, i64 56
-  %36 = load i64, ptr %35, align 8, !noundef !5
-  %37 = load ptr, ptr %34, align 8, !nonnull !5, !align !6, !noundef !5
-  %38 = getelementptr inbounds i8, ptr %33, i64 64
-  %39 = load <2 x ptr>, ptr %38, align 8
+  %34 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer11from_packet10__CALLSITE17heb772cb1abbcda09E, align 8, !nonnull !4, !align !5, !noundef !4
+  %35 = getelementptr inbounds i8, ptr %34, i64 48
+  %36 = getelementptr inbounds i8, ptr %34, i64 56
+  %37 = load i64, ptr %36, align 8, !noundef !4
+  %38 = load ptr, ptr %35, align 8, !nonnull !4, !align !5, !noundef !4
+  %39 = getelementptr inbounds i8, ptr %34, i64 64
+  %40 = load <2 x ptr>, ptr %39, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %19)
-  %.not105 = icmp eq i64 %36, 0
-  br i1 %.not105, label %87, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit"
+  %.not110 = icmp eq i64 %37, 0
+  br i1 %.not110, label %88, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit"
 
-.critedge68:                                      ; preds = %29, %25, %23
-  %40 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17ha75096dd2289f006E monotonic, align 1
-  %41 = icmp eq i8 %40, 0
-  br i1 %41, label %42, label %79
+.critedge68:                                      ; preds = %25, %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.thread, %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit, %23
+  %41 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17ha75096dd2289f006E monotonic, align 1
+  %42 = icmp eq i8 %41, 0
+  br i1 %42, label %43, label %80
 
-42:                                               ; preds = %.critedge68
-  %43 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
-  %44 = icmp ult i64 %43, 6
-  tail call void @llvm.assume(i1 %44)
-  %45 = icmp ugt i64 %43, 1
-  %46 = icmp ne i64 %43, 1
-  %..i73 = zext i1 %46 to i8
-  %.0.i74 = select i1 %45, i8 -1, i8 %..i73
-  switch i8 %.0.i74, label %79 [
+43:                                               ; preds = %.critedge68
+  %44 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
+  %45 = icmp ult i64 %44, 6
+  tail call void @llvm.assume(i1 %45)
+  %46 = icmp ugt i64 %44, 1
+  %47 = icmp ne i64 %44, 1
+  %..i74 = zext i1 %47 to i8
+  %.0.i75 = select i1 %46, i8 -1, i8 %..i74
+  switch i8 %.0.i75, label %80 [
     i8 -1, label %.critedge70
     i8 0, label %.critedge70
   ]
 
-.critedge70:                                      ; preds = %42, %42
-  %47 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer11from_packet10__CALLSITE17heb772cb1abbcda09E, align 8, !nonnull !5, !align !6, !noundef !5
+.critedge70:                                      ; preds = %43, %43
+  %48 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer11from_packet10__CALLSITE17heb772cb1abbcda09E, align 8, !nonnull !4, !align !5, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15)
-  %48 = tail call { ptr, i64 } @_ZN12tracing_core8metadata8Metadata6target17ha8a9bcc089ffab22E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %47)
-  %49 = extractvalue { ptr, i64 } %48, 0
-  %50 = extractvalue { ptr, i64 } %48, 1
-  %51 = icmp ne ptr %49, null
-  tail call void @llvm.assume(i1 %51)
+  %49 = tail call { ptr, i64 } @_ZN12tracing_core8metadata8Metadata6target17ha8a9bcc089ffab22E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %48)
+  %50 = extractvalue { ptr, i64 } %49, 0
+  %51 = extractvalue { ptr, i64 } %49, 1
+  %52 = icmp ne ptr %50, null
+  tail call void @llvm.assume(i1 %52)
   store i64 1, ptr %15, align 8
-  %52 = getelementptr inbounds i8, ptr %15, i64 8
-  store ptr %49, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %15, i64 16
-  store i64 %50, ptr %53, align 8
-  %54 = tail call { ptr, ptr } @_ZN3log6logger17h84ad6a028ff8eab9E()
-  %55 = extractvalue { ptr, ptr } %54, 0
-  %56 = extractvalue { ptr, ptr } %54, 1
-  %57 = getelementptr inbounds i8, ptr %56, i64 24
-  %58 = load ptr, ptr %57, align 8, !invariant.load !5, !nonnull !5
-  %59 = call noundef zeroext i1 %58(ptr noundef align 1 %55, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %15)
-  br i1 %59, label %60, label %68
+  %53 = getelementptr inbounds i8, ptr %15, i64 8
+  store ptr %50, ptr %53, align 8
+  %54 = getelementptr inbounds i8, ptr %15, i64 16
+  store i64 %51, ptr %54, align 8
+  %55 = tail call { ptr, ptr } @_ZN3log6logger17h84ad6a028ff8eab9E()
+  %56 = extractvalue { ptr, ptr } %55, 0
+  %57 = extractvalue { ptr, ptr } %55, 1
+  %58 = getelementptr inbounds i8, ptr %57, i64 24
+  %59 = load ptr, ptr %58, align 8, !invariant.load !4, !nonnull !4
+  %60 = call noundef zeroext i1 %59(ptr noundef align 1 %56, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %15)
+  br i1 %60, label %61, label %69
 
-60:                                               ; preds = %.critedge70
+61:                                               ; preds = %.critedge70
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13)
-  %61 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer11from_packet10__CALLSITE17heb772cb1abbcda09E, align 8, !nonnull !5, !align !6, !noundef !5
-  %62 = getelementptr inbounds i8, ptr %61, i64 48
-  %63 = getelementptr inbounds i8, ptr %61, i64 56
-  %64 = load i64, ptr %63, align 8, !noundef !5
-  %65 = load ptr, ptr %62, align 8, !nonnull !5, !align !6, !noundef !5
-  %66 = getelementptr inbounds i8, ptr %61, i64 64
-  %67 = load <2 x ptr>, ptr %66, align 8
+  %62 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer11from_packet10__CALLSITE17heb772cb1abbcda09E, align 8, !nonnull !4, !align !5, !noundef !4
+  %63 = getelementptr inbounds i8, ptr %62, i64 48
+  %64 = getelementptr inbounds i8, ptr %62, i64 56
+  %65 = load i64, ptr %64, align 8, !noundef !4
+  %66 = load ptr, ptr %63, align 8, !nonnull !4, !align !5, !noundef !4
+  %67 = getelementptr inbounds i8, ptr %62, i64 64
+  %68 = load <2 x ptr>, ptr %67, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
-  %.not106 = icmp eq i64 %64, 0
-  br i1 %.not106, label %69, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit80"
+  %.not111 = icmp eq i64 %65, 0
+  br i1 %.not111, label %70, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit81"
 
-68:                                               ; preds = %.critedge70, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit80"
+69:                                               ; preds = %.critedge70, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit81"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
-  br label %79
+  br label %80
 
-69:                                               ; preds = %60
+70:                                               ; preds = %61
   call void @_ZN4core6option13expect_failed17h92d9ca41185c3cd6E(ptr noalias noundef nonnull readonly align 1 @anon.44a7420d7a8ea5bd4737c26a9b317e9e.18, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.44a7420d7a8ea5bd4737c26a9b317e9e.19) #14
   unreachable
 
-"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit80": ; preds = %60
-  store ptr %65, ptr %11, align 8
-  %.sroa.595.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 8
-  store i64 %64, ptr %.sroa.595.0..sroa_idx, align 8
-  %.sroa.696.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 16
-  store <2 x ptr> %67, ptr %.sroa.696.0..sroa_idx, align 8
-  %.sroa.898.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 32
-  store i64 0, ptr %.sroa.898.0..sroa_idx, align 8
+"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit81": ; preds = %61
+  store ptr %66, ptr %11, align 8
+  %.sroa.596.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 8
+  store i64 %65, ptr %.sroa.596.0..sroa_idx, align 8
+  %.sroa.697.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 16
+  store <2 x ptr> %68, ptr %.sroa.697.0..sroa_idx, align 8
+  %.sroa.899.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 32
+  store i64 0, ptr %.sroa.899.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   store i64 %2, ptr %8, align 8
   store ptr %8, ptr %9, align 8
-  %70 = getelementptr inbounds i8, ptr %9, i64 8
-  store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17hea7a5554d3cba60aE", ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %9, i64 16
-  store ptr @anon.44a7420d7a8ea5bd4737c26a9b317e9e.24, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %9, i64 24
-  store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17hea7a5554d3cba60aE", ptr %72, align 8
+  %71 = getelementptr inbounds i8, ptr %9, i64 8
+  store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17hea7a5554d3cba60aE", ptr %71, align 8
+  %72 = getelementptr inbounds i8, ptr %9, i64 16
+  store ptr @anon.44a7420d7a8ea5bd4737c26a9b317e9e.24, ptr %72, align 8
+  %73 = getelementptr inbounds i8, ptr %9, i64 24
+  store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17hea7a5554d3cba60aE", ptr %73, align 8
   store ptr @anon.44a7420d7a8ea5bd4737c26a9b317e9e.23, ptr %10, align 8, !alias.scope !13, !noalias !16
-  %73 = getelementptr inbounds i8, ptr %10, i64 8
-  store i64 3, ptr %73, align 8, !alias.scope !13, !noalias !16
-  %74 = getelementptr inbounds i8, ptr %10, i64 32
-  store ptr null, ptr %74, align 8, !alias.scope !13, !noalias !16
-  %75 = getelementptr inbounds i8, ptr %10, i64 16
-  store ptr %9, ptr %75, align 8, !alias.scope !13, !noalias !16
-  %76 = getelementptr inbounds i8, ptr %10, i64 24
-  store i64 2, ptr %76, align 8, !alias.scope !13, !noalias !16
+  %74 = getelementptr inbounds i8, ptr %10, i64 8
+  store i64 3, ptr %74, align 8, !alias.scope !13, !noalias !16
+  %75 = getelementptr inbounds i8, ptr %10, i64 32
+  store ptr null, ptr %75, align 8, !alias.scope !13, !noalias !16
+  %76 = getelementptr inbounds i8, ptr %10, i64 16
+  store ptr %9, ptr %76, align 8, !alias.scope !13, !noalias !16
+  %77 = getelementptr inbounds i8, ptr %10, i64 24
+  store i64 2, ptr %77, align 8, !alias.scope !13, !noalias !16
   store ptr %11, ptr %12, align 8
   %.sroa.419.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %10, ptr %.sroa.419.0..sroa_idx, align 8
   %.sroa.520.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 16
   store ptr @anon.44a7420d7a8ea5bd4737c26a9b317e9e.25, ptr %.sroa.520.0..sroa_idx, align 8
   store ptr %12, ptr %13, align 8
-  %77 = getelementptr inbounds i8, ptr %13, i64 8
-  store i64 1, ptr %77, align 8
-  %78 = getelementptr inbounds i8, ptr %13, i64 16
-  store ptr %62, ptr %78, align 8
-  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %47, ptr noundef nonnull align 1 %55, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %56, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %13)
+  %78 = getelementptr inbounds i8, ptr %13, i64 8
+  store i64 1, ptr %78, align 8
+  %79 = getelementptr inbounds i8, ptr %13, i64 16
+  store ptr %63, ptr %79, align 8
+  call void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %48, ptr noundef nonnull align 1 %56, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %57, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %13)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
@@ -318,64 +314,64 @@ define void @_ZN19ockam_transport_ble6driver6packet12PacketBuffer11from_packet17
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
-  br label %68
+  br label %69
 
-79:                                               ; preds = %68, %42, %.critedge68, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit"
+80:                                               ; preds = %69, %43, %.critedge68, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit"
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store i64 %2, ptr %5, align 8
   store ptr %5, ptr %6, align 8
-  %80 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17hea7a5554d3cba60aE", ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %6, i64 16
-  store ptr @anon.44a7420d7a8ea5bd4737c26a9b317e9e.24, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %6, i64 24
-  store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17hea7a5554d3cba60aE", ptr %82, align 8
+  %81 = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17hea7a5554d3cba60aE", ptr %81, align 8
+  %82 = getelementptr inbounds i8, ptr %6, i64 16
+  store ptr @anon.44a7420d7a8ea5bd4737c26a9b317e9e.24, ptr %82, align 8
+  %83 = getelementptr inbounds i8, ptr %6, i64 24
+  store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17hea7a5554d3cba60aE", ptr %83, align 8
   store ptr @anon.44a7420d7a8ea5bd4737c26a9b317e9e.23, ptr %7, align 8, !alias.scope !19, !noalias !22
-  %83 = getelementptr inbounds i8, ptr %7, i64 8
-  store i64 3, ptr %83, align 8, !alias.scope !19, !noalias !22
-  %84 = getelementptr inbounds i8, ptr %7, i64 32
-  store ptr null, ptr %84, align 8, !alias.scope !19, !noalias !22
-  %85 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr %6, ptr %85, align 8, !alias.scope !19, !noalias !22
-  %86 = getelementptr inbounds i8, ptr %7, i64 24
-  store i64 2, ptr %86, align 8, !alias.scope !19, !noalias !22
+  %84 = getelementptr inbounds i8, ptr %7, i64 8
+  store i64 3, ptr %84, align 8, !alias.scope !19, !noalias !22
+  %85 = getelementptr inbounds i8, ptr %7, i64 32
+  store ptr null, ptr %85, align 8, !alias.scope !19, !noalias !22
+  %86 = getelementptr inbounds i8, ptr %7, i64 16
+  store ptr %6, ptr %86, align 8, !alias.scope !19, !noalias !22
+  %87 = getelementptr inbounds i8, ptr %7, i64 24
+  store i64 2, ptr %87, align 8, !alias.scope !19, !noalias !22
   call void @_ZN4core9panicking9panic_fmt17h452a83e54ecd764eE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.44a7420d7a8ea5bd4737c26a9b317e9e.26) #14
   unreachable
 
-87:                                               ; preds = %32
+88:                                               ; preds = %33
   tail call void @_ZN4core6option13expect_failed17h92d9ca41185c3cd6E(ptr noalias noundef nonnull readonly align 1 @anon.44a7420d7a8ea5bd4737c26a9b317e9e.18, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.44a7420d7a8ea5bd4737c26a9b317e9e.19) #14
   unreachable
 
-"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit": ; preds = %32
-  store ptr %37, ptr %19, align 8
-  %.sroa.5.0..sroa_idx82 = getelementptr inbounds i8, ptr %19, i64 8
-  store i64 %36, ptr %.sroa.5.0..sroa_idx82, align 8
-  %.sroa.683.0..sroa_idx = getelementptr inbounds i8, ptr %19, i64 16
-  store <2 x ptr> %39, ptr %.sroa.683.0..sroa_idx, align 8
-  %.sroa.884.0..sroa_idx = getelementptr inbounds i8, ptr %19, i64 32
-  store i64 0, ptr %.sroa.884.0..sroa_idx, align 8
+"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit": ; preds = %33
+  store ptr %38, ptr %19, align 8
+  %.sroa.5.0..sroa_idx83 = getelementptr inbounds i8, ptr %19, i64 8
+  store i64 %37, ptr %.sroa.5.0..sroa_idx83, align 8
+  %.sroa.684.0..sroa_idx = getelementptr inbounds i8, ptr %19, i64 16
+  store <2 x ptr> %40, ptr %.sroa.684.0..sroa_idx, align 8
+  %.sroa.885.0..sroa_idx = getelementptr inbounds i8, ptr %19, i64 32
+  store i64 0, ptr %.sroa.885.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
   store i64 %2, ptr %16, align 8
   store ptr %16, ptr %17, align 8
-  %88 = getelementptr inbounds i8, ptr %17, i64 8
-  store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17hea7a5554d3cba60aE", ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %17, i64 16
-  store ptr @anon.44a7420d7a8ea5bd4737c26a9b317e9e.24, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %17, i64 24
-  store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17hea7a5554d3cba60aE", ptr %90, align 8
+  %89 = getelementptr inbounds i8, ptr %17, i64 8
+  store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17hea7a5554d3cba60aE", ptr %89, align 8
+  %90 = getelementptr inbounds i8, ptr %17, i64 16
+  store ptr @anon.44a7420d7a8ea5bd4737c26a9b317e9e.24, ptr %90, align 8
+  %91 = getelementptr inbounds i8, ptr %17, i64 24
+  store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17hea7a5554d3cba60aE", ptr %91, align 8
   store ptr @anon.44a7420d7a8ea5bd4737c26a9b317e9e.23, ptr %18, align 8, !alias.scope !25, !noalias !28
-  %91 = getelementptr inbounds i8, ptr %18, i64 8
-  store i64 3, ptr %91, align 8, !alias.scope !25, !noalias !28
-  %92 = getelementptr inbounds i8, ptr %18, i64 32
-  store ptr null, ptr %92, align 8, !alias.scope !25, !noalias !28
-  %93 = getelementptr inbounds i8, ptr %18, i64 16
-  store ptr %17, ptr %93, align 8, !alias.scope !25, !noalias !28
-  %94 = getelementptr inbounds i8, ptr %18, i64 24
-  store i64 2, ptr %94, align 8, !alias.scope !25, !noalias !28
+  %92 = getelementptr inbounds i8, ptr %18, i64 8
+  store i64 3, ptr %92, align 8, !alias.scope !25, !noalias !28
+  %93 = getelementptr inbounds i8, ptr %18, i64 32
+  store ptr null, ptr %93, align 8, !alias.scope !25, !noalias !28
+  %94 = getelementptr inbounds i8, ptr %18, i64 16
+  store ptr %17, ptr %94, align 8, !alias.scope !25, !noalias !28
+  %95 = getelementptr inbounds i8, ptr %18, i64 24
+  store i64 2, ptr %95, align 8, !alias.scope !25, !noalias !28
   store ptr %19, ptr %20, align 8
   %.sroa.46.0..sroa_idx = getelementptr inbounds i8, ptr %20, i64 8
   store ptr %18, ptr %.sroa.46.0..sroa_idx, align 8
@@ -385,7 +381,7 @@ define void @_ZN19ockam_transport_ble6driver6packet12PacketBuffer11from_packet17
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 8
   store i64 1, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 16
-  store ptr %34, ptr %.sroa.5.0..sroa_idx, align 8
+  store ptr %35, ptr %.sroa.5.0..sroa_idx, align 8
   call fastcc void @"_ZN19ockam_transport_ble6driver6packet12PacketBuffer11from_packet28_$u7b$$u7b$closure$u7d$$u7d$17hbfb5327b779d9d61E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %21)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
@@ -393,19 +389,19 @@ define void @_ZN19ockam_transport_ble6driver6packet12PacketBuffer11from_packet17
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20)
-  br label %79
+  br label %80
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN19ockam_transport_ble6driver6packet12PacketBuffer18send_packet_length17ha51ffdc129482be9E(ptr noalias nocapture noundef readonly align 8 dereferenceable(1048) %0) unnamed_addr #4 {
+define noundef i64 @_ZN19ockam_transport_ble6driver6packet12PacketBuffer18send_packet_length17ha51ffdc129482be9E(ptr noalias nocapture noundef readonly align 8 dereferenceable(1048) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1032
-  %3 = load i64, ptr %2, align 8, !noundef !5
+  %3 = load i64, ptr %2, align 8, !noundef !4
   %4 = tail call i64 @llvm.bswap.i64(i64 %3)
   ret i64 %4
 }
 
 ; Function Attrs: nonlazybind uwtable
-define { ptr, i64 } @_ZN19ockam_transport_ble6driver6packet12PacketBuffer18send_next_fragment17h9807338aa6986423E(ptr noalias noundef align 8 dereferenceable(1048) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
+define { ptr, i64 } @_ZN19ockam_transport_ble6driver6packet12PacketBuffer18send_next_fragment17h9807338aa6986423E(ptr noalias noundef align 8 dereferenceable(1048) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = alloca { i64, { ptr, i64 } }, align 8
   %3 = alloca { i64, { ptr, i64 } }, align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
@@ -420,9 +416,9 @@ define { ptr, i64 } @_ZN19ockam_transport_ble6driver6packet12PacketBuffer18send_
   %13 = alloca { { { ptr, i64 }, ptr } }, align 8
   %14 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 1032
-  %16 = load i64, ptr %15, align 8, !noundef !5
+  %16 = load i64, ptr %15, align 8, !noundef !4
   %17 = getelementptr inbounds i8, ptr %0, i64 1040
-  %18 = load i64, ptr %17, align 8, !noundef !5
+  %18 = load i64, ptr %17, align 8, !noundef !4
   %19 = sub i64 %16, %18
   %20 = icmp slt i64 %19, 0
   %21 = icmp ne i64 %16, %18
@@ -458,7 +454,7 @@ default.unreachable103:                           ; preds = %1
 
 30:                                               ; preds = %1
   %31 = getelementptr inbounds i8, ptr %0, i64 1024
-  %32 = load i64, ptr %31, align 8, !noundef !5
+  %32 = load i64, ptr %31, align 8, !noundef !4
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %32, i64 %19)
   %33 = add i64 %.0.sroa.speculated.i, %18
   %34 = icmp ugt i64 %18, %33
@@ -499,23 +495,23 @@ default.unreachable103:                           ; preds = %1
   br label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.thread
 
 _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit: ; preds = %43
-  %46 = tail call noundef i8 @_ZN12tracing_core8callsite15DefaultCallsite8register17hd822f56d9a4bdb1cE(ptr noundef nonnull align 8 @_ZN19ockam_transport_ble6driver6packet12PacketBuffer18send_next_fragment10__CALLSITE17h4a7de721ed58d0d5E), !range !4
+  %46 = tail call noundef i8 @_ZN12tracing_core8callsite15DefaultCallsite8register17hd822f56d9a4bdb1cE(ptr noundef nonnull align 8 @_ZN19ockam_transport_ble6driver6packet12PacketBuffer18send_next_fragment10__CALLSITE17h4a7de721ed58d0d5E), !range !12
   %47 = icmp eq i8 %46, 0
   br i1 %47, label %.critedge63, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.thread
 
 _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.thread: ; preds = %43, %45, %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit
   %.0.i96 = phi i8 [ %46, %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit ], [ 2, %45 ], [ %44, %43 ]
-  %48 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer18send_next_fragment10__CALLSITE17h4a7de721ed58d0d5E, align 8, !nonnull !5, !align !6, !noundef !5
+  %48 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer18send_next_fragment10__CALLSITE17h4a7de721ed58d0d5E, align 8, !nonnull !4, !align !5, !noundef !4
   %49 = tail call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h93f7a5195e90a5dfE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %48, i8 noundef %.0.i96)
   br i1 %49, label %50, label %.critedge63
 
 50:                                               ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.thread
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13)
-  %51 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer18send_next_fragment10__CALLSITE17h4a7de721ed58d0d5E, align 8, !nonnull !5, !align !6, !noundef !5
+  %51 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer18send_next_fragment10__CALLSITE17h4a7de721ed58d0d5E, align 8, !nonnull !4, !align !5, !noundef !4
   %52 = getelementptr inbounds i8, ptr %51, i64 48
   %53 = getelementptr inbounds i8, ptr %51, i64 56
-  %54 = load i64, ptr %53, align 8, !noundef !5
-  %55 = load ptr, ptr %52, align 8, !nonnull !5, !align !6, !noundef !5
+  %54 = load i64, ptr %53, align 8, !noundef !4
+  %55 = load ptr, ptr %52, align 8, !nonnull !4, !align !5, !noundef !4
   %56 = getelementptr inbounds i8, ptr %51, i64 64
   %57 = load <2 x ptr>, ptr %56, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
@@ -536,7 +532,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   br i1 %.not101, label %.critedge65, label %117
 
 .critedge65:                                      ; preds = %60
-  %63 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer18send_next_fragment10__CALLSITE17h4a7de721ed58d0d5E, align 8, !nonnull !5, !align !6, !noundef !5
+  %63 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer18send_next_fragment10__CALLSITE17h4a7de721ed58d0d5E, align 8, !nonnull !4, !align !5, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   %64 = tail call { ptr, i64 } @_ZN12tracing_core8metadata8Metadata6target17ha8a9bcc089ffab22E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %63)
   %65 = extractvalue { ptr, i64 } %64, 0
@@ -552,7 +548,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   %71 = extractvalue { ptr, ptr } %70, 0
   %72 = extractvalue { ptr, ptr } %70, 1
   %73 = getelementptr inbounds i8, ptr %72, i64 24
-  %74 = load ptr, ptr %73, align 8, !invariant.load !5, !nonnull !5
+  %74 = load ptr, ptr %73, align 8, !invariant.load !4, !nonnull !4
   %75 = call noundef zeroext i1 %74(ptr noundef align 1 %71, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
   br i1 %75, label %76, label %84
 
@@ -560,11 +556,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
-  %77 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer18send_next_fragment10__CALLSITE17h4a7de721ed58d0d5E, align 8, !nonnull !5, !align !6, !noundef !5
+  %77 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer18send_next_fragment10__CALLSITE17h4a7de721ed58d0d5E, align 8, !nonnull !4, !align !5, !noundef !4
   %78 = getelementptr inbounds i8, ptr %77, i64 48
   %79 = getelementptr inbounds i8, ptr %77, i64 56
-  %80 = load i64, ptr %79, align 8, !noundef !5
-  %81 = load ptr, ptr %78, align 8, !nonnull !5, !align !6, !noundef !5
+  %80 = load i64, ptr %79, align 8, !noundef !4
+  %81 = load ptr, ptr %78, align 8, !nonnull !4, !align !5, !noundef !4
   %82 = getelementptr inbounds i8, ptr %77, i64 64
   %83 = load <2 x ptr>, ptr %82, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
@@ -661,7 +657,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   br i1 %.not.i, label %.critedge9.i, label %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer18send_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17hf8f19b062e78f05dE.exit"
 
 .critedge9.i:                                     ; preds = %99
-  %102 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer18send_next_fragment10__CALLSITE17h4a7de721ed58d0d5E, align 8, !noalias !34, !nonnull !5, !align !6, !noundef !5
+  %102 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer18send_next_fragment10__CALLSITE17h4a7de721ed58d0d5E, align 8, !noalias !34, !nonnull !4, !align !5, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !34
   %103 = call { ptr, i64 } @_ZN12tracing_core8metadata8Metadata6target17ha8a9bcc089ffab22E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %102)
   %104 = extractvalue { ptr, i64 } %103, 0
@@ -677,7 +673,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   %110 = extractvalue { ptr, ptr } %109, 0
   %111 = extractvalue { ptr, ptr } %109, 1
   %112 = getelementptr inbounds i8, ptr %111, i64 24
-  %113 = load ptr, ptr %112, align 8, !invariant.load !5, !nonnull !5
+  %113 = load ptr, ptr %112, align 8, !invariant.load !4, !nonnull !4
   %114 = call noundef zeroext i1 %113(ptr noundef align 1 %110, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3)
   br i1 %114, label %115, label %116
 
@@ -708,7 +704,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
 }
 
 ; Function Attrs: nonlazybind uwtable
-define { i64, i64 } @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_packet_length17h4e5d8bb1800d3858E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(1048) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #5 {
+define { i64, i64 } @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_packet_length17h4e5d8bb1800d3858E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(1048) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #4 {
   %4 = alloca { i64, { ptr, i64 } }, align 8
   %5 = alloca { i64, { ptr, i64 } }, align 8
   %6 = alloca { i64, { ptr, i64 } }, align 8
@@ -766,23 +762,23 @@ define { i64, i64 } @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21recei
   br label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.thread
 
 _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit: ; preds = %39
-  %42 = tail call noundef i8 @_ZN12tracing_core8callsite15DefaultCallsite8register17hd822f56d9a4bdb1cE(ptr noundef nonnull align 8 @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_packet_length10__CALLSITE17hb2ef31222e553f74E), !range !4
+  %42 = tail call noundef i8 @_ZN12tracing_core8callsite15DefaultCallsite8register17hd822f56d9a4bdb1cE(ptr noundef nonnull align 8 @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_packet_length10__CALLSITE17hb2ef31222e553f74E), !range !12
   %43 = icmp eq i8 %42, 0
   br i1 %43, label %.critedge173, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.thread
 
 _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.thread: ; preds = %39, %41, %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit
   %.0.i264 = phi i8 [ %42, %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit ], [ 2, %41 ], [ %40, %39 ]
-  %44 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_packet_length10__CALLSITE17hb2ef31222e553f74E, align 8, !nonnull !5, !align !6, !noundef !5
+  %44 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_packet_length10__CALLSITE17hb2ef31222e553f74E, align 8, !nonnull !4, !align !5, !noundef !4
   %45 = tail call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h93f7a5195e90a5dfE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %44, i8 noundef %.0.i264)
   br i1 %45, label %46, label %.critedge173
 
 46:                                               ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.thread
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19)
-  %47 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_packet_length10__CALLSITE17hb2ef31222e553f74E, align 8, !nonnull !5, !align !6, !noundef !5
+  %47 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_packet_length10__CALLSITE17hb2ef31222e553f74E, align 8, !nonnull !4, !align !5, !noundef !4
   %48 = getelementptr inbounds i8, ptr %47, i64 48
   %49 = getelementptr inbounds i8, ptr %47, i64 56
-  %50 = load i64, ptr %49, align 8, !noundef !5
-  %51 = load ptr, ptr %48, align 8, !nonnull !5, !align !6, !noundef !5
+  %50 = load i64, ptr %49, align 8, !noundef !4
+  %51 = load ptr, ptr %48, align 8, !nonnull !4, !align !5, !noundef !4
   %52 = getelementptr inbounds i8, ptr %47, i64 64
   %53 = load <2 x ptr>, ptr %52, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18)
@@ -803,7 +799,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   br i1 %.not275, label %.critedge175, label %89
 
 .critedge175:                                     ; preds = %56
-  %59 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_packet_length10__CALLSITE17hb2ef31222e553f74E, align 8, !nonnull !5, !align !6, !noundef !5
+  %59 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_packet_length10__CALLSITE17hb2ef31222e553f74E, align 8, !nonnull !4, !align !5, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14)
   %60 = tail call { ptr, i64 } @_ZN12tracing_core8metadata8Metadata6target17ha8a9bcc089ffab22E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %59)
   %61 = extractvalue { ptr, i64 } %60, 0
@@ -819,7 +815,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   %67 = extractvalue { ptr, ptr } %66, 0
   %68 = extractvalue { ptr, ptr } %66, 1
   %69 = getelementptr inbounds i8, ptr %68, i64 24
-  %70 = load ptr, ptr %69, align 8, !invariant.load !5, !nonnull !5
+  %70 = load ptr, ptr %69, align 8, !invariant.load !4, !nonnull !4
   %71 = call noundef zeroext i1 %70(ptr noundef align 1 %67, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14)
   br i1 %71, label %72, label %80
 
@@ -827,11 +823,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
-  %73 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_packet_length10__CALLSITE17hb2ef31222e553f74E, align 8, !nonnull !5, !align !6, !noundef !5
+  %73 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_packet_length10__CALLSITE17hb2ef31222e553f74E, align 8, !nonnull !4, !align !5, !noundef !4
   %74 = getelementptr inbounds i8, ptr %73, i64 48
   %75 = getelementptr inbounds i8, ptr %73, i64 56
-  %76 = load i64, ptr %75, align 8, !noundef !5
-  %77 = load ptr, ptr %74, align 8, !nonnull !5, !align !6, !noundef !5
+  %76 = load i64, ptr %75, align 8, !noundef !4
+  %77 = load ptr, ptr %74, align 8, !nonnull !4, !align !5, !noundef !4
   %78 = getelementptr inbounds i8, ptr %73, i64 64
   %79 = load <2 x ptr>, ptr %78, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
@@ -895,7 +891,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 1032
   %90 = getelementptr inbounds i8, ptr %0, i64 1040
   store i64 0, ptr %90, align 8
-  %91 = load i64, ptr %32, align 8, !noundef !5
+  %91 = load i64, ptr %32, align 8, !noundef !4
   store i64 %91, ptr %.sroa.5.0..sroa_idx.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32)
   br label %118
@@ -949,7 +945,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   br i1 %.not.i198, label %.critedge9.i, label %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_packet_length28_$u7b$$u7b$closure$u7d$$u7d$17h64fb715ad3d083e6E.exit"
 
 .critedge9.i:                                     ; preds = %100
-  %103 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_packet_length10__CALLSITE17hb2ef31222e553f74E, align 8, !noalias !58, !nonnull !5, !align !6, !noundef !5
+  %103 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_packet_length10__CALLSITE17hb2ef31222e553f74E, align 8, !noalias !58, !nonnull !4, !align !5, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !58
   %104 = call { ptr, i64 } @_ZN12tracing_core8metadata8Metadata6target17ha8a9bcc089ffab22E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %103)
   %105 = extractvalue { ptr, i64 } %104, 0
@@ -965,7 +961,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   %111 = extractvalue { ptr, ptr } %110, 0
   %112 = extractvalue { ptr, ptr } %110, 1
   %113 = getelementptr inbounds i8, ptr %112, i64 24
-  %114 = load ptr, ptr %113, align 8, !invariant.load !5, !nonnull !5
+  %114 = load ptr, ptr %113, align 8, !invariant.load !4, !nonnull !4
   %115 = call noundef zeroext i1 %114(ptr noundef align 1 %111, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7)
   br i1 %115, label %116, label %117
 
@@ -1011,23 +1007,23 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   br label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit200.thread
 
 _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit200: ; preds = %123
-  %126 = tail call noundef i8 @_ZN12tracing_core8callsite15DefaultCallsite8register17hd822f56d9a4bdb1cE(ptr noundef nonnull align 8 @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_packet_length10__CALLSITE17hb4ef936d3077e374E), !range !4
+  %126 = tail call noundef i8 @_ZN12tracing_core8callsite15DefaultCallsite8register17hd822f56d9a4bdb1cE(ptr noundef nonnull align 8 @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_packet_length10__CALLSITE17hb4ef936d3077e374E), !range !12
   %127 = icmp eq i8 %126, 0
   br i1 %127, label %.critedge179, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit200.thread
 
 _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit200.thread: ; preds = %123, %125, %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit200
   %.0.i199270 = phi i8 [ %126, %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit200 ], [ 2, %125 ], [ %124, %123 ]
-  %128 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_packet_length10__CALLSITE17hb4ef936d3077e374E, align 8, !nonnull !5, !align !6, !noundef !5
+  %128 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_packet_length10__CALLSITE17hb4ef936d3077e374E, align 8, !nonnull !4, !align !5, !noundef !4
   %129 = tail call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h93f7a5195e90a5dfE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %128, i8 noundef %.0.i199270)
   br i1 %129, label %130, label %.critedge179
 
 130:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit200.thread
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %31)
-  %131 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_packet_length10__CALLSITE17hb4ef936d3077e374E, align 8, !nonnull !5, !align !6, !noundef !5
+  %131 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_packet_length10__CALLSITE17hb4ef936d3077e374E, align 8, !nonnull !4, !align !5, !noundef !4
   %132 = getelementptr inbounds i8, ptr %131, i64 48
   %133 = getelementptr inbounds i8, ptr %131, i64 56
-  %134 = load i64, ptr %133, align 8, !noundef !5
-  %135 = load ptr, ptr %132, align 8, !nonnull !5, !align !6, !noundef !5
+  %134 = load i64, ptr %133, align 8, !noundef !4
+  %135 = load ptr, ptr %132, align 8, !nonnull !4, !align !5, !noundef !4
   %136 = getelementptr inbounds i8, ptr %131, i64 64
   %137 = load <2 x ptr>, ptr %136, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %30)
@@ -1054,7 +1050,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit200
   ]
 
 .critedge181:                                     ; preds = %140, %140
-  %145 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_packet_length10__CALLSITE17hb4ef936d3077e374E, align 8, !nonnull !5, !align !6, !noundef !5
+  %145 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_packet_length10__CALLSITE17hb4ef936d3077e374E, align 8, !nonnull !4, !align !5, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %26)
   %146 = tail call { ptr, i64 } @_ZN12tracing_core8metadata8Metadata6target17ha8a9bcc089ffab22E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %145)
   %147 = extractvalue { ptr, i64 } %146, 0
@@ -1070,7 +1066,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit200
   %153 = extractvalue { ptr, ptr } %152, 0
   %154 = extractvalue { ptr, ptr } %152, 1
   %155 = getelementptr inbounds i8, ptr %154, i64 24
-  %156 = load ptr, ptr %155, align 8, !invariant.load !5, !nonnull !5
+  %156 = load ptr, ptr %155, align 8, !invariant.load !4, !nonnull !4
   %157 = call noundef zeroext i1 %156(ptr noundef align 1 %153, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %26)
   br i1 %157, label %158, label %166
 
@@ -1078,11 +1074,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit200
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %25)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %24)
-  %159 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_packet_length10__CALLSITE17hb4ef936d3077e374E, align 8, !nonnull !5, !align !6, !noundef !5
+  %159 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_packet_length10__CALLSITE17hb4ef936d3077e374E, align 8, !nonnull !4, !align !5, !noundef !4
   %160 = getelementptr inbounds i8, ptr %159, i64 48
   %161 = getelementptr inbounds i8, ptr %159, i64 56
-  %162 = load i64, ptr %161, align 8, !noundef !5
-  %163 = load ptr, ptr %160, align 8, !nonnull !5, !align !6, !noundef !5
+  %162 = load i64, ptr %161, align 8, !noundef !4
+  %163 = load ptr, ptr %160, align 8, !nonnull !4, !align !5, !noundef !4
   %164 = getelementptr inbounds i8, ptr %159, i64 64
   %165 = load <2 x ptr>, ptr %164, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %23)
@@ -1198,7 +1194,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit200
   ]
 
 .critedge9.i217:                                  ; preds = %184, %184
-  %189 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_packet_length10__CALLSITE17hb4ef936d3077e374E, align 8, !noalias !73, !nonnull !5, !align !6, !noundef !5
+  %189 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_packet_length10__CALLSITE17hb4ef936d3077e374E, align 8, !noalias !73, !nonnull !4, !align !5, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !73
   %190 = call { ptr, i64 } @_ZN12tracing_core8metadata8Metadata6target17ha8a9bcc089ffab22E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %189)
   %191 = extractvalue { ptr, i64 } %190, 0
@@ -1214,7 +1210,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit200
   %197 = extractvalue { ptr, ptr } %196, 0
   %198 = extractvalue { ptr, ptr } %196, 1
   %199 = getelementptr inbounds i8, ptr %198, i64 24
-  %200 = load ptr, ptr %199, align 8, !invariant.load !5, !nonnull !5
+  %200 = load ptr, ptr %199, align 8, !invariant.load !4, !nonnull !4
   %201 = call noundef zeroext i1 %200(ptr noundef align 1 %197, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
   br i1 %201, label %202, label %203
 
@@ -1239,7 +1235,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit200
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment17hab390301cb91b217E(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(1048) %1, ptr noalias nocapture noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #5 {
+define void @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment17hab390301cb91b217E(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(1048) %1, ptr noalias nocapture noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #4 {
   %5 = alloca { i64, { ptr, i64 } }, align 8
   %6 = alloca { i64, { ptr, i64 } }, align 8
   %7 = alloca { i64, { ptr, i64 } }, align 8
@@ -1288,9 +1284,9 @@ define void @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_
   %50 = alloca { { { ptr, i64 }, ptr } }, align 8
   %51 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %52 = getelementptr inbounds i8, ptr %1, i64 1040
-  %53 = load i64, ptr %52, align 8, !noundef !5
+  %53 = load i64, ptr %52, align 8, !noundef !4
   %54 = getelementptr inbounds i8, ptr %1, i64 1032
-  %55 = load i64, ptr %54, align 8, !noundef !5
+  %55 = load i64, ptr %54, align 8, !noundef !4
   %.not = icmp ult i64 %53, %55
   br i1 %.not, label %56, label %59
 
@@ -1324,7 +1320,7 @@ define void @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hc94e2e352be76bffE.exit": ; preds = %64
   %67 = getelementptr inbounds i8, ptr %1, i64 %53
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %67, ptr nonnull readonly align 1 %2, i64 %3, i1 false), !alias.scope !79, !noalias !83
-  %68 = load i64, ptr %52, align 8, !noundef !5
+  %68 = load i64, ptr %52, align 8, !noundef !4
   %69 = add i64 %68, %3
   store i64 %69, ptr %52, align 8
   %70 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17ha260197560d85766E monotonic, align 8
@@ -1343,23 +1339,23 @@ define void @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_
   br label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.thread
 
 _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit: ; preds = %72
-  %75 = tail call noundef i8 @_ZN12tracing_core8callsite15DefaultCallsite8register17hd822f56d9a4bdb1cE(ptr noundef nonnull align 8 @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment10__CALLSITE17he00b10cef53e9cd8E), !range !4
+  %75 = tail call noundef i8 @_ZN12tracing_core8callsite15DefaultCallsite8register17hd822f56d9a4bdb1cE(ptr noundef nonnull align 8 @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment10__CALLSITE17he00b10cef53e9cd8E), !range !12
   %76 = icmp eq i8 %75, 0
   br i1 %76, label %.critedge201, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.thread
 
 _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.thread: ; preds = %72, %74, %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit
   %.0.i348 = phi i8 [ %75, %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit ], [ 2, %74 ], [ %73, %72 ]
-  %77 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment10__CALLSITE17he00b10cef53e9cd8E, align 8, !nonnull !5, !align !6, !noundef !5
+  %77 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment10__CALLSITE17he00b10cef53e9cd8E, align 8, !nonnull !4, !align !5, !noundef !4
   %78 = tail call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h93f7a5195e90a5dfE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %77, i8 noundef %.0.i348)
   br i1 %78, label %79, label %.critedge201
 
 79:                                               ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.thread
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %36)
-  %80 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment10__CALLSITE17he00b10cef53e9cd8E, align 8, !nonnull !5, !align !6, !noundef !5
+  %80 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment10__CALLSITE17he00b10cef53e9cd8E, align 8, !nonnull !4, !align !5, !noundef !4
   %81 = getelementptr inbounds i8, ptr %80, i64 48
   %82 = getelementptr inbounds i8, ptr %80, i64 56
-  %83 = load i64, ptr %82, align 8, !noundef !5
-  %84 = load ptr, ptr %81, align 8, !nonnull !5, !align !6, !noundef !5
+  %83 = load i64, ptr %82, align 8, !noundef !4
+  %84 = load ptr, ptr %81, align 8, !nonnull !4, !align !5, !noundef !4
   %85 = getelementptr inbounds i8, ptr %80, i64 64
   %86 = load <2 x ptr>, ptr %85, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %35)
@@ -1380,7 +1376,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   br i1 %.not367, label %.critedge203, label %124
 
 .critedge203:                                     ; preds = %89
-  %92 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment10__CALLSITE17he00b10cef53e9cd8E, align 8, !nonnull !5, !align !6, !noundef !5
+  %92 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment10__CALLSITE17he00b10cef53e9cd8E, align 8, !nonnull !4, !align !5, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %31)
   %93 = tail call { ptr, i64 } @_ZN12tracing_core8metadata8Metadata6target17ha8a9bcc089ffab22E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %92)
   %94 = extractvalue { ptr, i64 } %93, 0
@@ -1396,7 +1392,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   %100 = extractvalue { ptr, ptr } %99, 0
   %101 = extractvalue { ptr, ptr } %99, 1
   %102 = getelementptr inbounds i8, ptr %101, i64 24
-  %103 = load ptr, ptr %102, align 8, !invariant.load !5, !nonnull !5
+  %103 = load ptr, ptr %102, align 8, !invariant.load !4, !nonnull !4
   %104 = call noundef zeroext i1 %103(ptr noundef align 1 %100, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %31)
   br i1 %104, label %105, label %113
 
@@ -1404,11 +1400,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %30)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %31, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %29)
-  %106 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment10__CALLSITE17he00b10cef53e9cd8E, align 8, !nonnull !5, !align !6, !noundef !5
+  %106 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment10__CALLSITE17he00b10cef53e9cd8E, align 8, !nonnull !4, !align !5, !noundef !4
   %107 = getelementptr inbounds i8, ptr %106, i64 48
   %108 = getelementptr inbounds i8, ptr %106, i64 56
-  %109 = load i64, ptr %108, align 8, !noundef !5
-  %110 = load ptr, ptr %107, align 8, !nonnull !5, !align !6, !noundef !5
+  %109 = load i64, ptr %108, align 8, !noundef !4
+  %110 = load ptr, ptr %107, align 8, !nonnull !4, !align !5, !noundef !4
   %111 = getelementptr inbounds i8, ptr %106, i64 64
   %112 = load <2 x ptr>, ptr %111, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %28)
@@ -1471,8 +1467,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
 
 124:                                              ; preds = %89, %113, %.critedge201, %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17h411f4c9fc4206e0cE.exit"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24)
-  %125 = load i64, ptr %54, align 8, !noundef !5
-  %126 = load i64, ptr %52, align 8, !noundef !5
+  %125 = load i64, ptr %54, align 8, !noundef !4
+  %126 = load i64, ptr %52, align 8, !noundef !4
   %127 = sub i64 %125, %126
   store i64 %127, ptr %24, align 8
   %128 = icmp slt i64 %127, 1
@@ -1531,7 +1527,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   br i1 %.not.i237, label %.critedge9.i, label %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17h411f4c9fc4206e0cE.exit"
 
 .critedge9.i:                                     ; preds = %139
-  %142 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment10__CALLSITE17he00b10cef53e9cd8E, align 8, !noalias !97, !nonnull !5, !align !6, !noundef !5
+  %142 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment10__CALLSITE17he00b10cef53e9cd8E, align 8, !noalias !97, !nonnull !4, !align !5, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !97
   %143 = call { ptr, i64 } @_ZN12tracing_core8metadata8Metadata6target17ha8a9bcc089ffab22E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %142)
   %144 = extractvalue { ptr, i64 } %143, 0
@@ -1547,7 +1543,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   %150 = extractvalue { ptr, ptr } %149, 0
   %151 = extractvalue { ptr, ptr } %149, 1
   %152 = getelementptr inbounds i8, ptr %151, i64 24
-  %153 = load ptr, ptr %152, align 8, !invariant.load !5, !nonnull !5
+  %153 = load ptr, ptr %152, align 8, !invariant.load !4, !nonnull !4
   %154 = call noundef zeroext i1 %153(ptr noundef align 1 %150, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10)
   br i1 %154, label %155, label %156
 
@@ -1595,23 +1591,23 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   br label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit239.thread
 
 _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit239: ; preds = %162
-  %165 = call noundef i8 @_ZN12tracing_core8callsite15DefaultCallsite8register17hd822f56d9a4bdb1cE(ptr noundef nonnull align 8 @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment10__CALLSITE17h8ab13fa8038819e9E), !range !4
+  %165 = call noundef i8 @_ZN12tracing_core8callsite15DefaultCallsite8register17hd822f56d9a4bdb1cE(ptr noundef nonnull align 8 @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment10__CALLSITE17h8ab13fa8038819e9E), !range !12
   %166 = icmp eq i8 %165, 0
   br i1 %166, label %.critedge207, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit239.thread
 
 _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit239.thread: ; preds = %162, %164, %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit239
   %.0.i238354 = phi i8 [ %165, %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit239 ], [ 2, %164 ], [ %163, %162 ]
-  %167 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment10__CALLSITE17h8ab13fa8038819e9E, align 8, !nonnull !5, !align !6, !noundef !5
+  %167 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment10__CALLSITE17h8ab13fa8038819e9E, align 8, !nonnull !4, !align !5, !noundef !4
   %168 = call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h93f7a5195e90a5dfE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %167, i8 noundef %.0.i238354)
   br i1 %168, label %169, label %.critedge207
 
 169:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit239.thread
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %23)
-  %170 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment10__CALLSITE17h8ab13fa8038819e9E, align 8, !nonnull !5, !align !6, !noundef !5
+  %170 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment10__CALLSITE17h8ab13fa8038819e9E, align 8, !nonnull !4, !align !5, !noundef !4
   %171 = getelementptr inbounds i8, ptr %170, i64 48
   %172 = getelementptr inbounds i8, ptr %170, i64 56
-  %173 = load i64, ptr %172, align 8, !noundef !5
-  %174 = load ptr, ptr %171, align 8, !nonnull !5, !align !6, !noundef !5
+  %173 = load i64, ptr %172, align 8, !noundef !4
+  %174 = load ptr, ptr %171, align 8, !nonnull !4, !align !5, !noundef !4
   %175 = getelementptr inbounds i8, ptr %170, i64 64
   %176 = load <2 x ptr>, ptr %175, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22)
@@ -1632,7 +1628,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit239
   br i1 %.not370, label %.critedge209, label %212
 
 .critedge209:                                     ; preds = %179
-  %182 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment10__CALLSITE17h8ab13fa8038819e9E, align 8, !nonnull !5, !align !6, !noundef !5
+  %182 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment10__CALLSITE17h8ab13fa8038819e9E, align 8, !nonnull !4, !align !5, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18)
   %183 = call { ptr, i64 } @_ZN12tracing_core8metadata8Metadata6target17ha8a9bcc089ffab22E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %182)
   %184 = extractvalue { ptr, i64 } %183, 0
@@ -1648,7 +1644,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit239
   %190 = extractvalue { ptr, ptr } %189, 0
   %191 = extractvalue { ptr, ptr } %189, 1
   %192 = getelementptr inbounds i8, ptr %191, i64 24
-  %193 = load ptr, ptr %192, align 8, !invariant.load !5, !nonnull !5
+  %193 = load ptr, ptr %192, align 8, !invariant.load !4, !nonnull !4
   %194 = call noundef zeroext i1 %193(ptr noundef align 1 %190, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %18)
   br i1 %194, label %195, label %203
 
@@ -1656,11 +1652,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit239
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16)
-  %196 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment10__CALLSITE17h8ab13fa8038819e9E, align 8, !nonnull !5, !align !6, !noundef !5
+  %196 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment10__CALLSITE17h8ab13fa8038819e9E, align 8, !nonnull !4, !align !5, !noundef !4
   %197 = getelementptr inbounds i8, ptr %196, i64 48
   %198 = getelementptr inbounds i8, ptr %196, i64 56
-  %199 = load i64, ptr %198, align 8, !noundef !5
-  %200 = load ptr, ptr %197, align 8, !nonnull !5, !align !6, !noundef !5
+  %199 = load i64, ptr %198, align 8, !noundef !4
+  %200 = load ptr, ptr %197, align 8, !nonnull !4, !align !5, !noundef !4
   %201 = getelementptr inbounds i8, ptr %196, i64 64
   %202 = load <2 x ptr>, ptr %201, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15)
@@ -1718,7 +1714,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit239
   br label %203
 
 212:                                              ; preds = %179, %203, %.critedge207, %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17h7ef714bea9497ac9E.exit"
-  %213 = load i64, ptr %54, align 8, !noundef !5
+  %213 = load i64, ptr %54, align 8, !noundef !4
   %214 = icmp ugt i64 %213, 1024
   br i1 %214, label %215, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h350b671c87f87633E.exit"
 
@@ -1784,7 +1780,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit239
   br i1 %.not.i256, label %.critedge9.i257, label %"_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment28_$u7b$$u7b$closure$u7d$$u7d$17h7ef714bea9497ac9E.exit"
 
 .critedge9.i257:                                  ; preds = %226
-  %229 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment10__CALLSITE17h8ab13fa8038819e9E, align 8, !noalias !115, !nonnull !5, !align !6, !noundef !5
+  %229 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment10__CALLSITE17h8ab13fa8038819e9E, align 8, !noalias !115, !nonnull !4, !align !5, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !115
   %230 = call { ptr, i64 } @_ZN12tracing_core8metadata8Metadata6target17ha8a9bcc089ffab22E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %229)
   %231 = extractvalue { ptr, i64 } %230, 0
@@ -1800,7 +1796,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit239
   %237 = extractvalue { ptr, ptr } %236, 0
   %238 = extractvalue { ptr, ptr } %236, 1
   %239 = getelementptr inbounds i8, ptr %238, i64 24
-  %240 = load ptr, ptr %239, align 8, !invariant.load !5, !nonnull !5
+  %240 = load ptr, ptr %239, align 8, !invariant.load !4, !nonnull !4
   %241 = call noundef zeroext i1 %240(ptr noundef align 1 %237, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8)
   br i1 %241, label %242, label %243
 
@@ -1842,23 +1838,23 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit239
   br label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit259.thread
 
 _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit259: ; preds = %246
-  %250 = tail call noundef i8 @_ZN12tracing_core8callsite15DefaultCallsite8register17hd822f56d9a4bdb1cE(ptr noundef nonnull align 8 @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment10__CALLSITE17hfb72417153a7a780E), !range !4
+  %250 = tail call noundef i8 @_ZN12tracing_core8callsite15DefaultCallsite8register17hd822f56d9a4bdb1cE(ptr noundef nonnull align 8 @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment10__CALLSITE17hfb72417153a7a780E), !range !12
   %251 = icmp eq i8 %250, 0
   br i1 %251, label %.critedge215, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit259.thread
 
 _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit259.thread: ; preds = %246, %249, %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit259
   %.0.i258360 = phi i8 [ %250, %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit259 ], [ 2, %249 ], [ %248, %246 ]
-  %252 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment10__CALLSITE17hfb72417153a7a780E, align 8, !nonnull !5, !align !6, !noundef !5
+  %252 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment10__CALLSITE17hfb72417153a7a780E, align 8, !nonnull !4, !align !5, !noundef !4
   %253 = tail call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h93f7a5195e90a5dfE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %252, i8 noundef %.0.i258360)
   br i1 %253, label %254, label %.critedge215
 
 254:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit259.thread
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %50)
-  %255 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment10__CALLSITE17hfb72417153a7a780E, align 8, !nonnull !5, !align !6, !noundef !5
+  %255 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment10__CALLSITE17hfb72417153a7a780E, align 8, !nonnull !4, !align !5, !noundef !4
   %256 = getelementptr inbounds i8, ptr %255, i64 48
   %257 = getelementptr inbounds i8, ptr %255, i64 56
-  %258 = load i64, ptr %257, align 8, !noundef !5
-  %259 = load ptr, ptr %256, align 8, !nonnull !5, !align !6, !noundef !5
+  %258 = load i64, ptr %257, align 8, !noundef !4
+  %259 = load ptr, ptr %256, align 8, !nonnull !4, !align !5, !noundef !4
   %260 = getelementptr inbounds i8, ptr %255, i64 64
   %261 = load <2 x ptr>, ptr %260, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %49)
@@ -1885,7 +1881,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit259
   ]
 
 .critedge217:                                     ; preds = %264, %264
-  %269 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment10__CALLSITE17hfb72417153a7a780E, align 8, !nonnull !5, !align !6, !noundef !5
+  %269 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment10__CALLSITE17hfb72417153a7a780E, align 8, !nonnull !4, !align !5, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %44)
   %270 = tail call { ptr, i64 } @_ZN12tracing_core8metadata8Metadata6target17ha8a9bcc089ffab22E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %269)
   %271 = extractvalue { ptr, i64 } %270, 0
@@ -1901,7 +1897,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit259
   %277 = extractvalue { ptr, ptr } %276, 0
   %278 = extractvalue { ptr, ptr } %276, 1
   %279 = getelementptr inbounds i8, ptr %278, i64 24
-  %280 = load ptr, ptr %279, align 8, !invariant.load !5, !nonnull !5
+  %280 = load ptr, ptr %279, align 8, !invariant.load !4, !nonnull !4
   %281 = call noundef zeroext i1 %280(ptr noundef align 1 %277, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %44)
   br i1 %281, label %282, label %290
 
@@ -1909,11 +1905,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit259
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %43)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %43, ptr noundef nonnull align 8 dereferenceable(24) %44, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %42)
-  %283 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment10__CALLSITE17hfb72417153a7a780E, align 8, !nonnull !5, !align !6, !noundef !5
+  %283 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment10__CALLSITE17hfb72417153a7a780E, align 8, !nonnull !4, !align !5, !noundef !4
   %284 = getelementptr inbounds i8, ptr %283, i64 48
   %285 = getelementptr inbounds i8, ptr %283, i64 56
-  %286 = load i64, ptr %285, align 8, !noundef !5
-  %287 = load ptr, ptr %284, align 8, !nonnull !5, !align !6, !noundef !5
+  %286 = load i64, ptr %285, align 8, !noundef !4
+  %287 = load ptr, ptr %284, align 8, !nonnull !4, !align !5, !noundef !4
   %288 = getelementptr inbounds i8, ptr %283, i64 64
   %289 = load <2 x ptr>, ptr %288, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %41)
@@ -2040,7 +2036,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit259
   ]
 
 .critedge9.i276:                                  ; preds = %310, %310
-  %315 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment10__CALLSITE17hfb72417153a7a780E, align 8, !noalias !130, !nonnull !5, !align !6, !noundef !5
+  %315 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer21receive_next_fragment10__CALLSITE17hfb72417153a7a780E, align 8, !noalias !130, !nonnull !4, !align !5, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !130
   %316 = call { ptr, i64 } @_ZN12tracing_core8metadata8Metadata6target17ha8a9bcc089ffab22E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %315)
   %317 = extractvalue { ptr, i64 } %316, 0
@@ -2056,7 +2052,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit259
   %323 = extractvalue { ptr, ptr } %322, 0
   %324 = extractvalue { ptr, ptr } %322, 1
   %325 = getelementptr inbounds i8, ptr %324, i64 24
-  %326 = load ptr, ptr %325, align 8, !invariant.load !5, !nonnull !5
+  %326 = load ptr, ptr %325, align 8, !invariant.load !4, !nonnull !4
   %327 = call noundef zeroext i1 %326(ptr noundef align 1 %323, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   br i1 %327, label %328, label %329
 
@@ -2082,13 +2078,13 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit259
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef zeroext i1 @"_ZN86_$LT$ockam_transport_ble..driver..packet..PacketBuffer$u20$as$u20$core..fmt..Debug$GT$3fmt17h791ab3f7aa742a78E"(ptr noalias noundef readonly align 8 dereferenceable(1048) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #5 {
+define noundef zeroext i1 @"_ZN86_$LT$ockam_transport_ble..driver..packet..PacketBuffer$u20$as$u20$core..fmt..Debug$GT$3fmt17h791ab3f7aa742a78E"(ptr noalias noundef readonly align 8 dereferenceable(1048) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #4 {
   %3 = alloca [2 x { ptr, ptr }], align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %5 = alloca { ptr, i64 }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %6 = getelementptr inbounds i8, ptr %0, i64 1032
-  %7 = load i64, ptr %6, align 8, !noundef !5
+  %7 = load i64, ptr %6, align 8, !noundef !4
   %8 = icmp ugt i64 %7, 1024
   br i1 %8, label %9, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h350b671c87f87633E.exit"
 
@@ -2127,11 +2123,11 @@ define noundef zeroext i1 @"_ZN86_$LT$ockam_transport_ble..driver..packet..Packe
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN19ockam_transport_ble6driver6packet12PacketBuffer11from_packet28_$u7b$$u7b$closure$u7d$$u7d$17hbfb5327b779d9d61E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN19ockam_transport_ble6driver6packet12PacketBuffer11from_packet28_$u7b$$u7b$closure$u7d$$u7d$17hbfb5327b779d9d61E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #5 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
-  %3 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer11from_packet10__CALLSITE17heb772cb1abbcda09E, align 8, !nonnull !5, !align !6, !noundef !5
+  %3 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer11from_packet10__CALLSITE17heb772cb1abbcda09E, align 8, !nonnull !4, !align !5, !noundef !4
   tail call void @_ZN12tracing_core5event5Event8dispatch17h2c7677b016771da4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   %4 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17ha75096dd2289f006E monotonic, align 1
   %5 = icmp eq i8 %4, 0
@@ -2154,7 +2150,7 @@ define internal fastcc void @"_ZN19ockam_transport_ble6driver6packet12PacketBuff
   ]
 
 .critedge9:                                       ; preds = %7, %7
-  %12 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer11from_packet10__CALLSITE17heb772cb1abbcda09E, align 8, !nonnull !5, !align !6, !noundef !5
+  %12 = load ptr, ptr @_ZN19ockam_transport_ble6driver6packet12PacketBuffer11from_packet10__CALLSITE17heb772cb1abbcda09E, align 8, !nonnull !4, !align !5, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   %13 = tail call { ptr, i64 } @_ZN12tracing_core8metadata8Metadata6target17ha8a9bcc089ffab22E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %12)
   %14 = extractvalue { ptr, i64 } %13, 0
@@ -2170,7 +2166,7 @@ define internal fastcc void @"_ZN19ockam_transport_ble6driver6packet12PacketBuff
   %20 = extractvalue { ptr, ptr } %19, 0
   %21 = extractvalue { ptr, ptr } %19, 1
   %22 = getelementptr inbounds i8, ptr %21, i64 24
-  %23 = load ptr, ptr %22, align 8, !invariant.load !5, !nonnull !5
+  %23 = load ptr, ptr %22, align 8, !invariant.load !4, !nonnull !4
   %24 = call noundef zeroext i1 %23(ptr noundef align 1 %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
   br i1 %24, label %25, label %26
 
@@ -2196,7 +2192,7 @@ declare void @_ZN4core5slice5index22slice_index_order_fail17he265421b305b24a6E(i
 declare noundef i8 @_ZN12tracing_core8callsite15DefaultCallsite8register17hd822f56d9a4bdb1cE(ptr noundef nonnull align 8) unnamed_addr #7
 
 ; Function Attrs: nonlazybind uwtable
-declare noundef i32 @rust_eh_personality(i32 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef) unnamed_addr #5
+declare noundef i32 @rust_eh_personality(i32 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef) unnamed_addr #4
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
 declare void @_ZN4core9panicking9panic_fmt17h452a83e54ecd764eE(ptr noalias nocapture noundef align 8 dereferenceable(48), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #6
@@ -2211,46 +2207,46 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
 
 ; Function Attrs: nonlazybind uwtable
-declare noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h93f7a5195e90a5dfE(ptr noalias noundef readonly align 8 dereferenceable(120), i8 noundef) unnamed_addr #5
+declare noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h93f7a5195e90a5dfE(ptr noalias noundef readonly align 8 dereferenceable(120), i8 noundef) unnamed_addr #4
 
 ; Function Attrs: nonlazybind uwtable
-declare { ptr, i64 } @_ZN12tracing_core8metadata8Metadata6target17ha8a9bcc089ffab22E(ptr noalias noundef readonly align 8 dereferenceable(120)) unnamed_addr #5
+declare { ptr, i64 } @_ZN12tracing_core8metadata8Metadata6target17ha8a9bcc089ffab22E(ptr noalias noundef readonly align 8 dereferenceable(120)) unnamed_addr #4
 
 ; Function Attrs: nonlazybind uwtable
-declare { ptr, ptr } @_ZN3log6logger17h84ad6a028ff8eab9E() unnamed_addr #5
+declare { ptr, ptr } @_ZN3log6logger17h84ad6a028ff8eab9E() unnamed_addr #4
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
 declare void @_ZN4core6option13expect_failed17h92d9ca41185c3cd6E(ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #6
 
 ; Function Attrs: nonlazybind uwtable
-declare noundef zeroext i1 @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17hea7a5554d3cba60aE"(ptr noalias noundef readonly align 8 dereferenceable(8), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #5
+declare noundef zeroext i1 @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17hea7a5554d3cba60aE"(ptr noalias noundef readonly align 8 dereferenceable(8), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #4
 
 ; Function Attrs: nonlazybind uwtable
-declare void @"_ZN67_$LT$core..fmt..Arguments$u20$as$u20$tracing_core..field..Value$GT$6record17hb1d71260d6ab634eE"(ptr noalias noundef readonly align 8 dereferenceable(48), ptr noalias noundef readonly align 8 dereferenceable(40), ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #5
+declare void @"_ZN67_$LT$core..fmt..Arguments$u20$as$u20$tracing_core..field..Value$GT$6record17hb1d71260d6ab634eE"(ptr noalias noundef readonly align 8 dereferenceable(48), ptr noalias noundef readonly align 8 dereferenceable(40), ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #4
 
 ; Function Attrs: nonlazybind uwtable
-declare void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef readonly align 8 dereferenceable(120), ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24), ptr noalias nocapture noundef align 8 dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #5
+declare void @_ZN7tracing15__macro_support13__tracing_log17hae7fb4a14036be96E(ptr noalias noundef readonly align 8 dereferenceable(120), ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24), ptr noalias nocapture noundef align 8 dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.bswap.i64(i64) #11
 
 ; Function Attrs: nonlazybind uwtable
-declare noundef zeroext i1 @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$u64$GT$3fmt17h64e583dc06aef3c4E"(ptr noalias noundef readonly align 8 dereferenceable(8), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #5
+declare noundef zeroext i1 @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$u64$GT$3fmt17h64e583dc06aef3c4E"(ptr noalias noundef readonly align 8 dereferenceable(8), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #4
 
 ; Function Attrs: nonlazybind uwtable
-declare noundef zeroext i1 @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$isize$GT$3fmt17h9d4de00183073ec4E"(ptr noalias noundef readonly align 8 dereferenceable(8), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #5
+declare noundef zeroext i1 @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$isize$GT$3fmt17h9d4de00183073ec4E"(ptr noalias noundef readonly align 8 dereferenceable(8), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #4
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hc392a9f813f2b7a9E"(ptr noalias noundef readonly align 8 dereferenceable(16), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #5
+declare hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hc392a9f813f2b7a9E"(ptr noalias noundef readonly align 8 dereferenceable(16), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #4
 
 ; Function Attrs: nonlazybind uwtable
-declare noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17hfe4d1b05e81a862eE(ptr noalias noundef align 8 dereferenceable(64), ptr noalias nocapture noundef align 8 dereferenceable(48)) unnamed_addr #5
+declare noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17hfe4d1b05e81a862eE(ptr noalias noundef align 8 dereferenceable(64), ptr noalias nocapture noundef align 8 dereferenceable(48)) unnamed_addr #4
 
 ; Function Attrs: nonlazybind uwtable
-declare void @_ZN12tracing_core5event5Event8dispatch17h2c7677b016771da4E(ptr noalias noundef readonly align 8 dereferenceable(120), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #5
+declare void @_ZN12tracing_core5event5Event8dispatch17h2c7677b016771da4E(ptr noalias noundef readonly align 8 dereferenceable(120), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #4
 
 ; Function Attrs: nonlazybind uwtable
-declare void @"_ZN92_$LT$tracing_core..callsite..DefaultCallsite$u20$as$u20$tracing_core..callsite..Callsite$GT$12set_interest17h9225fcf3931e1843E"(ptr noundef nonnull align 8, i8 noundef) unnamed_addr #5
+declare void @"_ZN92_$LT$tracing_core..callsite..DefaultCallsite$u20$as$u20$tracing_core..callsite..Callsite$GT$12set_interest17h9225fcf3931e1843E"(ptr noundef nonnull align 8, i8 noundef) unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
@@ -2264,12 +2260,12 @@ declare hidden noundef nonnull align 8 ptr @_ZN10ockam_core5error5Error3new17hc1
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #13
 
-attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #2 = { alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #5 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #0 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #1 = { alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #4 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #5 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #6 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #7 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
@@ -2287,15 +2283,15 @@ attributes #14 = { noreturn }
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{i32 1, !"LTOPostLink", i32 1}
 !3 = !{!"rustc version 1.74.1 (a28077b28 2023-12-04)"}
-!4 = !{i8 0, i8 3}
-!5 = !{}
-!6 = !{i64 8}
-!7 = !{!8, !10}
-!8 = distinct !{!8, !9, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hc94e2e352be76bffE: argument 0"}
-!9 = distinct !{!9, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hc94e2e352be76bffE"}
-!10 = distinct !{!10, !9, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hc94e2e352be76bffE: argument 1"}
-!11 = !{!12}
-!12 = distinct !{!12, !9, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hc94e2e352be76bffE: argument 2"}
+!4 = !{}
+!5 = !{i64 8}
+!6 = !{!7, !9}
+!7 = distinct !{!7, !8, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hc94e2e352be76bffE: argument 0"}
+!8 = distinct !{!8, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hc94e2e352be76bffE"}
+!9 = distinct !{!9, !8, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hc94e2e352be76bffE: argument 1"}
+!10 = !{!11}
+!11 = distinct !{!11, !8, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hc94e2e352be76bffE: argument 2"}
+!12 = !{i8 0, i8 3}
 !13 = !{!14}
 !14 = distinct !{!14, !15, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 0"}
 !15 = distinct !{!15, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE"}

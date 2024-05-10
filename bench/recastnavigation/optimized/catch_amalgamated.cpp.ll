@@ -49285,10 +49285,12 @@ _ZN5Catch14TestSpecParser7endModeEv.exit.i:       ; preds = %61, %60
   br label %_ZN5Catch14TestSpecParser8separateEv.exit
 
 62:                                               ; preds = %48
-  switch i32 %3, label %90 [
+  switch i32 %3, label %_ZN5Catch14TestSpecParser15processNameCharEc.exit [
     i32 0, label %63
     i32 1, label %69
     i32 4, label %_ZN5Catch14TestSpecParser7endModeEv.exit
+    i32 3, label %92
+    i32 2, label %90
   ]
 
 63:                                               ; preds = %62
@@ -49366,50 +49368,85 @@ _ZN5Catch14TestSpecParser7endModeEv.exit:         ; preds = %62
   br label %_ZN5Catch14TestSpecParser8separateEv.exit
 
 90:                                               ; preds = %62
-  %91 = tail call noundef zeroext i1 @_ZN5Catch14TestSpecParser16processOtherCharEc(ptr noundef nonnull align 8 dereferenceable(256) %0, i8 noundef signext %1)
-  br i1 %91, label %_ZN5Catch14TestSpecParser8separateEv.exit, label %_ZN5Catch14TestSpecParser15processNameCharEc.exit
+  %91 = icmp eq i8 %1, 34
+  br i1 %91, label %_ZNK5Catch14TestSpecParser13isControlCharEc.exit.thread.i, label %_ZN5Catch14TestSpecParser15processNameCharEc.exit
 
-_ZN5Catch14TestSpecParser15processNameCharEc.exit: ; preds = %64, %66, %67, %68, %_ZN5Catch14TestSpecParser7endModeEv.exit.i16, %69, %90
-  %92 = getelementptr inbounds i8, ptr %0, i64 64
-  %93 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %92, i8 noundef signext %1)
-  %94 = load i32, ptr %0, align 8
-  switch i32 %94, label %_ZNK5Catch14TestSpecParser13isControlCharEc.exit.thread20 [
-    i32 0, label %_ZNK5Catch14TestSpecParser13isControlCharEc.exit
-    i32 1, label %95
-    i32 4, label %_ZN5Catch14TestSpecParser8separateEv.exit
-    i32 2, label %97
-    i32 3, label %99
+92:                                               ; preds = %62
+  switch i8 %1, label %_ZN5Catch14TestSpecParser15processNameCharEc.exit [
+    i8 93, label %_ZNK5Catch14TestSpecParser13isControlCharEc.exit.thread.i
+    i8 91, label %_ZNK5Catch14TestSpecParser13isControlCharEc.exit.thread.i
   ]
 
-95:                                               ; preds = %_ZN5Catch14TestSpecParser15processNameCharEc.exit
-  %96 = icmp eq i8 %1, 91
-  br i1 %96, label %_ZN5Catch14TestSpecParser8separateEv.exit, label %_ZNK5Catch14TestSpecParser13isControlCharEc.exit.thread20
+_ZNK5Catch14TestSpecParser13isControlCharEc.exit.thread.i: ; preds = %92, %92, %90
+  %93 = getelementptr inbounds i8, ptr %0, i64 64
+  %94 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %93, i8 noundef signext %1)
+  %95 = load i32, ptr %0, align 8
+  switch i32 %95, label %101 [
+    i32 1, label %96
+    i32 2, label %96
+    i32 3, label %97
+    i32 4, label %98
+  ]
 
-97:                                               ; preds = %_ZN5Catch14TestSpecParser15processNameCharEc.exit
-  %98 = icmp eq i8 %1, 34
-  br i1 %98, label %_ZN5Catch14TestSpecParser8separateEv.exit, label %_ZNK5Catch14TestSpecParser13isControlCharEc.exit.thread20
+96:                                               ; preds = %_ZNK5Catch14TestSpecParser13isControlCharEc.exit.thread.i, %_ZNK5Catch14TestSpecParser13isControlCharEc.exit.thread.i
+  tail call void @_ZN5Catch14TestSpecParser14addNamePatternEv(ptr noundef nonnull align 8 dereferenceable(256) %0)
+  br label %_ZN5Catch14TestSpecParser8separateEv.exit
 
-99:                                               ; preds = %_ZN5Catch14TestSpecParser15processNameCharEc.exit
-  switch i8 %1, label %_ZNK5Catch14TestSpecParser13isControlCharEc.exit.thread20 [
+97:                                               ; preds = %_ZNK5Catch14TestSpecParser13isControlCharEc.exit.thread.i
+  tail call void @_ZN5Catch14TestSpecParser13addTagPatternEv(ptr noundef nonnull align 8 dereferenceable(256) %0)
+  br label %_ZN5Catch14TestSpecParser8separateEv.exit
+
+98:                                               ; preds = %_ZNK5Catch14TestSpecParser13isControlCharEc.exit.thread.i
+  %99 = getelementptr inbounds i8, ptr %0, i64 4
+  %100 = load i32, ptr %99, align 4
+  store i32 %100, ptr %0, align 8
+  br label %_ZN5Catch14TestSpecParser8separateEv.exit
+
+101:                                              ; preds = %_ZNK5Catch14TestSpecParser13isControlCharEc.exit.thread.i
+  store i32 0, ptr %0, align 8
+  br label %_ZN5Catch14TestSpecParser8separateEv.exit
+
+_ZN5Catch14TestSpecParser15processNameCharEc.exit: ; preds = %62, %90, %92, %64, %66, %67, %68, %_ZN5Catch14TestSpecParser7endModeEv.exit.i16, %69
+  %102 = getelementptr inbounds i8, ptr %0, i64 64
+  %103 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %102, i8 noundef signext %1)
+  %104 = load i32, ptr %0, align 8
+  switch i32 %104, label %_ZNK5Catch14TestSpecParser13isControlCharEc.exit.thread22 [
+    i32 0, label %_ZNK5Catch14TestSpecParser13isControlCharEc.exit
+    i32 1, label %105
+    i32 4, label %_ZN5Catch14TestSpecParser8separateEv.exit
+    i32 2, label %107
+    i32 3, label %109
+  ]
+
+105:                                              ; preds = %_ZN5Catch14TestSpecParser15processNameCharEc.exit
+  %106 = icmp eq i8 %1, 91
+  br i1 %106, label %_ZN5Catch14TestSpecParser8separateEv.exit, label %_ZNK5Catch14TestSpecParser13isControlCharEc.exit.thread22
+
+107:                                              ; preds = %_ZN5Catch14TestSpecParser15processNameCharEc.exit
+  %108 = icmp eq i8 %1, 34
+  br i1 %108, label %_ZN5Catch14TestSpecParser8separateEv.exit, label %_ZNK5Catch14TestSpecParser13isControlCharEc.exit.thread22
+
+109:                                              ; preds = %_ZN5Catch14TestSpecParser15processNameCharEc.exit
+  switch i8 %1, label %_ZNK5Catch14TestSpecParser13isControlCharEc.exit.thread22 [
     i8 93, label %_ZN5Catch14TestSpecParser8separateEv.exit
     i8 91, label %_ZN5Catch14TestSpecParser8separateEv.exit
   ]
 
 _ZNK5Catch14TestSpecParser13isControlCharEc.exit: ; preds = %_ZN5Catch14TestSpecParser15processNameCharEc.exit
-  %100 = icmp eq i8 %1, 126
-  br i1 %100, label %_ZN5Catch14TestSpecParser8separateEv.exit, label %_ZNK5Catch14TestSpecParser13isControlCharEc.exit.thread20
+  %110 = icmp eq i8 %1, 126
+  br i1 %110, label %_ZN5Catch14TestSpecParser8separateEv.exit, label %_ZNK5Catch14TestSpecParser13isControlCharEc.exit.thread22
 
-_ZNK5Catch14TestSpecParser13isControlCharEc.exit.thread20: ; preds = %99, %_ZN5Catch14TestSpecParser15processNameCharEc.exit, %95, %97, %_ZNK5Catch14TestSpecParser13isControlCharEc.exit
-  %101 = getelementptr inbounds i8, ptr %0, i64 96
-  %102 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %101, i8 noundef signext %1)
-  %103 = getelementptr inbounds i8, ptr %0, i64 24
-  %104 = load i64, ptr %103, align 8
-  %105 = add i64 %104, 1
-  store i64 %105, ptr %103, align 8
+_ZNK5Catch14TestSpecParser13isControlCharEc.exit.thread22: ; preds = %109, %_ZN5Catch14TestSpecParser15processNameCharEc.exit, %105, %107, %_ZNK5Catch14TestSpecParser13isControlCharEc.exit
+  %111 = getelementptr inbounds i8, ptr %0, i64 96
+  %112 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %111, i8 noundef signext %1)
+  %113 = getelementptr inbounds i8, ptr %0, i64 24
+  %114 = load i64, ptr %113, align 8
+  %115 = add i64 %114, 1
+  store i64 %115, ptr %113, align 8
   br label %_ZN5Catch14TestSpecParser8separateEv.exit
 
-_ZN5Catch14TestSpecParser8separateEv.exit:        ; preds = %99, %99, %_ZN5Catch14TestSpecParser15processNameCharEc.exit, %95, %97, %63, %_ZN5Catch14TestSpecParser7endModeEv.exit.i, %52, %_ZNK5Catch14TestSpecParser13isControlCharEc.exit, %_ZNK5Catch14TestSpecParser13isControlCharEc.exit.thread20, %90, %_ZN5Catch14TestSpecParser7endModeEv.exit, %_ZN5Catch14TestSpecParser6escapeEv.exit
-  %.0 = phi i1 [ true, %_ZN5Catch14TestSpecParser6escapeEv.exit ], [ true, %_ZN5Catch14TestSpecParser7endModeEv.exit ], [ true, %90 ], [ true, %_ZNK5Catch14TestSpecParser13isControlCharEc.exit.thread20 ], [ true, %_ZNK5Catch14TestSpecParser13isControlCharEc.exit ], [ false, %52 ], [ true, %_ZN5Catch14TestSpecParser7endModeEv.exit.i ], [ true, %63 ], [ true, %99 ], [ true, %97 ], [ true, %95 ], [ true, %_ZN5Catch14TestSpecParser15processNameCharEc.exit ], [ true, %99 ]
+_ZN5Catch14TestSpecParser8separateEv.exit:        ; preds = %109, %109, %_ZN5Catch14TestSpecParser15processNameCharEc.exit, %105, %107, %101, %98, %97, %96, %63, %_ZN5Catch14TestSpecParser7endModeEv.exit.i, %52, %_ZNK5Catch14TestSpecParser13isControlCharEc.exit, %_ZNK5Catch14TestSpecParser13isControlCharEc.exit.thread22, %_ZN5Catch14TestSpecParser7endModeEv.exit, %_ZN5Catch14TestSpecParser6escapeEv.exit
+  %.0 = phi i1 [ true, %_ZN5Catch14TestSpecParser6escapeEv.exit ], [ true, %_ZN5Catch14TestSpecParser7endModeEv.exit ], [ true, %_ZNK5Catch14TestSpecParser13isControlCharEc.exit.thread22 ], [ true, %_ZNK5Catch14TestSpecParser13isControlCharEc.exit ], [ false, %52 ], [ true, %_ZN5Catch14TestSpecParser7endModeEv.exit.i ], [ true, %63 ], [ true, %96 ], [ true, %97 ], [ true, %98 ], [ true, %101 ], [ true, %109 ], [ true, %107 ], [ true, %105 ], [ true, %_ZN5Catch14TestSpecParser15processNameCharEc.exit ], [ true, %109 ]
   ret i1 %.0
 }
 

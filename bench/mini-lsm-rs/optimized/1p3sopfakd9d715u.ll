@@ -12490,34 +12490,54 @@ define void @_ZN8mini_lsm4mvcc3txn11TxnIterator6create17h0cb87ad963f61a17E(ptr n
   %4 = alloca ptr, align 8
   store ptr %1, ptr %4, align 8
   invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.d8aab259e2a9b102c111e81cbd35c58a.71, i64 noundef 15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d8aab259e2a9b102c111e81cbd35c58a.78) #44
-          to label %7 unwind label %5
+          to label %12 unwind label %5
 
 5:                                                ; preds = %3
   %6 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr241drop_in_place$LT$mini_lsm..iterators..two_merge_iterator..TwoMergeIterator$LT$mini_lsm..mvcc..txn..ouroboros_impl_txn_local_iterator..TxnLocalIterator$C$mini_lsm..lsm_iterator..FusedIterator$LT$mini_lsm..lsm_iterator..LsmIterator$GT$$GT$$GT$17ha5c91b1f4a2e651dE"(ptr noalias noundef nonnull align 8 dereferenceable(392) %2) #42
-          to label %10 unwind label %8
+  %7 = getelementptr inbounds i8, ptr %2, i64 192
+  invoke void @"_ZN4core3ptr101drop_in_place$LT$mini_lsm..mvcc..txn..ouroboros_impl_txn_local_iterator..TxnLocalIteratorInternal$GT$17h01c09f9cebf12644E.llvm.1597650999041595525"(ptr noalias noundef nonnull align 8 dereferenceable(192) %7)
+          to label %"_ZN4core3ptr93drop_in_place$LT$mini_lsm..mvcc..txn..ouroboros_impl_txn_local_iterator..TxnLocalIterator$GT$17haea338424729e29aE.llvm.1597650999041595525.exit.i" unwind label %8
 
-7:                                                ; preds = %3
-  unreachable
-
-8:                                                ; preds = %13, %5
+8:                                                ; preds = %5
   %9 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
+  invoke void @"_ZN4core3ptr56drop_in_place$LT$mini_lsm..lsm_iterator..LsmIterator$GT$17h4d2368e1a1318ebbE"(ptr noalias noundef nonnull align 8 dereferenceable(184) %2)
+          to label %.body unwind label %10
+
+"_ZN4core3ptr93drop_in_place$LT$mini_lsm..mvcc..txn..ouroboros_impl_txn_local_iterator..TxnLocalIterator$GT$17haea338424729e29aE.llvm.1597650999041595525.exit.i": ; preds = %5
+  invoke void @"_ZN4core3ptr56drop_in_place$LT$mini_lsm..lsm_iterator..LsmIterator$GT$17h4d2368e1a1318ebbE"(ptr noalias noundef nonnull align 8 dereferenceable(184) %2)
+          to label %"_ZN4core3ptr241drop_in_place$LT$mini_lsm..iterators..two_merge_iterator..TwoMergeIterator$LT$mini_lsm..mvcc..txn..ouroboros_impl_txn_local_iterator..TxnLocalIterator$C$mini_lsm..lsm_iterator..FusedIterator$LT$mini_lsm..lsm_iterator..LsmIterator$GT$$GT$$GT$17ha5c91b1f4a2e651dE.exit" unwind label %13
+
+10:                                               ; preds = %8
+  %11 = landingpad { ptr, i32 }
+          filter [0 x ptr] zeroinitializer
+  tail call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #43
+  unreachable
+
+12:                                               ; preds = %3
+  unreachable
+
+13:                                               ; preds = %17, %"_ZN4core3ptr93drop_in_place$LT$mini_lsm..mvcc..txn..ouroboros_impl_txn_local_iterator..TxnLocalIterator$GT$17haea338424729e29aE.llvm.1597650999041595525.exit.i"
+  %14 = landingpad { ptr, i32 }
+          filter [0 x ptr] zeroinitializer
+  br label %.body
+
+.body:                                            ; preds = %8, %13
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #43
   unreachable
 
-10:                                               ; preds = %5
-  %11 = atomicrmw sub ptr %1, i64 1 release, align 8, !noalias !2877
-  %12 = icmp eq i64 %11, 1
-  br i1 %12, label %13, label %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$mini_lsm..mvcc..txn..Transaction$GT$$GT$17h2266cbf373a2751aE.exit"
+"_ZN4core3ptr241drop_in_place$LT$mini_lsm..iterators..two_merge_iterator..TwoMergeIterator$LT$mini_lsm..mvcc..txn..ouroboros_impl_txn_local_iterator..TxnLocalIterator$C$mini_lsm..lsm_iterator..FusedIterator$LT$mini_lsm..lsm_iterator..LsmIterator$GT$$GT$$GT$17ha5c91b1f4a2e651dE.exit": ; preds = %"_ZN4core3ptr93drop_in_place$LT$mini_lsm..mvcc..txn..ouroboros_impl_txn_local_iterator..TxnLocalIterator$GT$17haea338424729e29aE.llvm.1597650999041595525.exit.i"
+  %15 = atomicrmw sub ptr %1, i64 1 release, align 8, !noalias !2877
+  %16 = icmp eq i64 %15, 1
+  br i1 %16, label %17, label %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$mini_lsm..mvcc..txn..Transaction$GT$$GT$17h2266cbf373a2751aE.exit"
 
-13:                                               ; preds = %10
+17:                                               ; preds = %"_ZN4core3ptr241drop_in_place$LT$mini_lsm..iterators..two_merge_iterator..TwoMergeIterator$LT$mini_lsm..mvcc..txn..ouroboros_impl_txn_local_iterator..TxnLocalIterator$C$mini_lsm..lsm_iterator..FusedIterator$LT$mini_lsm..lsm_iterator..LsmIterator$GT$$GT$$GT$17ha5c91b1f4a2e651dE.exit"
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h714c73f54d6c32acE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4)
-          to label %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$mini_lsm..mvcc..txn..Transaction$GT$$GT$17h2266cbf373a2751aE.exit" unwind label %8
+          to label %"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$mini_lsm..mvcc..txn..Transaction$GT$$GT$17h2266cbf373a2751aE.exit" unwind label %13
 
-"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$mini_lsm..mvcc..txn..Transaction$GT$$GT$17h2266cbf373a2751aE.exit": ; preds = %10, %13
+"_ZN4core3ptr77drop_in_place$LT$alloc..sync..Arc$LT$mini_lsm..mvcc..txn..Transaction$GT$$GT$17h2266cbf373a2751aE.exit": ; preds = %"_ZN4core3ptr241drop_in_place$LT$mini_lsm..iterators..two_merge_iterator..TwoMergeIterator$LT$mini_lsm..mvcc..txn..ouroboros_impl_txn_local_iterator..TxnLocalIterator$C$mini_lsm..lsm_iterator..FusedIterator$LT$mini_lsm..lsm_iterator..LsmIterator$GT$$GT$$GT$17ha5c91b1f4a2e651dE.exit", %17
   resume { ptr, i32 } %6
 }
 
@@ -13046,6 +13066,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #37
 declare hidden void @"_ZN18crossbeam_skiplist4base17Node$LT$K$C$V$GT$18decrement_with_pin17hace219f35d352bb4E.llvm.1597650999041595525"(ptr noundef nonnull align 8, ptr noundef nonnull align 128) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
+declare hidden void @"_ZN4core3ptr56drop_in_place$LT$mini_lsm..lsm_iterator..LsmIterator$GT$17h4d2368e1a1318ebbE"(ptr noalias noundef align 8 dereferenceable(184)) unnamed_addr #0
+
+; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h4aaf716b020d8945E"(ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
@@ -13103,7 +13126,7 @@ declare hidden void @"_ZN4core3ptr206drop_in_place$LT$smallvec..IntoIter$LT$$u5b
 declare hidden void @"_ZN4core3ptr206drop_in_place$LT$smallvec..SmallVec$LT$$u5b$core..ptr..non_null..NonNull$LT$moka..common..deque..DeqNode$LT$moka..common..concurrent..KeyHashDate$LT$$LP$usize$C$usize$RP$$GT$$GT$$GT$$u3b$$u20$8$u5d$$GT$$GT$17hc510cf2723083633E"(ptr noalias noundef align 8 dereferenceable(80)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN4core3ptr241drop_in_place$LT$mini_lsm..iterators..two_merge_iterator..TwoMergeIterator$LT$mini_lsm..mvcc..txn..ouroboros_impl_txn_local_iterator..TxnLocalIterator$C$mini_lsm..lsm_iterator..FusedIterator$LT$mini_lsm..lsm_iterator..LsmIterator$GT$$GT$$GT$17ha5c91b1f4a2e651dE"(ptr noalias noundef align 8 dereferenceable(392)) unnamed_addr #0
+declare hidden void @"_ZN4core3ptr101drop_in_place$LT$mini_lsm..mvcc..txn..ouroboros_impl_txn_local_iterator..TxnLocalIteratorInternal$GT$17h01c09f9cebf12644E.llvm.1597650999041595525"(ptr noalias noundef align 8 dereferenceable(192)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h91952c3f0d53bc50E"(ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #0

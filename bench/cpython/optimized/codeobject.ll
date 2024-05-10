@@ -3040,64 +3040,60 @@ entry:
 define dso_local i32 @_PyCode_CheckLineNumber(i32 noundef %lasti, ptr nocapture noundef %bounds) local_unnamed_addr #6 {
 entry:
   %ar_end = getelementptr inbounds i8, ptr %bounds, i64 4
-  br label %while.cond
+  %ar_end.promoted = load i32, ptr %ar_end, align 4
+  %cmp.not47 = icmp sgt i32 %ar_end.promoted, %lasti
+  br i1 %cmp.not47, label %entry.while.cond1.preheader_crit_edge, label %while.body.lr.ph
 
-while.cond:                                       ; preds = %while.body, %entry
-  %0 = load i32, ptr %ar_end, align 4
-  %cmp.not = icmp sgt i32 %0, %lasti
-  br i1 %cmp.not, label %while.cond1.preheader, label %while.body
+entry.while.cond1.preheader_crit_edge:            ; preds = %entry
+  %.pre = load i32, ptr %bounds, align 8
+  br label %while.cond1.preheader
 
-while.cond1.preheader:                            ; preds = %while.cond
-  %bounds.promoted = load i32, ptr %bounds, align 8
-  %cmp212 = icmp sgt i32 %bounds.promoted, %lasti
-  br i1 %cmp212, label %while.body3.lr.ph, label %while.cond1.preheader.while.end8_crit_edge
+while.body.lr.ph:                                 ; preds = %entry
+  %0 = getelementptr i8, ptr %bounds, i64 24
+  %1 = getelementptr i8, ptr %bounds, i64 32
+  %range.val2.i = load ptr, ptr %1, align 8
+  %opaque.i.i = getelementptr inbounds i8, ptr %bounds, i64 16
+  %2 = getelementptr inbounds i8, ptr %bounds, i64 8
+  %.promoted = load ptr, ptr %0, align 8
+  br label %while.body
+
+while.cond1.preheader:                            ; preds = %_PyLineTable_NextAddressRange.exit, %entry.while.cond1.preheader_crit_edge
+  %3 = phi i32 [ %.pre, %entry.while.cond1.preheader_crit_edge ], [ %add10.i.i4648, %_PyLineTable_NextAddressRange.exit ]
+  %cmp250 = icmp sgt i32 %3, %lasti
+  br i1 %cmp250, label %while.body3.lr.ph, label %while.cond1.preheader.while.end8_crit_edge
 
 while.cond1.preheader.while.end8_crit_edge:       ; preds = %while.cond1.preheader
   %ar_line.phi.trans.insert = getelementptr inbounds i8, ptr %bounds, i64 8
-  %.pre = load i32, ptr %ar_line.phi.trans.insert, align 8
+  %.pre53 = load i32, ptr %ar_line.phi.trans.insert, align 8
   br label %return
 
 while.body3.lr.ph:                                ; preds = %while.cond1.preheader
   %lo_next.i.i = getelementptr inbounds i8, ptr %bounds, i64 24
   %opaque.le.i.i = getelementptr inbounds i8, ptr %bounds, i64 16
-  %1 = getelementptr inbounds i8, ptr %bounds, i64 8
+  %4 = getelementptr inbounds i8, ptr %bounds, i64 8
   br label %while.body3
 
-while.body:                                       ; preds = %while.cond
-  %call = tail call i32 @_PyLineTable_NextAddressRange(ptr noundef nonnull %bounds)
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %return, label %while.cond, !llvm.loop !21
+while.body:                                       ; preds = %while.body.lr.ph, %_PyLineTable_NextAddressRange.exit
+  %incdec.ptr.i.i49 = phi ptr [ %.promoted, %while.body.lr.ph ], [ %incdec.ptr.i.i, %_PyLineTable_NextAddressRange.exit ]
+  %add10.i.i4648 = phi i32 [ %ar_end.promoted, %while.body.lr.ph ], [ %add10.i.i, %_PyLineTable_NextAddressRange.exit ]
+  %cmp.i.not.i = icmp ult ptr %incdec.ptr.i.i49, %range.val2.i
+  br i1 %cmp.i.not.i, label %if.end.i, label %return
 
-while.body3:                                      ; preds = %while.body3.lr.ph, %_PyLineTable_PreviousAddressRange.exit
-  %sub9.i.i1113 = phi i32 [ %bounds.promoted, %while.body3.lr.ph ], [ %sub9.i.i, %_PyLineTable_PreviousAddressRange.exit ]
-  %cmp.i = icmp slt i32 %sub9.i.i1113, 1
-  br i1 %cmp.i, label %return, label %if.end.i
-
-if.end.i:                                         ; preds = %while.body3
-  %lo_next.promoted.i.i = load ptr, ptr %lo_next.i.i, align 8
-  br label %do.body.i.i
-
-do.body.i.i:                                      ; preds = %do.body.i.i, %if.end.i
-  %incdec.ptr17.i.i = phi ptr [ %incdec.ptr.i.i, %do.body.i.i ], [ %lo_next.promoted.i.i, %if.end.i ]
-  %incdec.ptr.i.i = getelementptr i8, ptr %incdec.ptr17.i.i, i64 -1
-  store ptr %incdec.ptr.i.i, ptr %lo_next.i.i, align 8
-  %2 = load i8, ptr %incdec.ptr.i.i, align 1
-  %cmp.i.i = icmp sgt i8 %2, -1
-  br i1 %cmp.i.i, label %do.body.i.i, label %do.end.i.i, !llvm.loop !22
-
-do.end.i.i:                                       ; preds = %do.body.i.i
-  %3 = lshr i8 %2, 3
-  %4 = and i8 %3, 15
-  switch i8 %4, label %get_line_delta.exit.i.i [
+if.end.i:                                         ; preds = %while.body
+  %5 = load i8, ptr %incdec.ptr.i.i49, align 1
+  %6 = lshr i8 %5, 3
+  %7 = and i8 %6, 15
+  switch i8 %7, label %get_line_delta.exit.i.i [
     i8 12, label %sw.bb4.i.i.i
     i8 13, label %sw.bb1.i.i.i
     i8 14, label %sw.bb1.i.i.i
     i8 11, label %sw.bb3.i.i.i
   ]
 
-sw.bb1.i.i.i:                                     ; preds = %do.end.i.i, %do.end.i.i
-  %5 = load i8, ptr %incdec.ptr17.i.i, align 1
-  %conv.i.i.i.i.i = zext i8 %5 to i32
+sw.bb1.i.i.i:                                     ; preds = %if.end.i, %if.end.i
+  %add.ptr.i.i.i = getelementptr i8, ptr %incdec.ptr.i.i49, i64 1
+  %8 = load i8, ptr %add.ptr.i.i.i, align 1
+  %conv.i.i.i.i.i = zext i8 %8 to i32
   %and.i.i.i.i.i = and i32 %conv.i.i.i.i.i, 63
   %and16.i.i.i.i.i = and i32 %conv.i.i.i.i.i, 64
   %tobool.not7.i.i.i.i.i = icmp eq i32 %and16.i.i.i.i.i, 0
@@ -3106,10 +3102,10 @@ sw.bb1.i.i.i:                                     ; preds = %do.end.i.i, %do.end
 while.body.i.i.i.i.i:                             ; preds = %sw.bb1.i.i.i, %while.body.i.i.i.i.i
   %shift.010.i.i.i.i.i = phi i32 [ %add.i.i.i.i.i, %while.body.i.i.i.i.i ], [ 0, %sw.bb1.i.i.i ]
   %val.09.i.i.i.i.i = phi i32 [ %or.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %and.i.i.i.i.i, %sw.bb1.i.i.i ]
-  %ptr.pn8.i.i.i.i.i = phi ptr [ %ptr.addr.0.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %incdec.ptr17.i.i, %sw.bb1.i.i.i ]
+  %ptr.pn8.i.i.i.i.i = phi ptr [ %ptr.addr.0.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %add.ptr.i.i.i, %sw.bb1.i.i.i ]
   %ptr.addr.0.i.i.i.i.i = getelementptr i8, ptr %ptr.pn8.i.i.i.i.i, i64 1
-  %6 = load i8, ptr %ptr.addr.0.i.i.i.i.i, align 1
-  %conv3.i.i.i.i.i = zext i8 %6 to i32
+  %9 = load i8, ptr %ptr.addr.0.i.i.i.i.i, align 1
+  %conv3.i.i.i.i.i = zext i8 %9 to i32
   %add.i.i.i.i.i = add i32 %shift.010.i.i.i.i.i, 6
   %and4.i.i.i.i.i = and i32 %conv3.i.i.i.i.i, 63
   %shl.i.i.i.i.i = shl i32 %and4.i.i.i.i.i, %add.i.i.i.i.i
@@ -3124,47 +3120,147 @@ scan_signed_varint.exit.i.i.i:                    ; preds = %while.body.i.i.i.i.
   %tobool.not.i.i.i.i = icmp eq i32 %and.i.i.i.i, 0
   %shr.i.i.i.i = lshr i32 %val.0.lcssa.i.i.i.i.i, 1
   %sub.i.i.i.i = sub nsw i32 0, %shr.i.i.i.i
-  %7 = select i1 %tobool.not.i.i.i.i, i32 %sub.i.i.i.i, i32 %shr.i.i.i.i
+  %retval.0.i.i.i.i = select i1 %tobool.not.i.i.i.i, i32 %shr.i.i.i.i, i32 %sub.i.i.i.i
   br label %get_line_delta.exit.i.i
 
-sw.bb3.i.i.i:                                     ; preds = %do.end.i.i
+sw.bb3.i.i.i:                                     ; preds = %if.end.i
   br label %get_line_delta.exit.i.i
 
-sw.bb4.i.i.i:                                     ; preds = %do.end.i.i
+sw.bb4.i.i.i:                                     ; preds = %if.end.i
   br label %get_line_delta.exit.i.i
 
-get_line_delta.exit.i.i:                          ; preds = %sw.bb4.i.i.i, %sw.bb3.i.i.i, %scan_signed_varint.exit.i.i.i, %do.end.i.i
-  %retval.0.i.neg.i.i = phi i32 [ -2, %sw.bb4.i.i.i ], [ -1, %sw.bb3.i.i.i ], [ %7, %scan_signed_varint.exit.i.i.i ], [ 0, %do.end.i.i ]
-  %8 = load i32, ptr %opaque.le.i.i, align 8
-  %sub.i.i = add i32 %8, %retval.0.i.neg.i.i
+get_line_delta.exit.i.i:                          ; preds = %sw.bb4.i.i.i, %sw.bb3.i.i.i, %scan_signed_varint.exit.i.i.i, %if.end.i
+  %retval.0.i.i.i = phi i32 [ 2, %sw.bb4.i.i.i ], [ 1, %sw.bb3.i.i.i ], [ %retval.0.i.i.i.i, %scan_signed_varint.exit.i.i.i ], [ 0, %if.end.i ]
+  %10 = load i32, ptr %opaque.i.i, align 8
+  %add.i.i = add i32 %10, %retval.0.i.i.i
+  store i32 %add.i.i, ptr %opaque.i.i, align 8
+  %11 = load i8, ptr %incdec.ptr.i.i49, align 1
+  %cmp.i.i.i = icmp ult i8 %11, -8
+  %spec.select.i.i = select i1 %cmp.i.i.i, i32 %add.i.i, i32 -1
+  store i32 %spec.select.i.i, ptr %2, align 8
+  store i32 %add10.i.i4648, ptr %bounds, align 8
+  %bounds.val.val.i.i = load i8, ptr %incdec.ptr.i.i49, align 1
+  %12 = shl i8 %bounds.val.val.i.i, 1
+  %narrow.i.i.i = and i8 %12, 14
+  %13 = add nuw nsw i8 %narrow.i.i.i, 2
+  %conv2.i.i.i = zext nneg i8 %13 to i32
+  %add10.i.i = add i32 %add10.i.i4648, %conv2.i.i.i
+  store i32 %add10.i.i, ptr %ar_end, align 4
+  br label %do.body.i.i
+
+do.body.i.i:                                      ; preds = %land.rhs.i.i, %get_line_delta.exit.i.i
+  %14 = phi ptr [ %incdec.ptr.i.i, %land.rhs.i.i ], [ %incdec.ptr.i.i49, %get_line_delta.exit.i.i ]
+  %incdec.ptr.i.i = getelementptr i8, ptr %14, i64 1
+  store ptr %incdec.ptr.i.i, ptr %0, align 8
+  %cmp.i3.i = icmp ult ptr %incdec.ptr.i.i, %range.val2.i
+  br i1 %cmp.i3.i, label %land.rhs.i.i, label %_PyLineTable_NextAddressRange.exit
+
+land.rhs.i.i:                                     ; preds = %do.body.i.i
+  %15 = load i8, ptr %incdec.ptr.i.i, align 1
+  %cmp18.i.i = icmp sgt i8 %15, -1
+  br i1 %cmp18.i.i, label %do.body.i.i, label %_PyLineTable_NextAddressRange.exit, !llvm.loop !21
+
+_PyLineTable_NextAddressRange.exit:               ; preds = %do.body.i.i, %land.rhs.i.i
+  %cmp.not = icmp sgt i32 %add10.i.i, %lasti
+  br i1 %cmp.not, label %while.cond1.preheader, label %while.body, !llvm.loop !22
+
+while.body3:                                      ; preds = %while.body3.lr.ph, %_PyLineTable_PreviousAddressRange.exit
+  %16 = phi i32 [ %3, %while.body3.lr.ph ], [ %sub9.i.i, %_PyLineTable_PreviousAddressRange.exit ]
+  %cmp.i = icmp slt i32 %16, 1
+  br i1 %cmp.i, label %return, label %if.end.i6
+
+if.end.i6:                                        ; preds = %while.body3
+  %lo_next.promoted.i.i = load ptr, ptr %lo_next.i.i, align 8
+  br label %do.body.i.i7
+
+do.body.i.i7:                                     ; preds = %do.body.i.i7, %if.end.i6
+  %incdec.ptr17.i.i = phi ptr [ %incdec.ptr.i.i8, %do.body.i.i7 ], [ %lo_next.promoted.i.i, %if.end.i6 ]
+  %incdec.ptr.i.i8 = getelementptr i8, ptr %incdec.ptr17.i.i, i64 -1
+  store ptr %incdec.ptr.i.i8, ptr %lo_next.i.i, align 8
+  %17 = load i8, ptr %incdec.ptr.i.i8, align 1
+  %cmp.i.i = icmp sgt i8 %17, -1
+  br i1 %cmp.i.i, label %do.body.i.i7, label %do.end.i.i, !llvm.loop !23
+
+do.end.i.i:                                       ; preds = %do.body.i.i7
+  %18 = lshr i8 %17, 3
+  %19 = and i8 %18, 15
+  switch i8 %19, label %get_line_delta.exit.i.i10 [
+    i8 12, label %sw.bb4.i.i.i38
+    i8 13, label %sw.bb1.i.i.i15
+    i8 14, label %sw.bb1.i.i.i15
+    i8 11, label %sw.bb3.i.i.i9
+  ]
+
+sw.bb1.i.i.i15:                                   ; preds = %do.end.i.i, %do.end.i.i
+  %20 = load i8, ptr %incdec.ptr17.i.i, align 1
+  %conv.i.i.i.i.i16 = zext i8 %20 to i32
+  %and.i.i.i.i.i17 = and i32 %conv.i.i.i.i.i16, 63
+  %and16.i.i.i.i.i18 = and i32 %conv.i.i.i.i.i16, 64
+  %tobool.not7.i.i.i.i.i19 = icmp eq i32 %and16.i.i.i.i.i18, 0
+  br i1 %tobool.not7.i.i.i.i.i19, label %scan_signed_varint.exit.i.i.i32, label %while.body.i.i.i.i.i20
+
+while.body.i.i.i.i.i20:                           ; preds = %sw.bb1.i.i.i15, %while.body.i.i.i.i.i20
+  %shift.010.i.i.i.i.i21 = phi i32 [ %add.i.i.i.i.i26, %while.body.i.i.i.i.i20 ], [ 0, %sw.bb1.i.i.i15 ]
+  %val.09.i.i.i.i.i22 = phi i32 [ %or.i.i.i.i.i29, %while.body.i.i.i.i.i20 ], [ %and.i.i.i.i.i17, %sw.bb1.i.i.i15 ]
+  %ptr.pn8.i.i.i.i.i23 = phi ptr [ %ptr.addr.0.i.i.i.i.i24, %while.body.i.i.i.i.i20 ], [ %incdec.ptr17.i.i, %sw.bb1.i.i.i15 ]
+  %ptr.addr.0.i.i.i.i.i24 = getelementptr i8, ptr %ptr.pn8.i.i.i.i.i23, i64 1
+  %21 = load i8, ptr %ptr.addr.0.i.i.i.i.i24, align 1
+  %conv3.i.i.i.i.i25 = zext i8 %21 to i32
+  %add.i.i.i.i.i26 = add i32 %shift.010.i.i.i.i.i21, 6
+  %and4.i.i.i.i.i27 = and i32 %conv3.i.i.i.i.i25, 63
+  %shl.i.i.i.i.i28 = shl i32 %and4.i.i.i.i.i27, %add.i.i.i.i.i26
+  %or.i.i.i.i.i29 = or i32 %shl.i.i.i.i.i28, %val.09.i.i.i.i.i22
+  %and1.i.i.i.i.i30 = and i32 %conv3.i.i.i.i.i25, 64
+  %tobool.not.i.i.i.i.i31 = icmp eq i32 %and1.i.i.i.i.i30, 0
+  br i1 %tobool.not.i.i.i.i.i31, label %scan_signed_varint.exit.i.i.i32, label %while.body.i.i.i.i.i20, !llvm.loop !10
+
+scan_signed_varint.exit.i.i.i32:                  ; preds = %while.body.i.i.i.i.i20, %sw.bb1.i.i.i15
+  %val.0.lcssa.i.i.i.i.i33 = phi i32 [ %and.i.i.i.i.i17, %sw.bb1.i.i.i15 ], [ %or.i.i.i.i.i29, %while.body.i.i.i.i.i20 ]
+  %and.i.i.i.i34 = and i32 %val.0.lcssa.i.i.i.i.i33, 1
+  %tobool.not.i.i.i.i35 = icmp eq i32 %and.i.i.i.i34, 0
+  %shr.i.i.i.i36 = lshr i32 %val.0.lcssa.i.i.i.i.i33, 1
+  %sub.i.i.i.i37 = sub nsw i32 0, %shr.i.i.i.i36
+  %22 = select i1 %tobool.not.i.i.i.i35, i32 %sub.i.i.i.i37, i32 %shr.i.i.i.i36
+  br label %get_line_delta.exit.i.i10
+
+sw.bb3.i.i.i9:                                    ; preds = %do.end.i.i
+  br label %get_line_delta.exit.i.i10
+
+sw.bb4.i.i.i38:                                   ; preds = %do.end.i.i
+  br label %get_line_delta.exit.i.i10
+
+get_line_delta.exit.i.i10:                        ; preds = %sw.bb4.i.i.i38, %sw.bb3.i.i.i9, %scan_signed_varint.exit.i.i.i32, %do.end.i.i
+  %retval.0.i.neg.i.i = phi i32 [ -2, %sw.bb4.i.i.i38 ], [ -1, %sw.bb3.i.i.i9 ], [ %22, %scan_signed_varint.exit.i.i.i32 ], [ 0, %do.end.i.i ]
+  %23 = load i32, ptr %opaque.le.i.i, align 8
+  %sub.i.i = add i32 %23, %retval.0.i.neg.i.i
   store i32 %sub.i.i, ptr %opaque.le.i.i, align 8
-  store i32 %sub9.i.i1113, ptr %ar_end, align 4
+  store i32 %16, ptr %ar_end, align 4
   br label %while.cond.i.i.i
 
-while.cond.i.i.i:                                 ; preds = %while.cond.i.i.i, %get_line_delta.exit.i.i
-  %.pn.i.i.i = phi ptr [ %ptr.0.i.i.i, %while.cond.i.i.i ], [ %incdec.ptr.i.i, %get_line_delta.exit.i.i ]
+while.cond.i.i.i:                                 ; preds = %while.cond.i.i.i, %get_line_delta.exit.i.i10
+  %.pn.i.i.i = phi ptr [ %ptr.0.i.i.i, %while.cond.i.i.i ], [ %incdec.ptr.i.i8, %get_line_delta.exit.i.i10 ]
   %ptr.0.i.i.i = getelementptr i8, ptr %.pn.i.i.i, i64 -1
-  %9 = load i8, ptr %ptr.0.i.i.i, align 1
-  %cmp1.i.i.i = icmp sgt i8 %9, -1
-  br i1 %cmp1.i.i.i, label %while.cond.i.i.i, label %_PyLineTable_PreviousAddressRange.exit, !llvm.loop !23
+  %24 = load i8, ptr %ptr.0.i.i.i, align 1
+  %cmp1.i.i.i = icmp sgt i8 %24, -1
+  br i1 %cmp1.i.i.i, label %while.cond.i.i.i, label %_PyLineTable_PreviousAddressRange.exit, !llvm.loop !24
 
 _PyLineTable_PreviousAddressRange.exit:           ; preds = %while.cond.i.i.i
-  %10 = shl i8 %9, 1
-  %narrow.i.i.i = and i8 %10, 14
-  %11 = add nuw nsw i8 %narrow.i.i.i, 2
-  %conv6.i.i.i = zext nneg i8 %11 to i32
-  %sub9.i.i = sub nsw i32 %sub9.i.i1113, %conv6.i.i.i
+  %25 = shl i8 %24, 1
+  %narrow.i.i.i12 = and i8 %25, 14
+  %26 = add nuw nsw i8 %narrow.i.i.i12, 2
+  %conv6.i.i.i = zext nneg i8 %26 to i32
+  %sub9.i.i = sub nsw i32 %16, %conv6.i.i.i
   store i32 %sub9.i.i, ptr %bounds, align 8
   %arrayidx.i.i = getelementptr i8, ptr %incdec.ptr17.i.i, i64 -2
-  %12 = load i8, ptr %arrayidx.i.i, align 1
-  %cmp.i13.i.i = icmp ult i8 %12, -8
-  %spec.select.i.i = select i1 %cmp.i13.i.i, i32 %sub.i.i, i32 -1
-  store i32 %spec.select.i.i, ptr %1, align 8
+  %27 = load i8, ptr %arrayidx.i.i, align 1
+  %cmp.i13.i.i = icmp ult i8 %27, -8
+  %spec.select.i.i13 = select i1 %cmp.i13.i.i, i32 %sub.i.i, i32 -1
+  store i32 %spec.select.i.i13, ptr %4, align 8
   %cmp2 = icmp sgt i32 %sub9.i.i, %lasti
-  br i1 %cmp2, label %while.body3, label %return, !llvm.loop !24
+  br i1 %cmp2, label %while.body3, label %return, !llvm.loop !25
 
 return:                                           ; preds = %while.body, %while.body3, %_PyLineTable_PreviousAddressRange.exit, %while.cond1.preheader.while.end8_crit_edge
-  %retval.0 = phi i32 [ %.pre, %while.cond1.preheader.while.end8_crit_edge ], [ -1, %while.body3 ], [ %spec.select.i.i, %_PyLineTable_PreviousAddressRange.exit ], [ -1, %while.body ]
+  %retval.0 = phi i32 [ %.pre53, %while.cond1.preheader.while.end8_crit_edge ], [ -1, %while.body3 ], [ %spec.select.i.i13, %_PyLineTable_PreviousAddressRange.exit ], [ -1, %while.body ]
   ret i32 %retval.0
 }
 
@@ -3279,7 +3375,7 @@ do.body.i:                                        ; preds = %land.rhs.i, %get_li
 land.rhs.i:                                       ; preds = %do.body.i
   %14 = load i8, ptr %incdec.ptr.i, align 1
   %cmp18.i = icmp sgt i8 %14, -1
-  br i1 %cmp18.i, label %do.body.i, label %return, !llvm.loop !25
+  br i1 %cmp18.i, label %do.body.i, label %return, !llvm.loop !21
 
 return:                                           ; preds = %land.rhs.i, %do.body.i, %entry
   %retval.0 = phi i32 [ 0, %entry ], [ 1, %do.body.i ], [ 1, %land.rhs.i ]
@@ -3304,7 +3400,7 @@ do.body.i:                                        ; preds = %do.body.i, %if.end
   store ptr %incdec.ptr.i, ptr %lo_next.i, align 8
   %1 = load i8, ptr %incdec.ptr.i, align 1
   %cmp.i = icmp sgt i8 %1, -1
-  br i1 %cmp.i, label %do.body.i, label %do.end.i, !llvm.loop !22
+  br i1 %cmp.i, label %do.body.i, label %do.end.i, !llvm.loop !23
 
 do.end.i:                                         ; preds = %do.body.i
   %opaque.le.i = getelementptr inbounds i8, ptr %range, i64 16
@@ -3369,7 +3465,7 @@ while.cond.i.i:                                   ; preds = %get_line_delta.exit
   %ptr.0.i.i = getelementptr i8, ptr %.pn.i.i, i64 -1
   %8 = load i8, ptr %ptr.0.i.i, align 1
   %cmp1.i.i = icmp sgt i8 %8, -1
-  br i1 %cmp1.i.i, label %while.cond.i.i, label %retreat.exit, !llvm.loop !23
+  br i1 %cmp1.i.i, label %while.cond.i.i, label %retreat.exit, !llvm.loop !24
 
 retreat.exit:                                     ; preds = %while.cond.i.i
   %9 = shl i8 %8, 1
@@ -3436,7 +3532,7 @@ do.body.i:                                        ; preds = %do.body.i, %if.end
   %incdec.ptr.i = getelementptr i8, ptr %incdec.ptr17.i, i64 -1
   %4 = load i8, ptr %incdec.ptr.i, align 1
   %cmp.i = icmp sgt i8 %4, -1
-  br i1 %cmp.i, label %do.body.i, label %do.end.i, !llvm.loop !22
+  br i1 %cmp.i, label %do.body.i, label %do.end.i, !llvm.loop !23
 
 do.end.i:                                         ; preds = %do.body.i
   store ptr %incdec.ptr.i, ptr %lo_next.i.i, align 8
@@ -3502,7 +3598,7 @@ while.cond.i.i:                                   ; preds = %get_line_delta.exit
   %ptr.0.i.i = getelementptr i8, ptr %.pn.i.i, i64 -1
   %12 = load i8, ptr %ptr.0.i.i, align 1
   %cmp1.i.i = icmp sgt i8 %12, -1
-  br i1 %cmp1.i.i, label %while.cond.i.i, label %while.end.i.i, !llvm.loop !23
+  br i1 %cmp1.i.i, label %while.cond.i.i, label %while.end.i.i, !llvm.loop !24
 
 while.end.i.i:                                    ; preds = %while.cond.i.i
   %13 = shl i8 %12, 1
@@ -3822,59 +3918,29 @@ define internal ptr @lineiter_next(ptr nocapture noundef %li) #0 {
 entry:
   %line = alloca i32, align 4
   %li_line = getelementptr inbounds i8, ptr %li, i64 24
-  %call = tail call i32 @_PyLineTable_NextAddressRange(ptr noundef nonnull %li_line)
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %return, label %if.end
+  %0 = getelementptr i8, ptr %li, i64 48
+  %range.val.i = load ptr, ptr %0, align 8
+  %1 = getelementptr i8, ptr %li, i64 56
+  %range.val2.i = load ptr, ptr %1, align 8
+  %cmp.i.not.i = icmp ult ptr %range.val.i, %range.val2.i
+  br i1 %cmp.i.not.i, label %if.end.i, label %return
 
-if.end:                                           ; preds = %entry
-  %0 = load i32, ptr %li_line, align 8
-  %ar_line = getelementptr inbounds i8, ptr %li, i64 32
-  %1 = load i32, ptr %ar_line, align 8
-  store i32 %1, ptr %line, align 4
-  br label %while.cond
-
-while.cond:                                       ; preds = %while.body, %if.end
-  %call1 = tail call i32 @_PyLineTable_NextAddressRange(ptr noundef nonnull %li_line)
-  %tobool2.not = icmp eq i32 %call1, 0
-  br i1 %tobool2.not, label %while.end, label %while.body
-
-while.body:                                       ; preds = %while.cond
-  %2 = load i32, ptr %ar_line, align 8
-  %cmp.not = icmp eq i32 %2, %1
-  br i1 %cmp.not, label %while.cond, label %if.then4, !llvm.loop !27
-
-if.then4:                                         ; preds = %while.body
-  %3 = load i32, ptr %li_line, align 8
-  %cmp.i = icmp slt i32 %3, 1
-  br i1 %cmp.i, label %while.end, label %if.end.i
-
-if.end.i:                                         ; preds = %if.then4
-  %lo_next.i.i = getelementptr inbounds i8, ptr %li, i64 48
-  %lo_next.promoted.i.i = load ptr, ptr %lo_next.i.i, align 8
-  br label %do.body.i.i
-
-do.body.i.i:                                      ; preds = %do.body.i.i, %if.end.i
-  %incdec.ptr17.i.i = phi ptr [ %incdec.ptr.i.i, %do.body.i.i ], [ %lo_next.promoted.i.i, %if.end.i ]
-  %incdec.ptr.i.i = getelementptr i8, ptr %incdec.ptr17.i.i, i64 -1
-  store ptr %incdec.ptr.i.i, ptr %lo_next.i.i, align 8
-  %4 = load i8, ptr %incdec.ptr.i.i, align 1
-  %cmp.i.i = icmp sgt i8 %4, -1
-  br i1 %cmp.i.i, label %do.body.i.i, label %do.end.i.i, !llvm.loop !22
-
-do.end.i.i:                                       ; preds = %do.body.i.i
-  %opaque.le.i.i = getelementptr inbounds i8, ptr %li, i64 40
-  %5 = lshr i8 %4, 3
-  %6 = and i8 %5, 15
-  switch i8 %6, label %get_line_delta.exit.i.i [
+if.end.i:                                         ; preds = %entry
+  %opaque.i.i = getelementptr inbounds i8, ptr %li, i64 40
+  %2 = load i8, ptr %range.val.i, align 1
+  %3 = lshr i8 %2, 3
+  %4 = and i8 %3, 15
+  switch i8 %4, label %get_line_delta.exit.i.i [
     i8 12, label %sw.bb4.i.i.i
     i8 13, label %sw.bb1.i.i.i
     i8 14, label %sw.bb1.i.i.i
     i8 11, label %sw.bb3.i.i.i
   ]
 
-sw.bb1.i.i.i:                                     ; preds = %do.end.i.i, %do.end.i.i
-  %7 = load i8, ptr %incdec.ptr17.i.i, align 1
-  %conv.i.i.i.i.i = zext i8 %7 to i32
+sw.bb1.i.i.i:                                     ; preds = %if.end.i, %if.end.i
+  %add.ptr.i.i.i = getelementptr i8, ptr %range.val.i, i64 1
+  %5 = load i8, ptr %add.ptr.i.i.i, align 1
+  %conv.i.i.i.i.i = zext i8 %5 to i32
   %and.i.i.i.i.i = and i32 %conv.i.i.i.i.i, 63
   %and16.i.i.i.i.i = and i32 %conv.i.i.i.i.i, 64
   %tobool.not7.i.i.i.i.i = icmp eq i32 %and16.i.i.i.i.i, 0
@@ -3883,10 +3949,10 @@ sw.bb1.i.i.i:                                     ; preds = %do.end.i.i, %do.end
 while.body.i.i.i.i.i:                             ; preds = %sw.bb1.i.i.i, %while.body.i.i.i.i.i
   %shift.010.i.i.i.i.i = phi i32 [ %add.i.i.i.i.i, %while.body.i.i.i.i.i ], [ 0, %sw.bb1.i.i.i ]
   %val.09.i.i.i.i.i = phi i32 [ %or.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %and.i.i.i.i.i, %sw.bb1.i.i.i ]
-  %ptr.pn8.i.i.i.i.i = phi ptr [ %ptr.addr.0.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %incdec.ptr17.i.i, %sw.bb1.i.i.i ]
+  %ptr.pn8.i.i.i.i.i = phi ptr [ %ptr.addr.0.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %add.ptr.i.i.i, %sw.bb1.i.i.i ]
   %ptr.addr.0.i.i.i.i.i = getelementptr i8, ptr %ptr.pn8.i.i.i.i.i, i64 1
-  %8 = load i8, ptr %ptr.addr.0.i.i.i.i.i, align 1
-  %conv3.i.i.i.i.i = zext i8 %8 to i32
+  %6 = load i8, ptr %ptr.addr.0.i.i.i.i.i, align 1
+  %conv3.i.i.i.i.i = zext i8 %6 to i32
   %add.i.i.i.i.i = add i32 %shift.010.i.i.i.i.i, 6
   %and4.i.i.i.i.i = and i32 %conv3.i.i.i.i.i, 63
   %shl.i.i.i.i.i = shl i32 %and4.i.i.i.i.i, %add.i.i.i.i.i
@@ -3901,49 +3967,235 @@ scan_signed_varint.exit.i.i.i:                    ; preds = %while.body.i.i.i.i.
   %tobool.not.i.i.i.i = icmp eq i32 %and.i.i.i.i, 0
   %shr.i.i.i.i = lshr i32 %val.0.lcssa.i.i.i.i.i, 1
   %sub.i.i.i.i = sub nsw i32 0, %shr.i.i.i.i
-  %9 = select i1 %tobool.not.i.i.i.i, i32 %sub.i.i.i.i, i32 %shr.i.i.i.i
+  %retval.0.i.i.i.i = select i1 %tobool.not.i.i.i.i, i32 %shr.i.i.i.i, i32 %sub.i.i.i.i
   br label %get_line_delta.exit.i.i
 
-sw.bb3.i.i.i:                                     ; preds = %do.end.i.i
+sw.bb3.i.i.i:                                     ; preds = %if.end.i
   br label %get_line_delta.exit.i.i
 
-sw.bb4.i.i.i:                                     ; preds = %do.end.i.i
+sw.bb4.i.i.i:                                     ; preds = %if.end.i
   br label %get_line_delta.exit.i.i
 
-get_line_delta.exit.i.i:                          ; preds = %sw.bb4.i.i.i, %sw.bb3.i.i.i, %scan_signed_varint.exit.i.i.i, %do.end.i.i
-  %retval.0.i.neg.i.i = phi i32 [ -2, %sw.bb4.i.i.i ], [ -1, %sw.bb3.i.i.i ], [ %9, %scan_signed_varint.exit.i.i.i ], [ 0, %do.end.i.i ]
-  %10 = load i32, ptr %opaque.le.i.i, align 8
-  %sub.i.i = add i32 %10, %retval.0.i.neg.i.i
-  store i32 %sub.i.i, ptr %opaque.le.i.i, align 8
+get_line_delta.exit.i.i:                          ; preds = %sw.bb4.i.i.i, %sw.bb3.i.i.i, %scan_signed_varint.exit.i.i.i, %if.end.i
+  %retval.0.i.i.i = phi i32 [ 2, %sw.bb4.i.i.i ], [ 1, %sw.bb3.i.i.i ], [ %retval.0.i.i.i.i, %scan_signed_varint.exit.i.i.i ], [ 0, %if.end.i ]
+  %7 = load i32, ptr %opaque.i.i, align 8
+  %add.i.i = add i32 %7, %retval.0.i.i.i
+  store i32 %add.i.i, ptr %opaque.i.i, align 8
+  %8 = load i8, ptr %range.val.i, align 1
+  %cmp.i.i.i = icmp ult i8 %8, -8
+  %spec.select.i.i = select i1 %cmp.i.i.i, i32 %add.i.i, i32 -1
+  %9 = getelementptr inbounds i8, ptr %li, i64 32
+  store i32 %spec.select.i.i, ptr %9, align 8
   %ar_end.i.i = getelementptr inbounds i8, ptr %li, i64 28
-  store i32 %3, ptr %ar_end.i.i, align 4
+  %10 = load i32, ptr %ar_end.i.i, align 4
+  store i32 %10, ptr %li_line, align 8
+  %bounds.val.val.i.i = load i8, ptr %range.val.i, align 1
+  %11 = shl i8 %bounds.val.val.i.i, 1
+  %narrow.i.i.i = and i8 %11, 14
+  %12 = add nuw nsw i8 %narrow.i.i.i, 2
+  %conv2.i.i.i = zext nneg i8 %12 to i32
+  %add10.i.i = add i32 %10, %conv2.i.i.i
+  store i32 %add10.i.i, ptr %ar_end.i.i, align 4
+  br label %do.body.i.i
+
+do.body.i.i:                                      ; preds = %land.rhs.i.i, %get_line_delta.exit.i.i
+  %13 = phi ptr [ %incdec.ptr.i.i, %land.rhs.i.i ], [ %range.val.i, %get_line_delta.exit.i.i ]
+  %incdec.ptr.i.i = getelementptr i8, ptr %13, i64 1
+  store ptr %incdec.ptr.i.i, ptr %0, align 8
+  %cmp.i3.i = icmp ult ptr %incdec.ptr.i.i, %range.val2.i
+  br i1 %cmp.i3.i, label %land.rhs.i.i, label %if.end
+
+land.rhs.i.i:                                     ; preds = %do.body.i.i
+  %14 = load i8, ptr %incdec.ptr.i.i, align 1
+  %cmp18.i.i = icmp sgt i8 %14, -1
+  br i1 %cmp18.i.i, label %do.body.i.i, label %if.end, !llvm.loop !21
+
+if.end:                                           ; preds = %do.body.i.i, %land.rhs.i.i
+  store i32 %spec.select.i.i, ptr %line, align 4
+  br label %while.cond
+
+while.cond:                                       ; preds = %while.body, %if.end
+  %15 = phi i32 [ %add10.i.i23, %while.body ], [ %add10.i.i, %if.end ]
+  %16 = phi i32 [ %add.i.i16, %while.body ], [ %add.i.i, %if.end ]
+  %incdec.ptr.i.i2594 = phi ptr [ %incdec.ptr.i.i25, %while.body ], [ %incdec.ptr.i.i, %if.end ]
+  %cmp.i.not.i9 = icmp ult ptr %incdec.ptr.i.i2594, %range.val2.i
+  br i1 %cmp.i.not.i9, label %if.end.i11, label %while.end
+
+if.end.i11:                                       ; preds = %while.cond
+  %17 = load i8, ptr %incdec.ptr.i.i2594, align 1
+  %18 = lshr i8 %17, 3
+  %19 = and i8 %18, 15
+  switch i8 %19, label %get_line_delta.exit.i.i14 [
+    i8 12, label %sw.bb4.i.i.i54
+    i8 13, label %sw.bb1.i.i.i29
+    i8 14, label %sw.bb1.i.i.i29
+    i8 11, label %sw.bb3.i.i.i13
+  ]
+
+sw.bb1.i.i.i29:                                   ; preds = %if.end.i11, %if.end.i11
+  %add.ptr.i.i.i30 = getelementptr i8, ptr %incdec.ptr.i.i2594, i64 1
+  %20 = load i8, ptr %add.ptr.i.i.i30, align 1
+  %conv.i.i.i.i.i31 = zext i8 %20 to i32
+  %and.i.i.i.i.i32 = and i32 %conv.i.i.i.i.i31, 63
+  %and16.i.i.i.i.i33 = and i32 %conv.i.i.i.i.i31, 64
+  %tobool.not7.i.i.i.i.i34 = icmp eq i32 %and16.i.i.i.i.i33, 0
+  br i1 %tobool.not7.i.i.i.i.i34, label %scan_signed_varint.exit.i.i.i47, label %while.body.i.i.i.i.i35
+
+while.body.i.i.i.i.i35:                           ; preds = %sw.bb1.i.i.i29, %while.body.i.i.i.i.i35
+  %shift.010.i.i.i.i.i36 = phi i32 [ %add.i.i.i.i.i41, %while.body.i.i.i.i.i35 ], [ 0, %sw.bb1.i.i.i29 ]
+  %val.09.i.i.i.i.i37 = phi i32 [ %or.i.i.i.i.i44, %while.body.i.i.i.i.i35 ], [ %and.i.i.i.i.i32, %sw.bb1.i.i.i29 ]
+  %ptr.pn8.i.i.i.i.i38 = phi ptr [ %ptr.addr.0.i.i.i.i.i39, %while.body.i.i.i.i.i35 ], [ %add.ptr.i.i.i30, %sw.bb1.i.i.i29 ]
+  %ptr.addr.0.i.i.i.i.i39 = getelementptr i8, ptr %ptr.pn8.i.i.i.i.i38, i64 1
+  %21 = load i8, ptr %ptr.addr.0.i.i.i.i.i39, align 1
+  %conv3.i.i.i.i.i40 = zext i8 %21 to i32
+  %add.i.i.i.i.i41 = add i32 %shift.010.i.i.i.i.i36, 6
+  %and4.i.i.i.i.i42 = and i32 %conv3.i.i.i.i.i40, 63
+  %shl.i.i.i.i.i43 = shl i32 %and4.i.i.i.i.i42, %add.i.i.i.i.i41
+  %or.i.i.i.i.i44 = or i32 %shl.i.i.i.i.i43, %val.09.i.i.i.i.i37
+  %and1.i.i.i.i.i45 = and i32 %conv3.i.i.i.i.i40, 64
+  %tobool.not.i.i.i.i.i46 = icmp eq i32 %and1.i.i.i.i.i45, 0
+  br i1 %tobool.not.i.i.i.i.i46, label %scan_signed_varint.exit.i.i.i47, label %while.body.i.i.i.i.i35, !llvm.loop !10
+
+scan_signed_varint.exit.i.i.i47:                  ; preds = %while.body.i.i.i.i.i35, %sw.bb1.i.i.i29
+  %val.0.lcssa.i.i.i.i.i48 = phi i32 [ %and.i.i.i.i.i32, %sw.bb1.i.i.i29 ], [ %or.i.i.i.i.i44, %while.body.i.i.i.i.i35 ]
+  %and.i.i.i.i49 = and i32 %val.0.lcssa.i.i.i.i.i48, 1
+  %tobool.not.i.i.i.i50 = icmp eq i32 %and.i.i.i.i49, 0
+  %shr.i.i.i.i51 = lshr i32 %val.0.lcssa.i.i.i.i.i48, 1
+  %sub.i.i.i.i52 = sub nsw i32 0, %shr.i.i.i.i51
+  %retval.0.i.i.i.i53 = select i1 %tobool.not.i.i.i.i50, i32 %shr.i.i.i.i51, i32 %sub.i.i.i.i52
+  br label %get_line_delta.exit.i.i14
+
+sw.bb3.i.i.i13:                                   ; preds = %if.end.i11
+  br label %get_line_delta.exit.i.i14
+
+sw.bb4.i.i.i54:                                   ; preds = %if.end.i11
+  br label %get_line_delta.exit.i.i14
+
+get_line_delta.exit.i.i14:                        ; preds = %sw.bb4.i.i.i54, %sw.bb3.i.i.i13, %scan_signed_varint.exit.i.i.i47, %if.end.i11
+  %retval.0.i.i.i15 = phi i32 [ 2, %sw.bb4.i.i.i54 ], [ 1, %sw.bb3.i.i.i13 ], [ %retval.0.i.i.i.i53, %scan_signed_varint.exit.i.i.i47 ], [ 0, %if.end.i11 ]
+  %add.i.i16 = add i32 %16, %retval.0.i.i.i15
+  store i32 %add.i.i16, ptr %opaque.i.i, align 8
+  %22 = load i8, ptr %incdec.ptr.i.i2594, align 1
+  %cmp.i.i.i17 = icmp ult i8 %22, -8
+  %spec.select.i.i18 = select i1 %cmp.i.i.i17, i32 %add.i.i16, i32 -1
+  store i32 %spec.select.i.i18, ptr %9, align 8
+  store i32 %15, ptr %li_line, align 8
+  %bounds.val.val.i.i20 = load i8, ptr %incdec.ptr.i.i2594, align 1
+  %23 = shl i8 %bounds.val.val.i.i20, 1
+  %narrow.i.i.i21 = and i8 %23, 14
+  %24 = add nuw nsw i8 %narrow.i.i.i21, 2
+  %conv2.i.i.i22 = zext nneg i8 %24 to i32
+  %add10.i.i23 = add i32 %15, %conv2.i.i.i22
+  store i32 %add10.i.i23, ptr %ar_end.i.i, align 4
+  br label %do.body.i.i24
+
+do.body.i.i24:                                    ; preds = %land.rhs.i.i27, %get_line_delta.exit.i.i14
+  %25 = phi ptr [ %incdec.ptr.i.i25, %land.rhs.i.i27 ], [ %incdec.ptr.i.i2594, %get_line_delta.exit.i.i14 ]
+  %incdec.ptr.i.i25 = getelementptr i8, ptr %25, i64 1
+  store ptr %incdec.ptr.i.i25, ptr %0, align 8
+  %cmp.i3.i26 = icmp ult ptr %incdec.ptr.i.i25, %range.val2.i
+  br i1 %cmp.i3.i26, label %land.rhs.i.i27, label %while.body
+
+land.rhs.i.i27:                                   ; preds = %do.body.i.i24
+  %26 = load i8, ptr %incdec.ptr.i.i25, align 1
+  %cmp18.i.i28 = icmp sgt i8 %26, -1
+  br i1 %cmp18.i.i28, label %do.body.i.i24, label %while.body, !llvm.loop !21
+
+while.body:                                       ; preds = %do.body.i.i24, %land.rhs.i.i27
+  %cmp.not = icmp eq i32 %spec.select.i.i18, %spec.select.i.i
+  br i1 %cmp.not, label %while.cond, label %if.then4, !llvm.loop !27
+
+if.then4:                                         ; preds = %while.body
+  %cmp.i = icmp slt i32 %15, 1
+  br i1 %cmp.i, label %while.end, label %do.body.i.i57
+
+do.body.i.i57:                                    ; preds = %if.then4, %do.body.i.i57
+  %incdec.ptr17.i.i = phi ptr [ %incdec.ptr.i.i58, %do.body.i.i57 ], [ %incdec.ptr.i.i25, %if.then4 ]
+  %incdec.ptr.i.i58 = getelementptr i8, ptr %incdec.ptr17.i.i, i64 -1
+  store ptr %incdec.ptr.i.i58, ptr %0, align 8
+  %27 = load i8, ptr %incdec.ptr.i.i58, align 1
+  %cmp.i.i = icmp sgt i8 %27, -1
+  br i1 %cmp.i.i, label %do.body.i.i57, label %do.end.i.i, !llvm.loop !23
+
+do.end.i.i:                                       ; preds = %do.body.i.i57
+  %28 = lshr i8 %27, 3
+  %29 = and i8 %28, 15
+  switch i8 %29, label %get_line_delta.exit.i.i60 [
+    i8 12, label %sw.bb4.i.i.i88
+    i8 13, label %sw.bb1.i.i.i65
+    i8 14, label %sw.bb1.i.i.i65
+    i8 11, label %sw.bb3.i.i.i59
+  ]
+
+sw.bb1.i.i.i65:                                   ; preds = %do.end.i.i, %do.end.i.i
+  %30 = load i8, ptr %incdec.ptr17.i.i, align 1
+  %conv.i.i.i.i.i66 = zext i8 %30 to i32
+  %and.i.i.i.i.i67 = and i32 %conv.i.i.i.i.i66, 63
+  %and16.i.i.i.i.i68 = and i32 %conv.i.i.i.i.i66, 64
+  %tobool.not7.i.i.i.i.i69 = icmp eq i32 %and16.i.i.i.i.i68, 0
+  br i1 %tobool.not7.i.i.i.i.i69, label %scan_signed_varint.exit.i.i.i82, label %while.body.i.i.i.i.i70
+
+while.body.i.i.i.i.i70:                           ; preds = %sw.bb1.i.i.i65, %while.body.i.i.i.i.i70
+  %shift.010.i.i.i.i.i71 = phi i32 [ %add.i.i.i.i.i76, %while.body.i.i.i.i.i70 ], [ 0, %sw.bb1.i.i.i65 ]
+  %val.09.i.i.i.i.i72 = phi i32 [ %or.i.i.i.i.i79, %while.body.i.i.i.i.i70 ], [ %and.i.i.i.i.i67, %sw.bb1.i.i.i65 ]
+  %ptr.pn8.i.i.i.i.i73 = phi ptr [ %ptr.addr.0.i.i.i.i.i74, %while.body.i.i.i.i.i70 ], [ %incdec.ptr17.i.i, %sw.bb1.i.i.i65 ]
+  %ptr.addr.0.i.i.i.i.i74 = getelementptr i8, ptr %ptr.pn8.i.i.i.i.i73, i64 1
+  %31 = load i8, ptr %ptr.addr.0.i.i.i.i.i74, align 1
+  %conv3.i.i.i.i.i75 = zext i8 %31 to i32
+  %add.i.i.i.i.i76 = add i32 %shift.010.i.i.i.i.i71, 6
+  %and4.i.i.i.i.i77 = and i32 %conv3.i.i.i.i.i75, 63
+  %shl.i.i.i.i.i78 = shl i32 %and4.i.i.i.i.i77, %add.i.i.i.i.i76
+  %or.i.i.i.i.i79 = or i32 %shl.i.i.i.i.i78, %val.09.i.i.i.i.i72
+  %and1.i.i.i.i.i80 = and i32 %conv3.i.i.i.i.i75, 64
+  %tobool.not.i.i.i.i.i81 = icmp eq i32 %and1.i.i.i.i.i80, 0
+  br i1 %tobool.not.i.i.i.i.i81, label %scan_signed_varint.exit.i.i.i82, label %while.body.i.i.i.i.i70, !llvm.loop !10
+
+scan_signed_varint.exit.i.i.i82:                  ; preds = %while.body.i.i.i.i.i70, %sw.bb1.i.i.i65
+  %val.0.lcssa.i.i.i.i.i83 = phi i32 [ %and.i.i.i.i.i67, %sw.bb1.i.i.i65 ], [ %or.i.i.i.i.i79, %while.body.i.i.i.i.i70 ]
+  %and.i.i.i.i84 = and i32 %val.0.lcssa.i.i.i.i.i83, 1
+  %tobool.not.i.i.i.i85 = icmp eq i32 %and.i.i.i.i84, 0
+  %shr.i.i.i.i86 = lshr i32 %val.0.lcssa.i.i.i.i.i83, 1
+  %sub.i.i.i.i87 = sub nsw i32 0, %shr.i.i.i.i86
+  %32 = select i1 %tobool.not.i.i.i.i85, i32 %sub.i.i.i.i87, i32 %shr.i.i.i.i86
+  br label %get_line_delta.exit.i.i60
+
+sw.bb3.i.i.i59:                                   ; preds = %do.end.i.i
+  br label %get_line_delta.exit.i.i60
+
+sw.bb4.i.i.i88:                                   ; preds = %do.end.i.i
+  br label %get_line_delta.exit.i.i60
+
+get_line_delta.exit.i.i60:                        ; preds = %sw.bb4.i.i.i88, %sw.bb3.i.i.i59, %scan_signed_varint.exit.i.i.i82, %do.end.i.i
+  %retval.0.i.neg.i.i = phi i32 [ -2, %sw.bb4.i.i.i88 ], [ -1, %sw.bb3.i.i.i59 ], [ %32, %scan_signed_varint.exit.i.i.i82 ], [ 0, %do.end.i.i ]
+  %sub.i.i = add i32 %add.i.i16, %retval.0.i.neg.i.i
+  store i32 %sub.i.i, ptr %opaque.i.i, align 8
+  store i32 %15, ptr %ar_end.i.i, align 4
   br label %while.cond.i.i.i
 
-while.cond.i.i.i:                                 ; preds = %while.cond.i.i.i, %get_line_delta.exit.i.i
-  %.pn.i.i.i = phi ptr [ %ptr.0.i.i.i, %while.cond.i.i.i ], [ %incdec.ptr.i.i, %get_line_delta.exit.i.i ]
+while.cond.i.i.i:                                 ; preds = %while.cond.i.i.i, %get_line_delta.exit.i.i60
+  %.pn.i.i.i = phi ptr [ %ptr.0.i.i.i, %while.cond.i.i.i ], [ %incdec.ptr.i.i58, %get_line_delta.exit.i.i60 ]
   %ptr.0.i.i.i = getelementptr i8, ptr %.pn.i.i.i, i64 -1
-  %11 = load i8, ptr %ptr.0.i.i.i, align 1
-  %cmp1.i.i.i = icmp sgt i8 %11, -1
-  br i1 %cmp1.i.i.i, label %while.cond.i.i.i, label %retreat.exit.i, !llvm.loop !23
+  %33 = load i8, ptr %ptr.0.i.i.i, align 1
+  %cmp1.i.i.i = icmp sgt i8 %33, -1
+  br i1 %cmp1.i.i.i, label %while.cond.i.i.i, label %retreat.exit.i, !llvm.loop !24
 
 retreat.exit.i:                                   ; preds = %while.cond.i.i.i
-  %12 = shl i8 %11, 1
-  %narrow.i.i.i = and i8 %12, 14
-  %13 = add nuw nsw i8 %narrow.i.i.i, 2
-  %conv6.i.i.i = zext nneg i8 %13 to i32
-  %sub9.i.i = sub nsw i32 %3, %conv6.i.i.i
+  %34 = shl i8 %33, 1
+  %narrow.i.i.i62 = and i8 %34, 14
+  %35 = add nuw nsw i8 %narrow.i.i.i62, 2
+  %conv6.i.i.i = zext nneg i8 %35 to i32
+  %sub9.i.i = sub nsw i32 %15, %conv6.i.i.i
   store i32 %sub9.i.i, ptr %li_line, align 8
   %arrayidx.i.i = getelementptr i8, ptr %incdec.ptr17.i.i, i64 -2
-  %14 = load i8, ptr %arrayidx.i.i, align 1
-  %cmp.i13.i.i = icmp ult i8 %14, -8
-  %spec.select.i.i = select i1 %cmp.i13.i.i, i32 %sub.i.i, i32 -1
-  store i32 %spec.select.i.i, ptr %ar_line, align 8
+  %36 = load i8, ptr %arrayidx.i.i, align 1
+  %cmp.i13.i.i = icmp ult i8 %36, -8
+  %spec.select.i.i63 = select i1 %cmp.i13.i.i, i32 %sub.i.i, i32 -1
+  store i32 %spec.select.i.i63, ptr %9, align 8
   br label %while.end
 
 while.end:                                        ; preds = %while.cond, %retreat.exit.i, %if.then4
-  %ar_end = getelementptr inbounds i8, ptr %li, i64 28
-  %15 = load i32, ptr %ar_end, align 4
-  %call7 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.16, i32 noundef %0, i32 noundef %15, ptr noundef nonnull @_source_offset_converter, ptr noundef nonnull %line) #13
+  %37 = phi i32 [ %15, %retreat.exit.i ], [ %add10.i.i23, %if.then4 ], [ %15, %while.cond ]
+  %call7 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.16, i32 noundef %10, i32 noundef %37, ptr noundef nonnull @_source_offset_converter, ptr noundef nonnull %line) #13
   br label %return
 
 return:                                           ; preds = %entry, %while.end
@@ -7964,7 +8216,7 @@ do.body.i.i.i:                                    ; preds = %land.rhs.i.i.i, %ge
 land.rhs.i.i.i:                                   ; preds = %do.body.i.i.i
   %13 = load i8, ptr %incdec.ptr.i.i.i, align 1
   %cmp18.i.i.i = icmp sgt i8 %13, -1
-  br i1 %cmp18.i.i.i, label %do.body.i.i.i, label %while.body.i, !llvm.loop !25
+  br i1 %cmp18.i.i.i, label %do.body.i.i.i, label %while.body.i, !llvm.loop !21
 
 while.body.i:                                     ; preds = %land.rhs.i.i.i, %do.body.i.i.i
   %cmp3.not.i = icmp eq i32 %add.i.i.i, %line.052.i

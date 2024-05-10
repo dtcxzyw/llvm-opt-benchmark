@@ -1294,8 +1294,73 @@ tailrecurse.backedge:                             ; preds = %tailrecurse.backedg
 define dso_local ptr @relabel_to_typmod(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @exprType(ptr noundef %0)
   %4 = tail call i32 @exprCollation(ptr noundef %0)
-  %5 = tail call ptr @applyRelabelType(ptr noundef %0, i32 noundef %3, i32 noundef %1, i32 noundef %4, i32 noundef 1, i32 noundef -1, i1 noundef zeroext false)
-  ret ptr %5
+  %.not40.i = icmp eq ptr %0, null
+  br i1 %.not40.i, label %.critedge.split.i, label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %2, %6
+  %.03641.i = phi ptr [ %8, %6 ], [ %0, %2 ]
+  %5 = load i32, ptr %.03641.i, align 4
+  switch i32 %5, label %.split.i [
+    i32 25, label %6
+    i32 7, label %10
+  ]
+
+6:                                                ; preds = %.lr.ph.i
+  %7 = getelementptr inbounds i8, ptr %.03641.i, i64 8
+  %8 = load ptr, ptr %7, align 8
+  %.not.i = icmp eq ptr %8, null
+  br i1 %.not.i, label %.critedge.split.i, label %.lr.ph.i, !llvm.loop !5
+
+.split.i:                                         ; preds = %.lr.ph.i
+  %9 = tail call i32 @exprType(ptr noundef nonnull %.03641.i)
+  br label %.critedge.split.i
+
+10:                                               ; preds = %.lr.ph.i
+  %11 = tail call ptr @copyObjectImpl(ptr noundef nonnull %.03641.i) #12
+  %12 = getelementptr inbounds i8, ptr %11, i64 4
+  store i32 %3, ptr %12, align 4
+  %13 = getelementptr inbounds i8, ptr %11, i64 8
+  store i32 %1, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %11, i64 12
+  store i32 %4, ptr %14, align 4
+  br label %applyRelabelType.exit
+
+.critedge.split.i:                                ; preds = %6, %.split.i, %2
+  %.03639.i = phi ptr [ %.03641.i, %.split.i ], [ null, %2 ], [ null, %6 ]
+  %phi.call.i = phi i32 [ %9, %.split.i ], [ 0, %2 ], [ 0, %6 ]
+  %15 = icmp eq i32 %phi.call.i, %3
+  br i1 %15, label %16, label %22
+
+16:                                               ; preds = %.critedge.split.i
+  %17 = tail call i32 @exprTypmod(ptr noundef %.03639.i)
+  %18 = icmp eq i32 %17, %1
+  br i1 %18, label %19, label %22
+
+19:                                               ; preds = %16
+  %20 = tail call i32 @exprCollation(ptr noundef %.03639.i)
+  %21 = icmp eq i32 %20, %4
+  br i1 %21, label %applyRelabelType.exit, label %22
+
+22:                                               ; preds = %19, %16, %.critedge.split.i
+  %23 = tail call noundef ptr @palloc0(i64 noundef 40) #12
+  store i32 25, ptr %23, align 4
+  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  store ptr %.03639.i, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %23, i64 16
+  store i32 %3, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %23, i64 20
+  store i32 %1, ptr %26, align 4
+  %27 = getelementptr inbounds i8, ptr %23, i64 24
+  store i32 %4, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %23, i64 28
+  store i32 1, ptr %28, align 4
+  %29 = getelementptr inbounds i8, ptr %23, i64 32
+  store i32 -1, ptr %29, align 8
+  br label %applyRelabelType.exit
+
+applyRelabelType.exit:                            ; preds = %10, %19, %22
+  %.0.i = phi ptr [ %11, %10 ], [ %23, %22 ], [ %.03639.i, %19 ]
+  ret ptr %.0.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable

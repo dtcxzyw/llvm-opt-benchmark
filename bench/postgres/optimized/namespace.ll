@@ -7056,7 +7056,7 @@ define internal fastcc i32 @spcachekey_hash(ptr %0, i32 %1) unnamed_addr #13 {
   %11 = ptrtoint ptr %0 to i64
   %12 = and i64 %11, 7
   %13 = icmp eq i64 %12, 0
-  br i1 %13, label %14, label %80
+  br i1 %13, label %14, label %81
 
 14:                                               ; preds = %2
   %15 = load i64, ptr %0, align 8
@@ -7065,7 +7065,7 @@ define internal fastcc i32 @spcachekey_hash(ptr %0, i32 %1) unnamed_addr #13 {
   %18 = xor i64 %17, -9187201950435737472
   %19 = and i64 %18, %16
   %.not17.i.i = icmp eq i64 %19, 0
-  br i1 %.not17.i.i, label %.lr.ph.i.i, label %fasthash_accum_cstring_aligned.exit.i
+  br i1 %.not17.i.i, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %14, %.lr.ph.i.i
   %20 = phi i64 [ %28, %.lr.ph.i.i ], [ %10, %14 ]
@@ -7085,233 +7085,235 @@ define internal fastcc i32 @spcachekey_hash(ptr %0, i32 %1) unnamed_addr #13 {
   %33 = xor i64 %32, -9187201950435737472
   %34 = and i64 %33, %31
   %.not.i.i = icmp eq i64 %34, 0
-  br i1 %.not.i.i, label %.lr.ph.i.i, label %fasthash_accum_cstring_aligned.exit.i
+  br i1 %.not.i.i, label %.lr.ph.i.i, label %._crit_edge.i.i
 
-fasthash_accum_cstring_aligned.exit.i:            ; preds = %.lr.ph.i.i, %14
-  %.0.copyload.i7.in = phi i64 [ %15, %14 ], [ %30, %.lr.ph.i.i ]
-  %.sroa.33.0 = phi i64 [ %10, %14 ], [ %28, %.lr.ph.i.i ]
+._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %14
+  %.sroa.32.0 = phi i64 [ %10, %14 ], [ %28, %.lr.ph.i.i ]
+  %.0.copyload.i23.in.i.i = phi i64 [ %15, %14 ], [ %30, %.lr.ph.i.i ]
   %.0.lcssa.i.i = phi ptr [ %0, %14 ], [ %29, %.lr.ph.i.i ]
   %.lcssa.i.i = phi i64 [ %19, %14 ], [ %34, %.lr.ph.i.i ]
   %35 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.lcssa.i.i, i1 true)
   %36 = lshr i64 %35, 3
   switch i64 %36, label %default.unreachable [
-    i64 0, label %fasthash_accum.exit14
+    i64 0, label %fasthash_accum_cstring_aligned.exit.i
     i64 7, label %37
-    i64 6, label %._crit_edge20.i10
-    i64 5, label %._crit_edge22.i8
-    i64 4, label %._crit_edge24.i5
+    i64 6, label %._crit_edge20.i.i.i
+    i64 5, label %._crit_edge22.i.i.i
+    i64 4, label %._crit_edge24.i.i.i
     i64 3, label %57
-    i64 2, label %._crit_edge.i3
-    i64 1, label %._crit_edge18.i1
+    i64 2, label %._crit_edge.i.i.i
+    i64 1, label %._crit_edge18.i.i.i
   ]
 
-37:                                               ; preds = %fasthash_accum_cstring_aligned.exit.i
+default.unreachable:                              ; preds = %._crit_edge.i.i
+  unreachable
+
+37:                                               ; preds = %._crit_edge.i.i
   %38 = getelementptr i8, ptr %.0.lcssa.i.i, i64 6
   %39 = load i8, ptr %38, align 1
   %40 = sext i8 %39 to i64
   %41 = shl nsw i64 %40, 48
-  br label %._crit_edge20.i10
+  br label %._crit_edge20.i.i.i
 
-._crit_edge20.i10:                                ; preds = %fasthash_accum_cstring_aligned.exit.i, %37
-  %42 = phi i64 [ %41, %37 ], [ 0, %fasthash_accum_cstring_aligned.exit.i ]
+._crit_edge20.i.i.i:                              ; preds = %._crit_edge.i.i, %37
+  %42 = phi i64 [ %41, %37 ], [ 0, %._crit_edge.i.i ]
   %43 = getelementptr i8, ptr %.0.lcssa.i.i, i64 5
   %44 = load i8, ptr %43, align 1
   %45 = sext i8 %44 to i64
   %46 = shl nsw i64 %45, 40
   %47 = or i64 %46, %42
-  br label %._crit_edge22.i8
+  br label %._crit_edge22.i.i.i
 
-._crit_edge22.i8:                                 ; preds = %fasthash_accum_cstring_aligned.exit.i, %._crit_edge20.i10
-  %48 = phi i64 [ %47, %._crit_edge20.i10 ], [ 0, %fasthash_accum_cstring_aligned.exit.i ]
+._crit_edge22.i.i.i:                              ; preds = %._crit_edge.i.i, %._crit_edge20.i.i.i
+  %48 = phi i64 [ %47, %._crit_edge20.i.i.i ], [ 0, %._crit_edge.i.i ]
   %49 = getelementptr i8, ptr %.0.lcssa.i.i, i64 4
   %50 = load i8, ptr %49, align 1
   %51 = sext i8 %50 to i64
   %52 = shl nsw i64 %51, 32
   %53 = or i64 %52, %48
-  br label %._crit_edge24.i5
+  br label %._crit_edge24.i.i.i
 
-._crit_edge24.i5:                                 ; preds = %fasthash_accum_cstring_aligned.exit.i, %._crit_edge22.i8
-  %54 = phi i64 [ %53, %._crit_edge22.i8 ], [ 0, %fasthash_accum_cstring_aligned.exit.i ]
-  %55 = and i64 %.0.copyload.i7.in, 4294967295
+._crit_edge24.i.i.i:                              ; preds = %._crit_edge.i.i, %._crit_edge22.i.i.i
+  %54 = phi i64 [ %53, %._crit_edge22.i.i.i ], [ 0, %._crit_edge.i.i ]
+  %55 = and i64 %.0.copyload.i23.in.i.i, 4294967295
   %56 = or i64 %54, %55
-  br label %._crit_edge26.i12
+  br label %71
 
-57:                                               ; preds = %fasthash_accum_cstring_aligned.exit.i
+57:                                               ; preds = %._crit_edge.i.i
   %58 = getelementptr i8, ptr %.0.lcssa.i.i, i64 2
   %59 = load i8, ptr %58, align 1
   %60 = sext i8 %59 to i64
   %61 = shl nsw i64 %60, 16
-  br label %._crit_edge.i3
+  br label %._crit_edge.i.i.i
 
-._crit_edge.i3:                                   ; preds = %fasthash_accum_cstring_aligned.exit.i, %57
-  %62 = phi i64 [ %61, %57 ], [ 0, %fasthash_accum_cstring_aligned.exit.i ]
+._crit_edge.i.i.i:                                ; preds = %._crit_edge.i.i, %57
+  %62 = phi i64 [ %61, %57 ], [ 0, %._crit_edge.i.i ]
   %63 = getelementptr i8, ptr %.0.lcssa.i.i, i64 1
   %64 = load i8, ptr %63, align 1
   %65 = sext i8 %64 to i64
   %66 = shl nsw i64 %65, 8
   %67 = or i64 %66, %62
-  br label %._crit_edge18.i1
+  br label %._crit_edge18.i.i.i
 
-._crit_edge18.i1:                                 ; preds = %fasthash_accum_cstring_aligned.exit.i, %._crit_edge.i3
-  %68 = phi i64 [ %67, %._crit_edge.i3 ], [ 0, %fasthash_accum_cstring_aligned.exit.i ]
-  %sext49 = shl i64 %.0.copyload.i7.in, 56
-  %69 = ashr exact i64 %sext49, 56
+._crit_edge18.i.i.i:                              ; preds = %._crit_edge.i.i, %._crit_edge.i.i.i
+  %68 = phi i64 [ %67, %._crit_edge.i.i.i ], [ 0, %._crit_edge.i.i ]
+  %sext33 = shl i64 %.0.copyload.i23.in.i.i, 56
+  %69 = ashr exact i64 %sext33, 56
   %70 = or i64 %68, %69
-  br label %._crit_edge26.i12
+  br label %71
 
-default.unreachable:                              ; preds = %fasthash_accum_cstring_aligned.exit.i
-  unreachable
+71:                                               ; preds = %._crit_edge18.i.i.i, %._crit_edge24.i.i.i
+  %72 = phi i64 [ %70, %._crit_edge18.i.i.i ], [ %56, %._crit_edge24.i.i.i ]
+  %73 = lshr i64 %72, 23
+  %74 = xor i64 %73, %72
+  %75 = mul i64 %74, 2388976653695081527
+  %76 = lshr i64 %75, 47
+  %77 = xor i64 %.sroa.32.0, %76
+  %78 = xor i64 %77, %75
+  %79 = mul i64 %78, -8645972361240307355
+  br label %fasthash_accum_cstring_aligned.exit.i
 
-._crit_edge26.i12:                                ; preds = %._crit_edge18.i1, %._crit_edge24.i5
-  %71 = phi i64 [ %70, %._crit_edge18.i1 ], [ %56, %._crit_edge24.i5 ]
-  %72 = lshr i64 %71, 23
-  %73 = xor i64 %72, %71
-  %74 = mul i64 %73, 2388976653695081527
-  %75 = lshr i64 %74, 47
-  %76 = xor i64 %.sroa.33.0, %75
-  %77 = xor i64 %76, %74
-  %78 = mul i64 %77, -8645972361240307355
-  br label %fasthash_accum.exit14
-
-fasthash_accum.exit14:                            ; preds = %fasthash_accum_cstring_aligned.exit.i, %._crit_edge26.i12
-  %.sroa.33.1 = phi i64 [ %78, %._crit_edge26.i12 ], [ %.sroa.33.0, %fasthash_accum_cstring_aligned.exit.i ]
-  %79 = getelementptr i8, ptr %.0.lcssa.i.i, i64 %36
+fasthash_accum_cstring_aligned.exit.i:            ; preds = %71, %._crit_edge.i.i
+  %.sroa.32.1 = phi i64 [ %79, %71 ], [ %.sroa.32.0, %._crit_edge.i.i ]
+  %80 = getelementptr i8, ptr %.0.lcssa.i.i, i64 %36
   br label %fasthash_accum_cstring.exit
 
-80:                                               ; preds = %2
-  %81 = load i8, ptr %0, align 1
-  %.not15.i.i = icmp eq i8 %81, 0
+81:                                               ; preds = %2
+  %82 = load i8, ptr %0, align 1
+  %.not15.i.i = icmp eq i8 %82, 0
   br i1 %.not15.i.i, label %fasthash_accum_cstring.exit, label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %80, %fasthash_accum.exit
-  %82 = phi i8 [ %131, %fasthash_accum.exit ], [ %81, %80 ]
-  %.sroa.33.2 = phi i64 [ %.sroa.33.3, %fasthash_accum.exit ], [ %10, %80 ]
-  %.01216.i.i = phi ptr [ %132, %fasthash_accum.exit ], [ %0, %80 ]
-  br label %83
+.preheader.i.i:                                   ; preds = %81, %fasthash_accum.exit.i.i
+  %.sroa.32.2 = phi i64 [ %.sroa.32.3, %fasthash_accum.exit.i.i ], [ %10, %81 ]
+  %83 = phi i8 [ %133, %fasthash_accum.exit.i.i ], [ %82, %81 ]
+  %.01216.i.i = phi ptr [ %134, %fasthash_accum.exit.i.i ], [ %0, %81 ]
+  br label %84
 
-83:                                               ; preds = %86, %.preheader.i.i
-  %.014.i.i = phi i64 [ 0, %.preheader.i.i ], [ %87, %86 ]
-  %84 = getelementptr i8, ptr %.01216.i.i, i64 %.014.i.i
-  %85 = load i8, ptr %84, align 1
-  %.not13.i.i = icmp eq i8 %85, 0
-  br i1 %.not13.i.i, label %.critedge.i.i, label %86
+84:                                               ; preds = %87, %.preheader.i.i
+  %.014.i.i = phi i64 [ 0, %.preheader.i.i ], [ %88, %87 ]
+  %85 = getelementptr i8, ptr %.01216.i.i, i64 %.014.i.i
+  %86 = load i8, ptr %85, align 1
+  %.not13.i.i = icmp eq i8 %86, 0
+  br i1 %.not13.i.i, label %.critedge.i.i, label %87
 
-86:                                               ; preds = %83
-  %87 = add nuw nsw i64 %.014.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %87, 8
-  br i1 %exitcond.not.i.i, label %.critedge.i.i.thread, label %83, !llvm.loop !23
+87:                                               ; preds = %84
+  %88 = add nuw nsw i64 %.014.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %88, 8
+  br i1 %exitcond.not.i.i, label %.critedge.thread.i.i, label %84, !llvm.loop !23
 
-.critedge.i.i:                                    ; preds = %83
-  switch i64 %.014.i.i, label %._crit_edge26.i [
-    i64 8, label %.critedge.i.i.thread
-    i64 7, label %89
-    i64 6, label %._crit_edge20.i
-    i64 5, label %._crit_edge22.i
-    i64 4, label %._crit_edge24.i
-    i64 3, label %109
-    i64 2, label %._crit_edge.i
-    i64 1, label %._crit_edge18.i
-    i64 0, label %fasthash_accum.exit
+.critedge.i.i:                                    ; preds = %84
+  switch i64 %.014.i.i, label %._crit_edge26.i.i.i [
+    i64 8, label %.critedge.thread.i.i
+    i64 7, label %90
+    i64 6, label %._crit_edge20.i.i18.i
+    i64 5, label %._crit_edge22.i.i16.i
+    i64 4, label %._crit_edge24.i.i13.i
+    i64 3, label %110
+    i64 2, label %._crit_edge.i.i10.i
+    i64 1, label %._crit_edge18.i.i8.i
+    i64 0, label %fasthash_accum.exit.i.i
   ]
 
-.critedge.i.i.thread:                             ; preds = %86, %.critedge.i.i
-  %88 = load i64, ptr %.01216.i.i, align 1
-  %.phi.trans.insert.phi.trans.insert = getelementptr i8, ptr %.01216.i.i, i64 8
-  %.pre.pre = load i8, ptr %.phi.trans.insert.phi.trans.insert, align 1
-  br label %._crit_edge26.i
+.critedge.thread.i.i:                             ; preds = %87, %.critedge.i.i
+  %89 = load i64, ptr %.01216.i.i, align 1
+  %.phi.trans.insert.i.phi.trans.insert = getelementptr i8, ptr %.01216.i.i, i64 8
+  %.pre.i.pre = load i8, ptr %.phi.trans.insert.i.phi.trans.insert, align 1
+  br label %._crit_edge26.i.i.i
 
-89:                                               ; preds = %.critedge.i.i
-  %90 = getelementptr i8, ptr %.01216.i.i, i64 6
-  %91 = load i8, ptr %90, align 1
-  %92 = sext i8 %91 to i64
-  %93 = shl nsw i64 %92, 48
-  br label %._crit_edge20.i
+90:                                               ; preds = %.critedge.i.i
+  %91 = getelementptr i8, ptr %.01216.i.i, i64 6
+  %92 = load i8, ptr %91, align 1
+  %93 = sext i8 %92 to i64
+  %94 = shl nsw i64 %93, 48
+  br label %._crit_edge20.i.i18.i
 
-._crit_edge20.i:                                  ; preds = %.critedge.i.i, %89
-  %94 = phi i64 [ %93, %89 ], [ 0, %.critedge.i.i ]
-  %95 = getelementptr i8, ptr %.01216.i.i, i64 5
-  %96 = load i8, ptr %95, align 1
-  %97 = sext i8 %96 to i64
-  %98 = shl nsw i64 %97, 40
-  %99 = or i64 %98, %94
-  br label %._crit_edge22.i
+._crit_edge20.i.i18.i:                            ; preds = %.critedge.i.i, %90
+  %95 = phi i64 [ %94, %90 ], [ 0, %.critedge.i.i ]
+  %96 = getelementptr i8, ptr %.01216.i.i, i64 5
+  %97 = load i8, ptr %96, align 1
+  %98 = sext i8 %97 to i64
+  %99 = shl nsw i64 %98, 40
+  %100 = or i64 %99, %95
+  br label %._crit_edge22.i.i16.i
 
-._crit_edge22.i:                                  ; preds = %.critedge.i.i, %._crit_edge20.i
-  %100 = phi i64 [ %99, %._crit_edge20.i ], [ 0, %.critedge.i.i ]
-  %101 = getelementptr i8, ptr %.01216.i.i, i64 4
-  %102 = load i8, ptr %101, align 1
-  %103 = sext i8 %102 to i64
-  %104 = shl nsw i64 %103, 32
-  %105 = or i64 %104, %100
-  br label %._crit_edge24.i
+._crit_edge22.i.i16.i:                            ; preds = %.critedge.i.i, %._crit_edge20.i.i18.i
+  %101 = phi i64 [ %100, %._crit_edge20.i.i18.i ], [ 0, %.critedge.i.i ]
+  %102 = getelementptr i8, ptr %.01216.i.i, i64 4
+  %103 = load i8, ptr %102, align 1
+  %104 = sext i8 %103 to i64
+  %105 = shl nsw i64 %104, 32
+  %106 = or i64 %105, %101
+  br label %._crit_edge24.i.i13.i
 
-._crit_edge24.i:                                  ; preds = %.critedge.i.i, %._crit_edge22.i
-  %106 = phi i64 [ %105, %._crit_edge22.i ], [ 0, %.critedge.i.i ]
-  %.0.copyload.i = load i32, ptr %.01216.i.i, align 1
-  %107 = zext i32 %.0.copyload.i to i64
-  %108 = or i64 %106, %107
-  br label %._crit_edge26.i
+._crit_edge24.i.i13.i:                            ; preds = %.critedge.i.i, %._crit_edge22.i.i16.i
+  %107 = phi i64 [ %106, %._crit_edge22.i.i16.i ], [ 0, %.critedge.i.i ]
+  %.0.copyload.i.i15.i = load i32, ptr %.01216.i.i, align 1
+  %108 = zext i32 %.0.copyload.i.i15.i to i64
+  %109 = or i64 %107, %108
+  br label %._crit_edge26.i.i.i
 
-109:                                              ; preds = %.critedge.i.i
-  %110 = getelementptr i8, ptr %.01216.i.i, i64 2
-  %111 = load i8, ptr %110, align 1
-  %112 = sext i8 %111 to i64
-  %113 = shl nsw i64 %112, 16
-  br label %._crit_edge.i
+110:                                              ; preds = %.critedge.i.i
+  %111 = getelementptr i8, ptr %.01216.i.i, i64 2
+  %112 = load i8, ptr %111, align 1
+  %113 = sext i8 %112 to i64
+  %114 = shl nsw i64 %113, 16
+  br label %._crit_edge.i.i10.i
 
-._crit_edge.i:                                    ; preds = %.critedge.i.i, %109
-  %114 = phi i64 [ %113, %109 ], [ 0, %.critedge.i.i ]
-  %115 = getelementptr i8, ptr %.01216.i.i, i64 1
-  %116 = load i8, ptr %115, align 1
-  %117 = sext i8 %116 to i64
-  %118 = shl nsw i64 %117, 8
-  %119 = or i64 %118, %114
-  br label %._crit_edge18.i
+._crit_edge.i.i10.i:                              ; preds = %.critedge.i.i, %110
+  %115 = phi i64 [ %114, %110 ], [ 0, %.critedge.i.i ]
+  %116 = getelementptr i8, ptr %.01216.i.i, i64 1
+  %117 = load i8, ptr %116, align 1
+  %118 = sext i8 %117 to i64
+  %119 = shl nsw i64 %118, 8
+  %120 = or i64 %119, %115
+  %.pre.i12.i = load i8, ptr %.01216.i.i, align 1
+  br label %._crit_edge18.i.i8.i
 
-._crit_edge18.i:                                  ; preds = %.critedge.i.i, %._crit_edge.i
-  %120 = phi i64 [ %119, %._crit_edge.i ], [ 0, %.critedge.i.i ]
-  %121 = sext i8 %82 to i64
-  %122 = or i64 %120, %121
-  br label %._crit_edge26.i
+._crit_edge18.i.i8.i:                             ; preds = %.critedge.i.i, %._crit_edge.i.i10.i
+  %121 = phi i8 [ %.pre.i12.i, %._crit_edge.i.i10.i ], [ %83, %.critedge.i.i ]
+  %122 = phi i64 [ %120, %._crit_edge.i.i10.i ], [ 0, %.critedge.i.i ]
+  %123 = sext i8 %121 to i64
+  %124 = or i64 %122, %123
+  br label %._crit_edge26.i.i.i
 
-._crit_edge26.i:                                  ; preds = %.critedge.i.i, %._crit_edge18.i, %._crit_edge24.i, %.critedge.i.i.thread
-  %.pre = phi i8 [ 0, %._crit_edge18.i ], [ 0, %._crit_edge24.i ], [ %.pre.pre, %.critedge.i.i.thread ], [ 0, %.critedge.i.i ]
-  %.0.lcssa.i6.i37 = phi i64 [ %.014.i.i, %._crit_edge18.i ], [ %.014.i.i, %._crit_edge24.i ], [ 8, %.critedge.i.i.thread ], [ %.014.i.i, %.critedge.i.i ]
-  %123 = phi i64 [ %122, %._crit_edge18.i ], [ %108, %._crit_edge24.i ], [ %88, %.critedge.i.i.thread ], [ 0, %.critedge.i.i ]
-  %124 = lshr i64 %123, 23
-  %125 = xor i64 %124, %123
-  %126 = mul i64 %125, 2388976653695081527
-  %127 = lshr i64 %126, 47
-  %128 = xor i64 %.sroa.33.2, %127
-  %129 = xor i64 %128, %126
-  %130 = mul i64 %129, -8645972361240307355
-  br label %fasthash_accum.exit
+._crit_edge26.i.i.i:                              ; preds = %.critedge.i.i, %._crit_edge18.i.i8.i, %._crit_edge24.i.i13.i, %.critedge.thread.i.i
+  %.pre.i = phi i8 [ 0, %._crit_edge18.i.i8.i ], [ 0, %._crit_edge24.i.i13.i ], [ %.pre.i.pre, %.critedge.thread.i.i ], [ 0, %.critedge.i.i ]
+  %.0.lcssa20.i.i = phi i64 [ %.014.i.i, %._crit_edge18.i.i8.i ], [ %.014.i.i, %._crit_edge24.i.i13.i ], [ 8, %.critedge.thread.i.i ], [ %.014.i.i, %.critedge.i.i ]
+  %125 = phi i64 [ %124, %._crit_edge18.i.i8.i ], [ %109, %._crit_edge24.i.i13.i ], [ %89, %.critedge.thread.i.i ], [ 0, %.critedge.i.i ]
+  %126 = lshr i64 %125, 23
+  %127 = xor i64 %126, %125
+  %128 = mul i64 %127, 2388976653695081527
+  %129 = lshr i64 %128, 47
+  %130 = xor i64 %.sroa.32.2, %129
+  %131 = xor i64 %130, %128
+  %132 = mul i64 %131, -8645972361240307355
+  br label %fasthash_accum.exit.i.i
 
-fasthash_accum.exit:                              ; preds = %.critedge.i.i, %._crit_edge26.i
-  %131 = phi i8 [ %.pre, %._crit_edge26.i ], [ %82, %.critedge.i.i ]
-  %.0.lcssa.i6.i36 = phi i64 [ %.0.lcssa.i6.i37, %._crit_edge26.i ], [ %.014.i.i, %.critedge.i.i ]
-  %.sroa.33.3 = phi i64 [ %130, %._crit_edge26.i ], [ %.sroa.33.2, %.critedge.i.i ]
-  %132 = getelementptr i8, ptr %.01216.i.i, i64 %.0.lcssa.i6.i36
-  %.not.i7.i = icmp eq i8 %131, 0
-  br i1 %.not.i7.i, label %fasthash_accum_cstring.exit, label %.preheader.i.i, !llvm.loop !24
+fasthash_accum.exit.i.i:                          ; preds = %._crit_edge26.i.i.i, %.critedge.i.i
+  %.sroa.32.3 = phi i64 [ %132, %._crit_edge26.i.i.i ], [ %.sroa.32.2, %.critedge.i.i ]
+  %133 = phi i8 [ %.pre.i, %._crit_edge26.i.i.i ], [ %83, %.critedge.i.i ]
+  %.0.lcssa19.i.i = phi i64 [ %.0.lcssa20.i.i, %._crit_edge26.i.i.i ], [ %.014.i.i, %.critedge.i.i ]
+  %134 = getelementptr i8, ptr %.01216.i.i, i64 %.0.lcssa19.i.i
+  %.not.i6.i = icmp eq i8 %133, 0
+  br i1 %.not.i6.i, label %fasthash_accum_cstring.exit, label %.preheader.i.i, !llvm.loop !24
 
-fasthash_accum_cstring.exit:                      ; preds = %fasthash_accum.exit, %fasthash_accum.exit14, %80
-  %.sroa.33.4 = phi i64 [ %.sroa.33.1, %fasthash_accum.exit14 ], [ %10, %80 ], [ %.sroa.33.3, %fasthash_accum.exit ]
-  %.pn.in.i = phi ptr [ %79, %fasthash_accum.exit14 ], [ %0, %80 ], [ %132, %fasthash_accum.exit ]
+fasthash_accum_cstring.exit:                      ; preds = %fasthash_accum.exit.i.i, %fasthash_accum_cstring_aligned.exit.i, %81
+  %.sroa.32.4 = phi i64 [ %.sroa.32.1, %fasthash_accum_cstring_aligned.exit.i ], [ %10, %81 ], [ %.sroa.32.3, %fasthash_accum.exit.i.i ]
+  %.pn.in.i = phi ptr [ %80, %fasthash_accum_cstring_aligned.exit.i ], [ %0, %81 ], [ %134, %fasthash_accum.exit.i.i ]
   %.pn.i = ptrtoint ptr %.pn.in.i to i64
   %.0.i = sub i64 %.pn.i, %11
   %sext = shl i64 %.0.i, 32
-  %133 = ashr exact i64 %sext, 32
-  %134 = lshr i64 %.sroa.33.4, 23
-  %135 = add nsw i64 %133, %134
-  %136 = xor i64 %135, %.sroa.33.4
-  %137 = mul i64 %136, 2388976653695081527
-  %138 = lshr i64 %137, 47
-  %139 = xor i64 %138, %137
-  %140 = lshr i64 %137, 32
-  %141 = sub i64 %139, %140
-  %142 = trunc i64 %141 to i32
-  ret i32 %142
+  %135 = ashr exact i64 %sext, 32
+  %136 = lshr i64 %.sroa.32.4, 23
+  %137 = add nsw i64 %135, %136
+  %138 = xor i64 %137, %.sroa.32.4
+  %139 = mul i64 %138, 2388976653695081527
+  %140 = lshr i64 %139, 47
+  %141 = xor i64 %140, %139
+  %142 = lshr i64 %139, 32
+  %143 = sub i64 %141, %142
+  %144 = trunc i64 %143 to i32
+  ret i32 %144
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

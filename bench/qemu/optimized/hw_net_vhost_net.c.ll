@@ -66,12 +66,12 @@ sw.bb2.i:                                         ; preds = %entry
   br label %vhost_net_get_feature_bits.exit
 
 sw.default.i:                                     ; preds = %entry
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.13, i32 noundef %net.val.val.val) #10
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.13, i32 noundef %net.val.val.val) #11
   br label %vhost_net_get_feature_bits.exit
 
 vhost_net_get_feature_bits.exit:                  ; preds = %entry, %sw.bb1.i, %sw.bb2.i, %sw.default.i
   %feature_bits.0.i = phi ptr [ null, %sw.default.i ], [ @vdpa_feature_bits, %sw.bb2.i ], [ @user_feature_bits, %sw.bb1.i ], [ @kernel_feature_bits, %entry ]
-  %call1 = tail call i64 @vhost_get_features(ptr noundef nonnull %net, ptr noundef %feature_bits.0.i, i64 noundef %features) #10
+  %call1 = tail call i64 @vhost_get_features(ptr noundef nonnull %net, ptr noundef %feature_bits.0.i, i64 noundef %features) #11
   ret i64 %call1
 }
 
@@ -80,7 +80,7 @@ declare i64 @vhost_get_features(ptr noundef, ptr noundef, i64 noundef) local_unn
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @vhost_net_get_config(ptr noundef %net, ptr noundef %config, i32 noundef %config_len) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @vhost_dev_get_config(ptr noundef %net, ptr noundef %config, i32 noundef %config_len, ptr noundef null) #10
+  %call = tail call i32 @vhost_dev_get_config(ptr noundef %net, ptr noundef %config, i32 noundef %config_len, ptr noundef null) #11
   ret i32 %call
 }
 
@@ -89,7 +89,7 @@ declare i32 @vhost_dev_get_config(ptr noundef, ptr noundef, i32 noundef, ptr nou
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @vhost_net_set_config(ptr noundef %net, ptr noundef %data, i32 noundef %offset, i32 noundef %size, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @vhost_dev_set_config(ptr noundef %net, ptr noundef %data, i32 noundef %offset, i32 noundef %size, i32 noundef %flags) #10
+  %call = tail call i32 @vhost_dev_set_config(ptr noundef %net, ptr noundef %data, i32 noundef %offset, i32 noundef %size, i32 noundef %flags) #11
   ret i32 %call
 }
 
@@ -119,12 +119,12 @@ sw.bb2.i:                                         ; preds = %entry
   br label %vhost_net_get_feature_bits.exit
 
 sw.default.i:                                     ; preds = %entry
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.13, i32 noundef %net.val.val.val) #10
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.13, i32 noundef %net.val.val.val) #11
   br label %vhost_net_get_feature_bits.exit
 
 vhost_net_get_feature_bits.exit:                  ; preds = %entry, %sw.bb1.i, %sw.bb2.i, %sw.default.i
   %feature_bits.0.i = phi ptr [ null, %sw.default.i ], [ @vdpa_feature_bits, %sw.bb2.i ], [ @user_feature_bits, %sw.bb1.i ], [ @kernel_feature_bits, %entry ]
-  tail call void @vhost_ack_features(ptr noundef nonnull %net, ptr noundef %feature_bits.0.i, i64 noundef %features) #10
+  tail call void @vhost_ack_features(ptr noundef nonnull %net, ptr noundef %feature_bits.0.i, i64 noundef %features) #11
   ret void
 }
 
@@ -155,7 +155,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @vhost_user_save_acked_features(ptr noundef nonnull %nc) #10
+  tail call void @vhost_user_save_acked_features(ptr noundef nonnull %nc) #11
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -170,7 +170,7 @@ entry:
   %local_err = alloca ptr, align 8
   %0 = load i32, ptr %options, align 8
   %cmp = icmp eq i32 %0, 1
-  %call = tail call noalias dereferenceable_or_null(912) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 912) #11
+  %call = tail call noalias dereferenceable_or_null(912) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 912) #12
   store ptr null, ptr %local_err, align 8
   %net_backend = getelementptr inbounds i8, ptr %options, i64 8
   %1 = load ptr, ptr %net_backend, align 8
@@ -179,7 +179,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr @stderr, align 8
-  %3 = tail call i64 @fwrite(ptr nonnull @.str, i64 43, i64 1, ptr %2) #12
+  %3 = tail call i64 @fwrite(ptr nonnull @.str, i64 43, i64 1, ptr %2) #13
   br label %fail
 
 if.end:                                           ; preds = %entry
@@ -204,17 +204,17 @@ if.then8:                                         ; preds = %if.end
 
 vhost_net_get_fd.exit.thread:                     ; preds = %if.then8
   %7 = load ptr, ptr @stderr, align 8
-  %8 = tail call i64 @fwrite(ptr nonnull @.str.14, i64 31, i64 1, ptr %7) #12
+  %8 = tail call i64 @fwrite(ptr nonnull @.str.14, i64 31, i64 1, ptr %7) #13
   br label %fail
 
 vhost_net_get_fd.exit:                            ; preds = %if.then8
-  %call.i = tail call i32 @tap_get_fd(ptr noundef nonnull %1) #10
+  %call.i = tail call i32 @tap_get_fd(ptr noundef nonnull %1) #11
   %cmp11 = icmp slt i32 %call.i, 0
   br i1 %cmp11, label %fail, label %if.end13
 
 if.end13:                                         ; preds = %vhost_net_get_fd.exit
   %9 = load ptr, ptr %net_backend, align 8
-  %call15 = tail call zeroext i1 @qemu_has_vnet_hdr(ptr noundef %9) #10
+  %call15 = tail call zeroext i1 @qemu_has_vnet_hdr(ptr noundef %9) #11
   %cond = select i1 %call15, i64 0, i64 134217728
   %backend_features = getelementptr inbounds i8, ptr %call, i64 472
   store i64 %cond, ptr %backend_features, align 8
@@ -242,13 +242,13 @@ if.end27:                                         ; preds = %if.else, %if.end13
   %12 = load i32, ptr %options, align 8
   %busyloop_timeout = getelementptr inbounds i8, ptr %options, i64 16
   %13 = load i32, ptr %busyloop_timeout, align 8
-  %call30 = call i32 @vhost_dev_init(ptr noundef nonnull %call, ptr noundef %11, i32 noundef %12, i32 noundef %13, ptr noundef nonnull %local_err) #10
+  %call30 = call i32 @vhost_dev_init(ptr noundef nonnull %call, ptr noundef %11, i32 noundef %12, i32 noundef %13, ptr noundef nonnull %local_err) #11
   %cmp31 = icmp slt i32 %call30, 0
   br i1 %cmp31, label %if.then32, label %if.end33
 
 if.then32:                                        ; preds = %if.end27
   %14 = load ptr, ptr %local_err, align 8
-  call void @error_report_err(ptr noundef %14) #10
+  call void @error_report_err(ptr noundef %14) #11
   br label %fail
 
 if.end33:                                         ; preds = %if.end27
@@ -256,7 +256,7 @@ if.end33:                                         ; preds = %if.end27
 
 if.then35:                                        ; preds = %if.end33
   %15 = load ptr, ptr %net_backend, align 8
-  %call37 = call zeroext i1 @qemu_has_vnet_hdr_len(ptr noundef %15, i32 noundef 12) #10
+  %call37 = call zeroext i1 @qemu_has_vnet_hdr_len(ptr noundef %15, i32 noundef 12) #11
   %features43.phi.trans.insert = getelementptr inbounds i8, ptr %call, i64 456
   %.pre = load i64, ptr %features43.phi.trans.insert, align 8
   br i1 %call37, label %if.end41, label %if.then38
@@ -277,7 +277,7 @@ if.end41:                                         ; preds = %if.then35, %if.then
 
 if.then48:                                        ; preds = %if.end41
   %18 = load ptr, ptr @stderr, align 8
-  %call55 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.1, i64 noundef %and46) #12
+  %call55 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.1, i64 noundef %and46) #13
   br label %fail
 
 if.end57:                                         ; preds = %if.end41, %if.end33
@@ -288,7 +288,7 @@ if.end57:                                         ; preds = %if.end41, %if.end33
   br i1 %cmp59, label %if.then60, label %if.end75
 
 if.then60:                                        ; preds = %if.end57
-  %call62 = call i64 @vhost_user_get_acked_features(ptr noundef nonnull %19) #10
+  %call62 = call i64 @vhost_user_get_acked_features(ptr noundef nonnull %19) #11
   %features64 = getelementptr inbounds i8, ptr %call, i64 456
   %22 = load i64, ptr %features64, align 8
   %not65 = xor i64 %22, -1
@@ -302,7 +302,7 @@ if.then60.if.end75_crit_edge:                     ; preds = %if.then60
 
 if.then68:                                        ; preds = %if.then60
   %23 = load ptr, ptr @stderr, align 8
-  %call73 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.1, i64 noundef %and66) #12
+  %call73 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.1, i64 noundef %and66) #13
   br label %fail
 
 if.end75:                                         ; preds = %if.then60.if.end75_crit_edge, %if.end57
@@ -327,17 +327,17 @@ sw.bb2.i.i:                                       ; preds = %if.end75
   br label %vhost_net_ack_features.exit
 
 sw.default.i.i:                                   ; preds = %if.end75
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.13, i32 noundef %net.val.val.val.i) #10
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.13, i32 noundef %net.val.val.val.i) #11
   br label %vhost_net_ack_features.exit
 
 vhost_net_ack_features.exit:                      ; preds = %if.end75, %sw.bb1.i.i, %sw.bb2.i.i, %sw.default.i.i
   %feature_bits.0.i.i = phi ptr [ null, %sw.default.i.i ], [ @vdpa_feature_bits, %sw.bb2.i.i ], [ @user_feature_bits, %sw.bb1.i.i ], [ @kernel_feature_bits, %if.end75 ]
-  call void @vhost_ack_features(ptr noundef nonnull %call, ptr noundef %feature_bits.0.i.i, i64 noundef %features.0) #10
+  call void @vhost_ack_features(ptr noundef nonnull %call, ptr noundef %feature_bits.0.i.i, i64 noundef %features.0) #11
   br label %return
 
 fail:                                             ; preds = %vhost_net_get_fd.exit.thread, %vhost_net_get_fd.exit, %if.then68, %if.then48, %if.then32, %if.then
-  call void @vhost_dev_cleanup(ptr noundef %call) #10
-  call void @g_free(ptr noundef %call) #10
+  call void @vhost_dev_cleanup(ptr noundef %call) #11
+  call void @g_free(ptr noundef %call) #11
   br label %return
 
 return:                                           ; preds = %fail, %vhost_net_ack_features.exit
@@ -369,15 +369,15 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 define dso_local range(i32 -2147483648, 1) i32 @vhost_net_start(ptr noundef %dev, ptr noundef %ncs, i32 noundef %data_queue_pairs, i32 noundef %cvq) local_unnamed_addr #0 {
 entry:
   %file.i = alloca %struct.vhost_vring_file, align 8
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.16, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #10
-  %call1 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i) #10
-  %call.i47 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #10
-  %call.i48 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i47, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS) #10
-  %call.i49 = tail call ptr @object_get_class(ptr noundef %call.i48) #10
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i49, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #10
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.16, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #11
+  %call1 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i) #11
+  %call.i47 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #11
+  %call.i48 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i47, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS) #11
+  %call.i49 = tail call ptr @object_get_class(ptr noundef %call.i48) #11
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i49, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #11
   %mul = shl i32 %data_queue_pairs, 1
   %add = add i32 %mul, %cvq
-  %call.i50 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, i32 noundef 27, ptr noundef nonnull @__func__.VIRTIO_NET) #10
+  %call.i50 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, i32 noundef 27, ptr noundef nonnull @__func__.VIRTIO_NET) #11
   %add6 = add i32 %cvq, %data_queue_pairs
   %tobool.not = icmp ne i32 %cvq, 0
   %add8 = zext i1 %tobool.not to i32
@@ -388,8 +388,8 @@ entry:
   br i1 %tobool9.not, label %if.then10, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %cmp75 = icmp sgt i32 %add6, 0
-  br i1 %cmp75, label %for.body.lr.ph, label %for.end.thread
+  %cmp103 = icmp sgt i32 %add6, 0
+  br i1 %cmp103, label %for.body.lr.ph, label %for.end.thread
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %max_queue_pairs = getelementptr inbounds i8, ptr %call.i50, i64 8948
@@ -397,12 +397,12 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   br label %for.body
 
 if.then10:                                        ; preds = %entry
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.2) #10
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.2) #11
   br label %return
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %i.076 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %cmp12 = icmp slt i32 %i.076, %data_queue_pairs
+  %i.0104 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %cmp12 = icmp slt i32 %i.0104, %data_queue_pairs
   br i1 %cmp12, label %if.end16, label %if.else
 
 if.else:                                          ; preds = %for.body
@@ -411,47 +411,83 @@ if.else:                                          ; preds = %for.body
   br label %if.end16
 
 if.end16:                                         ; preds = %for.body, %if.else
-  %conv.sink = phi i32 [ %conv, %if.else ], [ %i.076, %for.body ]
-  %call15 = tail call ptr @qemu_get_peer(ptr noundef %ncs, i32 noundef %conv.sink) #10
-  %call17 = tail call ptr @get_vhost_net(ptr noundef %call15)
-  %mul18 = shl nuw i32 %i.076, 1
-  %vq_index1.i = getelementptr inbounds i8, ptr %call17, i64 444
+  %conv.sink = phi i32 [ %conv, %if.else ], [ %i.0104, %for.body ]
+  %call15 = tail call ptr @qemu_get_peer(ptr noundef %ncs, i32 noundef %conv.sink) #11
+  %tobool.not.i = icmp ne ptr %call15, null
+  tail call void @llvm.assume(i1 %tobool.not.i)
+  %2 = load ptr, ptr %call15, align 8
+  %3 = load i32, ptr %2, align 8
+  switch i32 %3, label %unreachable [
+    i32 3, label %sw.bb.i
+    i32 12, label %sw.bb1.i
+    i32 13, label %sw.bb6.i
+  ]
+
+sw.bb.i:                                          ; preds = %if.end16
+  %call.i51 = tail call ptr @tap_get_vhost_net(ptr noundef nonnull %call15) #11
+  br label %get_vhost_net.exit
+
+sw.bb1.i:                                         ; preds = %if.end16
+  %call2.i = tail call ptr @vhost_user_get_vhost_net(ptr noundef nonnull %call15) #11
+  %tobool3.not.i = icmp eq ptr %call2.i, null
+  br i1 %tobool3.not.i, label %if.else.i, label %get_vhost_net.exit
+
+if.else.i:                                        ; preds = %sw.bb1.i
+  tail call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.6, i32 noundef 523, ptr noundef nonnull @__PRETTY_FUNCTION__.get_vhost_net) #14
+  unreachable
+
+sw.bb6.i:                                         ; preds = %if.end16
+  %call7.i = tail call ptr @vhost_vdpa_get_vhost_net(ptr noundef nonnull %call15) #11
+  %tobool8.not.i = icmp eq ptr %call7.i, null
+  br i1 %tobool8.not.i, label %if.else10.i, label %get_vhost_net.exit
+
+if.else10.i:                                      ; preds = %sw.bb6.i
+  tail call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.6, i32 noundef 529, ptr noundef nonnull @__PRETTY_FUNCTION__.get_vhost_net) #14
+  unreachable
+
+unreachable:                                      ; preds = %if.end16
+  unreachable
+
+get_vhost_net.exit:                               ; preds = %sw.bb.i, %sw.bb1.i, %sw.bb6.i
+  %retval.0.i = phi ptr [ %call7.i, %sw.bb6.i ], [ %call2.i, %sw.bb1.i ], [ %call.i51, %sw.bb.i ]
+  %mul18 = shl nuw i32 %i.0104, 1
+  %vq_index1.i = getelementptr inbounds i8, ptr %retval.0.i, i64 444
   store i32 %mul18, ptr %vq_index1.i, align 4
-  %vq_index_end3.i = getelementptr inbounds i8, ptr %call17, i64 448
+  %vq_index_end3.i = getelementptr inbounds i8, ptr %retval.0.i, i64 448
   store i32 %spec.select, ptr %vq_index_end3.i, align 8
-  %nc = getelementptr inbounds i8, ptr %call17, i64 904
-  %2 = load ptr, ptr %nc, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = load i32, ptr %3, align 8
-  %cmp19 = icmp eq i32 %4, 12
+  %nc = getelementptr inbounds i8, ptr %retval.0.i, i64 904
+  %4 = load ptr, ptr %nc, align 8
+  %5 = load ptr, ptr %4, align 8
+  %6 = load i32, ptr %5, align 8
+  %cmp19 = icmp eq i32 %6, 12
   br i1 %cmp19, label %if.then21, label %for.inc
 
-if.then21:                                        ; preds = %if.end16
+if.then21:                                        ; preds = %get_vhost_net.exit
   store i8 0, ptr %use_guest_notifier_mask, align 1
   br label %for.inc
 
-for.inc:                                          ; preds = %if.end16, %if.then21
-  %inc = add nuw nsw i32 %i.076, 1
+for.inc:                                          ; preds = %get_vhost_net.exit, %if.then21
+  %inc = add nuw nsw i32 %i.0104, 1
   %exitcond.not = icmp eq i32 %inc, %add6
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %for.inc
   %.pre = load ptr, ptr %set_guest_notifiers, align 8
   %parent = getelementptr inbounds i8, ptr %call.i47, i64 40
-  %5 = load ptr, ptr %parent, align 8
-  %call24 = tail call i32 %.pre(ptr noundef %5, i32 noundef %add, i1 noundef zeroext true) #10
+  %7 = load ptr, ptr %parent, align 8
+  %call24 = tail call i32 %.pre(ptr noundef %7, i32 noundef %add, i1 noundef zeroext true) #11
   %cmp25 = icmp slt i32 %call24, 0
   br i1 %cmp25, label %if.then27, label %for.cond29.preheader
 
 for.end.thread:                                   ; preds = %for.cond.preheader
-  %parent94 = getelementptr inbounds i8, ptr %call.i47, i64 40
-  %6 = load ptr, ptr %parent94, align 8
-  %call2495 = tail call i32 %0(ptr noundef %6, i32 noundef %add, i1 noundef zeroext true) #10
-  %cmp2596 = icmp slt i32 %call2495, 0
-  br i1 %cmp2596, label %if.then27, label %return
+  %parent124 = getelementptr inbounds i8, ptr %call.i47, i64 40
+  %8 = load ptr, ptr %parent124, align 8
+  %call24125 = tail call i32 %0(ptr noundef %8, i32 noundef %add, i1 noundef zeroext true) #11
+  %cmp25126 = icmp slt i32 %call24125, 0
+  br i1 %cmp25126, label %if.then27, label %return
 
 for.cond29.preheader:                             ; preds = %for.end
-  br i1 %cmp75, label %for.body32.lr.ph, label %return
+  br i1 %cmp103, label %for.body32.lr.ph, label %return
 
 for.body32.lr.ph:                                 ; preds = %for.cond29.preheader
   %max_queue_pairs38 = getelementptr inbounds i8, ptr %call.i50, i64 8948
@@ -459,195 +495,212 @@ for.body32.lr.ph:                                 ; preds = %for.cond29.preheade
   br label %for.body32
 
 if.then27:                                        ; preds = %for.end.thread, %for.end
-  %call2498 = phi i32 [ %call2495, %for.end.thread ], [ %call24, %for.end ]
-  %sub = sub i32 0, %call2498
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.3, i32 noundef %sub) #10
+  %call24128 = phi i32 [ %call24125, %for.end.thread ], [ %call24, %for.end ]
+  %sub = sub i32 0, %call24128
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.3, i32 noundef %sub) #11
   br label %return
 
 for.body32:                                       ; preds = %for.body32.lr.ph, %for.inc57
-  %i.178 = phi i32 [ 0, %for.body32.lr.ph ], [ %inc58, %for.inc57 ]
-  %cmp33 = icmp slt i32 %i.178, %data_queue_pairs
+  %i.1106 = phi i32 [ 0, %for.body32.lr.ph ], [ %inc58, %for.inc57 ]
+  %cmp33 = icmp slt i32 %i.1106, %data_queue_pairs
   br i1 %cmp33, label %if.end41, label %if.else37
 
 if.else37:                                        ; preds = %for.body32
-  %7 = load i16, ptr %max_queue_pairs38, align 4
-  %conv39 = zext i16 %7 to i32
+  %9 = load i16, ptr %max_queue_pairs38, align 4
+  %conv39 = zext i16 %9 to i32
   br label %if.end41
 
 if.end41:                                         ; preds = %for.body32, %if.else37
-  %conv39.sink = phi i32 [ %conv39, %if.else37 ], [ %i.178, %for.body32 ]
-  %call40 = call ptr @qemu_get_peer(ptr noundef %ncs, i32 noundef %conv39.sink) #10
+  %conv39.sink = phi i32 [ %conv39, %if.else37 ], [ %i.1106, %for.body32 ]
+  %call40 = call ptr @qemu_get_peer(ptr noundef %ncs, i32 noundef %conv39.sink) #11
   %vring_enable = getelementptr inbounds i8, ptr %call40, i64 344
-  %8 = load i32, ptr %vring_enable, align 8
-  %tobool42.not = icmp eq i32 %8, 0
-  br i1 %tobool42.not, label %if.end50, label %if.then43
+  %10 = load i32, ptr %vring_enable, align 8
+  %tobool42.not = icmp eq i32 %10, 0
+  br i1 %tobool42.not, label %if.end.i53, label %if.then43
 
 if.then43:                                        ; preds = %if.end41
-  %call.i51 = call ptr @get_vhost_net(ptr noundef nonnull %call40)
-  %vhost_ops1.i = getelementptr inbounds i8, ptr %call.i51, i64 528
-  %9 = load ptr, ptr %vhost_ops1.i, align 8
-  store i32 %8, ptr %vring_enable, align 8
-  %tobool.not.i = icmp eq ptr %9, null
-  br i1 %tobool.not.i, label %if.end50, label %land.lhs.true.i
+  %call45 = call i32 @vhost_set_vring_enable(ptr noundef nonnull %call40, i32 noundef %10)
+  %cmp46 = icmp slt i32 %call45, 0
+  br i1 %cmp46, label %err_start, label %if.end.i53
 
-land.lhs.true.i:                                  ; preds = %if.then43
-  %vhost_set_vring_enable.i = getelementptr inbounds i8, ptr %9, i64 216
-  %10 = load ptr, ptr %vhost_set_vring_enable.i, align 8
-  %tobool2.not.i = icmp eq ptr %10, null
-  br i1 %tobool2.not.i, label %if.end50, label %vhost_set_vring_enable.exit
+if.end.i53:                                       ; preds = %if.end41, %if.then43
+  %11 = load ptr, ptr %call40, align 8
+  %12 = load i32, ptr %11, align 8
+  switch i32 %12, label %get_vhost_net.exit65 [
+    i32 3, label %sw.bb.i63
+    i32 12, label %sw.bb1.i59
+    i32 13, label %sw.bb6.i54
+  ]
 
-vhost_set_vring_enable.exit:                      ; preds = %land.lhs.true.i
-  %call5.i = call i32 %10(ptr noundef nonnull %call.i51, i32 noundef %8) #10
-  %cmp46 = icmp slt i32 %call5.i, 0
-  br i1 %cmp46, label %err_start, label %if.end50
+sw.bb.i63:                                        ; preds = %if.end.i53
+  %call.i64 = call ptr @tap_get_vhost_net(ptr noundef nonnull %call40) #11
+  br label %get_vhost_net.exit65
 
-if.end50:                                         ; preds = %if.then43, %land.lhs.true.i, %vhost_set_vring_enable.exit, %if.end41
-  %call51 = call ptr @get_vhost_net(ptr noundef nonnull %call40)
+sw.bb1.i59:                                       ; preds = %if.end.i53
+  %call2.i60 = call ptr @vhost_user_get_vhost_net(ptr noundef nonnull %call40) #11
+  %tobool3.not.i61 = icmp eq ptr %call2.i60, null
+  br i1 %tobool3.not.i61, label %if.else.i62, label %get_vhost_net.exit65
+
+if.else.i62:                                      ; preds = %sw.bb1.i59
+  call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.6, i32 noundef 523, ptr noundef nonnull @__PRETTY_FUNCTION__.get_vhost_net) #14
+  unreachable
+
+sw.bb6.i54:                                       ; preds = %if.end.i53
+  %call7.i55 = call ptr @vhost_vdpa_get_vhost_net(ptr noundef nonnull %call40) #11
+  %tobool8.not.i56 = icmp eq ptr %call7.i55, null
+  br i1 %tobool8.not.i56, label %if.else10.i58, label %get_vhost_net.exit65
+
+if.else10.i58:                                    ; preds = %sw.bb6.i54
+  call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.6, i32 noundef 529, ptr noundef nonnull @__PRETTY_FUNCTION__.get_vhost_net) #14
+  unreachable
+
+get_vhost_net.exit65:                             ; preds = %if.end.i53, %sw.bb.i63, %sw.bb1.i59, %sw.bb6.i54
+  %retval.0.i57 = phi ptr [ null, %if.end.i53 ], [ %call7.i55, %sw.bb6.i54 ], [ %call2.i60, %sw.bb1.i59 ], [ %call.i64, %sw.bb.i63 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %file.i)
   store i64 0, ptr %file.i, align 8
-  %nc.i = getelementptr inbounds i8, ptr %call51, i64 904
-  %11 = load ptr, ptr %nc.i, align 8
-  %12 = load ptr, ptr %11, align 8
-  %start.i = getelementptr inbounds i8, ptr %12, i64 48
-  %13 = load ptr, ptr %start.i, align 8
-  %tobool.not.i52 = icmp eq ptr %13, null
-  br i1 %tobool.not.i52, label %if.end6.i, label %if.then.i53
+  %nc.i = getelementptr inbounds i8, ptr %retval.0.i57, i64 904
+  %13 = load ptr, ptr %nc.i, align 8
+  %14 = load ptr, ptr %13, align 8
+  %start.i = getelementptr inbounds i8, ptr %14, i64 48
+  %15 = load ptr, ptr %start.i, align 8
+  %tobool.not.i66 = icmp eq ptr %15, null
+  br i1 %tobool.not.i66, label %if.end6.i, label %if.then.i
 
-if.then.i53:                                      ; preds = %if.end50
-  %call.i54 = call i32 %13(ptr noundef nonnull %11) #10
-  %cmp.i = icmp slt i32 %call.i54, 0
+if.then.i:                                        ; preds = %get_vhost_net.exit65
+  %call.i67 = call i32 %15(ptr noundef nonnull %13) #11
+  %cmp.i = icmp slt i32 %call.i67, 0
   br i1 %cmp.i, label %vhost_net_start_one.exit.thread, label %if.end6.i
 
-if.end6.i:                                        ; preds = %if.then.i53, %if.end50
-  %call8.i = call i32 @vhost_dev_enable_notifiers(ptr noundef nonnull %call51, ptr noundef %dev) #10
+if.end6.i:                                        ; preds = %if.then.i, %get_vhost_net.exit65
+  %call8.i = call i32 @vhost_dev_enable_notifiers(ptr noundef nonnull %retval.0.i57, ptr noundef %dev) #11
   %cmp9.i = icmp slt i32 %call8.i, 0
   br i1 %cmp9.i, label %vhost_net_start_one.exit.thread, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end6.i
-  %call13.i = call i32 @vhost_dev_start(ptr noundef nonnull %call51, ptr noundef %dev, i1 noundef zeroext false) #10
+  %call13.i = call i32 @vhost_dev_start(ptr noundef nonnull %retval.0.i57, ptr noundef %dev, i1 noundef zeroext false) #11
   %cmp14.i = icmp slt i32 %call13.i, 0
-  br i1 %cmp14.i, label %vhost_net_start_one.exit.thread64, label %if.end16.i
+  br i1 %cmp14.i, label %vhost_net_start_one.exit.thread90, label %if.end16.i
 
-vhost_net_start_one.exit.thread64:                ; preds = %if.end11.i
-  call void @vhost_dev_disable_notifiers(ptr noundef nonnull %call51, ptr noundef %dev) #10
+vhost_net_start_one.exit.thread90:                ; preds = %if.end11.i
+  call void @vhost_dev_disable_notifiers(ptr noundef nonnull %retval.0.i57, ptr noundef %dev) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %file.i)
   br label %err_start
 
 if.end16.i:                                       ; preds = %if.end11.i
-  %14 = load ptr, ptr %nc.i, align 8
-  %15 = load ptr, ptr %14, align 8
-  %poll.i = getelementptr inbounds i8, ptr %15, i64 96
-  %16 = load ptr, ptr %poll.i, align 8
-  %tobool19.not.i = icmp eq ptr %16, null
+  %16 = load ptr, ptr %nc.i, align 8
+  %17 = load ptr, ptr %16, align 8
+  %poll.i = getelementptr inbounds i8, ptr %17, i64 96
+  %18 = load ptr, ptr %poll.i, align 8
+  %tobool19.not.i = icmp eq ptr %18, null
   br i1 %tobool19.not.i, label %if.end25.i, label %if.then20.i
 
 if.then20.i:                                      ; preds = %if.end16.i
-  call void %16(ptr noundef nonnull %14, i1 noundef zeroext false) #10
+  call void %18(ptr noundef nonnull %16, i1 noundef zeroext false) #11
   %.pre.i = load ptr, ptr %nc.i, align 8
   %.pre45.i = load ptr, ptr %.pre.i, align 8
   br label %if.end25.i
 
 if.end25.i:                                       ; preds = %if.then20.i, %if.end16.i
-  %17 = phi ptr [ %.pre45.i, %if.then20.i ], [ %15, %if.end16.i ]
-  %18 = load i32, ptr %17, align 8
-  %cmp28.i = icmp eq i32 %18, 3
+  %19 = phi ptr [ %.pre45.i, %if.then20.i ], [ %17, %if.end16.i ]
+  %20 = load i32, ptr %19, align 8
+  %cmp28.i = icmp eq i32 %20, 3
   br i1 %cmp28.i, label %if.then29.i, label %if.end46.i
 
 if.then29.i:                                      ; preds = %if.end25.i
-  %backend.i = getelementptr inbounds i8, ptr %call51, i64 896
-  %19 = load i32, ptr %backend.i, align 8
-  call void @qemu_set_fd_handler(i32 noundef %19, ptr noundef null, ptr noundef null, ptr noundef null) #10
-  %20 = load i32, ptr %backend.i, align 8
-  store i32 %20, ptr %fd.i, align 4
-  %nvqs.i = getelementptr inbounds i8, ptr %call51, i64 440
+  %backend.i = getelementptr inbounds i8, ptr %retval.0.i57, i64 896
+  %21 = load i32, ptr %backend.i, align 8
+  call void @qemu_set_fd_handler(i32 noundef %21, ptr noundef null, ptr noundef null, ptr noundef null) #11
+  %22 = load i32, ptr %backend.i, align 8
+  store i32 %22, ptr %fd.i, align 4
+  %nvqs.i = getelementptr inbounds i8, ptr %retval.0.i57, i64 440
   store i32 0, ptr %file.i, align 8
-  %21 = load i32, ptr %nvqs.i, align 8
-  %cmp3340.not.i = icmp eq i32 %21, 0
+  %23 = load i32, ptr %nvqs.i, align 8
+  %cmp3340.not.i = icmp eq i32 %23, 0
   br i1 %cmp3340.not.i, label %if.end46.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then29.i
-  %vq_index.i = getelementptr inbounds i8, ptr %call51, i64 444
+  %vq_index.i = getelementptr inbounds i8, ptr %retval.0.i57, i64 444
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %storemerge41.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.inc.i ]
-  %22 = load i32, ptr %vq_index.i, align 4
-  %add.i = add i32 %22, %storemerge41.i
-  %call36.i = call zeroext i1 @virtio_queue_enabled(ptr noundef %dev, i32 noundef %add.i) #10
+  %24 = load i32, ptr %vq_index.i, align 4
+  %add.i = add i32 %24, %storemerge41.i
+  %call36.i = call zeroext i1 @virtio_queue_enabled(ptr noundef %dev, i32 noundef %add.i) #11
   br i1 %call36.i, label %if.end38.i, label %for.inc.i
 
 if.end38.i:                                       ; preds = %for.body.i
-  %call40.i = call i32 @vhost_net_set_backend(ptr noundef nonnull %call51, ptr noundef nonnull %file.i) #10
+  %call40.i = call i32 @vhost_net_set_backend(ptr noundef nonnull %retval.0.i57, ptr noundef nonnull %file.i) #11
   %cmp41.i = icmp slt i32 %call40.i, 0
   br i1 %cmp41.i, label %if.then42.i, label %for.inc.i
 
 if.then42.i:                                      ; preds = %if.end38.i
-  %call43.i = tail call ptr @__errno_location() #13
-  %23 = load i32, ptr %call43.i, align 4
-  %sub.i = sub i32 0, %23
+  %call43.i = tail call ptr @__errno_location() #15
+  %25 = load i32, ptr %call43.i, align 4
+  %sub.i = sub i32 0, %25
   br label %fail.i
 
 for.inc.i:                                        ; preds = %if.end38.i, %for.body.i
-  %24 = load i32, ptr %file.i, align 8
-  %inc.i = add i32 %24, 1
+  %26 = load i32, ptr %file.i, align 8
+  %inc.i = add i32 %26, 1
   store i32 %inc.i, ptr %file.i, align 8
-  %25 = load i32, ptr %nvqs.i, align 8
-  %cmp33.i = icmp ult i32 %inc.i, %25
+  %27 = load i32, ptr %nvqs.i, align 8
+  %cmp33.i = icmp ult i32 %inc.i, %27
   br i1 %cmp33.i, label %for.body.i, label %if.end46.i, !llvm.loop !7
 
 if.end46.i:                                       ; preds = %for.inc.i, %if.then29.i, %if.end25.i
-  %26 = load ptr, ptr %nc.i, align 8
-  %27 = load ptr, ptr %26, align 8
-  %load.i = getelementptr inbounds i8, ptr %27, i64 56
-  %28 = load ptr, ptr %load.i, align 8
-  %tobool49.not.i = icmp eq ptr %28, null
-  br i1 %tobool49.not.i, label %vhost_net_start_one.exit.thread61, label %if.then50.i
+  %28 = load ptr, ptr %nc.i, align 8
+  %29 = load ptr, ptr %28, align 8
+  %load.i = getelementptr inbounds i8, ptr %29, i64 56
+  %30 = load ptr, ptr %load.i, align 8
+  %tobool49.not.i = icmp eq ptr %30, null
+  br i1 %tobool49.not.i, label %vhost_net_start_one.exit.thread87, label %if.then50.i
 
 if.then50.i:                                      ; preds = %if.end46.i
-  %call55.i = call i32 %28(ptr noundef nonnull %26) #10
+  %call55.i = call i32 %30(ptr noundef nonnull %28) #11
   %cmp56.i = icmp slt i32 %call55.i, 0
-  br i1 %cmp56.i, label %fail.i, label %vhost_net_start_one.exit.thread61
+  br i1 %cmp56.i, label %fail.i, label %vhost_net_start_one.exit.thread87
 
 fail.i:                                           ; preds = %if.then50.i, %if.then42.i
   %r.0.i = phi i32 [ %sub.i, %if.then42.i ], [ %call55.i, %if.then50.i ]
   store i32 -1, ptr %fd.i, align 4
-  %29 = load ptr, ptr %nc.i, align 8
-  %30 = load ptr, ptr %29, align 8
-  %31 = load i32, ptr %30, align 8
-  %cmp64.i = icmp eq i32 %31, 3
+  %31 = load ptr, ptr %nc.i, align 8
+  %32 = load ptr, ptr %31, align 8
+  %33 = load i32, ptr %32, align 8
+  %cmp64.i = icmp eq i32 %33, 3
   br i1 %cmp64.i, label %while.cond.preheader.i, label %if.end80.i
 
 while.cond.preheader.i:                           ; preds = %fail.i
-  %32 = load i32, ptr %file.i, align 8
-  %dec42.i = add i32 %32, -1
+  %34 = load i32, ptr %file.i, align 8
+  %dec42.i = add i32 %34, -1
   store i32 %dec42.i, ptr %file.i, align 8
-  %cmp67.not43.i = icmp eq i32 %32, 0
+  %cmp67.not43.i = icmp eq i32 %34, 0
   br i1 %cmp67.not43.i, label %if.end80.i, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %while.cond.preheader.i
-  %vq_index69.i = getelementptr inbounds i8, ptr %call51, i64 444
+  %vq_index69.i = getelementptr inbounds i8, ptr %retval.0.i57, i64 444
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.cond.backedge.i, %while.body.lr.ph.i
   %dec44.i = phi i32 [ %dec42.i, %while.body.lr.ph.i ], [ %dec.i, %while.cond.backedge.i ]
-  %33 = load i32, ptr %vq_index69.i, align 4
-  %add71.i = add i32 %33, %dec44.i
-  %call72.i = call zeroext i1 @virtio_queue_enabled(ptr noundef %dev, i32 noundef %add71.i) #10
+  %35 = load i32, ptr %vq_index69.i, align 4
+  %add71.i = add i32 %35, %dec44.i
+  %call72.i = call zeroext i1 @virtio_queue_enabled(ptr noundef %dev, i32 noundef %add71.i) #11
   br i1 %call72.i, label %if.end74.i, label %while.cond.backedge.i
 
 while.cond.backedge.i:                            ; preds = %if.end74.i, %while.body.i
-  %34 = load i32, ptr %file.i, align 8
-  %dec.i = add i32 %34, -1
+  %36 = load i32, ptr %file.i, align 8
+  %dec.i = add i32 %36, -1
   store i32 %dec.i, ptr %file.i, align 8
-  %cmp67.not.i = icmp eq i32 %34, 0
+  %cmp67.not.i = icmp eq i32 %36, 0
   br i1 %cmp67.not.i, label %if.end80.loopexit.i, label %while.body.i, !llvm.loop !8
 
 if.end74.i:                                       ; preds = %while.body.i
-  %call76.i = call i32 @vhost_net_set_backend(ptr noundef nonnull %call51, ptr noundef nonnull %file.i) #10
+  %call76.i = call i32 @vhost_net_set_backend(ptr noundef nonnull %retval.0.i57, ptr noundef nonnull %file.i) #11
   %cmp77.i = icmp sgt i32 %call76.i, -1
-  br i1 %cmp77.i, label %while.cond.backedge.i, label %if.else.i
+  br i1 %cmp77.i, label %while.cond.backedge.i, label %if.else.i69
 
-if.else.i:                                        ; preds = %if.end74.i
+if.else.i69:                                      ; preds = %if.end74.i
   call void @__assert_fail(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.6, i32 noundef 317, ptr noundef nonnull @__PRETTY_FUNCTION__.vhost_net_start_one) #14
   unreachable
 
@@ -656,78 +709,113 @@ if.end80.loopexit.i:                              ; preds = %while.cond.backedge
   br label %if.end80.i
 
 if.end80.i:                                       ; preds = %if.end80.loopexit.i, %while.cond.preheader.i, %fail.i
-  %35 = phi ptr [ %.pre46.i, %if.end80.loopexit.i ], [ %29, %while.cond.preheader.i ], [ %29, %fail.i ]
-  %36 = load ptr, ptr %35, align 8
-  %poll83.i = getelementptr inbounds i8, ptr %36, i64 96
-  %37 = load ptr, ptr %poll83.i, align 8
-  %tobool84.not.i = icmp eq ptr %37, null
+  %37 = phi ptr [ %.pre46.i, %if.end80.loopexit.i ], [ %31, %while.cond.preheader.i ], [ %31, %fail.i ]
+  %38 = load ptr, ptr %37, align 8
+  %poll83.i = getelementptr inbounds i8, ptr %38, i64 96
+  %39 = load ptr, ptr %poll83.i, align 8
+  %tobool84.not.i = icmp eq ptr %39, null
   br i1 %tobool84.not.i, label %vhost_net_start_one.exit, label %if.then85.i
 
 if.then85.i:                                      ; preds = %if.end80.i
-  call void %37(ptr noundef nonnull %35, i1 noundef zeroext true) #10
+  call void %39(ptr noundef nonnull %37, i1 noundef zeroext true) #11
   br label %vhost_net_start_one.exit
 
-vhost_net_start_one.exit.thread:                  ; preds = %if.then.i53, %if.end6.i
-  %retval.0.i55.ph = phi i32 [ %call8.i, %if.end6.i ], [ %call.i54, %if.then.i53 ]
+vhost_net_start_one.exit.thread:                  ; preds = %if.then.i, %if.end6.i
+  %retval.0.i68.ph = phi i32 [ %call8.i, %if.end6.i ], [ %call.i67, %if.then.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %file.i)
   br label %err_start
 
-vhost_net_start_one.exit.thread61:                ; preds = %if.then50.i, %if.end46.i
+vhost_net_start_one.exit.thread87:                ; preds = %if.then50.i, %if.end46.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %file.i)
   br label %for.inc57
 
 vhost_net_start_one.exit:                         ; preds = %if.end80.i, %if.then85.i
-  call void @vhost_dev_stop(ptr noundef nonnull %call51, ptr noundef %dev, i1 noundef zeroext false) #10
-  call void @vhost_dev_disable_notifiers(ptr noundef nonnull %call51, ptr noundef %dev) #10
+  call void @vhost_dev_stop(ptr noundef nonnull %retval.0.i57, ptr noundef %dev, i1 noundef zeroext false) #11
+  call void @vhost_dev_disable_notifiers(ptr noundef nonnull %retval.0.i57, ptr noundef %dev) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %file.i)
   %cmp53 = icmp slt i32 %r.0.i, 0
   br i1 %cmp53, label %err_start, label %for.inc57
 
-for.inc57:                                        ; preds = %vhost_net_start_one.exit.thread61, %vhost_net_start_one.exit
-  %inc58 = add nuw nsw i32 %i.178, 1
-  %exitcond93.not = icmp eq i32 %inc58, %add6
-  br i1 %exitcond93.not, label %return, label %for.body32, !llvm.loop !9
+for.inc57:                                        ; preds = %vhost_net_start_one.exit.thread87, %vhost_net_start_one.exit
+  %inc58 = add nuw nsw i32 %i.1106, 1
+  %exitcond123.not = icmp eq i32 %inc58, %add6
+  br i1 %exitcond123.not, label %return, label %for.body32, !llvm.loop !9
 
-err_start:                                        ; preds = %vhost_net_start_one.exit, %vhost_set_vring_enable.exit, %vhost_net_start_one.exit.thread64, %vhost_net_start_one.exit.thread
-  %r.0 = phi i32 [ %retval.0.i55.ph, %vhost_net_start_one.exit.thread ], [ %call13.i, %vhost_net_start_one.exit.thread64 ], [ %r.0.i, %vhost_net_start_one.exit ], [ %call5.i, %vhost_set_vring_enable.exit ]
-  %cmp6081.not = icmp eq i32 %i.178, 0
-  br i1 %cmp6081.not, label %while.end, label %while.body
+err_start:                                        ; preds = %vhost_net_start_one.exit, %if.then43, %vhost_net_start_one.exit.thread90, %vhost_net_start_one.exit.thread
+  %r.0 = phi i32 [ %retval.0.i68.ph, %vhost_net_start_one.exit.thread ], [ %call13.i, %vhost_net_start_one.exit.thread90 ], [ %r.0.i, %vhost_net_start_one.exit ], [ %call45, %if.then43 ]
+  %cmp60109.not = icmp eq i32 %i.1106, 0
+  br i1 %cmp60109.not, label %while.end, label %while.body
 
-while.body:                                       ; preds = %err_start, %cond.end
-  %dec82.in = phi i32 [ %dec82, %cond.end ], [ %i.178, %err_start ]
-  %dec82 = add nsw i32 %dec82.in, -1
-  %cmp62.not = icmp sgt i32 %dec82.in, %data_queue_pairs
+while.body:                                       ; preds = %err_start, %get_vhost_net.exit83
+  %dec110.in = phi i32 [ %dec110, %get_vhost_net.exit83 ], [ %i.1106, %err_start ]
+  %dec110 = add nsw i32 %dec110.in, -1
+  %cmp62.not = icmp sgt i32 %dec110.in, %data_queue_pairs
   br i1 %cmp62.not, label %cond.false, label %cond.end
 
 cond.false:                                       ; preds = %while.body
-  %38 = load i16, ptr %max_queue_pairs38, align 4
-  %conv65 = zext i16 %38 to i32
+  %40 = load i16, ptr %max_queue_pairs38, align 4
+  %conv65 = zext i16 %40 to i32
   br label %cond.end
 
 cond.end:                                         ; preds = %while.body, %cond.false
-  %cond = phi i32 [ %conv65, %cond.false ], [ %dec82, %while.body ]
-  %call66 = call ptr @qemu_get_peer(ptr noundef %ncs, i32 noundef %cond) #10
-  %call67 = call ptr @get_vhost_net(ptr noundef %call66)
-  call fastcc void @vhost_net_stop_one(ptr noundef %call67, ptr noundef %dev)
-  %cmp60 = icmp sgt i32 %dec82.in, 1
+  %cond = phi i32 [ %conv65, %cond.false ], [ %dec110, %while.body ]
+  %call66 = call ptr @qemu_get_peer(ptr noundef %ncs, i32 noundef %cond) #11
+  %tobool.not.i70 = icmp eq ptr %call66, null
+  br i1 %tobool.not.i70, label %get_vhost_net.exit83, label %if.end.i71
+
+if.end.i71:                                       ; preds = %cond.end
+  %41 = load ptr, ptr %call66, align 8
+  %42 = load i32, ptr %41, align 8
+  switch i32 %42, label %get_vhost_net.exit83 [
+    i32 3, label %sw.bb.i81
+    i32 12, label %sw.bb1.i77
+    i32 13, label %sw.bb6.i72
+  ]
+
+sw.bb.i81:                                        ; preds = %if.end.i71
+  %call.i82 = call ptr @tap_get_vhost_net(ptr noundef nonnull %call66) #11
+  br label %get_vhost_net.exit83
+
+sw.bb1.i77:                                       ; preds = %if.end.i71
+  %call2.i78 = call ptr @vhost_user_get_vhost_net(ptr noundef nonnull %call66) #11
+  %tobool3.not.i79 = icmp eq ptr %call2.i78, null
+  br i1 %tobool3.not.i79, label %if.else.i80, label %get_vhost_net.exit83
+
+if.else.i80:                                      ; preds = %sw.bb1.i77
+  call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.6, i32 noundef 523, ptr noundef nonnull @__PRETTY_FUNCTION__.get_vhost_net) #14
+  unreachable
+
+sw.bb6.i72:                                       ; preds = %if.end.i71
+  %call7.i73 = call ptr @vhost_vdpa_get_vhost_net(ptr noundef nonnull %call66) #11
+  %tobool8.not.i74 = icmp eq ptr %call7.i73, null
+  br i1 %tobool8.not.i74, label %if.else10.i76, label %get_vhost_net.exit83
+
+if.else10.i76:                                    ; preds = %sw.bb6.i72
+  call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.6, i32 noundef 529, ptr noundef nonnull @__PRETTY_FUNCTION__.get_vhost_net) #14
+  unreachable
+
+get_vhost_net.exit83:                             ; preds = %cond.end, %if.end.i71, %sw.bb.i81, %sw.bb1.i77, %sw.bb6.i72
+  %retval.0.i75 = phi ptr [ null, %cond.end ], [ null, %if.end.i71 ], [ %call7.i73, %sw.bb6.i72 ], [ %call2.i78, %sw.bb1.i77 ], [ %call.i82, %sw.bb.i81 ]
+  call fastcc void @vhost_net_stop_one(ptr noundef %retval.0.i75, ptr noundef %dev)
+  %cmp60 = icmp sgt i32 %dec110.in, 1
   br i1 %cmp60, label %while.body, label %while.end, !llvm.loop !10
 
-while.end:                                        ; preds = %cond.end, %err_start
-  %39 = load ptr, ptr %set_guest_notifiers, align 8
-  %40 = load ptr, ptr %parent, align 8
-  %call70 = call i32 %39(ptr noundef %40, i32 noundef %add, i1 noundef zeroext false) #10
+while.end:                                        ; preds = %get_vhost_net.exit83, %err_start
+  %43 = load ptr, ptr %set_guest_notifiers, align 8
+  %44 = load ptr, ptr %parent, align 8
+  %call70 = call i32 %43(ptr noundef %44, i32 noundef %add, i1 noundef zeroext false) #11
   %cmp71 = icmp slt i32 %call70, 0
   br i1 %cmp71, label %if.then73, label %return
 
 if.then73:                                        ; preds = %while.end
-  %41 = load ptr, ptr @stderr, align 8
-  %call74 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef nonnull @.str.4, i32 noundef %call70) #12
-  %42 = load ptr, ptr @stderr, align 8
-  %call75 = call i32 @fflush(ptr noundef %42)
+  %45 = load ptr, ptr @stderr, align 8
+  %call74 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef nonnull @.str.4, i32 noundef %call70) #13
+  %46 = load ptr, ptr @stderr, align 8
+  %call75 = call i32 @fflush(ptr noundef %46)
   br label %return
 
 return:                                           ; preds = %for.inc57, %for.end.thread, %for.cond29.preheader, %if.then27, %if.then73, %while.end, %if.then10
-  %retval.0 = phi i32 [ -38, %if.then10 ], [ %call2498, %if.then27 ], [ %r.0, %if.then73 ], [ %r.0, %while.end ], [ 0, %for.cond29.preheader ], [ 0, %for.end.thread ], [ 0, %for.inc57 ]
+  %retval.0 = phi i32 [ -38, %if.then10 ], [ %call24128, %if.then27 ], [ %r.0, %if.then73 ], [ %r.0, %while.end ], [ 0, %for.cond29.preheader ], [ 0, %for.end.thread ], [ 0, %for.inc57 ]
   ret i32 %retval.0
 }
 
@@ -753,11 +841,11 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %call = tail call ptr @tap_get_vhost_net(ptr noundef nonnull %nc) #10
+  %call = tail call ptr @tap_get_vhost_net(ptr noundef nonnull %nc) #11
   br label %return
 
 sw.bb1:                                           ; preds = %if.end
-  %call2 = tail call ptr @vhost_user_get_vhost_net(ptr noundef nonnull %nc) #10
+  %call2 = tail call ptr @vhost_user_get_vhost_net(ptr noundef nonnull %nc) #11
   %tobool3.not = icmp eq ptr %call2, null
   br i1 %tobool3.not, label %if.else, label %return
 
@@ -766,7 +854,7 @@ if.else:                                          ; preds = %sw.bb1
   unreachable
 
 sw.bb6:                                           ; preds = %if.end
-  %call7 = tail call ptr @vhost_vdpa_get_vhost_net(ptr noundef nonnull %nc) #10
+  %call7 = tail call ptr @vhost_vdpa_get_vhost_net(ptr noundef nonnull %nc) #11
   %tobool8.not = icmp eq ptr %call7, null
   br i1 %tobool8.not, label %if.else10, label %return
 
@@ -782,26 +870,61 @@ return:                                           ; preds = %sw.bb, %sw.bb1, %sw
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @vhost_set_vring_enable(ptr noundef %nc, i32 noundef %enable) local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @get_vhost_net(ptr noundef %nc)
-  %vhost_ops1 = getelementptr inbounds i8, ptr %call, i64 528
-  %0 = load ptr, ptr %vhost_ops1, align 8
+  %tobool.not.i = icmp eq ptr %nc, null
+  br i1 %tobool.not.i, label %get_vhost_net.exit, label %if.end.i
+
+if.end.i:                                         ; preds = %entry
+  %0 = load ptr, ptr %nc, align 8
+  %1 = load i32, ptr %0, align 8
+  switch i32 %1, label %get_vhost_net.exit [
+    i32 3, label %sw.bb.i
+    i32 12, label %sw.bb1.i
+    i32 13, label %sw.bb6.i
+  ]
+
+sw.bb.i:                                          ; preds = %if.end.i
+  %call.i = tail call ptr @tap_get_vhost_net(ptr noundef nonnull %nc) #11
+  br label %get_vhost_net.exit
+
+sw.bb1.i:                                         ; preds = %if.end.i
+  %call2.i = tail call ptr @vhost_user_get_vhost_net(ptr noundef nonnull %nc) #11
+  %tobool3.not.i = icmp eq ptr %call2.i, null
+  br i1 %tobool3.not.i, label %if.else.i, label %get_vhost_net.exit
+
+if.else.i:                                        ; preds = %sw.bb1.i
+  tail call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.6, i32 noundef 523, ptr noundef nonnull @__PRETTY_FUNCTION__.get_vhost_net) #14
+  unreachable
+
+sw.bb6.i:                                         ; preds = %if.end.i
+  %call7.i = tail call ptr @vhost_vdpa_get_vhost_net(ptr noundef nonnull %nc) #11
+  %tobool8.not.i = icmp eq ptr %call7.i, null
+  br i1 %tobool8.not.i, label %if.else10.i, label %get_vhost_net.exit
+
+if.else10.i:                                      ; preds = %sw.bb6.i
+  tail call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.6, i32 noundef 529, ptr noundef nonnull @__PRETTY_FUNCTION__.get_vhost_net) #14
+  unreachable
+
+get_vhost_net.exit:                               ; preds = %entry, %if.end.i, %sw.bb.i, %sw.bb1.i, %sw.bb6.i
+  %retval.0.i = phi ptr [ null, %entry ], [ null, %if.end.i ], [ %call7.i, %sw.bb6.i ], [ %call2.i, %sw.bb1.i ], [ %call.i, %sw.bb.i ]
+  %vhost_ops1 = getelementptr inbounds i8, ptr %retval.0.i, i64 528
+  %2 = load ptr, ptr %vhost_ops1, align 8
   %vring_enable = getelementptr inbounds i8, ptr %nc, i64 344
   store i32 %enable, ptr %vring_enable, align 8
-  %tobool.not = icmp eq ptr %0, null
+  %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %return, label %land.lhs.true
 
-land.lhs.true:                                    ; preds = %entry
-  %vhost_set_vring_enable = getelementptr inbounds i8, ptr %0, i64 216
-  %1 = load ptr, ptr %vhost_set_vring_enable, align 8
-  %tobool2.not = icmp eq ptr %1, null
+land.lhs.true:                                    ; preds = %get_vhost_net.exit
+  %vhost_set_vring_enable = getelementptr inbounds i8, ptr %2, i64 216
+  %3 = load ptr, ptr %vhost_set_vring_enable, align 8
+  %tobool2.not = icmp eq ptr %3, null
   br i1 %tobool2.not, label %return, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %call5 = tail call i32 %1(ptr noundef nonnull %call, i32 noundef %enable) #10
+  %call5 = tail call i32 %3(ptr noundef nonnull %retval.0.i, i32 noundef %enable) #11
   br label %return
 
-return:                                           ; preds = %entry, %land.lhs.true, %if.then
-  %retval.0 = phi i32 [ %call5, %if.then ], [ 0, %land.lhs.true ], [ 0, %entry ]
+return:                                           ; preds = %get_vhost_net.exit, %land.lhs.true, %if.then
+  %retval.0 = phi i32 [ %call5, %if.then ], [ 0, %land.lhs.true ], [ 0, %get_vhost_net.exit ]
   ret i32 %retval.0
 }
 
@@ -825,7 +948,7 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp313.not, label %if.end8, label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
-  %call = call i32 @vhost_net_set_backend(ptr noundef nonnull %net, ptr noundef nonnull %file) #10
+  %call = call i32 @vhost_net_set_backend(ptr noundef nonnull %net, ptr noundef nonnull %file) #11
   %cmp5 = icmp sgt i32 %call, -1
   br i1 %cmp5, label %for.inc, label %if.else
 
@@ -855,11 +978,11 @@ if.end8:                                          ; preds = %if.end8.loopexit, %
   br i1 %tobool.not, label %if.end16, label %if.then11
 
 if.then11:                                        ; preds = %if.end8
-  call void %8(ptr noundef nonnull %7, i1 noundef zeroext true) #10
+  call void %8(ptr noundef nonnull %7, i1 noundef zeroext true) #11
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then11, %if.end8
-  call void @vhost_dev_stop(ptr noundef nonnull %net, ptr noundef %dev, i1 noundef zeroext false) #10
+  call void @vhost_dev_stop(ptr noundef nonnull %net, ptr noundef %dev, i1 noundef zeroext false) #11
   %9 = load ptr, ptr %nc, align 8
   %10 = load ptr, ptr %9, align 8
   %stop = getelementptr inbounds i8, ptr %10, i64 64
@@ -868,11 +991,11 @@ if.end16:                                         ; preds = %if.then11, %if.end8
   br i1 %tobool20.not, label %if.end26, label %if.then21
 
 if.then21:                                        ; preds = %if.end16
-  call void %11(ptr noundef nonnull %9) #10
+  call void %11(ptr noundef nonnull %9) #11
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then21, %if.end16
-  call void @vhost_dev_disable_notifiers(ptr noundef nonnull %net, ptr noundef %dev) #10
+  call void @vhost_dev_disable_notifiers(ptr noundef nonnull %net, ptr noundef %dev) #11
   ret void
 }
 
@@ -882,26 +1005,26 @@ declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @vhost_net_stop(ptr noundef %dev, ptr noundef %ncs, i32 noundef %data_queue_pairs, i32 noundef %cvq) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.16, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #10
-  %call1 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i) #10
-  %call.i13 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #10
-  %call.i14 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i13, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS) #10
-  %call.i15 = tail call ptr @object_get_class(ptr noundef %call.i14) #10
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i15, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #10
-  %call.i16 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, i32 noundef 27, ptr noundef nonnull @__func__.VIRTIO_NET) #10
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.16, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #11
+  %call1 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i) #11
+  %call.i13 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #11
+  %call.i14 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i13, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS) #11
+  %call.i15 = tail call ptr @object_get_class(ptr noundef %call.i14) #11
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i15, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #11
+  %call.i16 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, i32 noundef 27, ptr noundef nonnull @__func__.VIRTIO_NET) #11
   %mul = shl i32 %data_queue_pairs, 1
   %add = add i32 %mul, %cvq
   %add6 = add i32 %cvq, %data_queue_pairs
-  %cmp18 = icmp sgt i32 %add6, 0
-  br i1 %cmp18, label %for.body.lr.ph, label %for.end
+  %cmp19 = icmp sgt i32 %add6, 0
+  br i1 %cmp19, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
   %max_queue_pairs = getelementptr inbounds i8, ptr %call.i16, i64 8948
   br label %for.body
 
-for.body:                                         ; preds = %for.body.lr.ph, %if.end
-  %i.019 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %if.end ]
-  %cmp7 = icmp slt i32 %i.019, %data_queue_pairs
+for.body:                                         ; preds = %for.body.lr.ph, %get_vhost_net.exit
+  %i.020 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %get_vhost_net.exit ]
+  %cmp7 = icmp slt i32 %i.020, %data_queue_pairs
   br i1 %cmp7, label %if.end, label %if.else
 
 if.else:                                          ; preds = %for.body
@@ -910,28 +1033,63 @@ if.else:                                          ; preds = %for.body
   br label %if.end
 
 if.end:                                           ; preds = %for.body, %if.else
-  %conv.sink = phi i32 [ %conv, %if.else ], [ %i.019, %for.body ]
-  %call9 = tail call ptr @qemu_get_peer(ptr noundef %ncs, i32 noundef %conv.sink) #10
-  %call10 = tail call ptr @get_vhost_net(ptr noundef %call9)
-  tail call fastcc void @vhost_net_stop_one(ptr noundef %call10, ptr noundef %dev)
-  %inc = add nuw nsw i32 %i.019, 1
+  %conv.sink = phi i32 [ %conv, %if.else ], [ %i.020, %for.body ]
+  %call9 = tail call ptr @qemu_get_peer(ptr noundef %ncs, i32 noundef %conv.sink) #11
+  %tobool.not.i = icmp eq ptr %call9, null
+  br i1 %tobool.not.i, label %get_vhost_net.exit, label %if.end.i
+
+if.end.i:                                         ; preds = %if.end
+  %1 = load ptr, ptr %call9, align 8
+  %2 = load i32, ptr %1, align 8
+  switch i32 %2, label %get_vhost_net.exit [
+    i32 3, label %sw.bb.i
+    i32 12, label %sw.bb1.i
+    i32 13, label %sw.bb6.i
+  ]
+
+sw.bb.i:                                          ; preds = %if.end.i
+  %call.i17 = tail call ptr @tap_get_vhost_net(ptr noundef nonnull %call9) #11
+  br label %get_vhost_net.exit
+
+sw.bb1.i:                                         ; preds = %if.end.i
+  %call2.i = tail call ptr @vhost_user_get_vhost_net(ptr noundef nonnull %call9) #11
+  %tobool3.not.i = icmp eq ptr %call2.i, null
+  br i1 %tobool3.not.i, label %if.else.i, label %get_vhost_net.exit
+
+if.else.i:                                        ; preds = %sw.bb1.i
+  tail call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.6, i32 noundef 523, ptr noundef nonnull @__PRETTY_FUNCTION__.get_vhost_net) #14
+  unreachable
+
+sw.bb6.i:                                         ; preds = %if.end.i
+  %call7.i = tail call ptr @vhost_vdpa_get_vhost_net(ptr noundef nonnull %call9) #11
+  %tobool8.not.i = icmp eq ptr %call7.i, null
+  br i1 %tobool8.not.i, label %if.else10.i, label %get_vhost_net.exit
+
+if.else10.i:                                      ; preds = %sw.bb6.i
+  tail call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.6, i32 noundef 529, ptr noundef nonnull @__PRETTY_FUNCTION__.get_vhost_net) #14
+  unreachable
+
+get_vhost_net.exit:                               ; preds = %if.end, %if.end.i, %sw.bb.i, %sw.bb1.i, %sw.bb6.i
+  %retval.0.i = phi ptr [ null, %if.end ], [ null, %if.end.i ], [ %call7.i, %sw.bb6.i ], [ %call2.i, %sw.bb1.i ], [ %call.i17, %sw.bb.i ]
+  tail call fastcc void @vhost_net_stop_one(ptr noundef %retval.0.i, ptr noundef %dev)
+  %inc = add nuw nsw i32 %i.020, 1
   %exitcond.not = icmp eq i32 %inc, %add6
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !12
 
-for.end:                                          ; preds = %if.end, %entry
+for.end:                                          ; preds = %get_vhost_net.exit, %entry
   %set_guest_notifiers = getelementptr inbounds i8, ptr %call1.i, i64 240
-  %1 = load ptr, ptr %set_guest_notifiers, align 8
+  %3 = load ptr, ptr %set_guest_notifiers, align 8
   %parent = getelementptr inbounds i8, ptr %call.i13, i64 40
-  %2 = load ptr, ptr %parent, align 8
-  %call11 = tail call i32 %1(ptr noundef %2, i32 noundef %add, i1 noundef zeroext false) #10
+  %4 = load ptr, ptr %parent, align 8
+  %call11 = tail call i32 %3(ptr noundef %4, i32 noundef %add, i1 noundef zeroext false) #11
   %cmp12 = icmp slt i32 %call11, 0
   br i1 %cmp12, label %if.else21, label %if.end22
 
 if.else21:                                        ; preds = %for.end
-  %3 = load ptr, ptr @stderr, align 8
-  %call15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.4, i32 noundef %call11) #12
-  %4 = load ptr, ptr @stderr, align 8
-  %call16 = tail call i32 @fflush(ptr noundef %4)
+  %5 = load ptr, ptr @stderr, align 8
+  %call15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.4, i32 noundef %call11) #13
+  %6 = load ptr, ptr @stderr, align 8
+  %call16 = tail call i32 @fflush(ptr noundef %6)
   tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 464, ptr noundef nonnull @__PRETTY_FUNCTION__.vhost_net_stop) #14
   unreachable
 
@@ -945,7 +1103,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @vhost_net_cleanup(ptr noundef %net) local_unnamed_addr #0 {
 entry:
-  tail call void @vhost_dev_cleanup(ptr noundef %net) #10
+  tail call void @vhost_dev_cleanup(ptr noundef %net) #11
   ret void
 }
 
@@ -973,14 +1131,14 @@ if.else3:                                         ; preds = %if.end
   unreachable
 
 if.end4:                                          ; preds = %if.end
-  %call = tail call i32 %2(ptr noundef nonnull %net, ptr noundef %mac_addr) #10
+  %call = tail call i32 %2(ptr noundef nonnull %net, ptr noundef %mac_addr) #11
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @vhost_net_virtqueue_pending(ptr noundef %net, i32 noundef %idx) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @vhost_virtqueue_pending(ptr noundef %net, i32 noundef %idx) #10
+  %call = tail call zeroext i1 @vhost_virtqueue_pending(ptr noundef %net, i32 noundef %idx) #11
   ret i1 %call
 }
 
@@ -989,7 +1147,7 @@ declare zeroext i1 @vhost_virtqueue_pending(ptr noundef, i32 noundef) local_unna
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @vhost_net_virtqueue_mask(ptr noundef %net, ptr noundef %dev, i32 noundef %idx, i1 noundef zeroext %mask) local_unnamed_addr #0 {
 entry:
-  tail call void @vhost_virtqueue_mask(ptr noundef %net, ptr noundef %dev, i32 noundef %idx, i1 noundef zeroext %mask) #10
+  tail call void @vhost_virtqueue_mask(ptr noundef %net, ptr noundef %dev, i32 noundef %idx, i1 noundef zeroext %mask) #11
   ret void
 }
 
@@ -998,7 +1156,7 @@ declare void @vhost_virtqueue_mask(ptr noundef, ptr noundef, i32 noundef, i1 nou
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @vhost_net_config_pending(ptr noundef %net) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @vhost_config_pending(ptr noundef %net) #10
+  %call = tail call zeroext i1 @vhost_config_pending(ptr noundef %net) #11
   ret i1 %call
 }
 
@@ -1007,7 +1165,7 @@ declare zeroext i1 @vhost_config_pending(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @vhost_net_config_mask(ptr noundef %net, ptr noundef %dev, i1 noundef zeroext %mask) local_unnamed_addr #0 {
 entry:
-  tail call void @vhost_config_mask(ptr noundef %net, ptr noundef %dev, i1 noundef zeroext %mask) #10
+  tail call void @vhost_config_mask(ptr noundef %net, ptr noundef %dev, i1 noundef zeroext %mask) #11
   ret void
 }
 
@@ -1030,7 +1188,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call i32 %1(ptr noundef nonnull %net, i16 noundef zeroext %mtu) #10
+  %call = tail call i32 %1(ptr noundef nonnull %net, i16 noundef zeroext %mtu) #11
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -1044,31 +1202,66 @@ entry:
   %file = alloca %struct.vhost_vring_file, align 8
   %peer = getelementptr inbounds i8, ptr %nc, i64 32
   %0 = load ptr, ptr %peer, align 8
-  %call = tail call ptr @get_vhost_net(ptr noundef %0)
-  %vhost_ops1 = getelementptr inbounds i8, ptr %call, i64 528
-  %1 = load ptr, ptr %vhost_ops1, align 8
+  %tobool.not.i = icmp eq ptr %0, null
+  br i1 %tobool.not.i, label %get_vhost_net.exit, label %if.end.i
+
+if.end.i:                                         ; preds = %entry
+  %1 = load ptr, ptr %0, align 8
+  %2 = load i32, ptr %1, align 8
+  switch i32 %2, label %get_vhost_net.exit [
+    i32 3, label %sw.bb.i
+    i32 12, label %sw.bb1.i
+    i32 13, label %sw.bb6.i
+  ]
+
+sw.bb.i:                                          ; preds = %if.end.i
+  %call.i = tail call ptr @tap_get_vhost_net(ptr noundef nonnull %0) #11
+  br label %get_vhost_net.exit
+
+sw.bb1.i:                                         ; preds = %if.end.i
+  %call2.i = tail call ptr @vhost_user_get_vhost_net(ptr noundef nonnull %0) #11
+  %tobool3.not.i = icmp eq ptr %call2.i, null
+  br i1 %tobool3.not.i, label %if.else.i, label %get_vhost_net.exit
+
+if.else.i:                                        ; preds = %sw.bb1.i
+  tail call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.6, i32 noundef 523, ptr noundef nonnull @__PRETTY_FUNCTION__.get_vhost_net) #14
+  unreachable
+
+sw.bb6.i:                                         ; preds = %if.end.i
+  %call7.i = tail call ptr @vhost_vdpa_get_vhost_net(ptr noundef nonnull %0) #11
+  %tobool8.not.i = icmp eq ptr %call7.i, null
+  br i1 %tobool8.not.i, label %if.else10.i, label %get_vhost_net.exit
+
+if.else10.i:                                      ; preds = %sw.bb6.i
+  tail call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.6, i32 noundef 529, ptr noundef nonnull @__PRETTY_FUNCTION__.get_vhost_net) #14
+  unreachable
+
+get_vhost_net.exit:                               ; preds = %entry, %if.end.i, %sw.bb.i, %sw.bb1.i, %sw.bb6.i
+  %retval.0.i = phi ptr [ null, %entry ], [ null, %if.end.i ], [ %call7.i, %sw.bb6.i ], [ %call2.i, %sw.bb1.i ], [ %call.i, %sw.bb.i ]
+  %vhost_ops1 = getelementptr inbounds i8, ptr %retval.0.i, i64 528
+  %3 = load ptr, ptr %vhost_ops1, align 8
   store i64 -4294967296, ptr %file, align 8
-  %tobool.not = icmp eq ptr %1, null
+  %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %if.else, label %if.end
 
-if.else:                                          ; preds = %entry
+if.else:                                          ; preds = %get_vhost_net.exit
   tail call void @__assert_fail(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.6, i32 noundef 573, ptr noundef nonnull @__PRETTY_FUNCTION__.vhost_net_virtqueue_reset) #14
   unreachable
 
-if.end:                                           ; preds = %entry
-  %vhost_get_vq_index = getelementptr inbounds i8, ptr %1, i64 208
-  %2 = load ptr, ptr %vhost_get_vq_index, align 8
-  %call3 = tail call i32 %2(ptr noundef nonnull %call, i32 noundef %vq_index) #10
-  %nc4 = getelementptr inbounds i8, ptr %call, i64 904
-  %3 = load ptr, ptr %nc4, align 8
-  %4 = load ptr, ptr %3, align 8
-  %5 = load i32, ptr %4, align 8
-  %cmp = icmp eq i32 %5, 3
+if.end:                                           ; preds = %get_vhost_net.exit
+  %vhost_get_vq_index = getelementptr inbounds i8, ptr %3, i64 208
+  %4 = load ptr, ptr %vhost_get_vq_index, align 8
+  %call3 = tail call i32 %4(ptr noundef nonnull %retval.0.i, i32 noundef %vq_index) #11
+  %nc4 = getelementptr inbounds i8, ptr %retval.0.i, i64 904
+  %5 = load ptr, ptr %nc4, align 8
+  %6 = load ptr, ptr %5, align 8
+  %7 = load i32, ptr %6, align 8
+  %cmp = icmp eq i32 %7, 3
   br i1 %cmp, label %if.then5, label %if.end12
 
 if.then5:                                         ; preds = %if.end
   store i32 %call3, ptr %file, align 8
-  %call7 = call i32 @vhost_net_set_backend(ptr noundef nonnull %call, ptr noundef nonnull %file) #10
+  %call7 = call i32 @vhost_net_set_backend(ptr noundef nonnull %retval.0.i, ptr noundef nonnull %file) #11
   %cmp8 = icmp sgt i32 %call7, -1
   br i1 %cmp8, label %if.end12, label %if.else10
 
@@ -1077,14 +1270,14 @@ if.else10:                                        ; preds = %if.then5
   unreachable
 
 if.end12:                                         ; preds = %if.then5, %if.end
-  %vqs = getelementptr inbounds i8, ptr %call, i64 432
-  %6 = load ptr, ptr %vqs, align 8
+  %vqs = getelementptr inbounds i8, ptr %retval.0.i, i64 432
+  %8 = load ptr, ptr %vqs, align 8
   %idx.ext = sext i32 %call3 to i64
-  %add.ptr = getelementptr %struct.vhost_virtqueue, ptr %6, i64 %idx.ext
-  %vq_index16 = getelementptr inbounds i8, ptr %call, i64 444
-  %7 = load i32, ptr %vq_index16, align 4
-  %add = add i32 %7, %call3
-  call void @vhost_virtqueue_stop(ptr noundef nonnull %call, ptr noundef %vdev, ptr noundef %add.ptr, i32 noundef %add) #10
+  %add.ptr = getelementptr %struct.vhost_virtqueue, ptr %8, i64 %idx.ext
+  %vq_index16 = getelementptr inbounds i8, ptr %retval.0.i, i64 444
+  %9 = load i32, ptr %vq_index16, align 4
+  %add = add i32 %9, %call3
+  call void @vhost_virtqueue_stop(ptr noundef nonnull %retval.0.i, ptr noundef %vdev, ptr noundef %add.ptr, i32 noundef %add) #11
   ret void
 }
 
@@ -1098,17 +1291,52 @@ entry:
   %file = alloca %struct.vhost_vring_file, align 8
   %peer = getelementptr inbounds i8, ptr %nc, i64 32
   %0 = load ptr, ptr %peer, align 8
-  %call = tail call ptr @get_vhost_net(ptr noundef %0)
-  %vhost_ops1 = getelementptr inbounds i8, ptr %call, i64 528
-  %1 = load ptr, ptr %vhost_ops1, align 8
+  %tobool.not.i = icmp eq ptr %0, null
+  br i1 %tobool.not.i, label %get_vhost_net.exit, label %if.end.i
+
+if.end.i:                                         ; preds = %entry
+  %1 = load ptr, ptr %0, align 8
+  %2 = load i32, ptr %1, align 8
+  switch i32 %2, label %get_vhost_net.exit [
+    i32 3, label %sw.bb.i
+    i32 12, label %sw.bb1.i
+    i32 13, label %sw.bb6.i
+  ]
+
+sw.bb.i:                                          ; preds = %if.end.i
+  %call.i = tail call ptr @tap_get_vhost_net(ptr noundef nonnull %0) #11
+  br label %get_vhost_net.exit
+
+sw.bb1.i:                                         ; preds = %if.end.i
+  %call2.i = tail call ptr @vhost_user_get_vhost_net(ptr noundef nonnull %0) #11
+  %tobool3.not.i = icmp eq ptr %call2.i, null
+  br i1 %tobool3.not.i, label %if.else.i, label %get_vhost_net.exit
+
+if.else.i:                                        ; preds = %sw.bb1.i
+  tail call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.6, i32 noundef 523, ptr noundef nonnull @__PRETTY_FUNCTION__.get_vhost_net) #14
+  unreachable
+
+sw.bb6.i:                                         ; preds = %if.end.i
+  %call7.i = tail call ptr @vhost_vdpa_get_vhost_net(ptr noundef nonnull %0) #11
+  %tobool8.not.i = icmp eq ptr %call7.i, null
+  br i1 %tobool8.not.i, label %if.else10.i, label %get_vhost_net.exit
+
+if.else10.i:                                      ; preds = %sw.bb6.i
+  tail call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.6, i32 noundef 529, ptr noundef nonnull @__PRETTY_FUNCTION__.get_vhost_net) #14
+  unreachable
+
+get_vhost_net.exit:                               ; preds = %entry, %if.end.i, %sw.bb.i, %sw.bb1.i, %sw.bb6.i
+  %retval.0.i = phi ptr [ null, %entry ], [ null, %if.end.i ], [ %call7.i, %sw.bb6.i ], [ %call2.i, %sw.bb1.i ], [ %call.i, %sw.bb.i ]
+  %vhost_ops1 = getelementptr inbounds i8, ptr %retval.0.i, i64 528
+  %3 = load ptr, ptr %vhost_ops1, align 8
   store i64 0, ptr %file, align 8
-  %started = getelementptr inbounds i8, ptr %call, i64 504
-  %2 = load i8, ptr %started, align 8
-  %tobool = trunc i8 %2 to i1
+  %started = getelementptr inbounds i8, ptr %retval.0.i, i64 504
+  %4 = load i8, ptr %started, align 8
+  %tobool = trunc i8 %4 to i1
   br i1 %tobool, label %if.end, label %return
 
-if.end:                                           ; preds = %entry
-  %tobool3.not = icmp eq ptr %1, null
+if.end:                                           ; preds = %get_vhost_net.exit
+  %tobool3.not = icmp eq ptr %3, null
   br i1 %tobool3.not, label %if.else, label %if.end5
 
 if.else:                                          ; preds = %if.end
@@ -1116,59 +1344,59 @@ if.else:                                          ; preds = %if.end
   unreachable
 
 if.end5:                                          ; preds = %if.end
-  %vhost_get_vq_index = getelementptr inbounds i8, ptr %1, i64 208
-  %3 = load ptr, ptr %vhost_get_vq_index, align 8
-  %call7 = tail call i32 %3(ptr noundef nonnull %call, i32 noundef %vq_index) #10
-  %vqs = getelementptr inbounds i8, ptr %call, i64 432
-  %4 = load ptr, ptr %vqs, align 8
+  %vhost_get_vq_index = getelementptr inbounds i8, ptr %3, i64 208
+  %5 = load ptr, ptr %vhost_get_vq_index, align 8
+  %call7 = tail call i32 %5(ptr noundef nonnull %retval.0.i, i32 noundef %vq_index) #11
+  %vqs = getelementptr inbounds i8, ptr %retval.0.i, i64 432
+  %6 = load ptr, ptr %vqs, align 8
   %idx.ext = sext i32 %call7 to i64
-  %add.ptr = getelementptr %struct.vhost_virtqueue, ptr %4, i64 %idx.ext
-  %vq_index11 = getelementptr inbounds i8, ptr %call, i64 444
-  %5 = load i32, ptr %vq_index11, align 4
-  %add = add i32 %5, %call7
-  %call12 = tail call i32 @vhost_virtqueue_start(ptr noundef nonnull %call, ptr noundef %vdev, ptr noundef %add.ptr, i32 noundef %add) #10
+  %add.ptr = getelementptr %struct.vhost_virtqueue, ptr %6, i64 %idx.ext
+  %vq_index11 = getelementptr inbounds i8, ptr %retval.0.i, i64 444
+  %7 = load i32, ptr %vq_index11, align 4
+  %add = add i32 %7, %call7
+  %call12 = tail call i32 @vhost_virtqueue_start(ptr noundef nonnull %retval.0.i, ptr noundef %vdev, ptr noundef %add.ptr, i32 noundef %add) #11
   %cmp = icmp slt i32 %call12, 0
   br i1 %cmp, label %err_start, label %if.end14
 
 if.end14:                                         ; preds = %if.end5
-  %nc15 = getelementptr inbounds i8, ptr %call, i64 904
-  %6 = load ptr, ptr %nc15, align 8
-  %7 = load ptr, ptr %6, align 8
-  %8 = load i32, ptr %7, align 8
-  %cmp16 = icmp eq i32 %8, 3
+  %nc15 = getelementptr inbounds i8, ptr %retval.0.i, i64 904
+  %8 = load ptr, ptr %nc15, align 8
+  %9 = load ptr, ptr %8, align 8
+  %10 = load i32, ptr %9, align 8
+  %cmp16 = icmp eq i32 %10, 3
   br i1 %cmp16, label %if.then17, label %return
 
 if.then17:                                        ; preds = %if.end14
   store i32 %call7, ptr %file, align 8
-  %backend = getelementptr inbounds i8, ptr %call, i64 896
-  %9 = load i32, ptr %backend, align 8
+  %backend = getelementptr inbounds i8, ptr %retval.0.i, i64 896
+  %11 = load i32, ptr %backend, align 8
   %fd = getelementptr inbounds i8, ptr %file, i64 4
-  store i32 %9, ptr %fd, align 4
-  %call19 = call i32 @vhost_net_set_backend(ptr noundef nonnull %call, ptr noundef nonnull %file) #10
+  store i32 %11, ptr %fd, align 4
+  %call19 = call i32 @vhost_net_set_backend(ptr noundef nonnull %retval.0.i, ptr noundef nonnull %file) #11
   %cmp20 = icmp slt i32 %call19, 0
   br i1 %cmp20, label %if.then21, label %return
 
 if.then21:                                        ; preds = %if.then17
-  %call22 = tail call ptr @__errno_location() #13
-  %10 = load i32, ptr %call22, align 4
-  %sub = sub i32 0, %10
+  %call22 = tail call ptr @__errno_location() #15
+  %12 = load i32, ptr %call22, align 4
+  %sub = sub i32 0, %12
   br label %err_start
 
 err_start:                                        ; preds = %if.end5, %if.then21
   %r.0 = phi i32 [ %call12, %if.end5 ], [ %sub, %if.then21 ]
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.11) #10
-  %nc25 = getelementptr inbounds i8, ptr %call, i64 904
-  %11 = load ptr, ptr %nc25, align 8
-  %12 = load ptr, ptr %11, align 8
-  %13 = load i32, ptr %12, align 8
-  %cmp28 = icmp eq i32 %13, 3
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.11) #11
+  %nc25 = getelementptr inbounds i8, ptr %retval.0.i, i64 904
+  %13 = load ptr, ptr %nc25, align 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = load i32, ptr %14, align 8
+  %cmp28 = icmp eq i32 %15, 3
   br i1 %cmp28, label %if.then29, label %if.end38
 
 if.then29:                                        ; preds = %err_start
   %fd30 = getelementptr inbounds i8, ptr %file, i64 4
   store i32 -1, ptr %fd30, align 4
   store i32 %call7, ptr %file, align 8
-  %call33 = call i32 @vhost_net_set_backend(ptr noundef nonnull %call, ptr noundef nonnull %file) #10
+  %call33 = call i32 @vhost_net_set_backend(ptr noundef nonnull %retval.0.i, ptr noundef nonnull %file) #11
   %cmp34 = icmp sgt i32 %call33, -1
   br i1 %cmp34, label %if.end38, label %if.else36
 
@@ -1177,11 +1405,11 @@ if.else36:                                        ; preds = %if.then29
   unreachable
 
 if.end38:                                         ; preds = %if.then29, %err_start
-  call void @vhost_dev_stop(ptr noundef nonnull %call, ptr noundef %vdev, i1 noundef zeroext false) #10
+  call void @vhost_dev_stop(ptr noundef nonnull %retval.0.i, ptr noundef %vdev, i1 noundef zeroext false) #11
   br label %return
 
-return:                                           ; preds = %if.end14, %if.then17, %entry, %if.end38
-  %retval.0 = phi i32 [ %r.0, %if.end38 ], [ -16, %entry ], [ 0, %if.then17 ], [ 0, %if.end14 ]
+return:                                           ; preds = %if.end14, %if.then17, %get_vhost_net.exit, %if.end38
+  %retval.0 = phi i32 [ %r.0, %if.end38 ], [ -16, %get_vhost_net.exit ], [ 0, %if.then17 ], [ 0, %if.end14 ]
   ret i32 %retval.0
 }
 
@@ -1222,6 +1450,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #10
+
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1232,11 +1463,12 @@ attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nofree nounwind }
 attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nounwind }
-attributes #11 = { nounwind allocsize(0,1) }
-attributes #12 = { cold }
-attributes #13 = { nounwind willreturn memory(none) }
+attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #11 = { nounwind }
+attributes #12 = { nounwind allocsize(0,1) }
+attributes #13 = { cold }
 attributes #14 = { noreturn nounwind }
+attributes #15 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

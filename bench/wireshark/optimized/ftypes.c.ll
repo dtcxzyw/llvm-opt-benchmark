@@ -119,8 +119,8 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.compute_drnode = private unnamed_addr constant [15 x i8] c"compute_drnode\00", align 1
 @.str.106 = private unnamed_addr constant [31 x i8] c"assertion \22not reached\22 failed\00", align 1
 @switch.table.ftype_similar_types.1 = private unnamed_addr constant [38 x i32] [i32 7, i32 7, i32 7, i32 7, i32 11, i32 11, i32 11, i32 11, i32 15, i32 15, i32 15, i32 15, i32 19, i32 19, i32 19, i32 19, i32 15, i32 15, i32 23, i32 23, i32 15, i32 15, i32 26, i32 26, i32 26, i32 15, i32 30, i32 30, i32 15, i32 15, i32 15, i32 15, i32 15, i32 37, i32 15, i32 15, i32 15, i32 37], align 4
-@switch.table.ftype_name = private unnamed_addr constant [48 x ptr] [ptr @.str.4, ptr @.str.5, ptr @.str.6, ptr @.str.7, ptr @.str.8, ptr @.str.9, ptr @.str.10, ptr @.str.11, ptr @.str.12, ptr @.str.13, ptr @.str.14, ptr @.str.15, ptr @.str.16, ptr @.str.17, ptr @.str.18, ptr @.str.19, ptr @.str.20, ptr @.str.21, ptr @.str.22, ptr @.str.23, ptr @.str.24, ptr @.str.25, ptr @.str.26, ptr @.str.27, ptr @.str.28, ptr @.str.29, ptr @.str.30, ptr @.str.31, ptr @.str.32, ptr @.str.33, ptr @.str.34, ptr @.str.35, ptr @.str.36, ptr @.str.37, ptr @.str.38, ptr @.str.39, ptr @.str.40, ptr @.str.41, ptr @.str.42, ptr @.str.43, ptr @.str.44, ptr @.str.45, ptr @.str.46, ptr @.str.47, ptr @.str.48, ptr @.str.49, ptr @.str.50, ptr @.str.51], align 8
-@switch.table.ftype_pretty_name = private unnamed_addr constant [48 x ptr] [ptr @.str.52, ptr @.str.53, ptr @.str.54, ptr @.str.55, ptr @.str.56, ptr @.str.57, ptr @.str.58, ptr @.str.59, ptr @.str.60, ptr @.str.61, ptr @.str.62, ptr @.str.63, ptr @.str.64, ptr @.str.65, ptr @.str.66, ptr @.str.67, ptr @.str.68, ptr @.str.69, ptr @.str.70, ptr @.str.71, ptr @.str.72, ptr @.str.73, ptr @.str.74, ptr @.str.75, ptr @.str.76, ptr @.str.77, ptr @.str.78, ptr @.str.78, ptr @.str.78, ptr @.str.79, ptr @.str.80, ptr @.str.80, ptr @.str.81, ptr @.str.82, ptr @.str.83, ptr @.str.84, ptr @.str.85, ptr @.str.86, ptr @.str.87, ptr @.str.88, ptr @.str.89, ptr @.str.90, ptr @.str.91, ptr @.str.78, ptr @.str.92, ptr @.str.78, ptr @.str.93, ptr @.str.94], align 8
+@switch.table.fvalue_from_floating = private unnamed_addr constant [48 x ptr] [ptr @.str.52, ptr @.str.53, ptr @.str.54, ptr @.str.55, ptr @.str.56, ptr @.str.57, ptr @.str.58, ptr @.str.59, ptr @.str.60, ptr @.str.61, ptr @.str.62, ptr @.str.63, ptr @.str.64, ptr @.str.65, ptr @.str.66, ptr @.str.67, ptr @.str.68, ptr @.str.69, ptr @.str.70, ptr @.str.71, ptr @.str.72, ptr @.str.73, ptr @.str.74, ptr @.str.75, ptr @.str.76, ptr @.str.77, ptr @.str.78, ptr @.str.78, ptr @.str.78, ptr @.str.79, ptr @.str.80, ptr @.str.80, ptr @.str.81, ptr @.str.82, ptr @.str.83, ptr @.str.84, ptr @.str.85, ptr @.str.86, ptr @.str.87, ptr @.str.88, ptr @.str.89, ptr @.str.90, ptr @.str.91, ptr @.str.78, ptr @.str.92, ptr @.str.78, ptr @.str.93, ptr @.str.94], align 8
+@switch.table.fvalue_type_name = private unnamed_addr constant [48 x ptr] [ptr @.str.4, ptr @.str.5, ptr @.str.6, ptr @.str.7, ptr @.str.8, ptr @.str.9, ptr @.str.10, ptr @.str.11, ptr @.str.12, ptr @.str.13, ptr @.str.14, ptr @.str.15, ptr @.str.16, ptr @.str.17, ptr @.str.18, ptr @.str.19, ptr @.str.20, ptr @.str.21, ptr @.str.22, ptr @.str.23, ptr @.str.24, ptr @.str.25, ptr @.str.26, ptr @.str.27, ptr @.str.28, ptr @.str.29, ptr @.str.30, ptr @.str.31, ptr @.str.32, ptr @.str.33, ptr @.str.34, ptr @.str.35, ptr @.str.36, ptr @.str.37, ptr @.str.38, ptr @.str.39, ptr @.str.40, ptr @.str.41, ptr @.str.42, ptr @.str.43, ptr @.str.44, ptr @.str.45, ptr @.str.46, ptr @.str.47, ptr @.str.48, ptr @.str.49, ptr @.str.50, ptr @.str.51], align 8
 
 ; Function Attrs: nounwind uwtable
 define hidden void @ftypes_initialize() local_unnamed_addr #0 {
@@ -277,7 +277,7 @@ define noundef nonnull ptr @ftype_name(i32 noundef %0) local_unnamed_addr #4 {
 
 switch.lookup:                                    ; preds = %1
   %7 = zext nneg i32 %5 to i64
-  %switch.gep = getelementptr inbounds [48 x ptr], ptr @switch.table.ftype_name, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds [48 x ptr], ptr @switch.table.fvalue_type_name, i64 0, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %8
 
@@ -297,7 +297,7 @@ define noundef nonnull ptr @ftype_pretty_name(i32 noundef %0) local_unnamed_addr
 
 switch.lookup:                                    ; preds = %1
   %7 = zext nneg i32 %5 to i64
-  %switch.gep = getelementptr inbounds [48 x ptr], ptr @switch.table.ftype_pretty_name, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds [48 x ptr], ptr @switch.table.fvalue_from_floating, i64 0, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %8
 
@@ -655,42 +655,54 @@ fvalue_new.exit:                                  ; preds = %4, %11
 
 15:                                               ; preds = %fvalue_new.exit
   %16 = tail call zeroext i1 %14(ptr noundef nonnull %5, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3) #9
-  br i1 %16, label %17, label %23
+  br i1 %16, label %17, label %26
 
 17:                                               ; preds = %15
   %.not19 = icmp eq ptr %3, null
-  br i1 %.not19, label %28, label %18
+  br i1 %.not19, label %31, label %18
 
 18:                                               ; preds = %17
   store ptr null, ptr %3, align 8
-  br label %28
+  br label %31
 
 19:                                               ; preds = %fvalue_new.exit
   %.not18 = icmp eq ptr %3, null
-  br i1 %.not18, label %23, label %20
+  br i1 %.not18, label %26, label %20
 
 20:                                               ; preds = %19
-  %21 = tail call ptr @ftype_pretty_name(i32 noundef %0)
-  %22 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.95, ptr noundef %1, ptr noundef nonnull %21) #9
-  store ptr %22, ptr %3, align 8
-  br label %23
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %21, align 8
+  %23 = icmp ult i32 %22, 48
+  br i1 %23, label %switch.lookup, label %ftype_pretty_name.exit
 
-23:                                               ; preds = %19, %20, %15
-  %24 = load ptr, ptr %5, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 24
-  %26 = load ptr, ptr %25, align 8
-  %.not.i.i = icmp eq ptr %26, null
-  br i1 %.not.i.i, label %fvalue_free.exit, label %27
+switch.lookup:                                    ; preds = %20
+  %24 = zext nneg i32 %22 to i64
+  %switch.gep = getelementptr inbounds [48 x ptr], ptr @switch.table.fvalue_from_floating, i64 0, i64 %24
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  br label %ftype_pretty_name.exit
 
-27:                                               ; preds = %23
-  tail call void %26(ptr noundef nonnull %5) #9
+ftype_pretty_name.exit:                           ; preds = %switch.lookup, %20
+  %.0.i = phi ptr [ @.str.3, %20 ], [ %switch.load, %switch.lookup ]
+  %25 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.95, ptr noundef %1, ptr noundef nonnull %.0.i) #9
+  store ptr %25, ptr %3, align 8
+  br label %26
+
+26:                                               ; preds = %19, %ftype_pretty_name.exit, %15
+  %27 = load ptr, ptr %5, align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 24
+  %29 = load ptr, ptr %28, align 8
+  %.not.i.i = icmp eq ptr %29, null
+  br i1 %.not.i.i, label %fvalue_free.exit, label %30
+
+30:                                               ; preds = %26
+  tail call void %29(ptr noundef nonnull %5) #9
   br label %fvalue_free.exit
 
-fvalue_free.exit:                                 ; preds = %23, %27
+fvalue_free.exit:                                 ; preds = %26, %30
   tail call void @g_slice_free1(i64 noundef 40, ptr noundef nonnull %5) #9
-  br label %28
+  br label %31
 
-28:                                               ; preds = %17, %18, %fvalue_free.exit
+31:                                               ; preds = %17, %18, %fvalue_free.exit
   %.0 = phi ptr [ null, %fvalue_free.exit ], [ %5, %18 ], [ %5, %17 ]
   ret ptr %.0
 }
@@ -723,42 +735,54 @@ fvalue_new.exit:                                  ; preds = %4, %11
 
 15:                                               ; preds = %fvalue_new.exit
   %16 = tail call zeroext i1 %14(ptr noundef nonnull %5, ptr noundef %1, i64 noundef %2, ptr noundef %3) #9
-  br i1 %16, label %17, label %23
+  br i1 %16, label %17, label %26
 
 17:                                               ; preds = %15
   %.not18 = icmp eq ptr %3, null
-  br i1 %.not18, label %28, label %18
+  br i1 %.not18, label %31, label %18
 
 18:                                               ; preds = %17
   store ptr null, ptr %3, align 8
-  br label %28
+  br label %31
 
 19:                                               ; preds = %fvalue_new.exit
   %.not17 = icmp eq ptr %3, null
-  br i1 %.not17, label %23, label %20
+  br i1 %.not17, label %26, label %20
 
 20:                                               ; preds = %19
-  %21 = tail call ptr @ftype_pretty_name(i32 noundef %0)
-  %22 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.96, ptr noundef nonnull %21, ptr noundef %1) #9
-  store ptr %22, ptr %3, align 8
-  br label %23
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %21, align 8
+  %23 = icmp ult i32 %22, 48
+  br i1 %23, label %switch.lookup, label %ftype_pretty_name.exit
 
-23:                                               ; preds = %19, %20, %15
-  %24 = load ptr, ptr %5, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 24
-  %26 = load ptr, ptr %25, align 8
-  %.not.i.i = icmp eq ptr %26, null
-  br i1 %.not.i.i, label %fvalue_free.exit, label %27
+switch.lookup:                                    ; preds = %20
+  %24 = zext nneg i32 %22 to i64
+  %switch.gep = getelementptr inbounds [48 x ptr], ptr @switch.table.fvalue_from_floating, i64 0, i64 %24
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  br label %ftype_pretty_name.exit
 
-27:                                               ; preds = %23
-  tail call void %26(ptr noundef nonnull %5) #9
+ftype_pretty_name.exit:                           ; preds = %switch.lookup, %20
+  %.0.i = phi ptr [ @.str.3, %20 ], [ %switch.load, %switch.lookup ]
+  %25 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.96, ptr noundef nonnull %.0.i, ptr noundef %1) #9
+  store ptr %25, ptr %3, align 8
+  br label %26
+
+26:                                               ; preds = %19, %ftype_pretty_name.exit, %15
+  %27 = load ptr, ptr %5, align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 24
+  %29 = load ptr, ptr %28, align 8
+  %.not.i.i = icmp eq ptr %29, null
+  br i1 %.not.i.i, label %fvalue_free.exit, label %30
+
+30:                                               ; preds = %26
+  tail call void %29(ptr noundef nonnull %5) #9
   br label %fvalue_free.exit
 
-fvalue_free.exit:                                 ; preds = %23, %27
+fvalue_free.exit:                                 ; preds = %26, %30
   tail call void @g_slice_free1(i64 noundef 40, ptr noundef nonnull %5) #9
-  br label %28
+  br label %31
 
-28:                                               ; preds = %17, %18, %fvalue_free.exit
+31:                                               ; preds = %17, %18, %fvalue_free.exit
   %.0 = phi ptr [ null, %fvalue_free.exit ], [ %5, %18 ], [ %5, %17 ]
   ret ptr %.0
 }
@@ -789,23 +813,27 @@ fvalue_new.exit:                                  ; preds = %3, %10
 
 14:                                               ; preds = %fvalue_new.exit
   %15 = tail call zeroext i1 %13(ptr noundef nonnull %4, i64 noundef %1, ptr noundef %2) #9
-  br i1 %15, label %16, label %33
+  br i1 %15, label %16, label %38
 
 16:                                               ; preds = %14
   %.not25 = icmp eq ptr %2, null
-  br i1 %.not25, label %38, label %17
+  br i1 %.not25, label %43, label %17
 
 17:                                               ; preds = %16
   store ptr null, ptr %2, align 8
-  br label %38
+  br label %43
 
 18:                                               ; preds = %fvalue_new.exit
   %.not23 = icmp eq ptr %2, null
-  br i1 %.not23, label %33, label %19
+  br i1 %.not23, label %38, label %19
 
 19:                                               ; preds = %18
   %20 = icmp ult i64 %1, 128
-  br i1 %20, label %21, label %30
+  br i1 %20, label %21, label %._crit_edge
+
+._crit_edge:                                      ; preds = %19
+  %.pre28 = load ptr, ptr %6, align 8
+  br label %32
 
 21:                                               ; preds = %19
   %22 = load ptr, ptr @g_ascii_table, align 8
@@ -813,40 +841,64 @@ fvalue_new.exit:                                  ; preds = %3, %10
   %24 = load i16, ptr %23, align 2
   %25 = and i16 %24, 64
   %.not24 = icmp eq i16 %25, 0
-  br i1 %.not24, label %30, label %26
+  %.pre29 = load ptr, ptr %6, align 8
+  br i1 %.not24, label %32, label %26
 
 26:                                               ; preds = %21
   %27 = trunc nuw nsw i64 %1 to i32
-  %28 = tail call ptr @ftype_pretty_name(i32 noundef %0)
-  %29 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.97, i32 noundef %27, i64 noundef %1, ptr noundef nonnull %28) #9
+  %28 = load i32, ptr %.pre29, align 8
+  %29 = icmp ult i32 %28, 48
+  br i1 %29, label %switch.lookup, label %ftype_pretty_name.exit
+
+switch.lookup:                                    ; preds = %26
+  %30 = zext nneg i32 %28 to i64
+  %switch.gep = getelementptr inbounds [48 x ptr], ptr @switch.table.fvalue_from_floating, i64 0, i64 %30
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  br label %ftype_pretty_name.exit
+
+ftype_pretty_name.exit:                           ; preds = %switch.lookup, %26
+  %.0.i = phi ptr [ @.str.3, %26 ], [ %switch.load, %switch.lookup ]
+  %31 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.97, i32 noundef %27, i64 noundef %1, ptr noundef nonnull %.0.i) #9
   br label %.sink.split
 
-30:                                               ; preds = %21, %19
-  %31 = tail call ptr @ftype_pretty_name(i32 noundef %0)
-  %32 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.98, i64 noundef %1, ptr noundef nonnull %31) #9
+32:                                               ; preds = %._crit_edge, %21
+  %33 = phi ptr [ %.pre28, %._crit_edge ], [ %.pre29, %21 ]
+  %34 = load i32, ptr %33, align 8
+  %35 = icmp ult i32 %34, 48
+  br i1 %35, label %switch.lookup30, label %ftype_pretty_name.exit27
+
+switch.lookup30:                                  ; preds = %32
+  %36 = zext nneg i32 %34 to i64
+  %switch.gep31 = getelementptr inbounds [48 x ptr], ptr @switch.table.fvalue_from_floating, i64 0, i64 %36
+  %switch.load32 = load ptr, ptr %switch.gep31, align 8
+  br label %ftype_pretty_name.exit27
+
+ftype_pretty_name.exit27:                         ; preds = %switch.lookup30, %32
+  %.0.i26 = phi ptr [ @.str.3, %32 ], [ %switch.load32, %switch.lookup30 ]
+  %37 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.98, i64 noundef %1, ptr noundef nonnull %.0.i26) #9
   br label %.sink.split
 
-.sink.split:                                      ; preds = %26, %30
-  %.sink = phi ptr [ %32, %30 ], [ %29, %26 ]
+.sink.split:                                      ; preds = %ftype_pretty_name.exit, %ftype_pretty_name.exit27
+  %.sink = phi ptr [ %37, %ftype_pretty_name.exit27 ], [ %31, %ftype_pretty_name.exit ]
   store ptr %.sink, ptr %2, align 8
-  br label %33
-
-33:                                               ; preds = %.sink.split, %18, %14
-  %34 = load ptr, ptr %4, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 24
-  %36 = load ptr, ptr %35, align 8
-  %.not.i.i = icmp eq ptr %36, null
-  br i1 %.not.i.i, label %fvalue_free.exit, label %37
-
-37:                                               ; preds = %33
-  tail call void %36(ptr noundef nonnull %4) #9
-  br label %fvalue_free.exit
-
-fvalue_free.exit:                                 ; preds = %33, %37
-  tail call void @g_slice_free1(i64 noundef 40, ptr noundef nonnull %4) #9
   br label %38
 
-38:                                               ; preds = %16, %17, %fvalue_free.exit
+38:                                               ; preds = %.sink.split, %18, %14
+  %39 = load ptr, ptr %4, align 8
+  %40 = getelementptr inbounds i8, ptr %39, i64 24
+  %41 = load ptr, ptr %40, align 8
+  %.not.i.i = icmp eq ptr %41, null
+  br i1 %.not.i.i, label %fvalue_free.exit, label %42
+
+42:                                               ; preds = %38
+  tail call void %41(ptr noundef nonnull %4) #9
+  br label %fvalue_free.exit
+
+fvalue_free.exit:                                 ; preds = %38, %42
+  tail call void @g_slice_free1(i64 noundef 40, ptr noundef nonnull %4) #9
+  br label %43
+
+43:                                               ; preds = %16, %17, %fvalue_free.exit
   %.0 = phi ptr [ null, %fvalue_free.exit ], [ %4, %17 ], [ %4, %16 ]
   ret ptr %.0
 }
@@ -877,42 +929,54 @@ fvalue_new.exit:                                  ; preds = %4, %11
 
 15:                                               ; preds = %fvalue_new.exit
   %16 = tail call zeroext i1 %14(ptr noundef nonnull %5, ptr noundef %1, i64 noundef %2, ptr noundef %3) #9
-  br i1 %16, label %17, label %23
+  br i1 %16, label %17, label %26
 
 17:                                               ; preds = %15
   %.not18 = icmp eq ptr %3, null
-  br i1 %.not18, label %28, label %18
+  br i1 %.not18, label %31, label %18
 
 18:                                               ; preds = %17
   store ptr null, ptr %3, align 8
-  br label %28
+  br label %31
 
 19:                                               ; preds = %fvalue_new.exit
   %.not17 = icmp eq ptr %3, null
-  br i1 %.not17, label %23, label %20
+  br i1 %.not17, label %26, label %20
 
 20:                                               ; preds = %19
-  %21 = tail call ptr @ftype_pretty_name(i32 noundef %0)
-  %22 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.99, i64 noundef %2, ptr noundef nonnull %21) #9
-  store ptr %22, ptr %3, align 8
-  br label %23
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %21, align 8
+  %23 = icmp ult i32 %22, 48
+  br i1 %23, label %switch.lookup, label %ftype_pretty_name.exit
 
-23:                                               ; preds = %19, %20, %15
-  %24 = load ptr, ptr %5, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 24
-  %26 = load ptr, ptr %25, align 8
-  %.not.i.i = icmp eq ptr %26, null
-  br i1 %.not.i.i, label %fvalue_free.exit, label %27
+switch.lookup:                                    ; preds = %20
+  %24 = zext nneg i32 %22 to i64
+  %switch.gep = getelementptr inbounds [48 x ptr], ptr @switch.table.fvalue_from_floating, i64 0, i64 %24
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  br label %ftype_pretty_name.exit
 
-27:                                               ; preds = %23
-  tail call void %26(ptr noundef nonnull %5) #9
+ftype_pretty_name.exit:                           ; preds = %switch.lookup, %20
+  %.0.i = phi ptr [ @.str.3, %20 ], [ %switch.load, %switch.lookup ]
+  %25 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.99, i64 noundef %2, ptr noundef nonnull %.0.i) #9
+  store ptr %25, ptr %3, align 8
+  br label %26
+
+26:                                               ; preds = %19, %ftype_pretty_name.exit, %15
+  %27 = load ptr, ptr %5, align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 24
+  %29 = load ptr, ptr %28, align 8
+  %.not.i.i = icmp eq ptr %29, null
+  br i1 %.not.i.i, label %fvalue_free.exit, label %30
+
+30:                                               ; preds = %26
+  tail call void %29(ptr noundef nonnull %5) #9
   br label %fvalue_free.exit
 
-fvalue_free.exit:                                 ; preds = %23, %27
+fvalue_free.exit:                                 ; preds = %26, %30
   tail call void @g_slice_free1(i64 noundef 40, ptr noundef nonnull %5) #9
-  br label %28
+  br label %31
 
-28:                                               ; preds = %17, %18, %fvalue_free.exit
+31:                                               ; preds = %17, %18, %fvalue_free.exit
   %.0 = phi ptr [ null, %fvalue_free.exit ], [ %5, %18 ], [ %5, %17 ]
   ret ptr %.0
 }
@@ -943,42 +1007,54 @@ fvalue_new.exit:                                  ; preds = %4, %11
 
 15:                                               ; preds = %fvalue_new.exit
   %16 = tail call zeroext i1 %14(ptr noundef nonnull %5, ptr noundef %1, i64 noundef %2, ptr noundef %3) #9
-  br i1 %16, label %17, label %23
+  br i1 %16, label %17, label %26
 
 17:                                               ; preds = %15
   %.not18 = icmp eq ptr %3, null
-  br i1 %.not18, label %28, label %18
+  br i1 %.not18, label %31, label %18
 
 18:                                               ; preds = %17
   store ptr null, ptr %3, align 8
-  br label %28
+  br label %31
 
 19:                                               ; preds = %fvalue_new.exit
   %.not17 = icmp eq ptr %3, null
-  br i1 %.not17, label %23, label %20
+  br i1 %.not17, label %26, label %20
 
 20:                                               ; preds = %19
-  %21 = tail call ptr @ftype_pretty_name(i32 noundef %0)
-  %22 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.100, i64 noundef %2, ptr noundef nonnull %21) #9
-  store ptr %22, ptr %3, align 8
-  br label %23
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %21, align 8
+  %23 = icmp ult i32 %22, 48
+  br i1 %23, label %switch.lookup, label %ftype_pretty_name.exit
 
-23:                                               ; preds = %19, %20, %15
-  %24 = load ptr, ptr %5, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 24
-  %26 = load ptr, ptr %25, align 8
-  %.not.i.i = icmp eq ptr %26, null
-  br i1 %.not.i.i, label %fvalue_free.exit, label %27
+switch.lookup:                                    ; preds = %20
+  %24 = zext nneg i32 %22 to i64
+  %switch.gep = getelementptr inbounds [48 x ptr], ptr @switch.table.fvalue_from_floating, i64 0, i64 %24
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  br label %ftype_pretty_name.exit
 
-27:                                               ; preds = %23
-  tail call void %26(ptr noundef nonnull %5) #9
+ftype_pretty_name.exit:                           ; preds = %switch.lookup, %20
+  %.0.i = phi ptr [ @.str.3, %20 ], [ %switch.load, %switch.lookup ]
+  %25 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.100, i64 noundef %2, ptr noundef nonnull %.0.i) #9
+  store ptr %25, ptr %3, align 8
+  br label %26
+
+26:                                               ; preds = %19, %ftype_pretty_name.exit, %15
+  %27 = load ptr, ptr %5, align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 24
+  %29 = load ptr, ptr %28, align 8
+  %.not.i.i = icmp eq ptr %29, null
+  br i1 %.not.i.i, label %fvalue_free.exit, label %30
+
+30:                                               ; preds = %26
+  tail call void %29(ptr noundef nonnull %5) #9
   br label %fvalue_free.exit
 
-fvalue_free.exit:                                 ; preds = %23, %27
+fvalue_free.exit:                                 ; preds = %26, %30
   tail call void @g_slice_free1(i64 noundef 40, ptr noundef nonnull %5) #9
-  br label %28
+  br label %31
 
-28:                                               ; preds = %17, %18, %fvalue_free.exit
+31:                                               ; preds = %17, %18, %fvalue_free.exit
   %.0 = phi ptr [ null, %fvalue_free.exit ], [ %5, %18 ], [ %5, %17 ]
   ret ptr %.0
 }
@@ -1009,42 +1085,54 @@ fvalue_new.exit:                                  ; preds = %4, %11
 
 15:                                               ; preds = %fvalue_new.exit
   %16 = tail call zeroext i1 %14(ptr noundef nonnull %5, ptr noundef %1, double noundef %2, ptr noundef %3) #9
-  br i1 %16, label %17, label %23
+  br i1 %16, label %17, label %26
 
 17:                                               ; preds = %15
   %.not18 = icmp eq ptr %3, null
-  br i1 %.not18, label %28, label %18
+  br i1 %.not18, label %31, label %18
 
 18:                                               ; preds = %17
   store ptr null, ptr %3, align 8
-  br label %28
+  br label %31
 
 19:                                               ; preds = %fvalue_new.exit
   %.not17 = icmp eq ptr %3, null
-  br i1 %.not17, label %23, label %20
+  br i1 %.not17, label %26, label %20
 
 20:                                               ; preds = %19
-  %21 = tail call ptr @ftype_pretty_name(i32 noundef %0)
-  %22 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.101, double noundef %2, ptr noundef nonnull %21) #9
-  store ptr %22, ptr %3, align 8
-  br label %23
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %21, align 8
+  %23 = icmp ult i32 %22, 48
+  br i1 %23, label %switch.lookup, label %ftype_pretty_name.exit
 
-23:                                               ; preds = %19, %20, %15
-  %24 = load ptr, ptr %5, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 24
-  %26 = load ptr, ptr %25, align 8
-  %.not.i.i = icmp eq ptr %26, null
-  br i1 %.not.i.i, label %fvalue_free.exit, label %27
+switch.lookup:                                    ; preds = %20
+  %24 = zext nneg i32 %22 to i64
+  %switch.gep = getelementptr inbounds [48 x ptr], ptr @switch.table.fvalue_from_floating, i64 0, i64 %24
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  br label %ftype_pretty_name.exit
 
-27:                                               ; preds = %23
-  tail call void %26(ptr noundef nonnull %5) #9
+ftype_pretty_name.exit:                           ; preds = %switch.lookup, %20
+  %.0.i = phi ptr [ @.str.3, %20 ], [ %switch.load, %switch.lookup ]
+  %25 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.101, double noundef %2, ptr noundef nonnull %.0.i) #9
+  store ptr %25, ptr %3, align 8
+  br label %26
+
+26:                                               ; preds = %19, %ftype_pretty_name.exit, %15
+  %27 = load ptr, ptr %5, align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 24
+  %29 = load ptr, ptr %28, align 8
+  %.not.i.i = icmp eq ptr %29, null
+  br i1 %.not.i.i, label %fvalue_free.exit, label %30
+
+30:                                               ; preds = %26
+  tail call void %29(ptr noundef nonnull %5) #9
   br label %fvalue_free.exit
 
-fvalue_free.exit:                                 ; preds = %23, %27
+fvalue_free.exit:                                 ; preds = %26, %30
   tail call void @g_slice_free1(i64 noundef 40, ptr noundef nonnull %5) #9
-  br label %28
+  br label %31
 
-28:                                               ; preds = %17, %18, %fvalue_free.exit
+31:                                               ; preds = %17, %18, %fvalue_free.exit
   %.0 = phi ptr [ null, %fvalue_free.exit ], [ %5, %18 ], [ %5, %17 ]
   ret ptr %.0
 }
@@ -1060,8 +1148,22 @@ define i32 @fvalue_type_ftenum(ptr nocapture noundef readonly %0) local_unnamed_
 define noundef nonnull ptr @fvalue_type_name(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
   %2 = load ptr, ptr %0, align 8
   %3 = load i32, ptr %2, align 8
-  %4 = tail call ptr @ftype_name(i32 noundef %3)
-  ret ptr %4
+  %4 = zext i32 %3 to i64
+  %5 = getelementptr [46 x ptr], ptr @type_list, i64 0, i64 %4
+  %6 = load ptr, ptr %5, align 8
+  %7 = load i32, ptr %6, align 8
+  %8 = icmp ult i32 %7, 48
+  br i1 %8, label %switch.lookup, label %ftype_name.exit
+
+switch.lookup:                                    ; preds = %1
+  %9 = zext nneg i32 %7 to i64
+  %switch.gep = getelementptr inbounds [48 x ptr], ptr @switch.table.fvalue_type_name, i64 0, i64 %9
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  br label %ftype_name.exit
+
+ftype_name.exit:                                  ; preds = %switch.lookup, %1
+  %.0.i = phi ptr [ @.str.3, %1 ], [ %switch.load, %switch.lookup ]
+  ret ptr %.0.i
 }
 
 ; Function Attrs: nounwind uwtable

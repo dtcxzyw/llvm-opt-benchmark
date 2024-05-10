@@ -329,8 +329,8 @@ target triple = "x86_64-pc-linux-gnu"
 @rb_cFloat = external local_unnamed_addr global i64, align 8
 @switch.table.enc_str_scrub = private unnamed_addr constant [4 x ptr] [ptr @enc_str_scrub.replace.205, ptr @enc_str_scrub.replace.206, ptr @enc_str_scrub.replace.207, ptr @enc_str_scrub.replace.208], align 8
 @switch.table.enc_str_scrub.10 = private unnamed_addr constant [4 x i64] [i64 2, i64 2, i64 4, i64 4], align 8
-@switch.table.get_reg_grapheme_cluster = private unnamed_addr constant [4 x i64] [i64 4, i64 4, i64 8, i64 8], align 8
-@switch.table.get_reg_grapheme_cluster.11 = private unnamed_addr constant [4 x ptr] [ptr @get_reg_grapheme_cluster.source_UTF_16BE, ptr @get_reg_grapheme_cluster.source_UTF_16LE, ptr @get_reg_grapheme_cluster.source_UTF_32BE, ptr @get_reg_grapheme_cluster.source_UTF_32LE], align 8
+@switch.table.rb_str_each_grapheme_cluster_size = private unnamed_addr constant [4 x i64] [i64 4, i64 4, i64 8, i64 8], align 8
+@switch.table.rb_str_each_grapheme_cluster_size.13 = private unnamed_addr constant [4 x ptr] [ptr @get_reg_grapheme_cluster.source_UTF_16BE, ptr @get_reg_grapheme_cluster.source_UTF_16LE, ptr @get_reg_grapheme_cluster.source_UTF_32BE, ptr @get_reg_grapheme_cluster.source_UTF_32LE], align 8
 
 @rb_str_dup_frozen = dso_local alias i64 (i64), ptr @rb_str_new_frozen
 @rb_str_buf_cat = dso_local alias i64 (i64, ptr, i64), ptr @rb_str_cat
@@ -20288,34 +20288,76 @@ define internal i64 @rb_str_match_m(i32 noundef %0, ptr noundef %1, i64 noundef 
 6:                                                ; preds = %3
   %7 = load i64, ptr %1, align 8
   store i64 %2, ptr %1, align 8
-  %8 = tail call fastcc i64 @get_pat(i64 noundef %7)
+  %8 = and i64 %7, 7
+  %9 = icmp ne i64 %8, 0
+  %10 = icmp eq i64 %7, 0
+  %11 = or i1 %10, %9
+  br i1 %11, label %.thread.i, label %12
+
+12:                                               ; preds = %6
+  %13 = inttoptr i64 %7 to ptr
+  %14 = load i64, ptr %13, align 8
+  %15 = trunc i64 %14 to i32
+  %16 = and i32 %15, 31
+  switch i32 %16, label %.thread12.i [
+    i32 6, label %get_pat.exit
+    i32 5, label %Check_Type.exit.i
+  ]
+
+.thread.i:                                        ; preds = %6
+  %17 = tail call i64 @rb_check_convert_type_with_id(i64 noundef %7, i32 noundef 5, ptr noundef nonnull @.str.4, i64 noundef 3233) #28
+  %18 = icmp eq i64 %17, 4
+  br i1 %18, label %.thread30.i.i, label %Check_Type.exit.i
+
+.thread12.i:                                      ; preds = %12
+  %19 = tail call i64 @rb_check_convert_type_with_id(i64 noundef %7, i32 noundef 5, ptr noundef nonnull @.str.4, i64 noundef 3233) #28
+  %20 = icmp eq i64 %19, 4
+  br i1 %20, label %.thread13.i, label %Check_Type.exit.i
+
+.thread13.i:                                      ; preds = %.thread12.i
+  %21 = load i64, ptr %13, align 8
+  %22 = and i64 %21, 31
+  %23 = icmp eq i64 %22, 6
+  br i1 %23, label %Check_Type.exit.i, label %.thread30.i.i
+
+.thread30.i.i:                                    ; preds = %.thread13.i, %.thread.i
+  tail call void @rb_unexpected_type(i64 noundef %7, i32 noundef 6) #31
+  unreachable
+
+Check_Type.exit.i:                                ; preds = %.thread13.i, %.thread12.i, %.thread.i, %12
+  %.011.i = phi i64 [ %7, %12 ], [ %17, %.thread.i ], [ %19, %.thread12.i ], [ 4, %.thread13.i ]
+  %24 = tail call i64 @rb_reg_regcomp(i64 noundef %.011.i) #28
+  br label %get_pat.exit
+
+get_pat.exit:                                     ; preds = %12, %Check_Type.exit.i
+  %.0.i = phi i64 [ %24, %Check_Type.exit.i ], [ %7, %12 ]
   %.pr.i = load i64, ptr @rb_str_match_m.rbimpl_id, align 8
   %.not4.i = icmp eq i64 %.pr.i, 0
   br i1 %.not4.i, label %.lr.ph.i, label %rbimpl_intern_const.exit
 
-.lr.ph.i:                                         ; preds = %6, %.lr.ph.i
-  %9 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.71, i64 noundef 5) #28
-  store i64 %9, ptr @rb_str_match_m.rbimpl_id, align 8
-  %.not.i = icmp eq i64 %9, 0
+.lr.ph.i:                                         ; preds = %get_pat.exit, %.lr.ph.i
+  %25 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.71, i64 noundef 5) #28
+  store i64 %25, ptr @rb_str_match_m.rbimpl_id, align 8
+  %.not.i = icmp eq i64 %25, 0
   br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !215
 
-rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %6
-  %.lcssa.i = phi i64 [ %.pr.i, %6 ], [ %9, %.lr.ph.i ]
-  %10 = tail call i64 @rb_funcallv(i64 noundef %8, i64 noundef %.lcssa.i, i32 noundef %0, ptr noundef nonnull %1) #28
-  %11 = icmp eq i64 %10, 4
-  br i1 %11, label %16, label %12
+rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %get_pat.exit
+  %.lcssa.i = phi i64 [ %.pr.i, %get_pat.exit ], [ %25, %.lr.ph.i ]
+  %26 = tail call i64 @rb_funcallv(i64 noundef %.0.i, i64 noundef %.lcssa.i, i32 noundef %0, ptr noundef nonnull %1) #28
+  %27 = icmp eq i64 %26, 4
+  br i1 %27, label %32, label %28
 
-12:                                               ; preds = %rbimpl_intern_const.exit
-  %13 = tail call i32 @rb_block_given_p() #28
-  %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %16, label %14
+28:                                               ; preds = %rbimpl_intern_const.exit
+  %29 = tail call i32 @rb_block_given_p() #28
+  %.not = icmp eq i32 %29, 0
+  br i1 %.not, label %32, label %30
 
-14:                                               ; preds = %12
-  %15 = tail call i64 @rb_yield(i64 noundef %10) #28
-  br label %16
+30:                                               ; preds = %28
+  %31 = tail call i64 @rb_yield(i64 noundef %26) #28
+  br label %32
 
-16:                                               ; preds = %rbimpl_intern_const.exit, %12, %14
-  %.0 = phi i64 [ %15, %14 ], [ %10, %12 ], [ 4, %rbimpl_intern_const.exit ]
+32:                                               ; preds = %rbimpl_intern_const.exit, %28, %30
+  %.0 = phi i64 [ %31, %30 ], [ %26, %28 ], [ 4, %rbimpl_intern_const.exit ]
   ret i64 %.0
 }
 
@@ -20331,29 +20373,71 @@ define internal i64 @rb_str_match_m_p(i32 noundef %0, ptr nocapture noundef read
 
 rb_check_arity.exit:                              ; preds = %3
   %6 = load i64, ptr %1, align 8
-  %7 = tail call fastcc i64 @get_pat(i64 noundef %6)
-  %8 = icmp ugt i32 %0, 1
-  br i1 %8, label %9, label %rb_num2long_inline.exit
+  %7 = and i64 %6, 7
+  %8 = icmp ne i64 %7, 0
+  %9 = icmp eq i64 %6, 0
+  %10 = or i1 %9, %8
+  br i1 %10, label %.thread.i, label %11
 
-9:                                                ; preds = %rb_check_arity.exit
-  %10 = getelementptr i8, ptr %1, i64 8
-  %11 = load i64, ptr %10, align 8
-  %12 = and i64 %11, 1
-  %.not.i = icmp eq i64 %12, 0
-  br i1 %.not.i, label %15, label %13
+11:                                               ; preds = %rb_check_arity.exit
+  %12 = inttoptr i64 %6 to ptr
+  %13 = load i64, ptr %12, align 8
+  %14 = trunc i64 %13 to i32
+  %15 = and i32 %14, 31
+  switch i32 %15, label %.thread12.i [
+    i32 6, label %get_pat.exit
+    i32 5, label %Check_Type.exit.i
+  ]
 
-13:                                               ; preds = %9
-  %14 = ashr i64 %11, 1
+.thread.i:                                        ; preds = %rb_check_arity.exit
+  %16 = tail call i64 @rb_check_convert_type_with_id(i64 noundef %6, i32 noundef 5, ptr noundef nonnull @.str.4, i64 noundef 3233) #28
+  %17 = icmp eq i64 %16, 4
+  br i1 %17, label %.thread30.i.i, label %Check_Type.exit.i
+
+.thread12.i:                                      ; preds = %11
+  %18 = tail call i64 @rb_check_convert_type_with_id(i64 noundef %6, i32 noundef 5, ptr noundef nonnull @.str.4, i64 noundef 3233) #28
+  %19 = icmp eq i64 %18, 4
+  br i1 %19, label %.thread13.i, label %Check_Type.exit.i
+
+.thread13.i:                                      ; preds = %.thread12.i
+  %20 = load i64, ptr %12, align 8
+  %21 = and i64 %20, 31
+  %22 = icmp eq i64 %21, 6
+  br i1 %22, label %Check_Type.exit.i, label %.thread30.i.i
+
+.thread30.i.i:                                    ; preds = %.thread13.i, %.thread.i
+  tail call void @rb_unexpected_type(i64 noundef %6, i32 noundef 6) #31
+  unreachable
+
+Check_Type.exit.i:                                ; preds = %.thread13.i, %.thread12.i, %.thread.i, %11
+  %.011.i = phi i64 [ %6, %11 ], [ %16, %.thread.i ], [ %18, %.thread12.i ], [ 4, %.thread13.i ]
+  %23 = tail call i64 @rb_reg_regcomp(i64 noundef %.011.i) #28
+  br label %get_pat.exit
+
+get_pat.exit:                                     ; preds = %11, %Check_Type.exit.i
+  %.0.i = phi i64 [ %23, %Check_Type.exit.i ], [ %6, %11 ]
+  %24 = icmp ugt i32 %0, 1
+  br i1 %24, label %25, label %rb_num2long_inline.exit
+
+25:                                               ; preds = %get_pat.exit
+  %26 = getelementptr i8, ptr %1, i64 8
+  %27 = load i64, ptr %26, align 8
+  %28 = and i64 %27, 1
+  %.not.i = icmp eq i64 %28, 0
+  br i1 %.not.i, label %31, label %29
+
+29:                                               ; preds = %25
+  %30 = ashr i64 %27, 1
   br label %rb_num2long_inline.exit
 
-15:                                               ; preds = %9
-  %16 = tail call i64 @rb_num2long(i64 noundef %11) #28
+31:                                               ; preds = %25
+  %32 = tail call i64 @rb_num2long(i64 noundef %27) #28
   br label %rb_num2long_inline.exit
 
-rb_num2long_inline.exit:                          ; preds = %15, %13, %rb_check_arity.exit
-  %17 = phi i64 [ 0, %rb_check_arity.exit ], [ %14, %13 ], [ %16, %15 ]
-  %18 = tail call i64 @rb_reg_match_p(i64 noundef %7, i64 noundef %2, i64 noundef %17) #28
-  ret i64 %18
+rb_num2long_inline.exit:                          ; preds = %31, %29, %get_pat.exit
+  %33 = phi i64 [ 0, %get_pat.exit ], [ %30, %29 ], [ %32, %31 ]
+  %34 = tail call i64 @rb_reg_match_p(i64 noundef %.0.i, i64 noundef %2, i64 noundef %33) #28
+  ret i64 %34
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -29209,39 +29293,8 @@ define internal i64 @sym_match_m(i32 noundef %0, ptr noundef %1, i64 noundef %2)
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @sym_match_m_p(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #1 {
-  %4 = add i32 %0, -3
-  %or.cond.i = icmp ult i32 %4, -2
-  br i1 %or.cond.i, label %5, label %rb_check_arity.exit.i
-
-5:                                                ; preds = %3
-  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 1, i32 noundef 2) #33
-  unreachable
-
-rb_check_arity.exit.i:                            ; preds = %3
-  %6 = load i64, ptr %1, align 8
-  %7 = tail call fastcc i64 @get_pat(i64 noundef %6)
-  %8 = icmp ugt i32 %0, 1
-  br i1 %8, label %9, label %rb_str_match_m_p.exit
-
-9:                                                ; preds = %rb_check_arity.exit.i
-  %10 = getelementptr i8, ptr %1, i64 8
-  %11 = load i64, ptr %10, align 8
-  %12 = and i64 %11, 1
-  %.not.i.i = icmp eq i64 %12, 0
-  br i1 %.not.i.i, label %15, label %13
-
-13:                                               ; preds = %9
-  %14 = ashr i64 %11, 1
-  br label %rb_str_match_m_p.exit
-
-15:                                               ; preds = %9
-  %16 = tail call i64 @rb_num2long(i64 noundef %11) #28
-  br label %rb_str_match_m_p.exit
-
-rb_str_match_m_p.exit:                            ; preds = %rb_check_arity.exit.i, %13, %15
-  %17 = phi i64 [ 0, %rb_check_arity.exit.i ], [ %14, %13 ], [ %16, %15 ]
-  %18 = tail call i64 @rb_reg_match_p(i64 noundef %7, i64 noundef %2, i64 noundef %17) #28
-  ret i64 %18
+  %4 = tail call i64 @rb_str_match_m_p(i32 noundef %0, ptr noundef %1, i64 noundef %2)
+  ret i64 %4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -31413,54 +31466,6 @@ rb_string_value.exit:                             ; preds = %40, %.critedge.i
 
 declare i64 @rb_reg_match(i64 noundef, i64 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @get_pat(i64 noundef %0) unnamed_addr #1 {
-  %2 = and i64 %0, 7
-  %3 = icmp ne i64 %2, 0
-  %4 = icmp eq i64 %0, 0
-  %5 = or i1 %4, %3
-  br i1 %5, label %.thread, label %6
-
-6:                                                ; preds = %1
-  %7 = inttoptr i64 %0 to ptr
-  %8 = load i64, ptr %7, align 8
-  %9 = trunc i64 %8 to i32
-  %10 = and i32 %9, 31
-  switch i32 %10, label %.thread12 [
-    i32 6, label %19
-    i32 5, label %Check_Type.exit
-  ]
-
-.thread:                                          ; preds = %1
-  %11 = tail call i64 @rb_check_convert_type_with_id(i64 noundef %0, i32 noundef 5, ptr noundef nonnull @.str.4, i64 noundef 3233) #28
-  %12 = icmp eq i64 %11, 4
-  br i1 %12, label %.thread30.i, label %Check_Type.exit
-
-.thread12:                                        ; preds = %6
-  %13 = tail call i64 @rb_check_convert_type_with_id(i64 noundef %0, i32 noundef 5, ptr noundef nonnull @.str.4, i64 noundef 3233) #28
-  %14 = icmp eq i64 %13, 4
-  br i1 %14, label %.thread13, label %Check_Type.exit
-
-.thread13:                                        ; preds = %.thread12
-  %15 = load i64, ptr %7, align 8
-  %16 = and i64 %15, 31
-  %17 = icmp eq i64 %16, 6
-  br i1 %17, label %Check_Type.exit, label %.thread30.i
-
-.thread30.i:                                      ; preds = %.thread, %.thread13
-  tail call void @rb_unexpected_type(i64 noundef %0, i32 noundef 6) #31
-  unreachable
-
-Check_Type.exit:                                  ; preds = %.thread13, %.thread12, %.thread, %6
-  %.011 = phi i64 [ %0, %6 ], [ %11, %.thread ], [ %13, %.thread12 ], [ 4, %.thread13 ]
-  %18 = tail call i64 @rb_reg_regcomp(i64 noundef %.011) #28
-  br label %19
-
-19:                                               ; preds = %6, %Check_Type.exit
-  %.0 = phi i64 [ %18, %Check_Type.exit ], [ %0, %6 ]
-  ret i64 %.0
-}
-
 declare i64 @rb_reg_regcomp(i64 noundef) local_unnamed_addr #2
 
 declare i64 @rb_reg_match_p(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
@@ -33172,200 +33177,258 @@ rb_str_enumerate_bytes.exit:                      ; preds = %RSTRING_PTR.exit.i,
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc noundef i64 @rb_str_enumerate_grapheme_clusters(i64 noundef %0, i64 noundef %1) unnamed_addr #1 {
-  %3 = alloca i64, align 8
+  %3 = alloca [3 x i8], align 1
   %4 = alloca ptr, align 8
-  store i64 %0, ptr %3, align 8
-  %5 = inttoptr i64 %0 to ptr
-  %6 = load i64, ptr %5, align 8
-  %7 = trunc i64 %6 to i32
-  %8 = lshr i32 %7, 22
-  %9 = and i32 %8, 127
-  %10 = icmp eq i32 %9, 127
-  br i1 %10, label %11, label %get_encoding.exit
+  %5 = alloca %struct.OnigErrorInfo, align 8
+  %6 = alloca [90 x i8], align 16
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  store i64 %0, ptr %7, align 8
+  %9 = inttoptr i64 %0 to ptr
+  %10 = load i64, ptr %9, align 8
+  %11 = trunc i64 %10 to i32
+  %12 = lshr i32 %11, 22
+  %13 = and i32 %12, 127
+  %14 = icmp eq i32 %13, 127
+  br i1 %14, label %15, label %get_encoding.exit
 
-11:                                               ; preds = %2
-  %12 = tail call i32 @rb_enc_get_index(i64 noundef %0) #28
+15:                                               ; preds = %2
+  %16 = tail call i32 @rb_enc_get_index(i64 noundef %0) #28
   br label %get_encoding.exit
 
-get_encoding.exit:                                ; preds = %2, %11
-  %.0.i.i = phi i32 [ %12, %11 ], [ %9, %2 ]
-  %13 = tail call ptr @rb_enc_from_index(i32 noundef %.0.i.i) #28
-  %14 = tail call i32 @rb_enc_unicode_p(ptr noundef %13) #32
-  %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %15, label %17
+get_encoding.exit:                                ; preds = %2, %15
+  %.0.i.i = phi i32 [ %16, %15 ], [ %13, %2 ]
+  %17 = tail call ptr @rb_enc_from_index(i32 noundef %.0.i.i) #28
+  %18 = tail call i32 @rb_enc_unicode_p(ptr noundef %17) #32
+  %.not = icmp eq i32 %18, 0
+  br i1 %.not, label %19, label %21
 
-15:                                               ; preds = %get_encoding.exit
-  %16 = tail call fastcc i64 @rb_str_enumerate_chars(i64 noundef %0, i64 noundef %1)
-  br label %68
+19:                                               ; preds = %get_encoding.exit
+  %20 = tail call fastcc i64 @rb_str_enumerate_chars(i64 noundef %0, i64 noundef %1)
+  br label %84
 
-17:                                               ; preds = %get_encoding.exit
+21:                                               ; preds = %get_encoding.exit
   %.not32 = icmp eq i64 %1, 0
-  br i1 %.not32, label %18, label %32
+  br i1 %.not32, label %22, label %36
 
-18:                                               ; preds = %17
-  %19 = and i64 %0, 7
-  %20 = icmp ne i64 %19, 0
-  %21 = icmp eq i64 %0, 0
-  %22 = or i1 %21, %20
-  br i1 %22, label %rb_str_new_frozen.exit, label %23
+22:                                               ; preds = %21
+  %23 = and i64 %0, 7
+  %24 = icmp ne i64 %23, 0
+  %25 = icmp eq i64 %0, 0
+  %26 = or i1 %25, %24
+  br i1 %26, label %rb_str_new_frozen.exit, label %27
 
-23:                                               ; preds = %18
-  %24 = load i64, ptr %5, align 8
-  %25 = and i64 %24, 31
-  %26 = icmp eq i64 %25, 27
-  %27 = and i64 %24, 2048
-  %28 = icmp ne i64 %27, 0
-  %or.cond.i = or i1 %26, %28
-  br i1 %or.cond.i, label %rb_str_new_frozen.exit, label %29
+27:                                               ; preds = %22
+  %28 = load i64, ptr %9, align 8
+  %29 = and i64 %28, 31
+  %30 = icmp eq i64 %29, 27
+  %31 = and i64 %28, 2048
+  %32 = icmp ne i64 %31, 0
+  %or.cond.i = or i1 %30, %32
+  br i1 %or.cond.i, label %rb_str_new_frozen.exit, label %33
 
-29:                                               ; preds = %23
-  %30 = tail call i64 @rb_obj_class(i64 noundef %0) #28
-  %31 = tail call fastcc i64 @str_new_frozen_buffer(i64 noundef %30, i64 noundef %0, i32 noundef 1)
+33:                                               ; preds = %27
+  %34 = tail call i64 @rb_obj_class(i64 noundef %0) #28
+  %35 = tail call fastcc i64 @str_new_frozen_buffer(i64 noundef %34, i64 noundef %0, i32 noundef 1)
   br label %rb_str_new_frozen.exit
 
-rb_str_new_frozen.exit:                           ; preds = %18, %23, %29
-  %.0.i = phi i64 [ %31, %29 ], [ %0, %18 ], [ %0, %23 ]
-  store i64 %.0.i, ptr %3, align 8
-  br label %32
+rb_str_new_frozen.exit:                           ; preds = %22, %27, %33
+  %.0.i = phi i64 [ %35, %33 ], [ %0, %22 ], [ %0, %27 ]
+  store i64 %.0.i, ptr %7, align 8
+  br label %36
 
-32:                                               ; preds = %rb_str_new_frozen.exit, %17
-  %33 = phi i64 [ %.0.i, %rb_str_new_frozen.exit ], [ %0, %17 ]
-  %34 = tail call i32 @rb_enc_to_index(ptr noundef %13) #32
-  %35 = icmp eq i32 %34, 1
-  br i1 %35, label %36, label %get_cached_reg_grapheme_cluster.exit.thread
-
-36:                                               ; preds = %32
-  %37 = load ptr, ptr @get_cached_reg_grapheme_cluster.reg_grapheme_cluster_utf8, align 8
-  %.not.i = icmp eq ptr %37, null
-  br i1 %.not.i, label %get_cached_reg_grapheme_cluster.exit, label %get_cached_reg_grapheme_cluster.exit.thread42
-
-get_cached_reg_grapheme_cluster.exit:             ; preds = %36
-  %38 = tail call fastcc ptr @get_reg_grapheme_cluster(ptr noundef %13)
-  store ptr %38, ptr @get_cached_reg_grapheme_cluster.reg_grapheme_cluster_utf8, align 8
+36:                                               ; preds = %rb_str_new_frozen.exit, %21
+  %37 = phi i64 [ %.0.i, %rb_str_new_frozen.exit ], [ %0, %21 ]
+  %38 = tail call fastcc ptr @get_cached_reg_grapheme_cluster(ptr noundef %17)
   %.not33.not = icmp eq ptr %38, null
-  br i1 %.not33.not, label %get_cached_reg_grapheme_cluster.exit.thread, label %get_cached_reg_grapheme_cluster.exit.thread42
+  br i1 %.not33.not, label %39, label %52
 
-get_cached_reg_grapheme_cluster.exit.thread:      ; preds = %32, %get_cached_reg_grapheme_cluster.exit
-  %39 = tail call fastcc ptr @get_reg_grapheme_cluster(ptr noundef %13)
-  br label %get_cached_reg_grapheme_cluster.exit.thread42
+39:                                               ; preds = %36
+  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(i64 90, ptr nonnull %6)
+  %40 = tail call i32 @rb_enc_to_index(ptr noundef %17) #32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %3, ptr noundef nonnull align 1 dereferenceable(3) @__const.get_reg_grapheme_cluster.source_ascii, i64 3, i1 false)
+  %switch.tableidx = add i32 %40, -3
+  %41 = icmp ult i32 %switch.tableidx, 4
+  br i1 %41, label %switch.lookup, label %44
 
-get_cached_reg_grapheme_cluster.exit.thread42:    ; preds = %36, %get_cached_reg_grapheme_cluster.exit.thread, %get_cached_reg_grapheme_cluster.exit
-  %.not33.not40 = phi i1 [ false, %get_cached_reg_grapheme_cluster.exit ], [ true, %get_cached_reg_grapheme_cluster.exit.thread ], [ false, %36 ]
-  %.026 = phi ptr [ %38, %get_cached_reg_grapheme_cluster.exit ], [ %39, %get_cached_reg_grapheme_cluster.exit.thread ], [ %37, %36 ]
-  %40 = inttoptr i64 %33 to ptr
-  %41 = load i64, ptr %40, align 8, !noalias !60
-  %42 = and i64 %41, 8192
-  %.not.i.i = icmp eq i64 %42, 0
-  %43 = getelementptr inbounds i8, ptr %40, i64 24
-  br i1 %.not.i.i, label %RSTRING_END.exit, label %44
+switch.lookup:                                    ; preds = %39
+  %42 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table.rb_str_each_grapheme_cluster_size, i64 0, i64 %42
+  %switch.load = load i64, ptr %switch.gep, align 8
+  %43 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep45 = getelementptr inbounds [4 x ptr], ptr @switch.table.rb_str_each_grapheme_cluster_size.13, i64 0, i64 %43
+  %switch.load46 = load ptr, ptr %switch.gep45, align 8
+  br label %44
 
-44:                                               ; preds = %get_cached_reg_grapheme_cluster.exit.thread42
-  %.sroa.2.0.copyload.i = load ptr, ptr %43, align 8
+44:                                               ; preds = %switch.lookup, %39
+  %.07.i = phi i64 [ 2, %39 ], [ %switch.load, %switch.lookup ]
+  %.0.i34 = phi ptr [ %3, %39 ], [ %switch.load46, %switch.lookup ]
+  %45 = getelementptr i8, ptr %.0.i34, i64 %.07.i
+  %46 = load ptr, ptr @OnigDefaultSyntax, align 8
+  %47 = call i32 @onig_new(ptr noundef nonnull %4, ptr noundef nonnull %.0.i34, ptr noundef %45, i32 noundef 0, ptr noundef %17, ptr noundef %46, ptr noundef nonnull %5) #28
+  %.not.i = icmp eq i32 %47, 0
+  br i1 %.not.i, label %get_reg_grapheme_cluster.exit, label %48
+
+48:                                               ; preds = %44
+  %49 = sext i32 %47 to i64
+  %50 = call i32 (ptr, i64, ...) @onig_error_code_to_str(ptr noundef nonnull %6, i64 noundef %49, ptr noundef nonnull %5) #28
+  call void (ptr, ...) @rb_fatal(ptr noundef nonnull @.str.246, ptr noundef nonnull %6) #33
+  unreachable
+
+get_reg_grapheme_cluster.exit:                    ; preds = %44
+  %51 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 90, ptr nonnull %6)
+  %.pre = load i64, ptr %7, align 8
+  br label %52
+
+52:                                               ; preds = %get_reg_grapheme_cluster.exit, %36
+  %53 = phi i64 [ %37, %36 ], [ %.pre, %get_reg_grapheme_cluster.exit ]
+  %.026 = phi ptr [ %38, %36 ], [ %51, %get_reg_grapheme_cluster.exit ]
+  %54 = inttoptr i64 %53 to ptr
+  %55 = load i64, ptr %54, align 8, !noalias !60
+  %56 = and i64 %55, 8192
+  %.not.i.i = icmp eq i64 %56, 0
+  %57 = getelementptr inbounds i8, ptr %54, i64 24
+  br i1 %.not.i.i, label %RSTRING_END.exit, label %58
+
+58:                                               ; preds = %52
+  %.sroa.2.0.copyload.i = load ptr, ptr %57, align 8
   br label %RSTRING_END.exit
 
-RSTRING_END.exit:                                 ; preds = %get_cached_reg_grapheme_cluster.exit.thread42, %44
-  %.sroa.3.0.i = phi ptr [ %.sroa.2.0.copyload.i, %44 ], [ %43, %get_cached_reg_grapheme_cluster.exit.thread42 ]
-  %.sroa.1.0.in.i = getelementptr inbounds i8, ptr %40, i64 16
+RSTRING_END.exit:                                 ; preds = %52, %58
+  %.sroa.3.0.i = phi ptr [ %.sroa.2.0.copyload.i, %58 ], [ %57, %52 ]
+  %.sroa.1.0.in.i = getelementptr inbounds i8, ptr %54, i64 16
   %.sroa.1.0.i = load i64, ptr %.sroa.1.0.in.i, align 8
-  %45 = getelementptr i8, ptr %.sroa.3.0.i, i64 %.sroa.1.0.i
-  %46 = icmp ult ptr %.sroa.3.0.i, %45
-  br i1 %46, label %.lr.ph, label %._crit_edge
+  %59 = getelementptr i8, ptr %.sroa.3.0.i, i64 %.sroa.1.0.i
+  %60 = icmp ult ptr %.sroa.3.0.i, %59
+  br i1 %60, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %RSTRING_END.exit
-  %47 = ptrtoint ptr %.sroa.3.0.i to i64
+  %61 = ptrtoint ptr %.sroa.3.0.i to i64
   br i1 %.not32, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %enumerator_element.exit.us
-  %.02547.us = phi ptr [ %54, %enumerator_element.exit.us ], [ %.sroa.3.0.i, %.lr.ph ]
-  %48 = tail call i64 @onig_match(ptr noundef %.026, ptr noundef %.02547.us, ptr noundef nonnull %45, ptr noundef %.02547.us, ptr noundef null, i32 noundef 0) #28
-  %49 = icmp slt i64 %48, 1
-  br i1 %49, label %._crit_edge, label %enumerator_element.exit.us
+  %.02540.us = phi ptr [ %69, %enumerator_element.exit.us ], [ %.sroa.3.0.i, %.lr.ph ]
+  %62 = call i64 @onig_match(ptr noundef %.026, ptr noundef %.02540.us, ptr noundef nonnull %59, ptr noundef %.02540.us, ptr noundef null, i32 noundef 0) #28
+  %63 = icmp slt i64 %62, 1
+  br i1 %63, label %._crit_edge, label %enumerator_element.exit.us
 
 enumerator_element.exit.us:                       ; preds = %.lr.ph.split.us
-  %50 = ptrtoint ptr %.02547.us to i64
-  %51 = sub i64 %50, %47
-  %52 = tail call fastcc i64 @str_subseq(i64 noundef %33, i64 noundef %51, i64 noundef %48)
-  tail call fastcc void @rb_enc_cr_str_copy_for_substr(i64 noundef %52, i64 noundef %33)
-  %53 = tail call i64 @rb_yield(i64 noundef %52) #28
-  %54 = getelementptr i8, ptr %.02547.us, i64 %48
-  %55 = icmp ult ptr %54, %45
-  br i1 %55, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !576
+  %64 = load i64, ptr %7, align 8
+  %65 = ptrtoint ptr %.02540.us to i64
+  %66 = sub i64 %65, %61
+  %67 = call fastcc i64 @str_subseq(i64 noundef %64, i64 noundef %66, i64 noundef %62)
+  call fastcc void @rb_enc_cr_str_copy_for_substr(i64 noundef %67, i64 noundef %64)
+  %68 = call i64 @rb_yield(i64 noundef %67) #28
+  %69 = getelementptr i8, ptr %.02540.us, i64 %62
+  %70 = icmp ult ptr %69, %59
+  br i1 %70, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !576
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %enumerator_element.exit
-  %.02547 = phi ptr [ %62, %enumerator_element.exit ], [ %.sroa.3.0.i, %.lr.ph ]
-  %56 = tail call i64 @onig_match(ptr noundef %.026, ptr noundef %.02547, ptr noundef nonnull %45, ptr noundef %.02547, ptr noundef null, i32 noundef 0) #28
-  %57 = icmp slt i64 %56, 1
-  br i1 %57, label %._crit_edge, label %enumerator_element.exit
+  %.02540 = phi ptr [ %78, %enumerator_element.exit ], [ %.sroa.3.0.i, %.lr.ph ]
+  %71 = call i64 @onig_match(ptr noundef %.026, ptr noundef %.02540, ptr noundef nonnull %59, ptr noundef %.02540, ptr noundef null, i32 noundef 0) #28
+  %72 = icmp slt i64 %71, 1
+  br i1 %72, label %._crit_edge, label %enumerator_element.exit
 
 enumerator_element.exit:                          ; preds = %.lr.ph.split
-  %58 = ptrtoint ptr %.02547 to i64
-  %59 = sub i64 %58, %47
-  %60 = tail call fastcc i64 @str_subseq(i64 noundef %33, i64 noundef %59, i64 noundef %56)
-  tail call fastcc void @rb_enc_cr_str_copy_for_substr(i64 noundef %60, i64 noundef %33)
-  %61 = tail call i64 @rb_ary_push(i64 noundef %1, i64 noundef %60) #28
-  %62 = getelementptr i8, ptr %.02547, i64 %56
-  %63 = icmp ult ptr %62, %45
-  br i1 %63, label %.lr.ph.split, label %._crit_edge, !llvm.loop !576
+  %73 = load i64, ptr %7, align 8
+  %74 = ptrtoint ptr %.02540 to i64
+  %75 = sub i64 %74, %61
+  %76 = call fastcc i64 @str_subseq(i64 noundef %73, i64 noundef %75, i64 noundef %71)
+  call fastcc void @rb_enc_cr_str_copy_for_substr(i64 noundef %76, i64 noundef %73)
+  %77 = call i64 @rb_ary_push(i64 noundef %1, i64 noundef %76) #28
+  %78 = getelementptr i8, ptr %.02540, i64 %71
+  %79 = icmp ult ptr %78, %59
+  br i1 %79, label %.lr.ph.split, label %._crit_edge, !llvm.loop !576
 
 ._crit_edge:                                      ; preds = %enumerator_element.exit, %.lr.ph.split, %enumerator_element.exit.us, %.lr.ph.split.us, %RSTRING_END.exit
-  br i1 %.not33.not40, label %64, label %65
+  br i1 %.not33.not, label %80, label %81
 
-64:                                               ; preds = %._crit_edge
-  tail call void @onig_free(ptr noundef %.026) #28
-  br label %65
+80:                                               ; preds = %._crit_edge
+  call void @onig_free(ptr noundef %.026) #28
+  br label %81
 
-65:                                               ; preds = %64, %._crit_edge
-  store ptr %3, ptr %4, align 8
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %4) #28, !srcloc !577
-  %66 = load ptr, ptr %4, align 8
-  %67 = load volatile i64, ptr %66, align 8
+81:                                               ; preds = %80, %._crit_edge
+  store ptr %7, ptr %8, align 8
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %8) #28, !srcloc !577
+  %82 = load ptr, ptr %8, align 8
+  %83 = load volatile i64, ptr %82, align 8
   %. = select i1 %.not32, i64 %0, i64 %1
-  br label %68
+  br label %84
 
-68:                                               ; preds = %65, %15
-  %.0 = phi i64 [ %16, %15 ], [ %., %65 ]
+84:                                               ; preds = %81, %19
+  %.0 = phi i64 [ %20, %19 ], [ %., %81 ]
   ret i64 %.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @get_reg_grapheme_cluster(ptr noundef %0) unnamed_addr #1 {
+define internal fastcc ptr @get_cached_reg_grapheme_cluster(ptr noundef %0) unnamed_addr #1 {
   %2 = alloca [3 x i8], align 1
   %3 = alloca ptr, align 8
   %4 = alloca %struct.OnigErrorInfo, align 8
   %5 = alloca [90 x i8], align 16
   %6 = tail call i32 @rb_enc_to_index(ptr noundef %0) #32
+  %7 = icmp eq i32 %6, 1
+  br i1 %7, label %8, label %23
+
+8:                                                ; preds = %1
+  %9 = load ptr, ptr @get_cached_reg_grapheme_cluster.reg_grapheme_cluster_utf8, align 8
+  %.not = icmp eq ptr %9, null
+  br i1 %.not, label %10, label %23
+
+10:                                               ; preds = %8
+  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(i64 90, ptr nonnull %5)
+  %11 = tail call i32 @rb_enc_to_index(ptr noundef %0) #32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %2, ptr noundef nonnull align 1 dereferenceable(3) @__const.get_reg_grapheme_cluster.source_ascii, i64 3, i1 false)
-  %switch.tableidx = add i32 %6, -3
-  %7 = icmp ult i32 %switch.tableidx, 4
-  br i1 %7, label %switch.lookup, label %10
+  %switch.tableidx = add i32 %11, -3
+  %12 = icmp ult i32 %switch.tableidx, 4
+  br i1 %12, label %switch.lookup, label %15
 
-switch.lookup:                                    ; preds = %1
-  %8 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table.get_reg_grapheme_cluster, i64 0, i64 %8
+switch.lookup:                                    ; preds = %10
+  %13 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table.rb_str_each_grapheme_cluster_size, i64 0, i64 %13
   %switch.load = load i64, ptr %switch.gep, align 8
-  %9 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep9 = getelementptr inbounds [4 x ptr], ptr @switch.table.get_reg_grapheme_cluster.11, i64 0, i64 %9
-  %switch.load10 = load ptr, ptr %switch.gep9, align 8
-  br label %10
+  %14 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep3 = getelementptr inbounds [4 x ptr], ptr @switch.table.rb_str_each_grapheme_cluster_size.13, i64 0, i64 %14
+  %switch.load4 = load ptr, ptr %switch.gep3, align 8
+  br label %15
 
-10:                                               ; preds = %switch.lookup, %1
-  %.07 = phi i64 [ 2, %1 ], [ %switch.load, %switch.lookup ]
-  %.0 = phi ptr [ %2, %1 ], [ %switch.load10, %switch.lookup ]
-  %11 = getelementptr i8, ptr %.0, i64 %.07
-  %12 = load ptr, ptr @OnigDefaultSyntax, align 8
-  %13 = call i32 @onig_new(ptr noundef nonnull %3, ptr noundef nonnull %.0, ptr noundef %11, i32 noundef 0, ptr noundef %0, ptr noundef %12, ptr noundef nonnull %4) #28
-  %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %17, label %14
+15:                                               ; preds = %switch.lookup, %10
+  %.07.i = phi i64 [ 2, %10 ], [ %switch.load, %switch.lookup ]
+  %.0.i = phi ptr [ %2, %10 ], [ %switch.load4, %switch.lookup ]
+  %16 = getelementptr i8, ptr %.0.i, i64 %.07.i
+  %17 = load ptr, ptr @OnigDefaultSyntax, align 8
+  %18 = call i32 @onig_new(ptr noundef nonnull %3, ptr noundef nonnull %.0.i, ptr noundef %16, i32 noundef 0, ptr noundef %0, ptr noundef %17, ptr noundef nonnull %4) #28
+  %.not.i = icmp eq i32 %18, 0
+  br i1 %.not.i, label %get_reg_grapheme_cluster.exit, label %19
 
-14:                                               ; preds = %10
-  %15 = sext i32 %13 to i64
-  %16 = call i32 (ptr, i64, ...) @onig_error_code_to_str(ptr noundef nonnull %5, i64 noundef %15, ptr noundef nonnull %4) #28
+19:                                               ; preds = %15
+  %20 = sext i32 %18 to i64
+  %21 = call i32 (ptr, i64, ...) @onig_error_code_to_str(ptr noundef nonnull %5, i64 noundef %20, ptr noundef nonnull %4) #28
   call void (ptr, ...) @rb_fatal(ptr noundef nonnull @.str.246, ptr noundef nonnull %5) #33
   unreachable
 
-17:                                               ; preds = %10
-  %18 = load ptr, ptr %3, align 8
-  ret ptr %18
+get_reg_grapheme_cluster.exit:                    ; preds = %15
+  %22 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 90, ptr nonnull %5)
+  store ptr %22, ptr @get_cached_reg_grapheme_cluster.reg_grapheme_cluster_utf8, align 8
+  br label %23
+
+23:                                               ; preds = %8, %get_reg_grapheme_cluster.exit, %1
+  %.0 = phi ptr [ null, %1 ], [ %22, %get_reg_grapheme_cluster.exit ], [ %9, %8 ]
+  ret ptr %.0
 }
 
 declare i64 @onig_match(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -36606,117 +36669,148 @@ rb_str_length.exit:                               ; preds = %6, %9
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_str_each_grapheme_cluster_size(i64 noundef %0, i64 %1, i64 %2) #1 {
-  %4 = inttoptr i64 %0 to ptr
-  %5 = load i64, ptr %4, align 8
-  %6 = trunc i64 %5 to i32
-  %7 = lshr i32 %6, 22
-  %8 = and i32 %7, 127
-  %9 = icmp eq i32 %8, 127
-  br i1 %9, label %10, label %get_encoding.exit
+  %4 = alloca [3 x i8], align 1
+  %5 = alloca ptr, align 8
+  %6 = alloca %struct.OnigErrorInfo, align 8
+  %7 = alloca [90 x i8], align 16
+  %8 = inttoptr i64 %0 to ptr
+  %9 = load i64, ptr %8, align 8
+  %10 = trunc i64 %9 to i32
+  %11 = lshr i32 %10, 22
+  %12 = and i32 %11, 127
+  %13 = icmp eq i32 %12, 127
+  br i1 %13, label %14, label %get_encoding.exit
 
-10:                                               ; preds = %3
-  %11 = tail call i32 @rb_enc_get_index(i64 noundef %0) #28
+14:                                               ; preds = %3
+  %15 = tail call i32 @rb_enc_get_index(i64 noundef %0) #28
   br label %get_encoding.exit
 
-get_encoding.exit:                                ; preds = %3, %10
-  %.0.i.i = phi i32 [ %11, %10 ], [ %8, %3 ]
-  %12 = tail call ptr @rb_enc_from_index(i32 noundef %.0.i.i) #28
-  %13 = tail call i32 @rb_enc_unicode_p(ptr noundef %12) #32
-  %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %14, label %22
+get_encoding.exit:                                ; preds = %3, %14
+  %.0.i.i = phi i32 [ %15, %14 ], [ %12, %3 ]
+  %16 = tail call ptr @rb_enc_from_index(i32 noundef %.0.i.i) #28
+  %17 = tail call i32 @rb_enc_unicode_p(ptr noundef %16) #32
+  %.not = icmp eq i32 %17, 0
+  br i1 %.not, label %18, label %26
 
-14:                                               ; preds = %get_encoding.exit
-  %15 = tail call fastcc i64 @str_strlen(i64 noundef %0, ptr noundef null)
-  %16 = add i64 %15, 4611686018427387904
-  %or.cond.i.i = icmp sgt i64 %16, -1
-  br i1 %or.cond.i.i, label %17, label %20
+18:                                               ; preds = %get_encoding.exit
+  %19 = tail call fastcc i64 @str_strlen(i64 noundef %0, ptr noundef null)
+  %20 = add i64 %19, 4611686018427387904
+  %or.cond.i.i = icmp sgt i64 %20, -1
+  br i1 %or.cond.i.i, label %21, label %24
 
-17:                                               ; preds = %14
-  %18 = shl nsw i64 %15, 1
-  %19 = or disjoint i64 %18, 1
+21:                                               ; preds = %18
+  %22 = shl nsw i64 %19, 1
+  %23 = or disjoint i64 %22, 1
   br label %rb_str_length.exit
 
-20:                                               ; preds = %14
-  %21 = tail call i64 @rb_int2big(i64 noundef %15) #28
+24:                                               ; preds = %18
+  %25 = tail call i64 @rb_int2big(i64 noundef %19) #28
   br label %rb_str_length.exit
 
-22:                                               ; preds = %get_encoding.exit
-  %23 = tail call i32 @rb_enc_to_index(ptr noundef %12) #32
-  %24 = icmp eq i32 %23, 1
-  br i1 %24, label %25, label %get_cached_reg_grapheme_cluster.exit.thread
-
-25:                                               ; preds = %22
-  %26 = load ptr, ptr @get_cached_reg_grapheme_cluster.reg_grapheme_cluster_utf8, align 8
-  %.not.i = icmp eq ptr %26, null
-  br i1 %.not.i, label %get_cached_reg_grapheme_cluster.exit, label %get_cached_reg_grapheme_cluster.exit.thread36
-
-get_cached_reg_grapheme_cluster.exit:             ; preds = %25
-  %27 = tail call fastcc ptr @get_reg_grapheme_cluster(ptr noundef %12)
-  store ptr %27, ptr @get_cached_reg_grapheme_cluster.reg_grapheme_cluster_utf8, align 8
+26:                                               ; preds = %get_encoding.exit
+  %27 = tail call fastcc ptr @get_cached_reg_grapheme_cluster(ptr noundef %16)
   %.not28.not = icmp eq ptr %27, null
-  br i1 %.not28.not, label %get_cached_reg_grapheme_cluster.exit.thread, label %get_cached_reg_grapheme_cluster.exit.thread36
+  br i1 %.not28.not, label %28, label %41
 
-get_cached_reg_grapheme_cluster.exit.thread:      ; preds = %22, %get_cached_reg_grapheme_cluster.exit
-  %28 = tail call fastcc ptr @get_reg_grapheme_cluster(ptr noundef %12)
-  br label %get_cached_reg_grapheme_cluster.exit.thread36
+28:                                               ; preds = %26
+  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(i64 90, ptr nonnull %7)
+  %29 = tail call i32 @rb_enc_to_index(ptr noundef %16) #32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %4, ptr noundef nonnull align 1 dereferenceable(3) @__const.get_reg_grapheme_cluster.source_ascii, i64 3, i1 false)
+  %switch.tableidx = add i32 %29, -3
+  %30 = icmp ult i32 %switch.tableidx, 4
+  br i1 %30, label %switch.lookup, label %33
 
-get_cached_reg_grapheme_cluster.exit.thread36:    ; preds = %25, %get_cached_reg_grapheme_cluster.exit.thread, %get_cached_reg_grapheme_cluster.exit
-  %.not28.not34 = phi i1 [ false, %get_cached_reg_grapheme_cluster.exit ], [ true, %get_cached_reg_grapheme_cluster.exit.thread ], [ false, %25 ]
-  %.021 = phi ptr [ %27, %get_cached_reg_grapheme_cluster.exit ], [ %28, %get_cached_reg_grapheme_cluster.exit.thread ], [ %26, %25 ]
-  %29 = load i64, ptr %4, align 8, !noalias !60
-  %30 = and i64 %29, 8192
-  %.not.i.i = icmp eq i64 %30, 0
-  %31 = getelementptr inbounds i8, ptr %4, i64 24
-  br i1 %.not.i.i, label %RSTRING_END.exit, label %32
+switch.lookup:                                    ; preds = %28
+  %31 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table.rb_str_each_grapheme_cluster_size, i64 0, i64 %31
+  %switch.load = load i64, ptr %switch.gep, align 8
+  %32 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep38 = getelementptr inbounds [4 x ptr], ptr @switch.table.rb_str_each_grapheme_cluster_size.13, i64 0, i64 %32
+  %switch.load39 = load ptr, ptr %switch.gep38, align 8
+  br label %33
 
-32:                                               ; preds = %get_cached_reg_grapheme_cluster.exit.thread36
-  %.sroa.2.0.copyload.i = load ptr, ptr %31, align 8
+33:                                               ; preds = %switch.lookup, %28
+  %.07.i = phi i64 [ 2, %28 ], [ %switch.load, %switch.lookup ]
+  %.0.i = phi ptr [ %4, %28 ], [ %switch.load39, %switch.lookup ]
+  %34 = getelementptr i8, ptr %.0.i, i64 %.07.i
+  %35 = load ptr, ptr @OnigDefaultSyntax, align 8
+  %36 = call i32 @onig_new(ptr noundef nonnull %5, ptr noundef nonnull %.0.i, ptr noundef %34, i32 noundef 0, ptr noundef %16, ptr noundef %35, ptr noundef nonnull %6) #28
+  %.not.i = icmp eq i32 %36, 0
+  br i1 %.not.i, label %get_reg_grapheme_cluster.exit, label %37
+
+37:                                               ; preds = %33
+  %38 = sext i32 %36 to i64
+  %39 = call i32 (ptr, i64, ...) @onig_error_code_to_str(ptr noundef nonnull %7, i64 noundef %38, ptr noundef nonnull %6) #28
+  call void (ptr, ...) @rb_fatal(ptr noundef nonnull @.str.246, ptr noundef nonnull %7) #33
+  unreachable
+
+get_reg_grapheme_cluster.exit:                    ; preds = %33
+  %40 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 90, ptr nonnull %7)
+  br label %41
+
+41:                                               ; preds = %get_reg_grapheme_cluster.exit, %26
+  %.021 = phi ptr [ %27, %26 ], [ %40, %get_reg_grapheme_cluster.exit ]
+  %42 = load i64, ptr %8, align 8, !noalias !60
+  %43 = and i64 %42, 8192
+  %.not.i.i = icmp eq i64 %43, 0
+  %44 = getelementptr inbounds i8, ptr %8, i64 24
+  br i1 %.not.i.i, label %RSTRING_END.exit, label %45
+
+45:                                               ; preds = %41
+  %.sroa.2.0.copyload.i = load ptr, ptr %44, align 8
   br label %RSTRING_END.exit
 
-RSTRING_END.exit:                                 ; preds = %get_cached_reg_grapheme_cluster.exit.thread36, %32
-  %.sroa.3.0.i = phi ptr [ %.sroa.2.0.copyload.i, %32 ], [ %31, %get_cached_reg_grapheme_cluster.exit.thread36 ]
-  %.sroa.1.0.in.i = getelementptr inbounds i8, ptr %4, i64 16
+RSTRING_END.exit:                                 ; preds = %41, %45
+  %.sroa.3.0.i = phi ptr [ %.sroa.2.0.copyload.i, %45 ], [ %44, %41 ]
+  %.sroa.1.0.in.i = getelementptr inbounds i8, ptr %8, i64 16
   %.sroa.1.0.i = load i64, ptr %.sroa.1.0.in.i, align 8
-  %33 = getelementptr i8, ptr %.sroa.3.0.i, i64 %.sroa.1.0.i
-  %34 = icmp ult ptr %.sroa.3.0.i, %33
-  br i1 %34, label %.lr.ph, label %._crit_edge
+  %46 = getelementptr i8, ptr %.sroa.3.0.i, i64 %.sroa.1.0.i
+  %47 = icmp ult ptr %.sroa.3.0.i, %46
+  br i1 %47, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %RSTRING_END.exit, %37
-  %.02342 = phi i64 [ %38, %37 ], [ 0, %RSTRING_END.exit ]
-  %.02441 = phi ptr [ %39, %37 ], [ %.sroa.3.0.i, %RSTRING_END.exit ]
-  %35 = tail call i64 @onig_match(ptr noundef %.021, ptr noundef %.02441, ptr noundef nonnull %33, ptr noundef %.02441, ptr noundef null, i32 noundef 0) #28
-  %36 = icmp slt i64 %35, 1
-  br i1 %36, label %._crit_edge, label %37
+.lr.ph:                                           ; preds = %RSTRING_END.exit, %50
+  %.02335 = phi i64 [ %51, %50 ], [ 0, %RSTRING_END.exit ]
+  %.02434 = phi ptr [ %52, %50 ], [ %.sroa.3.0.i, %RSTRING_END.exit ]
+  %48 = call i64 @onig_match(ptr noundef %.021, ptr noundef %.02434, ptr noundef nonnull %46, ptr noundef %.02434, ptr noundef null, i32 noundef 0) #28
+  %49 = icmp slt i64 %48, 1
+  br i1 %49, label %._crit_edge, label %50
 
-37:                                               ; preds = %.lr.ph
-  %38 = add i64 %.02342, 1
-  %39 = getelementptr i8, ptr %.02441, i64 %35
-  %40 = icmp ult ptr %39, %33
-  br i1 %40, label %.lr.ph, label %._crit_edge, !llvm.loop !655
+50:                                               ; preds = %.lr.ph
+  %51 = add i64 %.02335, 1
+  %52 = getelementptr i8, ptr %.02434, i64 %48
+  %53 = icmp ult ptr %52, %46
+  br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !655
 
-._crit_edge:                                      ; preds = %37, %.lr.ph, %RSTRING_END.exit
-  %.023.lcssa = phi i64 [ 0, %RSTRING_END.exit ], [ %.02342, %.lr.ph ], [ %38, %37 ]
-  br i1 %.not28.not34, label %41, label %42
+._crit_edge:                                      ; preds = %50, %.lr.ph, %RSTRING_END.exit
+  %.023.lcssa = phi i64 [ 0, %RSTRING_END.exit ], [ %.02335, %.lr.ph ], [ %51, %50 ]
+  br i1 %.not28.not, label %54, label %55
 
-41:                                               ; preds = %._crit_edge
-  tail call void @onig_free(ptr noundef %.021) #28
-  br label %42
+54:                                               ; preds = %._crit_edge
+  call void @onig_free(ptr noundef %.021) #28
+  br label %55
 
-42:                                               ; preds = %41, %._crit_edge
-  %43 = icmp ult i64 %.023.lcssa, 4611686018427387904
-  br i1 %43, label %44, label %47
+55:                                               ; preds = %54, %._crit_edge
+  %56 = icmp ult i64 %.023.lcssa, 4611686018427387904
+  br i1 %56, label %57, label %60
 
-44:                                               ; preds = %42
-  %45 = shl nuw nsw i64 %.023.lcssa, 1
-  %46 = or disjoint i64 %45, 1
+57:                                               ; preds = %55
+  %58 = shl nuw nsw i64 %.023.lcssa, 1
+  %59 = or disjoint i64 %58, 1
   br label %rb_str_length.exit
 
-47:                                               ; preds = %42
-  %48 = tail call i64 @rb_ull2inum(i64 noundef %.023.lcssa) #28
+60:                                               ; preds = %55
+  %61 = call i64 @rb_ull2inum(i64 noundef %.023.lcssa) #28
   br label %rb_str_length.exit
 
-rb_str_length.exit:                               ; preds = %47, %44, %20, %17
-  %.0 = phi i64 [ %19, %17 ], [ %21, %20 ], [ %46, %44 ], [ %48, %47 ]
+rb_str_length.exit:                               ; preds = %60, %57, %24, %21
+  %.0 = phi i64 [ %23, %21 ], [ %25, %24 ], [ %59, %57 ], [ %61, %60 ]
   ret i64 %.0
 }
 

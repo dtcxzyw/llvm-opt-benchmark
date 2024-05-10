@@ -520,11 +520,11 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define hidden i32 @psa_import_key_into_slot(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #5 {
   %8 = load i16, ptr %0, align 8
   %9 = icmp eq i64 %2, 0
-  br i1 %9, label %30, label %10
+  br i1 %9, label %psa_validate_unstructured_key_bit_size.exit.thread, label %10
 
 10:                                               ; preds = %7
   %11 = and i16 %8, 28672
-  switch i16 %11, label %17 [
+  switch i16 %11, label %20 [
     i16 8192, label %12
     i16 4096, label %12
   ]
@@ -533,41 +533,80 @@ define hidden i32 @psa_import_key_into_slot(ptr noundef %0, ptr noundef %1, i64 
   %13 = shl i64 %2, 3
   store i64 %13, ptr %6, align 8
   %14 = load i16, ptr %0, align 8
-  %15 = tail call i32 @psa_validate_unstructured_key_bit_size(i16 noundef zeroext %14, i64 noundef %13)
-  %.not34 = icmp eq i32 %15, 0
-  br i1 %.not34, label %16, label %30
+  switch i16 %14, label %psa_validate_unstructured_key_bit_size.exit.thread [
+    i16 4097, label %psa_validate_unstructured_key_bit_size.exit
+    i16 4352, label %psa_validate_unstructured_key_bit_size.exit
+    i16 4608, label %psa_validate_unstructured_key_bit_size.exit
+    i16 9216, label %15
+    i16 9222, label %16
+    i16 9219, label %17
+    i16 8961, label %18
+    i16 8196, label %19
+  ]
+
+15:                                               ; preds = %12
+  switch i64 %13, label %psa_validate_unstructured_key_bit_size.exit.thread [
+    i64 256, label %psa_validate_unstructured_key_bit_size.exit
+    i64 192, label %psa_validate_unstructured_key_bit_size.exit
+    i64 128, label %psa_validate_unstructured_key_bit_size.exit
+  ]
 
 16:                                               ; preds = %12
+  switch i64 %13, label %psa_validate_unstructured_key_bit_size.exit.thread [
+    i64 256, label %psa_validate_unstructured_key_bit_size.exit
+    i64 192, label %psa_validate_unstructured_key_bit_size.exit
+    i64 128, label %psa_validate_unstructured_key_bit_size.exit
+  ]
+
+17:                                               ; preds = %12
+  switch i64 %13, label %psa_validate_unstructured_key_bit_size.exit.thread [
+    i64 256, label %psa_validate_unstructured_key_bit_size.exit
+    i64 192, label %psa_validate_unstructured_key_bit_size.exit
+    i64 128, label %psa_validate_unstructured_key_bit_size.exit
+  ]
+
+18:                                               ; preds = %12
+  switch i64 %13, label %psa_validate_unstructured_key_bit_size.exit.thread [
+    i64 192, label %psa_validate_unstructured_key_bit_size.exit
+    i64 128, label %psa_validate_unstructured_key_bit_size.exit
+    i64 64, label %psa_validate_unstructured_key_bit_size.exit
+  ]
+
+19:                                               ; preds = %12
+  %.not.i = icmp eq i64 %13, 256
+  br i1 %.not.i, label %psa_validate_unstructured_key_bit_size.exit, label %psa_validate_unstructured_key_bit_size.exit.thread
+
+psa_validate_unstructured_key_bit_size.exit:      ; preds = %12, %12, %12, %15, %15, %15, %16, %16, %16, %17, %17, %17, %18, %18, %18, %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr align 1 %1, i64 %2, i1 false)
   store i64 %2, ptr %5, align 8
-  br label %30
+  br label %psa_validate_unstructured_key_bit_size.exit.thread
 
-17:                                               ; preds = %10
-  %18 = zext i16 %8 to i32
-  %19 = and i32 %18, 16384
-  %.not33 = icmp eq i32 %19, 0
-  br i1 %.not33, label %30, label %20
-
-20:                                               ; preds = %17
-  %21 = and i32 %18, 52992
-  %22 = icmp eq i32 %21, 16640
-  br i1 %22, label %23, label %25
+20:                                               ; preds = %10
+  %21 = zext i16 %8 to i32
+  %22 = and i32 %21, 16384
+  %.not33 = icmp eq i32 %22, 0
+  br i1 %.not33, label %psa_validate_unstructured_key_bit_size.exit.thread, label %23
 
 23:                                               ; preds = %20
-  %24 = tail call i32 @mbedtls_psa_ecp_import_key(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6) #15
-  br label %30
+  %24 = and i32 %21, 52992
+  %25 = icmp eq i32 %24, 16640
+  br i1 %25, label %26, label %28
 
-25:                                               ; preds = %20
-  %26 = and i32 %18, 53247
-  %27 = icmp eq i32 %26, 16385
-  br i1 %27, label %28, label %30
+26:                                               ; preds = %23
+  %27 = tail call i32 @mbedtls_psa_ecp_import_key(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6) #15
+  br label %psa_validate_unstructured_key_bit_size.exit.thread
 
-28:                                               ; preds = %25
-  %29 = tail call i32 @mbedtls_psa_rsa_import_key(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6) #15
-  br label %30
+28:                                               ; preds = %23
+  %29 = and i32 %21, 53247
+  %30 = icmp eq i32 %29, 16385
+  br i1 %30, label %31, label %psa_validate_unstructured_key_bit_size.exit.thread
 
-30:                                               ; preds = %25, %17, %12, %7, %28, %23, %16
-  %.0 = phi i32 [ 0, %16 ], [ %24, %23 ], [ %29, %28 ], [ -134, %7 ], [ %15, %12 ], [ -134, %17 ], [ -134, %25 ]
+31:                                               ; preds = %28
+  %32 = tail call i32 @mbedtls_psa_rsa_import_key(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6) #15
+  br label %psa_validate_unstructured_key_bit_size.exit.thread
+
+psa_validate_unstructured_key_bit_size.exit.thread: ; preds = %12, %19, %18, %17, %16, %15, %28, %20, %7, %31, %26, %psa_validate_unstructured_key_bit_size.exit
+  %.0 = phi i32 [ 0, %psa_validate_unstructured_key_bit_size.exit ], [ %27, %26 ], [ %32, %31 ], [ -134, %7 ], [ -134, %20 ], [ -134, %28 ], [ -134, %12 ], [ -135, %19 ], [ -135, %18 ], [ -135, %17 ], [ -135, %16 ], [ -135, %15 ]
   ret i32 %.0
 }
 
@@ -7006,239 +7045,285 @@ define hidden i32 @psa_generate_key(ptr noundef %0, ptr nocapture noundef writeo
   %16 = getelementptr inbounds i8, ptr %15, i64 40
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %19, label %._crit_edge72
+  br i1 %18, label %19, label %._crit_edge74
 
-._crit_edge72:                                    ; preds = %14
-  %.phi.trans.insert73 = getelementptr inbounds i8, ptr %15, i64 48
-  %.pre74 = load i64, ptr %.phi.trans.insert73, align 8
-  br label %80
+._crit_edge74:                                    ; preds = %14
+  %.phi.trans.insert75 = getelementptr inbounds i8, ptr %15, i64 48
+  %.pre76 = load i64, ptr %.phi.trans.insert75, align 8
+  br label %88
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds i8, ptr %0, i64 4
   %21 = load i32, ptr %20, align 4
   %22 = icmp ult i32 %21, 256
-  br i1 %22, label %23, label %69
+  br i1 %22, label %23, label %77
 
 23:                                               ; preds = %19
   %24 = load i16, ptr %0, align 8
   %25 = load i16, ptr %6, align 2
   %26 = zext i16 %25 to i64
   %27 = and i16 %24, 28672
-  switch i16 %27, label %30 [
+  switch i16 %27, label %36 [
     i16 8192, label %28
     i16 4096, label %28
   ]
 
 28:                                               ; preds = %23, %23
-  %29 = call i32 @psa_validate_unstructured_key_bit_size(i16 noundef zeroext %24, i64 noundef %26)
-  %.not15.i = icmp eq i32 %29, 0
-  br i1 %.not15.i, label %psa_validate_key_type_and_size_for_key_generation.exit, label %.thread
+  switch i16 %24, label %.thread [
+    i16 4097, label %34
+    i16 4352, label %34
+    i16 4608, label %34
+    i16 9216, label %29
+    i16 9222, label %30
+    i16 9219, label %31
+    i16 8961, label %32
+    i16 8196, label %33
+  ]
 
-30:                                               ; preds = %23
+29:                                               ; preds = %28
+  switch i16 %25, label %.thread [
+    i16 256, label %34
+    i16 192, label %34
+    i16 128, label %34
+  ]
+
+30:                                               ; preds = %28
+  switch i16 %25, label %.thread [
+    i16 256, label %34
+    i16 192, label %34
+    i16 128, label %34
+  ]
+
+31:                                               ; preds = %28
+  switch i16 %25, label %.thread [
+    i16 256, label %34
+    i16 192, label %34
+    i16 128, label %34
+  ]
+
+32:                                               ; preds = %28
+  switch i16 %25, label %.thread [
+    i16 192, label %34
+    i16 128, label %34
+    i16 64, label %34
+  ]
+
+33:                                               ; preds = %28
+  %.not.i.i = icmp eq i16 %25, 256
+  br i1 %.not.i.i, label %psa_validate_key_type_and_size_for_key_generation.exit.thread69, label %.thread
+
+34:                                               ; preds = %32, %32, %32, %31, %31, %31, %30, %30, %30, %29, %29, %29, %28, %28, %28
+  %35 = and i64 %26, 7
+  %.not31.i.i = icmp eq i64 %35, 0
+  br i1 %.not31.i.i, label %psa_validate_key_type_and_size_for_key_generation.exit, label %.thread
+
+36:                                               ; preds = %23
   %or.cond.i = icmp eq i16 %24, 28673
-  br i1 %or.cond.i, label %31, label %34
+  br i1 %or.cond.i, label %37, label %40
 
-31:                                               ; preds = %30
-  %32 = icmp ult i16 %25, 4097
-  %33 = and i64 %26, 7
-  %.not14.i = icmp eq i64 %33, 0
-  %or.cond19.i = and i1 %32, %.not14.i
-  br i1 %or.cond19.i, label %.thread69, label %.thread
+37:                                               ; preds = %36
+  %38 = icmp ult i16 %25, 4097
+  %39 = and i64 %26, 7
+  %.not14.i = icmp eq i64 %39, 0
+  %or.cond19.i = and i1 %38, %.not14.i
+  br i1 %or.cond19.i, label %.thread71, label %.thread
 
-34:                                               ; preds = %30
-  %35 = and i16 %24, -256
-  %or.cond18.i = icmp eq i16 %35, 28928
+40:                                               ; preds = %36
+  %41 = and i16 %24, -256
+  %or.cond18.i = icmp eq i16 %41, 28928
   br i1 %or.cond18.i, label %psa_validate_key_type_and_size_for_key_generation.exit, label %.thread
 
-psa_validate_key_type_and_size_for_key_generation.exit: ; preds = %34, %28
-  switch i16 %27, label %40 [
-    i16 4096, label %36
-    i16 8192, label %36
+psa_validate_key_type_and_size_for_key_generation.exit: ; preds = %40, %34
+  %42 = zext nneg i16 %24 to i32
+  %43 = and i32 %42, 28672
+  switch i32 %43, label %47 [
+    i32 4096, label %psa_validate_key_type_and_size_for_key_generation.exit.thread69
+    i32 8192, label %psa_validate_key_type_and_size_for_key_generation.exit.thread69
   ]
 
-36:                                               ; preds = %psa_validate_key_type_and_size_for_key_generation.exit, %psa_validate_key_type_and_size_for_key_generation.exit
-  %37 = zext i16 %25 to i32
-  %38 = add nuw nsw i32 %37, 7
-  %39 = lshr i32 %38, 3
-  br label %.thread75
+psa_validate_key_type_and_size_for_key_generation.exit.thread69: ; preds = %33, %psa_validate_key_type_and_size_for_key_generation.exit, %psa_validate_key_type_and_size_for_key_generation.exit
+  %44 = zext i16 %25 to i32
+  %45 = add nuw nsw i32 %44, 7
+  %46 = lshr i32 %45, 3
+  br label %.thread77
 
-40:                                               ; preds = %psa_validate_key_type_and_size_for_key_generation.exit
-  switch i16 %24, label %57 [
-    i16 28673, label %.thread69
-    i16 16385, label %46
-    i16 28674, label %49
-    i16 16386, label %53
+47:                                               ; preds = %psa_validate_key_type_and_size_for_key_generation.exit
+  switch i16 %24, label %64 [
+    i16 28673, label %.thread71
+    i16 16385, label %53
+    i16 28674, label %56
+    i16 16386, label %60
   ]
 
-.thread69:                                        ; preds = %31, %40
-  %41 = lshr i16 %25, 1
-  %narrow51 = add nuw i16 %41, 1
-  %42 = lshr i16 %narrow51, 3
-  %narrow52 = add nuw nsw i16 %42, 5
-  %43 = zext nneg i16 %narrow52 to i32
-  %44 = mul nuw nsw i32 %43, 9
-  %45 = add nuw nsw i32 %44, 14
-  br label %.thread75
+.thread71:                                        ; preds = %37, %47
+  %48 = lshr i16 %25, 1
+  %narrow51 = add nuw i16 %48, 1
+  %49 = lshr i16 %narrow51, 3
+  %narrow52 = add nuw nsw i16 %49, 5
+  %50 = zext nneg i16 %narrow52 to i32
+  %51 = mul nuw nsw i32 %50, 9
+  %52 = add nuw nsw i32 %51, 14
+  br label %.thread77
 
-46:                                               ; preds = %40
-  %47 = lshr i16 %25, 3
-  %narrow50 = add nuw nsw i16 %47, 16
-  %48 = zext nneg i16 %narrow50 to i32
-  br label %.thread75
-
-49:                                               ; preds = %40
-  %50 = lshr i16 %25, 3
-  %51 = mul nuw nsw i16 %50, 3
-  %narrow48 = add nuw nsw i16 %51, 90
-  %52 = zext nneg i16 %narrow48 to i32
-  br label %.thread75
-
-53:                                               ; preds = %40
+53:                                               ; preds = %47
   %54 = lshr i16 %25, 3
-  %55 = mul nuw nsw i16 %54, 3
-  %narrow = add nuw nsw i16 %55, 74
-  %56 = zext nneg i16 %narrow to i32
-  br label %.thread75
+  %narrow50 = add nuw nsw i16 %54, 16
+  %55 = zext nneg i16 %narrow50 to i32
+  br label %.thread77
 
-57:                                               ; preds = %40
-  %trunc = and i16 %24, -256
-  switch i16 %trunc, label %.thread75 [
-    i16 28928, label %58
-    i16 16640, label %62
+56:                                               ; preds = %47
+  %57 = lshr i16 %25, 3
+  %58 = mul nuw nsw i16 %57, 3
+  %narrow48 = add nuw nsw i16 %58, 90
+  %59 = zext nneg i16 %narrow48 to i32
+  br label %.thread77
+
+60:                                               ; preds = %47
+  %61 = lshr i16 %25, 3
+  %62 = mul nuw nsw i16 %61, 3
+  %narrow = add nuw nsw i16 %62, 74
+  %63 = zext nneg i16 %narrow to i32
+  br label %.thread77
+
+64:                                               ; preds = %47
+  %65 = and i32 %42, 32512
+  switch i32 %65, label %.thread77 [
+    i32 28928, label %66
+    i32 16640, label %70
   ]
 
-58:                                               ; preds = %57
-  %59 = zext i16 %25 to i32
-  %60 = add nuw nsw i32 %59, 7
-  %61 = lshr i32 %60, 3
-  br label %.thread75
+66:                                               ; preds = %64
+  %67 = zext i16 %25 to i32
+  %68 = add nuw nsw i32 %67, 7
+  %69 = lshr i32 %68, 3
+  br label %.thread77
 
-62:                                               ; preds = %57
-  %63 = zext i16 %25 to i32
-  %64 = add nuw nsw i32 %63, 7
-  %65 = lshr i32 %64, 2
-  %66 = or i32 %65, 1
-  br label %.thread75
+70:                                               ; preds = %64
+  %71 = zext i16 %25 to i32
+  %72 = add nuw nsw i32 %71, 7
+  %73 = lshr i32 %72, 2
+  %74 = or i32 %73, 1
+  br label %.thread77
 
-.thread75:                                        ; preds = %36, %46, %53, %62, %58, %49, %.thread69, %57
-  %67 = phi i32 [ %39, %36 ], [ %45, %.thread69 ], [ %48, %46 ], [ %52, %49 ], [ %56, %53 ], [ %61, %58 ], [ %66, %62 ], [ 0, %57 ]
-  %68 = zext nneg i32 %67 to i64
-  store i64 %68, ptr %5, align 8
-  br label %73
+.thread77:                                        ; preds = %psa_validate_key_type_and_size_for_key_generation.exit.thread69, %53, %60, %70, %66, %56, %.thread71, %64
+  %75 = phi i32 [ %46, %psa_validate_key_type_and_size_for_key_generation.exit.thread69 ], [ %52, %.thread71 ], [ %55, %53 ], [ %59, %56 ], [ %63, %60 ], [ %69, %66 ], [ %74, %70 ], [ 0, %64 ]
+  %76 = zext nneg i32 %75 to i64
+  store i64 %76, ptr %5, align 8
+  br label %81
 
-69:                                               ; preds = %19
-  %70 = call i32 @psa_driver_wrapper_get_key_buffer_size(ptr noundef nonnull %0, ptr noundef nonnull %5) #15
-  %.not43 = icmp eq i32 %70, 0
-  br i1 %.not43, label %71, label %.thread
+77:                                               ; preds = %19
+  %78 = call i32 @psa_driver_wrapper_get_key_buffer_size(ptr noundef nonnull %0, ptr noundef nonnull %5) #15
+  %.not43 = icmp eq i32 %78, 0
+  br i1 %.not43, label %79, label %.thread
 
-71:                                               ; preds = %69
+79:                                               ; preds = %77
   %.pre = load ptr, ptr %3, align 8
-  %.pre70 = load i64, ptr %5, align 8
+  %.pre72 = load i64, ptr %5, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 40
-  %.pre71 = load ptr, ptr %.phi.trans.insert, align 8
-  %72 = icmp eq ptr %.pre71, null
-  br i1 %72, label %73, label %.thread.thread
+  %.pre73 = load ptr, ptr %.phi.trans.insert, align 8
+  %80 = icmp eq ptr %.pre73, null
+  br i1 %80, label %81, label %.thread.thread
 
-73:                                               ; preds = %.thread75, %71
-  %74 = phi ptr [ %15, %.thread75 ], [ %.pre, %71 ]
-  %75 = phi i64 [ %68, %.thread75 ], [ %.pre70, %71 ]
-  %76 = getelementptr inbounds i8, ptr %74, i64 40
-  %77 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %75) #14
-  store ptr %77, ptr %76, align 8
-  %78 = icmp eq ptr %77, null
-  br i1 %78, label %.thread, label %psa_allocate_buffer_to_slot.exit
+81:                                               ; preds = %.thread77, %79
+  %82 = phi ptr [ %15, %.thread77 ], [ %.pre, %79 ]
+  %83 = phi i64 [ %76, %.thread77 ], [ %.pre72, %79 ]
+  %84 = getelementptr inbounds i8, ptr %82, i64 40
+  %85 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %83) #14
+  store ptr %85, ptr %84, align 8
+  %86 = icmp eq ptr %85, null
+  br i1 %86, label %.thread, label %psa_allocate_buffer_to_slot.exit
 
-psa_allocate_buffer_to_slot.exit:                 ; preds = %73
-  %79 = getelementptr inbounds i8, ptr %74, i64 48
-  store i64 %75, ptr %79, align 8
-  br label %80
+psa_allocate_buffer_to_slot.exit:                 ; preds = %81
+  %87 = getelementptr inbounds i8, ptr %82, i64 48
+  store i64 %83, ptr %87, align 8
+  br label %88
 
-80:                                               ; preds = %._crit_edge72, %psa_allocate_buffer_to_slot.exit
-  %81 = phi i64 [ %75, %psa_allocate_buffer_to_slot.exit ], [ %.pre74, %._crit_edge72 ]
-  %82 = phi ptr [ %77, %psa_allocate_buffer_to_slot.exit ], [ %17, %._crit_edge72 ]
-  %83 = phi ptr [ %74, %psa_allocate_buffer_to_slot.exit ], [ %15, %._crit_edge72 ]
-  %84 = getelementptr inbounds i8, ptr %83, i64 48
-  %85 = call i32 @psa_driver_wrapper_generate_key(ptr noundef nonnull %0, ptr noundef nonnull %82, i64 noundef %81, ptr noundef nonnull %84) #15
-  %.not54 = icmp eq i32 %85, 0
-  %86 = load ptr, ptr %3, align 8
-  br i1 %.not54, label %94, label %87
+88:                                               ; preds = %._crit_edge74, %psa_allocate_buffer_to_slot.exit
+  %89 = phi i64 [ %83, %psa_allocate_buffer_to_slot.exit ], [ %.pre76, %._crit_edge74 ]
+  %90 = phi ptr [ %85, %psa_allocate_buffer_to_slot.exit ], [ %17, %._crit_edge74 ]
+  %91 = phi ptr [ %82, %psa_allocate_buffer_to_slot.exit ], [ %15, %._crit_edge74 ]
+  %92 = getelementptr inbounds i8, ptr %91, i64 48
+  %93 = call i32 @psa_driver_wrapper_generate_key(ptr noundef nonnull %0, ptr noundef nonnull %90, i64 noundef %89, ptr noundef nonnull %92) #15
+  %.not54 = icmp eq i32 %93, 0
+  %94 = load ptr, ptr %3, align 8
+  br i1 %.not54, label %102, label %95
 
-87:                                               ; preds = %80
-  %88 = getelementptr inbounds i8, ptr %86, i64 40
-  %89 = load ptr, ptr %88, align 8
-  %.not.i57 = icmp eq ptr %89, null
-  br i1 %.not.i57, label %psa_remove_key_data_from_memory.exit, label %90
+95:                                               ; preds = %88
+  %96 = getelementptr inbounds i8, ptr %94, i64 40
+  %97 = load ptr, ptr %96, align 8
+  %.not.i57 = icmp eq ptr %97, null
+  br i1 %.not.i57, label %psa_remove_key_data_from_memory.exit, label %98
 
-90:                                               ; preds = %87
-  %91 = getelementptr inbounds i8, ptr %86, i64 48
-  %92 = load i64, ptr %91, align 8
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %89, i64 noundef %92) #15
-  %.pre.i = load ptr, ptr %88, align 8
+98:                                               ; preds = %95
+  %99 = getelementptr inbounds i8, ptr %94, i64 48
+  %100 = load i64, ptr %99, align 8
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %97, i64 noundef %100) #15
+  %.pre.i = load ptr, ptr %96, align 8
   br label %psa_remove_key_data_from_memory.exit
 
-psa_remove_key_data_from_memory.exit:             ; preds = %87, %90
-  %93 = phi ptr [ %.pre.i, %90 ], [ null, %87 ]
-  call void @free(ptr noundef %93) #15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %88, i8 0, i64 16, i1 false)
+psa_remove_key_data_from_memory.exit:             ; preds = %95, %98
+  %101 = phi ptr [ %.pre.i, %98 ], [ null, %95 ]
+  call void @free(ptr noundef %101) #15
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %96, i8 0, i64 16, i1 false)
   br label %.thread
 
-94:                                               ; preds = %80
-  %95 = getelementptr inbounds i8, ptr %86, i64 4
-  %96 = load i32, ptr %95, align 4
-  %97 = and i32 %96, 255
-  %98 = icmp eq i32 %97, 0
-  br i1 %98, label %.thread.i, label %99
+102:                                              ; preds = %88
+  %103 = getelementptr inbounds i8, ptr %94, i64 4
+  %104 = load i32, ptr %103, align 4
+  %105 = and i32 %104, 255
+  %106 = icmp eq i32 %105, 0
+  br i1 %106, label %.thread.i, label %107
 
-99:                                               ; preds = %94
-  %100 = getelementptr inbounds i8, ptr %86, i64 40
-  %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %86, i64 48
-  %103 = load i64, ptr %102, align 8
-  %104 = call i32 @psa_save_persistent_key(ptr noundef nonnull %86, ptr noundef %101, i64 noundef %103) #15
-  %105 = icmp eq i32 %104, 0
-  br i1 %105, label %.thread.i, label %.thread
+107:                                              ; preds = %102
+  %108 = getelementptr inbounds i8, ptr %94, i64 40
+  %109 = load ptr, ptr %108, align 8
+  %110 = getelementptr inbounds i8, ptr %94, i64 48
+  %111 = load i64, ptr %110, align 8
+  %112 = call i32 @psa_save_persistent_key(ptr noundef nonnull %94, ptr noundef %109, i64 noundef %111) #15
+  %113 = icmp eq i32 %112, 0
+  br i1 %113, label %.thread.i, label %.thread
 
-.thread.i:                                        ; preds = %99, %94
-  %106 = getelementptr inbounds i8, ptr %86, i64 8
-  %107 = load i32, ptr %106, align 8
-  store i32 %107, ptr %1, align 4
-  %108 = call i32 @psa_unlock_key_slot(ptr noundef nonnull %86) #15
-  %.not.i58 = icmp eq i32 %108, 0
-  br i1 %.not.i58, label %psa_finish_key_creation.exit, label %109
+.thread.i:                                        ; preds = %107, %102
+  %114 = getelementptr inbounds i8, ptr %94, i64 8
+  %115 = load i32, ptr %114, align 8
+  store i32 %115, ptr %1, align 4
+  %116 = call i32 @psa_unlock_key_slot(ptr noundef nonnull %94) #15
+  %.not.i58 = icmp eq i32 %116, 0
+  br i1 %.not.i58, label %psa_finish_key_creation.exit, label %117
 
-109:                                              ; preds = %.thread.i
+117:                                              ; preds = %.thread.i
   store i32 0, ptr %1, align 4
   br label %.thread
 
-.thread:                                          ; preds = %73, %34, %31, %28, %69, %psa_remove_key_data_from_memory.exit, %12, %109, %99
-  %.1.ph.ph = phi i32 [ -141, %73 ], [ %29, %28 ], [ -134, %31 ], [ -134, %34 ], [ %13, %12 ], [ %85, %psa_remove_key_data_from_memory.exit ], [ %70, %69 ], [ %108, %109 ], [ %104, %99 ]
+.thread:                                          ; preds = %81, %29, %30, %31, %32, %33, %28, %34, %40, %37, %77, %psa_remove_key_data_from_memory.exit, %12, %117, %107
+  %.1.ph.ph = phi i32 [ -141, %81 ], [ -134, %37 ], [ -134, %40 ], [ -135, %34 ], [ -134, %28 ], [ -135, %33 ], [ -135, %32 ], [ -135, %31 ], [ -135, %30 ], [ -135, %29 ], [ %13, %12 ], [ %93, %psa_remove_key_data_from_memory.exit ], [ %78, %77 ], [ %116, %117 ], [ %112, %107 ]
   %.pr = load ptr, ptr %3, align 8
-  %110 = icmp eq ptr %.pr, null
-  br i1 %110, label %psa_finish_key_creation.exit, label %.thread.thread
+  %118 = icmp eq ptr %.pr, null
+  br i1 %118, label %psa_finish_key_creation.exit, label %.thread.thread
 
-.thread.thread:                                   ; preds = %71, %.thread
-  %.1.ph78 = phi i32 [ %.1.ph.ph, %.thread ], [ -139, %71 ]
-  %111 = phi ptr [ %.pr, %.thread ], [ %.pre, %71 ]
-  %112 = getelementptr inbounds i8, ptr %111, i64 40
-  %113 = load ptr, ptr %112, align 8
-  %.not.i.i.i = icmp eq ptr %113, null
-  br i1 %.not.i.i.i, label %psa_wipe_key_slot.exit.i, label %114
+.thread.thread:                                   ; preds = %79, %.thread
+  %.1.ph80 = phi i32 [ %.1.ph.ph, %.thread ], [ -139, %79 ]
+  %119 = phi ptr [ %.pr, %.thread ], [ %.pre, %79 ]
+  %120 = getelementptr inbounds i8, ptr %119, i64 40
+  %121 = load ptr, ptr %120, align 8
+  %.not.i.i.i = icmp eq ptr %121, null
+  br i1 %.not.i.i.i, label %psa_wipe_key_slot.exit.i, label %122
 
-114:                                              ; preds = %.thread.thread
-  %115 = getelementptr inbounds i8, ptr %111, i64 48
-  %116 = load i64, ptr %115, align 8
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %113, i64 noundef %116) #15
-  %.pre.i.i.i = load ptr, ptr %112, align 8
+122:                                              ; preds = %.thread.thread
+  %123 = getelementptr inbounds i8, ptr %119, i64 48
+  %124 = load i64, ptr %123, align 8
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %121, i64 noundef %124) #15
+  %.pre.i.i.i = load ptr, ptr %120, align 8
   br label %psa_wipe_key_slot.exit.i
 
-psa_wipe_key_slot.exit.i:                         ; preds = %114, %.thread.thread
-  %117 = phi ptr [ %.pre.i.i.i, %114 ], [ null, %.thread.thread ]
-  call void @free(ptr noundef %117) #15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %111, i8 0, i64 56, i1 false)
+psa_wipe_key_slot.exit.i:                         ; preds = %122, %.thread.thread
+  %125 = phi ptr [ %.pre.i.i.i, %122 ], [ null, %.thread.thread ]
+  call void @free(ptr noundef %125) #15
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %119, i8 0, i64 56, i1 false)
   br label %psa_finish_key_creation.exit
 
 psa_finish_key_creation.exit:                     ; preds = %psa_wipe_key_slot.exit.i, %.thread, %.thread.i, %8, %2
-  %.033 = phi i32 [ -135, %2 ], [ -135, %8 ], [ 0, %.thread.i ], [ %.1.ph.ph, %.thread ], [ %.1.ph78, %psa_wipe_key_slot.exit.i ]
+  %.033 = phi i32 [ -135, %2 ], [ -135, %8 ], [ 0, %.thread.i ], [ %.1.ph.ph, %.thread ], [ %.1.ph80, %psa_wipe_key_slot.exit.i ]
   ret i32 %.033
 }
 

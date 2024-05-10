@@ -2017,8 +2017,66 @@ define dso_local noundef i32 @netlbl_domhsh_remove(ptr noundef readonly %0, i16 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @netlbl_domhsh_remove_default(i16 noundef zeroext %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
-  %3 = tail call i32 @netlbl_domhsh_remove(ptr noundef null, i16 noundef zeroext %0, ptr noundef %1)
-  ret i32 %3
+  tail call void @__rcu_read_lock() #10
+  switch i16 %0, label %13 [
+    i16 2, label %3
+    i16 0, label %3
+  ]
+
+3:                                                ; preds = %2, %2
+  %4 = load volatile ptr, ptr @netlbl_domhsh_def_ipv4, align 8
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %10, label %6
+
+6:                                                ; preds = %3
+  %7 = getelementptr inbounds i8, ptr %4, i64 28
+  %8 = load i32, ptr %7, align 4
+  %9 = icmp eq i32 %8, 0
+  br i1 %9, label %10, label %.loopexit10.i
+
+10:                                               ; preds = %6, %3
+  br label %.loopexit10.i
+
+.loopexit10.i:                                    ; preds = %10, %6
+  %11 = phi ptr [ null, %10 ], [ %4, %6 ]
+  %12 = tail call i32 @netlbl_domhsh_remove_entry(ptr noundef %11, ptr noundef %1), !range !37
+  switch i32 %12, label %netlbl_domhsh_remove.exit [
+    i32 -2, label %13
+    i32 0, label %13
+  ]
+
+13:                                               ; preds = %.loopexit10.i, %.loopexit10.i, %2
+  %14 = phi i32 [ %12, %.loopexit10.i ], [ -22, %2 ], [ %12, %.loopexit10.i ]
+  switch i16 %0, label %netlbl_domhsh_remove.exit [
+    i16 10, label %15
+    i16 0, label %15
+  ]
+
+15:                                               ; preds = %13, %13
+  %16 = load volatile ptr, ptr @netlbl_domhsh_def_ipv6, align 8
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %22, label %18
+
+18:                                               ; preds = %15
+  %19 = getelementptr inbounds i8, ptr %16, i64 28
+  %20 = load i32, ptr %19, align 4
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %22, label %.loopexit.i
+
+22:                                               ; preds = %18, %15
+  br label %.loopexit.i
+
+.loopexit.i:                                      ; preds = %22, %18
+  %23 = phi ptr [ null, %22 ], [ %16, %18 ]
+  %24 = tail call i32 @netlbl_domhsh_remove_entry(ptr noundef %23, ptr noundef %1), !range !37
+  %25 = icmp eq i32 %24, -2
+  %26 = select i1 %25, i32 %14, i32 %24
+  br label %netlbl_domhsh_remove.exit
+
+netlbl_domhsh_remove.exit:                        ; preds = %.loopexit10.i, %13, %.loopexit.i
+  %27 = phi i32 [ %12, %.loopexit10.i ], [ %26, %.loopexit.i ], [ %14, %13 ]
+  tail call void @__rcu_read_unlock() #10
+  ret i32 %27
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid

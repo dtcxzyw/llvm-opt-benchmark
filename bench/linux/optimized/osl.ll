@@ -189,46 +189,60 @@ define internal noundef i32 @acpi_reserve_resources() #0 section ".init.text" al
   tail call fastcc void @acpi_request_region(i8 %.val6, i64 %.val7, i32 noundef %8, ptr noundef nonnull @.str.25) #19
   %9 = load i8, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 22), align 1
   %10 = icmp eq i8 %9, 4
-  br i1 %10, label %11, label %12
+  br i1 %10, label %11, label %acpi_request_region.exit
 
 11:                                               ; preds = %0
-  %.val8 = load i8, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 50), align 1
   %.val9 = load i64, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 50, i32 4), align 1
-  tail call fastcc void @acpi_request_region(i8 %.val8, i64 %.val9, i32 noundef 4, ptr noundef nonnull @.str.26) #19
-  br label %12
+  %.not = icmp eq i64 %.val9, 0
+  br i1 %.not, label %acpi_request_region.exit, label %12
 
-12:                                               ; preds = %11, %0
-  %13 = load i8, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 21), align 1
-  %14 = zext i8 %13 to i32
+12:                                               ; preds = %11
+  %.val8 = load i8, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 50), align 1
+  switch i8 %.val8, label %acpi_request_region.exit [
+    i8 1, label %14
+    i8 0, label %13
+  ]
+
+13:                                               ; preds = %12
+  br label %14
+
+14:                                               ; preds = %13, %12
+  %15 = phi ptr [ @iomem_resource, %13 ], [ @ioport_resource, %12 ]
+  %16 = tail call ptr @__request_region(ptr noundef nonnull %15, i64 noundef %.val9, i64 noundef 4, ptr noundef nonnull @.str.26, i32 noundef 0) #20
+  br label %acpi_request_region.exit
+
+acpi_request_region.exit:                         ; preds = %14, %12, %11, %0
+  %17 = load i8, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 21), align 1
+  %18 = zext i8 %17 to i32
   %.val10 = load i8, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 49), align 1
   %.val11 = load i64, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 49, i32 4), align 1
-  tail call fastcc void @acpi_request_region(i8 %.val10, i64 %.val11, i32 noundef %14, ptr noundef nonnull @.str.27) #19
-  %15 = load i8, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 23), align 1
-  %16 = zext i8 %15 to i32
-  %17 = and i32 %16, 1
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %20
+  tail call fastcc void @acpi_request_region(i8 %.val10, i64 %.val11, i32 noundef %18, ptr noundef nonnull @.str.27) #19
+  %19 = load i8, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 23), align 1
+  %20 = zext i8 %19 to i32
+  %21 = and i32 %20, 1
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %23, label %24
 
-19:                                               ; preds = %12
+23:                                               ; preds = %acpi_request_region.exit
   %.val12 = load i8, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 51), align 1
   %.val13 = load i64, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 51, i32 4), align 1
-  tail call fastcc void @acpi_request_region(i8 %.val12, i64 %.val13, i32 noundef %16, ptr noundef nonnull @.str.28) #19
-  br label %20
+  tail call fastcc void @acpi_request_region(i8 %.val12, i64 %.val13, i32 noundef %20, ptr noundef nonnull @.str.28) #19
+  br label %24
 
-20:                                               ; preds = %19, %12
-  %21 = load i8, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 24), align 1
-  %22 = zext i8 %21 to i32
-  %23 = and i32 %22, 1
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %25, label %26
+24:                                               ; preds = %23, %acpi_request_region.exit
+  %25 = load i8, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 24), align 1
+  %26 = zext i8 %25 to i32
+  %27 = and i32 %26, 1
+  %28 = icmp eq i32 %27, 0
+  br i1 %28, label %29, label %30
 
-25:                                               ; preds = %20
+29:                                               ; preds = %24
   %.val14 = load i8, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 52), align 1
   %.val15 = load i64, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 52, i32 4), align 1
-  tail call fastcc void @acpi_request_region(i8 %.val14, i64 %.val15, i32 noundef %22, ptr noundef nonnull @.str.29) #19
-  br label %26
+  tail call fastcc void @acpi_request_region(i8 %.val14, i64 %.val15, i32 noundef %26, ptr noundef nonnull @.str.29) #19
+  br label %30
 
-26:                                               ; preds = %25, %20
+30:                                               ; preds = %29, %24
   ret i32 0
 }
 

@@ -3725,6 +3725,8 @@ xor_prov_free_key.exit:                           ; preds = %for.cond.i.i, %xor_
 ; Function Attrs: nounwind uwtable
 define internal i32 @xorhmacsig_to_SubjectPublicKeyInfo_pem_encode(ptr nocapture noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
+  %str.i = alloca ptr, align 8
+  %strtype.i = alloca i32, align 4
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -3764,11 +3766,52 @@ if.then6.i:                                       ; preds = %if.else.i
   store ptr %cb, ptr %pwcb7.i, align 8
   %pwcbarg8.i = getelementptr inbounds i8, ptr %ctx, i64 32
   store ptr %cbarg, ptr %pwcbarg8.i, align 8
-  %call9.i = tail call fastcc i32 @key_to_spki_pem_pub_bio(ptr noundef nonnull %call4.i, ptr noundef nonnull %key, i32 noundef %call.i, ptr noundef nonnull @prepare_xorx_params, ptr noundef nonnull @xorx_spki_pub_to_der, ptr noundef nonnull %ctx) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %str.i)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %strtype.i)
+  store ptr null, ptr %str.i, align 8
+  store i32 -1, ptr %strtype.i, align 4
+  %call.i1 = call i32 @prepare_xorx_params(ptr noundef nonnull %key, i32 noundef %call.i, i32 poison, ptr noundef nonnull %str.i, ptr noundef nonnull %strtype.i) #14
+  %tobool.not.i = icmp eq i32 %call.i1, 0
+  br i1 %tobool.not.i, label %key_to_spki_pem_pub_bio.exit, label %land.lhs.true.if.end_crit_edge.i
+
+land.lhs.true.if.end_crit_edge.i:                 ; preds = %if.then6.i
+  %.pre.i = load i32, ptr %strtype.i, align 4
+  %call1.i = tail call fastcc ptr @xorx_key_to_pubkey(ptr noundef nonnull %key, i32 noundef %call.i, ptr noundef nonnull readonly @xorx_spki_pub_to_der)
+  %cmp2.not.i = icmp eq ptr %call1.i, null
+  br i1 %cmp2.not.i, label %if.else.i5, label %if.then3.i
+
+if.then3.i:                                       ; preds = %land.lhs.true.if.end_crit_edge.i
+  %call4.i3 = tail call i32 @PEM_write_bio_X509_PUBKEY(ptr noundef nonnull %call4.i, ptr noundef nonnull %call1.i) #14
+  br label %if.end5.i
+
+if.else.i5:                                       ; preds = %land.lhs.true.if.end_crit_edge.i
+  %2 = load ptr, ptr %str.i, align 8
+  switch i32 %.pre.i, label %if.end5.i [
+    i32 6, label %sw.bb.i.i
+    i32 16, label %sw.bb1.i.i
+  ]
+
+sw.bb.i.i:                                        ; preds = %if.else.i5
+  tail call void @ASN1_OBJECT_free(ptr noundef %2) #14
+  br label %if.end5.i
+
+sw.bb1.i.i:                                       ; preds = %if.else.i5
+  tail call void @ASN1_STRING_free(ptr noundef %2) #14
+  br label %if.end5.i
+
+if.end5.i:                                        ; preds = %sw.bb1.i.i, %sw.bb.i.i, %if.else.i5, %if.then3.i
+  %ret.0.i4 = phi i32 [ %call4.i3, %if.then3.i ], [ 0, %if.else.i5 ], [ 0, %sw.bb.i.i ], [ 0, %sw.bb1.i.i ]
+  tail call void @X509_PUBKEY_free(ptr noundef %call1.i) #14
+  br label %key_to_spki_pem_pub_bio.exit
+
+key_to_spki_pem_pub_bio.exit:                     ; preds = %if.then6.i, %if.end5.i
+  %retval.0.i = phi i32 [ %ret.0.i4, %if.end5.i ], [ 0, %if.then6.i ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %str.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %strtype.i)
   br label %if.end.i
 
-if.end.i:                                         ; preds = %if.then6.i, %if.else.i
-  %ret.0.i = phi i32 [ %call9.i, %if.then6.i ], [ 0, %if.else.i ]
+if.end.i:                                         ; preds = %key_to_spki_pem_pub_bio.exit, %if.else.i
+  %ret.0.i = phi i32 [ %retval.0.i, %key_to_spki_pem_pub_bio.exit ], [ 0, %if.else.i ]
   %call10.i = tail call i32 @BIO_free(ptr noundef %call4.i) #14
   br label %return
 
@@ -3780,58 +3823,6 @@ if.end3:                                          ; preds = %if.end
 
 return:                                           ; preds = %if.end.i, %if.then.i, %if.end3, %if.then
   %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.end3 ], [ 0, %if.then.i ], [ %ret.0.i, %if.end.i ]
-  ret i32 %retval.0
-}
-
-; Function Attrs: nounwind uwtable
-define internal fastcc i32 @key_to_spki_pem_pub_bio(ptr noundef %out, ptr noundef %key, i32 noundef %key_nid, ptr noundef readonly %p2s, ptr nocapture noundef readonly %k2d, ptr nocapture noundef readonly %ctx) unnamed_addr #0 {
-entry:
-  %str = alloca ptr, align 8
-  %strtype = alloca i32, align 4
-  store ptr null, ptr %str, align 8
-  store i32 -1, ptr %strtype, align 4
-  %cmp.not = icmp eq ptr %p2s, null
-  br i1 %cmp.not, label %if.end, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %entry
-  %save_parameters = getelementptr inbounds i8, ptr %ctx, i64 8
-  %0 = load i32, ptr %save_parameters, align 8
-  %call = call i32 %p2s(ptr noundef %key, i32 noundef %key_nid, i32 noundef %0, ptr noundef nonnull %str, ptr noundef nonnull %strtype) #14
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %return, label %if.end
-
-if.end:                                           ; preds = %land.lhs.true, %entry
-  %call1 = call fastcc ptr @xorx_key_to_pubkey(ptr noundef %key, i32 noundef %key_nid, ptr noundef %k2d)
-  %cmp2.not = icmp eq ptr %call1, null
-  br i1 %cmp2.not, label %if.else, label %if.then3
-
-if.then3:                                         ; preds = %if.end
-  %call4 = call i32 @PEM_write_bio_X509_PUBKEY(ptr noundef %out, ptr noundef nonnull %call1) #14
-  br label %if.end5
-
-if.else:                                          ; preds = %if.end
-  %1 = load i32, ptr %strtype, align 4
-  %2 = load ptr, ptr %str, align 8
-  switch i32 %1, label %if.end5 [
-    i32 6, label %sw.bb.i
-    i32 16, label %sw.bb1.i
-  ]
-
-sw.bb.i:                                          ; preds = %if.else
-  call void @ASN1_OBJECT_free(ptr noundef %2) #14
-  br label %if.end5
-
-sw.bb1.i:                                         ; preds = %if.else
-  call void @ASN1_STRING_free(ptr noundef %2) #14
-  br label %if.end5
-
-if.end5:                                          ; preds = %sw.bb1.i, %sw.bb.i, %if.else, %if.then3
-  %ret.0 = phi i32 [ %call4, %if.then3 ], [ 0, %if.else ], [ 0, %sw.bb.i ], [ 0, %sw.bb1.i ]
-  call void @X509_PUBKEY_free(ptr noundef %call1) #14
-  br label %return
-
-return:                                           ; preds = %land.lhs.true, %if.end5
-  %retval.0 = phi i32 [ %ret.0, %if.end5 ], [ 0, %land.lhs.true ]
   ret i32 %retval.0
 }
 
@@ -5003,6 +4994,8 @@ xor_prov_free_key.exit:                           ; preds = %for.cond.i.i, %xor_
 ; Function Attrs: nounwind uwtable
 define internal i32 @xorhmacsha2sig_to_SubjectPublicKeyInfo_pem_encode(ptr nocapture noundef %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr noundef %cb, ptr noundef %cbarg) #0 {
 entry:
+  %str.i = alloca ptr, align 8
+  %strtype.i = alloca i32, align 4
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -5042,11 +5035,52 @@ if.then6.i:                                       ; preds = %if.else.i
   store ptr %cb, ptr %pwcb7.i, align 8
   %pwcbarg8.i = getelementptr inbounds i8, ptr %ctx, i64 32
   store ptr %cbarg, ptr %pwcbarg8.i, align 8
-  %call9.i = tail call fastcc i32 @key_to_spki_pem_pub_bio(ptr noundef nonnull %call4.i, ptr noundef nonnull %key, i32 noundef %call.i, ptr noundef nonnull @prepare_xorx_params, ptr noundef nonnull @xorx_spki_pub_to_der, ptr noundef nonnull %ctx) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %str.i)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %strtype.i)
+  store ptr null, ptr %str.i, align 8
+  store i32 -1, ptr %strtype.i, align 4
+  %call.i1 = call i32 @prepare_xorx_params(ptr noundef nonnull %key, i32 noundef %call.i, i32 poison, ptr noundef nonnull %str.i, ptr noundef nonnull %strtype.i) #14
+  %tobool.not.i = icmp eq i32 %call.i1, 0
+  br i1 %tobool.not.i, label %key_to_spki_pem_pub_bio.exit, label %land.lhs.true.if.end_crit_edge.i
+
+land.lhs.true.if.end_crit_edge.i:                 ; preds = %if.then6.i
+  %.pre.i = load i32, ptr %strtype.i, align 4
+  %call1.i = tail call fastcc ptr @xorx_key_to_pubkey(ptr noundef nonnull %key, i32 noundef %call.i, ptr noundef nonnull readonly @xorx_spki_pub_to_der)
+  %cmp2.not.i = icmp eq ptr %call1.i, null
+  br i1 %cmp2.not.i, label %if.else.i5, label %if.then3.i
+
+if.then3.i:                                       ; preds = %land.lhs.true.if.end_crit_edge.i
+  %call4.i3 = tail call i32 @PEM_write_bio_X509_PUBKEY(ptr noundef nonnull %call4.i, ptr noundef nonnull %call1.i) #14
+  br label %if.end5.i
+
+if.else.i5:                                       ; preds = %land.lhs.true.if.end_crit_edge.i
+  %2 = load ptr, ptr %str.i, align 8
+  switch i32 %.pre.i, label %if.end5.i [
+    i32 6, label %sw.bb.i.i
+    i32 16, label %sw.bb1.i.i
+  ]
+
+sw.bb.i.i:                                        ; preds = %if.else.i5
+  tail call void @ASN1_OBJECT_free(ptr noundef %2) #14
+  br label %if.end5.i
+
+sw.bb1.i.i:                                       ; preds = %if.else.i5
+  tail call void @ASN1_STRING_free(ptr noundef %2) #14
+  br label %if.end5.i
+
+if.end5.i:                                        ; preds = %sw.bb1.i.i, %sw.bb.i.i, %if.else.i5, %if.then3.i
+  %ret.0.i4 = phi i32 [ %call4.i3, %if.then3.i ], [ 0, %if.else.i5 ], [ 0, %sw.bb.i.i ], [ 0, %sw.bb1.i.i ]
+  tail call void @X509_PUBKEY_free(ptr noundef %call1.i) #14
+  br label %key_to_spki_pem_pub_bio.exit
+
+key_to_spki_pem_pub_bio.exit:                     ; preds = %if.then6.i, %if.end5.i
+  %retval.0.i = phi i32 [ %ret.0.i4, %if.end5.i ], [ 0, %if.then6.i ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %str.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %strtype.i)
   br label %if.end.i
 
-if.end.i:                                         ; preds = %if.then6.i, %if.else.i
-  %ret.0.i = phi i32 [ %call9.i, %if.then6.i ], [ 0, %if.else.i ]
+if.end.i:                                         ; preds = %key_to_spki_pem_pub_bio.exit, %if.else.i
+  %ret.0.i = phi i32 [ %retval.0.i, %key_to_spki_pem_pub_bio.exit ], [ 0, %if.else.i ]
   %call10.i = tail call i32 @BIO_free(ptr noundef %call4.i) #14
   br label %return
 

@@ -719,55 +719,35 @@ declare i64 @rb_thread_local_aset(i64 noundef, i64 noundef, i64 noundef) local_u
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef i32 @rb_proc_exec(ptr noundef nonnull %0) local_unnamed_addr #1 {
   tail call void @rb_thread_stop_timer_thread() #26
-  %2 = tail call fastcc i32 @proc_exec_sh(ptr noundef nonnull %0, i64 noundef 0)
-  tail call void @rb_thread_reset_timer_thread() #26
-  tail call void @rb_thread_start_timer_thread() #26
-  %3 = tail call ptr @rb_errno_ptr() #26
-  store i32 %2, ptr %3, align 4
-  ret i32 -1
-}
+  br label %2
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @proc_exec_sh(ptr noundef %0, i64 noundef %1) unnamed_addr #1 {
-  br label %3
-
-3:                                                ; preds = %.critedge, %2
-  %.0 = phi ptr [ %0, %2 ], [ %5, %.critedge ]
-  %4 = load i8, ptr %.0, align 1
-  switch i8 %4, label %6 [
-    i8 32, label %.critedge
-    i8 9, label %.critedge
-    i8 10, label %.critedge
-    i8 0, label %.loopexit
+2:                                                ; preds = %.critedge.i, %1
+  %.0.i = phi ptr [ %0, %1 ], [ %4, %.critedge.i ]
+  %3 = load i8, ptr %.0.i, align 1
+  switch i8 %3, label %5 [
+    i8 32, label %.critedge.i
+    i8 9, label %.critedge.i
+    i8 10, label %.critedge.i
+    i8 0, label %proc_exec_sh.exit
   ]
 
-.critedge:                                        ; preds = %3, %3, %3
-  %5 = getelementptr i8, ptr %.0, i64 1
-  br label %3, !llvm.loop !10
+.critedge.i:                                      ; preds = %2, %2, %2
+  %4 = getelementptr i8, ptr %.0.i, i64 1
+  br label %2, !llvm.loop !10
 
-6:                                                ; preds = %3
-  %.not13 = icmp eq i64 %1, 0
-  br i1 %.not13, label %12, label %7
+5:                                                ; preds = %2
+  %6 = tail call i32 (ptr, ptr, ...) @execl(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.177, ptr noundef nonnull @.str.178, ptr noundef nonnull %0, ptr noundef null) #26
+  %7 = tail call ptr @rb_errno_ptr() #26
+  %8 = load i32, ptr %7, align 4
+  br label %proc_exec_sh.exit
 
-7:                                                ; preds = %6
-  %8 = inttoptr i64 %1 to ptr
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
-  %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 (ptr, ptr, ...) @execle(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.177, ptr noundef nonnull @.str.178, ptr noundef %0, ptr noundef null, ptr noundef %10) #26
-  br label %14
-
-12:                                               ; preds = %6
-  %13 = tail call i32 (ptr, ptr, ...) @execl(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.177, ptr noundef nonnull @.str.178, ptr noundef %0, ptr noundef null) #26
-  br label %14
-
-14:                                               ; preds = %12, %7
-  %15 = tail call ptr @rb_errno_ptr() #26
-  %16 = load i32, ptr %15, align 4
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %3, %14
-  %.010 = phi i32 [ %16, %14 ], [ 2, %3 ]
-  ret i32 %.010
+proc_exec_sh.exit:                                ; preds = %2, %5
+  %.010.i = phi i32 [ %8, %5 ], [ 2, %2 ]
+  tail call void @rb_thread_reset_timer_thread() #26
+  tail call void @rb_thread_start_timer_thread() #26
+  %9 = tail call ptr @rb_errno_ptr() #26
+  store i32 %.010.i, ptr %9, align 4
+  ret i32 -1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -3563,14 +3543,14 @@ define internal fastcc i32 @exec_async_signal_safe(ptr nocapture noundef readonl
 6:                                                ; preds = %3
   %7 = tail call ptr @rb_errno_ptr() #26
   %8 = load i32, ptr %7, align 4
-  br label %proc_exec_cmd.exit
+  br label %proc_exec_sh.exit
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %0, i64 64
   %11 = load i16, ptr %10, align 8
   %12 = and i16 %11, 1
   %.not = icmp eq i16 %12, 0
-  br i1 %.not, label %23, label %13
+  br i1 %.not, label %36, label %13
 
 13:                                               ; preds = %9
   %14 = load i64, ptr %0, align 8
@@ -3589,75 +3569,108 @@ RSTRING_PTR.exit:                                 ; preds = %13, %19
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %19 ], [ %18, %13 ]
   %20 = getelementptr inbounds i8, ptr %0, i64 40
   %21 = load i64, ptr %20, align 8
-  %22 = tail call fastcc i32 @proc_exec_sh(ptr noundef %.sroa.2.0.i, i64 noundef %21)
-  br label %proc_exec_cmd.exit
+  br label %22
 
-23:                                               ; preds = %9
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
-  %25 = load i64, ptr %24, align 8
-  %26 = icmp eq i64 %25, 4
-  br i1 %26, label %proc_exec_cmd.exit, label %27
+22:                                               ; preds = %.critedge.i, %RSTRING_PTR.exit
+  %.0.i = phi ptr [ %.sroa.2.0.i, %RSTRING_PTR.exit ], [ %24, %.critedge.i ]
+  %23 = load i8, ptr %.0.i, align 1
+  switch i8 %23, label %25 [
+    i8 32, label %.critedge.i
+    i8 9, label %.critedge.i
+    i8 10, label %.critedge.i
+    i8 0, label %proc_exec_sh.exit
+  ]
 
-27:                                               ; preds = %23
-  %28 = inttoptr i64 %25 to ptr
-  %29 = load i64, ptr %28, align 8, !noalias !71
-  %30 = and i64 %29, 8192
-  %.not.i.i14 = icmp eq i64 %30, 0
-  %31 = getelementptr inbounds i8, ptr %28, i64 24
-  br i1 %.not.i.i14, label %RSTRING_PTR.exit17.thread21, label %RSTRING_PTR.exit17
+.critedge.i:                                      ; preds = %22, %22, %22
+  %24 = getelementptr i8, ptr %.0.i, i64 1
+  br label %22, !llvm.loop !10
 
-RSTRING_PTR.exit17:                               ; preds = %27
-  %.sroa.2.0.copyload.i15 = load ptr, ptr %31, align 8
+25:                                               ; preds = %22
+  %.not13.i = icmp eq i64 %21, 0
+  br i1 %.not13.i, label %31, label %26
+
+26:                                               ; preds = %25
+  %27 = inttoptr i64 %21 to ptr
+  %28 = getelementptr inbounds i8, ptr %27, i64 16
+  %29 = load ptr, ptr %28, align 8
+  %30 = tail call i32 (ptr, ptr, ...) @execle(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.177, ptr noundef nonnull @.str.178, ptr noundef %.sroa.2.0.i, ptr noundef null, ptr noundef %29) #26
+  br label %33
+
+31:                                               ; preds = %25
+  %32 = tail call i32 (ptr, ptr, ...) @execl(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.177, ptr noundef nonnull @.str.178, ptr noundef %.sroa.2.0.i, ptr noundef null) #26
+  br label %33
+
+33:                                               ; preds = %31, %26
+  %34 = tail call ptr @rb_errno_ptr() #26
+  %35 = load i32, ptr %34, align 4
+  br label %proc_exec_sh.exit
+
+36:                                               ; preds = %9
+  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %38 = load i64, ptr %37, align 8
+  %39 = icmp eq i64 %38, 4
+  br i1 %39, label %proc_exec_sh.exit, label %40
+
+40:                                               ; preds = %36
+  %41 = inttoptr i64 %38 to ptr
+  %42 = load i64, ptr %41, align 8, !noalias !71
+  %43 = and i64 %42, 8192
+  %.not.i.i14 = icmp eq i64 %43, 0
+  %44 = getelementptr inbounds i8, ptr %41, i64 24
+  br i1 %.not.i.i14, label %RSTRING_PTR.exit17.thread22, label %RSTRING_PTR.exit17
+
+RSTRING_PTR.exit17:                               ; preds = %40
+  %.sroa.2.0.copyload.i15 = load ptr, ptr %44, align 8
   %.not.i = icmp eq ptr %.sroa.2.0.copyload.i15, null
-  br i1 %.not.i, label %proc_exec_cmd.exit, label %RSTRING_PTR.exit17.thread21
+  br i1 %.not.i, label %proc_exec_sh.exit, label %RSTRING_PTR.exit17.thread22
 
-RSTRING_PTR.exit17.thread21:                      ; preds = %27, %RSTRING_PTR.exit17
-  %.024 = phi ptr [ %.sroa.2.0.copyload.i15, %RSTRING_PTR.exit17 ], [ %31, %27 ]
-  %.in25 = getelementptr inbounds i8, ptr %0, i64 40
-  %32 = load i64, ptr %.in25, align 8
+RSTRING_PTR.exit17.thread22:                      ; preds = %40, %RSTRING_PTR.exit17
+  %.025 = phi ptr [ %.sroa.2.0.copyload.i15, %RSTRING_PTR.exit17 ], [ %44, %40 ]
+  %.in26 = getelementptr inbounds i8, ptr %0, i64 40
+  %45 = load i64, ptr %.in26, align 8
   %.pn.in.in = getelementptr inbounds i8, ptr %0, i64 16
   %.pn.in = load i64, ptr %.pn.in.in, align 8
   %.pn = inttoptr i64 %.pn.in to ptr
   %.in = getelementptr inbounds i8, ptr %.pn, i64 16
-  %33 = load ptr, ptr %.in, align 8
-  %34 = getelementptr i8, ptr %33, i64 8
-  %.not17.i = icmp eq i64 %32, 0
-  br i1 %.not17.i, label %40, label %35
+  %46 = load ptr, ptr %.in, align 8
+  %47 = getelementptr i8, ptr %46, i64 8
+  %.not17.i = icmp eq i64 %45, 0
+  br i1 %.not17.i, label %53, label %48
 
-35:                                               ; preds = %RSTRING_PTR.exit17.thread21
-  %36 = inttoptr i64 %32 to ptr
-  %37 = getelementptr inbounds i8, ptr %36, i64 16
-  %38 = load ptr, ptr %37, align 8
-  %39 = tail call i32 @execve(ptr noundef nonnull %.024, ptr noundef %34, ptr noundef %38) #26
-  br label %42
+48:                                               ; preds = %RSTRING_PTR.exit17.thread22
+  %49 = inttoptr i64 %45 to ptr
+  %50 = getelementptr inbounds i8, ptr %49, i64 16
+  %51 = load ptr, ptr %50, align 8
+  %52 = tail call i32 @execve(ptr noundef nonnull %.025, ptr noundef %47, ptr noundef %51) #26
+  br label %55
 
-40:                                               ; preds = %RSTRING_PTR.exit17.thread21
-  %41 = tail call i32 @execv(ptr noundef nonnull %.024, ptr noundef %34) #26
-  br label %42
+53:                                               ; preds = %RSTRING_PTR.exit17.thread22
+  %54 = tail call i32 @execv(ptr noundef nonnull %.025, ptr noundef %47) #26
+  br label %55
 
-42:                                               ; preds = %40, %35
-  %43 = phi ptr [ null, %40 ], [ %38, %35 ]
-  %44 = tail call ptr @rb_errno_ptr() #26
-  %45 = load i32, ptr %44, align 4
-  %46 = icmp eq i32 %45, 8
-  br i1 %46, label %47, label %proc_exec_cmd.exit
+55:                                               ; preds = %53, %48
+  %56 = phi ptr [ null, %53 ], [ %51, %48 ]
+  %57 = tail call ptr @rb_errno_ptr() #26
+  %58 = load i32, ptr %57, align 4
+  %59 = icmp eq i32 %58, 8
+  br i1 %59, label %60, label %proc_exec_sh.exit
 
-47:                                               ; preds = %42
-  store ptr %.024, ptr %34, align 8
-  store ptr @.str.177, ptr %33, align 8
-  %.not.i.i18 = icmp eq ptr %43, null
-  br i1 %.not.i.i18, label %50, label %48
+60:                                               ; preds = %55
+  store ptr %.025, ptr %47, align 8
+  store ptr @.str.177, ptr %46, align 8
+  %.not.i.i19 = icmp eq ptr %56, null
+  br i1 %.not.i.i19, label %63, label %61
 
-48:                                               ; preds = %47
-  %49 = tail call i32 @execve(ptr noundef nonnull @.str.176, ptr noundef nonnull %33, ptr noundef nonnull %43) #26
-  br label %proc_exec_cmd.exit
+61:                                               ; preds = %60
+  %62 = tail call i32 @execve(ptr noundef nonnull @.str.176, ptr noundef nonnull %46, ptr noundef nonnull %56) #26
+  br label %proc_exec_sh.exit
 
-50:                                               ; preds = %47
-  %51 = tail call i32 @execv(ptr noundef nonnull @.str.176, ptr noundef nonnull %33) #26
-  br label %proc_exec_cmd.exit
+63:                                               ; preds = %60
+  %64 = tail call i32 @execv(ptr noundef nonnull @.str.176, ptr noundef nonnull %46) #26
+  br label %proc_exec_sh.exit
 
-proc_exec_cmd.exit:                               ; preds = %23, %50, %48, %42, %RSTRING_PTR.exit17, %RSTRING_PTR.exit, %6
-  %.013 = phi i32 [ %8, %6 ], [ %22, %RSTRING_PTR.exit ], [ 2, %RSTRING_PTR.exit17 ], [ %45, %42 ], [ 8, %48 ], [ 8, %50 ], [ 2, %23 ]
+proc_exec_sh.exit:                                ; preds = %22, %36, %63, %61, %55, %RSTRING_PTR.exit17, %33, %6
+  %.013 = phi i32 [ %8, %6 ], [ %35, %33 ], [ 2, %RSTRING_PTR.exit17 ], [ %58, %55 ], [ 8, %61 ], [ 8, %63 ], [ 2, %36 ], [ 2, %22 ]
   ret i32 %.013
 }
 

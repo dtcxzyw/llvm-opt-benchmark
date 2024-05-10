@@ -45,6 +45,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @cmd_credential_cache(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix) local_unnamed_addr #0 {
 entry:
+  %buf.i = alloca %struct.strbuf, align 8
   %sb.i = alloca %struct.stat, align 8
   %socket_path = alloca ptr, align 8
   %timeout = alloca i32, align 4
@@ -144,7 +145,29 @@ if.end35:                                         ; preds = %if.end, %if.end32
 
 if.then38:                                        ; preds = %if.end35
   %4 = load i32, ptr %timeout, align 4
-  call fastcc void @do_cache(ptr noundef nonnull %3, ptr noundef %0, i32 noundef %4, i32 noundef 0)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %buf.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.do_cache.buf, i64 24, i1 false)
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf.i, ptr noundef nonnull @.str.15, ptr noundef %0) #12
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf.i, ptr noundef nonnull @.str.16, i32 noundef %4) #12
+  %call3.i = call fastcc i32 @send_request(ptr noundef nonnull %3, ptr noundef nonnull %buf.i)
+  %cmp4.i = icmp slt i32 %call3.i, 0
+  br i1 %cmp4.i, label %if.then5.i, label %do_cache.exit
+
+if.then5.i:                                       ; preds = %if.then38
+  %call6.i = tail call ptr @__errno_location() #15
+  %5 = load i32, ptr %call6.i, align 4
+  switch i32 %5, label %if.then9.i [
+    i32 111, label %do_cache.exit
+    i32 2, label %do_cache.exit
+  ]
+
+if.then9.i:                                       ; preds = %if.then5.i
+  call void (ptr, ...) @die_errno(ptr noundef nonnull @.str.18) #13
+  unreachable
+
+do_cache.exit:                                    ; preds = %if.then5.i, %if.then5.i, %if.then38
+  call void @strbuf_release(ptr noundef nonnull %buf.i) #12
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %buf.i)
   br label %if.end51
 
 if.else:                                          ; preds = %if.end35
@@ -158,8 +181,8 @@ lor.lhs.false:                                    ; preds = %if.else
   br i1 %tobool42.not, label %if.then43, label %if.else44
 
 if.then43:                                        ; preds = %lor.lhs.false, %if.else
-  %5 = load i32, ptr %timeout, align 4
-  call fastcc void @do_cache(ptr noundef nonnull %3, ptr noundef %0, i32 noundef %5, i32 noundef 2)
+  %6 = load i32, ptr %timeout, align 4
+  call fastcc void @do_cache(ptr noundef nonnull %3, ptr noundef %0, i32 noundef %6, i32 noundef 2)
   br label %if.end51
 
 if.else44:                                        ; preds = %lor.lhs.false
@@ -168,11 +191,11 @@ if.else44:                                        ; preds = %lor.lhs.false
   br i1 %tobool46.not, label %if.then47, label %if.end51
 
 if.then47:                                        ; preds = %if.else44
-  %6 = load i32, ptr %timeout, align 4
-  call fastcc void @do_cache(ptr noundef nonnull %3, ptr noundef %0, i32 noundef %6, i32 noundef 3)
+  %7 = load i32, ptr %timeout, align 4
+  call fastcc void @do_cache(ptr noundef nonnull %3, ptr noundef %0, i32 noundef %7, i32 noundef 3)
   br label %if.end51
 
-if.end51:                                         ; preds = %if.then43, %if.else44, %if.then47, %if.then38
+if.end51:                                         ; preds = %if.then43, %if.else44, %if.then47, %do_cache.exit
   ret i32 0
 }
 

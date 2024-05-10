@@ -3167,8 +3167,59 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @cpu_show_mds(ptr nocapt
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i64 -2147483648, 2147483648) i64 @cpu_show_tsx_async_abort(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #1 align 16 {
-  %4 = tail call fastcc i64 @cpu_show_common(ptr noundef %2, i32 noundef 694)
-  ret i64 %4
+  %4 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11), i64 694) #15, !srcloc !27
+  %5 = icmp ult i8 %4, 2
+  tail call void @llvm.assume(i1 %5)
+  %6 = icmp eq i8 %4, 0
+  br i1 %6, label %7, label %9
+
+7:                                                ; preds = %3
+  %8 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.127) #15
+  br label %cpu_show_common.exit
+
+9:                                                ; preds = %3
+  %10 = load i32, ptr @taa_mitigation, align 4
+  switch i32 %10, label %16 [
+    i32 3, label %11
+    i32 0, label %11
+  ]
+
+11:                                               ; preds = %9, %9
+  %12 = zext nneg i32 %10 to i64
+  %13 = getelementptr [4 x ptr], ptr @taa_strings, i64 0, i64 %12
+  %14 = load ptr, ptr %13, align 8
+  %15 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.130, ptr noundef %14) #15
+  br label %cpu_show_common.exit
+
+16:                                               ; preds = %9
+  %17 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 8), align 8
+  %18 = and i64 %17, 2147483648
+  %19 = icmp eq i64 %18, 0
+  %20 = zext nneg i32 %10 to i64
+  %21 = getelementptr [4 x ptr], ptr @taa_strings, i64 0, i64 %20
+  %22 = load ptr, ptr %21, align 8
+  br i1 %19, label %25, label %23
+
+23:                                               ; preds = %16
+  %24 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.151, ptr noundef %22) #15
+  br label %cpu_show_common.exit
+
+25:                                               ; preds = %16
+  callbr void asm sideeffect "1:jmp ${2:l}\0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @sched_smt_present, i1 true) #15
+          to label %27 [label %26], !srcloc !23
+
+26:                                               ; preds = %25
+  br label %27
+
+27:                                               ; preds = %26, %25
+  %28 = phi ptr [ @.str.155, %26 ], [ @.str.153, %25 ]
+  %29 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.152, ptr noundef %22, ptr noundef nonnull %28) #15
+  br label %cpu_show_common.exit
+
+cpu_show_common.exit:                             ; preds = %7, %11, %23, %27
+  %30 = phi i32 [ %8, %7 ], [ %15, %11 ], [ %24, %23 ], [ %29, %27 ]
+  %31 = sext i32 %30 to i64
+  ret i64 %31
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

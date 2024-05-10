@@ -1971,259 +1971,253 @@ define dso_local i32 @drm_client_modeset_check(ptr noundef %0) #0 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @drm_client_modeset_commit_atomic(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.drm_modeset_acquire_ctx, align 8
-  %5 = alloca i32, align 4
-  %6 = load ptr, ptr %0, align 8
+  %5 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 64, i1 false), !annotation !12
   call void @drm_modeset_acquire_init(ptr noundef nonnull %4, i32 noundef 0) #11
-  %7 = call ptr @drm_atomic_state_alloc(ptr noundef %6) #11
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %.thread11, label %9
+  %6 = call ptr @drm_atomic_state_alloc(ptr noundef %5) #11
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %.thread12, label %8
 
-9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %7, i64 72
-  store ptr %4, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 712
-  %12 = getelementptr inbounds i8, ptr %0, i64 80
-  %13 = getelementptr inbounds i8, ptr %7, i64 24
-  %14 = getelementptr inbounds i8, ptr %7, i64 32
-  br i1 %1, label %.split.us, label %.split
+8:                                                ; preds = %3
+  %9 = getelementptr inbounds i8, ptr %6, i64 72
+  store ptr %4, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 712
+  %11 = getelementptr inbounds i8, ptr %0, i64 80
+  %12 = getelementptr inbounds i8, ptr %6, i64 24
+  %13 = getelementptr inbounds i8, ptr %6, i64 32
+  br label %14
 
-.split.us:                                        ; preds = %9, %44
-  %15 = load ptr, ptr %11, align 8
-  %16 = icmp eq ptr %15, %11
-  br i1 %16, label %.loopexit15.us, label %.preheader13.us
+14:                                               ; preds = %142, %8
+  %15 = load ptr, ptr %10, align 8
+  %16 = icmp eq ptr %15, %10
+  br i1 %16, label %.loopexit16, label %.preheader14
 
-.preheader13.us:                                  ; preds = %.split.us, %select.unfold.us
-  %17 = phi ptr [ %29, %select.unfold.us ], [ %15, %.split.us ]
+.preheader14:                                     ; preds = %14, %select.unfold
+  %17 = phi ptr [ %32, %select.unfold ], [ %15, %14 ]
   %18 = getelementptr i8, ptr %17, i64 -8
-  %19 = call ptr @drm_atomic_get_plane_state(ptr noundef nonnull %7, ptr noundef %18) #11
+  %19 = call ptr @drm_atomic_get_plane_state(ptr noundef nonnull %6, ptr noundef %18) #11
   %20 = icmp ugt ptr %19, inttoptr (i64 -4096 to ptr)
-  br i1 %20, label %31, label %21
+  br i1 %20, label %21, label %24
 
-21:                                               ; preds = %.preheader13.us
-  %22 = getelementptr inbounds i8, ptr %19, i64 76
-  store i32 1, ptr %22, align 4
-  %23 = getelementptr i8, ptr %17, i64 1216
-  %24 = load i32, ptr %23, align 8
-  %25 = icmp eq i32 %24, 1
-  br i1 %25, label %select.unfold.us, label %26
+21:                                               ; preds = %.preheader14
+  %22 = ptrtoint ptr %19 to i64
+  %23 = trunc i64 %22 to i32
+  br label %.loopexit
 
-26:                                               ; preds = %21
-  %27 = call i32 @__drm_atomic_helper_disable_plane(ptr noundef %18, ptr noundef %19) #11
-  %28 = icmp eq i32 %27, 0
-  br i1 %28, label %select.unfold.us, label %.loopexit14.us
+24:                                               ; preds = %.preheader14
+  %25 = getelementptr inbounds i8, ptr %19, i64 76
+  store i32 1, ptr %25, align 4
+  %26 = getelementptr i8, ptr %17, i64 1216
+  %27 = load i32, ptr %26, align 8
+  %28 = icmp eq i32 %27, 1
+  br i1 %28, label %select.unfold, label %29
 
-select.unfold.us:                                 ; preds = %26, %21
-  %29 = load ptr, ptr %17, align 8
-  %30 = icmp eq ptr %29, %11
-  br i1 %30, label %.loopexit15.us, label %.preheader13.us, !llvm.loop !50
+29:                                               ; preds = %24
+  %30 = call i32 @__drm_atomic_helper_disable_plane(ptr noundef %18, ptr noundef %19) #11
+  %31 = icmp eq i32 %30, 0
+  br i1 %31, label %select.unfold, label %.loopexit
 
-31:                                               ; preds = %.preheader13.us
-  %32 = ptrtoint ptr %19 to i64
-  %33 = trunc i64 %32 to i32
-  br label %.loopexit14.us
+select.unfold:                                    ; preds = %29, %24
+  %32 = load ptr, ptr %17, align 8
+  %33 = icmp eq ptr %32, %10
+  br i1 %33, label %.loopexit16, label %.preheader14, !llvm.loop !50
 
-.loopexit15.us:                                   ; preds = %select.unfold.us, %.split.us
-  %34 = load ptr, ptr %12, align 8
+.loopexit16:                                      ; preds = %select.unfold, %14
+  %34 = load ptr, ptr %11, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
-  br i1 %37, label %.loopexit12.split.us.us, label %.preheader.us
+  br i1 %37, label %.loopexit13, label %.preheader
 
-.loopexit12.split.us.us:                          ; preds = %62, %.loopexit15.us
-  br i1 %2, label %40, label %38
-
-38:                                               ; preds = %.loopexit12.split.us.us
-  %39 = call i32 @drm_atomic_commit(ptr noundef nonnull %7) #11
-  br label %.loopexit14.us
-
-40:                                               ; preds = %.loopexit12.split.us.us
-  %41 = call i32 @drm_atomic_check_only(ptr noundef nonnull %7) #11
-  br label %.loopexit14.us
-
-.loopexit14.us:                                   ; preds = %26, %60, %40, %38, %31
-  %42 = phi i32 [ %41, %40 ], [ %39, %38 ], [ %33, %31 ], [ %61, %60 ], [ %27, %26 ]
-  %43 = icmp eq i32 %42, -35
-  br i1 %43, label %44, label %.split23.us
-
-44:                                               ; preds = %.loopexit14.us
-  call void @drm_atomic_state_clear(ptr noundef nonnull %7) #11
-  %45 = call i32 @drm_modeset_backoff(ptr noundef nonnull %4) #11
-  br label %.split.us
-
-.preheader.us:                                    ; preds = %.loopexit15.us, %62
-  %46 = phi ptr [ %65, %62 ], [ %36, %.loopexit15.us ]
-  %47 = phi ptr [ %63, %62 ], [ %34, %.loopexit15.us ]
-  %48 = getelementptr inbounds i8, ptr %46, i64 128
+.preheader:                                       ; preds = %.loopexit16, %123
+  %38 = phi ptr [ %126, %123 ], [ %36, %.loopexit16 ]
+  %39 = phi ptr [ %125, %123 ], [ %35, %.loopexit16 ]
+  %40 = phi ptr [ %124, %123 ], [ %34, %.loopexit16 ]
+  %41 = getelementptr inbounds i8, ptr %38, i64 128
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds i8, ptr %40, i64 32
+  %44 = load ptr, ptr %43, align 8
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds i8, ptr %40, i64 8
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds i8, ptr %47, i64 128
   %49 = load ptr, ptr %48, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #11
-  store i32 0, ptr %5, align 4, !annotation !12
-  %50 = call zeroext i1 @drm_client_rotation(ptr noundef %47, ptr noundef nonnull %5)
-  br i1 %50, label %51, label %60
+  %50 = getelementptr inbounds i8, ptr %40, i64 40
+  %51 = load i64, ptr %50, align 8
+  %52 = icmp eq i64 %51, 0
+  br i1 %52, label %drm_client_rotation.exit.thread, label %53
 
-51:                                               ; preds = %.preheader.us
-  %52 = load ptr, ptr %13, align 8
-  %53 = getelementptr inbounds i8, ptr %49, i64 1228
-  %54 = load i32, ptr %53, align 4
-  %55 = zext i32 %54 to i64
-  %56 = getelementptr %struct.__drm_planes_state, ptr %52, i64 %55, i32 3
-  %57 = load ptr, ptr %56, align 8
-  %58 = load i32, ptr %5, align 4
-  %59 = getelementptr inbounds i8, ptr %57, i64 76
-  store i32 %58, ptr %59, align 4
-  br label %60
+53:                                               ; preds = %.preheader
+  %54 = getelementptr inbounds i8, ptr %45, i64 216
+  %55 = load i32, ptr %54, align 8
+  switch i32 %55, label %58 [
+    i32 1, label %59
+    i32 2, label %56
+    i32 3, label %57
+  ]
 
-60:                                               ; preds = %51, %.preheader.us
-  %61 = call i32 @__drm_atomic_helper_set_config(ptr noundef %47, ptr noundef nonnull %7) #11
-  %.not25 = icmp eq i32 %61, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #11
-  br i1 %.not25, label %62, label %.loopexit14.us
+56:                                               ; preds = %53
+  br label %59
 
-62:                                               ; preds = %60
-  %63 = getelementptr i8, ptr %47, i64 48
-  %64 = getelementptr i8, ptr %47, i64 56
-  %65 = load ptr, ptr %64, align 8
-  %66 = icmp eq ptr %65, null
-  br i1 %66, label %.loopexit12.split.us.us, label %.preheader.us, !llvm.loop !51
+57:                                               ; preds = %53
+  br label %59
 
-.split:                                           ; preds = %9, %132
-  %67 = load ptr, ptr %11, align 8
-  %68 = icmp eq ptr %67, %11
-  br i1 %68, label %.loopexit15, label %.preheader13
+58:                                               ; preds = %53
+  br label %59
 
-.preheader13:                                     ; preds = %.split, %select.unfold
-  %69 = phi ptr [ %84, %select.unfold ], [ %67, %.split ]
-  %70 = getelementptr i8, ptr %69, i64 -8
-  %71 = call ptr @drm_atomic_get_plane_state(ptr noundef nonnull %7, ptr noundef %70) #11
-  %72 = icmp ugt ptr %71, inttoptr (i64 -4096 to ptr)
-  br i1 %72, label %73, label %76
+59:                                               ; preds = %58, %57, %56, %53
+  %60 = phi i32 [ 1, %58 ], [ 8, %57 ], [ 2, %56 ], [ 4, %53 ]
+  %61 = getelementptr inbounds i8, ptr %45, i64 1584
+  %62 = load i8, ptr %61, align 4, !range !15, !noundef !16
+  %63 = icmp eq i8 %62, 0
+  br i1 %63, label %77, label %64
 
-73:                                               ; preds = %.preheader13
-  %74 = ptrtoint ptr %71 to i64
-  %75 = trunc i64 %74 to i32
-  br label %.loopexit14
+64:                                               ; preds = %59
+  %65 = getelementptr inbounds i8, ptr %45, i64 1616
+  %66 = load i32, ptr %65, align 4
+  %67 = icmp eq i32 %66, 0
+  br i1 %67, label %77, label %68
 
-76:                                               ; preds = %.preheader13
-  %77 = getelementptr inbounds i8, ptr %71, i64 76
-  store i32 1, ptr %77, align 4
-  %78 = getelementptr i8, ptr %69, i64 1216
-  %79 = load i32, ptr %78, align 8
-  %80 = icmp eq i32 %79, 1
-  br i1 %80, label %select.unfold, label %81
+68:                                               ; preds = %64
+  %69 = call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %60, i32 -1) #14, !srcloc !48
+  %70 = and i32 %66, 15
+  %71 = call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %70, i32 -1) #14, !srcloc !48
+  %72 = add i32 %71, %69
+  %73 = and i32 %72, 3
+  %74 = and i32 %66, -16
+  %75 = shl nuw nsw i32 1, %73
+  %76 = or disjoint i32 %75, %74
+  br label %77
 
-81:                                               ; preds = %76
-  %82 = call i32 @__drm_atomic_helper_disable_plane(ptr noundef %70, ptr noundef %71) #11
-  %83 = icmp eq i32 %82, 0
-  br i1 %83, label %select.unfold, label %.loopexit14
+77:                                               ; preds = %68, %64, %59
+  %.0 = phi i32 [ %60, %59 ], [ %60, %64 ], [ %76, %68 ]
+  %78 = and i32 %.0, 15
+  switch i32 %78, label %drm_client_rotation.exit.thread [
+    i32 1, label %79
+    i32 4, label %79
+  ]
 
-select.unfold:                                    ; preds = %81, %76
-  %84 = load ptr, ptr %69, align 8
-  %85 = icmp eq ptr %84, %11
-  br i1 %85, label %.loopexit15, label %.preheader13, !llvm.loop !50
+79:                                               ; preds = %77, %77
+  %80 = getelementptr inbounds i8, ptr %49, i64 1264
+  %81 = load ptr, ptr %80, align 8
+  %82 = icmp eq ptr %81, null
+  br i1 %82, label %drm_client_rotation.exit.thread, label %83
 
-.loopexit15:                                      ; preds = %select.unfold, %.split
-  %86 = load ptr, ptr %12, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 8
-  %88 = load ptr, ptr %87, align 8
-  %89 = icmp eq ptr %88, null
-  br i1 %89, label %.loopexit12.split, label %.preheader
+83:                                               ; preds = %79
+  %84 = getelementptr inbounds i8, ptr %81, i64 84
+  %85 = load i32, ptr %84, align 4
+  %86 = icmp eq i32 %85, 0
+  br i1 %86, label %drm_client_rotation.exit, label %87
 
-.preheader:                                       ; preds = %.loopexit15, %.thread9
-  %90 = phi ptr [ %117, %.thread9 ], [ %88, %.loopexit15 ]
-  %91 = phi ptr [ %116, %.thread9 ], [ %87, %.loopexit15 ]
-  %92 = phi ptr [ %115, %.thread9 ], [ %86, %.loopexit15 ]
-  %93 = getelementptr inbounds i8, ptr %90, i64 128
-  %94 = load ptr, ptr %93, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #11
-  store i32 0, ptr %5, align 4, !annotation !12
-  %95 = call zeroext i1 @drm_client_rotation(ptr noundef %92, ptr noundef nonnull %5)
-  br i1 %95, label %96, label %105
+87:                                               ; preds = %83
+  %88 = getelementptr inbounds i8, ptr %81, i64 88
+  %89 = load ptr, ptr %88, align 8
+  %90 = zext i32 %85 to i64
+  br label %91
 
-96:                                               ; preds = %.preheader
-  %97 = load ptr, ptr %13, align 8
-  %98 = getelementptr inbounds i8, ptr %94, i64 1228
-  %99 = load i32, ptr %98, align 4
-  %100 = zext i32 %99 to i64
-  %101 = getelementptr %struct.__drm_planes_state, ptr %97, i64 %100, i32 3
-  %102 = load ptr, ptr %101, align 8
-  %103 = load i32, ptr %5, align 4
-  %104 = getelementptr inbounds i8, ptr %102, i64 76
-  store i32 %103, ptr %104, align 4
-  br label %105
+91:                                               ; preds = %91, %87
+  %92 = phi i64 [ 0, %87 ], [ %98, %91 ]
+  %93 = phi i64 [ 0, %87 ], [ %97, %91 ]
+  %94 = getelementptr i64, ptr %89, i64 %92
+  %95 = load i64, ptr %94, align 8
+  %96 = shl nuw i64 1, %95
+  %97 = or i64 %96, %93
+  %98 = add nuw nsw i64 %92, 1
+  %99 = icmp eq i64 %98, %90
+  br i1 %99, label %drm_client_rotation.exit, label %91, !llvm.loop !49
 
-105:                                              ; preds = %96, %.preheader
-  %106 = call i32 @__drm_atomic_helper_set_config(ptr noundef %92, ptr noundef nonnull %7) #11
-  %.not = icmp eq i32 %106, 0
-  br i1 %.not, label %.thread9, label %.loopexit.split
+drm_client_rotation.exit:                         ; preds = %91, %83
+  %100 = phi i64 [ 0, %83 ], [ %97, %91 ]
+  %101 = zext i32 %.0 to i64
+  %102 = and i64 %100, %101
+  %.not = icmp eq i64 %102, 0
+  br i1 %.not, label %drm_client_rotation.exit.thread, label %103
 
-.thread9:                                         ; preds = %105
-  %107 = load ptr, ptr %91, align 8
-  %108 = load ptr, ptr %14, align 8
-  %109 = getelementptr inbounds i8, ptr %107, i64 144
-  %110 = load i32, ptr %109, align 8
-  %111 = zext i32 %110 to i64
-  %112 = getelementptr %struct.__drm_crtcs_state, ptr %108, i64 %111, i32 3
-  %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 9
-  store i8 0, ptr %114, align 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #11
-  %115 = getelementptr i8, ptr %92, i64 48
-  %116 = getelementptr i8, ptr %92, i64 56
-  %117 = load ptr, ptr %116, align 8
-  %118 = icmp eq ptr %117, null
-  br i1 %118, label %.loopexit12.split, label %.preheader, !llvm.loop !51
+103:                                              ; preds = %drm_client_rotation.exit
+  %104 = load ptr, ptr %12, align 8
+  %105 = getelementptr inbounds i8, ptr %42, i64 1228
+  %106 = load i32, ptr %105, align 4
+  %107 = zext i32 %106 to i64
+  %108 = getelementptr %struct.__drm_planes_state, ptr %104, i64 %107, i32 3
+  %109 = load ptr, ptr %108, align 8
+  %110 = getelementptr inbounds i8, ptr %109, i64 76
+  store i32 %.0, ptr %110, align 4
+  br label %drm_client_rotation.exit.thread
 
-.loopexit.split:                                  ; preds = %105
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #11
-  br label %.loopexit14
+drm_client_rotation.exit.thread:                  ; preds = %79, %77, %.preheader, %103, %drm_client_rotation.exit
+  %111 = call i32 @__drm_atomic_helper_set_config(ptr noundef %40, ptr noundef nonnull %6) #11
+  %112 = icmp ne i32 %111, 0
+  %113 = or i1 %112, %1
+  br i1 %113, label %122, label %.thread10
 
-.loopexit12.split:                                ; preds = %.thread9, %.loopexit15
-  br i1 %2, label %119, label %121
+.thread10:                                        ; preds = %drm_client_rotation.exit.thread
+  %114 = load ptr, ptr %39, align 8
+  %115 = load ptr, ptr %13, align 8
+  %116 = getelementptr inbounds i8, ptr %114, i64 144
+  %117 = load i32, ptr %116, align 8
+  %118 = zext i32 %117 to i64
+  %119 = getelementptr %struct.__drm_crtcs_state, ptr %115, i64 %118, i32 3
+  %120 = load ptr, ptr %119, align 8
+  %121 = getelementptr inbounds i8, ptr %120, i64 9
+  store i8 0, ptr %121, align 1
+  br label %123
 
-119:                                              ; preds = %.loopexit12.split
-  %120 = call i32 @drm_atomic_check_only(ptr noundef nonnull %7) #11
-  br label %.loopexit14
+122:                                              ; preds = %drm_client_rotation.exit.thread
+  br i1 %112, label %.loopexit, label %123
 
-121:                                              ; preds = %.loopexit12.split
-  %122 = call i32 @drm_atomic_commit(ptr noundef nonnull %7) #11
-  br label %.loopexit14
+123:                                              ; preds = %122, %.thread10
+  %124 = getelementptr i8, ptr %40, i64 48
+  %125 = getelementptr i8, ptr %40, i64 56
+  %126 = load ptr, ptr %125, align 8
+  %127 = icmp eq ptr %126, null
+  br i1 %127, label %.loopexit13, label %.preheader, !llvm.loop !51
 
-.loopexit14:                                      ; preds = %81, %.loopexit.split, %73, %121, %119
-  %123 = phi i32 [ %120, %119 ], [ %122, %121 ], [ %75, %73 ], [ %106, %.loopexit.split ], [ %82, %81 ]
-  %124 = icmp eq i32 %123, -35
-  br i1 %124, label %132, label %.split23.us
+.loopexit13:                                      ; preds = %123, %.loopexit16
+  br i1 %2, label %128, label %130
 
-.split23.us:                                      ; preds = %.loopexit14, %.loopexit14.us
-  %.us-phi24 = phi i32 [ %42, %.loopexit14.us ], [ %123, %.loopexit14 ]
-  %125 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %7, i32 -1, ptr nonnull elementtype(i32) %7) #11, !srcloc !52
-  %126 = icmp eq i32 %125, 1
-  br i1 %126, label %130, label %127
+128:                                              ; preds = %.loopexit13
+  %129 = call i32 @drm_atomic_check_only(ptr noundef nonnull %6) #11
+  br label %.loopexit
 
-127:                                              ; preds = %.split23.us
-  %128 = icmp sgt i32 %125, 0
-  br i1 %128, label %.thread11, label %129, !prof !53
+130:                                              ; preds = %.loopexit13
+  %131 = call i32 @drm_atomic_commit(ptr noundef nonnull %6) #11
+  br label %.loopexit
 
-129:                                              ; preds = %127
-  call void @refcount_warn_saturate(ptr noundef nonnull %7, i32 noundef 3) #11
-  br label %.thread11
+.loopexit:                                        ; preds = %29, %122, %21, %130, %128
+  %132 = phi i32 [ %129, %128 ], [ %131, %130 ], [ %23, %21 ], [ %111, %122 ], [ %30, %29 ]
+  %133 = icmp eq i32 %132, -35
+  br i1 %133, label %142, label %134
 
-130:                                              ; preds = %.split23.us
+134:                                              ; preds = %.loopexit
+  %135 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %6, i32 -1, ptr nonnull elementtype(i32) %6) #11, !srcloc !52
+  %136 = icmp eq i32 %135, 1
+  br i1 %136, label %140, label %137
+
+137:                                              ; preds = %134
+  %138 = icmp sgt i32 %135, 0
+  br i1 %138, label %.thread12, label %139, !prof !53
+
+139:                                              ; preds = %137
+  call void @refcount_warn_saturate(ptr noundef nonnull %6, i32 noundef 3) #11
+  br label %.thread12
+
+140:                                              ; preds = %134
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !54
-  call void @__drm_atomic_state_free(ptr noundef nonnull %7) #11
-  br label %.thread11
+  call void @__drm_atomic_state_free(ptr noundef nonnull %6) #11
+  br label %.thread12
 
-.thread11:                                        ; preds = %127, %129, %130, %3
-  %131 = phi i32 [ -12, %3 ], [ %.us-phi24, %130 ], [ %.us-phi24, %129 ], [ %.us-phi24, %127 ]
+.thread12:                                        ; preds = %137, %139, %140, %3
+  %141 = phi i32 [ -12, %3 ], [ %132, %140 ], [ %132, %139 ], [ %132, %137 ]
   call void @drm_modeset_drop_locks(ptr noundef nonnull %4) #11
   call void @drm_modeset_acquire_fini(ptr noundef nonnull %4) #11
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #11
-  ret i32 %131
+  ret i32 %141
 
-132:                                              ; preds = %.loopexit14
-  call void @drm_atomic_state_clear(ptr noundef nonnull %7) #11
-  %133 = call i32 @drm_modeset_backoff(ptr noundef nonnull %4) #11
-  br label %.split
+142:                                              ; preds = %.loopexit
+  call void @drm_atomic_state_clear(ptr noundef nonnull %6) #11
+  %143 = call i32 @drm_modeset_backoff(ptr noundef nonnull %4) #11
+  br label %14
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

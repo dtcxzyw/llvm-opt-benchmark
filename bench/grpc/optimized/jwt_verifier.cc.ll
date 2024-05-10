@@ -598,8 +598,8 @@ _ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit: ; preds = %_ZN9grpc_core
   %_M_left.i.i = getelementptr inbounds i8, ptr %call.i, i64 104
   %12 = load ptr, ptr %_M_left.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call.i, i64 88
-  %cmp.i.not95 = icmp eq ptr %12, %add.ptr.i.i
-  br i1 %cmp.i.not95, label %return, label %for.body.lr.ph
+  %cmp.i.not131 = icmp eq ptr %12, %add.ptr.i.i
+  br i1 %cmp.i.not131, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit
   %jti = getelementptr inbounds i8, ptr %call.i, i64 24
@@ -608,14 +608,14 @@ for.body.lr.ph:                                   ; preds = %_ZNK9grpc_core12exp
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %__begin1.sroa.0.096 = phi ptr [ %12, %for.body.lr.ph ], [ %call.i81, %for.inc ]
-  %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.096, i64 32
+  %__begin1.sroa.0.0132 = phi ptr [ %12, %for.body.lr.ph ], [ %call.i117, %for.inc ]
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0132, i64 32
   %call.i36 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i, ptr noundef nonnull @.str.8) #24
   %cmp.i37 = icmp eq i32 %call.i36, 0
   br i1 %cmp.i37, label %if.then, label %if.else
 
 if.then:                                          ; preds = %for.body
-  %_M_index.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.096, i64 112
+  %_M_index.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0132, i64 112
   %13 = load i8, ptr %_M_index.i.i.i.i.i, align 8
   switch i8 %13, label %sw.default.i.i.i.i [
     i8 -1, label %if.then.i.i.i38
@@ -639,7 +639,7 @@ sw.default.i.i.i.i:                               ; preds = %if.then
   unreachable
 
 _ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit: ; preds = %if.then
-  %second = getelementptr inbounds i8, ptr %__begin1.sroa.0.096, i64 64
+  %second = getelementptr inbounds i8, ptr %__begin1.sroa.0.0132, i64 64
   %call2.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %second) #24
   store ptr %call2.i, ptr %call.i, align 8
   %cmp = icmp eq ptr %call2.i, null
@@ -651,7 +651,7 @@ if.else:                                          ; preds = %for.body
   br i1 %cmp.i40, label %if.then21, label %if.else28
 
 if.then21:                                        ; preds = %if.else
-  %_M_index.i.i.i.i.i41 = getelementptr inbounds i8, ptr %__begin1.sroa.0.096, i64 112
+  %_M_index.i.i.i.i.i41 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0132, i64 112
   %14 = load i8, ptr %_M_index.i.i.i.i.i41, align 8
   switch i8 %14, label %sw.default.i.i.i.i49 [
     i8 -1, label %if.then.i.i.i46
@@ -675,7 +675,7 @@ sw.default.i.i.i.i49:                             ; preds = %if.then21
   unreachable
 
 _ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit50: ; preds = %if.then21
-  %second22 = getelementptr inbounds i8, ptr %__begin1.sroa.0.096, i64 64
+  %second22 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0132, i64 64
   %call2.i45 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %second22) #24
   store ptr %call2.i45, ptr %iss, align 8
   %cmp25 = icmp eq ptr %call2.i45, null
@@ -687,7 +687,7 @@ if.else28:                                        ; preds = %if.else
   br i1 %cmp.i52, label %if.then31, label %if.else38
 
 if.then31:                                        ; preds = %if.else28
-  %_M_index.i.i.i.i.i53 = getelementptr inbounds i8, ptr %__begin1.sroa.0.096, i64 112
+  %_M_index.i.i.i.i.i53 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0132, i64 112
   %15 = load i8, ptr %_M_index.i.i.i.i.i53, align 8
   switch i8 %15, label %sw.default.i.i.i.i61 [
     i8 -1, label %if.then.i.i.i58
@@ -711,7 +711,7 @@ sw.default.i.i.i.i61:                             ; preds = %if.then31
   unreachable
 
 _ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit62: ; preds = %if.then31
-  %second32 = getelementptr inbounds i8, ptr %__begin1.sroa.0.096, i64 64
+  %second32 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0132, i64 64
   %call2.i57 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %second32) #24
   store ptr %call2.i57, ptr %aud, align 8
   %cmp35 = icmp eq ptr %call2.i57, null
@@ -723,7 +723,7 @@ if.else38:                                        ; preds = %if.else28
   br i1 %cmp.i64, label %if.then41, label %if.else48
 
 if.then41:                                        ; preds = %if.else38
-  %_M_index.i.i.i.i.i65 = getelementptr inbounds i8, ptr %__begin1.sroa.0.096, i64 112
+  %_M_index.i.i.i.i.i65 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0132, i64 112
   %16 = load i8, ptr %_M_index.i.i.i.i.i65, align 8
   switch i8 %16, label %sw.default.i.i.i.i73 [
     i8 -1, label %if.then.i.i.i70
@@ -747,7 +747,7 @@ sw.default.i.i.i.i73:                             ; preds = %if.then41
   unreachable
 
 _ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit74: ; preds = %if.then41
-  %second42 = getelementptr inbounds i8, ptr %__begin1.sroa.0.096, i64 64
+  %second42 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0132, i64 64
   %call2.i69 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %second42) #24
   store ptr %call2.i69, ptr %jti, align 8
   %cmp45 = icmp eq ptr %call2.i69, null
@@ -759,60 +759,162 @@ if.else48:                                        ; preds = %if.else38
   br i1 %cmp.i76, label %if.then51, label %if.else63
 
 if.then51:                                        ; preds = %if.else48
-  %second53 = getelementptr inbounds i8, ptr %__begin1.sroa.0.096, i64 64
-  %call54 = call fastcc { i64, i64 } @_ZL19validate_time_fieldRKN9grpc_core12experimental4JsonEPKc(ptr noundef nonnull align 8 dereferenceable(56) %second53, ptr noundef nonnull @.str.12)
-  %17 = extractvalue { i64, i64 } %call54, 0
-  %18 = extractvalue { i64, i64 } %call54, 1
-  store i64 %17, ptr %iat, align 8
-  store i64 %18, ptr %ref.tmp.sroa.2.0.iat.sroa_idx, align 8
+  %call.i77 = call { i64, i64 } @gpr_time_0(i32 noundef 1)
+  %_M_index.i.i.i.i.i78 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0132, i64 112
+  %17 = load i8, ptr %_M_index.i.i.i.i.i78, align 8
+  switch i8 %17, label %sw.default.i.i.i.i84 [
+    i8 -1, label %if.then.i.i.i81
+    i8 0, label %if.then.i79
+    i8 1, label %if.then.i79
+    i8 2, label %_ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit.i80
+    i8 3, label %if.then.i79
+    i8 4, label %if.then.i79
+    i8 5, label %if.then.i79
+  ]
+
+if.then.i.i.i81:                                  ; preds = %if.then51
+  %exception.i.i.i.i82 = call ptr @__cxa_allocate_exception(i64 16) #24
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2), ptr %exception.i.i.i.i82, align 8
+  %_M_reason.i.i.i.i.i83 = getelementptr inbounds i8, ptr %exception.i.i.i.i82, i64 8
+  store ptr @.str.33, ptr %_M_reason.i.i.i.i.i83, align 8
+  call void @__cxa_throw(ptr nonnull %exception.i.i.i.i82, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #25
+  unreachable
+
+sw.default.i.i.i.i84:                             ; preds = %if.then51
+  unreachable
+
+if.then.i79:                                      ; preds = %if.then51, %if.then51, %if.then51, %if.then51, %if.then51
+  %18 = extractvalue { i64, i64 } %call.i77, 0
+  call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.15, i32 noundef 141, i32 noundef 2, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.12)
+  br label %_ZL19validate_time_fieldRKN9grpc_core12experimental4JsonEPKc.exit
+
+_ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit.i80: ; preds = %if.then51
+  %second53 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0132, i64 64
+  %call3.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %second53) #24
+  %call4.i = call i64 @strtol(ptr nocapture noundef %call3.i, ptr noundef null, i32 noundef 10) #24
+  br label %_ZL19validate_time_fieldRKN9grpc_core12experimental4JsonEPKc.exit
+
+_ZL19validate_time_fieldRKN9grpc_core12experimental4JsonEPKc.exit: ; preds = %if.then.i79, %_ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit.i80
+  %retval.sroa.0.0.i = phi i64 [ %18, %if.then.i79 ], [ %call4.i, %_ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit.i80 ]
+  %19 = extractvalue { i64, i64 } %call.i77, 1
+  store i64 %retval.sroa.0.0.i, ptr %iat, align 8
+  store i64 %19, ptr %ref.tmp.sroa.2.0.iat.sroa_idx, align 8
   %call58 = call { i64, i64 } @gpr_time_0(i32 noundef 1)
-  %19 = extractvalue { i64, i64 } %call58, 0
-  %20 = extractvalue { i64, i64 } %call58, 1
-  %call59 = call i32 @gpr_time_cmp(i64 %17, i64 %18, i64 %19, i64 %20)
+  %20 = extractvalue { i64, i64 } %call58, 0
+  %21 = extractvalue { i64, i64 } %call58, 1
+  %call59 = call i32 @gpr_time_cmp(i64 %retval.sroa.0.0.i, i64 %19, i64 %20, i64 %21)
   %cmp60 = icmp eq i32 %call59, 0
   br i1 %cmp60, label %error, label %for.inc
 
 if.else63:                                        ; preds = %if.else48
-  %call.i77 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i, ptr noundef nonnull @.str.13) #24
-  %cmp.i78 = icmp eq i32 %call.i77, 0
-  br i1 %cmp.i78, label %if.then66, label %if.else79
+  %call.i85 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i, ptr noundef nonnull @.str.13) #24
+  %cmp.i86 = icmp eq i32 %call.i85, 0
+  br i1 %cmp.i86, label %if.then66, label %if.else79
 
 if.then66:                                        ; preds = %if.else63
-  %second68 = getelementptr inbounds i8, ptr %__begin1.sroa.0.096, i64 64
-  %call69 = call fastcc { i64, i64 } @_ZL19validate_time_fieldRKN9grpc_core12experimental4JsonEPKc(ptr noundef nonnull align 8 dereferenceable(56) %second68, ptr noundef nonnull @.str.13)
-  %21 = extractvalue { i64, i64 } %call69, 0
-  %22 = extractvalue { i64, i64 } %call69, 1
-  store i64 %21, ptr %exp, align 8
-  store i64 %22, ptr %ref.tmp5.sroa.2.0.exp.sroa_idx, align 8
+  %call.i87 = call { i64, i64 } @gpr_time_0(i32 noundef 1)
+  %_M_index.i.i.i.i.i88 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0132, i64 112
+  %22 = load i8, ptr %_M_index.i.i.i.i.i88, align 8
+  switch i8 %22, label %sw.default.i.i.i.i99 [
+    i8 -1, label %if.then.i.i.i96
+    i8 0, label %if.then.i89
+    i8 1, label %if.then.i89
+    i8 2, label %_ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit.i93
+    i8 3, label %if.then.i89
+    i8 4, label %if.then.i89
+    i8 5, label %if.then.i89
+  ]
+
+if.then.i.i.i96:                                  ; preds = %if.then66
+  %exception.i.i.i.i97 = call ptr @__cxa_allocate_exception(i64 16) #24
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2), ptr %exception.i.i.i.i97, align 8
+  %_M_reason.i.i.i.i.i98 = getelementptr inbounds i8, ptr %exception.i.i.i.i97, i64 8
+  store ptr @.str.33, ptr %_M_reason.i.i.i.i.i98, align 8
+  call void @__cxa_throw(ptr nonnull %exception.i.i.i.i97, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #25
+  unreachable
+
+sw.default.i.i.i.i99:                             ; preds = %if.then66
+  unreachable
+
+if.then.i89:                                      ; preds = %if.then66, %if.then66, %if.then66, %if.then66, %if.then66
+  %23 = extractvalue { i64, i64 } %call.i87, 0
+  call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.15, i32 noundef 141, i32 noundef 2, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.13)
+  br label %_ZL19validate_time_fieldRKN9grpc_core12experimental4JsonEPKc.exit100
+
+_ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit.i93: ; preds = %if.then66
+  %second68 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0132, i64 64
+  %call3.i94 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %second68) #24
+  %call4.i95 = call i64 @strtol(ptr nocapture noundef %call3.i94, ptr noundef null, i32 noundef 10) #24
+  br label %_ZL19validate_time_fieldRKN9grpc_core12experimental4JsonEPKc.exit100
+
+_ZL19validate_time_fieldRKN9grpc_core12experimental4JsonEPKc.exit100: ; preds = %if.then.i89, %_ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit.i93
+  %retval.sroa.0.0.i90 = phi i64 [ %23, %if.then.i89 ], [ %call4.i95, %_ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit.i93 ]
+  %24 = extractvalue { i64, i64 } %call.i87, 1
+  store i64 %retval.sroa.0.0.i90, ptr %exp, align 8
+  store i64 %24, ptr %ref.tmp5.sroa.2.0.exp.sroa_idx, align 8
   %call74 = call { i64, i64 } @gpr_time_0(i32 noundef 1)
-  %23 = extractvalue { i64, i64 } %call74, 0
-  %24 = extractvalue { i64, i64 } %call74, 1
-  %call75 = call i32 @gpr_time_cmp(i64 %21, i64 %22, i64 %23, i64 %24)
+  %25 = extractvalue { i64, i64 } %call74, 0
+  %26 = extractvalue { i64, i64 } %call74, 1
+  %call75 = call i32 @gpr_time_cmp(i64 %retval.sroa.0.0.i90, i64 %24, i64 %25, i64 %26)
   %cmp76 = icmp eq i32 %call75, 0
   br i1 %cmp76, label %error, label %for.inc
 
 if.else79:                                        ; preds = %if.else63
-  %call.i79 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i, ptr noundef nonnull @.str.14) #24
-  %cmp.i80 = icmp eq i32 %call.i79, 0
-  br i1 %cmp.i80, label %if.then82, label %for.inc
+  %call.i101 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i, ptr noundef nonnull @.str.14) #24
+  %cmp.i102 = icmp eq i32 %call.i101, 0
+  br i1 %cmp.i102, label %if.then82, label %for.inc
 
 if.then82:                                        ; preds = %if.else79
-  %second84 = getelementptr inbounds i8, ptr %__begin1.sroa.0.096, i64 64
-  %call85 = call fastcc { i64, i64 } @_ZL19validate_time_fieldRKN9grpc_core12experimental4JsonEPKc(ptr noundef nonnull align 8 dereferenceable(56) %second84, ptr noundef nonnull @.str.14)
-  %25 = extractvalue { i64, i64 } %call85, 0
-  %26 = extractvalue { i64, i64 } %call85, 1
-  store i64 %25, ptr %nbf, align 8
-  store i64 %26, ptr %ref.tmp3.sroa.2.0.nbf.sroa_idx, align 8
+  %call.i103 = call { i64, i64 } @gpr_time_0(i32 noundef 1)
+  %_M_index.i.i.i.i.i104 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0132, i64 112
+  %27 = load i8, ptr %_M_index.i.i.i.i.i104, align 8
+  switch i8 %27, label %sw.default.i.i.i.i115 [
+    i8 -1, label %if.then.i.i.i112
+    i8 0, label %if.then.i105
+    i8 1, label %if.then.i105
+    i8 2, label %_ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit.i109
+    i8 3, label %if.then.i105
+    i8 4, label %if.then.i105
+    i8 5, label %if.then.i105
+  ]
+
+if.then.i.i.i112:                                 ; preds = %if.then82
+  %exception.i.i.i.i113 = call ptr @__cxa_allocate_exception(i64 16) #24
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2), ptr %exception.i.i.i.i113, align 8
+  %_M_reason.i.i.i.i.i114 = getelementptr inbounds i8, ptr %exception.i.i.i.i113, i64 8
+  store ptr @.str.33, ptr %_M_reason.i.i.i.i.i114, align 8
+  call void @__cxa_throw(ptr nonnull %exception.i.i.i.i113, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #25
+  unreachable
+
+sw.default.i.i.i.i115:                            ; preds = %if.then82
+  unreachable
+
+if.then.i105:                                     ; preds = %if.then82, %if.then82, %if.then82, %if.then82, %if.then82
+  %28 = extractvalue { i64, i64 } %call.i103, 0
+  call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.15, i32 noundef 141, i32 noundef 2, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.14)
+  br label %_ZL19validate_time_fieldRKN9grpc_core12experimental4JsonEPKc.exit116
+
+_ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit.i109: ; preds = %if.then82
+  %second84 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0132, i64 64
+  %call3.i110 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %second84) #24
+  %call4.i111 = call i64 @strtol(ptr nocapture noundef %call3.i110, ptr noundef null, i32 noundef 10) #24
+  br label %_ZL19validate_time_fieldRKN9grpc_core12experimental4JsonEPKc.exit116
+
+_ZL19validate_time_fieldRKN9grpc_core12experimental4JsonEPKc.exit116: ; preds = %if.then.i105, %_ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit.i109
+  %retval.sroa.0.0.i106 = phi i64 [ %28, %if.then.i105 ], [ %call4.i111, %_ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit.i109 ]
+  %29 = extractvalue { i64, i64 } %call.i103, 1
+  store i64 %retval.sroa.0.0.i106, ptr %nbf, align 8
+  store i64 %29, ptr %ref.tmp3.sroa.2.0.nbf.sroa_idx, align 8
   %call90 = call { i64, i64 } @gpr_time_0(i32 noundef 1)
-  %27 = extractvalue { i64, i64 } %call90, 0
-  %28 = extractvalue { i64, i64 } %call90, 1
-  %call91 = call i32 @gpr_time_cmp(i64 %25, i64 %26, i64 %27, i64 %28)
+  %30 = extractvalue { i64, i64 } %call90, 0
+  %31 = extractvalue { i64, i64 } %call90, 1
+  %call91 = call i32 @gpr_time_cmp(i64 %retval.sroa.0.0.i106, i64 %29, i64 %30, i64 %31)
   %cmp92 = icmp eq i32 %call91, 0
   br i1 %cmp92, label %error, label %for.inc
 
-for.inc:                                          ; preds = %_ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit, %_ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit62, %if.then51, %if.else79, %if.then82, %if.then66, %_ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit74, %_ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit50
-  %call.i81 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin1.sroa.0.096) #26
-  %cmp.i.not = icmp eq ptr %call.i81, %add.ptr.i.i
+for.inc:                                          ; preds = %_ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit, %_ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit62, %_ZL19validate_time_fieldRKN9grpc_core12experimental4JsonEPKc.exit, %if.else79, %_ZL19validate_time_fieldRKN9grpc_core12experimental4JsonEPKc.exit116, %_ZL19validate_time_fieldRKN9grpc_core12experimental4JsonEPKc.exit100, %_ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit74, %_ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit50
+  %call.i117 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin1.sroa.0.0132) #26
+  %cmp.i.not = icmp eq ptr %call.i117, %add.ptr.i.i
   br i1 %cmp.i.not, label %return, label %for.body
 
 error.sink.split:                                 ; preds = %if.then41, %if.then41, %if.then41, %if.then41, %if.then41, %if.then31, %if.then31, %if.then31, %if.then31, %if.then31, %if.then21, %if.then21, %if.then21, %if.then21, %if.then21, %if.then, %if.then, %if.then, %if.then, %if.then
@@ -822,10 +924,10 @@ error.sink.split:                                 ; preds = %if.then41, %if.then
   store ptr null, ptr %jti.sink, align 8
   br label %error
 
-error:                                            ; preds = %if.then82, %if.then66, %if.then51, %_ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit74, %_ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit62, %_ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit50, %_ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit, %error.sink.split
+error:                                            ; preds = %_ZL19validate_time_fieldRKN9grpc_core12experimental4JsonEPKc.exit116, %_ZL19validate_time_fieldRKN9grpc_core12experimental4JsonEPKc.exit100, %_ZL19validate_time_fieldRKN9grpc_core12experimental4JsonEPKc.exit, %_ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit74, %_ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit62, %_ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit50, %_ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit, %error.sink.split
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i.i)
-  %29 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i, align 8
-  %cmp.i.i.not.i.i.i.i.i = icmp eq i8 %29, -1
+  %32 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i, align 8
+  %cmp.i.i.not.i.i.i.i.i = icmp eq i8 %32, -1
   br i1 %cmp.i.i.not.i.i.i.i.i, label %_Z23grpc_jwt_claims_destroyP15grpc_jwt_claims.exit, label %if.end.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %error
@@ -837,10 +939,10 @@ if.end.i.i.i.i.i.i:                               ; preds = %error
   br label %_Z23grpc_jwt_claims_destroyP15grpc_jwt_claims.exit
 
 terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %if.end.i.i.i.i.i.i
-  %30 = landingpad { ptr, i32 }
+  %33 = landingpad { ptr, i32 }
           catch ptr null
-  %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #23
+  %34 = extractvalue { ptr, i32 } %33, 0
+  call void @__clang_call_terminate(ptr %34) #23
   unreachable
 
 _Z23grpc_jwt_claims_destroyP15grpc_jwt_claims.exit: ; preds = %error, %.noexc.i.i.i.i.i
@@ -942,51 +1044,6 @@ _ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit: ; preds = %entry
 return:                                           ; preds = %_ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit, %if.then
   %retval.0 = phi ptr [ null, %if.then ], [ %call2, %_ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit ]
   ret ptr %retval.0
-}
-
-; Function Attrs: mustprogress uwtable
-define internal fastcc { i64, i64 } @_ZL19validate_time_fieldRKN9grpc_core12experimental4JsonEPKc(ptr noundef nonnull align 8 dereferenceable(56) %json, ptr noundef %key) unnamed_addr #4 {
-entry:
-  %call = tail call { i64, i64 } @gpr_time_0(i32 noundef 1)
-  %_M_index.i.i.i.i = getelementptr inbounds i8, ptr %json, i64 48
-  %0 = load i8, ptr %_M_index.i.i.i.i, align 8
-  switch i8 %0, label %sw.default.i.i.i [
-    i8 -1, label %if.then.i.i
-    i8 0, label %if.then
-    i8 1, label %if.then
-    i8 2, label %_ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit
-    i8 3, label %if.then
-    i8 4, label %if.then
-    i8 5, label %if.then
-  ]
-
-if.then.i.i:                                      ; preds = %entry
-  %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2), ptr %exception.i.i.i, align 8
-  %_M_reason.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i, i64 8
-  store ptr @.str.33, ptr %_M_reason.i.i.i.i, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #25
-  unreachable
-
-sw.default.i.i.i:                                 ; preds = %entry
-  unreachable
-
-if.then:                                          ; preds = %entry, %entry, %entry, %entry, %entry
-  %1 = extractvalue { i64, i64 } %call, 0
-  tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.15, i32 noundef 141, i32 noundef 2, ptr noundef nonnull @.str.29, ptr noundef %key)
-  br label %return
-
-_ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit: ; preds = %entry
-  %call3 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %json) #24
-  %call4 = tail call i64 @strtol(ptr nocapture noundef %call3, ptr noundef null, i32 noundef 10) #24
-  br label %return
-
-return:                                           ; preds = %_ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit, %if.then
-  %retval.sroa.0.0 = phi i64 [ %1, %if.then ], [ %call4, %_ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit ]
-  %2 = extractvalue { i64, i64 } %call, 1
-  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %2, 1
-  ret { i64, i64 } %.fca.1.insert
 }
 
 declare i32 @gpr_time_cmp(i64, i64, i64, i64) local_unnamed_addr #0

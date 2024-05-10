@@ -12164,7 +12164,7 @@ declare dso_local void @skl_scaler_disable(ptr noundef) local_unnamed_addr #2
 declare dso_local void @ilk_pfit_disable(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @intel_disable_ddi_buf(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc void @intel_disable_ddi_buf(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 2632
   %5 = load i16, ptr %4, align 8
@@ -12254,7 +12254,71 @@ define internal fastcc void @intel_disable_ddi_buf(ptr noundef %0, ptr nocapture
   br label %63
 
 63:                                               ; preds = %62, %61, %7
-  tail call void @intel_ddi_wait_for_fec_status(ptr noundef %0, ptr noundef %1, i1 noundef zeroext false)
+  %64 = load ptr, ptr %1, align 8
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds i8, ptr %1, i64 4903
+  %67 = load i8, ptr %66, align 1, !range !37, !noundef !38
+  %68 = icmp eq i8 %67, 0
+  br i1 %68, label %intel_ddi_wait_for_fec_status.exit, label %69
+
+69:                                               ; preds = %63
+  %70 = load ptr, ptr %0, align 8
+  %71 = getelementptr inbounds i8, ptr %70, i64 2632
+  %72 = load i16, ptr %71, align 8
+  %73 = icmp ugt i16 %72, 11
+  br i1 %73, label %74, label %94
+
+74:                                               ; preds = %69
+  %75 = getelementptr inbounds i8, ptr %70, i64 2624
+  %76 = load ptr, ptr %75, align 8
+  %77 = getelementptr inbounds i8, ptr %76, i64 64
+  %78 = getelementptr inbounds i8, ptr %1, i64 872
+  %79 = load i32, ptr %78, align 8
+  %80 = and i32 %79, 2048
+  %81 = icmp eq i32 %80, 0
+  %82 = select i1 %81, i64 864, i64 4916
+  %83 = getelementptr inbounds i8, ptr %1, i64 %82
+  %84 = load i32, ptr %83, align 4
+  %85 = sext i32 %84 to i64
+  %86 = getelementptr [7 x i32], ptr %77, i64 0, i64 %85
+  %87 = load i32, ptr %86, align 4
+  %88 = load i32, ptr %77, align 4
+  %89 = getelementptr inbounds i8, ptr %76, i64 32
+  %90 = load i32, ptr %89, align 4
+  %91 = add i32 %87, 394564
+  %92 = sub i32 %91, %88
+  %93 = add i32 %92, %90
+  br label %99
+
+94:                                               ; preds = %69
+  %95 = getelementptr inbounds i8, ptr %0, i64 132
+  %96 = load i32, ptr %95, align 4
+  %97 = shl i32 %96, 8
+  %98 = add i32 %97, 409668
+  br label %99
+
+99:                                               ; preds = %94, %74
+  %100 = phi i32 [ %93, %74 ], [ %98, %94 ]
+  %101 = getelementptr inbounds i8, ptr %65, i64 7368
+  %102 = tail call i32 @__intel_wait_for_register(ptr noundef %101, i32 %100, i32 noundef 268435456, i32 noundef 0, i32 noundef 2, i32 noundef 1, ptr noundef null) #14
+  %103 = icmp eq i32 %102, 0
+  br i1 %103, label %intel_ddi_wait_for_fec_status.exit, label %104
+
+104:                                              ; preds = %99
+  %105 = icmp eq ptr %65, null
+  br i1 %105, label %109, label %106
+
+106:                                              ; preds = %104
+  %107 = getelementptr inbounds i8, ptr %65, i64 8
+  %108 = load ptr, ptr %107, align 8
+  br label %109
+
+109:                                              ; preds = %106, %104
+  %110 = phi ptr [ %108, %106 ], [ null, %104 ]
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %110, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.47) #16
+  br label %intel_ddi_wait_for_fec_status.exit
+
+intel_ddi_wait_for_fec_status.exit:               ; preds = %99, %109, %63
   ret void
 }
 

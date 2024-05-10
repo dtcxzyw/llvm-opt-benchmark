@@ -17239,7 +17239,7 @@ declare void @_ZN4llvh5APIntC1EjjPKm(ptr noundef nonnull align 8 dereferenceable
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZN4llvh6detail13DoubleAPFloat17convertFromStringENS_9StringRefENS_11APFloatBase12roundingModeE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr %S.coerce0, i64 %S.coerce1, i32 noundef %RM) local_unnamed_addr #2 align 2 {
-_ZN4llvh7APFloat17convertFromStringENS_9StringRefENS_11APFloatBase12roundingModeE.exit:
+if.then.i:
   %Tmp = alloca %"class.llvh::APFloat", align 8
   %ref.tmp = alloca %"class.llvh::detail::DoubleAPFloat", align 8
   %ref.tmp2 = alloca %"class.llvh::APInt", align 8
@@ -17250,9 +17250,60 @@ _ZN4llvh7APFloat17convertFromStringENS_9StringRefENS_11APFloatBase12roundingMode
   store ptr %call2.i.i.i, ptr %significand.i.i.i, align 8
   %category.i.i = getelementptr inbounds i8, ptr %Tmp, i64 26
   store i8 3, ptr %category.i.i, align 2
-  %call3.i = call noundef i32 @_ZN4llvh6detail9IEEEFloat17convertFromStringENS_9StringRefENS_11APFloatBase12roundingModeE(ptr noundef nonnull align 8 dereferenceable(24) %U.i, ptr %S.coerce0, i64 %S.coerce1, i32 noundef %RM)
-  %0 = load ptr, ptr %U.i, align 8, !noalias !100
-  %cmp.i.not.i = icmp eq ptr %0, @_ZN4llvhL18semPPCDoubleDoubleE
+  %call.i12 = call noundef zeroext i1 @_ZN4llvh6detail9IEEEFloat25convertFromStringSpecialsENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %U.i, ptr %S.coerce0, i64 %S.coerce1)
+  br i1 %call.i12, label %_ZN4llvh7APFloat17convertFromStringENS_9StringRefENS_11APFloatBase12roundingModeE.exit, label %if.end.i13
+
+if.end.i13:                                       ; preds = %if.then.i
+  %0 = load i8, ptr %S.coerce0, align 1
+  %cmp.i14 = icmp eq i8 %0, 45
+  %bf.load.i = load i8, ptr %category.i.i, align 2
+  %bf.shl.i = select i1 %cmp.i14, i8 8, i8 0
+  %bf.clear.i = and i8 %bf.load.i, -9
+  %bf.set.i = or disjoint i8 %bf.clear.i, %bf.shl.i
+  store i8 %bf.set.i, ptr %category.i.i, align 2
+  switch i8 %0, label %if.end9.i [
+    i8 45, label %if.then8.i
+    i8 43, label %if.then8.i
+  ]
+
+if.then8.i:                                       ; preds = %if.end.i13, %if.end.i13
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %S.coerce0, i64 1
+  %dec.i = add i64 %S.coerce1, -1
+  br label %if.end9.i
+
+if.end9.i:                                        ; preds = %if.then8.i, %if.end.i13
+  %p.0.i = phi ptr [ %incdec.ptr.i, %if.then8.i ], [ %S.coerce0, %if.end.i13 ]
+  %slen.0.i = phi i64 [ %dec.i, %if.then8.i ], [ %S.coerce1, %if.end.i13 ]
+  %cmp10.i = icmp ugt i64 %slen.0.i, 1
+  br i1 %cmp10.i, label %land.lhs.true.i, label %if.end24.i
+
+land.lhs.true.i:                                  ; preds = %if.end9.i
+  %1 = load i8, ptr %p.0.i, align 1
+  %cmp12.i = icmp eq i8 %1, 48
+  br i1 %cmp12.i, label %land.lhs.true13.i, label %if.end24.i
+
+land.lhs.true13.i:                                ; preds = %land.lhs.true.i
+  %arrayidx14.i = getelementptr inbounds i8, ptr %p.0.i, i64 1
+  %2 = load i8, ptr %arrayidx14.i, align 1
+  switch i8 %2, label %if.end24.i [
+    i8 120, label %if.then21.i
+    i8 88, label %if.then21.i
+  ]
+
+if.then21.i:                                      ; preds = %land.lhs.true13.i, %land.lhs.true13.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %p.0.i, i64 2
+  %sub.i = add i64 %slen.0.i, -2
+  %call23.i = call noundef i32 @_ZN4llvh6detail9IEEEFloat28convertFromHexadecimalStringENS_9StringRefENS_11APFloatBase12roundingModeE(ptr noundef nonnull align 8 dereferenceable(24) %U.i, ptr nonnull %add.ptr.i, i64 %sub.i, i32 noundef %RM)
+  br label %_ZN4llvh7APFloat17convertFromStringENS_9StringRefENS_11APFloatBase12roundingModeE.exit
+
+if.end24.i:                                       ; preds = %land.lhs.true13.i, %land.lhs.true.i, %if.end9.i
+  %call26.i = call noundef i32 @_ZN4llvh6detail9IEEEFloat24convertFromDecimalStringENS_9StringRefENS_11APFloatBase12roundingModeE(ptr noundef nonnull align 8 dereferenceable(24) %U.i, ptr nonnull %p.0.i, i64 %slen.0.i, i32 noundef %RM)
+  br label %_ZN4llvh7APFloat17convertFromStringENS_9StringRefENS_11APFloatBase12roundingModeE.exit
+
+_ZN4llvh7APFloat17convertFromStringENS_9StringRefENS_11APFloatBase12roundingModeE.exit: ; preds = %if.end24.i, %if.then21.i, %if.then.i
+  %retval.0.i = phi i32 [ %call23.i, %if.then21.i ], [ %call26.i, %if.end24.i ], [ 0, %if.then.i ]
+  %3 = load ptr, ptr %U.i, align 8, !noalias !100
+  %cmp.i.not.i = icmp eq ptr %3, @_ZN4llvhL18semPPCDoubleDoubleE
   br i1 %cmp.i.not.i, label %if.end.i3, label %if.then.i2
 
 if.then.i2:                                       ; preds = %_ZN4llvh7APFloat17convertFromStringENS_9StringRefENS_11APFloatBase12roundingModeE.exit
@@ -17270,12 +17321,12 @@ _ZNK4llvh7APFloat14bitcastToAPIntEv.exit:         ; preds = %if.then.i2, %if.end
 
 if.then.i4:                                       ; preds = %_ZNK4llvh7APFloat14bitcastToAPIntEv.exit
   call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #26
-  %1 = load ptr, ptr %ref.tmp, align 8
-  store ptr %1, ptr %this, align 8
+  %4 = load ptr, ptr %ref.tmp, align 8
+  store ptr %4, ptr %this, align 8
   %Floats.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %Floats3.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %2 = load i64, ptr %Floats3.i.i, align 8
-  store i64 %2, ptr %Floats.i.i, align 8
+  %5 = load i64, ptr %Floats3.i.i, align 8
+  store i64 %5, ptr %Floats.i.i, align 8
   store ptr null, ptr %Floats3.i.i, align 8
   store ptr @_ZN4llvhL8semBogusE, ptr %ref.tmp, align 8
   br label %_ZN4llvh6detail13DoubleAPFloataSEOS1_.exit
@@ -17283,38 +17334,38 @@ if.then.i4:                                       ; preds = %_ZNK4llvh7APFloat14
 _ZN4llvh6detail13DoubleAPFloataSEOS1_.exit:       ; preds = %_ZNK4llvh7APFloat14bitcastToAPIntEv.exit, %if.then.i4
   call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #26
   %BitWidth.i.i.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
-  %3 = load i32, ptr %BitWidth.i.i.i, align 8
-  %cmp.i.i.i = icmp ugt i32 %3, 64
+  %6 = load i32, ptr %BitWidth.i.i.i, align 8
+  %cmp.i.i.i = icmp ugt i32 %6, 64
   br i1 %cmp.i.i.i, label %if.then.i7, label %_ZN4llvh5APIntD2Ev.exit
 
 if.then.i7:                                       ; preds = %_ZN4llvh6detail13DoubleAPFloataSEOS1_.exit
-  %4 = load ptr, ptr %ref.tmp2, align 8
-  %isnull.i = icmp eq ptr %4, null
+  %7 = load ptr, ptr %ref.tmp2, align 8
+  %isnull.i = icmp eq ptr %7, null
   br i1 %isnull.i, label %_ZN4llvh5APIntD2Ev.exit, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %if.then.i7
-  call void @_ZdaPv(ptr noundef nonnull %4) #25
+  call void @_ZdaPv(ptr noundef nonnull %7) #25
   br label %_ZN4llvh5APIntD2Ev.exit
 
 _ZN4llvh5APIntD2Ev.exit:                          ; preds = %_ZN4llvh6detail13DoubleAPFloataSEOS1_.exit, %if.then.i7, %delete.notnull.i
-  %5 = load ptr, ptr %U.i, align 8
-  %cmp.i.not.i9 = icmp eq ptr %5, @_ZN4llvhL18semPPCDoubleDoubleE
+  %8 = load ptr, ptr %U.i, align 8
+  %cmp.i.not.i9 = icmp eq ptr %8, @_ZN4llvhL18semPPCDoubleDoubleE
   br i1 %cmp.i.not.i9, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN4llvh5APIntD2Ev.exit
-  %precision.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 4
-  %6 = load i32, ptr %precision.i.i.i.i.i, align 4
-  %7 = add i32 %6, -64
-  %cmp.i.i.i.i = icmp ult i32 %7, -128
+  %precision.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 4
+  %9 = load i32, ptr %precision.i.i.i.i.i, align 4
+  %10 = add i32 %9, -64
+  %cmp.i.i.i.i = icmp ult i32 %10, -128
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %_ZN4llvh7APFloatD2Ev.exit
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
-  %8 = load ptr, ptr %significand.i.i.i, align 8
-  %isnull.i.i.i = icmp eq ptr %8, null
+  %11 = load ptr, ptr %significand.i.i.i, align 8
+  %isnull.i.i.i = icmp eq ptr %11, null
   br i1 %isnull.i.i.i, label %_ZN4llvh7APFloatD2Ev.exit, label %delete.notnull.i.i.i
 
 delete.notnull.i.i.i:                             ; preds = %if.then.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %8) #25
+  call void @_ZdaPv(ptr noundef nonnull %11) #25
   br label %_ZN4llvh7APFloatD2Ev.exit
 
 if.end.i.i:                                       ; preds = %_ZN4llvh5APIntD2Ev.exit
@@ -17322,7 +17373,7 @@ if.end.i.i:                                       ; preds = %_ZN4llvh5APIntD2Ev.
   br label %_ZN4llvh7APFloatD2Ev.exit
 
 _ZN4llvh7APFloatD2Ev.exit:                        ; preds = %if.then.i.i, %if.then.i.i.i, %delete.notnull.i.i.i, %if.end.i.i
-  ret i32 %call3.i
+  ret i32 %retval.0.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -17334,15 +17385,64 @@ entry:
   br i1 %cmp.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call3 = tail call noundef i32 @_ZN4llvh6detail9IEEEFloat17convertFromStringENS_9StringRefENS_11APFloatBase12roundingModeE(ptr noundef nonnull align 8 dereferenceable(24) %U.i, ptr %Str.coerce0, i64 %Str.coerce1, i32 noundef %RM)
+  %call.i = tail call noundef zeroext i1 @_ZN4llvh6detail9IEEEFloat25convertFromStringSpecialsENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %U.i, ptr %Str.coerce0, i64 %Str.coerce1)
+  br i1 %call.i, label %return, label %if.end.i
+
+if.end.i:                                         ; preds = %if.then
+  %1 = load i8, ptr %Str.coerce0, align 1
+  %cmp.i3 = icmp eq i8 %1, 45
+  %sign.i = getelementptr inbounds i8, ptr %this, i64 26
+  %bf.load.i = load i8, ptr %sign.i, align 2
+  %bf.shl.i = select i1 %cmp.i3, i8 8, i8 0
+  %bf.clear.i = and i8 %bf.load.i, -9
+  %bf.set.i = or disjoint i8 %bf.clear.i, %bf.shl.i
+  store i8 %bf.set.i, ptr %sign.i, align 2
+  %2 = load i8, ptr %Str.coerce0, align 1
+  switch i8 %2, label %if.end9.i [
+    i8 45, label %if.then8.i
+    i8 43, label %if.then8.i
+  ]
+
+if.then8.i:                                       ; preds = %if.end.i, %if.end.i
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %Str.coerce0, i64 1
+  %dec.i = add i64 %Str.coerce1, -1
+  br label %if.end9.i
+
+if.end9.i:                                        ; preds = %if.then8.i, %if.end.i
+  %p.0.i = phi ptr [ %incdec.ptr.i, %if.then8.i ], [ %Str.coerce0, %if.end.i ]
+  %slen.0.i = phi i64 [ %dec.i, %if.then8.i ], [ %Str.coerce1, %if.end.i ]
+  %cmp10.i = icmp ugt i64 %slen.0.i, 1
+  br i1 %cmp10.i, label %land.lhs.true.i, label %if.end24.i
+
+land.lhs.true.i:                                  ; preds = %if.end9.i
+  %3 = load i8, ptr %p.0.i, align 1
+  %cmp12.i = icmp eq i8 %3, 48
+  br i1 %cmp12.i, label %land.lhs.true13.i, label %if.end24.i
+
+land.lhs.true13.i:                                ; preds = %land.lhs.true.i
+  %arrayidx14.i = getelementptr inbounds i8, ptr %p.0.i, i64 1
+  %4 = load i8, ptr %arrayidx14.i, align 1
+  switch i8 %4, label %if.end24.i [
+    i8 120, label %if.then21.i
+    i8 88, label %if.then21.i
+  ]
+
+if.then21.i:                                      ; preds = %land.lhs.true13.i, %land.lhs.true13.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %p.0.i, i64 2
+  %sub.i = add i64 %slen.0.i, -2
+  %call23.i = tail call noundef i32 @_ZN4llvh6detail9IEEEFloat28convertFromHexadecimalStringENS_9StringRefENS_11APFloatBase12roundingModeE(ptr noundef nonnull align 8 dereferenceable(24) %U.i, ptr nonnull %add.ptr.i, i64 %sub.i, i32 noundef %RM)
+  br label %return
+
+if.end24.i:                                       ; preds = %land.lhs.true13.i, %land.lhs.true.i, %if.end9.i
+  %call26.i = tail call noundef i32 @_ZN4llvh6detail9IEEEFloat24convertFromDecimalStringENS_9StringRefENS_11APFloatBase12roundingModeE(ptr noundef nonnull align 8 dereferenceable(24) %U.i, ptr nonnull %p.0.i, i64 %slen.0.i, i32 noundef %RM)
   br label %return
 
 if.end:                                           ; preds = %entry
   %call9 = tail call noundef i32 @_ZN4llvh6detail13DoubleAPFloat17convertFromStringENS_9StringRefENS_11APFloatBase12roundingModeE(ptr noundef nonnull align 8 dereferenceable(16) %U.i, ptr %Str.coerce0, i64 %Str.coerce1, i32 noundef %RM)
   br label %return
 
-return:                                           ; preds = %if.end, %if.then
-  %retval.0 = phi i32 [ %call3, %if.then ], [ %call9, %if.end ]
+return:                                           ; preds = %if.end24.i, %if.then21.i, %if.then, %if.end
+  %retval.0 = phi i32 [ %call9, %if.end ], [ %call23.i, %if.then21.i ], [ %call26.i, %if.end24.i ], [ 0, %if.then ]
   ret i32 %retval.0
 }
 
@@ -19319,7 +19419,7 @@ define hidden void @_ZN4llvh7APFloatC2ERKNS_12fltSemanticsENS_9StringRefE(ptr no
 entry:
   %U.i = getelementptr inbounds i8, ptr %this, i64 8
   %cmp.i.not.i = icmp eq ptr %Semantics, @_ZN4llvhL18semPPCDoubleDoubleE
-  br i1 %cmp.i.not.i, label %if.end.i, label %if.then.i.i
+  br i1 %cmp.i.not.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
   store ptr %Semantics, ptr %U.i, align 8
@@ -19327,7 +19427,7 @@ if.then.i.i:                                      ; preds = %entry
   %0 = load i32, ptr %precision.i.i.i.i, align 4
   %sub.i.i.i.i.i = add i32 %0, 64
   %cmp.i.i.i = icmp ugt i32 %sub.i.i.i.i.i, 127
-  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.then.i
+  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN4llvh6detail9IEEEFloatC2ERKNS_12fltSemanticsE.exit.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %1 = lshr i32 %sub.i.i.i.i.i, 3
@@ -19336,18 +19436,17 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   %call2.i.i.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %3) #24
   %significand.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %call2.i.i.i, ptr %significand.i.i.i, align 8
-  br label %if.then.i
+  br label %_ZN4llvh6detail9IEEEFloatC2ERKNS_12fltSemanticsE.exit.i
 
-if.then.i:                                        ; preds = %if.then.i.i.i, %if.then.i.i
+_ZN4llvh6detail9IEEEFloatC2ERKNS_12fltSemanticsE.exit.i: ; preds = %if.then.i.i.i, %if.then.i.i
   %category.i.i = getelementptr inbounds i8, ptr %this, i64 26
   %bf.load.i.i = load i8, ptr %category.i.i, align 2
   %bf.clear.i.i = and i8 %bf.load.i.i, -16
   %bf.set.i.i = or disjoint i8 %bf.clear.i.i, 3
   store i8 %bf.set.i.i, ptr %category.i.i, align 2
-  %call3.i = tail call noundef i32 @_ZN4llvh6detail9IEEEFloat17convertFromStringENS_9StringRefENS_11APFloatBase12roundingModeE(ptr noundef nonnull align 8 dereferenceable(24) %U.i, ptr %S.coerce0, i64 %S.coerce1, i32 noundef 0)
-  br label %_ZN4llvh7APFloat17convertFromStringENS_9StringRefENS_11APFloatBase12roundingModeE.exit
+  br label %_ZN4llvh7APFloatC2ERKNS_12fltSemanticsE.exit
 
-if.end.i:                                         ; preds = %entry
+if.end.i.i:                                       ; preds = %entry
   store ptr @_ZN4llvhL18semPPCDoubleDoubleE, ptr %U.i, align 8
   %Floats.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %call.i.i = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znam(i64 noundef 72) #24
@@ -19362,10 +19461,10 @@ if.end.i:                                         ; preds = %entry
   %category.i7.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 66
   store i8 3, ptr %category.i7.i.i, align 2
   store ptr %4, ptr %Floats.i.i, align 8
-  %call9.i = tail call noundef i32 @_ZN4llvh6detail13DoubleAPFloat17convertFromStringENS_9StringRefENS_11APFloatBase12roundingModeE(ptr noundef nonnull align 8 dereferenceable(16) %U.i, ptr %S.coerce0, i64 %S.coerce1, i32 noundef 0)
-  br label %_ZN4llvh7APFloat17convertFromStringENS_9StringRefENS_11APFloatBase12roundingModeE.exit
+  br label %_ZN4llvh7APFloatC2ERKNS_12fltSemanticsE.exit
 
-_ZN4llvh7APFloat17convertFromStringENS_9StringRefENS_11APFloatBase12roundingModeE.exit: ; preds = %if.then.i, %if.end.i
+_ZN4llvh7APFloatC2ERKNS_12fltSemanticsE.exit:     ; preds = %_ZN4llvh6detail9IEEEFloatC2ERKNS_12fltSemanticsE.exit.i, %if.end.i.i
+  %call = tail call noundef i32 @_ZN4llvh7APFloat17convertFromStringENS_9StringRefENS_11APFloatBase12roundingModeE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr %S.coerce0, i64 %S.coerce1, i32 noundef 0)
   ret void
 }
 

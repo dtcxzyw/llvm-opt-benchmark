@@ -15,9 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @mca_timer_base_monotonic = external local_unnamed_addr global i8, align 1
 @.str = private unnamed_addr constant [14 x i8] c"/proc/cpuinfo\00", align 1
 @.str.1 = private unnamed_addr constant [2 x i8] c"r\00", align 1
-@.str.2 = private unnamed_addr constant [9 x i8] c"timebase\00", align 1
 @.str.3 = private unnamed_addr constant [3 x i8] c"%d\00", align 1
-@.str.4 = private unnamed_addr constant [9 x i8] c"bogomips\00", align 1
 @.str.5 = private unnamed_addr constant [3 x i8] c"%f\00", align 1
 @.str.6 = private unnamed_addr constant [8 x i8] c"cpu MHz\00", align 1
 @.str.7 = private unnamed_addr constant [11 x i8] c"Cpu0ClkTck\00", align 1
@@ -27,7 +25,7 @@ target triple = "x86_64-pc-linux-gnu"
 define internal i64 @opal_timer_linux_get_cycles_clock_gettime() #0 {
   %1 = alloca %struct.timespec, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
-  %2 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #9
+  %2 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #8
   %3 = load i64, ptr %1, align 8
   %4 = sitofp i64 %3 to double
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -42,7 +40,7 @@ define internal i64 @opal_timer_linux_get_cycles_clock_gettime() #0 {
 define internal i64 @opal_timer_linux_get_usec_clock_gettime() #0 {
   %1 = alloca %struct.timespec, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
-  %2 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #9
+  %2 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #8
   %3 = load i64, ptr %1, align 8
   %4 = sitofp i64 %3 to double
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -66,20 +64,20 @@ define internal range(i32 -11, 1) i32 @opal_timer_linux_open() #0 {
   br i1 %7, label %8, label %16
 
 8:                                                ; preds = %0
-  %9 = tail call { i32, i32, i64 } asm sideeffect "xchg %rbx, $2\0Acpuid\0Axchg %rbx, $2\0A", "={ax},={dx},=r,{ax},~{ecx},~{ebx},~{dirflag},~{fpsr},~{flags}"(i32 -2147483641) #9, !srcloc !4
+  %9 = tail call { i32, i32, i64 } asm sideeffect "xchg %rbx, $2\0Acpuid\0Axchg %rbx, $2\0A", "={ax},={dx},=r,{ax},~{ecx},~{ebx},~{dirflag},~{fpsr},~{flags}"(i32 -2147483641) #8, !srcloc !4
   %10 = extractvalue { i32, i32, i64 } %9, 1
   %11 = and i32 %10, 256
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %12, label %16
 
 12:                                               ; preds = %8
-  %13 = call i32 @clock_getres(i32 noundef 1, ptr noundef nonnull %5) #9
+  %13 = call i32 @clock_getres(i32 noundef 1, ptr noundef nonnull %5) #8
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %12
   store i64 1000, ptr @opal_timer_linux_freq, align 8
-  br label %71
+  br label %88
 
 16:                                               ; preds = %12, %8, %0
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1)
@@ -92,122 +90,252 @@ define internal range(i32 -11, 1) i32 @opal_timer_linux_open() #0 {
 
 19:                                               ; preds = %16
   store i64 0, ptr @opal_timer_linux_freq, align 8
-  %20 = call fastcc ptr @find_info(ptr noundef nonnull %17, ptr noundef nonnull @.str.2, ptr noundef nonnull %2)
-  %.not.i = icmp eq ptr %20, null
-  br i1 %.not.i, label %thread-pre-split.i, label %21
+  call void @rewind(ptr noundef nonnull %17)
+  %20 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 1024, ptr noundef nonnull %17)
+  %.not29.i.i = icmp eq ptr %20, null
+  br i1 %.not29.i.i, label %thread-pre-split.i, label %.lr.ph.i.i
 
-21:                                               ; preds = %19
-  %22 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %20, ptr noundef nonnull @.str.3, ptr noundef nonnull %3) #9
-  %23 = icmp eq i32 %22, 1
-  br i1 %23, label %24, label %thread-pre-split.i
+.lr.ph.i.i:                                       ; preds = %19, %.backedge.i.i
+  %lhsv.i = load i64, ptr %2, align 16
+  %.not.i = icmp eq i64 %lhsv.i, 7310293695388805492
+  br i1 %.not.i, label %.preheader24.i.i, label %.backedge.i.i
 
-24:                                               ; preds = %21
-  %25 = load i32, ptr %3, align 4
-  %26 = sext i32 %25 to i64
-  store i64 %26, ptr @opal_timer_linux_freq, align 8
-  br label %27
+.preheader24.i.i:                                 ; preds = %.lr.ph.i.i, %22
+  %21 = phi i8 [ %.pre.i, %22 ], [ 116, %.lr.ph.i.i ]
+  %.0.i.i = phi ptr [ %23, %22 ], [ %2, %.lr.ph.i.i ]
+  switch i8 %21, label %22 [
+    i8 0, label %.backedge.i.i
+    i8 58, label %.preheader.i.i
+  ]
 
-thread-pre-split.i:                               ; preds = %21, %19
+22:                                               ; preds = %.preheader24.i.i
+  %23 = getelementptr inbounds i8, ptr %.0.i.i, i64 1
+  %.pre.i = load i8, ptr %23, align 1
+  br label %.preheader24.i.i, !llvm.loop !5
+
+.preheader.i.i:                                   ; preds = %.preheader24.i.i, %.preheader.i.i
+  %.0.pn.i.i = phi ptr [ %.1.i.i, %.preheader.i.i ], [ %.0.i.i, %.preheader24.i.i ]
+  %.1.i.i = getelementptr inbounds i8, ptr %.0.pn.i.i, i64 1
+  %24 = load i8, ptr %.1.i.i, align 1
+  switch i8 %24, label %find_info.exit.i [
+    i8 32, label %.preheader.i.i
+    i8 0, label %.backedge.i.i
+  ]
+
+.backedge.i.i:                                    ; preds = %.preheader24.i.i, %.preheader.i.i, %.lr.ph.i.i
+  %25 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 1024, ptr noundef nonnull %17)
+  %.not.i.i = icmp eq ptr %25, null
+  br i1 %.not.i.i, label %thread-pre-split.i, label %.lr.ph.i.i, !llvm.loop !7
+
+find_info.exit.i:                                 ; preds = %.preheader.i.i
+  %26 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.1.i.i, ptr noundef nonnull @.str.3, ptr noundef nonnull %3) #8
+  %27 = icmp eq i32 %26, 1
+  br i1 %27, label %28, label %thread-pre-split.i
+
+28:                                               ; preds = %find_info.exit.i
+  %29 = load i32, ptr %3, align 4
+  %30 = sext i32 %29 to i64
+  store i64 %30, ptr @opal_timer_linux_freq, align 8
+  br label %31
+
+thread-pre-split.i:                               ; preds = %.backedge.i.i, %find_info.exit.i, %19
   %.pr.i = load i64, ptr @opal_timer_linux_freq, align 8
-  br label %27
+  br label %31
 
-27:                                               ; preds = %thread-pre-split.i, %24
-  %28 = phi i64 [ %.pr.i, %thread-pre-split.i ], [ %26, %24 ]
-  %29 = icmp eq i64 %28, 0
-  br i1 %29, label %30, label %thread-pre-split26.i
+31:                                               ; preds = %thread-pre-split.i, %28
+  %32 = phi i64 [ %.pr.i, %thread-pre-split.i ], [ %30, %28 ]
+  %33 = icmp eq i64 %32, 0
+  br i1 %33, label %34, label %thread-pre-split63.i
 
-30:                                               ; preds = %27
-  %31 = call { i32, i32, i64 } asm sideeffect "xchg %rbx, $2\0Acpuid\0Axchg %rbx, $2\0A", "={ax},={dx},=r,{ax},~{ecx},~{ebx},~{dirflag},~{fpsr},~{flags}"(i32 -2147483641) #9, !srcloc !4
-  %32 = extractvalue { i32, i32, i64 } %31, 1
-  %33 = and i32 %32, 256
-  %.not30.i = icmp eq i32 %33, 0
-  br i1 %.not30.i, label %thread-pre-split26.i, label %34
+34:                                               ; preds = %31
+  %35 = call { i32, i32, i64 } asm sideeffect "xchg %rbx, $2\0Acpuid\0Axchg %rbx, $2\0A", "={ax},={dx},=r,{ax},~{ecx},~{ebx},~{dirflag},~{fpsr},~{flags}"(i32 -2147483641) #8, !srcloc !4
+  %36 = extractvalue { i32, i32, i64 } %35, 1
+  %37 = and i32 %36, 256
+  %.not72.i = icmp eq i32 %37, 0
+  br i1 %.not72.i, label %thread-pre-split63.i, label %38
 
-34:                                               ; preds = %30
-  %35 = call fastcc ptr @find_info(ptr noundef nonnull %17, ptr noundef nonnull @.str.4, ptr noundef nonnull %2)
-  %.not23.i = icmp eq ptr %35, null
-  br i1 %.not23.i, label %thread-pre-split26.i, label %36
+38:                                               ; preds = %34
+  call void @rewind(ptr noundef nonnull %17)
+  %39 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 1024, ptr noundef nonnull %17)
+  %.not29.i26.i = icmp eq ptr %39, null
+  br i1 %.not29.i26.i, label %thread-pre-split63.i, label %.lr.ph.i27.i
 
-36:                                               ; preds = %34
-  %37 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %35, ptr noundef nonnull @.str.5, ptr noundef nonnull %1) #9
-  %38 = icmp eq i32 %37, 1
-  br i1 %38, label %39, label %thread-pre-split26.i
+.lr.ph.i27.i:                                     ; preds = %38, %.backedge.i28.i
+  %lhsv73.i = load i64, ptr %2, align 16
+  %.not75.i = icmp eq i64 %lhsv73.i, 8318264430494707554
+  br i1 %.not75.i, label %.preheader24.i31.i, label %.backedge.i28.i
 
-39:                                               ; preds = %36
-  %40 = load float, ptr %1, align 4
-  %41 = fmul float %40, 1.000000e+02
-  %42 = fptoui float %41 to i64
-  %43 = mul i64 %42, 5000
-  store i64 %43, ptr @opal_timer_linux_freq, align 8
-  br label %44
+.preheader24.i31.i:                               ; preds = %.lr.ph.i27.i, %41
+  %40 = phi i8 [ %.pre101.i, %41 ], [ 98, %.lr.ph.i27.i ]
+  %.0.i32.i = phi ptr [ %42, %41 ], [ %2, %.lr.ph.i27.i ]
+  switch i8 %40, label %41 [
+    i8 0, label %.backedge.i28.i
+    i8 58, label %.preheader.i33.i
+  ]
 
-thread-pre-split26.i:                             ; preds = %36, %34, %30, %27
-  %.pr27.i = load i64, ptr @opal_timer_linux_freq, align 8
-  br label %44
+41:                                               ; preds = %.preheader24.i31.i
+  %42 = getelementptr inbounds i8, ptr %.0.i32.i, i64 1
+  %.pre101.i = load i8, ptr %42, align 1
+  br label %.preheader24.i31.i, !llvm.loop !5
 
-44:                                               ; preds = %thread-pre-split26.i, %39
-  %45 = phi i64 [ %.pr27.i, %thread-pre-split26.i ], [ %43, %39 ]
-  %46 = icmp eq i64 %45, 0
-  br i1 %46, label %47, label %thread-pre-split28.i
+.preheader.i33.i:                                 ; preds = %.preheader24.i31.i, %.preheader.i33.i
+  %.0.pn.i34.i = phi ptr [ %.1.i35.i, %.preheader.i33.i ], [ %.0.i32.i, %.preheader24.i31.i ]
+  %.1.i35.i = getelementptr inbounds i8, ptr %.0.pn.i34.i, i64 1
+  %43 = load i8, ptr %.1.i35.i, align 1
+  switch i8 %43, label %find_info.exit36.i [
+    i8 32, label %.preheader.i33.i
+    i8 0, label %.backedge.i28.i
+  ]
 
-47:                                               ; preds = %44
-  %48 = call fastcc ptr @find_info(ptr noundef nonnull %17, ptr noundef nonnull @.str.6, ptr noundef nonnull %2)
-  %.not24.i = icmp eq ptr %48, null
-  br i1 %.not24.i, label %thread-pre-split28.i, label %49
+.backedge.i28.i:                                  ; preds = %.preheader24.i31.i, %.preheader.i33.i, %.lr.ph.i27.i
+  %44 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 1024, ptr noundef nonnull %17)
+  %.not.i29.i = icmp eq ptr %44, null
+  br i1 %.not.i29.i, label %thread-pre-split63.i, label %.lr.ph.i27.i, !llvm.loop !7
 
-49:                                               ; preds = %47
-  %50 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %48, ptr noundef nonnull @.str.5, ptr noundef nonnull %1) #9
-  %51 = icmp eq i32 %50, 1
-  br i1 %51, label %52, label %thread-pre-split28.i
+find_info.exit36.i:                               ; preds = %.preheader.i33.i
+  %45 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.1.i35.i, ptr noundef nonnull @.str.5, ptr noundef nonnull %1) #8
+  %46 = icmp eq i32 %45, 1
+  br i1 %46, label %47, label %thread-pre-split63.i
 
-52:                                               ; preds = %49
-  %53 = load float, ptr %1, align 4
-  %54 = fmul float %53, 1.000000e+06
-  %55 = fptoui float %54 to i64
-  store i64 %55, ptr @opal_timer_linux_freq, align 8
-  br label %56
+47:                                               ; preds = %find_info.exit36.i
+  %48 = load float, ptr %1, align 4
+  %49 = fmul float %48, 1.000000e+02
+  %50 = fptoui float %49 to i64
+  %51 = mul i64 %50, 5000
+  store i64 %51, ptr @opal_timer_linux_freq, align 8
+  br label %52
 
-thread-pre-split28.i:                             ; preds = %49, %47, %44
-  %.pr29.i = load i64, ptr @opal_timer_linux_freq, align 8
-  br label %56
+thread-pre-split63.i:                             ; preds = %.backedge.i28.i, %find_info.exit36.i, %38, %34, %31
+  %.pr64.i = load i64, ptr @opal_timer_linux_freq, align 8
+  br label %52
 
-56:                                               ; preds = %thread-pre-split28.i, %52
-  %57 = phi i64 [ %.pr29.i, %thread-pre-split28.i ], [ %55, %52 ]
-  %58 = icmp eq i64 %57, 0
-  br i1 %58, label %59, label %67
+52:                                               ; preds = %thread-pre-split63.i, %47
+  %53 = phi i64 [ %.pr64.i, %thread-pre-split63.i ], [ %51, %47 ]
+  %54 = icmp eq i64 %53, 0
+  br i1 %54, label %55, label %thread-pre-split67.i
 
-59:                                               ; preds = %56
-  %60 = call fastcc ptr @find_info(ptr noundef nonnull %17, ptr noundef nonnull @.str.7, ptr noundef nonnull %2)
-  %.not25.i = icmp eq ptr %60, null
-  br i1 %.not25.i, label %67, label %61
+55:                                               ; preds = %52
+  call void @rewind(ptr noundef nonnull %17)
+  %56 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 1024, ptr noundef nonnull %17)
+  %.not29.i37.i = icmp eq ptr %56, null
+  br i1 %.not29.i37.i, label %thread-pre-split67.i, label %.lr.ph.i38.i
 
-61:                                               ; preds = %59
-  %62 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %60, ptr noundef nonnull @.str.8, ptr noundef nonnull %4) #9
-  %63 = icmp eq i32 %62, 1
-  br i1 %63, label %64, label %67
+.lr.ph.i38.i:                                     ; preds = %55, %.backedge.i39.i
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %2, ptr noundef nonnull dereferenceable(7) @.str.6, i64 7)
+  %57 = icmp eq i32 %bcmp.i, 0
+  br i1 %57, label %.preheader24.i42.i, label %.backedge.i39.i
 
-64:                                               ; preds = %61
-  %65 = load i32, ptr %4, align 4
-  %66 = zext i32 %65 to i64
-  store i64 %66, ptr @opal_timer_linux_freq, align 8
-  br label %67
+.preheader24.i42.i:                               ; preds = %.lr.ph.i38.i, %59
+  %.0.i43.i = phi ptr [ %60, %59 ], [ %2, %.lr.ph.i38.i ]
+  %58 = load i8, ptr %.0.i43.i, align 1
+  switch i8 %58, label %59 [
+    i8 0, label %.backedge.i39.i
+    i8 58, label %.preheader.i44.i
+  ]
 
-67:                                               ; preds = %64, %61, %59, %56
-  %68 = call i32 @fclose(ptr noundef nonnull %17)
-  %69 = load i64, ptr @opal_timer_linux_freq, align 8
-  %70 = udiv i64 %69, 1000000
-  store i64 %70, ptr @opal_timer_linux_freq, align 8
+59:                                               ; preds = %.preheader24.i42.i
+  %60 = getelementptr inbounds i8, ptr %.0.i43.i, i64 1
+  br label %.preheader24.i42.i, !llvm.loop !5
+
+.preheader.i44.i:                                 ; preds = %.preheader24.i42.i, %.preheader.i44.i
+  %.0.pn.i45.i = phi ptr [ %.1.i46.i, %.preheader.i44.i ], [ %.0.i43.i, %.preheader24.i42.i ]
+  %.1.i46.i = getelementptr inbounds i8, ptr %.0.pn.i45.i, i64 1
+  %61 = load i8, ptr %.1.i46.i, align 1
+  switch i8 %61, label %find_info.exit47.i [
+    i8 32, label %.preheader.i44.i
+    i8 0, label %.backedge.i39.i
+  ]
+
+.backedge.i39.i:                                  ; preds = %.preheader24.i42.i, %.preheader.i44.i, %.lr.ph.i38.i
+  %62 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 1024, ptr noundef nonnull %17)
+  %.not.i40.i = icmp eq ptr %62, null
+  br i1 %.not.i40.i, label %thread-pre-split67.i, label %.lr.ph.i38.i, !llvm.loop !7
+
+find_info.exit47.i:                               ; preds = %.preheader.i44.i
+  %63 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.1.i46.i, ptr noundef nonnull @.str.5, ptr noundef nonnull %1) #8
+  %64 = icmp eq i32 %63, 1
+  br i1 %64, label %65, label %thread-pre-split67.i
+
+65:                                               ; preds = %find_info.exit47.i
+  %66 = load float, ptr %1, align 4
+  %67 = fmul float %66, 1.000000e+06
+  %68 = fptoui float %67 to i64
+  store i64 %68, ptr @opal_timer_linux_freq, align 8
+  br label %69
+
+thread-pre-split67.i:                             ; preds = %.backedge.i39.i, %find_info.exit47.i, %55, %52
+  %.pr68.i = load i64, ptr @opal_timer_linux_freq, align 8
+  br label %69
+
+69:                                               ; preds = %thread-pre-split67.i, %65
+  %70 = phi i64 [ %.pr68.i, %thread-pre-split67.i ], [ %68, %65 ]
+  %71 = icmp eq i64 %70, 0
+  br i1 %71, label %72, label %find_info.exit58.thread.i
+
+72:                                               ; preds = %69
+  call void @rewind(ptr noundef nonnull %17)
+  %73 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 1024, ptr noundef nonnull %17)
+  %.not29.i48.i = icmp eq ptr %73, null
+  br i1 %.not29.i48.i, label %find_info.exit58.thread.i, label %.lr.ph.i49.i
+
+.lr.ph.i49.i:                                     ; preds = %72, %.backedge.i50.i
+  %bcmp76.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %2, ptr noundef nonnull dereferenceable(10) @.str.7, i64 10)
+  %74 = icmp eq i32 %bcmp76.i, 0
+  br i1 %74, label %.preheader24.i53.i, label %.backedge.i50.i
+
+.preheader24.i53.i:                               ; preds = %.lr.ph.i49.i, %76
+  %.0.i54.i = phi ptr [ %77, %76 ], [ %2, %.lr.ph.i49.i ]
+  %75 = load i8, ptr %.0.i54.i, align 1
+  switch i8 %75, label %76 [
+    i8 0, label %.backedge.i50.i
+    i8 58, label %.preheader.i55.i
+  ]
+
+76:                                               ; preds = %.preheader24.i53.i
+  %77 = getelementptr inbounds i8, ptr %.0.i54.i, i64 1
+  br label %.preheader24.i53.i, !llvm.loop !5
+
+.preheader.i55.i:                                 ; preds = %.preheader24.i53.i, %.preheader.i55.i
+  %.0.pn.i56.i = phi ptr [ %.1.i57.i, %.preheader.i55.i ], [ %.0.i54.i, %.preheader24.i53.i ]
+  %.1.i57.i = getelementptr inbounds i8, ptr %.0.pn.i56.i, i64 1
+  %78 = load i8, ptr %.1.i57.i, align 1
+  switch i8 %78, label %find_info.exit58.i [
+    i8 32, label %.preheader.i55.i
+    i8 0, label %.backedge.i50.i
+  ]
+
+.backedge.i50.i:                                  ; preds = %.preheader24.i53.i, %.preheader.i55.i, %.lr.ph.i49.i
+  %79 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 1024, ptr noundef nonnull %17)
+  %.not.i51.i = icmp eq ptr %79, null
+  br i1 %.not.i51.i, label %find_info.exit58.thread.i, label %.lr.ph.i49.i, !llvm.loop !7
+
+find_info.exit58.i:                               ; preds = %.preheader.i55.i
+  %80 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.1.i57.i, ptr noundef nonnull @.str.8, ptr noundef nonnull %4) #8
+  %81 = icmp eq i32 %80, 1
+  br i1 %81, label %82, label %find_info.exit58.thread.i
+
+82:                                               ; preds = %find_info.exit58.i
+  %83 = load i32, ptr %4, align 4
+  %84 = zext i32 %83 to i64
+  store i64 %84, ptr @opal_timer_linux_freq, align 8
+  br label %find_info.exit58.thread.i
+
+find_info.exit58.thread.i:                        ; preds = %.backedge.i50.i, %82, %find_info.exit58.i, %72, %69
+  %85 = call i32 @fclose(ptr noundef nonnull %17)
+  %86 = load i64, ptr @opal_timer_linux_freq, align 8
+  %87 = udiv i64 %86, 1000000
+  store i64 %87, ptr @opal_timer_linux_freq, align 8
   br label %opal_timer_linux_find_freq.exit
 
-opal_timer_linux_find_freq.exit:                  ; preds = %16, %67
-  %.0.i = phi i32 [ 0, %67 ], [ -11, %16 ]
+opal_timer_linux_find_freq.exit:                  ; preds = %16, %find_info.exit58.thread.i
+  %.0.i = phi i32 [ 0, %find_info.exit58.thread.i ], [ -11, %16 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  br label %71
+  br label %88
 
-71:                                               ; preds = %opal_timer_linux_find_freq.exit, %15
+88:                                               ; preds = %opal_timer_linux_find_freq.exit, %15
   %storemerge3 = phi ptr [ @opal_timer_linux_get_cycles_clock_gettime, %15 ], [ @opal_timer_linux_get_cycles_sys_timer, %opal_timer_linux_find_freq.exit ]
   %storemerge = phi ptr [ @opal_timer_linux_get_usec_clock_gettime, %15 ], [ @opal_timer_linux_get_usec_sys_timer, %opal_timer_linux_find_freq.exit ]
   %.0 = phi i32 [ 0, %15 ], [ %.0.i, %opal_timer_linux_find_freq.exit ]
@@ -228,7 +356,7 @@ declare i32 @clock_getres(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @opal_timer_linux_get_cycles_sys_timer() #0 {
-  %1 = tail call { i32, i32 } asm sideeffect "lfence\0A\09rdtsc\0A\09", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !5
+  %1 = tail call { i32, i32 } asm sideeffect "lfence\0A\09rdtsc\0A\09", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !8
   %2 = extractvalue { i32, i32 } %1, 0
   %3 = extractvalue { i32, i32 } %1, 1
   %4 = zext i32 %2 to i64
@@ -240,7 +368,7 @@ define internal i64 @opal_timer_linux_get_cycles_sys_timer() #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @opal_timer_linux_get_usec_sys_timer() #0 {
-  %1 = tail call { i32, i32 } asm sideeffect "lfence\0A\09rdtsc\0A\09", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !5
+  %1 = tail call { i32, i32 } asm sideeffect "lfence\0A\09rdtsc\0A\09", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !8
   %2 = extractvalue { i32, i32 } %1, 0
   %3 = extractvalue { i32, i32 } %1, 1
   %4 = zext i32 %2 to i64
@@ -255,50 +383,6 @@ define internal i64 @opal_timer_linux_get_usec_sys_timer() #0 {
 ; Function Attrs: nofree nounwind
 declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #3
 
-; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef ptr @find_info(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #4 {
-  tail call void @rewind(ptr noundef %0)
-  %4 = tail call ptr @fgets(ptr noundef %2, i32 noundef 1024, ptr noundef %0)
-  %.not29 = icmp eq ptr %4, null
-  br i1 %.not29, label %.loopexit, label %.lr.ph
-
-.lr.ph:                                           ; preds = %3, %.backedge
-  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #10
-  %6 = tail call i32 @strncmp(ptr noundef %2, ptr noundef %1, i64 noundef %5) #10
-  %7 = icmp eq i32 %6, 0
-  br i1 %7, label %.preheader24, label %.backedge
-
-.preheader24:                                     ; preds = %.lr.ph, %9
-  %.0 = phi ptr [ %10, %9 ], [ %2, %.lr.ph ]
-  %8 = load i8, ptr %.0, align 1
-  switch i8 %8, label %9 [
-    i8 0, label %.backedge
-    i8 58, label %.preheader
-  ]
-
-9:                                                ; preds = %.preheader24
-  %10 = getelementptr inbounds i8, ptr %.0, i64 1
-  br label %.preheader24, !llvm.loop !6
-
-.preheader:                                       ; preds = %.preheader24, %.preheader
-  %.0.pn = phi ptr [ %.1, %.preheader ], [ %.0, %.preheader24 ]
-  %.1 = getelementptr inbounds i8, ptr %.0.pn, i64 1
-  %11 = load i8, ptr %.1, align 1
-  switch i8 %11, label %.loopexit [
-    i8 32, label %.preheader
-    i8 0, label %.backedge
-  ]
-
-.backedge:                                        ; preds = %.preheader24, %.preheader, %.lr.ph
-  %12 = tail call ptr @fgets(ptr noundef %2, i32 noundef 1024, ptr noundef %0)
-  %.not = icmp eq ptr %12, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
-
-.loopexit:                                        ; preds = %.backedge, %.preheader, %3
-  %.017 = phi ptr [ null, %3 ], [ %.1, %.preheader ], [ null, %.backedge ]
-  ret ptr %.017
-}
-
 ; Function Attrs: nofree nounwind
 declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
 
@@ -311,38 +395,33 @@ declare void @rewind(ptr nocapture noundef) local_unnamed_addr #3
 ; Function Attrs: nofree nounwind
 declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind
 declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #7
+declare double @llvm.fmuladd.f64(double, double, double) #5
+
+; Function Attrs: nofree nounwind willreturn memory(argmem: read)
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nounwind }
-attributes #10 = { nounwind willreturn memory(read) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
@@ -351,7 +430,7 @@ attributes #10 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{i64 1332780, i64 1332821, i64 1332852}
-!5 = !{i64 1332366, i64 1332375, i64 1332412}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = !{i64 1332366, i64 1332375, i64 1332412}

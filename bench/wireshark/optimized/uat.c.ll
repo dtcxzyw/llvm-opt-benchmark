@@ -1505,118 +1505,158 @@ declare ptr @find_dissector(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define noundef zeroext i1 @uat_fld_chk_num_dec(ptr nocapture noundef readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readnone %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
-  %7 = alloca ptr, align 8
-  %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  %.not.i = icmp eq i32 %2, 0
-  br i1 %.not.i, label %15, label %9
+  %7 = tail call fastcc zeroext i1 @uat_fld_chk_num(i32 noundef 10, ptr noundef %1, i32 noundef %2, ptr noundef %5)
+  ret i1 %7
+}
 
-9:                                                ; preds = %6
-  %10 = zext i32 %2 to i64
-  %11 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %10) #16
-  %12 = call zeroext i1 @ws_basestrtou32(ptr noundef %11, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 10) #16
-  %13 = load ptr, ptr %7, align 8
-  %14 = call fastcc zeroext i1 @uat_fld_chk_num_check_result(i1 noundef zeroext %12, ptr noundef %13, ptr noundef writeonly %5)
-  call void @g_free(ptr noundef %11) #16
-  br label %uat_fld_chk_num.exit
+; Function Attrs: nounwind uwtable
+define internal fastcc noundef zeroext i1 @uat_fld_chk_num(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %.not = icmp eq i32 %2, 0
+  br i1 %.not, label %23, label %7
 
-15:                                               ; preds = %6
-  store ptr null, ptr %5, align 8
-  br label %uat_fld_chk_num.exit
+7:                                                ; preds = %4
+  %8 = zext i32 %2 to i64
+  %9 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %8) #16
+  %10 = call zeroext i1 @ws_basestrtou32(ptr noundef %9, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef %0) #16
+  br i1 %10, label %11, label %15
 
-uat_fld_chk_num.exit:                             ; preds = %9, %15
-  %.0.i = phi i1 [ %14, %9 ], [ true, %15 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  ret i1 %.0.i
+11:                                               ; preds = %7
+  %12 = load ptr, ptr %5, align 8
+  %13 = load i8, ptr %12, align 1
+  switch i8 %13, label %.thread.i [
+    i8 0, label %uat_fld_chk_num_check_result.exit
+    i8 32, label %uat_fld_chk_num_check_result.exit
+  ]
+
+.thread.i:                                        ; preds = %11
+  %14 = tail call ptr @__errno_location() #19
+  store i32 22, ptr %14, align 4
+  br label %16
+
+15:                                               ; preds = %7
+  %.pre.i = tail call ptr @__errno_location() #19
+  %.pr.i = load i32, ptr %.pre.i, align 4
+  switch i32 %.pr.i, label %20 [
+    i32 22, label %16
+    i32 34, label %18
+  ]
+
+16:                                               ; preds = %15, %.thread.i
+  %17 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.29) #16
+  br label %.thread13.sink.split.i
+
+18:                                               ; preds = %15
+  %19 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.30) #16
+  br label %.thread13.sink.split.i
+
+20:                                               ; preds = %15
+  %21 = call ptr @g_strerror(i32 noundef %.pr.i) #19
+  %22 = call noalias ptr @g_strdup(ptr noundef %21) #16
+  br label %.thread13.sink.split.i
+
+.thread13.sink.split.i:                           ; preds = %20, %18, %16
+  %.sink.i = phi ptr [ %17, %16 ], [ %19, %18 ], [ %22, %20 ]
+  store ptr %.sink.i, ptr %3, align 8
+  br label %uat_fld_chk_num_check_result.exit
+
+uat_fld_chk_num_check_result.exit:                ; preds = %11, %11, %.thread13.sink.split.i
+  %.0.shrunk11.i = phi i1 [ true, %11 ], [ true, %11 ], [ false, %.thread13.sink.split.i ]
+  call void @g_free(ptr noundef %9) #16
+  br label %24
+
+23:                                               ; preds = %4
+  store ptr null, ptr %3, align 8
+  br label %24
+
+24:                                               ; preds = %23, %uat_fld_chk_num_check_result.exit
+  %.0 = phi i1 [ %.0.shrunk11.i, %uat_fld_chk_num_check_result.exit ], [ true, %23 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define noundef zeroext i1 @uat_fld_chk_num_hex(ptr nocapture noundef readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readnone %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
-  %7 = alloca ptr, align 8
-  %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  %.not.i = icmp eq i32 %2, 0
-  br i1 %.not.i, label %15, label %9
-
-9:                                                ; preds = %6
-  %10 = zext i32 %2 to i64
-  %11 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %10) #16
-  %12 = call zeroext i1 @ws_basestrtou32(ptr noundef %11, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 16) #16
-  %13 = load ptr, ptr %7, align 8
-  %14 = call fastcc zeroext i1 @uat_fld_chk_num_check_result(i1 noundef zeroext %12, ptr noundef %13, ptr noundef writeonly %5)
-  call void @g_free(ptr noundef %11) #16
-  br label %uat_fld_chk_num.exit
-
-15:                                               ; preds = %6
-  store ptr null, ptr %5, align 8
-  br label %uat_fld_chk_num.exit
-
-uat_fld_chk_num.exit:                             ; preds = %9, %15
-  %.0.i = phi i1 [ %14, %9 ], [ true, %15 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  ret i1 %.0.i
+  %7 = tail call fastcc zeroext i1 @uat_fld_chk_num(i32 noundef 16, ptr noundef %1, i32 noundef %2, ptr noundef %5)
+  ret i1 %7
 }
 
 ; Function Attrs: nounwind uwtable
 define noundef zeroext i1 @uat_fld_chk_num_dec64(ptr nocapture noundef readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readnone %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
-  %7 = alloca ptr, align 8
-  %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  %.not.i = icmp eq i32 %2, 0
-  br i1 %.not.i, label %15, label %9
+  %7 = tail call fastcc zeroext i1 @uat_fld_chk_num64(i32 noundef 10, ptr noundef %1, i32 noundef %2, ptr noundef %5)
+  ret i1 %7
+}
 
-9:                                                ; preds = %6
-  %10 = zext i32 %2 to i64
-  %11 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %10) #16
-  %12 = call zeroext i1 @ws_basestrtou64(ptr noundef %11, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 10) #16
-  %13 = load ptr, ptr %7, align 8
-  %14 = call fastcc zeroext i1 @uat_fld_chk_num_check_result(i1 noundef zeroext %12, ptr noundef %13, ptr noundef writeonly %5)
-  call void @g_free(ptr noundef %11) #16
-  br label %uat_fld_chk_num64.exit
+; Function Attrs: nounwind uwtable
+define internal fastcc noundef zeroext i1 @uat_fld_chk_num64(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %.not = icmp eq i32 %2, 0
+  br i1 %.not, label %23, label %7
 
-15:                                               ; preds = %6
-  store ptr null, ptr %5, align 8
-  br label %uat_fld_chk_num64.exit
+7:                                                ; preds = %4
+  %8 = zext i32 %2 to i64
+  %9 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %8) #16
+  %10 = call zeroext i1 @ws_basestrtou64(ptr noundef %9, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef %0) #16
+  br i1 %10, label %11, label %15
 
-uat_fld_chk_num64.exit:                           ; preds = %9, %15
-  %.0.i = phi i1 [ %14, %9 ], [ true, %15 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  ret i1 %.0.i
+11:                                               ; preds = %7
+  %12 = load ptr, ptr %5, align 8
+  %13 = load i8, ptr %12, align 1
+  switch i8 %13, label %.thread.i [
+    i8 0, label %uat_fld_chk_num_check_result.exit
+    i8 32, label %uat_fld_chk_num_check_result.exit
+  ]
+
+.thread.i:                                        ; preds = %11
+  %14 = tail call ptr @__errno_location() #19
+  store i32 22, ptr %14, align 4
+  br label %16
+
+15:                                               ; preds = %7
+  %.pre.i = tail call ptr @__errno_location() #19
+  %.pr.i = load i32, ptr %.pre.i, align 4
+  switch i32 %.pr.i, label %20 [
+    i32 22, label %16
+    i32 34, label %18
+  ]
+
+16:                                               ; preds = %15, %.thread.i
+  %17 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.29) #16
+  br label %.thread13.sink.split.i
+
+18:                                               ; preds = %15
+  %19 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.30) #16
+  br label %.thread13.sink.split.i
+
+20:                                               ; preds = %15
+  %21 = call ptr @g_strerror(i32 noundef %.pr.i) #19
+  %22 = call noalias ptr @g_strdup(ptr noundef %21) #16
+  br label %.thread13.sink.split.i
+
+.thread13.sink.split.i:                           ; preds = %20, %18, %16
+  %.sink.i = phi ptr [ %17, %16 ], [ %19, %18 ], [ %22, %20 ]
+  store ptr %.sink.i, ptr %3, align 8
+  br label %uat_fld_chk_num_check_result.exit
+
+uat_fld_chk_num_check_result.exit:                ; preds = %11, %11, %.thread13.sink.split.i
+  %.0.shrunk11.i = phi i1 [ true, %11 ], [ true, %11 ], [ false, %.thread13.sink.split.i ]
+  call void @g_free(ptr noundef %9) #16
+  br label %24
+
+23:                                               ; preds = %4
+  store ptr null, ptr %3, align 8
+  br label %24
+
+24:                                               ; preds = %23, %uat_fld_chk_num_check_result.exit
+  %.0 = phi i1 [ %.0.shrunk11.i, %uat_fld_chk_num_check_result.exit ], [ true, %23 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define noundef zeroext i1 @uat_fld_chk_num_hex64(ptr nocapture noundef readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readnone %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
-  %7 = alloca ptr, align 8
-  %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  %.not.i = icmp eq i32 %2, 0
-  br i1 %.not.i, label %15, label %9
-
-9:                                                ; preds = %6
-  %10 = zext i32 %2 to i64
-  %11 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %10) #16
-  %12 = call zeroext i1 @ws_basestrtou64(ptr noundef %11, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 16) #16
-  %13 = load ptr, ptr %7, align 8
-  %14 = call fastcc zeroext i1 @uat_fld_chk_num_check_result(i1 noundef zeroext %12, ptr noundef %13, ptr noundef writeonly %5)
-  call void @g_free(ptr noundef %11) #16
-  br label %uat_fld_chk_num64.exit
-
-15:                                               ; preds = %6
-  store ptr null, ptr %5, align 8
-  br label %uat_fld_chk_num64.exit
-
-uat_fld_chk_num64.exit:                           ; preds = %9, %15
-  %.0.i = phi i1 [ %14, %9 ], [ true, %15 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  ret i1 %.0.i
+  %7 = tail call fastcc zeroext i1 @uat_fld_chk_num64(i32 noundef 16, ptr noundef %1, i32 noundef %2, ptr noundef %5)
+  ret i1 %7
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1624,97 +1664,132 @@ define noundef zeroext i1 @uat_fld_chk_num_signed_dec(ptr nocapture noundef read
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %15, label %9
+  br i1 %.not, label %25, label %9
 
 9:                                                ; preds = %6
   %10 = zext i32 %2 to i64
   %11 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %10) #16
   %12 = call zeroext i1 @ws_strtoi32(ptr noundef %11, ptr noundef nonnull %7, ptr noundef nonnull %8) #16
-  %13 = load ptr, ptr %7, align 8
-  %14 = call fastcc zeroext i1 @uat_fld_chk_num_check_result(i1 noundef zeroext %12, ptr noundef %13, ptr noundef %5)
+  br i1 %12, label %13, label %17
+
+13:                                               ; preds = %9
+  %14 = load ptr, ptr %7, align 8
+  %15 = load i8, ptr %14, align 1
+  switch i8 %15, label %.thread.i [
+    i8 0, label %uat_fld_chk_num_check_result.exit
+    i8 32, label %uat_fld_chk_num_check_result.exit
+  ]
+
+.thread.i:                                        ; preds = %13
+  %16 = tail call ptr @__errno_location() #19
+  store i32 22, ptr %16, align 4
+  br label %18
+
+17:                                               ; preds = %9
+  %.pre.i = tail call ptr @__errno_location() #19
+  %.pr.i = load i32, ptr %.pre.i, align 4
+  switch i32 %.pr.i, label %22 [
+    i32 22, label %18
+    i32 34, label %20
+  ]
+
+18:                                               ; preds = %17, %.thread.i
+  %19 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.29) #16
+  br label %.thread13.sink.split.i
+
+20:                                               ; preds = %17
+  %21 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.30) #16
+  br label %.thread13.sink.split.i
+
+22:                                               ; preds = %17
+  %23 = call ptr @g_strerror(i32 noundef %.pr.i) #19
+  %24 = call noalias ptr @g_strdup(ptr noundef %23) #16
+  br label %.thread13.sink.split.i
+
+.thread13.sink.split.i:                           ; preds = %22, %20, %18
+  %.sink.i = phi ptr [ %19, %18 ], [ %21, %20 ], [ %24, %22 ]
+  store ptr %.sink.i, ptr %5, align 8
+  br label %uat_fld_chk_num_check_result.exit
+
+uat_fld_chk_num_check_result.exit:                ; preds = %13, %13, %.thread13.sink.split.i
+  %.0.shrunk11.i = phi i1 [ true, %13 ], [ true, %13 ], [ false, %.thread13.sink.split.i ]
   call void @g_free(ptr noundef %11) #16
-  br label %16
+  br label %26
 
-15:                                               ; preds = %6
+25:                                               ; preds = %6
   store ptr null, ptr %5, align 8
-  br label %16
+  br label %26
 
-16:                                               ; preds = %15, %9
-  %.0 = phi i1 [ %14, %9 ], [ true, %15 ]
+26:                                               ; preds = %25, %uat_fld_chk_num_check_result.exit
+  %.0 = phi i1 [ %.0.shrunk11.i, %uat_fld_chk_num_check_result.exit ], [ true, %25 ]
   ret i1 %.0
 }
 
 declare zeroext i1 @ws_strtoi32(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @uat_fld_chk_num_check_result(i1 noundef zeroext %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
-  br i1 %0, label %4, label %7
-
-4:                                                ; preds = %3
-  %5 = load i8, ptr %1, align 1
-  switch i8 %5, label %.thread [
-    i8 0, label %.thread13
-    i8 32, label %.thread13
-  ]
-
-.thread:                                          ; preds = %4
-  %6 = tail call ptr @__errno_location() #19
-  store i32 22, ptr %6, align 4
-  br label %8
-
-7:                                                ; preds = %3
-  %.pre = tail call ptr @__errno_location() #19
-  %.pr = load i32, ptr %.pre, align 4
-  switch i32 %.pr, label %12 [
-    i32 22, label %8
-    i32 34, label %10
-  ]
-
-8:                                                ; preds = %.thread, %7
-  %9 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.29) #16
-  br label %.thread13.sink.split
-
-10:                                               ; preds = %7
-  %11 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.30) #16
-  br label %.thread13.sink.split
-
-12:                                               ; preds = %7
-  %13 = tail call ptr @g_strerror(i32 noundef %.pr) #19
-  %14 = tail call noalias ptr @g_strdup(ptr noundef %13) #16
-  br label %.thread13.sink.split
-
-.thread13.sink.split:                             ; preds = %12, %10, %8
-  %.sink = phi ptr [ %9, %8 ], [ %11, %10 ], [ %14, %12 ]
-  store ptr %.sink, ptr %2, align 8
-  br label %.thread13
-
-.thread13:                                        ; preds = %.thread13.sink.split, %4, %4
-  %.0.shrunk11 = phi i1 [ true, %4 ], [ true, %4 ], [ false, %.thread13.sink.split ]
-  ret i1 %.0.shrunk11
-}
-
-; Function Attrs: nounwind uwtable
 define noundef zeroext i1 @uat_fld_chk_num_signed_dec64(ptr nocapture noundef readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readnone %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i64, align 8
   %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %15, label %9
+  br i1 %.not, label %25, label %9
 
 9:                                                ; preds = %6
   %10 = zext i32 %2 to i64
   %11 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %10) #16
   %12 = call zeroext i1 @ws_strtoi64(ptr noundef %11, ptr noundef nonnull %7, ptr noundef nonnull %8) #16
-  %13 = load ptr, ptr %7, align 8
-  %14 = call fastcc zeroext i1 @uat_fld_chk_num_check_result(i1 noundef zeroext %12, ptr noundef %13, ptr noundef %5)
+  br i1 %12, label %13, label %17
+
+13:                                               ; preds = %9
+  %14 = load ptr, ptr %7, align 8
+  %15 = load i8, ptr %14, align 1
+  switch i8 %15, label %.thread.i [
+    i8 0, label %uat_fld_chk_num_check_result.exit
+    i8 32, label %uat_fld_chk_num_check_result.exit
+  ]
+
+.thread.i:                                        ; preds = %13
+  %16 = tail call ptr @__errno_location() #19
+  store i32 22, ptr %16, align 4
+  br label %18
+
+17:                                               ; preds = %9
+  %.pre.i = tail call ptr @__errno_location() #19
+  %.pr.i = load i32, ptr %.pre.i, align 4
+  switch i32 %.pr.i, label %22 [
+    i32 22, label %18
+    i32 34, label %20
+  ]
+
+18:                                               ; preds = %17, %.thread.i
+  %19 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.29) #16
+  br label %.thread13.sink.split.i
+
+20:                                               ; preds = %17
+  %21 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.30) #16
+  br label %.thread13.sink.split.i
+
+22:                                               ; preds = %17
+  %23 = call ptr @g_strerror(i32 noundef %.pr.i) #19
+  %24 = call noalias ptr @g_strdup(ptr noundef %23) #16
+  br label %.thread13.sink.split.i
+
+.thread13.sink.split.i:                           ; preds = %22, %20, %18
+  %.sink.i = phi ptr [ %19, %18 ], [ %21, %20 ], [ %24, %22 ]
+  store ptr %.sink.i, ptr %5, align 8
+  br label %uat_fld_chk_num_check_result.exit
+
+uat_fld_chk_num_check_result.exit:                ; preds = %13, %13, %.thread13.sink.split.i
+  %.0.shrunk11.i = phi i1 [ true, %13 ], [ true, %13 ], [ false, %.thread13.sink.split.i ]
   call void @g_free(ptr noundef %11) #16
-  br label %16
+  br label %26
 
-15:                                               ; preds = %6
+25:                                               ; preds = %6
   store ptr null, ptr %5, align 8
-  br label %16
+  br label %26
 
-16:                                               ; preds = %15, %9
-  %.0 = phi i1 [ %14, %9 ], [ true, %15 ]
+26:                                               ; preds = %25, %uat_fld_chk_num_check_result.exit
+  %.0 = phi i1 [ %.0.shrunk11.i, %uat_fld_chk_num_check_result.exit ], [ true, %25 ]
   ret i1 %.0
 }
 
@@ -1826,36 +1901,26 @@ declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define noundef zeroext i1 @uat_fld_chk_color(ptr nocapture noundef readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readnone %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
-  %7 = alloca ptr, align 8
-  %8 = alloca i32, align 4
   %.not = icmp eq i32 %2, 7
-  br i1 %.not, label %9, label %11
+  br i1 %.not, label %7, label %9
 
-9:                                                ; preds = %6
-  %10 = load i8, ptr %1, align 1
-  %.not7 = icmp eq i8 %10, 35
-  br i1 %.not7, label %13, label %11
+7:                                                ; preds = %6
+  %8 = load i8, ptr %1, align 1
+  %.not7 = icmp eq i8 %8, 35
+  br i1 %.not7, label %11, label %9
 
-11:                                               ; preds = %9, %6
-  %12 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.24) #16
-  store ptr %12, ptr %5, align 8
-  br label %19
+9:                                                ; preds = %7, %6
+  %10 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.24) #16
+  store ptr %10, ptr %5, align 8
+  br label %14
 
-13:                                               ; preds = %9
-  %14 = getelementptr i8, ptr %1, i64 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  %15 = tail call noalias ptr @g_strndup(ptr noundef %14, i64 noundef 6) #16
-  %16 = call zeroext i1 @ws_basestrtou32(ptr noundef %15, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 16) #16
-  %17 = load ptr, ptr %7, align 8
-  %18 = call fastcc zeroext i1 @uat_fld_chk_num_check_result(i1 noundef zeroext %16, ptr noundef %17, ptr noundef writeonly %5)
-  call void @g_free(ptr noundef %15) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  br label %19
+11:                                               ; preds = %7
+  %12 = getelementptr i8, ptr %1, i64 1
+  %13 = tail call fastcc zeroext i1 @uat_fld_chk_num(i32 noundef 16, ptr noundef %12, i32 noundef 6, ptr noundef %5)
+  br label %14
 
-19:                                               ; preds = %13, %11
-  %.0 = phi i1 [ false, %11 ], [ %18, %13 ]
+14:                                               ; preds = %11, %9
+  %.0 = phi i1 [ false, %9 ], [ %13, %11 ]
   ret i1 %.0
 }
 

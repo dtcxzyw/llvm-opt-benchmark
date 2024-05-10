@@ -2983,7 +2983,7 @@ $_ZTISt23_Sp_counted_ptr_inplaceIN5arrow17RunEndEncodedTypeESaIvELN9__gnu_cxx12_
 @_ZSt11__once_call = external thread_local local_unnamed_addr global ptr, align 8
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_type.cc, ptr null }]
 @switch.table._ZNK5arrow12DurationType8ToStringB5cxx11Ev = private unnamed_addr constant [4 x ptr] [ptr @.str.52, ptr @.str.53, ptr @.str.54, ptr @.str.55], align 8
-@switch.table._ZN5arrow12_GLOBAL__N_122MaybeMergeNumericTypesESt10shared_ptrINS_8DataTypeEES3_RKNS_5Field12MergeOptionsE.113 = private unnamed_addr constant [37 x i32] [i32 1, i32 8, i32 8, i32 16, i32 16, i32 32, i32 32, i32 64, i32 64, i32 16, i32 32, i32 64, i32 0, i32 0, i32 0, i32 32, i32 64, i32 64, i32 32, i32 64, i32 32, i32 64, i32 128, i32 256, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 64, i32 0, i32 0, i32 0, i32 128], align 4
+@switch.table._ZN5arrow12_GLOBAL__N_122MaybeMergeNumericTypesESt10shared_ptrINS_8DataTypeEES3_RKNS_5Field12MergeOptionsE.114 = private unnamed_addr constant [37 x i32] [i32 1, i32 8, i32 8, i32 16, i32 16, i32 32, i32 32, i32 64, i32 64, i32 16, i32 32, i32 64, i32 0, i32 0, i32 0, i32 32, i32 64, i32 64, i32 32, i32 64, i32 32, i32 64, i32 128, i32 256, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 64, i32 0, i32 0, i32 0, i32 128], align 4
 
 @_ZN5arrow5FieldD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5arrow5FieldD2Ev
 @_ZN5arrow8DataTypeD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5arrow8DataTypeD2Ev
@@ -33066,12 +33066,16 @@ _ZSt5visitIZNK5arrow8FieldRef9ToDotPathB5cxx11EvE7VisitorJRKSt7variantIJNS0_9Fie
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK5arrow8FieldRef4hashEv(ptr noundef nonnull align 8 dereferenceable(40) %this) local_unnamed_addr #0 align 2 {
+define noundef i64 @_ZNK5arrow8FieldRef4hashEv(ptr noundef nonnull align 8 dereferenceable(40) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_index.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %_M_index.i.i, align 8
-  %cmp.i.not.i = icmp eq i8 %0, -1
-  br i1 %cmp.i.not.i, label %if.then.i, label %_ZSt5visitIZNK5arrow8FieldRef4hashEvE7VisitorJRKSt7variantIJNS0_9FieldPathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS1_SaIS1_EEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISK_EEEEE4typeEE4typeEOST_EEEE4typeEOSI_DpOSK_.exit
+  switch i8 %0, label %sw.default.i [
+    i8 -1, label %if.then.i
+    i8 0, label %sw.bb.i
+    i8 1, label %sw.bb3.i
+    i8 2, label %sw.bb5.i
+  ]
 
 if.then.i:                                        ; preds = %entry
   %exception.i = tail call ptr @__cxa_allocate_exception(i64 16) #31
@@ -33081,9 +33085,39 @@ if.then.i:                                        ; preds = %entry
   tail call void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #33
   unreachable
 
-_ZSt5visitIZNK5arrow8FieldRef4hashEvE7VisitorJRKSt7variantIJNS0_9FieldPathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS1_SaIS1_EEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISK_EEEEE4typeEE4typeEOST_EEEE4typeEOSI_DpOSK_.exit: ; preds = %entry
-  %call2.i = tail call fastcc noundef i64 @_ZSt10__do_visitINSt8__detail9__variant21__deduce_visit_resultImEEZNK5arrow8FieldRef4hashEvE7VisitorJRKSt7variantIJNS4_9FieldPathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS5_SaIS5_EEEEEEDcOT0_DpOT1_(ptr noundef nonnull align 8 dereferenceable(33) %this)
-  ret i64 %call2.i
+sw.bb.i:                                          ; preds = %entry
+  %call.val.i = load ptr, ptr %this, align 8
+  %1 = getelementptr inbounds i8, ptr %this, i64 8
+  %call.val6.i = load ptr, ptr %1, align 8
+  %sub.ptr.lhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %call.val6.i to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %call.val.i to i64
+  %sub.ptr.sub.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i
+  %call5.i.i.i.i.i.i = tail call noundef i64 @_ZN5arrow8internal17ComputeStringHashILm0EEEmPKvl(ptr noundef %call.val.i, i64 noundef %sub.ptr.sub.i.i.i.i.i.i.i)
+  br label %_ZSt10__do_visitINSt8__detail9__variant21__deduce_visit_resultImEEZNK5arrow8FieldRef4hashEvE7VisitorJRKSt7variantIJNS4_9FieldPathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS5_SaIS5_EEEEEEDcOT0_DpOT1_.exit
+
+sw.bb3.i:                                         ; preds = %entry
+  %call.i.i.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #31
+  %call2.i.i.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #31
+  %call.i2.i.i.i.i.i = invoke noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef %call.i.i.i.i.i, i64 noundef %call2.i.i.i.i.i, i64 noundef 3339675911)
+          to label %_ZSt10__do_visitINSt8__detail9__variant21__deduce_visit_resultImEEZNK5arrow8FieldRef4hashEvE7VisitorJRKSt7variantIJNS4_9FieldPathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS5_SaIS5_EEEEEEDcOT0_DpOT1_.exit unwind label %terminate.lpad.i.i.i.i.i
+
+terminate.lpad.i.i.i.i.i:                         ; preds = %sw.bb3.i
+  %2 = landingpad { ptr, i32 }
+          catch ptr null
+  %3 = extractvalue { ptr, i32 } %2, 0
+  tail call void @__clang_call_terminate(ptr %3) #34
+  unreachable
+
+sw.bb5.i:                                         ; preds = %entry
+  %call.i.i.i = tail call fastcc noundef i64 @_ZZNK5arrow8FieldRef4hashEvEN7VisitorclERKSt6vectorIS0_SaIS0_EE(ptr noundef nonnull align 8 dereferenceable(24) %this)
+  br label %_ZSt10__do_visitINSt8__detail9__variant21__deduce_visit_resultImEEZNK5arrow8FieldRef4hashEvE7VisitorJRKSt7variantIJNS4_9FieldPathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS5_SaIS5_EEEEEEDcOT0_DpOT1_.exit
+
+sw.default.i:                                     ; preds = %entry
+  unreachable
+
+_ZSt10__do_visitINSt8__detail9__variant21__deduce_visit_resultImEEZNK5arrow8FieldRef4hashEvE7VisitorJRKSt7variantIJNS4_9FieldPathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS5_SaIS5_EEEEEEDcOT0_DpOT1_.exit: ; preds = %sw.bb.i, %sw.bb3.i, %sw.bb5.i
+  %retval.0.i = phi i64 [ %call.i.i.i, %sw.bb5.i ], [ %call5.i.i.i.i.i.i, %sw.bb.i ], [ %call.i2.i.i.i.i.i, %sw.bb3.i ]
+  ret i64 %retval.0.i
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -62097,7 +62131,7 @@ land.lhs.true158:                                 ; preds = %if.end156
 
 switch.lookup:                                    ; preds = %land.lhs.true158
   %132 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [37 x i32], ptr @switch.table._ZN5arrow12_GLOBAL__N_122MaybeMergeNumericTypesESt10shared_ptrINS_8DataTypeEES3_RKNS_5Field12MergeOptionsE.113, i64 0, i64 %132
+  %switch.gep = getelementptr inbounds [37 x i32], ptr @switch.table._ZN5arrow12_GLOBAL__N_122MaybeMergeNumericTypesESt10shared_ptrINS_8DataTypeEES3_RKNS_5Field12MergeOptionsE.114, i64 0, i64 %132
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN5arrowL9bit_widthENS_4Type4typeE.exit
 
@@ -62112,7 +62146,7 @@ _ZN5arrowL9bit_widthENS_4Type4typeE.exit:         ; preds = %land.lhs.true158, %
 
 switch.lookup933:                                 ; preds = %_ZN5arrowL9bit_widthENS_4Type4typeE.exit
   %136 = zext nneg i32 %switch.tableidx934 to i64
-  %switch.gep935 = getelementptr inbounds [37 x i32], ptr @switch.table._ZN5arrow12_GLOBAL__N_122MaybeMergeNumericTypesESt10shared_ptrINS_8DataTypeEES3_RKNS_5Field12MergeOptionsE.113, i64 0, i64 %136
+  %switch.gep935 = getelementptr inbounds [37 x i32], ptr @switch.table._ZN5arrow12_GLOBAL__N_122MaybeMergeNumericTypesESt10shared_ptrINS_8DataTypeEES3_RKNS_5Field12MergeOptionsE.114, i64 0, i64 %136
   %switch.load936 = load i32, ptr %switch.gep935, align 4
   br label %_ZN5arrowL9bit_widthENS_4Type4typeE.exit296
 
@@ -62215,7 +62249,7 @@ if.end167:                                        ; preds = %if.end156, %_ZN5arr
 
 switch.lookup937:                                 ; preds = %if.end167
   %150 = zext nneg i32 %switch.tableidx938 to i64
-  %switch.gep939 = getelementptr inbounds [37 x i32], ptr @switch.table._ZN5arrow12_GLOBAL__N_122MaybeMergeNumericTypesESt10shared_ptrINS_8DataTypeEES3_RKNS_5Field12MergeOptionsE.113, i64 0, i64 %150
+  %switch.gep939 = getelementptr inbounds [37 x i32], ptr @switch.table._ZN5arrow12_GLOBAL__N_122MaybeMergeNumericTypesESt10shared_ptrINS_8DataTypeEES3_RKNS_5Field12MergeOptionsE.114, i64 0, i64 %150
   %switch.load940 = load i32, ptr %switch.gep939, align 4
   br label %_ZN5arrowL9bit_widthENS_4Type4typeE.exit325
 
@@ -62230,7 +62264,7 @@ _ZN5arrowL9bit_widthENS_4Type4typeE.exit325:      ; preds = %if.end167, %switch.
 
 switch.lookup941:                                 ; preds = %_ZN5arrowL9bit_widthENS_4Type4typeE.exit325
   %154 = zext nneg i32 %switch.tableidx942 to i64
-  %switch.gep943 = getelementptr inbounds [37 x i32], ptr @switch.table._ZN5arrow12_GLOBAL__N_122MaybeMergeNumericTypesESt10shared_ptrINS_8DataTypeEES3_RKNS_5Field12MergeOptionsE.113, i64 0, i64 %154
+  %switch.gep943 = getelementptr inbounds [37 x i32], ptr @switch.table._ZN5arrow12_GLOBAL__N_122MaybeMergeNumericTypesESt10shared_ptrINS_8DataTypeEES3_RKNS_5Field12MergeOptionsE.114, i64 0, i64 %154
   %switch.load944 = load i32, ptr %switch.gep943, align 4
   br label %_ZN5arrowL9bit_widthENS_4Type4typeE.exit341
 
@@ -62243,7 +62277,7 @@ _ZN5arrowL9bit_widthENS_4Type4typeE.exit341:      ; preds = %_ZN5arrowL9bit_widt
 
 switch.lookup945:                                 ; preds = %_ZN5arrowL9bit_widthENS_4Type4typeE.exit341
   %156 = zext nneg i32 %switch.tableidx946 to i64
-  %switch.gep947 = getelementptr inbounds [37 x i32], ptr @switch.table._ZN5arrow12_GLOBAL__N_122MaybeMergeNumericTypesESt10shared_ptrINS_8DataTypeEES3_RKNS_5Field12MergeOptionsE.113, i64 0, i64 %156
+  %switch.gep947 = getelementptr inbounds [37 x i32], ptr @switch.table._ZN5arrow12_GLOBAL__N_122MaybeMergeNumericTypesESt10shared_ptrINS_8DataTypeEES3_RKNS_5Field12MergeOptionsE.114, i64 0, i64 %156
   %switch.load948 = load i32, ptr %switch.gep947, align 4
   br label %_ZN5arrowL9bit_widthENS_4Type4typeE.exit357
 
@@ -62255,7 +62289,7 @@ _ZN5arrowL9bit_widthENS_4Type4typeE.exit357:      ; preds = %_ZN5arrowL9bit_widt
 
 switch.lookup949:                                 ; preds = %_ZN5arrowL9bit_widthENS_4Type4typeE.exit357
   %158 = zext nneg i32 %switch.tableidx950 to i64
-  %switch.gep951 = getelementptr inbounds [37 x i32], ptr @switch.table._ZN5arrow12_GLOBAL__N_122MaybeMergeNumericTypesESt10shared_ptrINS_8DataTypeEES3_RKNS_5Field12MergeOptionsE.113, i64 0, i64 %158
+  %switch.gep951 = getelementptr inbounds [37 x i32], ptr @switch.table._ZN5arrow12_GLOBAL__N_122MaybeMergeNumericTypesESt10shared_ptrINS_8DataTypeEES3_RKNS_5Field12MergeOptionsE.114, i64 0, i64 %158
   %switch.load952 = load i32, ptr %switch.gep951, align 4
   br label %_ZN5arrowL9bit_widthENS_4Type4typeE.exit373
 
@@ -62940,7 +62974,7 @@ land.lhs.true253:                                 ; preds = %if.end250
 
 switch.lookup953:                                 ; preds = %land.lhs.true253
   %259 = zext nneg i32 %switch.tableidx954 to i64
-  %switch.gep955 = getelementptr inbounds [37 x i32], ptr @switch.table._ZN5arrow12_GLOBAL__N_122MaybeMergeNumericTypesESt10shared_ptrINS_8DataTypeEES3_RKNS_5Field12MergeOptionsE.113, i64 0, i64 %259
+  %switch.gep955 = getelementptr inbounds [37 x i32], ptr @switch.table._ZN5arrow12_GLOBAL__N_122MaybeMergeNumericTypesESt10shared_ptrINS_8DataTypeEES3_RKNS_5Field12MergeOptionsE.114, i64 0, i64 %259
   %switch.load956 = load i32, ptr %switch.gep955, align 4
   br label %_ZN5arrowL9bit_widthENS_4Type4typeE.exit653
 
@@ -62955,7 +62989,7 @@ _ZN5arrowL9bit_widthENS_4Type4typeE.exit653:      ; preds = %land.lhs.true253, %
 
 switch.lookup957:                                 ; preds = %_ZN5arrowL9bit_widthENS_4Type4typeE.exit653
   %263 = zext nneg i32 %switch.tableidx958 to i64
-  %switch.gep959 = getelementptr inbounds [37 x i32], ptr @switch.table._ZN5arrow12_GLOBAL__N_122MaybeMergeNumericTypesESt10shared_ptrINS_8DataTypeEES3_RKNS_5Field12MergeOptionsE.113, i64 0, i64 %263
+  %switch.gep959 = getelementptr inbounds [37 x i32], ptr @switch.table._ZN5arrow12_GLOBAL__N_122MaybeMergeNumericTypesESt10shared_ptrINS_8DataTypeEES3_RKNS_5Field12MergeOptionsE.114, i64 0, i64 %263
   %switch.load960 = load i32, ptr %switch.gep959, align 4
   br label %_ZN5arrowL9bit_widthENS_4Type4typeE.exit669
 
@@ -63068,7 +63102,7 @@ if.then267:                                       ; preds = %if.end264
 
 switch.lookup961:                                 ; preds = %if.then267
   %280 = zext nneg i32 %switch.tableidx962 to i64
-  %switch.gep963 = getelementptr inbounds [37 x i32], ptr @switch.table._ZN5arrow12_GLOBAL__N_122MaybeMergeNumericTypesESt10shared_ptrINS_8DataTypeEES3_RKNS_5Field12MergeOptionsE.113, i64 0, i64 %280
+  %switch.gep963 = getelementptr inbounds [37 x i32], ptr @switch.table._ZN5arrow12_GLOBAL__N_122MaybeMergeNumericTypesESt10shared_ptrINS_8DataTypeEES3_RKNS_5Field12MergeOptionsE.114, i64 0, i64 %280
   %switch.load964 = load i32, ptr %switch.gep963, align 4
   br label %_ZN5arrowL9bit_widthENS_4Type4typeE.exit721
 
@@ -63083,7 +63117,7 @@ _ZN5arrowL9bit_widthENS_4Type4typeE.exit721:      ; preds = %if.then267, %switch
 
 switch.lookup965:                                 ; preds = %_ZN5arrowL9bit_widthENS_4Type4typeE.exit721
   %284 = zext nneg i32 %switch.tableidx966 to i64
-  %switch.gep967 = getelementptr inbounds [37 x i32], ptr @switch.table._ZN5arrow12_GLOBAL__N_122MaybeMergeNumericTypesESt10shared_ptrINS_8DataTypeEES3_RKNS_5Field12MergeOptionsE.113, i64 0, i64 %284
+  %switch.gep967 = getelementptr inbounds [37 x i32], ptr @switch.table._ZN5arrow12_GLOBAL__N_122MaybeMergeNumericTypesESt10shared_ptrINS_8DataTypeEES3_RKNS_5Field12MergeOptionsE.114, i64 0, i64 %284
   %switch.load968 = load i32, ptr %switch.gep967, align 4
   br label %_ZN5arrowL9bit_widthENS_4Type4typeE.exit737
 
@@ -69406,75 +69440,74 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(pt
 declare void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i64 @_ZSt10__do_visitINSt8__detail9__variant21__deduce_visit_resultImEEZNK5arrow8FieldRef4hashEvE7VisitorJRKSt7variantIJNS4_9FieldPathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS5_SaIS5_EEEEEEDcOT0_DpOT1_(ptr noundef nonnull align 8 dereferenceable(33) %__variants) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i64 @_ZZNK5arrow8FieldRef4hashEvEN7VisitorclERKSt6vectorIS0_SaIS0_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %children) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_index.i = getelementptr inbounds i8, ptr %__variants, i64 32
-  %0 = load i8, ptr %_M_index.i, align 8
-  switch i8 %0, label %sw.default [
-    i8 0, label %sw.bb
-    i8 1, label %sw.bb3
-    i8 2, label %sw.bb5
+  %0 = load ptr, ptr %children, align 8
+  %_M_finish.i = getelementptr inbounds i8, ptr %children, i64 8
+  %1 = load ptr, ptr %_M_finish.i, align 8
+  %cmp.i.not6 = icmp eq ptr %0, %1
+  br i1 %cmp.i.not6, label %for.end, label %for.body
+
+for.body:                                         ; preds = %entry, %_ZSt10__do_visitINSt8__detail9__variant21__deduce_visit_resultImEEZNK5arrow8FieldRef4hashEvE7VisitorJRKSt7variantIJNS4_9FieldPathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS5_SaIS5_EEEEEEDcOT0_DpOT1_.exit
+  %hash.08 = phi i64 [ %xor, %_ZSt10__do_visitINSt8__detail9__variant21__deduce_visit_resultImEEZNK5arrow8FieldRef4hashEvE7VisitorJRKSt7variantIJNS4_9FieldPathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS5_SaIS5_EEEEEEDcOT0_DpOT1_.exit ], [ 0, %entry ]
+  %__begin2.sroa.0.07 = phi ptr [ %incdec.ptr.i, %_ZSt10__do_visitINSt8__detail9__variant21__deduce_visit_resultImEEZNK5arrow8FieldRef4hashEvE7VisitorJRKSt7variantIJNS4_9FieldPathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS5_SaIS5_EEEEEEDcOT0_DpOT1_.exit ], [ %0, %entry ]
+  %_M_index.i.i4 = getelementptr inbounds i8, ptr %__begin2.sroa.0.07, i64 32
+  %2 = load i8, ptr %_M_index.i.i4, align 8
+  switch i8 %2, label %sw.default.i [
+    i8 -1, label %if.then.i.i
+    i8 0, label %sw.bb.i
+    i8 1, label %sw.bb3.i
+    i8 2, label %sw.bb5.i
   ]
 
-sw.bb:                                            ; preds = %entry
-  %call.val = load ptr, ptr %__variants, align 8
-  %1 = getelementptr inbounds i8, ptr %__variants, i64 8
-  %call.val6 = load ptr, ptr %1, align 8
-  %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %call.val6 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %call.val to i64
-  %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
-  %call5.i.i.i.i.i = tail call noundef i64 @_ZN5arrow8internal17ComputeStringHashILm0EEEmPKvl(ptr noundef %call.val, i64 noundef %sub.ptr.sub.i.i.i.i.i.i)
-  br label %return
+if.then.i.i:                                      ; preds = %for.body
+  %exception.i = tail call ptr @__cxa_allocate_exception(i64 16) #31
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2), ptr %exception.i, align 8
+  %_M_reason.i.i = getelementptr inbounds i8, ptr %exception.i, i64 8
+  store ptr @.str.210, ptr %_M_reason.i.i, align 8
+  tail call void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #33
+  unreachable
 
-sw.bb3:                                           ; preds = %entry
-  %call.i.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %__variants) #31
-  %call2.i.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %__variants) #31
-  %call.i2.i.i.i.i = invoke noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef %call.i.i.i.i, i64 noundef %call2.i.i.i.i, i64 noundef 3339675911)
-          to label %return unwind label %terminate.lpad.i.i.i.i
+sw.bb.i:                                          ; preds = %for.body
+  %call.val.i = load ptr, ptr %__begin2.sroa.0.07, align 8
+  %3 = getelementptr i8, ptr %__begin2.sroa.0.07, i64 8
+  %call.val6.i = load ptr, ptr %3, align 8
+  %sub.ptr.lhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %call.val6.i to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %call.val.i to i64
+  %sub.ptr.sub.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i
+  %call5.i.i.i.i.i.i = tail call noundef i64 @_ZN5arrow8internal17ComputeStringHashILm0EEEmPKvl(ptr noundef %call.val.i, i64 noundef %sub.ptr.sub.i.i.i.i.i.i.i)
+  br label %_ZSt10__do_visitINSt8__detail9__variant21__deduce_visit_resultImEEZNK5arrow8FieldRef4hashEvE7VisitorJRKSt7variantIJNS4_9FieldPathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS5_SaIS5_EEEEEEDcOT0_DpOT1_.exit
 
-terminate.lpad.i.i.i.i:                           ; preds = %sw.bb3
-  %2 = landingpad { ptr, i32 }
+sw.bb3.i:                                         ; preds = %for.body
+  %call.i.i.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %__begin2.sroa.0.07) #31
+  %call2.i.i.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %__begin2.sroa.0.07) #31
+  %call.i2.i.i.i.i.i = invoke noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef %call.i.i.i.i.i, i64 noundef %call2.i.i.i.i.i, i64 noundef 3339675911)
+          to label %_ZSt10__do_visitINSt8__detail9__variant21__deduce_visit_resultImEEZNK5arrow8FieldRef4hashEvE7VisitorJRKSt7variantIJNS4_9FieldPathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS5_SaIS5_EEEEEEDcOT0_DpOT1_.exit unwind label %terminate.lpad.i.i.i.i.i
+
+terminate.lpad.i.i.i.i.i:                         ; preds = %sw.bb3.i
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #34
+  %5 = extractvalue { ptr, i32 } %4, 0
+  tail call void @__clang_call_terminate(ptr %5) #34
   unreachable
 
-sw.bb5:                                           ; preds = %entry
-  %4 = load ptr, ptr %__variants, align 8
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %__variants, i64 8
-  %5 = load ptr, ptr %_M_finish.i.i, align 8
-  %cmp.i.i.not4 = icmp eq ptr %4, %5
-  br i1 %cmp.i.i.not4, label %return, label %for.body.i
+sw.bb5.i:                                         ; preds = %for.body
+  %call.i.i.i = tail call fastcc noundef i64 @_ZZNK5arrow8FieldRef4hashEvEN7VisitorclERKSt6vectorIS0_SaIS0_EE(ptr noundef nonnull align 8 dereferenceable(24) %__begin2.sroa.0.07)
+  br label %_ZSt10__do_visitINSt8__detail9__variant21__deduce_visit_resultImEEZNK5arrow8FieldRef4hashEvE7VisitorJRKSt7variantIJNS4_9FieldPathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS5_SaIS5_EEEEEEDcOT0_DpOT1_.exit
 
-for.body.i:                                       ; preds = %sw.bb5, %_ZNK5arrow8FieldRef4hashEv.exit.i
-  %hash.0.i6 = phi i64 [ %xor.i, %_ZNK5arrow8FieldRef4hashEv.exit.i ], [ 0, %sw.bb5 ]
-  %__begin2.i.sroa.0.05 = phi ptr [ %incdec.ptr.i.i, %_ZNK5arrow8FieldRef4hashEv.exit.i ], [ %4, %sw.bb5 ]
-  %_M_index.i.i.i = getelementptr inbounds i8, ptr %__begin2.i.sroa.0.05, i64 32
-  %6 = load i8, ptr %_M_index.i.i.i, align 8
-  %cmp.i.not.i.i = icmp eq i8 %6, -1
-  br i1 %cmp.i.not.i.i, label %if.then.i.i.i, label %_ZNK5arrow8FieldRef4hashEv.exit.i
-
-if.then.i.i.i:                                    ; preds = %for.body.i
-  %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #31
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2), ptr %exception.i.i, align 8
-  %_M_reason.i.i.i = getelementptr inbounds i8, ptr %exception.i.i, i64 8
-  store ptr @.str.210, ptr %_M_reason.i.i.i, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #33
+sw.default.i:                                     ; preds = %for.body
   unreachable
 
-_ZNK5arrow8FieldRef4hashEv.exit.i:                ; preds = %for.body.i
-  %call2.i.i.i = tail call fastcc noundef i64 @_ZSt10__do_visitINSt8__detail9__variant21__deduce_visit_resultImEEZNK5arrow8FieldRef4hashEvE7VisitorJRKSt7variantIJNS4_9FieldPathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS5_SaIS5_EEEEEEDcOT0_DpOT1_(ptr noundef nonnull align 8 dereferenceable(33) %__begin2.i.sroa.0.05)
-  %xor.i = xor i64 %call2.i.i.i, %hash.0.i6
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin2.i.sroa.0.05, i64 40
-  %cmp.i.i.not = icmp eq ptr %incdec.ptr.i.i, %5
-  br i1 %cmp.i.i.not, label %return, label %for.body.i
+_ZSt10__do_visitINSt8__detail9__variant21__deduce_visit_resultImEEZNK5arrow8FieldRef4hashEvE7VisitorJRKSt7variantIJNS4_9FieldPathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS5_SaIS5_EEEEEEDcOT0_DpOT1_.exit: ; preds = %sw.bb3.i, %sw.bb.i, %sw.bb5.i
+  %retval.0.i = phi i64 [ %call.i.i.i, %sw.bb5.i ], [ %call5.i.i.i.i.i.i, %sw.bb.i ], [ %call.i2.i.i.i.i.i, %sw.bb3.i ]
+  %xor = xor i64 %retval.0.i, %hash.08
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.07, i64 40
+  %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
+  br i1 %cmp.i.not, label %for.end, label %for.body
 
-sw.default:                                       ; preds = %entry
-  unreachable
-
-return:                                           ; preds = %_ZNK5arrow8FieldRef4hashEv.exit.i, %sw.bb5, %sw.bb3, %sw.bb
-  %retval.0 = phi i64 [ %call5.i.i.i.i.i, %sw.bb ], [ %call.i2.i.i.i.i, %sw.bb3 ], [ 0, %sw.bb5 ], [ %xor.i, %_ZNK5arrow8FieldRef4hashEv.exit.i ]
-  ret i64 %retval.0
+for.end:                                          ; preds = %_ZSt10__do_visitINSt8__detail9__variant21__deduce_visit_resultImEEZNK5arrow8FieldRef4hashEvE7VisitorJRKSt7variantIJNS4_9FieldPathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS5_SaIS5_EEEEEEDcOT0_DpOT1_.exit, %entry
+  %hash.0.lcssa = phi i64 [ 0, %entry ], [ %xor, %_ZSt10__do_visitINSt8__detail9__variant21__deduce_visit_resultImEEZNK5arrow8FieldRef4hashEvE7VisitorJRKSt7variantIJNS4_9FieldPathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS5_SaIS5_EEEEEEDcOT0_DpOT1_.exit ]
+  ret i64 %hash.0.lcssa
 }
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #2

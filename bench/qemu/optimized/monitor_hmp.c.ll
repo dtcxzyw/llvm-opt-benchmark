@@ -2718,16 +2718,71 @@ declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #10
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i64 @expr_sum(ptr noundef %mon) unnamed_addr #0 {
 entry:
-  %call.i = tail call fastcc i64 @expr_prod(ptr noundef %mon)
-  %.pre = load ptr, ptr @pch, align 8
-  %.pre129 = load i8, ptr %.pre, align 1
-  br label %for.cond.i
+  %call.i44 = tail call fastcc i64 @expr_unary(ptr noundef %mon)
+  br label %for.cond.i45
 
-for.cond.i:                                       ; preds = %for.cond.i.backedge, %entry
-  %0 = phi i8 [ %.pre129, %entry ], [ %7, %for.cond.i.backedge ]
-  %1 = phi ptr [ %.pre, %entry ], [ %6, %for.cond.i.backedge ]
-  %val.0.i = phi i64 [ %call.i, %entry ], [ %val.0.i.be, %for.cond.i.backedge ]
-  switch i8 %0, label %for.cond [
+for.cond.i45:                                     ; preds = %for.cond.i45.backedge, %entry
+  %val.0.i46 = phi i64 [ %call.i44, %entry ], [ %val.0.i46.be, %for.cond.i45.backedge ]
+  %0 = load ptr, ptr @pch, align 8
+  %1 = load i8, ptr %0, align 1
+  switch i8 %1, label %for.cond.i [
+    i8 47, label %while.cond.preheader.i.i49
+    i8 42, label %while.cond.preheader.i.i49
+    i8 37, label %while.cond.preheader.i.i49
+  ]
+
+while.cond.preheader.i.i49:                       ; preds = %for.cond.i45, %for.cond.i45, %for.cond.i45
+  %call.i.i50 = tail call ptr @__ctype_b_loc() #21
+  %2 = load ptr, ptr %call.i.i50, align 8
+  br label %while.cond.i.i51
+
+while.cond.i.i51:                                 ; preds = %while.cond.i.i51, %while.cond.preheader.i.i49
+  %.pn.i.i52 = phi ptr [ %storemerge.i.i53, %while.cond.i.i51 ], [ %0, %while.cond.preheader.i.i49 ]
+  %storemerge.i.i53 = getelementptr i8, ptr %.pn.i.i52, i64 1
+  %3 = load i8, ptr %storemerge.i.i53, align 1
+  %idxprom.i.i54 = zext i8 %3 to i64
+  %arrayidx.i.i55 = getelementptr i16, ptr %2, i64 %idxprom.i.i54
+  %4 = load i16, ptr %arrayidx.i.i55, align 2
+  %5 = and i16 %4, 8192
+  %tobool.not.i.i56 = icmp eq i16 %5, 0
+  br i1 %tobool.not.i.i56, label %next.exit.i58, label %while.cond.i.i51, !llvm.loop !44
+
+next.exit.i58:                                    ; preds = %while.cond.i.i51
+  store ptr %storemerge.i.i53, ptr @pch, align 8
+  %call7.i = tail call fastcc i64 @expr_unary(ptr noundef %mon)
+  switch i8 %1, label %sw.bb.i70 [
+    i8 37, label %sw.bb8.i59
+    i8 47, label %sw.bb8.i59
+  ]
+
+sw.bb.i70:                                        ; preds = %next.exit.i58
+  %mul.i71 = mul i64 %call7.i, %val.0.i46
+  br label %for.cond.i45.backedge
+
+sw.bb8.i59:                                       ; preds = %next.exit.i58, %next.exit.i58
+  %cmp9.i60 = icmp eq i64 %call7.i, 0
+  br i1 %cmp9.i60, label %if.then11.i69, label %if.end12.i61
+
+if.then11.i69:                                    ; preds = %sw.bb8.i59
+  tail call void (ptr, ptr, ...) @expr_error(ptr noundef %mon, ptr noundef nonnull @.str.46) #26
+  unreachable
+
+if.end12.i61:                                     ; preds = %sw.bb8.i59
+  %cmp13.i62 = icmp eq i8 %1, 47
+  %div.i68 = sdiv i64 %val.0.i46, %call7.i
+  %rem.i64 = srem i64 %val.0.i46, %call7.i
+  %div.i68.rem.i64 = select i1 %cmp13.i62, i64 %div.i68, i64 %rem.i64
+  br label %for.cond.i45.backedge
+
+for.cond.i45.backedge:                            ; preds = %if.end12.i61, %sw.bb.i70
+  %val.0.i46.be = phi i64 [ %mul.i71, %sw.bb.i70 ], [ %div.i68.rem.i64, %if.end12.i61 ]
+  br label %for.cond.i45
+
+for.cond.i:                                       ; preds = %for.cond.i45, %for.cond.i.backedge
+  %6 = phi i8 [ %13, %for.cond.i.backedge ], [ %1, %for.cond.i45 ]
+  %7 = phi ptr [ %12, %for.cond.i.backedge ], [ %0, %for.cond.i45 ]
+  %val.0.i = phi i64 [ %val.0.i.be, %for.cond.i.backedge ], [ %val.0.i46, %for.cond.i45 ]
+  switch i8 %6, label %for.cond [
     i8 124, label %while.cond.preheader.i33
     i8 94, label %while.cond.preheader.i33
     i8 38, label %while.cond.preheader.i33
@@ -2735,18 +2790,18 @@ for.cond.i:                                       ; preds = %for.cond.i.backedge
 
 while.cond.preheader.i33:                         ; preds = %for.cond.i, %for.cond.i, %for.cond.i
   %call.i34 = tail call ptr @__ctype_b_loc() #21
-  %2 = load ptr, ptr %call.i34, align 8
+  %8 = load ptr, ptr %call.i34, align 8
   br label %while.cond.i35
 
 while.cond.i35:                                   ; preds = %while.cond.i35, %while.cond.preheader.i33
-  %.pn.i36 = phi ptr [ %storemerge.i37, %while.cond.i35 ], [ %1, %while.cond.preheader.i33 ]
+  %.pn.i36 = phi ptr [ %storemerge.i37, %while.cond.i35 ], [ %7, %while.cond.preheader.i33 ]
   %storemerge.i37 = getelementptr i8, ptr %.pn.i36, i64 1
-  %3 = load i8, ptr %storemerge.i37, align 1
-  %idxprom.i38 = zext i8 %3 to i64
-  %arrayidx.i39 = getelementptr i16, ptr %2, i64 %idxprom.i38
-  %4 = load i16, ptr %arrayidx.i39, align 2
-  %5 = and i16 %4, 8192
-  %tobool.not.i40 = icmp eq i16 %5, 0
+  %9 = load i8, ptr %storemerge.i37, align 1
+  %idxprom.i38 = zext i8 %9 to i64
+  %arrayidx.i39 = getelementptr i16, ptr %8, i64 %idxprom.i38
+  %10 = load i16, ptr %arrayidx.i39, align 2
+  %11 = and i16 %10, 8192
+  %tobool.not.i40 = icmp eq i16 %11, 0
   br i1 %tobool.not.i40, label %next.exit43, label %while.cond.i35, !llvm.loop !44
 
 next.exit43:                                      ; preds = %while.cond.i35
@@ -2756,33 +2811,33 @@ next.exit43:                                      ; preds = %while.cond.i35
 
 for.cond.i24:                                     ; preds = %for.cond.i24.backedge, %next.exit43
   %val.0.i25 = phi i64 [ %call.i23, %next.exit43 ], [ %val.0.i25.be, %for.cond.i24.backedge ]
-  %6 = load ptr, ptr @pch, align 8
-  %7 = load i8, ptr %6, align 1
-  switch i8 %7, label %expr_prod.exit [
+  %12 = load ptr, ptr @pch, align 8
+  %13 = load i8, ptr %12, align 1
+  switch i8 %13, label %expr_prod.exit [
     i8 47, label %while.cond.preheader.i.i
     i8 42, label %while.cond.preheader.i.i
     i8 37, label %while.cond.preheader.i.i
   ]
 
 while.cond.preheader.i.i:                         ; preds = %for.cond.i24, %for.cond.i24, %for.cond.i24
-  %8 = load ptr, ptr %call.i34, align 8
+  %14 = load ptr, ptr %call.i34, align 8
   br label %while.cond.i.i
 
 while.cond.i.i:                                   ; preds = %while.cond.i.i, %while.cond.preheader.i.i
-  %.pn.i.i = phi ptr [ %storemerge.i.i, %while.cond.i.i ], [ %6, %while.cond.preheader.i.i ]
+  %.pn.i.i = phi ptr [ %storemerge.i.i, %while.cond.i.i ], [ %12, %while.cond.preheader.i.i ]
   %storemerge.i.i = getelementptr i8, ptr %.pn.i.i, i64 1
-  %9 = load i8, ptr %storemerge.i.i, align 1
-  %idxprom.i.i = zext i8 %9 to i64
-  %arrayidx.i.i = getelementptr i16, ptr %8, i64 %idxprom.i.i
-  %10 = load i16, ptr %arrayidx.i.i, align 2
-  %11 = and i16 %10, 8192
-  %tobool.not.i.i = icmp eq i16 %11, 0
+  %15 = load i8, ptr %storemerge.i.i, align 1
+  %idxprom.i.i = zext i8 %15 to i64
+  %arrayidx.i.i = getelementptr i16, ptr %14, i64 %idxprom.i.i
+  %16 = load i16, ptr %arrayidx.i.i, align 2
+  %17 = and i16 %16, 8192
+  %tobool.not.i.i = icmp eq i16 %17, 0
   br i1 %tobool.not.i.i, label %next.exit.i, label %while.cond.i.i, !llvm.loop !44
 
 next.exit.i:                                      ; preds = %while.cond.i.i
   store ptr %storemerge.i.i, ptr @pch, align 8
   %call7.i27 = tail call fastcc i64 @expr_unary(ptr noundef %mon)
-  switch i8 %7, label %sw.bb.i31 [
+  switch i8 %13, label %sw.bb.i31 [
     i8 37, label %sw.bb8.i28
     i8 47, label %sw.bb8.i28
   ]
@@ -2800,7 +2855,7 @@ if.then11.i:                                      ; preds = %sw.bb8.i28
   unreachable
 
 if.end12.i:                                       ; preds = %sw.bb8.i28
-  %cmp13.i = icmp eq i8 %7, 47
+  %cmp13.i = icmp eq i8 %13, 47
   %div.i = sdiv i64 %val.0.i25, %call7.i27
   %rem.i = srem i64 %val.0.i25, %call7.i27
   %div.i.rem.i = select i1 %cmp13.i, i64 %div.i, i64 %rem.i
@@ -2811,7 +2866,7 @@ for.cond.i24.backedge:                            ; preds = %if.end12.i, %sw.bb.
   br label %for.cond.i24
 
 expr_prod.exit:                                   ; preds = %for.cond.i24
-  switch i8 %0, label %sw.bb.i [
+  switch i8 %6, label %sw.bb.i [
     i8 94, label %sw.bb9.i
     i8 124, label %sw.bb8.i
   ]
@@ -2833,193 +2888,193 @@ for.cond.i.backedge:                              ; preds = %sw.bb9.i, %sw.bb8.i
   br label %for.cond.i
 
 for.cond:                                         ; preds = %for.cond.i, %expr_logic.exit22
-  %12 = phi i8 [ %24, %expr_logic.exit22 ], [ %0, %for.cond.i ]
-  %13 = phi ptr [ %25, %expr_logic.exit22 ], [ %1, %for.cond.i ]
+  %18 = phi i8 [ %30, %expr_logic.exit22 ], [ %6, %for.cond.i ]
+  %19 = phi ptr [ %31, %expr_logic.exit22 ], [ %7, %for.cond.i ]
   %val.0 = phi i64 [ %val.1, %expr_logic.exit22 ], [ %val.0.i, %for.cond.i ]
-  switch i8 %12, label %for.end [
+  switch i8 %18, label %for.end [
     i8 45, label %while.cond.preheader.i
     i8 43, label %while.cond.preheader.i
   ]
 
 while.cond.preheader.i:                           ; preds = %for.cond, %for.cond
   %call.i7 = tail call ptr @__ctype_b_loc() #21
-  %14 = load ptr, ptr %call.i7, align 8
+  %20 = load ptr, ptr %call.i7, align 8
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.cond.i, %while.cond.preheader.i
-  %.pn.i = phi ptr [ %storemerge.i, %while.cond.i ], [ %13, %while.cond.preheader.i ]
+  %.pn.i = phi ptr [ %storemerge.i, %while.cond.i ], [ %19, %while.cond.preheader.i ]
   %storemerge.i = getelementptr i8, ptr %.pn.i, i64 1
-  %15 = load i8, ptr %storemerge.i, align 1
-  %idxprom.i = zext i8 %15 to i64
-  %arrayidx.i = getelementptr i16, ptr %14, i64 %idxprom.i
-  %16 = load i16, ptr %arrayidx.i, align 2
-  %17 = and i16 %16, 8192
-  %tobool.not.i = icmp eq i16 %17, 0
+  %21 = load i8, ptr %storemerge.i, align 1
+  %idxprom.i = zext i8 %21 to i64
+  %arrayidx.i = getelementptr i16, ptr %20, i64 %idxprom.i
+  %22 = load i16, ptr %arrayidx.i, align 2
+  %23 = and i16 %22, 8192
+  %tobool.not.i = icmp eq i16 %23, 0
   br i1 %tobool.not.i, label %next.exit, label %while.cond.i, !llvm.loop !44
 
 next.exit:                                        ; preds = %while.cond.i
   store ptr %storemerge.i, ptr @pch, align 8
-  %call.i85 = tail call fastcc i64 @expr_unary(ptr noundef %mon)
-  br label %for.cond.i86
+  %call.i114 = tail call fastcc i64 @expr_unary(ptr noundef %mon)
+  br label %for.cond.i115
 
-for.cond.i86:                                     ; preds = %for.cond.i86.backedge, %next.exit
-  %val.0.i87 = phi i64 [ %call.i85, %next.exit ], [ %val.0.i87.be, %for.cond.i86.backedge ]
-  %18 = load ptr, ptr @pch, align 8
-  %19 = load i8, ptr %18, align 1
-  switch i8 %19, label %for.cond.i10 [
-    i8 47, label %while.cond.preheader.i.i90
-    i8 42, label %while.cond.preheader.i.i90
-    i8 37, label %while.cond.preheader.i.i90
+for.cond.i115:                                    ; preds = %for.cond.i115.backedge, %next.exit
+  %val.0.i116 = phi i64 [ %call.i114, %next.exit ], [ %val.0.i116.be, %for.cond.i115.backedge ]
+  %24 = load ptr, ptr @pch, align 8
+  %25 = load i8, ptr %24, align 1
+  switch i8 %25, label %for.cond.i10 [
+    i8 47, label %while.cond.preheader.i.i119
+    i8 42, label %while.cond.preheader.i.i119
+    i8 37, label %while.cond.preheader.i.i119
   ]
 
-while.cond.preheader.i.i90:                       ; preds = %for.cond.i86, %for.cond.i86, %for.cond.i86
-  %20 = load ptr, ptr %call.i7, align 8
-  br label %while.cond.i.i92
-
-while.cond.i.i92:                                 ; preds = %while.cond.i.i92, %while.cond.preheader.i.i90
-  %.pn.i.i93 = phi ptr [ %storemerge.i.i94, %while.cond.i.i92 ], [ %18, %while.cond.preheader.i.i90 ]
-  %storemerge.i.i94 = getelementptr i8, ptr %.pn.i.i93, i64 1
-  %21 = load i8, ptr %storemerge.i.i94, align 1
-  %idxprom.i.i95 = zext i8 %21 to i64
-  %arrayidx.i.i96 = getelementptr i16, ptr %20, i64 %idxprom.i.i95
-  %22 = load i16, ptr %arrayidx.i.i96, align 2
-  %23 = and i16 %22, 8192
-  %tobool.not.i.i97 = icmp eq i16 %23, 0
-  br i1 %tobool.not.i.i97, label %next.exit.i99, label %while.cond.i.i92, !llvm.loop !44
-
-next.exit.i99:                                    ; preds = %while.cond.i.i92
-  store ptr %storemerge.i.i94, ptr @pch, align 8
-  %call7.i100 = tail call fastcc i64 @expr_unary(ptr noundef %mon)
-  switch i8 %19, label %sw.bb.i112 [
-    i8 37, label %sw.bb8.i101
-    i8 47, label %sw.bb8.i101
-  ]
-
-sw.bb.i112:                                       ; preds = %next.exit.i99
-  %mul.i113 = mul i64 %call7.i100, %val.0.i87
-  br label %for.cond.i86.backedge
-
-sw.bb8.i101:                                      ; preds = %next.exit.i99, %next.exit.i99
-  %cmp9.i102 = icmp eq i64 %call7.i100, 0
-  br i1 %cmp9.i102, label %if.then11.i111, label %if.end12.i103
-
-if.then11.i111:                                   ; preds = %sw.bb8.i101
-  tail call void (ptr, ptr, ...) @expr_error(ptr noundef %mon, ptr noundef nonnull @.str.46) #26
-  unreachable
-
-if.end12.i103:                                    ; preds = %sw.bb8.i101
-  %cmp13.i104 = icmp eq i8 %19, 47
-  %div.i110 = sdiv i64 %val.0.i87, %call7.i100
-  %rem.i106 = srem i64 %val.0.i87, %call7.i100
-  %div.i110.rem.i106 = select i1 %cmp13.i104, i64 %div.i110, i64 %rem.i106
-  br label %for.cond.i86.backedge
-
-for.cond.i86.backedge:                            ; preds = %if.end12.i103, %sw.bb.i112
-  %val.0.i87.be = phi i64 [ %mul.i113, %sw.bb.i112 ], [ %div.i110.rem.i106, %if.end12.i103 ]
-  br label %for.cond.i86
-
-for.cond.i10:                                     ; preds = %for.cond.i86, %for.cond.i10.backedge
-  %24 = phi i8 [ %31, %for.cond.i10.backedge ], [ %19, %for.cond.i86 ]
-  %25 = phi ptr [ %30, %for.cond.i10.backedge ], [ %18, %for.cond.i86 ]
-  %val.0.i11 = phi i64 [ %val.0.i11.be, %for.cond.i10.backedge ], [ %val.0.i87, %for.cond.i86 ]
-  switch i8 %24, label %expr_logic.exit22 [
-    i8 124, label %while.cond.preheader.i74
-    i8 94, label %while.cond.preheader.i74
-    i8 38, label %while.cond.preheader.i74
-  ]
-
-while.cond.preheader.i74:                         ; preds = %for.cond.i10, %for.cond.i10, %for.cond.i10
+while.cond.preheader.i.i119:                      ; preds = %for.cond.i115, %for.cond.i115, %for.cond.i115
   %26 = load ptr, ptr %call.i7, align 8
-  br label %while.cond.i76
+  br label %while.cond.i.i121
 
-while.cond.i76:                                   ; preds = %while.cond.i76, %while.cond.preheader.i74
-  %.pn.i77 = phi ptr [ %storemerge.i78, %while.cond.i76 ], [ %25, %while.cond.preheader.i74 ]
-  %storemerge.i78 = getelementptr i8, ptr %.pn.i77, i64 1
-  %27 = load i8, ptr %storemerge.i78, align 1
-  %idxprom.i79 = zext i8 %27 to i64
-  %arrayidx.i80 = getelementptr i16, ptr %26, i64 %idxprom.i79
-  %28 = load i16, ptr %arrayidx.i80, align 2
+while.cond.i.i121:                                ; preds = %while.cond.i.i121, %while.cond.preheader.i.i119
+  %.pn.i.i122 = phi ptr [ %storemerge.i.i123, %while.cond.i.i121 ], [ %24, %while.cond.preheader.i.i119 ]
+  %storemerge.i.i123 = getelementptr i8, ptr %.pn.i.i122, i64 1
+  %27 = load i8, ptr %storemerge.i.i123, align 1
+  %idxprom.i.i124 = zext i8 %27 to i64
+  %arrayidx.i.i125 = getelementptr i16, ptr %26, i64 %idxprom.i.i124
+  %28 = load i16, ptr %arrayidx.i.i125, align 2
   %29 = and i16 %28, 8192
-  %tobool.not.i81 = icmp eq i16 %29, 0
-  br i1 %tobool.not.i81, label %next.exit84, label %while.cond.i76, !llvm.loop !44
+  %tobool.not.i.i126 = icmp eq i16 %29, 0
+  br i1 %tobool.not.i.i126, label %next.exit.i128, label %while.cond.i.i121, !llvm.loop !44
 
-next.exit84:                                      ; preds = %while.cond.i76
-  store ptr %storemerge.i78, ptr @pch, align 8
-  %call.i44 = tail call fastcc i64 @expr_unary(ptr noundef %mon)
-  br label %for.cond.i45
-
-for.cond.i45:                                     ; preds = %for.cond.i45.backedge, %next.exit84
-  %val.0.i46 = phi i64 [ %call.i44, %next.exit84 ], [ %val.0.i46.be, %for.cond.i45.backedge ]
-  %30 = load ptr, ptr @pch, align 8
-  %31 = load i8, ptr %30, align 1
-  switch i8 %31, label %expr_prod.exit72 [
-    i8 47, label %while.cond.preheader.i.i49
-    i8 42, label %while.cond.preheader.i.i49
-    i8 37, label %while.cond.preheader.i.i49
+next.exit.i128:                                   ; preds = %while.cond.i.i121
+  store ptr %storemerge.i.i123, ptr @pch, align 8
+  %call7.i129 = tail call fastcc i64 @expr_unary(ptr noundef %mon)
+  switch i8 %25, label %sw.bb.i141 [
+    i8 37, label %sw.bb8.i130
+    i8 47, label %sw.bb8.i130
   ]
 
-while.cond.preheader.i.i49:                       ; preds = %for.cond.i45, %for.cond.i45, %for.cond.i45
-  %32 = load ptr, ptr %call.i7, align 8
-  br label %while.cond.i.i51
+sw.bb.i141:                                       ; preds = %next.exit.i128
+  %mul.i142 = mul i64 %call7.i129, %val.0.i116
+  br label %for.cond.i115.backedge
 
-while.cond.i.i51:                                 ; preds = %while.cond.i.i51, %while.cond.preheader.i.i49
-  %.pn.i.i52 = phi ptr [ %storemerge.i.i53, %while.cond.i.i51 ], [ %30, %while.cond.preheader.i.i49 ]
-  %storemerge.i.i53 = getelementptr i8, ptr %.pn.i.i52, i64 1
-  %33 = load i8, ptr %storemerge.i.i53, align 1
-  %idxprom.i.i54 = zext i8 %33 to i64
-  %arrayidx.i.i55 = getelementptr i16, ptr %32, i64 %idxprom.i.i54
-  %34 = load i16, ptr %arrayidx.i.i55, align 2
-  %35 = and i16 %34, 8192
-  %tobool.not.i.i56 = icmp eq i16 %35, 0
-  br i1 %tobool.not.i.i56, label %next.exit.i58, label %while.cond.i.i51, !llvm.loop !44
+sw.bb8.i130:                                      ; preds = %next.exit.i128, %next.exit.i128
+  %cmp9.i131 = icmp eq i64 %call7.i129, 0
+  br i1 %cmp9.i131, label %if.then11.i140, label %if.end12.i132
 
-next.exit.i58:                                    ; preds = %while.cond.i.i51
-  store ptr %storemerge.i.i53, ptr @pch, align 8
-  %call7.i = tail call fastcc i64 @expr_unary(ptr noundef %mon)
-  switch i8 %31, label %sw.bb.i70 [
-    i8 37, label %sw.bb8.i59
-    i8 47, label %sw.bb8.i59
-  ]
-
-sw.bb.i70:                                        ; preds = %next.exit.i58
-  %mul.i71 = mul i64 %call7.i, %val.0.i46
-  br label %for.cond.i45.backedge
-
-sw.bb8.i59:                                       ; preds = %next.exit.i58, %next.exit.i58
-  %cmp9.i60 = icmp eq i64 %call7.i, 0
-  br i1 %cmp9.i60, label %if.then11.i69, label %if.end12.i61
-
-if.then11.i69:                                    ; preds = %sw.bb8.i59
+if.then11.i140:                                   ; preds = %sw.bb8.i130
   tail call void (ptr, ptr, ...) @expr_error(ptr noundef %mon, ptr noundef nonnull @.str.46) #26
   unreachable
 
-if.end12.i61:                                     ; preds = %sw.bb8.i59
-  %cmp13.i62 = icmp eq i8 %31, 47
-  %div.i68 = sdiv i64 %val.0.i46, %call7.i
-  %rem.i64 = srem i64 %val.0.i46, %call7.i
-  %div.i68.rem.i64 = select i1 %cmp13.i62, i64 %div.i68, i64 %rem.i64
-  br label %for.cond.i45.backedge
+if.end12.i132:                                    ; preds = %sw.bb8.i130
+  %cmp13.i133 = icmp eq i8 %25, 47
+  %div.i139 = sdiv i64 %val.0.i116, %call7.i129
+  %rem.i135 = srem i64 %val.0.i116, %call7.i129
+  %div.i139.rem.i135 = select i1 %cmp13.i133, i64 %div.i139, i64 %rem.i135
+  br label %for.cond.i115.backedge
 
-for.cond.i45.backedge:                            ; preds = %if.end12.i61, %sw.bb.i70
-  %val.0.i46.be = phi i64 [ %mul.i71, %sw.bb.i70 ], [ %div.i68.rem.i64, %if.end12.i61 ]
-  br label %for.cond.i45
+for.cond.i115.backedge:                           ; preds = %if.end12.i132, %sw.bb.i141
+  %val.0.i116.be = phi i64 [ %mul.i142, %sw.bb.i141 ], [ %div.i139.rem.i135, %if.end12.i132 ]
+  br label %for.cond.i115
 
-expr_prod.exit72:                                 ; preds = %for.cond.i45
-  switch i8 %24, label %sw.bb.i20 [
+for.cond.i10:                                     ; preds = %for.cond.i115, %for.cond.i10.backedge
+  %30 = phi i8 [ %37, %for.cond.i10.backedge ], [ %25, %for.cond.i115 ]
+  %31 = phi ptr [ %36, %for.cond.i10.backedge ], [ %24, %for.cond.i115 ]
+  %val.0.i11 = phi i64 [ %val.0.i11.be, %for.cond.i10.backedge ], [ %val.0.i116, %for.cond.i115 ]
+  switch i8 %30, label %expr_logic.exit22 [
+    i8 124, label %while.cond.preheader.i103
+    i8 94, label %while.cond.preheader.i103
+    i8 38, label %while.cond.preheader.i103
+  ]
+
+while.cond.preheader.i103:                        ; preds = %for.cond.i10, %for.cond.i10, %for.cond.i10
+  %32 = load ptr, ptr %call.i7, align 8
+  br label %while.cond.i105
+
+while.cond.i105:                                  ; preds = %while.cond.i105, %while.cond.preheader.i103
+  %.pn.i106 = phi ptr [ %storemerge.i107, %while.cond.i105 ], [ %31, %while.cond.preheader.i103 ]
+  %storemerge.i107 = getelementptr i8, ptr %.pn.i106, i64 1
+  %33 = load i8, ptr %storemerge.i107, align 1
+  %idxprom.i108 = zext i8 %33 to i64
+  %arrayidx.i109 = getelementptr i16, ptr %32, i64 %idxprom.i108
+  %34 = load i16, ptr %arrayidx.i109, align 2
+  %35 = and i16 %34, 8192
+  %tobool.not.i110 = icmp eq i16 %35, 0
+  br i1 %tobool.not.i110, label %next.exit113, label %while.cond.i105, !llvm.loop !44
+
+next.exit113:                                     ; preds = %while.cond.i105
+  store ptr %storemerge.i107, ptr @pch, align 8
+  %call.i = tail call fastcc i64 @expr_unary(ptr noundef %mon)
+  br label %for.cond.i73
+
+for.cond.i73:                                     ; preds = %for.cond.i73.backedge, %next.exit113
+  %val.0.i74 = phi i64 [ %call.i, %next.exit113 ], [ %val.0.i74.be, %for.cond.i73.backedge ]
+  %36 = load ptr, ptr @pch, align 8
+  %37 = load i8, ptr %36, align 1
+  switch i8 %37, label %expr_prod.exit101 [
+    i8 47, label %while.cond.preheader.i.i77
+    i8 42, label %while.cond.preheader.i.i77
+    i8 37, label %while.cond.preheader.i.i77
+  ]
+
+while.cond.preheader.i.i77:                       ; preds = %for.cond.i73, %for.cond.i73, %for.cond.i73
+  %38 = load ptr, ptr %call.i7, align 8
+  br label %while.cond.i.i79
+
+while.cond.i.i79:                                 ; preds = %while.cond.i.i79, %while.cond.preheader.i.i77
+  %.pn.i.i80 = phi ptr [ %storemerge.i.i81, %while.cond.i.i79 ], [ %36, %while.cond.preheader.i.i77 ]
+  %storemerge.i.i81 = getelementptr i8, ptr %.pn.i.i80, i64 1
+  %39 = load i8, ptr %storemerge.i.i81, align 1
+  %idxprom.i.i82 = zext i8 %39 to i64
+  %arrayidx.i.i83 = getelementptr i16, ptr %38, i64 %idxprom.i.i82
+  %40 = load i16, ptr %arrayidx.i.i83, align 2
+  %41 = and i16 %40, 8192
+  %tobool.not.i.i84 = icmp eq i16 %41, 0
+  br i1 %tobool.not.i.i84, label %next.exit.i86, label %while.cond.i.i79, !llvm.loop !44
+
+next.exit.i86:                                    ; preds = %while.cond.i.i79
+  store ptr %storemerge.i.i81, ptr @pch, align 8
+  %call7.i87 = tail call fastcc i64 @expr_unary(ptr noundef %mon)
+  switch i8 %37, label %sw.bb.i99 [
+    i8 37, label %sw.bb8.i88
+    i8 47, label %sw.bb8.i88
+  ]
+
+sw.bb.i99:                                        ; preds = %next.exit.i86
+  %mul.i100 = mul i64 %call7.i87, %val.0.i74
+  br label %for.cond.i73.backedge
+
+sw.bb8.i88:                                       ; preds = %next.exit.i86, %next.exit.i86
+  %cmp9.i89 = icmp eq i64 %call7.i87, 0
+  br i1 %cmp9.i89, label %if.then11.i98, label %if.end12.i90
+
+if.then11.i98:                                    ; preds = %sw.bb8.i88
+  tail call void (ptr, ptr, ...) @expr_error(ptr noundef %mon, ptr noundef nonnull @.str.46) #26
+  unreachable
+
+if.end12.i90:                                     ; preds = %sw.bb8.i88
+  %cmp13.i91 = icmp eq i8 %37, 47
+  %div.i97 = sdiv i64 %val.0.i74, %call7.i87
+  %rem.i93 = srem i64 %val.0.i74, %call7.i87
+  %div.i97.rem.i93 = select i1 %cmp13.i91, i64 %div.i97, i64 %rem.i93
+  br label %for.cond.i73.backedge
+
+for.cond.i73.backedge:                            ; preds = %if.end12.i90, %sw.bb.i99
+  %val.0.i74.be = phi i64 [ %mul.i100, %sw.bb.i99 ], [ %div.i97.rem.i93, %if.end12.i90 ]
+  br label %for.cond.i73
+
+expr_prod.exit101:                                ; preds = %for.cond.i73
+  switch i8 %30, label %sw.bb.i20 [
     i8 94, label %sw.bb9.i18
     i8 124, label %sw.bb8.i14
   ]
 
-sw.bb.i20:                                        ; preds = %expr_prod.exit72
-  %and.i21 = and i64 %val.0.i46, %val.0.i11
+sw.bb.i20:                                        ; preds = %expr_prod.exit101
+  %and.i21 = and i64 %val.0.i74, %val.0.i11
   br label %for.cond.i10.backedge
 
-sw.bb8.i14:                                       ; preds = %expr_prod.exit72
-  %or.i15 = or i64 %val.0.i46, %val.0.i11
+sw.bb8.i14:                                       ; preds = %expr_prod.exit101
+  %or.i15 = or i64 %val.0.i74, %val.0.i11
   br label %for.cond.i10.backedge
 
-sw.bb9.i18:                                       ; preds = %expr_prod.exit72
-  %xor.i19 = xor i64 %val.0.i46, %val.0.i11
+sw.bb9.i18:                                       ; preds = %expr_prod.exit101
+  %xor.i19 = xor i64 %val.0.i74, %val.0.i11
   br label %for.cond.i10.backedge
 
 for.cond.i10.backedge:                            ; preds = %sw.bb9.i18, %sw.bb8.i14, %sw.bb.i20
@@ -3027,77 +3082,10 @@ for.cond.i10.backedge:                            ; preds = %sw.bb9.i18, %sw.bb8
   br label %for.cond.i10
 
 expr_logic.exit22:                                ; preds = %for.cond.i10
-  %cmp5 = icmp eq i8 %12, 43
-  %36 = sub i64 0, %val.0.i11
-  %val.1.p = select i1 %cmp5, i64 %val.0.i11, i64 %36
+  %cmp5 = icmp eq i8 %18, 43
+  %42 = sub i64 0, %val.0.i11
+  %val.1.p = select i1 %cmp5, i64 %val.0.i11, i64 %42
   %val.1 = add i64 %val.1.p, %val.0
-  br label %for.cond
-
-for.end:                                          ; preds = %for.cond
-  ret i64 %val.0
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @expr_prod(ptr noundef %mon) unnamed_addr #0 {
-entry:
-  %call = tail call fastcc i64 @expr_unary(ptr noundef %mon)
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.cond.backedge, %entry
-  %val.0 = phi i64 [ %call, %entry ], [ %val.0.be, %for.cond.backedge ]
-  %0 = load ptr, ptr @pch, align 8
-  %1 = load i8, ptr %0, align 1
-  switch i8 %1, label %for.end [
-    i8 47, label %while.cond.preheader.i
-    i8 42, label %while.cond.preheader.i
-    i8 37, label %while.cond.preheader.i
-  ]
-
-while.cond.preheader.i:                           ; preds = %for.cond, %for.cond, %for.cond
-  %call.i = tail call ptr @__ctype_b_loc() #21
-  %2 = load ptr, ptr %call.i, align 8
-  br label %while.cond.i
-
-while.cond.i:                                     ; preds = %while.cond.i, %while.cond.preheader.i
-  %.pn.i = phi ptr [ %storemerge.i, %while.cond.i ], [ %0, %while.cond.preheader.i ]
-  %storemerge.i = getelementptr i8, ptr %.pn.i, i64 1
-  %3 = load i8, ptr %storemerge.i, align 1
-  %idxprom.i = zext i8 %3 to i64
-  %arrayidx.i = getelementptr i16, ptr %2, i64 %idxprom.i
-  %4 = load i16, ptr %arrayidx.i, align 2
-  %5 = and i16 %4, 8192
-  %tobool.not.i = icmp eq i16 %5, 0
-  br i1 %tobool.not.i, label %next.exit, label %while.cond.i, !llvm.loop !44
-
-next.exit:                                        ; preds = %while.cond.i
-  store ptr %storemerge.i, ptr @pch, align 8
-  %call7 = tail call fastcc i64 @expr_unary(ptr noundef %mon)
-  switch i8 %1, label %sw.bb [
-    i8 37, label %sw.bb8
-    i8 47, label %sw.bb8
-  ]
-
-sw.bb:                                            ; preds = %next.exit
-  %mul = mul i64 %call7, %val.0
-  br label %for.cond.backedge
-
-sw.bb8:                                           ; preds = %next.exit, %next.exit
-  %cmp9 = icmp eq i64 %call7, 0
-  br i1 %cmp9, label %if.then11, label %if.end12
-
-if.then11:                                        ; preds = %sw.bb8
-  tail call void (ptr, ptr, ...) @expr_error(ptr noundef %mon, ptr noundef nonnull @.str.46) #26
-  unreachable
-
-if.end12:                                         ; preds = %sw.bb8
-  %cmp13 = icmp eq i8 %1, 47
-  %div = sdiv i64 %val.0, %call7
-  %rem = srem i64 %val.0, %call7
-  %div.rem = select i1 %cmp13, i64 %div, i64 %rem
-  br label %for.cond.backedge
-
-for.cond.backedge:                                ; preds = %if.end12, %sw.bb
-  %val.0.be = phi i64 [ %mul, %sw.bb ], [ %div.rem, %if.end12 ]
   br label %for.cond
 
 for.end:                                          ; preds = %for.cond

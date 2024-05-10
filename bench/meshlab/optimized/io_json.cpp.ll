@@ -975,25 +975,192 @@ _ZN12JSONIOPluginD2Ev.exit:                       ; preds = %1, %_ZN9QtPrivate8R
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZThn16_N12JSONIOPluginD1Ev(ptr noundef %0) unnamed_addr #12 align 2 {
+define void @_ZThn16_N12JSONIOPluginD1Ev(ptr noundef %0) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
-  tail call void @_ZN12JSONIOPluginD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
+  %3 = load ptr, ptr @_ZTT12JSONIOPlugin, align 8
+  store ptr %3, ptr %2, align 8
+  %4 = load ptr, ptr getelementptr inbounds ([7 x ptr], ptr @_ZTT12JSONIOPlugin, i64 0, i64 4), align 8
+  store ptr %4, ptr %0, align 8
+  %5 = load ptr, ptr getelementptr inbounds ([7 x ptr], ptr @_ZTT12JSONIOPlugin, i64 0, i64 5), align 8
+  %6 = getelementptr i8, ptr %3, i64 -24
+  %7 = load i64, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %2, i64 %7
+  store ptr %5, ptr %8, align 8
+  %9 = load ptr, ptr getelementptr inbounds ([7 x ptr], ptr @_ZTT12JSONIOPlugin, i64 0, i64 6), align 8
+  %10 = load ptr, ptr %2, align 8
+  %11 = getelementptr i8, ptr %10, i64 -32
+  %12 = load i64, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %2, i64 %12
+  store ptr %9, ptr %13, align 8
+  %14 = load ptr, ptr getelementptr inbounds ([7 x ptr], ptr @_ZTT12JSONIOPlugin, i64 0, i64 1), align 8
+  store ptr %14, ptr %0, align 8
+  %15 = load ptr, ptr getelementptr inbounds ([7 x ptr], ptr @_ZTT12JSONIOPlugin, i64 0, i64 2), align 8
+  %16 = getelementptr i8, ptr %14, i64 -24
+  %17 = load i64, ptr %16, align 8
+  %18 = getelementptr inbounds i8, ptr %0, i64 %17
+  store ptr %15, ptr %18, align 8
+  %19 = load ptr, ptr getelementptr inbounds ([7 x ptr], ptr @_ZTT12JSONIOPlugin, i64 0, i64 3), align 8
+  %20 = load ptr, ptr %0, align 8
+  %21 = getelementptr i8, ptr %20, i64 -32
+  %22 = load i64, ptr %21, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 %22
+  store ptr %19, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = load ptr, ptr %24, align 8
+  %26 = load atomic i32, ptr %25 monotonic, align 4
+  switch i32 %26, label %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i [
+    i32 0, label %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i
+    i32 -1, label %_ZN12JSONIOPluginD1Ev.exit
+  ]
+
+_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i:      ; preds = %1
+  %27 = atomicrmw sub ptr %25, i32 1 seq_cst, align 4
+  %.not.i.i.i.i = icmp eq i32 %27, 1
+  br i1 %.not.i.i.i.i, label %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i.i.i, label %_ZN12JSONIOPluginD1Ev.exit
+
+_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i.i.i: ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i
+  %.pre.i.i.i.i = load ptr, ptr %24, align 8
+  br label %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i
+
+_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i: ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i.i.i, %1
+  %28 = phi ptr [ %.pre.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i.i.i ], [ %25, %1 ]
+  tail call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %28, i64 noundef 2, i64 noundef 8) #22
+  br label %_ZN12JSONIOPluginD1Ev.exit
+
+_ZN12JSONIOPluginD1Ev.exit:                       ; preds = %1, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i
+  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #22
+  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i64 0, i32 0, i64 2), ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %0, i64 32
+  tail call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %30) #22
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZTv0_n24_N12JSONIOPluginD1Ev(ptr noundef %0) unnamed_addr #12 align 2 {
+define void @_ZTv0_n24_N12JSONIOPluginD1Ev(ptr noundef %0) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN12JSONIOPluginD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #22
+  %6 = load ptr, ptr @_ZTT12JSONIOPlugin, align 8
+  store ptr %6, ptr %5, align 8
+  %7 = load ptr, ptr getelementptr inbounds ([7 x ptr], ptr @_ZTT12JSONIOPlugin, i64 0, i64 4), align 8
+  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  store ptr %7, ptr %8, align 8
+  %9 = load ptr, ptr getelementptr inbounds ([7 x ptr], ptr @_ZTT12JSONIOPlugin, i64 0, i64 5), align 8
+  %10 = getelementptr i8, ptr %6, i64 -24
+  %11 = load i64, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %5, i64 %11
+  store ptr %9, ptr %12, align 8
+  %13 = load ptr, ptr getelementptr inbounds ([7 x ptr], ptr @_ZTT12JSONIOPlugin, i64 0, i64 6), align 8
+  %14 = load ptr, ptr %5, align 8
+  %15 = getelementptr i8, ptr %14, i64 -32
+  %16 = load i64, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %5, i64 %16
+  store ptr %13, ptr %17, align 8
+  %18 = load ptr, ptr getelementptr inbounds ([7 x ptr], ptr @_ZTT12JSONIOPlugin, i64 0, i64 1), align 8
+  store ptr %18, ptr %8, align 8
+  %19 = load ptr, ptr getelementptr inbounds ([7 x ptr], ptr @_ZTT12JSONIOPlugin, i64 0, i64 2), align 8
+  %20 = getelementptr i8, ptr %18, i64 -24
+  %21 = load i64, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %8, i64 %21
+  store ptr %19, ptr %22, align 8
+  %23 = load ptr, ptr getelementptr inbounds ([7 x ptr], ptr @_ZTT12JSONIOPlugin, i64 0, i64 3), align 8
+  %24 = load ptr, ptr %8, align 8
+  %25 = getelementptr i8, ptr %24, i64 -32
+  %26 = load i64, ptr %25, align 8
+  %27 = getelementptr inbounds i8, ptr %8, i64 %26
+  store ptr %23, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %5, i64 24
+  %29 = load ptr, ptr %28, align 8
+  %30 = load atomic i32, ptr %29 monotonic, align 4
+  switch i32 %30, label %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i [
+    i32 0, label %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i
+    i32 -1, label %_ZN12JSONIOPluginD1Ev.exit
+  ]
+
+_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i:      ; preds = %1
+  %31 = atomicrmw sub ptr %29, i32 1 seq_cst, align 4
+  %.not.i.i.i.i = icmp eq i32 %31, 1
+  br i1 %.not.i.i.i.i, label %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i.i.i, label %_ZN12JSONIOPluginD1Ev.exit
+
+_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i.i.i: ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i
+  %.pre.i.i.i.i = load ptr, ptr %28, align 8
+  br label %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i
+
+_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i: ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i.i.i, %1
+  %32 = phi ptr [ %.pre.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i.i.i ], [ %29, %1 ]
+  tail call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %32, i64 noundef 2, i64 noundef 8) #22
+  br label %_ZN12JSONIOPluginD1Ev.exit
+
+_ZN12JSONIOPluginD1Ev.exit:                       ; preds = %1, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i
+  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #22
+  %33 = getelementptr inbounds i8, ptr %5, i64 32
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i64 0, i32 0, i64 2), ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %5, i64 48
+  tail call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %34) #22
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN12JSONIOPluginD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 align 2 {
-  tail call void @_ZN12JSONIOPluginD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #22
+define void @_ZN12JSONIOPluginD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = load ptr, ptr @_ZTT12JSONIOPlugin, align 8
+  store ptr %2, ptr %0, align 8
+  %3 = load ptr, ptr getelementptr inbounds ([7 x ptr], ptr @_ZTT12JSONIOPlugin, i64 0, i64 4), align 8
+  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %3, ptr %4, align 8
+  %5 = load ptr, ptr getelementptr inbounds ([7 x ptr], ptr @_ZTT12JSONIOPlugin, i64 0, i64 5), align 8
+  %6 = getelementptr i8, ptr %2, i64 -24
+  %7 = load i64, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 %7
+  store ptr %5, ptr %8, align 8
+  %9 = load ptr, ptr getelementptr inbounds ([7 x ptr], ptr @_ZTT12JSONIOPlugin, i64 0, i64 6), align 8
+  %10 = load ptr, ptr %0, align 8
+  %11 = getelementptr i8, ptr %10, i64 -32
+  %12 = load i64, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 %12
+  store ptr %9, ptr %13, align 8
+  %14 = load ptr, ptr getelementptr inbounds ([7 x ptr], ptr @_ZTT12JSONIOPlugin, i64 0, i64 1), align 8
+  store ptr %14, ptr %4, align 8
+  %15 = load ptr, ptr getelementptr inbounds ([7 x ptr], ptr @_ZTT12JSONIOPlugin, i64 0, i64 2), align 8
+  %16 = getelementptr i8, ptr %14, i64 -24
+  %17 = load i64, ptr %16, align 8
+  %18 = getelementptr inbounds i8, ptr %4, i64 %17
+  store ptr %15, ptr %18, align 8
+  %19 = load ptr, ptr getelementptr inbounds ([7 x ptr], ptr @_ZTT12JSONIOPlugin, i64 0, i64 3), align 8
+  %20 = load ptr, ptr %4, align 8
+  %21 = getelementptr i8, ptr %20, i64 -32
+  %22 = load i64, ptr %21, align 8
+  %23 = getelementptr inbounds i8, ptr %4, i64 %22
+  store ptr %19, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %0, i64 24
+  %25 = load ptr, ptr %24, align 8
+  %26 = load atomic i32, ptr %25 monotonic, align 4
+  switch i32 %26, label %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i [
+    i32 0, label %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i
+    i32 -1, label %_ZN12JSONIOPluginD1Ev.exit
+  ]
+
+_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i:      ; preds = %1
+  %27 = atomicrmw sub ptr %25, i32 1 seq_cst, align 4
+  %.not.i.i.i.i = icmp eq i32 %27, 1
+  br i1 %.not.i.i.i.i, label %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i.i.i, label %_ZN12JSONIOPluginD1Ev.exit
+
+_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i.i.i: ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i
+  %.pre.i.i.i.i = load ptr, ptr %24, align 8
+  br label %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i
+
+_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i: ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i.i.i, %1
+  %28 = phi ptr [ %.pre.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i.i.i ], [ %25, %1 ]
+  tail call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %28, i64 noundef 2, i64 noundef 8) #22
+  br label %_ZN12JSONIOPluginD1Ev.exit
+
+_ZN12JSONIOPluginD1Ev.exit:                       ; preds = %1, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i
+  tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #22
+  %29 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i64 0, i32 0, i64 2), ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %0, i64 48
+  tail call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %30) #22
   tail call void @_ZdlPv(ptr noundef nonnull %0) #21
   ret void
 }
@@ -1001,8 +1168,7 @@ define void @_ZN12JSONIOPluginD0Ev(ptr noundef nonnull align 8 dereferenceable(3
 ; Function Attrs: nounwind uwtable
 define void @_ZThn16_N12JSONIOPluginD0Ev(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
-  tail call void @_ZN12JSONIOPluginD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #21
+  tail call void @_ZN12JSONIOPluginD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
   ret void
 }
 
@@ -1012,8 +1178,7 @@ define void @_ZTv0_n24_N12JSONIOPluginD0Ev(ptr noundef %0) unnamed_addr #12 alig
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  tail call void @_ZN12JSONIOPluginD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #21
+  tail call void @_ZN12JSONIOPluginD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #22
   ret void
 }
 

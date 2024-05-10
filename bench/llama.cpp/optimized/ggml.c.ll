@@ -31758,57 +31758,102 @@ if.end.i273:                                      ; preds = %sw.bb304
   br label %sw.epilog
 
 sw.bb314:                                         ; preds = %if.end3
+  %109 = load i32, ptr %params, align 8
+  switch i32 %109, label %if.end.i274 [
+    i32 0, label %sw.epilog
+    i32 2, label %sw.epilog
+  ]
+
+if.end.i274:                                      ; preds = %sw.bb314
   %src315 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %109 = load ptr, ptr %src315, align 8
-  tail call fastcc void @ggml_compute_forward_map_custom1(ptr noundef nonnull %params, ptr noundef %109, ptr noundef nonnull %tensor)
+  %110 = load ptr, ptr %src315, align 8
+  %op_params.i275 = getelementptr inbounds i8, ptr %tensor, i64 84
+  %111 = load ptr, ptr %op_params.i275, align 8
+  %ith.i = getelementptr inbounds i8, ptr %params, i64 4
+  %112 = load i32, ptr %ith.i, align 4
+  %nth.i = getelementptr inbounds i8, ptr %params, i64 8
+  %113 = load i32, ptr %nth.i, align 8
+  %userdata.i = getelementptr inbounds i8, ptr %tensor, i64 100
+  %114 = load ptr, ptr %userdata.i, align 8
+  tail call void %111(ptr noundef nonnull %tensor, ptr noundef %110, i32 noundef %112, i32 noundef %113, ptr noundef %114) #45
   br label %sw.epilog
 
 sw.bb317:                                         ; preds = %if.end3
-  %src318 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %110 = load ptr, ptr %src318, align 8
+  %115 = load i32, ptr %params, align 8
+  switch i32 %115, label %if.end.i276 [
+    i32 0, label %sw.epilog
+    i32 2, label %sw.epilog
+  ]
+
+if.end.i276:                                      ; preds = %sw.bb317
   %arrayidx321 = getelementptr inbounds i8, ptr %tensor, i64 168
-  %111 = load ptr, ptr %arrayidx321, align 8
-  tail call fastcc void @ggml_compute_forward_map_custom2(ptr noundef nonnull %params, ptr noundef %110, ptr noundef %111, ptr noundef nonnull %tensor)
+  %116 = load ptr, ptr %arrayidx321, align 8
+  %src318 = getelementptr inbounds i8, ptr %tensor, i64 160
+  %117 = load ptr, ptr %src318, align 8
+  %op_params.i277 = getelementptr inbounds i8, ptr %tensor, i64 84
+  %118 = load ptr, ptr %op_params.i277, align 8
+  %ith.i278 = getelementptr inbounds i8, ptr %params, i64 4
+  %119 = load i32, ptr %ith.i278, align 4
+  %nth.i279 = getelementptr inbounds i8, ptr %params, i64 8
+  %120 = load i32, ptr %nth.i279, align 8
+  %userdata.i280 = getelementptr inbounds i8, ptr %tensor, i64 100
+  %121 = load ptr, ptr %userdata.i280, align 8
+  tail call void %118(ptr noundef nonnull %tensor, ptr noundef %117, ptr noundef %116, i32 noundef %119, i32 noundef %120, ptr noundef %121) #45
   br label %sw.epilog
 
 sw.bb322:                                         ; preds = %if.end3
-  %src323 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %112 = load ptr, ptr %src323, align 8
-  %arrayidx326 = getelementptr inbounds i8, ptr %tensor, i64 168
-  %113 = load ptr, ptr %arrayidx326, align 8
+  %122 = load i32, ptr %params, align 8
+  switch i32 %122, label %if.end.i281 [
+    i32 0, label %sw.epilog
+    i32 2, label %sw.epilog
+  ]
+
+if.end.i281:                                      ; preds = %sw.bb322
   %arrayidx328 = getelementptr inbounds i8, ptr %tensor, i64 176
-  %114 = load ptr, ptr %arrayidx328, align 8
-  tail call fastcc void @ggml_compute_forward_map_custom3(ptr noundef nonnull %params, ptr noundef %112, ptr noundef %113, ptr noundef %114, ptr noundef nonnull %tensor)
+  %123 = load ptr, ptr %arrayidx328, align 8
+  %arrayidx326 = getelementptr inbounds i8, ptr %tensor, i64 168
+  %124 = load ptr, ptr %arrayidx326, align 8
+  %src323 = getelementptr inbounds i8, ptr %tensor, i64 160
+  %125 = load ptr, ptr %src323, align 8
+  %op_params.i282 = getelementptr inbounds i8, ptr %tensor, i64 84
+  %126 = load ptr, ptr %op_params.i282, align 8
+  %ith.i283 = getelementptr inbounds i8, ptr %params, i64 4
+  %127 = load i32, ptr %ith.i283, align 4
+  %nth.i284 = getelementptr inbounds i8, ptr %params, i64 8
+  %128 = load i32, ptr %nth.i284, align 8
+  %userdata.i285 = getelementptr inbounds i8, ptr %tensor, i64 100
+  %129 = load ptr, ptr %userdata.i285, align 8
+  tail call void %126(ptr noundef nonnull %tensor, ptr noundef %125, ptr noundef %124, ptr noundef %123, i32 noundef %127, i32 noundef %128, ptr noundef %129) #45
   br label %sw.epilog
 
 sw.bb329:                                         ; preds = %if.end3
   %src330 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %115 = load ptr, ptr %src330, align 8
+  %130 = load ptr, ptr %src330, align 8
   %arrayidx333 = getelementptr inbounds i8, ptr %tensor, i64 168
-  %116 = load ptr, ptr %arrayidx333, align 8
-  tail call fastcc void @ggml_compute_forward_cross_entropy_loss(ptr noundef nonnull %params, ptr noundef %115, ptr noundef %116, ptr noundef nonnull %tensor)
+  %131 = load ptr, ptr %arrayidx333, align 8
+  tail call fastcc void @ggml_compute_forward_cross_entropy_loss(ptr noundef nonnull %params, ptr noundef %130, ptr noundef %131, ptr noundef nonnull %tensor)
   br label %sw.epilog
 
 sw.bb334:                                         ; preds = %if.end3
   %src335 = getelementptr inbounds i8, ptr %tensor, i64 160
-  %117 = load ptr, ptr %src335, align 8
+  %132 = load ptr, ptr %src335, align 8
   %arrayidx338 = getelementptr inbounds i8, ptr %tensor, i64 168
-  %118 = load ptr, ptr %arrayidx338, align 8
+  %133 = load ptr, ptr %arrayidx338, align 8
   %arrayidx340 = getelementptr inbounds i8, ptr %tensor, i64 176
-  %119 = load ptr, ptr %arrayidx340, align 8
-  tail call fastcc void @ggml_compute_forward_cross_entropy_loss_back(ptr noundef nonnull %params, ptr noundef %117, ptr noundef %118, ptr noundef %119, ptr noundef nonnull %tensor)
+  %134 = load ptr, ptr %arrayidx340, align 8
+  tail call fastcc void @ggml_compute_forward_cross_entropy_loss_back(ptr noundef nonnull %params, ptr noundef %132, ptr noundef %133, ptr noundef %134, ptr noundef nonnull %tensor)
   br label %sw.epilog
 
 do.body343:                                       ; preds = %if.end3
-  %120 = load ptr, ptr @stdout, align 8
-  %call344 = tail call i32 @fflush(ptr noundef %120)
-  %121 = load ptr, ptr @stderr, align 8
-  %call345 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %121, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 14578, ptr noundef nonnull @.str.26) #46
+  %135 = load ptr, ptr @stdout, align 8
+  %call344 = tail call i32 @fflush(ptr noundef %135)
+  %136 = load ptr, ptr @stderr, align 8
+  %call345 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %136, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 14578, ptr noundef nonnull @.str.26) #46
   tail call void @ggml_print_backtrace()
   tail call void @abort() #47
   unreachable
 
-sw.epilog:                                        ; preds = %if.end.i273, %sw.bb304, %sw.bb304, %if.end.i272, %sw.bb296, %sw.bb296, %if.end.i, %sw.bb290, %sw.bb290, %do.end, %sw.bb334, %sw.bb329, %sw.bb322, %sw.bb317, %sw.bb314, %sw.bb282, %sw.bb279, %sw.bb272, %sw.bb269, %sw.bb266, %sw.bb263, %sw.bb260, %do.end247, %sw.bb225, %do.end216, %sw.bb204, %sw.bb201, %sw.bb198, %sw.bb195, %sw.bb192, %sw.bb189, %sw.bb184, %sw.bb179, %sw.bb174, %sw.bb171, %sw.bb168, %sw.bb163, %sw.bb158, %sw.bb153, %sw.bb148, %sw.bb145, %sw.bb142, %sw.bb139, %sw.bb134, %sw.bb129, %sw.bb114, %sw.bb111, %sw.bb106, %sw.bb101, %sw.bb96, %sw.bb91, %sw.bb86, %sw.bb83, %sw.bb78, %sw.bb75, %sw.bb72, %sw.bb67, %sw.bb62, %sw.bb59, %sw.bb56, %sw.bb53, %sw.bb50, %sw.bb47, %sw.bb44, %sw.bb41, %sw.bb38, %sw.bb35, %sw.bb30, %sw.bb25, %sw.bb20, %sw.bb15, %sw.bb10, %sw.bb5, %sw.bb, %if.end3
+sw.epilog:                                        ; preds = %if.end.i281, %sw.bb322, %sw.bb322, %if.end.i276, %sw.bb317, %sw.bb317, %if.end.i274, %sw.bb314, %sw.bb314, %if.end.i273, %sw.bb304, %sw.bb304, %if.end.i272, %sw.bb296, %sw.bb296, %if.end.i, %sw.bb290, %sw.bb290, %do.end, %sw.bb334, %sw.bb329, %sw.bb282, %sw.bb279, %sw.bb272, %sw.bb269, %sw.bb266, %sw.bb263, %sw.bb260, %do.end247, %sw.bb225, %do.end216, %sw.bb204, %sw.bb201, %sw.bb198, %sw.bb195, %sw.bb192, %sw.bb189, %sw.bb184, %sw.bb179, %sw.bb174, %sw.bb171, %sw.bb168, %sw.bb163, %sw.bb158, %sw.bb153, %sw.bb148, %sw.bb145, %sw.bb142, %sw.bb139, %sw.bb134, %sw.bb129, %sw.bb114, %sw.bb111, %sw.bb106, %sw.bb101, %sw.bb96, %sw.bb91, %sw.bb86, %sw.bb83, %sw.bb78, %sw.bb75, %sw.bb72, %sw.bb67, %sw.bb62, %sw.bb59, %sw.bb56, %sw.bb53, %sw.bb50, %sw.bb47, %sw.bb44, %sw.bb41, %sw.bb38, %sw.bb35, %sw.bb30, %sw.bb25, %sw.bb20, %sw.bb15, %sw.bb10, %sw.bb5, %sw.bb, %if.end3
   ret void
 }
 
@@ -56499,81 +56544,6 @@ do.body:                                          ; preds = %entry
   tail call void @ggml_print_backtrace()
   tail call void @abort() #47
   unreachable
-}
-
-; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_map_custom1(ptr nocapture noundef readonly %params, ptr noundef %a, ptr noundef %dst) unnamed_addr #0 {
-entry:
-  %0 = load i32, ptr %params, align 8
-  switch i32 %0, label %if.end [
-    i32 0, label %return
-    i32 2, label %return
-  ]
-
-if.end:                                           ; preds = %entry
-  %op_params = getelementptr inbounds i8, ptr %dst, i64 84
-  %1 = load ptr, ptr %op_params, align 8
-  %ith = getelementptr inbounds i8, ptr %params, i64 4
-  %2 = load i32, ptr %ith, align 4
-  %nth = getelementptr inbounds i8, ptr %params, i64 8
-  %3 = load i32, ptr %nth, align 8
-  %userdata = getelementptr inbounds i8, ptr %dst, i64 100
-  %4 = load ptr, ptr %userdata, align 8
-  tail call void %1(ptr noundef %dst, ptr noundef %a, i32 noundef %2, i32 noundef %3, ptr noundef %4) #45
-  br label %return
-
-return:                                           ; preds = %entry, %entry, %if.end
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_map_custom2(ptr nocapture noundef readonly %params, ptr noundef %a, ptr noundef %b, ptr noundef %dst) unnamed_addr #0 {
-entry:
-  %0 = load i32, ptr %params, align 8
-  switch i32 %0, label %if.end [
-    i32 0, label %return
-    i32 2, label %return
-  ]
-
-if.end:                                           ; preds = %entry
-  %op_params = getelementptr inbounds i8, ptr %dst, i64 84
-  %1 = load ptr, ptr %op_params, align 8
-  %ith = getelementptr inbounds i8, ptr %params, i64 4
-  %2 = load i32, ptr %ith, align 4
-  %nth = getelementptr inbounds i8, ptr %params, i64 8
-  %3 = load i32, ptr %nth, align 8
-  %userdata = getelementptr inbounds i8, ptr %dst, i64 100
-  %4 = load ptr, ptr %userdata, align 8
-  tail call void %1(ptr noundef %dst, ptr noundef %a, ptr noundef %b, i32 noundef %2, i32 noundef %3, ptr noundef %4) #45
-  br label %return
-
-return:                                           ; preds = %entry, %entry, %if.end
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_compute_forward_map_custom3(ptr nocapture noundef readonly %params, ptr noundef %a, ptr noundef %b, ptr noundef %c, ptr noundef %dst) unnamed_addr #0 {
-entry:
-  %0 = load i32, ptr %params, align 8
-  switch i32 %0, label %if.end [
-    i32 0, label %return
-    i32 2, label %return
-  ]
-
-if.end:                                           ; preds = %entry
-  %op_params = getelementptr inbounds i8, ptr %dst, i64 84
-  %1 = load ptr, ptr %op_params, align 8
-  %ith = getelementptr inbounds i8, ptr %params, i64 4
-  %2 = load i32, ptr %ith, align 4
-  %nth = getelementptr inbounds i8, ptr %params, i64 8
-  %3 = load i32, ptr %nth, align 8
-  %userdata = getelementptr inbounds i8, ptr %dst, i64 100
-  %4 = load ptr, ptr %userdata, align 8
-  tail call void %1(ptr noundef %dst, ptr noundef %a, ptr noundef %b, ptr noundef %c, i32 noundef %2, i32 noundef %3, ptr noundef %4) #45
-  br label %return
-
-return:                                           ; preds = %entry, %entry, %if.end
-  ret void
 }
 
 ; Function Attrs: nounwind uwtable

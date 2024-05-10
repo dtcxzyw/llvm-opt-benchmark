@@ -1420,7 +1420,45 @@ define void @Exp_PrintVerilog(ptr nocapture noundef %0, i32 noundef %1, ptr noca
   %8 = getelementptr i32, ptr %.val4, i64 %7
   %9 = getelementptr i8, ptr %8, i64 -4
   %10 = load i32, ptr %9, align 4
-  tail call void @Exp_PrintLitVerilog(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %10)
+  switch i32 %10, label %15 [
+    i32 -1, label %11
+    i32 -2, label %13
+  ]
+
+11:                                               ; preds = %4
+  %12 = tail call i64 @fwrite(ptr nonnull @.str.20, i64 4, i64 1, ptr %0)
+  br label %Exp_PrintLitVerilog.exit
+
+13:                                               ; preds = %4
+  %14 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 4, i64 1, ptr %0)
+  br label %Exp_PrintLitVerilog.exit
+
+15:                                               ; preds = %4
+  %16 = shl nsw i32 %1, 1
+  %17 = icmp sgt i32 %16, %10
+  br i1 %17, label %18, label %27
+
+18:                                               ; preds = %15
+  %19 = and i32 %10, 1
+  %.not.i = icmp eq i32 %19, 0
+  %20 = select i1 %.not.i, ptr @.str.24, ptr @.str.23
+  %21 = sdiv i32 %10, 2
+  %22 = getelementptr i8, ptr %3, i64 8
+  %.val.i = load ptr, ptr %22, align 8
+  %23 = sext i32 %21 to i64
+  %24 = getelementptr inbounds ptr, ptr %.val.i, i64 %23
+  %25 = load ptr, ptr %24, align 8
+  %26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.22, ptr noundef nonnull %20, ptr noundef %25) #30
+  br label %Exp_PrintLitVerilog.exit
+
+27:                                               ; preds = %15
+  %28 = sdiv i32 %10, 2
+  %29 = sub nsw i32 %28, %1
+  %30 = and i32 %10, 1
+  tail call void @Exp_PrintNodeVerilog(ptr noundef %0, i32 noundef %1, ptr noundef nonnull readonly %2, ptr noundef readonly %3, i32 noundef %29, i32 noundef %30) #34
+  br label %Exp_PrintLitVerilog.exit
+
+Exp_PrintLitVerilog.exit:                         ; preds = %11, %13, %18, %27
   ret void
 }
 
@@ -1491,17 +1529,9 @@ define void @Mio_WriteGateVerilog(ptr nocapture noundef %0, ptr nocapture nounde
   %.val = load i32, ptr %8, align 4
   %35 = getelementptr inbounds i8, ptr %1, i64 96
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr i8, ptr %36, i64 4
-  %.val.i = load i32, ptr %37, align 4
-  %38 = getelementptr i8, ptr %36, i64 8
-  %.val4.i = load ptr, ptr %38, align 8
-  %39 = sext i32 %.val.i to i64
-  %40 = getelementptr i32, ptr %.val4.i, i64 %39
-  %41 = getelementptr i8, ptr %40, i64 -4
-  %42 = load i32, ptr %41, align 4
-  tail call void @Exp_PrintLitVerilog(ptr noundef %0, i32 noundef %.val, ptr noundef readonly %36, ptr noundef nonnull readonly %2, i32 noundef %42)
-  %43 = tail call i64 @fwrite(ptr nonnull @.str.30, i64 2, i64 1, ptr %0)
-  %44 = tail call i64 @fwrite(ptr nonnull @.str.32, i64 11, i64 1, ptr %0)
+  tail call void @Exp_PrintVerilog(ptr noundef %0, i32 noundef %.val, ptr noundef %36, ptr noundef nonnull %2)
+  %37 = tail call i64 @fwrite(ptr nonnull @.str.30, i64 2, i64 1, ptr %0)
+  %38 = tail call i64 @fwrite(ptr nonnull @.str.32, i64 11, i64 1, ptr %0)
   ret void
 }
 
@@ -2229,7 +2259,7 @@ define noundef ptr @Mio_CollectRootsNew(ptr noundef %0, i32 noundef %1, ptr noun
   %5 = tail call i32 @Mio_LibraryReadGateNum(ptr noundef %0) #30
   %6 = add nsw i32 %5, 4
   %7 = sext i32 %6 to i64
-  %8 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 48) #34
+  %8 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 48) #35
   %9 = tail call ptr @Mio_LibraryReadGates(ptr noundef %0) #30
   %.not163 = icmp eq ptr %9, null
   br i1 %.not163, label %._crit_edge.thread, label %.lr.ph166
@@ -2645,7 +2675,7 @@ Mio_CollectCopy.exit:                             ; preds = %83, %144, %115, %17
   br i1 %.not100, label %268, label %217
 
 217:                                              ; preds = %._crit_edge170
-  %218 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 4) #34
+  %218 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 4) #35
   %219 = tail call ptr @Mio_LibraryReadGates(ptr noundef %0) #30
   %.not101173 = icmp eq ptr %219, null
   br i1 %.not101173, label %.preheader, label %.lr.ph177
@@ -2810,9 +2840,9 @@ define noundef ptr @Mio_CollectRootsNew2(ptr noundef %0, i32 noundef %1, ptr nou
   %5 = tail call i32 @Mio_LibraryReadGateNum(ptr noundef %0) #30
   %6 = add nsw i32 %5, 4
   %7 = sext i32 %6 to i64
-  %8 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 80) #34
+  %8 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 80) #35
   %9 = sext i32 %5 to i64
-  %10 = tail call noalias ptr @calloc(i64 noundef %9, i64 noundef 80) #34
+  %10 = tail call noalias ptr @calloc(i64 noundef %9, i64 noundef 80) #35
   %11 = tail call ptr @Mio_LibraryReadGates(ptr noundef %0) #30
   %.not152 = icmp eq ptr %11, null
   br i1 %.not152, label %._crit_edge, label %.lr.ph
@@ -3124,7 +3154,7 @@ Mio_CompareTwo2.exit.thread:                      ; preds = %Mio_CompareTwo2.exi
   br i1 %.not125, label %202, label %154
 
 154:                                              ; preds = %._crit_edge167
-  %155 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 4) #34
+  %155 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 4) #35
   %156 = tail call ptr @Mio_LibraryReadGates(ptr noundef %0) #30
   %.not126170 = icmp eq ptr %156, null
   br i1 %.not126170, label %.preheader, label %.lr.ph174
@@ -3264,7 +3294,7 @@ define i32 @Mio_CollectRootsNewDefault3(i32 noundef %0, ptr nocapture noundef %1
 5:                                                ; preds = %3
   %6 = tail call i32 @Mio_LibraryReadGateNum(ptr noundef nonnull %4) #30
   %7 = sext i32 %6 to i64
-  %8 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #34
+  %8 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #35
   %9 = tail call ptr @Mio_LibraryReadGates(ptr noundef nonnull %4) #30
   %.not5356 = icmp eq ptr %9, null
   br i1 %.not5356, label %._crit_edge, label %.lr.ph
@@ -3514,7 +3544,7 @@ define void @Mio_DeriveTruthTable(ptr nocapture noundef readonly %0, ptr nocaptu
   %.val27.i = load i32, ptr %12, align 4
   %13 = sdiv i32 %.val27.i, 2
   %14 = sext i32 %13 to i64
-  %15 = tail call noalias ptr @calloc(i64 noundef %14, i64 noundef 8) #34
+  %15 = tail call noalias ptr @calloc(i64 noundef %14, i64 noundef 8) #35
   %16 = icmp sgt i32 %.val27.i, 1
   %17 = getelementptr i8, ptr %11, i64 8
   %.val24.i = load ptr, ptr %17, align 8
@@ -4599,7 +4629,7 @@ Abc_Clock.exit:                                   ; preds = %1, %9
   %21 = call ptr @Mio_CollectRoots(ptr noundef %0, i32 noundef 6, float noundef 0x4415AF1D80000000, i32 noundef 1, ptr noundef nonnull %6, i32 noundef 0)
   %22 = load i32, ptr %6, align 4
   %23 = sext i32 %22 to i64
-  %24 = call noalias ptr @calloc(i64 noundef %23, i64 noundef 8) #34
+  %24 = call noalias ptr @calloc(i64 noundef %23, i64 noundef 8) #35
   %25 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #31
   %26 = getelementptr inbounds i8, ptr %25, i64 4
   store i32 0, ptr %26, align 4
@@ -5468,7 +5498,7 @@ define void @Mio_LibraryMatchesStart(ptr noundef %0, i32 noundef %1, i32 noundef
   %23 = getelementptr inbounds i8, ptr %0, i64 136
   store i32 %3, ptr %23, align 8
   %24 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #31
-  %25 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #34
+  %25 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #35
   store i32 1, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 8
   store i32 12, ptr %26, align 8
@@ -5547,7 +5577,7 @@ Vec_MemAllocForTT.exit:                           ; preds = %Abc_PrimeCudd.exit.
   %52 = getelementptr inbounds i8, ptr %51, i64 4
   store i32 0, ptr %52, align 4
   store i32 1000, ptr %51, align 8
-  %53 = tail call noalias dereferenceable_or_null(16000) ptr @calloc(i64 noundef 1000, i64 noundef 16) #34
+  %53 = tail call noalias dereferenceable_or_null(16000) ptr @calloc(i64 noundef 1000, i64 noundef 16) #35
   %54 = getelementptr inbounds i8, ptr %51, i64 8
   store ptr %53, ptr %54, align 8
   %55 = getelementptr inbounds i8, ptr %0, i64 152
@@ -6446,7 +6476,8 @@ attributes #30 = { nounwind }
 attributes #31 = { nounwind allocsize(0) }
 attributes #32 = { nounwind willreturn memory(read) }
 attributes #33 = { nounwind allocsize(1) }
-attributes #34 = { nounwind allocsize(0,1) }
+attributes #34 = { "function-inline-cost-multiplier"="2" }
+attributes #35 = { nounwind allocsize(0,1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

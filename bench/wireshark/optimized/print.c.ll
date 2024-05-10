@@ -5192,108 +5192,6 @@ declare noalias ptr @g_ascii_strdown(ptr noundef, i64 noundef) local_unnamed_add
 
 declare i32 @g_slist_length(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ek_check_protocolfilter(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) unnamed_addr #0 {
-  %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %6 = icmp eq ptr %0, null
-  br i1 %6, label %7, label %8
-
-7:                                                ; preds = %3
-  %.not.i = icmp eq ptr %2, null
-  br i1 %.not.i, label %check_protocolfilter.exit.thread, label %.sink.split.i
-
-8:                                                ; preds = %3
-  %9 = icmp eq ptr %1, null
-  br i1 %9, label %.thread, label %10
-
-.thread:                                          ; preds = %8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %.thread45
-
-10:                                               ; preds = %8
-  %11 = call zeroext i1 @wmem_map_lookup_extended(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull %5) #18
-  %12 = icmp ne ptr %2, null
-  %or.cond.i = and i1 %12, %11
-  br i1 %or.cond.i, label %13, label %check_protocolfilter.exit
-
-13:                                               ; preds = %10
-  %14 = load ptr, ptr %5, align 8
-  %15 = ptrtoint ptr %14 to i64
-  %16 = trunc i64 %15 to i32
-  br label %.sink.split.i
-
-.sink.split.i:                                    ; preds = %13, %7
-  %.sink.i = phi i32 [ %16, %13 ], [ 0, %7 ]
-  store i32 %.sink.i, ptr %2, align 4
-  br label %check_protocolfilter.exit.thread
-
-check_protocolfilter.exit.thread:                 ; preds = %7, %.sink.split.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %32
-
-check_protocolfilter.exit:                        ; preds = %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br i1 %11, label %32, label %17
-
-17:                                               ; preds = %check_protocolfilter.exit
-  %char0 = load i8, ptr %1, align 1
-  %.not23 = icmp eq i8 %char0, 0
-  br i1 %.not23, label %.thread45, label %18
-
-18:                                               ; preds = %17
-  %19 = call noalias ptr @g_strdup(ptr noundef nonnull %1) #18
-  br label %20
-
-20:                                               ; preds = %25, %18
-  %.0 = phi i32 [ 0, %18 ], [ %26, %25 ]
-  %21 = sext i32 %.0 to i64
-  %22 = getelementptr i8, ptr %19, i64 %21
-  %23 = load i8, ptr %22, align 1
-  switch i8 %23, label %25 [
-    i8 0, label %27
-    i8 46, label %24
-  ]
-
-24:                                               ; preds = %20
-  store i8 95, ptr %22, align 1
-  br label %25
-
-25:                                               ; preds = %20, %24
-  %26 = add i32 %.0, 1
-  br label %20, !llvm.loop !23
-
-.thread45:                                        ; preds = %17, %.thread
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  br label %check_protocolfilter.exit31
-
-27:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %28 = call zeroext i1 @wmem_map_lookup_extended(ptr noundef nonnull %0, ptr noundef nonnull %19, ptr noundef null, ptr noundef nonnull %4) #18
-  %or.cond.i25 = and i1 %12, %28
-  br i1 %or.cond.i25, label %.sink.split.i28, label %check_protocolfilter.exit31
-
-.sink.split.i28:                                  ; preds = %27
-  %29 = load ptr, ptr %4, align 8
-  %30 = ptrtoint ptr %29 to i64
-  %31 = trunc i64 %30 to i32
-  store i32 %31, ptr %2, align 4
-  br label %check_protocolfilter.exit31
-
-check_protocolfilter.exit31:                      ; preds = %.thread45, %27, %.sink.split.i28
-  %.01943 = phi ptr [ %19, %27 ], [ %19, %.sink.split.i28 ], [ null, %.thread45 ]
-  %.0.shrunk.i26 = phi i1 [ %28, %27 ], [ true, %.sink.split.i28 ], [ false, %.thread45 ]
-  %.0.i27 = zext i1 %.0.shrunk.i26 to i32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @g_free(ptr noundef %.01943) #18
-  br label %32
-
-32:                                               ; preds = %check_protocolfilter.exit.thread, %check_protocolfilter.exit, %check_protocolfilter.exit31
-  %.018 = phi i32 [ %.0.i27, %check_protocolfilter.exit31 ], [ 1, %check_protocolfilter.exit ], [ 1, %check_protocolfilter.exit.thread ]
-  ret i32 %.018
-}
-
 declare ptr @proto_registrar_get_nth(i32 noundef) local_unnamed_addr #1
 
 declare i64 @nstime_to_iso8601(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
@@ -5304,87 +5202,144 @@ declare ptr @g_hash_table_new_full(ptr noundef, ptr noundef, ptr noundef, ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @ek_fill_attr(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = alloca i32, align 4
-  %.02633 = load ptr, ptr %0, align 8
-  %.not34 = icmp eq ptr %.02633, null
-  br i1 %.not34, label %._crit_edge, label %.lr.ph
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %.02646 = load ptr, ptr %0, align 8
+  %.not47 = icmp eq ptr %.02646, null
+  br i1 %.not47, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
-  br label %6
+  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  br label %7
 
-6:                                                ; preds = %.lr.ph, %40
-  %.02635 = phi ptr [ %.02633, %.lr.ph ], [ %.026, %40 ]
-  %7 = getelementptr inbounds i8, ptr %.02635, i64 32
-  %8 = load ptr, ptr %7, align 8
+7:                                                ; preds = %.lr.ph, %52
+  %.02648 = phi ptr [ %.02646, %.lr.ph ], [ %.026, %52 ]
+  %8 = getelementptr inbounds i8, ptr %.02648, i64 32
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
-  %11 = load ptr, ptr %10, align 8
-  %12 = call ptr @g_hash_table_lookup(ptr noundef %1, ptr noundef %11) #18
-  %13 = call ptr @g_slist_append(ptr noundef %12, ptr noundef nonnull %.02635) #18
-  %14 = load ptr, ptr %8, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
-  %16 = load ptr, ptr %15, align 8
-  %17 = call noalias ptr @g_strdup(ptr noundef %16) #18
-  %18 = call i32 @g_hash_table_insert(ptr noundef %1, ptr noundef %17, ptr noundef %13) #18
-  %19 = load ptr, ptr %8, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 16
-  %21 = load i32, ptr %20, align 8
-  %.not27 = icmp eq i32 %21, 1
-  br i1 %.not27, label %40, label %22
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %12 = load ptr, ptr %11, align 8
+  %13 = call ptr @g_hash_table_lookup(ptr noundef %1, ptr noundef %12) #18
+  %14 = call ptr @g_slist_append(ptr noundef %13, ptr noundef nonnull %.02648) #18
+  %15 = load ptr, ptr %9, align 8
+  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %17 = load ptr, ptr %16, align 8
+  %18 = call noalias ptr @g_strdup(ptr noundef %17) #18
+  %19 = call i32 @g_hash_table_insert(ptr noundef %1, ptr noundef %18, ptr noundef %14) #18
+  %20 = load ptr, ptr %9, align 8
+  %21 = getelementptr inbounds i8, ptr %20, i64 16
+  %22 = load i32, ptr %21, align 8
+  %.not27 = icmp eq i32 %22, 1
+  br i1 %.not27, label %52, label %23
 
-22:                                               ; preds = %6
-  %23 = load ptr, ptr %.02635, align 8
-  %.not28 = icmp eq ptr %23, null
-  br i1 %.not28, label %40, label %24
+23:                                               ; preds = %7
+  %24 = load ptr, ptr %.02648, align 8
+  %.not28 = icmp eq ptr %24, null
+  br i1 %.not28, label %52, label %25
 
-24:                                               ; preds = %22
-  %25 = load ptr, ptr %5, align 8
-  %.not29 = icmp eq ptr %25, null
-  br i1 %.not29, label %39, label %26
+25:                                               ; preds = %23
+  %26 = load ptr, ptr %6, align 8
+  %.not29 = icmp eq ptr %26, null
+  br i1 %.not29, label %51, label %27
 
-26:                                               ; preds = %24
-  store i32 0, ptr %4, align 4
-  %27 = getelementptr inbounds i8, ptr %19, i64 8
-  %28 = load ptr, ptr %27, align 8
-  %29 = call fastcc i32 @ek_check_protocolfilter(ptr noundef nonnull %25, ptr noundef %28, ptr noundef nonnull %4)
-  %.not30 = icmp eq i32 %29, 0
-  br i1 %.not30, label %40, label %30
+27:                                               ; preds = %25
+  %28 = getelementptr inbounds i8, ptr %20, i64 8
+  %29 = load ptr, ptr %28, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %.thread.i, label %31
 
-30:                                               ; preds = %26
-  %31 = load i32, ptr %4, align 4
-  %32 = and i32 %31, 1
-  %.not31 = icmp eq i32 %32, 0
-  br i1 %.not31, label %35, label %33
+.thread.i:                                        ; preds = %27
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  br label %.thread45.i
 
-33:                                               ; preds = %30
-  %34 = load ptr, ptr %5, align 8
-  store ptr null, ptr %5, align 8
-  br label %35
+31:                                               ; preds = %27
+  %32 = call zeroext i1 @wmem_map_lookup_extended(ptr noundef nonnull %26, ptr noundef nonnull %29, ptr noundef null, ptr noundef nonnull %5) #18
+  br i1 %32, label %ek_check_protocolfilter.exit.thread, label %34
 
-35:                                               ; preds = %33, %30
-  %.0 = phi ptr [ %34, %33 ], [ null, %30 ]
-  call fastcc void @ek_fill_attr(ptr noundef nonnull %.02635, ptr noundef %1, ptr noundef nonnull %2)
-  %36 = load i32, ptr %4, align 4
-  %37 = and i32 %36, 1
-  %.not32 = icmp eq i32 %37, 0
-  br i1 %.not32, label %40, label %38
+ek_check_protocolfilter.exit.thread:              ; preds = %31
+  %33 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  br label %47
 
-38:                                               ; preds = %35
-  store ptr %.0, ptr %5, align 8
-  br label %40
+34:                                               ; preds = %31
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  %char0.i = load i8, ptr %29, align 1
+  %.not23.i = icmp eq i8 %char0.i, 0
+  br i1 %.not23.i, label %.thread45.i, label %35
 
-39:                                               ; preds = %24
-  call fastcc void @ek_fill_attr(ptr noundef nonnull %.02635, ptr noundef %1, ptr noundef nonnull %2)
-  br label %40
+35:                                               ; preds = %34
+  %36 = call noalias ptr @g_strdup(ptr noundef nonnull %29) #18
+  br label %37
 
-40:                                               ; preds = %6, %22, %39, %26, %35, %38
-  %41 = getelementptr inbounds i8, ptr %.02635, i64 16
-  %.026 = load ptr, ptr %41, align 8
+37:                                               ; preds = %42, %35
+  %.0.i = phi i32 [ 0, %35 ], [ %43, %42 ]
+  %38 = sext i32 %.0.i to i64
+  %39 = getelementptr i8, ptr %36, i64 %38
+  %40 = load i8, ptr %39, align 1
+  switch i8 %40, label %42 [
+    i8 0, label %44
+    i8 46, label %41
+  ]
+
+41:                                               ; preds = %37
+  store i8 95, ptr %39, align 1
+  br label %42
+
+42:                                               ; preds = %41, %37
+  %43 = add i32 %.0.i, 1
+  br label %37, !llvm.loop !23
+
+.thread45.i:                                      ; preds = %34, %.thread.i
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  br label %ek_check_protocolfilter.exit.thread39
+
+44:                                               ; preds = %37
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  %45 = call zeroext i1 @wmem_map_lookup_extended(ptr noundef nonnull %26, ptr noundef nonnull %36, ptr noundef null, ptr noundef nonnull %4) #18
+  br i1 %45, label %ek_check_protocolfilter.exit, label %ek_check_protocolfilter.exit.thread39
+
+ek_check_protocolfilter.exit.thread39:            ; preds = %44, %.thread45.i
+  %.01943.i.ph = phi ptr [ null, %.thread45.i ], [ %36, %44 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @g_free(ptr noundef %.01943.i.ph) #18
+  br label %52
+
+ek_check_protocolfilter.exit:                     ; preds = %44
+  %46 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @g_free(ptr noundef nonnull %36) #18
+  br label %47
+
+47:                                               ; preds = %ek_check_protocolfilter.exit, %ek_check_protocolfilter.exit.thread
+  %.138.in.in = phi ptr [ %33, %ek_check_protocolfilter.exit.thread ], [ %46, %ek_check_protocolfilter.exit ]
+  %.138.in = ptrtoint ptr %.138.in.in to i64
+  %48 = and i64 %.138.in, 1
+  %.not31 = icmp eq i64 %48, 0
+  br i1 %.not31, label %.thread, label %49
+
+.thread:                                          ; preds = %47
+  call fastcc void @ek_fill_attr(ptr noundef nonnull %.02648, ptr noundef %1, ptr noundef %2)
+  br label %52
+
+49:                                               ; preds = %47
+  %50 = load ptr, ptr %6, align 8
+  store ptr null, ptr %6, align 8
+  call fastcc void @ek_fill_attr(ptr noundef nonnull %.02648, ptr noundef %1, ptr noundef %2)
+  store ptr %50, ptr %6, align 8
+  br label %52
+
+51:                                               ; preds = %25
+  call fastcc void @ek_fill_attr(ptr noundef nonnull %.02648, ptr noundef %1, ptr noundef nonnull %2)
+  br label %52
+
+52:                                               ; preds = %.thread, %ek_check_protocolfilter.exit.thread39, %7, %23, %51, %49
+  %53 = getelementptr inbounds i8, ptr %.02648, i64 16
+  %.026 = load ptr, ptr %53, align 8
   %.not = icmp eq ptr %.026, null
-  br i1 %.not, label %._crit_edge, label %6, !llvm.loop !46
+  br i1 %.not, label %._crit_edge, label %7, !llvm.loop !46
 
-._crit_edge:                                      ; preds = %40, %3
+._crit_edge:                                      ; preds = %52, %3
   ret void
 }
 

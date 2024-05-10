@@ -11283,6 +11283,8 @@ return:                                           ; preds = %if.end.i, %sw.bb, %
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @visit_type_SshHostKeyCheck(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
+  %value.i.i5.i = alloca i32, align 4
+  %value.i.i.i = alloca i32, align 4
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 24, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
 
@@ -11293,9 +11295,9 @@ if.end:                                           ; preds = %entry
 
 if.then1:                                         ; preds = %if.end
   %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
-  br i1 %call2, label %out_obj.thread, label %if.else
+  br i1 %call2, label %out_obj.thread20, label %if.else
 
-out_obj.thread:                                   ; preds = %if.then1
+out_obj.thread20:                                 ; preds = %if.then1
   tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br label %return
 
@@ -11304,30 +11306,63 @@ if.else:                                          ; preds = %if.then1
   unreachable
 
 if.end5:                                          ; preds = %if.end
-  %call6 = tail call zeroext i1 @visit_type_SshHostKeyCheck_members(ptr noundef %v, ptr noundef nonnull %0, ptr noundef %errp)
-  br i1 %call6, label %out_obj, label %out_obj.thread15
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i.i.i)
+  %1 = load i32, ptr %0, align 4
+  store i32 %1, ptr %value.i.i.i, align 4
+  %call.i.i.i = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str.189, ptr noundef nonnull %value.i.i.i, ptr noundef nonnull @SshHostKeyCheckMode_lookup, ptr noundef %errp) #4
+  %2 = load i32, ptr %value.i.i.i, align 4
+  store i32 %2, ptr %0, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i.i.i)
+  br i1 %call.i.i.i, label %if.end.i, label %out_obj.thread
 
-out_obj.thread15:                                 ; preds = %if.end5
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+if.end.i:                                         ; preds = %if.end5
+  switch i32 %2, label %sw.default.i [
+    i32 1, label %sw.bb.i
+    i32 0, label %out_obj
+    i32 2, label %out_obj
+  ]
+
+sw.bb.i:                                          ; preds = %if.end.i
+  %u.i = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i.i5.i)
+  %3 = load i32, ptr %u.i, align 4
+  store i32 %3, ptr %value.i.i5.i, align 4
+  %call.i.i6.i = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str.32, ptr noundef nonnull %value.i.i5.i, ptr noundef nonnull @SshHostKeyCheckHashType_lookup, ptr noundef %errp) #4
+  %4 = load i32, ptr %value.i.i5.i, align 4
+  store i32 %4, ptr %u.i, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i.i5.i)
+  br i1 %call.i.i6.i, label %visit_type_SshHostKeyCheck_members.exit, label %out_obj.thread
+
+sw.default.i:                                     ; preds = %if.end.i
+  call void @abort() #5
+  unreachable
+
+visit_type_SshHostKeyCheck_members.exit:          ; preds = %sw.bb.i
+  %hash.i.i = getelementptr inbounds i8, ptr %0, i64 16
+  %call1.i.i = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.307, ptr noundef nonnull %hash.i.i, ptr noundef %errp) #4
+  br i1 %call1.i.i, label %out_obj, label %out_obj.thread
+
+out_obj.thread:                                   ; preds = %visit_type_SshHostKeyCheck_members.exit, %if.end5, %sw.bb.i
+  call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br label %land.lhs.true
 
-out_obj:                                          ; preds = %if.end5
-  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+out_obj:                                          ; preds = %if.end.i, %if.end.i, %visit_type_SshHostKeyCheck_members.exit
+  %call9 = call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
+  call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
   br i1 %call9, label %return, label %land.lhs.true
 
-land.lhs.true:                                    ; preds = %out_obj.thread15, %out_obj
-  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #4
+land.lhs.true:                                    ; preds = %out_obj.thread, %out_obj
+  %call11 = call zeroext i1 @visit_is_input(ptr noundef %v) #4
   br i1 %call11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %land.lhs.true
-  %1 = load ptr, ptr %obj, align 8
-  tail call void @qapi_free_SshHostKeyCheck(ptr noundef %1) #4
+  %5 = load ptr, ptr %obj, align 8
+  call void @qapi_free_SshHostKeyCheck(ptr noundef %5) #4
   store ptr null, ptr %obj, align 8
   br label %return
 
-return:                                           ; preds = %out_obj.thread, %out_obj, %land.lhs.true, %if.then12, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %if.then12 ], [ false, %land.lhs.true ], [ true, %out_obj ], [ true, %out_obj.thread ]
+return:                                           ; preds = %out_obj.thread20, %out_obj, %land.lhs.true, %if.then12, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.then12 ], [ false, %land.lhs.true ], [ true, %out_obj ], [ true, %out_obj.thread20 ]
   ret i1 %retval.0
 }
 

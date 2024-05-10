@@ -179,7 +179,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @do_qemu_init_hda_audio_register_types() #0 {
 entry:
-  tail call void @register_module_init(ptr noundef nonnull @hda_audio_register_types, i32 noundef 3) #11
+  tail call void @register_module_init(ptr noundef nonnull @hda_audio_register_types, i32 noundef 3) #10
   ret void
 }
 
@@ -188,10 +188,10 @@ declare void @register_module_init(ptr noundef, i32 noundef) local_unnamed_addr 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @hda_audio_register_types() #0 {
 entry:
-  %call = tail call ptr @type_register_static(ptr noundef nonnull @hda_audio_info) #11
-  %call1 = tail call ptr @type_register_static(ptr noundef nonnull @hda_audio_output_info) #11
-  %call2 = tail call ptr @type_register_static(ptr noundef nonnull @hda_audio_duplex_info) #11
-  %call3 = tail call ptr @type_register_static(ptr noundef nonnull @hda_audio_micro_info) #11
+  %call = tail call ptr @type_register_static(ptr noundef nonnull @hda_audio_info) #10
+  %call1 = tail call ptr @type_register_static(ptr noundef nonnull @hda_audio_output_info) #10
+  %call2 = tail call ptr @type_register_static(ptr noundef nonnull @hda_audio_duplex_info) #10
+  %call3 = tail call ptr @type_register_static(ptr noundef nonnull @hda_audio_micro_info) #10
   ret void
 }
 
@@ -200,8 +200,8 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @hda_audio_base_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
-  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #11
-  %call.i7 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 12, ptr noundef nonnull @__func__.HDA_CODEC_DEVICE_CLASS) #11
+  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #10
+  %call.i7 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 12, ptr noundef nonnull @__func__.HDA_CODEC_DEVICE_CLASS) #10
   %exit = getelementptr inbounds i8, ptr %call.i7, i64 184
   store ptr @hda_audio_exit, ptr %exit, align 8
   %command = getelementptr inbounds i8, ptr %call.i7, i64 192
@@ -216,14 +216,14 @@ entry:
   store ptr @hda_audio_reset, ptr %reset, align 8
   %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @vmstate_hda_audio, ptr %vmsd, align 8
-  tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @hda_audio_properties) #11
+  tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @hda_audio_properties) #10
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @hda_audio_exit(ptr noundef %hda) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %hda, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, i32 noundef 150, ptr noundef nonnull @__func__.HDA_AUDIO) #11
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %hda, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, i32 noundef 150, ptr noundef nonnull @__func__.HDA_AUDIO) #10
   %debug = getelementptr inbounds i8, ptr %call.i, i64 34504
   %0 = load i32, ptr %debug, align 8
   %cmp.not = icmp eq i32 %0, 0
@@ -233,9 +233,9 @@ if.then:                                          ; preds = %entry
   %1 = load ptr, ptr @stderr, align 8
   %name = getelementptr inbounds i8, ptr %call.i, i64 168
   %2 = load ptr, ptr %name, align 8
-  %call1 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef %2) #12
+  %call1 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef %2) #11
   %3 = load ptr, ptr @stderr, align 8
-  %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.hda_audio_exit) #12
+  %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.hda_audio_exit) #11
   br label %do.end
 
 do.end:                                           ; preds = %entry, %if.then
@@ -260,7 +260,7 @@ if.end9:                                          ; preds = %for.body
 if.then10:                                        ; preds = %if.end9
   %buft = getelementptr inbounds i8, ptr %add.ptr, i64 8544
   %6 = load ptr, ptr %buft, align 8
-  tail call void @timer_del(ptr noundef %6) #11
+  tail call void @timer_del(ptr noundef %6) #10
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then10, %if.end9
@@ -272,11 +272,11 @@ if.end11:                                         ; preds = %if.then10, %if.end9
   br i1 %tobool12, label %if.then13, label %if.else
 
 if.then13:                                        ; preds = %if.end11
-  tail call void @AUD_close_out(ptr noundef nonnull %card14, ptr noundef %8) #11
+  tail call void @AUD_close_out(ptr noundef nonnull %card14, ptr noundef %8) #10
   br label %for.inc
 
 if.else:                                          ; preds = %if.end11
-  tail call void @AUD_close_in(ptr noundef nonnull %card14, ptr noundef %8) #11
+  tail call void @AUD_close_in(ptr noundef nonnull %card14, ptr noundef %8) #10
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then13, %if.else, %for.body
@@ -285,21 +285,21 @@ for.inc:                                          ; preds = %if.then13, %if.else
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %for.inc
-  tail call void @AUD_remove_card(ptr noundef nonnull %card14) #11
+  tail call void @AUD_remove_card(ptr noundef nonnull %card14) #10
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @hda_audio_command(ptr noundef %hda, i32 noundef %nid, i32 noundef %data) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %hda, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, i32 noundef 150, ptr noundef nonnull @__func__.HDA_AUDIO) #11
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %hda, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, i32 noundef 150, ptr noundef nonnull @__func__.HDA_AUDIO) #10
   %and = and i32 %data, 458752
   %cmp = icmp eq i32 %and, 458752
   %shr = lshr i32 %data, 8
   %. = select i1 %cmp, i32 4095, i32 3840
-  %.173 = select i1 %cmp, i32 255, i32 65535
+  %.175 = select i1 %cmp, i32 255, i32 65535
   %and4 = and i32 %shr, %.
-  %and5 = and i32 %.173, %data
+  %and5 = and i32 %.175, %data
   %desc = getelementptr inbounds i8, ptr %call.i, i64 208
   %0 = load ptr, ptr %desc, align 8
   %nnodes.i = getelementptr inbounds i8, ptr %0, i64 24
@@ -339,11 +339,11 @@ if.then11:                                        ; preds = %do.body
   %5 = load ptr, ptr @stderr, align 8
   %name = getelementptr inbounds i8, ptr %call.i, i64 168
   %6 = load ptr, ptr %name, align 8
-  %call12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.5, ptr noundef %6) #12
+  %call12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.5, ptr noundef %6) #11
   %7 = load ptr, ptr @stderr, align 8
   %name13 = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %8 = load ptr, ptr %name13, align 8
-  %call14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.hda_audio_command, i32 noundef %nid, ptr noundef %8, i32 noundef %and4, i32 noundef %and5) #12
+  %call14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.hda_audio_command, i32 noundef %nid, ptr noundef %8, i32 noundef %and4, i32 noundef %and5) #11
   br label %do.end
 
 do.end:                                           ; preds = %do.body, %if.then11
@@ -431,8 +431,8 @@ cond.true:                                        ; preds = %for.body.i131
 
 cond.end:                                         ; preds = %for.cond.i136, %sw.bb22, %cond.true
   %cond = phi i32 [ %18, %cond.true ], [ 0, %sw.bb22 ], [ 0, %for.cond.i136 ]
-  %cmp25155 = icmp ult i32 %and5, %cond
-  br i1 %cmp25155, label %while.body.lr.ph, label %return
+  %cmp25157 = icmp ult i32 %and5, %cond
+  br i1 %cmp25157, label %while.body.lr.ph, label %return
 
 while.body.lr.ph:                                 ; preds = %cond.end
   %conn = getelementptr inbounds i8, ptr %arrayidx.i, i64 40
@@ -443,16 +443,16 @@ while.body.lr.ph:                                 ; preds = %cond.end
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
   %indvars.iv = phi i64 [ %20, %while.body.lr.ph ], [ %indvars.iv.next, %while.body ]
-  %shift.0158 = phi i32 [ 0, %while.body.lr.ph ], [ %add, %while.body ]
-  %response.0157 = phi i32 [ 0, %while.body.lr.ph ], [ %or, %while.body ]
+  %shift.0160 = phi i32 [ 0, %while.body.lr.ph ], [ %add, %while.body ]
+  %response.0159 = phi i32 [ 0, %while.body.lr.ph ], [ %or, %while.body ]
   %arrayidx = getelementptr i32, ptr %19, i64 %indvars.iv
   %22 = load i32, ptr %arrayidx, align 4
-  %shl = shl i32 %22, %shift.0158
-  %or = or i32 %shl, %response.0157
+  %shl = shl i32 %22, %shift.0160
+  %or = or i32 %shl, %response.0159
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %add = add nuw nsw i32 %shift.0158, 8
+  %add = add nuw nsw i32 %shift.0160, 8
   %cmp25 = icmp ult i64 %indvars.iv.next, %21
-  %cmp26 = icmp ult i32 %shift.0158, 24
+  %cmp26 = icmp ult i32 %shift.0160, 24
   %23 = select i1 %cmp25, i1 %cmp26, i1 false
   br i1 %23, label %while.body, label %return, !llvm.loop !9
 
@@ -481,9 +481,9 @@ if.then36:                                        ; preds = %do.body33
   %28 = load ptr, ptr @stderr, align 8
   %name37 = getelementptr inbounds i8, ptr %call.i, i64 168
   %29 = load ptr, ptr %name37, align 8
-  %call38 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.5, ptr noundef %29) #12
+  %call38 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.5, ptr noundef %29) #11
   %30 = load ptr, ptr @stderr, align 8
-  %31 = tail call i64 @fwrite(ptr nonnull @.str.9, i64 26, i64 1, ptr %30) #12
+  %31 = tail call i64 @fwrite(ptr nonnull @.str.9, i64 26, i64 1, ptr %30) #11
   br label %return
 
 sw.bb43:                                          ; preds = %do.end
@@ -514,14 +514,14 @@ if.then55:                                        ; preds = %if.end48
   %35 = load ptr, ptr @stderr, align 8
   %name56 = getelementptr inbounds i8, ptr %call.i, i64 168
   %36 = load ptr, ptr %name56, align 8
-  %call57 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str.5, ptr noundef %36) #12
+  %call57 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str.5, ptr noundef %36) #11
   %37 = load ptr, ptr @stderr, align 8
   %38 = load ptr, ptr %node45, align 8
   %name59 = getelementptr inbounds i8, ptr %38, i64 8
   %39 = load ptr, ptr %name59, align 8
   %40 = load i32, ptr %stream, align 4
   %41 = load i32, ptr %channel, align 8
-  %call62 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef nonnull @.str.10, ptr noundef %39, i32 noundef %40, i32 noundef %41) #12
+  %call62 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef nonnull @.str.10, ptr noundef %39, i32 noundef %40, i32 noundef %41) #11
   %.pre = load i32, ptr %stream, align 4
   br label %do.end64
 
@@ -576,80 +576,186 @@ if.end96:                                         ; preds = %sw.bb86
   %format = getelementptr inbounds i8, ptr %add.ptr91, i64 28
   store i32 %and5, ptr %format, align 4
   %as = getelementptr inbounds i8, ptr %add.ptr91, i64 44
-  tail call fastcc void @hda_codec_parse_fmt(i32 noundef %and5, ptr noundef nonnull %as)
+  %tobool.not.i = icmp ult i32 %and5, 32768
+  br i1 %tobool.not.i, label %if.end.i, label %hda_codec_parse_fmt.exit
+
+if.end.i:                                         ; preds = %if.end96
+  %tobool2.not.i = icmp ult i32 %and5, 16384
+  %cond.i = select i1 %tobool2.not.i, i32 48000, i32 44100
+  store i32 %cond.i, ptr %as, align 4
+  %and3.i = lshr i32 %and5, 11
+  %shr.i = and i32 %and3.i, 7
+  switch i32 %shr.i, label %sw.epilog.i [
+    i32 1, label %sw.bb.i
+    i32 2, label %sw.bb5.i
+    i32 3, label %sw.bb8.i
+  ]
+
+sw.bb.i:                                          ; preds = %if.end.i
+  %mul.i = shl nuw nsw i32 %cond.i, 1
+  br label %sw.epilog.sink.split.i
+
+sw.bb5.i:                                         ; preds = %if.end.i
+  %mul7.i = mul nuw nsw i32 %cond.i, 3
+  br label %sw.epilog.sink.split.i
+
+sw.bb8.i:                                         ; preds = %if.end.i
+  %mul10.i = shl nuw nsw i32 %cond.i, 2
+  br label %sw.epilog.sink.split.i
+
+sw.epilog.sink.split.i:                           ; preds = %sw.bb8.i, %sw.bb5.i, %sw.bb.i
+  %mul10.sink.i = phi i32 [ %mul10.i, %sw.bb8.i ], [ %mul7.i, %sw.bb5.i ], [ %mul.i, %sw.bb.i ]
+  store i32 %mul10.sink.i, ptr %as, align 4
+  br label %sw.epilog.i
+
+sw.epilog.i:                                      ; preds = %sw.epilog.sink.split.i, %if.end.i
+  %53 = phi i32 [ %cond.i, %if.end.i ], [ %mul10.sink.i, %sw.epilog.sink.split.i ]
+  %and11.i = lshr i32 %and5, 8
+  %shr12.i = and i32 %and11.i, 7
+  switch i32 %shr12.i, label %sw.epilog33.i [
+    i32 1, label %sw.bb13.i
+    i32 2, label %sw.bb15.i
+    i32 3, label %sw.bb18.i
+    i32 4, label %sw.bb21.i
+    i32 5, label %sw.bb24.i
+    i32 6, label %sw.bb27.i
+    i32 7, label %sw.bb30.i
+  ]
+
+sw.bb13.i:                                        ; preds = %sw.epilog.i
+  %div22.i = lshr i32 %53, 1
+  br label %sw.epilog33.sink.split.i
+
+sw.bb15.i:                                        ; preds = %sw.epilog.i
+  %div17.i = udiv i32 %53, 3
+  br label %sw.epilog33.sink.split.i
+
+sw.bb18.i:                                        ; preds = %sw.epilog.i
+  %div2021.i = lshr i32 %53, 2
+  br label %sw.epilog33.sink.split.i
+
+sw.bb21.i:                                        ; preds = %sw.epilog.i
+  %div23.i = udiv i32 %53, 5
+  br label %sw.epilog33.sink.split.i
+
+sw.bb24.i:                                        ; preds = %sw.epilog.i
+  %div26.i = udiv i32 %53, 6
+  br label %sw.epilog33.sink.split.i
+
+sw.bb27.i:                                        ; preds = %sw.epilog.i
+  %div29.i = udiv i32 %53, 7
+  br label %sw.epilog33.sink.split.i
+
+sw.bb30.i:                                        ; preds = %sw.epilog.i
+  %div3220.i = lshr i32 %53, 3
+  br label %sw.epilog33.sink.split.i
+
+sw.epilog33.sink.split.i:                         ; preds = %sw.bb30.i, %sw.bb27.i, %sw.bb24.i, %sw.bb21.i, %sw.bb18.i, %sw.bb15.i, %sw.bb13.i
+  %div3220.sink.i = phi i32 [ %div3220.i, %sw.bb30.i ], [ %div29.i, %sw.bb27.i ], [ %div26.i, %sw.bb24.i ], [ %div23.i, %sw.bb21.i ], [ %div2021.i, %sw.bb18.i ], [ %div17.i, %sw.bb15.i ], [ %div22.i, %sw.bb13.i ]
+  store i32 %div3220.sink.i, ptr %as, align 4
+  br label %sw.epilog33.i
+
+sw.epilog33.i:                                    ; preds = %sw.epilog33.sink.split.i, %sw.epilog.i
+  %and34.i = and i32 %data, 112
+  switch i32 %and34.i, label %sw.epilog40.i [
+    i32 0, label %sw.epilog40.sink.split.i
+    i32 16, label %sw.bb36.i
+    i32 64, label %sw.bb38.i
+  ]
+
+sw.bb36.i:                                        ; preds = %sw.epilog33.i
+  br label %sw.epilog40.sink.split.i
+
+sw.bb38.i:                                        ; preds = %sw.epilog33.i
+  br label %sw.epilog40.sink.split.i
+
+sw.epilog40.sink.split.i:                         ; preds = %sw.bb38.i, %sw.bb36.i, %sw.epilog33.i
+  %.sink.i = phi i32 [ 5, %sw.bb38.i ], [ 3, %sw.bb36.i ], [ 1, %sw.epilog33.i ]
+  %fmt39.i = getelementptr inbounds i8, ptr %add.ptr91, i64 52
+  store i32 %.sink.i, ptr %fmt39.i, align 4
+  br label %sw.epilog40.i
+
+sw.epilog40.i:                                    ; preds = %sw.epilog40.sink.split.i, %sw.epilog33.i
+  %and41.i = and i32 %data, 15
+  %add.i = add nuw nsw i32 %and41.i, 1
+  %nchannels.i = getelementptr inbounds i8, ptr %add.ptr91, i64 48
+  store i32 %add.i, ptr %nchannels.i, align 4
+  br label %hda_codec_parse_fmt.exit
+
+hda_codec_parse_fmt.exit:                         ; preds = %if.end96, %sw.epilog40.i
   tail call fastcc void @hda_audio_setup(ptr noundef %add.ptr91)
   br label %return
 
 sw.bb98:                                          ; preds = %do.end
   %st99 = getelementptr inbounds i8, ptr %call.i, i64 216
   %stindex101 = getelementptr inbounds i8, ptr %arrayidx.i, i64 48
-  %53 = load i32, ptr %stindex101, align 8
-  %idx.ext102 = zext i32 %53 to i64
+  %54 = load i32, ptr %stindex101, align 8
+  %idx.ext102 = zext i32 %54 to i64
   %add.ptr103 = getelementptr %struct.HDAAudioStream, ptr %st99, i64 %idx.ext102
   %node104 = getelementptr inbounds i8, ptr %add.ptr103, i64 8
-  %54 = load ptr, ptr %node104, align 8
-  %cmp105 = icmp eq ptr %54, null
+  %55 = load ptr, ptr %node104, align 8
+  %cmp105 = icmp eq ptr %55, null
   br i1 %cmp105, label %do.body195, label %if.end108
 
 if.end108:                                        ; preds = %sw.bb98
   %format109 = getelementptr inbounds i8, ptr %add.ptr103, i64 28
-  %55 = load i32, ptr %format109, align 4
+  %56 = load i32, ptr %format109, align 4
   br label %return
 
 sw.bb110:                                         ; preds = %do.end
   %st111 = getelementptr inbounds i8, ptr %call.i, i64 216
   %stindex113 = getelementptr inbounds i8, ptr %arrayidx.i, i64 48
-  %56 = load i32, ptr %stindex113, align 8
-  %idx.ext114 = zext i32 %56 to i64
+  %57 = load i32, ptr %stindex113, align 8
+  %idx.ext114 = zext i32 %57 to i64
   %add.ptr115 = getelementptr %struct.HDAAudioStream, ptr %st111, i64 %idx.ext114
   %node116 = getelementptr inbounds i8, ptr %add.ptr115, i64 8
-  %57 = load ptr, ptr %node116, align 8
-  %cmp117 = icmp eq ptr %57, null
+  %58 = load ptr, ptr %node116, align 8
+  %cmp117 = icmp eq ptr %58, null
   br i1 %cmp117, label %do.body195, label %if.end120
 
 if.end120:                                        ; preds = %sw.bb110
   %and121 = and i32 %and5, 8192
   %tobool122.not = icmp eq i32 %and121, 0
-  %.179 = select i1 %tobool122.not, i64 36, i64 32
-  %.180 = select i1 %tobool122.not, i64 41, i64 40
-  %gain_right = getelementptr inbounds i8, ptr %add.ptr115, i64 %.179
-  %mute_right = getelementptr inbounds i8, ptr %add.ptr115, i64 %.180
-  %.sink170 = load i32, ptr %gain_right, align 4
-  %.sink171 = load i8, ptr %mute_right, align 1
-  %tobool129 = trunc i8 %.sink171 to i1
+  %.181 = select i1 %tobool122.not, i64 36, i64 32
+  %.182 = select i1 %tobool122.not, i64 41, i64 40
+  %gain_right = getelementptr inbounds i8, ptr %add.ptr115, i64 %.181
+  %mute_right = getelementptr inbounds i8, ptr %add.ptr115, i64 %.182
+  %.sink172 = load i32, ptr %gain_right, align 4
+  %.sink173 = load i8, ptr %mute_right, align 1
+  %tobool129 = trunc i8 %.sink173 to i1
   %cond131 = select i1 %tobool129, i32 128, i32 0
-  %or132 = or i32 %cond131, %.sink170
+  %or132 = or i32 %cond131, %.sink172
   br label %return
 
 sw.bb134:                                         ; preds = %do.end
   %st135 = getelementptr inbounds i8, ptr %call.i, i64 216
   %stindex137 = getelementptr inbounds i8, ptr %arrayidx.i, i64 48
-  %58 = load i32, ptr %stindex137, align 8
-  %idx.ext138 = zext i32 %58 to i64
+  %59 = load i32, ptr %stindex137, align 8
+  %idx.ext138 = zext i32 %59 to i64
   %add.ptr139 = getelementptr %struct.HDAAudioStream, ptr %st135, i64 %idx.ext138
   %node140 = getelementptr inbounds i8, ptr %add.ptr139, i64 8
-  %59 = load ptr, ptr %node140, align 8
-  %cmp141 = icmp eq ptr %59, null
+  %60 = load ptr, ptr %node140, align 8
+  %cmp141 = icmp eq ptr %60, null
   br i1 %cmp141, label %do.body195, label %do.body145
 
 do.body145:                                       ; preds = %sw.bb134
-  %60 = load i32, ptr %debug, align 8
-  %cmp147.not = icmp eq i32 %60, 0
+  %61 = load i32, ptr %debug, align 8
+  %cmp147.not = icmp eq i32 %61, 0
   br i1 %cmp147.not, label %do.body145.do.end174_crit_edge, label %if.then149
 
 do.body145.do.end174_crit_edge:                   ; preds = %do.body145
-  %.pre164 = and i32 %and5, 8192
+  %.pre166 = and i32 %and5, 8192
   br label %do.end174
 
 if.then149:                                       ; preds = %do.body145
-  %61 = load ptr, ptr @stderr, align 8
+  %62 = load ptr, ptr @stderr, align 8
   %name150 = getelementptr inbounds i8, ptr %call.i, i64 168
-  %62 = load ptr, ptr %name150, align 8
-  %call151 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %61, ptr noundef nonnull @.str.5, ptr noundef %62) #12
-  %63 = load ptr, ptr @stderr, align 8
-  %64 = load ptr, ptr %node140, align 8
-  %name153 = getelementptr inbounds i8, ptr %64, i64 8
-  %65 = load ptr, ptr %name153, align 8
+  %63 = load ptr, ptr %name150, align 8
+  %call151 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %62, ptr noundef nonnull @.str.5, ptr noundef %63) #11
+  %64 = load ptr, ptr @stderr, align 8
+  %65 = load ptr, ptr %node140, align 8
+  %name153 = getelementptr inbounds i8, ptr %65, i64 8
+  %66 = load ptr, ptr %name153, align 8
   %tobool155.not = icmp ult i32 %and5, 32768
   %cond156 = select i1 %tobool155.not, ptr @.str.13, ptr @.str.12
   %and157 = and i32 %and5, 16384
@@ -667,11 +773,11 @@ if.then149:                                       ; preds = %do.body145
   %and169 = and i32 %data, 128
   %tobool170.not = icmp eq i32 %and169, 0
   %cond171 = select i1 %tobool170.not, ptr @.str.18, ptr @.str.17
-  %call172 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %63, ptr noundef nonnull @.str.11, ptr noundef %65, ptr noundef nonnull %cond156, ptr noundef nonnull %cond159, ptr noundef nonnull %cond162, ptr noundef nonnull %cond165, i32 noundef %shr167, i32 noundef %and168, ptr noundef nonnull %cond171) #12
+  %call172 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %64, ptr noundef nonnull @.str.11, ptr noundef %66, ptr noundef nonnull %cond156, ptr noundef nonnull %cond159, ptr noundef nonnull %cond162, ptr noundef nonnull %cond165, i32 noundef %shr167, i32 noundef %and168, ptr noundef nonnull %cond171) #11
   br label %do.end174
 
 do.end174:                                        ; preds = %do.body145.do.end174_crit_edge, %if.then149
-  %and175.pre-phi = phi i32 [ %.pre164, %do.body145.do.end174_crit_edge ], [ %and160, %if.then149 ]
+  %and175.pre-phi = phi i32 [ %.pre166, %do.body145.do.end174_crit_edge ], [ %and160, %if.then149 ]
   %tobool176.not = icmp eq i32 %and175.pre-phi, 0
   br i1 %tobool176.not, label %if.end183, label %if.then177
 
@@ -703,101 +809,101 @@ if.then186:                                       ; preds = %if.end183
   br label %if.end193
 
 if.end193:                                        ; preds = %if.then186, %if.end183
-  %66 = load ptr, ptr %node140, align 8
-  %cmp.i = icmp eq ptr %66, null
-  br i1 %cmp.i, label %return, label %if.end.i
+  %67 = load ptr, ptr %node140, align 8
+  %cmp.i = icmp eq ptr %67, null
+  br i1 %cmp.i, label %return, label %if.end.i143
 
-if.end.i:                                         ; preds = %if.end193
+if.end.i143:                                      ; preds = %if.end193
   %mute_left.i = getelementptr inbounds i8, ptr %add.ptr139, i64 40
-  %67 = load i8, ptr %mute_left.i, align 8
-  %tobool.i = trunc i8 %67 to i1
+  %68 = load i8, ptr %mute_left.i, align 8
+  %tobool.i = trunc i8 %68 to i1
   br i1 %tobool.i, label %land.end.thread.i, label %cond.false.i
 
-land.end.thread.i:                                ; preds = %if.end.i
+land.end.thread.i:                                ; preds = %if.end.i143
   %mute_right.i = getelementptr inbounds i8, ptr %add.ptr139, i64 41
-  %68 = load i8, ptr %mute_right.i, align 1
-  %69 = and i8 %68, 1
-  %70 = zext nneg i8 %69 to i32
+  %69 = load i8, ptr %mute_right.i, align 1
+  %70 = and i8 %69, 1
+  %71 = zext nneg i8 %70 to i32
   br label %cond.end.i
 
-cond.false.i:                                     ; preds = %if.end.i
+cond.false.i:                                     ; preds = %if.end.i143
   %gain_left.i = getelementptr inbounds i8, ptr %add.ptr139, i64 32
-  %71 = load i32, ptr %gain_left.i, align 8
-  %72 = mul i32 %71, 255
-  %73 = udiv i32 %72, 74
-  %74 = trunc i32 %73 to i8
+  %72 = load i32, ptr %gain_left.i, align 8
+  %73 = mul i32 %72, 255
+  %74 = udiv i32 %73, 74
+  %75 = trunc i32 %74 to i8
   %mute_right4.phi.trans.insert.i = getelementptr inbounds i8, ptr %add.ptr139, i64 41
   %.pre.i = load i8, ptr %mute_right4.phi.trans.insert.i, align 1
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.false.i, %land.end.thread.i
-  %75 = phi i8 [ %.pre.i, %cond.false.i ], [ %68, %land.end.thread.i ]
-  %conv17.i = phi i32 [ 0, %cond.false.i ], [ %70, %land.end.thread.i ]
-  %cond.i = phi i8 [ %74, %cond.false.i ], [ 0, %land.end.thread.i ]
-  %tobool5.i = trunc i8 %75 to i1
+  %76 = phi i8 [ %.pre.i, %cond.false.i ], [ %69, %land.end.thread.i ]
+  %conv17.i = phi i32 [ 0, %cond.false.i ], [ %71, %land.end.thread.i ]
+  %cond.i144 = phi i8 [ %75, %cond.false.i ], [ 0, %land.end.thread.i ]
+  %tobool5.i = trunc i8 %76 to i1
   br i1 %tobool5.i, label %cond.end8.i, label %cond.false7.i
 
 cond.false7.i:                                    ; preds = %cond.end.i
   %gain_right.i = getelementptr inbounds i8, ptr %add.ptr139, i64 36
-  %76 = load i32, ptr %gain_right.i, align 4
-  %77 = mul i32 %76, 255
-  %78 = udiv i32 %77, 74
-  %79 = trunc i32 %78 to i8
+  %77 = load i32, ptr %gain_right.i, align 4
+  %78 = mul i32 %77, 255
+  %79 = udiv i32 %78, 74
+  %80 = trunc i32 %79 to i8
   br label %cond.end8.i
 
 cond.end8.i:                                      ; preds = %cond.false7.i, %cond.end.i
-  %cond9.i = phi i8 [ %79, %cond.false7.i ], [ 0, %cond.end.i ]
-  %80 = load ptr, ptr %add.ptr139, align 8
-  %mixer.i = getelementptr inbounds i8, ptr %80, i64 34508
-  %81 = load i8, ptr %mixer.i, align 4
-  %tobool12.i = trunc i8 %81 to i1
+  %cond9.i = phi i8 [ %80, %cond.false7.i ], [ 0, %cond.end.i ]
+  %81 = load ptr, ptr %add.ptr139, align 8
+  %mixer.i = getelementptr inbounds i8, ptr %81, i64 34508
+  %82 = load i8, ptr %mixer.i, align 4
+  %tobool12.i = trunc i8 %82 to i1
   br i1 %tobool12.i, label %if.end14.i, label %return
 
 if.end14.i:                                       ; preds = %cond.end8.i
   %output.i = getelementptr inbounds i8, ptr %add.ptr139, i64 16
-  %82 = load i8, ptr %output.i, align 8
-  %tobool15.i = trunc i8 %82 to i1
+  %83 = load i8, ptr %output.i, align 8
+  %tobool15.i = trunc i8 %83 to i1
   %voice.i = getelementptr inbounds i8, ptr %add.ptr139, i64 64
-  %83 = load ptr, ptr %voice.i, align 8
+  %84 = load ptr, ptr %voice.i, align 8
   br i1 %tobool15.i, label %if.then16.i, label %if.else.i
 
 if.then16.i:                                      ; preds = %if.end14.i
-  tail call void @AUD_set_volume_out(ptr noundef %83, i32 noundef %conv17.i, i8 noundef zeroext %cond.i, i8 noundef zeroext %cond9.i) #11
+  tail call void @AUD_set_volume_out(ptr noundef %84, i32 noundef %conv17.i, i8 noundef zeroext %cond.i144, i8 noundef zeroext %cond9.i) #10
   br label %return
 
 if.else.i:                                        ; preds = %if.end14.i
-  tail call void @AUD_set_volume_in(ptr noundef %83, i32 noundef %conv17.i, i8 noundef zeroext %cond.i, i8 noundef zeroext %cond9.i) #11
+  tail call void @AUD_set_volume_in(ptr noundef %84, i32 noundef %conv17.i, i8 noundef zeroext %cond.i144, i8 noundef zeroext %cond9.i) #10
   br label %return
 
 do.body195:                                       ; preds = %for.cond.i, %for.cond.i123, %sw.bb, %entry, %hda_codec_find_node.exit, %sw.bb43, %sw.bb71, %sw.bb86, %sw.bb98, %sw.bb110, %sw.bb134, %do.end
-  %cmp7146 = phi i1 [ true, %hda_codec_find_node.exit ], [ false, %sw.bb43 ], [ false, %sw.bb71 ], [ false, %sw.bb86 ], [ false, %sw.bb98 ], [ false, %sw.bb110 ], [ false, %sw.bb134 ], [ false, %do.end ], [ true, %entry ], [ false, %sw.bb ], [ false, %for.cond.i123 ], [ true, %for.cond.i ]
-  %retval.0.i145 = phi ptr [ null, %hda_codec_find_node.exit ], [ %arrayidx.i, %sw.bb43 ], [ %arrayidx.i, %sw.bb71 ], [ %arrayidx.i, %sw.bb86 ], [ %arrayidx.i, %sw.bb98 ], [ %arrayidx.i, %sw.bb110 ], [ %arrayidx.i, %sw.bb134 ], [ %arrayidx.i, %do.end ], [ null, %entry ], [ %arrayidx.i, %sw.bb ], [ %arrayidx.i, %for.cond.i123 ], [ null, %for.cond.i ]
+  %cmp7148 = phi i1 [ true, %hda_codec_find_node.exit ], [ false, %sw.bb43 ], [ false, %sw.bb71 ], [ false, %sw.bb86 ], [ false, %sw.bb98 ], [ false, %sw.bb110 ], [ false, %sw.bb134 ], [ false, %do.end ], [ true, %entry ], [ false, %sw.bb ], [ false, %for.cond.i123 ], [ true, %for.cond.i ]
+  %retval.0.i147 = phi ptr [ null, %hda_codec_find_node.exit ], [ %arrayidx.i, %sw.bb43 ], [ %arrayidx.i, %sw.bb71 ], [ %arrayidx.i, %sw.bb86 ], [ %arrayidx.i, %sw.bb98 ], [ %arrayidx.i, %sw.bb110 ], [ %arrayidx.i, %sw.bb134 ], [ %arrayidx.i, %do.end ], [ null, %entry ], [ %arrayidx.i, %sw.bb ], [ %arrayidx.i, %for.cond.i123 ], [ null, %for.cond.i ]
   %debug196 = getelementptr inbounds i8, ptr %call.i, i64 34504
-  %84 = load i32, ptr %debug196, align 8
-  %cmp197.not = icmp eq i32 %84, 0
+  %85 = load i32, ptr %debug196, align 8
+  %cmp197.not = icmp eq i32 %85, 0
   br i1 %cmp197.not, label %return, label %if.then199
 
 if.then199:                                       ; preds = %do.body195
-  %85 = load ptr, ptr @stderr, align 8
+  %86 = load ptr, ptr @stderr, align 8
   %name200 = getelementptr inbounds i8, ptr %call.i, i64 168
-  %86 = load ptr, ptr %name200, align 8
-  %call201 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %85, ptr noundef nonnull @.str.5, ptr noundef %86) #12
-  %87 = load ptr, ptr @stderr, align 8
-  br i1 %cmp7146, label %cond.end206, label %cond.true203
+  %87 = load ptr, ptr %name200, align 8
+  %call201 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %86, ptr noundef nonnull @.str.5, ptr noundef %87) #11
+  %88 = load ptr, ptr @stderr, align 8
+  br i1 %cmp7148, label %cond.end206, label %cond.true203
 
 cond.true203:                                     ; preds = %if.then199
-  %name204 = getelementptr inbounds i8, ptr %retval.0.i145, i64 8
-  %88 = load ptr, ptr %name204, align 8
+  %name204 = getelementptr inbounds i8, ptr %retval.0.i147, i64 8
+  %89 = load ptr, ptr %name204, align 8
   br label %cond.end206
 
 cond.end206:                                      ; preds = %if.then199, %cond.true203
-  %cond207 = phi ptr [ %88, %cond.true203 ], [ @.str.20, %if.then199 ]
-  %call208 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %87, ptr noundef nonnull @.str.19, ptr noundef nonnull @__func__.hda_audio_command, i32 noundef %nid, ptr noundef %cond207, i32 noundef %and4, i32 noundef %and5) #12
+  %cond207 = phi ptr [ %89, %cond.true203 ], [ @.str.20, %if.then199 ]
+  %call208 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %88, ptr noundef nonnull @.str.19, ptr noundef nonnull @__func__.hda_audio_command, i32 noundef %nid, ptr noundef %cond207, i32 noundef %and4, i32 noundef %and5) #11
   br label %return
 
-return:                                           ; preds = %while.body, %cond.end206, %do.body195, %do.end, %do.end, %do.end, %if.else.i, %if.then16.i, %cond.end8.i, %if.end193, %sw.bb29, %do.body33, %if.then36, %cond.end, %if.end19, %sw.bb20, %sw.bb27, %sw.bb28, %do.end64, %if.end81, %if.end96, %if.end108, %if.end120
-  %.sink172 = phi i32 [ %12, %if.end19 ], [ %14, %sw.bb20 ], [ %24, %sw.bb27 ], [ %25, %sw.bb28 ], [ 0, %do.end64 ], [ %or85, %if.end81 ], [ 0, %if.end96 ], [ %55, %if.end108 ], [ %or132, %if.end120 ], [ 0, %cond.end ], [ 0, %if.then36 ], [ 0, %do.body33 ], [ 0, %sw.bb29 ], [ 0, %if.end193 ], [ 0, %cond.end8.i ], [ 0, %if.then16.i ], [ 0, %if.else.i ], [ 0, %do.end ], [ 0, %do.end ], [ 0, %do.end ], [ 0, %do.body195 ], [ 0, %cond.end206 ], [ %or, %while.body ]
-  tail call void @hda_codec_response(ptr noundef %hda, i1 noundef zeroext true, i32 noundef %.sink172) #11
+return:                                           ; preds = %while.body, %cond.end206, %do.body195, %do.end, %do.end, %do.end, %if.else.i, %if.then16.i, %cond.end8.i, %if.end193, %sw.bb29, %do.body33, %if.then36, %cond.end, %if.end19, %sw.bb20, %sw.bb27, %sw.bb28, %do.end64, %if.end81, %hda_codec_parse_fmt.exit, %if.end108, %if.end120
+  %.sink174 = phi i32 [ %12, %if.end19 ], [ %14, %sw.bb20 ], [ %24, %sw.bb27 ], [ %25, %sw.bb28 ], [ 0, %do.end64 ], [ %or85, %if.end81 ], [ 0, %hda_codec_parse_fmt.exit ], [ %56, %if.end108 ], [ %or132, %if.end120 ], [ 0, %cond.end ], [ 0, %if.then36 ], [ 0, %do.body33 ], [ 0, %sw.bb29 ], [ 0, %if.end193 ], [ 0, %cond.end8.i ], [ 0, %if.then16.i ], [ 0, %if.else.i ], [ 0, %do.end ], [ 0, %do.end ], [ 0, %do.end ], [ 0, %do.body195 ], [ 0, %cond.end206 ], [ %or, %while.body ]
+  tail call void @hda_codec_response(ptr noundef %hda, i1 noundef zeroext true, i32 noundef %.sink174) #10
   ret void
 }
 
@@ -805,7 +911,7 @@ return:                                           ; preds = %while.body, %cond.e
 define internal void @hda_audio_stream(ptr noundef %hda, i32 noundef %stnr, i1 noundef zeroext %running, i1 noundef zeroext %output) #0 {
 entry:
   %frombool = zext i1 %running to i8
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %hda, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, i32 noundef 150, ptr noundef nonnull @__func__.HDA_AUDIO) #11
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %hda, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, i32 noundef 150, ptr noundef nonnull @__func__.HDA_AUDIO) #10
   %running_compat = getelementptr inbounds i8, ptr %call.i, i64 34456
   %idxprom = zext i32 %stnr to i64
   %arrayidx = getelementptr [16 x i8], ptr %running_compat, i64 0, i64 %idxprom
@@ -856,7 +962,7 @@ for.end:                                          ; preds = %for.inc
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @hda_audio_reset(ptr noundef %dev) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, i32 noundef 150, ptr noundef nonnull @__func__.HDA_AUDIO) #11
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, i32 noundef 150, ptr noundef nonnull @__func__.HDA_AUDIO) #10
   %debug = getelementptr inbounds i8, ptr %call.i, i64 34504
   %0 = load i32, ptr %debug, align 8
   %cmp.not = icmp eq i32 %0, 0
@@ -866,9 +972,9 @@ if.then:                                          ; preds = %entry
   %1 = load ptr, ptr @stderr, align 8
   %name = getelementptr inbounds i8, ptr %call.i, i64 168
   %2 = load ptr, ptr %name, align 8
-  %call1 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef %2) #12
+  %call1 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef %2) #11
   %3 = load ptr, ptr @stderr, align 8
-  %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.hda_audio_reset) #12
+  %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.hda_audio_reset) #11
   br label %do.end
 
 do.end:                                           ; preds = %entry, %if.then
@@ -958,18 +1064,18 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #11
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %10 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
   %conv12.i.i = zext i1 %running to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, ptr noundef %4, i32 noundef %5, i32 noundef %conv12.i.i) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, ptr noundef %4, i32 noundef %5, i32 noundef %conv12.i.i) #10
   br label %trace_hda_audio_running.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %conv14.i.i = zext i1 %running to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, ptr noundef %4, i32 noundef %5, i32 noundef %conv14.i.i) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, ptr noundef %4, i32 noundef %5, i32 noundef %conv14.i.i) #10
   br label %trace_hda_audio_running.exit
 
 trace_hda_audio_running.exit:                     ; preds = %if.end7, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -984,7 +1090,7 @@ if.then15:                                        ; preds = %trace_hda_audio_run
   br i1 %running, label %if.then17, label %if.else
 
 if.then17:                                        ; preds = %if.then15
-  %call = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #11
+  %call = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #10
   %rpos = getelementptr inbounds i8, ptr %st, i64 8528
   %buft_start = getelementptr inbounds i8, ptr %st, i64 8552
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %rpos, i8 0, i64 16, i1 false)
@@ -992,13 +1098,13 @@ if.then17:                                        ; preds = %if.then15
   %buft = getelementptr inbounds i8, ptr %st, i64 8544
   %14 = load ptr, ptr %buft, align 8
   %add = add i64 %call, 1000000
-  tail call void @timer_mod_anticipate_ns(ptr noundef %14, i64 noundef %add) #11
+  tail call void @timer_mod_anticipate_ns(ptr noundef %14, i64 noundef %add) #10
   br label %if.end20
 
 if.else:                                          ; preds = %if.then15
   %buft18 = getelementptr inbounds i8, ptr %st, i64 8544
   %15 = load ptr, ptr %buft18, align 8
-  tail call void @timer_del(ptr noundef %15) #11
+  tail call void @timer_del(ptr noundef %15) #10
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then17, %if.else, %trace_hda_audio_running.exit
@@ -1013,129 +1119,14 @@ if.end20:                                         ; preds = %if.then17, %if.else
   br i1 %tobool21, label %if.then22, label %if.else26
 
 if.then22:                                        ; preds = %if.end20
-  tail call void @AUD_set_active_out(ptr noundef %17, i32 noundef %conv25) #11
+  tail call void @AUD_set_active_out(ptr noundef %17, i32 noundef %conv25) #10
   br label %if.end31
 
 if.else26:                                        ; preds = %if.end20
-  tail call void @AUD_set_active_in(ptr noundef %17, i32 noundef %conv25) #11
+  tail call void @AUD_set_active_in(ptr noundef %17, i32 noundef %conv25) #10
   br label %if.end31
 
 if.end31:                                         ; preds = %if.end, %entry, %if.else26, %if.then22
-  ret void
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal fastcc void @hda_codec_parse_fmt(i32 noundef %format, ptr nocapture noundef writeonly %as) unnamed_addr #3 {
-entry:
-  %and = and i32 %format, 32768
-  %tobool.not = icmp eq i32 %and, 0
-  br i1 %tobool.not, label %if.end, label %return
-
-if.end:                                           ; preds = %entry
-  %and1 = and i32 %format, 16384
-  %tobool2.not = icmp eq i32 %and1, 0
-  %cond = select i1 %tobool2.not, i32 48000, i32 44100
-  store i32 %cond, ptr %as, align 4
-  %and3 = lshr i32 %format, 11
-  %shr = and i32 %and3, 7
-  switch i32 %shr, label %sw.epilog [
-    i32 1, label %sw.bb
-    i32 2, label %sw.bb5
-    i32 3, label %sw.bb8
-  ]
-
-sw.bb:                                            ; preds = %if.end
-  %mul = shl nuw nsw i32 %cond, 1
-  br label %sw.epilog.sink.split
-
-sw.bb5:                                           ; preds = %if.end
-  %mul7 = mul nuw nsw i32 %cond, 3
-  br label %sw.epilog.sink.split
-
-sw.bb8:                                           ; preds = %if.end
-  %mul10 = shl nuw nsw i32 %cond, 2
-  br label %sw.epilog.sink.split
-
-sw.epilog.sink.split:                             ; preds = %sw.bb, %sw.bb5, %sw.bb8
-  %mul10.sink = phi i32 [ %mul10, %sw.bb8 ], [ %mul7, %sw.bb5 ], [ %mul, %sw.bb ]
-  store i32 %mul10.sink, ptr %as, align 4
-  br label %sw.epilog
-
-sw.epilog:                                        ; preds = %sw.epilog.sink.split, %if.end
-  %0 = phi i32 [ %cond, %if.end ], [ %mul10.sink, %sw.epilog.sink.split ]
-  %and11 = lshr i32 %format, 8
-  %shr12 = and i32 %and11, 7
-  switch i32 %shr12, label %sw.epilog33 [
-    i32 1, label %sw.bb13
-    i32 2, label %sw.bb15
-    i32 3, label %sw.bb18
-    i32 4, label %sw.bb21
-    i32 5, label %sw.bb24
-    i32 6, label %sw.bb27
-    i32 7, label %sw.bb30
-  ]
-
-sw.bb13:                                          ; preds = %sw.epilog
-  %div22 = lshr i32 %0, 1
-  br label %sw.epilog33.sink.split
-
-sw.bb15:                                          ; preds = %sw.epilog
-  %div17 = udiv i32 %0, 3
-  br label %sw.epilog33.sink.split
-
-sw.bb18:                                          ; preds = %sw.epilog
-  %div2021 = lshr i32 %0, 2
-  br label %sw.epilog33.sink.split
-
-sw.bb21:                                          ; preds = %sw.epilog
-  %div23 = udiv i32 %0, 5
-  br label %sw.epilog33.sink.split
-
-sw.bb24:                                          ; preds = %sw.epilog
-  %div26 = udiv i32 %0, 6
-  br label %sw.epilog33.sink.split
-
-sw.bb27:                                          ; preds = %sw.epilog
-  %div29 = udiv i32 %0, 7
-  br label %sw.epilog33.sink.split
-
-sw.bb30:                                          ; preds = %sw.epilog
-  %div3220 = lshr i32 %0, 3
-  br label %sw.epilog33.sink.split
-
-sw.epilog33.sink.split:                           ; preds = %sw.bb13, %sw.bb15, %sw.bb18, %sw.bb21, %sw.bb24, %sw.bb27, %sw.bb30
-  %div3220.sink = phi i32 [ %div3220, %sw.bb30 ], [ %div29, %sw.bb27 ], [ %div26, %sw.bb24 ], [ %div23, %sw.bb21 ], [ %div2021, %sw.bb18 ], [ %div17, %sw.bb15 ], [ %div22, %sw.bb13 ]
-  store i32 %div3220.sink, ptr %as, align 4
-  br label %sw.epilog33
-
-sw.epilog33:                                      ; preds = %sw.epilog33.sink.split, %sw.epilog
-  %and34 = and i32 %format, 112
-  switch i32 %and34, label %sw.epilog40 [
-    i32 0, label %sw.epilog40.sink.split
-    i32 16, label %sw.bb36
-    i32 64, label %sw.bb38
-  ]
-
-sw.bb36:                                          ; preds = %sw.epilog33
-  br label %sw.epilog40.sink.split
-
-sw.bb38:                                          ; preds = %sw.epilog33
-  br label %sw.epilog40.sink.split
-
-sw.epilog40.sink.split:                           ; preds = %sw.epilog33, %sw.bb36, %sw.bb38
-  %.sink = phi i32 [ 5, %sw.bb38 ], [ 3, %sw.bb36 ], [ 1, %sw.epilog33 ]
-  %fmt39 = getelementptr inbounds i8, ptr %as, i64 8
-  store i32 %.sink, ptr %fmt39, align 4
-  br label %sw.epilog40
-
-sw.epilog40:                                      ; preds = %sw.epilog40.sink.split, %sw.epilog33
-  %and41 = and i32 %format, 15
-  %add = add nuw nsw i32 %and41, 1
-  %nchannels = getelementptr inbounds i8, ptr %as, i64 4
-  store i32 %add, ptr %nchannels, align 4
-  br label %return
-
-return:                                           ; preds = %entry, %sw.epilog40
   ret void
 }
 
@@ -1184,16 +1175,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #11
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %12 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %13 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %call10.i.i, i64 noundef %12, i64 noundef %13, ptr noundef %3, i32 noundef %4, ptr noundef %6, i32 noundef %7) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %call10.i.i, i64 noundef %12, i64 noundef %13, ptr noundef %3, i32 noundef %4, ptr noundef %6, i32 noundef %7) #10
   br label %trace_hda_audio_format.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, ptr noundef %3, i32 noundef %4, ptr noundef %6, i32 noundef %7) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, ptr noundef %3, i32 noundef %4, ptr noundef %6, i32 noundef %7) #10
   br label %trace_hda_audio_format.exit
 
 trace_hda_audio_format.exit:                      ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -1207,8 +1198,8 @@ if.then6:                                         ; preds = %trace_hda_audio_for
   br i1 %tobool, label %if.then8, label %if.end9
 
 if.then8:                                         ; preds = %if.then6
-  %call.i.i.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #13
-  tail call void @timer_init_full(ptr noundef %call.i.i.i, ptr noundef null, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @hda_audio_output_timer, ptr noundef nonnull %st) #11
+  %call.i.i.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #12
+  tail call void @timer_init_full(ptr noundef %call.i.i.i, ptr noundef null, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @hda_audio_output_timer, ptr noundef nonnull %st) #10
   %buft = getelementptr inbounds i8, ptr %st, i64 8544
   store ptr %call.i.i.i, ptr %buft, align 8
   br label %if.end9
@@ -1222,7 +1213,7 @@ if.end9:                                          ; preds = %if.then6, %if.then8
   %17 = load ptr, ptr %node, align 8
   %name12 = getelementptr inbounds i8, ptr %17, i64 8
   %18 = load ptr, ptr %name12, align 8
-  %call14 = tail call ptr @AUD_open_out(ptr noundef nonnull %card, ptr noundef %16, ptr noundef %18, ptr noundef nonnull %st, ptr noundef nonnull %cb.0, ptr noundef nonnull %as) #11
+  %call14 = tail call ptr @AUD_open_out(ptr noundef nonnull %card, ptr noundef %16, ptr noundef %18, ptr noundef nonnull %st, ptr noundef nonnull %cb.0, ptr noundef nonnull %as) #10
   store ptr %call14, ptr %voice, align 8
   br label %if.end31
 
@@ -1230,8 +1221,8 @@ if.else16:                                        ; preds = %trace_hda_audio_for
   br i1 %tobool, label %if.then18, label %if.end22
 
 if.then18:                                        ; preds = %if.else16
-  %call.i.i.i25 = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #13
-  tail call void @timer_init_full(ptr noundef %call.i.i.i25, ptr noundef null, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @hda_audio_input_timer, ptr noundef nonnull %st) #11
+  %call.i.i.i25 = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #12
+  tail call void @timer_init_full(ptr noundef %call.i.i.i25, ptr noundef null, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @hda_audio_input_timer, ptr noundef nonnull %st) #10
   %buft20 = getelementptr inbounds i8, ptr %st, i64 8544
   store ptr %call.i.i.i25, ptr %buft20, align 8
   br label %if.end22
@@ -1245,7 +1236,7 @@ if.end22:                                         ; preds = %if.else16, %if.then
   %21 = load ptr, ptr %node, align 8
   %name27 = getelementptr inbounds i8, ptr %21, i64 8
   %22 = load ptr, ptr %name27, align 8
-  %call29 = tail call ptr @AUD_open_in(ptr noundef nonnull %card24, ptr noundef %20, ptr noundef %22, ptr noundef nonnull %st, ptr noundef nonnull %cb.1, ptr noundef nonnull %as) #11
+  %call29 = tail call ptr @AUD_open_in(ptr noundef nonnull %card24, ptr noundef %20, ptr noundef %22, ptr noundef nonnull %st, ptr noundef nonnull %cb.1, ptr noundef nonnull %as) #10
   store ptr %call29, ptr %voice25, align 8
   br label %if.end31
 
@@ -1282,7 +1273,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %rpos2, i8 0, i64 16, i1 false)
-  %call = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #11
+  %call = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #10
   %buft_start = getelementptr inbounds i8, ptr %opaque, i64 8552
   store i64 %call, ptr %buft_start, align 8
   %node = getelementptr inbounds i8, ptr %opaque, i64 8
@@ -1309,16 +1300,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #11
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %8 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %3) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %3) #10
   br label %trace_hda_audio_overrun.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.32, ptr noundef %3) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.32, ptr noundef %3) #10
   br label %trace_hda_audio_overrun.exit
 
 trace_hda_audio_overrun.exit:                     ; preds = %if.then, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -1345,7 +1336,7 @@ while.body:                                       ; preds = %while.body.preheade
   %conv19 = trunc nuw nsw i64 %cond18 to i32
   %10 = load ptr, ptr %voice, align 8
   %add.ptr = getelementptr i8, ptr %buf, i64 %conv9
-  %call21 = tail call i64 @AUD_write(ptr noundef %10, ptr noundef %add.ptr, i64 noundef %cond18) #11
+  %call21 = tail call i64 @AUD_write(ptr noundef %10, ptr noundef %add.ptr, i64 noundef %cond18) #10
   %conv22 = trunc i64 %call21 to i32
   %conv23 = and i64 %call21, 4294967295
   %add = add i64 %conv23, %rpos.0
@@ -1372,7 +1363,7 @@ return:                                           ; preds = %while.end, %trace_h
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @hda_audio_output_timer(ptr noundef %opaque) #0 {
 entry:
-  %call = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #11
+  %call = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #10
   %buft_start = getelementptr inbounds i8, ptr %opaque, i64 8552
   %0 = load i64, ptr %buft_start, align 8
   %sub = sub i64 %call, %0
@@ -1422,7 +1413,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %5 = load ptr, ptr %opaque, align 8
   %6 = load i32, ptr %stream, align 4
   %add.ptr = getelementptr i8, ptr %buf, i64 %conv
-  %call23 = tail call zeroext i1 @hda_codec_xfer(ptr noundef %5, i32 noundef %6, i1 noundef zeroext true, ptr noundef %add.ptr, i32 noundef %conv22) #11
+  %call23 = tail call zeroext i1 @hda_codec_xfer(ptr noundef %5, i32 noundef %6, i1 noundef zeroext true, ptr noundef %add.ptr, i32 noundef %conv22) #10
   br i1 %call23, label %if.end27, label %out_timer
 
 if.end27:                                         ; preds = %while.body
@@ -1444,7 +1435,7 @@ if.then35:                                        ; preds = %out_timer
   %buft = getelementptr inbounds i8, ptr %opaque, i64 8544
   %9 = load ptr, ptr %buft, align 8
   %add36 = add i64 %call, 1000000
-  tail call void @timer_mod_anticipate_ns(ptr noundef %9, i64 noundef %add36) #11
+  tail call void @timer_mod_anticipate_ns(ptr noundef %9, i64 noundef %add36) #10
   br label %if.end37
 
 if.end37:                                         ; preds = %if.then35, %out_timer
@@ -1474,7 +1465,7 @@ while.body:                                       ; preds = %while.cond
 if.then:                                          ; preds = %while.body
   %1 = load ptr, ptr %opaque, align 8
   %2 = load i32, ptr %stream, align 4
-  %call = tail call zeroext i1 @hda_codec_xfer(ptr noundef %1, i32 noundef %2, i1 noundef zeroext true, ptr noundef nonnull %compat_buf, i32 noundef 256) #11
+  %call = tail call zeroext i1 @hda_codec_xfer(ptr noundef %1, i32 noundef %2, i1 noundef zeroext true, ptr noundef nonnull %compat_buf, i32 noundef 256) #10
   br i1 %call, label %if.end, label %while.end
 
 if.end:                                           ; preds = %if.then
@@ -1487,7 +1478,7 @@ if.end7:                                          ; preds = %if.end, %while.body
   %idx.ext = zext i32 %3 to i64
   %add.ptr = getelementptr i8, ptr %compat_buf, i64 %idx.ext
   %sub13 = sub nsw i64 256, %idx.ext
-  %call14 = tail call i64 @AUD_write(ptr noundef %4, ptr noundef %add.ptr, i64 noundef %sub13) #11
+  %call14 = tail call i64 @AUD_write(ptr noundef %4, ptr noundef %add.ptr, i64 noundef %sub13) #10
   %conv15 = trunc i64 %call14 to i32
   %5 = load i32, ptr %compat_bpos, align 8
   %add = add i32 %5, %conv15
@@ -1530,7 +1521,7 @@ while.body:                                       ; preds = %while.body.preheade
   %conv15 = trunc nuw nsw i64 %cond14 to i32
   %2 = load ptr, ptr %voice, align 8
   %add.ptr = getelementptr i8, ptr %buf, i64 %conv5
-  %call = tail call i64 @AUD_read(ptr noundef %2, ptr noundef %add.ptr, i64 noundef %cond14) #11
+  %call = tail call i64 @AUD_read(ptr noundef %2, ptr noundef %add.ptr, i64 noundef %cond14) #10
   %conv17 = trunc i64 %call to i32
   %conv18 = and i64 %call, 4294967295
   %add = add i64 %conv18, %wpos.0
@@ -1554,7 +1545,7 @@ while.end:                                        ; preds = %while.body, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @hda_audio_input_timer(ptr noundef %opaque) #0 {
 entry:
-  %call = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #11
+  %call = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #10
   %buft_start = getelementptr inbounds i8, ptr %opaque, i64 8552
   %0 = load i64, ptr %buft_start, align 8
   %sub = sub i64 %call, %0
@@ -1603,7 +1594,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %5 = load ptr, ptr %opaque, align 8
   %6 = load i32, ptr %stream, align 4
   %add.ptr = getelementptr i8, ptr %buf, i64 %conv
-  %call22 = tail call zeroext i1 @hda_codec_xfer(ptr noundef %5, i32 noundef %6, i1 noundef zeroext false, ptr noundef %add.ptr, i32 noundef %conv21) #11
+  %call22 = tail call zeroext i1 @hda_codec_xfer(ptr noundef %5, i32 noundef %6, i1 noundef zeroext false, ptr noundef %add.ptr, i32 noundef %conv21) #10
   br i1 %call22, label %if.end26, label %out_timer
 
 if.end26:                                         ; preds = %while.body
@@ -1625,7 +1616,7 @@ if.then34:                                        ; preds = %out_timer
   %buft = getelementptr inbounds i8, ptr %opaque, i64 8544
   %9 = load ptr, ptr %buft, align 8
   %add35 = add i64 %call, 1000000
-  tail call void @timer_mod_anticipate_ns(ptr noundef %9, i64 noundef %add35) #11
+  tail call void @timer_mod_anticipate_ns(ptr noundef %9, i64 noundef %add35) #10
   br label %if.end36
 
 if.end36:                                         ; preds = %if.then34, %out_timer
@@ -1657,7 +1648,7 @@ if.then:                                          ; preds = %while.body
   %1 = load ptr, ptr %voice, align 8
   %add.ptr = getelementptr i8, ptr %compat_buf, i64 %conv2
   %sub8 = sub nsw i64 256, %conv2
-  %call = tail call i64 @AUD_read(ptr noundef %1, ptr noundef %add.ptr, i64 noundef %sub8) #11
+  %call = tail call i64 @AUD_read(ptr noundef %1, ptr noundef %add.ptr, i64 noundef %sub8) #10
   %conv9 = trunc i64 %call to i32
   %2 = load i32, ptr %compat_bpos, align 8
   %add = add i32 %2, %conv9
@@ -1670,7 +1661,7 @@ if.end17:                                         ; preds = %if.then, %while.bod
   %recv.1 = phi i32 [ %add11, %if.then ], [ %recv.014, %while.body ]
   %3 = load ptr, ptr %opaque, align 8
   %4 = load i32, ptr %stream, align 4
-  %call20 = tail call zeroext i1 @hda_codec_xfer(ptr noundef %3, i32 noundef %4, i1 noundef zeroext false, ptr noundef nonnull %compat_buf, i32 noundef 256) #11
+  %call20 = tail call zeroext i1 @hda_codec_xfer(ptr noundef %3, i32 noundef %4, i1 noundef zeroext false, ptr noundef nonnull %compat_buf, i32 noundef 256) #10
   br i1 %call20, label %if.end22, label %while.end
 
 if.end22:                                         ; preds = %if.end17
@@ -1726,16 +1717,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #11
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %6 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.33, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef %1, i32 noundef %conv) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.33, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef %1, i32 noundef %conv) #10
   br label %trace_hda_audio_adjust.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.34, ptr noundef %1, i32 noundef %conv) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.34, ptr noundef %1, i32 noundef %conv) #10
   br label %trace_hda_audio_adjust.exit
 
 trace_hda_audio_adjust.exit:                      ; preds = %if.end10, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -1751,7 +1742,7 @@ return:                                           ; preds = %entry, %trace_hda_a
 }
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #4
+declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 declare void @timer_init_full(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1775,9 +1766,9 @@ if.then:                                          ; preds = %entry
   %1 = load ptr, ptr @stderr, align 8
   %name = getelementptr inbounds i8, ptr %opaque, i64 168
   %2 = load ptr, ptr %name, align 8
-  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef %2) #12
+  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef %2) #11
   %3 = load ptr, ptr @stderr, align 8
-  %call1 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.hda_audio_post_load) #12
+  %call1 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.hda_audio_post_load) #11
   br label %do.end
 
 do.end:                                           ; preds = %entry, %if.then
@@ -1807,8 +1798,8 @@ if.end8:                                          ; preds = %for.body, %do.end
   br label %for.body13
 
 for.body13:                                       ; preds = %if.end8, %for.inc26
-  %indvars.iv23 = phi i64 [ 0, %if.end8 ], [ %indvars.iv.next24, %for.inc26 ]
-  %add.ptr = getelementptr %struct.HDAAudioStream, ptr %st14, i64 %indvars.iv23
+  %indvars.iv25 = phi i64 [ 0, %if.end8 ], [ %indvars.iv.next26, %for.inc26 ]
+  %add.ptr = getelementptr %struct.HDAAudioStream, ptr %st14, i64 %indvars.iv25
   %node = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %6 = load ptr, ptr %node, align 8
   %cmp15 = icmp eq ptr %6, null
@@ -1818,101 +1809,209 @@ if.end18:                                         ; preds = %for.body13
   %format = getelementptr inbounds i8, ptr %add.ptr, i64 28
   %7 = load i32, ptr %format, align 4
   %as = getelementptr inbounds i8, ptr %add.ptr, i64 44
-  tail call fastcc void @hda_codec_parse_fmt(i32 noundef %7, ptr noundef nonnull %as)
-  tail call fastcc void @hda_audio_setup(ptr noundef %add.ptr)
-  %8 = load ptr, ptr %node, align 8
-  %cmp.i = icmp eq ptr %8, null
-  br i1 %cmp.i, label %hda_audio_set_amp.exit, label %if.end.i
+  %and.i = and i32 %7, 32768
+  %tobool.not.i = icmp eq i32 %and.i, 0
+  br i1 %tobool.not.i, label %if.end.i, label %hda_codec_parse_fmt.exit
 
 if.end.i:                                         ; preds = %if.end18
+  %and1.i = and i32 %7, 16384
+  %tobool2.not.i = icmp eq i32 %and1.i, 0
+  %cond.i = select i1 %tobool2.not.i, i32 48000, i32 44100
+  store i32 %cond.i, ptr %as, align 4
+  %and3.i = lshr i32 %7, 11
+  %shr.i = and i32 %and3.i, 7
+  switch i32 %shr.i, label %sw.epilog.i [
+    i32 1, label %sw.bb.i
+    i32 2, label %sw.bb5.i
+    i32 3, label %sw.bb8.i
+  ]
+
+sw.bb.i:                                          ; preds = %if.end.i
+  %mul.i = shl nuw nsw i32 %cond.i, 1
+  br label %sw.epilog.sink.split.i
+
+sw.bb5.i:                                         ; preds = %if.end.i
+  %mul7.i = mul nuw nsw i32 %cond.i, 3
+  br label %sw.epilog.sink.split.i
+
+sw.bb8.i:                                         ; preds = %if.end.i
+  %mul10.i = shl nuw nsw i32 %cond.i, 2
+  br label %sw.epilog.sink.split.i
+
+sw.epilog.sink.split.i:                           ; preds = %sw.bb8.i, %sw.bb5.i, %sw.bb.i
+  %mul10.sink.i = phi i32 [ %mul10.i, %sw.bb8.i ], [ %mul7.i, %sw.bb5.i ], [ %mul.i, %sw.bb.i ]
+  store i32 %mul10.sink.i, ptr %as, align 4
+  br label %sw.epilog.i
+
+sw.epilog.i:                                      ; preds = %sw.epilog.sink.split.i, %if.end.i
+  %8 = phi i32 [ %cond.i, %if.end.i ], [ %mul10.sink.i, %sw.epilog.sink.split.i ]
+  %and11.i = lshr i32 %7, 8
+  %shr12.i = and i32 %and11.i, 7
+  switch i32 %shr12.i, label %sw.epilog33.i [
+    i32 1, label %sw.bb13.i
+    i32 2, label %sw.bb15.i
+    i32 3, label %sw.bb18.i
+    i32 4, label %sw.bb21.i
+    i32 5, label %sw.bb24.i
+    i32 6, label %sw.bb27.i
+    i32 7, label %sw.bb30.i
+  ]
+
+sw.bb13.i:                                        ; preds = %sw.epilog.i
+  %div22.i = lshr i32 %8, 1
+  br label %sw.epilog33.sink.split.i
+
+sw.bb15.i:                                        ; preds = %sw.epilog.i
+  %div17.i = udiv i32 %8, 3
+  br label %sw.epilog33.sink.split.i
+
+sw.bb18.i:                                        ; preds = %sw.epilog.i
+  %div2021.i = lshr i32 %8, 2
+  br label %sw.epilog33.sink.split.i
+
+sw.bb21.i:                                        ; preds = %sw.epilog.i
+  %div23.i = udiv i32 %8, 5
+  br label %sw.epilog33.sink.split.i
+
+sw.bb24.i:                                        ; preds = %sw.epilog.i
+  %div26.i = udiv i32 %8, 6
+  br label %sw.epilog33.sink.split.i
+
+sw.bb27.i:                                        ; preds = %sw.epilog.i
+  %div29.i = udiv i32 %8, 7
+  br label %sw.epilog33.sink.split.i
+
+sw.bb30.i:                                        ; preds = %sw.epilog.i
+  %div3220.i = lshr i32 %8, 3
+  br label %sw.epilog33.sink.split.i
+
+sw.epilog33.sink.split.i:                         ; preds = %sw.bb30.i, %sw.bb27.i, %sw.bb24.i, %sw.bb21.i, %sw.bb18.i, %sw.bb15.i, %sw.bb13.i
+  %div3220.sink.i = phi i32 [ %div3220.i, %sw.bb30.i ], [ %div29.i, %sw.bb27.i ], [ %div26.i, %sw.bb24.i ], [ %div23.i, %sw.bb21.i ], [ %div2021.i, %sw.bb18.i ], [ %div17.i, %sw.bb15.i ], [ %div22.i, %sw.bb13.i ]
+  store i32 %div3220.sink.i, ptr %as, align 4
+  br label %sw.epilog33.i
+
+sw.epilog33.i:                                    ; preds = %sw.epilog33.sink.split.i, %sw.epilog.i
+  %and34.i = and i32 %7, 112
+  switch i32 %and34.i, label %sw.epilog40.i [
+    i32 0, label %sw.epilog40.sink.split.i
+    i32 16, label %sw.bb36.i
+    i32 64, label %sw.bb38.i
+  ]
+
+sw.bb36.i:                                        ; preds = %sw.epilog33.i
+  br label %sw.epilog40.sink.split.i
+
+sw.bb38.i:                                        ; preds = %sw.epilog33.i
+  br label %sw.epilog40.sink.split.i
+
+sw.epilog40.sink.split.i:                         ; preds = %sw.bb38.i, %sw.bb36.i, %sw.epilog33.i
+  %.sink.i = phi i32 [ 5, %sw.bb38.i ], [ 3, %sw.bb36.i ], [ 1, %sw.epilog33.i ]
+  %fmt39.i = getelementptr inbounds i8, ptr %add.ptr, i64 52
+  store i32 %.sink.i, ptr %fmt39.i, align 4
+  br label %sw.epilog40.i
+
+sw.epilog40.i:                                    ; preds = %sw.epilog40.sink.split.i, %sw.epilog33.i
+  %and41.i = and i32 %7, 15
+  %add.i = add nuw nsw i32 %and41.i, 1
+  %nchannels.i = getelementptr inbounds i8, ptr %add.ptr, i64 48
+  store i32 %add.i, ptr %nchannels.i, align 4
+  br label %hda_codec_parse_fmt.exit
+
+hda_codec_parse_fmt.exit:                         ; preds = %if.end18, %sw.epilog40.i
+  tail call fastcc void @hda_audio_setup(ptr noundef %add.ptr)
+  %9 = load ptr, ptr %node, align 8
+  %cmp.i = icmp eq ptr %9, null
+  br i1 %cmp.i, label %hda_audio_set_amp.exit, label %if.end.i19
+
+if.end.i19:                                       ; preds = %hda_codec_parse_fmt.exit
   %mute_left.i = getelementptr inbounds i8, ptr %add.ptr, i64 40
-  %9 = load i8, ptr %mute_left.i, align 8
-  %tobool.i = trunc i8 %9 to i1
+  %10 = load i8, ptr %mute_left.i, align 8
+  %tobool.i = trunc i8 %10 to i1
   br i1 %tobool.i, label %land.end.thread.i, label %cond.false.i
 
-land.end.thread.i:                                ; preds = %if.end.i
+land.end.thread.i:                                ; preds = %if.end.i19
   %mute_right.i = getelementptr inbounds i8, ptr %add.ptr, i64 41
-  %10 = load i8, ptr %mute_right.i, align 1
-  %11 = and i8 %10, 1
-  %12 = zext nneg i8 %11 to i32
+  %11 = load i8, ptr %mute_right.i, align 1
+  %12 = and i8 %11, 1
+  %13 = zext nneg i8 %12 to i32
   br label %cond.end.i
 
-cond.false.i:                                     ; preds = %if.end.i
+cond.false.i:                                     ; preds = %if.end.i19
   %gain_left.i = getelementptr inbounds i8, ptr %add.ptr, i64 32
-  %13 = load i32, ptr %gain_left.i, align 8
-  %14 = mul i32 %13, 255
-  %15 = udiv i32 %14, 74
-  %16 = trunc i32 %15 to i8
+  %14 = load i32, ptr %gain_left.i, align 8
+  %15 = mul i32 %14, 255
+  %16 = udiv i32 %15, 74
+  %17 = trunc i32 %16 to i8
   %mute_right4.phi.trans.insert.i = getelementptr inbounds i8, ptr %add.ptr, i64 41
   %.pre.i = load i8, ptr %mute_right4.phi.trans.insert.i, align 1
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.false.i, %land.end.thread.i
-  %17 = phi i8 [ %.pre.i, %cond.false.i ], [ %10, %land.end.thread.i ]
-  %conv17.i = phi i32 [ 0, %cond.false.i ], [ %12, %land.end.thread.i ]
-  %cond.i = phi i8 [ %16, %cond.false.i ], [ 0, %land.end.thread.i ]
-  %tobool5.i = trunc i8 %17 to i1
+  %18 = phi i8 [ %.pre.i, %cond.false.i ], [ %11, %land.end.thread.i ]
+  %conv17.i = phi i32 [ 0, %cond.false.i ], [ %13, %land.end.thread.i ]
+  %cond.i20 = phi i8 [ %17, %cond.false.i ], [ 0, %land.end.thread.i ]
+  %tobool5.i = trunc i8 %18 to i1
   br i1 %tobool5.i, label %cond.end8.i, label %cond.false7.i
 
 cond.false7.i:                                    ; preds = %cond.end.i
   %gain_right.i = getelementptr inbounds i8, ptr %add.ptr, i64 36
-  %18 = load i32, ptr %gain_right.i, align 4
-  %19 = mul i32 %18, 255
-  %20 = udiv i32 %19, 74
-  %21 = trunc i32 %20 to i8
+  %19 = load i32, ptr %gain_right.i, align 4
+  %20 = mul i32 %19, 255
+  %21 = udiv i32 %20, 74
+  %22 = trunc i32 %21 to i8
   br label %cond.end8.i
 
 cond.end8.i:                                      ; preds = %cond.false7.i, %cond.end.i
-  %cond9.i = phi i8 [ %21, %cond.false7.i ], [ 0, %cond.end.i ]
-  %22 = load ptr, ptr %add.ptr, align 8
-  %mixer.i = getelementptr inbounds i8, ptr %22, i64 34508
-  %23 = load i8, ptr %mixer.i, align 4
-  %tobool12.i = trunc i8 %23 to i1
+  %cond9.i = phi i8 [ %22, %cond.false7.i ], [ 0, %cond.end.i ]
+  %23 = load ptr, ptr %add.ptr, align 8
+  %mixer.i = getelementptr inbounds i8, ptr %23, i64 34508
+  %24 = load i8, ptr %mixer.i, align 4
+  %tobool12.i = trunc i8 %24 to i1
   br i1 %tobool12.i, label %if.end14.i, label %hda_audio_set_amp.exit
 
 if.end14.i:                                       ; preds = %cond.end8.i
   %output.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
-  %24 = load i8, ptr %output.i, align 8
-  %tobool15.i = trunc i8 %24 to i1
+  %25 = load i8, ptr %output.i, align 8
+  %tobool15.i = trunc i8 %25 to i1
   %voice.i = getelementptr inbounds i8, ptr %add.ptr, i64 64
-  %25 = load ptr, ptr %voice.i, align 8
+  %26 = load ptr, ptr %voice.i, align 8
   br i1 %tobool15.i, label %if.then16.i, label %if.else.i
 
 if.then16.i:                                      ; preds = %if.end14.i
-  tail call void @AUD_set_volume_out(ptr noundef %25, i32 noundef %conv17.i, i8 noundef zeroext %cond.i, i8 noundef zeroext %cond9.i) #11
+  tail call void @AUD_set_volume_out(ptr noundef %26, i32 noundef %conv17.i, i8 noundef zeroext %cond.i20, i8 noundef zeroext %cond9.i) #10
   br label %hda_audio_set_amp.exit
 
 if.else.i:                                        ; preds = %if.end14.i
-  tail call void @AUD_set_volume_in(ptr noundef %25, i32 noundef %conv17.i, i8 noundef zeroext %cond.i, i8 noundef zeroext %cond9.i) #11
+  tail call void @AUD_set_volume_in(ptr noundef %26, i32 noundef %conv17.i, i8 noundef zeroext %cond.i20, i8 noundef zeroext %cond9.i) #10
   br label %hda_audio_set_amp.exit
 
-hda_audio_set_amp.exit:                           ; preds = %if.end18, %cond.end8.i, %if.then16.i, %if.else.i
+hda_audio_set_amp.exit:                           ; preds = %hda_codec_parse_fmt.exit, %cond.end8.i, %if.then16.i, %if.else.i
   %output = getelementptr inbounds i8, ptr %add.ptr, i64 16
-  %26 = load i8, ptr %output, align 8
-  %27 = shl i8 %26, 4
-  %28 = and i8 %27, 16
-  %mul = zext nneg i8 %28 to i32
+  %27 = load i8, ptr %output, align 8
+  %28 = shl i8 %27, 4
+  %29 = and i8 %28, 16
+  %mul = zext nneg i8 %29 to i32
   %stream = getelementptr inbounds i8, ptr %add.ptr, i64 20
-  %29 = load i32, ptr %stream, align 4
-  %add22 = add i32 %29, %mul
+  %30 = load i32, ptr %stream, align 4
+  %add22 = add i32 %30, %mul
   %idxprom23 = zext i32 %add22 to i64
   %arrayidx24 = getelementptr [32 x i8], ptr %running_real19, i64 0, i64 %idxprom23
-  %30 = load i8, ptr %arrayidx24, align 1
-  %tobool25 = trunc i8 %30 to i1
+  %31 = load i8, ptr %arrayidx24, align 1
+  %tobool25 = trunc i8 %31 to i1
   tail call fastcc void @hda_audio_set_running(ptr noundef %add.ptr, i1 noundef zeroext %tobool25)
   br label %for.inc26
 
 for.inc26:                                        ; preds = %for.body13, %hda_audio_set_amp.exit
-  %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
-  %exitcond26.not = icmp eq i64 %indvars.iv.next24, 4
-  br i1 %exitcond26.not, label %for.end28, label %for.body13, !llvm.loop !19
+  %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
+  %exitcond28.not = icmp eq i64 %indvars.iv.next26, 4
+  br i1 %exitcond28.not, label %for.end28, label %for.body13, !llvm.loop !19
 
 for.end28:                                        ; preds = %for.inc26
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal zeroext i1 @vmstate_hda_audio_stream_buf_needed(ptr nocapture noundef readonly %opaque) #5 {
+define internal zeroext i1 @vmstate_hda_audio_stream_buf_needed(ptr nocapture noundef readonly %opaque) #4 {
 entry:
   %0 = load ptr, ptr %opaque, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -1932,8 +2031,8 @@ land.end:                                         ; preds = %land.rhs, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @hda_audio_output_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
-  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #11
-  %call.i2 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 12, ptr noundef nonnull @__func__.HDA_CODEC_DEVICE_CLASS) #11
+  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #10
+  %call.i2 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 12, ptr noundef nonnull @__func__.HDA_CODEC_DEVICE_CLASS) #10
   %init = getelementptr inbounds i8, ptr %call.i2, i64 176
   store ptr @hda_audio_init_output, ptr %init, align 8
   %desc = getelementptr inbounds i8, ptr %call.i, i64 112
@@ -1944,7 +2043,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @hda_audio_init_output(ptr noundef %hda, ptr noundef %errp) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %hda, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, i32 noundef 150, ptr noundef nonnull @__func__.HDA_AUDIO) #11
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %hda, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, i32 noundef 150, ptr noundef nonnull @__func__.HDA_AUDIO) #10
   %mixer = getelementptr inbounds i8, ptr %call.i, i64 34508
   %0 = load i8, ptr %mixer, align 4
   %tobool = trunc i8 %0 to i1
@@ -1956,15 +2055,15 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @hda_audio_init(ptr noundef %hda, ptr noundef %desc, ptr noundef %errp) unnamed_addr #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %hda, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, i32 noundef 150, ptr noundef nonnull @__func__.HDA_AUDIO) #11
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %hda, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, i32 noundef 150, ptr noundef nonnull @__func__.HDA_AUDIO) #10
   %card = getelementptr inbounds i8, ptr %call.i, i64 176
-  %call1 = tail call zeroext i1 @AUD_register_card(ptr noundef nonnull @.str.70, ptr noundef nonnull %card, ptr noundef %errp) #11
+  %call1 = tail call zeroext i1 @AUD_register_card(ptr noundef nonnull @.str.70, ptr noundef nonnull %card, ptr noundef %errp) #10
   br i1 %call1, label %if.end, label %for.end
 
 if.end:                                           ; preds = %entry
   %desc2 = getelementptr inbounds i8, ptr %call.i, i64 208
   store ptr %desc, ptr %desc2, align 8
-  %call3 = tail call ptr @object_get_typename(ptr noundef %call.i) #11
+  %call3 = tail call ptr @object_get_typename(ptr noundef %call.i) #10
   %name = getelementptr inbounds i8, ptr %call.i, i64 168
   store ptr %call3, ptr %name, align 8
   %debug = getelementptr inbounds i8, ptr %call.i, i64 34504
@@ -1974,11 +2073,11 @@ if.end:                                           ; preds = %entry
 
 if.then4:                                         ; preds = %if.end
   %1 = load ptr, ptr @stderr, align 8
-  %call6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef %call3) #12
+  %call6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef %call3) #11
   %2 = load ptr, ptr @stderr, align 8
   %cad = getelementptr inbounds i8, ptr %call.i, i64 160
   %3 = load i32, ptr %cad, align 8
-  %call8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.71, ptr noundef nonnull @__func__.hda_audio_init, i32 noundef %3) #12
+  %call8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.71, ptr noundef nonnull @__func__.hda_audio_init, i32 noundef %3) #11
   br label %do.end
 
 do.end:                                           ; preds = %if.end, %if.then4
@@ -2036,7 +2135,7 @@ sw.bb:                                            ; preds = %if.end16
   br i1 %cmp17, label %if.end20, label %if.else
 
 if.else:                                          ; preds = %sw.bb
-  tail call void @__assert_fail(ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.7, i32 noundef 719, ptr noundef nonnull @__PRETTY_FUNCTION__.hda_audio_init) #14
+  tail call void @__assert_fail(ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.7, i32 noundef 719, ptr noundef nonnull @__PRETTY_FUNCTION__.hda_audio_init) #13
   unreachable
 
 if.end20:                                         ; preds = %sw.bb
@@ -2091,13 +2190,13 @@ declare zeroext i1 @AUD_register_card(ptr noundef, ptr noundef, ptr noundef) loc
 declare ptr @object_get_typename(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind
-declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
+declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @hda_audio_duplex_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
-  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #11
-  %call.i2 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 12, ptr noundef nonnull @__func__.HDA_CODEC_DEVICE_CLASS) #11
+  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #10
+  %call.i2 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 12, ptr noundef nonnull @__func__.HDA_CODEC_DEVICE_CLASS) #10
   %init = getelementptr inbounds i8, ptr %call.i2, i64 176
   store ptr @hda_audio_init_duplex, ptr %init, align 8
   %desc = getelementptr inbounds i8, ptr %call.i, i64 112
@@ -2108,7 +2207,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @hda_audio_init_duplex(ptr noundef %hda, ptr noundef %errp) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %hda, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, i32 noundef 150, ptr noundef nonnull @__func__.HDA_AUDIO) #11
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %hda, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, i32 noundef 150, ptr noundef nonnull @__func__.HDA_AUDIO) #10
   %mixer = getelementptr inbounds i8, ptr %call.i, i64 34508
   %0 = load i8, ptr %mixer, align 4
   %tobool = trunc i8 %0 to i1
@@ -2120,8 +2219,8 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @hda_audio_micro_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
-  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #11
-  %call.i2 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 12, ptr noundef nonnull @__func__.HDA_CODEC_DEVICE_CLASS) #11
+  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #10
+  %call.i2 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 12, ptr noundef nonnull @__func__.HDA_CODEC_DEVICE_CLASS) #10
   %init = getelementptr inbounds i8, ptr %call.i2, i64 176
   store ptr @hda_audio_init_micro, ptr %init, align 8
   %desc = getelementptr inbounds i8, ptr %call.i, i64 112
@@ -2132,7 +2231,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @hda_audio_init_micro(ptr noundef %hda, ptr noundef %errp) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %hda, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, i32 noundef 150, ptr noundef nonnull @__func__.HDA_AUDIO) #11
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %hda, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, i32 noundef 150, ptr noundef nonnull @__func__.HDA_AUDIO) #10
   %mixer = getelementptr inbounds i8, ptr %call.i, i64 34508
   %0 = load i8, ptr %mixer, align 4
   %tobool = trunc i8 %0 to i1
@@ -2142,38 +2241,37 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #8
+declare i64 @llvm.smin.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #8
+declare i64 @llvm.umin.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nounwind }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { nounwind }
-attributes #12 = { cold }
-attributes #13 = { nounwind allocsize(0,1) }
-attributes #14 = { noreturn nounwind }
+attributes #3 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { nounwind }
+attributes #11 = { cold }
+attributes #12 = { nounwind allocsize(0,1) }
+attributes #13 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

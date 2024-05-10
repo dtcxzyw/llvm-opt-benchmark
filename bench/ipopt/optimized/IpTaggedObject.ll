@@ -18,17 +18,17 @@ define void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
-  %.not4.i = icmp eq ptr %8, %10
-  br i1 %.not4.i, label %_ZNK5Ipopt7Subject6NotifyENS_8Observer10NotifyTypeE.exit, label %.lr.ph.i
+  %.not12.i = icmp eq ptr %8, %10
+  br i1 %.not12.i, label %_ZNK5Ipopt7Subject6NotifyENS_8Observer10NotifyTypeE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i
-  %.sroa.01.05.i = phi ptr [ %15, %.lr.ph.i ], [ %8, %1 ]
-  %11 = load ptr, ptr %.sroa.01.05.i, align 8
+  %.sroa.01.013.i = phi ptr [ %15, %.lr.ph.i ], [ %8, %1 ]
+  %11 = load ptr, ptr %.sroa.01.013.i, align 8
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef 2, ptr noundef nonnull %6)
-  %15 = getelementptr inbounds i8, ptr %.sroa.01.05.i, i64 8
+  %15 = getelementptr inbounds i8, ptr %.sroa.01.013.i, i64 8
   %16 = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %15, %16
   br i1 %.not.i, label %_ZNK5Ipopt7Subject6NotifyENS_8Observer10NotifyTypeE.exit, label %.lr.ph.i, !llvm.loop !4

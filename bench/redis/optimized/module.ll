@@ -6362,11 +6362,62 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call i32 @moduleReplyWithCollection(ptr noundef nonnull %ctx, i64 noundef %len, i32 noundef 4)
+  %flags.i.i = getelementptr inbounds i8, ptr %ctx, i64 48
+  %2 = load i32, ptr %flags.i.i, align 8
+  %and.i.i = and i32 %2, 16
+  %tobool.not.i.i = icmp eq i32 %and.i.i, 0
+  br i1 %tobool.not.i.i, label %if.end.i, label %if.then.i.i
+
+if.then.i.i:                                      ; preds = %if.end
+  %blocked_client.i.i = getelementptr inbounds i8, ptr %ctx, i64 24
+  %3 = load ptr, ptr %blocked_client.i.i, align 8
+  %tobool1.not.i.i = icmp eq ptr %3, null
+  br i1 %tobool1.not.i.i, label %return, label %moduleGetReplyClient.exit.i
+
+moduleGetReplyClient.exit.i:                      ; preds = %if.then.i.i
+  %reply_client.i.i = getelementptr inbounds i8, ptr %3, i64 72
+  %.pre = load ptr, ptr %reply_client.i.i, align 8
+  %cmp.i = icmp eq ptr %.pre, null
+  br i1 %cmp.i, label %return, label %if.end.i
+
+if.end.i:                                         ; preds = %if.end, %moduleGetReplyClient.exit.i
+  %4 = phi ptr [ %.pre, %moduleGetReplyClient.exit.i ], [ %0, %if.end ]
+  switch i64 %len, label %if.else20.i [
+    i64 -1, label %if.then2.i
+    i64 0, label %if.then11.i
+  ]
+
+if.then2.i:                                       ; preds = %if.end.i
+  %postponed_arrays.i = getelementptr inbounds i8, ptr %ctx, i64 56
+  %5 = load ptr, ptr %postponed_arrays.i, align 8
+  %postponed_arrays_count.i = getelementptr inbounds i8, ptr %ctx, i64 64
+  %6 = load i32, ptr %postponed_arrays_count.i, align 8
+  %add.i = add nsw i32 %6, 1
+  %conv.i = sext i32 %add.i to i64
+  %mul.i = shl nsw i64 %conv.i, 3
+  %call3.i = tail call ptr @zrealloc(ptr noundef %5, i64 noundef %mul.i) #34
+  store ptr %call3.i, ptr %postponed_arrays.i, align 8
+  %call5.i = tail call ptr @addReplyDeferredLen(ptr noundef nonnull %4) #32
+  %7 = load ptr, ptr %postponed_arrays.i, align 8
+  %8 = load i32, ptr %postponed_arrays_count.i, align 8
+  %idxprom.i = sext i32 %8 to i64
+  %arrayidx.i = getelementptr inbounds ptr, ptr %7, i64 %idxprom.i
+  store ptr %call5.i, ptr %arrayidx.i, align 8
+  %9 = load i32, ptr %postponed_arrays_count.i, align 8
+  %inc.i = add nsw i32 %9, 1
+  store i32 %inc.i, ptr %postponed_arrays_count.i, align 8
   br label %return
 
-return:                                           ; preds = %entry, %if.end
-  %retval.0 = phi i32 [ 0, %if.end ], [ 1, %entry ]
+if.then11.i:                                      ; preds = %if.end.i
+  tail call void @addReplyAttributeLen(ptr noundef nonnull %4, i64 noundef 0) #32
+  br label %return
+
+if.else20.i:                                      ; preds = %if.end.i
+  tail call void @addReplyAttributeLen(ptr noundef nonnull %4, i64 noundef %len) #32
+  br label %return
+
+return:                                           ; preds = %if.else20.i, %if.then11.i, %if.then2.i, %moduleGetReplyClient.exit.i, %if.then.i.i, %entry
+  %retval.0 = phi i32 [ 1, %entry ], [ 0, %if.then.i.i ], [ 0, %moduleGetReplyClient.exit.i ], [ 0, %if.then2.i ], [ 0, %if.then11.i ], [ 0, %if.else20.i ]
   ret i32 %retval.0
 }
 

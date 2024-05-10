@@ -3171,7 +3171,7 @@ define hidden void @_ZN12typst_syntax4node10SyntaxNode4hint17h8a90de950cf36e1cE(
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN12typst_syntax4node10SyntaxNode16convert_to_error17h12cde7bfd9b871fcE(ptr noalias noundef align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN12typst_syntax4node10SyntaxNode16convert_to_error17h12cde7bfd9b871fcE(ptr noalias nocapture noundef align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { { [24 x i8], i8, [7 x i8] } }, align 8
   %5 = alloca { { [24 x i8], i8, [7 x i8] } }, align 8
   %6 = alloca { { { [2 x i64] } } }, align 8
@@ -3200,9 +3200,9 @@ define hidden void @_ZN12typst_syntax4node10SyntaxNode16convert_to_error17h12cde
 _ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit: ; preds = %3, %13
   %.0.i = phi i8 [ %16, %13 ], [ %8, %3 ]
   %17 = icmp eq i8 %.0.i, -128
-  br i1 %17, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.thread, label %18
+  br i1 %17, label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.thread, label %"_ZN4core3ptr51drop_in_place$LT$typst_syntax..node..SyntaxNode$GT$17h1d410b30a6dcf8caE.exit"
 
-18:                                               ; preds = %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit
+"_ZN4core3ptr51drop_in_place$LT$typst_syntax..node..SyntaxNode$GT$17h1d410b30a6dcf8caE.exit": ; preds = %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
   store i64 1, ptr %0, align 8
@@ -3215,16 +3215,6 @@ _ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit: ; preds = %3, 
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @_ZN12typst_syntax4node10SyntaxNode5error17h82c29375bb089b0eE.llvm.5444024693429055459(ptr noalias nocapture noundef nonnull sret({ { [24 x i8], i8, [7 x i8] } }) align 8 dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %6)
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$typst_syntax..node..Repr$GT$17h635750412b3e5c44E.llvm.18157932453617260866"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
-          to label %"_ZN4core3ptr51drop_in_place$LT$typst_syntax..node..SyntaxNode$GT$17h1d410b30a6dcf8caE.exit" unwind label %19
-
-19:                                               ; preds = %18
-  %20 = landingpad { ptr, i32 }
-          cleanup
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
-  resume { ptr, i32 } %20
-
-"_ZN4core3ptr51drop_in_place$LT$typst_syntax..node..SyntaxNode$GT$17h1d410b30a6dcf8caE.exit": ; preds = %18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   br label %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.thread
@@ -3234,7 +3224,7 @@ _ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit.thread: ; preds
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN12typst_syntax4node10SyntaxNode16convert_to_error17hf6089babc6594cd5E(ptr noalias noundef align 8 dereferenceable(32) %0, ptr noalias nocapture noundef align 8 dereferenceable(16) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN12typst_syntax4node10SyntaxNode16convert_to_error17hf6089babc6594cd5E(ptr noalias nocapture noundef align 8 dereferenceable(32) %0, ptr noalias nocapture noundef align 8 dereferenceable(16) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { i64 }, { i64 }, { { i64, { ptr, i64, {} }, { { { [2 x i64] } } } }, { { { [2 x i64] } } } } }, align 8
   %4 = alloca { { [24 x i8], i8, [7 x i8] } }, align 8
   %5 = alloca { { { [2 x i64] } } }, align 8
@@ -3275,7 +3265,7 @@ define hidden void @_ZN12typst_syntax4node10SyntaxNode16convert_to_error17hf6089
   store i8 -128, ptr %.sroa.3.0..sroa_idx, align 1
   store i8 -127, ptr %6, align 8
   invoke void @_ZN12typst_syntax4node10SyntaxNode9into_text17h9658513e8f7c4ed8E(ptr noalias nocapture noundef nonnull sret({ { { [2 x i64] } } }) align 8 dereferenceable(16) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %4)
-          to label %19 unwind label %36
+          to label %19 unwind label %34
 
 19:                                               ; preds = %18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
@@ -3296,7 +3286,7 @@ define hidden void @_ZN12typst_syntax4node10SyntaxNode16convert_to_error17hf6089
   %22 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !486
   %23 = tail call noundef align 8 dereferenceable_or_null(72) ptr @__rust_alloc(i64 noundef 72, i64 noundef 8) #31, !noalias !486
   %24 = icmp eq ptr %23, null
-  br i1 %24, label %25, label %30
+  br i1 %24, label %25, label %"_ZN4core3ptr51drop_in_place$LT$typst_syntax..node..SyntaxNode$GT$17h1d410b30a6dcf8caE.exit"
 
 25:                                               ; preds = %19
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h836e982fea7018bdE(i64 noundef 8, i64 noundef 72) #30
@@ -3309,7 +3299,7 @@ define hidden void @_ZN12typst_syntax4node10SyntaxNode16convert_to_error17hf6089
   %27 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr50drop_in_place$LT$typst_syntax..node..ErrorNode$GT$17hb3c1256c5792a913E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %21)
-          to label %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17he6f9ca7e696ffb29E.exit3" unwind label %28, !noalias !480
+          to label %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17he6f9ca7e696ffb29E.exit8" unwind label %28, !noalias !480
 
 28:                                               ; preds = %26
   %29 = landingpad { ptr, i32 }
@@ -3317,55 +3307,44 @@ define hidden void @_ZN12typst_syntax4node10SyntaxNode16convert_to_error17hf6089
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #29, !noalias !480
   unreachable
 
-30:                                               ; preds = %19
+"_ZN4core3ptr51drop_in_place$LT$typst_syntax..node..SyntaxNode$GT$17h1d410b30a6dcf8caE.exit": ; preds = %19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %23, ptr noundef nonnull align 8 dereferenceable(72) %3, i64 72, i1 false), !noalias !480
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3), !noalias !480
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$typst_syntax..node..Repr$GT$17h635750412b3e5c44E.llvm.18157932453617260866"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
-          to label %"_ZN4core3ptr51drop_in_place$LT$typst_syntax..node..SyntaxNode$GT$17h1d410b30a6dcf8caE.exit" unwind label %.thread
-
-.thread:                                          ; preds = %30
-  %31 = landingpad { ptr, i32 }
-          cleanup
-  store ptr %23, ptr %0, align 8
-  store i8 -125, ptr %6, align 8
-  br label %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17he6f9ca7e696ffb29E.exit3"
-
-"_ZN4core3ptr51drop_in_place$LT$typst_syntax..node..SyntaxNode$GT$17h1d410b30a6dcf8caE.exit": ; preds = %30
   store ptr %23, ptr %0, align 8
   store i8 -125, ptr %6, align 8
   br label %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17he6f9ca7e696ffb29E.exit"
 
-"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17he6f9ca7e696ffb29E.exit": ; preds = %35, %.critedge, %"_ZN4core3ptr51drop_in_place$LT$typst_syntax..node..SyntaxNode$GT$17h1d410b30a6dcf8caE.exit"
+"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17he6f9ca7e696ffb29E.exit": ; preds = %33, %.critedge, %"_ZN4core3ptr51drop_in_place$LT$typst_syntax..node..SyntaxNode$GT$17h1d410b30a6dcf8caE.exit"
   ret void
 
 .critedge:                                        ; preds = %2, %16
-  %32 = getelementptr inbounds i8, ptr %1, i64 15
-  %33 = load i8, ptr %32, align 1, !alias.scope !489, !noundef !4
-  %34 = icmp sgt i8 %33, -1
-  br i1 %34, label %35, label %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17he6f9ca7e696ffb29E.exit"
+  %30 = getelementptr inbounds i8, ptr %1, i64 15
+  %31 = load i8, ptr %30, align 1, !alias.scope !489, !noundef !4
+  %32 = icmp sgt i8 %31, -1
+  br i1 %32, label %33, label %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17he6f9ca7e696ffb29E.exit"
 
-35:                                               ; preds = %.critedge
+33:                                               ; preds = %.critedge
   tail call void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hed4cfa91d131b3feE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1)
   br label %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17he6f9ca7e696ffb29E.exit"
 
-"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17he6f9ca7e696ffb29E.exit3": ; preds = %36, %41, %26, %.thread
-  %.pn15 = phi { ptr, i32 } [ %31, %.thread ], [ %27, %26 ], [ %37, %41 ], [ %37, %36 ]
-  resume { ptr, i32 } %.pn15
+"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17he6f9ca7e696ffb29E.exit8": ; preds = %34, %39, %26
+  %.pn20 = phi { ptr, i32 } [ %27, %26 ], [ %35, %39 ], [ %35, %34 ]
+  resume { ptr, i32 } %.pn20
 
-36:                                               ; preds = %18
-  %37 = landingpad { ptr, i32 }
+34:                                               ; preds = %18
+  %35 = landingpad { ptr, i32 }
           cleanup
-  %38 = getelementptr inbounds i8, ptr %1, i64 15
-  %39 = load i8, ptr %38, align 1, !alias.scope !496, !noundef !4
-  %40 = icmp sgt i8 %39, -1
-  br i1 %40, label %41, label %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17he6f9ca7e696ffb29E.exit3"
+  %36 = getelementptr inbounds i8, ptr %1, i64 15
+  %37 = load i8, ptr %36, align 1, !alias.scope !496, !noundef !4
+  %38 = icmp sgt i8 %37, -1
+  br i1 %38, label %39, label %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17he6f9ca7e696ffb29E.exit8"
 
-41:                                               ; preds = %36
+39:                                               ; preds = %34
   invoke void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hed4cfa91d131b3feE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1)
-          to label %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17he6f9ca7e696ffb29E.exit3" unwind label %42
+          to label %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17he6f9ca7e696ffb29E.exit8" unwind label %40
 
-42:                                               ; preds = %41
-  %43 = landingpad { ptr, i32 }
+40:                                               ; preds = %39
+  %41 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #29
   unreachable
@@ -7457,9 +7436,6 @@ declare hidden { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17h996700ad2487d6
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hed4cfa91d131b3feE"(ptr noalias noundef align 8 dereferenceable(16)) unnamed_addr #1
-
-; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN4core3ptr45drop_in_place$LT$typst_syntax..node..Repr$GT$17h635750412b3e5c44E.llvm.18157932453617260866"(ptr noalias noundef align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN4core3ptr47drop_in_place$LT$typst_syntax..lexer..Lexer$GT$17h8564f4160488ca09E"(ptr noalias noundef align 8 dereferenceable(80)) unnamed_addr #1

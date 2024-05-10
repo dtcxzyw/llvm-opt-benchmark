@@ -984,7 +984,79 @@ define range(i32 0, 2) i32 @onig_st_delete_safe(ptr nocapture noundef %0, ptr no
 define void @onig_st_cleanup_safe(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4
-  %5 = tail call i32 @onig_st_foreach(ptr noundef %0, ptr noundef nonnull @delete_never, i64 noundef %1)
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = load i32, ptr %5, align 8
+  %7 = icmp sgt i32 %6, 0
+  br i1 %7, label %.lr.ph52.i, label %onig_st_foreach.exit
+
+.lr.ph52.i:                                       ; preds = %2
+  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  br label %9
+
+9:                                                ; preds = %._crit_edge.i, %.lr.ph52.i
+  %10 = phi i32 [ %6, %.lr.ph52.i ], [ %32, %._crit_edge.i ]
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph52.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
+  %11 = load ptr, ptr %8, align 8
+  %12 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv.i
+  %13 = load ptr, ptr %12, align 8
+  %.not46.i = icmp eq ptr %13, null
+  br i1 %.not46.i, label %._crit_edge.i, label %.lr.ph49.i
+
+.lr.ph49.i:                                       ; preds = %9, %31
+  %.03448.i = phi ptr [ %.135.i, %31 ], [ null, %9 ]
+  %.03647.i = phi ptr [ %.137.i, %31 ], [ %13, %9 ]
+  %14 = getelementptr inbounds i8, ptr %.03647.i, i64 16
+  %15 = load i64, ptr %14, align 8
+  %16 = icmp eq i64 %15, %1
+  br i1 %16, label %19, label %.critedge.i
+
+.critedge.i:                                      ; preds = %.lr.ph49.i
+  %17 = getelementptr inbounds i8, ptr %.03647.i, i64 24
+  %18 = load ptr, ptr %17, align 8
+  br label %31
+
+19:                                               ; preds = %.lr.ph49.i
+  %20 = icmp eq ptr %.03448.i, null
+  %21 = getelementptr inbounds i8, ptr %.03647.i, i64 24
+  %22 = load ptr, ptr %21, align 8
+  br i1 %20, label %23, label %26
+
+23:                                               ; preds = %19
+  %24 = load ptr, ptr %8, align 8
+  %25 = getelementptr inbounds ptr, ptr %24, i64 %indvars.iv.i
+  br label %28
+
+26:                                               ; preds = %19
+  %27 = getelementptr inbounds i8, ptr %.03448.i, i64 24
+  br label %28
+
+28:                                               ; preds = %26, %23
+  %.sink.i = phi ptr [ %27, %26 ], [ %25, %23 ]
+  store ptr %22, ptr %.sink.i, align 8
+  tail call void @free(ptr noundef nonnull %.03647.i) #12
+  %29 = load i32, ptr %3, align 4
+  %30 = add nsw i32 %29, -1
+  store i32 %30, ptr %3, align 4
+  br label %31
+
+31:                                               ; preds = %28, %.critedge.i
+  %.137.i = phi ptr [ %22, %28 ], [ %18, %.critedge.i ]
+  %.135.i = phi ptr [ %.03448.i, %28 ], [ %.03647.i, %.critedge.i ]
+  %.not.i = icmp eq ptr %.137.i, null
+  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph49.i, !llvm.loop !16
+
+._crit_edge.loopexit.i:                           ; preds = %31
+  %.pre.i = load i32, ptr %5, align 8
+  br label %._crit_edge.i
+
+._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %9
+  %32 = phi i32 [ %.pre.i, %._crit_edge.loopexit.i ], [ %10, %9 ]
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %33 = sext i32 %32 to i64
+  %34 = icmp slt i64 %indvars.iv.next.i, %33
+  br i1 %34, label %9, label %onig_st_foreach.exit, !llvm.loop !17
+
+onig_st_foreach.exit:                             ; preds = %._crit_edge.i, %2
   store i32 %4, ptr %3, align 4
   ret void
 }
@@ -1042,7 +1114,7 @@ define range(i32 0, 2) i32 @onig_st_foreach(ptr nocapture noundef %0, ptr nocapt
   %27 = getelementptr inbounds i8, ptr %.03344, i64 24
   %.033 = load ptr, ptr %27, align 8
   %.not38 = icmp eq ptr %.033, null
-  br i1 %.not38, label %.loopexit, label %.lr.ph, !llvm.loop !16
+  br i1 %.not38, label %.loopexit, label %.lr.ph, !llvm.loop !18
 
 .lr.ph:                                           ; preds = %23, %26
   %.03344 = phi ptr [ %.033, %26 ], [ %.03342, %23 ]
@@ -1082,7 +1154,7 @@ define range(i32 0, 2) i32 @onig_st_foreach(ptr nocapture noundef %0, ptr nocapt
   %.137 = phi ptr [ %.03647, %.lr.ph49 ], [ %34, %40 ], [ %30, %.critedge ]
   %.135 = phi ptr [ %.03448, %.lr.ph49 ], [ %.03448, %40 ], [ %.03647, %.critedge ]
   %.not = icmp eq ptr %.137, null
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph49, !llvm.loop !17
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph49, !llvm.loop !16
 
 ._crit_edge.loopexit:                             ; preds = %43
   %.pre = load i32, ptr %4, align 8
@@ -1093,18 +1165,11 @@ define range(i32 0, 2) i32 @onig_st_foreach(ptr nocapture noundef %0, ptr nocapt
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %45 = sext i32 %44 to i64
   %46 = icmp slt i64 %indvars.iv.next, %45
-  br i1 %46, label %9, label %.loopexit, !llvm.loop !18
+  br i1 %46, label %9, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %._crit_edge, %.lr.ph49, %19, %23, %26, %3
   %.032 = phi i32 [ 0, %3 ], [ 1, %26 ], [ 1, %23 ], [ 0, %.lr.ph49 ], [ 1, %19 ], [ 0, %._crit_edge ]
   ret i32 %.032
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef range(i32 0, 3) i32 @delete_never(i64 %0, i64 noundef %1, i64 noundef %2) #7 {
-  %4 = icmp eq i64 %1, %2
-  %. = select i1 %4, i32 2, i32 0
-  ret i32 %.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

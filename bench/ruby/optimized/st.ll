@@ -1178,6 +1178,12 @@ set_bin.exit:                                     ; preds = %51, %59, %43, %41, 
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @rb_st_add_direct_with_hash(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+  tail call fastcc void @st_add_direct_with_hash(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3)
+  ret void
+}
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal fastcc void @st_add_direct_with_hash(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 {
   tail call fastcc void @rebuild_table_if_necessary(ptr noundef %0)
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = load i64, ptr %5, align 8
@@ -1197,44 +1203,151 @@ define hidden void @rb_st_add_direct_with_hash(ptr nocapture noundef %0, i64 nou
   store i64 %15, ptr %13, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 24
   %17 = load ptr, ptr %16, align 8
-  %.not.i = icmp eq ptr %17, null
-  br i1 %.not.i, label %st_add_direct_with_hash.exit, label %18
+  %.not = icmp eq ptr %17, null
+  br i1 %.not, label %set_bin.exit, label %18
 
 18:                                               ; preds = %4
-  %19 = tail call fastcc i64 @find_table_bin_ind_direct(ptr noundef nonnull %0, i64 noundef %3)
-  %20 = getelementptr i8, ptr %0, i64 2
-  %.val.i = load i8, ptr %20, align 2
-  %21 = add i64 %6, 2
-  switch i8 %.val.i, label %31 [
-    i8 0, label %22
-    i8 1, label %25
-    i8 2, label %28
+  %19 = getelementptr i8, ptr %0, i64 1
+  %.val.i = load i8, ptr %19, align 1
+  %20 = zext nneg i8 %.val.i to i64
+  %notmask.i.i.i = shl nsw i64 -1, %20
+  %21 = xor i64 %notmask.i.i.i, -1
+  %22 = and i64 %21, %3
+  %23 = getelementptr i8, ptr %0, i64 2
+  %.val9.i = load i8, ptr %23, align 2
+  switch i8 %.val9.i, label %.split.i [
+    i8 0, label %.split.us.i
+    i8 1, label %.split.us13.i
+    i8 2, label %.split.us19.i
   ]
 
-22:                                               ; preds = %18
-  %23 = trunc i64 %21 to i8
-  %24 = getelementptr i8, ptr %17, i64 %19
-  store i8 %23, ptr %24, align 1
-  br label %st_add_direct_with_hash.exit
+.split.us.i:                                      ; preds = %18
+  %24 = getelementptr i8, ptr %17, i64 %22
+  %25 = load i8, ptr %24, align 1
+  %26 = icmp ult i8 %25, 2
+  br i1 %26, label %find_table_bin_ind_direct.exit.thread, label %get_bin.exit.us.i
 
-25:                                               ; preds = %18
-  %26 = trunc i64 %21 to i16
-  %27 = getelementptr i16, ptr %17, i64 %19
-  store i16 %26, ptr %27, align 2
-  br label %st_add_direct_with_hash.exit
+find_table_bin_ind_direct.exit.thread:            ; preds = %.split.us.i
+  %27 = add i64 %6, 2
+  br label %72
 
-28:                                               ; preds = %18
-  %29 = trunc i64 %21 to i32
-  %30 = getelementptr i32, ptr %17, i64 %19
-  store i32 %29, ptr %30, align 4
-  br label %st_add_direct_with_hash.exit
+get_bin.exit.us.i:                                ; preds = %.split.us.i, %get_bin.exit.us.i
+  %.0.us28.i = phi i64 [ %32, %get_bin.exit.us.i ], [ %22, %.split.us.i ]
+  %.010.us27.i = phi i64 [ %28, %get_bin.exit.us.i ], [ %3, %.split.us.i ]
+  %28 = lshr i64 %.010.us27.i, 11
+  %29 = mul i64 %.0.us28.i, 5
+  %30 = add i64 %29, 1
+  %31 = add i64 %30, %28
+  %32 = and i64 %31, %21
+  %33 = getelementptr i8, ptr %17, i64 %32
+  %34 = load i8, ptr %33, align 1
+  %35 = icmp ult i8 %34, 2
+  br i1 %35, label %find_table_bin_ind_direct.exit, label %get_bin.exit.us.i
 
-31:                                               ; preds = %18
-  %32 = getelementptr i64, ptr %17, i64 %19
-  store i64 %21, ptr %32, align 8
-  br label %st_add_direct_with_hash.exit
+.split.us13.i:                                    ; preds = %18
+  %36 = getelementptr i16, ptr %17, i64 %22
+  %37 = load i16, ptr %36, align 2
+  %38 = icmp ult i16 %37, 2
+  br i1 %38, label %find_table_bin_ind_direct.exit.thread20, label %get_bin.exit.us16.i
 
-st_add_direct_with_hash.exit:                     ; preds = %4, %22, %25, %28, %31
+find_table_bin_ind_direct.exit.thread20:          ; preds = %.split.us13.i
+  %39 = add i64 %6, 2
+  br label %76
+
+get_bin.exit.us16.i:                              ; preds = %.split.us13.i, %get_bin.exit.us16.i
+  %.0.us1532.i = phi i64 [ %44, %get_bin.exit.us16.i ], [ %22, %.split.us13.i ]
+  %.010.us1431.i = phi i64 [ %40, %get_bin.exit.us16.i ], [ %3, %.split.us13.i ]
+  %40 = lshr i64 %.010.us1431.i, 11
+  %41 = mul i64 %.0.us1532.i, 5
+  %42 = add i64 %41, 1
+  %43 = add i64 %42, %40
+  %44 = and i64 %43, %21
+  %45 = getelementptr i16, ptr %17, i64 %44
+  %46 = load i16, ptr %45, align 2
+  %47 = icmp ult i16 %46, 2
+  br i1 %47, label %find_table_bin_ind_direct.exit, label %get_bin.exit.us16.i
+
+.split.us19.i:                                    ; preds = %18
+  %48 = getelementptr i32, ptr %17, i64 %22
+  %49 = load i32, ptr %48, align 4
+  %50 = icmp ult i32 %49, 2
+  br i1 %50, label %find_table_bin_ind_direct.exit.thread23, label %get_bin.exit.us22.i
+
+find_table_bin_ind_direct.exit.thread23:          ; preds = %.split.us19.i
+  %51 = add i64 %6, 2
+  br label %80
+
+get_bin.exit.us22.i:                              ; preds = %.split.us19.i, %get_bin.exit.us22.i
+  %.0.us2136.i = phi i64 [ %56, %get_bin.exit.us22.i ], [ %22, %.split.us19.i ]
+  %.010.us2035.i = phi i64 [ %52, %get_bin.exit.us22.i ], [ %3, %.split.us19.i ]
+  %52 = lshr i64 %.010.us2035.i, 11
+  %53 = mul i64 %.0.us2136.i, 5
+  %54 = add i64 %53, 1
+  %55 = add i64 %54, %52
+  %56 = and i64 %55, %21
+  %57 = getelementptr i32, ptr %17, i64 %56
+  %58 = load i32, ptr %57, align 4
+  %59 = icmp ult i32 %58, 2
+  br i1 %59, label %find_table_bin_ind_direct.exit, label %get_bin.exit.us22.i
+
+.split.i:                                         ; preds = %18
+  %60 = getelementptr i64, ptr %17, i64 %22
+  %61 = load i64, ptr %60, align 8
+  %62 = icmp ult i64 %61, 2
+  br i1 %62, label %find_table_bin_ind_direct.exit, label %get_bin.exit.i
+
+get_bin.exit.i:                                   ; preds = %.split.i, %get_bin.exit.i
+  %.026.i = phi i64 [ %67, %get_bin.exit.i ], [ %22, %.split.i ]
+  %.01025.i = phi i64 [ %63, %get_bin.exit.i ], [ %3, %.split.i ]
+  %63 = lshr i64 %.01025.i, 11
+  %64 = mul i64 %.026.i, 5
+  %65 = add i64 %64, 1
+  %66 = add i64 %65, %63
+  %67 = and i64 %66, %21
+  %68 = getelementptr i64, ptr %17, i64 %67
+  %69 = load i64, ptr %68, align 8
+  %70 = icmp ult i64 %69, 2
+  br i1 %70, label %find_table_bin_ind_direct.exit, label %get_bin.exit.i
+
+find_table_bin_ind_direct.exit:                   ; preds = %get_bin.exit.us22.i, %get_bin.exit.us16.i, %get_bin.exit.us.i, %get_bin.exit.i, %.split.i
+  %.us-phi.i = phi i64 [ %22, %.split.i ], [ %67, %get_bin.exit.i ], [ %32, %get_bin.exit.us.i ], [ %44, %get_bin.exit.us16.i ], [ %56, %get_bin.exit.us22.i ]
+  %71 = add i64 %6, 2
+  switch i8 %.val9.i, label %84 [
+    i8 0, label %72
+    i8 1, label %76
+    i8 2, label %80
+  ]
+
+72:                                               ; preds = %find_table_bin_ind_direct.exit.thread, %find_table_bin_ind_direct.exit
+  %73 = phi i64 [ %27, %find_table_bin_ind_direct.exit.thread ], [ %71, %find_table_bin_ind_direct.exit ]
+  %.us-phi.i19 = phi i64 [ %22, %find_table_bin_ind_direct.exit.thread ], [ %.us-phi.i, %find_table_bin_ind_direct.exit ]
+  %74 = trunc i64 %73 to i8
+  %75 = getelementptr i8, ptr %17, i64 %.us-phi.i19
+  store i8 %74, ptr %75, align 1
+  br label %set_bin.exit
+
+76:                                               ; preds = %find_table_bin_ind_direct.exit.thread20, %find_table_bin_ind_direct.exit
+  %77 = phi i64 [ %39, %find_table_bin_ind_direct.exit.thread20 ], [ %71, %find_table_bin_ind_direct.exit ]
+  %.us-phi.i22 = phi i64 [ %22, %find_table_bin_ind_direct.exit.thread20 ], [ %.us-phi.i, %find_table_bin_ind_direct.exit ]
+  %78 = trunc i64 %77 to i16
+  %79 = getelementptr i16, ptr %17, i64 %.us-phi.i22
+  store i16 %78, ptr %79, align 2
+  br label %set_bin.exit
+
+80:                                               ; preds = %find_table_bin_ind_direct.exit.thread23, %find_table_bin_ind_direct.exit
+  %81 = phi i64 [ %51, %find_table_bin_ind_direct.exit.thread23 ], [ %71, %find_table_bin_ind_direct.exit ]
+  %.us-phi.i25 = phi i64 [ %22, %find_table_bin_ind_direct.exit.thread23 ], [ %.us-phi.i, %find_table_bin_ind_direct.exit ]
+  %82 = trunc i64 %81 to i32
+  %83 = getelementptr i32, ptr %17, i64 %.us-phi.i25
+  store i32 %82, ptr %83, align 4
+  br label %set_bin.exit
+
+84:                                               ; preds = %find_table_bin_ind_direct.exit
+  %85 = getelementptr i64, ptr %17, i64 %.us-phi.i
+  store i64 %71, ptr %85, align 8
+  br label %set_bin.exit
+
+set_bin.exit:                                     ; preds = %84, %80, %76, %72, %4
   ret void
 }
 
@@ -1247,63 +1360,7 @@ define dso_local void @rb_st_add_direct(ptr nocapture noundef %0, i64 noundef %1
   %6 = tail call i64 %.val.val(i64 noundef %1) #24
   %7 = icmp eq i64 %6, -1
   %8 = select i1 %7, i64 0, i64 %6
-  tail call fastcc void @rebuild_table_if_necessary(ptr noundef %0)
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
-  %10 = load i64, ptr %9, align 8
-  %11 = add i64 %10, 1
-  store i64 %11, ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr %struct.st_table_entry, ptr %13, i64 %10
-  store i64 %8, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
-  store i64 %1, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 16
-  store i64 %2, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
-  %18 = load i64, ptr %17, align 8
-  %19 = add i64 %18, 1
-  store i64 %19, ptr %17, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
-  %21 = load ptr, ptr %20, align 8
-  %.not.i = icmp eq ptr %21, null
-  br i1 %.not.i, label %st_add_direct_with_hash.exit, label %22
-
-22:                                               ; preds = %3
-  %23 = tail call fastcc i64 @find_table_bin_ind_direct(ptr noundef nonnull %0, i64 noundef %8)
-  %24 = getelementptr i8, ptr %0, i64 2
-  %.val.i = load i8, ptr %24, align 2
-  %25 = add i64 %10, 2
-  switch i8 %.val.i, label %35 [
-    i8 0, label %26
-    i8 1, label %29
-    i8 2, label %32
-  ]
-
-26:                                               ; preds = %22
-  %27 = trunc i64 %25 to i8
-  %28 = getelementptr i8, ptr %21, i64 %23
-  store i8 %27, ptr %28, align 1
-  br label %st_add_direct_with_hash.exit
-
-29:                                               ; preds = %22
-  %30 = trunc i64 %25 to i16
-  %31 = getelementptr i16, ptr %21, i64 %23
-  store i16 %30, ptr %31, align 2
-  br label %st_add_direct_with_hash.exit
-
-32:                                               ; preds = %22
-  %33 = trunc i64 %25 to i32
-  %34 = getelementptr i32, ptr %21, i64 %23
-  store i32 %33, ptr %34, align 4
-  br label %st_add_direct_with_hash.exit
-
-35:                                               ; preds = %22
-  %36 = getelementptr i64, ptr %21, i64 %23
-  store i64 %25, ptr %36, align 8
-  br label %st_add_direct_with_hash.exit
-
-st_add_direct_with_hash.exit:                     ; preds = %3, %26, %29, %32, %35
+  tail call fastcc void @st_add_direct_with_hash(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %8)
   ret void
 }
 
@@ -2273,7 +2330,7 @@ find_table_bin_ind.exit:                          ; preds = %find_table_bin_ind.
   %23 = load i64, ptr %17, align 8
   %24 = load i64, ptr %18, align 8
   %25 = icmp ult i64 %24, %23
-  br i1 %25, label %.lr.ph.i, label %.thread89
+  br i1 %25, label %.lr.ph.i, label %.thread87
 
 .lr.ph.i:                                         ; preds = %22
   %.pre.i = load i32, ptr %16, align 4
@@ -2317,18 +2374,18 @@ find_table_bin_ind.exit:                          ; preds = %find_table_bin_ind.
 44:                                               ; preds = %40
   %45 = add i64 %.02233.i, 1
   %exitcond.not.i = icmp eq i64 %45, %23
-  br i1 %exitcond.not.i, label %.thread89, label %26, !llvm.loop !7
+  br i1 %exitcond.not.i, label %.thread87, label %26, !llvm.loop !7
 
 .loopexit.split.loop.exit31.i:                    ; preds = %40
-  %spec.select183 = select i1 %.not.i, i64 -2, i64 %.02233.i
+  %spec.select181 = select i1 %.not.i, i64 -2, i64 %.02233.i
   br label %find_entry.exit
 
-.thread89:                                        ; preds = %22, %44
+.thread87:                                        ; preds = %22, %44
   %46 = getelementptr i8, ptr %19, i64 -24
-  br label %.thread83
+  br label %.thread81
 
 find_entry.exit:                                  ; preds = %.loopexit.split.loop.exit31.i, %.thread.i
-  %.0.i = phi i64 [ %spec.select, %.thread.i ], [ %spec.select183, %.loopexit.split.loop.exit31.i ]
+  %.0.i = phi i64 [ %spec.select, %.thread.i ], [ %spec.select181, %.loopexit.split.loop.exit31.i ]
   %47 = icmp eq i64 %.0.i, -2
   br i1 %47, label %find_table_bin_ind.exit.outer, label %114
 
@@ -2339,7 +2396,7 @@ find_entry.exit:                                  ; preds = %.loopexit.split.loo
 49:                                               ; preds = %90, %48
   %.val.i.i.sink = phi i8 [ %.val.i.i, %90 ], [ %.val.i, %48 ]
   %.sink = phi i64 [ %94, %90 ], [ %11, %48 ]
-  %.pre155 = phi ptr [ %.pre, %90 ], [ %20, %48 ]
+  %.pre153 = phi ptr [ %.pre, %90 ], [ %20, %48 ]
   %.032.i = phi i64 [ %91, %90 ], [ %11, %48 ]
   %50 = zext nneg i8 %.val.i.i.sink to i64
   %notmask.i.i.i.i = shl nsw i64 -1, %50
@@ -2353,25 +2410,25 @@ find_entry.exit:                                  ; preds = %.loopexit.split.loo
   ]
 
 53:                                               ; preds = %49
-  %54 = getelementptr i8, ptr %.pre155, i64 %52
+  %54 = getelementptr i8, ptr %.pre153, i64 %52
   %55 = load i8, ptr %54, align 1
   %56 = zext i8 %55 to i64
   br label %get_bin.exit.i
 
 57:                                               ; preds = %49
-  %58 = getelementptr i16, ptr %.pre155, i64 %52
+  %58 = getelementptr i16, ptr %.pre153, i64 %52
   %59 = load i16, ptr %58, align 2
   %60 = zext i16 %59 to i64
   br label %get_bin.exit.i
 
 61:                                               ; preds = %49
-  %62 = getelementptr i32, ptr %.pre155, i64 %52
+  %62 = getelementptr i32, ptr %.pre153, i64 %52
   %63 = load i32, ptr %62, align 4
   %64 = zext i32 %63 to i64
   br label %get_bin.exit.i
 
 65:                                               ; preds = %49
-  %66 = getelementptr i64, ptr %.pre155, i64 %52
+  %66 = getelementptr i64, ptr %.pre153, i64 %52
   %67 = load i64, ptr %66, align 8
   br label %get_bin.exit.i
 
@@ -2416,10 +2473,10 @@ get_bin.exit.i:                                   ; preds = %65, %61, %57, %53
 
 88:                                               ; preds = %get_bin.exit.i
   %89 = icmp eq i64 %68, 0
-  br i1 %89, label %.thread83, label %90
+  br i1 %89, label %.thread81, label %90
 
 90:                                               ; preds = %88, %._crit_edge.i
-  %.pre = phi ptr [ %.pre.pre, %._crit_edge.i ], [ %.pre155, %88 ]
+  %.pre = phi ptr [ %.pre.pre, %._crit_edge.i ], [ %.pre153, %88 ]
   %.val.i.i = phi i8 [ %.val.i.pre.i, %._crit_edge.i ], [ %.val.i.i.sink, %88 ]
   %91 = lshr i64 %.032.i, 11
   %92 = mul i64 %52, 5
@@ -2428,16 +2485,16 @@ get_bin.exit.i:                                   ; preds = %65, %61, %57, %53
   br label %49
 
 .loopexit.split.loop.exit39.i:                    ; preds = %85
-  br i1 %.not.i51, label %find_table_bin_ind.exit, label %.loopexit94
+  br i1 %.not.i51, label %find_table_bin_ind.exit, label %.loopexit92
 
-.loopexit94:                                      ; preds = %.loopexit.split.loop.exit39.i
-  %.pre153 = load ptr, ptr %13, align 8
+.loopexit92:                                      ; preds = %.loopexit.split.loop.exit39.i
+  %.pre151 = load ptr, ptr %13, align 8
   %.val50.pre = load i8, ptr %15, align 2
   br label %.loopexit
 
-.loopexit:                                        ; preds = %76, %.loopexit94
-  %.val50 = phi i8 [ %.val50.pre, %.loopexit94 ], [ %.val31.i, %76 ]
-  %95 = phi ptr [ %.pre153, %.loopexit94 ], [ %.pre155, %76 ]
+.loopexit:                                        ; preds = %76, %.loopexit92
+  %.val50 = phi i8 [ %.val50.pre, %.loopexit92 ], [ %.val31.i, %76 ]
+  %95 = phi ptr [ %.pre151, %.loopexit92 ], [ %.pre153, %76 ]
   switch i8 %.val50, label %108 [
     i8 0, label %96
     i8 1, label %100
@@ -2448,206 +2505,157 @@ get_bin.exit.i:                                   ; preds = %65, %61, %57, %53
   %97 = getelementptr i8, ptr %95, i64 %52
   %98 = load i8, ptr %97, align 1
   %99 = zext i8 %98 to i64
-  br label %.thread67
+  br label %.thread65
 
 100:                                              ; preds = %.loopexit
   %101 = getelementptr i16, ptr %95, i64 %52
   %102 = load i16, ptr %101, align 2
   %103 = zext i16 %102 to i64
-  br label %.thread67
+  br label %.thread65
 
 104:                                              ; preds = %.loopexit
   %105 = getelementptr i32, ptr %95, i64 %52
   %106 = load i32, ptr %105, align 4
   %107 = zext i32 %106 to i64
-  br label %.thread67
+  br label %.thread65
 
 108:                                              ; preds = %.loopexit
   %109 = getelementptr i64, ptr %95, i64 %52
   %110 = load i64, ptr %109, align 8
-  br label %.thread67
+  br label %.thread65
 
-.thread67:                                        ; preds = %108, %104, %100, %96
+.thread65:                                        ; preds = %108, %104, %100, %96
   %111 = phi i64 [ %99, %96 ], [ %103, %100 ], [ %107, %104 ], [ %110, %108 ]
   %112 = add i64 %111, -2
   %113 = getelementptr %struct.st_table_entry, ptr %19, i64 %112
   br label %116
 
 114:                                              ; preds = %find_entry.exit
-  %.not93 = icmp eq i64 %.0.i, -1
+  %.not91 = icmp eq i64 %.0.i, -1
   %115 = getelementptr %struct.st_table_entry, ptr %19, i64 %.0.i
-  br i1 %.not93, label %.thread83, label %116
+  br i1 %.not91, label %.thread81, label %116
 
-116:                                              ; preds = %.thread67, %114
-  %.080 = phi ptr [ %113, %.thread67 ], [ %115, %114 ]
-  %.176 = phi i64 [ %112, %.thread67 ], [ %.0.i, %114 ]
-  %.04374 = phi i64 [ %52, %.thread67 ], [ -1, %114 ]
-  %117 = getelementptr inbounds i8, ptr %.080, i64 8
+116:                                              ; preds = %.thread65, %114
+  %.078 = phi ptr [ %113, %.thread65 ], [ %115, %114 ]
+  %.174 = phi i64 [ %112, %.thread65 ], [ %.0.i, %114 ]
+  %.04372 = phi i64 [ %52, %.thread65 ], [ -1, %114 ]
+  %117 = getelementptr inbounds i8, ptr %.078, i64 8
   %118 = load i64, ptr %117, align 8
   store i64 %118, ptr %5, align 8
-  %119 = getelementptr inbounds i8, ptr %.080, i64 16
+  %119 = getelementptr inbounds i8, ptr %.078, i64 16
   %120 = load i64, ptr %119, align 8
   store i64 %120, ptr %6, align 8
-  br label %.thread83
+  br label %.thread81
 
-.thread83:                                        ; preds = %88, %.thread89, %116, %114
-  %121 = phi i64 [ %118, %116 ], [ %1, %114 ], [ %1, %.thread89 ], [ %1, %88 ]
-  %.04181 = phi i32 [ 1, %116 ], [ 0, %114 ], [ 0, %.thread89 ], [ 0, %88 ]
-  %.079 = phi ptr [ %.080, %116 ], [ %115, %114 ], [ %46, %.thread89 ], [ null, %88 ]
-  %.041.in77 = phi i1 [ true, %116 ], [ false, %114 ], [ false, %.thread89 ], [ false, %88 ]
-  %.175 = phi i64 [ %.176, %116 ], [ -1, %114 ], [ -1, %.thread89 ], [ %.042.ph, %88 ]
-  %.04373 = phi i64 [ %.04374, %116 ], [ -1, %114 ], [ -1, %.thread89 ], [ -1, %88 ]
-  %122 = call i32 %2(ptr noundef nonnull %5, ptr noundef nonnull %6, i64 noundef %3, i32 noundef %.04181) #24
-  switch i32 %122, label %st_add_direct_with_hash.exit [
+.thread81:                                        ; preds = %88, %.thread87, %116, %114
+  %121 = phi i64 [ %118, %116 ], [ %1, %114 ], [ %1, %.thread87 ], [ %1, %88 ]
+  %.04179 = phi i32 [ 1, %116 ], [ 0, %114 ], [ 0, %.thread87 ], [ 0, %88 ]
+  %.077 = phi ptr [ %.078, %116 ], [ %115, %114 ], [ %46, %.thread87 ], [ null, %88 ]
+  %.041.in75 = phi i1 [ true, %116 ], [ false, %114 ], [ false, %.thread87 ], [ false, %88 ]
+  %.173 = phi i64 [ %.174, %116 ], [ -1, %114 ], [ -1, %.thread87 ], [ %.042.ph, %88 ]
+  %.04371 = phi i64 [ %.04372, %116 ], [ -1, %114 ], [ -1, %.thread87 ], [ -1, %88 ]
+  %122 = call i32 %2(ptr noundef nonnull %5, ptr noundef nonnull %6, i64 noundef %3, i32 noundef %.04179) #24
+  switch i32 %122, label %update_range_for_deleted.exit [
     i32 0, label %123
-    i32 2, label %157
+    i32 2, label %133
   ]
 
-123:                                              ; preds = %.thread83
+123:                                              ; preds = %.thread81
   %124 = load i64, ptr %5, align 8
-  br i1 %.041.in77, label %151, label %125
+  br i1 %.041.in75, label %127, label %125
 
 125:                                              ; preds = %123
   %126 = load i64, ptr %6, align 8
-  call fastcc void @rebuild_table_if_necessary(ptr noundef %0)
-  %127 = load i64, ptr %17, align 8
-  %128 = add i64 %127, 1
-  store i64 %128, ptr %17, align 8
-  %129 = load ptr, ptr %12, align 8
-  %130 = getelementptr %struct.st_table_entry, ptr %129, i64 %127
-  store i64 %11, ptr %130, align 8
-  %131 = getelementptr inbounds i8, ptr %130, i64 8
-  store i64 %124, ptr %131, align 8
-  %132 = getelementptr inbounds i8, ptr %130, i64 16
-  store i64 %126, ptr %132, align 8
-  %133 = getelementptr inbounds i8, ptr %0, i64 16
-  %134 = load i64, ptr %133, align 8
-  %135 = add i64 %134, 1
-  store i64 %135, ptr %133, align 8
-  %136 = load ptr, ptr %13, align 8
-  %.not.i56 = icmp eq ptr %136, null
-  br i1 %.not.i56, label %st_add_direct_with_hash.exit, label %137
+  call fastcc void @st_add_direct_with_hash(ptr noundef %0, i64 noundef %124, i64 noundef %126, i64 noundef %11)
+  br label %update_range_for_deleted.exit
 
-137:                                              ; preds = %125
-  %138 = call fastcc i64 @find_table_bin_ind_direct(ptr noundef nonnull %0, i64 noundef %11)
-  %.val.i57 = load i8, ptr %15, align 2
-  %139 = add i64 %127, 2
-  switch i8 %.val.i57, label %149 [
-    i8 0, label %140
-    i8 1, label %143
-    i8 2, label %146
+127:                                              ; preds = %123
+  %.not48 = icmp eq i64 %121, %124
+  br i1 %.not48, label %130, label %128
+
+128:                                              ; preds = %127
+  %129 = getelementptr inbounds i8, ptr %.077, i64 8
+  store i64 %124, ptr %129, align 8
+  br label %130
+
+130:                                              ; preds = %128, %127
+  %131 = load i64, ptr %6, align 8
+  %132 = getelementptr inbounds i8, ptr %.077, i64 16
+  store i64 %131, ptr %132, align 8
+  br label %update_range_for_deleted.exit
+
+133:                                              ; preds = %.thread81
+  br i1 %.041.in75, label %134, label %update_range_for_deleted.exit
+
+134:                                              ; preds = %133
+  %.not = icmp eq i64 %.04371, -1
+  br i1 %.not, label %set_bin.exit, label %135
+
+135:                                              ; preds = %134
+  %136 = load ptr, ptr %13, align 8
+  %.val49 = load i8, ptr %15, align 2
+  switch i8 %.val49, label %143 [
+    i8 0, label %137
+    i8 1, label %139
+    i8 2, label %141
   ]
 
-140:                                              ; preds = %137
-  %141 = trunc i64 %139 to i8
-  %142 = getelementptr i8, ptr %136, i64 %138
-  store i8 %141, ptr %142, align 1
-  br label %st_add_direct_with_hash.exit
+137:                                              ; preds = %135
+  %138 = getelementptr i8, ptr %136, i64 %.04371
+  store i8 1, ptr %138, align 1
+  br label %set_bin.exit
 
-143:                                              ; preds = %137
-  %144 = trunc i64 %139 to i16
-  %145 = getelementptr i16, ptr %136, i64 %138
-  store i16 %144, ptr %145, align 2
-  br label %st_add_direct_with_hash.exit
+139:                                              ; preds = %135
+  %140 = getelementptr i16, ptr %136, i64 %.04371
+  store i16 1, ptr %140, align 2
+  br label %set_bin.exit
 
-146:                                              ; preds = %137
-  %147 = trunc i64 %139 to i32
-  %148 = getelementptr i32, ptr %136, i64 %138
-  store i32 %147, ptr %148, align 4
-  br label %st_add_direct_with_hash.exit
+141:                                              ; preds = %135
+  %142 = getelementptr i32, ptr %136, i64 %.04371
+  store i32 1, ptr %142, align 4
+  br label %set_bin.exit
 
-149:                                              ; preds = %137
-  %150 = getelementptr i64, ptr %136, i64 %138
-  store i64 %139, ptr %150, align 8
-  br label %st_add_direct_with_hash.exit
+143:                                              ; preds = %135
+  %144 = getelementptr i64, ptr %136, i64 %.04371
+  store i64 1, ptr %144, align 8
+  br label %set_bin.exit
 
-151:                                              ; preds = %123
-  %.not48 = icmp eq i64 %121, %124
-  br i1 %.not48, label %154, label %152
+set_bin.exit:                                     ; preds = %143, %141, %139, %137, %134
+  store i64 -1, ptr %.077, align 8
+  %145 = getelementptr inbounds i8, ptr %0, i64 16
+  %146 = load i64, ptr %145, align 8
+  %147 = add i64 %146, -1
+  store i64 %147, ptr %145, align 8
+  %148 = load i64, ptr %18, align 8
+  %149 = icmp eq i64 %148, %.173
+  br i1 %149, label %150, label %update_range_for_deleted.exit
 
-152:                                              ; preds = %151
-  %153 = getelementptr inbounds i8, ptr %.079, i64 8
-  store i64 %124, ptr %153, align 8
+150:                                              ; preds = %set_bin.exit
+  %151 = load i64, ptr %17, align 8
+  %152 = load ptr, ptr %12, align 8
+  %153 = add i64 %.173, 1
+  %umax.i = call i64 @llvm.umax.i64(i64 %151, i64 %153)
   br label %154
 
-154:                                              ; preds = %152, %151
-  %155 = load i64, ptr %6, align 8
-  %156 = getelementptr inbounds i8, ptr %.079, i64 16
-  store i64 %155, ptr %156, align 8
-  br label %st_add_direct_with_hash.exit
+154:                                              ; preds = %156, %150
+  %.0.in.i = phi i64 [ %.173, %150 ], [ %.0.i56, %156 ]
+  %.0.i56 = add i64 %.0.in.i, 1
+  %155 = icmp ult i64 %.0.i56, %151
+  br i1 %155, label %156, label %.critedge.i
 
-157:                                              ; preds = %.thread83
-  br i1 %.041.in77, label %158, label %st_add_direct_with_hash.exit
+156:                                              ; preds = %154
+  %157 = getelementptr %struct.st_table_entry, ptr %152, i64 %.0.i56
+  %158 = load i64, ptr %157, align 8
+  %159 = icmp eq i64 %158, -1
+  br i1 %159, label %154, label %.critedge.i, !llvm.loop !9
 
-158:                                              ; preds = %157
-  %.not = icmp eq i64 %.04373, -1
-  br i1 %.not, label %set_bin.exit, label %159
-
-159:                                              ; preds = %158
-  %160 = load ptr, ptr %13, align 8
-  %.val49 = load i8, ptr %15, align 2
-  switch i8 %.val49, label %167 [
-    i8 0, label %161
-    i8 1, label %163
-    i8 2, label %165
-  ]
-
-161:                                              ; preds = %159
-  %162 = getelementptr i8, ptr %160, i64 %.04373
-  store i8 1, ptr %162, align 1
-  br label %set_bin.exit
-
-163:                                              ; preds = %159
-  %164 = getelementptr i16, ptr %160, i64 %.04373
-  store i16 1, ptr %164, align 2
-  br label %set_bin.exit
-
-165:                                              ; preds = %159
-  %166 = getelementptr i32, ptr %160, i64 %.04373
-  store i32 1, ptr %166, align 4
-  br label %set_bin.exit
-
-167:                                              ; preds = %159
-  %168 = getelementptr i64, ptr %160, i64 %.04373
-  store i64 1, ptr %168, align 8
-  br label %set_bin.exit
-
-set_bin.exit:                                     ; preds = %167, %165, %163, %161, %158
-  store i64 -1, ptr %.079, align 8
-  %169 = getelementptr inbounds i8, ptr %0, i64 16
-  %170 = load i64, ptr %169, align 8
-  %171 = add i64 %170, -1
-  store i64 %171, ptr %169, align 8
-  %172 = load i64, ptr %18, align 8
-  %173 = icmp eq i64 %172, %.175
-  br i1 %173, label %174, label %st_add_direct_with_hash.exit
-
-174:                                              ; preds = %set_bin.exit
-  %175 = load i64, ptr %17, align 8
-  %176 = load ptr, ptr %12, align 8
-  %177 = add i64 %.175, 1
-  %umax.i = call i64 @llvm.umax.i64(i64 %175, i64 %177)
-  br label %178
-
-178:                                              ; preds = %180, %174
-  %.0.in.i = phi i64 [ %.175, %174 ], [ %.0.i58, %180 ]
-  %.0.i58 = add i64 %.0.in.i, 1
-  %179 = icmp ult i64 %.0.i58, %175
-  br i1 %179, label %180, label %.critedge.i
-
-180:                                              ; preds = %178
-  %181 = getelementptr %struct.st_table_entry, ptr %176, i64 %.0.i58
-  %182 = load i64, ptr %181, align 8
-  %183 = icmp eq i64 %182, -1
-  br i1 %183, label %178, label %.critedge.i, !llvm.loop !9
-
-.critedge.i:                                      ; preds = %180, %178
-  %.0.lcssa.i = phi i64 [ %umax.i, %178 ], [ %.0.i58, %180 ]
+.critedge.i:                                      ; preds = %156, %154
+  %.0.lcssa.i = phi i64 [ %umax.i, %154 ], [ %.0.i56, %156 ]
   store i64 %.0.lcssa.i, ptr %18, align 8
-  br label %st_add_direct_with_hash.exit
+  br label %update_range_for_deleted.exit
 
-st_add_direct_with_hash.exit:                     ; preds = %.critedge.i, %set_bin.exit, %149, %146, %143, %140, %125, %157, %154, %.thread83
-  ret i32 %.04181
+update_range_for_deleted.exit:                    ; preds = %.critedge.i, %set_bin.exit, %133, %130, %125, %.thread81
+  ret i32 %.04179
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4404,108 +4412,199 @@ define internal fastcc void @rebuild_table_with(ptr nocapture noundef %0, ptr no
 
 .lr.ph:                                           ; preds = %2
   %.not33 = icmp eq ptr %.fr, null
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr i8, ptr %0, i64 1
+  %16 = getelementptr inbounds i8, ptr %0, i64 16
   br i1 %.not33, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %26
-  %.035.us = phi i64 [ %27, %26 ], [ %13, %.lr.ph ]
-  %.02934.us = phi i64 [ %.1.us, %26 ], [ 0, %.lr.ph ]
-  %16 = getelementptr %struct.st_table_entry, ptr %11, i64 %.035.us
-  %17 = getelementptr i8, ptr %16, i64 24
-  tail call void @llvm.prefetch.p0(ptr %17, i32 0, i32 3, i32 1)
-  %18 = load i64, ptr %16, align 8
-  %19 = icmp eq i64 %18, -1
-  br i1 %19, label %26, label %20
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %27
+  %.041.us = phi i64 [ %28, %27 ], [ %13, %.lr.ph ]
+  %.02940.us = phi i64 [ %.1.us, %27 ], [ 0, %.lr.ph ]
+  %17 = getelementptr %struct.st_table_entry, ptr %11, i64 %.041.us
+  %18 = getelementptr i8, ptr %17, i64 24
+  tail call void @llvm.prefetch.p0(ptr %18, i32 0, i32 3, i32 1)
+  %19 = load i64, ptr %17, align 8
+  %20 = icmp eq i64 %19, -1
+  br i1 %20, label %27, label %21
 
-20:                                               ; preds = %.lr.ph.split.us
-  %21 = getelementptr %struct.st_table_entry, ptr %4, i64 %.02934.us
-  %.not.us = icmp eq ptr %21, %16
-  br i1 %.not.us, label %set_bin.exit.us, label %22
+21:                                               ; preds = %.lr.ph.split.us
+  %22 = getelementptr %struct.st_table_entry, ptr %4, i64 %.02940.us
+  %.not.us = icmp eq ptr %22, %17
+  br i1 %.not.us, label %set_bin.exit.us, label %23
 
-22:                                               ; preds = %20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false)
+23:                                               ; preds = %21
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false)
   br label %set_bin.exit.us
 
-set_bin.exit.us:                                  ; preds = %22, %20
-  %23 = load i64, ptr %15, align 8
-  %24 = add i64 %23, 1
-  store i64 %24, ptr %15, align 8
-  %25 = add i64 %.02934.us, 1
-  br label %26
+set_bin.exit.us:                                  ; preds = %23, %21
+  %24 = load i64, ptr %16, align 8
+  %25 = add i64 %24, 1
+  store i64 %25, ptr %16, align 8
+  %26 = add i64 %.02940.us, 1
+  br label %27
 
-26:                                               ; preds = %set_bin.exit.us, %.lr.ph.split.us
-  %.1.us = phi i64 [ %.02934.us, %.lr.ph.split.us ], [ %25, %set_bin.exit.us ]
-  %27 = add nuw i64 %.035.us, 1
-  %exitcond37.not = icmp eq i64 %27, %9
-  br i1 %exitcond37.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !22
+27:                                               ; preds = %set_bin.exit.us, %.lr.ph.split.us
+  %.1.us = phi i64 [ %.02940.us, %.lr.ph.split.us ], [ %26, %set_bin.exit.us ]
+  %28 = add nuw i64 %.041.us, 1
+  %exitcond49.not = icmp eq i64 %28, %9
+  br i1 %exitcond49.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !22
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %53
-  %.035 = phi i64 [ %54, %53 ], [ %13, %.lr.ph ]
-  %.02934 = phi i64 [ %.1, %53 ], [ 0, %.lr.ph ]
-  %28 = getelementptr %struct.st_table_entry, ptr %11, i64 %.035
-  %29 = getelementptr i8, ptr %28, i64 24
-  tail call void @llvm.prefetch.p0(ptr %29, i32 0, i32 3, i32 1)
-  %30 = load i64, ptr %28, align 8
-  %31 = icmp eq i64 %30, -1
-  br i1 %31, label %53, label %32
+.lr.ph.split:                                     ; preds = %.lr.ph, %101
+  %.041 = phi i64 [ %102, %101 ], [ %13, %.lr.ph ]
+  %.02940 = phi i64 [ %.1, %101 ], [ 0, %.lr.ph ]
+  %29 = getelementptr %struct.st_table_entry, ptr %11, i64 %.041
+  %30 = getelementptr i8, ptr %29, i64 24
+  tail call void @llvm.prefetch.p0(ptr %30, i32 0, i32 3, i32 1)
+  %31 = load i64, ptr %29, align 8
+  %32 = icmp eq i64 %31, -1
+  br i1 %32, label %101, label %33
 
-32:                                               ; preds = %.lr.ph.split
-  %33 = getelementptr %struct.st_table_entry, ptr %4, i64 %.02934
-  %.not = icmp eq ptr %33, %28
-  br i1 %.not, label %35, label %34
+33:                                               ; preds = %.lr.ph.split
+  %34 = getelementptr %struct.st_table_entry, ptr %4, i64 %.02940
+  %.not = icmp eq ptr %34, %29
+  br i1 %.not, label %36, label %35
 
-34:                                               ; preds = %32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef nonnull align 8 dereferenceable(24) %28, i64 24, i1 false)
-  %.pre = load i64, ptr %28, align 8
-  br label %35
+35:                                               ; preds = %33
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) %29, i64 24, i1 false)
+  %.pre = load i64, ptr %29, align 8
+  br label %36
 
-35:                                               ; preds = %34, %32
-  %36 = phi i64 [ %.pre, %34 ], [ %30, %32 ]
-  %37 = tail call fastcc i64 @find_table_bin_ind_direct(ptr noundef %0, i64 noundef %36)
-  %38 = add i64 %.02934, 2
-  switch i8 %.val, label %48 [
-    i8 0, label %39
-    i8 1, label %42
-    i8 2, label %45
+36:                                               ; preds = %35, %33
+  %37 = phi i64 [ %.pre, %35 ], [ %31, %33 ]
+  %.val.i = load i8, ptr %15, align 1
+  %38 = zext nneg i8 %.val.i to i64
+  %notmask.i.i.i = shl nsw i64 -1, %38
+  %39 = xor i64 %notmask.i.i.i, -1
+  %40 = and i64 %37, %39
+  %41 = load ptr, ptr %5, align 8
+  %.val9.i = load i8, ptr %7, align 2
+  switch i8 %.val9.i, label %.split.i [
+    i8 0, label %.split.us.i
+    i8 1, label %.split.us13.i
+    i8 2, label %.split.us19.i
   ]
 
-39:                                               ; preds = %35
-  %40 = trunc i64 %38 to i8
-  %41 = getelementptr i8, ptr %.fr, i64 %37
-  store i8 %40, ptr %41, align 1
+.split.us.i:                                      ; preds = %36
+  %42 = getelementptr i8, ptr %41, i64 %40
+  %43 = load i8, ptr %42, align 1
+  %44 = icmp ult i8 %43, 2
+  br i1 %44, label %find_table_bin_ind_direct.exit, label %get_bin.exit.us.i
+
+get_bin.exit.us.i:                                ; preds = %.split.us.i, %get_bin.exit.us.i
+  %.0.us28.i = phi i64 [ %49, %get_bin.exit.us.i ], [ %40, %.split.us.i ]
+  %.010.us27.i = phi i64 [ %45, %get_bin.exit.us.i ], [ %37, %.split.us.i ]
+  %45 = lshr i64 %.010.us27.i, 11
+  %46 = mul i64 %.0.us28.i, 5
+  %47 = add i64 %46, 1
+  %48 = add i64 %47, %45
+  %49 = and i64 %48, %39
+  %50 = getelementptr i8, ptr %41, i64 %49
+  %51 = load i8, ptr %50, align 1
+  %52 = icmp ult i8 %51, 2
+  br i1 %52, label %find_table_bin_ind_direct.exit, label %get_bin.exit.us.i
+
+.split.us13.i:                                    ; preds = %36
+  %53 = getelementptr i16, ptr %41, i64 %40
+  %54 = load i16, ptr %53, align 2
+  %55 = icmp ult i16 %54, 2
+  br i1 %55, label %find_table_bin_ind_direct.exit, label %get_bin.exit.us16.i
+
+get_bin.exit.us16.i:                              ; preds = %.split.us13.i, %get_bin.exit.us16.i
+  %.0.us1532.i = phi i64 [ %60, %get_bin.exit.us16.i ], [ %40, %.split.us13.i ]
+  %.010.us1431.i = phi i64 [ %56, %get_bin.exit.us16.i ], [ %37, %.split.us13.i ]
+  %56 = lshr i64 %.010.us1431.i, 11
+  %57 = mul i64 %.0.us1532.i, 5
+  %58 = add i64 %57, 1
+  %59 = add i64 %58, %56
+  %60 = and i64 %59, %39
+  %61 = getelementptr i16, ptr %41, i64 %60
+  %62 = load i16, ptr %61, align 2
+  %63 = icmp ult i16 %62, 2
+  br i1 %63, label %find_table_bin_ind_direct.exit, label %get_bin.exit.us16.i
+
+.split.us19.i:                                    ; preds = %36
+  %64 = getelementptr i32, ptr %41, i64 %40
+  %65 = load i32, ptr %64, align 4
+  %66 = icmp ult i32 %65, 2
+  br i1 %66, label %find_table_bin_ind_direct.exit, label %get_bin.exit.us22.i
+
+get_bin.exit.us22.i:                              ; preds = %.split.us19.i, %get_bin.exit.us22.i
+  %.0.us2136.i = phi i64 [ %71, %get_bin.exit.us22.i ], [ %40, %.split.us19.i ]
+  %.010.us2035.i = phi i64 [ %67, %get_bin.exit.us22.i ], [ %37, %.split.us19.i ]
+  %67 = lshr i64 %.010.us2035.i, 11
+  %68 = mul i64 %.0.us2136.i, 5
+  %69 = add i64 %68, 1
+  %70 = add i64 %69, %67
+  %71 = and i64 %70, %39
+  %72 = getelementptr i32, ptr %41, i64 %71
+  %73 = load i32, ptr %72, align 4
+  %74 = icmp ult i32 %73, 2
+  br i1 %74, label %find_table_bin_ind_direct.exit, label %get_bin.exit.us22.i
+
+.split.i:                                         ; preds = %36
+  %75 = getelementptr i64, ptr %41, i64 %40
+  %76 = load i64, ptr %75, align 8
+  %77 = icmp ult i64 %76, 2
+  br i1 %77, label %find_table_bin_ind_direct.exit, label %get_bin.exit.i
+
+get_bin.exit.i:                                   ; preds = %.split.i, %get_bin.exit.i
+  %.026.i = phi i64 [ %82, %get_bin.exit.i ], [ %40, %.split.i ]
+  %.01025.i = phi i64 [ %78, %get_bin.exit.i ], [ %37, %.split.i ]
+  %78 = lshr i64 %.01025.i, 11
+  %79 = mul i64 %.026.i, 5
+  %80 = add i64 %79, 1
+  %81 = add i64 %80, %78
+  %82 = and i64 %81, %39
+  %83 = getelementptr i64, ptr %41, i64 %82
+  %84 = load i64, ptr %83, align 8
+  %85 = icmp ult i64 %84, 2
+  br i1 %85, label %find_table_bin_ind_direct.exit, label %get_bin.exit.i
+
+find_table_bin_ind_direct.exit:                   ; preds = %get_bin.exit.us22.i, %get_bin.exit.us16.i, %get_bin.exit.us.i, %get_bin.exit.i, %.split.us.i, %.split.us13.i, %.split.us19.i, %.split.i
+  %.us-phi.i = phi i64 [ %40, %.split.us.i ], [ %40, %.split.us13.i ], [ %40, %.split.us19.i ], [ %40, %.split.i ], [ %82, %get_bin.exit.i ], [ %49, %get_bin.exit.us.i ], [ %60, %get_bin.exit.us16.i ], [ %71, %get_bin.exit.us22.i ]
+  %86 = add i64 %.02940, 2
+  switch i8 %.val, label %96 [
+    i8 0, label %87
+    i8 1, label %90
+    i8 2, label %93
+  ]
+
+87:                                               ; preds = %find_table_bin_ind_direct.exit
+  %88 = trunc i64 %86 to i8
+  %89 = getelementptr i8, ptr %.fr, i64 %.us-phi.i
+  store i8 %88, ptr %89, align 1
   br label %set_bin.exit
 
-42:                                               ; preds = %35
-  %43 = trunc i64 %38 to i16
-  %44 = getelementptr i16, ptr %.fr, i64 %37
-  store i16 %43, ptr %44, align 2
+90:                                               ; preds = %find_table_bin_ind_direct.exit
+  %91 = trunc i64 %86 to i16
+  %92 = getelementptr i16, ptr %.fr, i64 %.us-phi.i
+  store i16 %91, ptr %92, align 2
   br label %set_bin.exit
 
-45:                                               ; preds = %35
-  %46 = trunc i64 %38 to i32
-  %47 = getelementptr i32, ptr %.fr, i64 %37
-  store i32 %46, ptr %47, align 4
+93:                                               ; preds = %find_table_bin_ind_direct.exit
+  %94 = trunc i64 %86 to i32
+  %95 = getelementptr i32, ptr %.fr, i64 %.us-phi.i
+  store i32 %94, ptr %95, align 4
   br label %set_bin.exit
 
-48:                                               ; preds = %35
-  %49 = getelementptr i64, ptr %.fr, i64 %37
-  store i64 %38, ptr %49, align 8
+96:                                               ; preds = %find_table_bin_ind_direct.exit
+  %97 = getelementptr i64, ptr %.fr, i64 %.us-phi.i
+  store i64 %86, ptr %97, align 8
   br label %set_bin.exit
 
-set_bin.exit:                                     ; preds = %48, %45, %42, %39
-  %50 = load i64, ptr %15, align 8
-  %51 = add i64 %50, 1
-  store i64 %51, ptr %15, align 8
-  %52 = add i64 %.02934, 1
-  br label %53
+set_bin.exit:                                     ; preds = %96, %93, %90, %87
+  %98 = load i64, ptr %16, align 8
+  %99 = add i64 %98, 1
+  store i64 %99, ptr %16, align 8
+  %100 = add i64 %.02940, 1
+  br label %101
 
-53:                                               ; preds = %.lr.ph.split, %set_bin.exit
-  %.1 = phi i64 [ %.02934, %.lr.ph.split ], [ %52, %set_bin.exit ]
-  %54 = add i64 %.035, 1
-  %exitcond.not = icmp eq i64 %54, %9
+101:                                              ; preds = %.lr.ph.split, %set_bin.exit
+  %.1 = phi i64 [ %.02940, %.lr.ph.split ], [ %100, %set_bin.exit ]
+  %102 = add nuw i64 %.041, 1
+  %exitcond.not = icmp eq i64 %102, %9
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !22
 
-._crit_edge:                                      ; preds = %53, %26, %2
+._crit_edge:                                      ; preds = %101, %27, %2
   ret void
 }
 
@@ -4724,105 +4823,6 @@ define internal i64 @strcasehash(i64 noundef %0) #8 {
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.08.lcssa = phi i64 [ 2166136261, %1 ], [ %12, %.lr.ph ]
   ret i64 %.08.lcssa
-}
-
-; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i64 @find_table_bin_ind_direct(ptr nocapture noundef readonly %0, i64 noundef %1) unnamed_addr #18 {
-  %3 = getelementptr i8, ptr %0, i64 1
-  %.val = load i8, ptr %3, align 1
-  %4 = zext nneg i8 %.val to i64
-  %notmask.i.i = shl nsw i64 -1, %4
-  %5 = xor i64 %notmask.i.i, -1
-  %6 = and i64 %5, %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
-  %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr i8, ptr %0, i64 2
-  %.val9 = load i8, ptr %9, align 2
-  switch i8 %.val9, label %.split [
-    i8 0, label %.split.us
-    i8 1, label %.split.us13
-    i8 2, label %.split.us19
-  ]
-
-.split.us:                                        ; preds = %2
-  %10 = getelementptr i8, ptr %8, i64 %6
-  %11 = load i8, ptr %10, align 1
-  %12 = icmp ult i8 %11, 2
-  br i1 %12, label %.split12.us, label %get_bin.exit.us
-
-get_bin.exit.us:                                  ; preds = %.split.us, %get_bin.exit.us
-  %.0.us28 = phi i64 [ %17, %get_bin.exit.us ], [ %6, %.split.us ]
-  %.010.us27 = phi i64 [ %13, %get_bin.exit.us ], [ %1, %.split.us ]
-  %13 = lshr i64 %.010.us27, 11
-  %14 = mul i64 %.0.us28, 5
-  %15 = add nuw nsw i64 %13, 1
-  %16 = add i64 %15, %14
-  %17 = and i64 %16, %5
-  %18 = getelementptr i8, ptr %8, i64 %17
-  %19 = load i8, ptr %18, align 1
-  %20 = icmp ult i8 %19, 2
-  br i1 %20, label %.split12.us, label %get_bin.exit.us
-
-.split.us13:                                      ; preds = %2
-  %21 = getelementptr i16, ptr %8, i64 %6
-  %22 = load i16, ptr %21, align 2
-  %23 = icmp ult i16 %22, 2
-  br i1 %23, label %.split12.us, label %get_bin.exit.us16
-
-get_bin.exit.us16:                                ; preds = %.split.us13, %get_bin.exit.us16
-  %.0.us1532 = phi i64 [ %28, %get_bin.exit.us16 ], [ %6, %.split.us13 ]
-  %.010.us1431 = phi i64 [ %24, %get_bin.exit.us16 ], [ %1, %.split.us13 ]
-  %24 = lshr i64 %.010.us1431, 11
-  %25 = mul i64 %.0.us1532, 5
-  %26 = add nuw nsw i64 %24, 1
-  %27 = add i64 %26, %25
-  %28 = and i64 %27, %5
-  %29 = getelementptr i16, ptr %8, i64 %28
-  %30 = load i16, ptr %29, align 2
-  %31 = icmp ult i16 %30, 2
-  br i1 %31, label %.split12.us, label %get_bin.exit.us16
-
-.split.us19:                                      ; preds = %2
-  %32 = getelementptr i32, ptr %8, i64 %6
-  %33 = load i32, ptr %32, align 4
-  %34 = icmp ult i32 %33, 2
-  br i1 %34, label %.split12.us, label %get_bin.exit.us22
-
-get_bin.exit.us22:                                ; preds = %.split.us19, %get_bin.exit.us22
-  %.0.us2136 = phi i64 [ %39, %get_bin.exit.us22 ], [ %6, %.split.us19 ]
-  %.010.us2035 = phi i64 [ %35, %get_bin.exit.us22 ], [ %1, %.split.us19 ]
-  %35 = lshr i64 %.010.us2035, 11
-  %36 = mul i64 %.0.us2136, 5
-  %37 = add nuw nsw i64 %35, 1
-  %38 = add i64 %37, %36
-  %39 = and i64 %38, %5
-  %40 = getelementptr i32, ptr %8, i64 %39
-  %41 = load i32, ptr %40, align 4
-  %42 = icmp ult i32 %41, 2
-  br i1 %42, label %.split12.us, label %get_bin.exit.us22
-
-.split:                                           ; preds = %2
-  %43 = getelementptr i64, ptr %8, i64 %6
-  %44 = load i64, ptr %43, align 8
-  %45 = icmp ult i64 %44, 2
-  br i1 %45, label %.split12.us, label %get_bin.exit
-
-.split12.us:                                      ; preds = %get_bin.exit.us22, %get_bin.exit.us16, %get_bin.exit.us, %get_bin.exit, %.split.us13, %.split, %.split.us19, %.split.us
-  %.us-phi = phi i64 [ %6, %.split.us ], [ %6, %.split.us13 ], [ %6, %.split.us19 ], [ %6, %.split ], [ %50, %get_bin.exit ], [ %17, %get_bin.exit.us ], [ %28, %get_bin.exit.us16 ], [ %39, %get_bin.exit.us22 ]
-  ret i64 %.us-phi
-
-get_bin.exit:                                     ; preds = %.split, %get_bin.exit
-  %.026 = phi i64 [ %50, %get_bin.exit ], [ %6, %.split ]
-  %.01025 = phi i64 [ %46, %get_bin.exit ], [ %1, %.split ]
-  %46 = lshr i64 %.01025, 11
-  %47 = mul i64 %.026, 5
-  %48 = add nuw nsw i64 %46, 1
-  %49 = add i64 %48, %47
-  %50 = and i64 %49, %5
-  %51 = getelementptr i64, ptr %8, i64 %50
-  %52 = load i64, ptr %51, align 8
-  %53 = icmp ult i64 %52, 2
-  br i1 %53, label %.split12.us, label %get_bin.exit
 }
 
 ; Function Attrs: noreturn

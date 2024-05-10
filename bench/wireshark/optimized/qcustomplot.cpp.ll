@@ -25745,19 +25745,121 @@ _ZNK22QCPLabelPainterPrivate16skewedAnchorSideERK7QPointFdd.exit30: ; preds = %7
 107:                                              ; preds = %54, %103, %105, %101, %_ZNK22QCPLabelPainterPrivate16skewedAnchorSideERK7QPointFdd.exit
   %.015 = phi double [ %15, %_ZNK22QCPLabelPainterPrivate16skewedAnchorSideERK7QPointFdd.exit ], [ %102, %101 ], [ %106, %105 ], [ %99, %103 ], [ %15, %54 ]
   %.0 = phi i32 [ %.0.i, %_ZNK22QCPLabelPainterPrivate16skewedAnchorSideERK7QPointFdd.exit ], [ %.0.i24, %101 ], [ %.0.i24, %105 ], [ %.0.i24, %103 ], [ %56, %54 ]
-  %108 = call noundef i32 @_ZNK22QCPLabelPainterPrivate21rotationCorrectedSideENS_10AnchorSideEd(ptr nonnull align 8 poison, i32 noundef %.0, double noundef %.015)
-  %109 = getelementptr inbounds i8, ptr %0, i64 40
-  %110 = getelementptr inbounds i8, ptr %0, i64 56
-  %111 = call { double, double } @_ZN22QCPLabelPainterPrivate12getAnchorPosERK7QPointF(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(16) %2)
-  %112 = extractvalue { double, double } %111, 0
-  store double %112, ptr %13, align 8
-  %113 = getelementptr inbounds i8, ptr %13, i64 8
-  %114 = extractvalue { double, double } %111, 1
-  store double %114, ptr %113, align 8
-  %115 = load ptr, ptr %0, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 16
-  %117 = load ptr, ptr %116, align 8
-  call void %117(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(12) %109, ptr noundef nonnull align 4 dereferenceable(14) %110, ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef %108, double noundef %.015, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  %108 = fcmp ogt double %.015, 0.000000e+00
+  %109 = fcmp ult double %.015, 0.000000e+00
+  %110 = fneg double %.015
+  %111 = select i1 %109, double %110, double %.015
+  %112 = fcmp ugt double %111, 0x3D719799812DEA11
+  br i1 %112, label %113, label %_ZNK22QCPLabelPainterPrivate21rotationCorrectedSideENS_10AnchorSideEd.exit
+
+113:                                              ; preds = %107
+  %114 = fadd double %111, -9.000000e+01
+  %115 = fcmp ult double %114, 0.000000e+00
+  %116 = fneg double %114
+  %117 = select i1 %115, double %116, double %114
+  %118 = fmul double %117, 1.000000e+12
+  %119 = fcmp ult double %111, 0.000000e+00
+  %120 = fneg double %111
+  %121 = select i1 %119, double %120, double %111
+  %122 = fcmp olt double %121, 9.000000e+01
+  %.sroa.speculated.i.i = select i1 %122, double %121, double 9.000000e+01
+  %123 = fcmp ugt double %118, %.sroa.speculated.i.i
+  br i1 %123, label %124, label %137
+
+124:                                              ; preds = %113
+  switch i32 %.0, label %_ZNK22QCPLabelPainterPrivate21rotationCorrectedSideENS_10AnchorSideEd.exit [
+    i32 2, label %125
+    i32 3, label %127
+    i32 4, label %129
+    i32 5, label %131
+    i32 7, label %133
+    i32 6, label %135
+  ]
+
+125:                                              ; preds = %124
+  %not..i = xor i1 %108, true
+  %126 = zext i1 %not..i to i32
+  br label %_ZNK22QCPLabelPainterPrivate21rotationCorrectedSideENS_10AnchorSideEd.exit
+
+127:                                              ; preds = %124
+  %128 = zext i1 %108 to i32
+  br label %_ZNK22QCPLabelPainterPrivate21rotationCorrectedSideENS_10AnchorSideEd.exit
+
+129:                                              ; preds = %124
+  %130 = select i1 %108, i32 0, i32 2
+  br label %_ZNK22QCPLabelPainterPrivate21rotationCorrectedSideENS_10AnchorSideEd.exit
+
+131:                                              ; preds = %124
+  %132 = select i1 %108, i32 2, i32 1
+  br label %_ZNK22QCPLabelPainterPrivate21rotationCorrectedSideENS_10AnchorSideEd.exit
+
+133:                                              ; preds = %124
+  %134 = select i1 %108, i32 3, i32 0
+  br label %_ZNK22QCPLabelPainterPrivate21rotationCorrectedSideENS_10AnchorSideEd.exit
+
+135:                                              ; preds = %124
+  %136 = select i1 %108, i32 1, i32 3
+  br label %_ZNK22QCPLabelPainterPrivate21rotationCorrectedSideENS_10AnchorSideEd.exit
+
+137:                                              ; preds = %113
+  switch i32 %.0, label %_ZNK22QCPLabelPainterPrivate21rotationCorrectedSideENS_10AnchorSideEd.exit [
+    i32 0, label %138
+    i32 1, label %140
+    i32 2, label %142
+    i32 3, label %144
+    i32 4, label %146
+    i32 5, label %148
+    i32 7, label %150
+    i32 6, label %152
+  ]
+
+138:                                              ; preds = %137
+  %139 = select i1 %108, i32 3, i32 2
+  br label %_ZNK22QCPLabelPainterPrivate21rotationCorrectedSideENS_10AnchorSideEd.exit
+
+140:                                              ; preds = %137
+  %141 = select i1 %108, i32 2, i32 3
+  br label %_ZNK22QCPLabelPainterPrivate21rotationCorrectedSideENS_10AnchorSideEd.exit
+
+142:                                              ; preds = %137
+  %not.31.i = xor i1 %108, true
+  %143 = zext i1 %not.31.i to i32
+  br label %_ZNK22QCPLabelPainterPrivate21rotationCorrectedSideENS_10AnchorSideEd.exit
+
+144:                                              ; preds = %137
+  %145 = zext i1 %108 to i32
+  br label %_ZNK22QCPLabelPainterPrivate21rotationCorrectedSideENS_10AnchorSideEd.exit
+
+146:                                              ; preds = %137
+  %147 = select i1 %108, i32 7, i32 5
+  br label %_ZNK22QCPLabelPainterPrivate21rotationCorrectedSideENS_10AnchorSideEd.exit
+
+148:                                              ; preds = %137
+  %149 = select i1 %108, i32 4, i32 6
+  br label %_ZNK22QCPLabelPainterPrivate21rotationCorrectedSideENS_10AnchorSideEd.exit
+
+150:                                              ; preds = %137
+  %151 = select i1 %108, i32 6, i32 4
+  br label %_ZNK22QCPLabelPainterPrivate21rotationCorrectedSideENS_10AnchorSideEd.exit
+
+152:                                              ; preds = %137
+  %153 = select i1 %108, i32 5, i32 7
+  br label %_ZNK22QCPLabelPainterPrivate21rotationCorrectedSideENS_10AnchorSideEd.exit
+
+_ZNK22QCPLabelPainterPrivate21rotationCorrectedSideENS_10AnchorSideEd.exit: ; preds = %107, %124, %125, %127, %129, %131, %133, %135, %137, %138, %140, %142, %144, %146, %148, %150, %152
+  %.0.i31 = phi i32 [ %.0, %107 ], [ %139, %138 ], [ %141, %140 ], [ %143, %142 ], [ %145, %144 ], [ %147, %146 ], [ %149, %148 ], [ %151, %150 ], [ %153, %152 ], [ %126, %125 ], [ %128, %127 ], [ %130, %129 ], [ %132, %131 ], [ %134, %133 ], [ %136, %135 ], [ %.0, %124 ], [ %.0, %137 ]
+  %154 = getelementptr inbounds i8, ptr %0, i64 40
+  %155 = getelementptr inbounds i8, ptr %0, i64 56
+  %156 = call { double, double } @_ZN22QCPLabelPainterPrivate12getAnchorPosERK7QPointF(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(16) %2)
+  %157 = extractvalue { double, double } %156, 0
+  store double %157, ptr %13, align 8
+  %158 = getelementptr inbounds i8, ptr %13, i64 8
+  %159 = extractvalue { double, double } %156, 1
+  store double %159, ptr %158, align 8
+  %160 = load ptr, ptr %0, align 8
+  %161 = getelementptr inbounds i8, ptr %160, i64 16
+  %162 = load ptr, ptr %161, align 8
+  call void %162(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(12) %154, ptr noundef nonnull align 4 dereferenceable(14) %155, ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef %.0.i31, double noundef %.015, ptr noundef nonnull align 8 dereferenceable(24) %3)
   ret void
 }
 
@@ -25842,7 +25944,7 @@ define noundef range(i32 0, 8) i32 @_ZNK22QCPLabelPainterPrivate16skewedAnchorSi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZNK22QCPLabelPainterPrivate21rotationCorrectedSideENS_10AnchorSideEd(ptr nocapture nonnull readnone align 8 %0, i32 noundef %1, double noundef %2) local_unnamed_addr #6 align 2 {
+define noundef i32 @_ZNK22QCPLabelPainterPrivate21rotationCorrectedSideENS_10AnchorSideEd(ptr nocapture noundef nonnull readnone align 8 dereferenceable(256) %0, i32 noundef %1, double noundef %2) local_unnamed_addr #6 align 2 {
   %4 = fcmp ogt double %2, 0.000000e+00
   %5 = fcmp ult double %2, 0.000000e+00
   %6 = fneg double %2
@@ -120188,10 +120290,10 @@ define noundef double @_ZN12QCPBarsGroup14keyPixelOffsetEPK7QCPBarsd(ptr nocaptu
 _ZN9QtPrivate21qMakeForeachContainerIR5QListIP7QCPBarsEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit: ; preds = %3, %14
   %16 = getelementptr ptr, ptr %11, i64 %13
   %.idx.mask = and i64 %13, 2305843009213693951
-  %.not7686 = icmp eq i64 %.idx.mask, 0
-  br i1 %.not7686, label %._crit_edge, label %.lr.ph88
+  %.not88103 = icmp eq i64 %.idx.mask, 0
+  br i1 %.not88103, label %._crit_edge, label %.lr.ph105
 
-.lr.ph88:                                         ; preds = %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP7QCPBarsEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit
+.lr.ph105:                                        ; preds = %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP7QCPBarsEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit
   %17 = getelementptr inbounds i8, ptr %5, i64 16
   %18 = getelementptr inbounds i8, ptr %5, i64 8
   br label %28
@@ -120212,14 +120314,14 @@ _ZN9QtPrivate17QForeachContainerI5QListIP7QCPBarsEED2Ev.exit: ; preds = %._crit_
   %21 = getelementptr inbounds i8, ptr %1, i64 248
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %_ZNK7QCPBars8barBelowEv.exit51.thread, label %.lr.ph90
+  br i1 %23, label %_ZNK7QCPBars8barBelowEv.exit51.thread, label %.lr.ph107
 
-.loopexit:                                        ; preds = %.lr.ph99
+.loopexit:                                        ; preds = %250
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %_ZN9QtPrivate17QForeachContainerI5QListIP7QCPBarsEED2Ev.exit48
 
-.loopexit.split-lp:                               ; preds = %107, %._crit_edge100
+.loopexit.split-lp:                               ; preds = %164, %._crit_edge117
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %_ZN9QtPrivate17QForeachContainerI5QListIP7QCPBarsEED2Ev.exit48
@@ -120238,9 +120340,9 @@ _ZN17QArrayDataPointerIP7QCPBarsE5derefEv.exit.i.i.i46: ; preds = %24
   call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef nonnull %9, i64 noundef 8, i64 noundef 8) #47
   br label %_ZN9QtPrivate17QForeachContainerI5QListIP7QCPBarsEED2Ev.exit48
 
-28:                                               ; preds = %.lr.ph88, %58
-  %.sroa.9.087 = phi ptr [ %11, %.lr.ph88 ], [ %59, %58 ]
-  %29 = load ptr, ptr %.sroa.9.087, align 8
+28:                                               ; preds = %.lr.ph105, %58
+  %.sroa.9.0104 = phi ptr [ %11, %.lr.ph105 ], [ %59, %58 ]
+  %29 = load ptr, ptr %.sroa.9.0104, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 248
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
@@ -120248,14 +120350,14 @@ _ZN17QArrayDataPointerIP7QCPBarsE5derefEv.exit.i.i.i46: ; preds = %24
 
 .lr.ph:                                           ; preds = %28, %_ZNK7QCPBars8barBelowEv.exit49
   %33 = phi ptr [ %42, %_ZNK7QCPBars8barBelowEv.exit49 ], [ %31, %28 ]
-  %storemerge4282 = phi ptr [ %spec.select, %_ZNK7QCPBars8barBelowEv.exit49 ], [ %29, %28 ]
+  %storemerge4299 = phi ptr [ %spec.select, %_ZNK7QCPBars8barBelowEv.exit49 ], [ %29, %28 ]
   %34 = getelementptr inbounds i8, ptr %33, i64 4
   %35 = load atomic i32, ptr %34 monotonic, align 4
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %_ZNK7QCPBars8barBelowEv.exit.thread, label %_ZNK7QCPBars8barBelowEv.exit
 
 _ZNK7QCPBars8barBelowEv.exit:                     ; preds = %.lr.ph
-  %37 = getelementptr inbounds i8, ptr %storemerge4282, i64 256
+  %37 = getelementptr inbounds i8, ptr %storemerge4299, i64 256
   %38 = load ptr, ptr %37, align 8
   %.not43 = icmp eq ptr %38, null
   br i1 %.not43, label %_ZNK7QCPBars8barBelowEv.exit.thread, label %_ZNK7QCPBars8barBelowEv.exit49
@@ -120270,7 +120372,7 @@ _ZNK7QCPBars8barBelowEv.exit49:                   ; preds = %_ZNK7QCPBars8barBel
   br i1 %43, label %_ZNK7QCPBars8barBelowEv.exit.thread, label %.lr.ph
 
 _ZNK7QCPBars8barBelowEv.exit.thread:              ; preds = %_ZNK7QCPBars8barBelowEv.exit, %.lr.ph, %_ZNK7QCPBars8barBelowEv.exit49, %28
-  %storemerge42.lcssa = phi ptr [ %29, %28 ], [ %spec.select, %_ZNK7QCPBars8barBelowEv.exit49 ], [ %storemerge4282, %.lr.ph ], [ %storemerge4282, %_ZNK7QCPBars8barBelowEv.exit ]
+  %storemerge42.lcssa = phi ptr [ %29, %28 ], [ %spec.select, %_ZNK7QCPBars8barBelowEv.exit49 ], [ %storemerge4299, %.lr.ph ], [ %storemerge4299, %_ZNK7QCPBars8barBelowEv.exit ]
   %44 = load i64, ptr %17, align 8
   %45 = icmp sgt i64 %44, 0
   br i1 %45, label %46, label %_ZNK23QListSpecialMethodsBaseIPK7QCPBarsE8containsIS2_EEbRKT_.exit.thread
@@ -120296,8 +120398,8 @@ _ZNK23QListSpecialMethodsBaseIPK7QCPBarsE8containsIS2_EEbRKT_.exit: ; preds = %5
   %55 = ptrtoint ptr %51 to i64
   %56 = ptrtoint ptr %47 to i64
   %57 = sub i64 %55, %56
-  %.not78 = icmp eq i64 %57, -8
-  br i1 %.not78, label %_ZNK23QListSpecialMethodsBaseIPK7QCPBarsE8containsIS2_EEbRKT_.exit.thread, label %58
+  %.not90 = icmp eq i64 %57, -8
+  br i1 %.not90, label %_ZNK23QListSpecialMethodsBaseIPK7QCPBarsE8containsIS2_EEbRKT_.exit.thread, label %58
 
 _ZNK23QListSpecialMethodsBaseIPK7QCPBarsE8containsIS2_EEbRKT_.exit.thread: ; preds = %50, %_ZNK7QCPBars8barBelowEv.exit.thread, %_ZNK23QListSpecialMethodsBaseIPK7QCPBarsE8containsIS2_EEbRKT_.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -120310,20 +120412,20 @@ _ZN5QListIPK7QCPBarsE6appendES2_.exit:            ; preds = %_ZNK23QListSpecialM
   br label %58
 
 58:                                               ; preds = %_ZN5QListIPK7QCPBarsE6appendES2_.exit, %_ZNK23QListSpecialMethodsBaseIPK7QCPBarsE8containsIS2_EEbRKT_.exit
-  %59 = getelementptr i8, ptr %.sroa.9.087, i64 8
-  %.not76 = icmp eq ptr %59, %16
-  br i1 %.not76, label %._crit_edge, label %28, !llvm.loop !1012
+  %59 = getelementptr i8, ptr %.sroa.9.0104, i64 8
+  %.not88 = icmp eq ptr %59, %16
+  br i1 %.not88, label %._crit_edge, label %28, !llvm.loop !1012
 
-.lr.ph90:                                         ; preds = %_ZN9QtPrivate17QForeachContainerI5QListIP7QCPBarsEED2Ev.exit, %_ZNK7QCPBars8barBelowEv.exit52
+.lr.ph107:                                        ; preds = %_ZN9QtPrivate17QForeachContainerI5QListIP7QCPBarsEED2Ev.exit, %_ZNK7QCPBars8barBelowEv.exit52
   %60 = phi ptr [ %69, %_ZNK7QCPBars8barBelowEv.exit52 ], [ %22, %_ZN9QtPrivate17QForeachContainerI5QListIP7QCPBarsEED2Ev.exit ]
-  %storemerge89 = phi ptr [ %spec.select119, %_ZNK7QCPBars8barBelowEv.exit52 ], [ %1, %_ZN9QtPrivate17QForeachContainerI5QListIP7QCPBarsEED2Ev.exit ]
+  %storemerge106 = phi ptr [ %spec.select136, %_ZNK7QCPBars8barBelowEv.exit52 ], [ %1, %_ZN9QtPrivate17QForeachContainerI5QListIP7QCPBarsEED2Ev.exit ]
   %61 = getelementptr inbounds i8, ptr %60, i64 4
   %62 = load atomic i32, ptr %61 monotonic, align 4
   %63 = icmp eq i32 %62, 0
   br i1 %63, label %_ZNK7QCPBars8barBelowEv.exit51.thread, label %_ZNK7QCPBars8barBelowEv.exit51
 
-_ZNK7QCPBars8barBelowEv.exit51:                   ; preds = %.lr.ph90
-  %64 = getelementptr inbounds i8, ptr %storemerge89, i64 256
+_ZNK7QCPBars8barBelowEv.exit51:                   ; preds = %.lr.ph107
+  %64 = getelementptr inbounds i8, ptr %storemerge106, i64 256
   %65 = load ptr, ptr %64, align 8
   %.not = icmp eq ptr %65, null
   br i1 %.not, label %_ZNK7QCPBars8barBelowEv.exit51.thread, label %_ZNK7QCPBars8barBelowEv.exit52
@@ -120331,14 +120433,14 @@ _ZNK7QCPBars8barBelowEv.exit51:                   ; preds = %.lr.ph90
 _ZNK7QCPBars8barBelowEv.exit52:                   ; preds = %_ZNK7QCPBars8barBelowEv.exit51
   %66 = load atomic i32, ptr %61 monotonic, align 4
   %67 = icmp eq i32 %66, 0
-  %spec.select119 = select i1 %67, ptr null, ptr %65
-  %68 = getelementptr inbounds i8, ptr %spec.select119, i64 248
+  %spec.select136 = select i1 %67, ptr null, ptr %65
+  %68 = getelementptr inbounds i8, ptr %spec.select136, i64 248
   %69 = load ptr, ptr %68, align 8
   %70 = icmp eq ptr %69, null
-  br i1 %70, label %_ZNK7QCPBars8barBelowEv.exit51.thread, label %.lr.ph90
+  br i1 %70, label %_ZNK7QCPBars8barBelowEv.exit51.thread, label %.lr.ph107
 
-_ZNK7QCPBars8barBelowEv.exit51.thread:            ; preds = %_ZNK7QCPBars8barBelowEv.exit51, %.lr.ph90, %_ZNK7QCPBars8barBelowEv.exit52, %_ZN9QtPrivate17QForeachContainerI5QListIP7QCPBarsEED2Ev.exit
-  %storemerge.lcssa = phi ptr [ %1, %_ZN9QtPrivate17QForeachContainerI5QListIP7QCPBarsEED2Ev.exit ], [ %spec.select119, %_ZNK7QCPBars8barBelowEv.exit52 ], [ %storemerge89, %.lr.ph90 ], [ %storemerge89, %_ZNK7QCPBars8barBelowEv.exit51 ]
+_ZNK7QCPBars8barBelowEv.exit51.thread:            ; preds = %_ZNK7QCPBars8barBelowEv.exit51, %.lr.ph107, %_ZNK7QCPBars8barBelowEv.exit52, %_ZN9QtPrivate17QForeachContainerI5QListIP7QCPBarsEED2Ev.exit
+  %storemerge.lcssa = phi ptr [ %1, %_ZN9QtPrivate17QForeachContainerI5QListIP7QCPBarsEED2Ev.exit ], [ %spec.select136, %_ZNK7QCPBars8barBelowEv.exit52 ], [ %storemerge106, %.lr.ph107 ], [ %storemerge106, %_ZNK7QCPBars8barBelowEv.exit51 ]
   %71 = getelementptr inbounds i8, ptr %5, i64 16
   %72 = load i64, ptr %71, align 8
   %73 = icmp sgt i64 %72, 0
@@ -120373,169 +120475,419 @@ _ZNK23QListSpecialMethodsBaseIPK7QCPBarsE7indexOfIS2_EExRKT_x.exit: ; preds = %8
 
 90:                                               ; preds = %_ZNK23QListSpecialMethodsBaseIPK7QCPBarsE7indexOfIS2_EExRKT_x.exit
   %91 = and i64 %72, 1
-  %.not77 = icmp eq i64 %91, 0
+  %.not89 = icmp eq i64 %91, 0
   %.pre = and i64 %87, 2147483647
-  %.pre107 = add nsw i64 %72, -1
-  br i1 %.not77, label %95, label %92
+  %.pre124 = add nsw i64 %72, -1
+  br i1 %.not89, label %95, label %92
 
 92:                                               ; preds = %90
-  %93 = lshr exact i64 %.pre107, 1
+  %93 = lshr exact i64 %.pre124, 1
   %94 = icmp eq i64 %.pre, %93
-  br i1 %94, label %_ZNK23QListSpecialMethodsBaseIPK7QCPBarsE7indexOfIS2_EExRKT_x.exit.thread, label %107
+  br i1 %94, label %_ZNK23QListSpecialMethodsBaseIPK7QCPBarsE7indexOfIS2_EExRKT_x.exit.thread, label %164
 
 95:                                               ; preds = %90
-  %96 = sdiv i64 %.pre107, 2
-  %.not40111 = icmp sle i64 %.pre, %96
-  %97 = select i1 %.not40111, i32 -1, i32 1
+  %96 = sdiv i64 %.pre124, 2
+  %.not40128 = icmp sle i64 %.pre, %96
+  %97 = select i1 %.not40128, i32 -1, i32 1
   %98 = trunc i64 %72 to i32
   %99 = ashr exact i32 %98, 1
-  %100 = sext i1 %.not40111 to i32
+  %100 = sext i1 %.not40128 to i32
   %101 = add nsw i32 %99, %100
   %102 = sext i32 %101 to i64
   %103 = getelementptr ptr, ptr %76, i64 %102
   %104 = load ptr, ptr %103, align 8
-  %105 = call noundef double @_ZN12QCPBarsGroup15getPixelSpacingEPK7QCPBarsd(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %104, double noundef %2)
-  %106 = call double @llvm.fmuladd.f64(double %105, double 5.000000e-01, double 0.000000e+00)
-  br label %132
+  %105 = getelementptr inbounds i8, ptr %0, i64 24
+  %106 = load i32, ptr %105, align 8
+  switch i32 %106, label %_ZN12QCPBarsGroup15getPixelSpacingEPK7QCPBarsd.exit [
+    i32 0, label %107
+    i32 1, label %_ZNK20QCPAbstractPlottable7keyAxisEv.exit.i
+    i32 2, label %_ZNK20QCPAbstractPlottable7keyAxisEv.exit12.i
+  ]
 
-107:                                              ; preds = %92
-  %108 = lshr exact i64 %.pre107, 1
-  %109 = getelementptr ptr, ptr %76, i64 %108
-  %110 = load ptr, ptr %109, align 8
-  invoke void @_ZNK7QCPBars13getPixelWidthEdRdS0_(ptr noundef nonnull align 8 dereferenceable(280) %110, double noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
-          to label %111 unwind label %.loopexit.split-lp
+107:                                              ; preds = %95
+  %108 = getelementptr inbounds i8, ptr %0, i64 32
+  %109 = load double, ptr %108, align 8
+  br label %_ZN12QCPBarsGroup15getPixelSpacingEPK7QCPBarsd.exit
 
-111:                                              ; preds = %107
-  %.not40.not = icmp ugt i64 %.pre, %108
-  %112 = select i1 %.not40.not, i32 1, i32 -1
-  %113 = trunc i64 %72 to i32
-  %114 = add nsw i32 %113, -1
-  %115 = ashr exact i32 %114, 1
-  %116 = add nsw i32 %112, %115
-  %117 = load double, ptr %7, align 8
-  %118 = load double, ptr %6, align 8
-  %119 = fsub double %117, %118
-  %120 = fcmp ult double %119, 0.000000e+00
-  %121 = fneg double %119
-  %122 = select i1 %120, double %121, double %119
-  %123 = load i64, ptr %71, align 8
-  %124 = add i64 %123, -1
-  %125 = sdiv i64 %124, 2
-  %126 = load ptr, ptr %75, align 8
-  %127 = getelementptr ptr, ptr %126, i64 %125
-  %128 = load ptr, ptr %127, align 8
-  %129 = call noundef double @_ZN12QCPBarsGroup15getPixelSpacingEPK7QCPBarsd(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %128, double noundef %2)
-  %130 = call double @llvm.fmuladd.f64(double %122, double 5.000000e-01, double 0.000000e+00)
-  %131 = fadd double %130, %129
-  br label %132
+_ZNK20QCPAbstractPlottable7keyAxisEv.exit.i:      ; preds = %95
+  %110 = getelementptr inbounds i8, ptr %104, i64 112
+  %111 = load ptr, ptr %110, align 8, !nonnull !115, !noundef !115
+  %112 = getelementptr inbounds i8, ptr %111, i64 4
+  %113 = load atomic i32, ptr %112 monotonic, align 4
+  %114 = icmp ne i32 %113, 0
+  call void @llvm.assume(i1 %114)
+  %115 = getelementptr inbounds i8, ptr %104, i64 120
+  %116 = load ptr, ptr %115, align 8
+  %117 = getelementptr inbounds i8, ptr %116, i64 76
+  %118 = load i32, ptr %117, align 4
+  %119 = icmp eq i32 %118, 1
+  %120 = load atomic i32, ptr %112 monotonic, align 4
+  %121 = icmp ne i32 %120, 0
+  call void @llvm.assume(i1 %121)
+  %122 = getelementptr inbounds i8, ptr %116, i64 64
+  %123 = load ptr, ptr %122, align 8
+  %124 = getelementptr inbounds i8, ptr %0, i64 32
+  %125 = load double, ptr %124, align 8
+  br i1 %119, label %_ZNK20QCPAbstractPlottable7keyAxisEv.exit10.i, label %_ZNK20QCPAbstractPlottable7keyAxisEv.exit11.i
 
-132:                                              ; preds = %111, %95
-  %133 = phi i32 [ %97, %95 ], [ %112, %111 ]
-  %.037 = phi double [ %106, %95 ], [ %131, %111 ]
-  %.035 = phi i32 [ %101, %95 ], [ %116, %111 ]
-  %.not4195 = icmp eq i32 %.035, %88
-  br i1 %.not4195, label %._crit_edge100, label %.lr.ph99
+_ZNK20QCPAbstractPlottable7keyAxisEv.exit10.i:    ; preds = %_ZNK20QCPAbstractPlottable7keyAxisEv.exit.i
+  %126 = getelementptr inbounds i8, ptr %123, i64 92
+  %127 = getelementptr inbounds i8, ptr %123, i64 100
+  %128 = load i32, ptr %127, align 4
+  %129 = load i32, ptr %126, align 4
+  %130 = add i32 %128, 1
+  %131 = sub i32 %130, %129
+  %132 = sitofp i32 %131 to double
+  %133 = fmul double %125, %132
+  br label %_ZN12QCPBarsGroup15getPixelSpacingEPK7QCPBarsd.exit
 
-.lr.ph99:                                         ; preds = %132, %138
-  %.097 = phi i32 [ %151, %138 ], [ %.035, %132 ]
-  %.196 = phi double [ %150, %138 ], [ %.037, %132 ]
-  %134 = sext i32 %.097 to i64
-  %135 = load ptr, ptr %75, align 8
-  %136 = getelementptr ptr, ptr %135, i64 %134
-  %137 = load ptr, ptr %136, align 8
-  invoke void @_ZNK7QCPBars13getPixelWidthEdRdS0_(ptr noundef nonnull align 8 dereferenceable(280) %137, double noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
-          to label %138 unwind label %.loopexit
+_ZNK20QCPAbstractPlottable7keyAxisEv.exit11.i:    ; preds = %_ZNK20QCPAbstractPlottable7keyAxisEv.exit.i
+  %134 = getelementptr inbounds i8, ptr %123, i64 104
+  %135 = load i32, ptr %134, align 4
+  %136 = getelementptr inbounds i8, ptr %123, i64 96
+  %137 = load i32, ptr %136, align 4
+  %138 = add i32 %135, 1
+  %139 = sub i32 %138, %137
+  %140 = sitofp i32 %139 to double
+  %141 = fmul double %125, %140
+  br label %_ZN12QCPBarsGroup15getPixelSpacingEPK7QCPBarsd.exit
 
-138:                                              ; preds = %.lr.ph99
-  %139 = load double, ptr %7, align 8
-  %140 = load double, ptr %6, align 8
-  %141 = fsub double %139, %140
-  %142 = fcmp ult double %141, 0.000000e+00
-  %143 = fneg double %141
-  %144 = select i1 %142, double %143, double %141
-  %145 = load ptr, ptr %75, align 8
-  %146 = getelementptr ptr, ptr %145, i64 %134
-  %147 = load ptr, ptr %146, align 8
-  %148 = call noundef double @_ZN12QCPBarsGroup15getPixelSpacingEPK7QCPBarsd(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %147, double noundef %2)
-  %149 = fadd double %.196, %144
-  %150 = fadd double %148, %149
-  %151 = add i32 %.097, %133
-  %.not41 = icmp eq i32 %151, %88
-  br i1 %.not41, label %._crit_edge100, label %.lr.ph99, !llvm.loop !1013
+_ZNK20QCPAbstractPlottable7keyAxisEv.exit12.i:    ; preds = %95
+  %142 = getelementptr inbounds i8, ptr %104, i64 112
+  %143 = load ptr, ptr %142, align 8, !nonnull !115, !noundef !115
+  %144 = getelementptr inbounds i8, ptr %143, i64 4
+  %145 = load atomic i32, ptr %144 monotonic, align 4
+  %146 = icmp ne i32 %145, 0
+  call void @llvm.assume(i1 %146)
+  %147 = getelementptr inbounds i8, ptr %104, i64 120
+  %148 = load ptr, ptr %147, align 8
+  %149 = call noundef double @_ZNK7QCPAxis12coordToPixelEd(ptr noundef nonnull align 8 dereferenceable(472) %148, double noundef %2)
+  %150 = load ptr, ptr %142, align 8, !nonnull !115, !noundef !115
+  %151 = getelementptr inbounds i8, ptr %150, i64 4
+  %152 = load atomic i32, ptr %151 monotonic, align 4
+  %153 = icmp ne i32 %152, 0
+  call void @llvm.assume(i1 %153)
+  %154 = load ptr, ptr %147, align 8
+  %155 = getelementptr inbounds i8, ptr %0, i64 32
+  %156 = load double, ptr %155, align 8
+  %157 = fadd double %156, %2
+  %158 = call noundef double @_ZNK7QCPAxis12coordToPixelEd(ptr noundef nonnull align 8 dereferenceable(472) %154, double noundef %157)
+  %159 = fsub double %158, %149
+  %160 = fcmp ult double %159, 0.000000e+00
+  %161 = fneg double %159
+  %162 = select i1 %160, double %161, double %159
+  br label %_ZN12QCPBarsGroup15getPixelSpacingEPK7QCPBarsd.exit
 
-._crit_edge100:                                   ; preds = %138, %132
-  %.1.lcssa = phi double [ %.037, %132 ], [ %150, %138 ]
-  %152 = load ptr, ptr %75, align 8
-  %153 = getelementptr ptr, ptr %152, i64 %.pre
-  %154 = load ptr, ptr %153, align 8
-  invoke void @_ZNK7QCPBars13getPixelWidthEdRdS0_(ptr noundef nonnull align 8 dereferenceable(280) %154, double noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
+_ZN12QCPBarsGroup15getPixelSpacingEPK7QCPBarsd.exit: ; preds = %_ZNK20QCPAbstractPlottable7keyAxisEv.exit12.i, %_ZNK20QCPAbstractPlottable7keyAxisEv.exit11.i, %_ZNK20QCPAbstractPlottable7keyAxisEv.exit10.i, %107, %95
+  %.0.i = phi double [ %162, %_ZNK20QCPAbstractPlottable7keyAxisEv.exit12.i ], [ %133, %_ZNK20QCPAbstractPlottable7keyAxisEv.exit10.i ], [ %141, %_ZNK20QCPAbstractPlottable7keyAxisEv.exit11.i ], [ %109, %107 ], [ 0.000000e+00, %95 ]
+  %163 = call double @llvm.fmuladd.f64(double %.0.i, double 5.000000e-01, double 0.000000e+00)
+  br label %246
+
+164:                                              ; preds = %92
+  %165 = lshr exact i64 %.pre124, 1
+  %.not40.not = icmp ugt i64 %.pre, %165
+  %166 = select i1 %.not40.not, i32 1, i32 -1
+  %167 = trunc i64 %72 to i32
+  %168 = add nsw i32 %167, -1
+  %169 = ashr exact i32 %168, 1
+  %170 = add nsw i32 %166, %169
+  %171 = getelementptr ptr, ptr %76, i64 %165
+  %172 = load ptr, ptr %171, align 8
+  invoke void @_ZNK7QCPBars13getPixelWidthEdRdS0_(ptr noundef nonnull align 8 dereferenceable(280) %172, double noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
+          to label %173 unwind label %.loopexit.split-lp
+
+173:                                              ; preds = %164
+  %174 = load double, ptr %7, align 8
+  %175 = load double, ptr %6, align 8
+  %176 = fsub double %174, %175
+  %177 = fcmp ult double %176, 0.000000e+00
+  %178 = fneg double %176
+  %179 = select i1 %177, double %178, double %176
+  %180 = load i64, ptr %71, align 8
+  %181 = add i64 %180, -1
+  %182 = sdiv i64 %181, 2
+  %183 = load ptr, ptr %75, align 8
+  %184 = getelementptr ptr, ptr %183, i64 %182
+  %185 = load ptr, ptr %184, align 8
+  %186 = getelementptr inbounds i8, ptr %0, i64 24
+  %187 = load i32, ptr %186, align 8
+  switch i32 %187, label %_ZN12QCPBarsGroup15getPixelSpacingEPK7QCPBarsd.exit58 [
+    i32 0, label %188
+    i32 1, label %_ZNK20QCPAbstractPlottable7keyAxisEv.exit.i55
+    i32 2, label %_ZNK20QCPAbstractPlottable7keyAxisEv.exit12.i53
+  ]
+
+188:                                              ; preds = %173
+  %189 = getelementptr inbounds i8, ptr %0, i64 32
+  %190 = load double, ptr %189, align 8
+  br label %_ZN12QCPBarsGroup15getPixelSpacingEPK7QCPBarsd.exit58
+
+_ZNK20QCPAbstractPlottable7keyAxisEv.exit.i55:    ; preds = %173
+  %191 = getelementptr inbounds i8, ptr %185, i64 112
+  %192 = load ptr, ptr %191, align 8, !nonnull !115, !noundef !115
+  %193 = getelementptr inbounds i8, ptr %192, i64 4
+  %194 = load atomic i32, ptr %193 monotonic, align 4
+  %195 = icmp ne i32 %194, 0
+  call void @llvm.assume(i1 %195)
+  %196 = getelementptr inbounds i8, ptr %185, i64 120
+  %197 = load ptr, ptr %196, align 8
+  %198 = getelementptr inbounds i8, ptr %197, i64 76
+  %199 = load i32, ptr %198, align 4
+  %200 = icmp eq i32 %199, 1
+  %201 = load atomic i32, ptr %193 monotonic, align 4
+  %202 = icmp ne i32 %201, 0
+  call void @llvm.assume(i1 %202)
+  %203 = getelementptr inbounds i8, ptr %197, i64 64
+  %204 = load ptr, ptr %203, align 8
+  %205 = getelementptr inbounds i8, ptr %0, i64 32
+  %206 = load double, ptr %205, align 8
+  br i1 %200, label %_ZNK20QCPAbstractPlottable7keyAxisEv.exit10.i57, label %_ZNK20QCPAbstractPlottable7keyAxisEv.exit11.i56
+
+_ZNK20QCPAbstractPlottable7keyAxisEv.exit10.i57:  ; preds = %_ZNK20QCPAbstractPlottable7keyAxisEv.exit.i55
+  %207 = getelementptr inbounds i8, ptr %204, i64 92
+  %208 = getelementptr inbounds i8, ptr %204, i64 100
+  %209 = load i32, ptr %208, align 4
+  %210 = load i32, ptr %207, align 4
+  %211 = add i32 %209, 1
+  %212 = sub i32 %211, %210
+  %213 = sitofp i32 %212 to double
+  %214 = fmul double %206, %213
+  br label %_ZN12QCPBarsGroup15getPixelSpacingEPK7QCPBarsd.exit58
+
+_ZNK20QCPAbstractPlottable7keyAxisEv.exit11.i56:  ; preds = %_ZNK20QCPAbstractPlottable7keyAxisEv.exit.i55
+  %215 = getelementptr inbounds i8, ptr %204, i64 104
+  %216 = load i32, ptr %215, align 4
+  %217 = getelementptr inbounds i8, ptr %204, i64 96
+  %218 = load i32, ptr %217, align 4
+  %219 = add i32 %216, 1
+  %220 = sub i32 %219, %218
+  %221 = sitofp i32 %220 to double
+  %222 = fmul double %206, %221
+  br label %_ZN12QCPBarsGroup15getPixelSpacingEPK7QCPBarsd.exit58
+
+_ZNK20QCPAbstractPlottable7keyAxisEv.exit12.i53:  ; preds = %173
+  %223 = getelementptr inbounds i8, ptr %185, i64 112
+  %224 = load ptr, ptr %223, align 8, !nonnull !115, !noundef !115
+  %225 = getelementptr inbounds i8, ptr %224, i64 4
+  %226 = load atomic i32, ptr %225 monotonic, align 4
+  %227 = icmp ne i32 %226, 0
+  call void @llvm.assume(i1 %227)
+  %228 = getelementptr inbounds i8, ptr %185, i64 120
+  %229 = load ptr, ptr %228, align 8
+  %230 = call noundef double @_ZNK7QCPAxis12coordToPixelEd(ptr noundef nonnull align 8 dereferenceable(472) %229, double noundef %2)
+  %231 = load ptr, ptr %223, align 8, !nonnull !115, !noundef !115
+  %232 = getelementptr inbounds i8, ptr %231, i64 4
+  %233 = load atomic i32, ptr %232 monotonic, align 4
+  %234 = icmp ne i32 %233, 0
+  call void @llvm.assume(i1 %234)
+  %235 = load ptr, ptr %228, align 8
+  %236 = getelementptr inbounds i8, ptr %0, i64 32
+  %237 = load double, ptr %236, align 8
+  %238 = fadd double %237, %2
+  %239 = call noundef double @_ZNK7QCPAxis12coordToPixelEd(ptr noundef nonnull align 8 dereferenceable(472) %235, double noundef %238)
+  %240 = fsub double %239, %230
+  %241 = fcmp ult double %240, 0.000000e+00
+  %242 = fneg double %240
+  %243 = select i1 %241, double %242, double %240
+  br label %_ZN12QCPBarsGroup15getPixelSpacingEPK7QCPBarsd.exit58
+
+_ZN12QCPBarsGroup15getPixelSpacingEPK7QCPBarsd.exit58: ; preds = %_ZNK20QCPAbstractPlottable7keyAxisEv.exit12.i53, %_ZNK20QCPAbstractPlottable7keyAxisEv.exit11.i56, %_ZNK20QCPAbstractPlottable7keyAxisEv.exit10.i57, %188, %173
+  %.0.i54 = phi double [ %243, %_ZNK20QCPAbstractPlottable7keyAxisEv.exit12.i53 ], [ %214, %_ZNK20QCPAbstractPlottable7keyAxisEv.exit10.i57 ], [ %222, %_ZNK20QCPAbstractPlottable7keyAxisEv.exit11.i56 ], [ %190, %188 ], [ 0.000000e+00, %173 ]
+  %244 = call double @llvm.fmuladd.f64(double %179, double 5.000000e-01, double 0.000000e+00)
+  %245 = fadd double %244, %.0.i54
+  br label %246
+
+246:                                              ; preds = %_ZN12QCPBarsGroup15getPixelSpacingEPK7QCPBarsd.exit58, %_ZN12QCPBarsGroup15getPixelSpacingEPK7QCPBarsd.exit
+  %247 = phi i32 [ %97, %_ZN12QCPBarsGroup15getPixelSpacingEPK7QCPBarsd.exit ], [ %166, %_ZN12QCPBarsGroup15getPixelSpacingEPK7QCPBarsd.exit58 ]
+  %.037 = phi double [ %163, %_ZN12QCPBarsGroup15getPixelSpacingEPK7QCPBarsd.exit ], [ %245, %_ZN12QCPBarsGroup15getPixelSpacingEPK7QCPBarsd.exit58 ]
+  %.035 = phi i32 [ %101, %_ZN12QCPBarsGroup15getPixelSpacingEPK7QCPBarsd.exit ], [ %170, %_ZN12QCPBarsGroup15getPixelSpacingEPK7QCPBarsd.exit58 ]
+  %.not41112 = icmp eq i32 %.035, %88
+  br i1 %.not41112, label %._crit_edge117, label %.lr.ph116
+
+.lr.ph116:                                        ; preds = %246
+  %248 = getelementptr inbounds i8, ptr %0, i64 24
+  %249 = getelementptr inbounds i8, ptr %0, i64 32
+  br label %250
+
+250:                                              ; preds = %.lr.ph116, %_ZN12QCPBarsGroup15getPixelSpacingEPK7QCPBarsd.exit64
+  %.0114 = phi i32 [ %.035, %.lr.ph116 ], [ %321, %_ZN12QCPBarsGroup15getPixelSpacingEPK7QCPBarsd.exit64 ]
+  %.1113 = phi double [ %.037, %.lr.ph116 ], [ %320, %_ZN12QCPBarsGroup15getPixelSpacingEPK7QCPBarsd.exit64 ]
+  %251 = sext i32 %.0114 to i64
+  %252 = load ptr, ptr %75, align 8
+  %253 = getelementptr ptr, ptr %252, i64 %251
+  %254 = load ptr, ptr %253, align 8
+  invoke void @_ZNK7QCPBars13getPixelWidthEdRdS0_(ptr noundef nonnull align 8 dereferenceable(280) %254, double noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
+          to label %255 unwind label %.loopexit
+
+255:                                              ; preds = %250
+  %256 = load double, ptr %7, align 8
+  %257 = load double, ptr %6, align 8
+  %258 = fsub double %256, %257
+  %259 = fcmp ult double %258, 0.000000e+00
+  %260 = fneg double %258
+  %261 = select i1 %259, double %260, double %258
+  %262 = load ptr, ptr %75, align 8
+  %263 = getelementptr ptr, ptr %262, i64 %251
+  %264 = load ptr, ptr %263, align 8
+  %265 = load i32, ptr %248, align 8
+  switch i32 %265, label %_ZN12QCPBarsGroup15getPixelSpacingEPK7QCPBarsd.exit64 [
+    i32 0, label %266
+    i32 1, label %_ZNK20QCPAbstractPlottable7keyAxisEv.exit.i61
+    i32 2, label %_ZNK20QCPAbstractPlottable7keyAxisEv.exit12.i59
+  ]
+
+266:                                              ; preds = %255
+  %267 = load double, ptr %249, align 8
+  br label %_ZN12QCPBarsGroup15getPixelSpacingEPK7QCPBarsd.exit64
+
+_ZNK20QCPAbstractPlottable7keyAxisEv.exit.i61:    ; preds = %255
+  %268 = getelementptr inbounds i8, ptr %264, i64 112
+  %269 = load ptr, ptr %268, align 8, !nonnull !115, !noundef !115
+  %270 = getelementptr inbounds i8, ptr %269, i64 4
+  %271 = load atomic i32, ptr %270 monotonic, align 4
+  %272 = icmp ne i32 %271, 0
+  call void @llvm.assume(i1 %272)
+  %273 = getelementptr inbounds i8, ptr %264, i64 120
+  %274 = load ptr, ptr %273, align 8
+  %275 = getelementptr inbounds i8, ptr %274, i64 76
+  %276 = load i32, ptr %275, align 4
+  %277 = icmp eq i32 %276, 1
+  %278 = load atomic i32, ptr %270 monotonic, align 4
+  %279 = icmp ne i32 %278, 0
+  call void @llvm.assume(i1 %279)
+  %280 = getelementptr inbounds i8, ptr %274, i64 64
+  %281 = load ptr, ptr %280, align 8
+  %282 = load double, ptr %249, align 8
+  br i1 %277, label %_ZNK20QCPAbstractPlottable7keyAxisEv.exit10.i63, label %_ZNK20QCPAbstractPlottable7keyAxisEv.exit11.i62
+
+_ZNK20QCPAbstractPlottable7keyAxisEv.exit10.i63:  ; preds = %_ZNK20QCPAbstractPlottable7keyAxisEv.exit.i61
+  %283 = getelementptr inbounds i8, ptr %281, i64 92
+  %284 = getelementptr inbounds i8, ptr %281, i64 100
+  %285 = load i32, ptr %284, align 4
+  %286 = load i32, ptr %283, align 4
+  %287 = add i32 %285, 1
+  %288 = sub i32 %287, %286
+  %289 = sitofp i32 %288 to double
+  %290 = fmul double %282, %289
+  br label %_ZN12QCPBarsGroup15getPixelSpacingEPK7QCPBarsd.exit64
+
+_ZNK20QCPAbstractPlottable7keyAxisEv.exit11.i62:  ; preds = %_ZNK20QCPAbstractPlottable7keyAxisEv.exit.i61
+  %291 = getelementptr inbounds i8, ptr %281, i64 104
+  %292 = load i32, ptr %291, align 4
+  %293 = getelementptr inbounds i8, ptr %281, i64 96
+  %294 = load i32, ptr %293, align 4
+  %295 = add i32 %292, 1
+  %296 = sub i32 %295, %294
+  %297 = sitofp i32 %296 to double
+  %298 = fmul double %282, %297
+  br label %_ZN12QCPBarsGroup15getPixelSpacingEPK7QCPBarsd.exit64
+
+_ZNK20QCPAbstractPlottable7keyAxisEv.exit12.i59:  ; preds = %255
+  %299 = getelementptr inbounds i8, ptr %264, i64 112
+  %300 = load ptr, ptr %299, align 8, !nonnull !115, !noundef !115
+  %301 = getelementptr inbounds i8, ptr %300, i64 4
+  %302 = load atomic i32, ptr %301 monotonic, align 4
+  %303 = icmp ne i32 %302, 0
+  call void @llvm.assume(i1 %303)
+  %304 = getelementptr inbounds i8, ptr %264, i64 120
+  %305 = load ptr, ptr %304, align 8
+  %306 = call noundef double @_ZNK7QCPAxis12coordToPixelEd(ptr noundef nonnull align 8 dereferenceable(472) %305, double noundef %2)
+  %307 = load ptr, ptr %299, align 8, !nonnull !115, !noundef !115
+  %308 = getelementptr inbounds i8, ptr %307, i64 4
+  %309 = load atomic i32, ptr %308 monotonic, align 4
+  %310 = icmp ne i32 %309, 0
+  call void @llvm.assume(i1 %310)
+  %311 = load ptr, ptr %304, align 8
+  %312 = load double, ptr %249, align 8
+  %313 = fadd double %312, %2
+  %314 = call noundef double @_ZNK7QCPAxis12coordToPixelEd(ptr noundef nonnull align 8 dereferenceable(472) %311, double noundef %313)
+  %315 = fsub double %314, %306
+  %316 = fcmp ult double %315, 0.000000e+00
+  %317 = fneg double %315
+  %318 = select i1 %316, double %317, double %315
+  br label %_ZN12QCPBarsGroup15getPixelSpacingEPK7QCPBarsd.exit64
+
+_ZN12QCPBarsGroup15getPixelSpacingEPK7QCPBarsd.exit64: ; preds = %_ZNK20QCPAbstractPlottable7keyAxisEv.exit12.i59, %_ZNK20QCPAbstractPlottable7keyAxisEv.exit11.i62, %_ZNK20QCPAbstractPlottable7keyAxisEv.exit10.i63, %266, %255
+  %.0.i60 = phi double [ %318, %_ZNK20QCPAbstractPlottable7keyAxisEv.exit12.i59 ], [ %290, %_ZNK20QCPAbstractPlottable7keyAxisEv.exit10.i63 ], [ %298, %_ZNK20QCPAbstractPlottable7keyAxisEv.exit11.i62 ], [ %267, %266 ], [ 0.000000e+00, %255 ]
+  %319 = fadd double %.1113, %261
+  %320 = fadd double %319, %.0.i60
+  %321 = add i32 %.0114, %247
+  %.not41 = icmp eq i32 %321, %88
+  br i1 %.not41, label %._crit_edge117, label %250, !llvm.loop !1013
+
+._crit_edge117:                                   ; preds = %_ZN12QCPBarsGroup15getPixelSpacingEPK7QCPBarsd.exit64, %246
+  %.1.lcssa = phi double [ %.037, %246 ], [ %320, %_ZN12QCPBarsGroup15getPixelSpacingEPK7QCPBarsd.exit64 ]
+  %322 = load ptr, ptr %75, align 8
+  %323 = getelementptr ptr, ptr %322, i64 %.pre
+  %324 = load ptr, ptr %323, align 8
+  invoke void @_ZNK7QCPBars13getPixelWidthEdRdS0_(ptr noundef nonnull align 8 dereferenceable(280) %324, double noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %_ZNK20QCPAbstractPlottable7keyAxisEv.exit unwind label %.loopexit.split-lp
 
-_ZNK20QCPAbstractPlottable7keyAxisEv.exit:        ; preds = %._crit_edge100
-  %155 = load double, ptr %7, align 8
-  %156 = load double, ptr %6, align 8
-  %157 = fsub double %155, %156
-  %158 = fcmp ult double %157, 0.000000e+00
-  %159 = fneg double %157
-  %160 = select i1 %158, double %159, double %157
-  %161 = getelementptr inbounds i8, ptr %storemerge.lcssa, i64 112
-  %162 = load ptr, ptr %161, align 8, !nonnull !115, !noundef !115
-  %163 = getelementptr inbounds i8, ptr %162, i64 4
-  %164 = load atomic i32, ptr %163 monotonic, align 4
-  %165 = icmp ne i32 %164, 0
-  call void @llvm.assume(i1 %165)
-  %166 = getelementptr inbounds i8, ptr %storemerge.lcssa, i64 120
-  %167 = load ptr, ptr %166, align 8
-  %168 = call double @llvm.fmuladd.f64(double %160, double 5.000000e-01, double %.1.lcssa)
-  %169 = getelementptr inbounds i8, ptr %167, i64 320
-  %170 = load i8, ptr %169, align 8
-  %171 = trunc i8 %170 to i1
-  %172 = getelementptr inbounds i8, ptr %167, i64 76
-  %173 = load i32, ptr %172, align 4
-  %174 = icmp ne i32 %173, 2
-  %.not.i = xor i1 %174, %171
-  %175 = sub nsw i32 0, %133
-  %176 = select i1 %.not.i, i32 %133, i32 %175
-  %177 = sitofp i32 %176 to double
-  %178 = fmul double %168, %177
+_ZNK20QCPAbstractPlottable7keyAxisEv.exit:        ; preds = %._crit_edge117
+  %325 = load double, ptr %7, align 8
+  %326 = load double, ptr %6, align 8
+  %327 = fsub double %325, %326
+  %328 = fcmp ult double %327, 0.000000e+00
+  %329 = fneg double %327
+  %330 = select i1 %328, double %329, double %327
+  %331 = getelementptr inbounds i8, ptr %storemerge.lcssa, i64 112
+  %332 = load ptr, ptr %331, align 8, !nonnull !115, !noundef !115
+  %333 = getelementptr inbounds i8, ptr %332, i64 4
+  %334 = load atomic i32, ptr %333 monotonic, align 4
+  %335 = icmp ne i32 %334, 0
+  call void @llvm.assume(i1 %335)
+  %336 = getelementptr inbounds i8, ptr %storemerge.lcssa, i64 120
+  %337 = load ptr, ptr %336, align 8
+  %338 = call double @llvm.fmuladd.f64(double %330, double 5.000000e-01, double %.1.lcssa)
+  %339 = getelementptr inbounds i8, ptr %337, i64 320
+  %340 = load i8, ptr %339, align 8
+  %341 = trunc i8 %340 to i1
+  %342 = getelementptr inbounds i8, ptr %337, i64 76
+  %343 = load i32, ptr %342, align 4
+  %344 = icmp ne i32 %343, 2
+  %.not.i = xor i1 %344, %341
+  %345 = sub nsw i32 0, %247
+  %346 = select i1 %.not.i, i32 %247, i32 %345
+  %347 = sitofp i32 %346 to double
+  %348 = fmul double %338, %347
   br label %_ZNK23QListSpecialMethodsBaseIPK7QCPBarsE7indexOfIS2_EExRKT_x.exit.thread
 
 _ZNK23QListSpecialMethodsBaseIPK7QCPBarsE7indexOfIS2_EExRKT_x.exit.thread: ; preds = %79, %_ZNK7QCPBars8barBelowEv.exit51.thread, %_ZNK23QListSpecialMethodsBaseIPK7QCPBarsE7indexOfIS2_EExRKT_x.exit, %_ZNK20QCPAbstractPlottable7keyAxisEv.exit, %92
-  %.034 = phi double [ 0.000000e+00, %92 ], [ %178, %_ZNK20QCPAbstractPlottable7keyAxisEv.exit ], [ 0.000000e+00, %_ZNK23QListSpecialMethodsBaseIPK7QCPBarsE7indexOfIS2_EExRKT_x.exit ], [ 0.000000e+00, %_ZNK7QCPBars8barBelowEv.exit51.thread ], [ 0.000000e+00, %79 ]
-  %179 = load ptr, ptr %5, align 8
-  %.not.i.i.i53 = icmp eq ptr %179, null
-  br i1 %.not.i.i.i53, label %_ZN5QListIPK7QCPBarsED2Ev.exit, label %_ZN17QArrayDataPointerIPK7QCPBarsE5derefEv.exit.i.i
+  %.034 = phi double [ 0.000000e+00, %92 ], [ %348, %_ZNK20QCPAbstractPlottable7keyAxisEv.exit ], [ 0.000000e+00, %_ZNK23QListSpecialMethodsBaseIPK7QCPBarsE7indexOfIS2_EExRKT_x.exit ], [ 0.000000e+00, %_ZNK7QCPBars8barBelowEv.exit51.thread ], [ 0.000000e+00, %79 ]
+  %349 = load ptr, ptr %5, align 8
+  %.not.i.i.i65 = icmp eq ptr %349, null
+  br i1 %.not.i.i.i65, label %_ZN5QListIPK7QCPBarsED2Ev.exit, label %_ZN17QArrayDataPointerIPK7QCPBarsE5derefEv.exit.i.i
 
 _ZN17QArrayDataPointerIPK7QCPBarsE5derefEv.exit.i.i: ; preds = %_ZNK23QListSpecialMethodsBaseIPK7QCPBarsE7indexOfIS2_EExRKT_x.exit.thread
-  %180 = atomicrmw sub ptr %179, i32 1 seq_cst, align 4
-  %.not.i.i54 = icmp eq i32 %180, 1
-  br i1 %.not.i.i54, label %181, label %_ZN5QListIPK7QCPBarsED2Ev.exit
+  %350 = atomicrmw sub ptr %349, i32 1 seq_cst, align 4
+  %.not.i.i66 = icmp eq i32 %350, 1
+  br i1 %.not.i.i66, label %351, label %_ZN5QListIPK7QCPBarsED2Ev.exit
 
-181:                                              ; preds = %_ZN17QArrayDataPointerIPK7QCPBarsE5derefEv.exit.i.i
-  %182 = load ptr, ptr %5, align 8
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %182, i64 noundef 8, i64 noundef 8) #47
+351:                                              ; preds = %_ZN17QArrayDataPointerIPK7QCPBarsE5derefEv.exit.i.i
+  %352 = load ptr, ptr %5, align 8
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %352, i64 noundef 8, i64 noundef 8) #47
   br label %_ZN5QListIPK7QCPBarsED2Ev.exit
 
-_ZN5QListIPK7QCPBarsED2Ev.exit:                   ; preds = %_ZNK23QListSpecialMethodsBaseIPK7QCPBarsE7indexOfIS2_EExRKT_x.exit.thread, %_ZN17QArrayDataPointerIPK7QCPBarsE5derefEv.exit.i.i, %181
+_ZN5QListIPK7QCPBarsED2Ev.exit:                   ; preds = %_ZNK23QListSpecialMethodsBaseIPK7QCPBarsE7indexOfIS2_EExRKT_x.exit.thread, %_ZN17QArrayDataPointerIPK7QCPBarsE5derefEv.exit.i.i, %351
   ret double %.034
 
 _ZN9QtPrivate17QForeachContainerI5QListIP7QCPBarsEED2Ev.exit48: ; preds = %.loopexit, %.loopexit.split-lp, %27, %_ZN17QArrayDataPointerIP7QCPBarsE5derefEv.exit.i.i.i46, %24
   %.pn = phi { ptr, i32 } [ %25, %24 ], [ %25, %_ZN17QArrayDataPointerIP7QCPBarsE5derefEv.exit.i.i.i46 ], [ %25, %27 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %183 = load ptr, ptr %5, align 8
-  %.not.i.i.i55 = icmp eq ptr %183, null
-  br i1 %.not.i.i.i55, label %_ZN5QListIPK7QCPBarsED2Ev.exit58, label %_ZN17QArrayDataPointerIPK7QCPBarsE5derefEv.exit.i.i56
+  %353 = load ptr, ptr %5, align 8
+  %.not.i.i.i67 = icmp eq ptr %353, null
+  br i1 %.not.i.i.i67, label %_ZN5QListIPK7QCPBarsED2Ev.exit70, label %_ZN17QArrayDataPointerIPK7QCPBarsE5derefEv.exit.i.i68
 
-_ZN17QArrayDataPointerIPK7QCPBarsE5derefEv.exit.i.i56: ; preds = %_ZN9QtPrivate17QForeachContainerI5QListIP7QCPBarsEED2Ev.exit48
-  %184 = atomicrmw sub ptr %183, i32 1 seq_cst, align 4
-  %.not.i.i57 = icmp eq i32 %184, 1
-  br i1 %.not.i.i57, label %185, label %_ZN5QListIPK7QCPBarsED2Ev.exit58
+_ZN17QArrayDataPointerIPK7QCPBarsE5derefEv.exit.i.i68: ; preds = %_ZN9QtPrivate17QForeachContainerI5QListIP7QCPBarsEED2Ev.exit48
+  %354 = atomicrmw sub ptr %353, i32 1 seq_cst, align 4
+  %.not.i.i69 = icmp eq i32 %354, 1
+  br i1 %.not.i.i69, label %355, label %_ZN5QListIPK7QCPBarsED2Ev.exit70
 
-185:                                              ; preds = %_ZN17QArrayDataPointerIPK7QCPBarsE5derefEv.exit.i.i56
-  %186 = load ptr, ptr %5, align 8
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %186, i64 noundef 8, i64 noundef 8) #47
-  br label %_ZN5QListIPK7QCPBarsED2Ev.exit58
+355:                                              ; preds = %_ZN17QArrayDataPointerIPK7QCPBarsE5derefEv.exit.i.i68
+  %356 = load ptr, ptr %5, align 8
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %356, i64 noundef 8, i64 noundef 8) #47
+  br label %_ZN5QListIPK7QCPBarsED2Ev.exit70
 
-_ZN5QListIPK7QCPBarsED2Ev.exit58:                 ; preds = %_ZN9QtPrivate17QForeachContainerI5QListIP7QCPBarsEED2Ev.exit48, %_ZN17QArrayDataPointerIPK7QCPBarsE5derefEv.exit.i.i56, %185
+_ZN5QListIPK7QCPBarsED2Ev.exit70:                 ; preds = %_ZN9QtPrivate17QForeachContainerI5QListIP7QCPBarsEED2Ev.exit48, %_ZN17QArrayDataPointerIPK7QCPBarsE5derefEv.exit.i.i68, %355
   resume { ptr, i32 } %.pn
 }
 

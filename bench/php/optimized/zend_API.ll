@@ -850,7 +850,7 @@ define void @zend_wrong_parameters_count_error(i32 noundef %0, i32 noundef %1) l
 ; Function Attrs: nounwind uwtable
 define void @zend_wrong_parameter_error(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #1 {
   %6 = alloca ptr, align 8
-  switch i32 %0, label %207 [
+  switch i32 %0, label %243 [
     i32 2, label %7
     i32 12, label %10
     i32 3, label %13
@@ -860,8 +860,8 @@ define void @zend_wrong_parameter_error(i32 noundef %0, i32 noundef %1, ptr noun
     i32 7, label %137
     i32 8, label %168
     i32 9, label %199
-    i32 11, label %200
-    i32 1, label %204
+    i32 11, label %236
+    i32 1, label %240
   ]
 
 7:                                                ; preds = %5
@@ -1467,28 +1467,134 @@ zend_zval_value_name.exit.i57:                    ; preds = %zend_get_type_by_co
   br label %zend_wrong_parameter_class_error.exit
 
 199:                                              ; preds = %5
-  tail call void @zend_wrong_parameter_type_error(i32 noundef %1, i32 noundef %3, ptr noundef %4)
+  %200 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %.not.i62 = icmp eq ptr %200, null
+  br i1 %.not.i62, label %201, label %zend_wrong_parameter_class_error.exit
+
+201:                                              ; preds = %199
+  %202 = and i32 %3, -2
+  %or.cond.i = icmp eq i32 %202, 16
+  %203 = getelementptr inbounds i8, ptr %4, i64 8
+  %204 = load i8, ptr %203, align 8
+  %205 = icmp eq i8 %204, 6
+  %or.cond8.i = select i1 %or.cond.i, i1 %205, i1 false
+  br i1 %or.cond8.i, label %206, label %._crit_edge.i
+
+206:                                              ; preds = %201
+  tail call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef %1, ptr noundef nonnull @.str.57)
   br label %zend_wrong_parameter_class_error.exit
 
-200:                                              ; preds = %5
+._crit_edge.i:                                    ; preds = %201
+  %207 = zext i32 %3 to i64
+  %208 = getelementptr inbounds [35 x ptr], ptr @zend_wrong_parameter_type_error.expected_error, i64 0, i64 %207
+  %209 = load ptr, ptr %208, align 8
+  %210 = icmp eq i8 %204, 10
+  br i1 %210, label %211, label %214
+
+211:                                              ; preds = %._crit_edge.i
+  %212 = load ptr, ptr %4, align 8
+  %213 = getelementptr inbounds i8, ptr %212, i64 8
+  %.phi.trans.insert.i.i67 = getelementptr inbounds i8, ptr %212, i64 16
+  %.pre.i.i68 = load i8, ptr %.phi.trans.insert.i.i67, align 8
+  br label %214
+
+214:                                              ; preds = %211, %._crit_edge.i
+  %215 = phi i8 [ %.pre.i.i68, %211 ], [ %204, %._crit_edge.i ]
+  %.0.i.i63 = phi ptr [ %213, %211 ], [ %4, %._crit_edge.i ]
+  switch i8 %215, label %235 [
+    i8 0, label %zend_zval_value_name.exit.i64
+    i8 8, label %216
+    i8 2, label %223
+    i8 3, label %224
+    i8 14, label %232
+    i8 16, label %233
+    i8 18, label %zend_get_type_by_const.exit.fold.split.i.i66
+    i8 4, label %225
+    i8 5, label %226
+    i8 6, label %227
+    i8 19, label %234
+    i8 9, label %228
+    i8 1, label %zend_zval_value_name.exit.i64
+    i8 12, label %229
+    i8 13, label %230
+    i8 7, label %231
+  ]
+
+216:                                              ; preds = %214
+  %217 = load ptr, ptr %.0.i.i63, align 8
+  %218 = getelementptr inbounds i8, ptr %217, i64 16
+  %219 = load ptr, ptr %218, align 8
+  %220 = getelementptr inbounds i8, ptr %219, i64 8
+  %221 = load ptr, ptr %220, align 8
+  %222 = getelementptr inbounds i8, ptr %221, i64 24
+  br label %zend_zval_value_name.exit.i64
+
+223:                                              ; preds = %214
+  br label %zend_zval_value_name.exit.i64
+
+224:                                              ; preds = %214
+  br label %zend_zval_value_name.exit.i64
+
+225:                                              ; preds = %214
+  br label %zend_zval_value_name.exit.i64
+
+226:                                              ; preds = %214
+  br label %zend_zval_value_name.exit.i64
+
+227:                                              ; preds = %214
+  br label %zend_zval_value_name.exit.i64
+
+228:                                              ; preds = %214
+  br label %zend_zval_value_name.exit.i64
+
+229:                                              ; preds = %214
+  br label %zend_zval_value_name.exit.i64
+
+230:                                              ; preds = %214
+  br label %zend_zval_value_name.exit.i64
+
+231:                                              ; preds = %214
+  br label %zend_zval_value_name.exit.i64
+
+232:                                              ; preds = %214
+  br label %zend_zval_value_name.exit.i64
+
+233:                                              ; preds = %214
+  br label %zend_zval_value_name.exit.i64
+
+234:                                              ; preds = %214
+  br label %zend_zval_value_name.exit.i64
+
+235:                                              ; preds = %214
+  unreachable
+
+zend_get_type_by_const.exit.fold.split.i.i66:     ; preds = %214
+  br label %zend_zval_value_name.exit.i64
+
+zend_zval_value_name.exit.i64:                    ; preds = %zend_get_type_by_const.exit.fold.split.i.i66, %234, %233, %232, %231, %230, %229, %228, %227, %226, %225, %224, %223, %216, %214, %214
+  %.015.i.i65 = phi ptr [ %222, %216 ], [ @.str.15, %223 ], [ @.str.16, %224 ], [ @.str.8, %214 ], [ @.str.14, %234 ], [ @.str.13, %233 ], [ @.str.12, %232 ], [ @.str.11, %231 ], [ @.str.10, %230 ], [ @.str.9, %229 ], [ @.str.7, %228 ], [ @.str.5, %227 ], [ @.str.4, %226 ], [ @.str.3, %225 ], [ @.str.2, %zend_get_type_by_const.exit.fold.split.i.i66 ], [ @.str.8, %214 ]
+  tail call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef %1, ptr noundef nonnull @.str.58, ptr noundef %209, ptr noundef nonnull %.015.i.i65)
+  br label %zend_wrong_parameter_class_error.exit
+
+236:                                              ; preds = %5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  %201 = call ptr @get_active_class_name(ptr noundef nonnull %6) #33
-  %202 = load ptr, ptr %6, align 8
-  %203 = call ptr @get_active_function_name() #33
-  call void (ptr, ...) @zend_argument_count_error(ptr noundef nonnull @.str.67, ptr noundef %201, ptr noundef %202, ptr noundef %203) #33
+  %237 = call ptr @get_active_class_name(ptr noundef nonnull %6) #33
+  %238 = load ptr, ptr %6, align 8
+  %239 = call ptr @get_active_function_name() #33
+  call void (ptr, ...) @zend_argument_count_error(ptr noundef nonnull @.str.67, ptr noundef %237, ptr noundef %238, ptr noundef %239) #33
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %zend_wrong_parameter_class_error.exit
 
-204:                                              ; preds = %5
-  %205 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
-  %206 = icmp ne ptr %205, null
-  tail call void @llvm.assume(i1 %206)
+240:                                              ; preds = %5
+  %241 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
+  %242 = icmp ne ptr %241, null
+  tail call void @llvm.assume(i1 %242)
   br label %zend_wrong_parameter_class_error.exit
 
-207:                                              ; preds = %5
+243:                                              ; preds = %5
   unreachable
 
-zend_wrong_parameter_class_error.exit:            ; preds = %zend_zval_value_name.exit.i57, %168, %zend_zval_value_name.exit.i50, %137, %zend_zval_value_name.exit.i43, %106, %zend_zval_value_name.exit.i36, %75, %zend_zval_value_name.exit.i29, %44, %zend_zval_value_name.exit.i, %13, %204, %200, %199, %zend_wrong_callback_or_null_error.exit, %zend_wrong_callback_error.exit
+zend_wrong_parameter_class_error.exit:            ; preds = %zend_zval_value_name.exit.i64, %206, %199, %zend_zval_value_name.exit.i57, %168, %zend_zval_value_name.exit.i50, %137, %zend_zval_value_name.exit.i43, %106, %zend_zval_value_name.exit.i36, %75, %zend_zval_value_name.exit.i29, %44, %zend_zval_value_name.exit.i, %13, %240, %236, %zend_wrong_callback_or_null_error.exit, %zend_wrong_callback_error.exit
   ret void
 }
 

@@ -266,23 +266,94 @@ define range(i32 -1, 1) i32 @futimens(i32 noundef %0, ptr noundef readonly %1) l
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %13 = call i32 @fs_getfilep(i32 noundef %0, ptr noundef nonnull %3) #4
   %14 = icmp slt i32 %13, 0
-  br i1 %14, label %19, label %15
+  br i1 %14, label %file_fchstat.exit.thread, label %15
 
 15:                                               ; preds = %12
   %16 = load ptr, ptr %3, align 8
-  %17 = call i32 @file_fchstat(ptr noundef %16, ptr noundef nonnull %4, i32 noundef 24)
-  %18 = icmp sgt i32 %17, -1
-  br i1 %18, label %fchstat.exit, label %19
+  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %4, i64 64
+  %20 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %19) #4
+  %21 = getelementptr inbounds i8, ptr %4, i64 40
+  %22 = load i64, ptr %21, align 8
+  switch i64 %22, label %25 [
+    i64 1073741822, label %27
+    i64 1073741823, label %23
+  ]
 
-19:                                               ; preds = %15, %12
-  %.0.i = phi i32 [ %13, %12 ], [ %17, %15 ]
-  %20 = sub nsw i32 0, %.0.i
-  %21 = call ptr @__errno() #4
-  store i32 %20, ptr %21, align 4
+23:                                               ; preds = %15
+  %24 = getelementptr inbounds i8, ptr %4, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %19, i64 16, i1 false)
+  br label %27
+
+25:                                               ; preds = %15
+  %26 = icmp sgt i64 %22, 999999999
+  br i1 %26, label %file_fchstat.exit.thread, label %27
+
+27:                                               ; preds = %15, %25, %23
+  %.2.i = phi i32 [ 24, %23 ], [ 24, %25 ], [ 16, %15 ]
+  %28 = getelementptr inbounds i8, ptr %4, i64 56
+  %29 = load i64, ptr %28, align 8
+  switch i64 %29, label %34 [
+    i64 1073741822, label %30
+    i64 1073741823, label %32
+  ]
+
+30:                                               ; preds = %27
+  %31 = and i32 %.2.i, 8
+  br label %36
+
+32:                                               ; preds = %27
+  %33 = getelementptr inbounds i8, ptr %4, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull align 8 dereferenceable(16) %19, i64 16, i1 false)
+  br label %36
+
+34:                                               ; preds = %27
+  %35 = icmp sgt i64 %29, 999999999
+  br i1 %35, label %file_fchstat.exit.thread, label %36
+
+36:                                               ; preds = %34, %32, %30
+  %.3.i = phi i32 [ %31, %30 ], [ %.2.i, %32 ], [ %.2.i, %34 ]
+  %37 = getelementptr inbounds i8, ptr %18, i64 26
+  %38 = load i16, ptr %37, align 2
+  %39 = and i16 %38, 15
+  %40 = icmp eq i16 %39, 3
+  br i1 %40, label %41, label %49
+
+41:                                               ; preds = %36
+  %42 = getelementptr inbounds i8, ptr %18, i64 32
+  %43 = load ptr, ptr %42, align 8
+  %.not46.i = icmp eq ptr %43, null
+  br i1 %.not46.i, label %file_fchstat.exit.thread, label %44
+
+44:                                               ; preds = %41
+  %45 = getelementptr inbounds i8, ptr %43, i64 96
+  %46 = load ptr, ptr %45, align 8
+  %.not47.i = icmp eq ptr %46, null
+  br i1 %.not47.i, label %file_fchstat.exit.thread, label %47
+
+47:                                               ; preds = %44
+  %48 = call i32 %46(ptr noundef nonnull %16, ptr noundef nonnull %4, i32 noundef %.3.i) #4
+  br label %file_fchstat.exit
+
+49:                                               ; preds = %36
+  %50 = call i32 @inode_chstat(ptr noundef nonnull %18, ptr noundef nonnull %4, i32 noundef %.3.i, i32 noundef 0) #4
+  br label %file_fchstat.exit
+
+file_fchstat.exit:                                ; preds = %47, %49
+  %.035.i = phi i32 [ %48, %47 ], [ %50, %49 ]
+  %51 = icmp sgt i32 %.035.i, -1
+  br i1 %51, label %fchstat.exit, label %file_fchstat.exit.thread
+
+file_fchstat.exit.thread:                         ; preds = %41, %44, %34, %25, %file_fchstat.exit, %12
+  %.0.i = phi i32 [ %13, %12 ], [ %.035.i, %file_fchstat.exit ], [ -38, %41 ], [ -38, %44 ], [ -22, %34 ], [ -22, %25 ]
+  %52 = sub nsw i32 0, %.0.i
+  %53 = call ptr @__errno() #4
+  store i32 %52, ptr %53, align 4
   br label %fchstat.exit
 
-fchstat.exit:                                     ; preds = %15, %19
-  %.06.i = phi i32 [ -1, %19 ], [ 0, %15 ]
+fchstat.exit:                                     ; preds = %file_fchstat.exit, %file_fchstat.exit.thread
+  %.06.i = phi i32 [ -1, %file_fchstat.exit.thread ], [ 0, %file_fchstat.exit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   ret i32 %.06.i
 }

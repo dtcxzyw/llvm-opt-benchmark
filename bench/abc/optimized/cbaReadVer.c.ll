@@ -5135,8 +5135,8 @@ Cba_NtkCleanMap2.exit:                            ; preds = %12, %7
   %.val78 = load ptr, ptr %0, align 8
   tail call fastcc void @Cba_NtkSetMap2(ptr %.val78, i32 noundef %22, i32 noundef 2)
   %23 = getelementptr i8, ptr %2, i64 4
-  %.val82 = load i32, ptr %23, align 4
-  %24 = icmp sgt i32 %.val82, 1
+  %.val111 = load i32, ptr %23, align 4
+  %24 = icmp sgt i32 %.val111, 1
   br i1 %24, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %Cba_NtkCleanMap2.exit
@@ -5145,10 +5145,10 @@ Cba_NtkCleanMap2.exit:                            ; preds = %12, %7
 
 26:                                               ; preds = %.lr.ph, %46
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %46 ]
-  %.05286 = phi i32 [ -1, %.lr.ph ], [ %.1, %46 ]
-  %.05385 = phi i32 [ -1, %.lr.ph ], [ %.154, %46 ]
-  %.05584 = phi i32 [ -1, %.lr.ph ], [ %.156, %46 ]
-  %.05783 = phi i32 [ -1, %.lr.ph ], [ %.158, %46 ]
+  %.052115 = phi i32 [ -1, %.lr.ph ], [ %.1, %46 ]
+  %.053114 = phi i32 [ -1, %.lr.ph ], [ %.154, %46 ]
+  %.055113 = phi i32 [ -1, %.lr.ph ], [ %.156, %46 ]
+  %.057112 = phi i32 [ -1, %.lr.ph ], [ %.158, %46 ]
   %27 = or disjoint i64 %indvars.iv, 1
   %.val73 = load ptr, ptr %25, align 8
   %28 = getelementptr inbounds i32, ptr %.val73, i64 %indvars.iv
@@ -5177,15 +5177,15 @@ Cba_NtkCleanMap2.exit:                            ; preds = %12, %7
   %43 = getelementptr inbounds i32, ptr %.val.i.i.i81, i64 %35
   %44 = load i32, ptr %43, align 4
   %45 = icmp eq i32 %44, 2
-  %spec.select = select i1 %45, i32 %31, i32 %.05783
-  %spec.select71 = select i1 %45, i32 %39, i32 %.05385
+  %spec.select = select i1 %45, i32 %31, i32 %.057112
+  %spec.select71 = select i1 %45, i32 %39, i32 %.053114
   br label %46
 
 46:                                               ; preds = %40, %26
-  %.158 = phi i32 [ %.05783, %26 ], [ %spec.select, %40 ]
-  %.156 = phi i32 [ %39, %26 ], [ %.05584, %40 ]
-  %.154 = phi i32 [ %.05385, %26 ], [ %spec.select71, %40 ]
-  %.1 = phi i32 [ %31, %26 ], [ %.05286, %40 ]
+  %.158 = phi i32 [ %.057112, %26 ], [ %spec.select, %40 ]
+  %.156 = phi i32 [ %39, %26 ], [ %.055113, %40 ]
+  %.154 = phi i32 [ %.053114, %26 ], [ %spec.select71, %40 ]
+  %.1 = phi i32 [ %31, %26 ], [ %.052115, %40 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %.val = load i32, ptr %23, align 4
   %47 = trunc i64 %indvars.iv.next to i32
@@ -5233,46 +5233,242 @@ Cba_NtkCleanMap2.exit:                            ; preds = %12, %7
   %58 = icmp eq i32 %.052.lcssa, -1
   %59 = icmp eq i32 %.057.lcssa, -1
   %or.cond = select i1 %58, i1 true, i1 %59
-  br i1 %or.cond, label %73, label %60
+  br i1 %or.cond, label %Prs_CreateBitSignal.exit108.thread, label %60
 
 60:                                               ; preds = %57
-  %61 = tail call i32 @Prs_CreateBitSignal(ptr noundef %1, i32 noundef %.052.lcssa)
-  %62 = tail call i32 @Prs_CreateBitSignal(ptr noundef %1, i32 noundef %.057.lcssa)
-  %63 = icmp eq i32 %61, -1
-  %64 = icmp eq i32 %62, -1
-  %or.cond3 = select i1 %63, i1 true, i1 %64
-  br i1 %or.cond3, label %73, label %65
+  %61 = ashr i32 %.052.lcssa, 2
+  %62 = and i32 %.052.lcssa, 3
+  %or.cond.i = icmp ult i32 %62, 2
+  br i1 %or.cond.i, label %Prs_CreateBitSignal.exit, label %63
 
-65:                                               ; preds = %60
-  br i1 %.not, label %67, label %66
+63:                                               ; preds = %60
+  %64 = icmp eq i32 %62, 2
+  br i1 %64, label %65, label %76
 
-66:                                               ; preds = %65
+65:                                               ; preds = %63
+  %66 = getelementptr i8, ptr %1, i64 16
+  %.val.i = load ptr, ptr %66, align 8
+  %67 = tail call ptr @Abc_NamStr(ptr noundef %.val.i, i32 noundef %61) #28
+  %68 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %67, i32 noundef 39) #31
+  %69 = getelementptr inbounds i8, ptr %68, i64 1
+  br label %.outer127
+
+.outer127:                                        ; preds = %73, %65
+  %.not41.i = phi i1 [ true, %73 ], [ false, %65 ]
+  %.029.i.ph = phi i32 [ %.029.i.ph129, %73 ], [ 1, %65 ]
+  %.0.i.ph = phi ptr [ %71, %73 ], [ %69, %65 ]
+  br label %.outer128
+
+.outer128:                                        ; preds = %70, %.outer127
+  %.029.i.ph129 = phi i32 [ %.029.i.ph, %.outer127 ], [ 0, %70 ]
+  %.0.i.ph130 = phi ptr [ %.0.i.ph, %.outer127 ], [ %71, %70 ]
+  br label %70
+
+70:                                               ; preds = %.outer128, %.fold.split.i
+  %.0.i = phi ptr [ %71, %.fold.split.i ], [ %.0.i.ph130, %.outer128 ]
+  %71 = getelementptr inbounds i8, ptr %.0.i, i64 1
+  %72 = load i8, ptr %71, align 1
+  switch i8 %72, label %.fold.split.i [
+    i8 0, label %74
+    i8 48, label %.outer128
+    i8 49, label %73
+  ], !llvm.loop !35
+
+73:                                               ; preds = %70
+  br label %.outer127, !llvm.loop !35
+
+.fold.split.i:                                    ; preds = %70
+  br label %70, !llvm.loop !35
+
+74:                                               ; preds = %70
+  br i1 %.not41.i, label %75, label %Prs_CreateBitSignal.exit
+
+75:                                               ; preds = %74
+  %.not42.i = icmp eq i32 %.029.i.ph129, 0
+  %spec.select.i = select i1 %.not42.i, i32 -1, i32 10
+  br label %Prs_CreateBitSignal.exit
+
+76:                                               ; preds = %63
+  %77 = getelementptr i8, ptr %1, i64 200
+  %.val.i.i82 = load ptr, ptr %77, align 8
+  %78 = sext i32 %61 to i64
+  %79 = getelementptr inbounds i32, ptr %.val.i.i82, i64 %78
+  %80 = load i32, ptr %79, align 4
+  store i32 %80, ptr @Prs_CatSignals.V.1, align 8
+  %81 = getelementptr i32, ptr %.val.i.i82, i64 %78
+  %82 = getelementptr i8, ptr %81, i64 4
+  store ptr %82, ptr @Prs_CatSignals.V.2, align 8
+  %83 = icmp sgt i32 %80, 0
+  br i1 %83, label %.lr.ph.preheader.i, label %Prs_CreateBitSignal.exit
+
+.lr.ph.preheader.i:                               ; preds = %76
+  %wide.trip.count.i = zext nneg i32 %80 to i64
+  br label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %91, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %91 ]
+  %.03246.i = phi i32 [ -1, %.lr.ph.preheader.i ], [ %.133.i, %91 ]
+  %84 = getelementptr inbounds i32, ptr %82, i64 %indvars.iv.i
+  %85 = load i32, ptr %84, align 4
+  %86 = ashr i32 %85, 2
+  %87 = and i32 %85, 3
+  %.not.i = icmp eq i32 %87, 0
+  br i1 %.not.i, label %88, label %Prs_CreateBitSignal.exit
+
+88:                                               ; preds = %.lr.ph.i
+  %89 = icmp eq i32 %.03246.i, -1
+  br i1 %89, label %91, label %90
+
+90:                                               ; preds = %88
+  %.not39.i = icmp eq i32 %.03246.i, %86
+  br i1 %.not39.i, label %91, label %Prs_CreateBitSignal.exit
+
+91:                                               ; preds = %90, %88
+  %.133.i = phi i32 [ %.03246.i, %90 ], [ %86, %88 ]
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %.critedge.loopexit.i, label %.lr.ph.i, !llvm.loop !36
+
+.critedge.loopexit.i:                             ; preds = %91
+  %92 = shl nsw i32 %.133.i, 2
+  br label %Prs_CreateBitSignal.exit
+
+Prs_CreateBitSignal.exit:                         ; preds = %.lr.ph.i, %90, %60, %74, %75, %76, %.critedge.loopexit.i
+  %.034.i = phi i32 [ -1, %60 ], [ 6, %74 ], [ %spec.select.i, %75 ], [ -4, %76 ], [ %92, %.critedge.loopexit.i ], [ -1, %90 ], [ -1, %.lr.ph.i ]
+  %93 = ashr i32 %.057.lcssa, 2
+  %94 = and i32 %.057.lcssa, 3
+  %or.cond.i83 = icmp ult i32 %94, 2
+  br i1 %or.cond.i83, label %Prs_CreateBitSignal.exit108.thread, label %95
+
+95:                                               ; preds = %Prs_CreateBitSignal.exit
+  %96 = icmp eq i32 %94, 2
+  br i1 %96, label %97, label %108
+
+97:                                               ; preds = %95
+  %98 = getelementptr i8, ptr %1, i64 16
+  %.val.i98 = load ptr, ptr %98, align 8
+  %99 = tail call ptr @Abc_NamStr(ptr noundef %.val.i98, i32 noundef %93) #28
+  %100 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %99, i32 noundef 39) #31
+  %101 = getelementptr inbounds i8, ptr %100, i64 1
+  br label %.outer
+
+.outer:                                           ; preds = %105, %97
+  %.not41.i104 = phi i1 [ true, %105 ], [ false, %97 ]
+  %.029.i100.ph = phi i32 [ %.029.i100.ph122, %105 ], [ 1, %97 ]
+  %.0.i101.ph = phi ptr [ %103, %105 ], [ %101, %97 ]
+  br label %.outer121
+
+.outer121:                                        ; preds = %102, %.outer
+  %.029.i100.ph122 = phi i32 [ %.029.i100.ph, %.outer ], [ 0, %102 ]
+  %.0.i101.ph123 = phi ptr [ %.0.i101.ph, %.outer ], [ %103, %102 ]
+  br label %102
+
+102:                                              ; preds = %.outer121, %.fold.split.i107
+  %.0.i101 = phi ptr [ %103, %.fold.split.i107 ], [ %.0.i101.ph123, %.outer121 ]
+  %103 = getelementptr inbounds i8, ptr %.0.i101, i64 1
+  %104 = load i8, ptr %103, align 1
+  switch i8 %104, label %.fold.split.i107 [
+    i8 0, label %106
+    i8 48, label %.outer121
+    i8 49, label %105
+  ], !llvm.loop !35
+
+105:                                              ; preds = %102
+  br label %.outer, !llvm.loop !35
+
+.fold.split.i107:                                 ; preds = %102
+  br label %102, !llvm.loop !35
+
+106:                                              ; preds = %102
+  br i1 %.not41.i104, label %107, label %Prs_CreateBitSignal.exit108
+
+107:                                              ; preds = %106
+  %.not42.i105 = icmp eq i32 %.029.i100.ph122, 0
+  %spec.select.i106 = select i1 %.not42.i105, i32 -1, i32 10
+  br label %Prs_CreateBitSignal.exit108
+
+108:                                              ; preds = %95
+  %109 = getelementptr i8, ptr %1, i64 200
+  %.val.i.i84 = load ptr, ptr %109, align 8
+  %110 = sext i32 %93 to i64
+  %111 = getelementptr inbounds i32, ptr %.val.i.i84, i64 %110
+  %112 = load i32, ptr %111, align 4
+  store i32 %112, ptr @Prs_CatSignals.V.1, align 8
+  %113 = getelementptr i32, ptr %.val.i.i84, i64 %110
+  %114 = getelementptr i8, ptr %113, i64 4
+  store ptr %114, ptr @Prs_CatSignals.V.2, align 8
+  %115 = icmp sgt i32 %112, 0
+  br i1 %115, label %.lr.ph.preheader.i87, label %Prs_CreateBitSignal.exit108
+
+.lr.ph.preheader.i87:                             ; preds = %108
+  %wide.trip.count.i88 = zext nneg i32 %112 to i64
+  br label %.lr.ph.i89
+
+.lr.ph.i89:                                       ; preds = %123, %.lr.ph.preheader.i87
+  %indvars.iv.i90 = phi i64 [ 0, %.lr.ph.preheader.i87 ], [ %indvars.iv.next.i95, %123 ]
+  %.03246.i91 = phi i32 [ -1, %.lr.ph.preheader.i87 ], [ %.133.i94, %123 ]
+  %116 = getelementptr inbounds i32, ptr %114, i64 %indvars.iv.i90
+  %117 = load i32, ptr %116, align 4
+  %118 = ashr i32 %117, 2
+  %119 = and i32 %117, 3
+  %.not.i92 = icmp eq i32 %119, 0
+  br i1 %.not.i92, label %120, label %Prs_CreateBitSignal.exit108.thread
+
+120:                                              ; preds = %.lr.ph.i89
+  %121 = icmp eq i32 %.03246.i91, -1
+  br i1 %121, label %123, label %122
+
+122:                                              ; preds = %120
+  %.not39.i93 = icmp eq i32 %.03246.i91, %118
+  br i1 %.not39.i93, label %123, label %Prs_CreateBitSignal.exit108.thread
+
+123:                                              ; preds = %122, %120
+  %.133.i94 = phi i32 [ %.03246.i91, %122 ], [ %118, %120 ]
+  %indvars.iv.next.i95 = add nuw nsw i64 %indvars.iv.i90, 1
+  %exitcond.not.i96 = icmp eq i64 %indvars.iv.next.i95, %wide.trip.count.i88
+  br i1 %exitcond.not.i96, label %.critedge.loopexit.i97, label %.lr.ph.i89, !llvm.loop !36
+
+.critedge.loopexit.i97:                           ; preds = %123
+  %124 = shl nsw i32 %.133.i94, 2
+  br label %Prs_CreateBitSignal.exit108
+
+Prs_CreateBitSignal.exit108:                      ; preds = %106, %107, %108, %.critedge.loopexit.i97
+  %.034.i86 = phi i32 [ 6, %106 ], [ %spec.select.i106, %107 ], [ -4, %108 ], [ %124, %.critedge.loopexit.i97 ]
+  %125 = icmp eq i32 %.034.i, -1
+  %126 = icmp eq i32 %.034.i86, -1
+  %or.cond3 = select i1 %125, i1 true, i1 %126
+  br i1 %or.cond3, label %Prs_CreateBitSignal.exit108.thread, label %127
+
+127:                                              ; preds = %Prs_CreateBitSignal.exit108
+  br i1 %.not, label %129, label %128
+
+128:                                              ; preds = %127
   store i32 %.055.lcssa, ptr %3, align 4
-  br label %67
+  br label %129
 
-67:                                               ; preds = %66, %65
-  br i1 %.not68, label %69, label %68
+129:                                              ; preds = %128, %127
+  br i1 %.not68, label %131, label %130
 
-68:                                               ; preds = %67
+130:                                              ; preds = %129
   store i32 %.053.lcssa, ptr %4, align 4
-  br label %69
+  br label %131
 
-69:                                               ; preds = %68, %67
-  br i1 %.not69, label %71, label %70
+131:                                              ; preds = %130, %129
+  br i1 %.not69, label %133, label %132
 
-70:                                               ; preds = %69
-  store i32 %61, ptr %5, align 4
-  br label %71
+132:                                              ; preds = %131
+  store i32 %.034.i, ptr %5, align 4
+  br label %133
 
-71:                                               ; preds = %70, %69
-  br i1 %.not70, label %73, label %72
+133:                                              ; preds = %132, %131
+  br i1 %.not70, label %Prs_CreateBitSignal.exit108.thread, label %134
 
-72:                                               ; preds = %71
-  store i32 %62, ptr %6, align 4
-  br label %73
+134:                                              ; preds = %133
+  store i32 %.034.i86, ptr %6, align 4
+  br label %Prs_CreateBitSignal.exit108.thread
 
-73:                                               ; preds = %71, %72, %60, %57
-  %.051 = phi i32 [ 0, %57 ], [ 0, %60 ], [ 1, %72 ], [ 1, %71 ]
+Prs_CreateBitSignal.exit108.thread:               ; preds = %122, %.lr.ph.i89, %Prs_CreateBitSignal.exit, %133, %134, %Prs_CreateBitSignal.exit108, %57
+  %.051 = phi i32 [ 0, %57 ], [ 0, %Prs_CreateBitSignal.exit108 ], [ 1, %134 ], [ 1, %133 ], [ 0, %Prs_CreateBitSignal.exit ], [ 0, %.lr.ph.i89 ], [ 0, %122 ]
   ret i32 %.051
 }
 

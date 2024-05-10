@@ -577,92 +577,151 @@ cli_event_error_str.exit:                         ; preds = %32, %31, %24, %10, 
 define void @cli_event_int(ptr noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #4 {
   %4 = tail call fastcc ptr @get_event(ptr noundef %0, i32 noundef %1)
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %ev_chain.exit, label %5
+  br i1 %.not, label %cli_event_error_str.exit, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %4, i64 20
   %7 = load i16, ptr %6, align 4
   %8 = and i16 %7, 255
   %.not14 = icmp eq i16 %8, 4
-  br i1 %.not14, label %10, label %9
+  br i1 %.not14, label %42, label %9
 
 9:                                                ; preds = %5
-  tail call void @cli_event_error_str(ptr noundef %0, ptr noundef nonnull @.str.6)
-  br label %ev_chain.exit
+  %.not.i = icmp eq ptr %0, null
+  br i1 %.not.i, label %cli_event_error_str.exit, label %10
 
-10:                                               ; preds = %5
-  %11 = lshr i16 %7, 8
-  %trunc = trunc nuw i16 %11 to i8
-  switch i8 %trunc, label %ev_chain.exit [
-    i8 0, label %12
-    i8 2, label %17
-    i8 1, label %24
+10:                                               ; preds = %9
+  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.6) #12
+  %11 = getelementptr inbounds i8, ptr %0, i64 28
+  %12 = load i16, ptr %11, align 4
+  %13 = lshr i16 %12, 8
+  %trunc.i.i = trunc nuw i16 %13 to i8
+  switch i8 %trunc.i.i, label %cli_event_error_str.exit [
+    i8 0, label %14
+    i8 1, label %19
   ]
 
-12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 %2, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 16
-  %15 = load i32, ptr %14, align 8
-  %16 = add i32 %15, 1
-  store i32 %16, ptr %14, align 8
-  br label %ev_chain.exit
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr @.str.6, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = load i32, ptr %16, align 8
+  %18 = add i32 %17, 1
+  store i32 %18, ptr %16, align 8
+  br label %cli_event_error_str.exit
 
-17:                                               ; preds = %10
-  %18 = getelementptr inbounds i8, ptr %4, i64 16
-  %19 = load i32, ptr %18, align 8
-  %20 = add i32 %19, 1
-  store i32 %20, ptr %18, align 8
-  %21 = getelementptr inbounds i8, ptr %4, i64 8
-  %22 = load i64, ptr %21, align 8
-  %23 = add i64 %22, %2
-  store i64 %23, ptr %21, align 8
-  br label %ev_chain.exit
+19:                                               ; preds = %10
+  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = load i32, ptr %20, align 8
+  %22 = shl i32 %21, 3
+  %23 = add i32 %22, 8
+  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = load ptr, ptr %24, align 8
+  %26 = zext i32 %23 to i64
+  %27 = tail call ptr @cli_safer_realloc(ptr noundef %25, i64 noundef %26) #12
+  %.not.i.i.i = icmp eq ptr %27, null
+  br i1 %.not.i.i.i, label %28, label %36
 
-24:                                               ; preds = %10
-  %25 = getelementptr inbounds i8, ptr %4, i64 16
-  %26 = load i32, ptr %25, align 8
-  %27 = shl i32 %26, 3
-  %28 = add i32 %27, 8
-  %29 = getelementptr inbounds i8, ptr %4, i64 8
-  %30 = load ptr, ptr %29, align 8
-  %31 = zext i32 %28 to i64
-  %32 = tail call ptr @cli_safer_realloc(ptr noundef %30, i64 noundef %31) #12
-  %.not.i = icmp eq ptr %32, null
-  br i1 %.not.i, label %33, label %42
+28:                                               ; preds = %19
+  %29 = getelementptr inbounds i8, ptr %0, i64 32
+  %30 = load i64, ptr %29, align 8
+  %31 = add i64 %30, %26
+  store i64 %31, ptr %29, align 8
+  %32 = getelementptr inbounds i8, ptr %0, i64 44
+  %33 = load i32, ptr %32, align 4
+  %34 = add i32 %33, 1
+  store i32 %34, ptr %32, align 4
+  %.not6.i.i.i.i = icmp eq i32 %23, 0
+  br i1 %.not6.i.i.i.i, label %cli_event_error_str.exit, label %35
 
-33:                                               ; preds = %24
-  %.not.i.i = icmp eq ptr %0, null
-  br i1 %.not.i.i, label %ev_chain.exit, label %34
+35:                                               ; preds = %28
+  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.1, i32 noundef %23) #12
+  br label %cli_event_error_str.exit
 
-34:                                               ; preds = %33
-  %35 = getelementptr inbounds i8, ptr %0, i64 32
-  %36 = load i64, ptr %35, align 8
-  %37 = add i64 %36, %31
-  store i64 %37, ptr %35, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 44
-  %39 = load i32, ptr %38, align 4
-  %40 = add i32 %39, 1
-  store i32 %40, ptr %38, align 4
-  %.not6.i.i = icmp eq i32 %28, 0
-  br i1 %.not6.i.i, label %ev_chain.exit, label %41
+36:                                               ; preds = %19
+  store ptr %27, ptr %24, align 8
+  %37 = load i32, ptr %20, align 8
+  %38 = zext i32 %37 to i64
+  %39 = getelementptr inbounds %union.ev_val, ptr %27, i64 %38
+  store i64 ptrtoint (ptr @.str.6 to i64), ptr %39, align 8
+  %40 = load i32, ptr %20, align 8
+  %41 = add i32 %40, 1
+  store i32 %41, ptr %20, align 8
+  br label %cli_event_error_str.exit
 
-41:                                               ; preds = %34
-  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.1, i32 noundef %28) #12
-  br label %ev_chain.exit
+42:                                               ; preds = %5
+  %43 = lshr i16 %7, 8
+  %trunc = trunc nuw i16 %43 to i8
+  switch i8 %trunc, label %cli_event_error_str.exit [
+    i8 0, label %44
+    i8 2, label %49
+    i8 1, label %56
+  ]
 
-42:                                               ; preds = %24
-  store ptr %32, ptr %29, align 8
-  %43 = load i32, ptr %25, align 8
-  %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds %union.ev_val, ptr %32, i64 %44
+44:                                               ; preds = %42
+  %45 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 %2, ptr %45, align 8
-  %46 = load i32, ptr %25, align 8
-  %47 = add i32 %46, 1
-  store i32 %47, ptr %25, align 8
-  br label %ev_chain.exit
+  %46 = getelementptr inbounds i8, ptr %4, i64 16
+  %47 = load i32, ptr %46, align 8
+  %48 = add i32 %47, 1
+  store i32 %48, ptr %46, align 8
+  br label %cli_event_error_str.exit
 
-ev_chain.exit:                                    ; preds = %42, %41, %34, %33, %10, %3, %17, %12, %9
+49:                                               ; preds = %42
+  %50 = getelementptr inbounds i8, ptr %4, i64 16
+  %51 = load i32, ptr %50, align 8
+  %52 = add i32 %51, 1
+  store i32 %52, ptr %50, align 8
+  %53 = getelementptr inbounds i8, ptr %4, i64 8
+  %54 = load i64, ptr %53, align 8
+  %55 = add i64 %54, %2
+  store i64 %55, ptr %53, align 8
+  br label %cli_event_error_str.exit
+
+56:                                               ; preds = %42
+  %57 = getelementptr inbounds i8, ptr %4, i64 16
+  %58 = load i32, ptr %57, align 8
+  %59 = shl i32 %58, 3
+  %60 = add i32 %59, 8
+  %61 = getelementptr inbounds i8, ptr %4, i64 8
+  %62 = load ptr, ptr %61, align 8
+  %63 = zext i32 %60 to i64
+  %64 = tail call ptr @cli_safer_realloc(ptr noundef %62, i64 noundef %63) #12
+  %.not.i15 = icmp eq ptr %64, null
+  br i1 %.not.i15, label %65, label %74
+
+65:                                               ; preds = %56
+  %.not.i.i = icmp eq ptr %0, null
+  br i1 %.not.i.i, label %cli_event_error_str.exit, label %66
+
+66:                                               ; preds = %65
+  %67 = getelementptr inbounds i8, ptr %0, i64 32
+  %68 = load i64, ptr %67, align 8
+  %69 = add i64 %68, %63
+  store i64 %69, ptr %67, align 8
+  %70 = getelementptr inbounds i8, ptr %0, i64 44
+  %71 = load i32, ptr %70, align 4
+  %72 = add i32 %71, 1
+  store i32 %72, ptr %70, align 4
+  %.not6.i.i = icmp eq i32 %60, 0
+  br i1 %.not6.i.i, label %cli_event_error_str.exit, label %73
+
+73:                                               ; preds = %66
+  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.1, i32 noundef %60) #12
+  br label %cli_event_error_str.exit
+
+74:                                               ; preds = %56
+  store ptr %64, ptr %61, align 8
+  %75 = load i32, ptr %57, align 8
+  %76 = zext i32 %75 to i64
+  %77 = getelementptr inbounds %union.ev_val, ptr %64, i64 %76
+  store i64 %2, ptr %77, align 8
+  %78 = load i32, ptr %57, align 8
+  %79 = add i32 %78, 1
+  store i32 %79, ptr %57, align 8
+  br label %cli_event_error_str.exit
+
+cli_event_error_str.exit:                         ; preds = %74, %73, %66, %65, %36, %35, %28, %14, %10, %9, %42, %3, %49, %44
   ret void
 }
 
@@ -671,37 +730,96 @@ define void @cli_event_time_start(ptr noundef %0, i32 noundef %1) local_unnamed_
   %3 = alloca %struct.timeval, align 8
   %4 = tail call fastcc ptr @get_event(ptr noundef %0, i32 noundef %1)
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %21, label %5
+  br i1 %.not, label %cli_event_error_str.exit, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %4, i64 20
   %7 = load i16, ptr %6, align 4
   %8 = and i16 %7, 255
   %.not6 = icmp eq i16 %8, 5
-  br i1 %.not6, label %10, label %9
+  br i1 %.not6, label %42, label %9
 
 9:                                                ; preds = %5
-  tail call void @cli_event_error_str(ptr noundef %0, ptr noundef nonnull @.str.7)
-  br label %21
+  %.not.i = icmp eq ptr %0, null
+  br i1 %.not.i, label %cli_event_error_str.exit, label %10
 
-10:                                               ; preds = %5
-  %11 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #12
-  %12 = load i64, ptr %3, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 8
-  %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 8
-  %16 = load i64, ptr %15, align 8
-  %.neg = mul i64 %12, -1000000
-  %.neg8 = sub i64 %.neg, %14
-  %17 = add i64 %.neg8, %16
-  store i64 %17, ptr %15, align 8
-  %18 = getelementptr inbounds i8, ptr %4, i64 16
-  %19 = load i32, ptr %18, align 8
-  %20 = add i32 %19, 1
-  store i32 %20, ptr %18, align 8
-  br label %21
+10:                                               ; preds = %9
+  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.7) #12
+  %11 = getelementptr inbounds i8, ptr %0, i64 28
+  %12 = load i16, ptr %11, align 4
+  %13 = lshr i16 %12, 8
+  %trunc.i.i = trunc nuw i16 %13 to i8
+  switch i8 %trunc.i.i, label %cli_event_error_str.exit [
+    i8 0, label %14
+    i8 1, label %19
+  ]
 
-21:                                               ; preds = %2, %10, %9
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr @.str.7, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = load i32, ptr %16, align 8
+  %18 = add i32 %17, 1
+  store i32 %18, ptr %16, align 8
+  br label %cli_event_error_str.exit
+
+19:                                               ; preds = %10
+  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = load i32, ptr %20, align 8
+  %22 = shl i32 %21, 3
+  %23 = add i32 %22, 8
+  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = load ptr, ptr %24, align 8
+  %26 = zext i32 %23 to i64
+  %27 = tail call ptr @cli_safer_realloc(ptr noundef %25, i64 noundef %26) #12
+  %.not.i.i.i = icmp eq ptr %27, null
+  br i1 %.not.i.i.i, label %28, label %36
+
+28:                                               ; preds = %19
+  %29 = getelementptr inbounds i8, ptr %0, i64 32
+  %30 = load i64, ptr %29, align 8
+  %31 = add i64 %30, %26
+  store i64 %31, ptr %29, align 8
+  %32 = getelementptr inbounds i8, ptr %0, i64 44
+  %33 = load i32, ptr %32, align 4
+  %34 = add i32 %33, 1
+  store i32 %34, ptr %32, align 4
+  %.not6.i.i.i.i = icmp eq i32 %23, 0
+  br i1 %.not6.i.i.i.i, label %cli_event_error_str.exit, label %35
+
+35:                                               ; preds = %28
+  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.1, i32 noundef %23) #12
+  br label %cli_event_error_str.exit
+
+36:                                               ; preds = %19
+  store ptr %27, ptr %24, align 8
+  %37 = load i32, ptr %20, align 8
+  %38 = zext i32 %37 to i64
+  %39 = getelementptr inbounds %union.ev_val, ptr %27, i64 %38
+  store i64 ptrtoint (ptr @.str.7 to i64), ptr %39, align 8
+  %40 = load i32, ptr %20, align 8
+  %41 = add i32 %40, 1
+  store i32 %41, ptr %20, align 8
+  br label %cli_event_error_str.exit
+
+42:                                               ; preds = %5
+  %43 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #12
+  %44 = load i64, ptr %3, align 8
+  %45 = getelementptr inbounds i8, ptr %3, i64 8
+  %46 = load i64, ptr %45, align 8
+  %47 = getelementptr inbounds i8, ptr %4, i64 8
+  %48 = load i64, ptr %47, align 8
+  %.neg = mul i64 %44, -1000000
+  %.neg8 = sub i64 %.neg, %46
+  %49 = add i64 %.neg8, %48
+  store i64 %49, ptr %47, align 8
+  %50 = getelementptr inbounds i8, ptr %4, i64 16
+  %51 = load i32, ptr %50, align 8
+  %52 = add i32 %51, 1
+  store i32 %52, ptr %50, align 8
+  br label %cli_event_error_str.exit
+
+cli_event_error_str.exit:                         ; preds = %36, %35, %28, %14, %10, %9, %2, %42
   ret void
 }
 
@@ -716,7 +834,7 @@ define void @cli_event_time_nested_start(ptr noundef %0, i32 noundef %1, i32 nou
   %7 = icmp ne ptr %5, null
   %8 = icmp ne ptr %6, null
   %or.cond = select i1 %7, i1 %8, i1 false
-  br i1 %or.cond, label %9, label %32
+  br i1 %or.cond, label %9, label %cli_event_error_str.exit
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %5, i64 20
@@ -730,34 +848,93 @@ define void @cli_event_time_nested_start(ptr noundef %0, i32 noundef %1, i32 nou
   %15 = load i16, ptr %14, align 4
   %16 = and i16 %15, 255
   %.not14 = icmp eq i16 %16, 5
-  br i1 %.not14, label %18, label %17
+  br i1 %.not14, label %50, label %17
 
 17:                                               ; preds = %13, %9
-  tail call void @cli_event_error_str(ptr noundef %0, ptr noundef nonnull @.str.7)
-  br label %32
+  %.not.i = icmp eq ptr %0, null
+  br i1 %.not.i, label %cli_event_error_str.exit, label %18
 
-18:                                               ; preds = %13
-  %19 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #12
-  %20 = load i64, ptr %4, align 8
-  %21 = getelementptr inbounds i8, ptr %4, i64 8
-  %22 = load i64, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %5, i64 8
-  %24 = load i64, ptr %23, align 8
-  %.neg = mul i64 %20, -1000000
-  %.neg16 = sub i64 %.neg, %22
-  %25 = add i64 %.neg16, %24
-  store i64 %25, ptr %23, align 8
-  %26 = getelementptr inbounds i8, ptr %6, i64 8
-  %27 = load i64, ptr %26, align 8
-  %28 = add i64 %27, %25
-  store i64 %28, ptr %23, align 8
-  %29 = getelementptr inbounds i8, ptr %5, i64 16
-  %30 = load i32, ptr %29, align 8
-  %31 = add i32 %30, 1
-  store i32 %31, ptr %29, align 8
-  br label %32
+18:                                               ; preds = %17
+  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.7) #12
+  %19 = getelementptr inbounds i8, ptr %0, i64 28
+  %20 = load i16, ptr %19, align 4
+  %21 = lshr i16 %20, 8
+  %trunc.i.i = trunc nuw i16 %21 to i8
+  switch i8 %trunc.i.i, label %cli_event_error_str.exit [
+    i8 0, label %22
+    i8 1, label %27
+  ]
 
-32:                                               ; preds = %3, %18, %17
+22:                                               ; preds = %18
+  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr @.str.7, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %0, i64 24
+  %25 = load i32, ptr %24, align 8
+  %26 = add i32 %25, 1
+  store i32 %26, ptr %24, align 8
+  br label %cli_event_error_str.exit
+
+27:                                               ; preds = %18
+  %28 = getelementptr inbounds i8, ptr %0, i64 24
+  %29 = load i32, ptr %28, align 8
+  %30 = shl i32 %29, 3
+  %31 = add i32 %30, 8
+  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  %33 = load ptr, ptr %32, align 8
+  %34 = zext i32 %31 to i64
+  %35 = tail call ptr @cli_safer_realloc(ptr noundef %33, i64 noundef %34) #12
+  %.not.i.i.i = icmp eq ptr %35, null
+  br i1 %.not.i.i.i, label %36, label %44
+
+36:                                               ; preds = %27
+  %37 = getelementptr inbounds i8, ptr %0, i64 32
+  %38 = load i64, ptr %37, align 8
+  %39 = add i64 %38, %34
+  store i64 %39, ptr %37, align 8
+  %40 = getelementptr inbounds i8, ptr %0, i64 44
+  %41 = load i32, ptr %40, align 4
+  %42 = add i32 %41, 1
+  store i32 %42, ptr %40, align 4
+  %.not6.i.i.i.i = icmp eq i32 %31, 0
+  br i1 %.not6.i.i.i.i, label %cli_event_error_str.exit, label %43
+
+43:                                               ; preds = %36
+  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.1, i32 noundef %31) #12
+  br label %cli_event_error_str.exit
+
+44:                                               ; preds = %27
+  store ptr %35, ptr %32, align 8
+  %45 = load i32, ptr %28, align 8
+  %46 = zext i32 %45 to i64
+  %47 = getelementptr inbounds %union.ev_val, ptr %35, i64 %46
+  store i64 ptrtoint (ptr @.str.7 to i64), ptr %47, align 8
+  %48 = load i32, ptr %28, align 8
+  %49 = add i32 %48, 1
+  store i32 %49, ptr %28, align 8
+  br label %cli_event_error_str.exit
+
+50:                                               ; preds = %13
+  %51 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #12
+  %52 = load i64, ptr %4, align 8
+  %53 = getelementptr inbounds i8, ptr %4, i64 8
+  %54 = load i64, ptr %53, align 8
+  %55 = getelementptr inbounds i8, ptr %5, i64 8
+  %56 = load i64, ptr %55, align 8
+  %.neg = mul i64 %52, -1000000
+  %.neg16 = sub i64 %.neg, %54
+  %57 = add i64 %.neg16, %56
+  store i64 %57, ptr %55, align 8
+  %58 = getelementptr inbounds i8, ptr %6, i64 8
+  %59 = load i64, ptr %58, align 8
+  %60 = add i64 %59, %57
+  store i64 %60, ptr %55, align 8
+  %61 = getelementptr inbounds i8, ptr %5, i64 16
+  %62 = load i32, ptr %61, align 8
+  %63 = add i32 %62, 1
+  store i32 %63, ptr %61, align 8
+  br label %cli_event_error_str.exit
+
+cli_event_error_str.exit:                         ; preds = %44, %43, %36, %22, %18, %17, %3, %50
   ret void
 }
 
@@ -766,33 +943,92 @@ define void @cli_event_time_stop(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %3 = alloca %struct.timeval, align 8
   %4 = tail call fastcc ptr @get_event(ptr noundef %0, i32 noundef %1)
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %20, label %5
+  br i1 %.not, label %cli_event_error_str.exit, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %4, i64 20
   %7 = load i16, ptr %6, align 4
   %8 = and i16 %7, 255
   %.not5 = icmp eq i16 %8, 5
-  br i1 %.not5, label %10, label %9
+  br i1 %.not5, label %42, label %9
 
 9:                                                ; preds = %5
-  tail call void @cli_event_error_str(ptr noundef %0, ptr noundef nonnull @.str.7)
-  br label %20
+  %.not.i = icmp eq ptr %0, null
+  br i1 %.not.i, label %cli_event_error_str.exit, label %10
 
-10:                                               ; preds = %5
-  %11 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #12
-  %12 = load i64, ptr %3, align 8
-  %13 = mul nsw i64 %12, 1000000
-  %14 = getelementptr inbounds i8, ptr %3, i64 8
-  %15 = load i64, ptr %14, align 8
-  %16 = add nsw i64 %13, %15
-  %17 = getelementptr inbounds i8, ptr %4, i64 8
-  %18 = load i64, ptr %17, align 8
-  %19 = add i64 %16, %18
-  store i64 %19, ptr %17, align 8
-  br label %20
+10:                                               ; preds = %9
+  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.7) #12
+  %11 = getelementptr inbounds i8, ptr %0, i64 28
+  %12 = load i16, ptr %11, align 4
+  %13 = lshr i16 %12, 8
+  %trunc.i.i = trunc nuw i16 %13 to i8
+  switch i8 %trunc.i.i, label %cli_event_error_str.exit [
+    i8 0, label %14
+    i8 1, label %19
+  ]
 
-20:                                               ; preds = %2, %10, %9
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr @.str.7, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = load i32, ptr %16, align 8
+  %18 = add i32 %17, 1
+  store i32 %18, ptr %16, align 8
+  br label %cli_event_error_str.exit
+
+19:                                               ; preds = %10
+  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = load i32, ptr %20, align 8
+  %22 = shl i32 %21, 3
+  %23 = add i32 %22, 8
+  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = load ptr, ptr %24, align 8
+  %26 = zext i32 %23 to i64
+  %27 = tail call ptr @cli_safer_realloc(ptr noundef %25, i64 noundef %26) #12
+  %.not.i.i.i = icmp eq ptr %27, null
+  br i1 %.not.i.i.i, label %28, label %36
+
+28:                                               ; preds = %19
+  %29 = getelementptr inbounds i8, ptr %0, i64 32
+  %30 = load i64, ptr %29, align 8
+  %31 = add i64 %30, %26
+  store i64 %31, ptr %29, align 8
+  %32 = getelementptr inbounds i8, ptr %0, i64 44
+  %33 = load i32, ptr %32, align 4
+  %34 = add i32 %33, 1
+  store i32 %34, ptr %32, align 4
+  %.not6.i.i.i.i = icmp eq i32 %23, 0
+  br i1 %.not6.i.i.i.i, label %cli_event_error_str.exit, label %35
+
+35:                                               ; preds = %28
+  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.1, i32 noundef %23) #12
+  br label %cli_event_error_str.exit
+
+36:                                               ; preds = %19
+  store ptr %27, ptr %24, align 8
+  %37 = load i32, ptr %20, align 8
+  %38 = zext i32 %37 to i64
+  %39 = getelementptr inbounds %union.ev_val, ptr %27, i64 %38
+  store i64 ptrtoint (ptr @.str.7 to i64), ptr %39, align 8
+  %40 = load i32, ptr %20, align 8
+  %41 = add i32 %40, 1
+  store i32 %41, ptr %20, align 8
+  br label %cli_event_error_str.exit
+
+42:                                               ; preds = %5
+  %43 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #12
+  %44 = load i64, ptr %3, align 8
+  %45 = mul nsw i64 %44, 1000000
+  %46 = getelementptr inbounds i8, ptr %3, i64 8
+  %47 = load i64, ptr %46, align 8
+  %48 = add nsw i64 %45, %47
+  %49 = getelementptr inbounds i8, ptr %4, i64 8
+  %50 = load i64, ptr %49, align 8
+  %51 = add i64 %48, %50
+  store i64 %51, ptr %49, align 8
+  br label %cli_event_error_str.exit
+
+cli_event_error_str.exit:                         ; preds = %36, %35, %28, %14, %10, %9, %2, %42
   ret void
 }
 
@@ -804,7 +1040,7 @@ define void @cli_event_time_nested_stop(ptr noundef %0, i32 noundef %1, i32 noun
   %7 = icmp ne ptr %5, null
   %8 = icmp ne ptr %6, null
   %or.cond = select i1 %7, i1 %8, i1 false
-  br i1 %or.cond, label %9, label %31
+  br i1 %or.cond, label %9, label %cli_event_error_str.exit
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %5, i64 20
@@ -818,30 +1054,89 @@ define void @cli_event_time_nested_stop(ptr noundef %0, i32 noundef %1, i32 noun
   %15 = load i16, ptr %14, align 4
   %16 = and i16 %15, 255
   %.not13 = icmp eq i16 %16, 5
-  br i1 %.not13, label %18, label %17
+  br i1 %.not13, label %50, label %17
 
 17:                                               ; preds = %13, %9
-  tail call void @cli_event_error_str(ptr noundef %0, ptr noundef nonnull @.str.7)
-  br label %31
+  %.not.i = icmp eq ptr %0, null
+  br i1 %.not.i, label %cli_event_error_str.exit, label %18
 
-18:                                               ; preds = %13
-  %19 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #12
-  %20 = load i64, ptr %4, align 8
-  %21 = mul nsw i64 %20, 1000000
-  %22 = getelementptr inbounds i8, ptr %4, i64 8
-  %23 = load i64, ptr %22, align 8
-  %24 = add nsw i64 %21, %23
-  %25 = getelementptr inbounds i8, ptr %5, i64 8
-  %26 = load i64, ptr %25, align 8
-  %27 = add i64 %24, %26
-  store i64 %27, ptr %25, align 8
-  %28 = getelementptr inbounds i8, ptr %6, i64 8
-  %29 = load i64, ptr %28, align 8
-  %30 = sub i64 %27, %29
-  store i64 %30, ptr %25, align 8
-  br label %31
+18:                                               ; preds = %17
+  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.7) #12
+  %19 = getelementptr inbounds i8, ptr %0, i64 28
+  %20 = load i16, ptr %19, align 4
+  %21 = lshr i16 %20, 8
+  %trunc.i.i = trunc nuw i16 %21 to i8
+  switch i8 %trunc.i.i, label %cli_event_error_str.exit [
+    i8 0, label %22
+    i8 1, label %27
+  ]
 
-31:                                               ; preds = %3, %18, %17
+22:                                               ; preds = %18
+  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr @.str.7, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %0, i64 24
+  %25 = load i32, ptr %24, align 8
+  %26 = add i32 %25, 1
+  store i32 %26, ptr %24, align 8
+  br label %cli_event_error_str.exit
+
+27:                                               ; preds = %18
+  %28 = getelementptr inbounds i8, ptr %0, i64 24
+  %29 = load i32, ptr %28, align 8
+  %30 = shl i32 %29, 3
+  %31 = add i32 %30, 8
+  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  %33 = load ptr, ptr %32, align 8
+  %34 = zext i32 %31 to i64
+  %35 = tail call ptr @cli_safer_realloc(ptr noundef %33, i64 noundef %34) #12
+  %.not.i.i.i = icmp eq ptr %35, null
+  br i1 %.not.i.i.i, label %36, label %44
+
+36:                                               ; preds = %27
+  %37 = getelementptr inbounds i8, ptr %0, i64 32
+  %38 = load i64, ptr %37, align 8
+  %39 = add i64 %38, %34
+  store i64 %39, ptr %37, align 8
+  %40 = getelementptr inbounds i8, ptr %0, i64 44
+  %41 = load i32, ptr %40, align 4
+  %42 = add i32 %41, 1
+  store i32 %42, ptr %40, align 4
+  %.not6.i.i.i.i = icmp eq i32 %31, 0
+  br i1 %.not6.i.i.i.i, label %cli_event_error_str.exit, label %43
+
+43:                                               ; preds = %36
+  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.1, i32 noundef %31) #12
+  br label %cli_event_error_str.exit
+
+44:                                               ; preds = %27
+  store ptr %35, ptr %32, align 8
+  %45 = load i32, ptr %28, align 8
+  %46 = zext i32 %45 to i64
+  %47 = getelementptr inbounds %union.ev_val, ptr %35, i64 %46
+  store i64 ptrtoint (ptr @.str.7 to i64), ptr %47, align 8
+  %48 = load i32, ptr %28, align 8
+  %49 = add i32 %48, 1
+  store i32 %49, ptr %28, align 8
+  br label %cli_event_error_str.exit
+
+50:                                               ; preds = %13
+  %51 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #12
+  %52 = load i64, ptr %4, align 8
+  %53 = mul nsw i64 %52, 1000000
+  %54 = getelementptr inbounds i8, ptr %4, i64 8
+  %55 = load i64, ptr %54, align 8
+  %56 = add nsw i64 %53, %55
+  %57 = getelementptr inbounds i8, ptr %5, i64 8
+  %58 = load i64, ptr %57, align 8
+  %59 = add i64 %56, %58
+  store i64 %59, ptr %57, align 8
+  %60 = getelementptr inbounds i8, ptr %6, i64 8
+  %61 = load i64, ptr %60, align 8
+  %62 = sub i64 %59, %61
+  store i64 %62, ptr %57, align 8
+  br label %cli_event_error_str.exit
+
+cli_event_error_str.exit:                         ; preds = %44, %43, %36, %22, %18, %17, %3, %50
   ret void
 }
 
@@ -851,83 +1146,142 @@ declare void @cli_warnmsg(ptr noundef, ...) local_unnamed_addr #5
 define void @cli_event_string(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = tail call fastcc ptr @get_event(ptr noundef %0, i32 noundef %1)
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %event_string.exit, label %5
+  br i1 %.not, label %cli_event_error_str.exit, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %4, i64 20
   %7 = load i16, ptr %6, align 4
   %8 = and i16 %7, 255
   %.not7 = icmp eq i16 %8, 1
-  br i1 %.not7, label %10, label %9
+  br i1 %.not7, label %42, label %9
 
 9:                                                ; preds = %5
-  tail call void @cli_event_error_str(ptr noundef %0, ptr noundef nonnull @.str.9)
-  br label %event_string.exit
+  %.not.i = icmp eq ptr %0, null
+  br i1 %.not.i, label %cli_event_error_str.exit, label %10
 
-10:                                               ; preds = %5
-  %.not.i = icmp eq ptr %2, null
-  %spec.store.select.i = select i1 %.not.i, ptr @.str.19, ptr %2
-  %11 = lshr i16 %7, 8
-  %trunc.i = trunc nuw i16 %11 to i8
-  switch i8 %trunc.i, label %event_string.exit [
-    i8 0, label %12
-    i8 1, label %17
+10:                                               ; preds = %9
+  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9) #12
+  %11 = getelementptr inbounds i8, ptr %0, i64 28
+  %12 = load i16, ptr %11, align 4
+  %13 = lshr i16 %12, 8
+  %trunc.i.i = trunc nuw i16 %13 to i8
+  switch i8 %trunc.i.i, label %cli_event_error_str.exit [
+    i8 0, label %14
+    i8 1, label %19
   ]
 
-12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr %spec.store.select.i, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 16
-  %15 = load i32, ptr %14, align 8
-  %16 = add i32 %15, 1
-  store i32 %16, ptr %14, align 8
-  br label %event_string.exit
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr @.str.9, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = load i32, ptr %16, align 8
+  %18 = add i32 %17, 1
+  store i32 %18, ptr %16, align 8
+  br label %cli_event_error_str.exit
 
-17:                                               ; preds = %10
-  %18 = getelementptr inbounds i8, ptr %4, i64 16
-  %19 = load i32, ptr %18, align 8
-  %20 = shl i32 %19, 3
-  %21 = add i32 %20, 8
-  %22 = getelementptr inbounds i8, ptr %4, i64 8
-  %23 = load ptr, ptr %22, align 8
-  %24 = zext i32 %21 to i64
-  %25 = tail call ptr @cli_safer_realloc(ptr noundef %23, i64 noundef %24) #12
-  %.not.i.i = icmp eq ptr %25, null
-  br i1 %.not.i.i, label %26, label %35
+19:                                               ; preds = %10
+  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = load i32, ptr %20, align 8
+  %22 = shl i32 %21, 3
+  %23 = add i32 %22, 8
+  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = load ptr, ptr %24, align 8
+  %26 = zext i32 %23 to i64
+  %27 = tail call ptr @cli_safer_realloc(ptr noundef %25, i64 noundef %26) #12
+  %.not.i.i.i = icmp eq ptr %27, null
+  br i1 %.not.i.i.i, label %28, label %36
 
-26:                                               ; preds = %17
-  %.not.i.i.i = icmp eq ptr %0, null
-  br i1 %.not.i.i.i, label %event_string.exit, label %27
+28:                                               ; preds = %19
+  %29 = getelementptr inbounds i8, ptr %0, i64 32
+  %30 = load i64, ptr %29, align 8
+  %31 = add i64 %30, %26
+  store i64 %31, ptr %29, align 8
+  %32 = getelementptr inbounds i8, ptr %0, i64 44
+  %33 = load i32, ptr %32, align 4
+  %34 = add i32 %33, 1
+  store i32 %34, ptr %32, align 4
+  %.not6.i.i.i.i = icmp eq i32 %23, 0
+  br i1 %.not6.i.i.i.i, label %cli_event_error_str.exit, label %35
 
-27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %0, i64 32
-  %29 = load i64, ptr %28, align 8
-  %30 = add i64 %29, %24
-  store i64 %30, ptr %28, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 44
-  %32 = load i32, ptr %31, align 4
-  %33 = add i32 %32, 1
-  store i32 %33, ptr %31, align 4
-  %.not6.i.i.i = icmp eq i32 %21, 0
-  br i1 %.not6.i.i.i, label %event_string.exit, label %34
+35:                                               ; preds = %28
+  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.1, i32 noundef %23) #12
+  br label %cli_event_error_str.exit
 
-34:                                               ; preds = %27
-  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.1, i32 noundef %21) #12
-  br label %event_string.exit
-
-35:                                               ; preds = %17
-  store ptr %25, ptr %22, align 8
-  %36 = load i32, ptr %18, align 8
-  %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds %union.ev_val, ptr %25, i64 %37
-  %39 = ptrtoint ptr %spec.store.select.i to i64
-  store i64 %39, ptr %38, align 8
-  %40 = load i32, ptr %18, align 8
+36:                                               ; preds = %19
+  store ptr %27, ptr %24, align 8
+  %37 = load i32, ptr %20, align 8
+  %38 = zext i32 %37 to i64
+  %39 = getelementptr inbounds %union.ev_val, ptr %27, i64 %38
+  store i64 ptrtoint (ptr @.str.9 to i64), ptr %39, align 8
+  %40 = load i32, ptr %20, align 8
   %41 = add i32 %40, 1
-  store i32 %41, ptr %18, align 8
-  br label %event_string.exit
+  store i32 %41, ptr %20, align 8
+  br label %cli_event_error_str.exit
 
-event_string.exit:                                ; preds = %35, %34, %27, %26, %12, %10, %3, %9
+42:                                               ; preds = %5
+  %.not.i8 = icmp eq ptr %2, null
+  %spec.store.select.i = select i1 %.not.i8, ptr @.str.19, ptr %2
+  %43 = lshr i16 %7, 8
+  %trunc.i = trunc nuw i16 %43 to i8
+  switch i8 %trunc.i, label %cli_event_error_str.exit [
+    i8 0, label %44
+    i8 1, label %49
+  ]
+
+44:                                               ; preds = %42
+  %45 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %spec.store.select.i, ptr %45, align 8
+  %46 = getelementptr inbounds i8, ptr %4, i64 16
+  %47 = load i32, ptr %46, align 8
+  %48 = add i32 %47, 1
+  store i32 %48, ptr %46, align 8
+  br label %cli_event_error_str.exit
+
+49:                                               ; preds = %42
+  %50 = getelementptr inbounds i8, ptr %4, i64 16
+  %51 = load i32, ptr %50, align 8
+  %52 = shl i32 %51, 3
+  %53 = add i32 %52, 8
+  %54 = getelementptr inbounds i8, ptr %4, i64 8
+  %55 = load ptr, ptr %54, align 8
+  %56 = zext i32 %53 to i64
+  %57 = tail call ptr @cli_safer_realloc(ptr noundef %55, i64 noundef %56) #12
+  %.not.i.i = icmp eq ptr %57, null
+  br i1 %.not.i.i, label %58, label %67
+
+58:                                               ; preds = %49
+  %.not.i.i.i9 = icmp eq ptr %0, null
+  br i1 %.not.i.i.i9, label %cli_event_error_str.exit, label %59
+
+59:                                               ; preds = %58
+  %60 = getelementptr inbounds i8, ptr %0, i64 32
+  %61 = load i64, ptr %60, align 8
+  %62 = add i64 %61, %56
+  store i64 %62, ptr %60, align 8
+  %63 = getelementptr inbounds i8, ptr %0, i64 44
+  %64 = load i32, ptr %63, align 4
+  %65 = add i32 %64, 1
+  store i32 %65, ptr %63, align 4
+  %.not6.i.i.i = icmp eq i32 %53, 0
+  br i1 %.not6.i.i.i, label %cli_event_error_str.exit, label %66
+
+66:                                               ; preds = %59
+  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.1, i32 noundef %53) #12
+  br label %cli_event_error_str.exit
+
+67:                                               ; preds = %49
+  store ptr %57, ptr %54, align 8
+  %68 = load i32, ptr %50, align 8
+  %69 = zext i32 %68 to i64
+  %70 = getelementptr inbounds %union.ev_val, ptr %57, i64 %69
+  %71 = ptrtoint ptr %spec.store.select.i to i64
+  store i64 %71, ptr %70, align 8
+  %72 = load i32, ptr %50, align 8
+  %73 = add i32 %72, 1
+  store i32 %73, ptr %50, align 8
+  br label %cli_event_error_str.exit
+
+cli_event_error_str.exit:                         ; preds = %67, %66, %59, %58, %44, %42, %36, %35, %28, %14, %10, %9, %3
   ret void
 }
 
@@ -935,109 +1289,168 @@ event_string.exit:                                ; preds = %35, %34, %27, %26, 
 define void @cli_event_data(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #4 {
   %5 = tail call fastcc ptr @get_event(ptr noundef %0, i32 noundef %1)
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %cli_event_error_oom.exit, label %6
+  br i1 %.not, label %cli_event_error_str.exit, label %6
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds i8, ptr %5, i64 20
   %8 = load i16, ptr %7, align 4
   %9 = and i16 %8, 255
   %.not34 = icmp eq i16 %9, 2
-  br i1 %.not34, label %11, label %10
+  br i1 %.not34, label %43, label %10
 
 10:                                               ; preds = %6
-  tail call void @cli_event_error_str(ptr noundef %0, ptr noundef nonnull @.str.10)
-  br label %cli_event_error_oom.exit
+  %.not.i = icmp eq ptr %0, null
+  br i1 %.not.i, label %cli_event_error_str.exit, label %11
 
-11:                                               ; preds = %6
-  %12 = lshr i16 %8, 8
-  %trunc = trunc nuw i16 %12 to i8
-  switch i8 %trunc, label %cli_event_error_oom.exit [
-    i8 0, label %13
-    i8 3, label %29
+11:                                               ; preds = %10
+  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.10) #12
+  %12 = getelementptr inbounds i8, ptr %0, i64 28
+  %13 = load i16, ptr %12, align 4
+  %14 = lshr i16 %13, 8
+  %trunc.i.i = trunc nuw i16 %14 to i8
+  switch i8 %trunc.i.i, label %cli_event_error_str.exit [
+    i8 0, label %15
+    i8 1, label %20
   ]
 
-13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %5, i64 8
-  %15 = load ptr, ptr %14, align 8
-  %16 = zext i32 %3 to i64
-  %17 = tail call ptr @cli_safer_realloc_or_free(ptr noundef %15, i64 noundef %16) #12
-  %.not36 = icmp eq ptr %17, null
-  br i1 %.not36, label %20, label %18
+15:                                               ; preds = %11
+  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr @.str.10, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = load i32, ptr %17, align 8
+  %19 = add i32 %18, 1
+  store i32 %19, ptr %17, align 8
+  br label %cli_event_error_str.exit
 
-18:                                               ; preds = %13
-  store ptr %17, ptr %14, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr align 1 %2, i64 %16, i1 false)
-  %19 = getelementptr inbounds i8, ptr %5, i64 16
-  store i32 %3, ptr %19, align 8
-  br label %cli_event_error_oom.exit
+20:                                               ; preds = %11
+  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %22 = load i32, ptr %21, align 8
+  %23 = shl i32 %22, 3
+  %24 = add i32 %23, 8
+  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = load ptr, ptr %25, align 8
+  %27 = zext i32 %24 to i64
+  %28 = tail call ptr @cli_safer_realloc(ptr noundef %26, i64 noundef %27) #12
+  %.not.i.i.i = icmp eq ptr %28, null
+  br i1 %.not.i.i.i, label %29, label %37
 
-20:                                               ; preds = %13
-  %.not.i = icmp eq ptr %0, null
-  br i1 %.not.i, label %cli_event_error_oom.exit, label %21
+29:                                               ; preds = %20
+  %30 = getelementptr inbounds i8, ptr %0, i64 32
+  %31 = load i64, ptr %30, align 8
+  %32 = add i64 %31, %27
+  store i64 %32, ptr %30, align 8
+  %33 = getelementptr inbounds i8, ptr %0, i64 44
+  %34 = load i32, ptr %33, align 4
+  %35 = add i32 %34, 1
+  store i32 %35, ptr %33, align 4
+  %.not6.i.i.i.i = icmp eq i32 %24, 0
+  br i1 %.not6.i.i.i.i, label %cli_event_error_str.exit, label %36
 
-21:                                               ; preds = %20
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
-  %23 = load i64, ptr %22, align 8
-  %24 = add i64 %23, %16
-  store i64 %24, ptr %22, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 44
-  %26 = load i32, ptr %25, align 4
-  %27 = add i32 %26, 1
-  store i32 %27, ptr %25, align 4
-  %.not6.i = icmp eq i32 %3, 0
-  br i1 %.not6.i, label %cli_event_error_oom.exit, label %28
+36:                                               ; preds = %29
+  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.1, i32 noundef %24) #12
+  br label %cli_event_error_str.exit
 
-28:                                               ; preds = %21
-  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.1, i32 noundef %3) #12
-  br label %cli_event_error_oom.exit
-
-29:                                               ; preds = %11
-  %30 = getelementptr inbounds i8, ptr %5, i64 8
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %5, i64 16
-  %33 = load i32, ptr %32, align 8
-  %34 = add i32 %33, %3
-  %35 = zext i32 %34 to i64
-  %36 = tail call ptr @cli_safer_realloc_or_free(ptr noundef %31, i64 noundef %35) #12
-  %.not35 = icmp eq ptr %36, null
-  br i1 %.not35, label %44, label %37
-
-37:                                               ; preds = %29
-  store ptr %36, ptr %30, align 8
-  %38 = load i32, ptr %32, align 8
+37:                                               ; preds = %20
+  store ptr %28, ptr %25, align 8
+  %38 = load i32, ptr %21, align 8
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds i8, ptr %36, i64 %39
-  %41 = zext i32 %3 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %40, ptr align 1 %2, i64 %41, i1 false)
-  %42 = load i32, ptr %32, align 8
-  %43 = add i32 %42, %3
-  store i32 %43, ptr %32, align 8
-  br label %cli_event_error_oom.exit
+  %40 = getelementptr inbounds %union.ev_val, ptr %28, i64 %39
+  store i64 ptrtoint (ptr @.str.10 to i64), ptr %40, align 8
+  %41 = load i32, ptr %21, align 8
+  %42 = add i32 %41, 1
+  store i32 %42, ptr %21, align 8
+  br label %cli_event_error_str.exit
 
-44:                                               ; preds = %29
-  %45 = load i32, ptr %32, align 8
-  %46 = add i32 %45, %3
+43:                                               ; preds = %6
+  %44 = lshr i16 %8, 8
+  %trunc = trunc nuw i16 %44 to i8
+  switch i8 %trunc, label %cli_event_error_str.exit [
+    i8 0, label %45
+    i8 3, label %61
+  ]
+
+45:                                               ; preds = %43
+  %46 = getelementptr inbounds i8, ptr %5, i64 8
+  %47 = load ptr, ptr %46, align 8
+  %48 = zext i32 %3 to i64
+  %49 = tail call ptr @cli_safer_realloc_or_free(ptr noundef %47, i64 noundef %48) #12
+  %.not36 = icmp eq ptr %49, null
+  br i1 %.not36, label %52, label %50
+
+50:                                               ; preds = %45
+  store ptr %49, ptr %46, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %49, ptr align 1 %2, i64 %48, i1 false)
+  %51 = getelementptr inbounds i8, ptr %5, i64 16
+  store i32 %3, ptr %51, align 8
+  br label %cli_event_error_str.exit
+
+52:                                               ; preds = %45
   %.not.i37 = icmp eq ptr %0, null
-  br i1 %.not.i37, label %cli_event_error_oom.exit, label %47
+  br i1 %.not.i37, label %cli_event_error_str.exit, label %53
 
-47:                                               ; preds = %44
-  %48 = zext i32 %46 to i64
-  %49 = getelementptr inbounds i8, ptr %0, i64 32
-  %50 = load i64, ptr %49, align 8
-  %51 = add i64 %50, %48
-  store i64 %51, ptr %49, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 44
-  %53 = load i32, ptr %52, align 4
-  %54 = add i32 %53, 1
-  store i32 %54, ptr %52, align 4
-  %.not6.i38 = icmp eq i32 %46, 0
-  br i1 %.not6.i38, label %cli_event_error_oom.exit, label %55
+53:                                               ; preds = %52
+  %54 = getelementptr inbounds i8, ptr %0, i64 32
+  %55 = load i64, ptr %54, align 8
+  %56 = add i64 %55, %48
+  store i64 %56, ptr %54, align 8
+  %57 = getelementptr inbounds i8, ptr %0, i64 44
+  %58 = load i32, ptr %57, align 4
+  %59 = add i32 %58, 1
+  store i32 %59, ptr %57, align 4
+  %.not6.i = icmp eq i32 %3, 0
+  br i1 %.not6.i, label %cli_event_error_str.exit, label %60
 
-55:                                               ; preds = %47
-  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.1, i32 noundef %46) #12
-  br label %cli_event_error_oom.exit
+60:                                               ; preds = %53
+  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.1, i32 noundef %3) #12
+  br label %cli_event_error_str.exit
 
-cli_event_error_oom.exit:                         ; preds = %55, %47, %44, %28, %21, %20, %11, %37, %18, %4, %10
+61:                                               ; preds = %43
+  %62 = getelementptr inbounds i8, ptr %5, i64 8
+  %63 = load ptr, ptr %62, align 8
+  %64 = getelementptr inbounds i8, ptr %5, i64 16
+  %65 = load i32, ptr %64, align 8
+  %66 = add i32 %65, %3
+  %67 = zext i32 %66 to i64
+  %68 = tail call ptr @cli_safer_realloc_or_free(ptr noundef %63, i64 noundef %67) #12
+  %.not35 = icmp eq ptr %68, null
+  br i1 %.not35, label %76, label %69
+
+69:                                               ; preds = %61
+  store ptr %68, ptr %62, align 8
+  %70 = load i32, ptr %64, align 8
+  %71 = zext i32 %70 to i64
+  %72 = getelementptr inbounds i8, ptr %68, i64 %71
+  %73 = zext i32 %3 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %72, ptr align 1 %2, i64 %73, i1 false)
+  %74 = load i32, ptr %64, align 8
+  %75 = add i32 %74, %3
+  store i32 %75, ptr %64, align 8
+  br label %cli_event_error_str.exit
+
+76:                                               ; preds = %61
+  %77 = load i32, ptr %64, align 8
+  %78 = add i32 %77, %3
+  %.not.i38 = icmp eq ptr %0, null
+  br i1 %.not.i38, label %cli_event_error_str.exit, label %79
+
+79:                                               ; preds = %76
+  %80 = zext i32 %78 to i64
+  %81 = getelementptr inbounds i8, ptr %0, i64 32
+  %82 = load i64, ptr %81, align 8
+  %83 = add i64 %82, %80
+  store i64 %83, ptr %81, align 8
+  %84 = getelementptr inbounds i8, ptr %0, i64 44
+  %85 = load i32, ptr %84, align 4
+  %86 = add i32 %85, 1
+  store i32 %86, ptr %84, align 4
+  %.not6.i39 = icmp eq i32 %78, 0
+  br i1 %.not6.i39, label %cli_event_error_str.exit, label %87
+
+87:                                               ; preds = %79
+  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.1, i32 noundef %78) #12
+  br label %cli_event_error_str.exit
+
+cli_event_error_str.exit:                         ; preds = %87, %79, %76, %60, %53, %52, %37, %36, %29, %15, %11, %10, %43, %69, %50, %4
   ret void
 }
 
@@ -1050,34 +1463,93 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define void @cli_event_fastdata(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #4 {
   %5 = tail call fastcc ptr @get_event(ptr noundef %0, i32 noundef %1)
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %21, label %6
+  br i1 %.not, label %cli_event_error_str.exit, label %6
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds i8, ptr %5, i64 20
   %8 = load i16, ptr %7, align 4
   %9 = and i16 %8, 255
   %.not10 = icmp eq i16 %9, 3
-  br i1 %.not10, label %11, label %10
+  br i1 %.not10, label %43, label %10
 
 10:                                               ; preds = %6
-  tail call void @cli_event_error_str(ptr noundef %0, ptr noundef nonnull @.str.11)
-  br label %21
+  %.not.i = icmp eq ptr %0, null
+  br i1 %.not.i, label %cli_event_error_str.exit, label %11
 
-11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
-  %13 = load i64, ptr %12, align 8
-  %14 = trunc i64 %13 to i32
-  %15 = zext i32 %3 to i64
-  %16 = tail call i32 @CrcUpdate(i32 noundef %14, ptr noundef %2, i64 noundef %15) #12
-  %17 = zext i32 %16 to i64
-  store i64 %17, ptr %12, align 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 16
-  %19 = load i32, ptr %18, align 8
-  %20 = add i32 %19, %3
-  store i32 %20, ptr %18, align 8
-  br label %21
+11:                                               ; preds = %10
+  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.11) #12
+  %12 = getelementptr inbounds i8, ptr %0, i64 28
+  %13 = load i16, ptr %12, align 4
+  %14 = lshr i16 %13, 8
+  %trunc.i.i = trunc nuw i16 %14 to i8
+  switch i8 %trunc.i.i, label %cli_event_error_str.exit [
+    i8 0, label %15
+    i8 1, label %20
+  ]
 
-21:                                               ; preds = %4, %11, %10
+15:                                               ; preds = %11
+  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr @.str.11, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = load i32, ptr %17, align 8
+  %19 = add i32 %18, 1
+  store i32 %19, ptr %17, align 8
+  br label %cli_event_error_str.exit
+
+20:                                               ; preds = %11
+  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %22 = load i32, ptr %21, align 8
+  %23 = shl i32 %22, 3
+  %24 = add i32 %23, 8
+  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = load ptr, ptr %25, align 8
+  %27 = zext i32 %24 to i64
+  %28 = tail call ptr @cli_safer_realloc(ptr noundef %26, i64 noundef %27) #12
+  %.not.i.i.i = icmp eq ptr %28, null
+  br i1 %.not.i.i.i, label %29, label %37
+
+29:                                               ; preds = %20
+  %30 = getelementptr inbounds i8, ptr %0, i64 32
+  %31 = load i64, ptr %30, align 8
+  %32 = add i64 %31, %27
+  store i64 %32, ptr %30, align 8
+  %33 = getelementptr inbounds i8, ptr %0, i64 44
+  %34 = load i32, ptr %33, align 4
+  %35 = add i32 %34, 1
+  store i32 %35, ptr %33, align 4
+  %.not6.i.i.i.i = icmp eq i32 %24, 0
+  br i1 %.not6.i.i.i.i, label %cli_event_error_str.exit, label %36
+
+36:                                               ; preds = %29
+  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.1, i32 noundef %24) #12
+  br label %cli_event_error_str.exit
+
+37:                                               ; preds = %20
+  store ptr %28, ptr %25, align 8
+  %38 = load i32, ptr %21, align 8
+  %39 = zext i32 %38 to i64
+  %40 = getelementptr inbounds %union.ev_val, ptr %28, i64 %39
+  store i64 ptrtoint (ptr @.str.11 to i64), ptr %40, align 8
+  %41 = load i32, ptr %21, align 8
+  %42 = add i32 %41, 1
+  store i32 %42, ptr %21, align 8
+  br label %cli_event_error_str.exit
+
+43:                                               ; preds = %6
+  %44 = getelementptr inbounds i8, ptr %5, i64 8
+  %45 = load i64, ptr %44, align 8
+  %46 = trunc i64 %45 to i32
+  %47 = zext i32 %3 to i64
+  %48 = tail call i32 @CrcUpdate(i32 noundef %46, ptr noundef %2, i64 noundef %47) #12
+  %49 = zext i32 %48 to i64
+  store i64 %49, ptr %44, align 8
+  %50 = getelementptr inbounds i8, ptr %5, i64 16
+  %51 = load i32, ptr %50, align 8
+  %52 = add i32 %51, %3
+  store i32 %52, ptr %50, align 8
+  br label %cli_event_error_str.exit
+
+cli_event_error_str.exit:                         ; preds = %37, %36, %29, %15, %11, %10, %4, %43
   ret void
 }
 
