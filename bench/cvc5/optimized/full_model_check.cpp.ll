@@ -30410,7 +30410,7 @@ cond.end:
   %sub.ptr.lhs.cast.i177 = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i178 = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i179 = sub i64 %sub.ptr.lhs.cast.i177, %sub.ptr.rhs.cast.i178
-  %cmp181 = icmp ult i64 %sub.ptr.sub.i179, 16
+  %cmp181 = icmp ult i64 %sub.ptr.sub.i179, 9
   br i1 %cmp181, label %return, label %for.body
 
 for.body:                                         ; preds = %cond.end, %for.inc

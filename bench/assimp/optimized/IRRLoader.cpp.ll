@@ -6956,7 +6956,7 @@ invoke.cont:                                      ; preds = %.noexc
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %cmp3.i = icmp ult i64 %sub.ptr.sub.i.i, 80
+  %cmp3.i = icmp ult i64 %sub.ptr.sub.i.i, 65
   br i1 %cmp3.i, label %_ZNSt12_Vector_baseISt4pairIP10aiMaterialjESaIS3_EE11_M_allocateEm.exit.i, label %invoke.cont8
 
 _ZNSt12_Vector_baseISt4pairIP10aiMaterialjESaIS3_EE11_M_allocateEm.exit.i: ; preds = %invoke.cont
@@ -7003,7 +7003,7 @@ invoke.cont8:                                     ; preds = %_ZNSt12_Vector_base
   %sub.ptr.lhs.cast.i.i10 = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i.i11 = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i12 = sub i64 %sub.ptr.lhs.cast.i.i10, %sub.ptr.rhs.cast.i.i11
-  %cmp3.i14 = icmp ult i64 %sub.ptr.sub.i.i12, 40
+  %cmp3.i14 = icmp ult i64 %sub.ptr.sub.i.i12, 33
   br i1 %cmp3.i14, label %_ZNSt12_Vector_baseIPN6Assimp11IRRImporter4NodeESaIS3_EE11_M_allocateEm.exit.i, label %invoke.cont10
 
 _ZNSt12_Vector_baseIPN6Assimp11IRRImporter4NodeESaIS3_EE11_M_allocateEm.exit.i: ; preds = %invoke.cont8
@@ -7346,7 +7346,7 @@ invoke.cont32:                                    ; preds = %_ZNSt12_Vector_base
   %sub.ptr.lhs.cast.i.i64 = ptrtoint ptr %16 to i64
   %sub.ptr.rhs.cast.i.i65 = ptrtoint ptr %17 to i64
   %sub.ptr.sub.i.i66 = sub i64 %sub.ptr.lhs.cast.i.i64, %sub.ptr.rhs.cast.i.i65
-  %cmp3.i68 = icmp ult i64 %sub.ptr.sub.i.i66, 40
+  %cmp3.i68 = icmp ult i64 %sub.ptr.sub.i.i66, 33
   br i1 %cmp3.i68, label %_ZNSt12_Vector_baseIP7aiLightSaIS1_EE11_M_allocateEm.exit.i, label %invoke.cont33
 
 _ZNSt12_Vector_baseIP7aiLightSaIS1_EE11_M_allocateEm.exit.i: ; preds = %invoke.cont32

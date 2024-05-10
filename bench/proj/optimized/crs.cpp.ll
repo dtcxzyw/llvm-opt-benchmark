@@ -13728,7 +13728,7 @@ define void @_ZN5osgeo4proj3crs11CompoundCRS6createERKNS0_4util11PropertyMapERKS
   %10 = ptrtoint ptr %8 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
-  %13 = icmp ult i64 %12, 32
+  %13 = icmp ult i64 %12, 17
   br i1 %13, label %14, label %19
 
 14:                                               ; preds = %3
@@ -13908,7 +13908,7 @@ define void @_ZN5osgeo4proj3crs11CompoundCRS6createERKNS0_4util11PropertyMapERKS
   %128 = ptrtoint ptr %126 to i64
   %129 = ptrtoint ptr %127 to i64
   %130 = sub i64 %128, %129
-  %131 = icmp ult i64 %130, 48
+  %131 = icmp ult i64 %130, 33
   %or.cond = and i1 %68, %131
   br i1 %or.cond, label %.critedge94, label %.thread146
 

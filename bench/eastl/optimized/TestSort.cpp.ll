@@ -2750,7 +2750,7 @@ for.end379:                                       ; preds = %for.inc377
   %sub.ptr.lhs.cast.i1195 = ptrtoint ptr %intArray365.sroa.10.1 to i64
   %sub.ptr.rhs.cast.i1196 = ptrtoint ptr %intArray365.sroa.0.1 to i64
   %sub.ptr.sub.i1197 = sub i64 %sub.ptr.lhs.cast.i1195, %sub.ptr.rhs.cast.i1196
-  %tobool.not.i.i.i1199 = icmp ult i64 %sub.ptr.sub.i1197, 16
+  %tobool.not.i.i.i1199 = icmp ult i64 %sub.ptr.sub.i1197, 9
   br i1 %tobool.not.i.i.i1199, label %invoke.cont385, label %for.body.preheader.i.i1200
 
 for.body.preheader.i.i1200:                       ; preds = %for.end379

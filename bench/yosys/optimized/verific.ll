@@ -619,7 +619,7 @@ define internal void @_ZN12_GLOBAL__N_18ReadPass7executeESt6vectorINSt7__cxx1112
   %41 = ptrtoint ptr %39 to i64
   %42 = ptrtoint ptr %40 to i64
   %43 = sub i64 %41, %42
-  %44 = icmp ult i64 %43, 64
+  %44 = icmp ult i64 %43, 33
   br i1 %44, label %49, label %45
 
 45:                                               ; preds = %37
@@ -761,7 +761,7 @@ define internal void @_ZN12_GLOBAL__N_18ReadPass7executeESt6vectorINSt7__cxx1112
   %98 = ptrtoint ptr %96 to i64
   %99 = ptrtoint ptr %97 to i64
   %100 = sub i64 %98, %99
-  %101 = icmp ult i64 %100, 96
+  %101 = icmp ult i64 %100, 65
   br i1 %101, label %102, label %110
 
 102:                                              ; preds = %95

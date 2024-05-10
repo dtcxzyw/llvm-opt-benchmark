@@ -55853,7 +55853,7 @@ if.else.i:                                        ; preds = %_ZN7testing15Assert
   %45 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i14.i = ptrtoint ptr %45 to i64
   %sub.ptr.sub.i16.i = sub i64 %sub.ptr.lhs.cast.i14.i, %sub.ptr.rhs.cast.i.i
-  %cmp24.not.i = icmp ult i64 %sub.ptr.sub.i16.i, 12
+  %cmp24.not.i = icmp ult i64 %sub.ptr.sub.i16.i, 9
   br i1 %cmp24.not.i, label %_ZSt7advanceIPKimEvRT_T0_.exit.i, label %if.then25.i
 
 if.then25.i:                                      ; preds = %if.else.i

@@ -369,7 +369,7 @@ if.else.i:                                        ; preds = %entry
   %3 = load ptr, ptr %_M_finish.i.i, align 8
   %sub.ptr.lhs.cast.i14.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i16.i = sub i64 %sub.ptr.lhs.cast.i14.i, %sub.ptr.rhs.cast.i.i
-  %cmp24.not.i = icmp ult i64 %sub.ptr.sub.i16.i, 8
+  %cmp24.not.i = icmp ult i64 %sub.ptr.sub.i16.i, 5
   br i1 %cmp24.not.i, label %_ZSt7advanceIPKjmEvRT_T0_.exit.i, label %if.then25.i
 
 if.then25.i:                                      ; preds = %if.else.i
@@ -440,7 +440,7 @@ if.else.i9:                                       ; preds = %_ZNSt6vectorIjSaIjE
   %9 = load ptr, ptr %_M_finish.i.i10, align 8
   %sub.ptr.lhs.cast.i14.i11 = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i16.i12 = sub i64 %sub.ptr.lhs.cast.i14.i11, %sub.ptr.rhs.cast.i.i6
-  %cmp24.not.i14 = icmp ult i64 %sub.ptr.sub.i16.i12, 8
+  %cmp24.not.i14 = icmp ult i64 %sub.ptr.sub.i16.i12, 5
   br i1 %cmp24.not.i14, label %_ZSt7advanceIPKjmEvRT_T0_.exit.i26, label %if.then25.i15
 
 if.then25.i15:                                    ; preds = %if.else.i9
@@ -5386,7 +5386,7 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp = icmp ult i64 %sub.ptr.sub.i, 8
+  %cmp = icmp ult i64 %sub.ptr.sub.i, 5
   br i1 %cmp, label %if.end32, label %if.end
 
 if.end:                                           ; preds = %entry

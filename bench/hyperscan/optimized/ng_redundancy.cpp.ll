@@ -1328,7 +1328,7 @@ invoke.cont80.i:                                  ; preds = %invoke.cont72.i
   %sub.ptr.lhs.cast.i86.i = ptrtoint ptr %110 to i64
   %sub.ptr.rhs.cast.i87.i = ptrtoint ptr %111 to i64
   %sub.ptr.sub.i88.i = sub i64 %sub.ptr.lhs.cast.i86.i, %sub.ptr.rhs.cast.i87.i
-  %cmp84.i = icmp ult i64 %sub.ptr.sub.i88.i, 32
+  %cmp84.i = icmp ult i64 %sub.ptr.sub.i88.i, 17
   br i1 %cmp84.i, label %for.inc161.i, label %if.end86.i
 
 if.end86.i:                                       ; preds = %invoke.cont80.i
@@ -1794,7 +1794,7 @@ invoke.cont76.i:                                  ; preds = %invoke.cont68.i
   %sub.ptr.lhs.cast.i92.i = ptrtoint ptr %162 to i64
   %sub.ptr.rhs.cast.i93.i = ptrtoint ptr %163 to i64
   %sub.ptr.sub.i94.i = sub i64 %sub.ptr.lhs.cast.i92.i, %sub.ptr.rhs.cast.i93.i
-  %cmp80.i = icmp ult i64 %sub.ptr.sub.i94.i, 32
+  %cmp80.i = icmp ult i64 %sub.ptr.sub.i94.i, 17
   br i1 %cmp80.i, label %for.inc158.i, label %if.end82.i
 
 if.end82.i:                                       ; preds = %invoke.cont76.i

@@ -611,7 +611,7 @@ _ZNSt6vectorIN3ozz9animation7offline12RawAnimation10JointTrackENS0_12StdAllocato
   %275 = ptrtoint ptr %273 to i64
   %276 = ptrtoint ptr %274 to i64
   %277 = sub i64 %275, %276
-  %278 = icmp ult i64 %277, 32
+  %278 = icmp ult i64 %277, 17
   br i1 %278, label %279, label %281
 
 279:                                              ; preds = %268
@@ -1878,7 +1878,7 @@ _ZNSt11_Deque_baseISt4pairImmEN3ozz12StdAllocatorIS1_EEE16_M_destroy_nodesEPPS1_
   %892 = ptrtoint ptr %890 to i64
   %893 = ptrtoint ptr %891 to i64
   %894 = sub i64 %892, %893
-  %895 = icmp ult i64 %894, 32
+  %895 = icmp ult i64 %894, 17
   br i1 %895, label %896, label %898
 
 896:                                              ; preds = %886

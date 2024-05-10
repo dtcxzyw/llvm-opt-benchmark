@@ -66671,7 +66671,7 @@ define linkonce_odr void @_ZN5Yosys7TclPass7executeESt6vectorINSt7__cxx1112basic
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
-  %10 = icmp ult i64 %9, 64
+  %10 = icmp ult i64 %9, 33
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %3

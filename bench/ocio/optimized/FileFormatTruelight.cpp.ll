@@ -651,7 +651,7 @@ if.then78:                                        ; preds = %call3.i.noexc69
   %sub.ptr.lhs.cast.i = ptrtoint ptr %23 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %24 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp = icmp ult i64 %sub.ptr.sub.i, 64
+  %cmp = icmp ult i64 %sub.ptr.sub.i, 33
   br i1 %cmp, label %while.cond.backedge, label %if.end81
 
 lpad71:                                           ; preds = %if.end67

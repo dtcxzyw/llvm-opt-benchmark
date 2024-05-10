@@ -5434,7 +5434,7 @@ lor.lhs.false:                                    ; preds = %if.then43
   %sub.ptr.lhs.cast.i166 = ptrtoint ptr %69 to i64
   %sub.ptr.rhs.cast.i167 = ptrtoint ptr %70 to i64
   %sub.ptr.sub.i168 = sub i64 %sub.ptr.lhs.cast.i166, %sub.ptr.rhs.cast.i167
-  %cmp49 = icmp ult i64 %sub.ptr.sub.i168, 12
+  %cmp49 = icmp ult i64 %sub.ptr.sub.i168, 9
   br i1 %cmp49, label %if.then50, label %if.end55
 
 if.then50:                                        ; preds = %lor.lhs.false, %if.then43

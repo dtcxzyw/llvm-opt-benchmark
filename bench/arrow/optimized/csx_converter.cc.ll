@@ -907,7 +907,7 @@ _ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i.i: ; preds = %if.then.i13.
 if.else.i.i:                                      ; preds = %if.then150.i
   %sub.ptr.lhs.cast.i14.i.i = ptrtoint ptr %coords.sroa.9.1379.i to i64
   %sub.ptr.sub.i16.i.i = sub i64 %sub.ptr.lhs.cast.i14.i.i, %sub.ptr.rhs.cast.i.i273.i
-  %cmp24.not.i.i = icmp ult i64 %sub.ptr.sub.i16.i.i, 16
+  %cmp24.not.i.i = icmp ult i64 %sub.ptr.sub.i16.i.i, 9
   br i1 %cmp24.not.i.i, label %_ZSt7advanceIPKlmEvRT_T0_.exit.i.i, label %if.then25.i.i
 
 if.then25.i.i:                                    ; preds = %if.else.i.i
@@ -1001,7 +1001,7 @@ _ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i338.i: ; preds = %if.then.i
 if.else.i293.i:                                   ; preds = %if.else154.i
   %sub.ptr.lhs.cast.i14.i295.i = ptrtoint ptr %coords.sroa.9.1379.i to i64
   %sub.ptr.sub.i16.i296.i = sub i64 %sub.ptr.lhs.cast.i14.i295.i, %sub.ptr.rhs.cast.i.i273.i
-  %cmp24.not.i298.i = icmp ult i64 %sub.ptr.sub.i16.i296.i, 16
+  %cmp24.not.i298.i = icmp ult i64 %sub.ptr.sub.i16.i296.i, 9
   br i1 %cmp24.not.i298.i, label %_ZSt7advanceIPKlmEvRT_T0_.exit.i311.i, label %if.then25.i299.i
 
 if.then25.i299.i:                                 ; preds = %if.else.i293.i
@@ -5290,7 +5290,7 @@ do.end6:                                          ; preds = %_ZN5arrow6StatusD2E
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp = icmp ult i64 %sub.ptr.sub.i, 16
+  %cmp = icmp ult i64 %sub.ptr.sub.i, 9
   br i1 %cmp, label %if.then8, label %if.end9
 
 if.then8:                                         ; preds = %do.end6
@@ -6130,7 +6130,7 @@ do.end6:                                          ; preds = %_ZN5arrow6StatusD2E
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp = icmp ult i64 %sub.ptr.sub.i, 16
+  %cmp = icmp ult i64 %sub.ptr.sub.i, 9
   br i1 %cmp, label %if.then8, label %if.end9
 
 if.then8:                                         ; preds = %do.end6

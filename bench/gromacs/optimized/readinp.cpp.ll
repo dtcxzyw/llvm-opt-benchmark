@@ -307,7 +307,7 @@ define void @_Z12read_inpfilePN3gmx15TextInputStreamERKNSt10filesystem7__cxx114p
   %49 = ptrtoint ptr %47 to i64
   %50 = ptrtoint ptr %48 to i64
   %51 = sub i64 %49, %50
-  %52 = icmp ult i64 %51, 64
+  %52 = icmp ult i64 %51, 33
   br i1 %52, label %53, label %62
 
 53:                                               ; preds = %46

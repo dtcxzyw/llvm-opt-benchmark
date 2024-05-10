@@ -1751,7 +1751,7 @@ _ZNK26GeneratorExpressionContent21GetOriginalExpressionB5cxx11Ev.exit93: ; preds
   %194 = ptrtoint ptr %192 to i64
   %195 = ptrtoint ptr %193 to i64
   %196 = sub i64 %194, %195
-  %197 = icmp ult i64 %196, 64
+  %197 = icmp ult i64 %196, 33
   br i1 %197, label %198, label %242
 
 198:                                              ; preds = %190

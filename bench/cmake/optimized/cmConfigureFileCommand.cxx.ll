@@ -162,7 +162,7 @@ define dso_local noundef zeroext i1 @_Z22cmConfigureFileCommandRKSt6vectorINSt7_
   %44 = ptrtoint ptr %42 to i64
   %45 = ptrtoint ptr %43 to i64
   %46 = sub i64 %44, %45
-  %47 = icmp ult i64 %46, 64
+  %47 = icmp ult i64 %46, 33
   br i1 %47, label %48, label %58
 
 48:                                               ; preds = %2

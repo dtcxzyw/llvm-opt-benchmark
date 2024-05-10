@@ -6711,7 +6711,7 @@ define dso_local noundef zeroext i1 @_ZNK20cmComputeLinkDepends25CheckCircularDe
   %26 = ptrtoint ptr %24 to i64
   %27 = ptrtoint ptr %25 to i64
   %28 = sub i64 %26, %27
-  %29 = icmp ult i64 %28, 16
+  %29 = icmp ult i64 %28, 9
   %.not60 = icmp eq ptr %25, %24
   %or.cond = or i1 %29, %.not60
   br i1 %or.cond, label %.critedge, label %.lr.ph

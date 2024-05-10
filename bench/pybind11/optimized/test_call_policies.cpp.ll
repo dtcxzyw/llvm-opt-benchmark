@@ -33296,7 +33296,7 @@ _ZZN8pybind116detail15keep_alive_implEmmRNS0_13function_callENS_6handleEENKUlmE_
   %31 = ptrtoint ptr %27 to i64
   %32 = ptrtoint ptr %28 to i64
   %33 = sub i64 %31, %32
-  %.not.i5.i.i.i.i = icmp ult i64 %33, 16
+  %.not.i5.i.i.i.i = icmp ult i64 %33, 9
   br i1 %.not.i5.i.i.i.i, label %_ZN8pybind116detail18process_attributesIJNS_4nameENS_9is_methodENS_7siblingENS0_24is_new_style_constructorENS_10keep_aliveILm1ELm2EEEEE7precallERNS0_13function_callE.exit.i, label %34
 
 34:                                               ; preds = %_ZZN8pybind116detail15keep_alive_implEmmRNS0_13function_callENS_6handleEENKUlmE_clEm.exit.i.i.i.i
@@ -34212,7 +34212,7 @@ _ZZN8pybind116detail15keep_alive_implEmmRNS0_13function_callENS_6handleEENKUlmE_
   %27 = ptrtoint ptr %23 to i64
   %28 = ptrtoint ptr %24 to i64
   %29 = sub i64 %27, %28
-  %.not.i5.i.i.i.i = icmp ult i64 %29, 16
+  %.not.i5.i.i.i.i = icmp ult i64 %29, 9
   br i1 %.not.i5.i.i.i.i, label %_ZN8pybind116detail18process_attributesIJNS_4nameENS_9is_methodENS_7siblingENS_10keep_aliveILm1ELm2EEEEE7precallERNS0_13function_callE.exit.i, label %30
 
 30:                                               ; preds = %_ZZN8pybind116detail15keep_alive_implEmmRNS0_13function_callENS_6handleEENKUlmE_clEm.exit.i.i.i.i
@@ -35339,7 +35339,7 @@ _ZZN8pybind116detail15keep_alive_implEmmRNS0_13function_callENS_6handleEENKUlmE_
   %27 = ptrtoint ptr %23 to i64
   %28 = ptrtoint ptr %24 to i64
   %29 = sub i64 %27, %28
-  %.not.i5.i.i.i.i = icmp ult i64 %29, 16
+  %.not.i5.i.i.i.i = icmp ult i64 %29, 9
   br i1 %.not.i5.i.i.i.i, label %_ZN8pybind116detail18process_attributesIJNS_4nameENS_5scopeENS_7siblingENS_10keep_aliveILm1ELm2EEEEE7precallERNS0_13function_callE.exit.i, label %30
 
 30:                                               ; preds = %_ZZN8pybind116detail15keep_alive_implEmmRNS0_13function_callENS_6handleEENKUlmE_clEm.exit.i.i.i.i

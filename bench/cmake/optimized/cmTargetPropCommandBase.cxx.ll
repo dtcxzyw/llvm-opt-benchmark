@@ -142,7 +142,7 @@ define dso_local noundef zeroext i1 @_ZN23cmTargetPropCommandBase15HandleArgumen
   %27 = ptrtoint ptr %25 to i64
   %28 = ptrtoint ptr %26 to i64
   %29 = sub i64 %27, %28
-  %30 = icmp ult i64 %29, 64
+  %30 = icmp ult i64 %29, 33
   br i1 %30, label %31, label %43
 
 31:                                               ; preds = %4
@@ -424,7 +424,7 @@ _ZN23cmTargetPropCommandBase8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_trai
   %146 = ptrtoint ptr %144 to i64
   %147 = ptrtoint ptr %145 to i64
   %148 = sub i64 %146, %147
-  %149 = icmp ult i64 %148, 96
+  %149 = icmp ult i64 %148, 65
   br i1 %149, label %150, label %160
 
 150:                                              ; preds = %143
@@ -480,7 +480,7 @@ _ZN23cmTargetPropCommandBase8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_trai
   %173 = ptrtoint ptr %171 to i64
   %174 = ptrtoint ptr %172 to i64
   %175 = sub i64 %173, %174
-  %176 = icmp ult i64 %175, 96
+  %176 = icmp ult i64 %175, 65
   br i1 %176, label %177, label %187
 
 177:                                              ; preds = %170
@@ -535,7 +535,7 @@ _ZN23cmTargetPropCommandBase8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_trai
   %200 = ptrtoint ptr %198 to i64
   %201 = ptrtoint ptr %199 to i64
   %202 = sub i64 %200, %201
-  %203 = icmp ult i64 %202, 96
+  %203 = icmp ult i64 %202, 65
   br i1 %203, label %204, label %214
 
 204:                                              ; preds = %197

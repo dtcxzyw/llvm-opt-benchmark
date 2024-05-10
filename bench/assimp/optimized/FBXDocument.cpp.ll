@@ -311,7 +311,7 @@ if.end7:                                          ; preds = %if.end
   %sub.ptr.lhs.cast.i = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp = icmp ult i64 %sub.ptr.sub.i, 24
+  %cmp = icmp ult i64 %sub.ptr.sub.i, 17
   br i1 %cmp, label %if.then12, label %if.end17
 
 if.then12:                                        ; preds = %if.end7

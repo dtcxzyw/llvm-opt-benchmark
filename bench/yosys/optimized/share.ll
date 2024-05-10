@@ -12345,7 +12345,7 @@ _ZN12_GLOBAL__N_111ShareWorker20find_shareable_cellsEv.exit: ; preds = %_ZNSt3ma
   %1046 = ptrtoint ptr %1044 to i64
   %1047 = ptrtoint ptr %1045 to i64
   %1048 = sub i64 %1046, %1047
-  %1049 = icmp ult i64 %1048, 32
+  %1049 = icmp ult i64 %1048, 17
   br i1 %1049, label %.loopexit, label %1050
 
 1050:                                             ; preds = %_ZN12_GLOBAL__N_111ShareWorker20find_shareable_cellsEv.exit

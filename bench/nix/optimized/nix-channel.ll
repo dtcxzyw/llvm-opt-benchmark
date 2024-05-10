@@ -5783,7 +5783,7 @@ _ZNSt7__cxx1111basic_regexIcNS_12regex_traitsIcEEED2Ev.exit44: ; preds = %_ZSt13
   %161 = ptrtoint ptr %159 to i64
   %162 = ptrtoint ptr %160 to i64
   %163 = sub i64 %161, %162
-  %164 = icmp ult i64 %163, 64
+  %164 = icmp ult i64 %163, 33
   br i1 %164, label %167, label %165
 
 165:                                              ; preds = %_ZNSt7__cxx1111basic_regexIcNS_12regex_traitsIcEEED2Ev.exit44

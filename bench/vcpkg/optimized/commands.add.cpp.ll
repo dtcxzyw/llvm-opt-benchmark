@@ -444,7 +444,7 @@ define dso_local void @_ZN5vcpkg20command_add_and_exitERKNS_17VcpkgCmdArgumentsE
   %73 = ptrtoint ptr %71 to i64
   %74 = ptrtoint ptr %72 to i64
   %75 = sub i64 %73, %74
-  %76 = icmp ult i64 %75, 96
+  %76 = icmp ult i64 %75, 65
   %.sroa.053.0.copyload = load i64, ptr @_ZN5vcpkg21msgAddArtifactOnlyOneE, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   br i1 %76, label %81, label %77

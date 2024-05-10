@@ -1030,7 +1030,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %if
 while.body:                                       ; preds = %land.rhs
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %cmp2 = icmp slt i64 %sub.ptr.sub, 4
+  %cmp2 = icmp slt i64 %sub.ptr.sub, 3
   br i1 %cmp2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.body

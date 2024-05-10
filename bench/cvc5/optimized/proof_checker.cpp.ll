@@ -2070,7 +2070,7 @@ sw.bb328:                                         ; preds = %if.end
   %sub.ptr.lhs.cast.i = ptrtoint ptr %183 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %184 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp330 = icmp ult i64 %sub.ptr.sub.i, 16
+  %cmp330 = icmp ult i64 %sub.ptr.sub.i, 9
   br i1 %cmp330, label %if.then331, label %if.end332
 
 if.then331:                                       ; preds = %sw.bb328
@@ -2476,7 +2476,7 @@ sw.bb412:                                         ; preds = %if.end
   %sub.ptr.lhs.cast.i1155 = ptrtoint ptr %224 to i64
   %sub.ptr.rhs.cast.i1156 = ptrtoint ptr %225 to i64
   %sub.ptr.sub.i1157 = sub i64 %sub.ptr.lhs.cast.i1155, %sub.ptr.rhs.cast.i1156
-  %cmp414 = icmp ult i64 %sub.ptr.sub.i1157, 16
+  %cmp414 = icmp ult i64 %sub.ptr.sub.i1157, 9
   br i1 %cmp414, label %if.then415, label %if.end416
 
 if.then415:                                       ; preds = %sw.bb412

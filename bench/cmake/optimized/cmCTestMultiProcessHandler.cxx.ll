@@ -1720,7 +1720,7 @@ define dso_local void @_ZN26cmCTestMultiProcessHandler12ReadCostDataEv(ptr nound
   %38 = ptrtoint ptr %36 to i64
   %39 = ptrtoint ptr %37 to i64
   %40 = sub i64 %38, %39
-  %41 = icmp ult i64 %40, 96
+  %41 = icmp ult i64 %40, 65
   br i1 %41, label %42, label %45
 
 42:                                               ; preds = %35
@@ -3895,7 +3895,7 @@ _ZN26cmCTestMultiProcessHandler13PropertiesMapC2ERKS0_.exit: ; preds = %35, %19
   %69 = ptrtoint ptr %67 to i64
   %70 = ptrtoint ptr %68 to i64
   %71 = sub i64 %69, %70
-  %72 = icmp ugt i64 %71, 95
+  %72 = icmp ugt i64 %71, 64
   br i1 %72, label %73, label %126
 
 73:                                               ; preds = %66

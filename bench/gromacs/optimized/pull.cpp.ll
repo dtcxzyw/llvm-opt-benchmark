@@ -443,7 +443,7 @@ define void @_ZN17pull_group_work_tC2ERK12t_pull_groupN3gmx12LocalAtomSetEbi(ptr
   %10 = ptrtoint ptr %8 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
-  %13 = icmp ult i64 %12, 8
+  %13 = icmp ult i64 %12, 5
   %14 = getelementptr inbounds i8, ptr %1, i64 48
   %15 = load i32, ptr %14, align 8
   %16 = icmp sgt i32 %15, -1

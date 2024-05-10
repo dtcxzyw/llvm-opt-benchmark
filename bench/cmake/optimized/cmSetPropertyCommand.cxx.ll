@@ -1902,7 +1902,7 @@ define dso_local noundef zeroext i1 @_Z20cmSetPropertyCommandRKSt6vectorINSt7__c
   %20 = ptrtoint ptr %18 to i64
   %21 = ptrtoint ptr %19 to i64
   %22 = sub i64 %20, %21
-  %23 = icmp ult i64 %22, 64
+  %23 = icmp ult i64 %22, 33
   br i1 %23, label %24, label %34
 
 24:                                               ; preds = %2

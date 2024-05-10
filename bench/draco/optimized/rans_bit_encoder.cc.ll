@@ -80,7 +80,7 @@ define void @_ZN5draco14RAnsBitEncoder5ClearEv(ptr nocapture noundef nonnull ali
   %5 = ptrtoint ptr %3 to i64
   %6 = ptrtoint ptr %4 to i64
   %7 = sub i64 %5, %6
-  %8 = icmp ult i64 %7, 16
+  %8 = icmp ult i64 %7, 9
   br i1 %8, label %_ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit.i, label %13
 
 _ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit.i:          ; preds = %1

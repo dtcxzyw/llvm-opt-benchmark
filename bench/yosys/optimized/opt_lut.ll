@@ -1074,7 +1074,7 @@ _ZNSt12_Vector_baseIN12_GLOBAL__N_18dlogic_tESaIS1_EE13_M_deallocateEPS1_m.exit.
   %.val18.i.i = load ptr, ptr %42, align 8
   %205 = ptrtoint ptr %.val18.i.i to i64
   %206 = sub i64 %205, %184
-  %.not.i.i = icmp ult i64 %206, 128
+  %.not.i.i = icmp ult i64 %206, 65
   br i1 %.not.i.i, label %_ZSt7advanceIPKN12_GLOBAL__N_18dlogic_tEmEvRT_T0_.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %204, %.noexc144

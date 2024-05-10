@@ -7791,7 +7791,7 @@ if.then1752:                                      ; preds = %if.end1750
   %sub.ptr.lhs.cast.i1710 = ptrtoint ptr %604 to i64
   %sub.ptr.rhs.cast.i1711 = ptrtoint ptr %605 to i64
   %sub.ptr.sub.i1712 = sub i64 %sub.ptr.lhs.cast.i1710, %sub.ptr.rhs.cast.i1711
-  %cmp1754 = icmp ult i64 %sub.ptr.sub.i1712, 12
+  %cmp1754 = icmp ult i64 %sub.ptr.sub.i1712, 9
   br i1 %cmp1754, label %if.then1755, label %if.end1758
 
 if.then1755:                                      ; preds = %if.then1752
@@ -7829,7 +7829,7 @@ if.then1771:                                      ; preds = %if.end1769
   %sub.ptr.lhs.cast.i1725 = ptrtoint ptr %608 to i64
   %sub.ptr.rhs.cast.i1726 = ptrtoint ptr %609 to i64
   %sub.ptr.sub.i1727 = sub i64 %sub.ptr.lhs.cast.i1725, %sub.ptr.rhs.cast.i1726
-  %cmp1774 = icmp ult i64 %sub.ptr.sub.i1727, 12
+  %cmp1774 = icmp ult i64 %sub.ptr.sub.i1727, 9
   br i1 %cmp1774, label %if.then1775, label %if.end1780
 
 if.then1775:                                      ; preds = %if.then1771

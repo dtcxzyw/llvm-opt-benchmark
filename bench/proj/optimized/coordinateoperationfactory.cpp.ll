@@ -123348,7 +123348,7 @@ define linkonce_odr hidden void @_ZN5osgeo4proj9operation13FilterResults18remove
   %17 = ptrtoint ptr %15 to i64
   %18 = ptrtoint ptr %16 to i64
   %19 = sub i64 %17, %18
-  %20 = icmp ult i64 %19, 32
+  %20 = icmp ult i64 %19, 17
   br i1 %20, label %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev.exit, label %21
 
 21:                                               ; preds = %1

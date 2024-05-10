@@ -15976,7 +15976,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit3384: ; preds = %6040
   %6053 = ptrtoint ptr %6051 to i64
   %6054 = ptrtoint ptr %6052 to i64
   %6055 = sub i64 %6053, %6054
-  %6056 = icmp ult i64 %6055, 16
+  %6056 = icmp ult i64 %6055, 9
   br i1 %6056, label %6057, label %.preheader5043
 
 .preheader5043:                                   ; preds = %6050
@@ -22384,7 +22384,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit3548:               ; preds = %8442, %_ZN5Yosys5RT
   %9002 = ptrtoint ptr %9000 to i64
   %9003 = ptrtoint ptr %9001 to i64
   %9004 = sub i64 %9002, %9003
-  %9005 = icmp ult i64 %9004, 16
+  %9005 = icmp ult i64 %9004, 9
   br i1 %9005, label %9006, label %.lr.ph6343.preheader
 
 9006:                                             ; preds = %8999
@@ -45936,7 +45936,7 @@ _ZN5Yosys3AST7AstNode17set_in_param_flagEbb.exit378: ; preds = %_ZN5Yosys3AST7As
   %754 = ptrtoint ptr %752 to i64
   %755 = ptrtoint ptr %753 to i64
   %756 = sub i64 %754, %755
-  %757 = icmp ult i64 %756, 16
+  %757 = icmp ult i64 %756, 9
   br i1 %757, label %.lr.ph902._crit_edge, label %_ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit390
 
 _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit384: ; preds = %.lr.ph911

@@ -5870,7 +5870,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i74: ; preds = %_ZN9QtPrivate8RefC
   %105 = ptrtoint ptr %103 to i64
   %106 = ptrtoint ptr %104 to i64
   %107 = sub i64 %105, %106
-  %108 = icmp ult i64 %107, 24
+  %108 = icmp ult i64 %107, 17
   br i1 %108, label %109, label %115
 
 109:                                              ; preds = %100

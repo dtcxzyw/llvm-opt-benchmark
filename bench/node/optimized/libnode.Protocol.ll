@@ -15005,7 +15005,7 @@ if.end.i85:                                       ; preds = %if.then.i84
 sw.bb.i:                                          ; preds = %if.end.i85
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %incdec.ptr4.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i6.i, %sub.ptr.rhs.cast.i.i
-  %cmp.i.i88 = icmp slt i64 %sub.ptr.sub.i.i, 4
+  %cmp.i.i88 = icmp slt i64 %sub.ptr.sub.i.i, 3
   br i1 %cmp.i.i88, label %return, label %for.body.i.preheader.i
 
 for.body.i.preheader.i:                           ; preds = %sw.bb.i
@@ -26414,7 +26414,7 @@ if.end.i83:                                       ; preds = %if.then.i82
 sw.bb.i:                                          ; preds = %if.end.i83
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %incdec.ptr4.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i6.i, %sub.ptr.rhs.cast.i.i
-  %cmp.i.i86 = icmp slt i64 %sub.ptr.sub.i.i, 4
+  %cmp.i.i86 = icmp slt i64 %sub.ptr.sub.i.i, 3
   br i1 %cmp.i.i86, label %return, label %for.body.i.preheader.i
 
 for.body.i.preheader.i:                           ; preds = %sw.bb.i

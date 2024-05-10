@@ -135,7 +135,7 @@ define dso_local noundef zeroext i1 @_Z22cmCreateTestSourceListRKSt6vectorINSt7_
   %68 = ptrtoint ptr %66 to i64
   %69 = ptrtoint ptr %67 to i64
   %70 = sub i64 %68, %69
-  %71 = icmp ult i64 %70, 96
+  %71 = icmp ult i64 %70, 65
   br i1 %71, label %72, label %82
 
 72:                                               ; preds = %2

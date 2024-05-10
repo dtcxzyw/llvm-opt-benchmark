@@ -28039,7 +28039,7 @@ _ZNSt12_Vector_baseIN4pbrt6Point2IfEESaIS2_EE13_M_deallocateEPS2_m.exit.i: ; pre
 
 _ZNSt6vectorIN4pbrt6Point2IfEESaIS2_EE7reserveEm.exit: ; preds = %if.end.i15, %_ZNSt12_Vector_baseIN4pbrt6Point2IfEESaIS2_EE13_M_deallocateEPS2_m.exit.i
   %8 = phi ptr [ null, %if.end.i15 ], [ %call5.i.i.i.i20, %_ZNSt12_Vector_baseIN4pbrt6Point2IfEESaIS2_EE13_M_deallocateEPS2_m.exit.i ]
-  %cmp66.not = icmp ult i64 %sub.ptr.sub.i, 8
+  %cmp66.not = icmp ult i64 %sub.ptr.sub.i, 5
   br i1 %cmp66.not, label %for.end, label %invoke.cont14.lr.ph
 
 invoke.cont14.lr.ph:                              ; preds = %_ZNSt6vectorIN4pbrt6Point2IfEESaIS2_EE7reserveEm.exit

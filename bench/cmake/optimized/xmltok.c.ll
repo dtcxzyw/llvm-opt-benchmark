@@ -6324,7 +6324,7 @@ define internal range(i32 0, 3) i32 @utf8_toUtf16(ptr nocapture noundef readonly
 54:                                               ; preds = %14
   %55 = ptrtoint ptr %.04554 to i64
   %56 = sub i64 %12, %55
-  %57 = icmp slt i64 %56, 4
+  %57 = icmp slt i64 %56, 3
   br i1 %57, label %.loopexit, label %58
 
 58:                                               ; preds = %54

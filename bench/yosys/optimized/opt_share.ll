@@ -12355,7 +12355,7 @@ _ZNSt6vectorIPKN12_GLOBAL__N_19OpMuxConnESaIS3_EE9push_backERKS3_.exit: ; preds 
   %4723 = ptrtoint ptr %.sroa.13.5 to i64
   %4724 = ptrtoint ptr %.sroa.02846.5 to i64
   %4725 = sub i64 %4723, %4724
-  %4726 = icmp ult i64 %4725, 16
+  %4726 = icmp ult i64 %4725, 9
   br i1 %4726, label %_ZN12_GLOBAL__N_110ExtSigSpecD2Ev.exit1093, label %4727, !llvm.loop !81
 
 4727:                                             ; preds = %._crit_edge8289
@@ -14736,7 +14736,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit42.i:            ; preds = %5542, %5535, %_ZN12
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %30)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %31)
   %5547 = sub i64 %.pre-phi, %4724
-  %5548 = icmp ult i64 %5547, 16
+  %5548 = icmp ult i64 %5547, 9
   br i1 %5548, label %_ZNSt6vectorIN12_GLOBAL__N_19OpMuxConnESaIS1_EED2Ev.exit, label %5549, !llvm.loop !81
 
 5549:                                             ; preds = %.loopexit3253

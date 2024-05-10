@@ -23523,7 +23523,7 @@ invoke.cont1986:                                  ; preds = %invoke.cont1985
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %584 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %585 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %cmp.i2094 = icmp ult i64 %sub.ptr.sub.i.i, 16
+  %cmp.i2094 = icmp ult i64 %sub.ptr.sub.i.i, 9
   br i1 %cmp.i2094, label %if.then1989, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %invoke.cont1986
@@ -29789,7 +29789,7 @@ lor.rhs:                                          ; preds = %invoke.cont38
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %11 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %cmp.i = icmp ult i64 %sub.ptr.sub.i.i, 16
+  %cmp.i = icmp ult i64 %sub.ptr.sub.i.i, 9
   br i1 %cmp.i, label %lor.end, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %lor.rhs

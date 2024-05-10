@@ -31957,7 +31957,7 @@ arraydestroy.done24:                              ; preds = %arraydestroy.body20
   %sub.ptr.lhs.cast.i = ptrtoint ptr %10 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp = icmp ult i64 %sub.ptr.sub.i, 64
+  %cmp = icmp ult i64 %sub.ptr.sub.i, 33
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %arraydestroy.done24
@@ -36284,7 +36284,7 @@ arraydestroy.done24:                              ; preds = %arraydestroy.body20
   %sub.ptr.lhs.cast.i = ptrtoint ptr %10 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp = icmp ult i64 %sub.ptr.sub.i, 64
+  %cmp = icmp ult i64 %sub.ptr.sub.i, 33
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %arraydestroy.done24

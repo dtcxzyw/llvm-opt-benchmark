@@ -2096,7 +2096,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   %253 = ptrtoint ptr %.pre1377 to i64
   %254 = ptrtoint ptr %.pre1375 to i64
   %255 = sub i64 %253, %254
-  %256 = icmp ult i64 %255, 64
+  %256 = icmp ult i64 %255, 33
   br i1 %256, label %.invoke, label %257
 
 257:                                              ; preds = %252
@@ -7212,7 +7212,7 @@ define dso_local noundef i32 @_ZN5cmcmd11HashSumFileERKSt6vectorINSt7__cxx1112ba
   %8 = ptrtoint ptr %6 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
-  %11 = icmp ult i64 %10, 96
+  %11 = icmp ult i64 %10, 65
   br i1 %11, label %.loopexit, label %12
 
 12:                                               ; preds = %2
@@ -8642,7 +8642,7 @@ define dso_local noundef i32 @_ZN5cmcmd16VisualStudioLinkERKSt6vectorINSt7__cxx1
   %12 = ptrtoint ptr %10 to i64
   %13 = ptrtoint ptr %11 to i64
   %14 = sub i64 %12, %13
-  %15 = icmp ult i64 %14, 64
+  %15 = icmp ult i64 %14, 33
   br i1 %15, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %16
 
 16:                                               ; preds = %2
@@ -8911,7 +8911,7 @@ define dso_local noundef i32 @_ZN5cmcmd9RunLLVMRCERKSt6vectorINSt7__cxx1112basic
   %21 = ptrtoint ptr %19 to i64
   %22 = ptrtoint ptr %20 to i64
   %23 = sub i64 %21, %22
-  %24 = icmp ult i64 %23, 96
+  %24 = icmp ult i64 %23, 65
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %1

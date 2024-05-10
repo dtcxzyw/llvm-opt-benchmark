@@ -2856,7 +2856,7 @@ for.end41.i:                                      ; preds = %for.end41.loopexit.
   %sub.ptr.lhs.cast.i.i.i158 = ptrtoint ptr %333 to i64
   %sub.ptr.rhs.cast.i.i.i159 = ptrtoint ptr %332 to i64
   %sub.ptr.sub.i.i.i160 = sub i64 %sub.ptr.lhs.cast.i.i.i158, %sub.ptr.rhs.cast.i.i.i159
-  %cmp44.i = icmp ult i64 %sub.ptr.sub.i.i.i160, 16
+  %cmp44.i = icmp ult i64 %sub.ptr.sub.i.i.i160, 9
   br i1 %cmp44.i, label %cleanup164.i, label %if.end46.i
 
 if.end46.i:                                       ; preds = %for.end41.i

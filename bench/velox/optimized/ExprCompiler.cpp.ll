@@ -1853,7 +1853,7 @@ land.lhs.true.i.i:                                ; preds = %invoke.cont19.i.i
   %sub.ptr.lhs.cast.i1.i.i.i = ptrtoint ptr %80 to i64
   %sub.ptr.rhs.cast.i2.i.i.i = ptrtoint ptr %81 to i64
   %sub.ptr.sub.i3.i.i.i = sub i64 %sub.ptr.lhs.cast.i1.i.i.i, %sub.ptr.rhs.cast.i2.i.i.i
-  %cmp5.i.i.i = icmp ult i64 %sub.ptr.sub.i3.i.i.i, 32
+  %cmp5.i.i.i = icmp ult i64 %sub.ptr.sub.i3.i.i.i, 17
   br i1 %cmp5.i.i.i, label %if.then23.i.i, label %for.body.i.i.i
 
 for.cond.i.i.i:                                   ; preds = %call12.i.noexc.i.i
@@ -11973,7 +11973,7 @@ land.lhs.true:                                    ; preds = %_ZN8facebook5velox4
   %sub.ptr.lhs.cast.i1.i = ptrtoint ptr %21 to i64
   %sub.ptr.rhs.cast.i2.i = ptrtoint ptr %22 to i64
   %sub.ptr.sub.i3.i = sub i64 %sub.ptr.lhs.cast.i1.i, %sub.ptr.rhs.cast.i2.i
-  %cmp5.i = icmp ult i64 %sub.ptr.sub.i3.i, 32
+  %cmp5.i = icmp ult i64 %sub.ptr.sub.i3.i, 17
   br i1 %cmp5.i, label %if.then, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i

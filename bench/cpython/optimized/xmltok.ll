@@ -7092,7 +7092,7 @@ if.end17:                                         ; preds = %sw.bb10
 sw.bb34:                                          ; preds = %while.body
   %sub.ptr.rhs.cast36 = ptrtoint ptr %to.044 to i64
   %sub.ptr.sub37 = sub i64 %sub.ptr.lhs.cast35, %sub.ptr.rhs.cast36
-  %cmp38 = icmp slt i64 %sub.ptr.sub37, 4
+  %cmp38 = icmp slt i64 %sub.ptr.sub37, 3
   br i1 %cmp38, label %after, label %if.end41
 
 if.end41:                                         ; preds = %sw.bb34

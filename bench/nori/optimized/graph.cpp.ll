@@ -520,7 +520,7 @@ define hidden void @_ZN7nanogui5Graph4drawEP10NVGcontext(ptr noundef nonnull ali
   %24 = ptrtoint ptr %22 to i64
   %25 = ptrtoint ptr %23 to i64
   %26 = sub i64 %24, %25
-  %27 = icmp ult i64 %26, 8
+  %27 = icmp ult i64 %26, 5
   br i1 %27, label %156, label %28
 
 28:                                               ; preds = %2

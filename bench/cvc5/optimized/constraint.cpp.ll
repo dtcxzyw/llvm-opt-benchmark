@@ -11866,7 +11866,7 @@ if.end15:                                         ; preds = %if.end8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %11 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp18 = icmp ult i64 %sub.ptr.sub.i, 64
+  %cmp18 = icmp ult i64 %sub.ptr.sub.i, 33
   br i1 %cmp18, label %return, label %if.end20
 
 if.end20:                                         ; preds = %if.end15

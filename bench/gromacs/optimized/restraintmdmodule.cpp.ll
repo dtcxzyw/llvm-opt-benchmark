@@ -545,7 +545,7 @@ _ZNSt6vectorIN3gmx4SiteESaIS1_EE12emplace_backIJRKiEEERS1_DpOT_.exit: ; preds = 
   %31 = ptrtoint ptr %.pre to i64
   %32 = ptrtoint ptr %.pre30 to i64
   %33 = sub i64 %31, %32
-  %34 = icmp ult i64 %33, 32
+  %34 = icmp ult i64 %33, 17
   br i1 %34, label %._crit_edge.thread, label %45
 
 ._crit_edge.thread:                               ; preds = %3, %._crit_edge

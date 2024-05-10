@@ -30237,7 +30237,7 @@ entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %end to i64
   %sub.ptr.rhs.cast6 = ptrtoint ptr %begin to i64
   %sub.ptr.sub7 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast6
-  %cmp8 = icmp slt i64 %sub.ptr.sub7, 8
+  %cmp8 = icmp slt i64 %sub.ptr.sub7, 5
   br i1 %cmp8, label %return, label %if.end.lr.ph
 
 if.end.lr.ph:                                     ; preds = %entry
@@ -30379,7 +30379,7 @@ while.end:                                        ; preds = %while.end.loopexit,
   store i32 %__tmp.sroa.0.0.copyload.i.i31, ptr %add.ptr7, align 4
   tail call fastcc void @"_ZN11flatbuffers12_GLOBAL__N_111SimpleQsortINS_6OffsetINS_5TableEEEZNS_6Parser11ParseVectorERKNS_4TypeEPjPNS_8FieldDefEmE3$_3PFvPS4_SD_EEEvPT_SH_mT0_T1_"(ptr noundef nonnull %begin.tr9, ptr noundef nonnull %add.ptr7, ptr %comparator.coerce)
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast.pre-phi
-  %cmp = icmp slt i64 %sub.ptr.sub, 8
+  %cmp = icmp slt i64 %sub.ptr.sub, 5
   br i1 %cmp, label %return, label %if.end
 
 return:                                           ; preds = %while.end, %entry
@@ -30392,7 +30392,7 @@ entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %end to i64
   %sub.ptr.rhs.cast5 = ptrtoint ptr %begin to i64
   %sub.ptr.sub6 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast5
-  %cmp7 = icmp slt i64 %sub.ptr.sub6, 8
+  %cmp7 = icmp slt i64 %sub.ptr.sub6, 5
   br i1 %cmp7, label %return, label %if.end.lr.ph
 
 if.end.lr.ph:                                     ; preds = %entry
@@ -30515,7 +30515,7 @@ while.end:                                        ; preds = %while.end.loopexit,
   store i32 %__tmp.sroa.0.0.copyload.i.i31, ptr %add.ptr7, align 4
   tail call fastcc void @"_ZN11flatbuffers12_GLOBAL__N_111SimpleQsortINS_6OffsetINS_5TableEEEZNS_6Parser11ParseVectorERKNS_4TypeEPjPNS_8FieldDefEmE3$_4PFvPS4_SD_EEEvPT_SH_mT0_T1_"(ptr noundef nonnull %begin.tr8, ptr noundef nonnull %add.ptr7, ptr %comparator.coerce)
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast.pre-phi
-  %cmp = icmp slt i64 %sub.ptr.sub, 8
+  %cmp = icmp slt i64 %sub.ptr.sub, 5
   br i1 %cmp, label %return, label %if.end
 
 return:                                           ; preds = %while.end, %entry

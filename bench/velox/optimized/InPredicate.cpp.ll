@@ -2519,7 +2519,7 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp = icmp ult i64 %sub.ptr.sub.i, 64
+  %cmp = icmp ult i64 %sub.ptr.sub.i, 33
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry

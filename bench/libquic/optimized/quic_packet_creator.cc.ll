@@ -1625,7 +1625,7 @@ if.then44:                                        ; preds = %land.lhs.true42
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %55 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %53 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %cmp3.i = icmp ult i64 %sub.ptr.sub.i.i, 32
+  %cmp3.i = icmp ult i64 %sub.ptr.sub.i.i, 17
   %or.cond147 = select i1 %cmp.i.i25, i1 %cmp3.i, i1 false
   br i1 %or.cond147, label %_ZNSt6vectorIN3net9QuicFrameESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i, label %if.end50
 

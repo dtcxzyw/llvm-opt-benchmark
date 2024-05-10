@@ -124,7 +124,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
   %sub.ptr.lhs.cast.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp8 = icmp ult i64 %sub.ptr.sub.i, 8
+  %cmp8 = icmp ult i64 %sub.ptr.sub.i, 5
   br i1 %cmp8, label %if.then9, label %if.end
 
 if.then9:                                         ; preds = %invoke.cont3

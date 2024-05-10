@@ -90,7 +90,7 @@ define dso_local noundef zeroext i1 @_Z29cmGetFilenameComponentCommandRKSt6vecto
   %33 = ptrtoint ptr %31 to i64
   %34 = ptrtoint ptr %32 to i64
   %35 = sub i64 %33, %34
-  %36 = icmp ult i64 %35, 96
+  %36 = icmp ult i64 %35, 65
   br i1 %36, label %37, label %47
 
 37:                                               ; preds = %2

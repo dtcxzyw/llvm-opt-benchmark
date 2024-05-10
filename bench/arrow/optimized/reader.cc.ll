@@ -93667,7 +93667,7 @@ do.end6:                                          ; preds = %_ZN5arrow6StatusD2E
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp = icmp ult i64 %sub.ptr.sub.i, 16
+  %cmp = icmp ult i64 %sub.ptr.sub.i, 9
   br i1 %cmp, label %if.then8, label %if.end9
 
 if.then8:                                         ; preds = %do.end6
@@ -94448,7 +94448,7 @@ do.end6:                                          ; preds = %_ZN5arrow6StatusD2E
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp = icmp ult i64 %sub.ptr.sub.i, 16
+  %cmp = icmp ult i64 %sub.ptr.sub.i, 9
   br i1 %cmp, label %if.then8, label %if.end9
 
 if.then8:                                         ; preds = %do.end6

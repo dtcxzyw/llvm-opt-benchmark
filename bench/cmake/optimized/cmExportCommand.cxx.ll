@@ -337,7 +337,7 @@ define dso_local noundef zeroext i1 @_Z15cmExportCommandRKSt6vectorINSt7__cxx111
   %96 = ptrtoint ptr %94 to i64
   %97 = ptrtoint ptr %95 to i64
   %98 = sub i64 %96, %97
-  %99 = icmp ult i64 %98, 64
+  %99 = icmp ult i64 %98, 33
   br i1 %99, label %100, label %110
 
 100:                                              ; preds = %2

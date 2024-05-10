@@ -2172,7 +2172,7 @@ for.body:                                         ; preds = %arrayctor.cont, %fo
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %16 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %17 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %cmp3.i = icmp ult i64 %sub.ptr.sub.i.i, 24
+  %cmp3.i = icmp ult i64 %sub.ptr.sub.i.i, 17
   br i1 %cmp3.i, label %_ZNSt12_Vector_baseIP6aiMeshSaIS1_EE11_M_allocateEm.exit.i, label %for.inc
 
 _ZNSt12_Vector_baseIP6aiMeshSaIS1_EE11_M_allocateEm.exit.i: ; preds = %for.body

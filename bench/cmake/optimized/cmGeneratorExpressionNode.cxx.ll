@@ -29495,7 +29495,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %506 = ptrtoint ptr %.sroa.0.0.copyload.i245.i.i.i to i64
   %507 = ptrtoint ptr %505 to i64
   %508 = sub i64 %506, %507
-  %509 = icmp slt i64 %508, 64
+  %509 = icmp slt i64 %508, 33
   br i1 %509, label %510, label %519
 
 510:                                              ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit242.thread.i.i.i

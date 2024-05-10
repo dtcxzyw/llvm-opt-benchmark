@@ -259,7 +259,7 @@ define dso_local noundef zeroext i1 @_Z13cmListCommandRKSt6vectorINSt7__cxx1112b
   %9 = ptrtoint ptr %7 to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
-  %12 = icmp ult i64 %11, 64
+  %12 = icmp ult i64 %11, 33
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %2
@@ -1165,7 +1165,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119HandleAppendCommandERKSt6
   %8 = ptrtoint ptr %6 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
-  %11 = icmp ult i64 %10, 96
+  %11 = icmp ult i64 %10, 65
   br i1 %11, label %34, label %12
 
 12:                                               ; preds = %2
@@ -1248,7 +1248,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_120HandlePrependCommandERKSt
   %8 = ptrtoint ptr %6 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
-  %11 = icmp ult i64 %10, 96
+  %11 = icmp ult i64 %10, 65
   br i1 %11, label %34, label %12
 
 12:                                               ; preds = %2
@@ -2497,7 +2497,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_121HandleRemoveAtCommandERKS
   %18 = ptrtoint ptr %16 to i64
   %19 = ptrtoint ptr %17 to i64
   %20 = sub i64 %18, %19
-  %21 = icmp ult i64 %20, 96
+  %21 = icmp ult i64 %20, 65
   br i1 %21, label %22, label %32
 
 22:                                               ; preds = %2
@@ -3205,7 +3205,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_129HandleRemoveDuplicatesCom
   %10 = ptrtoint ptr %8 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
-  %13 = icmp ult i64 %12, 96
+  %13 = icmp ult i64 %12, 65
   br i1 %13, label %24, label %14
 
 14:                                               ; preds = %2
@@ -3438,7 +3438,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122HandleTransformCommandERK
   %83 = ptrtoint ptr %81 to i64
   %84 = ptrtoint ptr %82 to i64
   %85 = sub i64 %83, %84
-  %86 = icmp ult i64 %85, 96
+  %86 = icmp ult i64 %85, 65
   br i1 %86, label %87, label %97
 
 87:                                               ; preds = %2
@@ -6038,7 +6038,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit83: ; 
   %50 = ptrtoint ptr %48 to i64
   %51 = ptrtoint ptr %49 to i64
   %52 = sub i64 %50, %51
-  %53 = icmp ult i64 %52, 96
+  %53 = icmp ult i64 %52, 65
   br i1 %53, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit83
@@ -7181,7 +7181,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_120HandleReverseCommandERKSt
   %10 = ptrtoint ptr %8 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
-  %13 = icmp ult i64 %12, 96
+  %13 = icmp ult i64 %12, 65
   br i1 %13, label %24, label %14
 
 14:                                               ; preds = %2

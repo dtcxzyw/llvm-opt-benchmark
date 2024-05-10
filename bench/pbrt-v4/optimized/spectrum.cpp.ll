@@ -1651,7 +1651,7 @@ if.end:                                           ; preds = %if.else
   %sub.ptr.lhs.cast.i29123 = ptrtoint ptr %10 to i64
   %sub.ptr.rhs.cast.i30124 = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i31125 = sub i64 %sub.ptr.lhs.cast.i29123, %sub.ptr.rhs.cast.i30124
-  %cmp11128.not = icmp ult i64 %sub.ptr.sub.i31125, 8
+  %cmp11128.not = icmp ult i64 %sub.ptr.sub.i31125, 5
   br i1 %cmp11128.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end

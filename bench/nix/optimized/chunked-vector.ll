@@ -701,7 +701,7 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EE12emplace_backIJEEERS1_DpOT_.exit.i: ; preds = %.
   %17 = ptrtoint ptr %15 to i64
   %18 = ptrtoint ptr %16 to i64
   %19 = sub i64 %17, %18
-  %20 = icmp ult i64 %19, 8
+  %20 = icmp ult i64 %19, 5
   br i1 %20, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i, label %_ZN3nix13ChunkedVectorIiLm2EE8addChunkEv.exit
 
 _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt6vectorIS_IiSaIiEESaIS1_EE12emplace_backIJEEERS1_DpOT_.exit.i
@@ -2773,7 +2773,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZZN3nix13C
   %10 = ptrtoint ptr %8 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
-  %13 = icmp ult i64 %12, 8
+  %13 = icmp ult i64 %12, 5
   br i1 %13, label %45, label %14
 
 14:                                               ; preds = %1
@@ -2812,7 +2812,7 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EE12emplace_backIJEEERS1_DpOT_.exit.i: ; preds = %2
   %29 = ptrtoint ptr %27 to i64
   %30 = ptrtoint ptr %28 to i64
   %31 = sub i64 %29, %30
-  %32 = icmp ult i64 %31, 8
+  %32 = icmp ult i64 %31, 5
   br i1 %32, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i, label %_ZN3nix13ChunkedVectorIiLm2EE8addChunkEv.exit
 
 _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt6vectorIS_IiSaIiEESaIS1_EE12emplace_backIJEEERS1_DpOT_.exit.i

@@ -917,7 +917,7 @@ _ZN3ozz9animation7offline14RawFloat2TrackD2Ev.exit.i: ; preds = %31, %_ZNSt7__cx
   %45 = ptrtoint ptr %43 to i64
   %46 = ptrtoint ptr %44 to i64
   %47 = sub i64 %45, %46
-  %48 = icmp ult i64 %47, 32
+  %48 = icmp ult i64 %47, 17
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %39

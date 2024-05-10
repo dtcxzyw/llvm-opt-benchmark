@@ -340,7 +340,7 @@ define dso_local noundef zeroext i1 @_Z35cmCMakeHostSystemInformationCommandRKSt
   %76 = ptrtoint ptr %74 to i64
   %77 = ptrtoint ptr %75 to i64
   %78 = sub i64 %76, %77
-  %79 = icmp ult i64 %78, 64
+  %79 = icmp ult i64 %78, 33
   br i1 %79, label %.critedge, label %80
 
 80:                                               ; preds = %2

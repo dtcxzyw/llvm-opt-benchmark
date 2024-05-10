@@ -13288,7 +13288,7 @@ invoke.cont17:                                    ; preds = %if.end
   %sub.ptr.lhs.cast.i = ptrtoint ptr %16 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %17 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp = icmp ult i64 %sub.ptr.sub.i, 48
+  %cmp = icmp ult i64 %sub.ptr.sub.i, 33
   br i1 %cmp, label %if.then2.i.i, label %invoke.cont24
 
 if.then2.i.i:                                     ; preds = %invoke.cont17

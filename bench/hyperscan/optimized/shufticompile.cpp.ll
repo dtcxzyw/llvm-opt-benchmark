@@ -1581,7 +1581,7 @@ for.end103:                                       ; preds = %_ZNSt3mapISt5arrayI
   %sub.ptr.lhs.cast.i = ptrtoint ptr %nibble_masks.sroa.13.6.lcssa to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %nibble_masks.sroa.0.10.lcssa to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp105 = icmp ult i64 %sub.ptr.sub.i, 72
+  %cmp105 = icmp ult i64 %sub.ptr.sub.i, 65
   br i1 %cmp105, label %for.cond119.preheader, label %cleanup
 
 for.cond119.preheader:                            ; preds = %for.end103

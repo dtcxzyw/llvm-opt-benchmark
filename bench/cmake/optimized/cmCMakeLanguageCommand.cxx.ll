@@ -4981,7 +4981,7 @@ _ZN19cmListFileBacktraceD2Ev.exit:                ; preds = %_ZN17cmListFileCont
   %76 = ptrtoint ptr %74 to i64
   %77 = ptrtoint ptr %75 to i64
   %78 = sub i64 %76, %77
-  %79 = icmp ult i64 %78, 64
+  %79 = icmp ult i64 %78, 33
   br i1 %79, label %80, label %95
 
 80:                                               ; preds = %72

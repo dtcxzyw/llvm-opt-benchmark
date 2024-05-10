@@ -42616,7 +42616,7 @@ _ZN7rocksdb8IOStatus10CorruptionERKNS_5SliceES3_.exit335: ; preds = %if.then216
   br label %cleanup507
 
 if.else223:                                       ; preds = %if.end202
-  %cmp225 = icmp ult i64 %sub.ptr.sub.i, 96
+  %cmp225 = icmp ult i64 %sub.ptr.sub.i, 65
   br i1 %cmp225, label %if.then226, label %if.end245
 
 if.then226:                                       ; preds = %if.else223

@@ -1996,7 +1996,7 @@ _ZNSt16istream_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcS3_
   %77 = ptrtoint ptr %75 to i64
   %78 = ptrtoint ptr %76 to i64
   %79 = sub i64 %77, %78
-  %80 = icmp ult i64 %79, 96
+  %80 = icmp ult i64 %79, 65
   br i1 %80, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRS5_EEES9_DpOT_.exit, label %89, !llvm.loop !15
 
 81:                                               ; preds = %1
@@ -2304,7 +2304,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   %183 = ptrtoint ptr %169 to i64
   %184 = ptrtoint ptr %182 to i64
   %185 = sub i64 %183, %184
-  %186 = icmp ult i64 %185, 96
+  %186 = icmp ult i64 %185, 65
   br i1 %186, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit.i, label %187, !llvm.loop !16
 
 187:                                              ; preds = %181
@@ -2692,7 +2692,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   %304 = ptrtoint ptr %290 to i64
   %305 = ptrtoint ptr %303 to i64
   %306 = sub i64 %304, %305
-  %307 = icmp ult i64 %306, 96
+  %307 = icmp ult i64 %306, 65
   br i1 %307, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRS5_EEES9_DpOT_.exit38.i, label %308, !llvm.loop !17
 
 308:                                              ; preds = %302

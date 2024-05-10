@@ -777,7 +777,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %76 = ptrtoint ptr %74 to i64
   %77 = ptrtoint ptr %75 to i64
   %78 = sub i64 %76, %77
-  %79 = icmp ult i64 %78, 16
+  %79 = icmp ult i64 %78, 9
   br i1 %79, label %.loopexit.i, label %80
 
 80:                                               ; preds = %69
@@ -989,7 +989,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit36: ; 
   %141 = ptrtoint ptr %139 to i64
   %142 = ptrtoint ptr %140 to i64
   %143 = sub i64 %141, %142
-  %144 = icmp ult i64 %143, 16
+  %144 = icmp ult i64 %143, 9
   br i1 %144, label %.loopexit.i47, label %145
 
 145:                                              ; preds = %134
@@ -1477,7 +1477,7 @@ define dso_local noundef zeroext i1 @_ZN22cmComputeTargetDepends15CheckComponent
   %21 = ptrtoint ptr %19 to i64
   %22 = ptrtoint ptr %20 to i64
   %23 = sub i64 %21, %22
-  %24 = icmp ult i64 %23, 16
+  %24 = icmp ult i64 %23, 9
   br i1 %24, label %.loopexit, label %25
 
 25:                                               ; preds = %14

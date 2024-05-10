@@ -22901,7 +22901,7 @@ invoke.cont69:                                    ; preds = %call.i.i.i.noexc212
   %sub.ptr.lhs.cast.i = ptrtoint ptr %std_v64.sroa.24.42291 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %std_v64.sroa.11.42292 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp3.not.i1291 = icmp ult i64 %sub.ptr.sub.i, 20
+  %cmp3.not.i1291 = icmp ult i64 %sub.ptr.sub.i, 17
   br i1 %cmp3.not.i1291, label %if.else42.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %invoke.cont69

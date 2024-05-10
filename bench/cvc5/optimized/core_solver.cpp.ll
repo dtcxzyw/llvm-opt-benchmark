@@ -8280,7 +8280,7 @@ lor.rhs:                                          ; preds = %_ZNSt3mapIN4cvc58in
   %sub.ptr.lhs.cast.i = ptrtoint ptr %119 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %120 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp192 = icmp ult i64 %sub.ptr.sub.i, 16
+  %cmp192 = icmp ult i64 %sub.ptr.sub.i, 9
   br i1 %cmp192, label %for.inc259, label %for.cond202.preheader
 
 for.cond202.preheader:                            ; preds = %lor.rhs, %for.inc256
@@ -42928,7 +42928,7 @@ land.lhs.true:                                    ; preds = %_ZN4cvc58internal6t
   %sub.ptr.lhs.cast.i147 = ptrtoint ptr %14 to i64
   %sub.ptr.rhs.cast.i148 = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i149 = sub i64 %sub.ptr.lhs.cast.i147, %sub.ptr.rhs.cast.i148
-  %cmp7 = icmp ult i64 %sub.ptr.sub.i149, 16
+  %cmp7 = icmp ult i64 %sub.ptr.sub.i149, 9
   br i1 %cmp7, label %for.cond.preheader, label %if.end137
 
 for.cond.preheader:                               ; preds = %land.lhs.true

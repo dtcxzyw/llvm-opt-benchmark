@@ -401,7 +401,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %118 = ptrtoint ptr %116 to i64
   %119 = ptrtoint ptr %117 to i64
   %120 = sub i64 %118, %119
-  %121 = icmp ult i64 %120, 64
+  %121 = icmp ult i64 %120, 33
   br i1 %121, label %122, label %153
 
 122:                                              ; preds = %115
@@ -630,7 +630,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %196 = ptrtoint ptr %194 to i64
   %197 = ptrtoint ptr %195 to i64
   %198 = sub i64 %196, %197
-  %199 = icmp ult i64 %198, 64
+  %199 = icmp ult i64 %198, 33
   br i1 %199, label %567, label %200
 
 200:                                              ; preds = %193

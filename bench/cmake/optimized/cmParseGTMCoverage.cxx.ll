@@ -856,7 +856,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   %58 = ptrtoint ptr %56 to i64
   %59 = ptrtoint ptr %57 to i64
   %60 = sub i64 %58, %59
-  %61 = icmp ult i64 %60, 64
+  %61 = icmp ult i64 %60, 33
   br i1 %61, label %62, label %80
 
 62:                                               ; preds = %52

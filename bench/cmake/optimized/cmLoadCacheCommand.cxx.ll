@@ -183,7 +183,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %48 = ptrtoint ptr %46 to i64
   %49 = ptrtoint ptr %47 to i64
   %50 = sub i64 %48, %49
-  %51 = icmp ult i64 %50, 96
+  %51 = icmp ult i64 %50, 65
   br i1 %51, label %52, label %62
 
 52:                                               ; preds = %45

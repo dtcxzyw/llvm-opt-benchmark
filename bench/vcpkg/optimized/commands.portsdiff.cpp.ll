@@ -1601,7 +1601,7 @@ define dso_local void @_ZN5vcpkg26command_portsdiff_and_exitERKNS_17VcpkgCmdArgu
   %31 = ptrtoint ptr %29 to i64
   %32 = ptrtoint ptr %30 to i64
   %33 = sub i64 %31, %32
-  %34 = icmp ult i64 %33, 64
+  %34 = icmp ult i64 %33, 33
   br i1 %34, label %35, label %36
 
 35:                                               ; preds = %2

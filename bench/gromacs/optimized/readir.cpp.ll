@@ -23644,7 +23644,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %45 = sub i64 %43, %44
   %46 = lshr i64 %45, 2
   %47 = trunc i64 %46 to i32
-  %.not107 = icmp ult i64 %27, 64
+  %.not107 = icmp ult i64 %27, 33
   br i1 %.not107, label %._crit_edge, label %.preheader63.lr.ph
 
 .preheader63.lr.ph:                               ; preds = %38

@@ -11364,7 +11364,7 @@ if.end238:                                        ; preds = %if.then231, %land.l
   %sub.ptr.lhs.cast.i327 = ptrtoint ptr %303 to i64
   %sub.ptr.rhs.cast.i328 = ptrtoint ptr %304 to i64
   %sub.ptr.sub.i329 = sub i64 %sub.ptr.lhs.cast.i327, %sub.ptr.rhs.cast.i328
-  %cmp242 = icmp ult i64 %sub.ptr.sub.i329, 8
+  %cmp242 = icmp ult i64 %sub.ptr.sub.i329, 5
   br i1 %cmp242, label %if.then243, label %if.else270
 
 if.then243:                                       ; preds = %if.end238

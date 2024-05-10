@@ -670,7 +670,7 @@ define noundef zeroext i1 @_ZN6opencc7Lexicon8IsUniqueEPNSt7__cxx1112basic_strin
   %9 = ptrtoint ptr %7 to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
-  %12 = icmp ult i64 %11, 16
+  %12 = icmp ult i64 %11, 9
   br i1 %12, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %46

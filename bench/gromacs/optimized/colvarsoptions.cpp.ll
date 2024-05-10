@@ -6735,7 +6735,7 @@ _ZNK3gmx3Any6isTypeINS_17KeyValueTreeArrayEEEbv.exit.i.i.i: ; preds = %276
   br i1 %.not, label %.preheader349, label %296
 
 .preheader349:                                    ; preds = %284
-  %.not362 = icmp ult i64 %290, 24
+  %.not362 = icmp ult i64 %290, 17
   br i1 %.not362, label %._crit_edge361, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %.preheader349

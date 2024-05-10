@@ -24128,7 +24128,7 @@ for.end108:                                       ; preds = %for.end108.loopexit
   %sub.ptr.lhs.cast.i = ptrtoint ptr %75 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %74 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp = icmp ult i64 %sub.ptr.sub.i, 64
+  %cmp = icmp ult i64 %sub.ptr.sub.i, 33
   br i1 %cmp, label %if.then110, label %if.end112
 
 if.then110:                                       ; preds = %for.end108

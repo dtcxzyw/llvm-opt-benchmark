@@ -2920,7 +2920,7 @@ _ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit:       ; preds = %64
   %70 = ptrtoint ptr %68 to i64
   %71 = ptrtoint ptr %69 to i64
   %72 = sub i64 %70, %71
-  %.not101 = icmp ult i64 %72, 24
+  %.not101 = icmp ult i64 %72, 17
   br i1 %.not101, label %._crit_edge, label %.preheader
 
 .preheader:                                       ; preds = %_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit, %102

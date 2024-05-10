@@ -2266,7 +2266,7 @@ define void @_ZN5Yosys4Pass12cmd_log_argsERKSt6vectorINSt7__cxx1112basic_stringI
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
-  %9 = icmp ult i64 %8, 64
+  %9 = icmp ult i64 %8, 33
   br i1 %9, label %24, label %10
 
 10:                                               ; preds = %2

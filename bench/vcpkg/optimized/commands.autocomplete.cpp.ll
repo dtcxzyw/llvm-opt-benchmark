@@ -226,7 +226,7 @@ define dso_local void @_ZN5vcpkg29command_autocomplete_and_exitERKNS_17VcpkgCmdA
   %33 = ptrtoint ptr %31 to i64
   %34 = ptrtoint ptr %32 to i64
   %35 = sub i64 %33, %34
-  %36 = icmp ult i64 %35, 64
+  %36 = icmp ult i64 %35, 33
   br i1 %36, label %37, label %144
 
 37:                                               ; preds = %2

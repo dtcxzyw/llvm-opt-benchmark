@@ -13071,7 +13071,7 @@ for.body124:                                      ; preds = %for.body124.lr.ph, 
   %sub.ptr.lhs.cast.i = ptrtoint ptr %138 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %139 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp127 = icmp ult i64 %sub.ptr.sub.i, 16
+  %cmp127 = icmp ult i64 %sub.ptr.sub.i, 9
   br i1 %cmp127, label %for.inc251, label %if.end129
 
 lpad113.loopexit:                                 ; preds = %if.then13.i.i920

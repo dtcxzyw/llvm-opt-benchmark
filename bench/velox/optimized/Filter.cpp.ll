@@ -11576,7 +11576,7 @@ if.end:                                           ; preds = %entry
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp2 = icmp ult i64 %sub.ptr.sub.i, 16
+  %cmp2 = icmp ult i64 %sub.ptr.sub.i, 9
   br i1 %cmp2, label %if.then4, label %if.else.i
 
 if.then4:                                         ; preds = %if.end
@@ -14338,7 +14338,7 @@ if.end:                                           ; preds = %entry
   %sub.ptr.lhs.cast.i = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp = icmp ult i64 %sub.ptr.sub.i, 16
+  %cmp = icmp ult i64 %sub.ptr.sub.i, 9
   br i1 %cmp, label %if.then7, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end

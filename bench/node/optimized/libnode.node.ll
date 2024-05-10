@@ -5122,7 +5122,7 @@ land.lhs.true.i:                                  ; preds = %if.then37.i
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %17 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %18 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %cmp45.i = icmp ult i64 %sub.ptr.sub.i.i, 64
+  %cmp45.i = icmp ult i64 %sub.ptr.sub.i.i, 33
   br i1 %cmp45.i, label %if.then46.i, label %if.end48.i
 
 if.then46.i:                                      ; preds = %land.lhs.true.i
