@@ -252,29 +252,26 @@ land.lhs.true:                                    ; preds = %entry
 if.then:                                          ; preds = %land.lhs.true
   %call3 = tail call ptr @SSL_get_wbio(ptr noundef nonnull %ssl) #13
   %call4 = tail call i64 @BIO_ctrl(ptr noundef %call3, i32 noundef 40, i64 noundef 0, ptr noundef null) #13
-  %or.cond = icmp ult i64 %call4, 1073741825
-  br i1 %or.cond, label %land.lhs.true10, label %if.else
+  %3 = add i64 %call4, -228
+  %or.cond10 = icmp ult i64 %3, 1073741597
+  br i1 %or.cond10, label %if.then15, label %if.else
 
-land.lhs.true10:                                  ; preds = %if.then
+if.then15:                                        ; preds = %if.then
   %conv11 = trunc nuw nsw i64 %call4 to i32
-  %cmp13 = icmp ugt i32 %conv11, 227
-  br i1 %cmp13, label %if.then15, label %if.else
-
-if.then15:                                        ; preds = %land.lhs.true10
-  %3 = load ptr, ptr %d1, align 8
-  %mtu18 = getelementptr inbounds i8, ptr %3, i64 328
+  %4 = load ptr, ptr %d1, align 8
+  %mtu18 = getelementptr inbounds i8, ptr %4, i64 328
   store i32 %conv11, ptr %mtu18, align 8
   br label %if.end26
 
-if.else:                                          ; preds = %land.lhs.true10, %if.then
-  %4 = load ptr, ptr %d1, align 8
-  %mtu20 = getelementptr inbounds i8, ptr %4, i64 328
+if.else:                                          ; preds = %if.then
+  %5 = load ptr, ptr %d1, align 8
+  %mtu20 = getelementptr inbounds i8, ptr %5, i64 328
   store i32 1472, ptr %mtu20, align 8
   %call21 = tail call ptr @SSL_get_wbio(ptr noundef nonnull %ssl) #13
-  %5 = load ptr, ptr %d1, align 8
-  %mtu23 = getelementptr inbounds i8, ptr %5, i64 328
-  %6 = load i32, ptr %mtu23, align 8
-  %conv24 = zext i32 %6 to i64
+  %6 = load ptr, ptr %d1, align 8
+  %mtu23 = getelementptr inbounds i8, ptr %6, i64 328
+  %7 = load i32, ptr %mtu23, align 8
+  %conv24 = zext i32 %7 to i64
   %call25 = tail call i64 @BIO_ctrl(ptr noundef %call21, i32 noundef 42, i64 noundef %conv24, ptr noundef null) #13
   br label %if.end26
 

@@ -629,50 +629,48 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %23
   %30 = extractvalue { i64, ptr } %24, 1
   %bcmp.i15 = tail call i32 @bcmp(ptr %30, ptr %29, i64 %.sroa.speculated.i.i.i)
   %31 = icmp eq i32 %bcmp.i15, 0
-  br i1 %31, label %_Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit, label %_ZNK5cmake17IsAKnownExtensionESt17basic_string_viewIcSt11char_traitsIcEE.exit
+  %32 = icmp ule i64 %27, %25
+  %or.cond = select i1 %31, i1 %32, i1 false
+  br i1 %or.cond, label %33, label %_ZNK5cmake17IsAKnownExtensionESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
-_Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit: ; preds = %23, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
-  %32 = sub i64 %.sroa.speculated.i.i.i, %27
-  %spec.select7.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %32, i64 -2147483648)
-  %.08.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i, i64 2147483647)
-  %33 = and i64 %.08.i.i.i.i, 4294967295
-  %34 = icmp eq i64 %33, 0
-  br i1 %34, label %35, label %_ZNK5cmake17IsAKnownExtensionESt17basic_string_viewIcSt11char_traitsIcEE.exit
+_Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit: ; preds = %23
+  %.old.not = icmp ugt i64 %27, %25
+  br i1 %.old.not, label %_ZNK5cmake17IsAKnownExtensionESt17basic_string_viewIcSt11char_traitsIcEE.exit, label %33
 
-35:                                               ; preds = %_Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit
-  %36 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #11
-  %37 = extractvalue { i64, ptr } %36, 0
-  %38 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #11
-  %39 = add i64 %38, 1
-  %40 = icmp ult i64 %37, %39
-  br i1 %40, label %41, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
+33:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %_Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit
+  %34 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #11
+  %35 = extractvalue { i64, ptr } %34, 0
+  %36 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #11
+  %37 = add i64 %36, 1
+  %38 = icmp ult i64 %35, %37
+  br i1 %38, label %39, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
 
-41:                                               ; preds = %35
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.3, i64 noundef %39, i64 noundef %37) #12
+39:                                               ; preds = %33
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.3, i64 noundef %37, i64 noundef %35) #12
   unreachable
 
-_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %35
-  %42 = extractvalue { i64, ptr } %36, 1
-  %43 = sub i64 %37, %39
-  %44 = getelementptr inbounds i8, ptr %42, i64 %39
-  %45 = load ptr, ptr %0, align 8
-  %46 = tail call noundef ptr @_ZNK10cmMakefile16GetCMakeInstanceEv(ptr noundef nonnull align 8 dereferenceable(3520) %45)
-  %47 = tail call noundef zeroext i1 @_ZNK5cmake23IsAKnownSourceExtensionESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(2216) %46, i64 %43, ptr %44)
-  br i1 %47, label %_ZNK5cmake17IsAKnownExtensionESt17basic_string_viewIcSt11char_traitsIcEE.exit, label %48
+_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %33
+  %40 = extractvalue { i64, ptr } %34, 1
+  %41 = sub i64 %35, %37
+  %42 = getelementptr inbounds i8, ptr %40, i64 %37
+  %43 = load ptr, ptr %0, align 8
+  %44 = tail call noundef ptr @_ZNK10cmMakefile16GetCMakeInstanceEv(ptr noundef nonnull align 8 dereferenceable(3520) %43)
+  %45 = tail call noundef zeroext i1 @_ZNK5cmake23IsAKnownSourceExtensionESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(2216) %44, i64 %41, ptr %42)
+  br i1 %45, label %_ZNK5cmake17IsAKnownExtensionESt17basic_string_viewIcSt11char_traitsIcEE.exit, label %46
 
-48:                                               ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
+46:                                               ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  store i64 %43, ptr %3, align 8
-  %49 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr %44, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %46, i64 1328
-  %51 = call ptr @_ZNKSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE4findERKS3_(ptr noundef nonnull align 8 dereferenceable(56) %50, ptr noundef nonnull align 8 dereferenceable(16) %3)
-  %52 = icmp ne ptr %51, null
+  store i64 %41, ptr %3, align 8
+  %47 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %42, ptr %47, align 8
+  %48 = getelementptr inbounds i8, ptr %44, i64 1328
+  %49 = call ptr @_ZNKSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE4findERKS3_(ptr noundef nonnull align 8 dereferenceable(56) %48, ptr noundef nonnull align 8 dereferenceable(16) %3)
+  %50 = icmp ne ptr %49, null
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   br label %_ZNK5cmake17IsAKnownExtensionESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
-_ZNK5cmake17IsAKnownExtensionESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %9, %48, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread16, %18, %_Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
-  %.0 = phi i1 [ true, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ false, %_Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit ], [ false, %18 ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread16 ], [ true, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ], [ %52, %48 ], [ true, %9 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ]
+_ZNK5cmake17IsAKnownExtensionESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %9, %46, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread16, %18, %_Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
+  %.0 = phi i1 [ true, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ false, %_Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit ], [ false, %18 ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread16 ], [ true, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ], [ %50, %46 ], [ true, %9 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ]
   ret i1 %.0
 }
 
@@ -1341,12 +1339,6 @@ define internal void @_GLOBAL__sub_I_cmSourceFileLocation.cxx() #7 section ".tex
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZL18cmPropertySentinalB5cxx11, ptr nonnull @__dso_handle) #11
   ret void
 }
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #8
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #8

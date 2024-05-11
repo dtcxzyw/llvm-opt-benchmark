@@ -4922,19 +4922,19 @@ define internal fastcc i32 @input_print_bitmap(ptr nocapture noundef writeonly %
   br i1 %25, label %48, label %26
 
 26:                                               ; preds = %13
-  %27 = lshr i64 %22, 32
-  %28 = trunc nuw i64 %27 to i32
-  %29 = icmp eq i32 %28, 0
-  %30 = and i1 %12, %29
-  br i1 %30, label %34, label %31
+  %27 = icmp ult i64 %22, 4294967296
+  %28 = and i1 %12, %27
+  br i1 %28, label %34, label %29
 
-31:                                               ; preds = %26
+29:                                               ; preds = %26
+  %30 = lshr i64 %22, 32
+  %31 = trunc nuw i64 %30 to i32
   %32 = zext nneg i32 %20 to i64
-  %33 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %18, i64 noundef %32, ptr noundef nonnull @.str.29, i32 noundef %28) #19
+  %33 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %18, i64 noundef %32, ptr noundef nonnull @.str.29, i32 noundef %31) #19
   br label %34
 
-34:                                               ; preds = %31, %26
-  %35 = phi i32 [ %33, %31 ], [ 0, %26 ]
+34:                                               ; preds = %29, %26
+  %35 = phi i32 [ %33, %29 ], [ 0, %26 ]
   %36 = trunc i64 %22 to i32
   %37 = or i32 %35, %36
   %38 = icmp eq i32 %37, 0
@@ -5858,18 +5858,18 @@ define internal fastcc void @input_seq_print_bitmap(ptr noundef %0, ptr noundef 
   br i1 %22, label %44, label %23
 
 23:                                               ; preds = %12
-  %24 = lshr i64 %17, 32
-  %25 = trunc nuw i64 %24 to i32
-  %26 = icmp eq i32 %25, 0
-  %27 = and i1 %19, %26
-  br i1 %27, label %30, label %28
+  %24 = icmp ult i64 %17, 4294967296
+  %25 = and i1 %19, %24
+  br i1 %25, label %30, label %26
 
-28:                                               ; preds = %23
-  %29 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 18, ptr noundef nonnull @.str.29, i32 noundef %25) #19
+26:                                               ; preds = %23
+  %27 = lshr i64 %17, 32
+  %28 = trunc nuw i64 %27 to i32
+  %29 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 18, ptr noundef nonnull @.str.29, i32 noundef %28) #19
   br label %30
 
-30:                                               ; preds = %28, %23
-  %31 = phi i32 [ %29, %28 ], [ 0, %23 ]
+30:                                               ; preds = %26, %23
+  %31 = phi i32 [ %29, %26 ], [ 0, %23 ]
   %32 = trunc i64 %17 to i32
   %33 = or i32 %31, %32
   %34 = icmp eq i32 %33, 0

@@ -1355,24 +1355,20 @@ while.body.i.i:                                   ; preds = %land.rhs.i.i
   %incdec.ptr2.i.i = getelementptr inbounds i8, ptr %t.addr.07.i.i, i64 4
   %dec.i.i = add nsw i32 %length.addr.08.i.i, -1
   %cmp.i.i = icmp ugt i32 %length.addr.08.i.i, 1
-  br i1 %cmp.i.i, label %land.rhs.i.i, label %_ZL18_findSameDataBlockPKjiii.exit, !llvm.loop !20
+  br i1 %cmp.i.i, label %land.rhs.i.i, label %if.then18, !llvm.loop !20
 
 for.inc.i:                                        ; preds = %land.rhs.i.i
   %indvars.iv.next.i74 = add nuw nsw i64 %indvars.iv.i73, %5
   %cmp.not.i = icmp ugt i64 %indvars.iv.next.i74, %7
   br i1 %cmp.not.i, label %if.end24, label %for.body.i72, !llvm.loop !21
 
-_ZL18_findSameDataBlockPKjiii.exit:               ; preds = %while.body.i.i
+if.then18:                                        ; preds = %while.body.i.i
   %15 = trunc nsw i64 %indvars.iv.i73 to i32
-  %cmp17 = icmp sgt i32 %15, -1
-  br i1 %cmp17, label %if.then18, label %if.end24
-
-if.then18:                                        ; preds = %_ZL18_findSameDataBlockPKjiii.exit
   store i32 %15, ptr %arrayidx, align 4
   %.pre = load i32, ptr %dataLength, align 4
   br label %for.cond.backedge
 
-if.end24:                                         ; preds = %land.lhs.true, %_ZL18_findSameDataBlockPKjiii.exit, %for.inc.i
+if.end24:                                         ; preds = %land.lhs.true, %for.inc.i
   br i1 %tobool15.not, label %if.else62, label %for.cond29.preheader
 
 for.cond29.preheader:                             ; preds = %if.end24
@@ -1416,7 +1412,7 @@ if.then42:                                        ; preds = %while.body.i
   %sub43 = sub nsw i32 %newStart.0.ph43, %19
   store i32 %sub43, ptr %arrayidx, align 4
   %add48 = add nsw i32 %start.029, %19
-  %cmp5132 = icmp slt i32 %19, 32
+  %cmp5132 = icmp slt i64 %indvars.iv, 32
   br i1 %cmp5132, label %for.body52.preheader, label %if.end90
 
 for.body52.preheader:                             ; preds = %if.then42
@@ -1436,7 +1432,7 @@ for.body52:                                       ; preds = %for.body52.preheade
   %arrayidx59 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv67
   store i32 %24, ptr %arrayidx59, align 4
   %dec = add nsw i32 %i.233, -1
-  %cmp51 = icmp ugt i32 %i.233, 1
+  %cmp51 = icmp sgt i32 %i.233, 1
   br i1 %cmp51, label %for.body52, label %if.end90.loopexit47, !llvm.loop !23
 
 if.else62:                                        ; preds = %if.end13, %for.inc, %if.end24

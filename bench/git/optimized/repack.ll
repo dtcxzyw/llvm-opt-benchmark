@@ -1397,16 +1397,12 @@ geometry_pack_weight.exit58.i:                    ; preds = %geometry_pack_weigh
 
 if.end25.i:                                       ; preds = %geometry_pack_weight.exit58.i
   %78 = trunc nuw i64 %indvars.iv.i110 to i32
-  %cmp27113.not.i = icmp eq i32 %78, 0
-  br i1 %cmp27113.not.i, label %for.cond48.preheader.i, label %for.body29.preheader.i
-
-for.body29.preheader.i:                           ; preds = %if.end25.i
   %wide.trip.count.i = and i64 %indvars.iv.i110, 4294967295
   br label %for.body29.i
 
-for.cond48.preheader.i:                           ; preds = %for.cond.i, %geometry_pack_weight.exit72.i, %if.end25.i
-  %split.0149.i = phi i32 [ 0, %if.end25.i ], [ %78, %geometry_pack_weight.exit72.i ], [ 0, %for.cond.i ]
-  %total_size.0.lcssa.i = phi i64 [ 0, %if.end25.i ], [ %add.i119, %geometry_pack_weight.exit72.i ], [ 0, %for.cond.i ]
+for.cond48.preheader.i:                           ; preds = %for.cond.i, %geometry_pack_weight.exit72.i
+  %split.0149.i = phi i32 [ %78, %geometry_pack_weight.exit72.i ], [ 0, %for.cond.i ]
+  %total_size.0.lcssa.i = phi i64 [ %add.i119, %geometry_pack_weight.exit72.i ], [ 0, %for.cond.i ]
   %79 = load i32, ptr %pack_nr50.i, align 8
   %cmp50116.i = icmp ult i32 %split.0149.i, %79
   br i1 %cmp50116.i, label %for.body52.lr.ph.i, label %split_pack_geometry.exit
@@ -1415,9 +1411,9 @@ for.body52.lr.ph.i:                               ; preds = %for.cond48.preheade
   %80 = zext i32 %split.0149.i to i64
   br label %for.body52.i
 
-for.body29.i:                                     ; preds = %geometry_pack_weight.exit72.i, %for.body29.preheader.i
-  %indvars.iv139.i = phi i64 [ 0, %for.body29.preheader.i ], [ %indvars.iv.next140.i, %geometry_pack_weight.exit72.i ]
-  %total_size.0114.i = phi i64 [ 0, %for.body29.preheader.i ], [ %add.i119, %geometry_pack_weight.exit72.i ]
+for.body29.i:                                     ; preds = %geometry_pack_weight.exit72.i, %if.end25.i
+  %indvars.iv139.i = phi i64 [ 0, %if.end25.i ], [ %indvars.iv.next140.i, %geometry_pack_weight.exit72.i ]
+  %total_size.0114.i = phi i64 [ 0, %if.end25.i ], [ %add.i119, %geometry_pack_weight.exit72.i ]
   %81 = load ptr, ptr %geometry, align 8
   %arrayidx32.i = getelementptr inbounds ptr, ptr %81, i64 %indvars.iv139.i
   %82 = load ptr, ptr %arrayidx32.i, align 8

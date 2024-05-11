@@ -661,15 +661,14 @@ if.end:                                           ; preds = %_ZN11btTransform11g
   %retval.sroa.3.12.vec.insert.i42 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add38.i39, i64 0
   store <2 x float> %97, ptr %inertia, align 4
   store <2 x float> %retval.sroa.3.12.vec.insert.i42, ptr %arrayidx5.i, align 4
-  %100 = and i64 %indvars.iv.next, 4294967295
-  %tobool.not = icmp eq i64 %100, 0
+  %tobool.not = icmp eq i64 %indvars.iv.next, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !13
 
 while.end:                                        ; preds = %if.end, %entry
   %vtable19 = load ptr, ptr %this, align 8
   %vfn20 = getelementptr inbounds i8, ptr %vtable19, i64 232
-  %101 = load ptr, ptr %vfn20, align 8
-  call void %101(ptr noundef nonnull align 8 dereferenceable(184) %this)
+  %100 = load ptr, ptr %vfn20, align 8
+  call void %100(ptr noundef nonnull align 8 dereferenceable(184) %this)
   ret void
 }
 
@@ -812,8 +811,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %9 = load float, ptr %arrayidx5.i, align 4
   %add13.i = fadd float %8, %9
   store float %add13.i, ptr %arrayidx5.i, align 4
-  %10 = and i64 %indvars.iv.next, 4294967295
-  %tobool.not = icmp eq i64 %10, 0
+  %tobool.not = icmp eq i64 %indvars.iv.next, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !16
 
 while.end:                                        ; preds = %while.body, %entry
@@ -1146,8 +1144,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 128
   %4 = load ptr, ptr %vfn, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(280) %3, ptr noundef %callback, ptr noundef nonnull align 4 dereferenceable(16) %aabbMin, ptr noundef nonnull align 4 dereferenceable(16) %aabbMax)
-  %5 = and i64 %indvars.iv.next, 4294967295
-  %tobool.not = icmp eq i64 %5, 0
+  %tobool.not = icmp eq i64 %indvars.iv.next, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !19
 
 while.end:                                        ; preds = %while.body, %entry
@@ -1177,8 +1174,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 288
   %4 = load ptr, ptr %vfn, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(280) %3, ptr noundef %callback, ptr noundef nonnull align 4 dereferenceable(16) %rayFrom, ptr noundef nonnull align 4 dereferenceable(16) %rayTo)
-  %5 = and i64 %indvars.iv.next, 4294967295
-  %tobool.not = icmp eq i64 %5, 0
+  %tobool.not = icmp eq i64 %indvars.iv.next, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !20
 
 while.end:                                        ; preds = %while.body, %entry
@@ -2169,24 +2165,23 @@ delete.notnull:                                   ; preds = %while.body
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %while.body
-  %5 = and i64 %indvars.iv.next, 4294967295
-  %tobool.not = icmp eq i64 %5, 0
+  %tobool.not = icmp eq i64 %indvars.iv.next, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !32
 
 while.end:                                        ; preds = %delete.end, %entry
   %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 208
-  %6 = load ptr, ptr %m_data.i.i, align 8
-  %tobool.not.i.i = icmp eq ptr %6, null
+  %5 = load ptr, ptr %m_data.i.i, align 8
+  %tobool.not.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i, label %_ZN20btAlignedObjectArrayIP22btGImpactMeshShapePartED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %while.end
   %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 216
-  %7 = load i8, ptr %m_ownsMemory.i.i, align 8
-  %tobool2.i.i = trunc i8 %7 to i1
+  %6 = load i8, ptr %m_ownsMemory.i.i, align 8
+  %tobool2.i.i = trunc i8 %6 to i1
   br i1 %tobool2.i.i, label %if.then3.i.i, label %_ZN20btAlignedObjectArrayIP22btGImpactMeshShapePartED2Ev.exit
 
 if.then3.i.i:                                     ; preds = %if.then.i.i
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %6)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %5)
           to label %_ZN20btAlignedObjectArrayIP22btGImpactMeshShapePartED2Ev.exit unwind label %terminate.lpad
 
 _ZN20btAlignedObjectArrayIP22btGImpactMeshShapePartED2Ev.exit: ; preds = %if.then3.i.i, %while.end, %if.then.i.i
@@ -2198,25 +2193,25 @@ _ZN20btAlignedObjectArrayIP22btGImpactMeshShapePartED2Ev.exit: ; preds = %if.the
   store i32 0, ptr %m_capacity.i.i, align 8
   store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTV23btGImpactShapeInterface, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_data.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
-  %8 = load ptr, ptr %m_data.i.i.i.i.i.i.i, align 8
-  %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %8, null
+  %7 = load ptr, ptr %m_data.i.i.i.i.i.i.i, align 8
+  %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZN23btGImpactShapeInterfaceD2Ev.exit, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %_ZN20btAlignedObjectArrayIP22btGImpactMeshShapePartED2Ev.exit
   %m_ownsMemory.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 120
-  %9 = load i8, ptr %m_ownsMemory.i.i.i.i.i.i.i, align 8
-  %tobool2.i.i.i.i.i.i.i = trunc i8 %9 to i1
+  %8 = load i8, ptr %m_ownsMemory.i.i.i.i.i.i.i, align 8
+  %tobool2.i.i.i.i.i.i.i = trunc i8 %8 to i1
   br i1 %tobool2.i.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i.i, label %_ZN23btGImpactShapeInterfaceD2Ev.exit
 
 if.then3.i.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i.i
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %8)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %7)
           to label %_ZN23btGImpactShapeInterfaceD2Ev.exit unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %if.then3.i.i.i.i.i.i.i
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #15
+  %10 = extractvalue { ptr, i32 } %9, 0
+  tail call void @__clang_call_terminate(ptr %10) #15
   unreachable
 
 _ZN23btGImpactShapeInterfaceD2Ev.exit:            ; preds = %_ZN20btAlignedObjectArrayIP22btGImpactMeshShapePartED2Ev.exit, %if.then.i.i.i.i.i.i.i, %if.then3.i.i.i.i.i.i.i
@@ -2231,10 +2226,10 @@ _ZN23btGImpactShapeInterfaceD2Ev.exit:            ; preds = %_ZN20btAlignedObjec
   ret void
 
 terminate.lpad:                                   ; preds = %if.then3.i.i
-  %12 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #15
+  %12 = extractvalue { ptr, i32 } %11, 0
+  tail call void @__clang_call_terminate(ptr %12) #15
   unreachable
 }
 
@@ -2281,8 +2276,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %4 = load ptr, ptr %vfn, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(280) %3, ptr noundef nonnull align 4 dereferenceable(16) %scaling)
-  %5 = and i64 %indvars.iv.next, 4294967295
-  %tobool.not = icmp eq i64 %5, 0
+  %tobool.not = icmp eq i64 %indvars.iv.next, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !33
 
 while.end:                                        ; preds = %while.body, %entry
@@ -2322,8 +2316,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 88
   %4 = load ptr, ptr %vfn, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(280) %3, float noundef %margin)
-  %5 = and i64 %indvars.iv.next, 4294967295
-  %tobool.not = icmp eq i64 %5, 0
+  %tobool.not = icmp eq i64 %indvars.iv.next, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !34
 
 while.end:                                        ; preds = %while.body, %entry
@@ -2441,8 +2434,7 @@ _ZN23btGImpactShapeInterface11updateBoundEv.exit: ; preds = %while.body, %if.end
   %cond109.in.i = getelementptr inbounds i8, ptr %call102.pn.i, i64 8
   %cond109.i = load float, ptr %cond109.in.i, align 4
   store float %cond109.i, ptr %arrayidx18.i, align 4
-  %26 = and i64 %indvars.iv.next, 4294967295
-  %tobool.not = icmp eq i64 %26, 0
+  %tobool.not = icmp eq i64 %indvars.iv.next, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !35
 
 while.end:                                        ; preds = %_ZN23btGImpactShapeInterface11updateBoundEv.exit, %entry
@@ -2472,8 +2464,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 144
   %4 = load ptr, ptr %vfn, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(184) %3)
-  %5 = and i64 %indvars.iv.next, 4294967295
-  %tobool.not = icmp eq i64 %5, 0
+  %tobool.not = icmp eq i64 %indvars.iv.next, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !36
 
 while.end:                                        ; preds = %while.body, %entry

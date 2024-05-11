@@ -67,19 +67,15 @@ for.body.i:                                       ; preds = %for.inc.i, %if.end
   %arrayidx.i = getelementptr inbounds [3 x %struct.anon], ptr @_ZN6icu_75L11dataFormatsE, i64 0, i64 %indvars.iv.i
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %arrayidx.i, ptr noundef nonnull readonly dereferenceable(4) %dataFormat, i64 4)
   %cmp2.i = icmp eq i32 %bcmp.i, 0
-  br i1 %cmp2.i, label %_ZN6icu_75L13getDataFormatEPKh.exit, label %for.inc.i
+  br i1 %cmp2.i, label %if.then4, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %exitcond.not.i, label %if.end28, label %for.body.i, !llvm.loop !4
 
-_ZN6icu_75L13getDataFormatEPKh.exit:              ; preds = %for.body.i
+if.then4:                                         ; preds = %for.body.i
   %3 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %cmp = icmp sgt i32 %3, -1
-  br i1 %cmp, label %if.then4, label %if.end28
-
-if.then4:                                         ; preds = %_ZN6icu_75L13getDataFormatEPKh.exit
   switch i32 %3, label %sw.epilog [
     i32 0, label %sw.bb
     i32 1, label %sw.bb11
@@ -769,7 +765,7 @@ if.then26:                                        ; preds = %sw.epilog
   call void @exit(i32 noundef %91) #11
   unreachable
 
-if.end28:                                         ; preds = %for.inc.i, %sw.epilog, %entry, %_ZN6icu_75L13getDataFormatEPKh.exit
+if.end28:                                         ; preds = %for.inc.i, %sw.epilog, %entry
   ret void
 }
 

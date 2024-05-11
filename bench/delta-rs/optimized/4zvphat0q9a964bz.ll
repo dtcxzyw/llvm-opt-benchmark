@@ -74306,7 +74306,7 @@ define internal fastcc void @"_ZN6chrono8datetime40DateTime$LT$chrono..offset..u
 
 15:                                               ; preds = %10
   %16 = trunc nsw i64 %spec.select.i to i32
-  %17 = icmp ugt i32 %16, 86399
+  %17 = icmp ugt i64 %spec.select.i, 86399
   %18 = icmp ugt i32 %2, 1999999999
   %or.cond1 = or i1 %18, %17
   br i1 %or.cond1, label %.thread, label %19
@@ -143869,20 +143869,20 @@ define noundef zeroext i1 @"_ZN96_$LT$deltalake_core..delta_datafusion..expr..Sc
   br i1 %419, label %428, label %420
 
 420:                                              ; preds = %415
-  %421 = trunc nsw i64 %spec.select.i.i to i32
-  %422 = icmp ugt i32 %421, 86399
-  %423 = icmp ugt i32 %409, 1999999999
-  %or.cond1.i = or i1 %423, %422
-  br i1 %or.cond1.i, label %428, label %424
+  %421 = icmp ugt i64 %spec.select.i.i, 86399
+  %422 = icmp ugt i32 %409, 1999999999
+  %or.cond1.i = or i1 %422, %421
+  br i1 %or.cond1.i, label %428, label %423
 
-424:                                              ; preds = %420
+423:                                              ; preds = %420
+  %424 = trunc nuw nsw i64 %spec.select.i.i to i32
   %425 = icmp ugt i32 %409, 999999999
-  %426 = urem i32 %421, 60
+  %426 = urem i32 %424, 60
   %427 = icmp ne i32 %426, 59
   %or.cond3.not.i = and i1 %425, %427
   br i1 %or.cond3.not.i, label %428, label %431
 
-428:                                              ; preds = %401, %424, %420, %415
+428:                                              ; preds = %401, %423, %420, %415
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %37)
   br label %445
 
@@ -143892,11 +143892,10 @@ define noundef zeroext i1 @"_ZN96_$LT$deltalake_core..delta_datafusion..expr..Sc
   invoke void @"_ZN4core3ptr109drop_in_place$LT$chrono..format..formatting..DelayedFormat$LT$chrono..format..strftime..StrftimeItems$GT$$GT$17ha578f61d24018e1bE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %35) #47
           to label %372 unwind label %370
 
-431:                                              ; preds = %424
-  %.sroa.6.4.insert.ext = and i64 %spec.select.i.i, 131071
+431:                                              ; preds = %423
   %.sroa.6.8.insert.ext = zext nneg i32 %409 to i64
   %.sroa.6.8.insert.shift = shl nuw nsw i64 %.sroa.6.8.insert.ext, 32
-  %.sroa.6.8.insert.insert = or disjoint i64 %.sroa.6.4.insert.ext, %.sroa.6.8.insert.shift
+  %.sroa.6.8.insert.insert = or disjoint i64 %.sroa.6.8.insert.shift, %spec.select.i.i
   store i32 %418, ptr %33, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %33, i64 4
   store i64 %.sroa.6.8.insert.insert, ptr %.sroa.2.0..sroa_idx, align 4

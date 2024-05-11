@@ -112,7 +112,7 @@ Acb_ObjWhatFanin.exit:                            ; preds = %49, %.critedge.spli
 
 Acb_ObjWhatFanin.exit79:                          ; preds = %56
   %60 = trunc nuw nsw i64 %indvars.iv.i74 to i32
-  %61 = icmp eq i32 %60, -1
+  %61 = icmp eq i64 %indvars.iv.i74, 4294967295
   br i1 %61, label %Acb_ObjWhatFanin.exit79.thread, label %62
 
 Acb_ObjWhatFanin.exit79.thread:                   ; preds = %55, %Acb_ObjWhatFanin.exit79
@@ -618,7 +618,7 @@ Abc_TtCheckDsdAnd.exit:                           ; preds = %81, %.sink.split.i
 
 Acb_ObjWhatFanin.exit72:                          ; preds = %97
   %101 = trunc nuw nsw i64 %indvars.iv.i67 to i32
-  %102 = icmp eq i32 %101, -1
+  %102 = icmp eq i64 %indvars.iv.i67, 4294967295
   br i1 %102, label %Acb_ObjWhatFanin.exit72.thread, label %103
 
 Acb_ObjWhatFanin.exit72.thread:                   ; preds = %96, %Acb_ObjWhatFanin.exit72
@@ -992,7 +992,7 @@ Acb_ObjDeleteFaninIndex.exit:                     ; preds = %.lr.ph.i, %.._crit_
   br label %Vec_IntRemove.exit
 
 Vec_IntRemove.exit:                               ; preds = %49, %._crit_edge.i, %._crit_edge30.i
-  %66 = icmp ult i32 %16, 5
+  %66 = icmp ult i64 %indvars.iv, 5
   br i1 %66, label %.lr.ph.i33, label %Abc_Tt6RemoveVar.exit
 
 .lr.ph.i33:                                       ; preds = %Vec_IntRemove.exit, %.lr.ph.i33
@@ -1758,7 +1758,7 @@ Acb_ObjDeleteFaninIndex.exit.i:                   ; preds = %.lr.ph.i.i63, %.._c
   br label %Vec_IntRemove.exit.i54
 
 Vec_IntRemove.exit.i54:                           ; preds = %156, %._crit_edge30.i.i52, %._crit_edge.i.i48
-  %173 = icmp ult i32 %124, 5
+  %173 = icmp ult i64 %indvars.iv.i45, 5
   br i1 %173, label %.lr.ph.i33.i, label %Acb_ObjSuppMin_int.exit
 
 .lr.ph.i33.i:                                     ; preds = %Vec_IntRemove.exit.i54, %.lr.ph.i33.i
@@ -2019,13 +2019,13 @@ Acb_ObjRemoveDupFanins_int.exit.i:                ; preds = %77
   %112 = and i64 %100, %111
   %113 = and i64 %110, %102
   %114 = or i64 %113, %112
-  %115 = icmp slt i32 %82, 5
+  %115 = icmp ult i64 %indvars.iv26.i.i, 5
   br i1 %115, label %.lr.ph.i.i84, label %Abc_Tt6RemoveVar.exit.i
 
 .lr.ph.i.i84:                                     ; preds = %Acb_ObjRemoveDupFanins_int.exit.i, %.lr.ph.i.i84
   %indvars.iv.i.i85 = phi i64 [ %indvars.iv.next.i.i86, %.lr.ph.i.i84 ], [ %93, %Acb_ObjRemoveDupFanins_int.exit.i ]
   %.045.i.i = phi i64 [ %131, %.lr.ph.i.i84 ], [ %114, %Acb_ObjRemoveDupFanins_int.exit.i ]
-  %indvars.iv.next.i.i86 = add nsw i64 %indvars.iv.i.i85, 1
+  %indvars.iv.next.i.i86 = add nuw nsw i64 %indvars.iv.i.i85, 1
   %116 = getelementptr inbounds [5 x [3 x i64]], ptr @s_PMasks, i64 0, i64 %indvars.iv.i.i85
   %117 = load i64, ptr %116, align 8
   %118 = and i64 %117, %.045.i.i
@@ -2293,7 +2293,7 @@ Acb_ObjDeleteFaninIndex.exit.i97:                 ; preds = %.lr.ph.i.i118, %.._
   br label %Vec_IntRemove.exit.i106
 
 Vec_IntRemove.exit.i106:                          ; preds = %222, %._crit_edge30.i.i104, %._crit_edge.i.i100
-  %239 = icmp ult i32 %190, 5
+  %239 = icmp ult i64 %indvars.iv.i91, 5
   br i1 %239, label %.lr.ph.i33.i, label %Acb_ObjSuppMin_int.exit
 
 .lr.ph.i33.i:                                     ; preds = %Vec_IntRemove.exit.i106, %.lr.ph.i33.i
@@ -2780,7 +2780,7 @@ Abc_TtCheckDsdAnd.exit.i:                         ; preds = %72, %36
   br i1 %exitcond.not.i, label %Acb_ObjFindFaninPushableIndex.exit.thread, label %36, !llvm.loop !20
 
 Acb_ObjFindFaninPushableIndex.exit:               ; preds = %37, %69, %72
-  %76 = icmp eq i32 %43, -1
+  %76 = icmp eq i64 %indvars.iv.i, 4294967295
   br i1 %76, label %Acb_ObjFindFaninPushableIndex.exit.thread, label %77
 
 77:                                               ; preds = %Acb_ObjFindFaninPushableIndex.exit

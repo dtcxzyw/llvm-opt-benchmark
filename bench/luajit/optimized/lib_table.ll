@@ -104,9 +104,7 @@ for.body13:                                       ; preds = %for.end, %for.inc30
 land.lhs.true:                                    ; preds = %for.body13
   %key = getelementptr inbounds i8, ptr %arrayidx14, i64 8
   %8 = load i64, ptr %key, align 8
-  %shr = ashr i64 %8, 47
-  %conv18 = trunc nsw i64 %shr to i32
-  %cmp19 = icmp ult i32 %conv18, -13
+  %cmp19 = icmp ult i64 %8, -1829587348619264
   %9 = bitcast i64 %8 to double
   %cmp25 = fcmp olt double %m.119, %9
   %or.cond = select i1 %cmp19, i1 %cmp25, i1 false
@@ -353,43 +351,39 @@ cond.end19:                                       ; preds = %cond.false17, %cond
 cond.true22:                                      ; preds = %cond.end19
   %12 = load i64, ptr %cond20, align 8
   %shr = ashr i64 %12, 47
-  %conv23 = trunc nsw i64 %shr to i32
-  %cmp24 = icmp ult i32 %conv23, -13
-  br i1 %cmp24, label %cond.end33, label %cond.false27
-
-cond.false27:                                     ; preds = %cond.true22
-  %not = and i64 %shr, 15
-  %13 = xor i64 %not, 15
+  %cmp24 = icmp ult i64 %shr, -13
+  %not = xor i64 %shr, -1
+  %spec.select = select i1 %cmp24, i64 13, i64 %not
   br label %cond.end33
 
-cond.end33:                                       ; preds = %cond.end19, %cond.false27, %cond.true22
-  %cond34 = phi i64 [ %13, %cond.false27 ], [ 13, %cond.true22 ], [ 0, %cond.end19 ]
+cond.end33:                                       ; preds = %cond.true22, %cond.end19
+  %cond34 = phi i64 [ 0, %cond.end19 ], [ %spec.select, %cond.true22 ]
   %arrayidx36 = getelementptr inbounds [14 x ptr], ptr @lj_obj_itypename, i64 0, i64 %cond34
-  %14 = load ptr, ptr %arrayidx36, align 8
-  tail call void (ptr, i32, ...) @lj_err_callerv(ptr noundef nonnull %L, i32 noundef 1423, ptr noundef %14, i32 noundef %conv13) #4
+  %13 = load ptr, ptr %arrayidx36, align 8
+  tail call void (ptr, i32, ...) @lj_err_callerv(ptr noundef nonnull %L, i32 noundef 1423, ptr noundef %13, i32 noundef %conv13) #4
   unreachable
 
 if.end:                                           ; preds = %cond.end
-  %15 = load ptr, ptr %top, align 8
-  %add.ptr38 = getelementptr inbounds i8, ptr %15, i64 -8
+  %14 = load ptr, ptr %top, align 8
+  %add.ptr38 = getelementptr inbounds i8, ptr %14, i64 -8
   %b.i = getelementptr inbounds i8, ptr %call9, i64 16
-  %16 = load ptr, ptr %b.i, align 8
-  %17 = load ptr, ptr %call9, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %17 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %16 to i64
+  %15 = load ptr, ptr %b.i, align 8
+  %16 = load ptr, ptr %call9, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %16 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %conv2.i = and i64 %sub.ptr.sub.i, 4294967295
-  %call.i = tail call ptr @lj_str_new(ptr noundef nonnull %L, ptr noundef %16, i64 noundef %conv2.i) #3
-  %18 = ptrtoint ptr %call.i to i64
-  %or.i = or i64 %18, -703687441776640
+  %call.i = tail call ptr @lj_str_new(ptr noundef nonnull %L, ptr noundef %15, i64 noundef %conv2.i) #3
+  %17 = ptrtoint ptr %call.i to i64
+  %or.i = or i64 %17, -703687441776640
   store i64 %or.i, ptr %add.ptr38, align 8
-  %19 = load i64, ptr %glref.i, align 8
-  %20 = inttoptr i64 %19 to ptr
-  %gc = getelementptr inbounds i8, ptr %20, i64 16
-  %21 = load i64, ptr %gc, align 8
-  %threshold = getelementptr inbounds i8, ptr %20, i64 24
-  %22 = load i64, ptr %threshold, align 8
-  %cmp44.not = icmp ult i64 %21, %22
+  %18 = load i64, ptr %glref.i, align 8
+  %19 = inttoptr i64 %18 to ptr
+  %gc = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = load i64, ptr %gc, align 8
+  %threshold = getelementptr inbounds i8, ptr %19, i64 24
+  %21 = load i64, ptr %threshold, align 8
+  %cmp44.not = icmp ult i64 %20, %21
   br i1 %cmp44.not, label %if.end54, label %if.then52
 
 if.then52:                                        ; preds = %if.end

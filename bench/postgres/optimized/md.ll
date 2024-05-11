@@ -447,11 +447,12 @@ define internal fastcc void @mdunlinkfork(i64 %0, i64 %1, i32 noundef %2, i1 nou
   %5 = alloca %struct.FileTag, align 8
   %6 = alloca %struct.FileTag, align 8
   %7 = alloca %struct.FileTag, align 8
+  %.fr = freeze i64 %1
   %.sroa.0.0.extract.trunc = trunc i64 %0 to i32
   %.sroa.5.0.extract.shift = lshr i64 %0, 32
   %.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.5.0.extract.shift to i32
-  %.sroa.6.8.extract.trunc = trunc i64 %1 to i32
-  %.sroa.11.8.extract.shift = lshr i64 %1, 32
+  %.sroa.6.8.extract.trunc = trunc i64 %.fr to i32
+  %.sroa.11.8.extract.shift = lshr i64 %.fr, 32
   %.sroa.11.8.extract.trunc = trunc nuw i64 %.sroa.11.8.extract.shift to i32
   %8 = tail call ptr @GetRelationPath(i32 noundef %.sroa.5.0.extract.trunc, i32 noundef %.sroa.0.0.extract.trunc, i32 noundef %.sroa.6.8.extract.trunc, i32 noundef %.sroa.11.8.extract.trunc, i32 noundef %2) #14
   br i1 %3, label %14, label %9
@@ -461,12 +462,12 @@ define internal fastcc void @mdunlinkfork(i64 %0, i64 %1, i32 noundef %2, i1 nou
   %11 = trunc i8 %10 to i1
   %12 = icmp ne i32 %2, 0
   %or.cond = or i1 %12, %11
-  %13 = icmp ne i32 %.sroa.11.8.extract.trunc, -1
+  %13 = icmp ne i64 %.sroa.11.8.extract.shift, 4294967295
   %or.cond4 = or i1 %13, %or.cond
   br i1 %or.cond4, label %14, label %44
 
 14:                                               ; preds = %9, %4
-  %.not = icmp eq i32 %.sroa.11.8.extract.trunc, -1
+  %.not = icmp eq i64 %.sroa.11.8.extract.shift, 4294967295
   br i1 %.not, label %15, label %.thread
 
 15:                                               ; preds = %14
@@ -587,7 +588,7 @@ define internal fastcc void @mdunlinkfork(i64 %0, i64 %1, i32 noundef %2, i1 nou
   %61 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #17
   %62 = add i64 %61, 12
   %63 = call ptr @palloc(i64 noundef %62) #14
-  %.not79 = icmp eq i32 %.sroa.11.8.extract.trunc, -1
+  %.not79 = icmp eq i64 %.sroa.11.8.extract.shift, 4294967295
   %64 = getelementptr inbounds i8, ptr %5, i64 4
   %.sroa.2.0..sroa_idx.i87 = getelementptr inbounds i8, ptr %5, i64 12
   %65 = trunc i32 %2 to i16

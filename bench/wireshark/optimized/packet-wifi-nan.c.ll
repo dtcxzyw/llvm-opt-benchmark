@@ -3151,66 +3151,66 @@ define internal fastcc void @dissect_attr_availability(ptr noundef %0, ptr nound
 
 123:                                              ; preds = %82
   %124 = lshr i16 %90, 8
-  br label %125
+  %125 = zext nneg i16 %124 to i32
+  br label %126
 
-125:                                              ; preds = %131, %123
-  %indvars.iv.i162 = phi i64 [ 0, %123 ], [ %indvars.iv.next.i167, %131 ]
-  %126 = getelementptr %struct._range_channel_set, ptr @op_class_channel, i64 %indvars.iv.i162
-  %127 = load i32, ptr %126, align 8
-  %.not14.i163 = icmp ugt i32 %127, %99
-  br i1 %.not14.i163, label %131, label %128
+126:                                              ; preds = %132, %123
+  %indvars.iv.i162 = phi i64 [ 0, %123 ], [ %indvars.iv.next.i167, %132 ]
+  %127 = getelementptr %struct._range_channel_set, ptr @op_class_channel, i64 %indvars.iv.i162
+  %128 = load i32, ptr %127, align 8
+  %.not14.i163 = icmp ugt i32 %128, %99
+  br i1 %.not14.i163, label %132, label %129
 
-128:                                              ; preds = %125
-  %129 = getelementptr inbounds i8, ptr %126, i64 4
-  %130 = load i32, ptr %129, align 4
-  %.not15.i164 = icmp ult i32 %130, %99
-  br i1 %.not15.i164, label %131, label %132
+129:                                              ; preds = %126
+  %130 = getelementptr inbounds i8, ptr %127, i64 4
+  %131 = load i32, ptr %130, align 4
+  %.not15.i164 = icmp ult i32 %131, %99
+  br i1 %.not15.i164, label %132, label %133
 
-131:                                              ; preds = %128, %125
+132:                                              ; preds = %129, %126
   %indvars.iv.next.i167 = add nuw nsw i64 %indvars.iv.i162, 1
   %exitcond.i168 = icmp eq i64 %indvars.iv.next.i167, 55
-  br i1 %exitcond.i168, label %157, label %125, !llvm.loop !15
+  br i1 %exitcond.i168, label %157, label %126, !llvm.loop !15
 
-132:                                              ; preds = %128
-  %133 = getelementptr inbounds i8, ptr %126, i64 8
-  %134 = and i16 %90, 255
-  %135 = zext nneg i16 %134 to i32
-  br label %136
+133:                                              ; preds = %129
+  %134 = getelementptr inbounds i8, ptr %127, i64 8
+  %135 = and i16 %90, 255
+  %136 = zext nneg i16 %135 to i32
+  br label %137
 
-136:                                              ; preds = %140, %132
-  %indvars.iv.i170 = phi i64 [ 0, %132 ], [ %indvars.iv.next.i171, %140 ]
-  %137 = getelementptr i32, ptr %133, i64 %indvars.iv.i170
-  %138 = load i32, ptr %137, align 4
-  %139 = icmp eq i32 %138, %135
-  br i1 %139, label %channel_number_valid.exit, label %140
+137:                                              ; preds = %141, %133
+  %indvars.iv.i170 = phi i64 [ 0, %133 ], [ %indvars.iv.next.i171, %141 ]
+  %138 = getelementptr i32, ptr %134, i64 %indvars.iv.i170
+  %139 = load i32, ptr %138, align 4
+  %140 = icmp eq i32 %139, %136
+  br i1 %140, label %channel_number_valid.exit, label %141
 
-140:                                              ; preds = %136
+141:                                              ; preds = %137
   %indvars.iv.next.i171 = add nuw nsw i64 %indvars.iv.i170, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i171, 64
-  br i1 %exitcond.not.i, label %channel_number_valid.exit.thread, label %136, !llvm.loop !17
+  br i1 %exitcond.not.i, label %channel_number_valid.exit.thread, label %137, !llvm.loop !17
 
-channel_number_valid.exit:                        ; preds = %136
-  %141 = trunc nuw nsw i64 %indvars.iv.i170 to i32
-  %142 = icmp eq i32 %141, 64
-  br i1 %142, label %channel_number_valid.exit.thread, label %144
+channel_number_valid.exit:                        ; preds = %137
+  %142 = trunc nuw nsw i64 %indvars.iv.i170 to i32
+  %143 = icmp eq i64 %indvars.iv.i170, 64
+  br i1 %143, label %channel_number_valid.exit.thread, label %145
 
-channel_number_valid.exit.thread:                 ; preds = %140, %channel_number_valid.exit
-  %143 = call ptr @expert_add_info(ptr noundef %4, ptr noundef %87, ptr noundef nonnull @ei_nan_invalid_channel_num_for_op_class) #4
-  br label %144
+channel_number_valid.exit.thread:                 ; preds = %141, %channel_number_valid.exit
+  %144 = call ptr @expert_add_info(ptr noundef %4, ptr noundef %87, ptr noundef nonnull @ei_nan_invalid_channel_num_for_op_class) #4
+  br label %145
 
-144:                                              ; preds = %channel_number_valid.exit.thread, %channel_number_valid.exit
-  %.06.i176 = phi i32 [ 64, %channel_number_valid.exit.thread ], [ %141, %channel_number_valid.exit ]
-  %145 = zext nneg i16 %124 to i32
+145:                                              ; preds = %channel_number_valid.exit.thread, %channel_number_valid.exit
+  %.06.i176 = phi i32 [ 64, %channel_number_valid.exit.thread ], [ %142, %channel_number_valid.exit ]
   %146 = add i16 %90, -16640
   %or.cond = icmp ult i16 %146, -16384
   br i1 %or.cond, label %147, label %149
 
-147:                                              ; preds = %144
+147:                                              ; preds = %145
   %148 = call ptr @expert_add_info(ptr noundef %4, ptr noundef %87, ptr noundef nonnull @ei_nan_invalid_channel_count) #4
   br label %149
 
-149:                                              ; preds = %144, %147
-  %150 = add i32 %.06.i176, %145
+149:                                              ; preds = %145, %147
+  %150 = add i32 %.06.i176, %125
   %151 = call i32 @llvm.umin.i32(i32 %150, i32 64)
   %152 = and i32 %.06.i176, 255
   %153 = icmp ugt i32 %151, %152
@@ -3223,14 +3223,14 @@ channel_number_valid.exit.thread:                 ; preds = %140, %channel_numbe
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %154, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %155 = getelementptr i32, ptr %133, i64 %indvars.iv
+  %155 = getelementptr i32, ptr %134, i64 %indvars.iv
   %156 = load i32, ptr %155, align 4
   call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %98, ptr noundef nonnull @.str.721, i32 noundef %156) #4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit179, label %.lr.ph, !llvm.loop !18
 
-157:                                              ; preds = %131
+157:                                              ; preds = %132
   %158 = call ptr @expert_add_info(ptr noundef %4, ptr noundef %87, ptr noundef nonnull @ei_nan_unknown_op_class) #4
   br label %.loopexit179
 

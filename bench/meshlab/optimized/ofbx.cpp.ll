@@ -8666,10 +8666,11 @@ _ZN4ofbxL19getTriCountFromPolyERKSt6vectorIiSaIiEEPi.exit.i: ; preds = %478
   %indvars1010.le = trunc i64 %indvars.iv.i.i to i32
   %485 = add i32 %.0365471.i, 2
   %486 = add i32 %485, %indvars1010.le
-  %487 = icmp sgt i32 %indvars1010.le, 0
+  %487 = icmp sgt i64 %indvars.iv.i.i, 0
   br i1 %487, label %.lr.ph469.i, label %._crit_edge470.i
 
 .lr.ph469.i:                                      ; preds = %_ZN4ofbxL19getTriCountFromPolyERKSt6vectorIiSaIiEEPi.exit.i
+  %smax.i = call i32 @llvm.smax.i32(i32 %indvars1010.le, i32 1)
   %.pre521.i = load ptr, ptr %455, align 8
   br label %488
 
@@ -8752,7 +8753,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
 _ZNSt6vectorIiSaIiEE9push_backERKi.exit.i:        ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i, %493
   %521 = phi ptr [ %518, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %496, %493 ]
   %522 = add nuw nsw i32 %.095468.i, 1
-  %exitcond514.not.i = icmp eq i32 %522, %indvars1010.le
+  %exitcond514.not.i = icmp eq i32 %522, %smax.i
   br i1 %exitcond514.not.i, label %._crit_edge470.i, label %488, !llvm.loop !185
 
 ._crit_edge470.i:                                 ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i, %_ZN4ofbxL19getTriCountFromPolyERKSt6vectorIiSaIiEEPi.exit.i
@@ -22902,6 +22903,9 @@ declare i64 @llvm.umax.i64(i64, i64) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #28
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #28

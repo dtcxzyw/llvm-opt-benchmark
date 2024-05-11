@@ -2200,17 +2200,16 @@ define dso_local i64 @__round_jiffies(i64 noundef %0, i32 noundef %1) #5 align 1
   %4 = sext i32 %3 to i64
   %5 = add i64 %4, %0
   %6 = urem i64 %5, 1000
-  %7 = trunc nuw nsw i64 %6 to i32
-  %8 = icmp ugt i32 %7, 249
-  %9 = sub nuw i64 %5, %6
-  %10 = add i64 %9, 1000
-  %11 = select i1 %8, i64 %10, i64 %9
-  %12 = sub i64 %11, %4
-  %13 = load volatile i64, ptr @jiffies, align 64
-  %14 = sub i64 %13, %12
-  %15 = icmp slt i64 %14, 0
-  %16 = select i1 %15, i64 %12, i64 %0
-  ret i64 %16
+  %7 = icmp ugt i64 %6, 249
+  %8 = sub nuw i64 %5, %6
+  %9 = add i64 %8, 1000
+  %10 = select i1 %7, i64 %9, i64 %8
+  %11 = sub i64 %10, %4
+  %12 = load volatile i64, ptr @jiffies, align 64
+  %13 = sub i64 %12, %11
+  %14 = icmp slt i64 %13, 0
+  %15 = select i1 %14, i64 %11, i64 %0
+  ret i64 %15
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(readwrite, argmem: none)
@@ -2221,18 +2220,17 @@ define dso_local i64 @__round_jiffies_relative(i64 noundef %0, i32 noundef %1) #
   %6 = sext i32 %5 to i64
   %7 = add i64 %4, %6
   %8 = urem i64 %7, 1000
-  %9 = trunc nuw nsw i64 %8 to i32
-  %10 = icmp ugt i32 %9, 249
-  %11 = sub nuw i64 %7, %8
-  %12 = add i64 %11, 1000
-  %13 = select i1 %10, i64 %12, i64 %11
-  %14 = sub i64 %13, %6
-  %15 = load volatile i64, ptr @jiffies, align 64
-  %16 = sub i64 %15, %14
-  %17 = icmp slt i64 %16, 0
-  %18 = select i1 %17, i64 %14, i64 %4
-  %19 = sub i64 %18, %3
-  ret i64 %19
+  %9 = icmp ugt i64 %8, 249
+  %10 = sub nuw i64 %7, %8
+  %11 = add i64 %10, 1000
+  %12 = select i1 %9, i64 %11, i64 %10
+  %13 = sub i64 %12, %6
+  %14 = load volatile i64, ptr @jiffies, align 64
+  %15 = sub i64 %14, %13
+  %16 = icmp slt i64 %15, 0
+  %17 = select i1 %16, i64 %13, i64 %4
+  %18 = sub i64 %17, %3
+  ret i64 %18
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -2242,17 +2240,16 @@ define dso_local i64 @round_jiffies(i64 noundef %0) #1 align 16 {
   %4 = sext i32 %3 to i64
   %5 = add i64 %4, %0
   %6 = urem i64 %5, 1000
-  %7 = trunc nuw nsw i64 %6 to i32
-  %8 = icmp ugt i32 %7, 249
-  %9 = sub nuw i64 %5, %6
-  %10 = add i64 %9, 1000
-  %11 = select i1 %8, i64 %10, i64 %9
-  %12 = sub i64 %11, %4
-  %13 = load volatile i64, ptr @jiffies, align 64
-  %14 = sub i64 %13, %12
-  %15 = icmp slt i64 %14, 0
-  %16 = select i1 %15, i64 %12, i64 %0
-  ret i64 %16
+  %7 = icmp ugt i64 %6, 249
+  %8 = sub nuw i64 %5, %6
+  %9 = add i64 %8, 1000
+  %10 = select i1 %7, i64 %9, i64 %8
+  %11 = sub i64 %10, %4
+  %12 = load volatile i64, ptr @jiffies, align 64
+  %13 = sub i64 %12, %11
+  %14 = icmp slt i64 %13, 0
+  %15 = select i1 %14, i64 %11, i64 %0
+  ret i64 %15
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -2264,18 +2261,17 @@ define dso_local i64 @round_jiffies_relative(i64 noundef %0) #1 align 16 {
   %6 = sext i32 %5 to i64
   %7 = add i64 %4, %6
   %8 = urem i64 %7, 1000
-  %9 = trunc nuw nsw i64 %8 to i32
-  %10 = icmp ugt i32 %9, 249
-  %11 = sub nuw i64 %7, %8
-  %12 = add i64 %11, 1000
-  %13 = select i1 %10, i64 %12, i64 %11
-  %14 = sub i64 %13, %6
-  %15 = load volatile i64, ptr @jiffies, align 64
-  %16 = sub i64 %15, %14
-  %17 = icmp slt i64 %16, 0
-  %18 = select i1 %17, i64 %14, i64 %4
-  %19 = sub i64 %18, %3
-  ret i64 %19
+  %9 = icmp ugt i64 %8, 249
+  %10 = sub nuw i64 %7, %8
+  %11 = add i64 %10, 1000
+  %12 = select i1 %9, i64 %11, i64 %10
+  %13 = sub i64 %12, %6
+  %14 = load volatile i64, ptr @jiffies, align 64
+  %15 = sub i64 %14, %13
+  %16 = icmp slt i64 %15, 0
+  %17 = select i1 %16, i64 %13, i64 %4
+  %18 = sub i64 %17, %3
+  ret i64 %18
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(readwrite, argmem: none)

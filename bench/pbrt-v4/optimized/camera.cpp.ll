@@ -2438,8 +2438,7 @@ _ZN4pbrt14SampleDiscreteEN4pstd4spanIKfEEfPfS4_.exit.i: ; preds = %while.cond.i.
   %div24.i.i = fdiv float %sub.i.i, %4
   %cmp.i23.i.i = fcmp ogt float %div24.i.i, 0x3FEFFFFFE0000000
   %.sroa.speculated.i.i = select i1 %cmp.i23.i.i, float 0x3FEFFFFFE0000000, float %div24.i.i
-  %5 = and i64 %indvars.iv.i.i, 4294967295
-  %cmp.i = icmp eq i64 %5, 0
+  %cmp.i = icmp eq i64 %indvars.iv.i.i, 0
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %_ZN4pbrt14SampleDiscreteEN4pstd4spanIKfEEfPfS4_.exit.i
@@ -2479,7 +2478,7 @@ _ZN4pbrt10SampleTentEff.exit:                     ; preds = %_ZN4pbrt12SampleLin
   %retval.0.i = phi float [ %add.i, %_ZN4pbrt12SampleLinearEfff.exit.i ], [ %mul4.i, %if.else.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %y = getelementptr inbounds i8, ptr %this, i64 4
-  %6 = load float, ptr %y, align 4
+  %5 = load float, ptr %y, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i1)
   store <2 x float> <float 5.000000e-01, float 5.000000e-01>, ptr %ref.tmp.i1, align 8
   br label %for.body.i.i3
@@ -2488,8 +2487,8 @@ for.body.i.i3:                                    ; preds = %for.body.i.i3, %_ZN
   %sumWeights.032.i.i4 = phi float [ %add.i.i7, %for.body.i.i3 ], [ 0.000000e+00, %_ZN4pbrt10SampleTentEff.exit ]
   %__begin1.031.i.idx.i5 = phi i64 [ %__begin1.031.i.add.i8, %for.body.i.i3 ], [ 0, %_ZN4pbrt10SampleTentEff.exit ]
   %__begin1.031.i.ptr.i6 = getelementptr inbounds i8, ptr %ref.tmp.i1, i64 %__begin1.031.i.idx.i5
-  %7 = load float, ptr %__begin1.031.i.ptr.i6, align 4
-  %add.i.i7 = fadd float %sumWeights.032.i.i4, %7
+  %6 = load float, ptr %__begin1.031.i.ptr.i6, align 4
+  %add.i.i7 = fadd float %sumWeights.032.i.i4, %6
   %__begin1.031.i.add.i8 = add nuw nsw i64 %__begin1.031.i.idx.i5, 4
   %cmp.not.i.i9 = icmp eq i64 %__begin1.031.i.add.i8, 8
   br i1 %cmp.not.i.i9, label %for.end.i.i10, label %for.body.i.i3
@@ -2507,34 +2506,33 @@ if.then6.i.i54:                                   ; preds = %for.end.i.i10
 if.end.i.i.i56:                                   ; preds = %if.then6.i.i54
   %cmp1.i.i.i57 = fcmp oeq float %mul.i.i11, 0.000000e+00
   %v.addr.0.i.i.i58 = select i1 %cmp1.i.i.i57, float -0.000000e+00, float %mul.i.i11
-  %8 = bitcast float %v.addr.0.i.i.i58 to i32
+  %7 = bitcast float %v.addr.0.i.i.i58 to i32
   %cmp5.i.i.i59 = fcmp ogt float %v.addr.0.i.i.i58, 0.000000e+00
   %ui.0.v.i.i.i60 = select i1 %cmp5.i.i.i59, i32 -1, i32 1
-  %ui.0.i.i.i61 = add i32 %ui.0.v.i.i.i60, %8
-  %9 = bitcast i32 %ui.0.i.i.i61 to float
+  %ui.0.i.i.i61 = add i32 %ui.0.v.i.i.i60, %7
+  %8 = bitcast i32 %ui.0.i.i.i61 to float
   br label %if.end8.i.i13
 
 if.end8.i.i13:                                    ; preds = %if.end.i.i.i56, %if.then6.i.i54, %for.end.i.i10
-  %up.0.i.i14 = phi float [ %mul.i.i11, %for.end.i.i10 ], [ %9, %if.end.i.i.i56 ], [ 0xFFF0000000000000, %if.then6.i.i54 ]
+  %up.0.i.i14 = phi float [ %mul.i.i11, %for.end.i.i10 ], [ %8, %if.end.i.i.i56 ], [ 0xFFF0000000000000, %if.then6.i.i54 ]
   br label %while.cond.i.i15
 
 while.cond.i.i15:                                 ; preds = %while.cond.i.i15, %if.end8.i.i13
   %indvars.iv.i.i16 = phi i64 [ %indvars.iv.next.i.i21, %while.cond.i.i15 ], [ 0, %if.end8.i.i13 ]
   %sum.0.i.i17 = phi float [ %add10.i.i19, %while.cond.i.i15 ], [ 0.000000e+00, %if.end8.i.i13 ]
   %arrayidx.i.i.i18 = getelementptr inbounds float, ptr %ref.tmp.i1, i64 %indvars.iv.i.i16
-  %10 = load float, ptr %arrayidx.i.i.i18, align 4
-  %add10.i.i19 = fadd float %sum.0.i.i17, %10
+  %9 = load float, ptr %arrayidx.i.i.i18, align 4
+  %add10.i.i19 = fadd float %sum.0.i.i17, %9
   %cmp11.i.i20 = fcmp ugt float %add10.i.i19, %up.0.i.i14
   %indvars.iv.next.i.i21 = add nuw nsw i64 %indvars.iv.i.i16, 1
   br i1 %cmp11.i.i20, label %_ZN4pbrt14SampleDiscreteEN4pstd4spanIKfEEfPfS4_.exit.i22, label %while.cond.i.i15, !llvm.loop !61
 
 _ZN4pbrt14SampleDiscreteEN4pstd4spanIKfEEfPfS4_.exit.i22: ; preds = %while.cond.i.i15
   %sub.i.i23 = fsub float %up.0.i.i14, %sum.0.i.i17
-  %div24.i.i24 = fdiv float %sub.i.i23, %10
+  %div24.i.i24 = fdiv float %sub.i.i23, %9
   %cmp.i23.i.i25 = fcmp ogt float %div24.i.i24, 0x3FEFFFFFE0000000
   %.sroa.speculated.i.i26 = select i1 %cmp.i23.i.i25, float 0x3FEFFFFFE0000000, float %div24.i.i24
-  %11 = and i64 %indvars.iv.i.i16, 4294967295
-  %cmp.i27 = icmp eq i64 %11, 0
+  %cmp.i27 = icmp eq i64 %indvars.iv.i.i16, 0
   br i1 %cmp.i27, label %if.then.i39, label %if.else.i28
 
 if.then.i39:                                      ; preds = %_ZN4pbrt14SampleDiscreteEN4pstd4spanIKfEEfPfS4_.exit.i22
@@ -2554,8 +2552,8 @@ if.end.i.i41:                                     ; preds = %if.then.i39
 
 _ZN4pbrt12SampleLinearEfff.exit.i50:              ; preds = %if.end.i.i41, %if.then.i39
   %retval.0.i6.i51 = phi float [ %.sroa.speculated.i5.i49, %if.end.i.i41 ], [ 0.000000e+00, %if.then.i39 ]
-  %mul.i52 = fmul float %6, %retval.0.i6.i51
-  %add.i53 = fsub float %mul.i52, %6
+  %mul.i52 = fmul float %5, %retval.0.i6.i51
+  %add.i53 = fsub float %mul.i52, %5
   br label %_ZN4pbrt10SampleTentEff.exit62
 
 if.else.i28:                                      ; preds = %_ZN4pbrt14SampleDiscreteEN4pstd4spanIKfEEfPfS4_.exit.i22
@@ -2567,7 +2565,7 @@ if.else.i28:                                      ; preds = %_ZN4pbrt14SampleDis
   %div.i15.i34 = fdiv float %.sroa.speculated.i.i26, %add5.i14.i33
   %cmp.i.i16.i35 = fcmp ogt float %div.i15.i34, 0x3FEFFFFFE0000000
   %.sroa.speculated.i17.i36 = select i1 %cmp.i.i16.i35, float 0x3FEFFFFFE0000000, float %div.i15.i34
-  %mul4.i37 = fmul float %6, %.sroa.speculated.i17.i36
+  %mul4.i37 = fmul float %5, %.sroa.speculated.i17.i36
   br label %_ZN4pbrt10SampleTentEff.exit62
 
 _ZN4pbrt10SampleTentEff.exit62:                   ; preds = %_ZN4pbrt12SampleLinearEfff.exit.i50, %if.else.i28

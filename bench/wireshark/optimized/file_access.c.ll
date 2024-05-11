@@ -1615,7 +1615,7 @@ define i32 @wtap_register_file_type_subtype(ptr noundef %0) local_unnamed_addr #
 
 7:                                                ; preds = %1, %2, %4
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1347, ptr noundef nonnull @__func__.wtap_register_file_type_subtype, ptr noundef nonnull @.str.9) #22
-  br label %51
+  br label %50
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 40
@@ -1631,7 +1631,7 @@ define i32 @wtap_register_file_type_subtype(ptr noundef %0) local_unnamed_addr #
 
 16:                                               ; preds = %8, %12
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1356, ptr noundef nonnull @__func__.wtap_register_file_type_subtype, ptr noundef nonnull @.str.10, ptr noundef nonnull %6) #22
-  br label %51
+  br label %50
 
 17:                                               ; preds = %12
   %18 = load ptr, ptr @type_subtype_name_map, align 8
@@ -1667,54 +1667,53 @@ define i32 @wtap_register_file_type_subtype(ptr noundef %0) local_unnamed_addr #
   br i1 %exitcond.not.i, label %wtap_name_to_file_type_subtype.exit.thread, label %25, !llvm.loop !21
 
 wtap_name_to_file_type_subtype.exit:              ; preds = %28
-  %32 = and i64 %indvars.iv.i, 4294967295
-  %.not23 = icmp eq i64 %32, 4294967295
-  br i1 %.not23, label %wtap_name_to_file_type_subtype.exit.thread, label %33
+  %.not23 = icmp eq i64 %indvars.iv.i, 4294967295
+  br i1 %.not23, label %wtap_name_to_file_type_subtype.exit.thread, label %32
 
-33:                                               ; preds = %wtap_name_to_file_type_subtype.exit
-  %34 = load ptr, ptr %5, align 8
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1367, ptr noundef nonnull @__func__.wtap_register_file_type_subtype, ptr noundef nonnull @.str.11, ptr noundef %34) #22
-  br label %51
+32:                                               ; preds = %wtap_name_to_file_type_subtype.exit
+  %33 = load ptr, ptr %5, align 8
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1367, ptr noundef nonnull @__func__.wtap_register_file_type_subtype, ptr noundef nonnull @.str.11, ptr noundef %33) #22
+  br label %50
 
 wtap_name_to_file_type_subtype.exit.thread:       ; preds = %31, %17, %wtap_name_to_file_type_subtype.exit
-  %35 = load i32, ptr @wtap_num_builtin_file_types_subtypes, align 4
-  %36 = icmp ult i32 %35, %22
-  br i1 %36, label %.lr.ph, label %._crit_edge
+  %34 = load i32, ptr @wtap_num_builtin_file_types_subtypes, align 4
+  %35 = icmp ult i32 %34, %22
+  br i1 %35, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %wtap_name_to_file_type_subtype.exit.thread
-  %37 = load ptr, ptr @file_type_subtype_table, align 8
-  %38 = zext i32 %35 to i64
+  %36 = load ptr, ptr @file_type_subtype_table, align 8
+  %37 = zext i32 %34 to i64
   %wide.trip.count = zext i32 %22 to i64
-  br label %39
+  br label %38
 
-39:                                               ; preds = %.lr.ph, %47
-  %indvars.iv = phi i64 [ %38, %.lr.ph ], [ %indvars.iv.next, %47 ]
-  %40 = getelementptr %struct.file_type_subtype_info, ptr %37, i64 %indvars.iv, i32 1
-  %41 = load ptr, ptr %40, align 8
-  %42 = icmp eq ptr %41, null
-  br i1 %42, label %43, label %47
+38:                                               ; preds = %.lr.ph, %46
+  %indvars.iv = phi i64 [ %37, %.lr.ph ], [ %indvars.iv.next, %46 ]
+  %39 = getelementptr %struct.file_type_subtype_info, ptr %36, i64 %indvars.iv, i32 1
+  %40 = load ptr, ptr %39, align 8
+  %41 = icmp eq ptr %40, null
+  br i1 %41, label %42, label %46
 
-43:                                               ; preds = %39
-  %44 = trunc nuw i64 %indvars.iv to i32
-  %45 = load ptr, ptr %20, align 8
-  %46 = getelementptr %struct.file_type_subtype_info, ptr %45, i64 %indvars.iv
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %46, ptr noundef nonnull align 8 dereferenceable(80) %0, i64 80, i1 false)
-  br label %51
+42:                                               ; preds = %38
+  %43 = trunc nuw i64 %indvars.iv to i32
+  %44 = load ptr, ptr %20, align 8
+  %45 = getelementptr %struct.file_type_subtype_info, ptr %44, i64 %indvars.iv
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %45, ptr noundef nonnull align 8 dereferenceable(80) %0, i64 80, i1 false)
+  br label %50
 
-47:                                               ; preds = %39
+46:                                               ; preds = %38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %39, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge, label %38, !llvm.loop !22
 
-._crit_edge:                                      ; preds = %47, %wtap_name_to_file_type_subtype.exit.thread
-  %48 = tail call ptr @g_array_append_vals(ptr noundef %20, ptr noundef nonnull %0, i32 noundef 1) #22
-  %49 = load ptr, ptr @file_type_subtype_table_arr, align 8
-  %50 = load ptr, ptr %49, align 8
-  store ptr %50, ptr @file_type_subtype_table, align 8
-  br label %51
+._crit_edge:                                      ; preds = %46, %wtap_name_to_file_type_subtype.exit.thread
+  %47 = tail call ptr @g_array_append_vals(ptr noundef %20, ptr noundef nonnull %0, i32 noundef 1) #22
+  %48 = load ptr, ptr @file_type_subtype_table_arr, align 8
+  %49 = load ptr, ptr %48, align 8
+  store ptr %49, ptr @file_type_subtype_table, align 8
+  br label %50
 
-51:                                               ; preds = %._crit_edge, %43, %33, %16, %7
-  %.017 = phi i32 [ -1, %16 ], [ -1, %33 ], [ %44, %43 ], [ %22, %._crit_edge ], [ -1, %7 ]
+50:                                               ; preds = %._crit_edge, %42, %32, %16, %7
+  %.017 = phi i32 [ -1, %16 ], [ -1, %32 ], [ %43, %42 ], [ %22, %._crit_edge ], [ -1, %7 ]
   ret i32 %.017
 }
 

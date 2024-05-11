@@ -1637,19 +1637,19 @@ define void @Abc_NodeConstantInput(ptr noundef %0, ptr noundef %1, i32 noundef %
   br i1 %exitcond.not.i, label %Vec_IntFind.exit.thread, label %14, !llvm.loop !31
 
 Vec_IntFind.exit:                                 ; preds = %14
-  %19 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %20 = icmp eq i32 %19, -1
-  br i1 %20, label %Vec_IntFind.exit.thread, label %25
+  %19 = icmp eq i64 %indvars.iv.i, 4294967295
+  br i1 %19, label %Vec_IntFind.exit.thread, label %24
 
 Vec_IntFind.exit.thread:                          ; preds = %18, %3, %Vec_IntFind.exit
-  %21 = tail call ptr @Abc_ObjName(ptr noundef %1) #9
-  %22 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef %21)
-  %23 = tail call ptr @Abc_ObjName(ptr noundef nonnull %0) #9
-  %24 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef %23)
+  %20 = tail call ptr @Abc_ObjName(ptr noundef %1) #9
+  %21 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef %20)
+  %22 = tail call ptr @Abc_ObjName(ptr noundef nonnull %0) #9
+  %23 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef %22)
   br label %34
 
-25:                                               ; preds = %Vec_IntFind.exit
-  %26 = tail call ptr @Cudd_bddIthVar(ptr noundef %6, i32 noundef %19) #9
+24:                                               ; preds = %Vec_IntFind.exit
+  %25 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %26 = tail call ptr @Cudd_bddIthVar(ptr noundef %6, i32 noundef %25) #9
   %27 = ptrtoint ptr %26 to i64
   %28 = sext i32 %2 to i64
   %29 = xor i64 %27, %28
@@ -1662,7 +1662,7 @@ Vec_IntFind.exit.thread:                          ; preds = %18, %3, %Vec_IntFin
   tail call void @Cudd_RecursiveDeref(ptr noundef %6, ptr noundef %32) #9
   br label %34
 
-34:                                               ; preds = %25, %Vec_IntFind.exit.thread
+34:                                               ; preds = %24, %Vec_IntFind.exit.thread
   ret void
 }
 

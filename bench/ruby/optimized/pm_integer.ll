@@ -114,7 +114,7 @@ define hidden void @pm_integer_parse(ptr nocapture noundef %0, i32 noundef %1, p
 43:                                               ; preds = %15, %13, %10, %23, %29, %41, %39, %37, %35, %34, %32, %21, %8, %4
   %.2 = phi ptr [ %spec.select, %4 ], [ %spec.select, %29 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %30, %34 ], [ %33, %32 ], [ %spec.select, %23 ], [ %22, %21 ], [ %9, %8 ], [ %14, %13 ], [ %11, %10 ], [ %spec.select45, %15 ]
   %.0 = phi i64 [ 10, %4 ], [ 10, %29 ], [ 16, %41 ], [ 10, %39 ], [ 8, %37 ], [ 2, %35 ], [ 8, %34 ], [ 8, %32 ], [ 10, %23 ], [ 16, %21 ], [ 2, %8 ], [ 8, %13 ], [ 8, %10 ], [ 10, %15 ]
-  %.268 = ptrtoint ptr %.2 to i64
+  %.270 = ptrtoint ptr %.2 to i64
   %.not = icmp ult ptr %.2, %3
   br i1 %.not, label %44, label %.loopexit
 
@@ -162,81 +162,81 @@ pm_integer_node_create.exit.i:                    ; preds = %58, %53
   br label %pm_integer_add.exit
 
 pm_integer_add.exit:                              ; preds = %.lr.ph.i, %44, %pm_integer_node_create.exit.i
-  %.362 = getelementptr i8, ptr %.2, i64 1
-  %59 = icmp ult ptr %.362, %3
+  %.364 = getelementptr i8, ptr %.2, i64 1
+  %59 = icmp ult ptr %.364, %3
   br i1 %59, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %pm_integer_add.exit
   %60 = getelementptr inbounds i8, ptr %0, i64 8
-  %61 = sub i64 %5, %.268
+  %61 = sub i64 %5, %.270
   %scevgep = getelementptr i8, ptr %.2, i64 %61
   br label %62
 
-62:                                               ; preds = %.lr.ph, %pm_integer_add.exit57
-  %.363 = phi ptr [ %.362, %.lr.ph ], [ %.3, %pm_integer_add.exit57 ]
-  %63 = load i8, ptr %.363, align 1
+62:                                               ; preds = %.lr.ph, %pm_integer_add.exit59
+  %.365 = phi ptr [ %.364, %.lr.ph ], [ %.3, %pm_integer_add.exit59 ]
+  %63 = load i8, ptr %.365, align 1
   %64 = icmp eq i8 %63, 95
-  br i1 %64, label %pm_integer_add.exit57, label %.preheader
+  br i1 %64, label %pm_integer_add.exit59, label %.preheader
 
 .preheader:                                       ; preds = %62, %80
-  %.018.i = phi i64 [ %70, %80 ], [ 0, %62 ]
-  %.01317.i = phi ptr [ %.pre.i, %80 ], [ %60, %62 ]
-  %65 = getelementptr inbounds i8, ptr %.01317.i, i64 8
+  %.019.i46 = phi i64 [ %70, %80 ], [ 0, %62 ]
+  %.01318.i47 = phi ptr [ %.pre.i, %80 ], [ %60, %62 ]
+  %65 = getelementptr inbounds i8, ptr %.01318.i47, i64 8
   %66 = load i32, ptr %65, align 8
   %67 = zext i32 %66 to i64
   %68 = mul nuw nsw i64 %.0, %67
-  %69 = add nuw nsw i64 %68, %.018.i
+  %69 = add nuw nsw i64 %68, %.019.i46
   %70 = lshr i64 %69, 32
-  %71 = trunc nuw nsw i64 %70 to i32
-  %72 = trunc i64 %69 to i32
-  store i32 %72, ptr %65, align 8
-  %.not15.i = icmp ne i32 %71, 0
-  %.pre.i = load ptr, ptr %.01317.i, align 8
-  %73 = icmp eq ptr %.pre.i, null
-  %or.cond.i = select i1 %.not15.i, i1 %73, i1 false
-  br i1 %or.cond.i, label %74, label %80
+  %71 = trunc i64 %69 to i32
+  store i32 %71, ptr %65, align 8
+  %.not15.i = icmp ugt i64 %69, 4294967295
+  %.pre.i = load ptr, ptr %.01318.i47, align 8
+  %72 = icmp eq ptr %.pre.i, null
+  %or.cond.i = select i1 %.not15.i, i1 %72, i1 false
+  br i1 %or.cond.i, label %73, label %80
 
-74:                                               ; preds = %.preheader
-  %75 = load i64, ptr %0, align 8
-  %76 = add i64 %75, 1
-  store i64 %76, ptr %0, align 8
-  %77 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #9
-  %78 = icmp eq ptr %77, null
-  br i1 %78, label %pm_integer_node_create.exit.i47, label %79
+73:                                               ; preds = %.preheader
+  %74 = load i64, ptr %0, align 8
+  %75 = add i64 %74, 1
+  store i64 %75, ptr %0, align 8
+  %76 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #9
+  %77 = icmp eq ptr %76, null
+  br i1 %77, label %pm_integer_node_create.exit.i49, label %78
 
-79:                                               ; preds = %74
-  store ptr null, ptr %77, align 8
-  %.sroa.2.0..sroa_idx.i.i46 = getelementptr inbounds i8, ptr %77, i64 8
-  store i32 %71, ptr %.sroa.2.0..sroa_idx.i.i46, align 8
-  br label %pm_integer_node_create.exit.i47
+78:                                               ; preds = %73
+  %79 = trunc nuw nsw i64 %70 to i32
+  store ptr null, ptr %76, align 8
+  %.sroa.2.0..sroa_idx.i.i48 = getelementptr inbounds i8, ptr %76, i64 8
+  store i32 %79, ptr %.sroa.2.0..sroa_idx.i.i48, align 8
+  br label %pm_integer_node_create.exit.i49
 
-pm_integer_node_create.exit.i47:                  ; preds = %79, %74
-  store ptr %77, ptr %.01317.i, align 8
+pm_integer_node_create.exit.i49:                  ; preds = %78, %73
+  store ptr %76, ptr %.01318.i47, align 8
   br label %pm_integer_multiply.exit
 
 80:                                               ; preds = %.preheader
-  br i1 %73, label %pm_integer_multiply.exit, label %.preheader, !llvm.loop !7
+  br i1 %72, label %pm_integer_multiply.exit, label %.preheader, !llvm.loop !7
 
-pm_integer_multiply.exit:                         ; preds = %80, %pm_integer_node_create.exit.i47
-  %81 = load i8, ptr %.363, align 1
+pm_integer_multiply.exit:                         ; preds = %80, %pm_integer_node_create.exit.i49
+  %81 = load i8, ptr %.365, align 1
   %82 = tail call fastcc i32 @pm_integer_parse_digit(i8 noundef zeroext %81)
-  %.not17.i48 = icmp eq i32 %82, 0
-  br i1 %.not17.i48, label %pm_integer_add.exit57, label %.lr.ph.i50
+  %.not17.i50 = icmp eq i32 %82, 0
+  br i1 %.not17.i50, label %pm_integer_add.exit59, label %.lr.ph.i52
 
-.lr.ph.i50:                                       ; preds = %pm_integer_multiply.exit, %85
-  %.019.i51 = phi i32 [ 1, %85 ], [ %82, %pm_integer_multiply.exit ]
-  %.01318.i52 = phi ptr [ %86, %85 ], [ %60, %pm_integer_multiply.exit ]
-  %83 = getelementptr inbounds i8, ptr %.01318.i52, i64 8
+.lr.ph.i52:                                       ; preds = %pm_integer_multiply.exit, %85
+  %.019.i53 = phi i32 [ 1, %85 ], [ %82, %pm_integer_multiply.exit ]
+  %.01318.i54 = phi ptr [ %86, %85 ], [ %60, %pm_integer_multiply.exit ]
+  %83 = getelementptr inbounds i8, ptr %.01318.i54, i64 8
   %84 = load i32, ptr %83, align 8
-  %add.narrowed.i53 = add i32 %84, %.019.i51
-  %add.narrowed.overflow.i54 = icmp ult i32 %add.narrowed.i53, %84
-  store i32 %add.narrowed.i53, ptr %83, align 8
-  br i1 %add.narrowed.overflow.i54, label %85, label %pm_integer_add.exit57
+  %add.narrowed.i55 = add i32 %84, %.019.i53
+  %add.narrowed.overflow.i56 = icmp ult i32 %add.narrowed.i55, %84
+  store i32 %add.narrowed.i55, ptr %83, align 8
+  br i1 %add.narrowed.overflow.i56, label %85, label %pm_integer_add.exit59
 
-85:                                               ; preds = %.lr.ph.i50
-  %86 = load ptr, ptr %.01318.i52, align 8
+85:                                               ; preds = %.lr.ph.i52
+  %86 = load ptr, ptr %.01318.i54, align 8
   %87 = icmp eq ptr %86, null
-  br i1 %87, label %88, label %.lr.ph.i50
+  br i1 %87, label %88, label %.lr.ph.i52
 
 88:                                               ; preds = %85
   %89 = load i64, ptr %0, align 8
@@ -244,24 +244,24 @@ pm_integer_multiply.exit:                         ; preds = %80, %pm_integer_nod
   store i64 %90, ptr %0, align 8
   %91 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #9
   %92 = icmp eq ptr %91, null
-  br i1 %92, label %pm_integer_node_create.exit.i56, label %93
+  br i1 %92, label %pm_integer_node_create.exit.i58, label %93
 
 93:                                               ; preds = %88
   store ptr null, ptr %91, align 8
-  %.sroa.2.0..sroa_idx.i.i55 = getelementptr inbounds i8, ptr %91, i64 8
-  store i32 1, ptr %.sroa.2.0..sroa_idx.i.i55, align 8
-  br label %pm_integer_node_create.exit.i56
+  %.sroa.2.0..sroa_idx.i.i57 = getelementptr inbounds i8, ptr %91, i64 8
+  store i32 1, ptr %.sroa.2.0..sroa_idx.i.i57, align 8
+  br label %pm_integer_node_create.exit.i58
 
-pm_integer_node_create.exit.i56:                  ; preds = %93, %88
-  store ptr %91, ptr %.01318.i52, align 8
-  br label %pm_integer_add.exit57
+pm_integer_node_create.exit.i58:                  ; preds = %93, %88
+  store ptr %91, ptr %.01318.i54, align 8
+  br label %pm_integer_add.exit59
 
-pm_integer_add.exit57:                            ; preds = %.lr.ph.i50, %pm_integer_node_create.exit.i56, %pm_integer_multiply.exit, %62
-  %.3 = getelementptr i8, ptr %.363, i64 1
+pm_integer_add.exit59:                            ; preds = %.lr.ph.i52, %pm_integer_node_create.exit.i58, %pm_integer_multiply.exit, %62
+  %.3 = getelementptr i8, ptr %.365, i64 1
   %exitcond.not = icmp eq ptr %.3, %scevgep
   br i1 %exitcond.not, label %.loopexit, label %62, !llvm.loop !9
 
-.loopexit:                                        ; preds = %pm_integer_add.exit57, %pm_integer_add.exit, %43
+.loopexit:                                        ; preds = %pm_integer_add.exit59, %pm_integer_add.exit, %43
   ret void
 }
 

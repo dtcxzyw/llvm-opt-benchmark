@@ -301,7 +301,8 @@ llvm_debug_current_scope.exit.i:                  ; preds = %.critedge.i.i, %26
   store i64 %7, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %0, i64 40
   %35 = load ptr, ptr %34, align 8
-  %36 = tail call i32 @llvm.umax.i32(i32 %.sroa.4.0.extract.trunc.i, i32 1)
+  %.not30.i = icmp ult i64 %7, 4294967296
+  %36 = select i1 %.not30.i, i32 1, i32 %.sroa.4.0.extract.trunc.i
   %.not31.i = icmp ult i32 %31, 16777216
   %37 = select i1 %.not31.i, i32 1, i32 %32
   %38 = tail call ptr @LLVMDIBuilderCreateDebugLocation(ptr noundef %35, i32 noundef %36, i32 noundef %37, ptr noundef %.016.i.i, ptr noundef null) #8
@@ -426,7 +427,8 @@ llvm_debug_current_scope.exit:                    ; preds = %21, %.critedge.i
   store i64 %1, ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %0, i64 40
   %30 = load ptr, ptr %29, align 8
-  %31 = tail call i32 @llvm.umax.i32(i32 %.sroa.4.0.extract.trunc, i32 1)
+  %.not30 = icmp ult i64 %1, 4294967296
+  %31 = select i1 %.not30, i32 1, i32 %.sroa.4.0.extract.trunc
   %.not31 = icmp ult i32 %26, 16777216
   %32 = select i1 %.not31, i32 1, i32 %27
   %33 = tail call ptr @LLVMDIBuilderCreateDebugLocation(ptr noundef %30, i32 noundef %31, i32 noundef %32, ptr noundef %.016.i, ptr noundef null) #8
@@ -549,7 +551,8 @@ define dso_local void @llvm_debug_push_lexical_scope(ptr noundef %0, i64 %1) loc
   %.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i32
   %24 = getelementptr inbounds i8, ptr %0, i64 304
   %25 = load ptr, ptr %24, align 8
-  %26 = tail call i32 @llvm.umax.i32(i32 %.sroa.4.0.extract.trunc, i32 1)
+  %.not37 = icmp ult i64 %1, 4294967296
+  %26 = select i1 %.not37, i32 1, i32 %.sroa.4.0.extract.trunc
   %.not38 = icmp ult i32 %22, 16777216
   %27 = select i1 %.not38, i32 1, i32 %23
   %28 = tail call ptr @LLVMDIBuilderCreateLexicalBlock(ptr noundef %25, ptr noundef %.030, ptr noundef %.028, i32 noundef %26, i32 noundef %27) #8

@@ -1372,9 +1372,9 @@ Abc_Clock.exit56:                                 ; preds = %Abc_Clock.exit, %12
   %47 = getelementptr inbounds i8, ptr %0, i64 616
   br label %48
 
-48:                                               ; preds = %.lr.ph76, %100
-  %indvars.iv80 = phi i64 [ 0, %.lr.ph76 ], [ %indvars.iv.next81, %100 ]
-  %.val5475 = phi ptr [ %.val5472, %.lr.ph76 ], [ %.val54, %100 ]
+48:                                               ; preds = %.lr.ph76, %99
+  %indvars.iv80 = phi i64 [ 0, %.lr.ph76 ], [ %indvars.iv.next81, %99 ]
+  %.val5475 = phi ptr [ %.val5472, %.lr.ph76 ], [ %.val54, %99 ]
   %.val47 = load ptr, ptr %22, align 8
   %.not38 = icmp eq ptr %.val47, null
   br i1 %.not38, label %.critedge2.loopexit, label %49
@@ -1393,7 +1393,7 @@ Abc_Clock.exit56:                                 ; preds = %Abc_Clock.exit, %12
   %57 = getelementptr inbounds i32, ptr %.val44.val, i64 %53
   %58 = load i32, ptr %57, align 4
   %59 = icmp eq i32 %52, %58
-  br i1 %59, label %100, label %60
+  br i1 %59, label %99, label %60
 
 60:                                               ; preds = %49
   %61 = sext i32 %58 to i64
@@ -1404,7 +1404,7 @@ Abc_Clock.exit56:                                 ; preds = %Abc_Clock.exit, %12
   %64 = and i64 %.val46, 536870911
   %65 = icmp eq i64 %64, 536870911
   %narrow.i.not = or i1 %.not.i, %65
-  br i1 %narrow.i.not, label %66, label %100
+  br i1 %narrow.i.not, label %66, label %99
 
 66:                                               ; preds = %60
   %67 = call fastcc i32 @Abs_GiaObjDeref_rec(ptr noundef nonnull %0, ptr noundef nonnull %62)
@@ -1460,39 +1460,38 @@ Abc_Clock.exit56:                                 ; preds = %Abc_Clock.exit, %12
   br i1 %exitcond.not.i, label %Vec_IntFind.exit.thread, label %93, !llvm.loop !21
 
 Vec_IntFind.exit:                                 ; preds = %93
-  %98 = and i64 %indvars.iv.i, 4294967295
-  %99 = icmp eq i64 %98, 4294967295
-  br i1 %99, label %Vec_IntFind.exit.thread, label %100
+  %98 = icmp eq i64 %indvars.iv.i, 4294967295
+  br i1 %98, label %Vec_IntFind.exit.thread, label %99
 
 Vec_IntFind.exit.thread:                          ; preds = %97, %66, %Vec_IntFind.exit
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  br label %100
+  br label %99
 
-100:                                              ; preds = %Vec_IntFind.exit, %Vec_IntFind.exit.thread, %60, %49
+99:                                               ; preds = %Vec_IntFind.exit, %Vec_IntFind.exit.thread, %60, %49
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %.val53 = load i32, ptr %23, align 8
   %.val54 = load ptr, ptr %24, align 8
-  %101 = getelementptr i8, ptr %.val54, i64 4
-  %.val54.val = load i32, ptr %101, align 4
-  %102 = sub nsw i32 %.val54.val, %.val53
-  %103 = sext i32 %102 to i64
-  %104 = icmp slt i64 %indvars.iv.next81, %103
-  br i1 %104, label %48, label %.critedge2.loopexit, !llvm.loop !22
+  %100 = getelementptr i8, ptr %.val54, i64 4
+  %.val54.val = load i32, ptr %100, align 4
+  %101 = sub nsw i32 %.val54.val, %.val53
+  %102 = sext i32 %101 to i64
+  %103 = icmp slt i64 %indvars.iv.next81, %102
+  br i1 %103, label %48, label %.critedge2.loopexit, !llvm.loop !22
 
-.critedge2.loopexit:                              ; preds = %100, %48
+.critedge2.loopexit:                              ; preds = %99, %48
   %.pre = load ptr, ptr %42, align 8
   br label %.critedge2
 
 .critedge2:                                       ; preds = %.critedge2.loopexit, %.critedge
-  %105 = phi ptr [ %.pre, %.critedge2.loopexit ], [ %41, %.critedge ]
-  %.not.i58 = icmp eq ptr %105, null
-  br i1 %.not.i58, label %Vec_IntFree.exit, label %106
+  %104 = phi ptr [ %.pre, %.critedge2.loopexit ], [ %41, %.critedge ]
+  %.not.i58 = icmp eq ptr %104, null
+  br i1 %.not.i58, label %Vec_IntFree.exit, label %105
 
-106:                                              ; preds = %.critedge2
-  call void @free(ptr noundef nonnull %105) #25
+105:                                              ; preds = %.critedge2
+  call void @free(ptr noundef nonnull %104) #25
   br label %Vec_IntFree.exit
 
-Vec_IntFree.exit:                                 ; preds = %.critedge2, %106
+Vec_IntFree.exit:                                 ; preds = %.critedge2, %105
   call void @free(ptr noundef nonnull %39) #25
   call void @Gia_ManCleanMark1(ptr noundef nonnull %0) #25
   ret void

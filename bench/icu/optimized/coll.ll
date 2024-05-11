@@ -597,19 +597,15 @@ for.body.i74.i:                                   ; preds = %if.end102.i, %for.i
   %23 = load ptr, ptr %arrayidx.i76.i, align 8
   %call.i77.i = call i32 @uprv_stricmp_75(ptr noundef nonnull %value.i, ptr noundef %23)
   %cmp1.i78.i = icmp eq i32 %call.i77.i, 0
-  br i1 %cmp1.i78.i, label %_ZN6icu_7512_GLOBAL__N_114getReorderCodeEPKc.exit85.i, label %for.inc.i79.i
+  br i1 %cmp1.i78.i, label %if.end114.i, label %for.inc.i79.i
 
 for.inc.i79.i:                                    ; preds = %for.body.i74.i
   %indvars.iv.next.i80.i = add nuw nsw i64 %indvars.iv.i75.i, 1
   %exitcond.not.i81.i = icmp eq i64 %indvars.iv.next.i80.i, 5
   br i1 %exitcond.not.i81.i, label %_ZN6icu_7512_GLOBAL__N_125setAttributesFromKeywordsERKNS_6LocaleERNS_8CollatorER10UErrorCode.exit.thread36, label %for.body.i74.i, !llvm.loop !9
 
-_ZN6icu_7512_GLOBAL__N_114getReorderCodeEPKc.exit85.i: ; preds = %for.body.i74.i
+if.end114.i:                                      ; preds = %for.body.i74.i
   %24 = trunc nuw nsw i64 %indvars.iv.i75.i to i32
-  %cmp108.i = icmp slt i32 %24, 0
-  br i1 %cmp108.i, label %_ZN6icu_7512_GLOBAL__N_125setAttributesFromKeywordsERKNS_6LocaleERNS_8CollatorER10UErrorCode.exit.thread36, label %if.end114.i
-
-if.end114.i:                                      ; preds = %_ZN6icu_7512_GLOBAL__N_114getReorderCodeEPKc.exit85.i
   %add.i84.i = or disjoint i32 %24, 4096
   %vtable111.i = load ptr, ptr %coll.0, align 8
   %vfn112.i = getelementptr inbounds i8, ptr %vtable111.i, i64 200
@@ -619,8 +615,8 @@ if.end114.i:                                      ; preds = %_ZN6icu_7512_GLOBAL
   %26 = icmp slt i32 %.pre.i, 1
   br i1 %26, label %_ZN6icu_7512_GLOBAL__N_125setAttributesFromKeywordsERKNS_6LocaleERNS_8CollatorER10UErrorCode.exit.thread, label %_ZN6icu_7512_GLOBAL__N_125setAttributesFromKeywordsERKNS_6LocaleERNS_8CollatorER10UErrorCode.exit.thread36
 
-_ZN6icu_7512_GLOBAL__N_125setAttributesFromKeywordsERKNS_6LocaleERNS_8CollatorER10UErrorCode.exit.thread36: ; preds = %for.body.i, %for.cond37.i, %for.cond68.i, %if.end79.i, %for.inc.i.i, %for.inc.i79.i, %if.end5.i18, %if.end10.i, %if.end13.i, %if.end19.i, %for.end56.i, %if.end94.i, %_ZN6icu_7512_GLOBAL__N_114getReorderCodeEPKc.exit85.i, %if.end114.i
-  %.sink.i = phi i32 [ 1, %if.end5.i18 ], [ 16, %if.end10.i ], [ 1, %if.end13.i ], [ 16, %if.end19.i ], [ 1, %for.end56.i ], [ 1, %if.end94.i ], [ 1, %_ZN6icu_7512_GLOBAL__N_114getReorderCodeEPKc.exit85.i ], [ 1, %if.end114.i ], [ 1, %for.inc.i79.i ], [ 1, %for.inc.i.i ], [ 1, %if.end79.i ], [ 1, %for.cond68.i ], [ 1, %for.cond37.i ], [ 1, %for.body.i ]
+_ZN6icu_7512_GLOBAL__N_125setAttributesFromKeywordsERKNS_6LocaleERNS_8CollatorER10UErrorCode.exit.thread36: ; preds = %for.body.i, %for.cond37.i, %for.cond68.i, %if.end79.i, %for.inc.i.i, %for.inc.i79.i, %if.end5.i18, %if.end10.i, %if.end13.i, %if.end19.i, %for.end56.i, %if.end94.i, %if.end114.i
+  %.sink.i = phi i32 [ 1, %if.end5.i18 ], [ 16, %if.end10.i ], [ 1, %if.end13.i ], [ 16, %if.end19.i ], [ 1, %for.end56.i ], [ 1, %if.end94.i ], [ 1, %if.end114.i ], [ 1, %for.inc.i79.i ], [ 1, %for.inc.i.i ], [ 1, %if.end79.i ], [ 1, %for.cond68.i ], [ 1, %for.cond37.i ], [ 1, %for.body.i ]
   store i32 %.sink.i, ptr %status, align 4
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %value.i)
   call void @llvm.lifetime.end.p0(i64 820, ptr nonnull %codes.i)

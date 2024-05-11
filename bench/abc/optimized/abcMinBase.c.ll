@@ -1289,7 +1289,7 @@ Abc_ObjFaninNumberNew.exit:                       ; preds = %26
   %33 = trunc nuw nsw i64 %indvars.iv.i to i32
   %34 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv42
   store i32 %33, ptr %34, align 4
-  %35 = icmp eq i32 %33, -1
+  %35 = icmp eq i64 %indvars.iv.i, 4294967295
   br i1 %35, label %.critedge, label %Abc_ObjFaninNumberNew.exit._crit_edge
 
 Abc_ObjFaninNumberNew.exit._crit_edge:            ; preds = %Abc_ObjFaninNumberNew.exit
@@ -1497,7 +1497,7 @@ Abc_ObjFaninNumberNew.exit.i:                     ; preds = %71
   %78 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %79 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv42.i
   store i32 %78, ptr %79, align 4
-  %80 = icmp eq i32 %78, -1
+  %80 = icmp eq i64 %indvars.iv.i.i, 4294967295
   br i1 %80, label %Abc_NodeCollapsePermMap.exit, label %Abc_ObjFaninNumberNew.exit._crit_edge.i
 
 Abc_ObjFaninNumberNew.exit._crit_edge.i:          ; preds = %Abc_ObjFaninNumberNew.exit.i
@@ -1585,7 +1585,7 @@ Abc_ObjFaninNumberNew.exit.i89:                   ; preds = %102
   %109 = trunc nuw nsw i64 %indvars.iv.i.i86 to i32
   %110 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv42.i76
   store i32 %109, ptr %110, align 4
-  %111 = icmp eq i32 %109, -1
+  %111 = icmp eq i64 %indvars.iv.i.i86, 4294967295
   br i1 %111, label %Abc_NodeCollapsePermMap.exit98, label %Abc_ObjFaninNumberNew.exit._crit_edge.i90
 
 Abc_ObjFaninNumberNew.exit._crit_edge.i90:        ; preds = %Abc_ObjFaninNumberNew.exit.i89
@@ -2487,7 +2487,7 @@ Abc_ObjFaninNumberNew.exit.i:                     ; preds = %70
   %77 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %78 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv42.i
   store i32 %77, ptr %78, align 4
-  %79 = icmp eq i32 %77, -1
+  %79 = icmp eq i64 %indvars.iv.i.i, 4294967295
   br i1 %79, label %Abc_NodeCollapsePermMap.exit, label %Abc_ObjFaninNumberNew.exit._crit_edge.i
 
 Abc_ObjFaninNumberNew.exit._crit_edge.i:          ; preds = %Abc_ObjFaninNumberNew.exit.i
@@ -2575,7 +2575,7 @@ Abc_ObjFaninNumberNew.exit.i66:                   ; preds = %101
   %108 = trunc nuw nsw i64 %indvars.iv.i.i63 to i32
   %109 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv42.i53
   store i32 %108, ptr %109, align 4
-  %110 = icmp eq i32 %108, -1
+  %110 = icmp eq i64 %indvars.iv.i.i63, 4294967295
   br i1 %110, label %Abc_NodeCollapsePermMap.exit75, label %Abc_ObjFaninNumberNew.exit._crit_edge.i67
 
 Abc_ObjFaninNumberNew.exit._crit_edge.i67:        ; preds = %Abc_ObjFaninNumberNew.exit.i66

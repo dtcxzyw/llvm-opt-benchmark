@@ -53,40 +53,39 @@ for.body.i:                                       ; preds = %for.cond.i
   br i1 %cmp9.i, label %X509_NAME_get_index_by_OBJ.exit, label %for.cond.i, !llvm.loop !7
 
 X509_NAME_get_index_by_OBJ.exit:                  ; preds = %for.body.i
-  %4 = and i64 %indvars.iv.next.i, 2147483648
-  %cmp.not = icmp eq i64 %4, 0
-  br i1 %cmp.not, label %if.end, label %return
+  %cmp = icmp slt i64 %indvars.iv.i, -1
+  br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %X509_NAME_get_index_by_OBJ.exit
-  %5 = load ptr, ptr %name, align 8
-  %call.i13 = tail call i64 @sk_num(ptr noundef %5) #7
-  %conv.i = and i64 %indvars.iv.next.i, 2147483647
+  %4 = load ptr, ptr %name, align 8
+  %call.i13 = tail call i64 @sk_num(ptr noundef %4) #7
+  %conv.i = and i64 %indvars.iv.next.i, 4294967295
   %cmp3.not.i = icmp ugt i64 %call.i13, %conv.i
   tail call void @llvm.assume(i1 %cmp3.not.i)
-  %6 = load ptr, ptr %name, align 8
-  %call7.i15 = tail call ptr @sk_value(ptr noundef %6, i64 noundef %conv.i) #7
+  %5 = load ptr, ptr %name, align 8
+  %call7.i15 = tail call ptr @sk_value(ptr noundef %5, i64 noundef %conv.i) #7
   %cmp.i16 = icmp ne ptr %call7.i15, null
   tail call void @llvm.assume(i1 %cmp.i16)
   %value.i = getelementptr inbounds i8, ptr %call7.i15, i64 8
-  %7 = load ptr, ptr %value.i, align 8
-  %8 = load i32, ptr %7, align 8
+  %6 = load ptr, ptr %value.i, align 8
+  %7 = load i32, ptr %6, align 8
   %cmp6 = icmp eq ptr %buf, null
   br i1 %cmp6, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.end
-  %cmp3.not = icmp slt i32 %8, %len
+  %cmp3.not = icmp slt i32 %7, %len
   %sub = add nsw i32 %len, -1
-  %cond = select i1 %cmp3.not, i32 %8, i32 %sub
-  %data10 = getelementptr inbounds i8, ptr %7, i64 8
-  %9 = load ptr, ptr %data10, align 8
+  %cond = select i1 %cmp3.not, i32 %7, i32 %sub
+  %data10 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = load ptr, ptr %data10, align 8
   %conv = sext i32 %cond to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %buf, ptr align 1 %9, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %buf, ptr align 1 %8, i64 %conv, i1 false)
   %arrayidx = getelementptr inbounds i8, ptr %buf, i64 %conv
   store i8 0, ptr %arrayidx, align 1
   br label %return
 
 return:                                           ; preds = %for.cond.i, %entry, %if.end, %X509_NAME_get_index_by_OBJ.exit, %if.end9
-  %retval.0 = phi i32 [ %cond, %if.end9 ], [ -1, %X509_NAME_get_index_by_OBJ.exit ], [ %8, %if.end ], [ -1, %entry ], [ -1, %for.cond.i ]
+  %retval.0 = phi i32 [ %cond, %if.end9 ], [ -1, %X509_NAME_get_index_by_OBJ.exit ], [ %7, %if.end ], [ -1, %entry ], [ -1, %for.cond.i ]
   ret i32 %retval.0
 }
 

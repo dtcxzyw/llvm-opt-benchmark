@@ -1841,10 +1841,10 @@ _ZN9grpc_core6chttp220TransportFlowControl21IncomingUpdateContext26UpdateAnnounc
 if.then.i.i:                                      ; preds = %_ZN9grpc_core6chttp220TransportFlowControl21IncomingUpdateContext26UpdateAnnouncedWindowDeltaEPll.exit
   %7 = load i8, ptr %_M_engaged.i.i.i, align 8
   %tobool.i.i.i.i = trunc i8 %7 to i1
-  %.pre.i1.pre4 = load i64, ptr %announced_window_delta_, align 8
-  br i1 %tobool.i.i.i.i, label %land.lhs.true.i.i, label %invoke.cont2
+  br i1 %tobool.i.i.i.i, label %land.lhs.true.i.i, label %_ZN9grpc_core6chttp220TransportFlowControl21IncomingUpdateContextD2Ev.exit
 
 land.lhs.true.i.i:                                ; preds = %if.then.i.i
+  %.pre.i1.pre4 = load i64, ptr %announced_window_delta_, align 8
   %8 = load i64, ptr %pending_size_, align 8
   %sub.i.i = sub nsw i64 0, %8
   %spec.select.i.i = tail call i64 @llvm.smax.i64(i64 %.pre.i1.pre4, i64 %sub.i.i)
@@ -1857,9 +1857,9 @@ if.else10.i.i:                                    ; preds = %_ZN9grpc_core6chttp
   %.pre.i.i.pre = select i1 %cmp.i.i.i, i64 1048576, i64 %min_progress_size_.i.i.val
   br label %invoke.cont2
 
-invoke.cont2:                                     ; preds = %if.else10.i.i, %if.then.i.i, %land.lhs.true.i.i
-  %9 = phi i64 [ %.pre.i1.pre4, %land.lhs.true.i.i ], [ %.pre.i1.pre, %if.else10.i.i ], [ %.pre.i1.pre4, %if.then.i.i ]
-  %retval.0.i.i = phi i64 [ %spec.select.i.i, %land.lhs.true.i.i ], [ %.pre.i.i.pre, %if.else10.i.i ], [ %.pre.i1.pre4, %if.then.i.i ]
+invoke.cont2:                                     ; preds = %if.else10.i.i, %land.lhs.true.i.i
+  %9 = phi i64 [ %.pre.i1.pre4, %land.lhs.true.i.i ], [ %.pre.i1.pre, %if.else10.i.i ]
+  %retval.0.i.i = phi i64 [ %spec.select.i.i, %land.lhs.true.i.i ], [ %.pre.i.i.pre, %if.else10.i.i ]
   %cmp.not.not = icmp sgt i64 %retval.0.i.i, %9
   br i1 %cmp.not.not, label %if.then, label %_ZN9grpc_core6chttp220TransportFlowControl21IncomingUpdateContextD2Ev.exit
 
@@ -1876,7 +1876,7 @@ lpad:                                             ; preds = %if.then
   call void @_ZN9grpc_core6chttp220TransportFlowControl21IncomingUpdateContextD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %tfc_upd) #26
   resume { ptr, i32 } %10
 
-_ZN9grpc_core6chttp220TransportFlowControl21IncomingUpdateContextD2Ev.exit: ; preds = %invoke.cont2
+_ZN9grpc_core6chttp220TransportFlowControl21IncomingUpdateContextD2Ev.exit: ; preds = %if.then.i.i, %invoke.cont2
   ret void
 }
 
@@ -2004,23 +2004,23 @@ _ZNK9grpc_core6chttp217StreamFlowControl19DesiredAnnounceSizeEv.exit: ; preds = 
   br i1 %cmp.not, label %if.end19, label %if.then
 
 if.then:                                          ; preds = %_ZNK9grpc_core6chttp217StreamFlowControl19DesiredAnnounceSizeEv.exit
-  %max.val.i.i = tail call i64 @llvm.smin.i64(i64 %sub.i, i64 2147483647)
-  %5 = load ptr, ptr %this, align 8
-  %target_initial_window_size_.i = getelementptr inbounds i8, ptr %5, i64 200
-  %6 = load i64, ptr %target_initial_window_size_.i, align 8
-  %7 = lshr i64 %6, 1
-  %div = and i64 %7, 2147483647
+  %5 = tail call i64 @llvm.umin.i64(i64 %sub.i, i64 2147483647)
+  %6 = load ptr, ptr %this, align 8
+  %target_initial_window_size_.i = getelementptr inbounds i8, ptr %6, i64 200
+  %7 = load i64, ptr %target_initial_window_size_.i, align 8
+  %8 = lshr i64 %7, 1
+  %div = and i64 %8, 2147483647
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %div, i64 8192)
-  %cmp6 = icmp ult i64 %.sroa.speculated, %max.val.i.i
+  %cmp6 = icmp ult i64 %.sroa.speculated, %5
   %spec.select = select i1 %cmp6, i8 1, i8 2
   %cmp8 = icmp sgt i64 %0, 0
   br i1 %cmp8, label %if.then9, label %if.end17
 
 if.then9:                                         ; preds = %if.then
-  %sent_init_window_.i = getelementptr inbounds i8, ptr %5, i64 236
-  %8 = load i32, ptr %sent_init_window_.i, align 4
-  %9 = lshr i32 %8, 1
-  %div132 = zext nneg i32 %9 to i64
+  %sent_init_window_.i = getelementptr inbounds i8, ptr %6, i64 236
+  %9 = load i32, ptr %sent_init_window_.i, align 4
+  %10 = lshr i32 %9, 1
+  %div132 = zext nneg i32 %10 to i64
   %div13 = sub nsw i64 0, %div132
   %cmp14.not = icmp sgt i64 %4, %div13
   %spec.select3 = select i1 %cmp14.not, i8 %spec.select, i8 1

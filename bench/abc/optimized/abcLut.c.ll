@@ -2712,73 +2712,68 @@ define i64 @Abc_ObjComputeTruth(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   br i1 %exitcond.not.i, label %Vec_IntFind.exit.thread, label %9, !llvm.loop !54
 
 Vec_IntFind.exit:                                 ; preds = %9
-  %14 = and i64 %indvars.iv.i, 2147483648
-  %15 = icmp eq i64 %14, 0
-  br i1 %15, label %16, label %Vec_IntFind.exit.thread
-
-16:                                               ; preds = %Vec_IntFind.exit
-  %17 = and i64 %indvars.iv.i, 2147483647
-  %18 = getelementptr inbounds [6 x i64], ptr @s__Truths6, i64 0, i64 %17
-  %19 = load i64, ptr %18, align 8
+  %14 = and i64 %indvars.iv.i, 4294967295
+  %15 = getelementptr inbounds [6 x i64], ptr @s__Truths6, i64 0, i64 %14
+  %16 = load i64, ptr %15, align 8
   br label %common.ret30
 
-Vec_IntFind.exit.thread:                          ; preds = %13, %2, %Vec_IntFind.exit
-  %20 = getelementptr i8, ptr %0, i64 28
-  %.val = load i32, ptr %20, align 4
-  %21 = icmp eq i32 %.val, 0
-  br i1 %21, label %22, label %25
+Vec_IntFind.exit.thread:                          ; preds = %13, %2
+  %17 = getelementptr i8, ptr %0, i64 28
+  %.val = load i32, ptr %17, align 4
+  %18 = icmp eq i32 %.val, 0
+  br i1 %18, label %19, label %22
 
-22:                                               ; preds = %Vec_IntFind.exit.thread
-  %23 = tail call i32 @Abc_NodeIsConst0(ptr noundef nonnull %0) #16
-  %.not = icmp eq i32 %23, 0
-  %24 = sext i1 %.not to i64
+19:                                               ; preds = %Vec_IntFind.exit.thread
+  %20 = tail call i32 @Abc_NodeIsConst0(ptr noundef nonnull %0) #16
+  %.not = icmp eq i32 %20, 0
+  %21 = sext i1 %.not to i64
   br label %common.ret30
 
-common.ret30:                                     ; preds = %22, %16, %25
-  %common.ret30.op = phi i64 [ %53, %25 ], [ %19, %16 ], [ %24, %22 ]
+common.ret30:                                     ; preds = %19, %Vec_IntFind.exit, %22
+  %common.ret30.op = phi i64 [ %50, %22 ], [ %16, %Vec_IntFind.exit ], [ %21, %19 ]
   ret i64 %common.ret30.op
 
-25:                                               ; preds = %Vec_IntFind.exit.thread
+22:                                               ; preds = %Vec_IntFind.exit.thread
   %.val20 = load ptr, ptr %0, align 8
-  %26 = getelementptr i8, ptr %0, i64 32
-  %.val21 = load ptr, ptr %26, align 8
-  %27 = getelementptr i8, ptr %.val20, i64 32
-  %.val20.val = load ptr, ptr %27, align 8
-  %28 = getelementptr i8, ptr %.val20.val, i64 8
-  %.val20.val.val = load ptr, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %.val21, i64 8
-  %30 = load i32, ptr %29, align 4
-  %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds ptr, ptr %.val20.val.val, i64 %31
-  %33 = load ptr, ptr %32, align 8
-  %34 = tail call i64 @Abc_ObjComputeTruth(ptr noundef %33, ptr noundef %1)
+  %23 = getelementptr i8, ptr %0, i64 32
+  %.val21 = load ptr, ptr %23, align 8
+  %24 = getelementptr i8, ptr %.val20, i64 32
+  %.val20.val = load ptr, ptr %24, align 8
+  %25 = getelementptr i8, ptr %.val20.val, i64 8
+  %.val20.val.val = load ptr, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %.val21, i64 8
+  %27 = load i32, ptr %26, align 4
+  %28 = sext i32 %27 to i64
+  %29 = getelementptr inbounds ptr, ptr %.val20.val.val, i64 %28
+  %30 = load ptr, ptr %29, align 8
+  %31 = tail call i64 @Abc_ObjComputeTruth(ptr noundef %30, ptr noundef %1)
   %.val18 = load ptr, ptr %0, align 8
-  %.val19 = load ptr, ptr %26, align 8
-  %35 = getelementptr i8, ptr %.val18, i64 32
-  %.val18.val = load ptr, ptr %35, align 8
-  %36 = getelementptr i8, ptr %.val18.val, i64 8
-  %.val18.val.val = load ptr, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %.val19, i64 4
-  %38 = load i32, ptr %37, align 4
-  %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds ptr, ptr %.val18.val.val, i64 %39
-  %41 = load ptr, ptr %40, align 8
-  %42 = tail call i64 @Abc_ObjComputeTruth(ptr noundef %41, ptr noundef %1)
+  %.val19 = load ptr, ptr %23, align 8
+  %32 = getelementptr i8, ptr %.val18, i64 32
+  %.val18.val = load ptr, ptr %32, align 8
+  %33 = getelementptr i8, ptr %.val18.val, i64 8
+  %.val18.val.val = load ptr, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %.val19, i64 4
+  %35 = load i32, ptr %34, align 4
+  %36 = sext i32 %35 to i64
+  %37 = getelementptr inbounds ptr, ptr %.val18.val.val, i64 %36
+  %38 = load ptr, ptr %37, align 8
+  %39 = tail call i64 @Abc_ObjComputeTruth(ptr noundef %38, ptr noundef %1)
   %.val16 = load ptr, ptr %0, align 8
-  %.val17 = load ptr, ptr %26, align 8
-  %43 = getelementptr i8, ptr %.val16, i64 32
-  %.val16.val = load ptr, ptr %43, align 8
-  %44 = getelementptr i8, ptr %.val16.val, i64 8
-  %.val16.val.val = load ptr, ptr %44, align 8
-  %45 = load i32, ptr %.val17, align 4
-  %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds ptr, ptr %.val16.val.val, i64 %46
-  %48 = load ptr, ptr %47, align 8
-  %49 = tail call i64 @Abc_ObjComputeTruth(ptr noundef %48, ptr noundef %1)
-  %50 = and i64 %49, %42
-  %51 = xor i64 %49, -1
-  %52 = and i64 %34, %51
-  %53 = or i64 %50, %52
+  %.val17 = load ptr, ptr %23, align 8
+  %40 = getelementptr i8, ptr %.val16, i64 32
+  %.val16.val = load ptr, ptr %40, align 8
+  %41 = getelementptr i8, ptr %.val16.val, i64 8
+  %.val16.val.val = load ptr, ptr %41, align 8
+  %42 = load i32, ptr %.val17, align 4
+  %43 = sext i32 %42 to i64
+  %44 = getelementptr inbounds ptr, ptr %.val16.val.val, i64 %43
+  %45 = load ptr, ptr %44, align 8
+  %46 = tail call i64 @Abc_ObjComputeTruth(ptr noundef %45, ptr noundef %1)
+  %47 = and i64 %46, %39
+  %48 = xor i64 %46, -1
+  %49 = and i64 %31, %48
+  %50 = or i64 %47, %49
   br label %common.ret30
 }
 

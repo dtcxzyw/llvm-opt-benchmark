@@ -1323,18 +1323,13 @@ if.end14.i:                                       ; preds = %while.body.i
   br label %return
 
 while.end.i:                                      ; preds = %while.cond.i
-  %11 = and i64 %indvars.iv40.i, 4294967295
-  %cmp19.i = icmp eq i64 %11, 0
-  br i1 %cmp19.i, label %if.then20.i, label %return
-
-if.then20.i:                                      ; preds = %while.end.i
-  %12 = and i64 %indvars.iv.i, 4294967295
-  %cmp21.i = icmp ne i64 %12, 0
-  %cond22.i = sext i1 %cmp21.i to i32
+  %cmp19.i = icmp eq i64 %indvars.iv40.i, 0
+  %cond22.i = sext i1 %cmp1.i to i32
+  %spec.select = select i1 %cmp19.i, i32 %cond22.i, i32 1
   br label %return
 
-return:                                           ; preds = %if.then20.i, %while.end.i, %if.end14.i, %if.end.i, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ %cond.i, %if.end.i ], [ %cond18.i, %if.end14.i ], [ %cond22.i, %if.then20.i ], [ 1, %while.end.i ]
+return:                                           ; preds = %while.end.i, %if.end14.i, %if.end.i, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ %cond.i, %if.end.i ], [ %cond18.i, %if.end14.i ], [ %spec.select, %while.end.i ]
   ret i32 %retval.0
 }
 
@@ -1400,14 +1395,9 @@ if.end14.i.i:                                     ; preds = %while.body.i.i
   br label %return
 
 while.end.i.i:                                    ; preds = %while.cond.i.i
-  %13 = and i64 %indvars.iv40.i.i, 4294967295
-  %cmp19.i.i = icmp eq i64 %13, 0
-  br i1 %cmp19.i.i, label %if.then20.i.i, label %return
-
-if.then20.i.i:                                    ; preds = %while.end.i.i
-  %14 = and i64 %indvars.iv.i.i, 4294967295
-  %cmp21.i.i = icmp ne i64 %14, 0
-  %cond22.i.i = sext i1 %cmp21.i.i to i32
+  %cmp19.i.i = icmp eq i64 %indvars.iv40.i.i, 0
+  %cond22.i.i = sext i1 %cmp1.i.i to i32
+  %spec.select = select i1 %cmp19.i.i, i32 %cond22.i.i, i32 1
   br label %return
 
 if.else:                                          ; preds = %entry
@@ -1415,8 +1405,8 @@ if.else:                                          ; preds = %entry
   %cond = select i1 %cmp3, i32 -1, i32 1
   br label %return
 
-return:                                           ; preds = %if.then20.i.i, %while.end.i.i, %if.end14.i.i, %if.end.i.i, %if.then, %if.else
-  %retval.0 = phi i32 [ %cond, %if.else ], [ 0, %if.then ], [ %cond.i.i, %if.end.i.i ], [ %cond18.i.i, %if.end14.i.i ], [ %cond22.i.i, %if.then20.i.i ], [ 1, %while.end.i.i ]
+return:                                           ; preds = %while.end.i.i, %if.end14.i.i, %if.end.i.i, %if.then, %if.else
+  %retval.0 = phi i32 [ %cond, %if.else ], [ 0, %if.then ], [ %cond.i.i, %if.end.i.i ], [ %cond18.i.i, %if.end14.i.i ], [ %spec.select, %while.end.i.i ]
   ret i32 %retval.0
 }
 

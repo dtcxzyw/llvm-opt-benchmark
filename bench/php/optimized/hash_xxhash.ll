@@ -2576,23 +2576,24 @@ XXH3_len_17to128_64b.exit:                        ; preds = %113, %183
   br i1 %exitcond.not.i, label %267, label %250
 
 267:                                              ; preds = %250
-  %268 = trunc i64 %1 to i32
-  %269 = lshr i64 %266, 37
-  %270 = xor i64 %269, %266
-  %271 = mul i64 %270, 1609587791953885689
-  %272 = lshr i64 %271, 32
-  %273 = xor i64 %272, %271
-  %274 = icmp ugt i32 %268, 143
-  br i1 %274, label %.lr.ph.preheader.i, label %XXH3_len_129to240_64b.exit
+  %268 = lshr i64 %266, 37
+  %269 = xor i64 %268, %266
+  %270 = mul i64 %269, 1609587791953885689
+  %271 = lshr i64 %270, 32
+  %272 = xor i64 %271, %270
+  %273 = icmp ugt i64 %1, 143
+  br i1 %273, label %.lr.ph.preheader.i, label %XXH3_len_129to240_64b.exit
 
 .lr.ph.preheader.i:                               ; preds = %267
-  %275 = lshr i64 %1, 4
-  %wide.trip.count.i = and i64 %275, 268435455
+  %274 = trunc i64 %1 to i32
+  %275 = lshr i32 %274, 4
+  %umax.i = tail call i32 @llvm.umax.i32(i32 %275, i32 9)
+  %wide.trip.count.i = zext nneg i32 %umax.i to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv44.i = phi i64 [ 8, %.lr.ph.preheader.i ], [ %indvars.iv.next45.i, %.lr.ph.i ]
-  %.12640.i = phi i64 [ %273, %.lr.ph.preheader.i ], [ %292, %.lr.ph.i ]
+  %.12640.i = phi i64 [ %272, %.lr.ph.preheader.i ], [ %292, %.lr.ph.i ]
   %276 = shl nsw i64 %indvars.iv44.i, 4
   %277 = getelementptr inbounds i8, ptr %0, i64 %276
   %278 = getelementptr i8, ptr %3, i64 %276
@@ -2619,7 +2620,7 @@ XXH3_len_17to128_64b.exit:                        ; preds = %113, %183
   br i1 %exitcond47.not.i, label %XXH3_len_129to240_64b.exit, label %.lr.ph.i
 
 XXH3_len_129to240_64b.exit:                       ; preds = %.lr.ph.i, %267
-  %.126.lcssa.i = phi i64 [ %273, %267 ], [ %292, %.lr.ph.i ]
+  %.126.lcssa.i = phi i64 [ %272, %267 ], [ %292, %.lr.ph.i ]
   %293 = getelementptr inbounds i8, ptr %0, i64 %1
   %294 = getelementptr inbounds i8, ptr %293, i64 -16
   %295 = getelementptr inbounds i8, ptr %3, i64 119
@@ -3133,30 +3134,31 @@ XXH3_len_17to128_128b.exit:                       ; preds = %166, %243
   br i1 %exitcond.not.i, label %367, label %331
 
 367:                                              ; preds = %331
-  %368 = trunc i64 %1 to i32
-  %369 = lshr i64 %351, 37
-  %370 = xor i64 %369, %351
-  %371 = mul i64 %370, 1609587791953885689
-  %372 = lshr i64 %371, 32
-  %373 = xor i64 %372, %371
-  %374 = lshr i64 %366, 37
-  %375 = xor i64 %374, %366
-  %376 = mul i64 %375, 1609587791953885689
-  %377 = lshr i64 %376, 32
-  %378 = xor i64 %377, %376
-  %379 = icmp ugt i32 %368, 159
-  br i1 %379, label %.lr.ph.i, label %XXH3_len_129to240_128b.exit
+  %368 = lshr i64 %351, 37
+  %369 = xor i64 %368, %351
+  %370 = mul i64 %369, 1609587791953885689
+  %371 = lshr i64 %370, 32
+  %372 = xor i64 %371, %370
+  %373 = lshr i64 %366, 37
+  %374 = xor i64 %373, %366
+  %375 = mul i64 %374, 1609587791953885689
+  %376 = lshr i64 %375, 32
+  %377 = xor i64 %376, %375
+  %378 = icmp ugt i64 %1, 159
+  br i1 %378, label %.lr.ph.i, label %XXH3_len_129to240_128b.exit
 
 .lr.ph.i:                                         ; preds = %367
-  %380 = lshr i64 %1, 5
+  %379 = trunc i64 %1 to i32
+  %380 = lshr i32 %379, 5
   %381 = getelementptr inbounds i8, ptr %3, i64 3
-  %wide.trip.count.i = and i64 %380, 134217727
+  %umax.i = tail call i32 @llvm.umax.i32(i32 %380, i32 5)
+  %wide.trip.count.i = zext nneg i32 %umax.i to i64
   br label %382
 
 382:                                              ; preds = %382, %.lr.ph.i
   %indvars.iv80.i = phi i64 [ 4, %.lr.ph.i ], [ %indvars.iv.next81.i, %382 ]
-  %.sroa.11.174.i = phi i64 [ %378, %.lr.ph.i ], [ %418, %382 ]
-  %.sroa.015.173.i = phi i64 [ %373, %.lr.ph.i ], [ %403, %382 ]
+  %.sroa.11.174.i = phi i64 [ %377, %.lr.ph.i ], [ %418, %382 ]
+  %.sroa.015.173.i = phi i64 [ %372, %.lr.ph.i ], [ %403, %382 ]
   %383 = shl nsw i64 %indvars.iv80.i, 5
   %384 = getelementptr inbounds i8, ptr %0, i64 %383
   %385 = getelementptr inbounds i8, ptr %384, i64 16
@@ -3206,8 +3208,8 @@ XXH3_len_17to128_128b.exit:                       ; preds = %166, %243
   br i1 %exitcond83.not.i, label %XXH3_len_129to240_128b.exit, label %382
 
 XXH3_len_129to240_128b.exit:                      ; preds = %382, %367
-  %.sroa.015.1.lcssa.i = phi i64 [ %373, %367 ], [ %403, %382 ]
-  %.sroa.11.1.lcssa.i = phi i64 [ %378, %367 ], [ %418, %382 ]
+  %.sroa.015.1.lcssa.i = phi i64 [ %372, %367 ], [ %403, %382 ]
+  %.sroa.11.1.lcssa.i = phi i64 [ %377, %367 ], [ %418, %382 ]
   %419 = getelementptr inbounds i8, ptr %0, i64 %1
   %420 = getelementptr inbounds i8, ptr %419, i64 -16
   %421 = getelementptr inbounds i8, ptr %419, i64 -32
@@ -3287,6 +3289,9 @@ declare i64 @llvm.bswap.i64(i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16

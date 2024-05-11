@@ -267,14 +267,6 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
 
 cryptodev_builtin_get_unused_session_index.exit.i: ; preds = %for.body.i.i
   %conv.i.i = trunc nuw nsw i64 %i.05.i.i to i32
-  %cmp4.i = icmp slt i32 %conv.i.i, 0
-  br i1 %cmp4.i, label %if.then6.i, label %if.end7.i
-
-if.then6.i:                                       ; preds = %for.inc.i.i, %cryptodev_builtin_get_unused_session_index.exit.i
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_error, ptr noundef nonnull @.str.3, i32 noundef 234, ptr noundef nonnull @__func__.cryptodev_builtin_create_cipher_session, ptr noundef nonnull @.str.8, i32 noundef 256) #6
-  br label %sw.epilog
-
-if.end7.i:                                        ; preds = %cryptodev_builtin_get_unused_session_index.exit.i
   %3 = load i32, ptr %u, align 8
   switch i32 %3, label %sw.default.i [
     i32 2, label %sw.bb.i
@@ -286,7 +278,11 @@ if.end7.i:                                        ; preds = %cryptodev_builtin_g
     i32 9, label %sw.bb36.i
   ]
 
-sw.bb.i:                                          ; preds = %if.end7.i
+if.then6.i:                                       ; preds = %for.inc.i.i
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_error, ptr noundef nonnull @.str.3, i32 noundef 234, ptr noundef nonnull @__func__.cryptodev_builtin_create_cipher_session, ptr noundef nonnull @.str.8, i32 noundef 256) #6
+  br label %sw.epilog
+
+sw.bb.i:                                          ; preds = %cryptodev_builtin_get_unused_session_index.exit.i
   %key_len.i = getelementptr inbounds i8, ptr %sess_info, i64 12
   %4 = load i32, ptr %key_len.i, align 4
   switch i32 %4, label %cryptodev_builtin_get_aes_algo.exit.i [
@@ -305,7 +301,7 @@ cryptodev_builtin_get_aes_algo.exit.i:            ; preds = %sw.bb.i
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_error, ptr noundef nonnull @.str.3, i32 noundef 162, ptr noundef nonnull @__func__.cryptodev_builtin_get_aes_algo, ptr noundef nonnull @.str.10, i32 noundef %4) #6
   br label %sw.epilog
 
-sw.bb13.i:                                        ; preds = %if.end7.i
+sw.bb13.i:                                        ; preds = %cryptodev_builtin_get_unused_session_index.exit.i
   %key_len14.i = getelementptr inbounds i8, ptr %sess_info, i64 12
   %5 = load i32, ptr %key_len14.i, align 4
   switch i32 %5, label %cryptodev_builtin_get_aes_algo.exit40.i [
@@ -324,7 +320,7 @@ cryptodev_builtin_get_aes_algo.exit40.i:          ; preds = %sw.bb13.i
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_error, ptr noundef nonnull @.str.3, i32 noundef 162, ptr noundef nonnull @__func__.cryptodev_builtin_get_aes_algo, ptr noundef nonnull @.str.10, i32 noundef %5) #6
   br label %sw.epilog
 
-sw.bb20.i:                                        ; preds = %if.end7.i
+sw.bb20.i:                                        ; preds = %cryptodev_builtin_get_unused_session_index.exit.i
   %key_len21.i = getelementptr inbounds i8, ptr %sess_info, i64 12
   %6 = load i32, ptr %key_len21.i, align 4
   switch i32 %6, label %cryptodev_builtin_get_aes_algo.exit46.i [
@@ -343,7 +339,7 @@ cryptodev_builtin_get_aes_algo.exit46.i:          ; preds = %sw.bb20.i
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_error, ptr noundef nonnull @.str.3, i32 noundef 162, ptr noundef nonnull @__func__.cryptodev_builtin_get_aes_algo, ptr noundef nonnull @.str.10, i32 noundef %6) #6
   br label %sw.epilog
 
-sw.bb27.i:                                        ; preds = %if.end7.i
+sw.bb27.i:                                        ; preds = %cryptodev_builtin_get_unused_session_index.exit.i
   %key_len28.i = getelementptr inbounds i8, ptr %sess_info, i64 12
   %7 = load i32, ptr %key_len28.i, align 4
   %8 = add i32 %7, -16
@@ -355,13 +351,13 @@ cryptodev_builtin_get_aes_algo.exit52.i:          ; preds = %switch.hole_check, 
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_error, ptr noundef nonnull @.str.3, i32 noundef 162, ptr noundef nonnull @__func__.cryptodev_builtin_get_aes_algo, ptr noundef nonnull @.str.10, i32 noundef %7) #6
   br label %sw.epilog
 
-sw.bb35.i:                                        ; preds = %if.end7.i
+sw.bb35.i:                                        ; preds = %cryptodev_builtin_get_unused_session_index.exit.i
   br label %sw.epilog.i
 
-sw.bb36.i:                                        ; preds = %if.end7.i
+sw.bb36.i:                                        ; preds = %cryptodev_builtin_get_unused_session_index.exit.i
   br label %sw.epilog.i
 
-sw.default.i:                                     ; preds = %if.end7.i
+sw.default.i:                                     ; preds = %cryptodev_builtin_get_unused_session_index.exit.i
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_error, ptr noundef nonnull @.str.3, i32 noundef 285, ptr noundef nonnull @__func__.cryptodev_builtin_create_cipher_session, ptr noundef nonnull @.str.9, i32 noundef %3) #6
   br label %sw.epilog
 
@@ -377,9 +373,9 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %sw.epilog.i
 
-sw.epilog.i:                                      ; preds = %switch.lookup, %sw.bb36.i, %sw.bb35.i, %if.then5.i41.i, %if.then2.i43.i, %sw.bb20.i, %if.then5.i35.i, %if.then2.i37.i, %sw.bb13.i, %if.then5.i.i, %if.then2.i.i, %sw.bb.i, %if.end7.i
-  %mode.0.i = phi i32 [ 3, %sw.bb36.i ], [ 1, %sw.bb35.i ], [ 0, %if.end7.i ], [ 0, %if.then2.i.i ], [ 0, %sw.bb.i ], [ 0, %if.then5.i.i ], [ 1, %if.then2.i37.i ], [ 1, %sw.bb13.i ], [ 1, %if.then5.i35.i ], [ 3, %if.then2.i43.i ], [ 3, %sw.bb20.i ], [ 3, %if.then5.i41.i ], [ 2, %switch.lookup ]
-  %algo.0.i = phi i32 [ 4, %sw.bb36.i ], [ 4, %sw.bb35.i ], [ 4, %if.end7.i ], [ 1, %if.then2.i.i ], [ 0, %sw.bb.i ], [ 2, %if.then5.i.i ], [ 1, %if.then2.i37.i ], [ 0, %sw.bb13.i ], [ 2, %if.then5.i35.i ], [ 1, %if.then2.i43.i ], [ 0, %sw.bb20.i ], [ 2, %if.then5.i41.i ], [ %switch.load, %switch.lookup ]
+sw.epilog.i:                                      ; preds = %switch.lookup, %sw.bb36.i, %sw.bb35.i, %if.then5.i41.i, %if.then2.i43.i, %sw.bb20.i, %if.then5.i35.i, %if.then2.i37.i, %sw.bb13.i, %if.then5.i.i, %if.then2.i.i, %sw.bb.i, %cryptodev_builtin_get_unused_session_index.exit.i
+  %mode.0.i = phi i32 [ 3, %sw.bb36.i ], [ 1, %sw.bb35.i ], [ 0, %cryptodev_builtin_get_unused_session_index.exit.i ], [ 0, %if.then2.i.i ], [ 0, %sw.bb.i ], [ 0, %if.then5.i.i ], [ 1, %if.then2.i37.i ], [ 1, %sw.bb13.i ], [ 1, %if.then5.i35.i ], [ 3, %if.then2.i43.i ], [ 3, %sw.bb20.i ], [ 3, %if.then5.i41.i ], [ 2, %switch.lookup ]
+  %algo.0.i = phi i32 [ 4, %sw.bb36.i ], [ 4, %sw.bb35.i ], [ 4, %cryptodev_builtin_get_unused_session_index.exit.i ], [ 1, %if.then2.i.i ], [ 0, %sw.bb.i ], [ 2, %if.then5.i.i ], [ 1, %if.then2.i37.i ], [ 0, %sw.bb13.i ], [ 2, %if.then5.i35.i ], [ 1, %if.then2.i43.i ], [ 0, %sw.bb20.i ], [ 2, %if.then5.i41.i ], [ %switch.load, %switch.lookup ]
   %cipher_key.i = getelementptr inbounds i8, ptr %sess_info, i64 40
   %12 = load ptr, ptr %cipher_key.i, align 8
   %key_len38.i = getelementptr inbounds i8, ptr %sess_info, i64 12
@@ -399,7 +395,7 @@ if.end42.i:                                       ; preds = %sw.epilog.i
   %15 = load i8, ptr %op_type.i, align 8
   %type.i = getelementptr inbounds i8, ptr %call43.i, i64 9
   store i8 %15, ptr %type.i, align 1
-  %idxprom.i = and i64 %i.05.i.i, 2147483647
+  %idxprom.i = and i64 %i.05.i.i, 4294967295
   %arrayidx.i = getelementptr [256 x ptr], ptr %sessions.i.i, i64 0, i64 %idxprom.i
   store ptr %call43.i, ptr %arrayidx.i, align 8
   br label %sw.epilog
@@ -488,35 +484,31 @@ for.inc.i.i17:                                    ; preds = %for.body.i.i13
   br i1 %exitcond.not.i.i19, label %if.then11.i, label %for.body.i.i13, !llvm.loop !8
 
 cryptodev_builtin_get_unused_session_index.exit.i20: ; preds = %for.body.i.i13
-  %conv.i.i21 = trunc nuw nsw i64 %i.05.i.i14 to i32
-  %cmp10.i = icmp slt i32 %conv.i.i21, 0
-  br i1 %cmp10.i, label %if.then11.i, label %if.end12.i
-
-if.then11.i:                                      ; preds = %for.inc.i.i17, %cryptodev_builtin_get_unused_session_index.exit.i20
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_error, ptr noundef nonnull @.str.3, i32 noundef 351, ptr noundef nonnull @__func__.cryptodev_builtin_create_akcipher_session, ptr noundef nonnull @.str.8, i32 noundef 256) #6
-  br label %cryptodev_builtin_create_akcipher_session.exit
-
-if.end12.i:                                       ; preds = %cryptodev_builtin_get_unused_session_index.exit.i20
   %key.i = getelementptr inbounds i8, ptr %sess_info, i64 24
   %23 = load ptr, ptr %key.i, align 8
   %keylen.i = getelementptr inbounds i8, ptr %sess_info, i64 16
   %24 = load i32, ptr %keylen.i, align 8
-  %conv.i22 = zext i32 %24 to i64
-  %call13.i = call ptr @qcrypto_akcipher_new(ptr noundef nonnull %opts.i, i32 noundef %type.0.i, ptr noundef %23, i64 noundef %conv.i22, ptr noundef nonnull %local_error) #6
-  %tobool.not.i23 = icmp eq ptr %call13.i, null
-  br i1 %tobool.not.i23, label %cryptodev_builtin_create_akcipher_session.exit, label %if.end15.i
+  %conv.i21 = zext i32 %24 to i64
+  %call13.i = call ptr @qcrypto_akcipher_new(ptr noundef nonnull %opts.i, i32 noundef %type.0.i, ptr noundef %23, i64 noundef %conv.i21, ptr noundef nonnull %local_error) #6
+  %tobool.not.i22 = icmp eq ptr %call13.i, null
+  br i1 %tobool.not.i22, label %cryptodev_builtin_create_akcipher_session.exit, label %if.end15.i
 
-if.end15.i:                                       ; preds = %if.end12.i
+if.then11.i:                                      ; preds = %for.inc.i.i17
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_error, ptr noundef nonnull @.str.3, i32 noundef 351, ptr noundef nonnull @__func__.cryptodev_builtin_create_akcipher_session, ptr noundef nonnull @.str.8, i32 noundef 256) #6
+  br label %cryptodev_builtin_create_akcipher_session.exit
+
+if.end15.i:                                       ; preds = %cryptodev_builtin_get_unused_session_index.exit.i20
+  %conv.i.i23 = trunc nuw nsw i64 %i.05.i.i14 to i32
   %call16.i = call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #8
   %akcipher17.i = getelementptr inbounds i8, ptr %call16.i, i64 16
   store ptr %call13.i, ptr %akcipher17.i, align 8
-  %idxprom.i24 = and i64 %i.05.i.i14, 2147483647
+  %idxprom.i24 = and i64 %i.05.i.i14, 4294967295
   %arrayidx.i25 = getelementptr [256 x ptr], ptr %sessions.i.i12, i64 0, i64 %idxprom.i24
   store ptr %call16.i, ptr %arrayidx.i25, align 8
   br label %cryptodev_builtin_create_akcipher_session.exit
 
-cryptodev_builtin_create_akcipher_session.exit:   ; preds = %cryptodev_builtin_get_rsa_hash_algo.exit.i.i, %if.end8.i.i, %sw.default.i8, %sw.default6.i, %if.then11.i, %if.end12.i, %if.end15.i
-  %retval.0.i9 = phi i32 [ -1, %sw.default6.i ], [ -1, %if.then11.i ], [ %conv.i.i21, %if.end15.i ], [ -1, %sw.default.i8 ], [ -1, %if.end12.i ], [ -1, %cryptodev_builtin_get_rsa_hash_algo.exit.i.i ], [ -1, %if.end8.i.i ]
+cryptodev_builtin_create_akcipher_session.exit:   ; preds = %cryptodev_builtin_get_rsa_hash_algo.exit.i.i, %if.end8.i.i, %sw.default.i8, %sw.default6.i, %cryptodev_builtin_get_unused_session_index.exit.i20, %if.then11.i, %if.end15.i
+  %retval.0.i9 = phi i32 [ -1, %sw.default6.i ], [ -1, %if.then11.i ], [ %conv.i.i23, %if.end15.i ], [ -1, %sw.default.i8 ], [ -1, %cryptodev_builtin_get_unused_session_index.exit.i20 ], [ -1, %cryptodev_builtin_get_rsa_hash_algo.exit.i.i ], [ -1, %if.end8.i.i ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %opts.i)
   br label %sw.epilog
 

@@ -1022,7 +1022,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.preheader.
   br i1 %exitcond54.not.i.i.i, label %if.end32.i.i.i, label %for.body.i.i.i, !llvm.loop !17
 
 if.else.i.i.i:                                    ; preds = %while.body.i.i.i
-  %cmp.i17.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i, 0
+  %cmp.i17.i.i.i = icmp ult i32 %call.i.i.i, 65536
   br i1 %cmp.i17.i.i.i, label %for.cond8.preheader.i.i.i, label %for.cond19.preheader.i.i.i
 
 for.cond19.preheader.i.i.i:                       ; preds = %if.else.i.i.i
@@ -2452,7 +2452,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   br i1 %exitcond69.not.i.i.i, label %if.end32.loopexit.i.i.i, label %for.body.i.i.i, !llvm.loop !42
 
 if.else.i.i.i:                                    ; preds = %call.i.i.i.noexc
-  %cmp.i16.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i, 0
+  %cmp.i16.i.i.i = icmp ult i32 %call.i.i.i13, 65536
   %conv10.i.i.i = sext i16 %block.sroa.0.0.extract.trunc.i.i.i to i64
   %cmp1156.i.i.i = icmp sgt i16 %block.sroa.0.0.extract.trunc.i.i.i, 0
   br i1 %cmp.i16.i.i.i, label %for.cond8.preheader.i.i.i, label %for.cond19.preheader.i.i.i
@@ -12245,7 +12245,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   br i1 %exitcond52.not.i, label %if.end32.i, label %for.body.i, !llvm.loop !235
 
 if.else.i:                                        ; preds = %while.body.i
-  %cmp.i16.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i, 0
+  %cmp.i16.i = icmp ult i32 %call.i, 65536
   br i1 %cmp.i16.i, label %for.cond8.preheader.i, label %for.cond19.preheader.i
 
 for.cond19.preheader.i:                           ; preds = %if.else.i
@@ -12423,7 +12423,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   br i1 %exitcond55.not.i, label %if.end32.i, label %for.body.i, !llvm.loop !239
 
 if.else.i:                                        ; preds = %while.body.i
-  %cmp.i16.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i, 0
+  %cmp.i16.i = icmp ult i32 %call.i, 65536
   br i1 %cmp.i16.i, label %for.cond8.preheader.i, label %for.cond19.preheader.i
 
 for.cond19.preheader.i:                           ; preds = %if.else.i
@@ -13788,7 +13788,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   br i1 %exitcond50.not.i, label %if.end32.i, label %for.body.i, !llvm.loop !268
 
 if.else.i:                                        ; preds = %while.body.i
-  %cmp.i16.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i, 0
+  %cmp.i16.i = icmp ult i32 %call.i, 65536
   br i1 %cmp.i16.i, label %for.cond8.preheader.i, label %for.cond19.preheader.i
 
 for.cond19.preheader.i:                           ; preds = %if.else.i
@@ -13965,7 +13965,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   br i1 %exitcond52.not.i, label %if.end32.i, label %for.body.i, !llvm.loop !272
 
 if.else.i:                                        ; preds = %while.body.i
-  %cmp.i16.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i, 0
+  %cmp.i16.i = icmp ult i32 %call.i, 65536
   br i1 %cmp.i16.i, label %for.cond8.preheader.i, label %for.cond19.preheader.i
 
 for.cond19.preheader.i:                           ; preds = %if.else.i

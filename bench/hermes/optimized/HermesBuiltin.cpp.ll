@@ -1659,8 +1659,7 @@ if.end17.i.i.i:                                   ; preds = %if.then7.i.i.i, %if
   %and.i.i.i.i.i.i.i.i = and i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i, 281474976710655
   %68 = inttoptr i64 %and.i.i.i.i.i.i.i.i to ptr
   %desc.sroa.1.0.extract.shift.i.i.i.i = lshr i64 %agg.tmp7.sroa.0.0.copyload.i.i, 32
-  %desc.sroa.1.0.extract.trunc.i.i.i.i = trunc nuw i64 %desc.sroa.1.0.extract.shift.i.i.i.i to i32
-  %cmp.i.i8.i.i.i = icmp ult i32 %desc.sroa.1.0.extract.trunc.i.i.i.i, 5
+  %cmp.i.i8.i.i.i = icmp ult i64 %agg.tmp7.sroa.0.0.copyload.i.i, 21474836480
   br i1 %cmp.i.i8.i.i.i, label %if.then.i.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end17.i.i.i
@@ -2221,8 +2220,7 @@ land.lhs.true:                                    ; preds = %if.then11
 if.then19:                                        ; preds = %land.lhs.true
   %agg.tmp23.sroa.0.0.copyload = load i64, ptr %desc, align 8
   %desc.sroa.1.0.extract.shift.i = lshr i64 %agg.tmp23.sroa.0.0.copyload, 32
-  %desc.sroa.1.0.extract.trunc.i = trunc nuw i64 %desc.sroa.1.0.extract.shift.i to i32
-  %cmp.i.i46 = icmp ult i32 %desc.sroa.1.0.extract.trunc.i, 5
+  %cmp.i.i46 = icmp ult i64 %agg.tmp23.sroa.0.0.copyload, 21474836480
   br i1 %cmp.i.i46, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.then19
@@ -3512,8 +3510,7 @@ if.end7.i.i.i:                                    ; preds = %if.then.i.i
   %and.i.i.i.i.i.i.i.i = and i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i, 281474976710655
   %42 = inttoptr i64 %and.i.i.i.i.i.i.i.i to ptr
   %desc.sroa.1.0.extract.shift.i.i.i.i = lshr i64 %agg.tmp7.sroa.0.0.copyload.i.i, 32
-  %desc.sroa.1.0.extract.trunc.i.i.i.i = trunc nuw i64 %desc.sroa.1.0.extract.shift.i.i.i.i to i32
-  %cmp.i.i.i.i.i = icmp ult i32 %desc.sroa.1.0.extract.trunc.i.i.i.i, 5
+  %cmp.i.i.i.i.i = icmp ult i64 %agg.tmp7.sroa.0.0.copyload.i.i, 21474836480
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end7.i.i.i

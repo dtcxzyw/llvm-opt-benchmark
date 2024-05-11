@@ -2958,35 +2958,33 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %for.body
   %5 = load ptr, ptr %_M_str.i.i, align 8
   %bcmp = call i32 @bcmp(ptr %5, ptr %4, i64 %.sroa.speculated.i1.i)
   %cmp.i.i7 = icmp eq i32 %bcmp, 0
-  br i1 %cmp.i.i7, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE7compareEmmS2_.exit, label %if.end
+  %cmp = icmp eq i64 %.sroa.speculated.i.i, %2
+  %or.cond = and i1 %cmp, %cmp.i.i7
+  br i1 %or.cond, label %for.inc, label %if.end
 
-_ZNKSt17basic_string_viewIcSt11char_traitsIcEE7compareEmmS2_.exit: ; preds = %for.body, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
-  %sub.i.i.i = sub i64 %.sroa.speculated.i.i, %2
-  %spec.select3.i.i.i = call i64 @llvm.smax.i64(i64 %sub.i.i.i, i64 -2147483648)
-  %retval.04.i.i.i = call i64 @llvm.smin.i64(i64 %spec.select3.i.i.i, i64 2147483647)
-  %6 = and i64 %retval.04.i.i.i, 4294967295
-  %cmp = icmp eq i64 %6, 0
-  br i1 %cmp, label %for.inc, label %if.end
+_ZNKSt17basic_string_viewIcSt11char_traitsIcEE7compareEmmS2_.exit: ; preds = %for.body
+  %cmp.old = icmp eq i64 %.sroa.speculated.i.i, %2
+  br i1 %cmp.old, label %for.inc, label %if.end
 
 if.end:                                           ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE7compareEmmS2_.exit
   %call13 = call noundef ptr @_ZN2v87Context10GetIsolateEv(ptr noundef nonnull align 1 dereferenceable(1) %context.coerce) #23
   call void @_ZN2v88TryCatchC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %bootstrapCatch, ptr noundef %call13) #23
   %_M_str.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.015, i64 8
-  %7 = load ptr, ptr %_M_str.i, align 8
-  %call19 = call ptr @_ZN4node8builtins13BuiltinLoader16LookupAndCompileEN2v85LocalINS2_7ContextEEEPKcPNS_5RealmE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nonnull %context.coerce, ptr noundef %7, ptr noundef null)
+  %6 = load ptr, ptr %_M_str.i, align 8
+  %call19 = call ptr @_ZN4node8builtins13BuiltinLoader16LookupAndCompileEN2v85LocalINS2_7ContextEEEPKcPNS_5RealmE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nonnull %context.coerce, ptr noundef %6, ptr noundef null)
   %call24 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %bootstrapCatch) #23
-  %8 = load ptr, ptr %_M_str.i, align 8
+  %7 = load ptr, ptr %_M_str.i, align 8
   br i1 %call24, label %if.then25, label %if.else
 
 if.then25:                                        ; preds = %if.end
-  store ptr %8, ptr %ref.tmp26, align 8
-  %9 = load i8, ptr getelementptr inbounds (%"class.node::EnabledDebugList", ptr @_ZN4node11per_process18enabled_debug_listE, i64 0, i32 0, i64 68), align 1
-  %tobool.i.i = trunc i8 %9 to i1
+  store ptr %7, ptr %ref.tmp26, align 8
+  %8 = load i8, ptr getelementptr inbounds (%"class.node::EnabledDebugList", ptr @_ZN4node11per_process18enabled_debug_listE, i64 0, i32 0, i64 68), align 1
+  %tobool.i.i = trunc i8 %8 to i1
   br i1 %tobool.i.i, label %if.end.i, label %_ZN4node5DebugIJPKcEEEvPNS_16EnabledDebugListENS_13DebugCategoryES2_DpOT_.exit
 
 if.end.i:                                         ; preds = %if.then25
-  %10 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJPKcEEEvP8_IO_FILES2_DpOT_(ptr noundef %10, ptr noundef nonnull @.str.42, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp26) #28
+  %9 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJPKcEEEvP8_IO_FILES2_DpOT_(ptr noundef %9, ptr noundef nonnull @.str.42, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp26) #28
   br label %_ZN4node5DebugIJPKcEEEvPNS_16EnabledDebugListENS_13DebugCategoryES2_DpOT_.exit
 
 _ZN4node5DebugIJPKcEEEvPNS_16EnabledDebugListENS_13DebugCategoryES2_DpOT_.exit: ; preds = %if.then25, %if.end.i
@@ -2999,12 +2997,12 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp.i.i, label %if.then.i, label %if.else.split
 
 if.else.split:                                    ; preds = %if.else
-  call void @_ZN4node8builtins13BuiltinLoader13SaveCodeCacheEPKcN2v85LocalINS4_8FunctionEEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %8, ptr nonnull %call19)
+  call void @_ZN4node8builtins13BuiltinLoader13SaveCodeCacheEPKcN2v85LocalINS4_8FunctionEEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %7, ptr nonnull %call19)
   br label %if.end43
 
 if.then.i:                                        ; preds = %if.else
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #23
-  call void @_ZN4node8builtins13BuiltinLoader13SaveCodeCacheEPKcN2v85LocalINS4_8FunctionEEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %8, ptr null)
+  call void @_ZN4node8builtins13BuiltinLoader13SaveCodeCacheEPKcN2v85LocalINS4_8FunctionEEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %7, ptr null)
   br label %if.end43
 
 if.end43:                                         ; preds = %if.then.i, %if.else.split, %_ZN4node5DebugIJPKcEEEvPNS_16EnabledDebugListENS_13DebugCategoryES2_DpOT_.exit
@@ -3012,8 +3010,8 @@ if.end43:                                         ; preds = %if.then.i, %if.else
   call void @_ZN2v88TryCatchD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %bootstrapCatch) #23
   br label %for.inc
 
-for.inc:                                          ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE7compareEmmS2_.exit, %if.end43
-  %all_succeeded.2 = phi i1 [ %all_succeeded.016, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE7compareEmmS2_.exit ], [ %all_succeeded.1, %if.end43 ]
+for.inc:                                          ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE7compareEmmS2_.exit, %if.end43
+  %all_succeeded.2 = phi i1 [ %all_succeeded.016, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE7compareEmmS2_.exit ], [ %all_succeeded.1, %if.end43 ], [ %all_succeeded.016, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.015, i64 16
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
@@ -3021,12 +3019,12 @@ for.inc:                                          ; preds = %_ZNKSt17basic_strin
 for.end:                                          ; preds = %for.inc, %entry
   %all_succeeded.0.lcssa = phi i1 [ true, %entry ], [ %all_succeeded.2, %for.inc ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %v8_tools_prefix) #23
-  %11 = load ptr, ptr %ids, align 8
-  %tobool.not.i.i.i = icmp eq ptr %11, null
+  %10 = load ptr, ptr %ids, align 8
+  %tobool.not.i.i.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.end
-  call void @_ZdlPv(ptr noundef nonnull %11) #27
+  call void @_ZdlPv(ptr noundef nonnull %10) #27
   br label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit
 
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit: ; preds = %for.end, %if.then.i.i.i
@@ -9488,12 +9486,6 @@ declare i64 @llvm.umin.i64(i64, i64) #22
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #19
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #22
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #22
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

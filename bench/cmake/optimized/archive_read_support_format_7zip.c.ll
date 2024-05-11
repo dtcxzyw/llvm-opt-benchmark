@@ -2035,11 +2035,11 @@ folder_uncompressed_size.exit:                    ; preds = %.loopexit.us.i, %17
 
 197:                                              ; preds = %.lr.ph186, %read_consume.exit
   %198 = tail call fastcc i64 @extract_pack_stream(ptr noundef %0, i64 noundef 0)
-  %199 = trunc nsw i64 %198 to i32
-  %200 = icmp slt i32 %199, 0
-  br i1 %200, label %201, label %207
+  %199 = icmp slt i64 %198, 0
+  br i1 %199, label %200, label %207
 
-201:                                              ; preds = %197
+200:                                              ; preds = %197
+  %201 = trunc nsw i64 %198 to i32
   %202 = load ptr, ptr %6, align 16
   tail call void @free(ptr noundef %202) #17
   %203 = getelementptr inbounds i8, ptr %6, i64 8
@@ -2167,8 +2167,8 @@ read_consume.exit:                                ; preds = %229, %224, %218
   %. = select i1 %.not165, i32 0, i32 -30
   br label %264
 
-264:                                              ; preds = %262, %148, %255, %211, %201, %191, %178, %164, %.thread212, %.thread, %80, %64
-  %.0 = phi i32 [ -30, %64 ], [ -30, %80 ], [ %162, %164 ], [ -30, %178 ], [ -30, %191 ], [ %199, %201 ], [ %217, %211 ], [ -30, %255 ], [ -30, %.thread ], [ -30, %.thread212 ], [ %151, %148 ], [ %., %262 ]
+264:                                              ; preds = %262, %148, %255, %211, %200, %191, %178, %164, %.thread212, %.thread, %80, %64
+  %.0 = phi i32 [ -30, %64 ], [ -30, %80 ], [ %162, %164 ], [ -30, %178 ], [ -30, %191 ], [ %201, %200 ], [ %217, %211 ], [ -30, %255 ], [ -30, %.thread ], [ -30, %.thread212 ], [ %151, %148 ], [ %., %262 ]
   ret i32 %.0
 }
 
@@ -4943,11 +4943,7 @@ define internal fastcc i64 @Bcj2_Decode(ptr nocapture noundef %0, ptr nocapture 
   store i8 %207, ptr %82, align 4
   store i8 %207, ptr %89, align 1
   %208 = icmp ult i64 %.3174, %2
-  br i1 %208, label %.lr.ph258.preheader, label %.thread310
-
-.thread310:                                       ; preds = %178
-  store i64 4, ptr %64, align 8
-  br label %.lr.ph265
+  br i1 %208, label %.lr.ph258.preheader, label %.lr.ph265
 
 .lr.ph258.preheader:                              ; preds = %178
   %scevgep = getelementptr i8, ptr %1, i64 %.3174
@@ -4974,44 +4970,44 @@ define internal fastcc i64 @Bcj2_Decode(ptr nocapture noundef %0, ptr nocapture 
 216:                                              ; preds = %._crit_edge259
   %217 = trunc nuw nsw i64 %indvars.iv.next297 to i32
   %218 = sub nuw nsw i64 3, %indvars.iv296
-  store i64 %218, ptr %64, align 8
-  %219 = icmp ult i32 %217, 4
-  br i1 %219, label %.lr.ph265, label %.thread
+  br label %.lr.ph265
 
-.lr.ph265:                                        ; preds = %.thread310, %216
-  %.2189.lcssa308314 = phi i32 [ 0, %.thread310 ], [ %217, %216 ]
-  %.4.lcssa309313 = phi i64 [ %.3174, %.thread310 ], [ %212, %216 ]
-  %220 = getelementptr inbounds i8, ptr %0, i64 20008
-  %221 = zext nneg i32 %.2189.lcssa308314 to i64
-  %scevgep299 = getelementptr i8, ptr %4, i64 %221
+.lr.ph265:                                        ; preds = %178, %216
+  %storemerge = phi i64 [ %218, %216 ], [ 4, %178 ]
+  %.2189.lcssa308314 = phi i32 [ %217, %216 ], [ 0, %178 ]
+  %.4.lcssa309313 = phi i64 [ %212, %216 ], [ %.3174, %178 ]
+  store i64 %storemerge, ptr %64, align 8
+  %219 = getelementptr inbounds i8, ptr %0, i64 20008
+  %220 = zext nneg i32 %.2189.lcssa308314 to i64
+  %scevgep299 = getelementptr i8, ptr %4, i64 %220
   %narrow = sub nuw nsw i32 4, %.2189.lcssa308314
-  %222 = zext nneg i32 %narrow to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %220, ptr noundef nonnull align 1 dereferenceable(1) %scevgep299, i64 %222, i1 false)
+  %221 = zext nneg i32 %narrow to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %219, ptr align 1 %scevgep299, i64 %221, i1 false)
   br label %.thread
 
-.thread:                                          ; preds = %114, %111, %.lr.ph265, %216
-  %.6201 = phi ptr [ %.4199, %216 ], [ %.4199, %.lr.ph265 ], [ %.2197, %111 ], [ %.2197, %114 ]
-  %.3194 = phi i64 [ %.1192, %216 ], [ %.1192, %.lr.ph265 ], [ %.0191.ph, %111 ], [ %.0191.ph, %114 ]
-  %.3186 = phi i64 [ %.1184, %216 ], [ %.1184, %.lr.ph265 ], [ %.0183.ph, %111 ], [ %.0183.ph, %114 ]
-  %.6 = phi i64 [ %212, %216 ], [ %.4.lcssa309313, %.lr.ph265 ], [ %100, %111 ], [ %.3174, %114 ]
-  %.3 = phi i64 [ %118, %216 ], [ %118, %.lr.ph265 ], [ %112, %111 ], [ %.2, %114 ]
-  %223 = load i64, ptr %5, align 8
-  %224 = sub i64 %223, %.3
-  store i64 %224, ptr %5, align 8
+.thread:                                          ; preds = %114, %111, %.lr.ph265
+  %.6201 = phi ptr [ %.4199, %.lr.ph265 ], [ %.2197, %111 ], [ %.2197, %114 ]
+  %.3194 = phi i64 [ %.1192, %.lr.ph265 ], [ %.0191.ph, %111 ], [ %.0191.ph, %114 ]
+  %.3186 = phi i64 [ %.1184, %.lr.ph265 ], [ %.0183.ph, %111 ], [ %.0183.ph, %114 ]
+  %.6 = phi i64 [ %.4.lcssa309313, %.lr.ph265 ], [ %100, %111 ], [ %.3174, %114 ]
+  %.3 = phi i64 [ %118, %.lr.ph265 ], [ %112, %111 ], [ %.2, %114 ]
+  %222 = load i64, ptr %5, align 8
+  %223 = sub i64 %222, %.3
+  store i64 %223, ptr %5, align 8
   store i64 %.3186, ptr %14, align 8
   store i64 %.3194, ptr %23, align 8
-  %225 = ptrtoint ptr %38 to i64
-  %226 = ptrtoint ptr %.6201 to i64
-  %227 = sub i64 %225, %226
-  store i64 %227, ptr %32, align 8
+  %224 = ptrtoint ptr %38 to i64
+  %225 = ptrtoint ptr %.6201 to i64
+  %226 = sub i64 %224, %225
+  store i64 %226, ptr %32, align 8
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %90, %.thread
   %.sink = phi ptr [ %86, %.thread ], [ %91, %90 ]
   %.6.sink = phi i64 [ %.6, %.thread ], [ 0, %90 ]
-  %228 = load i64, ptr %.sink, align 8
-  %229 = add i64 %228, %.6.sink
-  store i64 %229, ptr %.sink, align 8
+  %227 = load i64, ptr %.sink, align 8
+  %228 = add i64 %227, %.6.sink
+  store i64 %228, ptr %.sink, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %52, %142, %173, %168, %158, %.loopexit.sink.split

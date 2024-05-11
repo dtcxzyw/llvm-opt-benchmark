@@ -8289,17 +8289,17 @@ sema_analyse_expr.exit150:                        ; preds = %sema_analyse_expr_l
   br i1 %exitcond.not.i.i, label %builtin_by_name.exit.thread.i, label %256, !llvm.loop !35
 
 builtin_by_name.exit.i:                           ; preds = %256
-  %261 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  %.not.i115 = icmp eq i32 %261, 100
-  br i1 %.not.i115, label %builtin_by_name.exit.thread.i, label %263
+  %.not.i115 = icmp eq i64 %indvars.iv.i.i, 100
+  br i1 %.not.i115, label %builtin_by_name.exit.thread.i, label %262
 
 builtin_by_name.exit.thread.i:                    ; preds = %260, %builtin_by_name.exit.i
-  %262 = load i64, ptr %13, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %262, ptr noundef nonnull @.str.149, ptr noundef %255) #13
+  %261 = load i64, ptr %13, align 8
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %261, ptr noundef nonnull @.str.149, ptr noundef %255) #13
   br label %sema_expr_analyse_generic_ident.exit
 
-263:                                              ; preds = %builtin_by_name.exit.i
-  store i32 %261, ptr %14, align 8
+262:                                              ; preds = %builtin_by_name.exit.i
+  %263 = trunc nuw nsw i64 %indvars.iv.i.i to i32
+  store i32 %263, ptr %14, align 8
   br label %sema_expr_analyse_generic_ident.exit
 
 264:                                              ; preds = %tailrecurse
@@ -9928,8 +9928,8 @@ sema_analyse_expr.exit157:                        ; preds = %sema_analyse_expr_l
 sema_expr_analyse_generic_ident.exit.loopexit1023: ; preds = %tailrecurse
   br label %sema_expr_analyse_generic_ident.exit
 
-sema_expr_analyse_generic_ident.exit:             ; preds = %sema_analyse_expr_lvalue.exit461, %1055, %sema_analyse_expr.exit157, %sema_analyse_expr.exit150, %sema_analyse_expr_lvalue.exit448, %837, %tailrecurse, %sema_expr_analyse_generic_ident.exit.loopexit1023, %1040, %1045, %999, %1004, %688, %693, %329, %334, %144, %149, %102, %107, %371, %367, %360, %354, %sema_analyse_expr.exit.i, %sema_analyse_expr_lvalue.exit463, %._crit_edge275, %174, %.critedge.i109, %116, %sema_analyse_expr.exit, %sema_analyse_expr_lvalue.exit, %44, %35, %29, %sema_analyse_expr_lvalue.exit459, %sema_analyse_expr_lvalue.exit457, %._crit_edge, %1013, %sema_analyse_expr.exit156, %966, %962, %956, %950, %948, %936, %909, %891, %879, %868, %862, %845, %835, %833, %826, %.thread164, %.critedge83.i, %.critedge.i140, %762, %756, %754, %746, %743, %.critedge.i136, %737, %722, %.critedge.i134, %719, %sema_analyse_expr.exit154, %.critedge.i123, %308, %295, %.critedge.i118, %285, %274, %272, %270, %268, %266, %263, %builtin_by_name.exit.thread.i, %252, %247, %245, %217, %202, %200, %193, %.critedge.i, %78, %66, %203, %1021, %1018, %1016, %986, %984, %982, %980, %957, %849, %748, %sema_expr_analyse_slice.exit, %481, %sema_expr_analyse_pointer_offset.exit, %373, %210, %206, %184, %123, %89, %56, %54, %23
-  %.0 = phi i1 [ %1022, %1021 ], [ %1020, %1018 ], [ %1017, %1016 ], [ %987, %986 ], [ %985, %984 ], [ %983, %982 ], [ %981, %980 ], [ %958, %957 ], [ %850, %849 ], [ %749, %748 ], [ %.0116.i, %sema_expr_analyse_slice.exit ], [ %484, %481 ], [ %.056.i, %sema_expr_analyse_pointer_offset.exit ], [ %374, %373 ], [ true, %210 ], [ true, %206 ], [ %185, %184 ], [ %124, %123 ], [ %90, %89 ], [ false, %56 ], [ %55, %54 ], [ %25, %23 ], [ false, %203 ], [ false, %66 ], [ true, %.critedge.i ], [ false, %78 ], [ true, %202 ], [ false, %200 ], [ false, %193 ], [ false, %217 ], [ false, %245 ], [ true, %252 ], [ true, %247 ], [ false, %builtin_by_name.exit.thread.i ], [ true, %263 ], [ %275, %274 ], [ %273, %272 ], [ %271, %270 ], [ %269, %268 ], [ %267, %266 ], [ false, %295 ], [ false, %285 ], [ true, %.critedge.i118 ], [ true, %.critedge.i123 ], [ false, %308 ], [ false, %.critedge.i134 ], [ false, %sema_analyse_expr.exit154 ], [ true, %719 ], [ false, %737 ], [ true, %746 ], [ false, %722 ], [ false, %.critedge.i136 ], [ false, %743 ], [ false, %754 ], [ false, %762 ], [ false, %.critedge83.i ], [ false, %835 ], [ false, %.critedge.i140 ], [ false, %756 ], [ true, %826 ], [ true, %833 ], [ true, %.thread164 ], [ false, %845 ], [ true, %956 ], [ false, %936 ], [ false, %909 ], [ false, %868 ], [ false, %862 ], [ false, %891 ], [ false, %879 ], [ false, %950 ], [ false, %948 ], [ false, %962 ], [ true, %966 ], [ false, %sema_analyse_expr.exit156 ], [ true, %1013 ], [ true, %._crit_edge ], [ false, %sema_analyse_expr_lvalue.exit457 ], [ false, %sema_analyse_expr_lvalue.exit459 ], [ true, %44 ], [ false, %29 ], [ false, %35 ], [ false, %sema_analyse_expr.exit ], [ true, %116 ], [ false, %sema_analyse_expr_lvalue.exit ], [ true, %174 ], [ false, %.critedge.i109 ], [ true, %._crit_edge275 ], [ false, %354 ], [ false, %360 ], [ false, %367 ], [ true, %371 ], [ false, %sema_analyse_expr.exit.i ], [ false, %sema_analyse_expr_lvalue.exit463 ], [ false, %107 ], [ false, %102 ], [ false, %149 ], [ false, %144 ], [ false, %334 ], [ false, %329 ], [ false, %693 ], [ false, %688 ], [ false, %1004 ], [ false, %999 ], [ false, %1045 ], [ false, %1040 ], [ true, %sema_expr_analyse_generic_ident.exit.loopexit1023 ], [ false, %tailrecurse ], [ false, %837 ], [ false, %sema_analyse_expr_lvalue.exit448 ], [ false, %sema_analyse_expr.exit150 ], [ false, %sema_analyse_expr.exit157 ], [ false, %1055 ], [ false, %sema_analyse_expr_lvalue.exit461 ]
+sema_expr_analyse_generic_ident.exit:             ; preds = %sema_analyse_expr_lvalue.exit461, %1055, %sema_analyse_expr.exit157, %sema_analyse_expr.exit150, %sema_analyse_expr_lvalue.exit448, %837, %tailrecurse, %sema_expr_analyse_generic_ident.exit.loopexit1023, %1040, %1045, %999, %1004, %688, %693, %329, %334, %144, %149, %102, %107, %371, %367, %360, %354, %sema_analyse_expr.exit.i, %sema_analyse_expr_lvalue.exit463, %._crit_edge275, %174, %.critedge.i109, %116, %sema_analyse_expr.exit, %sema_analyse_expr_lvalue.exit, %44, %35, %29, %sema_analyse_expr_lvalue.exit459, %sema_analyse_expr_lvalue.exit457, %._crit_edge, %1013, %sema_analyse_expr.exit156, %966, %962, %956, %950, %948, %936, %909, %891, %879, %868, %862, %845, %835, %833, %826, %.thread164, %.critedge83.i, %.critedge.i140, %762, %756, %754, %746, %743, %.critedge.i136, %737, %722, %.critedge.i134, %719, %sema_analyse_expr.exit154, %.critedge.i123, %308, %295, %.critedge.i118, %285, %274, %272, %270, %268, %266, %262, %builtin_by_name.exit.thread.i, %252, %247, %245, %217, %202, %200, %193, %.critedge.i, %78, %66, %203, %1021, %1018, %1016, %986, %984, %982, %980, %957, %849, %748, %sema_expr_analyse_slice.exit, %481, %sema_expr_analyse_pointer_offset.exit, %373, %210, %206, %184, %123, %89, %56, %54, %23
+  %.0 = phi i1 [ %1022, %1021 ], [ %1020, %1018 ], [ %1017, %1016 ], [ %987, %986 ], [ %985, %984 ], [ %983, %982 ], [ %981, %980 ], [ %958, %957 ], [ %850, %849 ], [ %749, %748 ], [ %.0116.i, %sema_expr_analyse_slice.exit ], [ %484, %481 ], [ %.056.i, %sema_expr_analyse_pointer_offset.exit ], [ %374, %373 ], [ true, %210 ], [ true, %206 ], [ %185, %184 ], [ %124, %123 ], [ %90, %89 ], [ false, %56 ], [ %55, %54 ], [ %25, %23 ], [ false, %203 ], [ false, %66 ], [ true, %.critedge.i ], [ false, %78 ], [ true, %202 ], [ false, %200 ], [ false, %193 ], [ false, %217 ], [ false, %245 ], [ true, %252 ], [ true, %247 ], [ false, %builtin_by_name.exit.thread.i ], [ true, %262 ], [ %275, %274 ], [ %273, %272 ], [ %271, %270 ], [ %269, %268 ], [ %267, %266 ], [ false, %295 ], [ false, %285 ], [ true, %.critedge.i118 ], [ true, %.critedge.i123 ], [ false, %308 ], [ false, %.critedge.i134 ], [ false, %sema_analyse_expr.exit154 ], [ true, %719 ], [ false, %737 ], [ true, %746 ], [ false, %722 ], [ false, %.critedge.i136 ], [ false, %743 ], [ false, %754 ], [ false, %762 ], [ false, %.critedge83.i ], [ false, %835 ], [ false, %.critedge.i140 ], [ false, %756 ], [ true, %826 ], [ true, %833 ], [ true, %.thread164 ], [ false, %845 ], [ true, %956 ], [ false, %936 ], [ false, %909 ], [ false, %868 ], [ false, %862 ], [ false, %891 ], [ false, %879 ], [ false, %950 ], [ false, %948 ], [ false, %962 ], [ true, %966 ], [ false, %sema_analyse_expr.exit156 ], [ true, %1013 ], [ true, %._crit_edge ], [ false, %sema_analyse_expr_lvalue.exit457 ], [ false, %sema_analyse_expr_lvalue.exit459 ], [ true, %44 ], [ false, %29 ], [ false, %35 ], [ false, %sema_analyse_expr.exit ], [ true, %116 ], [ false, %sema_analyse_expr_lvalue.exit ], [ true, %174 ], [ false, %.critedge.i109 ], [ true, %._crit_edge275 ], [ false, %354 ], [ false, %360 ], [ false, %367 ], [ true, %371 ], [ false, %sema_analyse_expr.exit.i ], [ false, %sema_analyse_expr_lvalue.exit463 ], [ false, %107 ], [ false, %102 ], [ false, %149 ], [ false, %144 ], [ false, %334 ], [ false, %329 ], [ false, %693 ], [ false, %688 ], [ false, %1004 ], [ false, %999 ], [ false, %1045 ], [ false, %1040 ], [ true, %sema_expr_analyse_generic_ident.exit.loopexit1023 ], [ false, %tailrecurse ], [ false, %837 ], [ false, %sema_analyse_expr_lvalue.exit448 ], [ false, %sema_analyse_expr.exit150 ], [ false, %sema_analyse_expr.exit157 ], [ false, %1055 ], [ false, %sema_analyse_expr_lvalue.exit461 ]
   ret i1 %.0
 }
 
@@ -13630,11 +13630,11 @@ define internal fastcc zeroext i1 @sema_expr_analyse_ct_defined(ptr noundef %0, 
   br i1 %exitcond.not.i.i, label %.critedge6.thread, label %52, !llvm.loop !35
 
 builtin_by_name.exit.i:                           ; preds = %52
-  %57 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  %.not.i = icmp eq i32 %57, 100
+  %.not.i = icmp eq i64 %indvars.iv.i.i, 100
   br i1 %.not.i, label %.critedge6.thread.loopexit252.loopexit596, label %.critedge6.thread327
 
 .critedge6.thread327:                             ; preds = %builtin_by_name.exit.i
+  %57 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %58 = getelementptr inbounds i8, ptr %.0115, i64 32
   store i32 %57, ptr %58, align 8
   br label %21

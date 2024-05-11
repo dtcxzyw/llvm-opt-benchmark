@@ -2926,33 +2926,31 @@ land.rhs.i:                                       ; preds = %if.then7, %while.bo
 
 while.body.i:                                     ; preds = %land.rhs.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %5 = and i64 %indvars.iv.next.i, 4294967295
-  %tobool.not.i = icmp eq i64 %5, 0
+  %tobool.not.i = icmp eq i64 %indvars.iv.next.i, 0
   br i1 %tobool.not.i, label %land.rhs.preheader.i24, label %land.rhs.i, !llvm.loop !31
 
 while.end.loopexit.split.loop.exit8.i:            ; preds = %land.rhs.i
-  %6 = trunc nsw i64 %indvars.iv.i to i32
+  %5 = trunc nsw i64 %indvars.iv.i to i32
   br label %land.rhs.preheader.i24
 
 land.rhs.preheader.i24:                           ; preds = %while.body.i, %while.end.loopexit.split.loop.exit8.i
-  %len.addr.0.lcssa.i = phi i32 [ %6, %while.end.loopexit.split.loop.exit8.i ], [ 0, %while.body.i ]
+  %len.addr.0.lcssa.i = phi i32 [ %5, %while.end.loopexit.split.loop.exit8.i ], [ 0, %while.body.i ]
   br label %land.rhs.i25
 
 land.rhs.i25:                                     ; preds = %while.body.i31, %land.rhs.preheader.i24
   %indvars.iv.i26 = phi i64 [ %2, %land.rhs.preheader.i24 ], [ %indvars.iv.next.i32, %while.body.i31 ]
   %gep.i27 = getelementptr i8, ptr %invariant.gep57, i64 %indvars.iv.i26
-  %7 = load i8, ptr %gep.i27, align 1
-  %cmp.i.not.i28 = icmp eq i8 %7, 47
+  %6 = load i8, ptr %gep.i27, align 1
+  %cmp.i.not.i28 = icmp eq i8 %6, 47
   br i1 %cmp.i.not.i28, label %while.body.i31, label %while.end.loopexit.split.loop.exit8.i29
 
 while.body.i31:                                   ; preds = %land.rhs.i25
   %indvars.iv.next.i32 = add nsw i64 %indvars.iv.i26, -1
-  %8 = and i64 %indvars.iv.next.i32, 4294967295
-  %tobool.not.i33 = icmp eq i64 %8, 0
+  %tobool.not.i33 = icmp eq i64 %indvars.iv.next.i32, 0
   br i1 %tobool.not.i33, label %while.end, label %land.rhs.i25, !llvm.loop !31
 
 while.end.loopexit.split.loop.exit8.i29:          ; preds = %land.rhs.i25
-  %9 = trunc nsw i64 %indvars.iv.i26 to i32
+  %7 = trunc nsw i64 %indvars.iv.i26 to i32
   br label %if.end28
 
 if.else:                                          ; preds = %if.end
@@ -2960,13 +2958,13 @@ if.else:                                          ; preds = %if.end
   %dec21 = add nsw i32 %suffix_len.061, -1
   %idxprom22 = sext i32 %dec21 to i64
   %arrayidx23 = getelementptr inbounds i8, ptr %suffix, i64 %idxprom22
-  %10 = load i8, ptr %arrayidx23, align 1
-  %cmp.not = icmp eq i8 %1, %10
+  %8 = load i8, ptr %arrayidx23, align 1
+  %cmp.not = icmp eq i8 %1, %8
   br i1 %cmp.not, label %if.end28, label %return
 
 if.end28:                                         ; preds = %while.end.loopexit.split.loop.exit8.i29, %if.else
   %path_len.1 = phi i32 [ %dec, %if.else ], [ %len.addr.0.lcssa.i, %while.end.loopexit.split.loop.exit8.i29 ]
-  %suffix_len.1 = phi i32 [ %dec21, %if.else ], [ %9, %while.end.loopexit.split.loop.exit8.i29 ]
+  %suffix_len.1 = phi i32 [ %dec21, %if.else ], [ %7, %while.end.loopexit.split.loop.exit8.i29 ]
   %tobool.not = icmp eq i32 %suffix_len.1, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !32
 
@@ -2976,33 +2974,32 @@ while.end:                                        ; preds = %if.end28, %while.bo
   br i1 %tobool29.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %while.end
-  %11 = sext i32 %path_len.0.lcssa to i64
-  %12 = getelementptr i8, ptr %path, i64 %11
-  %arrayidx32 = getelementptr i8, ptr %12, i64 -1
-  %13 = load i8, ptr %arrayidx32, align 1
-  %cmp.i37.not = icmp eq i8 %13, 47
+  %9 = sext i32 %path_len.0.lcssa to i64
+  %10 = getelementptr i8, ptr %path, i64 %9
+  %arrayidx32 = getelementptr i8, ptr %10, i64 -1
+  %11 = load i8, ptr %arrayidx32, align 1
+  %cmp.i37.not = icmp eq i8 %11, 47
   br i1 %cmp.i37.not, label %land.rhs.i42, label %return
 
 land.rhs.i42:                                     ; preds = %land.lhs.true, %while.body.i48
-  %indvars.iv.i43 = phi i64 [ %indvars.iv.next.i49, %while.body.i48 ], [ %11, %land.lhs.true ]
+  %indvars.iv.i43 = phi i64 [ %indvars.iv.next.i49, %while.body.i48 ], [ %9, %land.lhs.true ]
   %gep.i44 = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv.i43
-  %14 = load i8, ptr %gep.i44, align 1
-  %cmp.i.not.i45 = icmp eq i8 %14, 47
+  %12 = load i8, ptr %gep.i44, align 1
+  %cmp.i.not.i45 = icmp eq i8 %12, 47
   br i1 %cmp.i.not.i45, label %while.body.i48, label %while.end.loopexit.split.loop.exit8.i46
 
 while.body.i48:                                   ; preds = %land.rhs.i42
   %indvars.iv.next.i49 = add nsw i64 %indvars.iv.i43, -1
-  %15 = and i64 %indvars.iv.next.i49, 4294967295
-  %tobool.not.i50 = icmp eq i64 %15, 0
+  %tobool.not.i50 = icmp eq i64 %indvars.iv.next.i49, 0
   br i1 %tobool.not.i50, label %return, label %land.rhs.i42, !llvm.loop !31
 
 while.end.loopexit.split.loop.exit8.i46:          ; preds = %land.rhs.i42
   %sext = shl i64 %indvars.iv.i43, 32
-  %16 = ashr exact i64 %sext, 32
+  %13 = ashr exact i64 %sext, 32
   br label %return
 
 return:                                           ; preds = %if.else, %if.then7, %while.body, %while.body.i48, %while.end, %while.end.loopexit.split.loop.exit8.i46, %land.lhs.true
-  %retval.0 = phi i64 [ -1, %land.lhs.true ], [ 0, %while.end ], [ %16, %while.end.loopexit.split.loop.exit8.i46 ], [ 0, %while.body.i48 ], [ -1, %while.body ], [ -1, %if.then7 ], [ -1, %if.else ]
+  %retval.0 = phi i64 [ -1, %land.lhs.true ], [ 0, %while.end ], [ %13, %while.end.loopexit.split.loop.exit8.i46 ], [ 0, %while.body.i48 ], [ -1, %while.body ], [ -1, %if.then7 ], [ -1, %if.else ]
   ret i64 %retval.0
 }
 

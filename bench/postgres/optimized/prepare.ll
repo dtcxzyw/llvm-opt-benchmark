@@ -705,14 +705,12 @@ HashStmt.exit.i:                                  ; preds = %HashStmt.exit.i.pre
   br i1 %exitcond.not.i, label %SearchStmtCache.exit.thread, label %HashStmt.exit.i, !llvm.loop !10
 
 37:                                               ; preds = %30
-  %38 = trunc nsw i64 %indvars.iv.i to i32
-  %39 = icmp ugt i32 %.012.i, 7
-  %.not = icmp eq i32 %38, 0
-  %or.cond = select i1 %39, i1 true, i1 %.not
-  br i1 %or.cond, label %SearchStmtCache.exit.thread, label %40
+  %38 = icmp ugt i32 %.012.i, 7
+  br i1 %38, label %SearchStmtCache.exit.thread, label %39
 
-40:                                               ; preds = %37
-  tail call void (ptr, ...) @ecpg_log(ptr noundef nonnull @.str.1, i32 noundef %0, i32 noundef %38) #11
+39:                                               ; preds = %37
+  %40 = trunc nsw i64 %indvars.iv.i to i32
+  tail call void (ptr, ...) @ecpg_log(ptr noundef nonnull @.str.1, i32 noundef %0, i32 noundef %40) #11
   %41 = load ptr, ptr @stmtCacheEntries, align 8
   %sext = shl i64 %indvars.iv.i, 32
   %42 = ashr exact i64 %sext, 32
@@ -723,8 +721,8 @@ HashStmt.exit.i:                                  ; preds = %HashStmt.exit.i.pre
   %.not19.i = icmp eq ptr %.01118.i, null
   br i1 %.not19.i, label %.loopexit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %40, %49
-  %.01121.i = phi ptr [ %.011.i, %49 ], [ %.01118.i, %40 ]
+.lr.ph.i:                                         ; preds = %39, %49
+  %.01121.i = phi ptr [ %.011.i, %49 ], [ %.01118.i, %39 ]
   %46 = load ptr, ptr %.01121.i, align 8
   %47 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %46, ptr noundef nonnull readonly dereferenceable(1) %43) #10
   %48 = icmp eq i32 %47, 0
@@ -736,7 +734,7 @@ HashStmt.exit.i:                                  ; preds = %HashStmt.exit.i.pre
   %.not.i32 = icmp eq ptr %.011.i, null
   br i1 %.not.i32, label %.loopexit, label %.lr.ph.i, !llvm.loop !4
 
-.loopexit:                                        ; preds = %49, %40
+.loopexit:                                        ; preds = %49, %39
   %51 = tail call fastcc zeroext i1 @prepare_common(i32 noundef %0, ptr noundef %44, ptr noundef %43, ptr noundef %4)
   br i1 %51, label %ecpg_find_prepared_statement.exit, label %AddStmtToCache.exit.thread
 

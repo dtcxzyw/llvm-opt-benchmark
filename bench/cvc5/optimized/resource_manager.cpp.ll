@@ -749,13 +749,11 @@ lpad20.loopexit.split-lp:                         ; preds = %for.body
 for.body.i13:                                     ; preds = %for.body.i13.preheader, %for.inc.i19
   %cmp9.i14 = phi i1 [ %cmp.i21, %for.inc.i19 ], [ true, %for.body.i13.preheader ]
   %i.08.i15 = phi i64 [ %inc.i20, %for.inc.i19 ], [ 0, %for.body.i13.preheader ]
-  %conv.i16 = trunc nuw i64 %i.08.i15 to i32
-  %7 = icmp ult i32 %conv.i16, 18
+  %7 = icmp ult i64 %i.08.i15, 18
   br i1 %7, label %switch.lookup, label %_ZN4cvc58internal8toStringENS0_8ResourceE.exit.i
 
 switch.lookup:                                    ; preds = %for.body.i13
-  %8 = and i64 %i.08.i15, 31
-  %switch.gep = getelementptr inbounds [18 x ptr], ptr @switch.table._ZNK4cvc58internal23StatisticHistogramValueINS0_8ResourceEE9printSafeEi, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds [18 x ptr], ptr @switch.table._ZNK4cvc58internal23StatisticHistogramValueINS0_8ResourceEE9printSafeEi, i64 0, i64 %i.08.i15
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN4cvc58internal8toStringENS0_8ResourceE.exit.i
 
@@ -786,7 +784,7 @@ invoke.cont34:                                    ; preds = %if.end31
           to label %invoke.cont36 unwind label %ehcleanup.thread31
 
 ehcleanup.thread31:                               ; preds = %invoke.cont34
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp32) #25
   br label %cleanup.action
@@ -796,18 +794,18 @@ invoke.cont36:                                    ; preds = %invoke.cont34
           to label %unreachable unwind label %ehcleanup
 
 ehcleanup.thread:                                 ; preds = %if.end31
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   br label %cleanup.action
 
 ehcleanup:                                        ; preds = %invoke.cont36
-  %11 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp32) #25
   br label %ehcleanup38
 
 cleanup.action:                                   ; preds = %ehcleanup.thread31, %ehcleanup.thread
-  %.pn30 = phi { ptr, i32 } [ %10, %ehcleanup.thread ], [ %9, %ehcleanup.thread31 ]
+  %.pn30 = phi { ptr, i32 } [ %9, %ehcleanup.thread ], [ %8, %ehcleanup.thread31 ]
   call void @__cxa_free_exception(ptr %exception) #25
   br label %ehcleanup38
 
@@ -818,7 +816,7 @@ cleanup:                                          ; preds = %if.then.i24, %if.th
   br i1 %cmp.i.not, label %for.end, label %for.body
 
 ehcleanup38:                                      ; preds = %lpad20.loopexit, %lpad20.loopexit.split-lp, %ehcleanup, %cleanup.action
-  %.pn.pn = phi { ptr, i32 } [ %.pn30, %cleanup.action ], [ %11, %ehcleanup ], [ %lpad.loopexit, %lpad20.loopexit ], [ %lpad.loopexit.split-lp, %lpad20.loopexit.split-lp ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn30, %cleanup.action ], [ %10, %ehcleanup ], [ %lpad.loopexit, %lpad20.loopexit ], [ %lpad.loopexit.split-lp, %lpad20.loopexit.split-lp ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name) #25
   call void @_ZNSt10unique_ptrIN4cvc58internal15ResourceManager10StatisticsESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %d_statistics) #25
   br label %ehcleanup41

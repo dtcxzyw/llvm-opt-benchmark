@@ -1376,8 +1376,7 @@ _.exit45.i:                                       ; preds = %if.end3.i42.i, %if.
 if.end23.i:                                       ; preds = %hasheq.exit.i
   %base_graph.i = getelementptr inbounds i8, ptr %cur_g.054.i, i64 88
   %23 = load ptr, ptr %base_graph.i, align 8
-  %24 = and i64 %indvars.iv.next.i, 4294967295
-  %tobool7.not.i = icmp eq i64 %24, 0
+  %tobool7.not.i = icmp eq i64 %indvars.iv.next.i, 0
   br i1 %tobool7.not.i, label %while.end.i, label %while.body.i, !llvm.loop !9
 
 while.end.i:                                      ; preds = %if.end23.i, %if.then20
@@ -1386,16 +1385,16 @@ while.end.i:                                      ; preds = %if.end23.i, %if.the
 
 if.then25.i:                                      ; preds = %while.end.i
   %num_commits_in_base.i = getelementptr inbounds i8, ptr %graph_chain.087, i64 80
-  %25 = load i32, ptr %num_commits_in_base.i, align 8
+  %24 = load i32, ptr %num_commits_in_base.i, align 8
   %num_commits.i = getelementptr inbounds i8, ptr %graph_chain.087, i64 20
-  %26 = load i32, ptr %num_commits.i, align 4
-  %27 = xor i32 %26, -1
-  %cmp28.i = icmp ugt i32 %25, %27
+  %25 = load i32, ptr %num_commits.i, align 4
+  %26 = xor i32 %25, -1
+  %cmp28.i = icmp ugt i32 %24, %26
   br i1 %cmp28.i, label %if.then30.i, label %if.end34.i
 
 if.then30.i:                                      ; preds = %if.then25.i
-  %28 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i47.i = icmp eq i32 %28, 0
+  %27 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i47.i = icmp eq i32 %27, 0
   br i1 %tobool1.not.i47.i, label %_.exit51.i, label %if.end3.i48.i
 
 if.end3.i48.i:                                    ; preds = %if.then30.i
@@ -1405,46 +1404,46 @@ if.end3.i48.i:                                    ; preds = %if.then30.i
   br label %_.exit51.i
 
 _.exit51.i:                                       ; preds = %if.end3.i48.i, %if.then30.i
-  %29 = phi i32 [ %.pre.i, %if.end3.i48.i ], [ %25, %if.then30.i ]
+  %28 = phi i32 [ %.pre.i, %if.end3.i48.i ], [ %24, %if.then30.i ]
   %retval.0.i50.i = phi ptr [ %call.i49.i, %if.end3.i48.i ], [ @.str.41, %if.then30.i ]
-  %conv33.i = zext i32 %29 to i64
+  %conv33.i = zext i32 %28 to i64
   call void (ptr, ...) @warning(ptr noundef %retval.0.i50.i, i64 noundef %conv33.i) #22
   br label %while.body.i28.preheader
 
 if.end34.i:                                       ; preds = %if.then25.i
-  %add.i = add i32 %26, %25
+  %add.i = add i32 %25, %24
   %num_commits_in_base37.i = getelementptr inbounds i8, ptr %call1.i, i64 80
   store i32 %add.i, ptr %num_commits_in_base37.i, align 8
   br label %for.inc30
 
 while.body.i28:                                   ; preds = %while.body.i28.preheader, %if.end.i33
-  %g.addr.09.i = phi ptr [ %30, %if.end.i33 ], [ %call1.i, %while.body.i28.preheader ]
+  %g.addr.09.i = phi ptr [ %29, %if.end.i33 ], [ %call1.i, %while.body.i28.preheader ]
   %base_graph.i29 = getelementptr inbounds i8, ptr %g.addr.09.i, i64 88
-  %30 = load ptr, ptr %base_graph.i29, align 8
-  %31 = load ptr, ptr %g.addr.09.i, align 8
-  %tobool1.not.i30 = icmp eq ptr %31, null
+  %29 = load ptr, ptr %base_graph.i29, align 8
+  %30 = load ptr, ptr %g.addr.09.i, align 8
+  %tobool1.not.i30 = icmp eq ptr %30, null
   br i1 %tobool1.not.i30, label %if.end.i33, label %if.then.i31
 
 if.then.i31:                                      ; preds = %while.body.i28
   %data_len.i = getelementptr inbounds i8, ptr %g.addr.09.i, i64 8
-  %32 = load i64, ptr %data_len.i, align 8
-  %call.i32 = call i32 @munmap(ptr noundef nonnull %31, i64 noundef %32) #22
+  %31 = load i64, ptr %data_len.i, align 8
+  %call.i32 = call i32 @munmap(ptr noundef nonnull %30, i64 noundef %31) #22
   br label %if.end.i33
 
 if.end.i33:                                       ; preds = %if.then.i31, %while.body.i28
   %filename.i34 = getelementptr inbounds i8, ptr %g.addr.09.i, i64 64
-  %33 = load ptr, ptr %filename.i34, align 8
-  call void @free(ptr noundef %33) #22
+  %32 = load ptr, ptr %filename.i34, align 8
+  call void @free(ptr noundef %32) #22
   %bloom_filter_settings.i = getelementptr inbounds i8, ptr %g.addr.09.i, i64 208
-  %34 = load ptr, ptr %bloom_filter_settings.i, align 8
-  call void @free(ptr noundef %34) #22
+  %33 = load ptr, ptr %bloom_filter_settings.i, align 8
+  call void @free(ptr noundef %33) #22
   call void @free(ptr noundef nonnull %g.addr.09.i) #22
-  %tobool.not.i35 = icmp eq ptr %30, null
+  %tobool.not.i35 = icmp eq ptr %29, null
   br i1 %tobool.not.i35, label %if.then27, label %while.body.i28, !llvm.loop !10
 
 if.then27:                                        ; preds = %if.end11, %load_commit_graph_one.exit, %if.end.i33
-  %35 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i38 = icmp eq i32 %35, 0
+  %34 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i38 = icmp eq i32 %34, 0
   br i1 %tobool1.not.i38, label %_.exit42, label %if.end3.i39
 
 if.end3.i39:                                      ; preds = %if.then27
@@ -1474,26 +1473,26 @@ while.body.i43.preheader:                         ; preds = %for.inc30, %for.end
   br label %while.body.i43
 
 while.body.i43:                                   ; preds = %while.body.i43.preheader, %while.body.i43
-  %p.08.i = phi ptr [ %37, %while.body.i43 ], [ %graph_chain.071121, %while.body.i43.preheader ]
+  %p.08.i = phi ptr [ %36, %while.body.i43 ], [ %graph_chain.071121, %while.body.i43.preheader ]
   %read_generation_data2.i = getelementptr inbounds i8, ptr %p.08.i, i64 84
-  %36 = load i32, ptr %read_generation_data2.i, align 4
+  %35 = load i32, ptr %read_generation_data2.i, align 4
   %base_graph.i44 = getelementptr inbounds i8, ptr %p.08.i, i64 88
-  %37 = load ptr, ptr %base_graph.i44, align 8
-  %tobool.i = icmp ne i32 %36, 0
-  %tobool1.i = icmp ne ptr %37, null
-  %38 = select i1 %tobool.i, i1 %tobool1.i, i1 false
-  br i1 %38, label %while.body.i43, label %while.end.i45, !llvm.loop !12
+  %36 = load ptr, ptr %base_graph.i44, align 8
+  %tobool.i = icmp ne i32 %35, 0
+  %tobool1.i = icmp ne ptr %36, null
+  %37 = select i1 %tobool.i, i1 %tobool1.i, i1 false
+  br i1 %37, label %while.body.i43, label %while.end.i45, !llvm.loop !12
 
 while.end.i45:                                    ; preds = %while.body.i43
   br i1 %tobool.i, label %validate_mixed_generation_chain.exit, label %while.body6.i
 
 while.body6.i:                                    ; preds = %while.end.i45, %while.body6.i
-  %g.addr.010.i = phi ptr [ %39, %while.body6.i ], [ %graph_chain.071121, %while.end.i45 ]
+  %g.addr.010.i = phi ptr [ %38, %while.body6.i ], [ %graph_chain.071121, %while.end.i45 ]
   %read_generation_data7.i = getelementptr inbounds i8, ptr %g.addr.010.i, i64 84
   store i32 0, ptr %read_generation_data7.i, align 4
   %base_graph8.i = getelementptr inbounds i8, ptr %g.addr.010.i, i64 88
-  %39 = load ptr, ptr %base_graph8.i, align 8
-  %tobool5.not.i = icmp eq ptr %39, null
+  %38 = load ptr, ptr %base_graph8.i, align 8
+  %tobool5.not.i = icmp eq ptr %38, null
   br i1 %tobool5.not.i, label %validate_mixed_generation_chain.exit, label %while.body6.i, !llvm.loop !13
 
 validate_mixed_generation_chain.exit:             ; preds = %while.body6.i, %entry, %for.end31, %while.end.i45

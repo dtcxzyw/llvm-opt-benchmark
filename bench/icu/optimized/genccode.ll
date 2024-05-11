@@ -135,8 +135,7 @@ if.end34.us:                                      ; preds = %if.then32.us, %whil
   %cond49.us = select i1 %tobool45.not.us, ptr null, ptr %25
   tail call void @writeCCode(ptr noundef %call30.us, ptr noundef %19, ptr noundef %cond.us, ptr noundef %cond43.us, ptr noundef %cond49.us, ptr noundef null, i64 noundef 0) #4
   %indvars.iv.next69 = add nsw i64 %indvars.iv68, -1
-  %26 = and i64 %indvars.iv.next69, 4294967295
-  %tobool27.not.us = icmp eq i64 %26, 0
+  %tobool27.not.us = icmp eq i64 %indvars.iv.next69, 0
   br i1 %tobool27.not.us, label %return, label %while.body.us, !llvm.loop !5
 
 while.body.lr.ph.split.us20:                      ; preds = %while.body.lr.ph
@@ -145,78 +144,75 @@ while.body.lr.ph.split.us20:                      ; preds = %while.body.lr.ph
 while.body.us21.us:                               ; preds = %while.body.lr.ph.split.us20, %while.body.us21.us
   %indvars.iv65 = phi i64 [ %indvars.iv.next66, %while.body.us21.us ], [ %16, %while.body.lr.ph.split.us20 ]
   %arrayidx29.us24.us = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv65
-  %27 = load ptr, ptr %arrayidx29.us24.us, align 8
-  %call30.us25.us = tail call ptr @getLongPathname(ptr noundef %27) #4
-  %28 = load ptr, ptr @stdout, align 8
-  %call33.us27.us = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull %message.0, ptr noundef %call30.us25.us)
-  %29 = load ptr, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 2, i32 1), align 8
-  %30 = load i8, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 5, i32 6), align 2
-  %tobool52.not.us.us = icmp eq i8 %30, 0
-  %31 = load ptr, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 5, i32 1), align 16
-  %cond56.us.us = select i1 %tobool52.not.us.us, ptr null, ptr %31
-  %32 = load i8, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 9, i32 6), align 2
-  %tobool58.not.us.us = icmp eq i8 %32, 0
-  %33 = load ptr, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 9, i32 1), align 16
-  %cond62.us.us = select i1 %tobool58.not.us.us, ptr null, ptr %33
-  tail call void @writeAssemblyCode(ptr noundef %call30.us25.us, ptr noundef %29, ptr noundef %cond56.us.us, ptr noundef %cond62.us.us, ptr noundef null, i64 noundef 0) #4
+  %26 = load ptr, ptr %arrayidx29.us24.us, align 8
+  %call30.us25.us = tail call ptr @getLongPathname(ptr noundef %26) #4
+  %27 = load ptr, ptr @stdout, align 8
+  %call33.us27.us = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull %message.0, ptr noundef %call30.us25.us)
+  %28 = load ptr, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 2, i32 1), align 8
+  %29 = load i8, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 5, i32 6), align 2
+  %tobool52.not.us.us = icmp eq i8 %29, 0
+  %30 = load ptr, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 5, i32 1), align 16
+  %cond56.us.us = select i1 %tobool52.not.us.us, ptr null, ptr %30
+  %31 = load i8, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 9, i32 6), align 2
+  %tobool58.not.us.us = icmp eq i8 %31, 0
+  %32 = load ptr, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 9, i32 1), align 16
+  %cond62.us.us = select i1 %tobool58.not.us.us, ptr null, ptr %32
+  tail call void @writeAssemblyCode(ptr noundef %call30.us25.us, ptr noundef %28, ptr noundef %cond56.us.us, ptr noundef %cond62.us.us, ptr noundef null, i64 noundef 0) #4
   %indvars.iv.next66 = add nsw i64 %indvars.iv65, -1
-  %34 = and i64 %indvars.iv.next66, 4294967295
-  %tobool27.not.us31.us = icmp eq i64 %34, 0
+  %tobool27.not.us31.us = icmp eq i64 %indvars.iv.next66, 0
   br i1 %tobool27.not.us31.us, label %return, label %while.body.us21.us, !llvm.loop !5
 
 while.body.us21:                                  ; preds = %while.body.lr.ph.split.us20, %while.body.us21
   %indvars.iv62 = phi i64 [ %indvars.iv.next63, %while.body.us21 ], [ %16, %while.body.lr.ph.split.us20 ]
   %arrayidx29.us24 = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv62
-  %35 = load ptr, ptr %arrayidx29.us24, align 8
-  %call30.us25 = tail call ptr @getLongPathname(ptr noundef %35) #4
-  %36 = load ptr, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 2, i32 1), align 8
-  %37 = load i8, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 5, i32 6), align 2
-  %tobool52.not.us = icmp eq i8 %37, 0
-  %38 = load ptr, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 5, i32 1), align 16
-  %cond56.us = select i1 %tobool52.not.us, ptr null, ptr %38
-  %39 = load i8, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 9, i32 6), align 2
-  %tobool58.not.us = icmp eq i8 %39, 0
-  %40 = load ptr, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 9, i32 1), align 16
-  %cond62.us = select i1 %tobool58.not.us, ptr null, ptr %40
-  tail call void @writeAssemblyCode(ptr noundef %call30.us25, ptr noundef %36, ptr noundef %cond56.us, ptr noundef %cond62.us, ptr noundef null, i64 noundef 0) #4
+  %33 = load ptr, ptr %arrayidx29.us24, align 8
+  %call30.us25 = tail call ptr @getLongPathname(ptr noundef %33) #4
+  %34 = load ptr, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 2, i32 1), align 8
+  %35 = load i8, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 5, i32 6), align 2
+  %tobool52.not.us = icmp eq i8 %35, 0
+  %36 = load ptr, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 5, i32 1), align 16
+  %cond56.us = select i1 %tobool52.not.us, ptr null, ptr %36
+  %37 = load i8, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 9, i32 6), align 2
+  %tobool58.not.us = icmp eq i8 %37, 0
+  %38 = load ptr, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 9, i32 1), align 16
+  %cond62.us = select i1 %tobool58.not.us, ptr null, ptr %38
+  tail call void @writeAssemblyCode(ptr noundef %call30.us25, ptr noundef %34, ptr noundef %cond56.us, ptr noundef %cond62.us, ptr noundef null, i64 noundef 0) #4
   %indvars.iv.next63 = add nsw i64 %indvars.iv62, -1
-  %41 = and i64 %indvars.iv.next63, 4294967295
-  %tobool27.not.us31 = icmp eq i64 %41, 0
+  %tobool27.not.us31 = icmp eq i64 %indvars.iv.next63, 0
   br i1 %tobool27.not.us31, label %return, label %while.body.us21, !llvm.loop !5
 
 while.body.us33:                                  ; preds = %while.body.lr.ph, %if.end34.us40
   %indvars.iv = phi i64 [ %indvars.iv.next, %if.end34.us40 ], [ %16, %while.body.lr.ph ]
   %arrayidx29.us36 = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv
-  %42 = load ptr, ptr %arrayidx29.us36, align 8
-  %call30.us37 = tail call ptr @getLongPathname(ptr noundef %42) #4
+  %39 = load ptr, ptr %arrayidx29.us36, align 8
+  %call30.us37 = tail call ptr @getLongPathname(ptr noundef %39) #4
   br i1 %tobool24.not.not, label %if.then32.us38, label %if.end34.us40
 
 if.then32.us38:                                   ; preds = %while.body.us33
-  %43 = load ptr, ptr @stdout, align 8
-  %call33.us39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %43, ptr noundef nonnull %message.0, ptr noundef %call30.us37)
+  %40 = load ptr, ptr @stdout, align 8
+  %call33.us39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef nonnull %message.0, ptr noundef %call30.us37)
   br label %if.end34.us40
 
 if.end34.us40:                                    ; preds = %if.then32.us38, %while.body.us33
-  %44 = load ptr, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 2, i32 1), align 8
-  %45 = load i8, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 5, i32 6), align 2
-  %tobool65.not.us = icmp eq i8 %45, 0
-  %46 = load ptr, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 5, i32 1), align 16
-  %cond69.us = select i1 %tobool65.not.us, ptr null, ptr %46
-  %47 = load i8, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 7, i32 6), align 2
-  %tobool71.not.us = icmp eq i8 %47, 0
-  %48 = load ptr, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 7, i32 1), align 16
-  %cond75.us = select i1 %tobool71.not.us, ptr null, ptr %48
-  %49 = load i8, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 9, i32 6), align 2
-  %tobool77.not.us = icmp eq i8 %49, 0
-  %50 = load ptr, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 9, i32 1), align 16
-  %cond81.us = select i1 %tobool77.not.us, ptr null, ptr %50
-  %51 = load i8, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 8, i32 6), align 2
-  %tobool82.not.us = icmp eq i8 %51, 0
+  %41 = load ptr, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 2, i32 1), align 8
+  %42 = load i8, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 5, i32 6), align 2
+  %tobool65.not.us = icmp eq i8 %42, 0
+  %43 = load ptr, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 5, i32 1), align 16
+  %cond69.us = select i1 %tobool65.not.us, ptr null, ptr %43
+  %44 = load i8, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 7, i32 6), align 2
+  %tobool71.not.us = icmp eq i8 %44, 0
+  %45 = load ptr, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 7, i32 1), align 16
+  %cond75.us = select i1 %tobool71.not.us, ptr null, ptr %45
+  %46 = load i8, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 9, i32 6), align 2
+  %tobool77.not.us = icmp eq i8 %46, 0
+  %47 = load ptr, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 9, i32 1), align 16
+  %cond81.us = select i1 %tobool77.not.us, ptr null, ptr %47
+  %48 = load i8, ptr getelementptr inbounds ([11 x %struct.UOption], ptr @options, i64 0, i64 8, i32 6), align 2
+  %tobool82.not.us = icmp eq i8 %48, 0
   %conv83.us = zext i1 %tobool82.not.us to i8
-  tail call void @writeObjectCode(ptr noundef %call30.us37, ptr noundef %44, ptr noundef %cond69.us, ptr noundef %cond75.us, ptr noundef %cond81.us, ptr noundef null, i64 noundef 0, i8 noundef signext %conv83.us) #4
+  tail call void @writeObjectCode(ptr noundef %call30.us37, ptr noundef %41, ptr noundef %cond69.us, ptr noundef %cond75.us, ptr noundef %cond81.us, ptr noundef null, i64 noundef 0, i8 noundef signext %conv83.us) #4
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %52 = and i64 %indvars.iv.next, 4294967295
-  %tobool27.not.us43 = icmp eq i64 %52, 0
+  %tobool27.not.us43 = icmp eq i64 %indvars.iv.next, 0
   br i1 %tobool27.not.us43, label %return, label %while.body.us33, !llvm.loop !5
 
 while.body.lr.ph.split:                           ; preds = %while.body.lr.ph
@@ -225,23 +221,21 @@ while.body.lr.ph.split:                           ; preds = %while.body.lr.ph
 while.body.us44:                                  ; preds = %while.body.lr.ph.split, %while.body.us44
   %indvars.iv74 = phi i64 [ %indvars.iv.next75, %while.body.us44 ], [ %16, %while.body.lr.ph.split ]
   %arrayidx29.us47 = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv74
-  %53 = load ptr, ptr %arrayidx29.us47, align 8
-  %call30.us48 = tail call ptr @getLongPathname(ptr noundef %53) #4
-  %54 = load ptr, ptr @stdout, align 8
-  %call33.us50 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %54, ptr noundef nonnull %message.0, ptr noundef %call30.us48)
+  %49 = load ptr, ptr %arrayidx29.us47, align 8
+  %call30.us48 = tail call ptr @getLongPathname(ptr noundef %49) #4
+  %50 = load ptr, ptr @stdout, align 8
+  %call33.us50 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef nonnull %message.0, ptr noundef %call30.us48)
   %indvars.iv.next75 = add nsw i64 %indvars.iv74, -1
-  %55 = and i64 %indvars.iv.next75, 4294967295
-  %tobool27.not.us53 = icmp eq i64 %55, 0
+  %tobool27.not.us53 = icmp eq i64 %indvars.iv.next75, 0
   br i1 %tobool27.not.us53, label %return, label %while.body.us44, !llvm.loop !5
 
 while.body:                                       ; preds = %while.body.lr.ph.split, %while.body
   %indvars.iv71 = phi i64 [ %indvars.iv.next72, %while.body ], [ %16, %while.body.lr.ph.split ]
   %arrayidx29 = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv71
-  %56 = load ptr, ptr %arrayidx29, align 8
-  %call30 = tail call ptr @getLongPathname(ptr noundef %56) #4
+  %51 = load ptr, ptr %arrayidx29, align 8
+  %call30 = tail call ptr @getLongPathname(ptr noundef %51) #4
   %indvars.iv.next72 = add nsw i64 %indvars.iv71, -1
-  %57 = and i64 %indvars.iv.next72, 4294967295
-  %tobool27.not = icmp eq i64 %57, 0
+  %tobool27.not = icmp eq i64 %indvars.iv.next72, 0
   br i1 %tobool27.not, label %return, label %while.body, !llvm.loop !5
 
 return:                                           ; preds = %if.end34.us40, %while.body.us21, %while.body.us21.us, %if.end34.us, %while.body, %while.body.us44, %if.end23, %if.then6, %if.then15

@@ -744,7 +744,7 @@ define void @Abc_RwrExpWithCut_rec(ptr noundef %0, ptr nocapture noundef readonl
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %Vec_PtrFind.exit22.thread, %3
-  %.tr = phi ptr [ %0, %3 ], [ %44, %Vec_PtrFind.exit22.thread ]
+  %.tr = phi ptr [ %0, %3 ], [ %39, %Vec_PtrFind.exit22.thread ]
   %6 = load i32, ptr %4, align 4
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph.i, label %Vec_PtrFind.exit22.thread
@@ -766,70 +766,60 @@ tailrecurse:                                      ; preds = %Vec_PtrFind.exit22.
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %Vec_PtrFind.exit.thread, label %9, !llvm.loop !10
 
-Vec_PtrFind.exit:                                 ; preds = %9
-  %14 = and i64 %indvars.iv.i, 2147483648
-  %15 = icmp eq i64 %14, 0
-  br i1 %15, label %26, label %Vec_PtrFind.exit.thread
+Vec_PtrFind.exit.thread:                          ; preds = %13
+  %14 = ptrtoint ptr %.tr to i64
+  %15 = xor i64 %14, 1
+  %16 = inttoptr i64 %15 to ptr
+  br label %17
 
-Vec_PtrFind.exit.thread:                          ; preds = %13, %Vec_PtrFind.exit
-  %16 = ptrtoint ptr %.tr to i64
-  %17 = xor i64 %16, 1
-  %18 = inttoptr i64 %17 to ptr
-  br label %19
+17:                                               ; preds = %21, %Vec_PtrFind.exit.thread
+  %indvars.iv.i18 = phi i64 [ 0, %Vec_PtrFind.exit.thread ], [ %indvars.iv.next.i19, %21 ]
+  %18 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv.i18
+  %19 = load ptr, ptr %18, align 8
+  %20 = icmp eq ptr %19, %16
+  br i1 %20, label %Vec_PtrFind.exit, label %21
 
-19:                                               ; preds = %23, %Vec_PtrFind.exit.thread
-  %indvars.iv.i18 = phi i64 [ 0, %Vec_PtrFind.exit.thread ], [ %indvars.iv.next.i19, %23 ]
-  %20 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv.i18
-  %21 = load ptr, ptr %20, align 8
-  %22 = icmp eq ptr %21, %18
-  br i1 %22, label %Vec_PtrFind.exit22, label %23
-
-23:                                               ; preds = %19
+21:                                               ; preds = %17
   %indvars.iv.next.i19 = add nuw nsw i64 %indvars.iv.i18, 1
   %exitcond.not.i20 = icmp eq i64 %indvars.iv.next.i19, %wide.trip.count.i
-  br i1 %exitcond.not.i20, label %Vec_PtrFind.exit22.thread, label %19, !llvm.loop !10
+  br i1 %exitcond.not.i20, label %Vec_PtrFind.exit22.thread, label %17, !llvm.loop !10
 
-Vec_PtrFind.exit22:                               ; preds = %19
-  %24 = and i64 %indvars.iv.i18, 2147483648
-  %25 = icmp eq i64 %24, 0
-  br i1 %25, label %26, label %Vec_PtrFind.exit22.thread
-
-26:                                               ; preds = %Vec_PtrFind.exit22, %Vec_PtrFind.exit
+Vec_PtrFind.exit:                                 ; preds = %9, %17
   %.not = icmp eq i32 %2, 0
-  %27 = ptrtoint ptr %.tr to i64
-  %28 = and i64 %27, -2
-  %29 = inttoptr i64 %28 to ptr
-  %30 = getelementptr inbounds i8, ptr %29, i64 20
-  %31 = load i32, ptr %30, align 4
+  %22 = ptrtoint ptr %.tr to i64
+  %23 = and i64 %22, -2
+  %24 = inttoptr i64 %23 to ptr
+  %25 = getelementptr inbounds i8, ptr %24, i64 20
+  %26 = load i32, ptr %25, align 4
   %. = select i1 %.not, i32 32, i32 16
-  %32 = or i32 %31, %.
-  store i32 %32, ptr %30, align 4
+  %27 = or i32 %26, %.
+  store i32 %27, ptr %25, align 4
   ret void
 
-Vec_PtrFind.exit22.thread:                        ; preds = %23, %tailrecurse, %Vec_PtrFind.exit22
+Vec_PtrFind.exit22.thread:                        ; preds = %21, %tailrecurse
   %.val = load ptr, ptr %.tr, align 8
-  %33 = getelementptr i8, ptr %.tr, i64 32
-  %.val12 = load ptr, ptr %33, align 8
-  %34 = getelementptr i8, ptr %.val, i64 32
-  %.val.val = load ptr, ptr %34, align 8
+  %28 = getelementptr i8, ptr %.tr, i64 32
+  %.val12 = load ptr, ptr %28, align 8
+  %29 = getelementptr i8, ptr %.val, i64 32
+  %.val.val = load ptr, ptr %29, align 8
   %.val12.val = load i32, ptr %.val12, align 4
-  %35 = getelementptr i8, ptr %.val.val, i64 8
-  %.val.val.val = load ptr, ptr %35, align 8
-  %36 = sext i32 %.val12.val to i64
-  %37 = getelementptr inbounds ptr, ptr %.val.val.val, i64 %36
-  %38 = load ptr, ptr %37, align 8
-  tail call void @Abc_RwrExpWithCut_rec(ptr noundef %38, ptr noundef %1, i32 noundef %2)
+  %30 = getelementptr i8, ptr %.val.val, i64 8
+  %.val.val.val = load ptr, ptr %30, align 8
+  %31 = sext i32 %.val12.val to i64
+  %32 = getelementptr inbounds ptr, ptr %.val.val.val, i64 %31
+  %33 = load ptr, ptr %32, align 8
+  tail call void @Abc_RwrExpWithCut_rec(ptr noundef %33, ptr noundef %1, i32 noundef %2)
   %.val13 = load ptr, ptr %.tr, align 8
-  %.val14 = load ptr, ptr %33, align 8
-  %39 = getelementptr i8, ptr %.val13, i64 32
-  %.val13.val = load ptr, ptr %39, align 8
-  %40 = getelementptr i8, ptr %.val14, i64 4
-  %.val14.val = load i32, ptr %40, align 4
-  %41 = getelementptr i8, ptr %.val13.val, i64 8
-  %.val13.val.val = load ptr, ptr %41, align 8
-  %42 = sext i32 %.val14.val to i64
-  %43 = getelementptr inbounds ptr, ptr %.val13.val.val, i64 %42
-  %44 = load ptr, ptr %43, align 8
+  %.val14 = load ptr, ptr %28, align 8
+  %34 = getelementptr i8, ptr %.val13, i64 32
+  %.val13.val = load ptr, ptr %34, align 8
+  %35 = getelementptr i8, ptr %.val14, i64 4
+  %.val14.val = load i32, ptr %35, align 4
+  %36 = getelementptr i8, ptr %.val13.val, i64 8
+  %.val13.val.val = load ptr, ptr %36, align 8
+  %37 = sext i32 %.val14.val to i64
+  %38 = getelementptr inbounds ptr, ptr %.val13.val.val, i64 %37
+  %39 = load ptr, ptr %38, align 8
   br label %tailrecurse
 }
 

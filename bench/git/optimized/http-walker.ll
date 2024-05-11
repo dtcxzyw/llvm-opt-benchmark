@@ -1030,7 +1030,7 @@ land.rhs88.preheader:                             ; preds = %if.then81
 
 land.rhs88:                                       ; preds = %land.rhs88.preheader, %do.end
   %indvars.iv141 = phi i64 [ %30, %land.rhs88.preheader ], [ %indvars.iv.next142, %do.end ]
-  %serverlen.0122 = phi i32 [ %conv83, %land.rhs88.preheader ], [ %33, %do.end ]
+  %serverlen.0122 = phi i32 [ %conv83, %land.rhs88.preheader ], [ %dec95.lcssa, %do.end ]
   %add.ptr90 = getelementptr inbounds i8, ptr %24, i64 %indvars.iv141
   %bcmp84 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %add.ptr90, ptr noundef nonnull dereferenceable(3) @.str.17, i64 3)
   %tobool92.not = icmp eq i32 %bcmp84, 0
@@ -1043,17 +1043,21 @@ do.body.preheader:                                ; preds = %land.rhs88
 do.body:                                          ; preds = %do.body.preheader, %land.rhs97
   %indvars.iv137 = phi i64 [ %32, %do.body.preheader ], [ %indvars.iv.next138, %land.rhs97 ]
   %indvars.iv.next138 = add nsw i64 %indvars.iv137, -1
-  %33 = trunc nsw i64 %indvars.iv.next138 to i32
-  %tobool96.not = icmp eq i32 %33, 0
+  %tobool96.not = icmp eq i64 %indvars.iv.next138, 0
   br i1 %tobool96.not, label %do.end, label %land.rhs97
 
 land.rhs97:                                       ; preds = %do.body
   %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv137
-  %34 = load i8, ptr %gep, align 1
-  %cmp101.not = icmp eq i8 %34, 47
-  br i1 %cmp101.not, label %do.end, label %do.body, !llvm.loop !15
+  %33 = load i8, ptr %gep, align 1
+  %cmp101.not = icmp eq i8 %33, 47
+  br i1 %cmp101.not, label %do.end.split.loop.exit149, label %do.body, !llvm.loop !15
 
-do.end:                                           ; preds = %do.body, %land.rhs97
+do.end.split.loop.exit149:                        ; preds = %land.rhs97
+  %34 = trunc nsw i64 %indvars.iv.next138 to i32
+  br label %do.end
+
+do.end:                                           ; preds = %do.body, %do.end.split.loop.exit149
+  %dec95.lcssa = phi i32 [ %34, %do.end.split.loop.exit149 ], [ 0, %do.body ]
   %indvars.iv.next142 = add nsw i64 %indvars.iv141, 3
   %cmp86 = icmp slt i64 %indvars.iv141, %invariant.op
   br i1 %cmp86, label %land.rhs88, label %if.end143.loopexit, !llvm.loop !16
@@ -1078,7 +1082,7 @@ if.then117:                                       ; preds = %if.else114
   br i1 %or.cond87, label %if.then145, label %if.end176
 
 if.end143.loopexit:                               ; preds = %land.rhs88, %do.end
-  %serverlen.0.lcssa.ph = phi i32 [ %33, %do.end ], [ %serverlen.0122, %land.rhs88 ]
+  %serverlen.0.lcssa.ph = phi i32 [ %dec95.lcssa, %do.end ], [ %serverlen.0122, %land.rhs88 ]
   %i.1.lcssa.ph.in = phi i64 [ %indvars.iv.next142, %do.end ], [ %indvars.iv141, %land.rhs88 ]
   %i.1.lcssa.ph = trunc i64 %i.1.lcssa.ph.in to i32
   br label %if.end143

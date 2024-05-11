@@ -26,22 +26,22 @@ tailrecurse.preheader:                            ; preds = %4
   %5 = sext i32 %3 to i64
   br label %tailrecurse
 
-tailrecurse:                                      ; preds = %tailrecurse.preheader, %13
-  %indvars.iv = phi i64 [ %5, %tailrecurse.preheader ], [ %indvars.iv.next, %13 ]
+tailrecurse:                                      ; preds = %tailrecurse.preheader, %12
+  %indvars.iv = phi i64 [ %5, %tailrecurse.preheader ], [ %indvars.iv.next, %12 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %6 = trunc nsw i64 %indvars.iv.next to i32
-  %7 = icmp eq i32 %6, 0
-  br i1 %7, label %8, label %13
+  %6 = icmp eq i64 %indvars.iv.next, 0
+  br i1 %6, label %7, label %12
 
-8:                                                ; preds = %tailrecurse
-  %9 = load i32, ptr %2, align 4
-  %10 = icmp eq i64 %1, 6148914691236517205
-  %11 = zext i1 %10 to i32
-  %12 = xor i32 %9, %11
+7:                                                ; preds = %tailrecurse
+  %8 = load i32, ptr %2, align 4
+  %9 = icmp eq i64 %1, 6148914691236517205
+  %10 = zext i1 %9 to i32
+  %11 = xor i32 %8, %10
   br label %40
 
-13:                                               ; preds = %tailrecurse
-  %14 = shl nuw i32 1, %6
+12:                                               ; preds = %tailrecurse
+  %13 = trunc nsw i64 %indvars.iv.next to i32
+  %14 = shl nuw i32 1, %13
   %15 = zext nneg i32 %14 to i64
   %16 = lshr i64 %1, %15
   %17 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv.next
@@ -51,17 +51,17 @@ tailrecurse:                                      ; preds = %tailrecurse.prehead
   %.not35 = icmp eq i64 %20, 0
   br i1 %.not35, label %tailrecurse, label %21
 
-21:                                               ; preds = %13
+21:                                               ; preds = %12
   %22 = and i64 %18, %1
   %23 = shl i64 %22, %15
   %24 = or i64 %23, %22
-  %25 = tail call i32 @Dau_DsdToGiaCompose_rec(ptr noundef %0, i64 noundef %24, ptr noundef %2, i32 noundef %6)
+  %25 = tail call i32 @Dau_DsdToGiaCompose_rec(ptr noundef %0, i64 noundef %24, ptr noundef %2, i32 noundef %13)
   %26 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv.next
   %27 = load i64, ptr %26, align 8
   %28 = and i64 %27, %1
   %29 = lshr i64 %28, %15
   %30 = or i64 %29, %28
-  %31 = tail call i32 @Dau_DsdToGiaCompose_rec(ptr noundef %0, i64 noundef %30, ptr noundef %2, i32 noundef %6)
+  %31 = tail call i32 @Dau_DsdToGiaCompose_rec(ptr noundef %0, i64 noundef %30, ptr noundef %2, i32 noundef %13)
   %32 = getelementptr inbounds i8, ptr %0, i64 40
   %33 = load ptr, ptr %32, align 8
   %.not34 = icmp eq ptr %33, null
@@ -80,8 +80,8 @@ tailrecurse:                                      ; preds = %tailrecurse.prehead
 .loopexit:                                        ; preds = %4
   br label %40
 
-40:                                               ; preds = %4, %.loopexit, %38, %36, %8
-  %.0 = phi i32 [ %12, %8 ], [ %37, %36 ], [ %39, %38 ], [ 0, %.loopexit ], [ 1, %4 ]
+40:                                               ; preds = %4, %.loopexit, %38, %36, %7
+  %.0 = phi i32 [ %11, %7 ], [ %37, %36 ], [ %39, %38 ], [ 0, %.loopexit ], [ 1, %4 ]
   ret i32 %.0
 }
 
@@ -1104,9 +1104,8 @@ Gia_ManAppendAnd2.exit:                           ; preds = %37, %34, %32, %30, 
   br i1 %273, label %.lr.ph.i, label %Dau_DsdAddToArray.exit, !llvm.loop !13
 
 Dau_DsdAddToArray.exit:                           ; preds = %.lr.ph.i, %269, %249
-  %274 = and i64 %indvars.iv.next, 4294967295
-  %275 = icmp eq i64 %274, 1
-  br i1 %275, label %tailrecurse._crit_edge, label %14
+  %274 = icmp eq i64 %indvars.iv.next, 1
+  br i1 %274, label %tailrecurse._crit_edge, label %14
 }
 
 ; Function Attrs: nounwind uwtable

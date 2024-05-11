@@ -11472,58 +11472,57 @@ define internal fastcc i32 @nsvg__parseColorRGB(ptr noundef %0) unnamed_addr #14
   br i1 %exitcond.not, label %.critedge4.thread.thread, label %.preheader54, !llvm.loop !101
 
 .critedge4.thread:                                ; preds = %44, %.critedge4, %31, %.critedge, %19, %27
-  %50 = and i64 %indvars.iv, 4294967295
-  %51 = icmp eq i64 %50, 3
-  br i1 %51, label %.critedge4.thread.thread, label %61
+  %50 = icmp eq i64 %indvars.iv, 3
+  br i1 %50, label %.critedge4.thread.thread, label %60
 
 .critedge4.thread.thread:                         ; preds = %48, %.critedge4.thread
-  %52 = load <2 x float>, ptr %3, align 8
-  %53 = fmul <2 x float> %52, <float 0x4004666660000000, float 0x4004666660000000>
-  %54 = call <2 x float> @llvm.round.v2f32(<2 x float> %53)
-  %55 = fptoui <2 x float> %54 to <2 x i32>
-  store <2 x i32> %55, ptr %2, align 8
-  %56 = getelementptr inbounds i8, ptr %3, i64 8
-  %57 = load float, ptr %56, align 8
-  %58 = fmul float %57, 0x4004666660000000
-  %59 = call float @llvm.round.f32(float %58)
-  %60 = fptoui float %59 to i32
-  store i32 %60, ptr %5, align 8
+  %51 = load <2 x float>, ptr %3, align 8
+  %52 = fmul <2 x float> %51, <float 0x4004666660000000, float 0x4004666660000000>
+  %53 = call <2 x float> @llvm.round.v2f32(<2 x float> %52)
+  %54 = fptoui <2 x float> %53 to <2 x i32>
+  store <2 x i32> %54, ptr %2, align 8
+  %55 = getelementptr inbounds i8, ptr %3, i64 8
+  %56 = load float, ptr %55, align 8
+  %57 = fmul float %56, 0x4004666660000000
+  %58 = call float @llvm.round.f32(float %57)
+  %59 = fptoui float %58 to i32
+  store i32 %59, ptr %5, align 8
   br label %.preheader113
 
-61:                                               ; preds = %.critedge4.thread
+60:                                               ; preds = %.critedge4.thread
   store i32 128, ptr %5, align 8
   store i32 128, ptr %4, align 4
   store i32 128, ptr %2, align 8
   br label %.preheader113
 
-.preheader113:                                    ; preds = %.critedge4.thread.thread, %61, %1
-  br label %62
+.preheader113:                                    ; preds = %.critedge4.thread.thread, %60, %1
+  br label %61
 
-62:                                               ; preds = %.preheader113, %67
-  %indvars.iv88 = phi i64 [ %indvars.iv.next89, %67 ], [ 0, %.preheader113 ]
-  %63 = getelementptr inbounds [3 x i32], ptr %2, i64 0, i64 %indvars.iv88
-  %64 = load i32, ptr %63, align 4
-  %65 = icmp ugt i32 %64, 255
-  br i1 %65, label %66, label %67
+61:                                               ; preds = %.preheader113, %66
+  %indvars.iv88 = phi i64 [ %indvars.iv.next89, %66 ], [ 0, %.preheader113 ]
+  %62 = getelementptr inbounds [3 x i32], ptr %2, i64 0, i64 %indvars.iv88
+  %63 = load i32, ptr %62, align 4
+  %64 = icmp ugt i32 %63, 255
+  br i1 %64, label %65, label %66
 
-66:                                               ; preds = %62
-  store i32 255, ptr %63, align 4
-  br label %67
+65:                                               ; preds = %61
+  store i32 255, ptr %62, align 4
+  br label %66
 
-67:                                               ; preds = %62, %66
+66:                                               ; preds = %61, %65
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %exitcond91.not = icmp eq i64 %indvars.iv.next89, 3
-  br i1 %exitcond91.not, label %68, label %62, !llvm.loop !102
+  br i1 %exitcond91.not, label %67, label %61, !llvm.loop !102
 
-68:                                               ; preds = %67
-  %69 = load i32, ptr %2, align 8
-  %70 = load i32, ptr %4, align 4
-  %71 = shl i32 %70, 8
-  %72 = or i32 %71, %69
-  %73 = load i32, ptr %5, align 8
-  %74 = shl i32 %73, 16
-  %75 = or i32 %72, %74
-  ret i32 %75
+67:                                               ; preds = %66
+  %68 = load i32, ptr %2, align 8
+  %69 = load i32, ptr %4, align 4
+  %70 = shl i32 %69, 8
+  %71 = or i32 %70, %68
+  %72 = load i32, ptr %5, align 8
+  %73 = shl i32 %72, 16
+  %74 = or i32 %71, %73
+  ret i32 %74
 }
 
 ; Function Attrs: nofree nounwind

@@ -3826,7 +3826,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  br i1 %tobool3.not.i, label %ide_cmd_lba48_transform.exit.thread31, label %ide_cmd_lba48_transform.exit.thread
+  br i1 %tobool3.not.i, label %ide_cmd_lba48_transform.exit.thread32, label %ide_cmd_lba48_transform.exit.thread
 
 if.else.i:                                        ; preds = %if.end
   %hob_nsector.i = getelementptr inbounds i8, ptr %s, i64 660
@@ -3841,33 +3841,49 @@ if.else.i:                                        ; preds = %if.end
   %sub = add i64 %0, -1
   %select.i = getelementptr inbounds i8, ptr %s, i64 664
   %7 = load i8, ptr %select.i, align 8
-  %8 = and i8 %7, 64
-  %tobool.not.i6 = icmp eq i8 %8, 0
+  %conv.i5 = zext i8 %7 to i32
+  %and.i = and i32 %conv.i5, 64
+  %tobool.not.i6 = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i6, label %if.else29.i, label %if.then.i7
 
-ide_cmd_lba48_transform.exit.thread31:            ; preds = %if.then.i
+ide_cmd_lba48_transform.exit.thread32:            ; preds = %if.then.i
   store i32 256, ptr %nsector.i, align 4
-  %sub33 = add i64 %0, -1
-  %select.i34 = getelementptr inbounds i8, ptr %s, i64 664
-  %9 = load i8, ptr %select.i34, align 8
-  %conv.i535 = zext i8 %9 to i32
-  %and.i36 = and i32 %conv.i535, 64
-  %tobool.not.i637 = icmp eq i32 %and.i36, 0
-  br i1 %tobool.not.i637, label %if.else29.i, label %if.else.i8
+  %sub34 = add i64 %0, -1
+  %select.i35 = getelementptr inbounds i8, ptr %s, i64 664
+  %8 = load i8, ptr %select.i35, align 8
+  %conv.i536 = zext i8 %8 to i32
+  %and.i37 = and i32 %conv.i536, 64
+  %tobool.not.i638 = icmp eq i32 %and.i37, 0
+  br i1 %tobool.not.i638, label %if.else29.i, label %if.then.i7.thread42
+
+if.then.i7.thread42:                              ; preds = %ide_cmd_lba48_transform.exit.thread32
+  %shr21.i46 = lshr i64 %sub34, 16
+  %conv22.i47 = trunc i64 %shr21.i46 to i8
+  %hcyl23.i48 = getelementptr inbounds i8, ptr %s, i64 658
+  br label %if.else.i8
 
 ide_cmd_lba48_transform.exit.thread:              ; preds = %if.then.i
   %sub10 = add i64 %0, -1
   %select.i11 = getelementptr inbounds i8, ptr %s, i64 664
-  %10 = load i8, ptr %select.i11, align 8
-  %conv.i512 = zext i8 %10 to i32
+  %9 = load i8, ptr %select.i11, align 8
+  %conv.i512 = zext i8 %9 to i32
   %and.i13 = and i32 %conv.i512, 64
   %tobool.not.i614 = icmp eq i32 %and.i13, 0
-  br i1 %tobool.not.i614, label %if.else29.i, label %if.else.i8
+  br i1 %tobool.not.i614, label %if.else29.i, label %if.then.i7.thread
+
+if.then.i7.thread:                                ; preds = %ide_cmd_lba48_transform.exit.thread
+  %shr21.i24 = lshr i64 %sub10, 16
+  %conv22.i25 = trunc i64 %shr21.i24 to i8
+  %hcyl23.i26 = getelementptr inbounds i8, ptr %s, i64 658
+  br label %if.else.i8
 
 if.then.i7:                                       ; preds = %if.else.i
   %shr21.i = lshr i64 %sub, 16
   %conv22.i = trunc i64 %shr21.i to i8
   %hcyl23.i = getelementptr inbounds i8, ptr %s, i64 658
+  br i1 %cmp, label %if.then2.i, label %if.else.i8
+
+if.then2.i:                                       ; preds = %if.then.i7
   %conv3.i = trunc i64 %sub to i8
   %sector.i = getelementptr inbounds i8, ptr %s, i64 656
   store i8 %conv3.i, ptr %sector.i, align 8
@@ -3890,39 +3906,38 @@ if.then.i7:                                       ; preds = %if.else.i
   store i8 %conv12.i, ptr %hob_hcyl.i, align 1
   br label %return
 
-if.else.i8:                                       ; preds = %ide_cmd_lba48_transform.exit.thread, %ide_cmd_lba48_transform.exit.thread31
-  %sub1528 = phi i64 [ %sub33, %ide_cmd_lba48_transform.exit.thread31 ], [ %sub10, %ide_cmd_lba48_transform.exit.thread ]
-  %select.i1727 = phi ptr [ %select.i34, %ide_cmd_lba48_transform.exit.thread31 ], [ %select.i11, %ide_cmd_lba48_transform.exit.thread ]
-  %conv.i51926 = phi i32 [ %conv.i535, %ide_cmd_lba48_transform.exit.thread31 ], [ %conv.i512, %ide_cmd_lba48_transform.exit.thread ]
-  %conv22.i29.in = lshr i64 %sub1528, 16
-  %conv22.i29 = trunc i64 %conv22.i29.in to i8
-  %hcyl23.i30 = getelementptr inbounds i8, ptr %s, i64 658
-  %and15.i = and i32 %conv.i51926, 240
+if.else.i8:                                       ; preds = %if.then.i7.thread42, %if.then.i7.thread, %if.then.i7
+  %hcyl23.i31 = phi ptr [ %hcyl23.i26, %if.then.i7.thread ], [ %hcyl23.i, %if.then.i7 ], [ %hcyl23.i48, %if.then.i7.thread42 ]
+  %conv22.i30 = phi i8 [ %conv22.i25, %if.then.i7.thread ], [ %conv22.i, %if.then.i7 ], [ %conv22.i47, %if.then.i7.thread42 ]
+  %sub1529 = phi i64 [ %sub10, %if.then.i7.thread ], [ %sub, %if.then.i7 ], [ %sub34, %if.then.i7.thread42 ]
+  %select.i1728 = phi ptr [ %select.i11, %if.then.i7.thread ], [ %select.i, %if.then.i7 ], [ %select.i35, %if.then.i7.thread42 ]
+  %conv.i51927 = phi i32 [ %conv.i512, %if.then.i7.thread ], [ %conv.i5, %if.then.i7 ], [ %conv.i536, %if.then.i7.thread42 ]
+  %and15.i = and i32 %conv.i51927, 240
   %conv16.i = zext nneg i32 %and15.i to i64
-  %shr17.i = lshr i64 %sub1528, 24
+  %shr17.i = lshr i64 %sub1529, 24
   %and18.i = and i64 %shr17.i, 15
   %or.i9 = or disjoint i64 %and18.i, %conv16.i
   %conv19.i = trunc nuw i64 %or.i9 to i8
-  store i8 %conv19.i, ptr %select.i1727, align 8
-  store i8 %conv22.i29, ptr %hcyl23.i30, align 2
-  %shr24.i = lshr i64 %sub1528, 8
+  store i8 %conv19.i, ptr %select.i1728, align 8
+  store i8 %conv22.i30, ptr %hcyl23.i31, align 2
+  %shr24.i = lshr i64 %sub1529, 8
   %conv25.i = trunc i64 %shr24.i to i8
   %lcyl26.i = getelementptr inbounds i8, ptr %s, i64 657
   store i8 %conv25.i, ptr %lcyl26.i, align 1
-  %conv27.i = trunc i64 %sub1528 to i8
+  %conv27.i = trunc i64 %sub1529 to i8
   %sector28.i = getelementptr inbounds i8, ptr %s, i64 656
   store i8 %conv27.i, ptr %sector28.i, align 8
   br label %return
 
-if.else29.i:                                      ; preds = %ide_cmd_lba48_transform.exit.thread31, %ide_cmd_lba48_transform.exit.thread, %if.else.i
-  %11 = phi i8 [ %10, %ide_cmd_lba48_transform.exit.thread ], [ %7, %if.else.i ], [ %9, %ide_cmd_lba48_transform.exit.thread31 ]
-  %select.i18 = phi ptr [ %select.i11, %ide_cmd_lba48_transform.exit.thread ], [ %select.i, %if.else.i ], [ %select.i34, %ide_cmd_lba48_transform.exit.thread31 ]
-  %sub16 = phi i64 [ %sub10, %ide_cmd_lba48_transform.exit.thread ], [ %sub, %if.else.i ], [ %sub33, %ide_cmd_lba48_transform.exit.thread31 ]
+if.else29.i:                                      ; preds = %ide_cmd_lba48_transform.exit.thread32, %ide_cmd_lba48_transform.exit.thread, %if.else.i
+  %10 = phi i8 [ %9, %ide_cmd_lba48_transform.exit.thread ], [ %7, %if.else.i ], [ %8, %ide_cmd_lba48_transform.exit.thread32 ]
+  %select.i18 = phi ptr [ %select.i11, %ide_cmd_lba48_transform.exit.thread ], [ %select.i, %if.else.i ], [ %select.i35, %ide_cmd_lba48_transform.exit.thread32 ]
+  %sub16 = phi i64 [ %sub10, %ide_cmd_lba48_transform.exit.thread ], [ %sub, %if.else.i ], [ %sub34, %ide_cmd_lba48_transform.exit.thread32 ]
   %heads.i = getelementptr inbounds i8, ptr %s, i64 28
-  %12 = load i32, ptr %heads.i, align 4
+  %11 = load i32, ptr %heads.i, align 4
   %sectors.i = getelementptr inbounds i8, ptr %s, i64 32
-  %13 = load i32, ptr %sectors.i, align 8
-  %mul.i = mul i32 %13, %12
+  %12 = load i32, ptr %sectors.i, align 8
+  %mul.i = mul i32 %12, %11
   %conv30.i = sext i32 %mul.i to i64
   %div.i = sdiv i64 %sub16, %conv30.i
   %rem.i = srem i64 %sub16, %conv30.i
@@ -3934,20 +3949,20 @@ if.else29.i:                                      ; preds = %ide_cmd_lba48_trans
   %conv40.i = trunc i64 %div.i to i8
   %lcyl41.i = getelementptr inbounds i8, ptr %s, i64 657
   store i8 %conv40.i, ptr %lcyl41.i, align 1
-  %14 = and i8 %11, -16
-  %div46.i = udiv i32 %conv36.i, %13
-  %15 = trunc i32 %div46.i to i8
-  %16 = and i8 %15, 15
-  %conv49.i = or disjoint i8 %16, %14
+  %13 = and i8 %10, -16
+  %div46.i = udiv i32 %conv36.i, %12
+  %14 = trunc i32 %div46.i to i8
+  %15 = and i8 %14, 15
+  %conv49.i = or disjoint i8 %15, %13
   store i8 %conv49.i, ptr %select.i18, align 8
-  %rem52.i = urem i32 %conv36.i, %13
-  %17 = trunc i32 %rem52.i to i8
-  %conv53.i = add i8 %17, 1
+  %rem52.i = urem i32 %conv36.i, %12
+  %16 = trunc i32 %rem52.i to i8
+  %conv53.i = add i8 %16, 1
   %sector54.i = getelementptr inbounds i8, ptr %s, i64 656
   store i8 %conv53.i, ptr %sector54.i, align 8
   br label %return
 
-return:                                           ; preds = %if.else29.i, %if.else.i8, %if.then.i7, %if.then.i.i.i, %if.then
+return:                                           ; preds = %if.else29.i, %if.else.i8, %if.then2.i, %if.then.i.i.i, %if.then
   ret i1 true
 }
 
@@ -8845,13 +8860,12 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %exitcond.not.i, label %if.then, label %for.body.i, !llvm.loop !23
 
 transfer_end_table_idx.exit:                      ; preds = %for.body.i
-  %5 = and i64 %indvars.iv.i, 4294967295
-  %cmp = icmp eq i64 %5, 4294967295
+  %cmp = icmp eq i64 %indvars.iv.i, 4294967295
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %for.inc.i, %transfer_end_table_idx.exit
-  %6 = load ptr, ptr @stderr, align 8
-  %call7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.104, ptr noundef nonnull @__func__.ide_drive_pio_pre_save) #19
+  %5 = load ptr, ptr @stderr, align 8
+  %call7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.104, ptr noundef nonnull @__func__.ide_drive_pio_pre_save) #19
   br label %if.end
 
 if.else:                                          ; preds = %transfer_end_table_idx.exit

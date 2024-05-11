@@ -2815,9 +2815,8 @@ Nwk_ManGraphListFindMin.exit:                     ; preds = %._crit_edge.i, %34,
 .loopexit:                                        ; preds = %59, %Nwk_ManGraphListFindMin.exit
   %.010.lcssa.i = phi ptr [ null, %Nwk_ManGraphListFindMin.exit ], [ %.1.i, %59 ]
   tail call void @Nwk_ManGraphUpdate(ptr noundef %0, ptr noundef nonnull %.3.i, ptr noundef %.010.lcssa.i)
-  %60 = and i64 %indvars.iv47, 4294967295
-  %61 = icmp eq i64 %60, 17
-  br i1 %61, label %.loopexit.thread, label %.backedge.backedge
+  %60 = icmp eq i64 %indvars.iv47, 17
+  br i1 %60, label %.loopexit.thread, label %.backedge.backedge
 
 .loopexit.thread:                                 ; preds = %.loopexit, %.critedge
   tail call void @Nwk_ManGraphSortPairs(ptr noundef %0)

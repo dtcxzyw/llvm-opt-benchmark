@@ -20890,8 +20890,6 @@ entry:
   %cmp3.i = icmp ugt i16 %0, 1023
   %2 = and i1 %cmp3.i, %cmp.i
   %3 = trunc i16 %0 to i8
-  %4 = lshr i16 %0, 8
-  %5 = trunc nuw i16 %4 to i8
   br i1 %2, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -20902,31 +20900,30 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   %sig_algo = getelementptr inbounds i8, ptr %ssl, i64 710
-  %6 = load i8, ptr %sig_algo, align 2
+  %4 = load i8, ptr %sig_algo, align 2
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %.sink = phi i8 [ %bf.clear, %if.then ], [ %6, %if.else ]
-  %7 = getelementptr inbounds i8, ptr %ssl, i64 1020
-  store i8 %.sink, ptr %7, align 4
+  %.sink = phi i8 [ %bf.clear, %if.then ], [ %4, %if.else ]
+  %5 = getelementptr inbounds i8, ptr %ssl, i64 1020
+  store i8 %.sink, ptr %5, align 4
   %cmp = icmp eq i8 %.sink, 0
   br i1 %cmp, label %if.then6, label %if.end9
 
 if.then6:                                         ; preds = %if.end
   %mac_algorithm = getelementptr inbounds i8, ptr %ssl, i64 708
-  %8 = load i8, ptr %mac_algorithm, align 2
+  %6 = load i8, ptr %mac_algorithm, align 2
   %hashAlgo = getelementptr inbounds i8, ptr %ssl, i64 1019
-  store i8 %8, ptr %hashAlgo, align 1
+  store i8 %6, ptr %hashAlgo, align 1
   br label %return
 
 if.end9:                                          ; preds = %if.end
   %cmp.i.i = icmp eq i16 %1, 3
   %cmp3.i.i = icmp ugt i16 %0, 1023
   %.not.i.not65 = and i1 %cmp3.i.i, %cmp.i.i
-  %cmp4.i.i = icmp ugt i8 %5, 2
-  %or.cond.i = select i1 %cmp.i, i1 %cmp4.i.i, i1 false
-  %9 = select i1 %.not.i.not65, i1 true, i1 %or.cond.i
-  %retval.0.i = select i1 %9, i8 4, i8 2
+  %cmp4.i.i = icmp ugt i16 %0, 767
+  %or.cond.i = and i1 %cmp4.i.i, %cmp.i
+  %retval.0.i = select i1 %or.cond.i, i8 4, i8 2
   %hashAlgo12 = getelementptr inbounds i8, ptr %ssl, i64 1019
   store i8 %retval.0.i, ptr %hashAlgo12, align 1
   switch i32 %hashSigAlgoSz, label %for.body.lr.ph [
@@ -20938,39 +20935,39 @@ for.body.lr.ph:                                   ; preds = %if.end9
   %not..not.not5.i = xor i1 %2, true
   %side = getelementptr inbounds i8, ptr %ssl, i64 1008
   %keySz = getelementptr inbounds i8, ptr %ssl, i64 572
-  %cmp4.i = icmp ult i8 %5, 3
+  %cmp4.i = icmp ult i16 %0, 768
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %10 = phi i8 [ %3, %for.body.lr.ph ], [ %21, %for.inc ]
-  %11 = phi i8 [ %retval.0.i, %for.body.lr.ph ], [ %22, %for.inc ]
-  %12 = phi i8 [ %.sink, %for.body.lr.ph ], [ %23, %for.inc ]
+  %7 = phi i8 [ %3, %for.body.lr.ph ], [ %18, %for.inc ]
+  %8 = phi i8 [ %retval.0.i, %for.body.lr.ph ], [ %19, %for.inc ]
+  %9 = phi i8 [ %.sink, %for.body.lr.ph ], [ %20, %for.inc ]
   %ret.060 = phi i32 [ -501, %for.body.lr.ph ], [ %ret.1, %for.inc ]
   %i.059 = phi i32 [ 0, %for.body.lr.ph ], [ %add99, %for.inc ]
   %idxprom = zext i32 %i.059 to i64
   %arrayidx = getelementptr inbounds i8, ptr %hashSigAlgo, i64 %idxprom
-  %13 = load i8, ptr %arrayidx, align 1
-  %cond.i = icmp eq i8 %13, 8
+  %10 = load i8, ptr %arrayidx, align 1
+  %cond.i = icmp eq i8 %10, 8
   %arrayidx1.i = getelementptr inbounds i8, ptr %arrayidx, i64 1
-  %14 = load i8, ptr %arrayidx1.i, align 1
+  %11 = load i8, ptr %arrayidx1.i, align 1
   br i1 %cond.i, label %sw.bb.i, label %DecodeSigAlg.exit
 
 sw.bb.i:                                          ; preds = %for.body
-  %15 = add i8 %14, -9
-  %or.cond.i27 = icmp ult i8 %15, 3
-  %sub.i = add nsw i8 %14, -5
-  %spec.select = select i1 %or.cond.i27, i8 %sub.i, i8 %14
+  %12 = add i8 %11, -9
+  %or.cond.i27 = icmp ult i8 %12, 3
+  %sub.i = add nsw i8 %11, -5
+  %spec.select = select i1 %or.cond.i27, i8 %sub.i, i8 %11
   %spec.select56 = select i1 %or.cond.i27, i8 10, i8 8
   br label %DecodeSigAlg.exit
 
 DecodeSigAlg.exit:                                ; preds = %for.body, %sw.bb.i
-  %hashAlgo19.0 = phi i8 [ %spec.select, %sw.bb.i ], [ %13, %for.body ]
-  %sigAlgo20.0 = phi i8 [ %spec.select56, %sw.bb.i ], [ %14, %for.body ]
+  %hashAlgo19.0 = phi i8 [ %spec.select, %sw.bb.i ], [ %10, %for.body ]
+  %sigAlgo20.0 = phi i8 [ %spec.select56, %sw.bb.i ], [ %11, %for.body ]
   %cmp23 = icmp ult i8 %hashAlgo19.0, %retval.0.i
   br i1 %cmp23, label %for.inc, label %if.end26
 
 if.end26:                                         ; preds = %DecodeSigAlg.exit
-  %cmp.i28 = icmp eq i8 %12, 1
+  %cmp.i28 = icmp eq i8 %9, 1
   br i1 %cmp.i28, label %if.then.i30, label %if.end10.i
 
 if.then.i30:                                      ; preds = %if.end26
@@ -20979,7 +20976,7 @@ if.then.i30:                                      ; preds = %if.end26
   br i1 %brmerge.i, label %MatchSigAlgo.exit, label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.then.i30, %if.end26
-  %cmp14.i = icmp eq i8 %12, %sigAlgo20.0
+  %cmp14.i = icmp eq i8 %9, %sigAlgo20.0
   br i1 %cmp14.i, label %if.end31, label %for.inc
 
 MatchSigAlgo.exit:                                ; preds = %if.then.i30
@@ -20992,10 +20989,10 @@ if.end31:                                         ; preds = %if.end10.i, %MatchS
   br i1 %brmerge.not, label %if.then38, label %if.end50
 
 if.then38:                                        ; preds = %if.end31
-  %16 = load i32, ptr %keySz, align 4
+  %13 = load i32, ptr %keySz, align 4
   %switch.tableidx = add i8 %hashAlgo19.0, -2
-  %17 = icmp ult i8 %switch.tableidx, 5
-  br i1 %17, label %switch.hole_check, label %for.inc
+  %14 = icmp ult i8 %switch.tableidx, 5
+  br i1 %14, label %switch.hole_check, label %for.inc
 
 switch.hole_check:                                ; preds = %if.then38
   %switch.shifted = lshr i8 29, %switch.tableidx
@@ -21003,16 +21000,16 @@ switch.hole_check:                                ; preds = %if.then38
   br i1 %switch.lobit, label %switch.lookup, label %for.inc
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %18 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table.SendCertificateVerify.21, i64 0, i64 %18
+  %15 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table.SendCertificateVerify.21, i64 0, i64 %15
   %switch.load = load i32, ptr %switch.gep, align 4
-  %and4.i = and i32 %16, -4
+  %and4.i = and i32 %13, -4
   %cmp42.not = icmp eq i32 %switch.load, %and4.i
   br i1 %cmp42.not, label %if.end45, label %for.inc
 
 if.end45:                                         ; preds = %switch.lookup
   store i8 %hashAlgo19.0, ptr %hashAlgo12, align 1
-  store i8 3, ptr %7, align 4
+  store i8 3, ptr %5, align 4
   br label %return
 
 if.end50:                                         ; preds = %if.end31
@@ -21022,21 +21019,21 @@ if.end50:                                         ; preds = %if.end31
 
 sw.bb:                                            ; preds = %if.end50
   %cmp52 = icmp eq i32 %ret.060, 0
-  %cmp59 = icmp ugt i8 %hashAlgo19.0, %11
+  %cmp59 = icmp ugt i8 %hashAlgo19.0, %8
   %or.cond = select i1 %cmp52, i1 %cmp59, i1 false
   br i1 %or.cond, label %for.inc, label %if.end62
 
 if.end62:                                         ; preds = %sw.bb
-  %cmp.i38 = icmp ne i8 %10, 3
-  %brmerge = select i1 %cmp.i38, i1 true, i1 %cmp4.i
+  %cmp.i38 = icmp ne i8 %7, 3
+  %brmerge = or i1 %cmp.i38, %cmp4.i
   %brmerge64 = or i1 %brmerge, %.not.i.not65
-  %.mux.mux = select i1 %brmerge, i8 %10, i8 %3
+  %.mux.mux = select i1 %brmerge, i8 %7, i8 %3
   br i1 %brmerge64, label %if.end94, label %land.lhs.true69
 
 land.lhs.true69:                                  ; preds = %if.end62
   %bf.load71 = load i64, ptr %side, align 8
-  %19 = and i64 %bf.load71, 48
-  %cmp74 = icmp eq i64 %19, 16
+  %16 = and i64 %bf.load71, 48
+  %cmp74 = icmp eq i64 %16, 16
   br i1 %cmp74, label %if.then76, label %if.end94
 
 if.then76:                                        ; preds = %land.lhs.true69
@@ -21048,15 +21045,15 @@ if.then76:                                        ; preds = %land.lhs.true69
   ]
 
 if.end94:                                         ; preds = %if.end62, %if.then76, %if.then76, %if.then76, %if.then76, %land.lhs.true69
-  %20 = phi i8 [ %.mux.mux, %if.end62 ], [ %3, %if.then76 ], [ %3, %if.then76 ], [ %3, %if.then76 ], [ %3, %if.then76 ], [ %3, %land.lhs.true69 ]
+  %17 = phi i8 [ %.mux.mux, %if.end62 ], [ %3, %if.then76 ], [ %3, %if.then76 ], [ %3, %if.then76 ], [ %3, %if.then76 ], [ %3, %land.lhs.true69 ]
   store i8 %hashAlgo19.0, ptr %hashAlgo12, align 1
-  store i8 %sigAlgo20.0, ptr %7, align 4
+  store i8 %sigAlgo20.0, ptr %5, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %switch.hole_check, %if.then38, %sw.bb, %if.end10.i, %if.then76, %if.end50, %if.end94, %switch.lookup, %MatchSigAlgo.exit, %DecodeSigAlg.exit
-  %21 = phi i8 [ %10, %DecodeSigAlg.exit ], [ %10, %switch.lookup ], [ %10, %if.end50 ], [ %20, %if.end94 ], [ %3, %if.then76 ], [ %10, %MatchSigAlgo.exit ], [ %10, %if.then38 ], [ %10, %if.end10.i ], [ %10, %sw.bb ], [ %10, %switch.hole_check ]
-  %22 = phi i8 [ %11, %DecodeSigAlg.exit ], [ %11, %switch.lookup ], [ %11, %if.end50 ], [ %hashAlgo19.0, %if.end94 ], [ %11, %if.then76 ], [ %11, %MatchSigAlgo.exit ], [ %11, %if.then38 ], [ %11, %if.end10.i ], [ %11, %sw.bb ], [ %11, %switch.hole_check ]
-  %23 = phi i8 [ %12, %DecodeSigAlg.exit ], [ %12, %switch.lookup ], [ %12, %if.end50 ], [ %sigAlgo20.0, %if.end94 ], [ %12, %if.then76 ], [ 1, %MatchSigAlgo.exit ], [ %12, %if.then38 ], [ %12, %if.end10.i ], [ %12, %sw.bb ], [ %12, %switch.hole_check ]
+  %18 = phi i8 [ %7, %DecodeSigAlg.exit ], [ %7, %switch.lookup ], [ %7, %if.end50 ], [ %17, %if.end94 ], [ %3, %if.then76 ], [ %7, %MatchSigAlgo.exit ], [ %7, %if.then38 ], [ %7, %if.end10.i ], [ %7, %sw.bb ], [ %7, %switch.hole_check ]
+  %19 = phi i8 [ %8, %DecodeSigAlg.exit ], [ %8, %switch.lookup ], [ %8, %if.end50 ], [ %hashAlgo19.0, %if.end94 ], [ %8, %if.then76 ], [ %8, %MatchSigAlgo.exit ], [ %8, %if.then38 ], [ %8, %if.end10.i ], [ %8, %sw.bb ], [ %8, %switch.hole_check ]
+  %20 = phi i8 [ %9, %DecodeSigAlg.exit ], [ %9, %switch.lookup ], [ %9, %if.end50 ], [ %sigAlgo20.0, %if.end94 ], [ %9, %if.then76 ], [ 1, %MatchSigAlgo.exit ], [ %9, %if.then38 ], [ %9, %if.end10.i ], [ %9, %sw.bb ], [ %9, %switch.hole_check ]
   %ret.1 = phi i32 [ %ret.060, %DecodeSigAlg.exit ], [ %ret.060, %switch.lookup ], [ %ret.060, %if.end50 ], [ 0, %if.end94 ], [ %ret.060, %if.then76 ], [ %ret.060, %MatchSigAlgo.exit ], [ %ret.060, %if.then38 ], [ %ret.060, %if.end10.i ], [ 0, %sw.bb ], [ %ret.060, %switch.hole_check ]
   %add99 = add i32 %i.059, 2
   %add = or disjoint i32 %add99, 1

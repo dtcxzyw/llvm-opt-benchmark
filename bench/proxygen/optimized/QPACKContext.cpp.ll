@@ -281,27 +281,24 @@ call.i.i.i.i.noexc.i:                             ; preds = %_ZNK8proxygen15HPAC
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 5
   %5 = add nsw i64 %sub.ptr.div.i.i.i.i.i, -89
-  %or.cond.i.i.i.i.i = icmp ult i64 %5, -87
-  %6 = and i64 %sub.ptr.sub.i.i.i.i.i, 8128
-  %7 = icmp eq i64 %6, 0
-  %.not1.i.i.i = or i1 %7, %or.cond.i.i.i.i.i
-  br i1 %.not1.i.i.i, label %if.then.i.i, label %_ZN8proxygen15HPACKHeaderNameD2Ev.exit
+  %6 = icmp ult i64 %5, -87
+  br i1 %6, label %if.then.i.i, label %_ZN8proxygen15HPACKHeaderNameD2Ev.exit
 
 if.then.i.i:                                      ; preds = %call.i.i.i.i.noexc.i
-  %8 = load ptr, ptr %this, align 8
-  %isnull.i.i = icmp eq ptr %8, null
+  %7 = load ptr, ptr %this, align 8
+  %isnull.i.i = icmp eq ptr %7, null
   br i1 %isnull.i.i, label %_ZN8proxygen15HPACKHeaderNameD2Ev.exit, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %if.then.i.i
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #12
-  tail call void @_ZdlPv(ptr noundef nonnull %8) #14
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %7) #14
   br label %_ZN8proxygen15HPACKHeaderNameD2Ev.exit
 
 terminate.lpad.i:                                 ; preds = %_ZNK8proxygen15HPACKHeaderName11isAllocatedEv.exit.i.i
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #13
+  %9 = extractvalue { ptr, i32 } %8, 0
+  tail call void @__clang_call_terminate(ptr %9) #13
   unreachable
 
 _ZN8proxygen15HPACKHeaderNameD2Ev.exit:           ; preds = %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit, %call.i.i.i.i.noexc.i, %if.then.i.i, %delete.notnull.i.i

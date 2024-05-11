@@ -6975,6 +6975,7 @@ cond.end:                                         ; preds = %_ZN6Assimp12LogFunc
   %_M_end_of_storage.i602 = getelementptr inbounds i8, ptr %output_nodes, i64 16
   %_M_finish.i = getelementptr inbounds i8, ptr %post_output_nodes, i64 8
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %post_output_nodes, i64 16
+  %arrayidx298 = getelementptr inbounds i8, ptr %chain, i64 512
   br label %for.body288
 
 for.body288:                                      ; preds = %cond.end, %for.inc325
@@ -6989,11 +6990,10 @@ for.body288:                                      ; preds = %cond.end, %for.inc3
   br i1 %or.cond, label %for.inc325, label %if.end295
 
 if.end295:                                        ; preds = %for.body288
-  %cmp296 = icmp eq i32 %conv, 8
+  %cmp296 = icmp eq i64 %i285.0755, 8
   br i1 %cmp296, label %if.then297, label %if.end301
 
 if.then297:                                       ; preds = %if.end295
-  %arrayidx298 = getelementptr inbounds [17 x %class.aiMatrix4x4t], ptr %chain, i64 0, i64 %i285.0755
   %call299 = call noundef nonnull align 4 dereferenceable(64) ptr @_ZN12aiMatrix4x4tIfE7InverseEv(ptr noundef nonnull align 4 dereferenceable(64) %arrayidx298)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %arrayidx298, ptr noundef nonnull align 4 dereferenceable(64) %call299, i64 64, i1 false)
   br label %if.end301
@@ -7043,7 +7043,7 @@ _ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; 
   %118 = load ptr, ptr %mNode.i, align 8
   %mTransformation = getelementptr inbounds i8, ptr %118, i64 1028
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mTransformation, ptr noundef nonnull align 16 dereferenceable(64) %arrayidx310, i64 64, i1 false)
-  %or.cond1 = icmp ult i32 %conv, 3
+  %or.cond1 = icmp ult i64 %i285.0755, 3
   br i1 %or.cond1, label %if.then317, label %if.else320
 
 if.then317:                                       ; preds = %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
@@ -10096,35 +10096,38 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %cmp41 = phi i1 [ true, %entry ], [ %cmp, %for.inc ]
   %i.040 = phi i64 [ 0, %entry ], [ %inc, %for.inc ]
-  %conv = trunc i64 %i.040 to i32
-  %1 = and i32 %conv, 27
-  %2 = icmp eq i32 %1, 3
+  %1 = and i64 %i.040, 27
+  %2 = icmp eq i64 %1, 3
   br i1 %2, label %for.inc, label %switch.early.test
 
 switch.early.test:                                ; preds = %for.body
-  switch i32 %conv, label %if.end [
-    i32 12, label %for.inc
-    i32 8, label %for.inc
-    i32 6, label %for.inc
+  switch i64 %i.040, label %if.end [
+    i64 12, label %for.inc
+    i64 8, label %for.inc
+    i64 6, label %for.inc
   ]
 
 if.end:                                           ; preds = %switch.early.test
-  %cmp11 = icmp eq i32 %conv, 16
+  %conv = trunc nuw nsw i64 %i.040 to i32
+  %cmp11 = icmp eq i64 %i.040, 16
   switch i32 %conv, label %sw.epilog.i [
     i32 3, label %_ZN6Assimp3FBX12FBXConverter30NameTransformationCompPropertyENS1_18TransformationCompE.exit
     i32 4, label %sw.bb2.i
     i32 5, label %sw.bb3.i
-    i32 0, label %sw.bb15.i
+    i32 6, label %sw.bb4.i
     i32 7, label %sw.bb5.i
-    i32 1, label %sw.bb16.i
+    i32 8, label %sw.bb6.i
     i32 9, label %sw.bb7.i
     i32 10, label %sw.bb8.i
     i32 11, label %sw.bb9.i
-    i32 2, label %sw.bb17.i
+    i32 12, label %sw.bb10.i
     i32 13, label %sw.bb11.i
     i32 16, label %sw.bb12.i
     i32 15, label %sw.bb13.i
     i32 14, label %sw.bb14.i
+    i32 0, label %sw.bb15.i
+    i32 1, label %sw.bb16.i
+    i32 2, label %sw.bb17.i
   ]
 
 sw.bb2.i:                                         ; preds = %if.end
@@ -10133,7 +10136,13 @@ sw.bb2.i:                                         ; preds = %if.end
 sw.bb3.i:                                         ; preds = %if.end
   br label %_ZN6Assimp3FBX12FBXConverter30NameTransformationCompPropertyENS1_18TransformationCompE.exit
 
+sw.bb4.i:                                         ; preds = %if.end
+  br label %_ZN6Assimp3FBX12FBXConverter30NameTransformationCompPropertyENS1_18TransformationCompE.exit
+
 sw.bb5.i:                                         ; preds = %if.end
+  br label %_ZN6Assimp3FBX12FBXConverter30NameTransformationCompPropertyENS1_18TransformationCompE.exit
+
+sw.bb6.i:                                         ; preds = %if.end
   br label %_ZN6Assimp3FBX12FBXConverter30NameTransformationCompPropertyENS1_18TransformationCompE.exit
 
 sw.bb7.i:                                         ; preds = %if.end
@@ -10143,6 +10152,9 @@ sw.bb8.i:                                         ; preds = %if.end
   br label %_ZN6Assimp3FBX12FBXConverter30NameTransformationCompPropertyENS1_18TransformationCompE.exit
 
 sw.bb9.i:                                         ; preds = %if.end
+  br label %_ZN6Assimp3FBX12FBXConverter30NameTransformationCompPropertyENS1_18TransformationCompE.exit
+
+sw.bb10.i:                                        ; preds = %if.end
   br label %_ZN6Assimp3FBX12FBXConverter30NameTransformationCompPropertyENS1_18TransformationCompE.exit
 
 sw.bb11.i:                                        ; preds = %if.end
@@ -10169,9 +10181,9 @@ sw.bb17.i:                                        ; preds = %if.end
 sw.epilog.i:                                      ; preds = %if.end
   br label %_ZN6Assimp3FBX12FBXConverter30NameTransformationCompPropertyENS1_18TransformationCompE.exit
 
-_ZN6Assimp3FBX12FBXConverter30NameTransformationCompPropertyENS1_18TransformationCompE.exit: ; preds = %if.end, %sw.bb2.i, %sw.bb3.i, %sw.bb5.i, %sw.bb7.i, %sw.bb8.i, %sw.bb9.i, %sw.bb11.i, %sw.bb12.i, %sw.bb13.i, %sw.bb14.i, %sw.bb15.i, %sw.bb16.i, %sw.bb17.i, %sw.epilog.i
-  %cmp.i = phi i1 [ true, %sw.epilog.i ], [ false, %sw.bb17.i ], [ false, %sw.bb16.i ], [ false, %sw.bb15.i ], [ false, %sw.bb14.i ], [ false, %sw.bb13.i ], [ false, %sw.bb12.i ], [ false, %sw.bb11.i ], [ false, %sw.bb9.i ], [ false, %sw.bb8.i ], [ false, %sw.bb7.i ], [ false, %sw.bb5.i ], [ false, %sw.bb3.i ], [ false, %sw.bb2.i ], [ false, %if.end ]
-  %retval.0.i = phi ptr [ null, %sw.epilog.i ], [ @.str.26, %sw.bb17.i ], [ @.str.25, %sw.bb16.i ], [ @.str.24, %sw.bb15.i ], [ @.str.23, %sw.bb14.i ], [ @.str.22, %sw.bb13.i ], [ @.str.21, %sw.bb12.i ], [ @.str.20, %sw.bb11.i ], [ @.str.18, %sw.bb9.i ], [ @.str.17, %sw.bb8.i ], [ @.str.16, %sw.bb7.i ], [ @.str.28, %sw.bb5.i ], [ @.str.12, %sw.bb3.i ], [ @.str.11, %sw.bb2.i ], [ @.str.27, %if.end ]
+_ZN6Assimp3FBX12FBXConverter30NameTransformationCompPropertyENS1_18TransformationCompE.exit: ; preds = %if.end, %sw.bb2.i, %sw.bb3.i, %sw.bb4.i, %sw.bb5.i, %sw.bb6.i, %sw.bb7.i, %sw.bb8.i, %sw.bb9.i, %sw.bb10.i, %sw.bb11.i, %sw.bb12.i, %sw.bb13.i, %sw.bb14.i, %sw.bb15.i, %sw.bb16.i, %sw.bb17.i, %sw.epilog.i
+  %cmp.i = phi i1 [ true, %sw.epilog.i ], [ false, %sw.bb17.i ], [ false, %sw.bb16.i ], [ false, %sw.bb15.i ], [ false, %sw.bb14.i ], [ false, %sw.bb13.i ], [ false, %sw.bb12.i ], [ false, %sw.bb11.i ], [ false, %sw.bb10.i ], [ false, %sw.bb9.i ], [ false, %sw.bb8.i ], [ false, %sw.bb7.i ], [ false, %sw.bb6.i ], [ false, %sw.bb5.i ], [ false, %sw.bb4.i ], [ false, %sw.bb3.i ], [ false, %sw.bb2.i ], [ false, %if.end ]
+  %retval.0.i = phi ptr [ null, %sw.epilog.i ], [ @.str.26, %sw.bb17.i ], [ @.str.25, %sw.bb16.i ], [ @.str.24, %sw.bb15.i ], [ @.str.23, %sw.bb14.i ], [ @.str.22, %sw.bb13.i ], [ @.str.21, %sw.bb12.i ], [ @.str.20, %sw.bb11.i ], [ @.str.29, %sw.bb10.i ], [ @.str.18, %sw.bb9.i ], [ @.str.17, %sw.bb8.i ], [ @.str.16, %sw.bb7.i ], [ @.str.15, %sw.bb6.i ], [ @.str.28, %sw.bb5.i ], [ @.str.13, %sw.bb4.i ], [ @.str.12, %sw.bb3.i ], [ @.str.11, %sw.bb2.i ], [ @.str.27, %if.end ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp15) #24
   %call.i16 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13)
           to label %call.i.noexc unwind label %lpad
@@ -10250,7 +10262,10 @@ if.then20:                                        ; preds = %invoke.cont17
   %4 = call float @llvm.fmuladd.f32(float %sub.i, float %sub.i, float %mul4.i)
   %5 = call noundef float @llvm.fmuladd.f32(float %sub5.i, float %sub5.i, float %4)
   %cmp25 = fcmp ogt float %5, 0x3E80000000000000
-  br i1 %cmp25, label %return, label %for.inc
+  br i1 %cmp25, label %return, label %for.inc.thread
+
+for.inc.thread:                                   ; preds = %if.then20
+  br label %return
 
 lpad:                                             ; preds = %call.i.noexc, %_ZN6Assimp3FBX12FBXConverter30NameTransformationCompPropertyENS1_18TransformationCompE.exit
   %6 = landingpad { ptr, i32 }
@@ -10280,14 +10295,14 @@ if.then29:                                        ; preds = %if.else
   %cmp31 = fcmp ogt float %10, 0x3E80000000000000
   br i1 %cmp31, label %return, label %for.inc
 
-for.inc:                                          ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %for.body, %if.then20, %if.then29, %if.else
+for.inc:                                          ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %for.body, %if.then29, %if.else
   %inc = add nuw nsw i64 %i.040, 1
   %cmp = icmp ult i64 %i.040, 16
   %exitcond.not = icmp eq i64 %inc, 17
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !47
 
-return:                                           ; preds = %for.inc, %if.then29, %if.then20
-  %cmp.lcssa = phi i1 [ %cmp, %for.inc ], [ %cmp41, %if.then29 ], [ %cmp41, %if.then20 ]
+return:                                           ; preds = %for.inc, %if.then29, %for.inc.thread, %if.then20
+  %cmp.lcssa = phi i1 [ %cmp41, %if.then20 ], [ false, %for.inc.thread ], [ %cmp41, %if.then29 ], [ %cmp, %for.inc ]
   ret i1 %cmp.lcssa
 }
 
@@ -27237,14 +27252,14 @@ _ZNK6Assimp3FBX18AnimationCurveNode13TargetAsModelEv.exit: ; preds = %for.end, %
 for.body28.outer:                                 ; preds = %for.inc74.thread, %_ZNK6Assimp3FBX18AnimationCurveNode13TargetAsModelEv.exit
   %has_any.0366.ph = phi i1 [ true, %for.inc74.thread ], [ false, %_ZNK6Assimp3FBX18AnimationCurveNode13TargetAsModelEv.exit ]
   %has_complex.0365.ph = phi i1 [ %spec.select, %for.inc74.thread ], [ false, %_ZNK6Assimp3FBX18AnimationCurveNode13TargetAsModelEv.exit ]
-  %i.0364.ph = phi i64 [ %inc376, %for.inc74.thread ], [ 0, %_ZNK6Assimp3FBX18AnimationCurveNode13TargetAsModelEv.exit ]
+  %i.0364.ph = phi i64 [ %inc377, %for.inc74.thread ], [ 0, %_ZNK6Assimp3FBX18AnimationCurveNode13TargetAsModelEv.exit ]
   br label %for.body28
 
 for.body28:                                       ; preds = %for.body28.outer, %for.inc74
   %i.0364 = phi i64 [ %inc, %for.inc74 ], [ %i.0364.ph, %for.body28.outer ]
   %conv = trunc nuw nsw i64 %i.0364 to i32
-  %15 = and i32 %conv, 27
-  %or.cond = icmp eq i32 %15, 9
+  %15 = and i64 %i.0364, 27
+  %or.cond = icmp eq i64 %15, 9
   br i1 %or.cond, label %if.then31, label %if.end35
 
 if.then31:                                        ; preds = %for.body28
@@ -27484,13 +27499,13 @@ for.inc74:                                        ; preds = %_ZN6Assimp12LogFunc
   br i1 %exitcond.not, label %for.end75, label %for.body28, !llvm.loop !155
 
 for.inc74.thread:                                 ; preds = %if.then54, %invoke.cont59
-  %cmp68 = icmp ne i32 %conv, 12
-  %25 = icmp ne i32 %15, 3
+  %cmp68 = icmp ne i64 %i.0364, 12
+  %25 = icmp ne i64 %15, 3
   %or.cond2 = and i1 %cmp68, %25
   %spec.select = select i1 %or.cond2, i1 true, i1 %has_complex.0365.ph
-  %inc376 = add nuw nsw i64 %i.0364, 1
-  %exitcond.not377 = icmp eq i64 %inc376, 17
-  br i1 %exitcond.not377, label %for.end75.thread, label %for.body28.outer, !llvm.loop !155
+  %inc377 = add nuw nsw i64 %i.0364, 1
+  %exitcond.not378 = icmp eq i64 %inc377, 17
+  br i1 %exitcond.not378, label %for.end75.thread, label %for.body28.outer, !llvm.loop !155
 
 for.end75.thread:                                 ; preds = %for.inc74.thread
   br i1 %spec.select, label %if.end99, label %land.lhs.true81
@@ -27683,9 +27698,9 @@ sw.bb121:                                         ; preds = %invoke.cont114, %in
           to label %invoke.cont125 unwind label %lpad118.loopexit
 
 invoke.cont125:                                   ; preds = %sw.bb121
-  switch i32 %conv105, label %sw.epilog [
-    i32 5, label %if.then128
-    i32 11, label %if.then156
+  switch i64 %i100.0370, label %sw.epilog [
+    i64 5, label %if.then128
+    i64 11, label %if.then156
   ]
 
 if.then128:                                       ; preds = %invoke.cont125
@@ -28134,8 +28149,8 @@ for.inc212:                                       ; preds = %for.body103, %if.en
   %flags.2 = phi i32 [ %flags.1, %if.end209 ], [ %flags.0367, %for.body103 ]
   %inc213 = add nuw nsw i64 %i100.0370, 1
   %shl214 = shl i32 %bit.0368, 1
-  %exitcond373.not = icmp eq i64 %inc213, 17
-  br i1 %exitcond373.not, label %for.end215, label %for.body103, !llvm.loop !156
+  %exitcond374.not = icmp eq i64 %inc213, 17
+  br i1 %exitcond374.not, label %for.end215, label %for.body103, !llvm.loop !156
 
 for.end215:                                       ; preds = %for.inc212
   %node_anim_chain_bits = getelementptr inbounds i8, ptr %this, i64 296

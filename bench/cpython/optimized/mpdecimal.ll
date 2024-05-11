@@ -1884,9 +1884,8 @@ land.rhs38.i.i.i:                                 ; preds = %sw.bb33.i.i.i
   %19 = load ptr, ptr %data.i.i.i, align 8
   %20 = load i64, ptr %19, align 8
   %rem.i.i.i.i = urem i64 %20, 10
-  %conv35.i.i.i = trunc nuw nsw i64 %rem.i.i.i.i to i32
-  %cmp39.i.i.i = icmp eq i32 %conv35.i.i.i, 0
-  %cmp42.i.i.i = icmp eq i32 %conv35.i.i.i, 5
+  %cmp39.i.i.i = icmp eq i64 %rem.i.i.i.i, 0
+  %cmp42.i.i.i = icmp eq i64 %rem.i.i.i.i, 5
   %21 = or i1 %cmp39.i.i.i, %cmp42.i.i.i
   %22 = zext i1 %21 to i32
   br label %_mpd_rnd_incr.exit.i.i
@@ -15540,9 +15539,8 @@ land.rhs38.i:                                     ; preds = %sw.bb33.i
   %11 = load ptr, ptr %data.i, align 8
   %12 = load i64, ptr %11, align 8
   %rem.i.i = urem i64 %12, 10
-  %conv35.i = trunc nuw nsw i64 %rem.i.i to i32
-  %cmp39.i = icmp eq i32 %conv35.i, 0
-  %cmp42.i = icmp eq i32 %conv35.i, 5
+  %cmp39.i = icmp eq i64 %rem.i.i, 0
+  %cmp42.i = icmp eq i64 %rem.i.i, 5
   %13 = or i1 %cmp39.i, %cmp42.i
   %14 = zext i1 %13 to i32
   br label %_mpd_rnd_incr.exit
@@ -23391,9 +23389,8 @@ land.rhs38.i:                                     ; preds = %sw.bb33.i
   %12 = load ptr, ptr %data.i, align 8
   %13 = load i64, ptr %12, align 8
   %rem.i.i = urem i64 %13, 10
-  %conv35.i = trunc nuw nsw i64 %rem.i.i to i32
-  %cmp39.i = icmp eq i32 %conv35.i, 0
-  %cmp42.i = icmp eq i32 %conv35.i, 5
+  %cmp39.i = icmp eq i64 %rem.i.i, 0
+  %cmp42.i = icmp eq i64 %rem.i.i, 5
   %14 = or i1 %cmp39.i, %cmp42.i
   %15 = zext i1 %14 to i32
   br label %_mpd_rnd_incr.exit
@@ -26689,10 +26686,9 @@ if.else124:                                       ; preds = %while.end, %if.end1
   %82 = load ptr, ptr %data125, align 8
   %83 = load i64, ptr %82, align 8
   %rem.i = urem i64 %83, 10
-  %conv127 = trunc nuw nsw i64 %rem.i to i32
-  switch i32 %conv127, label %if.end138 [
-    i32 5, label %if.then133
-    i32 0, label %if.then133
+  switch i64 %rem.i, label %if.end138 [
+    i64 5, label %if.then133
+    i64 0, label %if.then133
   ]
 
 if.then133:                                       ; preds = %if.else124, %if.else124

@@ -807,9 +807,14 @@ if.then91:                                        ; preds = %if.end88
   %47 = tail call noundef i64 @llvm.bswap.i64(i64 %46)
   store i64 %47, ptr %length, align 8
   %cmp.i155 = icmp ult i64 %buflen.2, 24
-  br i1 %cmp.i155, label %header_ext_add.exit161, label %if.end.i156
+  br i1 %cmp.i155, label %header_ext_add.exit161.thread, label %if.end117
 
-if.end.i156:                                      ; preds = %if.then91
+header_ext_add.exit161.thread:                    ; preds = %if.then91
+  store i64 %44, ptr %crypto_header, align 8
+  store i64 %46, ptr %length, align 8
+  br label %fail
+
+if.end117:                                        ; preds = %if.then91
   store i32 2008954629, ptr %buf.2, align 1
   %.compoundliteral.sroa.2.0..sroa_idx.i157 = getelementptr inbounds i8, ptr %buf.2, i64 4
   store i32 268435456, ptr %.compoundliteral.sroa.2.0..sroa_idx.i157, align 1
@@ -817,36 +822,24 @@ if.end.i156:                                      ; preds = %if.then91
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(16) %add.ptr.i159, ptr noundef nonnull readonly align 1 dereferenceable(16) %crypto_header, i64 16, i1 false)
   %.pre = load i64, ptr %crypto_header, align 8
   %.pre221 = load i64, ptr %length, align 8
-  br label %header_ext_add.exit161
-
-header_ext_add.exit161:                           ; preds = %if.then91, %if.end.i156
-  %48 = phi i64 [ %47, %if.then91 ], [ %.pre221, %if.end.i156 ]
-  %49 = phi i64 [ %45, %if.then91 ], [ %.pre, %if.end.i156 ]
-  %retval.0.i160 = phi i64 [ -28, %if.then91 ], [ 24, %if.end.i156 ]
-  %conv103 = trunc nsw i64 %retval.0.i160 to i32
-  %50 = tail call noundef i64 @llvm.bswap.i64(i64 %49)
-  store i64 %50, ptr %crypto_header, align 8
-  %51 = tail call noundef i64 @llvm.bswap.i64(i64 %48)
-  store i64 %51, ptr %length, align 8
-  %cmp114 = icmp slt i32 %conv103, 0
-  br i1 %cmp114, label %fail, label %if.end117
-
-if.end117:                                        ; preds = %header_ext_add.exit161
-  %idx.ext118 = and i64 %retval.0.i160, 2147483644
-  %add.ptr119 = getelementptr i8, ptr %buf.2, i64 %idx.ext118
-  %sub121 = sub i64 %buflen.2, %idx.ext118
+  %48 = tail call noundef i64 @llvm.bswap.i64(i64 %.pre)
+  store i64 %48, ptr %crypto_header, align 8
+  %49 = tail call noundef i64 @llvm.bswap.i64(i64 %.pre221)
+  store i64 %49, ptr %length, align 8
+  %add.ptr119 = getelementptr i8, ptr %buf.2, i64 24
+  %sub121 = add i64 %buflen.2, -24
   br label %if.end122
 
 if.end122:                                        ; preds = %if.end117, %if.end88
   %buflen.3 = phi i64 [ %sub121, %if.end117 ], [ %buflen.2, %if.end88 ]
   %buf.3 = phi ptr [ %add.ptr119, %if.end117 ], [ %buf.2, %if.end88 ]
-  %52 = load i32, ptr %qcow_version, align 4
-  %cmp124 = icmp sgt i32 %52, 2
+  %50 = load i32, ptr %qcow_version, align 4
+  %cmp124 = icmp sgt i32 %50, 2
   br i1 %cmp124, label %land.lhs.true126, label %if.end141
 
 land.lhs.true126:                                 ; preds = %if.end122
-  %53 = load i32, ptr %cluster_size, align 4
-  %cmp128 = icmp sgt i32 %53, 4096
+  %51 = load i32, ptr %cluster_size, align 4
+  %cmp128 = icmp sgt i32 %51, 4096
   br i1 %cmp128, label %if.then130, label %if.end141
 
 if.then130:                                       ; preds = %land.lhs.true126
@@ -867,8 +860,8 @@ if.end141:                                        ; preds = %if.end136, %land.lh
   %buflen.4 = phi i64 [ %sub140, %if.end136 ], [ %buflen.3, %land.lhs.true126 ], [ %buflen.3, %if.end122 ]
   %buf.4 = phi ptr [ %add.ptr138, %if.end136 ], [ %buf.3, %land.lhs.true126 ], [ %buf.3, %if.end122 ]
   %nb_bitmaps = getelementptr inbounds i8, ptr %0, i64 272
-  %54 = load i32, ptr %nb_bitmaps, align 8
-  %cmp142.not = icmp eq i32 %54, 0
+  %52 = load i32, ptr %nb_bitmaps, align 8
+  %cmp142.not = icmp eq i32 %52, 0
   br i1 %cmp142.not, label %if.end162, label %if.then144
 
 if.then144:                                       ; preds = %if.end141
@@ -877,23 +870,23 @@ if.then144:                                       ; preds = %if.end141
 
 if.end157:                                        ; preds = %if.then144
   %bitmap_directory_offset150 = getelementptr inbounds i8, ptr %0, i64 288
-  %55 = load i64, ptr %bitmap_directory_offset150, align 8
-  %56 = tail call noundef i64 @llvm.bswap.i64(i64 %55)
+  %53 = load i64, ptr %bitmap_directory_offset150, align 8
+  %54 = tail call noundef i64 @llvm.bswap.i64(i64 %53)
   %bitmap_directory_size148 = getelementptr inbounds i8, ptr %0, i64 280
-  %57 = load i64, ptr %bitmap_directory_size148, align 8
-  %58 = tail call noundef i64 @llvm.bswap.i64(i64 %57)
-  %59 = tail call noundef i32 @llvm.bswap.i32(i32 %54)
+  %55 = load i64, ptr %bitmap_directory_size148, align 8
+  %56 = tail call noundef i64 @llvm.bswap.i64(i64 %55)
+  %57 = tail call noundef i32 @llvm.bswap.i32(i32 %52)
   store i32 1965589795, ptr %buf.4, align 1
   %.compoundliteral.sroa.2.0..sroa_idx.i171 = getelementptr inbounds i8, ptr %buf.4, i64 4
   store i32 402653184, ptr %.compoundliteral.sroa.2.0..sroa_idx.i171, align 1
   %add.ptr.i173 = getelementptr i8, ptr %buf.4, i64 8
-  store i32 %59, ptr %add.ptr.i173, align 1
+  store i32 %57, ptr %add.ptr.i173, align 1
   %bitmaps_header.sroa.2.0.add.ptr.i173.sroa_idx = getelementptr i8, ptr %buf.4, i64 12
   store i32 0, ptr %bitmaps_header.sroa.2.0.add.ptr.i173.sroa_idx, align 1
   %bitmaps_header.sroa.3.0.add.ptr.i173.sroa_idx = getelementptr i8, ptr %buf.4, i64 16
-  store i64 %58, ptr %bitmaps_header.sroa.3.0.add.ptr.i173.sroa_idx, align 1
+  store i64 %56, ptr %bitmaps_header.sroa.3.0.add.ptr.i173.sroa_idx, align 1
   %bitmaps_header.sroa.4.0.add.ptr.i173.sroa_idx = getelementptr i8, ptr %buf.4, i64 24
-  store i64 %56, ptr %bitmaps_header.sroa.4.0.add.ptr.i173.sroa_idx, align 1
+  store i64 %54, ptr %bitmaps_header.sroa.4.0.add.ptr.i173.sroa_idx, align 1
   %add.ptr159 = getelementptr i8, ptr %buf.4, i64 32
   %sub161 = add i64 %buflen.4, -32
   br label %if.end162
@@ -912,8 +905,8 @@ for.body:                                         ; preds = %if.end162, %if.end1
   %buflen.6217 = phi i64 [ %sub175, %if.end171 ], [ %buflen.5, %if.end162 ]
   %data = getelementptr inbounds i8, ptr %uext.0219, i64 24
   %len = getelementptr inbounds i8, ptr %uext.0219, i64 4
-  %60 = load i32, ptr %len, align 4
-  %conv165 = zext i32 %60 to i64
+  %58 = load i32, ptr %len, align 4
+  %conv165 = zext i32 %58 to i64
   %add.i176 = add nuw nsw i64 %conv165, 7
   %and.i177 = and i64 %add.i176, 8589934584
   %add1.i178 = add nuw nsw i64 %and.i177, 8
@@ -921,13 +914,13 @@ for.body:                                         ; preds = %if.end162, %if.end1
   br i1 %cmp.i179, label %fail, label %if.end.i180
 
 if.end.i180:                                      ; preds = %for.body
-  %61 = load i32, ptr %uext.0219, align 8
-  %62 = tail call noundef i32 @llvm.bswap.i32(i32 %61)
-  %63 = tail call noundef i32 @llvm.bswap.i32(i32 %60)
-  store i32 %62, ptr %buf.6218, align 1
+  %59 = load i32, ptr %uext.0219, align 8
+  %60 = tail call noundef i32 @llvm.bswap.i32(i32 %59)
+  %61 = tail call noundef i32 @llvm.bswap.i32(i32 %58)
+  store i32 %60, ptr %buf.6218, align 1
   %.compoundliteral.sroa.2.0..sroa_idx.i182 = getelementptr inbounds i8, ptr %buf.6218, i64 4
-  store i32 %63, ptr %.compoundliteral.sroa.2.0..sroa_idx.i182, align 1
-  %tobool.not.i183 = icmp eq i32 %60, 0
+  store i32 %61, ptr %.compoundliteral.sroa.2.0..sroa_idx.i182, align 1
+  %tobool.not.i183 = icmp eq i32 %58, 0
   br i1 %tobool.not.i183, label %header_ext_add.exit187, label %if.then5.i184
 
 if.then5.i184:                                    ; preds = %if.end.i180
@@ -962,37 +955,37 @@ if.end181:                                        ; preds = %for.end
   %add.ptr183 = getelementptr i8, ptr %buf.6.lcssa, i64 8
   %sub185 = add i64 %buflen.6.lcssa, -8
   %image_backing_file = getelementptr inbounds i8, ptr %0, i64 432
-  %64 = load ptr, ptr %image_backing_file, align 8
-  %tobool186.not = icmp eq ptr %64, null
+  %62 = load ptr, ptr %image_backing_file, align 8
+  %tobool186.not = icmp eq ptr %62, null
   br i1 %tobool186.not, label %if.end201, label %if.then187
 
 if.then187:                                       ; preds = %if.end181
-  %call189 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %64) #23
+  %call189 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %62) #23
   %cmp190 = icmp ult i64 %sub185, %call189
   br i1 %cmp190, label %fail, label %if.end193
 
 if.end193:                                        ; preds = %if.then187
-  %call195 = tail call ptr @strncpy(ptr noundef %add.ptr183, ptr noundef nonnull %64, i64 noundef %sub185) #22
+  %call195 = tail call ptr @strncpy(ptr noundef %add.ptr183, ptr noundef nonnull %62, i64 noundef %sub185) #22
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr183 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %call to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %65 = tail call noundef i64 @llvm.bswap.i64(i64 %sub.ptr.sub)
-  store i64 %65, ptr %.compoundliteral.sroa.3.0..sroa_idx, align 1
+  %63 = tail call noundef i64 @llvm.bswap.i64(i64 %sub.ptr.sub)
+  store i64 %63, ptr %.compoundliteral.sroa.3.0..sroa_idx, align 1
   %conv198 = trunc i64 %call189 to i32
-  %66 = tail call noundef i32 @llvm.bswap.i32(i32 %conv198)
-  store i32 %66, ptr %.compoundliteral.sroa.4.0..sroa_idx, align 1
+  %64 = tail call noundef i32 @llvm.bswap.i32(i32 %conv198)
+  store i32 %64, ptr %.compoundliteral.sroa.4.0..sroa_idx, align 1
   br label %if.end201
 
 if.end201:                                        ; preds = %if.end193, %if.end181
-  %67 = load ptr, ptr %40, align 8
-  %68 = load i32, ptr %cluster_size, align 4
-  %conv203 = sext i32 %68 to i64
-  %call204 = tail call i32 @bdrv_pwrite(ptr noundef %67, i64 noundef 0, i64 noundef %conv203, ptr noundef nonnull %call, i32 noundef 0) #22
+  %65 = load ptr, ptr %40, align 8
+  %66 = load i32, ptr %cluster_size, align 4
+  %conv203 = sext i32 %66 to i64
+  %call204 = tail call i32 @bdrv_pwrite(ptr noundef %65, i64 noundef 0, i64 noundef %conv203, ptr noundef nonnull %call, i32 noundef 0) #22
   %spec.store.select = tail call i32 @llvm.smin.i32(i32 %call204, i32 0)
   br label %fail
 
-fail:                                             ; preds = %for.body, %header_ext_add.exit187, %for.end, %if.then144, %if.then130, %if.then74, %if.then56, %if.then7.i, %if.then3.i, %sw.default.i, %if.then187, %if.then43, %if.end4, %entry, %if.end201, %header_ext_add.exit161, %header_ext_add.exit154, %header_ext_add.exit
-  %ret.1 = phi i32 [ %conv61, %header_ext_add.exit ], [ %conv79, %header_ext_add.exit154 ], [ %conv103, %header_ext_add.exit161 ], [ %spec.store.select, %if.end201 ], [ -28, %entry ], [ -22, %if.end4 ], [ -28, %if.then43 ], [ -28, %if.then187 ], [ -22, %if.then7.i ], [ -22, %if.then3.i ], [ -95, %sw.default.i ], [ -28, %if.then56 ], [ -28, %if.then74 ], [ -28, %if.then130 ], [ -28, %if.then144 ], [ -28, %for.end ], [ -28, %for.body ], [ %conv167, %header_ext_add.exit187 ]
+fail:                                             ; preds = %for.body, %header_ext_add.exit187, %header_ext_add.exit161.thread, %for.end, %if.then144, %if.then130, %if.then74, %if.then56, %if.then7.i, %if.then3.i, %sw.default.i, %if.then187, %if.then43, %if.end4, %entry, %if.end201, %header_ext_add.exit154, %header_ext_add.exit
+  %ret.1 = phi i32 [ %conv61, %header_ext_add.exit ], [ %conv79, %header_ext_add.exit154 ], [ %spec.store.select, %if.end201 ], [ -28, %entry ], [ -22, %if.end4 ], [ -28, %if.then43 ], [ -28, %if.then187 ], [ -22, %if.then7.i ], [ -22, %if.then3.i ], [ -95, %sw.default.i ], [ -28, %if.then56 ], [ -28, %if.then74 ], [ -28, %if.then130 ], [ -28, %if.then144 ], [ -28, %for.end ], [ -28, %header_ext_add.exit161.thread ], [ -28, %for.body ], [ %conv167, %header_ext_add.exit187 ]
   tail call void @qemu_vfree(ptr noundef %call) #22
   ret i32 %ret.1
 }

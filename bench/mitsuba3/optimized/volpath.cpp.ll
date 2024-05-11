@@ -587,7 +587,7 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   br label %288
 
 288:                                              ; preds = %221, %.thread2581.thread
-  %.025232670 = phi i8 [ 1, %221 ], [ %1636, %.thread2581.thread ]
+  %.025232670 = phi i8 [ 1, %221 ], [ %1631, %.thread2581.thread ]
   %.025242669 = phi i8 [ %191, %221 ], [ %.2, %.thread2581.thread ]
   %.025252668 = phi i8 [ %233, %221 ], [ %.22527, %.thread2581.thread ]
   %.025282667 = phi i8 [ 1, %221 ], [ %.3, %.thread2581.thread ]
@@ -738,7 +738,7 @@ _ZNK5drjit9ArrayBaseINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELb0ENS1_IS5_Lm4EE
   %354 = icmp ult i32 %.025582665, %353
   %355 = and i1 %293, %354
   %356 = select i1 %355, i1 %narrow, i1 false
-  br i1 %356, label %357, label %1638
+  br i1 %356, label %357, label %1633
 
 357:                                              ; preds = %352
   %358 = icmp ne ptr %.025672663, null
@@ -3277,86 +3277,76 @@ _ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE6fmadd_ER
   %1604 = or i8 %.22530, %1076
   %1605 = load i32, ptr %286, align 8
   %1606 = and i32 %1605, 1
-  %1607 = trunc nuw nsw i32 %1606 to i8
-  %.not2634.not = icmp eq i8 %1607, 0
-  br i1 %.not2634.not, label %1608, label %1611
+  %.not2634.not = icmp eq i32 %1606, 0
+  br i1 %.not2634.not, label %1607, label %_ZNK7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE20is_medium_transitionEv.exit
 
-1608:                                             ; preds = %1569
-  %.not2633 = icmp eq i32 %1606, 0
-  %1609 = add i32 %.2256027152734, 1
+1607:                                             ; preds = %1569
+  %1608 = add i32 %.2256027152734, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %143, ptr noundef nonnull align 16 dereferenceable(64) %142, i64 64, i1 false)
-  %1610 = load float, ptr %287, align 16
-  br i1 %.not2633, label %1614, label %_ZNK7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE20is_medium_transitionEv.exit
-
-1611:                                             ; preds = %1569
-  %1612 = xor i8 %1607, 1
-  %1613 = or i8 %1612, %.1
+  %1609 = load float, ptr %287, align 16
+  %1610 = and i32 %1605, 96
+  %1611 = icmp ne i32 %1610, 0
   br label %_ZNK7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE20is_medium_transitionEv.exit
 
-1614:                                             ; preds = %1608
-  %1615 = and i32 %1605, 96
-  %1616 = icmp ne i32 %1615, 0
-  br label %_ZNK7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE20is_medium_transitionEv.exit
-
-_ZNK7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE20is_medium_transitionEv.exit: ; preds = %1614, %1608, %1611
-  %.ph = phi i8 [ 1, %1608 ], [ 1, %1614 ], [ %1613, %1611 ]
-  %.325652597.ph = phi float [ %1610, %1608 ], [ %1610, %1614 ], [ %.22564, %1611 ]
-  %.32561258825912596.ph = phi i32 [ %1609, %1608 ], [ %1609, %1614 ], [ %.2256027152734, %1611 ]
-  %.ph2601 = phi i1 [ false, %1608 ], [ %1616, %1614 ], [ false, %1611 ]
-  %1617 = load ptr, ptr %234, align 16
-  %1618 = call noundef zeroext i1 @_ZNK7mitsuba5ShapeIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE20is_medium_transitionEv(ptr noundef nonnull align 16 dereferenceable(403) %1617)
+_ZNK7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE20is_medium_transitionEv.exit: ; preds = %1607, %1569
+  %.ph = phi i8 [ 1, %1607 ], [ %.1, %1569 ]
+  %.325652597.ph = phi float [ %1609, %1607 ], [ %.22564, %1569 ]
+  %.32561258825912596.ph = phi i32 [ %1608, %1607 ], [ %.2256027152734, %1569 ]
+  %.ph2601 = phi i1 [ %1611, %1607 ], [ false, %1569 ]
+  %1612 = load ptr, ptr %234, align 16
+  %1613 = call noundef zeroext i1 @_ZNK7mitsuba5ShapeIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE20is_medium_transitionEv(ptr noundef nonnull align 16 dereferenceable(403) %1612)
   %.pre2699 = load <4 x float>, ptr %239, align 16
-  %1619 = and i32 %1605, 30
-  %.not2635 = icmp eq i32 %1619, 0
-  %1620 = and i8 %.12526, 1
-  %1621 = zext i1 %.ph2601 to i8
-  %1622 = or i8 %1620, %1621
-  %1623 = icmp ne i8 %1622, 0
-  %1624 = select i1 %.not2635, i1 %1623, i1 false
-  %1625 = zext i1 %1624 to i8
-  %1626 = load <4 x float>, ptr %.sroa.22312.0..sroa.02309.0..sroa_idx, align 16
-  %1627 = call contract <4 x float> @llvm.x86.sse41.dpps(<4 x float> %1626, <4 x float> %.pre2699, i8 113)
-  %1628 = extractelement <4 x float> %1627, i64 0
-  %1629 = fcmp contract ogt float %1628, 0.000000e+00
-  %1630 = load ptr, ptr %234, align 16
-  %1631 = call noundef ptr @_ZNK7mitsuba5ShapeIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE15exterior_mediumEb(ptr noundef nonnull align 16 dereferenceable(403) %1630, i1 noundef zeroext true)
-  %1632 = load ptr, ptr %234, align 16
-  %1633 = call noundef ptr @_ZNK7mitsuba5ShapeIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE15interior_mediumEb(ptr noundef nonnull align 16 dereferenceable(403) %1632, i1 noundef zeroext true)
-  %..i.i = select i1 %1629, ptr %1631, ptr %1633
-  %spec.select2625 = select i1 %1618, ptr %..i.i, ptr %.025672663
+  %1614 = and i32 %1605, 30
+  %.not2635 = icmp eq i32 %1614, 0
+  %1615 = and i8 %.12526, 1
+  %1616 = zext i1 %.ph2601 to i8
+  %1617 = or i8 %1615, %1616
+  %1618 = icmp ne i8 %1617, 0
+  %1619 = select i1 %.not2635, i1 %1618, i1 false
+  %1620 = zext i1 %1619 to i8
+  %1621 = load <4 x float>, ptr %.sroa.22312.0..sroa.02309.0..sroa_idx, align 16
+  %1622 = call contract <4 x float> @llvm.x86.sse41.dpps(<4 x float> %1621, <4 x float> %.pre2699, i8 113)
+  %1623 = extractelement <4 x float> %1622, i64 0
+  %1624 = fcmp contract ogt float %1623, 0.000000e+00
+  %1625 = load ptr, ptr %234, align 16
+  %1626 = call noundef ptr @_ZNK7mitsuba5ShapeIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE15exterior_mediumEb(ptr noundef nonnull align 16 dereferenceable(403) %1625, i1 noundef zeroext true)
+  %1627 = load ptr, ptr %234, align 16
+  %1628 = call noundef ptr @_ZNK7mitsuba5ShapeIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE15interior_mediumEb(ptr noundef nonnull align 16 dereferenceable(403) %1627, i1 noundef zeroext true)
+  %..i.i = select i1 %1624, ptr %1626, ptr %1628
+  %spec.select2625 = select i1 %1613, ptr %..i.i, ptr %.025672663
   br label %.thread2581.thread
 
 .thread2581.thread:                               ; preds = %876, %_ZNK7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE20is_medium_transitionEv.exit, %.thread2581
-  %1634 = phi i8 [ 0, %.thread2581 ], [ %1076, %_ZNK7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE20is_medium_transitionEv.exit ], [ 0, %876 ]
+  %1629 = phi i8 [ 0, %.thread2581 ], [ %1076, %_ZNK7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE20is_medium_transitionEv.exit ], [ 0, %876 ]
   %.12568 = phi ptr [ %.025672663, %.thread2581 ], [ %spec.select2625, %_ZNK7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE20is_medium_transitionEv.exit ], [ %.025672663, %876 ]
   %.42566 = phi float [ %.22564, %.thread2581 ], [ %.325652597.ph, %_ZNK7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE20is_medium_transitionEv.exit ], [ %.22564, %876 ]
   %.4 = phi i32 [ %.2256027152734, %.thread2581 ], [ %.32561258825912596.ph, %_ZNK7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE20is_medium_transitionEv.exit ], [ %.2256027152734, %876 ]
   %.22557 = phi float [ %.025552666, %.thread2581 ], [ %1571, %_ZNK7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE20is_medium_transitionEv.exit ], [ %.025552666, %876 ]
   %.3 = phi i8 [ %.22530, %.thread2581 ], [ %1604, %_ZNK7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE20is_medium_transitionEv.exit ], [ %.22530, %876 ]
-  %.22527 = phi i8 [ %.12526, %.thread2581 ], [ %1625, %_ZNK7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE20is_medium_transitionEv.exit ], [ %.12526, %876 ]
+  %.22527 = phi i8 [ %.12526, %.thread2581 ], [ %1620, %_ZNK7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE20is_medium_transitionEv.exit ], [ %.12526, %876 ]
   %.2 = phi i8 [ %.1, %.thread2581 ], [ %.ph, %_ZNK7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE20is_medium_transitionEv.exit ], [ %.1, %876 ]
-  %1635 = or i8 %1634, %.0253127162733
-  %1636 = select i1 %871, i8 %1635, i8 0
-  %1637 = trunc nuw i8 %1636 to i1
-  br i1 %1637, label %288, label %1638, !llvm.loop !372
+  %1630 = or i8 %1629, %.0253127162733
+  %1631 = select i1 %871, i8 %1630, i8 0
+  %1632 = trunc nuw i8 %1631 to i1
+  br i1 %1632, label %288, label %1633, !llvm.loop !372
 
-1638:                                             ; preds = %352, %.thread2581.thread
+1633:                                             ; preds = %352, %.thread2581.thread
   %.02524.lcssa = phi i8 [ %.025242669, %352 ], [ %.2, %.thread2581.thread ]
-  br label %1639
+  br label %1634
 
-1639:                                             ; preds = %1639, %1638
-  %.013.i = phi i64 [ 0, %1638 ], [ %1642, %1639 ]
-  %1640 = getelementptr inbounds [4 x %"struct.drjit::Array"], ptr %140, i64 0, i64 %.013.i
-  %1641 = getelementptr inbounds [4 x %"struct.drjit::Array"], ptr %0, i64 0, i64 %.013.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %1641, ptr noundef nonnull align 16 dereferenceable(64) %1640, i64 64, i1 false)
-  %1642 = add nuw nsw i64 %.013.i, 1
-  %exitcond.not.i2264 = icmp eq i64 %1642, 4
-  br i1 %exitcond.not.i2264, label %1643, label %1639, !llvm.loop !373
+1634:                                             ; preds = %1634, %1633
+  %.013.i = phi i64 [ 0, %1633 ], [ %1637, %1634 ]
+  %1635 = getelementptr inbounds [4 x %"struct.drjit::Array"], ptr %140, i64 0, i64 %.013.i
+  %1636 = getelementptr inbounds [4 x %"struct.drjit::Array"], ptr %0, i64 0, i64 %.013.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %1636, ptr noundef nonnull align 16 dereferenceable(64) %1635, i64 64, i1 false)
+  %1637 = add nuw nsw i64 %.013.i, 1
+  %exitcond.not.i2264 = icmp eq i64 %1637, 4
+  br i1 %exitcond.not.i2264, label %1638, label %1634, !llvm.loop !373
 
-1643:                                             ; preds = %1639
-  %1644 = getelementptr inbounds i8, ptr %0, i64 256
-  %1645 = and i8 %.02524.lcssa, 1
-  store i8 %1645, ptr %1644, align 16
+1638:                                             ; preds = %1634
+  %1639 = getelementptr inbounds i8, ptr %0, i64 256
+  %1640 = and i8 %.02524.lcssa, 1
+  store i8 %1640, ptr %1639, align 16
   ret void
 }
 

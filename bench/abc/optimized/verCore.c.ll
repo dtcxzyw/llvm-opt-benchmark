@@ -2217,30 +2217,30 @@ define range(i32 0, 3) i32 @Ver_ParseConnectDefBoxes(ptr noundef %0) local_unnam
   %5 = getelementptr inbounds i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 4
-  %.val141 = load i32, ptr %7, align 4
-  %8 = icmp sgt i32 %.val141, 0
-  br i1 %8, label %.lr.ph144, label %.critedge
+  %.val139 = load i32, ptr %7, align 4
+  %8 = icmp sgt i32 %.val139, 0
+  br i1 %8, label %.lr.ph142, label %.critedge
 
-.lr.ph144:                                        ; preds = %1, %.critedge2
+.lr.ph142:                                        ; preds = %1, %.critedge2
   %9 = phi ptr [ %436, %.critedge2 ], [ %4, %1 ]
-  %indvars.iv217 = phi i64 [ %indvars.iv.next218, %.critedge2 ], [ 0, %1 ]
+  %indvars.iv213 = phi i64 [ %indvars.iv.next214, %.critedge2 ], [ 0, %1 ]
   %10 = phi ptr [ %438, %.critedge2 ], [ %6, %1 ]
-  %.0143 = phi i32 [ %.1.lcssa, %.critedge2 ], [ 1, %1 ]
+  %.0141 = phi i32 [ %.1.lcssa, %.critedge2 ], [ 1, %1 ]
   %11 = getelementptr i8, ptr %10, i64 8
   %.val28 = load ptr, ptr %11, align 8
-  %12 = getelementptr inbounds ptr, ptr %.val28, i64 %indvars.iv217
+  %12 = getelementptr inbounds ptr, ptr %.val28, i64 %indvars.iv213
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 80
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr i8, ptr %15, i64 4
-  %.val27138 = load i32, ptr %16, align 4
-  %17 = icmp sgt i32 %.val27138, 0
+  %.val27136 = load i32, ptr %16, align 4
+  %17 = icmp sgt i32 %.val27136, 0
   br i1 %17, label %.lr.ph, label %.critedge2
 
-.lr.ph:                                           ; preds = %.lr.ph144, %431
-  %indvars.iv = phi i64 [ %indvars.iv.next, %431 ], [ 0, %.lr.ph144 ]
-  %18 = phi ptr [ %432, %431 ], [ %15, %.lr.ph144 ]
-  %.1140 = phi i32 [ %.2, %431 ], [ %.0143, %.lr.ph144 ]
+.lr.ph:                                           ; preds = %.lr.ph142, %431
+  %indvars.iv = phi i64 [ %indvars.iv.next, %431 ], [ 0, %.lr.ph142 ]
+  %18 = phi ptr [ %432, %431 ], [ %15, %.lr.ph142 ]
+  %.1138 = phi i32 [ %.2, %431 ], [ %.0141, %.lr.ph142 ]
   %19 = getelementptr i8, ptr %18, i64 8
   %.val29.val = load ptr, ptr %19, align 8
   %20 = getelementptr inbounds ptr, ptr %.val29.val, i64 %indvars.iv
@@ -2792,7 +2792,7 @@ Ver_ParseFreeBundle.exit384.i:                    ; preds = %188, %183
 
 234:                                              ; preds = %229
   %235 = trunc i64 %230 to i32
-  %.not410.i = icmp eq i32 %227, 1
+  %.not410.i = icmp eq i64 %indvars.iv534.i, 1
   %brmerge.i = or i1 %209, %.not410.i
   br i1 %brmerge.i, label %.thread401.i, label %.lr.ph431.i
 
@@ -2978,9 +2978,9 @@ Ver_ParseFreeBundle.exit384.i:                    ; preds = %188, %183
 
 321:                                              ; preds = %316
   %322 = trunc i64 %317 to i32
-  %.not409.i = icmp eq i32 %314, 1
-  %brmerge645.i = or i1 %296, %.not409.i
-  br i1 %brmerge645.i, label %.thread406.i, label %.lr.ph456.i
+  %.not409.i = icmp eq i64 %indvars.iv551.i, 1
+  %brmerge643.i = or i1 %296, %.not409.i
+  br i1 %brmerge643.i, label %.thread406.i, label %.lr.ph456.i
 
 .lr.ph456.i:                                      ; preds = %321
   %.val338.i = load ptr, ptr %196, align 8
@@ -3216,8 +3216,8 @@ Ver_ParseConnectBox.exit.thread40:                ; preds = %393, %268, %142, %8
   br label %.critedge
 
 Vec_PtrFree.exit386.i.sink.split:                 ; preds = %.critedge36.i, %.critedge16.i
-  %.sink297 = phi ptr [ %191, %.critedge16.i ], [ %416, %.critedge36.i ]
-  call void @free(ptr noundef nonnull %.sink297) #19
+  %.sink291 = phi ptr [ %191, %.critedge16.i ], [ %416, %.critedge36.i ]
+  call void @free(ptr noundef nonnull %.sink291) #19
   br label %Vec_PtrFree.exit386.i
 
 Vec_PtrFree.exit386.i:                            ; preds = %Vec_PtrFree.exit386.i.sink.split, %.critedge36.i, %.critedge16.i
@@ -3248,7 +3248,7 @@ Vec_PtrFree.exit386.i:                            ; preds = %Vec_PtrFree.exit386
   br label %431
 
 431:                                              ; preds = %28, %Vec_PtrFree.exit386.i, %24, %.lr.ph, %419
-  %.2 = phi i32 [ %.1140, %.lr.ph ], [ %.1140, %24 ], [ %.1140, %Vec_PtrFree.exit386.i ], [ %.1140, %419 ], [ 2, %28 ]
+  %.2 = phi i32 [ %.1138, %.lr.ph ], [ %.1138, %24 ], [ %.1138, %Vec_PtrFree.exit386.i ], [ %.1138, %419 ], [ 2, %28 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %432 = load ptr, ptr %14, align 8
   %433 = getelementptr i8, ptr %432, i64 4
@@ -3261,17 +3261,17 @@ Vec_PtrFree.exit386.i:                            ; preds = %Vec_PtrFree.exit386
   %.pre = load ptr, ptr %3, align 8
   br label %.critedge2
 
-.critedge2:                                       ; preds = %.critedge2.loopexit, %.lr.ph144
-  %436 = phi ptr [ %9, %.lr.ph144 ], [ %.pre, %.critedge2.loopexit ]
-  %.1.lcssa = phi i32 [ %.0143, %.lr.ph144 ], [ %.2, %.critedge2.loopexit ]
-  %indvars.iv.next218 = add nuw nsw i64 %indvars.iv217, 1
+.critedge2:                                       ; preds = %.critedge2.loopexit, %.lr.ph142
+  %436 = phi ptr [ %9, %.lr.ph142 ], [ %.pre, %.critedge2.loopexit ]
+  %.1.lcssa = phi i32 [ %.0141, %.lr.ph142 ], [ %.2, %.critedge2.loopexit ]
+  %indvars.iv.next214 = add nuw nsw i64 %indvars.iv213, 1
   %437 = getelementptr inbounds i8, ptr %436, i64 24
   %438 = load ptr, ptr %437, align 8
   %439 = getelementptr i8, ptr %438, i64 4
   %.val = load i32, ptr %439, align 4
   %440 = sext i32 %.val to i64
-  %441 = icmp slt i64 %indvars.iv.next218, %440
-  br i1 %441, label %.lr.ph144, label %.critedge, !llvm.loop !49
+  %441 = icmp slt i64 %indvars.iv.next214, %440
+  br i1 %441, label %.lr.ph142, label %.critedge, !llvm.loop !49
 
 .critedge:                                        ; preds = %.critedge2, %1, %Ver_ParseConnectBox.exit.thread40, %Ver_ParseConnectBox.exit.thread
   %.022 = phi i32 [ 0, %Ver_ParseConnectBox.exit.thread ], [ 0, %Ver_ParseConnectBox.exit.thread40 ], [ 1, %1 ], [ %.1.lcssa, %.critedge2 ]

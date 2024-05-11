@@ -427,7 +427,7 @@ define i32 @FindDiffVars(ptr nocapture noundef writeonly %0, ptr nocapture nound
 
 51:                                               ; preds = %45
   %52 = trunc nsw i64 %indvars.iv.next59 to i32
-  %53 = icmp sgt i32 %52, 4
+  %53 = icmp sgt i64 %indvars.iv58, 3
   br i1 %53, label %.sink.split, label %.thread
 
 .thread:                                          ; preds = %24, %51
@@ -471,7 +471,7 @@ define i32 @FindDiffVars(ptr nocapture noundef writeonly %0, ptr nocapture nound
 
 73:                                               ; preds = %67
   %74 = trunc nsw i64 %indvars.iv.next68 to i32
-  %75 = icmp sgt i32 %74, 4
+  %75 = icmp sgt i64 %indvars.iv67, 3
   br i1 %75, label %.sink.split, label %.thread81
 
 .sink.split:                                      ; preds = %.thread81, %73, %59, %51, %38, %.loopexit33

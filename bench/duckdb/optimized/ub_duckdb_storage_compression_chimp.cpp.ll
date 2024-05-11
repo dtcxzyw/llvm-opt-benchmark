@@ -6045,8 +6045,7 @@ if.then:                                          ; preds = %entry
   %3 = load i64, ptr %arrayidx.i132, align 8, !tbaa !69
   %xor = xor i64 %3, %in
   %4 = tail call i64 @llvm.cttz.i64(i64 %xor, i1 false), !range !280
-  %cast.i = trunc nuw nsw i64 %4 to i32
-  %cmp14 = icmp ugt i32 %cast.i, 13
+  %cmp14 = icmp ugt i64 %4, 13
   br i1 %cmp14, label %if.end34.thread, label %if.end34
 
 if.end34:                                         ; preds = %if.then, %entry
@@ -6819,8 +6818,7 @@ if.then:                                          ; preds = %entry
   %4 = load i64, ptr %arrayidx.i132, align 8, !tbaa !69
   %xor = xor i64 %4, %in
   %5 = tail call i64 @llvm.cttz.i64(i64 %xor, i1 false), !range !280
-  %cast.i = trunc nuw nsw i64 %5 to i32
-  %cmp14 = icmp ugt i32 %cast.i, 13
+  %cmp14 = icmp ugt i64 %5, 13
   br i1 %cmp14, label %if.end34.thread, label %if.end34
 
 if.end34:                                         ; preds = %if.then, %entry

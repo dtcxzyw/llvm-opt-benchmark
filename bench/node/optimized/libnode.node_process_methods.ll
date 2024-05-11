@@ -4787,8 +4787,9 @@ if.end33:                                         ; preds = %_ZNK2v820FunctionCa
   br i1 %cmp35, label %land.lhs.true, label %if.end45
 
 land.lhs.true:                                    ; preds = %if.end33
-  %27 = add i32 %ref.tmp.sroa.318.0.extract.trunc, 1
-  %or.cond = icmp ult i32 %27, 2
+  %cmp36 = icmp ult i64 %call14, 4294967296
+  %cmp37 = icmp eq i64 %ref.tmp.sroa.318.0.extract.shift, 4294967295
+  %or.cond = or i1 %cmp36, %cmp37
   %cmp39 = icmp eq i32 %call34, %ref.tmp.sroa.318.0.extract.trunc
   %or.cond32 = select i1 %or.cond, i1 true, i1 %cmp39
   %sub = sub nsw i32 0, %call34
@@ -4807,8 +4808,8 @@ if.then44:                                        ; preds = %land.lhs.true42
 if.end45:                                         ; preds = %land.lhs.true, %if.then44, %land.lhs.true42, %if.end33
   %call46 = tail call i32 @uv_kill(i32 noundef %ref.tmp.sroa.318.0.extract.trunc, i32 noundef %ref.tmp18.sroa.324.0.extract.trunc) #25
   %conv.i = sext i32 %call46 to i64
-  %28 = load ptr, ptr %args, align 8
-  %arrayidx.i85 = getelementptr inbounds i8, ptr %28, i64 24
+  %27 = load ptr, ptr %args, align 8
+  %arrayidx.i85 = getelementptr inbounds i8, ptr %27, i64 24
   %shl.i = shl nsw i64 %conv.i, 32
   store i64 %shl.i, ptr %arrayidx.i85, align 8
   br label %return

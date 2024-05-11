@@ -1672,11 +1672,11 @@ define dso_local range(i32 0, 21) i32 @pg_ulltoa_n(i64 noundef %0, ptr nocapture
   br label %21
 
 21:                                               ; preds = %.lr.ph, %21
-  %.06075 = phi i64 [ %0, %.lr.ph ], [ %22, %21 ]
-  %.06174 = phi i32 [ 0, %.lr.ph ], [ %54, %21 ]
-  %22 = udiv i64 %.06075, 100000000
+  %.06071 = phi i64 [ %0, %.lr.ph ], [ %22, %21 ]
+  %.06170 = phi i32 [ 0, %.lr.ph ], [ %54, %21 ]
+  %22 = udiv i64 %.06071, 100000000
   %.neg67 = mul i64 %22, 4194967296
-  %23 = add i64 %.neg67, %.06075
+  %23 = add i64 %.neg67, %.06071
   %24 = trunc i64 %23 to i32
   %25 = urem i32 %24, 10000
   %26 = udiv i32 %24, 10000
@@ -1689,7 +1689,7 @@ define dso_local range(i32 0, 21) i32 @pg_ulltoa_n(i64 noundef %0, ptr nocapture
   %32 = shl nuw nsw i32 %31, 1
   %33 = udiv i32 %24, 1000000
   %34 = shl nuw nsw i32 %33, 1
-  %35 = sext i32 %.06174 to i64
+  %35 = sext i32 %.06170 to i64
   %36 = sub nsw i64 0, %35
   %37 = getelementptr i8, ptr %20, i64 %36
   %38 = getelementptr i8, ptr %37, i64 -2
@@ -1712,15 +1712,15 @@ define dso_local range(i32 0, 21) i32 @pg_ulltoa_n(i64 noundef %0, ptr nocapture
   %52 = getelementptr i8, ptr @DIGIT_TABLE, i64 %51
   %53 = load i16, ptr %52, align 2
   store i16 %53, ptr %50, align 1
-  %54 = add i32 %.06174, 8
-  %55 = icmp ugt i64 %.06075, 9999999999999999
+  %54 = add i32 %.06170, 8
+  %55 = icmp ugt i64 %.06071, 9999999999999999
   br i1 %55, label %21, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %21, %5
   %.061.lcssa = phi i32 [ 0, %5 ], [ %54, %21 ]
   %.060.lcssa = phi i64 [ %0, %5 ], [ %22, %21 ]
   %56 = trunc nuw nsw i64 %.060.lcssa to i32
-  %57 = icmp ugt i32 %56, 9999
+  %57 = icmp ugt i64 %.060.lcssa, 9999
   br i1 %57, label %58, label %79
 
 58:                                               ; preds = %._crit_edge
@@ -1756,18 +1756,16 @@ define dso_local range(i32 0, 21) i32 @pg_ulltoa_n(i64 noundef %0, ptr nocapture
   br i1 %80, label %81, label %95
 
 81:                                               ; preds = %79
-  %.lhs.trunc70 = trunc i32 %.062 to i16
-  %82 = urem i16 %.lhs.trunc70, 100
-  %83 = shl nuw nsw i16 %82, 1
+  %82 = urem i32 %.062, 100
+  %83 = shl nuw nsw i32 %82, 1
   %84 = zext nneg i32 %17 to i64
   %85 = getelementptr i8, ptr %1, i64 %84
   %86 = sext i32 %.1 to i64
   %87 = sub nsw i64 0, %86
   %88 = getelementptr i8, ptr %85, i64 %87
-  %89 = udiv i16 %.lhs.trunc70, 100
-  %.zext73 = zext nneg i16 %89 to i32
+  %89 = udiv i32 %.062, 100
   %90 = getelementptr i8, ptr %88, i64 -2
-  %91 = zext nneg i16 %83 to i64
+  %91 = zext nneg i32 %83 to i64
   %92 = getelementptr i8, ptr @DIGIT_TABLE, i64 %91
   %93 = load i16, ptr %92, align 2
   store i16 %93, ptr %90, align 1
@@ -1775,7 +1773,7 @@ define dso_local range(i32 0, 21) i32 @pg_ulltoa_n(i64 noundef %0, ptr nocapture
   br label %95
 
 95:                                               ; preds = %81, %79
-  %.163 = phi i32 [ %.zext73, %81 ], [ %.062, %79 ]
+  %.163 = phi i32 [ %89, %81 ], [ %.062, %79 ]
   %.2 = phi i32 [ %94, %81 ], [ %.1, %79 ]
   %96 = icmp ugt i32 %.163, 9
   br i1 %96, label %97, label %108

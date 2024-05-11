@@ -904,14 +904,12 @@ if.end7:                                          ; preds = %if.end3
 
 while.body.preheader:                             ; preds = %if.end7
   %call1224 = tail call i64 @qemu_fill_buffer(ptr noundef nonnull %f)
-  %conv1325 = trunc nsw i64 %call1224 to i32
-  %cmp1426 = icmp slt i32 %conv1325, 1
-  br i1 %cmp1426, label %while.end, label %if.end17
+  %cmp1425 = icmp slt i64 %call1224, 1
+  br i1 %cmp1425, label %while.end, label %if.end17
 
 while.body:                                       ; preds = %if.end17
   %call12 = tail call i64 @qemu_fill_buffer(ptr noundef nonnull %f)
-  %conv13 = trunc nsw i64 %call12 to i32
-  %cmp14 = icmp slt i32 %conv13, 1
+  %cmp14 = icmp slt i64 %call12, 1
   br i1 %cmp14, label %while.end, label %if.end17, !llvm.loop !7
 
 if.end17:                                         ; preds = %while.body.preheader, %while.body
@@ -1082,8 +1080,8 @@ return:                                           ; preds = %if.end5, %if.end46
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @qemu_get_buffer(ptr noundef %f, ptr nocapture noundef writeonly %buf, i64 noundef %size) #0 {
 entry:
-  %cmp.not27 = icmp eq i64 %size, 0
-  br i1 %cmp.not27, label %return, label %while.body.lr.ph
+  %cmp.not26 = icmp eq i64 %size, 0
+  br i1 %cmp.not26, label %return, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
   %0 = getelementptr i8, ptr %f, i64 8
@@ -1093,10 +1091,10 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %qemu_file_skip.exit
-  %buf.addr.030 = phi ptr [ %buf, %while.body.lr.ph ], [ %add.ptr, %qemu_file_skip.exit ]
-  %pending.029 = phi i64 [ %size, %while.body.lr.ph ], [ %sub, %qemu_file_skip.exit ]
-  %done.028 = phi i64 [ 0, %while.body.lr.ph ], [ %add, %qemu_file_skip.exit ]
-  %cond = tail call i64 @llvm.umin.i64(i64 %pending.029, i64 32768)
+  %buf.addr.029 = phi ptr [ %buf, %while.body.lr.ph ], [ %add.ptr, %qemu_file_skip.exit ]
+  %pending.028 = phi i64 [ %size, %while.body.lr.ph ], [ %sub, %qemu_file_skip.exit ]
+  %done.027 = phi i64 [ 0, %while.body.lr.ph ], [ %add, %qemu_file_skip.exit ]
+  %cond = tail call i64 @llvm.umin.i64(i64 %pending.028, i64 32768)
   %f.val.i = load i8, ptr %0, align 8
   %tobool.i.i = trunc i8 %f.val.i to i1
   br i1 %tobool.i.i, label %if.else.i, label %if.end.i
@@ -1116,14 +1114,12 @@ if.end.i:                                         ; preds = %while.body
 
 while.body.i.preheader:                           ; preds = %if.end.i
   %call12.i21 = tail call i64 @qemu_fill_buffer(ptr noundef nonnull %f)
-  %conv13.i22 = trunc nsw i64 %call12.i21 to i32
-  %cmp14.i23 = icmp slt i32 %conv13.i22, 1
-  br i1 %cmp14.i23, label %while.end.i, label %if.end17.i
+  %cmp14.i22 = icmp slt i64 %call12.i21, 1
+  br i1 %cmp14.i22, label %while.end.i, label %if.end17.i
 
 while.body.i:                                     ; preds = %if.end17.i
   %call12.i = tail call i64 @qemu_fill_buffer(ptr noundef nonnull %f)
-  %conv13.i = trunc nsw i64 %call12.i to i32
-  %cmp14.i = icmp slt i32 %conv13.i, 1
+  %cmp14.i = icmp slt i64 %call12.i, 1
   br i1 %cmp14.i, label %while.end.i, label %if.end17.i, !llvm.loop !7
 
 if.end17.i:                                       ; preds = %while.body.i.preheader, %while.body.i
@@ -1144,7 +1140,7 @@ while.end.i:                                      ; preds = %while.body.i, %if.e
 qemu_peek_buffer.exit:                            ; preds = %while.end.i
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %pending.0.lcssa.i, i64 %cond)
   %add.ptr.i = getelementptr i8, ptr %buf32.i, i64 %index.0.lcssa.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf.addr.030, ptr align 1 %add.ptr.i, i64 %spec.select.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf.addr.029, ptr align 1 %add.ptr.i, i64 %spec.select.i, i1 false)
   %conv = trunc nuw nsw i64 %spec.select.i to i32
   %5 = load i32, ptr %buf_index.i, align 4
   %add.i = add i32 %5, %conv
@@ -1157,14 +1153,14 @@ if.then.i:                                        ; preds = %qemu_peek_buffer.ex
   br label %qemu_file_skip.exit
 
 qemu_file_skip.exit:                              ; preds = %qemu_peek_buffer.exit, %if.then.i
-  %add.ptr = getelementptr i8, ptr %buf.addr.030, i64 %spec.select.i
-  %sub = sub i64 %pending.029, %spec.select.i
-  %add = add i64 %spec.select.i, %done.028
+  %add.ptr = getelementptr i8, ptr %buf.addr.029, i64 %spec.select.i
+  %sub = sub i64 %pending.028, %spec.select.i
+  %add = add i64 %spec.select.i, %done.027
   %cmp.not = icmp eq i64 %sub, 0
   br i1 %cmp.not, label %return, label %while.body, !llvm.loop !9
 
 return:                                           ; preds = %qemu_file_skip.exit, %while.end.i, %entry
-  %done.0.lcssa = phi i64 [ 0, %entry ], [ %done.028, %while.end.i ], [ %add, %qemu_file_skip.exit ]
+  %done.0.lcssa = phi i64 [ 0, %entry ], [ %done.027, %while.end.i ], [ %add, %qemu_file_skip.exit ]
   ret i64 %done.0.lcssa
 }
 
@@ -1197,14 +1193,12 @@ if.end7.i:                                        ; preds = %if.then
 
 while.body.i.preheader:                           ; preds = %if.end7.i
   %call12.i18 = tail call i64 @qemu_fill_buffer(ptr noundef nonnull %f)
-  %conv13.i19 = trunc nsw i64 %call12.i18 to i32
-  %cmp14.i20 = icmp slt i32 %conv13.i19, 1
-  br i1 %cmp14.i20, label %while.end.i, label %if.end17.i
+  %cmp14.i19 = icmp slt i64 %call12.i18, 1
+  br i1 %cmp14.i19, label %while.end.i, label %if.end17.i
 
 while.body.i:                                     ; preds = %if.end17.i
   %call12.i = tail call i64 @qemu_fill_buffer(ptr noundef nonnull %f)
-  %conv13.i = trunc nsw i64 %call12.i to i32
-  %cmp14.i = icmp slt i32 %conv13.i, 1
+  %cmp14.i = icmp slt i64 %call12.i, 1
   br i1 %cmp14.i, label %while.end.i, label %if.end17.i, !llvm.loop !7
 
 if.end17.i:                                       ; preds = %while.body.i.preheader, %while.body.i
@@ -1245,8 +1239,8 @@ qemu_file_skip.exit:                              ; preds = %if.then2, %if.then.
   br label %return
 
 if.end3:                                          ; preds = %while.end.i
-  %cmp.not27.i = icmp eq i64 %size, 0
-  br i1 %cmp.not27.i, label %return, label %while.body.lr.ph.i
+  %cmp.not26.i = icmp eq i64 %size, 0
+  br i1 %cmp.not26.i, label %return, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %entry, %if.end3
   %7 = load ptr, ptr %buf, align 8
@@ -1257,10 +1251,10 @@ while.body.lr.ph.i:                               ; preds = %entry, %if.end3
   br label %while.body.i12
 
 while.body.i12:                                   ; preds = %qemu_file_skip.exit.i, %while.body.lr.ph.i
-  %buf.addr.030.i = phi ptr [ %7, %while.body.lr.ph.i ], [ %add.ptr.i14, %qemu_file_skip.exit.i ]
-  %pending.029.i = phi i64 [ %size, %while.body.lr.ph.i ], [ %sub.i, %qemu_file_skip.exit.i ]
-  %done.028.i = phi i64 [ 0, %while.body.lr.ph.i ], [ %add.i15, %qemu_file_skip.exit.i ]
-  %cond.i = tail call i64 @llvm.umin.i64(i64 %pending.029.i, i64 32768)
+  %buf.addr.029.i = phi ptr [ %7, %while.body.lr.ph.i ], [ %add.ptr.i14, %qemu_file_skip.exit.i ]
+  %pending.028.i = phi i64 [ %size, %while.body.lr.ph.i ], [ %sub.i, %qemu_file_skip.exit.i ]
+  %done.027.i = phi i64 [ 0, %while.body.lr.ph.i ], [ %add.i15, %qemu_file_skip.exit.i ]
+  %cond.i = tail call i64 @llvm.umin.i64(i64 %pending.028.i, i64 32768)
   %f.val.i.i = load i8, ptr %8, align 8
   %tobool.i.i.i = trunc i8 %f.val.i.i to i1
   br i1 %tobool.i.i.i, label %if.else.i.i, label %if.end.i.i
@@ -1280,14 +1274,12 @@ if.end.i.i:                                       ; preds = %while.body.i12
 
 while.body.i.preheader.i:                         ; preds = %if.end.i.i
   %call12.i21.i = tail call i64 @qemu_fill_buffer(ptr noundef nonnull %f)
-  %conv13.i22.i = trunc nsw i64 %call12.i21.i to i32
-  %cmp14.i23.i = icmp slt i32 %conv13.i22.i, 1
-  br i1 %cmp14.i23.i, label %while.end.i.i, label %if.end17.i.i
+  %cmp14.i22.i = icmp slt i64 %call12.i21.i, 1
+  br i1 %cmp14.i22.i, label %while.end.i.i, label %if.end17.i.i
 
 while.body.i.i:                                   ; preds = %if.end17.i.i
   %call12.i.i = tail call i64 @qemu_fill_buffer(ptr noundef nonnull %f)
-  %conv13.i.i = trunc nsw i64 %call12.i.i to i32
-  %cmp14.i.i = icmp slt i32 %conv13.i.i, 1
+  %cmp14.i.i = icmp slt i64 %call12.i.i, 1
   br i1 %cmp14.i.i, label %while.end.i.i, label %if.end17.i.i, !llvm.loop !7
 
 if.end17.i.i:                                     ; preds = %while.body.i.preheader.i, %while.body.i.i
@@ -1308,7 +1300,7 @@ while.end.i.i:                                    ; preds = %if.end17.i.i, %whil
 qemu_peek_buffer.exit.i:                          ; preds = %while.end.i.i
   %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %pending.0.lcssa.i.i, i64 %cond.i)
   %add.ptr.i.i = getelementptr i8, ptr %buf32.i.i, i64 %index.0.lcssa.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf.addr.030.i, ptr align 1 %add.ptr.i.i, i64 %spec.select.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf.addr.029.i, ptr align 1 %add.ptr.i.i, i64 %spec.select.i.i, i1 false)
   %conv.i13 = trunc nuw nsw i64 %spec.select.i.i to i32
   %13 = load i32, ptr %buf_index.i.i, align 4
   %add.i.i = add i32 %13, %conv.i13
@@ -1321,14 +1313,14 @@ if.then.i.i:                                      ; preds = %qemu_peek_buffer.ex
   br label %qemu_file_skip.exit.i
 
 qemu_file_skip.exit.i:                            ; preds = %if.then.i.i, %qemu_peek_buffer.exit.i
-  %add.ptr.i14 = getelementptr i8, ptr %buf.addr.030.i, i64 %spec.select.i.i
-  %sub.i = sub i64 %pending.029.i, %spec.select.i.i
-  %add.i15 = add i64 %spec.select.i.i, %done.028.i
+  %add.ptr.i14 = getelementptr i8, ptr %buf.addr.029.i, i64 %spec.select.i.i
+  %sub.i = sub i64 %pending.028.i, %spec.select.i.i
+  %add.i15 = add i64 %spec.select.i.i, %done.027.i
   %cmp.not.i16 = icmp eq i64 %sub.i, 0
   br i1 %cmp.not.i16, label %return, label %while.body.i12, !llvm.loop !9
 
 return:                                           ; preds = %qemu_file_skip.exit.i, %while.end.i.i, %if.end3, %qemu_file_skip.exit
-  %retval.0 = phi i64 [ %size, %qemu_file_skip.exit ], [ 0, %if.end3 ], [ %add.i15, %qemu_file_skip.exit.i ], [ %done.028.i, %while.end.i.i ]
+  %retval.0 = phi i64 [ %size, %qemu_file_skip.exit ], [ 0, %if.end3 ], [ %add.i15, %qemu_file_skip.exit.i ], [ %done.027.i, %while.end.i.i ]
   ret i64 %retval.0
 }
 
@@ -2062,8 +2054,8 @@ if.then.i.i:                                      ; preds = %qemu_peek_byte.exit
 
 qemu_get_byte.exit:                               ; preds = %qemu_peek_byte.exit.i, %if.then.i.i
   %10 = phi i32 [ %9, %qemu_peek_byte.exit.i ], [ %add.i.i, %if.then.i.i ]
-  %cmp.not27.i = icmp eq i64 %retval.0.i.i, 0
-  br i1 %cmp.not27.i, label %qemu_get_buffer.exit, label %while.body.lr.ph.i
+  %cmp.not26.i = icmp eq i64 %retval.0.i.i, 0
+  br i1 %cmp.not26.i, label %qemu_get_buffer.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %qemu_get_byte.exit
   %buf32.i.i = getelementptr inbounds i8, ptr %f, i64 20
@@ -2072,10 +2064,10 @@ while.body.lr.ph.i:                               ; preds = %qemu_get_byte.exit
 while.body.i:                                     ; preds = %qemu_file_skip.exit.i, %while.body.lr.ph.i
   %11 = phi i32 [ %8, %while.body.lr.ph.i ], [ %16, %qemu_file_skip.exit.i ]
   %12 = phi i32 [ %10, %while.body.lr.ph.i ], [ %17, %qemu_file_skip.exit.i ]
-  %buf.addr.030.i = phi ptr [ %buf, %while.body.lr.ph.i ], [ %add.ptr.i, %qemu_file_skip.exit.i ]
-  %pending.029.i = phi i64 [ %retval.0.i.i, %while.body.lr.ph.i ], [ %sub.i, %qemu_file_skip.exit.i ]
-  %done.028.i = phi i64 [ 0, %while.body.lr.ph.i ], [ %add.i, %qemu_file_skip.exit.i ]
-  %cond.i = tail call i64 @llvm.umin.i64(i64 %pending.029.i, i64 32768)
+  %buf.addr.029.i = phi ptr [ %buf, %while.body.lr.ph.i ], [ %add.ptr.i, %qemu_file_skip.exit.i ]
+  %pending.028.i = phi i64 [ %retval.0.i.i, %while.body.lr.ph.i ], [ %sub.i, %qemu_file_skip.exit.i ]
+  %done.027.i = phi i64 [ 0, %while.body.lr.ph.i ], [ %add.i, %qemu_file_skip.exit.i ]
+  %cond.i = tail call i64 @llvm.umin.i64(i64 %pending.028.i, i64 32768)
   %f.val.i.i8 = load i8, ptr %0, align 8
   %tobool.i.i.i9 = trunc i8 %f.val.i.i8 to i1
   br i1 %tobool.i.i.i9, label %if.else.i.i15, label %if.end.i.i10
@@ -2093,14 +2085,12 @@ if.end.i.i10:                                     ; preds = %while.body.i
 
 while.body.i.preheader.i:                         ; preds = %if.end.i.i10
   %call12.i21.i = tail call i64 @qemu_fill_buffer(ptr noundef nonnull %f)
-  %conv13.i22.i = trunc nsw i64 %call12.i21.i to i32
-  %cmp14.i23.i = icmp slt i32 %conv13.i22.i, 1
-  br i1 %cmp14.i23.i, label %while.end.i.i, label %if.end17.i.i
+  %cmp14.i22.i = icmp slt i64 %call12.i21.i, 1
+  br i1 %cmp14.i22.i, label %while.end.i.i, label %if.end17.i.i
 
 while.body.i.i:                                   ; preds = %if.end17.i.i
   %call12.i.i = tail call i64 @qemu_fill_buffer(ptr noundef nonnull %f)
-  %conv13.i.i = trunc nsw i64 %call12.i.i to i32
-  %cmp14.i.i = icmp slt i32 %conv13.i.i, 1
+  %cmp14.i.i = icmp slt i64 %call12.i.i, 1
   br i1 %cmp14.i.i, label %while.end.i.i, label %if.end17.i.i, !llvm.loop !7
 
 if.end17.i.i:                                     ; preds = %while.body.i.preheader.i, %while.body.i.i
@@ -2121,7 +2111,7 @@ while.end.i.i:                                    ; preds = %if.end17.i.i, %whil
 qemu_peek_buffer.exit.i:                          ; preds = %while.end.i.i
   %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %pending.0.lcssa.i.i, i64 %cond.i)
   %add.ptr.i.i = getelementptr i8, ptr %buf32.i.i, i64 %index.0.lcssa.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf.addr.030.i, ptr align 1 %add.ptr.i.i, i64 %spec.select.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf.addr.029.i, ptr align 1 %add.ptr.i.i, i64 %spec.select.i.i, i1 false)
   %conv.i = trunc nuw nsw i64 %spec.select.i.i to i32
   %15 = load i32, ptr %buf_index.i.i, align 4
   %add.i.i12 = add i32 %15, %conv.i
@@ -2135,14 +2125,14 @@ if.then.i.i14:                                    ; preds = %qemu_peek_buffer.ex
 
 qemu_file_skip.exit.i:                            ; preds = %if.then.i.i14, %qemu_peek_buffer.exit.i
   %17 = phi i32 [ %add.i.i12, %if.then.i.i14 ], [ %15, %qemu_peek_buffer.exit.i ]
-  %add.ptr.i = getelementptr i8, ptr %buf.addr.030.i, i64 %spec.select.i.i
-  %sub.i = sub i64 %pending.029.i, %spec.select.i.i
-  %add.i = add i64 %spec.select.i.i, %done.028.i
+  %add.ptr.i = getelementptr i8, ptr %buf.addr.029.i, i64 %spec.select.i.i
+  %sub.i = sub i64 %pending.028.i, %spec.select.i.i
+  %add.i = add i64 %spec.select.i.i, %done.027.i
   %cmp.not.i = icmp eq i64 %sub.i, 0
   br i1 %cmp.not.i, label %qemu_get_buffer.exit, label %while.body.i, !llvm.loop !9
 
 qemu_get_buffer.exit:                             ; preds = %while.end.i.i, %qemu_file_skip.exit.i, %qemu_get_byte.exit
-  %done.0.lcssa.i = phi i64 [ 0, %qemu_get_byte.exit ], [ %add.i, %qemu_file_skip.exit.i ], [ %done.028.i, %while.end.i.i ]
+  %done.0.lcssa.i = phi i64 [ 0, %qemu_get_byte.exit ], [ %add.i, %qemu_file_skip.exit.i ], [ %done.027.i, %while.end.i.i ]
   %arrayidx = getelementptr i8, ptr %buf, i64 %done.0.lcssa.i
   store i8 0, ptr %arrayidx, align 1
   %cmp = icmp eq i64 %done.0.lcssa.i, %retval.0.i.i

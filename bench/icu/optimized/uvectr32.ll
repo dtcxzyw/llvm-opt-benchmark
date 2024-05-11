@@ -631,8 +631,8 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_759UVector3211containsAllERKS
 entry:
   %count.i = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load i32, ptr %count.i, align 8
-  %cmp9 = icmp sgt i32 %0, 0
-  br i1 %cmp9, label %for.body.lr.ph, label %return
+  %cmp8 = icmp sgt i32 %0, 0
+  br i1 %cmp8, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %entry
   %elements = getelementptr inbounds i8, ptr %other, i64 24
@@ -649,13 +649,8 @@ for.body.preheader:                               ; preds = %for.body.lr.ph
   %zext = zext nneg i32 %2 to i64
   br label %for.body
 
-for.cond:                                         ; preds = %_ZNK6icu_759UVector327indexOfEii.exit
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !9
-
-for.body:                                         ; preds = %for.body.preheader, %for.cond
-  %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.cond ]
+for.body:                                         ; preds = %for.body.preheader, %for.inc
+  %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
   %arrayidx = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
   %4 = load i32, ptr %arrayidx, align 4
   br label %for.body.i
@@ -665,20 +660,20 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %arrayidx.i = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.i
   %5 = load i32, ptr %arrayidx.i, align 4
   %cmp2.i = icmp eq i32 %5, %4
-  br i1 %cmp2.i, label %_ZNK6icu_759UVector327indexOfEii.exit, label %for.inc.i
+  br i1 %cmp2.i, label %for.inc, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %6 = icmp eq i64 %indvars.iv.next.i, %zext
-  br i1 %6, label %return, label %for.body.i, !llvm.loop !10
+  br i1 %6, label %return, label %for.body.i, !llvm.loop !9
 
-_ZNK6icu_759UVector327indexOfEii.exit:            ; preds = %for.body.i
-  %7 = and i64 %indvars.iv.i, 2147483648
-  %cmp3.not = icmp eq i64 %7, 0
-  br i1 %cmp3.not, label %for.cond, label %return
+for.inc:                                          ; preds = %for.body.i
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !10
 
-return:                                           ; preds = %_ZNK6icu_759UVector327indexOfEii.exit, %for.cond, %for.inc.i, %entry, %for.body.lr.ph
-  %retval.0 = phi i8 [ 1, %entry ], [ 0, %for.body.lr.ph ], [ 0, %for.inc.i ], [ 0, %_ZNK6icu_759UVector327indexOfEii.exit ], [ 1, %for.cond ]
+return:                                           ; preds = %for.inc, %for.inc.i, %entry, %for.body.lr.ph
+  %retval.0 = phi i8 [ 1, %entry ], [ 0, %for.body.lr.ph ], [ 0, %for.inc.i ], [ 1, %for.inc ]
   ret i8 %retval.0
 }
 
@@ -707,7 +702,7 @@ for.inc:                                          ; preds = %for.body
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %0, %lftr.wideiv
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !10
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !9
 
 return.loopexit.split.loop.exit8:                 ; preds = %for.body
   %4 = trunc nsw i64 %indvars.iv to i32
@@ -741,8 +736,8 @@ for.body.us.preheader:                            ; preds = %for.body.lr.ph
   %zext = zext nneg i32 %2 to i64
   br label %for.body.us
 
-for.body.us:                                      ; preds = %for.body.us.preheader, %for.inc.us
-  %indvars.iv = phi i64 [ 0, %for.body.us.preheader ], [ %indvars.iv.next, %for.inc.us ]
+for.body.us:                                      ; preds = %for.body.us.preheader, %for.inc.loopexit.us
+  %indvars.iv = phi i64 [ 0, %for.body.us.preheader ], [ %indvars.iv.next, %for.inc.loopexit.us ]
   %arrayidx.us = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
   %4 = load i32, ptr %arrayidx.us, align 4
   br label %for.body.i.us
@@ -752,25 +747,20 @@ for.body.i.us:                                    ; preds = %for.inc.i.us, %for.
   %arrayidx.i.us = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.i.us
   %5 = load i32, ptr %arrayidx.i.us, align 4
   %cmp2.i.us = icmp eq i32 %5, %4
-  br i1 %cmp2.i.us, label %_ZNK6icu_759UVector327indexOfEii.exit.us, label %for.inc.i.us
+  br i1 %cmp2.i.us, label %return, label %for.inc.i.us
 
 for.inc.i.us:                                     ; preds = %for.body.i.us
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %6 = icmp eq i64 %indvars.iv.next.i.us, %zext
-  br i1 %6, label %for.inc.us, label %for.body.i.us, !llvm.loop !10
+  br i1 %6, label %for.inc.loopexit.us, label %for.body.i.us, !llvm.loop !9
 
-_ZNK6icu_759UVector327indexOfEii.exit.us:         ; preds = %for.body.i.us
-  %7 = and i64 %indvars.iv.i.us, 2147483648
-  %cmp3.us = icmp eq i64 %7, 0
-  br i1 %cmp3.us, label %return, label %for.inc.us
-
-for.inc.us:                                       ; preds = %for.inc.i.us, %_ZNK6icu_759UVector327indexOfEii.exit.us
+for.inc.loopexit.us:                              ; preds = %for.inc.i.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %return, label %for.body.us, !llvm.loop !11
 
-return:                                           ; preds = %_ZNK6icu_759UVector327indexOfEii.exit.us, %for.inc.us, %for.body.lr.ph, %entry
-  %retval.0 = phi i8 [ 1, %entry ], [ 1, %for.body.lr.ph ], [ 1, %for.inc.us ], [ 0, %_ZNK6icu_759UVector327indexOfEii.exit.us ]
+return:                                           ; preds = %for.inc.loopexit.us, %for.body.i.us, %for.body.lr.ph, %entry
+  %retval.0 = phi i8 [ 1, %entry ], [ 1, %for.body.lr.ph ], [ 0, %for.body.i.us ], [ 1, %for.inc.loopexit.us ]
   ret i8 %retval.0
 }
 
@@ -811,25 +801,21 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %arrayidx.i = getelementptr inbounds i32, ptr %7, i64 %indvars.iv.i
   %8 = load i32, ptr %arrayidx.i, align 4
   %cmp2.i = icmp eq i32 %8, %6
-  br i1 %cmp2.i, label %_ZNK6icu_759UVector327indexOfEii.exit, label %for.inc.i
+  br i1 %cmp2.i, label %for.cond.preheader.i, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %9 = icmp eq i64 %indvars.iv.next.i, %zext
-  br i1 %9, label %for.inc, label %for.body.i, !llvm.loop !10
+  br i1 %9, label %for.inc, label %for.body.i, !llvm.loop !9
 
-_ZNK6icu_759UVector327indexOfEii.exit:            ; preds = %for.body.i
+for.cond.preheader.i:                             ; preds = %for.body.i
   %10 = trunc nsw i64 %indvars.iv.i to i32
-  %cmp3 = icmp sgt i32 %10, -1
-  br i1 %cmp3, label %for.cond.preheader.i, label %for.inc
-
-for.cond.preheader.i:                             ; preds = %_ZNK6icu_759UVector327indexOfEii.exit
   %sub5.i = add nsw i32 %4, -1
   %cmp26.i = icmp sgt i32 %sub5.i, %10
   br i1 %cmp26.i, label %for.body.lr.ph.i7, label %_ZN6icu_759UVector3215removeElementAtEi.exit
 
 for.body.lr.ph.i7:                                ; preds = %for.cond.preheader.i
-  %11 = and i64 %indvars.iv.i, 2147483647
+  %11 = and i64 %indvars.iv.i, 4294967295
   br label %for.body.i9
 
 for.body.i9:                                      ; preds = %for.body.i9, %for.body.lr.ph.i7
@@ -852,10 +838,10 @@ _ZN6icu_759UVector3215removeElementAtEi.exit:     ; preds = %for.body.i9, %for.c
   %.pre = load i32, ptr %count.i, align 8
   br label %for.inc
 
-for.inc:                                          ; preds = %for.inc.i, %for.body, %_ZNK6icu_759UVector327indexOfEii.exit, %_ZN6icu_759UVector3215removeElementAtEi.exit
-  %16 = phi i32 [ %.pre, %_ZN6icu_759UVector3215removeElementAtEi.exit ], [ %3, %_ZNK6icu_759UVector327indexOfEii.exit ], [ %3, %for.body ], [ %3, %for.inc.i ]
-  %17 = phi i32 [ %sub.lcssa.i, %_ZN6icu_759UVector3215removeElementAtEi.exit ], [ %4, %_ZNK6icu_759UVector327indexOfEii.exit ], [ %4, %for.body ], [ %4, %for.inc.i ]
-  %changed.1 = phi i8 [ 1, %_ZN6icu_759UVector3215removeElementAtEi.exit ], [ %changed.019, %_ZNK6icu_759UVector327indexOfEii.exit ], [ %changed.019, %for.body ], [ %changed.019, %for.inc.i ]
+for.inc:                                          ; preds = %for.inc.i, %for.body, %_ZN6icu_759UVector3215removeElementAtEi.exit
+  %16 = phi i32 [ %.pre, %_ZN6icu_759UVector3215removeElementAtEi.exit ], [ %3, %for.body ], [ %3, %for.inc.i ]
+  %17 = phi i32 [ %sub.lcssa.i, %_ZN6icu_759UVector3215removeElementAtEi.exit ], [ %4, %for.body ], [ %4, %for.inc.i ]
+  %changed.1 = phi i8 [ 1, %_ZN6icu_759UVector3215removeElementAtEi.exit ], [ %changed.019, %for.body ], [ %changed.019, %for.inc.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = sext i32 %16 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %18
@@ -912,8 +898,8 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_759UVector329retainAllERKS0_(p
 entry:
   %count.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %count.i, align 8
-  %cmp18 = icmp sgt i32 %0, 0
-  br i1 %cmp18, label %for.body.lr.ph, label %for.end
+  %cmp17 = icmp sgt i32 %0, 0
+  br i1 %cmp17, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
   %elements = getelementptr inbounds i8, ptr %this, i64 24
@@ -923,9 +909,9 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %2 = phi i32 [ %0, %for.body.lr.ph ], [ %15, %for.inc ]
+  %2 = phi i32 [ %0, %for.body.lr.ph ], [ %14, %for.inc ]
   %indvars.iv = phi i64 [ %1, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %changed.020 = phi i8 [ 0, %for.body.lr.ph ], [ %changed.1, %for.inc ]
+  %changed.019 = phi i8 [ 0, %for.body.lr.ph ], [ %changed.1, %for.inc ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %3 = load ptr, ptr %elements, align 8
   %arrayidx = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.next
@@ -944,36 +930,31 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %arrayidx.i = getelementptr inbounds i32, ptr %6, i64 %indvars.iv.i
   %7 = load i32, ptr %arrayidx.i, align 4
   %cmp2.i = icmp eq i32 %7, %4
-  br i1 %cmp2.i, label %_ZNK6icu_759UVector327indexOfEii.exit, label %for.inc.i
+  br i1 %cmp2.i, label %for.inc, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %8 = icmp eq i64 %indvars.iv.next.i, %zext
-  br i1 %8, label %for.cond.preheader.i, label %for.body.i, !llvm.loop !10
+  br i1 %8, label %for.cond.preheader.i, label %for.body.i, !llvm.loop !9
 
-_ZNK6icu_759UVector327indexOfEii.exit:            ; preds = %for.body.i
-  %9 = and i64 %indvars.iv.i, 2147483648
-  %cmp3.not = icmp eq i64 %9, 0
-  br i1 %cmp3.not, label %for.inc, label %for.cond.preheader.i
-
-for.cond.preheader.i:                             ; preds = %for.inc.i, %_ZNK6icu_759UVector327indexOfEii.exit, %for.body
+for.cond.preheader.i:                             ; preds = %for.inc.i, %for.body
   %sub5.i = add nsw i32 %2, -1
-  %10 = sext i32 %2 to i64
-  %cmp26.i = icmp slt i64 %indvars.iv, %10
+  %9 = sext i32 %2 to i64
+  %cmp26.i = icmp slt i64 %indvars.iv, %9
   br i1 %cmp26.i, label %for.body.i8, label %for.end.i
 
 for.body.i8:                                      ; preds = %for.cond.preheader.i, %for.body.i8
   %indvars.iv.i9 = phi i64 [ %indvars.iv.next.i10, %for.body.i8 ], [ %indvars.iv.next, %for.cond.preheader.i ]
-  %11 = load ptr, ptr %elements, align 8
+  %10 = load ptr, ptr %elements, align 8
   %indvars.iv.next.i10 = add nuw nsw i64 %indvars.iv.i9, 1
-  %arrayidx.i11 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv.next.i10
-  %12 = load i32, ptr %arrayidx.i11, align 4
-  %arrayidx5.i = getelementptr inbounds i32, ptr %11, i64 %indvars.iv.i9
-  store i32 %12, ptr %arrayidx5.i, align 4
-  %13 = load i32, ptr %count.i, align 8
-  %sub.i = add nsw i32 %13, -1
-  %14 = trunc nuw i64 %indvars.iv.next.i10 to i32
-  %cmp2.i12 = icmp sgt i32 %sub.i, %14
+  %arrayidx.i11 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv.next.i10
+  %11 = load i32, ptr %arrayidx.i11, align 4
+  %arrayidx5.i = getelementptr inbounds i32, ptr %10, i64 %indvars.iv.i9
+  store i32 %11, ptr %arrayidx5.i, align 4
+  %12 = load i32, ptr %count.i, align 8
+  %sub.i = add nsw i32 %12, -1
+  %13 = trunc nuw i64 %indvars.iv.next.i10 to i32
+  %cmp2.i12 = icmp sgt i32 %sub.i, %13
   br i1 %cmp2.i12, label %for.body.i8, label %for.end.i, !llvm.loop !12
 
 for.end.i:                                        ; preds = %for.body.i8, %for.cond.preheader.i
@@ -981,9 +962,9 @@ for.end.i:                                        ; preds = %for.body.i8, %for.c
   store i32 %sub.lcssa.i, ptr %count.i, align 8
   br label %for.inc
 
-for.inc:                                          ; preds = %for.end.i, %_ZNK6icu_759UVector327indexOfEii.exit
-  %15 = phi i32 [ %2, %_ZNK6icu_759UVector327indexOfEii.exit ], [ %sub.lcssa.i, %for.end.i ]
-  %changed.1 = phi i8 [ %changed.020, %_ZNK6icu_759UVector327indexOfEii.exit ], [ 1, %for.end.i ]
+for.inc:                                          ; preds = %for.body.i, %for.end.i
+  %14 = phi i32 [ %sub.lcssa.i, %for.end.i ], [ %2, %for.body.i ]
+  %changed.1 = phi i8 [ 1, %for.end.i ], [ %changed.019, %for.body.i ]
   %cmp = icmp sgt i64 %indvars.iv, 1
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !15
 

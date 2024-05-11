@@ -8445,7 +8445,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_11BooleanTypeEvE9VisitVoidIZNS_7c
   br i1 %exitcond69.not.i.i.i.i.i, label %if.end32.loopexit.i.i.i.i.i, label %for.body.i.i.i.i.i, !llvm.loop !61
 
 if.else.i.i.i.i.i:                                ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i
-  %cmp.i17.i.i.i.i.i = icmp eq i16 %retval.sroa.4.0.extract.trunc.i.i, 0
+  %cmp.i17.i.i.i.i.i = icmp eq i32 %retval.sroa.5.0.i.i.i, 0
   %cmp1156.i.i.i.i.i = icmp sgt i16 %retval.sroa.0.0.extract.trunc.i.i, 0
   br i1 %cmp.i17.i.i.i.i.i, label %for.cond8.preheader.i.i.i.i.i, label %for.cond19.preheader.i.i.i.i.i
 
@@ -8731,7 +8731,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_8Int8TypeEvE9VisitVoidIZNS_7compu
   br i1 %exitcond68.not.i.i.i.i.i, label %if.end32.loopexit.i.i.i.i.i140, label %for.body.i.i.i.i.i118, !llvm.loop !70
 
 if.else.i.i.i.i.i166:                             ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i158
-  %cmp.i22.i.i.i.i.i = icmp eq i16 %retval.sroa.4.0.extract.trunc.i.i162, 0
+  %cmp.i22.i.i.i.i.i = icmp eq i32 %retval.sroa.5.0.i.i.i160, 0
   %cmp1155.i.i.i.i.i = icmp sgt i16 %retval.sroa.0.0.extract.trunc.i.i161, 0
   br i1 %cmp.i22.i.i.i.i.i, label %for.cond8.preheader.i.i.i.i.i182, label %for.cond19.preheader.i.i.i.i.i168
 
@@ -9015,7 +9015,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_9UInt8TypeEvE9VisitVoidIZNS_7comp
   br i1 %exitcond68.not.i.i.i.i.i259, label %if.end32.loopexit.i.i.i.i.i260, label %for.body.i.i.i.i.i233, !llvm.loop !79
 
 if.else.i.i.i.i.i286:                             ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i278
-  %cmp.i22.i.i.i.i.i287 = icmp eq i16 %retval.sroa.4.0.extract.trunc.i.i282, 0
+  %cmp.i22.i.i.i.i.i287 = icmp eq i32 %retval.sroa.5.0.i.i.i280, 0
   %cmp1155.i.i.i.i.i289 = icmp sgt i16 %retval.sroa.0.0.extract.trunc.i.i281, 0
   br i1 %cmp.i22.i.i.i.i.i287, label %for.cond8.preheader.i.i.i.i.i327, label %for.cond19.preheader.i.i.i.i.i290
 
@@ -9299,7 +9299,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int16TypeEvE9VisitVoidIZNS_7comp
   br i1 %exitcond68.not.i.i.i.i.i404, label %if.end32.loopexit.i.i.i.i.i405, label %for.body.i.i.i.i.i378, !llvm.loop !88
 
 if.else.i.i.i.i.i431:                             ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i423
-  %cmp.i22.i.i.i.i.i432 = icmp eq i16 %retval.sroa.4.0.extract.trunc.i.i427, 0
+  %cmp.i22.i.i.i.i.i432 = icmp eq i32 %retval.sroa.5.0.i.i.i425, 0
   %cmp1155.i.i.i.i.i434 = icmp sgt i16 %retval.sroa.0.0.extract.trunc.i.i426, 0
   br i1 %cmp.i22.i.i.i.i.i432, label %for.cond8.preheader.i.i.i.i.i472, label %for.cond19.preheader.i.i.i.i.i435
 
@@ -9583,7 +9583,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt16TypeEvE9VisitVoidIZNS_7co
   br i1 %exitcond68.not.i.i.i.i.i549, label %if.end32.loopexit.i.i.i.i.i550, label %for.body.i.i.i.i.i523, !llvm.loop !97
 
 if.else.i.i.i.i.i576:                             ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i568
-  %cmp.i22.i.i.i.i.i577 = icmp eq i16 %retval.sroa.4.0.extract.trunc.i.i572, 0
+  %cmp.i22.i.i.i.i.i577 = icmp eq i32 %retval.sroa.5.0.i.i.i570, 0
   %cmp1155.i.i.i.i.i579 = icmp sgt i16 %retval.sroa.0.0.extract.trunc.i.i571, 0
   br i1 %cmp.i22.i.i.i.i.i577, label %for.cond8.preheader.i.i.i.i.i617, label %for.cond19.preheader.i.i.i.i.i580
 
@@ -9867,7 +9867,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int32TypeEvE9VisitVoidIZNS_7comp
   br i1 %exitcond68.not.i.i.i.i.i694, label %if.end32.loopexit.i.i.i.i.i695, label %for.body.i.i.i.i.i668, !llvm.loop !106
 
 if.else.i.i.i.i.i721:                             ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i713
-  %cmp.i22.i.i.i.i.i722 = icmp eq i16 %retval.sroa.4.0.extract.trunc.i.i717, 0
+  %cmp.i22.i.i.i.i.i722 = icmp eq i32 %retval.sroa.5.0.i.i.i715, 0
   %cmp1155.i.i.i.i.i724 = icmp sgt i16 %retval.sroa.0.0.extract.trunc.i.i716, 0
   br i1 %cmp.i22.i.i.i.i.i722, label %for.cond8.preheader.i.i.i.i.i762, label %for.cond19.preheader.i.i.i.i.i725
 
@@ -10151,7 +10151,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt32TypeEvE9VisitVoidIZNS_7co
   br i1 %exitcond68.not.i.i.i.i.i839, label %if.end32.loopexit.i.i.i.i.i840, label %for.body.i.i.i.i.i813, !llvm.loop !115
 
 if.else.i.i.i.i.i866:                             ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i858
-  %cmp.i22.i.i.i.i.i867 = icmp eq i16 %retval.sroa.4.0.extract.trunc.i.i862, 0
+  %cmp.i22.i.i.i.i.i867 = icmp eq i32 %retval.sroa.5.0.i.i.i860, 0
   %cmp1155.i.i.i.i.i869 = icmp sgt i16 %retval.sroa.0.0.extract.trunc.i.i861, 0
   br i1 %cmp.i22.i.i.i.i.i867, label %for.cond8.preheader.i.i.i.i.i907, label %for.cond19.preheader.i.i.i.i.i870
 
@@ -10435,7 +10435,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int64TypeEvE9VisitVoidIZNS_7comp
   br i1 %exitcond68.not.i.i.i.i.i984, label %if.end32.loopexit.i.i.i.i.i985, label %for.body.i.i.i.i.i958, !llvm.loop !124
 
 if.else.i.i.i.i.i1011:                            ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i1003
-  %cmp.i22.i.i.i.i.i1012 = icmp eq i16 %retval.sroa.4.0.extract.trunc.i.i1007, 0
+  %cmp.i22.i.i.i.i.i1012 = icmp eq i32 %retval.sroa.5.0.i.i.i1005, 0
   %cmp1155.i.i.i.i.i1014 = icmp sgt i16 %retval.sroa.0.0.extract.trunc.i.i1006, 0
   br i1 %cmp.i22.i.i.i.i.i1012, label %for.cond8.preheader.i.i.i.i.i1052, label %for.cond19.preheader.i.i.i.i.i1015
 
@@ -10719,7 +10719,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt64TypeEvE9VisitVoidIZNS_7co
   br i1 %exitcond68.not.i.i.i.i.i1129, label %if.end32.loopexit.i.i.i.i.i1130, label %for.body.i.i.i.i.i1103, !llvm.loop !133
 
 if.else.i.i.i.i.i1156:                            ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i1148
-  %cmp.i22.i.i.i.i.i1157 = icmp eq i16 %retval.sroa.4.0.extract.trunc.i.i1152, 0
+  %cmp.i22.i.i.i.i.i1157 = icmp eq i32 %retval.sroa.5.0.i.i.i1150, 0
   %cmp1155.i.i.i.i.i1159 = icmp sgt i16 %retval.sroa.0.0.extract.trunc.i.i1151, 0
   br i1 %cmp.i22.i.i.i.i.i1157, label %for.cond8.preheader.i.i.i.i.i1197, label %for.cond19.preheader.i.i.i.i.i1160
 
@@ -11003,7 +11003,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_13HalfFloatTypeEvE9VisitVoidIZNS_
   br i1 %exitcond68.not.i.i.i.i.i1274, label %if.end32.loopexit.i.i.i.i.i1275, label %for.body.i.i.i.i.i1248, !llvm.loop !142
 
 if.else.i.i.i.i.i1301:                            ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i1293
-  %cmp.i22.i.i.i.i.i1302 = icmp eq i16 %retval.sroa.4.0.extract.trunc.i.i1297, 0
+  %cmp.i22.i.i.i.i.i1302 = icmp eq i32 %retval.sroa.5.0.i.i.i1295, 0
   %cmp1155.i.i.i.i.i1304 = icmp sgt i16 %retval.sroa.0.0.extract.trunc.i.i1296, 0
   br i1 %cmp.i22.i.i.i.i.i1302, label %for.cond8.preheader.i.i.i.i.i1342, label %for.cond19.preheader.i.i.i.i.i1305
 
@@ -11287,7 +11287,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7comp
   br i1 %exitcond68.not.i.i.i.i.i1401, label %if.end32.loopexit.i.i.i.i.i1402, label %for.body.i.i.i.i.i1393, !llvm.loop !151
 
 if.else.i.i.i.i.i1444:                            ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i1436
-  %cmp.i22.i.i.i.i.i1445 = icmp eq i16 %retval.sroa.4.0.extract.trunc.i.i1440, 0
+  %cmp.i22.i.i.i.i.i1445 = icmp eq i32 %retval.sroa.5.0.i.i.i1438, 0
   %cmp1155.i.i.i.i.i1447 = icmp sgt i16 %retval.sroa.0.0.extract.trunc.i.i1439, 0
   br i1 %cmp.i22.i.i.i.i.i1445, label %for.cond8.preheader.i.i.i.i.i1466, label %for.cond19.preheader.i.i.i.i.i1448
 
@@ -11571,7 +11571,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7co
   br i1 %exitcond68.not.i.i.i.i.i1527, label %if.end32.loopexit.i.i.i.i.i1528, label %for.body.i.i.i.i.i1517, !llvm.loop !160
 
 if.else.i.i.i.i.i1570:                            ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i1562
-  %cmp.i22.i.i.i.i.i1571 = icmp eq i16 %retval.sroa.4.0.extract.trunc.i.i1566, 0
+  %cmp.i22.i.i.i.i.i1571 = icmp eq i32 %retval.sroa.5.0.i.i.i1564, 0
   %cmp1155.i.i.i.i.i1573 = icmp sgt i16 %retval.sroa.0.0.extract.trunc.i.i1565, 0
   br i1 %cmp.i22.i.i.i.i.i1571, label %for.cond8.preheader.i.i.i.i.i1611, label %for.cond19.preheader.i.i.i.i.i1574
 
@@ -12175,7 +12175,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal128TypeEvE9VisitVoidIZNS
   br i1 %exitcond74.not.i.i.i.i.i, label %if.end32.loopexit.i.i.i.i.i1751, label %for.body.i.i.i.i.i1732, !llvm.loop !217
 
 if.else.i.i.i.i.i1777:                            ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i1769
-  %cmp.i16.i.i.i.i.i = icmp eq i16 %retval.sroa.4.0.extract.trunc.i.i1773, 0
+  %cmp.i16.i.i.i.i.i = icmp eq i32 %retval.sroa.5.0.i.i.i1771, 0
   %cmp1161.i.i.i.i.i = icmp sgt i16 %retval.sroa.0.0.extract.trunc.i.i1772, 0
   br i1 %cmp.i16.i.i.i.i.i, label %for.cond8.preheader.i.i.i.i.i1808, label %for.cond19.preheader.i.i.i.i.i1779
 
@@ -12492,7 +12492,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   br i1 %exitcond72.not.i.i.i.i.i, label %if.end32.loopexit.i.i.i.i.i1889, label %for.body.i.i.i.i.i1864, !llvm.loop !226
 
 if.else.i.i.i.i.i1915:                            ; preds = %_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv.exit.i1907
-  %cmp.i16.i.i.i.i.i1916 = icmp eq i16 %retval.sroa.4.0.extract.trunc.i.i1911, 0
+  %cmp.i16.i.i.i.i.i1916 = icmp eq i32 %retval.sroa.5.0.i.i.i1909, 0
   %cmp1159.i.i.i.i.i = icmp sgt i16 %retval.sroa.0.0.extract.trunc.i.i1910, 0
   br i1 %cmp.i16.i.i.i.i.i1916, label %for.cond8.preheader.i.i.i.i.i1936, label %for.cond19.preheader.i.i.i.i.i1918
 

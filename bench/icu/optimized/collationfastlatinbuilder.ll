@@ -1668,18 +1668,18 @@ if.end54:                                         ; preds = %sw.bb45, %sw.bb, %i
   %11 = phi i64 [ %9, %if.end48 ], [ %or.i.i, %sw.bb45 ], [ %or3.i, %sw.bb ]
   %shr = lshr i64 %11, 32
   %conv56 = trunc nuw i64 %shr to i32
+  %cmp57 = icmp ult i64 %11, 4294967296
   %lastLatinPrimary = getelementptr inbounds i8, ptr %this, i64 7288
   %12 = load i32, ptr %lastLatinPrimary, align 8
-  %13 = freeze i32 %12
-  %14 = add i32 %conv56, -1
-  %or.cond34.not = icmp ult i32 %14, %13
-  br i1 %or.cond34.not, label %if.end62, label %return
+  %cmp60 = icmp ult i32 %12, %conv56
+  %or.cond34 = select i1 %cmp57, i1 true, i1 %cmp60
+  br i1 %or.cond34, label %return, label %if.end62
 
 if.end62:                                         ; preds = %if.end54
   %conv64 = trunc i64 %11 to i32
   %firstShortPrimary = getelementptr inbounds i8, ptr %this, i64 7292
-  %15 = load i32, ptr %firstShortPrimary, align 4
-  %cmp65 = icmp ugt i32 %15, %conv56
+  %13 = load i32, ptr %firstShortPrimary, align 4
+  %cmp65 = icmp ugt i32 %13, %conv56
   %and = and i32 %conv64, -16384
   %cmp67.not = icmp ne i32 %and, 83886080
   %or.cond.not59 = and i1 %cmp67.not, %cmp65
@@ -1689,14 +1689,14 @@ if.end62:                                         ; preds = %if.end54
   br i1 %or.cond35, label %return, label %if.end74
 
 if.end74:                                         ; preds = %if.end62
-  %16 = load i64, ptr %ce1, align 8
-  %cmp76.not = icmp eq i64 %16, 0
+  %14 = load i64, ptr %ce1, align 8
+  %cmp76.not = icmp eq i64 %14, 0
   br i1 %cmp76.not, label %if.end107, label %if.then77
 
 if.then77:                                        ; preds = %if.end74
-  %shr79 = lshr i64 %16, 32
+  %shr79 = lshr i64 %14, 32
   %conv80 = trunc nuw i64 %shr79 to i32
-  %cmp81 = icmp eq i32 %conv80, 0
+  %cmp81 = icmp ult i64 %14, 4294967296
   br i1 %cmp81, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.then77
@@ -1708,14 +1708,14 @@ cond.false:                                       ; preds = %if.then77
   br i1 %tobool85.not, label %return, label %if.end87
 
 if.end87:                                         ; preds = %cond.false, %cond.true
-  %conv89 = trunc i64 %16 to i32
+  %conv89 = trunc i64 %14 to i32
   %cmp91 = icmp ult i32 %conv89, 65536
   br i1 %cmp91, label %return, label %if.end93
 
 if.end93:                                         ; preds = %if.end87
-  %cmp94.not = icmp ne i32 %conv80, 0
-  %cmp96 = icmp ugt i32 %15, %conv80
-  %or.cond32.not60.not62 = and i1 %cmp94.not, %cmp96
+  %cmp94.not = icmp ugt i64 %14, 4294967295
+  %cmp96 = icmp ugt i32 %13, %conv80
+  %or.cond32.not60.not62 = select i1 %cmp94.not, i1 %cmp96, i1 false
   %and98 = and i32 %conv89, -16384
   %cmp99.not = icmp ne i32 %and98, 83886080
   %or.cond33.not61 = and i1 %cmp99.not, %or.cond32.not60.not62
@@ -1725,7 +1725,7 @@ if.end93:                                         ; preds = %if.end87
   br i1 %or.cond36, label %return, label %if.end107
 
 if.end107:                                        ; preds = %if.end93, %if.end74
-  %or = or i64 %16, %11
+  %or = or i64 %14, %11
   %and110 = and i64 %or, 192
   %cmp111.not = icmp eq i64 %and110, 0
   %. = zext i1 %cmp111.not to i8

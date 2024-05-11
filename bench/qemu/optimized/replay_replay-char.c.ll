@@ -78,21 +78,14 @@ for.inc.i:                                        ; preds = %for.body.i
 
 find_char_driver.exit.thread:                     ; preds = %for.inc.i, %entry
   store i32 -1, ptr %call, align 8
-  br label %if.then
-
-find_char_driver.exit:                            ; preds = %for.body.i
-  %3 = trunc nuw nsw i64 %indvars.iv.i to i32
-  store i32 %3, ptr %call, align 8
-  %cmp = icmp slt i32 %3, 0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %find_char_driver.exit.thread, %find_char_driver.exit
-  %4 = load ptr, ptr @stderr, align 8
-  %5 = tail call i64 @fwrite(ptr nonnull @.str, i64 32, i64 1, ptr %4) #10
+  %3 = load ptr, ptr @stderr, align 8
+  %4 = tail call i64 @fwrite(ptr nonnull @.str, i64 32, i64 1, ptr %3) #10
   tail call void @exit(i32 noundef 1) #11
   unreachable
 
-if.end:                                           ; preds = %find_char_driver.exit
+find_char_driver.exit:                            ; preds = %for.body.i
+  %5 = trunc nuw nsw i64 %indvars.iv.i to i32
+  store i32 %5, ptr %call, align 8
   %conv = sext i32 %len to i64
   %call4 = tail call noalias ptr @g_malloc(i64 noundef %conv) #12
   %buf5 = getelementptr inbounds i8, ptr %call, i64 8

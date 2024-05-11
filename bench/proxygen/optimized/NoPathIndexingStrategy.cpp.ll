@@ -113,13 +113,8 @@ if.else.i.i:                                      ; preds = %entry
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %call.i.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 5
-  %2 = add nsw i64 %sub.ptr.div.i.i, -2
-  %or.cond.i.i = icmp ult i64 %2, 87
-  %3 = and i64 %sub.ptr.sub.i.i, 8160
-  %cmp = icmp eq i64 %3, 128
-  %or.cond = and i1 %cmp, %or.cond.i.i
-  br i1 %or.cond, label %return, label %if.else
+  %cmp = icmp eq i64 %sub.ptr.sub.i.i, 128
+  br i1 %cmp, label %return, label %if.else
 
 if.else:                                          ; preds = %if.else.i.i, %entry
   %call2 = tail call noundef zeroext i1 @_ZNK8proxygen22HeaderIndexingStrategy11indexHeaderERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEEb(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %name, ptr %value.coerce0, ptr %value.coerce1, i1 noundef zeroext false)

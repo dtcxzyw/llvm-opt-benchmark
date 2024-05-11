@@ -1116,12 +1116,17 @@ paritystr.exit.i:                                 ; preds = %385, %384, %358
   %456 = trunc nuw nsw i64 %455 to i32
   %457 = load ptr, ptr %24, align 8
   %458 = call noalias ptr @wmem_alloc(ptr noundef %457, i64 noundef 8192) #6
-  %.not497.i = icmp eq i32 %456, 0
-  br i1 %.not497.i, label %._crit_edge.thread.i, label %.lr.ph.i.outer
+  %.not497.i = icmp ult i8 %451, 4
+  br i1 %.not497.i, label %._crit_edge.thread.i, label %.lr.ph.preheader.i
 
-.lr.ph.i.outer:                                   ; preds = %438, %.thread
-  %indvars.iv.i.ph = phi i64 [ %indvars.iv.next.i204, %.thread ], [ 0, %438 ]
-  %.not463.i = phi i1 [ true, %.thread ], [ false, %438 ]
+.lr.ph.preheader.i:                               ; preds = %438
+  %umax.i = call i32 @llvm.umax.i32(i32 %456, i32 1)
+  %wide.trip.count.i = zext nneg i32 %umax.i to i64
+  br label %.lr.ph.i.outer
+
+.lr.ph.i.outer:                                   ; preds = %.thread, %.lr.ph.preheader.i
+  %indvars.iv.i.ph = phi i64 [ %indvars.iv.next.i204, %.thread ], [ 0, %.lr.ph.preheader.i ]
+  %.not463.i = phi i1 [ true, %.thread ], [ false, %.lr.ph.preheader.i ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.outer, %483
@@ -1169,13 +1174,13 @@ paritystr.exit.i:                                 ; preds = %385, %384, %358
   %484 = add nuw nsw i32 %.0421489.i, 1
   %485 = add i32 %475, %.0490.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %455
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !4
 
 .thread:                                          ; preds = %479, %481
   call void @ptvcursor_advance(ptr noundef %26, i32 noundef 32) #6
   %indvars.iv.next.i204 = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i205 = icmp eq i64 %indvars.iv.next.i204, %455
+  %exitcond.not.i205 = icmp eq i64 %indvars.iv.next.i204, %wide.trip.count.i
   br i1 %exitcond.not.i205, label %._crit_edge.thread.i, label %.lr.ph.i.outer, !llvm.loop !4
 
 ._crit_edge.i:                                    ; preds = %483
@@ -1759,6 +1764,9 @@ declare i32 @llvm.smin.i32(i32, i32) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #4
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5

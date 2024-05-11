@@ -5611,7 +5611,9 @@ _ZN12typst_syntax5lexer5Lexer5error17hd8d4c8b7a1a378c9E.exit: ; preds = %"_ZN8un
   %144 = xor i32 %.sroa.514.0.extract.trunc, 55296
   %145 = add i32 %144, -1114112
   %146 = icmp ult i32 %145, -1112064
-  br i1 %146, label %152, label %142
+  %.not29 = icmp eq i64 %.sroa.514.0.extract.shift, 1114112
+  %.not = or i1 %.not29, %146
+  br i1 %.not, label %152, label %142
 
 147:                                              ; preds = %160, %152
   %148 = landingpad { ptr, i32 }

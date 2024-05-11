@@ -2738,7 +2738,7 @@ while.cond:                                       ; preds = %while.cond.outer, %
   %incdec.ptr = getelementptr inbounds i8, ptr %src.addr.0, i64 1
   %1 = load i8, ptr %src.addr.0, align 1
   switch i8 %1, label %if.end [
-    i8 0, label %while.end
+    i8 0, label %land.lhs.true14
     i8 32, label %land.lhs.true
   ]
 
@@ -2759,26 +2759,21 @@ if.end10:                                         ; preds = %if.end
   store i8 %.us-phi21, ptr %arrayidx12, align 1
   br label %while.cond.outer, !llvm.loop !11
 
-while.end:                                        ; preds = %while.cond
-  %3 = trunc nuw nsw i64 %indvars.iv to i32
-  %cmp13 = icmp sgt i32 %3, 0
-  br i1 %cmp13, label %land.lhs.true14, label %if.end22
-
-land.lhs.true14:                                  ; preds = %while.end
-  %4 = and i64 %indvars.iv, 2147483647
-  %5 = getelementptr i8, ptr %dst, i64 %4
-  %arrayidx17 = getelementptr i8, ptr %5, i64 -1
-  %6 = load i8, ptr %arrayidx17, align 1
-  %cmp19 = icmp eq i8 %6, 32
+land.lhs.true14:                                  ; preds = %while.cond
+  %3 = and i64 %indvars.iv, 4294967295
+  %4 = getelementptr i8, ptr %dst, i64 %3
+  %arrayidx17 = getelementptr i8, ptr %4, i64 -1
+  %5 = load i8, ptr %arrayidx17, align 1
+  %cmp19 = icmp eq i8 %5, 32
   %dec21 = sext i1 %cmp19 to i64
   %spec.select = add i64 %indvars.iv, %dec21
+  %sext = shl i64 %spec.select, 32
+  %6 = ashr exact i64 %sext, 32
   br label %if.end22
 
-if.end22:                                         ; preds = %while.cond.us, %land.lhs.true14, %while.end
-  %j.1 = phi i64 [ %indvars.iv, %while.end ], [ %spec.select, %land.lhs.true14 ], [ 0, %while.cond.us ]
-  %sext = shl i64 %j.1, 32
-  %idxprom23 = ashr exact i64 %sext, 32
-  %arrayidx24 = getelementptr inbounds i8, ptr %dst, i64 %idxprom23
+if.end22:                                         ; preds = %while.cond.us, %land.lhs.true14
+  %j.1 = phi i64 [ %6, %land.lhs.true14 ], [ 0, %while.cond.us ]
+  %arrayidx24 = getelementptr inbounds i8, ptr %dst, i64 %j.1
   store i8 0, ptr %arrayidx24, align 1
   br label %return
 

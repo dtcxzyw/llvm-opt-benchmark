@@ -832,8 +832,7 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %exitcond.not.i, label %if.then31, label %for.body.i, !llvm.loop !7
 
 ssl_cipher_info_find.exit:                        ; preds = %for.body.i
-  %13 = and i64 %i.07.i, 4294967295
-  %cmp30 = icmp eq i64 %13, 4294967295
+  %cmp30 = icmp eq i64 %i.07.i, 4294967295
   br i1 %cmp30, label %if.then31, label %if.else
 
 if.then31:                                        ; preds = %for.inc.i, %ssl_cipher_info_find.exit
@@ -854,8 +853,8 @@ if.then36:                                        ; preds = %if.end34
   br label %if.end37
 
 if.end37:                                         ; preds = %if.then36, %if.end34
-  %14 = load i32, ptr %algorithm_mac, align 8
-  %cmp39 = icmp eq i32 %14, 64
+  %13 = load i32, ptr %algorithm_mac, align 8
+  %cmp39 = icmp eq i32 %13, 64
   %spec.select = select i1 %cmp39, ptr null, ptr %mac_pkey_type
   br label %if.end58
 
@@ -864,12 +863,12 @@ if.else:                                          ; preds = %ssl_cipher_info_fin
   %sext = shl i64 %i.07.i, 32
   %idxprom = ashr exact i64 %sext, 32
   %arrayidx = getelementptr inbounds [14 x ptr], ptr %ssl_digest_methods, i64 0, i64 %idxprom
-  %15 = load ptr, ptr %arrayidx, align 8
-  %cmp42 = icmp eq ptr %15, null
+  %14 = load ptr, ptr %arrayidx, align 8
+  %cmp42 = icmp eq ptr %14, null
   br i1 %cmp42, label %if.then46, label %lor.lhs.false43
 
 lor.lhs.false43:                                  ; preds = %if.else
-  %call44 = call i32 @ssl_evp_md_up_ref(ptr noundef nonnull %15) #15
+  %call44 = call i32 @ssl_evp_md_up_ref(ptr noundef nonnull %14) #15
   %tobool45.not = icmp eq i32 %call44, 0
   br i1 %tobool45.not, label %lor.lhs.false43.if.then46_crit_edge, label %if.end47
 
@@ -878,20 +877,20 @@ lor.lhs.false43.if.then46_crit_edge:              ; preds = %lor.lhs.false43
   br label %if.then46
 
 if.then46:                                        ; preds = %lor.lhs.false43.if.then46_crit_edge, %if.else
-  %16 = phi ptr [ %.pre, %lor.lhs.false43.if.then46_crit_edge ], [ %10, %if.else ]
-  call void @ssl_evp_cipher_free(ptr noundef %16) #15
+  %15 = phi ptr [ %.pre, %lor.lhs.false43.if.then46_crit_edge ], [ %10, %if.else ]
+  call void @ssl_evp_cipher_free(ptr noundef %15) #15
   br label %return
 
 if.end47:                                         ; preds = %lor.lhs.false43
-  store ptr %15, ptr %md, align 8
+  store ptr %14, ptr %md, align 8
   %cmp48.not = icmp eq ptr %mac_pkey_type, null
   br i1 %cmp48.not, label %if.end52, label %if.then49
 
 if.then49:                                        ; preds = %if.end47
   %ssl_mac_pkey_id = getelementptr inbounds i8, ptr %ctx, i64 1104
   %arrayidx51 = getelementptr inbounds [14 x i32], ptr %ssl_mac_pkey_id, i64 0, i64 %idxprom
-  %17 = load i32, ptr %arrayidx51, align 4
-  store i32 %17, ptr %mac_pkey_type, align 4
+  %16 = load i32, ptr %arrayidx51, align 4
+  store i32 %16, ptr %mac_pkey_type, align 4
   br label %if.end52
 
 if.end52:                                         ; preds = %if.then49, %if.end47
@@ -901,23 +900,23 @@ if.end52:                                         ; preds = %if.then49, %if.end4
 if.then54:                                        ; preds = %if.end52
   %ssl_mac_secret_size = getelementptr inbounds i8, ptr %ctx, i64 1464
   %arrayidx56 = getelementptr inbounds [14 x i64], ptr %ssl_mac_secret_size, i64 0, i64 %idxprom
-  %18 = load i64, ptr %arrayidx56, align 8
-  store i64 %18, ptr %mac_secret_size, align 8
+  %17 = load i64, ptr %arrayidx56, align 8
+  store i64 %17, ptr %mac_secret_size, align 8
   br label %if.end58
 
 if.end58:                                         ; preds = %if.end37, %if.end52, %if.then54
   %mac_pkey_type.addr.0 = phi ptr [ %mac_pkey_type, %if.then54 ], [ %mac_pkey_type, %if.end52 ], [ %spec.select, %if.end37 ]
-  %19 = load ptr, ptr %enc, align 8
-  %cmp59.not = icmp eq ptr %19, null
+  %18 = load ptr, ptr %enc, align 8
+  %cmp59.not = icmp eq ptr %18, null
   br i1 %cmp59.not, label %return, label %land.lhs.true60
 
 land.lhs.true60:                                  ; preds = %if.end58
-  %20 = load ptr, ptr %md, align 8
-  %cmp61.not = icmp eq ptr %20, null
+  %19 = load ptr, ptr %md, align 8
+  %cmp61.not = icmp eq ptr %19, null
   br i1 %cmp61.not, label %lor.lhs.false62, label %land.lhs.true65
 
 lor.lhs.false62:                                  ; preds = %land.lhs.true60
-  %call63 = call i64 @EVP_CIPHER_get_flags(ptr noundef nonnull %19) #15
+  %call63 = call i64 @EVP_CIPHER_get_flags(ptr noundef nonnull %18) #15
   %and = and i64 %call63, 2097152
   %tobool64.not = icmp eq i64 %and, 0
   br i1 %tobool64.not, label %return, label %land.lhs.true65
@@ -927,8 +926,8 @@ land.lhs.true65:                                  ; preds = %lor.lhs.false62, %l
   br i1 %tobool66.not, label %if.then69, label %lor.lhs.false67
 
 lor.lhs.false67:                                  ; preds = %land.lhs.true65
-  %21 = load i32, ptr %mac_pkey_type.addr.0, align 4
-  %cmp68.not = icmp eq i32 %21, 0
+  %20 = load i32, ptr %mac_pkey_type.addr.0, align 4
+  %cmp68.not = icmp eq i32 %20, 0
   br i1 %cmp68.not, label %return, label %if.then69
 
 if.then69:                                        ; preds = %lor.lhs.false67, %land.lhs.true65
@@ -936,36 +935,36 @@ if.then69:                                        ; preds = %lor.lhs.false67, %l
   br i1 %tobool70.not, label %lor.lhs.false71, label %return
 
 lor.lhs.false71:                                  ; preds = %if.then69
-  %22 = load i32, ptr %s, align 8
-  %shr.mask = and i32 %22, -256
+  %21 = load i32, ptr %s, align 8
+  %shr.mask = and i32 %21, -256
   %cmp72.not = icmp ne i32 %shr.mask, 768
-  %cmp75 = icmp slt i32 %22, 769
+  %cmp75 = icmp slt i32 %21, 769
   %or.cond65 = or i1 %cmp75, %cmp72.not
   br i1 %or.cond65, label %return, label %if.end77
 
 if.end77:                                         ; preds = %lor.lhs.false71
-  %23 = load i32, ptr %algorithm_enc.i, align 4
-  switch i32 %23, label %return [
+  %22 = load i32, ptr %algorithm_enc.i, align 4
+  switch i32 %22, label %return [
     i32 4, label %land.lhs.true79
     i32 64, label %land.lhs.true87
     i32 128, label %land.lhs.true97
   ]
 
 land.lhs.true79:                                  ; preds = %if.end77
-  %24 = load i32, ptr %algorithm_mac, align 8
-  %cmp81 = icmp eq i32 %24, 1
+  %23 = load i32, ptr %algorithm_mac, align 8
+  %cmp81 = icmp eq i32 %23, 1
   br i1 %cmp81, label %if.end128, label %return
 
 land.lhs.true87:                                  ; preds = %if.end77
-  %25 = load i32, ptr %algorithm_mac, align 8
-  switch i32 %25, label %return [
+  %24 = load i32, ptr %algorithm_mac, align 8
+  switch i32 %24, label %return [
     i32 2, label %if.end128
     i32 16, label %if.then110
   ]
 
 land.lhs.true97:                                  ; preds = %if.end77
-  %26 = load i32, ptr %algorithm_mac, align 8
-  switch i32 %26, label %return [
+  %25 = load i32, ptr %algorithm_mac, align 8
+  switch i32 %25, label %return [
     i32 2, label %if.end128
     i32 16, label %if.then120
   ]
@@ -978,18 +977,18 @@ if.then120:                                       ; preds = %land.lhs.true97
 
 if.end128:                                        ; preds = %land.lhs.true97, %land.lhs.true87, %land.lhs.true79, %if.then110, %if.then120
   %.sink94 = phi i32 [ 948, %if.then110 ], [ 950, %if.then120 ], [ 915, %land.lhs.true79 ], [ 916, %land.lhs.true87 ], [ 918, %land.lhs.true97 ]
-  %27 = load ptr, ptr %ctx, align 8
+  %26 = load ptr, ptr %ctx, align 8
   %propq92 = getelementptr inbounds i8, ptr %ctx, i64 1096
-  %28 = load ptr, ptr %propq92, align 8
-  %call93 = call ptr @ssl_evp_cipher_fetch(ptr noundef %27, i32 noundef %.sink94, ptr noundef %28) #15
+  %27 = load ptr, ptr %propq92, align 8
+  %call93 = call ptr @ssl_evp_cipher_fetch(ptr noundef %26, i32 noundef %.sink94, ptr noundef %27) #15
   %cmp129.not = icmp eq ptr %call93, null
   br i1 %cmp129.not, label %return, label %if.then130
 
 if.then130:                                       ; preds = %if.end128
-  %29 = load ptr, ptr %enc, align 8
-  call void @ssl_evp_cipher_free(ptr noundef %29) #15
-  %30 = load ptr, ptr %md, align 8
-  call void @ssl_evp_md_free(ptr noundef %30) #15
+  %28 = load ptr, ptr %enc, align 8
+  call void @ssl_evp_cipher_free(ptr noundef %28) #15
+  %29 = load ptr, ptr %md, align 8
+  call void @ssl_evp_md_free(ptr noundef %29) #15
   store ptr %call93, ptr %enc, align 8
   store ptr null, ptr %md, align 8
   br label %return
@@ -4635,19 +4634,18 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !7
 
 ssl_cipher_info_find.exit:                        ; preds = %for.body.i
-  %2 = and i64 %i.07.i, 4294967295
-  %cmp1 = icmp eq i64 %2, 4294967295
+  %cmp1 = icmp eq i64 %i.07.i, 4294967295
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %ssl_cipher_info_find.exit
   %sext = shl i64 %i.07.i, 32
   %idxprom = ashr exact i64 %sext, 32
   %nid = getelementptr inbounds [24 x %struct.ssl_cipher_table], ptr @ssl_cipher_table_cipher, i64 0, i64 %idxprom, i32 1
-  %3 = load i32, ptr %nid, align 4
+  %2 = load i32, ptr %nid, align 4
   br label %return
 
 return:                                           ; preds = %for.inc.i, %ssl_cipher_info_find.exit, %entry, %if.end3
-  %retval.0 = phi i32 [ %3, %if.end3 ], [ 0, %entry ], [ 0, %ssl_cipher_info_find.exit ], [ 0, %for.inc.i ]
+  %retval.0 = phi i32 [ %2, %if.end3 ], [ 0, %entry ], [ 0, %ssl_cipher_info_find.exit ], [ 0, %for.inc.i ]
   ret i32 %retval.0
 }
 
@@ -4672,19 +4670,18 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !7
 
 ssl_cipher_info_find.exit:                        ; preds = %for.body.i
-  %2 = and i64 %i.07.i, 4294967295
-  %cmp = icmp eq i64 %2, 4294967295
+  %cmp = icmp eq i64 %i.07.i, 4294967295
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %ssl_cipher_info_find.exit
   %sext = shl i64 %i.07.i, 32
   %idxprom = ashr exact i64 %sext, 32
   %nid = getelementptr inbounds [14 x %struct.ssl_cipher_table], ptr @ssl_cipher_table_mac, i64 0, i64 %idxprom, i32 1
-  %3 = load i32, ptr %nid, align 4
+  %2 = load i32, ptr %nid, align 4
   br label %return
 
 return:                                           ; preds = %for.inc.i, %ssl_cipher_info_find.exit, %if.end
-  %retval.0 = phi i32 [ %3, %if.end ], [ 0, %ssl_cipher_info_find.exit ], [ 0, %for.inc.i ]
+  %retval.0 = phi i32 [ %2, %if.end ], [ 0, %ssl_cipher_info_find.exit ], [ 0, %for.inc.i ]
   ret i32 %retval.0
 }
 
@@ -4709,19 +4706,18 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !7
 
 ssl_cipher_info_find.exit:                        ; preds = %for.body.i
-  %2 = and i64 %i.07.i, 4294967295
-  %cmp = icmp eq i64 %2, 4294967295
+  %cmp = icmp eq i64 %i.07.i, 4294967295
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %ssl_cipher_info_find.exit
   %sext = shl i64 %i.07.i, 32
   %idxprom = ashr exact i64 %sext, 32
   %nid = getelementptr inbounds [11 x %struct.ssl_cipher_table], ptr @ssl_cipher_table_kx, i64 0, i64 %idxprom, i32 1
-  %3 = load i32, ptr %nid, align 4
+  %2 = load i32, ptr %nid, align 4
   br label %return
 
 return:                                           ; preds = %for.inc.i, %ssl_cipher_info_find.exit, %if.end
-  %retval.0 = phi i32 [ %3, %if.end ], [ 0, %ssl_cipher_info_find.exit ], [ 0, %for.inc.i ]
+  %retval.0 = phi i32 [ %2, %if.end ], [ 0, %ssl_cipher_info_find.exit ], [ 0, %for.inc.i ]
   ret i32 %retval.0
 }
 
@@ -4746,19 +4742,18 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !7
 
 ssl_cipher_info_find.exit:                        ; preds = %for.body.i
-  %2 = and i64 %i.07.i, 4294967295
-  %cmp = icmp eq i64 %2, 4294967295
+  %cmp = icmp eq i64 %i.07.i, 4294967295
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %ssl_cipher_info_find.exit
   %sext = shl i64 %i.07.i, 32
   %idxprom = ashr exact i64 %sext, 32
   %nid = getelementptr inbounds [9 x %struct.ssl_cipher_table], ptr @ssl_cipher_table_auth, i64 0, i64 %idxprom, i32 1
-  %3 = load i32, ptr %nid, align 4
+  %2 = load i32, ptr %nid, align 4
   br label %return
 
 return:                                           ; preds = %for.inc.i, %ssl_cipher_info_find.exit, %if.end
-  %retval.0 = phi i32 [ %3, %if.end ], [ 0, %ssl_cipher_info_find.exit ], [ 0, %for.inc.i ]
+  %retval.0 = phi i32 [ %2, %if.end ], [ 0, %ssl_cipher_info_find.exit ], [ 0, %for.inc.i ]
   ret i32 %retval.0
 }
 
@@ -4859,19 +4854,18 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %exitcond.not.i.i, label %SSL_CIPHER_get_digest_nid.exit, label %for.body.i.i, !llvm.loop !7
 
 ssl_cipher_info_find.exit.i:                      ; preds = %for.body.i.i
-  %5 = and i64 %i.07.i.i, 4294967295
-  %cmp.i = icmp eq i64 %5, 4294967295
+  %cmp.i = icmp eq i64 %i.07.i.i, 4294967295
   br i1 %cmp.i, label %SSL_CIPHER_get_digest_nid.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %ssl_cipher_info_find.exit.i
   %sext.i = shl i64 %i.07.i.i, 32
   %idxprom.i = ashr exact i64 %sext.i, 32
   %nid.i = getelementptr inbounds [14 x %struct.ssl_cipher_table], ptr @ssl_cipher_table_mac, i64 0, i64 %idxprom.i, i32 1
-  %6 = load i32, ptr %nid.i, align 4
+  %5 = load i32, ptr %nid.i, align 4
   br label %SSL_CIPHER_get_digest_nid.exit
 
 SSL_CIPHER_get_digest_nid.exit:                   ; preds = %for.inc.i.i, %ssl_cipher_info_find.exit.i, %if.end.i
-  %retval.0.i = phi i32 [ %6, %if.end.i ], [ 0, %ssl_cipher_info_find.exit.i ], [ 0, %for.inc.i.i ]
+  %retval.0.i = phi i32 [ %5, %if.end.i ], [ 0, %ssl_cipher_info_find.exit.i ], [ 0, %for.inc.i.i ]
   %call20 = tail call ptr @OBJ_nid2sn(i32 noundef %retval.0.i) #15
   %call21 = tail call ptr @EVP_get_digestbyname(ptr noundef %call20) #15
   %cmp = icmp eq ptr %call21, null
@@ -4880,15 +4874,15 @@ SSL_CIPHER_get_digest_nid.exit:                   ; preds = %for.inc.i.i, %ssl_c
 if.end:                                           ; preds = %SSL_CIPHER_get_digest_nid.exit
   %call23 = tail call i32 @EVP_MD_get_size(ptr noundef nonnull %call21) #15
   %conv = sext i32 %call23 to i64
-  %7 = load i32, ptr %algorithm_enc, align 4
-  %cmp25.not = icmp eq i32 %7, 32
+  %6 = load i32, ptr %algorithm_enc, align 4
+  %cmp25.not = icmp eq i32 %6, 32
   br i1 %cmp25.not, label %if.end47, label %for.body.i.i15
 
 for.body.i.i15:                                   ; preds = %if.end, %for.inc.i.i19
   %i.07.i.i16 = phi i64 [ %inc.i.i20, %for.inc.i.i19 ], [ 0, %if.end ]
   %table.addr.06.i.i17 = phi ptr [ %incdec.ptr.i.i21, %for.inc.i.i19 ], [ @ssl_cipher_table_cipher, %if.end ]
-  %8 = load i32, ptr %table.addr.06.i.i17, align 4
-  %cmp2.i.i18 = icmp eq i32 %8, %7
+  %7 = load i32, ptr %table.addr.06.i.i17, align 4
+  %cmp2.i.i18 = icmp eq i32 %7, %6
   br i1 %cmp2.i.i18, label %ssl_cipher_info_find.exit.i24, label %for.inc.i.i19
 
 for.inc.i.i19:                                    ; preds = %for.body.i.i15
@@ -4898,19 +4892,18 @@ for.inc.i.i19:                                    ; preds = %for.body.i.i15
   br i1 %exitcond.not.i.i22, label %SSL_CIPHER_get_cipher_nid.exit, label %for.body.i.i15, !llvm.loop !7
 
 ssl_cipher_info_find.exit.i24:                    ; preds = %for.body.i.i15
-  %9 = and i64 %i.07.i.i16, 4294967295
-  %cmp1.i = icmp eq i64 %9, 4294967295
+  %cmp1.i = icmp eq i64 %i.07.i.i16, 4294967295
   br i1 %cmp1.i, label %SSL_CIPHER_get_cipher_nid.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %ssl_cipher_info_find.exit.i24
   %sext.i25 = shl i64 %i.07.i.i16, 32
   %idxprom.i26 = ashr exact i64 %sext.i25, 32
   %nid.i27 = getelementptr inbounds [24 x %struct.ssl_cipher_table], ptr @ssl_cipher_table_cipher, i64 0, i64 %idxprom.i26, i32 1
-  %10 = load i32, ptr %nid.i27, align 4
+  %8 = load i32, ptr %nid.i27, align 4
   br label %SSL_CIPHER_get_cipher_nid.exit
 
 SSL_CIPHER_get_cipher_nid.exit:                   ; preds = %for.inc.i.i19, %ssl_cipher_info_find.exit.i24, %if.end3.i
-  %retval.0.i23 = phi i32 [ %10, %if.end3.i ], [ 0, %ssl_cipher_info_find.exit.i24 ], [ 0, %for.inc.i.i19 ]
+  %retval.0.i23 = phi i32 [ %8, %if.end3.i ], [ 0, %ssl_cipher_info_find.exit.i24 ], [ 0, %for.inc.i.i19 ]
   %call29 = tail call ptr @OBJ_nid2sn(i32 noundef %retval.0.i23) #15
   %call30 = tail call ptr @EVP_get_cipherbyname(ptr noundef %call29) #15
   %cmp31 = icmp eq ptr %call30, null

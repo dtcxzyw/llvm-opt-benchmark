@@ -2938,7 +2938,7 @@ define void @Abc_NodeComplementInput(ptr noundef %0, ptr noundef %1) local_unnam
 
 Vec_IntFind.exit:                                 ; preds = %10
   %15 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %16 = icmp eq i32 %15, -1
+  %16 = icmp eq i64 %indvars.iv.i, 4294967295
   br i1 %16, label %Vec_IntFind.exit.thread, label %21
 
 Vec_IntFind.exit.thread:                          ; preds = %14, %2, %Vec_IntFind.exit

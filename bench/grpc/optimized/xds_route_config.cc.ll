@@ -18533,19 +18533,13 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %while.body
 
 _ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit: ; preds = %while.body
   %sub.i.i.i.i = sub i64 %agg.tmp.sroa.0.0.copyload.i, %agg.tmp2.sroa.0.0.copyload.i
-  %spec.select3.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i, i64 -2147483648)
-  %retval.04.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select3.i.i.i.i, i64 2147483647)
-  %0 = and i64 %retval.04.i.i.i.i, 2147483648
-  %cmp.i.i.not = icmp eq i64 %0, 0
-  br i1 %cmp.i.i.not, label %if.then.i.i.i31, label %if.end19
+  %cmp.i.i = icmp slt i64 %sub.i.i.i.i, 0
+  br i1 %cmp.i.i, label %if.end19, label %if.then.i.i.i31
 
 _ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit.thread74: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
   %sub.i.i.i.i75 = sub i64 %agg.tmp.sroa.0.0.copyload.i, %agg.tmp2.sroa.0.0.copyload.i
-  %spec.select3.i.i.i.i76 = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i75, i64 -2147483648)
-  %retval.04.i.i.i.i77 = tail call i64 @llvm.smin.i64(i64 %spec.select3.i.i.i.i76, i64 2147483647)
-  %1 = and i64 %retval.04.i.i.i.i77, 2147483648
-  %cmp.i.i79.not = icmp eq i64 %1, 0
-  br i1 %cmp.i.i79.not, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i22, label %if.end19
+  %cmp.i.i79 = icmp slt i64 %sub.i.i.i.i75, 0
+  br i1 %cmp.i.i79, label %if.end19, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i22
 
 _ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit.thread: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
   %cmp.i.i73 = icmp slt i32 %call.i.i.i.i, 0
@@ -18570,14 +18564,14 @@ _ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit36: ; pre
 
 if.else12:                                        ; preds = %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit36
   %_M_left.i37 = getelementptr inbounds i8, ptr %__x.087, i64 16
-  %2 = load ptr, ptr %_M_left.i37, align 8
+  %0 = load ptr, ptr %_M_left.i37, align 8
   %_M_right.i38 = getelementptr inbounds i8, ptr %__x.087, i64 24
-  %3 = load ptr, ptr %_M_right.i38, align 8
-  %cmp.not5.i = icmp eq ptr %2, null
+  %1 = load ptr, ptr %_M_right.i38, align 8
+  %cmp.not5.i = icmp eq ptr %0, null
   br i1 %cmp.not5.i, label %_ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %if.else12, %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit.i
-  %__x.addr.07.i = phi ptr [ %__x.addr.1.i, %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit.i ], [ %2, %if.else12 ]
+  %__x.addr.07.i = phi ptr [ %__x.addr.1.i, %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit.i ], [ %0, %if.else12 ]
   %__y.addr.06.i = phi ptr [ %__y.addr.1.i, %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit.i ], [ %__x.087, %if.else12 ]
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i, i64 32
   %agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %_M_storage.i.i.i, align 8
@@ -18611,11 +18605,11 @@ _ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit.i: ; pre
 
 _ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit: ; preds = %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit.i, %if.else12
   %__y.addr.0.lcssa.i = phi ptr [ %__x.087, %if.else12 ], [ %__y.addr.1.i, %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit.i ]
-  %cmp.not5.i40 = icmp eq ptr %3, null
+  %cmp.not5.i40 = icmp eq ptr %1, null
   br i1 %cmp.not5.i40, label %return, label %while.body.i45
 
 while.body.i45:                                   ; preds = %_ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit, %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit.i57
-  %__x.addr.07.i46 = phi ptr [ %__x.addr.1.i63, %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit.i57 ], [ %3, %_ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit ]
+  %__x.addr.07.i46 = phi ptr [ %__x.addr.1.i63, %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit.i57 ], [ %1, %_ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit ]
   %__y.addr.06.i47 = phi ptr [ %__y.addr.1.i60, %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit.i57 ], [ %__y.086, %_ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit ]
   %_M_storage.i.i.i48 = getelementptr inbounds i8, ptr %__x.addr.07.i46, i64 32
   %agg.tmp2.sroa.0.0.copyload.i.i49 = load i64, ptr %_M_storage.i.i.i48, align 8

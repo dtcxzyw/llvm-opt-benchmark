@@ -8,27 +8,26 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define zeroext i8 @softfloat_countLeadingZeros64(i64 noundef %0) local_unnamed_addr #0 {
   %2 = lshr i64 %0, 32
-  %3 = trunc nuw i64 %2 to i32
-  %.not = icmp eq i32 %3, 0
-  %4 = trunc i64 %0 to i32
+  %.not = icmp ult i64 %0, 4294967296
   %spec.select = select i1 %.not, i8 32, i8 0
-  %spec.select16 = select i1 %.not, i32 %4, i32 %3
-  %5 = icmp ult i32 %spec.select16, 65536
-  %6 = or disjoint i8 %spec.select, 16
-  %7 = shl nuw i32 %spec.select16, 16
-  %.113 = select i1 %5, i8 %6, i8 %spec.select
-  %.1 = select i1 %5, i32 %7, i32 %spec.select16
-  %8 = icmp ult i32 %.1, 16777216
-  %9 = or disjoint i8 %.113, 8
-  %10 = shl nuw i32 %.1, 8
-  %.214 = select i1 %8, i8 %9, i8 %.113
-  %.2 = select i1 %8, i32 %10, i32 %.1
-  %11 = lshr i32 %.2, 24
-  %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds [256 x i8], ptr @softfloat_countLeadingZeros8, i64 0, i64 %12
-  %14 = load i8, ptr %13, align 1
-  %15 = add i8 %14, %.214
-  ret i8 %15
+  %spec.select16 = select i1 %.not, i64 %0, i64 %2
+  %.0 = trunc nuw i64 %spec.select16 to i32
+  %3 = icmp ult i64 %spec.select16, 65536
+  %4 = or disjoint i8 %spec.select, 16
+  %5 = shl nuw i32 %.0, 16
+  %.113 = select i1 %3, i8 %4, i8 %spec.select
+  %.1 = select i1 %3, i32 %5, i32 %.0
+  %6 = icmp ult i32 %.1, 16777216
+  %7 = or disjoint i8 %.113, 8
+  %8 = shl nuw i32 %.1, 8
+  %.214 = select i1 %6, i8 %7, i8 %.113
+  %.2 = select i1 %6, i32 %8, i32 %.1
+  %9 = lshr i32 %.2, 24
+  %10 = zext nneg i32 %9 to i64
+  %11 = getelementptr inbounds [256 x i8], ptr @softfloat_countLeadingZeros8, i64 0, i64 %10
+  %12 = load i8, ptr %11, align 1
+  %13 = add i8 %12, %.214
+  ret i8 %13
 }
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

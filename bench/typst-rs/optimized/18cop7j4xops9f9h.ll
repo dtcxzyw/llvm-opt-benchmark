@@ -2096,7 +2096,9 @@ _ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.thread: ; preds = %129, %_ZN8u
   %130 = xor i32 %.sroa.510.0.extract.trunc, 55296
   %131 = add i32 %130, -1114112
   %132 = icmp ult i32 %131, -1112064
-  br i1 %132, label %.thread, label %_ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.thread
+  %133 = icmp eq i64 %.sroa.510.0.extract.shift, 1114112
+  %or.cond38 = or i1 %132, %133
+  br i1 %or.cond38, label %.thread, label %_ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.thread
 
 .thread:                                          ; preds = %129, %_ZN8unscanny7Scanner9eat_while17h59e886cf458a0755E.exit
   br label %_ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.thread
@@ -5762,7 +5764,7 @@ _ZN8unscanny7Scanner6eat_if17h2e8b568420fc68f7E.exit65: ; preds = %.loopexit124,
   %263 = xor i32 %.sroa.526.0.extract.trunc, 55296
   %264 = add i32 %263, -1114112
   %265 = icmp ult i32 %264, -1112064
-  %266 = icmp eq i32 %.sroa.526.0.extract.trunc, 1114112
+  %266 = icmp eq i64 %.sroa.526.0.extract.shift, 1114112
   %or.cond113 = select i1 %265, i1 true, i1 %266
   br i1 %or.cond113, label %.thread110, label %274
 

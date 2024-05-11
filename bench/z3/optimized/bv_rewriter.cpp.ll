@@ -24567,27 +24567,22 @@ while.body207:                                    ; preds = %while.cond202
   %112 = load ptr, ptr %arrayidx.i227, align 8
   %113 = load ptr, ptr %this, align 8
   %call213 = call noundef zeroext i1 @_ZNK11ast_manager9are_equalEP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %113, ptr noundef %110, ptr noundef %112)
-  br i1 %call213, label %while.cond202, label %if.end223.loopexit, !llvm.loop !91
+  br i1 %call213, label %while.cond202, label %if.end223, !llvm.loop !91
 
 while.end217:                                     ; preds = %while.cond202
-  %114 = trunc nuw i64 %indvars.iv283 to i32
-  %cmp218 = icmp eq i32 %114, 0
+  %cmp218 = icmp eq i64 %indvars.iv283, 0
   br i1 %cmp218, label %if.then219, label %if.end223
 
 if.then219:                                       ; preds = %while.end217
-  %115 = load ptr, ptr %this, align 8
-  %m_true.i228 = getelementptr inbounds i8, ptr %115, i64 856
-  %116 = load ptr, ptr %m_true.i228, align 8
-  %call222 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN7obj_refI4expr11ast_managerEaSEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %result, ptr noundef %116)
+  %114 = load ptr, ptr %this, align 8
+  %m_true.i228 = getelementptr inbounds i8, ptr %114, i64 856
+  %115 = load ptr, ptr %m_true.i228, align 8
+  %call222 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN7obj_refI4expr11ast_managerEaSEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %result, ptr noundef %115)
   br label %return
 
-if.end223.loopexit:                               ; preds = %while.body207
-  %117 = trunc nuw i64 %indvars.iv283 to i32
-  br label %if.end223
-
-if.end223:                                        ; preds = %if.end223.loopexit, %while.end217
-  %new_numa.0271 = phi i32 [ %117, %if.end223.loopexit ], [ %114, %while.end217 ]
-  %cmp224.not = icmp eq i32 %new_numa.0271, %11
+if.end223:                                        ; preds = %while.body207, %while.end217
+  %new_numa.0271 = trunc i64 %indvars.iv283 to i32
+  %cmp224.not = icmp eq i32 %11, %new_numa.0271
   br i1 %cmp224.not, label %return, label %if.then225
 
 if.then225:                                       ; preds = %if.end223
@@ -24595,10 +24590,10 @@ if.then225:                                       ; preds = %if.end223
   %call230 = call noundef ptr @_ZN11bv_rewriter6concatEjPKP4expr(ptr noundef nonnull align 8 dereferenceable(157) %this, i32 noundef %new_numa.0271, ptr noundef nonnull %m_args.i222)
   %call232 = call noundef ptr @_ZN11bv_rewriter6concatEjPKP4expr(ptr noundef nonnull align 8 dereferenceable(157) %this, i32 noundef %new_numb.0269, ptr noundef nonnull %m_args.i225)
   %m_manager.i231 = getelementptr inbounds i8, ptr %this, i64 16
-  %118 = load ptr, ptr %m_manager.i231, align 8
-  %119 = load i32, ptr %m_util, align 8
+  %116 = load ptr, ptr %m_manager.i231, align 8
+  %117 = load i32, ptr %m_util, align 8
   %. = select i1 %is_signed, i32 23, i32 22
-  %call2.i236 = call noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %118, i32 noundef %119, i32 noundef %., ptr noundef %call230, ptr noundef %call232)
+  %call2.i236 = call noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %116, i32 noundef %117, i32 noundef %., ptr noundef %call230, ptr noundef %call232)
   %call243 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN7obj_refI4expr11ast_managerEaSEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %result, ptr noundef %call2.i236)
   br label %return
 
@@ -41393,7 +41388,7 @@ if.then14:                                        ; preds = %_ZNK13poly_rewriter
   store i32 0, ptr %m_pos.i.i58, align 8
   %m_capacity.i.i59 = getelementptr inbounds i8, ptr %todo, i64 12
   store i32 16, ptr %m_capacity.i.i59, align 4
-  %cmp3.not.i = icmp eq i32 %26, 0
+  %cmp3.not.i = icmp eq i64 %indvars.iv, 0
   br i1 %cmp3.not.i, label %_ZN10ptr_bufferI4exprLj16EE6appendEjPKPS0_.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %if.then14, %_ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit.i
@@ -44248,7 +44243,7 @@ if.then3:                                         ; preds = %_ZNK13poly_rewriter
   store i32 0, ptr %m_pos.i.i, align 8
   %m_capacity.i.i = getelementptr inbounds i8, ptr %flat_args, i64 12
   store i32 16, ptr %m_capacity.i.i, align 4
-  %cmp3.not.i = icmp eq i32 %7, 0
+  %cmp3.not.i = icmp eq i64 %indvars.iv, 0
   br i1 %cmp3.not.i, label %_ZN10ptr_bufferI4exprLj16EE6appendEjPKPS0_.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %if.then3, %_ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit.i

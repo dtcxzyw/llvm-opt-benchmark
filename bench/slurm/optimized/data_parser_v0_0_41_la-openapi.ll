@@ -79,24 +79,24 @@ define void @_set_ref(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, p
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %18, label %13
+  br i1 %.not, label %17, label %13
 
 13:                                               ; preds = %4
   %14 = getelementptr inbounds i8, ptr %1, i64 72
   %15 = load i16, ptr %14, align 8
   %16 = icmp ne i16 %15, 0
-  %17 = zext i1 %16 to i8
-  br label %18
+  br label %17
 
-18:                                               ; preds = %13, %4
-  %19 = phi i8 [ 0, %4 ], [ %17, %13 ]
+17:                                               ; preds = %13, %4
+  %18 = phi i1 [ false, %4 ], [ %16, %13 ]
+  %19 = zext i1 %18 to i8
   br label %.outer
 
-.outer:                                           ; preds = %.split.us, %18
-  %.042.ph = phi ptr [ %.us-phi73, %.split.us ], [ %1, %18 ]
-  %.041.ph = phi ptr [ %46, %.split.us ], [ %2, %18 ]
-  %.039.ph = phi ptr [ %.us-phi, %.split.us ], [ null, %18 ]
-  %.0.ph = phi i8 [ %.us-phi72, %.split.us ], [ %19, %18 ]
+.outer:                                           ; preds = %.split.us, %17
+  %.042.ph = phi ptr [ %.us-phi73, %.split.us ], [ %1, %17 ]
+  %.041.ph = phi ptr [ %46, %.split.us ], [ %2, %17 ]
+  %.039.ph = phi ptr [ %.us-phi, %.split.us ], [ null, %17 ]
+  %.0.ph = phi i8 [ %.us-phi72, %.split.us ], [ %19, %17 ]
   %.042.ph.fr = freeze ptr %.042.ph
   %.not49 = icmp eq ptr %.042.ph.fr, null
   %20 = getelementptr inbounds i8, ptr %.042.ph.fr, i64 24
@@ -226,29 +226,34 @@ define void @_set_ref(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, p
   br i1 %exitcond.not.i.i, label %_resolve_parser_index.exit.thread.i, label %65, !llvm.loop !6
 
 _resolve_parser_index.exit.i:                     ; preds = %65
-  %70 = and i64 %indvars.iv.i.i, 4294967295
-  %.not.i = icmp eq i64 %70, 4294967294
-  br i1 %.not.i, label %_resolve_parser_index.exit.thread.i, label %71
+  %.not.i = icmp eq i64 %indvars.iv.i.i, 4294967294
+  br i1 %.not.i, label %_resolve_parser_index.exit.thread.i, label %70
 
-71:                                               ; preds = %_resolve_parser_index.exit.i
-  %72 = tail call i32 @get_log_level() #5
-  %73 = icmp sgt i32 %72, 7
-  br i1 %73, label %74, label %81
+70:                                               ; preds = %_resolve_parser_index.exit.i
+  %71 = tail call i32 @get_log_level() #5
+  %72 = icmp sgt i32 %71, 7
+  br i1 %72, label %73, label %._crit_edge.i
 
-74:                                               ; preds = %71
-  %75 = getelementptr inbounds i8, ptr %.us-phi76, i64 16
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %3, i64 80
-  %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i32, ptr %78, i64 %70
-  %80 = load i32, ptr %79, align 4
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 8, ptr noundef nonnull @.str.12, ptr noundef nonnull @__func__._should_be_ref, ptr noundef %76, i32 noundef %80) #5
+._crit_edge.i:                                    ; preds = %70
+  %.pre.i = and i64 %indvars.iv.i.i, 4294967295
   br label %81
 
-81:                                               ; preds = %74, %71
+73:                                               ; preds = %70
+  %74 = getelementptr inbounds i8, ptr %.us-phi76, i64 16
+  %75 = load ptr, ptr %74, align 8
+  %76 = getelementptr inbounds i8, ptr %3, i64 80
+  %77 = load ptr, ptr %76, align 8
+  %78 = and i64 %indvars.iv.i.i, 4294967295
+  %79 = getelementptr inbounds i32, ptr %77, i64 %78
+  %80 = load i32, ptr %79, align 4
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 8, ptr noundef nonnull @.str.12, ptr noundef nonnull @__func__._should_be_ref, ptr noundef %75, i32 noundef %80) #5
+  br label %81
+
+81:                                               ; preds = %73, %._crit_edge.i
+  %.pre-phi.i = phi i64 [ %.pre.i, %._crit_edge.i ], [ %78, %73 ]
   %82 = getelementptr inbounds i8, ptr %3, i64 80
   %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds i32, ptr %83, i64 %70
+  %84 = getelementptr inbounds i32, ptr %83, i64 %.pre-phi.i
   %85 = load i32, ptr %84, align 4
   %86 = icmp slt i32 %85, 2
   br i1 %86, label %_should_be_ref.exit.thread60, label %_resolve_parser_index.exit.thread.i
@@ -955,13 +960,13 @@ _count_refs.exit:                                 ; preds = %3, %11, %13, %16
   br i1 %exitcond.not.i.i.i, label %_increment_ref.exit.i, label %51, !llvm.loop !6
 
 _resolve_parser_index.exit.i.i:                   ; preds = %51
-  %56 = and i64 %indvars.iv.i.i.i, 4294967295
-  %.not13.i.i = icmp eq i64 %56, 4294967294
-  br i1 %.not13.i.i, label %_increment_ref.exit.i, label %57
+  %.not13.i.i = icmp eq i64 %indvars.iv.i.i.i, 4294967294
+  br i1 %.not13.i.i, label %_increment_ref.exit.i, label %56
 
-57:                                               ; preds = %_resolve_parser_index.exit.i.i
-  %58 = load ptr, ptr %22, align 8
-  %59 = getelementptr inbounds i32, ptr %58, i64 %56
+56:                                               ; preds = %_resolve_parser_index.exit.i.i
+  %57 = load ptr, ptr %22, align 8
+  %58 = and i64 %indvars.iv.i.i.i, 4294967295
+  %59 = getelementptr inbounds i32, ptr %57, i64 %58
   %60 = load i32, ptr %59, align 4
   %61 = add nsw i32 %60, 1
   store i32 %61, ptr %59, align 4
@@ -969,17 +974,17 @@ _resolve_parser_index.exit.i.i:                   ; preds = %51
   %63 = icmp sgt i32 %62, 7
   br i1 %63, label %64, label %_increment_ref.exit.i
 
-64:                                               ; preds = %57
+64:                                               ; preds = %56
   %65 = load ptr, ptr %33, align 8
   %66 = getelementptr inbounds i8, ptr %.0.lcssa.i.i, i64 16
   %67 = load ptr, ptr %66, align 8
   %68 = load ptr, ptr %22, align 8
-  %69 = getelementptr inbounds i32, ptr %68, i64 %56
+  %69 = getelementptr inbounds i32, ptr %68, i64 %58
   %70 = load i32, ptr %69, align 4
   tail call void (i32, ptr, ...) @log_var(i32 noundef 8, ptr noundef nonnull @.str.36, ptr noundef nonnull @__func__._increment_ref, ptr noundef %65, ptr noundef %67, i32 noundef %70) #5
   br label %_increment_ref.exit.i
 
-_increment_ref.exit.i:                            ; preds = %55, %64, %57, %_resolve_parser_index.exit.i.i, %._crit_edge.i.i, %34
+_increment_ref.exit.i:                            ; preds = %55, %64, %56, %_resolve_parser_index.exit.i.i, %._crit_edge.i.i, %34
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %71 = load i64, ptr %30, align 8
   %72 = icmp ugt i64 %71, %indvars.iv.next.i
@@ -1097,13 +1102,13 @@ define range(i32 0, 9214) i32 @data_parser_p_increment_reference(ptr noundef %0,
   br i1 %exitcond.not.i.i, label %_increment_ref.exit, label %32, !llvm.loop !6
 
 _resolve_parser_index.exit.i:                     ; preds = %32
-  %37 = and i64 %indvars.iv.i.i, 4294967295
-  %.not13.i = icmp eq i64 %37, 4294967294
-  br i1 %.not13.i, label %_increment_ref.exit, label %38
+  %.not13.i = icmp eq i64 %indvars.iv.i.i, 4294967294
+  br i1 %.not13.i, label %_increment_ref.exit, label %37
 
-38:                                               ; preds = %_resolve_parser_index.exit.i
-  %39 = load ptr, ptr %20, align 8
-  %40 = getelementptr inbounds i32, ptr %39, i64 %37
+37:                                               ; preds = %_resolve_parser_index.exit.i
+  %38 = load ptr, ptr %20, align 8
+  %39 = and i64 %indvars.iv.i.i, 4294967295
+  %40 = getelementptr inbounds i32, ptr %38, i64 %39
   %41 = load i32, ptr %40, align 4
   %42 = add nsw i32 %41, 1
   store i32 %42, ptr %40, align 4
@@ -1111,17 +1116,17 @@ _resolve_parser_index.exit.i:                     ; preds = %32
   %44 = icmp sgt i32 %43, 7
   br i1 %44, label %45, label %_increment_ref.exit
 
-45:                                               ; preds = %38
+45:                                               ; preds = %37
   %46 = getelementptr inbounds i8, ptr %.0.lcssa.i, i64 16
   %47 = load ptr, ptr %46, align 8
   %48 = load ptr, ptr %20, align 8
-  %49 = getelementptr inbounds i32, ptr %48, i64 %37
+  %49 = getelementptr inbounds i32, ptr %48, i64 %39
   %50 = load i32, ptr %49, align 4
   call void (i32, ptr, ...) @log_var(i32 noundef 8, ptr noundef nonnull @.str.36, ptr noundef nonnull @__func__._increment_ref, ptr noundef nonnull @.str.37, ptr noundef %47, i32 noundef %50) #5
   br label %_increment_ref.exit
 
-_increment_ref.exit:                              ; preds = %36, %45, %38, %_resolve_parser_index.exit.i, %._crit_edge.i, %15
-  %.0 = phi i32 [ 9213, %15 ], [ 0, %._crit_edge.i ], [ 0, %_resolve_parser_index.exit.i ], [ 0, %38 ], [ 0, %45 ], [ 0, %36 ]
+_increment_ref.exit:                              ; preds = %36, %45, %37, %_resolve_parser_index.exit.i, %._crit_edge.i, %15
+  %.0 = phi i32 [ 9213, %15 ], [ 0, %._crit_edge.i ], [ 0, %_resolve_parser_index.exit.i ], [ 0, %37 ], [ 0, %45 ], [ 0, %36 ]
   ret i32 %.0
 }
 
@@ -2057,14 +2062,14 @@ _resolve_parser.exit:                             ; preds = %17, %11, %26
   br i1 %exitcond.not.i.i, label %_increment_ref.exit, label %41, !llvm.loop !6
 
 _resolve_parser_index.exit.i:                     ; preds = %41
-  %46 = and i64 %indvars.iv.i.i, 4294967295
-  %.not13.i = icmp eq i64 %46, 4294967294
-  br i1 %.not13.i, label %_increment_ref.exit, label %47
+  %.not13.i = icmp eq i64 %indvars.iv.i.i, 4294967294
+  br i1 %.not13.i, label %_increment_ref.exit, label %46
 
-47:                                               ; preds = %_resolve_parser_index.exit.i
-  %48 = getelementptr inbounds i8, ptr %2, i64 80
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i32, ptr %49, i64 %46
+46:                                               ; preds = %_resolve_parser_index.exit.i
+  %47 = getelementptr inbounds i8, ptr %2, i64 80
+  %48 = load ptr, ptr %47, align 8
+  %49 = and i64 %indvars.iv.i.i, 4294967295
+  %50 = getelementptr inbounds i32, ptr %48, i64 %49
   %51 = load i32, ptr %50, align 4
   %52 = add nsw i32 %51, 1
   store i32 %52, ptr %50, align 4
@@ -2072,16 +2077,16 @@ _resolve_parser_index.exit.i:                     ; preds = %41
   %54 = icmp sgt i32 %53, 7
   br i1 %54, label %55, label %_increment_ref.exit
 
-55:                                               ; preds = %47
+55:                                               ; preds = %46
   %56 = getelementptr inbounds i8, ptr %.0.lcssa.i, i64 16
   %57 = load ptr, ptr %56, align 8
-  %58 = load ptr, ptr %48, align 8
-  %59 = getelementptr inbounds i32, ptr %58, i64 %46
+  %58 = load ptr, ptr %47, align 8
+  %59 = getelementptr inbounds i32, ptr %58, i64 %49
   %60 = load i32, ptr %59, align 4
   tail call void (i32, ptr, ...) @log_var(i32 noundef 8, ptr noundef nonnull @.str.36, ptr noundef nonnull @__func__._increment_ref, ptr noundef nonnull @.str.37, ptr noundef %57, i32 noundef %60) #5
   br label %_increment_ref.exit
 
-_increment_ref.exit:                              ; preds = %45, %55, %47, %_resolve_parser_index.exit.i, %._crit_edge.i, %8, %5, %3
+_increment_ref.exit:                              ; preds = %45, %55, %46, %_resolve_parser_index.exit.i, %._crit_edge.i, %8, %5, %3
   %61 = tail call i32 @data_get_type(ptr noundef %1) #5
   %62 = icmp eq i32 %61, 2
   br i1 %62, label %66, label %63

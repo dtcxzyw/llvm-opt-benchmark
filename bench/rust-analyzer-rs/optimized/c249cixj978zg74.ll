@@ -49290,15 +49290,14 @@ define hidden noundef zeroext i1 @_ZN11ide_assists8handlers18pull_assignment_up1
 
 27:                                               ; preds = %16
   %.sroa.440.0.extract.shift = lshr i16 %17, 8
-  %.sroa.440.0.extract.trunc = trunc nuw i16 %.sroa.440.0.extract.shift to i8
-  %28 = icmp eq i8 %.sroa.440.0.extract.trunc, 7
+  %28 = icmp eq i16 %.sroa.440.0.extract.shift, 7
   br i1 %28, label %185, label %29
 
 29:                                               ; preds = %27
-  %30 = icmp eq i8 %.sroa.440.0.extract.trunc, 6
+  %30 = icmp eq i16 %.sroa.440.0.extract.shift, 6
   %31 = and i16 %17, 255
   %32 = icmp eq i16 %31, 10
-  %spec.select.i = select i1 %30, i1 %32, i1 false
+  %spec.select.i = and i1 %30, %32
   br i1 %spec.select.i, label %33, label %192
 
 33:                                               ; preds = %29
@@ -50743,15 +50742,14 @@ define internal fastcc noundef zeroext i1 @_ZN11ide_assists8handlers18pull_assig
   %4 = alloca { i64, [1 x i64] }, align 8
   %5 = tail call i16 @"_ZN6syntax3ast8expr_ext56_$LT$impl$u20$syntax..ast..generated..nodes..BinExpr$GT$7op_kind17h2450c3baa4babd9fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1)
   %.sroa.422.0.extract.shift = lshr i16 %5, 8
-  %.sroa.422.0.extract.trunc = trunc nuw i16 %.sroa.422.0.extract.shift to i8
-  %6 = icmp eq i8 %.sroa.422.0.extract.trunc, 7
+  %6 = icmp eq i16 %.sroa.422.0.extract.shift, 7
   br i1 %6, label %44, label %7
 
 7:                                                ; preds = %2
-  %8 = icmp eq i8 %.sroa.422.0.extract.trunc, 6
+  %8 = icmp eq i16 %.sroa.422.0.extract.shift, 6
   %9 = and i16 %5, 255
   %10 = icmp eq i16 %9, 10
-  %spec.select.i = and i1 %10, %8
+  %spec.select.i = and i1 %8, %10
   br i1 %spec.select.i, label %11, label %44
 
 11:                                               ; preds = %7

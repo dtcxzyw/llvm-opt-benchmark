@@ -18,8 +18,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZTSN6icu_756number4impl14SymbolProviderE = constant [38 x i8] c"N6icu_756number4impl14SymbolProviderE\00", align 1
 @_ZTIN6icu_756number4impl14SymbolProviderE = constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN6icu_756number4impl14SymbolProviderE }, align 8
 @_ZTVN6icu_7513UnicodeStringE = external unnamed_addr constant { [13 x ptr] }, align 8
-@switch.table._ZN6icu_756number4impl10AffixUtils15getFieldForTypeENS1_16AffixPatternTypeE = private unnamed_addr constant [15 x i8] c"'****''''')(-**", align 1
-@switch.table._ZN6icu_756number4impl10AffixUtils8unescapeERKNS_13UnicodeStringERNS_22FormattedStringBuilderEiRKNS1_14SymbolProviderENS6_5FieldER10UErrorCode = private unnamed_addr constant [10 x i8] c"''''')(-**", align 1
+@switch.table._ZN6icu_756number4impl10AffixUtils8unescapeERKNS_13UnicodeStringERNS_22FormattedStringBuilderEiRKNS1_14SymbolProviderENS6_5FieldER10UErrorCode = private unnamed_addr constant [15 x i8] c"'****''''')(-**", align 1
 
 @_ZN6icu_756number4impl13TokenConsumerD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_756number4impl13TokenConsumerD2Ev
 @_ZN6icu_756number4impl14SymbolProviderD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_756number4impl14SymbolProviderD2Ev
@@ -297,7 +296,7 @@ switch.hole_check:                                ; preds = %entry
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %1 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [15 x i8], ptr @switch.table._ZN6icu_756number4impl10AffixUtils15getFieldForTypeENS1_16AffixPatternTypeE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [15 x i8], ptr @switch.table._ZN6icu_756number4impl10AffixUtils8unescapeERKNS_13UnicodeStringERNS_22FormattedStringBuilderEiRKNS1_14SymbolProviderENS6_5FieldER10UErrorCode, i64 0, i64 %1
   %switch.load = load i8, ptr %switch.gep, align 1
   ret i8 %switch.load
 }
@@ -392,7 +391,7 @@ while.body:                                       ; preds = %land.lhs.true.i, %_
   br i1 %cmp.i18, label %if.end, label %return
 
 if.end:                                           ; preds = %while.body
-  %cmp = icmp eq i32 %tag.sroa.9.8.extract.trunc, -15
+  %cmp = icmp eq i64 %tag.sroa.9.8.extract.shift, 4294967281
   br i1 %cmp, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %if.end
@@ -409,17 +408,23 @@ if.then10:                                        ; preds = %if.else
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %15 = load ptr, ptr %vfn, align 8
   call void %15(ptr nonnull sret(%"class.icu_75::UnicodeString") align 8 %ref.tmp12, ptr noundef nonnull align 8 dereferenceable(8) %provider, i32 noundef %tag.sroa.9.8.extract.trunc)
-  %16 = icmp ugt i32 %tag.sroa.9.8.extract.trunc, -11
-  br i1 %16, label %switch.lookup, label %sw.default.i
+  %switch.tableidx = add nsw i32 %tag.sroa.9.8.extract.trunc, 15
+  %16 = icmp ugt i64 %13, -64424509441
+  br i1 %16, label %switch.hole_check, label %sw.default.i
 
-sw.default.i:                                     ; preds = %if.then10
+sw.default.i:                                     ; preds = %switch.hole_check, %if.then10
   call void @abort() #10
   unreachable
 
-switch.lookup:                                    ; preds = %if.then10
-  %sext = add nsw i64 %13, 42949672960
-  %17 = ashr i64 %sext, 32
-  %switch.gep = getelementptr inbounds [10 x i8], ptr @switch.table._ZN6icu_756number4impl10AffixUtils8unescapeERKNS_13UnicodeStringERNS_22FormattedStringBuilderEiRKNS1_14SymbolProviderENS6_5FieldER10UErrorCode, i64 0, i64 %17
+switch.hole_check:                                ; preds = %if.then10
+  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.shifted = lshr i16 32737, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %sw.default.i
+
+switch.lookup:                                    ; preds = %switch.hole_check
+  %17 = sext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [15 x i8], ptr @switch.table._ZN6icu_756number4impl10AffixUtils8unescapeERKNS_13UnicodeStringERNS_22FormattedStringBuilderEiRKNS1_14SymbolProviderENS6_5FieldER10UErrorCode, i64 0, i64 %17
   %switch.load = load i8, ptr %switch.gep, align 1
   %add11 = add nsw i32 %length.030, %position
   %call20 = invoke noundef i32 @_ZN6icu_7522FormattedStringBuilder6insertEiRKNS_13UnicodeStringENS0_5FieldER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %output, i32 noundef %add11, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp12, i8 %switch.load, ptr noundef nonnull align 4 dereferenceable(4) %status)
@@ -857,7 +862,7 @@ while.body:                                       ; preds = %land.lhs.true.i, %_
   br i1 %cmp.i8, label %if.end, label %return
 
 if.end:                                           ; preds = %while.body
-  %cmp = icmp eq i32 %tag.sroa.9.8.extract.trunc, -15
+  %cmp = icmp eq i64 %tag.sroa.9.8.extract.shift, 4294967281
   br i1 %cmp, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %if.end

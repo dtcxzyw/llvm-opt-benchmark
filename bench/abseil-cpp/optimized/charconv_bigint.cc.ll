@@ -1121,7 +1121,7 @@ if.then:                                          ; preds = %_ZN4absl16strings_i
   %conv3 = trunc nuw i64 %shr to i32
   %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %conv3, ptr %arrayidx5, align 4
-  %tobool.not = icmp eq i32 %conv3, 0
+  %tobool.not = icmp ult i64 %4, 4294967296
   br i1 %tobool.not, label %if.else, label %if.end14.sink.split
 
 if.else:                                          ; preds = %if.then
@@ -1374,7 +1374,7 @@ entry:
   %conv2 = trunc nuw i64 %shr to i32
   %arrayidx3 = getelementptr inbounds i8, ptr %words, i64 4
   store i32 %conv2, ptr %arrayidx3, align 4
-  %cmp = icmp eq i32 %conv2, 0
+  %cmp = icmp ult i64 %v, 4294967296
   %0 = load i32, ptr %this, align 4
   br i1 %cmp, label %if.then, label %if.else
 
@@ -1400,7 +1400,6 @@ if.end.i.i.i.i:                                   ; preds = %if.then4.i
   br label %if.end24.sink.split.i
 
 if.end5.i:                                        ; preds = %if.end.i
-  %conv.i = and i64 %v, 4294967295
   %cmp711.i = icmp sgt i32 %0, 0
   br i1 %cmp711.i, label %for.body.lr.ph.i, label %if.end
 
@@ -1415,7 +1414,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %arrayidx.i = getelementptr inbounds [4 x i32], ptr %words_.i, i64 0, i64 %indvars.iv.i
   %2 = load i32, ptr %arrayidx.i, align 4
   %conv8.i = zext i32 %2 to i64
-  %mul.i = mul nuw i64 %conv.i, %conv8.i
+  %mul.i = mul nuw i64 %conv8.i, %v
   %add.i = add nuw i64 %mul.i, %window.012.i
   %conv9.i = trunc i64 %add.i to i32
   store i32 %conv9.i, ptr %arrayidx.i, align 4
@@ -1741,7 +1740,7 @@ _ZN4absl16strings_internal11BigUnsignedILi4EE12AddWithCarryEij.exit.i.i: ; preds
   br label %if.end20.sink.split.i.i
 
 if.end11.i.i:                                     ; preds = %if.then.i.i
-  %cmp12.not.i.i = icmp eq i32 %conv.i.i28, 0
+  %cmp12.not.i.i = icmp ult i64 %add7.i, 4294967296
   br i1 %cmp12.not.i.i, label %if.else.i.i, label %while.cond.preheader.i.i.i
 
 while.cond.preheader.i.i.i:                       ; preds = %if.end11.i.i, %if.then7.i.i
@@ -1804,7 +1803,7 @@ if.then.i26:                                      ; preds = %_ZN4absl16strings_i
 
 _ZN4absl16strings_internal11BigUnsignedILi4EE12MultiplyStepEiPKjii.exit: ; preds = %_ZN4absl16strings_internal11BigUnsignedILi4EE12AddWithCarryEim.exit.thread.i, %_ZN4absl16strings_internal11BigUnsignedILi4EE12AddWithCarryEim.exit.i, %if.then.i26
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %cmp.not.i = icmp eq i32 %5, 0
+  %cmp.not.i = icmp eq i64 %indvars.iv, 0
   br i1 %cmp.not.i, label %if.end, label %for.body.i, !llvm.loop !16
 
 if.end:                                           ; preds = %_ZN4absl16strings_internal11BigUnsignedILi4EE12MultiplyStepEiPKjii.exit, %if.else, %if.then
@@ -2237,7 +2236,7 @@ _ZN4absl16strings_internal11BigUnsignedILi4EE12AddWithCarryEij.exit.i: ; preds =
   br label %if.end20.sink.split.i
 
 if.end11.i:                                       ; preds = %if.then.i
-  %cmp12.not.i = icmp eq i32 %conv.i, 0
+  %cmp12.not.i = icmp ult i64 %add7, 4294967296
   br i1 %cmp12.not.i, label %if.else.i, label %while.cond.preheader.i.i
 
 while.cond.preheader.i.i:                         ; preds = %if.end11.i, %if.then7.i
@@ -2352,7 +2351,7 @@ _ZN4absl16strings_internal11BigUnsignedILi4EE12AddWithCarryEij.exit: ; preds = %
   br label %if.end20.sink.split
 
 if.end11:                                         ; preds = %if.then
-  %cmp12.not = icmp eq i32 %conv, 0
+  %cmp12.not = icmp ult i64 %value, 4294967296
   br i1 %cmp12.not, label %if.else, label %while.cond.preheader.i
 
 while.cond.preheader.i:                           ; preds = %if.then7, %if.end11
@@ -3407,7 +3406,7 @@ if.then:                                          ; preds = %_ZN4absl16strings_i
   %conv3 = trunc nuw i64 %shr to i32
   %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %conv3, ptr %arrayidx5, align 4
-  %tobool.not = icmp eq i32 %conv3, 0
+  %tobool.not = icmp ult i64 %4, 4294967296
   br i1 %tobool.not, label %if.else, label %if.end14.sink.split
 
 if.else:                                          ; preds = %if.then
@@ -3660,7 +3659,7 @@ entry:
   %conv2 = trunc nuw i64 %shr to i32
   %arrayidx3 = getelementptr inbounds i8, ptr %words, i64 4
   store i32 %conv2, ptr %arrayidx3, align 4
-  %cmp = icmp eq i32 %conv2, 0
+  %cmp = icmp ult i64 %v, 4294967296
   %0 = load i32, ptr %this, align 4
   br i1 %cmp, label %if.then, label %if.else
 
@@ -3686,7 +3685,6 @@ if.end.i.i.i.i:                                   ; preds = %if.then4.i
   br label %if.end24.sink.split.i
 
 if.end5.i:                                        ; preds = %if.end.i
-  %conv.i = and i64 %v, 4294967295
   %cmp711.i = icmp sgt i32 %0, 0
   br i1 %cmp711.i, label %for.body.lr.ph.i, label %if.end
 
@@ -3701,7 +3699,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %arrayidx.i = getelementptr inbounds [84 x i32], ptr %words_.i, i64 0, i64 %indvars.iv.i
   %2 = load i32, ptr %arrayidx.i, align 4
   %conv8.i = zext i32 %2 to i64
-  %mul.i = mul nuw i64 %conv.i, %conv8.i
+  %mul.i = mul nuw i64 %conv8.i, %v
   %add.i = add nuw i64 %mul.i, %window.012.i
   %conv9.i = trunc i64 %add.i to i32
   store i32 %conv9.i, ptr %arrayidx.i, align 4
@@ -4027,7 +4025,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE12AddWithCarryEij.exit.i.i: ; pred
   br label %if.end20.sink.split.i.i
 
 if.end11.i.i:                                     ; preds = %if.then.i.i
-  %cmp12.not.i.i = icmp eq i32 %conv.i.i28, 0
+  %cmp12.not.i.i = icmp ult i64 %add7.i, 4294967296
   br i1 %cmp12.not.i.i, label %if.else.i.i, label %while.cond.preheader.i.i.i
 
 while.cond.preheader.i.i.i:                       ; preds = %if.end11.i.i, %if.then7.i.i
@@ -4090,7 +4088,7 @@ if.then.i26:                                      ; preds = %_ZN4absl16strings_i
 
 _ZN4absl16strings_internal11BigUnsignedILi84EE12MultiplyStepEiPKjii.exit: ; preds = %_ZN4absl16strings_internal11BigUnsignedILi84EE12AddWithCarryEim.exit.thread.i, %_ZN4absl16strings_internal11BigUnsignedILi84EE12AddWithCarryEim.exit.i, %if.then.i26
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %cmp.not.i = icmp eq i32 %6, 0
+  %cmp.not.i = icmp eq i64 %indvars.iv, 0
   br i1 %cmp.not.i, label %if.end, label %for.body.i, !llvm.loop !31
 
 if.end:                                           ; preds = %_ZN4absl16strings_internal11BigUnsignedILi84EE12MultiplyStepEiPKjii.exit, %if.else, %if.then
@@ -4501,7 +4499,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE12AddWithCarryEij.exit.i: ; preds 
   br label %if.end20.sink.split.i
 
 if.end11.i:                                       ; preds = %if.then.i
-  %cmp12.not.i = icmp eq i32 %conv.i, 0
+  %cmp12.not.i = icmp ult i64 %add7, 4294967296
   br i1 %cmp12.not.i, label %if.else.i, label %while.cond.preheader.i.i
 
 while.cond.preheader.i.i:                         ; preds = %if.end11.i, %if.then7.i
@@ -4616,7 +4614,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE12AddWithCarryEij.exit: ; preds = 
   br label %if.end20.sink.split
 
 if.end11:                                         ; preds = %if.then
-  %cmp12.not = icmp eq i32 %conv, 0
+  %cmp12.not = icmp ult i64 %value, 4294967296
   br i1 %cmp12.not, label %if.else, label %while.cond.preheader.i
 
 while.cond.preheader.i:                           ; preds = %if.then7, %if.end11

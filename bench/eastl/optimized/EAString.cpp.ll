@@ -10456,9 +10456,8 @@ do.body.i:                                        ; preds = %do.body.i, %if.end.
   %pCurrent.1.i = phi ptr [ %pCurrent.0.i, %if.end.i ], [ %pCurrent.2.i, %do.body.i ]
   %nValue.addr.0.i = phi i64 [ %conv, %if.end.i ], [ %div.i, %do.body.i ]
   %rem.i = urem i64 %nValue.addr.0.i, %conv.i
-  %conv1.i = trunc nuw i64 %rem.i to i32
   %div.i = udiv i64 %nValue.addr.0.i, %conv.i
-  %cmp.i = icmp ugt i32 %conv1.i, 9
+  %cmp.i = icmp ugt i64 %rem.i, 9
   %1 = trunc i64 %rem.i to i16
   %conv7.i = or disjoint i16 %1, 48
   %conv4.i = add i16 %1, 87
@@ -10517,7 +10516,7 @@ do.body.i:                                        ; preds = %do.body.i, %if.end.
   %rem.i = urem i64 %nValue.addr.0.i, %conv.i
   %conv1.i = trunc nuw i64 %rem.i to i32
   %div.i = udiv i64 %nValue.addr.0.i, %conv.i
-  %cmp.i = icmp ugt i32 %conv1.i, 9
+  %cmp.i = icmp ugt i64 %rem.i, 9
   %add5.i = or disjoint i32 %conv1.i, 48
   %add.i = add i32 %conv1.i, 87
   %storemerge.i = select i1 %cmp.i, i32 %add.i, i32 %add5.i
@@ -10565,9 +10564,8 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   %pCurrent.1.i = phi ptr [ %pBuffer, %entry ], [ %pCurrent.2.i, %do.body.i ]
   %nValue.addr.0.i = phi i64 [ %conv, %entry ], [ %div.i, %do.body.i ]
   %rem.i = urem i64 %nValue.addr.0.i, %conv.i
-  %conv1.i = trunc nuw i64 %rem.i to i32
   %div.i = udiv i64 %nValue.addr.0.i, %conv.i
-  %cmp.i = icmp ugt i32 %conv1.i, 9
+  %cmp.i = icmp ugt i64 %rem.i, 9
   %0 = trunc i64 %rem.i to i16
   %conv7.i = or disjoint i16 %0, 48
   %conv4.i = add i16 %0, 87
@@ -10610,7 +10608,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   %rem.i = urem i64 %nValue.addr.0.i, %conv.i
   %conv1.i = trunc nuw i64 %rem.i to i32
   %div.i = udiv i64 %nValue.addr.0.i, %conv.i
-  %cmp.i = icmp ugt i32 %conv1.i, 9
+  %cmp.i = icmp ugt i64 %rem.i, 9
   %add5.i = or disjoint i32 %conv1.i, 48
   %add.i = add i32 %conv1.i, 87
   %storemerge.i = select i1 %cmp.i, i32 %add.i, i32 %add5.i
@@ -12490,15 +12488,15 @@ for.body150:                                      ; preds = %land.rhs145
   br i1 %exitcond172.not, label %if.then152, label %if.end175
 
 if.then152:                                       ; preds = %for.body150
-  %31 = trunc nsw i64 %indvars.iv164 to i32
   %cond159 = add i64 %indvars.iv164, 4294967295
   %idxprom160 = and i64 %cond159, 4294967295
   %arrayidx161 = getelementptr inbounds i8, ptr %pResult, i64 %idxprom160
   store i8 0, ptr %arrayidx161, align 1
-  %cmp164136 = icmp sgt i32 %31, 2
+  %cmp164136 = icmp sgt i64 %indvars.iv164, 2
   br i1 %cmp164136, label %land.rhs165.preheader, label %return
 
 land.rhs165.preheader:                            ; preds = %if.then152
+  %31 = trunc nsw i64 %indvars.iv164 to i32
   %dec163135 = add nsw i32 %31, -2
   br label %land.rhs165
 
@@ -12905,15 +12903,15 @@ for.body151:                                      ; preds = %land.rhs146
   br i1 %exitcond170.not, label %if.then153, label %if.end176
 
 if.then153:                                       ; preds = %for.body151
-  %39 = trunc nsw i64 %indvars.iv162 to i32
   %cond160 = add i64 %indvars.iv162, 4294967295
   %idxprom161 = and i64 %cond160, 4294967295
   %arrayidx162 = getelementptr inbounds i16, ptr %pResult, i64 %idxprom161
   store i16 0, ptr %arrayidx162, align 2
-  %cmp165128 = icmp sgt i32 %39, 2
+  %cmp165128 = icmp sgt i64 %indvars.iv162, 2
   br i1 %cmp165128, label %land.rhs166.preheader, label %return
 
 land.rhs166.preheader:                            ; preds = %if.then153
+  %39 = trunc nsw i64 %indvars.iv162 to i32
   %dec164127 = add nsw i32 %39, -2
   br label %land.rhs166
 
@@ -13269,15 +13267,15 @@ for.body151:                                      ; preds = %land.rhs146
   br i1 %exitcond163.not, label %if.then153, label %if.end175
 
 if.then153:                                       ; preds = %for.body151
-  %30 = trunc nsw i64 %indvars.iv155 to i32
   %cond160 = add i64 %indvars.iv155, 4294967295
   %idxprom161 = and i64 %cond160, 4294967295
   %arrayidx162 = getelementptr inbounds i32, ptr %pResult, i64 %idxprom161
   store i32 0, ptr %arrayidx162, align 4
-  %cmp165126 = icmp sgt i32 %30, 2
+  %cmp165126 = icmp sgt i64 %indvars.iv155, 2
   br i1 %cmp165126, label %land.rhs166.preheader, label %return
 
 land.rhs166.preheader:                            ; preds = %if.then153
+  %30 = trunc nsw i64 %indvars.iv155 to i32
   %dec164125 = add nsw i32 %30, -2
   br label %land.rhs166
 

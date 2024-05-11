@@ -2405,8 +2405,8 @@ entry:
 
 if.then6.i:                                       ; preds = %entry
   %add.i = add nuw nsw i64 %spec.store.select, %dictSize
+  %cmp7.i = icmp ult i64 %add.i, 64
   %conv.i = trunc nuw i64 %add.i to i32
-  %cmp7.i = icmp ult i32 %conv.i, 64
   %sub.i = add i32 %conv.i, -1
   %4 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub.i, i1 true)
   %add9.i = sub nuw nsw i32 32, %4
@@ -2571,8 +2571,8 @@ sw.epilog.i:                                      ; preds = %sw.bb2.i, %sw.bb1.i
 
 if.then6.i:                                       ; preds = %sw.epilog.i
   %add.i = add nuw nsw i64 %srcSize.addr.0.i, %dictSize.addr.0.i
+  %cmp7.i = icmp ult i64 %add.i, 64
   %conv.i = trunc nuw i64 %add.i to i32
-  %cmp7.i = icmp ult i32 %conv.i, 64
   %sub.i = add i32 %conv.i, -1
   %11 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub.i, i1 true)
   %add9.i = sub nuw nsw i32 32, %11
@@ -2750,8 +2750,8 @@ sw.epilog.i:                                      ; preds = %sw.bb2.i, %sw.bb1.i
 
 if.then6.i:                                       ; preds = %sw.epilog.i
   %add.i15 = add nuw nsw i64 %srcSize.addr.0.i, %dictSize.addr.0.i
+  %cmp7.i = icmp ult i64 %add.i15, 64
   %conv.i = trunc nuw i64 %add.i15 to i32
-  %cmp7.i = icmp ult i32 %conv.i, 64
   %sub.i = add i32 %conv.i, -1
   %2 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub.i, i1 true)
   %add9.i = sub nuw nsw i32 32, %2
@@ -3223,12 +3223,10 @@ for.body.i:                                       ; preds = %cond.end.i, %for.bo
 
 if.then6.i.i:                                     ; preds = %for.body.i
   %conv.i.i = trunc nuw i64 %0 to i32
-  %cmp7.i.i = icmp ult i32 %conv.i.i, 64
   %sub.i.i = add nsw i32 %conv.i.i, -1
   %2 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub.i.i, i1 true)
   %add9.i.i = sub nuw nsw i32 32, %2
-  %cond.i.i = select i1 %cmp7.i.i, i32 6, i32 %add9.i.i
-  %spec.select33.i = tail call i32 @llvm.umin.i32(i32 %cp.sroa.0.sroa.0.0.copyload.i, i32 %cond.i.i)
+  %spec.select33.i = tail call i32 @llvm.umin.i32(i32 %cp.sroa.0.sroa.0.0.copyload.i, i32 %add9.i.i)
   %cmp.i20.i.i = icmp ugt i32 %cp.sroa.3.0.copyload.i, 5
   %conv.neg.i.i.i = sext i1 %cmp.i20.i.i to i32
   %sub.i21.i.i = add i32 %cp.sroa.0.sroa.2.0.copyload.i, %conv.neg.i.i.i
@@ -5896,8 +5894,8 @@ if.then.i:                                        ; preds = %ZSTD_shouldAttachDi
   br i1 %cmp3.i.i.i, label %if.then6.i.i.i, label %if.end15.i.i.i
 
 if.then6.i.i.i:                                   ; preds = %if.then.i
+  %cmp7.i.i.i = icmp ult i64 %pledgedSrcSize, 64
   %conv.i.i.i = trunc nuw i64 %pledgedSrcSize to i32
-  %cmp7.i.i.i = icmp ult i32 %conv.i.i.i, 64
   %sub.i28.i.i = add nsw i32 %conv.i.i.i, -1
   %11 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub.i28.i.i, i1 true)
   %add9.i.i.i = sub nuw nsw i32 32, %11
@@ -8326,19 +8324,25 @@ ZSTD_CCtxParams_init_internal.exit:               ; preds = %if.end.i27.i, %if.e
   br i1 %cmp22.not, label %return.sink.split, label %if.then23
 
 if.then23:                                        ; preds = %ZSTD_CCtxParams_init_internal.exit
+  %cmp28 = icmp ugt i64 %pledgedSrcSize, 1
+  br i1 %cmp28, label %cond.true30, label %cond.end32
+
+cond.true30:                                      ; preds = %if.then23
   %cond = tail call i64 @llvm.umin.i64(i64 %pledgedSrcSize, i64 524288)
   %conv = trunc nuw nsw i64 %cond to i32
-  %cmp28 = icmp ugt i32 %conv, 1
   %sub = add nsw i32 %conv, -1
   %7 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub, i1 true)
   %add = sub nuw nsw i32 32, %7
-  %cond33 = select i1 %cmp28, i32 %add, i32 1
+  br label %cond.end32
+
+cond.end32:                                       ; preds = %if.then23, %cond.true30
+  %cond33 = phi i32 [ %add, %cond.true30 ], [ 1, %if.then23 ]
   %cond42 = tail call i32 @llvm.umax.i32(i32 %params.sroa.0.0, i32 %cond33)
   store i32 %cond42, ptr %cParams.i19, align 4
   br label %return.sink.split
 
-return.sink.split:                                ; preds = %ZSTD_CCtxParams_init_internal.exit, %if.then23
-  %pledgedSrcSize.sink = phi i64 [ %pledgedSrcSize, %if.then23 ], [ -1, %ZSTD_CCtxParams_init_internal.exit ]
+return.sink.split:                                ; preds = %ZSTD_CCtxParams_init_internal.exit, %cond.end32
+  %pledgedSrcSize.sink = phi i64 [ %pledgedSrcSize, %cond.end32 ], [ -1, %ZSTD_CCtxParams_init_internal.exit ]
   %call4618 = call fastcc i64 @ZSTD_compressBegin_internal(ptr noundef %cctx, ptr noundef null, i64 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %cdict, ptr noundef nonnull %cctxParams, i64 noundef %pledgedSrcSize.sink, i32 noundef 0)
   br label %return
 

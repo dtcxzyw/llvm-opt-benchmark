@@ -2212,8 +2212,8 @@ if.then41:                                        ; preds = %if.end34
 
 land.rhs:                                         ; preds = %if.then41
   switch i32 %conv, label %if.end75 [
-    i32 8, label %if.end77.thread
-    i32 4, label %if.end77.thread
+    i32 8, label %if.end77
+    i32 4, label %if.end77
   ]
 
 do.body47:                                        ; preds = %if.end34
@@ -2244,23 +2244,17 @@ do.end71:                                         ; preds = %do.body60
 if.end75:                                         ; preds = %land.rhs
   %41 = add nsw i32 %conv, -12
   %42 = icmp ult i32 %41, 5
-  br i1 %42, label %if.end77.thread, label %if.then76
+  br i1 %42, label %if.end77, label %if.then76
 
 if.then76:                                        ; preds = %do.end71, %if.then41, %if.end75
   call void @_ZN4node33THROW_ERR_CRYPTO_INVALID_AUTH_TAGIJRjEEEvPNS_11EnvironmentEPKcDpOT_(ptr noundef %retval.0.i.i, ptr noundef nonnull @.str.58, ptr noundef nonnull align 4 dereferenceable(4) %tag_len)
   br label %return
 
-if.end77.thread:                                  ; preds = %if.end75, %land.rhs, %land.rhs
-  %auth_tag_len_7840 = getelementptr inbounds i8, ptr %retval.i17.0.i, i64 48
-  store i32 %conv, ptr %auth_tag_len_7840, align 8
-  store i32 1, ptr %auth_tag_state_, align 4
-  br label %do.end92
-
-if.end77:                                         ; preds = %do.end71
+if.end77:                                         ; preds = %if.end75, %land.rhs, %land.rhs, %do.end71
   %auth_tag_len_78 = getelementptr inbounds i8, ptr %retval.i17.0.i, i64 48
   store i32 %conv, ptr %auth_tag_len_78, align 8
   store i32 1, ptr %auth_tag_state_, align 4
-  %cmp83 = icmp ugt i32 %conv, 16
+  %cmp83 = icmp ugt i64 %36, 16
   br i1 %cmp83, label %do.body89, label %do.end92
 
 do.body89:                                        ; preds = %if.end77
@@ -2268,7 +2262,7 @@ do.body89:                                        ; preds = %if.end77
   call void @abort() #21
   unreachable
 
-do.end92:                                         ; preds = %if.end77.thread, %if.end77
+do.end92:                                         ; preds = %if.end77
   %auth_tag_ = getelementptr inbounds i8, ptr %retval.i17.0.i, i64 52
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %auth_tag_, i8 0, i64 16, i1 false)
   %43 = load i64, ptr %length_.i.i, align 8

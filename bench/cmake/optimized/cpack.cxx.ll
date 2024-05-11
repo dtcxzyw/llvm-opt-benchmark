@@ -7575,7 +7575,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK21cmCommandLineArgumentIFb
   %26 = extractvalue { i64, ptr } %25, 0
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %23, i64 %26)
   %27 = icmp eq i64 %.sroa.speculated.i.i.i, 0
-  br i1 %21, label %28, label %35
+  br i1 %21, label %28, label %33
 
 28:                                               ; preds = %18
   br i1 %27, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
@@ -7588,53 +7588,47 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %28
   br i1 %31, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %28
-  %32 = sub i64 %.sroa.speculated.i.i.i, %26
-  %spec.select7.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %32, i64 -2147483648)
-  %.08.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i, i64 2147483647)
-  %33 = and i64 %.08.i.i.i.i, 4294967295
-  %34 = icmp eq i64 %33, 0
+  %32 = icmp ule i64 %26, %23
   br label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
 
-35:                                               ; preds = %18
-  br i1 %27, label %_Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit21, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i15
+33:                                               ; preds = %18
+  br i1 %27, label %_Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit19, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i15
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i15: ; preds = %35
-  %36 = extractvalue { i64, ptr } %25, 1
-  %37 = extractvalue { i64, ptr } %22, 1
-  %bcmp.i16 = tail call i32 @bcmp(ptr %37, ptr %36, i64 %.sroa.speculated.i.i.i)
-  %38 = icmp eq i32 %bcmp.i16, 0
-  br i1 %38, label %_Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit21, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i15: ; preds = %33
+  %34 = extractvalue { i64, ptr } %25, 1
+  %35 = extractvalue { i64, ptr } %22, 1
+  %bcmp.i16 = tail call i32 @bcmp(ptr %35, ptr %34, i64 %.sroa.speculated.i.i.i)
+  %36 = icmp eq i32 %bcmp.i16, 0
+  %37 = icmp ule i64 %26, %23
+  %or.cond = select i1 %36, i1 %37, i1 false
+  br i1 %or.cond, label %38, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
 
-_Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit21: ; preds = %35, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i15
-  %39 = sub i64 %.sroa.speculated.i.i.i, %26
-  %spec.select7.i.i.i.i19 = tail call i64 @llvm.smax.i64(i64 %39, i64 -2147483648)
-  %.08.i.i.i.i20 = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i19, i64 2147483647)
-  %40 = and i64 %.08.i.i.i.i20, 4294967295
-  %41 = icmp eq i64 %40, 0
-  br i1 %41, label %42, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
+_Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit19: ; preds = %33
+  %.old.not = icmp ugt i64 %26, %23
+  br i1 %.old.not, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, label %38
 
-42:                                               ; preds = %_Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit21
-  %43 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #25
-  %44 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %24) #25
-  %45 = icmp eq i64 %43, %44
-  br i1 %45, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, label %46
+38:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i15, %_Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit19
+  %39 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #25
+  %40 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %24) #25
+  %41 = icmp eq i64 %39, %40
+  br i1 %41, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, label %42
 
-46:                                               ; preds = %42
-  %47 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %24) #25
-  %48 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %47) #25
-  %49 = load i8, ptr %48, align 1
-  %50 = icmp eq i8 %49, 61
-  br i1 %50, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, label %51
+42:                                               ; preds = %38
+  %43 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %24) #25
+  %44 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %43) #25
+  %45 = load i8, ptr %44, align 1
+  %46 = icmp eq i8 %45, 61
+  br i1 %46, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, label %47
 
-51:                                               ; preds = %46
-  %52 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %24) #25
-  %53 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %52) #25
-  %54 = load i8, ptr %53, align 1
-  %55 = icmp eq i8 %54, 32
+47:                                               ; preds = %42
+  %48 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %24) #25
+  %49 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %48) #25
+  %50 = load i8, ptr %49, align 1
+  %51 = icmp eq i8 %50, 32
   br label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
 
-_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i15, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %16, %11, %6, %46, %51, %42, %_Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit21
-  %.0 = phi i1 [ false, %_Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit21 ], [ true, %42 ], [ true, %46 ], [ %55, %51 ], [ false, %6 ], [ %17, %16 ], [ true, %11 ], [ %34, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i15 ]
+_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i15, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %16, %11, %6, %42, %47, %38, %_Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit19
+  %.0 = phi i1 [ false, %_Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit19 ], [ true, %38 ], [ true, %42 ], [ %51, %47 ], [ false, %6 ], [ %17, %16 ], [ true, %11 ], [ %32, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i15 ]
   ret i1 %.0
 }
 
@@ -15641,12 +15635,6 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #23
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #21
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #21
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

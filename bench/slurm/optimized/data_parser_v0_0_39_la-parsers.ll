@@ -5146,66 +5146,65 @@ define internal i32 @_v39_dump_ROLLUP_STATS(ptr nocapture noundef readonly %0, p
   %14 = tail call i32 (i32, i32, ptr, i32, ptr, ptr, ptr, ...) @on_error(i32 noundef 44718, i32 noundef %13, ptr noundef %3, i32 noundef 9202, ptr noundef nonnull @.str.431, ptr noundef nonnull @__func__._v39_dump_ROLLUP_STATS, ptr noundef nonnull @.str.432) #16
   br label %.loopexit
 
-15:                                               ; preds = %.preheader, %54
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %54 ]
+15:                                               ; preds = %.preheader, %53
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %53 ]
   %16 = getelementptr inbounds [3 x i64], ptr %6, i64 0, i64 %indvars.iv
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %17, 0
-  br i1 %18, label %54, label %19
+  br i1 %18, label %53, label %19
 
 19:                                               ; preds = %15
   %20 = tail call ptr @data_list_append(ptr noundef %2) #16
   %21 = tail call ptr @data_set_dict(ptr noundef %20) #16
-  %22 = trunc nuw nsw i64 %indvars.iv to i32
-  %23 = tail call ptr @data_key_set(ptr noundef %21, ptr noundef nonnull @.str.13) #16
-  %switch.selectcmp = icmp eq i32 %22, 1
+  %22 = tail call ptr @data_key_set(ptr noundef %21, ptr noundef nonnull @.str.13) #16
+  %switch.selectcmp = icmp eq i64 %indvars.iv, 1
   %switch.select = select i1 %switch.selectcmp, ptr @.str.16, ptr @.str.17
-  %switch.selectcmp44 = icmp eq i32 %22, 0
+  %switch.selectcmp44 = icmp eq i64 %indvars.iv, 0
   %switch.select45 = select i1 %switch.selectcmp44, ptr @.str.15, ptr %switch.select
-  %24 = tail call ptr @data_set_string(ptr noundef %23, ptr noundef nonnull %switch.select45) #16
-  %25 = tail call ptr @data_key_set(ptr noundef %21, ptr noundef nonnull @.str.433) #16
-  %26 = getelementptr inbounds [3 x i64], ptr %7, i64 0, i64 %indvars.iv
-  %27 = load i64, ptr %26, align 8
-  %28 = tail call ptr @data_set_int(ptr noundef %25, i64 noundef %27) #16
-  %29 = load i64, ptr %16, align 8
-  %30 = getelementptr inbounds [3 x i16], ptr %8, i64 0, i64 %indvars.iv
-  %31 = load i16, ptr %30, align 2
-  %32 = icmp ugt i16 %31, 1
-  br i1 %32, label %33, label %36
+  %23 = tail call ptr @data_set_string(ptr noundef %22, ptr noundef nonnull %switch.select45) #16
+  %24 = tail call ptr @data_key_set(ptr noundef %21, ptr noundef nonnull @.str.433) #16
+  %25 = getelementptr inbounds [3 x i64], ptr %7, i64 0, i64 %indvars.iv
+  %26 = load i64, ptr %25, align 8
+  %27 = tail call ptr @data_set_int(ptr noundef %24, i64 noundef %26) #16
+  %28 = load i64, ptr %16, align 8
+  %29 = getelementptr inbounds [3 x i16], ptr %8, i64 0, i64 %indvars.iv
+  %30 = load i16, ptr %29, align 2
+  %31 = icmp ugt i16 %30, 1
+  br i1 %31, label %32, label %35
 
-33:                                               ; preds = %19
-  %34 = zext i16 %31 to i64
-  %35 = udiv i64 %29, %34
-  br label %36
+32:                                               ; preds = %19
+  %33 = zext i16 %30 to i64
+  %34 = udiv i64 %28, %33
+  br label %35
 
-36:                                               ; preds = %33, %19
-  %.0 = phi i64 [ %35, %33 ], [ %29, %19 ]
-  %37 = tail call ptr @data_key_set(ptr noundef %21, ptr noundef nonnull @.str.434) #16
-  %38 = getelementptr inbounds [3 x i64], ptr %9, i64 0, i64 %indvars.iv
-  %39 = load i64, ptr %38, align 8
-  %40 = tail call ptr @data_set_int(ptr noundef %37, i64 noundef %39) #16
-  %41 = tail call ptr @data_key_set(ptr noundef %21, ptr noundef nonnull @.str.20) #16
-  %42 = getelementptr inbounds [3 x i64], ptr %10, i64 0, i64 %indvars.iv
-  %43 = load i64, ptr %42, align 8
-  %44 = tail call ptr @data_set_int(ptr noundef %41, i64 noundef %43) #16
-  %45 = tail call ptr @data_key_set(ptr noundef %21, ptr noundef nonnull @.str.22) #16
-  %46 = load i64, ptr %16, align 8
-  %47 = tail call ptr @data_set_int(ptr noundef %45, i64 noundef %46) #16
-  %48 = tail call ptr @data_key_set(ptr noundef %21, ptr noundef nonnull @.str.24) #16
-  %49 = load i16, ptr %30, align 2
-  %50 = zext i16 %49 to i64
-  %51 = tail call ptr @data_set_int(ptr noundef %48, i64 noundef %50) #16
-  %52 = tail call ptr @data_key_set(ptr noundef %21, ptr noundef nonnull @.str.26) #16
-  %53 = tail call ptr @data_set_int(ptr noundef %52, i64 noundef %.0) #16
-  br label %54
+35:                                               ; preds = %32, %19
+  %.0 = phi i64 [ %34, %32 ], [ %28, %19 ]
+  %36 = tail call ptr @data_key_set(ptr noundef %21, ptr noundef nonnull @.str.434) #16
+  %37 = getelementptr inbounds [3 x i64], ptr %9, i64 0, i64 %indvars.iv
+  %38 = load i64, ptr %37, align 8
+  %39 = tail call ptr @data_set_int(ptr noundef %36, i64 noundef %38) #16
+  %40 = tail call ptr @data_key_set(ptr noundef %21, ptr noundef nonnull @.str.20) #16
+  %41 = getelementptr inbounds [3 x i64], ptr %10, i64 0, i64 %indvars.iv
+  %42 = load i64, ptr %41, align 8
+  %43 = tail call ptr @data_set_int(ptr noundef %40, i64 noundef %42) #16
+  %44 = tail call ptr @data_key_set(ptr noundef %21, ptr noundef nonnull @.str.22) #16
+  %45 = load i64, ptr %16, align 8
+  %46 = tail call ptr @data_set_int(ptr noundef %44, i64 noundef %45) #16
+  %47 = tail call ptr @data_key_set(ptr noundef %21, ptr noundef nonnull @.str.24) #16
+  %48 = load i16, ptr %29, align 2
+  %49 = zext i16 %48 to i64
+  %50 = tail call ptr @data_set_int(ptr noundef %47, i64 noundef %49) #16
+  %51 = tail call ptr @data_key_set(ptr noundef %21, ptr noundef nonnull @.str.26) #16
+  %52 = tail call ptr @data_set_int(ptr noundef %51, i64 noundef %.0) #16
+  br label %53
 
-54:                                               ; preds = %15, %36
+53:                                               ; preds = %15, %35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.loopexit, label %15, !llvm.loop !15
 
-.loopexit:                                        ; preds = %54, %11
-  %.039 = phi i32 [ %14, %11 ], [ 0, %54 ]
+.loopexit:                                        ; preds = %53, %11
+  %.039 = phi i32 [ %14, %11 ], [ 0, %53 ]
   ret i32 %.039
 }
 

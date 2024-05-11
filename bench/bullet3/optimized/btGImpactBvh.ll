@@ -586,8 +586,7 @@ if.end10:                                         ; preds = %if.then9, %if.end
   br label %if.end11
 
 if.end11:                                         ; preds = %if.end10, %if.then
-  %24 = and i64 %indvars.iv.next, 4294967295
-  %tobool.not = icmp eq i64 %24, 0
+  %tobool.not = icmp eq i64 %indvars.iv.next, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !13
 
 while.end:                                        ; preds = %if.end11, %entry

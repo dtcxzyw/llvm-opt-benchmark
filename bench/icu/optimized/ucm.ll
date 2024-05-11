@@ -3181,33 +3181,34 @@ for.cond.i:                                       ; preds = %if.end19.i, %if.end
   %s.0.i = phi ptr [ %16, %if.end19.i ], [ %call52, %if.end51 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %if.end19.i ], [ 0, %if.end51 ]
   %cmp.not.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %cmp.not.i, label %if.end.i, label %land.lhs.true.i
-
-land.lhs.true.i:                                  ; preds = %for.cond.i
   %13 = load i8, ptr %s.0.i, align 1
+  br i1 %cmp.not.i, label %if.end.i, label %if.end.i.thread
+
+if.end.i:                                         ; preds = %for.cond.i
+  %cmp4.not.i = icmp eq i8 %13, 92
+  br i1 %cmp4.not.i, label %if.end6.i, label %if.then60
+
+if.end.i.thread:                                  ; preds = %for.cond.i
   %cmp2.i = icmp eq i8 %13, 43
   %spec.select.idx.i = zext i1 %cmp2.i to i64
   %spec.select.i = getelementptr inbounds i8, ptr %s.0.i, i64 %spec.select.idx.i
-  br label %if.end.i
+  %14 = load i8, ptr %spec.select.i, align 1
+  %cmp4.not.i65 = icmp eq i8 %14, 92
+  br i1 %cmp4.not.i65, label %if.end6.i, label %if.else62
 
-if.end.i:                                         ; preds = %land.lhs.true.i, %for.cond.i
-  %s.1.i = phi ptr [ %s.0.i, %for.cond.i ], [ %spec.select.i, %land.lhs.true.i ]
-  %14 = load i8, ptr %s.1.i, align 1
-  %cmp4.not.i = icmp eq i8 %14, 92
-  br i1 %cmp4.not.i, label %if.end6.i, label %ucm_parseBytes.exit
-
-if.end6.i:                                        ; preds = %if.end.i
-  %arrayidx.i = getelementptr inbounds i8, ptr %s.1.i, i64 1
+if.end6.i:                                        ; preds = %if.end.i.thread, %if.end.i
+  %s.1.i66 = phi ptr [ %spec.select.i, %if.end.i.thread ], [ %s.0.i, %if.end.i ]
+  %arrayidx.i = getelementptr inbounds i8, ptr %s.1.i66, i64 1
   %15 = load i8, ptr %arrayidx.i, align 1
   %cmp8.not.i = icmp eq i8 %15, 120
   br i1 %cmp8.not.i, label %lor.lhs.false.i, label %ucm_parseBytes.exit.thread
 
 lor.lhs.false.i:                                  ; preds = %if.end6.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %s.1.i, i64 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %s.1.i66, i64 2
   %call.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %end.i, i32 noundef 16) #20
   %conv9.i = trunc i64 %call.i to i8
   %16 = load ptr, ptr %end.i, align 8
-  %add.ptr10.i = getelementptr inbounds i8, ptr %s.1.i, i64 4
+  %add.ptr10.i = getelementptr inbounds i8, ptr %s.1.i66, i64 4
   %cmp11.not.i = icmp eq ptr %16, %add.ptr10.i
   br i1 %cmp11.not.i, label %if.end14.i, label %ucm_parseBytes.exit.thread
 
@@ -3228,36 +3229,28 @@ ucm_parseBytes.exit.thread:                       ; preds = %if.end14.i, %if.end
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i)
   br label %return
 
-ucm_parseBytes.exit:                              ; preds = %if.end.i
-  %18 = trunc nuw nsw i64 %indvars.iv.i to i8
+if.then60:                                        ; preds = %if.end.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i)
-  %cmp55 = icmp slt i8 %18, 0
-  br i1 %cmp55, label %return, label %if.else57
-
-if.else57:                                        ; preds = %ucm_parseBytes.exit
-  %cmp59 = icmp eq i8 %18, 0
-  br i1 %cmp59, label %if.then60, label %if.else62
-
-if.then60:                                        ; preds = %if.else57
-  %19 = load ptr, ptr @stderr, align 8
-  %call61 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.12, ptr noundef %line) #17
+  %18 = load ptr, ptr @stderr, align 8
+  %call61 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.12, ptr noundef %line) #17
   br label %return
 
-if.else62:                                        ; preds = %if.else57
-  %cmp64 = icmp ult i8 %18, 5
+if.else62:                                        ; preds = %if.end.i.thread
+  %19 = trunc nuw nsw i64 %indvars.iv.i to i8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i)
+  %cmp64 = icmp ult i64 %indvars.iv.i, 5
   br i1 %cmp64, label %do.body, label %for.cond70.preheader
 
 do.body:                                          ; preds = %if.else62
   %b = getelementptr inbounds i8, ptr %m, i64 4
-  %conv66 = and i64 %indvars.iv.i, 7
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %b, ptr align 1 %bytes, i64 %conv66, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %b, ptr align 1 %bytes, i64 %indvars.iv.i, i1 false)
   br label %for.cond70.preheader
 
 for.cond70.preheader:                             ; preds = %do.body, %if.else62
   br label %for.cond70
 
 for.cond70:                                       ; preds = %for.cond70.preheader, %if.end87
-  %s.2 = phi ptr [ %incdec.ptr88, %if.end87 ], [ %s.1.i, %for.cond70.preheader ]
+  %s.2 = phi ptr [ %incdec.ptr88, %if.end87 ], [ %spec.select.i, %for.cond70.preheader ]
   %20 = load i8, ptr %s.2, align 1
   switch i8 %20, label %if.end87 [
     i8 0, label %for.end89
@@ -3285,13 +3278,13 @@ for.end89:                                        ; preds = %for.cond70, %if.the
   %uLen90 = getelementptr inbounds i8, ptr %m, i64 8
   store i8 %uLen.0, ptr %uLen90, align 4
   %bLen91 = getelementptr inbounds i8, ptr %m, i64 9
-  store i8 %18, ptr %bLen91, align 1
+  store i8 %19, ptr %bLen91, align 1
   %f92 = getelementptr inbounds i8, ptr %m, i64 10
   store i8 %f.0, ptr %f92, align 2
   br label %return
 
-return:                                           ; preds = %ucm_parseBytes.exit.thread, %ucm_parseBytes.exit, %for.end89, %if.then83, %if.then60, %if.then47, %if.then33, %if.then26, %if.then21, %if.then15
-  %retval.0 = phi i8 [ 0, %if.then33 ], [ 0, %if.then60 ], [ 1, %for.end89 ], [ 0, %if.then83 ], [ 0, %if.then47 ], [ 0, %if.then15 ], [ 0, %if.then21 ], [ 0, %if.then26 ], [ 0, %ucm_parseBytes.exit ], [ 0, %ucm_parseBytes.exit.thread ]
+return:                                           ; preds = %ucm_parseBytes.exit.thread, %for.end89, %if.then83, %if.then60, %if.then47, %if.then33, %if.then26, %if.then21, %if.then15
+  %retval.0 = phi i8 [ 0, %if.then33 ], [ 0, %if.then60 ], [ 1, %for.end89 ], [ 0, %if.then83 ], [ 0, %if.then47 ], [ 0, %if.then15 ], [ 0, %if.then21 ], [ 0, %if.then26 ], [ 0, %ucm_parseBytes.exit.thread ]
   ret i8 %retval.0
 }
 

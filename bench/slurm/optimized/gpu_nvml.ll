@@ -821,8 +821,8 @@ _nvml_get_nvlink_remote_pcie.exit.i.i:            ; preds = %222, %220
 _get_index_from_str_arr.exit.i.i:                 ; preds = %.lr.ph.i.i.i
   %232 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   %233 = icmp ne i32 %.2106.i, %232
-  %234 = icmp ne i32 %232, -1
-  %or.cond.i.i = and i1 %233, %234
+  %234 = icmp ne i64 %indvars.iv.i.i.i, 4294967295
+  %or.cond.i.i = and i1 %234, %233
   br i1 %or.cond.i.i, label %235, label %_get_index_from_str_arr.exit.thread.i.i
 
 235:                                              ; preds = %_get_index_from_str_arr.exit.i.i
@@ -2486,7 +2486,7 @@ define ptr @gpu_p_test_cpu_conv(ptr noundef %0) local_unnamed_addr #0 {
 8:                                                ; preds = %7
   %9 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.6) #12
   %10 = tail call ptr @slurm_xstrdup(ptr noundef nonnull @.str.7) #12
-  br label %63
+  br label %66
 
 11:                                               ; preds = %7
   %12 = load i8, ptr %0, align 1
@@ -2505,7 +2505,7 @@ define ptr @gpu_p_test_cpu_conv(ptr noundef %0) local_unnamed_addr #0 {
 15:                                               ; preds = %11
   %16 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.8) #12
   %17 = tail call ptr @slurm_xstrdup(ptr noundef nonnull @.str.7) #12
-  br label %63
+  br label %66
 
 18:                                               ; preds = %.preheader48.preheader
   %19 = tail call i32 @slurm_xstrcmp(ptr noundef nonnull %0, ptr noundef nonnull @.str.10) #12
@@ -2547,78 +2547,80 @@ define ptr @gpu_p_test_cpu_conv(ptr noundef %0) local_unnamed_addr #0 {
   %34 = getelementptr inbounds i8, ptr %0, i64 1
   %35 = load i8, ptr %34, align 1
   %36 = icmp eq i8 %35, 88
-  br i1 %36, label %37, label %44
+  br i1 %36, label %37, label %47
 
 37:                                               ; preds = %33
   %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %34) #14
   %spec.select45 = tail call i64 @llvm.umin.i64(i64 %38, i64 512)
-  %spec.select = trunc nuw nsw i64 %spec.select45 to i32
-  %.not55 = icmp eq i32 %spec.select, 0
+  %.not55 = icmp eq i64 %38, 0
   br i1 %.not55, label %.lr.ph52.preheader, label %.preheader46
 
 .preheader46:                                     ; preds = %37
   %39 = shl nuw nsw i64 %spec.select45, 3
-  call void @llvm.memset.p0.i64(ptr nonnull align 16 %2, i8 -1, i64 %39, i1 false)
-  %40 = icmp ult i32 %spec.select, 512
-  br i1 %40, label %.lr.ph52.preheader, label %.loopexit.preheader
+  %40 = add nuw nsw i64 %39, 34359738360
+  %41 = and i64 %40, 34359738360
+  %42 = add nuw nsw i64 %41, 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %2, i8 -1, i64 %42, i1 false)
+  %43 = icmp ult i64 %38, 512
+  br i1 %43, label %.lr.ph52.preheader, label %.loopexit.preheader
 
 .lr.ph52.preheader:                               ; preds = %37, %.preheader46
-  %41 = shl nuw nsw i64 %spec.select45, 3
-  %scevgep = getelementptr i8, ptr %2, i64 %41
-  %42 = shl nuw nsw i64 %spec.select45, 3
-  %43 = sub nuw nsw i64 4096, %42
-  call void @llvm.memset.p0.i64(ptr align 8 %scevgep, i8 0, i64 %43, i1 false)
+  %44 = shl nuw nsw i64 %spec.select45, 3
+  %scevgep = getelementptr i8, ptr %2, i64 %44
+  %45 = shl nuw nsw i64 %spec.select45, 3
+  %46 = sub nuw nsw i64 4096, %45
+  call void @llvm.memset.p0.i64(ptr align 8 %scevgep, i8 0, i64 %46, i1 false)
   br label %.loopexit.preheader
 
-44:                                               ; preds = %33
-  %45 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.14) #12
-  %46 = tail call ptr @slurm_xstrdup(ptr noundef nonnull @.str.7) #12
-  br label %63
+47:                                               ; preds = %33
+  %48 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.14) #12
+  %49 = tail call ptr @slurm_xstrdup(ptr noundef nonnull @.str.7) #12
+  br label %66
 
-.loopexit:                                        ; preds = %.loopexit.preheader, %58
-  %indvars.iv = phi i64 [ %indvars.iv.next, %58 ], [ 0, %.loopexit.preheader ]
-  %47 = getelementptr inbounds [512 x i64], ptr %2, i64 0, i64 %indvars.iv
-  %48 = load i64, ptr %47, align 8
-  %49 = and i64 %48, 4294967295
-  %50 = icmp eq i64 %49, 4294967295
-  br i1 %50, label %51, label %52
+.loopexit:                                        ; preds = %.loopexit.preheader, %61
+  %indvars.iv = phi i64 [ %indvars.iv.next, %61 ], [ 0, %.loopexit.preheader ]
+  %50 = getelementptr inbounds [512 x i64], ptr %2, i64 0, i64 %indvars.iv
+  %51 = load i64, ptr %50, align 8
+  %52 = and i64 %51, 4294967295
+  %53 = icmp eq i64 %52, 4294967295
+  br i1 %53, label %54, label %55
 
-51:                                               ; preds = %.loopexit
+54:                                               ; preds = %.loopexit
   %putchar44 = tail call i32 @putchar(i32 88)
-  br label %58
+  br label %61
 
-52:                                               ; preds = %.loopexit
-  %53 = icmp ugt i64 %48, 9
-  br i1 %53, label %54, label %56
+55:                                               ; preds = %.loopexit
+  %56 = icmp ugt i64 %51, 9
+  br i1 %56, label %57, label %59
 
-54:                                               ; preds = %52
-  %55 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i64 noundef %48)
-  br label %58
+57:                                               ; preds = %55
+  %58 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i64 noundef %51)
+  br label %61
 
-56:                                               ; preds = %52
-  %57 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, i64 noundef %48)
-  br label %58
+59:                                               ; preds = %55
+  %60 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, i64 noundef %51)
+  br label %61
 
-58:                                               ; preds = %51, %56, %54
+61:                                               ; preds = %54, %59, %57
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 512
-  br i1 %exitcond.not, label %59, label %.loopexit, !llvm.loop !19
+  br i1 %exitcond.not, label %62, label %.loopexit, !llvm.loop !19
 
-59:                                               ; preds = %58
+62:                                               ; preds = %61
   %putchar = tail call i32 @putchar(i32 10)
-  %60 = tail call ptr @slurm_bit_alloc(i64 noundef 32768) #12
-  store ptr %60, ptr %3, align 8
-  call fastcc void @_set_cpu_set_bitstr(ptr noundef %60, ptr noundef nonnull %2)
-  %61 = tail call ptr @slurm_bit_fmt_full(ptr noundef %60) #12
-  %.not43 = icmp eq ptr %60, null
-  br i1 %.not43, label %63, label %62
+  %63 = tail call ptr @slurm_bit_alloc(i64 noundef 32768) #12
+  store ptr %63, ptr %3, align 8
+  call fastcc void @_set_cpu_set_bitstr(ptr noundef %63, ptr noundef nonnull %2)
+  %64 = tail call ptr @slurm_bit_fmt_full(ptr noundef %63) #12
+  %.not43 = icmp eq ptr %63, null
+  br i1 %.not43, label %66, label %65
 
-62:                                               ; preds = %59
+65:                                               ; preds = %62
   call void @slurm_bit_free(ptr noundef nonnull %3) #12
-  br label %63
+  br label %66
 
-63:                                               ; preds = %59, %62, %44, %15, %8
-  %.0 = phi ptr [ %17, %15 ], [ %46, %44 ], [ %10, %8 ], [ %61, %62 ], [ %61, %59 ]
+66:                                               ; preds = %62, %65, %47, %15, %8
+  %.0 = phi ptr [ %17, %15 ], [ %49, %47 ], [ %10, %8 ], [ %64, %65 ], [ %64, %62 ]
   ret ptr %.0
 }
 

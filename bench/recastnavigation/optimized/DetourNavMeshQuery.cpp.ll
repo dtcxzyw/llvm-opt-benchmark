@@ -1674,24 +1674,24 @@ _Z11dtVisfinitePKf.exit:                          ; preds = %22
   br label %_Z11dtVisfinitePKf.exit.thread.sink.split
 
 63:                                               ; preds = %._crit_edge
-  %64 = icmp ugt i32 %55, 1
-  br i1 %64, label %.lr.ph52.preheader, label %._crit_edge53
+  %.not68 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not68, label %._crit_edge53, label %.lr.ph52.preheader
 
 .lr.ph52.preheader:                               ; preds = %63
-  %65 = load float, ptr %8, align 16
+  %64 = load float, ptr %8, align 16
   %wide.trip.count = and i64 %indvars.iv.next, 4294967295
   br label %.lr.ph52
 
 .lr.ph52:                                         ; preds = %.lr.ph52.preheader, %.lr.ph52
   %indvars.iv59 = phi i64 [ 1, %.lr.ph52.preheader ], [ %indvars.iv.next60, %.lr.ph52 ]
   %.03449 = phi i32 [ 0, %.lr.ph52.preheader ], [ %.1, %.lr.ph52 ]
-  %.03548 = phi float [ %65, %.lr.ph52.preheader ], [ %.136, %.lr.ph52 ]
-  %66 = getelementptr inbounds [6 x float], ptr %8, i64 0, i64 %indvars.iv59
-  %67 = load float, ptr %66, align 4
-  %68 = fcmp olt float %67, %.03548
-  %.136 = select i1 %68, float %67, float %.03548
-  %69 = trunc nuw nsw i64 %indvars.iv59 to i32
-  %.1 = select i1 %68, i32 %69, i32 %.03449
+  %.03548 = phi float [ %64, %.lr.ph52.preheader ], [ %.136, %.lr.ph52 ]
+  %65 = getelementptr inbounds [6 x float], ptr %8, i64 0, i64 %indvars.iv59
+  %66 = load float, ptr %65, align 4
+  %67 = fcmp olt float %66, %.03548
+  %.136 = select i1 %67, float %66, float %.03548
+  %68 = trunc nuw nsw i64 %indvars.iv59 to i32
+  %.1 = select i1 %67, i32 %68, i32 %.03449
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge53, label %.lr.ph52, !llvm.loop !19
@@ -1699,36 +1699,36 @@ _Z11dtVisfinitePKf.exit:                          ; preds = %22
 ._crit_edge53:                                    ; preds = %.lr.ph52, %._crit_edge.thread, %63
   %.032.lcssa6466 = phi i32 [ 1, %63 ], [ 0, %._crit_edge.thread ], [ %55, %.lr.ph52 ]
   %.034.lcssa = phi i32 [ 0, %63 ], [ 0, %._crit_edge.thread ], [ %.1, %.lr.ph52 ]
-  %70 = mul nsw i32 %.034.lcssa, 3
-  %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds [18 x float], ptr %7, i64 0, i64 %71
-  %73 = add nsw i32 %.034.lcssa, 1
-  %74 = srem i32 %73, %.032.lcssa6466
-  %75 = mul nsw i32 %74, 3
-  %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds [18 x float], ptr %7, i64 0, i64 %76
-  %78 = sext i32 %.034.lcssa to i64
-  %79 = getelementptr inbounds [6 x float], ptr %9, i64 0, i64 %78
-  %80 = load float, ptr %79, align 4
-  %81 = load <2 x float>, ptr %72, align 4
-  %82 = load <2 x float>, ptr %77, align 4
-  %83 = fsub <2 x float> %82, %81
-  %84 = insertelement <2 x float> poison, float %80, i64 0
-  %85 = shufflevector <2 x float> %84, <2 x float> poison, <2 x i32> zeroinitializer
-  %86 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %83, <2 x float> %85, <2 x float> %81)
-  store <2 x float> %86, ptr %3, align 4
-  %87 = getelementptr inbounds i8, ptr %72, i64 8
-  %88 = load float, ptr %87, align 4
-  %89 = getelementptr inbounds i8, ptr %77, i64 8
-  %90 = load float, ptr %89, align 4
-  %91 = fsub float %90, %88
-  %92 = call float @llvm.fmuladd.f32(float %91, float %80, float %88)
+  %69 = mul nsw i32 %.034.lcssa, 3
+  %70 = sext i32 %69 to i64
+  %71 = getelementptr inbounds [18 x float], ptr %7, i64 0, i64 %70
+  %72 = add nsw i32 %.034.lcssa, 1
+  %73 = srem i32 %72, %.032.lcssa6466
+  %74 = mul nsw i32 %73, 3
+  %75 = sext i32 %74 to i64
+  %76 = getelementptr inbounds [18 x float], ptr %7, i64 0, i64 %75
+  %77 = sext i32 %.034.lcssa to i64
+  %78 = getelementptr inbounds [6 x float], ptr %9, i64 0, i64 %77
+  %79 = load float, ptr %78, align 4
+  %80 = load <2 x float>, ptr %71, align 4
+  %81 = load <2 x float>, ptr %76, align 4
+  %82 = fsub <2 x float> %81, %80
+  %83 = insertelement <2 x float> poison, float %79, i64 0
+  %84 = shufflevector <2 x float> %83, <2 x float> poison, <2 x i32> zeroinitializer
+  %85 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %82, <2 x float> %84, <2 x float> %80)
+  store <2 x float> %85, ptr %3, align 4
+  %86 = getelementptr inbounds i8, ptr %71, i64 8
+  %87 = load float, ptr %86, align 4
+  %88 = getelementptr inbounds i8, ptr %76, i64 8
+  %89 = load float, ptr %88, align 4
+  %90 = fsub float %89, %87
+  %91 = call float @llvm.fmuladd.f32(float %90, float %79, float %87)
   br label %_Z11dtVisfinitePKf.exit.thread.sink.split
 
 _Z11dtVisfinitePKf.exit.thread.sink.split:        ; preds = %._crit_edge53, %58
-  %.sink = phi float [ %62, %58 ], [ %92, %._crit_edge53 ]
-  %93 = getelementptr inbounds i8, ptr %3, i64 8
-  store float %.sink, ptr %93, align 4
+  %.sink = phi float [ %62, %58 ], [ %91, %._crit_edge53 ]
+  %92 = getelementptr inbounds i8, ptr %3, i64 8
+  store float %.sink, ptr %92, align 4
   br label %_Z11dtVisfinitePKf.exit.thread
 
 _Z11dtVisfinitePKf.exit.thread:                   ; preds = %_Z11dtVisfinitePKf.exit.thread.sink.split, %18, %22, %_Z11dtVisfinitePKf.exit, %14
