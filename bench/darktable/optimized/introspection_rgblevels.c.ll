@@ -348,7 +348,7 @@ define noundef range(i32 0, 2) i32 @button_pressed(ptr noundef %0, float noundef
   store i32 0, ptr %29, align 8, !tbaa !23
   %30 = getelementptr inbounds i8, ptr %12, i64 88
   %31 = load ptr, ptr %30, align 8, !tbaa !58
-  %32 = tail call i64 @gtk_toggle_button_get_type() #22
+  %32 = tail call i64 @gtk_toggle_button_get_type() #23
   %33 = tail call ptr @g_type_check_instance_cast(ptr noundef %31, i64 noundef %32) #21
   %34 = load i32, ptr %15, align 4, !tbaa !18
   tail call void @gtk_toggle_button_set_active(ptr noundef %33, i32 noundef %34) #21
@@ -499,7 +499,7 @@ define void @gui_changed(ptr noundef %0, ptr noundef readnone %1, ptr nocapture 
   store i32 0, ptr %11, align 8, !tbaa !23
   %12 = getelementptr inbounds i8, ptr %5, i64 88
   %13 = load ptr, ptr %12, align 8, !tbaa !58
-  %14 = tail call i64 @gtk_toggle_button_get_type() #22
+  %14 = tail call i64 @gtk_toggle_button_get_type() #23
   %15 = tail call ptr @g_type_check_instance_cast(ptr noundef %13, i64 noundef %14) #21
   %16 = load i32, ptr %10, align 4, !tbaa !18
   tail call void @gtk_toggle_button_set_active(ptr noundef %15, i32 noundef %16) #21
@@ -517,7 +517,7 @@ define void @gui_changed(ptr noundef %0, ptr noundef readnone %1, ptr nocapture 
   store i32 0, ptr %22, align 4, !tbaa !63
   %23 = getelementptr inbounds i8, ptr %5, i64 72
   %24 = load ptr, ptr %23, align 8, !tbaa !64
-  %25 = tail call i64 @gtk_notebook_get_type() #22
+  %25 = tail call i64 @gtk_notebook_get_type() #23
   %26 = tail call ptr @g_type_check_instance_cast(ptr noundef %24, i64 noundef %25) #21
   %27 = load i32, ptr %22, align 4, !tbaa !63
   tail call void @gtk_notebook_set_current_page(ptr noundef %26, i32 noundef %27) #21
@@ -743,7 +743,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
   %57 = load i32, ptr %56, align 4, !tbaa !80
   %58 = icmp eq i32 %57, 0
   %59 = getelementptr inbounds i8, ptr %56, i64 8
-  br i1 %58, label %103, label %60
+  br i1 %58, label %91, label %60
 
 60:                                               ; preds = %51
   %61 = getelementptr inbounds i8, ptr %56, i64 44
@@ -764,194 +764,146 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
   store float %75, ptr %61, align 4, !tbaa !26
   %76 = fpext float %75 to double
   %77 = insertelement <2 x double> poison, double %76, i64 0
-  %78 = shufflevector <2 x double> %77, <2 x double> poison, <2 x i32> zeroinitializer
+  %78 = shufflevector <2 x double> %77, <2 x double> poison, <8 x i32> zeroinitializer
   br label %79
 
 79:                                               ; preds = %79, %60
-  %80 = phi i64 [ 0, %60 ], [ %100, %79 ]
-  %81 = phi <8 x i32> [ <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>, %60 ], [ %101, %79 ]
+  %80 = phi i64 [ 0, %60 ], [ %88, %79 ]
+  %81 = phi <8 x i32> [ <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>, %60 ], [ %89, %79 ]
   %82 = uitofp <8 x i32> %81 to <8 x float>
   %83 = fmul reassoc nsz arcp contract afn <8 x float> %82, <float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000>
   %84 = fpext <8 x float> %83 to <8 x double>
-  %85 = shufflevector <8 x double> %84, <8 x double> poison, <2 x i32> <i32 0, i32 1>
-  %86 = tail call reassoc nsz arcp contract afn <2 x double> @llvm.pow.v2f64(<2 x double> %85, <2 x double> %78)
-  %87 = shufflevector <8 x double> %84, <8 x double> poison, <2 x i32> <i32 2, i32 3>
-  %88 = tail call reassoc nsz arcp contract afn <2 x double> @llvm.pow.v2f64(<2 x double> %87, <2 x double> %78)
-  %89 = shufflevector <8 x double> %84, <8 x double> poison, <2 x i32> <i32 4, i32 5>
-  %90 = tail call reassoc nsz arcp contract afn <2 x double> @llvm.pow.v2f64(<2 x double> %89, <2 x double> %78)
-  %91 = shufflevector <8 x double> %84, <8 x double> poison, <2 x i32> <i32 6, i32 7>
-  %92 = tail call reassoc nsz arcp contract afn <2 x double> @llvm.pow.v2f64(<2 x double> %91, <2 x double> %78)
-  %93 = shufflevector <2 x double> %86, <2 x double> %88, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison>
-  %94 = shufflevector <2 x double> %90, <2 x double> poison, <8 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %95 = shufflevector <8 x double> %93, <8 x double> %94, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 poison, i32 poison>
-  %96 = shufflevector <2 x double> %92, <2 x double> poison, <8 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %97 = shufflevector <8 x double> %95, <8 x double> %96, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 8, i32 9>
-  %98 = fptrunc <8 x double> %97 to <8 x float>
-  %99 = getelementptr inbounds [3 x [65536 x float]], ptr %62, i64 0, i64 0, i64 %80
-  store <8 x float> %98, ptr %99, align 4, !tbaa !26
-  %100 = add nuw nsw i64 %80, 8
-  %101 = add <8 x i32> %81, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
-  %102 = icmp eq i64 %100, 65536
-  br i1 %102, label %152, label %79, !llvm.loop !82
+  %85 = tail call <8 x double> @llvm.pow.v8f64(<8 x double> %84, <8 x double> %78)
+  %86 = fptrunc <8 x double> %85 to <8 x float>
+  %87 = getelementptr inbounds [3 x [65536 x float]], ptr %62, i64 0, i64 0, i64 %80
+  store <8 x float> %86, ptr %87, align 4, !tbaa !26
+  %88 = add nuw nsw i64 %80, 8
+  %89 = add <8 x i32> %81, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
+  %90 = icmp eq i64 %88, 65536
+  br i1 %90, label %128, label %79, !llvm.loop !82
 
-103:                                              ; preds = %51
-  %104 = getelementptr inbounds i8, ptr %56, i64 16
-  %105 = load float, ptr %104, align 4, !tbaa !26
-  %106 = load float, ptr %59, align 4, !tbaa !26
-  %107 = fsub reassoc nsz arcp contract afn float %105, %106
-  %108 = fmul reassoc nsz arcp contract afn float %107, 5.000000e-01
-  %109 = getelementptr inbounds i8, ptr %56, i64 12
-  %110 = load float, ptr %109, align 4, !tbaa !26
-  %111 = fadd reassoc nsz arcp contract afn float %106, %108
-  %112 = fsub reassoc nsz arcp contract afn float %110, %111
-  %113 = fdiv reassoc nsz arcp contract afn float %112, %108
-  %114 = fpext float %113 to double
-  %115 = tail call reassoc nsz arcp contract afn double @llvm.pow.f64(double 1.000000e+01, double %114)
-  %116 = fptrunc double %115 to float
-  %117 = getelementptr inbounds i8, ptr %56, i64 44
-  %118 = getelementptr inbounds i8, ptr %56, i64 52
-  store float %116, ptr %118, align 4, !tbaa !26
-  %119 = getelementptr inbounds i8, ptr %56, i64 48
-  store float %116, ptr %119, align 4, !tbaa !26
-  store float %116, ptr %117, align 4, !tbaa !26
-  %120 = fpext float %116 to double
-  %121 = getelementptr inbounds i8, ptr %56, i64 56
-  %122 = getelementptr inbounds i8, ptr %56, i64 524344
-  %123 = getelementptr inbounds i8, ptr %56, i64 262200
-  %124 = insertelement <2 x double> poison, double %120, i64 0
-  %125 = shufflevector <2 x double> %124, <2 x double> poison, <2 x i32> zeroinitializer
-  br label %126
+91:                                               ; preds = %51
+  %92 = getelementptr inbounds i8, ptr %56, i64 16
+  %93 = load float, ptr %92, align 4, !tbaa !26
+  %94 = load float, ptr %59, align 4, !tbaa !26
+  %95 = fsub reassoc nsz arcp contract afn float %93, %94
+  %96 = fmul reassoc nsz arcp contract afn float %95, 5.000000e-01
+  %97 = getelementptr inbounds i8, ptr %56, i64 12
+  %98 = load float, ptr %97, align 4, !tbaa !26
+  %99 = fadd reassoc nsz arcp contract afn float %94, %96
+  %100 = fsub reassoc nsz arcp contract afn float %98, %99
+  %101 = fdiv reassoc nsz arcp contract afn float %100, %96
+  %102 = fpext float %101 to double
+  %103 = tail call reassoc nsz arcp contract afn double @llvm.pow.f64(double 1.000000e+01, double %102)
+  %104 = fptrunc double %103 to float
+  %105 = getelementptr inbounds i8, ptr %56, i64 44
+  %106 = getelementptr inbounds i8, ptr %56, i64 52
+  store float %104, ptr %106, align 4, !tbaa !26
+  %107 = getelementptr inbounds i8, ptr %56, i64 48
+  store float %104, ptr %107, align 4, !tbaa !26
+  store float %104, ptr %105, align 4, !tbaa !26
+  %108 = fpext float %104 to double
+  %109 = getelementptr inbounds i8, ptr %56, i64 56
+  %110 = getelementptr inbounds i8, ptr %56, i64 524344
+  %111 = getelementptr inbounds i8, ptr %56, i64 262200
+  %112 = insertelement <2 x double> poison, double %108, i64 0
+  %113 = shufflevector <2 x double> %112, <2 x double> poison, <8 x i32> zeroinitializer
+  br label %114
 
-126:                                              ; preds = %126, %103
-  %127 = phi i64 [ 0, %103 ], [ %149, %126 ]
-  %128 = phi <8 x i32> [ <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>, %103 ], [ %150, %126 ]
-  %129 = uitofp <8 x i32> %128 to <8 x float>
-  %130 = fmul reassoc nsz arcp contract afn <8 x float> %129, <float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000>
-  %131 = fpext <8 x float> %130 to <8 x double>
-  %132 = shufflevector <8 x double> %131, <8 x double> poison, <2 x i32> <i32 0, i32 1>
-  %133 = tail call reassoc nsz arcp contract afn <2 x double> @llvm.pow.v2f64(<2 x double> %132, <2 x double> %125)
-  %134 = shufflevector <8 x double> %131, <8 x double> poison, <2 x i32> <i32 2, i32 3>
-  %135 = tail call reassoc nsz arcp contract afn <2 x double> @llvm.pow.v2f64(<2 x double> %134, <2 x double> %125)
-  %136 = shufflevector <8 x double> %131, <8 x double> poison, <2 x i32> <i32 4, i32 5>
-  %137 = tail call reassoc nsz arcp contract afn <2 x double> @llvm.pow.v2f64(<2 x double> %136, <2 x double> %125)
-  %138 = shufflevector <8 x double> %131, <8 x double> poison, <2 x i32> <i32 6, i32 7>
-  %139 = tail call reassoc nsz arcp contract afn <2 x double> @llvm.pow.v2f64(<2 x double> %138, <2 x double> %125)
-  %140 = shufflevector <2 x double> %133, <2 x double> %135, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison>
-  %141 = shufflevector <2 x double> %137, <2 x double> poison, <8 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %142 = shufflevector <8 x double> %140, <8 x double> %141, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 poison, i32 poison>
-  %143 = shufflevector <2 x double> %139, <2 x double> poison, <8 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %144 = shufflevector <8 x double> %142, <8 x double> %143, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 8, i32 9>
-  %145 = fptrunc <8 x double> %144 to <8 x float>
-  %146 = getelementptr inbounds [65536 x float], ptr %122, i64 0, i64 %127
-  store <8 x float> %145, ptr %146, align 4, !tbaa !26
-  %147 = getelementptr inbounds [65536 x float], ptr %123, i64 0, i64 %127
-  store <8 x float> %145, ptr %147, align 4, !tbaa !26
-  %148 = getelementptr inbounds [65536 x float], ptr %121, i64 0, i64 %127
-  store <8 x float> %145, ptr %148, align 4, !tbaa !26
-  %149 = add nuw nsw i64 %127, 8
-  %150 = add <8 x i32> %128, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
-  %151 = icmp eq i64 %149, 65536
-  br i1 %151, label %.loopexit, label %126, !llvm.loop !85
+114:                                              ; preds = %114, %91
+  %115 = phi i64 [ 0, %91 ], [ %125, %114 ]
+  %116 = phi <8 x i32> [ <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>, %91 ], [ %126, %114 ]
+  %117 = uitofp <8 x i32> %116 to <8 x float>
+  %118 = fmul reassoc nsz arcp contract afn <8 x float> %117, <float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000>
+  %119 = fpext <8 x float> %118 to <8 x double>
+  %120 = tail call <8 x double> @llvm.pow.v8f64(<8 x double> %119, <8 x double> %113)
+  %121 = fptrunc <8 x double> %120 to <8 x float>
+  %122 = getelementptr inbounds [65536 x float], ptr %110, i64 0, i64 %115
+  store <8 x float> %121, ptr %122, align 4, !tbaa !26
+  %123 = getelementptr inbounds [65536 x float], ptr %111, i64 0, i64 %115
+  store <8 x float> %121, ptr %123, align 4, !tbaa !26
+  %124 = getelementptr inbounds [65536 x float], ptr %109, i64 0, i64 %115
+  store <8 x float> %121, ptr %124, align 4, !tbaa !26
+  %125 = add nuw nsw i64 %115, 8
+  %126 = add <8 x i32> %116, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
+  %127 = icmp eq i64 %125, 65536
+  br i1 %127, label %.loopexit, label %114, !llvm.loop !85
 
-152:                                              ; preds = %79
-  %153 = getelementptr inbounds i8, ptr %56, i64 20
-  %154 = getelementptr inbounds i8, ptr %56, i64 28
-  %155 = load float, ptr %154, align 4, !tbaa !26
-  %156 = load float, ptr %153, align 4, !tbaa !26
-  %157 = fsub reassoc nsz arcp contract afn float %155, %156
-  %158 = fmul reassoc nsz arcp contract afn float %157, 5.000000e-01
-  %159 = getelementptr inbounds i8, ptr %56, i64 24
-  %160 = load float, ptr %159, align 4, !tbaa !26
-  %161 = fadd reassoc nsz arcp contract afn float %156, %158
-  %162 = fsub reassoc nsz arcp contract afn float %160, %161
-  %163 = fdiv reassoc nsz arcp contract afn float %162, %158
-  %164 = fpext float %163 to double
-  %165 = tail call reassoc nsz arcp contract afn double @llvm.pow.f64(double 1.000000e+01, double %164)
-  %166 = fptrunc double %165 to float
-  %167 = getelementptr inbounds i8, ptr %56, i64 48
-  store float %166, ptr %167, align 4, !tbaa !26
-  %168 = fpext float %166 to double
-  %169 = insertelement <2 x double> poison, double %168, i64 0
-  %170 = shufflevector <2 x double> %169, <2 x double> poison, <2 x i32> zeroinitializer
-  br label %171
+128:                                              ; preds = %79
+  %129 = getelementptr inbounds i8, ptr %56, i64 20
+  %130 = getelementptr inbounds i8, ptr %56, i64 28
+  %131 = load float, ptr %130, align 4, !tbaa !26
+  %132 = load float, ptr %129, align 4, !tbaa !26
+  %133 = fsub reassoc nsz arcp contract afn float %131, %132
+  %134 = fmul reassoc nsz arcp contract afn float %133, 5.000000e-01
+  %135 = getelementptr inbounds i8, ptr %56, i64 24
+  %136 = load float, ptr %135, align 4, !tbaa !26
+  %137 = fadd reassoc nsz arcp contract afn float %132, %134
+  %138 = fsub reassoc nsz arcp contract afn float %136, %137
+  %139 = fdiv reassoc nsz arcp contract afn float %138, %134
+  %140 = fpext float %139 to double
+  %141 = tail call reassoc nsz arcp contract afn double @llvm.pow.f64(double 1.000000e+01, double %140)
+  %142 = fptrunc double %141 to float
+  %143 = getelementptr inbounds i8, ptr %56, i64 48
+  store float %142, ptr %143, align 4, !tbaa !26
+  %144 = fpext float %142 to double
+  %145 = insertelement <2 x double> poison, double %144, i64 0
+  %146 = shufflevector <2 x double> %145, <2 x double> poison, <8 x i32> zeroinitializer
+  br label %147
 
-171:                                              ; preds = %171, %152
-  %172 = phi i64 [ 0, %152 ], [ %192, %171 ]
-  %173 = phi <8 x i32> [ <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>, %152 ], [ %193, %171 ]
-  %174 = uitofp <8 x i32> %173 to <8 x float>
-  %175 = fmul reassoc nsz arcp contract afn <8 x float> %174, <float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000>
-  %176 = fpext <8 x float> %175 to <8 x double>
-  %177 = shufflevector <8 x double> %176, <8 x double> poison, <2 x i32> <i32 0, i32 1>
-  %178 = tail call reassoc nsz arcp contract afn <2 x double> @llvm.pow.v2f64(<2 x double> %177, <2 x double> %170)
-  %179 = shufflevector <8 x double> %176, <8 x double> poison, <2 x i32> <i32 2, i32 3>
-  %180 = tail call reassoc nsz arcp contract afn <2 x double> @llvm.pow.v2f64(<2 x double> %179, <2 x double> %170)
-  %181 = shufflevector <8 x double> %176, <8 x double> poison, <2 x i32> <i32 4, i32 5>
-  %182 = tail call reassoc nsz arcp contract afn <2 x double> @llvm.pow.v2f64(<2 x double> %181, <2 x double> %170)
-  %183 = shufflevector <8 x double> %176, <8 x double> poison, <2 x i32> <i32 6, i32 7>
-  %184 = tail call reassoc nsz arcp contract afn <2 x double> @llvm.pow.v2f64(<2 x double> %183, <2 x double> %170)
-  %185 = shufflevector <2 x double> %178, <2 x double> %180, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison>
-  %186 = shufflevector <2 x double> %182, <2 x double> poison, <8 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %187 = shufflevector <8 x double> %185, <8 x double> %186, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 poison, i32 poison>
-  %188 = shufflevector <2 x double> %184, <2 x double> poison, <8 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %189 = shufflevector <8 x double> %187, <8 x double> %188, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 8, i32 9>
-  %190 = fptrunc <8 x double> %189 to <8 x float>
-  %191 = getelementptr inbounds [3 x [65536 x float]], ptr %62, i64 0, i64 1, i64 %172
-  store <8 x float> %190, ptr %191, align 4, !tbaa !26
-  %192 = add nuw nsw i64 %172, 8
-  %193 = add <8 x i32> %173, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
-  %194 = icmp eq i64 %192, 65536
-  br i1 %194, label %195, label %171, !llvm.loop !86
+147:                                              ; preds = %147, %128
+  %148 = phi i64 [ 0, %128 ], [ %156, %147 ]
+  %149 = phi <8 x i32> [ <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>, %128 ], [ %157, %147 ]
+  %150 = uitofp <8 x i32> %149 to <8 x float>
+  %151 = fmul reassoc nsz arcp contract afn <8 x float> %150, <float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000>
+  %152 = fpext <8 x float> %151 to <8 x double>
+  %153 = tail call <8 x double> @llvm.pow.v8f64(<8 x double> %152, <8 x double> %146)
+  %154 = fptrunc <8 x double> %153 to <8 x float>
+  %155 = getelementptr inbounds [3 x [65536 x float]], ptr %62, i64 0, i64 1, i64 %148
+  store <8 x float> %154, ptr %155, align 4, !tbaa !26
+  %156 = add nuw nsw i64 %148, 8
+  %157 = add <8 x i32> %149, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
+  %158 = icmp eq i64 %156, 65536
+  br i1 %158, label %159, label %147, !llvm.loop !86
 
-195:                                              ; preds = %171
-  %196 = getelementptr inbounds i8, ptr %56, i64 32
-  %197 = getelementptr inbounds i8, ptr %56, i64 40
-  %198 = load float, ptr %197, align 4, !tbaa !26
-  %199 = load float, ptr %196, align 4, !tbaa !26
-  %200 = fsub reassoc nsz arcp contract afn float %198, %199
-  %201 = fmul reassoc nsz arcp contract afn float %200, 5.000000e-01
-  %202 = getelementptr inbounds i8, ptr %56, i64 36
-  %203 = load float, ptr %202, align 4, !tbaa !26
-  %204 = fadd reassoc nsz arcp contract afn float %199, %201
-  %205 = fsub reassoc nsz arcp contract afn float %203, %204
-  %206 = fdiv reassoc nsz arcp contract afn float %205, %201
-  %207 = fpext float %206 to double
-  %208 = tail call reassoc nsz arcp contract afn double @llvm.pow.f64(double 1.000000e+01, double %207)
-  %209 = fptrunc double %208 to float
-  %210 = getelementptr inbounds i8, ptr %56, i64 52
-  store float %209, ptr %210, align 4, !tbaa !26
-  %211 = fpext float %209 to double
-  %212 = insertelement <2 x double> poison, double %211, i64 0
-  %213 = shufflevector <2 x double> %212, <2 x double> poison, <2 x i32> zeroinitializer
-  br label %214
+159:                                              ; preds = %147
+  %160 = getelementptr inbounds i8, ptr %56, i64 32
+  %161 = getelementptr inbounds i8, ptr %56, i64 40
+  %162 = load float, ptr %161, align 4, !tbaa !26
+  %163 = load float, ptr %160, align 4, !tbaa !26
+  %164 = fsub reassoc nsz arcp contract afn float %162, %163
+  %165 = fmul reassoc nsz arcp contract afn float %164, 5.000000e-01
+  %166 = getelementptr inbounds i8, ptr %56, i64 36
+  %167 = load float, ptr %166, align 4, !tbaa !26
+  %168 = fadd reassoc nsz arcp contract afn float %163, %165
+  %169 = fsub reassoc nsz arcp contract afn float %167, %168
+  %170 = fdiv reassoc nsz arcp contract afn float %169, %165
+  %171 = fpext float %170 to double
+  %172 = tail call reassoc nsz arcp contract afn double @llvm.pow.f64(double 1.000000e+01, double %171)
+  %173 = fptrunc double %172 to float
+  %174 = getelementptr inbounds i8, ptr %56, i64 52
+  store float %173, ptr %174, align 4, !tbaa !26
+  %175 = fpext float %173 to double
+  %176 = insertelement <2 x double> poison, double %175, i64 0
+  %177 = shufflevector <2 x double> %176, <2 x double> poison, <8 x i32> zeroinitializer
+  br label %178
 
-214:                                              ; preds = %214, %195
-  %215 = phi i64 [ 0, %195 ], [ %235, %214 ]
-  %216 = phi <8 x i32> [ <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>, %195 ], [ %236, %214 ]
-  %217 = uitofp <8 x i32> %216 to <8 x float>
-  %218 = fmul reassoc nsz arcp contract afn <8 x float> %217, <float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000>
-  %219 = fpext <8 x float> %218 to <8 x double>
-  %220 = shufflevector <8 x double> %219, <8 x double> poison, <2 x i32> <i32 0, i32 1>
-  %221 = tail call reassoc nsz arcp contract afn <2 x double> @llvm.pow.v2f64(<2 x double> %220, <2 x double> %213)
-  %222 = shufflevector <8 x double> %219, <8 x double> poison, <2 x i32> <i32 2, i32 3>
-  %223 = tail call reassoc nsz arcp contract afn <2 x double> @llvm.pow.v2f64(<2 x double> %222, <2 x double> %213)
-  %224 = shufflevector <8 x double> %219, <8 x double> poison, <2 x i32> <i32 4, i32 5>
-  %225 = tail call reassoc nsz arcp contract afn <2 x double> @llvm.pow.v2f64(<2 x double> %224, <2 x double> %213)
-  %226 = shufflevector <8 x double> %219, <8 x double> poison, <2 x i32> <i32 6, i32 7>
-  %227 = tail call reassoc nsz arcp contract afn <2 x double> @llvm.pow.v2f64(<2 x double> %226, <2 x double> %213)
-  %228 = shufflevector <2 x double> %221, <2 x double> %223, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison>
-  %229 = shufflevector <2 x double> %225, <2 x double> poison, <8 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %230 = shufflevector <8 x double> %228, <8 x double> %229, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 poison, i32 poison>
-  %231 = shufflevector <2 x double> %227, <2 x double> poison, <8 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %232 = shufflevector <8 x double> %230, <8 x double> %231, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 8, i32 9>
-  %233 = fptrunc <8 x double> %232 to <8 x float>
-  %234 = getelementptr inbounds [3 x [65536 x float]], ptr %62, i64 0, i64 2, i64 %215
-  store <8 x float> %233, ptr %234, align 4, !tbaa !26
-  %235 = add nuw nsw i64 %215, 8
-  %236 = add <8 x i32> %216, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
-  %237 = icmp eq i64 %235, 65536
-  br i1 %237, label %.loopexit, label %214, !llvm.loop !87
+178:                                              ; preds = %178, %159
+  %179 = phi i64 [ 0, %159 ], [ %187, %178 ]
+  %180 = phi <8 x i32> [ <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>, %159 ], [ %188, %178 ]
+  %181 = uitofp <8 x i32> %180 to <8 x float>
+  %182 = fmul reassoc nsz arcp contract afn <8 x float> %181, <float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000>
+  %183 = fpext <8 x float> %182 to <8 x double>
+  %184 = tail call <8 x double> @llvm.pow.v8f64(<8 x double> %183, <8 x double> %177)
+  %185 = fptrunc <8 x double> %184 to <8 x float>
+  %186 = getelementptr inbounds [3 x [65536 x float]], ptr %62, i64 0, i64 2, i64 %179
+  store <8 x float> %185, ptr %186, align 4, !tbaa !26
+  %187 = add nuw nsw i64 %179, 8
+  %188 = add <8 x i32> %180, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
+  %189 = icmp eq i64 %187, 65536
+  br i1 %189, label %.loopexit, label %178, !llvm.loop !87
 
-.loopexit:                                        ; preds = %214, %126
+.loopexit:                                        ; preds = %178, %114
   ret void
 }
 
@@ -960,7 +912,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
 define void @init_pipe(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #9 {
-  %4 = tail call noalias dereferenceable_or_null(786488) ptr @malloc(i64 noundef 786488) #23
+  %4 = tail call noalias dereferenceable_or_null(786488) ptr @malloc(i64 noundef 786488) #24
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %4, ptr %5, align 16, !tbaa !71
   ret void
@@ -998,7 +950,7 @@ define void @gui_update(ptr nocapture noundef readonly %0) local_unnamed_addr #1
   tail call void @dt_bauhaus_combobox_set(ptr noundef %10, i32 noundef %12) #21
   %13 = getelementptr inbounds i8, ptr %5, i64 88
   %14 = load ptr, ptr %13, align 8, !tbaa !58
-  %15 = tail call i64 @gtk_toggle_button_get_type() #22
+  %15 = tail call i64 @gtk_toggle_button_get_type() #23
   %16 = tail call ptr @g_type_check_instance_cast(ptr noundef %14, i64 noundef %15) #21
   %17 = getelementptr inbounds i8, ptr %5, i64 100
   %18 = load i32, ptr %17, align 4, !tbaa !18
@@ -1055,7 +1007,7 @@ define void @gui_focus(ptr nocapture noundef readonly %0, i32 noundef %1) local_
   store i32 0, ptr %10, align 8, !tbaa !23
   %11 = getelementptr inbounds i8, ptr %6, i64 88
   %12 = load ptr, ptr %11, align 8, !tbaa !58
-  %13 = tail call i64 @gtk_toggle_button_get_type() #22
+  %13 = tail call i64 @gtk_toggle_button_get_type() #23
   %14 = tail call ptr @g_type_check_instance_cast(ptr noundef %12, i64 noundef %13) #21
   %15 = load i32, ptr %9, align 4, !tbaa !18
   tail call void @gtk_toggle_button_set_active(ptr noundef %14, i32 noundef %15) #21
@@ -1079,7 +1031,7 @@ define void @gui_reset(ptr noundef %0) local_unnamed_addr #1 {
   store i32 0, ptr %7, align 8, !tbaa !23
   %8 = getelementptr inbounds i8, ptr %3, i64 88
   %9 = load ptr, ptr %8, align 8, !tbaa !58
-  %10 = tail call i64 @gtk_toggle_button_get_type() #22
+  %10 = tail call i64 @gtk_toggle_button_get_type() #23
   %11 = tail call ptr @g_type_check_instance_cast(ptr noundef %9, i64 noundef %10) #21
   %12 = load i32, ptr %6, align 4, !tbaa !18
   tail call void @gtk_toggle_button_set_active(ptr noundef %11, i32 noundef %12) #21
@@ -1115,7 +1067,7 @@ declare void @dt_iop_default_init(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
 define void @init_global(ptr nocapture noundef writeonly %0) local_unnamed_addr #13 {
-  %2 = tail call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #23
+  %2 = tail call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 528
   store ptr %2, ptr %3, align 8, !tbaa !92
   store i32 -1, ptr %2, align 4, !tbaa !95
@@ -1277,11 +1229,11 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   %17 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.12, i32 noundef 5) #21
   tail call void @gtk_widget_set_tooltip_text(ptr noundef %15, ptr noundef %17) #21
   %18 = tail call ptr @gtk_notebook_new() #21
-  %19 = tail call i64 @gtk_notebook_get_type() #22
+  %19 = tail call i64 @gtk_notebook_get_type() #23
   %20 = tail call ptr @g_type_check_instance_cast(ptr noundef %18, i64 noundef %19) #21
   %21 = getelementptr inbounds i8, ptr %9, i64 72
   store ptr %20, ptr %21, align 8, !tbaa !64
-  %22 = tail call i64 @gtk_widget_get_type() #22
+  %22 = tail call i64 @gtk_widget_get_type() #23
   %23 = tail call ptr @g_type_check_instance_cast(ptr noundef %20, i64 noundef %22) #21
   %24 = tail call ptr @dt_action_define_iop(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.13, ptr noundef %23, ptr noundef nonnull @dt_action_def_tabs_rgb) #21
   %25 = load ptr, ptr %21, align 8, !tbaa !64
@@ -1298,13 +1250,13 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   %36 = tail call i64 @g_signal_connect_data(ptr noundef %35, ptr noundef nonnull @.str.20, ptr noundef nonnull @_tab_switch_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #21
   %37 = getelementptr inbounds i8, ptr %0, i64 816
   %38 = load ptr, ptr %37, align 16, !tbaa !89
-  %39 = tail call i64 @gtk_box_get_type() #22
+  %39 = tail call i64 @gtk_box_get_type() #23
   %40 = tail call ptr @g_type_check_instance_cast(ptr noundef %38, i64 noundef %39) #21
   %41 = load ptr, ptr %21, align 8, !tbaa !64
   %42 = tail call ptr @g_type_check_instance_cast(ptr noundef %41, i64 noundef %22) #21
   tail call void @gtk_box_pack_start(ptr noundef %40, ptr noundef %42, i32 noundef 0, i32 noundef 0, i32 noundef 0) #21
   %43 = tail call ptr @dt_ui_resize_wrap(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.21) #21
-  %44 = tail call i64 @gtk_drawing_area_get_type() #22
+  %44 = tail call i64 @gtk_drawing_area_get_type() #23
   %45 = tail call ptr @g_type_check_instance_cast(ptr noundef %43, i64 noundef %44) #21
   %46 = getelementptr inbounds i8, ptr %9, i64 56
   store ptr %45, ptr %46, align 8, !tbaa !102
@@ -1527,7 +1479,7 @@ define internal noundef i32 @_area_draw_callback(ptr nocapture readnone %0, ptr 
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #21
   %14 = getelementptr inbounds i8, ptr %6, i64 56
   %15 = load ptr, ptr %14, align 8, !tbaa !102
-  %16 = tail call i64 @gtk_widget_get_type() #22
+  %16 = tail call i64 @gtk_widget_get_type() #23
   %17 = tail call ptr @g_type_check_instance_cast(ptr noundef %15, i64 noundef %16) #21
   call void @gtk_widget_get_allocation(ptr noundef %17, ptr noundef nonnull %4) #21
   %18 = getelementptr inbounds i8, ptr %4, i64 8
@@ -2113,7 +2065,7 @@ define internal noundef range(i32 0, 2) i32 @_area_button_press_callback(ptr noc
   store i32 0, ptr %22, align 8, !tbaa !23
   %23 = getelementptr inbounds i8, ptr %17, i64 88
   %24 = load ptr, ptr %23, align 8, !tbaa !58
-  %25 = tail call i64 @gtk_toggle_button_get_type() #22
+  %25 = tail call i64 @gtk_toggle_button_get_type() #23
   %26 = tail call ptr @g_type_check_instance_cast(ptr noundef %24, i64 noundef %25) #21
   %27 = load i32, ptr %21, align 4, !tbaa !18
   tail call void @gtk_toggle_button_set_active(ptr noundef %26, i32 noundef %27) #21
@@ -2162,7 +2114,7 @@ define internal noundef range(i32 0, 2) i32 @_area_button_press_callback(ptr noc
   store i32 0, ptr %55, align 8, !tbaa !23
   %56 = getelementptr inbounds i8, ptr %17, i64 88
   %57 = load ptr, ptr %56, align 8, !tbaa !58
-  %58 = tail call i64 @gtk_toggle_button_get_type() #22
+  %58 = tail call i64 @gtk_toggle_button_get_type() #23
   %59 = tail call ptr @g_type_check_instance_cast(ptr noundef %57, i64 noundef %58) #21
   %60 = load i32, ptr %54, align 4, !tbaa !18
   tail call void @gtk_toggle_button_set_active(ptr noundef %59, i32 noundef %60) #21
@@ -2433,7 +2385,7 @@ define internal noundef range(i32 0, 2) i32 @_area_scroll_callback(ptr noundef %
   store i32 0, ptr %16, align 8, !tbaa !23
   %17 = getelementptr inbounds i8, ptr %12, i64 88
   %18 = load ptr, ptr %17, align 8, !tbaa !58
-  %19 = tail call i64 @gtk_toggle_button_get_type() #22
+  %19 = tail call i64 @gtk_toggle_button_get_type() #23
   %20 = tail call ptr @g_type_check_instance_cast(ptr noundef %18, i64 noundef %19) #21
   %21 = load i32, ptr %15, align 4, !tbaa !18
   tail call void @gtk_toggle_button_set_active(ptr noundef %20, i32 noundef %21) #21
@@ -2516,7 +2468,7 @@ define internal void @_color_picker_callback(ptr nocapture readnone %0, ptr noca
   store i32 0, ptr %8, align 8, !tbaa !23
   %9 = getelementptr inbounds i8, ptr %4, i64 88
   %10 = load ptr, ptr %9, align 8, !tbaa !58
-  %11 = tail call i64 @gtk_toggle_button_get_type() #22
+  %11 = tail call i64 @gtk_toggle_button_get_type() #23
   %12 = tail call ptr @g_type_check_instance_cast(ptr noundef %10, i64 noundef %11) #21
   %13 = load i32, ptr %7, align 4, !tbaa !18
   tail call void @gtk_toggle_button_set_active(ptr noundef %12, i32 noundef %13) #21
@@ -2554,7 +2506,7 @@ define internal void @_auto_levels_callback(ptr nocapture readnone %0, ptr nound
   br i1 %12, label %17, label %13
 
 13:                                               ; preds = %7
-  %14 = tail call i64 @gtk_toggle_button_get_type() #22
+  %14 = tail call i64 @gtk_toggle_button_get_type() #23
   %15 = tail call ptr @g_type_check_instance_cast(ptr noundef nonnull %11, i64 noundef %14) #21
   tail call void @gtk_toggle_button_set_active(ptr noundef %15, i32 noundef 1) #21
   %16 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !29
@@ -2573,7 +2525,7 @@ define internal void @_auto_levels_callback(ptr nocapture readnone %0, ptr nound
   store i32 0, ptr %22, align 8, !tbaa !23
   %23 = getelementptr inbounds i8, ptr %18, i64 88
   %24 = load ptr, ptr %23, align 8, !tbaa !58
-  %25 = tail call i64 @gtk_toggle_button_get_type() #22
+  %25 = tail call i64 @gtk_toggle_button_get_type() #23
   %26 = tail call ptr @g_type_check_instance_cast(ptr noundef %24, i64 noundef %25) #21
   %27 = load i32, ptr %21, align 4, !tbaa !18
   tail call void @gtk_toggle_button_set_active(ptr noundef %26, i32 noundef %27) #21
@@ -2623,7 +2575,7 @@ define internal void @_select_region_toggled_callback(ptr noundef %0, ptr nounde
   br i1 %12, label %17, label %13
 
 13:                                               ; preds = %7
-  %14 = tail call i64 @gtk_toggle_button_get_type() #22
+  %14 = tail call i64 @gtk_toggle_button_get_type() #23
   %15 = tail call ptr @g_type_check_instance_cast(ptr noundef nonnull %11, i64 noundef %14) #21
   tail call void @gtk_toggle_button_set_active(ptr noundef %15, i32 noundef 1) #21
   %16 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !29
@@ -3750,12 +3702,12 @@ define noundef range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 nound
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define ptr @get_p(ptr noundef readnone %0, ptr nocapture noundef readonly %1) local_unnamed_addr #19 {
-  %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(10) @.str.11) #24
+  %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(10) @.str.11) #25
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %25, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(16) @.str.45) #24
+  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(16) @.str.45) #25
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %10
 
@@ -3764,7 +3716,7 @@ define ptr @get_p(ptr noundef readnone %0, ptr nocapture noundef readonly %1) lo
   br label %25
 
 10:                                               ; preds = %5
-  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(13) @.str.70) #24
+  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(13) @.str.70) #25
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %15
 
@@ -3773,7 +3725,7 @@ define ptr @get_p(ptr noundef readnone %0, ptr nocapture noundef readonly %1) lo
   br label %25
 
 15:                                               ; preds = %10
-  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(10) @.str.71) #24
+  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(10) @.str.71) #25
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %20
 
@@ -3782,7 +3734,7 @@ define ptr @get_p(ptr noundef readnone %0, ptr nocapture noundef readonly %1) lo
   br label %25
 
 20:                                               ; preds = %15
-  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.10) #24
+  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.10) #25
   %22 = icmp eq i32 %21, 0
   %23 = getelementptr inbounds i8, ptr %0, i64 8
   %24 = select i1 %22, ptr %23, ptr null
@@ -3937,7 +3889,7 @@ default.unreachable:                              ; preds = %11
   tail call void @dt_dev_add_history_item(ptr noundef %74, ptr noundef nonnull %0, i32 noundef 1) #21
   %75 = getelementptr inbounds i8, ptr %7, i64 56
   %76 = load ptr, ptr %75, align 8, !tbaa !102
-  %77 = tail call i64 @gtk_widget_get_type() #22
+  %77 = tail call i64 @gtk_widget_get_type() #23
   %78 = tail call ptr @g_type_check_instance_cast(ptr noundef %76, i64 noundef %77) #21
   tail call void @gtk_widget_queue_draw(ptr noundef %78) #21
   br label %79
@@ -4038,9 +3990,6 @@ declare i32 @llvm.smax.i32(i32, i32) #5
 declare i32 @llvm.umin.i32(i32, i32) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.pow.v2f64(<2 x double>, <2 x double>) #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <2 x float> @llvm.fabs.v2f32(<2 x float>) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -4051,6 +4000,9 @@ declare <2 x i32> @llvm.smax.v2i32(<2 x i32>, <2 x i32>) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <2 x float> @llvm.maxnum.v2f32(<2 x float>, <2 x float>) #5
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare <8 x double> @llvm.pow.v8f64(<8 x double>, <8 x double>) #22
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "approx-func-fp-math"="true" "denormal-fp-math"="preserve-sign,preserve-sign" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" "unsafe-fp-math"="true" }
 attributes #1 = { nounwind uwtable "approx-func-fp-math"="true" "denormal-fp-math"="preserve-sign,preserve-sign" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" "unsafe-fp-math"="true" }
@@ -4074,9 +4026,10 @@ attributes #18 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #19 = { mustprogress nofree nounwind willreturn memory(argmem: read) uwtable "approx-func-fp-math"="true" "denormal-fp-math"="preserve-sign,preserve-sign" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" "unsafe-fp-math"="true" }
 attributes #20 = { mustprogress nofree nounwind willreturn memory(argmem: read) "approx-func-fp-math"="true" "denormal-fp-math"="preserve-sign,preserve-sign" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" "unsafe-fp-math"="true" }
 attributes #21 = { nounwind }
-attributes #22 = { nounwind willreturn memory(none) }
-attributes #23 = { nounwind allocsize(0) }
-attributes #24 = { nounwind willreturn memory(read) }
+attributes #22 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #23 = { nounwind willreturn memory(none) }
+attributes #24 = { nounwind allocsize(0) }
+attributes #25 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
