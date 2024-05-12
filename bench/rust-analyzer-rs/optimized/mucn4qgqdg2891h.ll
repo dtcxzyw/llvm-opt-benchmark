@@ -49955,7 +49955,7 @@ define hidden void @_ZN7hir_def7nameres9collector12ModCollector7collect17h9840ae
   br i1 %brmerge.not, label %65, label %48
 
 48:                                               ; preds = %46, %68, %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$hir_def..nameres..mod_resolution..ModDir$GT$$GT$17h479af91ab07fe3f1E.exit"
-  %49 = phi ptr [ %.pre41, %68 ], [ %43, %46 ], [ %43, %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$hir_def..nameres..mod_resolution..ModDir$GT$$GT$17h479af91ab07fe3f1E.exit" ]
+  %49 = phi ptr [ %.pre40, %68 ], [ %43, %46 ], [ %43, %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$hir_def..nameres..mod_resolution..ModDir$GT$$GT$17h479af91ab07fe3f1E.exit" ]
   %50 = getelementptr inbounds i8, ptr %49, i64 288
   %51 = load ptr, ptr %50, align 8, !nonnull !4, !align !318, !noundef !4
   %52 = getelementptr inbounds i8, ptr %49, i64 296
@@ -50007,17 +50007,17 @@ define hidden void @_ZN7hir_def7nameres9collector12ModCollector7collect17h9840ae
   store i64 -9223372036854775808, ptr %12, align 8
   call fastcc void @_ZN7hir_def7nameres9collector12DefCollector31import_macros_from_extern_crate17hb34d93dbcf37df79E(ptr noalias noundef nonnull align 8 dereferenceable(544) %69, i32 noundef %.sroa.0.0.copyload, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
-  %.pre41 = load ptr, ptr %17, align 8
+  %.pre40 = load ptr, ptr %17, align 8
   br label %48
 
 70:                                               ; preds = %48
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %6, ptr noundef nonnull align 8 dereferenceable(72) %8, i64 72, i1 false)
   %71 = icmp eq i64 %2, 0
-  br i1 %71, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h47d155c3fd399f42E.exit", label %.preheader40
+  br i1 %71, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h47d155c3fd399f42E.exit", label %.preheader39
 
-.preheader40:                                     ; preds = %70, %.preheader40
-  %.0.i = phi i64 [ %76, %.preheader40 ], [ 0, %70 ]
+.preheader39:                                     ; preds = %70, %.preheader39
+  %.0.i = phi i64 [ %76, %.preheader39 ], [ 0, %70 ]
   %72 = getelementptr inbounds { i32, [1 x i32] }, ptr %1, i64 %.0.i
   call void @llvm.experimental.noalias.scope.decl(metadata !10877)
   %73 = load i32, ptr %72, align 4, !range !4783, !alias.scope !10877, !noalias !10880, !noundef !4
@@ -50026,42 +50026,42 @@ define hidden void @_ZN7hir_def7nameres9collector12ModCollector7collect17h9840ae
   call fastcc void @"_ZN7hir_def7nameres9collector12ModCollector7collect28_$u7b$$u7b$closure$u7d$$u7d$17hc5cd4ea54195f7f3E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %6, i32 noundef %73, i32 noundef %75), !noalias !10877
   %76 = add nuw i64 %.0.i, 1
   %77 = icmp eq i64 %76, %2
-  br i1 %77, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h47d155c3fd399f42E.exit", label %.preheader40
+  br i1 %77, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h47d155c3fd399f42E.exit", label %.preheader39
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h47d155c3fd399f42E.exit": ; preds = %.preheader40, %70
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h47d155c3fd399f42E.exit": ; preds = %.preheader39, %70
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6)
   br label %96
 
 78:                                               ; preds = %48
   %79 = icmp eq i64 %2, 0
-  br i1 %79, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h98d7c24e296a992eE.exit.critedge", label %.preheader39
+  br i1 %79, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h98d7c24e296a992eE.exit.critedge", label %.preheader
 
-.preheader39:                                     ; preds = %78, %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha36f20a55d1f2a57E.exit"
+.preheader:                                       ; preds = %78, %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha36f20a55d1f2a57E.exit"
   %.0.i33 = phi i64 [ %86, %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha36f20a55d1f2a57E.exit" ], [ 0, %78 ]
   %80 = getelementptr inbounds { i32, [1 x i32] }, ptr %1, i64 %.0.i33
   %81 = load i32, ptr %80, align 4, !range !4783, !noalias !10882, !noundef !4
   %82 = icmp eq i32 %81, 1
   br i1 %82, label %83, label %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha36f20a55d1f2a57E.exit"
 
-83:                                               ; preds = %.preheader39
+83:                                               ; preds = %.preheader
   call void @llvm.experimental.noalias.scope.decl(metadata !10885)
   %84 = getelementptr inbounds i8, ptr %80, i64 4
   %85 = load i32, ptr %84, align 4, !alias.scope !10885, !noalias !10888, !noundef !4
   call fastcc void @"_ZN7hir_def7nameres9collector12ModCollector7collect28_$u7b$$u7b$closure$u7d$$u7d$17hc5cd4ea54195f7f3E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %8, i32 noundef 1, i32 noundef %85), !noalias !10890
   br label %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha36f20a55d1f2a57E.exit"
 
-"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha36f20a55d1f2a57E.exit": ; preds = %.preheader39, %83
+"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha36f20a55d1f2a57E.exit": ; preds = %.preheader, %83
   %86 = add nuw i64 %.0.i33, 1
   %87 = icmp eq i64 %86, %2
-  br i1 %87, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h85bae5b3b64f1c40E.exit", label %.preheader39
+  br i1 %87, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h85bae5b3b64f1c40E.exit", label %.preheader
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h85bae5b3b64f1c40E.exit": ; preds = %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha36f20a55d1f2a57E.exit"
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull align 8 dereferenceable(72) %8, i64 72, i1 false)
   br label %88
 
-88:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h85bae5b3b64f1c40E.exit", %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17hfac6e10d143eff7dE.exit"
-  %.0.i34 = phi i64 [ %94, %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17hfac6e10d143eff7dE.exit" ], [ 0, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h85bae5b3b64f1c40E.exit" ]
+88:                                               ; preds = %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17hfac6e10d143eff7dE.exit", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h85bae5b3b64f1c40E.exit"
+  %.0.i34 = phi i64 [ 0, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h85bae5b3b64f1c40E.exit" ], [ %94, %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17hfac6e10d143eff7dE.exit" ]
   %89 = getelementptr inbounds { i32, [1 x i32] }, ptr %1, i64 %.0.i34
   %90 = load i32, ptr %89, align 4, !range !4783, !noalias !10895, !noundef !4
   %.not38 = icmp eq i32 %90, 1

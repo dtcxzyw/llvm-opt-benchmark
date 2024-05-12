@@ -30394,7 +30394,7 @@ if.else:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i16 = sub i64 %sub.ptr.lhs.cast.i14, %sub.ptr.rhs.cast.i
   %cmp24.not = icmp ult i64 %sub.ptr.sub.i16, %sub.ptr.sub.i.i
-  br i1 %cmp24.not, label %_ZSt7advanceIPKN5arrow7compute8internal19SelectionKernelDataEmEvRT_T0_.exit, label %if.then25
+  br i1 %cmp24.not, label %if.else29, label %if.then25
 
 if.then25:                                        ; preds = %if.else
   %cmp6.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i, 0
@@ -30445,12 +30445,12 @@ invoke.cont.i:                                    ; preds = %for.body.i.i.i.i
   store ptr %__result.addr.0.lcssa.i.i.i.i.i, ptr %_M_finish.i, align 8
   br label %if.end41
 
-_ZSt7advanceIPKN5arrow7compute8internal19SelectionKernelDataEmEvRT_T0_.exit: ; preds = %if.else
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first, i64 %sub.ptr.sub.i16
+if.else29:                                        ; preds = %if.else
+  %incdec.ptr4.sink.i.i = getelementptr inbounds i8, ptr %__first, i64 %sub.ptr.sub.i16
   %cmp6.i.i.i.i.i31 = icmp sgt i64 %sub.ptr.sub.i16, 0
   br i1 %cmp6.i.i.i.i.i31, label %for.body.preheader.i.i.i.i.i33, label %_ZSt4copyIPKN5arrow7compute8internal19SelectionKernelDataEPS3_ET0_T_S8_S7_.exit47
 
-for.body.preheader.i.i.i.i.i33:                   ; preds = %_ZSt7advanceIPKN5arrow7compute8internal19SelectionKernelDataEmEvRT_T0_.exit
+for.body.preheader.i.i.i.i.i33:                   ; preds = %if.else29
   %sub.ptr.div10.i.i.i.i.i34 = udiv exact i64 %sub.ptr.sub.i16, 88
   br label %for.body.i.i.i.i.i35
 
@@ -30476,14 +30476,14 @@ _ZSt4copyIPKN5arrow7compute8internal19SelectionKernelDataEPS3_ET0_T_S8_S7_.exit4
   %.pre62 = load ptr, ptr %_M_finish.i, align 8
   br label %_ZSt4copyIPKN5arrow7compute8internal19SelectionKernelDataEPS3_ET0_T_S8_S7_.exit47
 
-_ZSt4copyIPKN5arrow7compute8internal19SelectionKernelDataEPS3_ET0_T_S8_S7_.exit47: ; preds = %_ZSt4copyIPKN5arrow7compute8internal19SelectionKernelDataEPS3_ET0_T_S8_S7_.exit47.loopexit, %_ZSt7advanceIPKN5arrow7compute8internal19SelectionKernelDataEmEvRT_T0_.exit
-  %10 = phi ptr [ %.pre62, %_ZSt4copyIPKN5arrow7compute8internal19SelectionKernelDataEPS3_ET0_T_S8_S7_.exit47.loopexit ], [ %6, %_ZSt7advanceIPKN5arrow7compute8internal19SelectionKernelDataEmEvRT_T0_.exit ]
-  %cmp.not7.i.i.i.i = icmp eq ptr %incdec.ptr.i.i, %__last
+_ZSt4copyIPKN5arrow7compute8internal19SelectionKernelDataEPS3_ET0_T_S8_S7_.exit47: ; preds = %_ZSt4copyIPKN5arrow7compute8internal19SelectionKernelDataEPS3_ET0_T_S8_S7_.exit47.loopexit, %if.else29
+  %10 = phi ptr [ %.pre62, %_ZSt4copyIPKN5arrow7compute8internal19SelectionKernelDataEPS3_ET0_T_S8_S7_.exit47.loopexit ], [ %6, %if.else29 ]
+  %cmp.not7.i.i.i.i = icmp eq ptr %incdec.ptr4.sink.i.i, %__last
   br i1 %cmp.not7.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKN5arrow7compute8internal19SelectionKernelDataEPS3_S3_ET0_T_S8_S7_RSaIT1_E.exit, label %for.inc.i.i.i.i
 
 for.inc.i.i.i.i:                                  ; preds = %_ZSt4copyIPKN5arrow7compute8internal19SelectionKernelDataEPS3_ET0_T_S8_S7_.exit47, %for.inc.i.i.i.i
   %__cur.09.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.inc.i.i.i.i ], [ %10, %_ZSt4copyIPKN5arrow7compute8internal19SelectionKernelDataEPS3_ET0_T_S8_S7_.exit47 ]
-  %__first.addr.08.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i57, %for.inc.i.i.i.i ], [ %incdec.ptr.i.i, %_ZSt4copyIPKN5arrow7compute8internal19SelectionKernelDataEPS3_ET0_T_S8_S7_.exit47 ]
+  %__first.addr.08.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i57, %for.inc.i.i.i.i ], [ %incdec.ptr4.sink.i.i, %_ZSt4copyIPKN5arrow7compute8internal19SelectionKernelDataEPS3_ET0_T_S8_S7_.exit47 ]
   %type_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %type_.i.i.i.i.i.i.i, i8 0, i64 32, i1 false)
   tail call void @_ZN5arrow7compute9InputType8CopyIntoERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %__cur.09.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.08.i.i.i.i)

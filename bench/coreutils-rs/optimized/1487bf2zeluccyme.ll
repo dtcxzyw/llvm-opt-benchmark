@@ -2172,7 +2172,7 @@ define void @_ZN7uu_sort14GlobalSettings16init_precomputed17h4afa389121559b16E(p
   %15 = zext i1 %.not.i.not to i8
   store i8 %15, ptr %14, align 8
   %16 = icmp eq i64 %5, 0
-  br i1 %16, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h26f272f443cd5b99E.exit.thread", label %.preheader35
+  br i1 %16, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h26f272f443cd5b99E.exit.thread", label %.preheader
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h26f272f443cd5b99E.exit.thread": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h9b2c2a16ce16512dE.exit"
   %17 = getelementptr inbounds i8, ptr %0, i64 88
@@ -2180,25 +2180,25 @@ define void @_ZN7uu_sort14GlobalSettings16init_precomputed17h4afa389121559b16E(p
   store i64 0, ptr %13, align 8
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h8086b5f9eded4fc1E.exit"
 
-.preheader35:                                     ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h9b2c2a16ce16512dE.exit", %.preheader35
-  %.017.i = phi i64 [ %20, %.preheader35 ], [ 0, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h9b2c2a16ce16512dE.exit" ]
-  %.016.i = phi i64 [ %21, %.preheader35 ], [ 0, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h9b2c2a16ce16512dE.exit" ]
+.preheader:                                       ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h9b2c2a16ce16512dE.exit", %.preheader
+  %.017.i = phi i64 [ %20, %.preheader ], [ 0, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h9b2c2a16ce16512dE.exit" ]
+  %.016.i = phi i64 [ %21, %.preheader ], [ 0, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h9b2c2a16ce16512dE.exit" ]
   %18 = getelementptr { { [16 x i8], i8, [7 x i8] }, { i64, i64, i8, [7 x i8] }, { i8, i8, i8, i8, i8, i8 }, i8, i8 }, ptr %3, i64 %.016.i, i32 4
   %.val.i23 = load i8, ptr %18, align 1, !range !135, !alias.scope !354, !noundef !4
   %19 = zext nneg i8 %.val.i23 to i64
   %20 = add i64 %.017.i, %19
   %21 = add nuw i64 %.016.i, 1
   %22 = icmp eq i64 %21, %5
-  br i1 %22, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h26f272f443cd5b99E.exit", label %.preheader35
+  br i1 %22, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h26f272f443cd5b99E.exit", label %.preheader
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h26f272f443cd5b99E.exit": ; preds = %.preheader35
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h26f272f443cd5b99E.exit": ; preds = %.preheader
   %23 = getelementptr inbounds i8, ptr %0, i64 88
   store i64 %20, ptr %23, align 8
   br label %24
 
-24:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h26f272f443cd5b99E.exit", %24
-  %.017.i24 = phi i64 [ %27, %24 ], [ 0, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h26f272f443cd5b99E.exit" ]
-  %.016.i25 = phi i64 [ %28, %24 ], [ 0, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h26f272f443cd5b99E.exit" ]
+24:                                               ; preds = %24, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h26f272f443cd5b99E.exit"
+  %.017.i24 = phi i64 [ 0, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h26f272f443cd5b99E.exit" ], [ %27, %24 ]
+  %.016.i25 = phi i64 [ 0, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h26f272f443cd5b99E.exit" ], [ %28, %24 ]
   %25 = getelementptr { { [16 x i8], i8, [7 x i8] }, { i64, i64, i8, [7 x i8] }, { i8, i8, i8, i8, i8, i8 }, i8, i8 }, ptr %3, i64 %.016.i25, i32 2, i32 5
   %.val.i26 = load i8, ptr %25, align 1, !range !357, !alias.scope !358, !noundef !4
   %switch.i.i.i.i = icmp ult i8 %.val.i26, 2
@@ -2212,9 +2212,9 @@ define void @_ZN7uu_sort14GlobalSettings16init_precomputed17h4afa389121559b16E(p
   store i64 %27, ptr %13, align 8
   br label %30
 
-30:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hd3c72a88f9dedbe4E.exit", %30
-  %.017.i28 = phi i64 [ %34, %30 ], [ 0, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hd3c72a88f9dedbe4E.exit" ]
-  %.016.i29 = phi i64 [ %35, %30 ], [ 0, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hd3c72a88f9dedbe4E.exit" ]
+30:                                               ; preds = %30, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hd3c72a88f9dedbe4E.exit"
+  %.017.i28 = phi i64 [ 0, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hd3c72a88f9dedbe4E.exit" ], [ %34, %30 ]
+  %.016.i29 = phi i64 [ 0, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hd3c72a88f9dedbe4E.exit" ], [ %35, %30 ]
   %31 = getelementptr { { [16 x i8], i8, [7 x i8] }, { i64, i64, i8, [7 x i8] }, { i8, i8, i8, i8, i8, i8 }, i8, i8 }, ptr %3, i64 %.016.i29, i32 2, i32 5
   %.val.i30 = load i8, ptr %31, align 1, !range !357, !alias.scope !361, !noundef !4
   %32 = icmp eq i8 %.val.i30, 2

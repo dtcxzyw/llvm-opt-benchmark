@@ -29,18 +29,18 @@ define noundef i32 @dgemv_t(i64 noundef %0, i64 noundef %1, i64 noundef %2, doub
   %30 = shl i64 %5, 2
   %31 = icmp ult i64 %1, 2048
   %32 = shl nsw i64 %9, 11
-  %33 = icmp eq i64 %23, 0
-  %34 = shl nuw nsw i64 %23, 2
-  %35 = mul i64 %34, %9
-  %36 = mul nsw i64 %30, %23
-  %37 = and i64 %1, 2
-  %38 = icmp eq i64 %37, 0
-  %39 = shl i64 %5, 1
-  %40 = getelementptr inbounds i8, ptr %14, i64 8
-  %41 = and i64 %1, 1
-  %42 = icmp eq i64 %41, 0
-  %43 = shl i64 %21, 14
-  %44 = mul i64 %43, %5
+  %33 = shl nuw nsw i64 %23, 2
+  %34 = mul i64 %33, %9
+  %35 = mul nsw i64 %30, %23
+  %36 = and i64 %1, 2
+  %37 = icmp eq i64 %36, 0
+  %38 = shl i64 %5, 1
+  %39 = getelementptr inbounds i8, ptr %14, i64 8
+  %40 = and i64 %1, 1
+  %41 = icmp eq i64 %40, 0
+  %42 = shl i64 %21, 14
+  %43 = mul i64 %42, %5
+  %44 = icmp eq i64 %23, 0
   %45 = icmp eq i64 %9, 1
   br label %46
 
@@ -137,7 +137,7 @@ add_y.exit:                                       ; preds = %.preheader.i, %93
   br i1 %97, label %98, label %.preheader62, !llvm.loop !14
 
 98:                                               ; preds = %add_y.exit
-  %99 = getelementptr i8, ptr %47, i64 %44
+  %99 = getelementptr i8, ptr %47, i64 %43
   br label %100
 
 100:                                              ; preds = %98, %.loopexit64
@@ -147,7 +147,7 @@ add_y.exit:                                       ; preds = %.preheader.i, %93
   %.sroa.0.2 = phi ptr [ %47, %.loopexit64 ], [ %76, %98 ]
   %101 = phi ptr [ %8, %.loopexit64 ], [ %95, %98 ]
   %102 = phi ptr [ %47, %.loopexit64 ], [ %99, %98 ]
-  br i1 %33, label %127, label %.preheader61
+  br i1 %44, label %127, label %.preheader61
 
 .preheader61:                                     ; preds = %100, %.preheader61
   %.sroa.25.3 = phi ptr [ %109, %.preheader61 ], [ %.sroa.25.2, %100 ]
@@ -181,17 +181,17 @@ add_y.exit:                                       ; preds = %.preheader.i, %93
   store double %119, ptr %115, align 8, !tbaa !3
   %120 = getelementptr inbounds double, ptr %115, i64 %9
   %121 = add nuw nsw i64 %114, 1
-  %122 = icmp eq i64 %121, %34
+  %122 = icmp eq i64 %121, %33
   br i1 %122, label %add_y.exit18, label %.preheader.i17, !llvm.loop !12
 
 123:                                              ; preds = %113
-  %124 = call { i64, i64 } asm sideeffect "movsd\09 ($2) , %xmm10                 \0A\09shufpd  $$0 , %xmm10 , %xmm10\09\09\0A\091:                            \0A\09movups  ($3,$0,8) , %xmm12\09\09\0A\09movups  ($4,$0,8) , %xmm11\09\09\0A\09mulpd   %xmm10   , %xmm12 \09\09\0A\09addq           $$2 , $0                 \0A\09addpd   %xmm12   , %xmm11\09\09\0A\09subq           $$2 , $1                 \0A\09movups  %xmm11, -16($4,$0,8)\09\09\0A\09jnz            1b              \0A\09", "=r,=r,r,r,r,0,1,~{cc},~{xmm10},~{xmm11},~{xmm12},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %12, ptr %20, ptr %101, i64 0, i64 %34) #4, !srcloc !13
+  %124 = call { i64, i64 } asm sideeffect "movsd\09 ($2) , %xmm10                 \0A\09shufpd  $$0 , %xmm10 , %xmm10\09\09\0A\091:                            \0A\09movups  ($3,$0,8) , %xmm12\09\09\0A\09movups  ($4,$0,8) , %xmm11\09\09\0A\09mulpd   %xmm10   , %xmm12 \09\09\0A\09addq           $$2 , $0                 \0A\09addpd   %xmm12   , %xmm11\09\09\0A\09subq           $$2 , $1                 \0A\09movups  %xmm11, -16($4,$0,8)\09\09\0A\09jnz            1b              \0A\09", "=r,=r,r,r,r,0,1,~{cc},~{xmm10},~{xmm11},~{xmm12},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %12, ptr %20, ptr %101, i64 0, i64 %33) #4, !srcloc !13
   br label %add_y.exit18
 
 add_y.exit18:                                     ; preds = %.preheader.i17, %123
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  %125 = getelementptr inbounds double, ptr %101, i64 %35
-  %126 = getelementptr inbounds double, ptr %102, i64 %36
+  %125 = getelementptr inbounds double, ptr %101, i64 %34
+  %126 = getelementptr inbounds double, ptr %102, i64 %35
   br label %127
 
 127:                                              ; preds = %add_y.exit18, %100
@@ -199,17 +199,17 @@ add_y.exit18:                                     ; preds = %.preheader.i17, %12
   %.sroa.0.4 = phi ptr [ %.sroa.0.2, %100 ], [ %106, %add_y.exit18 ]
   %128 = phi ptr [ %101, %100 ], [ %125, %add_y.exit18 ]
   %129 = phi ptr [ %102, %100 ], [ %126, %add_y.exit18 ]
-  br i1 %38, label %141, label %130
+  br i1 %37, label %141, label %130
 
 130:                                              ; preds = %127
   %131 = call { i64, i64 } asm sideeffect "xorpd %xmm10 , %xmm10\09\09\0A\09xorpd %xmm11 , %xmm11\09\09\0A\09testq\09$$2 , $1\09\09\09\09\0A\09jz\092f\09\09\09\0A\09movups  ($5,$0,8) , %xmm14\09\09\0A\09movups  ($3,$0,8) , %xmm12\09\09\0A\09movups  ($4,$0,8) , %xmm13\09\09\0A\09mulpd   %xmm14   , %xmm12 \09\09\0A\09mulpd   %xmm14   , %xmm13 \09\09\0A\09addq           $$2 , $0                 \0A\09addpd   %xmm12   , %xmm10\09\09\0A\09subq           $$2 , $1                 \0A\09addpd   %xmm13   , %xmm11\09\09\0A\092:                           \0A\09cmpq\09$$0, $1\09\09\09\09\0A\09je\093f\09\09\09\0A\091:                            \0A\09movups  ($5,$0,8) , %xmm14\09\09\0A\09movups  ($3,$0,8) , %xmm12\09\09\0A\09movups  ($4,$0,8) , %xmm13\09\09\0A\09mulpd   %xmm14   , %xmm12 \09\09\0A\09mulpd   %xmm14   , %xmm13 \09\09\0A\09addpd   %xmm12   , %xmm10\09\09\0A\09addpd   %xmm13   , %xmm11\09\09\0A\09movups  16($5,$0,8) , %xmm14\09\09\0A\09movups  16($3,$0,8) , %xmm12\09\09\0A\09movups  16($4,$0,8) , %xmm13\09\09\0A\09mulpd   %xmm14   , %xmm12 \09\09\0A\09mulpd   %xmm14   , %xmm13 \09\09\0A\09addpd   %xmm12   , %xmm10\09\09\0A\09addpd   %xmm13   , %xmm11\09\09\0A\09addq           $$4 , $0                 \0A\09subq           $$4 , $1                 \0A\09jnz            1b              \0A\093:                             \0A\09haddpd        %xmm10, %xmm10         \0A\09haddpd        %xmm11, %xmm11         \0A\09movsd\09       %xmm10, ($2)\09        \0A\09movsd\09       %xmm11,8($2)\09        \0A\09", "=r,=r,r,r,r,r,0,1,~{cc},~{xmm4},~{xmm5},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %14, ptr %.sroa.0.4, ptr %.sroa.10.4, ptr %66, i64 0, i64 %54) #4, !srcloc !16
-  %132 = getelementptr inbounds double, ptr %129, i64 %39
+  %132 = getelementptr inbounds double, ptr %129, i64 %38
   %133 = load double, ptr %14, align 16, !tbaa !3
   %134 = load double, ptr %128, align 8, !tbaa !3
   %135 = call double @llvm.fmuladd.f64(double %133, double %3, double %134)
   store double %135, ptr %128, align 8, !tbaa !3
   %136 = getelementptr inbounds double, ptr %128, i64 %9
-  %137 = load double, ptr %40, align 8, !tbaa !3
+  %137 = load double, ptr %39, align 8, !tbaa !3
   %138 = load double, ptr %136, align 8, !tbaa !3
   %139 = call double @llvm.fmuladd.f64(double %137, double %3, double %138)
   store double %139, ptr %136, align 8, !tbaa !3
@@ -219,7 +219,7 @@ add_y.exit18:                                     ; preds = %.preheader.i17, %12
 141:                                              ; preds = %130, %127
   %142 = phi ptr [ %140, %130 ], [ %128, %127 ]
   %143 = phi ptr [ %132, %130 ], [ %129, %127 ]
-  br i1 %42, label %149, label %144
+  br i1 %41, label %149, label %144
 
 144:                                              ; preds = %141
   %145 = call { i64, i64 } asm sideeffect "xorpd %xmm9  , %xmm9 \09\09\0A\09xorpd %xmm10 , %xmm10\09\09\0A\09testq\09$$2 , $1\09\09\09\09\0A\09jz\092f\09\09\09\0A\09movups  ($3,$0,8) , %xmm12\09\09\0A\09movups  ($4,$0,8) , %xmm11\09\09\0A\09mulpd   %xmm11   , %xmm12 \09\09\0A\09addq           $$2 , $0                 \0A\09addpd   %xmm12   , %xmm10\09\09\0A\09subq           $$2 , $1                 \0A\092:                           \0A\09cmpq\09$$0, $1\09\09\09\09\0A\09je\093f\09\09\09\0A\091:                            \0A\09movups    ($3,$0,8) , %xmm12\09\09\0A\09movups  16($3,$0,8) , %xmm14\09\09\0A\09movups    ($4,$0,8) , %xmm11\09\09\0A\09movups  16($4,$0,8) , %xmm13\09\09\0A\09mulpd   %xmm11   , %xmm12 \09\09\0A\09mulpd   %xmm13   , %xmm14 \09\09\0A\09addq           $$4 , $0                 \0A\09addpd   %xmm12   , %xmm10\09\09\0A\09subq           $$4 , $1                 \0A\09addpd   %xmm14   , %xmm9 \09\09\0A\09jnz            1b              \0A\093:                             \0A\09addpd\09       %xmm9 , %xmm10         \0A\09haddpd        %xmm10, %xmm10         \0A\09movsd\09       %xmm10, ($2)\09        \0A\09", "=r,=r,r,r,r,0,1,~{cc},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %14, ptr %143, ptr %66, i64 0, i64 %54) #4, !srcloc !17
@@ -395,7 +395,7 @@ add_y.exit18:                                     ; preds = %.preheader.i17, %12
   %277 = load double, ptr %276, align 8, !tbaa !3
   %278 = fadd double %277, %274
   store double %278, ptr %276, align 8, !tbaa !3
-  %279 = getelementptr inbounds double, ptr %254, i64 %39
+  %279 = getelementptr inbounds double, ptr %254, i64 %38
   %280 = load double, ptr %279, align 8, !tbaa !3
   %281 = getelementptr inbounds i8, ptr %279, i64 8
   %282 = load double, ptr %281, align 8, !tbaa !3
@@ -595,7 +595,7 @@ add_y.exit18:                                     ; preds = %.preheader.i17, %12
   %437 = load double, ptr %436, align 8, !tbaa !3
   %438 = fadd double %437, %434
   store double %438, ptr %436, align 8, !tbaa !3
-  %439 = getelementptr inbounds double, ptr %420, i64 %39
+  %439 = getelementptr inbounds double, ptr %420, i64 %38
   %440 = load double, ptr %439, align 8, !tbaa !3
   %441 = getelementptr inbounds i8, ptr %439, i64 8
   %442 = load double, ptr %441, align 8, !tbaa !3
@@ -749,7 +749,7 @@ add_y.exit18:                                     ; preds = %.preheader.i17, %12
   %551 = load double, ptr %550, align 8, !tbaa !3
   %552 = call double @llvm.fmuladd.f64(double %548, double %491, double %551)
   store double %552, ptr %550, align 8, !tbaa !3
-  %553 = getelementptr inbounds double, ptr %541, i64 %39
+  %553 = getelementptr inbounds double, ptr %541, i64 %38
   %554 = load double, ptr %553, align 8, !tbaa !3
   %555 = or disjoint i64 %542, 2
   %556 = getelementptr inbounds double, ptr %8, i64 %555

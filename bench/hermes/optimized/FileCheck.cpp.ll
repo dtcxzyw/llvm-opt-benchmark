@@ -4811,7 +4811,7 @@ for.body:                                         ; preds = %if.end, %_ZN4llvh11
 
 land.rhs.i:                                       ; preds = %for.body
   %cmp.i.i = icmp eq i64 %call2.i, 0
-  br i1 %cmp.i.i, label %if.end19.thread, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i
+  br i1 %cmp.i.i, label %if.end.i.i12.thread, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i: ; preds = %land.rhs.i
   %bcmp = call i32 @bcmp(ptr %call.i, ptr %call.i27, i64 %call2.i)
@@ -4849,7 +4849,7 @@ if.end19:                                         ; preds = %_ZN4llvh23SmallVect
   %cmp.i.i11 = icmp ult i64 %sub.i.i, %call2.i
   br i1 %cmp.i.i11, label %if.end.i.thread.i, label %if.end.i.i12
 
-if.end19.thread:                                  ; preds = %land.rhs.i
+if.end.i.i12.thread:                              ; preds = %land.rhs.i
   %15 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   br label %_ZN4llvh11SmallStringILj32EE6appendENS_9StringRefE.exit
 
@@ -4872,8 +4872,8 @@ if.then.i.i.i:                                    ; preds = %if.end.i.i12, %if.e
   %.pre.i.i = load i32, ptr %Size.i.i.i.i.i.i, align 8
   br label %_ZN4llvh11SmallStringILj32EE6appendENS_9StringRefE.exit
 
-_ZN4llvh11SmallStringILj32EE6appendENS_9StringRefE.exit: ; preds = %if.end19.thread, %if.end.i.i12, %if.then.i.i.i
-  %17 = phi i32 [ %14, %if.end.i.i12 ], [ %.pre.i.i, %if.then.i.i.i ], [ %15, %if.end19.thread ]
+_ZN4llvh11SmallStringILj32EE6appendENS_9StringRefE.exit: ; preds = %if.end.i.i12.thread, %if.end.i.i12, %if.then.i.i.i
+  %17 = phi i32 [ %14, %if.end.i.i12 ], [ %.pre.i.i, %if.then.i.i.i ], [ %15, %if.end.i.i12.thread ]
   %18 = trunc i64 %call2.i to i32
   %conv.i12.i.i = add i32 %17, %18
   store i32 %conv.i12.i.i, ptr %Size.i.i.i.i.i.i, align 8

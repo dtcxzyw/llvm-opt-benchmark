@@ -43739,79 +43739,79 @@ _ZSt8_DestroyIPN6casadi6MatrixIdEES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZSt8_De
   br label %_ZNSt6vectorIN6casadi6MatrixIdEESaIS2_EE15_M_erase_at_endEPS2_.exit
 
 _ZSt7advanceIPKN6casadi6MatrixIdEEmEvRT_T0_.exit: ; preds = %30
-  %49 = getelementptr inbounds i8, ptr %1, i64 %34
-  %50 = icmp sgt i64 %34, 0
-  br i1 %50, label %.lr.ph.preheader.i.i.i.i.i18, label %_ZSt4copyIPKN6casadi6MatrixIdEEPS2_ET0_T_S7_S6_.exit23
+  %.sink.i.i = getelementptr inbounds i8, ptr %1, i64 %34
+  %49 = icmp sgt i64 %34, 0
+  br i1 %49, label %.lr.ph.preheader.i.i.i.i.i18, label %_ZSt4copyIPKN6casadi6MatrixIdEEPS2_ET0_T_S7_S6_.exit23
 
 .lr.ph.preheader.i.i.i.i.i18:                     ; preds = %_ZSt7advanceIPKN6casadi6MatrixIdEEmEvRT_T0_.exit
-  %51 = udiv exact i64 %34, 40
+  %50 = udiv exact i64 %34, 40
   br label %.lr.ph.i.i.i.i.i19
 
 .lr.ph.i.i.i.i.i19:                               ; preds = %.lr.ph.i.i.i.i.i19, %.lr.ph.preheader.i.i.i.i.i18
-  %.012.i.i.i.i.i20 = phi i64 [ %55, %.lr.ph.i.i.i.i.i19 ], [ %51, %.lr.ph.preheader.i.i.i.i.i18 ]
-  %.0811.i.i.i.i.i21 = phi ptr [ %54, %.lr.ph.i.i.i.i.i19 ], [ %10, %.lr.ph.preheader.i.i.i.i.i18 ]
-  %.0910.i.i.i.i.i22 = phi ptr [ %53, %.lr.ph.i.i.i.i.i19 ], [ %1, %.lr.ph.preheader.i.i.i.i.i18 ]
-  %52 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN6casadi6MatrixIdEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %.0811.i.i.i.i.i21, ptr noundef nonnull align 8 dereferenceable(40) %.0910.i.i.i.i.i22)
-  %53 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i22, i64 40
-  %54 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i21, i64 40
-  %55 = add nsw i64 %.012.i.i.i.i.i20, -1
-  %56 = icmp ugt i64 %.012.i.i.i.i.i20, 1
-  br i1 %56, label %.lr.ph.i.i.i.i.i19, label %_ZSt4copyIPKN6casadi6MatrixIdEEPS2_ET0_T_S7_S6_.exit23.loopexit, !llvm.loop !488
+  %.012.i.i.i.i.i20 = phi i64 [ %54, %.lr.ph.i.i.i.i.i19 ], [ %50, %.lr.ph.preheader.i.i.i.i.i18 ]
+  %.0811.i.i.i.i.i21 = phi ptr [ %53, %.lr.ph.i.i.i.i.i19 ], [ %10, %.lr.ph.preheader.i.i.i.i.i18 ]
+  %.0910.i.i.i.i.i22 = phi ptr [ %52, %.lr.ph.i.i.i.i.i19 ], [ %1, %.lr.ph.preheader.i.i.i.i.i18 ]
+  %51 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN6casadi6MatrixIdEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %.0811.i.i.i.i.i21, ptr noundef nonnull align 8 dereferenceable(40) %.0910.i.i.i.i.i22)
+  %52 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i22, i64 40
+  %53 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i21, i64 40
+  %54 = add nsw i64 %.012.i.i.i.i.i20, -1
+  %55 = icmp ugt i64 %.012.i.i.i.i.i20, 1
+  br i1 %55, label %.lr.ph.i.i.i.i.i19, label %_ZSt4copyIPKN6casadi6MatrixIdEEPS2_ET0_T_S7_S6_.exit23.loopexit, !llvm.loop !488
 
 _ZSt4copyIPKN6casadi6MatrixIdEEPS2_ET0_T_S7_S6_.exit23.loopexit: ; preds = %.lr.ph.i.i.i.i.i19
   %.pre33 = load ptr, ptr %31, align 8
   br label %_ZSt4copyIPKN6casadi6MatrixIdEEPS2_ET0_T_S7_S6_.exit23
 
 _ZSt4copyIPKN6casadi6MatrixIdEEPS2_ET0_T_S7_S6_.exit23: ; preds = %_ZSt4copyIPKN6casadi6MatrixIdEEPS2_ET0_T_S7_S6_.exit23.loopexit, %_ZSt7advanceIPKN6casadi6MatrixIdEEmEvRT_T0_.exit
-  %57 = phi ptr [ %.pre33, %_ZSt4copyIPKN6casadi6MatrixIdEEPS2_ET0_T_S7_S6_.exit23.loopexit ], [ %32, %_ZSt7advanceIPKN6casadi6MatrixIdEEmEvRT_T0_.exit ]
-  %.not14.i.i.i.i = icmp eq ptr %49, %2
+  %56 = phi ptr [ %.pre33, %_ZSt4copyIPKN6casadi6MatrixIdEEPS2_ET0_T_S7_S6_.exit23.loopexit ], [ %32, %_ZSt7advanceIPKN6casadi6MatrixIdEEmEvRT_T0_.exit ]
+  %.not14.i.i.i.i = icmp eq ptr %.sink.i.i, %2
   br i1 %.not14.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKN6casadi6MatrixIdEEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit, label %.lr.ph.i.i.i.i24
 
 .lr.ph.i.i.i.i24:                                 ; preds = %_ZSt4copyIPKN6casadi6MatrixIdEEPS2_ET0_T_S7_S6_.exit23, %_ZSt10_ConstructIN6casadi6MatrixIdEEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i
-  %.016.i.i.i.i = phi ptr [ %59, %_ZSt10_ConstructIN6casadi6MatrixIdEEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i ], [ %57, %_ZSt4copyIPKN6casadi6MatrixIdEEPS2_ET0_T_S7_S6_.exit23 ]
-  %.01215.i.i.i.i = phi ptr [ %58, %_ZSt10_ConstructIN6casadi6MatrixIdEEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i ], [ %49, %_ZSt4copyIPKN6casadi6MatrixIdEEPS2_ET0_T_S7_S6_.exit23 ]
+  %.016.i.i.i.i = phi ptr [ %58, %_ZSt10_ConstructIN6casadi6MatrixIdEEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i ], [ %56, %_ZSt4copyIPKN6casadi6MatrixIdEEPS2_ET0_T_S7_S6_.exit23 ]
+  %.01215.i.i.i.i = phi ptr [ %57, %_ZSt10_ConstructIN6casadi6MatrixIdEEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i ], [ %.sink.i.i, %_ZSt4copyIPKN6casadi6MatrixIdEEPS2_ET0_T_S7_S6_.exit23 ]
   invoke void @_ZN6casadi6MatrixIdEC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %.016.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %.01215.i.i.i.i)
-          to label %_ZSt10_ConstructIN6casadi6MatrixIdEEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i unwind label %60
+          to label %_ZSt10_ConstructIN6casadi6MatrixIdEEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i unwind label %59
 
 _ZSt10_ConstructIN6casadi6MatrixIdEEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i24
-  %58 = getelementptr inbounds i8, ptr %.01215.i.i.i.i, i64 40
-  %59 = getelementptr inbounds i8, ptr %.016.i.i.i.i, i64 40
-  %.not.i.i.i.i25 = icmp eq ptr %58, %2
+  %57 = getelementptr inbounds i8, ptr %.01215.i.i.i.i, i64 40
+  %58 = getelementptr inbounds i8, ptr %.016.i.i.i.i, i64 40
+  %.not.i.i.i.i25 = icmp eq ptr %57, %2
   br i1 %.not.i.i.i.i25, label %_ZSt22__uninitialized_copy_aIPKN6casadi6MatrixIdEEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit, label %.lr.ph.i.i.i.i24, !llvm.loop !408
 
-60:                                               ; preds = %.lr.ph.i.i.i.i24
-  %61 = landingpad { ptr, i32 }
+59:                                               ; preds = %.lr.ph.i.i.i.i24
+  %60 = landingpad { ptr, i32 }
           catch ptr null
-  %62 = extractvalue { ptr, i32 } %61, 0
-  %63 = tail call ptr @__cxa_begin_catch(ptr %62) #21
-  invoke void @_ZSt8_DestroyIPN6casadi6MatrixIdEEEvT_S4_(ptr noundef %57, ptr noundef %.016.i.i.i.i)
-          to label %64 unwind label %65
+  %61 = extractvalue { ptr, i32 } %60, 0
+  %62 = tail call ptr @__cxa_begin_catch(ptr %61) #21
+  invoke void @_ZSt8_DestroyIPN6casadi6MatrixIdEEEvT_S4_(ptr noundef %56, ptr noundef %.016.i.i.i.i)
+          to label %63 unwind label %64
 
-64:                                               ; preds = %60
+63:                                               ; preds = %59
   invoke void @__cxa_rethrow() #20
-          to label %71 unwind label %65
+          to label %70 unwind label %64
 
-65:                                               ; preds = %64, %60
-  %66 = landingpad { ptr, i32 }
+64:                                               ; preds = %63, %59
+  %65 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %67 unwind label %68
+          to label %66 unwind label %67
 
-67:                                               ; preds = %65
-  resume { ptr, i32 } %66
+66:                                               ; preds = %64
+  resume { ptr, i32 } %65
 
-68:                                               ; preds = %65
-  %69 = landingpad { ptr, i32 }
+67:                                               ; preds = %64
+  %68 = landingpad { ptr, i32 }
           catch ptr null
-  %70 = extractvalue { ptr, i32 } %69, 0
-  tail call void @__clang_call_terminate(ptr %70) #24
+  %69 = extractvalue { ptr, i32 } %68, 0
+  tail call void @__clang_call_terminate(ptr %69) #24
   unreachable
 
-71:                                               ; preds = %64
+70:                                               ; preds = %63
   unreachable
 
 _ZSt22__uninitialized_copy_aIPKN6casadi6MatrixIdEEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit: ; preds = %_ZSt10_ConstructIN6casadi6MatrixIdEEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i, %_ZSt4copyIPKN6casadi6MatrixIdEEPS2_ET0_T_S7_S6_.exit23
-  %.0.lcssa.i.i.i.i = phi ptr [ %57, %_ZSt4copyIPKN6casadi6MatrixIdEEPS2_ET0_T_S7_S6_.exit23 ], [ %59, %_ZSt10_ConstructIN6casadi6MatrixIdEEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i ]
+  %.0.lcssa.i.i.i.i = phi ptr [ %56, %_ZSt4copyIPKN6casadi6MatrixIdEEPS2_ET0_T_S7_S6_.exit23 ], [ %58, %_ZSt10_ConstructIN6casadi6MatrixIdEEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i ]
   store ptr %.0.lcssa.i.i.i.i, ptr %31, align 8
   br label %_ZNSt6vectorIN6casadi6MatrixIdEESaIS2_EE15_M_erase_at_endEPS2_.exit
 

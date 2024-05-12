@@ -401,7 +401,7 @@ for.inc:                                          ; preds = %for.body
 
 if.end8:                                          ; preds = %for.inc
   %cmp9 = icmp eq i64 %7, 0
-  br i1 %cmp9, label %if.then10, label %if.end13
+  br i1 %cmp9, label %if.then10, label %for.body19.lr.ph
 
 if.end8.thread:                                   ; preds = %if.then
   %cmp978 = icmp eq i32 %call, 0
@@ -414,15 +414,12 @@ if.then10:                                        ; preds = %if.end8.thread, %la
   store ptr null, ptr %agg.result, align 8, !alias.scope !14
   br label %return
 
-if.end13:                                         ; preds = %if.end8
-  br i1 %cmp468.not, label %if.end13.for.end23_crit_edge, label %for.body19.lr.ph
-
-if.end13.for.end23_crit_edge:                     ; preds = %if.end8.thread, %if.end13
+if.end13.for.end23_crit_edge:                     ; preds = %if.end8.thread
   %_M_finish.i24.phi.trans.insert = getelementptr inbounds i8, ptr %strides, i64 8
   %.pre76 = load ptr, ptr %_M_finish.i24.phi.trans.insert, align 8
   br label %for.end23
 
-for.body19.lr.ph:                                 ; preds = %if.end13
+for.body19.lr.ph:                                 ; preds = %if.end8
   %_M_finish.i21 = getelementptr inbounds i8, ptr %strides, i64 8
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %strides, i64 16
   %.pre = load ptr, ptr %_M_finish.i21, align 8

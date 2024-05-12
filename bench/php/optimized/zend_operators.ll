@@ -11825,9 +11825,7 @@ define ptr @zend_memnstr_ex(ptr noundef %0, ptr nocapture noundef readonly %1, i
   %21 = sub i64 0, %2
   %22 = getelementptr inbounds i8, ptr %3, i64 %21
   %.not66 = icmp ult ptr %22, %0
-  %brmerge = or i1 %.not66, %.not
-  %.mux = select i1 %.not66, ptr null, ptr %0
-  br i1 %brmerge, label %.loopexit, label %.preheader.us
+  br i1 %.not66, label %.loopexit, label %.preheader.us
 
 ._crit_edge.thread:                               ; preds = %.preheader57
   %.not6683 = icmp ult ptr %3, %0
@@ -11872,7 +11870,7 @@ define ptr @zend_memnstr_ex(ptr noundef %0, ptr nocapture noundef readonly %1, i
   br i1 %exitcond82.not, label %.loopexit, label %23
 
 .loopexit:                                        ; preds = %._crit_edge63.us, %29, %31, %39, %._crit_edge.thread, %._crit_edge, %4
-  %.050 = phi ptr [ null, %4 ], [ %.mux, %._crit_edge ], [ %spec.select, %._crit_edge.thread ], [ %.067.us, %39 ], [ %.067.us, %._crit_edge63.us ], [ null, %29 ], [ null, %31 ]
+  %.050 = phi ptr [ null, %4 ], [ null, %._crit_edge ], [ %spec.select, %._crit_edge.thread ], [ %.067.us, %39 ], [ %.067.us, %._crit_edge63.us ], [ null, %29 ], [ null, %31 ]
   ret ptr %.050
 }
 

@@ -14096,28 +14096,26 @@ define internal fastcc range(i32 -902, 1) i32 @session_pack_extension(ptr nounde
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i64 %11(ptr noundef %0, ptr noundef %6, i64 noundef %spec.select, ptr noundef %1, ptr noundef %13) #19
   %15 = icmp eq i64 %14, -535
-  br i1 %15, label %25, label %16
+  br i1 %15, label %24, label %16
 
 16:                                               ; preds = %2
-  %17 = icmp slt i64 %14, 0
-  %18 = icmp ugt i64 %14, %spec.select
-  %or.cond = or i1 %17, %18
-  br i1 %or.cond, label %25, label %19
+  %17 = icmp ugt i64 %14, %spec.select
+  br i1 %17, label %24, label %18
 
-19:                                               ; preds = %16
+18:                                               ; preds = %16
   store i64 %14, ptr %1, align 8
-  %20 = load ptr, ptr %5, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 %14
-  store ptr %21, ptr %5, align 8
-  %22 = getelementptr inbounds i8, ptr %.0.val, i64 24
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 -9
-  store ptr %24, ptr %22, align 8
-  tail call void @nghttp2_frame_pack_frame_hd(ptr noundef nonnull %24, ptr noundef nonnull %1) #19
-  br label %25
+  %19 = load ptr, ptr %5, align 8
+  %20 = getelementptr inbounds i8, ptr %19, i64 %14
+  store ptr %20, ptr %5, align 8
+  %21 = getelementptr inbounds i8, ptr %.0.val, i64 24
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds i8, ptr %22, i64 -9
+  store ptr %23, ptr %21, align 8
+  tail call void @nghttp2_frame_pack_frame_hd(ptr noundef nonnull %23, ptr noundef nonnull %1) #19
+  br label %24
 
-25:                                               ; preds = %16, %2, %19
-  %.0 = phi i32 [ 0, %19 ], [ -535, %2 ], [ -902, %16 ]
+24:                                               ; preds = %16, %2, %18
+  %.0 = phi i32 [ 0, %18 ], [ -535, %2 ], [ -902, %16 ]
   ret i32 %.0
 }
 

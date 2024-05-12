@@ -1858,23 +1858,23 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr nocapture noundef %0, 
   store i32 -1, ptr %13, align 4
   %14 = load i32, ptr %2, align 8
   %15 = add i32 %14, -24
-  %.not411 = icmp eq i32 %15, 0
+  %.not410 = icmp eq i32 %15, 0
   %16 = getelementptr i8, ptr %1, i64 88
-  br i1 %.not411, label %._crit_edge408.thread, label %.lr.ph399.preheader
+  br i1 %.not410, label %._crit_edge407.thread, label %.lr.ph398.preheader
 
-.lr.ph399.preheader:                              ; preds = %5
+.lr.ph398.preheader:                              ; preds = %5
   %17 = getelementptr i8, ptr %2, i64 24
-  br label %.lr.ph399
+  br label %.lr.ph398
 
-.lr.ph399:                                        ; preds = %.lr.ph399.preheader, %209
-  %18 = phi i32 [ %210, %209 ], [ -1, %.lr.ph399.preheader ]
-  %.0235397 = phi ptr [ %.4, %209 ], [ %17, %.lr.ph399.preheader ]
-  %.0240396 = phi i32 [ %.4244, %209 ], [ %15, %.lr.ph399.preheader ]
-  %.0246395 = phi i32 [ %.2248, %209 ], [ 0, %.lr.ph399.preheader ]
-  %.0250394 = phi ptr [ %.2252, %209 ], [ null, %.lr.ph399.preheader ]
-  %.0.copyload75 = load i8, ptr %.0235397, align 1
-  %19 = getelementptr i8, ptr %.0235397, i64 1
-  %20 = add i32 %.0240396, -1
+.lr.ph398:                                        ; preds = %.lr.ph398.preheader, %209
+  %18 = phi i32 [ %210, %209 ], [ -1, %.lr.ph398.preheader ]
+  %.0235396 = phi ptr [ %.4, %209 ], [ %17, %.lr.ph398.preheader ]
+  %.0240395 = phi i32 [ %.4244, %209 ], [ %15, %.lr.ph398.preheader ]
+  %.0246394 = phi i32 [ %.2248, %209 ], [ 0, %.lr.ph398.preheader ]
+  %.0250393 = phi ptr [ %.2252, %209 ], [ null, %.lr.ph398.preheader ]
+  %.0.copyload75 = load i8, ptr %.0235396, align 1
+  %19 = getelementptr i8, ptr %.0235396, i64 1
+  %20 = add i32 %.0240395, -1
   %21 = zext i8 %.0.copyload75 to i32
   switch i8 %.0.copyload75, label %47 [
     i8 -1, label %22
@@ -1883,64 +1883,64 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr nocapture noundef %0, 
     i8 -4, label %41
   ]
 
-22:                                               ; preds = %.lr.ph399
+22:                                               ; preds = %.lr.ph398
   %23 = icmp eq i32 %20, 0
-  br i1 %23, label %.loopexit292, label %24
+  br i1 %23, label %.loopexit291, label %24
 
 24:                                               ; preds = %22
   %.0.copyload72 = load i8, ptr %19, align 1
-  %25 = getelementptr i8, ptr %.0235397, i64 2
-  %26 = add i32 %.0240396, -2
+  %25 = getelementptr i8, ptr %.0235396, i64 2
+  %26 = add i32 %.0240395, -2
   %27 = zext i8 %.0.copyload72 to i32
   store i32 %27, ptr %12, align 8
-  %28 = add i32 %.0246395, %27
+  %28 = add i32 %.0246394, %27
   br label %.loopexit
 
-29:                                               ; preds = %.lr.ph399
-  %30 = icmp ult i32 %.0240396, 5
-  br i1 %30, label %.loopexit292, label %31
+29:                                               ; preds = %.lr.ph398
+  %30 = icmp ult i32 %.0240395, 5
+  br i1 %30, label %.loopexit291, label %31
 
 31:                                               ; preds = %29
   %.0.copyload69 = load i32, ptr %19, align 1
-  %32 = getelementptr i8, ptr %.0235397, i64 5
-  %33 = add i32 %.0240396, -5
+  %32 = getelementptr i8, ptr %.0235396, i64 5
+  %33 = add i32 %.0240395, -5
   store i32 %.0.copyload69, ptr %12, align 8
-  %34 = add i32 %.0.copyload69, %.0246395
+  %34 = add i32 %.0.copyload69, %.0246394
   br label %.loopexit
 
-35:                                               ; preds = %.lr.ph399
-  %36 = icmp ult i32 %.0240396, 3
-  br i1 %36, label %.loopexit292, label %37
+35:                                               ; preds = %.lr.ph398
+  %36 = icmp ult i32 %.0240395, 3
+  br i1 %36, label %.loopexit291, label %37
 
 37:                                               ; preds = %35
   %38 = load i16, ptr %19, align 1
   store i16 %38, ptr %9, align 8
-  %39 = getelementptr i8, ptr %.0235397, i64 3
-  %40 = add i32 %.0240396, -3
+  %39 = getelementptr i8, ptr %.0235396, i64 3
+  %40 = add i32 %.0240395, -3
   br label %209
 
-41:                                               ; preds = %.lr.ph399
-  %42 = icmp ult i32 %.0240396, 5
-  br i1 %42, label %.loopexit292, label %43
+41:                                               ; preds = %.lr.ph398
+  %42 = icmp ult i32 %.0240395, 5
+  br i1 %42, label %.loopexit291, label %43
 
 43:                                               ; preds = %41
   %44 = load i32, ptr %19, align 1
   store i32 %44, ptr %10, align 4
-  %45 = getelementptr i8, ptr %.0235397, i64 5
-  %46 = add i32 %.0240396, -5
+  %45 = getelementptr i8, ptr %.0235396, i64 5
+  %46 = add i32 %.0240395, -5
   br label %209
 
-47:                                               ; preds = %.lr.ph399
+47:                                               ; preds = %.lr.ph398
   %48 = icmp ult i8 %.0.copyload75, 33
   br i1 %48, label %49, label %203
 
 49:                                               ; preds = %47
-  %.0254391 = add nsw i32 %18, 1
-  %50 = icmp slt i32 %.0254391, %21
+  %.0254390 = add nsw i32 %18, 1
+  %50 = icmp slt i32 %.0254390, %21
   br i1 %50, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %49
-  %51 = zext nneg i32 %.0254391 to i64
+  %51 = zext nneg i32 %.0254390 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -1973,7 +1973,7 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr nocapture noundef %0, 
   %62 = getelementptr inbounds i8, ptr %61, i64 30
   store i8 0, ptr %62, align 2
   %63 = icmp eq i32 %20, 0
-  br i1 %63, label %.loopexit292, label %64
+  br i1 %63, label %.loopexit291, label %64
 
 64:                                               ; preds = %59
   %.0.copyload = load i8, ptr %19, align 1
@@ -1989,21 +1989,21 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr nocapture noundef %0, 
   store i8 %.lobit, ptr %69, align 1
   %71 = getelementptr inbounds i8, ptr %61, i64 47
   %72 = lshr i8 %.0.copyload, 5
-  %.lobit271 = and i8 %72, 1
-  store i8 %.lobit271, ptr %71, align 1
+  %.lobit270 = and i8 %72, 1
+  store i8 %.lobit270, ptr %71, align 1
   %73 = getelementptr inbounds i8, ptr %61, i64 24
   store i32 0, ptr %73, align 8
-  %74 = and i32 %.0240396, -2
+  %74 = and i32 %.0240395, -2
   %75 = icmp eq i32 %74, 2
-  br i1 %75, label %.loopexit292, label %76
+  br i1 %75, label %.loopexit291, label %76
 
 76:                                               ; preds = %64
-  %77 = getelementptr i8, ptr %.0235397, i64 2
+  %77 = getelementptr i8, ptr %.0235396, i64 2
   %78 = getelementptr inbounds i8, ptr %61, i64 56
   %79 = load i16, ptr %77, align 1
   store i16 %79, ptr %78, align 8
-  %80 = getelementptr i8, ptr %.0235397, i64 4
-  %81 = add i32 %.0240396, -4
+  %80 = getelementptr i8, ptr %.0235396, i64 4
+  %81 = add i32 %.0240395, -4
   %82 = trunc i8 %72 to i1
   %83 = icmp eq i16 %79, 0
   br i1 %82, label %84, label %91
@@ -2035,59 +2035,59 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr nocapture noundef %0, 
 
 .thread:                                          ; preds = %84, %91
   %99 = zext i16 %79 to i32
-  %100 = add i32 %.0246395, %99
+  %100 = add i32 %.0246394, %99
   %101 = trunc i8 %70 to i1
   br i1 %101, label %102, label %179
 
 102:                                              ; preds = %.thread
   %103 = icmp ult i32 %81, 2
-  br i1 %103, label %.loopexit292, label %104
+  br i1 %103, label %.loopexit291, label %104
 
 104:                                              ; preds = %102
   %105 = getelementptr inbounds i8, ptr %61, i64 44
   %106 = load i16, ptr %80, align 1
   store i16 %106, ptr %105, align 4
   %107 = icmp eq i32 %74, 6
-  br i1 %107, label %.loopexit292, label %108
+  br i1 %107, label %.loopexit291, label %108
 
 108:                                              ; preds = %104
-  %109 = getelementptr i8, ptr %.0235397, i64 6
+  %109 = getelementptr i8, ptr %.0235396, i64 6
   %110 = getelementptr inbounds i8, ptr %61, i64 40
   %111 = load i16, ptr %109, align 1
   store i16 %111, ptr %110, align 8
-  %112 = icmp eq i32 %.0240396, 8
-  br i1 %112, label %.loopexit292, label %113
+  %112 = icmp eq i32 %.0240395, 8
+  br i1 %112, label %.loopexit291, label %113
 
 113:                                              ; preds = %108
-  %114 = getelementptr i8, ptr %.0235397, i64 8
+  %114 = getelementptr i8, ptr %.0235396, i64 8
   %115 = getelementptr inbounds i8, ptr %61, i64 46
   %116 = load i8, ptr %114, align 1
   store i8 %116, ptr %115, align 2
-  %117 = getelementptr i8, ptr %.0235397, i64 9
-  %118 = add i32 %.0240396, -9
+  %117 = getelementptr i8, ptr %.0235396, i64 9
+  %118 = add i32 %.0240395, -9
   %119 = lshr i8 %116, 1
-  %.lobit273 = and i8 %119, 1
-  store i8 %.lobit273, ptr %62, align 2
+  %.lobit272 = and i8 %119, 1
+  store i8 %.lobit272, ptr %62, align 2
   %120 = zext i8 %116 to i32
   %121 = and i32 %120, 28
-  %.not274 = icmp eq i32 %121, 0
-  br i1 %.not274, label %133, label %122
+  %.not273 = icmp eq i32 %121, 0
+  br i1 %.not273, label %133, label %122
 
 122:                                              ; preds = %113
   %123 = and i32 %120, 1
-  %.not275 = icmp eq i32 %123, 0
-  br i1 %.not275, label %131, label %124
+  %.not274 = icmp eq i32 %123, 0
+  br i1 %.not274, label %131, label %124
 
 124:                                              ; preds = %122
   %125 = icmp ult i32 %118, 2
-  br i1 %125, label %.loopexit292, label %126
+  br i1 %125, label %.loopexit291, label %126
 
 126:                                              ; preds = %124
   %127 = getelementptr inbounds i8, ptr %61, i64 42
   %128 = load i16, ptr %117, align 1
   store i16 %128, ptr %127, align 2
-  %129 = getelementptr i8, ptr %.0235397, i64 11
-  %130 = add i32 %.0240396, -11
+  %129 = getelementptr i8, ptr %.0235396, i64 11
+  %130 = add i32 %.0240395, -11
   br label %136
 
 131:                                              ; preds = %122
@@ -2108,18 +2108,18 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr nocapture noundef %0, 
   %138 = zext i16 %106 to i32
   %139 = add i32 %100, %138
   %140 = and i8 %116, 1
-  %.not276 = icmp eq i8 %140, 0
-  %.not278 = icmp eq i16 %111, 0
-  br i1 %.not276, label %153, label %141
+  %.not275 = icmp eq i8 %140, 0
+  %.not277 = icmp eq i16 %111, 0
+  br i1 %.not275, label %153, label %141
 
 141:                                              ; preds = %136
-  br i1 %.not278, label %145, label %142
+  br i1 %.not277, label %145, label %142
 
 142:                                              ; preds = %141
   %143 = icmp eq i16 %137, 0
   %144 = icmp eq i16 %106, 8192
   %or.cond = select i1 %143, i1 true, i1 %144
-  br i1 %or.cond, label %145, label %.thread507
+  br i1 %or.cond, label %145, label %.thread506
 
 145:                                              ; preds = %142, %141
   %146 = zext i16 %111 to i32
@@ -2133,9 +2133,9 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr nocapture noundef %0, 
   br label %277
 
 153:                                              ; preds = %136
-  %.not279 = icmp eq i16 %137, 0
-  %or.cond633 = select i1 %.not278, i1 %.not279, i1 false
-  br i1 %or.cond633, label %162, label %154
+  %.not278 = icmp eq i16 %137, 0
+  %or.cond632 = select i1 %.not277, i1 %.not278, i1 false
+  br i1 %or.cond632, label %162, label %154
 
 154:                                              ; preds = %153
   %155 = zext i16 %111 to i32
@@ -2150,10 +2150,10 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr nocapture noundef %0, 
 
 162:                                              ; preds = %153
   %163 = and i8 %116, 28
-  %.not280 = icmp ne i8 %163, 0
+  %.not279 = icmp ne i8 %163, 0
   %164 = icmp eq i16 %106, 8192
-  %or.cond290 = select i1 %.not280, i1 %164, i1 false
-  br i1 %or.cond290, label %165, label %.thread507
+  %or.cond289 = select i1 %.not279, i1 %164, i1 false
+  br i1 %or.cond289, label %165, label %.thread506
 
 165:                                              ; preds = %162
   %166 = getelementptr inbounds i8, ptr %0, i64 40
@@ -2164,14 +2164,14 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr nocapture noundef %0, 
   tail call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %0, ptr noundef nonnull @.str.12, i32 noundef 8192, i32 noundef %169, i32 noundef %170)
   br label %277
 
-.thread507:                                       ; preds = %142, %162
+.thread506:                                       ; preds = %142, %162
   %171 = phi i1 [ %164, %162 ], [ false, %142 ]
   %172 = and i8 %116, 29
-  %or.cond288 = icmp ne i8 %172, 0
-  %or.cond291 = select i1 %or.cond288, i1 true, i1 %171
-  br i1 %or.cond291, label %179, label %173
+  %or.cond287 = icmp ne i8 %172, 0
+  %or.cond290 = select i1 %or.cond287, i1 true, i1 %171
+  br i1 %or.cond290, label %179, label %173
 
-173:                                              ; preds = %.thread507
+173:                                              ; preds = %.thread506
   %174 = getelementptr inbounds i8, ptr %0, i64 40
   %175 = load i64, ptr %174, align 8
   %176 = lshr i64 %175, 32
@@ -2180,16 +2180,16 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr nocapture noundef %0, 
   tail call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %0, ptr noundef nonnull @.str.13, i32 noundef %99, i32 noundef %177, i32 noundef %178)
   br label %277
 
-179:                                              ; preds = %.thread507, %.thread
-  %.1247 = phi i32 [ %139, %.thread507 ], [ %100, %.thread ]
-  %.2242 = phi i32 [ %.1241, %.thread507 ], [ %81, %.thread ]
-  %.2 = phi ptr [ %.1, %.thread507 ], [ %80, %.thread ]
-  %.not284 = icmp sgt i8 %.0.copyload, -1
-  br i1 %.not284, label %180, label %186
+179:                                              ; preds = %.thread506, %.thread
+  %.1247 = phi i32 [ %139, %.thread506 ], [ %100, %.thread ]
+  %.2242 = phi i32 [ %.1241, %.thread506 ], [ %81, %.thread ]
+  %.2 = phi ptr [ %.1, %.thread506 ], [ %80, %.thread ]
+  %.not283 = icmp sgt i8 %.0.copyload, -1
+  br i1 %.not283, label %180, label %186
 
 180:                                              ; preds = %179
   %181 = icmp ult i32 %.2242, 12
-  br i1 %181, label %.loopexit292, label %182
+  br i1 %181, label %.loopexit291, label %182
 
 182:                                              ; preds = %180
   %183 = getelementptr inbounds i8, ptr %61, i64 4
@@ -2199,7 +2199,7 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr nocapture noundef %0, 
   br label %196
 
 186:                                              ; preds = %179
-  %187 = icmp eq ptr %.0250394, null
+  %187 = icmp eq ptr %.0250393, null
   br i1 %187, label %188, label %194
 
 188:                                              ; preds = %186
@@ -2213,15 +2213,15 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr nocapture noundef %0, 
 
 194:                                              ; preds = %186
   %195 = getelementptr inbounds i8, ptr %61, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %195, ptr noundef nonnull align 4 dereferenceable(12) %.0250394, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %195, ptr noundef nonnull align 4 dereferenceable(12) %.0250393, i64 12, i1 false)
   br label %196
 
 196:                                              ; preds = %182, %194
-  %.1251 = phi ptr [ %.0250394, %194 ], [ %183, %182 ]
+  %.1251 = phi ptr [ %.0250393, %194 ], [ %183, %182 ]
   %.3243 = phi i32 [ %.2242, %194 ], [ %185, %182 ]
   %.3 = phi ptr [ %.2, %194 ], [ %184, %182 ]
   %197 = icmp ult i32 %.3243, 4
-  br i1 %197, label %.loopexit292, label %198
+  br i1 %197, label %.loopexit291, label %198
 
 198:                                              ; preds = %196
   %199 = getelementptr inbounds i8, ptr %61, i64 20
@@ -2242,12 +2242,12 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr nocapture noundef %0, 
 
 209:                                              ; preds = %43, %198, %37
   %210 = phi i32 [ %18, %37 ], [ %18, %43 ], [ %21, %198 ]
-  %.2252 = phi ptr [ %.0250394, %37 ], [ %.0250394, %43 ], [ %.1251, %198 ]
-  %.2248 = phi i32 [ %.0246395, %37 ], [ %.0246395, %43 ], [ %.1247, %198 ]
+  %.2252 = phi ptr [ %.0250393, %37 ], [ %.0250393, %43 ], [ %.1251, %198 ]
+  %.2248 = phi i32 [ %.0246394, %37 ], [ %.0246394, %43 ], [ %.1247, %198 ]
   %.4244 = phi i32 [ %40, %37 ], [ %46, %43 ], [ %202, %198 ]
   %.4 = phi ptr [ %39, %37 ], [ %45, %43 ], [ %201, %198 ]
   %211 = icmp ugt i32 %.4244, %.2248
-  br i1 %211, label %.lr.ph399, label %.loopexit, !llvm.loop !12
+  br i1 %211, label %.lr.ph398, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %209, %31, %24
   %212 = phi i32 [ %27, %24 ], [ %.0.copyload69, %31 ], [ 0, %209 ]
@@ -2255,8 +2255,8 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr nocapture noundef %0, 
   %.3249 = phi i32 [ %28, %24 ], [ %34, %31 ], [ %.2248, %209 ]
   %.5245 = phi i32 [ %26, %24 ], [ %33, %31 ], [ %.4244, %209 ]
   %.5 = phi ptr [ %25, %24 ], [ %32, %31 ], [ %.4, %209 ]
-  %.not285 = icmp eq i32 %.5245, %.3249
-  br i1 %.not285, label %214, label %.loopexit292
+  %.not284 = icmp eq i32 %.5245, %.3249
+  br i1 %.not284, label %214, label %.loopexit291
 
 214:                                              ; preds = %.loopexit
   %215 = getelementptr i8, ptr %1, i64 88
@@ -2264,20 +2264,20 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr nocapture noundef %0, 
   %217 = zext nneg i32 %216 to i64
   %218 = shl nuw nsw i64 %217, 6
   %219 = getelementptr i8, ptr %215, i64 %218
-  %.not286402 = icmp slt i32 %213, 0
-  br i1 %.not286402, label %._crit_edge408, label %.lr.ph407
+  %.not285401 = icmp slt i32 %213, 0
+  br i1 %.not285401, label %._crit_edge407, label %.lr.ph406
 
-.lr.ph407:                                        ; preds = %214, %254
-  %.6405 = phi ptr [ %.8, %254 ], [ %.5, %214 ]
-  %.0236404 = phi ptr [ %.2238, %254 ], [ %219, %214 ]
-  %.0253403 = phi i8 [ %255, %254 ], [ 0, %214 ]
-  %220 = zext i8 %.0253403 to i64
+.lr.ph406:                                        ; preds = %214, %254
+  %.6404 = phi ptr [ %.8, %254 ], [ %.5, %214 ]
+  %.0236403 = phi ptr [ %.2238, %254 ], [ %219, %214 ]
+  %.0253402 = phi i8 [ %255, %254 ], [ 0, %214 ]
+  %220 = zext i8 %.0253402 to i64
   %221 = getelementptr [0 x %struct.DecodedBkpBlock], ptr %215, i64 0, i64 %220
   %222 = load i8, ptr %221, align 8
   %223 = trunc i8 %222 to i1
   br i1 %223, label %224, label %254
 
-224:                                              ; preds = %.lr.ph407
+224:                                              ; preds = %.lr.ph406
   %225 = getelementptr inbounds i8, ptr %221, i64 29
   %226 = load i8, ptr %225, align 1
   %227 = trunc i8 %226 to i1
@@ -2285,20 +2285,20 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr nocapture noundef %0, 
 
 228:                                              ; preds = %224
   %229 = getelementptr inbounds i8, ptr %221, i64 32
-  store ptr %.0236404, ptr %229, align 8
+  store ptr %.0236403, ptr %229, align 8
   %230 = getelementptr inbounds i8, ptr %221, i64 44
   %231 = load i16, ptr %230, align 4
   %232 = zext i16 %231 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0236404, ptr align 1 %.6405, i64 %232, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0236403, ptr align 1 %.6404, i64 %232, i1 false)
   %233 = load i16, ptr %230, align 4
   %234 = zext i16 %233 to i64
-  %235 = getelementptr i8, ptr %.6405, i64 %234
-  %236 = getelementptr i8, ptr %.0236404, i64 %234
+  %235 = getelementptr i8, ptr %.6404, i64 %234
+  %236 = getelementptr i8, ptr %.0236403, i64 %234
   br label %237
 
 237:                                              ; preds = %228, %224
-  %.1237 = phi ptr [ %236, %228 ], [ %.0236404, %224 ]
-  %.7 = phi ptr [ %235, %228 ], [ %.6405, %224 ]
+  %.1237 = phi ptr [ %236, %228 ], [ %.0236403, %224 ]
+  %.7 = phi ptr [ %235, %228 ], [ %.6404, %224 ]
   %238 = getelementptr inbounds i8, ptr %221, i64 47
   %239 = load i8, ptr %238, align 1
   %240 = trunc i8 %239 to i1
@@ -2321,27 +2321,27 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr nocapture noundef %0, 
   %253 = getelementptr i8, ptr %245, i64 %251
   br label %254
 
-254:                                              ; preds = %237, %241, %.lr.ph407
-  %.2238 = phi ptr [ %253, %241 ], [ %.1237, %237 ], [ %.0236404, %.lr.ph407 ]
-  %.8 = phi ptr [ %252, %241 ], [ %.7, %237 ], [ %.6405, %.lr.ph407 ]
-  %255 = add i8 %.0253403, 1
+254:                                              ; preds = %237, %241, %.lr.ph406
+  %.2238 = phi ptr [ %253, %241 ], [ %.1237, %237 ], [ %.0236403, %.lr.ph406 ]
+  %.8 = phi ptr [ %252, %241 ], [ %.7, %237 ], [ %.6404, %.lr.ph406 ]
+  %255 = add i8 %.0253402, 1
   %256 = zext i8 %255 to i32
   %257 = load i32, ptr %13, align 4
-  %.not286 = icmp slt i32 %257, %256
-  br i1 %.not286, label %._crit_edge408.loopexit, label %.lr.ph407, !llvm.loop !13
+  %.not285 = icmp slt i32 %257, %256
+  br i1 %.not285, label %._crit_edge407.loopexit, label %.lr.ph406, !llvm.loop !13
 
-._crit_edge408.loopexit:                          ; preds = %254
+._crit_edge407.loopexit:                          ; preds = %254
   %.pre = load i32, ptr %12, align 8
-  br label %._crit_edge408
+  br label %._crit_edge407
 
-._crit_edge408:                                   ; preds = %._crit_edge408.loopexit, %214
-  %258 = phi i32 [ %212, %214 ], [ %.pre, %._crit_edge408.loopexit ]
-  %.0236.lcssa = phi ptr [ %219, %214 ], [ %.2238, %._crit_edge408.loopexit ]
-  %.6.lcssa = phi ptr [ %.5, %214 ], [ %.8, %._crit_edge408.loopexit ]
-  %.not287 = icmp eq i32 %258, 0
-  br i1 %.not287, label %._crit_edge408.thread, label %259
+._crit_edge407:                                   ; preds = %._crit_edge407.loopexit, %214
+  %258 = phi i32 [ %212, %214 ], [ %.pre, %._crit_edge407.loopexit ]
+  %.0236.lcssa = phi ptr [ %219, %214 ], [ %.2238, %._crit_edge407.loopexit ]
+  %.6.lcssa = phi ptr [ %.5, %214 ], [ %.8, %._crit_edge407.loopexit ]
+  %.not286 = icmp eq i32 %258, 0
+  br i1 %.not286, label %._crit_edge407.thread, label %259
 
-259:                                              ; preds = %._crit_edge408
+259:                                              ; preds = %._crit_edge407
   %260 = ptrtoint ptr %.0236.lcssa to i64
   %261 = add i64 %260, 7
   %262 = and i64 %261, -8
@@ -2352,10 +2352,10 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr nocapture noundef %0, 
   %265 = load i32, ptr %12, align 8
   %266 = zext i32 %265 to i64
   %267 = getelementptr i8, ptr %263, i64 %266
-  br label %._crit_edge408.thread
+  br label %._crit_edge407.thread
 
-._crit_edge408.thread:                            ; preds = %5, %259, %._crit_edge408
-  %.3239 = phi ptr [ %267, %259 ], [ %.0236.lcssa, %._crit_edge408 ], [ %16, %5 ]
+._crit_edge407.thread:                            ; preds = %5, %259, %._crit_edge407
+  %.3239 = phi ptr [ %267, %259 ], [ %.0236.lcssa, %._crit_edge407 ], [ %16, %5 ]
   %268 = ptrtoint ptr %.3239 to i64
   %269 = ptrtoint ptr %1 to i64
   %reass.sub = sub i64 %268, %269
@@ -2364,7 +2364,7 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr nocapture noundef %0, 
   store i64 %271, ptr %1, align 8
   br label %280
 
-.loopexit292:                                     ; preds = %196, %180, %124, %108, %104, %102, %64, %59, %41, %35, %.loopexit, %29, %22
+.loopexit291:                                     ; preds = %196, %180, %124, %108, %104, %102, %64, %59, %41, %35, %.loopexit, %29, %22
   %272 = getelementptr inbounds i8, ptr %0, i64 40
   %273 = load i64, ptr %272, align 8
   %274 = lshr i64 %273, 32
@@ -2373,14 +2373,14 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr nocapture noundef %0, 
   tail call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %0, ptr noundef nonnull @.str.16, i32 noundef %275, i32 noundef %276)
   br label %277
 
-277:                                              ; preds = %.loopexit292, %203, %188, %173, %165, %154, %145, %92, %85, %53
+277:                                              ; preds = %.loopexit291, %203, %188, %173, %165, %154, %145, %92, %85, %53
   %278 = getelementptr inbounds i8, ptr %0, i64 1304
   %279 = load ptr, ptr %278, align 8
   store ptr %279, ptr %4, align 8
   br label %280
 
-280:                                              ; preds = %277, %._crit_edge408.thread
-  %.0 = phi i1 [ false, %277 ], [ true, %._crit_edge408.thread ]
+280:                                              ; preds = %277, %._crit_edge407.thread
+  %.0 = phi i1 [ false, %277 ], [ true, %._crit_edge407.thread ]
   ret i1 %.0
 }
 

@@ -1249,8 +1249,6 @@ if.then.i.i105.i:                                 ; preds = %"_ZN3ue214remove_ed
   %sub.ptr.lhs.cast.i203.i = ptrtoint ptr %capacityMap.sroa.27.5.i to i64
   %sub.ptr.sub.i204.i = sub i64 %sub.ptr.lhs.cast.i203.i, %sub.ptr.lhs.cast.i.i.i98.i
   %sub.ptr.div.i205.i = ashr exact i64 %sub.ptr.sub.i204.i, 3
-  %cmp4.i206.i = icmp ult i64 %sub.ptr.div.i.i.i101.i, 1152921504606846976
-  call void @llvm.assume(i1 %cmp4.i206.i)
   %sub.i207.i = xor i64 %sub.ptr.div.i.i.i101.i, 1152921504606846975
   %cmp6.i208.i = icmp ule i64 %sub.ptr.div.i205.i, %sub.i207.i
   call void @llvm.assume(i1 %cmp6.i208.i)

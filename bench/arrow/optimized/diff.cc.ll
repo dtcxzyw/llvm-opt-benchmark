@@ -5553,6 +5553,7 @@ declare noundef zeroext i1 @_ZNK5arrow8DataType6EqualsERKSt10shared_ptrIS0_Eb(pt
 define linkonce_odr void @_ZN5arrow23QuadraticSpaceMyersDiff4DiffEv(ptr noalias sret(%"class.arrow::Result") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Result.118", align 8
+  %ref.tmp16 = alloca [1 x i64], align 8
   %ref.tmp27 = alloca [1 x i8], align 1
   %base_begin_ = getelementptr inbounds i8, ptr %this, i64 24
   store i64 0, ptr %base_begin_, align 8
@@ -5585,17 +5586,17 @@ if.then:                                          ; preds = %entry
   br label %cleanup
 
 lpad.loopexit:                                    ; preds = %while.body
-  %lpad.loopexit22 = landingpad { ptr, i32 }
+  %lpad.loopexit20 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp:                           ; preds = %while.end, %_ZNSt10unique_ptrIN5arrow15ValueComparatorESt14default_deleteIS1_EED2Ev.exit, %if.then.i, %_ZSt4copyIPKbSt13_Bit_iteratorET0_T_S4_S3_.exit50.i
-  %lpad.loopexit.split-lp23 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp21 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit22, %lpad.loopexit ], [ %lpad.loopexit.split-lp23, %lpad.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit20, %lpad.loopexit ], [ %lpad.loopexit.split-lp21, %lpad.loopexit.split-lp ]
   call void @_ZN5arrow6ResultISt10unique_ptrINS_15ValueComparatorESt14default_deleteIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #19
   resume { ptr, i32 } %lpad.phi
 
@@ -5636,6 +5637,7 @@ _ZNSt10unique_ptrIN5arrow15ValueComparatorESt14default_deleteIS1_EED2Ev.exit: ; 
 
 invoke.cont21:                                    ; preds = %_ZNSt10unique_ptrIN5arrow15ValueComparatorESt14default_deleteIS1_EED2Ev.exit
   %add.i = add nsw i64 %call2.i6, %14
+  store i64 %add.i, ptr %ref.tmp16, align 8
   %endpoint_base_ = getelementptr inbounds i8, ptr %this, i64 80
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %19 = load ptr, ptr %_M_end_of_storage.i.i, align 8
@@ -5670,8 +5672,10 @@ _ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i: ; preds = %if.then.i13.i,
 if.else.i:                                        ; preds = %invoke.cont21
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %21 = load ptr, ptr %_M_finish.i.i, align 8
+  %sub.ptr.lhs.cast.i14.i = ptrtoint ptr %21 to i64
+  %sub.ptr.sub.i16.i = sub i64 %sub.ptr.lhs.cast.i14.i, %sub.ptr.rhs.cast.i.i
   %cmp24.not.i = icmp eq ptr %21, %20
-  br i1 %cmp24.not.i, label %_ZSt22__uninitialized_copy_aIPKlPllET0_T_S4_S3_RSaIT1_E.exit.i, label %if.then25.i
+  br i1 %cmp24.not.i, label %_ZSt4copyIPKlPlET0_T_S4_S3_.exit31.i, label %if.then25.i
 
 if.then25.i:                                      ; preds = %if.else.i
   store i64 %add.i, ptr %20, align 8
@@ -5684,9 +5688,18 @@ invoke.cont.i.i:                                  ; preds = %if.then25.i
   store ptr %add.ptr.i.i.i.i.i.i, ptr %_M_finish.i.i, align 8
   br label %invoke.cont24
 
-_ZSt22__uninitialized_copy_aIPKlPllET0_T_S4_S3_RSaIT1_E.exit.i: ; preds = %if.else.i
-  store i64 %add.i, ptr %21, align 8
-  %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %21, i64 8
+_ZSt4copyIPKlPlET0_T_S4_S3_.exit31.i:             ; preds = %if.else.i
+  %gepdiff = sub nsw i64 8, %sub.ptr.sub.i16.i
+  %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %sub.ptr.sub.i16.i, 8
+  br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKlPllET0_T_S4_S3_RSaIT1_E.exit.i, label %if.then.i.i.i.i.i.i.i.i.i
+
+if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZSt4copyIPKlPlET0_T_S4_S3_.exit31.i
+  %incdec.ptr4.sink.i.i45.i.ptr = getelementptr inbounds i8, ptr %ref.tmp16, i64 %sub.ptr.sub.i16.i
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %21, ptr nonnull align 8 %incdec.ptr4.sink.i.i45.i.ptr, i64 %gepdiff, i1 false)
+  br label %_ZSt22__uninitialized_copy_aIPKlPllET0_T_S4_S3_RSaIT1_E.exit.i
+
+_ZSt22__uninitialized_copy_aIPKlPllET0_T_S4_S3_RSaIT1_E.exit.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i, %_ZSt4copyIPKlPlET0_T_S4_S3_.exit31.i
+  %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %21, i64 %gepdiff
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i, align 8
   br label %invoke.cont24
 
@@ -5717,7 +5730,7 @@ _ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i:       ; preds = %invoke.cont24
   br label %invoke.cont32
 
 if.else.i14:                                      ; preds = %invoke.cont24
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %ref.tmp27, i64 %add.i.i.i
+  %incdec.ptr.i.i.i17 = getelementptr inbounds i8, ptr %ref.tmp27, i64 %add.i.i.i
   %cmp9.i.i.i.i.i22.i = icmp eq i64 %add.i.i.i, 1
   br i1 %cmp9.i.i.i.i.i22.i, label %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i38.i, label %_ZSt4copyIPKbSt13_Bit_iteratorET0_T_S4_S3_.exit50.i
 
@@ -5732,7 +5745,7 @@ _ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i38.i:     ; preds = %if.else.i14
 _ZSt4copyIPKbSt13_Bit_iteratorET0_T_S4_S3_.exit50.i: ; preds = %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i38.i, %if.else.i14
   %retval.sroa.2.0.copyload.i.i = phi i32 [ %retval.sroa.2.0.copyload.i.pre.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i38.i ], [ %23, %if.else.i14 ]
   %retval.sroa.0.0.copyload.i.i = phi ptr [ %retval.sroa.0.0.copyload.i.pre.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i38.i ], [ %22, %if.else.i14 ]
-  invoke void @_ZNSt6vectorIbSaIbEE15_M_insert_rangeIPKbEEvSt13_Bit_iteratorT_S6_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(40) %insert_, ptr %retval.sroa.0.0.copyload.i.i, i32 %retval.sroa.2.0.copyload.i.i, ptr noundef nonnull %incdec.ptr.i.i.i, ptr noundef nonnull %add.ptr.i.i7)
+  invoke void @_ZNSt6vectorIbSaIbEE15_M_insert_rangeIPKbEEvSt13_Bit_iteratorT_S6_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(40) %insert_, ptr %retval.sroa.0.0.copyload.i.i, i32 %retval.sroa.2.0.copyload.i.i, ptr noundef nonnull %incdec.ptr.i.i.i17, ptr noundef nonnull %add.ptr.i.i7)
           to label %invoke.cont32 unwind label %lpad.loopexit.split-lp
 
 invoke.cont32:                                    ; preds = %_ZSt4copyIPKbSt13_Bit_iteratorET0_T_S4_S3_.exit50.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i

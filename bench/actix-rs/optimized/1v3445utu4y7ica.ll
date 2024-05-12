@@ -4350,7 +4350,7 @@ define hidden void @_ZN6brotli3enc26compress_fragment_two_pass13StoreCommands17h
   %23 = getelementptr inbounds i8, ptr %11, i64 336
   store i32 %18, ptr %23, align 4
   call void @_ZN6brotli3enc26compress_fragment_two_pass30BuildAndStoreCommandPrefixCode17h2a0747d4d3175619E(ptr noalias noundef nonnull readonly align 4 %11, i64 noundef 128, ptr noalias noundef nonnull align 1 %13, i64 noundef 128, ptr noalias noundef nonnull align 2 %12, i64 noundef 128, ptr noalias noundef nonnull align 8 dereferenceable(8) %7, ptr noalias noundef nonnull align 1 %8, i64 noundef %9)
-  br i1 %.not68, label %._crit_edge67, label %.lr.ph66
+  br label %.lr.ph66
 
 .lr.ph59:                                         ; preds = %._crit_edge, %79
   %.157 = phi i64 [ %83, %79 ], [ 0, %._crit_edge ]
@@ -4369,7 +4369,7 @@ define hidden void @_ZN6brotli3enc26compress_fragment_two_pass13StoreCommands17h
   call void @_ZN6brotli3enc26compress_fragment_two_pass30BuildAndStoreCommandPrefixCode17h2a0747d4d3175619E(ptr noalias noundef nonnull readonly align 4 %11, i64 noundef 128, ptr noalias noundef nonnull align 1 %13, i64 noundef 128, ptr noalias noundef nonnull align 2 %12, i64 noundef 128, ptr noalias noundef nonnull align 8 dereferenceable(8) %7, ptr noalias noundef nonnull align 1 %8, i64 noundef %9)
   br label %._crit_edge67
 
-._crit_edge67:                                    ; preds = %49, %._crit_edge67.critedge, %._crit_edge60.loopexit
+._crit_edge67:                                    ; preds = %49, %._crit_edge67.critedge
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %13)

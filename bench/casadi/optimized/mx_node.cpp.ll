@@ -53201,8 +53201,8 @@ _ZNK6casadi6MXNode3depEx.exit:                    ; preds = %5
 
 .lr.ph53.split.us:                                ; preds = %.lr.ph53, %_ZSt4fillIPyiEvT_S1_RKT0_.exit.us
   %.052.us = phi ptr [ %26, %_ZSt4fillIPyiEvT_S1_RKT0_.exit.us ], [ %20, %.lr.ph53 ]
-  %.04151.us = phi i64 [ %28, %_ZSt4fillIPyiEvT_S1_RKT0_.exit.us ], [ 0, %.lr.ph53 ]
-  %.04250.us = phi ptr [ %45, %_ZSt4fillIPyiEvT_S1_RKT0_.exit.us ], [ %23, %.lr.ph53 ]
+  %.04151.us = phi i64 [ %29, %_ZSt4fillIPyiEvT_S1_RKT0_.exit.us ], [ 0, %.lr.ph53 ]
+  %.04250.us = phi ptr [ %28, %_ZSt4fillIPyiEvT_S1_RKT0_.exit.us ], [ %23, %.lr.ph53 ]
   %26 = getelementptr inbounds i64, ptr %.052.us, i64 %19
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPKyPyET0_T_S4_S3_.exit.us, label %27
 
@@ -53212,52 +53212,46 @@ _ZNK6casadi6MXNode3depEx.exit:                    ; preds = %5
 
 _ZSt4copyIPKyPyET0_T_S4_S3_.exit.us:              ; preds = %27, %.lr.ph53.split.us
   %.pre = load i64, ptr %17, align 8
-  br label %29
+  br label %30
 
-_ZSt4fillIPyiEvT_S1_RKT0_.exit.us:                ; preds = %.lr.ph.i.i.i.us.preheader, %._crit_edge.us
+_ZSt4fillIPyiEvT_S1_RKT0_.exit.us:                ; preds = %.loopexit.us
+  %28 = getelementptr i64, ptr %.04250.us, i64 %19
+  tail call void @llvm.memset.p0.i64(ptr align 8 %.04250.us, i8 0, i64 %.idx, i1 false)
   tail call void @_ZNK6casadi8Sparsity7spsolveEPyS1_b(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef %.04250.us, ptr noundef %4, i1 noundef zeroext true)
-  %28 = add nuw nsw i64 %.04151.us, 1
-  %exitcond72.not = icmp eq i64 %28, %12
+  %29 = add nuw nsw i64 %.04151.us, 1
+  %exitcond72.not = icmp eq i64 %29, %12
   br i1 %exitcond72.not, label %._crit_edge54, label %.lr.ph53.split.us, !llvm.loop !588
 
-29:                                               ; preds = %_ZSt4copyIPKyPyET0_T_S4_S3_.exit.us, %.loopexit.us
-  %30 = phi i64 [ %.pre, %_ZSt4copyIPKyPyET0_T_S4_S3_.exit.us ], [ %43, %.loopexit.us ]
-  %.04048.us = phi i64 [ 0, %_ZSt4copyIPKyPyET0_T_S4_S3_.exit.us ], [ %31, %.loopexit.us ]
-  %31 = add nuw nsw i64 %.04048.us, 1
-  %32 = getelementptr inbounds i64, ptr %17, i64 %31
-  %33 = load i64, ptr %32, align 8
-  %34 = icmp slt i64 %30, %33
-  br i1 %34, label %.lr.ph.us, label %.loopexit.us
+30:                                               ; preds = %_ZSt4copyIPKyPyET0_T_S4_S3_.exit.us, %.loopexit.us
+  %31 = phi i64 [ %.pre, %_ZSt4copyIPKyPyET0_T_S4_S3_.exit.us ], [ %44, %.loopexit.us ]
+  %.04048.us = phi i64 [ 0, %_ZSt4copyIPKyPyET0_T_S4_S3_.exit.us ], [ %32, %.loopexit.us ]
+  %32 = add nuw nsw i64 %.04048.us, 1
+  %33 = getelementptr inbounds i64, ptr %17, i64 %32
+  %34 = load i64, ptr %33, align 8
+  %35 = icmp slt i64 %31, %34
+  br i1 %35, label %.lr.ph.us, label %.loopexit.us
 
-35:                                               ; preds = %.lr.ph.us, %35
-  %36 = phi i64 [ %.pre73, %.lr.ph.us ], [ %39, %35 ]
-  %.03947.us = phi i64 [ %30, %.lr.ph.us ], [ %40, %35 ]
-  %37 = getelementptr inbounds i64, ptr %22, i64 %.03947.us
-  %38 = load i64, ptr %37, align 8
-  %39 = or i64 %36, %38
-  store i64 %39, ptr %44, align 8
-  %40 = add nsw i64 %.03947.us, 1
-  %41 = load i64, ptr %32, align 8
-  %42 = icmp slt i64 %40, %41
-  br i1 %42, label %35, label %.loopexit.us, !llvm.loop !589
+36:                                               ; preds = %.lr.ph.us, %36
+  %37 = phi i64 [ %.pre73, %.lr.ph.us ], [ %40, %36 ]
+  %.03947.us = phi i64 [ %31, %.lr.ph.us ], [ %41, %36 ]
+  %38 = getelementptr inbounds i64, ptr %22, i64 %.03947.us
+  %39 = load i64, ptr %38, align 8
+  %40 = or i64 %37, %39
+  store i64 %40, ptr %45, align 8
+  %41 = add nsw i64 %.03947.us, 1
+  %42 = load i64, ptr %33, align 8
+  %43 = icmp slt i64 %41, %42
+  br i1 %43, label %36, label %.loopexit.us, !llvm.loop !589
 
-.loopexit.us:                                     ; preds = %35, %29
-  %43 = phi i64 [ %33, %29 ], [ %41, %35 ]
-  %exitcond71.not = icmp eq i64 %31, %19
-  br i1 %exitcond71.not, label %._crit_edge.us, label %29, !llvm.loop !590
+.loopexit.us:                                     ; preds = %36, %30
+  %44 = phi i64 [ %34, %30 ], [ %42, %36 ]
+  %exitcond71.not = icmp eq i64 %32, %19
+  br i1 %exitcond71.not, label %_ZSt4fillIPyiEvT_S1_RKT0_.exit.us, label %30, !llvm.loop !590
 
-.lr.ph.us:                                        ; preds = %29
-  %44 = getelementptr inbounds i64, ptr %4, i64 %.04048.us
-  %.pre73 = load i64, ptr %44, align 8
-  br label %35
-
-._crit_edge.us:                                   ; preds = %.loopexit.us
-  %45 = getelementptr i64, ptr %.04250.us, i64 %19
-  br i1 %.not.i.i.i.i.i, label %_ZSt4fillIPyiEvT_S1_RKT0_.exit.us, label %.lr.ph.i.i.i.us.preheader
-
-.lr.ph.i.i.i.us.preheader:                        ; preds = %._crit_edge.us
-  tail call void @llvm.memset.p0.i64(ptr align 8 %.04250.us, i8 0, i64 %.idx, i1 false)
-  br label %_ZSt4fillIPyiEvT_S1_RKT0_.exit.us
+.lr.ph.us:                                        ; preds = %30
+  %45 = getelementptr inbounds i64, ptr %4, i64 %.04048.us
+  %.pre73 = load i64, ptr %45, align 8
+  br label %36
 
 .lr.ph53.split:                                   ; preds = %.lr.ph53
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPKyPyET0_T_S4_S3_.exit.us58.us, label %_ZSt4copyIPKyPyET0_T_S4_S3_.exit
@@ -57091,8 +57085,8 @@ _ZNK6casadi6MXNode3depEx.exit:                    ; preds = %5
 
 .lr.ph53.split.us:                                ; preds = %.lr.ph53, %_ZSt4fillIPyiEvT_S1_RKT0_.exit.us
   %.052.us = phi ptr [ %26, %_ZSt4fillIPyiEvT_S1_RKT0_.exit.us ], [ %20, %.lr.ph53 ]
-  %.04151.us = phi i64 [ %28, %_ZSt4fillIPyiEvT_S1_RKT0_.exit.us ], [ 0, %.lr.ph53 ]
-  %.04250.us = phi ptr [ %46, %_ZSt4fillIPyiEvT_S1_RKT0_.exit.us ], [ %23, %.lr.ph53 ]
+  %.04151.us = phi i64 [ %29, %_ZSt4fillIPyiEvT_S1_RKT0_.exit.us ], [ 0, %.lr.ph53 ]
+  %.04250.us = phi ptr [ %28, %_ZSt4fillIPyiEvT_S1_RKT0_.exit.us ], [ %23, %.lr.ph53 ]
   %26 = getelementptr inbounds i64, ptr %.052.us, i64 %19
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPKyPyET0_T_S4_S3_.exit.us, label %27
 
@@ -57102,50 +57096,44 @@ _ZNK6casadi6MXNode3depEx.exit:                    ; preds = %5
 
 _ZSt4copyIPKyPyET0_T_S4_S3_.exit.us:              ; preds = %27, %.lr.ph53.split.us
   %.pre = load i64, ptr %17, align 8
-  br label %29
+  br label %30
 
-_ZSt4fillIPyiEvT_S1_RKT0_.exit.us:                ; preds = %.lr.ph.i.i.i.us.preheader, %._crit_edge.us
+_ZSt4fillIPyiEvT_S1_RKT0_.exit.us:                ; preds = %.loopexit.us
+  %28 = getelementptr i64, ptr %.04250.us, i64 %19
+  tail call void @llvm.memset.p0.i64(ptr align 8 %.04250.us, i8 0, i64 %.idx, i1 false)
   tail call void @_ZNK6casadi8Sparsity7spsolveEPyS1_b(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef %.04250.us, ptr noundef %4, i1 noundef zeroext false)
-  %28 = add nuw nsw i64 %.04151.us, 1
-  %exitcond72.not = icmp eq i64 %28, %12
+  %29 = add nuw nsw i64 %.04151.us, 1
+  %exitcond72.not = icmp eq i64 %29, %12
   br i1 %exitcond72.not, label %._crit_edge54, label %.lr.ph53.split.us, !llvm.loop !625
 
-29:                                               ; preds = %_ZSt4copyIPKyPyET0_T_S4_S3_.exit.us, %.loopexit.us
-  %30 = phi i64 [ %.pre, %_ZSt4copyIPKyPyET0_T_S4_S3_.exit.us ], [ %45, %.loopexit.us ]
-  %.04048.us = phi i64 [ 0, %_ZSt4copyIPKyPyET0_T_S4_S3_.exit.us ], [ %31, %.loopexit.us ]
-  %31 = add nuw nsw i64 %.04048.us, 1
-  %32 = getelementptr inbounds i64, ptr %17, i64 %31
-  %33 = load i64, ptr %32, align 8
-  %34 = icmp slt i64 %30, %33
-  br i1 %34, label %.lr.ph.us, label %.loopexit.us
+30:                                               ; preds = %_ZSt4copyIPKyPyET0_T_S4_S3_.exit.us, %.loopexit.us
+  %31 = phi i64 [ %.pre, %_ZSt4copyIPKyPyET0_T_S4_S3_.exit.us ], [ %46, %.loopexit.us ]
+  %.04048.us = phi i64 [ 0, %_ZSt4copyIPKyPyET0_T_S4_S3_.exit.us ], [ %32, %.loopexit.us ]
+  %32 = add nuw nsw i64 %.04048.us, 1
+  %33 = getelementptr inbounds i64, ptr %17, i64 %32
+  %34 = load i64, ptr %33, align 8
+  %35 = icmp slt i64 %31, %34
+  br i1 %35, label %.lr.ph.us, label %.loopexit.us
 
-.lr.ph.us:                                        ; preds = %29, %.lr.ph.us
-  %.03947.us = phi i64 [ %42, %.lr.ph.us ], [ %30, %29 ]
-  %35 = getelementptr inbounds i64, ptr %18, i64 %.03947.us
-  %36 = load i64, ptr %35, align 8
-  %37 = getelementptr inbounds i64, ptr %22, i64 %.03947.us
-  %38 = load i64, ptr %37, align 8
-  %39 = getelementptr inbounds i64, ptr %4, i64 %36
-  %40 = load i64, ptr %39, align 8
-  %41 = or i64 %40, %38
-  store i64 %41, ptr %39, align 8
-  %42 = add nsw i64 %.03947.us, 1
-  %43 = load i64, ptr %32, align 8
-  %44 = icmp slt i64 %42, %43
-  br i1 %44, label %.lr.ph.us, label %.loopexit.us, !llvm.loop !626
+.lr.ph.us:                                        ; preds = %30, %.lr.ph.us
+  %.03947.us = phi i64 [ %43, %.lr.ph.us ], [ %31, %30 ]
+  %36 = getelementptr inbounds i64, ptr %18, i64 %.03947.us
+  %37 = load i64, ptr %36, align 8
+  %38 = getelementptr inbounds i64, ptr %22, i64 %.03947.us
+  %39 = load i64, ptr %38, align 8
+  %40 = getelementptr inbounds i64, ptr %4, i64 %37
+  %41 = load i64, ptr %40, align 8
+  %42 = or i64 %41, %39
+  store i64 %42, ptr %40, align 8
+  %43 = add nsw i64 %.03947.us, 1
+  %44 = load i64, ptr %33, align 8
+  %45 = icmp slt i64 %43, %44
+  br i1 %45, label %.lr.ph.us, label %.loopexit.us, !llvm.loop !626
 
-.loopexit.us:                                     ; preds = %.lr.ph.us, %29
-  %45 = phi i64 [ %33, %29 ], [ %43, %.lr.ph.us ]
-  %exitcond71.not = icmp eq i64 %31, %19
-  br i1 %exitcond71.not, label %._crit_edge.us, label %29, !llvm.loop !627
-
-._crit_edge.us:                                   ; preds = %.loopexit.us
-  %46 = getelementptr i64, ptr %.04250.us, i64 %19
-  br i1 %.not.i.i.i.i.i, label %_ZSt4fillIPyiEvT_S1_RKT0_.exit.us, label %.lr.ph.i.i.i.us.preheader
-
-.lr.ph.i.i.i.us.preheader:                        ; preds = %._crit_edge.us
-  tail call void @llvm.memset.p0.i64(ptr align 8 %.04250.us, i8 0, i64 %.idx, i1 false)
-  br label %_ZSt4fillIPyiEvT_S1_RKT0_.exit.us
+.loopexit.us:                                     ; preds = %.lr.ph.us, %30
+  %46 = phi i64 [ %34, %30 ], [ %44, %.lr.ph.us ]
+  %exitcond71.not = icmp eq i64 %32, %19
+  br i1 %exitcond71.not, label %_ZSt4fillIPyiEvT_S1_RKT0_.exit.us, label %30, !llvm.loop !627
 
 .lr.ph53.split:                                   ; preds = %.lr.ph53
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPKyPyET0_T_S4_S3_.exit.us58.us, label %_ZSt4copyIPKyPyET0_T_S4_S3_.exit

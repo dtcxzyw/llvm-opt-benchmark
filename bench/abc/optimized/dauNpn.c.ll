@@ -4081,7 +4081,7 @@ Dau_CountSymms2.exit.thread:                      ; preds = %.lr.ph491
 .loopexit.i:                                      ; preds = %.lr.ph.i435, %.lr.ph20.i
   %.1.lcssa.i = phi i32 [ %.019.i, %.lr.ph20.i ], [ %.2.i, %.lr.ph.i435 ]
   %exitcond22.not.i = icmp eq i32 %83, %81
-  br i1 %exitcond22.not.i, label %Dau_CountSymms2.exit, label %.lr.ph20.i, !llvm.loop !36
+  br i1 %exitcond22.not.i, label %.lr.ph486, label %.lr.ph20.i, !llvm.loop !36
 
 .lr.ph20.i:                                       ; preds = %.lr.ph491, %.loopexit.i
   %.019.i = phi i32 [ %.1.lcssa.i, %.loopexit.i ], [ 0, %.lr.ph491 ]
@@ -4102,13 +4102,10 @@ Dau_CountSymms2.exit.thread:                      ; preds = %.lr.ph491
   %exitcond.not.i436 = icmp eq i32 %88, %81
   br i1 %exitcond.not.i436, label %.loopexit.i, label %.lr.ph.i435, !llvm.loop !37
 
-Dau_CountSymms2.exit:                             ; preds = %.loopexit.i
+.lr.ph486:                                        ; preds = %.loopexit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  br i1 %.not468, label %._crit_edge, label %.lr.ph486
-
-.lr.ph486:                                        ; preds = %Dau_CountSymms2.exit
   %89 = icmp slt i32 %81, %0
   %or.cond = and i1 %.not417, %89
   %90 = zext nneg i32 %81 to i64
@@ -4342,8 +4339,8 @@ Dau_CountSymms2.exit:                             ; preds = %.loopexit.i
   %exitcond533.not = icmp eq i64 %indvars.iv.next530, %90
   br i1 %exitcond533.not, label %._crit_edge, label %93, !llvm.loop !68
 
-._crit_edge:                                      ; preds = %.loopexit472, %Dau_CountSymms2.exit.thread, %Dau_CountSymms2.exit
-  %.2.lcssa = phi i64 [ %.1489, %Dau_CountSymms2.exit ], [ %.1489, %Dau_CountSymms2.exit.thread ], [ %.11, %.loopexit472 ]
+._crit_edge:                                      ; preds = %.loopexit472, %Dau_CountSymms2.exit.thread
+  %.2.lcssa = phi i64 [ %.1489, %Dau_CountSymms2.exit.thread ], [ %.11, %.loopexit472 ]
   %indvars.iv.next535 = add nsw i64 %indvars.iv534, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next535 to i32
   %exitcond537.not = icmp eq i32 %60, %lftr.wideiv

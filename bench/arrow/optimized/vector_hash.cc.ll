@@ -22632,7 +22632,7 @@ if.else:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i16 = sub i64 %sub.ptr.lhs.cast.i14, %sub.ptr.rhs.cast.i
   %cmp24.not = icmp ult i64 %sub.ptr.sub.i16, %sub.ptr.sub.i.i
-  br i1 %cmp24.not, label %_ZSt7advanceIPKN5arrow5DatumEmEvRT_T0_.exit, label %if.then25
+  br i1 %cmp24.not, label %if.else29, label %if.then25
 
 if.then25:                                        ; preds = %if.else
   %cmp6.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i, 0
@@ -22691,12 +22691,12 @@ invoke.cont.i:                                    ; preds = %_ZSt8_DestroyIN5arr
   store ptr %__result.addr.0.lcssa.i.i.i.i.i, ptr %_M_finish.i, align 8
   br label %if.end41
 
-_ZSt7advanceIPKN5arrow5DatumEmEvRT_T0_.exit:      ; preds = %if.else
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first, i64 %sub.ptr.sub.i16
+if.else29:                                        ; preds = %if.else
+  %incdec.ptr4.sink.i.i = getelementptr inbounds i8, ptr %__first, i64 %sub.ptr.sub.i16
   %cmp6.i.i.i.i.i29 = icmp sgt i64 %sub.ptr.sub.i16, 0
   br i1 %cmp6.i.i.i.i.i29, label %for.body.preheader.i.i.i.i.i31, label %_ZSt4copyIPKN5arrow5DatumEPS1_ET0_T_S6_S5_.exit41
 
-for.body.preheader.i.i.i.i.i31:                   ; preds = %_ZSt7advanceIPKN5arrow5DatumEmEvRT_T0_.exit
+for.body.preheader.i.i.i.i.i31:                   ; preds = %if.else29
   %sub.ptr.div10.i.i.i.i.i32 = udiv exact i64 %sub.ptr.sub.i16, 24
   br label %for.body.i.i.i.i.i33
 
@@ -22718,9 +22718,9 @@ _ZSt4copyIPKN5arrow5DatumEPS1_ET0_T_S6_S5_.exit41.loopexit: ; preds = %for.body.
   %.pre50 = load ptr, ptr %_M_finish.i, align 8
   br label %_ZSt4copyIPKN5arrow5DatumEPS1_ET0_T_S6_S5_.exit41
 
-_ZSt4copyIPKN5arrow5DatumEPS1_ET0_T_S6_S5_.exit41: ; preds = %_ZSt4copyIPKN5arrow5DatumEPS1_ET0_T_S6_S5_.exit41.loopexit, %_ZSt7advanceIPKN5arrow5DatumEmEvRT_T0_.exit
-  %11 = phi ptr [ %.pre50, %_ZSt4copyIPKN5arrow5DatumEPS1_ET0_T_S6_S5_.exit41.loopexit ], [ %7, %_ZSt7advanceIPKN5arrow5DatumEmEvRT_T0_.exit ]
-  %call.i.i.i = call noundef ptr @_ZSt16__do_uninit_copyIPKN5arrow5DatumEPS1_ET0_T_S6_S5_(ptr noundef %incdec.ptr.i.i, ptr noundef %__last, ptr noundef %11)
+_ZSt4copyIPKN5arrow5DatumEPS1_ET0_T_S6_S5_.exit41: ; preds = %_ZSt4copyIPKN5arrow5DatumEPS1_ET0_T_S6_S5_.exit41.loopexit, %if.else29
+  %11 = phi ptr [ %.pre50, %_ZSt4copyIPKN5arrow5DatumEPS1_ET0_T_S6_S5_.exit41.loopexit ], [ %7, %if.else29 ]
+  %call.i.i.i = call noundef ptr @_ZSt16__do_uninit_copyIPKN5arrow5DatumEPS1_ET0_T_S6_S5_(ptr noundef %incdec.ptr4.sink.i.i, ptr noundef %__last, ptr noundef %11)
   store ptr %call.i.i.i, ptr %_M_finish.i, align 8
   br label %if.end41
 

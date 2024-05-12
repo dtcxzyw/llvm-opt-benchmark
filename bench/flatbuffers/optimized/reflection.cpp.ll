@@ -1388,7 +1388,6 @@ for.body20.lr.ph:                                 ; preds = %invoke.cont12
   %sub = add nuw nsw i64 %conv, 1
   %_M_manager.i.i = getelementptr inbounds i8, ptr %func, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %func, i64 24
-  %umax128 = tail call i64 @llvm.umax.i64(i64 %conv, i64 1)
   br i1 %reverse, label %for.body20.us, label %for.body20
 
 for.body20.us:                                    ; preds = %for.body20.lr.ph, %for.inc28.us
@@ -1441,7 +1440,7 @@ if.end.i.us:                                      ; preds = %invoke.cont21.us
 for.inc28.us:                                     ; preds = %if.end.i.us
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i)
   %inc29.us = add nuw i64 %i16.0117.us, 1
-  %exitcond129.not = icmp eq i64 %inc29.us, %umax128
+  %exitcond129.not = icmp eq i64 %inc29.us, %conv
   br i1 %exitcond129.not, label %if.then.i.i.i76, label %for.body20.us, !llvm.loop !22
 
 if.then.i.i.i.loopexit.split.us:                  ; preds = %if.end.i.us
@@ -1558,7 +1557,7 @@ if.end.i:                                         ; preds = %invoke.cont21
 for.inc28:                                        ; preds = %if.end.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i)
   %inc29 = add nuw i64 %i16.0117, 1
-  %exitcond127.not = icmp eq i64 %inc29, %umax128
+  %exitcond127.not = icmp eq i64 %inc29, %conv
   br i1 %exitcond127.not, label %if.then.i.i.i76, label %for.body20, !llvm.loop !22
 
 if.then.i.i.i76:                                  ; preds = %for.inc28, %for.inc28.us
@@ -4932,24 +4931,24 @@ _ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit: ; preds = %land.l
 
 for.cond.preheader:                               ; preds = %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit
   %14 = load i32, ptr %obj, align 4
-  %idx.ext.i.i.i.i.i869 = sext i32 %14 to i64
-  %idx.neg.i.i.i.i.i870 = sub nsw i64 0, %idx.ext.i.i.i.i.i869
-  %add.ptr.i.i.i.i.i871 = getelementptr inbounds i8, ptr %obj, i64 %idx.neg.i.i.i.i.i870
-  %15 = load i16, ptr %add.ptr.i.i.i.i.i871, align 2
-  %cmp.i.i.i.i56872 = icmp ugt i16 %15, 6
-  tail call void @llvm.assume(i1 %cmp.i.i.i.i56872)
-  %add.ptr.i.i.i.i873 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i871, i64 6
-  %16 = load i16, ptr %add.ptr.i.i.i.i873, align 2
-  %tobool.not.i.i.i874 = icmp ne i16 %16, 0
-  tail call void @llvm.assume(i1 %tobool.not.i.i.i874)
-  %idx.ext.i.i.i875 = zext i16 %16 to i64
-  %add.ptr.i.i.i876 = getelementptr inbounds i8, ptr %obj, i64 %idx.ext.i.i.i875
-  %17 = load i32, ptr %add.ptr.i.i.i876, align 4
-  %idx.ext3.i.i.i877 = zext i32 %17 to i64
-  %add.ptr4.i.i.i878 = getelementptr inbounds i8, ptr %add.ptr.i.i.i876, i64 %idx.ext3.i.i.i877
-  %18 = load i32, ptr %add.ptr4.i.i.i878, align 4
-  %cmp879.not = icmp eq i32 %18, 0
-  br i1 %cmp879.not, label %for.end, label %for.body.lr.ph
+  %idx.ext.i.i.i.i.i867 = sext i32 %14 to i64
+  %idx.neg.i.i.i.i.i868 = sub nsw i64 0, %idx.ext.i.i.i.i.i867
+  %add.ptr.i.i.i.i.i869 = getelementptr inbounds i8, ptr %obj, i64 %idx.neg.i.i.i.i.i868
+  %15 = load i16, ptr %add.ptr.i.i.i.i.i869, align 2
+  %cmp.i.i.i.i56870 = icmp ugt i16 %15, 6
+  tail call void @llvm.assume(i1 %cmp.i.i.i.i56870)
+  %add.ptr.i.i.i.i871 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i869, i64 6
+  %16 = load i16, ptr %add.ptr.i.i.i.i871, align 2
+  %tobool.not.i.i.i872 = icmp ne i16 %16, 0
+  tail call void @llvm.assume(i1 %tobool.not.i.i.i872)
+  %idx.ext.i.i.i873 = zext i16 %16 to i64
+  %add.ptr.i.i.i874 = getelementptr inbounds i8, ptr %obj, i64 %idx.ext.i.i.i873
+  %17 = load i32, ptr %add.ptr.i.i.i874, align 4
+  %idx.ext3.i.i.i875 = zext i32 %17 to i64
+  %add.ptr4.i.i.i876 = getelementptr inbounds i8, ptr %add.ptr.i.i.i874, i64 %idx.ext3.i.i.i875
+  %18 = load i32, ptr %add.ptr4.i.i.i876, align 4
+  %cmp877.not = icmp eq i32 %18, 0
+  br i1 %cmp877.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %max_size.i.i733 = getelementptr inbounds i8, ptr %v, i64 32
@@ -4958,13 +4957,13 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 _ZNK10reflection6Object6fieldsEv.exit70:          ; preds = %for.body.lr.ph, %for.inc
   %19 = phi i32 [ %17, %for.body.lr.ph ], [ %226, %for.inc ]
   %20 = phi i16 [ %16, %for.body.lr.ph ], [ %225, %for.inc ]
-  %indvars.iv889 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next890, %for.inc ]
+  %indvars.iv887 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next888, %for.inc ]
   %idx.ext.i.i.i66 = zext i16 %20 to i64
   %add.ptr.i.i.i67 = getelementptr inbounds i8, ptr %obj, i64 %idx.ext.i.i.i66
   %idx.ext3.i.i.i68 = zext i32 %19 to i64
   %add.ptr4.i.i.i69 = getelementptr inbounds i8, ptr %add.ptr.i.i.i67, i64 %idx.ext3.i.i.i68
   %add.ptr.i.i71 = getelementptr inbounds i8, ptr %add.ptr4.i.i.i69, i64 4
-  %mul.i.i = shl nuw nsw i64 %indvars.iv889, 2
+  %mul.i.i = shl nuw nsw i64 %indvars.iv887, 2
   %idx.ext.i.i = and i64 %mul.i.i, 4294967292
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %add.ptr.i.i71, i64 %idx.ext.i.i
   %21 = load i32, ptr %add.ptr.i1.i, align 4
@@ -5512,11 +5511,11 @@ _ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit.i: ; preds = %i
   %cmp.i.i.i396 = icmp ule i64 %106, %add.i.i395
   %sub.i.i.i397 = sub i64 %106, %add.i.i395
   %cmp3.i.i.i398 = icmp ult i64 %sub.i.i.i397, %sub.ptr.sub.i.i382
-  %.not861 = or i1 %cmp.i.i.i396, %cmp3.i.i.i398
+  %.not6.i = or i1 %cmp.i.i.i396, %cmp3.i.i.i398
   %sub.i.i399 = add i64 %106, -1
   %cmp3.i.not.i = icmp ult i64 %sub.i.i399, %add8.i.i
-  %or.cond = or i1 %cmp3.i.not.i, %.not861
-  br i1 %or.cond, label %return, label %_ZNK11flatbuffers8Verifier12VerifyStringEPKNS_6StringE.exit
+  %or.cond.i400 = or i1 %cmp3.i.not.i, %.not6.i
+  br i1 %or.cond.i400, label %return, label %_ZNK11flatbuffers8Verifier12VerifyStringEPKNS_6StringE.exit
 
 _ZNK11flatbuffers8Verifier12VerifyStringEPKNS_6StringE.exit: ; preds = %_ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit.i
   %arrayidx.i = getelementptr inbounds i8, ptr %104, i64 %add8.i.i
@@ -5717,9 +5716,9 @@ sw.bb21.i:                                        ; preds = %_ZNK10reflection4Ty
 sw.bb24.i:                                        ; preds = %_ZNK10reflection4Type7elementEv.exit
   %call25.i = tail call noundef ptr @_ZN11flatbuffers9GetFieldVINS_6OffsetINS_6StringEEEEEPNS_6VectorIT_jEERKNS_5TableERKN10reflection5FieldE(ptr noundef nonnull align 1 dereferenceable(1) %table, ptr noundef nonnull align 1 dereferenceable(1) %add.ptr2.i.i)
   %call26.i = tail call noundef zeroext i1 @_ZNK11flatbuffers8Verifier12VerifyVectorITpTnRiJENS_6OffsetINS_6StringEEEjEEbPKNS_6VectorIT0_T1_EE(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %call25.i)
-  br i1 %call26.i, label %land.lhs.true.i402, label %return
+  br i1 %call26.i, label %land.lhs.true.i, label %return
 
-land.lhs.true.i402:                               ; preds = %sw.bb24.i
+land.lhs.true.i:                                  ; preds = %sw.bb24.i
   %call27.i = tail call noundef zeroext i1 @_ZNK11flatbuffers8Verifier21VerifyVectorOfStringsEPKNS_6VectorINS_6OffsetINS_6StringEEEjEE(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef %call25.i)
   br i1 %call27.i, label %for.inc, label %return
 
@@ -5790,8 +5789,8 @@ _ZNK10reflection6Object9is_structEv.exit670:      ; preds = %_ZNK11flatbuffers5T
   %idx.ext.i.i668 = zext i16 %145 to i64
   %add.ptr.i.i669 = getelementptr inbounds i8, ptr %add.ptr2.i.i676, i64 %idx.ext.i.i668
   %146 = load i8, ptr %add.ptr.i.i669, align 1
-  %.not860 = icmp eq i8 %146, 0
-  br i1 %.not860, label %if.else39.i, label %if.then35.i
+  %.not859 = icmp eq i8 %146, 0
+  br i1 %.not859, label %if.else39.i, label %if.then35.i
 
 if.then35.i:                                      ; preds = %_ZNK10reflection6Object9is_structEv.exit670
   br i1 %cmp.i.i.i819, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i652, label %_ZNK10reflection5Field8requiredEv.exit646
@@ -5838,28 +5837,28 @@ if.else39.i:                                      ; preds = %_ZNK10reflection4Ty
   br i1 %call41.i, label %if.end43.i, label %return
 
 if.end43.i:                                       ; preds = %if.else39.i
-  %tobool.not.i400 = icmp eq ptr %call40.i, null
-  br i1 %tobool.not.i400, label %for.inc, label %for.cond.i.preheader
+  %tobool.not.i401 = icmp eq ptr %call40.i, null
+  br i1 %tobool.not.i401, label %for.inc, label %for.cond.i.preheader
 
 for.cond.i.preheader:                             ; preds = %if.end43.i
   %152 = load i32, ptr %call40.i, align 4
-  %cmp.i401867.not = icmp eq i32 %152, 0
-  br i1 %cmp.i401867.not, label %for.inc, label %for.body.i.lr.ph
+  %cmp.i402865.not = icmp eq i32 %152, 0
+  br i1 %cmp.i402865.not, label %for.inc, label %for.body.i.lr.ph
 
 for.body.i.lr.ph:                                 ; preds = %for.cond.i.preheader
   %add.ptr.i.i629 = getelementptr inbounds i8, ptr %call40.i, i64 4
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
-  %indvars.iv.next887 = add nuw nsw i64 %indvars.iv886, 1
+  %indvars.iv.next885 = add nuw nsw i64 %indvars.iv884, 1
   %153 = load i32, ptr %call40.i, align 4
   %154 = zext i32 %153 to i64
-  %cmp.i401 = icmp ult i64 %indvars.iv.next887, %154
-  br i1 %cmp.i401, label %for.body.i, label %for.inc, !llvm.loop !41
+  %cmp.i402 = icmp ult i64 %indvars.iv.next885, %154
+  br i1 %cmp.i402, label %for.body.i, label %for.inc, !llvm.loop !41
 
 for.body.i:                                       ; preds = %for.body.i.lr.ph, %for.cond.i
-  %indvars.iv886 = phi i64 [ 0, %for.body.i.lr.ph ], [ %indvars.iv.next887, %for.cond.i ]
-  %mul.i.i630 = shl nuw nsw i64 %indvars.iv886, 2
+  %indvars.iv884 = phi i64 [ 0, %for.body.i.lr.ph ], [ %indvars.iv.next885, %for.cond.i ]
+  %mul.i.i630 = shl nuw nsw i64 %indvars.iv884, 2
   %idx.ext.i.i631 = and i64 %mul.i.i630, 4294967292
   %add.ptr.i1.i632 = getelementptr inbounds i8, ptr %add.ptr.i.i629, i64 %idx.ext.i.i631
   %155 = load i32, ptr %add.ptr.i1.i632, align 4
@@ -5931,8 +5930,8 @@ _ZNK11flatbuffers5Table10GetPointerIPNS_6VectorIhjEEjEET_t.exit: ; preds = %_ZNK
 
 for.cond67.i.preheader:                           ; preds = %_ZNK11flatbuffers5Table10GetPointerIPNS_6VectorIhjEEjEET_t.exit
   %164 = load i32, ptr %call53.i, align 4
-  %cmp69.i865.not = icmp eq i32 %164, 0
-  br i1 %cmp69.i865.not, label %for.inc, label %for.body70.i.lr.ph
+  %cmp69.i863.not = icmp eq i32 %164, 0
+  br i1 %cmp69.i863.not, label %for.inc, label %for.body70.i.lr.ph
 
 for.body70.i.lr.ph:                               ; preds = %for.cond67.i.preheader
   %add.ptr.i.i604 = getelementptr inbounds i8, ptr %cond.i.i609, i64 4
@@ -6057,8 +6056,8 @@ _ZNK10reflection6Object9is_structEv.exit:         ; preds = %_ZNK11flatbuffers5T
   %idx.ext.i.i456 = zext i16 %183 to i64
   %add.ptr.i.i457 = getelementptr inbounds i8, ptr %add.ptr2.i.i446, i64 %idx.ext.i.i456
   %184 = load i8, ptr %add.ptr.i.i457, align 1
-  %.not859 = icmp eq i8 %184, 0
-  br i1 %.not859, label %if.else, label %if.then62
+  %.not = icmp eq i8 %184, 0
+  br i1 %.not, label %if.else, label %if.then62
 
 if.then62:                                        ; preds = %_ZNK10reflection6Object9is_structEv.exit
   %cmp.i.i.i461 = icmp ugt i16 %23, 10
@@ -6322,8 +6321,8 @@ _ZN11flatbuffers9GetFieldTERKNS_5TableERKN10reflection5FieldE.exit597: ; preds =
   %call79 = tail call fastcc noundef zeroext i1 @_ZN11flatbuffers12_GLOBAL__N_111VerifyUnionERNS_8VerifierERKN10reflection6SchemaEhPKhRKNS3_5FieldE(ptr noundef nonnull align 8 dereferenceable(72) %v, ptr noundef nonnull align 1 dereferenceable(1) %schema, i8 noundef zeroext %cond.i, ptr noundef %cond.i.i5.i581, ptr noundef nonnull align 1 dereferenceable(1) %add.ptr2.i.i)
   br i1 %call79, label %for.inc, label %return
 
-for.inc:                                          ; preds = %for.cond67.i, %for.cond.i, %for.cond67.i.preheader, %for.cond.i.preheader, %_ZNK10reflection5Field6offsetEv.exit.i744, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i6.i751, %if.end56.i, %if.end43.i, %land.lhs.true.i402, %_ZNK10reflection5Field6offsetEv.exit.i, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i6.i, %_ZNK10reflection5Field6offsetEv.exit303, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i308, %_ZNK10reflection5Field6offsetEv.exit267, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i272, %_ZNK10reflection5Field6offsetEv.exit231, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i236, %_ZNK10reflection5Field6offsetEv.exit195, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i200, %_ZNK10reflection5Field6offsetEv.exit160, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i165, %_ZNK10reflection5Field6offsetEv.exit125, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i130, %_ZNK10reflection5Field6offsetEv.exit, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i, %_ZNK10reflection5Field4typeEv.exit, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i, %land.rhs.i.i504, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.thread.i, %sw.bb.i, %sw.bb9.i, %sw.bb12.i, %sw.bb15.i, %sw.bb18.i, %sw.bb21.i, %_ZNK10reflection5Field8requiredEv.exit646, %_ZNK11flatbuffers5Table11VerifyFieldIhEEbRKNS_8VerifierEtm.exit, %_ZNK11flatbuffers5Table11VerifyFieldIaEEbRKNS_8VerifierEtm.exit, %_ZNK11flatbuffers5Table11VerifyFieldIsEEbRKNS_8VerifierEtm.exit, %_ZNK11flatbuffers5Table11VerifyFieldIiEEbRKNS_8VerifierEtm.exit, %_ZNK11flatbuffers5Table11VerifyFieldIlEEbRKNS_8VerifierEtm.exit, %_ZNK11flatbuffers5Table11VerifyFieldIfEEbRKNS_8VerifierEtm.exit, %_ZNK11flatbuffers5Table11VerifyFieldIdEEbRKNS_8VerifierEtm.exit, %_ZNK11flatbuffers8Verifier12VerifyStringEPKNS_6StringE.exit, %_ZN11flatbuffers12_GLOBAL__N_112VerifyVectorERNS_8VerifierERKN10reflection6SchemaERKNS_5TableERKNS3_5FieldE.exit, %_ZNK10reflection5Field8requiredEv.exit550, %_ZN11flatbuffers12_GLOBAL__N_112VerifyStructERNS_8VerifierERKNS_5TableEtRKN10reflection6ObjectEb.exit, %_ZN11flatbuffers9GetFieldTERKNS_5TableERKN10reflection5FieldE.exit597, %_ZNK10reflection4Type9base_typeEv.exit
-  %indvars.iv.next890 = add nuw nsw i64 %indvars.iv889, 1
+for.inc:                                          ; preds = %for.cond67.i, %for.cond.i, %for.cond67.i.preheader, %for.cond.i.preheader, %_ZNK10reflection5Field6offsetEv.exit.i744, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i6.i751, %if.end56.i, %if.end43.i, %land.lhs.true.i, %_ZNK10reflection5Field6offsetEv.exit.i, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i6.i, %_ZNK10reflection5Field6offsetEv.exit303, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i308, %_ZNK10reflection5Field6offsetEv.exit267, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i272, %_ZNK10reflection5Field6offsetEv.exit231, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i236, %_ZNK10reflection5Field6offsetEv.exit195, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i200, %_ZNK10reflection5Field6offsetEv.exit160, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i165, %_ZNK10reflection5Field6offsetEv.exit125, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i130, %_ZNK10reflection5Field6offsetEv.exit, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i, %_ZNK10reflection5Field4typeEv.exit, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i, %land.rhs.i.i504, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.thread.i, %sw.bb.i, %sw.bb9.i, %sw.bb12.i, %sw.bb15.i, %sw.bb18.i, %sw.bb21.i, %_ZNK10reflection5Field8requiredEv.exit646, %_ZNK11flatbuffers5Table11VerifyFieldIhEEbRKNS_8VerifierEtm.exit, %_ZNK11flatbuffers5Table11VerifyFieldIaEEbRKNS_8VerifierEtm.exit, %_ZNK11flatbuffers5Table11VerifyFieldIsEEbRKNS_8VerifierEtm.exit, %_ZNK11flatbuffers5Table11VerifyFieldIiEEbRKNS_8VerifierEtm.exit, %_ZNK11flatbuffers5Table11VerifyFieldIlEEbRKNS_8VerifierEtm.exit, %_ZNK11flatbuffers5Table11VerifyFieldIfEEbRKNS_8VerifierEtm.exit, %_ZNK11flatbuffers5Table11VerifyFieldIdEEbRKNS_8VerifierEtm.exit, %_ZNK11flatbuffers8Verifier12VerifyStringEPKNS_6StringE.exit, %_ZN11flatbuffers12_GLOBAL__N_112VerifyVectorERNS_8VerifierERKN10reflection6SchemaERKNS_5TableERKNS3_5FieldE.exit, %_ZNK10reflection5Field8requiredEv.exit550, %_ZN11flatbuffers12_GLOBAL__N_112VerifyStructERNS_8VerifierERKNS_5TableEtRKN10reflection6ObjectEb.exit, %_ZN11flatbuffers9GetFieldTERKNS_5TableERKN10reflection5FieldE.exit597, %_ZNK10reflection4Type9base_typeEv.exit
+  %indvars.iv.next888 = add nuw nsw i64 %indvars.iv887, 1
   %223 = load i32, ptr %obj, align 4
   %idx.ext.i.i.i.i.i = sext i32 %223 to i64
   %idx.neg.i.i.i.i.i = sub nsw i64 0, %idx.ext.i.i.i.i.i
@@ -6342,7 +6341,7 @@ for.inc:                                          ; preds = %for.cond67.i, %for.
   %add.ptr4.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %idx.ext3.i.i.i
   %227 = load i32, ptr %add.ptr4.i.i.i, align 4
   %228 = zext i32 %227 to i64
-  %cmp = icmp ult i64 %indvars.iv.next890, %228
+  %cmp = icmp ult i64 %indvars.iv.next888, %228
   br i1 %cmp, label %_ZNK10reflection6Object6fieldsEv.exit70, label %for.end.loopexit, !llvm.loop !43
 
 for.end.loopexit:                                 ; preds = %for.inc
@@ -6355,8 +6354,8 @@ for.end:                                          ; preds = %for.end.loopexit, %
   store i32 %dec.i, ptr %depth_.i.i.i, align 8
   br label %return
 
-return:                                           ; preds = %_ZNK10reflection6Object8minalignEv.exit.i, %sw.bb24.i, %land.lhs.true.i402, %if.end.i, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i771, %lor.rhs.i799, %_ZN11flatbuffers9GetFieldVIaEEPNS_6VectorIT_jEERKNS_5TableERKN10reflection5FieldE.exit, %if.end.i.i732, %_ZNK11flatbuffers8Verifier6VerifyIjEEbm.exit.i.i727, %_ZNK10reflection4Type7elementEv.exit, %_ZNK11flatbuffers5Table10GetPointerIPNS_6VectorIhjEEjEET_t.exit, %sw.bb51.i, %if.else39.i, %_ZNK11flatbuffers5Table11VerifyFieldIjEEbRKNS_8VerifierEtm.exit815, %_ZN11flatbuffers9GetFieldSERKNS_5TableERKN10reflection5FieldE.exit, %if.end.i.i392, %_ZNK11flatbuffers8Verifier6VerifyIjEEbm.exit.i.i, %_ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit.i, %lor.rhs.i348, %lor.rhs.i312, %lor.rhs.i276, %lor.rhs.i240, %lor.rhs.i204, %lor.rhs.i169, %land.rhs.i.i504, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.thread.i, %sw.bb.i, %sw.bb9.i, %sw.bb12.i, %sw.bb15.i, %sw.bb18.i, %sw.bb21.i, %_ZNK10reflection5Field8requiredEv.exit646, %_ZN11flatbuffers9GetFieldTERKNS_5TableERKN10reflection5FieldE.exit597, %_ZNK10reflection5Field8requiredEv.exit550, %_ZN11flatbuffers12_GLOBAL__N_112VerifyStructERNS_8VerifierERKNS_5TableEtRKN10reflection6ObjectEb.exit, %_ZN11flatbuffers12_GLOBAL__N_112VerifyVectorERNS_8VerifierERKN10reflection6SchemaERKNS_5TableERKNS3_5FieldE.exit, %_ZNK11flatbuffers5Table11VerifyFieldIjEEbRKNS_8VerifierEtm.exit, %_ZNK11flatbuffers8Verifier12VerifyStringEPKNS_6StringE.exit, %_ZNK11flatbuffers5Table11VerifyFieldIdEEbRKNS_8VerifierEtm.exit, %_ZNK11flatbuffers5Table11VerifyFieldIfEEbRKNS_8VerifierEtm.exit, %_ZNK11flatbuffers5Table11VerifyFieldIlEEbRKNS_8VerifierEtm.exit, %_ZNK11flatbuffers5Table11VerifyFieldIiEEbRKNS_8VerifierEtm.exit, %_ZNK11flatbuffers5Table11VerifyFieldIsEEbRKNS_8VerifierEtm.exit, %_ZNK11flatbuffers5Table11VerifyFieldIaEEbRKNS_8VerifierEtm.exit, %_ZNK11flatbuffers5Table11VerifyFieldIhEEbRKNS_8VerifierEtm.exit, %for.body70.i, %for.body.i, %land.lhs.true.i.i, %if.end, %if.end.i.i, %land.lhs.true5.i.i, %_ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i, %for.end, %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit, %if.then
-  %retval.0 = phi i1 [ %lnot, %if.then ], [ false, %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit ], [ true, %for.end ], [ false, %_ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i ], [ false, %land.lhs.true5.i.i ], [ false, %if.end.i.i ], [ false, %if.end ], [ false, %land.lhs.true.i.i ], [ false, %for.body.i ], [ false, %for.body70.i ], [ false, %_ZNK11flatbuffers5Table11VerifyFieldIhEEbRKNS_8VerifierEtm.exit ], [ false, %_ZNK11flatbuffers5Table11VerifyFieldIaEEbRKNS_8VerifierEtm.exit ], [ false, %_ZNK11flatbuffers5Table11VerifyFieldIsEEbRKNS_8VerifierEtm.exit ], [ false, %_ZNK11flatbuffers5Table11VerifyFieldIiEEbRKNS_8VerifierEtm.exit ], [ false, %_ZNK11flatbuffers5Table11VerifyFieldIlEEbRKNS_8VerifierEtm.exit ], [ false, %_ZNK11flatbuffers5Table11VerifyFieldIfEEbRKNS_8VerifierEtm.exit ], [ false, %_ZNK11flatbuffers5Table11VerifyFieldIdEEbRKNS_8VerifierEtm.exit ], [ false, %_ZNK11flatbuffers8Verifier12VerifyStringEPKNS_6StringE.exit ], [ false, %_ZNK11flatbuffers5Table11VerifyFieldIjEEbRKNS_8VerifierEtm.exit ], [ false, %_ZN11flatbuffers12_GLOBAL__N_112VerifyVectorERNS_8VerifierERKN10reflection6SchemaERKNS_5TableERKNS3_5FieldE.exit ], [ false, %_ZN11flatbuffers12_GLOBAL__N_112VerifyStructERNS_8VerifierERKNS_5TableEtRKN10reflection6ObjectEb.exit ], [ false, %_ZNK10reflection5Field8requiredEv.exit550 ], [ false, %_ZN11flatbuffers9GetFieldTERKNS_5TableERKN10reflection5FieldE.exit597 ], [ false, %_ZNK10reflection5Field8requiredEv.exit646 ], [ false, %sw.bb21.i ], [ false, %sw.bb18.i ], [ false, %sw.bb15.i ], [ false, %sw.bb12.i ], [ false, %sw.bb9.i ], [ false, %sw.bb.i ], [ false, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.thread.i ], [ false, %land.rhs.i.i504 ], [ false, %lor.rhs.i169 ], [ false, %lor.rhs.i204 ], [ false, %lor.rhs.i240 ], [ false, %lor.rhs.i276 ], [ false, %lor.rhs.i312 ], [ false, %lor.rhs.i348 ], [ false, %_ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit.i ], [ false, %_ZNK11flatbuffers8Verifier6VerifyIjEEbm.exit.i.i ], [ false, %if.end.i.i392 ], [ false, %_ZN11flatbuffers9GetFieldSERKNS_5TableERKN10reflection5FieldE.exit ], [ false, %_ZNK11flatbuffers5Table11VerifyFieldIjEEbRKNS_8VerifierEtm.exit815 ], [ false, %if.else39.i ], [ false, %sw.bb51.i ], [ false, %_ZNK11flatbuffers5Table10GetPointerIPNS_6VectorIhjEEjEET_t.exit ], [ false, %_ZNK10reflection4Type7elementEv.exit ], [ false, %_ZNK11flatbuffers8Verifier6VerifyIjEEbm.exit.i.i727 ], [ false, %if.end.i.i732 ], [ false, %_ZN11flatbuffers9GetFieldVIaEEPNS_6VectorIT_jEERKNS_5TableERKN10reflection5FieldE.exit ], [ false, %lor.rhs.i799 ], [ false, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i771 ], [ false, %if.end.i ], [ false, %land.lhs.true.i402 ], [ false, %sw.bb24.i ], [ false, %_ZNK10reflection6Object8minalignEv.exit.i ]
+return:                                           ; preds = %_ZNK10reflection6Object8minalignEv.exit.i, %sw.bb24.i, %land.lhs.true.i, %if.end.i, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i771, %lor.rhs.i799, %_ZN11flatbuffers9GetFieldVIaEEPNS_6VectorIT_jEERKNS_5TableERKN10reflection5FieldE.exit, %if.end.i.i732, %_ZNK11flatbuffers8Verifier6VerifyIjEEbm.exit.i.i727, %_ZNK10reflection4Type7elementEv.exit, %_ZNK11flatbuffers5Table10GetPointerIPNS_6VectorIhjEEjEET_t.exit, %sw.bb51.i, %if.else39.i, %_ZNK11flatbuffers5Table11VerifyFieldIjEEbRKNS_8VerifierEtm.exit815, %_ZN11flatbuffers9GetFieldSERKNS_5TableERKN10reflection5FieldE.exit, %if.end.i.i392, %_ZNK11flatbuffers8Verifier6VerifyIjEEbm.exit.i.i, %_ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit.i, %lor.rhs.i348, %lor.rhs.i312, %lor.rhs.i276, %lor.rhs.i240, %lor.rhs.i204, %lor.rhs.i169, %land.rhs.i.i504, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.thread.i, %sw.bb.i, %sw.bb9.i, %sw.bb12.i, %sw.bb15.i, %sw.bb18.i, %sw.bb21.i, %_ZNK10reflection5Field8requiredEv.exit646, %_ZN11flatbuffers9GetFieldTERKNS_5TableERKN10reflection5FieldE.exit597, %_ZNK10reflection5Field8requiredEv.exit550, %_ZN11flatbuffers12_GLOBAL__N_112VerifyStructERNS_8VerifierERKNS_5TableEtRKN10reflection6ObjectEb.exit, %_ZN11flatbuffers12_GLOBAL__N_112VerifyVectorERNS_8VerifierERKN10reflection6SchemaERKNS_5TableERKNS3_5FieldE.exit, %_ZNK11flatbuffers5Table11VerifyFieldIjEEbRKNS_8VerifierEtm.exit, %_ZNK11flatbuffers8Verifier12VerifyStringEPKNS_6StringE.exit, %_ZNK11flatbuffers5Table11VerifyFieldIdEEbRKNS_8VerifierEtm.exit, %_ZNK11flatbuffers5Table11VerifyFieldIfEEbRKNS_8VerifierEtm.exit, %_ZNK11flatbuffers5Table11VerifyFieldIlEEbRKNS_8VerifierEtm.exit, %_ZNK11flatbuffers5Table11VerifyFieldIiEEbRKNS_8VerifierEtm.exit, %_ZNK11flatbuffers5Table11VerifyFieldIsEEbRKNS_8VerifierEtm.exit, %_ZNK11flatbuffers5Table11VerifyFieldIaEEbRKNS_8VerifierEtm.exit, %_ZNK11flatbuffers5Table11VerifyFieldIhEEbRKNS_8VerifierEtm.exit, %for.body70.i, %for.body.i, %land.lhs.true.i.i, %if.end, %if.end.i.i, %land.lhs.true5.i.i, %_ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i, %for.end, %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit, %if.then
+  %retval.0 = phi i1 [ %lnot, %if.then ], [ false, %_ZNK11flatbuffers5Table16VerifyTableStartERNS_8VerifierE.exit ], [ true, %for.end ], [ false, %_ZNK11flatbuffers8Verifier6VerifyIiEEbm.exit.i.i ], [ false, %land.lhs.true5.i.i ], [ false, %if.end.i.i ], [ false, %if.end ], [ false, %land.lhs.true.i.i ], [ false, %for.body.i ], [ false, %for.body70.i ], [ false, %_ZNK11flatbuffers5Table11VerifyFieldIhEEbRKNS_8VerifierEtm.exit ], [ false, %_ZNK11flatbuffers5Table11VerifyFieldIaEEbRKNS_8VerifierEtm.exit ], [ false, %_ZNK11flatbuffers5Table11VerifyFieldIsEEbRKNS_8VerifierEtm.exit ], [ false, %_ZNK11flatbuffers5Table11VerifyFieldIiEEbRKNS_8VerifierEtm.exit ], [ false, %_ZNK11flatbuffers5Table11VerifyFieldIlEEbRKNS_8VerifierEtm.exit ], [ false, %_ZNK11flatbuffers5Table11VerifyFieldIfEEbRKNS_8VerifierEtm.exit ], [ false, %_ZNK11flatbuffers5Table11VerifyFieldIdEEbRKNS_8VerifierEtm.exit ], [ false, %_ZNK11flatbuffers8Verifier12VerifyStringEPKNS_6StringE.exit ], [ false, %_ZNK11flatbuffers5Table11VerifyFieldIjEEbRKNS_8VerifierEtm.exit ], [ false, %_ZN11flatbuffers12_GLOBAL__N_112VerifyVectorERNS_8VerifierERKN10reflection6SchemaERKNS_5TableERKNS3_5FieldE.exit ], [ false, %_ZN11flatbuffers12_GLOBAL__N_112VerifyStructERNS_8VerifierERKNS_5TableEtRKN10reflection6ObjectEb.exit ], [ false, %_ZNK10reflection5Field8requiredEv.exit550 ], [ false, %_ZN11flatbuffers9GetFieldTERKNS_5TableERKN10reflection5FieldE.exit597 ], [ false, %_ZNK10reflection5Field8requiredEv.exit646 ], [ false, %sw.bb21.i ], [ false, %sw.bb18.i ], [ false, %sw.bb15.i ], [ false, %sw.bb12.i ], [ false, %sw.bb9.i ], [ false, %sw.bb.i ], [ false, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.thread.i ], [ false, %land.rhs.i.i504 ], [ false, %lor.rhs.i169 ], [ false, %lor.rhs.i204 ], [ false, %lor.rhs.i240 ], [ false, %lor.rhs.i276 ], [ false, %lor.rhs.i312 ], [ false, %lor.rhs.i348 ], [ false, %_ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit.i ], [ false, %_ZNK11flatbuffers8Verifier6VerifyIjEEbm.exit.i.i ], [ false, %if.end.i.i392 ], [ false, %_ZN11flatbuffers9GetFieldSERKNS_5TableERKN10reflection5FieldE.exit ], [ false, %_ZNK11flatbuffers5Table11VerifyFieldIjEEbRKNS_8VerifierEtm.exit815 ], [ false, %if.else39.i ], [ false, %sw.bb51.i ], [ false, %_ZNK11flatbuffers5Table10GetPointerIPNS_6VectorIhjEEjEET_t.exit ], [ false, %_ZNK10reflection4Type7elementEv.exit ], [ false, %_ZNK11flatbuffers8Verifier6VerifyIjEEbm.exit.i.i727 ], [ false, %if.end.i.i732 ], [ false, %_ZN11flatbuffers9GetFieldVIaEEPNS_6VectorIT_jEERKNS_5TableERKN10reflection5FieldE.exit ], [ false, %lor.rhs.i799 ], [ false, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i771 ], [ false, %if.end.i ], [ false, %land.lhs.true.i ], [ false, %sw.bb24.i ], [ false, %_ZNK10reflection6Object8minalignEv.exit.i ]
   ret i1 %retval.0
 }
 
@@ -7809,11 +7808,11 @@ _ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit.i: ; preds = %i
   %cmp.i.i.i142 = icmp ule i64 %48, %add.i.i
   %sub.i.i.i = sub i64 %48, %add.i.i
   %cmp3.i.i.i = icmp ult i64 %sub.i.i.i, %sub.ptr.sub.i.i
-  %.not148 = or i1 %cmp.i.i.i142, %cmp3.i.i.i
+  %.not6.i = or i1 %cmp.i.i.i142, %cmp3.i.i.i
   %sub.i.i143 = add i64 %48, -1
   %cmp3.i.not.i = icmp ult i64 %sub.i.i143, %add8.i.i
-  %or.cond = or i1 %cmp3.i.not.i, %.not148
-  br i1 %or.cond, label %return, label %land.rhs.i
+  %or.cond.i = or i1 %cmp3.i.not.i, %.not6.i
+  br i1 %or.cond.i, label %return, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %_ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit.i
   %arrayidx.i = getelementptr inbounds i8, ptr %46, i64 %add8.i.i
@@ -8560,8 +8559,8 @@ entry:
 
 for.cond.preheader:                               ; preds = %entry
   %0 = load i32, ptr %vec, align 4
-  %cmp6.not = icmp eq i32 %0, 0
-  br i1 %cmp6.not, label %return, label %for.body.lr.ph
+  %cmp5.not = icmp eq i32 %0, 0
+  br i1 %cmp5.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %add.ptr.i.i = getelementptr inbounds i8, ptr %vec, i64 4
@@ -8580,45 +8579,45 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 for.body.lr.ph.split:                             ; preds = %for.body.lr.ph
   %check_alignment.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load i8, ptr %check_alignment.i.i.i.i, align 8
-  %.fr34 = freeze i8 %4
-  %tobool.i.i.i.i = trunc i8 %.fr34 to i1
-  %wide.trip.count41 = zext i32 %0 to i64
-  br i1 %tobool.i.i.i.i, label %for.body, label %for.body.us14
+  %.fr32 = freeze i8 %4
+  %tobool.i.i.i.i = trunc i8 %.fr32 to i1
+  %wide.trip.count39 = zext i32 %0 to i64
+  br i1 %tobool.i.i.i.i, label %for.body, label %for.body.us13
 
-for.body.us14:                                    ; preds = %for.body.lr.ph.split, %for.cond.us
+for.body.us13:                                    ; preds = %for.body.lr.ph.split, %for.cond.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond.us ], [ 0, %for.body.lr.ph.split ]
-  %mul.i.i.us16 = shl i64 %indvars.iv, 2
-  %idx.ext.i.i.us17 = and i64 %mul.i.i.us16, 4294967292
-  %add.ptr.i1.i.us18 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %idx.ext.i.i.us17
-  %5 = load i32, ptr %add.ptr.i1.i.us18, align 4
-  %idx.ext1.i.i.us19 = zext i32 %5 to i64
-  %add.ptr2.i.i.us20 = getelementptr inbounds i8, ptr %add.ptr.i1.i.us18, i64 %idx.ext1.i.i.us19
-  %sub.ptr.lhs.cast.i.i.us21 = ptrtoint ptr %add.ptr2.i.i.us20 to i64
-  %sub.ptr.sub.i.i.us22 = sub i64 %sub.ptr.lhs.cast.i.i.us21, %sub.ptr.rhs.cast.i.i
-  %cmp3.i.i.i.i.us.not = icmp ult i64 %sub.i.i.i.i, %sub.ptr.sub.i.i.us22
+  %mul.i.i.us15 = shl i64 %indvars.iv, 2
+  %idx.ext.i.i.us16 = and i64 %mul.i.i.us15, 4294967292
+  %add.ptr.i1.i.us17 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %idx.ext.i.i.us16
+  %5 = load i32, ptr %add.ptr.i1.i.us17, align 4
+  %idx.ext1.i.i.us18 = zext i32 %5 to i64
+  %add.ptr2.i.i.us19 = getelementptr inbounds i8, ptr %add.ptr.i1.i.us17, i64 %idx.ext1.i.i.us18
+  %sub.ptr.lhs.cast.i.i.us20 = ptrtoint ptr %add.ptr2.i.i.us19 to i64
+  %sub.ptr.sub.i.i.us21 = sub i64 %sub.ptr.lhs.cast.i.i.us20, %sub.ptr.rhs.cast.i.i
+  %cmp3.i.i.i.i.us.not = icmp ult i64 %sub.i.i.i.i, %sub.ptr.sub.i.i.us21
   br i1 %cmp3.i.i.i.i.us.not, label %return, label %if.end.i.i.us
 
 for.cond.us:                                      ; preds = %_ZNK11flatbuffers8Verifier12VerifyStringEPKNS_6StringE.exit.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count41
-  br i1 %exitcond.not, label %return, label %for.body.us14, !llvm.loop !49
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count39
+  br i1 %exitcond.not, label %return, label %for.body.us13, !llvm.loop !49
 
-if.end.i.i.us:                                    ; preds = %for.body.us14
-  %6 = load i32, ptr %add.ptr2.i.i.us20, align 4
+if.end.i.i.us:                                    ; preds = %for.body.us13
+  %6 = load i32, ptr %add.ptr2.i.i.us19, align 4
   %conv.i.i.us = zext i32 %6 to i64
   %cmp.i.i.us = icmp ugt i64 %3, %conv.i.i.us
   br i1 %cmp.i.i.us, label %_ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit.i.us, label %return
 
 _ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit.i.us: ; preds = %if.end.i.i.us
   %add.i.i.us = add nuw nsw i64 %conv.i.i.us, 4
-  %add8.i.i.us = add i64 %add.i.i.us, %sub.ptr.sub.i.i.us22
+  %add8.i.i.us = add i64 %add.i.i.us, %sub.ptr.sub.i.i.us21
   %cmp.i.i.i.us = icmp ule i64 %.fr, %add.i.i.us
   %sub.i.i.i.us = sub i64 %.fr, %add.i.i.us
-  %cmp3.i.i.i.us = icmp ult i64 %sub.i.i.i.us, %sub.ptr.sub.i.i.us22
-  %.not5.us = or i1 %cmp.i.i.i.us, %cmp3.i.i.i.us
+  %cmp3.i.i.i.us = icmp ult i64 %sub.i.i.i.us, %sub.ptr.sub.i.i.us21
+  %.not6.i.us = or i1 %cmp.i.i.i.us, %cmp3.i.i.i.us
   %cmp3.i.not.i.us = icmp ult i64 %sub.i.i, %add8.i.i.us
-  %or.cond.us = or i1 %cmp3.i.not.i.us, %.not5.us
-  br i1 %or.cond.us, label %return, label %_ZNK11flatbuffers8Verifier12VerifyStringEPKNS_6StringE.exit.us
+  %or.cond.i.us = or i1 %cmp3.i.not.i.us, %.not6.i.us
+  br i1 %or.cond.i.us, label %return, label %_ZNK11flatbuffers8Verifier12VerifyStringEPKNS_6StringE.exit.us
 
 _ZNK11flatbuffers8Verifier12VerifyStringEPKNS_6StringE.exit.us: ; preds = %_ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit.i.us
   %arrayidx.i.us = getelementptr inbounds i8, ptr %1, i64 %add8.i.i.us
@@ -8627,13 +8626,13 @@ _ZNK11flatbuffers8Verifier12VerifyStringEPKNS_6StringE.exit.us: ; preds = %_ZNK1
   br i1 %cmp.i.us, label %for.cond.us, label %return
 
 for.cond:                                         ; preds = %_ZNK11flatbuffers8Verifier12VerifyStringEPKNS_6StringE.exit
-  %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
-  %exitcond42.not = icmp eq i64 %indvars.iv.next39, %wide.trip.count41
-  br i1 %exitcond42.not, label %return, label %for.body, !llvm.loop !49
+  %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
+  %exitcond40.not = icmp eq i64 %indvars.iv.next37, %wide.trip.count39
+  br i1 %exitcond40.not, label %return, label %for.body, !llvm.loop !49
 
 for.body:                                         ; preds = %for.body.lr.ph.split, %for.cond
-  %indvars.iv38 = phi i64 [ %indvars.iv.next39, %for.cond ], [ 0, %for.body.lr.ph.split ]
-  %mul.i.i = shl i64 %indvars.iv38, 2
+  %indvars.iv36 = phi i64 [ %indvars.iv.next37, %for.cond ], [ 0, %for.body.lr.ph.split ]
+  %mul.i.i = shl i64 %indvars.iv36, 2
   %idx.ext.i.i = and i64 %mul.i.i, 4294967292
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %idx.ext.i.i
   %8 = load i32, ptr %add.ptr.i1.i, align 4
@@ -8644,8 +8643,8 @@ for.body:                                         ; preds = %for.body.lr.ph.spli
   %and.i.i.i.i = and i64 %sub.ptr.sub.i.i, 3
   %cmp.i.i.i.i = icmp eq i64 %and.i.i.i.i, 0
   %cmp3.i.i.i.i = icmp uge i64 %sub.i.i.i.i, %sub.ptr.sub.i.i
-  %or.cond33 = and i1 %cmp.i.i.i.i, %cmp3.i.i.i.i
-  br i1 %or.cond33, label %if.end.i.i, label %return
+  %or.cond = and i1 %cmp.i.i.i.i, %cmp3.i.i.i.i
+  br i1 %or.cond, label %if.end.i.i, label %return
 
 if.end.i.i:                                       ; preds = %for.body
   %9 = load i32, ptr %add.ptr2.i.i, align 4
@@ -8659,10 +8658,10 @@ _ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit.i: ; preds = %i
   %cmp.i.i.i = icmp ule i64 %.fr, %add.i.i
   %sub.i.i.i = sub i64 %.fr, %add.i.i
   %cmp3.i.i.i = icmp ult i64 %sub.i.i.i, %sub.ptr.sub.i.i
-  %.not5 = or i1 %cmp.i.i.i, %cmp3.i.i.i
+  %.not6.i = or i1 %cmp.i.i.i, %cmp3.i.i.i
   %cmp3.i.not.i = icmp ult i64 %sub.i.i, %add8.i.i
-  %or.cond = or i1 %cmp3.i.not.i, %.not5
-  br i1 %or.cond, label %return, label %_ZNK11flatbuffers8Verifier12VerifyStringEPKNS_6StringE.exit
+  %or.cond.i = or i1 %cmp3.i.not.i, %.not6.i
+  br i1 %or.cond.i, label %return, label %_ZNK11flatbuffers8Verifier12VerifyStringEPKNS_6StringE.exit
 
 _ZNK11flatbuffers8Verifier12VerifyStringEPKNS_6StringE.exit: ; preds = %_ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit.i
   %arrayidx.i = getelementptr inbounds i8, ptr %1, i64 %add8.i.i
@@ -8670,8 +8669,8 @@ _ZNK11flatbuffers8Verifier12VerifyStringEPKNS_6StringE.exit: ; preds = %_ZNK11fl
   %cmp.i = icmp eq i8 %10, 0
   br i1 %cmp.i, label %for.cond, label %return
 
-return:                                           ; preds = %_ZNK11flatbuffers8Verifier12VerifyStringEPKNS_6StringE.exit.us, %for.cond.us, %_ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit.i.us, %for.body.us14, %if.end.i.i.us, %_ZNK11flatbuffers8Verifier12VerifyStringEPKNS_6StringE.exit, %for.cond, %_ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit.i, %if.end.i.i, %for.body, %for.body.lr.ph, %for.cond.preheader, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ true, %for.cond.preheader ], [ false, %for.body.lr.ph ], [ false, %_ZNK11flatbuffers8Verifier12VerifyStringEPKNS_6StringE.exit ], [ true, %for.cond ], [ false, %_ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit.i ], [ false, %if.end.i.i ], [ false, %for.body ], [ false, %_ZNK11flatbuffers8Verifier12VerifyStringEPKNS_6StringE.exit.us ], [ true, %for.cond.us ], [ false, %_ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit.i.us ], [ false, %for.body.us14 ], [ false, %if.end.i.i.us ]
+return:                                           ; preds = %_ZNK11flatbuffers8Verifier12VerifyStringEPKNS_6StringE.exit.us, %for.cond.us, %_ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit.i.us, %for.body.us13, %if.end.i.i.us, %_ZNK11flatbuffers8Verifier12VerifyStringEPKNS_6StringE.exit, %for.cond, %_ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit.i, %if.end.i.i, %for.body, %for.body.lr.ph, %for.cond.preheader, %entry
+  %retval.0 = phi i1 [ true, %entry ], [ true, %for.cond.preheader ], [ false, %for.body.lr.ph ], [ false, %_ZNK11flatbuffers8Verifier12VerifyStringEPKNS_6StringE.exit ], [ true, %for.cond ], [ false, %_ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit.i ], [ false, %if.end.i.i ], [ false, %for.body ], [ false, %_ZNK11flatbuffers8Verifier12VerifyStringEPKNS_6StringE.exit.us ], [ true, %for.cond.us ], [ false, %_ZNK11flatbuffers8Verifier20VerifyVectorOrStringIjEEbPKhmPm.exit.i.us ], [ false, %for.body.us13 ], [ false, %if.end.i.i.us ]
   ret i1 %retval.0
 }
 

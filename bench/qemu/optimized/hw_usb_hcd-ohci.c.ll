@@ -1906,9 +1906,9 @@ if.then17:                                        ; preds = %if.then10
   br label %for.inc
 
 while.body:                                       ; preds = %while.cond.preheader, %if.end78
-  %15 = phi i32 [ %290, %if.end78 ], [ %11, %while.cond.preheader ]
+  %15 = phi i32 [ %289, %if.end78 ], [ %11, %while.cond.preheader ]
   %and25319 = phi i32 [ %and25, %if.end78 ], [ %and25317, %while.cond.preheader ]
-  %16 = phi i32 [ %289, %if.end78 ], [ %9, %while.cond.preheader ]
+  %16 = phi i32 [ %288, %if.end78 ], [ %9, %while.cond.preheader ]
   %and29 = and i32 %16, 1
   %and33 = lshr i32 %16, 1
   %and33.lobit = and i32 %and33, 1
@@ -3531,8 +3531,7 @@ if.end238.i:                                      ; preds = %if.then235.i, %if.e
   call fastcc void @trace_usb_ohci_iso_td_so(i32 noundef %conv99.i, i32 noundef %end_offset.0.i, i32 noundef %or146.i, i32 noundef %end_addr.0.i, ptr noundef nonnull %switch.load519, i64 noundef %spec.store.select.i97, i32 noundef %ret.0.i101)
   %cmp242.i = icmp slt i32 %ret.0.i101, 0
   %cmp246.not.i = icmp ugt i32 %ret.0.i101, %262
-  %272 = or i1 %cmp242.i, %cmp246.not.i
-  %or.cond159.i = select i1 %cmp194.i, i1 true, i1 %272
+  %or.cond159.i = select i1 %cmp194.i, i1 true, i1 %cmp246.not.i
   br i1 %or.cond159.i, label %if.else283.i, label %if.then248.i
 
 if.then248.i:                                     ; preds = %if.end238.i
@@ -3541,13 +3540,13 @@ if.then248.i:                                     ; preds = %if.end238.i
   br i1 %tobool251.not.i, label %do.body254.i, label %if.then252.i
 
 if.then252.i:                                     ; preds = %if.then248.i
-  %273 = load ptr, ptr %ohci_die.i130.i, align 8
-  call void %273(ptr noundef nonnull %ohci) #8
+  %272 = load ptr, ptr %ohci_die.i130.i, align 8
+  call void %272(ptr noundef nonnull %ohci) #8
   br label %ohci_service_iso_td.exit.thread
 
 do.body254.i:                                     ; preds = %if.then248.i
-  %274 = trunc i32 %ret.0.i101 to i16
-  %conv281.i = and i16 %274, 4095
+  %273 = trunc i32 %ret.0.i101 to i16
+  %conv281.i = and i16 %273, 4095
   br label %if.end450.i
 
 if.else283.i:                                     ; preds = %if.end238.i
@@ -3562,9 +3561,9 @@ if.else319.i:                                     ; preds = %if.else283.i
 
 if.then323.i:                                     ; preds = %if.else319.i
   call fastcc void @trace_usb_ohci_iso_td_data_overrun(i32 noundef %ret.0.i101, i64 noundef %spec.store.select.i97)
-  %275 = trunc nuw nsw i32 %262 to i16
-  %276 = and i16 %275, 4095
-  %conv352.i = or disjoint i16 %276, -32768
+  %274 = trunc nuw nsw i32 %262 to i16
+  %275 = and i16 %274, 4095
+  %conv352.i = or disjoint i16 %275, -32768
   br label %if.end450.i
 
 if.else354.i:                                     ; preds = %if.else319.i
@@ -3572,9 +3571,9 @@ if.else354.i:                                     ; preds = %if.else319.i
 
 if.then357.i:                                     ; preds = %if.else354.i
   call fastcc void @trace_usb_ohci_iso_td_data_underrun(i32 noundef %ret.0.i101)
-  %277 = load i16, ptr %arrayidx98.i, align 2
-  %278 = and i16 %277, 4095
-  %279 = or disjoint i16 %278, -28672
+  %276 = load i16, ptr %arrayidx98.i, align 2
+  %277 = and i16 %276, 4095
+  %278 = or disjoint i16 %277, -28672
   br label %if.end450.i
 
 if.else372.i:                                     ; preds = %if.else354.i
@@ -3591,33 +3590,33 @@ sw.bb402.i:                                       ; preds = %if.else372.i, %if.e
 
 sw.default431.i:                                  ; preds = %if.else372.i
   call fastcc void @trace_usb_ohci_iso_td_bad_response(i32 noundef %ret.0.i101)
-  %280 = load i16, ptr %arrayidx98.i, align 2
-  %281 = and i16 %280, 4095
-  %282 = or disjoint i16 %281, 28672
+  %279 = load i16, ptr %arrayidx98.i, align 2
+  %280 = and i16 %279, 4095
+  %281 = or disjoint i16 %280, 28672
   br label %if.end450.i
 
 if.end450.i:                                      ; preds = %sw.default431.i, %sw.bb402.i, %if.else372.i, %if.else372.i, %if.then357.i, %if.then323.i, %if.else283.i, %do.body254.i
-  %.sink277.i = phi i16 [ %279, %if.then357.i ], [ %282, %sw.default431.i ], [ 16384, %sw.bb402.i ], [ %conv352.i, %if.then323.i ], [ %conv281.i, %do.body254.i ], [ 0, %if.else283.i ], [ 20480, %if.else372.i ], [ 20480, %if.else372.i ]
+  %.sink277.i = phi i16 [ %278, %if.then357.i ], [ %281, %sw.default431.i ], [ 16384, %sw.bb402.i ], [ %conv352.i, %if.then323.i ], [ %conv281.i, %do.body254.i ], [ 0, %if.else283.i ], [ 20480, %if.else372.i ], [ 20480, %if.else372.i ]
   store i16 %.sink277.i, ptr %arrayidx98.i, align 2
   br i1 %cmp218.i, label %do.body455.i, label %if.end479.i
 
 do.body455.i:                                     ; preds = %if.end450.i
-  %283 = load i32, ptr %iso_td.i, align 4
-  %and457.i = and i32 %283, 268435455
+  %282 = load i32, ptr %iso_td.i, align 4
+  %and457.i = and i32 %282, 268435455
   store i32 %and457.i, ptr %iso_td.i, align 4
-  %284 = load i32, ptr %head5, align 4
-  %and462.i = and i32 %284, 15
-  %285 = load i32, ptr %next.i86, align 4
-  %and464.i = and i32 %285, -16
+  %283 = load i32, ptr %head5, align 4
+  %and462.i = and i32 %283, 15
+  %284 = load i32, ptr %next.i86, align 4
+  %and464.i = and i32 %284, -16
   %or466.i = or disjoint i32 %and464.i, %and462.i
   store i32 %or466.i, ptr %head5, align 4
-  %286 = load i32, ptr %done.i105, align 16
-  store i32 %286, ptr %next.i86, align 4
+  %285 = load i32, ptr %done.i105, align 16
+  store i32 %285, ptr %next.i86, align 4
   store i32 %and.i54, ptr %done.i105, align 16
-  %and471.i = lshr i32 %283, 21
+  %and471.i = lshr i32 %282, 21
   %shr472.i = and i32 %and471.i, 7
-  %287 = load i32, ptr %done_count.i106, align 4
-  %cmp474.i = icmp slt i32 %shr472.i, %287
+  %286 = load i32, ptr %done_count.i106, align 4
+  %cmp474.i = icmp slt i32 %shr472.i, %286
   br i1 %cmp474.i, label %if.then476.i, label %if.end479.i
 
 if.then476.i:                                     ; preds = %do.body455.i
@@ -3630,8 +3629,8 @@ if.end479.i:                                      ; preds = %if.then476.i, %do.b
   br i1 %tobool482.not.i, label %ohci_service_iso_td.exit.thread, label %if.then483.i
 
 if.then483.i:                                     ; preds = %if.end479.i
-  %288 = load ptr, ptr %ohci_die.i130.i, align 8
-  call void %288(ptr noundef nonnull %ohci) #8
+  %287 = load ptr, ptr %ohci_die.i130.i, align 8
+  call void %287(ptr noundef nonnull %ohci) #8
   br label %ohci_service_iso_td.exit.thread
 
 ohci_service_iso_td.exit.thread:                  ; preds = %trace_usb_ohci_iso_td_relative_frame_number_big.exit.i, %if.then.i111, %trace_usb_ohci_iso_td_read_failed.exit.i, %trace_usb_ohci_iso_td_relative_frame_number_neg.exit.i, %if.then80.i, %trace_usb_ohci_iso_td_bad_direction.exit, %trace_usb_ohci_iso_td_bad_cc_overrun.exit201, %if.then171.i, %if.then200.i, %if.then210.i, %if.then230.i, %if.then252.i, %trace_usb_ohci_iso_td_bad_cc_not_accessed.exit.i, %trace_usb_ohci_iso_td_bad_bp_be.exit.i, %if.then483.i, %if.end479.i
@@ -3646,24 +3645,24 @@ ohci_service_iso_td.exit:                         ; preds = %for.inc.i12.i.i
   br label %if.end78
 
 if.end78:                                         ; preds = %ohci_service_iso_td.exit, %ohci_service_td.exit
-  %289 = load i32, ptr %head5, align 4
-  %and25 = and i32 %289, -16
-  %290 = load i32, ptr %tail, align 4
-  %cmp26.not = icmp eq i32 %and25, %290
+  %288 = load i32, ptr %head5, align 4
+  %and25 = and i32 %288, -16
+  %289 = load i32, ptr %tail, align 4
+  %cmp26.not = icmp eq i32 %and25, %289
   br i1 %cmp26.not, label %while.end, label %while.body, !llvm.loop !17
 
 while.end:                                        ; preds = %if.end78, %ohci_service_td.exit, %while.cond.preheader, %ohci_service_iso_td.exit.thread, %ohci_service_td.exit.thread
   %active.2 = phi i32 [ 1, %ohci_service_td.exit.thread ], [ 1, %ohci_service_iso_td.exit.thread ], [ %active.0322, %while.cond.preheader ], [ 1, %ohci_service_td.exit ], [ 1, %if.end78 ]
   %add.i113 = add nuw nsw i64 %conv, 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %tmp.i.i)
-  %291 = load i64, ptr %localmem_base.i.i, align 8
-  %add.i.i115 = add i64 %add.i113, %291
-  %292 = load i32, ptr %head5, align 4
-  store i32 %292, ptr %tmp.i.i, align 4
-  %293 = load ptr, ptr %as.i.i, align 16
+  %290 = load i64, ptr %localmem_base.i.i, align 8
+  %add.i.i115 = add i64 %add.i113, %290
+  %291 = load i32, ptr %head5, align 4
+  store i32 %291, ptr %tmp.i.i, align 4
+  %292 = load ptr, ptr %as.i.i, align 16
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
   fence seq_cst
-  %call.i.i.i.i.i117 = call i32 @address_space_rw(ptr noundef %293, i64 noundef %add.i.i115, i32 1, ptr noundef nonnull %tmp.i.i, i64 noundef 4, i1 noundef zeroext true) #8
+  %call.i.i.i.i.i117 = call i32 @address_space_rw(ptr noundef %292, i64 noundef %add.i.i115, i32 1, ptr noundef nonnull %tmp.i.i, i64 noundef 4, i1 noundef zeroext true) #8
   %tobool.not.i.i118.not = icmp eq i32 %call.i.i.i.i.i117, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp.i.i)
   br i1 %tobool.not.i.i118.not, label %for.inc, label %return.sink.split
@@ -3674,8 +3673,8 @@ for.inc:                                          ; preds = %while.end, %if.then
   br i1 %tobool.not, label %return, label %land.rhs, !llvm.loop !18
 
 return.sink.split:                                ; preds = %while.end, %trace_usb_ohci_ed_read_error.exit
-  %294 = load ptr, ptr %ohci_die.i130.i, align 8
-  call void %294(ptr noundef nonnull %ohci) #8
+  %293 = load ptr, ptr %ohci_die.i130.i, align 8
+  call void %293(ptr noundef nonnull %ohci) #8
   br label %return
 
 return:                                           ; preds = %land.rhs, %for.inc, %return.sink.split, %entry

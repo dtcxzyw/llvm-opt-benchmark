@@ -6446,7 +6446,7 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %99
 
 bary_small_lshift.exit124:                        ; preds = %76
   call fastcc void @bigdivrem_restoring(ptr noundef %.086140, i64 noundef %10, ptr noundef %.089138, i64 noundef %7)
-  br i1 %.not105, label %.loopexit150, label %105
+  br i1 %.not105, label %.loopexit150, label %.lr.ph.i128
 
 bary_small_lshift.exit124.thread165:              ; preds = %bary_small_lshift.exit
   call fastcc void @bigdivrem_restoring(ptr noundef nonnull %.086140, i64 noundef %10, ptr noundef %.089138, i64 noundef %7)
@@ -6460,98 +6460,95 @@ bary_small_lshift.exit124.thread:                 ; preds = %102, %rbimpl_size_m
   %.not107143 = icmp eq ptr %2, null
   br i1 %.not107143, label %.loopexit150, label %.thread146
 
-105:                                              ; preds = %bary_small_lshift.exit124
-  br i1 %.not.i115, label %bary_small_rshift.exit, label %.lr.ph.i128
+.lr.ph.i128:                                      ; preds = %bary_small_lshift.exit124
+  %105 = zext nneg i32 %14 to i64
+  br label %106
 
-.lr.ph.i128:                                      ; preds = %105
-  %106 = zext nneg i32 %14 to i64
-  br label %107
-
-107:                                              ; preds = %107, %.lr.ph.i128
-  %.017.i = phi i64 [ 0, %.lr.ph.i128 ], [ %117, %107 ]
-  %.014.in16.i = phi i64 [ 0, %.lr.ph.i128 ], [ %112, %107 ]
+106:                                              ; preds = %106, %.lr.ph.i128
+  %.017.i = phi i64 [ 0, %.lr.ph.i128 ], [ %116, %106 ]
+  %.014.in16.i = phi i64 [ 0, %.lr.ph.i128 ], [ %111, %106 ]
   %.014.i = shl nuw i64 %.014.in16.i, 32
-  %108 = xor i64 %.017.i, -1
-  %109 = add i64 %108, %7
-  %110 = getelementptr i32, ptr %.086140, i64 %109
-  %111 = load i32, ptr %110, align 4
-  %112 = zext i32 %111 to i64
-  %113 = or disjoint i64 %.014.i, %112
-  %114 = lshr i64 %113, %106
-  %115 = trunc i64 %114 to i32
-  %116 = getelementptr i32, ptr %2, i64 %109
-  store i32 %115, ptr %116, align 4
-  %117 = add nuw i64 %.017.i, 1
-  %exitcond.not.i129 = icmp eq i64 %117, %7
-  br i1 %exitcond.not.i129, label %bary_small_rshift.exit, label %107, !llvm.loop !38
+  %107 = xor i64 %.017.i, -1
+  %108 = add i64 %107, %7
+  %109 = getelementptr i32, ptr %.086140, i64 %108
+  %110 = load i32, ptr %109, align 4
+  %111 = zext i32 %110 to i64
+  %112 = or disjoint i64 %.014.i, %111
+  %113 = lshr i64 %112, %105
+  %114 = trunc i64 %113 to i32
+  %115 = getelementptr i32, ptr %2, i64 %108
+  store i32 %114, ptr %115, align 4
+  %116 = add nuw i64 %.017.i, 1
+  %exitcond.not.i129 = icmp eq i64 %116, %7
+  br i1 %exitcond.not.i129, label %bary_small_rshift.exit, label %106, !llvm.loop !38
 
 .thread146:                                       ; preds = %bary_small_lshift.exit124.thread
-  %118 = icmp ugt i64 %7, 4611686018427387903
-  br i1 %118, label %119, label %rbimpl_size_mul_or_raise.exit130
+  %117 = icmp ugt i64 %7, 4611686018427387903
+  br i1 %117, label %118, label %rbimpl_size_mul_or_raise.exit130
 
-119:                                              ; preds = %.thread146
+118:                                              ; preds = %.thread146
   call void @ruby_malloc_size_overflow(i64 noundef 4, i64 noundef %7) #27
   unreachable
 
 rbimpl_size_mul_or_raise.exit130:                 ; preds = %.thread146
   %.not.i131 = icmp eq i64 %7, 0
-  br i1 %.not.i131, label %bary_small_rshift.exit, label %120
+  br i1 %.not.i131, label %bary_small_rshift.exit, label %119
 
-120:                                              ; preds = %rbimpl_size_mul_or_raise.exit130
-  %121 = shl nuw i64 %7, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %2, ptr nonnull readonly align 1 %.1160164, i64 %121, i1 false)
+119:                                              ; preds = %rbimpl_size_mul_or_raise.exit130
+  %120 = shl nuw i64 %7, 2
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %2, ptr nonnull readonly align 1 %.1160164, i64 %120, i1 false)
   br label %bary_small_rshift.exit
 
-bary_small_rshift.exit:                           ; preds = %107, %bary_small_lshift.exit124.thread165, %120, %rbimpl_size_mul_or_raise.exit130, %105
-  %.2144148 = phi ptr [ %.086140, %105 ], [ %.1160164, %rbimpl_size_mul_or_raise.exit130 ], [ %.1160164, %120 ], [ %.086140, %bary_small_lshift.exit124.thread165 ], [ %.086140, %107 ]
+bary_small_rshift.exit:                           ; preds = %106, %bary_small_lshift.exit124.thread165, %119, %rbimpl_size_mul_or_raise.exit130
+  %.2144148 = phi ptr [ %.1160164, %rbimpl_size_mul_or_raise.exit130 ], [ %.1160164, %119 ], [ %.086140, %bary_small_lshift.exit124.thread165 ], [ %.086140, %106 ]
   %.not108151 = icmp eq i64 %3, %7
   br i1 %.not108151, label %.loopexit150, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %bary_small_rshift.exit
-  %122 = getelementptr i32, ptr %2, i64 %7
-  %123 = sub i64 %3, %7
-  %124 = shl i64 %123, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %122, i8 0, i64 %124, i1 false)
+  %121 = getelementptr i32, ptr %2, i64 %7
+  %122 = sub i64 %3, %7
+  %123 = shl i64 %122, 2
+  call void @llvm.memset.p0.i64(ptr align 4 %121, i8 0, i64 %123, i1 false)
   br label %.loopexit150
 
 .loopexit150:                                     ; preds = %bary_small_lshift.exit124.thread165, %.lr.ph.preheader, %bary_small_rshift.exit, %bary_small_lshift.exit124.thread, %bary_small_lshift.exit124
   %.2145 = phi ptr [ %.1160164, %bary_small_lshift.exit124.thread ], [ %.086140, %bary_small_lshift.exit124 ], [ %.2144148, %bary_small_rshift.exit ], [ %.2144148, %.lr.ph.preheader ], [ %.086140, %bary_small_lshift.exit124.thread165 ]
   %.not109 = icmp eq ptr %0, null
-  br i1 %.not109, label %.loopexit, label %125
+  br i1 %.not109, label %.loopexit, label %124
 
-125:                                              ; preds = %.loopexit150
-  %126 = sub i64 %10, %7
-  %127 = icmp ugt i64 %126, 4611686018427387903
-  br i1 %127, label %128, label %rbimpl_size_mul_or_raise.exit133
+124:                                              ; preds = %.loopexit150
+  %125 = sub i64 %10, %7
+  %126 = icmp ugt i64 %125, 4611686018427387903
+  br i1 %126, label %127, label %rbimpl_size_mul_or_raise.exit133
 
-128:                                              ; preds = %125
-  call void @ruby_malloc_size_overflow(i64 noundef 4, i64 noundef %126) #27
+127:                                              ; preds = %124
+  call void @ruby_malloc_size_overflow(i64 noundef 4, i64 noundef %125) #27
   unreachable
 
-rbimpl_size_mul_or_raise.exit133:                 ; preds = %125
-  %129 = getelementptr i32, ptr %.2145, i64 %7
-  %130 = shl nuw i64 %126, 2
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %0, ptr align 4 %129, i64 %130, i1 false)
-  %.not110154 = icmp eq i64 %126, %1
+rbimpl_size_mul_or_raise.exit133:                 ; preds = %124
+  %128 = getelementptr i32, ptr %.2145, i64 %7
+  %129 = shl nuw i64 %125, 2
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %0, ptr align 4 %128, i64 %129, i1 false)
+  %.not110154 = icmp eq i64 %125, %1
   br i1 %.not110154, label %.loopexit, label %.lr.ph157.preheader
 
 .lr.ph157.preheader:                              ; preds = %rbimpl_size_mul_or_raise.exit133
-  %131 = sub i64 %1, %126
-  %132 = getelementptr i32, ptr %0, i64 %126
-  %133 = shl nuw i64 %131, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %132, i8 0, i64 %133, i1 false)
+  %130 = sub i64 %1, %125
+  %131 = getelementptr i32, ptr %0, i64 %125
+  %132 = shl nuw i64 %130, 2
+  call void @llvm.memset.p0.i64(ptr align 4 %131, i8 0, i64 %132, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph157.preheader, %rbimpl_size_mul_or_raise.exit133, %.loopexit150
-  %134 = load i64, ptr %9, align 8
-  %.not111 = icmp eq i64 %134, 0
-  br i1 %.not111, label %136, label %135
+  %133 = load i64, ptr %9, align 8
+  %.not111 = icmp eq i64 %133, 0
+  br i1 %.not111, label %135, label %134
 
-135:                                              ; preds = %.loopexit
+134:                                              ; preds = %.loopexit
   call void @rb_free_tmp_buffer(ptr noundef nonnull %9) #25
-  br label %136
+  br label %135
 
-136:                                              ; preds = %135, %.loopexit
+135:                                              ; preds = %134, %.loopexit
   ret void
 }
 

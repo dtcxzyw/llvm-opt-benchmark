@@ -13631,9 +13631,9 @@ common.resume:                                    ; preds = %.loopexit.split-lp4
   %38 = getelementptr inbounds i8, ptr %1, i64 648
   %39 = load i64, ptr %38, align 8, !noundef !4
   %.not533 = icmp eq i64 %39, 0
-  br i1 %.not533, label %._crit_edge.thread, label %.lr.ph513
+  br i1 %.not533, label %.preheader.thread, label %.lr.ph513
 
-._crit_edge.thread:                               ; preds = %"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h40648f0e16485c2eE.exit"
+.preheader.thread:                                ; preds = %"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h40648f0e16485c2eE.exit"
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %25)
   store ptr @anon.8d3b2245bd4ae2af5900eb7d39f1e495.5, ptr %25, align 8
   %.sroa.4337.0..sroa_idx613 = getelementptr inbounds i8, ptr %25, i64 8
@@ -13669,7 +13669,7 @@ common.resume:                                    ; preds = %.loopexit.split-lp4
 
 .loopexit415:                                     ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6cdbbd6935181f98E.exit287.thread.loopexit", %456
   %exitcond.not = icmp eq i64 %45, %39
-  br i1 %exitcond.not, label %._crit_edge, label %44
+  br i1 %exitcond.not, label %.lr.ph525, label %44
 
 44:                                               ; preds = %.lr.ph513, %.loopexit415
   %.sroa.03.0512 = phi i64 [ 0, %.lr.ph513 ], [ %45, %.loopexit415 ]
@@ -13678,14 +13678,11 @@ common.resume:                                    ; preds = %.loopexit.split-lp4
   %47 = invoke { ptr, i64 } @"_ZN90_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$regalloc2..Function$GT$12block_params17hd7b9e70bb1ce9c3bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(1424) %1, i32 noundef %46)
           to label %428 unwind label %.loopexit.split-lp417.loopexit
 
-._crit_edge:                                      ; preds = %.loopexit415
+.lr.ph525:                                        ; preds = %.loopexit415
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %25)
   store ptr @anon.8d3b2245bd4ae2af5900eb7d39f1e495.5, ptr %25, align 8
   %.sroa.4337.0..sroa_idx = getelementptr inbounds i8, ptr %25, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4337.0..sroa_idx, i8 0, i64 24, i1 false)
-  br i1 %.not533, label %._crit_edge532, label %.lr.ph525
-
-.lr.ph525:                                        ; preds = %._crit_edge
   %48 = getelementptr inbounds i8, ptr %25, i64 24
   %49 = getelementptr inbounds i8, ptr %25, i64 16
   %50 = getelementptr inbounds i8, ptr %25, i64 32
@@ -13737,12 +13734,9 @@ common.resume:                                    ; preds = %.loopexit.split-lp4
 
 .loopexit409:                                     ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6cdbbd6935181f98E.exit264.thread.loopexit", %207
   %exitcond611.not = icmp eq i64 %58, %39
-  br i1 %exitcond611.not, label %.preheader, label %57
+  br i1 %exitcond611.not, label %.lr.ph531, label %57
 
-.preheader:                                       ; preds = %.loopexit409
-  br i1 %.not533, label %._crit_edge532, label %.lr.ph531
-
-.lr.ph531:                                        ; preds = %.preheader
+.lr.ph531:                                        ; preds = %.loopexit409
   %55 = getelementptr inbounds i8, ptr %1, i64 640
   %56 = load ptr, ptr %55, align 8, !alias.scope !2747, !noalias !2750, !nonnull !4, !noundef !4
   br label %65
@@ -13782,8 +13776,8 @@ common.resume:                                    ; preds = %.loopexit.split-lp4
   %74 = add i32 %72, -1
   br label %109
 
-._crit_edge532:                                   ; preds = %._crit_edge529, %._crit_edge, %._crit_edge.thread, %.preheader
-  %.sroa.4337.0..sroa_idx615617 = phi ptr [ %.sroa.4337.0..sroa_idx, %.preheader ], [ %.sroa.4337.0..sroa_idx, %._crit_edge ], [ %.sroa.4337.0..sroa_idx613, %._crit_edge.thread ], [ %.sroa.4337.0..sroa_idx, %._crit_edge529 ]
+._crit_edge532:                                   ; preds = %._crit_edge529, %.preheader.thread
+  %.sroa.4337.0..sroa_idx615617 = phi ptr [ %.sroa.4337.0..sroa_idx613, %.preheader.thread ], [ %.sroa.4337.0..sroa_idx, %._crit_edge529 ]
   %75 = getelementptr inbounds i8, ptr %1, i64 1400
   %76 = load i32, ptr %75, align 8, !noundef !4
   %77 = invoke { ptr, i64 } @"_ZN90_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$regalloc2..Function$GT$12block_params17hd7b9e70bb1ce9c3bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(1424) %1, i32 noundef %76)

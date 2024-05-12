@@ -4116,8 +4116,8 @@ entry:
   %3 = getelementptr inbounds i8, ptr %this, i64 32
   %sorted_runs_.val94375 = load ptr, ptr %sorted_runs_, align 8
   %sorted_runs_.val95376 = load ptr, ptr %3, align 8
-  %cmp381 = icmp eq ptr %sorted_runs_.val95376, %sorted_runs_.val94375
-  br i1 %cmp381, label %return, label %for.cond8.preheader.lr.ph
+  %cmp.not381.not = icmp eq ptr %sorted_runs_.val95376, %sorted_runs_.val94375
+  br i1 %cmp.not381.not, label %return, label %for.cond8.preheader.lr.ph
 
 for.cond8.preheader.lr.ph:                        ; preds = %entry
   %log_buffer_ = getelementptr inbounds i8, ptr %this, i64 88
@@ -4296,7 +4296,7 @@ if.end64:                                         ; preds = %if.else, %if.end60
 for.end68:                                        ; preds = %land.rhs, %for.body34, %if.end40, %if.then50, %if.end64
   %candidate_count.2.lcssa = phi i32 [ %candidate_count.2367, %land.rhs ], [ %candidate_count.2367, %for.body34 ], [ %candidate_count.2367, %if.end40 ], [ %candidate_count.2367, %if.then50 ], [ %.sroa.speculated320, %if.end64 ]
   %cmp69.not = icmp ult i32 %candidate_count.2.lcssa, %.sroa.speculated
-  br i1 %cmp69.not, label %for.cond73.preheader, label %for.end98
+  br i1 %cmp69.not, label %for.cond73.preheader, label %if.end102
 
 for.cond73.preheader:                             ; preds = %if.end28, %for.end68
   %candidate_count.2.lcssa417 = phi i32 [ %candidate_count.2.lcssa, %for.end68 ], [ %candidate_count.1329336, %if.end28 ]
@@ -4362,11 +4362,7 @@ for.inc96:                                        ; preds = %land.rhs77, %_ZNK7r
   %cmp.not = icmp ult i64 %add, %sub.ptr.div.i
   br i1 %cmp.not, label %for.cond8.preheader, label %return, !llvm.loop !56
 
-for.end98:                                        ; preds = %for.end68
-  %cmp100 = icmp ult i32 %candidate_count.2.lcssa, 2
-  br i1 %cmp100, label %return, label %if.end102
-
-if.end102:                                        ; preds = %for.end98
+if.end102:                                        ; preds = %for.end68
   %conv103 = zext i32 %candidate_count.2.lcssa to i64
   %add104 = add i64 %loop.1352, %conv103
   %33 = load ptr, ptr %mutable_cf_options_, align 8
@@ -5166,8 +5162,8 @@ ehcleanup308:                                     ; preds = %lpad203.loopexit, %
   call void @_ZNSt6vectorIN7rocksdb20CompactionInputFilesESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %inputs) #22
   resume { ptr, i32 } %.pn79
 
-return:                                           ; preds = %for.inc96, %entry, %if.then.i.i.i308, %invoke.cont.i306, %for.end98
-  %retval.1 = phi ptr [ null, %for.end98 ], [ %retval.0, %invoke.cont.i306 ], [ %retval.0, %if.then.i.i.i308 ], [ null, %entry ], [ null, %for.inc96 ]
+return:                                           ; preds = %for.inc96, %entry, %if.then.i.i.i308, %invoke.cont.i306
+  %retval.1 = phi ptr [ %retval.0, %invoke.cont.i306 ], [ %retval.0, %if.then.i.i.i308 ], [ null, %entry ], [ null, %for.inc96 ]
   ret ptr %retval.1
 }
 

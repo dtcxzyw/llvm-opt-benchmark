@@ -22360,51 +22360,51 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEPdET0_T_S9_S8_.exi
   br label %_ZNSt6vectorIdSaIdEE15_M_erase_at_endEPd.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEmEvRT_T0_.exit: ; preds = %28
-  %43 = getelementptr inbounds i8, ptr %1, i64 %32
-  %44 = ptrtoint ptr %43 to i64
-  %45 = ashr exact i64 %32, 3
-  %46 = icmp sgt i64 %45, 0
-  br i1 %46, label %.lr.ph.i.i.i.i.i20, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEPdET0_T_S9_S8_.exit24
+  %.sink.i.i = getelementptr inbounds i8, ptr %1, i64 %32
+  %43 = ptrtoint ptr %.sink.i.i to i64
+  %44 = ashr exact i64 %32, 3
+  %45 = icmp sgt i64 %44, 0
+  br i1 %45, label %.lr.ph.i.i.i.i.i20, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEPdET0_T_S9_S8_.exit24
 
 .lr.ph.i.i.i.i.i20:                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEmEvRT_T0_.exit, %.lr.ph.i.i.i.i.i20
-  %.012.i.i.i.i.i21 = phi i64 [ %51, %.lr.ph.i.i.i.i.i20 ], [ %45, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEmEvRT_T0_.exit ]
-  %.0811.i.i.i.i.i22 = phi ptr [ %50, %.lr.ph.i.i.i.i.i20 ], [ %10, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEmEvRT_T0_.exit ]
-  %.0910.i.i.i.i.i23 = phi ptr [ %49, %.lr.ph.i.i.i.i.i20 ], [ %1, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEmEvRT_T0_.exit ]
-  %47 = load i64, ptr %.0910.i.i.i.i.i23, align 8
-  %48 = sitofp i64 %47 to double
-  store double %48, ptr %.0811.i.i.i.i.i22, align 8
-  %49 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i23, i64 8
-  %50 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i22, i64 8
-  %51 = add nsw i64 %.012.i.i.i.i.i21, -1
-  %52 = icmp ugt i64 %.012.i.i.i.i.i21, 1
-  br i1 %52, label %.lr.ph.i.i.i.i.i20, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEPdET0_T_S9_S8_.exit24.loopexit, !llvm.loop !25
+  %.012.i.i.i.i.i21 = phi i64 [ %50, %.lr.ph.i.i.i.i.i20 ], [ %44, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEmEvRT_T0_.exit ]
+  %.0811.i.i.i.i.i22 = phi ptr [ %49, %.lr.ph.i.i.i.i.i20 ], [ %10, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEmEvRT_T0_.exit ]
+  %.0910.i.i.i.i.i23 = phi ptr [ %48, %.lr.ph.i.i.i.i.i20 ], [ %1, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEmEvRT_T0_.exit ]
+  %46 = load i64, ptr %.0910.i.i.i.i.i23, align 8
+  %47 = sitofp i64 %46 to double
+  store double %47, ptr %.0811.i.i.i.i.i22, align 8
+  %48 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i23, i64 8
+  %49 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i22, i64 8
+  %50 = add nsw i64 %.012.i.i.i.i.i21, -1
+  %51 = icmp ugt i64 %.012.i.i.i.i.i21, 1
+  br i1 %51, label %.lr.ph.i.i.i.i.i20, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEPdET0_T_S9_S8_.exit24.loopexit, !llvm.loop !25
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEPdET0_T_S9_S8_.exit24.loopexit: ; preds = %.lr.ph.i.i.i.i.i20
   %.pre28 = load ptr, ptr %29, align 8
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEPdET0_T_S9_S8_.exit24
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEPdET0_T_S9_S8_.exit24: ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEPdET0_T_S9_S8_.exit24.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEmEvRT_T0_.exit
-  %53 = phi ptr [ %.pre28, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEPdET0_T_S9_S8_.exit24.loopexit ], [ %30, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEmEvRT_T0_.exit ]
-  %54 = sub i64 %4, %44
-  %55 = ashr exact i64 %54, 3
-  %56 = icmp sgt i64 %55, 0
-  br i1 %56, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEPddET0_T_S9_S8_RSaIT1_E.exit
+  %52 = phi ptr [ %.pre28, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEPdET0_T_S9_S8_.exit24.loopexit ], [ %30, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEmEvRT_T0_.exit ]
+  %53 = sub i64 %4, %43
+  %54 = ashr exact i64 %53, 3
+  %55 = icmp sgt i64 %54, 0
+  br i1 %55, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEPddET0_T_S9_S8_RSaIT1_E.exit
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEPdET0_T_S9_S8_.exit24, %.lr.ph.i.i.i.i.i.i.i.i
-  %.012.i.i.i.i.i.i.i.i = phi i64 [ %61, %.lr.ph.i.i.i.i.i.i.i.i ], [ %55, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEPdET0_T_S9_S8_.exit24 ]
-  %.0811.i.i.i.i.i.i.i.i = phi ptr [ %60, %.lr.ph.i.i.i.i.i.i.i.i ], [ %53, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEPdET0_T_S9_S8_.exit24 ]
-  %.0910.i.i.i.i.i.i.i.i = phi ptr [ %59, %.lr.ph.i.i.i.i.i.i.i.i ], [ %43, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEPdET0_T_S9_S8_.exit24 ]
-  %57 = load i64, ptr %.0910.i.i.i.i.i.i.i.i, align 8
-  %58 = sitofp i64 %57 to double
-  store double %58, ptr %.0811.i.i.i.i.i.i.i.i, align 8
-  %59 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i, i64 8
-  %60 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i, i64 8
-  %61 = add nsw i64 %.012.i.i.i.i.i.i.i.i, -1
-  %62 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i, 1
-  br i1 %62, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEPddET0_T_S9_S8_RSaIT1_E.exit, !llvm.loop !25
+  %.012.i.i.i.i.i.i.i.i = phi i64 [ %60, %.lr.ph.i.i.i.i.i.i.i.i ], [ %54, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEPdET0_T_S9_S8_.exit24 ]
+  %.0811.i.i.i.i.i.i.i.i = phi ptr [ %59, %.lr.ph.i.i.i.i.i.i.i.i ], [ %52, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEPdET0_T_S9_S8_.exit24 ]
+  %.0910.i.i.i.i.i.i.i.i = phi ptr [ %58, %.lr.ph.i.i.i.i.i.i.i.i ], [ %.sink.i.i, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEPdET0_T_S9_S8_.exit24 ]
+  %56 = load i64, ptr %.0910.i.i.i.i.i.i.i.i, align 8
+  %57 = sitofp i64 %56 to double
+  store double %57, ptr %.0811.i.i.i.i.i.i.i.i, align 8
+  %58 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i, i64 8
+  %59 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i, i64 8
+  %60 = add nsw i64 %.012.i.i.i.i.i.i.i.i, -1
+  %61 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i, 1
+  br i1 %61, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEPddET0_T_S9_S8_RSaIT1_E.exit, !llvm.loop !25
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEPddET0_T_S9_S8_RSaIT1_E.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEPdET0_T_S9_S8_.exit24
-  %.08.lcssa.i.i.i.i.i.i.i.i = phi ptr [ %53, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEPdET0_T_S9_S8_.exit24 ], [ %60, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.08.lcssa.i.i.i.i.i.i.i.i = phi ptr [ %52, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEPdET0_T_S9_S8_.exit24 ], [ %59, %.lr.ph.i.i.i.i.i.i.i.i ]
   store ptr %.08.lcssa.i.i.i.i.i.i.i.i, ptr %29, align 8
   br label %_ZNSt6vectorIdSaIdEE15_M_erase_at_endEPd.exit
 
