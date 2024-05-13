@@ -2523,7 +2523,7 @@ rb_float_value_inline.exit:                       ; preds = %106, %100, %99, %RB
   %111 = tail call double @llvm.fabs.f64(double %110)
   %112 = bitcast double %111 to i64
   %113 = fcmp olt double %110, 0.000000e+00
-  %114 = sub i64 0, %112
+  %114 = sub nsw i64 0, %112
   %115 = select i1 %113, i64 %114, i64 %112
   %116 = icmp eq i64 %11, 4
   br i1 %116, label %rb_float_value_inline.exit308, label %117
@@ -2558,7 +2558,7 @@ rb_float_value_inline.exit308:                    ; preds = %128, %122, %121, %r
   %133 = tail call double @llvm.fabs.f64(double %132)
   %134 = bitcast double %133 to i64
   %135 = fcmp olt double %132, 0.000000e+00
-  %136 = sub i64 0, %134
+  %136 = sub nsw i64 0, %134
   %137 = select i1 %135, i64 %136, i64 %134
   %138 = tail call i32 @rb_block_given_p() #10
   %.not285 = icmp eq i32 %138, 0

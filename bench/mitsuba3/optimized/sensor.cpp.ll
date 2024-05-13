@@ -466,7 +466,7 @@ _ZNSt3__14pairIN7mitsuba8SpectrumIfLm4EEEN5drjit6MatrixIS3_Lm4EEEEC2B8ne190000IS
   %101 = select <4 x i1> %90, <4 x float> <float 0x7FFFFFFFE0000000, float 0x7FFFFFFFE0000000, float 0x7FFFFFFFE0000000, float 0x7FFFFFFFE0000000>, <4 x float> %100
   %102 = bitcast <4 x float> %101 to <4 x i32>
   %103 = and <4 x i32> %52, <i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648>
-  %104 = or <4 x i32> %103, %102
+  %104 = or disjoint <4 x i32> %103, %102
   %105 = bitcast <4 x i32> %104 to <4 x float>
   br label %_ZN7mitsuba19sample_rgb_spectrumINS_8SpectrumIfLm4EEEEENSt3__14pairIT_S5_EERKS5_.exit.i
 

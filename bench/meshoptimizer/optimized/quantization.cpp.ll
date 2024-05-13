@@ -13,11 +13,11 @@ entry:
   %and1 = bitcast float %1 to i32
   %add = add nsw i32 %and1, -939520000
   %shr2 = lshr i32 %add, 13
-  %cmp = icmp slt i32 %and1, 947912704
+  %cmp = icmp ult i32 %and1, 947912704
   %cond = select i1 %cmp, i32 947912704, i32 %shr2
-  %cmp3 = icmp sgt i32 %and1, 1199570943
+  %cmp3 = icmp ugt i32 %and1, 1199570943
   %cond7 = select i1 %cmp3, i32 31744, i32 %cond
-  %cmp8 = icmp sgt i32 %and1, 2139095040
+  %cmp8 = icmp ugt i32 %and1, 2139095040
   %cond12 = select i1 %cmp8, i32 32256, i32 %cond7
   %or = or i32 %cond12, %and
   %conv = trunc i32 %or to i16

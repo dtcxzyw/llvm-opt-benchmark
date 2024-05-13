@@ -4911,7 +4911,7 @@ _ZN5drjit10unit_angleIN7mitsuba6VectorINS1_8SpectrumIfLm4EEELm3EEEEENS_6detail5v
   %131 = tail call <4 x float> @llvm.fabs.v4f32(<4 x float> %130)
   %132 = bitcast <4 x float> %131 to <4 x i32>
   %133 = and <4 x i32> %111, <i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648>
-  %134 = or <4 x i32> %133, %132
+  %134 = or disjoint <4 x i32> %133, %132
   %135 = bitcast <4 x i32> %134 to <4 x float>
   %136 = fmul contract <4 x float> %135, <float 2.000000e+00, float 2.000000e+00, float 2.000000e+00, float 2.000000e+00>
   %137 = fsub contract <4 x float> <float 0x400921FB60000000, float 0x400921FB60000000, float 0x400921FB60000000, float 0x400921FB60000000>, %136

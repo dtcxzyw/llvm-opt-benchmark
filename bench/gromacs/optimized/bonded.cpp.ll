@@ -3243,7 +3243,7 @@ define internal noundef float @_ZN12_GLOBAL__N_16anglesIL18BondedKernelFlavor0EE
   %360 = bitcast <8 x float> %331 to <8 x i32>
   %361 = and <8 x i32> %360, <i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648>
   %362 = bitcast <8 x float> %359 to <8 x i32>
-  %363 = or <8 x i32> %361, %362
+  %363 = or disjoint <8 x i32> %361, %362
   %364 = bitcast <8 x i32> %363 to <8 x float>
   %365 = fadd <8 x float> %364, %364
   %366 = fsub <8 x float> <float 0x400921FB60000000, float 0x400921FB60000000, float 0x400921FB60000000, float 0x400921FB60000000, float 0x400921FB60000000, float 0x400921FB60000000, float 0x400921FB60000000, float 0x400921FB60000000>, %365
@@ -4725,7 +4725,7 @@ define internal noundef float @_ZN12_GLOBAL__N_112urey_bradleyIL18BondedKernelFl
   %397 = bitcast <8 x float> %368 to <8 x i32>
   %398 = and <8 x i32> %397, <i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648>
   %399 = bitcast <8 x float> %396 to <8 x i32>
-  %400 = or <8 x i32> %398, %399
+  %400 = or disjoint <8 x i32> %398, %399
   %401 = bitcast <8 x i32> %400 to <8 x float>
   %402 = fadd <8 x float> %401, %401
   %403 = fsub <8 x float> <float 0x400921FB60000000, float 0x400921FB60000000, float 0x400921FB60000000, float 0x400921FB60000000, float 0x400921FB60000000, float 0x400921FB60000000, float 0x400921FB60000000, float 0x400921FB60000000>, %402
@@ -21373,7 +21373,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_114dih_angle_simdEPA3_KfPKiS4_S4_S4
   %447 = bitcast <8 x float> %409 to <8 x i32>
   %448 = and <8 x i32> %447, <i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648>
   %449 = bitcast <8 x float> %446 to <8 x i32>
-  %450 = or <8 x i32> %448, %449
+  %450 = or disjoint <8 x i32> %448, %449
   store <8 x i32> %450, ptr %6, align 32
   %451 = fmul <8 x float> %284, %302
   %452 = fmul <8 x float> %278, %298

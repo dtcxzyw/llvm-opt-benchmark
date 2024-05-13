@@ -44765,7 +44765,7 @@ invoke.cont11.i.i.i:                              ; preds = %for.body4.i.i.i
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont11.i.i.i
-  %shr.i.i.i.i.i.i = lshr i32 %24, 16
+  %shr.i.i.i.i.i.i = lshr exact i32 %24, 16
   %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
   br label %_ZN18OpenImageIO_v2_6_09DataProxyI4halffEaSEf.exit.i.i.i
 
@@ -44835,7 +44835,7 @@ invoke.cont22.i.i.i:                              ; preds = %if.else.i.i.i
   br i1 %cmp.i.i.i18.i.i.i, label %if.then.i.i.i34.i.i.i, label %if.else.i.i.i19.i.i.i
 
 if.then.i.i.i34.i.i.i:                            ; preds = %invoke.cont22.i.i.i
-  %shr.i.i.i35.i.i.i = lshr i32 %33, 16
+  %shr.i.i.i35.i.i.i = lshr exact i32 %33, 16
   %conv.i.i.i36.i.i.i = trunc nuw i32 %shr.i.i.i35.i.i.i to i16
   br label %_ZN18OpenImageIO_v2_6_09DataProxyI4halffEaSEf.exit39.i.i.i
 
@@ -50626,7 +50626,7 @@ invoke.cont17.i.i.i:                              ; preds = %if.then.i.i.i
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont17.i.i.i, %invoke.cont17.thread.i.i.i
   %24 = phi i32 [ 0, %invoke.cont17.thread.i.i.i ], [ %23, %invoke.cont17.i.i.i ]
   %arrayidx.i.i15137.i.i.i = phi ptr [ %arrayidx.i.i15134.i.i.i, %invoke.cont17.thread.i.i.i ], [ %arrayidx.i.i15.i.i.i, %invoke.cont17.i.i.i ]
-  %shr.i.i.i.i.i.i = lshr i32 %24, 16
+  %shr.i.i.i.i.i.i = lshr exact i32 %24, 16
   %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
   br label %_ZN18OpenImageIO_v2_6_09DataProxyI4halffEaSEf.exit.i.i.i
 
@@ -50711,7 +50711,7 @@ invoke.cont29.i.i.i:                              ; preds = %if.else.i.i.i
 if.then.i.i.i43.i.i.i:                            ; preds = %invoke.cont29.i.i.i, %invoke.cont29.thread.i.i.i
   %37 = phi i32 [ 0, %invoke.cont29.thread.i.i.i ], [ %36, %invoke.cont29.i.i.i ]
   %arrayidx.i.i26144.i.i.i = phi ptr [ %arrayidx.i.i26141.i.i.i, %invoke.cont29.thread.i.i.i ], [ %arrayidx.i.i26.i.i.i, %invoke.cont29.i.i.i ]
-  %shr.i.i.i44.i.i.i = lshr i32 %37, 16
+  %shr.i.i.i44.i.i.i = lshr exact i32 %37, 16
   %conv.i.i.i45.i.i.i = trunc nuw i32 %shr.i.i.i44.i.i.i to i16
   br label %_ZN18OpenImageIO_v2_6_09DataProxyI4halffEaSEf.exit48.i.i.i
 
@@ -54971,7 +54971,7 @@ invoke.cont17.i.i.i:                              ; preds = %if.then.i.i.i
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont17.i.i.i, %invoke.cont17.thread.i.i.i
   %23 = phi i32 [ 0, %invoke.cont17.thread.i.i.i ], [ %22, %invoke.cont17.i.i.i ]
   %arrayidx.i.i15135.i.i.i = phi ptr [ %arrayidx.i.i15132.i.i.i, %invoke.cont17.thread.i.i.i ], [ %arrayidx.i.i15.i.i.i, %invoke.cont17.i.i.i ]
-  %shr.i.i.i.i.i.i = lshr i32 %23, 16
+  %shr.i.i.i.i.i.i = lshr exact i32 %23, 16
   %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
   br label %_ZN18OpenImageIO_v2_6_09DataProxyI4halffEaSEf.exit.i.i.i
 
@@ -55053,7 +55053,7 @@ invoke.cont29.i.i.i:                              ; preds = %if.else.i.i.i
 if.then.i.i.i41.i.i.i:                            ; preds = %invoke.cont29.i.i.i, %invoke.cont29.thread.i.i.i
   %35 = phi i32 [ 0, %invoke.cont29.thread.i.i.i ], [ %34, %invoke.cont29.i.i.i ]
   %arrayidx.i.i24142.i.i.i = phi ptr [ %arrayidx.i.i24139.i.i.i, %invoke.cont29.thread.i.i.i ], [ %arrayidx.i.i24.i.i.i, %invoke.cont29.i.i.i ]
-  %shr.i.i.i42.i.i.i = lshr i32 %35, 16
+  %shr.i.i.i42.i.i.i = lshr exact i32 %35, 16
   %conv.i.i.i43.i.i.i = trunc nuw i32 %shr.i.i.i42.i.i.i to i16
   br label %_ZN18OpenImageIO_v2_6_09DataProxyI4halffEaSEf.exit46.i.i.i
 
@@ -57499,7 +57499,7 @@ invoke.cont17.i.i.i:                              ; preds = %if.then.i.i.i
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont17.i.i.i, %invoke.cont17.thread.i.i.i
   %23 = phi i32 [ 0, %invoke.cont17.thread.i.i.i ], [ %22, %invoke.cont17.i.i.i ]
   %arrayidx.i.i14133.i.i.i = phi ptr [ %arrayidx.i.i14130.i.i.i, %invoke.cont17.thread.i.i.i ], [ %arrayidx.i.i14.i.i.i, %invoke.cont17.i.i.i ]
-  %shr.i.i.i.i.i.i = lshr i32 %23, 16
+  %shr.i.i.i.i.i.i = lshr exact i32 %23, 16
   %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
   br label %_ZN18OpenImageIO_v2_6_09DataProxyI4halffEaSEf.exit.i.i.i
 
@@ -57583,7 +57583,7 @@ invoke.cont29.i.i.i:                              ; preds = %if.else.i.i.i
 if.then.i.i.i40.i.i.i:                            ; preds = %invoke.cont29.i.i.i, %invoke.cont29.thread.i.i.i
   %35 = phi i32 [ 0, %invoke.cont29.thread.i.i.i ], [ %34, %invoke.cont29.i.i.i ]
   %arrayidx.i.i23140.i.i.i = phi ptr [ %arrayidx.i.i23137.i.i.i, %invoke.cont29.thread.i.i.i ], [ %arrayidx.i.i23.i.i.i, %invoke.cont29.i.i.i ]
-  %shr.i.i.i41.i.i.i = lshr i32 %35, 16
+  %shr.i.i.i41.i.i.i = lshr exact i32 %35, 16
   %conv.i.i.i42.i.i.i = trunc nuw i32 %shr.i.i.i41.i.i.i to i16
   br label %_ZN18OpenImageIO_v2_6_09DataProxyI4halffEaSEf.exit45.i.i.i
 
@@ -60040,7 +60040,7 @@ invoke.cont17.i.i.i:                              ; preds = %if.then.i.i.i
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont17.i.i.i, %invoke.cont17.thread.i.i.i
   %23 = phi i32 [ 0, %invoke.cont17.thread.i.i.i ], [ %22, %invoke.cont17.i.i.i ]
   %arrayidx.i.i14133.i.i.i = phi ptr [ %arrayidx.i.i14130.i.i.i, %invoke.cont17.thread.i.i.i ], [ %arrayidx.i.i14.i.i.i, %invoke.cont17.i.i.i ]
-  %shr.i.i.i.i.i.i = lshr i32 %23, 16
+  %shr.i.i.i.i.i.i = lshr exact i32 %23, 16
   %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
   br label %_ZN18OpenImageIO_v2_6_09DataProxyI4halffEaSEf.exit.i.i.i
 
@@ -60125,7 +60125,7 @@ invoke.cont29.i.i.i:                              ; preds = %if.else.i.i.i
 if.then.i.i.i40.i.i.i:                            ; preds = %invoke.cont29.i.i.i, %invoke.cont29.thread.i.i.i
   %36 = phi i32 [ 0, %invoke.cont29.thread.i.i.i ], [ %35, %invoke.cont29.i.i.i ]
   %arrayidx.i.i23140.i.i.i = phi ptr [ %arrayidx.i.i23137.i.i.i, %invoke.cont29.thread.i.i.i ], [ %arrayidx.i.i23.i.i.i, %invoke.cont29.i.i.i ]
-  %shr.i.i.i41.i.i.i = lshr i32 %36, 16
+  %shr.i.i.i41.i.i.i = lshr exact i32 %36, 16
   %conv.i.i.i42.i.i.i = trunc nuw i32 %shr.i.i.i41.i.i.i to i16
   br label %_ZN18OpenImageIO_v2_6_09DataProxyI4halffEaSEf.exit45.i.i.i
 
@@ -62578,7 +62578,7 @@ invoke.cont17.i.i.i:                              ; preds = %if.then.i.i.i
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont17.i.i.i, %invoke.cont17.thread.i.i.i
   %23 = phi i32 [ 0, %invoke.cont17.thread.i.i.i ], [ %22, %invoke.cont17.i.i.i ]
   %arrayidx.i.i14133.i.i.i = phi ptr [ %arrayidx.i.i14130.i.i.i, %invoke.cont17.thread.i.i.i ], [ %arrayidx.i.i14.i.i.i, %invoke.cont17.i.i.i ]
-  %shr.i.i.i.i.i.i = lshr i32 %23, 16
+  %shr.i.i.i.i.i.i = lshr exact i32 %23, 16
   %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
   br label %_ZN18OpenImageIO_v2_6_09DataProxyI4halffEaSEf.exit.i.i.i
 
@@ -62662,7 +62662,7 @@ invoke.cont29.i.i.i:                              ; preds = %if.else.i.i.i
 if.then.i.i.i40.i.i.i:                            ; preds = %invoke.cont29.i.i.i, %invoke.cont29.thread.i.i.i
   %35 = phi i32 [ 0, %invoke.cont29.thread.i.i.i ], [ %34, %invoke.cont29.i.i.i ]
   %arrayidx.i.i23140.i.i.i = phi ptr [ %arrayidx.i.i23137.i.i.i, %invoke.cont29.thread.i.i.i ], [ %arrayidx.i.i23.i.i.i, %invoke.cont29.i.i.i ]
-  %shr.i.i.i41.i.i.i = lshr i32 %35, 16
+  %shr.i.i.i41.i.i.i = lshr exact i32 %35, 16
   %conv.i.i.i42.i.i.i = trunc nuw i32 %shr.i.i.i41.i.i.i to i16
   br label %_ZN18OpenImageIO_v2_6_09DataProxyI4halffEaSEf.exit45.i.i.i
 
@@ -65125,7 +65125,7 @@ invoke.cont17.i.i.i:                              ; preds = %if.then.i.i.i
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont17.i.i.i, %invoke.cont17.thread.i.i.i
   %23 = phi i32 [ 0, %invoke.cont17.thread.i.i.i ], [ %22, %invoke.cont17.i.i.i ]
   %arrayidx.i.i14133.i.i.i = phi ptr [ %arrayidx.i.i14130.i.i.i, %invoke.cont17.thread.i.i.i ], [ %arrayidx.i.i14.i.i.i, %invoke.cont17.i.i.i ]
-  %shr.i.i.i.i.i.i = lshr i32 %23, 16
+  %shr.i.i.i.i.i.i = lshr exact i32 %23, 16
   %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
   br label %_ZN18OpenImageIO_v2_6_09DataProxyI4halffEaSEf.exit.i.i.i
 
@@ -65207,7 +65207,7 @@ invoke.cont29.i.i.i:                              ; preds = %if.else.i.i.i
 if.then.i.i.i40.i.i.i:                            ; preds = %invoke.cont29.i.i.i, %invoke.cont29.thread.i.i.i
   %35 = phi i32 [ 0, %invoke.cont29.thread.i.i.i ], [ %34, %invoke.cont29.i.i.i ]
   %arrayidx.i.i23140.i.i.i = phi ptr [ %arrayidx.i.i23137.i.i.i, %invoke.cont29.thread.i.i.i ], [ %arrayidx.i.i23.i.i.i, %invoke.cont29.i.i.i ]
-  %shr.i.i.i41.i.i.i = lshr i32 %35, 16
+  %shr.i.i.i41.i.i.i = lshr exact i32 %35, 16
   %conv.i.i.i42.i.i.i = trunc nuw i32 %shr.i.i.i41.i.i.i to i16
   br label %_ZN18OpenImageIO_v2_6_09DataProxyI4halffEaSEf.exit45.i.i.i
 
@@ -67046,7 +67046,7 @@ invoke.cont17.i.i.i:                              ; preds = %if.then.i.i.i
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont17.i.i.i, %invoke.cont17.thread.i.i.i
   %23 = phi i32 [ 0, %invoke.cont17.thread.i.i.i ], [ %22, %invoke.cont17.i.i.i ]
   %arrayidx.i.i15137.i.i.i = phi ptr [ %arrayidx.i.i15134.i.i.i, %invoke.cont17.thread.i.i.i ], [ %arrayidx.i.i15.i.i.i, %invoke.cont17.i.i.i ]
-  %shr.i.i.i.i.i.i = lshr i32 %23, 16
+  %shr.i.i.i.i.i.i = lshr exact i32 %23, 16
   %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
   br label %_ZN18OpenImageIO_v2_6_09DataProxyI4halffEaSEf.exit.i.i.i
 
@@ -67130,7 +67130,7 @@ invoke.cont29.i.i.i:                              ; preds = %if.else.i.i.i
 if.then.i.i.i43.i.i.i:                            ; preds = %invoke.cont29.i.i.i, %invoke.cont29.thread.i.i.i
   %35 = phi i32 [ 0, %invoke.cont29.thread.i.i.i ], [ %34, %invoke.cont29.i.i.i ]
   %arrayidx.i.i26144.i.i.i = phi ptr [ %arrayidx.i.i26141.i.i.i, %invoke.cont29.thread.i.i.i ], [ %arrayidx.i.i26.i.i.i, %invoke.cont29.i.i.i ]
-  %shr.i.i.i44.i.i.i = lshr i32 %35, 16
+  %shr.i.i.i44.i.i.i = lshr exact i32 %35, 16
   %conv.i.i.i45.i.i.i = trunc nuw i32 %shr.i.i.i44.i.i.i to i16
   br label %_ZN18OpenImageIO_v2_6_09DataProxyI4halffEaSEf.exit48.i.i.i
 
@@ -69582,7 +69582,7 @@ invoke.cont17.i.i.i:                              ; preds = %if.then.i.i.i
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont17.i.i.i, %invoke.cont17.thread.i.i.i
   %23 = phi i32 [ 0, %invoke.cont17.thread.i.i.i ], [ %22, %invoke.cont17.i.i.i ]
   %arrayidx.i.i14133.i.i.i = phi ptr [ %arrayidx.i.i14130.i.i.i, %invoke.cont17.thread.i.i.i ], [ %arrayidx.i.i14.i.i.i, %invoke.cont17.i.i.i ]
-  %shr.i.i.i.i.i.i = lshr i32 %23, 16
+  %shr.i.i.i.i.i.i = lshr exact i32 %23, 16
   %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
   br label %_ZN18OpenImageIO_v2_6_09DataProxyI4halffEaSEf.exit.i.i.i
 
@@ -69667,7 +69667,7 @@ invoke.cont29.i.i.i:                              ; preds = %if.else.i.i.i
 if.then.i.i.i40.i.i.i:                            ; preds = %invoke.cont29.i.i.i, %invoke.cont29.thread.i.i.i
   %36 = phi i32 [ 0, %invoke.cont29.thread.i.i.i ], [ %35, %invoke.cont29.i.i.i ]
   %arrayidx.i.i23140.i.i.i = phi ptr [ %arrayidx.i.i23137.i.i.i, %invoke.cont29.thread.i.i.i ], [ %arrayidx.i.i23.i.i.i, %invoke.cont29.i.i.i ]
-  %shr.i.i.i41.i.i.i = lshr i32 %36, 16
+  %shr.i.i.i41.i.i.i = lshr exact i32 %36, 16
   %conv.i.i.i42.i.i.i = trunc nuw i32 %shr.i.i.i41.i.i.i to i16
   br label %_ZN18OpenImageIO_v2_6_09DataProxyI4halffEaSEf.exit45.i.i.i
 
@@ -72121,7 +72121,7 @@ invoke.cont17.i.i.i:                              ; preds = %if.then.i.i.i
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont17.i.i.i, %invoke.cont17.thread.i.i.i
   %23 = phi i32 [ 0, %invoke.cont17.thread.i.i.i ], [ %22, %invoke.cont17.i.i.i ]
   %arrayidx.i.i14135.i.i.i = phi ptr [ %arrayidx.i.i14132.i.i.i, %invoke.cont17.thread.i.i.i ], [ %arrayidx.i.i14.i.i.i, %invoke.cont17.i.i.i ]
-  %shr.i.i.i.i.i.i = lshr i32 %23, 16
+  %shr.i.i.i.i.i.i = lshr exact i32 %23, 16
   %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
   br label %_ZN18OpenImageIO_v2_6_09DataProxyI4halffEaSEf.exit.i.i.i
 
@@ -72205,7 +72205,7 @@ invoke.cont29.i.i.i:                              ; preds = %if.else.i.i.i
 if.then.i.i.i42.i.i.i:                            ; preds = %invoke.cont29.i.i.i, %invoke.cont29.thread.i.i.i
   %35 = phi i32 [ 0, %invoke.cont29.thread.i.i.i ], [ %34, %invoke.cont29.i.i.i ]
   %arrayidx.i.i25142.i.i.i = phi ptr [ %arrayidx.i.i25139.i.i.i, %invoke.cont29.thread.i.i.i ], [ %arrayidx.i.i25.i.i.i, %invoke.cont29.i.i.i ]
-  %shr.i.i.i43.i.i.i = lshr i32 %35, 16
+  %shr.i.i.i43.i.i.i = lshr exact i32 %35, 16
   %conv.i.i.i44.i.i.i = trunc nuw i32 %shr.i.i.i43.i.i.i to i16
   br label %_ZN18OpenImageIO_v2_6_09DataProxyI4halffEaSEf.exit47.i.i.i
 
@@ -74651,7 +74651,7 @@ invoke.cont17.i.i.i:                              ; preds = %if.then.i.i.i
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont17.i.i.i, %invoke.cont17.thread.i.i.i
   %24 = phi i32 [ 0, %invoke.cont17.thread.i.i.i ], [ %23, %invoke.cont17.i.i.i ]
   %arrayidx.i.i14133.i.i.i = phi ptr [ %arrayidx.i.i14130.i.i.i, %invoke.cont17.thread.i.i.i ], [ %arrayidx.i.i14.i.i.i, %invoke.cont17.i.i.i ]
-  %shr.i.i.i.i.i.i = lshr i32 %24, 16
+  %shr.i.i.i.i.i.i = lshr exact i32 %24, 16
   %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
   br label %_ZN18OpenImageIO_v2_6_09DataProxyI4halffEaSEf.exit.i.i.i
 
@@ -74733,7 +74733,7 @@ invoke.cont29.i.i.i:                              ; preds = %if.else.i.i.i
 if.then.i.i.i40.i.i.i:                            ; preds = %invoke.cont29.i.i.i, %invoke.cont29.thread.i.i.i
   %36 = phi i32 [ 0, %invoke.cont29.thread.i.i.i ], [ %35, %invoke.cont29.i.i.i ]
   %arrayidx.i.i23140.i.i.i = phi ptr [ %arrayidx.i.i23137.i.i.i, %invoke.cont29.thread.i.i.i ], [ %arrayidx.i.i23.i.i.i, %invoke.cont29.i.i.i ]
-  %shr.i.i.i41.i.i.i = lshr i32 %36, 16
+  %shr.i.i.i41.i.i.i = lshr exact i32 %36, 16
   %conv.i.i.i42.i.i.i = trunc nuw i32 %shr.i.i.i41.i.i.i to i16
   br label %_ZN18OpenImageIO_v2_6_09DataProxyI4halffEaSEf.exit45.i.i.i
 
@@ -77195,7 +77195,7 @@ invoke.cont17.i.i.i:                              ; preds = %if.then.i.i.i
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont17.i.i.i, %invoke.cont17.thread.i.i.i
   %24 = phi i32 [ 0, %invoke.cont17.thread.i.i.i ], [ %23, %invoke.cont17.i.i.i ]
   %arrayidx.i.i14133.i.i.i = phi ptr [ %arrayidx.i.i14130.i.i.i, %invoke.cont17.thread.i.i.i ], [ %arrayidx.i.i14.i.i.i, %invoke.cont17.i.i.i ]
-  %shr.i.i.i.i.i.i = lshr i32 %24, 16
+  %shr.i.i.i.i.i.i = lshr exact i32 %24, 16
   %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
   br label %_ZN18OpenImageIO_v2_6_09DataProxyI4halffEaSEf.exit.i.i.i
 
@@ -77279,7 +77279,7 @@ invoke.cont29.i.i.i:                              ; preds = %if.else.i.i.i
 if.then.i.i.i40.i.i.i:                            ; preds = %invoke.cont29.i.i.i, %invoke.cont29.thread.i.i.i
   %36 = phi i32 [ 0, %invoke.cont29.thread.i.i.i ], [ %35, %invoke.cont29.i.i.i ]
   %arrayidx.i.i23140.i.i.i = phi ptr [ %arrayidx.i.i23137.i.i.i, %invoke.cont29.thread.i.i.i ], [ %arrayidx.i.i23.i.i.i, %invoke.cont29.i.i.i ]
-  %shr.i.i.i41.i.i.i = lshr i32 %36, 16
+  %shr.i.i.i41.i.i.i = lshr exact i32 %36, 16
   %conv.i.i.i42.i.i.i = trunc nuw i32 %shr.i.i.i41.i.i.i to i16
   br label %_ZN18OpenImageIO_v2_6_09DataProxyI4halffEaSEf.exit45.i.i.i
 
@@ -81576,7 +81576,7 @@ invoke.cont17.i.i.i:                              ; preds = %if.then.i.i.i
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont17.i.i.i, %invoke.cont17.thread.i.i.i
   %24 = phi i32 [ 0, %invoke.cont17.thread.i.i.i ], [ %23, %invoke.cont17.i.i.i ]
   %arrayidx.i.i14133.i.i.i = phi ptr [ %arrayidx.i.i14130.i.i.i, %invoke.cont17.thread.i.i.i ], [ %arrayidx.i.i14.i.i.i, %invoke.cont17.i.i.i ]
-  %shr.i.i.i.i.i.i = lshr i32 %24, 16
+  %shr.i.i.i.i.i.i = lshr exact i32 %24, 16
   %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
   br label %_ZN18OpenImageIO_v2_6_09DataProxyI4halffEaSEf.exit.i.i.i
 
@@ -81660,7 +81660,7 @@ invoke.cont29.i.i.i:                              ; preds = %if.else.i.i.i
 if.then.i.i.i40.i.i.i:                            ; preds = %invoke.cont29.i.i.i, %invoke.cont29.thread.i.i.i
   %36 = phi i32 [ 0, %invoke.cont29.thread.i.i.i ], [ %35, %invoke.cont29.i.i.i ]
   %arrayidx.i.i23140.i.i.i = phi ptr [ %arrayidx.i.i23137.i.i.i, %invoke.cont29.thread.i.i.i ], [ %arrayidx.i.i23.i.i.i, %invoke.cont29.i.i.i ]
-  %shr.i.i.i41.i.i.i = lshr i32 %36, 16
+  %shr.i.i.i41.i.i.i = lshr exact i32 %36, 16
   %conv.i.i.i42.i.i.i = trunc nuw i32 %shr.i.i.i41.i.i.i to i16
   br label %_ZN18OpenImageIO_v2_6_09DataProxyI4halffEaSEf.exit45.i.i.i
 
@@ -84126,7 +84126,7 @@ invoke.cont17.i.i.i:                              ; preds = %if.then.i.i.i
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont17.i.i.i, %invoke.cont17.thread.i.i.i
   %23 = phi i32 [ 0, %invoke.cont17.thread.i.i.i ], [ %22, %invoke.cont17.i.i.i ]
   %arrayidx.i.i14133.i.i.i = phi ptr [ %arrayidx.i.i14130.i.i.i, %invoke.cont17.thread.i.i.i ], [ %arrayidx.i.i14.i.i.i, %invoke.cont17.i.i.i ]
-  %shr.i.i.i.i.i.i = lshr i32 %23, 16
+  %shr.i.i.i.i.i.i = lshr exact i32 %23, 16
   %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
   br label %_ZN18OpenImageIO_v2_6_09DataProxyI4halffEaSEf.exit.i.i.i
 
@@ -84208,7 +84208,7 @@ invoke.cont29.i.i.i:                              ; preds = %if.else.i.i.i
 if.then.i.i.i40.i.i.i:                            ; preds = %invoke.cont29.i.i.i, %invoke.cont29.thread.i.i.i
   %35 = phi i32 [ 0, %invoke.cont29.thread.i.i.i ], [ %34, %invoke.cont29.i.i.i ]
   %arrayidx.i.i23140.i.i.i = phi ptr [ %arrayidx.i.i23137.i.i.i, %invoke.cont29.thread.i.i.i ], [ %arrayidx.i.i23.i.i.i, %invoke.cont29.i.i.i ]
-  %shr.i.i.i41.i.i.i = lshr i32 %35, 16
+  %shr.i.i.i41.i.i.i = lshr exact i32 %35, 16
   %conv.i.i.i42.i.i.i = trunc nuw i32 %shr.i.i.i41.i.i.i to i16
   br label %_ZN18OpenImageIO_v2_6_09DataProxyI4halffEaSEf.exit45.i.i.i
 
@@ -86659,7 +86659,7 @@ invoke.cont17.i.i.i:                              ; preds = %if.then.i.i.i
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont17.i.i.i, %invoke.cont17.thread.i.i.i
   %23 = phi i32 [ 0, %invoke.cont17.thread.i.i.i ], [ %22, %invoke.cont17.i.i.i ]
   %arrayidx.i.i14135.i.i.i = phi ptr [ %arrayidx.i.i14132.i.i.i, %invoke.cont17.thread.i.i.i ], [ %arrayidx.i.i14.i.i.i, %invoke.cont17.i.i.i ]
-  %shr.i.i.i.i.i.i = lshr i32 %23, 16
+  %shr.i.i.i.i.i.i = lshr exact i32 %23, 16
   %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
   br label %_ZN18OpenImageIO_v2_6_09DataProxyI4halffEaSEf.exit.i.i.i
 
@@ -86743,7 +86743,7 @@ invoke.cont29.i.i.i:                              ; preds = %if.else.i.i.i
 if.then.i.i.i42.i.i.i:                            ; preds = %invoke.cont29.i.i.i, %invoke.cont29.thread.i.i.i
   %35 = phi i32 [ 0, %invoke.cont29.thread.i.i.i ], [ %34, %invoke.cont29.i.i.i ]
   %arrayidx.i.i25142.i.i.i = phi ptr [ %arrayidx.i.i25139.i.i.i, %invoke.cont29.thread.i.i.i ], [ %arrayidx.i.i25.i.i.i, %invoke.cont29.i.i.i ]
-  %shr.i.i.i43.i.i.i = lshr i32 %35, 16
+  %shr.i.i.i43.i.i.i = lshr exact i32 %35, 16
   %conv.i.i.i44.i.i.i = trunc nuw i32 %shr.i.i.i43.i.i.i to i16
   br label %_ZN18OpenImageIO_v2_6_09DataProxyI4halffEaSEf.exit47.i.i.i
 
@@ -89198,7 +89198,7 @@ invoke.cont17.i.i.i:                              ; preds = %if.then.i.i.i
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont17.i.i.i, %invoke.cont17.thread.i.i.i
   %23 = phi i32 [ 0, %invoke.cont17.thread.i.i.i ], [ %22, %invoke.cont17.i.i.i ]
   %arrayidx.i.i14133.i.i.i = phi ptr [ %arrayidx.i.i14130.i.i.i, %invoke.cont17.thread.i.i.i ], [ %arrayidx.i.i14.i.i.i, %invoke.cont17.i.i.i ]
-  %shr.i.i.i.i.i.i = lshr i32 %23, 16
+  %shr.i.i.i.i.i.i = lshr exact i32 %23, 16
   %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
   br label %_ZN18OpenImageIO_v2_6_09DataProxyI4halffEaSEf.exit.i.i.i
 
@@ -89283,7 +89283,7 @@ invoke.cont29.i.i.i:                              ; preds = %if.else.i.i.i
 if.then.i.i.i40.i.i.i:                            ; preds = %invoke.cont29.i.i.i, %invoke.cont29.thread.i.i.i
   %36 = phi i32 [ 0, %invoke.cont29.thread.i.i.i ], [ %35, %invoke.cont29.i.i.i ]
   %arrayidx.i.i23140.i.i.i = phi ptr [ %arrayidx.i.i23137.i.i.i, %invoke.cont29.thread.i.i.i ], [ %arrayidx.i.i23.i.i.i, %invoke.cont29.i.i.i ]
-  %shr.i.i.i41.i.i.i = lshr i32 %36, 16
+  %shr.i.i.i41.i.i.i = lshr exact i32 %36, 16
   %conv.i.i.i42.i.i.i = trunc nuw i32 %shr.i.i.i41.i.i.i to i16
   br label %_ZN18OpenImageIO_v2_6_09DataProxyI4halffEaSEf.exit45.i.i.i
 
@@ -91731,7 +91731,7 @@ invoke.cont17.i.i.i:                              ; preds = %if.then.i.i.i
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont17.i.i.i, %invoke.cont17.thread.i.i.i
   %23 = phi i32 [ 0, %invoke.cont17.thread.i.i.i ], [ %22, %invoke.cont17.i.i.i ]
   %arrayidx.i.i15137.i.i.i = phi ptr [ %arrayidx.i.i15134.i.i.i, %invoke.cont17.thread.i.i.i ], [ %arrayidx.i.i15.i.i.i, %invoke.cont17.i.i.i ]
-  %shr.i.i.i.i.i.i = lshr i32 %23, 16
+  %shr.i.i.i.i.i.i = lshr exact i32 %23, 16
   %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
   br label %_ZN18OpenImageIO_v2_6_09DataProxyI4halffEaSEf.exit.i.i.i
 
@@ -91815,7 +91815,7 @@ invoke.cont29.i.i.i:                              ; preds = %if.else.i.i.i
 if.then.i.i.i43.i.i.i:                            ; preds = %invoke.cont29.i.i.i, %invoke.cont29.thread.i.i.i
   %35 = phi i32 [ 0, %invoke.cont29.thread.i.i.i ], [ %34, %invoke.cont29.i.i.i ]
   %arrayidx.i.i26144.i.i.i = phi ptr [ %arrayidx.i.i26141.i.i.i, %invoke.cont29.thread.i.i.i ], [ %arrayidx.i.i26.i.i.i, %invoke.cont29.i.i.i ]
-  %shr.i.i.i44.i.i.i = lshr i32 %35, 16
+  %shr.i.i.i44.i.i.i = lshr exact i32 %35, 16
   %conv.i.i.i45.i.i.i = trunc nuw i32 %shr.i.i.i44.i.i.i to i16
   br label %_ZN18OpenImageIO_v2_6_09DataProxyI4halffEaSEf.exit48.i.i.i
 

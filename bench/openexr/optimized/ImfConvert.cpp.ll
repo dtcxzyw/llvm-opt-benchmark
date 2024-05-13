@@ -54,8 +54,8 @@ return:                                           ; preds = %if.end, %entry, %lo
 define noundef i32 @_ZN7Imf_3_211floatToUintEf(float noundef %f) local_unnamed_addr #4 {
 entry:
   %0 = bitcast float %f to i32
-  %or.cond7 = icmp ugt i32 %0, 2139095040
-  br i1 %or.cond7, label %return, label %if.end
+  %cmp.i5 = icmp ugt i32 %0, 2139095040
+  br i1 %cmp.i5, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %cmp.i6 = fcmp oeq float %f, 0x7FF0000000000000
@@ -82,9 +82,6 @@ entry:
 
 if.end:                                           ; preds = %entry
   %2 = bitcast float %conv to i32
-  %shr.i.i = lshr i32 %2, 16
-  %3 = trunc nuw i32 %shr.i.i to i16
-  %conv.i.i = and i16 %3, -32768
   %cmp.i.i = icmp ugt i32 %2, 947912703
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end37.i.i
 
@@ -93,7 +90,6 @@ if.then.i.i:                                      ; preds = %if.end
   br i1 %cmp2.i.i, label %if.then4.i.i, label %if.end20.i.i
 
 if.then4.i.i:                                     ; preds = %if.then.i.i
-  %conv6.i.i = or disjoint i16 %conv.i.i, 31744
   %cmp7.i.i = icmp eq i32 %2, 2139095040
   br i1 %cmp7.i.i, label %return, label %if.end.i.i
 
@@ -101,10 +97,10 @@ if.end.i.i:                                       ; preds = %if.then4.i.i
   %and9.i.i = lshr i32 %2, 13
   %shr10.i.i = and i32 %and9.i.i, 1023
   %cmp15.i.i = icmp eq i32 %shr10.i.i, 0
-  %4 = zext i1 %cmp15.i.i to i16
-  %5 = trunc nuw nsw i32 %shr10.i.i to i16
-  %6 = or i16 %4, %5
-  %conv19.i.i = or disjoint i16 %6, %conv6.i.i
+  %3 = zext i1 %cmp15.i.i to i16
+  %4 = trunc nuw nsw i32 %shr10.i.i to i16
+  %5 = or i16 %4, %3
+  %conv19.i.i = or disjoint i16 %5, 31744
   br label %return
 
 if.end20.i.i:                                     ; preds = %if.then.i.i
@@ -148,7 +144,7 @@ if.then55.i.i:                                    ; preds = %lor.lhs.false.i.i, 
   br label %return
 
 return:                                           ; preds = %if.end20.i.i, %if.then55.i.i, %lor.lhs.false.i.i, %if.end37.i.i, %if.end27.i.i, %if.end.i.i, %if.then4.i.i, %entry
-  %retval.sroa.0.0 = phi i16 [ 31744, %entry ], [ %conv19.i.i, %if.end.i.i ], [ %conv36.i.i, %if.end27.i.i ], [ %conv6.i.i, %if.then4.i.i ], [ %conv.i.i, %if.end37.i.i ], [ %inc.i.i, %if.then55.i.i ], [ %conv49.i.i, %lor.lhs.false.i.i ], [ 31744, %if.end20.i.i ]
+  %retval.sroa.0.0 = phi i16 [ 31744, %entry ], [ %conv19.i.i, %if.end.i.i ], [ %conv36.i.i, %if.end27.i.i ], [ 31744, %if.then4.i.i ], [ 0, %if.end37.i.i ], [ %inc.i.i, %if.then55.i.i ], [ %conv49.i.i, %lor.lhs.false.i.i ], [ 31744, %if.end20.i.i ]
   ret i16 %retval.sroa.0.0
 }
 

@@ -4447,7 +4447,7 @@ _ZN5drjit13binary_searchIjZNK7mitsuba12BSplineCurveIfNS_6MatrixINS1_8SpectrumIfL
   %129 = bitcast float %122 to i32
   %130 = and i32 %129, -2147483648
   %131 = bitcast float %128 to i32
-  %132 = or i32 %130, %131
+  %132 = or disjoint i32 %130, %131
   %133 = bitcast i32 %132 to float
   %134 = bitcast <2 x float> %116 to <2 x i32>
   %135 = insertelement <2 x i32> poison, i32 %130, i64 0
