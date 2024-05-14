@@ -12912,8 +12912,8 @@ define noundef ptr @LoadImageColors(ptr nocapture noundef readonly byval(%struct
   %186 = or disjoint i32 %185, %181
   %187 = icmp ne i32 %177, 0
   %188 = and i1 %.not.i, %187
-  %189 = and i32 %179, 2139095040
-  %190 = add nsw i32 %189, -310378496
+  %189 = and i32 %179, -8388608
+  %190 = add i32 %189, -310378496
   %191 = sub nsw i32 150, %180
   %192 = shl i32 %176, %191
   %193 = and i32 %192, 8380416
@@ -12955,8 +12955,8 @@ define noundef ptr @LoadImageColors(ptr nocapture noundef readonly byval(%struct
   %221 = or disjoint i32 %220, %216
   %222 = icmp ne i32 %212, 0
   %223 = and i1 %.not.i179, %222
-  %224 = and i32 %214, 2139095040
-  %225 = add nsw i32 %224, -310378496
+  %224 = and i32 %214, -8388608
+  %225 = add i32 %224, -310378496
   %226 = sub nsw i32 150, %215
   %227 = shl i32 %211, %226
   %228 = and i32 %227, 8380416
@@ -12988,8 +12988,8 @@ define noundef ptr @LoadImageColors(ptr nocapture noundef readonly byval(%struct
   %251 = or disjoint i32 %250, %246
   %252 = icmp ne i32 %242, 0
   %253 = and i1 %.not.i181, %252
-  %254 = and i32 %244, 2139095040
-  %255 = add nsw i32 %254, -310378496
+  %254 = and i32 %244, -8388608
+  %255 = add i32 %254, -310378496
   %256 = sub nsw i32 150, %245
   %257 = shl i32 %241, %256
   %258 = and i32 %257, 8380416
@@ -13021,8 +13021,8 @@ define noundef ptr @LoadImageColors(ptr nocapture noundef readonly byval(%struct
   %281 = or disjoint i32 %280, %276
   %282 = icmp ne i32 %272, 0
   %283 = and i1 %.not.i183, %282
-  %284 = and i32 %274, 2139095040
-  %285 = add nsw i32 %284, -310378496
+  %284 = and i32 %274, -8388608
+  %285 = add i32 %284, -310378496
   %286 = sub nsw i32 150, %275
   %287 = shl i32 %271, %286
   %288 = and i32 %287, 8380416
@@ -13061,8 +13061,8 @@ define noundef ptr @LoadImageColors(ptr nocapture noundef readonly byval(%struct
   %315 = or disjoint i32 %314, %310
   %316 = icmp ne i32 %306, 0
   %317 = and i1 %.not.i185, %316
-  %318 = and i32 %308, 2139095040
-  %319 = add nsw i32 %318, -310378496
+  %318 = and i32 %308, -8388608
+  %319 = add i32 %318, -310378496
   %320 = sub nsw i32 150, %309
   %321 = shl i32 %305, %320
   %322 = and i32 %321, 8380416
@@ -13093,8 +13093,8 @@ define noundef ptr @LoadImageColors(ptr nocapture noundef readonly byval(%struct
   %344 = or disjoint i32 %343, %339
   %345 = icmp ne i32 %335, 0
   %346 = and i1 %.not.i187, %345
-  %347 = and i32 %337, 2139095040
-  %348 = add nsw i32 %347, -310378496
+  %347 = and i32 %337, -8388608
+  %348 = add i32 %347, -310378496
   %349 = sub nsw i32 150, %338
   %350 = shl i32 %334, %349
   %351 = and i32 %350, 8380416
@@ -13125,8 +13125,8 @@ define noundef ptr @LoadImageColors(ptr nocapture noundef readonly byval(%struct
   %373 = or disjoint i32 %372, %368
   %374 = icmp ne i32 %364, 0
   %375 = and i1 %.not.i189, %374
-  %376 = and i32 %366, 2139095040
-  %377 = add nsw i32 %376, -310378496
+  %376 = and i32 %366, -8388608
+  %377 = add i32 %376, -310378496
   %378 = sub nsw i32 150, %367
   %379 = shl i32 %363, %378
   %380 = and i32 %379, 8380416
@@ -13157,8 +13157,8 @@ define noundef ptr @LoadImageColors(ptr nocapture noundef readonly byval(%struct
   %402 = or disjoint i32 %401, %397
   %403 = icmp ne i32 %393, 0
   %404 = and i1 %.not.i191, %403
-  %405 = and i32 %395, 2139095040
-  %406 = add nsw i32 %405, -310378496
+  %405 = and i32 %395, -8388608
+  %406 = add i32 %405, -310378496
   %407 = sub nsw i32 150, %396
   %408 = shl i32 %392, %407
   %409 = and i32 %408, 8380416
@@ -15185,8 +15185,8 @@ define void @ImageFormat(ptr noundef %0, i32 noundef %1) local_unnamed_addr #4 {
   %218 = or disjoint i32 %217, %213
   %219 = icmp ne i32 %209, 0
   %220 = and i1 %.not.i.i, %219
-  %221 = and i32 %211, 2139095040
-  %222 = add nsw i32 %221, -310378496
+  %221 = and i32 %211, -8388608
+  %222 = add i32 %221, -310378496
   %223 = sub nsw i32 150, %212
   %224 = shl i32 %208, %223
   %225 = and i32 %224, 8380416
@@ -15223,8 +15223,8 @@ define void @ImageFormat(ptr noundef %0, i32 noundef %1) local_unnamed_addr #4 {
   %249 = or disjoint i32 %248, %244
   %250 = icmp ne i32 %240, 0
   %251 = and i1 %.not.i159.i, %250
-  %252 = and i32 %242, 2139095040
-  %253 = add nsw i32 %252, -310378496
+  %252 = and i32 %242, -8388608
+  %253 = add i32 %252, -310378496
   %254 = sub nsw i32 150, %243
   %255 = shl i32 %239, %254
   %256 = and i32 %255, 8380416
@@ -15253,8 +15253,8 @@ define void @ImageFormat(ptr noundef %0, i32 noundef %1) local_unnamed_addr #4 {
   %276 = or disjoint i32 %275, %271
   %277 = icmp ne i32 %267, 0
   %278 = and i1 %.not.i161.i, %277
-  %279 = and i32 %269, 2139095040
-  %280 = add nsw i32 %279, -310378496
+  %279 = and i32 %269, -8388608
+  %280 = add i32 %279, -310378496
   %281 = sub nsw i32 150, %270
   %282 = shl i32 %266, %281
   %283 = and i32 %282, 8380416
@@ -15283,8 +15283,8 @@ define void @ImageFormat(ptr noundef %0, i32 noundef %1) local_unnamed_addr #4 {
   %303 = or disjoint i32 %302, %298
   %304 = icmp ne i32 %294, 0
   %305 = and i1 %.not.i163.i, %304
-  %306 = and i32 %296, 2139095040
-  %307 = add nsw i32 %306, -310378496
+  %306 = and i32 %296, -8388608
+  %307 = add i32 %306, -310378496
   %308 = sub nsw i32 150, %297
   %309 = shl i32 %293, %308
   %310 = and i32 %309, 8380416
@@ -15320,8 +15320,8 @@ define void @ImageFormat(ptr noundef %0, i32 noundef %1) local_unnamed_addr #4 {
   %334 = or disjoint i32 %333, %329
   %335 = icmp ne i32 %325, 0
   %336 = and i1 %.not.i165.i, %335
-  %337 = and i32 %327, 2139095040
-  %338 = add nsw i32 %337, -310378496
+  %337 = and i32 %327, -8388608
+  %338 = add i32 %337, -310378496
   %339 = sub nsw i32 150, %328
   %340 = shl i32 %324, %339
   %341 = and i32 %340, 8380416
@@ -15350,8 +15350,8 @@ define void @ImageFormat(ptr noundef %0, i32 noundef %1) local_unnamed_addr #4 {
   %361 = or disjoint i32 %360, %356
   %362 = icmp ne i32 %352, 0
   %363 = and i1 %.not.i167.i, %362
-  %364 = and i32 %354, 2139095040
-  %365 = add nsw i32 %364, -310378496
+  %364 = and i32 %354, -8388608
+  %365 = add i32 %364, -310378496
   %366 = sub nsw i32 150, %355
   %367 = shl i32 %351, %366
   %368 = and i32 %367, 8380416
@@ -15380,8 +15380,8 @@ define void @ImageFormat(ptr noundef %0, i32 noundef %1) local_unnamed_addr #4 {
   %388 = or disjoint i32 %387, %383
   %389 = icmp ne i32 %379, 0
   %390 = and i1 %.not.i169.i, %389
-  %391 = and i32 %381, 2139095040
-  %392 = add nsw i32 %391, -310378496
+  %391 = and i32 %381, -8388608
+  %392 = add i32 %391, -310378496
   %393 = sub nsw i32 150, %382
   %394 = shl i32 %378, %393
   %395 = and i32 %394, 8380416
@@ -15410,8 +15410,8 @@ define void @ImageFormat(ptr noundef %0, i32 noundef %1) local_unnamed_addr #4 {
   %415 = or disjoint i32 %414, %410
   %416 = icmp ne i32 %406, 0
   %417 = and i1 %.not.i171.i, %416
-  %418 = and i32 %408, 2139095040
-  %419 = add nsw i32 %418, -310378496
+  %418 = and i32 %408, -8388608
+  %419 = add i32 %418, -310378496
   %420 = sub nsw i32 150, %409
   %421 = shl i32 %405, %420
   %422 = and i32 %421, 8380416
@@ -18211,7 +18211,7 @@ define void @ImageAlphaClear(ptr nocapture noundef readonly %0, i32 %1, float no
   %35 = uitofp <4 x i8> %8 to <4 x float>
   %36 = fdiv <4 x float> %35, <float 2.550000e+02, float 2.550000e+02, float 2.550000e+02, float 2.550000e+02>
   %37 = bitcast <4 x float> %36 to <4 x i32>
-  %38 = add nuw <4 x i32> %37, <i32 4096, i32 4096, i32 4096, i32 4096>
+  %38 = add <4 x i32> %37, <i32 4096, i32 4096, i32 4096, i32 4096>
   %39 = extractelement <4 x i32> %38, i64 3
   %40 = and i32 %39, 8388607
   %41 = lshr i32 %39, 16
@@ -18639,8 +18639,8 @@ define void @ImageAlphaClear(ptr nocapture noundef readonly %0, i32 %1, float no
   %363 = or disjoint i32 %362, %358
   %364 = icmp ne i32 %354, 0
   %365 = and i1 %.not.i, %364
-  %366 = and i32 %356, 2139095040
-  %367 = add nsw i32 %366, -310378496
+  %366 = and i32 %356, -8388608
+  %367 = add i32 %366, -310378496
   %368 = sub nsw i32 150, %357
   %369 = shl i32 %353, %368
   %370 = and i32 %369, 8380416
@@ -21623,8 +21623,8 @@ define i32 @GetImageColor(ptr nocapture noundef readonly byval(%struct.Image) al
   %174 = or disjoint i32 %173, %169
   %175 = icmp ne i32 %165, 0
   %176 = and i1 %.not.i, %175
-  %177 = and i32 %167, 2139095040
-  %178 = add nsw i32 %177, -310378496
+  %177 = and i32 %167, -8388608
+  %178 = add i32 %177, -310378496
   %179 = sub nsw i32 150, %168
   %180 = shl i32 %164, %179
   %181 = and i32 %180, 8380416
@@ -21662,8 +21662,8 @@ define i32 @GetImageColor(ptr nocapture noundef readonly byval(%struct.Image) al
   %209 = or disjoint i32 %208, %204
   %210 = icmp ne i32 %200, 0
   %211 = and i1 %.not.i91, %210
-  %212 = and i32 %202, 2139095040
-  %213 = add nsw i32 %212, -310378496
+  %212 = and i32 %202, -8388608
+  %213 = add i32 %212, -310378496
   %214 = sub nsw i32 150, %203
   %215 = shl i32 %199, %214
   %216 = and i32 %215, 8380416
@@ -21693,8 +21693,8 @@ define i32 @GetImageColor(ptr nocapture noundef readonly byval(%struct.Image) al
   %238 = or disjoint i32 %237, %233
   %239 = icmp ne i32 %229, 0
   %240 = and i1 %.not.i93, %239
-  %241 = and i32 %231, 2139095040
-  %242 = add nsw i32 %241, -310378496
+  %241 = and i32 %231, -8388608
+  %242 = add i32 %241, -310378496
   %243 = sub nsw i32 150, %232
   %244 = shl i32 %228, %243
   %245 = and i32 %244, 8380416
@@ -21724,8 +21724,8 @@ define i32 @GetImageColor(ptr nocapture noundef readonly byval(%struct.Image) al
   %267 = or disjoint i32 %266, %262
   %268 = icmp ne i32 %258, 0
   %269 = and i1 %.not.i95, %268
-  %270 = and i32 %260, 2139095040
-  %271 = add nsw i32 %270, -310378496
+  %270 = and i32 %260, -8388608
+  %271 = add i32 %270, -310378496
   %272 = sub nsw i32 150, %261
   %273 = shl i32 %257, %272
   %274 = and i32 %273, 8380416
@@ -21763,8 +21763,8 @@ define i32 @GetImageColor(ptr nocapture noundef readonly byval(%struct.Image) al
   %302 = or disjoint i32 %301, %297
   %303 = icmp ne i32 %293, 0
   %304 = and i1 %.not.i97, %303
-  %305 = and i32 %295, 2139095040
-  %306 = add nsw i32 %305, -310378496
+  %305 = and i32 %295, -8388608
+  %306 = add i32 %305, -310378496
   %307 = sub nsw i32 150, %296
   %308 = shl i32 %292, %307
   %309 = and i32 %308, 8380416
@@ -23059,8 +23059,8 @@ define i32 @GetPixelColor(ptr nocapture noundef readonly %0, i32 noundef %1) loc
   %109 = or disjoint i32 %108, %104
   %110 = icmp ne i32 %100, 0
   %111 = and i1 %.not.i, %110
-  %112 = and i32 %102, 2139095040
-  %113 = add nsw i32 %112, -310378496
+  %112 = and i32 %102, -8388608
+  %113 = add i32 %112, -310378496
   %114 = sub nsw i32 150, %103
   %115 = shl i32 %99, %114
   %116 = and i32 %115, 8380416
@@ -23094,8 +23094,8 @@ define i32 @GetPixelColor(ptr nocapture noundef readonly %0, i32 noundef %1) loc
   %140 = or disjoint i32 %139, %135
   %141 = icmp ne i32 %131, 0
   %142 = and i1 %.not.i63, %141
-  %143 = and i32 %133, 2139095040
-  %144 = add nsw i32 %143, -310378496
+  %143 = and i32 %133, -8388608
+  %144 = add i32 %143, -310378496
   %145 = sub nsw i32 150, %134
   %146 = shl i32 %130, %145
   %147 = and i32 %146, 8380416
@@ -23125,8 +23125,8 @@ define i32 @GetPixelColor(ptr nocapture noundef readonly %0, i32 noundef %1) loc
   %171 = or disjoint <2 x i32> %170, %165
   %172 = icmp ne <2 x i32> %158, zeroinitializer
   %173 = and <2 x i1> %166, %172
-  %174 = and <2 x i32> %162, <i32 2139095040, i32 2139095040>
-  %175 = add nsw <2 x i32> %174, <i32 -310378496, i32 -310378496>
+  %174 = and <2 x i32> %162, <i32 -8388608, i32 -8388608>
+  %175 = add <2 x i32> %174, <i32 -310378496, i32 -310378496>
   %176 = sub nsw <2 x i32> <i32 150, i32 150>, %163
   %177 = shl <2 x i32> %157, %176
   %178 = and <2 x i32> %177, <i32 8380416, i32 8380416>
@@ -23162,8 +23162,8 @@ define i32 @GetPixelColor(ptr nocapture noundef readonly %0, i32 noundef %1) loc
   %206 = or disjoint <4 x i32> %205, %199
   %207 = icmp ne <4 x i32> %192, zeroinitializer
   %208 = and <4 x i1> %200, %207
-  %209 = and <4 x i32> %196, <i32 2139095040, i32 2139095040, i32 2139095040, i32 2139095040>
-  %210 = add nsw <4 x i32> %209, <i32 -310378496, i32 -310378496, i32 -310378496, i32 -310378496>
+  %209 = and <4 x i32> %196, <i32 -8388608, i32 -8388608, i32 -8388608, i32 -8388608>
+  %210 = add <4 x i32> %209, <i32 -310378496, i32 -310378496, i32 -310378496, i32 -310378496>
   %211 = sub nsw <4 x i32> <i32 150, i32 150, i32 150, i32 150>, %197
   %212 = shl <4 x i32> %191, %211
   %213 = and <4 x i32> %212, <i32 8380416, i32 8380416, i32 8380416, i32 8380416>
@@ -47659,7 +47659,7 @@ define internal void @stbir__encode_uint8_srgb(ptr noundef writeonly %0, i32 nou
 
 134:                                              ; preds = %132
   %135 = bitcast float %130 to i32
-  %136 = add nsw i32 %135, -956301312
+  %136 = add i32 %135, -956301312
   %137 = lshr i32 %136, 20
   %138 = zext nneg i32 %137 to i64
   %139 = getelementptr inbounds [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %138
@@ -47689,7 +47689,7 @@ stbir__linear_to_srgb_uchar.exit:                 ; preds = %.lr.ph, %132, %134
 
 155:                                              ; preds = %153
   %156 = bitcast float %151 to i32
-  %157 = add nsw i32 %156, -956301312
+  %157 = add i32 %156, -956301312
   %158 = lshr i32 %157, 20
   %159 = zext nneg i32 %158 to i64
   %160 = getelementptr inbounds [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %159
@@ -47720,7 +47720,7 @@ stbir__linear_to_srgb_uchar.exit280:              ; preds = %stbir__linear_to_sr
 
 177:                                              ; preds = %175
   %178 = bitcast float %173 to i32
-  %179 = add nsw i32 %178, -956301312
+  %179 = add i32 %178, -956301312
   %180 = lshr i32 %179, 20
   %181 = zext nneg i32 %180 to i64
   %182 = getelementptr inbounds [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %181
@@ -47751,7 +47751,7 @@ stbir__linear_to_srgb_uchar.exit282:              ; preds = %stbir__linear_to_sr
 
 199:                                              ; preds = %197
   %200 = bitcast float %195 to i32
-  %201 = add nsw i32 %200, -956301312
+  %201 = add i32 %200, -956301312
   %202 = lshr i32 %201, 20
   %203 = zext nneg i32 %202 to i64
   %204 = getelementptr inbounds [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %203
@@ -47790,7 +47790,7 @@ stbir__linear_to_srgb_uchar.exit284:              ; preds = %stbir__linear_to_sr
 
 221:                                              ; preds = %219
   %222 = bitcast float %217 to i32
-  %223 = add nsw i32 %222, -956301312
+  %223 = add i32 %222, -956301312
   %224 = lshr i32 %223, 20
   %225 = zext nneg i32 %224 to i64
   %226 = getelementptr inbounds [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %225
@@ -48317,7 +48317,7 @@ define internal void @stbir__encode_uint8_srgb4_linearalpha(ptr noundef writeonl
 
 115:                                              ; preds = %113
   %116 = bitcast float %111 to i32
-  %117 = add nsw i32 %116, -956301312
+  %117 = add i32 %116, -956301312
   %118 = lshr i32 %117, 20
   %119 = zext nneg i32 %118 to i64
   %120 = getelementptr inbounds [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %119
@@ -48347,7 +48347,7 @@ stbir__linear_to_srgb_uchar.exit:                 ; preds = %.preheader, %113, %
 
 136:                                              ; preds = %134
   %137 = bitcast float %132 to i32
-  %138 = add nsw i32 %137, -956301312
+  %138 = add i32 %137, -956301312
   %139 = lshr i32 %138, 20
   %140 = zext nneg i32 %139 to i64
   %141 = getelementptr inbounds [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %140
@@ -48378,7 +48378,7 @@ stbir__linear_to_srgb_uchar.exit248:              ; preds = %stbir__linear_to_sr
 
 158:                                              ; preds = %156
   %159 = bitcast float %154 to i32
-  %160 = add nsw i32 %159, -956301312
+  %160 = add i32 %159, -956301312
   %161 = lshr i32 %160, 20
   %162 = zext nneg i32 %161 to i64
   %163 = getelementptr inbounds [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %162
@@ -48584,7 +48584,7 @@ define internal void @stbir__encode_uint8_srgb4_linearalpha_BGRA(ptr noundef wri
 
 115:                                              ; preds = %113
   %116 = bitcast float %111 to i32
-  %117 = add nsw i32 %116, -956301312
+  %117 = add i32 %116, -956301312
   %118 = lshr i32 %117, 20
   %119 = zext nneg i32 %118 to i64
   %120 = getelementptr inbounds [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %119
@@ -48615,7 +48615,7 @@ stbir__linear_to_srgb_uchar.exit:                 ; preds = %.preheader, %113, %
 
 137:                                              ; preds = %135
   %138 = bitcast float %133 to i32
-  %139 = add nsw i32 %138, -956301312
+  %139 = add i32 %138, -956301312
   %140 = lshr i32 %139, 20
   %141 = zext nneg i32 %140 to i64
   %142 = getelementptr inbounds [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %141
@@ -48646,7 +48646,7 @@ stbir__linear_to_srgb_uchar.exit248:              ; preds = %stbir__linear_to_sr
 
 159:                                              ; preds = %157
   %160 = bitcast float %155 to i32
-  %161 = add nsw i32 %160, -956301312
+  %161 = add i32 %160, -956301312
   %162 = lshr i32 %161, 20
   %163 = zext nneg i32 %162 to i64
   %164 = getelementptr inbounds [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %163
@@ -48887,7 +48887,7 @@ define internal void @stbir__encode_uint8_srgb_BGRA(ptr noundef writeonly %0, i3
 
 134:                                              ; preds = %132
   %135 = bitcast float %130 to i32
-  %136 = add nsw i32 %135, -956301312
+  %136 = add i32 %135, -956301312
   %137 = lshr i32 %136, 20
   %138 = zext nneg i32 %137 to i64
   %139 = getelementptr inbounds [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %138
@@ -48917,7 +48917,7 @@ stbir__linear_to_srgb_uchar.exit:                 ; preds = %.lr.ph, %132, %134
 
 155:                                              ; preds = %153
   %156 = bitcast float %151 to i32
-  %157 = add nsw i32 %156, -956301312
+  %157 = add i32 %156, -956301312
   %158 = lshr i32 %157, 20
   %159 = zext nneg i32 %158 to i64
   %160 = getelementptr inbounds [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %159
@@ -48947,7 +48947,7 @@ stbir__linear_to_srgb_uchar.exit271:              ; preds = %stbir__linear_to_sr
 
 176:                                              ; preds = %174
   %177 = bitcast float %172 to i32
-  %178 = add nsw i32 %177, -956301312
+  %178 = add i32 %177, -956301312
   %179 = lshr i32 %178, 20
   %180 = zext nneg i32 %179 to i64
   %181 = getelementptr inbounds [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %180
@@ -48978,7 +48978,7 @@ stbir__linear_to_srgb_uchar.exit273:              ; preds = %stbir__linear_to_sr
 
 198:                                              ; preds = %196
   %199 = bitcast float %194 to i32
-  %200 = add nsw i32 %199, -956301312
+  %200 = add i32 %199, -956301312
   %201 = lshr i32 %200, 20
   %202 = zext nneg i32 %201 to i64
   %203 = getelementptr inbounds [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %202
@@ -49507,7 +49507,7 @@ define internal void @stbir__encode_uint8_srgb4_linearalpha_ARGB(ptr noundef wri
 
 115:                                              ; preds = %113
   %116 = bitcast float %111 to i32
-  %117 = add nsw i32 %116, -956301312
+  %117 = add i32 %116, -956301312
   %118 = lshr i32 %117, 20
   %119 = zext nneg i32 %118 to i64
   %120 = getelementptr inbounds [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %119
@@ -49538,7 +49538,7 @@ stbir__linear_to_srgb_uchar.exit:                 ; preds = %.preheader, %113, %
 
 137:                                              ; preds = %135
   %138 = bitcast float %133 to i32
-  %139 = add nsw i32 %138, -956301312
+  %139 = add i32 %138, -956301312
   %140 = lshr i32 %139, 20
   %141 = zext nneg i32 %140 to i64
   %142 = getelementptr inbounds [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %141
@@ -49569,7 +49569,7 @@ stbir__linear_to_srgb_uchar.exit248:              ; preds = %stbir__linear_to_sr
 
 159:                                              ; preds = %157
   %160 = bitcast float %155 to i32
-  %161 = add nsw i32 %160, -956301312
+  %161 = add i32 %160, -956301312
   %162 = lshr i32 %161, 20
   %163 = zext nneg i32 %162 to i64
   %164 = getelementptr inbounds [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %163
@@ -49810,7 +49810,7 @@ define internal void @stbir__encode_uint8_srgb_ARGB(ptr noundef writeonly %0, i3
 
 134:                                              ; preds = %132
   %135 = bitcast float %130 to i32
-  %136 = add nsw i32 %135, -956301312
+  %136 = add i32 %135, -956301312
   %137 = lshr i32 %136, 20
   %138 = zext nneg i32 %137 to i64
   %139 = getelementptr inbounds [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %138
@@ -49839,7 +49839,7 @@ stbir__linear_to_srgb_uchar.exit:                 ; preds = %.lr.ph, %132, %134
 
 154:                                              ; preds = %152
   %155 = bitcast float %150 to i32
-  %156 = add nsw i32 %155, -956301312
+  %156 = add i32 %155, -956301312
   %157 = lshr i32 %156, 20
   %158 = zext nneg i32 %157 to i64
   %159 = getelementptr inbounds [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %158
@@ -49870,7 +49870,7 @@ stbir__linear_to_srgb_uchar.exit271:              ; preds = %stbir__linear_to_sr
 
 176:                                              ; preds = %174
   %177 = bitcast float %172 to i32
-  %178 = add nsw i32 %177, -956301312
+  %178 = add i32 %177, -956301312
   %179 = lshr i32 %178, 20
   %180 = zext nneg i32 %179 to i64
   %181 = getelementptr inbounds [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %180
@@ -49901,7 +49901,7 @@ stbir__linear_to_srgb_uchar.exit273:              ; preds = %stbir__linear_to_sr
 
 198:                                              ; preds = %196
   %199 = bitcast float %194 to i32
-  %200 = add nsw i32 %199, -956301312
+  %200 = add i32 %199, -956301312
   %201 = lshr i32 %200, 20
   %202 = zext nneg i32 %201 to i64
   %203 = getelementptr inbounds [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %202
@@ -50430,7 +50430,7 @@ define internal void @stbir__encode_uint8_srgb4_linearalpha_ABGR(ptr noundef wri
 
 115:                                              ; preds = %113
   %116 = bitcast float %111 to i32
-  %117 = add nsw i32 %116, -956301312
+  %117 = add i32 %116, -956301312
   %118 = lshr i32 %117, 20
   %119 = zext nneg i32 %118 to i64
   %120 = getelementptr inbounds [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %119
@@ -50461,7 +50461,7 @@ stbir__linear_to_srgb_uchar.exit:                 ; preds = %.preheader, %113, %
 
 137:                                              ; preds = %135
   %138 = bitcast float %133 to i32
-  %139 = add nsw i32 %138, -956301312
+  %139 = add i32 %138, -956301312
   %140 = lshr i32 %139, 20
   %141 = zext nneg i32 %140 to i64
   %142 = getelementptr inbounds [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %141
@@ -50492,7 +50492,7 @@ stbir__linear_to_srgb_uchar.exit248:              ; preds = %stbir__linear_to_sr
 
 159:                                              ; preds = %157
   %160 = bitcast float %155 to i32
-  %161 = add nsw i32 %160, -956301312
+  %161 = add i32 %160, -956301312
   %162 = lshr i32 %161, 20
   %163 = zext nneg i32 %162 to i64
   %164 = getelementptr inbounds [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %163
@@ -50733,7 +50733,7 @@ define internal void @stbir__encode_uint8_srgb_ABGR(ptr noundef writeonly %0, i3
 
 134:                                              ; preds = %132
   %135 = bitcast float %130 to i32
-  %136 = add nsw i32 %135, -956301312
+  %136 = add i32 %135, -956301312
   %137 = lshr i32 %136, 20
   %138 = zext nneg i32 %137 to i64
   %139 = getelementptr inbounds [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %138
@@ -50763,7 +50763,7 @@ stbir__linear_to_srgb_uchar.exit:                 ; preds = %.lr.ph, %132, %134
 
 155:                                              ; preds = %153
   %156 = bitcast float %151 to i32
-  %157 = add nsw i32 %156, -956301312
+  %157 = add i32 %156, -956301312
   %158 = lshr i32 %157, 20
   %159 = zext nneg i32 %158 to i64
   %160 = getelementptr inbounds [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %159
@@ -50794,7 +50794,7 @@ stbir__linear_to_srgb_uchar.exit271:              ; preds = %stbir__linear_to_sr
 
 177:                                              ; preds = %175
   %178 = bitcast float %173 to i32
-  %179 = add nsw i32 %178, -956301312
+  %179 = add i32 %178, -956301312
   %180 = lshr i32 %179, 20
   %181 = zext nneg i32 %180 to i64
   %182 = getelementptr inbounds [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %181
@@ -50824,7 +50824,7 @@ stbir__linear_to_srgb_uchar.exit273:              ; preds = %stbir__linear_to_sr
 
 198:                                              ; preds = %196
   %199 = bitcast float %194 to i32
-  %200 = add nsw i32 %199, -956301312
+  %200 = add i32 %199, -956301312
   %201 = lshr i32 %200, 20
   %202 = zext nneg i32 %201 to i64
   %203 = getelementptr inbounds [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %202
@@ -51327,7 +51327,7 @@ define internal void @stbir__encode_uint8_srgb2_linearalpha(ptr noundef writeonl
 
 97:                                               ; preds = %95
   %98 = bitcast float %93 to i32
-  %99 = add nsw i32 %98, -956301312
+  %99 = add i32 %98, -956301312
   %100 = lshr i32 %99, 20
   %101 = zext nneg i32 %100 to i64
   %102 = getelementptr inbounds [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %101
@@ -51506,7 +51506,7 @@ define internal void @stbir__encode_uint8_srgb2_linearalpha_AR(ptr noundef write
 
 97:                                               ; preds = %95
   %98 = bitcast float %93 to i32
-  %99 = add nsw i32 %98, -956301312
+  %99 = add i32 %98, -956301312
   %100 = lshr i32 %99, 20
   %101 = zext nneg i32 %100 to i64
   %102 = getelementptr inbounds [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %101
@@ -51753,7 +51753,7 @@ define internal void @stbir__encode_uint8_srgb_AR(ptr noundef writeonly %0, i32 
 
 135:                                              ; preds = %133
   %136 = bitcast float %131 to i32
-  %137 = add nsw i32 %136, -956301312
+  %137 = add i32 %136, -956301312
   %138 = lshr i32 %137, 20
   %139 = zext nneg i32 %138 to i64
   %140 = getelementptr inbounds [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %139
@@ -51782,7 +51782,7 @@ stbir__linear_to_srgb_uchar.exit:                 ; preds = %.lr.ph, %133, %135
 
 155:                                              ; preds = %153
   %156 = bitcast float %151 to i32
-  %157 = add nsw i32 %156, -956301312
+  %157 = add i32 %156, -956301312
   %158 = lshr i32 %157, 20
   %159 = zext nneg i32 %158 to i64
   %160 = getelementptr inbounds [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %159
@@ -51813,7 +51813,7 @@ stbir__linear_to_srgb_uchar.exit282:              ; preds = %stbir__linear_to_sr
 
 177:                                              ; preds = %175
   %178 = bitcast float %173 to i32
-  %179 = add nsw i32 %178, -956301312
+  %179 = add i32 %178, -956301312
   %180 = lshr i32 %179, 20
   %181 = zext nneg i32 %180 to i64
   %182 = getelementptr inbounds [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %181
@@ -51844,7 +51844,7 @@ stbir__linear_to_srgb_uchar.exit284:              ; preds = %stbir__linear_to_sr
 
 199:                                              ; preds = %197
   %200 = bitcast float %195 to i32
-  %201 = add nsw i32 %200, -956301312
+  %201 = add i32 %200, -956301312
   %202 = lshr i32 %201, 20
   %203 = zext nneg i32 %202 to i64
   %204 = getelementptr inbounds [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %203
@@ -51884,7 +51884,7 @@ stbir__linear_to_srgb_uchar.exit286:              ; preds = %stbir__linear_to_sr
 
 222:                                              ; preds = %220
   %223 = bitcast float %218 to i32
-  %224 = add nsw i32 %223, -956301312
+  %224 = add i32 %223, -956301312
   %225 = lshr i32 %224, 20
   %226 = zext nneg i32 %225 to i64
   %227 = getelementptr inbounds [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %226
@@ -51913,7 +51913,7 @@ stbir__linear_to_srgb_uchar.exit288:              ; preds = %.lr.ph301, %220, %2
 
 242:                                              ; preds = %240
   %243 = bitcast float %238 to i32
-  %244 = add nsw i32 %243, -956301312
+  %244 = add i32 %243, -956301312
   %245 = lshr i32 %244, 20
   %246 = zext nneg i32 %245 to i64
   %247 = getelementptr inbounds [104 x i32], ptr @fp32_to_srgb8_tab4, i64 0, i64 %246

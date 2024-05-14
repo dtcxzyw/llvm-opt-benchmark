@@ -22694,7 +22694,7 @@ JS_DupValue.exit:                                 ; preds = %18, %28
   %.sroa.0178.0 = select i1 %90, i64 %.sroa.0183.0.insert.ext, i64 %92
   %.sroa.3179.0 = select i1 %90, i64 0, i64 7
   %.sroa.086.0.extract.trunc92 = trunc i64 %.sroa.0178.0 to i32
-  %.sroa.14.0.extract.shift108 = and i64 %.sroa.0178.0, 9223372032559808512
+  %.sroa.14.0.extract.shift108 = and i64 %.sroa.0178.0, -4294967296
   br label %216
 
 93:                                               ; preds = %12
@@ -91442,7 +91442,7 @@ JS_FreeValue.exit:                                ; preds = %53, %58, %63
   %75 = bitcast double %74 to i64
   %.sroa.093.0 = select i1 %73, i64 %.sroa.098.0.insert.ext, i64 %75
   %.sroa.394.0 = select i1 %73, i64 0, i64 7
-  %.sroa.7.0.extract.shift = and i64 %.sroa.093.0, 9223372032559808512
+  %.sroa.7.0.extract.shift = and i64 %.sroa.093.0, -4294967296
   br label %105
 
 76:                                               ; preds = %67
@@ -214705,7 +214705,7 @@ JS_ToBool.exit:                                   ; preds = %46, %53
   %.sroa.0143.0 = select i1 %102, i64 %.sroa.0147.0.insert.ext, i64 %104
   %.sroa.3.0 = select i1 %102, i64 0, i64 7
   %.sroa.060.0.extract.trunc67 = trunc i64 %.sroa.0143.0 to i32
-  %.sroa.15.0.extract.shift84 = and i64 %.sroa.0143.0, 9223372032559808512
+  %.sroa.15.0.extract.shift84 = and i64 %.sroa.0143.0, -4294967296
   br label %123
 
 105:                                              ; preds = %76

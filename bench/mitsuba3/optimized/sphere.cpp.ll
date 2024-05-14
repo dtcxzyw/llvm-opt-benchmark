@@ -1900,7 +1900,7 @@ define weak_odr void @_ZNK7mitsuba6SphereIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm
   %130 = bitcast double %115 to i64
   %131 = and i64 %130, -9223372036854775808
   %132 = bitcast double %129 to i64
-  %133 = or disjoint i64 %131, %132
+  %133 = or i64 %131, %132
   %134 = bitcast i64 %133 to double
   %135 = fadd contract double %115, %134
   %136 = fmul contract double %135, -5.000000e-01
@@ -2188,7 +2188,7 @@ define weak_odr void @_ZNK7mitsuba6SphereIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm
   %72 = bitcast double %57 to i64
   %73 = and i64 %72, -9223372036854775808
   %74 = bitcast double %71 to i64
-  %75 = or disjoint i64 %73, %74
+  %75 = or i64 %73, %74
   %76 = bitcast i64 %75 to double
   %77 = fadd contract double %57, %76
   %78 = fmul contract double %77, -5.000000e-01
@@ -2371,7 +2371,7 @@ define weak_odr void @_ZNK7mitsuba6SphereIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm
   %106 = bitcast float %85 to i32
   %107 = and i32 %106, -2147483648
   %108 = bitcast float %105 to i32
-  %109 = or disjoint i32 %107, %108
+  %109 = or i32 %107, %108
   %110 = bitcast i32 %109 to float
   %111 = fmul contract float %110, 2.000000e+00
   %112 = fcmp contract ult float %.sroa.0687.8.vec.extract705, 0.000000e+00
@@ -3276,7 +3276,7 @@ define weak_odr noundef zeroext i1 @_ZNK7mitsuba6SphereIfN5drjit6MatrixINS_8Spec
   %47 = bitcast double %28 to i64
   %48 = and i64 %47, -9223372036854775808
   %49 = bitcast double %46 to i64
-  %50 = or disjoint i64 %48, %49
+  %50 = or i64 %48, %49
   %51 = bitcast i64 %50 to double
   %52 = fadd contract double %28, %51
   %53 = fmul contract double %52, -5.000000e-01
@@ -3399,7 +3399,7 @@ define weak_odr void @_ZNK7mitsuba6SphereIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm
   %69 = bitcast double %54 to i64
   %70 = and i64 %69, -9223372036854775808
   %71 = bitcast double %68 to i64
-  %72 = or disjoint i64 %70, %71
+  %72 = or i64 %70, %71
   %73 = bitcast i64 %72 to double
   %74 = fadd contract double %54, %73
   %75 = fmul contract double %74, -5.000000e-01
@@ -3505,7 +3505,7 @@ define weak_odr noundef zeroext i1 @_ZNK7mitsuba6SphereIfN5drjit6MatrixINS_8Spec
   %45 = bitcast double %26 to i64
   %46 = and i64 %45, -9223372036854775808
   %47 = bitcast double %44 to i64
-  %48 = or disjoint i64 %46, %47
+  %48 = or i64 %46, %47
   %49 = bitcast i64 %48 to double
   %50 = fadd contract double %26, %49
   %51 = fmul contract double %50, -5.000000e-01
@@ -3904,7 +3904,7 @@ _ZNK5drjit9ArrayBaseINS_6PacketIdLm4EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS5
   %190 = tail call <4 x double> @llvm.fabs.v4f64(<4 x double> %189)
   %191 = bitcast <4 x double> %190 to <4 x i64>
   %192 = and <4 x i64> %188, <i64 -9223372036854775808, i64 -9223372036854775808, i64 -9223372036854775808, i64 -9223372036854775808>
-  %193 = or disjoint <4 x i64> %192, %191
+  %193 = or <4 x i64> %192, %191
   %194 = bitcast <4 x i64> %193 to <4 x double>
   %195 = fadd contract <4 x double> %164, %194
   %196 = fmul contract <4 x double> %195, <double -5.000000e-01, double -5.000000e-01, double -5.000000e-01, double -5.000000e-01>
@@ -4114,7 +4114,7 @@ _ZNK5drjit9ArrayBaseINS_6PacketIdLm4EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS5
   %89 = tail call <4 x double> @llvm.fabs.v4f64(<4 x double> %88)
   %90 = bitcast <4 x double> %89 to <4 x i64>
   %91 = and <4 x i64> %87, <i64 -9223372036854775808, i64 -9223372036854775808, i64 -9223372036854775808, i64 -9223372036854775808>
-  %92 = or disjoint <4 x i64> %91, %90
+  %92 = or <4 x i64> %91, %90
   %93 = bitcast <4 x i64> %92 to <4 x double>
   %94 = fadd contract <4 x double> %70, %93
   %95 = fmul contract <4 x double> %94, <double -5.000000e-01, double -5.000000e-01, double -5.000000e-01, double -5.000000e-01>
@@ -4515,7 +4515,7 @@ _ZNK5drjit9ArrayBaseINS_6PacketIdLm8EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS5
   %186 = tail call <8 x double> @llvm.fabs.v8f64(<8 x double> %185)
   %187 = bitcast <8 x double> %186 to <8 x i64>
   %188 = and <8 x i64> %184, <i64 -9223372036854775808, i64 -9223372036854775808, i64 -9223372036854775808, i64 -9223372036854775808, i64 -9223372036854775808, i64 -9223372036854775808, i64 -9223372036854775808, i64 -9223372036854775808>
-  %189 = or disjoint <8 x i64> %188, %187
+  %189 = or <8 x i64> %188, %187
   %190 = bitcast <8 x i64> %189 to <8 x double>
   %191 = fadd contract <8 x double> %163, %190
   %192 = fmul contract <8 x double> %191, <double -5.000000e-01, double -5.000000e-01, double -5.000000e-01, double -5.000000e-01, double -5.000000e-01, double -5.000000e-01, double -5.000000e-01, double -5.000000e-01>
@@ -4718,7 +4718,7 @@ _ZNK5drjit9ArrayBaseINS_6PacketIdLm8EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS5
   %86 = tail call <8 x double> @llvm.fabs.v8f64(<8 x double> %85)
   %87 = bitcast <8 x double> %86 to <8 x i64>
   %88 = and <8 x i64> %84, <i64 -9223372036854775808, i64 -9223372036854775808, i64 -9223372036854775808, i64 -9223372036854775808, i64 -9223372036854775808, i64 -9223372036854775808, i64 -9223372036854775808, i64 -9223372036854775808>
-  %89 = or disjoint <8 x i64> %88, %87
+  %89 = or <8 x i64> %88, %87
   %90 = bitcast <8 x i64> %89 to <8 x double>
   %91 = fadd contract <8 x double> %63, %90
   %92 = fmul contract <8 x double> %91, <double -5.000000e-01, double -5.000000e-01, double -5.000000e-01, double -5.000000e-01, double -5.000000e-01, double -5.000000e-01, double -5.000000e-01, double -5.000000e-01>
@@ -5267,8 +5267,8 @@ _ZNK5drjit9ArrayBaseINS_6PacketIdLm16EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS
   %297 = bitcast <8 x double> %296 to <8 x i64>
   %298 = and <8 x i64> %291, <i64 -9223372036854775808, i64 -9223372036854775808, i64 -9223372036854775808, i64 -9223372036854775808, i64 -9223372036854775808, i64 -9223372036854775808, i64 -9223372036854775808, i64 -9223372036854775808>
   %299 = and <8 x i64> %290, <i64 -9223372036854775808, i64 -9223372036854775808, i64 -9223372036854775808, i64 -9223372036854775808, i64 -9223372036854775808, i64 -9223372036854775808, i64 -9223372036854775808, i64 -9223372036854775808>
-  %300 = or disjoint <8 x i64> %298, %295
-  %301 = or disjoint <8 x i64> %299, %297
+  %300 = or <8 x i64> %298, %295
+  %301 = or <8 x i64> %299, %297
   %302 = bitcast <8 x i64> %300 to <8 x double>
   %303 = fadd contract <8 x double> %244, %302
   %304 = bitcast <8 x i64> %301 to <8 x double>
@@ -5611,8 +5611,8 @@ _ZNK5drjit9ArrayBaseINS_6PacketIdLm16EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4dot_ERKS
   %141 = bitcast <8 x double> %140 to <8 x i64>
   %142 = and <8 x i64> %135, <i64 -9223372036854775808, i64 -9223372036854775808, i64 -9223372036854775808, i64 -9223372036854775808, i64 -9223372036854775808, i64 -9223372036854775808, i64 -9223372036854775808, i64 -9223372036854775808>
   %143 = and <8 x i64> %134, <i64 -9223372036854775808, i64 -9223372036854775808, i64 -9223372036854775808, i64 -9223372036854775808, i64 -9223372036854775808, i64 -9223372036854775808, i64 -9223372036854775808, i64 -9223372036854775808>
-  %144 = or disjoint <8 x i64> %142, %139
-  %145 = or disjoint <8 x i64> %143, %141
+  %144 = or <8 x i64> %142, %139
+  %145 = or <8 x i64> %143, %141
   %146 = bitcast <8 x i64> %144 to <8 x double>
   %147 = fadd contract <8 x double> %88, %146
   %148 = bitcast <8 x i64> %145 to <8 x double>

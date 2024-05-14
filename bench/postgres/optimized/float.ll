@@ -771,7 +771,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @float4abs(ptr nocapture
   %5 = bitcast i32 %4 to float
   %6 = tail call float @llvm.fabs.f32(float %5)
   %7 = bitcast float %6 to i32
-  %8 = zext nneg i32 %7 to i64
+  %8 = sext i32 %7 to i64
   ret i64 %8
 }
 

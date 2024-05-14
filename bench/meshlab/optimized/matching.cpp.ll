@@ -6062,7 +6062,7 @@ define linkonce_odr void @_ZNK5Eigen11EigenSolverINS_6MatrixIdLi2ELi2ELi0ELi2ELi
   %.sroa.0.8.vec.insert.i = insertelement <2 x double> %34, double 0.000000e+00, i64 1
   %35 = bitcast <2 x double> %.sroa.0.8.vec.insert.i to <2 x i64>
   %36 = load <4 x i32>, ptr %23, align 16
-  %37 = or disjoint <2 x i64> %35, <i64 0, i64 -9223372036854775808>
+  %37 = xor <2 x i64> %35, <i64 0, i64 -9223372036854775808>
   %38 = bitcast <2 x i64> %37 to <2 x double>
   %39 = bitcast <4 x i32> %36 to <2 x double>
   %40 = shufflevector <2 x double> %39, <2 x double> poison, <2 x i32> zeroinitializer
@@ -6127,7 +6127,7 @@ define linkonce_odr void @_ZNK5Eigen11EigenSolverINS_6MatrixIdLi2ELi2ELi0ELi2ELi
   %.sroa.0.8.vec.insert.i28 = insertelement <2 x double> %83, double 0.000000e+00, i64 1
   %84 = bitcast <2 x double> %.sroa.0.8.vec.insert.i28 to <2 x i64>
   %85 = load <4 x i32>, ptr %20, align 16
-  %86 = or disjoint <2 x i64> %84, <i64 0, i64 -9223372036854775808>
+  %86 = xor <2 x i64> %84, <i64 0, i64 -9223372036854775808>
   %87 = bitcast <2 x i64> %86 to <2 x double>
   %88 = bitcast <4 x i32> %85 to <2 x double>
   %89 = shufflevector <2 x double> %88, <2 x double> poison, <2 x i32> zeroinitializer
@@ -6187,7 +6187,7 @@ _ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixISt7complexIdELi2ELi2ELi0ELi2ELi2EEELi
   %.sroa.0.8.vec.insert.i31 = insertelement <2 x double> %134, double 0.000000e+00, i64 1
   %135 = bitcast <2 x double> %.sroa.0.8.vec.insert.i31 to <2 x i64>
   %136 = load <4 x i32>, ptr %21, align 16
-  %137 = or disjoint <2 x i64> %135, <i64 0, i64 -9223372036854775808>
+  %137 = xor <2 x i64> %135, <i64 0, i64 -9223372036854775808>
   %138 = bitcast <2 x i64> %137 to <2 x double>
   %139 = bitcast <4 x i32> %136 to <2 x double>
   %140 = shufflevector <2 x double> %139, <2 x double> poison, <2 x i32> zeroinitializer

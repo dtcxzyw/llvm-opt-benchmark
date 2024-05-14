@@ -55980,7 +55980,7 @@ cond.true.i.i.i:                                  ; preds = %if.then17.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %cond.true.i.i.i
-  %shr.i.i.i.i.i.i.i = lshr exact i32 %44, 16
+  %shr.i.i.i.i.i.i.i = lshr i32 %44, 16
   %conv.i.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i.i to i16
   br label %invoke.cont23.i.i.i
 
@@ -56524,8 +56524,8 @@ cond.true.i.i.i:                                  ; preds = %if.then17.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %cond.true.i.i.i
-  %shr.i.i.i.i.i.i.i = lshr exact i32 %44, 16
-  %conv.i.i.i.i.i.i.i = trunc nuw nsw i32 %shr.i.i.i.i.i.i.i to i16
+  %shr.i.i.i.i.i.i.i = lshr i32 %44, 16
+  %conv.i.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i.i to i16
   br label %invoke.cont23.i.i.i
 
 if.else.i.i.i.i.i.i.i:                            ; preds = %cond.true.i.i.i
@@ -57068,8 +57068,8 @@ cond.true.i.i.i:                                  ; preds = %if.then17.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %cond.true.i.i.i
-  %shr.i.i.i.i.i.i.i = lshr exact i32 %44, 16
-  %conv.i.i.i.i.i.i.i = trunc nuw nsw i32 %shr.i.i.i.i.i.i.i to i16
+  %shr.i.i.i.i.i.i.i = lshr i32 %44, 16
+  %conv.i.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i.i to i16
   br label %invoke.cont23.i.i.i
 
 if.else.i.i.i.i.i.i.i:                            ; preds = %cond.true.i.i.i
@@ -66621,7 +66621,7 @@ for.body3.i.i.i:                                  ; preds = %invoke.cont7.i.i.i,
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body3.i.i.i
-  %shr.i.i.i.i.i.i.i = lshr exact i32 %16, 16
+  %shr.i.i.i.i.i.i.i = lshr i32 %16, 16
   %conv.i.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i.i to i16
   br label %invoke.cont7.i.i.i
 
@@ -67067,8 +67067,8 @@ for.body3.i.i.i:                                  ; preds = %invoke.cont7.i.i.i,
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body3.i.i.i
-  %shr.i.i.i.i.i.i.i = lshr exact i32 %16, 16
-  %conv.i.i.i.i.i.i.i = trunc nuw nsw i32 %shr.i.i.i.i.i.i.i to i16
+  %shr.i.i.i.i.i.i.i = lshr i32 %16, 16
+  %conv.i.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i.i to i16
   br label %invoke.cont7.i.i.i
 
 if.else.i.i.i.i.i.i.i:                            ; preds = %for.body3.i.i.i
@@ -67914,8 +67914,8 @@ for.body3.i.i.i:                                  ; preds = %invoke.cont7.i.i.i,
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body3.i.i.i
-  %shr.i.i.i.i.i.i.i = lshr exact i32 %16, 16
-  %conv.i.i.i.i.i.i.i = trunc nuw nsw i32 %shr.i.i.i.i.i.i.i to i16
+  %shr.i.i.i.i.i.i.i = lshr i32 %16, 16
+  %conv.i.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i.i to i16
   br label %invoke.cont7.i.i.i
 
 if.else.i.i.i.i.i.i.i:                            ; preds = %for.body3.i.i.i
@@ -68360,7 +68360,7 @@ for.body3.i.i.i:                                  ; preds = %invoke.cont7.i.i.i,
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body3.i.i.i
-  %shr.i.i.i.i.i.i.i = lshr exact i32 %16, 16
+  %shr.i.i.i.i.i.i.i = lshr i32 %16, 16
   %conv.i.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i.i to i16
   br label %invoke.cont7.i.i.i
 
@@ -68829,7 +68829,7 @@ for.body3.i.i.i:                                  ; preds = %invoke.cont7.i.i.i,
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body3.i.i.i
-  %shr.i.i.i.i.i.i.i = lshr exact i32 %16, 16
+  %shr.i.i.i.i.i.i.i = lshr i32 %16, 16
   %conv.i.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i.i to i16
   br label %invoke.cont7.i.i.i
 
@@ -69298,8 +69298,8 @@ for.body3.i.i.i:                                  ; preds = %invoke.cont7.i.i.i,
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body3.i.i.i
-  %shr.i.i.i.i.i.i.i = lshr exact i32 %16, 16
-  %conv.i.i.i.i.i.i.i = trunc nuw nsw i32 %shr.i.i.i.i.i.i.i to i16
+  %shr.i.i.i.i.i.i.i = lshr i32 %16, 16
+  %conv.i.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i.i to i16
   br label %invoke.cont7.i.i.i
 
 if.else.i.i.i.i.i.i.i:                            ; preds = %for.body3.i.i.i
@@ -69767,7 +69767,7 @@ for.body3.i.i.i:                                  ; preds = %invoke.cont7.i.i.i,
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body3.i.i.i
-  %shr.i.i.i.i.i.i.i = lshr exact i32 %16, 16
+  %shr.i.i.i.i.i.i.i = lshr i32 %16, 16
   %conv.i.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i.i to i16
   br label %invoke.cont7.i.i.i
 
@@ -70235,7 +70235,7 @@ for.body3.i.i.i:                                  ; preds = %invoke.cont7.i.i.i,
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body3.i.i.i
-  %shr.i.i.i.i.i.i.i = lshr exact i32 %16, 16
+  %shr.i.i.i.i.i.i.i = lshr i32 %16, 16
   %conv.i.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i.i to i16
   br label %invoke.cont7.i.i.i
 
@@ -98479,7 +98479,7 @@ for.body20.i.i.i:                                 ; preds = %invoke.cont23.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body20.i.i.i
-  %shr.i.i.i.i.i.i.i = lshr exact i32 %45, 16
+  %shr.i.i.i.i.i.i.i = lshr i32 %45, 16
   %conv.i.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i.i to i16
   br label %invoke.cont23.i.i.i
 
@@ -98832,8 +98832,8 @@ for.body20.i.i.i:                                 ; preds = %invoke.cont23.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body20.i.i.i
-  %shr.i.i.i.i.i.i.i = lshr exact i32 %45, 16
-  %conv.i.i.i.i.i.i.i = trunc nuw nsw i32 %shr.i.i.i.i.i.i.i to i16
+  %shr.i.i.i.i.i.i.i = lshr i32 %45, 16
+  %conv.i.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i.i to i16
   br label %invoke.cont23.i.i.i
 
 if.else.i.i.i.i.i.i.i:                            ; preds = %for.body20.i.i.i
@@ -99185,8 +99185,8 @@ for.body20.i.i.i:                                 ; preds = %invoke.cont23.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body20.i.i.i
-  %shr.i.i.i.i.i.i.i = lshr exact i32 %45, 16
-  %conv.i.i.i.i.i.i.i = trunc nuw nsw i32 %shr.i.i.i.i.i.i.i to i16
+  %shr.i.i.i.i.i.i.i = lshr i32 %45, 16
+  %conv.i.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i.i to i16
   br label %invoke.cont23.i.i.i
 
 if.else.i.i.i.i.i.i.i:                            ; preds = %for.body20.i.i.i

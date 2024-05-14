@@ -3548,7 +3548,7 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   %240 = bitcast <2 x float> %216 to <2 x i32>
   %241 = and <2 x i32> %240, <i32 -2147483648, i32 -2147483648>
   %242 = bitcast <2 x float> %239 to <2 x i32>
-  %243 = or disjoint <2 x i32> %241, %242
+  %243 = or <2 x i32> %241, %242
   %244 = bitcast <2 x i32> %243 to <2 x float>
   %245 = fsub contract <2 x float> <float 0x3FF921FB60000000, float 0x3FF921FB60000000>, %244
   %246 = select <2 x i1> %220, <2 x float> %238, <2 x float> %245
@@ -4803,7 +4803,7 @@ define linkonce_odr hidden void @_ZN7mitsuba7mueller20rotate_mueller_basisINS_6V
   %83 = bitcast float %62 to i32
   %84 = and i32 %83, -2147483648
   %85 = bitcast float %82 to i32
-  %86 = or disjoint i32 %84, %85
+  %86 = or i32 %84, %85
   %87 = bitcast i32 %86 to float
   %88 = fmul contract float %87, 2.000000e+00
   %89 = fcmp contract ult float %48, 0.000000e+00
@@ -4917,7 +4917,7 @@ _ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb
   %172 = bitcast float %151 to i32
   %173 = and i32 %172, -2147483648
   %174 = bitcast float %171 to i32
-  %175 = or disjoint i32 %173, %174
+  %175 = or i32 %173, %174
   %176 = bitcast i32 %175 to float
   %177 = fmul contract float %176, 2.000000e+00
   %178 = fcmp contract ult float %137, 0.000000e+00
@@ -7852,7 +7852,7 @@ _ZNK5drjit9ArrayBaseIfLb0EN7mitsuba5PointIfLm2EEEE8minimum_ERKS3_.exit.critedge:
   %125 = select i1 %81, float 0x7FF0000000000000, float %124
   %126 = bitcast float %125 to i32
   %127 = select i1 %122, i32 1065353216, i32 %126
-  %128 = or disjoint i32 %127, %14
+  %128 = or i32 %127, %14
   %129 = bitcast i32 %128 to float
   %130 = select contract i1 %83, float %84, float %129
   %131 = fadd contract float %130, 1.000000e+00
@@ -7866,7 +7866,7 @@ _ZNK5drjit9ArrayBaseIfLb0EN7mitsuba5PointIfLm2EEEE8minimum_ERKS3_.exit.critedge:
   %139 = bitcast float %55 to i32
   %140 = and i32 %139, -2147483648
   %141 = select i1 %134, i32 1065353216, i32 %138
-  %142 = or disjoint i32 %141, %140
+  %142 = or i32 %141, %140
   %143 = bitcast i32 %142 to float
   %144 = select contract i1 %98, float %99, float %143
   %145 = fmul contract float %131, %144

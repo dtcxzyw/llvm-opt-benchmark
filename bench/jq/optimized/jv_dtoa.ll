@@ -590,7 +590,7 @@ match.exit599:                                    ; preds = %161, %.preheader
   %188 = icmp sgt i32 %.5465, 9
   %189 = bitcast double %187 to i64
   %190 = lshr i64 %189, 32
-  %191 = trunc nuw nsw i64 %190 to i32
+  %191 = trunc nuw i64 %190 to i32
   %192 = trunc i64 %189 to i32
   br i1 %188, label %193, label %.thread
 
@@ -3726,8 +3726,8 @@ rv_alloc.exit.i608:                               ; preds = %57, %55
   %95 = phi i32 [ %88, %82 ], [ %92, %89 ]
   %96 = uitofp i32 %95 to double
   %97 = bitcast double %96 to i64
-  %98 = and i64 %97, 9223372032559808512
-  %.sroa.085.4.insert.shift100 = add nsw i64 %98, -139611588448485376
+  %98 = and i64 %97, -4294967296
+  %.sroa.085.4.insert.shift100 = add i64 %98, -139611588448485376
   %.sroa.085.4.insert.mask101 = and i64 %97, 4294967295
   %.sroa.085.4.insert.insert102 = or disjoint i64 %.sroa.085.4.insert.shift100, %.sroa.085.4.insert.mask101
   %99 = add nsw i32 %80, -1

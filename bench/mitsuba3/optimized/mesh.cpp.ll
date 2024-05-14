@@ -5198,7 +5198,7 @@ _ZNK5drjit9ArrayBaseINS_6PacketIfLm3EEELb0ENS_5ArrayIS2_Lm3EEEE4sub_ERKS4_.exit.
   %208 = tail call <4 x float> @llvm.fabs.v4f32(<4 x float> %207)
   %209 = bitcast <4 x float> %208 to <4 x i32>
   %210 = and <4 x i32> %188, <i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648>
-  %211 = or disjoint <4 x i32> %210, %209
+  %211 = or <4 x i32> %210, %209
   %212 = bitcast <4 x i32> %211 to <4 x float>
   %213 = fmul contract <4 x float> %212, <float 2.000000e+00, float 2.000000e+00, float 2.000000e+00, float 2.000000e+00>
   %214 = fcmp contract oge <4 x float> %154, zeroinitializer
@@ -8359,7 +8359,7 @@ define weak_odr void @_ZNK7mitsuba4MeshIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4E
   %255 = bitcast float %232 to i32
   %256 = and i32 %255, -2147483648
   %257 = bitcast float %254 to i32
-  %258 = or disjoint i32 %256, %257
+  %258 = or i32 %256, %257
   %259 = bitcast i32 %258 to float
   %260 = fsub contract float 0x3FF921FB60000000, %259
   %261 = select contract i1 %234, float %253, float %260
@@ -9153,7 +9153,7 @@ _ZN5drjit6gatherIjLb0ERNS_12DynamicArrayIjEEjbEET_OT1_RKT2_RKT3_.exit: ; preds =
   %266 = bitcast float %243 to i32
   %267 = and i32 %266, -2147483648
   %268 = bitcast float %265 to i32
-  %269 = or disjoint i32 %267, %268
+  %269 = or i32 %267, %268
   %270 = bitcast i32 %269 to float
   %271 = fsub contract float 0x3FF921FB60000000, %270
   %272 = select contract i1 %245, float %264, float %271
@@ -9712,7 +9712,7 @@ define weak_odr void @_ZNK7mitsuba4MeshIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4E
   %300 = tail call <4 x float> @llvm.fabs.v4f32(<4 x float> %295)
   %301 = bitcast <4 x float> %300 to <4 x i32>
   %302 = and <4 x i32> %279, <i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648>
-  %303 = or disjoint <4 x i32> %302, %301
+  %303 = or <4 x i32> %302, %301
   %304 = bitcast <4 x i32> %303 to <4 x float>
   %305 = fsub contract <4 x float> <float 0x3FF921FB60000000, float 0x3FF921FB60000000, float 0x3FF921FB60000000, float 0x3FF921FB60000000>, %304
   %306 = select contract <4 x i1> %282, <4 x float> %299, <4 x float> %305
@@ -10430,7 +10430,7 @@ define linkonce_odr void @_ZZNK7mitsuba4MeshIfN5drjit6MatrixINS_8SpectrumIfLm4EE
   %120 = bitcast float %99 to i32
   %121 = and i32 %120, -2147483648
   %122 = bitcast float %119 to i32
-  %123 = or disjoint i32 %121, %122
+  %123 = or i32 %121, %122
   %124 = bitcast i32 %123 to float
   %125 = fmul contract float %124, 2.000000e+00
   %126 = fcmp contract ult float %85, 0.000000e+00

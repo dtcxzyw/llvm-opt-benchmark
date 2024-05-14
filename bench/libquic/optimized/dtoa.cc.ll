@@ -527,7 +527,7 @@ if.end202:                                        ; preds = %if.end167
   %cmp209 = icmp sgt i32 %nd.5, 9
   %43 = bitcast double %conv208 to i64
   %44 = lshr i64 %43, 32
-  %45 = trunc nuw nsw i64 %44 to i32
+  %45 = trunc nuw i64 %44 to i32
   %46 = trunc i64 %43 to i32
   br i1 %cmp209, label %if.end215, label %land.lhs.true217
 
@@ -3911,8 +3911,8 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %cond = phi i32 [ %or38, %cond.true ], [ %shl41, %cond.false ]
   %conv = uitofp i32 %cond to double
   %27 = bitcast double %conv to i64
-  %28 = and i64 %27, 9223372032559808512
-  %d2.sroa.0.4.insert.shift74 = add nsw i64 %28, -139611588448485376
+  %28 = and i64 %27, -4294967296
+  %d2.sroa.0.4.insert.shift74 = add i64 %28, -139611588448485376
   %d2.sroa.0.4.insert.mask75 = and i64 %27, 4294967295
   %d2.sroa.0.4.insert.insert76 = or disjoint i64 %d2.sroa.0.4.insert.shift74, %d2.sroa.0.4.insert.mask75
   %sub44 = add nsw i32 %add, -1

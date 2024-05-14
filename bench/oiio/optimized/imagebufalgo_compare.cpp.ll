@@ -79566,7 +79566,7 @@ if.then2.i.i.i:                                   ; preds = %if.end.i.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then2.i.i.i
-  %shr.i.i.i.i.i = lshr exact i32 %8, 16
+  %shr.i.i.i.i.i = lshr i32 %8, 16
   %conv.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i to i16
   br label %_ZN18OpenImageIO_v2_6_012convert_typeIf4halfEET0_RKT_.exit.i.i.i
 

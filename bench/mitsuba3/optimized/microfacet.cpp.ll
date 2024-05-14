@@ -1771,7 +1771,7 @@ _ZNK5drjit9ArrayBaseIfLb0EN7mitsuba5PointIfLm2EEEE8minimum_ERKS3_.exit.critedge:
   %125 = select i1 %81, float 0x7FF0000000000000, float %124
   %126 = bitcast float %125 to i32
   %127 = select i1 %122, i32 1065353216, i32 %126
-  %128 = or disjoint i32 %127, %14
+  %128 = or i32 %127, %14
   %129 = bitcast i32 %128 to float
   %130 = select contract i1 %83, float %84, float %129
   %131 = fadd contract float %130, 1.000000e+00
@@ -1785,7 +1785,7 @@ _ZNK5drjit9ArrayBaseIfLb0EN7mitsuba5PointIfLm2EEEE8minimum_ERKS3_.exit.critedge:
   %139 = bitcast float %55 to i32
   %140 = and i32 %139, -2147483648
   %141 = select i1 %134, i32 1065353216, i32 %138
-  %142 = or disjoint i32 %141, %140
+  %142 = or i32 %141, %140
   %143 = bitcast i32 %142 to float
   %144 = select contract i1 %98, float %99, float %143
   %145 = fmul contract float %131, %144

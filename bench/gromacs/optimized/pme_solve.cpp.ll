@@ -2706,7 +2706,7 @@ define noundef i32 @_ZN8PmeSolve10solveLJYZXERK9gmx_pme_tN3gmx8ArrayRefI14PmeAnd
   %188 = fmul <8 x float> %186, %186
   %189 = fmul <8 x float> %187, %187
   %190 = bitcast <8 x float> %180 to <8 x i32>
-  %191 = and <8 x i32> %190, <i32 2147479552, i32 2147479552, i32 2147479552, i32 2147479552, i32 2147479552, i32 2147479552, i32 2147479552, i32 2147479552>
+  %191 = and <8 x i32> %190, <i32 -4096, i32 -4096, i32 -4096, i32 -4096, i32 -4096, i32 -4096, i32 -4096, i32 -4096>
   %192 = bitcast <8 x i32> %191 to <8 x float>
   %193 = fsub <8 x float> %192, %180
   %194 = fadd <8 x float> %180, %192
@@ -3370,7 +3370,7 @@ _ZL20calc_exponentials_ljiiN3gmx8ArrayRefINS_9SimdFloatEEES2_S2_.exit.us: ; pred
   %605 = fmul <8 x float> %603, %603
   %606 = fmul <8 x float> %604, %604
   %607 = bitcast <8 x float> %597 to <8 x i32>
-  %608 = and <8 x i32> %607, <i32 2147479552, i32 2147479552, i32 2147479552, i32 2147479552, i32 2147479552, i32 2147479552, i32 2147479552, i32 2147479552>
+  %608 = and <8 x i32> %607, <i32 -4096, i32 -4096, i32 -4096, i32 -4096, i32 -4096, i32 -4096, i32 -4096, i32 -4096>
   %609 = bitcast <8 x i32> %608 to <8 x float>
   %610 = fsub <8 x float> %609, %597
   %611 = fadd <8 x float> %597, %609

@@ -8827,72 +8827,74 @@ rb_float_value_inline.exit:                       ; preds = %7, %13
   %19 = fneg double %.0.i
   %20 = bitcast double %19 to i64
   %cond.i = icmp eq i64 %20, 3458764513820540928
-  br i1 %cond.i, label %30, label %21
+  br i1 %cond.i, label %32, label %21
 
 21:                                               ; preds = %18
   %22 = lshr i64 %20, 60
   %23 = trunc nuw nsw i64 %22 to i32
-  %24 = add nsw i32 %23, -3
-  %.not7.i = icmp ult i32 %24, 2
-  br i1 %.not7.i, label %25, label %28
+  %24 = and i32 %23, 7
+  %25 = add nsw i32 %24, -3
+  %.not7.i = icmp ult i32 %25, 2
+  br i1 %.not7.i, label %26, label %30
 
-25:                                               ; preds = %21
-  %26 = shl i64 %20, 3
-  %27 = or disjoint i64 %26, 2
+26:                                               ; preds = %21
+  %27 = tail call noundef i64 @llvm.fshl.i64(i64 %20, i64 %20, i64 3)
+  %28 = and i64 %27, -4
+  %29 = or disjoint i64 %28, 2
   br label %rb_float_new_inline.exit
 
-28:                                               ; preds = %21
-  %29 = icmp eq i64 %20, 0
-  br i1 %29, label %rb_float_new_inline.exit, label %30
+30:                                               ; preds = %21
+  %31 = icmp eq i64 %20, 0
+  br i1 %31, label %rb_float_new_inline.exit, label %32
 
-30:                                               ; preds = %28, %18
-  %31 = tail call i64 @rb_float_new_in_heap(double noundef %19) #16
+32:                                               ; preds = %30, %18
+  %33 = tail call i64 @rb_float_new_in_heap(double noundef %19) #16
   br label %rb_float_new_inline.exit
 
-rb_float_new_inline.exit:                         ; preds = %6, %30, %28, %25, %rb_float_value_inline.exit
-  %32 = phi i1 [ false, %rb_float_value_inline.exit ], [ true, %25 ], [ true, %28 ], [ true, %30 ], [ false, %6 ]
-  %.0 = phi i64 [ %2, %rb_float_value_inline.exit ], [ %27, %25 ], [ -9223372036854775806, %28 ], [ %31, %30 ], [ -9223372036854775806, %6 ]
+rb_float_new_inline.exit:                         ; preds = %6, %32, %30, %26, %rb_float_value_inline.exit
+  %34 = phi i1 [ false, %rb_float_value_inline.exit ], [ true, %26 ], [ true, %30 ], [ true, %32 ], [ false, %6 ]
+  %.0 = phi i64 [ %2, %rb_float_value_inline.exit ], [ %29, %26 ], [ -9223372036854775806, %30 ], [ %33, %32 ], [ -9223372036854775806, %6 ]
   %or.cond.i = icmp ugt i32 %0, 1
-  br i1 %or.cond.i, label %33, label %rb_check_arity.exit
+  br i1 %or.cond.i, label %35, label %rb_check_arity.exit
 
-33:                                               ; preds = %rb_float_new_inline.exit
+35:                                               ; preds = %rb_float_new_inline.exit
   tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #21
   unreachable
 
 rb_check_arity.exit:                              ; preds = %rb_float_new_inline.exit
   %.not = icmp eq i32 %0, 0
-  br i1 %.not, label %37, label %34
+  br i1 %.not, label %39, label %36
 
-34:                                               ; preds = %rb_check_arity.exit
-  %35 = load i64, ptr %1, align 8
-  %36 = tail call i64 @rb_flt_rationalize_with_prec(i64 noundef %.0, i64 noundef %35)
-  br label %39
+36:                                               ; preds = %rb_check_arity.exit
+  %37 = load i64, ptr %1, align 8
+  %38 = tail call i64 @rb_flt_rationalize_with_prec(i64 noundef %.0, i64 noundef %37)
+  br label %41
 
-37:                                               ; preds = %rb_check_arity.exit
-  %38 = tail call i64 @rb_flt_rationalize(i64 noundef %.0)
-  br label %39
+39:                                               ; preds = %rb_check_arity.exit
+  %40 = tail call i64 @rb_flt_rationalize(i64 noundef %.0)
+  br label %41
 
-39:                                               ; preds = %37, %34
-  %.011 = phi i64 [ %36, %34 ], [ %38, %37 ]
-  br i1 %32, label %40, label %RATIONAL_SET_NUM.exit
+41:                                               ; preds = %39, %36
+  %.011 = phi i64 [ %38, %36 ], [ %40, %39 ]
+  br i1 %34, label %42, label %RATIONAL_SET_NUM.exit
 
-40:                                               ; preds = %39
-  %41 = inttoptr i64 %.011 to ptr
-  %42 = getelementptr inbounds i8, ptr %41, i64 16
-  %43 = load i64, ptr %42, align 8
-  %44 = tail call i64 @rb_int_uminus(i64 noundef %43) #16
-  store i64 %44, ptr %42, align 8
-  %45 = and i64 %44, 7
-  %46 = icmp ne i64 %45, 0
-  %47 = icmp eq i64 %44, 0
-  %48 = or i1 %47, %46
-  br i1 %48, label %RATIONAL_SET_NUM.exit, label %49
+42:                                               ; preds = %41
+  %43 = inttoptr i64 %.011 to ptr
+  %44 = getelementptr inbounds i8, ptr %43, i64 16
+  %45 = load i64, ptr %44, align 8
+  %46 = tail call i64 @rb_int_uminus(i64 noundef %45) #16
+  store i64 %46, ptr %44, align 8
+  %47 = and i64 %46, 7
+  %48 = icmp ne i64 %47, 0
+  %49 = icmp eq i64 %46, 0
+  %50 = or i1 %49, %48
+  br i1 %50, label %RATIONAL_SET_NUM.exit, label %51
 
-49:                                               ; preds = %40
-  tail call void @rb_gc_writebarrier(i64 noundef %.011, i64 noundef %44) #16
+51:                                               ; preds = %42
+  tail call void @rb_gc_writebarrier(i64 noundef %.011, i64 noundef %46) #16
   br label %RATIONAL_SET_NUM.exit
 
-RATIONAL_SET_NUM.exit:                            ; preds = %49, %40, %39
+RATIONAL_SET_NUM.exit:                            ; preds = %51, %42, %41
   ret i64 %.011
 }
 

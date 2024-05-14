@@ -8742,7 +8742,7 @@ if.else13.i.i.i.us.us.us.us.us.us.i:              ; preds = %if.else.i.i.i.us.us
   br label %_ZN18OpenImageIO_v2_6_09DataProxyI4halffEaSEf.exit.us.us.us.us.us.us.i
 
 if.then.i.i.i.us.us.us.us.us.us.i:                ; preds = %if.end.us.us.us.us.us.us.i181
-  %shr.i.i.i.us.us.us.us.us.us.i = lshr exact i32 %25, 16
+  %shr.i.i.i.us.us.us.us.us.us.i = lshr i32 %25, 16
   %conv.i.i.i.us.us.us.us.us.us.i199 = trunc nuw i32 %shr.i.i.i.us.us.us.us.us.us.i to i16
   br label %_ZN18OpenImageIO_v2_6_09DataProxyI4halffEaSEf.exit.us.us.us.us.us.us.i
 

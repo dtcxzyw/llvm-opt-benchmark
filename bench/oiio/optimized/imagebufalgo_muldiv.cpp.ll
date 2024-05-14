@@ -53260,7 +53260,7 @@ invoke.cont11.i.i.i:                              ; preds = %for.inc.i.i.i, %inv
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont11.i.i.i
-  %shr.i.i.i.i.i.i = lshr exact i32 %23, 16
+  %shr.i.i.i.i.i.i = lshr i32 %23, 16
   %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
   br label %for.inc.i.i.i
 
@@ -57778,7 +57778,7 @@ invoke.cont11.i.i.i:                              ; preds = %for.inc.i.i.i, %inv
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont11.i.i.i
-  %shr.i.i.i.i.i.i = lshr exact i32 %21, 16
+  %shr.i.i.i.i.i.i = lshr i32 %21, 16
   %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
   br label %for.inc.i.i.i
 
@@ -60161,7 +60161,7 @@ invoke.cont11.i.i.i:                              ; preds = %for.inc.i.i.i, %inv
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont11.i.i.i
-  %shr.i.i.i.i.i.i = lshr exact i32 %21, 16
+  %shr.i.i.i.i.i.i = lshr i32 %21, 16
   %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
   br label %for.inc.i.i.i
 
@@ -62549,7 +62549,7 @@ invoke.cont11.i.i.i:                              ; preds = %for.inc.i.i.i, %inv
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont11.i.i.i
-  %shr.i.i.i.i.i.i = lshr exact i32 %22, 16
+  %shr.i.i.i.i.i.i = lshr i32 %22, 16
   %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
   br label %for.inc.i.i.i
 
@@ -64935,7 +64935,7 @@ invoke.cont11.i.i.i:                              ; preds = %for.inc.i.i.i, %inv
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont11.i.i.i
-  %shr.i.i.i.i.i.i = lshr exact i32 %21, 16
+  %shr.i.i.i.i.i.i = lshr i32 %21, 16
   %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
   br label %for.inc.i.i.i
 
@@ -67320,7 +67320,7 @@ invoke.cont11.i.i.i:                              ; preds = %for.inc.i.i.i, %inv
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont11.i.i.i
-  %shr.i.i.i.i.i.i = lshr exact i32 %21, 16
+  %shr.i.i.i.i.i.i = lshr i32 %21, 16
   %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
   br label %for.inc.i.i.i
 
@@ -69119,8 +69119,8 @@ invoke.cont11.i.i.i:                              ; preds = %for.inc.i.i.i, %inv
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont11.i.i.i
-  %shr.i.i.i.i.i.i = lshr exact i32 %21, 16
-  %conv.i.i.i.i.i.i = trunc nuw nsw i32 %shr.i.i.i.i.i.i to i16
+  %shr.i.i.i.i.i.i = lshr i32 %21, 16
+  %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
   br label %for.inc.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %invoke.cont11.i.i.i
@@ -71515,7 +71515,7 @@ invoke.cont11.i.i.i:                              ; preds = %for.inc.i.i.i, %inv
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont11.i.i.i
-  %shr.i.i.i.i.i.i = lshr exact i32 %22, 16
+  %shr.i.i.i.i.i.i = lshr i32 %22, 16
   %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
   br label %for.inc.i.i.i
 
@@ -73909,8 +73909,8 @@ invoke.cont11.i.i.i:                              ; preds = %for.inc.i.i.i, %inv
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont11.i.i.i
-  %shr.i.i.i.i.i.i = lshr exact i32 %21, 16
-  %conv.i.i.i.i.i.i = trunc nuw nsw i32 %shr.i.i.i.i.i.i to i16
+  %shr.i.i.i.i.i.i = lshr i32 %21, 16
+  %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
   br label %for.inc.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %invoke.cont11.i.i.i
@@ -76299,7 +76299,7 @@ invoke.cont11.i.i.i:                              ; preds = %for.inc.i.i.i, %inv
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont11.i.i.i
-  %shr.i.i.i.i.i.i = lshr exact i32 %22, 16
+  %shr.i.i.i.i.i.i = lshr i32 %22, 16
   %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
   br label %for.inc.i.i.i
 
@@ -78694,7 +78694,7 @@ invoke.cont11.i.i.i:                              ; preds = %for.inc.i.i.i, %inv
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont11.i.i.i
-  %shr.i.i.i.i.i.i = lshr exact i32 %22, 16
+  %shr.i.i.i.i.i.i = lshr i32 %22, 16
   %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
   br label %for.inc.i.i.i
 
@@ -82864,7 +82864,7 @@ invoke.cont11.i.i.i:                              ; preds = %for.inc.i.i.i, %inv
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont11.i.i.i
-  %shr.i.i.i.i.i.i = lshr exact i32 %22, 16
+  %shr.i.i.i.i.i.i = lshr i32 %22, 16
   %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
   br label %for.inc.i.i.i
 
@@ -85252,7 +85252,7 @@ invoke.cont11.i.i.i:                              ; preds = %for.inc.i.i.i, %inv
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont11.i.i.i
-  %shr.i.i.i.i.i.i = lshr exact i32 %21, 16
+  %shr.i.i.i.i.i.i = lshr i32 %21, 16
   %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
   br label %for.inc.i.i.i
 
@@ -87643,8 +87643,8 @@ invoke.cont11.i.i.i:                              ; preds = %for.inc.i.i.i, %inv
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont11.i.i.i
-  %shr.i.i.i.i.i.i = lshr exact i32 %21, 16
-  %conv.i.i.i.i.i.i = trunc nuw nsw i32 %shr.i.i.i.i.i.i to i16
+  %shr.i.i.i.i.i.i = lshr i32 %21, 16
+  %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
   br label %for.inc.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %invoke.cont11.i.i.i
@@ -90039,7 +90039,7 @@ invoke.cont11.i.i.i:                              ; preds = %for.inc.i.i.i, %inv
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont11.i.i.i
-  %shr.i.i.i.i.i.i = lshr exact i32 %22, 16
+  %shr.i.i.i.i.i.i = lshr i32 %22, 16
   %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
   br label %for.inc.i.i.i
 
@@ -92439,8 +92439,8 @@ invoke.cont11.i.i.i:                              ; preds = %for.inc.i.i.i, %inv
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont11.i.i.i
-  %shr.i.i.i.i.i.i = lshr exact i32 %26, 16
-  %conv.i.i.i.i.i.i = trunc nuw nsw i32 %shr.i.i.i.i.i.i to i16
+  %shr.i.i.i.i.i.i = lshr i32 %26, 16
+  %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
   br label %for.inc.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %invoke.cont11.i.i.i
@@ -94361,7 +94361,7 @@ invoke.cont8.i.i.i:                               ; preds = %for.inc.i.i.i, %inv
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont8.i.i.i
-  %shr.i.i.i.i.i.i = lshr exact i32 %29, 16
+  %shr.i.i.i.i.i.i = lshr i32 %29, 16
   %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
   br label %for.inc.i.i.i
 
@@ -99555,7 +99555,7 @@ invoke.cont8.i.i.i:                               ; preds = %for.inc.i.i.i, %inv
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont8.i.i.i
-  %shr.i.i.i.i.i.i = lshr exact i32 %28, 16
+  %shr.i.i.i.i.i.i = lshr i32 %28, 16
   %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
   br label %for.inc.i.i.i
 
@@ -100022,7 +100022,7 @@ invoke.cont8.i.i.i:                               ; preds = %for.inc.i.i.i, %inv
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont8.i.i.i
-  %shr.i.i.i.i.i.i = lshr exact i32 %28, 16
+  %shr.i.i.i.i.i.i = lshr i32 %28, 16
   %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
   br label %for.inc.i.i.i
 
@@ -100489,7 +100489,7 @@ invoke.cont8.i.i.i:                               ; preds = %for.inc.i.i.i, %inv
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont8.i.i.i
-  %shr.i.i.i.i.i.i = lshr exact i32 %28, 16
+  %shr.i.i.i.i.i.i = lshr i32 %28, 16
   %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
   br label %for.inc.i.i.i
 
@@ -104047,7 +104047,7 @@ invoke.cont12.i.i.i:                              ; preds = %invoke.cont7.i.i.i
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont12.i.i.i, %invoke.cont12.thread.i.i.i
   %25 = phi i32 [ 0, %invoke.cont12.thread.i.i.i ], [ %24, %invoke.cont12.i.i.i ]
   %arrayidx.i.i16101.i.i.i = phi ptr [ %arrayidx.i.i1698.i.i.i, %invoke.cont12.thread.i.i.i ], [ %arrayidx.i.i16.i.i.i, %invoke.cont12.i.i.i ]
-  %shr.i.i.i.i.i.i = lshr exact i32 %25, 16
+  %shr.i.i.i.i.i.i = lshr i32 %25, 16
   %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
   br label %for.inc.i.i.i
 
@@ -108269,7 +108269,7 @@ invoke.cont12.i.i.i:                              ; preds = %invoke.cont7.i.i.i
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont12.i.i.i, %invoke.cont12.thread.i.i.i
   %23 = phi i32 [ 0, %invoke.cont12.thread.i.i.i ], [ %22, %invoke.cont12.i.i.i ]
   %arrayidx.i.i1499.i.i.i = phi ptr [ %arrayidx.i.i1496.i.i.i, %invoke.cont12.thread.i.i.i ], [ %arrayidx.i.i14.i.i.i, %invoke.cont12.i.i.i ]
-  %shr.i.i.i.i.i.i = lshr exact i32 %23, 16
+  %shr.i.i.i.i.i.i = lshr i32 %23, 16
   %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
   br label %for.inc.i.i.i
 
@@ -110688,7 +110688,7 @@ invoke.cont12.i.i.i:                              ; preds = %invoke.cont7.i.i.i
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont12.i.i.i, %invoke.cont12.thread.i.i.i
   %23 = phi i32 [ 0, %invoke.cont12.thread.i.i.i ], [ %22, %invoke.cont12.i.i.i ]
   %arrayidx.i.i1397.i.i.i = phi ptr [ %arrayidx.i.i1394.i.i.i, %invoke.cont12.thread.i.i.i ], [ %arrayidx.i.i13.i.i.i, %invoke.cont12.i.i.i ]
-  %shr.i.i.i.i.i.i = lshr exact i32 %23, 16
+  %shr.i.i.i.i.i.i = lshr i32 %23, 16
   %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
   br label %for.inc.i.i.i
 
@@ -113112,7 +113112,7 @@ invoke.cont12.i.i.i:                              ; preds = %invoke.cont7.i.i.i
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont12.i.i.i, %invoke.cont12.thread.i.i.i
   %24 = phi i32 [ 0, %invoke.cont12.thread.i.i.i ], [ %23, %invoke.cont12.i.i.i ]
   %arrayidx.i.i1397.i.i.i = phi ptr [ %arrayidx.i.i1394.i.i.i, %invoke.cont12.thread.i.i.i ], [ %arrayidx.i.i13.i.i.i, %invoke.cont12.i.i.i ]
-  %shr.i.i.i.i.i.i = lshr exact i32 %24, 16
+  %shr.i.i.i.i.i.i = lshr i32 %24, 16
   %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
   br label %for.inc.i.i.i
 
@@ -115534,7 +115534,7 @@ invoke.cont12.i.i.i:                              ; preds = %invoke.cont7.i.i.i
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont12.i.i.i, %invoke.cont12.thread.i.i.i
   %23 = phi i32 [ 0, %invoke.cont12.thread.i.i.i ], [ %22, %invoke.cont12.i.i.i ]
   %arrayidx.i.i1397.i.i.i = phi ptr [ %arrayidx.i.i1394.i.i.i, %invoke.cont12.thread.i.i.i ], [ %arrayidx.i.i13.i.i.i, %invoke.cont12.i.i.i ]
-  %shr.i.i.i.i.i.i = lshr exact i32 %23, 16
+  %shr.i.i.i.i.i.i = lshr i32 %23, 16
   %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
   br label %for.inc.i.i.i
 
@@ -117955,7 +117955,7 @@ invoke.cont12.i.i.i:                              ; preds = %invoke.cont7.i.i.i
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont12.i.i.i, %invoke.cont12.thread.i.i.i
   %23 = phi i32 [ 0, %invoke.cont12.thread.i.i.i ], [ %22, %invoke.cont12.i.i.i ]
   %arrayidx.i.i1397.i.i.i = phi ptr [ %arrayidx.i.i1394.i.i.i, %invoke.cont12.thread.i.i.i ], [ %arrayidx.i.i13.i.i.i, %invoke.cont12.i.i.i ]
-  %shr.i.i.i.i.i.i = lshr exact i32 %23, 16
+  %shr.i.i.i.i.i.i = lshr i32 %23, 16
   %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
   br label %for.inc.i.i.i
 
@@ -119782,7 +119782,7 @@ invoke.cont12.i.i.i:                              ; preds = %invoke.cont7.i.i.i
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont12.i.i.i, %invoke.cont12.thread.i.i.i
   %23 = phi i32 [ 0, %invoke.cont12.thread.i.i.i ], [ %22, %invoke.cont12.i.i.i ]
   %arrayidx.i.i16101.i.i.i = phi ptr [ %arrayidx.i.i1698.i.i.i, %invoke.cont12.thread.i.i.i ], [ %arrayidx.i.i16.i.i.i, %invoke.cont12.i.i.i ]
-  %shr.i.i.i.i.i.i = lshr exact i32 %23, 16
+  %shr.i.i.i.i.i.i = lshr i32 %23, 16
   %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
   br label %for.inc.i.i.i
 
@@ -122214,7 +122214,7 @@ invoke.cont12.i.i.i:                              ; preds = %invoke.cont7.i.i.i
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont12.i.i.i, %invoke.cont12.thread.i.i.i
   %24 = phi i32 [ 0, %invoke.cont12.thread.i.i.i ], [ %23, %invoke.cont12.i.i.i ]
   %arrayidx.i.i1397.i.i.i = phi ptr [ %arrayidx.i.i1394.i.i.i, %invoke.cont12.thread.i.i.i ], [ %arrayidx.i.i13.i.i.i, %invoke.cont12.i.i.i ]
-  %shr.i.i.i.i.i.i = lshr exact i32 %24, 16
+  %shr.i.i.i.i.i.i = lshr i32 %24, 16
   %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
   br label %for.inc.i.i.i
 
@@ -124644,7 +124644,7 @@ invoke.cont12.i.i.i:                              ; preds = %invoke.cont7.i.i.i
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont12.i.i.i, %invoke.cont12.thread.i.i.i
   %23 = phi i32 [ 0, %invoke.cont12.thread.i.i.i ], [ %22, %invoke.cont12.i.i.i ]
   %arrayidx.i.i1599.i.i.i = phi ptr [ %arrayidx.i.i1596.i.i.i, %invoke.cont12.thread.i.i.i ], [ %arrayidx.i.i15.i.i.i, %invoke.cont12.i.i.i ]
-  %shr.i.i.i.i.i.i = lshr exact i32 %23, 16
+  %shr.i.i.i.i.i.i = lshr i32 %23, 16
   %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
   br label %for.inc.i.i.i
 
@@ -127070,7 +127070,7 @@ invoke.cont12.i.i.i:                              ; preds = %invoke.cont7.i.i.i
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont12.i.i.i, %invoke.cont12.thread.i.i.i
   %24 = phi i32 [ 0, %invoke.cont12.thread.i.i.i ], [ %23, %invoke.cont12.i.i.i ]
   %arrayidx.i.i1397.i.i.i = phi ptr [ %arrayidx.i.i1394.i.i.i, %invoke.cont12.thread.i.i.i ], [ %arrayidx.i.i13.i.i.i, %invoke.cont12.i.i.i ]
-  %shr.i.i.i.i.i.i = lshr exact i32 %24, 16
+  %shr.i.i.i.i.i.i = lshr i32 %24, 16
   %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
   br label %for.inc.i.i.i
 
@@ -129501,7 +129501,7 @@ invoke.cont12.i.i.i:                              ; preds = %invoke.cont7.i.i.i
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont12.i.i.i, %invoke.cont12.thread.i.i.i
   %24 = phi i32 [ 0, %invoke.cont12.thread.i.i.i ], [ %23, %invoke.cont12.i.i.i ]
   %arrayidx.i.i1397.i.i.i = phi ptr [ %arrayidx.i.i1394.i.i.i, %invoke.cont12.thread.i.i.i ], [ %arrayidx.i.i13.i.i.i, %invoke.cont12.i.i.i ]
-  %shr.i.i.i.i.i.i = lshr exact i32 %24, 16
+  %shr.i.i.i.i.i.i = lshr i32 %24, 16
   %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
   br label %for.inc.i.i.i
 
@@ -133731,7 +133731,7 @@ invoke.cont12.i.i.i:                              ; preds = %invoke.cont7.i.i.i
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont12.i.i.i, %invoke.cont12.thread.i.i.i
   %24 = phi i32 [ 0, %invoke.cont12.thread.i.i.i ], [ %23, %invoke.cont12.i.i.i ]
   %arrayidx.i.i1397.i.i.i = phi ptr [ %arrayidx.i.i1394.i.i.i, %invoke.cont12.thread.i.i.i ], [ %arrayidx.i.i13.i.i.i, %invoke.cont12.i.i.i ]
-  %shr.i.i.i.i.i.i = lshr exact i32 %24, 16
+  %shr.i.i.i.i.i.i = lshr i32 %24, 16
   %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
   br label %for.inc.i.i.i
 
@@ -136155,7 +136155,7 @@ invoke.cont12.i.i.i:                              ; preds = %invoke.cont7.i.i.i
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont12.i.i.i, %invoke.cont12.thread.i.i.i
   %23 = phi i32 [ 0, %invoke.cont12.thread.i.i.i ], [ %22, %invoke.cont12.i.i.i ]
   %arrayidx.i.i1397.i.i.i = phi ptr [ %arrayidx.i.i1394.i.i.i, %invoke.cont12.thread.i.i.i ], [ %arrayidx.i.i13.i.i.i, %invoke.cont12.i.i.i ]
-  %shr.i.i.i.i.i.i = lshr exact i32 %23, 16
+  %shr.i.i.i.i.i.i = lshr i32 %23, 16
   %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
   br label %for.inc.i.i.i
 
@@ -138582,7 +138582,7 @@ invoke.cont12.i.i.i:                              ; preds = %invoke.cont7.i.i.i
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont12.i.i.i, %invoke.cont12.thread.i.i.i
   %23 = phi i32 [ 0, %invoke.cont12.thread.i.i.i ], [ %22, %invoke.cont12.i.i.i ]
   %arrayidx.i.i1599.i.i.i = phi ptr [ %arrayidx.i.i1596.i.i.i, %invoke.cont12.thread.i.i.i ], [ %arrayidx.i.i15.i.i.i, %invoke.cont12.i.i.i ]
-  %shr.i.i.i.i.i.i = lshr exact i32 %23, 16
+  %shr.i.i.i.i.i.i = lshr i32 %23, 16
   %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
   br label %for.inc.i.i.i
 
@@ -141014,7 +141014,7 @@ invoke.cont12.i.i.i:                              ; preds = %invoke.cont7.i.i.i
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont12.i.i.i, %invoke.cont12.thread.i.i.i
   %24 = phi i32 [ 0, %invoke.cont12.thread.i.i.i ], [ %23, %invoke.cont12.i.i.i ]
   %arrayidx.i.i1397.i.i.i = phi ptr [ %arrayidx.i.i1394.i.i.i, %invoke.cont12.thread.i.i.i ], [ %arrayidx.i.i13.i.i.i, %invoke.cont12.i.i.i ]
-  %shr.i.i.i.i.i.i = lshr exact i32 %24, 16
+  %shr.i.i.i.i.i.i = lshr i32 %24, 16
   %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
   br label %for.inc.i.i.i
 
@@ -143444,7 +143444,7 @@ invoke.cont12.i.i.i:                              ; preds = %invoke.cont7.i.i.i
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont12.i.i.i, %invoke.cont12.thread.i.i.i
   %23 = phi i32 [ 0, %invoke.cont12.thread.i.i.i ], [ %22, %invoke.cont12.i.i.i ]
   %arrayidx.i.i16101.i.i.i = phi ptr [ %arrayidx.i.i1698.i.i.i, %invoke.cont12.thread.i.i.i ], [ %arrayidx.i.i16.i.i.i, %invoke.cont12.i.i.i ]
-  %shr.i.i.i.i.i.i = lshr exact i32 %23, 16
+  %shr.i.i.i.i.i.i = lshr i32 %23, 16
   %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
   br label %for.inc.i.i.i
 

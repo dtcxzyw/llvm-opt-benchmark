@@ -479,7 +479,7 @@ define double @zend_strtod(ptr noundef %0, ptr noundef writeonly %1) local_unnam
   %158 = icmp sgt i32 %spec.store.select709, 9
   %159 = bitcast double %157 to i64
   %160 = lshr i64 %159, 32
-  %161 = trunc nuw nsw i64 %160 to i32
+  %161 = trunc nuw i64 %160 to i32
   %162 = trunc i64 %159 to i32
   br i1 %158, label %163, label %.thread710
 
@@ -3804,8 +3804,8 @@ rv_alloc.exit.i568:                               ; preds = %77, %72
   %114 = phi i32 [ %107, %101 ], [ %111, %108 ]
   %115 = uitofp i32 %114 to double
   %116 = bitcast double %115 to i64
-  %117 = and i64 %116, 9223372032559808512
-  %.sroa.085.4.insert.shift100 = add nsw i64 %117, -139611588448485376
+  %117 = and i64 %116, -4294967296
+  %.sroa.085.4.insert.shift100 = add i64 %117, -139611588448485376
   %.sroa.085.4.insert.mask101 = and i64 %116, 4294967295
   %.sroa.085.4.insert.insert102 = or disjoint i64 %.sroa.085.4.insert.shift100, %.sroa.085.4.insert.mask101
   %118 = add nsw i32 %99, -1

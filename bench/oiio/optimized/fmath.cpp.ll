@@ -129,7 +129,7 @@ for.body.i:                                       ; preds = %for.body, %_ZN4half
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i
-  %shr.i.i = lshr exact i32 %2, 16
+  %shr.i.i = lshr i32 %2, 16
   %conv.i.i = trunc nuw i32 %shr.i.i to i16
   br label %_ZN4halfaSEf.exit
 
@@ -183,7 +183,7 @@ while.body:                                       ; preds = %while.cond.preheade
   br i1 %cmp.i.i11, label %if.then.i.i28, label %if.else.i.i12
 
 if.then.i.i28:                                    ; preds = %while.body
-  %shr.i.i29 = lshr exact i32 %6, 16
+  %shr.i.i29 = lshr i32 %6, 16
   %conv.i.i30 = trunc nuw i32 %shr.i.i29 to i16
   br label %_ZN4halfaSEf.exit31
 

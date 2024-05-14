@@ -4011,7 +4011,7 @@ entry:
   %u.sroa.0.0 = select i1 %tobool.not, double %1, double %dd
   store i32 %.sink, ptr %sign, align 4
   %u.sroa.0.4.extract.shift793 = lshr i64 %.pre-phi, 32
-  %u.sroa.0.4.extract.trunc794 = trunc nuw nsw i64 %u.sroa.0.4.extract.shift793 to i32
+  %u.sroa.0.4.extract.trunc794 = trunc nuw i64 %u.sroa.0.4.extract.shift793 to i32
   %and4 = and i32 %u.sroa.0.4.extract.trunc794, 2146435072
   %cmp = icmp eq i32 %and4, 2146435072
   br i1 %cmp, label %if.then5, label %if.end14
@@ -4290,8 +4290,9 @@ if.end.i:                                         ; preds = %if.end29.i.i, %if.t
   store i32 0, ptr %sign.i.i, align 8
   %x1.i = getelementptr inbounds i8, ptr %rv.1.i.i, i64 24
   %and.i = and i32 %u.sroa.0.4.extract.trunc794, 1048575
-  %shr.i = lshr i32 %u.sroa.0.4.extract.trunc794, 20
-  %tobool.not.i443 = icmp ult i32 %u.sroa.0.4.extract.trunc794, 1048576
+  %and3.i = and i32 %u.sroa.0.4.extract.trunc794, 2147483647
+  %shr.i = lshr i32 %and3.i, 20
+  %tobool.not.i443 = icmp ult i32 %and3.i, 1048576
   %or.i = or disjoint i32 %and.i, 1048576
   %spec.select.i = select i1 %tobool.not.i443, i32 %and.i, i32 %or.i
   %u.sroa.0.0.extract.trunc787 = trunc i64 %.pre-phi to i32
@@ -4534,8 +4535,8 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %cond = phi i32 [ %or38, %cond.true ], [ %shl41, %cond.false ]
   %conv = uitofp i32 %cond to double
   %27 = bitcast double %conv to i64
-  %28 = and i64 %27, 9223372032559808512
-  %d2.sroa.0.4.insert.shift82 = add nsw i64 %28, -139611588448485376
+  %28 = and i64 %27, -4294967296
+  %d2.sroa.0.4.insert.shift82 = add i64 %28, -139611588448485376
   %d2.sroa.0.4.insert.mask83 = and i64 %27, 4294967295
   %d2.sroa.0.4.insert.insert84 = or disjoint i64 %d2.sroa.0.4.insert.shift82, %d2.sroa.0.4.insert.mask83
   %sub44 = add nsw i32 %add, -1
@@ -5306,8 +5307,9 @@ if.end439:                                        ; preds = %if.then433, %if.end
 
 land.lhs.true447:                                 ; preds = %if.end439
   %tobool450.not = icmp ne i32 %and.i, 0
-  %tobool454.not = icmp ult i32 %u.sroa.0.4.extract.trunc794, 2097152
-  %or.cond355 = or i1 %tobool454.not, %tobool450.not
+  %and453 = and i32 %u.sroa.0.4.extract.trunc794, 2145386496
+  %tobool454.not = icmp eq i32 %and453, 0
+  %or.cond355 = or i1 %tobool450.not, %tobool454.not
   br i1 %or.cond355, label %if.end459, label %if.then455
 
 if.then455:                                       ; preds = %land.lhs.true447
