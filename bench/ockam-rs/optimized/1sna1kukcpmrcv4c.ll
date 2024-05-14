@@ -417,40 +417,40 @@ define hidden void @"_ZN10primeorder10projective24ProjectivePoint$LT$C$GT$3mul17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %21, ptr noundef nonnull align 8 dereferenceable(96) @anon.5994e10fffdafa843df54943a4559014.4.llvm.7939504722297667161, i64 96, i1 false)
   %41 = getelementptr inbounds i8, ptr %21, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %41, ptr noundef nonnull align 8 dereferenceable(96) %1, i64 96, i1 false)
-  br label %47
+  br label %46
 
-42:                                               ; preds = %83
+.split:                                           ; preds = %81
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %18)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %18, ptr noundef nonnull align 8 dereferenceable(96) @anon.5994e10fffdafa843df54943a4559014.4.llvm.7939504722297667161, i64 96, i1 false)
-  %43 = getelementptr inbounds i8, ptr %17, i64 32
-  %44 = getelementptr inbounds i8, ptr %17, i64 64
-  %45 = getelementptr inbounds i8, ptr %10, i64 32
-  %46 = getelementptr inbounds i8, ptr %10, i64 64
-  br label %51
+  %42 = getelementptr inbounds i8, ptr %17, i64 32
+  %43 = getelementptr inbounds i8, ptr %17, i64 64
+  %44 = getelementptr inbounds i8, ptr %10, i64 32
+  %45 = getelementptr inbounds i8, ptr %10, i64 64
+  br label %50
 
-47:                                               ; preds = %40, %83
-  %.sroa.0.035 = phi i64 [ 2, %40 ], [ %48, %83 ]
-  %48 = add nuw nsw i64 %.sroa.0.035, 1
+46:                                               ; preds = %40, %81
+  %.sroa.0.035 = phi i64 [ 2, %40 ], [ %47, %81 ]
+  %47 = add nuw nsw i64 %.sroa.0.035, 1
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %20)
-  %49 = and i64 %.sroa.0.035, 1
-  %50 = icmp eq i64 %49, 0
-  br i1 %50, label %77, label %80
+  %48 = and i64 %.sroa.0.035, 1
+  %49 = icmp eq i64 %48, 0
+  br i1 %49, label %75, label %78
 
-51:                                               ; preds = %63, %42
-  %52 = phi i64 [ 31, %42 ], [ %65, %63 ]
-  %.037 = phi i64 [ 252, %42 ], [ %64, %63 ]
-  %53 = getelementptr inbounds [0 x i8], ptr %.sroa.0.i, i64 0, i64 %52
-  %54 = load i8, ptr %53, align 1, !noundef !17
-  %55 = trunc nuw i64 %.037 to i8
-  %56 = and i8 %55, 4
-  %57 = lshr i8 %54, %56
-  %58 = and i8 %57, 15
+50:                                               ; preds = %62, %.split
+  %.0 = phi i64 [ 252, %.split ], [ %63, %62 ]
+  %51 = lshr i64 %.0, 3
+  %52 = getelementptr inbounds [0 x i8], ptr %.sroa.0.i, i64 0, i64 %51
+  %53 = load i8, ptr %52, align 1, !noundef !17
+  %54 = trunc nuw i64 %.0 to i8
+  %55 = and i8 %54, 4
+  %56 = lshr i8 %53, %55
+  %57 = and i8 %56, 15
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %17)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %17, ptr noundef nonnull align 8 dereferenceable(96) @anon.5994e10fffdafa843df54943a4559014.4.llvm.7939504722297667161, i64 96, i1 false)
-  %59 = zext nneg i8 %58 to i64
-  br label %66
+  %58 = zext nneg i8 %57 to i64
+  br label %64
 
-60:                                               ; preds = %66
+59:                                               ; preds = %64
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %15)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %15, ptr noundef nonnull align 8 dereferenceable(96) %18, i64 96, i1 false)
@@ -458,17 +458,17 @@ define hidden void @"_ZN10primeorder10projective24ProjectivePoint$LT$C$GT$3mul17
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %15)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %18, ptr noundef nonnull align 8 dereferenceable(96) %16, i64 96, i1 false)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %16)
-  %61 = icmp eq i64 %.037, 0
-  br i1 %61, label %62, label %63
+  %60 = icmp eq i64 %.0, 0
+  br i1 %60, label %61, label %62
 
-62:                                               ; preds = %60
+61:                                               ; preds = %59
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %17)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %18, i64 96, i1 false)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 1536, ptr nonnull %21)
   ret void
 
-63:                                               ; preds = %60
+62:                                               ; preds = %59
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %12)
@@ -482,53 +482,52 @@ define hidden void @"_ZN10primeorder10projective24ProjectivePoint$LT$C$GT$3mul17
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %13)
-  %64 = add nsw i64 %.037, -4
+  %63 = add nsw i64 %.0, -4
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %17)
-  %65 = lshr i64 %64, 3
-  br label %51
+  br label %50
 
-66:                                               ; preds = %51, %66
-  %.sroa.07.036 = phi i64 [ 1, %51 ], [ %67, %66 ]
-  %67 = add nuw nsw i64 %.sroa.07.036, 1
-  %68 = xor i64 %.sroa.07.036, %59
-  %69 = add nuw nsw i64 %68, 511
-  %70 = lshr i64 %69, 8
-  %71 = trunc nuw i64 %70 to i8
-  %72 = and i8 %71, 1
-  %73 = call noundef i8 @_ZN6subtle9black_box17hae95d5a5795b5a0cE(i8 noundef %72)
-  %74 = getelementptr inbounds [16 x { { { [4 x i64] } }, { { [4 x i64] } }, { { [4 x i64] } } }], ptr %21, i64 0, i64 %.sroa.07.036
+64:                                               ; preds = %50, %64
+  %.sroa.07.036 = phi i64 [ 1, %50 ], [ %65, %64 ]
+  %65 = add nuw nsw i64 %.sroa.07.036, 1
+  %66 = xor i64 %.sroa.07.036, %58
+  %67 = add nuw nsw i64 %66, 511
+  %68 = lshr i64 %67, 8
+  %69 = trunc nuw i64 %68 to i8
+  %70 = and i8 %69, 1
+  %71 = call noundef i8 @_ZN6subtle9black_box17hae95d5a5795b5a0cE(i8 noundef %70)
+  %72 = getelementptr inbounds [16 x { { { [4 x i64] } }, { { [4 x i64] } }, { { [4 x i64] } } }], ptr %21, i64 0, i64 %.sroa.07.036
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %10)
-  call void @"_ZN89_$LT$p256..arithmetic..field..FieldElement$u20$as$u20$subtle..ConditionallySelectable$GT$18conditional_select17hbd522d9cfcc5fc00E"(ptr noalias nocapture noundef nonnull sret({ { [4 x i64] } }) align 8 dereferenceable(32) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %74, i8 noundef %73), !noalias !17
-  %75 = getelementptr inbounds i8, ptr %74, i64 32
-  call void @"_ZN89_$LT$p256..arithmetic..field..FieldElement$u20$as$u20$subtle..ConditionallySelectable$GT$18conditional_select17hbd522d9cfcc5fc00E"(ptr noalias nocapture noundef nonnull sret({ { [4 x i64] } }) align 8 dereferenceable(32) %45, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %43, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %75, i8 noundef %73), !noalias !17
-  %76 = getelementptr inbounds i8, ptr %74, i64 64
-  call void @"_ZN89_$LT$p256..arithmetic..field..FieldElement$u20$as$u20$subtle..ConditionallySelectable$GT$18conditional_select17hbd522d9cfcc5fc00E"(ptr noalias nocapture noundef nonnull sret({ { [4 x i64] } }) align 8 dereferenceable(32) %46, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %44, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %76, i8 noundef %73), !noalias !17
+  call void @"_ZN89_$LT$p256..arithmetic..field..FieldElement$u20$as$u20$subtle..ConditionallySelectable$GT$18conditional_select17hbd522d9cfcc5fc00E"(ptr noalias nocapture noundef nonnull sret({ { [4 x i64] } }) align 8 dereferenceable(32) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %72, i8 noundef %71), !noalias !17
+  %73 = getelementptr inbounds i8, ptr %72, i64 32
+  call void @"_ZN89_$LT$p256..arithmetic..field..FieldElement$u20$as$u20$subtle..ConditionallySelectable$GT$18conditional_select17hbd522d9cfcc5fc00E"(ptr noalias nocapture noundef nonnull sret({ { [4 x i64] } }) align 8 dereferenceable(32) %44, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %42, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %73, i8 noundef %71), !noalias !17
+  %74 = getelementptr inbounds i8, ptr %72, i64 64
+  call void @"_ZN89_$LT$p256..arithmetic..field..FieldElement$u20$as$u20$subtle..ConditionallySelectable$GT$18conditional_select17hbd522d9cfcc5fc00E"(ptr noalias nocapture noundef nonnull sret({ { [4 x i64] } }) align 8 dereferenceable(32) %45, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %43, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %74, i8 noundef %71), !noalias !17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %17, ptr noundef nonnull align 8 dereferenceable(96) %10, i64 96, i1 false)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %10)
-  %exitcond39.not = icmp eq i64 %67, 16
-  br i1 %exitcond39.not, label %60, label %66
+  %exitcond38.not = icmp eq i64 %65, 16
+  br i1 %exitcond38.not, label %59, label %64
 
-77:                                               ; preds = %47
-  %78 = lshr exact i64 %.sroa.0.035, 1
-  %79 = getelementptr inbounds [16 x { { { [4 x i64] } }, { { [4 x i64] } }, { { [4 x i64] } } }], ptr %21, i64 0, i64 %78
-  call fastcc void @"_ZN98_$LT$primeorder..projective..ProjectivePoint$LT$C$GT$$u20$as$u20$elliptic_curve..point..Double$GT$6double17hba3d73f42fc780a6E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(96) %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %79)
-  br label %83
+75:                                               ; preds = %46
+  %76 = lshr exact i64 %.sroa.0.035, 1
+  %77 = getelementptr inbounds [16 x { { { [4 x i64] } }, { { [4 x i64] } }, { { [4 x i64] } } }], ptr %21, i64 0, i64 %76
+  call fastcc void @"_ZN98_$LT$primeorder..projective..ProjectivePoint$LT$C$GT$$u20$as$u20$elliptic_curve..point..Double$GT$6double17hba3d73f42fc780a6E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(96) %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %77)
+  br label %81
 
-80:                                               ; preds = %47
+78:                                               ; preds = %46
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %19)
-  %81 = add nsw i64 %.sroa.0.035, -1
-  %82 = getelementptr inbounds [16 x { { { [4 x i64] } }, { { [4 x i64] } }, { { [4 x i64] } } }], ptr %21, i64 0, i64 %81
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %19, ptr noundef nonnull align 8 dereferenceable(96) %82, i64 96, i1 false)
+  %79 = add nsw i64 %.sroa.0.035, -1
+  %80 = getelementptr inbounds [16 x { { { [4 x i64] } }, { { [4 x i64] } }, { { [4 x i64] } } }], ptr %21, i64 0, i64 %79
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %19, ptr noundef nonnull align 8 dereferenceable(96) %80, i64 96, i1 false)
   call void @"_ZN134_$LT$primeorder..point_arithmetic..EquationAIsMinusThree$u20$as$u20$primeorder..point_arithmetic..sealed..PointArithmetic$LT$C$GT$$GT$3add17h8861f87347d024caE.llvm.7939504722297667161"(ptr noalias nocapture noundef nonnull sret({ { { [4 x i64] } }, { { [4 x i64] } }, { { [4 x i64] } } }) align 8 dereferenceable(96) %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %1)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %19)
-  br label %83
+  br label %81
 
-83:                                               ; preds = %80, %77
-  %84 = getelementptr inbounds [16 x { { { [4 x i64] } }, { { [4 x i64] } }, { { [4 x i64] } } }], ptr %21, i64 0, i64 %.sroa.0.035
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %84, ptr noundef nonnull align 8 dereferenceable(96) %20, i64 96, i1 false)
+81:                                               ; preds = %78, %75
+  %82 = getelementptr inbounds [16 x { { { [4 x i64] } }, { { [4 x i64] } }, { { [4 x i64] } } }], ptr %21, i64 0, i64 %.sroa.0.035
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %82, ptr noundef nonnull align 8 dereferenceable(96) %20, i64 96, i1 false)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %20)
-  %exitcond38.not = icmp eq i64 %48, 16
-  br i1 %exitcond38.not, label %42, label %47
+  %exitcond37.not = icmp eq i64 %47, 16
+  br i1 %exitcond37.not, label %.split, label %46
 }
 
 ; Function Attrs: nonlazybind uwtable

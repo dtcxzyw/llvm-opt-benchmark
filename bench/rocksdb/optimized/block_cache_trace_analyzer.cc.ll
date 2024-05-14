@@ -15954,9 +15954,9 @@ invoke.cont4:                                     ; preds = %_ZNSt8functionIFvRK
 
 for.body:                                         ; preds = %invoke.cont4, %invoke.cont19
   %__begin1.sroa.0.050 = phi ptr [ %call.i, %invoke.cont19 ], [ %6, %invoke.cont4 ]
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.050, i64 32
   %7 = load ptr, ptr @stdout, align 8
   %8 = call i64 @fwrite(ptr nonnull @_ZN7rocksdb12_GLOBAL__N_110kBreakLineE, i64 64, i64 1, ptr %7)
-  %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.050, i64 32
   %9 = load ptr, ptr @stdout, align 8
   %10 = load i8, ptr %_M_storage.i.i, align 8
   invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_120block_type_to_stringB5cxx11ENS_9TraceTypeE(ptr noalias nonnull align 8 %ref.tmp14, i8 noundef signext %10)
@@ -16032,9 +16032,9 @@ for.body34:                                       ; preds = %for.end, %for.inc66
 
 for.body44:                                       ; preds = %for.body34, %invoke.cont56
   %__begin2.sroa.0.052 = phi ptr [ %call.i33, %invoke.cont56 ], [ %17, %for.body34 ]
+  %_M_storage.i.i27 = getelementptr inbounds i8, ptr %__begin2.sroa.0.052, i64 32
   %18 = load ptr, ptr @stdout, align 8
   %19 = call i64 @fwrite(ptr nonnull @_ZN7rocksdb12_GLOBAL__N_110kBreakLineE, i64 64, i64 1, ptr %18)
-  %_M_storage.i.i27 = getelementptr inbounds i8, ptr %__begin2.sroa.0.052, i64 32
   %20 = load ptr, ptr @stdout, align 8
   %call48 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i23) #23
   %21 = load i8, ptr %_M_storage.i.i27, align 8
@@ -17202,9 +17202,9 @@ for.end361:                                       ; preds = %for.inc359, %for.bo
 
 for.body368:                                      ; preds = %for.end361, %invoke.cont378
   %__begin1.sroa.0.0328 = phi ptr [ %call.i210, %invoke.cont378 ], [ %105, %for.end361 ]
+  %_M_storage.i.i209 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0328, i64 32
   %106 = load ptr, ptr @stdout, align 8
   %107 = call i64 @fwrite(ptr nonnull @_ZN7rocksdb12_GLOBAL__N_110kBreakLineE, i64 64, i64 1, ptr %106)
-  %_M_storage.i.i209 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0328, i64 32
   %108 = load ptr, ptr @stdout, align 8
   %109 = load i8, ptr %_M_storage.i.i209, align 8
   invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_120block_type_to_stringB5cxx11ENS_9TraceTypeE(ptr noalias nonnull align 8 %ref.tmp371, i8 noundef signext %109)
@@ -17247,9 +17247,9 @@ for.body397:                                      ; preds = %for.end387, %for.in
 
 for.body410:                                      ; preds = %for.body397, %invoke.cont422
   %__begin2402.sroa.0.0330 = phi ptr [ %call.i224, %invoke.cont422 ], [ %112, %for.body397 ]
+  %_M_storage.i.i218 = getelementptr inbounds i8, ptr %__begin2402.sroa.0.0330, i64 32
   %113 = load ptr, ptr @stdout, align 8
   %114 = call i64 @fwrite(ptr nonnull @_ZN7rocksdb12_GLOBAL__N_110kBreakLineE, i64 64, i64 1, ptr %113)
-  %_M_storage.i.i218 = getelementptr inbounds i8, ptr %__begin2402.sroa.0.0330, i64 32
   %115 = load ptr, ptr @stdout, align 8
   %call414 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i214) #23
   %116 = load i8, ptr %_M_storage.i.i218, align 8
@@ -17634,21 +17634,14 @@ invoke.cont14:                                    ; preds = %_ZNSt8functionIFvRK
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #23
   %10 = load ptr, ptr %_M_left.i.i.i.i.i, align 8
   %cmp.i.not131 = icmp eq ptr %10, %0
-  br i1 %cmp.i.not131, label %for.body.i45.preheader, label %for.body
-
-for.body.i45.preheader:                           ; preds = %invoke.cont26, %invoke.cont14
-  %11 = load ptr, ptr @stdout, align 8
-  %12 = call i64 @fwrite(ptr nonnull @_ZN7rocksdb12_GLOBAL__N_110kBreakLineE, i64 64, i64 1, ptr %11)
-  %13 = load ptr, ptr @stdout, align 8
-  invoke void @_ZNK7rocksdb13HistogramStat8ToStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp33, ptr noundef nonnull align 8 dereferenceable(920) %non_existing_keys_stats)
-          to label %invoke.cont34 unwind label %lpad10.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+  br i1 %cmp.i.not131, label %for.body.i45, label %for.body
 
 for.body:                                         ; preds = %invoke.cont14, %invoke.cont26
   %__begin1.sroa.0.0132 = phi ptr [ %call.i, %invoke.cont26 ], [ %10, %invoke.cont14 ]
-  %14 = load ptr, ptr @stdout, align 8
-  %15 = call i64 @fwrite(ptr nonnull @_ZN7rocksdb12_GLOBAL__N_110kBreakLineE, i64 64, i64 1, ptr %14)
   %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0132, i64 32
-  %16 = load ptr, ptr @stdout, align 8
+  %11 = load ptr, ptr @stdout, align 8
+  %12 = call i64 @fwrite(ptr nonnull @_ZN7rocksdb12_GLOBAL__N_110kBreakLineE, i64 64, i64 1, ptr %11)
+  %13 = load ptr, ptr @stdout, align 8
   %call24 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i) #23
   %second = getelementptr inbounds i8, ptr %__begin1.sroa.0.0132, i64 64
   invoke void @_ZNK7rocksdb13HistogramStat8ToStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp25, ptr noundef nonnull align 8 dereferenceable(920) %second)
@@ -17656,34 +17649,34 @@ for.body:                                         ; preds = %invoke.cont14, %inv
 
 invoke.cont26:                                    ; preds = %for.body
   %call27 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp25) #23
-  %call30 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.236, ptr noundef %call24, ptr noundef %call27)
+  %call30 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.236, ptr noundef %call24, ptr noundef %call27)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp25) #23
   %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin1.sroa.0.0132) #26
   %cmp.i.not = icmp eq ptr %call.i, %0
-  br i1 %cmp.i.not, label %for.body.i45.preheader, label %for.body
+  br i1 %cmp.i.not, label %for.body.i45, label %for.body
 
 lpad:                                             ; preds = %entry
-  %17 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup167
 
 lpad2:                                            ; preds = %invoke.cont
-  %18 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup165
 
 lpad4:                                            ; preds = %invoke.cont3
-  %19 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup163
 
 lpad6:                                            ; preds = %invoke.cont5
-  %20 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup161
 
 lpad8:                                            ; preds = %invoke.cont7
-  %21 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup159
 
@@ -17712,50 +17705,50 @@ lpad10.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.l
           cleanup
   br label %ehcleanup
 
-lpad10.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmjN7rocksdb9TraceTypeES7_mRKNS8_15BlockAccessInfoEEED2Ev.exit, %for.body.i45.preheader, %for.body.i60.preheader, %for.body.i75.preheader, %for.body.i85.preheader, %invoke.cont9
+lpad10.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmjN7rocksdb9TraceTypeES7_mRKNS8_15BlockAccessInfoEEED2Ev.exit, %for.body.i45, %for.body.i60, %for.body.i75, %for.body.i85, %invoke.cont9
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad12:                                           ; preds = %invoke.cont11
-  %22 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %23 = load ptr, ptr %_M_manager.i.i, align 8
-  %tobool.not.i.i40 = icmp eq ptr %23, null
+  %20 = load ptr, ptr %_M_manager.i.i, align 8
+  %tobool.not.i.i40 = icmp eq ptr %20, null
   br i1 %tobool.not.i.i40, label %ehcleanup, label %if.then.i.i41
 
 if.then.i.i41:                                    ; preds = %lpad12
-  %call.i.i42 = invoke noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i.i42 = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
           to label %ehcleanup unwind label %terminate.lpad.i.i43
 
 terminate.lpad.i.i43:                             ; preds = %if.then.i.i41
-  %24 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           catch ptr null
-  %25 = extractvalue { ptr, i32 } %24, 0
-  call void @__clang_call_terminate(ptr %25) #25
+  %22 = extractvalue { ptr, i32 } %21, 0
+  call void @__clang_call_terminate(ptr %22) #25
   unreachable
 
-invoke.cont34:                                    ; preds = %for.body.i45.preheader
+for.body.i45:                                     ; preds = %invoke.cont26, %invoke.cont14
+  %23 = load ptr, ptr @stdout, align 8
+  %24 = call i64 @fwrite(ptr nonnull @_ZN7rocksdb12_GLOBAL__N_110kBreakLineE, i64 64, i64 1, ptr %23)
+  %25 = load ptr, ptr @stdout, align 8
+  invoke void @_ZNK7rocksdb13HistogramStat8ToStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp33, ptr noundef nonnull align 8 dereferenceable(920) %non_existing_keys_stats)
+          to label %invoke.cont34 unwind label %lpad10.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+
+invoke.cont34:                                    ; preds = %for.body.i45
   %call35 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp33) #23
-  %call38 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.237, ptr noundef %call35)
+  %call38 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.237, ptr noundef %call35)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp33) #23
   %26 = load ptr, ptr %_M_left.i.i.i.i.i18, align 8
   %cmp.i52.not133 = icmp eq ptr %26, %1
-  br i1 %cmp.i52.not133, label %for.body.i60.preheader, label %for.body48
-
-for.body.i60.preheader:                           ; preds = %invoke.cont56, %invoke.cont34
-  %27 = load ptr, ptr @stdout, align 8
-  %28 = call i64 @fwrite(ptr nonnull @_ZN7rocksdb12_GLOBAL__N_110kBreakLineE, i64 64, i64 1, ptr %27)
-  %29 = load ptr, ptr @stdout, align 8
-  invoke void @_ZNK7rocksdb13HistogramStat8ToStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp65, ptr noundef nonnull align 8 dereferenceable(920) %block_access_stats)
-          to label %invoke.cont66 unwind label %lpad10.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+  br i1 %cmp.i52.not133, label %for.body.i60, label %for.body48
 
 for.body48:                                       ; preds = %invoke.cont34, %invoke.cont56
   %__begin140.sroa.0.0134 = phi ptr [ %call.i59, %invoke.cont56 ], [ %26, %invoke.cont34 ]
-  %30 = load ptr, ptr @stdout, align 8
-  %31 = call i64 @fwrite(ptr nonnull @_ZN7rocksdb12_GLOBAL__N_110kBreakLineE, i64 64, i64 1, ptr %30)
   %_M_storage.i.i53 = getelementptr inbounds i8, ptr %__begin140.sroa.0.0134, i64 32
-  %32 = load ptr, ptr @stdout, align 8
+  %27 = load ptr, ptr @stdout, align 8
+  %28 = call i64 @fwrite(ptr nonnull @_ZN7rocksdb12_GLOBAL__N_110kBreakLineE, i64 64, i64 1, ptr %27)
+  %29 = load ptr, ptr @stdout, align 8
   %call53 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i53) #23
   %second55 = getelementptr inbounds i8, ptr %__begin140.sroa.0.0134, i64 64
   invoke void @_ZNK7rocksdb13HistogramStat8ToStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp54, ptr noundef nonnull align 8 dereferenceable(920) %second55)
@@ -17763,33 +17756,33 @@ for.body48:                                       ; preds = %invoke.cont34, %inv
 
 invoke.cont56:                                    ; preds = %for.body48
   %call57 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp54) #23
-  %call60 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef nonnull @.str.236, ptr noundef %call53, ptr noundef %call57)
+  %call60 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.236, ptr noundef %call53, ptr noundef %call57)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp54) #23
   %call.i59 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin140.sroa.0.0134) #26
   %cmp.i52.not = icmp eq ptr %call.i59, %1
-  br i1 %cmp.i52.not, label %for.body.i60.preheader, label %for.body48
+  br i1 %cmp.i52.not, label %for.body.i60, label %for.body48
 
-invoke.cont66:                                    ; preds = %for.body.i60.preheader
+for.body.i60:                                     ; preds = %invoke.cont56, %invoke.cont34
+  %30 = load ptr, ptr @stdout, align 8
+  %31 = call i64 @fwrite(ptr nonnull @_ZN7rocksdb12_GLOBAL__N_110kBreakLineE, i64 64, i64 1, ptr %30)
+  %32 = load ptr, ptr @stdout, align 8
+  invoke void @_ZNK7rocksdb13HistogramStat8ToStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp65, ptr noundef nonnull align 8 dereferenceable(920) %block_access_stats)
+          to label %invoke.cont66 unwind label %lpad10.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+
+invoke.cont66:                                    ; preds = %for.body.i60
   %call67 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp65) #23
-  %call70 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.238, ptr noundef %call67)
+  %call70 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef nonnull @.str.238, ptr noundef %call67)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp65) #23
   %33 = load ptr, ptr %_M_left.i.i.i.i.i22, align 8
   %cmp.i67.not135 = icmp eq ptr %33, %2
-  br i1 %cmp.i67.not135, label %for.body.i75.preheader, label %for.body80
-
-for.body.i75.preheader:                           ; preds = %invoke.cont88, %invoke.cont66
-  %34 = load ptr, ptr @stdout, align 8
-  %35 = call i64 @fwrite(ptr nonnull @_ZN7rocksdb12_GLOBAL__N_110kBreakLineE, i64 64, i64 1, ptr %34)
-  %36 = load ptr, ptr @stdout, align 8
-  invoke void @_ZNK7rocksdb13HistogramStat8ToStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp97, ptr noundef nonnull align 8 dereferenceable(920) %avg_naccesses_per_key_in_a_data_block)
-          to label %invoke.cont98 unwind label %lpad10.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+  br i1 %cmp.i67.not135, label %for.body.i75, label %for.body80
 
 for.body80:                                       ; preds = %invoke.cont66, %invoke.cont88
   %__begin172.sroa.0.0136 = phi ptr [ %call.i74, %invoke.cont88 ], [ %33, %invoke.cont66 ]
-  %37 = load ptr, ptr @stdout, align 8
-  %38 = call i64 @fwrite(ptr nonnull @_ZN7rocksdb12_GLOBAL__N_110kBreakLineE, i64 64, i64 1, ptr %37)
   %_M_storage.i.i68 = getelementptr inbounds i8, ptr %__begin172.sroa.0.0136, i64 32
-  %39 = load ptr, ptr @stdout, align 8
+  %34 = load ptr, ptr @stdout, align 8
+  %35 = call i64 @fwrite(ptr nonnull @_ZN7rocksdb12_GLOBAL__N_110kBreakLineE, i64 64, i64 1, ptr %34)
+  %36 = load ptr, ptr @stdout, align 8
   %call85 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i68) #23
   %second87 = getelementptr inbounds i8, ptr %__begin172.sroa.0.0136, i64 64
   invoke void @_ZNK7rocksdb13HistogramStat8ToStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp86, ptr noundef nonnull align 8 dereferenceable(920) %second87)
@@ -17797,31 +17790,31 @@ for.body80:                                       ; preds = %invoke.cont66, %inv
 
 invoke.cont88:                                    ; preds = %for.body80
   %call89 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp86) #23
-  %call92 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef nonnull @.str.236, ptr noundef %call85, ptr noundef %call89)
+  %call92 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef nonnull @.str.236, ptr noundef %call85, ptr noundef %call89)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp86) #23
   %call.i74 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin172.sroa.0.0136) #26
   %cmp.i67.not = icmp eq ptr %call.i74, %2
-  br i1 %cmp.i67.not, label %for.body.i75.preheader, label %for.body80
+  br i1 %cmp.i67.not, label %for.body.i75, label %for.body80
 
-invoke.cont98:                                    ; preds = %for.body.i75.preheader
+for.body.i75:                                     ; preds = %invoke.cont88, %invoke.cont66
+  %37 = load ptr, ptr @stdout, align 8
+  %38 = call i64 @fwrite(ptr nonnull @_ZN7rocksdb12_GLOBAL__N_110kBreakLineE, i64 64, i64 1, ptr %37)
+  %39 = load ptr, ptr @stdout, align 8
+  invoke void @_ZNK7rocksdb13HistogramStat8ToStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp97, ptr noundef nonnull align 8 dereferenceable(920) %avg_naccesses_per_key_in_a_data_block)
+          to label %invoke.cont98 unwind label %lpad10.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+
+invoke.cont98:                                    ; preds = %for.body.i75
   %call99 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp97) #23
-  %call102 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef nonnull @.str.239, ptr noundef %call99)
+  %call102 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef nonnull @.str.239, ptr noundef %call99)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp97) #23
   %40 = load ptr, ptr %_M_left.i.i.i.i.i30, align 8
   %cmp.i82.not137 = icmp eq ptr %40, %4
-  br i1 %cmp.i82.not137, label %for.body.i85.preheader, label %for.body112
-
-for.body.i85.preheader:                           ; preds = %invoke.cont119, %invoke.cont98
-  %41 = load ptr, ptr @stdout, align 8
-  %42 = call i64 @fwrite(ptr nonnull @_ZN7rocksdb12_GLOBAL__N_110kBreakLineE, i64 64, i64 1, ptr %41)
-  %43 = load ptr, ptr @stdout, align 8
-  invoke void @_ZNK7rocksdb13HistogramStat8ToStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp128, ptr noundef nonnull align 8 dereferenceable(920) %stdev_naccesses_per_key_in_a_data_block)
-          to label %invoke.cont129 unwind label %lpad10.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+  br i1 %cmp.i82.not137, label %for.body.i85, label %for.body112
 
 for.body112:                                      ; preds = %invoke.cont98, %invoke.cont119
   %__begin1104.sroa.0.0138 = phi ptr [ %call.i84, %invoke.cont119 ], [ %40, %invoke.cont98 ]
   %_M_storage.i.i83 = getelementptr inbounds i8, ptr %__begin1104.sroa.0.0138, i64 32
-  %44 = load ptr, ptr @stdout, align 8
+  %41 = load ptr, ptr @stdout, align 8
   %call116 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i83) #23
   %second118 = getelementptr inbounds i8, ptr %__begin1104.sroa.0.0138, i64 64
   invoke void @_ZNK7rocksdb13HistogramStat8ToStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp117, ptr noundef nonnull align 8 dereferenceable(920) %second118)
@@ -17829,15 +17822,22 @@ for.body112:                                      ; preds = %invoke.cont98, %inv
 
 invoke.cont119:                                   ; preds = %for.body112
   %call120 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp117) #23
-  %call123 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %44, ptr noundef nonnull @.str.236, ptr noundef %call116, ptr noundef %call120)
+  %call123 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef nonnull @.str.236, ptr noundef %call116, ptr noundef %call120)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp117) #23
   %call.i84 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin1104.sroa.0.0138) #26
   %cmp.i82.not = icmp eq ptr %call.i84, %4
-  br i1 %cmp.i82.not, label %for.body.i85.preheader, label %for.body112
+  br i1 %cmp.i82.not, label %for.body.i85, label %for.body112
 
-invoke.cont129:                                   ; preds = %for.body.i85.preheader
+for.body.i85:                                     ; preds = %invoke.cont119, %invoke.cont98
+  %42 = load ptr, ptr @stdout, align 8
+  %43 = call i64 @fwrite(ptr nonnull @_ZN7rocksdb12_GLOBAL__N_110kBreakLineE, i64 64, i64 1, ptr %42)
+  %44 = load ptr, ptr @stdout, align 8
+  invoke void @_ZNK7rocksdb13HistogramStat8ToStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp128, ptr noundef nonnull align 8 dereferenceable(920) %stdev_naccesses_per_key_in_a_data_block)
+          to label %invoke.cont129 unwind label %lpad10.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+
+invoke.cont129:                                   ; preds = %for.body.i85
   %call130 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp128) #23
-  %call133 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %43, ptr noundef nonnull @.str.240, ptr noundef %call130)
+  %call133 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %44, ptr noundef nonnull @.str.240, ptr noundef %call130)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp128) #23
   %45 = load ptr, ptr %_M_left.i.i.i.i.i34, align 8
   %cmp.i92.not139 = icmp eq ptr %45, %5
@@ -17936,32 +17936,32 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7rocksdb13Histogr
   ret void
 
 ehcleanup:                                        ; preds = %lpad10.loopexit, %lpad10.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad10.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad10.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad10.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad10.loopexit.split-lp.loopexit, %if.then.i.i41, %lpad12
-  %.pn = phi { ptr, i32 } [ %22, %lpad12 ], [ %22, %if.then.i.i41 ], [ %lpad.loopexit, %lpad10.loopexit ], [ %lpad.loopexit121, %lpad10.loopexit.split-lp.loopexit ], [ %lpad.loopexit124, %lpad10.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit126, %lpad10.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit129, %lpad10.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %lpad10.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %19, %lpad12 ], [ %19, %if.then.i.i41 ], [ %lpad.loopexit, %lpad10.loopexit ], [ %lpad.loopexit121, %lpad10.loopexit.split-lp.loopexit ], [ %lpad.loopexit124, %lpad10.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit126, %lpad10.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit129, %lpad10.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %lpad10.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7rocksdb13HistogramStatESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %cf_stdev_naccesses_per_key_in_a_data_block) #23
   br label %ehcleanup159
 
 ehcleanup159:                                     ; preds = %ehcleanup, %lpad8
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %21, %lpad8 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %18, %lpad8 ]
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7rocksdb13HistogramStatESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %cf_avg_naccesses_per_key_in_a_data_block) #23
   br label %ehcleanup161
 
 ehcleanup161:                                     ; preds = %ehcleanup159, %lpad6
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup159 ], [ %20, %lpad6 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup159 ], [ %17, %lpad6 ]
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7rocksdb13HistogramStatESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %cf_percent_referenced_bytes) #23
   br label %ehcleanup163
 
 ehcleanup163:                                     ; preds = %ehcleanup161, %lpad4
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup161 ], [ %19, %lpad4 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup161 ], [ %16, %lpad4 ]
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7rocksdb13HistogramStatESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %cf_block_access_info) #23
   br label %ehcleanup165
 
 ehcleanup165:                                     ; preds = %ehcleanup163, %lpad2
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup163 ], [ %18, %lpad2 ]
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup163 ], [ %15, %lpad2 ]
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7rocksdb13HistogramStatESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %cf_non_existing_keys_stats_map) #23
   br label %ehcleanup167
 
 ehcleanup167:                                     ; preds = %ehcleanup165, %lpad
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %ehcleanup165 ], [ %17, %lpad ]
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %ehcleanup165 ], [ %14, %lpad ]
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7rocksdb13HistogramStatESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %cf_existing_keys_stats_map) #23
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn
 }

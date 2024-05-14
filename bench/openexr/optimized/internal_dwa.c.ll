@@ -1776,14 +1776,14 @@ if.end8.i.i:                                      ; preds = %if.end4.i.i
   br i1 %exitcond.not.i.i, label %while.end.thread128.i, label %for.body.i.i, !llvm.loop !28
 
 if.end14.i.i:                                     ; preds = %if.end4.i.i
-  %.pre.i.i = add nuw nsw i64 %len.040.i.i, 1
-  %call.i.i = tail call ptr %5(i64 noundef %.pre.i.i) #18
+  %add.i.i = add nuw nsw i64 %len.040.i.i, 1
+  %call.i.i = tail call ptr %5(i64 noundef %add.i.i) #18
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %tobool.not.i.i, label %while.end.thread128.i, label %if.end16.i.i
 
 if.end16.i.i:                                     ; preds = %if.end14.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %call.i.i, ptr noundef nonnull align 16 dereferenceable(1) %suffix.i.i, i64 %.pre.i.i, i1 false)
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %tmpPtr.0104.i, i64 %.pre.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %call.i.i, ptr noundef nonnull align 16 dereferenceable(1) %suffix.i.i, i64 %add.i.i, i1 false)
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %tmpPtr.0104.i, i64 %add.i.i
   %7 = load i8, ptr %add.ptr.i.i, align 1
   %add.ptr25.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 2
   %sub27.i.i = sub i64 %sub.i.i, %len.040.i.i
@@ -1872,17 +1872,17 @@ if.end8.i41.i:                                    ; preds = %if.end4.i38.i
   br i1 %exitcond.not.i44.i, label %Classifier_read.exit76.i, label %for.body.i35.i, !llvm.loop !28
 
 if.end14.i46.i:                                   ; preds = %if.end4.i38.i
-  %.pre.i47.i = add nuw nsw i64 %len.040.i36.i, 1
-  %call.i48.i = tail call ptr %13(i64 noundef %.pre.i47.i) #18
+  %add.i47.i = add nuw nsw i64 %len.040.i36.i, 1
+  %call.i48.i = tail call ptr %13(i64 noundef %add.i47.i) #18
   %tobool.not.i49.i = icmp eq ptr %call.i48.i, null
   br i1 %tobool.not.i49.i, label %Classifier_read.exit76.i, label %if.end16.i50.i
 
 if.end16.i50.i:                                   ; preds = %if.end14.i46.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %call.i48.i, ptr noundef nonnull align 16 dereferenceable(1) %suffix.i31.i, i64 %.pre.i47.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %call.i48.i, ptr noundef nonnull align 16 dereferenceable(1) %suffix.i31.i, i64 %add.i47.i, i1 false)
   store ptr %call.i48.i, ptr %arrayidx.i, align 8
   %_stringStatic.i51.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 22
   store i16 0, ptr %_stringStatic.i51.i, align 2
-  %add.ptr.i55.i = getelementptr inbounds i8, ptr %readPtr.0109.i, i64 %.pre.i47.i
+  %add.ptr.i55.i = getelementptr inbounds i8, ptr %readPtr.0109.i, i64 %add.i47.i
   %16 = load i8, ptr %add.ptr.i55.i, align 1
   %arrayidx24.i56.i = getelementptr inbounds i8, ptr %add.ptr.i55.i, i64 1
   %17 = load i8, ptr %arrayidx24.i56.i, align 1
@@ -7085,15 +7085,11 @@ for.body.i:                                       ; preds = %for.inc46.i, %for.b
   %sub.ptr.lhs.cast.i = ptrtoint ptr %16 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %suffix.0.i.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp24.i.i = icmp sgt i32 %13, 0
-  br i1 %cmp24.i.i, label %for.body.preheader.i.i, label %CscPrefixMap_find.exit.i
-
-for.body.preheader.i.i:                           ; preds = %for.body.i
   %wide.trip.count.i.i = zext nneg i32 %13 to i64
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.preheader.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
+for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.i
+  %indvars.iv.i.i = phi i64 [ 0, %for.body.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
   %arrayidx.i.i = getelementptr inbounds %struct._CscPrefixMapItem, ptr %call6.i, i64 %indvars.iv.i.i
   %17 = load ptr, ptr %arrayidx.i.i, align 8
   %cmp1.i.i = icmp eq ptr %17, null
@@ -7132,8 +7128,8 @@ for.end.loopexit.split.loop.exit.i.i:             ; preds = %land.lhs.true.i.i
   %20 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   br label %CscPrefixMap_find.exit.i
 
-CscPrefixMap_find.exit.i:                         ; preds = %for.inc.i.i, %for.end.loopexit.split.loop.exit.i.i, %if.then.i.i, %for.body.i
-  %idx.023.i.i = phi i32 [ %18, %if.then.i.i ], [ 0, %for.body.i ], [ %20, %for.end.loopexit.split.loop.exit.i.i ], [ %13, %for.inc.i.i ]
+CscPrefixMap_find.exit.i:                         ; preds = %for.inc.i.i, %for.end.loopexit.split.loop.exit.i.i, %if.then.i.i
+  %idx.023.i.i = phi i32 [ %18, %if.then.i.i ], [ %20, %for.end.loopexit.split.loop.exit.i.i ], [ %13, %for.inc.i.i ]
   %idx.ext.i.i = zext nneg i32 %idx.023.i.i to i64
   %21 = load i64, ptr %_channelRuleCount, align 8
   %cmp2191.not.i = icmp eq i64 %21, 0

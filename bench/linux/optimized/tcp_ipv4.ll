@@ -7294,7 +7294,7 @@ define dso_local ptr @tcp_seq_next(ptr nocapture noundef readonly %0, ptr nounde
   %27 = tail call fastcc ptr @established_get_next(ptr noundef %0, ptr noundef %1)
   br label %tcp_get_idx.exit
 
-tcp_get_idx.exit:                                 ; preds = %8, %.loopexit9.i, %26, %22, %19, %17
+tcp_get_idx.exit:                                 ; preds = %.loopexit9.i, %8, %26, %22, %19, %17
   %28 = phi ptr [ null, %17 ], [ %27, %26 ], [ %20, %19 ], [ %25, %22 ], [ %16, %.loopexit9.i ], [ %12, %8 ]
   %29 = load i64, ptr %2, align 8
   %30 = add i64 %29, 1

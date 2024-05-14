@@ -5108,80 +5108,80 @@ define void @Emb_ManVecCopyOne(ptr nocapture noundef writeonly %0, ptr nocapture
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @Emb_ManVecMultiply(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #16 {
   %5 = icmp sgt i32 %2, 0
-  br i1 %5, label %.lr.ph, label %._crit_edge
+  br i1 %5, label %.lr.ph.preheader.i.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %4
+.lr.ph.preheader.i.lr.ph:                         ; preds = %4
   %wide.trip.count.i = zext nneg i32 %2 to i64
-  br label %.lr.ph.preheader.i.us
+  br label %.lr.ph.preheader.i
 
-.lr.ph.preheader.i.us:                            ; preds = %Emb_ManVecMultiplyOne.exit.loopexit.us, %.lr.ph
-  %indvars.iv = phi i64 [ %indvars.iv.next, %Emb_ManVecMultiplyOne.exit.loopexit.us ], [ 0, %.lr.ph ]
+.lr.ph.preheader.i:                               ; preds = %.lr.ph.preheader.i.lr.ph, %Emb_ManVecMultiplyOne.exit.loopexit
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader.i.lr.ph ], [ %indvars.iv.next, %Emb_ManVecMultiplyOne.exit.loopexit ]
   %6 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
-  br label %.lr.ph.i.us
+  br label %.lr.ph.i
 
-.lr.ph.i.us:                                      ; preds = %.lr.ph.i.us, %.lr.ph.preheader.i.us
-  %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.preheader.i.us ], [ %indvars.iv.next.i.us, %.lr.ph.i.us ]
-  %.089.i.us = phi float [ 0.000000e+00, %.lr.ph.preheader.i.us ], [ %12, %.lr.ph.i.us ]
-  %8 = getelementptr inbounds float, ptr %7, i64 %indvars.iv.i.us
+.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
+  %.089.i = phi float [ 0.000000e+00, %.lr.ph.preheader.i ], [ %12, %.lr.ph.i ]
+  %8 = getelementptr inbounds float, ptr %7, i64 %indvars.iv.i
   %9 = load float, ptr %8, align 4
-  %10 = getelementptr inbounds float, ptr %1, i64 %indvars.iv.i.us
+  %10 = getelementptr inbounds float, ptr %1, i64 %indvars.iv.i
   %11 = load float, ptr %10, align 4
-  %12 = tail call float @llvm.fmuladd.f32(float %9, float %11, float %.089.i.us)
-  %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
-  %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
-  br i1 %exitcond.not.i.us, label %Emb_ManVecMultiplyOne.exit.loopexit.us, label %.lr.ph.i.us, !llvm.loop !59
+  %12 = tail call float @llvm.fmuladd.f32(float %9, float %11, float %.089.i)
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %Emb_ManVecMultiplyOne.exit.loopexit, label %.lr.ph.i, !llvm.loop !59
 
-Emb_ManVecMultiplyOne.exit.loopexit.us:           ; preds = %.lr.ph.i.us
+Emb_ManVecMultiplyOne.exit.loopexit:              ; preds = %.lr.ph.i
   %13 = getelementptr inbounds float, ptr %3, i64 %indvars.iv
   store float %12, ptr %13, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count.i
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.preheader.i.us, !llvm.loop !61
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.preheader.i, !llvm.loop !61
 
-._crit_edge:                                      ; preds = %Emb_ManVecMultiplyOne.exit.loopexit.us, %4
+._crit_edge:                                      ; preds = %Emb_ManVecMultiplyOne.exit.loopexit, %4
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @Emb_ManVecOrthogonolizeOne(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #15 {
   %5 = icmp sgt i32 %2, 0
-  br i1 %5, label %.lr.ph, label %._crit_edge
+  br i1 %5, label %.lr.ph.preheader.i.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %4
+.lr.ph.preheader.i.lr.ph:                         ; preds = %4
   %wide.trip.count.i = zext nneg i32 %2 to i64
-  br label %.lr.ph.preheader.i.us
+  br label %.lr.ph.preheader.i
 
-.lr.ph.preheader.i.us:                            ; preds = %Emb_ManVecMultiplyOne.exit.loopexit.us, %.lr.ph
-  %indvars.iv = phi i64 [ %indvars.iv.next, %Emb_ManVecMultiplyOne.exit.loopexit.us ], [ 0, %.lr.ph ]
+.lr.ph.preheader.i:                               ; preds = %.lr.ph.preheader.i.lr.ph, %Emb_ManVecMultiplyOne.exit.loopexit
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader.i.lr.ph ], [ %indvars.iv.next, %Emb_ManVecMultiplyOne.exit.loopexit ]
   %6 = getelementptr inbounds float, ptr %1, i64 %indvars.iv
   %7 = load float, ptr %6, align 4
   %8 = getelementptr inbounds float, ptr %0, i64 %indvars.iv
   %9 = load float, ptr %8, align 4
-  br label %.lr.ph.i.us
+  br label %.lr.ph.i
 
-.lr.ph.i.us:                                      ; preds = %.lr.ph.i.us, %.lr.ph.preheader.i.us
-  %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.preheader.i.us ], [ %indvars.iv.next.i.us, %.lr.ph.i.us ]
-  %.089.i.us = phi float [ 0.000000e+00, %.lr.ph.preheader.i.us ], [ %14, %.lr.ph.i.us ]
-  %10 = getelementptr inbounds float, ptr %1, i64 %indvars.iv.i.us
+.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
+  %.089.i = phi float [ 0.000000e+00, %.lr.ph.preheader.i ], [ %14, %.lr.ph.i ]
+  %10 = getelementptr inbounds float, ptr %1, i64 %indvars.iv.i
   %11 = load float, ptr %10, align 4
-  %12 = getelementptr inbounds float, ptr %0, i64 %indvars.iv.i.us
+  %12 = getelementptr inbounds float, ptr %0, i64 %indvars.iv.i
   %13 = load float, ptr %12, align 4
-  %14 = tail call float @llvm.fmuladd.f32(float %11, float %13, float %.089.i.us)
-  %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
-  %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
-  br i1 %exitcond.not.i.us, label %Emb_ManVecMultiplyOne.exit.loopexit.us, label %.lr.ph.i.us, !llvm.loop !59
+  %14 = tail call float @llvm.fmuladd.f32(float %11, float %13, float %.089.i)
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %Emb_ManVecMultiplyOne.exit.loopexit, label %.lr.ph.i, !llvm.loop !59
 
-Emb_ManVecMultiplyOne.exit.loopexit.us:           ; preds = %.lr.ph.i.us
+Emb_ManVecMultiplyOne.exit.loopexit:              ; preds = %.lr.ph.i
   %15 = fneg float %9
   %16 = tail call float @llvm.fmuladd.f32(float %15, float %14, float %7)
   %17 = getelementptr inbounds float, ptr %3, i64 %indvars.iv
   store float %16, ptr %17, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count.i
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.preheader.i.us, !llvm.loop !62
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.preheader.i, !llvm.loop !62
 
-._crit_edge:                                      ; preds = %Emb_ManVecMultiplyOne.exit.loopexit.us, %4
+._crit_edge:                                      ; preds = %Emb_ManVecMultiplyOne.exit.loopexit, %4
   ret void
 }
 
@@ -5193,19 +5193,19 @@ define void @Emb_ManComputeEigenvectors(ptr nocapture noundef readonly %0, i32 n
   %7 = getelementptr inbounds ptr, ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = icmp sgt i32 %2, 0
-  br i1 %9, label %.lr.ph117, label %._crit_edge118
+  br i1 %9, label %.lr.ph116, label %._crit_edge117
 
-.lr.ph117:                                        ; preds = %3
+.lr.ph116:                                        ; preds = %3
   %10 = icmp sgt i32 %1, 0
   %wide.trip.count.i = zext nneg i32 %1 to i64
   %11 = getelementptr inbounds i8, ptr %0, i64 72
-  %wide.trip.count128 = zext nneg i32 %2 to i64
+  %wide.trip.count127 = zext nneg i32 %2 to i64
   br label %12
 
-12:                                               ; preds = %.lr.ph117, %Emb_ManVecCopyOne.exit109
-  %indvars.iv125 = phi i64 [ 0, %.lr.ph117 ], [ %indvars.iv.next126, %Emb_ManVecCopyOne.exit109 ]
+12:                                               ; preds = %.lr.ph116, %Emb_ManVecCopyOne.exit108
+  %indvars.iv124 = phi i64 [ 0, %.lr.ph116 ], [ %indvars.iv.next125, %Emb_ManVecCopyOne.exit108 ]
   %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv125
+  %14 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv124
   %15 = load ptr, ptr %14, align 8
   br i1 %10, label %.lr.ph.i, label %Emb_ManVecNormal.exit
 
@@ -5248,7 +5248,7 @@ define void @Emb_ManComputeEigenvectors(ptr nocapture noundef readonly %0, i32 n
   br i1 %exitcond27.not.i, label %Emb_ManVecNormal.exit, label %.lr.ph20.i, !llvm.loop !58
 
 Emb_ManVecNormal.exit:                            ; preds = %.lr.ph20.i, %12
-  %.not = icmp eq i64 %indvars.iv125, 0
+  %.not = icmp eq i64 %indvars.iv124, 0
   br label %30
 
 30:                                               ; preds = %Emb_ManVecMultiplyOne.exit, %Emb_ManVecNormal.exit
@@ -5270,130 +5270,130 @@ Emb_ManVecCopyOne.exit:                           ; preds = %.lr.ph.i50
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %Emb_ManVecCopyOne.exit
-  br i1 %10, label %.lr.ph.i55.us, label %Emb_ManVecMultiplyOne.exit
+  br i1 %10, label %.lr.ph.preheader.i.lr.ph.i.us, label %Emb_ManVecMultiplyOne.exit
 
-.lr.ph.i55.us:                                    ; preds = %.lr.ph, %Emb_ManVecCopyOne.exit66.loopexit.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %Emb_ManVecCopyOne.exit66.loopexit.us ], [ 0, %.lr.ph ]
+.lr.ph.preheader.i.lr.ph.i.us:                    ; preds = %.lr.ph, %Emb_ManVecCopyOne.exit65.loopexit.us
+  %indvars.iv = phi i64 [ %indvars.iv.next, %Emb_ManVecCopyOne.exit65.loopexit.us ], [ 0, %.lr.ph ]
   %35 = load ptr, ptr %4, align 8
   %36 = getelementptr inbounds ptr, ptr %35, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8
-  br label %.lr.ph.preheader.i.us.i.us
+  br label %.lr.ph.preheader.i.i.us
 
-.lr.ph.preheader.i.us.i.us:                       ; preds = %Emb_ManVecMultiplyOne.exit.loopexit.us.i.us, %.lr.ph.i55.us
-  %indvars.iv.i56.us = phi i64 [ %indvars.iv.next.i57.us, %Emb_ManVecMultiplyOne.exit.loopexit.us.i.us ], [ 0, %.lr.ph.i55.us ]
-  %38 = getelementptr inbounds float, ptr %15, i64 %indvars.iv.i56.us
+.lr.ph.preheader.i.i.us:                          ; preds = %Emb_ManVecMultiplyOne.exit.loopexit.i.us, %.lr.ph.preheader.i.lr.ph.i.us
+  %indvars.iv.i55.us = phi i64 [ 0, %.lr.ph.preheader.i.lr.ph.i.us ], [ %indvars.iv.next.i56.us, %Emb_ManVecMultiplyOne.exit.loopexit.i.us ]
+  %38 = getelementptr inbounds float, ptr %15, i64 %indvars.iv.i55.us
   %39 = load float, ptr %38, align 4
-  %40 = getelementptr inbounds float, ptr %37, i64 %indvars.iv.i56.us
+  %40 = getelementptr inbounds float, ptr %37, i64 %indvars.iv.i55.us
   %41 = load float, ptr %40, align 4
-  br label %.lr.ph.i.us.i.us
+  br label %.lr.ph.i.i.us
 
-.lr.ph.i.us.i.us:                                 ; preds = %.lr.ph.i.us.i.us, %.lr.ph.preheader.i.us.i.us
-  %indvars.iv.i.us.i.us = phi i64 [ 0, %.lr.ph.preheader.i.us.i.us ], [ %indvars.iv.next.i.us.i.us, %.lr.ph.i.us.i.us ]
-  %.089.i.us.i.us = phi float [ 0.000000e+00, %.lr.ph.preheader.i.us.i.us ], [ %46, %.lr.ph.i.us.i.us ]
-  %42 = getelementptr inbounds float, ptr %15, i64 %indvars.iv.i.us.i.us
+.lr.ph.i.i.us:                                    ; preds = %.lr.ph.i.i.us, %.lr.ph.preheader.i.i.us
+  %indvars.iv.i.i.us = phi i64 [ 0, %.lr.ph.preheader.i.i.us ], [ %indvars.iv.next.i.i.us, %.lr.ph.i.i.us ]
+  %.089.i.i.us = phi float [ 0.000000e+00, %.lr.ph.preheader.i.i.us ], [ %46, %.lr.ph.i.i.us ]
+  %42 = getelementptr inbounds float, ptr %15, i64 %indvars.iv.i.i.us
   %43 = load float, ptr %42, align 4
-  %44 = getelementptr inbounds float, ptr %37, i64 %indvars.iv.i.us.i.us
+  %44 = getelementptr inbounds float, ptr %37, i64 %indvars.iv.i.i.us
   %45 = load float, ptr %44, align 4
-  %46 = tail call float @llvm.fmuladd.f32(float %43, float %45, float %.089.i.us.i.us)
-  %indvars.iv.next.i.us.i.us = add nuw nsw i64 %indvars.iv.i.us.i.us, 1
-  %exitcond.not.i.us.i.us = icmp eq i64 %indvars.iv.next.i.us.i.us, %wide.trip.count.i
-  br i1 %exitcond.not.i.us.i.us, label %Emb_ManVecMultiplyOne.exit.loopexit.us.i.us, label %.lr.ph.i.us.i.us, !llvm.loop !59
+  %46 = tail call float @llvm.fmuladd.f32(float %43, float %45, float %.089.i.i.us)
+  %indvars.iv.next.i.i.us = add nuw nsw i64 %indvars.iv.i.i.us, 1
+  %exitcond.not.i.i.us = icmp eq i64 %indvars.iv.next.i.i.us, %wide.trip.count.i
+  br i1 %exitcond.not.i.i.us, label %Emb_ManVecMultiplyOne.exit.loopexit.i.us, label %.lr.ph.i.i.us, !llvm.loop !59
 
-Emb_ManVecMultiplyOne.exit.loopexit.us.i.us:      ; preds = %.lr.ph.i.us.i.us
+Emb_ManVecMultiplyOne.exit.loopexit.i.us:         ; preds = %.lr.ph.i.i.us
   %47 = fneg float %41
   %48 = tail call float @llvm.fmuladd.f32(float %47, float %46, float %39)
-  %49 = getelementptr inbounds float, ptr %8, i64 %indvars.iv.i56.us
+  %49 = getelementptr inbounds float, ptr %8, i64 %indvars.iv.i55.us
   store float %48, ptr %49, align 4
-  %indvars.iv.next.i57.us = add nuw nsw i64 %indvars.iv.i56.us, 1
-  %exitcond.not.i58.us = icmp eq i64 %indvars.iv.next.i57.us, %wide.trip.count.i
-  br i1 %exitcond.not.i58.us, label %.lr.ph.i62.us, label %.lr.ph.preheader.i.us.i.us, !llvm.loop !62
+  %indvars.iv.next.i56.us = add nuw nsw i64 %indvars.iv.i55.us, 1
+  %exitcond.not.i57.us = icmp eq i64 %indvars.iv.next.i56.us, %wide.trip.count.i
+  br i1 %exitcond.not.i57.us, label %.lr.ph.i61.us, label %.lr.ph.preheader.i.i.us, !llvm.loop !62
 
-.lr.ph.i62.us:                                    ; preds = %Emb_ManVecMultiplyOne.exit.loopexit.us.i.us, %.lr.ph.i62.us
-  %indvars.iv.i63.us = phi i64 [ %indvars.iv.next.i64.us, %.lr.ph.i62.us ], [ 0, %Emb_ManVecMultiplyOne.exit.loopexit.us.i.us ]
-  %50 = getelementptr inbounds float, ptr %8, i64 %indvars.iv.i63.us
+.lr.ph.i61.us:                                    ; preds = %Emb_ManVecMultiplyOne.exit.loopexit.i.us, %.lr.ph.i61.us
+  %indvars.iv.i62.us = phi i64 [ %indvars.iv.next.i63.us, %.lr.ph.i61.us ], [ 0, %Emb_ManVecMultiplyOne.exit.loopexit.i.us ]
+  %50 = getelementptr inbounds float, ptr %8, i64 %indvars.iv.i62.us
   %51 = load float, ptr %50, align 4
-  %52 = getelementptr inbounds float, ptr %15, i64 %indvars.iv.i63.us
+  %52 = getelementptr inbounds float, ptr %15, i64 %indvars.iv.i62.us
   store float %51, ptr %52, align 4
-  %indvars.iv.next.i64.us = add nuw nsw i64 %indvars.iv.i63.us, 1
-  %exitcond.not.i65.us = icmp eq i64 %indvars.iv.next.i64.us, %wide.trip.count.i
-  br i1 %exitcond.not.i65.us, label %Emb_ManVecCopyOne.exit66.loopexit.us, label %.lr.ph.i62.us, !llvm.loop !60
+  %indvars.iv.next.i63.us = add nuw nsw i64 %indvars.iv.i62.us, 1
+  %exitcond.not.i64.us = icmp eq i64 %indvars.iv.next.i63.us, %wide.trip.count.i
+  br i1 %exitcond.not.i64.us, label %Emb_ManVecCopyOne.exit65.loopexit.us, label %.lr.ph.i61.us, !llvm.loop !60
 
-Emb_ManVecCopyOne.exit66.loopexit.us:             ; preds = %.lr.ph.i62.us
+Emb_ManVecCopyOne.exit65.loopexit.us:             ; preds = %.lr.ph.i61.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv125
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.i55.us, !llvm.loop !63
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv124
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.preheader.i.lr.ph.i.us, !llvm.loop !63
 
-._crit_edge:                                      ; preds = %Emb_ManVecCopyOne.exit66.loopexit.us, %Emb_ManVecCopyOne.exit
+._crit_edge:                                      ; preds = %Emb_ManVecCopyOne.exit65.loopexit.us, %Emb_ManVecCopyOne.exit
   %53 = load ptr, ptr %11, align 8
-  br i1 %10, label %.lr.ph.preheader.i.us.i70, label %Emb_ManVecMultiplyOne.exit
+  br i1 %10, label %.lr.ph.preheader.i.i69, label %Emb_ManVecMultiplyOne.exit
 
-.lr.ph.preheader.i.us.i70:                        ; preds = %._crit_edge, %Emb_ManVecMultiplyOne.exit.loopexit.us.i77
-  %indvars.iv.i71 = phi i64 [ %indvars.iv.next.i78, %Emb_ManVecMultiplyOne.exit.loopexit.us.i77 ], [ 0, %._crit_edge ]
-  %54 = getelementptr inbounds ptr, ptr %53, i64 %indvars.iv.i71
+.lr.ph.preheader.i.i69:                           ; preds = %._crit_edge, %Emb_ManVecMultiplyOne.exit.loopexit.i76
+  %indvars.iv.i70 = phi i64 [ %indvars.iv.next.i77, %Emb_ManVecMultiplyOne.exit.loopexit.i76 ], [ 0, %._crit_edge ]
+  %54 = getelementptr inbounds ptr, ptr %53, i64 %indvars.iv.i70
   %55 = load ptr, ptr %54, align 8
-  br label %.lr.ph.i.us.i72
+  br label %.lr.ph.i.i71
 
-.lr.ph.i.us.i72:                                  ; preds = %.lr.ph.i.us.i72, %.lr.ph.preheader.i.us.i70
-  %indvars.iv.i.us.i73 = phi i64 [ 0, %.lr.ph.preheader.i.us.i70 ], [ %indvars.iv.next.i.us.i75, %.lr.ph.i.us.i72 ]
-  %.089.i.us.i74 = phi float [ 0.000000e+00, %.lr.ph.preheader.i.us.i70 ], [ %60, %.lr.ph.i.us.i72 ]
-  %56 = getelementptr inbounds float, ptr %55, i64 %indvars.iv.i.us.i73
+.lr.ph.i.i71:                                     ; preds = %.lr.ph.i.i71, %.lr.ph.preheader.i.i69
+  %indvars.iv.i.i72 = phi i64 [ 0, %.lr.ph.preheader.i.i69 ], [ %indvars.iv.next.i.i74, %.lr.ph.i.i71 ]
+  %.089.i.i73 = phi float [ 0.000000e+00, %.lr.ph.preheader.i.i69 ], [ %60, %.lr.ph.i.i71 ]
+  %56 = getelementptr inbounds float, ptr %55, i64 %indvars.iv.i.i72
   %57 = load float, ptr %56, align 4
-  %58 = getelementptr inbounds float, ptr %15, i64 %indvars.iv.i.us.i73
+  %58 = getelementptr inbounds float, ptr %15, i64 %indvars.iv.i.i72
   %59 = load float, ptr %58, align 4
-  %60 = tail call float @llvm.fmuladd.f32(float %57, float %59, float %.089.i.us.i74)
-  %indvars.iv.next.i.us.i75 = add nuw nsw i64 %indvars.iv.i.us.i73, 1
-  %exitcond.not.i.us.i76 = icmp eq i64 %indvars.iv.next.i.us.i75, %wide.trip.count.i
-  br i1 %exitcond.not.i.us.i76, label %Emb_ManVecMultiplyOne.exit.loopexit.us.i77, label %.lr.ph.i.us.i72, !llvm.loop !59
+  %60 = tail call float @llvm.fmuladd.f32(float %57, float %59, float %.089.i.i73)
+  %indvars.iv.next.i.i74 = add nuw nsw i64 %indvars.iv.i.i72, 1
+  %exitcond.not.i.i75 = icmp eq i64 %indvars.iv.next.i.i74, %wide.trip.count.i
+  br i1 %exitcond.not.i.i75, label %Emb_ManVecMultiplyOne.exit.loopexit.i76, label %.lr.ph.i.i71, !llvm.loop !59
 
-Emb_ManVecMultiplyOne.exit.loopexit.us.i77:       ; preds = %.lr.ph.i.us.i72
-  %61 = getelementptr inbounds float, ptr %8, i64 %indvars.iv.i71
+Emb_ManVecMultiplyOne.exit.loopexit.i76:          ; preds = %.lr.ph.i.i71
+  %61 = getelementptr inbounds float, ptr %8, i64 %indvars.iv.i70
   store float %60, ptr %61, align 4
-  %indvars.iv.next.i78 = add nuw nsw i64 %indvars.iv.i71, 1
-  %exitcond.not.i79 = icmp eq i64 %indvars.iv.next.i78, %wide.trip.count.i
-  br i1 %exitcond.not.i79, label %.lr.ph.i82, label %.lr.ph.preheader.i.us.i70, !llvm.loop !61
+  %indvars.iv.next.i77 = add nuw nsw i64 %indvars.iv.i70, 1
+  %exitcond.not.i78 = icmp eq i64 %indvars.iv.next.i77, %wide.trip.count.i
+  br i1 %exitcond.not.i78, label %.lr.ph.i81, label %.lr.ph.preheader.i.i69, !llvm.loop !61
 
-.lr.ph.i82:                                       ; preds = %Emb_ManVecMultiplyOne.exit.loopexit.us.i77, %.lr.ph.i82
-  %indvars.iv.i83 = phi i64 [ %indvars.iv.next.i85, %.lr.ph.i82 ], [ 0, %Emb_ManVecMultiplyOne.exit.loopexit.us.i77 ]
-  %.017.i84 = phi double [ %66, %.lr.ph.i82 ], [ 0.000000e+00, %Emb_ManVecMultiplyOne.exit.loopexit.us.i77 ]
-  %62 = getelementptr inbounds float, ptr %8, i64 %indvars.iv.i83
+.lr.ph.i81:                                       ; preds = %Emb_ManVecMultiplyOne.exit.loopexit.i76, %.lr.ph.i81
+  %indvars.iv.i82 = phi i64 [ %indvars.iv.next.i84, %.lr.ph.i81 ], [ 0, %Emb_ManVecMultiplyOne.exit.loopexit.i76 ]
+  %.017.i83 = phi double [ %66, %.lr.ph.i81 ], [ 0.000000e+00, %Emb_ManVecMultiplyOne.exit.loopexit.i76 ]
+  %62 = getelementptr inbounds float, ptr %8, i64 %indvars.iv.i82
   %63 = load float, ptr %62, align 4
   %64 = fmul float %63, %63
   %65 = fpext float %64 to double
-  %66 = fadd double %.017.i84, %65
-  %indvars.iv.next.i85 = add nuw nsw i64 %indvars.iv.i83, 1
-  %exitcond.not.i86 = icmp eq i64 %indvars.iv.next.i85, %wide.trip.count.i
-  br i1 %exitcond.not.i86, label %.lr.ph20.preheader.i88, label %.lr.ph.i82, !llvm.loop !57
+  %66 = fadd double %.017.i83, %65
+  %indvars.iv.next.i84 = add nuw nsw i64 %indvars.iv.i82, 1
+  %exitcond.not.i85 = icmp eq i64 %indvars.iv.next.i84, %wide.trip.count.i
+  br i1 %exitcond.not.i85, label %.lr.ph20.preheader.i87, label %.lr.ph.i81, !llvm.loop !57
 
-.lr.ph20.preheader.i88:                           ; preds = %.lr.ph.i82
+.lr.ph20.preheader.i87:                           ; preds = %.lr.ph.i81
   %67 = tail call double @pow(double noundef %66, double noundef 5.000000e-01) #26
-  br label %.lr.ph20.i90
+  br label %.lr.ph20.i89
 
-.lr.ph20.i90:                                     ; preds = %.lr.ph20.i90, %.lr.ph20.preheader.i88
-  %indvars.iv23.i91 = phi i64 [ 0, %.lr.ph20.preheader.i88 ], [ %indvars.iv.next24.i92, %.lr.ph20.i90 ]
-  %68 = getelementptr inbounds float, ptr %8, i64 %indvars.iv23.i91
+.lr.ph20.i89:                                     ; preds = %.lr.ph20.i89, %.lr.ph20.preheader.i87
+  %indvars.iv23.i90 = phi i64 [ 0, %.lr.ph20.preheader.i87 ], [ %indvars.iv.next24.i91, %.lr.ph20.i89 ]
+  %68 = getelementptr inbounds float, ptr %8, i64 %indvars.iv23.i90
   %69 = load float, ptr %68, align 4
   %70 = fpext float %69 to double
   %71 = fdiv double %70, %67
   %72 = fptrunc double %71 to float
   store float %72, ptr %68, align 4
-  %indvars.iv.next24.i92 = add nuw nsw i64 %indvars.iv23.i91, 1
-  %exitcond27.not.i93 = icmp eq i64 %indvars.iv.next24.i92, %wide.trip.count.i
-  br i1 %exitcond27.not.i93, label %.lr.ph.i98, label %.lr.ph20.i90, !llvm.loop !58
+  %indvars.iv.next24.i91 = add nuw nsw i64 %indvars.iv23.i90, 1
+  %exitcond27.not.i92 = icmp eq i64 %indvars.iv.next24.i91, %wide.trip.count.i
+  br i1 %exitcond27.not.i92, label %.lr.ph.i97, label %.lr.ph20.i89, !llvm.loop !58
 
-.lr.ph.i98:                                       ; preds = %.lr.ph20.i90, %.lr.ph.i98
-  %indvars.iv.i99 = phi i64 [ %indvars.iv.next.i100, %.lr.ph.i98 ], [ 0, %.lr.ph20.i90 ]
-  %.089.i = phi float [ %77, %.lr.ph.i98 ], [ 0.000000e+00, %.lr.ph20.i90 ]
-  %73 = getelementptr inbounds float, ptr %8, i64 %indvars.iv.i99
+.lr.ph.i97:                                       ; preds = %.lr.ph20.i89, %.lr.ph.i97
+  %indvars.iv.i98 = phi i64 [ %indvars.iv.next.i99, %.lr.ph.i97 ], [ 0, %.lr.ph20.i89 ]
+  %.089.i = phi float [ %77, %.lr.ph.i97 ], [ 0.000000e+00, %.lr.ph20.i89 ]
+  %73 = getelementptr inbounds float, ptr %8, i64 %indvars.iv.i98
   %74 = load float, ptr %73, align 4
-  %75 = getelementptr inbounds float, ptr %15, i64 %indvars.iv.i99
+  %75 = getelementptr inbounds float, ptr %15, i64 %indvars.iv.i98
   %76 = load float, ptr %75, align 4
   %77 = tail call float @llvm.fmuladd.f32(float %74, float %76, float %.089.i)
-  %indvars.iv.next.i100 = add nuw nsw i64 %indvars.iv.i99, 1
-  %exitcond.not.i101 = icmp eq i64 %indvars.iv.next.i100, %wide.trip.count.i
-  br i1 %exitcond.not.i101, label %Emb_ManVecMultiplyOne.exit, label %.lr.ph.i98, !llvm.loop !59
+  %indvars.iv.next.i99 = add nuw nsw i64 %indvars.iv.i98, 1
+  %exitcond.not.i100 = icmp eq i64 %indvars.iv.next.i99, %wide.trip.count.i
+  br i1 %exitcond.not.i100, label %Emb_ManVecMultiplyOne.exit, label %.lr.ph.i97, !llvm.loop !59
 
-Emb_ManVecMultiplyOne.exit:                       ; preds = %.lr.ph.i98, %30, %.lr.ph, %._crit_edge
-  %.08.lcssa.i = phi float [ 0.000000e+00, %._crit_edge ], [ 0.000000e+00, %.lr.ph ], [ 0.000000e+00, %30 ], [ %77, %.lr.ph.i98 ]
+Emb_ManVecMultiplyOne.exit:                       ; preds = %.lr.ph.i97, %30, %.lr.ph, %._crit_edge
+  %.08.lcssa.i = phi float [ 0.000000e+00, %._crit_edge ], [ 0.000000e+00, %.lr.ph ], [ 0.000000e+00, %30 ], [ %77, %.lr.ph.i97 ]
   %78 = fpext float %.08.lcssa.i to double
   %79 = fcmp olt double %78, 0x3FEFF7CED916872B
   %80 = icmp ult i32 %.0, 99
@@ -5401,24 +5401,24 @@ Emb_ManVecMultiplyOne.exit:                       ; preds = %.lr.ph.i98, %30, %.
   br i1 %81, label %30, label %82, !llvm.loop !64
 
 82:                                               ; preds = %Emb_ManVecMultiplyOne.exit
-  br i1 %10, label %.lr.ph.i105, label %Emb_ManVecCopyOne.exit109
+  br i1 %10, label %.lr.ph.i104, label %Emb_ManVecCopyOne.exit108
 
-.lr.ph.i105:                                      ; preds = %82, %.lr.ph.i105
-  %indvars.iv.i106 = phi i64 [ %indvars.iv.next.i107, %.lr.ph.i105 ], [ 0, %82 ]
-  %83 = getelementptr inbounds float, ptr %8, i64 %indvars.iv.i106
+.lr.ph.i104:                                      ; preds = %82, %.lr.ph.i104
+  %indvars.iv.i105 = phi i64 [ %indvars.iv.next.i106, %.lr.ph.i104 ], [ 0, %82 ]
+  %83 = getelementptr inbounds float, ptr %8, i64 %indvars.iv.i105
   %84 = load float, ptr %83, align 4
-  %85 = getelementptr inbounds float, ptr %15, i64 %indvars.iv.i106
+  %85 = getelementptr inbounds float, ptr %15, i64 %indvars.iv.i105
   store float %84, ptr %85, align 4
-  %indvars.iv.next.i107 = add nuw nsw i64 %indvars.iv.i106, 1
-  %exitcond.not.i108 = icmp eq i64 %indvars.iv.next.i107, %wide.trip.count.i
-  br i1 %exitcond.not.i108, label %Emb_ManVecCopyOne.exit109, label %.lr.ph.i105, !llvm.loop !60
+  %indvars.iv.next.i106 = add nuw nsw i64 %indvars.iv.i105, 1
+  %exitcond.not.i107 = icmp eq i64 %indvars.iv.next.i106, %wide.trip.count.i
+  br i1 %exitcond.not.i107, label %Emb_ManVecCopyOne.exit108, label %.lr.ph.i104, !llvm.loop !60
 
-Emb_ManVecCopyOne.exit109:                        ; preds = %.lr.ph.i105, %82
-  %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
-  %exitcond129.not = icmp eq i64 %indvars.iv.next126, %wide.trip.count128
-  br i1 %exitcond129.not, label %._crit_edge118, label %12, !llvm.loop !65
+Emb_ManVecCopyOne.exit108:                        ; preds = %.lr.ph.i104, %82
+  %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
+  %exitcond128.not = icmp eq i64 %indvars.iv.next125, %wide.trip.count127
+  br i1 %exitcond128.not, label %._crit_edge117, label %12, !llvm.loop !65
 
-._crit_edge118:                                   ; preds = %Emb_ManVecCopyOne.exit109, %3
+._crit_edge117:                                   ; preds = %Emb_ManVecCopyOne.exit108, %3
   ret void
 }
 

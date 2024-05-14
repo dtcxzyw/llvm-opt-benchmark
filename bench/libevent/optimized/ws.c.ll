@@ -349,8 +349,8 @@ ws_gen_accept_key.exit:                           ; preds = %for.body.i.i
   %idxprom47.i.i = zext nneg i8 %16 to i64
   %arrayidx48.i.i = getelementptr inbounds [65 x i8], ptr @basis_64, i64 0, i64 %idxprom47.i.i
   %17 = load i8, ptr %arrayidx48.i.i, align 1
-  store i8 %17, ptr %incdec.ptr38.i.i, align 1
   %incdec.ptr49.i.i = getelementptr inbounds i8, ptr %p.043.i.i, i64 5
+  store i8 %17, ptr %incdec.ptr38.i.i, align 1
   %18 = shl i8 %15, 4
   %19 = and i8 %18, 48
   %arrayidx70.i.i = getelementptr inbounds i8, ptr %digest.i, i64 19
@@ -360,17 +360,17 @@ ws_gen_accept_key.exit:                           ; preds = %for.body.i.i
   %idxprom75.i.i = zext nneg i8 %or7439.i.i to i64
   %arrayidx76.i.i = getelementptr inbounds [65 x i8], ptr @basis_64, i64 0, i64 %idxprom75.i.i
   %22 = load i8, ptr %arrayidx76.i.i, align 1
+  %incdec.ptr77.i.i = getelementptr inbounds i8, ptr %p.043.i.i, i64 6
   store i8 %22, ptr %incdec.ptr49.i.i, align 1
   %23 = shl i8 %20, 2
   %24 = and i8 %23, 60
   %idxprom84.i.i = zext nneg i8 %24 to i64
   %arrayidx85.i.i = getelementptr inbounds [65 x i8], ptr @basis_64, i64 0, i64 %idxprom84.i.i
   %25 = load i8, ptr %arrayidx85.i.i, align 4
-  %26 = getelementptr inbounds i8, ptr %p.043.i.i, i64 6
-  store i8 %25, ptr %26, align 1
+  store i8 %25, ptr %incdec.ptr77.i.i, align 1
   %p.1.i.i = getelementptr inbounds i8, ptr %p.043.i.i, i64 7
-  store i8 61, ptr %p.1.i.i, align 1
   %incdec.ptr87.i.i = getelementptr inbounds i8, ptr %p.043.i.i, i64 8
+  store i8 61, ptr %p.1.i.i, align 1
   store i8 0, ptr %incdec.ptr87.i.i, align 1
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %buf.i)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %digest.i)
@@ -399,9 +399,9 @@ if.end27:                                         ; preds = %if.end23
   store ptr %arg, ptr %cb_arg, align 8
   %call29 = call ptr @evhttp_request_get_connection(ptr noundef %req) #9
   %http_server = getelementptr inbounds i8, ptr %call29, i64 288
-  %27 = load ptr, ptr %http_server, align 8
+  %26 = load ptr, ptr %http_server, align 8
   %http_server30 = getelementptr inbounds i8, ptr %call24, i64 56
-  store ptr %27, ptr %http_server30, align 8
+  store ptr %26, ptr %http_server30, align 8
   %call31 = call ptr @evhttp_start_ws_(ptr noundef %req) #9
   %bufev = getelementptr inbounds i8, ptr %call24, i64 16
   store ptr %call31, ptr %bufev, align 8
@@ -419,76 +419,76 @@ if.then33.if.end39_crit_edge:                     ; preds = %if.then33
   br label %if.end39
 
 if.end39:                                         ; preds = %if.then33.if.end39_crit_edge, %if.end27
-  %28 = phi ptr [ %.pre, %if.then33.if.end39_crit_edge ], [ %call31, %if.end27 ]
-  call void @bufferevent_setcb(ptr noundef %28, ptr noundef nonnull @ws_evhttp_read_cb, ptr noundef null, ptr noundef nonnull @ws_evhttp_error_cb, ptr noundef nonnull %call24) #9
+  %27 = phi ptr [ %.pre, %if.then33.if.end39_crit_edge ], [ %call31, %if.end27 ]
+  call void @bufferevent_setcb(ptr noundef %27, ptr noundef nonnull @ws_evhttp_read_cb, ptr noundef null, ptr noundef nonnull @ws_evhttp_error_cb, ptr noundef nonnull %call24) #9
   store ptr null, ptr %call24, align 8
-  %29 = load ptr, ptr %http_server30, align 8
-  %tqh_last = getelementptr inbounds i8, ptr %29, i64 72
-  %30 = load ptr, ptr %tqh_last, align 8
+  %28 = load ptr, ptr %http_server30, align 8
+  %tqh_last = getelementptr inbounds i8, ptr %28, i64 72
+  %29 = load ptr, ptr %tqh_last, align 8
   %tqe_prev = getelementptr inbounds i8, ptr %call24, i64 8
-  store ptr %30, ptr %tqe_prev, align 8
-  store ptr %call24, ptr %30, align 8
-  %31 = load ptr, ptr %http_server30, align 8
-  %tqh_last50 = getelementptr inbounds i8, ptr %31, i64 72
+  store ptr %29, ptr %tqe_prev, align 8
+  store ptr %call24, ptr %29, align 8
+  %30 = load ptr, ptr %http_server30, align 8
+  %tqh_last50 = getelementptr inbounds i8, ptr %30, i64 72
   store ptr %call24, ptr %tqh_last50, align 8
-  %32 = load ptr, ptr %http_server30, align 8
-  %connection_cnt = getelementptr inbounds i8, ptr %32, i64 84
-  %33 = load i32, ptr %connection_cnt, align 4
-  %inc = add nsw i32 %33, 1
+  %31 = load ptr, ptr %http_server30, align 8
+  %connection_cnt = getelementptr inbounds i8, ptr %31, i64 84
+  %32 = load i32, ptr %connection_cnt, align 4
+  %inc = add nsw i32 %32, 1
   store i32 %inc, ptr %connection_cnt, align 4
   br label %return
 
 if.then53:                                        ; preds = %if.then33
   %cbclose.i = getelementptr inbounds i8, ptr %call24, i64 40
-  %34 = load ptr, ptr %cbclose.i, align 8
-  %cmp.not.i = icmp eq ptr %34, null
+  %33 = load ptr, ptr %cbclose.i, align 8
+  %cmp.not.i = icmp eq ptr %33, null
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then53
   %cbclose_arg.i = getelementptr inbounds i8, ptr %call24, i64 48
-  %35 = load ptr, ptr %cbclose_arg.i, align 8
-  call void %34(ptr noundef nonnull %call24, ptr noundef %35) #9
+  %34 = load ptr, ptr %cbclose_arg.i, align 8
+  call void %33(ptr noundef nonnull %call24, ptr noundef %34) #9
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.then53
-  %36 = load ptr, ptr %http_server30, align 8
-  %cmp2.not.i = icmp eq ptr %36, null
+  %35 = load ptr, ptr %http_server30, align 8
+  %cmp2.not.i = icmp eq ptr %35, null
   br i1 %cmp2.not.i, label %if.end19.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %37 = load ptr, ptr %call24, align 8
-  %cmp5.not.i = icmp eq ptr %37, null
+  %36 = load ptr, ptr %call24, align 8
+  %cmp5.not.i = icmp eq ptr %36, null
   %tqe_prev13.i = getelementptr inbounds i8, ptr %call24, i64 8
-  %38 = load ptr, ptr %tqe_prev13.i, align 8
-  %tqh_last.i = getelementptr inbounds i8, ptr %36, i64 72
-  %tqe_prev11.i = getelementptr inbounds i8, ptr %37, i64 8
+  %37 = load ptr, ptr %tqe_prev13.i, align 8
+  %tqh_last.i = getelementptr inbounds i8, ptr %35, i64 72
+  %tqe_prev11.i = getelementptr inbounds i8, ptr %36, i64 8
   %tqh_last.sink.i = select i1 %cmp5.not.i, ptr %tqh_last.i, ptr %tqe_prev11.i
-  store ptr %38, ptr %tqh_last.sink.i, align 8
-  %39 = load ptr, ptr %call24, align 8
-  store ptr %39, ptr %38, align 8
-  %connection_cnt.i = getelementptr inbounds i8, ptr %36, i64 84
-  %40 = load i32, ptr %connection_cnt.i, align 4
-  %dec.i = add nsw i32 %40, -1
+  store ptr %37, ptr %tqh_last.sink.i, align 8
+  %38 = load ptr, ptr %call24, align 8
+  store ptr %38, ptr %37, align 8
+  %connection_cnt.i = getelementptr inbounds i8, ptr %35, i64 84
+  %39 = load i32, ptr %connection_cnt.i, align 4
+  %dec.i = add nsw i32 %39, -1
   store i32 %dec.i, ptr %connection_cnt.i, align 4
   br label %if.end19.i
 
 if.end19.i:                                       ; preds = %if.then3.i, %if.end.i
-  %41 = load ptr, ptr %bufev, align 8
-  %cmp20.not.i = icmp eq ptr %41, null
+  %40 = load ptr, ptr %bufev, align 8
+  %cmp20.not.i = icmp eq ptr %40, null
   br i1 %cmp20.not.i, label %if.end23.i, label %if.then21.i
 
 if.then21.i:                                      ; preds = %if.end19.i
-  call void @bufferevent_free(ptr noundef nonnull %41) #9
+  call void @bufferevent_free(ptr noundef nonnull %40) #9
   br label %if.end23.i
 
 if.end23.i:                                       ; preds = %if.then21.i, %if.end19.i
   %incomplete_frames.i = getelementptr inbounds i8, ptr %call24, i64 64
-  %42 = load ptr, ptr %incomplete_frames.i, align 8
-  %cmp24.not.i = icmp eq ptr %42, null
+  %41 = load ptr, ptr %incomplete_frames.i, align 8
+  %cmp24.not.i = icmp eq ptr %41, null
   br i1 %cmp24.not.i, label %evws_connection_free.exit, label %if.then25.i
 
 if.then25.i:                                      ; preds = %if.end23.i
-  call void @evbuffer_free(ptr noundef nonnull %42) #9
+  call void @evbuffer_free(ptr noundef nonnull %41) #9
   br label %evws_connection_free.exit
 
 evws_connection_free.exit:                        ; preds = %if.end23.i, %if.then25.i

@@ -1269,19 +1269,19 @@ Vec_PtrFree.exit.i204:                            ; preds = %171, %168
 
 .critedge.i196:                                   ; preds = %.critedge4.thread258
   %.not.i9.i197 = icmp eq ptr %.val137, null
-  br i1 %.not.i9.i197, label %.lr.ph.i212.preheader, label %.critedge.i196.thread
+  br i1 %.not.i9.i197, label %Vec_VecFree.exit208, label %.critedge.i196.thread
 
 .critedge.i196.thread:                            ; preds = %172, %.critedge.i196
   tail call void @free(ptr noundef nonnull %.val137) #17
-  br label %.lr.ph.i212.preheader
+  br label %Vec_VecFree.exit208
 
-.lr.ph.i212.preheader:                            ; preds = %.critedge.i196.thread, %.critedge.i196
+Vec_VecFree.exit208:                              ; preds = %.critedge.i196, %.critedge.i196.thread
   tail call void @free(ptr noundef nonnull %5) #17
   %umax = tail call i64 @llvm.umax.i64(i64 %wide.trip.count301, i64 1)
   br label %.lr.ph.i212
 
-.lr.ph.i212:                                      ; preds = %.lr.ph.i212.preheader, %179
-  %indvars.iv.i214 = phi i64 [ %indvars.iv.next.i221, %179 ], [ 0, %.lr.ph.i212.preheader ]
+.lr.ph.i212:                                      ; preds = %Vec_VecFree.exit208, %179
+  %indvars.iv.i214 = phi i64 [ %indvars.iv.next.i221, %179 ], [ 0, %Vec_VecFree.exit208 ]
   %173 = getelementptr inbounds ptr, ptr %.val140.pre, i64 %indvars.iv.i214
   %174 = load ptr, ptr %173, align 8
   %.not.i216 = icmp eq ptr %174, null

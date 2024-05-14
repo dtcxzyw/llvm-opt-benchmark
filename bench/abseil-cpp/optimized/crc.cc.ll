@@ -280,14 +280,14 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4absl12crc_internal5CRC3210InitTablesEv(ptr nocapture noundef nonnull align 8 dereferenceable(8200) %this) unnamed_addr #1 align 2 {
-for.body4.i.preheader:
+entry:
   %call = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #19
   store i32 0, ptr %call, align 4
   %arrayidx10.i = getelementptr inbounds i8, ptr %call, i64 512
   br label %for.body4.i
 
-for.body4.i:                                      ; preds = %for.body4.i.preheader, %for.inc.i
-  %i.037.i = phi i32 [ %shr34.i, %for.inc.i ], [ 128, %for.body4.i.preheader ]
+for.body4.i:                                      ; preds = %entry, %for.inc.i
+  %i.037.i = phi i32 [ %shr34.i, %for.inc.i ], [ 128, %entry ]
   %cmp6.i = icmp eq i32 %i.037.i, 128
   br i1 %cmp6.i, label %if.then.i, label %if.else.i
 
@@ -470,8 +470,8 @@ for.inc62.i64:                                    ; preds = %for.cond36.loopexit
   br i1 %cmp.not.i66, label %for.cond15.preheader, label %for.body.i26, !llvm.loop !9
 
 for.cond15.preheader:                             ; preds = %for.inc62.i64
-  %scevgep230 = getelementptr inbounds i8, ptr %this, i64 2056
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4096) %scevgep230, ptr noundef nonnull align 4 dereferenceable(4096) %call, i64 4096, i1 false)
+  %scevgep228 = getelementptr inbounds i8, ptr %this, i64 2056
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4096) %scevgep228, ptr noundef nonnull align 4 dereferenceable(4096) %call, i64 4096, i1 false)
   br label %for.body.i.preheader.i
 
 for.body.i.preheader.i:                           ; preds = %for.cond15.preheader, %_ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit.i
@@ -561,7 +561,7 @@ _ZN4absl12crc_internal7CRCImpl15FillZeroesTableEjPA256_j.exit: ; preds = %do.bod
 
 for.cond41.preheader:                             ; preds = %_ZN4absl12crc_internal7CRCImpl15FillZeroesTableEjPA256_j.exit
   %cmp42222 = icmp sgt i32 %15, 0
-  br i1 %cmp42222, label %for.body43.lr.ph, label %for.body4.i134.preheader
+  br i1 %cmp42222, label %for.body43.lr.ph, label %delete.notnull
 
 for.body43.lr.ph:                                 ; preds = %for.cond41.preheader
   %zeroes_ = getelementptr inbounds i8, ptr %this, i64 1032
@@ -571,21 +571,21 @@ for.body43.lr.ph:                                 ; preds = %for.cond41.preheade
   %18 = zext nneg i32 %smax to i64
   %19 = shl nuw nsw i64 %18, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %zeroes_, ptr noundef nonnull align 4 dereferenceable(1) %call, i64 %19, i1 false)
-  br label %for.body4.i134.preheader
+  br label %delete.notnull
 
 do.body36:                                        ; preds = %_ZN4absl12crc_internal7CRCImpl15FillZeroesTableEjPA256_j.exit
   tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([124 x i8], ptr @.str, i64 0, i64 117), i32 noundef 208, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.3)
   unreachable
 
-for.body4.i134.preheader:                         ; preds = %for.cond41.preheader, %for.body43.lr.ph
+delete.notnull:                                   ; preds = %for.body43.lr.ph, %for.cond41.preheader
   tail call void @_ZdaPv(ptr noundef nonnull %call) #20
   %reverse_table0_ = getelementptr inbounds i8, ptr %this, i64 6152
   store i32 0, ptr %reverse_table0_, align 8
   %arrayidx10.i98 = getelementptr inbounds i8, ptr %this, i64 6664
   br label %for.body4.i134
 
-for.body4.i134:                                   ; preds = %for.body4.i134.preheader, %for.inc.i149
-  %i.037.i135 = phi i32 [ %shr34.i150, %for.inc.i149 ], [ 128, %for.body4.i134.preheader ]
+for.body4.i134:                                   ; preds = %delete.notnull, %for.inc.i149
+  %i.037.i135 = phi i32 [ %shr34.i150, %for.inc.i149 ], [ 128, %delete.notnull ]
   %cmp6.i136 = icmp eq i32 %i.037.i135, 128
   br i1 %cmp6.i136, label %if.then.i155, label %if.else.i137
 

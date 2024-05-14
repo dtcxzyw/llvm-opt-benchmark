@@ -12037,86 +12037,81 @@ RSTRING_LENINT.exit:                              ; preds = %rb_fstring_new.exit
   br i1 %exitcond.not, label %.thread49, label %85, !llvm.loop !235
 
 90:                                               ; preds = %85
-  %or.cond.i = icmp sgt i64 %.02955, -4611686018427387905
-  br i1 %or.cond.i, label %91, label %.thread49
-
-91:                                               ; preds = %90
-  %92 = shl nsw i64 %.02955, 1
-  %93 = or disjoint i64 %92, 1
+  %91 = shl nsw i64 %.02955, 1
+  %92 = or disjoint i64 %91, 1
   br label %rb_long2num_inline.exit
 
-.thread49:                                        ; preds = %88, %90
-  %.02953 = phi i64 [ %.02955, %90 ], [ 4611686018427387904, %88 ]
-  %94 = call i64 @rb_int2big(i64 noundef %.02953) #28
+.thread49:                                        ; preds = %88
+  %93 = call i64 @rb_int2big(i64 noundef 4611686018427387904) #28
   br label %rb_long2num_inline.exit
 
-rb_long2num_inline.exit:                          ; preds = %.thread49, %91, %RSTRING_LENINT.exit
-  %.0 = phi i64 [ %80, %RSTRING_LENINT.exit ], [ %93, %91 ], [ %94, %.thread49 ]
+rb_long2num_inline.exit:                          ; preds = %.thread49, %90, %RSTRING_LENINT.exit
+  %.0 = phi i64 [ %80, %RSTRING_LENINT.exit ], [ %92, %90 ], [ %93, %.thread49 ]
   %sext = shl i64 %76, 32
-  %95 = ashr exact i64 %sext, 31
-  %96 = or disjoint i64 %95, 1
-  store i64 %96, ptr %8, align 16
-  %97 = getelementptr inbounds i8, ptr %8, i64 8
-  store i64 %.0, ptr %97, align 8
-  %98 = call i64 @rb_str_format(i32 noundef 2, ptr noundef nonnull %8, i64 noundef %75) #28
-  %99 = call i32 %1(i64 noundef %98, i64 noundef %2) #28
-  %.not3256 = icmp eq i32 %99, 0
+  %94 = ashr exact i64 %sext, 31
+  %95 = or disjoint i64 %94, 1
+  store i64 %95, ptr %8, align 16
+  %96 = getelementptr inbounds i8, ptr %8, i64 8
+  store i64 %.0, ptr %96, align 8
+  %97 = call i64 @rb_str_format(i32 noundef 2, ptr noundef nonnull %8, i64 noundef %75) #28
+  %98 = call i32 %1(i64 noundef %97, i64 noundef %2) #28
+  %.not3256 = icmp eq i32 %98, 0
   br i1 %.not3256, label %.lr.ph, label %all_digits_p.exit
 
 .lr.ph:                                           ; preds = %rb_long2num_inline.exit, %.lr.ph
-  %.157 = phi i64 [ %100, %.lr.ph ], [ %.0, %rb_long2num_inline.exit ]
-  %100 = call i64 @rb_funcallv(i64 noundef %.157, i64 noundef %.lcssa.i, i32 noundef 0, ptr noundef null) #28
-  store i64 %100, ptr %97, align 8
-  %101 = call i64 @rb_str_format(i32 noundef 2, ptr noundef nonnull %8, i64 noundef %75) #28
-  %102 = call i32 %1(i64 noundef %101, i64 noundef %2) #28
-  %.not32 = icmp eq i32 %102, 0
+  %.157 = phi i64 [ %99, %.lr.ph ], [ %.0, %rb_long2num_inline.exit ]
+  %99 = call i64 @rb_funcallv(i64 noundef %.157, i64 noundef %.lcssa.i, i32 noundef 0, ptr noundef null) #28
+  store i64 %99, ptr %96, align 8
+  %100 = call i64 @rb_str_format(i32 noundef 2, ptr noundef nonnull %8, i64 noundef %75) #28
+  %101 = call i32 %1(i64 noundef %100, i64 noundef %2) #28
+  %.not32 = icmp eq i32 %101, 0
   br i1 %.not32, label %.lr.ph, label %all_digits_p.exit
 
 all_digits_p.exit:                                ; preds = %.lr.ph.i38, %.lr.ph, %rb_long2num_inline.exit, %RSTRING_PTR.exit.thread, %RSTRING_PTR.exit, %is_ascii_string.exit
-  %103 = load i64, ptr @rb_cString, align 8
-  %104 = call fastcc i64 @str_duplicate(i64 noundef %103, i64 noundef %0)
-  store i64 %104, ptr %7, align 8
-  br label %105
+  %102 = load i64, ptr @rb_cString, align 8
+  %103 = call fastcc i64 @str_duplicate(i64 noundef %102, i64 noundef %0)
+  store i64 %103, ptr %7, align 8
+  br label %104
 
-105:                                              ; preds = %rb_string_value.exit, %all_digits_p.exit
-  %.0..0.42 = phi i64 [ %.0..0.44, %rb_string_value.exit ], [ %104, %all_digits_p.exit ]
-  %106 = call i64 @rb_funcallv(i64 noundef %.0..0.42, i64 noundef %.lcssa.i, i32 noundef 0, ptr noundef null) #28
+104:                                              ; preds = %rb_string_value.exit, %all_digits_p.exit
+  %.0..0.42 = phi i64 [ %.0..0.44, %rb_string_value.exit ], [ %103, %all_digits_p.exit ]
+  %105 = call i64 @rb_funcallv(i64 noundef %.0..0.42, i64 noundef %.lcssa.i, i32 noundef 0, ptr noundef null) #28
   %.0..0..0.43 = load i64, ptr %7, align 8
-  %107 = call i32 %1(i64 noundef %.0..0..0.43, i64 noundef %2) #28
-  %.not33 = icmp eq i32 %107, 0
-  br i1 %.not33, label %108, label %122
+  %106 = call i32 %1(i64 noundef %.0..0..0.43, i64 noundef %2) #28
+  %.not33 = icmp eq i32 %106, 0
+  br i1 %.not33, label %107, label %121
 
-108:                                              ; preds = %105
-  store i64 %106, ptr %7, align 8
+107:                                              ; preds = %104
+  store i64 %105, ptr %7, align 8
   %.0..0..0. = load volatile i64, ptr %7, align 8
-  %109 = and i64 %.0..0..0., 7
-  %110 = icmp ne i64 %109, 0
-  %111 = icmp eq i64 %.0..0..0., 0
-  %112 = or i1 %111, %110
-  br i1 %112, label %.critedge.i, label %113
+  %108 = and i64 %.0..0..0., 7
+  %109 = icmp ne i64 %108, 0
+  %110 = icmp eq i64 %.0..0..0., 0
+  %111 = or i1 %110, %109
+  br i1 %111, label %.critedge.i, label %112
 
-113:                                              ; preds = %108
-  %114 = inttoptr i64 %.0..0..0. to ptr
-  %115 = load i64, ptr %114, align 8
-  %116 = and i64 %115, 31
-  %117 = icmp eq i64 %116, 5
-  br i1 %117, label %rb_string_value.exit, label %.critedge.i
+112:                                              ; preds = %107
+  %113 = inttoptr i64 %.0..0..0. to ptr
+  %114 = load i64, ptr %113, align 8
+  %115 = and i64 %114, 31
+  %116 = icmp eq i64 %115, 5
+  br i1 %116, label %rb_string_value.exit, label %.critedge.i
 
-.critedge.i:                                      ; preds = %113, %108
-  %118 = call i64 @rb_convert_type_with_id(i64 noundef %.0..0..0., i32 noundef 5, ptr noundef nonnull @.str.4, i64 noundef 3233) #28
-  store volatile i64 %118, ptr %7, align 8
-  %.pre = inttoptr i64 %118 to ptr
+.critedge.i:                                      ; preds = %112, %107
+  %117 = call i64 @rb_convert_type_with_id(i64 noundef %.0..0..0., i32 noundef 5, ptr noundef nonnull @.str.4, i64 noundef 3233) #28
+  store volatile i64 %117, ptr %7, align 8
+  %.pre = inttoptr i64 %117 to ptr
   br label %rb_string_value.exit
 
-rb_string_value.exit:                             ; preds = %113, %.critedge.i
-  %.pre-phi = phi ptr [ %114, %113 ], [ %.pre, %.critedge.i ]
-  %.0..0.44 = phi i64 [ %.0..0..0., %113 ], [ %118, %.critedge.i ]
-  %119 = getelementptr inbounds i8, ptr %.pre-phi, i64 16
-  %120 = load i64, ptr %119, align 8
-  %121 = icmp eq i64 %120, 0
-  br i1 %121, label %122, label %105
+rb_string_value.exit:                             ; preds = %112, %.critedge.i
+  %.pre-phi = phi ptr [ %113, %112 ], [ %.pre, %.critedge.i ]
+  %.0..0.44 = phi i64 [ %.0..0..0., %112 ], [ %117, %.critedge.i ]
+  %118 = getelementptr inbounds i8, ptr %.pre-phi, i64 16
+  %119 = load i64, ptr %118, align 8
+  %120 = icmp eq i64 %119, 0
+  br i1 %120, label %121, label %104
 
-122:                                              ; preds = %rb_string_value.exit, %105
+121:                                              ; preds = %rb_string_value.exit, %104
   ret i64 %0
 }
 

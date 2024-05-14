@@ -3152,76 +3152,73 @@ if.end23:                                         ; preds = %if.end12
 
 for.body:                                         ; preds = %if.end23, %for.body
   %indvars.iv61 = phi i64 [ %indvars.iv.next62, %for.body ], [ %indvars.iv58, %if.end23 ]
-  %9 = phi i16 [ %12, %for.body ], [ %1, %if.end23 ]
-  %cmp.i29 = icmp ult i16 %9, 2
-  %10 = load ptr, ptr %2, align 8
-  %retval.0.i30 = select i1 %cmp.i29, ptr %2, ptr %10
-  %arrayidx34 = getelementptr inbounds ptr, ptr %retval.0.i30, i64 %indvars.iv61
-  %11 = load ptr, ptr %arrayidx34, align 8
-  %call35 = tail call noundef ptr @_ZN3re26Regexp6IncrefEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
+  %9 = load ptr, ptr %2, align 8
+  %arrayidx34 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv61
+  %10 = load ptr, ptr %arrayidx34, align 8
+  %call35 = tail call noundef ptr @_ZN3re26Regexp6IncrefEv(ptr noundef nonnull align 8 dereferenceable(40) %10)
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
-  %12 = load i16, ptr %nsub_, align 2
-  %13 = zext i16 %12 to i64
-  %cmp31 = icmp ult i64 %indvars.iv.next62, %13
+  %11 = load i16, ptr %nsub_, align 2
+  %12 = zext i16 %11 to i64
+  %cmp31 = icmp ult i64 %indvars.iv.next62, %12
   br i1 %cmp31, label %for.body, label %for.end, !llvm.loop !25
 
 for.end:                                          ; preds = %for.body
-  %conv30.le = zext i16 %12 to i32
+  %conv30.le = zext i16 %11 to i32
   %.pre = load ptr, ptr %2, align 8
-  %cmp.i32 = icmp ult i16 %12, 2
+  %cmp.i32 = icmp ult i16 %11, 2
   %retval.0.i33 = select i1 %cmp.i32, ptr %2, ptr %.pre
   %idx.ext = zext nneg i32 %inc24 to i64
   %add.ptr = getelementptr inbounds ptr, ptr %retval.0.i33, i64 %idx.ext
   %sub = sub nsw i32 %conv30.le, %inc24
   %parse_flags_.i = getelementptr inbounds i8, ptr %this, i64 2
-  %14 = load i16, ptr %parse_flags_.i, align 2
-  %conv.i = zext i16 %14 to i32
+  %13 = load i16, ptr %parse_flags_.i, align 2
+  %conv.i = zext i16 %13 to i32
   %call.i = tail call noundef ptr @_ZN3re26Regexp17ConcatOrAlternateENS_8RegexpOpEPPS0_iNS0_10ParseFlagsEb(i32 noundef 5, ptr noundef nonnull readonly %add.ptr, i32 noundef %sub, i32 noundef %conv.i, i1 noundef zeroext false)
   br label %if.end45
 
 if.else:                                          ; preds = %if.end23
   %call42 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
   %parse_flags_.i34 = getelementptr inbounds i8, ptr %this, i64 2
-  %15 = load i16, ptr %parse_flags_.i34, align 2
-  %conv.i35 = zext i16 %15 to i32
+  %14 = load i16, ptr %parse_flags_.i34, align 2
+  %conv.i35 = zext i16 %14 to i32
   invoke void @_ZN3re26RegexpC1ENS_8RegexpOpENS0_10ParseFlagsE(ptr noundef nonnull align 8 dereferenceable(40) %call42, i32 noundef 2, i32 noundef %conv.i35)
           to label %if.end45 unwind label %lpad
 
 lpad:                                             ; preds = %if.else
-  %16 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %call42) #26
-  resume { ptr, i32 } %16
+  resume { ptr, i32 } %15
 
 if.end45:                                         ; preds = %if.else, %for.end
   %storemerge = phi ptr [ %call.i, %for.end ], [ %call42, %if.else ]
   store ptr %storemerge, ptr %suffix, align 8
   %parse_flags_.i36 = getelementptr inbounds i8, ptr %7, i64 2
-  %17 = load i16, ptr %parse_flags_.i36, align 2
-  %18 = and i16 %17, 32
-  %cmp48 = icmp ne i16 %18, 0
-  %19 = load i8, ptr %7, align 8
-  %cmp51 = icmp eq i8 %19, 3
+  %16 = load i16, ptr %parse_flags_.i36, align 2
+  %17 = and i16 %16, 32
+  %cmp48 = icmp ne i16 %17, 0
+  %18 = load i8, ptr %7, align 8
+  %cmp51 = icmp eq i8 %18, 3
   br i1 %cmp51, label %cond.end.thread, label %cond.false56
 
 cond.end.thread:                                  ; preds = %if.end45
-  %20 = getelementptr inbounds i8, ptr %7, i64 24
+  %19 = getelementptr inbounds i8, ptr %7, i64 24
   br label %cond.end57
 
 cond.false56:                                     ; preds = %if.end45
   %runes_ = getelementptr inbounds i8, ptr %7, i64 32
-  %21 = load ptr, ptr %runes_, align 8
-  %22 = getelementptr inbounds i8, ptr %7, i64 24
-  %23 = load i32, ptr %22, align 8
+  %20 = load ptr, ptr %runes_, align 8
+  %21 = getelementptr inbounds i8, ptr %7, i64 24
+  %22 = load i32, ptr %21, align 8
   br label %cond.end57
 
 cond.end57:                                       ; preds = %cond.end.thread, %cond.false56
-  %cond44 = phi ptr [ %21, %cond.false56 ], [ %20, %cond.end.thread ]
-  %cond58 = phi i32 [ %23, %cond.false56 ], [ 1, %cond.end.thread ]
+  %cond44 = phi ptr [ %20, %cond.false56 ], [ %19, %cond.end.thread ]
+  %cond58 = phi i32 [ %22, %cond.false56 ], [ 1, %cond.end.thread ]
   tail call void @_ZN3re219ConvertRunesToBytesEbPiiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i1 noundef zeroext %cmp48, ptr noundef %cond44, i32 noundef %cond58, ptr noundef nonnull %prefix)
-  %24 = load i16, ptr %parse_flags_.i36, align 2
-  %25 = trunc i16 %24 to i8
-  %frombool62 = and i8 %25, 1
+  %23 = load i16, ptr %parse_flags_.i36, align 2
+  %24 = trunc i16 %23 to i8
+  %frombool62 = and i8 %24, 1
   store i8 %frombool62, ptr %foldcase, align 1
   br label %return
 

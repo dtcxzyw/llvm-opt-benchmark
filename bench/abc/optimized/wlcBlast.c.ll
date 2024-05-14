@@ -2212,8 +2212,8 @@ Vec_IntFill.exit:                                 ; preds = %22
   %wide.trip.count.i34 = zext nneg i32 %3 to i64
   br label %29
 
-29:                                               ; preds = %.lr.ph46, %Wlc_BlastAdder.exit
-  %indvars.iv49 = phi i64 [ 0, %.lr.ph46 ], [ %indvars.iv.next50, %Wlc_BlastAdder.exit ]
+29:                                               ; preds = %.lr.ph46, %Wlc_BlastAdder.exit.loopexit
+  %indvars.iv49 = phi i64 [ 0, %.lr.ph46 ], [ %indvars.iv.next50, %Wlc_BlastAdder.exit.loopexit ]
   %30 = load i32, ptr %4, align 8
   %31 = sext i32 %30 to i64
   %.not.i.i23 = icmp sgt i64 %indvars.iv49, %31
@@ -2330,16 +2330,16 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val22 = load i32, ptr %27, align 4
   %79 = icmp slt i32 %.val22, %3
-  br i1 %79, label %46, label %.lr.ph.i35.preheader, !llvm.loop !43
+  br i1 %79, label %46, label %.lr.ph.preheader.i, !llvm.loop !43
 
-.lr.ph.i35.preheader:                             ; preds = %Vec_IntPush.exit
+.lr.ph.preheader.i:                               ; preds = %Vec_IntPush.exit
   %.val21 = load ptr, ptr %28, align 8
   %.val = load ptr, ptr %26, align 8
   br label %.lr.ph.i35
 
-.lr.ph.i35:                                       ; preds = %.lr.ph.i35.preheader, %Wlc_BlastFullAdder.exit
-  %.042 = phi i32 [ %.1, %Wlc_BlastFullAdder.exit ], [ 0, %.lr.ph.i35.preheader ]
-  %indvars.iv.i36 = phi i64 [ %indvars.iv.next.i37, %Wlc_BlastFullAdder.exit ], [ 0, %.lr.ph.i35.preheader ]
+.lr.ph.i35:                                       ; preds = %Wlc_BlastFullAdder.exit, %.lr.ph.preheader.i
+  %.042 = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1, %Wlc_BlastFullAdder.exit ]
+  %indvars.iv.i36 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i37, %Wlc_BlastFullAdder.exit ]
   %80 = getelementptr inbounds i32, ptr %.val21, i64 %indvars.iv.i36
   %81 = load i32, ptr %80, align 4
   %82 = getelementptr inbounds i32, ptr %.val, i64 %indvars.iv.i36
@@ -2382,14 +2382,14 @@ Wlc_BlastFullAdder.exit:                          ; preds = %.lr.ph.i35, %103
   %.1 = phi i32 [ %106, %103 ], [ %102, %.lr.ph.i35 ]
   %indvars.iv.next.i37 = add nuw nsw i64 %indvars.iv.i36, 1
   %exitcond.not.i38 = icmp eq i64 %indvars.iv.next.i37, %wide.trip.count.i34
-  br i1 %exitcond.not.i38, label %Wlc_BlastAdder.exit, label %.lr.ph.i35, !llvm.loop !29
+  br i1 %exitcond.not.i38, label %Wlc_BlastAdder.exit.loopexit, label %.lr.ph.i35, !llvm.loop !29
 
-Wlc_BlastAdder.exit:                              ; preds = %Wlc_BlastFullAdder.exit
+Wlc_BlastAdder.exit.loopexit:                     ; preds = %Wlc_BlastFullAdder.exit
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next50, %wide.trip.count.i34
   br i1 %exitcond.not, label %._crit_edge47, label %29, !llvm.loop !44
 
-._crit_edge47:                                    ; preds = %Wlc_BlastAdder.exit, %Vec_IntFill.exit.thread, %Vec_IntFill.exit
+._crit_edge47:                                    ; preds = %Wlc_BlastAdder.exit.loopexit, %Vec_IntFill.exit.thread, %Vec_IntFill.exit
   ret void
 }
 
@@ -16229,8 +16229,8 @@ Wlc_BlastReduction.exit:                          ; preds = %.lr.ph50.i, %2502
   store i32 1, ptr %93, align 8
   br label %Vec_IntGrow.exit.i3383
 
-Vec_IntGrow.exit.i3383:                           ; preds = %2514, %Wlc_BlastReduction.exit
-  %2516 = phi ptr [ %2515, %2514 ], [ %.pre5474, %Wlc_BlastReduction.exit ]
+Vec_IntGrow.exit.i3383:                           ; preds = %Wlc_BlastReduction.exit, %2514
+  %2516 = phi ptr [ %.pre5474, %Wlc_BlastReduction.exit ], [ %2515, %2514 ]
   store i32 %2507, ptr %2516, align 4
   store i32 1, ptr %94, align 4
   %.not45854800 = icmp eq i32 %.val2594, %.val2595
@@ -16377,8 +16377,8 @@ Wlc_BlastReduction.exit3413:                      ; preds = %.lr.ph50.i3408, %Wl
   store i32 1, ptr %93, align 8
   br label %Vec_IntGrow.exit.i3415
 
-Vec_IntGrow.exit.i3415:                           ; preds = %2563, %Wlc_BlastReduction.exit3413
-  %2565 = phi ptr [ %2564, %2563 ], [ %.pre5473, %Wlc_BlastReduction.exit3413 ]
+Vec_IntGrow.exit.i3415:                           ; preds = %Wlc_BlastReduction.exit3413, %2563
+  %2565 = phi ptr [ %.pre5473, %Wlc_BlastReduction.exit3413 ], [ %2564, %2563 ]
   store i32 %2556, ptr %2565, align 4
   store i32 1, ptr %94, align 4
   %.not45844797 = icmp eq i32 %.val2594, %.val2595
@@ -16524,8 +16524,8 @@ Wlc_BlastReduction.exit3446:                      ; preds = %.lr.ph50.i3441, %Wl
   store i32 1, ptr %93, align 8
   br label %Vec_IntGrow.exit.i3448
 
-Vec_IntGrow.exit.i3448:                           ; preds = %2611, %Wlc_BlastReduction.exit3446
-  %2613 = phi ptr [ %2612, %2611 ], [ %.pre5472, %Wlc_BlastReduction.exit3446 ]
+Vec_IntGrow.exit.i3448:                           ; preds = %Wlc_BlastReduction.exit3446, %2611
+  %2613 = phi ptr [ %.pre5472, %Wlc_BlastReduction.exit3446 ], [ %2612, %2611 ]
   store i32 %2604, ptr %2613, align 4
   store i32 1, ptr %94, align 4
   %.not45834794 = icmp eq i32 %.val2594, %.val2595
@@ -16671,8 +16671,8 @@ Wlc_BlastReduction.exit3479:                      ; preds = %.lr.ph50.i3474, %Wl
   store i32 1, ptr %93, align 8
   br label %Vec_IntGrow.exit.i3481
 
-Vec_IntGrow.exit.i3481:                           ; preds = %2659, %Wlc_BlastReduction.exit3479
-  %2661 = phi ptr [ %2660, %2659 ], [ %.pre5471, %Wlc_BlastReduction.exit3479 ]
+Vec_IntGrow.exit.i3481:                           ; preds = %Wlc_BlastReduction.exit3479, %2659
+  %2661 = phi ptr [ %.pre5471, %Wlc_BlastReduction.exit3479 ], [ %2660, %2659 ]
   store i32 %2652, ptr %2661, align 4
   store i32 1, ptr %94, align 4
   %.not45824791 = icmp eq i32 %.val2594, %.val2595
@@ -16818,8 +16818,8 @@ Wlc_BlastReduction.exit3512:                      ; preds = %.lr.ph50.i3507, %Wl
   store i32 1, ptr %93, align 8
   br label %Vec_IntGrow.exit.i3514
 
-Vec_IntGrow.exit.i3514:                           ; preds = %2707, %Wlc_BlastReduction.exit3512
-  %2709 = phi ptr [ %2708, %2707 ], [ %.pre5475, %Wlc_BlastReduction.exit3512 ]
+Vec_IntGrow.exit.i3514:                           ; preds = %Wlc_BlastReduction.exit3512, %2707
+  %2709 = phi ptr [ %.pre5475, %Wlc_BlastReduction.exit3512 ], [ %2708, %2707 ]
   store i32 %2700, ptr %2709, align 4
   store i32 1, ptr %94, align 4
   %.not45864803 = icmp eq i32 %.val2594, %.val2595
@@ -17296,8 +17296,8 @@ Wlc_VecLoadFanins.exit3564.loopexit:              ; preds = %Vec_IntPush.exit.i3
   store i32 1, ptr %93, align 8
   br label %Vec_IntGrow.exit.i3566
 
-Vec_IntGrow.exit.i3566:                           ; preds = %2904, %._crit_edge4829
-  %2906 = phi ptr [ %2905, %2904 ], [ %.pre5480, %._crit_edge4829 ]
+Vec_IntGrow.exit.i3566:                           ; preds = %._crit_edge4829, %2904
+  %2906 = phi ptr [ %.pre5480, %._crit_edge4829 ], [ %2905, %2904 ]
   store i32 %.12226.lcssa, ptr %2906, align 4
   store i32 1, ptr %94, align 4
   %.not45884831 = icmp eq i32 %.val2594, %.val2595
@@ -17566,8 +17566,8 @@ Wlc_ObjIsSignedFanin01.exit3623:                  ; preds = %Wlc_ObjFanin0.exit.
   store i32 1, ptr %93, align 8
   br label %Vec_IntGrow.exit.i3625
 
-Vec_IntGrow.exit.i3625:                           ; preds = %3014, %._crit_edge4809
-  %3016 = phi ptr [ %3015, %3014 ], [ %.pre5477, %._crit_edge4809 ]
+Vec_IntGrow.exit.i3625:                           ; preds = %._crit_edge4809, %3014
+  %3016 = phi ptr [ %.pre5477, %._crit_edge4809 ], [ %3015, %3014 ]
   store i32 %3007, ptr %3016, align 4
   store i32 1, ptr %94, align 4
   %.not45874811 = icmp eq i32 %.val2594, %.val2595
@@ -17774,8 +17774,8 @@ Wlc_BlastLessSigned.exit:                         ; preds = %3079, %3089
   store i32 1, ptr %93, align 8
   br label %Vec_IntGrow.exit.i3662
 
-Vec_IntGrow.exit.i3662:                           ; preds = %3103, %3094
-  %3105 = phi ptr [ %3104, %3103 ], [ %.pre5470, %3094 ]
+Vec_IntGrow.exit.i3662:                           ; preds = %3094, %3103
+  %3105 = phi ptr [ %.pre5470, %3094 ], [ %3104, %3103 ]
   store i32 %3096, ptr %3105, align 4
   store i32 1, ptr %94, align 4
   %.not45804781 = icmp eq i32 %.val2594, %.val2595

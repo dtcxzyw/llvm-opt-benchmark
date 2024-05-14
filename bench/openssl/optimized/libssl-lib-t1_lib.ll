@@ -5481,9 +5481,9 @@ if.end6:                                          ; preds = %if.end
   br i1 %cmp8, label %for.body, label %if.else
 
 for.body:                                         ; preds = %if.end6, %for.inc
-  %s.043 = phi ptr [ %incdec.ptr, %for.inc ], [ @sigalg_lookup_tbl, %if.end6 ]
-  %i.042 = phi i64 [ %inc24, %for.inc ], [ 0, %if.end6 ]
-  %1 = load ptr, ptr %s.043, align 8
+  %s.041 = phi ptr [ %incdec.ptr, %for.inc ], [ @sigalg_lookup_tbl, %if.end6 ]
+  %i.040 = phi i64 [ %inc24, %for.inc ], [ 0, %if.end6 ]
+  %1 = load ptr, ptr %s.041, align 8
   %cmp13.not = icmp eq ptr %1, null
   br i1 %cmp13.not, label %for.inc, label %land.lhs.true
 
@@ -5493,7 +5493,7 @@ land.lhs.true:                                    ; preds = %for.body
   br i1 %cmp18, label %for.end.thread, label %for.inc
 
 for.end.thread:                                   ; preds = %land.lhs.true
-  %sigalg = getelementptr inbounds i8, ptr %s.043, i64 8
+  %sigalg = getelementptr inbounds i8, ptr %s.041, i64 8
   %2 = load i16, ptr %sigalg, align 8
   %sigalgs = getelementptr inbounds i8, ptr %arg, i64 8
   %inc = add i64 %0, 1
@@ -5503,8 +5503,8 @@ for.end.thread:                                   ; preds = %land.lhs.true
   br label %if.end66
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true
-  %inc24 = add nuw nsw i64 %i.042, 1
-  %incdec.ptr = getelementptr inbounds i8, ptr %s.043, i64 40
+  %inc24 = add nuw nsw i64 %i.040, 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %s.041, i64 40
   %exitcond48.not = icmp eq i64 %inc24, 31
   br i1 %exitcond48.not, label %return, label %for.body, !llvm.loop !36
 
@@ -5526,21 +5526,21 @@ if.end34:                                         ; preds = %if.else
   br i1 %or.cond, label %return, label %for.body45
 
 for.body45:                                       ; preds = %if.end34, %for.inc58
-  %s.141 = phi ptr [ %incdec.ptr60, %for.inc58 ], [ @sigalg_lookup_tbl, %if.end34 ]
-  %i.140 = phi i64 [ %inc59, %for.inc58 ], [ 0, %if.end34 ]
-  %hash = getelementptr inbounds i8, ptr %s.141, i64 12
+  %s.139 = phi ptr [ %incdec.ptr60, %for.inc58 ], [ @sigalg_lookup_tbl, %if.end34 ]
+  %i.138 = phi i64 [ %inc59, %for.inc58 ], [ 0, %if.end34 ]
+  %hash = getelementptr inbounds i8, ptr %s.139, i64 12
   %6 = load i32, ptr %hash, align 4
   %cmp46 = icmp eq i32 %6, %5
   br i1 %cmp46, label %land.lhs.true48, label %for.inc58
 
 land.lhs.true48:                                  ; preds = %for.body45
-  %sig = getelementptr inbounds i8, ptr %s.141, i64 20
+  %sig = getelementptr inbounds i8, ptr %s.139, i64 20
   %7 = load i32, ptr %sig, align 4
   %cmp49 = icmp eq i32 %7, %4
   br i1 %cmp49, label %for.end61.thread, label %for.inc58
 
 for.end61.thread:                                 ; preds = %land.lhs.true48
-  %sigalg52 = getelementptr inbounds i8, ptr %s.141, i64 8
+  %sigalg52 = getelementptr inbounds i8, ptr %s.139, i64 8
   %8 = load i16, ptr %sigalg52, align 8
   %sigalgs53 = getelementptr inbounds i8, ptr %arg, i64 8
   %9 = load i64, ptr %arg, align 8
@@ -5551,16 +5551,16 @@ for.end61.thread:                                 ; preds = %land.lhs.true48
   br label %if.end66
 
 for.inc58:                                        ; preds = %for.body45, %land.lhs.true48
-  %inc59 = add nuw nsw i64 %i.140, 1
-  %incdec.ptr60 = getelementptr inbounds i8, ptr %s.141, i64 40
+  %inc59 = add nuw nsw i64 %i.138, 1
+  %incdec.ptr60 = getelementptr inbounds i8, ptr %s.139, i64 40
   %exitcond.not = icmp eq i64 %inc59, 31
   br i1 %exitcond.not, label %return, label %for.body45, !llvm.loop !37
 
 if.end66:                                         ; preds = %for.end61.thread, %for.end.thread
   %10 = load i64, ptr %arg, align 8
   %sub = add i64 %10, -1
-  %cmp6944.not = icmp eq i64 %sub, 0
-  br i1 %cmp6944.not, label %return, label %for.body71.lr.ph
+  %cmp6942.not = icmp eq i64 %sub, 0
+  br i1 %cmp6942.not, label %return, label %for.body71.lr.ph
 
 for.body71.lr.ph:                                 ; preds = %if.end66
   %sigalgs72 = getelementptr inbounds i8, ptr %arg, i64 8
@@ -5569,13 +5569,13 @@ for.body71.lr.ph:                                 ; preds = %if.end66
   br label %for.body71
 
 for.cond67:                                       ; preds = %for.body71
-  %inc86 = add nuw i64 %i.245, 1
+  %inc86 = add nuw i64 %i.243, 1
   %exitcond49.not = icmp eq i64 %inc86, %sub
   br i1 %exitcond49.not, label %return, label %for.body71, !llvm.loop !38
 
 for.body71:                                       ; preds = %for.body71.lr.ph, %for.cond67
-  %i.245 = phi i64 [ 0, %for.body71.lr.ph ], [ %inc86, %for.cond67 ]
-  %arrayidx73 = getelementptr inbounds [62 x i16], ptr %sigalgs72, i64 0, i64 %i.245
+  %i.243 = phi i64 [ 0, %for.body71.lr.ph ], [ %inc86, %for.cond67 ]
+  %arrayidx73 = getelementptr inbounds [62 x i16], ptr %sigalgs72, i64 0, i64 %i.243
   %12 = load i16, ptr %arrayidx73, align 2
   %cmp80 = icmp eq i16 %12, %11
   br i1 %cmp80, label %if.then82, label %for.cond67
@@ -5630,49 +5630,49 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end
-  %cmp328.not = icmp eq i64 %salglen, 0
-  br i1 %cmp328.not, label %for.end18, label %for.body
+  %cmp327.not = icmp eq i64 %salglen, 0
+  br i1 %cmp327.not, label %for.end18, label %for.body
 
-for.body:                                         ; preds = %for.cond.preheader, %for.inc17
-  %psig_nids.addr.031 = phi ptr [ %incdec.ptr4, %for.inc17 ], [ %psig_nids, %for.cond.preheader ]
-  %i.030 = phi i64 [ %add, %for.inc17 ], [ 0, %for.cond.preheader ]
-  %sptr.029 = phi ptr [ %incdec.ptr11, %for.inc17 ], [ %call, %for.cond.preheader ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %psig_nids.addr.031, i64 4
-  %0 = load i32, ptr %psig_nids.addr.031, align 4
-  %incdec.ptr4 = getelementptr inbounds i8, ptr %psig_nids.addr.031, i64 8
+for.body:                                         ; preds = %for.cond.preheader, %for.end.thread
+  %psig_nids.addr.030 = phi ptr [ %incdec.ptr4, %for.end.thread ], [ %psig_nids, %for.cond.preheader ]
+  %i.029 = phi i64 [ %add, %for.end.thread ], [ 0, %for.cond.preheader ]
+  %sptr.028 = phi ptr [ %incdec.ptr11, %for.end.thread ], [ %call, %for.cond.preheader ]
+  %incdec.ptr = getelementptr inbounds i8, ptr %psig_nids.addr.030, i64 4
+  %0 = load i32, ptr %psig_nids.addr.030, align 4
+  %incdec.ptr4 = getelementptr inbounds i8, ptr %psig_nids.addr.030, i64 8
   %1 = load i32, ptr %incdec.ptr, align 4
   br label %for.body7
 
 for.body7:                                        ; preds = %for.body, %for.inc
-  %curr.027 = phi ptr [ @sigalg_lookup_tbl, %for.body ], [ %incdec.ptr13, %for.inc ]
-  %j.026 = phi i64 [ 0, %for.body ], [ %inc, %for.inc ]
-  %hash = getelementptr inbounds i8, ptr %curr.027, i64 12
+  %curr.026 = phi ptr [ @sigalg_lookup_tbl, %for.body ], [ %incdec.ptr13, %for.inc ]
+  %j.025 = phi i64 [ 0, %for.body ], [ %inc, %for.inc ]
+  %hash = getelementptr inbounds i8, ptr %curr.026, i64 12
   %2 = load i32, ptr %hash, align 4
   %cmp8 = icmp eq i32 %2, %0
   br i1 %cmp8, label %land.lhs.true, label %for.inc
 
 land.lhs.true:                                    ; preds = %for.body7
-  %sig = getelementptr inbounds i8, ptr %curr.027, i64 20
+  %sig = getelementptr inbounds i8, ptr %curr.026, i64 20
   %3 = load i32, ptr %sig, align 4
   %cmp9 = icmp eq i32 %3, %1
-  br i1 %cmp9, label %for.inc17, label %for.inc
+  br i1 %cmp9, label %for.end.thread, label %for.inc
+
+for.end.thread:                                   ; preds = %land.lhs.true
+  %sigalg = getelementptr inbounds i8, ptr %curr.026, i64 8
+  %4 = load i16, ptr %sigalg, align 8
+  %incdec.ptr11 = getelementptr inbounds i8, ptr %sptr.028, i64 2
+  store i16 %4, ptr %sptr.028, align 2
+  %add = add i64 %i.029, 2
+  %cmp3 = icmp ult i64 %add, %salglen
+  br i1 %cmp3, label %for.body, label %for.end18, !llvm.loop !39
 
 for.inc:                                          ; preds = %for.body7, %land.lhs.true
-  %inc = add nuw nsw i64 %j.026, 1
-  %incdec.ptr13 = getelementptr inbounds i8, ptr %curr.027, i64 40
+  %inc = add nuw nsw i64 %j.025, 1
+  %incdec.ptr13 = getelementptr inbounds i8, ptr %curr.026, i64 40
   %exitcond.not = icmp eq i64 %inc, 31
-  br i1 %exitcond.not, label %err, label %for.body7, !llvm.loop !39
+  br i1 %exitcond.not, label %err, label %for.body7, !llvm.loop !40
 
-for.inc17:                                        ; preds = %land.lhs.true
-  %sigalg = getelementptr inbounds i8, ptr %curr.027, i64 8
-  %4 = load i16, ptr %sigalg, align 8
-  store i16 %4, ptr %sptr.029, align 2
-  %incdec.ptr11 = getelementptr inbounds i8, ptr %sptr.029, i64 2
-  %add = add i64 %i.030, 2
-  %cmp3 = icmp ult i64 %add, %salglen
-  br i1 %cmp3, label %for.body, label %for.end18, !llvm.loop !40
-
-for.end18:                                        ; preds = %for.inc17, %for.cond.preheader
+for.end18:                                        ; preds = %for.end.thread, %for.cond.preheader
   %tobool19.not = icmp eq i32 %client, 0
   br i1 %tobool19.not, label %if.else, label %if.then20
 

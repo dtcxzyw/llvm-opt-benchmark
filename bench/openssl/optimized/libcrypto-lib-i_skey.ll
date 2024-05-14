@@ -168,17 +168,17 @@ for.end:                                          ; preds = %for.body
 define void @IDEA_set_decrypt_key(ptr nocapture noundef readonly %ek, ptr nocapture noundef %dk) local_unnamed_addr #0 {
 entry:
   %arrayidx3 = getelementptr inbounds i8, ptr %ek, i64 192
-  br label %for.body
+  br label %for.cond
 
-for.body:                                         ; preds = %if.end, %entry
-  %r.052 = phi i32 [ 0, %entry ], [ %inc, %if.end ]
-  %tp.051 = phi ptr [ %dk, %entry ], [ %incdec.ptr23, %if.end ]
-  %fp.050 = phi ptr [ %arrayidx3, %entry ], [ %add.ptr, %if.end ]
-  %0 = load i32, ptr %fp.050, align 4
+for.cond:                                         ; preds = %if.end, %entry
+  %fp.0 = phi ptr [ %arrayidx3, %entry ], [ %add.ptr, %if.end ]
+  %tp.0 = phi ptr [ %dk, %entry ], [ %incdec.ptr23, %if.end ]
+  %r.0 = phi i32 [ 0, %entry ], [ %inc, %if.end ]
+  %0 = load i32, ptr %fp.0, align 4
   %cmp.i = icmp eq i32 %0, 0
   br i1 %cmp.i, label %inverse.exit, label %if.else.i
 
-if.else.i:                                        ; preds = %for.body
+if.else.i:                                        ; preds = %for.cond
   %rem1627.i = urem i32 65537, %0
   %cmp117.i = icmp eq i32 %rem1627.i, 0
   br i1 %cmp117.i, label %inverse.exit, label %do.cond.i.preheader
@@ -210,23 +210,23 @@ do.cond.i:                                        ; preds = %do.cond.i.preheader
   %cmp1.i = icmp eq i64 %rem.i, 0
   br i1 %cmp1.i, label %do.cond.thread.i, label %do.cond.i, !llvm.loop !6
 
-inverse.exit:                                     ; preds = %if.else.i, %do.cond.thread.i, %for.body
-  %b2.2.i = phi i32 [ 0, %for.body ], [ 1, %if.else.i ], [ %1, %do.cond.thread.i ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %tp.051, i64 4
-  store i32 %b2.2.i, ptr %tp.051, align 4
-  %arrayidx6 = getelementptr inbounds i8, ptr %fp.050, i64 8
+inverse.exit:                                     ; preds = %if.else.i, %do.cond.thread.i, %for.cond
+  %b2.2.i = phi i32 [ 0, %for.cond ], [ 1, %if.else.i ], [ %1, %do.cond.thread.i ]
+  %incdec.ptr = getelementptr inbounds i8, ptr %tp.0, i64 4
+  store i32 %b2.2.i, ptr %tp.0, align 4
+  %arrayidx6 = getelementptr inbounds i8, ptr %fp.0, i64 8
   %2 = load i32, ptr %arrayidx6, align 4
   %sub = sub i32 0, %2
   %and = and i32 %sub, 65535
-  %incdec.ptr8 = getelementptr inbounds i8, ptr %tp.051, i64 8
+  %incdec.ptr8 = getelementptr inbounds i8, ptr %tp.0, i64 8
   store i32 %and, ptr %incdec.ptr, align 4
-  %arrayidx9 = getelementptr inbounds i8, ptr %fp.050, i64 4
+  %arrayidx9 = getelementptr inbounds i8, ptr %fp.0, i64 4
   %3 = load i32, ptr %arrayidx9, align 4
   %sub11 = sub i32 0, %3
   %and13 = and i32 %sub11, 65535
-  %incdec.ptr14 = getelementptr inbounds i8, ptr %tp.051, i64 12
+  %incdec.ptr14 = getelementptr inbounds i8, ptr %tp.0, i64 12
   store i32 %and13, ptr %incdec.ptr8, align 4
-  %arrayidx15 = getelementptr inbounds i8, ptr %fp.050, i64 12
+  %arrayidx15 = getelementptr inbounds i8, ptr %fp.0, i64 12
   %4 = load i32, ptr %arrayidx15, align 4
   %cmp.i24 = icmp eq i32 %4, 0
   br i1 %cmp.i24, label %inverse.exit49, label %if.else.i25
@@ -266,22 +266,22 @@ do.cond.i30:                                      ; preds = %do.cond.i30.prehead
 inverse.exit49:                                   ; preds = %if.else.i25, %do.cond.thread.i43, %inverse.exit
   %b2.2.i48 = phi i32 [ 0, %inverse.exit ], [ 1, %if.else.i25 ], [ %5, %do.cond.thread.i43 ]
   store i32 %b2.2.i48, ptr %incdec.ptr14, align 4
-  %cmp18 = icmp eq i32 %r.052, 8
+  %cmp18 = icmp eq i32 %r.0, 8
   br i1 %cmp18, label %for.end, label %if.end
 
 if.end:                                           ; preds = %inverse.exit49
-  %incdec.ptr17 = getelementptr inbounds i8, ptr %tp.051, i64 16
-  %add.ptr = getelementptr inbounds i8, ptr %fp.050, i64 -24
-  %arrayidx20 = getelementptr inbounds i8, ptr %fp.050, i64 -8
+  %incdec.ptr17 = getelementptr inbounds i8, ptr %tp.0, i64 16
+  %add.ptr = getelementptr inbounds i8, ptr %fp.0, i64 -24
+  %arrayidx20 = getelementptr inbounds i8, ptr %fp.0, i64 -8
   %6 = load i32, ptr %arrayidx20, align 4
-  %incdec.ptr21 = getelementptr inbounds i8, ptr %tp.051, i64 20
+  %incdec.ptr21 = getelementptr inbounds i8, ptr %tp.0, i64 20
   store i32 %6, ptr %incdec.ptr17, align 4
-  %arrayidx22 = getelementptr inbounds i8, ptr %fp.050, i64 -4
+  %arrayidx22 = getelementptr inbounds i8, ptr %fp.0, i64 -4
   %7 = load i32, ptr %arrayidx22, align 4
-  %incdec.ptr23 = getelementptr inbounds i8, ptr %tp.051, i64 24
+  %incdec.ptr23 = getelementptr inbounds i8, ptr %tp.0, i64 24
   store i32 %7, ptr %incdec.ptr21, align 4
-  %inc = add nuw nsw i32 %r.052, 1
-  br label %for.body
+  %inc = add nuw nsw i32 %r.0, 1
+  br label %for.cond, !llvm.loop !7
 
 for.end:                                          ; preds = %inverse.exit49
   %arrayidx27 = getelementptr inbounds i8, ptr %dk, i64 4
@@ -306,3 +306,4 @@ attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessibl
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}

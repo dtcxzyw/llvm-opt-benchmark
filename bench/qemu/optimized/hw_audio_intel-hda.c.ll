@@ -803,19 +803,19 @@ entry:
   %cond = select i1 %output, ptr %add.ptr2, ptr %st1
   br label %for.body
 
-for.body:                                         ; preds = %entry, %for.inc
-  %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
+for.cond:                                         ; preds = %for.body
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 4
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !10
+
+for.body:                                         ; preds = %entry, %for.cond
+  %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.cond ]
   %arrayidx = getelementptr %struct.IntelHDAStream, ptr %cond, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %shr = lshr i32 %1, 20
   %and = and i32 %shr, 15
   %cmp5 = icmp eq i32 %and, %stnr
-  br i1 %cmp5, label %if.end9, label %for.inc
-
-for.inc:                                          ; preds = %for.body
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !10
+  br i1 %cmp5, label %if.end9, label %for.cond
 
 if.end9:                                          ; preds = %for.body
   %bpl = getelementptr inbounds i8, ptr %arrayidx, i64 32
@@ -825,8 +825,8 @@ if.end9:                                          ; preds = %for.body
 
 if.end12:                                         ; preds = %if.end9
   %bentries = getelementptr inbounds i8, ptr %arrayidx, i64 40
-  %cmp13.not74 = icmp eq i32 %len, 0
-  br i1 %cmp13.not74, label %while.end, label %land.rhs.lr.ph
+  %cmp13.not73 = icmp eq i32 %len, 0
+  br i1 %cmp13.not73, label %while.end, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %if.end12
   %3 = load i32, ptr %bentries, align 8
@@ -842,19 +842,19 @@ land.rhs.lr.ph:                                   ; preds = %if.end12
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.end92
   %4 = phi ptr [ %2, %land.rhs.lr.ph ], [ %23, %if.end92 ]
-  %irq.078 = phi i1 [ false, %land.rhs.lr.ph ], [ %irq.2, %if.end92 ]
-  %left.077 = phi i32 [ %len, %land.rhs.lr.ph ], [ %sub63, %if.end92 ]
-  %s.176 = phi i32 [ %3, %land.rhs.lr.ph ], [ %dec, %if.end92 ]
-  %buf.addr.075 = phi ptr [ %buf, %land.rhs.lr.ph ], [ %add.ptr62, %if.end92 ]
-  %dec = add i32 %s.176, -1
-  %cmp14.not = icmp eq i32 %s.176, 0
+  %irq.077 = phi i1 [ false, %land.rhs.lr.ph ], [ %irq.2, %if.end92 ]
+  %left.076 = phi i32 [ %len, %land.rhs.lr.ph ], [ %sub63, %if.end92 ]
+  %s.175 = phi i32 [ %3, %land.rhs.lr.ph ], [ %dec, %if.end92 ]
+  %buf.addr.074 = phi ptr [ %buf, %land.rhs.lr.ph ], [ %add.ptr62, %if.end92 ]
+  %dec = add i32 %s.175, -1
+  %cmp14.not = icmp eq i32 %s.175, 0
   br i1 %cmp14.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %land.rhs
   %5 = load i32, ptr %bsize, align 4
   %6 = load i32, ptr %lpib, align 4
   %sub = sub i32 %5, %6
-  %spec.select = tail call i32 @llvm.umin.i32(i32 %left.077, i32 %sub)
+  %spec.select = tail call i32 @llvm.umin.i32(i32 %left.076, i32 %sub)
   %7 = load i32, ptr %be, align 8
   %idxprom22 = zext i32 %7 to i64
   %len24 = getelementptr %struct.bpl, ptr %4, i64 %idxprom22, i32 1
@@ -879,14 +879,14 @@ if.then37:                                        ; preds = %while.body
   %17 = load i32, ptr %len45, align 8
   %call46 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.155, i32 noundef %14, i32 noundef %15, i32 noundef %17, i32 noundef %copy.1) #12
   %.pre = load ptr, ptr %bpl, align 8
-  %.pre82 = load i32, ptr %be, align 8
-  %.pre83 = load i32, ptr %bp, align 4
-  %.pre84 = zext i32 %.pre82 to i64
+  %.pre81 = load i32, ptr %be, align 8
+  %.pre82 = load i32, ptr %bp, align 4
+  %.pre83 = zext i32 %.pre81 to i64
   br label %do.end
 
 do.end:                                           ; preds = %while.body, %if.then37
-  %idxprom50.pre-phi = phi i64 [ %idxprom22, %while.body ], [ %.pre84, %if.then37 ]
-  %18 = phi i32 [ %9, %while.body ], [ %.pre83, %if.then37 ]
+  %idxprom50.pre-phi = phi i64 [ %idxprom22, %while.body ], [ %.pre83, %if.then37 ]
+  %18 = phi i32 [ %9, %while.body ], [ %.pre82, %if.then37 ]
   %19 = phi ptr [ %4, %while.body ], [ %.pre, %if.then37 ]
   %arrayidx51 = getelementptr %struct.bpl, ptr %19, i64 %idxprom50.pre-phi
   %20 = load i64, ptr %arrayidx51, align 8
@@ -895,15 +895,15 @@ do.end:                                           ; preds = %while.body, %if.the
   %conv54 = zext i32 %copy.1 to i64
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !9
   fence seq_cst
-  %call.i.i.i = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i, i64 noundef %add, i32 1, ptr noundef %buf.addr.075, i64 noundef %conv54, i1 noundef zeroext %lnot) #10
+  %call.i.i.i = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i, i64 noundef %add, i32 1, ptr noundef %buf.addr.074, i64 noundef %conv54, i1 noundef zeroext %lnot) #10
   %21 = load i32, ptr %lpib, align 4
   %add58 = add i32 %21, %copy.1
   store i32 %add58, ptr %lpib, align 4
   %22 = load i32, ptr %bp, align 4
   %add60 = add i32 %22, %copy.1
   store i32 %add60, ptr %bp, align 4
-  %add.ptr62 = getelementptr i8, ptr %buf.addr.075, i64 %conv54
-  %sub63 = sub i32 %left.077, %copy.1
+  %add.ptr62 = getelementptr i8, ptr %buf.addr.074, i64 %conv54
+  %sub63 = sub i32 %left.076, %copy.1
   %23 = load ptr, ptr %bpl, align 8
   %24 = load i32, ptr %be, align 8
   %idxprom66 = zext i32 %24 to i64
@@ -918,7 +918,7 @@ if.then72:                                        ; preds = %do.end
   %26 = load i32, ptr %flags, align 4
   %and77 = and i32 %26, 1
   %tobool78.not = icmp ne i32 %and77, 0
-  %spec.select67 = select i1 %tobool78.not, i1 true, i1 %irq.078
+  %spec.select67 = select i1 %tobool78.not, i1 true, i1 %irq.077
   store i32 0, ptr %bp, align 4
   %inc83 = add i32 %24, 1
   store i32 %inc83, ptr %be, align 8
@@ -932,12 +932,12 @@ if.then88:                                        ; preds = %if.then72
   br label %if.end92
 
 if.end92:                                         ; preds = %if.then72, %if.then88, %do.end
-  %irq.2 = phi i1 [ %spec.select67, %if.then88 ], [ %spec.select67, %if.then72 ], [ %irq.078, %do.end ]
+  %irq.2 = phi i1 [ %spec.select67, %if.then88 ], [ %spec.select67, %if.then72 ], [ %irq.077, %do.end ]
   %cmp13.not = icmp eq i32 %sub63, 0
   br i1 %cmp13.not, label %while.end, label %land.rhs, !llvm.loop !11
 
 while.end:                                        ; preds = %land.rhs, %if.end92, %if.end12
-  %irq.0.lcssa = phi i1 [ false, %if.end12 ], [ %irq.2, %if.end92 ], [ %irq.078, %land.rhs ]
+  %irq.0.lcssa = phi i1 [ false, %if.end12 ], [ %irq.2, %if.end92 ], [ %irq.077, %land.rhs ]
   %dp_lbase = getelementptr i8, ptr %call.i, i64 224
   %28 = load i32, ptr %dp_lbase, align 8
   %and93 = and i32 %28, 1
@@ -995,8 +995,8 @@ if.then120:                                       ; preds = %do.end118
   call fastcc void @intel_hda_update_irq(ptr noundef %add.ptr)
   br label %return
 
-return:                                           ; preds = %for.inc, %do.end118, %if.then120, %if.end9
-  %retval.0 = phi i1 [ false, %if.end9 ], [ true, %if.then120 ], [ true, %do.end118 ], [ false, %for.inc ]
+return:                                           ; preds = %for.cond, %do.end118, %if.then120, %if.end9
+  %retval.0 = phi i1 [ false, %if.end9 ], [ true, %if.then120 ], [ true, %do.end118 ], [ false, %for.cond ]
   ret i1 %retval.0
 }
 

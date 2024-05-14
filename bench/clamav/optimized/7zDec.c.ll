@@ -377,7 +377,7 @@ IS_MAIN_METHOD.exit.i:                            ; preds = %183, %183, %183, %1
 
 205:                                              ; preds = %203
   %206 = icmp ugt i64 %194, %5
-  br i1 %206, label %SzFolder_Decode2.exit, label %.thread307.i
+  br i1 %206, label %SzFolder_Decode2.exit, label %.thread306.i
 
 207:                                              ; preds = %198
   %208 = sub nuw nsw i64 1, %indvars.iv.i
@@ -387,7 +387,7 @@ IS_MAIN_METHOD.exit.i:                            ; preds = %183, %183, %183, %1
   store i64 %194, ptr %210, align 8
   br i1 %.not150213.i, label %SzFolder_Decode2.exit, label %.lr.ph.preheader.i.i
 
-.thread307.i:                                     ; preds = %205
+.thread306.i:                                     ; preds = %205
   %211 = sub i64 %5, %194
   %212 = getelementptr inbounds i8, ptr %4, i64 %211
   br i1 %.not150213.i, label %SzFolder_Decode2.exit, label %GetSum.exit.i
@@ -409,13 +409,13 @@ IS_MAIN_METHOD.exit.i:                            ; preds = %183, %183, %183, %1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %GetSum.exit.i, label %.lr.ph.i.i
 
-GetSum.exit.i:                                    ; preds = %.lr.ph.i.i, %.thread.i, %.thread307.i
-  %.0128214230.i = phi i64 [ %5, %.thread.i ], [ %194, %.thread307.i ], [ %194, %.lr.ph.i.i ]
-  %.0127215229.i = phi ptr [ %4, %.thread.i ], [ %212, %.thread307.i ], [ %200, %.lr.ph.i.i ]
-  %.0126216228.i = phi i32 [ 0, %.thread.i ], [ 0, %.thread307.i ], [ %196, %.lr.ph.i.i ]
-  %.1124217227.i = phi ptr [ %.0123268.i, %.thread.i ], [ %212, %.thread307.i ], [ %.0123268.i, %.lr.ph.i.i ]
-  %.1218226.i = phi i64 [ %.0122269.i, %.thread.i ], [ %194, %.thread307.i ], [ %.0122269.i, %.lr.ph.i.i ]
-  %.06.lcssa.i.i = phi i64 [ 0, %.thread.i ], [ 0, %.thread307.i ], [ %215, %.lr.ph.i.i ]
+GetSum.exit.i:                                    ; preds = %.lr.ph.i.i, %.thread.i, %.thread306.i
+  %.0128214230.i = phi i64 [ %5, %.thread.i ], [ %194, %.thread306.i ], [ %194, %.lr.ph.i.i ]
+  %.0127215229.i = phi ptr [ %4, %.thread.i ], [ %212, %.thread306.i ], [ %200, %.lr.ph.i.i ]
+  %.0126216228.i = phi i32 [ 0, %.thread.i ], [ 0, %.thread306.i ], [ %196, %.lr.ph.i.i ]
+  %.1124217227.i = phi ptr [ %.0123268.i, %.thread.i ], [ %212, %.thread306.i ], [ %.0123268.i, %.lr.ph.i.i ]
+  %.1218226.i = phi i64 [ %.0122269.i, %.thread.i ], [ %194, %.thread306.i ], [ %.0122269.i, %.lr.ph.i.i ]
+  %.06.lcssa.i.i = phi i64 [ 0, %.thread.i ], [ 0, %.thread306.i ], [ %215, %.lr.ph.i.i ]
   %216 = zext i32 %.0126216228.i to i64
   %217 = getelementptr inbounds i64, ptr %1, i64 %216
   %218 = load i64, ptr %217, align 8
@@ -806,14 +806,14 @@ SzDecodePpmd.exit.i:                              ; preds = %332, %._crit_edge.i
 
 350:                                              ; preds = %183
   %351 = icmp eq i64 %188, 50528539
-  br i1 %351, label %.lr.ph.i186.preheader.i, label %382
+  br i1 %351, label %.lr.ph.i186.i, label %382
 
-.lr.ph.i186.preheader.i:                          ; preds = %350
+.lr.ph.i186.i:                                    ; preds = %350
   %352 = load i64, ptr %178, align 8
   %.not146.i = icmp eq i64 %indvars.iv.i, 3
   br i1 %.not146.i, label %353, label %SzFolder_Decode2.exit
 
-353:                                              ; preds = %.lr.ph.i186.preheader.i
+353:                                              ; preds = %.lr.ph.i186.i
   %354 = load i64, ptr %1, align 8
   %355 = add i64 %354, %3
   %356 = call i32 @LookInStream_SeekTo(ptr noundef %2, i64 noundef %355) #6
@@ -909,8 +909,8 @@ SzDecodeCopy.exit201.thread.i:                    ; preds = %370, %367, %364
   %391 = icmp ult i64 %indvars.iv.next.i, %390
   br i1 %391, label %183, label %SzFolder_Decode2.exit
 
-SzFolder_Decode2.exit:                            ; preds = %198, %203, %205, %207, %.thread307.i, %.thread.i, %GetSum.exit.i, %223, %SzDecodeLzma.exit.i, %SzDecodeLzma2.exit.i, %SzDecodePpmd.exit.i, %.lr.ph.i186.preheader.i, %353, %357, %376, %382, %383, %388, %7, %31, %36, %39, %44, %IS_SUPPORTED_CODER.exit.i.i, %46, %49, %53, %56, %60, %63, %66, %69, %73, %76, %80, %83, %85, %89, %93, %97, %IS_SUPPORTED_CODER.exit65.i.i, %102, %106, %110, %IS_SUPPORTED_CODER.exit66.i.i, %115, %119, %123, %126, %130, %133, %136, %139, %142, %146, %149, %152, %155, %158, %SzDecodeCopy.exit.thread.i, %SzDecodeLzma.exit.thread.i, %SzDecodeLzma.exit.thread235.i, %SzDecodeLzma2.exit.thread.i, %SzDecodeLzma2.exit.thread241.i, %SzDecodePpmd.exit.thread.i, %SzDecodePpmd.exit.thread247.i, %SzDecodeCopy.exit201.thread.i
-  %.0.i = phi i32 [ %.0.i161.ph.i, %SzDecodeCopy.exit.thread.i ], [ %242, %SzDecodeLzma.exit.thread.i ], [ %.026.i.ph.i, %SzDecodeLzma.exit.thread235.i ], [ %.0.i169.ph.i, %SzDecodeLzma2.exit.thread.i ], [ %.026.i175.ph.i, %SzDecodeLzma2.exit.thread241.i ], [ %.0.i179.ph.i, %SzDecodePpmd.exit.thread.i ], [ %.034.i.ph.i, %SzDecodePpmd.exit.thread247.i ], [ %.0.i199.ph.i, %SzDecodeCopy.exit201.thread.i ], [ 4, %110 ], [ 4, %IS_SUPPORTED_CODER.exit65.i.i ], [ 4, %102 ], [ 4, %106 ], [ 4, %97 ], [ 4, %85 ], [ 4, %89 ], [ 4, %93 ], [ 4, %44 ], [ 4, %36 ], [ 4, %39 ], [ 4, %158 ], [ 4, %53 ], [ 4, %IS_SUPPORTED_CODER.exit.i.i ], [ 4, %123 ], [ 4, %126 ], [ 4, %130 ], [ 4, %133 ], [ 4, %136 ], [ 4, %139 ], [ 4, %142 ], [ 4, %146 ], [ 4, %149 ], [ 4, %152 ], [ 4, %155 ], [ 4, %IS_SUPPORTED_CODER.exit66.i.i ], [ 4, %115 ], [ 4, %119 ], [ 4, %83 ], [ 4, %56 ], [ 4, %60 ], [ 4, %63 ], [ 4, %66 ], [ 4, %69 ], [ 4, %73 ], [ 4, %76 ], [ 4, %80 ], [ 4, %46 ], [ 4, %49 ], [ 18, %31 ], [ 4, %7 ], [ 1, %SzDecodeLzma.exit.i ], [ 11, %.thread.i ], [ 0, %388 ], [ 4, %383 ], [ 4, %382 ], [ %381, %376 ], [ 2, %357 ], [ %356, %353 ], [ 4, %.lr.ph.i186.preheader.i ], [ 1, %SzDecodePpmd.exit.i ], [ 1, %SzDecodeLzma2.exit.i ], [ 1, %223 ], [ %220, %GetSum.exit.i ], [ 11, %207 ], [ 4, %203 ], [ 5, %205 ], [ 2, %198 ], [ 11, %.thread307.i ]
+SzFolder_Decode2.exit:                            ; preds = %198, %203, %205, %207, %.thread306.i, %.thread.i, %GetSum.exit.i, %223, %SzDecodeLzma.exit.i, %SzDecodeLzma2.exit.i, %SzDecodePpmd.exit.i, %.lr.ph.i186.i, %353, %357, %376, %382, %383, %388, %7, %31, %36, %39, %44, %IS_SUPPORTED_CODER.exit.i.i, %46, %49, %53, %56, %60, %63, %66, %69, %73, %76, %80, %83, %85, %89, %93, %97, %IS_SUPPORTED_CODER.exit65.i.i, %102, %106, %110, %IS_SUPPORTED_CODER.exit66.i.i, %115, %119, %123, %126, %130, %133, %136, %139, %142, %146, %149, %152, %155, %158, %SzDecodeCopy.exit.thread.i, %SzDecodeLzma.exit.thread.i, %SzDecodeLzma.exit.thread235.i, %SzDecodeLzma2.exit.thread.i, %SzDecodeLzma2.exit.thread241.i, %SzDecodePpmd.exit.thread.i, %SzDecodePpmd.exit.thread247.i, %SzDecodeCopy.exit201.thread.i
+  %.0.i = phi i32 [ %.0.i161.ph.i, %SzDecodeCopy.exit.thread.i ], [ %242, %SzDecodeLzma.exit.thread.i ], [ %.026.i.ph.i, %SzDecodeLzma.exit.thread235.i ], [ %.0.i169.ph.i, %SzDecodeLzma2.exit.thread.i ], [ %.026.i175.ph.i, %SzDecodeLzma2.exit.thread241.i ], [ %.0.i179.ph.i, %SzDecodePpmd.exit.thread.i ], [ %.034.i.ph.i, %SzDecodePpmd.exit.thread247.i ], [ %.0.i199.ph.i, %SzDecodeCopy.exit201.thread.i ], [ 4, %110 ], [ 4, %IS_SUPPORTED_CODER.exit65.i.i ], [ 4, %102 ], [ 4, %106 ], [ 4, %97 ], [ 4, %85 ], [ 4, %89 ], [ 4, %93 ], [ 4, %44 ], [ 4, %36 ], [ 4, %39 ], [ 4, %158 ], [ 4, %53 ], [ 4, %IS_SUPPORTED_CODER.exit.i.i ], [ 4, %123 ], [ 4, %126 ], [ 4, %130 ], [ 4, %133 ], [ 4, %136 ], [ 4, %139 ], [ 4, %142 ], [ 4, %146 ], [ 4, %149 ], [ 4, %152 ], [ 4, %155 ], [ 4, %IS_SUPPORTED_CODER.exit66.i.i ], [ 4, %115 ], [ 4, %119 ], [ 4, %83 ], [ 4, %56 ], [ 4, %60 ], [ 4, %63 ], [ 4, %66 ], [ 4, %69 ], [ 4, %73 ], [ 4, %76 ], [ 4, %80 ], [ 4, %46 ], [ 4, %49 ], [ 18, %31 ], [ 4, %7 ], [ 1, %SzDecodeLzma.exit.i ], [ 11, %.thread.i ], [ 0, %388 ], [ 4, %383 ], [ 4, %382 ], [ %381, %376 ], [ 2, %357 ], [ %356, %353 ], [ 4, %.lr.ph.i186.i ], [ 1, %SzDecodePpmd.exit.i ], [ 1, %SzDecodeLzma2.exit.i ], [ 1, %223 ], [ %220, %GetSum.exit.i ], [ 11, %207 ], [ 4, %203 ], [ 5, %205 ], [ 2, %198 ], [ 11, %.thread306.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26)
   %392 = getelementptr inbounds i8, ptr %6, i64 8

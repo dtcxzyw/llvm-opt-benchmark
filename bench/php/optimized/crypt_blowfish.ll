@@ -3091,84 +3091,85 @@ split:                                            ; preds = %53, %.lr.ph, %12, %
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @BF_encode(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) unnamed_addr #6 {
-  %3 = load i8, ptr %1, align 1
-  %4 = zext i8 %3 to i32
-  %5 = lshr i32 %4, 2
-  %6 = zext nneg i32 %5 to i64
-  %7 = getelementptr inbounds [65 x i8], ptr @BF_itoa64, i64 0, i64 %6
-  %8 = load i8, ptr %7, align 1
-  store i8 %8, ptr %0, align 1
-  %9 = shl nuw nsw i32 %4, 4
+.split:
+  %2 = load i8, ptr %1, align 1
+  %3 = zext i8 %2 to i32
+  %4 = lshr i32 %3, 2
+  %5 = zext nneg i32 %4 to i64
+  %6 = getelementptr inbounds [65 x i8], ptr @BF_itoa64, i64 0, i64 %5
+  %7 = load i8, ptr %6, align 1
+  %8 = getelementptr inbounds i8, ptr %0, i64 1
+  store i8 %7, ptr %0, align 1
+  %9 = shl nuw nsw i32 %3, 4
   %10 = and i32 %9, 48
-  %11 = getelementptr inbounds i8, ptr %0, i64 1
   %.ptr2 = getelementptr i8, ptr %1, i64 1
-  %12 = load i8, ptr %.ptr2, align 1
-  %13 = zext i8 %12 to i32
-  %14 = lshr i32 %13, 4
-  %15 = or disjoint i32 %14, %10
-  %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds [65 x i8], ptr @BF_itoa64, i64 0, i64 %16
-  %18 = load i8, ptr %17, align 1
-  %19 = getelementptr inbounds i8, ptr %0, i64 2
-  store i8 %18, ptr %11, align 1
-  %20 = shl nuw nsw i32 %13, 2
-  %21 = and i32 %20, 60
+  %11 = load i8, ptr %.ptr2, align 1
+  %12 = zext i8 %11 to i32
+  %13 = lshr i32 %12, 4
+  %14 = or disjoint i32 %13, %10
+  %15 = zext nneg i32 %14 to i64
+  %16 = getelementptr inbounds [65 x i8], ptr @BF_itoa64, i64 0, i64 %15
+  %17 = load i8, ptr %16, align 1
+  %18 = getelementptr inbounds i8, ptr %0, i64 2
+  store i8 %17, ptr %8, align 1
+  %19 = shl nuw nsw i32 %12, 2
+  %20 = and i32 %19, 60
   %invariant.gep = getelementptr inbounds i8, ptr %1, i64 2
-  br label %22
+  br label %21
 
-22:                                               ; preds = %2, %22
-  %23 = phi i32 [ %21, %2 ], [ %56, %22 ]
-  %24 = phi ptr [ %19, %2 ], [ %54, %22 ]
-  %.04 = phi ptr [ %0, %2 ], [ %37, %22 ]
-  %.030.idx3 = phi i64 [ 0, %2 ], [ %.add35, %22 ]
+21:                                               ; preds = %.split, %21
+  %22 = phi i32 [ %20, %.split ], [ %55, %21 ]
+  %23 = phi ptr [ %18, %.split ], [ %53, %21 ]
+  %.04 = phi ptr [ %0, %.split ], [ %36, %21 ]
+  %.030.idx3 = phi i64 [ 0, %.split ], [ %.add35, %21 ]
   %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %.030.idx3
   %.add35 = add nuw nsw i64 %.030.idx3, 3
-  %25 = load i8, ptr %gep, align 1
-  %26 = zext i8 %25 to i32
-  %27 = lshr i32 %26, 6
-  %28 = or disjoint i32 %27, %23
-  %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds [65 x i8], ptr @BF_itoa64, i64 0, i64 %29
-  %31 = load i8, ptr %30, align 1
-  %32 = getelementptr inbounds i8, ptr %.04, i64 3
-  store i8 %31, ptr %24, align 1
-  %33 = and i32 %26, 63
-  %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr inbounds [65 x i8], ptr @BF_itoa64, i64 0, i64 %34
-  %36 = load i8, ptr %35, align 1
-  %37 = getelementptr inbounds i8, ptr %.04, i64 4
-  store i8 %36, ptr %32, align 1
+  %24 = load i8, ptr %gep, align 1
+  %25 = zext i8 %24 to i32
+  %26 = lshr i32 %25, 6
+  %27 = or disjoint i32 %26, %22
+  %28 = zext nneg i32 %27 to i64
+  %29 = getelementptr inbounds [65 x i8], ptr @BF_itoa64, i64 0, i64 %28
+  %30 = load i8, ptr %29, align 1
+  %31 = getelementptr inbounds i8, ptr %.04, i64 3
+  store i8 %30, ptr %23, align 1
+  %32 = and i32 %25, 63
+  %33 = zext nneg i32 %32 to i64
+  %34 = getelementptr inbounds [65 x i8], ptr @BF_itoa64, i64 0, i64 %33
+  %35 = load i8, ptr %34, align 1
+  %36 = getelementptr inbounds i8, ptr %.04, i64 4
+  store i8 %35, ptr %31, align 1
   %.030.ptr = getelementptr inbounds i8, ptr %1, i64 %.add35
-  %38 = load i8, ptr %.030.ptr, align 1
-  %39 = zext i8 %38 to i32
-  %40 = lshr i32 %39, 2
-  %41 = zext nneg i32 %40 to i64
-  %42 = getelementptr inbounds [65 x i8], ptr @BF_itoa64, i64 0, i64 %41
-  %43 = load i8, ptr %42, align 1
-  store i8 %43, ptr %37, align 1
-  %44 = shl nuw nsw i32 %39, 4
+  %37 = load i8, ptr %.030.ptr, align 1
+  %38 = zext i8 %37 to i32
+  %39 = lshr i32 %38, 2
+  %40 = zext nneg i32 %39 to i64
+  %41 = getelementptr inbounds [65 x i8], ptr @BF_itoa64, i64 0, i64 %40
+  %42 = load i8, ptr %41, align 1
+  %43 = getelementptr inbounds i8, ptr %.04, i64 5
+  store i8 %42, ptr %36, align 1
+  %44 = shl nuw nsw i32 %38, 4
   %45 = and i32 %44, 48
-  %46 = getelementptr inbounds i8, ptr %.04, i64 5
   %.ptr = getelementptr i8, ptr %.030.ptr, i64 1
-  %47 = load i8, ptr %.ptr, align 1
-  %48 = zext i8 %47 to i32
-  %49 = lshr i32 %48, 4
-  %50 = or disjoint i32 %49, %45
-  %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds [65 x i8], ptr @BF_itoa64, i64 0, i64 %51
-  %53 = load i8, ptr %52, align 1
-  %54 = getelementptr inbounds i8, ptr %.04, i64 6
-  store i8 %53, ptr %46, align 1
-  %55 = shl nuw nsw i32 %48, 2
-  %56 = and i32 %55, 60
+  %46 = load i8, ptr %.ptr, align 1
+  %47 = zext i8 %46 to i32
+  %48 = lshr i32 %47, 4
+  %49 = or disjoint i32 %48, %45
+  %50 = zext nneg i32 %49 to i64
+  %51 = getelementptr inbounds [65 x i8], ptr @BF_itoa64, i64 0, i64 %50
+  %52 = load i8, ptr %51, align 1
+  %53 = getelementptr inbounds i8, ptr %.04, i64 6
+  store i8 %52, ptr %43, align 1
+  %54 = shl nuw nsw i32 %47, 2
+  %55 = and i32 %54, 60
   %.not38.not = icmp eq i64 %.add35, 21
-  br i1 %.not38.not, label %.loopexit, label %22
+  br i1 %.not38.not, label %.loopexit, label %21
 
-.loopexit:                                        ; preds = %22
-  %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds [65 x i8], ptr @BF_itoa64, i64 0, i64 %57
-  %59 = load i8, ptr %58, align 4
-  store i8 %59, ptr %54, align 1
+.loopexit:                                        ; preds = %21
+  %56 = zext nneg i32 %55 to i64
+  %57 = getelementptr inbounds [65 x i8], ptr @BF_itoa64, i64 0, i64 %56
+  %58 = load i8, ptr %57, align 4
+  store i8 %58, ptr %53, align 1
   ret void
 }
 

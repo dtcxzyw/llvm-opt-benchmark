@@ -52270,9 +52270,9 @@ if.end:                                           ; preds = %_ZL15bernsteinVFTes
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc78.i.i, %if.end
-  %indvars.iv9.i.i = phi i64 [ 0, %if.end ], [ %indvars.iv.next10.i.i, %for.inc78.i.i ]
-  %cmp7.i.i = phi i1 [ true, %if.end ], [ %cmp.i.i18, %for.inc78.i.i ]
-  %arrayidx64.i.i = getelementptr inbounds [13 x %class.btVector3], ptr @_ZL3dop, i64 0, i64 %indvars.iv9.i.i
+  %indvars.iv11.i.i = phi i64 [ 0, %if.end ], [ %indvars.iv.next12.i.i, %for.inc78.i.i ]
+  %cmp6.i.i16 = phi i1 [ true, %if.end ], [ %cmp.i.i19, %for.inc78.i.i ]
+  %arrayidx64.i.i = getelementptr inbounds [13 x %class.btVector3], ptr @_ZL3dop, i64 0, i64 %indvars.iv11.i.i
   %112 = load float, ptr %arrayidx64.i.i, align 16
   %arrayidx5.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx64.i.i, i64 4
   %113 = load float, ptr %arrayidx5.i.i.i.i, align 4
@@ -52286,8 +52286,13 @@ for.body.i.i:                                     ; preds = %for.inc78.i.i, %if.
   %not.cmp.i.i.i = xor i1 %cmp.i.i.i, true
   br label %for.body68.i.i
 
-for.body68.i.i:                                   ; preds = %for.inc.i.i, %for.body.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %for.body.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
+for.cond66.i.i:                                   ; preds = %for.body68.i.i
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 6
+  br i1 %exitcond.not.i.i, label %_ZL18hasSeparatingPlanePKN10btSoftBody4FaceEPKNS_4NodeERKf.exit.i, label %for.body68.i.i, !llvm.loop !556
+
+for.body68.i.i:                                   ; preds = %for.cond66.i.i, %for.body.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %for.body.i.i ], [ %indvars.iv.next.i.i, %for.cond66.i.i ]
   %arrayidx72.i.i = getelementptr inbounds [6 x %class.btVector3], ptr %hex.i.i, i64 0, i64 %indvars.iv.i.i
   %117 = load float, ptr %arrayidx72.i.i, align 16
   %arrayidx7.i.i150.i.i = getelementptr inbounds i8, ptr %arrayidx72.i.i, i64 4
@@ -52302,21 +52307,16 @@ for.body68.i.i:                                   ; preds = %for.inc.i.i, %for.b
   %cmp7423.i.i = xor i1 %cmp1.i.i.i, %122
   %cmp742.i.i = and i1 %cmp7423.i.i, %not.cmp.i.i.i
   %cmp74.i.i = select i1 %cmp.i154.i.i, i1 %cmp.i.i.i, i1 %cmp742.i.i
-  br i1 %cmp74.i.i, label %for.inc78.i.i, label %for.inc.i.i
-
-for.inc.i.i:                                      ; preds = %for.body68.i.i
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 6
-  br i1 %exitcond.not.i.i, label %_ZL18hasSeparatingPlanePKN10btSoftBody4FaceEPKNS_4NodeERKf.exit.i, label %for.body68.i.i, !llvm.loop !556
+  br i1 %cmp74.i.i, label %for.inc78.i.i, label %for.cond66.i.i
 
 for.inc78.i.i:                                    ; preds = %for.body68.i.i
-  %indvars.iv.next10.i.i = add nuw nsw i64 %indvars.iv9.i.i, 1
-  %cmp.i.i18 = icmp ult i64 %indvars.iv9.i.i, 12
-  %exitcond11.not.i.i = icmp eq i64 %indvars.iv.next10.i.i, 13
-  br i1 %exitcond11.not.i.i, label %_ZL18hasSeparatingPlanePKN10btSoftBody4FaceEPKNS_4NodeERKf.exit.i, label %for.body.i.i, !llvm.loop !557
+  %indvars.iv.next12.i.i = add nuw nsw i64 %indvars.iv11.i.i, 1
+  %cmp.i.i19 = icmp ult i64 %indvars.iv11.i.i, 12
+  %exitcond13.not.i.i = icmp eq i64 %indvars.iv.next12.i.i, 13
+  br i1 %exitcond13.not.i.i, label %_ZL18hasSeparatingPlanePKN10btSoftBody4FaceEPKNS_4NodeERKf.exit.i, label %for.body.i.i, !llvm.loop !557
 
-_ZL18hasSeparatingPlanePKN10btSoftBody4FaceEPKNS_4NodeERKf.exit.i: ; preds = %for.inc78.i.i, %for.inc.i.i
-  %cmp.lcssa.i.i = phi i1 [ %cmp7.i.i, %for.inc.i.i ], [ %cmp.i.i18, %for.inc78.i.i ]
+_ZL18hasSeparatingPlanePKN10btSoftBody4FaceEPKNS_4NodeERKf.exit.i: ; preds = %for.inc78.i.i, %for.cond66.i.i
+  %cmp.lcssa.i.i = phi i1 [ %cmp6.i.i16, %for.cond66.i.i ], [ %cmp.i.i19, %for.inc78.i.i ]
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %hex.i.i)
   br i1 %cmp.lcssa.i.i, label %_ZL28continuousCollisionDetectionPKN10btSoftBody4FaceEPKNS_4NodeERKfS7_R9btVector3.exit, label %if.end.i
 
@@ -52370,7 +52370,7 @@ if.end.i:                                         ; preds = %_ZL18hasSeparatingP
   %146 = fneg float %sub8.i74.i
   %neg30.i133.i = fmul float %sub.i47.i, %146
   %147 = tail call float @llvm.fmuladd.f32(float %sub.i71.i, float %sub8.i50.i, float %neg30.i133.i)
-  %add.i.i16 = fadd float %143, %139
+  %add.i.i17 = fadd float %143, %139
   %add8.i.i = fadd float %145, %140
   %add14.i.i = fadd float %147, %141
   %neg.i152.i = fmul float %sub8.i86.i, %142
@@ -52389,14 +52389,14 @@ if.end.i:                                         ; preds = %_ZL18hasSeparatingP
   %156 = tail call float @llvm.fmuladd.f32(float %134, float %sub.i95.i, float %mul8.i165.i)
   %157 = tail call noundef float @llvm.fmuladd.f32(float %138, float %sub14.i101.i, float %156)
   %mul8.i170.i = fmul float %151, %add8.i.i
-  %158 = tail call float @llvm.fmuladd.f32(float %add.i.i16, float %152, float %mul8.i170.i)
+  %158 = tail call float @llvm.fmuladd.f32(float %add.i.i17, float %152, float %mul8.i170.i)
   %159 = tail call noundef float @llvm.fmuladd.f32(float %add14.i.i, float %154, float %158)
   %add.i = fadd float %159, %157
   %mul8.i175.i = fmul float %151, %149
   %160 = tail call float @llvm.fmuladd.f32(float %148, float %152, float %mul8.i175.i)
   %161 = tail call noundef float @llvm.fmuladd.f32(float %150, float %154, float %160)
   %mul8.i180.i = fmul float %add8.i.i, %sub8.i98.i
-  %162 = tail call float @llvm.fmuladd.f32(float %add.i.i16, float %sub.i95.i, float %mul8.i180.i)
+  %162 = tail call float @llvm.fmuladd.f32(float %add.i.i17, float %sub.i95.i, float %mul8.i180.i)
   %163 = tail call noundef float @llvm.fmuladd.f32(float %add14.i.i, float %sub14.i101.i, float %162)
   %add56.i = fadd float %161, %163
   %mul8.i185.i = fmul float %149, %sub8.i98.i

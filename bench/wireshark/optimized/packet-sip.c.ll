@@ -4678,15 +4678,15 @@ proto_item_set_hidden.exit1536:                   ; preds = %sip_proto_set_forma
   br label %966
 
 966:                                              ; preds = %1042, %.loopexit.i
-  %.0127147.i = phi i32 [ 0, %.loopexit.i ], [ %1043, %1042 ]
-  %.0128146.i = phi ptr [ @auth_parameters_hf_array, %.loopexit.i ], [ %1044, %1042 ]
-  %967 = load ptr, ptr %.0128146.i, align 8
+  %.0127146.i = phi i32 [ 0, %.loopexit.i ], [ %1043, %1042 ]
+  %.0128145.i = phi ptr [ @auth_parameters_hf_array, %.loopexit.i ], [ %1044, %1042 ]
+  %967 = load ptr, ptr %.0128145.i, align 8
   %968 = call i32 @g_ascii_strcasecmp(ptr noundef %948, ptr noundef %967) #15
   %969 = icmp eq i32 %968, 0
   br i1 %969, label %970, label %1042
 
 970:                                              ; preds = %966
-  %971 = getelementptr inbounds i8, ptr %.0128146.i, i64 8
+  %971 = getelementptr inbounds i8, ptr %.0128145.i, i64 8
   %972 = load ptr, ptr %971, align 8
   %973 = load i32, ptr %972, align 4
   %974 = sub i32 %.0131.i, %951
@@ -4806,8 +4806,8 @@ proto_item_set_hidden.exit1536:                   ; preds = %sip_proto_set_forma
   br label %dissect_sip_authorization_item.exit
 
 1042:                                             ; preds = %966
-  %1043 = add nuw nsw i32 %.0127147.i, 1
-  %1044 = getelementptr i8, ptr %.0128146.i, i64 16
+  %1043 = add nuw nsw i32 %.0127146.i, 1
+  %1044 = getelementptr i8, ptr %.0128145.i, i64 16
   %exitcond.not.i1538 = icmp eq i32 %1043, 17
   br i1 %exitcond.not.i1538, label %1045, label %966, !llvm.loop !34
 
@@ -7171,16 +7171,16 @@ define internal fastcc void @dissect_sip_via_header(ptr noundef %0, ptr noundef 
   %8 = alloca %struct.nstime_t, align 8
   %9 = sub i32 %3, %2
   %10 = tail call i32 @tvb_skip_wsp(ptr noundef %0, i32 noundef %2, i32 noundef %9) #15
-  %.not334 = icmp slt i32 %10, %3
-  br i1 %.not334, label %.lr.ph336, label %.loopexit285
+  %.not333 = icmp slt i32 %10, %3
+  br i1 %.not333, label %.lr.ph335, label %.loopexit285
 
-.lr.ph336:                                        ; preds = %5
+.lr.ph335:                                        ; preds = %5
   %11 = load ptr, ptr @g_ascii_table, align 8
   %12 = getelementptr inbounds i8, ptr %8, i64 8
   br label %13
 
-13:                                               ; preds = %.lr.ph336, %.loopexit283
-  %14 = phi i32 [ %10, %.lr.ph336 ], [ %214, %.loopexit283 ]
+13:                                               ; preds = %.lr.ph335, %.loopexit283
+  %14 = phi i32 [ %10, %.lr.ph335 ], [ %214, %.loopexit283 ]
   %15 = sub i32 %3, %14
   %16 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %14, i32 noundef %15, i8 noundef zeroext 47) #15
   %.not257 = icmp eq i32 %16, -1
@@ -7201,16 +7201,16 @@ define internal fastcc void @dissect_sip_via_header(ptr noundef %0, ptr noundef 
   br i1 %24, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.thread, %.backedge
-  %.3296 = phi i32 [ %33, %.backedge ], [ %23, %.thread ]
-  %25 = sub i32 %3, %.3296
-  %26 = call i32 @tvb_ws_mempbrk_pattern_guint8(ptr noundef %0, i32 noundef %.3296, i32 noundef %25, ptr noundef nonnull @pbrk_tab_sp_fslash, ptr noundef nonnull %6) #15
+  %.3295 = phi i32 [ %33, %.backedge ], [ %23, %.thread ]
+  %25 = sub i32 %3, %.3295
+  %26 = call i32 @tvb_ws_mempbrk_pattern_guint8(ptr noundef %0, i32 noundef %.3295, i32 noundef %25, ptr noundef nonnull @pbrk_tab_sp_fslash, ptr noundef nonnull %6) #15
   %.not259 = icmp eq i32 %26, -1
   br i1 %.not259, label %._crit_edge, label %27
 
 27:                                               ; preds = %.lr.ph
   %28 = load i32, ptr @hf_sip_via_transport, align 4
-  %29 = sub i32 %26, %.3296
-  %30 = call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %28, ptr noundef %0, i32 noundef %.3296, i32 noundef %29, i32 noundef 2) #15
+  %29 = sub i32 %26, %.3295
+  %30 = call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %28, ptr noundef %0, i32 noundef %.3295, i32 noundef %29, i32 noundef 2) #15
   %31 = load i8, ptr %6, align 1
   %32 = icmp eq i8 %31, 47
   br i1 %32, label %.backedge, label %35
@@ -7234,24 +7234,24 @@ define internal fastcc void @dissect_sip_via_header(ptr noundef %0, ptr noundef 
   %40 = sub i32 %3, %.4
   %41 = call i32 @tvb_skip_wsp(ptr noundef %0, i32 noundef %.4, i32 noundef %40) #15
   %42 = icmp slt i32 %41, %3
-  br i1 %42, label %.lr.ph303, label %._crit_edge304.thread
+  br i1 %42, label %.lr.ph302, label %._crit_edge303.thread
 
-.lr.ph303:                                        ; preds = %._crit_edge, %52
-  %.5301 = phi i32 [ %53, %52 ], [ %41, %._crit_edge ]
-  %.0235300 = phi i32 [ %.1236274, %52 ], [ 0, %._crit_edge ]
-  %.0237299 = phi i32 [ %.1238273, %52 ], [ 0, %._crit_edge ]
-  %43 = sub i32 %3, %.5301
-  %44 = call i32 @tvb_ws_mempbrk_pattern_guint8(ptr noundef %0, i32 noundef %.5301, i32 noundef %43, ptr noundef nonnull @pbrk_addr_end, ptr noundef nonnull %6) #15
+.lr.ph302:                                        ; preds = %._crit_edge, %52
+  %.5300 = phi i32 [ %53, %52 ], [ %41, %._crit_edge ]
+  %.0235299 = phi i32 [ %.1236274, %52 ], [ 0, %._crit_edge ]
+  %.0237298 = phi i32 [ %.1238273, %52 ], [ 0, %._crit_edge ]
+  %43 = sub i32 %3, %.5300
+  %44 = call i32 @tvb_ws_mempbrk_pattern_guint8(ptr noundef %0, i32 noundef %.5300, i32 noundef %43, ptr noundef nonnull @pbrk_addr_end, ptr noundef nonnull %6) #15
   %45 = icmp eq i32 %44, -1
-  br i1 %45, label %._crit_edge304, label %46
+  br i1 %45, label %._crit_edge303, label %46
 
-46:                                               ; preds = %.lr.ph303
+46:                                               ; preds = %.lr.ph302
   %47 = load i8, ptr %6, align 1
   switch i8 %47, label %.thread270.fold.split [
     i8 91, label %.thread270
     i8 93, label %48
-    i8 32, label %._crit_edge304
-    i8 9, label %._crit_edge304
+    i8 32, label %._crit_edge303
+    i8 9, label %._crit_edge303
   ]
 
 48:                                               ; preds = %46
@@ -7261,27 +7261,27 @@ define internal fastcc void @dissect_sip_via_header(ptr noundef %0, ptr noundef 
   br label %.thread270
 
 .thread270:                                       ; preds = %46, %.thread270.fold.split, %48
-  %.1236274 = phi i32 [ 1, %46 ], [ 0, %48 ], [ %.0235300, %.thread270.fold.split ]
-  %.1238273 = phi i32 [ 1, %46 ], [ %.0237299, %48 ], [ %.0237299, %.thread270.fold.split ]
+  %.1236274 = phi i32 [ 1, %46 ], [ 0, %48 ], [ %.0235299, %.thread270.fold.split ]
+  %.1238273 = phi i32 [ 1, %46 ], [ %.0237298, %48 ], [ %.0237298, %.thread270.fold.split ]
   %49 = icmp eq i8 %47, 58
   %50 = icmp eq i32 %.1236274, 0
   %or.cond7 = select i1 %49, i1 %50, i1 false
   %51 = icmp eq i8 %47, 59
   %or.cond10 = or i1 %51, %or.cond7
-  br i1 %or.cond10, label %._crit_edge304, label %52
+  br i1 %or.cond10, label %._crit_edge303, label %52
 
 52:                                               ; preds = %.thread270
   %53 = add nuw i32 %44, 1
   %54 = icmp slt i32 %53, %3
-  br i1 %54, label %.lr.ph303, label %._crit_edge304, !llvm.loop !52
+  br i1 %54, label %.lr.ph302, label %._crit_edge303, !llvm.loop !52
 
-._crit_edge304:                                   ; preds = %52, %.thread270, %.lr.ph303, %46, %46
-  %.2239 = phi i32 [ %.1238273, %52 ], [ %.1238273, %.thread270 ], [ %.0237299, %.lr.ph303 ], [ %.0237299, %46 ], [ %.0237299, %46 ]
-  %.6 = phi i32 [ %53, %52 ], [ %44, %.thread270 ], [ %3, %.lr.ph303 ], [ %44, %46 ], [ %44, %46 ]
+._crit_edge303:                                   ; preds = %52, %.thread270, %.lr.ph302, %46, %46
+  %.2239 = phi i32 [ %.1238273, %52 ], [ %.1238273, %.thread270 ], [ %.0237298, %.lr.ph302 ], [ %.0237298, %46 ], [ %.0237298, %46 ]
+  %.6 = phi i32 [ %53, %52 ], [ %44, %.thread270 ], [ %3, %.lr.ph302 ], [ %44, %46 ], [ %44, %46 ]
   %55 = icmp eq i32 %.2239, 1
-  br i1 %55, label %56, label %._crit_edge304.thread
+  br i1 %55, label %56, label %._crit_edge303.thread
 
-56:                                               ; preds = %._crit_edge304
+56:                                               ; preds = %._crit_edge303
   %57 = load i32, ptr @hf_sip_via_sent_by_address, align 4
   %58 = add i32 %41, 1
   %reass.sub = sub i32 %.6, %41
@@ -7289,17 +7289,17 @@ define internal fastcc void @dissect_sip_via_header(ptr noundef %0, ptr noundef 
   %60 = call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %57, ptr noundef %0, i32 noundef %58, i32 noundef %59, i32 noundef 2) #15
   br label %64
 
-._crit_edge304.thread:                            ; preds = %._crit_edge, %._crit_edge304
-  %.6355 = phi i32 [ %.6, %._crit_edge304 ], [ %41, %._crit_edge ]
+._crit_edge303.thread:                            ; preds = %._crit_edge, %._crit_edge303
+  %.6353 = phi i32 [ %.6, %._crit_edge303 ], [ %41, %._crit_edge ]
   %61 = load i32, ptr @hf_sip_via_sent_by_address, align 4
-  %62 = sub i32 %.6355, %41
+  %62 = sub i32 %.6353, %41
   %63 = call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %61, ptr noundef %0, i32 noundef %41, i32 noundef %62, i32 noundef 2) #15
   br label %64
 
-64:                                               ; preds = %._crit_edge304.thread, %56
-  %.6354 = phi i32 [ %.6355, %._crit_edge304.thread ], [ %.6, %56 ]
-  %65 = sub i32 %3, %.6354
-  %66 = call i32 @tvb_skip_wsp(ptr noundef %0, i32 noundef %.6354, i32 noundef %65) #15
+64:                                               ; preds = %._crit_edge303.thread, %56
+  %.6352 = phi i32 [ %.6353, %._crit_edge303.thread ], [ %.6, %56 ]
+  %65 = sub i32 %3, %.6352
+  %66 = call i32 @tvb_skip_wsp(ptr noundef %0, i32 noundef %.6352, i32 noundef %65) #15
   %67 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %66) #15
   store i8 %67, ptr %6, align 1
   %68 = icmp eq i8 %67, 58
@@ -7310,11 +7310,11 @@ define internal fastcc void @dissect_sip_via_header(ptr noundef %0, ptr noundef 
   %71 = sub i32 %3, %70
   %72 = call i32 @tvb_skip_wsp(ptr noundef %0, i32 noundef %70, i32 noundef %71) #15
   %73 = icmp slt i32 %72, %3
-  br i1 %73, label %.lr.ph320, label %.loopexit286
+  br i1 %73, label %.lr.ph319, label %.loopexit286
 
-.lr.ph320:                                        ; preds = %69, %92
-  %.7318 = phi i32 [ %93, %92 ], [ %72, %69 ]
-  %74 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.7318) #15
+.lr.ph319:                                        ; preds = %69, %92
+  %.7317 = phi i32 [ %93, %92 ], [ %72, %69 ]
+  %74 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.7317) #15
   store i8 %74, ptr %6, align 1
   %75 = zext i8 %74 to i64
   %76 = getelementptr i16, ptr %11, i64 %75
@@ -7323,13 +7323,13 @@ define internal fastcc void @dissect_sip_via_header(ptr noundef %0, ptr noundef 
   %.not260 = icmp eq i16 %78, 0
   br i1 %.not260, label %79, label %92
 
-79:                                               ; preds = %.lr.ph320
-  %80 = icmp sgt i32 %.7318, %72
+79:                                               ; preds = %.lr.ph319
+  %80 = icmp sgt i32 %.7317, %72
   br i1 %80, label %81, label %.loopexit285
 
 81:                                               ; preds = %79
   %82 = call ptr @wmem_packet_scope() #15
-  %83 = sub i32 %.7318, %72
+  %83 = sub i32 %.7317, %72
   %84 = call ptr @tvb_get_string_enc(ptr noundef %82, ptr noundef %0, i32 noundef %72, i32 noundef %83, i32 noundef 2) #15
   %85 = call zeroext i1 @ws_strtou16(ptr noundef %84, ptr noundef null, ptr noundef nonnull %7) #15
   %86 = load i32, ptr @hf_sip_via_sent_by_port, align 4
@@ -7342,26 +7342,26 @@ define internal fastcc void @dissect_sip_via_header(ptr noundef %0, ptr noundef 
   %91 = call ptr @expert_add_info(ptr noundef %4, ptr noundef %89, ptr noundef nonnull @ei_sip_via_sent_by_port) #15
   br label %.loopexit286
 
-92:                                               ; preds = %.lr.ph320
-  %93 = add i32 %.7318, 1
+92:                                               ; preds = %.lr.ph319
+  %93 = add i32 %.7317, 1
   %exitcond.not = icmp eq i32 %93, %3
-  br i1 %exitcond.not, label %.loopexit286, label %.lr.ph320, !llvm.loop !53
+  br i1 %exitcond.not, label %.loopexit286, label %.lr.ph319, !llvm.loop !53
 
 .loopexit286:                                     ; preds = %92, %69, %81, %90, %64
-  %.8 = phi i32 [ %.7318, %81 ], [ %.7318, %90 ], [ %66, %64 ], [ %72, %69 ], [ %3, %92 ]
+  %.8 = phi i32 [ %.7317, %81 ], [ %.7317, %90 ], [ %66, %64 ], [ %72, %69 ], [ %3, %92 ]
   %94 = sub i32 %3, %.8
   %95 = call i32 @tvb_skip_wsp(ptr noundef %0, i32 noundef %.8, i32 noundef %94) #15
   %96 = icmp slt i32 %95, %3
   br i1 %96, label %.preheader282, label %.loopexit283
 
 .preheader282:                                    ; preds = %.loopexit286, %208
-  %.9332 = phi i32 [ %206, %208 ], [ %95, %.loopexit286 ]
-  %.0233331 = phi i32 [ %.1234.ph, %208 ], [ 0, %.loopexit286 ]
+  %.9331 = phi i32 [ %206, %208 ], [ %95, %.loopexit286 ]
+  %.0233330 = phi i32 [ %.1234.ph, %208 ], [ 0, %.loopexit286 ]
   br label %97
 
 97:                                               ; preds = %.preheader282, %101
-  %.10322 = phi i32 [ %.9332, %.preheader282 ], [ %102, %101 ]
-  %98 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.10322) #15
+  %.10321 = phi i32 [ %.9331, %.preheader282 ], [ %102, %101 ]
+  %98 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.10321) #15
   store i8 %98, ptr %6, align 1
   switch i8 %98, label %.loopexit283 [
     i8 59, label %99
@@ -7370,27 +7370,27 @@ define internal fastcc void @dissect_sip_via_header(ptr noundef %0, ptr noundef 
   ]
 
 99:                                               ; preds = %97
-  %100 = add nsw i32 %.10322, 1
+  %100 = add nsw i32 %.10321, 1
   br label %.loopexit
 
 101:                                              ; preds = %97, %97
-  %102 = add nsw i32 %.10322, 1
+  %102 = add nsw i32 %.10321, 1
   %103 = icmp slt i32 %102, %3
   br i1 %103, label %97, label %.loopexit, !llvm.loop !54
 
 .loopexit:                                        ; preds = %101, %99
-  %.1234.ph = phi i32 [ %.10322, %99 ], [ %.0233331, %101 ]
+  %.1234.ph = phi i32 [ %.10321, %99 ], [ %.0233330, %101 ]
   %.11.ph = phi i32 [ %100, %99 ], [ %102, %101 ]
   %104 = icmp eq i32 %.11.ph, %3
   br i1 %104, label %.loopexit285, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit
   %105 = icmp slt i32 %.11.ph, %3
-  br i1 %105, label %.lr.ph324, label %._crit_edge325
+  br i1 %105, label %.lr.ph323, label %._crit_edge324
 
-.lr.ph324:                                        ; preds = %.preheader, %113
-  %.12323 = phi i32 [ %114, %113 ], [ %.11.ph, %.preheader ]
-  %106 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.12323) #15
+.lr.ph323:                                        ; preds = %.preheader, %113
+  %.12322 = phi i32 [ %114, %113 ], [ %.11.ph, %.preheader ]
+  %106 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.12322) #15
   store i8 %106, ptr %6, align 1
   %107 = zext i8 %106 to i64
   %108 = getelementptr i16, ptr %11, i64 %107
@@ -7399,16 +7399,16 @@ define internal fastcc void @dissect_sip_via_header(ptr noundef %0, ptr noundef 
   %111 = icmp eq i16 %110, 0
   %112 = icmp ne i8 %106, 45
   %or.cond16 = and i1 %112, %111
-  br i1 %or.cond16, label %._crit_edge325, label %113
+  br i1 %or.cond16, label %._crit_edge324, label %113
 
-113:                                              ; preds = %.lr.ph324
-  %114 = add i32 %.12323, 1
-  %exitcond348.not = icmp eq i32 %114, %3
-  br i1 %exitcond348.not, label %._crit_edge325, label %.lr.ph324, !llvm.loop !55
+113:                                              ; preds = %.lr.ph323
+  %114 = add i32 %.12322, 1
+  %exitcond346.not = icmp eq i32 %114, %3
+  br i1 %exitcond346.not, label %._crit_edge324, label %.lr.ph323, !llvm.loop !55
 
-._crit_edge325:                                   ; preds = %113, %.lr.ph324, %.preheader
-  %115 = phi i8 [ %98, %.preheader ], [ %106, %.lr.ph324 ], [ %106, %113 ]
-  %.12.lcssa = phi i32 [ %.11.ph, %.preheader ], [ %3, %113 ], [ %.12323, %.lr.ph324 ]
+._crit_edge324:                                   ; preds = %113, %.lr.ph323, %.preheader
+  %115 = phi i8 [ %98, %.preheader ], [ %106, %.lr.ph323 ], [ %106, %113 ]
+  %.12.lcssa = phi i32 [ %.11.ph, %.preheader ], [ %3, %113 ], [ %.12322, %.lr.ph323 ]
   %.not263 = icmp eq i8 %115, 61
   %116 = sub i32 %3, %.12.lcssa
   %117 = call i32 @tvb_ws_mempbrk_pattern_guint8(ptr noundef %0, i32 noundef %.12.lcssa, i32 noundef %116, ptr noundef nonnull @pbrk_via_param_end, ptr noundef null) #15
@@ -7421,16 +7421,16 @@ define internal fastcc void @dissect_sip_via_header(ptr noundef %0, ptr noundef 
   %123 = call ptr @tvb_get_string_enc(ptr noundef %119, ptr noundef %0, i32 noundef %120, i32 noundef %122, i32 noundef 2) #15
   br label %124
 
-124:                                              ; preds = %._crit_edge325, %200
-  %.0242330 = phi i32 [ 0, %._crit_edge325 ], [ %201, %200 ]
-  %.0243329 = phi ptr [ @via_parameters_hf_array, %._crit_edge325 ], [ %202, %200 ]
-  %125 = load ptr, ptr %.0243329, align 8
+124:                                              ; preds = %._crit_edge324, %200
+  %.0242329 = phi i32 [ 0, %._crit_edge324 ], [ %201, %200 ]
+  %.0243328 = phi ptr [ @via_parameters_hf_array, %._crit_edge324 ], [ %202, %200 ]
+  %125 = load ptr, ptr %.0243328, align 8
   %126 = call i32 @g_ascii_strcasecmp(ptr noundef %123, ptr noundef %125) #15
   %127 = icmp eq i32 %126, 0
   br i1 %127, label %128, label %200
 
 128:                                              ; preds = %124
-  %129 = getelementptr inbounds i8, ptr %.0243329, i64 8
+  %129 = getelementptr inbounds i8, ptr %.0243328, i64 8
   %130 = load ptr, ptr %129, align 8
   %131 = load i32, ptr %130, align 4
   br i1 %.not263, label %132, label %197
@@ -7543,10 +7543,10 @@ define internal fastcc void @dissect_sip_via_header(ptr noundef %0, ptr noundef 
   br label %proto_item_set_generated.exit.thread
 
 200:                                              ; preds = %124
-  %201 = add nuw nsw i32 %.0242330, 1
-  %202 = getelementptr i8, ptr %.0243329, i64 16
-  %exitcond349.not = icmp eq i32 %201, 12
-  br i1 %exitcond349.not, label %proto_item_set_generated.exit, label %124, !llvm.loop !56
+  %201 = add nuw nsw i32 %.0242329, 1
+  %202 = getelementptr i8, ptr %.0243328, i64 16
+  %exitcond347.not = icmp eq i32 %201, 12
+  br i1 %exitcond347.not, label %proto_item_set_generated.exit, label %124, !llvm.loop !56
 
 proto_item_set_generated.exit:                    ; preds = %200
   %203 = add i32 %.13, %121
@@ -7570,7 +7570,7 @@ proto_item_set_generated.exit.thread:             ; preds = %141, %165, %191, %1
   br label %.loopexit283
 
 .loopexit283:                                     ; preds = %proto_item_set_generated.exit.thread, %97, %.loopexit286, %211
-  %.14 = phi i32 [ %212, %211 ], [ %95, %.loopexit286 ], [ %.10322, %97 ], [ %206, %proto_item_set_generated.exit.thread ]
+  %.14 = phi i32 [ %212, %211 ], [ %95, %.loopexit286 ], [ %.10321, %97 ], [ %206, %proto_item_set_generated.exit.thread ]
   %213 = sub i32 %3, %.14
   %214 = call i32 @tvb_skip_wsp(ptr noundef %0, i32 noundef %.14, i32 noundef %213) #15
   %.not = icmp slt i32 %214, %3

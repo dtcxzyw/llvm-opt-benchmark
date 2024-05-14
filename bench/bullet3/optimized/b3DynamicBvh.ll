@@ -2385,15 +2385,11 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %cmp5.i = icmp sgt i32 %11, 0
-  br i1 %cmp5.i, label %for.body.lr.ph.i, label %if.end
-
-for.body.lr.ph.i:                                 ; preds = %if.then
   %wide.trip.count.i = zext nneg i32 %11 to i64
   br label %for.body.i
 
-for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
+for.body.i:                                       ; preds = %for.inc.i, %if.then
+  %indvars.iv.i = phi i64 [ 0, %if.then ], [ %indvars.iv.next.i, %for.inc.i ]
   %arrayidx.i21 = getelementptr inbounds ptr, ptr %12, i64 %indvars.iv.i
   %15 = load ptr, ptr %arrayidx.i21, align 8
   %cmp3.i22 = icmp eq ptr %15, %14
@@ -2423,25 +2419,21 @@ lpad:                                             ; preds = %lpad.loopexit.split
   call void @_ZN20b3DbvtNodeEnumeratorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %nodes) #16
   resume { ptr, i32 } %lpad.phi
 
-if.end:                                           ; preds = %for.inc.i, %for.end.loopexit.split.loop.exit.i, %if.then, %for.body
-  %p.0 = phi i32 [ -1, %for.body ], [ %11, %if.then ], [ %16, %for.end.loopexit.split.loop.exit.i ], [ %11, %for.inc.i ]
+if.end:                                           ; preds = %for.inc.i, %for.end.loopexit.split.loop.exit.i, %for.body
+  %p.0 = phi i32 [ -1, %for.body ], [ %16, %for.end.loopexit.split.loop.exit.i ], [ %11, %for.inc.i ]
   %arrayidx.i.i23 = getelementptr inbounds i8, ptr %13, i64 48
   %17 = load ptr, ptr %arrayidx.i.i23, align 8
   %cmp.i.i.not = icmp eq ptr %17, null
   br i1 %cmp.i.i.not, label %if.else, label %if.then20
 
 if.then20:                                        ; preds = %if.end
-  %cmp5.i25 = icmp sgt i32 %11, 0
-  br i1 %cmp5.i25, label %for.body.lr.ph.i27, label %_ZNK20b3AlignedObjectArrayIPK10b3DbvtNodeE16findLinearSearchERKS2_.exit53
-
-for.body.lr.ph.i27:                               ; preds = %if.then20
   %18 = getelementptr inbounds i8, ptr %13, i64 40
   %19 = load ptr, ptr %18, align 8
   %wide.trip.count.i29 = zext nneg i32 %11 to i64
   br label %for.body.i30
 
-for.body.i30:                                     ; preds = %for.inc.i34, %for.body.lr.ph.i27
-  %indvars.iv.i31 = phi i64 [ 0, %for.body.lr.ph.i27 ], [ %indvars.iv.next.i35, %for.inc.i34 ]
+for.body.i30:                                     ; preds = %for.inc.i34, %if.then20
+  %indvars.iv.i31 = phi i64 [ 0, %if.then20 ], [ %indvars.iv.next.i35, %for.inc.i34 ]
   %arrayidx.i32 = getelementptr inbounds ptr, ptr %12, i64 %indvars.iv.i31
   %20 = load ptr, ptr %arrayidx.i32, align 8
   %cmp3.i33 = icmp eq ptr %20, %19
@@ -2476,14 +2468,13 @@ for.end.loopexit.split.loop.exit.i52:             ; preds = %for.body.i45
   %23 = trunc nuw nsw i64 %indvars.iv.i46 to i32
   br label %_ZNK20b3AlignedObjectArrayIPK10b3DbvtNodeE16findLinearSearchERKS2_.exit53
 
-_ZNK20b3AlignedObjectArrayIPK10b3DbvtNodeE16findLinearSearchERKS2_.exit53: ; preds = %for.inc.i49, %if.then20, %for.end.loopexit.split.loop.exit.i52
-  %index.0.i2655 = phi i32 [ %index.0.i26, %for.end.loopexit.split.loop.exit.i52 ], [ %11, %if.then20 ], [ %index.0.i26, %for.inc.i49 ]
-  %index.0.i41 = phi i32 [ %23, %for.end.loopexit.split.loop.exit.i52 ], [ %11, %if.then20 ], [ %11, %for.inc.i49 ]
+_ZNK20b3AlignedObjectArrayIPK10b3DbvtNodeE16findLinearSearchERKS2_.exit53: ; preds = %for.inc.i49, %for.end.loopexit.split.loop.exit.i52
+  %index.0.i41 = phi i32 [ %23, %for.end.loopexit.split.loop.exit.i52 ], [ %11, %for.inc.i49 ]
   %vtable28 = load ptr, ptr %iwriter, align 8
   %vfn29 = getelementptr inbounds i8, ptr %vtable28, i64 24
   %24 = load ptr, ptr %vfn29, align 8
   %25 = trunc nuw nsw i64 %indvars.iv to i32
-  invoke void %24(ptr noundef nonnull align 8 dereferenceable(8) %iwriter, ptr noundef nonnull %13, i32 noundef %25, i32 noundef %p.0, i32 noundef %index.0.i2655, i32 noundef %index.0.i41)
+  invoke void %24(ptr noundef nonnull align 8 dereferenceable(8) %iwriter, ptr noundef nonnull %13, i32 noundef %25, i32 noundef %p.0, i32 noundef %index.0.i26, i32 noundef %index.0.i41)
           to label %for.inc unwind label %lpad.loopexit
 
 if.else:                                          ; preds = %if.end

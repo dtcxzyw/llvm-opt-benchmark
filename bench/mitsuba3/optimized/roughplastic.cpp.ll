@@ -1870,7 +1870,7 @@ define weak_odr void @_ZN7mitsuba12RoughPlasticIfN5drjit6MatrixINS_8SpectrumIfLm
   %39 = getelementptr inbounds i8, ptr %1, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %38, %40
-  br i1 %41, label %.thread141, label %42
+  br i1 %41, label %.thread140, label %42
 
 42:                                               ; preds = %34
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6__initEPKcm(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull @.str.11, i64 noundef 5)
@@ -1878,11 +1878,11 @@ define weak_odr void @_ZN7mitsuba12RoughPlasticIfN5drjit6MatrixINS_8SpectrumIfLm
           to label %44 unwind label %262
 
 44:                                               ; preds = %42
-  br i1 %43, label %.thread142, label %45
+  br i1 %43, label %.thread141, label %45
 
-.thread142:                                       ; preds = %44
+.thread141:                                       ; preds = %44
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #27
-  br label %.thread141
+  br label %.thread140
 
 45:                                               ; preds = %44
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6__initEPKcm(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull @.str.12, i64 noundef 3)
@@ -1895,9 +1895,9 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
 47:                                               ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #27
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #27
-  br i1 %46, label %.thread141, label %_ZN5drjit12DynamicArrayIfED2Ev.exit112
+  br i1 %46, label %.thread140, label %_ZN5drjit12DynamicArrayIfED2Ev.exit111
 
-.thread141:                                       ; preds = %34, %.thread142, %47
+.thread140:                                       ; preds = %34, %.thread141, %47
   %48 = load float, ptr %16, align 4
   %49 = getelementptr inbounds i8, ptr %0, i64 92
   %50 = load <4 x float>, ptr %49, align 4
@@ -1921,8 +1921,8 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   store i8 1, ptr %58, align 8, !alias.scope !10
   br label %.lr.ph.split.i
 
-.lr.ph.split.i:                                   ; preds = %.lr.ph.split.i, %.thread141
-  %.021.i = phi i64 [ %64, %.lr.ph.split.i ], [ 0, %.thread141 ]
+.lr.ph.split.i:                                   ; preds = %.lr.ph.split.i, %.thread140
+  %.021.i = phi i64 [ %64, %.lr.ph.split.i ], [ 0, %.thread140 ]
   %61 = uitofp nneg i64 %.021.i to float
   %62 = call contract noundef float @llvm.fma.f32(float %61, float 0x3F90410420000000, float 0.000000e+00)
   %63 = getelementptr inbounds float, ptr %59, i64 %.021.i
@@ -2083,8 +2083,8 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit98:            ; preds = %105, %108, %111
   br label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %.lr.ph.split.split.i, %_ZN5drjit12DynamicArrayIfED2Ev.exit98, %._crit_edge.loopexit.i
-  %.sroa.0125.0 = phi ptr [ %118, %._crit_edge.loopexit.i ], [ null, %_ZN5drjit12DynamicArrayIfED2Ev.exit98 ], [ %118, %.lr.ph.split.split.i ]
-  store ptr %.sroa.0125.0, ptr %10, align 8
+  %.sroa.0124.0 = phi ptr [ %118, %._crit_edge.loopexit.i ], [ null, %_ZN5drjit12DynamicArrayIfED2Ev.exit98 ], [ %118, %.lr.ph.split.split.i ]
+  store ptr %.sroa.0124.0, ptr %10, align 8
   %128 = getelementptr inbounds i8, ptr %10, i64 8
   store i64 %.fr.i, ptr %128, align 8
   %129 = getelementptr inbounds i8, ptr %10, i64 16
@@ -2175,7 +2175,7 @@ _ZN5drjit12DynamicArrayIfEC2ERKS1_.exit.i:        ; preds = %.lr.ph.i.i
 
 _ZN5drjit12DynamicArrayIfED2Ev.exit.i:            ; preds = %170, %167, %161
   %171 = icmp eq ptr %163, %10
-  br i1 %171, label %_ZN5drjit12DynamicArrayIfED2Ev.exit114, label %161
+  br i1 %171, label %_ZN5drjit12DynamicArrayIfED2Ev.exit113, label %161
 
 _ZN5drjit12DynamicArrayIfED2Ev.exit100:           ; preds = %.lr.ph.i11.i, %_ZN5drjit12DynamicArrayIfEC2ERKS1_.exit.i
   %172 = getelementptr inbounds i8, ptr %11, i64 16
@@ -2265,20 +2265,20 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit105:           ; preds = %195, %203
   %211 = load ptr, ptr %14, align 8
   %212 = load float, ptr %211, align 4
   %.not.i = icmp eq i64 %208, 1
-  br i1 %.not.i, label %_ZNK5drjit9ArrayBaseIfLb0ENS_12DynamicArrayIfEEE4sum_Ev.exit, label %.lr.ph.split.i106
+  br i1 %.not.i, label %_ZNK5drjit9ArrayBaseIfLb0ENS_12DynamicArrayIfEEE4sum_Ev.exit, label %.lr.ph.i
 
-.lr.ph.split.i106:                                ; preds = %210, %.lr.ph.split.i106
-  %.023.i = phi i64 [ %216, %.lr.ph.split.i106 ], [ 1, %210 ]
-  %.01822.i = phi float [ %215, %.lr.ph.split.i106 ], [ %212, %210 ]
+.lr.ph.i:                                         ; preds = %210, %.lr.ph.i
+  %.023.i = phi i64 [ %216, %.lr.ph.i ], [ 1, %210 ]
+  %.01822.i = phi float [ %215, %.lr.ph.i ], [ %212, %210 ]
   %213 = getelementptr inbounds float, ptr %211, i64 %.023.i
   %214 = load float, ptr %213, align 4
   %215 = fadd contract float %.01822.i, %214
   %216 = add nuw i64 %.023.i, 1
-  %exitcond.not.i107 = icmp eq i64 %216, %208
-  br i1 %exitcond.not.i107, label %_ZNK5drjit9ArrayBaseIfLb0ENS_12DynamicArrayIfEEE4sum_Ev.exit, label %.lr.ph.split.i106, !llvm.loop !25
+  %exitcond.not.i106 = icmp eq i64 %216, %208
+  br i1 %exitcond.not.i106, label %_ZNK5drjit9ArrayBaseIfLb0ENS_12DynamicArrayIfEEE4sum_Ev.exit, label %.lr.ph.i, !llvm.loop !25
 
-_ZNK5drjit9ArrayBaseIfLb0ENS_12DynamicArrayIfEEE4sum_Ev.exit: ; preds = %.lr.ph.split.i106, %206, %210
-  %.019.i = phi float [ 0.000000e+00, %206 ], [ %212, %210 ], [ %215, %.lr.ph.split.i106 ]
+_ZNK5drjit9ArrayBaseIfLb0ENS_12DynamicArrayIfEEE4sum_Ev.exit: ; preds = %.lr.ph.i, %206, %210
+  %.019.i = phi float [ 0.000000e+00, %206 ], [ %212, %210 ], [ %215, %.lr.ph.i ]
   %217 = uitofp i64 %208 to float
   %218 = fdiv contract float 1.000000e+00, %217
   %219 = fmul contract float %218, %.019.i
@@ -2288,53 +2288,53 @@ _ZNK5drjit9ArrayBaseIfLb0ENS_12DynamicArrayIfEEE4sum_Ev.exit: ; preds = %.lr.ph.
   %222 = getelementptr inbounds i8, ptr %14, i64 16
   %223 = load i8, ptr %222, align 8
   %224 = trunc i8 %223 to i1
-  br i1 %224, label %225, label %_ZN5drjit12DynamicArrayIfED2Ev.exit108
+  br i1 %224, label %225, label %_ZN5drjit12DynamicArrayIfED2Ev.exit107
 
 225:                                              ; preds = %_ZNK5drjit9ArrayBaseIfLb0ENS_12DynamicArrayIfEEE4sum_Ev.exit
   %226 = load ptr, ptr %14, align 8
   %227 = icmp eq ptr %226, null
-  br i1 %227, label %_ZN5drjit12DynamicArrayIfED2Ev.exit108, label %228
+  br i1 %227, label %_ZN5drjit12DynamicArrayIfED2Ev.exit107, label %228
 
 228:                                              ; preds = %225
   call void @_ZdaPv(ptr noundef nonnull %226) #30
-  br label %_ZN5drjit12DynamicArrayIfED2Ev.exit108
+  br label %_ZN5drjit12DynamicArrayIfED2Ev.exit107
 
-_ZN5drjit12DynamicArrayIfED2Ev.exit108:           ; preds = %_ZNK5drjit9ArrayBaseIfLb0ENS_12DynamicArrayIfEEE4sum_Ev.exit, %225, %228
+_ZN5drjit12DynamicArrayIfED2Ev.exit107:           ; preds = %_ZNK5drjit9ArrayBaseIfLb0ENS_12DynamicArrayIfEEE4sum_Ev.exit, %225, %228
   %229 = getelementptr inbounds i8, ptr %15, i64 16
   %230 = load i8, ptr %229, align 8
   %231 = trunc i8 %230 to i1
-  br i1 %231, label %232, label %_ZN5drjit12DynamicArrayIfED2Ev.exit109
+  br i1 %231, label %232, label %_ZN5drjit12DynamicArrayIfED2Ev.exit108
 
-232:                                              ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit108
+232:                                              ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit107
   %233 = load ptr, ptr %15, align 8
   %234 = icmp eq ptr %233, null
-  br i1 %234, label %_ZN5drjit12DynamicArrayIfED2Ev.exit109, label %235
+  br i1 %234, label %_ZN5drjit12DynamicArrayIfED2Ev.exit108, label %235
 
 235:                                              ; preds = %232
   call void @_ZdaPv(ptr noundef nonnull %233) #30
-  br label %_ZN5drjit12DynamicArrayIfED2Ev.exit109
+  br label %_ZN5drjit12DynamicArrayIfED2Ev.exit108
 
-_ZN5drjit12DynamicArrayIfED2Ev.exit109:           ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit108, %232, %235
+_ZN5drjit12DynamicArrayIfED2Ev.exit108:           ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit107, %232, %235
   %236 = getelementptr inbounds i8, ptr %13, i64 16
   %237 = load i8, ptr %236, align 8
   %238 = trunc i8 %237 to i1
-  br i1 %238, label %239, label %_ZN5drjit12DynamicArrayIfED2Ev.exit110
+  br i1 %238, label %239, label %_ZN5drjit12DynamicArrayIfED2Ev.exit109
 
-239:                                              ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit109
+239:                                              ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit108
   %240 = load ptr, ptr %13, align 8
   %241 = icmp eq ptr %240, null
-  br i1 %241, label %_ZN5drjit12DynamicArrayIfED2Ev.exit110, label %242
+  br i1 %241, label %_ZN5drjit12DynamicArrayIfED2Ev.exit109, label %242
 
 242:                                              ; preds = %239
   call void @_ZdaPv(ptr noundef nonnull %240) #30
-  br label %_ZN5drjit12DynamicArrayIfED2Ev.exit110
+  br label %_ZN5drjit12DynamicArrayIfED2Ev.exit109
 
-_ZN5drjit12DynamicArrayIfED2Ev.exit110:           ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit109, %239, %242
+_ZN5drjit12DynamicArrayIfED2Ev.exit109:           ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit108, %239, %242
   %243 = getelementptr inbounds i8, ptr %10, i64 72
   br label %244
 
-244:                                              ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i, %_ZN5drjit12DynamicArrayIfED2Ev.exit110
-  %245 = phi ptr [ %243, %_ZN5drjit12DynamicArrayIfED2Ev.exit110 ], [ %246, %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i ]
+244:                                              ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i, %_ZN5drjit12DynamicArrayIfED2Ev.exit109
+  %245 = phi ptr [ %243, %_ZN5drjit12DynamicArrayIfED2Ev.exit109 ], [ %246, %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i ]
   %246 = getelementptr inbounds i8, ptr %245, i64 -24
   %247 = getelementptr inbounds i8, ptr %245, i64 -8
   %248 = load i8, ptr %247, align 8
@@ -2352,23 +2352,23 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit110:           ; preds = %_ZN5drjit12DynamicA
 
 _ZN5drjit12DynamicArrayIfED2Ev.exit.i.i:          ; preds = %253, %250, %244
   %254 = icmp eq ptr %246, %10
-  br i1 %254, label %_ZN5drjit12DynamicArrayIfED2Ev.exit111, label %244
+  br i1 %254, label %_ZN5drjit12DynamicArrayIfED2Ev.exit110, label %244
 
-_ZN5drjit12DynamicArrayIfED2Ev.exit111:           ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i
+_ZN5drjit12DynamicArrayIfED2Ev.exit110:           ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i
   call void @_ZdaPv(ptr noundef nonnull %90) #30
   %255 = getelementptr inbounds i8, ptr %8, i64 16
   %256 = load i8, ptr %255, align 8
   %257 = trunc i8 %256 to i1
-  br i1 %257, label %258, label %_ZN5drjit12DynamicArrayIfED2Ev.exit112
+  br i1 %257, label %258, label %_ZN5drjit12DynamicArrayIfED2Ev.exit111
 
-258:                                              ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit111
+258:                                              ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit110
   %259 = load ptr, ptr %8, align 8
   %260 = icmp eq ptr %259, null
-  br i1 %260, label %_ZN5drjit12DynamicArrayIfED2Ev.exit112, label %261
+  br i1 %260, label %_ZN5drjit12DynamicArrayIfED2Ev.exit111, label %261
 
 261:                                              ; preds = %258
   call void @_ZdaPv(ptr noundef nonnull %259) #30
-  br label %_ZN5drjit12DynamicArrayIfED2Ev.exit112
+  br label %_ZN5drjit12DynamicArrayIfED2Ev.exit111
 
 262:                                              ; preds = %45, %42
   %263 = landingpad { ptr, i32 }
@@ -2384,7 +2384,7 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit111:           ; preds = %_ZN5drjit12DynamicA
 266:                                              ; preds = %262, %264
   %.pn = phi { ptr, i32 } [ %265, %264 ], [ %263, %262 ]
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #27
-  br label %_ZN5drjit12DynamicArrayIfED2Ev.exit113
+  br label %_ZN5drjit12DynamicArrayIfED2Ev.exit112
 
 267:                                              ; preds = %_ZN5drjit12DynamicArrayIfE9linspace_Effmb.exit
   %268 = landingpad { ptr, i32 }
@@ -2395,16 +2395,16 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit:              ; preds = %76, %73, %69, %267
   %269 = phi { ptr, i32 } [ %268, %267 ], [ %70, %69 ], [ %70, %73 ], [ %70, %76 ]
   %270 = load i8, ptr %58, align 8
   %271 = trunc i8 %270 to i1
-  br i1 %271, label %272, label %_ZN5drjit12DynamicArrayIfED2Ev.exit113
+  br i1 %271, label %272, label %_ZN5drjit12DynamicArrayIfED2Ev.exit112
 
 272:                                              ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit
   %273 = load ptr, ptr %9, align 8
   %274 = icmp eq ptr %273, null
-  br i1 %274, label %_ZN5drjit12DynamicArrayIfED2Ev.exit113, label %275
+  br i1 %274, label %_ZN5drjit12DynamicArrayIfED2Ev.exit112, label %275
 
 275:                                              ; preds = %272
   call void @_ZdaPv(ptr noundef nonnull %273) #30
-  br label %_ZN5drjit12DynamicArrayIfED2Ev.exit113
+  br label %_ZN5drjit12DynamicArrayIfED2Ev.exit112
 
 276:                                              ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit96
   %277 = landingpad { ptr, i32 }
@@ -2414,7 +2414,7 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit:              ; preds = %76, %73, %69, %267
 278:                                              ; preds = %91
   %279 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN5drjit12DynamicArrayIfED2Ev.exit121
+  br label %_ZN5drjit12DynamicArrayIfED2Ev.exit120
 
 280:                                              ; preds = %92
   %281 = landingpad { ptr, i32 }
@@ -2424,16 +2424,16 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit:              ; preds = %76, %73, %69, %267
 282:                                              ; preds = %.noexc.i.i
   %283 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN5drjit12DynamicArrayIfED2Ev.exit114
+  br label %_ZN5drjit12DynamicArrayIfED2Ev.exit113
 
-_ZN5drjit12DynamicArrayIfED2Ev.exit114:           ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit.i, %282
+_ZN5drjit12DynamicArrayIfED2Ev.exit113:           ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit.i, %282
   %.pn86 = phi { ptr, i32 } [ %283, %282 ], [ %160, %_ZN5drjit12DynamicArrayIfED2Ev.exit.i ]
   %284 = getelementptr inbounds i8, ptr %11, i64 16
   %285 = load i8, ptr %284, align 8
   %286 = trunc i8 %285 to i1
   br i1 %286, label %287, label %_ZN5drjit12DynamicArrayIfED2Ev.exit97
 
-287:                                              ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit114
+287:                                              ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit113
   %288 = load ptr, ptr %11, align 8
   %289 = icmp eq ptr %288, null
   br i1 %289, label %_ZN5drjit12DynamicArrayIfED2Ev.exit97, label %290
@@ -2442,31 +2442,31 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit114:           ; preds = %_ZN5drjit12DynamicA
   call void @_ZdaPv(ptr noundef nonnull %288) #30
   br label %_ZN5drjit12DynamicArrayIfED2Ev.exit97
 
-_ZN5drjit12DynamicArrayIfED2Ev.exit97:            ; preds = %290, %287, %_ZN5drjit12DynamicArrayIfED2Ev.exit114, %104, %101, %97, %280
-  %.pn86.pn = phi { ptr, i32 } [ %281, %280 ], [ %98, %97 ], [ %98, %101 ], [ %98, %104 ], [ %.pn86, %_ZN5drjit12DynamicArrayIfED2Ev.exit114 ], [ %.pn86, %287 ], [ %.pn86, %290 ]
+_ZN5drjit12DynamicArrayIfED2Ev.exit97:            ; preds = %290, %287, %_ZN5drjit12DynamicArrayIfED2Ev.exit113, %104, %101, %97, %280
+  %.pn86.pn = phi { ptr, i32 } [ %281, %280 ], [ %98, %97 ], [ %98, %101 ], [ %98, %104 ], [ %.pn86, %_ZN5drjit12DynamicArrayIfED2Ev.exit113 ], [ %.pn86, %287 ], [ %.pn86, %290 ]
   %291 = getelementptr inbounds i8, ptr %12, i64 16
   %292 = load i8, ptr %291, align 8
   %293 = trunc i8 %292 to i1
-  br i1 %293, label %294, label %_ZN5drjit12DynamicArrayIfED2Ev.exit121
+  br i1 %293, label %294, label %_ZN5drjit12DynamicArrayIfED2Ev.exit120
 
 294:                                              ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit97
   %295 = load ptr, ptr %12, align 8
   %296 = icmp eq ptr %295, null
-  br i1 %296, label %_ZN5drjit12DynamicArrayIfED2Ev.exit121, label %297
+  br i1 %296, label %_ZN5drjit12DynamicArrayIfED2Ev.exit120, label %297
 
 297:                                              ; preds = %294
   call void @_ZdaPv(ptr noundef nonnull %295) #30
-  br label %_ZN5drjit12DynamicArrayIfED2Ev.exit121
+  br label %_ZN5drjit12DynamicArrayIfED2Ev.exit120
 
 298:                                              ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit102
   %299 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN5drjit12DynamicArrayIfED2Ev.exit118
+  br label %_ZN5drjit12DynamicArrayIfED2Ev.exit117
 
 300:                                              ; preds = %.noexc.i103, %_ZN5drjit12DynamicArrayIfED2Ev.exit105
   %301 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN5drjit12DynamicArrayIfED2Ev.exit117
+  br label %_ZN5drjit12DynamicArrayIfED2Ev.exit116
 
 302:                                              ; preds = %205
   %303 = landingpad { ptr, i32 }
@@ -2474,84 +2474,84 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit97:            ; preds = %290, %287, %_ZN5drj
   %304 = getelementptr inbounds i8, ptr %15, i64 16
   %305 = load i8, ptr %304, align 8
   %306 = trunc i8 %305 to i1
-  br i1 %306, label %307, label %_ZN5drjit12DynamicArrayIfED2Ev.exit117
+  br i1 %306, label %307, label %_ZN5drjit12DynamicArrayIfED2Ev.exit116
 
 307:                                              ; preds = %302
   %308 = load ptr, ptr %15, align 8
   %309 = icmp eq ptr %308, null
-  br i1 %309, label %_ZN5drjit12DynamicArrayIfED2Ev.exit117, label %310
+  br i1 %309, label %_ZN5drjit12DynamicArrayIfED2Ev.exit116, label %310
 
 310:                                              ; preds = %307
   call void @_ZdaPv(ptr noundef nonnull %308) #30
-  br label %_ZN5drjit12DynamicArrayIfED2Ev.exit117
+  br label %_ZN5drjit12DynamicArrayIfED2Ev.exit116
 
-_ZN5drjit12DynamicArrayIfED2Ev.exit117:           ; preds = %310, %307, %302, %300
+_ZN5drjit12DynamicArrayIfED2Ev.exit116:           ; preds = %310, %307, %302, %300
   %.pn89 = phi { ptr, i32 } [ %301, %300 ], [ %303, %302 ], [ %303, %307 ], [ %303, %310 ]
   %311 = getelementptr inbounds i8, ptr %13, i64 16
   %312 = load i8, ptr %311, align 8
   %313 = trunc i8 %312 to i1
-  br i1 %313, label %314, label %_ZN5drjit12DynamicArrayIfED2Ev.exit118
+  br i1 %313, label %314, label %_ZN5drjit12DynamicArrayIfED2Ev.exit117
 
-314:                                              ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit117
+314:                                              ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit116
   %315 = load ptr, ptr %13, align 8
   %316 = icmp eq ptr %315, null
-  br i1 %316, label %_ZN5drjit12DynamicArrayIfED2Ev.exit118, label %317
+  br i1 %316, label %_ZN5drjit12DynamicArrayIfED2Ev.exit117, label %317
 
 317:                                              ; preds = %314
   call void @_ZdaPv(ptr noundef nonnull %315) #30
-  br label %_ZN5drjit12DynamicArrayIfED2Ev.exit118
+  br label %_ZN5drjit12DynamicArrayIfED2Ev.exit117
 
-_ZN5drjit12DynamicArrayIfED2Ev.exit118:           ; preds = %317, %314, %_ZN5drjit12DynamicArrayIfED2Ev.exit117, %298
-  %.pn89.pn = phi { ptr, i32 } [ %299, %298 ], [ %.pn89, %_ZN5drjit12DynamicArrayIfED2Ev.exit117 ], [ %.pn89, %314 ], [ %.pn89, %317 ]
+_ZN5drjit12DynamicArrayIfED2Ev.exit117:           ; preds = %317, %314, %_ZN5drjit12DynamicArrayIfED2Ev.exit116, %298
+  %.pn89.pn = phi { ptr, i32 } [ %299, %298 ], [ %.pn89, %_ZN5drjit12DynamicArrayIfED2Ev.exit116 ], [ %.pn89, %314 ], [ %.pn89, %317 ]
   %318 = getelementptr inbounds i8, ptr %10, i64 72
   br label %319
 
-319:                                              ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i119, %_ZN5drjit12DynamicArrayIfED2Ev.exit118
-  %320 = phi ptr [ %318, %_ZN5drjit12DynamicArrayIfED2Ev.exit118 ], [ %321, %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i119 ]
+319:                                              ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i118, %_ZN5drjit12DynamicArrayIfED2Ev.exit117
+  %320 = phi ptr [ %318, %_ZN5drjit12DynamicArrayIfED2Ev.exit117 ], [ %321, %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i118 ]
   %321 = getelementptr inbounds i8, ptr %320, i64 -24
   %322 = getelementptr inbounds i8, ptr %320, i64 -8
   %323 = load i8, ptr %322, align 8
   %324 = trunc i8 %323 to i1
-  br i1 %324, label %325, label %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i119
+  br i1 %324, label %325, label %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i118
 
 325:                                              ; preds = %319
   %326 = load ptr, ptr %321, align 8
   %327 = icmp eq ptr %326, null
-  br i1 %327, label %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i119, label %328
+  br i1 %327, label %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i118, label %328
 
 328:                                              ; preds = %325
   call void @_ZdaPv(ptr noundef nonnull %326) #30
-  br label %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i119
+  br label %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i118
 
-_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i119:       ; preds = %328, %325, %319
+_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i118:       ; preds = %328, %325, %319
   %329 = icmp eq ptr %321, %10
-  br i1 %329, label %_ZN5drjit12DynamicArrayIfED2Ev.exit121, label %319
+  br i1 %329, label %_ZN5drjit12DynamicArrayIfED2Ev.exit120, label %319
 
-_ZN5drjit12DynamicArrayIfED2Ev.exit121:           ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i119, %278, %_ZN5drjit12DynamicArrayIfED2Ev.exit97, %294, %297
-  %.pn89.pn.pn = phi { ptr, i32 } [ %279, %278 ], [ %.pn86.pn, %_ZN5drjit12DynamicArrayIfED2Ev.exit97 ], [ %.pn86.pn, %294 ], [ %.pn86.pn, %297 ], [ %.pn89.pn, %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i119 ]
+_ZN5drjit12DynamicArrayIfED2Ev.exit120:           ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i118, %278, %_ZN5drjit12DynamicArrayIfED2Ev.exit97, %294, %297
+  %.pn89.pn.pn = phi { ptr, i32 } [ %279, %278 ], [ %.pn86.pn, %_ZN5drjit12DynamicArrayIfED2Ev.exit97 ], [ %.pn86.pn, %294 ], [ %.pn86.pn, %297 ], [ %.pn89.pn, %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i118 ]
   call void @_ZdaPv(ptr noundef nonnull %90) #30
   br label %330
 
-330:                                              ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit121, %276
-  %.pn89.pn.pn.pn = phi { ptr, i32 } [ %.pn89.pn.pn, %_ZN5drjit12DynamicArrayIfED2Ev.exit121 ], [ %277, %276 ]
+330:                                              ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit120, %276
+  %.pn89.pn.pn.pn = phi { ptr, i32 } [ %.pn89.pn.pn, %_ZN5drjit12DynamicArrayIfED2Ev.exit120 ], [ %277, %276 ]
   %331 = getelementptr inbounds i8, ptr %8, i64 16
   %332 = load i8, ptr %331, align 8
   %333 = trunc i8 %332 to i1
-  br i1 %333, label %334, label %_ZN5drjit12DynamicArrayIfED2Ev.exit113
+  br i1 %333, label %334, label %_ZN5drjit12DynamicArrayIfED2Ev.exit112
 
 334:                                              ; preds = %330
   %335 = load ptr, ptr %8, align 8
   %336 = icmp eq ptr %335, null
-  br i1 %336, label %_ZN5drjit12DynamicArrayIfED2Ev.exit113, label %337
+  br i1 %336, label %_ZN5drjit12DynamicArrayIfED2Ev.exit112, label %337
 
 337:                                              ; preds = %334
   call void @_ZdaPv(ptr noundef nonnull %335) #30
-  br label %_ZN5drjit12DynamicArrayIfED2Ev.exit113
+  br label %_ZN5drjit12DynamicArrayIfED2Ev.exit112
 
-_ZN5drjit12DynamicArrayIfED2Ev.exit112:           ; preds = %261, %258, %_ZN5drjit12DynamicArrayIfED2Ev.exit111, %47
+_ZN5drjit12DynamicArrayIfED2Ev.exit111:           ; preds = %261, %258, %_ZN5drjit12DynamicArrayIfED2Ev.exit110, %47
   ret void
 
-_ZN5drjit12DynamicArrayIfED2Ev.exit113:           ; preds = %337, %334, %330, %275, %272, %_ZN5drjit12DynamicArrayIfED2Ev.exit, %266
+_ZN5drjit12DynamicArrayIfED2Ev.exit112:           ; preds = %337, %334, %330, %275, %272, %_ZN5drjit12DynamicArrayIfED2Ev.exit, %266
   %.pn89.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn, %266 ], [ %269, %_ZN5drjit12DynamicArrayIfED2Ev.exit ], [ %269, %272 ], [ %269, %275 ], [ %.pn89.pn.pn.pn, %330 ], [ %.pn89.pn.pn.pn, %334 ], [ %.pn89.pn.pn.pn, %337 ]
   resume { ptr, i32 } %.pn89.pn.pn.pn.pn
 }

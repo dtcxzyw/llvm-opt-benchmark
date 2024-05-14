@@ -124805,7 +124805,6 @@ define void @_ZN5typst7compile17h0ff28548f6e0a115E(ptr noalias nocapture noundef
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21), !noalias !26332
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22), !noalias !26332
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23), !noalias !26332
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %39), !noalias !26328
   %115 = getelementptr inbounds i8, ptr %3, i64 64
   %116 = getelementptr inbounds i8, ptr %3, i64 72
   %117 = getelementptr inbounds i8, ptr %38, i64 8
@@ -124875,8 +124874,9 @@ define void @_ZN5typst7compile17h0ff28548f6e0a115E(ptr noalias nocapture noundef
   br label %140
 
 140:                                              ; preds = %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$typst_timing..TimingScope$GT$$GT$17hab1bd199dc3d070eE.exit87.i", %"_ZN75_$LT$typst..model..document..Document$u20$as$u20$core..default..Default$GT$7default17h19757abf720e7fdcE.exit.i"
-  %.0301.i = phi i64 [ 0, %"_ZN75_$LT$typst..model..document..Document$u20$as$u20$core..default..Default$GT$7default17h19757abf720e7fdcE.exit.i" ], [ %172, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$typst_timing..TimingScope$GT$$GT$17hab1bd199dc3d070eE.exit87.i" ]
-  %141 = getelementptr inbounds [0 x { ptr, i64 }], ptr @anon.53fe85e3a453dfbf0ab1e8743506e67c.815, i64 0, i64 %.0301.i
+  %.0.i = phi i64 [ 0, %"_ZN75_$LT$typst..model..document..Document$u20$as$u20$core..default..Default$GT$7default17h19757abf720e7fdcE.exit.i" ], [ %172, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$typst_timing..TimingScope$GT$$GT$17hab1bd199dc3d070eE.exit87.i" ]
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %39), !noalias !26328
+  %141 = getelementptr inbounds [0 x { ptr, i64 }], ptr @anon.53fe85e3a453dfbf0ab1e8743506e67c.815, i64 0, i64 %.0.i
   %142 = load ptr, ptr %141, align 8, !noalias !26328, !nonnull !9, !align !1366, !noundef !9
   invoke void @_ZN12typst_timing11TimingScope3new17h1be44dc8a74a73c5E(ptr noalias nocapture noundef nonnull sret({ ptr, [4 x i64] }) align 8 dereferenceable(40) %39, ptr noalias noundef nonnull readonly align 1 %142, i64 noundef 11, i64 noundef 0)
           to label %146 unwind label %.thread118.loopexit.i, !noalias !26334
@@ -125074,7 +125074,7 @@ define void @_ZN5typst7compile17h0ff28548f6e0a115E(ptr noalias nocapture noundef
           to label %171 unwind label %.loopexit138.i, !noalias !26334
 
 171:                                              ; preds = %168
-  %172 = add nuw nsw i64 %.0301.i, 1
+  %172 = add nuw nsw i64 %.0.i, 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %33), !noalias !26328
   invoke void @_ZN12typst_timing11TimingScope3new17h1be44dc8a74a73c5E(ptr noalias nocapture noundef nonnull sret({ ptr, [4 x i64] }) align 8 dereferenceable(40) %33, ptr noalias noundef nonnull readonly align 1 @anon.53fe85e3a453dfbf0ab1e8743506e67c.817, i64 noundef 16, i64 noundef 0)
           to label %173 unwind label %.loopexit138.i, !noalias !26334
@@ -125692,7 +125692,7 @@ _ZN5typst13introspection12introspector12Introspector8position17h6027b605404eb339
   br i1 %433, label %.loopexit143.i, label %449
 
 449:                                              ; preds = %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$typst_timing..TimingScope$GT$$GT$17hab1bd199dc3d070eE.exit81.i"
-  %450 = icmp eq i64 %.0301.i, 4
+  %450 = icmp eq i64 %.0.i, 4
   br i1 %450, label %452, label %451
 
 451:                                              ; preds = %449
@@ -125723,7 +125723,6 @@ _ZN5typst13introspection12introspector12Introspector8position17h6027b605404eb339
 
 "_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$typst_timing..TimingScope$GT$$GT$17hab1bd199dc3d070eE.exit87.i": ; preds = %456, %"_ZN4core3ptr119drop_in_place$LT$comemo..constraint..ImmutableConstraint$LT$typst..introspection..introspector.._..__ComemoCall$GT$$GT$17hcba481b9814bd36cE.exit85.i"
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %39), !noalias !26328
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %39), !noalias !26328
   br label %140
 
 457:                                              ; preds = %452

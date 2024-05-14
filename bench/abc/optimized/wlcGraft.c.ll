@@ -2390,7 +2390,7 @@ Vec_MemHashKey.exit.i:                            ; preds = %.lr.ph.i.i, %Wlc_Ob
   %161 = getelementptr inbounds i32, ptr %.val.i135, i64 %160
   %162 = load i32, ptr %161, align 4
   %.not17.i = icmp eq i32 %162, -1
-  br i1 %.not17.i, label %Vec_MemHashLookup.exit.thread, label %.lr.ph.i136
+  br i1 %.not17.i, label %.lr.ph.i138, label %.lr.ph.i136
 
 .lr.ph.i136:                                      ; preds = %Vec_MemHashKey.exit.i
   %163 = load ptr, ptr %100, align 8
@@ -2435,12 +2435,12 @@ Vec_MemHashKey.exit.i:                            ; preds = %.lr.ph.i.i, %Wlc_Ob
   %190 = getelementptr inbounds i32, ptr %.val16.i, i64 %189
   %191 = load i32, ptr %190, align 4
   %.not.i137 = icmp eq i32 %191, -1
-  br i1 %.not.i137, label %Vec_MemHashLookup.exit.thread, label %178, !llvm.loop !13
+  br i1 %.not.i137, label %.lr.ph.i138, label %178, !llvm.loop !13
 
 Vec_MemHashLookup.exit:                           ; preds = %178, %.lr.ph.i136
   %.pr = phi i32 [ %162, %.lr.ph.i136 ], [ %191, %178 ]
   %192 = icmp sgt i32 %.pr, -1
-  br i1 %192, label %193, label %Vec_MemHashLookup.exit.thread
+  br i1 %192, label %193, label %.lr.ph.i138
 
 193:                                              ; preds = %Vec_MemHashLookup.exit
   %194 = shl nuw nsw i32 %.pr, 1
@@ -2448,13 +2448,13 @@ Vec_MemHashLookup.exit:                           ; preds = %178, %.lr.ph.i136
   store i32 %194, ptr %195, align 4
   br label %245
 
-Vec_MemHashLookup.exit.thread:                    ; preds = %187, %Vec_MemHashKey.exit.i, %Vec_MemHashLookup.exit
+.lr.ph.i138:                                      ; preds = %187, %Vec_MemHashLookup.exit, %Vec_MemHashKey.exit.i
   %196 = load i64, ptr %145, align 8
   %197 = xor i64 %196, -1
   store i64 %197, ptr %145, align 8
   br i1 %148, label %.lr.ph.preheader.i.i153, label %Vec_MemHashKey.exit.i141
 
-.lr.ph.preheader.i.i153:                          ; preds = %Vec_MemHashLookup.exit.thread
+.lr.ph.preheader.i.i153:                          ; preds = %.lr.ph.i138
   %198 = shl nuw i32 %147, 1
   %smax.i.i154 = tail call i32 @llvm.smax.i32(i32 %198, i32 1)
   %wide.trip.count.i.i155 = zext nneg i32 %smax.i.i154 to i64
@@ -2474,8 +2474,8 @@ Vec_MemHashLookup.exit.thread:                    ; preds = %187, %Vec_MemHashKe
   %exitcond.not.i.i160 = icmp eq i64 %indvars.iv.next.i.i159, %wide.trip.count.i.i155
   br i1 %exitcond.not.i.i160, label %Vec_MemHashKey.exit.i141, label %.lr.ph.i.i156, !llvm.loop !12
 
-Vec_MemHashKey.exit.i141:                         ; preds = %.lr.ph.i.i156, %Vec_MemHashLookup.exit.thread
-  %.0.lcssa.i.i142 = phi i32 [ 0, %Vec_MemHashLookup.exit.thread ], [ %205, %.lr.ph.i.i156 ]
+Vec_MemHashKey.exit.i141:                         ; preds = %.lr.ph.i.i156, %.lr.ph.i138
+  %.0.lcssa.i.i142 = phi i32 [ 0, %.lr.ph.i138 ], [ %205, %.lr.ph.i.i156 ]
   %.val.i.i143 = load i32, ptr %157, align 4
   %206 = urem i32 %.0.lcssa.i.i142, %.val.i.i143
   %.val.i144 = load ptr, ptr %159, align 8
@@ -2483,7 +2483,7 @@ Vec_MemHashKey.exit.i141:                         ; preds = %.lr.ph.i.i156, %Vec
   %208 = getelementptr inbounds i32, ptr %.val.i144, i64 %207
   %209 = load i32, ptr %208, align 4
   %.not17.i145 = icmp eq i32 %209, -1
-  br i1 %.not17.i145, label %Vec_MemHashLookup.exit161.thread, label %.lr.ph.i146
+  br i1 %.not17.i145, label %.lr.ph.i162.thread, label %.lr.ph.i146
 
 .lr.ph.i146:                                      ; preds = %Vec_MemHashKey.exit.i141
   %210 = load ptr, ptr %100, align 8
@@ -2501,7 +2501,7 @@ Vec_MemHashKey.exit.i141:                         ; preds = %.lr.ph.i.i156, %Vec
   %222 = getelementptr inbounds i64, ptr %218, i64 %221
   %bcmp.i148195 = tail call i32 @bcmp(ptr %222, ptr nonnull readonly %145, i64 %214)
   %.not15.i149196 = icmp eq i32 %bcmp.i148195, 0
-  br i1 %.not15.i149196, label %Vec_MemHashLookup.exit161, label %.lr.ph197
+  br i1 %.not15.i149196, label %.lr.ph.i162, label %.lr.ph197
 
 .lr.ph197:                                        ; preds = %.lr.ph.i146
   %223 = load ptr, ptr %101, align 8
@@ -2520,7 +2520,7 @@ Vec_MemHashKey.exit.i141:                         ; preds = %.lr.ph.i.i156, %Vec
   %233 = getelementptr inbounds i64, ptr %229, i64 %232
   %bcmp.i148 = tail call i32 @bcmp(ptr %233, ptr nonnull readonly %145, i64 %214)
   %.not15.i149 = icmp eq i32 %bcmp.i148, 0
-  br i1 %.not15.i149, label %Vec_MemHashLookup.exit161, label %234, !llvm.loop !13
+  br i1 %.not15.i149, label %.lr.ph.i162, label %234, !llvm.loop !13
 
 234:                                              ; preds = %.lr.ph197, %225
   %235 = phi i32 [ %209, %.lr.ph197 ], [ %238, %225 ]
@@ -2528,26 +2528,26 @@ Vec_MemHashKey.exit.i141:                         ; preds = %.lr.ph.i.i156, %Vec
   %237 = getelementptr inbounds i32, ptr %.val16.i150, i64 %236
   %238 = load i32, ptr %237, align 4
   %.not.i151 = icmp eq i32 %238, -1
-  br i1 %.not.i151, label %Vec_MemHashLookup.exit161.thread, label %225, !llvm.loop !13
+  br i1 %.not.i151, label %.lr.ph.i162.thread, label %225, !llvm.loop !13
 
-Vec_MemHashLookup.exit161.thread:                 ; preds = %234, %Vec_MemHashKey.exit.i141
+.lr.ph.i162.thread:                               ; preds = %234, %Vec_MemHashKey.exit.i141
   store i64 %196, ptr %145, align 8
   br label %245
 
-Vec_MemHashLookup.exit161:                        ; preds = %225, %.lr.ph.i146
+.lr.ph.i162:                                      ; preds = %225, %.lr.ph.i146
   %239 = phi i32 [ %209, %.lr.ph.i146 ], [ %238, %225 ]
   store i64 %196, ptr %145, align 8
   %240 = icmp sgt i32 %239, -1
   br i1 %240, label %241, label %245
 
-241:                                              ; preds = %Vec_MemHashLookup.exit161
+241:                                              ; preds = %.lr.ph.i162
   %242 = shl nuw nsw i32 %239, 1
   %243 = or disjoint i32 %242, 1
   %244 = getelementptr inbounds i32, ptr %.val120, i64 %indvars.iv217
   store i32 %243, ptr %244, align 4
   br label %245
 
-245:                                              ; preds = %Vec_MemHashLookup.exit161.thread, %Vec_MemHashLookup.exit161, %102, %241, %193
+245:                                              ; preds = %.lr.ph.i162.thread, %.lr.ph.i162, %102, %241, %193
   %indvars.iv.next218 = add nuw nsw i64 %indvars.iv217, 1
   %246 = load i32, ptr %6, align 8
   %247 = sext i32 %246 to i64

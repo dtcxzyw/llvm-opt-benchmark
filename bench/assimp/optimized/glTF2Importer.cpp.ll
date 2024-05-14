@@ -9166,10 +9166,8 @@ for.body932:                                      ; preds = %_ZL18SetFaceAndAdva
   %facePtr.224578 = phi ptr [ %facePtr.23, %for.inc936 ], [ %incdec.ptr.i1187, %_ZL18SetFaceAndAdvance2RP6aiFacejjj.exit1189 ]
   %576 = load i32, ptr %mNumVertices.i, align 4
   %sub934 = add i32 %i929.04579, -1
-  %cmp.not.i1190 = icmp ult i32 %sub934, %576
   %cmp1.not.i1191 = icmp ult i32 %i929.04579, %576
-  %or.cond.i1192 = and i1 %cmp.not.i1190, %cmp1.not.i1191
-  br i1 %or.cond.i1192, label %if.end.i1193, label %for.inc936
+  br i1 %cmp1.not.i1191, label %if.end.i1193, label %for.inc936
 
 if.end.i1193:                                     ; preds = %for.body932
   store i32 2, ptr %facePtr.224578, align 8

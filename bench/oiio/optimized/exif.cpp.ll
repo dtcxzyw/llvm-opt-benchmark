@@ -2193,9 +2193,9 @@ _ZN18OpenImageIO_v2_6_03pvt14gps_tagmap_refEv.exit: ; preds = %_ZN18OpenImageIO_
   %tdir_offset = getelementptr inbounds i8, ptr %dir, i64 8
   %8 = load i32, ptr %tdir_offset, align 4
   %9 = load i16, ptr %dir, align 4
-  br i1 %swab, label %for.body.i.preheader, label %if.end13
+  br i1 %swab, label %for.body.i, label %if.end13
 
-for.body.i.preheader:                             ; preds = %_ZN18OpenImageIO_v2_6_03pvt14gps_tagmap_refEv.exit
+for.body.i:                                       ; preds = %_ZN18OpenImageIO_v2_6_03pvt14gps_tagmap_refEv.exit
   %10 = call i16 @llvm.bswap.i16(i16 %9)
   store i16 %10, ptr %dir, align 4
   %tdir_type = getelementptr inbounds i8, ptr %dir, i64 2
@@ -2209,26 +2209,26 @@ for.body.i.preheader:                             ; preds = %_ZN18OpenImageIO_v2
   %or.cond.i.i = icmp ugt i16 %12, 13
   br i1 %or.cond.i.i, label %_ZN18OpenImageIO_v2_6_014tiff_data_sizeERK12TIFFDirEntry.exit, label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %for.body.i.preheader
+if.end.i.i:                                       ; preds = %for.body.i
   %idxprom.i.i = zext nneg i16 %12 to i64
   %arrayidx.i.i = getelementptr inbounds [14 x i64], ptr @_ZZN18OpenImageIO_v2_6_014tiff_data_sizeE12TIFFDataTypeE5sizes, i64 0, i64 %idxprom.i.i
   %15 = load i64, ptr %arrayidx.i.i, align 8
   br label %_ZN18OpenImageIO_v2_6_014tiff_data_sizeERK12TIFFDirEntry.exit
 
-_ZN18OpenImageIO_v2_6_014tiff_data_sizeERK12TIFFDirEntry.exit: ; preds = %for.body.i.preheader, %if.end.i.i
-  %retval.0.i.i = phi i64 [ %15, %if.end.i.i ], [ -1, %for.body.i.preheader ]
+_ZN18OpenImageIO_v2_6_014tiff_data_sizeERK12TIFFDirEntry.exit: ; preds = %for.body.i, %if.end.i.i
+  %retval.0.i.i = phi i64 [ %15, %if.end.i.i ], [ -1, %for.body.i ]
   %conv1.i = zext i32 %14 to i64
   %mul.i = mul i64 %retval.0.i.i, %conv1.i
   %cmp9 = icmp ugt i64 %mul.i, 4
-  br i1 %cmp9, label %for.body.i59.preheader, label %if.end13
+  br i1 %cmp9, label %for.body.i59, label %if.end13
 
-for.body.i59.preheader:                           ; preds = %_ZN18OpenImageIO_v2_6_014tiff_data_sizeERK12TIFFDirEntry.exit
+for.body.i59:                                     ; preds = %_ZN18OpenImageIO_v2_6_014tiff_data_sizeERK12TIFFDirEntry.exit
   %16 = call i32 @llvm.bswap.i32(i32 %8)
   store i32 %16, ptr %tdir_offset, align 4
   br label %if.end13
 
-if.end13:                                         ; preds = %_ZN18OpenImageIO_v2_6_03pvt14gps_tagmap_refEv.exit, %for.body.i59.preheader, %_ZN18OpenImageIO_v2_6_014tiff_data_sizeERK12TIFFDirEntry.exit
-  %17 = phi i16 [ %10, %for.body.i59.preheader ], [ %10, %_ZN18OpenImageIO_v2_6_014tiff_data_sizeERK12TIFFDirEntry.exit ], [ %9, %_ZN18OpenImageIO_v2_6_03pvt14gps_tagmap_refEv.exit ]
+if.end13:                                         ; preds = %_ZN18OpenImageIO_v2_6_03pvt14gps_tagmap_refEv.exit, %for.body.i59, %_ZN18OpenImageIO_v2_6_014tiff_data_sizeERK12TIFFDirEntry.exit
+  %17 = phi i16 [ %10, %for.body.i59 ], [ %10, %_ZN18OpenImageIO_v2_6_014tiff_data_sizeERK12TIFFDirEntry.exit ], [ %9, %_ZN18OpenImageIO_v2_6_03pvt14gps_tagmap_refEv.exit ]
   %conv = zext i16 %17 to i32
   switch i16 %17, label %if.else112 [
     i16 -30683, label %if.then20
@@ -2336,35 +2336,35 @@ _ZNSt3setImSt4lessImESaImEE6insertEOm.exit:       ; preds = %if.end12.i.i.i, %_Z
   %add.ptr42 = getelementptr inbounds i8, ptr %buf.coerce0, i64 %conv24
   %28 = load i16, ptr %add.ptr42, align 1
   %29 = call i16 @llvm.bswap.i16(i16 %28)
-  %spec.select167 = select i1 %swab, i16 %29, i16 %28
+  %spec.select163 = select i1 %swab, i16 %29, i16 %28
   %30 = load i16, ptr %dir, align 4
   %cmp48 = icmp eq i16 %30, -30683
-  %cmp50 = icmp ugt i16 %spec.select167, 32
+  %cmp50 = icmp ugt i16 %spec.select163, 32
   %or.cond1 = select i1 %cmp48, i1 %cmp50, i1 false
-  %cmp54146.not = icmp eq i16 %spec.select167, 0
-  %or.cond168 = select i1 %or.cond1, i1 true, i1 %cmp54146.not
-  br i1 %or.cond168, label %if.end138, label %for.body.lr.ph
+  %cmp54146.not = icmp eq i16 %spec.select163, 0
+  %or.cond164 = select i1 %or.cond1, i1 true, i1 %cmp54146.not
+  br i1 %or.cond164, label %if.end138, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZNSt3setImSt4lessImESaImEE6insertEOm.exit
   %add.ptr55 = getelementptr inbounds i8, ptr %add.ptr42, i64 2
-  %wide.trip.count158 = zext i16 %spec.select167 to i64
+  %wide.trip.count154 = zext i16 %spec.select163 to i64
   %cmp61 = icmp eq i16 %30, -30871
   %cond-lvalue = select i1 %cmp61, ptr @_ZZN18OpenImageIO_v2_6_03pvt15exif_tagmap_refEvE1T, ptr @_ZZN18OpenImageIO_v2_6_03pvt14gps_tagmap_refEvE1T
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %indvars.iv155 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next156, %for.body ]
-  %mul = mul nuw nsw i64 %indvars.iv155, 12
+  %indvars.iv151 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next152, %for.body ]
+  %mul = mul nuw nsw i64 %indvars.iv151, 12
   %add.ptr57 = getelementptr inbounds i8, ptr %add.ptr55, i64 %mul
   call fastcc void @_ZN18OpenImageIO_v2_6_0L13read_exif_tagERNS_9ImageSpecEPK12TIFFDirEntryNS_4spanIKhLln1EEEbiRSt3setImSt4lessImESaImEERKNS_3pvt6TagMapE(ptr noundef nonnull align 8 dereferenceable(160) %spec, ptr noundef nonnull %add.ptr57, ptr %buf.coerce0, i64 %buf.coerce1, i1 noundef zeroext %swab, i32 noundef %offset_adjustment, ptr noundef nonnull align 8 dereferenceable(48) %ifd_offsets_seen, ptr noundef nonnull align 8 dereferenceable(8) %cond-lvalue)
-  %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
-  %exitcond159.not = icmp eq i64 %indvars.iv.next156, %wide.trip.count158
-  br i1 %exitcond159.not, label %if.end138, label %for.body, !llvm.loop !120
+  %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
+  %exitcond155.not = icmp eq i64 %indvars.iv.next152, %wide.trip.count154
+  br i1 %exitcond155.not, label %if.end138, label %for.body, !llvm.loop !120
 
 if.then65:                                        ; preds = %if.end13
   %31 = call i32 @llvm.bswap.i32(i32 %8)
-  %spec.select169 = select i1 %swab, i32 %31, i32 %8
-  %conv70 = zext i32 %spec.select169 to i64
+  %spec.select165 = select i1 %swab, i32 %31, i32 %8
+  %conv70 = zext i32 %spec.select165 to i64
   %cmp72.not = icmp ult i64 %conv70, %buf.coerce1
   br i1 %cmp72.not, label %if.end74, label %if.end138
 
@@ -2404,13 +2404,13 @@ if.end85:                                         ; preds = %if.end74, %_ZNSt8_R
   %add.ptr93 = getelementptr inbounds i8, ptr %buf.coerce0, i64 %conv70
   %35 = load i16, ptr %add.ptr93, align 2
   %36 = call i16 @llvm.bswap.i16(i16 %35)
-  %spec.select170 = select i1 %swab, i16 %36, i16 %35
-  %cmp101142.not = icmp eq i16 %spec.select170, 0
+  %spec.select166 = select i1 %swab, i16 %36, i16 %35
+  %cmp101142.not = icmp eq i16 %spec.select166, 0
   br i1 %cmp101142.not, label %if.end138, label %for.body102.lr.ph
 
 for.body102.lr.ph:                                ; preds = %if.end85
   %add.ptr103 = getelementptr inbounds i8, ptr %add.ptr93, i64 2
-  %wide.trip.count = zext i16 %spec.select170 to i64
+  %wide.trip.count = zext i16 %spec.select166 to i64
   br label %for.body102
 
 for.body102:                                      ; preds = %for.body102.lr.ph, %for.body102
@@ -2585,9 +2585,9 @@ if.else16:                                        ; preds = %if.else
 if.end20:                                         ; preds = %if.then6, %if.else16, %if.then, %if.then3
   %ptr.0 = phi ptr [ %tdir_offset, %if.then3 ], [ null, %if.then ], [ %add.ptr.i, %if.then6 ], [ null, %if.else16 ]
   %cmp21.not = icmp eq i32 %endianreq, 1234
-  br i1 %cmp21.not, label %if.end64, label %for.body.i.preheader
+  br i1 %cmp21.not, label %if.end64, label %for.body.i
 
-for.body.i.preheader:                             ; preds = %if.end20
+for.body.i:                                       ; preds = %if.end20
   %4 = tail call i16 @llvm.bswap.i16(i16 %conv)
   store i16 %4, ptr %dir, align 4
   %5 = tail call i16 @llvm.bswap.i16(i16 %conv1)
@@ -2596,14 +2596,14 @@ for.body.i.preheader:                             ; preds = %if.end20
   store i32 %6, ptr %tdir_count, align 4
   br i1 %cmp, label %if.end29, label %if.then27
 
-if.then27:                                        ; preds = %for.body.i.preheader
+if.then27:                                        ; preds = %for.body.i
   %tdir_offset28 = getelementptr inbounds i8, ptr %dir, i64 8
   %7 = load i32, ptr %tdir_offset28, align 4
   %8 = tail call i32 @llvm.bswap.i32(i32 %7)
   store i32 %8, ptr %tdir_offset28, align 4
   br label %if.end29
 
-if.end29:                                         ; preds = %if.then27, %for.body.i.preheader
+if.end29:                                         ; preds = %if.then27, %for.body.i
   %tobool30.not = icmp eq ptr %ptr.0, null
   br i1 %tobool30.not, label %if.end64, label %if.then31
 

@@ -53556,9 +53556,13 @@ sw.bb2.i403:                                      ; preds = %if.end133.i
 _ZN3fmt3v106detail11parse_alignEc.exit407:        ; preds = %if.end133.i, %sw.bb1.i405, %sw.bb2.i403
   %retval.0.i404 = phi i16 [ 3, %sw.bb2.i403 ], [ 2, %sw.bb1.i405 ], [ 1, %if.end133.i ]
   %cmp.not.i408 = icmp eq i32 %enter_state.i.sroa.0.0, 0
-  br i1 %cmp.not.i408, label %for.body.i.preheader, label %if.then.i410
+  br i1 %cmp.not.i408, label %for.body.i, label %if.then.i410
 
-for.body.i.preheader:                             ; preds = %_ZN3fmt3v106detail11parse_alignEc.exit407
+if.then.i410:                                     ; preds = %if.end133.i, %_ZN3fmt3v106detail11parse_alignEc.exit407
+  call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.395) #27
+  unreachable
+
+for.body.i:                                       ; preds = %_ZN3fmt3v106detail11parse_alignEc.exit407
   store i32 %43, ptr %fill.i.i, align 4
   store i8 1, ptr %size_.i.i.i, align 4
   %bf.load146.i = load i16, ptr %align.i.i, align 1
@@ -53568,13 +53572,9 @@ for.body.i.preheader:                             ; preds = %_ZN3fmt3v106detail1
   %add.ptr150.i = getelementptr inbounds i8, ptr %begin.addr.i.0, i64 8
   br label %sw.epilog151.i
 
-if.then.i410:                                     ; preds = %if.end133.i, %_ZN3fmt3v106detail11parse_alignEc.exit407
-  call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.395) #27
-  unreachable
-
-sw.epilog151.i:                                   ; preds = %for.body.i.preheader, %_ZZN3fmt3v106detail18parse_format_specsIwEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit191, %_ZN3fmt3v106detail15parse_precisionIwEEPKT_S5_S5_RiRNS1_7arg_refIS3_EERNS0_26basic_format_parse_contextIS3_EE.exit, %_ZZN3fmt3v106detail18parse_format_specsIwEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit176, %if.end61.i, %_ZZN3fmt3v106detail18parse_format_specsIwEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit165, %sw.epilog.i30, %_ZN3fmt3v106detail11parse_alignEc.exit155
-  %begin.addr.i.1 = phi ptr [ %add.ptr150.i, %for.body.i.preheader ], [ %incdec.ptr79.i, %_ZZN3fmt3v106detail18parse_format_specsIwEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit191 ], [ %call.i, %_ZN3fmt3v106detail15parse_precisionIwEEPKT_S5_S5_RiRNS1_7arg_refIS3_EERNS0_26basic_format_parse_contextIS3_EE.exit ], [ %call64.i, %_ZZN3fmt3v106detail18parse_format_specsIwEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit176 ], [ %incdec.ptr62.i, %if.end61.i ], [ %incdec.ptr42.i, %_ZZN3fmt3v106detail18parse_format_specsIwEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit165 ], [ %incdec.ptr33.i, %sw.epilog.i30 ], [ %incdec.ptr.i, %_ZN3fmt3v106detail11parse_alignEc.exit155 ]
-  %enter_state.i.sroa.0.1 = phi i32 [ 1, %for.body.i.preheader ], [ 7, %_ZZN3fmt3v106detail18parse_format_specsIwEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit191 ], [ 6, %_ZN3fmt3v106detail15parse_precisionIwEEPKT_S5_S5_RiRNS1_7arg_refIS3_EERNS0_26basic_format_parse_contextIS3_EE.exit ], [ 5, %_ZZN3fmt3v106detail18parse_format_specsIwEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit176 ], [ 4, %if.end61.i ], [ 3, %_ZZN3fmt3v106detail18parse_format_specsIwEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit165 ], [ 2, %sw.epilog.i30 ], [ 1, %_ZN3fmt3v106detail11parse_alignEc.exit155 ]
+sw.epilog151.i:                                   ; preds = %for.body.i, %_ZZN3fmt3v106detail18parse_format_specsIwEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit191, %_ZN3fmt3v106detail15parse_precisionIwEEPKT_S5_S5_RiRNS1_7arg_refIS3_EERNS0_26basic_format_parse_contextIS3_EE.exit, %_ZZN3fmt3v106detail18parse_format_specsIwEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit176, %if.end61.i, %_ZZN3fmt3v106detail18parse_format_specsIwEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit165, %sw.epilog.i30, %_ZN3fmt3v106detail11parse_alignEc.exit155
+  %begin.addr.i.1 = phi ptr [ %add.ptr150.i, %for.body.i ], [ %incdec.ptr79.i, %_ZZN3fmt3v106detail18parse_format_specsIwEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit191 ], [ %call.i, %_ZN3fmt3v106detail15parse_precisionIwEEPKT_S5_S5_RiRNS1_7arg_refIS3_EERNS0_26basic_format_parse_contextIS3_EE.exit ], [ %call64.i, %_ZZN3fmt3v106detail18parse_format_specsIwEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit176 ], [ %incdec.ptr62.i, %if.end61.i ], [ %incdec.ptr42.i, %_ZZN3fmt3v106detail18parse_format_specsIwEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit165 ], [ %incdec.ptr33.i, %sw.epilog.i30 ], [ %incdec.ptr.i, %_ZN3fmt3v106detail11parse_alignEc.exit155 ]
+  %enter_state.i.sroa.0.1 = phi i32 [ 1, %for.body.i ], [ 7, %_ZZN3fmt3v106detail18parse_format_specsIwEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit191 ], [ 6, %_ZN3fmt3v106detail15parse_precisionIwEEPKT_S5_S5_RiRNS1_7arg_refIS3_EERNS0_26basic_format_parse_contextIS3_EE.exit ], [ 5, %_ZZN3fmt3v106detail18parse_format_specsIwEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit176 ], [ 4, %if.end61.i ], [ 3, %_ZZN3fmt3v106detail18parse_format_specsIwEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit165 ], [ 2, %sw.epilog.i30 ], [ 1, %_ZN3fmt3v106detail11parse_alignEc.exit155 ]
   %cmp152.i = icmp eq ptr %begin.addr.i.1, %end
   br i1 %cmp152.i, label %_ZN3fmt3v106detail18parse_format_specsIwEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeE.exit, label %if.end154.i
 
@@ -80117,9 +80117,13 @@ sw.bb2.i407:                                      ; preds = %if.end141.i
 _ZN3fmt3v106detail11parse_alignEc.exit411:        ; preds = %if.end141.i, %sw.bb1.i409, %sw.bb2.i407
   %retval.0.i408 = phi i16 [ 3, %sw.bb2.i407 ], [ 2, %sw.bb1.i409 ], [ 1, %if.end141.i ]
   %cmp.not.i412 = icmp eq i32 %enter_state.i.sroa.0.0, 0
-  br i1 %cmp.not.i412, label %for.body.i.preheader, label %if.then.i414
+  br i1 %cmp.not.i412, label %for.body.i, label %if.then.i414
 
-for.body.i.preheader:                             ; preds = %_ZN3fmt3v106detail11parse_alignEc.exit411
+if.then.i414:                                     ; preds = %if.end141.i, %_ZN3fmt3v106detail11parse_alignEc.exit411
+  call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.395) #27
+  unreachable
+
+for.body.i:                                       ; preds = %_ZN3fmt3v106detail11parse_alignEc.exit411
   store i32 %42, ptr %fill.i.i, align 4
   store i8 1, ptr %size_.i.i.i, align 4
   %bf.load157.i = load i16, ptr %align.i.i, align 1
@@ -80129,13 +80133,9 @@ for.body.i.preheader:                             ; preds = %_ZN3fmt3v106detail1
   %add.ptr161.i = getelementptr inbounds i8, ptr %begin.addr.i.0, i64 8
   br label %sw.epilog162.i
 
-if.then.i414:                                     ; preds = %if.end141.i, %_ZN3fmt3v106detail11parse_alignEc.exit411
-  call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.395) #27
-  unreachable
-
-sw.epilog162.i:                                   ; preds = %for.body.i.preheader, %_ZZN3fmt3v106detail18parse_format_specsI11custom_charEEPKT_S6_S6_RNS1_20dynamic_format_specsIS4_EERNS0_26basic_format_parse_contextIS4_EENS1_4typeEENUt_clENS1_5stateEb.exit192, %_ZN3fmt3v106detail15parse_precisionI11custom_charEEPKT_S6_S6_RiRNS1_7arg_refIS4_EERNS0_26basic_format_parse_contextIS4_EE.exit, %_ZZN3fmt3v106detail18parse_format_specsI11custom_charEEPKT_S6_S6_RNS1_20dynamic_format_specsIS4_EERNS0_26basic_format_parse_contextIS4_EENS1_4typeEENUt_clENS1_5stateEb.exit176, %if.end65.i, %_ZZN3fmt3v106detail18parse_format_specsI11custom_charEEPKT_S6_S6_RNS1_20dynamic_format_specsIS4_EERNS0_26basic_format_parse_contextIS4_EENS1_4typeEENUt_clENS1_5stateEb.exit165, %sw.epilog.i29, %_ZN3fmt3v106detail11parse_alignEc.exit155
-  %begin.addr.i.1 = phi ptr [ %add.ptr161.i, %for.body.i.preheader ], [ %incdec.ptr83.i, %_ZZN3fmt3v106detail18parse_format_specsI11custom_charEEPKT_S6_S6_RNS1_20dynamic_format_specsIS4_EERNS0_26basic_format_parse_contextIS4_EENS1_4typeEENUt_clENS1_5stateEb.exit192 ], [ %call2.i, %_ZN3fmt3v106detail15parse_precisionI11custom_charEEPKT_S6_S6_RiRNS1_7arg_refIS4_EERNS0_26basic_format_parse_contextIS4_EE.exit ], [ %call68.i, %_ZZN3fmt3v106detail18parse_format_specsI11custom_charEEPKT_S6_S6_RNS1_20dynamic_format_specsIS4_EERNS0_26basic_format_parse_contextIS4_EENS1_4typeEENUt_clENS1_5stateEb.exit176 ], [ %incdec.ptr66.i, %if.end65.i ], [ %incdec.ptr46.i, %_ZZN3fmt3v106detail18parse_format_specsI11custom_charEEPKT_S6_S6_RNS1_20dynamic_format_specsIS4_EERNS0_26basic_format_parse_contextIS4_EENS1_4typeEENUt_clENS1_5stateEb.exit165 ], [ %incdec.ptr37.i, %sw.epilog.i29 ], [ %incdec.ptr.i, %_ZN3fmt3v106detail11parse_alignEc.exit155 ]
-  %enter_state.i.sroa.0.1 = phi i32 [ 1, %for.body.i.preheader ], [ 7, %_ZZN3fmt3v106detail18parse_format_specsI11custom_charEEPKT_S6_S6_RNS1_20dynamic_format_specsIS4_EERNS0_26basic_format_parse_contextIS4_EENS1_4typeEENUt_clENS1_5stateEb.exit192 ], [ 6, %_ZN3fmt3v106detail15parse_precisionI11custom_charEEPKT_S6_S6_RiRNS1_7arg_refIS4_EERNS0_26basic_format_parse_contextIS4_EE.exit ], [ 5, %_ZZN3fmt3v106detail18parse_format_specsI11custom_charEEPKT_S6_S6_RNS1_20dynamic_format_specsIS4_EERNS0_26basic_format_parse_contextIS4_EENS1_4typeEENUt_clENS1_5stateEb.exit176 ], [ 4, %if.end65.i ], [ 3, %_ZZN3fmt3v106detail18parse_format_specsI11custom_charEEPKT_S6_S6_RNS1_20dynamic_format_specsIS4_EERNS0_26basic_format_parse_contextIS4_EENS1_4typeEENUt_clENS1_5stateEb.exit165 ], [ 2, %sw.epilog.i29 ], [ 1, %_ZN3fmt3v106detail11parse_alignEc.exit155 ]
+sw.epilog162.i:                                   ; preds = %for.body.i, %_ZZN3fmt3v106detail18parse_format_specsI11custom_charEEPKT_S6_S6_RNS1_20dynamic_format_specsIS4_EERNS0_26basic_format_parse_contextIS4_EENS1_4typeEENUt_clENS1_5stateEb.exit192, %_ZN3fmt3v106detail15parse_precisionI11custom_charEEPKT_S6_S6_RiRNS1_7arg_refIS4_EERNS0_26basic_format_parse_contextIS4_EE.exit, %_ZZN3fmt3v106detail18parse_format_specsI11custom_charEEPKT_S6_S6_RNS1_20dynamic_format_specsIS4_EERNS0_26basic_format_parse_contextIS4_EENS1_4typeEENUt_clENS1_5stateEb.exit176, %if.end65.i, %_ZZN3fmt3v106detail18parse_format_specsI11custom_charEEPKT_S6_S6_RNS1_20dynamic_format_specsIS4_EERNS0_26basic_format_parse_contextIS4_EENS1_4typeEENUt_clENS1_5stateEb.exit165, %sw.epilog.i29, %_ZN3fmt3v106detail11parse_alignEc.exit155
+  %begin.addr.i.1 = phi ptr [ %add.ptr161.i, %for.body.i ], [ %incdec.ptr83.i, %_ZZN3fmt3v106detail18parse_format_specsI11custom_charEEPKT_S6_S6_RNS1_20dynamic_format_specsIS4_EERNS0_26basic_format_parse_contextIS4_EENS1_4typeEENUt_clENS1_5stateEb.exit192 ], [ %call2.i, %_ZN3fmt3v106detail15parse_precisionI11custom_charEEPKT_S6_S6_RiRNS1_7arg_refIS4_EERNS0_26basic_format_parse_contextIS4_EE.exit ], [ %call68.i, %_ZZN3fmt3v106detail18parse_format_specsI11custom_charEEPKT_S6_S6_RNS1_20dynamic_format_specsIS4_EERNS0_26basic_format_parse_contextIS4_EENS1_4typeEENUt_clENS1_5stateEb.exit176 ], [ %incdec.ptr66.i, %if.end65.i ], [ %incdec.ptr46.i, %_ZZN3fmt3v106detail18parse_format_specsI11custom_charEEPKT_S6_S6_RNS1_20dynamic_format_specsIS4_EERNS0_26basic_format_parse_contextIS4_EENS1_4typeEENUt_clENS1_5stateEb.exit165 ], [ %incdec.ptr37.i, %sw.epilog.i29 ], [ %incdec.ptr.i, %_ZN3fmt3v106detail11parse_alignEc.exit155 ]
+  %enter_state.i.sroa.0.1 = phi i32 [ 1, %for.body.i ], [ 7, %_ZZN3fmt3v106detail18parse_format_specsI11custom_charEEPKT_S6_S6_RNS1_20dynamic_format_specsIS4_EERNS0_26basic_format_parse_contextIS4_EENS1_4typeEENUt_clENS1_5stateEb.exit192 ], [ 6, %_ZN3fmt3v106detail15parse_precisionI11custom_charEEPKT_S6_S6_RiRNS1_7arg_refIS4_EERNS0_26basic_format_parse_contextIS4_EE.exit ], [ 5, %_ZZN3fmt3v106detail18parse_format_specsI11custom_charEEPKT_S6_S6_RNS1_20dynamic_format_specsIS4_EERNS0_26basic_format_parse_contextIS4_EENS1_4typeEENUt_clENS1_5stateEb.exit176 ], [ 4, %if.end65.i ], [ 3, %_ZZN3fmt3v106detail18parse_format_specsI11custom_charEEPKT_S6_S6_RNS1_20dynamic_format_specsIS4_EERNS0_26basic_format_parse_contextIS4_EENS1_4typeEENUt_clENS1_5stateEb.exit165 ], [ 2, %sw.epilog.i29 ], [ 1, %_ZN3fmt3v106detail11parse_alignEc.exit155 ]
   %cmp163.i = icmp eq ptr %begin.addr.i.1, %end
   br i1 %cmp163.i, label %_ZN3fmt3v106detail18parse_format_specsI11custom_charEEPKT_S6_S6_RNS1_20dynamic_format_specsIS4_EERNS0_26basic_format_parse_contextIS4_EENS1_4typeE.exit, label %if.end165.i
 
@@ -88589,9 +88589,13 @@ sw.bb2.i294:                                      ; preds = %if.end133.i
 _ZN3fmt3v106detail11parse_alignEc.exit298:        ; preds = %if.end133.i, %sw.bb1.i296, %sw.bb2.i294
   %retval.0.i295 = phi i16 [ 3, %sw.bb2.i294 ], [ 2, %sw.bb1.i296 ], [ 1, %if.end133.i ]
   %cmp.not.i299 = icmp eq i32 %enter_state.i.sroa.0.0, 0
-  br i1 %cmp.not.i299, label %for.body.i.preheader, label %if.then.i300
+  br i1 %cmp.not.i299, label %for.body.i, label %if.then.i300
 
-for.body.i.preheader:                             ; preds = %_ZN3fmt3v106detail11parse_alignEc.exit298
+if.then.i300:                                     ; preds = %if.end133.i, %_ZN3fmt3v106detail11parse_alignEc.exit298
+  tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.395) #27
+  unreachable
+
+for.body.i:                                       ; preds = %_ZN3fmt3v106detail11parse_alignEc.exit298
   store i32 %5, ptr %fill144.i, align 4
   store i8 1, ptr %size_.i304, align 4
   %bf.load146.i = load i16, ptr %align.i, align 1
@@ -88601,13 +88605,9 @@ for.body.i.preheader:                             ; preds = %_ZN3fmt3v106detail1
   %add.ptr150.i = getelementptr inbounds i8, ptr %begin.addr.i.0, i64 8
   br label %sw.epilog151.i
 
-if.then.i300:                                     ; preds = %if.end133.i, %_ZN3fmt3v106detail11parse_alignEc.exit298
-  tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.395) #27
-  unreachable
-
-sw.epilog151.i:                                   ; preds = %for.body.i.preheader, %_ZN3fmt3v106detail15parse_precisionIwEEPKT_S5_S5_RiRNS1_7arg_refIS3_EERNS0_26basic_format_parse_contextIS3_EE.exit, %_ZZN3fmt3v106detail18parse_format_specsIwEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit70, %_ZN3fmt3v106detail11parse_alignEc.exit53
-  %begin.addr.i.1 = phi ptr [ %add.ptr150.i, %for.body.i.preheader ], [ %call.i, %_ZN3fmt3v106detail15parse_precisionIwEEPKT_S5_S5_RiRNS1_7arg_refIS3_EERNS0_26basic_format_parse_contextIS3_EE.exit ], [ %call64.i, %_ZZN3fmt3v106detail18parse_format_specsIwEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit70 ], [ %incdec.ptr.i, %_ZN3fmt3v106detail11parse_alignEc.exit53 ]
-  %enter_state.i.sroa.0.1 = phi i32 [ 1, %for.body.i.preheader ], [ 6, %_ZN3fmt3v106detail15parse_precisionIwEEPKT_S5_S5_RiRNS1_7arg_refIS3_EERNS0_26basic_format_parse_contextIS3_EE.exit ], [ 5, %_ZZN3fmt3v106detail18parse_format_specsIwEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit70 ], [ 1, %_ZN3fmt3v106detail11parse_alignEc.exit53 ]
+sw.epilog151.i:                                   ; preds = %for.body.i, %_ZN3fmt3v106detail15parse_precisionIwEEPKT_S5_S5_RiRNS1_7arg_refIS3_EERNS0_26basic_format_parse_contextIS3_EE.exit, %_ZZN3fmt3v106detail18parse_format_specsIwEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit70, %_ZN3fmt3v106detail11parse_alignEc.exit53
+  %begin.addr.i.1 = phi ptr [ %add.ptr150.i, %for.body.i ], [ %call.i, %_ZN3fmt3v106detail15parse_precisionIwEEPKT_S5_S5_RiRNS1_7arg_refIS3_EERNS0_26basic_format_parse_contextIS3_EE.exit ], [ %call64.i, %_ZZN3fmt3v106detail18parse_format_specsIwEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit70 ], [ %incdec.ptr.i, %_ZN3fmt3v106detail11parse_alignEc.exit53 ]
+  %enter_state.i.sroa.0.1 = phi i32 [ 1, %for.body.i ], [ 6, %_ZN3fmt3v106detail15parse_precisionIwEEPKT_S5_S5_RiRNS1_7arg_refIS3_EERNS0_26basic_format_parse_contextIS3_EE.exit ], [ 5, %_ZZN3fmt3v106detail18parse_format_specsIwEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit70 ], [ 1, %_ZN3fmt3v106detail11parse_alignEc.exit53 ]
   %cmp152.i = icmp eq ptr %begin.addr.i.1, %add.ptr.i.i
   br i1 %cmp152.i, label %if.end, label %if.end154.i
 
@@ -89768,9 +89768,13 @@ sw.bb2.i294:                                      ; preds = %if.end133.i
 _ZN3fmt3v106detail11parse_alignEc.exit298:        ; preds = %if.end133.i, %sw.bb1.i296, %sw.bb2.i294
   %retval.0.i295 = phi i16 [ 3, %sw.bb2.i294 ], [ 2, %sw.bb1.i296 ], [ 1, %if.end133.i ]
   %cmp.not.i299 = icmp eq i32 %enter_state.i.sroa.0.0, 0
-  br i1 %cmp.not.i299, label %for.body.i.preheader, label %if.then.i300
+  br i1 %cmp.not.i299, label %for.body.i, label %if.then.i300
 
-for.body.i.preheader:                             ; preds = %_ZN3fmt3v106detail11parse_alignEc.exit298
+if.then.i300:                                     ; preds = %if.end133.i, %_ZN3fmt3v106detail11parse_alignEc.exit298
+  tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.395) #27
+  unreachable
+
+for.body.i:                                       ; preds = %_ZN3fmt3v106detail11parse_alignEc.exit298
   store i32 %5, ptr %fill.i, align 4
   store i8 1, ptr %size_.i304, align 4
   %bf.load146.i = load i16, ptr %localized.i, align 1
@@ -89780,13 +89784,9 @@ for.body.i.preheader:                             ; preds = %_ZN3fmt3v106detail1
   %add.ptr150.i = getelementptr inbounds i8, ptr %begin.addr.i.0, i64 8
   br label %sw.epilog151.i
 
-if.then.i300:                                     ; preds = %if.end133.i, %_ZN3fmt3v106detail11parse_alignEc.exit298
-  tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.395) #27
-  unreachable
-
-sw.epilog151.i:                                   ; preds = %for.body.i.preheader, %_ZZN3fmt3v106detail18parse_format_specsIwEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit82, %_ZZN3fmt3v106detail18parse_format_specsIwEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit70, %if.end61.i, %_ZZN3fmt3v106detail18parse_format_specsIwEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit61, %sw.epilog.i, %_ZN3fmt3v106detail11parse_alignEc.exit53
-  %begin.addr.i.1 = phi ptr [ %add.ptr150.i, %for.body.i.preheader ], [ %incdec.ptr79.i, %_ZZN3fmt3v106detail18parse_format_specsIwEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit82 ], [ %call64.i, %_ZZN3fmt3v106detail18parse_format_specsIwEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit70 ], [ %incdec.ptr62.i, %if.end61.i ], [ %incdec.ptr42.i, %_ZZN3fmt3v106detail18parse_format_specsIwEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit61 ], [ %incdec.ptr33.i, %sw.epilog.i ], [ %incdec.ptr.i, %_ZN3fmt3v106detail11parse_alignEc.exit53 ]
-  %enter_state.i.sroa.0.1 = phi i32 [ 1, %for.body.i.preheader ], [ 7, %_ZZN3fmt3v106detail18parse_format_specsIwEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit82 ], [ 5, %_ZZN3fmt3v106detail18parse_format_specsIwEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit70 ], [ 4, %if.end61.i ], [ 3, %_ZZN3fmt3v106detail18parse_format_specsIwEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit61 ], [ 2, %sw.epilog.i ], [ 1, %_ZN3fmt3v106detail11parse_alignEc.exit53 ]
+sw.epilog151.i:                                   ; preds = %for.body.i, %_ZZN3fmt3v106detail18parse_format_specsIwEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit82, %_ZZN3fmt3v106detail18parse_format_specsIwEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit70, %if.end61.i, %_ZZN3fmt3v106detail18parse_format_specsIwEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit61, %sw.epilog.i, %_ZN3fmt3v106detail11parse_alignEc.exit53
+  %begin.addr.i.1 = phi ptr [ %add.ptr150.i, %for.body.i ], [ %incdec.ptr79.i, %_ZZN3fmt3v106detail18parse_format_specsIwEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit82 ], [ %call64.i, %_ZZN3fmt3v106detail18parse_format_specsIwEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit70 ], [ %incdec.ptr62.i, %if.end61.i ], [ %incdec.ptr42.i, %_ZZN3fmt3v106detail18parse_format_specsIwEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit61 ], [ %incdec.ptr33.i, %sw.epilog.i ], [ %incdec.ptr.i, %_ZN3fmt3v106detail11parse_alignEc.exit53 ]
+  %enter_state.i.sroa.0.1 = phi i32 [ 1, %for.body.i ], [ 7, %_ZZN3fmt3v106detail18parse_format_specsIwEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit82 ], [ 5, %_ZZN3fmt3v106detail18parse_format_specsIwEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit70 ], [ 4, %if.end61.i ], [ 3, %_ZZN3fmt3v106detail18parse_format_specsIwEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit61 ], [ 2, %sw.epilog.i ], [ 1, %_ZN3fmt3v106detail11parse_alignEc.exit53 ]
   %cmp152.i = icmp eq ptr %begin.addr.i.1, %add.ptr.i.i
   br i1 %cmp152.i, label %if.end, label %if.end154.i
 
@@ -116501,9 +116501,13 @@ sw.bb2.i294:                                      ; preds = %if.end133.i
 _ZN3fmt3v106detail11parse_alignEc.exit298:        ; preds = %if.end133.i, %sw.bb1.i296, %sw.bb2.i294
   %retval.0.i295 = phi i16 [ 3, %sw.bb2.i294 ], [ 2, %sw.bb1.i296 ], [ 1, %if.end133.i ]
   %cmp.not.i299 = icmp eq i32 %enter_state.i.sroa.0.0, 0
-  br i1 %cmp.not.i299, label %for.body.i.preheader, label %if.then.i300
+  br i1 %cmp.not.i299, label %for.body.i, label %if.then.i300
 
-for.body.i.preheader:                             ; preds = %_ZN3fmt3v106detail11parse_alignEc.exit298
+if.then.i300:                                     ; preds = %if.end133.i, %_ZN3fmt3v106detail11parse_alignEc.exit298
+  tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.395) #27
+  unreachable
+
+for.body.i:                                       ; preds = %_ZN3fmt3v106detail11parse_alignEc.exit298
   store i32 %5, ptr %fill.i, align 4
   store i8 1, ptr %size_.i304, align 4
   %bf.load146.i = load i16, ptr %localized.i, align 1
@@ -116513,13 +116517,9 @@ for.body.i.preheader:                             ; preds = %_ZN3fmt3v106detail1
   %add.ptr150.i = getelementptr inbounds i8, ptr %begin.addr.i.0, i64 8
   br label %sw.epilog151.i
 
-if.then.i300:                                     ; preds = %if.end133.i, %_ZN3fmt3v106detail11parse_alignEc.exit298
-  tail call void @_ZN3fmt3v106detail18throw_format_errorEPKc(ptr noundef nonnull @.str.395) #27
-  unreachable
-
-sw.epilog151.i:                                   ; preds = %for.body.i.preheader, %_ZZN3fmt3v106detail18parse_format_specsIwEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit82, %_ZZN3fmt3v106detail18parse_format_specsIwEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit70, %if.end61.i, %_ZZN3fmt3v106detail18parse_format_specsIwEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit61, %_ZN3fmt3v106detail11parse_alignEc.exit53
-  %begin.addr.i.1 = phi ptr [ %add.ptr150.i, %for.body.i.preheader ], [ %incdec.ptr79.i, %_ZZN3fmt3v106detail18parse_format_specsIwEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit82 ], [ %call64.i, %_ZZN3fmt3v106detail18parse_format_specsIwEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit70 ], [ %incdec.ptr62.i, %if.end61.i ], [ %incdec.ptr42.i, %_ZZN3fmt3v106detail18parse_format_specsIwEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit61 ], [ %incdec.ptr.i, %_ZN3fmt3v106detail11parse_alignEc.exit53 ]
-  %enter_state.i.sroa.0.1 = phi i32 [ 1, %for.body.i.preheader ], [ 7, %_ZZN3fmt3v106detail18parse_format_specsIwEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit82 ], [ 5, %_ZZN3fmt3v106detail18parse_format_specsIwEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit70 ], [ 4, %if.end61.i ], [ 3, %_ZZN3fmt3v106detail18parse_format_specsIwEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit61 ], [ 1, %_ZN3fmt3v106detail11parse_alignEc.exit53 ]
+sw.epilog151.i:                                   ; preds = %for.body.i, %_ZZN3fmt3v106detail18parse_format_specsIwEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit82, %_ZZN3fmt3v106detail18parse_format_specsIwEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit70, %if.end61.i, %_ZZN3fmt3v106detail18parse_format_specsIwEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit61, %_ZN3fmt3v106detail11parse_alignEc.exit53
+  %begin.addr.i.1 = phi ptr [ %add.ptr150.i, %for.body.i ], [ %incdec.ptr79.i, %_ZZN3fmt3v106detail18parse_format_specsIwEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit82 ], [ %call64.i, %_ZZN3fmt3v106detail18parse_format_specsIwEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit70 ], [ %incdec.ptr62.i, %if.end61.i ], [ %incdec.ptr42.i, %_ZZN3fmt3v106detail18parse_format_specsIwEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit61 ], [ %incdec.ptr.i, %_ZN3fmt3v106detail11parse_alignEc.exit53 ]
+  %enter_state.i.sroa.0.1 = phi i32 [ 1, %for.body.i ], [ 7, %_ZZN3fmt3v106detail18parse_format_specsIwEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit82 ], [ 5, %_ZZN3fmt3v106detail18parse_format_specsIwEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit70 ], [ 4, %if.end61.i ], [ 3, %_ZZN3fmt3v106detail18parse_format_specsIwEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit61 ], [ 1, %_ZN3fmt3v106detail11parse_alignEc.exit53 ]
   %cmp152.i = icmp eq ptr %begin.addr.i.1, %add.ptr.i.i
   br i1 %cmp152.i, label %if.then, label %if.end154.i
 

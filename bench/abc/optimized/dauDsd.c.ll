@@ -3364,14 +3364,14 @@ Vec_IntSelectSortCost2.exit:                      ; preds = %._crit_edge.i, %._c
   %57 = shl i64 %54, %56
   %58 = or i64 %57, %54
   store i64 %58, ptr %5, align 16
-  br label %.lr.ph.i53
+  br label %Abc_TtCofactor0p.exit
 
 59:                                               ; preds = %46
   %60 = icmp slt i32 %48, 6
   br i1 %60, label %61, label %74
 
 61:                                               ; preds = %59
-  br i1 %42, label %.lr.ph.i51, label %.lr.ph.i53
+  br i1 %42, label %.lr.ph.i51, label %Abc_TtCofactor0p.exit
 
 .lr.ph.i51:                                       ; preds = %61
   %62 = shl nuw nsw i32 1, %48
@@ -3392,18 +3392,18 @@ Vec_IntSelectSortCost2.exit:                      ; preds = %._crit_edge.i, %._c
   store i64 %72, ptr %73, align 8
   %indvars.iv.next57.i = add nuw nsw i64 %indvars.iv56.i, 1
   %exitcond60.not.i = icmp eq i64 %indvars.iv.next57.i, %wide.trip.count59.i
-  br i1 %exitcond60.not.i, label %.lr.ph.i53, label %67, !llvm.loop !61
+  br i1 %exitcond60.not.i, label %Abc_TtCofactor0p.exit, label %67, !llvm.loop !61
 
 74:                                               ; preds = %59
   %75 = add nsw i32 %48, -6
   %76 = shl nuw i32 1, %75
-  br i1 %42, label %.preheader.lr.ph.i, label %.lr.ph.i53
+  br i1 %42, label %.preheader.lr.ph.i, label %Abc_TtCofactor0p.exit
 
 .preheader.lr.ph.i:                               ; preds = %74
   %.not.i = icmp eq i32 %75, 31
   %77 = shl i32 2, %75
   %78 = sext i32 %77 to i64
-  br i1 %.not.i, label %.lr.ph.i53, label %.preheader.us.preheader.i
+  br i1 %.not.i, label %Abc_TtCofactor0p.exit, label %.preheader.us.preheader.i
 
 .preheader.us.preheader.i:                        ; preds = %.preheader.lr.ph.i
   %79 = sext i32 %76 to i64
@@ -3433,12 +3433,12 @@ Vec_IntSelectSortCost2.exit:                      ; preds = %._crit_edge.i, %._c
   %86 = getelementptr inbounds i64, ptr %.04250.us.i, i64 %78
   %87 = getelementptr inbounds i64, ptr %.051.us.i, i64 %78
   %88 = icmp ult ptr %86, %41
-  br i1 %88, label %.preheader.us.i, label %.lr.ph.i53, !llvm.loop !63
+  br i1 %88, label %.preheader.us.i, label %Abc_TtCofactor0p.exit, !llvm.loop !63
 
-.lr.ph.i53:                                       ; preds = %._crit_edge.us.i, %67, %.preheader.lr.ph.i, %74, %61, %49
+Abc_TtCofactor0p.exit:                            ; preds = %._crit_edge.us.i, %67, %49, %61, %74, %.preheader.lr.ph.i
   br i1 %43, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
-.lr.ph.split.us.i:                                ; preds = %.lr.ph.i53
+.lr.ph.split.us.i:                                ; preds = %Abc_TtCofactor0p.exit
   %89 = load i64, ptr %5, align 16
   br label %Abc_TtHasVar.exit.us.i
 
@@ -3461,7 +3461,7 @@ Abc_TtHasVar.exit.us.i:                           ; preds = %Abc_TtHasVar.exit.u
   %exitcond55.not.i = icmp eq i64 %indvars.iv.next52.i, %wide.trip.count.i54
   br i1 %exitcond55.not.i, label %Abc_TtSupportSize.exit, label %Abc_TtHasVar.exit.us.i, !llvm.loop !64
 
-.lr.ph.split.i:                                   ; preds = %.lr.ph.i53
+.lr.ph.split.i:                                   ; preds = %Abc_TtCofactor0p.exit
   br i1 %.not47.i.i, label %Abc_TtSupportSize.exit, label %.lr.ph.split.split.split.i
 
 .lr.ph.split.split.split.i:                       ; preds = %.lr.ph.split.i, %Abc_TtHasVar.exit.thread.i
@@ -3558,14 +3558,14 @@ Abc_TtSupportSize.exit:                           ; preds = %Abc_TtHasVar.exit.t
   %139 = lshr i64 %136, %138
   %140 = or i64 %139, %136
   store i64 %140, ptr %5, align 16
-  br label %.lr.ph.i72
+  br label %Abc_TtCofactor1p.exit
 
 141:                                              ; preds = %Abc_TtSupportSize.exit
   %142 = icmp slt i32 %48, 6
   br i1 %142, label %143, label %156
 
 143:                                              ; preds = %141
-  br i1 %42, label %.lr.ph.i69, label %.lr.ph.i72
+  br i1 %42, label %.lr.ph.i69, label %Abc_TtCofactor1p.exit
 
 .lr.ph.i69:                                       ; preds = %143
   %144 = shl nuw nsw i32 1, %48
@@ -3586,18 +3586,18 @@ Abc_TtSupportSize.exit:                           ; preds = %Abc_TtHasVar.exit.t
   store i64 %154, ptr %155, align 8
   %indvars.iv.next59.i = add nuw nsw i64 %indvars.iv58.i, 1
   %exitcond62.not.i = icmp eq i64 %indvars.iv.next59.i, %wide.trip.count59.i
-  br i1 %exitcond62.not.i, label %.lr.ph.i72, label %149, !llvm.loop !66
+  br i1 %exitcond62.not.i, label %Abc_TtCofactor1p.exit, label %149, !llvm.loop !66
 
 156:                                              ; preds = %141
   %157 = add nsw i32 %48, -6
   %158 = shl nuw i32 1, %157
-  br i1 %42, label %.preheader.lr.ph.i59, label %.lr.ph.i72
+  br i1 %42, label %.preheader.lr.ph.i59, label %Abc_TtCofactor1p.exit
 
 .preheader.lr.ph.i59:                             ; preds = %156
   %.not.i60 = icmp eq i32 %157, 31
   %159 = shl i32 2, %157
   %160 = sext i32 %159 to i64
-  br i1 %.not.i60, label %.lr.ph.i72, label %.preheader.us.preheader.i61
+  br i1 %.not.i60, label %Abc_TtCofactor1p.exit, label %.preheader.us.preheader.i61
 
 .preheader.us.preheader.i61:                      ; preds = %.preheader.lr.ph.i59
   %161 = sext i32 %158 to i64
@@ -3627,12 +3627,12 @@ Abc_TtSupportSize.exit:                           ; preds = %Abc_TtHasVar.exit.t
   %168 = getelementptr inbounds i64, ptr %.04452.us.i, i64 %160
   %169 = getelementptr inbounds i64, ptr %.053.us.i, i64 %160
   %170 = icmp ult ptr %168, %41
-  br i1 %170, label %.preheader.us.i64, label %.lr.ph.i72, !llvm.loop !68
+  br i1 %170, label %.preheader.us.i64, label %Abc_TtCofactor1p.exit, !llvm.loop !68
 
-.lr.ph.i72:                                       ; preds = %._crit_edge.us.i68, %149, %.preheader.lr.ph.i59, %156, %143, %131
+Abc_TtCofactor1p.exit:                            ; preds = %._crit_edge.us.i68, %149, %131, %143, %156, %.preheader.lr.ph.i59
   br i1 %43, label %.lr.ph.split.us.i102, label %.lr.ph.split.i75
 
-.lr.ph.split.us.i102:                             ; preds = %.lr.ph.i72
+.lr.ph.split.us.i102:                             ; preds = %Abc_TtCofactor1p.exit
   %171 = load i64, ptr %5, align 16
   br label %Abc_TtHasVar.exit.us.i104
 
@@ -3655,7 +3655,7 @@ Abc_TtHasVar.exit.us.i104:                        ; preds = %Abc_TtHasVar.exit.u
   %exitcond55.not.i111 = icmp eq i64 %indvars.iv.next52.i110, %wide.trip.count.i54
   br i1 %exitcond55.not.i111, label %Abc_TtSupportSize.exit112, label %Abc_TtHasVar.exit.us.i104, !llvm.loop !64
 
-.lr.ph.split.i75:                                 ; preds = %.lr.ph.i72
+.lr.ph.split.i75:                                 ; preds = %Abc_TtCofactor1p.exit
   br i1 %.not47.i.i, label %Abc_TtSupportSize.exit112, label %.lr.ph.split.split.split.i79
 
 .lr.ph.split.split.split.i79:                     ; preds = %.lr.ph.split.i75, %Abc_TtHasVar.exit.thread.i91

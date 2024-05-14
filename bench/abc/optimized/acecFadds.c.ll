@@ -2303,7 +2303,7 @@ define noalias noundef ptr @Dtc_ManFindCommonCuts(ptr nocapture readnone %0, ptr
   %22 = getelementptr inbounds i32, ptr %.03657, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4
   %.not = icmp eq i32 %21, %23
-  br i1 %.not, label %24, label %.thread
+  br i1 %.not, label %24, label %.thread.loopexit
 
 24:                                               ; preds = %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2447,7 +2447,7 @@ Vec_IntPush.exit51:                               ; preds = %.Vec_IntGrow.exit10
   %85 = getelementptr inbounds i8, ptr %.03657, i64 16
   br label %96
 
-.thread:                                          ; preds = %19
+.thread.loopexit:                                 ; preds = %19
   %86 = and i64 %indvars.iv, 4294967295
   %87 = getelementptr inbounds i32, ptr %.058, i64 %86
   %88 = load i32, ptr %87, align 4
@@ -2456,11 +2456,11 @@ Vec_IntPush.exit51:                               ; preds = %.Vec_IntGrow.exit10
   %91 = icmp slt i32 %88, %90
   br i1 %91, label %92, label %94
 
-92:                                               ; preds = %.thread
+92:                                               ; preds = %.thread.loopexit
   %93 = getelementptr inbounds i8, ptr %.058, i64 16
   br label %96
 
-94:                                               ; preds = %.thread
+94:                                               ; preds = %.thread.loopexit
   %95 = icmp sgt i32 %88, %90
   %spec.select.idx = select i1 %95, i64 16, i64 0
   %spec.select = getelementptr inbounds i8, ptr %.03657, i64 %spec.select.idx

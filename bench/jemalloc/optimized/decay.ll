@@ -342,17 +342,17 @@ for.cond.preheader:                               ; preds = %if.end
   %backlog = getelementptr inbounds i8, ptr %decay, i64 176
   br label %for.body
 
-for.body:                                         ; preds = %for.cond.preheader, %for.inc
-  %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [200 x i64], ptr %backlog, i64 0, i64 %indvars.iv
-  %1 = load i64, ptr %arrayidx, align 8
-  %cmp4.not = icmp eq i64 %1, 0
-  br i1 %cmp4.not, label %for.inc, label %if.end10
-
-for.inc:                                          ; preds = %for.body
+for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 200
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !8
+
+for.body:                                         ; preds = %for.cond.preheader, %for.cond
+  %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.cond ]
+  %arrayidx = getelementptr inbounds [200 x i64], ptr %backlog, i64 0, i64 %indvars.iv
+  %1 = load i64, ptr %arrayidx, align 8
+  %cmp4.not = icmp eq i64 %1, 0
+  br i1 %cmp4.not, label %for.cond, label %if.end10
 
 if.end10:                                         ; preds = %for.body, %if.end
   %cmp11.not = icmp ugt i64 %npages_current, %npages_threshold
@@ -424,20 +424,20 @@ decay_npurge_after_interval.exit45:               ; preds = %for.body.i34
   br i1 %cmp20, label %if.then21, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %decay_npurge_after_interval.exit45
-  %add75 = add nuw nsw i64 %shr.i, %npages_threshold
-  %cmp2476 = icmp ult i64 %add75, %shr.i44
-  br i1 %cmp2476, label %while.body, label %while.end
+  %add74 = add nuw nsw i64 %shr.i, %npages_threshold
+  %cmp2475 = icmp ult i64 %add74, %shr.i44
+  br i1 %cmp2475, label %while.body, label %while.end
 
 if.then21:                                        ; preds = %decay_npurge_after_interval.exit45
   %mul22 = mul i64 %call.i, 200
   br label %return
 
 while.body:                                       ; preds = %while.cond.preheader, %decay_npurge_after_interval.exit71
-  %npurge_ub.080 = phi i64 [ %call28.npurge_ub.0, %decay_npurge_after_interval.exit71 ], [ %shr.i44, %while.cond.preheader ]
-  %npurge_lb.079 = phi i64 [ %npurge_lb.0.call28, %decay_npurge_after_interval.exit71 ], [ %shr.i, %while.cond.preheader ]
-  %ub.078 = phi i64 [ %div32.ub.0, %decay_npurge_after_interval.exit71 ], [ 200, %while.cond.preheader ]
-  %lb.077 = phi i64 [ %lb.0.div32, %decay_npurge_after_interval.exit71 ], [ 2, %while.cond.preheader ]
-  %add27 = add i64 %ub.078, %lb.077
+  %npurge_ub.079 = phi i64 [ %call28.npurge_ub.0, %decay_npurge_after_interval.exit71 ], [ %shr.i44, %while.cond.preheader ]
+  %npurge_lb.078 = phi i64 [ %npurge_lb.0.call28, %decay_npurge_after_interval.exit71 ], [ %shr.i, %while.cond.preheader ]
+  %ub.077 = phi i64 [ %div32.ub.0, %decay_npurge_after_interval.exit71 ], [ 200, %while.cond.preheader ]
+  %lb.076 = phi i64 [ %lb.0.div32, %decay_npurge_after_interval.exit71 ], [ 2, %while.cond.preheader ]
+  %add27 = add i64 %ub.077, %lb.076
   %div32 = lshr i64 %add27, 1
   %cmp13.not.i = icmp ult i64 %add27, 2
   br i1 %cmp13.not.i, label %for.body4.i59.preheader, label %for.body.i47
@@ -484,10 +484,10 @@ decay_npurge_after_interval.exit71:               ; preds = %for.body4.i59, %for
   %sum.1.lcssa.i = phi i64 [ %add.i53, %for.cond2.preheader.i56 ], [ %add11.i68, %for.body4.i59 ]
   %shr.i57 = lshr i64 %sum.1.lcssa.i, 24
   %cmp29 = icmp ugt i64 %shr.i57, %npages_threshold
-  %lb.0.div32 = select i1 %cmp29, i64 %lb.077, i64 %div32
-  %div32.ub.0 = select i1 %cmp29, i64 %div32, i64 %ub.078
-  %npurge_lb.0.call28 = select i1 %cmp29, i64 %npurge_lb.079, i64 %shr.i57
-  %call28.npurge_ub.0 = select i1 %cmp29, i64 %shr.i57, i64 %npurge_ub.080
+  %lb.0.div32 = select i1 %cmp29, i64 %lb.076, i64 %div32
+  %div32.ub.0 = select i1 %cmp29, i64 %div32, i64 %ub.077
+  %npurge_lb.0.call28 = select i1 %cmp29, i64 %npurge_lb.078, i64 %shr.i57
+  %call28.npurge_ub.0 = select i1 %cmp29, i64 %shr.i57, i64 %npurge_ub.079
   %add = add nuw nsw i64 %npurge_lb.0.call28, %npages_threshold
   %cmp24 = icmp ult i64 %add, %call28.npurge_ub.0
   %add25 = add i64 %lb.0.div32, 2
@@ -505,8 +505,8 @@ while.end:                                        ; preds = %while.end.loopexit,
   %div3731 = lshr i64 %mul36, 1
   br label %return
 
-return:                                           ; preds = %for.inc, %entry, %while.end, %if.then21, %if.then16, %if.then12
-  %retval.0 = phi i64 [ %mul, %if.then12 ], [ %mul17, %if.then16 ], [ %mul22, %if.then21 ], [ %div3731, %while.end ], [ -1, %entry ], [ -1, %for.inc ]
+return:                                           ; preds = %for.cond, %entry, %while.end, %if.then21, %if.then16, %if.then12
+  %retval.0 = phi i64 [ %mul, %if.then12 ], [ %mul17, %if.then16 ], [ %mul22, %if.then21 ], [ %div3731, %while.end ], [ -1, %entry ], [ -1, %for.cond ]
   ret i64 %retval.0
 }
 

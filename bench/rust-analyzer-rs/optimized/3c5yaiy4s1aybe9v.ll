@@ -16893,44 +16893,52 @@ define hidden void @"_ZN4core3ptr234drop_in_place$LT$chalk_ir..fold..in_place..V
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8, !alias.scope !6532, !noundef !4
   %.not.i = icmp eq i64 %3, 0
-  %.pre.pre.i = load ptr, ptr %0, align 8, !alias.scope !6532
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = load i64, ptr %4, align 8, !alias.scope !6532, !noundef !4
+.lr.ph.i:                                         ; preds = %1
+  %4 = load ptr, ptr %0, align 8, !alias.scope !6532, !noundef !4
+  br label %9
+
+._crit_edge.i:                                    ; preds = %9, %1
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = load i64, ptr %5, align 8, !alias.scope !6532, !noundef !4
   %.sroa.07.023.i = add i64 %3, 1
-  %6 = icmp ult i64 %.sroa.07.023.i, %5
-  br i1 %6, label %.lr.ph26.i, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1ddc6e3c903f9e58E.llvm.15963164601899926706.exit.i.i"
+  %7 = icmp ult i64 %.sroa.07.023.i, %6
+  br i1 %7, label %.lr.ph26.i, label %._crit_edge27.i
 
-.lr.ph.i:                                         ; preds = %1, %.lr.ph.i
-  %.sroa.01.022.i = phi i64 [ %7, %.lr.ph.i ], [ 0, %1 ]
-  %7 = add nuw i64 %.sroa.01.022.i, 1
-  %8 = getelementptr inbounds { { i64, [3 x i64] }, ptr }, ptr %.pre.pre.i, i64 %.sroa.01.022.i
-  tail call void @"_ZN4core3ptr101drop_in_place$LT$chalk_ir..Binders$LT$chalk_ir..WhereClause$LT$hir_ty..interner..Interner$GT$$GT$$GT$17h5e3acffd8f7ee270E"(ptr noalias noundef align 8 dereferenceable(40) %8), !noalias !6532
-  %exitcond.not.i = icmp eq i64 %7, %3
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i
+.lr.ph26.i:                                       ; preds = %._crit_edge.i
+  %8 = load ptr, ptr %0, align 8, !alias.scope !6532, !noundef !4
+  br label %18
 
-"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1ddc6e3c903f9e58E.llvm.15963164601899926706.exit.i.i": ; preds = %.lr.ph26.i, %._crit_edge.i
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
-  %10 = load i64, ptr %9, align 8, !alias.scope !6532, !noundef !4
-  %11 = icmp eq i64 %10, 0
-  br i1 %11, label %"_ZN97_$LT$chalk_ir..fold..in_place..VecMappedInPlace$LT$T$C$U$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h42875a18ba111844E.llvm.15963164601899926706.exit", label %12
+9:                                                ; preds = %9, %.lr.ph.i
+  %.sroa.01.022.i = phi i64 [ 0, %.lr.ph.i ], [ %10, %9 ]
+  %10 = add nuw i64 %.sroa.01.022.i, 1
+  %11 = getelementptr inbounds { { i64, [3 x i64] }, ptr }, ptr %4, i64 %.sroa.01.022.i
+  tail call void @"_ZN4core3ptr101drop_in_place$LT$chalk_ir..Binders$LT$chalk_ir..WhereClause$LT$hir_ty..interner..Interner$GT$$GT$$GT$17h5e3acffd8f7ee270E"(ptr noalias noundef align 8 dereferenceable(40) %11), !noalias !6532
+  %exitcond.not.i = icmp eq i64 %10, %3
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %9
 
-12:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1ddc6e3c903f9e58E.llvm.15963164601899926706.exit.i.i"
-  %13 = mul nuw i64 %10, 40
-  tail call void @__rust_dealloc(ptr noundef nonnull %.pre.pre.i, i64 noundef %13, i64 noundef 8) #23, !noalias !6535
+._crit_edge27.i:                                  ; preds = %18, %._crit_edge.i
+  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = load i64, ptr %12, align 8, !alias.scope !6532, !noundef !4
+  %14 = icmp eq i64 %13, 0
+  br i1 %14, label %"_ZN97_$LT$chalk_ir..fold..in_place..VecMappedInPlace$LT$T$C$U$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h42875a18ba111844E.llvm.15963164601899926706.exit", label %15
+
+15:                                               ; preds = %._crit_edge27.i
+  %16 = load ptr, ptr %0, align 8, !alias.scope !6532, !nonnull !4, !noundef !4
+  %17 = mul nuw i64 %13, 40
+  tail call void @__rust_dealloc(ptr noundef nonnull %16, i64 noundef %17, i64 noundef 8) #23, !noalias !6535
   br label %"_ZN97_$LT$chalk_ir..fold..in_place..VecMappedInPlace$LT$T$C$U$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h42875a18ba111844E.llvm.15963164601899926706.exit"
 
-.lr.ph26.i:                                       ; preds = %._crit_edge.i, %.lr.ph26.i
-  %.sroa.07.024.i = phi i64 [ %.sroa.07.0.i, %.lr.ph26.i ], [ %.sroa.07.023.i, %._crit_edge.i ]
-  %14 = getelementptr inbounds { { i64, [3 x i64] }, ptr }, ptr %.pre.pre.i, i64 %.sroa.07.024.i
-  tail call void @"_ZN4core3ptr101drop_in_place$LT$chalk_ir..Binders$LT$chalk_ir..WhereClause$LT$hir_ty..interner..Interner$GT$$GT$$GT$17h5e3acffd8f7ee270E"(ptr noalias noundef align 8 dereferenceable(40) %14), !noalias !6532
+18:                                               ; preds = %18, %.lr.ph26.i
+  %.sroa.07.024.i = phi i64 [ %.sroa.07.023.i, %.lr.ph26.i ], [ %.sroa.07.0.i, %18 ]
+  %19 = getelementptr inbounds { { i64, [3 x i64] }, ptr }, ptr %8, i64 %.sroa.07.024.i
+  tail call void @"_ZN4core3ptr101drop_in_place$LT$chalk_ir..Binders$LT$chalk_ir..WhereClause$LT$hir_ty..interner..Interner$GT$$GT$$GT$17h5e3acffd8f7ee270E"(ptr noalias noundef align 8 dereferenceable(40) %19), !noalias !6532
   %.sroa.07.0.i = add nuw i64 %.sroa.07.024.i, 1
-  %exitcond28.not.i = icmp eq i64 %.sroa.07.0.i, %5
-  br i1 %exitcond28.not.i, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1ddc6e3c903f9e58E.llvm.15963164601899926706.exit.i.i", label %.lr.ph26.i
+  %exitcond28.not.i = icmp eq i64 %.sroa.07.0.i, %6
+  br i1 %exitcond28.not.i, label %._crit_edge27.i, label %18
 
-"_ZN97_$LT$chalk_ir..fold..in_place..VecMappedInPlace$LT$T$C$U$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h42875a18ba111844E.llvm.15963164601899926706.exit": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1ddc6e3c903f9e58E.llvm.15963164601899926706.exit.i.i", %12
+"_ZN97_$LT$chalk_ir..fold..in_place..VecMappedInPlace$LT$T$C$U$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h42875a18ba111844E.llvm.15963164601899926706.exit": ; preds = %._crit_edge27.i, %15
   ret void
 }
 
@@ -84208,45 +84216,53 @@ define hidden void @"_ZN97_$LT$chalk_ir..fold..in_place..VecMappedInPlace$LT$T$C
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8, !noundef !4
   %.not = icmp eq i64 %3, 0
-  %.pre.pre = load ptr, ptr %0, align 8
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph, %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = load i64, ptr %4, align 8, !noundef !4
+.lr.ph:                                           ; preds = %1
+  %4 = load ptr, ptr %0, align 8, !noundef !4
+  br label %9
+
+._crit_edge:                                      ; preds = %9, %1
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = load i64, ptr %5, align 8, !noundef !4
   %.sroa.07.023 = add i64 %3, 1
-  %6 = icmp ult i64 %.sroa.07.023, %5
-  br i1 %6, label %.lr.ph26, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1ddc6e3c903f9e58E.llvm.15963164601899926706.exit.i"
+  %7 = icmp ult i64 %.sroa.07.023, %6
+  br i1 %7, label %.lr.ph26, label %._crit_edge27
 
-.lr.ph:                                           ; preds = %1, %.lr.ph
-  %.sroa.01.022 = phi i64 [ %7, %.lr.ph ], [ 0, %1 ]
-  %7 = add nuw i64 %.sroa.01.022, 1
-  %8 = getelementptr inbounds { { i64, [3 x i64] }, ptr }, ptr %.pre.pre, i64 %.sroa.01.022
-  tail call void @"_ZN4core3ptr101drop_in_place$LT$chalk_ir..Binders$LT$chalk_ir..WhereClause$LT$hir_ty..interner..Interner$GT$$GT$$GT$17h5e3acffd8f7ee270E"(ptr noalias noundef align 8 dereferenceable(40) %8)
-  %exitcond.not = icmp eq i64 %7, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+.lr.ph26:                                         ; preds = %._crit_edge
+  %8 = load ptr, ptr %0, align 8, !noundef !4
+  br label %18
 
-"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1ddc6e3c903f9e58E.llvm.15963164601899926706.exit.i": ; preds = %.lr.ph26, %._crit_edge
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
-  %10 = load i64, ptr %9, align 8, !noundef !4
-  %11 = icmp eq i64 %10, 0
-  br i1 %11, label %"_ZN4core3ptr124drop_in_place$LT$alloc..vec..Vec$LT$chalk_ir..Binders$LT$chalk_ir..WhereClause$LT$hir_ty..interner..Interner$GT$$GT$$GT$$GT$17h8f985881c85119a1E.exit", label %12
+9:                                                ; preds = %.lr.ph, %9
+  %.sroa.01.022 = phi i64 [ 0, %.lr.ph ], [ %10, %9 ]
+  %10 = add nuw i64 %.sroa.01.022, 1
+  %11 = getelementptr inbounds { { i64, [3 x i64] }, ptr }, ptr %4, i64 %.sroa.01.022
+  tail call void @"_ZN4core3ptr101drop_in_place$LT$chalk_ir..Binders$LT$chalk_ir..WhereClause$LT$hir_ty..interner..Interner$GT$$GT$$GT$17h5e3acffd8f7ee270E"(ptr noalias noundef align 8 dereferenceable(40) %11)
+  %exitcond.not = icmp eq i64 %10, %3
+  br i1 %exitcond.not, label %._crit_edge, label %9
 
-12:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1ddc6e3c903f9e58E.llvm.15963164601899926706.exit.i"
-  %13 = mul nuw i64 %10, 40
-  tail call void @__rust_dealloc(ptr noundef nonnull %.pre.pre, i64 noundef %13, i64 noundef 8) #23, !noalias !31175
+._crit_edge27:                                    ; preds = %18, %._crit_edge
+  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = load i64, ptr %12, align 8, !noundef !4
+  %14 = icmp eq i64 %13, 0
+  br i1 %14, label %"_ZN4core3ptr124drop_in_place$LT$alloc..vec..Vec$LT$chalk_ir..Binders$LT$chalk_ir..WhereClause$LT$hir_ty..interner..Interner$GT$$GT$$GT$$GT$17h8f985881c85119a1E.exit", label %15
+
+15:                                               ; preds = %._crit_edge27
+  %16 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
+  %17 = mul nuw i64 %13, 40
+  tail call void @__rust_dealloc(ptr noundef nonnull %16, i64 noundef %17, i64 noundef 8) #23, !noalias !31175
   br label %"_ZN4core3ptr124drop_in_place$LT$alloc..vec..Vec$LT$chalk_ir..Binders$LT$chalk_ir..WhereClause$LT$hir_ty..interner..Interner$GT$$GT$$GT$$GT$17h8f985881c85119a1E.exit"
 
-"_ZN4core3ptr124drop_in_place$LT$alloc..vec..Vec$LT$chalk_ir..Binders$LT$chalk_ir..WhereClause$LT$hir_ty..interner..Interner$GT$$GT$$GT$$GT$17h8f985881c85119a1E.exit": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1ddc6e3c903f9e58E.llvm.15963164601899926706.exit.i", %12
+"_ZN4core3ptr124drop_in_place$LT$alloc..vec..Vec$LT$chalk_ir..Binders$LT$chalk_ir..WhereClause$LT$hir_ty..interner..Interner$GT$$GT$$GT$$GT$17h8f985881c85119a1E.exit": ; preds = %._crit_edge27, %15
   ret void
 
-.lr.ph26:                                         ; preds = %._crit_edge, %.lr.ph26
-  %.sroa.07.024 = phi i64 [ %.sroa.07.0, %.lr.ph26 ], [ %.sroa.07.023, %._crit_edge ]
-  %14 = getelementptr inbounds { { i64, [3 x i64] }, ptr }, ptr %.pre.pre, i64 %.sroa.07.024
-  tail call void @"_ZN4core3ptr101drop_in_place$LT$chalk_ir..Binders$LT$chalk_ir..WhereClause$LT$hir_ty..interner..Interner$GT$$GT$$GT$17h5e3acffd8f7ee270E"(ptr noalias noundef align 8 dereferenceable(40) %14)
+18:                                               ; preds = %.lr.ph26, %18
+  %.sroa.07.024 = phi i64 [ %.sroa.07.023, %.lr.ph26 ], [ %.sroa.07.0, %18 ]
+  %19 = getelementptr inbounds { { i64, [3 x i64] }, ptr }, ptr %8, i64 %.sroa.07.024
+  tail call void @"_ZN4core3ptr101drop_in_place$LT$chalk_ir..Binders$LT$chalk_ir..WhereClause$LT$hir_ty..interner..Interner$GT$$GT$$GT$17h5e3acffd8f7ee270E"(ptr noalias noundef align 8 dereferenceable(40) %19)
   %.sroa.07.0 = add nuw i64 %.sroa.07.024, 1
-  %exitcond28.not = icmp eq i64 %.sroa.07.0, %5
-  br i1 %exitcond28.not, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1ddc6e3c903f9e58E.llvm.15963164601899926706.exit.i", label %.lr.ph26
+  %exitcond28.not = icmp eq i64 %.sroa.07.0, %6
+  br i1 %exitcond28.not, label %._crit_edge27, label %18
 }
 
 ; Function Attrs: nonlazybind uwtable

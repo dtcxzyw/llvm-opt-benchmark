@@ -9,29 +9,29 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define noundef i32 @cfsetspeed(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
-  br label %3
+  br label %5
 
-3:                                                ; preds = %2, %11
-  %.025 = phi i64 [ 0, %2 ], [ %12, %11 ]
-  %4 = getelementptr inbounds [31 x %struct.speed_s], ptr @g_baud_table, i64 0, i64 %.025
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
-  %6 = load i64, ptr %5, align 8
-  %7 = icmp eq i64 %6, %1
-  %8 = load i64, ptr %4, align 16
-  br i1 %7, label %.thread, label %9
+3:                                                ; preds = %11
+  %4 = add nuw nsw i64 %.023, 1
+  %exitcond.not = icmp eq i64 %4, 31
+  br i1 %exitcond.not, label %.thread, label %5, !llvm.loop !6
 
-9:                                                ; preds = %3
-  %10 = icmp eq i64 %8, %1
-  br i1 %10, label %.thread, label %11
+5:                                                ; preds = %2, %3
+  %.023 = phi i64 [ 0, %2 ], [ %4, %3 ]
+  %6 = getelementptr inbounds [31 x %struct.speed_s], ptr @g_baud_table, i64 0, i64 %.023
+  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = load i64, ptr %7, align 8
+  %9 = icmp eq i64 %8, %1
+  %10 = load i64, ptr %6, align 16
+  br i1 %9, label %.thread, label %11
 
-11:                                               ; preds = %9
-  %12 = add nuw nsw i64 %.025, 1
-  %exitcond.not = icmp eq i64 %12, 31
-  br i1 %exitcond.not, label %.thread, label %3, !llvm.loop !6
+11:                                               ; preds = %5
+  %12 = icmp eq i64 %10, %1
+  br i1 %12, label %.thread, label %3
 
-.thread:                                          ; preds = %11, %9, %3
-  %.sink = phi i64 [ %8, %3 ], [ %1, %9 ], [ %1, %11 ]
-  %.1 = phi i64 [ %1, %3 ], [ %6, %9 ], [ 4096, %11 ]
+.thread:                                          ; preds = %3, %11, %5
+  %.sink = phi i64 [ %10, %5 ], [ %1, %11 ], [ %1, %3 ]
+  %.1 = phi i64 [ %1, %5 ], [ %8, %11 ], [ 4096, %3 ]
   %13 = getelementptr inbounds i8, ptr %0, i64 32
   store i64 %.sink, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 8

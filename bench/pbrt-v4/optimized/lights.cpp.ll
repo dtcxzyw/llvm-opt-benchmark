@@ -5701,11 +5701,11 @@ sw.bb.i:                                          ; preds = %if.end.i
   %shr.i.i.i.i = lshr i64 %24, 57
   %conv.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i to i32
   switch i32 %conv.i.i.i.i, label %sw.default.i.i.i.i [
-    i32 1, label %for.body.i.i.i.i.i.preheader.i
+    i32 1, label %for.body.i.i.i.i.i.i
     i32 2, label %sw.bb3.i.i.i.i
   ]
 
-for.body.i.i.i.i.i.preheader.i:                   ; preds = %sw.bb.i
+for.body.i.i.i.i.i.i:                             ; preds = %sw.bb.i
   %26 = load i8, ptr %arrayidx.i.i24, align 1
   %conv3.i.i.i.i.i.i = uitofp i8 %26 to float
   %div.i.i.i.i.i.i = fdiv float %conv3.i.i.i.i.i.i, 2.550000e+02
@@ -5720,7 +5720,7 @@ sw.default.i.i.i.i:                               ; preds = %sw.bb.i
   call void @_ZNK4pbrt18GammaColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE(ptr noundef nonnull align 4 dereferenceable(5124) %25, ptr %arrayidx.i.i24, i64 1, ptr nonnull %r.i, i64 1)
   br label %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i
 
-_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i: ; preds = %sw.default.i.i.i.i, %sw.bb3.i.i.i.i, %for.body.i.i.i.i.i.preheader.i
+_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i: ; preds = %sw.default.i.i.i.i, %sw.bb3.i.i.i.i, %for.body.i.i.i.i.i.i
   %27 = load float, ptr %r.i, align 4
   br label %_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit
 
@@ -6078,11 +6078,11 @@ sw.bb:                                            ; preds = %if.end
   %shr.i.i.i = lshr i64 %5, 57
   %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   switch i32 %conv.i.i.i, label %sw.default.i.i.i [
-    i32 1, label %for.body.i.i.i.i.i.preheader
+    i32 1, label %for.body.i.i.i.i.i
     i32 2, label %sw.bb3.i.i.i
   ]
 
-for.body.i.i.i.i.i.preheader:                     ; preds = %sw.bb
+for.body.i.i.i.i.i:                               ; preds = %sw.bb
   %7 = load i8, ptr %arrayidx.i, align 1
   %conv3.i.i.i.i.i = uitofp i8 %7 to float
   %div.i.i.i.i.i = fdiv float %conv3.i.i.i.i.i, 2.550000e+02
@@ -6097,7 +6097,7 @@ sw.default.i.i.i:                                 ; preds = %sw.bb
   call void @_ZNK4pbrt18GammaColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE(ptr noundef nonnull align 4 dereferenceable(5124) %6, ptr %arrayidx.i, i64 1, ptr nonnull %r, i64 1)
   br label %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit
 
-_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit: ; preds = %for.body.i.i.i.i.i.preheader, %sw.bb3.i.i.i, %sw.default.i.i.i
+_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit: ; preds = %for.body.i.i.i.i.i, %sw.bb3.i.i.i, %sw.default.i.i.i
   %8 = load float, ptr %r, align 4
   br label %return
 
@@ -6314,11 +6314,11 @@ sw.bb.i:                                          ; preds = %if.end.i
   %shr.i.i.i.i = lshr i64 %9, 57
   %conv.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i to i32
   switch i32 %conv.i.i.i.i, label %sw.default.i.i.i.i [
-    i32 1, label %for.body.i.i.i.i.i.preheader.i
+    i32 1, label %for.body.i.i.i.i.i.i
     i32 2, label %sw.bb3.i.i.i.i
   ]
 
-for.body.i.i.i.i.i.preheader.i:                   ; preds = %sw.bb.i
+for.body.i.i.i.i.i.i:                             ; preds = %sw.bb.i
   %11 = load i8, ptr %8, align 1
   %conv3.i.i.i.i.i.i = uitofp i8 %11 to float
   %div.i.i.i.i.i.i = fdiv float %conv3.i.i.i.i.i.i, 2.550000e+02
@@ -6333,7 +6333,7 @@ sw.default.i.i.i.i:                               ; preds = %sw.bb.i
   call void @_ZNK4pbrt18GammaColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE(ptr noundef nonnull align 4 dereferenceable(5124) %10, ptr %8, i64 1, ptr nonnull %r.i, i64 1)
   br label %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i
 
-_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i: ; preds = %sw.default.i.i.i.i, %sw.bb3.i.i.i.i, %for.body.i.i.i.i.i.preheader.i
+_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i: ; preds = %sw.default.i.i.i.i, %sw.bb3.i.i.i.i, %for.body.i.i.i.i.i.i
   %12 = load float, ptr %r.i, align 4
   %agg.tmp.sroa.0.0.copyload.i19.pre = load i64, ptr %resolution.i, align 4
   %13 = trunc i64 %agg.tmp.sroa.0.0.copyload.i19.pre to i32
@@ -6490,11 +6490,11 @@ sw.bb.i65:                                        ; preds = %if.end.i22
   %shr.i.i.i.i79 = lshr i64 %32, 57
   %conv.i.i.i.i80 = trunc nuw nsw i64 %shr.i.i.i.i79 to i32
   switch i32 %conv.i.i.i.i80, label %sw.default.i.i.i.i86 [
-    i32 1, label %for.body.i.i.i.i.i.preheader.i83
+    i32 1, label %for.body.i.i.i.i.i.i83
     i32 2, label %sw.bb3.i.i.i.i81
   ]
 
-for.body.i.i.i.i.i.preheader.i83:                 ; preds = %sw.bb.i65
+for.body.i.i.i.i.i.i83:                           ; preds = %sw.bb.i65
   %34 = load i8, ptr %arrayidx.i.i, align 1
   %conv3.i.i.i.i.i.i84 = uitofp i8 %34 to float
   %div.i.i.i.i.i.i85 = fdiv float %conv3.i.i.i.i.i.i84, 2.550000e+02
@@ -6509,7 +6509,7 @@ sw.default.i.i.i.i86:                             ; preds = %sw.bb.i65
   call void @_ZNK4pbrt18GammaColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE(ptr noundef nonnull align 4 dereferenceable(5124) %33, ptr %arrayidx.i.i, i64 1, ptr nonnull %r.i17, i64 1)
   br label %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i82
 
-_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i82: ; preds = %sw.default.i.i.i.i86, %sw.bb3.i.i.i.i81, %for.body.i.i.i.i.i.preheader.i83
+_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i82: ; preds = %sw.default.i.i.i.i86, %sw.bb3.i.i.i.i81, %for.body.i.i.i.i.i.i83
   %35 = load float, ptr %r.i17, align 4
   %agg.tmp.sroa.0.0.copyload.i94.pre = load i64, ptr %resolution.i, align 4
   %36 = trunc i64 %agg.tmp.sroa.0.0.copyload.i94.pre to i32
@@ -6668,11 +6668,11 @@ sw.bb.i142:                                       ; preds = %if.end.i97
   %shr.i.i.i.i157 = lshr i64 %55, 57
   %conv.i.i.i.i158 = trunc nuw nsw i64 %shr.i.i.i.i157 to i32
   switch i32 %conv.i.i.i.i158, label %sw.default.i.i.i.i164 [
-    i32 1, label %for.body.i.i.i.i.i.preheader.i161
+    i32 1, label %for.body.i.i.i.i.i.i161
     i32 2, label %sw.bb3.i.i.i.i159
   ]
 
-for.body.i.i.i.i.i.preheader.i161:                ; preds = %sw.bb.i142
+for.body.i.i.i.i.i.i161:                          ; preds = %sw.bb.i142
   %57 = load i8, ptr %arrayidx.i.i155, align 1
   %conv3.i.i.i.i.i.i162 = uitofp i8 %57 to float
   %div.i.i.i.i.i.i163 = fdiv float %conv3.i.i.i.i.i.i162, 2.550000e+02
@@ -6687,7 +6687,7 @@ sw.default.i.i.i.i164:                            ; preds = %sw.bb.i142
   call void @_ZNK4pbrt18GammaColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE(ptr noundef nonnull align 4 dereferenceable(5124) %56, ptr %arrayidx.i.i155, i64 1, ptr nonnull %r.i92, i64 1)
   br label %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i160
 
-_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i160: ; preds = %sw.default.i.i.i.i164, %sw.bb3.i.i.i.i159, %for.body.i.i.i.i.i.preheader.i161
+_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i160: ; preds = %sw.default.i.i.i.i164, %sw.bb3.i.i.i.i159, %for.body.i.i.i.i.i.i161
   %58 = load float, ptr %r.i92, align 4
   br label %_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit166
 
@@ -8263,11 +8263,11 @@ sw.bb.i:                                          ; preds = %if.end.i
   %shr.i.i.i.i = lshr i64 %60, 57
   %conv.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i to i32
   switch i32 %conv.i.i.i.i, label %sw.default.i.i.i.i [
-    i32 1, label %for.body.i.i.i.i.i.preheader.i
+    i32 1, label %for.body.i.i.i.i.i.i
     i32 2, label %sw.bb3.i.i.i.i
   ]
 
-for.body.i.i.i.i.i.preheader.i:                   ; preds = %sw.bb.i
+for.body.i.i.i.i.i.i:                             ; preds = %sw.bb.i
   %62 = load i8, ptr %arrayidx.i.i157, align 1
   %conv3.i.i.i.i.i.i = uitofp i8 %62 to float
   %div.i.i.i.i.i.i = fdiv float %conv3.i.i.i.i.i.i, 2.550000e+02
@@ -8282,7 +8282,7 @@ sw.default.i.i.i.i:                               ; preds = %sw.bb.i
   invoke void @_ZNK4pbrt18GammaColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE(ptr noundef nonnull align 4 dereferenceable(5124) %61, ptr %arrayidx.i.i157, i64 1, ptr nonnull %r.i, i64 1)
           to label %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i unwind label %lpad111.loopexit
 
-_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i: ; preds = %sw.default.i.i.i.i, %sw.bb3.i.i.i.i, %for.body.i.i.i.i.i.preheader.i
+_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i: ; preds = %sw.default.i.i.i.i, %sw.bb3.i.i.i.i, %for.body.i.i.i.i.i.i
   %63 = load float, ptr %r.i, align 4
   br label %invoke.cont233
 
@@ -9334,11 +9334,11 @@ sw.bb.i:                                          ; preds = %if.end.i
   %shr.i.i.i.i = lshr i64 %9, 57
   %conv.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i to i32
   switch i32 %conv.i.i.i.i, label %sw.default.i.i.i.i [
-    i32 1, label %for.body.i.i.i.i.i.preheader.i
+    i32 1, label %for.body.i.i.i.i.i.i
     i32 2, label %sw.bb3.i.i.i.i
   ]
 
-for.body.i.i.i.i.i.preheader.i:                   ; preds = %sw.bb.i
+for.body.i.i.i.i.i.i:                             ; preds = %sw.bb.i
   %11 = load i8, ptr %8, align 1
   %conv3.i.i.i.i.i.i = uitofp i8 %11 to float
   %div.i.i.i.i.i.i = fdiv float %conv3.i.i.i.i.i.i, 2.550000e+02
@@ -9353,7 +9353,7 @@ sw.default.i.i.i.i:                               ; preds = %sw.bb.i
   call void @_ZNK4pbrt18GammaColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE(ptr noundef nonnull align 4 dereferenceable(5124) %10, ptr %8, i64 1, ptr nonnull %r.i, i64 1)
   br label %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i
 
-_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i: ; preds = %sw.default.i.i.i.i, %sw.bb3.i.i.i.i, %for.body.i.i.i.i.i.preheader.i
+_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i: ; preds = %sw.default.i.i.i.i, %sw.bb3.i.i.i.i, %for.body.i.i.i.i.i.i
   %12 = load float, ptr %r.i, align 4
   %retval.sroa.0.0.copyload.i7.pre = load i64, ptr %resolution.i, align 4
   br label %_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit
@@ -9724,11 +9724,11 @@ sw.bb.i:                                          ; preds = %if.end.i
   %shr.i.i.i.i = lshr i64 %9, 57
   %conv.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i to i32
   switch i32 %conv.i.i.i.i, label %sw.default.i.i.i.i [
-    i32 1, label %for.body.i.i.i.i.i.preheader.i
+    i32 1, label %for.body.i.i.i.i.i.i
     i32 2, label %sw.bb3.i.i.i.i
   ]
 
-for.body.i.i.i.i.i.preheader.i:                   ; preds = %sw.bb.i
+for.body.i.i.i.i.i.i:                             ; preds = %sw.bb.i
   %11 = load i8, ptr %8, align 1
   %conv3.i.i.i.i.i.i = uitofp i8 %11 to float
   %div.i.i.i.i.i.i = fdiv float %conv3.i.i.i.i.i.i, 2.550000e+02
@@ -9743,7 +9743,7 @@ sw.default.i.i.i.i:                               ; preds = %sw.bb.i
   call void @_ZNK4pbrt18GammaColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE(ptr noundef nonnull align 4 dereferenceable(5124) %10, ptr %8, i64 1, ptr nonnull %r.i, i64 1)
   br label %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i
 
-_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i: ; preds = %sw.default.i.i.i.i, %sw.bb3.i.i.i.i, %for.body.i.i.i.i.i.preheader.i
+_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i: ; preds = %sw.default.i.i.i.i, %sw.bb3.i.i.i.i, %for.body.i.i.i.i.i.i
   %12 = load float, ptr %r.i, align 4
   %retval.sroa.0.0.copyload.i8.pre = load i64, ptr %resolution.i, align 4
   br label %_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit
@@ -11133,11 +11133,11 @@ sw.bb.i:                                          ; preds = %if.end.i
   %shr.i.i.i.i = lshr i64 %79, 57
   %conv.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i to i32
   switch i32 %conv.i.i.i.i, label %sw.default.i.i.i.i [
-    i32 1, label %for.body.i.i.i.i.i.preheader.i
+    i32 1, label %for.body.i.i.i.i.i.i
     i32 2, label %sw.bb3.i.i.i.i
   ]
 
-for.body.i.i.i.i.i.preheader.i:                   ; preds = %sw.bb.i
+for.body.i.i.i.i.i.i:                             ; preds = %sw.bb.i
   %81 = load i8, ptr %78, align 1
   %conv3.i.i.i.i.i.i = uitofp i8 %81 to float
   %div.i.i.i.i.i.i = fdiv float %conv3.i.i.i.i.i.i, 2.550000e+02
@@ -11152,7 +11152,7 @@ sw.default.i.i.i.i:                               ; preds = %sw.bb.i
   invoke void @_ZNK4pbrt18GammaColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE(ptr noundef nonnull align 4 dereferenceable(5124) %80, ptr %78, i64 1, ptr nonnull %r.i, i64 1)
           to label %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i unwind label %lpad36.loopexit.split-lp.loopexit
 
-_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i: ; preds = %sw.default.i.i.i.i, %sw.bb3.i.i.i.i, %for.body.i.i.i.i.i.preheader.i
+_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i: ; preds = %sw.default.i.i.i.i, %sw.bb3.i.i.i.i, %for.body.i.i.i.i.i.i
   %82 = load float, ptr %r.i, align 4
   %retval.sroa.0.0.copyload.i176.pre = load i64, ptr %resolution.i, align 4
   br label %invoke.cont317
@@ -11542,11 +11542,11 @@ sw.bb:                                            ; preds = %if.end
   %shr.i.i.i = lshr i64 %11, 57
   %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   switch i32 %conv.i.i.i, label %sw.default.i.i.i [
-    i32 1, label %for.body.i.i.i.i.i.preheader
+    i32 1, label %for.body.i.i.i.i.i
     i32 2, label %sw.bb3.i.i.i
   ]
 
-for.body.i.i.i.i.i.preheader:                     ; preds = %sw.bb
+for.body.i.i.i.i.i:                               ; preds = %sw.bb
   %mul.i.i.i.i.i = fmul float %4, 2.550000e+02
   %add.i.i.i.i.i = fadd float %mul.i.i.i.i.i, 5.000000e-01
   %cmp.i.i.i.i.i.i = fcmp olt float %add.i.i.i.i.i, 0.000000e+00
@@ -11649,7 +11649,7 @@ sw.default:                                       ; preds = %if.end
   call void @_ZN4pbrt8LogFatalENS_8LogLevelEPKciS2_(i32 noundef 2, ptr noundef nonnull @.str.128, i32 noundef 445, ptr noundef nonnull @.str.133) #29
   unreachable
 
-sw.epilog:                                        ; preds = %for.body.i.i.i.i.i.preheader, %sw.default.i.i.i, %sw.bb3.i.i.i, %sw.bb14, %_ZN4pbrt4HalfC2Ef.exit
+sw.epilog:                                        ; preds = %for.body.i.i.i.i.i, %sw.default.i.i.i, %sw.bb3.i.i.i, %sw.bb14, %_ZN4pbrt4HalfC2Ef.exit
   ret void
 }
 
@@ -13430,11 +13430,11 @@ sw.bb.i:                                          ; preds = %if.end.i
   %shr.i.i.i.i = lshr i64 %12, 57
   %conv.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i to i32
   switch i32 %conv.i.i.i.i, label %sw.default.i.i.i.i [
-    i32 1, label %for.body.i.i.i.i.i.preheader.i
+    i32 1, label %for.body.i.i.i.i.i.i
     i32 2, label %sw.bb3.i.i.i.i
   ]
 
-for.body.i.i.i.i.i.preheader.i:                   ; preds = %sw.bb.i
+for.body.i.i.i.i.i.i:                             ; preds = %sw.bb.i
   %14 = load i8, ptr %arrayidx.i.i12, align 1
   %conv3.i.i.i.i.i.i = uitofp i8 %14 to float
   %div.i.i.i.i.i.i = fdiv float %conv3.i.i.i.i.i.i, 2.550000e+02
@@ -13449,7 +13449,7 @@ sw.default.i.i.i.i:                               ; preds = %sw.bb.i
   call void @_ZNK4pbrt18GammaColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE(ptr noundef nonnull align 4 dereferenceable(5124) %13, ptr %arrayidx.i.i12, i64 1, ptr nonnull %r.i, i64 1)
   br label %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i
 
-_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i: ; preds = %sw.default.i.i.i.i, %sw.bb3.i.i.i.i, %for.body.i.i.i.i.i.preheader.i
+_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i: ; preds = %sw.default.i.i.i.i, %sw.bb3.i.i.i.i, %for.body.i.i.i.i.i.i
   %15 = load float, ptr %r.i, align 4
   br label %_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit
 
@@ -13952,11 +13952,11 @@ sw.bb.i:                                          ; preds = %if.end.i
   %shr.i.i.i.i = lshr i64 %10, 57
   %conv.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i to i32
   switch i32 %conv.i.i.i.i, label %sw.default.i.i.i.i [
-    i32 1, label %for.body.i.i.i.i.i.preheader.i
+    i32 1, label %for.body.i.i.i.i.i.i
     i32 2, label %sw.bb3.i.i.i.i
   ]
 
-for.body.i.i.i.i.i.preheader.i:                   ; preds = %sw.bb.i
+for.body.i.i.i.i.i.i:                             ; preds = %sw.bb.i
   %12 = load i8, ptr %arrayidx.i.i, align 1
   %conv3.i.i.i.i.i.i = uitofp i8 %12 to float
   %div.i.i.i.i.i.i = fdiv float %conv3.i.i.i.i.i.i, 2.550000e+02
@@ -13971,7 +13971,7 @@ sw.default.i.i.i.i:                               ; preds = %sw.bb.i
   call void @_ZNK4pbrt18GammaColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE(ptr noundef nonnull align 4 dereferenceable(5124) %11, ptr %arrayidx.i.i, i64 1, ptr nonnull %r.i, i64 1)
   br label %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i
 
-_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i: ; preds = %sw.default.i.i.i.i, %sw.bb3.i.i.i.i, %for.body.i.i.i.i.i.preheader.i
+_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i: ; preds = %sw.default.i.i.i.i, %sw.bb3.i.i.i.i, %for.body.i.i.i.i.i.i
   %13 = load float, ptr %r.i, align 4
   br label %_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit
 
@@ -15610,11 +15610,11 @@ sw.bb.i:                                          ; preds = %if.end.i
   %shr.i.i.i.i = lshr i64 %64, 57
   %conv.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i to i32
   switch i32 %conv.i.i.i.i, label %sw.default.i.i.i.i [
-    i32 1, label %for.body.i.i.i.i.i.preheader.i
+    i32 1, label %for.body.i.i.i.i.i.i
     i32 2, label %sw.bb3.i.i.i.i
   ]
 
-for.body.i.i.i.i.i.preheader.i:                   ; preds = %sw.bb.i
+for.body.i.i.i.i.i.i:                             ; preds = %sw.bb.i
   %66 = load i8, ptr %arrayidx.i.i140, align 1
   %conv3.i.i.i.i.i.i = uitofp i8 %66 to float
   %div.i.i.i.i.i.i = fdiv float %conv3.i.i.i.i.i.i, 2.550000e+02
@@ -15629,7 +15629,7 @@ sw.default.i.i.i.i:                               ; preds = %sw.bb.i
   invoke void @_ZNK4pbrt18GammaColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE(ptr noundef nonnull align 4 dereferenceable(5124) %65, ptr %arrayidx.i.i140, i64 1, ptr nonnull %r.i, i64 1)
           to label %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i unwind label %lpad47.loopexit
 
-_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i: ; preds = %sw.default.i.i.i.i, %sw.bb3.i.i.i.i, %for.body.i.i.i.i.i.preheader.i
+_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i: ; preds = %sw.default.i.i.i.i, %sw.bb3.i.i.i.i, %for.body.i.i.i.i.i.i
   %67 = load float, ptr %r.i, align 4
   br label %invoke.cont183
 
@@ -17663,7 +17663,7 @@ sw.bb.i.us:                                       ; preds = %if.end59.i.us
   %shr.i.i.i.i.us = lshr i64 %47, 57
   %conv.i.i.i.i.us = trunc nuw nsw i64 %shr.i.i.i.i.us to i32
   switch i32 %conv.i.i.i.i.us, label %sw.default.i.i.i.i.us [
-    i32 1, label %for.body.i.i.i.i.i.preheader.i.us
+    i32 1, label %for.body.i.i.i.i.i.i.us
     i32 2, label %sw.bb3.i.i.i.i.us
   ]
 
@@ -17671,7 +17671,7 @@ sw.bb3.i.i.i.i.us:                                ; preds = %sw.bb.i.us
   call void @_ZNK4pbrt17sRGBColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE(ptr noundef nonnull align 1 dereferenceable(1) %48, ptr %arrayidx.i.i13.us, i64 1, ptr nonnull %r.i, i64 1)
   br label %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i.us
 
-for.body.i.i.i.i.i.preheader.i.us:                ; preds = %sw.bb.i.us
+for.body.i.i.i.i.i.i.us:                          ; preds = %sw.bb.i.us
   %49 = load i8, ptr %arrayidx.i.i13.us, align 1
   %conv3.i.i.i.i.i.i.us = uitofp i8 %49 to float
   %div.i.i.i.i.i.i.us = fdiv float %conv3.i.i.i.i.i.i.us, 2.550000e+02
@@ -17682,7 +17682,7 @@ sw.default.i.i.i.i.us:                            ; preds = %sw.bb.i.us
   call void @_ZNK4pbrt18GammaColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE(ptr noundef nonnull align 4 dereferenceable(5124) %48, ptr %arrayidx.i.i13.us, i64 1, ptr nonnull %r.i, i64 1)
   br label %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i.us
 
-_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i.us: ; preds = %sw.default.i.i.i.i.us, %for.body.i.i.i.i.i.preheader.i.us, %sw.bb3.i.i.i.i.us
+_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i.us: ; preds = %sw.default.i.i.i.i.us, %for.body.i.i.i.i.i.i.us, %sw.bb3.i.i.i.i.us
   %50 = load float, ptr %r.i, align 4
   br label %_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit.us
 
@@ -19817,11 +19817,11 @@ sw.bb.i:                                          ; preds = %if.end.i
   %shr.i.i.i.i = lshr i64 %9, 57
   %conv.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i to i32
   switch i32 %conv.i.i.i.i, label %sw.default.i.i.i.i [
-    i32 1, label %for.body.i.i.i.i.i.preheader.i
+    i32 1, label %for.body.i.i.i.i.i.i
     i32 2, label %sw.bb3.i.i.i.i
   ]
 
-for.body.i.i.i.i.i.preheader.i:                   ; preds = %sw.bb.i
+for.body.i.i.i.i.i.i:                             ; preds = %sw.bb.i
   %11 = load i8, ptr %arrayidx.i.i13, align 1
   %conv3.i.i.i.i.i.i = uitofp i8 %11 to float
   %div.i.i.i.i.i.i = fdiv float %conv3.i.i.i.i.i.i, 2.550000e+02
@@ -19836,7 +19836,7 @@ sw.default.i.i.i.i:                               ; preds = %sw.bb.i
   call void @_ZNK4pbrt18GammaColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE(ptr noundef nonnull align 4 dereferenceable(5124) %10, ptr %arrayidx.i.i13, i64 1, ptr nonnull %r.i, i64 1)
   br label %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i
 
-_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i: ; preds = %sw.default.i.i.i.i, %sw.bb3.i.i.i.i, %for.body.i.i.i.i.i.preheader.i
+_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i: ; preds = %sw.default.i.i.i.i, %sw.bb3.i.i.i.i, %for.body.i.i.i.i.i.i
   %12 = load float, ptr %r.i, align 4
   br label %_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit
 
@@ -60379,11 +60379,11 @@ sw.bb.i232.i.i.i:                                 ; preds = %if.end59.i461.i.i.i
   %shr.i.i.i.i248.i.i.i = lshr i64 %41, 57
   %conv.i.i.i.i249.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i248.i.i.i to i32
   switch i32 %conv.i.i.i.i249.i.i.i, label %sw.default.i.i.i.i255.i.i.i [
-    i32 1, label %for.body.i.i.i.i.i.preheader.i252.i.i.i
+    i32 1, label %for.body.i.i.i.i.i.i252.i.i.i
     i32 2, label %sw.bb3.i.i.i.i250.i.i.i
   ]
 
-for.body.i.i.i.i.i.preheader.i252.i.i.i:          ; preds = %sw.bb.i232.i.i.i
+for.body.i.i.i.i.i.i252.i.i.i:                    ; preds = %sw.bb.i232.i.i.i
   %43 = load i8, ptr %arrayidx.i.i246.i.i.i, align 1
   %conv3.i.i.i.i.i.i253.i.i.i = uitofp i8 %43 to float
   %div.i.i.i.i.i.i254.i.i.i = fdiv float %conv3.i.i.i.i.i.i253.i.i.i, 2.550000e+02
@@ -60398,7 +60398,7 @@ sw.default.i.i.i.i255.i.i.i:                      ; preds = %sw.bb.i232.i.i.i
   call void @_ZNK4pbrt18GammaColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE(ptr noundef nonnull align 4 dereferenceable(5124) %42, ptr %arrayidx.i.i246.i.i.i, i64 1, ptr nonnull %r.i180.i.i.i, i64 1)
   br label %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i251.i.i.i
 
-_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i251.i.i.i: ; preds = %sw.default.i.i.i.i255.i.i.i, %sw.bb3.i.i.i.i250.i.i.i, %for.body.i.i.i.i.i.preheader.i252.i.i.i
+_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i251.i.i.i: ; preds = %sw.default.i.i.i.i255.i.i.i, %sw.bb3.i.i.i.i250.i.i.i, %for.body.i.i.i.i.i.i252.i.i.i
   %44 = load float, ptr %r.i180.i.i.i, align 4
   %agg.tmp.sroa.0.0.copyload.i103.pre.i.i.i = load i64, ptr %resolution.i15.i.i.i, align 4
   %45 = trunc i64 %agg.tmp.sroa.0.0.copyload.i103.pre.i.i.i to i32
@@ -60556,11 +60556,11 @@ sw.bb.i153.i.i.i:                                 ; preds = %if.end59.i390.i.i.i
   %shr.i.i.i.i169.i.i.i = lshr i64 %68, 57
   %conv.i.i.i.i170.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i169.i.i.i to i32
   switch i32 %conv.i.i.i.i170.i.i.i, label %sw.default.i.i.i.i176.i.i.i [
-    i32 1, label %for.body.i.i.i.i.i.preheader.i173.i.i.i
+    i32 1, label %for.body.i.i.i.i.i.i173.i.i.i
     i32 2, label %sw.bb3.i.i.i.i171.i.i.i
   ]
 
-for.body.i.i.i.i.i.preheader.i173.i.i.i:          ; preds = %sw.bb.i153.i.i.i
+for.body.i.i.i.i.i.i173.i.i.i:                    ; preds = %sw.bb.i153.i.i.i
   %70 = load i8, ptr %arrayidx.i.i167.i.i.i, align 1
   %conv3.i.i.i.i.i.i174.i.i.i = uitofp i8 %70 to float
   %div.i.i.i.i.i.i175.i.i.i = fdiv float %conv3.i.i.i.i.i.i174.i.i.i, 2.550000e+02
@@ -60575,7 +60575,7 @@ sw.default.i.i.i.i176.i.i.i:                      ; preds = %sw.bb.i153.i.i.i
   call void @_ZNK4pbrt18GammaColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE(ptr noundef nonnull align 4 dereferenceable(5124) %69, ptr %arrayidx.i.i167.i.i.i, i64 1, ptr nonnull %r.i101.i.i.i, i64 1)
   br label %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i172.i.i.i
 
-_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i172.i.i.i: ; preds = %sw.default.i.i.i.i176.i.i.i, %sw.bb3.i.i.i.i171.i.i.i, %for.body.i.i.i.i.i.preheader.i173.i.i.i
+_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i172.i.i.i: ; preds = %sw.default.i.i.i.i176.i.i.i, %sw.bb3.i.i.i.i171.i.i.i, %for.body.i.i.i.i.i.i173.i.i.i
   %71 = load float, ptr %r.i101.i.i.i, align 4
   %agg.tmp.sroa.0.0.copyload.i24.pre.i.i.i = load i64, ptr %resolution.i15.i.i.i, align 4
   %72 = trunc i64 %agg.tmp.sroa.0.0.copyload.i24.pre.i.i.i to i32
@@ -60730,11 +60730,11 @@ sw.bb.i74.i.i.i:                                  ; preds = %if.end59.i319.i.i.i
   %shr.i.i.i.i90.i.i.i = lshr i64 %93, 57
   %conv.i.i.i.i91.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i90.i.i.i to i32
   switch i32 %conv.i.i.i.i91.i.i.i, label %sw.default.i.i.i.i97.i.i.i [
-    i32 1, label %for.body.i.i.i.i.i.preheader.i94.i.i.i
+    i32 1, label %for.body.i.i.i.i.i.i94.i.i.i
     i32 2, label %sw.bb3.i.i.i.i92.i.i.i
   ]
 
-for.body.i.i.i.i.i.preheader.i94.i.i.i:           ; preds = %sw.bb.i74.i.i.i
+for.body.i.i.i.i.i.i94.i.i.i:                     ; preds = %sw.bb.i74.i.i.i
   %95 = load i8, ptr %arrayidx.i.i88.i.i.i, align 1
   %conv3.i.i.i.i.i.i95.i.i.i = uitofp i8 %95 to float
   %div.i.i.i.i.i.i96.i.i.i = fdiv float %conv3.i.i.i.i.i.i95.i.i.i, 2.550000e+02
@@ -60749,7 +60749,7 @@ sw.default.i.i.i.i97.i.i.i:                       ; preds = %sw.bb.i74.i.i.i
   call void @_ZNK4pbrt18GammaColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE(ptr noundef nonnull align 4 dereferenceable(5124) %94, ptr %arrayidx.i.i88.i.i.i, i64 1, ptr nonnull %r.i22.i.i.i, i64 1)
   br label %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i93.i.i.i
 
-_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i93.i.i.i: ; preds = %sw.default.i.i.i.i97.i.i.i, %sw.bb3.i.i.i.i92.i.i.i, %for.body.i.i.i.i.i.preheader.i94.i.i.i
+_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i93.i.i.i: ; preds = %sw.default.i.i.i.i97.i.i.i, %sw.bb3.i.i.i.i92.i.i.i, %for.body.i.i.i.i.i.i94.i.i.i
   %96 = load float, ptr %r.i22.i.i.i, align 4
   %agg.tmp.sroa.0.0.copyload.i.pre.i.i.i = load i64, ptr %resolution.i15.i.i.i, align 4
   %97 = trunc i64 %agg.tmp.sroa.0.0.copyload.i.pre.i.i.i to i32
@@ -60903,11 +60903,11 @@ sw.bb.i.i.i.i:                                    ; preds = %if.end59.i.i.i.i
   %shr.i.i.i.i.i.i.i = lshr i64 %116, 57
   %conv.i.i.i.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i.i.i.i to i32
   switch i32 %conv.i.i.i.i.i.i.i, label %sw.default.i.i.i.i.i.i.i [
-    i32 1, label %for.body.i.i.i.i.i.preheader.i.i.i.i
+    i32 1, label %for.body.i.i.i.i.i.i.i.i.i
     i32 2, label %sw.bb3.i.i.i.i.i.i.i
   ]
 
-for.body.i.i.i.i.i.preheader.i.i.i.i:             ; preds = %sw.bb.i.i.i.i
+for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %sw.bb.i.i.i.i
   %118 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
   %conv3.i.i.i.i.i.i.i.i.i = uitofp i8 %118 to float
   %div.i.i.i.i.i.i.i.i.i = fdiv float %conv3.i.i.i.i.i.i.i.i.i, 2.550000e+02
@@ -60922,7 +60922,7 @@ sw.default.i.i.i.i.i.i.i:                         ; preds = %sw.bb.i.i.i.i
   call void @_ZNK4pbrt18GammaColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE(ptr noundef nonnull align 4 dereferenceable(5124) %117, ptr %arrayidx.i.i.i.i.i, i64 1, ptr nonnull %r.i.i.i.i, i64 1)
   br label %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i.i.i.i
 
-_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i.i.i.i: ; preds = %sw.default.i.i.i.i.i.i.i, %sw.bb3.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.preheader.i.i.i.i
+_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i.i.i.i: ; preds = %sw.default.i.i.i.i.i.i.i, %sw.bb3.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i
   %119 = load float, ptr %r.i.i.i.i, align 4
   br label %_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit.i.i.i
 

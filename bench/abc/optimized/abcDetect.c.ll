@@ -2582,8 +2582,8 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   store i32 1, ptr %44, align 8
   br label %Vec_IntGrow.exit.i
 
-Vec_IntGrow.exit.i:                               ; preds = %64, %53
-  %66 = phi ptr [ %65, %64 ], [ %.pre, %53 ]
+Vec_IntGrow.exit.i:                               ; preds = %53, %64
+  %66 = phi ptr [ %.pre, %53 ], [ %65, %64 ]
   store i32 %.val75, ptr %66, align 4
   store i32 1, ptr %45, align 4
   %67 = tail call fastcc i32 @Hsh_VecManAdd(ptr noundef nonnull %4, ptr noundef nonnull %44)

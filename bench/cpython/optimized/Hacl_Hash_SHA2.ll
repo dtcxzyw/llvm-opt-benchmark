@@ -5730,13 +5730,13 @@ if.then37:                                        ; preds = %if.else34
   %s138.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %p, i64 8
   %s138.sroa.2.0.copyload = load ptr, ptr %s138.sroa.2.0..sroa_idx, align 8
   %or.cond76 = xor i1 %cmp3, %or.cond
-  br i1 %or.cond76, label %if.end60, label %for.body.i.preheader
+  br i1 %or.cond76, label %if.end60, label %for.body.i
 
-for.body.i.preheader:                             ; preds = %if.then37
+for.body.i:                                       ; preds = %if.then37
   tail call fastcc void @sha256_update(ptr noundef readonly %s138.sroa.2.0.copyload, ptr noundef %s138.sroa.0.0.copyload)
   br label %if.end60
 
-if.end60:                                         ; preds = %for.body.i.preheader, %if.then37
+if.end60:                                         ; preds = %for.body.i, %if.then37
   %rem62 = and i64 %conv, 63
   %cmp63 = icmp eq i64 %rem62, 0
   %conv73 = trunc nuw nsw i64 %rem62 to i32
@@ -5785,13 +5785,13 @@ if.else90:                                        ; preds = %if.else34
   store ptr %s196.sroa.2.0.copyload, ptr %s196.sroa.2.0..sroa_idx, align 8
   store i64 %add118, ptr %s.sroa.1.0..sroa_idx, align 8
   %cmp134 = icmp eq i64 %add118, 0
-  br i1 %cmp134, label %if.end144, label %for.body.i85.preheader
+  br i1 %cmp134, label %if.end144, label %for.body.i85
 
-for.body.i85.preheader:                           ; preds = %if.else90
+for.body.i85:                                     ; preds = %if.else90
   tail call fastcc void @sha256_update(ptr noundef readonly %s196.sroa.2.0.copyload, ptr noundef %s196.sroa.0.0.copyload)
   br label %if.end144
 
-if.end144:                                        ; preds = %for.body.i85.preheader, %if.else90
+if.end144:                                        ; preds = %for.body.i85, %if.else90
   %sub146 = sub i32 %len, %sub11
   %conv147 = zext i32 %sub146 to i64
   %rem148 = and i64 %conv147, 63
@@ -6304,13 +6304,13 @@ if.then37:                                        ; preds = %if.else34
   %s138.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %p, i64 8
   %s138.sroa.2.0.copyload = load ptr, ptr %s138.sroa.2.0..sroa_idx, align 8
   %or.cond76 = xor i1 %cmp3, %or.cond
-  br i1 %or.cond76, label %if.end60, label %for.body.i.preheader
+  br i1 %or.cond76, label %if.end60, label %for.body.i
 
-for.body.i.preheader:                             ; preds = %if.then37
+for.body.i:                                       ; preds = %if.then37
   tail call fastcc void @sha512_update(ptr noundef readonly %s138.sroa.2.0.copyload, ptr noundef %s138.sroa.0.0.copyload)
   br label %if.end60
 
-if.end60:                                         ; preds = %for.body.i.preheader, %if.then37
+if.end60:                                         ; preds = %for.body.i, %if.then37
   %rem62 = and i64 %conv, 127
   %cmp63 = icmp eq i64 %rem62, 0
   %conv73 = trunc nuw nsw i64 %rem62 to i32
@@ -6359,13 +6359,13 @@ if.else90:                                        ; preds = %if.else34
   store ptr %s196.sroa.2.0.copyload, ptr %s196.sroa.2.0..sroa_idx, align 8
   store i64 %add118, ptr %s.sroa.1.0..sroa_idx, align 8
   %cmp134 = icmp eq i64 %add118, 0
-  br i1 %cmp134, label %if.end144, label %for.body.i85.preheader
+  br i1 %cmp134, label %if.end144, label %for.body.i85
 
-for.body.i85.preheader:                           ; preds = %if.else90
+for.body.i85:                                     ; preds = %if.else90
   tail call fastcc void @sha512_update(ptr noundef readonly %s196.sroa.2.0.copyload, ptr noundef %s196.sroa.0.0.copyload)
   br label %if.end144
 
-if.end144:                                        ; preds = %for.body.i85.preheader, %if.else90
+if.end144:                                        ; preds = %for.body.i85, %if.else90
   %sub146 = sub i32 %len, %sub11
   %conv147 = zext i32 %sub146 to i64
   %rem148 = and i64 %conv147, 127

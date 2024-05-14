@@ -6,42 +6,46 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define noundef i32 @dtrmv_NUN(i64 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = icmp eq i64 %4, 1
-  br i1 %7, label %16, label %8
+  br i1 %7, label %8, label %.thread
 
 8:                                                ; preds = %6
-  %9 = ptrtoint ptr %5 to i64
-  %10 = shl i64 %0, 3
-  %11 = add i64 %10, 4095
-  %12 = add i64 %11, %9
-  %13 = and i64 %12, -4096
-  %14 = inttoptr i64 %13 to ptr
-  %15 = tail call i32 @dcopy_k(i64 noundef %0, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef 1) #3
-  br label %16
+  %9 = icmp sgt i64 %0, 0
+  br i1 %9, label %.preheader.split.preheader, label %59
 
-16:                                               ; preds = %8, %6
-  %17 = phi ptr [ %14, %8 ], [ %5, %6 ]
-  %18 = phi ptr [ %5, %8 ], [ %3, %6 ]
-  %19 = icmp sgt i64 %0, 0
-  br i1 %19, label %.preheader, label %.loopexit6
+.thread:                                          ; preds = %6
+  %10 = ptrtoint ptr %5 to i64
+  %11 = shl i64 %0, 3
+  %12 = add i64 %11, 4095
+  %13 = add i64 %12, %10
+  %14 = and i64 %13, -4096
+  %15 = inttoptr i64 %14 to ptr
+  %16 = tail call i32 @dcopy_k(i64 noundef %0, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef 1) #3
+  %17 = icmp sgt i64 %0, 0
+  br i1 %17, label %.preheader.split.preheader, label %57
 
-.preheader:                                       ; preds = %16, %.loopexit
-  %20 = phi i64 [ %57, %.loopexit ], [ %0, %16 ]
-  %21 = phi i64 [ %55, %.loopexit ], [ 0, %16 ]
+.preheader.split.preheader:                       ; preds = %.thread, %8
+  %18 = phi ptr [ %5, %.thread ], [ %3, %8 ]
+  %19 = phi ptr [ %15, %.thread ], [ %5, %8 ]
+  br label %.preheader.split
+
+.preheader.split:                                 ; preds = %.preheader.split.preheader, %.loopexit
+  %20 = phi i64 [ %56, %.loopexit ], [ %0, %.preheader.split.preheader ]
+  %21 = phi i64 [ %55, %.loopexit ], [ 0, %.preheader.split.preheader ]
   %22 = tail call i64 @llvm.smin.i64(i64 %20, i64 32)
   %23 = tail call i64 @llvm.smax.i64(i64 %22, i64 1)
   %24 = sub nsw i64 %0, %21
   %25 = icmp eq i64 %21, 0
   br i1 %25, label %32, label %26
 
-26:                                               ; preds = %.preheader
+26:                                               ; preds = %.preheader.split
   %27 = tail call i64 @llvm.smin.i64(i64 %24, i64 32)
   %28 = mul nsw i64 %21, %2
   %29 = getelementptr inbounds double, ptr %1, i64 %28
   %30 = getelementptr inbounds double, ptr %18, i64 %21
-  %31 = tail call i32 @dgemv_n(i64 noundef %21, i64 noundef %27, i64 noundef 0, double noundef 1.000000e+00, ptr noundef %29, i64 noundef %2, ptr noundef nonnull %30, i64 noundef 1, ptr noundef %18, i64 noundef 1, ptr noundef %17) #3
+  %31 = tail call i32 @dgemv_n(i64 noundef %21, i64 noundef %27, i64 noundef 0, double noundef 1.000000e+00, ptr noundef %29, i64 noundef %2, ptr noundef nonnull %30, i64 noundef 1, ptr noundef %18, i64 noundef 1, ptr noundef %19) #3
   br label %32
 
-32:                                               ; preds = %26, %.preheader
+32:                                               ; preds = %26, %.preheader.split
   %33 = icmp sgt i64 %24, 0
   br i1 %33, label %34, label %.loopexit
 
@@ -77,18 +81,14 @@ define noundef i32 @dtrmv_NUN(i64 noundef %0, ptr noundef %1, i64 noundef %2, pt
 
 .loopexit:                                        ; preds = %47, %32
   %55 = add nuw nsw i64 %21, 32
-  %56 = icmp slt i64 %55, %0
-  %57 = add i64 %20, -32
-  br i1 %56, label %.preheader, label %.loopexit6, !llvm.loop !10
+  %56 = add i64 %20, -32
+  br label %.preheader.split
 
-.loopexit6:                                       ; preds = %.loopexit, %16
-  br i1 %7, label %60, label %58
+57:                                               ; preds = %.thread
+  %58 = tail call i32 @dcopy_k(i64 noundef %0, ptr noundef %5, i64 noundef 1, ptr noundef %3, i64 noundef %4) #3
+  br label %59
 
-58:                                               ; preds = %.loopexit6
-  %59 = tail call i32 @dcopy_k(i64 noundef %0, ptr noundef %5, i64 noundef 1, ptr noundef %3, i64 noundef %4) #3
-  br label %60
-
-60:                                               ; preds = %58, %.loopexit6
+59:                                               ; preds = %8, %57
   ret i32 0
 }
 
@@ -121,4 +121,3 @@ attributes #3 = { nounwind }
 !7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!"llvm.loop.unroll.disable"}
-!10 = distinct !{!10, !8, !9}

@@ -146,10 +146,10 @@ be32dec_vect.exit:                                ; preds = %for.body.i
   %arrayidx22 = getelementptr i8, ptr %S, i64 12
   %arrayidx33 = getelementptr i8, ptr %S, i64 4
   %arrayidx34 = getelementptr i8, ptr %S, i64 8
-  br label %for.body
+  br label %for.cond
 
-for.body:                                         ; preds = %if.end, %be32dec_vect.exit
-  %indvars.iv = phi i64 [ 0, %be32dec_vect.exit ], [ %indvars.iv.next, %if.end ]
+for.cond:                                         ; preds = %if.end, %be32dec_vect.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %if.end ], [ 0, %be32dec_vect.exit ]
   %4 = load i32, ptr %arrayidx, align 4
   %or.i = tail call i32 @llvm.fshl.i32(i32 %4, i32 %4, i32 26)
   %or.i651 = tail call i32 @llvm.fshl.i32(i32 %4, i32 %4, i32 21)
@@ -656,7 +656,7 @@ for.body:                                         ; preds = %if.end, %be32dec_ve
   %cmp778 = icmp eq i64 %indvars.iv, 48
   br i1 %cmp778, label %for.body1549, label %if.end
 
-if.end:                                           ; preds = %for.body
+if.end:                                           ; preds = %for.cond
   %59 = load i32, ptr %arrayidx698, align 4
   %or.i936 = tail call i32 @llvm.fshl.i32(i32 %59, i32 %59, i32 15)
   %or.i939 = tail call i32 @llvm.fshl.i32(i32 %59, i32 %59, i32 13)
@@ -914,19 +914,19 @@ if.end:                                           ; preds = %for.body
   %add1541 = add i32 %add1537, %xor1514
   %arrayidx1545 = getelementptr i8, ptr %arrayidx13, i64 124
   store i32 %add1541, ptr %arrayidx1545, align 4
-  br label %for.body
+  br label %for.cond, !llvm.loop !10
 
-for.body1549:                                     ; preds = %for.body, %for.body1549
-  %indvars.iv1144 = phi i64 [ %indvars.iv.next1145, %for.body1549 ], [ 0, %for.body ]
-  %arrayidx1551 = getelementptr i32, ptr %S, i64 %indvars.iv1144
+for.body1549:                                     ; preds = %for.cond, %for.body1549
+  %indvars.iv1143 = phi i64 [ %indvars.iv.next1144, %for.body1549 ], [ 0, %for.cond ]
+  %arrayidx1551 = getelementptr i32, ptr %S, i64 %indvars.iv1143
   %75 = load i32, ptr %arrayidx1551, align 4
-  %arrayidx1553 = getelementptr i32, ptr %state, i64 %indvars.iv1144
+  %arrayidx1553 = getelementptr i32, ptr %state, i64 %indvars.iv1143
   %76 = load i32, ptr %arrayidx1553, align 4
   %add1554 = add i32 %76, %75
   store i32 %add1554, ptr %arrayidx1553, align 4
-  %indvars.iv.next1145 = add nuw nsw i64 %indvars.iv1144, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next1145, 8
-  br i1 %exitcond.not, label %for.end1556, label %for.body1549, !llvm.loop !10
+  %indvars.iv.next1144 = add nuw nsw i64 %indvars.iv1143, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next1144, 8
+  br i1 %exitcond.not, label %for.end1556, label %for.body1549, !llvm.loop !11
 
 for.end1556:                                      ; preds = %for.body1549
   ret void
@@ -1029,7 +1029,7 @@ for.body.i:                                       ; preds = %for.body.i, %SHA256
   store i8 %conv7.i.i12, ptr %add.ptr.i, align 1
   %inc.i = add nuw nsw i64 %i.04.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 8
-  br i1 %exitcond.not.i, label %be32enc_vect.exit, label %for.body.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %be32enc_vect.exit, label %for.body.i, !llvm.loop !12
 
 be32enc_vect.exit:                                ; preds = %for.body.i
   call void @sodium_memzero(ptr noundef nonnull %tmp32, i64 noundef 288) #7
@@ -1078,3 +1078,4 @@ attributes #7 = { nounwind }
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}

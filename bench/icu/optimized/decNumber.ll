@@ -5681,9 +5681,9 @@ cond.end34.i:                                     ; preds = %if.end5.i, %cond.tr
   %sub38.i = sub nsw i32 %11, %cond35.i
   %sub39.i = sub nsw i32 1, %sub38.i
   %cmp40.i = icmp eq i32 %sub38.i, 1
-  br i1 %cmp40.i, label %for.body.i158.preheader, label %if.else.i
+  br i1 %cmp40.i, label %for.body.i158, label %if.else.i
 
-for.body.i158.preheader:                          ; preds = %cond.end34.i
+for.body.i158:                                    ; preds = %cond.end34.i
   %target.064.i.ptr = getelementptr inbounds i8, ptr %res, i64 %add.ptr11.i.ptr.ptr.add
   store i8 1, ptr %target.064.i.ptr, align 1
   br label %if.end87.i
@@ -5731,8 +5731,8 @@ if.end78.i:                                       ; preds = %if.then76.i, %cond.
   %19 = trunc i32 %mul82.i to i8
   br label %if.end87.i
 
-if.end87.i:                                       ; preds = %for.body.i158.preheader, %if.end78.i
-  %next.1.i = phi i8 [ %19, %if.end78.i ], [ 0, %for.body.i158.preheader ]
+if.end87.i:                                       ; preds = %for.body.i158, %if.end78.i
+  %next.1.i = phi i8 [ %19, %if.end78.i ], [ 0, %for.body.i158 ]
   %cmp89.not66.i = icmp eq i64 %idx.ext2352.pn.i, 0
   br i1 %cmp89.not66.i, label %_ZL14decShiftToMostPhii.exit, label %for.body90.i.preheader
 
@@ -10244,9 +10244,9 @@ cond.end34.i:                                     ; preds = %if.end5.i, %cond.tr
   %sub38.i = sub nsw i32 %8, %cond35.i
   %sub39.i = sub nsw i32 1, %sub38.i
   %cmp40.i = icmp eq i32 %sub38.i, 1
-  br i1 %cmp40.i, label %for.body.i.preheader, label %if.else.i
+  br i1 %cmp40.i, label %for.body.i, label %if.else.i
 
-for.body.i.preheader:                             ; preds = %cond.end34.i
+for.body.i:                                       ; preds = %cond.end34.i
   %target.064.i.ptr = getelementptr inbounds i8, ptr %res, i64 %add.ptr11.i.ptr.ptr.add
   store i8 1, ptr %target.064.i.ptr, align 1
   br label %if.end87.i
@@ -10294,8 +10294,8 @@ if.end78.i:                                       ; preds = %if.then76.i, %cond.
   %16 = trunc i32 %mul82.i to i8
   br label %if.end87.i
 
-if.end87.i:                                       ; preds = %for.body.i.preheader, %if.end78.i
-  %next.1.i = phi i8 [ %16, %if.end78.i ], [ 0, %for.body.i.preheader ]
+if.end87.i:                                       ; preds = %for.body.i, %if.end78.i
+  %next.1.i = phi i8 [ %16, %if.end78.i ], [ 0, %for.body.i ]
   %cmp89.not66.i = icmp eq i64 %idx.ext2352.pn.i, 0
   br i1 %cmp89.not66.i, label %if.then351.thread253, label %for.body90.i.preheader
 

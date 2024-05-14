@@ -6737,7 +6737,7 @@ rb_vm_bh_to_procval.exit:                         ; preds = %105, %113, %RB_SYMB
   %130 = sext i32 %125 to i64
   %131 = getelementptr i64, ptr %.0.lcssa.i2201, i64 %130
   store i64 %.0.i, ptr %131, align 8
-  %.pre2920 = load i64, ptr %.0.lcssa.i2201, align 8
+  %.pre2918 = load i64, ptr %.0.lcssa.i2201, align 8
   br label %vm_env_write.exit2205
 
 132:                                              ; preds = %rb_vm_bh_to_procval.exit
@@ -6752,7 +6752,7 @@ rb_vm_bh_to_procval.exit:                         ; preds = %105, %113, %RB_SYMB
   br label %vm_env_write.exit2205
 
 vm_env_write.exit2205:                            ; preds = %129, %132
-  %138 = phi i64 [ %.pre2920, %129 ], [ %137, %132 ]
+  %138 = phi i64 [ %.pre2918, %129 ], [ %137, %132 ]
   %139 = or i64 %138, 512
   store i64 %139, ptr %.0.lcssa.i2201, align 8
   br label %144
@@ -6815,7 +6815,7 @@ vm_get_ep.exit2212:                               ; preds = %.lr.ph.i2207, %148
   %173 = sext i32 %168 to i64
   %174 = getelementptr i64, ptr %.0.lcssa.i2211, i64 %173
   store i64 %156, ptr %174, align 8
-  %.pre2919 = load i64, ptr %.0.lcssa.i2211, align 8
+  %.pre2917 = load i64, ptr %.0.lcssa.i2211, align 8
   br label %vm_env_write.exit2214
 
 175:                                              ; preds = %vm_get_ep.exit2212
@@ -6830,7 +6830,7 @@ vm_get_ep.exit2212:                               ; preds = %.lr.ph.i2207, %148
   br label %vm_env_write.exit2214
 
 vm_env_write.exit2214:                            ; preds = %172, %175
-  %181 = phi i64 [ %.pre2919, %172 ], [ %180, %175 ]
+  %181 = phi i64 [ %.pre2917, %172 ], [ %180, %175 ]
   %182 = or i64 %181, 512
   store i64 %182, ptr %.0.lcssa.i2211, align 8
   %183 = load ptr, ptr %153, align 8
@@ -6908,11 +6908,11 @@ RB_SYMBOL_P.exit.thread7.fold.split.i:            ; preds = %203, %203
 
 vm_block_handler_type.exit:                       ; preds = %RB_SYMBOL_P.exit.i, %205
   %215 = call i64 @rb_sym_to_proc(i64 noundef %.val2178) #20
-  %.pre2917 = load i64, ptr %.0.lcssa.i2220, align 8
+  %.pre2915 = load i64, ptr %.0.lcssa.i2220, align 8
   br label %216
 
 216:                                              ; preds = %208, %RB_SYMBOL_P.exit.i, %201, %vm_block_handler_type.exit
-  %217 = phi i64 [ %.pre2917, %vm_block_handler_type.exit ], [ %.val2176, %201 ], [ %.val2176, %RB_SYMBOL_P.exit.i ], [ %.val2176, %208 ]
+  %217 = phi i64 [ %.pre2915, %vm_block_handler_type.exit ], [ %.val2176, %201 ], [ %.val2176, %RB_SYMBOL_P.exit.i ], [ %.val2176, %208 ]
   %.02116 = phi i64 [ %215, %vm_block_handler_type.exit ], [ 4, %201 ], [ %.val2178, %RB_SYMBOL_P.exit.i ], [ %.val2178, %208 ]
   %218 = trunc i64 %187 to i32
   %219 = sub i32 0, %218
@@ -6924,7 +6924,7 @@ vm_block_handler_type.exit:                       ; preds = %RB_SYMBOL_P.exit.i,
   %223 = sext i32 %219 to i64
   %224 = getelementptr i64, ptr %.0.lcssa.i2220, i64 %223
   store i64 %.02116, ptr %224, align 8
-  %.pre2918 = load i64, ptr %.0.lcssa.i2220, align 8
+  %.pre2916 = load i64, ptr %.0.lcssa.i2220, align 8
   br label %vm_env_write.exit2224
 
 225:                                              ; preds = %216
@@ -6939,7 +6939,7 @@ vm_block_handler_type.exit:                       ; preds = %RB_SYMBOL_P.exit.i,
   br label %vm_env_write.exit2224
 
 vm_env_write.exit2224:                            ; preds = %222, %225
-  %231 = phi i64 [ %.pre2918, %222 ], [ %230, %225 ]
+  %231 = phi i64 [ %.pre2916, %222 ], [ %230, %225 ]
   %232 = or i64 %231, 512
   store i64 %232, ptr %.0.lcssa.i2220, align 8
   br label %237
@@ -7885,11 +7885,11 @@ RHASH_EMPTY_P.exit2250:                           ; preds = %744, %747
 
 753:                                              ; preds = %RHASH_EMPTY_P.exit2250
   %754 = call i64 @rb_ary_push(i64 noundef %736, i64 noundef %737) #20
-  %.pre2916 = load ptr, ptr %732, align 8
+  %.pre2914 = load ptr, ptr %732, align 8
   br label %755
 
 755:                                              ; preds = %753, %RHASH_EMPTY_P.exit2250
-  %756 = phi ptr [ %.pre2916, %753 ], [ %733, %RHASH_EMPTY_P.exit2250 ]
+  %756 = phi ptr [ %.pre2914, %753 ], [ %733, %RHASH_EMPTY_P.exit2250 ]
   %757 = getelementptr i8, ptr %756, i64 -8
   store ptr %757, ptr %732, align 8
   %758 = getelementptr i8, ptr %756, i64 -16
@@ -8472,11 +8472,11 @@ vm_splat_array.exit:                              ; preds = %1023, %1025, %1027
 
 1042:                                             ; preds = %1031
   %1043 = call i64 @rb_to_hash_type(i64 noundef %1036) #20
-  %.pre2915 = load ptr, ptr %1032, align 8
+  %.pre2913 = load ptr, ptr %1032, align 8
   br label %1044
 
 1044:                                             ; preds = %1031, %1042
-  %1045 = phi ptr [ %.pre2915, %1042 ], [ %1033, %1031 ]
+  %1045 = phi ptr [ %.pre2913, %1042 ], [ %1033, %1031 ]
   %.02119 = phi i64 [ %1043, %1042 ], [ 4, %1031 ]
   %1046 = getelementptr i8, ptr %1045, i64 -8
   store i64 %1037, ptr %1046, align 8
@@ -8661,11 +8661,11 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %1126
 1138:                                             ; preds = %rbimpl_size_mul_or_raise.exit
   %1139 = shl nuw i64 %1128, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %1133, ptr readonly align 1 %1135, i64 %1139, i1 false)
-  %.pre2914 = load ptr, ptr %1132, align 8
+  %.pre2912 = load ptr, ptr %1132, align 8
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_raise.exit, %1138
-  %1140 = phi ptr [ %1133, %rbimpl_size_mul_or_raise.exit ], [ %.pre2914, %1138 ]
+  %1140 = phi ptr [ %1133, %rbimpl_size_mul_or_raise.exit ], [ %.pre2912, %1138 ]
   %1141 = getelementptr i64, ptr %1140, i64 %1128
   store ptr %1141, ptr %1132, align 8
   br label %.backedge.backedge
@@ -8724,8 +8724,8 @@ ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_
   %1174 = getelementptr i8, ptr %1173, i64 -8
   store i64 %1166, ptr %1174, align 8
   %1175 = add nuw nsw i64 %.021212776, 1
-  %exitcond2893.not = icmp eq i64 %1175, %1164
-  br i1 %exitcond2893.not, label %.backedge.backedge, label %.lr.ph2777, !llvm.loop !59
+  %exitcond2891.not = icmp eq i64 %1175, %1164
+  br i1 %exitcond2891.not, label %.backedge.backedge, label %.lr.ph2777, !llvm.loop !59
 
 1176:                                             ; preds = %.backedge, %3947
   %1177 = getelementptr i8, ptr %.5, i64 8
@@ -8938,10 +8938,10 @@ ROBJECT_IVPTR.exit:                               ; preds = %1258, %1255, %rb_ra
 1297:                                             ; preds = %1296
   %1298 = call i32 @rb_st_lookup(ptr noundef nonnull %.02111, i64 noundef %1233, ptr noundef nonnull %11) #20
   %.not2164 = icmp eq i32 %1298, 0
-  br i1 %.not2164, label %.thread, label %._crit_edge2912
+  br i1 %.not2164, label %.thread, label %._crit_edge2910
 
-._crit_edge2912:                                  ; preds = %1297
-  %.pre2913 = load i64, ptr %11, align 8
+._crit_edge2910:                                  ; preds = %1297
+  %.pre2911 = load i64, ptr %11, align 8
   br label %1320
 
 .thread:                                          ; preds = %1292, %1297, %1296
@@ -8955,20 +8955,20 @@ ROBJECT_IVPTR.exit:                               ; preds = %1258, %1255, %rb_ra
 1301:                                             ; preds = %1299
   %1302 = load i32, ptr %13, align 4
   %.not2161 = icmp eq i32 %1302, %1272
-  %.pre2911 = load i32, ptr %14, align 4
+  %.pre2909 = load i32, ptr %14, align 4
   br i1 %.not2161, label %1309, label %1303
 
 1303:                                             ; preds = %1301
   %1304 = zext i32 %1302 to i64
   %1305 = shl nuw i64 %1304, 32
-  %1306 = add i32 %.pre2911, 1
+  %1306 = add i32 %.pre2909, 1
   %1307 = zext i32 %1306 to i64
   %1308 = or disjoint i64 %1305, %1307
   store i64 %1308, ptr %1236, align 8
   br label %1309
 
 1309:                                             ; preds = %1303, %1301
-  %1310 = icmp eq i32 %.pre2911, -1
+  %1310 = icmp eq i32 %.pre2909, -1
   br i1 %1310, label %1311, label %1312
 
 1311:                                             ; preds = %1309
@@ -8976,7 +8976,7 @@ ROBJECT_IVPTR.exit:                               ; preds = %1258, %1255, %rb_ra
   br label %.thread2575
 
 1312:                                             ; preds = %1309
-  %1313 = zext i32 %.pre2911 to i64
+  %1313 = zext i32 %.pre2909 to i64
   %1314 = getelementptr i64, ptr %.02110, i64 %1313
   %1315 = load i64, ptr %1314, align 8
   store i64 %1315, ptr %11, align 8
@@ -8992,8 +8992,8 @@ ROBJECT_IVPTR.exit:                               ; preds = %1258, %1255, %rb_ra
   %1319 = call i64 @rb_ivar_get(i64 noundef %1243, i64 noundef %1233) #20
   br label %1320
 
-1320:                                             ; preds = %1278, %1312, %._crit_edge2912, %1318
-  %.0 = phi i64 [ %1319, %1318 ], [ %.pre2913, %._crit_edge2912 ], [ %1315, %1312 ], [ %1281, %1278 ]
+1320:                                             ; preds = %1278, %1312, %._crit_edge2910, %1318
+  %.0 = phi i64 [ %1319, %1318 ], [ %.pre2911, %._crit_edge2910 ], [ %1315, %1312 ], [ %1281, %1278 ]
   %.0.fr = freeze i64 %.0
   %1321 = icmp eq i64 %.0.fr, 36
   br i1 %1321, label %.thread2575, label %1322
@@ -9695,11 +9695,11 @@ vm_push_frame.exit:                               ; preds = %.lr.ph.i2335, %.pre
 1649:                                             ; preds = %1647
   %1650 = call fastcc ptr @jit_compile(ptr noundef nonnull %0)
   %.not2158 = icmp eq ptr %1650, null
-  %.pre2910 = load ptr, ptr %18, align 8
+  %.pre2908 = load ptr, ptr %18, align 8
   br i1 %.not2158, label %.thread2579, label %1651
 
 1651:                                             ; preds = %1649
-  %1652 = call i64 %1650(ptr noundef nonnull %0, ptr noundef %.pre2910) #20
+  %1652 = call i64 %1650(ptr noundef nonnull %0, ptr noundef %.pre2908) #20
   %1653 = load ptr, ptr %25, align 8
   %1654 = getelementptr inbounds i8, ptr %1653, i64 64
   %1655 = load i32, ptr %1654, align 8
@@ -9711,11 +9711,11 @@ vm_push_frame.exit:                               ; preds = %.lr.ph.i2335, %.pre
   br i1 %1657, label %..thread2579_crit_edge, label %.thread2581
 
 ..thread2579_crit_edge:                           ; preds = %1656
-  %.pre2909 = load ptr, ptr %18, align 8
+  %.pre2907 = load ptr, ptr %18, align 8
   br label %.thread2579
 
 .thread2579:                                      ; preds = %..thread2579_crit_edge, %1647, %1649
-  %1658 = phi ptr [ %.pre2909, %..thread2579_crit_edge ], [ %1648, %1647 ], [ %.pre2910, %1649 ]
+  %1658 = phi ptr [ %.pre2907, %..thread2579_crit_edge ], [ %1648, %1647 ], [ %.pre2908, %1649 ]
   %1659 = load ptr, ptr %1658, align 8
   br label %.backedge.backedge
 
@@ -9751,11 +9751,11 @@ vm_push_frame.exit:                               ; preds = %.lr.ph.i2335, %.pre
 1675:                                             ; preds = %1673
   %1676 = call fastcc ptr @jit_compile(ptr noundef nonnull %0)
   %.not2155 = icmp eq ptr %1676, null
-  %.pre2908 = load ptr, ptr %18, align 8
+  %.pre2906 = load ptr, ptr %18, align 8
   br i1 %.not2155, label %.thread2585, label %1677
 
 1677:                                             ; preds = %1675
-  %1678 = call i64 %1676(ptr noundef nonnull %0, ptr noundef %.pre2908) #20
+  %1678 = call i64 %1676(ptr noundef nonnull %0, ptr noundef %.pre2906) #20
   %1679 = load ptr, ptr %25, align 8
   %1680 = getelementptr inbounds i8, ptr %1679, i64 64
   %1681 = load i32, ptr %1680, align 8
@@ -9767,11 +9767,11 @@ vm_push_frame.exit:                               ; preds = %.lr.ph.i2335, %.pre
   br i1 %1683, label %..thread2585_crit_edge, label %.thread2587
 
 ..thread2585_crit_edge:                           ; preds = %1682
-  %.pre2907 = load ptr, ptr %18, align 8
+  %.pre2905 = load ptr, ptr %18, align 8
   br label %.thread2585
 
 .thread2585:                                      ; preds = %..thread2585_crit_edge, %1673, %1675
-  %1684 = phi ptr [ %.pre2907, %..thread2585_crit_edge ], [ %1674, %1673 ], [ %.pre2908, %1675 ]
+  %1684 = phi ptr [ %.pre2905, %..thread2585_crit_edge ], [ %1674, %1673 ], [ %.pre2906, %1675 ]
   %1685 = load ptr, ptr %1684, align 8
   br label %.backedge.backedge
 
@@ -9808,9 +9808,9 @@ vm_push_frame.exit:                               ; preds = %.lr.ph.i2335, %.pre
 1706:                                             ; preds = %1689
   %1707 = call i64 @llvm.fshl.i64(i64 %1696, i64 %1696, i64 62)
   %1708 = icmp ult i64 %1707, 10
-  br i1 %1708, label %switch.hole_check3155, label %1709
+  br i1 %1708, label %switch.hole_check3153, label %1709
 
-1709:                                             ; preds = %switch.hole_check3155, %1706
+1709:                                             ; preds = %switch.hole_check3153, %1706
   %1710 = and i64 %1696, 1
   %.not.i.i2344 = icmp eq i64 %1710, 0
   br i1 %.not.i.i2344, label %1711, label %1721
@@ -9833,19 +9833,19 @@ rb_type.exit.i:                                   ; preds = %1689
   %1720 = getelementptr inbounds i8, ptr %1714, i64 8
   br label %rb_class_of.exit.i.i
 
-switch.hole_check3155:                            ; preds = %1706
-  %switch.maskindex3157 = trunc nuw i64 %1707 to i16
-  %switch.shifted3158 = lshr i16 547, %switch.maskindex3157
-  %switch.lobit3159 = trunc i16 %switch.shifted3158 to i1
-  br i1 %switch.lobit3159, label %switch.lookup3156, label %1709
+switch.hole_check3153:                            ; preds = %1706
+  %switch.maskindex3155 = trunc nuw i64 %1707 to i16
+  %switch.shifted3156 = lshr i16 547, %switch.maskindex3155
+  %switch.lobit3157 = trunc i16 %switch.shifted3156 to i1
+  br i1 %switch.lobit3157, label %switch.lookup3154, label %1709
 
-switch.lookup3156:                                ; preds = %switch.hole_check3155
-  %switch.gep3160 = getelementptr inbounds [10 x i32], ptr @switch.table.vm_exec_core.108, i64 0, i64 %1707
-  %switch.load3161 = load i32, ptr %switch.gep3160, align 4
+switch.lookup3154:                                ; preds = %switch.hole_check3153
+  %switch.gep3158 = getelementptr inbounds [10 x i32], ptr @switch.table.vm_exec_core.108, i64 0, i64 %1707
+  %switch.load3159 = load i32, ptr %switch.gep3158, align 4
   br label %1721
 
-1721:                                             ; preds = %switch.lookup3156, %1711, %1709
-  %.0.i.ph.i = phi i32 [ %spec.select.i.i, %1711 ], [ 21, %1709 ], [ %switch.load3161, %switch.lookup3156 ]
+1721:                                             ; preds = %switch.lookup3154, %1711, %1709
+  %.0.i.ph.i = phi i32 [ %spec.select.i.i, %1711 ], [ 21, %1709 ], [ %switch.load3159, %switch.lookup3154 ]
   switch i64 %1696, label %1724 [
     i64 0, label %rb_class_of.exit.i.i
     i64 4, label %1722
@@ -10150,7 +10150,7 @@ vm_objtostring.exit.thread:                       ; preds = %1808, %1806, %1797,
   br i1 %.not.i2345, label %vm_opt_nil_p.exit, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %1860
-  %.pre2906 = load ptr, ptr %1846, align 8
+  %.pre2904 = load ptr, ptr %1846, align 8
   br label %1862
 
 vm_opt_nil_p.exit:                                ; preds = %1860
@@ -10158,7 +10158,7 @@ vm_opt_nil_p.exit:                                ; preds = %1860
   br label %1663
 
 1862:                                             ; preds = %._crit_edge, %1856
-  %1863 = phi ptr [ %.pre2906, %._crit_edge ], [ %1847, %1856 ]
+  %1863 = phi ptr [ %.pre2904, %._crit_edge ], [ %1847, %1856 ]
   %.0.i2347.ph = phi i64 [ 0, %._crit_edge ], [ 20, %1856 ]
   %1864 = getelementptr i8, ptr %1863, i64 -8
   store i64 %.0.i2347.ph, ptr %1864, align 8
@@ -10291,11 +10291,11 @@ vm_opt_newarray_hash.exit:                        ; preds = %1904, %1902, %1913,
 1942:                                             ; preds = %1940
   %1943 = call fastcc ptr @jit_compile(ptr noundef nonnull %0)
   %.not2152 = icmp eq ptr %1943, null
-  %.pre2905 = load ptr, ptr %18, align 8
+  %.pre2903 = load ptr, ptr %18, align 8
   br i1 %.not2152, label %.thread2594, label %1944
 
 1944:                                             ; preds = %1942
-  %1945 = call i64 %1943(ptr noundef nonnull %0, ptr noundef %.pre2905) #20
+  %1945 = call i64 %1943(ptr noundef nonnull %0, ptr noundef %.pre2903) #20
   %1946 = load ptr, ptr %25, align 8
   %1947 = getelementptr inbounds i8, ptr %1946, i64 64
   %1948 = load i32, ptr %1947, align 8
@@ -10307,11 +10307,11 @@ vm_opt_newarray_hash.exit:                        ; preds = %1904, %1902, %1913,
   br i1 %1950, label %..thread2594_crit_edge, label %.thread2596
 
 ..thread2594_crit_edge:                           ; preds = %1949
-  %.pre2904 = load ptr, ptr %18, align 8
+  %.pre2902 = load ptr, ptr %18, align 8
   br label %.thread2594
 
 .thread2594:                                      ; preds = %..thread2594_crit_edge, %1940, %1942
-  %1951 = phi ptr [ %.pre2904, %..thread2594_crit_edge ], [ %1941, %1940 ], [ %.pre2905, %1942 ]
+  %1951 = phi ptr [ %.pre2902, %..thread2594_crit_edge ], [ %1941, %1940 ], [ %.pre2903, %1942 ]
   %1952 = load ptr, ptr %1951, align 8
   br label %.backedge.backedge
 
@@ -10346,11 +10346,11 @@ vm_opt_newarray_hash.exit:                        ; preds = %1904, %1902, %1913,
 1968:                                             ; preds = %1966
   %1969 = call fastcc ptr @jit_compile(ptr noundef nonnull %0)
   %.not2149 = icmp eq ptr %1969, null
-  %.pre2903 = load ptr, ptr %18, align 8
+  %.pre2901 = load ptr, ptr %18, align 8
   br i1 %.not2149, label %.thread2600, label %1970
 
 1970:                                             ; preds = %1968
-  %1971 = call i64 %1969(ptr noundef nonnull %0, ptr noundef %.pre2903) #20
+  %1971 = call i64 %1969(ptr noundef nonnull %0, ptr noundef %.pre2901) #20
   %1972 = load ptr, ptr %25, align 8
   %1973 = getelementptr inbounds i8, ptr %1972, i64 64
   %1974 = load i32, ptr %1973, align 8
@@ -10362,11 +10362,11 @@ vm_opt_newarray_hash.exit:                        ; preds = %1904, %1902, %1913,
   br i1 %1976, label %..thread2600_crit_edge, label %.thread2602
 
 ..thread2600_crit_edge:                           ; preds = %1975
-  %.pre2902 = load ptr, ptr %18, align 8
+  %.pre2900 = load ptr, ptr %18, align 8
   br label %.thread2600
 
 .thread2600:                                      ; preds = %..thread2600_crit_edge, %1966, %1968
-  %1977 = phi ptr [ %.pre2902, %..thread2600_crit_edge ], [ %1967, %1966 ], [ %.pre2903, %1968 ]
+  %1977 = phi ptr [ %.pre2900, %..thread2600_crit_edge ], [ %1967, %1966 ], [ %.pre2901, %1968 ]
   %1978 = load ptr, ptr %1977, align 8
   br label %.backedge.backedge
 
@@ -10532,17 +10532,17 @@ rb_vm_check_ints.exit:                            ; preds = %2035, %2043
 2060:                                             ; preds = %2057
   %.val.i2360 = load ptr, ptr %23, align 8
   %2061 = call i32 @rb_threadptr_execute_interrupts(ptr noundef %.val.i2360, i32 noundef 0) #20
-  %.pre2901.pre = load ptr, ptr %2049, align 8
+  %.pre2899.pre = load ptr, ptr %2049, align 8
   br label %rb_vm_check_ints.exit2361
 
 rb_vm_check_ints.exit2361:                        ; preds = %2057, %2060
-  %.pre2901 = phi ptr [ %2050, %2057 ], [ %.pre2901.pre, %2060 ]
+  %.pre2899 = phi ptr [ %2050, %2057 ], [ %.pre2899.pre, %2060 ]
   %2062 = getelementptr i64, ptr %2053, i64 %2048
   store ptr %2062, ptr %.02114, align 8
   br label %2063
 
 2063:                                             ; preds = %rb_vm_check_ints.exit2361, %2046
-  %2064 = phi ptr [ %.pre2901, %rb_vm_check_ints.exit2361 ], [ %2050, %2046 ]
+  %2064 = phi ptr [ %.pre2899, %rb_vm_check_ints.exit2361 ], [ %2050, %2046 ]
   %.1 = phi ptr [ %2062, %rb_vm_check_ints.exit2361 ], [ %2053, %2046 ]
   %2065 = getelementptr i8, ptr %2064, i64 -8
   store ptr %2065, ptr %2049, align 8
@@ -10575,17 +10575,17 @@ rb_vm_check_ints.exit2361:                        ; preds = %2057, %2060
 2080:                                             ; preds = %2077
   %.val.i2365 = load ptr, ptr %23, align 8
   %2081 = call i32 @rb_threadptr_execute_interrupts(ptr noundef %.val.i2365, i32 noundef 0) #20
-  %.pre2900.pre = load ptr, ptr %2069, align 8
+  %.pre2898.pre = load ptr, ptr %2069, align 8
   br label %rb_vm_check_ints.exit2366
 
 rb_vm_check_ints.exit2366:                        ; preds = %2077, %2080
-  %.pre2900 = phi ptr [ %2070, %2077 ], [ %.pre2900.pre, %2080 ]
+  %.pre2898 = phi ptr [ %2070, %2077 ], [ %.pre2898.pre, %2080 ]
   %2082 = getelementptr i64, ptr %2073, i64 %2068
   store ptr %2082, ptr %.02114, align 8
   br label %2083
 
 2083:                                             ; preds = %rb_vm_check_ints.exit2366, %2066
-  %2084 = phi ptr [ %2070, %2066 ], [ %.pre2900, %rb_vm_check_ints.exit2366 ]
+  %2084 = phi ptr [ %2070, %2066 ], [ %.pre2898, %rb_vm_check_ints.exit2366 ]
   %.2 = phi ptr [ %2073, %2066 ], [ %2082, %rb_vm_check_ints.exit2366 ]
   %2085 = getelementptr i8, ptr %2084, i64 -8
   store ptr %2085, ptr %2069, align 8
@@ -10617,17 +10617,17 @@ rb_vm_check_ints.exit2366:                        ; preds = %2077, %2080
 2100:                                             ; preds = %2097
   %.val.i2370 = load ptr, ptr %23, align 8
   %2101 = call i32 @rb_threadptr_execute_interrupts(ptr noundef %.val.i2370, i32 noundef 0) #20
-  %.pre2899.pre = load ptr, ptr %2089, align 8
+  %.pre2897.pre = load ptr, ptr %2089, align 8
   br label %rb_vm_check_ints.exit2371
 
 rb_vm_check_ints.exit2371:                        ; preds = %2097, %2100
-  %.pre2899 = phi ptr [ %2090, %2097 ], [ %.pre2899.pre, %2100 ]
+  %.pre2897 = phi ptr [ %2090, %2097 ], [ %.pre2897.pre, %2100 ]
   %2102 = getelementptr i64, ptr %2093, i64 %2088
   store ptr %2102, ptr %.02114, align 8
   br label %2103
 
 2103:                                             ; preds = %rb_vm_check_ints.exit2371, %2086
-  %2104 = phi ptr [ %.pre2899, %rb_vm_check_ints.exit2371 ], [ %2090, %2086 ]
+  %2104 = phi ptr [ %.pre2897, %rb_vm_check_ints.exit2371 ], [ %2090, %2086 ]
   %.3 = phi ptr [ %2102, %rb_vm_check_ints.exit2371 ], [ %2093, %2086 ]
   %2105 = getelementptr i8, ptr %2104, i64 -8
   store ptr %2105, ptr %2089, align 8
@@ -11129,7 +11129,7 @@ vm_opt_plus.exit:                                 ; preds = %2342, %2240, %2245,
   br i1 %2372, label %vm_opt_plus.exit.thread, label %vm_opt_plus.exit.vm_opt_plus.exit.thread2609_crit_edge
 
 vm_opt_plus.exit.vm_opt_plus.exit.thread2609_crit_edge: ; preds = %vm_opt_plus.exit
-  %.pre2898 = load ptr, ptr %2225, align 8
+  %.pre2896 = load ptr, ptr %2225, align 8
   br label %vm_opt_plus.exit.thread2609
 
 vm_opt_plus.exit.thread:                          ; preds = %2358, %2361, %2366, %2300, %2305, %vm_opt_plus.exit
@@ -11137,7 +11137,7 @@ vm_opt_plus.exit.thread:                          ; preds = %2358, %2361, %2366,
   br label %1663
 
 vm_opt_plus.exit.thread2609:                      ; preds = %vm_opt_plus.exit.vm_opt_plus.exit.thread2609_crit_edge, %2340, %2336, %2296, %2292
-  %2373 = phi ptr [ %.pre2898, %vm_opt_plus.exit.vm_opt_plus.exit.thread2609_crit_edge ], [ %2226, %2340 ], [ %2226, %2336 ], [ %2226, %2296 ], [ %2226, %2292 ]
+  %2373 = phi ptr [ %.pre2896, %vm_opt_plus.exit.vm_opt_plus.exit.thread2609_crit_edge ], [ %2226, %2340 ], [ %2226, %2336 ], [ %2226, %2296 ], [ %2226, %2292 ]
   %.0.i23862611 = phi i64 [ %.0.i2386, %vm_opt_plus.exit.vm_opt_plus.exit.thread2609_crit_edge ], [ -9223372036854775806, %2340 ], [ %2339, %2336 ], [ -9223372036854775806, %2296 ], [ %2295, %2292 ]
   %2374 = getelementptr i8, ptr %2373, i64 -8
   store ptr %2374, ptr %2225, align 8
@@ -11346,7 +11346,7 @@ vm_opt_minus.exit:                                ; preds = %2494, %2392, %2397,
   br i1 %2496, label %vm_opt_minus.exit.thread, label %vm_opt_minus.exit.vm_opt_minus.exit.thread2614_crit_edge
 
 vm_opt_minus.exit.vm_opt_minus.exit.thread2614_crit_edge: ; preds = %vm_opt_minus.exit
-  %.pre2897 = load ptr, ptr %2377, align 8
+  %.pre2895 = load ptr, ptr %2377, align 8
   br label %vm_opt_minus.exit.thread2614
 
 vm_opt_minus.exit.thread:                         ; preds = %2462, %2468, %2473, %2452, %2457, %vm_opt_minus.exit
@@ -11354,7 +11354,7 @@ vm_opt_minus.exit.thread:                         ; preds = %2462, %2468, %2473,
   br label %1663
 
 vm_opt_minus.exit.thread2614:                     ; preds = %vm_opt_minus.exit.vm_opt_minus.exit.thread2614_crit_edge, %2492, %2488, %2448, %2444
-  %2497 = phi ptr [ %.pre2897, %vm_opt_minus.exit.vm_opt_minus.exit.thread2614_crit_edge ], [ %2378, %2492 ], [ %2378, %2488 ], [ %2378, %2448 ], [ %2378, %2444 ]
+  %2497 = phi ptr [ %.pre2895, %vm_opt_minus.exit.vm_opt_minus.exit.thread2614_crit_edge ], [ %2378, %2492 ], [ %2378, %2488 ], [ %2378, %2448 ], [ %2378, %2444 ]
   %.0.i23922616 = phi i64 [ %.0.i2392, %vm_opt_minus.exit.vm_opt_minus.exit.thread2614_crit_edge ], [ -9223372036854775806, %2492 ], [ %2491, %2488 ], [ -9223372036854775806, %2448 ], [ %2447, %2444 ]
   %2498 = getelementptr i8, ptr %2497, i64 -8
   store ptr %2498, ptr %2377, align 8
@@ -11572,7 +11572,7 @@ vm_opt_mult.exit:                                 ; preds = %2622, %2527, %2578
   br i1 %2624, label %vm_opt_mult.exit.thread, label %vm_opt_mult.exit.vm_opt_mult.exit.thread2619_crit_edge
 
 vm_opt_mult.exit.vm_opt_mult.exit.thread2619_crit_edge: ; preds = %vm_opt_mult.exit
-  %.pre2896 = load ptr, ptr %2501, align 8
+  %.pre2894 = load ptr, ptr %2501, align 8
   br label %vm_opt_mult.exit.thread2619
 
 vm_opt_mult.exit.thread:                          ; preds = %2590, %2596, %2601, %2580, %2585, %vm_opt_mult.exit
@@ -11580,7 +11580,7 @@ vm_opt_mult.exit.thread:                          ; preds = %2590, %2596, %2601,
   br label %1663
 
 vm_opt_mult.exit.thread2619:                      ; preds = %vm_opt_mult.exit.vm_opt_mult.exit.thread2619_crit_edge, %2620, %2616, %2576, %2572, %2524
-  %2625 = phi ptr [ %.pre2896, %vm_opt_mult.exit.vm_opt_mult.exit.thread2619_crit_edge ], [ %2502, %2620 ], [ %2502, %2616 ], [ %2502, %2576 ], [ %2502, %2572 ], [ %2502, %2524 ]
+  %2625 = phi ptr [ %.pre2894, %vm_opt_mult.exit.vm_opt_mult.exit.thread2619_crit_edge ], [ %2502, %2620 ], [ %2502, %2616 ], [ %2502, %2576 ], [ %2502, %2572 ], [ %2502, %2524 ]
   %.0.i24002621 = phi i64 [ %.0.i2400, %vm_opt_mult.exit.vm_opt_mult.exit.thread2619_crit_edge ], [ -9223372036854775806, %2620 ], [ %2619, %2616 ], [ -9223372036854775806, %2576 ], [ %2575, %2572 ], [ %2526, %2524 ]
   %2626 = getelementptr i8, ptr %2625, i64 -8
   store ptr %2626, ptr %2501, align 8
@@ -11714,7 +11714,7 @@ vm_opt_div.exit:                                  ; preds = %2651, %2674, %2701
   br i1 %2703, label %vm_opt_div.exit.thread, label %vm_opt_div.exit._crit_edge
 
 vm_opt_div.exit._crit_edge:                       ; preds = %vm_opt_div.exit
-  %.pre2895 = load ptr, ptr %2629, align 8
+  %.pre2893 = load ptr, ptr %2629, align 8
   br label %2704
 
 vm_opt_div.exit.thread:                           ; preds = %2686, %2692, %2697, %2676, %2681, %2644, %vm_opt_div.exit
@@ -11722,7 +11722,7 @@ vm_opt_div.exit.thread:                           ; preds = %2686, %2692, %2697,
   br label %1663
 
 2704:                                             ; preds = %vm_opt_div.exit._crit_edge, %vm_opt_div.exit.thread2623
-  %2705 = phi ptr [ %2630, %vm_opt_div.exit.thread2623 ], [ %.pre2895, %vm_opt_div.exit._crit_edge ]
+  %2705 = phi ptr [ %2630, %vm_opt_div.exit.thread2623 ], [ %.pre2893, %vm_opt_div.exit._crit_edge ]
   %.0.i24102625 = phi i64 [ %2664, %vm_opt_div.exit.thread2623 ], [ %.0.i2410, %vm_opt_div.exit._crit_edge ]
   %2706 = getelementptr i8, ptr %2705, i64 -8
   store ptr %2706, ptr %2629, align 8
@@ -11940,8 +11940,8 @@ rb_float_value_inline.exit25.i2415:               ; preds = %2813
   br i1 %2833, label %vm_opt_mod.exit.thread2628, label %vm_opt_mod.exit
 
 vm_opt_mod.exit:                                  ; preds = %rb_float_value_inline.exit25.i2415, %2832, %rb_float_value_inline.exit20.i2418, %2790
-  %.sink3040 = phi double [ %2779, %2790 ], [ %2779, %rb_float_value_inline.exit20.i2418 ], [ %2821, %2832 ], [ %2821, %rb_float_value_inline.exit25.i2415 ]
-  %2834 = call i64 @rb_float_new_in_heap(double noundef %.sink3040) #20
+  %.sink3038 = phi double [ %2779, %2790 ], [ %2779, %rb_float_value_inline.exit20.i2418 ], [ %2821, %2832 ], [ %2821, %rb_float_value_inline.exit25.i2415 ]
+  %2834 = call i64 @rb_float_new_in_heap(double noundef %.sink3038) #20
   %2835 = icmp eq i64 %2834, 36
   br i1 %2835, label %vm_opt_mod.exit.thread, label %vm_opt_mod.exit.thread2628
 
@@ -12200,8 +12200,8 @@ rb_float_value_inline.exit23.i:                   ; preds = %2973
   br label %1663
 
 vm_opt_lt.exit:                                   ; preds = %rb_float_value_inline.exit23.i, %rb_float_value_inline.exit19.i2440, %2913
-  %.sink3041 = phi i1 [ %2981, %rb_float_value_inline.exit23.i ], [ %2951, %rb_float_value_inline.exit19.i2440 ], [ %2914, %2913 ]
-  %2983 = select i1 %.sink3041, i64 20, i64 0
+  %.sink3039 = phi i1 [ %2981, %rb_float_value_inline.exit23.i ], [ %2951, %rb_float_value_inline.exit19.i2440 ], [ %2914, %2913 ]
+  %2983 = select i1 %.sink3039, i64 20, i64 0
   store ptr %2900, ptr %2898, align 8
   store i64 %2983, ptr %2901, align 8
   br label %.backedge.backedge
@@ -12500,8 +12500,8 @@ rb_float_value_inline.exit23.i2461:               ; preds = %3148
   br label %1663
 
 vm_opt_gt.exit:                                   ; preds = %rb_float_value_inline.exit23.i2461, %rb_float_value_inline.exit19.i2464, %3088
-  %.sink3042 = phi i1 [ %3156, %rb_float_value_inline.exit23.i2461 ], [ %3126, %rb_float_value_inline.exit19.i2464 ], [ %3089, %3088 ]
-  %3158 = select i1 %.sink3042, i64 20, i64 0
+  %.sink3040 = phi i1 [ %3156, %rb_float_value_inline.exit23.i2461 ], [ %3126, %rb_float_value_inline.exit19.i2464 ], [ %3089, %3088 ]
+  %3158 = select i1 %.sink3040, i64 20, i64 0
   store ptr %3075, ptr %3073, align 8
   store i64 %3158, ptr %3076, align 8
   br label %.backedge.backedge
@@ -12935,7 +12935,7 @@ vm_opt_aref.exit:                                 ; preds = %3356, %3390, %3393,
   br i1 %3404, label %vm_opt_aref.exit.thread, label %vm_opt_aref.exit.vm_opt_aref.exit.thread2644_crit_edge
 
 vm_opt_aref.exit.vm_opt_aref.exit.thread2644_crit_edge: ; preds = %vm_opt_aref.exit
-  %.pre2894 = load ptr, ptr %3336, align 8
+  %.pre2892 = load ptr, ptr %3336, align 8
   br label %vm_opt_aref.exit.thread2644
 
 vm_opt_aref.exit.thread:                          ; preds = %3395, %3398, %3349, %3352, %vm_opt_aref.exit
@@ -12943,7 +12943,7 @@ vm_opt_aref.exit.thread:                          ; preds = %3395, %3398, %3349,
   br label %1663
 
 vm_opt_aref.exit.thread2644:                      ; preds = %vm_opt_aref.exit.vm_opt_aref.exit.thread2644_crit_edge, %3389, %3386, %rb_array_const_ptr.exit.i.i
-  %3405 = phi ptr [ %.pre2894, %vm_opt_aref.exit.vm_opt_aref.exit.thread2644_crit_edge ], [ %3337, %rb_array_const_ptr.exit.i.i ], [ %3337, %3386 ], [ %3337, %3389 ]
+  %3405 = phi ptr [ %.pre2892, %vm_opt_aref.exit.vm_opt_aref.exit.thread2644_crit_edge ], [ %3337, %rb_array_const_ptr.exit.i.i ], [ %3337, %3386 ], [ %3337, %3389 ]
   %.0.i24892646 = phi i64 [ %.0.i2489, %vm_opt_aref.exit.vm_opt_aref.exit.thread2644_crit_edge ], [ 4, %rb_array_const_ptr.exit.i.i ], [ 4, %3386 ], [ 4, %3389 ]
   %3406 = getelementptr i8, ptr %3405, i64 -8
   store ptr %3406, ptr %3336, align 8
@@ -43142,41 +43142,41 @@ define internal noundef i64 @vm_call_iseq_setup_normal_0start_0params_1locals(pt
   %27 = getelementptr i64, ptr %16, i64 %26
   %28 = getelementptr i8, ptr %27, i64 56
   %.not.i = icmp ugt ptr %24, %28
-  br i1 %.not.i, label %.lr.ph.i.preheader, label %40
+  br i1 %.not.i, label %.lr.ph.i, label %29
 
-.lr.ph.i.preheader:                               ; preds = %3
-  %29 = getelementptr inbounds i8, ptr %19, i64 8
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %2, i64 16
-  %32 = load i64, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %2, i64 24
-  %34 = load i64, ptr %33, align 8
-  %35 = getelementptr i8, ptr %16, i64 8
+29:                                               ; preds = %3
+  tail call fastcc void @vm_stackoverflow() #47
+  unreachable
+
+.lr.ph.i:                                         ; preds = %3
+  %30 = getelementptr inbounds i8, ptr %19, i64 8
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds i8, ptr %2, i64 16
+  %33 = load i64, ptr %32, align 8
+  %34 = getelementptr inbounds i8, ptr %2, i64 24
+  %35 = load i64, ptr %34, align 8
+  %36 = getelementptr i8, ptr %16, i64 8
   store i64 4, ptr %16, align 8
-  %36 = ptrtoint ptr %.val to i64
-  %37 = getelementptr i8, ptr %16, i64 16
-  store i64 %36, ptr %35, align 8
-  %38 = getelementptr i8, ptr %16, i64 24
-  store i64 %32, ptr %37, align 8
-  %39 = getelementptr i8, ptr %16, i64 32
-  store i64 286326787, ptr %38, align 8
-  store ptr %30, ptr %24, align 8
+  %37 = ptrtoint ptr %.val to i64
+  %38 = getelementptr i8, ptr %16, i64 16
+  store i64 %37, ptr %36, align 8
+  %39 = getelementptr i8, ptr %16, i64 24
+  store i64 %33, ptr %38, align 8
+  %40 = getelementptr i8, ptr %16, i64 32
+  store i64 286326787, ptr %39, align 8
+  store ptr %31, ptr %24, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr i8, ptr %23, i64 -48
-  store ptr %39, ptr %.sroa.2.0..sroa_idx.i, align 8
+  store ptr %40, ptr %.sroa.2.0..sroa_idx.i, align 8
   %.sroa.3.0..sroa_idx.i = getelementptr i8, ptr %23, i64 -40
   store ptr %.val21, ptr %.sroa.3.0..sroa_idx.i, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr i8, ptr %23, i64 -32
-  store i64 %34, ptr %.sroa.4.0..sroa_idx.i, align 8
+  store i64 %35, ptr %.sroa.4.0..sroa_idx.i, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr i8, ptr %23, i64 -24
-  store ptr %38, ptr %.sroa.5.0..sroa_idx.i, align 8
+  store ptr %39, ptr %.sroa.5.0..sroa_idx.i, align 8
   %.sroa.6.0..sroa_idx.i = getelementptr i8, ptr %23, i64 -16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx.i, i8 0, i64 16, i1 false)
   store ptr %24, ptr %22, align 8
   ret i64 36
-
-40:                                               ; preds = %3
-  tail call fastcc void @vm_stackoverflow() #47
-  unreachable
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -43644,41 +43644,41 @@ define internal noundef i64 @vm_call_iseq_setup_normal_0start_1params_2locals(pt
   %28 = getelementptr i64, ptr %17, i64 %27
   %29 = getelementptr i8, ptr %28, i64 56
   %.not.i = icmp ugt ptr %25, %29
-  br i1 %.not.i, label %.lr.ph.i.preheader, label %41
+  br i1 %.not.i, label %.lr.ph.i, label %30
 
-.lr.ph.i.preheader:                               ; preds = %3
-  %30 = getelementptr inbounds i8, ptr %20, i64 8
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %2, i64 16
-  %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %2, i64 24
-  %35 = load i64, ptr %34, align 8
-  %36 = getelementptr i8, ptr %16, i64 16
+30:                                               ; preds = %3
+  tail call fastcc void @vm_stackoverflow() #47
+  unreachable
+
+.lr.ph.i:                                         ; preds = %3
+  %31 = getelementptr inbounds i8, ptr %20, i64 8
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds i8, ptr %2, i64 16
+  %34 = load i64, ptr %33, align 8
+  %35 = getelementptr inbounds i8, ptr %2, i64 24
+  %36 = load i64, ptr %35, align 8
+  %37 = getelementptr i8, ptr %16, i64 16
   store i64 4, ptr %17, align 8
-  %37 = ptrtoint ptr %.val to i64
-  %38 = getelementptr i8, ptr %16, i64 24
-  store i64 %37, ptr %36, align 8
-  %39 = getelementptr i8, ptr %16, i64 32
-  store i64 %33, ptr %38, align 8
-  %40 = getelementptr i8, ptr %16, i64 40
-  store i64 286326787, ptr %39, align 8
-  store ptr %31, ptr %25, align 8
+  %38 = ptrtoint ptr %.val to i64
+  %39 = getelementptr i8, ptr %16, i64 24
+  store i64 %38, ptr %37, align 8
+  %40 = getelementptr i8, ptr %16, i64 32
+  store i64 %34, ptr %39, align 8
+  %41 = getelementptr i8, ptr %16, i64 40
+  store i64 286326787, ptr %40, align 8
+  store ptr %32, ptr %25, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr i8, ptr %24, i64 -48
-  store ptr %40, ptr %.sroa.2.0..sroa_idx.i, align 8
+  store ptr %41, ptr %.sroa.2.0..sroa_idx.i, align 8
   %.sroa.3.0..sroa_idx.i = getelementptr i8, ptr %24, i64 -40
   store ptr %.val21, ptr %.sroa.3.0..sroa_idx.i, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr i8, ptr %24, i64 -32
-  store i64 %35, ptr %.sroa.4.0..sroa_idx.i, align 8
+  store i64 %36, ptr %.sroa.4.0..sroa_idx.i, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr i8, ptr %24, i64 -24
-  store ptr %39, ptr %.sroa.5.0..sroa_idx.i, align 8
+  store ptr %40, ptr %.sroa.5.0..sroa_idx.i, align 8
   %.sroa.6.0..sroa_idx.i = getelementptr i8, ptr %24, i64 -16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx.i, i8 0, i64 16, i1 false)
   store ptr %25, ptr %23, align 8
   ret i64 36
-
-41:                                               ; preds = %3
-  tail call fastcc void @vm_stackoverflow() #47
-  unreachable
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -44141,41 +44141,41 @@ define internal noundef i64 @vm_call_iseq_setup_normal_0start_2params_3locals(pt
   %28 = getelementptr i64, ptr %17, i64 %27
   %29 = getelementptr i8, ptr %28, i64 56
   %.not.i = icmp ugt ptr %25, %29
-  br i1 %.not.i, label %.lr.ph.i.preheader, label %41
+  br i1 %.not.i, label %.lr.ph.i, label %30
 
-.lr.ph.i.preheader:                               ; preds = %3
-  %30 = getelementptr inbounds i8, ptr %20, i64 8
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %2, i64 16
-  %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %2, i64 24
-  %35 = load i64, ptr %34, align 8
-  %36 = getelementptr i8, ptr %16, i64 24
+30:                                               ; preds = %3
+  tail call fastcc void @vm_stackoverflow() #47
+  unreachable
+
+.lr.ph.i:                                         ; preds = %3
+  %31 = getelementptr inbounds i8, ptr %20, i64 8
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds i8, ptr %2, i64 16
+  %34 = load i64, ptr %33, align 8
+  %35 = getelementptr inbounds i8, ptr %2, i64 24
+  %36 = load i64, ptr %35, align 8
+  %37 = getelementptr i8, ptr %16, i64 24
   store i64 4, ptr %17, align 8
-  %37 = ptrtoint ptr %.val to i64
-  %38 = getelementptr i8, ptr %16, i64 32
-  store i64 %37, ptr %36, align 8
-  %39 = getelementptr i8, ptr %16, i64 40
-  store i64 %33, ptr %38, align 8
-  %40 = getelementptr i8, ptr %16, i64 48
-  store i64 286326787, ptr %39, align 8
-  store ptr %31, ptr %25, align 8
+  %38 = ptrtoint ptr %.val to i64
+  %39 = getelementptr i8, ptr %16, i64 32
+  store i64 %38, ptr %37, align 8
+  %40 = getelementptr i8, ptr %16, i64 40
+  store i64 %34, ptr %39, align 8
+  %41 = getelementptr i8, ptr %16, i64 48
+  store i64 286326787, ptr %40, align 8
+  store ptr %32, ptr %25, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr i8, ptr %24, i64 -48
-  store ptr %40, ptr %.sroa.2.0..sroa_idx.i, align 8
+  store ptr %41, ptr %.sroa.2.0..sroa_idx.i, align 8
   %.sroa.3.0..sroa_idx.i = getelementptr i8, ptr %24, i64 -40
   store ptr %.val21, ptr %.sroa.3.0..sroa_idx.i, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr i8, ptr %24, i64 -32
-  store i64 %35, ptr %.sroa.4.0..sroa_idx.i, align 8
+  store i64 %36, ptr %.sroa.4.0..sroa_idx.i, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr i8, ptr %24, i64 -24
-  store ptr %39, ptr %.sroa.5.0..sroa_idx.i, align 8
+  store ptr %40, ptr %.sroa.5.0..sroa_idx.i, align 8
   %.sroa.6.0..sroa_idx.i = getelementptr i8, ptr %24, i64 -16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx.i, i8 0, i64 16, i1 false)
   store ptr %25, ptr %23, align 8
   ret i64 36
-
-41:                                               ; preds = %3
-  tail call fastcc void @vm_stackoverflow() #47
-  unreachable
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -44629,41 +44629,41 @@ define internal noundef i64 @vm_call_iseq_setup_normal_0start_3params_4locals(pt
   %28 = getelementptr i64, ptr %17, i64 %27
   %29 = getelementptr i8, ptr %28, i64 56
   %.not.i = icmp ugt ptr %25, %29
-  br i1 %.not.i, label %.lr.ph.i.preheader, label %41
+  br i1 %.not.i, label %.lr.ph.i, label %30
 
-.lr.ph.i.preheader:                               ; preds = %3
-  %30 = getelementptr inbounds i8, ptr %20, i64 8
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %2, i64 16
-  %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %2, i64 24
-  %35 = load i64, ptr %34, align 8
-  %36 = getelementptr i8, ptr %16, i64 32
+30:                                               ; preds = %3
+  tail call fastcc void @vm_stackoverflow() #47
+  unreachable
+
+.lr.ph.i:                                         ; preds = %3
+  %31 = getelementptr inbounds i8, ptr %20, i64 8
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds i8, ptr %2, i64 16
+  %34 = load i64, ptr %33, align 8
+  %35 = getelementptr inbounds i8, ptr %2, i64 24
+  %36 = load i64, ptr %35, align 8
+  %37 = getelementptr i8, ptr %16, i64 32
   store i64 4, ptr %17, align 8
-  %37 = ptrtoint ptr %.val to i64
-  %38 = getelementptr i8, ptr %16, i64 40
-  store i64 %37, ptr %36, align 8
-  %39 = getelementptr i8, ptr %16, i64 48
-  store i64 %33, ptr %38, align 8
-  %40 = getelementptr i8, ptr %16, i64 56
-  store i64 286326787, ptr %39, align 8
-  store ptr %31, ptr %25, align 8
+  %38 = ptrtoint ptr %.val to i64
+  %39 = getelementptr i8, ptr %16, i64 40
+  store i64 %38, ptr %37, align 8
+  %40 = getelementptr i8, ptr %16, i64 48
+  store i64 %34, ptr %39, align 8
+  %41 = getelementptr i8, ptr %16, i64 56
+  store i64 286326787, ptr %40, align 8
+  store ptr %32, ptr %25, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr i8, ptr %24, i64 -48
-  store ptr %40, ptr %.sroa.2.0..sroa_idx.i, align 8
+  store ptr %41, ptr %.sroa.2.0..sroa_idx.i, align 8
   %.sroa.3.0..sroa_idx.i = getelementptr i8, ptr %24, i64 -40
   store ptr %.val21, ptr %.sroa.3.0..sroa_idx.i, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr i8, ptr %24, i64 -32
-  store i64 %35, ptr %.sroa.4.0..sroa_idx.i, align 8
+  store i64 %36, ptr %.sroa.4.0..sroa_idx.i, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr i8, ptr %24, i64 -24
-  store ptr %39, ptr %.sroa.5.0..sroa_idx.i, align 8
+  store ptr %40, ptr %.sroa.5.0..sroa_idx.i, align 8
   %.sroa.6.0..sroa_idx.i = getelementptr i8, ptr %24, i64 -16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx.i, i8 0, i64 16, i1 false)
   store ptr %25, ptr %23, align 8
   ret i64 36
-
-41:                                               ; preds = %3
-  tail call fastcc void @vm_stackoverflow() #47
-  unreachable
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

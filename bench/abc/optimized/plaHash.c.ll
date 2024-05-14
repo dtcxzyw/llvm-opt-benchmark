@@ -394,46 +394,46 @@ Vec_IntAppend.exit:                               ; preds = %Vec_IntPush.exit.i
   %.val.i55 = load ptr, ptr %90, align 8
   br label %91
 
-91:                                               ; preds = %Tab_ManEntry.exit16.i.us, %.lr.ph.i54
-  %.pn.in.i.us = phi i32 [ %88, %.lr.ph.i54 ], [ %106, %Tab_ManEntry.exit16.i.us ]
-  %.pn.i.us = sext i32 %.pn.in.i.us to i64
-  %.01021.i.us = getelementptr inbounds %struct.Tab_Obj_t_, ptr %.val13.i, i64 %.pn.i.us
-  %92 = getelementptr inbounds i8, ptr %.01021.i.us, i64 8
+91:                                               ; preds = %Tab_ManEntry.exit16.i, %.lr.ph.i54
+  %.pn.in.i = phi i32 [ %88, %.lr.ph.i54 ], [ %107, %Tab_ManEntry.exit16.i ]
+  %.pn.i = sext i32 %.pn.in.i to i64
+  %.01021.i = getelementptr inbounds %struct.Tab_Obj_t_, ptr %.val13.i, i64 %.pn.i
+  %92 = getelementptr inbounds i8, ptr %.01021.i, i64 8
   %93 = load i32, ptr %92, align 4
   %94 = sext i32 %93 to i64
   %95 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val.i55, i64 %94
   %96 = getelementptr inbounds i8, ptr %95, i64 4
   %97 = load i32, ptr %96, align 4
-  %.not.i14.i.us = icmp eq i32 %97, %.val.pre
-  br i1 %.not.i14.i.us, label %.preheader.i.i.us, label %Tab_ManEntry.exit16.i.us
+  %.not.i14.i = icmp eq i32 %97, %.val.pre
+  br i1 %.not.i14.i, label %.lr.ph.i.i, label %Tab_ManEntry.exit16.i
 
-.preheader.i.i.us:                                ; preds = %91
+.lr.ph.i.i:                                       ; preds = %91
   %98 = getelementptr inbounds i8, ptr %95, i64 8
   %99 = load ptr, ptr %98, align 8
-  br label %100
+  br label %101
 
-100:                                              ; preds = %107, %.preheader.i.i.us
-  %indvars.iv.i.i.us = phi i64 [ 0, %.preheader.i.i.us ], [ %indvars.iv.next.i.i.us, %107 ]
-  %101 = getelementptr inbounds i32, ptr %99, i64 %indvars.iv.i.i.us
-  %102 = load i32, ptr %101, align 4
-  %103 = getelementptr inbounds i32, ptr %.val49, i64 %indvars.iv.i.i.us
-  %104 = load i32, ptr %103, align 4
-  %.not10.i.i.us = icmp eq i32 %102, %104
-  br i1 %.not10.i.i.us, label %107, label %Tab_ManEntry.exit16.i.us
+100:                                              ; preds = %101
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
+  br i1 %exitcond.not.i.i, label %Tab_ManHashLookup.exit, label %101, !llvm.loop !9
 
-Tab_ManEntry.exit16.i.us:                         ; preds = %100, %91
-  %105 = getelementptr inbounds i8, ptr %.01021.i.us, i64 4
-  %106 = load i32, ptr %105, align 4
-  %.not.i15.i.us = icmp eq i32 %106, 0
-  br i1 %.not.i15.i.us, label %Tab_ManHashLookup.exit, label %91, !llvm.loop !9
+101:                                              ; preds = %100, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %100 ]
+  %102 = getelementptr inbounds i32, ptr %99, i64 %indvars.iv.i.i
+  %103 = load i32, ptr %102, align 4
+  %104 = getelementptr inbounds i32, ptr %.val49, i64 %indvars.iv.i.i
+  %105 = load i32, ptr %104, align 4
+  %.not10.i.i = icmp eq i32 %103, %105
+  br i1 %.not10.i.i, label %100, label %Tab_ManEntry.exit16.i
 
-107:                                              ; preds = %100
-  %indvars.iv.next.i.i.us = add nuw nsw i64 %indvars.iv.i.i.us, 1
-  %exitcond.not.i.i.us = icmp eq i64 %indvars.iv.next.i.i.us, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i.us, label %Tab_ManHashLookup.exit, label %100, !llvm.loop !10
+Tab_ManEntry.exit16.i:                            ; preds = %101, %91
+  %106 = getelementptr inbounds i8, ptr %.01021.i, i64 4
+  %107 = load i32, ptr %106, align 4
+  %.not.i15.i = icmp eq i32 %107, 0
+  br i1 %.not.i15.i, label %Tab_ManHashLookup.exit, label %91, !llvm.loop !10
 
-Tab_ManHashLookup.exit:                           ; preds = %Tab_ManEntry.exit16.i.us, %107, %71
-  %.0.i = phi i32 [ 0, %71 ], [ 1, %107 ], [ 0, %Tab_ManEntry.exit16.i.us ]
+Tab_ManHashLookup.exit:                           ; preds = %Tab_ManEntry.exit16.i, %100, %71
+  %.0.i = phi i32 [ 0, %71 ], [ 1, %100 ], [ 0, %Tab_ManEntry.exit16.i ]
   %108 = add nsw i32 %.0.i, %.161
   store i32 %73, ptr %72, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1460,7 +1460,7 @@ Vec_IntCopySkip.exit109:                          ; preds = %Vec_IntCopySkip.exi
 276:                                              ; preds = %277
   %indvars.iv.next.i115 = add nuw nsw i64 %indvars.iv.i114, 1
   %exitcond.not.i116 = icmp eq i64 %indvars.iv.next.i115, %wide.trip.count.i113
-  br i1 %exitcond.not.i116, label %Vec_IntEqual.exit, label %277, !llvm.loop !10
+  br i1 %exitcond.not.i116, label %Vec_IntEqual.exit, label %277, !llvm.loop !9
 
 277:                                              ; preds = %276, %.lr.ph.i112
   %indvars.iv.i114 = phi i64 [ 0, %.lr.ph.i112 ], [ %indvars.iv.next.i115, %276 ]

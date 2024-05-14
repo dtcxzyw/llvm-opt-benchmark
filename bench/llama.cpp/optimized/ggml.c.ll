@@ -19660,20 +19660,16 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %9 = load ptr, ptr %nodes, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv
   %10 = load ptr, ptr %arrayidx, align 8
-  %cmp5.i = icmp sgt i32 %8, 0
-  br i1 %cmp5.i, label %for.body.lr.ph.i, label %if.end9
-
-for.body.lr.ph.i:                                 ; preds = %for.body
   %wide.trip.count.i = zext nneg i32 %8 to i64
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %if.end9, label %for.body.i, !llvm.loop !91
+  br i1 %exitcond.not.i, label %if.end9.loopexit, label %for.body.i, !llvm.loop !91
 
-for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.cond.i ]
+for.body.i:                                       ; preds = %for.cond.i, %for.body
+  %indvars.iv.i = phi i64 [ 0, %for.body ], [ %indvars.iv.next.i, %for.cond.i ]
   %arrayidx.i = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv.i
   %11 = load ptr, ptr %arrayidx.i, align 8
   %grad.i = getelementptr inbounds i8, ptr %11, i64 152
@@ -19681,17 +19677,17 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   %cmp1.i = icmp eq ptr %12, %10
   br i1 %cmp1.i, label %for.inc, label %for.cond.i
 
-if.end9:                                          ; preds = %for.cond.i, %for.body
+if.end9.loopexit:                                 ; preds = %for.cond.i
   %is_param = getelementptr inbounds i8, ptr %10, i64 148
   %13 = load i8, ptr %is_param, align 4
   %tobool10 = trunc i8 %13 to i1
   br i1 %tobool10, label %if.then11, label %if.else
 
-if.then11:                                        ; preds = %if.end9
+if.then11:                                        ; preds = %if.end9.loopexit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(7) %color, ptr noundef nonnull align 1 dereferenceable(7) @.str.183, i64 7, i1 false)
   br label %if.end27
 
-if.else:                                          ; preds = %if.end9
+if.else:                                          ; preds = %if.end9.loopexit
   %grad = getelementptr inbounds i8, ptr %10, i64 152
   %14 = load ptr, ptr %grad, align 8
   %tobool13.not = icmp eq ptr %14, null

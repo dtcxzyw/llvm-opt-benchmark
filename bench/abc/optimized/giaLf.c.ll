@@ -5506,14 +5506,14 @@ define internal fastcc i32 @Lf_ManFindCofVar(ptr noundef readonly %0, i32 nounde
   %24 = shl i64 %20, %23
   %25 = or i64 %24, %20
   store i64 %25, ptr %4, align 16
-  br label %.lr.ph.i14
+  br label %Abc_TtCofactor0p.exit
 
 26:                                               ; preds = %15
   %27 = icmp ult i64 %indvars.iv, 6
   br i1 %27, label %28, label %41
 
 28:                                               ; preds = %26
-  br i1 %9, label %.lr.ph.i, label %.lr.ph.i14
+  br i1 %9, label %.lr.ph.i, label %Abc_TtCofactor0p.exit
 
 .lr.ph.i:                                         ; preds = %28
   %29 = trunc nuw nsw i64 %indvars.iv to i32
@@ -5534,19 +5534,19 @@ define internal fastcc i32 @Lf_ManFindCofVar(ptr noundef readonly %0, i32 nounde
   store i64 %39, ptr %40, align 8
   %indvars.iv.next57.i = add nuw nsw i64 %indvars.iv56.i, 1
   %exitcond60.not.i = icmp eq i64 %indvars.iv.next57.i, %wide.trip.count59.i
-  br i1 %exitcond60.not.i, label %.lr.ph.i14, label %34, !llvm.loop !51
+  br i1 %exitcond60.not.i, label %Abc_TtCofactor0p.exit, label %34, !llvm.loop !51
 
 41:                                               ; preds = %26
   %42 = add nsw i64 %indvars.iv, -6
   %43 = trunc nsw i64 %42 to i32
   %44 = shl nuw i32 1, %43
-  br i1 %9, label %.preheader.lr.ph.i, label %.lr.ph.i14
+  br i1 %9, label %.preheader.lr.ph.i, label %Abc_TtCofactor0p.exit
 
 .preheader.lr.ph.i:                               ; preds = %41
   %45 = icmp eq i64 %42, 31
   %46 = shl i32 2, %43
   %47 = sext i32 %46 to i64
-  br i1 %45, label %.lr.ph.i14, label %.preheader.us.preheader.i
+  br i1 %45, label %Abc_TtCofactor0p.exit, label %.preheader.us.preheader.i
 
 .preheader.us.preheader.i:                        ; preds = %.preheader.lr.ph.i
   %48 = sext i32 %44 to i64
@@ -5576,12 +5576,12 @@ define internal fastcc i32 @Lf_ManFindCofVar(ptr noundef readonly %0, i32 nounde
   %55 = getelementptr inbounds i64, ptr %.04250.us.i, i64 %47
   %56 = getelementptr inbounds i64, ptr %.051.us.i, i64 %47
   %57 = icmp ult ptr %55, %8
-  br i1 %57, label %.preheader.us.i, label %.lr.ph.i14, !llvm.loop !53
+  br i1 %57, label %.preheader.us.i, label %Abc_TtCofactor0p.exit, !llvm.loop !53
 
-.lr.ph.i14:                                       ; preds = %._crit_edge.us.i, %34, %.preheader.lr.ph.i, %41, %28, %16
+Abc_TtCofactor0p.exit:                            ; preds = %._crit_edge.us.i, %34, %16, %28, %41, %.preheader.lr.ph.i
   br i1 %10, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
-.lr.ph.split.us.i:                                ; preds = %.lr.ph.i14
+.lr.ph.split.us.i:                                ; preds = %Abc_TtCofactor0p.exit
   %58 = load i64, ptr %4, align 16
   br label %Abc_TtHasVar.exit.us.i
 
@@ -5604,7 +5604,7 @@ Abc_TtHasVar.exit.us.i:                           ; preds = %Abc_TtHasVar.exit.u
   %exitcond55.not.i = icmp eq i64 %indvars.iv.next52.i, %wide.trip.count.i15
   br i1 %exitcond55.not.i, label %Abc_TtSupportSize.exit, label %Abc_TtHasVar.exit.us.i, !llvm.loop !54
 
-.lr.ph.split.i:                                   ; preds = %.lr.ph.i14
+.lr.ph.split.i:                                   ; preds = %Abc_TtCofactor0p.exit
   br i1 %.not47.i.i, label %Abc_TtSupportSize.exit.thread, label %.lr.ph.split.split.split.i
 
 .lr.ph.split.split.split.i:                       ; preds = %.lr.ph.split.i, %Abc_TtHasVar.exit.thread.i

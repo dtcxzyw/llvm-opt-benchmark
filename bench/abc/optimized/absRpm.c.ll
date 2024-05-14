@@ -2889,7 +2889,7 @@ define i32 @Abs_ManSupport3(ptr noundef %0, ptr noundef %1, ptr nocapture nounde
   store i32 %33, ptr %39, align 4
   br label %.critedge52thread-pre-split
 
-.critedge52thread-pre-split:                      ; preds = %76, %.critedge52thread-pre-split.sink.split, %._crit_edge.i
+.critedge52thread-pre-split:                      ; preds = %76, %.critedge52thread-pre-split.sink.split, %._crit_edge.loopexit.i
   %.val61.pr = load i32, ptr %4, align 4
   br label %.critedge52
 
@@ -2964,19 +2964,19 @@ define i32 @Abs_ManSupport3(ptr noundef %0, ptr noundef %1, ptr nocapture nounde
   %73 = getelementptr inbounds i32, ptr %.val57, i64 %indvars.iv.i
   %74 = load i32, ptr %73, align 4
   %75 = icmp eq i32 %74, %43
-  br i1 %75, label %._crit_edge.i, label %76
+  br i1 %75, label %._crit_edge.loopexit.i, label %76
 
 76:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.critedge52thread-pre-split, label %.lr.ph.i, !llvm.loop !32
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i
+._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %77 = trunc nuw nsw i64 %indvars.iv.i to i32
   %78 = icmp eq i32 %.pr, %77
   br i1 %78, label %.critedge52thread-pre-split, label %.preheader.i
 
-.preheader.i:                                     ; preds = %._crit_edge.i
+.preheader.i:                                     ; preds = %._crit_edge.loopexit.i
   %.126.i = add nuw nsw i32 %77, 1
   %79 = icmp slt i32 %.126.i, %.pr
   br i1 %79, label %.lr.ph29.i, label %._crit_edge30.i
@@ -3011,19 +3011,19 @@ define i32 @Abs_ManSupport3(ptr noundef %0, ptr noundef %1, ptr nocapture nounde
   %91 = getelementptr inbounds i32, ptr %.val57, i64 %indvars.iv.i80
   %92 = load i32, ptr %91, align 4
   %93 = icmp eq i32 %92, %43
-  br i1 %93, label %._crit_edge.i67, label %94
+  br i1 %93, label %._crit_edge.loopexit.i83, label %94
 
 94:                                               ; preds = %.lr.ph.i78
   %indvars.iv.next.i81 = add nuw nsw i64 %indvars.iv.i80, 1
   %exitcond.not.i82 = icmp eq i64 %indvars.iv.next.i81, %wide.trip.count.i
   br i1 %exitcond.not.i82, label %Vec_IntRemove.exit84, label %.lr.ph.i78, !llvm.loop !32
 
-._crit_edge.i67:                                  ; preds = %.lr.ph.i78
+._crit_edge.loopexit.i83:                         ; preds = %.lr.ph.i78
   %95 = trunc nuw nsw i64 %indvars.iv.i80 to i32
   %96 = icmp eq i32 %.pr, %95
   br i1 %96, label %Vec_IntRemove.exit84, label %.preheader.i69
 
-.preheader.i69:                                   ; preds = %._crit_edge.i67
+.preheader.i69:                                   ; preds = %._crit_edge.loopexit.i83
   %.126.i70 = add nuw nsw i32 %95, 1
   %97 = icmp slt i32 %.126.i70, %.pr
   br i1 %97, label %.lr.ph29.i74, label %._crit_edge30.i71
@@ -3057,9 +3057,9 @@ define i32 @Abs_ManSupport3(ptr noundef %0, ptr noundef %1, ptr nocapture nounde
   %.pre172 = sdiv exact i64 %.pre170, 12
   br label %Vec_IntRemove.exit84
 
-Vec_IntRemove.exit84:                             ; preds = %94, %._crit_edge.i67, %._crit_edge30.i71
-  %.pre-phi173 = phi i64 [ %.pre172, %._crit_edge30.i71 ], [ %68, %._crit_edge.i67 ], [ %68, %94 ]
-  %109 = phi i32 [ %108, %._crit_edge30.i71 ], [ %.pr, %._crit_edge.i67 ], [ %.pr, %94 ]
+Vec_IntRemove.exit84:                             ; preds = %94, %._crit_edge.loopexit.i83, %._crit_edge30.i71
+  %.pre-phi173 = phi i64 [ %.pre172, %._crit_edge30.i71 ], [ %68, %._crit_edge.loopexit.i83 ], [ %68, %94 ]
+  %109 = phi i32 [ %108, %._crit_edge30.i71 ], [ %.pr, %._crit_edge.loopexit.i83 ], [ %.pr, %94 ]
   %110 = load i32, ptr %2, align 8
   %111 = icmp eq i32 %109, %110
   br i1 %111, label %112, label %.Vec_IntGrow.exit10_crit_edge.i
@@ -3126,19 +3126,19 @@ Vec_IntGrow.exit.i:                               ; preds = %118, %116
   %134 = getelementptr inbounds i32, ptr %.val57, i64 %indvars.iv.i102
   %135 = load i32, ptr %134, align 4
   %136 = icmp eq i32 %135, %43
-  br i1 %136, label %._crit_edge.i89, label %137
+  br i1 %136, label %._crit_edge.loopexit.i105, label %137
 
 137:                                              ; preds = %133
   %indvars.iv.next.i103 = add nuw nsw i64 %indvars.iv.i102, 1
   %exitcond.not.i104 = icmp eq i64 %indvars.iv.next.i103, %wide.trip.count.i101
   br i1 %exitcond.not.i104, label %Vec_IntRemove.exit106, label %133, !llvm.loop !32
 
-._crit_edge.i89:                                  ; preds = %133
+._crit_edge.loopexit.i105:                        ; preds = %133
   %138 = trunc nuw nsw i64 %indvars.iv.i102 to i32
   %139 = icmp eq i32 %.pr, %138
   br i1 %139, label %Vec_IntRemove.exit106, label %.preheader.i91
 
-.preheader.i91:                                   ; preds = %._crit_edge.i89
+.preheader.i91:                                   ; preds = %._crit_edge.loopexit.i105
   %.126.i92 = add nuw nsw i32 %138, 1
   %140 = icmp slt i32 %.126.i92, %.pr
   br i1 %140, label %.lr.ph29.i96, label %._crit_edge30.i93
@@ -3172,9 +3172,9 @@ Vec_IntGrow.exit.i:                               ; preds = %118, %116
   %.pre178 = sdiv exact i64 %.pre176, 12
   br label %Vec_IntRemove.exit106
 
-Vec_IntRemove.exit106:                            ; preds = %137, %._crit_edge.i89, %._crit_edge30.i93
-  %.pre-phi179 = phi i64 [ %.pre178, %._crit_edge30.i93 ], [ %61, %._crit_edge.i89 ], [ %61, %137 ]
-  %152 = phi i32 [ %151, %._crit_edge30.i93 ], [ %.pr, %._crit_edge.i89 ], [ %.pr, %137 ]
+Vec_IntRemove.exit106:                            ; preds = %137, %._crit_edge.loopexit.i105, %._crit_edge30.i93
+  %.pre-phi179 = phi i64 [ %.pre178, %._crit_edge30.i93 ], [ %61, %._crit_edge.loopexit.i105 ], [ %61, %137 ]
+  %152 = phi i32 [ %151, %._crit_edge30.i93 ], [ %.pr, %._crit_edge.loopexit.i105 ], [ %.pr, %137 ]
   %153 = load i32, ptr %2, align 8
   %154 = icmp eq i32 %152, %153
   br i1 %154, label %155, label %.Vec_IntGrow.exit10_crit_edge.i107

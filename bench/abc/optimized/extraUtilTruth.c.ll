@@ -2316,7 +2316,7 @@ define void @Extra_TruthChangePhase(ptr nocapture noundef %0, i32 noundef %1, i3
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define range(i32 0, 33) i32 @Extra_TruthMinCofSuppOverlap(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #2 {
   %4 = icmp sgt i32 %1, 0
-  br i1 %4, label %.lr.ph, label %Extra_TruthSupport.exit51._crit_edge
+  br i1 %4, label %.lr.ph, label %Extra_TruthSupport.exit51.loopexit._crit_edge
 
 .lr.ph:                                           ; preds = %3
   %5 = icmp ult i32 %1, 6
@@ -2327,16 +2327,16 @@ define range(i32 0, 33) i32 @Extra_TruthMinCofSuppOverlap(ptr nocapture noundef 
   %9 = zext nneg i32 %spec.select.i to i64
   br label %12
 
-10:                                               ; preds = %Extra_TruthSupport.exit51
+10:                                               ; preds = %Extra_TruthSupport.exit51.loopexit
   %11 = add nuw nsw i32 %.0151, 1
   %exitcond.not = icmp eq i32 %11, %1
-  br i1 %exitcond.not, label %Extra_TruthSupport.exit51._crit_edge, label %12, !llvm.loop !82
+  br i1 %exitcond.not, label %Extra_TruthSupport.exit51.loopexit._crit_edge, label %12, !llvm.loop !82
 
 12:                                               ; preds = %.lr.ph, %10
   %.0151 = phi i32 [ 0, %.lr.ph ], [ %11, %10 ]
   %.030150 = phi i32 [ 32, %.lr.ph ], [ %spec.select37, %10 ]
   %.031149 = phi i32 [ -1, %.lr.ph ], [ %spec.select, %10 ]
-  br i1 %8, label %select.unfold.i, label %.lr.ph.i.preheader
+  br i1 %8, label %select.unfold.i, label %Extra_TruthCopy.exit
 
 select.unfold.i:                                  ; preds = %12, %select.unfold.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %select.unfold.i ], [ %9, %12 ]
@@ -2346,15 +2346,15 @@ select.unfold.i:                                  ; preds = %12, %select.unfold.
   %15 = getelementptr inbounds i32, ptr @Extra_TruthMinCofSuppOverlap.uCofactor, i64 %indvars.iv.next.i
   store i32 %14, ptr %15, align 4
   %16 = icmp ugt i64 %indvars.iv.i, 1
-  br i1 %16, label %select.unfold.i, label %.lr.ph.i.preheader, !llvm.loop !27
+  br i1 %16, label %select.unfold.i, label %Extra_TruthCopy.exit, !llvm.loop !27
 
-.lr.ph.i.preheader:                               ; preds = %select.unfold.i, %12
+Extra_TruthCopy.exit:                             ; preds = %select.unfold.i, %12
   tail call void @Extra_TruthCofactor0(ptr noundef nonnull @Extra_TruthMinCofSuppOverlap.uCofactor, i32 noundef %1, i32 noundef %.0151)
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %Extra_TruthVarInSupport.exit.thread
-  %.011.i = phi i32 [ %.1.i, %Extra_TruthVarInSupport.exit.thread ], [ 0, %.lr.ph.i.preheader ]
-  %.0810.i = phi i32 [ %65, %Extra_TruthVarInSupport.exit.thread ], [ 0, %.lr.ph.i.preheader ]
+.lr.ph.i:                                         ; preds = %Extra_TruthCopy.exit, %Extra_TruthVarInSupport.exit.thread
+  %.011.i = phi i32 [ %.1.i, %Extra_TruthVarInSupport.exit.thread ], [ 0, %Extra_TruthCopy.exit ]
+  %.0810.i = phi i32 [ %65, %Extra_TruthVarInSupport.exit.thread ], [ 0, %Extra_TruthCopy.exit ]
   switch i32 %.0810.i, label %46 [
     i32 0, label %.preheader63.i
     i32 1, label %.preheader65.i
@@ -2508,9 +2508,9 @@ Extra_TruthVarInSupport.exit.thread:              ; preds = %41, %35, %29, %23, 
   %.1.i = or i32 %64, %.011.i
   %65 = add nuw nsw i32 %.0810.i, 1
   %exitcond.not.i = icmp eq i32 %65, %1
-  br i1 %exitcond.not.i, label %Extra_TruthSupport.exit, label %.lr.ph.i, !llvm.loop !38
+  br i1 %exitcond.not.i, label %Extra_TruthSupport.exit.loopexit, label %.lr.ph.i, !llvm.loop !38
 
-Extra_TruthSupport.exit:                          ; preds = %Extra_TruthVarInSupport.exit.thread
+Extra_TruthSupport.exit.loopexit:                 ; preds = %Extra_TruthVarInSupport.exit.thread
   %66 = and i32 %.1.i, 1431655765
   %67 = lshr i32 %.1.i, 1
   %68 = and i32 %67, 1431655765
@@ -2530,25 +2530,25 @@ Extra_TruthSupport.exit:                          ; preds = %Extra_TruthVarInSup
   %82 = and i32 %81, 31
   %83 = lshr i32 %81, 16
   %84 = add nuw nsw i32 %82, %83
-  br i1 %8, label %select.unfold.i40, label %.lr.ph.i45.preheader
+  br i1 %8, label %select.unfold.i40, label %Extra_TruthCopy.exit43
 
-select.unfold.i40:                                ; preds = %Extra_TruthSupport.exit, %select.unfold.i40
-  %indvars.iv.i41 = phi i64 [ %indvars.iv.next.i42, %select.unfold.i40 ], [ %9, %Extra_TruthSupport.exit ]
+select.unfold.i40:                                ; preds = %Extra_TruthSupport.exit.loopexit, %select.unfold.i40
+  %indvars.iv.i41 = phi i64 [ %indvars.iv.next.i42, %select.unfold.i40 ], [ %9, %Extra_TruthSupport.exit.loopexit ]
   %indvars.iv.next.i42 = add nsw i64 %indvars.iv.i41, -1
   %85 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv.next.i42
   %86 = load i32, ptr %85, align 4
   %87 = getelementptr inbounds i32, ptr @Extra_TruthMinCofSuppOverlap.uCofactor, i64 %indvars.iv.next.i42
   store i32 %86, ptr %87, align 4
   %88 = icmp ugt i64 %indvars.iv.i41, 1
-  br i1 %88, label %select.unfold.i40, label %.lr.ph.i45.preheader, !llvm.loop !27
+  br i1 %88, label %select.unfold.i40, label %Extra_TruthCopy.exit43, !llvm.loop !27
 
-.lr.ph.i45.preheader:                             ; preds = %select.unfold.i40, %Extra_TruthSupport.exit
+Extra_TruthCopy.exit43:                           ; preds = %select.unfold.i40, %Extra_TruthSupport.exit.loopexit
   tail call void @Extra_TruthCofactor1(ptr noundef nonnull @Extra_TruthMinCofSuppOverlap.uCofactor, i32 noundef %1, i32 noundef %.0151)
   br label %.lr.ph.i45
 
-.lr.ph.i45:                                       ; preds = %.lr.ph.i45.preheader, %Extra_TruthVarInSupport.exit111.thread
-  %.011.i46 = phi i32 [ %.1.i49, %Extra_TruthVarInSupport.exit111.thread ], [ 0, %.lr.ph.i45.preheader ]
-  %.0810.i47 = phi i32 [ %137, %Extra_TruthVarInSupport.exit111.thread ], [ 0, %.lr.ph.i45.preheader ]
+.lr.ph.i45:                                       ; preds = %Extra_TruthCopy.exit43, %Extra_TruthVarInSupport.exit111.thread
+  %.011.i46 = phi i32 [ %.1.i49, %Extra_TruthVarInSupport.exit111.thread ], [ 0, %Extra_TruthCopy.exit43 ]
+  %.0810.i47 = phi i32 [ %137, %Extra_TruthVarInSupport.exit111.thread ], [ 0, %Extra_TruthCopy.exit43 ]
   switch i32 %.0810.i47, label %118 [
     i32 0, label %.preheader63.i90
     i32 1, label %.preheader65.i82
@@ -2702,9 +2702,9 @@ Extra_TruthVarInSupport.exit111.thread:           ; preds = %113, %107, %101, %9
   %.1.i49 = or i32 %136, %.011.i46
   %137 = add nuw nsw i32 %.0810.i47, 1
   %exitcond.not.i50 = icmp eq i32 %137, %1
-  br i1 %exitcond.not.i50, label %Extra_TruthSupport.exit51, label %.lr.ph.i45, !llvm.loop !38
+  br i1 %exitcond.not.i50, label %Extra_TruthSupport.exit51.loopexit, label %.lr.ph.i45, !llvm.loop !38
 
-Extra_TruthSupport.exit51:                        ; preds = %Extra_TruthVarInSupport.exit111.thread
+Extra_TruthSupport.exit51.loopexit:               ; preds = %Extra_TruthVarInSupport.exit111.thread
   %138 = and i32 %.1.i49, 1431655765
   %139 = lshr i32 %.1.i49, 1
   %140 = and i32 %139, 1431655765
@@ -2752,19 +2752,19 @@ Extra_TruthSupport.exit51:                        ; preds = %Extra_TruthVarInSup
   %spec.select = select i1 %or.cond3, i32 %.0151, i32 %.031149
   %spec.select37 = select i1 %or.cond3, i32 %176, i32 %.030150
   %180 = icmp eq i32 %spec.select37, 0
-  br i1 %180, label %Extra_TruthSupport.exit51._crit_edge, label %10
+  br i1 %180, label %Extra_TruthSupport.exit51.loopexit._crit_edge, label %10
 
-Extra_TruthSupport.exit51._crit_edge:             ; preds = %10, %Extra_TruthSupport.exit51, %3
-  %.233 = phi i32 [ -1, %3 ], [ %spec.select, %Extra_TruthSupport.exit51 ], [ %spec.select, %10 ]
-  %.2 = phi i32 [ 32, %3 ], [ %spec.select37, %10 ], [ 0, %Extra_TruthSupport.exit51 ]
+Extra_TruthSupport.exit51.loopexit._crit_edge:    ; preds = %10, %Extra_TruthSupport.exit51.loopexit, %3
+  %.233 = phi i32 [ -1, %3 ], [ %spec.select, %Extra_TruthSupport.exit51.loopexit ], [ %spec.select, %10 ]
+  %.2 = phi i32 [ 32, %3 ], [ %spec.select37, %10 ], [ 0, %Extra_TruthSupport.exit51.loopexit ]
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %182, label %181
 
-181:                                              ; preds = %Extra_TruthSupport.exit51._crit_edge
+181:                                              ; preds = %Extra_TruthSupport.exit51.loopexit._crit_edge
   store i32 %.233, ptr %2, align 4
   br label %182
 
-182:                                              ; preds = %181, %Extra_TruthSupport.exit51._crit_edge
+182:                                              ; preds = %181, %Extra_TruthSupport.exit51.loopexit._crit_edge
   ret i32 %.2
 }
 

@@ -1205,7 +1205,6 @@ Extra_Permutations.exit56:                        ; preds = %.lr.ph.i47, %Extra_
   %59 = zext nneg i32 %55 to i64
   %60 = shl nuw nsw i64 %59, 2
   %wide.trip.count.i64 = zext nneg i32 %55 to i64
-  %wide.trip.count23.i.i = zext nneg i32 %55 to i64
   %wide.trip.count = zext nneg i32 %57 to i64
   br label %61
 
@@ -1298,7 +1297,7 @@ Extra_TruthPolarize.exit:                         ; preds = %74, %61
 
 ._crit_edge.us.i.i:                               ; preds = %95
   %indvars.iv.next21.i.i = add nuw nsw i64 %indvars.iv20.i.i, 1
-  %exitcond24.not.i.i = icmp eq i64 %indvars.iv.next21.i.i, %wide.trip.count23.i.i
+  %exitcond24.not.i.i = icmp eq i64 %indvars.iv.next21.i.i, %wide.trip.count.i64
   br i1 %exitcond24.not.i.i, label %.lr.ph53.i.preheader, label %.preheader.us.i.i, !llvm.loop !16
 
 .lr.ph53.i.preheader:                             ; preds = %._crit_edge.us.i.i, %._crit_edge.i
@@ -1558,9 +1557,8 @@ Extra_Permutations.exit72:                        ; preds = %.lr.ph.i63, %Extra_
   %62 = icmp sgt i32 %61, 0
   %63 = sext i32 %55 to i64
   %64 = shl nsw i64 %63, 2
-  %smax.i = tail call i32 @llvm.smax.i32(i32 %55, i32 1)
-  %wide.trip.count.i80 = zext nneg i32 %smax.i to i64
-  %wide.trip.count23.i.i = zext nneg i32 %55 to i64
+  %wide.trip.count.i80 = zext nneg i32 %55 to i64
+  %smax = tail call i32 @llvm.smax.i32(i32 %55, i32 1)
   %wide.trip.count = zext nneg i32 %61 to i64
   %wide.trip.count166 = zext nneg i32 %61 to i64
   br label %65
@@ -1654,7 +1652,7 @@ Extra_TruthPolarize.exit:                         ; preds = %78, %65
 
 ._crit_edge.us.i.i:                               ; preds = %99
   %indvars.iv.next21.i.i = add nuw nsw i64 %indvars.iv20.i.i, 1
-  %exitcond24.not.i.i = icmp eq i64 %indvars.iv.next21.i.i, %wide.trip.count23.i.i
+  %exitcond24.not.i.i = icmp eq i64 %indvars.iv.next21.i.i, %wide.trip.count.i80
   br i1 %exitcond24.not.i.i, label %.lr.ph53.i.preheader, label %.preheader.us.i.i, !llvm.loop !16
 
 .lr.ph53.i.preheader:                             ; preds = %._crit_edge.us.i.i, %._crit_edge.i
@@ -1792,7 +1790,7 @@ Extra_TruthPolarize.exit100:                      ; preds = %124, %._crit_edge
 
 ._crit_edge.us.i.i134:                            ; preds = %145
   %indvars.iv.next21.i.i135 = add nuw nsw i64 %indvars.iv20.i.i129, 1
-  %exitcond24.not.i.i136 = icmp eq i64 %indvars.iv.next21.i.i135, %wide.trip.count23.i.i
+  %exitcond24.not.i.i136 = icmp eq i64 %indvars.iv.next21.i.i135, %wide.trip.count.i80
   br i1 %exitcond24.not.i.i136, label %.lr.ph53.i114.preheader, label %.preheader.us.i.i128, !llvm.loop !16
 
 .lr.ph53.i114.preheader:                          ; preds = %._crit_edge.us.i.i134, %._crit_edge.i109
@@ -1845,7 +1843,7 @@ Extra_TruthPermute.exit137:                       ; preds = %156, %157
 ._crit_edge150:                                   ; preds = %Extra_TruthPermute.exit137, %Extra_TruthPolarize.exit100
   %.3.lcssa = phi i32 [ %.138.lcssa, %Extra_TruthPolarize.exit100 ], [ %spec.select43, %Extra_TruthPermute.exit137 ]
   %158 = add nuw nsw i32 %.0153, 1
-  %exitcond168.not = icmp eq i32 %158, %smax.i
+  %exitcond168.not = icmp eq i32 %158, %smax
   br i1 %exitcond168.not, label %._crit_edge156, label %65, !llvm.loop !28
 
 ._crit_edge156:                                   ; preds = %._crit_edge150, %53

@@ -9228,7 +9228,7 @@ rb_absint_size.exit:                              ; preds = %.critedge.i
   %65 = add i64 %61, %64
   %66 = sub i64 %1, %62
   %67 = select i1 %63, i64 %66, i64 0
-  br label %201
+  br label %200
 
 68:                                               ; preds = %rb_absint_size.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -9505,54 +9505,55 @@ bigdivrem_single.exit.i.i:                        ; preds = %bigdivrem_single.ex
 .preheader.i.i.preheader:                         ; preds = %178, %165, %bigdivrem_single.exit.i.i, %.preheader131.i.i, %.preheader130.preheader.i.i
   br label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %186
-  %.0.i.i = phi i64 [ %179, %186 ], [ 2, %.preheader.i.i.preheader ]
+.preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %184
+  %.0.i.i = phi i64 [ %179, %184 ], [ 2, %.preheader.i.i.preheader ]
   %179 = add nsw i64 %.0.i.i, -1
   %180 = getelementptr i32, ptr %8, i64 %179
   %181 = load i32, ptr %180, align 4
   %.not.i.i16 = icmp eq i32 %181, 0
-  br i1 %.not.i.i16, label %186, label %.lr.ph.i.i10.preheader.i
+  br i1 %.not.i.i16, label %184, label %.lr.ph.i.i10.preheader.i
 
 .lr.ph.i.i10.preheader.i:                         ; preds = %.preheader.i.i
   %182 = load i32, ptr %7, align 16
-  %183 = zext i32 %182 to i64
-  %184 = add nuw nsw i64 %183, 1
-  %185 = trunc i64 %184 to i32
-  store i32 %185, ptr %7, align 16
+  %add.narrowed.i = add i32 %182, 1
+  %add.narrowed.overflow.i = icmp eq i32 %add.narrowed.i, 0
+  store i32 %add.narrowed.i, ptr %7, align 16
+  %183 = zext i1 %add.narrowed.overflow.i to i64
   br label %.lr.ph83.i.i15.i
 
-186:                                              ; preds = %.preheader.i.i
+184:                                              ; preds = %.preheader.i.i
   %.not7.i.i = icmp eq i64 %179, 0
   br i1 %.not7.i.i, label %bary_zero_p.exit.i, label %.preheader.i.i, !llvm.loop !52
 
-.lr.ph83.i.i15.i:                                 ; preds = %188, %.lr.ph.i.i10.preheader.i
-  %.182.i.i16.i = phi i64 [ %194, %188 ], [ 1, %.lr.ph.i.i10.preheader.i ]
-  %.15981.i.i.in.i = phi i64 [ %192, %188 ], [ %184, %.lr.ph.i.i10.preheader.i ]
-  %187 = icmp ult i64 %.15981.i.i.in.i, 4294967296
-  br i1 %187, label %bary_add.exit.i, label %188
+.lr.ph83.i.i15.i:                                 ; preds = %186, %.lr.ph.i.i10.preheader.i
+  %.182.i.i16.i = phi i64 [ %193, %186 ], [ 1, %.lr.ph.i.i10.preheader.i ]
+  %.15981.i.i.i = phi i64 [ %192, %186 ], [ %183, %.lr.ph.i.i10.preheader.i ]
+  %185 = icmp eq i64 %.15981.i.i.i, 0
+  br i1 %185, label %bary_add.exit.i, label %186
 
-188:                                              ; preds = %.lr.ph83.i.i15.i
-  %189 = getelementptr i32, ptr %7, i64 %.182.i.i16.i
-  %190 = load i32, ptr %189, align 4
-  %191 = zext i32 %190 to i64
-  %192 = add nuw nsw i64 %191, 1
-  %193 = trunc i64 %192 to i32
-  store i32 %193, ptr %189, align 4
-  %194 = add nuw nsw i64 %.182.i.i16.i, 1
-  %exitcond103.not.i.i.i = icmp eq i64 %194, 4
+186:                                              ; preds = %.lr.ph83.i.i15.i
+  %187 = getelementptr i32, ptr %7, i64 %.182.i.i16.i
+  %188 = load i32, ptr %187, align 4
+  %189 = zext i32 %188 to i64
+  %190 = add nuw nsw i64 %189, 1
+  %191 = trunc i64 %190 to i32
+  store i32 %191, ptr %187, align 4
+  %192 = lshr i64 %190, 32
+  %193 = add nuw nsw i64 %.182.i.i16.i, 1
+  %exitcond103.not.i.i.i = icmp eq i64 %193, 4
   br i1 %exitcond103.not.i.i.i, label %bary_add.exit.i, label %.lr.ph83.i.i15.i, !llvm.loop !22
 
-bary_add.exit.i:                                  ; preds = %188, %.lr.ph83.i.i15.i
-  %195 = call fastcc i32 @bary_pack(i32 noundef 1, ptr noundef nonnull %8, i64 noundef 2, ptr noundef nonnull %9, i64 noundef 1, i64 noundef 8, i64 noundef 0, i32 noundef 64)
-  %196 = load i64, ptr %9, align 8
-  %197 = sub i64 %1, %196
+bary_add.exit.i:                                  ; preds = %186, %.lr.ph83.i.i15.i
+  %194 = call fastcc i32 @bary_pack(i32 noundef 1, ptr noundef nonnull %8, i64 noundef 2, ptr noundef nonnull %9, i64 noundef 1, i64 noundef 8, i64 noundef 0, i32 noundef 64)
+  %195 = load i64, ptr %9, align 8
+  %196 = sub i64 %1, %195
   br label %bary_zero_p.exit.i
 
-bary_zero_p.exit.i:                               ; preds = %186, %bary_add.exit.i
-  %.05.i = phi i64 [ %197, %bary_add.exit.i ], [ 0, %186 ]
-  %198 = call fastcc i32 @bary_pack(i32 noundef 1, ptr noundef nonnull %7, i64 noundef 4, ptr noundef nonnull %10, i64 noundef 1, i64 noundef 8, i64 noundef 0, i32 noundef 64)
-  %199 = icmp eq i32 %198, 2
-  %200 = load i64, ptr %10, align 8
+bary_zero_p.exit.i:                               ; preds = %184, %bary_add.exit.i
+  %.05.i = phi i64 [ %196, %bary_add.exit.i ], [ 0, %184 ]
+  %197 = call fastcc i32 @bary_pack(i32 noundef 1, ptr noundef nonnull %7, i64 noundef 4, ptr noundef nonnull %10, i64 noundef 1, i64 noundef 8, i64 noundef 0, i32 noundef 64)
+  %198 = icmp eq i32 %197, 2
+  %199 = load i64, ptr %10, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -9560,24 +9561,24 @@ bary_zero_p.exit.i:                               ; preds = %186, %bary_add.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  br i1 %199, label %.thread, label %201
+  br i1 %198, label %.thread, label %200
 
-201:                                              ; preds = %bary_zero_p.exit.i, %57
+200:                                              ; preds = %bary_zero_p.exit.i, %57
   %.1 = phi i64 [ %67, %57 ], [ %.05.i, %bary_zero_p.exit.i ]
-  %.0 = phi i64 [ %65, %57 ], [ %200, %bary_zero_p.exit.i ]
-  %202 = icmp eq i64 %.0, -1
-  br i1 %202, label %.thread, label %203
+  %.0 = phi i64 [ %65, %57 ], [ %199, %bary_zero_p.exit.i ]
+  %201 = icmp eq i64 %.0, -1
+  br i1 %201, label %.thread, label %202
 
-203:                                              ; preds = %201
+202:                                              ; preds = %200
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %.thread, label %204
+  br i1 %.not, label %.thread, label %203
 
-204:                                              ; preds = %203
+203:                                              ; preds = %202
   store i64 %.1, ptr %2, align 8
   br label %.thread
 
-.thread:                                          ; preds = %bary_zero_p.exit.i, %203, %204, %201, %3
-  %.012 = phi i64 [ -1, %3 ], [ -1, %201 ], [ %.0, %204 ], [ %.0, %203 ], [ -1, %bary_zero_p.exit.i ]
+.thread:                                          ; preds = %bary_zero_p.exit.i, %202, %203, %200, %3
+  %.012 = phi i64 [ -1, %3 ], [ -1, %200 ], [ %.0, %203 ], [ %.0, %202 ], [ -1, %bary_zero_p.exit.i ]
   ret i64 %.012
 }
 

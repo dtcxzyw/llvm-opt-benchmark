@@ -360,27 +360,27 @@ define dso_local noundef zeroext i1 @rcu_segcblist_entrain(ptr noundef %0, ptr n
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   br label %10
 
-10:                                               ; preds = %13, %6
-  %11 = phi i64 [ %14, %13 ], [ 3, %6 ]
-  %indvars3 = trunc i64 %11 to i32
-  %12 = icmp eq i32 %indvars3, 0
-  br i1 %12, label %22, label %13
+10:                                               ; preds = %14, %6
+  %11 = phi i64 [ %15, %14 ], [ 3, %6 ]
+  %12 = and i64 %11, 4294967295
+  %13 = icmp eq i64 %12, 0
+  br i1 %13, label %.preheader, label %14
 
-13:                                               ; preds = %10
-  %14 = add nsw i64 %11, -1
-  %15 = and i64 %14, 4294967295
-  %16 = getelementptr [4 x ptr], ptr %9, i64 0, i64 %15
-  %17 = load ptr, ptr %16, align 8
-  %18 = and i64 %11, 4294967295
-  %19 = getelementptr [4 x ptr], ptr %9, i64 0, i64 %18
-  %20 = load ptr, ptr %19, align 8
-  %21 = icmp eq ptr %17, %20
-  br i1 %21, label %10, label %22, !llvm.loop !19
+14:                                               ; preds = %10
+  %15 = add nsw i64 %11, -1
+  %16 = and i64 %15, 4294967295
+  %17 = getelementptr [4 x ptr], ptr %9, i64 0, i64 %16
+  %18 = load ptr, ptr %17, align 8
+  %19 = and i64 %11, 4294967295
+  %20 = getelementptr [4 x ptr], ptr %9, i64 0, i64 %19
+  %21 = load ptr, ptr %20, align 8
+  %22 = icmp eq ptr %18, %21
+  br i1 %22, label %10, label %.preheader, !llvm.loop !19
 
-22:                                               ; preds = %13, %10
-  %.lcssa2 = phi i64 [ %11, %13 ], [ 0, %10 ]
+.preheader:                                       ; preds = %14, %10
+  %.lcssa2 = phi i64 [ %11, %14 ], [ 0, %10 ]
   %23 = getelementptr inbounds i8, ptr %0, i64 80
-  %sext = shl i64 %11, 32
+  %sext = shl i64 %.lcssa2, 32
   %24 = ashr exact i64 %sext, 32
   %25 = getelementptr [4 x i64], ptr %23, i64 0, i64 %24
   %26 = load i64, ptr %25, align 8
@@ -389,18 +389,17 @@ define dso_local noundef zeroext i1 @rcu_segcblist_entrain(ptr noundef %0, ptr n
   %28 = getelementptr [4 x ptr], ptr %9, i64 0, i64 %24
   %29 = load ptr, ptr %28, align 8
   store volatile ptr %1, ptr %29, align 8
-  %30 = icmp slt i32 %indvars3, 4
-  br i1 %30, label %.preheader, label %.loopexit
+  br label %30
 
-.preheader:                                       ; preds = %22, %.preheader
-  %31 = phi i64 [ %33, %.preheader ], [ %.lcssa2, %22 ]
+30:                                               ; preds = %.preheader, %30
+  %31 = phi i64 [ %33, %30 ], [ %.lcssa2, %.preheader ]
   %32 = getelementptr [4 x ptr], ptr %9, i64 0, i64 %31
   store volatile ptr %1, ptr %32, align 8
   %33 = add nuw nsw i64 %31, 1
   %34 = icmp eq i64 %33, 4
-  br i1 %34, label %.loopexit, label %.preheader, !llvm.loop !20
+  br i1 %34, label %.loopexit, label %30, !llvm.loop !20
 
-.loopexit:                                        ; preds = %.preheader, %22, %2
+.loopexit:                                        ; preds = %30, %2
   ret i1 %5
 }
 

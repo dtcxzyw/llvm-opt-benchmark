@@ -483,7 +483,6 @@ $_ZSt19piecewise_construct = comdat any
 @.str.35 = private unnamed_addr constant [44 x i8] c"out of dynamic memory in yy_create_buffer()\00", align 1
 @.str.36 = private unnamed_addr constant [42 x i8] c"out of dynamic memory in yy_scan_buffer()\00", align 1
 @.str.37 = private unnamed_addr constant [41 x i8] c"out of dynamic memory in yy_scan_bytes()\00", align 1
-@.str.38 = private unnamed_addr constant [30 x i8] c"bad buffer in yy_scan_bytes()\00", align 1
 @_ZL14yy_start_stack = internal unnamed_addr global ptr null, align 8
 @_ZSt4cout = external global %"class.std::basic_ostream", align 8
 @.str.39 = private unnamed_addr constant [24 x i8] c"-  pp:inputToLex ITL s=\00", align 1
@@ -13189,70 +13188,58 @@ define dso_local noundef ptr @_Z19V3PreLex_scan_bytesPKci(ptr nocapture noundef 
   %4 = sext i32 %3 to i64
   %5 = tail call noalias noundef ptr @malloc(i64 noundef %4) #37
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %9, label %.preheader
+  br i1 %.not, label %7, label %.preheader
 
 .preheader:                                       ; preds = %2
   %.not26 = icmp eq i32 %1, 0
+  br i1 %.not26, label %8, label %.lr.ph.preheader
+
+.lr.ph.preheader:                                 ; preds = %.preheader
   %6 = zext i32 %1 to i64
-  br i1 %.not26, label %._crit_edge.thread, label %._crit_edge
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %5, ptr align 1 %0, i64 %6, i1 false)
+  br label %8
 
-._crit_edge.thread:                               ; preds = %.preheader
-  %7 = getelementptr i8, ptr %5, i64 %6
-  %8 = getelementptr i8, ptr %7, i64 1
-  store i8 0, ptr %8, align 1
-  store i8 0, ptr %7, align 1
-  br label %14
-
-9:                                                ; preds = %2
+7:                                                ; preds = %2
   tail call fastcc void @_ZL14yy_fatal_errorPKc(ptr noundef nonnull @.str.37) #38
   unreachable
 
-._crit_edge:                                      ; preds = %.preheader
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %5, ptr align 1 %0, i64 %6, i1 false)
-  %10 = sext i32 %1 to i64
-  %11 = getelementptr i8, ptr %5, i64 %10
-  %12 = getelementptr i8, ptr %11, i64 1
-  store i8 0, ptr %12, align 1
+8:                                                ; preds = %.lr.ph.preheader, %.preheader
+  %9 = sext i32 %1 to i64
+  %10 = getelementptr i8, ptr %5, i64 %9
+  %11 = getelementptr i8, ptr %10, i64 1
   store i8 0, ptr %11, align 1
-  %13 = icmp ugt i32 %1, -3
-  br i1 %13, label %17, label %14
+  store i8 0, ptr %10, align 1
+  %12 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #37
+  %.not24.i = icmp eq ptr %12, null
+  br i1 %.not24.i, label %13, label %14
 
-14:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %15 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #37
-  %.not24.i = icmp eq ptr %15, null
-  br i1 %.not24.i, label %16, label %18
-
-16:                                               ; preds = %14
+13:                                               ; preds = %8
   tail call fastcc void @_ZL14yy_fatal_errorPKc(ptr noundef nonnull @.str.36) #38
   unreachable
 
-17:                                               ; preds = %._crit_edge
-  tail call fastcc void @_ZL14yy_fatal_errorPKc(ptr noundef nonnull @.str.38) #38
-  unreachable
-
-18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %15, i64 24
-  store i32 %1, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %15, i64 8
-  store ptr %5, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %15, i64 16
-  store ptr %5, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %15, i64 32
-  store i32 0, ptr %22, align 8
-  store ptr null, ptr %15, align 8
-  %23 = getelementptr inbounds i8, ptr %15, i64 28
-  store i32 %1, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %15, i64 36
-  store i32 0, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %15, i64 40
-  store i32 1, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %15, i64 52
-  store i32 0, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %15, i64 56
-  store i32 0, ptr %27, align 8
-  tail call void @_Z25V3PreLex_switch_to_bufferP15yy_buffer_state(ptr noundef nonnull %15)
-  store i32 1, ptr %22, align 8
-  ret ptr %15
+14:                                               ; preds = %8
+  %15 = getelementptr inbounds i8, ptr %12, i64 24
+  store i32 %1, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %12, i64 8
+  store ptr %5, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %12, i64 16
+  store ptr %5, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %12, i64 32
+  store i32 0, ptr %18, align 8
+  store ptr null, ptr %12, align 8
+  %19 = getelementptr inbounds i8, ptr %12, i64 28
+  store i32 %1, ptr %19, align 4
+  %20 = getelementptr inbounds i8, ptr %12, i64 36
+  store i32 0, ptr %20, align 4
+  %21 = getelementptr inbounds i8, ptr %12, i64 40
+  store i32 1, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %12, i64 52
+  store i32 0, ptr %22, align 4
+  %23 = getelementptr inbounds i8, ptr %12, i64 56
+  store i32 0, ptr %23, align 8
+  tail call void @_Z25V3PreLex_switch_to_bufferP15yy_buffer_state(ptr noundef nonnull %12)
+  store i32 1, ptr %18, align 8
+  ret ptr %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable

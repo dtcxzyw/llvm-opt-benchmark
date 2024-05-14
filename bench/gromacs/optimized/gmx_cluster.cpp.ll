@@ -938,18 +938,18 @@ define noundef i32 @_Z11gmx_clusteriPPc(i32 noundef %0, ptr noundef %1) local_un
 335:                                              ; preds = %332, %325, %321
   %.not = icmp eq ptr %.0300, null
   %brmerge = or i1 %304, %.not
-  br i1 %brmerge, label %.preheader956, label %336
+  br i1 %brmerge, label %.preheader959, label %336
 
 336:                                              ; preds = %335
   %337 = load ptr, ptr @stderr, align 8
   %338 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %337, ptr noundef nonnull @.str.137, ptr noundef nonnull %.0300) #18
-  br label %.preheader956
+  br label %.preheader959
 
-.preheader956:                                    ; preds = %335, %336
+.preheader959:                                    ; preds = %335, %336
   br label %339
 
-339:                                              ; preds = %.preheader956, %345
-  %indvars.iv = phi i64 [ %indvars.iv.next, %345 ], [ 1, %.preheader956 ]
+339:                                              ; preds = %.preheader959, %345
+  %indvars.iv = phi i64 [ %indvars.iv.next, %345 ], [ 1, %.preheader959 ]
   %340 = load ptr, ptr @_ZZ11gmx_clusteriPPcE10methodname, align 16
   %341 = getelementptr inbounds [7 x ptr], ptr @_ZZ11gmx_clusteriPPcE10methodname, i64 0, i64 %indvars.iv
   %342 = load ptr, ptr %341, align 8
@@ -2411,8 +2411,8 @@ _ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit:        ; preds = %_ZL13gmx_snew_implI
   %941 = fcmp olt float %939, %940
   %.pre908 = load float, ptr %917, align 8
   %942 = fcmp ogt float %939, %.pre908
-  %or.cond931 = select i1 %941, i1 true, i1 %942
-  br i1 %or.cond931, label %943, label %949
+  %or.cond934 = select i1 %941, i1 true, i1 %942
+  br i1 %or.cond934, label %943, label %949
 
 943:                                              ; preds = %938
   %944 = load ptr, ptr @stderr, align 8
@@ -2717,8 +2717,8 @@ _ZL14gmx_sfree_implIfEvPKcS1_iPT_.exit424:        ; preds = %1003
     i32 0, label %.thread667.thread
   ]
 
-.thread667.thread:                                ; preds = %1050, %1041, %990, %.thread667, %.thread667, %.thread667, %.thread667
-  %1067 = phi i1 [ %1062, %.thread667 ], [ %1062, %.thread667 ], [ %1062, %.thread667 ], [ %1062, %.thread667 ], [ false, %990 ], [ false, %1041 ], [ false, %1050 ]
+.thread667.thread:                                ; preds = %990, %1041, %1050, %.thread667, %.thread667, %.thread667, %.thread667
+  %1067 = phi i1 [ %1062, %.thread667 ], [ %1062, %.thread667 ], [ %1062, %.thread667 ], [ %1062, %.thread667 ], [ false, %1050 ], [ false, %1041 ], [ false, %990 ]
   %1068 = load i32, ptr @_ZZ11gmx_clusteriPPcE9minstruct, align 4
   %1069 = icmp sgt i32 %1068, 1
   %1070 = getelementptr inbounds i8, ptr %.0299, i64 40
@@ -4921,18 +4921,18 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit515:       ; preds = %1754, %1757
   br label %1807
 
 1806:                                             ; preds = %1798, %1785
-  %.sink932 = phi ptr [ %109, %1785 ], [ %111, %1798 ]
+  %.sink935 = phi ptr [ %109, %1785 ], [ %111, %1798 ]
   %.sink = phi ptr [ %110, %1785 ], [ %112, %1798 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink932) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink935) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %108) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %107) #17
   br label %1809
 
 1807:                                             ; preds = %1802, %1804, %1793, %1795
-  %.sink933 = phi ptr [ %110, %1795 ], [ %110, %1793 ], [ %112, %1804 ], [ %112, %1802 ]
+  %.sink936 = phi ptr [ %110, %1795 ], [ %110, %1793 ], [ %112, %1804 ], [ %112, %1802 ]
   %.pn322.pn = phi { ptr, i32 } [ %1796, %1795 ], [ %1794, %1793 ], [ %1805, %1804 ], [ %1803, %1802 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink933) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink936) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %108) #17
   br label %1808
 

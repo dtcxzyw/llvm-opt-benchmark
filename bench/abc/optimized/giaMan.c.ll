@@ -12346,7 +12346,7 @@ Gia_ManStopP.exit.i94:                            ; preds = %29, %.lr.ph.i92
 30:                                               ; preds = %.preheader, %31
   %indvars.iv155 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next156, %31 ]
   %exitcond159.not = icmp eq i64 %indvars.iv155, %wide.trip.count158
-  br i1 %exitcond159.not, label %55, label %31
+  br i1 %exitcond159.not, label %54, label %31
 
 31:                                               ; preds = %30
   %32 = getelementptr inbounds [16 x ptr], ptr %4, i64 0, i64 %indvars.iv155
@@ -12369,119 +12369,116 @@ Gia_ManStopP.exit.i94:                            ; preds = %29, %.lr.ph.i92
   %.val83.val = load i32, ptr %42, align 4
   %43 = sub nsw i32 %.val83.val, %.val82
   %44 = icmp slt i32 %37, %43
-  br i1 %44, label %45, label %30, !llvm.loop !104
+  br i1 %44, label %.lr.ph.preheader.i98, label %30, !llvm.loop !104
 
-45:                                               ; preds = %31
-  %46 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv155
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv.next156
-  %49 = load ptr, ptr %48, align 8
-  %50 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.165, ptr noundef %47, ptr noundef %49)
-  br i1 %5, label %.lr.ph.preheader.i98, label %Gia_FreeMany.exit
-
-.lr.ph.preheader.i98:                             ; preds = %45
+.lr.ph.preheader.i98:                             ; preds = %31
+  %45 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv155
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv.next156
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.165, ptr noundef %46, ptr noundef %48)
   %wide.trip.count.i99 = zext nneg i32 %1 to i64
   br label %.lr.ph.i100
 
 .lr.ph.i100:                                      ; preds = %Gia_ManStopP.exit.i102, %.lr.ph.preheader.i98
   %indvars.iv.i101 = phi i64 [ 0, %.lr.ph.preheader.i98 ], [ %indvars.iv.next.i103, %Gia_ManStopP.exit.i102 ]
-  %51 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv.i101
-  %52 = load ptr, ptr %51, align 8
-  %53 = icmp eq ptr %52, null
-  br i1 %53, label %Gia_ManStopP.exit.i102, label %54
+  %50 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv.i101
+  %51 = load ptr, ptr %50, align 8
+  %52 = icmp eq ptr %51, null
+  br i1 %52, label %Gia_ManStopP.exit.i102, label %53
 
-54:                                               ; preds = %.lr.ph.i100
-  tail call void @Gia_ManStop(ptr noundef nonnull %52)
-  store ptr null, ptr %51, align 8
+53:                                               ; preds = %.lr.ph.i100
+  tail call void @Gia_ManStop(ptr noundef nonnull %51)
+  store ptr null, ptr %50, align 8
   br label %Gia_ManStopP.exit.i102
 
-Gia_ManStopP.exit.i102:                           ; preds = %54, %.lr.ph.i100
+Gia_ManStopP.exit.i102:                           ; preds = %53, %.lr.ph.i100
   %indvars.iv.next.i103 = add nuw nsw i64 %indvars.iv.i101, 1
   %exitcond.not.i104 = icmp eq i64 %indvars.iv.next.i103, %wide.trip.count.i99
   br i1 %exitcond.not.i104, label %Gia_FreeMany.exit, label %.lr.ph.i100, !llvm.loop !102
 
-55:                                               ; preds = %30
-  %56 = tail call noalias ptr @fopen(ptr noundef %2, ptr noundef nonnull @.str.23)
-  %57 = icmp eq ptr %56, null
-  br i1 %57, label %58, label %64
+54:                                               ; preds = %30
+  %55 = tail call noalias ptr @fopen(ptr noundef %2, ptr noundef nonnull @.str.23)
+  %56 = icmp eq ptr %55, null
+  br i1 %56, label %57, label %63
 
-58:                                               ; preds = %55
-  %59 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.111, ptr noundef %2)
+57:                                               ; preds = %54
+  %58 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.111, ptr noundef %2)
   br i1 %5, label %.lr.ph.preheader.i106, label %Gia_FreeMany.exit
 
-.lr.ph.preheader.i106:                            ; preds = %58
+.lr.ph.preheader.i106:                            ; preds = %57
   %wide.trip.count.i107 = zext nneg i32 %1 to i64
   br label %.lr.ph.i108
 
 .lr.ph.i108:                                      ; preds = %Gia_ManStopP.exit.i110, %.lr.ph.preheader.i106
   %indvars.iv.i109 = phi i64 [ 0, %.lr.ph.preheader.i106 ], [ %indvars.iv.next.i111, %Gia_ManStopP.exit.i110 ]
-  %60 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv.i109
-  %61 = load ptr, ptr %60, align 8
-  %62 = icmp eq ptr %61, null
-  br i1 %62, label %Gia_ManStopP.exit.i110, label %63
+  %59 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv.i109
+  %60 = load ptr, ptr %59, align 8
+  %61 = icmp eq ptr %60, null
+  br i1 %61, label %Gia_ManStopP.exit.i110, label %62
 
-63:                                               ; preds = %.lr.ph.i108
-  tail call void @Gia_ManStop(ptr noundef nonnull %61)
-  store ptr null, ptr %60, align 8
+62:                                               ; preds = %.lr.ph.i108
+  tail call void @Gia_ManStop(ptr noundef nonnull %60)
+  store ptr null, ptr %59, align 8
   br label %Gia_ManStopP.exit.i110
 
-Gia_ManStopP.exit.i110:                           ; preds = %63, %.lr.ph.i108
+Gia_ManStopP.exit.i110:                           ; preds = %62, %.lr.ph.i108
   %indvars.iv.next.i111 = add nuw nsw i64 %indvars.iv.i109, 1
   %exitcond.not.i112 = icmp eq i64 %indvars.iv.next.i111, %wide.trip.count.i107
   br i1 %exitcond.not.i112, label %Gia_FreeMany.exit, label %.lr.ph.i108, !llvm.loop !102
 
-64:                                               ; preds = %55
-  %fputc = tail call i32 @fputc(i32 10, ptr nonnull %56)
+63:                                               ; preds = %54
+  %fputc = tail call i32 @fputc(i32 10, ptr nonnull %55)
   br i1 %5, label %.lr.ph135.preheader, label %._crit_edge
 
-.lr.ph135.preheader:                              ; preds = %64
+.lr.ph135.preheader:                              ; preds = %63
   %wide.trip.count163 = zext nneg i32 %1 to i64
   br label %.lr.ph135
 
 .lr.ph135:                                        ; preds = %.lr.ph135.preheader, %.lr.ph135
   %indvars.iv160 = phi i64 [ 0, %.lr.ph135.preheader ], [ %indvars.iv.next161, %.lr.ph135 ]
-  %65 = getelementptr inbounds [16 x ptr], ptr %4, i64 0, i64 %indvars.iv160
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 8
-  %68 = load ptr, ptr %67, align 8
-  %69 = tail call ptr @Extra_FileNameGenericAppend(ptr noundef %68, ptr noundef nonnull @.str.167) #26
-  %70 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %56, ptr noundef nonnull @.str.166, ptr noundef %69) #26
+  %64 = getelementptr inbounds [16 x ptr], ptr %4, i64 0, i64 %indvars.iv160
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds i8, ptr %65, i64 8
+  %67 = load ptr, ptr %66, align 8
+  %68 = tail call ptr @Extra_FileNameGenericAppend(ptr noundef %67, ptr noundef nonnull @.str.167) #26
+  %69 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %55, ptr noundef nonnull @.str.166, ptr noundef %68) #26
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
   %exitcond164.not = icmp eq i64 %indvars.iv.next161, %wide.trip.count163
   br i1 %exitcond164.not, label %._crit_edge, label %.lr.ph135, !llvm.loop !105
 
-._crit_edge:                                      ; preds = %.lr.ph135, %64
-  %fputc77 = tail call i32 @fputc(i32 10, ptr nonnull %56)
-  %71 = tail call i64 @fwrite(ptr nonnull @.str.168, i64 29, i64 1, ptr nonnull %56)
-  %72 = load ptr, ptr %4, align 16
-  %73 = getelementptr i8, ptr %72, i64 16
-  %.val80 = load i32, ptr %73, align 8
-  %74 = getelementptr i8, ptr %72, i64 64
-  %.val81 = load ptr, ptr %74, align 8
-  %75 = getelementptr i8, ptr %.val81, i64 4
-  %.val81.val = load i32, ptr %75, align 4
-  %76 = xor i32 %.val80, -1
-  %77 = add i32 %.val81.val, %76
-  %78 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %56, ptr noundef nonnull @.str.169, i32 noundef %77) #26
-  %79 = sext i32 %7 to i64
-  %80 = getelementptr inbounds [16 x ptr], ptr %4, i64 0, i64 %79
-  %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr i8, ptr %81, i64 16
-  %.val86 = load i32, ptr %82, align 8
-  %83 = getelementptr i8, ptr %81, i64 72
-  %.val87 = load ptr, ptr %83, align 8
-  %84 = getelementptr i8, ptr %.val87, i64 4
-  %.val87.val = load i32, ptr %84, align 4
-  %85 = xor i32 %.val86, -1
-  %86 = add i32 %.val87.val, %85
-  %87 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %56, ptr noundef nonnull @.str.170, i32 noundef %86) #26
-  %.val = load i32, ptr %73, align 8
-  %.val79 = load ptr, ptr %74, align 8
-  %88 = getelementptr i8, ptr %.val79, i64 4
-  %.val79.val = load i32, ptr %88, align 4
-  %89 = xor i32 %.val, -1
-  %90 = add i32 %.val79.val, %89
-  %91 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %56, ptr noundef nonnull @.str.171, i32 noundef %90) #26
+._crit_edge:                                      ; preds = %.lr.ph135, %63
+  %fputc77 = tail call i32 @fputc(i32 10, ptr nonnull %55)
+  %70 = tail call i64 @fwrite(ptr nonnull @.str.168, i64 29, i64 1, ptr nonnull %55)
+  %71 = load ptr, ptr %4, align 16
+  %72 = getelementptr i8, ptr %71, i64 16
+  %.val80 = load i32, ptr %72, align 8
+  %73 = getelementptr i8, ptr %71, i64 64
+  %.val81 = load ptr, ptr %73, align 8
+  %74 = getelementptr i8, ptr %.val81, i64 4
+  %.val81.val = load i32, ptr %74, align 4
+  %75 = xor i32 %.val80, -1
+  %76 = add i32 %.val81.val, %75
+  %77 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %55, ptr noundef nonnull @.str.169, i32 noundef %76) #26
+  %78 = sext i32 %7 to i64
+  %79 = getelementptr inbounds [16 x ptr], ptr %4, i64 0, i64 %78
+  %80 = load ptr, ptr %79, align 8
+  %81 = getelementptr i8, ptr %80, i64 16
+  %.val86 = load i32, ptr %81, align 8
+  %82 = getelementptr i8, ptr %80, i64 72
+  %.val87 = load ptr, ptr %82, align 8
+  %83 = getelementptr i8, ptr %.val87, i64 4
+  %.val87.val = load i32, ptr %83, align 4
+  %84 = xor i32 %.val86, -1
+  %85 = add i32 %.val87.val, %84
+  %86 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %55, ptr noundef nonnull @.str.170, i32 noundef %85) #26
+  %.val = load i32, ptr %72, align 8
+  %.val79 = load ptr, ptr %73, align 8
+  %87 = getelementptr i8, ptr %.val79, i64 4
+  %.val79.val = load i32, ptr %87, align 4
+  %88 = xor i32 %.val, -1
+  %89 = add i32 %.val79.val, %88
+  %90 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %55, ptr noundef nonnull @.str.171, i32 noundef %89) #26
   br i1 %5, label %.lr.ph141.preheader, label %Gia_FreeMany.exit124.critedge
 
 .lr.ph141.preheader:                              ; preds = %._crit_edge
@@ -12490,74 +12487,74 @@ Gia_ManStopP.exit.i110:                           ; preds = %63, %.lr.ph.i108
 
 .lr.ph141:                                        ; preds = %.lr.ph141.preheader, %._crit_edge138
   %indvars.iv166 = phi i64 [ 0, %.lr.ph141.preheader ], [ %indvars.iv.next167, %._crit_edge138 ]
-  %92 = getelementptr inbounds [16 x ptr], ptr %4, i64 0, i64 %indvars.iv166
-  %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr i8, ptr %93, i64 16
-  %.val84 = load i32, ptr %94, align 8
-  %95 = getelementptr i8, ptr %93, i64 72
-  %.val85 = load ptr, ptr %95, align 8
-  %96 = getelementptr i8, ptr %.val85, i64 4
-  %.val85.val = load i32, ptr %96, align 4
-  %97 = xor i32 %.val84, -1
-  %98 = add i32 %.val85.val, %97
+  %91 = getelementptr inbounds [16 x ptr], ptr %4, i64 0, i64 %indvars.iv166
+  %92 = load ptr, ptr %91, align 8
+  %93 = getelementptr i8, ptr %92, i64 16
+  %.val84 = load i32, ptr %93, align 8
+  %94 = getelementptr i8, ptr %92, i64 72
+  %.val85 = load ptr, ptr %94, align 8
+  %95 = getelementptr i8, ptr %.val85, i64 4
+  %.val85.val = load i32, ptr %95, align 4
+  %96 = xor i32 %.val84, -1
+  %97 = add i32 %.val85.val, %96
   %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
   %indvars = trunc i64 %indvars.iv.next167 to i32
-  %99 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %56, ptr noundef nonnull @.str.172, i32 noundef %98, i32 noundef %indvars) #26
-  %100 = load ptr, ptr %93, align 8
-  %101 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %100) #27
-  %102 = trunc i64 %101 to i32
-  %103 = icmp sgt i32 %102, 0
-  br i1 %103, label %.lr.ph.i114, label %Gia_ManDumpModuleName.exit
+  %98 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %55, ptr noundef nonnull @.str.172, i32 noundef %97, i32 noundef %indvars) #26
+  %99 = load ptr, ptr %92, align 8
+  %100 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %99) #27
+  %101 = trunc i64 %100 to i32
+  %102 = icmp sgt i32 %101, 0
+  br i1 %102, label %.lr.ph.i114, label %Gia_ManDumpModuleName.exit
 
 .lr.ph.i114:                                      ; preds = %.lr.ph141
-  %104 = tail call ptr @__ctype_b_loc() #29
-  br label %105
+  %103 = tail call ptr @__ctype_b_loc() #29
+  br label %104
 
-105:                                              ; preds = %105, %.lr.ph.i114
-  %indvars.iv.i115 = phi i64 [ 0, %.lr.ph.i114 ], [ %indvars.iv.next.i116, %105 ]
-  %106 = load ptr, ptr %104, align 8
-  %107 = getelementptr inbounds i8, ptr %100, i64 %indvars.iv.i115
-  %108 = load i8, ptr %107, align 1
-  %109 = sext i8 %108 to i64
-  %110 = getelementptr inbounds i16, ptr %106, i64 %109
-  %111 = load i16, ptr %110, align 2
-  %112 = and i16 %111, 3072
-  %or.cond.i = icmp eq i16 %112, 0
-  %113 = sext i8 %108 to i32
-  %.sink.i = select i1 %or.cond.i, i32 95, i32 %113
-  %fputc11.i = tail call i32 @fputc(i32 %.sink.i, ptr nonnull %56)
+104:                                              ; preds = %104, %.lr.ph.i114
+  %indvars.iv.i115 = phi i64 [ 0, %.lr.ph.i114 ], [ %indvars.iv.next.i116, %104 ]
+  %105 = load ptr, ptr %103, align 8
+  %106 = getelementptr inbounds i8, ptr %99, i64 %indvars.iv.i115
+  %107 = load i8, ptr %106, align 1
+  %108 = sext i8 %107 to i64
+  %109 = getelementptr inbounds i16, ptr %105, i64 %108
+  %110 = load i16, ptr %109, align 2
+  %111 = and i16 %110, 3072
+  %or.cond.i = icmp eq i16 %111, 0
+  %112 = sext i8 %107 to i32
+  %.sink.i = select i1 %or.cond.i, i32 95, i32 %112
+  %fputc11.i = tail call i32 @fputc(i32 %.sink.i, ptr nonnull %55)
   %indvars.iv.next.i116 = add nuw nsw i64 %indvars.iv.i115, 1
-  %114 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %100) #27
-  %sext.i = shl i64 %114, 32
-  %115 = ashr exact i64 %sext.i, 32
-  %116 = icmp slt i64 %indvars.iv.next.i116, %115
-  br i1 %116, label %105, label %Gia_ManDumpModuleName.exit, !llvm.loop !60
+  %113 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %99) #27
+  %sext.i = shl i64 %113, 32
+  %114 = ashr exact i64 %sext.i, 32
+  %115 = icmp slt i64 %indvars.iv.next.i116, %114
+  br i1 %115, label %104, label %Gia_ManDumpModuleName.exit, !llvm.loop !60
 
-Gia_ManDumpModuleName.exit:                       ; preds = %105, %.lr.ph141
-  %117 = tail call i64 @fwrite(ptr nonnull @.str.92, i64 8, i64 1, ptr nonnull %56)
-  %118 = load ptr, ptr %93, align 8
-  %119 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %118) #27
-  %120 = trunc i64 %119 to i32
-  %121 = icmp slt i32 %120, 24
-  br i1 %121, label %.lr.ph137, label %._crit_edge138
+Gia_ManDumpModuleName.exit:                       ; preds = %104, %.lr.ph141
+  %116 = tail call i64 @fwrite(ptr nonnull @.str.92, i64 8, i64 1, ptr nonnull %55)
+  %117 = load ptr, ptr %92, align 8
+  %118 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %117) #27
+  %119 = trunc i64 %118 to i32
+  %120 = icmp slt i32 %119, 24
+  br i1 %120, label %.lr.ph137, label %._crit_edge138
 
 .lr.ph137:                                        ; preds = %Gia_ManDumpModuleName.exit, %.lr.ph137
-  %.0136 = phi i32 [ %122, %.lr.ph137 ], [ %120, %Gia_ManDumpModuleName.exit ]
-  %fputc78 = tail call i32 @fputc(i32 32, ptr nonnull %56)
-  %122 = add i32 %.0136, 1
-  %exitcond165.not = icmp eq i32 %122, 24
+  %.0136 = phi i32 [ %121, %.lr.ph137 ], [ %119, %Gia_ManDumpModuleName.exit ]
+  %fputc78 = tail call i32 @fputc(i32 32, ptr nonnull %55)
+  %121 = add i32 %.0136, 1
+  %exitcond165.not = icmp eq i32 %121, 24
   br i1 %exitcond165.not, label %._crit_edge138, label %.lr.ph137, !llvm.loop !106
 
 ._crit_edge138:                                   ; preds = %.lr.ph137, %Gia_ManDumpModuleName.exit
-  %123 = trunc nuw nsw i64 %indvars.iv166 to i32
-  %124 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %56, ptr noundef nonnull @.str.173, i32 noundef %indvars, i32 noundef %123, i32 noundef %indvars) #26
+  %122 = trunc nuw nsw i64 %indvars.iv166 to i32
+  %123 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %55, ptr noundef nonnull @.str.173, i32 noundef %indvars, i32 noundef %122, i32 noundef %indvars) #26
   %exitcond170.not = icmp eq i64 %indvars.iv.next167, %wide.trip.count169
   br i1 %exitcond170.not, label %._crit_edge142, label %.lr.ph141, !llvm.loop !107
 
 ._crit_edge142:                                   ; preds = %._crit_edge138
-  %125 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %56, ptr noundef nonnull @.str.174, i32 noundef %1) #26
-  %126 = tail call i64 @fwrite(ptr nonnull @.str.175, i64 10, i64 1, ptr nonnull %56)
-  %127 = tail call i32 @fclose(ptr noundef nonnull %56)
+  %124 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %55, ptr noundef nonnull @.str.174, i32 noundef %1) #26
+  %125 = tail call i64 @fwrite(ptr nonnull @.str.175, i64 10, i64 1, ptr nonnull %55)
+  %126 = tail call i32 @fclose(ptr noundef nonnull %55)
   br i1 %5, label %.lr.ph145.preheader, label %Gia_FreeMany.exit124
 
 .lr.ph145.preheader:                              ; preds = %._crit_edge142
@@ -12566,15 +12563,15 @@ Gia_ManDumpModuleName.exit:                       ; preds = %105, %.lr.ph141
 
 .lr.ph145:                                        ; preds = %.lr.ph145.preheader, %.lr.ph145
   %indvars.iv171 = phi i64 [ 0, %.lr.ph145.preheader ], [ %indvars.iv.next172, %.lr.ph145 ]
-  %128 = getelementptr inbounds [16 x ptr], ptr %4, i64 0, i64 %indvars.iv171
-  %129 = load ptr, ptr %128, align 8
-  %130 = getelementptr inbounds i8, ptr %129, i64 8
-  %131 = load ptr, ptr %130, align 8
-  %132 = tail call ptr @Extra_FileNameGenericAppend(ptr noundef %131, ptr noundef nonnull @.str.167) #26
-  tail call void @Gia_ManDumpInterface(ptr noundef %129, ptr noundef %132)
-  %133 = load ptr, ptr %130, align 8
-  %134 = tail call ptr @Extra_FileNameGenericAppend(ptr noundef %133, ptr noundef nonnull @.str.167) #26
-  %135 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.176, ptr noundef %134)
+  %127 = getelementptr inbounds [16 x ptr], ptr %4, i64 0, i64 %indvars.iv171
+  %128 = load ptr, ptr %127, align 8
+  %129 = getelementptr inbounds i8, ptr %128, i64 8
+  %130 = load ptr, ptr %129, align 8
+  %131 = tail call ptr @Extra_FileNameGenericAppend(ptr noundef %130, ptr noundef nonnull @.str.167) #26
+  tail call void @Gia_ManDumpInterface(ptr noundef %128, ptr noundef %131)
+  %132 = load ptr, ptr %129, align 8
+  %133 = tail call ptr @Extra_FileNameGenericAppend(ptr noundef %132, ptr noundef nonnull @.str.167) #26
+  %134 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.176, ptr noundef %133)
   %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 1
   %exitcond176.not = icmp eq i64 %indvars.iv.next172, %wide.trip.count175
   br i1 %exitcond176.not, label %._crit_edge146, label %.lr.ph145, !llvm.loop !108
@@ -12588,32 +12585,32 @@ Gia_ManDumpModuleName.exit:                       ; preds = %105, %.lr.ph141
 
 .lr.ph.i119:                                      ; preds = %Gia_ManStopP.exit.i121, %.lr.ph.preheader.i117
   %indvars.iv.i120 = phi i64 [ 0, %.lr.ph.preheader.i117 ], [ %indvars.iv.next.i122, %Gia_ManStopP.exit.i121 ]
-  %136 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv.i120
-  %137 = load ptr, ptr %136, align 8
-  %138 = icmp eq ptr %137, null
-  br i1 %138, label %Gia_ManStopP.exit.i121, label %139
+  %135 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv.i120
+  %136 = load ptr, ptr %135, align 8
+  %137 = icmp eq ptr %136, null
+  br i1 %137, label %Gia_ManStopP.exit.i121, label %138
 
-139:                                              ; preds = %.lr.ph.i119
-  tail call void @Gia_ManStop(ptr noundef nonnull %137)
-  store ptr null, ptr %136, align 8
+138:                                              ; preds = %.lr.ph.i119
+  tail call void @Gia_ManStop(ptr noundef nonnull %136)
+  store ptr null, ptr %135, align 8
   br label %Gia_ManStopP.exit.i121
 
-Gia_ManStopP.exit.i121:                           ; preds = %139, %.lr.ph.i119
+Gia_ManStopP.exit.i121:                           ; preds = %138, %.lr.ph.i119
   %indvars.iv.next.i122 = add nuw nsw i64 %indvars.iv.i120, 1
   %exitcond.not.i123 = icmp eq i64 %indvars.iv.next.i122, %wide.trip.count.i118
   br i1 %exitcond.not.i123, label %Gia_FreeMany.exit124, label %.lr.ph.i119, !llvm.loop !102
 
 Gia_FreeMany.exit124.critedge:                    ; preds = %._crit_edge
-  %140 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %56, ptr noundef nonnull @.str.174, i32 noundef %1) #26
-  %141 = tail call i64 @fwrite(ptr nonnull @.str.175, i64 10, i64 1, ptr nonnull %56)
-  %142 = tail call i32 @fclose(ptr noundef nonnull %56)
+  %139 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %55, ptr noundef nonnull @.str.174, i32 noundef %1) #26
+  %140 = tail call i64 @fwrite(ptr nonnull @.str.175, i64 10, i64 1, ptr nonnull %55)
+  %141 = tail call i32 @fclose(ptr noundef nonnull %55)
   br label %Gia_FreeMany.exit124
 
 Gia_FreeMany.exit124:                             ; preds = %Gia_ManStopP.exit.i121, %Gia_FreeMany.exit124.critedge, %._crit_edge142, %._crit_edge146
-  %143 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.177, ptr noundef %2)
+  %142 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.177, ptr noundef %2)
   br label %Gia_FreeMany.exit
 
-Gia_FreeMany.exit:                                ; preds = %Gia_ManStopP.exit.i102, %Gia_ManStopP.exit.i110, %Gia_ManStopP.exit.i94, %Gia_ManStopP.exit.i, %58, %45, %Gia_FreeMany.exit124
+Gia_FreeMany.exit:                                ; preds = %Gia_ManStopP.exit.i102, %Gia_ManStopP.exit.i110, %Gia_ManStopP.exit.i94, %Gia_ManStopP.exit.i, %57, %Gia_FreeMany.exit124
   ret void
 }
 

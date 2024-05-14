@@ -391,7 +391,7 @@ define void @_ZN5faiss13IndexFastScan3addElPKf(ptr noundef nonnull align 8 deref
 
 19:                                               ; preds = %15
   invoke void @__cxa_throw(ptr nonnull %18, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #25
-          to label %101 unwind label %20
+          to label %100 unwind label %20
 
 20:                                               ; preds = %19, %13, %9
   %21 = landingpad { ptr, i32 }
@@ -407,11 +407,11 @@ define void @_ZN5faiss13IndexFastScan3addElPKf(ptr noundef nonnull align 8 deref
 24:                                               ; preds = %22, %20
   %.pn = phi { ptr, i32 } [ %21, %20 ], [ %23, %22 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
-  br label %100
+  br label %99
 
 25:                                               ; preds = %3
   %26 = icmp sgt i64 %1, 65536
-  br i1 %26, label %.preheader, label %45
+  br i1 %26, label %.preheader, label %44
 
 .preheader:                                       ; preds = %25
   %27 = getelementptr inbounds i8, ptr %0, i64 24
@@ -421,146 +421,144 @@ define void @_ZN5faiss13IndexFastScan3addElPKf(ptr noundef nonnull align 8 deref
 29:                                               ; preds = %.preheader, %35
   %.02043 = phi i64 [ 0, %.preheader ], [ %30, %35 ]
   %30 = add nuw nsw i64 %.02043, 65536
-  %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %30, i64 %1)
   %31 = load i8, ptr %27, align 8
   %32 = trunc i8 %31 to i1
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %29
-  %34 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i64 noundef %.sroa.speculated, i64 noundef %1)
+  %34 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i64 noundef %30, i64 noundef %1)
   br label %35
 
 35:                                               ; preds = %33, %29
-  %36 = sub nsw i64 %.sroa.speculated, %.02043
-  %37 = load i32, ptr %28, align 8
-  %38 = sext i32 %37 to i64
-  %39 = mul nsw i64 %.02043, %38
-  %40 = getelementptr inbounds float, ptr %2, i64 %39
-  %41 = load ptr, ptr %0, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 24
-  %43 = load ptr, ptr %42, align 8
-  tail call void %43(ptr noundef nonnull align 8 dereferenceable(136) %0, i64 noundef %36, ptr noundef %40)
-  %44 = icmp slt i64 %30, %1
-  br i1 %44, label %29, label %.loopexit, !llvm.loop !5
+  %36 = load i32, ptr %28, align 8
+  %37 = sext i32 %36 to i64
+  %38 = mul nsw i64 %.02043, %37
+  %39 = getelementptr inbounds float, ptr %2, i64 %38
+  %40 = load ptr, ptr %0, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 24
+  %42 = load ptr, ptr %41, align 8
+  tail call void %42(ptr noundef nonnull align 8 dereferenceable(136) %0, i64 noundef 65536, ptr noundef %39)
+  %43 = icmp slt i64 %30, %1
+  br i1 %43, label %29, label %.loopexit, !llvm.loop !5
 
-45:                                               ; preds = %25
+44:                                               ; preds = %25
   tail call void @_ZN5faiss17InterruptCallback5checkEv()
-  %46 = getelementptr inbounds i8, ptr %0, i64 80
-  %47 = load i64, ptr %46, align 8
-  %48 = mul i64 %47, %1
-  %49 = icmp eq i64 %48, 0
-  br i1 %49, label %_ZN5faiss12AlignedTableIhLi32EE14round_capacityEm.exit.i, label %50
+  %45 = getelementptr inbounds i8, ptr %0, i64 80
+  %46 = load i64, ptr %45, align 8
+  %47 = mul i64 %46, %1
+  %48 = icmp eq i64 %47, 0
+  br i1 %48, label %_ZN5faiss12AlignedTableIhLi32EE14round_capacityEm.exit.i, label %49
 
-50:                                               ; preds = %45
-  %51 = icmp ult i64 %48, 256
-  br i1 %51, label %.loopexit.i, label %.preheader.i.i
+49:                                               ; preds = %44
+  %50 = icmp ult i64 %47, 256
+  br i1 %50, label %.loopexit.i, label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %50, %.preheader.i.i
-  %.0.i.i = phi i64 [ %53, %.preheader.i.i ], [ 256, %50 ]
-  %52 = icmp ult i64 %.0.i.i, %48
-  %53 = shl i64 %.0.i.i, 1
-  br i1 %52, label %.preheader.i.i, label %.loopexit.i, !llvm.loop !7
+.preheader.i.i:                                   ; preds = %49, %.preheader.i.i
+  %.0.i.i = phi i64 [ %52, %.preheader.i.i ], [ 256, %49 ]
+  %51 = icmp ult i64 %.0.i.i, %47
+  %52 = shl i64 %.0.i.i, 1
+  br i1 %51, label %.preheader.i.i, label %.loopexit.i, !llvm.loop !7
 
-_ZN5faiss12AlignedTableIhLi32EE14round_capacityEm.exit.i: ; preds = %45
+_ZN5faiss12AlignedTableIhLi32EE14round_capacityEm.exit.i: ; preds = %44
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  br label %59
+  br label %58
 
-.loopexit.i:                                      ; preds = %.preheader.i.i, %50
-  %.07.i.ph.i = phi i64 [ 256, %50 ], [ %.0.i.i, %.preheader.i.i ]
+.loopexit.i:                                      ; preds = %.preheader.i.i, %49
+  %.07.i.ph.i = phi i64 [ 256, %49 ], [ %.0.i.i, %.preheader.i.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %54 = call i32 @posix_memalign(ptr noundef nonnull %4, i64 noundef 32, i64 noundef %.07.i.ph.i) #17
-  %.not1.i.i.i = icmp eq i32 %54, 0
-  br i1 %.not1.i.i.i, label %57, label %55
+  %53 = call i32 @posix_memalign(ptr noundef nonnull %4, i64 noundef 32, i64 noundef %.07.i.ph.i) #17
+  %.not1.i.i.i = icmp eq i32 %53, 0
+  br i1 %.not1.i.i.i, label %56, label %54
 
-55:                                               ; preds = %.loopexit.i
-  %56 = call ptr @__cxa_allocate_exception(i64 8) #17
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %56, align 8
-  call void @__cxa_throw(ptr nonnull %56, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #25
+54:                                               ; preds = %.loopexit.i
+  %55 = call ptr @__cxa_allocate_exception(i64 8) #17
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %55, align 8
+  call void @__cxa_throw(ptr nonnull %55, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #25
   unreachable
 
-57:                                               ; preds = %.loopexit.i
-  %58 = load ptr, ptr %4, align 8
-  br label %59
+56:                                               ; preds = %.loopexit.i
+  %57 = load ptr, ptr %4, align 8
+  br label %58
 
-59:                                               ; preds = %57, %_ZN5faiss12AlignedTableIhLi32EE14round_capacityEm.exit.i
-  %.sroa.0.0 = phi ptr [ null, %_ZN5faiss12AlignedTableIhLi32EE14round_capacityEm.exit.i ], [ %58, %57 ]
+58:                                               ; preds = %56, %_ZN5faiss12AlignedTableIhLi32EE14round_capacityEm.exit.i
+  %.sroa.0.0 = phi ptr [ null, %_ZN5faiss12AlignedTableIhLi32EE14round_capacityEm.exit.i ], [ %57, %56 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %60 = load ptr, ptr %0, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 176
-  %62 = load ptr, ptr %61, align 8
-  invoke void %62(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef %.sroa.0.0, i64 noundef %1, ptr noundef %2)
-          to label %63 unwind label %88
+  %59 = load ptr, ptr %0, align 8
+  %60 = getelementptr inbounds i8, ptr %59, i64 176
+  %61 = load ptr, ptr %60, align 8
+  invoke void %61(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef %.sroa.0.0, i64 noundef %1, ptr noundef %2)
+          to label %62 unwind label %87
 
-63:                                               ; preds = %59
-  %64 = getelementptr inbounds i8, ptr %0, i64 16
-  %65 = load i64, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %0, i64 44
-  %67 = load i32, ptr %66, align 4
-  %68 = sext i32 %67 to i64
-  %69 = add i64 %1, -1
-  %70 = add i64 %69, %65
-  %71 = add i64 %70, %68
-  %72 = urem i64 %71, %68
-  %73 = sub nuw i64 %71, %72
-  %74 = getelementptr inbounds i8, ptr %0, i64 88
-  store i64 %73, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %0, i64 96
-  %76 = load i64, ptr %75, align 8
-  %77 = mul i64 %73, %76
-  %78 = lshr i64 %77, 1
-  %79 = getelementptr inbounds i8, ptr %0, i64 104
-  %80 = getelementptr inbounds i8, ptr %0, i64 120
-  %81 = load i64, ptr %80, align 8
-  %82 = icmp ugt i64 %78, %81
-  br i1 %82, label %83, label %90
+62:                                               ; preds = %58
+  %63 = getelementptr inbounds i8, ptr %0, i64 16
+  %64 = load i64, ptr %63, align 8
+  %65 = getelementptr inbounds i8, ptr %0, i64 44
+  %66 = load i32, ptr %65, align 4
+  %67 = sext i32 %66 to i64
+  %68 = add i64 %1, -1
+  %69 = add i64 %68, %64
+  %70 = add i64 %69, %67
+  %71 = urem i64 %70, %67
+  %72 = sub nuw i64 %70, %71
+  %73 = getelementptr inbounds i8, ptr %0, i64 88
+  store i64 %72, ptr %73, align 8
+  %74 = getelementptr inbounds i8, ptr %0, i64 96
+  %75 = load i64, ptr %74, align 8
+  %76 = mul i64 %72, %75
+  %77 = lshr i64 %76, 1
+  %78 = getelementptr inbounds i8, ptr %0, i64 104
+  %79 = getelementptr inbounds i8, ptr %0, i64 120
+  %80 = load i64, ptr %79, align 8
+  %81 = icmp ugt i64 %77, %80
+  br i1 %81, label %82, label %89
 
-83:                                               ; preds = %63
-  invoke void @_ZN5faiss12AlignedTableIhLi32EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %79, i64 noundef %78)
-          to label %84 unwind label %88
+82:                                               ; preds = %62
+  invoke void @_ZN5faiss12AlignedTableIhLi32EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %78, i64 noundef %77)
+          to label %83 unwind label %87
 
-84:                                               ; preds = %83
-  %85 = load ptr, ptr %79, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 %81
-  %87 = sub nsw i64 %78, %81
-  call void @llvm.memset.p0.i64(ptr align 1 %86, i8 0, i64 %87, i1 false)
-  %.pre = load i64, ptr %64, align 8
-  %.pre44 = load i32, ptr %66, align 4
-  %.pre45 = load i64, ptr %75, align 8
+83:                                               ; preds = %82
+  %84 = load ptr, ptr %78, align 8
+  %85 = getelementptr inbounds i8, ptr %84, i64 %80
+  %86 = sub nsw i64 %77, %80
+  call void @llvm.memset.p0.i64(ptr align 1 %85, i8 0, i64 %86, i1 false)
+  %.pre = load i64, ptr %63, align 8
+  %.pre44 = load i32, ptr %65, align 4
+  %.pre45 = load i64, ptr %74, align 8
   %.pre46 = sext i32 %.pre44 to i64
-  br label %90
+  br label %89
 
-88:                                               ; preds = %90, %83, %59
-  %89 = landingpad { ptr, i32 }
+87:                                               ; preds = %89, %82, %58
+  %88 = landingpad { ptr, i32 }
           cleanup
   call void @free(ptr noundef %.sroa.0.0) #17
-  br label %100
+  br label %99
 
-90:                                               ; preds = %84, %63
-  %.pre-phi = phi i64 [ %.pre46, %84 ], [ %68, %63 ]
-  %91 = phi i64 [ %.pre45, %84 ], [ %76, %63 ]
-  %92 = phi i64 [ %.pre, %84 ], [ %65, %63 ]
-  %93 = getelementptr inbounds i8, ptr %0, i64 56
-  %94 = load i64, ptr %93, align 8
-  %95 = load ptr, ptr %79, align 8
-  %96 = add nsw i64 %92, %1
-  invoke void @_ZN5faiss20pq4_pack_codes_rangeEPKhmmmmmPh(ptr noundef %.sroa.0.0, i64 noundef %94, i64 noundef %92, i64 noundef %96, i64 noundef %.pre-phi, i64 noundef %91, ptr noundef %95)
-          to label %97 unwind label %88
+89:                                               ; preds = %83, %62
+  %.pre-phi = phi i64 [ %.pre46, %83 ], [ %67, %62 ]
+  %90 = phi i64 [ %.pre45, %83 ], [ %75, %62 ]
+  %91 = phi i64 [ %.pre, %83 ], [ %64, %62 ]
+  %92 = getelementptr inbounds i8, ptr %0, i64 56
+  %93 = load i64, ptr %92, align 8
+  %94 = load ptr, ptr %78, align 8
+  %95 = add nsw i64 %91, %1
+  invoke void @_ZN5faiss20pq4_pack_codes_rangeEPKhmmmmmPh(ptr noundef %.sroa.0.0, i64 noundef %93, i64 noundef %91, i64 noundef %95, i64 noundef %.pre-phi, i64 noundef %90, ptr noundef %94)
+          to label %96 unwind label %87
 
-97:                                               ; preds = %90
-  %98 = load i64, ptr %64, align 8
-  %99 = add nsw i64 %98, %1
-  store i64 %99, ptr %64, align 8
+96:                                               ; preds = %89
+  %97 = load i64, ptr %63, align 8
+  %98 = add nsw i64 %97, %1
+  store i64 %98, ptr %63, align 8
   call void @free(ptr noundef %.sroa.0.0) #17
   br label %.loopexit
 
-.loopexit:                                        ; preds = %35, %97
+.loopexit:                                        ; preds = %35, %96
   ret void
 
-100:                                              ; preds = %88, %24
-  %.pn24 = phi { ptr, i32 } [ %89, %88 ], [ %.pn, %24 ]
+99:                                               ; preds = %87, %24
+  %.pn24 = phi { ptr, i32 } [ %88, %87 ], [ %.pn, %24 ]
   resume { ptr, i32 } %.pn24
 
-101:                                              ; preds = %19
+100:                                              ; preds = %19
   unreachable
 }
 

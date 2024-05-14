@@ -50471,9 +50471,9 @@ _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit:       ; preds = %.lr.ph.i, %.prehead
   br label %_ZN6casadi12casadi_clearIdEEvPT_x.exit279
 
 _ZN6casadi12casadi_clearIdEEvPT_x.exit279:        ; preds = %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit.thread, %.lr.ph.preheader.i278
-  %or.cond.i471475481 = phi i1 [ true, %.lr.ph.preheader.i278 ], [ false, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit.thread ], [ false, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit ]
+  %or.cond.i470474480 = phi i1 [ true, %.lr.ph.preheader.i278 ], [ false, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit.thread ], [ false, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit ]
   %22 = phi i1 [ %18, %.lr.ph.preheader.i278 ], [ %9, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit.thread ], [ %18, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit ]
-  %.not.i271470476479 = phi i1 [ true, %.lr.ph.preheader.i278 ], [ %.not.i, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit.thread ], [ %.not.i, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit ]
+  %.not.i271469475478 = phi i1 [ true, %.lr.ph.preheader.i278 ], [ %.not.i, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit.thread ], [ %.not.i, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit ]
   %23 = phi ptr [ %17, %.lr.ph.preheader.i278 ], [ %8, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit.thread ], [ %17, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit ]
   %24 = getelementptr double, ptr %7, i64 %4
   %25 = getelementptr double, ptr %24, i64 %4
@@ -50516,7 +50516,7 @@ _ZN6casadi13casadi_norm_2IdEET_xPKS1_.exit:       ; preds = %.lr.ph.i.i
 
 ._crit_edge:                                      ; preds = %35, %.preheader408
   %40 = icmp ne ptr %0, null
-  %or.cond.i280 = and i1 %40, %.not.i271470476479
+  %or.cond.i280 = and i1 %40, %.not.i271469475478
   br i1 %or.cond.i280, label %41, label %_ZN6casadi15casadi_mv_denseIdEEvPKT_xxS3_PS1_x.exit
 
 41:                                               ; preds = %._crit_edge
@@ -50618,7 +50618,7 @@ _ZN6casadi15casadi_mv_denseIdEEvPKT_xxS3_PS1_x.exit: ; preds = %._crit_edge.us47
   br i1 %exitcond459.not, label %._crit_edge422, label %69, !llvm.loop !230
 
 ._crit_edge422:                                   ; preds = %69, %.preheader405
-  br i1 %or.cond.i471475481, label %.lr.ph.i293, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit300
+  br i1 %or.cond.i470474480, label %.lr.ph.i293, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit300
 
 .lr.ph.i293:                                      ; preds = %._crit_edge422, %.lr.ph.i293
   %.020.i294 = phi i64 [ %77, %.lr.ph.i293 ], [ 0, %._crit_edge422 ]
@@ -50637,7 +50637,7 @@ _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit300:    ; preds = %.lr.ph.i293, %_ZN6c
   %.0255390 = phi double [ %66, %.loopexit406 ], [ %66, %._crit_edge422 ], [ 0.000000e+00, %_ZN6casadi13casadi_norm_2IdEET_xPKS1_.exit ], [ 0.000000e+00, %_ZN6casadi12casadi_clearIdEEvPT_x.exit279 ], [ 0.000000e+00, %_ZN6casadi15casadi_mv_denseIdEEvPKT_xxS3_PS1_x.exit ], [ %66, %.lr.ph.i293 ]
   %.not269.not = icmp eq i64 %2, 0
   %79 = icmp ne ptr %0, null
-  %or.cond.i301 = and i1 %79, %.not.i271470476479
+  %or.cond.i301 = and i1 %79, %.not.i271469475478
   %or.cond59.i304 = and i1 %27, %22
   %80 = icmp slt i64 %4, 1
   %81 = insertelement <2 x double> poison, double %78, i64 0
@@ -50645,7 +50645,7 @@ _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit300:    ; preds = %.lr.ph.i293, %_ZN6c
   %83 = getelementptr double, ptr %7, i64 %4
   br label %84
 
-84:                                               ; preds = %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit300, %_ZN6casadi13casadi_norm_2IdEET_xPKS1_.exit369
+84:                                               ; preds = %_ZN6casadi13casadi_norm_2IdEET_xPKS1_.exit369, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit300
   %.0259 = phi double [ %78, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit300 ], [ %211, %_ZN6casadi13casadi_norm_2IdEET_xPKS1_.exit369 ]
   %.0258 = phi double [ %.0255390, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit300 ], [ %209, %_ZN6casadi13casadi_norm_2IdEET_xPKS1_.exit369 ]
   %.1256 = phi double [ %.0255390, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit300 ], [ %.2257, %_ZN6casadi13casadi_norm_2IdEET_xPKS1_.exit369 ]
@@ -51087,39 +51087,39 @@ _ZN6casadi13casadi_norm_2IdEET_xPKS1_.exit369:    ; preds = %.lr.ph.i.i364, %_ZN
   %299 = extractelement <2 x i1> %290, i64 1
   %300 = select i1 %298, i1 %299, i1 false
   %.not270 = select i1 %300, i1 %.not270391392393394395, i1 false
-  br i1 %.not270, label %84, label %split, !llvm.loop !238
+  br i1 %.not270, label %84, label %301, !llvm.loop !238
 
-split:                                            ; preds = %_ZN6casadi13casadi_norm_2IdEET_xPKS1_.exit369
+301:                                              ; preds = %_ZN6casadi13casadi_norm_2IdEET_xPKS1_.exit369
   %.not.i370 = icmp eq ptr %1, null
-  br i1 %.not.i370, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit380, label %301
+  br i1 %.not.i370, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit380, label %302
 
-301:                                              ; preds = %split
+302:                                              ; preds = %301
   br i1 %.not.i, label %.preheader16.i372, label %.preheader.i378
 
-.preheader16.i372:                                ; preds = %301
+.preheader16.i372:                                ; preds = %302
   br i1 %27, label %.lr.ph.i373, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit380
 
-.preheader.i378:                                  ; preds = %301
+.preheader.i378:                                  ; preds = %302
   br i1 %27, label %.lr.ph23.preheader.i379, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit380
 
 .lr.ph23.preheader.i379:                          ; preds = %.preheader.i378
-  %302 = shl nuw i64 %3, 3
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %1, i8 0, i64 %302, i1 false)
+  %303 = shl nuw i64 %3, 3
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %1, i8 0, i64 %303, i1 false)
   br label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit380
 
 .lr.ph.i373:                                      ; preds = %.preheader16.i372, %.lr.ph.i373
-  %.020.i374 = phi i64 [ %306, %.lr.ph.i373 ], [ 0, %.preheader16.i372 ]
-  %.01019.i375 = phi ptr [ %305, %.lr.ph.i373 ], [ %1, %.preheader16.i372 ]
-  %.01218.i376 = phi ptr [ %303, %.lr.ph.i373 ], [ %23, %.preheader16.i372 ]
-  %303 = getelementptr inbounds i8, ptr %.01218.i376, i64 8
-  %304 = load double, ptr %.01218.i376, align 8
-  %305 = getelementptr inbounds i8, ptr %.01019.i375, i64 8
-  store double %304, ptr %.01019.i375, align 8
-  %306 = add nuw nsw i64 %.020.i374, 1
-  %exitcond.not.i377 = icmp eq i64 %306, %3
+  %.020.i374 = phi i64 [ %307, %.lr.ph.i373 ], [ 0, %.preheader16.i372 ]
+  %.01019.i375 = phi ptr [ %306, %.lr.ph.i373 ], [ %1, %.preheader16.i372 ]
+  %.01218.i376 = phi ptr [ %304, %.lr.ph.i373 ], [ %23, %.preheader16.i372 ]
+  %304 = getelementptr inbounds i8, ptr %.01218.i376, i64 8
+  %305 = load double, ptr %.01218.i376, align 8
+  %306 = getelementptr inbounds i8, ptr %.01019.i375, i64 8
+  store double %305, ptr %.01019.i375, align 8
+  %307 = add nuw nsw i64 %.020.i374, 1
+  %exitcond.not.i377 = icmp eq i64 %307, %3
   br i1 %exitcond.not.i377, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit380, label %.lr.ph.i373, !llvm.loop !58
 
-_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit380:    ; preds = %.lr.ph.i373, %split, %.preheader16.i372, %.preheader.i378, %.lr.ph23.preheader.i379
+_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit380:    ; preds = %.lr.ph.i373, %301, %.preheader16.i372, %.preheader.i378, %.lr.ph23.preheader.i379
   ret i32 0
 }
 

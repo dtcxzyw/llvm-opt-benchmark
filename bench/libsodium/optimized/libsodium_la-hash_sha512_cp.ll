@@ -174,10 +174,10 @@ be64dec_vect.exit:                                ; preds = %for.body.i
   %arrayidx22 = getelementptr i8, ptr %S, i64 24
   %arrayidx33 = getelementptr i8, ptr %S, i64 8
   %arrayidx34 = getelementptr i8, ptr %S, i64 16
-  br label %for.body
+  br label %for.cond
 
-for.body:                                         ; preds = %if.end, %be64dec_vect.exit
-  %indvars.iv = phi i64 [ 0, %be64dec_vect.exit ], [ %indvars.iv.next, %if.end ]
+for.cond:                                         ; preds = %if.end, %be64dec_vect.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %if.end ], [ 0, %be64dec_vect.exit ]
   %8 = load i64, ptr %arrayidx, align 8
   %or.i = tail call i64 @llvm.fshl.i64(i64 %8, i64 %8, i64 50)
   %or.i651 = tail call i64 @llvm.fshl.i64(i64 %8, i64 %8, i64 46)
@@ -684,7 +684,7 @@ for.body:                                         ; preds = %if.end, %be64dec_ve
   %cmp778 = icmp eq i64 %indvars.iv, 64
   br i1 %cmp778, label %for.body1549, label %if.end
 
-if.end:                                           ; preds = %for.body
+if.end:                                           ; preds = %for.cond
   %63 = load i64, ptr %arrayidx698, align 8
   %or.i936 = tail call i64 @llvm.fshl.i64(i64 %63, i64 %63, i64 45)
   %or.i939 = tail call i64 @llvm.fshl.i64(i64 %63, i64 %63, i64 3)
@@ -942,19 +942,19 @@ if.end:                                           ; preds = %for.body
   %add1541 = add i64 %add1537, %xor1514
   %arrayidx1545 = getelementptr i8, ptr %arrayidx13, i64 248
   store i64 %add1541, ptr %arrayidx1545, align 8
-  br label %for.body
+  br label %for.cond, !llvm.loop !10
 
-for.body1549:                                     ; preds = %for.body, %for.body1549
-  %indvars.iv1144 = phi i64 [ %indvars.iv.next1145, %for.body1549 ], [ 0, %for.body ]
-  %arrayidx1551 = getelementptr i64, ptr %S, i64 %indvars.iv1144
+for.body1549:                                     ; preds = %for.cond, %for.body1549
+  %indvars.iv1143 = phi i64 [ %indvars.iv.next1144, %for.body1549 ], [ 0, %for.cond ]
+  %arrayidx1551 = getelementptr i64, ptr %S, i64 %indvars.iv1143
   %79 = load i64, ptr %arrayidx1551, align 8
-  %arrayidx1553 = getelementptr i64, ptr %state, i64 %indvars.iv1144
+  %arrayidx1553 = getelementptr i64, ptr %state, i64 %indvars.iv1143
   %80 = load i64, ptr %arrayidx1553, align 8
   %add1554 = add i64 %80, %79
   store i64 %add1554, ptr %arrayidx1553, align 8
-  %indvars.iv.next1145 = add nuw nsw i64 %indvars.iv1144, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next1145, 8
-  br i1 %exitcond.not, label %for.end1556, label %for.body1549, !llvm.loop !10
+  %indvars.iv.next1144 = add nuw nsw i64 %indvars.iv1143, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next1144, 8
+  br i1 %exitcond.not, label %for.end1556, label %for.body1549, !llvm.loop !11
 
 for.end1556:                                      ; preds = %for.body1549
   ret void
@@ -1040,7 +1040,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
   store i8 %conv19.i.i.i, ptr %add.ptr.i.i, align 1
   %inc.i.i = add nuw nsw i64 %i.06.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, 2
-  br i1 %exitcond.not.i.i, label %SHA512_Pad.exit, label %for.body.i.i, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %SHA512_Pad.exit, label %for.body.i.i, !llvm.loop !12
 
 SHA512_Pad.exit:                                  ; preds = %for.body.i.i
   %buf28.i = getelementptr inbounds i8, ptr %state, i64 80
@@ -1086,7 +1086,7 @@ for.body.i:                                       ; preds = %for.body.i, %SHA512
   store i8 %conv19.i.i, ptr %add.ptr.i, align 1
   %inc.i = add nuw nsw i64 %i.06.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 8
-  br i1 %exitcond.not.i, label %be64enc_vect.exit, label %for.body.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %be64enc_vect.exit, label %for.body.i, !llvm.loop !12
 
 be64enc_vect.exit:                                ; preds = %for.body.i
   call void @sodium_memzero(ptr noundef nonnull %tmp64, i64 noundef 704) #7
@@ -1135,3 +1135,4 @@ attributes #7 = { nounwind }
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}

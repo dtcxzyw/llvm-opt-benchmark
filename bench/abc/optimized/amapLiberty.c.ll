@@ -1039,18 +1039,18 @@ Amap_LibertyItem.exit:                            ; preds = %8, %6
   %43 = getelementptr inbounds i8, ptr %.val, i64 36
   %44 = load i32, ptr %43, align 4
   %45 = icmp slt i32 %44, 0
-  %.not217220 = icmp eq ptr %.val, null
-  %.not217 = or i1 %45, %.not217220
-  br i1 %.not217, label %._crit_edge, label %.lr.ph219
+  %.not217219 = icmp eq ptr %.val, null
+  %.not217 = or i1 %45, %.not217219
+  br i1 %.not217, label %._crit_edge, label %.lr.ph
 
-.lr.ph219:                                        ; preds = %Amap_LibertyItem.exit
+.lr.ph:                                           ; preds = %Amap_LibertyItem.exit
   %46 = zext nneg i32 %44 to i64
   %47 = getelementptr inbounds %struct.Amap_Item_t_, ptr %.val, i64 %46
   %.not109 = icmp eq i32 %2, 0
   br label %48
 
-48:                                               ; preds = %.lr.ph219, %Amap_LibertyItem.exit185
-  %.095218 = phi ptr [ %47, %.lr.ph219 ], [ %279, %Amap_LibertyItem.exit185 ]
+48:                                               ; preds = %.lr.ph, %Amap_LibertyItem.exit185
+  %.095218 = phi ptr [ %47, %.lr.ph ], [ %279, %Amap_LibertyItem.exit185 ]
   %49 = getelementptr inbounds i8, ptr %.095218, i64 8
   %50 = load i64, ptr %49, align 4
   %.val118 = load ptr, ptr %23, align 8
@@ -1417,19 +1417,19 @@ Amap_LibertyPinFunction.exit:                     ; preds = %Amap_LibertyItem.ex
 Amap_LibertyItem.exit176:                         ; preds = %201
   %240 = load ptr, ptr %20, align 8
   %.not110213 = icmp eq ptr %240, null
-  br i1 %.not110213, label %.loopexit, label %.lr.ph.preheader
+  br i1 %.not110213, label %.loopexit, label %.lr.ph.i178.preheader
 
-.lr.ph.preheader:                                 ; preds = %Amap_LibertyItem.exit176
+.lr.ph.i178.preheader:                            ; preds = %Amap_LibertyItem.exit176
   %241 = zext nneg i32 %238 to i64
   %242 = getelementptr inbounds %struct.Amap_Item_t_, ptr %240, i64 %241
-  br label %.lr.ph
+  br label %.lr.ph.i178
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %Amap_LibertyItem.exit183
-  %.096214 = phi ptr [ %271, %Amap_LibertyItem.exit183 ], [ %242, %.lr.ph.preheader ]
+.lr.ph.i178:                                      ; preds = %.lr.ph.i178.preheader, %Amap_LibertyItem.exit183
+  %.096214 = phi ptr [ %271, %Amap_LibertyItem.exit183 ], [ %242, %.lr.ph.i178.preheader ]
   br label %243
 
-243:                                              ; preds = %247, %.lr.ph
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.i, %247 ]
+243:                                              ; preds = %247, %.lr.ph.i178
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i178 ], [ %indvars.iv.next.i, %247 ]
   %244 = getelementptr inbounds ptr, ptr %.val120, i64 %indvars.iv.i
   %245 = load ptr, ptr %244, align 8
   %246 = icmp eq ptr %245, %.096214
@@ -1483,7 +1483,7 @@ Amap_LibertyItem.exit183:                         ; preds = %265
   %270 = zext nneg i32 %267 to i64
   %271 = getelementptr inbounds %struct.Amap_Item_t_, ptr %269, i64 %270
   %.not110 = icmp eq ptr %269, null
-  br i1 %.not110, label %.loopexit, label %.lr.ph, !llvm.loop !16
+  br i1 %.not110, label %.loopexit, label %.lr.ph.i178, !llvm.loop !16
 
 .loopexit:                                        ; preds = %265, %Amap_LibertyItem.exit183, %201, %Amap_LibertyItem.exit176, %191, %192
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1550,19 +1550,19 @@ Amap_LibertyItem.exit:
   %8 = getelementptr inbounds i8, ptr %.val, i64 36
   %9 = load i32, ptr %8, align 4
   %10 = icmp slt i32 %9, 0
-  %.not198201 = icmp eq ptr %.val, null
-  %.not198 = or i1 %10, %.not198201
-  br i1 %.not198, label %._crit_edge, label %.lr.ph200
+  %.not198200 = icmp eq ptr %.val, null
+  %.not198 = or i1 %10, %.not198200
+  br i1 %.not198, label %._crit_edge, label %.lr.ph
 
-.lr.ph200:                                        ; preds = %Amap_LibertyItem.exit
+.lr.ph:                                           ; preds = %Amap_LibertyItem.exit
   %11 = zext nneg i32 %9 to i64
   %12 = getelementptr inbounds %struct.Amap_Item_t_, ptr %.val, i64 %11
   %13 = getelementptr i8, ptr %0, i64 8
   %.not93 = icmp eq i32 %1, 0
   br label %14
 
-14:                                               ; preds = %.lr.ph200, %Amap_LibertyItem.exit166
-  %.0199 = phi ptr [ %12, %.lr.ph200 ], [ %241, %Amap_LibertyItem.exit166 ]
+14:                                               ; preds = %.lr.ph, %Amap_LibertyItem.exit166
+  %.0199 = phi ptr [ %12, %.lr.ph ], [ %241, %Amap_LibertyItem.exit166 ]
   %15 = getelementptr inbounds i8, ptr %.0199, i64 8
   %16 = load i64, ptr %15, align 4
   %.val101 = load ptr, ptr %13, align 8
@@ -1934,19 +1934,19 @@ Amap_LibertyPinFunction.exit:                     ; preds = %Amap_LibertyItem.ex
 Amap_LibertyItem.exit157:                         ; preds = %167
   %202 = load ptr, ptr %7, align 8
   %.not94194 = icmp eq ptr %202, null
-  br i1 %.not94194, label %.loopexit, label %.lr.ph.preheader
+  br i1 %.not94194, label %.loopexit, label %.lr.ph.i159.preheader
 
-.lr.ph.preheader:                                 ; preds = %Amap_LibertyItem.exit157
+.lr.ph.i159.preheader:                            ; preds = %Amap_LibertyItem.exit157
   %203 = zext nneg i32 %200 to i64
   %204 = getelementptr inbounds %struct.Amap_Item_t_, ptr %202, i64 %203
-  br label %.lr.ph
+  br label %.lr.ph.i159
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %Amap_LibertyItem.exit164
-  %.082195 = phi ptr [ %233, %Amap_LibertyItem.exit164 ], [ %204, %.lr.ph.preheader ]
+.lr.ph.i159:                                      ; preds = %.lr.ph.i159.preheader, %Amap_LibertyItem.exit164
+  %.082195 = phi ptr [ %233, %Amap_LibertyItem.exit164 ], [ %204, %.lr.ph.i159.preheader ]
   br label %205
 
-205:                                              ; preds = %209, %.lr.ph
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.i, %209 ]
+205:                                              ; preds = %209, %.lr.ph.i159
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i159 ], [ %indvars.iv.next.i, %209 ]
   %206 = getelementptr inbounds ptr, ptr %.val103, i64 %indvars.iv.i
   %207 = load ptr, ptr %206, align 8
   %208 = icmp eq ptr %207, %.082195
@@ -2003,7 +2003,7 @@ Amap_LibertyItem.exit164:                         ; preds = %227
   %232 = zext nneg i32 %229 to i64
   %233 = getelementptr inbounds %struct.Amap_Item_t_, ptr %231, i64 %232
   %.not94 = icmp eq ptr %231, null
-  br i1 %.not94, label %.loopexit, label %.lr.ph, !llvm.loop !19
+  br i1 %.not94, label %.loopexit, label %.lr.ph.i159, !llvm.loop !19
 
 .loopexit:                                        ; preds = %227, %Amap_LibertyItem.exit164, %167, %Amap_LibertyItem.exit157, %157, %158
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
