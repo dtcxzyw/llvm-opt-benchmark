@@ -685,7 +685,7 @@ define weak_odr void @_ZNK7mitsuba16StokesIntegratorIfN5drjit6MatrixINS_8Spectru
   %133 = bitcast float %112 to i32
   %134 = and i32 %133, -2147483648
   %135 = bitcast float %132 to i32
-  %136 = or i32 %134, %135
+  %136 = or disjoint i32 %134, %135
   %137 = bitcast i32 %136 to float
   %138 = fmul contract float %137, 2.000000e+00
   %139 = fcmp contract ult float %98, 0.000000e+00

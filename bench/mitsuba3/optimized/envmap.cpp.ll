@@ -2984,7 +2984,7 @@ define weak_odr void @_ZNK7mitsuba21EnvironmentMapEmitterIfN5drjit6MatrixINS_8Sp
   %83 = bitcast float %..i7.i to i32
   %84 = and i32 %83, -2147483648
   %85 = bitcast float %82 to i32
-  %86 = or i32 %84, %85
+  %86 = or disjoint i32 %84, %85
   %87 = bitcast i32 %86 to float
   %88 = fsub contract float 0x3FF921FB60000000, %87
   %89 = select contract i1 %63, float %81, float %88
@@ -4422,7 +4422,7 @@ define weak_odr noundef float @_ZNK7mitsuba21EnvironmentMapEmitterIfN5drjit6Matr
   %59 = and i32 %58, -2147483648
   %60 = tail call contract noundef float @llvm.fabs.f32(float %54)
   %61 = bitcast float %60 to i32
-  %62 = or i32 %59, %61
+  %62 = or disjoint i32 %59, %61
   %63 = bitcast i32 %62 to float
   %64 = fsub contract float 0x3FF921FB60000000, %63
   %65 = select contract i1 %39, float %57, float %64

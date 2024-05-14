@@ -4111,7 +4111,7 @@ sw.bb6:                                           ; preds = %_ZNK18OpenImageIO_v
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %sw.bb6
-  %shr.i.i.i = lshr i32 %4, 16
+  %shr.i.i.i = lshr exact i32 %4, 16
   %conv.i.i.i = trunc nuw i32 %shr.i.i.i to i16
   br label %_ZN18OpenImageIO_v2_6_09DataProxyI4halffEaSEf.exit
 
@@ -4313,8 +4313,8 @@ sw.bb6:                                           ; preds = %_ZNK18OpenImageIO_v
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %sw.bb6
-  %shr.i.i.i = lshr i32 %4, 16
-  %conv.i.i.i = trunc nuw i32 %shr.i.i.i to i16
+  %shr.i.i.i = lshr exact i32 %4, 16
+  %conv.i.i.i = trunc nuw nsw i32 %shr.i.i.i to i16
   br label %_ZN18OpenImageIO_v2_6_09DataProxyI4halfjEaSEj.exit
 
 if.else.i.i.i:                                    ; preds = %sw.bb6

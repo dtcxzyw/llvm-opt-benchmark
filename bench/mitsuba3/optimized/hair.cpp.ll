@@ -2014,7 +2014,7 @@ _ZNSt3__14pairIN7mitsuba11BSDFSample3IfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EE
   %93 = bitcast float %..i7.i to i32
   %94 = and i32 %93, -2147483648
   %95 = bitcast float %92 to i32
-  %96 = or i32 %94, %95
+  %96 = or disjoint i32 %94, %95
   %97 = bitcast i32 %96 to float
   %98 = fsub contract float 0x3FF921FB60000000, %97
   %99 = select contract i1 %73, float %91, float %98
@@ -2485,7 +2485,7 @@ _ZNSt3__14pairIN7mitsuba11BSDFSample3IfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EE
   %480 = bitcast float %..i7.i1006 to i32
   %481 = and i32 %480, -2147483648
   %482 = bitcast float %479 to i32
-  %483 = or i32 %481, %482
+  %483 = or disjoint i32 %481, %482
   %484 = bitcast i32 %483 to float
   %485 = getelementptr inbounds i8, ptr %1, i64 124
   %486 = load float, ptr %485, align 4
@@ -2915,7 +2915,7 @@ define weak_odr noundef float @_ZNK7mitsuba4HairIfN5drjit6MatrixINS_8SpectrumIfL
   %37 = bitcast float %..i7.i to i32
   %38 = and i32 %37, -2147483648
   %39 = bitcast float %36 to i32
-  %40 = or i32 %38, %39
+  %40 = or disjoint i32 %38, %39
   %41 = bitcast i32 %40 to float
   %42 = fsub contract float 0x3FF921FB60000000, %41
   %43 = select contract i1 %17, float %35, float %42
@@ -3020,7 +3020,7 @@ define weak_odr <4 x float> @_ZNK7mitsuba4HairIfN5drjit6MatrixINS_8SpectrumIfLm4
   %44 = bitcast float %..i7.i to i32
   %45 = and i32 %44, -2147483648
   %46 = bitcast float %43 to i32
-  %47 = or i32 %45, %46
+  %47 = or disjoint i32 %45, %46
   %48 = bitcast i32 %47 to float
   %49 = fsub contract float 0x3FF921FB60000000, %48
   %50 = select contract i1 %24, float %42, float %49
@@ -3760,7 +3760,7 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   %75 = bitcast float %..i7.i to i32
   %76 = and i32 %75, -2147483648
   %77 = bitcast float %74 to i32
-  %78 = or i32 %76, %77
+  %78 = or disjoint i32 %76, %77
   %79 = bitcast i32 %78 to float
   %80 = fsub contract float 0x3FF921FB60000000, %79
   %81 = select contract i1 %55, float %73, float %80
@@ -3961,7 +3961,7 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   %267 = bitcast float %..i7.i392 to i32
   %268 = and i32 %267, -2147483648
   %269 = bitcast float %266 to i32
-  %270 = or i32 %268, %269
+  %270 = or disjoint i32 %268, %269
   %271 = bitcast i32 %270 to float
   %272 = getelementptr inbounds i8, ptr %1, i64 80
   %273 = load i8, ptr %272, align 8
@@ -4550,7 +4550,7 @@ _ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit: ; preds = %5
   %53 = bitcast float %..i7.i to i32
   %54 = and i32 %53, -2147483648
   %55 = bitcast float %52 to i32
-  %56 = or i32 %54, %55
+  %56 = or disjoint i32 %54, %55
   %57 = bitcast i32 %56 to float
   %58 = fsub contract float 0x3FF921FB60000000, %57
   %59 = select contract i1 %33, float %51, float %58
@@ -4735,7 +4735,7 @@ _ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit: ; preds = %5
   %231 = bitcast float %..i7.i163 to i32
   %232 = and i32 %231, -2147483648
   %233 = bitcast float %230 to i32
-  %234 = or i32 %232, %233
+  %234 = or disjoint i32 %232, %233
   %235 = bitcast i32 %234 to float
   %236 = tail call <4 x float> @_ZNK7mitsuba4HairIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE15attenuation_pdfEfRKNS_18SurfaceInteractionIfS5_EEb(ptr noundef nonnull align 8 dereferenceable(152) %0, float noundef %204, ptr noundef nonnull align 16 dereferenceable(240) %2, i1 noundef zeroext true)
   store <4 x float> %236, ptr %6, align 16
@@ -4959,7 +4959,7 @@ _ZNSt3__14pairIN5drjit6MatrixIN7mitsuba8SpectrumIfLm4EEELm4EEEfEC2B8ne190000IffT
   %78 = bitcast float %..i7.i to i32
   %79 = and i32 %78, -2147483648
   %80 = bitcast float %77 to i32
-  %81 = or i32 %79, %80
+  %81 = or disjoint i32 %79, %80
   %82 = bitcast i32 %81 to float
   %83 = fsub contract float 0x3FF921FB60000000, %82
   %84 = select contract i1 %58, float %76, float %83
@@ -5160,7 +5160,7 @@ _ZNSt3__14pairIN5drjit6MatrixIN7mitsuba8SpectrumIfLm4EEELm4EEEfEC2B8ne190000IffT
   %270 = bitcast float %..i7.i408 to i32
   %271 = and i32 %270, -2147483648
   %272 = bitcast float %269 to i32
-  %273 = or i32 %271, %272
+  %273 = or disjoint i32 %271, %272
   %274 = bitcast i32 %273 to float
   %275 = getelementptr inbounds i8, ptr %1, i64 80
   %276 = load i8, ptr %275, align 8

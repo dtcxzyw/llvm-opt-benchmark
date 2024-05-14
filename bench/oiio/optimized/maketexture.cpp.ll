@@ -61998,7 +61998,7 @@ if.else13.i.us.us:                                ; preds = %if.else.i.us.us
           to label %invoke.cont50.us.us unwind label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit.loopexit.split.us.split.us
 
 if.then.i.us.us:                                  ; preds = %for.body48.us.us
-  %shr.i.us.us = lshr i32 %26, 16
+  %shr.i.us.us = lshr exact i32 %26, 16
   %conv.i.us.us = trunc nuw i32 %shr.i.us.us to i16
   br label %invoke.cont50.us.us
 

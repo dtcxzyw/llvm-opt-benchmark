@@ -3920,7 +3920,7 @@ define linkonce_odr hidden void @_ZN7mitsuba7mueller20rotate_mueller_basisINS_6V
   %83 = bitcast float %62 to i32
   %84 = and i32 %83, -2147483648
   %85 = bitcast float %82 to i32
-  %86 = or i32 %84, %85
+  %86 = or disjoint i32 %84, %85
   %87 = bitcast i32 %86 to float
   %88 = fmul contract float %87, 2.000000e+00
   %89 = fcmp contract ult float %48, 0.000000e+00
@@ -4034,7 +4034,7 @@ _ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb
   %172 = bitcast float %151 to i32
   %173 = and i32 %172, -2147483648
   %174 = bitcast float %171 to i32
-  %175 = or i32 %173, %174
+  %175 = or disjoint i32 %173, %174
   %176 = bitcast i32 %175 to float
   %177 = fmul contract float %176, 2.000000e+00
   %178 = fcmp contract ult float %137, 0.000000e+00

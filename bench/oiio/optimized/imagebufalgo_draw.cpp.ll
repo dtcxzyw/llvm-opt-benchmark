@@ -5900,7 +5900,7 @@ invoke.cont4.i115:                                ; preds = %for.inc.i121, %invo
   br i1 %cmp.i.i.i.i119, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont4.i115
-  %shr.i.i.i.i = lshr i32 %39, 16
+  %shr.i.i.i.i = lshr exact i32 %39, 16
   %conv.i.i.i.i125 = trunc nuw i32 %shr.i.i.i.i to i16
   br label %for.inc.i121
 
@@ -6935,7 +6935,7 @@ if.else13.i.i.i.i.us.i.i:                         ; preds = %if.else.i.i.i.i.us.
           to label %_ZN18OpenImageIO_v2_6_09DataProxyI4halffEaSEf.exit.i.us.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 if.then.i.i.i.i.us.i.i:                           ; preds = %for.body.i.us.i.i124
-  %shr.i.i.i.i.us.i.i = lshr i32 %46, 16
+  %shr.i.i.i.i.us.i.i = lshr exact i32 %46, 16
   %conv.i.i.i.i.us.i.i132 = trunc nuw i32 %shr.i.i.i.i.us.i.i to i16
   br label %_ZN18OpenImageIO_v2_6_09DataProxyI4halffEaSEf.exit.i.us.i.i
 
@@ -7043,7 +7043,7 @@ if.else13.i.i.i.i71.us.i.i:                       ; preds = %if.else.i.i.i.i54.u
           to label %_ZN18OpenImageIO_v2_6_09DataProxyI4halffEaSEf.exit.i67.us.i.i unwind label %lpad.loopexit.i167
 
 if.then.i.i.i.i73.us.i.i:                         ; preds = %for.body.i45.us.i.i163
-  %shr.i.i.i.i74.us.i.i = lshr i32 %56, 16
+  %shr.i.i.i.i74.us.i.i = lshr exact i32 %56, 16
   %conv.i.i.i.i75.us.i.i = trunc nuw i32 %shr.i.i.i.i74.us.i.i to i16
   br label %_ZN18OpenImageIO_v2_6_09DataProxyI4halffEaSEf.exit.i67.us.i.i
 
@@ -48529,7 +48529,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %for.body
-  %shr.i.i = lshr i32 %8, 16
+  %shr.i.i = lshr exact i32 %8, 16
   %conv.i.i = trunc nuw i32 %shr.i.i to i16
   br label %_ZN18OpenImageIO_v2_6_012convert_typeIf4halfEET0_RKT_.exit
 
@@ -50823,7 +50823,7 @@ invoke.cont.i.i.i:                                ; preds = %for.inc.i.i.i, %inv
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont.i.i.i
-  %shr.i.i.i.i.i.i = lshr i32 %32, 16
+  %shr.i.i.i.i.i.i = lshr exact i32 %32, 16
   %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
   br label %for.inc.i.i.i
 
@@ -53213,7 +53213,7 @@ invoke.cont.i.i.i:                                ; preds = %for.inc.i.i.i, %inv
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont.i.i.i
-  %shr.i.i.i.i.i.i = lshr i32 %45, 16
+  %shr.i.i.i.i.i.i = lshr exact i32 %45, 16
   %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
   br label %for.inc.i.i.i
 
@@ -56003,7 +56003,7 @@ invoke.cont.i.i.i:                                ; preds = %for.inc.i.i.i, %inv
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont.i.i.i
-  %shr.i.i.i.i.i.i = lshr i32 %32, 16
+  %shr.i.i.i.i.i.i = lshr exact i32 %32, 16
   %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
   br label %for.inc.i.i.i
 
@@ -56194,7 +56194,7 @@ invoke.cont56.i.i.i:                              ; preds = %for.inc61.i.i.i, %i
   br i1 %cmp.i.i.i52.i.i.i, label %if.then.i.i.i68.i.i.i, label %if.else.i.i.i53.i.i.i
 
 if.then.i.i.i68.i.i.i:                            ; preds = %invoke.cont56.i.i.i
-  %shr.i.i.i69.i.i.i = lshr i32 %71, 16
+  %shr.i.i.i69.i.i.i = lshr exact i32 %71, 16
   %conv.i.i.i70.i.i.i = trunc nuw i32 %shr.i.i.i69.i.i.i to i16
   br label %for.inc61.i.i.i
 
@@ -57424,7 +57424,7 @@ invoke.cont.i.i.i:                                ; preds = %for.inc.i.i.i, %inv
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont.i.i.i
-  %shr.i.i.i.i.i.i = lshr i32 %30, 16
+  %shr.i.i.i.i.i.i = lshr exact i32 %30, 16
   %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
   br label %for.inc.i.i.i
 
@@ -57500,7 +57500,7 @@ invoke.cont41.i.i.i:                              ; preds = %for.inc46.i.i.i, %i
   br i1 %cmp.i.i.i20.i.i.i, label %if.then.i.i.i36.i.i.i, label %if.else.i.i.i21.i.i.i
 
 if.then.i.i.i36.i.i.i:                            ; preds = %invoke.cont41.i.i.i
-  %shr.i.i.i37.i.i.i = lshr i32 %40, 16
+  %shr.i.i.i37.i.i.i = lshr exact i32 %40, 16
   %conv.i.i.i38.i.i.i = trunc nuw i32 %shr.i.i.i37.i.i.i to i16
   br label %for.inc46.i.i.i
 
@@ -58862,7 +58862,7 @@ invoke.cont15.i.i.i:                              ; preds = %_ZN18OpenImageIO_v2
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont15.i.i.i
-  %shr.i.i.i.i.i.i = lshr i32 %43, 16
+  %shr.i.i.i.i.i.i = lshr exact i32 %43, 16
   %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
   br label %for.inc.i.i.i
 
@@ -60099,7 +60099,7 @@ invoke.cont17.i.i.i:                              ; preds = %_ZN18OpenImageIO_v2
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont17.i.i.i
-  %shr.i.i.i.i.i.i = lshr i32 %34, 16
+  %shr.i.i.i.i.i.i = lshr exact i32 %34, 16
   %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
   br label %for.inc.i.i.i
 
@@ -61496,7 +61496,7 @@ invoke.cont24.i.i.i:                              ; preds = %if.end.i.i.i, %lor.
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont24.i.i.i
-  %shr.i.i.i.i.i.i = lshr i32 %37, 16
+  %shr.i.i.i.i.i.i = lshr exact i32 %37, 16
   %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
   br label %for.inc.i.i.i
 
@@ -62806,7 +62806,7 @@ invoke.cont12.i.i.i:                              ; preds = %if.end.i.i.i
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont12.i.i.i
-  %shr.i.i.i.i.i.i = lshr i32 %32, 16
+  %shr.i.i.i.i.i.i = lshr exact i32 %32, 16
   %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
   br label %_ZN18OpenImageIO_v2_6_09DataProxyI4halffEaSEf.exit.i.i.i
 

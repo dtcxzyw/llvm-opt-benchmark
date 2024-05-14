@@ -4524,7 +4524,7 @@ define weak_odr noundef float @_ZNK7mitsuba8MeasuredIfN5drjit6MatrixINS_8Spectru
   %38 = bitcast float %..i7.i to i32
   %39 = and i32 %38, -2147483648
   %40 = bitcast float %37 to i32
-  %41 = or i32 %39, %40
+  %41 = or disjoint i32 %39, %40
   %42 = bitcast i32 %41 to float
   %43 = fmul contract float %42, 2.000000e+00
   ret float %43
@@ -4684,7 +4684,7 @@ _ZNSt3__14pairIN7mitsuba11BSDFSample3IfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EE
   %96 = bitcast float %..i7.i.i to i32
   %97 = and i32 %96, -2147483648
   %98 = bitcast float %95 to i32
-  %99 = or i32 %97, %98
+  %99 = or disjoint i32 %97, %98
   %100 = bitcast i32 %99 to float
   %101 = fmul contract float %100, 2.000000e+00
   %102 = shufflevector <4 x float> %.sroa.0302.0, <4 x float> poison, <2 x i32> <i32 0, i32 1>
@@ -6468,7 +6468,7 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   %139 = select contract i1 %125, float %138, float %136
   %140 = tail call contract noundef float @llvm.fabs.f32(float %139)
   %141 = bitcast float %140 to i32
-  %142 = or i32 %115, %141
+  %142 = or disjoint i32 %115, %141
   %143 = bitcast i32 %142 to float
   %144 = fmul contract float %143, 2.000000e+00
   %145 = extractelement <2 x float> %120, i64 0
@@ -6494,7 +6494,7 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   %165 = bitcast float %..i7.i.i263 to i32
   %166 = and i32 %165, -2147483648
   %167 = bitcast float %164 to i32
-  %168 = or i32 %166, %167
+  %168 = or disjoint i32 %166, %167
   %169 = bitcast i32 %168 to float
   %170 = fmul contract float %169, 2.000000e+00
   %171 = shufflevector <4 x float> %69, <4 x float> poison, <2 x i32> <i32 0, i32 1>
@@ -7478,7 +7478,7 @@ _ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit: ; preds = %5
   %115 = select contract i1 %101, float %114, float %112
   %116 = tail call contract noundef float @llvm.fabs.f32(float %115)
   %117 = bitcast float %116 to i32
-  %118 = or i32 %91, %117
+  %118 = or disjoint i32 %91, %117
   %119 = bitcast i32 %118 to float
   %120 = fmul contract float %119, 2.000000e+00
   %121 = extractelement <2 x float> %96, i64 0
@@ -7504,7 +7504,7 @@ _ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit: ; preds = %5
   %141 = bitcast float %..i7.i.i212 to i32
   %142 = and i32 %141, -2147483648
   %143 = bitcast float %140 to i32
-  %144 = or i32 %142, %143
+  %144 = or disjoint i32 %142, %143
   %145 = bitcast i32 %144 to float
   %146 = fmul contract float %145, 2.000000e+00
   %147 = shufflevector <4 x float> %45, <4 x float> poison, <2 x i32> <i32 0, i32 1>

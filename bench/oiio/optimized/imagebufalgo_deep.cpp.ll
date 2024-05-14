@@ -37158,7 +37158,7 @@ invoke.cont77:                                    ; preds = %invoke.cont77.prehe
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont77
-  %shr.i.i.i = lshr i32 %34, 16
+  %shr.i.i.i = lshr exact i32 %34, 16
   %conv.i.i.i = trunc nuw i32 %shr.i.i.i to i16
   br label %for.inc81
 

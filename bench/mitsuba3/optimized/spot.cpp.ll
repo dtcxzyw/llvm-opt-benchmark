@@ -876,7 +876,7 @@ define weak_odr noundef float @_ZNK7mitsuba9SpotLightIfN5drjit6MatrixINS_8Spectr
   %38 = bitcast float %.sroa.064.8.vec.extract to i32
   %39 = and i32 %38, -2147483648
   %40 = bitcast float %37 to i32
-  %41 = or i32 %39, %40
+  %41 = or disjoint i32 %39, %40
   %42 = bitcast i32 %41 to float
   %43 = fsub contract float 0x3FF921FB60000000, %42
   %44 = select contract i1 %18, float %36, float %43
@@ -1055,7 +1055,7 @@ define weak_odr void @_ZNK7mitsuba9SpotLightIfN5drjit6MatrixINS_8SpectrumIfLm4EE
   %146 = bitcast float %.sroa.064.8.vec.extract.i to i32
   %147 = and i32 %146, -2147483648
   %148 = bitcast float %145 to i32
-  %149 = or i32 %147, %148
+  %149 = or disjoint i32 %147, %148
   %150 = bitcast i32 %149 to float
   %151 = fsub contract float 0x3FF921FB60000000, %150
   %152 = select contract i1 %126, float %144, float %151
@@ -1560,7 +1560,7 @@ define weak_odr void @_ZNK7mitsuba9SpotLightIfN5drjit6MatrixINS_8SpectrumIfLm4EE
   %85 = bitcast float %.sroa.064.8.vec.extract.i to i32
   %86 = and i32 %85, -2147483648
   %87 = bitcast float %84 to i32
-  %88 = or i32 %86, %87
+  %88 = or disjoint i32 %86, %87
   %89 = bitcast i32 %88 to float
   %90 = fsub contract float 0x3FF921FB60000000, %89
   %91 = select contract i1 %65, float %83, float %90

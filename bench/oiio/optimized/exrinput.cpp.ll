@@ -12256,7 +12256,7 @@ if.else13.i.i.us.us.us._ZN4halfaSEf.exit.us.us.us_crit_edge: ; preds = %if.else1
   br label %_ZN4halfaSEf.exit.us.us.us
 
 if.then.i.i.us.us.us:                             ; preds = %if.then30.us.us.us
-  %shr.i.i.us.us.us = lshr i32 %23, 16
+  %shr.i.i.us.us.us = lshr exact i32 %23, 16
   %conv.i.i.us.us.us = trunc nuw i32 %shr.i.i.us.us.us to i16
   br label %_ZN4halfaSEf.exit.us.us.us
 

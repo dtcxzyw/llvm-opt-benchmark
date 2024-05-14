@@ -2872,7 +2872,7 @@ if.end.i.i.i495:                                  ; preds = %if.then5.i492
   %cmp1.i.i.i496 = fcmp oeq float %mul.i.i493, 0.000000e+00
   %v.addr.0.i.i.i497 = select i1 %cmp1.i.i.i496, float 0.000000e+00, float %mul.i.i493
   %144 = bitcast float %v.addr.0.i.i.i497 to i32
-  %ui.0.i.i.i500 = add i32 %144, 1
+  %ui.0.i.i.i500 = add nuw i32 %144, 1
   %145 = bitcast i32 %ui.0.i.i.i500 to float
   br label %_ZN4pbrt10MulRoundUpEff.exit.i501
 
@@ -7203,7 +7203,7 @@ if.end.i.i.i306:                                  ; preds = %if.then5.i303
   %cmp1.i.i.i307 = fcmp oeq float %mul.i.i304, 0.000000e+00
   %v.addr.0.i.i.i308 = select i1 %cmp1.i.i.i307, float 0.000000e+00, float %mul.i.i304
   %98 = bitcast float %v.addr.0.i.i.i308 to i32
-  %ui.0.i.i.i311 = add i32 %98, 1
+  %ui.0.i.i.i311 = add nuw i32 %98, 1
   %99 = bitcast i32 %ui.0.i.i.i311 to float
   br label %_ZN4pbrt10MulRoundUpEff.exit.i312
 

@@ -6436,7 +6436,7 @@ getDoubleArg.exit:                                ; preds = %663, %661, %658, %6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %38)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %39)
   %743 = bitcast double %.sroa.0.0..sroa.0.0.307.i to i64
-  %744 = and i64 %743, -67108864
+  %744 = and i64 %743, 9223372036787666944
   %745 = bitcast i64 %744 to double
   %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0.213.i = load volatile double, ptr %.sroa.0.i, align 16
   %746 = fsub double %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0.213.i, %745
@@ -6508,7 +6508,7 @@ getDoubleArg.exit:                                ; preds = %663, %661, %658, %6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33)
   %763 = bitcast double %.sroa.0.0..sroa.0.0.206313.i to i64
-  %764 = and i64 %763, -67108864
+  %764 = and i64 %763, 9223372036787666944
   %765 = bitcast i64 %764 to double
   %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0.216.i = load volatile double, ptr %.sroa.0.i, align 16
   %766 = fsub double %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0.216.i, %765
@@ -6573,7 +6573,7 @@ getDoubleArg.exit:                                ; preds = %663, %661, %658, %6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27)
   %782 = bitcast double %.sroa.0.0..sroa.0.0.207317.i to i64
-  %783 = and i64 %782, -67108864
+  %783 = and i64 %782, 9223372036787666944
   %784 = bitcast i64 %783 to double
   %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0.219.i = load volatile double, ptr %.sroa.0.i, align 16
   %785 = fsub double %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0.219.i, %784
