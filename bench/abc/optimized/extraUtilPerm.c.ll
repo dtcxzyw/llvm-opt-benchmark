@@ -1072,11 +1072,11 @@ define i32 @Abc_ZddCof0(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_un
   %15 = mul nuw nsw i32 %1, 12582917
   %16 = mul nsw i32 %2, 4256249
   %17 = add nuw i32 %15, 5190199
-  %18 = add i32 %17, %16
+  %18 = add nuw i32 %17, %16
   %19 = getelementptr inbounds i8, ptr %0, i64 20
   %20 = load i32, ptr %19, align 4
   %21 = and i32 %20, %18
-  %22 = zext i32 %21 to i64
+  %22 = zext nneg i32 %21 to i64
   %23 = getelementptr inbounds %struct.Abc_ZddEnt_, ptr %14, i64 %22
   %24 = getelementptr inbounds i8, ptr %0, i64 56
   %25 = load i32, ptr %24, align 8
@@ -1127,7 +1127,7 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %12, %29, %33, %Abc_
   %54 = load ptr, ptr %13, align 8
   %55 = load i32, ptr %19, align 4
   %56 = and i32 %55, %18
-  %57 = zext i32 %56 to i64
+  %57 = zext nneg i32 %56 to i64
   %58 = getelementptr inbounds %struct.Abc_ZddEnt_, ptr %54, i64 %57
   store i32 %1, ptr %58, align 4
   %59 = getelementptr inbounds i8, ptr %58, i64 4
@@ -1168,11 +1168,11 @@ define i32 @Abc_ZddCof1(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_un
   %15 = mul nuw nsw i32 %1, 12582917
   %16 = mul nsw i32 %2, 4256249
   %17 = add nuw i32 %15, 5931656
-  %18 = add i32 %17, %16
+  %18 = add nuw i32 %17, %16
   %19 = getelementptr inbounds i8, ptr %0, i64 20
   %20 = load i32, ptr %19, align 4
   %21 = and i32 %20, %18
-  %22 = zext i32 %21 to i64
+  %22 = zext nneg i32 %21 to i64
   %23 = getelementptr inbounds %struct.Abc_ZddEnt_, ptr %14, i64 %22
   %24 = getelementptr inbounds i8, ptr %0, i64 56
   %25 = load i32, ptr %24, align 8
@@ -1227,7 +1227,7 @@ common.ret:                                       ; preds = %3, %5, %Abc_ZddCach
   %54 = load ptr, ptr %13, align 8
   %55 = load i32, ptr %19, align 4
   %56 = and i32 %55, %18
-  %57 = zext i32 %56 to i64
+  %57 = zext nneg i32 %56 to i64
   %58 = getelementptr inbounds %struct.Abc_ZddEnt_, ptr %54, i64 %57
   store i32 %1, ptr %58, align 4
   %59 = getelementptr inbounds i8, ptr %58, i64 4

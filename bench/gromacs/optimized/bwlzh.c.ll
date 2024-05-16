@@ -802,23 +802,23 @@ define internal fastcc void @bwlzh_decompress_gen(ptr noundef %0, i32 noundef %1
 
 86:                                               ; preds = %82, %81
   %87 = mul nsw i32 %43, 18
-  %88 = sext i32 %87 to i64
-  %89 = shl nsw i64 %88, 2
+  %88 = zext nneg i32 %87 to i64
+  %89 = shl nuw nsw i64 %88, 2
   %90 = call ptr @Ptngc_warnrealloc_x(ptr noundef %.0225282, i64 noundef %89, ptr noundef nonnull @.str, i32 noundef 649) #9
   %91 = mul nsw i32 %43, 3
-  %92 = sext i32 %91 to i64
+  %92 = zext nneg i32 %91 to i64
   %93 = getelementptr inbounds i32, ptr %90, i64 %92
   %94 = mul nsw i32 %43, 6
-  %95 = sext i32 %94 to i64
+  %95 = zext nneg i32 %94 to i64
   %96 = getelementptr inbounds i32, ptr %90, i64 %95
   %97 = mul i32 %43, 9
-  %98 = sext i32 %97 to i64
+  %98 = zext nneg i32 %97 to i64
   %99 = getelementptr inbounds i32, ptr %90, i64 %98
   %100 = mul nsw i32 %43, 12
-  %101 = sext i32 %100 to i64
+  %101 = zext nneg i32 %100 to i64
   %102 = getelementptr inbounds i32, ptr %90, i64 %101
   %103 = mul nsw i32 %43, 15
-  %104 = sext i32 %103 to i64
+  %104 = zext nneg i32 %103 to i64
   %105 = getelementptr inbounds i32, ptr %90, i64 %104
   %106 = call ptr @Ptngc_warnrealloc_x(ptr noundef %.0232278, i64 noundef %98, ptr noundef nonnull @.str, i32 noundef 658) #9
   br label %107

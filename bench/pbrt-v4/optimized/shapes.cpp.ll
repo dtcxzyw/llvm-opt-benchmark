@@ -20411,27 +20411,22 @@ entry:
   %sub4.i.i.i.i = sub nsw i32 %.sroa.speculated.i10.i.i, %.sroa.speculated.i.i.i
   %mul.i.i.i = mul nsw i32 %sub4.i.i.i.i, %sub.i.i.i.i
   %cmp.i.i.i.i.i = icmp eq i32 %mul.i.i.i, 0
-  br i1 %cmp.i.i.i.i.i, label %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIfEEPT_m.exit.thread.i.i, label %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIfEEPT_m.exit.i.i
+  br i1 %cmp.i.i.i.i.i, label %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIfEEPT_m.exit.thread.i.i, label %for.body.preheader.i.i
 
 _ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIfEEPT_m.exit.thread.i.i: ; preds = %entry
   %values9.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   store ptr null, ptr %values9.i.i, align 8
   br label %_ZN4pbrt7Array2DIfEC2EiiN4pstd3pmr21polymorphic_allocatorISt4byteEE.exit
 
-_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIfEEPT_m.exit.i.i: ; preds = %entry
-  %conv.i.i = sext i32 %mul.i.i.i to i64
-  %mul.i4.i.i = shl nsw i64 %conv.i.i, 2
+for.body.preheader.i.i:                           ; preds = %entry
+  %conv.i.i = zext nneg i32 %mul.i.i.i to i64
+  %mul.i4.i.i = shl nuw nsw i64 %conv.i.i, 2
   %vtable.i.i.i.i.i = load ptr, ptr %alloc.coerce, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   %call.i.i.i.i.i = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef %mul.i4.i.i, i64 noundef 4)
   %values.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   store ptr %call.i.i.i.i.i, ptr %values.i.i, align 8
-  %cmp5.i.i = icmp sgt i32 %mul.i.i.i, 0
-  br i1 %cmp5.i.i, label %for.body.preheader.i.i, label %_ZN4pbrt7Array2DIfEC2EiiN4pstd3pmr21polymorphic_allocatorISt4byteEE.exit
-
-for.body.preheader.i.i:                           ; preds = %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIfEEPT_m.exit.i.i
-  %wide.trip.count.i.i = zext nneg i32 %mul.i.i.i to i64
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
@@ -20439,11 +20434,15 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %add.ptr.i.i = getelementptr inbounds float, ptr %call.i.i.i.i.i, i64 %indvars.iv.i.i
   store float 0.000000e+00, ptr %add.ptr.i.i, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZN4pbrt7Array2DIfEC2EiiN4pstd3pmr21polymorphic_allocatorISt4byteEE.exit, label %for.body.i.i, !llvm.loop !115
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %conv.i.i
+  br i1 %exitcond.not.i.i, label %_ZN4pbrt7Array2DIfEC2EiiN4pstd3pmr21polymorphic_allocatorISt4byteEE.exit.loopexit, label %for.body.i.i, !llvm.loop !115
 
-_ZN4pbrt7Array2DIfEC2EiiN4pstd3pmr21polymorphic_allocatorISt4byteEE.exit: ; preds = %for.body.i.i, %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIfEEPT_m.exit.thread.i.i, %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIfEEPT_m.exit.i.i
-  %3 = load i32, ptr %cond-lvalue.i, align 8
+_ZN4pbrt7Array2DIfEC2EiiN4pstd3pmr21polymorphic_allocatorISt4byteEE.exit.loopexit: ; preds = %for.body.i.i
+  %.pre = load i32, ptr %cond-lvalue.i, align 8
+  br label %_ZN4pbrt7Array2DIfEC2EiiN4pstd3pmr21polymorphic_allocatorISt4byteEE.exit
+
+_ZN4pbrt7Array2DIfEC2EiiN4pstd3pmr21polymorphic_allocatorISt4byteEE.exit: ; preds = %_ZN4pbrt7Array2DIfEC2EiiN4pstd3pmr21polymorphic_allocatorISt4byteEE.exit.loopexit, %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIfEEPT_m.exit.thread.i.i
+  %3 = phi i32 [ %.pre, %_ZN4pbrt7Array2DIfEC2EiiN4pstd3pmr21polymorphic_allocatorISt4byteEE.exit.loopexit ], [ %1, %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIfEEPT_m.exit.thread.i.i ]
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp7, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp7, i8 0, i64 32, i1 false)
   %call.i.i2.i3 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28

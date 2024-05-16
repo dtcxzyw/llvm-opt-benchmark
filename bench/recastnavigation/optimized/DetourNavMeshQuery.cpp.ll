@@ -5162,7 +5162,7 @@ define noundef range(i32 536870912, 1073741841) i32 @_ZNK14dtNavMeshQuery12appen
 12:                                               ; preds = %9
   %13 = mul i32 %10, 3
   %14 = add i32 %13, -3
-  %15 = sext i32 %14 to i64
+  %15 = zext nneg i32 %14 to i64
   %16 = getelementptr inbounds float, ptr %4, i64 %15
   %17 = load atomic i8, ptr @_ZGVZ8dtVequalPKfS0_E3thr acquire, align 8
   %18 = icmp eq i8 %17, 0
@@ -5283,7 +5283,7 @@ _Z8dtVequalPKfS0_.exit._crit_edge:                ; preds = %_Z8dtVequalPKfS0_.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 536870912, -2147483639) i32 @_ZNK14dtNavMeshQuery13appendPortalsEiiPKfPKjPfPhPjPiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr nocapture noundef %8, i32 noundef %9, i32 noundef %10) local_unnamed_addr #1 align 2 {
+define noundef range(i32 536870912, -2147483639) i32 @_ZNK14dtNavMeshQuery13appendPortalsEiiPKfPKjPfPhPjPiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5, ptr noundef writeonly %6, ptr noundef writeonly %7, ptr nocapture noundef %8, i32 noundef %9, i32 noundef %10) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %12 = alloca ptr, align 8
   %13 = alloca ptr, align 8
   %14 = alloca ptr, align 8
@@ -5292,98 +5292,193 @@ define noundef range(i32 536870912, -2147483639) i32 @_ZNK14dtNavMeshQuery13appe
   %17 = alloca [3 x float], align 8
   %18 = alloca float, align 4
   %19 = alloca float, align 4
-  %20 = alloca [3 x float], align 8
-  %21 = load i32, ptr %8, align 4
-  %22 = mul i32 %21, 3
-  %23 = add i32 %22, -3
-  %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds float, ptr %5, i64 %24
-  %26 = icmp slt i32 %1, %2
-  br i1 %26, label %.lr.ph, label %._crit_edge
+  %20 = load i32, ptr %8, align 4
+  %21 = mul i32 %20, 3
+  %22 = add i32 %21, -3
+  %23 = sext i32 %22 to i64
+  %24 = getelementptr inbounds float, ptr %5, i64 %23
+  %invariant.gep = getelementptr i8, ptr %6, i64 -1
+  %invariant.gep34 = getelementptr i8, ptr %7, i64 -4
+  %25 = icmp slt i32 %1, %2
+  br i1 %25, label %.lr.ph, label %_ZNK14dtNavMeshQuery12appendVertexEPKfhjPfPhPjPii.exit
 
 .lr.ph:                                           ; preds = %11
-  %27 = and i32 %10, 1
-  %.not = icmp eq i32 %27, 0
-  %28 = getelementptr inbounds i8, ptr %16, i64 8
-  %29 = getelementptr inbounds i8, ptr %17, i64 8
-  %30 = getelementptr inbounds i8, ptr %20, i64 8
-  %31 = sext i32 %1 to i64
+  %26 = and i32 %10, 1
+  %.not = icmp eq i32 %26, 0
+  %27 = getelementptr inbounds i8, ptr %16, i64 8
+  %28 = getelementptr inbounds i8, ptr %17, i64 8
+  %.not.i = icmp eq ptr %6, null
+  %.not31.i = icmp eq ptr %7, null
+  %29 = sext i32 %1 to i64
   %wide.trip.count = sext i32 %2 to i64
-  br label %32
+  br label %30
 
-32:                                               ; preds = %.lr.ph, %76
-  %indvars.iv = phi i64 [ %31, %.lr.ph ], [ %indvars.iv.next, %76 ]
-  %33 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv
-  %34 = load i32, ptr %33, align 4
+30:                                               ; preds = %.lr.ph, %_ZNK14dtNavMeshQuery12appendVertexEPKfhjPfPhPjPii.exit.thread
+  %indvars.iv = phi i64 [ %29, %.lr.ph ], [ %indvars.iv.next, %_ZNK14dtNavMeshQuery12appendVertexEPKfhjPfPhPjPii.exit.thread ]
+  %31 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv
+  %32 = load i32, ptr %31, align 4
   store ptr null, ptr %12, align 8
   store ptr null, ptr %13, align 8
-  %35 = load ptr, ptr %0, align 8
-  %36 = call noundef i32 @_ZNK9dtNavMesh19getTileAndPolyByRefEjPPK10dtMeshTilePPK6dtPoly(ptr noundef nonnull align 8 dereferenceable(100) %35, i32 noundef %34, ptr noundef nonnull %12, ptr noundef nonnull %13)
-  %37 = icmp slt i32 %36, 0
-  br i1 %37, label %._crit_edge, label %38
+  %33 = load ptr, ptr %0, align 8
+  %34 = call noundef i32 @_ZNK9dtNavMesh19getTileAndPolyByRefEjPPK10dtMeshTilePPK6dtPoly(ptr noundef nonnull align 8 dereferenceable(100) %33, i32 noundef %32, ptr noundef nonnull %12, ptr noundef nonnull %13)
+  %35 = icmp slt i32 %34, 0
+  br i1 %35, label %_ZNK14dtNavMeshQuery12appendVertexEPKfhjPfPhPjPii.exit, label %36
 
-38:                                               ; preds = %32
+36:                                               ; preds = %30
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %39 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.next
-  %40 = load i32, ptr %39, align 4
+  %37 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.next
+  %38 = load i32, ptr %37, align 4
   store ptr null, ptr %14, align 8
   store ptr null, ptr %15, align 8
-  %41 = load ptr, ptr %0, align 8
-  %42 = call noundef i32 @_ZNK9dtNavMesh19getTileAndPolyByRefEjPPK10dtMeshTilePPK6dtPoly(ptr noundef nonnull align 8 dereferenceable(100) %41, i32 noundef %40, ptr noundef nonnull %14, ptr noundef nonnull %15)
-  %43 = icmp slt i32 %42, 0
-  br i1 %43, label %._crit_edge, label %44
+  %39 = load ptr, ptr %0, align 8
+  %40 = call noundef i32 @_ZNK9dtNavMesh19getTileAndPolyByRefEjPPK10dtMeshTilePPK6dtPoly(ptr noundef nonnull align 8 dereferenceable(100) %39, i32 noundef %38, ptr noundef nonnull %14, ptr noundef nonnull %15)
+  %41 = icmp slt i32 %40, 0
+  br i1 %41, label %_ZNK14dtNavMeshQuery12appendVertexEPKfhjPfPhPjPii.exit, label %42
 
-44:                                               ; preds = %38
-  %45 = load ptr, ptr %13, align 8
-  %46 = load ptr, ptr %12, align 8
-  %47 = load ptr, ptr %15, align 8
-  %48 = load ptr, ptr %14, align 8
-  %49 = call noundef i32 @_ZNK14dtNavMeshQuery15getPortalPointsEjPK6dtPolyPK10dtMeshTilejS2_S5_PfS6_(ptr nonnull align 8 poison, i32 noundef %34, ptr noundef %45, ptr noundef %46, i32 noundef %40, ptr noundef %47, ptr noundef %48, ptr noundef nonnull %16, ptr noundef nonnull %17)
-  %50 = icmp slt i32 %49, 0
-  br i1 %50, label %._crit_edge, label %51
+42:                                               ; preds = %36
+  %43 = load ptr, ptr %13, align 8
+  %44 = load ptr, ptr %12, align 8
+  %45 = load ptr, ptr %15, align 8
+  %46 = load ptr, ptr %14, align 8
+  %47 = call noundef i32 @_ZNK14dtNavMeshQuery15getPortalPointsEjPK6dtPolyPK10dtMeshTilejS2_S5_PfS6_(ptr nonnull align 8 poison, i32 noundef %32, ptr noundef %43, ptr noundef %44, i32 noundef %38, ptr noundef %45, ptr noundef %46, ptr noundef nonnull %16, ptr noundef nonnull %17)
+  %48 = icmp slt i32 %47, 0
+  br i1 %48, label %_ZNK14dtNavMeshQuery12appendVertexEPKfhjPfPhPjPii.exit, label %49
 
-51:                                               ; preds = %44
-  br i1 %.not, label %60, label %52
+49:                                               ; preds = %42
+  br i1 %.not, label %58, label %50
 
-52:                                               ; preds = %51
+50:                                               ; preds = %49
+  %51 = getelementptr inbounds i8, ptr %43, i64 31
+  %52 = load i8, ptr %51, align 1
   %53 = getelementptr inbounds i8, ptr %45, i64 31
   %54 = load i8, ptr %53, align 1
-  %55 = getelementptr inbounds i8, ptr %47, i64 31
-  %56 = load i8, ptr %55, align 1
-  %57 = xor i8 %56, %54
-  %58 = and i8 %57, 63
-  %59 = icmp eq i8 %58, 0
-  br i1 %59, label %76, label %60
+  %55 = xor i8 %54, %52
+  %56 = and i8 %55, 63
+  %57 = icmp eq i8 %56, 0
+  br i1 %57, label %_ZNK14dtNavMeshQuery12appendVertexEPKfhjPfPhPjPii.exit.thread, label %58
 
-60:                                               ; preds = %52, %51
-  %61 = call noundef zeroext i1 @_Z19dtIntersectSegSeg2DPKfS0_S0_S0_RfS1_(ptr noundef %25, ptr noundef %3, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull align 4 dereferenceable(4) %18, ptr noundef nonnull align 4 dereferenceable(4) %19)
-  br i1 %61, label %62, label %76
+58:                                               ; preds = %50, %49
+  %59 = call noundef zeroext i1 @_Z19dtIntersectSegSeg2DPKfS0_S0_S0_RfS1_(ptr noundef %24, ptr noundef %3, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull align 4 dereferenceable(4) %18, ptr noundef nonnull align 4 dereferenceable(4) %19)
+  br i1 %59, label %60, label %_ZNK14dtNavMeshQuery12appendVertexEPKfhjPfPhPjPii.exit.thread
 
-62:                                               ; preds = %60
-  %63 = load float, ptr %19, align 4
-  %64 = load <2 x float>, ptr %16, align 8
-  %65 = load <2 x float>, ptr %17, align 8
-  %66 = fsub <2 x float> %65, %64
-  %67 = insertelement <2 x float> poison, float %63, i64 0
-  %68 = shufflevector <2 x float> %67, <2 x float> poison, <2 x i32> zeroinitializer
-  %69 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %66, <2 x float> %68, <2 x float> %64)
-  store <2 x float> %69, ptr %20, align 8
-  %70 = load float, ptr %28, align 8
-  %71 = load float, ptr %29, align 8
-  %72 = fsub float %71, %70
-  %73 = call float @llvm.fmuladd.f32(float %72, float %63, float %70)
-  store float %73, ptr %30, align 8
-  %74 = load i32, ptr %39, align 4
-  %75 = call noundef i32 @_ZNK14dtNavMeshQuery12appendVertexEPKfhjPfPhPjPii(ptr nonnull align 8 poison, ptr noundef nonnull %20, i8 noundef zeroext 0, i32 noundef %74, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %8, i32 noundef %9)
-  %.not29 = icmp eq i32 %75, 536870912
-  br i1 %.not29, label %76, label %._crit_edge
+60:                                               ; preds = %58
+  %61 = load float, ptr %19, align 4
+  %62 = load <2 x float>, ptr %16, align 8
+  %63 = load <2 x float>, ptr %17, align 8
+  %64 = fsub <2 x float> %63, %62
+  %65 = insertelement <2 x float> poison, float %61, i64 0
+  %66 = shufflevector <2 x float> %65, <2 x float> poison, <2 x i32> zeroinitializer
+  %67 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %64, <2 x float> %66, <2 x float> %62)
+  %68 = load float, ptr %27, align 8
+  %69 = load float, ptr %28, align 8
+  %70 = fsub float %69, %68
+  %71 = call float @llvm.fmuladd.f32(float %70, float %61, float %68)
+  %72 = load i32, ptr %37, align 4
+  %73 = load i32, ptr %8, align 4
+  %74 = icmp sgt i32 %73, 0
+  br i1 %74, label %75, label %._crit_edge.i
 
-76:                                               ; preds = %60, %62, %52
+75:                                               ; preds = %60
+  %76 = mul i32 %73, 3
+  %77 = add i32 %76, -3
+  %78 = zext nneg i32 %77 to i64
+  %79 = getelementptr inbounds float, ptr %5, i64 %78
+  %80 = load atomic i8, ptr @_ZGVZ8dtVequalPKfS0_E3thr acquire, align 8
+  %81 = icmp eq i8 %80, 0
+  br i1 %81, label %82, label %_Z8dtVequalPKfS0_.exit.i, !prof !41
+
+82:                                               ; preds = %75
+  %83 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZ8dtVequalPKfS0_E3thr) #20
+  %.not.i.i = icmp eq i32 %83, 0
+  br i1 %.not.i.i, label %_Z8dtVequalPKfS0_.exit.i, label %84
+
+84:                                               ; preds = %82
+  store float 0x3E30000000000000, ptr @_ZZ8dtVequalPKfS0_E3thr, align 4
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZ8dtVequalPKfS0_E3thr) #20
+  br label %_Z8dtVequalPKfS0_.exit.i
+
+_Z8dtVequalPKfS0_.exit.i:                         ; preds = %84, %82, %75
+  %85 = load float, ptr %79, align 4
+  %86 = extractelement <2 x float> %67, i64 0
+  %87 = fsub float %86, %85
+  %88 = getelementptr inbounds i8, ptr %79, i64 4
+  %89 = load float, ptr %88, align 4
+  %90 = extractelement <2 x float> %67, i64 1
+  %91 = fsub float %90, %89
+  %92 = getelementptr inbounds i8, ptr %79, i64 8
+  %93 = load float, ptr %92, align 4
+  %94 = fsub float %71, %93
+  %95 = fmul float %91, %91
+  %96 = call float @llvm.fmuladd.f32(float %87, float %87, float %95)
+  %97 = call noundef float @llvm.fmuladd.f32(float %94, float %94, float %96)
+  %98 = load float, ptr @_ZZ8dtVequalPKfS0_E3thr, align 4
+  %99 = fcmp olt float %97, %98
+  br i1 %99, label %100, label %_Z8dtVequalPKfS0_.exit._crit_edge.i
+
+_Z8dtVequalPKfS0_.exit._crit_edge.i:              ; preds = %_Z8dtVequalPKfS0_.exit.i
+  %.pre.i = load i32, ptr %8, align 4
+  br label %._crit_edge.i
+
+100:                                              ; preds = %_Z8dtVequalPKfS0_.exit.i
+  br i1 %.not.i, label %104, label %101
+
+101:                                              ; preds = %100
+  %102 = load i32, ptr %8, align 4
+  %103 = sext i32 %102 to i64
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %103
+  store i8 0, ptr %gep, align 1
+  br label %104
+
+104:                                              ; preds = %101, %100
+  br i1 %.not31.i, label %_ZNK14dtNavMeshQuery12appendVertexEPKfhjPfPhPjPii.exit.thread, label %105
+
+105:                                              ; preds = %104
+  %106 = load i32, ptr %8, align 4
+  %107 = sext i32 %106 to i64
+  %gep35 = getelementptr i32, ptr %invariant.gep34, i64 %107
+  store i32 %72, ptr %gep35, align 4
+  br label %_ZNK14dtNavMeshQuery12appendVertexEPKfhjPfPhPjPii.exit.thread
+
+._crit_edge.i:                                    ; preds = %60, %_Z8dtVequalPKfS0_.exit._crit_edge.i
+  %108 = phi i32 [ %.pre.i, %_Z8dtVequalPKfS0_.exit._crit_edge.i ], [ %73, %60 ]
+  %109 = mul nsw i32 %108, 3
+  %110 = sext i32 %109 to i64
+  %111 = getelementptr inbounds float, ptr %5, i64 %110
+  store <2 x float> %67, ptr %111, align 4
+  %112 = getelementptr inbounds i8, ptr %111, i64 8
+  store float %71, ptr %112, align 4
+  br i1 %.not.i, label %117, label %113
+
+113:                                              ; preds = %._crit_edge.i
+  %114 = load i32, ptr %8, align 4
+  %115 = sext i32 %114 to i64
+  %116 = getelementptr inbounds i8, ptr %6, i64 %115
+  store i8 0, ptr %116, align 1
+  br label %117
+
+117:                                              ; preds = %113, %._crit_edge.i
+  br i1 %.not31.i, label %122, label %118
+
+118:                                              ; preds = %117
+  %119 = load i32, ptr %8, align 4
+  %120 = sext i32 %119 to i64
+  %121 = getelementptr inbounds i32, ptr %7, i64 %120
+  store i32 %72, ptr %121, align 4
+  br label %122
+
+122:                                              ; preds = %118, %117
+  %123 = load i32, ptr %8, align 4
+  %124 = add nsw i32 %123, 1
+  store i32 %124, ptr %8, align 4
+  %.not32.i = icmp slt i32 %124, %9
+  br i1 %.not32.i, label %_ZNK14dtNavMeshQuery12appendVertexEPKfhjPfPhPjPii.exit.thread, label %_ZNK14dtNavMeshQuery12appendVertexEPKfhjPfPhPjPii.exit
+
+_ZNK14dtNavMeshQuery12appendVertexEPKfhjPfPhPjPii.exit.thread: ; preds = %122, %105, %104, %58, %50
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %32, !llvm.loop !42
+  br i1 %exitcond.not, label %_ZNK14dtNavMeshQuery12appendVertexEPKfhjPfPhPjPii.exit, label %30, !llvm.loop !42
 
-._crit_edge:                                      ; preds = %32, %38, %62, %44, %76, %11
-  %.0 = phi i32 [ 536870912, %11 ], [ 536870912, %76 ], [ 536870912, %44 ], [ %75, %62 ], [ -2147483640, %38 ], [ -2147483640, %32 ]
+_ZNK14dtNavMeshQuery12appendVertexEPKfhjPfPhPjPii.exit: ; preds = %30, %36, %42, %_ZNK14dtNavMeshQuery12appendVertexEPKfhjPfPhPjPii.exit.thread, %122, %11
+  %.0 = phi i32 [ 536870912, %11 ], [ 1073741840, %122 ], [ 536870912, %_ZNK14dtNavMeshQuery12appendVertexEPKfhjPfPhPjPii.exit.thread ], [ 536870912, %42 ], [ -2147483640, %36 ], [ -2147483640, %30 ]
   ret i32 %.0
 }
 

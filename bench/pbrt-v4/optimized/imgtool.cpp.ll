@@ -17491,7 +17491,7 @@ lpad203:                                          ; preds = %if.then.i.i.i.i.i, 
           cleanup
   br label %ehcleanup407
 
-lpad209:                                          ; preds = %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectISt6vectorIN4pbrt17VarianceEstimatorIdEESaIS8_EEEEPT_m.exit.i.i, %if.then.i.i.i221, %invoke.cont204
+lpad209:                                          ; preds = %for.body.preheader.i.i, %if.then.i.i.i221, %invoke.cont204
   %100 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup405
@@ -17581,42 +17581,37 @@ invoke.cont235:                                   ; preds = %for.inc.i, %_ZNSt12
   %sub4.i.i.i.i = sub nsw i32 %.sroa.speculated.i10.i.i, %.sroa.speculated.i.i.i
   %mul.i.i.i = mul nsw i32 %sub4.i.i.i.i, %sub.i.i.i.i
   %cmp.i.i.i.i.i = icmp eq i32 %mul.i.i.i, 0
-  br i1 %cmp.i.i.i.i.i, label %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectISt6vectorIN4pbrt17VarianceEstimatorIdEESaIS8_EEEEPT_m.exit.thread.i.i, label %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectISt6vectorIN4pbrt17VarianceEstimatorIdEESaIS8_EEEEPT_m.exit.i.i
+  br i1 %cmp.i.i.i.i.i, label %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectISt6vectorIN4pbrt17VarianceEstimatorIdEESaIS8_EEEEPT_m.exit.thread.i.i, label %for.body.preheader.i.i
 
 _ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectISt6vectorIN4pbrt17VarianceEstimatorIdEESaIS8_EEEEPT_m.exit.thread.i.i: ; preds = %invoke.cont235
   %values9.i.i = getelementptr inbounds i8, ptr %pixelVariance, i64 24
   store ptr null, ptr %values9.i.i, align 8
   br label %invoke.cont246
 
-_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectISt6vectorIN4pbrt17VarianceEstimatorIdEESaIS8_EEEEPT_m.exit.i.i: ; preds = %invoke.cont235
-  %conv.i.i = sext i32 %mul.i.i.i to i64
-  %mul.i4.i.i = mul nsw i64 %conv.i.i, 24
+for.body.preheader.i.i:                           ; preds = %invoke.cont235
+  %conv.i.i = zext nneg i32 %mul.i.i.i to i64
+  %mul.i4.i.i = mul nuw nsw i64 %conv.i.i, 24
   %vtable.i.i.i.i.i = load ptr, ptr %call.i225, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %108 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   %call.i.i.i.i.i226 = invoke noundef ptr %108(ptr noundef nonnull align 8 dereferenceable(8) %call.i225, i64 noundef %mul.i4.i.i, i64 noundef 8)
           to label %call.i.i.i.i.i.noexc unwind label %lpad209
 
-call.i.i.i.i.i.noexc:                             ; preds = %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectISt6vectorIN4pbrt17VarianceEstimatorIdEESaIS8_EEEEPT_m.exit.i.i
+call.i.i.i.i.i.noexc:                             ; preds = %for.body.preheader.i.i
   %values.i.i = getelementptr inbounds i8, ptr %pixelVariance, i64 24
   store ptr %call.i.i.i.i.i226, ptr %values.i.i, align 8
-  %cmp5.i.i = icmp sgt i32 %mul.i.i.i, 0
-  br i1 %cmp5.i.i, label %for.body.preheader.i.i, label %invoke.cont246
-
-for.body.preheader.i.i:                           ; preds = %call.i.i.i.i.i.noexc
-  %wide.trip.count.i.i = zext nneg i32 %mul.i.i.i to i64
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %call.i.i.i.i.i.noexc
+  %indvars.iv.i.i = phi i64 [ 0, %call.i.i.i.i.i.noexc ], [ %indvars.iv.next.i.i, %for.body.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"class.std::vector.141", ptr %call.i.i.i.i.i226, i64 %indvars.iv.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i, i8 0, i64 24, i1 false)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %conv.i.i
   br i1 %exitcond.not.i.i, label %invoke.cont246, label %for.body.i.i, !llvm.loop !99
 
-invoke.cont246:                                   ; preds = %for.body.i.i, %call.i.i.i.i.i.noexc, %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectISt6vectorIN4pbrt17VarianceEstimatorIdEESaIS8_EEEEPT_m.exit.thread.i.i
-  %109 = phi ptr [ %call.i.i.i.i.i226, %call.i.i.i.i.i.noexc ], [ null, %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectISt6vectorIN4pbrt17VarianceEstimatorIdEESaIS8_EEEEPT_m.exit.thread.i.i ], [ %call.i.i.i.i.i226, %for.body.i.i ]
+invoke.cont246:                                   ; preds = %for.body.i.i, %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectISt6vectorIN4pbrt17VarianceEstimatorIdEESaIS8_EEEEPT_m.exit.thread.i.i
+  %109 = phi ptr [ null, %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectISt6vectorIN4pbrt17VarianceEstimatorIdEESaIS8_EEEEPT_m.exit.thread.i.i ], [ %call.i.i.i.i.i226, %for.body.i.i ]
   %sub.i.i.i.i228 = sub nsw i32 %.sroa.speculated5.i9.i.i, %.sroa.speculated5.i.i.i
   %mul.i.i.i230 = mul nsw i32 %sub4.i.i.i.i, %sub.i.i.i.i228
   %idx.ext.i = sext i32 %mul.i.i.i230 to i64
@@ -64828,41 +64823,32 @@ entry:
   %sub4.i.i.i.i.i.i.i = sub nsw i32 %.sroa.speculated.i10.i.i.i.i.i, %.sroa.speculated.i.i.i.i.i.i
   %mul.i.i.i.i.i.i = mul nsw i32 %sub4.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i
   %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %mul.i.i.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i.i.i.i.i, label %_ZN4pbrt7Array2DISt6vectorINS_17VarianceEstimatorIdEESaIS3_EEEC2EiiN4pstd3pmr21polymorphic_allocatorISt4byteEE.exit.i.thread.i.i, label %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectISt6vectorIN4pbrt17VarianceEstimatorIdEESaIS8_EEEEPT_m.exit.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i.i, label %_ZN4pbrt7Array2DISt6vectorINS_17VarianceEstimatorIdEESaIS3_EEEC2EiiN4pstd3pmr21polymorphic_allocatorISt4byteEE.exit.i.thread.i.i, label %for.body.preheader.i.i.i.i.i
 
 _ZN4pbrt7Array2DISt6vectorINS_17VarianceEstimatorIdEESaIS3_EEEC2EiiN4pstd3pmr21polymorphic_allocatorISt4byteEE.exit.i.thread.i.i: ; preds = %entry
   %values9.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   store ptr null, ptr %values9.i.i.i.i.i, align 8, !alias.scope !342
   br label %"_ZSt10__invoke_rIN4pbrt7Array2DISt6vectorINS0_17VarianceEstimatorIdEESaIS4_EEEERZ5errorS2_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEE3$_1JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit"
 
-_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectISt6vectorIN4pbrt17VarianceEstimatorIdEESaIS8_EEEEPT_m.exit.i.i.i.i.i: ; preds = %entry
-  %conv.i.i.i.i.i = sext i32 %mul.i.i.i.i.i.i to i64
-  %mul.i4.i.i.i.i.i = mul nsw i64 %conv.i.i.i.i.i, 24
+for.body.preheader.i.i.i.i.i:                     ; preds = %entry
+  %conv.i.i.i.i.i = zext nneg i32 %mul.i.i.i.i.i.i to i64
+  %mul.i4.i.i.i.i.i = mul nuw nsw i64 %conv.i.i.i.i.i, 24
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %call.i.i.i.i, align 8, !noalias !342
   %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
   %1 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8, !noalias !342
   %call.i.i.i.i.i.i.i.i = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i.i.i, i64 noundef %mul.i4.i.i.i.i.i, i64 noundef 8), !noalias !342
   %values.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   store ptr %call.i.i.i.i.i.i.i.i, ptr %values.i.i.i.i.i, align 8, !alias.scope !342
-  %cmp5.i.i.i.i.i = icmp sgt i32 %mul.i.i.i.i.i.i, 0
-  br i1 %cmp5.i.i.i.i.i, label %for.body.preheader.i.i.i.i.i, label %_ZN4pbrt7Array2DISt6vectorINS_17VarianceEstimatorIdEESaIS3_EEEC2EiiN4pstd3pmr21polymorphic_allocatorISt4byteEE.exit.i.i.i
-
-for.body.preheader.i.i.i.i.i:                     ; preds = %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectISt6vectorIN4pbrt17VarianceEstimatorIdEESaIS8_EEEEPT_m.exit.i.i.i.i.i
-  %wide.trip.count.i.i.i.i.i = zext nneg i32 %mul.i.i.i.i.i.i to i64
-  %2 = mul nuw nsw i64 %wide.trip.count.i.i.i.i.i, 24
-  tail call void @llvm.memset.p0.i64(ptr align 8 %call.i.i.i.i.i.i.i.i, i8 0, i64 %2, i1 false), !noalias !342
-  br label %_ZN4pbrt7Array2DISt6vectorINS_17VarianceEstimatorIdEESaIS3_EEEC2EiiN4pstd3pmr21polymorphic_allocatorISt4byteEE.exit.i.i.i
-
-_ZN4pbrt7Array2DISt6vectorINS_17VarianceEstimatorIdEESaIS3_EEEC2EiiN4pstd3pmr21polymorphic_allocatorISt4byteEE.exit.i.i.i: ; preds = %for.body.preheader.i.i.i.i.i, %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectISt6vectorIN4pbrt17VarianceEstimatorIdEESaIS8_EEEEPT_m.exit.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %call.i.i.i.i.i.i.i.i, i8 0, i64 %mul.i4.i.i.i.i.i, i1 false), !noalias !342
   %add.ptr.i.i.i.i = getelementptr inbounds %"class.std::vector.141", ptr %call.i.i.i.i.i.i.i.i, i64 %conv.i.i.i.i.i
   br label %for.body.i.i.i
 
-for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %_ZN4pbrt7Array2DISt6vectorINS_17VarianceEstimatorIdEESaIS3_EEEC2EiiN4pstd3pmr21polymorphic_allocatorISt4byteEE.exit.i.i.i
-  %__begin2.011.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.inc.i.i.i ], [ %call.i.i.i.i.i.i.i.i, %_ZN4pbrt7Array2DISt6vectorINS_17VarianceEstimatorIdEESaIS3_EEEC2EiiN4pstd3pmr21polymorphic_allocatorISt4byteEE.exit.i.i.i ]
-  %3 = load ptr, ptr %__functor, align 8, !noalias !342
-  %nStored.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 40
-  %4 = load i64, ptr %nStored.i.i.i.i.i, align 8, !noalias !342
-  %sext.i.i.i = shl i64 %4, 32
+for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %for.body.preheader.i.i.i.i.i
+  %__begin2.011.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.inc.i.i.i ], [ %call.i.i.i.i.i.i.i.i, %for.body.preheader.i.i.i.i.i ]
+  %2 = load ptr, ptr %__functor, align 8, !noalias !342
+  %nStored.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 40
+  %3 = load i64, ptr %nStored.i.i.i.i.i, align 8, !noalias !342
+  %sext.i.i.i = shl i64 %3, 32
   %conv.i.i.i = ashr exact i64 %sext.i.i.i, 32
   invoke void @_ZNSt6vectorIN4pbrt17VarianceEstimatorIdEESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %__begin2.011.i.i.i, i64 noundef %conv.i.i.i)
           to label %for.inc.i.i.i unwind label %lpad.i.i.i, !noalias !342
@@ -64873,10 +64859,10 @@ for.inc.i.i.i:                                    ; preds = %for.body.i.i.i
   br i1 %cmp.not.i.i.i, label %"_ZSt10__invoke_rIN4pbrt7Array2DISt6vectorINS0_17VarianceEstimatorIdEESaIS4_EEEERZ5errorS2_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEE3$_1JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit", label %for.body.i.i.i
 
 lpad.i.i.i:                                       ; preds = %for.body.i.i.i
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN4pbrt7Array2DISt6vectorINS_17VarianceEstimatorIdEESaIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #32
-  resume { ptr, i32 } %5
+  resume { ptr, i32 } %4
 
 "_ZSt10__invoke_rIN4pbrt7Array2DISt6vectorINS0_17VarianceEstimatorIdEESaIS4_EEEERZ5errorS2_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEE3$_1JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit": ; preds = %for.inc.i.i.i, %_ZN4pbrt7Array2DISt6vectorINS_17VarianceEstimatorIdEESaIS3_EEEC2EiiN4pstd3pmr21polymorphic_allocatorISt4byteEE.exit.i.thread.i.i
   ret void

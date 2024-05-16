@@ -91,18 +91,17 @@ while.body.preheader:                             ; preds = %if.else, %_ZN4cvc58
 while.body:                                       ; preds = %while.body.preheader, %while.body
   %i.118 = phi i64 [ %div, %while.body ], [ %i.118.ph, %while.body.preheader ]
   %idx.017 = phi i64 [ %dec, %while.body ], [ 19, %while.body.preheader ]
-  %rem = srem i64 %i.118, 10
-  %1 = trunc nsw i64 %rem to i8
-  %conv = add nsw i8 %1, 48
+  %rem = urem i64 %i.118, 10
+  %1 = trunc nuw nsw i64 %rem to i8
+  %conv = or disjoint i8 %1, 48
   %arrayidx = getelementptr inbounds [20 x i8], ptr %buf, i64 0, i64 %idx.017
   store i8 %conv, ptr %arrayidx, align 1
-  %div = sdiv i64 %i.118, 10
+  %div = udiv i64 %i.118, 10
   %dec = add nsw i64 %idx.017, -1
-  %2 = add i64 %i.118, -10
-  %cmp4 = icmp ult i64 %2, -19
+  %cmp4 = icmp ugt i64 %i.118, 9
   %cmp5 = icmp ne i64 %idx.017, 0
-  %3 = and i1 %cmp4, %cmp5
-  br i1 %3, label %while.body, label %while.end, !llvm.loop !6
+  %2 = and i1 %cmp4, %cmp5
+  br i1 %2, label %while.body, label %while.end, !llvm.loop !6
 
 while.end:                                        ; preds = %while.body
   %sub6 = sub i64 20, %idx.017

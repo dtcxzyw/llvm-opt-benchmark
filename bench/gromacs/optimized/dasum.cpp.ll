@@ -16,99 +16,95 @@ define double @dasum_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
 
 9:                                                ; preds = %3
   %.not = icmp eq i32 %5, 1
-  br i1 %.not, label %18, label %10
+  br i1 %.not, label %17, label %.lr.ph.preheader
 
-10:                                               ; preds = %9
-  %11 = mul nuw nsw i32 %5, %.fr
-  %.not6365 = icmp slt i32 %11, 1
-  br i1 %.not6365, label %.loopexit, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %10
-  %12 = zext nneg i32 %5 to i64
+.lr.ph.preheader:                                 ; preds = %9
+  %10 = mul nuw nsw i32 %5, %.fr
+  %11 = zext nneg i32 %5 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.05367 = phi double [ 0.000000e+00, %.lr.ph.preheader ], [ %16, %.lr.ph ]
-  %13 = getelementptr inbounds double, ptr %6, i64 %indvars.iv
-  %14 = load double, ptr %13, align 8
-  %15 = tail call noundef double @llvm.fabs.f64(double %14)
-  %16 = fadd double %.05367, %15
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, %12
-  %17 = trunc nuw i64 %indvars.iv.next to i32
-  %.not63 = icmp slt i32 %11, %17
+  %.05367 = phi double [ 0.000000e+00, %.lr.ph.preheader ], [ %15, %.lr.ph ]
+  %12 = getelementptr inbounds double, ptr %6, i64 %indvars.iv
+  %13 = load double, ptr %12, align 8
+  %14 = tail call noundef double @llvm.fabs.f64(double %13)
+  %15 = fadd double %.05367, %14
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, %11
+  %16 = trunc nuw i64 %indvars.iv.next to i32
+  %.not63 = icmp slt i32 %10, %16
   br i1 %.not63, label %.loopexit, label %.lr.ph, !llvm.loop !4
 
-18:                                               ; preds = %9
-  %19 = urem i32 %.fr, 6
-  %.not60 = icmp eq i32 %19, 0
-  br i1 %.not60, label %28, label %.preheader.preheader
+17:                                               ; preds = %9
+  %18 = urem i32 %.fr, 6
+  %.not60 = icmp eq i32 %18, 0
+  br i1 %.not60, label %27, label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %18
-  %20 = urem i32 %.fr, 6
-  %21 = add nuw nsw i32 %20, 1
-  %wide.trip.count = zext nneg i32 %21 to i64
+.preheader.preheader:                             ; preds = %17
+  %19 = urem i32 %.fr, 6
+  %20 = add nuw nsw i32 %19, 1
+  %wide.trip.count = zext nneg i32 %20 to i64
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv79 = phi i64 [ 1, %.preheader.preheader ], [ %indvars.iv.next80, %.preheader ]
-  %.169 = phi double [ 0.000000e+00, %.preheader.preheader ], [ %25, %.preheader ]
-  %22 = getelementptr inbounds double, ptr %6, i64 %indvars.iv79
-  %23 = load double, ptr %22, align 8
-  %24 = tail call noundef double @llvm.fabs.f64(double %23)
-  %25 = fadd double %.169, %24
+  %.169 = phi double [ 0.000000e+00, %.preheader.preheader ], [ %24, %.preheader ]
+  %21 = getelementptr inbounds double, ptr %6, i64 %indvars.iv79
+  %22 = load double, ptr %21, align 8
+  %23 = tail call noundef double @llvm.fabs.f64(double %22)
+  %24 = fadd double %.169, %23
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next80, %wide.trip.count
-  br i1 %exitcond.not, label %26, label %.preheader, !llvm.loop !6
+  br i1 %exitcond.not, label %25, label %.preheader, !llvm.loop !6
 
-26:                                               ; preds = %.preheader
-  %27 = icmp slt i32 %.fr, 6
-  br i1 %27, label %.loopexit, label %28
+25:                                               ; preds = %.preheader
+  %26 = icmp slt i32 %.fr, 6
+  br i1 %26, label %.loopexit, label %27
 
-28:                                               ; preds = %26, %18
-  %.2 = phi double [ %25, %26 ], [ 0.000000e+00, %18 ]
-  %.not6270.not = icmp slt i32 %19, %.fr
+27:                                               ; preds = %25, %17
+  %.2 = phi double [ %24, %25 ], [ 0.000000e+00, %17 ]
+  %.not6270.not = icmp slt i32 %18, %.fr
   br i1 %.not6270.not, label %.lr.ph73.preheader, label %.loopexit
 
-.lr.ph73.preheader:                               ; preds = %28
-  %29 = add nuw nsw i32 %19, 1
-  %30 = zext nneg i32 %29 to i64
+.lr.ph73.preheader:                               ; preds = %27
+  %28 = add nuw nsw i32 %18, 1
+  %29 = zext nneg i32 %28 to i64
   br label %.lr.ph73
 
 .lr.ph73:                                         ; preds = %.lr.ph73.preheader, %.lr.ph73
-  %indvars.iv82 = phi i64 [ %30, %.lr.ph73.preheader ], [ %indvars.iv.next83, %.lr.ph73 ]
-  %.372 = phi double [ %.2, %.lr.ph73.preheader ], [ %54, %.lr.ph73 ]
-  %31 = getelementptr inbounds double, ptr %6, i64 %indvars.iv82
-  %32 = load double, ptr %31, align 8
-  %33 = tail call noundef double @llvm.fabs.f64(double %32)
-  %34 = fadd double %.372, %33
-  %35 = getelementptr inbounds i8, ptr %31, i64 8
-  %36 = load double, ptr %35, align 8
-  %37 = tail call noundef double @llvm.fabs.f64(double %36)
-  %38 = fadd double %34, %37
-  %39 = getelementptr inbounds i8, ptr %31, i64 16
-  %40 = load double, ptr %39, align 8
-  %41 = tail call noundef double @llvm.fabs.f64(double %40)
-  %42 = fadd double %38, %41
-  %43 = getelementptr inbounds i8, ptr %31, i64 24
-  %44 = load double, ptr %43, align 8
-  %45 = tail call noundef double @llvm.fabs.f64(double %44)
-  %46 = fadd double %42, %45
-  %47 = getelementptr inbounds i8, ptr %31, i64 32
-  %48 = load double, ptr %47, align 8
-  %49 = tail call noundef double @llvm.fabs.f64(double %48)
-  %50 = fadd double %46, %49
-  %51 = getelementptr inbounds i8, ptr %31, i64 40
-  %52 = load double, ptr %51, align 8
-  %53 = tail call noundef double @llvm.fabs.f64(double %52)
-  %54 = fadd double %50, %53
+  %indvars.iv82 = phi i64 [ %29, %.lr.ph73.preheader ], [ %indvars.iv.next83, %.lr.ph73 ]
+  %.372 = phi double [ %.2, %.lr.ph73.preheader ], [ %53, %.lr.ph73 ]
+  %30 = getelementptr inbounds double, ptr %6, i64 %indvars.iv82
+  %31 = load double, ptr %30, align 8
+  %32 = tail call noundef double @llvm.fabs.f64(double %31)
+  %33 = fadd double %.372, %32
+  %34 = getelementptr inbounds i8, ptr %30, i64 8
+  %35 = load double, ptr %34, align 8
+  %36 = tail call noundef double @llvm.fabs.f64(double %35)
+  %37 = fadd double %33, %36
+  %38 = getelementptr inbounds i8, ptr %30, i64 16
+  %39 = load double, ptr %38, align 8
+  %40 = tail call noundef double @llvm.fabs.f64(double %39)
+  %41 = fadd double %37, %40
+  %42 = getelementptr inbounds i8, ptr %30, i64 24
+  %43 = load double, ptr %42, align 8
+  %44 = tail call noundef double @llvm.fabs.f64(double %43)
+  %45 = fadd double %41, %44
+  %46 = getelementptr inbounds i8, ptr %30, i64 32
+  %47 = load double, ptr %46, align 8
+  %48 = tail call noundef double @llvm.fabs.f64(double %47)
+  %49 = fadd double %45, %48
+  %50 = getelementptr inbounds i8, ptr %30, i64 40
+  %51 = load double, ptr %50, align 8
+  %52 = tail call noundef double @llvm.fabs.f64(double %51)
+  %53 = fadd double %49, %52
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 6
-  %55 = trunc nuw i64 %indvars.iv.next83 to i32
-  %.not62 = icmp slt i32 %.fr, %55
+  %54 = trunc nuw i64 %indvars.iv.next83 to i32
+  %.not62 = icmp slt i32 %.fr, %54
   br i1 %.not62, label %.loopexit, label %.lr.ph73, !llvm.loop !7
 
-.loopexit:                                        ; preds = %.lr.ph, %.lr.ph73, %10, %28, %26, %3
-  %.0 = phi double [ 0.000000e+00, %3 ], [ %25, %26 ], [ %.2, %28 ], [ 0.000000e+00, %10 ], [ %54, %.lr.ph73 ], [ %16, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %.lr.ph73, %27, %25, %3
+  %.0 = phi double [ 0.000000e+00, %3 ], [ %24, %25 ], [ %.2, %27 ], [ %53, %.lr.ph73 ], [ %15, %.lr.ph ]
   ret double %.0
 }
 

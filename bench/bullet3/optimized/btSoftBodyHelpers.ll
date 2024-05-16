@@ -3762,9 +3762,9 @@ entry:
   %cmp = icmp slt i32 %resx, 2
   %cmp1 = icmp slt i32 %resy, 2
   %or.cond = or i1 %cmp, %cmp1
-  br i1 %or.cond, label %return, label %if.end
+  br i1 %or.cond, label %return, label %for.body.us.preheader
 
-if.end:                                           ; preds = %entry
+for.body.us.preheader:                            ; preds = %entry
   %mul = mul nuw nsw i32 %resy, %resx
   %conv = zext nneg i32 %mul to i64
   %0 = shl nuw nsw i64 %conv, 4
@@ -3787,8 +3787,8 @@ if.end:                                           ; preds = %entry
   %4 = shufflevector <2 x float> %3, <2 x float> poison, <2 x i32> zeroinitializer
   br label %for.body.us
 
-for.body.us:                                      ; preds = %if.end, %for.cond10.for.inc36_crit_edge.us
-  %indvars.iv182 = phi i64 [ 0, %if.end ], [ %indvars.iv.next183, %for.cond10.for.inc36_crit_edge.us ]
+for.body.us:                                      ; preds = %for.body.us.preheader, %for.cond10.for.inc36_crit_edge.us
+  %indvars.iv182 = phi i64 [ 0, %for.body.us.preheader ], [ %indvars.iv.next183, %for.cond10.for.inc36_crit_edge.us ]
   %5 = trunc nuw nsw i64 %indvars.iv182 to i32
   %conv5.us = uitofp nneg i32 %5 to float
   %div.us = fdiv float %conv5.us, %conv6
@@ -3924,13 +3924,13 @@ if.then62:                                        ; preds = %if.end59
   %sub63 = add nsw i32 %resy, -1
   %mul64 = mul nsw i32 %sub63, %resx
   %sub65 = add nsw i32 %resx, -1
-  %add66 = add nsw i32 %sub65, %mul64
+  %add66 = add nuw nsw i32 %sub65, %mul64
   tail call void @_ZN10btSoftBody7setMassEif(ptr noundef nonnull align 8 dereferenceable(2064) %call.i147, i32 noundef %add66, float noundef 0.000000e+00)
   br label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.end59, %if.then62
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %call.i)
-          to label %for.cond75.preheader.lr.ph unwind label %terminate.lpad.i148
+          to label %delete.notnull69 unwind label %terminate.lpad.i148
 
 terminate.lpad.i148:                              ; preds = %delete.notnull
   %50 = landingpad { ptr, i32 }
@@ -3939,13 +3939,15 @@ terminate.lpad.i148:                              ; preds = %delete.notnull
   tail call void @__clang_call_terminate(ptr %51) #23
   unreachable
 
-for.cond75.preheader.lr.ph:                       ; preds = %delete.notnull
+delete.notnull69:                                 ; preds = %delete.notnull
   tail call void @_ZdaPv(ptr noundef nonnull %call3) #25
+  %cmp72163 = icmp sgt i32 %resy, 0
   %cmp76161 = icmp sgt i32 %resx, 0
-  br i1 %cmp76161, label %for.cond75.preheader.us, label %return
+  %or.cond192 = and i1 %cmp72163, %cmp76161
+  br i1 %or.cond192, label %for.cond75.preheader.us, label %return
 
-for.cond75.preheader.us:                          ; preds = %for.cond75.preheader.lr.ph, %for.cond75.for.inc164_crit_edge.us
-  %iy.1164.us = phi i32 [ %add83.us, %for.cond75.for.inc164_crit_edge.us ], [ 0, %for.cond75.preheader.lr.ph ]
+for.cond75.preheader.us:                          ; preds = %delete.notnull69, %for.cond75.for.inc164_crit_edge.us
+  %iy.1164.us = phi i32 [ %add83.us, %for.cond75.for.inc164_crit_edge.us ], [ 0, %delete.notnull69 ]
   %mul78.us = mul nuw nsw i32 %iy.1164.us, %resx
   %add83.us = add nuw nsw i32 %iy.1164.us, 1
   %cmp84.us.not = icmp slt i32 %add83.us, %resy
@@ -4018,8 +4020,8 @@ if.end91.us.us:                                   ; preds = %if.then87.us.us, %f
   %exitcond188.not = icmp eq i32 %add80.us.us, %resx
   br i1 %exitcond188.not, label %for.cond75.for.inc164_crit_edge.us, label %for.body77.us.us, !llvm.loop !33
 
-return:                                           ; preds = %for.cond75.for.inc164_crit_edge.us, %for.cond75.preheader.lr.ph, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ %call.i147, %for.cond75.preheader.lr.ph ], [ %call.i147, %for.cond75.for.inc164_crit_edge.us ]
+return:                                           ; preds = %for.cond75.for.inc164_crit_edge.us, %delete.notnull69, %entry
+  %retval.0 = phi ptr [ null, %entry ], [ %call.i147, %delete.notnull69 ], [ %call.i147, %for.cond75.for.inc164_crit_edge.us ]
   ret ptr %retval.0
 }
 
@@ -4031,9 +4033,9 @@ entry:
   %cmp = icmp slt i32 %resx, 2
   %cmp1 = icmp slt i32 %resy, 2
   %or.cond = or i1 %cmp, %cmp1
-  br i1 %or.cond, label %return, label %if.end
+  br i1 %or.cond, label %return, label %for.body.us.preheader
 
-if.end:                                           ; preds = %entry
+for.body.us.preheader:                            ; preds = %entry
   %mul = mul nuw nsw i32 %resy, %resx
   %conv = zext nneg i32 %mul to i64
   %0 = shl nuw nsw i64 %conv, 4
@@ -4052,8 +4054,8 @@ if.end:                                           ; preds = %entry
   %wide.trip.count282 = zext nneg i32 %resy to i64
   br label %for.body.us
 
-for.body.us:                                      ; preds = %if.end, %for.cond10.for.inc24_crit_edge.us
-  %indvars.iv278 = phi i64 [ 0, %if.end ], [ %indvars.iv.next279, %for.cond10.for.inc24_crit_edge.us ]
+for.body.us:                                      ; preds = %for.body.us.preheader, %for.cond10.for.inc24_crit_edge.us
+  %indvars.iv278 = phi i64 [ 0, %for.body.us.preheader ], [ %indvars.iv.next279, %for.cond10.for.inc24_crit_edge.us ]
   %3 = trunc nuw nsw i64 %indvars.iv278 to i32
   %conv5.us = uitofp nneg i32 %3 to float
   %div.us = fdiv float %conv5.us, %conv6
@@ -4166,7 +4168,7 @@ if.then50:                                        ; preds = %if.end47
   %sub51 = add nsw i32 %resy, -1
   %mul52 = mul nsw i32 %sub51, %resx
   %sub53 = add nsw i32 %resx, -1
-  %add54 = add nsw i32 %sub53, %mul52
+  %add54 = add nuw nsw i32 %sub53, %mul52
   tail call void @_ZN10btSoftBody7setMassEif(ptr noundef nonnull align 8 dereferenceable(2064) %call.i200, i32 noundef %add54, float noundef 0.000000e+00)
   br label %if.end55
 
@@ -4203,7 +4205,7 @@ if.then74:                                        ; preds = %if.end71
   %div76172 = lshr i32 %sub75, 1
   %mul77 = mul nuw nsw i32 %div76172, %resx
   %sub78 = add nsw i32 %resx, -1
-  %add79 = add nsw i32 %sub78, %mul77
+  %add79 = add nuw nsw i32 %sub78, %mul77
   tail call void @_ZN10btSoftBody7setMassEif(ptr noundef nonnull align 8 dereferenceable(2064) %call.i200, i32 noundef %add79, float noundef 0.000000e+00)
   br label %if.end80
 
@@ -4238,7 +4240,7 @@ if.then92:                                        ; preds = %if.end89
 
 delete.notnull:                                   ; preds = %if.end89, %if.then92
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %call.i)
-          to label %for.cond107.preheader.lr.ph unwind label %terminate.lpad.i201
+          to label %delete.notnull101 unwind label %terminate.lpad.i201
 
 terminate.lpad.i201:                              ; preds = %delete.notnull
   %31 = landingpad { ptr, i32 }
@@ -4247,15 +4249,19 @@ terminate.lpad.i201:                              ; preds = %delete.notnull
   tail call void @__clang_call_terminate(ptr %32) #23
   unreachable
 
-for.cond107.preheader.lr.ph:                      ; preds = %delete.notnull
+delete.notnull101:                                ; preds = %delete.notnull
   tail call void @_ZdaPv(ptr noundef nonnull %call3) #25
+  %cmp104259 = icmp sgt i32 %resy, 0
+  br i1 %cmp104259, label %for.cond107.preheader.lr.ph, label %return
+
+for.cond107.preheader.lr.ph:                      ; preds = %delete.notnull101
   %cmp108256 = icmp sgt i32 %resx, 0
   %tobool137.not = icmp eq ptr %tex_coords, null
   %sub.i = add nsw i32 %resx, -1
   %conv.i = sitofp i32 %sub.i to float
   %div.i = fdiv float 1.000000e+00, %conv.i
   %sub4.i = add nsw i32 %resy, -1
-  %conv5.i = sitofp i32 %sub4.i to float
+  %conv5.i = uitofp nneg i32 %sub4.i to float
   %div6.i = fdiv float 1.000000e+00, %conv5.i
   br i1 %cmp108256, label %for.cond107.preheader.us, label %return
 
@@ -4370,8 +4376,8 @@ if.end130.us.us:                                  ; preds = %if.then129.us.us, %
   %exitcond284.not = icmp eq i32 %add110.us.us, %resx
   br i1 %exitcond284.not, label %for.cond107.for.inc199_crit_edge.us, label %for.body109.us.us, !llvm.loop !37
 
-return:                                           ; preds = %for.cond107.for.inc199_crit_edge.us, %for.cond107.preheader.lr.ph, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ %call.i200, %for.cond107.preheader.lr.ph ], [ %call.i200, %for.cond107.for.inc199_crit_edge.us ]
+return:                                           ; preds = %for.cond107.for.inc199_crit_edge.us, %for.cond107.preheader.lr.ph, %delete.notnull101, %entry
+  %retval.0 = phi ptr [ null, %entry ], [ %call.i200, %delete.notnull101 ], [ %call.i200, %for.cond107.preheader.lr.ph ], [ %call.i200, %for.cond107.for.inc199_crit_edge.us ]
   ret ptr %retval.0
 }
 

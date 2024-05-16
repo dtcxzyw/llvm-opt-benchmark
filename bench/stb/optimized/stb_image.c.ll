@@ -3703,13 +3703,13 @@ entry:
   %callback_already_read.i.i = getelementptr inbounds i8, ptr %s, i64 184
   %add.ptr.i.i = getelementptr inbounds i8, ptr %s, i64 57
   %.pre = load ptr, ptr %img_buffer.i, align 8
-  %.pre53 = load ptr, ptr %img_buffer_end.i, align 8
+  %.pre52 = load ptr, ptr %img_buffer_end.i, align 8
   br label %for.body
 
 for.body:                                         ; preds = %entry, %stbi__get8.exit
-  %0 = phi ptr [ %.pre53, %entry ], [ %9, %stbi__get8.exit ]
+  %0 = phi ptr [ %.pre52, %entry ], [ %9, %stbi__get8.exit ]
   %1 = phi ptr [ %.pre, %entry ], [ %10, %stbi__get8.exit ]
-  %i.052 = phi i32 [ 0, %entry ], [ %inc, %stbi__get8.exit ]
+  %i.051 = phi i32 [ 0, %entry ], [ %inc, %stbi__get8.exit ]
   %cmp.i = icmp ult ptr %1, %0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
@@ -3763,7 +3763,7 @@ stbi__get8.exit.sink.split:                       ; preds = %stbi__refill_buffer
 stbi__get8.exit:                                  ; preds = %stbi__get8.exit.sink.split, %if.end.i
   %9 = phi ptr [ %0, %if.end.i ], [ %.ph, %stbi__get8.exit.sink.split ]
   %10 = phi ptr [ %1, %if.end.i ], [ %incdec.ptr.i.sink, %stbi__get8.exit.sink.split ]
-  %inc = add nuw nsw i32 %i.052, 1
+  %inc = add nuw nsw i32 %i.051, 1
   %exitcond.not = icmp eq i32 %inc, 92
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !27
 
@@ -3847,7 +3847,7 @@ stbi__malloc_mad3.exit:                           ; preds = %land.lhs.true.i.i
   %tobool32.not = icmp eq ptr %call.i.i41, null
   br i1 %tobool32.not, label %if.then33, label %if.end37
 
-if.then33:                                        ; preds = %land.lhs.true.i.i, %stbi__mul2sizes_valid.exit.i.i, %stbi__malloc_mad3.exit
+if.then33:                                        ; preds = %stbi__mul2sizes_valid.exit.i.i, %land.lhs.true.i.i, %stbi__malloc_mad3.exit
   %19 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.1, ptr %19, align 8
   br label %return
@@ -6285,37 +6285,37 @@ if.then45:                                        ; preds = %if.end43
 
 if.end46:                                         ; preds = %if.then45, %if.end43
   %cmp2.i.i = icmp eq i32 %call12, 0
-  br i1 %cmp2.i.i, label %stbi__mul2sizes_valid.exit14.i, label %stbi__mul2sizes_valid.exit.i
+  br i1 %cmp2.i.i, label %land.lhs.true.i, label %stbi__mul2sizes_valid.exit.i
 
 stbi__mul2sizes_valid.exit.i:                     ; preds = %if.end46
   %div.i.i = udiv i32 2147483647, %call12
   %cmp5.i.not.i = icmp ult i32 %div.i.i, %call11
-  br i1 %cmp5.i.not.i, label %if.then49, label %stbi__mul2sizes_valid.exit14.i.thread
+  br i1 %cmp5.i.not.i, label %if.then49, label %land.lhs.true.i.thread
 
-stbi__mul2sizes_valid.exit14.i:                   ; preds = %if.end46
+land.lhs.true.i:                                  ; preds = %if.end46
   %mul.i = mul nuw nsw i32 %call12, %call11
   %div.i11.i = udiv i32 2147483647, %tga_comp.0.ph
   %cmp5.i12.not.i = icmp ult i32 %div.i11.i, %mul.i
   br i1 %cmp5.i12.not.i, label %if.then49, label %stbi__malloc_mad3.exit
 
-stbi__mul2sizes_valid.exit14.i.thread:            ; preds = %stbi__mul2sizes_valid.exit.i
+land.lhs.true.i.thread:                           ; preds = %stbi__mul2sizes_valid.exit.i
   %mul.i595 = mul nuw nsw i32 %call12, %call11
   %div.i11.i596 = udiv i32 2147483647, %tga_comp.0.ph
   %cmp5.i12.not.i597 = icmp ult i32 %div.i11.i596, %mul.i595
   br i1 %cmp5.i12.not.i597, label %if.then49, label %stbi__mul2sizes_valid.exit.i.i
 
-if.then49:                                        ; preds = %stbi__mul2sizes_valid.exit14.i.thread, %stbi__mul2sizes_valid.exit14.i, %stbi__mul2sizes_valid.exit.i
+if.then49:                                        ; preds = %land.lhs.true.i.thread, %land.lhs.true.i, %stbi__mul2sizes_valid.exit.i
   %72 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.28, ptr %72, align 8
   br label %return
 
-stbi__mul2sizes_valid.exit.i.i:                   ; preds = %stbi__mul2sizes_valid.exit14.i.thread
+stbi__mul2sizes_valid.exit.i.i:                   ; preds = %land.lhs.true.i.thread
   %div.i.i.i = udiv i32 2147483647, %call12
   %cmp5.i.not.i.i = icmp ult i32 %div.i.i.i, %call11
   br i1 %cmp5.i.not.i.i, label %if.then56, label %stbi__malloc_mad3.exit
 
-stbi__malloc_mad3.exit:                           ; preds = %stbi__mul2sizes_valid.exit.i.i, %stbi__mul2sizes_valid.exit14.i
-  %mul.i598602 = phi i32 [ %mul.i595, %stbi__mul2sizes_valid.exit.i.i ], [ %mul.i, %stbi__mul2sizes_valid.exit14.i ]
+stbi__malloc_mad3.exit:                           ; preds = %stbi__mul2sizes_valid.exit.i.i, %land.lhs.true.i
+  %mul.i598602 = phi i32 [ %mul.i595, %stbi__mul2sizes_valid.exit.i.i ], [ %mul.i, %land.lhs.true.i ]
   %mul4.i.i = mul nuw nsw i32 %mul.i598602, %tga_comp.0.ph
   %conv.i = zext nneg i32 %mul4.i.i to i64
   %call.i.i322 = tail call noalias noundef ptr @malloc(i64 noundef %conv.i) #39
@@ -21294,7 +21294,7 @@ stbi__mul2sizes_valid.exit.i207:                  ; preds = %if.end.i.i205
 stbi__mad2sizes_valid.exit:                       ; preds = %if.end.i.i205, %stbi__mul2sizes_valid.exit.i207
   %mul.i211 = mul nuw nsw i32 %shr, %y
   %sub.i.i = xor i32 %shr, 2147483647
-  %cmp1.i.i212.not = icmp slt i32 %sub.i.i, %mul.i211
+  %cmp1.i.i212.not = icmp ult i32 %sub.i.i, %mul.i211
   br i1 %cmp1.i.i212.not, label %if.then17, label %if.end19
 
 if.then17:                                        ; preds = %if.end12, %stbi__mul2sizes_valid.exit.i207, %stbi__mad2sizes_valid.exit

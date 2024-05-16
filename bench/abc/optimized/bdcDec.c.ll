@@ -686,7 +686,7 @@ Kit_TruthIsDisjoint3.exit:                        ; preds = %52
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Bdc_DecomposeWeakOr(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @Bdc_DecomposeWeakOr(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 0

@@ -1672,10 +1672,10 @@ define internal fastcc void @"_ZN4core3ptr104drop_in_place$LT$alloc..raw_vec..Ra
   br i1 %1, label %"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h98b65c55fb5b1ebfE.exit", label %2
 
 2:                                                ; preds = %0
-  %3 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %3)
-  %4 = mul nuw i64 %.8.val, 80
-  tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef %4, i64 noundef 8) #33
+  %3 = mul nuw i64 %.8.val, 80
+  %4 = icmp ne ptr %.0.val, null
+  tail call void @llvm.assume(i1 %4)
+  tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef %3, i64 noundef 8) #33
   br label %"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h98b65c55fb5b1ebfE.exit"
 
 "_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h98b65c55fb5b1ebfE.exit": ; preds = %0, %2
@@ -1688,10 +1688,10 @@ define internal fastcc void @"_ZN4core3ptr104drop_in_place$LT$alloc..raw_vec..Ra
   br i1 %1, label %"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8925cdbb56a2e2fbE.exit", label %2
 
 2:                                                ; preds = %0
-  %3 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %3)
-  %4 = mul nuw i64 %.8.val, 56
-  tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef %4, i64 noundef 8) #33
+  %3 = mul nuw i64 %.8.val, 56
+  %4 = icmp ne ptr %.0.val, null
+  tail call void @llvm.assume(i1 %4)
+  tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef %3, i64 noundef 8) #33
   br label %"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8925cdbb56a2e2fbE.exit"
 
 "_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8925cdbb56a2e2fbE.exit": ; preds = %0, %2
@@ -4852,10 +4852,10 @@ define internal fastcc void @"_ZN4core3ptr121drop_in_place$LT$alloc..raw_vec..Ra
   br i1 %1, label %"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2d9524eb0f66b16bE.exit", label %2
 
 2:                                                ; preds = %0
-  %3 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %3)
-  %4 = mul nuw i64 %.8.val, 96
-  tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef %4, i64 noundef 8) #33
+  %3 = mul nuw i64 %.8.val, 96
+  %4 = icmp ne ptr %.0.val, null
+  tail call void @llvm.assume(i1 %4)
+  tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef %3, i64 noundef 8) #33
   br label %"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2d9524eb0f66b16bE.exit"
 
 "_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2d9524eb0f66b16bE.exit": ; preds = %0, %2
@@ -17894,10 +17894,10 @@ define internal fastcc void @"_ZN4core3ptr201drop_in_place$LT$alloc..raw_vec..Ra
   br i1 %1, label %"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he79a9ea2f7ba0b00E.exit", label %2
 
 2:                                                ; preds = %0
-  %3 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %3)
-  %4 = mul nuw i64 %.8.val, 48
-  tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef %4, i64 noundef 8) #33
+  %3 = mul nuw i64 %.8.val, 48
+  %4 = icmp ne ptr %.0.val, null
+  tail call void @llvm.assume(i1 %4)
+  tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef %3, i64 noundef 8) #33
   br label %"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he79a9ea2f7ba0b00E.exit"
 
 "_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he79a9ea2f7ba0b00E.exit": ; preds = %0, %2

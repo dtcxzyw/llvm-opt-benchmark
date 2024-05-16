@@ -621,60 +621,58 @@ define dso_local i32 @ipv6_flowlabel_opt(ptr noundef %0, ptr %1, i8 %2, i32 noun
   %107 = load i16, ptr %106, align 4
   %108 = zext i16 %107 to i64
   %109 = icmp ult i16 %104, 6
-  br i1 %109, label %.thread4.i, label %110
+  br i1 %109, label %116, label %110
 
 110:                                              ; preds = %102
   %111 = icmp ugt i16 %104, 150
-  br i1 %111, label %112, label %115
+  br i1 %111, label %112, label %114
 
 112:                                              ; preds = %110
   %113 = call zeroext i1 @capable(i32 noundef 12) #13
-  %114 = mul nuw nsw i64 %105, 1000
-  br i1 %113, label %.thread4.i, label %fl6_renew.exit
+  br i1 %113, label %114, label %fl6_renew.exit
 
-115:                                              ; preds = %110
-  %.old.i = mul nuw nsw i64 %105, 1000
-  br label %.thread4.i
+114:                                              ; preds = %112, %110
+  %115 = mul nuw nsw i64 %105, 1000
+  br label %116
 
-.thread4.i:                                       ; preds = %115, %112, %102
-  %116 = phi i64 [ %.old.i, %115 ], [ 6000, %102 ], [ %114, %112 ]
+116:                                              ; preds = %114, %102
+  %.ph.i = phi i64 [ 6000, %102 ], [ %115, %114 ]
   %117 = icmp ult i16 %107, 6
-  br i1 %117, label %.thread6.i, label %118
+  br i1 %117, label %124, label %118
 
-118:                                              ; preds = %.thread4.i
+118:                                              ; preds = %116
   %119 = icmp ugt i16 %107, 150
-  br i1 %119, label %120, label %123
+  br i1 %119, label %120, label %122
 
 120:                                              ; preds = %118
   %121 = call zeroext i1 @capable(i32 noundef 12) #13
-  %122 = mul nuw nsw i64 %108, 1000
-  br i1 %121, label %.thread6.i, label %fl6_renew.exit
+  br i1 %121, label %122, label %fl6_renew.exit
 
-123:                                              ; preds = %118
-  %.old9.i = mul nuw nsw i64 %108, 1000
-  br label %.thread6.i
+122:                                              ; preds = %120, %118
+  %123 = mul nuw nsw i64 %108, 1000
+  br label %124
 
-.thread6.i:                                       ; preds = %123, %120, %.thread4.i
-  %124 = phi i64 [ %.old9.i, %123 ], [ 6000, %.thread4.i ], [ %122, %120 ]
+124:                                              ; preds = %122, %116
+  %.ph5.i = phi i64 [ 6000, %116 ], [ %123, %122 ]
   call void @_raw_spin_lock_bh(ptr noundef nonnull @ip6_fl_lock) #13
   %125 = load volatile i64, ptr @jiffies, align 64
   %126 = getelementptr inbounds i8, ptr %98, i64 80
   store i64 %125, ptr %126, align 8
   %127 = getelementptr inbounds i8, ptr %98, i64 40
   %128 = load i64, ptr %127, align 8
-  %129 = sub i64 %128, %116
+  %129 = sub i64 %128, %.ph.i
   %130 = icmp slt i64 %129, 0
   br i1 %130, label %131, label %132
 
-131:                                              ; preds = %.thread6.i
-  store i64 %116, ptr %127, align 8
+131:                                              ; preds = %124
+  store i64 %.ph.i, ptr %127, align 8
   br label %132
 
-132:                                              ; preds = %131, %.thread6.i
-  %133 = phi i64 [ %116, %131 ], [ %128, %.thread6.i ]
-  %134 = sub i64 %124, %133
+132:                                              ; preds = %131, %124
+  %133 = phi i64 [ %.ph.i, %131 ], [ %128, %124 ]
+  %134 = sub i64 %.ph5.i, %133
   %135 = icmp slt i64 %134, 0
-  %136 = select i1 %135, i64 %133, i64 %124
+  %136 = select i1 %135, i64 %133, i64 %.ph5.i
   %137 = getelementptr inbounds i8, ptr %98, i64 88
   %138 = load i64, ptr %137, align 8
   %139 = add i64 %136, %125
@@ -1304,60 +1302,58 @@ declare dso_local i64 @_copy_from_user(ptr noundef, ptr noundef, i64 noundef) lo
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef range(i32 -1, 1) i32 @fl6_renew(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #1 align 16 {
   %4 = icmp ult i64 %1, 6
-  br i1 %4, label %.thread4, label %5
+  br i1 %4, label %11, label %5
 
 5:                                                ; preds = %3
   %6 = icmp ugt i64 %1, 150
-  br i1 %6, label %7, label %10
+  br i1 %6, label %7, label %9
 
 7:                                                ; preds = %5
   %8 = tail call zeroext i1 @capable(i32 noundef 12) #13
-  %9 = mul nuw nsw i64 %1, 1000
-  br i1 %8, label %.thread4, label %.thread
+  br i1 %8, label %9, label %39
 
-10:                                               ; preds = %5
-  %.old = mul nuw nsw i64 %1, 1000
-  br label %.thread4
+9:                                                ; preds = %7, %5
+  %10 = mul nuw nsw i64 %1, 1000
+  br label %11
 
-.thread4:                                         ; preds = %10, %7, %3
-  %11 = phi i64 [ %.old, %10 ], [ 6000, %3 ], [ %9, %7 ]
+11:                                               ; preds = %9, %3
+  %.ph = phi i64 [ 6000, %3 ], [ %10, %9 ]
   %12 = icmp ult i64 %2, 6
-  br i1 %12, label %.thread6, label %13
+  br i1 %12, label %19, label %13
 
-13:                                               ; preds = %.thread4
+13:                                               ; preds = %11
   %14 = icmp ugt i64 %2, 150
-  br i1 %14, label %15, label %18
+  br i1 %14, label %15, label %17
 
 15:                                               ; preds = %13
   %16 = tail call zeroext i1 @capable(i32 noundef 12) #13
-  %17 = mul nuw nsw i64 %2, 1000
-  br i1 %16, label %.thread6, label %.thread
+  br i1 %16, label %17, label %39
 
-18:                                               ; preds = %13
-  %.old9 = mul nuw nsw i64 %2, 1000
-  br label %.thread6
+17:                                               ; preds = %15, %13
+  %18 = mul nuw nsw i64 %2, 1000
+  br label %19
 
-.thread6:                                         ; preds = %18, %15, %.thread4
-  %19 = phi i64 [ %.old9, %18 ], [ 6000, %.thread4 ], [ %17, %15 ]
+19:                                               ; preds = %17, %11
+  %.ph5 = phi i64 [ 6000, %11 ], [ %18, %17 ]
   tail call void @_raw_spin_lock_bh(ptr noundef nonnull @ip6_fl_lock) #13
   %20 = load volatile i64, ptr @jiffies, align 64
   %21 = getelementptr inbounds i8, ptr %0, i64 80
   store i64 %20, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 40
   %23 = load i64, ptr %22, align 8
-  %24 = sub i64 %23, %11
+  %24 = sub i64 %23, %.ph
   %25 = icmp slt i64 %24, 0
   br i1 %25, label %26, label %27
 
-26:                                               ; preds = %.thread6
-  store i64 %11, ptr %22, align 8
+26:                                               ; preds = %19
+  store i64 %.ph, ptr %22, align 8
   br label %27
 
-27:                                               ; preds = %26, %.thread6
-  %28 = phi i64 [ %11, %26 ], [ %23, %.thread6 ]
-  %29 = sub i64 %19, %28
+27:                                               ; preds = %26, %19
+  %28 = phi i64 [ %.ph, %26 ], [ %23, %19 ]
+  %29 = sub i64 %.ph5, %28
   %30 = icmp slt i64 %29, 0
-  %31 = select i1 %30, i64 %28, i64 %19
+  %31 = select i1 %30, i64 %28, i64 %.ph5
   %32 = getelementptr inbounds i8, ptr %0, i64 88
   %33 = load i64, ptr %32, align 8
   %34 = add i64 %31, %20
@@ -1371,11 +1367,11 @@ define internal fastcc noundef range(i32 -1, 1) i32 @fl6_renew(ptr nocapture nou
 
 38:                                               ; preds = %37, %27
   tail call void @_raw_spin_unlock_bh(ptr noundef nonnull @ip6_fl_lock) #13
-  br label %.thread
+  br label %39
 
-.thread:                                          ; preds = %15, %7, %38
-  %39 = phi i32 [ 0, %38 ], [ -1, %7 ], [ -1, %15 ]
-  ret i32 %39
+39:                                               ; preds = %15, %7, %38
+  %40 = phi i32 [ 0, %38 ], [ -1, %7 ], [ -1, %15 ]
+  ret i32 %40
 }
 
 ; Function Attrs: null_pointer_is_valid

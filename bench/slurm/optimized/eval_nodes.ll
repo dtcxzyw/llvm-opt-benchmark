@@ -308,7 +308,7 @@ define range(i32 2037, 2036) i32 @eval_nodes(ptr noundef %0) local_unnamed_addr 
 
 160:                                              ; preds = %152, %144
   %.0.i214.i = phi i32 [ %159, %152 ], [ %149, %144 ]
-  %161 = sext i32 %.0.i214.i to i64
+  %161 = zext nneg i32 %.0.i214.i to i64
   %162 = sub nsw i64 %.0177262.i, %161
   %163 = load i16, ptr %63, align 8
   %164 = zext i16 %163 to i64
@@ -568,7 +568,7 @@ eval_nodes_cpus_to_use.exit.i:                    ; preds = %180, %133
 
 283:                                              ; preds = %275, %267
   %.0.i216.i = phi i32 [ %282, %275 ], [ %272, %267 ]
-  %284 = sext i32 %.0.i216.i to i64
+  %284 = zext nneg i32 %.0.i216.i to i64
   %285 = sub nsw i64 %.4181274.i, %284
   %286 = load i16, ptr %63, align 8
   %287 = zext i16 %286 to i64
@@ -935,7 +935,7 @@ _eval_nodes_spread.exit:                          ; preds = %.thread238.i, %349
 
 466:                                              ; preds = %458, %450
   %.0.i229.i = phi i32 [ %465, %458 ], [ %455, %450 ]
-  %467 = sext i32 %.0.i229.i to i64
+  %467 = zext nneg i32 %.0.i229.i to i64
   %468 = sub nsw i64 %.0189279.i, %467
   %469 = load i16, ptr %369, align 8
   %470 = zext i16 %469 to i64
@@ -1226,7 +1226,7 @@ eval_nodes_cpus_to_use.exit.i65:                  ; preds = %486, %439
 
 596:                                              ; preds = %588, %580
   %.0.i231.i = phi i32 [ %595, %588 ], [ %585, %580 ]
-  %597 = sext i32 %.0.i231.i to i64
+  %597 = zext nneg i32 %.0.i231.i to i64
   %598 = sub nsw i64 %.5194291.i, %597
   %599 = load i16, ptr %369, align 8
   %600 = zext i16 %599 to i64
@@ -1611,7 +1611,7 @@ _eval_nodes_busy.exit:                            ; preds = %.thread253.i, %663
 
 783:                                              ; preds = %775, %767
   %.0.i232.i = phi i32 [ %782, %775 ], [ %772, %767 ]
-  %784 = sext i32 %.0.i232.i to i64
+  %784 = zext nneg i32 %.0.i232.i to i64
   %785 = sub nsw i64 %.0200280.i, %784
   %786 = load i16, ptr %687, align 8
   %787 = zext i16 %786 to i64
@@ -1878,7 +1878,7 @@ eval_nodes_cpus_to_use.exit.i104:                 ; preds = %803, %756
 
 903:                                              ; preds = %895, %889
   %.0.i234.i = phi i32 [ %902, %895 ], [ %892, %889 ]
-  %904 = sext i32 %.0.i234.i to i64
+  %904 = zext nneg i32 %.0.i234.i to i64
   %905 = sub nsw i64 %.4204.i, %904
   %906 = load i16, ptr %687, align 8
   %907 = zext i16 %906 to i64
@@ -2273,7 +2273,7 @@ _eval_nodes_lln.exit:                             ; preds = %.thread256.i, %1008
   %1093 = call i32 @llvm.smax.i32(i32 %.0343..i, i32 %1092)
   %1094 = load i16, ptr %1036, align 8
   %1095 = zext i16 %1094 to i32
-  %1096 = icmp sgt i32 %1093, %1095
+  %1096 = icmp ugt i32 %1093, %1095
   br i1 %1096, label %1097, label %1105
 
 1097:                                             ; preds = %1090
@@ -2290,7 +2290,7 @@ _eval_nodes_lln.exit:                             ; preds = %.thread256.i, %1008
   br label %.critedge3.thread.i
 
 1105:                                             ; preds = %1090
-  %1106 = trunc i32 %1093 to i16
+  %1106 = trunc nuw i32 %1093 to i16
   store i16 %1106, ptr %1036, align 8
   %1107 = load i32, ptr %2, align 4
   %1108 = sext i32 %1107 to i64
@@ -2341,7 +2341,7 @@ _eval_nodes_lln.exit:                             ; preds = %.thread256.i, %1008
 
 1144:                                             ; preds = %1136, %1128
   %.0.i511.i = phi i32 [ %1143, %1136 ], [ %1133, %1128 ]
-  %1145 = sext i32 %.0.i511.i to i64
+  %1145 = zext nneg i32 %.0.i511.i to i64
   %1146 = sub nsw i64 %.0395616.i, %1145
   %1147 = load i16, ptr %1036, align 8
   %1148 = zext i16 %1147 to i64
@@ -3195,7 +3195,7 @@ thread-pre-split.i.us:                            ; preds = %1494, %.thread568.i
 
 1580:                                             ; preds = %1572, %1564
   %.0.i514.i.us = phi i32 [ %1579, %1572 ], [ %1569, %1564 ]
-  %1581 = sext i32 %.0.i514.i.us to i64
+  %1581 = zext nneg i32 %.0.i514.i.us to i64
   %1582 = sub nsw i64 %.3398656.i.us, %1581
   %1583 = load i16, ptr %1036, align 8
   %1584 = zext i16 %1583 to i64
@@ -3389,7 +3389,7 @@ eval_nodes_cpus_to_use.exit523.i.us:              ; preds = %1600, %1554
 
 1683:                                             ; preds = %1675, %1667
   %.0.i525.i.us = phi i32 [ %1682, %1675 ], [ %1672, %1667 ]
-  %1684 = sext i32 %.0.i525.i.us to i64
+  %1684 = zext nneg i32 %.0.i525.i.us to i64
   %1685 = sub nsw i64 %.5400692.i.us, %1684
   %1686 = load i16, ptr %1036, align 8
   %1687 = zext i16 %1686 to i64
@@ -3699,7 +3699,7 @@ eval_nodes_cpus_to_use.exit534.i.us:              ; preds = %1703, %1657
 
 1832:                                             ; preds = %1824, %1816
   %.0.i536.i.us = phi i32 [ %1831, %1824 ], [ %1821, %1816 ]
-  %1833 = sext i32 %.0.i536.i.us to i64
+  %1833 = zext nneg i32 %.0.i536.i.us to i64
   %1834 = sub nsw i64 %.7402735.i.us, %1833
   %1835 = load i16, ptr %1036, align 8
   %1836 = zext i16 %1835 to i64
@@ -4133,7 +4133,7 @@ define internal fastcc range(i32 -1, 1) i32 @_eval_nodes_serial(ptr noundef %0) 
 
 115:                                              ; preds = %107, %99
   %.0.i218 = phi i32 [ %114, %107 ], [ %104, %99 ]
-  %116 = sext i32 %.0.i218 to i64
+  %116 = zext nneg i32 %.0.i218 to i64
   %117 = sub nsw i64 %.0180266, %116
   %118 = load i16, ptr %18, align 8
   %119 = zext i16 %118 to i64
@@ -4397,7 +4397,7 @@ eval_nodes_cpus_to_use.exit:                      ; preds = %88, %135
 
 240:                                              ; preds = %232, %224
   %.0.i220 = phi i32 [ %239, %232 ], [ %229, %224 ]
-  %241 = sext i32 %.0.i220 to i64
+  %241 = zext nneg i32 %.0.i220 to i64
   %242 = sub nsw i64 %.4184278, %241
   %243 = load i16, ptr %18, align 8
   %244 = zext i16 %243 to i64
@@ -4597,7 +4597,7 @@ define void @eval_nodes_cpus_to_use(ptr nocapture noundef %0, i32 noundef %1, i6
 
 34:                                               ; preds = %26, %17
   %.0 = phi i32 [ %33, %26 ], [ %22, %17 ]
-  %35 = sext i32 %.0 to i64
+  %35 = zext nneg i32 %.0 to i64
   %36 = sub nsw i64 %2, %35
   %37 = getelementptr inbounds i8, ptr %0, i64 8
   %38 = load i16, ptr %37, align 8

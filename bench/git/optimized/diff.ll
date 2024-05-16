@@ -21359,8 +21359,8 @@ do.end:                                           ; preds = %entry.do.end_crit_e
   store i32 1, ptr %orig_nr, align 8
   %size20 = getelementptr inbounds i8, ptr %buffer, i64 8
   %6 = load i64, ptr %size20, align 8
-  %cmp21105 = icmp sgt i64 %6, 0
-  br i1 %cmp21105, label %for.body.lr.ph, label %for.end
+  %cmp21106 = icmp sgt i64 %6, 0
+  br i1 %cmp21106, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %do.end
   %tobool.not.i = icmp eq ptr %word_regex, null
@@ -21369,21 +21369,21 @@ for.body.lr.ph:                                   ; preds = %do.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %do.end114
   %7 = phi i64 [ %6, %for.body.lr.ph ], [ %51, %do.end114 ]
-  %conv18108 = phi i64 [ 0, %for.body.lr.ph ], [ %idx.ext69, %do.end114 ]
-  %alloc.0107 = phi i64 [ 0, %for.body.lr.ph ], [ %alloc.2, %do.end114 ]
-  %storemerge49106 = phi i32 [ 0, %for.body.lr.ph ], [ %j.386, %do.end114 ]
+  %conv18109 = phi i64 [ 0, %for.body.lr.ph ], [ %idx.ext69, %do.end114 ]
+  %alloc.0108 = phi i64 [ 0, %for.body.lr.ph ], [ %alloc.2, %do.end114 ]
+  %storemerge49107 = phi i32 [ 0, %for.body.lr.ph ], [ %j.387, %do.end114 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %match.i)
   br i1 %tobool.not.i, label %while.end.i, label %while.body.i.preheader
 
 while.body.i.preheader:                           ; preds = %for.body
-  %.pre115 = load ptr, ptr %buffer, align 8
+  %.pre116 = load ptr, ptr %buffer, align 8
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.preheader, %if.then27.i
-  %8 = phi ptr [ %11, %if.then27.i ], [ %.pre115, %while.body.i.preheader ]
-  %i.0 = phi i32 [ %inc.i, %if.then27.i ], [ %storemerge49106, %while.body.i.preheader ]
+  %8 = phi ptr [ %11, %if.then27.i ], [ %.pre116, %while.body.i.preheader ]
+  %i.0 = phi i32 [ %inc.i, %if.then27.i ], [ %storemerge49107, %while.body.i.preheader ]
   %9 = phi i64 [ %14, %if.then27.i ], [ %7, %while.body.i.preheader ]
-  %conv39.i = phi i64 [ %conv.i, %if.then27.i ], [ %conv18108, %while.body.i.preheader ]
+  %conv39.i = phi i64 [ %conv.i, %if.then27.i ], [ %conv18109, %while.body.i.preheader ]
   %add.ptr.i = getelementptr inbounds i8, ptr %8, i64 %conv39.i
   store i32 0, ptr %match.i, align 4
   %10 = trunc i64 %9 to i32
@@ -21391,9 +21391,9 @@ while.body.i:                                     ; preds = %while.body.i.prehea
   store i32 %conv.i.i, ptr %rm_eo.i.i, align 4
   %call.i.i = call i32 @regexec(ptr noundef nonnull %word_regex, ptr noundef %add.ptr.i, i64 noundef 1, ptr noundef nonnull %match.i, i32 noundef 4) #31
   %tobool4.not.i = icmp eq i32 %call.i.i, 0
-  br i1 %tobool4.not.i, label %if.then.i51, label %find_word_boundaries.exit.thread
+  br i1 %tobool4.not.i, label %if.then.i52, label %find_word_boundaries.exit.thread
 
-if.then.i51:                                      ; preds = %while.body.i
+if.then.i52:                                      ; preds = %while.body.i
   %11 = load ptr, ptr %buffer, align 8
   %idx.ext6.i = sext i32 %i.0 to i64
   %add.ptr7.i = getelementptr inbounds i8, ptr %11, i64 %idx.ext6.i
@@ -21416,7 +21416,7 @@ if.then.i51:                                      ; preds = %while.body.i
   %cmp25.i = icmp eq i32 %add24.i, %conv21.i
   br i1 %cmp25.i, label %if.then27.i, label %find_word_boundaries.exit
 
-if.then27.i:                                      ; preds = %if.then.i51
+if.then27.i:                                      ; preds = %if.then.i52
   %inc.i = add nsw i32 %conv21.i, 1
   %conv.i = sext i32 %inc.i to i64
   %14 = load i64, ptr %size20, align 8
@@ -21424,22 +21424,22 @@ if.then27.i:                                      ; preds = %if.then.i51
   br i1 %cmp.i, label %while.body.i, label %while.end.i
 
 while.end.i:                                      ; preds = %if.then27.i, %for.body
-  %i.1 = phi i32 [ %storemerge49106, %for.body ], [ %inc.i, %if.then27.i ]
-  %conv3340.pre-phi.i = phi i64 [ %conv18108, %for.body ], [ %conv.i, %if.then27.i ]
+  %i.1 = phi i32 [ %storemerge49107, %for.body ], [ %inc.i, %if.then27.i ]
+  %conv3340.pre-phi.i = phi i64 [ %conv18109, %for.body ], [ %conv.i, %if.then27.i ]
   %15 = phi i64 [ %7, %for.body ], [ %14, %if.then27.i ]
   %cmp3541.i = icmp sgt i64 %15, %conv3340.pre-phi.i
   br i1 %cmp3541.i, label %land.rhs37.i.preheader, label %find_word_boundaries.exit.thread
 
 land.rhs37.i.preheader:                           ; preds = %while.end.i
   %16 = load ptr, ptr %buffer, align 8
-  %arrayidx39.i98 = getelementptr inbounds i8, ptr %16, i64 %conv3340.pre-phi.i
-  %17 = load i8, ptr %arrayidx39.i98, align 1
-  %idxprom40.i99 = zext i8 %17 to i64
-  %arrayidx41.i100 = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom40.i99
-  %18 = load i8, ptr %arrayidx41.i100, align 1
+  %arrayidx39.i99 = getelementptr inbounds i8, ptr %16, i64 %conv3340.pre-phi.i
+  %17 = load i8, ptr %arrayidx39.i99, align 1
+  %idxprom40.i100 = zext i8 %17 to i64
+  %arrayidx41.i101 = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom40.i100
+  %18 = load i8, ptr %arrayidx41.i101, align 1
   %19 = and i8 %18, 1
-  %cmp43.not.i101 = icmp eq i8 %19, 0
-  br i1 %cmp43.not.i101, label %while.cond56.i.preheader, label %while.body46.i
+  %cmp43.not.i102 = icmp eq i8 %19, 0
+  br i1 %cmp43.not.i102, label %while.cond56.i.preheader, label %while.body46.i
 
 land.rhs37.i:                                     ; preds = %while.body46.i
   %arrayidx39.i = getelementptr inbounds i8, ptr %16, i64 %indvars.iv.next.i
@@ -21464,15 +21464,15 @@ while.cond56.i.preheader:                         ; preds = %while.cond56.i.preh
   br label %while.cond56.i
 
 while.body46.i:                                   ; preds = %land.rhs37.i.preheader, %land.rhs37.i
-  %indvars.iv.i102 = phi i64 [ %indvars.iv.next.i, %land.rhs37.i ], [ %conv3340.pre-phi.i, %land.rhs37.i.preheader ]
-  %indvars.iv.next.i = add nsw i64 %indvars.iv.i102, 1
+  %indvars.iv.i103 = phi i64 [ %indvars.iv.next.i, %land.rhs37.i ], [ %conv3340.pre-phi.i, %land.rhs37.i.preheader ]
+  %indvars.iv.next.i = add nsw i64 %indvars.iv.i103, 1
   %cmp35.i = icmp sgt i64 %15, %indvars.iv.next.i
   br i1 %cmp35.i, label %land.rhs37.i, label %find_word_boundaries.exit.thread, !llvm.loop !75
 
 while.cond56.i:                                   ; preds = %while.cond56.i.preheader, %land.rhs61.i
   %indvars.iv51.i = phi i64 [ %indvars.iv.next52.i, %land.rhs61.i ], [ %indvars.iv.i.lcssa, %while.cond56.i.preheader ]
   %exitcond.not = icmp eq i64 %indvars.iv51.i, %25
-  br i1 %exitcond.not, label %find_word_boundaries.exit.thread80, label %land.rhs61.i
+  br i1 %exitcond.not, label %find_word_boundaries.exit.thread81, label %land.rhs61.i
 
 land.rhs61.i:                                     ; preds = %while.cond56.i
   %indvars.iv.next52.i = add nsw i64 %indvars.iv51.i, 1
@@ -21483,34 +21483,34 @@ land.rhs61.i:                                     ; preds = %while.cond56.i
   %27 = load i8, ptr %arrayidx66.i, align 1
   %28 = and i8 %27, 1
   %cmp69.not.i = icmp eq i8 %28, 0
-  br i1 %cmp69.not.i, label %while.cond56.i, label %find_word_boundaries.exit.thread80, !llvm.loop !76
+  br i1 %cmp69.not.i, label %while.cond56.i, label %find_word_boundaries.exit.thread81, !llvm.loop !76
 
 find_word_boundaries.exit.thread:                 ; preds = %while.end.i, %while.body.i, %while.body46.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %match.i)
   br label %for.end
 
-find_word_boundaries.exit.thread80:               ; preds = %while.cond56.i, %land.rhs61.i
+find_word_boundaries.exit.thread81:               ; preds = %while.cond56.i, %land.rhs61.i
   %indvars.iv.next52.i.lcssa = phi i64 [ %smax, %while.cond56.i ], [ %indvars.iv.next52.i, %land.rhs61.i ]
   %29 = trunc nsw i64 %indvars.iv.next52.i.lcssa to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %match.i)
   br label %do.body27
 
-find_word_boundaries.exit:                        ; preds = %if.then.i51
+find_word_boundaries.exit:                        ; preds = %if.then.i52
   %cmp28.i.not = icmp sgt i32 %add24.i, %conv21.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %match.i)
   br i1 %cmp28.i.not, label %for.end, label %do.body27
 
-do.body27:                                        ; preds = %find_word_boundaries.exit.thread80, %find_word_boundaries.exit
-  %30 = phi ptr [ %16, %find_word_boundaries.exit.thread80 ], [ %11, %find_word_boundaries.exit ]
-  %j.386 = phi i32 [ %29, %find_word_boundaries.exit.thread80 ], [ %conv21.i, %find_word_boundaries.exit ]
-  %i.385 = phi i32 [ %i.2.lcssa, %find_word_boundaries.exit.thread80 ], [ %add24.i, %find_word_boundaries.exit ]
+do.body27:                                        ; preds = %find_word_boundaries.exit.thread81, %find_word_boundaries.exit
+  %30 = phi ptr [ %16, %find_word_boundaries.exit.thread81 ], [ %11, %find_word_boundaries.exit ]
+  %j.387 = phi i32 [ %29, %find_word_boundaries.exit.thread81 ], [ %conv21.i, %find_word_boundaries.exit ]
+  %i.386 = phi i32 [ %i.2.lcssa, %find_word_boundaries.exit.thread81 ], [ %add24.i, %find_word_boundaries.exit ]
   %31 = load i32, ptr %orig_nr, align 8
   %32 = load i32, ptr %orig_alloc, align 4
   %cmp31.not = icmp slt i32 %31, %32
   br i1 %cmp31.not, label %do.body27.do.end60_crit_edge, label %if.then33
 
 do.body27.do.end60_crit_edge:                     ; preds = %do.body27
-  %.pre117 = load ptr, ptr %orig15, align 8
+  %.pre118 = load ptr, ptr %orig15, align 8
   br label %do.end60
 
 if.then33:                                        ; preds = %do.body27
@@ -21522,33 +21522,33 @@ if.then33:                                        ; preds = %do.body27
   %div37.add29 = select i1 %cmp40.not, i32 %div37, i32 %add29
   store i32 %div37.add29, ptr %orig_alloc, align 4
   %conv55 = sext i32 %div37.add29 to i64
-  %mul.ov.i53 = icmp slt i32 %div37.add29, 0
-  br i1 %mul.ov.i53, label %if.then.i55, label %st_mult.exit56
+  %mul.ov.i54 = icmp slt i32 %div37.add29, 0
+  br i1 %mul.ov.i54, label %if.then.i56, label %st_mult.exit57
 
-if.then.i55:                                      ; preds = %if.then33
+if.then.i56:                                      ; preds = %if.then33
   call void (ptr, ...) @die(ptr noundef nonnull @.str.349, i64 noundef 16, i64 noundef %conv55) #33
   unreachable
 
-st_mult.exit56:                                   ; preds = %if.then33
+st_mult.exit57:                                   ; preds = %if.then33
   %34 = load ptr, ptr %orig15, align 8
-  %mul.i54 = shl nuw nsw i64 %conv55, 4
-  %call57 = call ptr @xrealloc(ptr noundef %34, i64 noundef %mul.i54) #31
+  %mul.i55 = shl nuw nsw i64 %conv55, 4
+  %call57 = call ptr @xrealloc(ptr noundef %34, i64 noundef %mul.i55) #31
   store ptr %call57, ptr %orig15, align 8
-  %.pre116 = load ptr, ptr %buffer, align 8
-  %.pre118 = load i32, ptr %orig_nr, align 8
+  %.pre117 = load ptr, ptr %buffer, align 8
+  %.pre119 = load i32, ptr %orig_nr, align 8
   br label %do.end60
 
-do.end60:                                         ; preds = %do.body27.do.end60_crit_edge, %st_mult.exit56
-  %35 = phi i32 [ %31, %do.body27.do.end60_crit_edge ], [ %.pre118, %st_mult.exit56 ]
-  %36 = phi ptr [ %.pre117, %do.body27.do.end60_crit_edge ], [ %call57, %st_mult.exit56 ]
-  %37 = phi ptr [ %30, %do.body27.do.end60_crit_edge ], [ %.pre116, %st_mult.exit56 ]
-  %idx.ext = sext i32 %i.385 to i64
+do.end60:                                         ; preds = %do.body27.do.end60_crit_edge, %st_mult.exit57
+  %35 = phi i32 [ %31, %do.body27.do.end60_crit_edge ], [ %.pre119, %st_mult.exit57 ]
+  %36 = phi ptr [ %.pre118, %do.body27.do.end60_crit_edge ], [ %call57, %st_mult.exit57 ]
+  %37 = phi ptr [ %30, %do.body27.do.end60_crit_edge ], [ %.pre117, %st_mult.exit57 ]
+  %idx.ext = sext i32 %i.386 to i64
   %add.ptr = getelementptr inbounds i8, ptr %37, i64 %idx.ext
   %idxprom = sext i32 %35 to i64
   %arrayidx65 = getelementptr inbounds %struct.diff_words_orig, ptr %36, i64 %idxprom
   store ptr %add.ptr, ptr %arrayidx65, align 8
   %38 = load ptr, ptr %buffer, align 8
-  %idx.ext69 = sext i32 %j.386 to i64
+  %idx.ext69 = sext i32 %j.387 to i64
   %add.ptr70 = getelementptr inbounds i8, ptr %38, i64 %idx.ext69
   %39 = load ptr, ptr %orig15, align 8
   %40 = load i32, ptr %orig_nr, align 8
@@ -21561,30 +21561,30 @@ do.end60:                                         ; preds = %do.body27.do.end60_
   %42 = load i64, ptr %size, align 8
   %add80 = sub nsw i64 %idx.ext69, %idx.ext
   %sub = add i64 %add80, %42
-  %cmp83.not = icmp slt i64 %sub, %alloc.0107
-  %.pre119 = load ptr, ptr %out, align 8
-  br i1 %cmp83.not, label %do.end114, label %st_mult.exit61
+  %cmp83.not = icmp slt i64 %sub, %alloc.0108
+  %.pre120 = load ptr, ptr %out, align 8
+  br i1 %cmp83.not, label %do.end114, label %st_mult.exit62
 
-st_mult.exit61:                                   ; preds = %do.end60
-  %43 = mul i64 %alloc.0107, 3
+st_mult.exit62:                                   ; preds = %do.end60
+  %43 = mul i64 %alloc.0108, 3
   %mul87 = add i64 %43, 48
-  %div88 = sdiv i64 %mul87, 2
-  %cmp95.not = icmp sgt i64 %div88, %sub
+  %div8851 = lshr i64 %mul87, 1
+  %cmp95.not = icmp sgt i64 %div8851, %sub
   %add82 = add nsw i64 %sub, 1
-  %div88.add82 = select i1 %cmp95.not, i64 %div88, i64 %add82
-  %call111 = call ptr @xrealloc(ptr noundef %.pre119, i64 noundef %div88.add82) #31
+  %div8851.add82 = select i1 %cmp95.not, i64 %div8851, i64 %add82
+  %call111 = call ptr @xrealloc(ptr noundef %.pre120, i64 noundef %div8851.add82) #31
   store ptr %call111, ptr %out, align 8
-  %.pre120 = load i64, ptr %size, align 8
+  %.pre121 = load i64, ptr %size, align 8
   br label %do.end114
 
-do.end114:                                        ; preds = %do.end60, %st_mult.exit61
-  %44 = phi i64 [ %.pre120, %st_mult.exit61 ], [ %42, %do.end60 ]
-  %45 = phi ptr [ %call111, %st_mult.exit61 ], [ %.pre119, %do.end60 ]
-  %alloc.2 = phi i64 [ %div88.add82, %st_mult.exit61 ], [ %alloc.0107, %do.end60 ]
+do.end114:                                        ; preds = %do.end60, %st_mult.exit62
+  %44 = phi i64 [ %.pre121, %st_mult.exit62 ], [ %42, %do.end60 ]
+  %45 = phi ptr [ %call111, %st_mult.exit62 ], [ %.pre120, %do.end60 ]
+  %alloc.2 = phi i64 [ %div8851.add82, %st_mult.exit62 ], [ %alloc.0108, %do.end60 ]
   %add.ptr117 = getelementptr inbounds i8, ptr %45, i64 %44
   %46 = load ptr, ptr %buffer, align 8
   %add.ptr121 = getelementptr inbounds i8, ptr %46, i64 %idx.ext
-  %sub122 = sub nsw i32 %j.386, %i.385
+  %sub122 = sub nsw i32 %j.387, %i.386
   %conv123 = sext i32 %sub122 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr117, ptr align 1 %add.ptr121, i64 %conv123, i1 false)
   %47 = load ptr, ptr %out, align 8

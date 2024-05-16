@@ -15,13 +15,13 @@ define range(i32 -1, 1) i32 @set_oom_adj(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca [16 x i8], align 16
   %3 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull @.str, i32 noundef 1) #6
   %4 = icmp slt i32 %3, 0
-  br i1 %4, label %5, label %34
+  br i1 %4, label %5, label %33
 
 5:                                                ; preds = %1
   %6 = tail call ptr @__errno_location() #7
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 2
-  br i1 %8, label %9, label %32
+  br i1 %8, label %9, label %31
 
 9:                                                ; preds = %5
   %10 = tail call i32 @get_log_level() #6
@@ -44,63 +44,64 @@ define range(i32 -1, 1) i32 @set_oom_adj(i32 noundef %0) local_unnamed_addr #0 {
 
 19:                                               ; preds = %16
   %20 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.2) #6
-  br label %47
+  br label %46
 
 21:                                               ; preds = %16
   %22 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2) #6
-  br label %47
+  br label %46
 
 23:                                               ; preds = %13
   %24 = icmp slt i32 %0, 0
-  br i1 %24, label %25, label %28
+  br i1 %24, label %25, label %27
 
 25:                                               ; preds = %23
-  %26 = mul nsw i32 %0, 17
-  %27 = sdiv i32 %26, 1000
-  br label %34
+  %.neg21 = mul i32 %0, -17
+  %26 = udiv i32 %.neg21, 1000
+  %.neg = sub nsw i32 0, %26
+  br label %33
 
-28:                                               ; preds = %23
+27:                                               ; preds = %23
   %.not = icmp eq i32 %0, 0
-  br i1 %.not, label %34, label %29
+  br i1 %.not, label %33, label %28
 
-29:                                               ; preds = %28
-  %30 = mul nuw nsw i32 %0, 15
-  %31 = udiv i32 %30, 1000
-  br label %34
+28:                                               ; preds = %27
+  %29 = mul nuw nsw i32 %0, 15
+  %30 = udiv i32 %29, 1000
+  br label %33
 
-32:                                               ; preds = %5
-  %33 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str) #6
-  br label %47
+31:                                               ; preds = %5
+  %32 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str) #6
+  br label %46
 
-34:                                               ; preds = %28, %29, %25, %1
-  %.016 = phi i32 [ %27, %25 ], [ %31, %29 ], [ 0, %28 ], [ %0, %1 ]
-  %.0 = phi i32 [ %14, %25 ], [ %14, %29 ], [ %14, %28 ], [ %3, %1 ]
-  %35 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 16, ptr noundef nonnull @.str.5, i32 noundef %.016) #6
-  %36 = icmp sgt i32 %35, 15
-  br i1 %36, label %37, label %.preheader
+33:                                               ; preds = %27, %28, %25, %1
+  %.016 = phi i32 [ %.neg, %25 ], [ %30, %28 ], [ 0, %27 ], [ %0, %1 ]
+  %.0 = phi i32 [ %14, %25 ], [ %14, %28 ], [ %14, %27 ], [ %3, %1 ]
+  %34 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 16, ptr noundef nonnull @.str.5, i32 noundef %.016) #6
+  %35 = icmp sgt i32 %34, 15
+  br i1 %35, label %36, label %.preheader
 
-37:                                               ; preds = %34
-  %38 = tail call i32 @close(i32 noundef %.0) #6
-  br label %47
+36:                                               ; preds = %33
+  %37 = tail call i32 @close(i32 noundef %.0) #6
+  br label %46
 
-.preheader:                                       ; preds = %34, %42
-  %39 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #8
-  %40 = call i64 @write(i32 noundef %.0, ptr noundef nonnull %2, i64 noundef %39) #6
-  %41 = icmp slt i64 %40, 0
-  br i1 %41, label %42, label %.critedge
+.preheader:                                       ; preds = %33, %41
+  %38 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #8
+  %39 = call i64 @write(i32 noundef %.0, ptr noundef nonnull %2, i64 noundef %38) #6
+  %40 = icmp slt i64 %39, 0
+  br i1 %40, label %41, label %.critedge
 
-42:                                               ; preds = %.preheader
-  %43 = tail call ptr @__errno_location() #7
-  %44 = load i32, ptr %43, align 4
-  %45 = icmp eq i32 %44, 4
-  br i1 %45, label %.preheader, label %.critedge, !llvm.loop !6
+41:                                               ; preds = %.preheader
+  %42 = tail call ptr @__errno_location() #7
+  %43 = load i32, ptr %42, align 4
+  %44 = icmp eq i32 %43, 4
+  br i1 %44, label %.preheader, label %.critedge, !llvm.loop !6
 
-.critedge:                                        ; preds = %.preheader, %42
-  %46 = tail call i32 @close(i32 noundef %.0) #6
-  br label %47
+.critedge:                                        ; preds = %.preheader, %41
+  %45 = tail call i32 @close(i32 noundef %.0) #6
+  br label %46
 
-47:                                               ; preds = %19, %21, %.critedge, %37, %32
-  %.017 = phi i32 [ -1, %37 ], [ 0, %.critedge ], [ -1, %32 ], [ -1, %21 ], [ -1, %19 ]
+46:                                               ; preds = %19, %21, %.critedge, %36, %31
+  %.017 = phi i32 [ -1, %36 ], [ 0, %.critedge ], [ -1, %31 ], [ -1, %21 ], [ -1, %19 ]
   ret i32 %.017
 }
 

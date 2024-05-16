@@ -18,11 +18,11 @@ define void @dorgtsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #4
   %17 = load i32, ptr %5, align 4, !tbaa !3
   %18 = xor i32 %17, -1
   %19 = sext i32 %18 to i64
@@ -75,8 +75,8 @@ define void @dorgtsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
   %49 = mul nsw i32 %27, %24
   %50 = mul nsw i32 %40, %27
   store i32 %50, ptr %14, align 4, !tbaa !3
-  %51 = add nsw i32 %50, %49
-  %52 = tail call i32 @llvm.smax.i32(i32 %51, i32 1)
+  %51 = add nuw nsw i32 %50, %49
+  %52 = tail call i32 @llvm.umax.i32(i32 %51, i32 1)
   %53 = icmp sge i32 %45, %52
   %54 = select i1 %53, i1 true, i1 %23
   br i1 %54, label %59, label %55
@@ -86,14 +86,14 @@ define void @dorgtsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
   store i32 %56, ptr %10, align 4, !tbaa !3
   %57 = sub nsw i32 0, %56
   store i32 %57, ptr %12, align 4, !tbaa !3
-  %58 = call i32 @xerbla_(ptr noundef nonnull @.str, ptr noundef nonnull %12, i32 noundef 8) #5
+  %58 = call i32 @xerbla_(ptr noundef nonnull @.str, ptr noundef nonnull %12, i32 noundef 8) #4
   br label %89
 
 59:                                               ; preds = %48
   br i1 %23, label %60, label %62
 
 60:                                               ; preds = %59
-  %61 = sitofp i32 %51 to double
+  %61 = uitofp nneg i32 %51 to double
   store double %61, ptr %8, align 8, !tbaa !7
   br label %89
 
@@ -103,16 +103,16 @@ define void @dorgtsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
   br i1 %64, label %65, label %67
 
 65:                                               ; preds = %62
-  %66 = sitofp i32 %51 to double
+  %66 = uitofp nneg i32 %51 to double
   store double %66, ptr %8, align 8, !tbaa !7
   br label %89
 
 67:                                               ; preds = %62
-  call void @dlaset_(ptr noundef nonnull @.str.1, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @c_b4, ptr noundef nonnull @c_b5, ptr noundef %8, ptr noundef nonnull %15) #5
-  %68 = sext i32 %49 to i64
+  call void @dlaset_(ptr noundef nonnull @.str.1, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @c_b4, ptr noundef nonnull @c_b5, ptr noundef %8, ptr noundef nonnull %15) #4
+  %68 = zext nneg i32 %49 to i64
   %69 = getelementptr double, ptr %21, i64 %68
   %70 = getelementptr i8, ptr %69, i64 8
-  call void @dlamtsqr_(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %16, ptr noundef %4, ptr noundef nonnull %5, ptr noundef %6, ptr noundef nonnull %7, ptr noundef %8, ptr noundef nonnull %15, ptr noundef %70, ptr noundef nonnull %14, ptr noundef nonnull %13) #5
+  call void @dlamtsqr_(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %16, ptr noundef %4, ptr noundef nonnull %5, ptr noundef %6, ptr noundef nonnull %7, ptr noundef %8, ptr noundef nonnull %15, ptr noundef %70, ptr noundef nonnull %14, ptr noundef nonnull %13) #4
   %71 = load i32, ptr %1, align 4, !tbaa !3
   %72 = getelementptr i8, ptr %20, i64 8
   %73 = icmp slt i32 %71, 1
@@ -132,7 +132,7 @@ define void @dorgtsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
   %83 = getelementptr double, ptr %8, i64 %82
   %84 = mul nsw i64 %78, %75
   %85 = getelementptr double, ptr %72, i64 %84
-  call void @dcopy_(ptr noundef nonnull %0, ptr noundef %83, ptr noundef nonnull @c__1, ptr noundef %85, ptr noundef nonnull @c__1) #5
+  call void @dcopy_(ptr noundef nonnull %0, ptr noundef %83, ptr noundef nonnull @c__1, ptr noundef %85, ptr noundef nonnull @c__1) #4
   %86 = add nuw nsw i64 %78, 1
   %87 = icmp ult i64 %78, %76
   br i1 %87, label %77, label %.loopexit, !llvm.loop !9
@@ -143,11 +143,11 @@ define void @dorgtsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
   br label %89
 
 89:                                               ; preds = %.loopexit, %65, %60, %55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #4
   ret void
 }
 
@@ -165,21 +165,17 @@ declare void @dcopy_(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr nou
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #3
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #4
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #4
+declare i32 @llvm.umin.i32(i32, i32) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind }
+attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

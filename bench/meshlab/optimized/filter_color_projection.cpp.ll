@@ -1271,8 +1271,8 @@ define noundef float @_ZN11floatbuffer6getvalEii(ptr nocapture noundef nonnull r
 13:                                               ; preds = %8
   %14 = load ptr, ptr %0, align 8
   %15 = mul nsw i32 %10, %2
-  %16 = add nsw i32 %15, %1
-  %17 = sext i32 %16 to i64
+  %16 = add nuw nsw i32 %15, %1
+  %17 = zext nneg i32 %16 to i64
   %18 = getelementptr inbounds float, ptr %14, i64 %17
   %19 = load float, ptr %18, align 4
   br label %20
@@ -1305,8 +1305,8 @@ define noundef range(i32 -1, 2) i32 @_ZN11floatbuffer6setvalEiif(ptr nocapture n
 15:                                               ; preds = %8
   %16 = load ptr, ptr %0, align 8
   %17 = mul nsw i32 %10, %2
-  %18 = add nsw i32 %17, %1
-  %19 = sext i32 %18 to i64
+  %18 = add nuw nsw i32 %17, %1
+  %19 = zext nneg i32 %18 to i64
   %20 = getelementptr inbounds float, ptr %16, i64 %19
   store float %3, ptr %20, align 4
   br label %21
@@ -1430,8 +1430,8 @@ define noundef range(i32 -1, 2) i32 @_ZN11floatbuffer10applysobelEPS_(ptr nocapt
 _ZN11floatbuffer6getvalEii.exit:                  ; preds = %52
   %55 = load ptr, ptr %1, align 8
   %56 = mul nsw i32 %53, %.1194
-  %57 = add nsw i32 %56, %.176199
-  %58 = sext i32 %57 to i64
+  %57 = add nuw nsw i32 %56, %.176199
+  %58 = zext nneg i32 %57 to i64
   %59 = getelementptr inbounds float, ptr %55, i64 %58
   %60 = load float, ptr %59, align 4
   %61 = fcmp une float %60, 0.000000e+00
@@ -1451,8 +1451,8 @@ _ZN11floatbuffer6getvalEii.exit:                  ; preds = %52
 
 66:                                               ; preds = %65
   %67 = mul nsw i32 %53, %63
-  %68 = add nsw i32 %67, %39
-  %69 = sext i32 %68 to i64
+  %68 = add nuw nsw i32 %67, %39
+  %69 = zext nneg i32 %68 to i64
   %70 = getelementptr inbounds float, ptr %55, i64 %69
   %71 = load float, ptr %70, align 4
   br label %72
@@ -1466,8 +1466,8 @@ _ZN11floatbuffer6getvalEii.exit:                  ; preds = %52
   br i1 %.not11.i89, label %76, label %81
 
 76:                                               ; preds = %72
-  %77 = add nsw i32 %56, %39
-  %78 = sext i32 %77 to i64
+  %77 = add nuw nsw i32 %56, %39
+  %78 = zext nneg i32 %77 to i64
   %79 = getelementptr inbounds float, ptr %55, i64 %78
   %80 = load float, ptr %79, align 4
   br label %81
@@ -1485,8 +1485,8 @@ _ZN11floatbuffer6getvalEii.exit:                  ; preds = %52
 
 87:                                               ; preds = %81
   %88 = mul nsw i32 %53, %86
-  %89 = add nsw i32 %88, %39
-  %90 = sext i32 %89 to i64
+  %89 = add nuw nsw i32 %88, %39
+  %90 = zext nneg i32 %89 to i64
   %91 = getelementptr inbounds float, ptr %55, i64 %90
   %92 = load float, ptr %91, align 4
   br label %93
@@ -1504,8 +1504,8 @@ _ZN11floatbuffer6getvalEii.exit:                  ; preds = %52
 
 98:                                               ; preds = %93
   %99 = mul nsw i32 %53, %63
-  %100 = add nsw i32 %99, %40
-  %101 = sext i32 %100 to i64
+  %100 = add nuw nsw i32 %99, %40
+  %101 = zext nneg i32 %100 to i64
   %102 = getelementptr inbounds float, ptr %55, i64 %101
   %103 = load float, ptr %102, align 4
   br label %104
@@ -1520,8 +1520,8 @@ _ZN11floatbuffer6getvalEii.exit:                  ; preds = %52
   br label %_ZN11floatbuffer6getvalEii.exit120
 
 107:                                              ; preds = %104
-  %108 = add nsw i32 %56, %40
-  %109 = sext i32 %108 to i64
+  %108 = add nuw nsw i32 %56, %40
+  %109 = zext nneg i32 %108 to i64
   %110 = getelementptr inbounds float, ptr %55, i64 %109
   %111 = load float, ptr %110, align 4
   %112 = fpext float %111 to double
@@ -1532,8 +1532,8 @@ _ZN11floatbuffer6getvalEii.exit:                  ; preds = %52
 
 116:                                              ; preds = %107
   %117 = mul nsw i32 %53, %86
-  %118 = add nsw i32 %117, %40
-  %119 = sext i32 %118 to i64
+  %118 = add nuw nsw i32 %117, %40
+  %119 = zext nneg i32 %118 to i64
   %120 = getelementptr inbounds float, ptr %55, i64 %119
   %121 = load float, ptr %120, align 4
   br label %_ZN11floatbuffer6getvalEii.exit120
@@ -1610,8 +1610,8 @@ _ZN11floatbuffer6getvalEii.exit.thread:           ; preds = %52, %_ZN11floatbuff
 _ZN11floatbuffer6getvalEii.exit127:               ; preds = %151
   %154 = load ptr, ptr %1, align 8
   %155 = mul nsw i32 %152, %.2200
-  %156 = add nsw i32 %155, %.277203
-  %157 = sext i32 %156 to i64
+  %156 = add nuw nsw i32 %155, %.277203
+  %157 = zext nneg i32 %156 to i64
   %158 = getelementptr inbounds float, ptr %154, i64 %157
   %159 = load float, ptr %158, align 4
   %160 = fcmp une float %159, 0.000000e+00
@@ -1631,8 +1631,8 @@ _ZN11floatbuffer6getvalEii.exit127:               ; preds = %151
 
 165:                                              ; preds = %164
   %166 = mul nsw i32 %152, %162
-  %167 = add nsw i32 %166, %146
-  %168 = sext i32 %167 to i64
+  %167 = add nuw nsw i32 %166, %146
+  %168 = zext nneg i32 %167 to i64
   %169 = getelementptr inbounds float, ptr %154, i64 %168
   %170 = load float, ptr %169, align 4
   br label %171
@@ -1647,8 +1647,8 @@ _ZN11floatbuffer6getvalEii.exit127:               ; preds = %151
 
 175:                                              ; preds = %171
   %176 = mul nsw i32 %152, %162
-  %177 = add nsw i32 %176, %.277203
-  %178 = sext i32 %177 to i64
+  %177 = add nuw nsw i32 %176, %.277203
+  %178 = zext nneg i32 %177 to i64
   %179 = getelementptr inbounds float, ptr %154, i64 %178
   %180 = load float, ptr %179, align 4
   br label %181
@@ -1665,8 +1665,8 @@ _ZN11floatbuffer6getvalEii.exit127:               ; preds = %151
 
 186:                                              ; preds = %181
   %187 = mul nsw i32 %152, %162
-  %188 = add nsw i32 %187, %147
-  %189 = sext i32 %188 to i64
+  %188 = add nuw nsw i32 %187, %147
+  %189 = zext nneg i32 %188 to i64
   %190 = getelementptr inbounds float, ptr %154, i64 %189
   %191 = load float, ptr %190, align 4
   br label %192
@@ -1685,8 +1685,8 @@ _ZN11floatbuffer6getvalEii.exit127:               ; preds = %151
 
 198:                                              ; preds = %192
   %199 = mul nsw i32 %152, %197
-  %200 = add nsw i32 %199, %146
-  %201 = sext i32 %200 to i64
+  %200 = add nuw nsw i32 %199, %146
+  %201 = zext nneg i32 %200 to i64
   %202 = getelementptr inbounds float, ptr %154, i64 %201
   %203 = load float, ptr %202, align 4
   br label %204
@@ -1702,8 +1702,8 @@ _ZN11floatbuffer6getvalEii.exit127:               ; preds = %151
 
 207:                                              ; preds = %204
   %208 = mul nsw i32 %152, %197
-  %209 = add nsw i32 %208, %.277203
-  %210 = sext i32 %209 to i64
+  %209 = add nuw nsw i32 %208, %.277203
+  %210 = zext nneg i32 %209 to i64
   %211 = getelementptr inbounds float, ptr %154, i64 %210
   %212 = load float, ptr %211, align 4
   %213 = fpext float %212 to double
@@ -1715,8 +1715,8 @@ _ZN11floatbuffer6getvalEii.exit127:               ; preds = %151
 
 217:                                              ; preds = %207
   %218 = mul nsw i32 %152, %197
-  %219 = add nsw i32 %218, %147
-  %220 = sext i32 %219 to i64
+  %219 = add nuw nsw i32 %218, %147
+  %220 = zext nneg i32 %219 to i64
   %221 = getelementptr inbounds float, ptr %154, i64 %220
   %222 = load float, ptr %221, align 4
   br label %_ZN11floatbuffer6getvalEii.exit169
@@ -11624,8 +11624,8 @@ _ZNK3vcg4ShotIfNS_8Matrix44IfEEE7ProjectERKNS_6Point3IfEE.exit: ; preds = %_ZNK3
   %375 = load ptr, ptr %360, align 8
   %376 = extractelement <2 x i32> %370, i64 0
   %377 = mul nsw i32 %376, %366
-  %378 = add nsw i32 %377, %365
-  %379 = sext i32 %378 to i64
+  %378 = add nuw nsw i32 %377, %365
+  %379 = zext nneg i32 %378 to i64
   %380 = getelementptr inbounds float, ptr %375, i64 %379
   %381 = load float, ptr %380, align 4
   br label %_ZN11floatbuffer6getvalEii.exit
@@ -12756,8 +12756,8 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit797:            ; preds = %._crit_edge1657, %_
   %862 = load ptr, ptr %847, align 8
   %863 = extractelement <2 x i32> %857, i64 0
   %864 = mul nsw i32 %863, %853
-  %865 = add nsw i32 %864, %852
-  %866 = sext i32 %865 to i64
+  %865 = add nuw nsw i32 %864, %852
+  %866 = zext nneg i32 %865 to i64
   %867 = getelementptr inbounds float, ptr %862, i64 %866
   %868 = load float, ptr %867, align 4
   br label %_ZN11floatbuffer6getvalEii.exit835
@@ -12890,8 +12890,8 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit846:            ; preds = %878
   %943 = load ptr, ptr %.0517, align 8
   %944 = extractelement <2 x i32> %938, i64 0
   %945 = mul nsw i32 %944, %935
-  %946 = add nsw i32 %945, %876
-  %947 = sext i32 %946 to i64
+  %946 = add nuw nsw i32 %945, %876
+  %947 = zext nneg i32 %946 to i64
   %948 = getelementptr inbounds float, ptr %943, i64 %947
   %949 = load float, ptr %948, align 4
   br label %_ZN11floatbuffer6getvalEii.exit856
@@ -14883,8 +14883,8 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit1081:           ; preds = %._crit_edge1648, %_
   %1731 = load ptr, ptr %1716, align 8
   %1732 = extractelement <2 x i32> %1726, i64 0
   %1733 = mul nsw i32 %1732, %1722
-  %1734 = add nsw i32 %1733, %1721
-  %1735 = sext i32 %1734 to i64
+  %1734 = add nuw nsw i32 %1733, %1721
+  %1735 = zext nneg i32 %1734 to i64
   %1736 = getelementptr inbounds float, ptr %1731, i64 %1735
   %1737 = load float, ptr %1736, align 4
   br label %_ZN11floatbuffer6getvalEii.exit1119
@@ -15021,8 +15021,8 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit1132:           ; preds = %1747
   %1816 = load ptr, ptr %.0520, align 8
   %1817 = extractelement <2 x i32> %1811, i64 0
   %1818 = mul nsw i32 %1817, %1808
-  %1819 = add nsw i32 %1818, %1745
-  %1820 = sext i32 %1819 to i64
+  %1819 = add nuw nsw i32 %1818, %1745
+  %1820 = zext nneg i32 %1819 to i64
   %1821 = getelementptr inbounds float, ptr %1816, i64 %1820
   %1822 = load float, ptr %1821, align 4
   br label %_ZN11floatbuffer6getvalEii.exit1141

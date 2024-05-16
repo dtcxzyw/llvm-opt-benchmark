@@ -3327,7 +3327,7 @@ return:                                           ; preds = %if.then61, %while.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i64 @encoder_base64_size(ptr nocapture noundef readonly %part) #11 {
+define internal range(i64 4, 1) i64 @encoder_base64_size(ptr nocapture noundef readonly %part) #11 {
 entry:
   %datasize = getelementptr inbounds i8, ptr %part, i64 112
   %0 = load i64, ptr %datasize, align 8
@@ -3339,10 +3339,9 @@ if.end:                                           ; preds = %entry
   %div = udiv i64 %sub, 3
   %add = shl nuw i64 %div, 2
   %mul = add nuw i64 %add, 4
-  %sub1 = or disjoint i64 %add, 3
-  %div2 = sdiv i64 %sub1, 76
-  %mul3 = shl nsw i64 %div2, 1
-  %add4 = add nsw i64 %mul, %mul3
+  %div2 = udiv i64 %sub, 57
+  %mul3 = shl nuw nsw i64 %div2, 1
+  %add4 = add nuw nsw i64 %mul, %mul3
   br label %return
 
 return:                                           ; preds = %entry, %if.end
