@@ -154,7 +154,7 @@ define range(i32 0, 2) i32 @KangarooTwelve_Update(ptr noundef %0, ptr noundef %1
 70:                                               ; preds = %68
   %71 = getelementptr inbounds i8, ptr %.184, i64 %65
   %72 = sub i64 %.16383, %65
-  %73 = icmp eq i32 %66, 8192
+  %73 = icmp ugt i64 %.16383, 8191
   br i1 %73, label %74, label %82
 
 74:                                               ; preds = %70

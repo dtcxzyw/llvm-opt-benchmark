@@ -313,17 +313,19 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %if
   br i1 %exitcond.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i, !llvm.loop !15
 
 for.end.i.i.i:                                    ; preds = %for.body.i.i.i
-  %conv.i.i.i = trunc nuw i64 %length to i32
   %shr.i.i.i40.i.i = lshr i64 %add.i39.i.i, 37
   %xor.i.i27.i.i.i = xor i64 %shr.i.i.i40.i.i, %add.i39.i.i
   %mul.i.i41.i.i = mul i64 %xor.i.i27.i.i.i, 1609587791953885689
   %shr.i4.i.i42.i.i = lshr i64 %mul.i.i41.i.i, 32
   %xor.i5.i.i43.i.i = xor i64 %shr.i4.i.i42.i.i, %mul.i.i41.i.i
-  %cmp83.i.i.i = icmp ugt i32 %conv.i.i.i, 143
+  %cmp83.i.i.i = icmp ugt i64 %length, 143
   br i1 %cmp83.i.i.i, label %for.body10.preheader.i.i.i, label %XXH3_len_129to240_64b.exit.i.i
 
 for.body10.preheader.i.i.i:                       ; preds = %for.end.i.i.i
-  %div20.i.i.i = lshr i64 %length, 4
+  %conv.i.i.i = trunc nuw i64 %length to i32
+  %div20.i.i.i = lshr i32 %conv.i.i.i, 4
+  %umax.i.i.i = tail call i32 @llvm.umax.i32(i32 %div20.i.i.i, i32 9)
+  %wide.trip.count.i.i.i = zext nneg i32 %umax.i.i.i to i64
   br label %for.body10.i.i.i
 
 for.body10.i.i.i:                                 ; preds = %for.body10.i.i.i, %for.body10.preheader.i.i.i
@@ -349,7 +351,7 @@ for.body10.i.i.i:                                 ; preds = %for.body10.i.i.i, %
   %xor.i.i35.i.i.i = trunc i128 %xor1.i.i34.i.i.i to i64
   %add19.i44.i.i = add i64 %acc.14.i.i.i, %xor.i.i35.i.i.i
   %indvars.iv.next9.i.i.i = add nuw nsw i64 %indvars.iv8.i.i.i, 1
-  %exitcond12.not.i.i.i = icmp eq i64 %indvars.iv.next9.i.i.i, %div20.i.i.i
+  %exitcond12.not.i.i.i = icmp eq i64 %indvars.iv.next9.i.i.i, %wide.trip.count.i.i.i
   br i1 %exitcond12.not.i.i.i, label %XXH3_len_129to240_64b.exit.i.i, label %for.body10.i.i.i, !llvm.loop !17
 
 XXH3_len_129to240_64b.exit.i.i:                   ; preds = %for.body10.i.i.i, %for.end.i.i.i
@@ -609,6 +611,9 @@ declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.bswap.i64(i64) #6
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #7

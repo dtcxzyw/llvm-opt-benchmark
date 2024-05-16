@@ -56,9 +56,7 @@ land.lhs.true:                                    ; preds = %if.then
   %10 = load ptr, ptr %top, align 8
   %add.ptr16 = getelementptr inbounds i8, ptr %10, i64 -8
   %11 = load i64, ptr %add.ptr16, align 8
-  %shr = ashr i64 %11, 47
-  %conv17 = trunc nsw i64 %shr to i32
-  %cmp18 = icmp ult i32 %conv17, -13
+  %cmp18 = icmp ult i64 %11, -1829587348619264
   br i1 %cmp18, label %if.then20, label %if.end28
 
 if.then20:                                        ; preds = %land.lhs.true

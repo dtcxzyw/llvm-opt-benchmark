@@ -259,13 +259,13 @@ raise_limit.exit.us.i:                            ; preds = %68
 76:                                               ; preds = %.lr.ph.split.split.i
   %77 = load i32, ptr %11, align 4
   %78 = icmp eq i32 %77, 24
-  br i1 %78, label %79, label %.preheader.i
+  br i1 %78, label %79, label %.lr.ph169.preheader.i
 
-.preheader.i:                                     ; preds = %76, %.lr.ph.split.us.i, %.lr.ph160.i
-  %.not170.i = icmp eq i32 %53, 0
+.preheader.i:                                     ; preds = %.lr.ph.split.us.i, %.lr.ph160.i
+  %.not170.i = icmp eq i64 %indvars.iv.i, 0
   br i1 %.not170.i, label %merge_open_in_files.exit.thread.sink.split, label %.lr.ph169.preheader.i
 
-.lr.ph169.preheader.i:                            ; preds = %.preheader.i
+.lr.ph169.preheader.i:                            ; preds = %76, %.preheader.i
   %wide.trip.count204.i = and i64 %indvars.iv.i, 4294967295
   br label %.lr.ph169.i
 

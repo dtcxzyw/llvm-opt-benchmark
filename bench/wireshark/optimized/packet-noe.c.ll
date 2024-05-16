@@ -720,7 +720,7 @@ define internal i32 @dissect_noe(ptr noundef %0, ptr nocapture noundef readonly 
 decode_utf8.exit.i:                               ; preds = %99, %84, %71, %61, %57, %._crit_edge.thread.i
   %.sink.i.i = phi i64 [ %58, %57 ], [ %81, %71 ], [ %114, %99 ], [ %96, %84 ], [ %68, %61 ], [ %54, %._crit_edge.thread.i ]
   %115 = trunc nuw nsw i64 %.sink.i.i to i32
-  %116 = icmp ult i32 %115, 33
+  %116 = icmp ult i64 %.sink.i.i, 33
   br i1 %116, label %decode_utf8.exit.thread.i, label %switch.early.test.i.i
 
 switch.early.test.i.i:                            ; preds = %decode_utf8.exit.i
@@ -740,12 +740,12 @@ decode_utf8.exit.thread.i:                        ; preds = %97, %switch.early.t
   br label %decode_key_name.exit.i
 
 119:                                              ; preds = %switch.early.test.i.i
-  %120 = icmp ult i32 %115, 256
+  %120 = icmp ult i64 %.sink.i.i, 256
   br i1 %120, label %121, label %125
 
 121:                                              ; preds = %119
   %122 = tail call ptr @wmem_packet_scope() #5
-  %123 = trunc i64 %.sink.i.i to i8
+  %123 = trunc nuw i64 %.sink.i.i to i8
   %124 = tail call ptr @format_char(ptr noundef %122, i8 noundef signext %123) #5
   br label %decode_key_name.exit.i
 

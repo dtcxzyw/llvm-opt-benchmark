@@ -2488,11 +2488,11 @@ _ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE4isInEv.exit.thread.i: ; preds = %.no
   br i1 %.not.i, label %.loopexit.i, label %290
 
 .loopexit.i:                                      ; preds = %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE4isInEv.exit.thread.i, %.noexc39, %424
-  %.sroa.325.0.i = phi i32 [ %423, %424 ], [ %278, %.noexc39 ], [ -1, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE4isInEv.exit.thread.i ]
+  %.sroa.325.0.in.i = phi i32 [ %423, %424 ], [ %278, %.noexc39 ], [ -1, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE4isInEv.exit.thread.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
   %425 = add nsw i64 %indvars.iv, %136
   %426 = getelementptr inbounds i32, ptr %61, i64 %425
-  store i32 %.sroa.325.0.i, ptr %426, align 4
+  store i32 %.sroa.325.0.in.i, ptr %426, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %137, !llvm.loop !31
@@ -2892,7 +2892,7 @@ _ZN5ZXing9IsPatternILb0ELi8ELi17EEEdRKNS_11PatternViewERKNS_12FixedPatternIXT0_E
   %.sroa.0.0.extract.trunc = trunc i64 %63 to i32
   %.sroa.4.0.extract.shift = lshr i64 %63, 32
   %.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i32
-  %.not41 = icmp eq i32 %.sroa.4.0.extract.trunc, -1
+  %.not41 = icmp eq i64 %.sroa.4.0.extract.shift, 4294967295
   br i1 %.not41, label %87, label %64
 
 64:                                               ; preds = %62
@@ -3232,8 +3232,8 @@ _ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE4isInEv.exit.thread: ; preds = %25, %
 
 42:                                               ; preds = %.loopexit, %41
   %.sroa.023.0.in = phi i64 [ %8, %.loopexit ], [ %40, %41 ]
-  %.sroa.325.0 = phi i64 [ %.sroa.325.0.extract.shift26, %.loopexit ], [ %.sroa.325.0.extract.shift, %41 ]
-  %.sroa.325.0.insert.shift = shl nuw i64 %.sroa.325.0, 32
+  %.sroa.325.0.in = phi i64 [ %.sroa.325.0.extract.shift26, %.loopexit ], [ %.sroa.325.0.extract.shift, %41 ]
+  %.sroa.325.0.insert.shift = shl nuw i64 %.sroa.325.0.in, 32
   %.sroa.023.0.insert.ext = and i64 %.sroa.023.0.in, 4294967295
   %.sroa.023.0.insert.insert = or disjoint i64 %.sroa.325.0.insert.shift, %.sroa.023.0.insert.ext
   ret i64 %.sroa.023.0.insert.insert

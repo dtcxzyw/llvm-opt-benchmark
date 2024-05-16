@@ -65748,12 +65748,12 @@ if.end13:                                         ; preds = %if.end
   %add.ptr = getelementptr inbounds i8, ptr %cdata, i64 %3
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %ref.tmp14.sroa.4)
   %conv15 = trunc nuw i64 %sub to i32
-  %cmp.i.i = icmp ult i32 %conv15, 13
+  %cmp.i.i = icmp ult i64 %sub, 13
   br i1 %cmp.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp14.sroa.4, i8 0, i64 12, i1 false)
-  %cmp.i = icmp eq i32 %conv15, 0
+  %cmp.i = icmp eq i64 %4, %3
   br i1 %cmp.i, label %_ZN6duckdb8string_tC2EPKcj.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i

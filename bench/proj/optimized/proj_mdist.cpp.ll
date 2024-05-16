@@ -122,18 +122,17 @@ define hidden noundef double @_Z10proj_mdistdddPKv(double noundef %0, double nou
   %18 = getelementptr inbounds [1 x double], ptr %13, i64 0, i64 %indvars.iv.next
   %19 = load double, ptr %18, align 8
   %20 = tail call double @llvm.fmuladd.f64(double %5, double %.02022, double %19)
-  %21 = and i64 %indvars.iv.next, 4294967295
-  %.not = icmp eq i64 %21, 0
+  %.not = icmp eq i64 %indvars.iv.next, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.020.lcssa = phi double [ %17, %4 ], [ %20, %.lr.ph ]
-  %22 = fmul double %1, %2
-  %23 = fmul double %22, %10
-  %24 = fdiv double %23, %12
-  %25 = tail call double @llvm.fmuladd.f64(double %0, double %7, double %24)
-  %26 = tail call double @llvm.fmuladd.f64(double %22, double %.020.lcssa, double %25)
-  ret double %26
+  %21 = fmul double %1, %2
+  %22 = fmul double %21, %10
+  %23 = fdiv double %22, %12
+  %24 = tail call double @llvm.fmuladd.f64(double %0, double %7, double %23)
+  %25 = tail call double @llvm.fmuladd.f64(double %21, double %.020.lcssa, double %24)
+  ret double %25
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
@@ -153,10 +152,10 @@ define hidden noundef double @_Z14proj_inv_mdistP6pj_ctxdPKv(ptr noundef %0, dou
   br label %10
 
 10:                                               ; preds = %_Z10proj_mdistdddPKv.exit, %3
-  %.022 = phi double [ %1, %3 ], [ %43, %_Z10proj_mdistdddPKv.exit ]
+  %.022 = phi double [ %1, %3 ], [ %42, %_Z10proj_mdistdddPKv.exit ]
   %.0 = phi i32 [ 20, %3 ], [ %12, %_Z10proj_mdistdddPKv.exit ]
   %.not = icmp eq i32 %.0, 0
-  br i1 %.not, label %46, label %11
+  br i1 %.not, label %45, label %11
 
 11:                                               ; preds = %10
   %12 = add nsw i32 %.0, -1
@@ -186,33 +185,32 @@ define hidden noundef double @_Z14proj_inv_mdistP6pj_ctxdPKv(ptr noundef %0, dou
   %29 = getelementptr inbounds [1 x double], ptr %9, i64 0, i64 %indvars.iv.next.i
   %30 = load double, ptr %29, align 8
   %31 = tail call double @llvm.fmuladd.f64(double %19, double %.02022.i, double %30)
-  %32 = and i64 %indvars.iv.next.i, 4294967295
-  %.not.i = icmp eq i64 %32, 0
+  %.not.i = icmp eq i64 %indvars.iv.next.i, 0
   br i1 %.not.i, label %_Z10proj_mdistdddPKv.exit, label %.lr.ph.i, !llvm.loop !7
 
 _Z10proj_mdistdddPKv.exit:                        ; preds = %.lr.ph.i, %11
   %.020.lcssa.i = phi double [ %28, %11 ], [ %31, %.lr.ph.i ]
-  %33 = fmul double %13, %18
-  %34 = fmul double %33, %22
-  %35 = fdiv double %34, %24
-  %36 = tail call double @llvm.fmuladd.f64(double %.022, double %20, double %35)
-  %37 = tail call noundef double @llvm.fmuladd.f64(double %33, double %.020.lcssa.i, double %36)
-  %38 = fsub double %37, %1
-  %39 = tail call double @sqrt(double noundef %17) #9
-  %40 = fmul double %17, %39
-  %41 = fmul double %38, %40
-  %42 = fmul double %7, %41
-  %43 = fsub double %.022, %42
-  %44 = tail call double @llvm.fabs.f64(double %42)
-  %45 = fcmp olt double %44, 0x3D06849B86A12B9B
-  br i1 %45, label %.loopexit, label %10, !llvm.loop !8
+  %32 = fmul double %13, %18
+  %33 = fmul double %32, %22
+  %34 = fdiv double %33, %24
+  %35 = tail call double @llvm.fmuladd.f64(double %.022, double %20, double %34)
+  %36 = tail call noundef double @llvm.fmuladd.f64(double %32, double %.020.lcssa.i, double %35)
+  %37 = fsub double %36, %1
+  %38 = tail call double @sqrt(double noundef %17) #9
+  %39 = fmul double %17, %38
+  %40 = fmul double %37, %39
+  %41 = fmul double %7, %40
+  %42 = fsub double %.022, %41
+  %43 = tail call double @llvm.fabs.f64(double %41)
+  %44 = fcmp olt double %43, 0x3D06849B86A12B9B
+  br i1 %44, label %.loopexit, label %10, !llvm.loop !8
 
-46:                                               ; preds = %10
+45:                                               ; preds = %10
   tail call void @_Z22proj_context_errno_setP6pj_ctxi(ptr noundef %0, i32 noundef 2050)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_Z10proj_mdistdddPKv.exit, %46
-  %.021 = phi double [ %.022, %46 ], [ %43, %_Z10proj_mdistdddPKv.exit ]
+.loopexit:                                        ; preds = %_Z10proj_mdistdddPKv.exit, %45
+  %.021 = phi double [ %.022, %45 ], [ %42, %_Z10proj_mdistdddPKv.exit ]
   ret double %.021
 }
 

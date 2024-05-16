@@ -836,7 +836,7 @@ define dso_local i32 @devinet_ioctl(ptr noundef %0, i32 noundef %1, ptr noundef 
   %137 = load i32, ptr %122, align 8
   %138 = and i32 %137, 2
   %139 = icmp ne i32 %138, 0
-  %140 = icmp ult i8 %128, 31
+  %140 = icmp ult i32 %127, 31
   %141 = select i1 %139, i1 %140, i1 false
   br i1 %141, label %142, label %151
 

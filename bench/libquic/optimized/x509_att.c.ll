@@ -497,7 +497,7 @@ for.body.i:                                       ; preds = %for.cond.i
 
 X509at_get_attr_by_OBJ.exit:                      ; preds = %for.body.i
   %3 = trunc nsw i64 %indvars.iv.next.i to i32
-  %cmp = icmp eq i32 %3, -1
+  %cmp = icmp eq i64 %indvars.iv.next.i, -1
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %X509at_get_attr_by_OBJ.exit
@@ -526,17 +526,16 @@ for.body.i19:                                     ; preds = %for.cond.i14
   br i1 %cmp9.i22, label %X509at_get_attr_by_OBJ.exit24, label %for.cond.i14, !llvm.loop !7
 
 X509at_get_attr_by_OBJ.exit24:                    ; preds = %for.body.i19
-  %7 = and i64 %indvars.iv.next.i16, 4294967295
-  %cmp3.not = icmp eq i64 %7, 4294967295
+  %cmp3.not = icmp eq i64 %indvars.iv.next.i16, -1
   br i1 %cmp3.not, label %if.end5, label %return
 
 if.end5:                                          ; preds = %for.cond.i14, %X509at_get_attr_by_OBJ.exit24, %if.end
-  %cmp1.i = icmp slt i32 %3, 0
+  %cmp1.i = icmp slt i64 %indvars.iv.i, -1
   br i1 %cmp1.i, label %X509at_get_attr.exit, label %lor.lhs.false2.i
 
 lor.lhs.false2.i:                                 ; preds = %if.end5
   %call.i26 = tail call i64 @sk_num(ptr noundef nonnull %x) #4
-  %conv.i = and i64 %indvars.iv.next.i, 2147483647
+  %conv.i = and i64 %indvars.iv.next.i, 4294967295
   %cmp3.not.i = icmp ugt i64 %call.i26, %conv.i
   br i1 %cmp3.not.i, label %if.else.i, label %X509at_get_attr.exit
 
@@ -551,20 +550,20 @@ X509at_get_attr.exit:                             ; preds = %if.end5, %lor.lhs.f
 
 land.lhs.true8:                                   ; preds = %X509at_get_attr.exit
   %single.i = getelementptr inbounds i8, ptr %retval.0.i27, i64 8
-  %8 = load i32, ptr %single.i, align 8
-  %tobool.not.i = icmp eq i32 %8, 0
+  %7 = load i32, ptr %single.i, align 8
+  %tobool.not.i = icmp eq i32 %7, 0
   %value.i = getelementptr inbounds i8, ptr %retval.0.i27, i64 16
-  %9 = load ptr, ptr %value.i, align 8
+  %8 = load ptr, ptr %value.i, align 8
   br i1 %tobool.not.i, label %if.then.i, label %X509_ATTRIBUTE_count.exit
 
 if.then.i:                                        ; preds = %land.lhs.true8
-  %call.i30 = tail call i64 @sk_num(ptr noundef %9) #4
-  %10 = and i64 %call.i30, 4294967295
-  %11 = icmp eq i64 %10, 1
-  br i1 %11, label %if.end.i.i, label %return
+  %call.i30 = tail call i64 @sk_num(ptr noundef %8) #4
+  %9 = and i64 %call.i30, 4294967295
+  %10 = icmp eq i64 %9, 1
+  br i1 %10, label %if.end.i.i, label %return
 
 X509_ATTRIBUTE_count.exit:                        ; preds = %land.lhs.true8
-  %tobool2.not.i.not = icmp eq ptr %9, null
+  %tobool2.not.i.not = icmp eq ptr %8, null
   br i1 %tobool2.not.i.not, label %return, label %if.end.i.i
 
 if.end12:                                         ; preds = %X509at_get_attr.exit
@@ -573,34 +572,34 @@ if.end12:                                         ; preds = %X509at_get_attr.exi
 
 if.end.i.i:                                       ; preds = %if.then.i, %X509_ATTRIBUTE_count.exit, %if.end12
   %single.i.i.i = getelementptr inbounds i8, ptr %retval.0.i27, i64 8
-  %12 = load i32, ptr %single.i.i.i, align 8
-  %tobool.not.i.i.i = icmp eq i32 %12, 0
+  %11 = load i32, ptr %single.i.i.i, align 8
+  %tobool.not.i.i.i = icmp eq i32 %11, 0
   %value.i.i.i = getelementptr inbounds i8, ptr %retval.0.i27, i64 16
-  %13 = load ptr, ptr %value.i.i.i, align 8
+  %12 = load ptr, ptr %value.i.i.i, align 8
   br i1 %tobool.not.i.i.i, label %if.then.i.i.i, label %X509_ATTRIBUTE_count.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
-  %call.i.i.i = tail call i64 @sk_num(ptr noundef %13) #4
+  %call.i.i.i = tail call i64 @sk_num(ptr noundef %12) #4
   %conv.i.i.i = trunc i64 %call.i.i.i to i32
-  %14 = icmp sgt i32 %conv.i.i.i, 0
-  br i1 %14, label %if.end3.i.i, label %return
+  %13 = icmp sgt i32 %conv.i.i.i, 0
+  br i1 %13, label %if.end3.i.i, label %return
 
 X509_ATTRIBUTE_count.exit.i.i:                    ; preds = %if.end.i.i
-  %tobool2.not.i.i.i.not = icmp eq ptr %13, null
+  %tobool2.not.i.i.i.not = icmp eq ptr %12, null
   br i1 %tobool2.not.i.i.i.not, label %return, label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %if.then.i.i.i, %X509_ATTRIBUTE_count.exit.i.i
-  %15 = load i32, ptr %single.i.i.i, align 8
-  %tobool.not.i.i = icmp eq i32 %15, 0
-  %16 = load ptr, ptr %value.i.i.i, align 8
+  %14 = load i32, ptr %single.i.i.i, align 8
+  %tobool.not.i.i = icmp eq i32 %14, 0
+  %15 = load ptr, ptr %value.i.i.i, align 8
   br i1 %tobool.not.i.i, label %if.then4.i.i, label %X509_ATTRIBUTE_get0_type.exit.i
 
 if.then4.i.i:                                     ; preds = %if.end3.i.i
-  %call5.i.i = tail call ptr @sk_value(ptr noundef %16, i64 noundef 0) #4
+  %call5.i.i = tail call ptr @sk_value(ptr noundef %15, i64 noundef 0) #4
   br label %X509_ATTRIBUTE_get0_type.exit.i
 
 X509_ATTRIBUTE_get0_type.exit.i:                  ; preds = %if.then4.i.i, %if.end3.i.i
-  %retval.0.i.i = phi ptr [ %call5.i.i, %if.then4.i.i ], [ %16, %if.end3.i.i ]
+  %retval.0.i.i = phi ptr [ %call5.i.i, %if.then4.i.i ], [ %15, %if.end3.i.i ]
   %tobool.not.i33 = icmp eq ptr %retval.0.i.i, null
   br i1 %tobool.not.i33, label %return, label %if.end.i34
 
@@ -615,11 +614,11 @@ if.then2.i:                                       ; preds = %if.end.i34
 
 if.end3.i:                                        ; preds = %if.end.i34
   %value.i35 = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
-  %17 = load ptr, ptr %value.i35, align 8
+  %16 = load ptr, ptr %value.i35, align 8
   br label %return
 
 return:                                           ; preds = %for.cond.i, %if.then.i.i.i, %if.then.i, %entry, %if.end3.i, %if.then2.i, %X509_ATTRIBUTE_get0_type.exit.i, %X509_ATTRIBUTE_count.exit.i.i, %if.end12, %X509_ATTRIBUTE_count.exit, %X509at_get_attr_by_OBJ.exit24, %X509at_get_attr_by_OBJ.exit
-  %retval.0 = phi ptr [ null, %X509at_get_attr_by_OBJ.exit ], [ null, %X509at_get_attr_by_OBJ.exit24 ], [ null, %X509_ATTRIBUTE_count.exit ], [ null, %if.then2.i ], [ %17, %if.end3.i ], [ null, %X509_ATTRIBUTE_get0_type.exit.i ], [ null, %if.end12 ], [ null, %X509_ATTRIBUTE_count.exit.i.i ], [ null, %entry ], [ null, %if.then.i ], [ null, %if.then.i.i.i ], [ null, %for.cond.i ]
+  %retval.0 = phi ptr [ null, %X509at_get_attr_by_OBJ.exit ], [ null, %X509at_get_attr_by_OBJ.exit24 ], [ null, %X509_ATTRIBUTE_count.exit ], [ null, %if.then2.i ], [ %16, %if.end3.i ], [ null, %X509_ATTRIBUTE_get0_type.exit.i ], [ null, %if.end12 ], [ null, %X509_ATTRIBUTE_count.exit.i.i ], [ null, %entry ], [ null, %if.then.i ], [ null, %if.then.i.i.i ], [ null, %for.cond.i ]
   ret ptr %retval.0
 }
 

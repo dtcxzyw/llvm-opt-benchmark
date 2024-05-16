@@ -521,7 +521,7 @@ define hidden range(i32 -1, 1) i32 @phpdbg_btree_delete(ptr nocapture noundef %0
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds i8, ptr %.177, i64 16
   %39 = icmp eq ptr %37, %38
-  br i1 %39, label %40, label %65
+  br i1 %39, label %40, label %64
 
 40:                                               ; preds = %34
   %.not65 = icmp eq i32 %.15576, 0
@@ -571,26 +571,25 @@ define hidden range(i32 -1, 1) i32 @phpdbg_btree_delete(ptr nocapture noundef %0
   %62 = zext i1 %61 to i64
   %63 = getelementptr inbounds [2 x ptr], ptr %.15981, i64 0, i64 %62
   store ptr %gep, ptr %63, align 8
-  %64 = and i64 %indvars.iv.next89, 4294967295
-  %.not66 = icmp eq i64 %64, 0
+  %.not66 = icmp eq i64 %indvars.iv.next89, 0
   br i1 %.not66, label %.loopexit69.sink.split, label %56
 
-65:                                               ; preds = %34
-  %66 = getelementptr inbounds i8, ptr %0, i64 16
-  %67 = load i8, ptr %66, align 8
-  %68 = trunc i8 %67 to i1
-  br i1 %68, label %69, label %70
+64:                                               ; preds = %34
+  %65 = getelementptr inbounds i8, ptr %0, i64 16
+  %66 = load i8, ptr %65, align 8
+  %67 = trunc i8 %66 to i1
+  br i1 %67, label %68, label %69
 
-69:                                               ; preds = %65
+68:                                               ; preds = %64
   tail call void @free(ptr noundef %37) #12
   br label %.loopexit69.sink.split
 
-70:                                               ; preds = %65
+69:                                               ; preds = %64
   tail call void @_efree(ptr noundef %37) #12
   br label %.loopexit69.sink.split
 
-.loopexit69.sink.split:                           ; preds = %56, %70, %69, %53, %32, %33
-  %.sink = phi ptr [ %3, %33 ], [ %3, %32 ], [ %36, %53 ], [ %36, %69 ], [ %36, %70 ], [ %36, %56 ]
+.loopexit69.sink.split:                           ; preds = %56, %69, %68, %53, %32, %33
+  %.sink = phi ptr [ %3, %33 ], [ %3, %32 ], [ %36, %53 ], [ %36, %68 ], [ %36, %69 ], [ %36, %56 ]
   store ptr null, ptr %.sink, align 8
   br label %.loopexit69
 

@@ -4340,8 +4340,8 @@ _ZN4core3ptr19swap_nonoverlapping17hc9f504d38b9e24d0E.exit: ; preds = %.preheade
   %.0.copyload.i45.i = load <16 x i8>, ptr %44, align 1, !noalias !385
   %45 = icmp slt <16 x i8> %.0.copyload.i45.i, zeroinitializer
   %46 = bitcast <16 x i1> %45 to i16
-  %.not6.i = icmp eq i16 %46, 0
-  br i1 %.not6.i, label %.lr.ph.i21, label %._crit_edge.i20
+  %.not.not.i.not6.i = icmp eq i16 %46, 0
+  br i1 %.not.not.i.not6.i, label %.lr.ph.i21, label %._crit_edge.i20
 
 .lr.ph.i21:                                       ; preds = %42, %.lr.ph.i21
   %.sroa.0.08.i = phi i64 [ %49, %.lr.ph.i21 ], [ %43, %42 ]
@@ -4353,8 +4353,8 @@ _ZN4core3ptr19swap_nonoverlapping17hc9f504d38b9e24d0E.exit: ; preds = %.preheade
   %.0.copyload.i4.i = load <16 x i8>, ptr %50, align 1, !noalias !385
   %51 = icmp slt <16 x i8> %.0.copyload.i4.i, zeroinitializer
   %52 = bitcast <16 x i1> %51 to i16
-  %.not.i = icmp eq i16 %52, 0
-  br i1 %.not.i, label %.lr.ph.i21, label %._crit_edge.i20
+  %.not.not.i.not.i = icmp eq i16 %52, 0
+  br i1 %.not.not.i.not.i, label %.lr.ph.i21, label %._crit_edge.i20
 
 ._crit_edge.i20:                                  ; preds = %.lr.ph.i21, %42
   %.sroa.0.0.lcssa.i = phi i64 [ %43, %42 ], [ %49, %.lr.ph.i21 ]
@@ -5216,8 +5216,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17hd4f1a1f609170bffE.exit.
   %.0.copyload.i45.i.i = load <16 x i8>, ptr %147, align 1, !noalias !612
   %148 = icmp slt <16 x i8> %.0.copyload.i45.i.i, zeroinitializer
   %149 = bitcast <16 x i1> %148 to i16
-  %.not6.i.i = icmp eq i16 %149, 0
-  br i1 %.not6.i.i, label %.lr.ph.i.i, label %._crit_edge.i.i
+  %.not.not.i.not6.i.i = icmp eq i16 %149, 0
+  br i1 %.not.not.i.not6.i.i, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %143, %.lr.ph.i.i
   %.sroa.0.08.i.i = phi i64 [ %152, %.lr.ph.i.i ], [ %146, %143 ]
@@ -5229,8 +5229,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17hd4f1a1f609170bffE.exit.
   %.0.copyload.i4.i.i = load <16 x i8>, ptr %153, align 1, !noalias !612
   %154 = icmp slt <16 x i8> %.0.copyload.i4.i.i, zeroinitializer
   %155 = bitcast <16 x i1> %154 to i16
-  %.not.i.i = icmp eq i16 %155, 0
-  br i1 %.not.i.i, label %.lr.ph.i.i, label %._crit_edge.i.i
+  %.not.not.i.not.i.i = icmp eq i16 %155, 0
+  br i1 %.not.not.i.not.i.i, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %143
   %.sroa.0.0.lcssa.i.i = phi i64 [ %146, %143 ], [ %152, %.lr.ph.i.i ]
@@ -5619,8 +5619,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17hd4f1a1f609170bffE.exit.
   %.0.copyload.i45.i.i = load <16 x i8>, ptr %147, align 1, !noalias !729
   %148 = icmp slt <16 x i8> %.0.copyload.i45.i.i, zeroinitializer
   %149 = bitcast <16 x i1> %148 to i16
-  %.not6.i.i = icmp eq i16 %149, 0
-  br i1 %.not6.i.i, label %.lr.ph.i.i, label %._crit_edge.i.i
+  %.not.not.i.not6.i.i = icmp eq i16 %149, 0
+  br i1 %.not.not.i.not6.i.i, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %143, %.lr.ph.i.i
   %.sroa.0.08.i.i = phi i64 [ %152, %.lr.ph.i.i ], [ %146, %143 ]
@@ -5632,8 +5632,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17hd4f1a1f609170bffE.exit.
   %.0.copyload.i4.i.i = load <16 x i8>, ptr %153, align 1, !noalias !729
   %154 = icmp slt <16 x i8> %.0.copyload.i4.i.i, zeroinitializer
   %155 = bitcast <16 x i1> %154 to i16
-  %.not.i.i = icmp eq i16 %155, 0
-  br i1 %.not.i.i, label %.lr.ph.i.i, label %._crit_edge.i.i
+  %.not.not.i.not.i.i = icmp eq i16 %155, 0
+  br i1 %.not.not.i.not.i.i, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %143
   %.sroa.0.0.lcssa.i.i = phi i64 [ %146, %143 ], [ %152, %.lr.ph.i.i ]

@@ -438,7 +438,7 @@ col_format_to_string.exit.i.preheader:            ; preds = %10, %6, %2
   tail call void @g_free(ptr noundef %16) #13
   tail call void @g_ptr_array_unref(ptr noundef nonnull %14) #13
   %53 = trunc i64 %.04057 to i32
-  br label %61
+  br label %60
 
 col_format_to_string.exit.i:                      ; preds = %col_format_to_string.exit.i.preheader, %58
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %58 ], [ 0, %col_format_to_string.exit.i.preheader ]
@@ -455,26 +455,25 @@ col_format_to_string.exit.i:                      ; preds = %col_format_to_strin
 
 get_column_format_from_str.exit:                  ; preds = %col_format_to_string.exit.i
   %59 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %60 = icmp eq i32 %59, -1
-  br i1 %60, label %get_column_format_from_str.exit.thread, label %61
+  br label %60
 
-61:                                               ; preds = %get_column_format_from_str.exit, %.thread53
+60:                                               ; preds = %get_column_format_from_str.exit, %.thread53
   %.044 = phi i32 [ 4, %.thread53 ], [ %59, %get_column_format_from_str.exit ]
   %.143 = phi ptr [ %.0425156, %.thread53 ], [ null, %get_column_format_from_str.exit ]
   %.141 = phi i32 [ %53, %.thread53 ], [ 0, %get_column_format_from_str.exit ]
   %.1 = phi i8 [ %.039, %.thread53 ], [ 1, %get_column_format_from_str.exit ]
-  %62 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.044, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %.143, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 %.141, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 29
-  store i8 %.1, ptr %65, align 1
+  %61 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.044, ptr %61, align 8
+  %62 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %.143, ptr %62, align 8
+  %63 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 %.141, ptr %63, align 8
+  %64 = getelementptr inbounds i8, ptr %0, i64 29
+  store i8 %.1, ptr %64, align 1
   br label %get_column_format_from_str.exit.thread
 
-get_column_format_from_str.exit.thread:           ; preds = %58, %get_column_format_from_str.exit, %61, %44
-  %.038 = phi i32 [ 0, %44 ], [ 1, %61 ], [ 0, %get_column_format_from_str.exit ], [ 0, %58 ]
+get_column_format_from_str.exit.thread:           ; preds = %58, %60, %44
+  %.038 = phi i32 [ 0, %44 ], [ 1, %60 ], [ 0, %58 ]
   ret i32 %.038
 }
 

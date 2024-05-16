@@ -2910,11 +2910,10 @@ Sbl_ManCriticalFanin.exit:                        ; preds = %153, %154, %Vec_Int
 
 Vec_IntFind.exit83:                               ; preds = %168
   %173 = trunc nuw nsw i64 %indvars.iv.i79 to i32
-  %174 = icmp eq i32 %173, -1
-  br i1 %174, label %Vec_IntFind.exit83.thread, label %106
+  br label %106
 
-Vec_IntFind.exit83.thread:                        ; preds = %Sbl_ManCriticalFanin.exit, %Vec_IntFind.exit83, %172, %Abc_Clock.exit63, %15
-  %.0 = phi i32 [ %16, %15 ], [ 1, %Abc_Clock.exit63 ], [ 0, %172 ], [ 0, %Vec_IntFind.exit83 ], [ 0, %Sbl_ManCriticalFanin.exit ]
+Vec_IntFind.exit83.thread:                        ; preds = %Sbl_ManCriticalFanin.exit, %172, %Abc_Clock.exit63, %15
+  %.0 = phi i32 [ %16, %15 ], [ 1, %Abc_Clock.exit63 ], [ 0, %172 ], [ 0, %Sbl_ManCriticalFanin.exit ]
   ret i32 %.0
 }
 
@@ -5882,26 +5881,26 @@ Vec_IntPush.exit270:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %1305, label %.lr.ph.i271, label %Sbl_ManFindCut.exit.thread, !llvm.loop !46
 
 Sbl_ManFindCut.exit:                              ; preds = %1300
-  %1306 = trunc nsw i64 %indvars.iv.i272 to i32
-  %1307 = icmp slt i32 %1306, 0
-  br i1 %1307, label %Sbl_ManFindCut.exit.thread, label %1308
+  %1306 = icmp slt i64 %indvars.iv.i272, 0
+  br i1 %1306, label %Sbl_ManFindCut.exit.thread, label %1307
 
-1308:                                             ; preds = %Sbl_ManFindCut.exit
+1307:                                             ; preds = %Sbl_ManFindCut.exit
+  %1308 = trunc nsw i64 %indvars.iv.i272 to i32
   %1309 = load ptr, ptr %1134, align 8
   %1310 = load i32, ptr %1143, align 4
-  %1311 = add nsw i32 %1310, %1306
+  %1311 = add nsw i32 %1310, %1308
   %1312 = getelementptr inbounds i8, ptr %1309, i64 4
   %1313 = load i32, ptr %1312, align 4
   %1314 = load i32, ptr %1309, align 8
   %1315 = icmp eq i32 %1313, %1314
   br i1 %1315, label %1316, label %.Vec_IntGrow.exit10_crit_edge.i274
 
-.Vec_IntGrow.exit10_crit_edge.i274:               ; preds = %1308
+.Vec_IntGrow.exit10_crit_edge.i274:               ; preds = %1307
   %.phi.trans.insert.i275 = getelementptr inbounds i8, ptr %1309, i64 8
   %.pre.i276 = load ptr, ptr %.phi.trans.insert.i275, align 8
   br label %Vec_IntPush.exit280
 
-1316:                                             ; preds = %1308
+1316:                                             ; preds = %1307
   %1317 = icmp slt i32 %1313, 16
   br i1 %1317, label %1318, label %1326
 

@@ -3582,7 +3582,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %exitcond.not.i.i, label %if.then8.i, label %for.body.i.i, !llvm.loop !11
 
 _dawg_match_edge.exit.i:                          ; preds = %for.body.i.i
-  %cmp15.not.i.not.not.i = icmp eq i32 %29, 0
+  %cmp15.not.i.not.not.i = icmp eq i64 %indvars.iv.i.i, 0
   br i1 %cmp15.not.i.not.not.i, label %if.end13.i, label %return
 
 if.then8.i:                                       ; preds = %for.cond.preheader.i.i, %for.inc.i.i

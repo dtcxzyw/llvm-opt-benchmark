@@ -717,7 +717,7 @@ define internal fastcc zeroext i1 @chv_find_best_dpll(ptr nocapture noundef read
   br i1 %58, label %67, label %59
 
 59:                                               ; preds = %49
-  %60 = icmp ne i32 %57, 0
+  %60 = icmp ugt i64 %47, 2199999
   %61 = icmp slt i32 %44, 1
   %62 = xor i1 %61, %60
   %63 = select i1 %62, i32 2, i32 -2
@@ -779,7 +779,7 @@ define internal fastcc zeroext i1 @chv_find_best_dpll(ptr nocapture noundef read
 
 100:                                              ; preds = %92
   %101 = icmp ne i64 %99, 0
-  %102 = icmp ult i32 %51, 2
+  %102 = icmp ult i64 %47, 400000
   %103 = or i1 %102, %101
   br i1 %103, label %._crit_edge.i, label %intel_pll_is_valid.exit.thread
 

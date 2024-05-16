@@ -2329,7 +2329,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %58, %63, %70
 74:                                               ; preds = %36, %10
   %75 = landingpad { ptr, i32 }
           cleanup
-  br label %90
+  br label %89
 
 76:                                               ; preds = %_ZNK5Yosys5RTLIL8IdString5c_strEv.exit
   %77 = landingpad { ptr, i32 }
@@ -2365,19 +2365,18 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %58, %63, %70
 86:                                               ; preds = %85, %76
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %85 ], [ %77, %76 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
-  br label %90
+  br label %89
 
 _ZNK5Yosys5RTLIL8IdString11begins_withEPKc.exit.thread: ; preds = %_ZNK5Yosys5RTLIL8IdString4sizeEv.exit.i, %_ZNK5Yosys5RTLIL8IdString11begins_withEPKc.exit, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit
   %87 = phi ptr [ %25, %_ZNK5Yosys5RTLIL8IdString4sizeEv.exit.i ], [ %25, %_ZNK5Yosys5RTLIL8IdString11begins_withEPKc.exit ], [ %.pre61, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit ]
   %88 = phi ptr [ %26, %_ZNK5Yosys5RTLIL8IdString4sizeEv.exit.i ], [ %26, %_ZNK5Yosys5RTLIL8IdString11begins_withEPKc.exit ], [ %.pre, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit ]
-  %89 = and i64 %indvars.iv.next, 4294967295
-  %.not = icmp eq i64 %89, 0
+  %.not = icmp eq i64 %indvars.iv.next, 0
   br i1 %.not, label %._crit_edge, label %24
 
 ._crit_edge:                                      ; preds = %_ZNK5Yosys5RTLIL8IdString11begins_withEPKc.exit.thread, %11
   ret void
 
-90:                                               ; preds = %86, %74
+89:                                               ; preds = %86, %74
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %86 ], [ %75, %74 ]
   call void @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %0) #19
   resume { ptr, i32 } %.pn.pn.pn.pn

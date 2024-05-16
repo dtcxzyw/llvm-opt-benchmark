@@ -30849,7 +30849,7 @@ define internal i32 @nl80211_tx_mgmt(ptr nocapture readnone %0, ptr nocapture no
   %130 = getelementptr i8, ptr %118, i64 4
   %131 = getelementptr inbounds i8, ptr %6, i64 40
   store ptr %130, ptr %131, align 8
-  %132 = icmp eq i32 %128, 0
+  %132 = icmp eq i16 %122, 0
   br i1 %132, label %.loopexit11, label %.preheader
 
 133:                                              ; preds = %.preheader
@@ -44442,7 +44442,7 @@ define internal fastcc range(i32 -95, 1) i32 @nl80211_crypto_settings(ptr nounde
   %84 = getelementptr i8, ptr %70, i64 4
   %85 = getelementptr inbounds i8, ptr %2, i64 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %85, ptr align 1 %84, i64 %75, i1 false)
-  %.not = icmp eq i32 %77, 0
+  %.not = icmp ult i16 %74, 4
   br i1 %.not, label %.thread15, label %86
 
 86:                                               ; preds = %83

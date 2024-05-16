@@ -209,62 +209,62 @@ if.end.i:                                         ; preds = %if.else5
   %3 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %2, i1 false)
   %4 = trunc nuw nsw i64 %3 to i32
   %cond.i = tail call i32 @llvm.usub.sat.i32(i32 50, i32 %4)
-  %cmp4.i = icmp ugt i32 %4, 49
+  %cmp4.i = icmp ult i64 %call7, 16385
   %add.i = add nuw nsw i32 %cond.i, 11
-  %cond10.i = select i1 %cmp4.i, i32 12, i32 %add.i
-  %sh_prom.i = zext nneg i32 %cond10.i to i64
+  %5 = zext nneg i32 %add.i to i64
+  %sh_prom.i = select i1 %cmp4.i, i64 12, i64 %5
   %shr.i = lshr i64 %2, %sh_prom.i
-  %5 = trunc i64 %shr.i to i32
-  %conv12.i = and i32 %5, 3
+  %6 = trunc i64 %shr.i to i32
+  %conv12.i = and i32 %6, 3
   %shl.i = shl nuw nsw i32 %cond.i, 2
   %add13.i = or disjoint i32 %conv12.i, %shl.i
-  %6 = zext nneg i32 %add13.i to i64
+  %7 = zext nneg i32 %add13.i to i64
   br label %sz_psz2ind.exit
 
 sz_psz2ind.exit:                                  ; preds = %if.else5, %if.end.i
-  %retval.i.0 = phi i64 [ %6, %if.end.i ], [ 199, %if.else5 ]
+  %retval.i.0 = phi i64 [ %7, %if.end.i ], [ 199, %if.else5 ]
   %stats9 = getelementptr inbounds i8, ptr %psset, i64 1056
   %arrayidx = getelementptr inbounds [64 x [2 x %struct.psset_bin_stats_s]], ptr %stats9, i64 0, i64 %retval.i.0
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then2, %sz_psz2ind.exit, %if.then
   %full_slabs.sink = phi ptr [ %full_slabs, %if.then2 ], [ %arrayidx, %sz_psz2ind.exit ], [ %empty_slabs, %if.then ]
-  %7 = getelementptr i8, ptr %ps, i64 16
-  %ps.val.i20 = load i8, ptr %7, align 8
-  %8 = and i8 %ps.val.i20, 1
-  %conv.i.i21 = zext nneg i8 %8 to i64
+  %8 = getelementptr i8, ptr %ps, i64 16
+  %ps.val.i20 = load i8, ptr %8, align 8
+  %9 = and i8 %ps.val.i20, 1
+  %conv.i.i21 = zext nneg i8 %9 to i64
   %arrayidx.i.i22 = getelementptr inbounds %struct.psset_bin_stats_s, ptr %full_slabs.sink, i64 %conv.i.i21
-  %9 = load i64, ptr %arrayidx.i.i22, align 8
-  %add.i.i23 = add i64 %9, -1
+  %10 = load i64, ptr %arrayidx.i.i22, align 8
+  %add.i.i23 = add i64 %10, -1
   store i64 %add.i.i23, ptr %arrayidx.i.i22, align 8
   %ps.val16.i24 = load i64, ptr %0, align 8
   %nactive.i.i25 = getelementptr inbounds i8, ptr %arrayidx.i.i22, i64 8
-  %10 = load i64, ptr %nactive.i.i25, align 8
-  %add5.i.i26 = sub i64 %10, %ps.val16.i24
+  %11 = load i64, ptr %nactive.i.i25, align 8
+  %add5.i.i26 = sub i64 %11, %ps.val16.i24
   store i64 %add5.i.i26, ptr %nactive.i.i25, align 8
   %ps.val18.i27 = load i64, ptr %0, align 8
-  %11 = getelementptr i8, ptr %ps, i64 176
-  %ps.val19.i28 = load i64, ptr %11, align 8
+  %12 = getelementptr i8, ptr %ps, i64 176
+  %ps.val19.i28 = load i64, ptr %12, align 8
   %sub.i.neg.i29 = sub i64 %ps.val18.i27, %ps.val19.i28
   %ndirty.i.i30 = getelementptr inbounds i8, ptr %arrayidx.i.i22, i64 16
-  %12 = load i64, ptr %ndirty.i.i30, align 8
-  %add9.i.i31 = add i64 %sub.i.neg.i29, %12
+  %13 = load i64, ptr %ndirty.i.i30, align 8
+  %add9.i.i31 = add i64 %sub.i.neg.i29, %13
   store i64 %add9.i.i31, ptr %ndirty.i.i30, align 8
   %merged_stats.i.i32 = getelementptr inbounds i8, ptr %psset, i64 1032
-  %13 = load i64, ptr %merged_stats.i.i32, align 8
-  %add12.i.i33 = add i64 %13, -1
+  %14 = load i64, ptr %merged_stats.i.i32, align 8
+  %add12.i.i33 = add i64 %14, -1
   store i64 %add12.i.i33, ptr %merged_stats.i.i32, align 8
   %ps.val17.i34 = load i64, ptr %0, align 8
   %nactive16.i.i35 = getelementptr inbounds i8, ptr %psset, i64 1040
-  %14 = load i64, ptr %nactive16.i.i35, align 8
-  %add17.i.i36 = sub i64 %14, %ps.val17.i34
+  %15 = load i64, ptr %nactive16.i.i35, align 8
+  %add17.i.i36 = sub i64 %15, %ps.val17.i34
   store i64 %add17.i.i36, ptr %nactive16.i.i35, align 8
   %ps.val20.i37 = load i64, ptr %0, align 8
-  %ps.val21.i38 = load i64, ptr %11, align 8
+  %ps.val21.i38 = load i64, ptr %12, align 8
   %sub.i22.neg.i39 = sub i64 %ps.val20.i37, %ps.val21.i38
   %ndirty21.i.i40 = getelementptr inbounds i8, ptr %psset, i64 1048
-  %15 = load i64, ptr %ndirty21.i.i40, align 8
-  %add22.i.i41 = add i64 %sub.i22.neg.i39, %15
+  %16 = load i64, ptr %ndirty21.i.i40, align 8
+  %add22.i.i41 = add i64 %sub.i22.neg.i39, %16
   store i64 %add22.i.i41, ptr %ndirty21.i.i40, align 8
   ret void
 }
@@ -343,20 +343,20 @@ if.end.i:                                         ; preds = %if.else3
   %21 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %20, i1 false)
   %22 = trunc nuw nsw i64 %21 to i32
   %cond.i = tail call i32 @llvm.usub.sat.i32(i32 50, i32 %22)
-  %cmp4.i = icmp ugt i32 %22, 49
+  %cmp4.i = icmp ult i64 %call5, 16385
   %add.i = add nuw nsw i32 %cond.i, 11
-  %cond10.i = select i1 %cmp4.i, i32 12, i32 %add.i
-  %sh_prom.i = zext nneg i32 %cond10.i to i64
+  %23 = zext nneg i32 %add.i to i64
+  %sh_prom.i = select i1 %cmp4.i, i64 12, i64 %23
   %shr.i = lshr i64 %20, %sh_prom.i
-  %23 = trunc i64 %shr.i to i32
-  %conv12.i = and i32 %23, 3
+  %24 = trunc i64 %shr.i to i32
+  %conv12.i = and i32 %24, 3
   %shl.i = shl nuw nsw i32 %cond.i, 2
   %add13.i = or disjoint i32 %conv12.i, %shl.i
-  %24 = zext nneg i32 %add13.i to i64
+  %25 = zext nneg i32 %add13.i to i64
   br label %sz_psz2ind.exit
 
 sz_psz2ind.exit:                                  ; preds = %if.else3, %if.end.i
-  %retval.i.0 = phi i64 [ %24, %if.end.i ], [ 199, %if.else3 ]
+  %retval.i.0 = phi i64 [ %25, %if.end.i ], [ 199, %if.else3 ]
   %arrayidx.i = getelementptr inbounds [64 x %struct.hpdata_age_heap_t], ptr %psset, i64 0, i64 %retval.i.0
   tail call void @hpdata_age_heap_remove(ptr noundef %arrayidx.i, ptr noundef nonnull %ps) #8
   %call.i = tail call zeroext i1 @hpdata_age_heap_empty(ptr noundef %arrayidx.i) #8
@@ -369,8 +369,8 @@ if.then.i20:                                      ; preds = %sz_psz2ind.exit
   %shl.i.i = shl nuw i64 1, %rem.i.i
   %not.i.i = xor i64 %shl.i.i, -1
   %arrayidx.i.i = getelementptr inbounds i64, ptr %pageslab_bitmap.i, i64 %div2.i.i
-  %25 = load i64, ptr %arrayidx.i.i, align 8
-  %and.i.i = and i64 %25, %not.i.i
+  %26 = load i64, ptr %arrayidx.i.i, align 8
+  %and.i.i = and i64 %26, %not.i.i
   store i64 %and.i.i, ptr %arrayidx.i.i, align 8
   br label %if.end9
 
@@ -415,26 +415,26 @@ if.end.i.i:                                       ; preds = %if.end.i
   %5 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %4, i1 false)
   %6 = trunc nuw nsw i64 %5 to i32
   %cond.i.i = tail call i32 @llvm.usub.sat.i32(i32 50, i32 %6)
-  %cmp4.i.i = icmp ugt i32 %6, 49
+  %cmp4.i.i = icmp ult i64 %call4.i, 16385
   %add.i.i = add nuw nsw i32 %cond.i.i, 11
-  %cond10.i.i = select i1 %cmp4.i.i, i32 12, i32 %add.i.i
-  %sh_prom.i.i = zext nneg i32 %cond10.i.i to i64
+  %7 = zext nneg i32 %add.i.i to i64
+  %sh_prom.i.i = select i1 %cmp4.i.i, i64 12, i64 %7
   %shr.i.i = lshr i64 %4, %sh_prom.i.i
-  %7 = trunc i64 %shr.i.i to i32
-  %8 = shl nuw nsw i32 %cond.i.i, 3
-  %conv12.i.i = shl i32 %7, 1
-  %9 = and i32 %conv12.i.i, 6
-  %10 = or disjoint i32 %9, %8
-  %11 = zext nneg i32 %10 to i64
+  %8 = trunc i64 %shr.i.i to i32
+  %9 = shl nuw nsw i32 %cond.i.i, 3
+  %conv12.i.i = shl i32 %8, 1
+  %10 = and i32 %conv12.i.i, 6
+  %11 = or disjoint i32 %10, %9
+  %12 = zext nneg i32 %11 to i64
   br label %sz_psz2ind.exit.i
 
 sz_psz2ind.exit.i:                                ; preds = %if.end.i.i, %if.end.i
-  %retval.i.0.i = phi i64 [ %11, %if.end.i.i ], [ 398, %if.end.i ]
-  %12 = getelementptr i8, ptr %ps, i64 16
-  %ps.val.i = load i8, ptr %12, align 8
-  %13 = and i8 %ps.val.i, 1
-  %14 = xor i8 %13, 1
-  %conv8.i = zext nneg i8 %14 to i64
+  %retval.i.0.i = phi i64 [ %12, %if.end.i.i ], [ 398, %if.end.i ]
+  %13 = getelementptr i8, ptr %ps, i64 16
+  %ps.val.i = load i8, ptr %13, align 8
+  %14 = and i8 %ps.val.i, 1
+  %15 = xor i8 %14, 1
+  %conv8.i = zext nneg i8 %15 to i64
   %add.i = add nuw nsw i64 %retval.i.0.i, %conv8.i
   br label %psset_purge_list_ind.exit
 
@@ -442,19 +442,19 @@ psset_purge_list_ind.exit:                        ; preds = %if.then.i, %sz_psz2
   %retval.0.i = phi i64 [ %add.i, %sz_psz2ind.exit.i ], [ %..i, %if.then.i ]
   %to_purge = getelementptr inbounds i8, ptr %psset, i64 4232
   %arrayidx = getelementptr inbounds [128 x %struct.hpdata_purge_list_t], ptr %to_purge, i64 0, i64 %retval.0.i
-  %15 = load ptr, ptr %arrayidx, align 8
-  %cmp.i6 = icmp eq ptr %15, %ps
+  %16 = load ptr, ptr %arrayidx, align 8
+  %cmp.i6 = icmp eq ptr %16, %ps
   br i1 %cmp.i6, label %if.then.i8, label %if.end.i7
 
 if.then.i8:                                       ; preds = %psset_purge_list_ind.exit
-  %ql_link_purge.i = getelementptr inbounds i8, ptr %15, i64 64
-  %16 = load ptr, ptr %ql_link_purge.i, align 8
-  store ptr %16, ptr %arrayidx, align 8
+  %ql_link_purge.i = getelementptr inbounds i8, ptr %16, i64 64
+  %17 = load ptr, ptr %ql_link_purge.i, align 8
+  store ptr %17, ptr %arrayidx, align 8
   br label %if.end.i7
 
 if.end.i7:                                        ; preds = %if.then.i8, %psset_purge_list_ind.exit
-  %17 = phi ptr [ %16, %if.then.i8 ], [ %15, %psset_purge_list_ind.exit ]
-  %cmp7.not.i = icmp eq ptr %17, %ps
+  %18 = phi ptr [ %17, %if.then.i8 ], [ %16, %psset_purge_list_ind.exit ]
+  %cmp7.not.i = icmp eq ptr %18, %ps
   br i1 %cmp7.not.i, label %hpdata_purge_list_remove.exit.thread, label %hpdata_purge_list_remove.exit
 
 hpdata_purge_list_remove.exit.thread:             ; preds = %if.end.i7
@@ -463,27 +463,27 @@ hpdata_purge_list_remove.exit.thread:             ; preds = %if.end.i7
 
 hpdata_purge_list_remove.exit:                    ; preds = %if.end.i7
   %ql_link_purge10.i = getelementptr inbounds i8, ptr %ps, i64 64
-  %18 = load ptr, ptr %ql_link_purge10.i, align 8
-  %qre_prev.i = getelementptr inbounds i8, ptr %18, i64 72
-  %19 = load ptr, ptr %qre_prev.i, align 8
+  %19 = load ptr, ptr %ql_link_purge10.i, align 8
+  %qre_prev.i = getelementptr inbounds i8, ptr %19, i64 72
+  %20 = load ptr, ptr %qre_prev.i, align 8
   %qre_prev14.i = getelementptr inbounds i8, ptr %ps, i64 72
-  %20 = load ptr, ptr %qre_prev14.i, align 8
-  %ql_link_purge15.i = getelementptr inbounds i8, ptr %20, i64 64
-  store ptr %19, ptr %ql_link_purge15.i, align 8
   %21 = load ptr, ptr %qre_prev14.i, align 8
-  %22 = load ptr, ptr %ql_link_purge10.i, align 8
-  %qre_prev22.i = getelementptr inbounds i8, ptr %22, i64 72
-  store ptr %21, ptr %qre_prev22.i, align 8
-  %ql_link_purge25.i = getelementptr inbounds i8, ptr %21, i64 64
-  %23 = load ptr, ptr %ql_link_purge25.i, align 8
-  store ptr %23, ptr %qre_prev14.i, align 8
-  %24 = load ptr, ptr %ql_link_purge10.i, align 8
-  %qre_prev34.i = getelementptr inbounds i8, ptr %24, i64 72
-  %25 = load ptr, ptr %qre_prev34.i, align 8
-  %ql_link_purge35.i = getelementptr inbounds i8, ptr %25, i64 64
-  store ptr %24, ptr %ql_link_purge35.i, align 8
-  %26 = load ptr, ptr %qre_prev14.i, align 8
-  %ql_link_purge39.i = getelementptr inbounds i8, ptr %26, i64 64
+  %ql_link_purge15.i = getelementptr inbounds i8, ptr %21, i64 64
+  store ptr %20, ptr %ql_link_purge15.i, align 8
+  %22 = load ptr, ptr %qre_prev14.i, align 8
+  %23 = load ptr, ptr %ql_link_purge10.i, align 8
+  %qre_prev22.i = getelementptr inbounds i8, ptr %23, i64 72
+  store ptr %22, ptr %qre_prev22.i, align 8
+  %ql_link_purge25.i = getelementptr inbounds i8, ptr %22, i64 64
+  %24 = load ptr, ptr %ql_link_purge25.i, align 8
+  store ptr %24, ptr %qre_prev14.i, align 8
+  %25 = load ptr, ptr %ql_link_purge10.i, align 8
+  %qre_prev34.i = getelementptr inbounds i8, ptr %25, i64 72
+  %26 = load ptr, ptr %qre_prev34.i, align 8
+  %ql_link_purge35.i = getelementptr inbounds i8, ptr %26, i64 64
+  store ptr %25, ptr %ql_link_purge35.i, align 8
+  %27 = load ptr, ptr %qre_prev14.i, align 8
+  %ql_link_purge39.i = getelementptr inbounds i8, ptr %27, i64 64
   store ptr %ps, ptr %ql_link_purge39.i, align 8
   %arrayidx.val.pr = load ptr, ptr %arrayidx, align 8
   %cmp.i9 = icmp eq ptr %arrayidx.val.pr, null
@@ -496,8 +496,8 @@ if.then3:                                         ; preds = %hpdata_purge_list_r
   %shl.i10 = shl nuw i64 1, %rem.i
   %not.i = xor i64 %shl.i10, -1
   %arrayidx.i = getelementptr inbounds i64, ptr %purge_bitmap, i64 %div2.i
-  %27 = load i64, ptr %arrayidx.i, align 8
-  %and.i = and i64 %27, %not.i
+  %28 = load i64, ptr %arrayidx.i, align 8
+  %and.i = and i64 %28, %not.i
   store i64 %and.i, ptr %arrayidx.i, align 8
   br label %if.end4
 
@@ -659,62 +659,62 @@ if.end.i:                                         ; preds = %if.else5
   %3 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %2, i1 false)
   %4 = trunc nuw nsw i64 %3 to i32
   %cond.i = tail call i32 @llvm.usub.sat.i32(i32 50, i32 %4)
-  %cmp4.i = icmp ugt i32 %4, 49
+  %cmp4.i = icmp ult i64 %call7, 16385
   %add.i = add nuw nsw i32 %cond.i, 11
-  %cond10.i = select i1 %cmp4.i, i32 12, i32 %add.i
-  %sh_prom.i = zext nneg i32 %cond10.i to i64
+  %5 = zext nneg i32 %add.i to i64
+  %sh_prom.i = select i1 %cmp4.i, i64 12, i64 %5
   %shr.i = lshr i64 %2, %sh_prom.i
-  %5 = trunc i64 %shr.i to i32
-  %conv12.i = and i32 %5, 3
+  %6 = trunc i64 %shr.i to i32
+  %conv12.i = and i32 %6, 3
   %shl.i = shl nuw nsw i32 %cond.i, 2
   %add13.i = or disjoint i32 %conv12.i, %shl.i
-  %6 = zext nneg i32 %add13.i to i64
+  %7 = zext nneg i32 %add13.i to i64
   br label %sz_psz2ind.exit
 
 sz_psz2ind.exit:                                  ; preds = %if.else5, %if.end.i
-  %retval.i.0 = phi i64 [ %6, %if.end.i ], [ 199, %if.else5 ]
+  %retval.i.0 = phi i64 [ %7, %if.end.i ], [ 199, %if.else5 ]
   %stats9 = getelementptr inbounds i8, ptr %psset, i64 1056
   %arrayidx = getelementptr inbounds [64 x [2 x %struct.psset_bin_stats_s]], ptr %stats9, i64 0, i64 %retval.i.0
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then2, %sz_psz2ind.exit, %if.then
   %full_slabs.sink = phi ptr [ %full_slabs, %if.then2 ], [ %arrayidx, %sz_psz2ind.exit ], [ %empty_slabs, %if.then ]
-  %7 = getelementptr i8, ptr %ps, i64 16
-  %ps.val.i20 = load i8, ptr %7, align 8
-  %8 = and i8 %ps.val.i20, 1
-  %conv.i.i21 = zext nneg i8 %8 to i64
+  %8 = getelementptr i8, ptr %ps, i64 16
+  %ps.val.i20 = load i8, ptr %8, align 8
+  %9 = and i8 %ps.val.i20, 1
+  %conv.i.i21 = zext nneg i8 %9 to i64
   %arrayidx.i.i22 = getelementptr inbounds %struct.psset_bin_stats_s, ptr %full_slabs.sink, i64 %conv.i.i21
-  %9 = load i64, ptr %arrayidx.i.i22, align 8
-  %add.i.i23 = add i64 %9, 1
+  %10 = load i64, ptr %arrayidx.i.i22, align 8
+  %add.i.i23 = add i64 %10, 1
   store i64 %add.i.i23, ptr %arrayidx.i.i22, align 8
   %ps.val17.i24 = load i64, ptr %0, align 8
   %nactive.i.i25 = getelementptr inbounds i8, ptr %arrayidx.i.i22, i64 8
-  %10 = load i64, ptr %nactive.i.i25, align 8
-  %add5.i.i26 = add i64 %10, %ps.val17.i24
+  %11 = load i64, ptr %nactive.i.i25, align 8
+  %add5.i.i26 = add i64 %11, %ps.val17.i24
   store i64 %add5.i.i26, ptr %nactive.i.i25, align 8
   %ps.val20.i27 = load i64, ptr %0, align 8
-  %11 = getelementptr i8, ptr %ps, i64 176
-  %ps.val21.i28 = load i64, ptr %11, align 8
+  %12 = getelementptr i8, ptr %ps, i64 176
+  %ps.val21.i28 = load i64, ptr %12, align 8
   %sub.i.i29 = sub i64 %ps.val21.i28, %ps.val20.i27
   %ndirty.i.i30 = getelementptr inbounds i8, ptr %arrayidx.i.i22, i64 16
-  %12 = load i64, ptr %ndirty.i.i30, align 8
-  %add9.i.i31 = add i64 %sub.i.i29, %12
+  %13 = load i64, ptr %ndirty.i.i30, align 8
+  %add9.i.i31 = add i64 %sub.i.i29, %13
   store i64 %add9.i.i31, ptr %ndirty.i.i30, align 8
   %merged_stats.i.i32 = getelementptr inbounds i8, ptr %psset, i64 1032
-  %13 = load i64, ptr %merged_stats.i.i32, align 8
-  %add12.i.i33 = add i64 %13, 1
+  %14 = load i64, ptr %merged_stats.i.i32, align 8
+  %add12.i.i33 = add i64 %14, 1
   store i64 %add12.i.i33, ptr %merged_stats.i.i32, align 8
   %ps.val16.i34 = load i64, ptr %0, align 8
   %nactive16.i.i35 = getelementptr inbounds i8, ptr %psset, i64 1040
-  %14 = load i64, ptr %nactive16.i.i35, align 8
-  %add17.i.i36 = add i64 %14, %ps.val16.i34
+  %15 = load i64, ptr %nactive16.i.i35, align 8
+  %add17.i.i36 = add i64 %15, %ps.val16.i34
   store i64 %add17.i.i36, ptr %nactive16.i.i35, align 8
   %ps.val18.i37 = load i64, ptr %0, align 8
-  %ps.val19.i38 = load i64, ptr %11, align 8
+  %ps.val19.i38 = load i64, ptr %12, align 8
   %sub.i22.i39 = sub i64 %ps.val19.i38, %ps.val18.i37
   %ndirty21.i.i40 = getelementptr inbounds i8, ptr %psset, i64 1048
-  %15 = load i64, ptr %ndirty21.i.i40, align 8
-  %add22.i.i41 = add i64 %sub.i22.i39, %15
+  %16 = load i64, ptr %ndirty21.i.i40, align 8
+  %add22.i.i41 = add i64 %sub.i22.i39, %16
   store i64 %add22.i.i41, ptr %ndirty21.i.i40, align 8
   ret void
 }
@@ -781,20 +781,20 @@ if.end.i:                                         ; preds = %if.else3
   %15 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %14, i1 false)
   %16 = trunc nuw nsw i64 %15 to i32
   %cond.i = tail call i32 @llvm.usub.sat.i32(i32 50, i32 %16)
-  %cmp4.i = icmp ugt i32 %16, 49
+  %cmp4.i = icmp ult i64 %call5, 16385
   %add.i = add nuw nsw i32 %cond.i, 11
-  %cond10.i = select i1 %cmp4.i, i32 12, i32 %add.i
-  %sh_prom.i = zext nneg i32 %cond10.i to i64
+  %17 = zext nneg i32 %add.i to i64
+  %sh_prom.i = select i1 %cmp4.i, i64 12, i64 %17
   %shr.i = lshr i64 %14, %sh_prom.i
-  %17 = trunc i64 %shr.i to i32
-  %conv12.i = and i32 %17, 3
+  %18 = trunc i64 %shr.i to i32
+  %conv12.i = and i32 %18, 3
   %shl.i = shl nuw nsw i32 %cond.i, 2
   %add13.i = or disjoint i32 %conv12.i, %shl.i
-  %18 = zext nneg i32 %add13.i to i64
+  %19 = zext nneg i32 %add13.i to i64
   br label %sz_psz2ind.exit
 
 sz_psz2ind.exit:                                  ; preds = %if.else3, %if.end.i
-  %retval.i.0 = phi i64 [ %18, %if.end.i ], [ 199, %if.else3 ]
+  %retval.i.0 = phi i64 [ %19, %if.end.i ], [ 199, %if.else3 ]
   %arrayidx.i = getelementptr inbounds [64 x %struct.hpdata_age_heap_t], ptr %psset, i64 0, i64 %retval.i.0
   %call.i = tail call zeroext i1 @hpdata_age_heap_empty(ptr noundef %arrayidx.i) #8
   br i1 %call.i, label %if.then.i, label %psset_hpdata_heap_insert.exit
@@ -805,8 +805,8 @@ if.then.i:                                        ; preds = %sz_psz2ind.exit
   %rem.i.i = and i64 %retval.i.0, 63
   %shl.i.i = shl nuw i64 1, %rem.i.i
   %arrayidx.i.i = getelementptr inbounds i64, ptr %pageslab_bitmap.i, i64 %div2.i.i
-  %19 = load i64, ptr %arrayidx.i.i, align 8
-  %or.i.i = or i64 %19, %shl.i.i
+  %20 = load i64, ptr %arrayidx.i.i, align 8
+  %or.i.i = or i64 %20, %shl.i.i
   store i64 %or.i.i, ptr %arrayidx.i.i, align 8
   br label %psset_hpdata_heap_insert.exit
 
@@ -855,26 +855,26 @@ if.end.i.i:                                       ; preds = %if.end.i
   %5 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %4, i1 false)
   %6 = trunc nuw nsw i64 %5 to i32
   %cond.i.i = tail call i32 @llvm.usub.sat.i32(i32 50, i32 %6)
-  %cmp4.i.i = icmp ugt i32 %6, 49
+  %cmp4.i.i = icmp ult i64 %call4.i, 16385
   %add.i.i = add nuw nsw i32 %cond.i.i, 11
-  %cond10.i.i = select i1 %cmp4.i.i, i32 12, i32 %add.i.i
-  %sh_prom.i.i = zext nneg i32 %cond10.i.i to i64
+  %7 = zext nneg i32 %add.i.i to i64
+  %sh_prom.i.i = select i1 %cmp4.i.i, i64 12, i64 %7
   %shr.i.i = lshr i64 %4, %sh_prom.i.i
-  %7 = trunc i64 %shr.i.i to i32
-  %8 = shl nuw nsw i32 %cond.i.i, 3
-  %conv12.i.i = shl i32 %7, 1
-  %9 = and i32 %conv12.i.i, 6
-  %10 = or disjoint i32 %9, %8
-  %11 = zext nneg i32 %10 to i64
+  %8 = trunc i64 %shr.i.i to i32
+  %9 = shl nuw nsw i32 %cond.i.i, 3
+  %conv12.i.i = shl i32 %8, 1
+  %10 = and i32 %conv12.i.i, 6
+  %11 = or disjoint i32 %10, %9
+  %12 = zext nneg i32 %11 to i64
   br label %sz_psz2ind.exit.i
 
 sz_psz2ind.exit.i:                                ; preds = %if.end.i.i, %if.end.i
-  %retval.i.0.i = phi i64 [ %11, %if.end.i.i ], [ 398, %if.end.i ]
-  %12 = getelementptr i8, ptr %ps, i64 16
-  %ps.val.i = load i8, ptr %12, align 8
-  %13 = and i8 %ps.val.i, 1
-  %14 = xor i8 %13, 1
-  %conv8.i = zext nneg i8 %14 to i64
+  %retval.i.0.i = phi i64 [ %12, %if.end.i.i ], [ 398, %if.end.i ]
+  %13 = getelementptr i8, ptr %ps, i64 16
+  %ps.val.i = load i8, ptr %13, align 8
+  %14 = and i8 %ps.val.i, 1
+  %15 = xor i8 %14, 1
+  %conv8.i = zext nneg i8 %15 to i64
   %add.i = add nuw nsw i64 %retval.i.0.i, %conv8.i
   br label %psset_purge_list_ind.exit
 
@@ -892,8 +892,8 @@ if.then3:                                         ; preds = %psset_purge_list_in
   %rem.i = and i64 %retval.0.i, 63
   %shl.i7 = shl nuw i64 1, %rem.i
   %arrayidx.i = getelementptr inbounds i64, ptr %purge_bitmap, i64 %div2.i
-  %15 = load i64, ptr %arrayidx.i, align 8
-  %or.i = or i64 %15, %shl.i7
+  %16 = load i64, ptr %arrayidx.i, align 8
+  %or.i = or i64 %16, %shl.i7
   store i64 %or.i, ptr %arrayidx.i, align 8
   br label %if.end
 
@@ -902,35 +902,35 @@ if.end:                                           ; preds = %if.then3, %psset_pu
   store ptr %ps, ptr %ql_link_purge.i, align 8
   %qre_prev.i = getelementptr inbounds i8, ptr %ps, i64 72
   store ptr %ps, ptr %qre_prev.i, align 8
-  %16 = load ptr, ptr %arrayidx, align 8
-  %cmp.i8 = icmp eq ptr %16, null
+  %17 = load ptr, ptr %arrayidx, align 8
+  %cmp.i8 = icmp eq ptr %17, null
   br i1 %cmp.i8, label %hpdata_purge_list_append.exit, label %do.body3.i
 
 do.body3.i:                                       ; preds = %if.end
-  %qre_prev7.i = getelementptr inbounds i8, ptr %16, i64 72
-  %17 = load ptr, ptr %qre_prev7.i, align 8
-  store ptr %17, ptr %ql_link_purge.i, align 8
-  %18 = load ptr, ptr %arrayidx, align 8
-  %qre_prev17.i = getelementptr inbounds i8, ptr %18, i64 72
+  %qre_prev7.i = getelementptr inbounds i8, ptr %17, i64 72
+  %18 = load ptr, ptr %qre_prev7.i, align 8
+  store ptr %18, ptr %ql_link_purge.i, align 8
+  %19 = load ptr, ptr %arrayidx, align 8
+  %qre_prev17.i = getelementptr inbounds i8, ptr %19, i64 72
   store ptr %ps, ptr %qre_prev17.i, align 8
-  %19 = load ptr, ptr %qre_prev.i, align 8
-  %ql_link_purge20.i = getelementptr inbounds i8, ptr %19, i64 64
-  %20 = load ptr, ptr %ql_link_purge20.i, align 8
-  store ptr %20, ptr %qre_prev.i, align 8
-  %21 = load ptr, ptr %arrayidx, align 8
-  %qre_prev29.i = getelementptr inbounds i8, ptr %21, i64 72
-  %22 = load ptr, ptr %qre_prev29.i, align 8
-  %ql_link_purge30.i = getelementptr inbounds i8, ptr %22, i64 64
-  store ptr %21, ptr %ql_link_purge30.i, align 8
-  %23 = load ptr, ptr %qre_prev.i, align 8
-  %ql_link_purge34.i = getelementptr inbounds i8, ptr %23, i64 64
+  %20 = load ptr, ptr %qre_prev.i, align 8
+  %ql_link_purge20.i = getelementptr inbounds i8, ptr %20, i64 64
+  %21 = load ptr, ptr %ql_link_purge20.i, align 8
+  store ptr %21, ptr %qre_prev.i, align 8
+  %22 = load ptr, ptr %arrayidx, align 8
+  %qre_prev29.i = getelementptr inbounds i8, ptr %22, i64 72
+  %23 = load ptr, ptr %qre_prev29.i, align 8
+  %ql_link_purge30.i = getelementptr inbounds i8, ptr %23, i64 64
+  store ptr %22, ptr %ql_link_purge30.i, align 8
+  %24 = load ptr, ptr %qre_prev.i, align 8
+  %ql_link_purge34.i = getelementptr inbounds i8, ptr %24, i64 64
   store ptr %ps, ptr %ql_link_purge34.i, align 8
   %.pre.i = load ptr, ptr %ql_link_purge.i, align 8
   br label %hpdata_purge_list_append.exit
 
 hpdata_purge_list_append.exit:                    ; preds = %if.end, %do.body3.i
-  %24 = phi ptr [ %.pre.i, %do.body3.i ], [ %ps, %if.end ]
-  store ptr %24, ptr %arrayidx, align 8
+  %25 = phi ptr [ %.pre.i, %do.body3.i ], [ %ps, %if.end ]
+  store ptr %25, ptr %arrayidx, align 8
   br label %if.end4
 
 if.end4:                                          ; preds = %hpdata_purge_list_append.exit, %entry
@@ -951,27 +951,27 @@ if.end.i:                                         ; preds = %entry
   %1 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %0, i1 false)
   %2 = trunc nuw nsw i64 %1 to i32
   %cond.i = tail call i32 @llvm.usub.sat.i32(i32 50, i32 %2)
-  %cmp4.i = icmp ugt i32 %2, 49
+  %cmp4.i = icmp ult i64 %call, 16385
   %add.i = add nuw nsw i32 %cond.i, 11
-  %cond10.i = select i1 %cmp4.i, i32 12, i32 %add.i
-  %sh_prom.i = zext nneg i32 %cond10.i to i64
+  %3 = zext nneg i32 %add.i to i64
+  %sh_prom.i = select i1 %cmp4.i, i64 12, i64 %3
   %shr.i = lshr i64 %0, %sh_prom.i
-  %3 = trunc i64 %shr.i to i32
-  %conv12.i = and i32 %3, 3
+  %4 = trunc i64 %shr.i to i32
+  %conv12.i = and i32 %4, 3
   %shl.i = shl nuw nsw i32 %cond.i, 2
   %add13.i = or disjoint i32 %conv12.i, %shl.i
-  %4 = zext nneg i32 %add13.i to i64
+  %5 = zext nneg i32 %add13.i to i64
   br label %sz_psz2ind.exit
 
 sz_psz2ind.exit:                                  ; preds = %entry, %if.end.i
-  %retval.i.0 = phi i64 [ %4, %if.end.i ], [ 199, %entry ]
+  %retval.i.0 = phi i64 [ %5, %if.end.i ], [ 199, %entry ]
   %pageslab_bitmap = getelementptr inbounds i8, ptr %psset, i64 1024
   %div2.i26.i = lshr i64 %retval.i.0, 6
   %arrayidx.i.i = getelementptr inbounds i64, ptr %pageslab_bitmap, i64 %div2.i26.i
-  %5 = load i64, ptr %arrayidx.i.i, align 8
+  %6 = load i64, ptr %arrayidx.i.i, align 8
   %rem3.i.i = and i64 %retval.i.0, 63
   %notmask.i = shl nsw i64 -1, %rem3.i.i
-  %and.i.i = and i64 %notmask.i, %5
+  %and.i.i = and i64 %notmask.i, %6
   %cmp13.i29.i = icmp eq i64 %and.i.i, 0
   br i1 %cmp13.i29.i, label %while.body.i.i, label %fb_ffs.exit
 
@@ -983,18 +983,18 @@ while.body.i.i:                                   ; preds = %sz_psz2ind.exit, %i
 if.end29.i.i:                                     ; preds = %while.body.i.i
   %add19.i.i = add nuw nsw i64 %group_ind.i.030.i, 1
   %arrayidx30.i.i = getelementptr inbounds i64, ptr %pageslab_bitmap, i64 %add19.i.i
-  %6 = load i64, ptr %arrayidx30.i.i, align 8
-  %cmp13.i.i = icmp eq i64 %6, 0
+  %7 = load i64, ptr %arrayidx30.i.i, align 8
+  %cmp13.i.i = icmp eq i64 %7, 0
   br i1 %cmp13.i.i, label %while.body.i.i, label %fb_ffs.exit, !llvm.loop !8
 
 fb_ffs.exit:                                      ; preds = %if.end29.i.i, %sz_psz2ind.exit
-  %group.i.1.lcssa.i = phi i64 [ %and.i.i, %sz_psz2ind.exit ], [ %6, %if.end29.i.i ]
+  %group.i.1.lcssa.i = phi i64 [ %and.i.i, %sz_psz2ind.exit ], [ %7, %if.end29.i.i ]
   %group_ind.i.0.lcssa.i = phi i64 [ %div2.i26.i, %sz_psz2ind.exit ], [ %add19.i.i, %if.end29.i.i ]
-  %7 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %group.i.1.lcssa.i, i1 true)
+  %8 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %group.i.1.lcssa.i, i1 true)
   %mul.i.i = shl i64 %group_ind.i.0.lcssa.i, 6
   %mul.i.i.masked = and i64 %mul.i.i, 4294967232
-  %8 = or disjoint i64 %mul.i.i.masked, %7
-  %cmp = icmp eq i64 %8, 64
+  %9 = or disjoint i64 %mul.i.i.masked, %8
+  %cmp = icmp eq i64 %9, 64
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.body.i.i, %fb_ffs.exit
@@ -1003,7 +1003,7 @@ if.then:                                          ; preds = %while.body.i.i, %fb
   br label %return
 
 if.end:                                           ; preds = %fb_ffs.exit
-  %arrayidx = getelementptr inbounds [64 x %struct.hpdata_age_heap_t], ptr %psset, i64 0, i64 %8
+  %arrayidx = getelementptr inbounds [64 x %struct.hpdata_age_heap_t], ptr %psset, i64 0, i64 %9
   %call8 = tail call ptr @hpdata_age_heap_first(ptr noundef %arrayidx) #8
   br label %return
 

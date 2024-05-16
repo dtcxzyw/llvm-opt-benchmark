@@ -545,14 +545,14 @@ if.end74:                                         ; preds = %if.end73, %if.end66
 
 for.end182.thread:                                ; preds = %if.end74
   %8 = load i32, ptr %cluster_size, align 4
-  %mul88182 = mul i32 %8, %conv38
-  %conv89183 = sext i32 %mul88182 to i64
-  %add90184 = add i64 %conv89183, %start_offset
+  %mul88183 = mul i32 %8, %conv38
+  %conv89184 = sext i32 %mul88183 to i64
+  %add90185 = add i64 %conv89184, %start_offset
   br label %do.body
 
 for.body.preheader:                               ; preds = %if.end74
-  %sext175 = shl i64 %div14, 32
-  %9 = ashr exact i64 %sext175, 32
+  %sext176 = shl i64 %div14, 32
+  %9 = ashr exact i64 %sext176, 32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
@@ -596,7 +596,7 @@ if.then98:                                        ; preds = %for.body94
 
 if.then98.if.end121_crit_edge:                    ; preds = %if.then98
   %.pre = load i32, ptr %cluster_size, align 4
-  %.pre174 = sext i32 %.pre to i64
+  %.pre175 = sext i32 %.pre to i64
   br label %if.end121
 
 if.else106:                                       ; preds = %for.body94
@@ -619,7 +619,7 @@ if.end112:                                        ; preds = %if.else106
   br label %if.end121
 
 if.end121:                                        ; preds = %if.then98.if.end121_crit_edge, %if.end112
-  %conv127.pre-phi = phi i64 [ %.pre174, %if.then98.if.end121_crit_edge ], [ %conv119, %if.end112 ]
+  %conv127.pre-phi = phi i64 [ %.pre175, %if.then98.if.end121_crit_edge ], [ %conv119, %if.end112 ]
   %block_offset.1 = phi i64 [ %block_offset.0145, %if.then98.if.end121_crit_edge ], [ %add120, %if.end112 ]
   %19 = load i32, ptr %refcount_block_size, align 4
   %conv124 = sext i32 %19 to i64
@@ -662,8 +662,8 @@ if.end152:                                        ; preds = %if.then131, %if.end
 
 for.body165.preheader:                            ; preds = %if.end152
   %21 = sext i32 %j.0 to i64
-  %sext177 = shl i64 %cond, 32
-  %22 = ashr exact i64 %sext177, 32
+  %sext178 = shl i64 %cond, 32
+  %22 = ashr exact i64 %sext178, 32
   br label %for.body165
 
 for.body165:                                      ; preds = %for.body165.preheader, %if.end172
@@ -708,8 +708,8 @@ if.else186:                                       ; preds = %for.end182
   unreachable
 
 do.body:                                          ; preds = %for.end182.thread, %for.end182
-  %add86185192 = phi i64 [ %start_offset, %for.end182.thread ], [ %add86, %for.end182 ]
-  %add90186191 = phi i64 [ %add90184, %for.end182.thread ], [ %add90, %for.end182 ]
+  %add86186193 = phi i64 [ %start_offset, %for.end182.thread ], [ %add86, %for.end182 ]
+  %add90187192 = phi i64 [ %add90185, %for.end182.thread ], [ %add90, %for.end182 ]
   %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %30 = load ptr, ptr %file, align 8
   %tobool188.not = icmp eq ptr %30, null
@@ -728,17 +728,22 @@ do.end:                                           ; preds = %do.body, %if.then18
   br i1 %cmp195, label %fail, label %for.cond199.preheader
 
 for.cond199.preheader:                            ; preds = %do.end
-  %cmp200149 = icmp sgt i32 %conv9, 0
-  br i1 %cmp200149, label %for.body202, label %do.body208
+  %cmp200149.not = icmp eq i64 %3, 0
+  br i1 %cmp200149.not, label %do.body208, label %for.body202.preheader
 
-for.body202:                                      ; preds = %for.cond199.preheader, %for.body202
-  %indvars.iv164 = phi i64 [ %indvars.iv.next165, %for.body202 ], [ 0, %for.cond199.preheader ]
+for.body202.preheader:                            ; preds = %for.cond199.preheader
+  %smax = call i32 @llvm.smax.i32(i32 %conv9, i32 1)
+  %wide.trip.count = zext nneg i32 %smax to i64
+  br label %for.body202
+
+for.body202:                                      ; preds = %for.body202.preheader, %for.body202
+  %indvars.iv164 = phi i64 [ 0, %for.body202.preheader ], [ %indvars.iv.next165, %for.body202 ]
   %arrayidx204 = getelementptr i64, ptr %call45, i64 %indvars.iv164
   %33 = load i64, ptr %arrayidx204, align 8
   %34 = call i64 @llvm.bswap.i64(i64 %33)
   store i64 %34, ptr %arrayidx204, align 8
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next165, %3
+  %exitcond.not = icmp eq i64 %indvars.iv.next165, %wide.trip.count
   br i1 %exitcond.not, label %do.body208, label %for.body202, !llvm.loop !11
 
 do.body208:                                       ; preds = %for.body202, %for.cond199.preheader
@@ -749,30 +754,35 @@ do.body208:                                       ; preds = %for.body202, %for.c
 if.then211:                                       ; preds = %do.body208
   %36 = load ptr, ptr %35, align 8
   call void @bdrv_debug_event(ptr noundef %36, i32 noundef 28) #17
-  %.pre172 = load ptr, ptr %file, align 8
+  %.pre173 = load ptr, ptr %file, align 8
   br label %do.end215
 
 do.end215:                                        ; preds = %do.body208, %if.then211
-  %37 = phi ptr [ null, %do.body208 ], [ %.pre172, %if.then211 ]
-  %call219 = call i32 @bdrv_pwrite_sync(ptr noundef %37, i64 noundef %add86185192, i64 noundef %mul, ptr noundef nonnull %call45, i32 noundef 0) #17
+  %37 = phi ptr [ null, %do.body208 ], [ %.pre173, %if.then211 ]
+  %call219 = call i32 @bdrv_pwrite_sync(ptr noundef %37, i64 noundef %add86186193, i64 noundef %mul, ptr noundef nonnull %call45, i32 noundef 0) #17
   %cmp220 = icmp slt i32 %call219, 0
   br i1 %cmp220, label %fail, label %for.cond224.preheader
 
 for.cond224.preheader:                            ; preds = %do.end215
-  br i1 %cmp200149, label %for.body227, label %for.end232
+  br i1 %cmp200149.not, label %for.end232, label %for.body227.preheader
 
-for.body227:                                      ; preds = %for.cond224.preheader, %for.body227
-  %indvars.iv167 = phi i64 [ %indvars.iv.next168, %for.body227 ], [ 0, %for.cond224.preheader ]
+for.body227.preheader:                            ; preds = %for.cond224.preheader
+  %smax170 = call i32 @llvm.smax.i32(i32 %conv9, i32 1)
+  %wide.trip.count171 = zext nneg i32 %smax170 to i64
+  br label %for.body227
+
+for.body227:                                      ; preds = %for.body227.preheader, %for.body227
+  %indvars.iv167 = phi i64 [ 0, %for.body227.preheader ], [ %indvars.iv.next168, %for.body227 ]
   %arrayidx229 = getelementptr i64, ptr %call45, i64 %indvars.iv167
   %38 = load i64, ptr %arrayidx229, align 8
   %39 = call i64 @llvm.bswap.i64(i64 %38)
   store i64 %39, ptr %arrayidx229, align 8
   %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
-  %exitcond171.not = icmp eq i64 %indvars.iv.next168, %3
-  br i1 %exitcond171.not, label %for.end232, label %for.body227, !llvm.loop !12
+  %exitcond172.not = icmp eq i64 %indvars.iv.next168, %wide.trip.count171
+  br i1 %exitcond172.not, label %for.end232, label %for.body227, !llvm.loop !12
 
 for.end232:                                       ; preds = %for.body227, %for.cond224.preheader
-  %40 = call noundef i64 @llvm.bswap.i64(i64 %add86185192)
+  %40 = call noundef i64 @llvm.bswap.i64(i64 %add86186193)
   store i64 %40, ptr %data, align 8
   %41 = call noundef i32 @llvm.bswap.i32(i32 %conv38)
   %d32 = getelementptr inbounds i8, ptr %data, i64 8
@@ -784,11 +794,11 @@ for.end232:                                       ; preds = %for.body227, %for.c
 if.then238:                                       ; preds = %for.end232
   %43 = load ptr, ptr %42, align 8
   call void @bdrv_debug_event(ptr noundef %43, i32 noundef 29) #17
-  %.pre173 = load ptr, ptr %file, align 8
+  %.pre174 = load ptr, ptr %file, align 8
   br label %do.end242
 
 do.end242:                                        ; preds = %for.end232, %if.then238
-  %44 = phi ptr [ null, %for.end232 ], [ %.pre173, %if.then238 ]
+  %44 = phi ptr [ null, %for.end232 ], [ %.pre174, %if.then238 ]
   %call244 = call i32 @bdrv_pwrite_sync(ptr noundef %44, i64 noundef 48, i64 noundef 12, ptr noundef nonnull %data, i32 noundef 0) #17
   %cmp245 = icmp slt i32 %call244, 0
   br i1 %cmp245, label %fail, label %if.end248
@@ -803,7 +813,7 @@ if.end248:                                        ; preds = %do.end242
   call void @g_free(ptr noundef %47) #17
   store ptr %call45, ptr %refcount_table, align 8
   store i32 %conv33, ptr %refcount_table_size, align 8
-  store i64 %add86185192, ptr %refcount_table_offset, align 8
+  store i64 %add86186193, ptr %refcount_table_offset, align 8
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %land.rhs.i, %if.end248
@@ -850,7 +860,7 @@ fail:                                             ; preds = %if.else106, %if.the
   br label %return
 
 return:                                           ; preds = %if.then3.i, %do.end.i, %if.end8, %if.end, %fail
-  %retval.0 = phi i64 [ %conv255, %fail ], [ -27, %if.end ], [ -27, %if.end8 ], [ %add90186191, %do.end.i ], [ %add90186191, %if.then3.i ]
+  %retval.0 = phi i64 [ %conv255, %fail ], [ -27, %if.end ], [ -27, %if.end8 ], [ %add90187192, %do.end.i ], [ %add90187192, %if.then3.i ]
   ret i64 %retval.0
 }
 

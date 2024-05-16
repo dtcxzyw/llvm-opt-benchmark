@@ -22481,7 +22481,7 @@ _ZN4absl16numbers_internal24FastHexToBufferZeroPad16EmPc.exit.i.i.i: ; preds = %
   %div.neg567.i.i.i.i = lshr i32 %div.neg5.lhs.trunc.i.i.i.i, 2
   %narrow.i.i.i.i = sub nuw nsw i32 16, %div.neg567.i.i.i.i
   %sub3.i.i.i.i = zext nneg i32 %narrow.i.i.i.i to i64
-  %cmp.not.i.i.i = icmp ugt i32 %div.neg5.lhs.trunc.i.i.i.i, 51
+  %cmp.not.i.i.i = icmp ult i64 %or.i.i.i.i, 4096
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %_ZN4absl16strings_internal22ExtractStringificationINS_3HexEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit.i
 
 if.else.i.i.i:                                    ; preds = %_ZN4absl16numbers_internal24FastHexToBufferZeroPad16EmPc.exit.i.i.i

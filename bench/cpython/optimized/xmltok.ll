@@ -923,15 +923,13 @@ for.inc.i:                                        ; preds = %for.cond.i.i
   br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !9
 
 getEncodingIndex.exit:                            ; preds = %if.end25.i.i
-  %5 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %cmp = icmp eq i32 %5, -1
-  br i1 %cmp, label %return, label %if.end
+  %5 = trunc i64 %indvars.iv.i to i8
+  br label %if.end
 
-if.end:                                           ; preds = %entry, %getEncodingIndex.exit
-  %retval.0.i13 = phi i32 [ %5, %getEncodingIndex.exit ], [ 6, %entry ]
-  %conv = trunc i32 %retval.0.i13 to i8
+if.end:                                           ; preds = %getEncodingIndex.exit, %entry
+  %retval.0.i13 = phi i8 [ %5, %getEncodingIndex.exit ], [ 6, %entry ]
   %isUtf16 = getelementptr inbounds i8, ptr %p, i64 133
-  store i8 %conv, ptr %isUtf16, align 1
+  store i8 %retval.0.i13, ptr %isUtf16, align 1
   store ptr @initScanProlog, ptr %p, align 8
   %arrayidx4 = getelementptr i8, ptr %p, i64 8
   store ptr @initScanContent, ptr %arrayidx4, align 8
@@ -942,8 +940,8 @@ if.end:                                           ; preds = %entry, %getEncoding
   store ptr %p, ptr %encPtr, align 8
   br label %return
 
-return:                                           ; preds = %for.inc.i, %getEncodingIndex.exit, %if.end
-  %retval.0 = phi i32 [ 1, %if.end ], [ 0, %getEncodingIndex.exit ], [ 0, %for.inc.i ]
+return:                                           ; preds = %for.inc.i, %if.end
+  %retval.0 = phi i32 [ 1, %if.end ], [ 0, %for.inc.i ]
   ret i32 %retval.0
 }
 
@@ -1405,27 +1403,22 @@ if.end25.i.i:                                     ; preds = %for.cond.i.i
   %incdec.ptr1.i.i = getelementptr i8, ptr %s2.addr.0.i.i, i64 1
   %incdec.ptr.i.i = getelementptr i8, ptr %s1.addr.0.i.i, i64 1
   %tobool.not.i.i = icmp eq i8 %spec.select.i.i, 0
-  br i1 %tobool.not.i.i, label %getEncodingIndex.exit, label %for.cond.i.i
+  br i1 %tobool.not.i.i, label %if.end11, label %for.cond.i.i
 
 for.inc.i:                                        ; preds = %for.cond.i.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
   br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !9
 
-getEncodingIndex.exit:                            ; preds = %if.end25.i.i
-  %13 = and i64 %indvars.iv.i, 4294967295
-  %cmp9 = icmp eq i64 %13, 4294967295
-  br i1 %cmp9, label %return, label %if.end11
-
-if.end11:                                         ; preds = %getEncodingIndex.exit
+if.end11:                                         ; preds = %if.end25.i.i
   %sext = shl i64 %indvars.iv.i, 32
   %idxprom = ashr exact i64 %sext, 32
   %arrayidx = getelementptr [7 x ptr], ptr @encodings, i64 0, i64 %idxprom
-  %14 = load ptr, ptr %arrayidx, align 8
+  %13 = load ptr, ptr %arrayidx, align 8
   br label %return
 
-return:                                           ; preds = %for.inc.i, %getEncodingIndex.exit, %land.lhs.true, %entry, %if.end11
-  %retval.0 = phi ptr [ %14, %if.end11 ], [ null, %entry ], [ %enc, %land.lhs.true ], [ null, %getEncodingIndex.exit ], [ null, %for.inc.i ]
+return:                                           ; preds = %for.inc.i, %land.lhs.true, %entry, %if.end11
+  %retval.0 = phi ptr [ %13, %if.end11 ], [ null, %entry ], [ %enc, %land.lhs.true ], [ null, %for.inc.i ]
   ret ptr %retval.0
 }
 
@@ -1481,15 +1474,13 @@ for.inc.i:                                        ; preds = %for.cond.i.i
   br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !9
 
 getEncodingIndex.exit:                            ; preds = %if.end25.i.i
-  %5 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %cmp = icmp eq i32 %5, -1
-  br i1 %cmp, label %return, label %if.end
+  %5 = trunc i64 %indvars.iv.i to i8
+  br label %if.end
 
-if.end:                                           ; preds = %entry, %getEncodingIndex.exit
-  %retval.0.i13 = phi i32 [ %5, %getEncodingIndex.exit ], [ 6, %entry ]
-  %conv = trunc i32 %retval.0.i13 to i8
+if.end:                                           ; preds = %getEncodingIndex.exit, %entry
+  %retval.0.i13 = phi i8 [ %5, %getEncodingIndex.exit ], [ 6, %entry ]
   %isUtf16 = getelementptr inbounds i8, ptr %p, i64 133
-  store i8 %conv, ptr %isUtf16, align 1
+  store i8 %retval.0.i13, ptr %isUtf16, align 1
   store ptr @initScanPrologNS, ptr %p, align 8
   %arrayidx4 = getelementptr i8, ptr %p, i64 8
   store ptr @initScanContentNS, ptr %arrayidx4, align 8
@@ -1500,8 +1491,8 @@ if.end:                                           ; preds = %entry, %getEncoding
   store ptr %p, ptr %encPtr, align 8
   br label %return
 
-return:                                           ; preds = %for.inc.i, %getEncodingIndex.exit, %if.end
-  %retval.0 = phi i32 [ 1, %if.end ], [ 0, %getEncodingIndex.exit ], [ 0, %for.inc.i ]
+return:                                           ; preds = %for.inc.i, %if.end
+  %retval.0 = phi i32 [ 1, %if.end ], [ 0, %for.inc.i ]
   ret i32 %retval.0
 }
 
@@ -1605,27 +1596,22 @@ if.end25.i.i:                                     ; preds = %for.cond.i.i
   %incdec.ptr1.i.i = getelementptr i8, ptr %s2.addr.0.i.i, i64 1
   %incdec.ptr.i.i = getelementptr i8, ptr %s1.addr.0.i.i, i64 1
   %tobool.not.i.i = icmp eq i8 %spec.select.i.i, 0
-  br i1 %tobool.not.i.i, label %getEncodingIndex.exit, label %for.cond.i.i
+  br i1 %tobool.not.i.i, label %if.end11, label %for.cond.i.i
 
 for.inc.i:                                        ; preds = %for.cond.i.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
   br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !9
 
-getEncodingIndex.exit:                            ; preds = %if.end25.i.i
-  %13 = and i64 %indvars.iv.i, 4294967295
-  %cmp9 = icmp eq i64 %13, 4294967295
-  br i1 %cmp9, label %return, label %if.end11
-
-if.end11:                                         ; preds = %getEncodingIndex.exit
+if.end11:                                         ; preds = %if.end25.i.i
   %sext = shl i64 %indvars.iv.i, 32
   %idxprom = ashr exact i64 %sext, 32
   %arrayidx = getelementptr [7 x ptr], ptr @encodingsNS, i64 0, i64 %idxprom
-  %14 = load ptr, ptr %arrayidx, align 8
+  %13 = load ptr, ptr %arrayidx, align 8
   br label %return
 
-return:                                           ; preds = %for.inc.i, %getEncodingIndex.exit, %land.lhs.true, %entry, %if.end11
-  %retval.0 = phi ptr [ %14, %if.end11 ], [ null, %entry ], [ %enc, %land.lhs.true ], [ null, %getEncodingIndex.exit ], [ null, %for.inc.i ]
+return:                                           ; preds = %for.inc.i, %land.lhs.true, %entry, %if.end11
+  %retval.0 = phi ptr [ %13, %if.end11 ], [ null, %entry ], [ %enc, %land.lhs.true ], [ null, %for.inc.i ]
   ret ptr %retval.0
 }
 

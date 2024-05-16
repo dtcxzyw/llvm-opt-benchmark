@@ -3782,7 +3782,7 @@ define void @Ndr_NtkPrintObjects(ptr nocapture noundef readonly %0) local_unname
 
 .critedge.preheader:                              ; preds = %29
   %16 = trunc nuw nsw i64 %indvars.iv.next to i32
-  %17 = icmp ult i32 %16, 4
+  %17 = icmp ult i64 %indvars.iv, 3
   br i1 %17, label %.critedge.preheader59, label %.critedge._crit_edge
 
 .critedge.preheader59:                            ; preds = %10, %.critedge.preheader

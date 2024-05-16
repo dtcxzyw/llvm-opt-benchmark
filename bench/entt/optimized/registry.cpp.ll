@@ -43269,7 +43269,7 @@ _ZNK4entt14basic_registryINS_6entityESaIS1_EE7currentES1_.exit701: ; preds = %la
   store i16 %conv2.i.i.i700, ptr %ref.tmp238, align 2, !tbaa !188
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ref.tmp242) #22
   store i16 4095, ptr %ref.tmp242, align 2, !tbaa !188
-  %cmp.i.i702 = icmp eq i16 %conv2.i.i.i700, 4095
+  %cmp.i.i702 = icmp eq i32 %shr.i.i.i699, 4095
   br i1 %cmp.i.i702, label %if.then.i.i704, label %if.end.i.i703
 
 if.then.i.i704:                                   ; preds = %_ZNK4entt14basic_registryINS_6entityESaIS1_EE7currentES1_.exit701, %_ZNK4entt14basic_registryINS_6entityESaIS1_EE7currentES1_.exit701.thread
@@ -48978,7 +48978,7 @@ _ZNK4entt14basic_registryINS_6entityESaIS1_EE7currentES1_.exit: ; preds = %land.
   store i16 %conv2.i.i.i, ptr %ref.tmp168, align 2, !tbaa !188
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp172) #22
   store i32 1, ptr %ref.tmp172, align 4, !tbaa !26
-  %cmp.i.i751 = icmp eq i16 %conv2.i.i.i, 1
+  %cmp.i.i751 = icmp eq i32 %shr.i.i.i, 1
   br i1 %cmp.i.i751, label %if.then.i.i753, label %if.end.i.i752
 
 if.then.i.i753:                                   ; preds = %_ZNK4entt14basic_registryINS_6entityESaIS1_EE7currentES1_.exit
@@ -52244,7 +52244,7 @@ _ZNK4entt14basic_registryINS_6entityESaIS1_EE7currentES1_.exit: ; preds = %land.
   store i16 %conv2.i.i.i, ptr %ref.tmp40, align 2, !tbaa !188
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp44) #22
   store i32 1, ptr %ref.tmp44, align 4, !tbaa !26
-  %cmp.i.i217 = icmp eq i16 %conv2.i.i.i, 1
+  %cmp.i.i217 = icmp eq i32 %shr.i.i.i, 1
   br i1 %cmp.i.i217, label %if.then.i.i219, label %if.end.i.i218
 
 if.then.i.i219:                                   ; preds = %_ZNK4entt14basic_registryINS_6entityESaIS1_EE7currentES1_.exit
@@ -52440,7 +52440,7 @@ _ZNK4entt14basic_registryINS_6entityESaIS1_EE7currentES1_.exit277: ; preds = %la
   store i16 %conv2.i.i.i276, ptr %ref.tmp76, align 2, !tbaa !188
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp80) #22
   store i32 1, ptr %ref.tmp80, align 4, !tbaa !26
-  %cmp.i.i279 = icmp eq i16 %conv2.i.i.i276, 1
+  %cmp.i.i279 = icmp eq i32 %shr.i.i.i275, 1
   br i1 %cmp.i.i279, label %if.then.i.i281, label %if.end.i.i280
 
 if.then.i.i281:                                   ; preds = %_ZNK4entt14basic_registryINS_6entityESaIS1_EE7currentES1_.exit277
@@ -53808,7 +53808,7 @@ _ZNK4entt14basic_registryINS_6entityESaIS1_EE7currentES1_.exit: ; preds = %land.
   store i16 %conv2.i.i.i, ptr %ref.tmp, align 2, !tbaa !188
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp8) #22
   store i32 0, ptr %ref.tmp8, align 4, !tbaa !26
-  %cmp.i.i = icmp eq i16 %conv2.i.i.i, 0
+  %cmp.i.i = icmp ult i32 %33, 1048576
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %_ZNK4entt14basic_registryINS_6entityESaIS1_EE7currentES1_.exit
@@ -54023,7 +54023,7 @@ _ZNK4entt14basic_registryINS_6entityESaIS1_EE7currentES1_.exit268: ; preds = %la
   store i16 %conv2.i.i.i267, ptr %ref.tmp32, align 2, !tbaa !188
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp36) #22
   store i32 0, ptr %ref.tmp36, align 4, !tbaa !26
-  %cmp.i.i270 = icmp eq i16 %conv2.i.i.i267, 0
+  %cmp.i.i270 = icmp ult i32 %56, 1048576
   br i1 %cmp.i.i270, label %if.then.i.i272, label %if.end.i.i271
 
 if.then.i.i272:                                   ; preds = %_ZNK4entt14basic_registryINS_6entityESaIS1_EE7currentES1_.exit268
@@ -54241,7 +54241,7 @@ _ZNK4entt14basic_registryINS_6entityESaIS1_EE7currentES1_.exit341: ; preds = %la
   store i16 %conv2.i.i.i340, ptr %ref.tmp72, align 2, !tbaa !188
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp76) #22
   store i32 1, ptr %ref.tmp76, align 4, !tbaa !26
-  %cmp.i.i343 = icmp eq i16 %conv2.i.i.i340, 1
+  %cmp.i.i343 = icmp eq i32 %shr.i.i.i339, 1
   br i1 %cmp.i.i343, label %if.then.i.i345, label %if.end.i.i344
 
 if.then.i.i345:                                   ; preds = %_ZNK4entt14basic_registryINS_6entityESaIS1_EE7currentES1_.exit341
@@ -54437,7 +54437,7 @@ _ZNK4entt14basic_registryINS_6entityESaIS1_EE7currentES1_.exit404: ; preds = %la
   store i16 %conv2.i.i.i403, ptr %ref.tmp108, align 2, !tbaa !188
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp112) #22
   store i32 3, ptr %ref.tmp112, align 4, !tbaa !26
-  %cmp.i.i406 = icmp eq i16 %conv2.i.i.i403, 3
+  %cmp.i.i406 = icmp eq i32 %shr.i.i.i402, 3
   br i1 %cmp.i.i406, label %if.then.i.i408, label %if.end.i.i407
 
 if.then.i.i408:                                   ; preds = %_ZNK4entt14basic_registryINS_6entityESaIS1_EE7currentES1_.exit404
@@ -65379,7 +65379,7 @@ _ZNK4entt14basic_registryINS_6entityESaIS1_EE7currentES1_.exit237: ; preds = %la
   store i16 %conv2.i.i.i236, ptr %ref.tmp32, align 2, !tbaa !188
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ref.tmp36) #22
   store i16 0, ptr %ref.tmp36, align 2, !tbaa !188
-  %cmp.not.i238 = icmp eq i16 %conv2.i.i.i236, 0
+  %cmp.not.i238 = icmp ult i32 %41, 1048576
   br i1 %cmp.not.i238, label %if.else.i240, label %if.then.i239
 
 if.then.i239:                                     ; preds = %_ZNK4entt14basic_registryINS_6entityESaIS1_EE7currentES1_.exit237, %_ZNK4entt14basic_registryINS_6entityESaIS1_EE7currentES1_.exit237.thread
@@ -65925,7 +65925,7 @@ _ZNK4entt14basic_registryINS_6entityESaIS1_EE7currentES1_.exit445: ; preds = %la
   store i16 %conv2.i.i.i444, ptr %ref.tmp116, align 2, !tbaa !188
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ref.tmp120) #22
   store i16 0, ptr %ref.tmp120, align 2, !tbaa !188
-  %cmp.i.i446 = icmp eq i16 %conv2.i.i.i444, 0
+  %cmp.i.i446 = icmp ult i32 %120, 1048576
   br i1 %cmp.i.i446, label %if.then.i.i448, label %if.end.i.i447
 
 if.then.i.i448:                                   ; preds = %_ZNK4entt14basic_registryINS_6entityESaIS1_EE7currentES1_.exit445

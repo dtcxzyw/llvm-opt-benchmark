@@ -794,7 +794,7 @@ define dso_local range(i32 0, 2) i32 @ebitmap_contains(ptr nocapture noundef rea
 
 .loopexit16.us:                                   ; preds = %31
   %35 = trunc nsw i64 %indvars.iv.next29 to i32
-  %36 = icmp sgt i32 %35, -1
+  %36 = icmp sgt i64 %indvars.iv28, 0
   br i1 %36, label %.loopexit16.us.thread, label %.thread13.us
 
 .loopexit16.us.thread:                            ; preds = %26, %.loopexit16.us

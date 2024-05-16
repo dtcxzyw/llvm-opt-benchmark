@@ -1372,7 +1372,7 @@ define ptr @Bmc_CexCareMinimizeAig(ptr noundef %0, i32 noundef %1, ptr noundef %
 
 14:                                               ; preds = %6
   %puts244 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.5)
-  br label %349
+  br label %348
 
 15:                                               ; preds = %6
   %16 = getelementptr inbounds i8, ptr %2, i64 8
@@ -1382,7 +1382,7 @@ define ptr @Bmc_CexCareMinimizeAig(ptr noundef %0, i32 noundef %1, ptr noundef %
 
 18:                                               ; preds = %15
   %puts243 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
-  br label %349
+  br label %348
 
 19:                                               ; preds = %15
   %20 = load i32, ptr %2, align 4
@@ -1400,7 +1400,7 @@ define ptr @Bmc_CexCareMinimizeAig(ptr noundef %0, i32 noundef %1, ptr noundef %
 
 27:                                               ; preds = %22, %19
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  br label %349
+  br label %348
 
 28:                                               ; preds = %22
   %.not232 = icmp eq i32 %5, 0
@@ -1470,19 +1470,19 @@ Vec_IntAlloc.exit270:                             ; preds = %Vec_IntAlloc.exit, 
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %61
 
-61:                                               ; preds = %.lr.ph363, %323
-  %.val260.us471 = phi ptr [ %44, %.lr.ph363 ], [ %78, %323 ]
-  %.val259467 = phi ptr [ %44, %.lr.ph363 ], [ %.val259468, %323 ]
-  %.val262.us461 = phi ptr [ %44, %.lr.ph363 ], [ %.val262.us462, %323 ]
-  %.val261454 = phi ptr [ %44, %.lr.ph363 ], [ %.val261455, %323 ]
-  %.val264.us448 = phi ptr [ %44, %.lr.ph363 ], [ %.val264.us449, %323 ]
-  %.val263438 = phi ptr [ %44, %.lr.ph363 ], [ %.val263439, %323 ]
-  %.val266.us425 = phi ptr [ %44, %.lr.ph363 ], [ %.val266.us426, %323 ]
-  %.val265412 = phi ptr [ %44, %.lr.ph363 ], [ %.val265413, %323 ]
-  %62 = phi ptr [ %44, %.lr.ph363 ], [ %298, %323 ]
-  %63 = phi ptr [ %44, %.lr.ph363 ], [ %299, %323 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph363 ], [ %indvars.iv.next, %323 ]
-  %64 = phi i32 [ %spec.store.select.i, %.lr.ph363 ], [ %81, %323 ]
+61:                                               ; preds = %.lr.ph363, %322
+  %.val260.us471 = phi ptr [ %44, %.lr.ph363 ], [ %78, %322 ]
+  %.val259467 = phi ptr [ %44, %.lr.ph363 ], [ %.val259468, %322 ]
+  %.val262.us461 = phi ptr [ %44, %.lr.ph363 ], [ %.val262.us462, %322 ]
+  %.val261454 = phi ptr [ %44, %.lr.ph363 ], [ %.val261455, %322 ]
+  %.val264.us448 = phi ptr [ %44, %.lr.ph363 ], [ %.val264.us449, %322 ]
+  %.val263438 = phi ptr [ %44, %.lr.ph363 ], [ %.val263439, %322 ]
+  %.val266.us425 = phi ptr [ %44, %.lr.ph363 ], [ %.val266.us426, %322 ]
+  %.val265412 = phi ptr [ %44, %.lr.ph363 ], [ %.val265413, %322 ]
+  %62 = phi ptr [ %44, %.lr.ph363 ], [ %298, %322 ]
+  %63 = phi ptr [ %44, %.lr.ph363 ], [ %299, %322 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph363 ], [ %indvars.iv.next, %322 ]
+  %64 = phi i32 [ %spec.store.select.i, %.lr.ph363 ], [ %81, %322 ]
   %65 = load i32, ptr %8, align 4
   %66 = load i32, ptr %33, align 4
   %67 = add nsw i32 %66, 1
@@ -2016,150 +2016,149 @@ Vec_IntFree.exit:                                 ; preds = %309, %310
 
 Vec_IntFree.exit273:                              ; preds = %Vec_IntFree.exit, %312
   tail call void @free(ptr noundef nonnull %48) #10
-  br label %349
+  br label %348
 
 313:                                              ; preds = %.loopexit
   %314 = tail call ptr @Bmc_CexCarePropagateBwd(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %37, ptr noundef nonnull %48)
   %315 = getelementptr inbounds [4 x ptr], ptr %7, i64 0, i64 %indvars.iv
   store ptr %314, ptr %315, align 8
-  br i1 %.not232, label %323, label %316
+  br i1 %.not232, label %322, label %316
 
 316:                                              ; preds = %313
   br i1 %85, label %.sink.split, label %317
 
 317:                                              ; preds = %316
-  %318 = and i64 %indvars.iv, 4294967292
-  %319 = icmp eq i64 %318, 0
-  br i1 %319, label %switch.lookup, label %322
+  %318 = icmp ult i64 %indvars.iv, 4
+  br i1 %318, label %switch.lookup, label %321
 
 switch.lookup:                                    ; preds = %317
-  %switch.tableidx = shl i64 %indvars.iv, 32
+  %switch.tableidx = shl nuw nsw i64 %indvars.iv, 32
   %sext = add nsw i64 %switch.tableidx, -4294967296
-  %320 = ashr exact i64 %sext, 32
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.Bmc_CexCareMinimizeAig, i64 0, i64 %320
+  %319 = ashr exact i64 %sext, 32
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.Bmc_CexCareMinimizeAig, i64 0, i64 %319
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %switch.lookup, %316
   %.str.6.sink = phi ptr [ @.str.5, %316 ], [ %switch.load, %switch.lookup ]
-  %321 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.6.sink)
+  %320 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.6.sink)
+  br label %321
+
+321:                                              ; preds = %317, %.sink.split
+  tail call void @Bmc_CexPrint(ptr noundef %314, i32 noundef %1, i32 noundef 0) #10
   br label %322
 
-322:                                              ; preds = %317, %.sink.split
-  tail call void @Bmc_CexPrint(ptr noundef %314, i32 noundef %1, i32 noundef 0) #10
-  br label %323
-
-323:                                              ; preds = %313, %322
+322:                                              ; preds = %313, %321
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond391.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond391.not, label %._crit_edge364, label %61, !llvm.loop !44
 
-._crit_edge364:                                   ; preds = %323, %Vec_IntAlloc.exit270
-  %324 = phi ptr [ %44, %Vec_IntAlloc.exit270 ], [ %78, %323 ]
-  %.not.i274 = icmp eq ptr %324, null
-  br i1 %.not.i274, label %Vec_IntFree.exit275, label %325
+._crit_edge364:                                   ; preds = %322, %Vec_IntAlloc.exit270
+  %323 = phi ptr [ %44, %Vec_IntAlloc.exit270 ], [ %78, %322 ]
+  %.not.i274 = icmp eq ptr %323, null
+  br i1 %.not.i274, label %Vec_IntFree.exit275, label %324
 
-325:                                              ; preds = %._crit_edge364
-  tail call void @free(ptr noundef nonnull %324) #10
+324:                                              ; preds = %._crit_edge364
+  tail call void @free(ptr noundef nonnull %323) #10
   br label %Vec_IntFree.exit275
 
-Vec_IntFree.exit275:                              ; preds = %._crit_edge364, %325
+Vec_IntFree.exit275:                              ; preds = %._crit_edge364, %324
   tail call void @free(ptr noundef nonnull %37) #10
-  %326 = load ptr, ptr %56, align 8
-  %.not.i276 = icmp eq ptr %326, null
-  br i1 %.not.i276, label %Vec_IntFree.exit277, label %327
+  %325 = load ptr, ptr %56, align 8
+  %.not.i276 = icmp eq ptr %325, null
+  br i1 %.not.i276, label %Vec_IntFree.exit277, label %326
 
-327:                                              ; preds = %Vec_IntFree.exit275
-  tail call void @free(ptr noundef nonnull %326) #10
+326:                                              ; preds = %Vec_IntFree.exit275
+  tail call void @free(ptr noundef nonnull %325) #10
   br label %Vec_IntFree.exit277
 
-Vec_IntFree.exit277:                              ; preds = %Vec_IntFree.exit275, %327
+Vec_IntFree.exit277:                              ; preds = %Vec_IntFree.exit275, %326
   tail call void @free(ptr noundef nonnull %48) #10
-  %328 = load ptr, ptr %7, align 16
-  %329 = tail call i32 @Abc_CexCountOnes(ptr noundef %328) #10
-  %330 = icmp sgt i32 %3, 1
-  br i1 %330, label %.lr.ph368.preheader, label %._crit_edge369
+  %327 = load ptr, ptr %7, align 16
+  %328 = tail call i32 @Abc_CexCountOnes(ptr noundef %327) #10
+  %329 = icmp sgt i32 %3, 1
+  br i1 %329, label %.lr.ph368.preheader, label %._crit_edge369
 
 .lr.ph368.preheader:                              ; preds = %Vec_IntFree.exit277
   %wide.trip.count395 = zext nneg i32 %3 to i64
   br label %.lr.ph368
 
-.lr.ph368:                                        ; preds = %.lr.ph368.preheader, %337
-  %indvars.iv392 = phi i64 [ 1, %.lr.ph368.preheader ], [ %indvars.iv.next393, %337 ]
-  %.0202367 = phi ptr [ %328, %.lr.ph368.preheader ], [ %.1, %337 ]
-  %.0208365 = phi i32 [ %329, %.lr.ph368.preheader ], [ %.1209, %337 ]
-  %331 = getelementptr inbounds [4 x ptr], ptr %7, i64 0, i64 %indvars.iv392
-  %332 = load ptr, ptr %331, align 8
-  %333 = icmp eq ptr %332, null
-  br i1 %333, label %337, label %334
+.lr.ph368:                                        ; preds = %.lr.ph368.preheader, %336
+  %indvars.iv392 = phi i64 [ 1, %.lr.ph368.preheader ], [ %indvars.iv.next393, %336 ]
+  %.0202367 = phi ptr [ %327, %.lr.ph368.preheader ], [ %.1, %336 ]
+  %.0208365 = phi i32 [ %328, %.lr.ph368.preheader ], [ %.1209, %336 ]
+  %330 = getelementptr inbounds [4 x ptr], ptr %7, i64 0, i64 %indvars.iv392
+  %331 = load ptr, ptr %330, align 8
+  %332 = icmp eq ptr %331, null
+  br i1 %332, label %336, label %333
 
-334:                                              ; preds = %.lr.ph368
-  %335 = tail call i32 @Abc_CexCountOnes(ptr noundef nonnull %332) #10
-  %336 = icmp sgt i32 %.0208365, %335
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %.0208365, i32 %335)
-  %spec.select509 = select i1 %336, ptr %332, ptr %.0202367
-  br label %337
+333:                                              ; preds = %.lr.ph368
+  %334 = tail call i32 @Abc_CexCountOnes(ptr noundef nonnull %331) #10
+  %335 = icmp sgt i32 %.0208365, %334
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %.0208365, i32 %334)
+  %spec.select509 = select i1 %335, ptr %331, ptr %.0202367
+  br label %336
 
-337:                                              ; preds = %334, %.lr.ph368
-  %.1209 = phi i32 [ %.0208365, %.lr.ph368 ], [ %spec.select, %334 ]
-  %.1 = phi ptr [ %.0202367, %.lr.ph368 ], [ %spec.select509, %334 ]
+336:                                              ; preds = %333, %.lr.ph368
+  %.1209 = phi i32 [ %.0208365, %.lr.ph368 ], [ %spec.select, %333 ]
+  %.1 = phi ptr [ %.0202367, %.lr.ph368 ], [ %spec.select509, %333 ]
   %indvars.iv.next393 = add nuw nsw i64 %indvars.iv392, 1
   %exitcond396.not = icmp eq i64 %indvars.iv.next393, %wide.trip.count395
   br i1 %exitcond396.not, label %._crit_edge369, label %.lr.ph368, !llvm.loop !45
 
-._crit_edge369:                                   ; preds = %337, %Vec_IntFree.exit277
-  %.0202.lcssa = phi ptr [ %328, %Vec_IntFree.exit277 ], [ %.1, %337 ]
-  br i1 %.not232, label %340, label %338
+._crit_edge369:                                   ; preds = %336, %Vec_IntFree.exit277
+  %.0202.lcssa = phi ptr [ %327, %Vec_IntFree.exit277 ], [ %.1, %336 ]
+  br i1 %.not232, label %339, label %337
 
-338:                                              ; preds = %._crit_edge369
-  %339 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9)
+337:                                              ; preds = %._crit_edge369
+  %338 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9)
   tail call void @Bmc_CexPrint(ptr noundef %.0202.lcssa, i32 noundef %1, i32 noundef 0) #10
-  br label %340
+  br label %339
 
-340:                                              ; preds = %338, %._crit_edge369
+339:                                              ; preds = %337, %._crit_edge369
   br i1 %57, label %.lr.ph373.preheader, label %._crit_edge374
 
-.lr.ph373.preheader:                              ; preds = %340
+.lr.ph373.preheader:                              ; preds = %339
   %wide.trip.count400 = zext nneg i32 %3 to i64
   br label %.lr.ph373
 
-.lr.ph373:                                        ; preds = %.lr.ph373.preheader, %344
-  %indvars.iv397 = phi i64 [ 0, %.lr.ph373.preheader ], [ %indvars.iv.next398, %344 ]
-  %341 = getelementptr inbounds [4 x ptr], ptr %7, i64 0, i64 %indvars.iv397
-  %342 = load ptr, ptr %341, align 8
-  %.not237 = icmp eq ptr %342, null
-  %.not238 = icmp eq ptr %.0202.lcssa, %342
+.lr.ph373:                                        ; preds = %.lr.ph373.preheader, %343
+  %indvars.iv397 = phi i64 [ 0, %.lr.ph373.preheader ], [ %indvars.iv.next398, %343 ]
+  %340 = getelementptr inbounds [4 x ptr], ptr %7, i64 0, i64 %indvars.iv397
+  %341 = load ptr, ptr %340, align 8
+  %.not237 = icmp eq ptr %341, null
+  %.not238 = icmp eq ptr %.0202.lcssa, %341
   %or.cond = select i1 %.not237, i1 true, i1 %.not238
-  br i1 %or.cond, label %344, label %343
+  br i1 %or.cond, label %343, label %342
 
-343:                                              ; preds = %.lr.ph373
-  call void @Abc_CexFreeP(ptr noundef nonnull %341) #10
-  br label %344
+342:                                              ; preds = %.lr.ph373
+  call void @Abc_CexFreeP(ptr noundef nonnull %340) #10
+  br label %343
 
-344:                                              ; preds = %.lr.ph373, %343
+343:                                              ; preds = %.lr.ph373, %342
   %indvars.iv.next398 = add nuw nsw i64 %indvars.iv397, 1
   %exitcond401.not = icmp eq i64 %indvars.iv.next398, %wide.trip.count400
   br i1 %exitcond401.not, label %._crit_edge374, label %.lr.ph373, !llvm.loop !46
 
-._crit_edge374:                                   ; preds = %344, %340
-  %345 = call i32 @Bmc_CexVerify(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %.0202.lcssa) #10
-  %.not233 = icmp eq i32 %345, 0
-  br i1 %.not233, label %346, label %347
+._crit_edge374:                                   ; preds = %343, %339
+  %344 = call i32 @Bmc_CexVerify(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %.0202.lcssa) #10
+  %.not233 = icmp eq i32 %344, 0
+  br i1 %.not233, label %345, label %346
+
+345:                                              ; preds = %._crit_edge374
+  %puts234 = call i32 @puts(ptr nonnull dereferenceable(1) @str.6)
+  br label %348
 
 346:                                              ; preds = %._crit_edge374
-  %puts234 = call i32 @puts(ptr nonnull dereferenceable(1) @str.6)
-  br label %349
-
-347:                                              ; preds = %._crit_edge374
   %.not235 = icmp eq i32 %4, 0
-  br i1 %.not235, label %349, label %348
+  br i1 %.not235, label %348, label %347
 
-348:                                              ; preds = %347
+347:                                              ; preds = %346
   %puts236 = call i32 @puts(ptr nonnull dereferenceable(1) @str.7)
-  br label %349
+  br label %348
 
-349:                                              ; preds = %346, %348, %347, %Vec_IntFree.exit273, %27, %18, %14
-  %.0 = phi ptr [ null, %14 ], [ null, %18 ], [ null, %Vec_IntFree.exit273 ], [ null, %27 ], [ %.0202.lcssa, %347 ], [ %.0202.lcssa, %348 ], [ %.0202.lcssa, %346 ]
+348:                                              ; preds = %345, %347, %346, %Vec_IntFree.exit273, %27, %18, %14
+  %.0 = phi ptr [ null, %14 ], [ null, %18 ], [ null, %Vec_IntFree.exit273 ], [ null, %27 ], [ %.0202.lcssa, %346 ], [ %.0202.lcssa, %347 ], [ %.0202.lcssa, %345 ]
   ret ptr %.0
 }
 

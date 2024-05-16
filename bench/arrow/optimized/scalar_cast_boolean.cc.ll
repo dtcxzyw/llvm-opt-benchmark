@@ -6399,7 +6399,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE9VisitVoidIZNS_7co
   br i1 %exitcond76.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !121
 
 if.else.i.i.i.i4:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i16.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i16.i.i.i.i = icmp ult i32 %call.i.i.i.i6, 65536
   br i1 %cmp.i16.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i4
@@ -7091,7 +7091,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE9VisitVoidIZN
   br i1 %exitcond73.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !132
 
 if.else.i.i.i.i4:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i16.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i16.i.i.i.i = icmp ult i32 %call.i.i.i.i6, 65536
   br i1 %cmp.i16.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i4

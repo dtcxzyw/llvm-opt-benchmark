@@ -3591,7 +3591,7 @@ define dso_local noundef range(i32 -22, 1) i32 @sched_group_set_idle(ptr noundef
   store i32 %13, ptr %8, align 32
   %14 = getelementptr inbounds i8, ptr %0, i64 200
   %15 = getelementptr inbounds i8, ptr %0, i64 208
-  %16 = icmp ne i32 %13, 0
+  %16 = icmp ne i64 %1, 0
   %17 = select i1 %16, i32 1, i32 -1
   br label %18
 

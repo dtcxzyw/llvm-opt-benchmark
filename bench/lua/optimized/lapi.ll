@@ -3027,23 +3027,22 @@ while.body:                                       ; preds = %if.else, %while.bod
   %5 = load i8, ptr %tt_8, align 8
   %tt_9 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   store i8 %5, ptr %tt_9, align 8
-  %6 = and i64 %indvars.iv.next, 4294967295
-  %tobool.not = icmp eq i64 %6, 0
+  %tobool.not = icmp eq i64 %indvars.iv.next, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !9
 
 while.end:                                        ; preds = %while.body
-  %7 = load ptr, ptr %top2, align 8
-  store ptr %call, ptr %7, align 8
-  %tt_13 = getelementptr inbounds i8, ptr %7, i64 8
+  %6 = load ptr, ptr %top2, align 8
+  store ptr %call, ptr %6, align 8
+  %tt_13 = getelementptr inbounds i8, ptr %6, i64 8
   store i8 102, ptr %tt_13, align 8
-  %8 = load ptr, ptr %top2, align 8
-  %incdec.ptr15 = getelementptr inbounds i8, ptr %8, i64 16
+  %7 = load ptr, ptr %top2, align 8
+  %incdec.ptr15 = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %incdec.ptr15, ptr %top2, align 8
   %l_G = getelementptr inbounds i8, ptr %L, i64 24
-  %9 = load ptr, ptr %l_G, align 8
-  %GCdebt = getelementptr inbounds i8, ptr %9, i64 24
-  %10 = load i64, ptr %GCdebt, align 8
-  %cmp16 = icmp sgt i64 %10, 0
+  %8 = load ptr, ptr %l_G, align 8
+  %GCdebt = getelementptr inbounds i8, ptr %8, i64 24
+  %9 = load i64, ptr %GCdebt, align 8
+  %cmp16 = icmp sgt i64 %9, 0
   br i1 %cmp16, label %if.then17, label %if.end18
 
 if.then17:                                        ; preds = %while.end

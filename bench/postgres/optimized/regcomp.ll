@@ -29182,7 +29182,7 @@ define internal fastcc noundef zeroext i1 @checkmatchall_recurse(ptr nocapture n
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10() #22
   %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %12, label %81
+  br i1 %.not, label %12, label %79
 
 12:                                               ; preds = %3
   %13 = load volatile i32, ptr @InterruptPending, align 4
@@ -29196,7 +29196,7 @@ define internal fastcc noundef zeroext i1 @checkmatchall_recurse(ptr nocapture n
 15:                                               ; preds = %12, %14
   %16 = tail call ptr @palloc_extended(i64 noundef 258, i32 noundef 2) #22
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %81, label %18
+  br i1 %17, label %79, label %18
 
 18:                                               ; preds = %15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(258) %16, i8 0, i64 258, i1 false)
@@ -29319,31 +29319,29 @@ define internal fastcc noundef zeroext i1 @checkmatchall_recurse(ptr nocapture n
   br i1 %exitcond85.not, label %.thread, label %.preheader, !llvm.loop !159
 
 69:                                               ; preds = %.preheader
-  %70 = trunc nuw nsw i64 %indvars.iv82 to i32
-  %71 = icmp ult i32 %70, 257
-  br i1 %71, label %.lr.ph79.preheader, label %.thread
+  %70 = icmp ult i64 %indvars.iv82, 257
+  br i1 %70, label %.lr.ph79.preheader, label %.thread
 
 .lr.ph79.preheader:                               ; preds = %69
-  %72 = and i64 %indvars.iv82, 511
-  %73 = getelementptr i8, ptr %16, i64 %72
-  %scevgep = getelementptr i8, ptr %73, i64 1
-  %74 = sub nsw i64 256, %indvars.iv82
-  %75 = and i64 %74, 4294967295
-  %76 = add nuw nsw i64 %75, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 1, i64 %76, i1 false)
+  %71 = getelementptr i8, ptr %16, i64 %indvars.iv82
+  %scevgep = getelementptr i8, ptr %71, i64 1
+  %72 = sub nsw i64 256, %indvars.iv82
+  %73 = and i64 %72, 4294967295
+  %74 = add nuw nsw i64 %73, 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 1, i64 %74, i1 false)
   br label %.thread
 
 .thread:                                          ; preds = %44, %33, %42, %68, %18, %.lr.ph79.preheader, %69, %._crit_edge
-  %77 = phi i1 [ %.2, %._crit_edge ], [ true, %69 ], [ true, %.lr.ph79.preheader ], [ false, %18 ], [ true, %68 ], [ false, %42 ], [ false, %33 ], [ false, %44 ]
-  %78 = load i32, ptr %1, align 8
-  %79 = sext i32 %78 to i64
-  %80 = getelementptr ptr, ptr %2, i64 %79
-  store ptr %16, ptr %80, align 8
+  %75 = phi i1 [ %.2, %._crit_edge ], [ true, %69 ], [ true, %.lr.ph79.preheader ], [ false, %18 ], [ true, %68 ], [ false, %42 ], [ false, %33 ], [ false, %44 ]
+  %76 = load i32, ptr %1, align 8
+  %77 = sext i32 %76 to i64
+  %78 = getelementptr ptr, ptr %2, i64 %77
+  store ptr %16, ptr %78, align 8
   store ptr null, ptr %19, align 8
-  br label %81
+  br label %79
 
-81:                                               ; preds = %15, %3, %.thread
-  %.050 = phi i1 [ %77, %.thread ], [ false, %3 ], [ false, %15 ]
+79:                                               ; preds = %15, %3, %.thread
+  %.050 = phi i1 [ %75, %.thread ], [ false, %3 ], [ false, %15 ]
   ret i1 %.050
 }
 

@@ -1251,13 +1251,16 @@ define dso_local noundef ptr @memchr_inv(ptr noundef %0, i32 noundef %1, i64 nou
   br i1 %5, label %6, label %17
 
 6:                                                ; preds = %3
-  %7 = trunc nuw nsw i64 %2 to i32
-  %8 = icmp eq i32 %7, 0
-  br i1 %8, label %.loopexit, label %.preheader
+  %7 = icmp eq i64 %2, 0
+  br i1 %7, label %.loopexit, label %.preheader.preheader
 
-.preheader:                                       ; preds = %6, %13
-  %9 = phi i32 [ %15, %13 ], [ %7, %6 ]
-  %10 = phi ptr [ %14, %13 ], [ %0, %6 ]
+.preheader.preheader:                             ; preds = %6
+  %8 = trunc nuw nsw i64 %2 to i32
+  br label %.preheader
+
+.preheader:                                       ; preds = %.preheader.preheader, %13
+  %9 = phi i32 [ %15, %13 ], [ %8, %.preheader.preheader ]
+  %10 = phi ptr [ %14, %13 ], [ %0, %.preheader.preheader ]
   %11 = load i8, ptr %10, align 1
   %12 = icmp eq i8 %11, %4
   br i1 %12, label %13, label %.loopexit

@@ -2567,8 +2567,7 @@ for.inc.i:                                        ; preds = %call.i.noexc
 
 invoke.cont17:                                    ; preds = %call.i.noexc
   %9 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %cmp.not = icmp eq i32 %9, -1
-  br i1 %cmp.not, label %if.end21, label %cleanup
+  br label %cleanup
 
 lpad5.loopexit:                                   ; preds = %for.body.i23
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -2591,7 +2590,7 @@ lpad7:                                            ; preds = %invoke.cont6
   call void @_ZN6icu_7518CharStringByteSinkD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %sink4) #23
   br label %ehcleanup
 
-if.end21:                                         ; preds = %for.inc.i, %invoke.cont17, %invoke.cont10
+if.end21:                                         ; preds = %for.inc.i, %invoke.cont10
   store i32 0, ptr %status, align 4
   %11 = load ptr, ptr %canonicalName, align 8
   %call25 = invoke i32 @ulocimp_getRegionForSupplementalData_75(ptr noundef %11, i8 noundef signext 1, ptr noundef nonnull %region, i32 noundef 4, ptr noundef nonnull %status)
@@ -2685,7 +2684,7 @@ invoke.cont61:                                    ; preds = %invoke.cont60
   %spec.store.select = select i1 %cmp62, i32 0, i32 %calType.1
   br label %cleanup
 
-cleanup:                                          ; preds = %invoke.cont24, %invoke.cont17, %invoke.cont61
+cleanup:                                          ; preds = %invoke.cont17, %invoke.cont24, %invoke.cont61
   %retval.0 = phi i32 [ %spec.store.select, %invoke.cont61 ], [ %9, %invoke.cont17 ], [ 0, %invoke.cont24 ]
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %calTypeBuf) #23
   br label %cleanup65
@@ -12074,29 +12073,25 @@ invoke.cont9:                                     ; preds = %invoke.cont7
   %cmp.i.i = icmp slt i32 %status.val, 1
   br i1 %cmp.i.i, label %for.body.i.i, label %cleanup
 
-for.body.i.i:                                     ; preds = %invoke.cont9, %for.inc.i.i
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.inc.i.i ], [ 0, %invoke.cont9 ]
+for.body.i.i:                                     ; preds = %invoke.cont9, %call.i.i.noexc
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %call.i.i.noexc ], [ 0, %invoke.cont9 ]
   %arrayidx.i.i = getelementptr inbounds [19 x ptr], ptr @_ZL9gCalTypes, i64 0, i64 %indvars.iv.i.i
   %5 = load ptr, ptr %arrayidx.i.i, align 8
-  %call.i.i6 = invoke i32 @uprv_stricmp_75(ptr noundef nonnull %keyword, ptr noundef %5)
+  %call.i.i7 = invoke i32 @uprv_stricmp_75(ptr noundef nonnull %keyword, ptr noundef %5)
           to label %call.i.i.noexc unwind label %lpad2.loopexit.split-lp.loopexit
 
 call.i.i.noexc:                                   ; preds = %for.body.i.i
-  %cmp3.i.i = icmp eq i32 %call.i.i6, 0
-  br i1 %cmp3.i.i, label %invoke.cont12, label %for.inc.i.i
-
-for.inc.i.i:                                      ; preds = %call.i.i.noexc
+  %cmp3.i.i = icmp eq i32 %call.i.i7, 0
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %cmp.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 18
-  br i1 %cmp.not.i.i, label %cleanup, label %for.body.i.i, !llvm.loop !6
+  %or.cond.i = select i1 %cmp3.i.i, i1 true, i1 %cmp.not.i.i
+  br i1 %or.cond.i, label %invoke.cont12, label %for.body.i.i, !llvm.loop !6
 
 invoke.cont12:                                    ; preds = %call.i.i.noexc
-  %6 = and i64 %indvars.iv.i.i, 4294967295
-  %.not = icmp eq i64 %6, 4294967295
-  br i1 %.not, label %cleanup, label %for.body.i
+  br i1 %cmp3.i.i, label %for.body.i, label %cleanup
 
 lpad:                                             ; preds = %dynamic_cast.notnull
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
@@ -12106,29 +12101,29 @@ lpad2.loopexit:                                   ; preds = %for.body.i
   br label %lpad2
 
 lpad2.loopexit.split-lp.loopexit:                 ; preds = %for.body.i.i
-  %lpad.loopexit11 = landingpad { ptr, i32 }
+  %lpad.loopexit12 = landingpad { ptr, i32 }
           cleanup
   br label %lpad2
 
 lpad2.loopexit.split-lp.loopexit.split-lp:        ; preds = %invoke.cont18, %invoke.cont7, %invoke.cont3, %invoke.cont
-  %lpad.loopexit.split-lp12 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp13 = landingpad { ptr, i32 }
           cleanup
   br label %lpad2
 
 lpad2:                                            ; preds = %lpad2.loopexit.split-lp.loopexit, %lpad2.loopexit.split-lp.loopexit.split-lp, %lpad2.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad2.loopexit ], [ %lpad.loopexit11, %lpad2.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp12, %lpad2.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad2.loopexit ], [ %lpad.loopexit12, %lpad2.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp13, %lpad2.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %canLoc) #23
   br label %ehcleanup
 
 for.body.i:                                       ; preds = %invoke.cont12, %for.inc.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %invoke.cont12 ]
   %arrayidx.i = getelementptr inbounds [19 x ptr], ptr @_ZL9gCalTypes, i64 0, i64 %indvars.iv.i
-  %8 = load ptr, ptr %arrayidx.i, align 8
-  %call.i8 = invoke i32 @uprv_stricmp_75(ptr noundef nonnull %keyword, ptr noundef %8)
+  %7 = load ptr, ptr %arrayidx.i, align 8
+  %call.i9 = invoke i32 @uprv_stricmp_75(ptr noundef nonnull %keyword, ptr noundef %7)
           to label %call.i.noexc unwind label %lpad2.loopexit
 
 call.i.noexc:                                     ; preds = %for.body.i
-  %cmp3.i = icmp eq i32 %call.i8, 0
+  %cmp3.i = icmp eq i32 %call.i9, 0
   br i1 %cmp3.i, label %return.split.loop.exit6.i, label %for.inc.i
 
 for.inc.i:                                        ; preds = %call.i.noexc
@@ -12137,22 +12132,22 @@ for.inc.i:                                        ; preds = %call.i.noexc
   br i1 %cmp.not.i, label %invoke.cont18, label %for.body.i, !llvm.loop !6
 
 return.split.loop.exit6.i:                        ; preds = %call.i.noexc
-  %9 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %8 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %invoke.cont18
 
 invoke.cont18:                                    ; preds = %for.inc.i, %return.split.loop.exit6.i
-  %retval.0.i7 = phi i32 [ %9, %return.split.loop.exit6.i ], [ -1, %for.inc.i ]
-  %call21 = invoke fastcc noundef ptr @_ZN6icu_75L22createStandardCalendarE8ECalTypeRKNS_6LocaleER10UErrorCode(i32 noundef %retval.0.i7, ptr noundef nonnull align 8 dereferenceable(217) %canLoc, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %retval.0.i8 = phi i32 [ %8, %return.split.loop.exit6.i ], [ -1, %for.inc.i ]
+  %call21 = invoke fastcc noundef ptr @_ZN6icu_75L22createStandardCalendarE8ECalTypeRKNS_6LocaleER10UErrorCode(i32 noundef %retval.0.i8, ptr noundef nonnull align 8 dereferenceable(217) %canLoc, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %cleanup unwind label %lpad2.loopexit.split-lp.loopexit.split-lp
 
-cleanup:                                          ; preds = %for.inc.i.i, %invoke.cont9, %invoke.cont18, %invoke.cont12
-  %retval.0 = phi ptr [ null, %invoke.cont12 ], [ %call21, %invoke.cont18 ], [ null, %invoke.cont9 ], [ null, %for.inc.i.i ]
+cleanup:                                          ; preds = %invoke.cont9, %invoke.cont18, %invoke.cont12
+  %retval.0 = phi ptr [ null, %invoke.cont12 ], [ %call21, %invoke.cont18 ], [ null, %invoke.cont9 ]
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %canLoc) #23
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %curLoc) #23
   br label %return
 
 ehcleanup:                                        ; preds = %lpad2, %lpad
-  %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad2 ], [ %7, %lpad ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad2 ], [ %6, %lpad ]
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %curLoc) #23
   resume { ptr, i32 } %.pn
 

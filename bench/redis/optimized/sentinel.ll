@@ -11182,20 +11182,19 @@ while.end.thread36:                               ; preds = %if.end44
 
 while.end:                                        ; preds = %while.cond.backedge
   tail call void @dictReleaseIterator(ptr noundef %call9) #28
-  %18 = and i64 %indvars.iv, 4294967295
-  %tobool46.not = icmp eq i64 %18, 0
+  %tobool46.not = icmp eq i64 %indvars.iv, 0
   br i1 %tobool46.not, label %if.end49, label %if.then47
 
 if.then47:                                        ; preds = %while.end.thread36, %while.end
-  %instances.0.ph.lcssa39 = phi i64 [ %indvars.iv.next, %while.end.thread36 ], [ %indvars.iv, %while.end ]
-  %sext = shl i64 %instances.0.ph.lcssa39, 32
+  %instances.0.ph.lcssa39.in = phi i64 [ %indvars.iv.next, %while.end.thread36 ], [ %indvars.iv, %while.end ]
+  %sext = shl i64 %instances.0.ph.lcssa39.in, 32
   %conv = ashr exact i64 %sext, 32
   tail call void @qsort(ptr noundef %call, i64 noundef %conv, i64 noundef 8, ptr noundef nonnull @compareSlavesForPromotion) #28
-  %19 = load ptr, ptr %call, align 8
+  %18 = load ptr, ptr %call, align 8
   br label %if.end49
 
 if.end49:                                         ; preds = %while.end.thread, %if.then47, %while.end
-  %selected.0 = phi ptr [ %19, %if.then47 ], [ null, %while.end ], [ null, %while.end.thread ]
+  %selected.0 = phi ptr [ %18, %if.then47 ], [ null, %while.end ], [ null, %while.end.thread ]
   tail call void @zfree(ptr noundef %call) #28
   ret ptr %selected.0
 }

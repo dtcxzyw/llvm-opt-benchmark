@@ -9922,7 +9922,7 @@ _ZN5alloc11collections5btree4node13move_to_slice17h20f35529bb760fbcE.exit: ; pre
   %58 = shl nuw nsw i64 %1, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %57, ptr nonnull readonly align 8 %55, i64 %58, i1 false), !alias.scope !1476
   %59 = getelementptr inbounds ptr, ptr %55, i64 %1
-  %60 = add i64 %45, 8
+  %60 = add nsw i64 %45, 8
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %55, ptr nonnull align 8 %59, i64 %60, i1 false)
   br label %.lr.ph.i
 
@@ -10073,7 +10073,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   %64 = shl nuw nsw i64 %1, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %63, ptr nonnull readonly align 8 %61, i64 %64, i1 false), !alias.scope !1491
   %65 = getelementptr inbounds ptr, ptr %61, i64 %1
-  %66 = add i64 %51, 8
+  %66 = add nsw i64 %51, 8
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %61, ptr nonnull align 8 %65, i64 %66, i1 false)
   br label %.lr.ph.i
 
@@ -10207,7 +10207,7 @@ _ZN5alloc11collections5btree4node13move_to_slice17hae5d1a55ddef0b91E.exit: ; pre
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %49, ptr nonnull readonly align 8 %38, i64 %50, i1 false), !alias.scope !1501
   %51 = getelementptr inbounds ptr, ptr %38, i64 %1
   %52 = shl nsw i64 %19, 3
-  %53 = add i64 %52, 8
+  %53 = add nsw i64 %52, 8
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %38, ptr nonnull align 8 %51, i64 %53, i1 false)
   br label %.lr.ph.i
 
@@ -10366,7 +10366,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %61, ptr nonnull readonly align 8 %59, i64 %62, i1 false), !alias.scope !1519
   %63 = getelementptr inbounds ptr, ptr %59, i64 %1
   %64 = shl nsw i64 %21, 3
-  %65 = add i64 %64, 8
+  %65 = add nsw i64 %64, 8
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %59, ptr nonnull align 8 %63, i64 %65, i1 false)
   br label %.lr.ph.i
 

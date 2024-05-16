@@ -332,7 +332,7 @@ _ZNSt6vectorI5egColSaIS0_EEC2EmRKS0_RKS1_.exit.i: ; preds = %.noexc47, %_ZNSt6ve
 
 _ZL12first_colouri5egColPK7t_graphN3gmx8ArrayRefIKS_EE.exit.i: ; preds = %97
   %101 = trunc nsw i64 %indvars.iv.i.i to i32
-  %102 = icmp eq i32 %101, -1
+  %102 = icmp eq i64 %indvars.iv.i.i, -1
   br i1 %102, label %_ZL12first_colouri5egColPK7t_graphN3gmx8ArrayRefIKS_EE.exit.thread.i, label %107
 
 _ZL12first_colouri5egColPK7t_graphN3gmx8ArrayRefIKS_EE.exit.thread.i: ; preds = %_ZL12first_colouri5egColPK7t_graphN3gmx8ArrayRefIKS_EE.exit.i, %81, %.critedge.i.i
@@ -456,7 +456,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %114, %112
 
 _ZL12first_colouri5egColPK7t_graphN3gmx8ArrayRefIKS_EE.exit72.i: ; preds = %144
   %148 = trunc nsw i64 %indvars.iv.i66.i to i32
-  %149 = icmp eq i32 %148, -1
+  %149 = icmp eq i64 %indvars.iv.i66.i, -1
   br i1 %149, label %_ZL12first_colouri5egColPK7t_graphN3gmx8ArrayRefIKS_EE.exit72.thread.i, label %154
 
 _ZL12first_colouri5egColPK7t_graphN3gmx8ArrayRefIKS_EE.exit72.thread.i: ; preds = %_ZL12first_colouri5egColPK7t_graphN3gmx8ArrayRefIKS_EE.exit72.i, %.lr.ph.i, %.critedge.i67.i

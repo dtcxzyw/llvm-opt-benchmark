@@ -559,99 +559,98 @@ define internal fastcc void @zend_analyze_recursion(ptr nocapture noundef readon
   %2 = load i32, ptr %0, align 8
   %3 = zext i32 %2 to i64
   %4 = add nuw nsw i64 %3, 63
-  %5 = lshr i64 %4, 6
-  %6 = trunc nuw nsw i64 %5 to i32
-  %7 = shl nuw nsw i64 %5, 3
-  %8 = icmp ugt i32 %6, 4096
-  br i1 %8, label %9, label %11
+  %5 = lshr i64 %4, 3
+  %6 = and i64 %5, 1073741816
+  %7 = icmp ugt i32 %2, 262144
+  br i1 %7, label %8, label %10
 
-9:                                                ; preds = %1
-  %10 = tail call noalias ptr @_emalloc(i64 noundef %7) #9
-  br label %13
+8:                                                ; preds = %1
+  %9 = tail call noalias ptr @_emalloc(i64 noundef %6) #9
+  br label %12
 
-11:                                               ; preds = %1
-  %12 = alloca i8, i64 %7, align 16
-  br label %13
+10:                                               ; preds = %1
+  %11 = alloca i8, i64 %6, align 16
+  br label %12
 
-13:                                               ; preds = %9, %11
-  %14 = phi ptr [ %12, %11 ], [ %10, %9 ]
-  %15 = load i32, ptr %0, align 8
-  %16 = icmp sgt i32 %15, 0
-  br i1 %16, label %.lr.ph69, label %._crit_edge70
+12:                                               ; preds = %8, %10
+  %13 = phi ptr [ %11, %10 ], [ %9, %8 ]
+  %14 = load i32, ptr %0, align 8
+  %15 = icmp sgt i32 %14, 0
+  br i1 %15, label %.lr.ph69, label %._crit_edge70
 
-.lr.ph69:                                         ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
-  br label %19
+.lr.ph69:                                         ; preds = %12
+  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  br label %18
 
-19:                                               ; preds = %.lr.ph69, %._crit_edge
-  %20 = phi i32 [ %15, %.lr.ph69 ], [ %42, %._crit_edge ]
+18:                                               ; preds = %.lr.ph69, %._crit_edge
+  %19 = phi i32 [ %14, %.lr.ph69 ], [ %41, %._crit_edge ]
   %indvars.iv = phi i64 [ 0, %.lr.ph69 ], [ %indvars.iv.next, %._crit_edge ]
-  %21 = load ptr, ptr %17, align 8
-  %22 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv
-  %23 = load ptr, ptr %22, align 8
-  %24 = load ptr, ptr %18, align 8
-  %25 = getelementptr inbounds %struct._zend_func_info, ptr %24, i64 %indvars.iv
-  %26 = getelementptr inbounds i8, ptr %25, i64 88
-  %.064 = load ptr, ptr %26, align 8
+  %20 = load ptr, ptr %16, align 8
+  %21 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv
+  %22 = load ptr, ptr %21, align 8
+  %23 = load ptr, ptr %17, align 8
+  %24 = getelementptr inbounds %struct._zend_func_info, ptr %23, i64 %indvars.iv
+  %25 = getelementptr inbounds i8, ptr %24, i64 88
+  %.064 = load ptr, ptr %25, align 8
   %.not65 = icmp eq ptr %.064, null
   br i1 %.not65, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %19
-  %27 = getelementptr inbounds i8, ptr %25, i64 4
-  br label %28
+.lr.ph:                                           ; preds = %18
+  %26 = getelementptr inbounds i8, ptr %24, i64 4
+  br label %27
 
-28:                                               ; preds = %.lr.ph, %40
-  %.066 = phi ptr [ %.064, %.lr.ph ], [ %.0, %40 ]
-  %29 = getelementptr inbounds i8, ptr %.066, i64 51
-  %30 = load i8, ptr %29, align 1
-  %31 = trunc i8 %30 to i1
-  br i1 %31, label %40, label %32
+27:                                               ; preds = %.lr.ph, %39
+  %.066 = phi ptr [ %.064, %.lr.ph ], [ %.0, %39 ]
+  %28 = getelementptr inbounds i8, ptr %.066, i64 51
+  %29 = load i8, ptr %28, align 1
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %39, label %31
 
-32:                                               ; preds = %28
-  %33 = load ptr, ptr %.066, align 8
-  %34 = icmp eq ptr %33, %23
-  br i1 %34, label %.sink.split, label %35
+31:                                               ; preds = %27
+  %32 = load ptr, ptr %.066, align 8
+  %33 = icmp eq ptr %32, %22
+  br i1 %33, label %.sink.split, label %34
 
-35:                                               ; preds = %32
-  call void @llvm.memset.p0.i64(ptr align 8 %14, i8 0, i64 %7, i1 false)
-  %36 = call fastcc zeroext i1 @zend_is_indirectly_recursive(ptr noundef %23, ptr noundef %33, ptr noundef %14)
-  br i1 %36, label %.sink.split, label %40
+34:                                               ; preds = %31
+  call void @llvm.memset.p0.i64(ptr align 8 %13, i8 0, i64 %6, i1 false)
+  %35 = call fastcc zeroext i1 @zend_is_indirectly_recursive(ptr noundef %22, ptr noundef %32, ptr noundef %13)
+  br i1 %35, label %.sink.split, label %39
 
-.sink.split:                                      ; preds = %35, %32
-  %.sink73 = phi i32 [ 384, %32 ], [ 640, %35 ]
-  %37 = getelementptr inbounds i8, ptr %.066, i64 48
-  store i8 1, ptr %37, align 8
-  %38 = load i32, ptr %27, align 4
-  %39 = or i32 %38, %.sink73
-  store i32 %39, ptr %27, align 4
-  br label %40
+.sink.split:                                      ; preds = %34, %31
+  %.sink73 = phi i32 [ 384, %31 ], [ 640, %34 ]
+  %36 = getelementptr inbounds i8, ptr %.066, i64 48
+  store i8 1, ptr %36, align 8
+  %37 = load i32, ptr %26, align 4
+  %38 = or i32 %37, %.sink73
+  store i32 %38, ptr %26, align 4
+  br label %39
 
-40:                                               ; preds = %.sink.split, %35, %28
-  %41 = getelementptr inbounds i8, ptr %.066, i64 32
-  %.0 = load ptr, ptr %41, align 8
+39:                                               ; preds = %.sink.split, %34, %27
+  %40 = getelementptr inbounds i8, ptr %.066, i64 32
+  %.0 = load ptr, ptr %40, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge.loopexit, label %28
+  br i1 %.not, label %._crit_edge.loopexit, label %27
 
-._crit_edge.loopexit:                             ; preds = %40
+._crit_edge.loopexit:                             ; preds = %39
   %.pre = load i32, ptr %0, align 8
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %19
-  %42 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %20, %19 ]
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %18
+  %41 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %19, %18 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %43 = sext i32 %42 to i64
-  %44 = icmp slt i64 %indvars.iv.next, %43
-  br i1 %44, label %19, label %._crit_edge70
+  %42 = sext i32 %41 to i64
+  %43 = icmp slt i64 %indvars.iv.next, %42
+  br i1 %43, label %18, label %._crit_edge70
 
-._crit_edge70:                                    ; preds = %._crit_edge, %13
-  br i1 %8, label %45, label %46
+._crit_edge70:                                    ; preds = %._crit_edge, %12
+  br i1 %7, label %44, label %45
 
-45:                                               ; preds = %._crit_edge70
-  call void @_efree(ptr noundef %14) #10
-  br label %46
+44:                                               ; preds = %._crit_edge70
+  call void @_efree(ptr noundef %13) #10
+  br label %45
 
-46:                                               ; preds = %._crit_edge70, %45
+45:                                               ; preds = %._crit_edge70, %44
   ret void
 }
 

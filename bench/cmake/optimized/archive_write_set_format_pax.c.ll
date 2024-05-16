@@ -2339,9 +2339,9 @@ define internal fastcc void @add_pax_attr_time(ptr noundef %0, ptr noundef %1, i
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.029 = phi ptr [ %18, %.lr.ph ], [ %6, %.preheader ]
   %.11828 = phi i32 [ %21, %.lr.ph ], [ %10, %.preheader ]
-  %.12027 = phi i64 [ %19, %.lr.ph ], [ %8, %.preheader ]
+  %.12027.in = phi i64 [ %19, %.lr.ph ], [ %8, %.preheader ]
   %.12226 = phi i64 [ %20, %.lr.ph ], [ %9, %.preheader ]
-  %16 = getelementptr inbounds [11 x i8], ptr @.str.58, i64 0, i64 %.12027
+  %16 = getelementptr inbounds [11 x i8], ptr @.str.58, i64 0, i64 %.12027.in
   %17 = load i8, ptr %16, align 1
   %18 = getelementptr inbounds i8, ptr %.029, i64 -1
   store i8 %17, ptr %18, align 1

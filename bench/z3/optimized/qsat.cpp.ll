@@ -2005,7 +2005,7 @@ _ZN2qe9max_level5mergeERjj.exit.i106:             ; preds = %if.end3.i.i.i104, %
   br i1 %cmp.i.i2.i110, label %for.inc, label %if.end.i.i3.i111
 
 if.end.i.i3.i111:                                 ; preds = %_ZN2qe9max_level5mergeERjj.exit.i106
-  %cmp1.i.i4.i112 = icmp eq i32 %lvl.sroa.5.0.extract.trunc179, -1
+  %cmp1.i.i4.i112 = icmp eq i64 %lvl.sroa.5.0.extract.shift178, 4294967295
   br i1 %cmp1.i.i4.i112, label %for.inc, label %if.end3.i.i5.i113
 
 if.end3.i.i5.i113:                                ; preds = %if.end.i.i3.i111
@@ -2987,7 +2987,7 @@ land.rhs:                                         ; preds = %if.then.i.i.i, %if.
   br i1 %cmp.i.i, label %_ZNK2qe9max_level3maxEv.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %land.rhs
-  %cmp1.i.i = icmp eq i32 %lvl1.sroa.3.0.extract.trunc, -1
+  %cmp1.i.i = icmp eq i64 %lvl1.sroa.3.0.extract.shift, 4294967295
   br i1 %cmp1.i.i, label %_ZNK2qe9max_level3maxEv.exit, label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %if.end.i.i
@@ -4329,7 +4329,7 @@ _ZN2qe9max_level5mergeERjj.exit.i127:             ; preds = %if.end3.i.i.i125, %
   br i1 %cmp.i.i2.i131, label %invoke.cont44, label %if.end.i.i3.i132
 
 if.end.i.i3.i132:                                 ; preds = %_ZN2qe9max_level5mergeERjj.exit.i127
-  %cmp1.i.i4.i133 = icmp eq i32 %63, -1
+  %cmp1.i.i4.i133 = icmp eq i64 %62, 4294967295
   br i1 %cmp1.i.i4.i133, label %invoke.cont44, label %if.end3.i.i5.i134
 
 if.end3.i.i5.i134:                                ; preds = %if.end.i.i3.i132
@@ -4767,7 +4767,7 @@ invoke.cont118:                                   ; preds = %.noexc259, %lor.lhs
   br i1 %cmp.i.i262, label %invoke.cont120, label %if.end.i.i263
 
 if.end.i.i263:                                    ; preds = %invoke.cont118
-  %cmp1.i.i = icmp eq i32 %111, -1
+  %cmp1.i.i = icmp eq i64 %110, 4294967295
   br i1 %cmp1.i.i, label %invoke.cont120, label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %if.end.i.i263
@@ -4849,7 +4849,7 @@ land.rhs.i266:                                    ; preds = %if.then.i.i.i.i275,
   br i1 %cmp.i.i.i268, label %invoke.cont122, label %if.end.i.i.i269
 
 if.end.i.i.i269:                                  ; preds = %land.rhs.i266
-  %cmp1.i.i.i270 = icmp eq i32 %lvl1.sroa.3.0.extract.trunc.i, -1
+  %cmp1.i.i.i270 = icmp eq i64 %lvl1.sroa.3.0.extract.shift.i, 4294967295
   br i1 %cmp1.i.i.i270, label %invoke.cont122, label %if.end3.i.i.i271
 
 if.end3.i.i.i271:                                 ; preds = %if.end.i.i.i269
@@ -4877,7 +4877,7 @@ if.end128:                                        ; preds = %if.then124, %invoke
   br i1 %cmp.i.i2.i286, label %_ZN2qe9max_level5mergeERKS0_.exit292, label %if.end.i.i3.i287
 
 if.end.i.i3.i287:                                 ; preds = %if.end128
-  %cmp1.i.i4.i288 = icmp eq i32 %111, -1
+  %cmp1.i.i4.i288 = icmp eq i64 %110, 4294967295
   br i1 %cmp1.i.i4.i288, label %_ZN2qe9max_level5mergeERKS0_.exit292, label %if.end3.i.i5.i289
 
 if.end3.i.i5.i289:                                ; preds = %if.end.i.i3.i287
@@ -8643,7 +8643,7 @@ if.then.i14:                                      ; preds = %if.then
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i14, %if.then
-  %cmp5.not.i = icmp eq i32 %lvl.sroa.4.0.extract.trunc, -1
+  %cmp5.not.i = icmp eq i64 %lvl.sroa.4.0.extract.shift, 4294967295
   br i1 %cmp5.not.i, label %if.end, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.end.i

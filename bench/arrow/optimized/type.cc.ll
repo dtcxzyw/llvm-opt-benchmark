@@ -23970,7 +23970,6 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %if
   br i1 %exitcond.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i, !llvm.loop !758
 
 for.end.i.i.i:                                    ; preds = %for.body.i.i.i
-  %conv.i.i.i = trunc nuw i64 %length to i32
   %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %data, i64 %length
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -16
   %add.ptr13.val.i.i.i = load i64, ptr %add.ptr13.i.i.i, align 1, !alias.scope !757
@@ -23989,11 +23988,14 @@ for.end.i.i.i:                                    ; preds = %for.body.i.i.i
   %mul.i.i32.i.i = mul i64 %xor.i.i40.i.i.i, 1609587791953885689
   %shr.i4.i.i33.i.i = lshr i64 %mul.i.i32.i.i, 32
   %xor.i5.i.i34.i.i = xor i64 %shr.i4.i.i33.i.i, %mul.i.i32.i.i
-  %cmp203.i.i.i = icmp ugt i32 %conv.i.i.i, 143
+  %cmp203.i.i.i = icmp ugt i64 %length, 143
   br i1 %cmp203.i.i.i, label %for.body21.preheader.i.i.i, label %_ZL21XXH3_len_129to240_64bPKhmS0_mm.exit.i.i
 
 for.body21.preheader.i.i.i:                       ; preds = %for.end.i.i.i
-  %div25.i.i.i = lshr i64 %length, 4
+  %conv.i.i.i = trunc nuw i64 %length to i32
+  %div25.i.i.i = lshr i32 %conv.i.i.i, 4
+  %umax.i.i.i = tail call i32 @llvm.umax.i32(i32 %div25.i.i.i, i32 9)
+  %wide.trip.count.i.i.i = zext nneg i32 %umax.i.i.i to i64
   br label %for.body21.i.i.i
 
 for.body21.i.i.i:                                 ; preds = %for.body21.i.i.i, %for.body21.preheader.i.i.i
@@ -24017,7 +24019,7 @@ for.body21.i.i.i:                                 ; preds = %for.body21.i.i.i, %
   %xor.i.i48.i.i.i = trunc i128 %xor1.i.i47.i.i.i to i64
   %add30.i.i.i = add i64 %acc_end.04.i.i.i, %xor.i.i48.i.i.i
   %indvars.iv.next11.i.i.i = add nuw nsw i64 %indvars.iv10.i.i.i, 1
-  %exitcond15.not.i.i.i = icmp eq i64 %indvars.iv.next11.i.i.i, %div25.i.i.i
+  %exitcond15.not.i.i.i = icmp eq i64 %indvars.iv.next11.i.i.i, %wide.trip.count.i.i.i
   br i1 %exitcond15.not.i.i.i, label %_ZL21XXH3_len_129to240_64bPKhmS0_mm.exit.i.i, label %for.body21.i.i.i, !llvm.loop !760
 
 _ZL21XXH3_len_129to240_64bPKhmS0_mm.exit.i.i:     ; preds = %for.body21.i.i.i, %for.end.i.i.i

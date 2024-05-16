@@ -13170,7 +13170,7 @@ for.cond.preheader.i:                             ; preds = %call.i.noexc68
   br label %if.end29.i
 
 if.else.i66:                                      ; preds = %call.i.noexc68
-  %cmp.i17.i = icmp eq i16 %block.sroa.6.0.extract.trunc.i, 0
+  %cmp.i17.i = icmp ult i32 %call.i69, 65536
   %conv9.i = sext i16 %block.sroa.0.0.extract.trunc.i to i64
   %cmp1032.i = icmp sgt i16 %block.sroa.0.0.extract.trunc.i, 0
   br i1 %cmp.i17.i, label %for.cond7.preheader.i, label %for.cond17.preheader.i
@@ -20136,7 +20136,7 @@ _ZZN5arrow12_GLOBAL__N_118PutListViewOffsetsIiEENS_6StatusERKNS_9ArrayDataEPT_RK
   br i1 %exitcond109.not.i, label %if.end64.i, label %for.body.i35, !llvm.loop !585
 
 if.else.i:                                        ; preds = %call33.i.noexc
-  %cmp.i68.i = icmp eq i16 %block.sroa.6.0.extract.trunc.i, 0
+  %cmp.i68.i = icmp ult i32 %call33.i38, 65536
   br i1 %cmp.i68.i, label %if.then40.i, label %for.cond48.preheader.i
 
 for.cond48.preheader.i:                           ; preds = %if.else.i
@@ -20897,7 +20897,7 @@ _ZZN5arrow12_GLOBAL__N_118PutListViewOffsetsIlEENS_6StatusERKNS_9ArrayDataEPT_RK
   br i1 %exitcond109.not.i, label %if.end64.i, label %for.body.i35, !llvm.loop !620
 
 if.else.i:                                        ; preds = %call33.i.noexc
-  %cmp.i68.i = icmp eq i16 %block.sroa.6.0.extract.trunc.i, 0
+  %cmp.i68.i = icmp ult i32 %call33.i38, 65536
   br i1 %cmp.i68.i, label %if.then40.i, label %for.cond48.preheader.i
 
 for.cond48.preheader.i:                           ; preds = %if.else.i

@@ -2913,7 +2913,7 @@ define dso_local void @NISortAffixes(ptr noundef %0) local_unnamed_addr #0 {
   %76 = icmp sgt i32 %.02533.i, -1
   %or.cond35.i = select i1 %75, i1 %76, i1 false
   %77 = icmp sgt i32 %70, 0
-  %or.cond336.i = select i1 %or.cond35.i, i1 %77, i1 false
+  %or.cond336.i = and i1 %77, %or.cond35.i
   br i1 %or.cond336.i, label %.lr.ph.i61, label %.critedge.i
 
 .lr.ph.i61:                                       ; preds = %64, %84

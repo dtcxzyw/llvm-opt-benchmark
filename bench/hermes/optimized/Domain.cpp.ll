@@ -316,7 +316,7 @@ if.then21:                                        ; preds = %if.then11
 
 if.end24:                                         ; preds = %if.then11
   %conv25 = trunc nuw i64 %mul to i32
-  %cmp.i83 = icmp ugt i32 %conv25, 513535
+  %cmp.i83 = icmp ugt i64 %mul, 513535
   br i1 %cmp.i83, label %_ZN6hermes2vm16ArrayStorageBaseINS0_11HermesValueEE6createERNS0_7RuntimeEj.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end24

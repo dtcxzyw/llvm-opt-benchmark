@@ -541,16 +541,19 @@ define hidden void @zend_optimize_temporary_variables(ptr nocapture noundef %0, 
 291:                                              ; preds = %279
   %292 = getelementptr inbounds i8, ptr %.1373460, i64 20
   %293 = load i32, ptr %292, align 4
-  %294 = zext i32 %293 to i64
-  %295 = shl nuw nsw i64 %294, 3
-  %296 = add nuw nsw i64 %295, 15
-  %297 = lshr i64 %296, 4
-  %298 = trunc nuw i64 %297 to i32
-  %299 = icmp ugt i32 %298, 1
-  br i1 %299, label %.lr.ph458, label %.thread
+  %294 = icmp ugt i32 %293, 2
+  br i1 %294, label %.lr.ph458.preheader, label %.thread
 
-.lr.ph458:                                        ; preds = %291, %.lr.ph458
-  %.0456 = phi i32 [ %300, %.lr.ph458 ], [ %298, %291 ]
+.lr.ph458.preheader:                              ; preds = %291
+  %295 = zext i32 %293 to i64
+  %296 = shl nuw nsw i64 %295, 3
+  %297 = add nuw nsw i64 %296, 15
+  %298 = lshr i64 %297, 4
+  %299 = trunc nuw i64 %298 to i32
+  br label %.lr.ph458
+
+.lr.ph458:                                        ; preds = %.lr.ph458.preheader, %.lr.ph458
+  %.0456 = phi i32 [ %300, %.lr.ph458 ], [ %299, %.lr.ph458.preheader ]
   %300 = add i32 %.0456, -1
   %301 = load i32, ptr %249, align 4
   %302 = add i32 %301, %300

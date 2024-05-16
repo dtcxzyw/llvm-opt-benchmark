@@ -1549,15 +1549,11 @@ if.end39.i:                                       ; preds = %if.end36.i, %for.bo
   br i1 %cmp53.i, label %for.cond56.preheader.i, label %for.inc77.i
 
 for.cond56.preheader.i:                           ; preds = %if.end39.i
-  %cmp5772.not.i = icmp eq i32 %indvars27, 0
-  br i1 %cmp5772.not.i, label %if.then115.i, label %for.body59.preheader.i
+  %cmp5772.not.i = icmp eq i64 %indvars.iv.i, 0
+  br i1 %cmp5772.not.i, label %if.then115.i, label %for.body59.i
 
-for.body59.preheader.i:                           ; preds = %for.cond56.preheader.i
-  %wide.trip.count.i = and i64 %indvars.iv.i, 4294967295
-  br label %for.body59.i
-
-for.body59.i:                                     ; preds = %if.end73.i, %for.body59.preheader.i
-  %indvars.iv83.i = phi i64 [ 0, %for.body59.preheader.i ], [ %indvars.iv.next84.i, %if.end73.i ]
+for.body59.i:                                     ; preds = %for.cond56.preheader.i, %if.end73.i
+  %indvars.iv83.i = phi i64 [ %indvars.iv.next84.i, %if.end73.i ], [ 0, %for.cond56.preheader.i ]
   %arrayidx61.i = getelementptr inbounds ptr, ptr %call.i, i64 %indvars.iv83.i
   %22 = load ptr, ptr %arrayidx61.i, align 8
   %call62.i = tail call i32 @ossl_crypto_thread_join(ptr noundef %22, ptr noundef null) #9
@@ -1573,7 +1569,7 @@ if.end66.i:                                       ; preds = %for.body59.i
 if.end73.i:                                       ; preds = %if.end66.i
   store ptr null, ptr %arrayidx61.i, align 8
   %indvars.iv.next84.i = add nuw nsw i64 %indvars.iv83.i, 1
-  %exitcond90.not.i = icmp eq i64 %indvars.iv.next84.i, %wide.trip.count.i
+  %exitcond90.not.i = icmp eq i64 %indvars.iv.next84.i, %indvars.iv.i
   br i1 %exitcond90.not.i, label %fail.i, label %for.body59.i, !llvm.loop !12
 
 for.inc77.i:                                      ; preds = %if.end39.i

@@ -1680,12 +1680,10 @@ if.then6.i:                                       ; preds = %if.then.i93
   %26 = load i64, ptr %key_val.i, align 8
   %27 = add i64 %26, -2147483649
   %cmp.i.i.i = icmp ult i64 %27, -2147483648
-  %conv.i.i.i = trunc nuw i64 %26 to i32
-  %cmp.not2.i.i = icmp eq i32 %conv.i.i.i, 0
-  %cmp.not.i.i = select i1 %cmp.i.i.i, i1 true, i1 %cmp.not2.i.i
-  br i1 %cmp.not.i.i, label %countint.exit.i, label %if.then.i.i
+  br i1 %cmp.i.i.i, label %countint.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then6.i
+  %conv.i.i.i = trunc nuw i64 %26 to i32
   %call1.i.i = call i32 @luaO_ceillog2(i32 noundef %conv.i.i.i) #12
   %idxprom.i.i = sext i32 %call1.i.i to i64
   %arrayidx.i.i = getelementptr inbounds i32, ptr %nums.i, i64 %idxprom.i.i
@@ -1721,12 +1719,10 @@ if.then.i:                                        ; preds = %numusehash.exit
   %31 = load i64, ptr %key.addr.0, align 8
   %32 = add i64 %31, -2147483649
   %cmp.i.i = icmp ult i64 %32, -2147483648
-  %conv.i.i = trunc nuw i64 %31 to i32
-  %cmp.not2.i = icmp eq i32 %conv.i.i, 0
-  %cmp.not.i = select i1 %cmp.i.i, i1 true, i1 %cmp.not2.i
-  br i1 %cmp.not.i, label %countint.exit, label %if.then.i81
+  br i1 %cmp.i.i, label %countint.exit, label %if.then.i81
 
 if.then.i81:                                      ; preds = %if.then.i
+  %conv.i.i = trunc nuw i64 %31 to i32
   %call1.i82 = call i32 @luaO_ceillog2(i32 noundef %conv.i.i) #12
   %idxprom.i83 = sext i32 %call1.i82 to i64
   %arrayidx.i84 = getelementptr inbounds i32, ptr %nums.i, i64 %idxprom.i83

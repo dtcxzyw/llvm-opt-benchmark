@@ -4145,7 +4145,7 @@ define void @Gia_ManPrintNpnClasses(ptr noundef %0) local_unnamed_addr #2 {
 
 .critedge.preheader:                              ; preds = %Vec_IntPush.exit
   %39 = trunc nuw nsw i64 %indvars.iv.next to i32
-  %40 = icmp ult i32 %39, 4
+  %40 = icmp ult i64 %indvars.iv, 3
   br i1 %40, label %.lr.ph331.preheader, label %.critedge._crit_edge
 
 .lr.ph331.preheader:                              ; preds = %32, %.critedge.preheader

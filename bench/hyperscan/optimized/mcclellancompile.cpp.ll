@@ -7687,7 +7687,7 @@ _ZN3ue210verify_u16ImEEtT_.exit.i.i:              ; preds = %if.then91.i.i
   %conv.i.i.i.i187 = trunc nuw i64 %sub.ptr.div.i.i472.i to i32
   %add104.i.i = add nuw nsw i32 %conv.i.i.i.i187, %conv94.i.i
   %invariant.gep.i.i = getelementptr inbounds i8, ptr %add.ptr96.i.i, i64 4
-  %cmp105105.not.i.i = icmp eq i32 %conv.i.i.i.i187, 0
+  %cmp105105.not.i.i = icmp eq ptr %583, %584
   br i1 %cmp105105.not.i.i, label %invoke.cont470.i, label %for.body106.lr.ph.i.i
 
 for.body106.lr.ph.i.i:                            ; preds = %_ZN3ue210verify_u16ImEEtT_.exit.i.i

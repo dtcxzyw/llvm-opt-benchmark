@@ -376,8 +376,7 @@ entry:
   br i1 %or.cond, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %conv = trunc nuw nsw i64 %addr to i32
-  %cmp.i = icmp eq i32 %conv, 0
+  %cmp.i = icmp eq i64 %addr, 0
   %cmd.i = getelementptr inbounds i8, ptr %opaque, i64 272
   %0 = load i8, ptr %cmd.i, align 16
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -387,6 +386,7 @@ if.then.i:                                        ; preds = %if.then
   br label %if.end.i
 
 if.else.i:                                        ; preds = %if.then
+  %conv = trunc nuw nsw i64 %addr to i32
   %1 = lshr i8 %0, 2
   %2 = and i8 %1, 48
   %shl.i = zext nneg i8 %2 to i32
@@ -910,7 +910,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i.i
 
 trace_ne2000_ioport_write.exit.i:                 ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %if.then
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
-  %cmp.i = icmp eq i32 %conv, 0
+  %cmp.i = icmp eq i64 %addr, 0
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %trace_ne2000_ioport_write.exit.i

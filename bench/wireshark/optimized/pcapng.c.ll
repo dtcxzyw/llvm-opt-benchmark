@@ -3550,7 +3550,7 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_systemd_journal_export_b
 
 .critedge:                                        ; preds = %31
   %36 = trunc nuw i64 %indvars.iv to i32
-  %37 = icmp ult i32 %36, 23
+  %37 = icmp ult i64 %indvars.iv, 23
   br i1 %37, label %.critedge.thread, label %40
 
 .critedge.thread:                                 ; preds = %30, %.critedge

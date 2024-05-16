@@ -159,7 +159,7 @@ sub_119.i:                                        ; preds = %.tail.thread.i
 55:                                               ; preds = %46
   %56 = trunc nuw i64 %40 to i32
   store i32 %56, ptr @test_duration, align 4
-  %57 = icmp eq i32 %56, 0
+  %57 = icmp eq i64 %40, 0
   br i1 %57, label %58, label %.tail17.thread.i, !llvm.loop !5
 
 58:                                               ; preds = %55

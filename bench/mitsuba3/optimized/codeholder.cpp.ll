@@ -1629,8 +1629,8 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder18newNamedLabelEnt
 .loopexit18:                                      ; preds = %28, %.loopexit17
   %66 = phi i32 [ %35, %.loopexit17 ], [ %31, %28 ]
   %67 = phi i64 [ %34, %.loopexit17 ], [ %3, %28 ]
-  %.fr = freeze i64 %67
-  %68 = icmp ugt i64 %.fr, 2048
+  %.fr23 = freeze i64 %67
+  %68 = icmp ugt i64 %.fr23, 2048
   br i1 %68, label %_ZN6asmjit9_abi_1_1010CodeHolder13newLabelEntryEPPNS0_10LabelEntryE.exit, label %69, !prof !41
 
 69:                                               ; preds = %.loopexit18
@@ -1679,19 +1679,19 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder18newNamedLabelEnt
   %91 = getelementptr inbounds i8, ptr %86, i64 24
   store i64 0, ptr %91, align 8, !tbaa !129
   %92 = getelementptr inbounds i8, ptr %86, i64 48
-  %93 = icmp ugt i64 %.fr, 11
+  %93 = icmp ugt i64 %.fr23, 11
   br i1 %93, label %97, label %94
 
 94:                                               ; preds = %88
   %95 = getelementptr inbounds i8, ptr %86, i64 52
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %95, ptr nonnull align 1 %2, i64 %.fr, i1 false)
-  %96 = getelementptr inbounds [12 x i8], ptr %95, i64 0, i64 %.fr
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %95, ptr nonnull align 1 %2, i64 %.fr23, i1 false)
+  %96 = getelementptr inbounds [12 x i8], ptr %95, i64 0, i64 %.fr23
   store i8 0, ptr %96, align 1, !tbaa !72
   br label %103
 
 97:                                               ; preds = %88
   %98 = getelementptr inbounds i8, ptr %0, i64 64
-  %99 = call noundef ptr @_ZN6asmjit9_abi_1_104Zone3dupEPKvmb(ptr noundef nonnull align 8 dereferenceable(32) %98, ptr noundef nonnull %2, i64 noundef %.fr, i1 noundef zeroext true) #17
+  %99 = call noundef ptr @_ZN6asmjit9_abi_1_104Zone3dupEPKvmb(ptr noundef nonnull align 8 dereferenceable(32) %98, ptr noundef nonnull %2, i64 noundef %.fr23, i1 noundef zeroext true) #17
   %100 = icmp eq ptr %99, null
   br i1 %100, label %_ZN6asmjit9_abi_1_1010CodeHolder13newLabelEntryEPPNS0_10LabelEntryE.exit, label %101, !prof !41
 
@@ -1701,7 +1701,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder18newNamedLabelEnt
   br label %103
 
 103:                                              ; preds = %101, %94
-  %104 = trunc nuw nsw i64 %.fr to i32
+  %104 = trunc nuw nsw i64 %.fr23 to i32
   store i32 %104, ptr %92, align 8, !tbaa !72
   %105 = load ptr, ptr %73, align 8, !tbaa !39
   %106 = load i32, ptr %74, align 8, !tbaa !38
@@ -1731,7 +1731,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder18newNamedLabelEnt
 120:                                              ; preds = %118, %116
   %121 = phi i32 [ %66, %118 ], [ %117, %116 ]
   %122 = getelementptr inbounds i8, ptr %0, i64 272
-  %123 = trunc nuw i64 %.fr to i32
+  %123 = trunc nuw nsw i64 %.fr23 to i32
   %124 = zext i32 %121 to i64
   %125 = getelementptr inbounds i8, ptr %0, i64 296
   %126 = load i32, ptr %125, align 8, !tbaa !35
@@ -1754,7 +1754,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder18newNamedLabelEnt
   br i1 %142, label %.loopexit, label %143
 
 143:                                              ; preds = %120
-  %144 = icmp ult i32 %123, 12
+  %144 = icmp ult i64 %.fr23, 12
   br i1 %144, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %143, %157
@@ -1772,7 +1772,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder18newNamedLabelEnt
 
 153:                                              ; preds = %149
   %154 = getelementptr inbounds i8, ptr %145, i64 52
-  %155 = tail call i32 @bcmp(ptr nonnull %154, ptr %2, i64 %.fr)
+  %155 = tail call i32 @bcmp(ptr nonnull %154, ptr %2, i64 %.fr23)
   %156 = icmp eq i32 %155, 0
   br i1 %156, label %_ZN6asmjit9_abi_1_1010CodeHolder13newLabelEntryEPPNS0_10LabelEntryE.exit, label %157
 
@@ -1797,7 +1797,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder18newNamedLabelEnt
 168:                                              ; preds = %164
   %169 = getelementptr inbounds i8, ptr %160, i64 56
   %170 = load ptr, ptr %169, align 8
-  %171 = tail call i32 @bcmp(ptr %170, ptr %2, i64 %.fr)
+  %171 = tail call i32 @bcmp(ptr %170, ptr %2, i64 %.fr23)
   %172 = icmp eq i32 %171, 0
   br i1 %172, label %_ZN6asmjit9_abi_1_1010CodeHolder13newLabelEntryEPPNS0_10LabelEntryE.exit, label %173
 
@@ -1844,19 +1844,19 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder18newNamedLabelEnt
   %196 = getelementptr inbounds i8, ptr %189, i64 24
   store i64 0, ptr %196, align 8, !tbaa !129
   %197 = getelementptr inbounds i8, ptr %189, i64 48
-  %198 = icmp ugt i64 %.fr, 11
+  %198 = icmp ugt i64 %.fr23, 11
   br i1 %198, label %202, label %199
 
 199:                                              ; preds = %191
   %200 = getelementptr inbounds i8, ptr %189, i64 52
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %200, ptr align 1 %2, i64 %.fr, i1 false)
-  %201 = getelementptr inbounds [12 x i8], ptr %200, i64 0, i64 %.fr
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %200, ptr align 1 %2, i64 %.fr23, i1 false)
+  %201 = getelementptr inbounds [12 x i8], ptr %200, i64 0, i64 %.fr23
   store i8 0, ptr %201, align 1, !tbaa !72
   br label %208
 
 202:                                              ; preds = %191
   %203 = getelementptr inbounds i8, ptr %0, i64 64
-  %204 = call noundef ptr @_ZN6asmjit9_abi_1_104Zone3dupEPKvmb(ptr noundef nonnull align 8 dereferenceable(32) %203, ptr noundef %2, i64 noundef %.fr, i1 noundef zeroext true) #17
+  %204 = call noundef ptr @_ZN6asmjit9_abi_1_104Zone3dupEPKvmb(ptr noundef nonnull align 8 dereferenceable(32) %203, ptr noundef %2, i64 noundef %.fr23, i1 noundef zeroext true) #17
   %205 = icmp eq ptr %204, null
   br i1 %205, label %_ZN6asmjit9_abi_1_1010CodeHolder13newLabelEntryEPPNS0_10LabelEntryE.exit, label %206, !prof !41
 

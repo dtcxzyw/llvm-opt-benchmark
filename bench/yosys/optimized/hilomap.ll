@@ -635,114 +635,111 @@ define linkonce_odr void @_ZN5Yosys5RTLIL6Module16rewrite_sigspecsIFvRNS0_7SigSp
   %26 = load ptr, ptr %16, align 8
   %27 = getelementptr inbounds %"struct.Yosys::hashlib::dict<Yosys::RTLIL::IdString, Yosys::RTLIL::SigSpec>::entry_t", ptr %26, i64 %indvars.iv.next.i, i32 0, i32 1
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(64) %27)
-  %28 = and i64 %indvars.iv.next.i, 4294967295
-  %.not.i = icmp eq i64 %28, 0
+  %.not.i = icmp eq i64 %indvars.iv.next.i, 0
   br i1 %.not.i, label %_ZN5Yosys5RTLIL4Cell16rewrite_sigspecsIFvRNS0_7SigSpecEEEEvRT_.exit, label %.lr.ph.i
 
 _ZN5Yosys5RTLIL4Cell16rewrite_sigspecsIFvRNS0_7SigSpecEEEEvRT_.exit: ; preds = %.lr.ph.i, %.lr.ph
-  %29 = and i64 %indvars.iv.next, 4294967295
-  %.not = icmp eq i64 %29, 0
+  %.not = icmp eq i64 %indvars.iv.next, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN5Yosys5RTLIL4Cell16rewrite_sigspecsIFvRNS0_7SigSpecEEEEvRT_.exit, %2
-  %30 = getelementptr inbounds i8, ptr %0, i64 504
-  %31 = getelementptr inbounds i8, ptr %0, i64 512
-  %32 = load ptr, ptr %31, align 8
-  %33 = load ptr, ptr %30, align 8
-  %34 = ptrtoint ptr %32 to i64
-  %35 = ptrtoint ptr %33 to i64
-  %36 = sub i64 %34, %35
-  %37 = sdiv exact i64 %36, 24
-  %38 = and i64 %37, 4294967295
-  %.not3945 = icmp eq i64 %38, 0
+  %28 = getelementptr inbounds i8, ptr %0, i64 504
+  %29 = getelementptr inbounds i8, ptr %0, i64 512
+  %30 = load ptr, ptr %29, align 8
+  %31 = load ptr, ptr %28, align 8
+  %32 = ptrtoint ptr %30 to i64
+  %33 = ptrtoint ptr %31 to i64
+  %34 = sub i64 %32, %33
+  %35 = sdiv exact i64 %34, 24
+  %36 = and i64 %35, 4294967295
+  %.not3945 = icmp eq i64 %36, 0
   br i1 %.not3945, label %._crit_edge49, label %.lr.ph48.preheader
 
 .lr.ph48.preheader:                               ; preds = %._crit_edge
-  %sext59 = shl i64 %37, 32
-  %39 = ashr exact i64 %sext59, 32
+  %sext59 = shl i64 %35, 32
+  %37 = ashr exact i64 %sext59, 32
   br label %.lr.ph48
 
 .lr.ph48:                                         ; preds = %.lr.ph48.preheader, %_ZN5Yosys5RTLIL7Process16rewrite_sigspecsIFvRNS0_7SigSpecEEEEvRT_.exit
-  %indvars.iv56 = phi i64 [ %39, %.lr.ph48.preheader ], [ %indvars.iv.next57, %_ZN5Yosys5RTLIL7Process16rewrite_sigspecsIFvRNS0_7SigSpecEEEEvRT_.exit ]
+  %indvars.iv56 = phi i64 [ %37, %.lr.ph48.preheader ], [ %indvars.iv.next57, %_ZN5Yosys5RTLIL7Process16rewrite_sigspecsIFvRNS0_7SigSpecEEEEvRT_.exit ]
   %indvars.iv.next57 = add nsw i64 %indvars.iv56, -1
-  %40 = load ptr, ptr %30, align 8
-  %41 = getelementptr inbounds %"struct.Yosys::hashlib::dict<Yosys::RTLIL::IdString, Yosys::RTLIL::Process *>::entry_t", ptr %40, i64 %indvars.iv.next57, i32 0, i32 1
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 72
-  tail call void @_ZN5Yosys5RTLIL8CaseRule16rewrite_sigspecsIFvRNS0_7SigSpecEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(128) %43, ptr noundef nonnull %1)
-  %44 = getelementptr inbounds i8, ptr %42, i64 200
+  %38 = load ptr, ptr %28, align 8
+  %39 = getelementptr inbounds %"struct.Yosys::hashlib::dict<Yosys::RTLIL::IdString, Yosys::RTLIL::Process *>::entry_t", ptr %38, i64 %indvars.iv.next57, i32 0, i32 1
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 72
+  tail call void @_ZN5Yosys5RTLIL8CaseRule16rewrite_sigspecsIFvRNS0_7SigSpecEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(128) %41, ptr noundef nonnull %1)
+  %42 = getelementptr inbounds i8, ptr %40, i64 200
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds i8, ptr %40, i64 208
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %42, i64 208
-  %47 = load ptr, ptr %46, align 8
-  %.not9.i = icmp eq ptr %45, %47
+  %.not9.i = icmp eq ptr %43, %45
   br i1 %.not9.i, label %_ZN5Yosys5RTLIL7Process16rewrite_sigspecsIFvRNS0_7SigSpecEEEEvRT_.exit, label %.lr.ph.i21
 
 .lr.ph.i21:                                       ; preds = %.lr.ph48, %_ZN5Yosys5RTLIL8SyncRule16rewrite_sigspecsIFvRNS0_7SigSpecEEEEvRT_.exit.i
-  %.sroa.06.010.i = phi ptr [ %64, %_ZN5Yosys5RTLIL8SyncRule16rewrite_sigspecsIFvRNS0_7SigSpecEEEEvRT_.exit.i ], [ %45, %.lr.ph48 ]
-  %48 = load ptr, ptr %.sroa.06.010.i, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 8
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(64) %49)
-  %50 = getelementptr inbounds i8, ptr %48, i64 72
+  %.sroa.06.010.i = phi ptr [ %62, %_ZN5Yosys5RTLIL8SyncRule16rewrite_sigspecsIFvRNS0_7SigSpecEEEEvRT_.exit.i ], [ %43, %.lr.ph48 ]
+  %46 = load ptr, ptr %.sroa.06.010.i, align 8
+  %47 = getelementptr inbounds i8, ptr %46, i64 8
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(64) %47)
+  %48 = getelementptr inbounds i8, ptr %46, i64 72
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds i8, ptr %46, i64 80
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %48, i64 80
-  %53 = load ptr, ptr %52, align 8
-  %.not24.i.i = icmp eq ptr %51, %53
+  %.not24.i.i = icmp eq ptr %49, %51
   br i1 %.not24.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i21, %.lr.ph.i.i
-  %.sroa.020.025.i.i = phi ptr [ %55, %.lr.ph.i.i ], [ %51, %.lr.ph.i21 ]
+  %.sroa.020.025.i.i = phi ptr [ %53, %.lr.ph.i.i ], [ %49, %.lr.ph.i21 ]
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.020.025.i.i)
-  %54 = getelementptr inbounds i8, ptr %.sroa.020.025.i.i, i64 64
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(64) %54)
-  %55 = getelementptr inbounds i8, ptr %.sroa.020.025.i.i, i64 128
-  %.not.i.i = icmp eq ptr %55, %53
+  %52 = getelementptr inbounds i8, ptr %.sroa.020.025.i.i, i64 64
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(64) %52)
+  %53 = getelementptr inbounds i8, ptr %.sroa.020.025.i.i, i64 128
+  %.not.i.i = icmp eq ptr %53, %51
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.lr.ph.i21
-  %56 = getelementptr inbounds i8, ptr %48, i64 96
+  %54 = getelementptr inbounds i8, ptr %46, i64 96
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds i8, ptr %46, i64 104
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %48, i64 104
-  %59 = load ptr, ptr %58, align 8
-  %.not2326.i.i = icmp eq ptr %57, %59
+  %.not2326.i.i = icmp eq ptr %55, %57
   br i1 %.not2326.i.i, label %_ZN5Yosys5RTLIL8SyncRule16rewrite_sigspecsIFvRNS0_7SigSpecEEEEvRT_.exit.i, label %.lr.ph29.i.i
 
 .lr.ph29.i.i:                                     ; preds = %._crit_edge.i.i, %.lr.ph29.i.i
-  %.sroa.016.027.i.i = phi ptr [ %63, %.lr.ph29.i.i ], [ %57, %._crit_edge.i.i ]
-  %60 = getelementptr inbounds i8, ptr %.sroa.016.027.i.i, i64 64
+  %.sroa.016.027.i.i = phi ptr [ %61, %.lr.ph29.i.i ], [ %55, %._crit_edge.i.i ]
+  %58 = getelementptr inbounds i8, ptr %.sroa.016.027.i.i, i64 64
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(64) %58)
+  %59 = getelementptr inbounds i8, ptr %.sroa.016.027.i.i, i64 128
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(64) %59)
+  %60 = getelementptr inbounds i8, ptr %.sroa.016.027.i.i, i64 192
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(64) %60)
-  %61 = getelementptr inbounds i8, ptr %.sroa.016.027.i.i, i64 128
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(64) %61)
-  %62 = getelementptr inbounds i8, ptr %.sroa.016.027.i.i, i64 192
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(64) %62)
-  %63 = getelementptr inbounds i8, ptr %.sroa.016.027.i.i, i64 288
-  %.not23.i.i = icmp eq ptr %63, %59
+  %61 = getelementptr inbounds i8, ptr %.sroa.016.027.i.i, i64 288
+  %.not23.i.i = icmp eq ptr %61, %57
   br i1 %.not23.i.i, label %_ZN5Yosys5RTLIL8SyncRule16rewrite_sigspecsIFvRNS0_7SigSpecEEEEvRT_.exit.i, label %.lr.ph29.i.i
 
 _ZN5Yosys5RTLIL8SyncRule16rewrite_sigspecsIFvRNS0_7SigSpecEEEEvRT_.exit.i: ; preds = %.lr.ph29.i.i, %._crit_edge.i.i
-  %64 = getelementptr inbounds i8, ptr %.sroa.06.010.i, i64 8
-  %.not.i22 = icmp eq ptr %64, %47
+  %62 = getelementptr inbounds i8, ptr %.sroa.06.010.i, i64 8
+  %.not.i22 = icmp eq ptr %62, %45
   br i1 %.not.i22, label %_ZN5Yosys5RTLIL7Process16rewrite_sigspecsIFvRNS0_7SigSpecEEEEvRT_.exit, label %.lr.ph.i21
 
 _ZN5Yosys5RTLIL7Process16rewrite_sigspecsIFvRNS0_7SigSpecEEEEvRT_.exit: ; preds = %_ZN5Yosys5RTLIL8SyncRule16rewrite_sigspecsIFvRNS0_7SigSpecEEEEvRT_.exit.i, %.lr.ph48
-  %65 = and i64 %indvars.iv.next57, 4294967295
-  %.not39 = icmp eq i64 %65, 0
+  %.not39 = icmp eq i64 %indvars.iv.next57, 0
   br i1 %.not39, label %._crit_edge49, label %.lr.ph48
 
 ._crit_edge49:                                    ; preds = %_ZN5Yosys5RTLIL7Process16rewrite_sigspecsIFvRNS0_7SigSpecEEEEvRT_.exit, %._crit_edge
-  %66 = getelementptr inbounds i8, ptr %0, i64 256
-  %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %0, i64 264
-  %69 = load ptr, ptr %68, align 8
-  %.not4050 = icmp eq ptr %67, %69
+  %63 = getelementptr inbounds i8, ptr %0, i64 256
+  %64 = load ptr, ptr %63, align 8
+  %65 = getelementptr inbounds i8, ptr %0, i64 264
+  %66 = load ptr, ptr %65, align 8
+  %.not4050 = icmp eq ptr %64, %66
   br i1 %.not4050, label %._crit_edge54, label %.lr.ph53
 
 .lr.ph53:                                         ; preds = %._crit_edge49, %.lr.ph53
-  %.sroa.026.051 = phi ptr [ %71, %.lr.ph53 ], [ %67, %._crit_edge49 ]
+  %.sroa.026.051 = phi ptr [ %68, %.lr.ph53 ], [ %64, %._crit_edge49 ]
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.026.051)
-  %70 = getelementptr inbounds i8, ptr %.sroa.026.051, i64 64
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(64) %70)
-  %71 = getelementptr inbounds i8, ptr %.sroa.026.051, i64 128
-  %.not40 = icmp eq ptr %71, %69
+  %67 = getelementptr inbounds i8, ptr %.sroa.026.051, i64 64
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(64) %67)
+  %68 = getelementptr inbounds i8, ptr %.sroa.026.051, i64 128
+  %.not40 = icmp eq ptr %68, %66
   br i1 %.not40, label %._crit_edge54, label %.lr.ph53
 
 ._crit_edge54:                                    ; preds = %.lr.ph53, %._crit_edge49

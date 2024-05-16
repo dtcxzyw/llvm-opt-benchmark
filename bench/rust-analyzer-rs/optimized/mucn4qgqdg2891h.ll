@@ -37023,11 +37023,10 @@ define internal fastcc void @_ZN7hir_def4data9trait_vis17he73477b82cf9986bE(ptr 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7801)
   %.sroa.0.4.extract.shift = lshr i64 %11, 32
-  %.sroa.0.4.extract.trunc = trunc nuw i64 %.sroa.0.4.extract.shift to i32
-  %12 = icmp eq i32 %.sroa.0.4.extract.trunc, 0
-  %.sroa.0.0.extract.trunc = trunc i64 %11 to i32
+  %12 = icmp ult i64 %11, 4294967296
   %.sink4.i = select i1 %12, i64 912, i64 920
-  %.sink.i = select i1 %12, i32 %.sroa.0.0.extract.trunc, i32 %.sroa.0.4.extract.trunc
+  %.sink.i.v = select i1 %12, i64 %11, i64 %.sroa.0.4.extract.shift
+  %.sink.i = trunc i64 %.sink.i.v to i32
   %13 = getelementptr inbounds i8, ptr %2, i64 %.sink4.i
   %14 = load ptr, ptr %13, align 8, !invariant.load !4, !alias.scope !7801, !noalias !7804, !nonnull !4
   %15 = tail call noundef nonnull ptr %14(ptr noundef nonnull align 1 %1, i32 noundef %.sink.i), !noalias !7806

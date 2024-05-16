@@ -4121,7 +4121,7 @@ define dso_local void @type_setup(ptr nocapture noundef readonly %0) local_unnam
   %.sroa.317.0.extract.trunc.i.i = trunc nuw i64 %.sroa.317.0.extract.shift.i.i to i32
   %5 = shl i32 %.sroa.015.0.extract.trunc.i.i, 13
   %6 = and i32 %5, 16711680
-  %.not.i.i = icmp eq i32 %.sroa.317.0.extract.trunc.i.i, 0
+  %.not.i.i = icmp ult i64 %4, 4294967296
   %7 = select i1 %.not.i.i, i32 %.sroa.015.0.extract.trunc.i.i, i32 %.sroa.317.0.extract.trunc.i.i
   %8 = shl i32 %7, 21
   %9 = and i32 %8, -16777216
@@ -4139,7 +4139,7 @@ define dso_local void @type_setup(ptr nocapture noundef readonly %0) local_unnam
   %.sroa.317.0.extract.trunc.i.i38 = trunc nuw i64 %.sroa.317.0.extract.shift.i.i37 to i32
   %13 = shl i32 %.sroa.015.0.extract.trunc.i.i36, 13
   %14 = and i32 %13, 16711680
-  %.not.i.i39 = icmp eq i32 %.sroa.317.0.extract.trunc.i.i38, 0
+  %.not.i.i39 = icmp ult i64 %12, 4294967296
   %15 = select i1 %.not.i.i39, i32 %.sroa.015.0.extract.trunc.i.i36, i32 %.sroa.317.0.extract.trunc.i.i38
   %16 = shl i32 %15, 21
   %17 = and i32 %16, -16777216
@@ -4157,7 +4157,7 @@ define dso_local void @type_setup(ptr nocapture noundef readonly %0) local_unnam
   %.sroa.317.0.extract.trunc.i.i42 = trunc nuw i64 %.sroa.317.0.extract.shift.i.i41 to i32
   %21 = shl i32 %.sroa.015.0.extract.trunc.i.i40, 13
   %22 = and i32 %21, 16711680
-  %.not.i.i43 = icmp eq i32 %.sroa.317.0.extract.trunc.i.i42, 0
+  %.not.i.i43 = icmp ult i64 %20, 4294967296
   %23 = select i1 %.not.i.i43, i32 %.sroa.015.0.extract.trunc.i.i40, i32 %.sroa.317.0.extract.trunc.i.i42
   %24 = shl i32 %23, 21
   %25 = and i32 %24, -16777216
@@ -4175,7 +4175,7 @@ define dso_local void @type_setup(ptr nocapture noundef readonly %0) local_unnam
   %.sroa.317.0.extract.trunc.i.i46 = trunc nuw i64 %.sroa.317.0.extract.shift.i.i45 to i32
   %29 = shl i32 %.sroa.015.0.extract.trunc.i.i44, 13
   %30 = and i32 %29, 16711680
-  %.not.i.i47 = icmp eq i32 %.sroa.317.0.extract.trunc.i.i46, 0
+  %.not.i.i47 = icmp ult i64 %28, 4294967296
   %31 = select i1 %.not.i.i47, i32 %.sroa.015.0.extract.trunc.i.i44, i32 %.sroa.317.0.extract.trunc.i.i46
   %32 = shl i32 %31, 21
   %33 = and i32 %32, -16777216
@@ -4193,7 +4193,7 @@ define dso_local void @type_setup(ptr nocapture noundef readonly %0) local_unnam
   %.sroa.317.0.extract.trunc.i.i50 = trunc nuw i64 %.sroa.317.0.extract.shift.i.i49 to i32
   %37 = shl i32 %.sroa.015.0.extract.trunc.i.i48, 13
   %38 = and i32 %37, 16711680
-  %.not.i.i51 = icmp eq i32 %.sroa.317.0.extract.trunc.i.i50, 0
+  %.not.i.i51 = icmp ult i64 %36, 4294967296
   %39 = select i1 %.not.i.i51, i32 %.sroa.015.0.extract.trunc.i.i48, i32 %.sroa.317.0.extract.trunc.i.i50
   %40 = shl i32 %39, 21
   %41 = and i32 %40, -16777216
@@ -4211,7 +4211,7 @@ define dso_local void @type_setup(ptr nocapture noundef readonly %0) local_unnam
   %.sroa.317.0.extract.trunc.i.i54 = trunc nuw i64 %.sroa.317.0.extract.shift.i.i53 to i32
   %45 = shl i32 %.sroa.015.0.extract.trunc.i.i52, 13
   %46 = and i32 %45, 16711680
-  %.not.i.i55 = icmp eq i32 %.sroa.317.0.extract.trunc.i.i54, 0
+  %.not.i.i55 = icmp ult i64 %44, 4294967296
   %47 = select i1 %.not.i.i55, i32 %.sroa.015.0.extract.trunc.i.i52, i32 %.sroa.317.0.extract.trunc.i.i54
   %48 = shl i32 %47, 21
   %49 = and i32 %48, -16777216
@@ -4229,7 +4229,7 @@ define dso_local void @type_setup(ptr nocapture noundef readonly %0) local_unnam
   %.sroa.317.0.extract.trunc.i.i58 = trunc nuw i64 %.sroa.317.0.extract.shift.i.i57 to i32
   %53 = shl i32 %.sroa.015.0.extract.trunc.i.i56, 13
   %54 = and i32 %53, 16711680
-  %.not.i.i59 = icmp eq i32 %.sroa.317.0.extract.trunc.i.i58, 0
+  %.not.i.i59 = icmp ult i64 %52, 4294967296
   %55 = select i1 %.not.i.i59, i32 %.sroa.015.0.extract.trunc.i.i56, i32 %.sroa.317.0.extract.trunc.i.i58
   %56 = shl i32 %55, 21
   %57 = and i32 %56, -16777216
@@ -4247,7 +4247,7 @@ define dso_local void @type_setup(ptr nocapture noundef readonly %0) local_unnam
   %.sroa.317.0.extract.trunc.i.i62 = trunc nuw i64 %.sroa.317.0.extract.shift.i.i61 to i32
   %61 = shl i32 %.sroa.015.0.extract.trunc.i.i60, 13
   %62 = and i32 %61, 16711680
-  %.not.i.i63 = icmp eq i32 %.sroa.317.0.extract.trunc.i.i62, 0
+  %.not.i.i63 = icmp ult i64 %60, 4294967296
   %63 = select i1 %.not.i.i63, i32 %.sroa.015.0.extract.trunc.i.i60, i32 %.sroa.317.0.extract.trunc.i.i62
   %64 = shl i32 %63, 21
   %65 = and i32 %64, -16777216
@@ -4265,7 +4265,7 @@ define dso_local void @type_setup(ptr nocapture noundef readonly %0) local_unnam
   %.sroa.317.0.extract.trunc.i.i66 = trunc nuw i64 %.sroa.317.0.extract.shift.i.i65 to i32
   %69 = shl i32 %.sroa.015.0.extract.trunc.i.i64, 13
   %70 = and i32 %69, 16711680
-  %.not.i.i67 = icmp eq i32 %.sroa.317.0.extract.trunc.i.i66, 0
+  %.not.i.i67 = icmp ult i64 %68, 4294967296
   %71 = select i1 %.not.i.i67, i32 %.sroa.015.0.extract.trunc.i.i64, i32 %.sroa.317.0.extract.trunc.i.i66
   %72 = shl i32 %71, 21
   %73 = and i32 %72, -16777216
@@ -4283,7 +4283,7 @@ define dso_local void @type_setup(ptr nocapture noundef readonly %0) local_unnam
   %.sroa.317.0.extract.trunc.i.i70 = trunc nuw i64 %.sroa.317.0.extract.shift.i.i69 to i32
   %77 = shl i32 %.sroa.015.0.extract.trunc.i.i68, 13
   %78 = and i32 %77, 16711680
-  %.not.i.i71 = icmp eq i32 %.sroa.317.0.extract.trunc.i.i70, 0
+  %.not.i.i71 = icmp ult i64 %76, 4294967296
   %79 = select i1 %.not.i.i71, i32 %.sroa.015.0.extract.trunc.i.i68, i32 %.sroa.317.0.extract.trunc.i.i70
   %80 = shl i32 %79, 21
   %81 = and i32 %80, -16777216
@@ -4301,7 +4301,7 @@ define dso_local void @type_setup(ptr nocapture noundef readonly %0) local_unnam
   %.sroa.317.0.extract.trunc.i.i74 = trunc nuw i64 %.sroa.317.0.extract.shift.i.i73 to i32
   %85 = shl i32 %.sroa.015.0.extract.trunc.i.i72, 13
   %86 = and i32 %85, 16711680
-  %.not.i.i75 = icmp eq i32 %.sroa.317.0.extract.trunc.i.i74, 0
+  %.not.i.i75 = icmp ult i64 %84, 4294967296
   %87 = select i1 %.not.i.i75, i32 %.sroa.015.0.extract.trunc.i.i72, i32 %.sroa.317.0.extract.trunc.i.i74
   %88 = shl i32 %87, 21
   %89 = and i32 %88, -16777216
@@ -4319,7 +4319,7 @@ define dso_local void @type_setup(ptr nocapture noundef readonly %0) local_unnam
   %.sroa.317.0.extract.trunc.i.i78 = trunc nuw i64 %.sroa.317.0.extract.shift.i.i77 to i32
   %93 = shl i32 %.sroa.015.0.extract.trunc.i.i76, 13
   %94 = and i32 %93, 16711680
-  %.not.i.i79 = icmp eq i32 %.sroa.317.0.extract.trunc.i.i78, 0
+  %.not.i.i79 = icmp ult i64 %92, 4294967296
   %95 = select i1 %.not.i.i79, i32 %.sroa.015.0.extract.trunc.i.i76, i32 %.sroa.317.0.extract.trunc.i.i78
   %96 = shl i32 %95, 21
   %97 = and i32 %96, -16777216
@@ -4337,7 +4337,7 @@ define dso_local void @type_setup(ptr nocapture noundef readonly %0) local_unnam
   %.sroa.317.0.extract.trunc.i.i82 = trunc nuw i64 %.sroa.317.0.extract.shift.i.i81 to i32
   %101 = shl i32 %.sroa.015.0.extract.trunc.i.i80, 13
   %102 = and i32 %101, 16711680
-  %.not.i.i83 = icmp eq i32 %.sroa.317.0.extract.trunc.i.i82, 0
+  %.not.i.i83 = icmp ult i64 %100, 4294967296
   %103 = select i1 %.not.i.i83, i32 %.sroa.015.0.extract.trunc.i.i80, i32 %.sroa.317.0.extract.trunc.i.i82
   %104 = shl i32 %103, 21
   %105 = and i32 %104, -16777216
@@ -4355,7 +4355,7 @@ define dso_local void @type_setup(ptr nocapture noundef readonly %0) local_unnam
   %.sroa.317.0.extract.trunc.i.i86 = trunc nuw i64 %.sroa.317.0.extract.shift.i.i85 to i32
   %109 = shl i32 %.sroa.015.0.extract.trunc.i.i84, 13
   %110 = and i32 %109, 16711680
-  %.not.i.i87 = icmp eq i32 %.sroa.317.0.extract.trunc.i.i86, 0
+  %.not.i.i87 = icmp ult i64 %108, 4294967296
   %111 = select i1 %.not.i.i87, i32 %.sroa.015.0.extract.trunc.i.i84, i32 %.sroa.317.0.extract.trunc.i.i86
   %112 = shl i32 %111, 21
   %113 = and i32 %112, -16777216
@@ -4373,7 +4373,7 @@ define dso_local void @type_setup(ptr nocapture noundef readonly %0) local_unnam
   %.sroa.317.0.extract.trunc.i.i90 = trunc nuw i64 %.sroa.317.0.extract.shift.i.i89 to i32
   %117 = shl i32 %.sroa.015.0.extract.trunc.i.i88, 13
   %118 = and i32 %117, 16711680
-  %.not.i.i91 = icmp eq i32 %.sroa.317.0.extract.trunc.i.i90, 0
+  %.not.i.i91 = icmp ult i64 %116, 4294967296
   %119 = select i1 %.not.i.i91, i32 %.sroa.015.0.extract.trunc.i.i88, i32 %.sroa.317.0.extract.trunc.i.i90
   %120 = shl i32 %119, 21
   %121 = and i32 %120, -16777216
@@ -4391,7 +4391,7 @@ define dso_local void @type_setup(ptr nocapture noundef readonly %0) local_unnam
   %.sroa.317.0.extract.trunc.i.i94 = trunc nuw i64 %.sroa.317.0.extract.shift.i.i93 to i32
   %125 = shl i32 %.sroa.015.0.extract.trunc.i.i92, 13
   %126 = and i32 %125, 16711680
-  %.not.i.i95 = icmp eq i32 %.sroa.317.0.extract.trunc.i.i94, 0
+  %.not.i.i95 = icmp ult i64 %124, 4294967296
   %127 = select i1 %.not.i.i95, i32 %.sroa.015.0.extract.trunc.i.i92, i32 %.sroa.317.0.extract.trunc.i.i94
   %128 = shl i32 %127, 21
   %129 = and i32 %128, -16777216
@@ -4442,7 +4442,7 @@ define dso_local void @type_setup(ptr nocapture noundef readonly %0) local_unnam
   %141 = shl i32 %.sroa.015.0.extract.trunc.i, 13
   %142 = and i32 %141, 16711680
   %143 = or disjoint i32 %140, %142
-  %.not.i = icmp eq i32 %.sroa.317.0.extract.trunc.i, 0
+  %.not.i = icmp ult i64 %135, 4294967296
   %144 = select i1 %.not.i, i32 %.sroa.015.0.extract.trunc.i, i32 %.sroa.317.0.extract.trunc.i
   %145 = shl i32 %144, 21
   %146 = and i32 %145, -16777216
@@ -4466,7 +4466,7 @@ define dso_local void @type_setup(ptr nocapture noundef readonly %0) local_unnam
   %155 = shl i32 %.sroa.015.0.extract.trunc.i96, 13
   %156 = and i32 %155, 16711680
   %157 = or disjoint i32 %154, %156
-  %.not.i99 = icmp eq i32 %.sroa.317.0.extract.trunc.i98, 0
+  %.not.i99 = icmp ult i64 %149, 4294967296
   %158 = select i1 %.not.i99, i32 %.sroa.015.0.extract.trunc.i96, i32 %.sroa.317.0.extract.trunc.i98
   %159 = shl i32 %158, 21
   %160 = and i32 %159, -16777216
@@ -4569,7 +4569,7 @@ create_type_cache.exit:                           ; preds = %189
   %210 = shl i32 %.sroa.015.0.extract.trunc.i101, 13
   %211 = and i32 %210, 16711680
   %212 = or disjoint i32 %209, %211
-  %.not.i104 = icmp eq i32 %.sroa.317.0.extract.trunc.i103, 0
+  %.not.i104 = icmp ult i64 %204, 4294967296
   %213 = select i1 %.not.i104, i32 %.sroa.015.0.extract.trunc.i101, i32 %.sroa.317.0.extract.trunc.i103
   %214 = shl i32 %213, 21
   %215 = and i32 %214, -16777216
@@ -4812,7 +4812,7 @@ type_int_signed_by_bitsize.exit121:               ; preds = %type_int_unsigned_b
   %297 = shl i32 %.sroa.015.0.extract.trunc.i122, 13
   %298 = and i32 %297, 16711680
   %299 = or disjoint i32 %296, %298
-  %.not.i125 = icmp eq i32 %.sroa.317.0.extract.trunc.i124, 0
+  %.not.i125 = icmp ult i64 %291, 4294967296
   %300 = select i1 %.not.i125, i32 %.sroa.015.0.extract.trunc.i122, i32 %.sroa.317.0.extract.trunc.i124
   %301 = shl i32 %300, 21
   %302 = and i32 %301, -16777216

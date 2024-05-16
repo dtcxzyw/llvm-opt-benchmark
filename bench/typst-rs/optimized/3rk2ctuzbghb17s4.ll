@@ -24854,13 +24854,9 @@ define hidden noundef range(i64 0, 72057594037927936) i64 @_ZN4time4time4Time6as
   tail call void @llvm.assume(i1 %3)
   %4 = icmp ult i8 %.sroa.53.0.extract.trunc, 60
   tail call void @llvm.assume(i1 %4)
-  %.sroa.6.0.extract.shift = lshr i64 %0, 48
-  %.sroa.6.0.extract.trunc = trunc nuw i64 %.sroa.6.0.extract.shift to i8
-  %5 = icmp ult i8 %.sroa.6.0.extract.trunc, 24
+  %5 = icmp ult i64 %0, 6755399441055744
   tail call void @llvm.assume(i1 %5)
-  %6 = icmp ult i64 %0, 72057594037927936
-  tail call void @llvm.assume(i1 %6)
-  %.sroa.010.0.insert.insert = and i64 %0, 71845659950448639
+  %.sroa.010.0.insert.insert = and i64 %0, 8795265167261695
   ret i64 %.sroa.010.0.insert.insert
 }
 
@@ -24889,70 +24885,66 @@ define hidden void @"_ZN53_$LT$time..time..Time$u20$as$u20$core..hash..Hash$GT$4
   tail call void @llvm.assume(i1 %4)
   %5 = icmp ult i8 %.sroa.53.0.extract.trunc.i, 60
   tail call void @llvm.assume(i1 %5)
-  %.sroa.6.0.extract.shift.i = lshr i64 %.sroa.0.0.copyload, 48
-  %.sroa.6.0.extract.trunc.i = trunc nuw i64 %.sroa.6.0.extract.shift.i to i8
-  %6 = icmp ult i8 %.sroa.6.0.extract.trunc.i, 24
+  %6 = icmp ult i64 %.sroa.0.0.copyload, 6755399441055744
   tail call void @llvm.assume(i1 %6)
-  %7 = icmp ult i64 %.sroa.0.0.copyload, 72057594037927936
-  tail call void @llvm.assume(i1 %7)
-  %.sroa.010.0.insert.insert.i = and i64 %.sroa.0.0.copyload, 71845659950448639
-  %8 = getelementptr inbounds i8, ptr %1, i64 48
-  %9 = load i64, ptr %8, align 8, !alias.scope !6427, !noundef !12
-  %10 = add i64 %9, 8
-  store i64 %10, ptr %8, align 8, !alias.scope !6427
-  %11 = getelementptr inbounds i8, ptr %1, i64 64
-  %12 = load i64, ptr %11, align 8, !alias.scope !6427, !noundef !12
-  %13 = shl i64 %12, 3
-  %14 = and i64 %13, 56
-  %15 = shl i64 %.sroa.010.0.insert.insert.i, %14
-  %16 = getelementptr inbounds i8, ptr %1, i64 56
-  %17 = load i64, ptr %16, align 8, !alias.scope !6427, !noundef !12
-  %18 = or i64 %15, %17
-  store i64 %18, ptr %16, align 8, !alias.scope !6427
-  %19 = icmp ugt i64 %12, 8
-  br i1 %19, label %46, label %20
+  %.sroa.010.0.insert.insert.i = and i64 %.sroa.0.0.copyload, 8795265167261695
+  %7 = getelementptr inbounds i8, ptr %1, i64 48
+  %8 = load i64, ptr %7, align 8, !alias.scope !6427, !noundef !12
+  %9 = add i64 %8, 8
+  store i64 %9, ptr %7, align 8, !alias.scope !6427
+  %10 = getelementptr inbounds i8, ptr %1, i64 64
+  %11 = load i64, ptr %10, align 8, !alias.scope !6427, !noundef !12
+  %12 = shl i64 %11, 3
+  %13 = and i64 %12, 56
+  %14 = shl i64 %.sroa.010.0.insert.insert.i, %13
+  %15 = getelementptr inbounds i8, ptr %1, i64 56
+  %16 = load i64, ptr %15, align 8, !alias.scope !6427, !noundef !12
+  %17 = or i64 %14, %16
+  store i64 %17, ptr %15, align 8, !alias.scope !6427
+  %18 = icmp ugt i64 %11, 8
+  br i1 %18, label %45, label %19
 
-20:                                               ; preds = %2
-  %21 = getelementptr inbounds i8, ptr %1, i64 24
-  %22 = load i64, ptr %21, align 8, !alias.scope !6427, !noundef !12
-  %23 = xor i64 %22, %18
-  %24 = load i64, ptr %1, align 8, !alias.scope !6432, !noundef !12
-  %25 = getelementptr inbounds i8, ptr %1, i64 16
-  %26 = load i64, ptr %25, align 8, !alias.scope !6432, !noundef !12
-  %27 = add i64 %26, %24
-  %28 = tail call i64 @llvm.fshl.i64(i64 %26, i64 %26, i64 13)
-  %29 = xor i64 %28, %27
-  %30 = tail call i64 @llvm.fshl.i64(i64 %27, i64 %27, i64 32)
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
-  %32 = load i64, ptr %31, align 8, !alias.scope !6432, !noundef !12
-  %33 = add i64 %32, %23
-  %34 = tail call i64 @llvm.fshl.i64(i64 %23, i64 %23, i64 16)
-  %35 = xor i64 %33, %34
-  %36 = add i64 %35, %30
-  %37 = tail call i64 @llvm.fshl.i64(i64 %35, i64 %35, i64 21)
-  %38 = xor i64 %37, %36
-  store i64 %38, ptr %21, align 8, !alias.scope !6432
-  %39 = add i64 %33, %29
-  %40 = tail call i64 @llvm.fshl.i64(i64 %29, i64 %29, i64 17)
-  %41 = xor i64 %39, %40
-  store i64 %41, ptr %25, align 8, !alias.scope !6432
-  %42 = tail call i64 @llvm.fshl.i64(i64 %39, i64 %39, i64 32)
-  store i64 %42, ptr %31, align 8, !alias.scope !6432
-  %43 = xor i64 %36, %18
-  store i64 %43, ptr %1, align 8, !alias.scope !6427
-  %.not.i.i = icmp eq i64 %12, 0
-  %44 = sub nsw i64 64, %13
-  %45 = lshr i64 %.sroa.010.0.insert.insert.i, %44
-  %.0.i.i = select i1 %.not.i.i, i64 0, i64 %45
-  store i64 %.0.i.i, ptr %16, align 8, !alias.scope !6427
+19:                                               ; preds = %2
+  %20 = getelementptr inbounds i8, ptr %1, i64 24
+  %21 = load i64, ptr %20, align 8, !alias.scope !6427, !noundef !12
+  %22 = xor i64 %21, %17
+  %23 = load i64, ptr %1, align 8, !alias.scope !6432, !noundef !12
+  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %25 = load i64, ptr %24, align 8, !alias.scope !6432, !noundef !12
+  %26 = add i64 %25, %23
+  %27 = tail call i64 @llvm.fshl.i64(i64 %25, i64 %25, i64 13)
+  %28 = xor i64 %27, %26
+  %29 = tail call i64 @llvm.fshl.i64(i64 %26, i64 %26, i64 32)
+  %30 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = load i64, ptr %30, align 8, !alias.scope !6432, !noundef !12
+  %32 = add i64 %31, %22
+  %33 = tail call i64 @llvm.fshl.i64(i64 %22, i64 %22, i64 16)
+  %34 = xor i64 %32, %33
+  %35 = add i64 %34, %29
+  %36 = tail call i64 @llvm.fshl.i64(i64 %34, i64 %34, i64 21)
+  %37 = xor i64 %36, %35
+  store i64 %37, ptr %20, align 8, !alias.scope !6432
+  %38 = add i64 %32, %28
+  %39 = tail call i64 @llvm.fshl.i64(i64 %28, i64 %28, i64 17)
+  %40 = xor i64 %38, %39
+  store i64 %40, ptr %24, align 8, !alias.scope !6432
+  %41 = tail call i64 @llvm.fshl.i64(i64 %38, i64 %38, i64 32)
+  store i64 %41, ptr %30, align 8, !alias.scope !6432
+  %42 = xor i64 %35, %17
+  store i64 %42, ptr %1, align 8, !alias.scope !6427
+  %.not.i.i = icmp eq i64 %11, 0
+  %43 = sub nsw i64 64, %12
+  %44 = lshr i64 %.sroa.010.0.insert.insert.i, %43
+  %.0.i.i = select i1 %.not.i.i, i64 0, i64 %44
+  store i64 %.0.i.i, ptr %15, align 8, !alias.scope !6427
   br label %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.11057974413330164255.exit"
 
-46:                                               ; preds = %2
-  %47 = add i64 %12, 8
-  store i64 %47, ptr %11, align 8, !alias.scope !6427
+45:                                               ; preds = %2
+  %46 = add i64 %11, 8
+  store i64 %46, ptr %10, align 8, !alias.scope !6427
   br label %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.11057974413330164255.exit"
 
-"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.11057974413330164255.exit": ; preds = %20, %46
+"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.11057974413330164255.exit": ; preds = %19, %45
   ret void
 }
 
@@ -24970,20 +24962,16 @@ define hidden void @"_ZN53_$LT$time..time..Time$u20$as$u20$core..hash..Hash$GT$4
   tail call void @llvm.assume(i1 %4)
   %5 = icmp ult i8 %.sroa.53.0.extract.trunc.i, 60
   tail call void @llvm.assume(i1 %5)
-  %.sroa.6.0.extract.shift.i = lshr i64 %.sroa.0.0.copyload, 48
-  %.sroa.6.0.extract.trunc.i = trunc nuw i64 %.sroa.6.0.extract.shift.i to i8
-  %6 = icmp ult i8 %.sroa.6.0.extract.trunc.i, 24
+  %6 = icmp ult i64 %.sroa.0.0.copyload, 6755399441055744
   tail call void @llvm.assume(i1 %6)
-  %7 = icmp ult i64 %.sroa.0.0.copyload, 72057594037927936
-  tail call void @llvm.assume(i1 %7)
-  %.sroa.010.0.insert.insert.i = and i64 %.sroa.0.0.copyload, 71845659950448639
+  %.sroa.010.0.insert.insert.i = and i64 %.sroa.0.0.copyload, 8795265167261695
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6435)
-  %8 = load ptr, ptr %1, align 8, !alias.scope !6435, !nonnull !12, !align !235, !noundef !12
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
-  %10 = load ptr, ptr %9, align 8, !alias.scope !6435, !nonnull !12, !align !35, !noundef !12
-  %11 = getelementptr inbounds i8, ptr %10, i64 64
-  %12 = load ptr, ptr %11, align 8, !invariant.load !12, !noalias !6435, !nonnull !12
-  tail call void %12(ptr noundef nonnull align 1 %8, i64 noundef %.sroa.010.0.insert.insert.i), !noalias !6435
+  %7 = load ptr, ptr %1, align 8, !alias.scope !6435, !nonnull !12, !align !235, !noundef !12
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = load ptr, ptr %8, align 8, !alias.scope !6435, !nonnull !12, !align !35, !noundef !12
+  %10 = getelementptr inbounds i8, ptr %9, i64 64
+  %11 = load ptr, ptr %10, align 8, !invariant.load !12, !noalias !6435, !nonnull !12
+  tail call void %11(ptr noundef nonnull align 1 %7, i64 noundef %.sroa.010.0.insert.insert.i), !noalias !6435
   ret void
 }
 
@@ -105765,7 +105753,6 @@ define hidden { ptr, i64 } @_ZN5typst5model6figure13FigureCaption15local_separat
   %.sroa.525.0.extract.shift = lshr i32 %0, 16
   %.sroa.525.0.extract.trunc = trunc i32 %.sroa.525.0.extract.shift to i8
   %.sroa.6.0.extract.shift = lshr i32 %0, 24
-  %.sroa.6.0.extract.trunc = trunc nuw i32 %.sroa.6.0.extract.shift to i8
   switch i8 %.sroa.024.0.extract.trunc, label %15 [
     i8 122, label %3
     i8 102, label %7
@@ -105776,8 +105763,8 @@ define hidden { ptr, i64 } @_ZN5typst5model6figure13FigureCaption15local_separat
   %4 = icmp eq i8 %.sroa.4.0.extract.trunc, 104
   %5 = icmp eq i8 %.sroa.525.0.extract.trunc, 32
   %or.cond = and i1 %4, %5
-  %6 = icmp eq i8 %.sroa.6.0.extract.trunc, 2
-  %or.cond5 = select i1 %or.cond, i1 %6, i1 false
+  %6 = icmp eq i32 %.sroa.6.0.extract.shift, 2
+  %or.cond5 = and i1 %6, %or.cond
   %spec.select = select i1 %or.cond5, ptr @anon.9bf146a73cb71d9c7e3fe69f46c42f4a.410.llvm.11057974413330164255, ptr @anon.9bf146a73cb71d9c7e3fe69f46c42f4a.413.llvm.11057974413330164255
   %spec.select29 = select i1 %or.cond5, i64 3, i64 2
   br label %15
@@ -105786,8 +105773,8 @@ define hidden { ptr, i64 } @_ZN5typst5model6figure13FigureCaption15local_separat
   %8 = icmp eq i8 %.sroa.4.0.extract.trunc, 114
   %9 = icmp eq i8 %.sroa.525.0.extract.trunc, 32
   %or.cond8 = and i1 %8, %9
-  %10 = icmp eq i8 %.sroa.6.0.extract.trunc, 2
-  %or.cond11 = select i1 %or.cond8, i1 %10, i1 false
+  %10 = icmp eq i32 %.sroa.6.0.extract.shift, 2
+  %or.cond11 = and i1 %10, %or.cond8
   %spec.select30 = select i1 %or.cond11, ptr @anon.9bf146a73cb71d9c7e3fe69f46c42f4a.411.llvm.11057974413330164255, ptr @anon.9bf146a73cb71d9c7e3fe69f46c42f4a.413.llvm.11057974413330164255
   %spec.select31 = select i1 %or.cond11, i64 7, i64 2
   br label %15
@@ -105796,8 +105783,8 @@ define hidden { ptr, i64 } @_ZN5typst5model6figure13FigureCaption15local_separat
   %12 = icmp eq i8 %.sroa.4.0.extract.trunc, 117
   %13 = icmp eq i8 %.sroa.525.0.extract.trunc, 32
   %or.cond14 = and i1 %12, %13
-  %14 = icmp eq i8 %.sroa.6.0.extract.trunc, 2
-  %or.cond17 = select i1 %or.cond14, i1 %14, i1 false
+  %14 = icmp eq i32 %.sroa.6.0.extract.shift, 2
+  %or.cond17 = and i1 %14, %or.cond14
   %spec.select32 = select i1 %or.cond17, ptr @anon.9bf146a73cb71d9c7e3fe69f46c42f4a.412.llvm.11057974413330164255, ptr @anon.9bf146a73cb71d9c7e3fe69f46c42f4a.413.llvm.11057974413330164255
   br label %15
 

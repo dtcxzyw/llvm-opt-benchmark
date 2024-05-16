@@ -1774,7 +1774,7 @@ define linkonce_odr hidden void @_ZN7mitsuba10Marginal2DIfLm4ELb1EEC2EPKfRKNS_6V
   br i1 %.not317, label %._crit_edge312, label %.preheader232.lr.ph
 
 .preheader232.lr.ph:                              ; preds = %.preheader233
-  %.not318 = icmp eq i32 %20, 0
+  %.not318 = icmp ult i64 %10, 4294967296
   %.not319 = icmp eq i32 %23, 0
   %.not320 = icmp eq i32 %22, 0
   %105 = zext i32 %24 to i64
@@ -1790,7 +1790,7 @@ define linkonce_odr hidden void @_ZN7mitsuba10Marginal2DIfLm4ELb1EEC2EPKfRKNS_6V
   %.0143309 = phi ptr [ %101, %.preheader232.lr.ph ], [ %.1144.lcssa, %._crit_edge304 ]
   %.0145308 = phi ptr [ %96, %.preheader232.lr.ph ], [ %.1146.lcssa, %._crit_edge304 ]
   %.0147307 = phi ptr [ %1, %.preheader232.lr.ph ], [ %.1148.lcssa, %._crit_edge304 ]
-  br i1 %.not318, label %.lr.ph.preheader, label %.lr.ph285
+  br i1 %.not318, label %.preheader231, label %.lr.ph285
 
 .lr.ph285:                                        ; preds = %.preheader232
   br i1 %.not319, label %.lr.ph285.split.preheader, label %.lr.ph.us286
@@ -1839,11 +1839,8 @@ define linkonce_odr hidden void @_ZN7mitsuba10Marginal2DIfLm4ELb1EEC2EPKfRKNS_6V
   %exitcond354.not = icmp eq i64 %indvars.iv.next351, %19
   br i1 %exitcond354.not, label %.preheader231, label %.lr.ph.us286, !llvm.loop !14
 
-.preheader231:                                    ; preds = %._crit_edge.us287, %.lr.ph285.split.preheader
-  br i1 %.not320, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %.preheader232, %.preheader231
-  br label %.lr.ph
+.preheader231:                                    ; preds = %._crit_edge.us287, %.lr.ph285.split.preheader, %.preheader232
+  br i1 %.not320, label %._crit_edge, label %.lr.ph
 
 .thread:                                          ; preds = %7
   %130 = landingpad { ptr, i32 }
@@ -1871,9 +1868,9 @@ _ZNSt3__110unique_ptrIA_dNS_14default_deleteIS1_EEED2B8ne190000Ev.exit: ; preds 
   tail call void @_ZdaPv(ptr noundef nonnull %104) #21
   br label %_ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEED2B8ne190000Ev.exit177
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv358 = phi i64 [ %indvars.iv.next359, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.0133289 = phi double [ %144, %.lr.ph ], [ 0.000000e+00, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.preheader231, %.lr.ph
+  %indvars.iv358 = phi i64 [ %indvars.iv.next359, %.lr.ph ], [ 0, %.preheader231 ]
+  %.0133289 = phi double [ %144, %.lr.ph ], [ 0.000000e+00, %.preheader231 ]
   %138 = getelementptr inbounds double, ptr %104, i64 %indvars.iv358
   %139 = load double, ptr %138, align 8
   %indvars.iv.next359 = add nuw nsw i64 %indvars.iv358, 1

@@ -3295,7 +3295,7 @@ define internal fastcc void @AndersenAcc(ptr nocapture noundef readonly %0, ptr 
 
 .preheader221:                                    ; preds = %.preheader221.loopexit, %.preheader222
   %.1203.lcssa = phi i64 [ 0, %.preheader222 ], [ %127, %.preheader221.loopexit ]
-  %.not226 = icmp slt i32 %16, 0
+  %.not226 = icmp slt i64 %15, 0
   br i1 %.not226, label %.preheader220, label %.lr.ph229
 
 .lr.ph:                                           ; preds = %.preheader222, %.lr.ph

@@ -1687,7 +1687,7 @@ hfsplus_read_block_table.exit:                    ; preds = %._crit_edge
   store ptr %20, ptr %22, align 8
   store i32 4096, ptr %58, align 8
   store ptr %21, ptr %59, align 8
-  %.not334478 = icmp eq i32 %.pre-phi, 0
+  %.not334478 = icmp eq i64 %461, %.0208483
   br i1 %.not334478, label %.loopexit76, label %.lr.ph
 
 474:                                              ; preds = %487

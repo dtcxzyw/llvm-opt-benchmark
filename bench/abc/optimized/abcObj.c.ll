@@ -2938,65 +2938,61 @@ define void @Abc_NodeComplementInput(ptr noundef %0, ptr noundef %1) local_unnam
 
 Vec_IntFind.exit:                                 ; preds = %10
   %15 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %16 = icmp eq i32 %15, -1
-  br i1 %16, label %Vec_IntFind.exit.thread, label %21
-
-Vec_IntFind.exit.thread:                          ; preds = %14, %2, %Vec_IntFind.exit
-  %17 = tail call ptr @Abc_ObjName(ptr noundef %1) #10
-  %18 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef %17)
-  %19 = tail call ptr @Abc_ObjName(ptr noundef %0) #10
-  %20 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, ptr noundef %19)
-  br label %47
-
-21:                                               ; preds = %Vec_IntFind.exit
-  %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr i8, ptr %22, i64 4
-  %.val37 = load i32, ptr %23, align 4
-  switch i32 %.val37, label %47 [
-    i32 1, label %24
-    i32 3, label %27
-    i32 2, label %33
+  %16 = load ptr, ptr %0, align 8
+  %17 = getelementptr i8, ptr %16, i64 4
+  %.val37 = load i32, ptr %17, align 4
+  switch i32 %.val37, label %45 [
+    i32 1, label %22
+    i32 3, label %25
+    i32 2, label %31
   ]
 
-24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %0, i64 56
-  %26 = load ptr, ptr %25, align 8
-  tail call void @Abc_SopComplementVar(ptr noundef %26, i32 noundef %15) #10
-  br label %47
+Vec_IntFind.exit.thread:                          ; preds = %14, %2
+  %18 = tail call ptr @Abc_ObjName(ptr noundef %1) #10
+  %19 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef %18)
+  %20 = tail call ptr @Abc_ObjName(ptr noundef %0) #10
+  %21 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, ptr noundef %20)
+  br label %45
 
-27:                                               ; preds = %21
-  %28 = getelementptr inbounds i8, ptr %22, i64 256
+22:                                               ; preds = %Vec_IntFind.exit
+  %23 = getelementptr inbounds i8, ptr %0, i64 56
+  %24 = load ptr, ptr %23, align 8
+  tail call void @Abc_SopComplementVar(ptr noundef %24, i32 noundef %15) #10
+  br label %45
+
+25:                                               ; preds = %Vec_IntFind.exit
+  %26 = getelementptr inbounds i8, ptr %16, i64 256
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %0, i64 56
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 56
-  %31 = load ptr, ptr %30, align 8
-  %32 = tail call ptr @Hop_Complement(ptr noundef %29, ptr noundef %31, i32 noundef %15) #10
-  store ptr %32, ptr %30, align 8
-  br label %47
+  %30 = tail call ptr @Hop_Complement(ptr noundef %27, ptr noundef %29, i32 noundef %15) #10
+  store ptr %30, ptr %28, align 8
+  br label %45
 
-33:                                               ; preds = %21
-  %34 = getelementptr inbounds i8, ptr %22, i64 256
-  %35 = load ptr, ptr %34, align 8
-  %36 = tail call ptr @Cudd_bddIthVar(ptr noundef %35, i32 noundef %15) #10
-  %37 = getelementptr inbounds i8, ptr %0, i64 56
-  %38 = load ptr, ptr %37, align 8
-  %39 = ptrtoint ptr %36 to i64
-  %40 = xor i64 %39, 1
-  %41 = inttoptr i64 %40 to ptr
-  %42 = tail call ptr @Cudd_Cofactor(ptr noundef %35, ptr noundef %38, ptr noundef %41) #10
+31:                                               ; preds = %Vec_IntFind.exit
+  %32 = getelementptr inbounds i8, ptr %16, i64 256
+  %33 = load ptr, ptr %32, align 8
+  %34 = tail call ptr @Cudd_bddIthVar(ptr noundef %33, i32 noundef %15) #10
+  %35 = getelementptr inbounds i8, ptr %0, i64 56
+  %36 = load ptr, ptr %35, align 8
+  %37 = ptrtoint ptr %34 to i64
+  %38 = xor i64 %37, 1
+  %39 = inttoptr i64 %38 to ptr
+  %40 = tail call ptr @Cudd_Cofactor(ptr noundef %33, ptr noundef %36, ptr noundef %39) #10
+  tail call void @Cudd_Ref(ptr noundef %40) #10
+  %41 = load ptr, ptr %35, align 8
+  %42 = tail call ptr @Cudd_Cofactor(ptr noundef %33, ptr noundef %41, ptr noundef %34) #10
   tail call void @Cudd_Ref(ptr noundef %42) #10
-  %43 = load ptr, ptr %37, align 8
-  %44 = tail call ptr @Cudd_Cofactor(ptr noundef %35, ptr noundef %43, ptr noundef %36) #10
+  %43 = load ptr, ptr %35, align 8
+  tail call void @Cudd_RecursiveDeref(ptr noundef %33, ptr noundef %43) #10
+  %44 = tail call ptr @Cudd_bddIte(ptr noundef %33, ptr noundef %34, ptr noundef %40, ptr noundef %42) #10
+  store ptr %44, ptr %35, align 8
   tail call void @Cudd_Ref(ptr noundef %44) #10
-  %45 = load ptr, ptr %37, align 8
-  tail call void @Cudd_RecursiveDeref(ptr noundef %35, ptr noundef %45) #10
-  %46 = tail call ptr @Cudd_bddIte(ptr noundef %35, ptr noundef %36, ptr noundef %42, ptr noundef %44) #10
-  store ptr %46, ptr %37, align 8
-  tail call void @Cudd_Ref(ptr noundef %46) #10
-  tail call void @Cudd_RecursiveDeref(ptr noundef %35, ptr noundef %42) #10
-  tail call void @Cudd_RecursiveDeref(ptr noundef %35, ptr noundef %44) #10
-  br label %47
+  tail call void @Cudd_RecursiveDeref(ptr noundef %33, ptr noundef %40) #10
+  tail call void @Cudd_RecursiveDeref(ptr noundef %33, ptr noundef %42) #10
+  br label %45
 
-47:                                               ; preds = %21, %27, %33, %24, %Vec_IntFind.exit.thread
+45:                                               ; preds = %Vec_IntFind.exit, %25, %31, %22, %Vec_IntFind.exit.thread
   ret void
 }
 

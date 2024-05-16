@@ -1445,7 +1445,7 @@ if.then28.i.i490:                                 ; preds = %if.then22.i.i494, %
 
 _ZL14outputHexBytesliPcPii.exit501:               ; preds = %if.then28.i.i490
   %122 = trunc nsw i64 %indvars.iv.next888 to i32
-  %cmp.i502 = icmp eq i32 %122, 0
+  %cmp.i502 = icmp eq i64 %indvars.iv.next888, 0
   br i1 %cmp.i502, label %if.then.i534, label %lor.lhs.false.i503
 
 lor.lhs.false.i503:                               ; preds = %_ZL14outputHexBytesliPcPii.exit501
@@ -1601,7 +1601,7 @@ if.then28.i.i577:                                 ; preds = %if.then22.i.i581, %
 
 _ZL14outputHexBytesliPcPii.exit588:               ; preds = %if.then28.i.i577
   %132 = trunc nsw i64 %indvars.iv.next892 to i32
-  %cmp.i589 = icmp eq i32 %132, 0
+  %cmp.i589 = icmp eq i64 %indvars.iv.next892, 0
   br i1 %cmp.i589, label %if.then.i621, label %lor.lhs.false.i590
 
 lor.lhs.false.i590:                               ; preds = %_ZL14outputHexBytesliPcPii.exit588

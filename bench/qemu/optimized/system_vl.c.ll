@@ -4446,7 +4446,7 @@ for.inc35.i.i:                                    ; preds = %land.lhs.true25.i.i
 
 for.end37.i.i:                                    ; preds = %vga_interface_available.exit32.i.i, %lor.lhs.false.i25.i.i, %if.end.i21.i.i
   store i32 %507, ptr @vga_interface_type, align 4
-  %511 = icmp eq i32 %507, 10
+  %511 = icmp eq i64 %indvars.iv48.i.i, 10
   br i1 %511, label %invalid_vga.i.i, label %while.cond.preheader.i.i
 
 while.cond.preheader.i.i:                         ; preds = %for.end37.i.i

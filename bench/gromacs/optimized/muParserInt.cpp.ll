@@ -1749,7 +1749,7 @@ define noundef range(i32 0, 2) i32 @_ZN2mu9ParserInt8IsBinValEPKcPiPd(ptr nocapt
   br i1 %or.cond, label %.lr.ph, label %.critedge, !llvm.loop !9
 
 .critedge:                                        ; preds = %.lr.ph
-  %cond = icmp eq i32 %19, 32
+  %cond = icmp eq i64 %indvars.iv, 32
   br i1 %cond, label %20, label %27
 
 20:                                               ; preds = %.critedge

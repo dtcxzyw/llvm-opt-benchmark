@@ -589,7 +589,7 @@ if.then.lr.ph:                                    ; preds = %entry
   %invariant.gep145 = getelementptr i8, ptr %str, i64 -1
   %invariant.gep = getelementptr i8, ptr %str, i64 -2
   %conv = trunc nuw i64 %lenx to i32
-  %cmp.i = icmp ugt i32 %conv, 3
+  %cmp.i = icmp ugt i64 %lenx, 3
   %add.ptr18.i = getelementptr inbounds i8, ptr %str, i64 %lenx
   %add.ptr19.i = getelementptr inbounds i8, ptr %add.ptr18.i, i64 -1
   %shr22.i = lshr i64 %lenx, 1
@@ -598,7 +598,7 @@ if.then.lr.ph:                                    ; preds = %entry
   %gep = getelementptr i8, ptr %invariant.gep, i64 %shr22.i
   %shr11.i = lshr i64 %lenx, 2
   %gep146 = getelementptr i8, ptr %invariant.gep145, i64 %shr11.i
-  %cmp.i43 = icmp ugt i32 %conv, 12
+  %cmp.i43 = icmp ugt i64 %lenx, 12
   %add.ptr7.i47 = getelementptr inbounds i8, ptr %add.ptr18.i, i64 -12
   br label %if.then
 

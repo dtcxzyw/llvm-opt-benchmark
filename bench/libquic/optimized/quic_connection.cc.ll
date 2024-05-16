@@ -10007,7 +10007,7 @@ if.end250:                                        ; preds = %if.then244, %if.end
   %122 = load i8, ptr @FLAGS_graceful_emsgsize_on_mtu_probe, align 1
   %tobool251 = trunc i8 %122 to i1
   %cmp254 = icmp eq i32 %result.sroa.0.0.extract.trunc, 2
-  %cmp256 = icmp eq i32 %result.sroa.5.0.extract.trunc, -142
+  %cmp256 = icmp eq i64 %result.sroa.5.0.extract.shift, 4294967154
   %123 = and i1 %cmp256, %tobool251
   %or.cond2 = and i1 %cmp254, %123
   br i1 %or.cond2, label %land.lhs.true257, label %if.end265

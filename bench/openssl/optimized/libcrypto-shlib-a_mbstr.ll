@@ -462,8 +462,8 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %call = tail call i32 @ossl_isdigit(i32 noundef %conv) #7
   %tobool1 = icmp ne i32 %call, 0
-  %cmp2 = icmp eq i32 %conv, 32
-  %or.cond = select i1 %tobool1, i1 true, i1 %cmp2
+  %cmp2 = icmp eq i64 %value, 32
+  %or.cond = or i1 %cmp2, %tobool1
   %and4 = and i64 %0, -2
   %spec.select = select i1 %or.cond, i64 %0, i64 %and4
   br label %if.end
@@ -483,12 +483,9 @@ land.lhs.true7:                                   ; preds = %if.end
 
 if.end12:                                         ; preds = %land.lhs.true7, %if.end
   %types.1 = phi i64 [ %types.0, %if.end ], [ %spec.select24, %land.lhs.true7 ]
-  %and13 = and i64 %types.1, 16
-  %tobool14.not = icmp eq i64 %and13, 0
-  %cmp17 = icmp ult i32 %conv, 128
-  %or.cond25 = select i1 %tobool14.not, i1 true, i1 %cmp17
+  %cmp17 = icmp ult i64 %value, 128
   %and20 = and i64 %types.1, -17
-  %types.2 = select i1 %or.cond25, i64 %types.1, i64 %and20
+  %types.2 = select i1 %cmp17, i64 %types.1, i64 %and20
   %cmp25 = icmp ugt i64 %value, 255
   %and28 = and i64 %types.2, -5
   %types.3 = select i1 %cmp25, i64 %and28, i64 %types.2

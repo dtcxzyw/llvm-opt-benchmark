@@ -160,11 +160,11 @@ define noundef i64 @_Z18fast_rv64i_kslra32P11processor_t6insn_tm(ptr nocapture n
   %34 = shl i64 %33, 58
   %35 = ashr exact i64 %34, 58
   %36 = trunc nsw i64 %35 to i32
-  %37 = icmp slt i32 %36, 0
-  %38 = and i64 %35, 2147483647
+  %37 = icmp slt i64 %35, 0
+  %38 = and i64 %35, 4294967295
   %39 = getelementptr inbounds i8, ptr %0, i64 659712
   %40 = sub nsw i32 0, %36
-  %41 = icmp eq i32 %36, -32
+  %41 = icmp eq i64 %34, -9223372036854775808
   %42 = select i1 %41, i32 31, i32 %40
   br i1 %37, label %.split.us, label %.split
 
@@ -321,11 +321,11 @@ define noundef i64 @_Z20logged_rv64i_kslra32P11processor_t6insn_tm(ptr noundef %
   %34 = shl i64 %33, 58
   %35 = ashr exact i64 %34, 58
   %36 = trunc nsw i64 %35 to i32
-  %37 = icmp slt i32 %36, 0
-  %38 = and i64 %35, 2147483647
+  %37 = icmp slt i64 %35, 0
+  %38 = and i64 %35, 4294967295
   %39 = getelementptr inbounds i8, ptr %0, i64 659712
   %40 = sub nsw i32 0, %36
-  %41 = icmp eq i32 %36, -32
+  %41 = icmp eq i64 %34, -9223372036854775808
   %42 = select i1 %41, i32 31, i32 %40
   br i1 %37, label %.split.us, label %.split
 
@@ -581,11 +581,11 @@ define noundef i64 @_Z18fast_rv64e_kslra32P11processor_t6insn_tm(ptr nocapture n
   %55 = shl i64 %54, 58
   %56 = ashr exact i64 %55, 58
   %57 = trunc nsw i64 %56 to i32
-  %58 = icmp slt i32 %57, 0
-  %59 = and i64 %56, 2147483647
+  %58 = icmp slt i64 %56, 0
+  %59 = and i64 %56, 4294967295
   %60 = getelementptr inbounds i8, ptr %0, i64 659712
   %61 = sub nsw i32 0, %57
-  %62 = icmp eq i32 %57, -32
+  %62 = icmp eq i64 %55, -9223372036854775808
   %63 = select i1 %62, i32 31, i32 %61
   br i1 %58, label %.split.us, label %.split
 
@@ -784,11 +784,11 @@ define noundef i64 @_Z20logged_rv64e_kslra32P11processor_t6insn_tm(ptr noundef %
   %55 = shl i64 %54, 58
   %56 = ashr exact i64 %55, 58
   %57 = trunc nsw i64 %56 to i32
-  %58 = icmp slt i32 %57, 0
-  %59 = and i64 %56, 2147483647
+  %58 = icmp slt i64 %56, 0
+  %59 = and i64 %56, 4294967295
   %60 = getelementptr inbounds i8, ptr %0, i64 659712
   %61 = sub nsw i32 0, %57
-  %62 = icmp eq i32 %57, -32
+  %62 = icmp eq i64 %55, -9223372036854775808
   %63 = select i1 %62, i32 31, i32 %61
   br i1 %58, label %.split.us, label %.split
 

@@ -69,7 +69,7 @@ define dso_local void @time64_to_tm(i64 noundef %0, i32 noundef %1, ptr nocaptur
   %46 = srem i64 %45, 7
   %47 = trunc nsw i64 %46 to i32
   %48 = getelementptr inbounds i8, ptr %2, i64 32
-  %49 = icmp slt i32 %47, 0
+  %49 = icmp slt i64 %46, 0
   %50 = add nsw i32 %47, 7
   %51 = select i1 %49, i32 %50, i32 %47
   store i32 %51, ptr %48, align 8
@@ -81,41 +81,39 @@ define dso_local void @time64_to_tm(i64 noundef %0, i32 noundef %1, ptr nocaptur
   %57 = mul nuw nsw i64 %56, 2939745
   %58 = add nuw nsw i64 %57, 8819235
   %59 = lshr i64 %58, 32
-  %60 = trunc nuw nsw i64 %59 to i32
-  %61 = icmp eq i32 %60, 0
-  %62 = and i32 %60, 3
-  %63 = icmp eq i32 %62, 0
-  %64 = and i64 %55, 3
-  %65 = icmp eq i64 %64, 0
-  %66 = select i1 %61, i1 %65, i1 %63
-  %67 = mul nuw nsw i64 %55, 100
-  %68 = trunc i64 %58 to i32
-  %69 = udiv i32 %68, 11758980
-  %70 = mul nuw nsw i32 %69, 2141
-  %71 = add nuw nsw i32 %70, 132377
-  %72 = lshr i32 %71, 16
-  %.lhs.trunc5 = trunc i32 %71 to i16
-  %73 = udiv i16 %.lhs.trunc5, 2141
-  %74 = icmp ugt i32 %68, -696719417
-  %75 = zext i1 %74 to i64
-  %76 = add nsw i32 %72, -12
-  %77 = select i1 %74, i32 %76, i32 %72
-  %narrow = add nuw nsw i16 %73, 1
-  %78 = zext nneg i16 %narrow to i32
-  %79 = select i1 %66, i32 60, i32 59
-  %80 = select i1 %74, i32 -306, i32 %79
-  %81 = add nsw i32 %80, %69
-  %82 = add nsw i64 %67, -6313183731941900
-  %83 = add nsw i64 %82, %59
-  %84 = add nsw i64 %83, %75
-  %85 = getelementptr inbounds i8, ptr %2, i64 24
-  store i64 %84, ptr %85, align 8
-  %86 = getelementptr inbounds i8, ptr %2, i64 16
-  store i32 %77, ptr %86, align 8
-  %87 = getelementptr inbounds i8, ptr %2, i64 12
-  store i32 %78, ptr %87, align 4
-  %88 = getelementptr inbounds i8, ptr %2, i64 36
-  store i32 %81, ptr %88, align 4
+  %60 = icmp ult i64 %56, 1458
+  %61 = and i64 %58, 12884901888
+  %62 = and i64 %55, 3
+  %.v = select i1 %60, i64 %62, i64 %61
+  %63 = icmp eq i64 %.v, 0
+  %64 = mul nuw nsw i64 %55, 100
+  %65 = trunc i64 %58 to i32
+  %66 = udiv i32 %65, 11758980
+  %67 = mul nuw nsw i32 %66, 2141
+  %68 = add nuw nsw i32 %67, 132377
+  %69 = lshr i32 %68, 16
+  %.lhs.trunc5 = trunc i32 %68 to i16
+  %70 = udiv i16 %.lhs.trunc5, 2141
+  %71 = icmp ugt i32 %65, -696719417
+  %72 = zext i1 %71 to i64
+  %73 = add nsw i32 %69, -12
+  %74 = select i1 %71, i32 %73, i32 %69
+  %narrow = add nuw nsw i16 %70, 1
+  %75 = zext nneg i16 %narrow to i32
+  %76 = select i1 %63, i32 60, i32 59
+  %77 = select i1 %71, i32 -306, i32 %76
+  %78 = add nsw i32 %77, %66
+  %79 = add nsw i64 %64, -6313183731941900
+  %80 = add nsw i64 %79, %59
+  %81 = add nsw i64 %80, %72
+  %82 = getelementptr inbounds i8, ptr %2, i64 24
+  store i64 %81, ptr %82, align 8
+  %83 = getelementptr inbounds i8, ptr %2, i64 16
+  store i32 %74, ptr %83, align 8
+  %84 = getelementptr inbounds i8, ptr %2, i64 12
+  store i32 %75, ptr %84, align 4
+  %85 = getelementptr inbounds i8, ptr %2, i64 36
+  store i32 %78, ptr %85, align 4
   ret void
 }
 

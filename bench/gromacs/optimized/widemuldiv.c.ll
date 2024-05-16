@@ -164,8 +164,7 @@ define i32 @Ptngc_largeint_div(i32 noundef %0, ptr nocapture noundef readonly %1
   %10 = extractvalue { i32, i32 } %8, 1
   %11 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.next
   store i32 %9, ptr %11, align 4
-  %12 = and i64 %indvars.iv.next, 4294967295
-  %.not = icmp eq i64 %12, 0
+  %.not = icmp eq i64 %indvars.iv.next, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4

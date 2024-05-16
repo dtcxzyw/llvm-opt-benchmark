@@ -37,7 +37,7 @@ define hidden range(i32 -1, 1) i32 @cdf_timestamp_to_timespec(ptr nocapture noun
   %19 = trunc nsw i64 %18 to i32
   %20 = add nsw i32 %19, 1601
   %21 = getelementptr inbounds i8, ptr %3, i64 20
-  %22 = icmp sgt i32 %19, 0
+  %22 = icmp sgt i64 %1, 315359999999999
   br i1 %22, label %.lr.ph.i, label %cdf_getdays.exit
 
 .lr.ph.i:                                         ; preds = %2, %.thread10.i

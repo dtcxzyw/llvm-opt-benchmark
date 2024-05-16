@@ -4809,7 +4809,7 @@ Vec_PtrPush.exit94:                               ; preds = %Vec_PtrPush.exit94.
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %78 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #21
   %79 = icmp slt i32 %78, 0
-  br i1 %79, label %Abc_Clock.exit96, label %80
+  br i1 %79, label %.lr.ph.i98, label %80
 
 80:                                               ; preds = %75
   %81 = load i64, ptr %5, align 8
@@ -4818,9 +4818,9 @@ Vec_PtrPush.exit94:                               ; preds = %Vec_PtrPush.exit94.
   %84 = load i64, ptr %83, align 8
   %85 = sdiv i64 %84, 1000
   %86 = add nsw i64 %85, %82
-  br label %Abc_Clock.exit96
+  br label %.lr.ph.i98
 
-Abc_Clock.exit96:                                 ; preds = %75, %80
+.lr.ph.i98:                                       ; preds = %80, %75
   %.0.i95 = phi i64 [ %86, %80 ], [ -1, %75 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %87 = add i64 %.0.i95, %.0.i.neg
@@ -4828,31 +4828,27 @@ Abc_Clock.exit96:                                 ; preds = %75, %80
   %88 = sitofp i64 %87 to double
   %89 = fdiv double %88, 1.000000e+06
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.18, double noundef %89)
-  %90 = icmp sgt i32 %26, 0
-  br i1 %90, label %.lr.ph.i98, label %Llb_ManResultPrint.exit
+  %90 = and i64 %indvars.iv136, 4294967295
+  br label %91
 
-.lr.ph.i98:                                       ; preds = %Abc_Clock.exit96
-  %91 = and i64 %indvars.iv136, 2147483647
-  br label %92
-
-92:                                               ; preds = %97, %.lr.ph.i98
-  %indvars.iv.i99 = phi i64 [ %91, %.lr.ph.i98 ], [ %indvars.iv.next.i100, %97 ]
-  %.01014.i = phi ptr [ null, %.lr.ph.i98 ], [ %94, %97 ]
+91:                                               ; preds = %96, %.lr.ph.i98
+  %indvars.iv.i99 = phi i64 [ %90, %.lr.ph.i98 ], [ %indvars.iv.next.i100, %96 ]
+  %.01014.i = phi ptr [ null, %.lr.ph.i98 ], [ %93, %96 ]
   %indvars.iv.next.i100 = add nsw i64 %indvars.iv.i99, -1
-  %93 = getelementptr inbounds ptr, ptr %.val80125, i64 %indvars.iv.next.i100
-  %94 = load ptr, ptr %93, align 8
-  %95 = icmp slt i64 %indvars.iv.i99, %91
-  br i1 %95, label %96, label %97
+  %92 = getelementptr inbounds ptr, ptr %.val80125, i64 %indvars.iv.next.i100
+  %93 = load ptr, ptr %92, align 8
+  %94 = icmp slt i64 %indvars.iv.i99, %90
+  br i1 %94, label %95, label %96
 
-96:                                               ; preds = %92
-  call void @Llb_ManCutPrint(ptr noundef %0, ptr noundef %94, ptr noundef %.01014.i)
-  br label %97
+95:                                               ; preds = %91
+  call void @Llb_ManCutPrint(ptr noundef %0, ptr noundef %93, ptr noundef %.01014.i)
+  br label %96
 
-97:                                               ; preds = %96, %92
-  %98 = icmp ugt i64 %indvars.iv.i99, 1
-  br i1 %98, label %92, label %Llb_ManResultPrint.exit, !llvm.loop !30
+96:                                               ; preds = %95, %91
+  %97 = icmp ugt i64 %indvars.iv.i99, 1
+  br i1 %97, label %91, label %Llb_ManResultPrint.exit, !llvm.loop !30
 
-Llb_ManResultPrint.exit:                          ; preds = %97, %Abc_Clock.exit96, %.critedge.thread
+Llb_ManResultPrint.exit:                          ; preds = %96, %.critedge.thread
   ret ptr %17
 }
 

@@ -1438,8 +1438,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET_S7_S7_RKT0_.ex
   %90 = extractvalue { double, i64 } %88, 1
   %.sroa.1.8.extract.trunc = trunc i64 %90 to i32
   %.sroa.3.8.extract.shift = lshr i64 %90, 32
-  %.sroa.3.8.extract.trunc = trunc nuw i64 %.sroa.3.8.extract.shift to i32
-  %91 = icmp ne i32 %.sroa.3.8.extract.trunc, 3
+  %91 = icmp ne i64 %.sroa.3.8.extract.shift, 3
   br i1 %91, label %100, label %92
 
 92:                                               ; preds = %89
@@ -1465,7 +1464,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET_S7_S7_RKT0_.ex
   store double %103, ptr %104, align 8
   %105 = getelementptr inbounds i8, ptr %0, i64 508
   store i32 %.sroa.1.8.extract.trunc, ptr %105, align 4
-  %106 = icmp eq i32 %.sroa.3.8.extract.trunc, 2
+  %106 = icmp eq i64 %.sroa.3.8.extract.shift, 2
   br i1 %106, label %.critedge, label %107
 
 107:                                              ; preds = %102

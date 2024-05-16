@@ -7224,8 +7224,8 @@ if.end5.i:                                        ; preds = %if.end.i
   %5 = inttoptr i64 %sub.i.i152 to ptr
   %6 = load i64, ptr %5, align 8
   %shr.i = lshr i64 %6, 32
-  %conv.i = trunc nuw i64 %shr.i to i32
-  switch i32 %conv.i, label %if.end [
+  %trunc = trunc nuw i64 %shr.i to i32
+  switch i32 %trunc, label %if.end [
     i32 5, label %return
     i32 3, label %return
   ]
@@ -15528,8 +15528,8 @@ if.end5.i:                                        ; preds = %if.end.i368
   %29 = inttoptr i64 %sub.i.i379 to ptr
   %30 = load i64, ptr %29, align 8
   %shr.i = lshr i64 %30, 32
-  %conv.i381 = trunc nuw i64 %shr.i to i32
-  switch i32 %conv.i381, label %lor.lhs.false.i174 [
+  %trunc = trunc nuw i64 %shr.i to i32
+  switch i32 %trunc, label %lor.lhs.false.i174 [
     i32 5, label %if.end78
     i32 3, label %if.end78
   ]

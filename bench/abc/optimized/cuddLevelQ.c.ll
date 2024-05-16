@@ -211,7 +211,7 @@ define ptr @cuddLevelQueueEnqueue(ptr nocapture noundef %0, ptr noundef %1, i32 
   %40 = load ptr, ptr %33, align 8
   %41 = getelementptr inbounds ptr, ptr %40, i64 %35
   %42 = load ptr, ptr %41, align 8
-  br label %59
+  br label %58
 
 .lr.ph:                                           ; preds = %.preheader, %46
   %indvars.iv = phi i64 [ %indvars.iv.next, %46 ], [ %35, %.preheader ]
@@ -222,102 +222,101 @@ define ptr @cuddLevelQueueEnqueue(ptr nocapture noundef %0, ptr noundef %1, i32 
 
 46:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %47 = and i64 %indvars.iv.next, 4294967295
-  %.not54 = icmp eq i64 %47, 0
+  %.not54 = icmp eq i64 %indvars.iv.next, 0
   br i1 %.not54, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !8
 
 .critedge.loopexit:                               ; preds = %46, %.lr.ph
   %.046.lcssa.ph = phi i64 [ %indvars.iv, %.lr.ph ], [ 0, %46 ]
   %sext = shl i64 %.046.lcssa.ph, 32
-  %48 = ashr exact i64 %sext, 32
+  %47 = ashr exact i64 %sext, 32
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %.preheader
-  %.046.lcssa = phi i64 [ 0, %.preheader ], [ %48, %.critedge.loopexit ]
-  %49 = getelementptr inbounds ptr, ptr %34, i64 %.046.lcssa
-  %50 = load ptr, ptr %49, align 8
-  %51 = icmp eq ptr %50, null
-  br i1 %51, label %52, label %54
+  %.046.lcssa = phi i64 [ 0, %.preheader ], [ %47, %.critedge.loopexit ]
+  %48 = getelementptr inbounds ptr, ptr %34, i64 %.046.lcssa
+  %49 = load ptr, ptr %48, align 8
+  %50 = icmp eq ptr %49, null
+  br i1 %50, label %51, label %53
 
-52:                                               ; preds = %.critedge
-  %53 = load ptr, ptr %0, align 8
-  store ptr %53, ptr %.0, align 8
-  br label %59
+51:                                               ; preds = %.critedge
+  %52 = load ptr, ptr %0, align 8
+  store ptr %52, ptr %.0, align 8
+  br label %58
 
-54:                                               ; preds = %.critedge
-  %55 = load ptr, ptr %50, align 8
-  store ptr %55, ptr %.0, align 8
-  %56 = load ptr, ptr %33, align 8
-  %57 = getelementptr inbounds ptr, ptr %56, i64 %.046.lcssa
-  %58 = load ptr, ptr %57, align 8
-  br label %59
+53:                                               ; preds = %.critedge
+  %54 = load ptr, ptr %49, align 8
+  store ptr %54, ptr %.0, align 8
+  %55 = load ptr, ptr %33, align 8
+  %56 = getelementptr inbounds ptr, ptr %55, i64 %.046.lcssa
+  %57 = load ptr, ptr %56, align 8
+  br label %58
 
-59:                                               ; preds = %52, %54, %38
-  %.sink = phi ptr [ %0, %52 ], [ %58, %54 ], [ %42, %38 ]
+58:                                               ; preds = %51, %53, %38
+  %.sink = phi ptr [ %0, %51 ], [ %57, %53 ], [ %42, %38 ]
   store ptr %.0, ptr %.sink, align 8
-  %60 = load ptr, ptr %33, align 8
-  %61 = getelementptr inbounds ptr, ptr %60, i64 %35
-  store ptr %.0, ptr %61, align 8
-  %62 = load i32, ptr %30, align 8
-  %63 = getelementptr inbounds i8, ptr %0, i64 44
-  %64 = load i32, ptr %63, align 4
-  %65 = icmp sgt i32 %62, %64
-  br i1 %65, label %66, label %hashInsert.exit
+  %59 = load ptr, ptr %33, align 8
+  %60 = getelementptr inbounds ptr, ptr %59, i64 %35
+  store ptr %.0, ptr %60, align 8
+  %61 = load i32, ptr %30, align 8
+  %62 = getelementptr inbounds i8, ptr %0, i64 44
+  %63 = load i32, ptr %62, align 4
+  %64 = icmp sgt i32 %61, %63
+  br i1 %64, label %65, label %hashInsert.exit
 
-66:                                               ; preds = %59
-  %67 = load ptr, ptr %4, align 8
-  %68 = getelementptr inbounds i8, ptr %0, i64 48
-  %69 = load i32, ptr %68, align 8
-  %70 = shl i32 %69, 1
-  %71 = sext i32 %70 to i64
-  %72 = shl nsw i64 %71, 3
-  %calloc.i.i = tail call ptr @calloc(i64 1, i64 %72)
+65:                                               ; preds = %58
+  %66 = load ptr, ptr %4, align 8
+  %67 = getelementptr inbounds i8, ptr %0, i64 48
+  %68 = load i32, ptr %67, align 8
+  %69 = shl i32 %68, 1
+  %70 = sext i32 %69 to i64
+  %71 = shl nsw i64 %70, 3
+  %calloc.i.i = tail call ptr @calloc(i64 1, i64 %71)
   store ptr %calloc.i.i, ptr %4, align 8
-  %73 = icmp eq ptr %calloc.i.i, null
-  br i1 %73, label %74, label %76
+  %72 = icmp eq ptr %calloc.i.i, null
+  br i1 %72, label %73, label %75
 
-74:                                               ; preds = %66
-  %75 = shl i32 %64, 1
-  store i32 %75, ptr %63, align 4
+73:                                               ; preds = %65
+  %74 = shl i32 %63, 1
+  store i32 %74, ptr %62, align 4
   br label %hashInsert.exit
 
-76:                                               ; preds = %66
-  store i32 %70, ptr %68, align 8
-  %77 = load i32, ptr %5, align 4
-  %78 = add nsw i32 %77, -1
-  store i32 %78, ptr %5, align 4
-  %79 = shl i32 %64, 1
-  store i32 %79, ptr %63, align 4
-  %80 = icmp sgt i32 %69, 0
-  br i1 %80, label %.lr.ph40.preheader.i.i, label %._crit_edge41.i.i
+75:                                               ; preds = %65
+  store i32 %69, ptr %67, align 8
+  %76 = load i32, ptr %5, align 4
+  %77 = add nsw i32 %76, -1
+  store i32 %77, ptr %5, align 4
+  %78 = shl i32 %63, 1
+  store i32 %78, ptr %62, align 4
+  %79 = icmp sgt i32 %68, 0
+  br i1 %79, label %.lr.ph40.preheader.i.i, label %._crit_edge41.i.i
 
-.lr.ph40.preheader.i.i:                           ; preds = %76
-  %wide.trip.count.i.i = zext nneg i32 %69 to i64
+.lr.ph40.preheader.i.i:                           ; preds = %75
+  %wide.trip.count.i.i = zext nneg i32 %68 to i64
   br label %.lr.ph40.i.i
 
 .lr.ph40.i.i:                                     ; preds = %._crit_edge.i.i, %.lr.ph40.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph40.preheader.i.i ], [ %indvars.iv.next.i.i, %._crit_edge.i.i ]
-  %81 = getelementptr inbounds ptr, ptr %67, i64 %indvars.iv.i.i
-  %82 = load ptr, ptr %81, align 8
-  %.not3536.i.i = icmp eq ptr %82, null
+  %80 = getelementptr inbounds ptr, ptr %66, i64 %indvars.iv.i.i
+  %81 = load ptr, ptr %80, align 8
+  %.not3536.i.i = icmp eq ptr %81, null
   br i1 %.not3536.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph40.i.i, %.lr.ph.i.i
-  %.03337.i.i = phi ptr [ %84, %.lr.ph.i.i ], [ %82, %.lr.ph40.i.i ]
-  %83 = getelementptr inbounds i8, ptr %.03337.i.i, i64 8
-  %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %.03337.i.i, i64 16
-  %86 = load ptr, ptr %85, align 8
-  %87 = ptrtoint ptr %86 to i64
-  %88 = trunc i64 %87 to i32
-  %89 = mul i32 %88, 12582917
-  %90 = lshr i32 %89, %78
-  %91 = sext i32 %90 to i64
-  %92 = getelementptr inbounds ptr, ptr %calloc.i.i, i64 %91
-  %93 = load ptr, ptr %92, align 8
-  store ptr %93, ptr %83, align 8
-  store ptr %.03337.i.i, ptr %92, align 8
-  %.not35.i.i = icmp eq ptr %84, null
+  %.03337.i.i = phi ptr [ %83, %.lr.ph.i.i ], [ %81, %.lr.ph40.i.i ]
+  %82 = getelementptr inbounds i8, ptr %.03337.i.i, i64 8
+  %83 = load ptr, ptr %82, align 8
+  %84 = getelementptr inbounds i8, ptr %.03337.i.i, i64 16
+  %85 = load ptr, ptr %84, align 8
+  %86 = ptrtoint ptr %85 to i64
+  %87 = trunc i64 %86 to i32
+  %88 = mul i32 %87, 12582917
+  %89 = lshr i32 %88, %77
+  %90 = sext i32 %89 to i64
+  %91 = getelementptr inbounds ptr, ptr %calloc.i.i, i64 %90
+  %92 = load ptr, ptr %91, align 8
+  store ptr %92, ptr %82, align 8
+  store ptr %.03337.i.i, ptr %91, align 8
+  %.not35.i.i = icmp eq ptr %83, null
   br i1 %.not35.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !9
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.lr.ph40.i.i
@@ -325,30 +324,30 @@ define ptr @cuddLevelQueueEnqueue(ptr nocapture noundef %0, ptr noundef %1, i32 
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %._crit_edge41.i.i, label %.lr.ph40.i.i, !llvm.loop !10
 
-._crit_edge41.i.i:                                ; preds = %._crit_edge.i.i, %76
-  %.not.i.i = icmp eq ptr %67, null
-  br i1 %.not.i.i, label %hashInsert.exit, label %94
+._crit_edge41.i.i:                                ; preds = %._crit_edge.i.i, %75
+  %.not.i.i = icmp eq ptr %66, null
+  br i1 %.not.i.i, label %hashInsert.exit, label %93
 
-94:                                               ; preds = %._crit_edge41.i.i
-  tail call void @free(ptr noundef nonnull %67) #9
+93:                                               ; preds = %._crit_edge41.i.i
+  tail call void @free(ptr noundef nonnull %66) #9
   br label %hashInsert.exit
 
-hashInsert.exit:                                  ; preds = %59, %74, %._crit_edge41.i.i, %94
-  %95 = load ptr, ptr %29, align 8
-  %96 = ptrtoint ptr %95 to i64
-  %97 = trunc i64 %96 to i32
-  %98 = mul i32 %97, 12582917
-  %99 = load i32, ptr %5, align 4
-  %100 = lshr i32 %98, %99
-  %101 = load ptr, ptr %4, align 8
-  %102 = sext i32 %100 to i64
-  %103 = getelementptr inbounds ptr, ptr %101, i64 %102
-  %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %.0, i64 8
-  store ptr %104, ptr %105, align 8
-  %106 = load ptr, ptr %4, align 8
-  %107 = getelementptr inbounds ptr, ptr %106, i64 %102
-  store ptr %.0, ptr %107, align 8
+hashInsert.exit:                                  ; preds = %58, %73, %._crit_edge41.i.i, %93
+  %94 = load ptr, ptr %29, align 8
+  %95 = ptrtoint ptr %94 to i64
+  %96 = trunc i64 %95 to i32
+  %97 = mul i32 %96, 12582917
+  %98 = load i32, ptr %5, align 4
+  %99 = lshr i32 %97, %98
+  %100 = load ptr, ptr %4, align 8
+  %101 = sext i32 %99 to i64
+  %102 = getelementptr inbounds ptr, ptr %100, i64 %101
+  %103 = load ptr, ptr %102, align 8
+  %104 = getelementptr inbounds i8, ptr %.0, i64 8
+  store ptr %103, ptr %104, align 8
+  %105 = load ptr, ptr %4, align 8
+  %106 = getelementptr inbounds ptr, ptr %105, i64 %101
+  store ptr %.0, ptr %106, align 8
   br label %hashLookup.exit
 
 hashLookup.exit:                                  ; preds = %.lr.ph.i, %20, %hashInsert.exit

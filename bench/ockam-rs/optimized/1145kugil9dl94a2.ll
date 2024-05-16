@@ -44251,7 +44251,7 @@ define hidden noundef ptr @"_ZN143_$LT$kafka_protocol..protocol..types..CompactS
 14:                                               ; preds = %12
   %15 = trunc nuw i64 %3 to i32
   %16 = add nuw i32 %15, 1
-  %17 = icmp ugt i32 %15, 126
+  %17 = icmp ugt i64 %3, 126
   br i1 %17, label %.lr.ph.i19, label %"_ZN114_$LT$kafka_protocol..protocol..types..UnsignedVarInt$u20$as$u20$kafka_protocol..protocol..Encoder$LT$$RF$T$GT$$GT$6encode17h07d5bd02745ea752E.exit21"
 
 .lr.ph.i19:                                       ; preds = %14, %.lr.ph.i19
@@ -44705,7 +44705,7 @@ define hidden noundef ptr @"_ZN151_$LT$kafka_protocol..protocol..types..CompactB
 14:                                               ; preds = %12
   %15 = trunc nuw i64 %3 to i32
   %16 = add nuw i32 %15, 1
-  %17 = icmp ugt i32 %15, 126
+  %17 = icmp ugt i64 %3, 126
   br i1 %17, label %.lr.ph.i19, label %"_ZN114_$LT$kafka_protocol..protocol..types..UnsignedVarInt$u20$as$u20$kafka_protocol..protocol..Encoder$LT$$RF$T$GT$$GT$6encode17h07d5bd02745ea752E.exit21"
 
 .lr.ph.i19:                                       ; preds = %14, %.lr.ph.i19
@@ -45911,7 +45911,7 @@ define hidden noundef ptr @"_ZN159_$LT$kafka_protocol..protocol..types..CompactA
 14:                                               ; preds = %12
   %15 = trunc nuw i64 %3 to i32
   %16 = add nuw i32 %15, 1
-  %17 = icmp ugt i32 %15, 126
+  %17 = icmp ugt i64 %3, 126
   br i1 %17, label %.lr.ph.i28, label %"_ZN114_$LT$kafka_protocol..protocol..types..UnsignedVarInt$u20$as$u20$kafka_protocol..protocol..Encoder$LT$$RF$T$GT$$GT$6encode17h07d5bd02745ea752E.exit30"
 
 .lr.ph.i28:                                       ; preds = %14, %.lr.ph.i28
@@ -46004,7 +46004,7 @@ define hidden noundef ptr @"_ZN159_$LT$kafka_protocol..protocol..types..CompactA
 15:                                               ; preds = %13
   %16 = trunc nuw i64 %3 to i32
   %17 = add nuw i32 %16, 1
-  %18 = icmp ugt i32 %16, 126
+  %18 = icmp ugt i64 %3, 126
   br i1 %18, label %.lr.ph.i28, label %"_ZN114_$LT$kafka_protocol..protocol..types..UnsignedVarInt$u20$as$u20$kafka_protocol..protocol..Encoder$LT$$RF$T$GT$$GT$6encode17h07d5bd02745ea752E.exit30"
 
 .lr.ph.i28:                                       ; preds = %15, %.lr.ph.i28
@@ -46098,7 +46098,7 @@ define hidden noundef ptr @"_ZN159_$LT$kafka_protocol..protocol..types..CompactA
 14:                                               ; preds = %12
   %15 = trunc nuw i64 %3 to i32
   %16 = add nuw i32 %15, 1
-  %17 = icmp ugt i32 %15, 126
+  %17 = icmp ugt i64 %3, 126
   br i1 %17, label %.lr.ph.i28, label %"_ZN114_$LT$kafka_protocol..protocol..types..UnsignedVarInt$u20$as$u20$kafka_protocol..protocol..Encoder$LT$$RF$T$GT$$GT$6encode17h07d5bd02745ea752E.exit30"
 
 .lr.ph.i28:                                       ; preds = %14, %.lr.ph.i28
@@ -46190,7 +46190,7 @@ define hidden noundef ptr @"_ZN159_$LT$kafka_protocol..protocol..types..CompactA
 14:                                               ; preds = %12
   %15 = trunc nuw i64 %3 to i32
   %16 = add nuw i32 %15, 1
-  %17 = icmp ugt i32 %15, 126
+  %17 = icmp ugt i64 %3, 126
   br i1 %17, label %.lr.ph.i28, label %"_ZN114_$LT$kafka_protocol..protocol..types..UnsignedVarInt$u20$as$u20$kafka_protocol..protocol..Encoder$LT$$RF$T$GT$$GT$6encode17h07d5bd02745ea752E.exit30"
 
 .lr.ph.i28:                                       ; preds = %14, %.lr.ph.i28
@@ -46282,7 +46282,7 @@ define hidden noundef ptr @"_ZN159_$LT$kafka_protocol..protocol..types..CompactA
 14:                                               ; preds = %12
   %15 = trunc nuw i64 %3 to i32
   %16 = add nuw i32 %15, 1
-  %17 = icmp ugt i32 %15, 126
+  %17 = icmp ugt i64 %3, 126
   br i1 %17, label %.lr.ph.i28, label %"_ZN114_$LT$kafka_protocol..protocol..types..UnsignedVarInt$u20$as$u20$kafka_protocol..protocol..Encoder$LT$$RF$T$GT$$GT$6encode17h07d5bd02745ea752E.exit30"
 
 .lr.ph.i28:                                       ; preds = %14, %.lr.ph.i28
@@ -46374,7 +46374,7 @@ define hidden noundef ptr @"_ZN159_$LT$kafka_protocol..protocol..types..CompactA
 14:                                               ; preds = %12
   %15 = trunc nuw i64 %3 to i32
   %16 = add nuw i32 %15, 1
-  %17 = icmp ugt i32 %15, 126
+  %17 = icmp ugt i64 %3, 126
   br i1 %17, label %.lr.ph.i28, label %"_ZN114_$LT$kafka_protocol..protocol..types..UnsignedVarInt$u20$as$u20$kafka_protocol..protocol..Encoder$LT$$RF$T$GT$$GT$6encode17h07d5bd02745ea752E.exit30"
 
 .lr.ph.i28:                                       ; preds = %14, %.lr.ph.i28
@@ -46466,7 +46466,7 @@ define hidden noundef ptr @"_ZN159_$LT$kafka_protocol..protocol..types..CompactA
 14:                                               ; preds = %12
   %15 = trunc nuw i64 %3 to i32
   %16 = add nuw i32 %15, 1
-  %17 = icmp ugt i32 %15, 126
+  %17 = icmp ugt i64 %3, 126
   br i1 %17, label %.lr.ph.i28, label %"_ZN114_$LT$kafka_protocol..protocol..types..UnsignedVarInt$u20$as$u20$kafka_protocol..protocol..Encoder$LT$$RF$T$GT$$GT$6encode17h07d5bd02745ea752E.exit30"
 
 .lr.ph.i28:                                       ; preds = %14, %.lr.ph.i28
@@ -52250,7 +52250,7 @@ define hidden noundef ptr @"_ZN184_$LT$kafka_protocol..protocol..types..CompactA
 15:                                               ; preds = %11
   %16 = trunc nuw i64 %13 to i32
   %17 = add nuw i32 %16, 1
-  %18 = icmp ugt i32 %16, 126
+  %18 = icmp ugt i64 %13, 126
   br i1 %18, label %.lr.ph.i27, label %"_ZN114_$LT$kafka_protocol..protocol..types..UnsignedVarInt$u20$as$u20$kafka_protocol..protocol..Encoder$LT$$RF$T$GT$$GT$6encode17h07d5bd02745ea752E.exit29"
 
 .lr.ph.i27:                                       ; preds = %15, %.lr.ph.i27
@@ -52349,7 +52349,7 @@ define hidden noundef ptr @"_ZN184_$LT$kafka_protocol..protocol..types..CompactA
 15:                                               ; preds = %11
   %16 = trunc nuw i64 %13 to i32
   %17 = add nuw i32 %16, 1
-  %18 = icmp ugt i32 %16, 126
+  %18 = icmp ugt i64 %13, 126
   br i1 %18, label %.lr.ph.i27, label %"_ZN114_$LT$kafka_protocol..protocol..types..UnsignedVarInt$u20$as$u20$kafka_protocol..protocol..Encoder$LT$$RF$T$GT$$GT$6encode17h07d5bd02745ea752E.exit29"
 
 .lr.ph.i27:                                       ; preds = %15, %.lr.ph.i27
@@ -52448,7 +52448,7 @@ define hidden noundef ptr @"_ZN184_$LT$kafka_protocol..protocol..types..CompactA
 15:                                               ; preds = %11
   %16 = trunc nuw i64 %13 to i32
   %17 = add nuw i32 %16, 1
-  %18 = icmp ugt i32 %16, 126
+  %18 = icmp ugt i64 %13, 126
   br i1 %18, label %.lr.ph.i27, label %"_ZN114_$LT$kafka_protocol..protocol..types..UnsignedVarInt$u20$as$u20$kafka_protocol..protocol..Encoder$LT$$RF$T$GT$$GT$6encode17h07d5bd02745ea752E.exit29"
 
 .lr.ph.i27:                                       ; preds = %15, %.lr.ph.i27
@@ -52547,7 +52547,7 @@ define hidden noundef ptr @"_ZN184_$LT$kafka_protocol..protocol..types..CompactA
 15:                                               ; preds = %11
   %16 = trunc nuw i64 %13 to i32
   %17 = add nuw i32 %16, 1
-  %18 = icmp ugt i32 %16, 126
+  %18 = icmp ugt i64 %13, 126
   br i1 %18, label %.lr.ph.i27, label %"_ZN114_$LT$kafka_protocol..protocol..types..UnsignedVarInt$u20$as$u20$kafka_protocol..protocol..Encoder$LT$$RF$T$GT$$GT$6encode17h07d5bd02745ea752E.exit29"
 
 .lr.ph.i27:                                       ; preds = %15, %.lr.ph.i27

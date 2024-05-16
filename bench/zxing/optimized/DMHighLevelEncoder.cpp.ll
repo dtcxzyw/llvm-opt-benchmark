@@ -1358,7 +1358,7 @@ define void @_ZN5ZXing10DataMatrix6EncodeERKNSt7__cxx1112basic_stringIwSt11char_
   %634 = trunc i64 %632 to i32
   %635 = sub i32 %634, %633
   %636 = icmp sge i32 %631, %635
-  %637 = icmp ult i32 %628, 4
+  %637 = icmp ult i64 %582, 4
   %638 = and i1 %637, %636
   br i1 %637, label %639, label %672
 

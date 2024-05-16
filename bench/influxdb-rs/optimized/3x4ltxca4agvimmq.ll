@@ -878,14 +878,14 @@ define hidden void @_ZN11arrow_array20temporal_conversions11as_datetime17h95c95d
   %.0.i15.i45 = add nsw i64 %19, %9
   %.fca.1.extract.i47 = extractvalue { i32, i32 } %13, 1
   %20 = trunc nsw i64 %.0.i15.i45 to i32
-  %21 = icmp ugt i32 %20, 86399
-  %22 = icmp ugt i32 %8, 1999999999
+  %21 = icmp ugt i64 %.0.i15.i45, 86399
+  %22 = icmp ugt i64 %.0.i42, 1999999999
   %or.cond1.i48 = or i1 %22, %21
   br i1 %or.cond1.i48, label %30, label %23
 
 23:                                               ; preds = %.noexc55
   %.fca.0.extract.i49 = extractvalue { i32, i32 } %13, 0
-  %24 = icmp ult i32 %8, 1000000000
+  %24 = icmp ult i64 %.0.i42, 1000000000
   %25 = urem i32 %20, 60
   %26 = icmp eq i32 %25, 59
   %or.cond6.i50 = or i1 %24, %26
@@ -6985,7 +6985,7 @@ define hidden void @_ZN6chrono5naive8datetime13NaiveDateTime18from_timestamp_opt
   %14 = tail call { i32, i32 } @_ZN6chrono5naive4date9NaiveDate25from_num_days_from_ce_opt17h7a6284408aacb794E(i32 noundef %13)
   %.fca.1.extract = extractvalue { i32, i32 } %14, 1
   %15 = trunc nsw i64 %.0.i15 to i32
-  %16 = icmp ugt i32 %15, 86399
+  %16 = icmp ugt i64 %.0.i15, 86399
   %17 = icmp ugt i32 %2, 1999999999
   %or.cond1 = or i1 %17, %16
   br i1 %or.cond1, label %.thread, label %18
@@ -7039,7 +7039,7 @@ define hidden void @_ZN6chrono6offset8TimeZone13timestamp_opt17h9f0c915a4e4fe7c8
   %16 = tail call { i32, i32 } @_ZN6chrono5naive4date9NaiveDate25from_num_days_from_ce_opt17h7a6284408aacb794E(i32 noundef %15), !noalias !1100
   %.fca.1.extract.i = extractvalue { i32, i32 } %16, 1
   %17 = trunc nsw i64 %.0.i15.i to i32
-  %18 = icmp ugt i32 %17, 86399
+  %18 = icmp ugt i64 %.0.i15.i, 86399
   %19 = icmp ugt i32 %3, 1999999999
   %or.cond1.i = or i1 %19, %18
   br i1 %or.cond1.i, label %27, label %20
@@ -7086,28 +7086,28 @@ define hidden void @_ZN6chrono6offset8TimeZone15timestamp_nanos17h1fbca51b26d2e7
   %12 = select i1 %11, i64 86400, i64 0
   %.0.i15.i.i = add nsw i64 %12, %7
   %13 = tail call { i32, i32 } @_ZN6chrono5naive4date9NaiveDate25from_num_days_from_ce_opt17h7a6284408aacb794E(i32 noundef %10), !noalias !1103
-  %14 = trunc nsw i64 %.0.i15.i.i to i32
-  %15 = icmp ult i32 %14, 86400
+  %14 = icmp ult i64 %.0.i15.i.i, 86400
   %.fca.0.extract.i.i = extractvalue { i32, i32 } %13, 0
-  %16 = icmp eq i32 %.fca.0.extract.i.i, 1
-  %or.cond = select i1 %15, i1 %16, i1 false
-  br i1 %or.cond, label %"_ZN6chrono6offset20LocalResult$LT$T$GT$6unwrap17hc1c7b069079b5f5dE.exit", label %17
+  %15 = icmp eq i32 %.fca.0.extract.i.i, 1
+  %or.cond = select i1 %14, i1 %15, i1 false
+  br i1 %or.cond, label %"_ZN6chrono6offset20LocalResult$LT$T$GT$6unwrap17hc1c7b069079b5f5dE.exit", label %16
 
-17:                                               ; preds = %3
+16:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !1108
   store ptr @anon.d959fead79ebb29ab0eec5bcadc87655.109.llvm.10746823393314531435, ptr %4, align 8, !noalias !1108
-  %18 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 1, ptr %18, align 8, !noalias !1108
-  %19 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr null, ptr %19, align 8, !noalias !1108
-  %20 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr @anon.d959fead79ebb29ab0eec5bcadc87655.45.llvm.10746823393314531435, ptr %20, align 8, !noalias !1108
-  %21 = getelementptr inbounds i8, ptr %4, i64 24
-  store i64 0, ptr %21, align 8, !noalias !1108
+  %17 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 1, ptr %17, align 8, !noalias !1108
+  %18 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr null, ptr %18, align 8, !noalias !1108
+  %19 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr @anon.d959fead79ebb29ab0eec5bcadc87655.45.llvm.10746823393314531435, ptr %19, align 8, !noalias !1108
+  %20 = getelementptr inbounds i8, ptr %4, i64 24
+  store i64 0, ptr %20, align 8, !noalias !1108
   call void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ee718a35c68acf5a0979b54416186af6.89.llvm.6305840527560983182) #27, !noalias !1113
   unreachable
 
 "_ZN6chrono6offset20LocalResult$LT$T$GT$6unwrap17hc1c7b069079b5f5dE.exit": ; preds = %3
+  %21 = trunc nuw nsw i64 %.0.i15.i.i to i32
   %.fca.1.extract.i.i = extractvalue { i32, i32 } %13, 1
   %22 = icmp slt i64 %5, 0
   %23 = add nsw i64 %5, 1000000000
@@ -7115,7 +7115,7 @@ define hidden void @_ZN6chrono6offset8TimeZone15timestamp_nanos17h1fbca51b26d2e7
   %24 = trunc nuw nsw i64 %.05 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1114)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1115)
-  store i32 %14, ptr %0, align 4, !alias.scope !1113, !noalias !1116
+  store i32 %21, ptr %0, align 4, !alias.scope !1113, !noalias !1116
   %.sroa.7.4..sroa_idx8 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %24, ptr %.sroa.7.4..sroa_idx8, align 4, !alias.scope !1113, !noalias !1116
   %.sroa.8.4..sroa_idx10 = getelementptr inbounds i8, ptr %0, i64 8

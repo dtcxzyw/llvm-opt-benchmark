@@ -344,8 +344,7 @@ unquoteCString.exit:                              ; preds = %for.body
   br i1 %tobool3.not, label %while.cond.preheader, label %if.end
 
 while.cond.preheader:                             ; preds = %unquoteCString.exit, %unquoteCString.exit.thread35, %unquoteCString.exit.thread
-  %4 = and i64 %indvars.iv, 4294967295
-  %cmp518.not = icmp eq i64 %4, 0
+  %cmp518.not = icmp eq i64 %indvars.iv, 0
   br i1 %cmp518.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %while.cond.preheader, %while.body
@@ -353,10 +352,10 @@ while.body:                                       ; preds = %while.cond.preheade
   %indvars.iv.next25 = add nsw i64 %indvars.iv24, -1
   %idxprom7 = and i64 %indvars.iv.next25, 4294967295
   %arrayidx8 = getelementptr inbounds ptr, ptr %call, i64 %idxprom7
-  %5 = load ptr, ptr %arrayidx8, align 8
-  call void @hi_sdsfree(ptr noundef %5) #11
-  %6 = icmp sgt i64 %indvars.iv24, 1
-  br i1 %6, label %while.body, label %while.end, !llvm.loop !7
+  %4 = load ptr, ptr %arrayidx8, align 8
+  call void @hi_sdsfree(ptr noundef %4) #11
+  %5 = icmp sgt i64 %indvars.iv24, 1
+  br i1 %5, label %while.body, label %while.end, !llvm.loop !7
 
 while.end:                                        ; preds = %while.body, %while.cond.preheader
   call void @hi_sds_free(ptr noundef %call) #11

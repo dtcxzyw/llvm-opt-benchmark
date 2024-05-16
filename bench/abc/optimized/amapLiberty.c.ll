@@ -993,7 +993,7 @@ define range(i32 0, 2) i32 @Amap_LibertyPrintGenlib(ptr nocapture noundef readon
 
 11:                                               ; preds = %8
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  br label %283
+  br label %280
 
 Amap_LibertyItem.exit:                            ; preds = %8, %6
   %.094 = phi ptr [ %7, %6 ], [ %9, %8 ]
@@ -1039,19 +1039,19 @@ Amap_LibertyItem.exit:                            ; preds = %8, %6
   %43 = getelementptr inbounds i8, ptr %.val, i64 36
   %44 = load i32, ptr %43, align 4
   %45 = icmp slt i32 %44, 0
-  %.not217220 = icmp eq ptr %.val, null
-  %.not217 = or i1 %45, %.not217220
-  br i1 %.not217, label %._crit_edge, label %.lr.ph219
+  %.not216219 = icmp eq ptr %.val, null
+  %.not216 = or i1 %45, %.not216219
+  br i1 %.not216, label %._crit_edge, label %.lr.ph218
 
-.lr.ph219:                                        ; preds = %Amap_LibertyItem.exit
+.lr.ph218:                                        ; preds = %Amap_LibertyItem.exit
   %46 = zext nneg i32 %44 to i64
   %47 = getelementptr inbounds %struct.Amap_Item_t_, ptr %.val, i64 %46
   %.not109 = icmp eq i32 %2, 0
   br label %48
 
-48:                                               ; preds = %.lr.ph219, %Amap_LibertyItem.exit185
-  %.095218 = phi ptr [ %47, %.lr.ph219 ], [ %279, %Amap_LibertyItem.exit185 ]
-  %49 = getelementptr inbounds i8, ptr %.095218, i64 8
+48:                                               ; preds = %.lr.ph218, %Amap_LibertyItem.exit185
+  %.095217 = phi ptr [ %47, %.lr.ph218 ], [ %276, %Amap_LibertyItem.exit185 ]
+  %49 = getelementptr inbounds i8, ptr %.095217, i64 8
   %50 = load i64, ptr %49, align 4
   %.val118 = load ptr, ptr %23, align 8
   %sext.i121 = shl i64 %50, 32
@@ -1061,10 +1061,10 @@ Amap_LibertyItem.exit:                            ; preds = %8, %6
   %53 = ashr i64 %.sroa.3.0.extract.shift4.i, 32
   %54 = call i32 @strncmp(ptr noundef readonly %52, ptr noundef nonnull readonly @.str.28, i64 noundef %53) #24
   %.not101 = icmp eq i32 %54, 0
-  br i1 %.not101, label %55, label %273
+  br i1 %.not101, label %55, label %270
 
 55:                                               ; preds = %48
-  %56 = getelementptr inbounds i8, ptr %.095218, i64 36
+  %56 = getelementptr inbounds i8, ptr %.095217, i64 36
   %57 = load i32, ptr %56, align 4
   %58 = icmp slt i32 %57, 0
   br i1 %58, label %Amap_LibertyCellCountOutputs.exit.thread, label %Amap_LibertyItem.exit.i
@@ -1101,10 +1101,10 @@ Amap_LibertyItem.exit.i:                          ; preds = %55
   br i1 %71, label %.lr.ph.i126, label %.lr.ph.i, !llvm.loop !7
 
 Amap_LibertyCellIsFlop.exit:                      ; preds = %66, %.lr.ph.i
-  br i1 %.not109, label %273, label %72
+  br i1 %.not109, label %270, label %72
 
 72:                                               ; preds = %Amap_LibertyCellIsFlop.exit
-  %73 = getelementptr inbounds i8, ptr %.095218, i64 16
+  %73 = getelementptr inbounds i8, ptr %.095217, i64 16
   %74 = load i64, ptr %73, align 4
   %sext.i122 = shl i64 %74, 32
   %75 = ashr exact i64 %sext.i122, 32
@@ -1115,7 +1115,7 @@ Amap_LibertyCellIsFlop.exit:                      ; preds = %66, %.lr.ph.i
   %79 = getelementptr inbounds [5000 x i8], ptr @Amap_LibertyGetString.Buffer, i64 0, i64 %77
   store i8 0, ptr %79, align 1
   %80 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.29, ptr noundef nonnull @Amap_LibertyGetString.Buffer)
-  br label %273
+  br label %270
 
 .lr.ph.i126:                                      ; preds = %68, %87
   %.pn200.in = phi i32 [ %89, %87 ], [ %57, %68 ]
@@ -1139,10 +1139,10 @@ Amap_LibertyCellIsFlop.exit:                      ; preds = %66, %.lr.ph.i
   br i1 %90, label %.lr.ph.i134, label %.lr.ph.i126, !llvm.loop !8
 
 Amap_LibertyCellIsDontUse.exit:                   ; preds = %.lr.ph.i126
-  br i1 %.not109, label %273, label %91
+  br i1 %.not109, label %270, label %91
 
 91:                                               ; preds = %Amap_LibertyCellIsDontUse.exit
-  %92 = getelementptr inbounds i8, ptr %.095218, i64 16
+  %92 = getelementptr inbounds i8, ptr %.095217, i64 16
   %93 = load i64, ptr %92, align 4
   %sext.i131 = shl i64 %93, 32
   %94 = ashr exact i64 %sext.i131, 32
@@ -1153,7 +1153,7 @@ Amap_LibertyCellIsDontUse.exit:                   ; preds = %.lr.ph.i126
   %98 = getelementptr inbounds [5000 x i8], ptr @Amap_LibertyGetString.Buffer, i64 0, i64 %96
   store i8 0, ptr %98, align 1
   %99 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, ptr noundef nonnull @Amap_LibertyGetString.Buffer)
-  br label %273
+  br label %270
 
 .lr.ph.i134:                                      ; preds = %87, %120
   %.016.i = phi i32 [ %.1.i, %120 ], [ 0, %87 ]
@@ -1215,10 +1215,10 @@ Amap_LibertyCellCountOutputs.exit:                ; preds = %120
   br i1 %124, label %Amap_LibertyCellCountOutputs.exit.thread, label %.lr.ph.i143
 
 Amap_LibertyCellCountOutputs.exit.thread:         ; preds = %Amap_LibertyItem.exit.i, %55, %Amap_LibertyCellCountOutputs.exit
-  br i1 %.not109, label %273, label %125
+  br i1 %.not109, label %270, label %125
 
 125:                                              ; preds = %Amap_LibertyCellCountOutputs.exit.thread
-  %126 = getelementptr inbounds i8, ptr %.095218, i64 16
+  %126 = getelementptr inbounds i8, ptr %.095217, i64 16
   %127 = load i64, ptr %126, align 4
   %sext.i140 = shl i64 %127, 32
   %128 = ashr exact i64 %sext.i140, 32
@@ -1229,7 +1229,7 @@ Amap_LibertyCellCountOutputs.exit.thread:         ; preds = %Amap_LibertyItem.ex
   %132 = getelementptr inbounds [5000 x i8], ptr @Amap_LibertyGetString.Buffer, i64 0, i64 %130
   store i8 0, ptr %132, align 1
   %133 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.31, ptr noundef nonnull @Amap_LibertyGetString.Buffer)
-  br label %273
+  br label %270
 
 .lr.ph.i143:                                      ; preds = %Amap_LibertyCellCountOutputs.exit, %140
   %.pn202.in = phi i32 [ %142, %140 ], [ %57, %Amap_LibertyCellCountOutputs.exit ]
@@ -1253,10 +1253,10 @@ Amap_LibertyCellCountOutputs.exit.thread:         ; preds = %Amap_LibertyItem.ex
   br i1 %143, label %.loopexit204, label %.lr.ph.i143, !llvm.loop !12
 
 .loopexit204:                                     ; preds = %140
-  br i1 %.not109, label %273, label %144
+  br i1 %.not109, label %270, label %144
 
 144:                                              ; preds = %.loopexit204
-  %145 = getelementptr inbounds i8, ptr %.095218, i64 16
+  %145 = getelementptr inbounds i8, ptr %.095217, i64 16
   %146 = load i64, ptr %145, align 4
   %sext.i150 = shl i64 %146, 32
   %147 = ashr exact i64 %sext.i150, 32
@@ -1267,10 +1267,10 @@ Amap_LibertyCellCountOutputs.exit.thread:         ; preds = %Amap_LibertyItem.ex
   %151 = getelementptr inbounds [5000 x i8], ptr @Amap_LibertyGetString.Buffer, i64 0, i64 %149
   store i8 0, ptr %151, align 1
   %152 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.32, ptr noundef nonnull @Amap_LibertyGetString.Buffer)
-  br label %273
+  br label %270
 
 Amap_LibertyCellArea.exit:                        ; preds = %.lr.ph.i143
-  %153 = call ptr @Amap_LibertyCellOutputs(ptr noundef nonnull %0, ptr noundef nonnull %.095218)
+  %153 = call ptr @Amap_LibertyCellOutputs(ptr noundef nonnull %0, ptr noundef nonnull %.095217)
   %154 = getelementptr i8, ptr %153, i64 4
   %.val119 = load i32, ptr %154, align 4
   %155 = icmp sgt i32 %.val119, 0
@@ -1279,7 +1279,7 @@ Amap_LibertyCellArea.exit:                        ; preds = %.lr.ph.i143
   br i1 %155, label %Amap_LibertyItem.exit.i152.lr.ph, label %.critedge
 
 Amap_LibertyItem.exit.i152.lr.ph:                 ; preds = %Amap_LibertyCellArea.exit
-  %157 = getelementptr inbounds i8, ptr %.095218, i64 16
+  %157 = getelementptr inbounds i8, ptr %.095217, i64 16
   %158 = getelementptr inbounds i8, ptr %.013.i, i64 16
   %wide.trip.count.i = zext nneg i32 %.val119 to i64
   br label %Amap_LibertyItem.exit.i152
@@ -1294,20 +1294,20 @@ Amap_LibertyItem.exit.i152:                       ; preds = %Amap_LibertyItem.ex
   call void @llvm.assume(i1 %163)
   %164 = load ptr, ptr %20, align 8, !nonnull !14, !noundef !14
   %.val.i155 = load ptr, ptr %23, align 8
-  %.pn203207 = zext nneg i32 %162 to i64
-  %165 = getelementptr inbounds %struct.Amap_Item_t_, ptr %164, i64 %.pn203207, i32 2
+  %.pn203206 = zext nneg i32 %162 to i64
+  %165 = getelementptr inbounds %struct.Amap_Item_t_, ptr %164, i64 %.pn203206, i32 2
   %166 = load i64, ptr %165, align 4
-  %sext.i.i157209 = shl i64 %166, 32
-  %167 = ashr exact i64 %sext.i.i157209, 32
+  %sext.i.i157208 = shl i64 %166, 32
+  %167 = ashr exact i64 %sext.i.i157208, 32
   %168 = getelementptr inbounds i8, ptr %.val.i155, i64 %167
-  %.sroa.3.0.extract.shift4.i.i158210 = mul i64 %166, -4294967295
-  %169 = ashr i64 %.sroa.3.0.extract.shift4.i.i158210, 32
+  %.sroa.3.0.extract.shift4.i.i158209 = mul i64 %166, -4294967295
+  %169 = ashr i64 %.sroa.3.0.extract.shift4.i.i158209, 32
   %170 = call i32 @strncmp(ptr noundef readonly %168, ptr noundef nonnull readonly @.str.11, i64 noundef %169) #24
-  %.not10.i159211 = icmp eq i32 %170, 0
-  br i1 %.not10.i159211, label %Amap_LibertyPinFunction.exit, label %Amap_LibertyItem.exit11.i160
+  %.not10.i159210 = icmp eq i32 %170, 0
+  br i1 %.not10.i159210, label %Amap_LibertyPinFunction.exit, label %Amap_LibertyItem.exit11.i160
 
 Amap_LibertyItem.exit11.i160:                     ; preds = %Amap_LibertyItem.exit.i152, %Amap_LibertyItem.exit11.i160
-  %171 = phi i64 [ %.pn203, %Amap_LibertyItem.exit11.i160 ], [ %.pn203207, %Amap_LibertyItem.exit.i152 ]
+  %171 = phi i64 [ %.pn203, %Amap_LibertyItem.exit11.i160 ], [ %.pn203206, %Amap_LibertyItem.exit.i152 ]
   %172 = getelementptr inbounds %struct.Amap_Item_t_, ptr %164, i64 %171, i32 5
   %173 = load i32, ptr %172, align 4
   %174 = icmp sgt i32 %173, -1
@@ -1325,7 +1325,7 @@ Amap_LibertyItem.exit11.i160:                     ; preds = %Amap_LibertyItem.ex
   br i1 %.not10.i159, label %Amap_LibertyPinFunction.exit, label %Amap_LibertyItem.exit11.i160, !llvm.loop !9
 
 Amap_LibertyPinFunction.exit:                     ; preds = %Amap_LibertyItem.exit11.i160, %Amap_LibertyItem.exit.i152
-  %181 = phi i64 [ %.pn203207, %Amap_LibertyItem.exit.i152 ], [ %.pn203, %Amap_LibertyItem.exit11.i160 ]
+  %181 = phi i64 [ %.pn203206, %Amap_LibertyItem.exit.i152 ], [ %.pn203, %Amap_LibertyItem.exit11.i160 ]
   %182 = getelementptr inbounds %struct.Amap_Item_t_, ptr %164, i64 %181, i32 3
   %183 = load i64, ptr %182, align 4
   %sext.i163 = shl i64 %183, 32
@@ -1416,8 +1416,8 @@ Amap_LibertyPinFunction.exit:                     ; preds = %Amap_LibertyItem.ex
 
 Amap_LibertyItem.exit176:                         ; preds = %201
   %240 = load ptr, ptr %20, align 8
-  %.not110213 = icmp eq ptr %240, null
-  br i1 %.not110213, label %.loopexit, label %.lr.ph.preheader
+  %.not110212 = icmp eq ptr %240, null
+  br i1 %.not110212, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %Amap_LibertyItem.exit176
   %241 = zext nneg i32 %238 to i64
@@ -1425,14 +1425,14 @@ Amap_LibertyItem.exit176:                         ; preds = %201
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %Amap_LibertyItem.exit183
-  %.096214 = phi ptr [ %271, %Amap_LibertyItem.exit183 ], [ %242, %.lr.ph.preheader ]
+  %.096213 = phi ptr [ %268, %Amap_LibertyItem.exit183 ], [ %242, %.lr.ph.preheader ]
   br label %243
 
 243:                                              ; preds = %247, %.lr.ph
   %indvars.iv.i = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.i, %247 ]
   %244 = getelementptr inbounds ptr, ptr %.val120, i64 %indvars.iv.i
   %245 = load ptr, ptr %244, align 8
-  %246 = icmp eq ptr %245, %.096214
+  %246 = icmp eq ptr %245, %.096213
   br i1 %246, label %Vec_PtrFind.exit, label %247
 
 247:                                              ; preds = %243
@@ -1440,92 +1440,87 @@ Amap_LibertyItem.exit176:                         ; preds = %201
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %Vec_PtrFind.exit.thread, label %243, !llvm.loop !15
 
-Vec_PtrFind.exit:                                 ; preds = %243
-  %248 = and i64 %indvars.iv.i, 4294967295
-  %249 = icmp eq i64 %248, 4294967295
-  br i1 %249, label %Vec_PtrFind.exit.thread, label %265
-
-Vec_PtrFind.exit.thread:                          ; preds = %247, %Vec_PtrFind.exit
-  %250 = getelementptr inbounds i8, ptr %.096214, i64 8
-  %251 = load i64, ptr %250, align 4
+Vec_PtrFind.exit.thread:                          ; preds = %247
+  %248 = getelementptr inbounds i8, ptr %.096213, i64 8
+  %249 = load i64, ptr %248, align 4
   %.val117 = load ptr, ptr %23, align 8
-  %sext.i179 = shl i64 %251, 32
-  %252 = ashr exact i64 %sext.i179, 32
-  %253 = getelementptr inbounds i8, ptr %.val117, i64 %252
-  %.sroa.3.0.extract.shift4.i180 = mul i64 %251, -4294967295
-  %254 = ashr i64 %.sroa.3.0.extract.shift4.i180, 32
-  %255 = call i32 @strncmp(ptr noundef readonly %253, ptr noundef nonnull readonly @.str.12, i64 noundef %254) #24
-  %.not111 = icmp eq i32 %255, 0
-  br i1 %.not111, label %256, label %265
+  %sext.i179 = shl i64 %249, 32
+  %250 = ashr exact i64 %sext.i179, 32
+  %251 = getelementptr inbounds i8, ptr %.val117, i64 %250
+  %.sroa.3.0.extract.shift4.i180 = mul i64 %249, -4294967295
+  %252 = ashr i64 %.sroa.3.0.extract.shift4.i180, 32
+  %253 = call i32 @strncmp(ptr noundef readonly %251, ptr noundef nonnull readonly @.str.12, i64 noundef %252) #24
+  %.not111 = icmp eq i32 %253, 0
+  br i1 %.not111, label %254, label %Vec_PtrFind.exit
 
-256:                                              ; preds = %Vec_PtrFind.exit.thread
-  %257 = getelementptr inbounds i8, ptr %.096214, i64 16
-  %258 = load i64, ptr %257, align 4
-  %sext.i181 = shl i64 %258, 32
-  %259 = ashr exact i64 %sext.i181, 32
-  %260 = getelementptr inbounds i8, ptr %.val117, i64 %259
-  %.sroa.4.0.extract.shift5.i182 = mul i64 %258, -4294967295
-  %261 = ashr i64 %.sroa.4.0.extract.shift5.i182, 32
-  %262 = call ptr @strncpy(ptr noundef nonnull @Amap_LibertyGetString.Buffer, ptr noundef %260, i64 noundef %261) #23
-  %263 = getelementptr inbounds [5000 x i8], ptr @Amap_LibertyGetString.Buffer, i64 0, i64 %261
-  store i8 0, ptr %263, align 1
-  %264 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.094, ptr noundef nonnull @.str.36, ptr noundef nonnull @Amap_LibertyGetString.Buffer) #23
-  br label %265
+254:                                              ; preds = %Vec_PtrFind.exit.thread
+  %255 = getelementptr inbounds i8, ptr %.096213, i64 16
+  %256 = load i64, ptr %255, align 4
+  %sext.i181 = shl i64 %256, 32
+  %257 = ashr exact i64 %sext.i181, 32
+  %258 = getelementptr inbounds i8, ptr %.val117, i64 %257
+  %.sroa.4.0.extract.shift5.i182 = mul i64 %256, -4294967295
+  %259 = ashr i64 %.sroa.4.0.extract.shift5.i182, 32
+  %260 = call ptr @strncpy(ptr noundef nonnull @Amap_LibertyGetString.Buffer, ptr noundef %258, i64 noundef %259) #23
+  %261 = getelementptr inbounds [5000 x i8], ptr @Amap_LibertyGetString.Buffer, i64 0, i64 %259
+  store i8 0, ptr %261, align 1
+  %262 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.094, ptr noundef nonnull @.str.36, ptr noundef nonnull @Amap_LibertyGetString.Buffer) #23
+  br label %Vec_PtrFind.exit
 
-265:                                              ; preds = %Vec_PtrFind.exit, %Vec_PtrFind.exit.thread, %256
-  %266 = getelementptr inbounds i8, ptr %.096214, i64 32
-  %267 = load i32, ptr %266, align 4
-  %268 = icmp slt i32 %267, 0
-  br i1 %268, label %.loopexit, label %Amap_LibertyItem.exit183
+Vec_PtrFind.exit:                                 ; preds = %243, %Vec_PtrFind.exit.thread, %254
+  %263 = getelementptr inbounds i8, ptr %.096213, i64 32
+  %264 = load i32, ptr %263, align 4
+  %265 = icmp slt i32 %264, 0
+  br i1 %265, label %.loopexit, label %Amap_LibertyItem.exit183
 
-Amap_LibertyItem.exit183:                         ; preds = %265
-  %269 = load ptr, ptr %20, align 8
-  %270 = zext nneg i32 %267 to i64
-  %271 = getelementptr inbounds %struct.Amap_Item_t_, ptr %269, i64 %270
-  %.not110 = icmp eq ptr %269, null
+Amap_LibertyItem.exit183:                         ; preds = %Vec_PtrFind.exit
+  %266 = load ptr, ptr %20, align 8
+  %267 = zext nneg i32 %264 to i64
+  %268 = getelementptr inbounds %struct.Amap_Item_t_, ptr %266, i64 %267
+  %.not110 = icmp eq ptr %266, null
   br i1 %.not110, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
-.loopexit:                                        ; preds = %265, %Amap_LibertyItem.exit183, %201, %Amap_LibertyItem.exit176, %191, %192
+.loopexit:                                        ; preds = %Vec_PtrFind.exit, %Amap_LibertyItem.exit183, %201, %Amap_LibertyItem.exit176, %191, %192
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count.i
   br i1 %exitcond.not, label %.critedge, label %Amap_LibertyItem.exit.i152, !llvm.loop !17
 
 .critedge:                                        ; preds = %.loopexit, %Amap_LibertyCellArea.exit
   %.not.i184 = icmp eq ptr %.val120, null
-  br i1 %.not.i184, label %Vec_PtrFree.exit, label %272
+  br i1 %.not.i184, label %Vec_PtrFree.exit, label %269
 
-272:                                              ; preds = %.critedge
+269:                                              ; preds = %.critedge
   call void @free(ptr noundef nonnull %.val120) #23
   br label %Vec_PtrFree.exit
 
-Vec_PtrFree.exit:                                 ; preds = %.critedge, %272
+Vec_PtrFree.exit:                                 ; preds = %.critedge, %269
   call void @free(ptr noundef nonnull %153) #23
-  br label %273
+  br label %270
 
-273:                                              ; preds = %.loopexit204, %144, %Amap_LibertyCellCountOutputs.exit.thread, %125, %Amap_LibertyCellIsDontUse.exit, %91, %Amap_LibertyCellIsFlop.exit, %72, %48, %Vec_PtrFree.exit
-  %274 = getelementptr inbounds i8, ptr %.095218, i64 32
-  %275 = load i32, ptr %274, align 4
-  %276 = icmp slt i32 %275, 0
-  br i1 %276, label %._crit_edge, label %Amap_LibertyItem.exit185
+270:                                              ; preds = %.loopexit204, %144, %Amap_LibertyCellCountOutputs.exit.thread, %125, %Amap_LibertyCellIsDontUse.exit, %91, %Amap_LibertyCellIsFlop.exit, %72, %48, %Vec_PtrFree.exit
+  %271 = getelementptr inbounds i8, ptr %.095217, i64 32
+  %272 = load i32, ptr %271, align 4
+  %273 = icmp slt i32 %272, 0
+  br i1 %273, label %._crit_edge, label %Amap_LibertyItem.exit185
 
-Amap_LibertyItem.exit185:                         ; preds = %273
-  %277 = load ptr, ptr %20, align 8
-  %278 = zext nneg i32 %275 to i64
-  %279 = getelementptr inbounds %struct.Amap_Item_t_, ptr %277, i64 %278
-  %.not = icmp eq ptr %277, null
+Amap_LibertyItem.exit185:                         ; preds = %270
+  %274 = load ptr, ptr %20, align 8
+  %275 = zext nneg i32 %272 to i64
+  %276 = getelementptr inbounds %struct.Amap_Item_t_, ptr %274, i64 %275
+  %.not = icmp eq ptr %274, null
   br i1 %.not, label %._crit_edge, label %48, !llvm.loop !18
 
-._crit_edge:                                      ; preds = %273, %Amap_LibertyItem.exit185, %Amap_LibertyItem.exit
-  %280 = load ptr, ptr @stdout, align 8
-  %.not100 = icmp eq ptr %.094, %280
-  br i1 %.not100, label %283, label %281
+._crit_edge:                                      ; preds = %270, %Amap_LibertyItem.exit185, %Amap_LibertyItem.exit
+  %277 = load ptr, ptr @stdout, align 8
+  %.not100 = icmp eq ptr %.094, %277
+  br i1 %.not100, label %280, label %278
 
-281:                                              ; preds = %._crit_edge
-  %282 = call i32 @fclose(ptr noundef %.094)
-  br label %283
+278:                                              ; preds = %._crit_edge
+  %279 = call i32 @fclose(ptr noundef %.094)
+  br label %280
 
-283:                                              ; preds = %._crit_edge, %281, %11
-  %.0 = phi i32 [ 0, %11 ], [ 1, %281 ], [ 1, %._crit_edge ]
+280:                                              ; preds = %._crit_edge, %278, %11
+  %.0 = phi i32 [ 0, %11 ], [ 1, %278 ], [ 1, %._crit_edge ]
   ret i32 %.0
 }
 
@@ -1550,20 +1545,20 @@ Amap_LibertyItem.exit:
   %8 = getelementptr inbounds i8, ptr %.val, i64 36
   %9 = load i32, ptr %8, align 4
   %10 = icmp slt i32 %9, 0
-  %.not198201 = icmp eq ptr %.val, null
-  %.not198 = or i1 %10, %.not198201
-  br i1 %.not198, label %._crit_edge, label %.lr.ph200
+  %.not197200 = icmp eq ptr %.val, null
+  %.not197 = or i1 %10, %.not197200
+  br i1 %.not197, label %._crit_edge, label %.lr.ph199
 
-.lr.ph200:                                        ; preds = %Amap_LibertyItem.exit
+.lr.ph199:                                        ; preds = %Amap_LibertyItem.exit
   %11 = zext nneg i32 %9 to i64
   %12 = getelementptr inbounds %struct.Amap_Item_t_, ptr %.val, i64 %11
   %13 = getelementptr i8, ptr %0, i64 8
   %.not93 = icmp eq i32 %1, 0
   br label %14
 
-14:                                               ; preds = %.lr.ph200, %Amap_LibertyItem.exit166
-  %.0199 = phi ptr [ %12, %.lr.ph200 ], [ %241, %Amap_LibertyItem.exit166 ]
-  %15 = getelementptr inbounds i8, ptr %.0199, i64 8
+14:                                               ; preds = %.lr.ph199, %Amap_LibertyItem.exit166
+  %.0198 = phi ptr [ %12, %.lr.ph199 ], [ %238, %Amap_LibertyItem.exit166 ]
+  %15 = getelementptr inbounds i8, ptr %.0198, i64 8
   %16 = load i64, ptr %15, align 4
   %.val101 = load ptr, ptr %13, align 8
   %sext.i = shl i64 %16, 32
@@ -1573,10 +1568,10 @@ Amap_LibertyItem.exit:
   %19 = ashr i64 %.sroa.3.0.extract.shift4.i, 32
   %20 = tail call i32 @strncmp(ptr noundef readonly %18, ptr noundef nonnull readonly @.str.28, i64 noundef %19) #24
   %.not85 = icmp eq i32 %20, 0
-  br i1 %.not85, label %21, label %235
+  br i1 %.not85, label %21, label %232
 
 21:                                               ; preds = %14
-  %22 = getelementptr inbounds i8, ptr %.0199, i64 36
+  %22 = getelementptr inbounds i8, ptr %.0198, i64 36
   %23 = load i32, ptr %22, align 4
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %Amap_LibertyCellCountOutputs.exit.thread, label %Amap_LibertyItem.exit.i
@@ -1613,10 +1608,10 @@ Amap_LibertyItem.exit.i:                          ; preds = %21
   br i1 %37, label %.lr.ph.i107, label %.lr.ph.i, !llvm.loop !7
 
 Amap_LibertyCellIsFlop.exit:                      ; preds = %32, %.lr.ph.i
-  br i1 %.not93, label %235, label %38
+  br i1 %.not93, label %232, label %38
 
 38:                                               ; preds = %Amap_LibertyCellIsFlop.exit
-  %39 = getelementptr inbounds i8, ptr %.0199, i64 16
+  %39 = getelementptr inbounds i8, ptr %.0198, i64 16
   %40 = load i64, ptr %39, align 4
   %sext.i104 = shl i64 %40, 32
   %41 = ashr exact i64 %sext.i104, 32
@@ -1627,7 +1622,7 @@ Amap_LibertyCellIsFlop.exit:                      ; preds = %32, %.lr.ph.i
   %45 = getelementptr inbounds [5000 x i8], ptr @Amap_LibertyGetString.Buffer, i64 0, i64 %43
   store i8 0, ptr %45, align 1
   %46 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.29, ptr noundef nonnull @Amap_LibertyGetString.Buffer)
-  br label %235
+  br label %232
 
 .lr.ph.i107:                                      ; preds = %34, %53
   %.pn181.in = phi i32 [ %55, %53 ], [ %23, %34 ]
@@ -1651,10 +1646,10 @@ Amap_LibertyCellIsFlop.exit:                      ; preds = %32, %.lr.ph.i
   br i1 %56, label %.lr.ph.i115, label %.lr.ph.i107, !llvm.loop !8
 
 Amap_LibertyCellIsDontUse.exit:                   ; preds = %.lr.ph.i107
-  br i1 %.not93, label %235, label %57
+  br i1 %.not93, label %232, label %57
 
 57:                                               ; preds = %Amap_LibertyCellIsDontUse.exit
-  %58 = getelementptr inbounds i8, ptr %.0199, i64 16
+  %58 = getelementptr inbounds i8, ptr %.0198, i64 16
   %59 = load i64, ptr %58, align 4
   %sext.i112 = shl i64 %59, 32
   %60 = ashr exact i64 %sext.i112, 32
@@ -1665,7 +1660,7 @@ Amap_LibertyCellIsDontUse.exit:                   ; preds = %.lr.ph.i107
   %64 = getelementptr inbounds [5000 x i8], ptr @Amap_LibertyGetString.Buffer, i64 0, i64 %62
   store i8 0, ptr %64, align 1
   %65 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, ptr noundef nonnull @Amap_LibertyGetString.Buffer)
-  br label %235
+  br label %232
 
 .lr.ph.i115:                                      ; preds = %53, %86
   %.016.i = phi i32 [ %.1.i, %86 ], [ 0, %53 ]
@@ -1727,10 +1722,10 @@ Amap_LibertyCellCountOutputs.exit:                ; preds = %86
   br i1 %90, label %Amap_LibertyCellCountOutputs.exit.thread, label %.lr.ph.i124
 
 Amap_LibertyCellCountOutputs.exit.thread:         ; preds = %Amap_LibertyItem.exit.i, %21, %Amap_LibertyCellCountOutputs.exit
-  br i1 %.not93, label %235, label %91
+  br i1 %.not93, label %232, label %91
 
 91:                                               ; preds = %Amap_LibertyCellCountOutputs.exit.thread
-  %92 = getelementptr inbounds i8, ptr %.0199, i64 16
+  %92 = getelementptr inbounds i8, ptr %.0198, i64 16
   %93 = load i64, ptr %92, align 4
   %sext.i121 = shl i64 %93, 32
   %94 = ashr exact i64 %sext.i121, 32
@@ -1741,7 +1736,7 @@ Amap_LibertyCellCountOutputs.exit.thread:         ; preds = %Amap_LibertyItem.ex
   %98 = getelementptr inbounds [5000 x i8], ptr @Amap_LibertyGetString.Buffer, i64 0, i64 %96
   store i8 0, ptr %98, align 1
   %99 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.31, ptr noundef nonnull @Amap_LibertyGetString.Buffer)
-  br label %235
+  br label %232
 
 .lr.ph.i124:                                      ; preds = %Amap_LibertyCellCountOutputs.exit, %106
   %.pn183.in = phi i32 [ %108, %106 ], [ %23, %Amap_LibertyCellCountOutputs.exit ]
@@ -1765,10 +1760,10 @@ Amap_LibertyCellCountOutputs.exit.thread:         ; preds = %Amap_LibertyItem.ex
   br i1 %109, label %.loopexit185, label %.lr.ph.i124, !llvm.loop !12
 
 .loopexit185:                                     ; preds = %106
-  br i1 %.not93, label %235, label %110
+  br i1 %.not93, label %232, label %110
 
 110:                                              ; preds = %.loopexit185
-  %111 = getelementptr inbounds i8, ptr %.0199, i64 16
+  %111 = getelementptr inbounds i8, ptr %.0198, i64 16
   %112 = load i64, ptr %111, align 4
   %sext.i131 = shl i64 %112, 32
   %113 = ashr exact i64 %sext.i131, 32
@@ -1779,10 +1774,10 @@ Amap_LibertyCellCountOutputs.exit.thread:         ; preds = %Amap_LibertyItem.ex
   %117 = getelementptr inbounds [5000 x i8], ptr @Amap_LibertyGetString.Buffer, i64 0, i64 %115
   store i8 0, ptr %117, align 1
   %118 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.32, ptr noundef nonnull @Amap_LibertyGetString.Buffer)
-  br label %235
+  br label %232
 
 Amap_LibertyCellArea.exit:                        ; preds = %.lr.ph.i124
-  %119 = tail call ptr @Amap_LibertyCellOutputs(ptr noundef %0, ptr noundef nonnull %.0199)
+  %119 = tail call ptr @Amap_LibertyCellOutputs(ptr noundef %0, ptr noundef nonnull %.0198)
   %120 = getelementptr i8, ptr %119, i64 4
   %.val102 = load i32, ptr %120, align 4
   %121 = icmp sgt i32 %.val102, 0
@@ -1791,7 +1786,7 @@ Amap_LibertyCellArea.exit:                        ; preds = %.lr.ph.i124
   br i1 %121, label %Amap_LibertyItem.exit.i133.lr.ph, label %.critedge
 
 Amap_LibertyItem.exit.i133.lr.ph:                 ; preds = %Amap_LibertyCellArea.exit
-  %123 = getelementptr inbounds i8, ptr %.0199, i64 16
+  %123 = getelementptr inbounds i8, ptr %.0198, i64 16
   %124 = getelementptr inbounds i8, ptr %.013.i, i64 16
   %wide.trip.count.i = zext nneg i32 %.val102 to i64
   br label %Amap_LibertyItem.exit.i133
@@ -1806,20 +1801,20 @@ Amap_LibertyItem.exit.i133:                       ; preds = %Amap_LibertyItem.ex
   tail call void @llvm.assume(i1 %129)
   %130 = load ptr, ptr %7, align 8, !nonnull !14, !noundef !14
   %.val.i136 = load ptr, ptr %13, align 8
-  %.pn184188 = zext nneg i32 %128 to i64
-  %131 = getelementptr inbounds %struct.Amap_Item_t_, ptr %130, i64 %.pn184188, i32 2
+  %.pn184187 = zext nneg i32 %128 to i64
+  %131 = getelementptr inbounds %struct.Amap_Item_t_, ptr %130, i64 %.pn184187, i32 2
   %132 = load i64, ptr %131, align 4
-  %sext.i.i138190 = shl i64 %132, 32
-  %133 = ashr exact i64 %sext.i.i138190, 32
+  %sext.i.i138189 = shl i64 %132, 32
+  %133 = ashr exact i64 %sext.i.i138189, 32
   %134 = getelementptr inbounds i8, ptr %.val.i136, i64 %133
-  %.sroa.3.0.extract.shift4.i.i139191 = mul i64 %132, -4294967295
-  %135 = ashr i64 %.sroa.3.0.extract.shift4.i.i139191, 32
+  %.sroa.3.0.extract.shift4.i.i139190 = mul i64 %132, -4294967295
+  %135 = ashr i64 %.sroa.3.0.extract.shift4.i.i139190, 32
   %136 = tail call i32 @strncmp(ptr noundef readonly %134, ptr noundef nonnull readonly @.str.11, i64 noundef %135) #24
-  %.not10.i140192 = icmp eq i32 %136, 0
-  br i1 %.not10.i140192, label %Amap_LibertyPinFunction.exit, label %Amap_LibertyItem.exit11.i141
+  %.not10.i140191 = icmp eq i32 %136, 0
+  br i1 %.not10.i140191, label %Amap_LibertyPinFunction.exit, label %Amap_LibertyItem.exit11.i141
 
 Amap_LibertyItem.exit11.i141:                     ; preds = %Amap_LibertyItem.exit.i133, %Amap_LibertyItem.exit11.i141
-  %137 = phi i64 [ %.pn184, %Amap_LibertyItem.exit11.i141 ], [ %.pn184188, %Amap_LibertyItem.exit.i133 ]
+  %137 = phi i64 [ %.pn184, %Amap_LibertyItem.exit11.i141 ], [ %.pn184187, %Amap_LibertyItem.exit.i133 ]
   %138 = getelementptr inbounds %struct.Amap_Item_t_, ptr %130, i64 %137, i32 5
   %139 = load i32, ptr %138, align 4
   %140 = icmp sgt i32 %139, -1
@@ -1837,7 +1832,7 @@ Amap_LibertyItem.exit11.i141:                     ; preds = %Amap_LibertyItem.ex
   br i1 %.not10.i140, label %Amap_LibertyPinFunction.exit, label %Amap_LibertyItem.exit11.i141, !llvm.loop !9
 
 Amap_LibertyPinFunction.exit:                     ; preds = %Amap_LibertyItem.exit11.i141, %Amap_LibertyItem.exit.i133
-  %147 = phi i64 [ %.pn184188, %Amap_LibertyItem.exit.i133 ], [ %.pn184, %Amap_LibertyItem.exit11.i141 ]
+  %147 = phi i64 [ %.pn184187, %Amap_LibertyItem.exit.i133 ], [ %.pn184, %Amap_LibertyItem.exit11.i141 ]
   %148 = getelementptr inbounds %struct.Amap_Item_t_, ptr %130, i64 %147, i32 3
   %149 = load i64, ptr %148, align 4
   %sext.i144 = shl i64 %149, 32
@@ -1933,8 +1928,8 @@ Amap_LibertyPinFunction.exit:                     ; preds = %Amap_LibertyItem.ex
 
 Amap_LibertyItem.exit157:                         ; preds = %167
   %202 = load ptr, ptr %7, align 8
-  %.not94194 = icmp eq ptr %202, null
-  br i1 %.not94194, label %.loopexit, label %.lr.ph.preheader
+  %.not94193 = icmp eq ptr %202, null
+  br i1 %.not94193, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %Amap_LibertyItem.exit157
   %203 = zext nneg i32 %200 to i64
@@ -1942,14 +1937,14 @@ Amap_LibertyItem.exit157:                         ; preds = %167
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %Amap_LibertyItem.exit164
-  %.082195 = phi ptr [ %233, %Amap_LibertyItem.exit164 ], [ %204, %.lr.ph.preheader ]
+  %.082194 = phi ptr [ %230, %Amap_LibertyItem.exit164 ], [ %204, %.lr.ph.preheader ]
   br label %205
 
 205:                                              ; preds = %209, %.lr.ph
   %indvars.iv.i = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.i, %209 ]
   %206 = getelementptr inbounds ptr, ptr %.val103, i64 %indvars.iv.i
   %207 = load ptr, ptr %206, align 8
-  %208 = icmp eq ptr %207, %.082195
+  %208 = icmp eq ptr %207, %.082194
   br i1 %208, label %Vec_PtrFind.exit, label %209
 
 209:                                              ; preds = %205
@@ -1957,146 +1952,141 @@ Amap_LibertyItem.exit157:                         ; preds = %167
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %Vec_PtrFind.exit.thread, label %205, !llvm.loop !15
 
-Vec_PtrFind.exit:                                 ; preds = %205
-  %210 = and i64 %indvars.iv.i, 4294967295
-  %211 = icmp eq i64 %210, 4294967295
-  br i1 %211, label %Vec_PtrFind.exit.thread, label %227
-
-Vec_PtrFind.exit.thread:                          ; preds = %209, %Vec_PtrFind.exit
-  %212 = getelementptr inbounds i8, ptr %.082195, i64 8
-  %213 = load i64, ptr %212, align 4
+Vec_PtrFind.exit.thread:                          ; preds = %209
+  %210 = getelementptr inbounds i8, ptr %.082194, i64 8
+  %211 = load i64, ptr %210, align 4
   %.val100 = load ptr, ptr %13, align 8
-  %sext.i160 = shl i64 %213, 32
-  %214 = ashr exact i64 %sext.i160, 32
-  %215 = getelementptr inbounds i8, ptr %.val100, i64 %214
-  %.sroa.3.0.extract.shift4.i161 = mul i64 %213, -4294967295
-  %216 = ashr i64 %.sroa.3.0.extract.shift4.i161, 32
-  %217 = tail call i32 @strncmp(ptr noundef readonly %215, ptr noundef nonnull readonly @.str.12, i64 noundef %216) #24
-  %.not95 = icmp eq i32 %217, 0
-  br i1 %.not95, label %218, label %227
+  %sext.i160 = shl i64 %211, 32
+  %212 = ashr exact i64 %sext.i160, 32
+  %213 = getelementptr inbounds i8, ptr %.val100, i64 %212
+  %.sroa.3.0.extract.shift4.i161 = mul i64 %211, -4294967295
+  %214 = ashr i64 %.sroa.3.0.extract.shift4.i161, 32
+  %215 = tail call i32 @strncmp(ptr noundef readonly %213, ptr noundef nonnull readonly @.str.12, i64 noundef %214) #24
+  %.not95 = icmp eq i32 %215, 0
+  br i1 %.not95, label %216, label %Vec_PtrFind.exit
 
-218:                                              ; preds = %Vec_PtrFind.exit.thread
+216:                                              ; preds = %Vec_PtrFind.exit.thread
   tail call fastcc void @Vec_StrPrintStr(ptr noundef %3, ptr noundef nonnull @.str.43)
-  %219 = getelementptr inbounds i8, ptr %.082195, i64 16
-  %220 = load i64, ptr %219, align 4
-  %221 = load ptr, ptr %13, align 8
-  %sext.i162 = shl i64 %220, 32
-  %222 = ashr exact i64 %sext.i162, 32
-  %223 = getelementptr inbounds i8, ptr %221, i64 %222
-  %.sroa.4.0.extract.shift5.i163 = mul i64 %220, -4294967295
-  %224 = ashr i64 %.sroa.4.0.extract.shift5.i163, 32
-  %225 = tail call ptr @strncpy(ptr noundef nonnull @Amap_LibertyGetString.Buffer, ptr noundef %223, i64 noundef %224) #23
-  %226 = getelementptr inbounds [5000 x i8], ptr @Amap_LibertyGetString.Buffer, i64 0, i64 %224
-  store i8 0, ptr %226, align 1
+  %217 = getelementptr inbounds i8, ptr %.082194, i64 16
+  %218 = load i64, ptr %217, align 4
+  %219 = load ptr, ptr %13, align 8
+  %sext.i162 = shl i64 %218, 32
+  %220 = ashr exact i64 %sext.i162, 32
+  %221 = getelementptr inbounds i8, ptr %219, i64 %220
+  %.sroa.4.0.extract.shift5.i163 = mul i64 %218, -4294967295
+  %222 = ashr i64 %.sroa.4.0.extract.shift5.i163, 32
+  %223 = tail call ptr @strncpy(ptr noundef nonnull @Amap_LibertyGetString.Buffer, ptr noundef %221, i64 noundef %222) #23
+  %224 = getelementptr inbounds [5000 x i8], ptr @Amap_LibertyGetString.Buffer, i64 0, i64 %222
+  store i8 0, ptr %224, align 1
   tail call fastcc void @Vec_StrPrintStr(ptr noundef %3, ptr noundef nonnull @Amap_LibertyGetString.Buffer)
   tail call fastcc void @Vec_StrPrintStr(ptr noundef %3, ptr noundef nonnull @.str.44)
-  br label %227
+  br label %Vec_PtrFind.exit
 
-227:                                              ; preds = %Vec_PtrFind.exit, %Vec_PtrFind.exit.thread, %218
-  %228 = getelementptr inbounds i8, ptr %.082195, i64 32
-  %229 = load i32, ptr %228, align 4
-  %230 = icmp slt i32 %229, 0
-  br i1 %230, label %.loopexit, label %Amap_LibertyItem.exit164
+Vec_PtrFind.exit:                                 ; preds = %205, %Vec_PtrFind.exit.thread, %216
+  %225 = getelementptr inbounds i8, ptr %.082194, i64 32
+  %226 = load i32, ptr %225, align 4
+  %227 = icmp slt i32 %226, 0
+  br i1 %227, label %.loopexit, label %Amap_LibertyItem.exit164
 
-Amap_LibertyItem.exit164:                         ; preds = %227
-  %231 = load ptr, ptr %7, align 8
-  %232 = zext nneg i32 %229 to i64
-  %233 = getelementptr inbounds %struct.Amap_Item_t_, ptr %231, i64 %232
-  %.not94 = icmp eq ptr %231, null
+Amap_LibertyItem.exit164:                         ; preds = %Vec_PtrFind.exit
+  %228 = load ptr, ptr %7, align 8
+  %229 = zext nneg i32 %226 to i64
+  %230 = getelementptr inbounds %struct.Amap_Item_t_, ptr %228, i64 %229
+  %.not94 = icmp eq ptr %228, null
   br i1 %.not94, label %.loopexit, label %.lr.ph, !llvm.loop !19
 
-.loopexit:                                        ; preds = %227, %Amap_LibertyItem.exit164, %167, %Amap_LibertyItem.exit157, %157, %158
+.loopexit:                                        ; preds = %Vec_PtrFind.exit, %Amap_LibertyItem.exit164, %167, %Amap_LibertyItem.exit157, %157, %158
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count.i
   br i1 %exitcond.not, label %.critedge, label %Amap_LibertyItem.exit.i133, !llvm.loop !20
 
 .critedge:                                        ; preds = %.loopexit, %Amap_LibertyCellArea.exit
   %.not.i165 = icmp eq ptr %.val103, null
-  br i1 %.not.i165, label %Vec_PtrFree.exit, label %234
+  br i1 %.not.i165, label %Vec_PtrFree.exit, label %231
 
-234:                                              ; preds = %.critedge
+231:                                              ; preds = %.critedge
   tail call void @free(ptr noundef nonnull %.val103) #23
   br label %Vec_PtrFree.exit
 
-Vec_PtrFree.exit:                                 ; preds = %.critedge, %234
+Vec_PtrFree.exit:                                 ; preds = %.critedge, %231
   tail call void @free(ptr noundef nonnull %119) #23
-  br label %235
+  br label %232
 
-235:                                              ; preds = %.loopexit185, %110, %Amap_LibertyCellCountOutputs.exit.thread, %91, %Amap_LibertyCellIsDontUse.exit, %57, %Amap_LibertyCellIsFlop.exit, %38, %14, %Vec_PtrFree.exit
-  %236 = getelementptr inbounds i8, ptr %.0199, i64 32
-  %237 = load i32, ptr %236, align 4
-  %238 = icmp slt i32 %237, 0
-  br i1 %238, label %._crit_edge, label %Amap_LibertyItem.exit166
+232:                                              ; preds = %.loopexit185, %110, %Amap_LibertyCellCountOutputs.exit.thread, %91, %Amap_LibertyCellIsDontUse.exit, %57, %Amap_LibertyCellIsFlop.exit, %38, %14, %Vec_PtrFree.exit
+  %233 = getelementptr inbounds i8, ptr %.0198, i64 32
+  %234 = load i32, ptr %233, align 4
+  %235 = icmp slt i32 %234, 0
+  br i1 %235, label %._crit_edge, label %Amap_LibertyItem.exit166
 
-Amap_LibertyItem.exit166:                         ; preds = %235
-  %239 = load ptr, ptr %7, align 8
-  %240 = zext nneg i32 %237 to i64
-  %241 = getelementptr inbounds %struct.Amap_Item_t_, ptr %239, i64 %240
-  %.not = icmp eq ptr %239, null
+Amap_LibertyItem.exit166:                         ; preds = %232
+  %236 = load ptr, ptr %7, align 8
+  %237 = zext nneg i32 %234 to i64
+  %238 = getelementptr inbounds %struct.Amap_Item_t_, ptr %236, i64 %237
+  %.not = icmp eq ptr %236, null
   br i1 %.not, label %._crit_edge, label %14, !llvm.loop !21
 
-._crit_edge:                                      ; preds = %235, %Amap_LibertyItem.exit166, %Amap_LibertyItem.exit
+._crit_edge:                                      ; preds = %232, %Amap_LibertyItem.exit166, %Amap_LibertyItem.exit
   tail call fastcc void @Vec_StrPrintStr(ptr noundef %3, ptr noundef nonnull @.str.45)
-  %242 = load i32, ptr %4, align 4
-  %243 = load i32, ptr %3, align 8
-  %244 = icmp eq i32 %242, %243
-  br i1 %244, label %245, label %.Vec_StrGrow.exit10_crit_edge.i
+  %239 = load i32, ptr %4, align 4
+  %240 = load i32, ptr %3, align 8
+  %241 = icmp eq i32 %239, %240
+  br i1 %241, label %242, label %.Vec_StrGrow.exit10_crit_edge.i
 
 .Vec_StrGrow.exit10_crit_edge.i:                  ; preds = %._crit_edge
   %.pre.i = load ptr, ptr %6, align 8
   br label %Vec_StrPush.exit
 
-245:                                              ; preds = %._crit_edge
-  %246 = icmp slt i32 %242, 16
-  br i1 %246, label %247, label %254
+242:                                              ; preds = %._crit_edge
+  %243 = icmp slt i32 %239, 16
+  br i1 %243, label %244, label %251
 
-247:                                              ; preds = %245
-  %248 = load ptr, ptr %6, align 8
-  %.not9.i.i = icmp eq ptr %248, null
-  br i1 %.not9.i.i, label %251, label %249
+244:                                              ; preds = %242
+  %245 = load ptr, ptr %6, align 8
+  %.not9.i.i = icmp eq ptr %245, null
+  br i1 %.not9.i.i, label %248, label %246
 
-249:                                              ; preds = %247
-  %250 = tail call dereferenceable_or_null(16) ptr @realloc(ptr noundef nonnull %248, i64 noundef 16) #26
+246:                                              ; preds = %244
+  %247 = tail call dereferenceable_or_null(16) ptr @realloc(ptr noundef nonnull %245, i64 noundef 16) #26
   br label %Vec_StrGrow.exit.i
 
-251:                                              ; preds = %247
-  %252 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #25
+248:                                              ; preds = %244
+  %249 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #25
   br label %Vec_StrGrow.exit.i
 
-Vec_StrGrow.exit.i:                               ; preds = %251, %249
-  %253 = phi ptr [ %250, %249 ], [ %252, %251 ]
-  store ptr %253, ptr %6, align 8
+Vec_StrGrow.exit.i:                               ; preds = %248, %246
+  %250 = phi ptr [ %247, %246 ], [ %249, %248 ]
+  store ptr %250, ptr %6, align 8
   store i32 16, ptr %3, align 8
   br label %Vec_StrPush.exit
 
-254:                                              ; preds = %245
-  %255 = shl nuw nsw i32 %242, 1
-  %256 = load ptr, ptr %6, align 8
-  %.not9.i9.i = icmp eq ptr %256, null
-  %257 = zext nneg i32 %255 to i64
-  br i1 %.not9.i9.i, label %260, label %258
+251:                                              ; preds = %242
+  %252 = shl nuw nsw i32 %239, 1
+  %253 = load ptr, ptr %6, align 8
+  %.not9.i9.i = icmp eq ptr %253, null
+  %254 = zext nneg i32 %252 to i64
+  br i1 %.not9.i9.i, label %257, label %255
 
-258:                                              ; preds = %254
-  %259 = tail call ptr @realloc(ptr noundef nonnull %256, i64 noundef %257) #26
-  br label %262
+255:                                              ; preds = %251
+  %256 = tail call ptr @realloc(ptr noundef nonnull %253, i64 noundef %254) #26
+  br label %259
 
-260:                                              ; preds = %254
-  %261 = tail call noalias ptr @malloc(i64 noundef %257) #25
-  br label %262
+257:                                              ; preds = %251
+  %258 = tail call noalias ptr @malloc(i64 noundef %254) #25
+  br label %259
 
-262:                                              ; preds = %260, %258
-  %263 = phi ptr [ %259, %258 ], [ %261, %260 ]
-  store ptr %263, ptr %6, align 8
-  store i32 %255, ptr %3, align 8
+259:                                              ; preds = %257, %255
+  %260 = phi ptr [ %256, %255 ], [ %258, %257 ]
+  store ptr %260, ptr %6, align 8
+  store i32 %252, ptr %3, align 8
   br label %Vec_StrPush.exit
 
-Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10_crit_edge.i, %Vec_StrGrow.exit.i, %262
-  %264 = phi ptr [ %.pre.i, %.Vec_StrGrow.exit10_crit_edge.i ], [ %263, %262 ], [ %253, %Vec_StrGrow.exit.i ]
-  %265 = add nsw i32 %242, 1
-  store i32 %265, ptr %4, align 4
-  %266 = sext i32 %242 to i64
-  %267 = getelementptr inbounds i8, ptr %264, i64 %266
-  store i8 0, ptr %267, align 1
+Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10_crit_edge.i, %Vec_StrGrow.exit.i, %259
+  %261 = phi ptr [ %.pre.i, %.Vec_StrGrow.exit10_crit_edge.i ], [ %260, %259 ], [ %250, %Vec_StrGrow.exit.i ]
+  %262 = add nsw i32 %239, 1
+  store i32 %262, ptr %4, align 4
+  %263 = sext i32 %239 to i64
+  %264 = getelementptr inbounds i8, ptr %261, i64 %263
+  store i8 0, ptr %264, align 1
   ret ptr %3
 }
 

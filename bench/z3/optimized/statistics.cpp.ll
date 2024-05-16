@@ -2610,7 +2610,7 @@ _ZN10statistics6updateEPKcd.exit25:               ; preds = %_ZN10statistics6upd
 
 if.then.i27:                                      ; preds = %_ZN10statistics6updateEPKcd.exit25
   %conv.i = trunc nuw i64 %call7 to i32
-  %cmp.not.i.i = icmp eq i32 %conv.i, 0
+  %cmp.not.i.i = icmp eq i64 %call7, 0
   br i1 %cmp.not.i.i, label %_ZL16get_uint64_statsR10statisticsPKcy.exit, label %if.then.i.i28
 
 if.then.i.i28:                                    ; preds = %if.then.i27
@@ -2703,7 +2703,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %conv.i = trunc nuw i64 %call to i32
-  %cmp.not.i.i = icmp eq i32 %conv.i, 0
+  %cmp.not.i.i = icmp eq i64 %call, 0
   br i1 %cmp.not.i.i, label %_ZL16get_uint64_statsR10statisticsPKcy.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i

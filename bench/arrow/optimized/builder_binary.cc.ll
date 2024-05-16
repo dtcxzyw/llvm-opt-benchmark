@@ -463,7 +463,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   br i1 %exitcond48.not.i, label %if.end29.i.loopexit, label %for.body.i, !llvm.loop !4
 
 if.else.i:                                        ; preds = %while.body.i
-  %cmp.i14.i = icmp eq i16 %block.sroa.6.0.extract.trunc.i, 0
+  %cmp.i14.i = icmp ult i32 %call.i, 65536
   %conv9.i = sext i16 %block.sroa.0.0.extract.trunc.i to i64
   br i1 %cmp.i14.i, label %for.cond7.preheader.i, label %for.cond17.preheader.i
 

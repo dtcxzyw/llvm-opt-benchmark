@@ -1681,16 +1681,11 @@ for.end144.thread366:                             ; preds = %for.inc142
   br i1 %cmp3.i.not, label %for.end177, label %_ZNK6aiMesh15HasVertexColorsEj.exit.preheader
 
 for.end144:                                       ; preds = %_ZNK6aiMesh16HasTextureCoordsEj.exit
-  %56 = and i64 %indvars.iv315, 4294967288
-  %cmp146261 = icmp eq i64 %56, 0
+  %cmp146261 = icmp ult i64 %indvars.iv315, 8
   br i1 %cmp146261, label %_ZNK6aiMesh16HasTextureCoordsEj.exit145.lr.ph, label %for.cond157.preheader
 
 _ZNK6aiMesh16HasTextureCoordsEj.exit145.lr.ph:    ; preds = %for.end144
-  br i1 %cmp3.i.not, label %for.end177, label %_ZNK6aiMesh16HasTextureCoordsEj.exit145.preheader
-
-_ZNK6aiMesh16HasTextureCoordsEj.exit145.preheader: ; preds = %_ZNK6aiMesh16HasTextureCoordsEj.exit145.lr.ph
-  %57 = and i64 %indvars.iv315, 7
-  br label %_ZNK6aiMesh16HasTextureCoordsEj.exit145
+  br i1 %cmp3.i.not, label %for.end177, label %_ZNK6aiMesh16HasTextureCoordsEj.exit145
 
 for.cond157.preheader:                            ; preds = %for.inc153, %for.end144
   br i1 %cmp3.i.not, label %for.end177, label %_ZNK6aiMesh15HasVertexColorsEj.exit.preheader
@@ -1699,15 +1694,15 @@ _ZNK6aiMesh15HasVertexColorsEj.exit.preheader:    ; preds = %for.end144.thread36
   %mColors.i387 = getelementptr inbounds i8, ptr %pMesh, i64 48
   br label %_ZNK6aiMesh15HasVertexColorsEj.exit
 
-_ZNK6aiMesh16HasTextureCoordsEj.exit145:          ; preds = %_ZNK6aiMesh16HasTextureCoordsEj.exit145.preheader, %for.inc153
-  %indvars.iv319 = phi i64 [ %57, %_ZNK6aiMesh16HasTextureCoordsEj.exit145.preheader ], [ %indvars.iv.next320, %for.inc153 ]
+_ZNK6aiMesh16HasTextureCoordsEj.exit145:          ; preds = %_ZNK6aiMesh16HasTextureCoordsEj.exit145.lr.ph, %for.inc153
+  %indvars.iv319 = phi i64 [ %indvars.iv.next320, %for.inc153 ], [ %indvars.iv315, %_ZNK6aiMesh16HasTextureCoordsEj.exit145.lr.ph ]
   %arrayidx.i140 = getelementptr inbounds [8 x ptr], ptr %mTextureCoords.i, i64 0, i64 %indvars.iv319
-  %58 = load ptr, ptr %arrayidx.i140, align 8
-  %cmp2.not.i141.not = icmp eq ptr %58, null
+  %56 = load ptr, ptr %arrayidx.i140, align 8
+  %cmp2.not.i141.not = icmp eq ptr %56, null
   br i1 %cmp2.not.i141.not, label %for.inc153, label %if.then150
 
 if.then150:                                       ; preds = %_ZNK6aiMesh16HasTextureCoordsEj.exit145
-  %59 = trunc nuw nsw i64 %indvars.iv319 to i32
+  %57 = trunc nuw nsw i64 %indvars.iv319 to i32
   br label %if.then181.invoke
 
 for.inc153:                                       ; preds = %_ZNK6aiMesh16HasTextureCoordsEj.exit145
@@ -1718,8 +1713,8 @@ for.inc153:                                       ; preds = %_ZNK6aiMesh16HasTex
 _ZNK6aiMesh15HasVertexColorsEj.exit:              ; preds = %_ZNK6aiMesh15HasVertexColorsEj.exit.preheader, %for.inc164
   %indvars.iv323 = phi i64 [ 0, %_ZNK6aiMesh15HasVertexColorsEj.exit.preheader ], [ %indvars.iv.next324, %for.inc164 ]
   %arrayidx.i149 = getelementptr inbounds [8 x ptr], ptr %mColors.i387, i64 0, i64 %indvars.iv323
-  %60 = load ptr, ptr %arrayidx.i149, align 8
-  %cmp2.not.i150.not = icmp eq ptr %60, null
+  %58 = load ptr, ptr %arrayidx.i149, align 8
+  %cmp2.not.i150.not = icmp eq ptr %58, null
   br i1 %cmp2.not.i150.not, label %for.end166, label %for.inc164
 
 for.inc164:                                       ; preds = %_ZNK6aiMesh15HasVertexColorsEj.exit
@@ -1728,23 +1723,18 @@ for.inc164:                                       ; preds = %_ZNK6aiMesh15HasVer
   br i1 %exitcond326.not, label %for.end177, label %_ZNK6aiMesh15HasVertexColorsEj.exit, !llvm.loop !20
 
 for.end166:                                       ; preds = %_ZNK6aiMesh15HasVertexColorsEj.exit
-  %61 = and i64 %indvars.iv323, 4294967288
-  %cmp168265 = icmp eq i64 %61, 0
-  br i1 %cmp168265, label %_ZNK6aiMesh15HasVertexColorsEj.exit163.preheader, label %for.end177
+  %cmp168265 = icmp ult i64 %indvars.iv323, 8
+  br i1 %cmp168265, label %_ZNK6aiMesh15HasVertexColorsEj.exit163, label %for.end177
 
-_ZNK6aiMesh15HasVertexColorsEj.exit163.preheader: ; preds = %for.end166
-  %62 = and i64 %indvars.iv323, 7
-  br label %_ZNK6aiMesh15HasVertexColorsEj.exit163
-
-_ZNK6aiMesh15HasVertexColorsEj.exit163:           ; preds = %_ZNK6aiMesh15HasVertexColorsEj.exit163.preheader, %for.inc175
-  %indvars.iv327 = phi i64 [ %62, %_ZNK6aiMesh15HasVertexColorsEj.exit163.preheader ], [ %indvars.iv.next328, %for.inc175 ]
+_ZNK6aiMesh15HasVertexColorsEj.exit163:           ; preds = %for.end166, %for.inc175
+  %indvars.iv327 = phi i64 [ %indvars.iv.next328, %for.inc175 ], [ %indvars.iv323, %for.end166 ]
   %arrayidx.i158 = getelementptr inbounds [8 x ptr], ptr %mColors.i387, i64 0, i64 %indvars.iv327
-  %63 = load ptr, ptr %arrayidx.i158, align 8
-  %cmp2.not.i159.not = icmp eq ptr %63, null
+  %59 = load ptr, ptr %arrayidx.i158, align 8
+  %cmp2.not.i159.not = icmp eq ptr %59, null
   br i1 %cmp2.not.i159.not, label %for.inc175, label %if.then172
 
 if.then172:                                       ; preds = %_ZNK6aiMesh15HasVertexColorsEj.exit163
-  %64 = trunc nuw nsw i64 %indvars.iv327 to i32
+  %60 = trunc nuw nsw i64 %indvars.iv327 to i32
   br label %if.then181.invoke
 
 for.inc175:                                       ; preds = %_ZNK6aiMesh15HasVertexColorsEj.exit163
@@ -1755,20 +1745,20 @@ for.inc175:                                       ; preds = %_ZNK6aiMesh15HasVer
 for.end177:                                       ; preds = %for.inc164, %for.inc175, %for.cond157.preheader, %for.end144.thread366, %_ZNK6aiMesh16HasTextureCoordsEj.exit145.lr.ph, %if.end133.thread, %if.end133, %for.end166
   %.fr352363381395 = phi i32 [ %.fr, %for.end166 ], [ 0, %for.end144.thread366 ], [ %.fr, %for.cond157.preheader ], [ %.fr, %_ZNK6aiMesh16HasTextureCoordsEj.exit145.lr.ph ], [ 0, %if.end133.thread ], [ 0, %if.end133 ], [ %.fr, %for.inc175 ], [ %.fr, %for.inc164 ]
   %mNumBones = getelementptr inbounds i8, ptr %pMesh, i64 216
-  %65 = load i32, ptr %mNumBones, align 8
-  %tobool178.not = icmp eq i32 %65, 0
+  %61 = load i32, ptr %mNumBones, align 8
+  %tobool178.not = icmp eq i32 %61, 0
   %mBones301 = getelementptr inbounds i8, ptr %pMesh, i64 224
-  %66 = load ptr, ptr %mBones301, align 8
-  %tobool302.not = icmp eq ptr %66, null
+  %62 = load ptr, ptr %mBones301, align 8
+  %tobool302.not = icmp eq ptr %62, null
   br i1 %tobool178.not, label %if.else, label %if.then179
 
 if.then179:                                       ; preds = %for.end177
   br i1 %tobool302.not, label %if.then181.invoke, label %if.end184
 
 if.then181.invoke:                                ; preds = %if.then179, %if.then150, %if.then172
-  %67 = phi ptr [ @.str.45, %if.then172 ], [ @.str.44, %if.then150 ], [ @.str.46, %if.then179 ]
-  %68 = phi i32 [ %64, %if.then172 ], [ %59, %if.then150 ], [ %65, %if.then179 ]
-  invoke void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull %67, i32 noundef %68) #20
+  %63 = phi ptr [ @.str.45, %if.then172 ], [ @.str.44, %if.then150 ], [ @.str.46, %if.then179 ]
+  %64 = phi i32 [ %60, %if.then172 ], [ %57, %if.then150 ], [ %61, %if.then179 ]
+  invoke void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull %63, i32 noundef %64) #20
           to label %if.then181.cont unwind label %lpad
 
 if.then181.cont:                                  ; preds = %if.then181.invoke
@@ -1780,16 +1770,16 @@ if.end184:                                        ; preds = %if.then179
 
 if.then187:                                       ; preds = %if.end184
   %conv189 = zext i32 %.fr352363381395 to i64
-  %69 = shl nuw nsw i64 %conv189, 2
-  %call192 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %69) #22
+  %65 = shl nuw nsw i64 %conv189, 2
+  %call192 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %65) #22
           to label %for.body197.preheader unwind label %lpad190.thread
 
 for.body197.preheader:                            ; preds = %if.then187
-  call void @llvm.memset.p0.i64(ptr nonnull align 4 %call192, i8 0, i64 %69, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %call192, i8 0, i64 %65, i1 false)
   br label %for.body209.preheader
 
 lpad190.thread:                                   ; preds = %if.then187
-  %70 = landingpad { ptr, i32 }
+  %66 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
@@ -1809,7 +1799,7 @@ lpad190:                                          ; preds = %lpad190.loopexit.sp
   br i1 %cmp.not.i, label %ehcleanup, label %_ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
 
 _ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i: ; preds = %lpad190.thread205, %lpad190
-  %71 = phi { ptr, i32 } [ %88, %lpad190.thread205 ], [ %lpad.phi, %lpad190 ]
+  %67 = phi { ptr, i32 } [ %84, %lpad190.thread205 ], [ %lpad.phi, %lpad190 ]
   call void @_ZdaPv(ptr noundef nonnull %afSum.sroa.0.1) #21
   br label %ehcleanup
 
@@ -1829,60 +1819,60 @@ for.cond271.preheader:                            ; preds = %invoke.cont230, %fo
 for.body209:                                      ; preds = %for.body209.preheader, %for.cond206.loopexit
   %indvars.iv340 = phi i64 [ 0, %for.body209.preheader ], [ %indvars.iv.next341, %for.cond206.loopexit ]
   %indvars.iv334 = phi i64 [ 1, %for.body209.preheader ], [ %indvars.iv.next335, %for.cond206.loopexit ]
-  %72 = load ptr, ptr %mBones301, align 8
-  %arrayidx212 = getelementptr inbounds ptr, ptr %72, i64 %indvars.iv340
-  %73 = load ptr, ptr %arrayidx212, align 8
-  %mNumWeights = getelementptr inbounds i8, ptr %73, i64 1028
-  %74 = load i32, ptr %mNumWeights, align 4
-  %cmp213 = icmp slt i32 %74, 0
+  %68 = load ptr, ptr %mBones301, align 8
+  %arrayidx212 = getelementptr inbounds ptr, ptr %68, i64 %indvars.iv340
+  %69 = load ptr, ptr %arrayidx212, align 8
+  %mNumWeights = getelementptr inbounds i8, ptr %69, i64 1028
+  %70 = load i32, ptr %mNumWeights, align 4
+  %cmp213 = icmp slt i32 %70, 0
   br i1 %cmp213, label %if.then214, label %if.end225
 
 if.then214:                                       ; preds = %for.body209
-  %75 = trunc nuw i64 %indvars.iv340 to i32
-  invoke void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.47, i32 noundef %75, i32 noundef %74, i32 noundef 2147483647) #20
+  %71 = trunc nuw i64 %indvars.iv340 to i32
+  invoke void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.47, i32 noundef %71, i32 noundef %70, i32 noundef 2147483647) #20
           to label %invoke.cont216 unwind label %lpad190.loopexit.split-lp
 
 invoke.cont216:                                   ; preds = %if.then214
   unreachable
 
 if.end225:                                        ; preds = %for.body209
-  invoke void @_ZN6Assimp17ValidateDSProcess8ValidateEPK6aiMeshPK6aiBonePf(ptr nonnull align 8 poison, ptr noundef nonnull %pMesh, ptr noundef nonnull %73, ptr noundef %afSum.sroa.0.1)
+  invoke void @_ZN6Assimp17ValidateDSProcess8ValidateEPK6aiMeshPK6aiBonePf(ptr nonnull align 8 poison, ptr noundef nonnull %pMesh, ptr noundef nonnull %69, ptr noundef %afSum.sroa.0.1)
           to label %invoke.cont230 unwind label %lpad190.loopexit
 
 invoke.cont230:                                   ; preds = %if.end225
   %indvars.iv.next341 = add nuw nsw i64 %indvars.iv340, 1
-  %76 = load i32, ptr %mNumBones, align 8
-  %77 = zext i32 %76 to i64
-  %cmp234269 = icmp ult i64 %indvars.iv.next341, %77
+  %72 = load i32, ptr %mNumBones, align 8
+  %73 = zext i32 %72 to i64
+  %cmp234269 = icmp ult i64 %indvars.iv.next341, %73
   br i1 %cmp234269, label %for.body235.lr.ph, label %for.cond271.preheader
 
 for.body235.lr.ph:                                ; preds = %invoke.cont230
-  %78 = load ptr, ptr %mBones301, align 8
-  %arrayidx238 = getelementptr inbounds ptr, ptr %78, i64 %indvars.iv340
-  %79 = load ptr, ptr %arrayidx238, align 8
-  %80 = load i32, ptr %79, align 4
-  %data.i167 = getelementptr inbounds i8, ptr %79, i64 4
-  %conv.i = zext i32 %80 to i64
+  %74 = load ptr, ptr %mBones301, align 8
+  %arrayidx238 = getelementptr inbounds ptr, ptr %74, i64 %indvars.iv340
+  %75 = load ptr, ptr %arrayidx238, align 8
+  %76 = load i32, ptr %75, align 4
+  %data.i167 = getelementptr inbounds i8, ptr %75, i64 4
+  %conv.i = zext i32 %76 to i64
   br label %for.body235
 
 for.body235:                                      ; preds = %for.body235.lr.ph, %for.inc264
   %indvars.iv336 = phi i64 [ %indvars.iv334, %for.body235.lr.ph ], [ %indvars.iv.next337, %for.inc264 ]
-  %arrayidx242 = getelementptr inbounds ptr, ptr %78, i64 %indvars.iv336
-  %81 = load ptr, ptr %arrayidx242, align 8
-  %82 = load i32, ptr %81, align 4
-  %cmp.i166 = icmp eq i32 %80, %82
+  %arrayidx242 = getelementptr inbounds ptr, ptr %74, i64 %indvars.iv336
+  %77 = load ptr, ptr %arrayidx242, align 8
+  %78 = load i32, ptr %77, align 4
+  %cmp.i166 = icmp eq i32 %76, %78
   br i1 %cmp.i166, label %_ZNK8aiStringeqERKS_.exit, label %for.inc264
 
 _ZNK8aiStringeqERKS_.exit:                        ; preds = %for.body235
-  %data3.i = getelementptr inbounds i8, ptr %81, i64 4
+  %data3.i = getelementptr inbounds i8, ptr %77, i64 4
   %bcmp.i = call i32 @bcmp(ptr nonnull %data.i167, ptr nonnull %data3.i, i64 %conv.i)
   %cmp6.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp6.i, label %if.end261, label %for.inc264
 
 if.end261:                                        ; preds = %_ZNK8aiStringeqERKS_.exit
-  %83 = trunc nuw i64 %indvars.iv340 to i32
-  %84 = trunc nuw i64 %indvars.iv336 to i32
-  invoke void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.50, i32 noundef %83, ptr noundef nonnull %data.i167, i32 noundef %84) #20
+  %79 = trunc nuw i64 %indvars.iv340 to i32
+  %80 = trunc nuw i64 %indvars.iv336 to i32
+  invoke void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess11ReportErrorEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.50, i32 noundef %79, ptr noundef nonnull %data.i167, i32 noundef %80) #20
           to label %invoke.cont262 unwind label %lpad190.loopexit.split-lp
 
 invoke.cont262:                                   ; preds = %if.end261
@@ -1891,27 +1881,27 @@ invoke.cont262:                                   ; preds = %if.end261
 for.inc264:                                       ; preds = %for.body235, %_ZNK8aiStringeqERKS_.exit
   %indvars.iv.next337 = add nuw nsw i64 %indvars.iv336, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next337 to i32
-  %exitcond339.not = icmp eq i32 %76, %lftr.wideiv
+  %exitcond339.not = icmp eq i32 %72, %lftr.wideiv
   br i1 %exitcond339.not, label %for.cond206.loopexit, label %for.body235, !llvm.loop !23
 
 for.body274:                                      ; preds = %for.cond271.preheader, %for.inc298
-  %85 = phi i32 [ %89, %for.inc298 ], [ %.pre347, %for.cond271.preheader ]
+  %81 = phi i32 [ %85, %for.inc298 ], [ %.pre347, %for.cond271.preheader ]
   %indvars.iv343 = phi i64 [ %indvars.iv.next344, %for.inc298 ], [ 0, %for.cond271.preheader ]
   %arrayidx.i170 = getelementptr inbounds float, ptr %afSum.sroa.0.1, i64 %indvars.iv343
-  %86 = load float, ptr %arrayidx.i170, align 4
-  %tobool278 = fcmp une float %86, 0.000000e+00
+  %82 = load float, ptr %arrayidx.i170, align 4
+  %tobool278 = fcmp une float %82, 0.000000e+00
   br i1 %tobool278, label %land.lhs.true279, label %for.inc298
 
 land.lhs.true279:                                 ; preds = %for.body274
-  %conv283 = fpext float %86 to double
+  %conv283 = fpext float %82 to double
   %cmp284 = fcmp ugt double %conv283, 0x3FEE147AE147AE14
   %cmp290 = fcmp ult double %conv283, 1.050000e+00
   %or.cond = and i1 %cmp284, %cmp290
   br i1 %or.cond, label %for.inc298, label %if.then291
 
 if.then291:                                       ; preds = %land.lhs.true279
-  %87 = trunc nuw i64 %indvars.iv343 to i32
-  invoke void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess13ReportWarningEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.51, i32 noundef %87, double noundef %conv283)
+  %83 = trunc nuw i64 %indvars.iv343 to i32
+  invoke void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess13ReportWarningEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.51, i32 noundef %83, double noundef %conv283)
           to label %if.then291.for.inc298_crit_edge unwind label %lpad190.thread205
 
 if.then291.for.inc298_crit_edge:                  ; preds = %if.then291
@@ -1919,15 +1909,15 @@ if.then291.for.inc298_crit_edge:                  ; preds = %if.then291
   br label %for.inc298
 
 lpad190.thread205:                                ; preds = %if.then291
-  %88 = landingpad { ptr, i32 }
+  %84 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
 
 for.inc298:                                       ; preds = %if.then291.for.inc298_crit_edge, %land.lhs.true279, %for.body274
-  %89 = phi i32 [ %.pre348, %if.then291.for.inc298_crit_edge ], [ %85, %land.lhs.true279 ], [ %85, %for.body274 ]
+  %85 = phi i32 [ %.pre348, %if.then291.for.inc298_crit_edge ], [ %81, %land.lhs.true279 ], [ %81, %for.body274 ]
   %indvars.iv.next344 = add nuw nsw i64 %indvars.iv343, 1
-  %90 = zext i32 %89 to i64
-  %cmp273 = icmp ult i64 %indvars.iv.next344, %90
+  %86 = zext i32 %85 to i64
+  %cmp273 = icmp ult i64 %indvars.iv.next344, %86
   br i1 %cmp273, label %for.body274, label %_ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i175, !llvm.loop !24
 
 for.end300:                                       ; preds = %for.cond271.preheader
@@ -1949,18 +1939,18 @@ invoke.cont304:                                   ; preds = %if.then303
   unreachable
 
 if.end306:                                        ; preds = %_ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i175, %for.end300, %if.else
-  %91 = load ptr, ptr %abRefList, align 8
-  %tobool.not.i.i.i = icmp eq ptr %91, null
+  %87 = load ptr, ptr %abRefList, align 8
+  %tobool.not.i.i.i = icmp eq ptr %87, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIbSaIbEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end306
-  %92 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8
-  %sub.ptr.lhs.cast.i.i.i179 = ptrtoint ptr %92 to i64
-  %sub.ptr.rhs.cast.i.i.i180 = ptrtoint ptr %91 to i64
+  %88 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8
+  %sub.ptr.lhs.cast.i.i.i179 = ptrtoint ptr %88 to i64
+  %sub.ptr.rhs.cast.i.i.i180 = ptrtoint ptr %87 to i64
   %sub.ptr.sub.i.i.i181 = sub i64 %sub.ptr.lhs.cast.i.i.i179, %sub.ptr.rhs.cast.i.i.i180
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i181, 3
   %idx.neg.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i
-  %add.ptr.i.i.i = getelementptr inbounds i64, ptr %92, i64 %idx.neg.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds i64, ptr %88, i64 %idx.neg.i.i.i
   call void @_ZdlPv(ptr noundef %add.ptr.i.i.i) #21
   br label %_ZNSt6vectorIbSaIbEED2Ev.exit
 
@@ -1968,19 +1958,19 @@ _ZNSt6vectorIbSaIbEED2Ev.exit:                    ; preds = %if.end306, %if.then
   ret void
 
 ehcleanup:                                        ; preds = %_ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i, %lpad190, %lpad190.thread, %lpad
-  %.pn = phi { ptr, i32 } [ %41, %lpad ], [ %70, %lpad190.thread ], [ %lpad.phi, %lpad190 ], [ %71, %_ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i ]
-  %93 = load ptr, ptr %abRefList, align 8
-  %tobool.not.i.i.i182 = icmp eq ptr %93, null
+  %.pn = phi { ptr, i32 } [ %41, %lpad ], [ %66, %lpad190.thread ], [ %lpad.phi, %lpad190 ], [ %67, %_ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i ]
+  %89 = load ptr, ptr %abRefList, align 8
+  %tobool.not.i.i.i182 = icmp eq ptr %89, null
   br i1 %tobool.not.i.i.i182, label %_ZNSt6vectorIbSaIbEED2Ev.exit194, label %if.then.i.i.i183
 
 if.then.i.i.i183:                                 ; preds = %ehcleanup
-  %94 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8
-  %sub.ptr.lhs.cast.i.i.i185 = ptrtoint ptr %94 to i64
-  %sub.ptr.rhs.cast.i.i.i186 = ptrtoint ptr %93 to i64
+  %90 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8
+  %sub.ptr.lhs.cast.i.i.i185 = ptrtoint ptr %90 to i64
+  %sub.ptr.rhs.cast.i.i.i186 = ptrtoint ptr %89 to i64
   %sub.ptr.sub.i.i.i187 = sub i64 %sub.ptr.lhs.cast.i.i.i185, %sub.ptr.rhs.cast.i.i.i186
   %sub.ptr.div.i.i.i188 = ashr exact i64 %sub.ptr.sub.i.i.i187, 3
   %idx.neg.i.i.i189 = sub nsw i64 0, %sub.ptr.div.i.i.i188
-  %add.ptr.i.i.i190 = getelementptr inbounds i64, ptr %94, i64 %idx.neg.i.i.i189
+  %add.ptr.i.i.i190 = getelementptr inbounds i64, ptr %90, i64 %idx.neg.i.i.i189
   call void @_ZdlPv(ptr noundef %add.ptr.i.i.i190) #21
   br label %_ZNSt6vectorIbSaIbEED2Ev.exit194
 

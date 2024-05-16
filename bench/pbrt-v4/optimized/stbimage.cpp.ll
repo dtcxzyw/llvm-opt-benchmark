@@ -18141,7 +18141,7 @@ land.lhs.true.i:                                  ; preds = %if.then.i214
 
 if.then13.i:                                      ; preds = %land.lhs.true.i
   %78 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %shl.i = shl i32 %78, %conv11.i
+  %shl.i = shl nuw nsw i32 %78, %conv11.i
   %and14.i = and i32 %shl.i, 511
   %sub.i = sub nsw i32 9, %and8.i
   %shr15.i = lshr i32 %and14.i, %sub.i
@@ -20209,7 +20209,7 @@ for.cond:                                         ; preds = %for.cond, %if.end15
 
 for.end:                                          ; preds = %for.cond
   %7 = trunc nuw nsw i64 %indvars.iv to i32
-  %cmp23 = icmp eq i32 %7, 17
+  %cmp23 = icmp eq i64 %indvars.iv, 17
   %8 = load i32, ptr %code_bits, align 4
   br i1 %cmp23, label %if.then24, label %if.end27
 

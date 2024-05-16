@@ -1220,7 +1220,7 @@ if.end115:                                        ; preds = %sw.bb110
 if.end120:                                        ; preds = %if.end115
   %vhs = getelementptr inbounds i8, ptr %sd, i64 304
   store i32 0, ptr %vhs, align 8
-  %tobool123.not = icmp ult i32 %req.sroa.16187.0.extract.trunc, 256
+  %tobool123.not = icmp ult i64 %req.coerce0, 1099511627776
   br i1 %tobool123.not, label %if.then131, label %lor.lhs.false124
 
 lor.lhs.false124:                                 ; preds = %if.end120
@@ -1363,7 +1363,7 @@ sw.bb212:                                         ; preds = %if.end63
   br i1 %cond13, label %sw.bb214, label %sw.epilog437
 
 sw.bb214:                                         ; preds = %sw.bb212
-  %cmp216 = icmp ugt i32 %req.sroa.16187.0.extract.trunc, 512
+  %cmp216 = icmp ugt i64 %req.coerce0, 2203318222847
   br i1 %cmp216, label %if.then218, label %if.else
 
 if.then218:                                       ; preds = %sw.bb214

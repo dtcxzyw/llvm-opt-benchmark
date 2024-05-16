@@ -3364,7 +3364,7 @@ for.body631:                                      ; preds = %for.body631.lr.ph, 
 
 if.then641:                                       ; preds = %for.body631
   %480 = trunc nuw i64 %indvars.iv2284 to i32
-  %tobool645.not = icmp eq i32 %480, 0
+  %tobool645.not = icmp eq i64 %indvars.iv2284, 0
   %spec.select2073 = select i1 %tobool645.not, i32 %474, i32 %480
   %cond652 = add i32 %spec.select2073, -1
   %idxprom653 = zext i32 %cond652 to i64

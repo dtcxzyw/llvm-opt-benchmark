@@ -2068,7 +2068,7 @@ if.end14:                                         ; preds = %if.end9
   store i32 %conv, ptr %b, align 8
   %c = getelementptr inbounds i8, ptr %call10, i64 124
   store i32 %conv, ptr %c, align 4
-  %cmp17 = icmp slt i32 %conv, 0
+  %cmp17 = icmp slt i64 %length, 0
   br i1 %cmp17, label %if.then18, label %if.end20
 
 if.then18:                                        ; preds = %if.end14

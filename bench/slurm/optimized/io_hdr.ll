@@ -198,8 +198,8 @@ _full_read.exit:                                  ; preds = %31
   %47 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.io_hdr_unpack) #6
   br label %io_hdr_unpack.exit
 
-io_hdr_unpack.exit:                               ; preds = %.loopexit.sink.split.i, %8, %28, %24, %46, %43
-  %.0 = phi i32 [ -1, %46 ], [ %9, %43 ], [ %.013.ph.i, %.loopexit.sink.split.i ], [ %9, %8 ], [ 0, %28 ], [ -1, %24 ]
+io_hdr_unpack.exit:                               ; preds = %8, %.loopexit.sink.split.i, %28, %24, %46, %43
+  %.0 = phi i32 [ -1, %46 ], [ %9, %43 ], [ %.013.ph.i, %.loopexit.sink.split.i ], [ 0, %28 ], [ -1, %24 ], [ %9, %8 ]
   %48 = tail call i32 @get_log_level() #6
   %49 = icmp sgt i32 %48, 6
   br i1 %49, label %50, label %51

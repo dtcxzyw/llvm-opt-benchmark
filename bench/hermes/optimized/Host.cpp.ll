@@ -1363,16 +1363,15 @@ _ZNK4llvh9StringRef12getAsIntegerIjEENSt9enable_ifIXntsr3std14numeric_limitsIT_E
   br label %_ZN4llvh9StringRefC2EPKc.exit178
 
 if.then57:                                        ; preds = %lor.lhs.false.i
-  %conv.i82 = trunc nuw i64 %20 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ULLVal.i)
-  %cmp58 = icmp ugt i32 %conv.i82, 3905
+  %cmp58 = icmp ugt i64 %20, 3905
   br i1 %cmp58, label %land.lhs.true, label %if.end60
 
 land.lhs.true:                                    ; preds = %if.then57
   br i1 %HaveVectorSupport.0.lcssa.ph, label %cleanup, label %land.lhs.true62
 
 if.end60:                                         ; preds = %if.then57
-  %cmp61 = icmp ugt i32 %conv.i82, 2963
+  %cmp61 = icmp ugt i64 %20, 2963
   br i1 %cmp61, label %land.lhs.true62, label %if.end65
 
 land.lhs.true62:                                  ; preds = %if.end60, %land.lhs.true
@@ -1381,11 +1380,11 @@ land.lhs.true62:                                  ; preds = %if.end60, %land.lhs
   br label %cleanup
 
 if.end65:                                         ; preds = %if.end60
-  %cmp66 = icmp ugt i32 %conv.i82, 2826
+  %cmp66 = icmp ugt i64 %20, 2826
   br i1 %cmp66, label %cleanup, label %if.end68
 
 if.end68:                                         ; preds = %if.end65
-  %cmp69 = icmp ugt i32 %conv.i82, 2816
+  %cmp69 = icmp ugt i64 %20, 2816
   br i1 %cmp69, label %cleanup, label %_ZN4llvh9StringRefC2EPKc.exit178
 
 for.inc75:                                        ; preds = %if.end.i273, %for.body38

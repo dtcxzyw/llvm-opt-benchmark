@@ -648,7 +648,8 @@ _ZN5vcpkg7Unicode11Utf8DecoderC2EPKcS3_.exit:     ; preds = %11, %13
   %..i = tail call i32 @llvm.umax.i32(i32 %.sroa.0.0.extract.trunc, i32 1)
   store i32 %..i, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 68
-  %..i3 = tail call i32 @llvm.umax.i32(i32 %.sroa.2.0.extract.trunc, i32 1)
+  %.not.i2 = icmp ult i64 %5, 4294967296
+  %..i3 = select i1 %.not.i2, i32 1, i32 %.sroa.2.0.extract.trunc
   store i32 %..i3, ptr %16, align 4
   %17 = getelementptr inbounds i8, ptr %0, i64 72
   store ptr %1, ptr %17, align 8

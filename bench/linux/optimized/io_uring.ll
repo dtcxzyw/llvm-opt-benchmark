@@ -15289,105 +15289,103 @@ define internal fastcc ptr @__io_uaddr_map(ptr nocapture noundef writeonly %0, p
   %6 = icmp eq i64 %5, 0
   %7 = icmp ne i64 %3, 0
   %8 = and i1 %6, %7
-  br i1 %8, label %9, label %70
+  br i1 %8, label %9, label %68
 
 9:                                                ; preds = %4
   %10 = add nuw nsw i64 %3, 4095
   %11 = lshr i64 %10, 12
   %12 = trunc nuw nsw i64 %11 to i32
-  %13 = icmp ugt i32 %12, 65535
-  br i1 %13, label %70, label %14
+  %13 = icmp ugt i64 %3, 268431360
+  br i1 %13, label %68, label %14
 
 14:                                               ; preds = %9
   %15 = shl nuw nsw i64 %11, 3
-  %16 = and i64 %15, 524280
-  %17 = tail call noalias ptr @kvmalloc_node(i64 noundef %16, i32 noundef 3264, i32 noundef -1) #28
-  %18 = icmp eq ptr %17, null
-  br i1 %18, label %70, label %19
+  %16 = tail call noalias ptr @kvmalloc_node(i64 noundef %15, i32 noundef 3264, i32 noundef -1) #28
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %68, label %18
 
-19:                                               ; preds = %14
-  %20 = tail call i32 @pin_user_pages_fast(i64 noundef %2, i32 noundef %12, i32 noundef 257, ptr noundef nonnull %17) #23
-  %21 = icmp eq i32 %20, %12
-  br i1 %21, label %37, label %22
+18:                                               ; preds = %14
+  %19 = tail call i32 @pin_user_pages_fast(i64 noundef %2, i32 noundef %12, i32 noundef 257, ptr noundef nonnull %16) #23
+  %20 = icmp eq i32 %19, %12
+  br i1 %20, label %36, label %21
 
-22:                                               ; preds = %19
-  %23 = icmp slt i32 %20, 1
-  br i1 %23, label %.loopexit, label %24
+21:                                               ; preds = %18
+  %22 = icmp slt i32 %19, 1
+  br i1 %22, label %.loopexit, label %23
 
-24:                                               ; preds = %22
-  %25 = zext nneg i32 %20 to i64
-  br label %26
+23:                                               ; preds = %21
+  %24 = zext nneg i32 %19 to i64
+  br label %25
 
-26:                                               ; preds = %26, %24
-  %27 = phi i64 [ 0, %24 ], [ %30, %26 ]
-  %28 = getelementptr ptr, ptr %17, i64 %27
-  %29 = load ptr, ptr %28, align 8
-  tail call void @unpin_user_page(ptr noundef %29) #23
-  %30 = add nuw nsw i64 %27, 1
-  %31 = icmp eq i64 %30, %25
-  br i1 %31, label %.loopexit, label %26, !llvm.loop !233
+25:                                               ; preds = %25, %23
+  %26 = phi i64 [ 0, %23 ], [ %29, %25 ]
+  %27 = getelementptr ptr, ptr %16, i64 %26
+  %28 = load ptr, ptr %27, align 8
+  tail call void @unpin_user_page(ptr noundef %28) #23
+  %29 = add nuw nsw i64 %26, 1
+  %30 = icmp eq i64 %29, %24
+  br i1 %30, label %.loopexit, label %25, !llvm.loop !233
 
-.loopexit:                                        ; preds = %26, %22
-  tail call void @kvfree(ptr noundef nonnull %17) #23
-  %32 = icmp slt i32 %20, 0
-  br i1 %32, label %33, label %70
+.loopexit:                                        ; preds = %25, %21
+  tail call void @kvfree(ptr noundef nonnull %16) #23
+  %31 = icmp slt i32 %19, 0
+  br i1 %31, label %32, label %68
 
-33:                                               ; preds = %.thread7, %.loopexit
-  %34 = phi i32 [ -22, %.thread7 ], [ %20, %.loopexit ]
-  %35 = sext i32 %34 to i64
-  %36 = inttoptr i64 %35 to ptr
-  br label %70
+32:                                               ; preds = %.thread7, %.loopexit
+  %33 = phi i32 [ -22, %.thread7 ], [ %19, %.loopexit ]
+  %34 = sext i32 %33 to i64
+  %35 = inttoptr i64 %34 to ptr
+  br label %68
 
-37:                                               ; preds = %19
-  %38 = load ptr, ptr %17, align 8
-  %39 = load i64, ptr @vmemmap_base, align 8
-  %40 = ptrtoint ptr %38 to i64
-  %41 = load i64, ptr @page_offset_base, align 8
-  %42 = sub i64 %40, %39
-  %43 = shl i64 %42, 6
-  %44 = add i64 %43, %41
-  %45 = inttoptr i64 %44 to ptr
-  %46 = and i64 %11, 65535
-  br label %47
+36:                                               ; preds = %18
+  %37 = load ptr, ptr %16, align 8
+  %38 = load i64, ptr @vmemmap_base, align 8
+  %39 = ptrtoint ptr %37 to i64
+  %40 = load i64, ptr @page_offset_base, align 8
+  %41 = sub i64 %39, %38
+  %42 = shl i64 %41, 6
+  %43 = add i64 %42, %40
+  %44 = inttoptr i64 %43 to ptr
+  br label %45
 
-47:                                               ; preds = %58, %37
-  %48 = phi i64 [ 0, %37 ], [ %60, %58 ]
-  %49 = phi ptr [ %45, %37 ], [ %59, %58 ]
-  %50 = getelementptr ptr, ptr %17, i64 %48
-  %51 = load ptr, ptr %50, align 8
-  %52 = ptrtoint ptr %51 to i64
-  %53 = sub i64 %52, %39
-  %54 = shl i64 %53, 6
-  %55 = add i64 %54, %41
-  %56 = inttoptr i64 %55 to ptr
-  %57 = icmp eq ptr %49, %56
-  br i1 %57, label %58, label %.thread7
+45:                                               ; preds = %56, %36
+  %46 = phi i64 [ 0, %36 ], [ %58, %56 ]
+  %47 = phi ptr [ %44, %36 ], [ %57, %56 ]
+  %48 = getelementptr ptr, ptr %16, i64 %46
+  %49 = load ptr, ptr %48, align 8
+  %50 = ptrtoint ptr %49 to i64
+  %51 = sub i64 %50, %38
+  %52 = shl i64 %51, 6
+  %53 = add i64 %52, %40
+  %54 = inttoptr i64 %53 to ptr
+  %55 = icmp eq ptr %47, %54
+  br i1 %55, label %56, label %.thread7
 
-.thread7:                                         ; preds = %47
-  tail call void @kvfree(ptr noundef nonnull %17) #23
-  br label %33
+.thread7:                                         ; preds = %45
+  tail call void @kvfree(ptr noundef nonnull %16) #23
+  br label %32
 
-58:                                               ; preds = %47
-  %59 = getelementptr i8, ptr %49, i64 4096
-  %60 = add nuw nsw i64 %48, 1
-  %61 = icmp eq i64 %60, %46
-  br i1 %61, label %62, label %47, !llvm.loop !245
+56:                                               ; preds = %45
+  %57 = getelementptr i8, ptr %47, i64 4096
+  %58 = add nuw nsw i64 %46, 1
+  %59 = icmp eq i64 %58, %11
+  br i1 %59, label %60, label %45, !llvm.loop !245
 
-62:                                               ; preds = %58
-  store ptr %17, ptr %0, align 8
-  %63 = trunc i64 %11 to i16
-  store i16 %63, ptr %1, align 2
-  %64 = load i64, ptr @vmemmap_base, align 8
-  %65 = sub i64 %40, %64
-  %66 = shl i64 %65, 6
-  %67 = load i64, ptr @page_offset_base, align 8
-  %68 = add i64 %66, %67
-  %69 = inttoptr i64 %68 to ptr
-  br label %70
+60:                                               ; preds = %56
+  store ptr %16, ptr %0, align 8
+  %61 = trunc i64 %11 to i16
+  store i16 %61, ptr %1, align 2
+  %62 = load i64, ptr @vmemmap_base, align 8
+  %63 = sub i64 %39, %62
+  %64 = shl i64 %63, 6
+  %65 = load i64, ptr @page_offset_base, align 8
+  %66 = add i64 %64, %65
+  %67 = inttoptr i64 %66 to ptr
+  br label %68
 
-70:                                               ; preds = %62, %33, %.loopexit, %14, %9, %4
-  %71 = phi ptr [ %69, %62 ], [ %36, %33 ], [ inttoptr (i64 -22 to ptr), %4 ], [ inttoptr (i64 -22 to ptr), %9 ], [ inttoptr (i64 -12 to ptr), %14 ], [ inttoptr (i64 -14 to ptr), %.loopexit ]
-  ret ptr %71
+68:                                               ; preds = %60, %32, %.loopexit, %14, %9, %4
+  %69 = phi ptr [ %67, %60 ], [ %35, %32 ], [ inttoptr (i64 -22 to ptr), %4 ], [ inttoptr (i64 -22 to ptr), %9 ], [ inttoptr (i64 -12 to ptr), %14 ], [ inttoptr (i64 -14 to ptr), %.loopexit ]
+  ret ptr %69
 }
 
 ; Function Attrs: null_pointer_is_valid

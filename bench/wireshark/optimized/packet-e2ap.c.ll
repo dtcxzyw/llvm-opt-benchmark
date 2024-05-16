@@ -8551,7 +8551,7 @@ define internal i32 @dissect_e2ap_RANfunctionDefinition(ptr noundef %0, i32 noun
 .critedge:                                        ; preds = %19, %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = icmp ugt i64 %indvars.iv, 2
-  br i1 %30, label %50, label %9, !llvm.loop !14
+  br i1 %30, label %49, label %9, !llvm.loop !14
 
 31:                                               ; preds = %26
   %32 = getelementptr inbounds i8, ptr %18, i64 8
@@ -8561,33 +8561,32 @@ define internal i32 @dissect_e2ap_RANfunctionDefinition(ptr noundef %0, i32 noun
   %36 = load ptr, ptr %6, align 8
   %37 = load ptr, ptr %8, align 8
   %38 = call i32 %35(ptr noundef %36, ptr noundef %37, ptr noundef %3, ptr noundef null) #8
-  %39 = and i64 %indvars.iv, 4294967295
-  %40 = icmp eq i64 %39, 3
-  br i1 %40, label %41, label %.thread
+  %39 = icmp eq i64 %indvars.iv, 3
+  br i1 %39, label %40, label %.thread
 
-41:                                               ; preds = %31
-  %42 = load ptr, ptr %8, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 80
-  %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 50
-  %46 = load i16, ptr %45, align 2
-  %47 = and i16 %46, 8
-  %.not = icmp eq i16 %47, 0
-  br i1 %.not, label %48, label %.thread
+40:                                               ; preds = %31
+  %41 = load ptr, ptr %8, align 8
+  %42 = getelementptr inbounds i8, ptr %41, i64 80
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds i8, ptr %43, i64 50
+  %45 = load i16, ptr %44, align 2
+  %46 = and i16 %45, 8
+  %.not = icmp eq i16 %46, 0
+  br i1 %.not, label %47, label %.thread
 
-48:                                               ; preds = %41
-  %49 = load ptr, ptr %6, align 8
-  call void @e2ap_store_ran_function_mapping(ptr noundef nonnull %42, ptr noundef %3, ptr noundef %49, ptr noundef nonnull @.str.22)
+47:                                               ; preds = %40
+  %48 = load ptr, ptr %6, align 8
+  call void @e2ap_store_ran_function_mapping(ptr noundef nonnull %41, ptr noundef %3, ptr noundef %48, ptr noundef nonnull @.str.22)
   br label %.thread
 
-50:                                               ; preds = %.critedge
-  %51 = load i32, ptr @hf_e2ap_ran_function_name_not_recognised, align 4
-  %52 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %51, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #8
-  %53 = load ptr, ptr %8, align 8
-  %54 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %53, ptr noundef %52, ptr noundef nonnull @ei_e2ap_ran_function_names_no_match, ptr noundef nonnull @.str.1831) #8
+49:                                               ; preds = %.critedge
+  %50 = load i32, ptr @hf_e2ap_ran_function_name_not_recognised, align 4
+  %51 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %50, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #8
+  %52 = load ptr, ptr %8, align 8
+  %53 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %52, ptr noundef %51, ptr noundef nonnull @ei_e2ap_ran_function_names_no_match, ptr noundef nonnull @.str.1831) #8
   br label %.thread
 
-.thread:                                          ; preds = %31, %48, %41, %50
+.thread:                                          ; preds = %31, %47, %40, %49
   ret i32 %7
 }
 

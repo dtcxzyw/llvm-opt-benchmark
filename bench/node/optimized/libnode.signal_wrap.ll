@@ -734,7 +734,7 @@ if.then.i82:                                      ; preds = %_ZNK2v820FunctionCa
   %ref.tmp.sroa.322.0.extract.shift = lshr i64 %call26, 32
   %ref.tmp.sroa.322.0.extract.trunc = trunc nuw i64 %ref.tmp.sroa.322.0.extract.shift to i32
   store i32 %ref.tmp.sroa.322.0.extract.trunc, ptr %signum, align 4
-  %cmp30 = icmp eq i32 %ref.tmp.sroa.322.0.extract.trunc, 27
+  %cmp30 = icmp eq i64 %ref.tmp.sroa.322.0.extract.shift, 27
   br i1 %cmp30, label %if.then31, label %if.end39
 
 if.then31:                                        ; preds = %if.then.i82

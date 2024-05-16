@@ -1961,7 +1961,7 @@ _ZN5alloc11collections5btree4node13move_to_slice17hd3626d6b1b9c0b38E.exit59: ; p
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %59, ptr nonnull readonly align 8 %57, i64 %60, i1 false), !alias.scope !271
   %61 = getelementptr inbounds ptr, ptr %57, i64 %1
   %62 = shl nsw i64 %19, 3
-  %63 = add i64 %62, 8
+  %63 = add nsw i64 %62, 8
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %57, ptr nonnull align 8 %61, i64 %63, i1 false)
   br label %.lr.ph.i
 

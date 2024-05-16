@@ -755,9 +755,9 @@ define internal void @gen8_ppgtt_insert(ptr nocapture noundef readonly %0, ptr n
   br i1 %92, label %121, label %93
 
 93:                                               ; preds = %84, %64
-  %94 = lshr i64 %50, 12
-  %95 = trunc i64 %94 to i16
-  %96 = and i16 %95, 511
+  %94 = lshr i32 %73, 12
+  %95 = and i32 %94, 511
+  %96 = trunc nuw nsw i32 %95 to i16
   %97 = and i32 %81, 65536
   %98 = icmp eq i32 %97, 0
   br i1 %98, label %121, label %99
@@ -768,7 +768,7 @@ define internal void @gen8_ppgtt_insert(ptr nocapture noundef readonly %0, ptr n
 100:                                              ; preds = %99
   %101 = sub i64 %38, %50
   %102 = icmp ult i64 %101, 2097152
-  %103 = icmp ne i16 %96, 0
+  %103 = icmp ne i32 %95, 0
   %104 = or i1 %102, %103
   br i1 %104, label %112, label %105
 

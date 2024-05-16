@@ -49057,11 +49057,11 @@ define noundef zeroext i1 @_ZN6hir_ty2db25HirDatabaseGroupStorage__23cycle_recov
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = alloca i16, align 2
   %.sroa.4.0.extract.shift = lshr i64 %3, 48
-  %.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i16
-  %8 = icmp ult i16 %.sroa.4.0.extract.trunc, 54
+  %8 = icmp ult i64 %3, 15199648742375424
   br i1 %8, label %switch.lookup, label %9
 
 9:                                                ; preds = %4
+  %.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i16
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7)
   store i16 %.sroa.4.0.extract.trunc, ptr %7, align 2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)

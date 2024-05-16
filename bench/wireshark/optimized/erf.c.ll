@@ -3284,7 +3284,7 @@ define internal fastcc range(i32 0, 2) i32 @erf_read_header(ptr noundef %0, ptr 
   %52 = trunc nuw nsw i64 %51 to i32
   %53 = getelementptr inbounds i8, ptr %2, i64 24
   store i32 %52, ptr %53, align 8
-  %54 = icmp ugt i32 %52, 999999999
+  %54 = icmp ugt i64 %50, 4294967295999999999
   br i1 %54, label %55, label %57
 
 55:                                               ; preds = %39
@@ -4197,32 +4197,32 @@ wtap_wtap_encap_to_erf_encap.exit.thread:         ; preds = %41, %wtap_wtap_enca
   %115 = mul nuw nsw i64 %113, 2000000000
   %116 = and i64 %115, 4294967296
   %117 = add nuw nsw i64 %116, %114
-  %118 = lshr i64 %117, 32
-  %119 = trunc nuw nsw i64 %118 to i32
-  %120 = icmp ugt i32 %119, 999999999
-  %121 = zext i1 %120 to i64
-  %spec.select = add nuw nsw i64 %112, %121
-  %122 = getelementptr inbounds i8, ptr %1, i64 16
-  %123 = load i64, ptr %122, align 8
-  %.not165 = icmp eq i64 %spec.select, %123
-  br i1 %.not165, label %124, label %._crit_edge
+  %118 = icmp ugt i64 %117, 4294967295999999999
+  %119 = zext i1 %118 to i64
+  %spec.select = add nuw nsw i64 %112, %119
+  %120 = getelementptr inbounds i8, ptr %1, i64 16
+  %121 = load i64, ptr %120, align 8
+  %.not165 = icmp eq i64 %spec.select, %121
+  br i1 %.not165, label %122, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %110
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 24
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   br label %127
 
-124:                                              ; preds = %110
-  %spec.select186 = select i1 %120, i32 0, i32 %119
+122:                                              ; preds = %110
+  %123 = lshr i64 %117, 32
+  %124 = trunc nuw nsw i64 %123 to i32
+  %spec.select186 = select i1 %118, i32 0, i32 %124
   %125 = getelementptr inbounds i8, ptr %1, i64 24
   %126 = load i32, ptr %125, align 8
   %.not166 = icmp eq i32 %spec.select186, %126
   br i1 %.not166, label %134, label %127
 
-127:                                              ; preds = %._crit_edge, %124
-  %128 = phi i32 [ %.pre, %._crit_edge ], [ %126, %124 ]
+127:                                              ; preds = %._crit_edge, %122
+  %128 = phi i32 [ %.pre, %._crit_edge ], [ %126, %122 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %8, ptr noundef nonnull align 8 dereferenceable(152) %11, i64 152, i1 false)
-  %129 = shl i64 %123, 32
+  %129 = shl i64 %121, 32
   %130 = sext i32 %128 to i64
   %131 = shl nsw i64 %130, 32
   %132 = udiv i64 %131, 1000000000
@@ -4230,10 +4230,10 @@ wtap_wtap_encap_to_erf_encap.exit.thread:         ; preds = %41, %wtap_wtap_enca
   store i64 %133, ptr %8, align 8
   br label %134
 
-134:                                              ; preds = %106, %127, %124, %101
-  %.1154 = phi i32 [ %.0153, %101 ], [ 0, %127 ], [ 0, %124 ], [ 0, %106 ]
-  %.1152 = phi i32 [ %.0151, %101 ], [ 0, %127 ], [ 0, %124 ], [ 0, %106 ]
-  %.0149 = phi ptr [ %8, %101 ], [ %8, %127 ], [ %11, %124 ], [ %11, %106 ]
+134:                                              ; preds = %106, %127, %122, %101
+  %.1154 = phi i32 [ %.0153, %101 ], [ 0, %127 ], [ 0, %122 ], [ 0, %106 ]
+  %.1152 = phi i32 [ %.0151, %101 ], [ 0, %127 ], [ 0, %122 ], [ 0, %106 ]
+  %.0149 = phi ptr [ %8, %101 ], [ %8, %127 ], [ %11, %122 ], [ %11, %106 ]
   %135 = getelementptr inbounds i8, ptr %.0149, i64 8
   %136 = load i8, ptr %135, align 8
   %137 = and i8 %136, 127
@@ -4353,7 +4353,7 @@ wtap_wtap_encap_to_erf_encap.exit.thread:         ; preds = %41, %wtap_wtap_enca
   %.145.i = phi i8 [ %.04472.i, %146 ], [ %186, %184 ], [ %.04472.i, %182 ], [ %155, %181 ], [ %155, %178 ], [ %155, %.loopexit.i ], [ %155, %152 ]
   %.1.i = phi i32 [ %.04373.i, %146 ], [ %.04373.i, %184 ], [ %.04373.i, %182 ], [ 1, %181 ], [ 1, %178 ], [ 1, %.loopexit.i ], [ 1, %152 ]
   %indvars.iv.next.i188 = add nuw nsw i64 %indvars.iv.i187, 1
-  %187 = icmp ugt i32 %150, 127
+  %187 = icmp slt i64 %148, 0
   %188 = icmp ult i64 %indvars.iv.i187, 15
   %189 = and i1 %188, %187
   br i1 %189, label %146, label %._crit_edge.i, !llvm.loop !33

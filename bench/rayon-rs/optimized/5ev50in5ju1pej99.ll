@@ -1438,10 +1438,8 @@ _ZN10rayon_core5sleep8counters14AtomicCounters31increment_jobs_event_counter_if1
 34:                                               ; preds = %33
   %35 = lshr i64 %.0.i.i.i, 16
   %36 = and i64 %35, 65535
-  %37 = sub nsw i64 %36, %31
-  %38 = and i64 %37, 4294967295
-  %39 = icmp eq i64 %38, 0
-  br i1 %39, label %.sink.split.i.i, label %_ZN10rayon_core8registry12WorkerThread4push17h779d9f62f420a9fbE.exit
+  %37 = icmp eq i64 %36, %31
+  br i1 %37, label %.sink.split.i.i, label %_ZN10rayon_core8registry12WorkerThread4push17h779d9f62f420a9fbE.exit
 
 _ZN10rayon_core8registry12WorkerThread4push17h779d9f62f420a9fbE.exit: ; preds = %34, %.sink.split.i.i, %_ZN10rayon_core5sleep8counters14AtomicCounters31increment_jobs_event_counter_if17hb6fa10a74221aac7E.exit.i.i, %9
   ret void
@@ -1489,10 +1487,8 @@ _ZN10rayon_core5sleep8counters14AtomicCounters31increment_jobs_event_counter_if1
 21:                                               ; preds = %20
   %22 = lshr i64 %.0.i.i, 16
   %23 = and i64 %22, 65535
-  %24 = sub nsw i64 %23, %18
-  %25 = and i64 %24, 4294967295
-  %26 = icmp eq i64 %25, 0
-  br i1 %26, label %.sink.split.i, label %_ZN10rayon_core5sleep5Sleep8new_jobs17h8dd36c93b6cd7da4E.exit
+  %24 = icmp eq i64 %23, %18
+  br i1 %24, label %.sink.split.i, label %_ZN10rayon_core5sleep5Sleep8new_jobs17h8dd36c93b6cd7da4E.exit
 
 _ZN10rayon_core5sleep5Sleep8new_jobs17h8dd36c93b6cd7da4E.exit: ; preds = %_ZN10rayon_core5sleep8counters14AtomicCounters31increment_jobs_event_counter_if17hb6fa10a74221aac7E.exit.i, %.sink.split.i, %21
   ret void

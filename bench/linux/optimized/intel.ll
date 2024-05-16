@@ -1236,7 +1236,7 @@ define internal void @init_intel(ptr noundef %0) #2 align 16 {
   %146 = shl nsw i64 -1, %145
   %147 = trunc nsw i64 %146 to i32
   %148 = xor i32 %147, -1
-  %149 = icmp eq i32 %147, -1
+  %149 = icmp eq i64 %145, 0
   br i1 %149, label %158, label %150
 
 150:                                              ; preds = %141

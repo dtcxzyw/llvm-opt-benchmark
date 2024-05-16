@@ -7795,8 +7795,8 @@ _ZN8mini_lsm11lsm_storage13range_overlap17h22385a319cc12efeE.exit.i: ; preds = %
   %408 = sext i32 %407 to i64
   %409 = icmp eq i32 %407, 0
   %spec.store.select.i31.i.i = select i1 %409, i64 %406, i64 %408
-  %isneg.i.i = icmp slt i64 %spec.store.select.i31.i.i, 0
-  br i1 %isneg.i.i, label %_ZN8mini_lsm11lsm_storage13range_overlap17h22385a319cc12efeE.exit.thread557.i, label %.critedge.i
+  %switch.i.i = icmp slt i64 %spec.store.select.i31.i.i, 0
+  br i1 %switch.i.i, label %_ZN8mini_lsm11lsm_storage13range_overlap17h22385a319cc12efeE.exit.thread557.i, label %.critedge.i
 
 _ZN8mini_lsm11lsm_storage13range_overlap17h22385a319cc12efeE.exit.thread557.i: ; preds = %_ZN8mini_lsm11lsm_storage13range_overlap17h22385a319cc12efeE.exit.i, %400, %387
   call void @llvm.experimental.noalias.scope.decl(metadata !1048)
@@ -7959,8 +7959,8 @@ _ZN8mini_lsm11lsm_storage13range_overlap17h22385a319cc12efeE.exit327.i: ; preds 
   %471 = sext i32 %470 to i64
   %472 = icmp eq i32 %470, 0
   %spec.store.select.i31.i320.i = select i1 %472, i64 %469, i64 %471
-  %isneg.i321.i = icmp slt i64 %spec.store.select.i31.i320.i, 0
-  br i1 %isneg.i321.i, label %.thread568.i, label %.critedge254.i
+  %switch.i321.i = icmp slt i64 %spec.store.select.i31.i320.i, 0
+  br i1 %switch.i321.i, label %.thread568.i, label %.critedge254.i
 
 473:                                              ; preds = %._crit_edge.i365.i, %567
   %474 = phi i64 [ %.pre.i366.i, %._crit_edge.i365.i ], [ %568, %567 ]

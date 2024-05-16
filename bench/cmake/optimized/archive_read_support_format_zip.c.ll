@@ -1202,21 +1202,21 @@ define internal range(i32 -1, 33) i32 @archive_read_format_zip_seekable_bid(ptr 
   br i1 %14, label %.loopexit, label %15
 
 15:                                               ; preds = %10
-  %16 = trunc nuw nsw i64 %11 to i32
-  %17 = tail call ptr @__archive_read_ahead(ptr noundef nonnull %0, i64 noundef %11, ptr noundef null) #21
-  %18 = icmp ne ptr %17, null
-  %19 = icmp ugt i32 %16, 22
-  %or.cond = select i1 %18, i1 %19, i1 false
+  %16 = tail call ptr @__archive_read_ahead(ptr noundef nonnull %0, i64 noundef %11, ptr noundef null) #21
+  %17 = icmp ne ptr %16, null
+  %18 = icmp ugt i64 %8, 22
+  %or.cond = and i1 %17, %18
   br i1 %or.cond, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %15
-  %20 = add nsw i32 %16, -22
+  %19 = trunc nuw nsw i64 %11 to i32
+  %20 = add nsw i32 %19, -22
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %38
   %.03948 = phi i32 [ %39, %38 ], [ %20, %.lr.ph.preheader ]
   %21 = zext nneg i32 %.03948 to i64
-  %22 = getelementptr inbounds i8, ptr %17, i64 %21
+  %22 = getelementptr inbounds i8, ptr %16, i64 %21
   %23 = load i8, ptr %22, align 1
   switch i8 %23, label %37 [
     i8 80, label %24

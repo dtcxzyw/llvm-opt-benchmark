@@ -1885,9 +1885,12 @@ if.end50:                                         ; preds = %if.end40
   %sub.ptr.rhs.cast = ptrtoint ptr %41 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %call51 = call fastcc i64 @vhost_vdpa_net_svq_flush(ptr noundef nonnull %nc, i64 noundef %sub.ptr.sub)
+  %tobool53.not = icmp eq i64 %call51, 0
+  br i1 %tobool53.not, label %if.end62, label %if.then60
+
+if.then60:                                        ; preds = %if.end50
   %conv52 = trunc nsw i64 %call51 to i32
-  %tobool53.not = icmp eq i32 %conv52, 0
-  br i1 %tobool53.not, label %if.end62, label %return
+  br label %return
 
 if.end62:                                         ; preds = %if.end50, %if.end
   %42 = load ptr, ptr %dev, align 8
@@ -1906,8 +1909,8 @@ for.body:                                         ; preds = %if.end62, %for.body
   %cmp65 = icmp slt i32 %inc, %45
   br i1 %cmp65, label %for.body, label %return, !llvm.loop !11
 
-return:                                           ; preds = %for.body, %if.end62, %if.then67.i, %if.then57.i, %if.then47.i, %if.then37.i, %if.then17.i, %if.then2.i, %vhost_vdpa_net_load_mq.exit.thread83, %if.end50, %if.end40, %vhost_vdpa_net_load_offloads.exit, %vhost_vdpa_net_load_mq.exit, %vhost_vdpa_net_load_mac.exit
-  %retval.0 = phi i32 [ %retval.0.i, %vhost_vdpa_net_load_mac.exit ], [ %conv5.i, %vhost_vdpa_net_load_mq.exit ], [ %spec.select.i48, %vhost_vdpa_net_load_offloads.exit ], [ %call41, %if.end40 ], [ %conv52, %if.end50 ], [ %retval.0.i39.ph, %vhost_vdpa_net_load_mq.exit.thread83 ], [ %retval.0.i63.i, %if.then67.i ], [ %retval.0.i58.i, %if.then57.i ], [ %retval.0.i53.i, %if.then47.i ], [ %retval.0.i48.i, %if.then37.i ], [ %retval.0.i41.i, %if.then17.i ], [ %retval.0.i.i, %if.then2.i ], [ 0, %if.end62 ], [ 0, %for.body ]
+return:                                           ; preds = %for.body, %if.end62, %if.then67.i, %if.then57.i, %if.then47.i, %if.then37.i, %if.then17.i, %if.then2.i, %vhost_vdpa_net_load_mq.exit.thread83, %if.end40, %vhost_vdpa_net_load_offloads.exit, %vhost_vdpa_net_load_mq.exit, %vhost_vdpa_net_load_mac.exit, %if.then60
+  %retval.0 = phi i32 [ %conv52, %if.then60 ], [ %retval.0.i, %vhost_vdpa_net_load_mac.exit ], [ %conv5.i, %vhost_vdpa_net_load_mq.exit ], [ %spec.select.i48, %vhost_vdpa_net_load_offloads.exit ], [ %call41, %if.end40 ], [ %retval.0.i39.ph, %vhost_vdpa_net_load_mq.exit.thread83 ], [ %retval.0.i63.i, %if.then67.i ], [ %retval.0.i58.i, %if.then57.i ], [ %retval.0.i53.i, %if.then47.i ], [ %retval.0.i48.i, %if.then37.i ], [ %retval.0.i41.i, %if.then17.i ], [ %retval.0.i.i, %if.then2.i ], [ 0, %if.end62 ], [ 0, %for.body ]
   ret i32 %retval.0
 }
 

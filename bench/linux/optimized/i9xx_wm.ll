@@ -7992,7 +7992,7 @@ define internal void @pnv_update_wm(ptr noundef %0) #0 align 16 {
   %167 = sub nsw i32 507, %165
   tail call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.55, i32 noundef %167) #14
   %168 = tail call i32 @llvm.smin.i32(i32 %167, i32 63)
-  %169 = icmp ugt i32 %163, 32384
+  %169 = icmp ugt i64 %160, 323840000
   %170 = tail call i32 @llvm.umax.i32(i32 %168, i32 8)
   %171 = shl i32 %170, 24
   %172 = load ptr, ptr %132, align 8
@@ -8054,7 +8054,7 @@ define internal void @pnv_update_wm(ptr noundef %0) #0 align 16 {
   %223 = sub nsw i32 507, %221
   tail call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.55, i32 noundef %223) #14
   %224 = tail call i32 @llvm.smin.i32(i32 %223, i32 63)
-  %225 = icmp ugt i32 %219, 32384
+  %225 = icmp ugt i64 %216, 323840000
   %226 = tail call i32 @llvm.umax.i32(i32 %224, i32 8)
   %227 = shl nuw i32 %226, 16
   %228 = load ptr, ptr %132, align 8

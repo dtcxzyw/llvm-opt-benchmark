@@ -735,7 +735,7 @@ if.then:                                          ; preds = %entry
   %conv = trunc nuw nsw i64 %size to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %result.i)
   store volatile i64 0, ptr %result.i, align 8
-  %cmp.i = icmp ugt i32 %conv, 3
+  %cmp.i = icmp ugt i64 %size, 3
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then

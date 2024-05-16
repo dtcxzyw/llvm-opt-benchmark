@@ -813,7 +813,7 @@ if.end14:                                         ; preds = %if.end
   %conv15 = zext i32 %cond6 to i64
   %and16 = and i64 %conv15, %val
   %sh_prom = zext nneg i8 %conv2 to i64
-  %shl = shl nuw nsw i64 %and16, %sh_prom
+  %val.addr.0 = shl nuw nsw i64 %and16, %sh_prom
   %conv = lshr i32 %0, 2
   %15 = and i32 %conv, 1023
   switch i32 %15, label %sw.epilog479 [
@@ -842,10 +842,10 @@ if.end14:                                         ; preds = %if.end
   ]
 
 sw.bb:                                            ; preds = %if.end14
-  %and23 = and i64 %shl, 8
+  %and23 = and i64 %val.addr.0, 8
   %tobool24.not = icmp eq i64 %and23, 0
-  %and26 = and i64 %shl, 72057594037927901
-  %spec.select = select i1 %tobool24.not, i64 %shl, i64 %and26
+  %and26 = and i64 %val.addr.0, 72057594037927901
+  %spec.select = select i1 %tobool24.not, i64 %val.addr.0, i64 %and26
   %active_locty28 = getelementptr inbounds i8, ptr %opaque, i64 4370
   %16 = load i8, ptr %active_locty28, align 2
   %and29 = and i64 %spec.select, 32
@@ -1020,21 +1020,21 @@ if.then170:                                       ; preds = %if.end168
 
 sw.bb172:                                         ; preds = %if.end14
   %conv18 = zext nneg i8 %conv2 to i32
-  %shl20 = shl i32 %cond6, %conv18
-  %xor = xor i32 %shl20, -1
+  %mask.0 = shl i32 %cond6, %conv18
+  %xor = xor i32 %mask.0, -1
   %loc173 = getelementptr inbounds i8, ptr %opaque, i64 4376
   %idxprom174 = and i64 %shr.i, 7
   %inte = getelementptr [5 x %struct.TPMLocality], ptr %loc173, i64 0, i64 %idxprom174, i32 4
   %37 = load i32, ptr %inte, align 8
   %and176 = and i32 %37, %xor
-  %38 = trunc i64 %shl to i32
+  %38 = trunc i64 %val.addr.0 to i32
   %39 = and i32 %38, -2147483489
   %conv184 = or i32 %and176, %39
   store i32 %conv184, ptr %inte, align 8
   br label %sw.epilog479
 
 sw.bb186:                                         ; preds = %if.end14
-  %and187 = and i64 %shl, 135
+  %and187 = and i64 %val.addr.0, 135
   %tobool188.not = icmp eq i64 %and187, 0
   br i1 %tobool188.not, label %sw.bb186.if.end211_crit_edge, label %land.lhs.true189
 
@@ -1052,7 +1052,7 @@ land.lhs.true189:                                 ; preds = %sw.bb186
   br i1 %tobool194.not, label %if.end211, label %if.then195
 
 if.then195:                                       ; preds = %land.lhs.true189
-  %41 = trunc i64 %shl to i32
+  %41 = trunc i64 %val.addr.0 to i32
   %42 = xor i32 %41, -1
   %conv202 = and i32 %40, %42
   store i32 %conv202, ptr %ints, align 4
@@ -1090,7 +1090,7 @@ if.end228:                                        ; preds = %sw.bb221
   br i1 %cmp229, label %if.then231, label %if.end258
 
 if.then231:                                       ; preds = %if.end228
-  %and232 = and i64 %shl, 16777216
+  %and232 = and i64 %val.addr.0, 16777216
   %tobool233.not = icmp eq i64 %and232, 0
   br i1 %tobool233.not, label %if.end243, label %if.then234
 
@@ -1108,7 +1108,7 @@ if.then240:                                       ; preds = %if.then234
   br label %if.end243
 
 if.end243:                                        ; preds = %if.then234, %if.then240, %if.then231
-  %and244 = and i64 %shl, 33554432
+  %and244 = and i64 %val.addr.0, 33554432
   %tobool245.not = icmp ne i64 %and244, 0
   %cmp248 = icmp eq i8 %conv.i, 3
   %or.cond185 = and i1 %cmp248, %tobool245.not
@@ -1120,7 +1120,7 @@ if.then253:                                       ; preds = %if.end243
   br label %if.end258
 
 if.end258:                                        ; preds = %if.end243, %if.then253, %if.end228
-  %and259 = and i64 %shl, 98
+  %and259 = and i64 %val.addr.0, 98
   switch i64 %and259, label %sw.epilog479 [
     i64 64, label %if.then262
     i64 32, label %if.then301
@@ -1239,7 +1239,7 @@ if.end343:                                        ; preds = %sw.bb336
   ]
 
 if.else365:                                       ; preds = %if.end343
-  %conv366 = trunc i64 %shl to i32
+  %conv366 = trunc i64 %val.addr.0 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i207)
   %62 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i208 = icmp ne i32 %62, 0
@@ -1378,7 +1378,7 @@ if.then458:                                       ; preds = %if.then432
   br label %sw.epilog479
 
 sw.bb462:                                         ; preds = %if.end14
-  %and463 = and i64 %shl, 524288
+  %and463 = and i64 %val.addr.0, 524288
   %tobool464.not = icmp eq i64 %and463, 0
   br i1 %tobool464.not, label %sw.epilog479, label %for.cond466.preheader
 

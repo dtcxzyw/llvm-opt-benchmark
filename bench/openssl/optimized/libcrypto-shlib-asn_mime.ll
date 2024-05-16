@@ -150,13 +150,13 @@ if.end5:                                          ; preds = %if.end
   br i1 %tobool.not, label %if.else, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %if.end5
-  %call831 = call i32 @BIO_read(ptr noundef nonnull %in, ptr noundef nonnull %linebuf, i32 noundef 1024) #6
-  %cmp932 = icmp sgt i32 %call831, 0
-  br i1 %cmp932, label %while.body, label %if.end53
+  %call830 = call i32 @BIO_read(ptr noundef nonnull %in, ptr noundef nonnull %linebuf, i32 noundef 1024) #6
+  %cmp931 = icmp sgt i32 %call830, 0
+  br i1 %cmp931, label %while.body, label %if.end53
 
 while.body:                                       ; preds = %while.cond.preheader, %while.body
-  %call833 = phi i32 [ %call8, %while.body ], [ %call831, %while.cond.preheader ]
-  %call11 = call i32 @BIO_write(ptr noundef %call6, ptr noundef nonnull %linebuf, i32 noundef %call833) #6
+  %call832 = phi i32 [ %call8, %while.body ], [ %call830, %while.cond.preheader ]
+  %call11 = call i32 @BIO_write(ptr noundef %call6, ptr noundef nonnull %linebuf, i32 noundef %call832) #6
   %call8 = call i32 @BIO_read(ptr noundef %in, ptr noundef nonnull %linebuf, i32 noundef 1024) #6
   %cmp9 = icmp sgt i32 %call8, 0
   br i1 %cmp9, label %while.body, label %if.end53, !llvm.loop !6
@@ -171,9 +171,9 @@ if.then14:                                        ; preds = %if.else
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then14, %if.else
-  %call1936 = call i32 @BIO_gets(ptr noundef nonnull %in, ptr noundef nonnull %linebuf, i32 noundef 1024) #6
-  %cmp2037 = icmp sgt i32 %call1936, 0
-  br i1 %cmp2037, label %for.body.lr.ph.i.lr.ph, label %if.end53
+  %call1935 = call i32 @BIO_gets(ptr noundef nonnull %in, ptr noundef nonnull %linebuf, i32 noundef 1024) #6
+  %cmp2036 = icmp sgt i32 %call1935, 0
+  br i1 %cmp2036, label %for.body.lr.ph.i.lr.ph, label %if.end53
 
 for.body.lr.ph.i.lr.ph:                           ; preds = %if.end16
   %and30.i = and i32 %flags, 524288
@@ -181,15 +181,15 @@ for.body.lr.ph.i.lr.ph:                           ; preds = %if.end16
   br i1 %cmp31.i, label %for.body.lr.ph.i.us, label %for.body.lr.ph.i
 
 for.body.lr.ph.i.us:                              ; preds = %for.body.lr.ph.i.lr.ph, %if.end51.us
-  %call1939.us = phi i32 [ %call19.us, %if.end51.us ], [ %call1936, %for.body.lr.ph.i.lr.ph ]
-  %idx.ext.i.us = zext nneg i32 %call1939.us to i64
+  %call1938.us = phi i32 [ %call19.us, %if.end51.us ], [ %call1935, %for.body.lr.ph.i.lr.ph ]
+  %idx.ext.i.us = zext nneg i32 %call1938.us to i64
   %add.ptr.i.us = getelementptr inbounds i8, ptr %linebuf, i64 %idx.ext.i.us
   br label %for.body.i.us
 
 for.body.i.us:                                    ; preds = %for.body.i.us.backedge, %for.body.lr.ph.i.us
   %add.ptr.pn.i.us = phi ptr [ %add.ptr.i.us, %for.body.lr.ph.i.us ], [ %p.028.i.us, %for.body.i.us.backedge ]
   %is_eol.027.i.us = phi i32 [ 0, %for.body.lr.ph.i.us ], [ %is_eol.027.i.us.be, %for.body.i.us.backedge ]
-  %len.126.i.us = phi i32 [ %call1939.us, %for.body.lr.ph.i.us ], [ %len.126.i.us.be, %for.body.i.us.backedge ]
+  %len.126.i.us = phi i32 [ %call1938.us, %for.body.lr.ph.i.us ], [ %len.126.i.us.be, %for.body.i.us.backedge ]
   %p.028.i.us = getelementptr inbounds i8, ptr %add.ptr.pn.i.us, i64 -1
   %0 = load i8, ptr %p.028.i.us, align 1
   %cmp27.i.us = icmp eq i8 %0, 10
@@ -207,7 +207,7 @@ if.else38.i.us:                                   ; preds = %if.else.i.us
   br i1 %cmp40.old.not.i.us, label %for.inc.i.us.thread, label %if.then26.us.thread
 
 if.then26.us.thread:                              ; preds = %if.else38.i.us
-  %call35.us86 = call i32 @BIO_write(ptr noundef %call6, ptr noundef nonnull %linebuf, i32 noundef %len.126.i.us) #6
+  %call35.us85 = call i32 @BIO_write(ptr noundef %call6, ptr noundef nonnull %linebuf, i32 noundef %len.126.i.us) #6
   br label %if.end51.us
 
 if.then37.us:                                     ; preds = %land.lhs.true.i.us
@@ -225,8 +225,8 @@ for.body.i.us.backedge:                           ; preds = %for.inc.i.us, %for.
   br label %for.body.i.us, !llvm.loop !7
 
 for.inc.i.us.thread:                              ; preds = %if.else38.i.us
-  %cmp24.i.us90 = icmp ugt i32 %len.126.i.us, 1
-  br i1 %cmp24.i.us90, label %for.body.i.us.backedge, label %if.end51.us
+  %cmp24.i.us89 = icmp ugt i32 %len.126.i.us, 1
+  br i1 %cmp24.i.us89, label %for.body.i.us.backedge, label %if.end51.us
 
 if.then47.us:                                     ; preds = %for.inc.i.us
   %call48.us = call i32 @BIO_write(ptr noundef %call6, ptr noundef nonnull @.str.6, i32 noundef 2) #6
@@ -238,16 +238,16 @@ if.end51.us:                                      ; preds = %for.inc.i.us.thread
   br i1 %cmp20.us, label %for.body.lr.ph.i.us, label %if.end53, !llvm.loop !8
 
 for.body.lr.ph.i:                                 ; preds = %for.body.lr.ph.i.lr.ph, %if.end51
-  %call1939 = phi i32 [ %call19, %if.end51 ], [ %call1936, %for.body.lr.ph.i.lr.ph ]
-  %eolcnt.038 = phi i32 [ %eolcnt.2, %if.end51 ], [ 0, %for.body.lr.ph.i.lr.ph ]
-  %idx.ext.i = zext nneg i32 %call1939 to i64
+  %call1938 = phi i32 [ %call19, %if.end51 ], [ %call1935, %for.body.lr.ph.i.lr.ph ]
+  %eolcnt.037 = phi i32 [ %eolcnt.2, %if.end51 ], [ 0, %for.body.lr.ph.i.lr.ph ]
+  %idx.ext.i = zext nneg i32 %call1938 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %linebuf, i64 %idx.ext.i
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %add.ptr.pn.i = phi ptr [ %add.ptr.i, %for.body.lr.ph.i ], [ %p.028.i, %for.inc.i ]
   %is_eol.027.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %is_eol.1.i, %for.inc.i ]
-  %len.126.i = phi i32 [ %call1939, %for.body.lr.ph.i ], [ %dec46.i, %for.inc.i ]
+  %len.126.i = phi i32 [ %call1938, %for.body.lr.ph.i ], [ %dec46.i, %for.inc.i ]
   %p.028.i = getelementptr inbounds i8, ptr %add.ptr.pn.i, i64 -1
   %1 = load i8, ptr %p.028.i, align 1
   %cmp27.i = icmp eq i8 %1, 10
@@ -274,14 +274,14 @@ for.inc.i:                                        ; preds = %land.lhs.true.i, %l
   br i1 %cmp24.i, label %for.body.i, label %if.else40, !llvm.loop !7
 
 if.then26:                                        ; preds = %land.lhs.true.i, %if.else38.i
-  %cmp3034 = icmp sgt i32 %eolcnt.038, 0
-  br i1 %cmp3034, label %for.body, label %if.end33.loopexit
+  %cmp3033 = icmp sgt i32 %eolcnt.037, 0
+  br i1 %cmp3033, label %for.body, label %if.end33.loopexit
 
 for.body:                                         ; preds = %if.then26, %for.body
-  %i.035 = phi i32 [ %inc, %for.body ], [ 0, %if.then26 ]
+  %i.034 = phi i32 [ %inc, %for.body ], [ 0, %if.then26 ]
   %call32 = call i32 @BIO_write(ptr noundef %call6, ptr noundef nonnull @.str.6, i32 noundef 2) #6
-  %inc = add nuw nsw i32 %i.035, 1
-  %exitcond.not = icmp eq i32 %inc, %eolcnt.038
+  %inc = add nuw nsw i32 %i.034, 1
+  %exitcond.not = icmp eq i32 %inc, %eolcnt.037
   br i1 %exitcond.not, label %if.end33.loopexit, label %for.body, !llvm.loop !9
 
 if.end33.loopexit:                                ; preds = %for.body, %if.then26
@@ -293,7 +293,7 @@ if.then37:                                        ; preds = %if.end33.loopexit
   br label %if.end51
 
 if.else40:                                        ; preds = %for.inc.i
-  %inc44 = add nsw i32 %eolcnt.038, 1
+  %inc44 = add nsw i32 %eolcnt.037, 1
   br label %if.end51
 
 if.end51:                                         ; preds = %if.else40, %if.end33.loopexit, %if.then37

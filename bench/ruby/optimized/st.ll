@@ -20,18 +20,18 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden noundef ptr @rb_st_init_existing_table_with_size(ptr noundef returned %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %2, i1 false)
-  %5 = trunc nuw nsw i64 %4 to i32
-  %6 = icmp ugt i32 %5, 1
-  br i1 %6, label %get_power2.exit, label %7
+  %4 = icmp ult i64 %2, 4611686018427387904
+  br i1 %4, label %get_power2.exit, label %5
 
-7:                                                ; preds = %3
-  %8 = load i64, ptr @rb_eRuntimeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.2) #22
+5:                                                ; preds = %3
+  %6 = load i64, ptr @rb_eRuntimeError, align 8
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %6, ptr noundef nonnull @.str.2) #22
   unreachable
 
 get_power2.exit:                                  ; preds = %3
-  %9 = sub nuw nsw i32 64, %5
+  %7 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %2, i1 false)
+  %8 = trunc nuw nsw i64 %7 to i32
+  %9 = sub nuw nsw i32 64, %8
   %10 = tail call i32 @llvm.umax.i32(i32 %9, i32 2)
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %11, align 8
@@ -47,7 +47,7 @@ get_power2.exit:                                  ; preds = %3
   %19 = load i8, ptr %18, align 2
   %20 = getelementptr inbounds i8, ptr %0, i64 2
   store i8 %19, ptr %20, align 2
-  %21 = icmp ugt i32 %5, 59
+  %21 = icmp ult i64 %2, 16
   br i1 %21, label %27, label %22
 
 22:                                               ; preds = %get_power2.exit
@@ -97,18 +97,18 @@ declare noalias nonnull ptr @ruby_xmalloc(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noalias noundef nonnull ptr @rb_st_init_table_with_size(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = tail call noalias nonnull dereferenceable(56) ptr @ruby_xmalloc(i64 noundef 56) #23
-  %4 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %1, i1 false)
-  %5 = trunc nuw nsw i64 %4 to i32
-  %6 = icmp ugt i32 %5, 1
-  br i1 %6, label %get_power2.exit.i, label %7
+  %4 = icmp ult i64 %1, 4611686018427387904
+  br i1 %4, label %get_power2.exit.i, label %5
 
-7:                                                ; preds = %2
-  %8 = load i64, ptr @rb_eRuntimeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.2) #22
+5:                                                ; preds = %2
+  %6 = load i64, ptr @rb_eRuntimeError, align 8
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %6, ptr noundef nonnull @.str.2) #22
   unreachable
 
 get_power2.exit.i:                                ; preds = %2
-  %9 = sub nuw nsw i32 64, %5
+  %7 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %1, i1 false)
+  %8 = trunc nuw nsw i64 %7 to i32
+  %9 = sub nuw nsw i32 64, %8
   %10 = tail call i32 @llvm.umax.i32(i32 %9, i32 2)
   %11 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %0, ptr %11, align 8
@@ -124,7 +124,7 @@ get_power2.exit.i:                                ; preds = %2
   %19 = load i8, ptr %18, align 2
   %20 = getelementptr inbounds i8, ptr %3, i64 2
   store i8 %19, ptr %20, align 2
-  %21 = icmp ugt i32 %5, 59
+  %21 = icmp ult i64 %1, 16
   br i1 %21, label %27, label %22
 
 22:                                               ; preds = %get_power2.exit.i

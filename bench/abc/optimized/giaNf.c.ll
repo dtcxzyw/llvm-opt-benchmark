@@ -5435,7 +5435,7 @@ define void @Nf_ManCutMatchPrint(ptr nocapture noundef readonly %0, i32 noundef 
 
 .preheader40:                                     ; preds = %52
   %50 = trunc nuw nsw i64 %indvars.iv.next to i32
-  %51 = icmp ult i32 %50, 6
+  %51 = icmp ult i64 %indvars.iv, 5
   br i1 %51, label %.lr.ph43.preheader, label %._crit_edge
 
 .lr.ph43.preheader:                               ; preds = %10, %.preheader40
@@ -5479,7 +5479,7 @@ define void @Nf_ManCutMatchPrint(ptr nocapture noundef readonly %0, i32 noundef 
 
 .preheader39:                                     ; preds = %72
   %70 = trunc nuw nsw i64 %indvars.iv.next65 to i32
-  %71 = icmp ult i32 %70, 6
+  %71 = icmp ult i64 %indvars.iv64, 5
   br i1 %71, label %.lr.ph49.preheader, label %._crit_edge50
 
 .lr.ph49.preheader:                               ; preds = %._crit_edge, %.preheader39

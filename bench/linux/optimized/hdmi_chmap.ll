@@ -410,11 +410,11 @@ define dso_local void @snd_hdac_setup_channel_mapping(ptr nocapture noundef read
   br label %167
 
 165:                                              ; preds = %167
-  %166 = icmp slt i32 %161, 8
+  %166 = icmp ult i64 %168, 7
   br i1 %166, label %.thread21.preheader, label %.loopexit24
 
 .thread21.preheader:                              ; preds = %159, %165
-  %.ph79 = phi i64 [ 0, %159 ], [ %164, %165 ]
+  %.ph83 = phi i64 [ 0, %159 ], [ %164, %165 ]
   br label %.thread21
 
 167:                                              ; preds = %167, %163
@@ -429,7 +429,7 @@ define dso_local void @snd_hdac_setup_channel_mapping(ptr nocapture noundef read
   br i1 %174, label %165, label %167, !llvm.loop !24
 
 .thread21:                                        ; preds = %.thread21.preheader, %.thread21
-  %175 = phi i64 [ %179, %.thread21 ], [ %.ph79, %.thread21.preheader ]
+  %175 = phi i64 [ %179, %.thread21 ], [ %.ph83, %.thread21.preheader ]
   %176 = trunc i64 %175 to i32
   %177 = or i32 %176, 240
   %178 = getelementptr [8 x i32], ptr %8, i64 0, i64 %175

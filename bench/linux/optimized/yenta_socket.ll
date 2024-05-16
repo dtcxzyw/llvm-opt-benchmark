@@ -1947,15 +1947,18 @@ define internal fastcc noundef range(i32 0, 2) i32 @yenta_search_res(ptr nocaptu
   br i1 %29, label %30, label %42
 
 30:                                               ; preds = %24
-  %31 = add nuw nsw i64 %28, 1
-  %32 = lshr i64 %31, 3
-  %33 = trunc nuw nsw i64 %32 to i32
-  %34 = icmp ult i32 %33, 2
-  br i1 %34, label %.loopexit, label %.preheader
+  %31 = icmp ult i64 %28, 15
+  br i1 %31, label %.loopexit, label %.preheader.preheader
 
-.preheader:                                       ; preds = %30, %.preheader
-  %35 = phi i32 [ %38, %.preheader ], [ 0, %30 ]
-  %36 = phi i32 [ %37, %.preheader ], [ %33, %30 ]
+.preheader.preheader:                             ; preds = %30
+  %32 = add nuw nsw i64 %28, 1
+  %33 = lshr i64 %32, 3
+  %34 = trunc nuw nsw i64 %33 to i32
+  br label %.preheader
+
+.preheader:                                       ; preds = %.preheader.preheader, %.preheader
+  %35 = phi i32 [ %38, %.preheader ], [ 0, %.preheader.preheader ]
+  %36 = phi i32 [ %37, %.preheader ], [ %34, %.preheader.preheader ]
   %37 = lshr i32 %36, 1
   %38 = add nuw nsw i32 %35, 1
   %39 = icmp ult i32 %36, 4

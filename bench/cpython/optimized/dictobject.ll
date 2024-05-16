@@ -2786,11 +2786,11 @@ if.end4:                                          ; preds = %if.end
   %div.i5.lhs.trunc = trunc i64 %shl1.i to i32
   %div.i544 = udiv i32 %div.i5.lhs.trunc, 3
   %div.i5.zext = zext nneg i32 %div.i544 to i64
-  %cmp.i = icmp ugt i8 %cast.i.i.i, 56
+  %cmp.i = icmp ult i64 %or1.i.i, 128
   br i1 %cmp.i, label %if.else32.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end4
-  %cmp6.i = icmp ugt i8 %cast.i.i.i, 48
+  %cmp6.i = icmp ult i64 %or1.i.i, 32768
   br i1 %cmp6.i, label %if.then8.i, label %if.else17.i
 
 if.then8.i:                                       ; preds = %if.else.i

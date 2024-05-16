@@ -792,8 +792,7 @@ badtype:                                          ; preds = %if.else19, %cond.en
 if.else:                                          ; preds = %cond.end4
   %7 = load i64, ptr %cond5, align 8
   %shr = ashr i64 %7, 47
-  %conv9 = trunc nsw i64 %shr to i32
-  %cmp10 = icmp eq i32 %conv9, -5
+  %cmp10 = icmp eq i64 %shr, -5
   %8 = bitcast i64 %7 to double
   br i1 %cmp10, label %if.then12, label %if.else19
 
@@ -829,7 +828,7 @@ lj_buf_more.exit57:                               ; preds = %if.then12, %if.then
   br label %if.end29
 
 if.else19:                                        ; preds = %if.else
-  %cmp22 = icmp ult i32 %conv9, -14
+  %cmp22 = icmp ult i64 %shr, -14
   br i1 %cmp22, label %if.then24, label %badtype
 
 if.then24:                                        ; preds = %if.else19

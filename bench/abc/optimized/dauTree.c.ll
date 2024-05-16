@@ -5356,11 +5356,11 @@ Abc_TtCopy.exit:                                  ; preds = %.lr.ph18.i, %._crit
 
 .preheader73:                                     ; preds = %.lr.ph77.preheader, %Abc_TtCopy.exit
   %49 = load i64, ptr %11, align 8
-  %50 = lshr i64 %49, 59
   %.not90 = icmp ult i64 %49, 576460752303423488
   br i1 %.not90, label %.preheader, label %.lr.ph79
 
 .lr.ph79:                                         ; preds = %.preheader73
+  %50 = lshr i64 %49, 59
   %51 = getelementptr inbounds i8, ptr %1, i64 24
   br label %52
 

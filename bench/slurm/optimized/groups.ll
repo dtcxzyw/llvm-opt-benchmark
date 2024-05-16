@@ -475,7 +475,7 @@ _get_group_members.exit.thread89:                 ; preds = %59
   %200 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %199, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 412, ptr noundef nonnull @__func__._put_group_cache) #12
   %201 = getelementptr inbounds i8, ptr %195, i64 16
   store ptr %200, ptr %201, align 8
-  %202 = icmp sgt i32 %185, 0
+  %202 = icmp sgt i64 %indvars.iv, 0
   br i1 %202, label %203, label %204
 
 203:                                              ; preds = %193
@@ -495,7 +495,7 @@ _get_group_members.exit.thread89:                 ; preds = %59
   unreachable
 
 _put_group_cache.exit.i:                          ; preds = %204
-  %.not77.i = icmp eq i32 %185, 0
+  %.not77.i = icmp eq i64 %indvars.iv, 0
   br i1 %.not77.i, label %_get_group_members.exit.thread93, label %_get_group_members.exit
 
 _get_group_members.exit.thread93:                 ; preds = %_put_group_cache.exit.i

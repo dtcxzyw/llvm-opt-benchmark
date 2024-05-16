@@ -1991,7 +1991,7 @@ for.body.lr.ph.i:                                 ; preds = %if.then401.i
 
 for.cond411.preheader.i:                          ; preds = %for.body.i
   %221 = trunc nuw nsw i64 %indvars.iv.next.i to i32
-  %cmp412450.i = icmp ult i32 %221, 6
+  %cmp412450.i = icmp ult i64 %indvars.iv.i, 5
   br i1 %cmp412450.i, label %for.body414.lr.ph.i, label %for.end420.i
 
 for.body414.lr.ph.i:                              ; preds = %for.cond411.preheader.i, %if.then401.i
@@ -1999,8 +1999,8 @@ for.body414.lr.ph.i:                              ; preds = %for.cond411.prehead
   %222 = zext nneg i32 %i.0.lcssa459.i to i64
   %223 = getelementptr i8, ptr %call.i, i64 %222
   %scevgep.i = getelementptr i8, ptr %223, i64 201
-  %narrow.i = sub nuw nsw i32 6, %i.0.lcssa459.i
-  %224 = zext nneg i32 %narrow.i to i64
+  %narrow.i = sub i32 6, %i.0.lcssa459.i
+  %224 = zext i32 %narrow.i to i64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep.i, i8 0, i64 %224, i1 false)
   br label %for.end420.i
 

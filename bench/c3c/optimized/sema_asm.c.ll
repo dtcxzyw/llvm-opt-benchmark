@@ -935,7 +935,7 @@ sema_reg_float_suported_type.exit.thread.i:       ; preds = %sema_reg_float_supo
   %.096216.i = phi ptr [ %364, %.thread.thread.i62 ], [ %.0962.i, %.thread.i45 ]
   %375 = lshr i64 %3, 48
   %376 = trunc nuw nsw i64 %375 to i32
-  %.not114.i = icmp eq i32 %376, 0
+  %.not114.i = icmp ult i64 %3, 281474976710656
   br i1 %.not114.i, label %377, label %382
 
 377:                                              ; preds = %374
@@ -960,42 +960,42 @@ sema_reg_float_suported_type.exit.thread.i:       ; preds = %sema_reg_float_supo
   %386 = icmp ult i32 %spec.store.select.i.i46, 128
   %387 = and i32 %376, 16
   %.not.i.i47 = icmp eq i32 %387, 0
-  %or.cond.i.i48 = or i1 %.not.i.i47, %386
+  %or.cond.i.i48 = select i1 %386, i1 true, i1 %.not.i.i47
   br i1 %or.cond.i.i48, label %388, label %sema_reg_int_suported_type.exit.i49
 
 388:                                              ; preds = %382
   %389 = icmp ult i32 %spec.store.select.i.i46, 80
   %390 = and i32 %376, 128
   %.not19.i.i51 = icmp eq i32 %390, 0
-  %or.cond24.i.i52 = or i1 %.not19.i.i51, %389
+  %or.cond24.i.i52 = select i1 %389, i1 true, i1 %.not19.i.i51
   br i1 %or.cond24.i.i52, label %391, label %sema_reg_int_suported_type.exit.i49
 
 391:                                              ; preds = %388
   %392 = icmp ult i32 %spec.store.select.i.i46, 64
   %393 = and i32 %376, 8
   %.not20.i.i53 = icmp eq i32 %393, 0
-  %or.cond25.i.i54 = or i1 %.not20.i.i53, %392
+  %or.cond25.i.i54 = select i1 %392, i1 true, i1 %.not20.i.i53
   br i1 %or.cond25.i.i54, label %394, label %sema_reg_int_suported_type.exit.i49
 
 394:                                              ; preds = %391
   %395 = icmp ult i32 %spec.store.select.i.i46, 32
   %396 = and i32 %376, 4
   %.not21.i.i55 = icmp eq i32 %396, 0
-  %or.cond26.i.i56 = or i1 %.not21.i.i55, %395
+  %or.cond26.i.i56 = select i1 %395, i1 true, i1 %.not21.i.i55
   br i1 %or.cond26.i.i56, label %397, label %sema_reg_int_suported_type.exit.i49
 
 397:                                              ; preds = %394
   %398 = icmp ult i32 %spec.store.select.i.i46, 16
   %399 = and i32 %376, 2
   %.not22.i.i57 = icmp eq i32 %399, 0
-  %or.cond27.i.i58 = or i1 %.not22.i.i57, %398
+  %or.cond27.i.i58 = select i1 %398, i1 true, i1 %.not22.i.i57
   br i1 %or.cond27.i.i58, label %400, label %sema_reg_int_suported_type.exit.i49
 
 400:                                              ; preds = %397
   %401 = icmp ult i32 %spec.store.select.i.i46, 8
   %402 = and i32 %376, 1
   %.not23.i.i59 = icmp eq i32 %402, 0
-  %or.cond28.i.i60 = or i1 %.not23.i.i59, %401
+  %or.cond28.i.i60 = select i1 %401, i1 true, i1 %.not23.i.i59
   %spec.select.i.i61 = select i1 %or.cond28.i.i60, i32 0, i32 8
   br label %sema_reg_int_suported_type.exit.i49
 

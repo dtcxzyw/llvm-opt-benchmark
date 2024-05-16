@@ -4367,8 +4367,8 @@ GC_find_header.exit:                              ; preds = %34
   tail call void (ptr, ...) @GC_printf(ptr noundef nonnull @.str.7, ptr noundef %.04057, ptr noundef %44)
   br label %.backedge
 
-.backedge:                                        ; preds = %96, %98, %46
-  %.sink = phi i64 [ 4096, %46 ], [ %97, %96 ], [ %101, %98 ]
+.backedge:                                        ; preds = %94, %96, %46
+  %.sink = phi i64 [ 4096, %46 ], [ %95, %94 ], [ %99, %96 ]
   %47 = getelementptr inbounds i8, ptr %.04057, i64 %.sink
   %48 = icmp ult ptr %47, %.039.lcssa
   br i1 %48, label %.lr.ph58, label %.loopexit, !llvm.loop !25
@@ -4380,7 +4380,7 @@ GC_find_header.exit:                              ; preds = %34
   %.not = icmp eq i8 %52, 0
   %53 = getelementptr inbounds i8, ptr %44, i64 32
   %54 = load i64, ptr %53, align 8
-  br i1 %.not, label %98, label %55
+  br i1 %.not, label %96, label %55
 
 55:                                               ; preds = %49
   %56 = lshr i64 %54, 12
@@ -4455,30 +4455,26 @@ GC_find_header.exit.i:                            ; preds = %79
 
 free_list_index_of.exit:                          ; preds = %GC_find_header.exit.i
   %92 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %93 = icmp eq i32 %92, -1
-  br i1 %93, label %free_list_index_of.exit.thread, label %94
-
-free_list_index_of.exit.thread:                   ; preds = %91, %free_list_index_of.exit
-  tail call void (ptr, ...) @GC_printf(ptr noundef nonnull @.str.11, i32 noundef %.0.i48)
-  br label %96
-
-94:                                               ; preds = %free_list_index_of.exit
   %.not47 = icmp eq i32 %.0.i48, %92
-  br i1 %.not47, label %96, label %95
+  br i1 %.not47, label %94, label %93
 
-95:                                               ; preds = %94
+free_list_index_of.exit.thread:                   ; preds = %91
+  tail call void (ptr, ...) @GC_printf(ptr noundef nonnull @.str.11, i32 noundef %.0.i48)
+  br label %94
+
+93:                                               ; preds = %free_list_index_of.exit
   tail call void (ptr, ...) @GC_printf(ptr noundef nonnull @.str.12, i32 noundef %92, i32 noundef %.0.i48)
-  br label %96
+  br label %94
 
-96:                                               ; preds = %94, %95, %free_list_index_of.exit.thread
-  %97 = load i64, ptr %53, align 8
+94:                                               ; preds = %free_list_index_of.exit, %93, %free_list_index_of.exit.thread
+  %95 = load i64, ptr %53, align 8
   br label %.backedge
 
-98:                                               ; preds = %49
+96:                                               ; preds = %49
   tail call void (ptr, ...) @GC_printf(ptr noundef nonnull @.str.13, ptr noundef %.04057, i64 noundef %54)
-  %99 = load i64, ptr %53, align 8
-  %100 = add i64 %99, 4095
-  %101 = and i64 %100, -4096
+  %97 = load i64, ptr %53, align 8
+  %98 = add i64 %97, 4095
+  %99 = and i64 %98, -4096
   br label %.backedge
 
 ._crit_edge:                                      ; preds = %.loopexit, %0

@@ -876,7 +876,7 @@ lpad91:                                           ; preds = %invoke.cont94, %inv
 sw.bb:                                            ; preds = %invoke.cont85
   %indvars.iv.next675 = add nsw i64 %indvars.iv674, 1
   %38 = trunc nsw i64 %indvars.iv.next675 to i32
-  %cmp.i158 = icmp eq i32 %38, 0
+  %cmp.i158 = icmp eq i64 %indvars.iv.next675, 0
   br i1 %cmp.i158, label %invoke.cont85.backedge, label %if.end.i159
 
 if.end.i159:                                      ; preds = %sw.bb

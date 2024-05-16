@@ -735,7 +735,7 @@ pcap_read_ppp_pseudoheader.exit:                  ; preds = %215
   %263 = trunc nuw nsw i64 %262 to i32
   %264 = getelementptr inbounds i8, ptr %4, i64 24
   store i32 %263, ptr %264, align 8
-  %265 = icmp ugt i32 %263, 999999999
+  %265 = icmp ugt i64 %261, 4294967295999999999
   br i1 %265, label %266, label %269
 
 266:                                              ; preds = %226

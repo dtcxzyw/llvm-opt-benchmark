@@ -948,7 +948,7 @@ for.inc:                                          ; preds = %if.end71
 for.end:                                          ; preds = %if.end71
   %14 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %14, ptr %lineType, align 8
-  %cmp81 = icmp eq i32 %14, 2
+  %cmp81 = icmp eq i64 %indvars.iv, 2
   %15 = load ptr, ptr %lineLimit, align 8
   %cmp84 = icmp ult ptr %strchr30, %15
   %or.cond = select i1 %cmp81, i1 %cmp84, i1 false

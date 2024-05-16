@@ -1292,7 +1292,7 @@ define dso_local ptr @dqget(ptr noundef %0, i64 %1) #0 align 16 {
 
 43:                                               ; preds = %36
   %44 = getelementptr inbounds i8, ptr %0, i64 56
-  %45 = icmp ult i32 %5, 3
+  %45 = icmp ult i64 %1, 12884901888
   %46 = or i64 %1, 4294967295
   br label %48
 

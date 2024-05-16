@@ -8868,7 +8868,7 @@ define internal fastcc void @zone_set_pageset_high_and_batch(ptr noundef %0, i32
   %5 = lshr i64 %4, 10
   %6 = tail call i64 @llvm.umin.i64(i64 %5, i64 256)
   %7 = trunc nuw nsw i64 %6 to i32
-  %8 = icmp ult i32 %7, 4
+  %8 = icmp ult i64 %4, 4096
   %9 = lshr i32 %7, 2
   %10 = select i1 %8, i32 1, i32 %9
   %11 = lshr i32 %10, 1

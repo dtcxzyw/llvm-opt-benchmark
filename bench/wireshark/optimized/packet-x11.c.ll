@@ -77916,7 +77916,7 @@ listOfCard32.exit238.i:                           ; preds = %.lr.ph.i235.i, %118
   %1207 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1200, ptr noundef %0, i32 noundef %1205, i32 noundef %1206, i32 noundef %4) #10
   %1208 = load i32, ptr @ett_x11_list_of_card32, align 4
   %1209 = call ptr @proto_item_add_subtree(ptr noundef %1207, i32 noundef %1208) #10
-  %.not13.i239.i = icmp eq i32 %1204, 0
+  %.not13.i239.i = icmp eq i32 %1057, 0
   br i1 %.not13.i239.i, label %listOfCard32.exit245.i, label %.lr.ph.preheader.i240.i
 
 .lr.ph.preheader.i240.i:                          ; preds = %1199
@@ -77926,7 +77926,7 @@ listOfCard32.exit238.i:                           ; preds = %.lr.ph.i235.i, %118
 .lr.ph.i242.i:                                    ; preds = %.lr.ph.i242.i, %.lr.ph.preheader.i240.i
   %1210 = phi i32 [ %1214, %.lr.ph.i242.i ], [ %.pre.i241.i, %.lr.ph.preheader.i240.i ]
   %.014.i243.i = phi i32 [ %1211, %.lr.ph.i242.i ], [ %1204, %.lr.ph.preheader.i240.i ]
-  %1211 = add nsw i32 %.014.i243.i, -1
+  %1211 = add i32 %.014.i243.i, -1
   %1212 = call ptr @proto_tree_add_item(ptr noundef %1209, i32 noundef %1201, ptr noundef %0, i32 noundef %1210, i32 noundef 4, i32 noundef %4) #10
   %1213 = load i32, ptr %2, align 4
   %1214 = add i32 %1213, 4
@@ -79462,7 +79462,7 @@ define internal fastcc void @struct_xkb_DeviceLedInfo(ptr noundef %0, ptr nocapt
   %58 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %52, ptr noundef %0, i32 noundef %51, i32 noundef %57, i32 noundef %3) #10
   %59 = load i32, ptr @ett_x11_list_of_card32, align 4
   %60 = tail call ptr @proto_item_add_subtree(ptr noundef %58, i32 noundef %59) #10
-  %.not13.i = icmp eq i32 %56, 0
+  %.not13.i = icmp eq i32 %32, 0
   br i1 %.not13.i, label %listOfCard32.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.lr.ph
@@ -79472,7 +79472,7 @@ define internal fastcc void @struct_xkb_DeviceLedInfo(ptr noundef %0, ptr nocapt
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %61 = phi i32 [ %65, %.lr.ph.i ], [ %.pre.i, %.lr.ph.preheader.i ]
   %.014.i = phi i32 [ %62, %.lr.ph.i ], [ %56, %.lr.ph.preheader.i ]
-  %62 = add nsw i32 %.014.i, -1
+  %62 = add i32 %.014.i, -1
   %63 = tail call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %53, ptr noundef %0, i32 noundef %61, i32 noundef 4, i32 noundef %3) #10
   %64 = load i32, ptr %1, align 4
   %65 = add i32 %64, 4
@@ -81589,7 +81589,7 @@ listOfCard32.exit232:                             ; preds = %.lr.ph.i229, %listO
   %205 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %198, ptr noundef %0, i32 noundef %203, i32 noundef %204, i32 noundef %4) #10
   %206 = load i32, ptr @ett_x11_list_of_card32, align 4
   %207 = tail call ptr @proto_item_add_subtree(ptr noundef %205, i32 noundef %206) #10
-  %.not13.i233 = icmp eq i32 %202, 0
+  %.not13.i233 = icmp eq i32 %73, 0
   br i1 %.not13.i233, label %listOfCard32.exit239, label %.lr.ph.preheader.i234
 
 .lr.ph.preheader.i234:                            ; preds = %197
@@ -81599,7 +81599,7 @@ listOfCard32.exit232:                             ; preds = %.lr.ph.i229, %listO
 .lr.ph.i236:                                      ; preds = %.lr.ph.i236, %.lr.ph.preheader.i234
   %208 = phi i32 [ %212, %.lr.ph.i236 ], [ %.pre.i235, %.lr.ph.preheader.i234 ]
   %.014.i237 = phi i32 [ %209, %.lr.ph.i236 ], [ %202, %.lr.ph.preheader.i234 ]
-  %209 = add nsw i32 %.014.i237, -1
+  %209 = add i32 %.014.i237, -1
   %210 = tail call ptr @proto_tree_add_item(ptr noundef %207, i32 noundef %199, ptr noundef %0, i32 noundef %208, i32 noundef 4, i32 noundef %4) #10
   %211 = load i32, ptr %2, align 4
   %212 = add i32 %211, 4
@@ -82738,7 +82738,7 @@ listOfCard32.exit783:                             ; preds = %.lr.ph.i780, %listO
   %578 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %571, ptr noundef %0, i32 noundef %576, i32 noundef %577, i32 noundef %4) #10
   %579 = load i32, ptr @ett_x11_list_of_card32, align 4
   %580 = tail call ptr @proto_item_add_subtree(ptr noundef %578, i32 noundef %579) #10
-  %.not13.i784 = icmp eq i32 %575, 0
+  %.not13.i784 = icmp eq i32 %446, 0
   br i1 %.not13.i784, label %listOfCard32.exit790, label %.lr.ph.preheader.i785
 
 .lr.ph.preheader.i785:                            ; preds = %570
@@ -82748,7 +82748,7 @@ listOfCard32.exit783:                             ; preds = %.lr.ph.i780, %listO
 .lr.ph.i787:                                      ; preds = %.lr.ph.i787, %.lr.ph.preheader.i785
   %581 = phi i32 [ %585, %.lr.ph.i787 ], [ %.pre.i786, %.lr.ph.preheader.i785 ]
   %.014.i788 = phi i32 [ %582, %.lr.ph.i787 ], [ %575, %.lr.ph.preheader.i785 ]
-  %582 = add nsw i32 %.014.i788, -1
+  %582 = add i32 %.014.i788, -1
   %583 = tail call ptr @proto_tree_add_item(ptr noundef %580, i32 noundef %572, ptr noundef %0, i32 noundef %581, i32 noundef 4, i32 noundef %4) #10
   %584 = load i32, ptr %2, align 4
   %585 = add i32 %584, 4

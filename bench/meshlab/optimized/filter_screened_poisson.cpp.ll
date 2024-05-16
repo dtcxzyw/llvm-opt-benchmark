@@ -29492,7 +29492,7 @@ _ZN7OctNodeI12TreeNodeDataE11NeighborKeyILj1ELj1EE3setEi.exit: ; preds = %.noexc
   %97 = add i32 %96, -3
   %98 = icmp ult i32 %97, -4
   %99 = trunc nsw i64 %91 to i32
-  %100 = icmp eq i32 %99, 0
+  %100 = icmp eq i64 %91, 0
   %.neg.i.i = add nuw i32 %99, 3
   %101 = add nsw i64 %93, 1
   br label %.preheader
@@ -29510,7 +29510,7 @@ _ZN7OctNodeI12TreeNodeDataE11NeighborKeyILj1ELj1EE3setEi.exit: ; preds = %.noexc
   %110 = add i32 %109, -3
   %111 = icmp ult i32 %110, -4
   %112 = trunc nsw i64 %104 to i32
-  %113 = icmp eq i32 %112, 0
+  %113 = icmp eq i64 %104, 0
   %114 = add nsw i64 %106, 1
   br label %115
 
@@ -29613,7 +29613,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE17UpSampleEvaluator5valueEii.e
 
 167:                                              ; preds = %158
   %168 = trunc nsw i64 %153 to i32
-  %169 = icmp eq i32 %168, 0
+  %169 = icmp eq i64 %153, 0
   br i1 %169, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i61, label %170
 
 170:                                              ; preds = %167
@@ -43458,7 +43458,7 @@ _ZN7OctNodeI12TreeNodeDataE11NeighborKeyILj1ELj1EE3setEi.exit: ; preds = %.noexc
   %97 = add i32 %96, -3
   %98 = icmp ult i32 %97, -4
   %99 = trunc nsw i64 %91 to i32
-  %100 = icmp eq i32 %99, 0
+  %100 = icmp eq i64 %91, 0
   %.neg.i.i = add nuw i32 %99, 3
   %101 = add nsw i64 %93, 1
   br label %.preheader
@@ -43476,7 +43476,7 @@ _ZN7OctNodeI12TreeNodeDataE11NeighborKeyILj1ELj1EE3setEi.exit: ; preds = %.noexc
   %110 = add i32 %109, -3
   %111 = icmp ult i32 %110, -4
   %112 = trunc nsw i64 %104 to i32
-  %113 = icmp eq i32 %112, 0
+  %113 = icmp eq i64 %104, 0
   %114 = add nsw i64 %106, 1
   br label %115
 
@@ -43579,7 +43579,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE17UpSampleEvaluator5valueEii.e
 
 167:                                              ; preds = %158
   %168 = trunc nsw i64 %153 to i32
-  %169 = icmp eq i32 %168, 0
+  %169 = icmp eq i64 %153, 0
   br i1 %169, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i61, label %170
 
 170:                                              ; preds = %167

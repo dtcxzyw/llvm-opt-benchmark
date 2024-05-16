@@ -3912,16 +3912,17 @@ define { i64, ptr } @jv_object_merge(i64 %0, ptr %1, i64 %2, ptr %3) local_unnam
   ret { i64, ptr } %.fca.1.insert
 
 .preheader:                                       ; preds = %9
-  %14 = trunc nsw i64 %indvars.iv.next.i.i to i32
-  %.not4446 = icmp eq i32 %14, -2
+  %.not4446 = icmp eq i64 %indvars.iv.next.i.i, -2
   br i1 %.not4446, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %jv_object_iter_next.exit
   %.sroa.4.149 = phi ptr [ %34, %jv_object_iter_next.exit ], [ %1, %.preheader ]
   %.sroa.024.148 = phi i64 [ %33, %jv_object_iter_next.exit ], [ %0, %.preheader ]
-  %.147 = phi i32 [ %43, %jv_object_iter_next.exit ], [ %14, %.preheader ]
-  %15 = icmp eq i32 %.147, -1
-  %16 = sext i32 %.147 to i64
+  %.147.in = phi i64 [ %indvars.iv.next.i, %jv_object_iter_next.exit ], [ %indvars.iv.next.i.i, %.preheader ]
+  %14 = and i64 %.147.in, 4294967295
+  %15 = icmp eq i64 %14, 4294967295
+  %sext = shl i64 %.147.in, 32
+  %16 = ashr exact i64 %sext, 32
   %17 = getelementptr inbounds [0 x %struct.object_slot], ptr %5, i64 0, i64 %16
   %.0.i.i30 = select i1 %15, ptr null, ptr %17
   %18 = getelementptr inbounds i8, ptr %.0.i.i30, i64 8
@@ -3976,8 +3977,7 @@ jv_object_iter_key.exit:                          ; preds = %.lr.ph, %20
   br i1 %42, label %35, label %jv_object_iter_next.exit, !llvm.loop !29
 
 jv_object_iter_next.exit:                         ; preds = %36
-  %43 = trunc nsw i64 %indvars.iv.next.i to i32
-  %.not44 = icmp eq i32 %43, -2
+  %.not44 = icmp eq i64 %indvars.iv.next.i, -2
   br i1 %.not44, label %.loopexit, label %.lr.ph, !llvm.loop !30
 }
 
@@ -4134,16 +4134,17 @@ define { i64, ptr } @jv_object_merge_recursive(i64 %0, ptr %1, i64 %2, ptr %3) l
   ret { i64, ptr } %.fca.1.insert
 
 .preheader:                                       ; preds = %9
-  %14 = trunc nsw i64 %indvars.iv.next.i.i to i32
-  %.not130134 = icmp eq i32 %14, -2
+  %.not130134 = icmp eq i64 %indvars.iv.next.i.i, -2
   br i1 %.not130134, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %jv_object_iter_next.exit
   %.sroa.775.1137 = phi ptr [ %.sroa.775.2, %jv_object_iter_next.exit ], [ %1, %.preheader ]
   %.sroa.072.1136 = phi i64 [ %.sroa.072.2, %jv_object_iter_next.exit ], [ %0, %.preheader ]
-  %.1135 = phi i32 [ %154, %jv_object_iter_next.exit ], [ %14, %.preheader ]
-  %15 = icmp eq i32 %.1135, -1
-  %16 = sext i32 %.1135 to i64
+  %.1135.in = phi i64 [ %indvars.iv.next.i, %jv_object_iter_next.exit ], [ %indvars.iv.next.i.i, %.preheader ]
+  %14 = and i64 %.1135.in, 4294967295
+  %15 = icmp eq i64 %14, 4294967295
+  %sext = shl i64 %.1135.in, 32
+  %16 = ashr exact i64 %sext, 32
   %17 = getelementptr inbounds [0 x %struct.object_slot], ptr %5, i64 0, i64 %16
   %.0.i.i88 = select i1 %15, ptr null, ptr %17
   %18 = getelementptr inbounds i8, ptr %.0.i.i88, i64 8
@@ -4409,8 +4410,7 @@ jv_object_get.exit:                               ; preds = %jvp_string_equal.ex
   br i1 %153, label %146, label %jv_object_iter_next.exit, !llvm.loop !29
 
 jv_object_iter_next.exit:                         ; preds = %147
-  %154 = trunc nsw i64 %indvars.iv.next.i to i32
-  %.not130 = icmp eq i32 %154, -2
+  %.not130 = icmp eq i64 %indvars.iv.next.i, -2
   br i1 %.not130, label %.loopexit, label %.lr.ph, !llvm.loop !31
 }
 
@@ -4731,7 +4731,7 @@ jv_object_get.exit:                               ; preds = %jvp_string_equal.ex
 
 jv_object_iter_next.exit:                         ; preds = %136
   %143 = trunc nsw i64 %indvars.iv.next.i to i32
-  %.not205 = icmp eq i32 %143, -2
+  %.not205 = icmp eq i64 %indvars.iv.next.i, -2
   br i1 %.not205, label %jvp_object_contains.exit, label %.lr.ph289, !llvm.loop !32
 
 144:                                              ; preds = %7

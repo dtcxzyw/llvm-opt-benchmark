@@ -625,10 +625,10 @@ _Z14decode_vm_infoibmm.exit:                      ; preds = %2, %27, %31
   %40 = shl i64 2, %39
   %41 = add i64 %40, -1
   %42 = and i64 %41, %5
-  br label %211
+  br label %208
 
 43:                                               ; preds = %31, %27, %35, %34, %33
-  %.sink235 = phi i64 [ 72057594037923840, %35 ], [ 72057594037923840, %34 ], [ 72057594037923840, %33 ], [ 17179865088, %27 ], [ 72057594037923840, %31 ]
+  %.sink239 = phi i64 [ 72057594037923840, %35 ], [ 72057594037923840, %34 ], [ 72057594037923840, %33 ], [ 17179865088, %27 ], [ 72057594037923840, %31 ]
   %.sroa.0.0.ph = phi i32 [ 6, %35 ], [ 5, %34 ], [ 4, %33 ], [ 2, %27 ], [ 3, %31 ]
   %.sroa.12.0.ph = phi i32 [ 9, %35 ], [ 9, %34 ], [ 9, %33 ], [ 10, %27 ], [ 9, %31 ]
   %.sroa.24.0.ph = phi i64 [ 8, %35 ], [ 8, %34 ], [ 8, %33 ], [ 4, %27 ], [ %32, %31 ]
@@ -668,7 +668,7 @@ _Z14decode_vm_infoibmm.exit:                      ; preds = %2, %27, %31
 
 .lr.ph:                                           ; preds = %43
   %70 = shl i64 %19, 12
-  %71 = and i64 %70, %.sink235
+  %71 = and i64 %70, %.sink239
   %notmask127 = shl nsw i32 -1, %.sroa.12.0.ph
   %72 = xor i32 %notmask127, -1
   %73 = zext nneg i32 %72 to i64
@@ -841,11 +841,11 @@ _ZN5mmu_t8pte_loadEmmb11access_typem.exit:        ; preds = %84, %86
 
 _ZN5mmu_t9pte_storeEmmmb11access_typem.exit:      ; preds = %153, %152, %144
   %154 = lshr i64 %5, 12
-  br i1 %.not132, label %179, label %155
+  br i1 %.not132, label %176, label %155
 
 155:                                              ; preds = %_ZN5mmu_t9pte_storeEmmmb11access_typem.exit
   %.not.i = icmp eq i64 %119, 0
-  br i1 %.not.i, label %174, label %156
+  br i1 %.not.i, label %.loopexit, label %156
 
 156:                                              ; preds = %155
   %157 = and i64 %.0.i, 4398046510080
@@ -880,93 +880,86 @@ _ZN5mmu_t9pte_storeEmmmb11access_typem.exit:      ; preds = %153, %152, %144
   %172 = trunc i64 %.425.i to i32
   %173 = or i32 %172, -2
   %sub = sub nsw i32 %.4.i, %173
-  br label %174
+  %174 = icmp eq i64 %indvars.iv.next, 0
+  %175 = and i32 %sub, -5
+  %or.cond3.not = icmp eq i32 %175, 0
+  %or.cond157 = select i1 %174, i1 %or.cond3.not, i1 false
+  br i1 %or.cond157, label %176, label %.loopexit
 
-174:                                              ; preds = %155, %156
-  %.026.i = phi i32 [ %sub, %156 ], [ 1, %155 ]
-  %175 = icmp ne i64 %119, 0
-  %176 = and i64 %indvars.iv.next, 4294967295
-  %177 = icmp eq i64 %176, 0
-  %or.cond.not200 = and i1 %175, %177
-  %178 = and i32 %.026.i, -5
-  %or.cond3.not = icmp eq i32 %178, 0
-  %or.cond157 = select i1 %or.cond.not200, i1 %or.cond3.not, i1 false
-  br i1 %or.cond157, label %179, label %.loopexit
+176:                                              ; preds = %_ZN5mmu_t9pte_storeEmmmb11access_typem.exit, %156
+  %177 = phi i32 [ %sub, %156 ], [ 0, %_ZN5mmu_t9pte_storeEmmmb11access_typem.exit ]
+  %178 = zext nneg i32 %177 to i64
+  %notmask145 = shl nsw i64 -1, %178
+  %179 = xor i64 %notmask145, -1
+  %180 = and i64 %notmask145, %119
+  %181 = or i64 %179, %142
+  %182 = and i64 %181, %154
+  %183 = or i64 %182, %180
+  %184 = shl nuw i64 %183, 12
+  %185 = and i64 %5, 4095
+  %186 = or disjoint i64 %184, %185
+  br label %208
 
-179:                                              ; preds = %_ZN5mmu_t9pte_storeEmmmb11access_typem.exit, %174
-  %180 = phi i32 [ %.026.i, %174 ], [ 0, %_ZN5mmu_t9pte_storeEmmmb11access_typem.exit ]
-  %181 = zext nneg i32 %180 to i64
-  %notmask145 = shl nsw i64 -1, %181
-  %182 = xor i64 %notmask145, -1
-  %183 = and i64 %notmask145, %119
-  %184 = or i64 %182, %142
-  %185 = and i64 %184, %154
-  %186 = or i64 %185, %183
-  %187 = shl nuw i64 %186, 12
-  %188 = and i64 %5, 4095
-  %189 = or disjoint i64 %187, %188
-  br label %211
-
-.loopexit:                                        ; preds = %_ZN5mmu_t8pte_loadEmmb11access_typem.exit, %114, %104, %108, %43, %122, %127, %174, %148, %140, %132, %139, %125, %124
-  switch i32 %4, label %210 [
-    i32 2, label %190
+.loopexit:                                        ; preds = %_ZN5mmu_t8pte_loadEmmb11access_typem.exit, %114, %104, %108, %155, %43, %122, %127, %156, %148, %140, %132, %139, %125, %124
+  switch i32 %4, label %207 [
+    i32 2, label %187
     i32 0, label %.thread196
-    i32 1, label %203
+    i32 1, label %200
   ]
 
-190:                                              ; preds = %.loopexit
-  %191 = tail call ptr @__cxa_allocate_exception(i64 48) #21
-  %192 = and i8 %7, 1
-  %193 = getelementptr inbounds i8, ptr %191, i64 8
-  store i64 12, ptr %193, align 8
-  %194 = getelementptr inbounds i8, ptr %191, i64 16
-  store i8 %192, ptr %194, align 8
-  %195 = getelementptr inbounds i8, ptr %191, i64 24
-  store i64 %5, ptr %195, align 8
-  %196 = getelementptr inbounds i8, ptr %191, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %196, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV27trap_instruction_page_fault, i64 0, i32 0, i64 2), ptr %191, align 8
-  tail call void @__cxa_throw(ptr nonnull %191, ptr nonnull @_ZTI27trap_instruction_page_fault, ptr nonnull @_ZN27trap_instruction_page_faultD2Ev) #22
+187:                                              ; preds = %.loopexit
+  %188 = tail call ptr @__cxa_allocate_exception(i64 48) #21
+  %189 = and i8 %7, 1
+  %190 = getelementptr inbounds i8, ptr %188, i64 8
+  store i64 12, ptr %190, align 8
+  %191 = getelementptr inbounds i8, ptr %188, i64 16
+  store i8 %189, ptr %191, align 8
+  %192 = getelementptr inbounds i8, ptr %188, i64 24
+  store i64 %5, ptr %192, align 8
+  %193 = getelementptr inbounds i8, ptr %188, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %193, i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV27trap_instruction_page_fault, i64 0, i32 0, i64 2), ptr %188, align 8
+  tail call void @__cxa_throw(ptr nonnull %188, ptr nonnull @_ZTI27trap_instruction_page_fault, ptr nonnull @_ZN27trap_instruction_page_faultD2Ev) #22
   unreachable
 
 .thread196:                                       ; preds = %137, %.loopexit
-  %197 = tail call ptr @__cxa_allocate_exception(i64 48) #21
-  %198 = and i8 %7, 1
-  %199 = getelementptr inbounds i8, ptr %197, i64 8
-  store i64 13, ptr %199, align 8
-  %200 = getelementptr inbounds i8, ptr %197, i64 16
-  store i8 %198, ptr %200, align 8
-  %201 = getelementptr inbounds i8, ptr %197, i64 24
-  store i64 %5, ptr %201, align 8
-  %202 = getelementptr inbounds i8, ptr %197, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %202, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV20trap_load_page_fault, i64 0, i32 0, i64 2), ptr %197, align 8
-  tail call void @__cxa_throw(ptr nonnull %197, ptr nonnull @_ZTI20trap_load_page_fault, ptr nonnull @_ZN20trap_load_page_faultD2Ev) #22
+  %194 = tail call ptr @__cxa_allocate_exception(i64 48) #21
+  %195 = and i8 %7, 1
+  %196 = getelementptr inbounds i8, ptr %194, i64 8
+  store i64 13, ptr %196, align 8
+  %197 = getelementptr inbounds i8, ptr %194, i64 16
+  store i8 %195, ptr %197, align 8
+  %198 = getelementptr inbounds i8, ptr %194, i64 24
+  store i64 %5, ptr %198, align 8
+  %199 = getelementptr inbounds i8, ptr %194, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %199, i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV20trap_load_page_fault, i64 0, i32 0, i64 2), ptr %194, align 8
+  tail call void @__cxa_throw(ptr nonnull %194, ptr nonnull @_ZTI20trap_load_page_fault, ptr nonnull @_ZN20trap_load_page_faultD2Ev) #22
   unreachable
 
-203:                                              ; preds = %.loopexit
-  %204 = tail call ptr @__cxa_allocate_exception(i64 48) #21
-  %205 = and i8 %7, 1
-  %206 = getelementptr inbounds i8, ptr %204, i64 8
-  store i64 15, ptr %206, align 8
-  %207 = getelementptr inbounds i8, ptr %204, i64 16
-  store i8 %205, ptr %207, align 8
-  %208 = getelementptr inbounds i8, ptr %204, i64 24
-  store i64 %5, ptr %208, align 8
-  %209 = getelementptr inbounds i8, ptr %204, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %209, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV21trap_store_page_fault, i64 0, i32 0, i64 2), ptr %204, align 8
-  tail call void @__cxa_throw(ptr nonnull %204, ptr nonnull @_ZTI21trap_store_page_fault, ptr nonnull @_ZN21trap_store_page_faultD2Ev) #22
+200:                                              ; preds = %.loopexit
+  %201 = tail call ptr @__cxa_allocate_exception(i64 48) #21
+  %202 = and i8 %7, 1
+  %203 = getelementptr inbounds i8, ptr %201, i64 8
+  store i64 15, ptr %203, align 8
+  %204 = getelementptr inbounds i8, ptr %201, i64 16
+  store i8 %202, ptr %204, align 8
+  %205 = getelementptr inbounds i8, ptr %201, i64 24
+  store i64 %5, ptr %205, align 8
+  %206 = getelementptr inbounds i8, ptr %201, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %206, i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV21trap_store_page_fault, i64 0, i32 0, i64 2), ptr %201, align 8
+  tail call void @__cxa_throw(ptr nonnull %201, ptr nonnull @_ZTI21trap_store_page_fault, ptr nonnull @_ZN21trap_store_page_faultD2Ev) #22
   unreachable
 
-210:                                              ; preds = %.loopexit
+207:                                              ; preds = %.loopexit
   tail call void @abort() #20
   unreachable
 
-211:                                              ; preds = %179, %_Z14decode_vm_infoibmm.exit
-  %.sink241 = phi i64 [ %189, %179 ], [ %42, %_Z14decode_vm_infoibmm.exit ]
-  %212 = tail call noundef i64 @_ZN5mmu_t7s2xlateEmm11access_typeS0_bbb(ptr noundef nonnull align 8 dereferenceable(43168) %0, i64 noundef %5, i64 noundef %.sink241, i32 noundef %4, i32 noundef %4, i1 noundef zeroext %8, i1 noundef zeroext %12, i1 noundef zeroext false)
-  %.0118 = and i64 %212, -4096
+208:                                              ; preds = %176, %_Z14decode_vm_infoibmm.exit
+  %.sink245 = phi i64 [ %186, %176 ], [ %42, %_Z14decode_vm_infoibmm.exit ]
+  %209 = tail call noundef i64 @_ZN5mmu_t7s2xlateEmm11access_typeS0_bbb(ptr noundef nonnull align 8 dereferenceable(43168) %0, i64 noundef %5, i64 noundef %.sink245, i32 noundef %4, i32 noundef %4, i1 noundef zeroext %8, i1 noundef zeroext %12, i1 noundef zeroext false)
+  %.0118 = and i64 %209, -4096
   ret i64 %.0118
 }
 
@@ -2988,7 +2981,7 @@ define noundef i64 @_ZN5mmu_t7s2xlateEmm11access_typeS0_bbb(ptr noundef nonnull 
   unreachable
 
 28:                                               ; preds = %22, %20, %25, %24
-  %.sink189 = phi i64 [ 72057594037923840, %25 ], [ 72057594037923840, %24 ], [ 17179865088, %20 ], [ 72057594037923840, %22 ]
+  %.sink193 = phi i64 [ 72057594037923840, %25 ], [ 72057594037923840, %24 ], [ 17179865088, %20 ], [ 72057594037923840, %22 ]
   %.sroa.0.0.ph = phi i32 [ 5, %25 ], [ 4, %24 ], [ 2, %20 ], [ 3, %22 ]
   %.sroa.9.0.ph = phi i32 [ 9, %25 ], [ 9, %24 ], [ 10, %20 ], [ 9, %22 ]
   %29 = phi i1 [ false, %25 ], [ false, %24 ], [ true, %20 ], [ false, %22 ]
@@ -3020,7 +3013,7 @@ define noundef i64 @_ZN5mmu_t7s2xlateEmm11access_typeS0_bbb(ptr noundef nonnull 
 
 .preheader:                                       ; preds = %28
   %52 = shl i64 %19, 12
-  %53 = and i64 %52, %.sink189
+  %53 = and i64 %52, %.sink193
   %54 = zext nneg i32 %.sroa.0.0.ph to i64
   %55 = zext nneg i32 %.sroa.9.0.ph to i64
   br label %56
@@ -3181,11 +3174,11 @@ _ZN5mmu_t8pte_loadEmmb11access_typem.exit:        ; preds = %68, %70
 
 _ZN5mmu_t9pte_storeEmmmb11access_typem.exit:      ; preds = %132, %131, %125
   %133 = lshr i64 %2, 12
-  br i1 %.not105, label %158, label %134
+  br i1 %.not105, label %155, label %134
 
 134:                                              ; preds = %_ZN5mmu_t9pte_storeEmmmb11access_typem.exit
   %.not.i = icmp eq i64 %104, 0
-  br i1 %.not.i, label %153, label %135
+  br i1 %.not.i, label %.loopexit, label %135
 
 135:                                              ; preds = %134
   %136 = and i64 %.0.i, 4398046510080
@@ -3220,100 +3213,93 @@ _ZN5mmu_t9pte_storeEmmmb11access_typem.exit:      ; preds = %132, %131, %125
   %151 = trunc i64 %.425.i to i32
   %152 = or i32 %151, -2
   %sub = sub nsw i32 %.4.i, %152
-  br label %153
+  %153 = icmp eq i64 %indvars.iv.next, 0
+  %154 = and i32 %sub, -5
+  %or.cond3.not = icmp eq i32 %154, 0
+  %or.cond129 = select i1 %153, i1 %or.cond3.not, i1 false
+  br i1 %or.cond129, label %155, label %.loopexit
 
-153:                                              ; preds = %134, %135
-  %.026.i = phi i32 [ %sub, %135 ], [ 1, %134 ]
-  %154 = icmp ne i64 %104, 0
-  %155 = and i64 %indvars.iv.next, 4294967295
-  %156 = icmp eq i64 %155, 0
-  %or.cond.not159 = select i1 %154, i1 %156, i1 false
-  %157 = and i32 %.026.i, -5
-  %or.cond3.not = icmp eq i32 %157, 0
-  %or.cond129 = select i1 %or.cond.not159, i1 %or.cond3.not, i1 false
-  br i1 %or.cond129, label %158, label %.loopexit
-
-158:                                              ; preds = %_ZN5mmu_t9pte_storeEmmmb11access_typem.exit, %153
-  %159 = phi i32 [ %.026.i, %153 ], [ 0, %_ZN5mmu_t9pte_storeEmmmb11access_typem.exit ]
-  %160 = zext nneg i32 %159 to i64
-  %notmask118 = shl nsw i64 -1, %160
-  %161 = xor i64 %notmask118, -1
-  %162 = and i64 %notmask118, %104
-  %163 = or i64 %161, %123
-  %164 = and i64 %163, %133
-  %165 = or i64 %164, %162
-  %166 = shl nuw i64 %165, 12
-  %167 = and i64 %2, 4095
-  %168 = or disjoint i64 %166, %167
+155:                                              ; preds = %_ZN5mmu_t9pte_storeEmmmb11access_typem.exit, %135
+  %156 = phi i32 [ %sub, %135 ], [ 0, %_ZN5mmu_t9pte_storeEmmmb11access_typem.exit ]
+  %157 = zext nneg i32 %156 to i64
+  %notmask118 = shl nsw i64 -1, %157
+  %158 = xor i64 %notmask118, -1
+  %159 = and i64 %notmask118, %104
+  %160 = or i64 %158, %123
+  %161 = and i64 %160, %133
+  %162 = or i64 %161, %159
+  %163 = shl nuw i64 %162, 12
+  %164 = and i64 %2, 4095
+  %165 = or disjoint i64 %163, %164
   br label %_Z14decode_vm_infoibmm.exit
 
-.loopexit:                                        ; preds = %93, %89, %_ZN5mmu_t8pte_loadEmmb11access_typem.exit, %99, %107, %103, %120, %118, %113, %121, %128, %153, %28
-  switch i32 %4, label %196 [
-    i32 2, label %169
-    i32 0, label %178
-    i32 1, label %187
+.loopexit:                                        ; preds = %93, %89, %_ZN5mmu_t8pte_loadEmmb11access_typem.exit, %99, %134, %107, %103, %120, %118, %113, %121, %128, %135, %28
+  switch i32 %4, label %193 [
+    i32 2, label %166
+    i32 0, label %175
+    i32 1, label %184
   ]
 
-169:                                              ; preds = %.loopexit
-  %170 = tail call ptr @__cxa_allocate_exception(i64 48) #21
-  %171 = lshr i64 %2, 2
-  %172 = zext nneg i32 %49 to i64
-  %173 = getelementptr inbounds i8, ptr %170, i64 8
-  store i64 20, ptr %173, align 8
-  %174 = getelementptr inbounds i8, ptr %170, i64 16
-  store i8 1, ptr %174, align 8
-  %175 = getelementptr inbounds i8, ptr %170, i64 24
-  store i64 %1, ptr %175, align 8
-  %176 = getelementptr inbounds i8, ptr %170, i64 32
-  store i64 %171, ptr %176, align 8
-  %177 = getelementptr inbounds i8, ptr %170, i64 40
-  store i64 %172, ptr %177, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV33trap_instruction_guest_page_fault, i64 0, i32 0, i64 2), ptr %170, align 8
-  tail call void @__cxa_throw(ptr nonnull %170, ptr nonnull @_ZTI33trap_instruction_guest_page_fault, ptr nonnull @_ZN33trap_instruction_guest_page_faultD2Ev) #22
+166:                                              ; preds = %.loopexit
+  %167 = tail call ptr @__cxa_allocate_exception(i64 48) #21
+  %168 = lshr i64 %2, 2
+  %169 = zext nneg i32 %49 to i64
+  %170 = getelementptr inbounds i8, ptr %167, i64 8
+  store i64 20, ptr %170, align 8
+  %171 = getelementptr inbounds i8, ptr %167, i64 16
+  store i8 1, ptr %171, align 8
+  %172 = getelementptr inbounds i8, ptr %167, i64 24
+  store i64 %1, ptr %172, align 8
+  %173 = getelementptr inbounds i8, ptr %167, i64 32
+  store i64 %168, ptr %173, align 8
+  %174 = getelementptr inbounds i8, ptr %167, i64 40
+  store i64 %169, ptr %174, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV33trap_instruction_guest_page_fault, i64 0, i32 0, i64 2), ptr %167, align 8
+  tail call void @__cxa_throw(ptr nonnull %167, ptr nonnull @_ZTI33trap_instruction_guest_page_fault, ptr nonnull @_ZN33trap_instruction_guest_page_faultD2Ev) #22
   unreachable
 
-178:                                              ; preds = %.loopexit
-  %179 = tail call ptr @__cxa_allocate_exception(i64 48) #21
-  %180 = lshr i64 %2, 2
-  %181 = zext nneg i32 %49 to i64
-  %182 = getelementptr inbounds i8, ptr %179, i64 8
-  store i64 21, ptr %182, align 8
-  %183 = getelementptr inbounds i8, ptr %179, i64 16
-  store i8 1, ptr %183, align 8
-  %184 = getelementptr inbounds i8, ptr %179, i64 24
-  store i64 %1, ptr %184, align 8
-  %185 = getelementptr inbounds i8, ptr %179, i64 32
-  store i64 %180, ptr %185, align 8
-  %186 = getelementptr inbounds i8, ptr %179, i64 40
-  store i64 %181, ptr %186, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV26trap_load_guest_page_fault, i64 0, i32 0, i64 2), ptr %179, align 8
-  tail call void @__cxa_throw(ptr nonnull %179, ptr nonnull @_ZTI26trap_load_guest_page_fault, ptr nonnull @_ZN26trap_load_guest_page_faultD2Ev) #22
+175:                                              ; preds = %.loopexit
+  %176 = tail call ptr @__cxa_allocate_exception(i64 48) #21
+  %177 = lshr i64 %2, 2
+  %178 = zext nneg i32 %49 to i64
+  %179 = getelementptr inbounds i8, ptr %176, i64 8
+  store i64 21, ptr %179, align 8
+  %180 = getelementptr inbounds i8, ptr %176, i64 16
+  store i8 1, ptr %180, align 8
+  %181 = getelementptr inbounds i8, ptr %176, i64 24
+  store i64 %1, ptr %181, align 8
+  %182 = getelementptr inbounds i8, ptr %176, i64 32
+  store i64 %177, ptr %182, align 8
+  %183 = getelementptr inbounds i8, ptr %176, i64 40
+  store i64 %178, ptr %183, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV26trap_load_guest_page_fault, i64 0, i32 0, i64 2), ptr %176, align 8
+  tail call void @__cxa_throw(ptr nonnull %176, ptr nonnull @_ZTI26trap_load_guest_page_fault, ptr nonnull @_ZN26trap_load_guest_page_faultD2Ev) #22
   unreachable
 
-187:                                              ; preds = %.loopexit
-  %188 = tail call ptr @__cxa_allocate_exception(i64 48) #21
-  %189 = lshr i64 %2, 2
-  %190 = zext nneg i32 %49 to i64
-  %191 = getelementptr inbounds i8, ptr %188, i64 8
-  store i64 23, ptr %191, align 8
-  %192 = getelementptr inbounds i8, ptr %188, i64 16
-  store i8 1, ptr %192, align 8
-  %193 = getelementptr inbounds i8, ptr %188, i64 24
-  store i64 %1, ptr %193, align 8
-  %194 = getelementptr inbounds i8, ptr %188, i64 32
-  store i64 %189, ptr %194, align 8
-  %195 = getelementptr inbounds i8, ptr %188, i64 40
-  store i64 %190, ptr %195, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV27trap_store_guest_page_fault, i64 0, i32 0, i64 2), ptr %188, align 8
-  tail call void @__cxa_throw(ptr nonnull %188, ptr nonnull @_ZTI27trap_store_guest_page_fault, ptr nonnull @_ZN27trap_store_guest_page_faultD2Ev) #22
+184:                                              ; preds = %.loopexit
+  %185 = tail call ptr @__cxa_allocate_exception(i64 48) #21
+  %186 = lshr i64 %2, 2
+  %187 = zext nneg i32 %49 to i64
+  %188 = getelementptr inbounds i8, ptr %185, i64 8
+  store i64 23, ptr %188, align 8
+  %189 = getelementptr inbounds i8, ptr %185, i64 16
+  store i8 1, ptr %189, align 8
+  %190 = getelementptr inbounds i8, ptr %185, i64 24
+  store i64 %1, ptr %190, align 8
+  %191 = getelementptr inbounds i8, ptr %185, i64 32
+  store i64 %186, ptr %191, align 8
+  %192 = getelementptr inbounds i8, ptr %185, i64 40
+  store i64 %187, ptr %192, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV27trap_store_guest_page_fault, i64 0, i32 0, i64 2), ptr %185, align 8
+  tail call void @__cxa_throw(ptr nonnull %185, ptr nonnull @_ZTI27trap_store_guest_page_fault, ptr nonnull @_ZN27trap_store_guest_page_faultD2Ev) #22
   unreachable
 
-196:                                              ; preds = %.loopexit
+193:                                              ; preds = %.loopexit
   tail call void @abort() #20
   unreachable
 
-_Z14decode_vm_infoibmm.exit:                      ; preds = %20, %22, %8, %158
-  %.095 = phi i64 [ %168, %158 ], [ %2, %8 ], [ %2, %22 ], [ %2, %20 ]
+_Z14decode_vm_infoibmm.exit:                      ; preds = %20, %22, %8, %155
+  %.095 = phi i64 [ %165, %155 ], [ %2, %8 ], [ %2, %22 ], [ %2, %20 ]
   ret i64 %.095
 }
 

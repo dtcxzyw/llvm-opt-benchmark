@@ -488,24 +488,23 @@ entry:
   %0 = load ptr, ptr %top, align 8
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 -8
   %1 = load i64, ptr %add.ptr, align 8
-  %shr = ashr i64 %1, 47
-  %2 = and i64 %shr, 4294967295
-  %cmp = icmp eq i64 %2, 4294967287
+  %shr.mask = and i64 %1, -140737488355328
+  %cmp = icmp eq i64 %shr.mask, -1266637395197952
   br i1 %cmp, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %entry
   %and = and i64 %1, 140737488355327
-  %3 = inttoptr i64 %and to ptr
-  %ffid = getelementptr inbounds i8, ptr %3, i64 10
-  %4 = load i8, ptr %ffid, align 2
-  %cmp3 = icmp eq i8 %4, 0
+  %2 = inttoptr i64 %and to ptr
+  %ffid = getelementptr inbounds i8, ptr %2, i64 10
+  %3 = load i8, ptr %ffid, align 2
+  %cmp3 = icmp eq i8 %3, 0
   br i1 %cmp3, label %if.then, label %return
 
 if.then:                                          ; preds = %land.lhs.true
-  %pc = getelementptr inbounds i8, ptr %3, i64 32
-  %5 = load i64, ptr %pc, align 8
-  %6 = inttoptr i64 %5 to ptr
-  %add.ptr7 = getelementptr inbounds i8, ptr %6, i64 -104
+  %pc = getelementptr inbounds i8, ptr %2, i64 32
+  %4 = load i64, ptr %pc, align 8
+  %5 = inttoptr i64 %4 to ptr
+  %add.ptr7 = getelementptr inbounds i8, ptr %5, i64 -104
   %call = tail call i32 @lj_bcwrite(ptr noundef nonnull %L, ptr noundef nonnull %add.ptr7, ptr noundef %writer, ptr noundef %data, i32 noundef 0) #12
   br label %return
 

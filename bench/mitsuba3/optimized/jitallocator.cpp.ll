@@ -1294,7 +1294,7 @@ define dso_local noundef range(i32 0, 10) i32 @_ZN6asmjit9_abi_1_1012JitAllocato
   %336 = add i64 %335, 1
   store i64 %336, ptr %334, align 8, !tbaa !79
   %337 = add i32 %333, %55
-  %338 = icmp eq i32 %55, 0
+  %338 = icmp eq i64 %54, 0
   br i1 %338, label %374, label %339
 
 339:                                              ; preds = %327

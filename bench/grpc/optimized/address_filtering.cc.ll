@@ -168,17 +168,17 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp38.not = icmp eq ptr %0, %1
-  br i1 %cmp38.not, label %entry.for.end_crit_edge, label %for.body.lr.ph
+  %cmp44.not = icmp eq ptr %0, %1
+  br i1 %cmp44.not, label %entry.for.end_crit_edge, label %for.body.lr.ph
 
 entry.for.end_crit_edge:                          ; preds = %entry
   %_M_finish.i25.phi.trans.insert = getelementptr inbounds i8, ptr %b, i64 24
   %.pre = load ptr, ptr %_M_finish.i25.phi.trans.insert, align 8
   %path_14.phi.trans.insert = getelementptr inbounds i8, ptr %b, i64 16
-  %.pre40 = load ptr, ptr %path_14.phi.trans.insert, align 8
-  %.pre41 = ptrtoint ptr %.pre to i64
-  %.pre42 = ptrtoint ptr %.pre40 to i64
-  %.pre43 = sub i64 %.pre41, %.pre42
+  %.pre48 = load ptr, ptr %path_14.phi.trans.insert, align 8
+  %.pre49 = ptrtoint ptr %.pre to i64
+  %.pre50 = ptrtoint ptr %.pre48 to i64
+  %.pre51 = sub i64 %.pre49, %.pre50
   br label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
@@ -195,17 +195,17 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.cond:                                         ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE7compareES2_.exit
-  %inc = add nuw i64 %i.039, 1
+  %inc = add nuw i64 %i.045, 1
   %exitcond.not = icmp eq i64 %inc, %umax
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
-  %i.039 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.cond ]
-  %cmp3 = icmp eq i64 %sub.ptr.div.i14, %i.039
+  %i.045 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.cond ]
+  %cmp3 = icmp eq i64 %sub.ptr.div.i14, %i.045
   br i1 %cmp3, label %return, label %if.end
 
 if.end:                                           ; preds = %for.body
-  %add.ptr.i = getelementptr inbounds %"class.grpc_core::RefCountedStringValue", ptr %1, i64 %i.039
+  %add.ptr.i = getelementptr inbounds %"class.grpc_core::RefCountedStringValue", ptr %1, i64 %i.045
   %4 = load ptr, ptr %add.ptr.i, align 8
   %cmp.i.i = icmp eq ptr %4, null
   br i1 %cmp.i.i, label %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit, label %cond.false.i
@@ -219,7 +219,7 @@ cond.false.i:                                     ; preds = %if.end
 _ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit: ; preds = %if.end, %cond.false.i
   %retval.sroa.0.0.i = phi i64 [ %5, %cond.false.i ], [ 0, %if.end ]
   %retval.sroa.3.0.i = phi ptr [ %payload_.i.i, %cond.false.i ], [ null, %if.end ]
-  %add.ptr.i15 = getelementptr inbounds %"class.grpc_core::RefCountedStringValue", ptr %3, i64 %i.039
+  %add.ptr.i15 = getelementptr inbounds %"class.grpc_core::RefCountedStringValue", ptr %3, i64 %i.045
   %6 = load ptr, ptr %add.ptr.i15, align 8
   %cmp.i.i16 = icmp eq ptr %6, null
   br i1 %cmp.i.i16, label %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit24, label %cond.false.i17
@@ -243,21 +243,24 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i:     ; preds = %_ZNK9grpc_core21Ref
   br i1 %cmp.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE7compareES2_.exit, label %return
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE7compareES2_.exit: ; preds = %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit24, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i
-  %sub.i.i = sub i64 %retval.sroa.0.0.i, %retval.sroa.0.0.i20
-  %spec.select3.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i, i64 -2147483648)
-  %retval.04.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select3.i.i, i64 2147483647)
-  %retval.0.i3.i = trunc nsw i64 %retval.04.i.i to i32
-  %cmp11.not = icmp eq i32 %retval.0.i3.i, 0
-  br i1 %cmp11.not, label %for.cond, label %return
+  %cmp11.not = icmp eq i64 %retval.sroa.0.0.i, %retval.sroa.0.0.i20
+  br i1 %cmp11.not, label %for.cond, label %return.loopexit.split.loop.exit38
 
 for.end:                                          ; preds = %for.cond, %entry.for.end_crit_edge
-  %sub.ptr.sub.i28.pre-phi = phi i64 [ %.pre43, %entry.for.end_crit_edge ], [ %sub.ptr.sub.i13, %for.cond ]
+  %sub.ptr.sub.i28.pre-phi = phi i64 [ %.pre51, %entry.for.end_crit_edge ], [ %sub.ptr.sub.i13, %for.cond ]
   %cmp18 = icmp ugt i64 %sub.ptr.sub.i28.pre-phi, %sub.ptr.sub.i
   %. = sext i1 %cmp18 to i32
   br label %return
 
-return:                                           ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE7compareES2_.exit, %for.body, %for.end
-  %retval.0 = phi i32 [ %., %for.end ], [ %call.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i ], [ %retval.0.i3.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE7compareES2_.exit ], [ 1, %for.body ]
+return.loopexit.split.loop.exit38:                ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE7compareES2_.exit
+  %sub.i.i.le = sub i64 %retval.sroa.0.0.i, %retval.sroa.0.0.i20
+  %spec.select3.i.i.le = tail call i64 @llvm.smax.i64(i64 %sub.i.i.le, i64 -2147483648)
+  %retval.04.i.i.le = tail call i64 @llvm.smin.i64(i64 %spec.select3.i.i.le, i64 2147483647)
+  %retval.0.i3.i.le = trunc nsw i64 %retval.04.i.i.le to i32
+  br label %return
+
+return:                                           ; preds = %for.body, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i, %return.loopexit.split.loop.exit38, %for.end
+  %retval.0 = phi i32 [ %., %for.end ], [ %retval.0.i3.i.le, %return.loopexit.split.loop.exit38 ], [ 1, %for.body ], [ %call.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i ]
   ret i32 %retval.0
 }
 
@@ -768,12 +771,9 @@ cond.false.i.i.i.us.i.i.i:                        ; preds = %while.body.us.i.i.i
 
 _ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i.us.i.i.i: ; preds = %cond.false.i.i.i.us.i.i.i, %while.body.us.i.i.i
   %retval.sroa.0.0.i.i.i.us.i.i.i = phi i64 [ %3, %cond.false.i.i.i.us.i.i.i ], [ 0, %while.body.us.i.i.i ]
-  %spec.select3.i.i.i.i.i.us.i.i.i = tail call i64 @llvm.smax.i64(i64 %retval.sroa.0.0.i.i.i.us.i.i.i, i64 -2147483648)
-  %retval.04.i.i.i.i.i.us.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select3.i.i.i.i.i.us.i.i.i, i64 2147483647)
-  %4 = and i64 %retval.04.i.i.i.i.i.us.i.i.i, 2147483648
-  %cmp.i.i.i.us.not.i.i.i = icmp eq i64 %4, 0
-  %__y.addr.1.us.i.i.i = select i1 %cmp.i.i.i.us.not.i.i.i, ptr %__x.addr.07.us.i.i.i, ptr %__y.addr.06.us.i.i.i
-  %__x.addr.1.in.us.v.i.i.i = select i1 %cmp.i.i.i.us.not.i.i.i, i64 16, i64 24
+  %cmp.i.i.i.us.i.i.i = icmp slt i64 %retval.sroa.0.0.i.i.i.us.i.i.i, 0
+  %__y.addr.1.us.i.i.i = select i1 %cmp.i.i.i.us.i.i.i, ptr %__y.addr.06.us.i.i.i, ptr %__x.addr.07.us.i.i.i
+  %__x.addr.1.in.us.v.i.i.i = select i1 %cmp.i.i.i.us.i.i.i, i64 24, i64 16
   %__x.addr.1.in.us.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.us.i.i.i, i64 %__x.addr.1.in.us.v.i.i.i
   %__x.addr.1.us.i.i.i = load ptr, ptr %__x.addr.1.in.us.i.i.i, align 8
   %cmp.not.us.i.i.i = icmp eq ptr %__x.addr.1.us.i.i.i, null
@@ -781,27 +781,27 @@ _ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i.us.i.i.i: ; pre
 
 while.body.lr.ph.split.i.i.i:                     ; preds = %while.body.lr.ph.i.i.i
   %length.i.i4.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
-  %5 = load i64, ptr %length.i.i4.i.i.i.i.i, align 8
+  %4 = load i64, ptr %length.i.i4.i.i.i.i.i, align 8
   br label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %_ZNK9grpc_core29RefCountedStringValueLessThanclERKNS_21RefCountedStringValueES3_.exit.i.i.i, %while.body.lr.ph.split.i.i.i
   %__x.addr.07.i.i.i = phi ptr [ %0, %while.body.lr.ph.split.i.i.i ], [ %__x.addr.1.i.i.i, %_ZNK9grpc_core29RefCountedStringValueLessThanclERKNS_21RefCountedStringValueES3_.exit.i.i.i ]
   %__y.addr.06.i.i.i = phi ptr [ %add.ptr.i.i.i, %while.body.lr.ph.split.i.i.i ], [ %__y.addr.1.i.i.i, %_ZNK9grpc_core29RefCountedStringValueLessThanclERKNS_21RefCountedStringValueES3_.exit.i.i.i ]
   %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i, i64 32
-  %6 = load ptr, ptr %_M_storage.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i = icmp eq ptr %6, null
+  %5 = load ptr, ptr %_M_storage.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i.i.i.i, label %cond.false.i.i.i.i.i.i
 
 cond.false.i.i.i.i.i.i:                           ; preds = %while.body.i.i.i
-  %payload_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
-  %length.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
-  %7 = load i64, ptr %length.i.i.i.i.i.i.i, align 8
+  %payload_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %length.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = load i64, ptr %length.i.i.i.i.i.i.i, align 8
   br label %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i.i.i.i
 
 _ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i.i.i.i: ; preds = %cond.false.i.i.i.i.i.i, %while.body.i.i.i
-  %retval.sroa.0.0.i.i.i.i.i.i = phi i64 [ %7, %cond.false.i.i.i.i.i.i ], [ 0, %while.body.i.i.i ]
+  %retval.sroa.0.0.i.i.i.i.i.i = phi i64 [ %6, %cond.false.i.i.i.i.i.i ], [ 0, %while.body.i.i.i ]
   %retval.sroa.3.0.i.i.i.i.i.i = phi ptr [ %payload_.i.i.i.i.i.i.i, %cond.false.i.i.i.i.i.i ], [ null, %while.body.i.i.i ]
-  %.sroa.speculated.i.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %retval.sroa.0.0.i.i.i.i.i.i, i64 %5)
+  %.sroa.speculated.i.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %retval.sroa.0.0.i.i.i.i.i.i, i64 %4)
   %cmp.i2.i.i.i.i.i.i.i = icmp eq i64 %.sroa.speculated.i.i.i.i.i.i.i, 0
   br i1 %cmp.i2.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i
 
@@ -811,7 +811,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i: ; preds = %_ZNK9grpc_c
   br i1 %cmp.i.i10.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %_ZNK9grpc_core29RefCountedStringValueLessThanclERKNS_21RefCountedStringValueES3_.exit.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i, %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i.i.i.i
-  %sub.i.i.i.i.i.i.i.i = sub i64 %retval.sroa.0.0.i.i.i.i.i.i, %5
+  %sub.i.i.i.i.i.i.i.i = sub i64 %retval.sroa.0.0.i.i.i.i.i.i, %4
   %spec.select3.i.i.i.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i.i.i, i64 -2147483648)
   %retval.04.i.i.i.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select3.i.i.i.i.i.i.i.i, i64 2147483647)
   %retval.0.i3.i.i.i.i.i.i.i = trunc nsw i64 %retval.04.i.i.i.i.i.i.i.i to i32
@@ -838,24 +838,24 @@ lor.rhs:                                          ; preds = %_ZNSt3mapIN9grpc_co
 
 cond.false.i.i.i:                                 ; preds = %lor.rhs
   %length.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
-  %8 = load i64, ptr %length.i.i.i.i, align 8
+  %7 = load i64, ptr %length.i.i.i.i, align 8
   br label %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i
 
 _ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i: ; preds = %cond.false.i.i.i, %lor.rhs
-  %retval.sroa.0.0.i.i.i = phi i64 [ %8, %cond.false.i.i.i ], [ 0, %lor.rhs ]
+  %retval.sroa.0.0.i.i.i = phi i64 [ %7, %cond.false.i.i.i ], [ 0, %lor.rhs ]
   %retval.sroa.3.0.i.i.i = phi ptr [ %payload_.i.i3.i.i.i.i.i, %cond.false.i.i.i ], [ null, %lor.rhs ]
-  %9 = load ptr, ptr %_M_storage.i.i, align 8
-  %cmp.i.i1.i.i = icmp eq ptr %9, null
+  %8 = load ptr, ptr %_M_storage.i.i, align 8
+  %cmp.i.i1.i.i = icmp eq ptr %8, null
   br i1 %cmp.i.i1.i.i, label %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit9.i.i, label %cond.false.i2.i.i
 
 cond.false.i2.i.i:                                ; preds = %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i
-  %payload_.i.i3.i.i = getelementptr inbounds i8, ptr %9, i64 16
-  %length.i.i4.i.i = getelementptr inbounds i8, ptr %9, i64 8
-  %10 = load i64, ptr %length.i.i4.i.i, align 8
+  %payload_.i.i3.i.i = getelementptr inbounds i8, ptr %8, i64 16
+  %length.i.i4.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = load i64, ptr %length.i.i4.i.i, align 8
   br label %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit9.i.i
 
 _ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit9.i.i: ; preds = %cond.false.i2.i.i, %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i
-  %retval.sroa.0.0.i5.i.i = phi i64 [ %10, %cond.false.i2.i.i ], [ 0, %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i ]
+  %retval.sroa.0.0.i5.i.i = phi i64 [ %9, %cond.false.i2.i.i ], [ 0, %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i ]
   %retval.sroa.3.0.i6.i.i = phi ptr [ %payload_.i.i3.i.i, %cond.false.i2.i.i ], [ null, %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i ]
   %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %retval.sroa.0.0.i.i.i, i64 %retval.sroa.0.0.i5.i.i)
   %cmp.i2.i.i.i.i = icmp eq i64 %.sroa.speculated.i.i.i.i, 0
@@ -1367,11 +1367,8 @@ cond.false.i2.i.i.us:                             ; preds = %while.body.us
 
 _ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit9.i.i.us: ; preds = %cond.false.i2.i.i.us, %while.body.us
   %retval.sroa.0.0.i5.i.i.us = phi i64 [ %2, %cond.false.i2.i.i.us ], [ 0, %while.body.us ]
-  %sub.i.i.i.i.i.us = sub i64 0, %retval.sroa.0.0.i5.i.i.us
-  %spec.select3.i.i.i.i.i.us = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.us, i64 -2147483648)
-  %retval.04.i.i.i.i.i.us = tail call i64 @llvm.smin.i64(i64 %spec.select3.i.i.i.i.i.us, i64 2147483647)
-  %3 = and i64 %retval.04.i.i.i.i.i.us, 2147483648
-  %cmp.i.i.i.us = icmp ne i64 %3, 0
+  %notsub = add i64 %retval.sroa.0.0.i5.i.i.us, -1
+  %cmp.i.i.i.us = icmp sgt i64 %notsub, -1
   %cond.in.us.v = select i1 %cmp.i.i.i.us, i64 16, i64 24
   %cond.in.us = getelementptr inbounds i8, ptr %__x.046.us, i64 %cond.in.us.v
   %__x.0.us = load ptr, ptr %cond.in.us, align 8
@@ -1380,26 +1377,26 @@ _ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit9.i.i.us: ; preds = 
 
 while.body.lr.ph.split:                           ; preds = %while.body.lr.ph
   %length.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = load i64, ptr %length.i.i.i.i, align 8
+  %3 = load i64, ptr %length.i.i.i.i, align 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph.split, %_ZNK9grpc_core29RefCountedStringValueLessThanclERKNS_21RefCountedStringValueES3_.exit
   %__x.046 = phi ptr [ %__x.044, %while.body.lr.ph.split ], [ %__x.0, %_ZNK9grpc_core29RefCountedStringValueLessThanclERKNS_21RefCountedStringValueES3_.exit ]
   %_M_storage.i.i = getelementptr inbounds i8, ptr %__x.046, i64 32
-  %5 = load ptr, ptr %_M_storage.i.i, align 8
-  %cmp.i.i1.i.i = icmp eq ptr %5, null
+  %4 = load ptr, ptr %_M_storage.i.i, align 8
+  %cmp.i.i1.i.i = icmp eq ptr %4, null
   br i1 %cmp.i.i1.i.i, label %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit9.i.i, label %cond.false.i2.i.i
 
 cond.false.i2.i.i:                                ; preds = %while.body
-  %payload_.i.i3.i.i = getelementptr inbounds i8, ptr %5, i64 16
-  %length.i.i4.i.i = getelementptr inbounds i8, ptr %5, i64 8
-  %6 = load i64, ptr %length.i.i4.i.i, align 8
+  %payload_.i.i3.i.i = getelementptr inbounds i8, ptr %4, i64 16
+  %length.i.i4.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = load i64, ptr %length.i.i4.i.i, align 8
   br label %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit9.i.i
 
 _ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit9.i.i: ; preds = %cond.false.i2.i.i, %while.body
-  %retval.sroa.0.0.i5.i.i = phi i64 [ %6, %cond.false.i2.i.i ], [ 0, %while.body ]
+  %retval.sroa.0.0.i5.i.i = phi i64 [ %5, %cond.false.i2.i.i ], [ 0, %while.body ]
   %retval.sroa.3.0.i6.i.i = phi ptr [ %payload_.i.i3.i.i, %cond.false.i2.i.i ], [ null, %while.body ]
-  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %4, i64 %retval.sroa.0.0.i5.i.i)
+  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %3, i64 %retval.sroa.0.0.i5.i.i)
   %cmp.i2.i.i.i.i = icmp eq i64 %.sroa.speculated.i.i.i.i, 0
   br i1 %cmp.i2.i.i.i.i, label %if.then.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
 
@@ -1409,7 +1406,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %_ZNK9grpc_core21R
   br i1 %cmp.i.i10.i.i, label %if.then.i.i.i.i, label %_ZNK9grpc_core29RefCountedStringValueLessThanclERKNS_21RefCountedStringValueES3_.exit
 
 if.then.i.i.i.i:                                  ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit9.i.i
-  %sub.i.i.i.i.i = sub i64 %4, %retval.sroa.0.0.i5.i.i
+  %sub.i.i.i.i.i = sub i64 %3, %retval.sroa.0.0.i5.i.i
   %spec.select3.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i, i64 -2147483648)
   %retval.04.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select3.i.i.i.i.i, i64 2147483647)
   %retval.0.i3.i.i.i.i = trunc nsw i64 %retval.04.i.i.i.i.i to i32
@@ -1432,8 +1429,8 @@ while.end:                                        ; preds = %_ZNK9grpc_core29Ref
 if.then:                                          ; preds = %entry, %while.end
   %__y.0.lcssa52 = phi ptr [ %__y.0.lcssa, %while.end ], [ %add.ptr.i, %entry ]
   %_M_left.i3 = getelementptr inbounds i8, ptr %this, i64 24
-  %7 = load ptr, ptr %_M_left.i3, align 8
-  %cmp.i = icmp eq ptr %__y.0.lcssa52, %7
+  %6 = load ptr, ptr %_M_left.i3, align 8
+  %cmp.i = icmp eq ptr %__y.0.lcssa52, %6
   br i1 %cmp.i, label %return, label %if.else
 
 if.else:                                          ; preds = %if.then
@@ -1444,31 +1441,31 @@ if.end12:                                         ; preds = %if.else, %while.end
   %__y.0.lcssa53 = phi ptr [ %__y.0.lcssa52, %if.else ], [ %__y.0.lcssa, %while.end ]
   %__j.sroa.0.0 = phi ptr [ %call.i, %if.else ], [ %__y.0.lcssa, %while.end ]
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__j.sroa.0.0, i64 32
-  %8 = load ptr, ptr %_M_storage.i.i.i, align 8
-  %cmp.i.i.i.i4 = icmp eq ptr %8, null
+  %7 = load ptr, ptr %_M_storage.i.i.i, align 8
+  %cmp.i.i.i.i4 = icmp eq ptr %7, null
   br i1 %cmp.i.i.i.i4, label %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i8, label %cond.false.i.i.i5
 
 cond.false.i.i.i5:                                ; preds = %if.end12
-  %payload_.i.i.i.i6 = getelementptr inbounds i8, ptr %8, i64 16
-  %length.i.i.i.i7 = getelementptr inbounds i8, ptr %8, i64 8
-  %9 = load i64, ptr %length.i.i.i.i7, align 8
+  %payload_.i.i.i.i6 = getelementptr inbounds i8, ptr %7, i64 16
+  %length.i.i.i.i7 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = load i64, ptr %length.i.i.i.i7, align 8
   br label %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i8
 
 _ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i8: ; preds = %cond.false.i.i.i5, %if.end12
-  %retval.sroa.0.0.i.i.i9 = phi i64 [ %9, %cond.false.i.i.i5 ], [ 0, %if.end12 ]
+  %retval.sroa.0.0.i.i.i9 = phi i64 [ %8, %cond.false.i.i.i5 ], [ 0, %if.end12 ]
   %retval.sroa.3.0.i.i.i10 = phi ptr [ %payload_.i.i.i.i6, %cond.false.i.i.i5 ], [ null, %if.end12 ]
-  %10 = load ptr, ptr %__k, align 8
-  %cmp.i.i1.i.i11 = icmp eq ptr %10, null
+  %9 = load ptr, ptr %__k, align 8
+  %cmp.i.i1.i.i11 = icmp eq ptr %9, null
   br i1 %cmp.i.i1.i.i11, label %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit9.i.i15, label %cond.false.i2.i.i12
 
 cond.false.i2.i.i12:                              ; preds = %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i8
-  %payload_.i.i3.i.i13 = getelementptr inbounds i8, ptr %10, i64 16
-  %length.i.i4.i.i14 = getelementptr inbounds i8, ptr %10, i64 8
-  %11 = load i64, ptr %length.i.i4.i.i14, align 8
+  %payload_.i.i3.i.i13 = getelementptr inbounds i8, ptr %9, i64 16
+  %length.i.i4.i.i14 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = load i64, ptr %length.i.i4.i.i14, align 8
   br label %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit9.i.i15
 
 _ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit9.i.i15: ; preds = %cond.false.i2.i.i12, %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i8
-  %retval.sroa.0.0.i5.i.i16 = phi i64 [ %11, %cond.false.i2.i.i12 ], [ 0, %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i8 ]
+  %retval.sroa.0.0.i5.i.i16 = phi i64 [ %10, %cond.false.i2.i.i12 ], [ 0, %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i8 ]
   %retval.sroa.3.0.i6.i.i17 = phi ptr [ %payload_.i.i3.i.i13, %cond.false.i2.i.i12 ], [ null, %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i8 ]
   %.sroa.speculated.i.i.i.i18 = tail call i64 @llvm.umin.i64(i64 %retval.sroa.0.0.i.i.i9, i64 %retval.sroa.0.0.i5.i.i16)
   %cmp.i2.i.i.i.i19 = icmp eq i64 %.sroa.speculated.i.i.i.i18, 0
@@ -2477,17 +2474,17 @@ entry:
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %cmp38.not.i.i = icmp eq ptr %0, %1
-  br i1 %cmp38.not.i.i, label %entry.for.end_crit_edge.i.i, label %for.body.lr.ph.i.i
+  %cmp44.not.i.i = icmp eq ptr %0, %1
+  br i1 %cmp44.not.i.i, label %entry.for.end_crit_edge.i.i, label %for.body.lr.ph.i.i
 
 entry.for.end_crit_edge.i.i:                      ; preds = %entry
   %_M_finish.i25.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %p2, i64 24
   %.pre.i.i = load ptr, ptr %_M_finish.i25.phi.trans.insert.i.i, align 8
   %path_14.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %p2, i64 16
-  %.pre40.i.i = load ptr, ptr %path_14.phi.trans.insert.i.i, align 8
-  %.pre41.i.i = ptrtoint ptr %.pre.i.i to i64
-  %.pre42.i.i = ptrtoint ptr %.pre40.i.i to i64
-  %.pre43.i.i = sub i64 %.pre41.i.i, %.pre42.i.i
+  %.pre48.i.i = load ptr, ptr %path_14.phi.trans.insert.i.i, align 8
+  %.pre49.i.i = ptrtoint ptr %.pre.i.i to i64
+  %.pre50.i.i = ptrtoint ptr %.pre48.i.i to i64
+  %.pre51.i.i = sub i64 %.pre49.i.i, %.pre50.i.i
   br label %for.end.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %entry
@@ -2504,17 +2501,17 @@ for.body.lr.ph.i.i:                               ; preds = %entry
   br label %for.body.i.i
 
 for.cond.i.i:                                     ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE7compareES2_.exit.i.i
-  %inc.i.i = add nuw i64 %i.039.i.i, 1
+  %inc.i.i = add nuw i64 %i.045.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, %umax.i.i
   br i1 %exitcond.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !4
 
 for.body.i.i:                                     ; preds = %for.cond.i.i, %for.body.lr.ph.i.i
-  %i.039.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %inc.i.i, %for.cond.i.i ]
-  %cmp3.i.i = icmp eq i64 %sub.ptr.div.i14.i.i, %i.039.i.i
+  %i.045.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %inc.i.i, %for.cond.i.i ]
+  %cmp3.i.i = icmp eq i64 %sub.ptr.div.i14.i.i, %i.045.i.i
   br i1 %cmp3.i.i, label %_ZZN9grpc_core20ChannelArgTypeTraitsINS_19HierarchicalPathArgEvE6VTableEvENKUlPvS3_E_clES3_S3_.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.body.i.i
-  %add.ptr.i.i.i = getelementptr inbounds %"class.grpc_core::RefCountedStringValue", ptr %1, i64 %i.039.i.i
+  %add.ptr.i.i.i = getelementptr inbounds %"class.grpc_core::RefCountedStringValue", ptr %1, i64 %i.045.i.i
   %4 = load ptr, ptr %add.ptr.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.i.i.i.i, label %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i, label %cond.false.i.i.i
@@ -2528,7 +2525,7 @@ cond.false.i.i.i:                                 ; preds = %if.end.i.i
 _ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i.i: ; preds = %cond.false.i.i.i, %if.end.i.i
   %retval.sroa.0.0.i.i.i = phi i64 [ %5, %cond.false.i.i.i ], [ 0, %if.end.i.i ]
   %retval.sroa.3.0.i.i.i = phi ptr [ %payload_.i.i.i.i, %cond.false.i.i.i ], [ null, %if.end.i.i ]
-  %add.ptr.i15.i.i = getelementptr inbounds %"class.grpc_core::RefCountedStringValue", ptr %3, i64 %i.039.i.i
+  %add.ptr.i15.i.i = getelementptr inbounds %"class.grpc_core::RefCountedStringValue", ptr %3, i64 %i.045.i.i
   %6 = load ptr, ptr %add.ptr.i15.i.i, align 8
   %cmp.i.i16.i.i = icmp eq ptr %6, null
   br i1 %cmp.i.i16.i.i, label %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit24.i.i, label %cond.false.i17.i.i
@@ -2552,21 +2549,24 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %_ZNK9grpc_core21Ref
   br i1 %cmp.i.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE7compareES2_.exit.i.i, label %_ZZN9grpc_core20ChannelArgTypeTraitsINS_19HierarchicalPathArgEvE6VTableEvENKUlPvS3_E_clES3_S3_.exit
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE7compareES2_.exit.i.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit24.i.i
-  %sub.i.i.i.i = sub i64 %retval.sroa.0.0.i.i.i, %retval.sroa.0.0.i20.i.i
-  %spec.select3.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i, i64 -2147483648)
-  %retval.04.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select3.i.i.i.i, i64 2147483647)
-  %retval.0.i3.i.i.i = trunc nsw i64 %retval.04.i.i.i.i to i32
-  %cmp11.not.i.i = icmp eq i32 %retval.0.i3.i.i.i, 0
-  br i1 %cmp11.not.i.i, label %for.cond.i.i, label %_ZZN9grpc_core20ChannelArgTypeTraitsINS_19HierarchicalPathArgEvE6VTableEvENKUlPvS3_E_clES3_S3_.exit
+  %cmp11.not.i.i = icmp eq i64 %retval.sroa.0.0.i.i.i, %retval.sroa.0.0.i20.i.i
+  br i1 %cmp11.not.i.i, label %for.cond.i.i, label %return.loopexit.split.loop.exit38.i.i
 
 for.end.i.i:                                      ; preds = %for.cond.i.i, %entry.for.end_crit_edge.i.i
-  %sub.ptr.sub.i28.pre-phi.i.i = phi i64 [ %.pre43.i.i, %entry.for.end_crit_edge.i.i ], [ %sub.ptr.sub.i13.i.i, %for.cond.i.i ]
+  %sub.ptr.sub.i28.pre-phi.i.i = phi i64 [ %.pre51.i.i, %entry.for.end_crit_edge.i.i ], [ %sub.ptr.sub.i13.i.i, %for.cond.i.i ]
   %cmp18.i.i = icmp ugt i64 %sub.ptr.sub.i28.pre-phi.i.i, %sub.ptr.sub.i.i.i
   %..i.i = sext i1 %cmp18.i.i to i32
   br label %_ZZN9grpc_core20ChannelArgTypeTraitsINS_19HierarchicalPathArgEvE6VTableEvENKUlPvS3_E_clES3_S3_.exit
 
-_ZZN9grpc_core20ChannelArgTypeTraitsINS_19HierarchicalPathArgEvE6VTableEvENKUlPvS3_E_clES3_S3_.exit: ; preds = %for.body.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE7compareES2_.exit.i.i, %for.end.i.i
-  %retval.0.i.i = phi i32 [ %..i.i, %for.end.i.i ], [ %call.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ], [ %retval.0.i3.i.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE7compareES2_.exit.i.i ], [ 1, %for.body.i.i ]
+return.loopexit.split.loop.exit38.i.i:            ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE7compareES2_.exit.i.i
+  %sub.i.i.le.i.i = sub i64 %retval.sroa.0.0.i.i.i, %retval.sroa.0.0.i20.i.i
+  %spec.select3.i.i.le.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i.le.i.i, i64 -2147483648)
+  %retval.04.i.i.le.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select3.i.i.le.i.i, i64 2147483647)
+  %retval.0.i3.i.le.i.i = trunc nsw i64 %retval.04.i.i.le.i.i to i32
+  br label %_ZZN9grpc_core20ChannelArgTypeTraitsINS_19HierarchicalPathArgEvE6VTableEvENKUlPvS3_E_clES3_S3_.exit
+
+_ZZN9grpc_core20ChannelArgTypeTraitsINS_19HierarchicalPathArgEvE6VTableEvENKUlPvS3_E_clES3_S3_.exit: ; preds = %for.body.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %for.end.i.i, %return.loopexit.split.loop.exit38.i.i
+  %retval.0.i.i = phi i32 [ %..i.i, %for.end.i.i ], [ %retval.0.i3.i.le.i.i, %return.loopexit.split.loop.exit38.i.i ], [ 1, %for.body.i.i ], [ %call.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ]
   ret i32 %retval.0.i.i
 }
 

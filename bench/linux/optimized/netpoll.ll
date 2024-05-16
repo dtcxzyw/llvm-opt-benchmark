@@ -857,7 +857,7 @@ define dso_local void @netpoll_send_udp(ptr noundef %0, ptr nocapture noundef re
   %127 = xor i32 %126, -1
   %128 = lshr i32 %127, 16
   %129 = trunc nuw i32 %128 to i16
-  %130 = icmp eq i16 %129, 0
+  %130 = icmp ugt i32 %126, -65537
   %131 = select i1 %130, i16 -1, i16 %129
   store i16 %131, ptr %90, align 2
   %132 = call ptr @skb_push(ptr noundef nonnull %57, i32 noundef 20) #13

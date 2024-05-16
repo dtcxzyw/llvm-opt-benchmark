@@ -4439,7 +4439,7 @@ define noalias noundef ptr @Cudd_FirstCube(ptr noundef %0, ptr noundef %1, ptr n
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %1, null
   %or.cond = or i1 %5, %6
-  br i1 %or.cond, label %103, label %7
+  br i1 %or.cond, label %102, label %7
 
 7:                                                ; preds = %4
   %8 = tail call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #21
@@ -4449,7 +4449,7 @@ define noalias noundef ptr @Cudd_FirstCube(ptr noundef %0, ptr noundef %1, ptr n
 10:                                               ; preds = %7
   %11 = getelementptr inbounds i8, ptr %0, i64 624
   store i32 1, ptr %11, align 8
-  br label %103
+  br label %102
 
 12:                                               ; preds = %7
   store ptr %0, ptr %8, align 8
@@ -4482,7 +4482,7 @@ define noalias noundef ptr @Cudd_FirstCube(ptr noundef %0, ptr noundef %1, ptr n
   %27 = getelementptr inbounds i8, ptr %0, i64 624
   store i32 1, ptr %27, align 8
   tail call void @free(ptr noundef nonnull %8) #22
-  br label %103
+  br label %102
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
@@ -4516,7 +4516,7 @@ define noalias noundef ptr @Cudd_FirstCube(ptr noundef %0, ptr noundef %1, ptr n
   store i32 1, ptr %37, align 8
   tail call void @free(ptr noundef nonnull %23) #22
   tail call void @free(ptr noundef nonnull %8) #22
-  br label %103
+  br label %102
 
 ._crit_edge120:                                   ; preds = %.lr.ph119.preheader, %.preheader
   store ptr %1, ptr %32, align 8
@@ -4564,7 +4564,7 @@ define noalias noundef ptr @Cudd_FirstCube(ptr noundef %0, ptr noundef %1, ptr n
 66:                                               ; preds = %60
   %67 = load ptr, ptr %39, align 8
   %68 = icmp eq ptr %44, %67
-  br i1 %68, label %69, label %97
+  br i1 %68, label %69, label %96
 
 69:                                               ; preds = %66, %60
   %70 = icmp eq i32 %.pr129, 1
@@ -4574,7 +4574,7 @@ define noalias noundef ptr @Cudd_FirstCube(ptr noundef %0, ptr noundef %1, ptr n
   store i32 0, ptr %14, align 4
   store i32 0, ptr %17, align 8
   %.pre = load double, ptr %16, align 8
-  br label %100
+  br label %99
 
 .lr.ph123:                                        ; preds = %69, %89
   %indvars.iv149 = phi i64 [ %indvars.iv.next150, %89 ], [ %41, %69 ]
@@ -4618,27 +4618,26 @@ define noalias noundef ptr @Cudd_FirstCube(ptr noundef %0, ptr noundef %1, ptr n
   store i32 2, ptr %93, align 4
   %indvars.iv.next150 = add nsw i64 %indvars.iv149, -1
   %94 = load ptr, ptr %72, align 8
-  %95 = and i64 %indvars.iv.next150, 4294967295
-  %96 = icmp eq i64 %95, 1
-  br i1 %96, label %._crit_edge124, label %.lr.ph123
+  %95 = icmp eq i64 %indvars.iv.next150, 1
+  br i1 %95, label %._crit_edge124, label %.lr.ph123
 
-97:                                               ; preds = %66
+96:                                               ; preds = %66
   store i32 %.pr129, ptr %17, align 8
   store i32 1, ptr %14, align 4
-  %98 = getelementptr inbounds i8, ptr %44, i64 16
-  %99 = load double, ptr %98, align 8
-  store double %99, ptr %16, align 8
-  br label %100
+  %97 = getelementptr inbounds i8, ptr %44, i64 16
+  %98 = load double, ptr %97, align 8
+  store double %98, ptr %16, align 8
+  br label %99
 
-100:                                              ; preds = %97, %._crit_edge124
-  %101 = phi double [ %99, %97 ], [ %.pre, %._crit_edge124 ]
-  %102 = load ptr, ptr %15, align 8
-  store ptr %102, ptr %2, align 8
-  store double %101, ptr %3, align 8
-  br label %103
+99:                                               ; preds = %96, %._crit_edge124
+  %100 = phi double [ %98, %96 ], [ %.pre, %._crit_edge124 ]
+  %101 = load ptr, ptr %15, align 8
+  store ptr %101, ptr %2, align 8
+  store double %100, ptr %3, align 8
+  br label %102
 
-103:                                              ; preds = %4, %100, %36, %26, %10
-  %.0 = phi ptr [ null, %10 ], [ null, %26 ], [ null, %36 ], [ %8, %100 ], [ null, %4 ]
+102:                                              ; preds = %4, %99, %36, %26, %10
+  %.0 = phi ptr [ null, %10 ], [ null, %26 ], [ null, %36 ], [ %8, %99 ], [ null, %4 ]
   ret ptr %.0
 }
 

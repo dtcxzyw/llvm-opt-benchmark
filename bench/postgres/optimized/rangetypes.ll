@@ -5946,36 +5946,32 @@ range_cmp_bounds.exit27:                          ; preds = %44, %78, %103, %106
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @range_lt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = tail call i64 @range_cmp(ptr noundef %0)
-  %3 = lshr i64 %2, 31
-  %.lobit = and i64 %3, 1
+  %.lobit = lshr i64 %2, 63
   ret i64 %.lobit
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @range_le(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = tail call i64 @range_cmp(ptr noundef %0)
-  %3 = trunc nsw i64 %2 to i32
-  %4 = icmp slt i32 %3, 1
-  %5 = zext i1 %4 to i64
-  ret i64 %5
+  %3 = icmp slt i64 %2, 1
+  %4 = zext i1 %3 to i64
+  ret i64 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @range_ge(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = tail call i64 @range_cmp(ptr noundef %0)
-  %3 = lshr i64 %2, 31
-  %.lobit = and i64 %3, 1
-  %4 = xor i64 %.lobit, 1
+  %3 = icmp sgt i64 %2, -1
+  %4 = zext i1 %3 to i64
   ret i64 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @range_gt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = tail call i64 @range_cmp(ptr noundef %0)
-  %3 = trunc nsw i64 %2 to i32
-  %4 = icmp sgt i32 %3, 0
-  %5 = zext i1 %4 to i64
-  ret i64 %5
+  %3 = icmp sgt i64 %2, 0
+  %4 = zext i1 %3 to i64
+  ret i64 %4
 }
 
 ; Function Attrs: nounwind uwtable

@@ -336,40 +336,37 @@ land.rhs.i.i:                                     ; preds = %while.body.i.i, %la
 
 while.body.i.i:                                   ; preds = %land.rhs.i.i
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
-  %8 = and i64 %indvars.iv.next.i.i, 4294967295
-  %tobool.not.i.i = icmp eq i64 %8, 0
+  %tobool.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i.i, label %land.rhs.i.i, !llvm.loop !5
 
 while.end.i.i:                                    ; preds = %land.rhs.i.i
-  %9 = and i64 %indvars.iv.i.i, 4294967295
-  %tobool4.not13.i.i = icmp eq i64 %9, 0
+  %tobool4.not13.i.i = icmp eq i64 %indvars.iv.i.i, 0
   br i1 %tobool4.not13.i.i, label %if.end.i.i.i, label %land.rhs5.lr.ph.i.i
 
 land.rhs5.lr.ph.i.i:                              ; preds = %while.end.i.i
   %sext31.i.i = shl i64 %indvars.iv.i.i, 32
-  %10 = ashr exact i64 %sext31.i.i, 32
+  %8 = ashr exact i64 %sext31.i.i, 32
   br label %land.rhs5.i.i
 
 land.rhs5.i.i:                                    ; preds = %while.body14.i.i, %land.rhs5.lr.ph.i.i
-  %indvars.iv20.i.i = phi i64 [ %10, %land.rhs5.lr.ph.i.i ], [ %indvars.iv.next21.i.i, %while.body14.i.i ]
+  %indvars.iv20.i.i = phi i64 [ %8, %land.rhs5.lr.ph.i.i ], [ %indvars.iv.next21.i.i, %while.body14.i.i ]
   %gep18.i.i = getelementptr i8, ptr %invariant.gep.i.i, i64 %indvars.iv20.i.i
-  %11 = load i8, ptr %gep18.i.i, align 1
-  %cmp11.not.i.i = icmp eq i8 %11, 47
+  %9 = load i8, ptr %gep18.i.i, align 1
+  %cmp11.not.i.i = icmp eq i8 %9, 47
   br i1 %cmp11.not.i.i, label %while.end16.i.i, label %while.body14.i.i
 
 while.body14.i.i:                                 ; preds = %land.rhs5.i.i
   %indvars.iv.next21.i.i = add nsw i64 %indvars.iv20.i.i, -1
-  %12 = and i64 %indvars.iv.next21.i.i, 4294967295
-  %tobool4.not.i.i = icmp eq i64 %12, 0
+  %tobool4.not.i.i = icmp eq i64 %indvars.iv.next21.i.i, 0
   br i1 %tobool4.not.i.i, label %while.end16.i.i, label %land.rhs5.i.i, !llvm.loop !7
 
 while.end16.i.i:                                  ; preds = %while.body14.i.i, %land.rhs5.i.i
   %i.1.lcssa.ph.i.i = phi i64 [ %indvars.iv20.i.i, %land.rhs5.i.i ], [ 0, %while.body14.i.i ]
   %sext23.i.i = shl i64 %i.1.lcssa.ph.i.i, 32
-  %13 = ashr exact i64 %sext23.i.i, 32
-  %14 = load i64, ptr %filename, align 8
-  %spec.select.i.i.i = call i64 @llvm.usub.sat.i64(i64 %14, i64 1)
-  %cmp.i.i6.i = icmp ult i64 %spec.select.i.i.i, %13
+  %10 = ashr exact i64 %sext23.i.i, 32
+  %11 = load i64, ptr %filename, align 8
+  %spec.select.i.i.i = call i64 @llvm.usub.sat.i64(i64 %11, i64 1)
+  %cmp.i.i6.i = icmp ult i64 %spec.select.i.i.i, %10
   br i1 %cmp.i.i6.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.end16.i.i
@@ -377,7 +374,7 @@ if.then.i.i.i:                                    ; preds = %while.end16.i.i
   unreachable
 
 if.end.i.i.i:                                     ; preds = %while.body.i.i, %while.end16.i.i, %while.end.i.i, %if.else.i
-  %i.1.lcssa29.i.i = phi i64 [ %13, %while.end16.i.i ], [ 0, %while.end.i.i ], [ 0, %if.else.i ], [ 0, %while.body.i.i ]
+  %i.1.lcssa29.i.i = phi i64 [ %10, %while.end16.i.i ], [ 0, %while.end.i.i ], [ 0, %if.else.i ], [ 0, %while.body.i.i ]
   store i64 %i.1.lcssa29.i.i, ptr %len.i, align 8
   %cmp3.not.i.i.i = icmp eq ptr %.pre.i, @strbuf_slopbuf
   br i1 %cmp3.not.i.i.i, label %if.end4.i, label %if.then4.i.i.i
@@ -399,32 +396,32 @@ if.end4.i:                                        ; preds = %if.end4.sink.split.
 
 while.end.i:                                      ; preds = %if.end4.i, %while.body.i
   store i64 0, ptr getelementptr inbounds (%struct.strbuf, ptr @resolve_symlink.link, i64 0, i32 1), align 8
-  %15 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @resolve_symlink.link, i64 0, i32 2), align 8
-  %cmp3.not.i9.i = icmp eq ptr %15, @strbuf_slopbuf
+  %12 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @resolve_symlink.link, i64 0, i32 2), align 8
+  %cmp3.not.i9.i = icmp eq ptr %12, @strbuf_slopbuf
   br i1 %cmp3.not.i9.i, label %if.end, label %if.then4.i10.i
 
 if.then4.i10.i:                                   ; preds = %while.end.i
-  store i8 0, ptr %15, align 1
+  store i8 0, ptr %12, align 1
   br label %if.end
 
 if.end:                                           ; preds = %if.then4.i10.i, %while.end.i, %entry
   call void @strbuf_add(ptr noundef nonnull %filename, ptr noundef nonnull @.str.3, i64 noundef 5) #10
   %buf = getelementptr inbounds i8, ptr %filename, i64 16
-  %16 = load ptr, ptr %buf, align 8
-  %call = call ptr @create_tempfile_mode(ptr noundef %16, i32 noundef %mode) #10
+  %13 = load ptr, ptr %buf, align 8
+  %call = call ptr @create_tempfile_mode(ptr noundef %13, i32 noundef %mode) #10
   store ptr %call, ptr %lk, align 8
   call void @strbuf_release(ptr noundef nonnull %filename) #10
-  %17 = load ptr, ptr %lk, align 8
-  %tobool2.not = icmp eq ptr %17, null
+  %14 = load ptr, ptr %lk, align 8
+  %tobool2.not = icmp eq ptr %14, null
   br i1 %tobool2.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %if.end
-  %fd = getelementptr inbounds i8, ptr %17, i64 16
-  %18 = load volatile i32, ptr %fd, align 8
+  %fd = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = load volatile i32, ptr %fd, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end, %cond.true
-  %cond = phi i32 [ %18, %cond.true ], [ -1, %if.end ]
+  %cond = phi i32 [ %15, %cond.true ], [ -1, %if.end ]
   ret i32 %cond
 }
 

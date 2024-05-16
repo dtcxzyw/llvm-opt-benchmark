@@ -8521,7 +8521,7 @@ partition.exit:                                   ; preds = %66
   %73 = getelementptr inbounds i32, ptr %0, i64 %72
   %74 = sub nsw i32 %.031, %71
   tail call fastcc void @introsort_loop(ptr noundef nonnull %73, i32 noundef %74, i32 noundef %44)
-  %75 = icmp sgt i32 %71, 16
+  %75 = icmp sgt i64 %indvars.iv.i19, 16
   br i1 %75, label %.lr.ph, label %heap_sort.exit, !llvm.loop !113
 
 heap_sort.exit:                                   ; preds = %partition.exit, %sift_down.exit.i, %3, %.preheader.i.preheader

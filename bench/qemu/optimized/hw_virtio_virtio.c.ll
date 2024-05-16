@@ -5491,8 +5491,7 @@ for.inc:                                          ; preds = %for.body
   br i1 %exitcond.not, label %if.then4, label %for.body, !llvm.loop !42
 
 for.end:                                          ; preds = %for.body
-  %2 = and i64 %indvars.iv, 4294967295
-  %cmp2 = icmp eq i64 %2, 1024
+  %cmp2 = icmp eq i64 %indvars.iv, 1024
   %cmp3 = icmp sgt i32 %queue_size, 1024
   %or.cond = or i1 %cmp3, %cmp2
   br i1 %or.cond, label %if.then4, label %if.end5
@@ -5505,22 +5504,22 @@ if.end5:                                          ; preds = %for.end
   %idxprom7 = and i64 %indvars.iv, 4294967295
   %arrayidx8 = getelementptr %struct.VirtQueue, ptr %0, i64 %idxprom7
   store i32 %queue_size, ptr %arrayidx8, align 8
-  %3 = load ptr, ptr %vq, align 8
-  %num_default = getelementptr %struct.VirtQueue, ptr %3, i64 %idxprom7, i32 0, i32 1
+  %2 = load ptr, ptr %vq, align 8
+  %num_default = getelementptr %struct.VirtQueue, ptr %2, i64 %idxprom7, i32 0, i32 1
   store i32 %queue_size, ptr %num_default, align 4
-  %4 = load ptr, ptr %vq, align 8
-  %align = getelementptr %struct.VirtQueue, ptr %4, i64 %idxprom7, i32 0, i32 2
+  %3 = load ptr, ptr %vq, align 8
+  %align = getelementptr %struct.VirtQueue, ptr %3, i64 %idxprom7, i32 0, i32 2
   store i32 4096, ptr %align, align 8
-  %5 = load ptr, ptr %vq, align 8
-  %handle_output22 = getelementptr %struct.VirtQueue, ptr %5, i64 %idxprom7, i32 14
+  %4 = load ptr, ptr %vq, align 8
+  %handle_output22 = getelementptr %struct.VirtQueue, ptr %4, i64 %idxprom7, i32 14
   store ptr %handle_output, ptr %handle_output22, align 8
   %conv = sext i32 %queue_size to i64
   %call = tail call noalias ptr @g_malloc0_n(i64 noundef %conv, i64 noundef 56) #20
-  %6 = load ptr, ptr %vq, align 8
-  %used_elems = getelementptr %struct.VirtQueue, ptr %6, i64 %idxprom7, i32 1
+  %5 = load ptr, ptr %vq, align 8
+  %used_elems = getelementptr %struct.VirtQueue, ptr %5, i64 %idxprom7, i32 1
   store ptr %call, ptr %used_elems, align 8
-  %7 = load ptr, ptr %vq, align 8
-  %arrayidx28 = getelementptr %struct.VirtQueue, ptr %7, i64 %idxprom7
+  %6 = load ptr, ptr %vq, align 8
+  %arrayidx28 = getelementptr %struct.VirtQueue, ptr %6, i64 %idxprom7
   ret ptr %arrayidx28
 }
 
@@ -9987,7 +9986,7 @@ if.end:                                           ; preds = %for.body
   br i1 %cmp6, label %while.cond.preheader, label %if.end8
 
 while.cond.preheader:                             ; preds = %if.end
-  %cmp2437.not = icmp eq i32 %2, 0
+  %cmp2437.not = icmp eq i64 %indvars.iv, 0
   br i1 %cmp2437.not, label %return.sink.split, label %while.body
 
 if.end8:                                          ; preds = %if.end

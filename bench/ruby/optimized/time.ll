@@ -3835,21 +3835,21 @@ rb_num2long_inline.exit:                          ; preds = %116, %118
   %spec.select = tail call i64 @llvm.abs.i64(i64 %.0.i43, i1 false)
   %spec.select40 = select i1 %120, i32 45, i32 43
   %121 = srem i64 %spec.select, 60
-  %122 = trunc nsw i64 %121 to i32
-  %123 = sdiv i64 %spec.select, 60
-  %124 = srem i64 %123, 60
-  %125 = trunc nsw i64 %124 to i32
-  %126 = sdiv i64 %spec.select, 3600
-  %127 = trunc i64 %126 to i32
-  %128 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %10, ptr noundef nonnull @.str.124, i32 noundef %spec.select40, i32 noundef %127, i32 noundef %125) #18
-  %.not = icmp eq i32 %122, 0
-  br i1 %.not, label %131, label %129
+  %122 = sdiv i64 %spec.select, 60
+  %123 = srem i64 %122, 60
+  %124 = trunc nsw i64 %123 to i32
+  %125 = sdiv i64 %spec.select, 3600
+  %126 = trunc i64 %125 to i32
+  %127 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %10, ptr noundef nonnull @.str.124, i32 noundef %spec.select40, i32 noundef %126, i32 noundef %124) #18
+  %.not = icmp eq i64 %121, 0
+  br i1 %.not, label %131, label %128
 
-129:                                              ; preds = %rb_num2long_inline.exit
-  %130 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %10, ptr noundef nonnull @.str.125, i32 noundef %122) #18
+128:                                              ; preds = %rb_num2long_inline.exit
+  %129 = trunc nsw i64 %121 to i32
+  %130 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %10, ptr noundef nonnull @.str.125, i32 noundef %129) #18
   br label %131
 
-131:                                              ; preds = %rb_num2long_inline.exit, %129, %108
+131:                                              ; preds = %rb_num2long_inline.exit, %128, %108
   ret i64 %10
 }
 
@@ -10914,39 +10914,39 @@ rb_localtime_r.exit:                              ; preds = %2, %5
   %.083 = tail call i64 @llvm.abs.i64(i64 %10, i1 false)
   %.082 = select i1 %11, i32 1, i32 -1
   %12 = srem i64 %.083, 60
-  %13 = trunc nsw i64 %12 to i32
-  %14 = sdiv i64 %.083, 60
-  %15 = srem i64 %14, 60
-  %16 = trunc nsw i64 %15 to i32
-  %17 = sdiv i64 %.083, 3600
-  %18 = trunc i64 %17 to i32
-  %19 = mul nsw i32 %.082, %16
-  %20 = mul i32 %.082, %18
-  %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %30, label %21
+  %13 = sdiv i64 %.083, 60
+  %14 = srem i64 %13, 60
+  %15 = trunc nsw i64 %14 to i32
+  %16 = sdiv i64 %.083, 3600
+  %17 = trunc i64 %16 to i32
+  %18 = mul nsw i32 %.082, %15
+  %19 = mul i32 %.082, %17
+  %.not = icmp eq i64 %12, 0
+  br i1 %.not, label %30, label %20
 
-21:                                               ; preds = %8
-  %22 = mul nsw i32 %.082, %13
+20:                                               ; preds = %8
+  %21 = trunc nsw i64 %12 to i32
+  %22 = mul nsw i32 %.082, %21
   %23 = load i32, ptr %1, align 8
   %24 = add i32 %23, %22
   store i32 %24, ptr %1, align 8
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %.sink.split, label %26
 
-26:                                               ; preds = %21
+26:                                               ; preds = %20
   %27 = icmp ugt i32 %24, 59
   br i1 %27, label %.sink.split, label %30
 
-.sink.split:                                      ; preds = %26, %21
-  %.sink162 = phi i32 [ 60, %21 ], [ -60, %26 ]
-  %.sink = phi i32 [ -1, %21 ], [ 1, %26 ]
+.sink.split:                                      ; preds = %26, %20
+  %.sink162 = phi i32 [ 60, %20 ], [ -60, %26 ]
+  %.sink = phi i32 [ -1, %20 ], [ 1, %26 ]
   %28 = add nsw i32 %24, %.sink162
   store i32 %28, ptr %1, align 8
-  %29 = add nsw i32 %19, %.sink
+  %29 = add nsw i32 %18, %.sink
   br label %30
 
 30:                                               ; preds = %.sink.split, %26, %8
-  %.188 = phi i32 [ %19, %26 ], [ %19, %8 ], [ %29, %.sink.split ]
+  %.188 = phi i32 [ %18, %26 ], [ %18, %8 ], [ %29, %.sink.split ]
   %.not101 = icmp eq i32 %.188, 0
   br i1 %.not101, label %40, label %31
 
@@ -10967,11 +10967,11 @@ rb_localtime_r.exit:                              ; preds = %2, %5
   %.sink164 = phi i32 [ -1, %31 ], [ 1, %36 ]
   %38 = add nsw i32 %34, %.sink166
   store i32 %38, ptr %32, align 4
-  %39 = add i32 %20, %.sink164
+  %39 = add i32 %19, %.sink164
   br label %40
 
 40:                                               ; preds = %.sink.split163, %36, %30
-  %.186 = phi i32 [ %20, %36 ], [ %20, %30 ], [ %39, %.sink.split163 ]
+  %.186 = phi i32 [ %19, %36 ], [ %19, %30 ], [ %39, %.sink.split163 ]
   %.not102 = icmp eq i32 %.186, 0
   br i1 %.not102, label %.thread119, label %41
 

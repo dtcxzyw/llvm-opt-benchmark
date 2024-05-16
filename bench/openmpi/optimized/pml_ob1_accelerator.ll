@@ -931,7 +931,7 @@ opal_convertor_need_buffers.exit.thread:          ; preds = %8, %opal_convertor_
   %30 = trunc nsw i64 %29 to i32
   %31 = getelementptr inbounds i8, ptr %0, i64 584
   store i32 %30, ptr %31, align 8
-  %.not = icmp eq i32 %30, 0
+  %.not = icmp eq i64 %29, 0
   br i1 %.not, label %52, label %32
 
 32:                                               ; preds = %opal_convertor_need_buffers.exit.thread

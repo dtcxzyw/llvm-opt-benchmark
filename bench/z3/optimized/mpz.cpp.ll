@@ -1149,7 +1149,7 @@ for.body:                                         ; preds = %for.cond
 
 for.end:                                          ; preds = %for.body
   %5 = trunc nuw i64 %indvars.iv to i32
-  %cond16 = icmp eq i32 %5, 1
+  %cond16 = icmp eq i64 %indvars.iv, 1
   br i1 %cond16, label %land.lhs.true, label %if.end15
 
 if.then4:                                         ; preds = %for.cond
@@ -1291,17 +1291,16 @@ if.then:                                          ; preds = %for.cond
   br label %return
 
 if.end:                                           ; preds = %land.rhs
-  %3 = trunc nuw i64 %indvars.iv to i32
-  %4 = load i32, ptr %m_digits, align 4
-  %cmp6 = icmp eq i32 %3, 1
-  %cmp7 = icmp sgt i32 %4, -1
+  %3 = load i32, ptr %m_digits, align 4
+  %cmp6 = icmp eq i64 %indvars.iv, 1
+  %cmp7 = icmp sgt i32 %3, -1
   %or.cond = select i1 %cmp6, i1 %cmp7, i1 false
   br i1 %or.cond, label %if.then8, label %if.end11
 
 if.then8:                                         ; preds = %if.end
   %cmp9 = icmp slt i32 %sign, 0
-  %sub10 = sub nsw i32 0, %4
-  %cond = select i1 %cmp9, i32 %sub10, i32 %4
+  %sub10 = sub nsw i32 0, %3
+  %cond = select i1 %cmp9, i32 %sub10, i32 %3
   store i32 %cond, ptr %a, align 8
   %m_kind = getelementptr inbounds i8, ptr %a, i64 4
   %bf.load = load i8, ptr %m_kind, align 4
@@ -1310,7 +1309,8 @@ if.then8:                                         ; preds = %if.end
   br label %return
 
 if.end11:                                         ; preds = %if.end
-  tail call void @_ZN11mpz_managerILb1EE10set_digitsER3mpzjPKj(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %a, i32 noundef %3, ptr noundef nonnull %m_digits)
+  %4 = trunc nuw i64 %indvars.iv to i32
+  tail call void @_ZN11mpz_managerILb1EE10set_digitsER3mpzjPKj(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %a, i32 noundef %4, ptr noundef nonnull %m_digits)
   store i32 %sign, ptr %a, align 8
   br label %return
 
@@ -1338,7 +1338,7 @@ land.rhs:                                         ; preds = %while.cond
 
 while.end:                                        ; preds = %land.rhs
   %3 = trunc nuw i64 %indvars.iv to i32
-  %cond68 = icmp eq i32 %3, 1
+  %cond68 = icmp eq i64 %indvars.iv, 1
   br i1 %cond68, label %if.then5, label %if.else7
 
 if.then:                                          ; preds = %while.cond
@@ -2130,17 +2130,16 @@ if.then.i:                                        ; preds = %for.cond.i
   br label %if.end78
 
 if.end.i:                                         ; preds = %land.rhs.i
-  %25 = trunc nuw i64 %indvars.iv224 to i32
-  %26 = load i32, ptr %m_digits.i, align 4
-  %cmp6.i = icmp eq i32 %25, 1
-  %cmp7.i = icmp sgt i32 %26, -1
+  %25 = load i32, ptr %m_digits.i, align 4
+  %cmp6.i = icmp eq i64 %indvars.iv224, 1
+  %cmp7.i = icmp sgt i32 %25, -1
   %or.cond.i = select i1 %cmp6.i, i1 %cmp7.i, i1 false
   br i1 %or.cond.i, label %if.then8.i, label %if.end11.i
 
 if.then8.i:                                       ; preds = %if.end.i
   %cmp9.i = icmp slt i32 %20, 0
-  %sub10.i = sub nsw i32 0, %26
-  %cond.i = select i1 %cmp9.i, i32 %sub10.i, i32 %26
+  %sub10.i = sub nsw i32 0, %25
+  %cond.i = select i1 %cmp9.i, i32 %sub10.i, i32 %25
   store i32 %cond.i, ptr %c, align 8
   %m_kind.i56 = getelementptr inbounds i8, ptr %c, i64 4
   %bf.load.i57 = load i8, ptr %m_kind.i56, align 4
@@ -2149,7 +2148,8 @@ if.then8.i:                                       ; preds = %if.end.i
   br label %if.end78
 
 if.end11.i:                                       ; preds = %if.end.i
-  call void @_ZN11mpz_managerILb1EE10set_digitsER3mpzjPKj(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %c, i32 noundef %25, ptr noundef nonnull %m_digits.i)
+  %26 = trunc nuw i64 %indvars.iv224 to i32
+  call void @_ZN11mpz_managerILb1EE10set_digitsER3mpzjPKj(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %c, i32 noundef %26, ptr noundef nonnull %m_digits.i)
   store i32 %20, ptr %c, align 8
   br label %if.end78
 
@@ -2268,17 +2268,16 @@ if.then.i128:                                     ; preds = %for.cond.i104
   br label %if.end78
 
 if.end.i115:                                      ; preds = %land.rhs.i107
-  %44 = trunc nuw i64 %indvars.iv220 to i32
-  %45 = load i32, ptr %m_digits.i108, align 4
-  %cmp6.i117 = icmp eq i32 %44, 1
-  %cmp7.i118 = icmp sgt i32 %45, -1
+  %44 = load i32, ptr %m_digits.i108, align 4
+  %cmp6.i117 = icmp eq i64 %indvars.iv220, 1
+  %cmp7.i118 = icmp sgt i32 %44, -1
   %or.cond.i119 = select i1 %cmp6.i117, i1 %cmp7.i118, i1 false
   br i1 %or.cond.i119, label %if.then8.i121, label %if.end11.i120
 
 if.then8.i121:                                    ; preds = %if.end.i115
   %cmp9.i122 = icmp slt i32 %9, 0
-  %sub10.i123 = sub nsw i32 0, %45
-  %cond.i124 = select i1 %cmp9.i122, i32 %sub10.i123, i32 %45
+  %sub10.i123 = sub nsw i32 0, %44
+  %cond.i124 = select i1 %cmp9.i122, i32 %sub10.i123, i32 %44
   store i32 %cond.i124, ptr %c, align 8
   %m_kind.i125 = getelementptr inbounds i8, ptr %c, i64 4
   %bf.load.i126 = load i8, ptr %m_kind.i125, align 4
@@ -2287,7 +2286,8 @@ if.then8.i121:                                    ; preds = %if.end.i115
   br label %if.end78
 
 if.end11.i120:                                    ; preds = %if.end.i115
-  call void @_ZN11mpz_managerILb1EE10set_digitsER3mpzjPKj(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %c, i32 noundef %44, ptr noundef nonnull %m_digits.i108)
+  %45 = trunc nuw i64 %indvars.iv220 to i32
+  call void @_ZN11mpz_managerILb1EE10set_digitsER3mpzjPKj(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %c, i32 noundef %45, ptr noundef nonnull %m_digits.i108)
   store i32 %9, ptr %c, align 8
   br label %if.end78
 
@@ -2381,17 +2381,16 @@ if.then.i197:                                     ; preds = %for.cond.i173
   br label %if.end78
 
 if.end.i184:                                      ; preds = %land.rhs.i176
-  %60 = trunc nuw i64 %indvars.iv to i32
-  %61 = load i32, ptr %m_digits.i177, align 4
-  %cmp6.i186 = icmp eq i32 %60, 1
-  %cmp7.i187 = icmp sgt i32 %61, -1
+  %60 = load i32, ptr %m_digits.i177, align 4
+  %cmp6.i186 = icmp eq i64 %indvars.iv, 1
+  %cmp7.i187 = icmp sgt i32 %60, -1
   %or.cond.i188 = select i1 %cmp6.i186, i1 %cmp7.i187, i1 false
   br i1 %or.cond.i188, label %if.then8.i190, label %if.end11.i189
 
 if.then8.i190:                                    ; preds = %if.end.i184
   %cmp9.i191 = icmp slt i32 %56, 0
-  %sub10.i192 = sub nsw i32 0, %61
-  %cond.i193 = select i1 %cmp9.i191, i32 %sub10.i192, i32 %61
+  %sub10.i192 = sub nsw i32 0, %60
+  %cond.i193 = select i1 %cmp9.i191, i32 %sub10.i192, i32 %60
   store i32 %cond.i193, ptr %c, align 8
   %m_kind.i194 = getelementptr inbounds i8, ptr %c, i64 4
   %bf.load.i195 = load i8, ptr %m_kind.i194, align 4
@@ -2400,7 +2399,8 @@ if.then8.i190:                                    ; preds = %if.end.i184
   br label %if.end78
 
 if.end11.i189:                                    ; preds = %if.end.i184
-  call void @_ZN11mpz_managerILb1EE10set_digitsER3mpzjPKj(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %c, i32 noundef %60, ptr noundef nonnull %m_digits.i177)
+  %61 = trunc nuw i64 %indvars.iv to i32
+  call void @_ZN11mpz_managerILb1EE10set_digitsER3mpzjPKj(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %c, i32 noundef %61, ptr noundef nonnull %m_digits.i177)
   store i32 %56, ptr %c, align 8
   br label %if.end78
 
@@ -2637,17 +2637,16 @@ if.then.i:                                        ; preds = %for.cond.i
   br label %if.end78
 
 if.end.i:                                         ; preds = %land.rhs.i
-  %25 = trunc nuw i64 %indvars.iv.i to i32
-  %26 = load i32, ptr %m_digits.i, align 4
-  %cmp6.i = icmp eq i32 %25, 1
-  %cmp7.i = icmp sgt i32 %26, -1
+  %25 = load i32, ptr %m_digits.i, align 4
+  %cmp6.i = icmp eq i64 %indvars.iv.i, 1
+  %cmp7.i = icmp sgt i32 %25, -1
   %or.cond.i = select i1 %cmp6.i, i1 %cmp7.i, i1 false
   br i1 %or.cond.i, label %if.then8.i, label %if.end11.i
 
 if.then8.i:                                       ; preds = %if.end.i
   %cmp9.i = icmp slt i32 %20, 0
-  %sub10.i = sub nsw i32 0, %26
-  %cond.i = select i1 %cmp9.i, i32 %sub10.i, i32 %26
+  %sub10.i = sub nsw i32 0, %25
+  %cond.i = select i1 %cmp9.i, i32 %sub10.i, i32 %25
   store i32 %cond.i, ptr %c, align 8
   %m_kind.i56 = getelementptr inbounds i8, ptr %c, i64 4
   %bf.load.i57 = load i8, ptr %m_kind.i56, align 4
@@ -2656,7 +2655,8 @@ if.then8.i:                                       ; preds = %if.end.i
   br label %if.end78
 
 if.end11.i:                                       ; preds = %if.end.i
-  call void @_ZN11mpz_managerILb1EE10set_digitsER3mpzjPKj(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %c, i32 noundef %25, ptr noundef nonnull %m_digits.i)
+  %26 = trunc nuw i64 %indvars.iv.i to i32
+  call void @_ZN11mpz_managerILb1EE10set_digitsER3mpzjPKj(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %c, i32 noundef %26, ptr noundef nonnull %m_digits.i)
   store i32 %20, ptr %c, align 8
   br label %if.end78
 
@@ -2775,17 +2775,16 @@ if.then.i123:                                     ; preds = %for.cond.i105
   br label %if.end78
 
 if.end.i111:                                      ; preds = %land.rhs.i108
-  %44 = trunc nuw i64 %indvars.iv.i106 to i32
-  %45 = load i32, ptr %m_digits.i104, align 4
-  %cmp6.i112 = icmp eq i32 %44, 1
-  %cmp7.i113 = icmp sgt i32 %45, -1
+  %44 = load i32, ptr %m_digits.i104, align 4
+  %cmp6.i112 = icmp eq i64 %indvars.iv.i106, 1
+  %cmp7.i113 = icmp sgt i32 %44, -1
   %or.cond.i114 = select i1 %cmp6.i112, i1 %cmp7.i113, i1 false
   br i1 %or.cond.i114, label %if.then8.i116, label %if.end11.i115
 
 if.then8.i116:                                    ; preds = %if.end.i111
   %cmp9.i117 = icmp sgt i32 %9, 0
-  %sub10.i118 = sub nsw i32 0, %45
-  %cond.i119 = select i1 %cmp9.i117, i32 %sub10.i118, i32 %45
+  %sub10.i118 = sub nsw i32 0, %44
+  %cond.i119 = select i1 %cmp9.i117, i32 %sub10.i118, i32 %44
   store i32 %cond.i119, ptr %c, align 8
   %m_kind.i120 = getelementptr inbounds i8, ptr %c, i64 4
   %bf.load.i121 = load i8, ptr %m_kind.i120, align 4
@@ -2794,7 +2793,8 @@ if.then8.i116:                                    ; preds = %if.end.i111
   br label %if.end78
 
 if.end11.i115:                                    ; preds = %if.end.i111
-  call void @_ZN11mpz_managerILb1EE10set_digitsER3mpzjPKj(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %c, i32 noundef %44, ptr noundef nonnull %m_digits.i104)
+  %45 = trunc nuw i64 %indvars.iv.i106 to i32
+  call void @_ZN11mpz_managerILb1EE10set_digitsER3mpzjPKj(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %c, i32 noundef %45, ptr noundef nonnull %m_digits.i104)
   store i32 %sub, ptr %c, align 8
   br label %if.end78
 
@@ -2888,17 +2888,16 @@ if.then.i185:                                     ; preds = %for.cond.i167
   br label %if.end78
 
 if.end.i173:                                      ; preds = %land.rhs.i170
-  %60 = trunc nuw i64 %indvars.iv.i168 to i32
-  %61 = load i32, ptr %m_digits.i166, align 4
-  %cmp6.i174 = icmp eq i32 %60, 1
-  %cmp7.i175 = icmp sgt i32 %61, -1
+  %60 = load i32, ptr %m_digits.i166, align 4
+  %cmp6.i174 = icmp eq i64 %indvars.iv.i168, 1
+  %cmp7.i175 = icmp sgt i32 %60, -1
   %or.cond.i176 = select i1 %cmp6.i174, i1 %cmp7.i175, i1 false
   br i1 %or.cond.i176, label %if.then8.i178, label %if.end11.i177
 
 if.then8.i178:                                    ; preds = %if.end.i173
   %cmp9.i179 = icmp slt i32 %56, 0
-  %sub10.i180 = sub nsw i32 0, %61
-  %cond.i181 = select i1 %cmp9.i179, i32 %sub10.i180, i32 %61
+  %sub10.i180 = sub nsw i32 0, %60
+  %cond.i181 = select i1 %cmp9.i179, i32 %sub10.i180, i32 %60
   store i32 %cond.i181, ptr %c, align 8
   %m_kind.i182 = getelementptr inbounds i8, ptr %c, i64 4
   %bf.load.i183 = load i8, ptr %m_kind.i182, align 4
@@ -2907,7 +2906,8 @@ if.then8.i178:                                    ; preds = %if.end.i173
   br label %if.end78
 
 if.end11.i177:                                    ; preds = %if.end.i173
-  call void @_ZN11mpz_managerILb1EE10set_digitsER3mpzjPKj(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %c, i32 noundef %60, ptr noundef nonnull %m_digits.i166)
+  %61 = trunc nuw i64 %indvars.iv.i168 to i32
+  call void @_ZN11mpz_managerILb1EE10set_digitsER3mpzjPKj(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %c, i32 noundef %61, ptr noundef nonnull %m_digits.i166)
   store i32 %56, ptr %c, align 8
   br label %if.end78
 
@@ -3129,16 +3129,15 @@ if.then.i:                                        ; preds = %for.cond.i
   br label %_ZN11mpz_managerILb1EE3setER8mpz_cellR3mpzij.exit
 
 if.end.i:                                         ; preds = %land.rhs.i
-  %22 = trunc nuw i64 %indvars.iv.i to i32
-  %23 = load i32, ptr %m_digits.i, align 4
-  %cmp6.i = icmp eq i32 %22, 1
-  %cmp7.i = icmp sgt i32 %23, -1
+  %22 = load i32, ptr %m_digits.i, align 4
+  %cmp6.i = icmp eq i64 %indvars.iv.i, 1
+  %cmp7.i = icmp sgt i32 %22, -1
   %or.cond.i = select i1 %cmp6.i, i1 %cmp7.i, i1 false
   br i1 %or.cond.i, label %_ZN11mpz_managerILb1EE3setER8mpz_cellR3mpzij.exit.thread, label %if.end11.i
 
 _ZN11mpz_managerILb1EE3setER8mpz_cellR3mpzij.exit.thread: ; preds = %if.end.i
-  %sub10.i = sub nsw i32 0, %23
-  %cond.i = select i1 %cmp.not, i32 %23, i32 %sub10.i
+  %sub10.i = sub nsw i32 0, %22
+  %cond.i = select i1 %cmp.not, i32 %22, i32 %sub10.i
   store i32 %cond.i, ptr %c, align 8
   %m_kind.i47 = getelementptr inbounds i8, ptr %c, i64 4
   %bf.load.i48 = load i8, ptr %m_kind.i47, align 4
@@ -3147,7 +3146,8 @@ _ZN11mpz_managerILb1EE3setER8mpz_cellR3mpzij.exit.thread: ; preds = %if.end.i
   br label %if.then.i.i52
 
 if.end11.i:                                       ; preds = %if.end.i
-  call void @_ZN11mpz_managerILb1EE10set_digitsER3mpzjPKj(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %c, i32 noundef %22, ptr noundef nonnull %m_digits.i)
+  %23 = trunc nuw i64 %indvars.iv.i to i32
+  call void @_ZN11mpz_managerILb1EE10set_digitsER3mpzjPKj(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %c, i32 noundef %23, ptr noundef nonnull %m_digits.i)
   store i32 %cond, ptr %c, align 8
   %.pre61 = load ptr, ptr %m_ptr.i.i, align 8
   br label %_ZN11mpz_managerILb1EE3setER8mpz_cellR3mpzij.exit
@@ -3628,16 +3628,15 @@ if.then.i105:                                     ; preds = %for.cond.i
   br label %_ZN11mpz_managerILb1EE3setER8mpz_cellR3mpzij.exit
 
 if.end.i:                                         ; preds = %land.rhs.i
-  %27 = trunc nuw i64 %indvars.iv.i to i32
-  %28 = load i32, ptr %m_digits.i, align 4
-  %cmp6.i = icmp eq i32 %27, 1
-  %cmp7.i = icmp sgt i32 %28, -1
+  %27 = load i32, ptr %m_digits.i, align 4
+  %cmp6.i = icmp eq i64 %indvars.iv.i, 1
+  %cmp7.i = icmp sgt i32 %27, -1
   %or.cond.i = select i1 %cmp6.i, i1 %cmp7.i, i1 false
   br i1 %or.cond.i, label %if.then8.i, label %if.end11.i
 
 if.then8.i:                                       ; preds = %if.end.i
-  %sub10.i = sub nsw i32 0, %28
-  %cond.i = select i1 %cmp27.not, i32 %28, i32 %sub10.i
+  %sub10.i = sub nsw i32 0, %27
+  %cond.i = select i1 %cmp27.not, i32 %27, i32 %sub10.i
   store i32 %cond.i, ptr %q, align 8
   %m_kind.i102 = getelementptr inbounds i8, ptr %q, i64 4
   %bf.load.i103 = load i8, ptr %m_kind.i102, align 4
@@ -3646,7 +3645,8 @@ if.then8.i:                                       ; preds = %if.end.i
   br label %_ZN11mpz_managerILb1EE3setER8mpz_cellR3mpzij.exit
 
 if.end11.i:                                       ; preds = %if.end.i
-  call void @_ZN11mpz_managerILb1EE10set_digitsER3mpzjPKj(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %q, i32 noundef %27, ptr noundef nonnull %m_digits.i)
+  %28 = trunc nuw i64 %indvars.iv.i to i32
+  call void @_ZN11mpz_managerILb1EE10set_digitsER3mpzjPKj(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %q, i32 noundef %28, ptr noundef nonnull %m_digits.i)
   store i32 %cond, ptr %q, align 8
   %.pre159 = load i32, ptr %m_sign.i, align 8
   br label %_ZN11mpz_managerILb1EE3setER8mpz_cellR3mpzij.exit
@@ -3679,17 +3679,16 @@ if.then.i129:                                     ; preds = %for.cond.i111
   br label %_ZN11mpz_managerILb1EE3setER8mpz_cellR3mpzij.exit133
 
 if.end.i117:                                      ; preds = %land.rhs.i114
-  %34 = trunc nuw i64 %indvars.iv.i112 to i32
-  %35 = load i32, ptr %m_digits.i110, align 4
-  %cmp6.i118 = icmp eq i32 %34, 1
-  %cmp7.i119 = icmp sgt i32 %35, -1
+  %34 = load i32, ptr %m_digits.i110, align 4
+  %cmp6.i118 = icmp eq i64 %indvars.iv.i112, 1
+  %cmp7.i119 = icmp sgt i32 %34, -1
   %or.cond.i120 = select i1 %cmp6.i118, i1 %cmp7.i119, i1 false
   br i1 %or.cond.i120, label %if.then8.i122, label %if.end11.i121
 
 if.then8.i122:                                    ; preds = %if.end.i117
   %cmp9.i123 = icmp slt i32 %29, 0
-  %sub10.i124 = sub nsw i32 0, %35
-  %cond.i125 = select i1 %cmp9.i123, i32 %sub10.i124, i32 %35
+  %sub10.i124 = sub nsw i32 0, %34
+  %cond.i125 = select i1 %cmp9.i123, i32 %sub10.i124, i32 %34
   store i32 %cond.i125, ptr %r, align 8
   %m_kind.i126 = getelementptr inbounds i8, ptr %r, i64 4
   %bf.load.i127 = load i8, ptr %m_kind.i126, align 4
@@ -3698,7 +3697,8 @@ if.then8.i122:                                    ; preds = %if.end.i117
   br label %_ZN11mpz_managerILb1EE3setER8mpz_cellR3mpzij.exit133
 
 if.end11.i121:                                    ; preds = %if.end.i117
-  call void @_ZN11mpz_managerILb1EE10set_digitsER3mpzjPKj(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %r, i32 noundef %34, ptr noundef nonnull %m_digits.i110)
+  %35 = trunc nuw i64 %indvars.iv.i112 to i32
+  call void @_ZN11mpz_managerILb1EE10set_digitsER3mpzjPKj(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %r, i32 noundef %35, ptr noundef nonnull %m_digits.i110)
   store i32 %29, ptr %r, align 8
   br label %_ZN11mpz_managerILb1EE3setER8mpz_cellR3mpzij.exit133
 
@@ -4049,16 +4049,15 @@ if.then.i:                                        ; preds = %for.cond.i
   br label %_ZN11mpz_managerILb1EE3setER8mpz_cellR3mpzij.exit
 
 if.end.i:                                         ; preds = %land.rhs.i
-  %27 = trunc nuw i64 %indvars.iv.i to i32
-  %28 = load i32, ptr %m_digits.i, align 4
-  %cmp6.i = icmp eq i32 %27, 1
-  %cmp7.i = icmp sgt i32 %28, -1
+  %27 = load i32, ptr %m_digits.i, align 4
+  %cmp6.i = icmp eq i64 %indvars.iv.i, 1
+  %cmp7.i = icmp sgt i32 %27, -1
   %or.cond.i = select i1 %cmp6.i, i1 %cmp7.i, i1 false
   br i1 %or.cond.i, label %_ZN11mpz_managerILb1EE3setER8mpz_cellR3mpzij.exit.thread, label %if.end11.i
 
 _ZN11mpz_managerILb1EE3setER8mpz_cellR3mpzij.exit.thread: ; preds = %if.end.i
-  %sub10.i = sub nsw i32 0, %28
-  %cond.i = select i1 %cmp27.not, i32 %28, i32 %sub10.i
+  %sub10.i = sub nsw i32 0, %27
+  %cond.i = select i1 %cmp27.not, i32 %27, i32 %sub10.i
   store i32 %cond.i, ptr %q, align 8
   %m_kind.i92 = getelementptr inbounds i8, ptr %q, i64 4
   %bf.load.i93 = load i8, ptr %m_kind.i92, align 4
@@ -4067,7 +4066,8 @@ _ZN11mpz_managerILb1EE3setER8mpz_cellR3mpzij.exit.thread: ; preds = %if.end.i
   br label %if.then.i.i98
 
 if.end11.i:                                       ; preds = %if.end.i
-  call void @_ZN11mpz_managerILb1EE10set_digitsER3mpzjPKj(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %q, i32 noundef %27, ptr noundef nonnull %m_digits.i)
+  %28 = trunc nuw i64 %indvars.iv.i to i32
+  call void @_ZN11mpz_managerILb1EE10set_digitsER3mpzjPKj(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %q, i32 noundef %28, ptr noundef nonnull %m_digits.i)
   store i32 %cond, ptr %q, align 8
   %.pre120 = load ptr, ptr %m_ptr.i.i, align 8
   br label %_ZN11mpz_managerILb1EE3setER8mpz_cellR3mpzij.exit
@@ -4424,17 +4424,16 @@ if.then.i99:                                      ; preds = %for.cond.i
   br label %_ZN11mpz_managerILb1EE3setER8mpz_cellR3mpzij.exit
 
 if.end.i:                                         ; preds = %land.rhs.i
-  %26 = trunc nuw i64 %indvars.iv.i to i32
-  %27 = load i32, ptr %m_digits.i, align 4
-  %cmp6.i = icmp eq i32 %26, 1
-  %cmp7.i = icmp sgt i32 %27, -1
+  %26 = load i32, ptr %m_digits.i, align 4
+  %cmp6.i = icmp eq i64 %indvars.iv.i, 1
+  %cmp7.i = icmp sgt i32 %26, -1
   %or.cond.i = select i1 %cmp6.i, i1 %cmp7.i, i1 false
   br i1 %or.cond.i, label %if.then8.i, label %if.end11.i
 
 if.then8.i:                                       ; preds = %if.end.i
   %cmp9.i = icmp slt i32 %22, 0
-  %sub10.i = sub nsw i32 0, %27
-  %cond.i = select i1 %cmp9.i, i32 %sub10.i, i32 %27
+  %sub10.i = sub nsw i32 0, %26
+  %cond.i = select i1 %cmp9.i, i32 %sub10.i, i32 %26
   store i32 %cond.i, ptr %r, align 8
   %m_kind.i96 = getelementptr inbounds i8, ptr %r, i64 4
   %bf.load.i97 = load i8, ptr %m_kind.i96, align 4
@@ -4443,7 +4442,8 @@ if.then8.i:                                       ; preds = %if.end.i
   br label %_ZN11mpz_managerILb1EE3setER8mpz_cellR3mpzij.exit
 
 if.end11.i:                                       ; preds = %if.end.i
-  call void @_ZN11mpz_managerILb1EE10set_digitsER3mpzjPKj(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %r, i32 noundef %26, ptr noundef nonnull %m_digits.i)
+  %27 = trunc nuw i64 %indvars.iv.i to i32
+  call void @_ZN11mpz_managerILb1EE10set_digitsER3mpzjPKj(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %r, i32 noundef %27, ptr noundef nonnull %m_digits.i)
   store i32 %22, ptr %r, align 8
   br label %_ZN11mpz_managerILb1EE3setER8mpz_cellR3mpzij.exit
 
@@ -12791,7 +12791,7 @@ for.body.i:                                       ; preds = %for.cond.i
 
 for.end.i:                                        ; preds = %for.body.i
   %16 = trunc nuw i64 %indvars.iv.i to i32
-  %cond16.i = icmp eq i32 %16, 1
+  %cond16.i = icmp eq i64 %indvars.iv.i, 1
   br i1 %cond16.i, label %land.lhs.true.i, label %if.end15.i
 
 if.then4.i:                                       ; preds = %for.cond.i
@@ -13060,7 +13060,7 @@ for.body.i:                                       ; preds = %for.cond.i
 
 for.end.i:                                        ; preds = %for.body.i
   %36 = trunc nuw i64 %indvars.iv.i to i32
-  %cond16.i = icmp eq i32 %36, 1
+  %cond16.i = icmp eq i64 %indvars.iv.i, 1
   br i1 %cond16.i, label %land.lhs.true.i, label %if.end15.i
 
 if.then4.i:                                       ; preds = %for.cond.i
@@ -15157,7 +15157,7 @@ for.body:                                         ; preds = %for.cond
 
 for.end:                                          ; preds = %for.body
   %5 = trunc nuw i64 %indvars.iv to i32
-  %cond16 = icmp eq i32 %5, 1
+  %cond16 = icmp eq i64 %indvars.iv, 1
   br i1 %cond16, label %land.lhs.true, label %if.end15
 
 if.then4:                                         ; preds = %for.cond
@@ -15309,17 +15309,16 @@ if.then:                                          ; preds = %for.cond
   br label %return
 
 if.end:                                           ; preds = %land.rhs
-  %3 = trunc nuw i64 %indvars.iv to i32
-  %4 = load i32, ptr %m_digits, align 4
-  %cmp6 = icmp eq i32 %3, 1
-  %cmp7 = icmp sgt i32 %4, -1
+  %3 = load i32, ptr %m_digits, align 4
+  %cmp6 = icmp eq i64 %indvars.iv, 1
+  %cmp7 = icmp sgt i32 %3, -1
   %or.cond = select i1 %cmp6, i1 %cmp7, i1 false
   br i1 %or.cond, label %if.then8, label %if.end11
 
 if.then8:                                         ; preds = %if.end
   %cmp9 = icmp slt i32 %sign, 0
-  %sub10 = sub nsw i32 0, %4
-  %cond = select i1 %cmp9, i32 %sub10, i32 %4
+  %sub10 = sub nsw i32 0, %3
+  %cond = select i1 %cmp9, i32 %sub10, i32 %3
   store i32 %cond, ptr %a, align 8
   %m_kind = getelementptr inbounds i8, ptr %a, i64 4
   %bf.load = load i8, ptr %m_kind, align 4
@@ -15328,7 +15327,8 @@ if.then8:                                         ; preds = %if.end
   br label %return
 
 if.end11:                                         ; preds = %if.end
-  tail call void @_ZN11mpz_managerILb0EE10set_digitsER3mpzjPKj(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %a, i32 noundef %3, ptr noundef nonnull %m_digits)
+  %4 = trunc nuw i64 %indvars.iv to i32
+  tail call void @_ZN11mpz_managerILb0EE10set_digitsER3mpzjPKj(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %a, i32 noundef %4, ptr noundef nonnull %m_digits)
   store i32 %sign, ptr %a, align 8
   br label %return
 
@@ -15356,7 +15356,7 @@ land.rhs:                                         ; preds = %while.cond
 
 while.end:                                        ; preds = %land.rhs
   %3 = trunc nuw i64 %indvars.iv to i32
-  %cond73 = icmp eq i32 %3, 1
+  %cond73 = icmp eq i64 %indvars.iv, 1
   br i1 %cond73, label %if.then5, label %if.else7
 
 if.then:                                          ; preds = %while.cond
@@ -16158,17 +16158,16 @@ if.then.i:                                        ; preds = %for.cond.i
   br label %if.end78
 
 if.end.i:                                         ; preds = %land.rhs.i
-  %25 = trunc nuw i64 %indvars.iv233 to i32
-  %26 = load i32, ptr %m_digits.i, align 4
-  %cmp6.i = icmp eq i32 %25, 1
-  %cmp7.i = icmp sgt i32 %26, -1
+  %25 = load i32, ptr %m_digits.i, align 4
+  %cmp6.i = icmp eq i64 %indvars.iv233, 1
+  %cmp7.i = icmp sgt i32 %25, -1
   %or.cond.i = select i1 %cmp6.i, i1 %cmp7.i, i1 false
   br i1 %or.cond.i, label %if.then8.i, label %if.end11.i
 
 if.then8.i:                                       ; preds = %if.end.i
   %cmp9.i = icmp slt i32 %20, 0
-  %sub10.i = sub nsw i32 0, %26
-  %cond.i = select i1 %cmp9.i, i32 %sub10.i, i32 %26
+  %sub10.i = sub nsw i32 0, %25
+  %cond.i = select i1 %cmp9.i, i32 %sub10.i, i32 %25
   store i32 %cond.i, ptr %c, align 8
   %m_kind.i56 = getelementptr inbounds i8, ptr %c, i64 4
   %bf.load.i57 = load i8, ptr %m_kind.i56, align 4
@@ -16177,7 +16176,8 @@ if.then8.i:                                       ; preds = %if.end.i
   br label %if.end78
 
 if.end11.i:                                       ; preds = %if.end.i
-  call void @_ZN11mpz_managerILb0EE10set_digitsER3mpzjPKj(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %c, i32 noundef %25, ptr noundef nonnull %m_digits.i)
+  %26 = trunc nuw i64 %indvars.iv233 to i32
+  call void @_ZN11mpz_managerILb0EE10set_digitsER3mpzjPKj(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %c, i32 noundef %26, ptr noundef nonnull %m_digits.i)
   store i32 %20, ptr %c, align 8
   br label %if.end78
 
@@ -16299,17 +16299,16 @@ if.then.i131:                                     ; preds = %for.cond.i107
   br label %if.end78
 
 if.end.i118:                                      ; preds = %land.rhs.i110
-  %44 = trunc nuw i64 %indvars.iv229 to i32
-  %45 = load i32, ptr %m_digits.i111, align 4
-  %cmp6.i120 = icmp eq i32 %44, 1
-  %cmp7.i121 = icmp sgt i32 %45, -1
+  %44 = load i32, ptr %m_digits.i111, align 4
+  %cmp6.i120 = icmp eq i64 %indvars.iv229, 1
+  %cmp7.i121 = icmp sgt i32 %44, -1
   %or.cond.i122 = select i1 %cmp6.i120, i1 %cmp7.i121, i1 false
   br i1 %or.cond.i122, label %if.then8.i124, label %if.end11.i123
 
 if.then8.i124:                                    ; preds = %if.end.i118
   %cmp9.i125 = icmp slt i32 %9, 0
-  %sub10.i126 = sub nsw i32 0, %45
-  %cond.i127 = select i1 %cmp9.i125, i32 %sub10.i126, i32 %45
+  %sub10.i126 = sub nsw i32 0, %44
+  %cond.i127 = select i1 %cmp9.i125, i32 %sub10.i126, i32 %44
   store i32 %cond.i127, ptr %c, align 8
   %m_kind.i128 = getelementptr inbounds i8, ptr %c, i64 4
   %bf.load.i129 = load i8, ptr %m_kind.i128, align 4
@@ -16318,7 +16317,8 @@ if.then8.i124:                                    ; preds = %if.end.i118
   br label %if.end78
 
 if.end11.i123:                                    ; preds = %if.end.i118
-  call void @_ZN11mpz_managerILb0EE10set_digitsER3mpzjPKj(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %c, i32 noundef %44, ptr noundef nonnull %m_digits.i111)
+  %45 = trunc nuw i64 %indvars.iv229 to i32
+  call void @_ZN11mpz_managerILb0EE10set_digitsER3mpzjPKj(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %c, i32 noundef %45, ptr noundef nonnull %m_digits.i111)
   store i32 %9, ptr %c, align 8
   br label %if.end78
 
@@ -16415,17 +16415,16 @@ if.then.i203:                                     ; preds = %for.cond.i179
   br label %if.end78
 
 if.end.i190:                                      ; preds = %land.rhs.i182
-  %60 = trunc nuw i64 %indvars.iv to i32
-  %61 = load i32, ptr %m_digits.i183, align 4
-  %cmp6.i192 = icmp eq i32 %60, 1
-  %cmp7.i193 = icmp sgt i32 %61, -1
+  %60 = load i32, ptr %m_digits.i183, align 4
+  %cmp6.i192 = icmp eq i64 %indvars.iv, 1
+  %cmp7.i193 = icmp sgt i32 %60, -1
   %or.cond.i194 = select i1 %cmp6.i192, i1 %cmp7.i193, i1 false
   br i1 %or.cond.i194, label %if.then8.i196, label %if.end11.i195
 
 if.then8.i196:                                    ; preds = %if.end.i190
   %cmp9.i197 = icmp slt i32 %56, 0
-  %sub10.i198 = sub nsw i32 0, %61
-  %cond.i199 = select i1 %cmp9.i197, i32 %sub10.i198, i32 %61
+  %sub10.i198 = sub nsw i32 0, %60
+  %cond.i199 = select i1 %cmp9.i197, i32 %sub10.i198, i32 %60
   store i32 %cond.i199, ptr %c, align 8
   %m_kind.i200 = getelementptr inbounds i8, ptr %c, i64 4
   %bf.load.i201 = load i8, ptr %m_kind.i200, align 4
@@ -16434,7 +16433,8 @@ if.then8.i196:                                    ; preds = %if.end.i190
   br label %if.end78
 
 if.end11.i195:                                    ; preds = %if.end.i190
-  call void @_ZN11mpz_managerILb0EE10set_digitsER3mpzjPKj(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %c, i32 noundef %60, ptr noundef nonnull %m_digits.i183)
+  %61 = trunc nuw i64 %indvars.iv to i32
+  call void @_ZN11mpz_managerILb0EE10set_digitsER3mpzjPKj(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %c, i32 noundef %61, ptr noundef nonnull %m_digits.i183)
   store i32 %56, ptr %c, align 8
   br label %if.end78
 
@@ -16676,17 +16676,16 @@ if.then.i:                                        ; preds = %for.cond.i
   br label %if.end78
 
 if.end.i:                                         ; preds = %land.rhs.i
-  %25 = trunc nuw i64 %indvars.iv.i to i32
-  %26 = load i32, ptr %m_digits.i, align 4
-  %cmp6.i = icmp eq i32 %25, 1
-  %cmp7.i = icmp sgt i32 %26, -1
+  %25 = load i32, ptr %m_digits.i, align 4
+  %cmp6.i = icmp eq i64 %indvars.iv.i, 1
+  %cmp7.i = icmp sgt i32 %25, -1
   %or.cond.i = select i1 %cmp6.i, i1 %cmp7.i, i1 false
   br i1 %or.cond.i, label %if.then8.i, label %if.end11.i
 
 if.then8.i:                                       ; preds = %if.end.i
   %cmp9.i = icmp slt i32 %20, 0
-  %sub10.i = sub nsw i32 0, %26
-  %cond.i = select i1 %cmp9.i, i32 %sub10.i, i32 %26
+  %sub10.i = sub nsw i32 0, %25
+  %cond.i = select i1 %cmp9.i, i32 %sub10.i, i32 %25
   store i32 %cond.i, ptr %c, align 8
   %m_kind.i56 = getelementptr inbounds i8, ptr %c, i64 4
   %bf.load.i57 = load i8, ptr %m_kind.i56, align 4
@@ -16695,7 +16694,8 @@ if.then8.i:                                       ; preds = %if.end.i
   br label %if.end78
 
 if.end11.i:                                       ; preds = %if.end.i
-  call void @_ZN11mpz_managerILb0EE10set_digitsER3mpzjPKj(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %c, i32 noundef %25, ptr noundef nonnull %m_digits.i)
+  %26 = trunc nuw i64 %indvars.iv.i to i32
+  call void @_ZN11mpz_managerILb0EE10set_digitsER3mpzjPKj(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %c, i32 noundef %26, ptr noundef nonnull %m_digits.i)
   store i32 %20, ptr %c, align 8
   br label %if.end78
 
@@ -16817,17 +16817,16 @@ if.then.i126:                                     ; preds = %for.cond.i108
   br label %if.end78
 
 if.end.i114:                                      ; preds = %land.rhs.i111
-  %44 = trunc nuw i64 %indvars.iv.i109 to i32
-  %45 = load i32, ptr %m_digits.i107, align 4
-  %cmp6.i115 = icmp eq i32 %44, 1
-  %cmp7.i116 = icmp sgt i32 %45, -1
+  %44 = load i32, ptr %m_digits.i107, align 4
+  %cmp6.i115 = icmp eq i64 %indvars.iv.i109, 1
+  %cmp7.i116 = icmp sgt i32 %44, -1
   %or.cond.i117 = select i1 %cmp6.i115, i1 %cmp7.i116, i1 false
   br i1 %or.cond.i117, label %if.then8.i119, label %if.end11.i118
 
 if.then8.i119:                                    ; preds = %if.end.i114
   %cmp9.i120 = icmp sgt i32 %9, 0
-  %sub10.i121 = sub nsw i32 0, %45
-  %cond.i122 = select i1 %cmp9.i120, i32 %sub10.i121, i32 %45
+  %sub10.i121 = sub nsw i32 0, %44
+  %cond.i122 = select i1 %cmp9.i120, i32 %sub10.i121, i32 %44
   store i32 %cond.i122, ptr %c, align 8
   %m_kind.i123 = getelementptr inbounds i8, ptr %c, i64 4
   %bf.load.i124 = load i8, ptr %m_kind.i123, align 4
@@ -16836,7 +16835,8 @@ if.then8.i119:                                    ; preds = %if.end.i114
   br label %if.end78
 
 if.end11.i118:                                    ; preds = %if.end.i114
-  call void @_ZN11mpz_managerILb0EE10set_digitsER3mpzjPKj(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %c, i32 noundef %44, ptr noundef nonnull %m_digits.i107)
+  %45 = trunc nuw i64 %indvars.iv.i109 to i32
+  call void @_ZN11mpz_managerILb0EE10set_digitsER3mpzjPKj(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %c, i32 noundef %45, ptr noundef nonnull %m_digits.i107)
   store i32 %sub, ptr %c, align 8
   br label %if.end78
 
@@ -16933,17 +16933,16 @@ if.then.i191:                                     ; preds = %for.cond.i173
   br label %if.end78
 
 if.end.i179:                                      ; preds = %land.rhs.i176
-  %60 = trunc nuw i64 %indvars.iv.i174 to i32
-  %61 = load i32, ptr %m_digits.i172, align 4
-  %cmp6.i180 = icmp eq i32 %60, 1
-  %cmp7.i181 = icmp sgt i32 %61, -1
+  %60 = load i32, ptr %m_digits.i172, align 4
+  %cmp6.i180 = icmp eq i64 %indvars.iv.i174, 1
+  %cmp7.i181 = icmp sgt i32 %60, -1
   %or.cond.i182 = select i1 %cmp6.i180, i1 %cmp7.i181, i1 false
   br i1 %or.cond.i182, label %if.then8.i184, label %if.end11.i183
 
 if.then8.i184:                                    ; preds = %if.end.i179
   %cmp9.i185 = icmp slt i32 %56, 0
-  %sub10.i186 = sub nsw i32 0, %61
-  %cond.i187 = select i1 %cmp9.i185, i32 %sub10.i186, i32 %61
+  %sub10.i186 = sub nsw i32 0, %60
+  %cond.i187 = select i1 %cmp9.i185, i32 %sub10.i186, i32 %60
   store i32 %cond.i187, ptr %c, align 8
   %m_kind.i188 = getelementptr inbounds i8, ptr %c, i64 4
   %bf.load.i189 = load i8, ptr %m_kind.i188, align 4
@@ -16952,7 +16951,8 @@ if.then8.i184:                                    ; preds = %if.end.i179
   br label %if.end78
 
 if.end11.i183:                                    ; preds = %if.end.i179
-  call void @_ZN11mpz_managerILb0EE10set_digitsER3mpzjPKj(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %c, i32 noundef %60, ptr noundef nonnull %m_digits.i172)
+  %61 = trunc nuw i64 %indvars.iv.i174 to i32
+  call void @_ZN11mpz_managerILb0EE10set_digitsER3mpzjPKj(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %c, i32 noundef %61, ptr noundef nonnull %m_digits.i172)
   store i32 %56, ptr %c, align 8
   br label %if.end78
 
@@ -17179,16 +17179,15 @@ if.then.i:                                        ; preds = %for.cond.i
   br label %_ZN11mpz_managerILb0EE3setER8mpz_cellR3mpzij.exit
 
 if.end.i:                                         ; preds = %land.rhs.i
-  %22 = trunc nuw i64 %indvars.iv.i to i32
-  %23 = load i32, ptr %m_digits.i, align 4
-  %cmp6.i = icmp eq i32 %22, 1
-  %cmp7.i = icmp sgt i32 %23, -1
+  %22 = load i32, ptr %m_digits.i, align 4
+  %cmp6.i = icmp eq i64 %indvars.iv.i, 1
+  %cmp7.i = icmp sgt i32 %22, -1
   %or.cond.i = select i1 %cmp6.i, i1 %cmp7.i, i1 false
   br i1 %or.cond.i, label %_ZN11mpz_managerILb0EE3setER8mpz_cellR3mpzij.exit.thread, label %if.end11.i
 
 _ZN11mpz_managerILb0EE3setER8mpz_cellR3mpzij.exit.thread: ; preds = %if.end.i
-  %sub10.i = sub nsw i32 0, %23
-  %cond.i = select i1 %cmp.not, i32 %23, i32 %sub10.i
+  %sub10.i = sub nsw i32 0, %22
+  %cond.i = select i1 %cmp.not, i32 %22, i32 %sub10.i
   store i32 %cond.i, ptr %c, align 8
   %m_kind.i47 = getelementptr inbounds i8, ptr %c, i64 4
   %bf.load.i48 = load i8, ptr %m_kind.i47, align 4
@@ -17197,7 +17196,8 @@ _ZN11mpz_managerILb0EE3setER8mpz_cellR3mpzij.exit.thread: ; preds = %if.end.i
   br label %if.then.i.i52
 
 if.end11.i:                                       ; preds = %if.end.i
-  call void @_ZN11mpz_managerILb0EE10set_digitsER3mpzjPKj(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %c, i32 noundef %22, ptr noundef nonnull %m_digits.i)
+  %23 = trunc nuw i64 %indvars.iv.i to i32
+  call void @_ZN11mpz_managerILb0EE10set_digitsER3mpzjPKj(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %c, i32 noundef %23, ptr noundef nonnull %m_digits.i)
   store i32 %cond, ptr %c, align 8
   %.pre64 = load ptr, ptr %m_ptr.i.i, align 8
   br label %_ZN11mpz_managerILb0EE3setER8mpz_cellR3mpzij.exit
@@ -17697,16 +17697,15 @@ if.then.i108:                                     ; preds = %for.cond.i
   br label %_ZN11mpz_managerILb0EE3setER8mpz_cellR3mpzij.exit
 
 if.end.i:                                         ; preds = %land.rhs.i
-  %27 = trunc nuw i64 %indvars.iv.i to i32
-  %28 = load i32, ptr %m_digits.i, align 4
-  %cmp6.i = icmp eq i32 %27, 1
-  %cmp7.i = icmp sgt i32 %28, -1
+  %27 = load i32, ptr %m_digits.i, align 4
+  %cmp6.i = icmp eq i64 %indvars.iv.i, 1
+  %cmp7.i = icmp sgt i32 %27, -1
   %or.cond.i = select i1 %cmp6.i, i1 %cmp7.i, i1 false
   br i1 %or.cond.i, label %if.then8.i, label %if.end11.i
 
 if.then8.i:                                       ; preds = %if.end.i
-  %sub10.i = sub nsw i32 0, %28
-  %cond.i = select i1 %cmp27.not, i32 %28, i32 %sub10.i
+  %sub10.i = sub nsw i32 0, %27
+  %cond.i = select i1 %cmp27.not, i32 %27, i32 %sub10.i
   store i32 %cond.i, ptr %q, align 8
   %m_kind.i105 = getelementptr inbounds i8, ptr %q, i64 4
   %bf.load.i106 = load i8, ptr %m_kind.i105, align 4
@@ -17715,7 +17714,8 @@ if.then8.i:                                       ; preds = %if.end.i
   br label %_ZN11mpz_managerILb0EE3setER8mpz_cellR3mpzij.exit
 
 if.end11.i:                                       ; preds = %if.end.i
-  call void @_ZN11mpz_managerILb0EE10set_digitsER3mpzjPKj(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %q, i32 noundef %27, ptr noundef nonnull %m_digits.i)
+  %28 = trunc nuw i64 %indvars.iv.i to i32
+  call void @_ZN11mpz_managerILb0EE10set_digitsER3mpzjPKj(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %q, i32 noundef %28, ptr noundef nonnull %m_digits.i)
   store i32 %cond, ptr %q, align 8
   %.pre169 = load i32, ptr %m_sign.i, align 8
   br label %_ZN11mpz_managerILb0EE3setER8mpz_cellR3mpzij.exit
@@ -17748,17 +17748,16 @@ if.then.i132:                                     ; preds = %for.cond.i114
   br label %_ZN11mpz_managerILb0EE3setER8mpz_cellR3mpzij.exit136
 
 if.end.i120:                                      ; preds = %land.rhs.i117
-  %34 = trunc nuw i64 %indvars.iv.i115 to i32
-  %35 = load i32, ptr %m_digits.i113, align 4
-  %cmp6.i121 = icmp eq i32 %34, 1
-  %cmp7.i122 = icmp sgt i32 %35, -1
+  %34 = load i32, ptr %m_digits.i113, align 4
+  %cmp6.i121 = icmp eq i64 %indvars.iv.i115, 1
+  %cmp7.i122 = icmp sgt i32 %34, -1
   %or.cond.i123 = select i1 %cmp6.i121, i1 %cmp7.i122, i1 false
   br i1 %or.cond.i123, label %if.then8.i125, label %if.end11.i124
 
 if.then8.i125:                                    ; preds = %if.end.i120
   %cmp9.i126 = icmp slt i32 %29, 0
-  %sub10.i127 = sub nsw i32 0, %35
-  %cond.i128 = select i1 %cmp9.i126, i32 %sub10.i127, i32 %35
+  %sub10.i127 = sub nsw i32 0, %34
+  %cond.i128 = select i1 %cmp9.i126, i32 %sub10.i127, i32 %34
   store i32 %cond.i128, ptr %r, align 8
   %m_kind.i129 = getelementptr inbounds i8, ptr %r, i64 4
   %bf.load.i130 = load i8, ptr %m_kind.i129, align 4
@@ -17767,7 +17766,8 @@ if.then8.i125:                                    ; preds = %if.end.i120
   br label %_ZN11mpz_managerILb0EE3setER8mpz_cellR3mpzij.exit136
 
 if.end11.i124:                                    ; preds = %if.end.i120
-  call void @_ZN11mpz_managerILb0EE10set_digitsER3mpzjPKj(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %r, i32 noundef %34, ptr noundef nonnull %m_digits.i113)
+  %35 = trunc nuw i64 %indvars.iv.i115 to i32
+  call void @_ZN11mpz_managerILb0EE10set_digitsER3mpzjPKj(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %r, i32 noundef %35, ptr noundef nonnull %m_digits.i113)
   store i32 %29, ptr %r, align 8
   br label %_ZN11mpz_managerILb0EE3setER8mpz_cellR3mpzij.exit136
 
@@ -18136,16 +18136,15 @@ if.then.i:                                        ; preds = %for.cond.i
   br label %_ZN11mpz_managerILb0EE3setER8mpz_cellR3mpzij.exit
 
 if.end.i:                                         ; preds = %land.rhs.i
-  %27 = trunc nuw i64 %indvars.iv.i to i32
-  %28 = load i32, ptr %m_digits.i, align 4
-  %cmp6.i = icmp eq i32 %27, 1
-  %cmp7.i = icmp sgt i32 %28, -1
+  %27 = load i32, ptr %m_digits.i, align 4
+  %cmp6.i = icmp eq i64 %indvars.iv.i, 1
+  %cmp7.i = icmp sgt i32 %27, -1
   %or.cond.i = select i1 %cmp6.i, i1 %cmp7.i, i1 false
   br i1 %or.cond.i, label %_ZN11mpz_managerILb0EE3setER8mpz_cellR3mpzij.exit.thread, label %if.end11.i
 
 _ZN11mpz_managerILb0EE3setER8mpz_cellR3mpzij.exit.thread: ; preds = %if.end.i
-  %sub10.i = sub nsw i32 0, %28
-  %cond.i = select i1 %cmp27.not, i32 %28, i32 %sub10.i
+  %sub10.i = sub nsw i32 0, %27
+  %cond.i = select i1 %cmp27.not, i32 %27, i32 %sub10.i
   store i32 %cond.i, ptr %q, align 8
   %m_kind.i95 = getelementptr inbounds i8, ptr %q, i64 4
   %bf.load.i96 = load i8, ptr %m_kind.i95, align 4
@@ -18154,7 +18153,8 @@ _ZN11mpz_managerILb0EE3setER8mpz_cellR3mpzij.exit.thread: ; preds = %if.end.i
   br label %if.then.i.i101
 
 if.end11.i:                                       ; preds = %if.end.i
-  call void @_ZN11mpz_managerILb0EE10set_digitsER3mpzjPKj(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %q, i32 noundef %27, ptr noundef nonnull %m_digits.i)
+  %28 = trunc nuw i64 %indvars.iv.i to i32
+  call void @_ZN11mpz_managerILb0EE10set_digitsER3mpzjPKj(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %q, i32 noundef %28, ptr noundef nonnull %m_digits.i)
   store i32 %cond, ptr %q, align 8
   %.pre130 = load ptr, ptr %m_ptr.i.i, align 8
   br label %_ZN11mpz_managerILb0EE3setER8mpz_cellR3mpzij.exit
@@ -18529,17 +18529,16 @@ if.then.i102:                                     ; preds = %for.cond.i
   br label %_ZN11mpz_managerILb0EE3setER8mpz_cellR3mpzij.exit
 
 if.end.i:                                         ; preds = %land.rhs.i
-  %26 = trunc nuw i64 %indvars.iv.i to i32
-  %27 = load i32, ptr %m_digits.i, align 4
-  %cmp6.i = icmp eq i32 %26, 1
-  %cmp7.i = icmp sgt i32 %27, -1
+  %26 = load i32, ptr %m_digits.i, align 4
+  %cmp6.i = icmp eq i64 %indvars.iv.i, 1
+  %cmp7.i = icmp sgt i32 %26, -1
   %or.cond.i = select i1 %cmp6.i, i1 %cmp7.i, i1 false
   br i1 %or.cond.i, label %if.then8.i, label %if.end11.i
 
 if.then8.i:                                       ; preds = %if.end.i
   %cmp9.i = icmp slt i32 %22, 0
-  %sub10.i = sub nsw i32 0, %27
-  %cond.i = select i1 %cmp9.i, i32 %sub10.i, i32 %27
+  %sub10.i = sub nsw i32 0, %26
+  %cond.i = select i1 %cmp9.i, i32 %sub10.i, i32 %26
   store i32 %cond.i, ptr %r, align 8
   %m_kind.i99 = getelementptr inbounds i8, ptr %r, i64 4
   %bf.load.i100 = load i8, ptr %m_kind.i99, align 4
@@ -18548,7 +18547,8 @@ if.then8.i:                                       ; preds = %if.end.i
   br label %_ZN11mpz_managerILb0EE3setER8mpz_cellR3mpzij.exit
 
 if.end11.i:                                       ; preds = %if.end.i
-  call void @_ZN11mpz_managerILb0EE10set_digitsER3mpzjPKj(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %r, i32 noundef %26, ptr noundef nonnull %m_digits.i)
+  %27 = trunc nuw i64 %indvars.iv.i to i32
+  call void @_ZN11mpz_managerILb0EE10set_digitsER3mpzjPKj(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %r, i32 noundef %27, ptr noundef nonnull %m_digits.i)
   store i32 %22, ptr %r, align 8
   br label %_ZN11mpz_managerILb0EE3setER8mpz_cellR3mpzij.exit
 
@@ -27033,7 +27033,7 @@ for.body.i:                                       ; preds = %for.cond.i
 
 for.end.i:                                        ; preds = %for.body.i
   %16 = trunc nuw i64 %indvars.iv.i to i32
-  %cond16.i = icmp eq i32 %16, 1
+  %cond16.i = icmp eq i64 %indvars.iv.i, 1
   br i1 %cond16.i, label %land.lhs.true.i, label %if.end15.i
 
 if.then4.i:                                       ; preds = %for.cond.i
@@ -27302,7 +27302,7 @@ for.body.i:                                       ; preds = %for.cond.i
 
 for.end.i:                                        ; preds = %for.body.i
   %36 = trunc nuw i64 %indvars.iv.i to i32
-  %cond16.i = icmp eq i32 %36, 1
+  %cond16.i = icmp eq i64 %indvars.iv.i, 1
   br i1 %cond16.i, label %land.lhs.true.i, label %if.end15.i
 
 if.then4.i:                                       ; preds = %for.cond.i

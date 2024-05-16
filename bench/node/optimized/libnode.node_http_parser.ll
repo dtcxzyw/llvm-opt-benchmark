@@ -2335,8 +2335,8 @@ if.end5.i:                                        ; preds = %if.end.i1064
   %63 = inttoptr i64 %sub.i.i1075 to ptr
   %64 = load i64, ptr %63, align 8
   %shr.i = lshr i64 %64, 32
-  %conv.i1077 = trunc nuw i64 %shr.i to i32
-  switch i32 %conv.i1077, label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit388 [
+  %trunc = trunc nuw i64 %shr.i to i32
+  switch i32 %trunc, label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit388 [
     i32 5, label %if.end.i311
     i32 3, label %if.end.i311
   ]

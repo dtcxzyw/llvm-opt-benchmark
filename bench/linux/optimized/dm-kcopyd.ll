@@ -444,7 +444,7 @@ define dso_local ptr @dm_kcopyd_client_create(ptr noundef %0) #2 align 16 {
   %36 = trunc nuw nsw i64 %35 to i32
   %37 = getelementptr inbounds i8, ptr %3, i64 12
   %38 = getelementptr inbounds i8, ptr %3, i64 8
-  %39 = icmp eq i32 %36, 0
+  %39 = icmp eq i32 %32, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   br i1 %39, label %.loopexit14, label %.preheader12
 

@@ -1870,8 +1870,8 @@ define noundef i32 @Bmc_CollapseExpandRound2(ptr noundef %0, ptr nocapture nound
   %6 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 0, ptr %6, align 4
   %7 = getelementptr i8, ptr %1, i64 4
-  %.val3947 = load i32, ptr %7, align 4
-  %8 = icmp sgt i32 %.val3947, 0
+  %.val3946 = load i32, ptr %7, align 4
+  %8 = icmp sgt i32 %.val3946, 0
   br i1 %8, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %5
@@ -1880,7 +1880,7 @@ define noundef i32 @Bmc_CollapseExpandRound2(ptr noundef %0, ptr nocapture nound
   br label %10
 
 10:                                               ; preds = %.lr.ph, %42
-  %.val3957 = phi i32 [ %.val3947, %.lr.ph ], [ %.val39, %42 ]
+  %.val3955 = phi i32 [ %.val3946, %.lr.ph ], [ %.val39, %42 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
   %.val41 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i32, ptr %.val41, i64 %indvars.iv
@@ -1955,7 +1955,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br label %42
 
 42:                                               ; preds = %10, %Vec_IntPush.exit
-  %.val39 = phi i32 [ %.val3957, %10 ], [ %.val39.pre, %Vec_IntPush.exit ]
+  %.val39 = phi i32 [ %.val3955, %10 ], [ %.val39.pre, %Vec_IntPush.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %43 = sext i32 %.val39 to i64
   %44 = icmp slt i64 %indvars.iv.next, %43
@@ -1984,23 +1984,23 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br label %52
 
 52:                                               ; preds = %.critedge36, %46
-  %.val3749 = load i32, ptr %7, align 4
-  %53 = icmp sgt i32 %.val3749, 0
-  br i1 %53, label %.lr.ph51, label %.critedge2
+  %.val3748 = load i32, ptr %7, align 4
+  %53 = icmp sgt i32 %.val3748, 0
+  br i1 %53, label %.lr.ph50, label %.critedge2
 
-.lr.ph51:                                         ; preds = %52
+.lr.ph50:                                         ; preds = %52
   %54 = getelementptr i8, ptr %1, i64 8
   %55 = getelementptr inbounds i8, ptr %2, i64 8
   br label %56
 
-56:                                               ; preds = %.lr.ph51, %70
-  %.val3759 = phi i32 [ %.val3749, %.lr.ph51 ], [ %.val37, %70 ]
-  %indvars.iv54 = phi i64 [ 0, %.lr.ph51 ], [ %indvars.iv.next55, %70 ]
+56:                                               ; preds = %.lr.ph50, %Vec_IntFind.exit
+  %.val3757 = phi i32 [ %.val3748, %.lr.ph50 ], [ %.val37, %Vec_IntFind.exit ]
+  %indvars.iv52 = phi i64 [ 0, %.lr.ph50 ], [ %indvars.iv.next53, %Vec_IntFind.exit ]
   %.val40 = load ptr, ptr %54, align 8
-  %57 = getelementptr inbounds i32, ptr %.val40, i64 %indvars.iv54
+  %57 = getelementptr inbounds i32, ptr %.val40, i64 %indvars.iv52
   %58 = load i32, ptr %57, align 4
   %.not = icmp eq i32 %58, -1
-  br i1 %.not, label %70, label %59
+  br i1 %.not, label %Vec_IntFind.exit, label %59
 
 59:                                               ; preds = %56
   %60 = load i32, ptr %6, align 4
@@ -2024,24 +2024,19 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %Vec_IntFind.exit.thread, label %63, !llvm.loop !39
 
-Vec_IntFind.exit:                                 ; preds = %63
-  %68 = and i64 %indvars.iv.i, 4294967295
-  %69 = icmp eq i64 %68, 4294967295
-  br i1 %69, label %Vec_IntFind.exit.thread, label %70
-
-Vec_IntFind.exit.thread:                          ; preds = %67, %59, %Vec_IntFind.exit
+Vec_IntFind.exit.thread:                          ; preds = %67, %59
   store i32 -1, ptr %57, align 4
   %.val37.pre = load i32, ptr %7, align 4
-  br label %70
+  br label %Vec_IntFind.exit
 
-70:                                               ; preds = %56, %Vec_IntFind.exit, %Vec_IntFind.exit.thread
-  %.val37 = phi i32 [ %.val3759, %56 ], [ %.val3759, %Vec_IntFind.exit ], [ %.val37.pre, %Vec_IntFind.exit.thread ]
-  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
-  %71 = sext i32 %.val37 to i64
-  %72 = icmp slt i64 %indvars.iv.next55, %71
-  br i1 %72, label %56, label %.critedge2, !llvm.loop !40
+Vec_IntFind.exit:                                 ; preds = %63, %56, %Vec_IntFind.exit.thread
+  %.val37 = phi i32 [ %.val3757, %56 ], [ %.val37.pre, %Vec_IntFind.exit.thread ], [ %.val3757, %63 ]
+  %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
+  %68 = sext i32 %.val37 to i64
+  %69 = icmp slt i64 %indvars.iv.next53, %68
+  br i1 %69, label %56, label %.critedge2, !llvm.loop !40
 
-.critedge2:                                       ; preds = %70, %52
+.critedge2:                                       ; preds = %Vec_IntFind.exit, %52
   ret i32 0
 }
 

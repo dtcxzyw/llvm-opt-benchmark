@@ -103,19 +103,17 @@ define dso_local zeroext i1 @qid_lt(i64 %0, i64 %1) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @from_kqid(ptr nocapture readnone %0, i64 %1) #0 align 16 {
-  %3 = lshr i64 %1, 32
-  %4 = trunc nuw i64 %3 to i32
-  %5 = icmp ult i32 %4, 3
-  br i1 %5, label %7, label %6
+  %3 = icmp ult i64 %1, 12884901888
+  br i1 %3, label %5, label %4
 
-6:                                                ; preds = %2
+4:                                                ; preds = %2
   tail call void asm sideeffect "291: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 291b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 291) #1, !srcloc !9
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 78, i32 0, i64 12) #1, !srcloc !10
   unreachable
 
-7:                                                ; preds = %2
-  %8 = trunc i64 %1 to i32
-  ret i32 %8
+5:                                                ; preds = %2
+  %6 = trunc i64 %1 to i32
+  ret i32 %6
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -158,20 +156,18 @@ define dso_local i32 @from_kqid_munged(ptr nocapture readnone %0, i64 %1) #0 ali
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local zeroext i1 @qid_valid(i64 %0) #0 align 16 {
-  %2 = lshr i64 %0, 32
-  %3 = trunc nuw i64 %2 to i32
-  %4 = icmp ult i32 %3, 3
-  br i1 %4, label %6, label %5
+  %2 = icmp ult i64 %0, 12884901888
+  br i1 %2, label %4, label %3
 
-5:                                                ; preds = %1
+3:                                                ; preds = %1
   tail call void asm sideeffect "295: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 295b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 295) #1, !srcloc !13
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 130, i32 0, i64 12) #1, !srcloc !14
   unreachable
 
-6:                                                ; preds = %1
-  %7 = and i64 %0, 4294967295
-  %8 = icmp ne i64 %7, 4294967295
-  ret i1 %8
+4:                                                ; preds = %1
+  %5 = and i64 %0, 4294967295
+  %6 = icmp ne i64 %5, 4294967295
+  ret i1 %6
 }
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }

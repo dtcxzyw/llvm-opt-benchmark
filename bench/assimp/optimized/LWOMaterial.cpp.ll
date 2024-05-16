@@ -4939,7 +4939,7 @@ sw.bb:                                            ; preds = %if.end58
           to label %sw.epilog unwind label %lpad7.loopexit
 
 sw.bb69:                                          ; preds = %if.end58
-  %cmp71 = icmp ult i32 %head.sroa.4.0, 2
+  %cmp71 = icmp ult i64 %head.sroa.4.0.in.in, 8589934592
   br i1 %cmp71, label %if.then72, label %if.end76
 
 if.then72:                                        ; preds = %sw.bb69
@@ -4963,7 +4963,7 @@ if.end76:                                         ; preds = %sw.bb69
   br label %sw.epilog
 
 sw.bb81:                                          ; preds = %if.end58
-  %cmp83 = icmp ult i32 %head.sroa.4.0, 4
+  %cmp83 = icmp ult i64 %head.sroa.4.0.in.in, 17179869184
   br i1 %cmp83, label %if.then84, label %if.end88
 
 if.then84:                                        ; preds = %sw.bb81

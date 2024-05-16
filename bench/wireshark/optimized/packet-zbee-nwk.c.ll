@@ -720,31 +720,31 @@ define internal i32 @dissect_zbee_nwk(ptr noundef %0, ptr noundef %1, ptr nounde
   %42 = load i32, ptr @ett_zbee_nwk, align 4
   %43 = tail call ptr @proto_item_add_subtree(ptr noundef %41, i32 noundef %42) #8
   %44 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 0) #8
-  %45 = and i16 %44, 3
-  %46 = getelementptr inbounds i8, ptr %8, i64 24
-  store i16 %45, ptr %46, align 8
+  %45 = zext i16 %44 to i32
+  %46 = and i16 %44, 3
+  %47 = getelementptr inbounds i8, ptr %8, i64 24
+  store i16 %46, ptr %47, align 8
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %33
-  %.012.i.i = phi i32 [ %48, %.lr.ph.i.i ], [ 60, %33 ]
-  %.0711.i.i = phi i16 [ %47, %.lr.ph.i.i ], [ %44, %33 ]
-  %47 = lshr i16 %.0711.i.i, 1
-  %48 = lshr exact i32 %.012.i.i, 1
-  %49 = and i32 %.012.i.i, 2
-  %.not.i.i = icmp eq i32 %49, 0
+  %.012.i.i = phi i32 [ %49, %.lr.ph.i.i ], [ 60, %33 ]
+  %.0711.i.i = phi i32 [ %48, %.lr.ph.i.i ], [ %45, %33 ]
+  %48 = lshr i32 %.0711.i.i, 1
+  %49 = lshr exact i32 %.012.i.i, 1
+  %50 = and i32 %.012.i.i, 2
+  %.not.i.i = icmp eq i32 %50, 0
   br i1 %.not.i.i, label %.lr.ph.i.i, label %zbee_get_bit_field.exit.i, !llvm.loop !4
 
 zbee_get_bit_field.exit.i:                        ; preds = %.lr.ph.i.i
-  %50 = zext i16 %44 to i32
-  %51 = trunc i16 %47 to i8
-  %52 = and i8 %51, 15
+  %51 = and i32 %48, 15
+  %52 = trunc nuw nsw i32 %51 to i8
   %53 = getelementptr inbounds i8, ptr %8, i64 26
   store i8 %52, ptr %53, align 2
   br label %.lr.ph.i263.i
 
 .lr.ph.i263.i:                                    ; preds = %.lr.ph.i263.i, %zbee_get_bit_field.exit.i
   %.012.i264.i = phi i32 [ %55, %.lr.ph.i263.i ], [ 192, %zbee_get_bit_field.exit.i ]
-  %.0711.i265.i = phi i32 [ %54, %.lr.ph.i263.i ], [ %50, %zbee_get_bit_field.exit.i ]
+  %.0711.i265.i = phi i32 [ %54, %.lr.ph.i263.i ], [ %45, %zbee_get_bit_field.exit.i ]
   %54 = lshr i32 %.0711.i265.i, 1
   %55 = lshr exact i32 %.012.i264.i, 1
   %56 = and i32 %.012.i264.i, 2
@@ -759,7 +759,7 @@ zbee_get_bit_field.exit267.i:                     ; preds = %.lr.ph.i263.i
 
 .lr.ph.i268.i:                                    ; preds = %.lr.ph.i268.i, %zbee_get_bit_field.exit267.i
   %.012.i269.i = phi i32 [ %60, %.lr.ph.i268.i ], [ 512, %zbee_get_bit_field.exit267.i ]
-  %.0711.i270.i = phi i32 [ %59, %.lr.ph.i268.i ], [ %50, %zbee_get_bit_field.exit267.i ]
+  %.0711.i270.i = phi i32 [ %59, %.lr.ph.i268.i ], [ %45, %zbee_get_bit_field.exit267.i ]
   %59 = lshr i32 %.0711.i270.i, 1
   %60 = lshr exact i32 %.012.i269.i, 1
   %61 = and i32 %.012.i269.i, 2
@@ -773,7 +773,7 @@ zbee_get_bit_field.exit272.i:                     ; preds = %.lr.ph.i268.i
 
 .lr.ph.i273.i:                                    ; preds = %.lr.ph.i273.i, %zbee_get_bit_field.exit272.i
   %.012.i274.i = phi i32 [ %64, %.lr.ph.i273.i ], [ 256, %zbee_get_bit_field.exit272.i ]
-  %.0711.i275.i = phi i32 [ %63, %.lr.ph.i273.i ], [ %50, %zbee_get_bit_field.exit272.i ]
+  %.0711.i275.i = phi i32 [ %63, %.lr.ph.i273.i ], [ %45, %zbee_get_bit_field.exit272.i ]
   %63 = lshr i32 %.0711.i275.i, 1
   %64 = lshr exact i32 %.012.i274.i, 1
   %65 = and i32 %.012.i274.i, 2
@@ -787,7 +787,7 @@ zbee_get_bit_field.exit277.i:                     ; preds = %.lr.ph.i273.i
 
 .lr.ph.i278.i:                                    ; preds = %.lr.ph.i278.i, %zbee_get_bit_field.exit277.i
   %.012.i279.i = phi i32 [ %68, %.lr.ph.i278.i ], [ 1024, %zbee_get_bit_field.exit277.i ]
-  %.0711.i280.i = phi i32 [ %67, %.lr.ph.i278.i ], [ %50, %zbee_get_bit_field.exit277.i ]
+  %.0711.i280.i = phi i32 [ %67, %.lr.ph.i278.i ], [ %45, %zbee_get_bit_field.exit277.i ]
   %67 = lshr i32 %.0711.i280.i, 1
   %68 = lshr exact i32 %.012.i279.i, 1
   %69 = and i32 %.012.i279.i, 2
@@ -802,7 +802,7 @@ zbee_get_bit_field.exit282.i:                     ; preds = %.lr.ph.i278.i
 
 .lr.ph.i283.i:                                    ; preds = %.lr.ph.i283.i, %zbee_get_bit_field.exit282.i
   %.012.i284.i = phi i32 [ %73, %.lr.ph.i283.i ], [ 2048, %zbee_get_bit_field.exit282.i ]
-  %.0711.i285.i = phi i32 [ %72, %.lr.ph.i283.i ], [ %50, %zbee_get_bit_field.exit282.i ]
+  %.0711.i285.i = phi i32 [ %72, %.lr.ph.i283.i ], [ %45, %zbee_get_bit_field.exit282.i ]
   %72 = lshr i32 %.0711.i285.i, 1
   %73 = lshr exact i32 %.012.i284.i, 1
   %74 = and i32 %.012.i284.i, 2
@@ -817,7 +817,7 @@ zbee_get_bit_field.exit287.i:                     ; preds = %.lr.ph.i283.i
 
 .lr.ph.i288.i:                                    ; preds = %.lr.ph.i288.i, %zbee_get_bit_field.exit287.i
   %.012.i289.i = phi i32 [ %78, %.lr.ph.i288.i ], [ 4096, %zbee_get_bit_field.exit287.i ]
-  %.0711.i290.i = phi i32 [ %77, %.lr.ph.i288.i ], [ %50, %zbee_get_bit_field.exit287.i ]
+  %.0711.i290.i = phi i32 [ %77, %.lr.ph.i288.i ], [ %45, %zbee_get_bit_field.exit287.i ]
   %77 = lshr i32 %.0711.i290.i, 1
   %78 = lshr exact i32 %.012.i289.i, 1
   %79 = and i32 %.012.i289.i, 2
@@ -828,13 +828,13 @@ zbee_get_bit_field.exit292.i:                     ; preds = %.lr.ph.i288.i
   %80 = and i32 %77, 1
   %81 = getelementptr inbounds i8, ptr %8, i64 20
   store i32 %80, ptr %81, align 4
-  %82 = icmp ugt i8 %52, 1
+  %82 = icmp ugt i32 %51, 1
   %83 = load i32, ptr @hf_zbee_nwk_fcf, align 4
   %84 = load i32, ptr @ett_zbee_nwk_fcf, align 4
   %dissect_zbee_nwk_full.fcf_flags_2007.dissect_zbee_nwk_full.fcf_flags.i = select i1 %82, ptr @dissect_zbee_nwk_full.fcf_flags_2007, ptr @dissect_zbee_nwk_full.fcf_flags
   %85 = tail call ptr @proto_tree_add_bitmask(ptr noundef %43, ptr noundef %0, i32 noundef 0, i32 noundef %83, i32 noundef %84, ptr noundef nonnull %dissect_zbee_nwk_full.fcf_flags_2007.dissect_zbee_nwk_full.fcf_flags.i, i32 noundef -2147483648) #8
   store ptr %85, ptr %7, align 8
-  %86 = zext nneg i16 %45 to i32
+  %86 = zext nneg i16 %46 to i32
   %87 = tail call ptr @val_to_str_const(i32 noundef %86, ptr noundef nonnull @zbee_nwk_frame_types, ptr noundef nonnull @.str.322) #8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %85, ptr noundef nonnull @.str.321, ptr noundef %87) #8
   %88 = tail call ptr @val_to_str_const(i32 noundef %86, ptr noundef nonnull @zbee_nwk_frame_types, ptr noundef nonnull @.str.323) #8
@@ -842,7 +842,7 @@ zbee_get_bit_field.exit292.i:                     ; preds = %.lr.ph.i288.i
   %89 = load ptr, ptr %37, align 8
   %90 = tail call ptr @val_to_str_const(i32 noundef %86, ptr noundef nonnull @zbee_nwk_frame_types, ptr noundef nonnull @.str.324) #8
   tail call void @col_set_str(ptr noundef %89, i32 noundef 25, ptr noundef %90) #8
-  %.not250.i = icmp eq i16 %45, 3
+  %.not250.i = icmp eq i16 %46, 3
   br i1 %.not250.i, label %.loopexit.i, label %91
 
 91:                                               ; preds = %zbee_get_bit_field.exit292.i
@@ -1378,7 +1378,7 @@ zbee_get_bit_field.exit335.i:                     ; preds = %.lr.ph.i331.i
 
 361:                                              ; preds = %359, %356
   %.0237.i = phi ptr [ %357, %356 ], [ %360, %359 ]
-  switch i16 %45, label %622 [
+  switch i16 %46, label %622 [
     i16 1, label %362
     i16 3, label %619
     i16 0, label %619

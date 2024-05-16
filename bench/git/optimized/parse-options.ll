@@ -2500,7 +2500,7 @@ st_mult.exit.i:                                   ; preds = %for.end.i
   %call11.i = tail call ptr @xcalloc(i64 noundef %conv10.i, i64 noundef 8) #17
   %alias_groups.i = getelementptr inbounds i8, ptr %ctx, i64 56
   store ptr %call11.i, ptr %alias_groups.i, align 8
-  %cmp1366.not.i = icmp eq i32 %indvars55.le, 0
+  %cmp1366.not.i = icmp eq i64 %indvars.iv.i, 0
   br i1 %cmp1366.not.i, label %preprocess_options.exit, label %for.body15.preheader.i
 
 for.body15.preheader.i:                           ; preds = %st_mult.exit.i

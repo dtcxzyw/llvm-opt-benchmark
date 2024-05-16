@@ -778,7 +778,6 @@ entry:
 
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %point_indices.i)
-  %m_point_count.i = getelementptr inbounds i8, ptr %contacts1, i64 4
   %cmp13.i = icmp sgt i32 %call, 0
   br i1 %cmp13.i, label %for.body.lr.ph.i, label %_ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit.thread
 
@@ -800,19 +799,17 @@ for.body.lr.ph.i:                                 ; preds = %if.end
 for.body.i.outer:                                 ; preds = %for.inc.i.thread, %for.body.lr.ph.i
   %inc.sink.i86.ph = phi i32 [ 1, %for.inc.i.thread ], [ 0, %for.body.lr.ph.i ]
   %add.i83.ph = phi float [ %add.i, %for.inc.i.thread ], [ -1.000000e+03, %for.body.lr.ph.i ]
-  %indvars.iv.i.ph = phi i64 [ %indvars.iv.next.i99, %for.inc.i.thread ], [ 0, %for.body.lr.ph.i ]
+  %indvars.iv.i.ph = phi i64 [ %indvars.iv.next.i96, %for.inc.i.thread ], [ 0, %for.body.lr.ph.i ]
   br label %for.body.i
 
 for.cond20.preheader.i:                           ; preds = %for.inc.i
-  store float %add.i83.ph, ptr %contacts1, align 4
-  store i32 %.pr, ptr %m_point_count.i, align 4
   %cmp2215.i = icmp sgt i32 %16, 0
   br i1 %cmp2215.i, label %for.body23.lr.ph.i, label %_ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit
 
-for.body23.lr.ph.i:                               ; preds = %for.cond20.preheader.i.thread, %for.cond20.preheader.i
-  %.pr101105 = phi i32 [ 1, %for.cond20.preheader.i.thread ], [ %.pr, %for.cond20.preheader.i ]
-  %7 = phi float [ %add.i, %for.cond20.preheader.i.thread ], [ %add.i83.ph, %for.cond20.preheader.i ]
-  %8 = phi i32 [ 1, %for.cond20.preheader.i.thread ], [ %16, %for.cond20.preheader.i ]
+for.body23.lr.ph.i:                               ; preds = %for.inc.i.thread, %for.cond20.preheader.i
+  %.pr98102 = phi i32 [ %.pr, %for.cond20.preheader.i ], [ 1, %for.inc.i.thread ]
+  %7 = phi float [ %add.i83.ph, %for.cond20.preheader.i ], [ %add.i, %for.inc.i.thread ]
+  %8 = phi i32 [ %16, %for.cond20.preheader.i ], [ 1, %for.inc.i.thread ]
   %m_points.i = getelementptr inbounds i8, ptr %contacts1, i64 24
   %wide.trip.count21.i = zext nneg i32 %8 to i64
   br label %for.body23.i
@@ -862,14 +859,9 @@ for.inc.i:                                        ; preds = %if.then12.i, %if.el
 for.inc.i.thread:                                 ; preds = %if.then.i
   %17 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %17, ptr %point_indices.i, align 16
-  %indvars.iv.next.i99 = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i100 = icmp eq i64 %indvars.iv.next.i99, %wide.trip.count.i
-  br i1 %exitcond.not.i100, label %for.cond20.preheader.i.thread, label %for.body.i.outer, !llvm.loop !5
-
-for.cond20.preheader.i.thread:                    ; preds = %for.inc.i.thread
-  store float %add.i, ptr %contacts1, align 4
-  store i32 1, ptr %m_point_count.i, align 4
-  br label %for.body23.lr.ph.i
+  %indvars.iv.next.i96 = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i97 = icmp eq i64 %indvars.iv.next.i96, %wide.trip.count.i
+  br i1 %exitcond.not.i97, label %for.body23.lr.ph.i, label %for.body.i.outer, !llvm.loop !5
 
 for.body23.i:                                     ; preds = %for.body23.i, %for.body23.lr.ph.i
   %indvars.iv18.i = phi i64 [ 0, %for.body23.lr.ph.i ], [ %indvars.iv.next19.i, %for.body23.i ]
@@ -884,10 +876,10 @@ for.body23.i:                                     ; preds = %for.body23.i, %for.
   br i1 %exitcond22.not.i, label %_ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit, label %for.body23.i, !llvm.loop !7
 
 _ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit: ; preds = %for.body23.i, %for.cond20.preheader.i
-  %.pr101104 = phi i32 [ %.pr, %for.cond20.preheader.i ], [ %.pr101105, %for.body23.i ]
+  %.pr98101 = phi i32 [ %.pr, %for.cond20.preheader.i ], [ %.pr98102, %for.body23.i ]
   %19 = phi float [ %add.i83.ph, %for.cond20.preheader.i ], [ %7, %for.body23.i ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %point_indices.i)
-  %cmp5 = icmp eq i32 %.pr101104, 0
+  %cmp5 = icmp eq i32 %.pr98101, 0
   br i1 %cmp5, label %return, label %if.end7
 
 if.end7:                                          ; preds = %_ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit
@@ -904,7 +896,6 @@ if.end7:                                          ; preds = %_ZN20GIM_TRIANGLE_C
 
 if.end16:                                         ; preds = %if.end7
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %point_indices.i9)
-  %m_point_count.i10 = getelementptr inbounds i8, ptr %contacts2, i64 4
   %cmp13.i11 = icmp sgt i32 %call13, 0
   br i1 %cmp13.i11, label %for.body.lr.ph.i12, label %_ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit55.thread
 
@@ -926,19 +917,17 @@ for.body.lr.ph.i12:                               ; preds = %if.end16
 for.body.i17.outer:                               ; preds = %for.inc.i38.thread, %for.body.lr.ph.i12
   %inc.sink.i3691.ph = phi i32 [ 1, %for.inc.i38.thread ], [ 0, %for.body.lr.ph.i12 ]
   %add.i2488.ph = phi float [ %add.i24, %for.inc.i38.thread ], [ -1.000000e+03, %for.body.lr.ph.i12 ]
-  %indvars.iv.i18.ph = phi i64 [ %indvars.iv.next.i39107, %for.inc.i38.thread ], [ 0, %for.body.lr.ph.i12 ]
+  %indvars.iv.i18.ph = phi i64 [ %indvars.iv.next.i39104, %for.inc.i38.thread ], [ 0, %for.body.lr.ph.i12 ]
   br label %for.body.i17
 
 for.cond20.preheader.i41:                         ; preds = %for.inc.i38
-  store float %add.i2488.ph, ptr %contacts2, align 4
-  store i32 %.pr79, ptr %m_point_count.i10, align 4
   %cmp2215.i42 = icmp sgt i32 %34, 0
   br i1 %cmp2215.i42, label %for.body23.lr.ph.i43, label %_ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit55
 
-for.body23.lr.ph.i43:                             ; preds = %for.cond20.preheader.i41.thread, %for.cond20.preheader.i41
-  %.pr79109113 = phi i32 [ 1, %for.cond20.preheader.i41.thread ], [ %.pr79, %for.cond20.preheader.i41 ]
-  %25 = phi float [ %add.i24, %for.cond20.preheader.i41.thread ], [ %add.i2488.ph, %for.cond20.preheader.i41 ]
-  %26 = phi i32 [ 1, %for.cond20.preheader.i41.thread ], [ %34, %for.cond20.preheader.i41 ]
+for.body23.lr.ph.i43:                             ; preds = %for.inc.i38.thread, %for.cond20.preheader.i41
+  %.pr79106110 = phi i32 [ %.pr79, %for.cond20.preheader.i41 ], [ 1, %for.inc.i38.thread ]
+  %25 = phi float [ %add.i2488.ph, %for.cond20.preheader.i41 ], [ %add.i24, %for.inc.i38.thread ]
+  %26 = phi i32 [ %34, %for.cond20.preheader.i41 ], [ 1, %for.inc.i38.thread ]
   %m_points.i44 = getelementptr inbounds i8, ptr %contacts2, i64 24
   %wide.trip.count21.i45 = zext nneg i32 %26 to i64
   br label %for.body23.i46
@@ -988,14 +977,9 @@ for.inc.i38:                                      ; preds = %if.then12.i31, %if.
 for.inc.i38.thread:                               ; preds = %if.then.i26
   %35 = trunc nuw nsw i64 %indvars.iv.i18 to i32
   store i32 %35, ptr %point_indices.i9, align 16
-  %indvars.iv.next.i39107 = add nuw nsw i64 %indvars.iv.i18, 1
-  %exitcond.not.i40108 = icmp eq i64 %indvars.iv.next.i39107, %wide.trip.count.i16
-  br i1 %exitcond.not.i40108, label %for.cond20.preheader.i41.thread, label %for.body.i17.outer, !llvm.loop !5
-
-for.cond20.preheader.i41.thread:                  ; preds = %for.inc.i38.thread
-  store float %add.i24, ptr %contacts2, align 4
-  store i32 1, ptr %m_point_count.i10, align 4
-  br label %for.body23.lr.ph.i43
+  %indvars.iv.next.i39104 = add nuw nsw i64 %indvars.iv.i18, 1
+  %exitcond.not.i40105 = icmp eq i64 %indvars.iv.next.i39104, %wide.trip.count.i16
+  br i1 %exitcond.not.i40105, label %for.body23.lr.ph.i43, label %for.body.i17.outer, !llvm.loop !5
 
 for.body23.i46:                                   ; preds = %for.body23.i46, %for.body23.lr.ph.i43
   %indvars.iv18.i47 = phi i64 [ 0, %for.body23.lr.ph.i43 ], [ %indvars.iv.next19.i52, %for.body23.i46 ]
@@ -1010,51 +994,37 @@ for.body23.i46:                                   ; preds = %for.body23.i46, %fo
   br i1 %exitcond22.not.i53, label %_ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit55, label %for.body23.i46, !llvm.loop !7
 
 _ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit55: ; preds = %for.body23.i46, %for.cond20.preheader.i41
-  %.pr79109112 = phi i32 [ %.pr79, %for.cond20.preheader.i41 ], [ %.pr79109113, %for.body23.i46 ]
+  %.pr79106109 = phi i32 [ %.pr79, %for.cond20.preheader.i41 ], [ %.pr79106110, %for.body23.i46 ]
   %37 = phi float [ %add.i2488.ph, %for.cond20.preheader.i41 ], [ %25, %for.body23.i46 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %point_indices.i9)
-  %cmp20 = icmp eq i32 %.pr79109112, 0
+  %cmp20 = icmp eq i32 %.pr79106109, 0
   br i1 %cmp20, label %return, label %if.end22
 
 if.end22:                                         ; preds = %_ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit55
   %cmp24 = fcmp olt float %37, %19
   %m_separating_normal3.i = getelementptr inbounds i8, ptr %contacts, i64 8
   %m_point_count4.i = getelementptr inbounds i8, ptr %contacts, i64 4
+  %m_points6.i = getelementptr inbounds i8, ptr %contacts, i64 24
   br i1 %cmp24, label %while.body.lr.ph.i, label %while.body.lr.ph.i66
 
 while.body.lr.ph.i:                               ; preds = %if.end22
   store float %37, ptr %contacts, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_separating_normal3.i, ptr noundef nonnull align 4 dereferenceable(16) %m_separating_normal11, i64 16, i1 false)
-  store i32 %.pr79109112, ptr %m_point_count4.i, align 4
-  %38 = sext i32 %.pr79109112 to i64
-  %39 = shl nsw i64 %38, 4
-  %40 = or disjoint i64 %39, 8
-  %41 = add i32 %.pr79109112, -1
-  %42 = zext i32 %41 to i64
-  %43 = shl nuw nsw i64 %42, 4
-  %44 = sub nsw i64 %40, %43
-  %scevgep96 = getelementptr i8, ptr %contacts, i64 %44
-  %scevgep97 = getelementptr i8, ptr %contacts2, i64 %44
-  %45 = zext i32 %.pr79109112 to i64
-  %46 = shl nuw nsw i64 %45, 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep96, ptr align 4 %scevgep97, i64 %46, i1 false)
+  store i32 %.pr79106109, ptr %m_point_count4.i, align 4
+  %m_points.i57 = getelementptr inbounds i8, ptr %contacts2, i64 24
+  %38 = sext i32 %.pr79106109 to i64
+  %39 = shl nuw nsw i64 %38, 4
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %m_points6.i, ptr nonnull align 4 %m_points.i57, i64 %39, i1 false)
   br label %return
 
 while.body.lr.ph.i66:                             ; preds = %if.end22
   store float %19, ptr %contacts, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_separating_normal3.i, ptr noundef nonnull align 4 dereferenceable(16) %m_separating_normal, i64 16, i1 false)
-  store i32 %.pr101104, ptr %m_point_count4.i, align 4
-  %47 = sext i32 %.pr101104 to i64
-  %48 = shl nsw i64 %47, 4
-  %49 = or disjoint i64 %48, 8
-  %50 = add i32 %.pr101104, -1
-  %51 = zext i32 %50 to i64
-  %52 = shl nuw nsw i64 %51, 4
-  %53 = sub nsw i64 %49, %52
-  %scevgep = getelementptr i8, ptr %contacts, i64 %53
-  %scevgep95 = getelementptr i8, ptr %contacts1, i64 %53
-  %54 = add nuw nsw i64 %52, 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep, ptr noundef nonnull align 4 dereferenceable(1) %scevgep95, i64 %54, i1 false)
+  store i32 %.pr98101, ptr %m_point_count4.i, align 4
+  %m_points.i67 = getelementptr inbounds i8, ptr %contacts1, i64 24
+  %40 = sext i32 %.pr98101 to i64
+  %41 = shl nuw nsw i64 %40, 4
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %m_points6.i, ptr nonnull align 4 %m_points.i67, i64 %41, i1 false)
   br label %return
 
 return:                                           ; preds = %while.body.lr.ph.i66, %while.body.lr.ph.i, %_ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit55.thread, %_ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit.thread, %_ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit55, %if.end7, %_ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit, %entry

@@ -85,7 +85,7 @@ while.end.i:                                      ; preds = %while.end.loopexit.
   %reader.sroa.21.1.lcssa.i = phi i8 [ %reader.sroa.21.0.i, %_ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit.i ], [ %reader.sroa.21.40.extract.trunc41.i, %while.end.loopexit.i ]
   %reader.sroa.4.0.lcssa.i = phi ptr [ %add.ptr.i.i, %_ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit.i ], [ %scevgep.i, %while.end.loopexit.i ]
   %h.0.lcssa.i = phi i64 [ %xor.i, %_ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit.i ], [ %mul6.i, %while.end.loopexit.i ]
-  %tobool8.not.i = icmp eq i32 %conv15.i.i, 0
+  %tobool8.not.i = icmp eq i64 %add.i10.i.i, 0
   br i1 %tobool8.not.i, label %_ZN5arrow8internal12_GLOBAL__N_118MurmurHashBitmap64EPKhmmm.exit, label %do.body.preheader.i
 
 do.body.preheader.i:                              ; preds = %while.end.i

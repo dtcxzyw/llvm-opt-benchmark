@@ -377,27 +377,22 @@ for.body.i:                                       ; preds = %for.inc.i, %entry
   %arrayidx.i = getelementptr inbounds [21 x i32], ptr @int_tests, i64 0, i64 %indvars.iv.i
   %1 = load i32, ptr %arrayidx.i, align 4
   %cmp1.i = icmp eq i32 %1, %0
-  br i1 %cmp1.i, label %int_find.exit, label %for.inc.i
+  br i1 %cmp1.i, label %if.else, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 21
   br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !14
 
-int_find.exit:                                    ; preds = %for.body.i
-  %2 = and i64 %indvars.iv.i, 2147483648
-  %cmp.not = icmp eq i64 %2, 0
-  br i1 %cmp.not, label %if.else, label %if.end
-
-if.else:                                          ; preds = %int_find.exit
-  %idxprom = and i64 %indvars.iv.i, 2147483647
+if.else:                                          ; preds = %for.body.i
+  %idxprom = and i64 %indvars.iv.i, 4294967295
   %arrayidx = getelementptr inbounds [21 x i16], ptr @int_found, i64 0, i64 %idxprom
   br label %if.end
 
-if.end:                                           ; preds = %for.inc.i, %int_find.exit, %if.else
-  %arrayidx.sink7 = phi ptr [ %arrayidx, %if.else ], [ @int_not_found, %int_find.exit ], [ @int_not_found, %for.inc.i ]
-  %3 = load i16, ptr %arrayidx.sink7, align 2
-  %inc1 = add i16 %3, 1
+if.end:                                           ; preds = %for.inc.i, %if.else
+  %arrayidx.sink7 = phi ptr [ %arrayidx, %if.else ], [ @int_not_found, %for.inc.i ]
+  %2 = load i16, ptr %arrayidx.sink7, align 2
+  %inc1 = add i16 %2, 1
   store i16 %inc1, ptr %arrayidx.sink7, align 2
   ret void
 }
@@ -413,27 +408,22 @@ for.body.i:                                       ; preds = %for.inc.i, %entry
   %arrayidx.i = getelementptr inbounds [21 x i32], ptr @int_tests, i64 0, i64 %indvars.iv.i
   %1 = load i32, ptr %arrayidx.i, align 4
   %cmp1.i = icmp eq i32 %1, %0
-  br i1 %cmp1.i, label %int_find.exit, label %for.inc.i
+  br i1 %cmp1.i, label %if.else, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 21
   br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !14
 
-int_find.exit:                                    ; preds = %for.body.i
-  %2 = and i64 %indvars.iv.i, 2147483648
-  %cmp.not = icmp eq i64 %2, 0
-  br i1 %cmp.not, label %if.else, label %if.end
-
-if.else:                                          ; preds = %int_find.exit
-  %idxprom = and i64 %indvars.iv.i, 2147483647
+if.else:                                          ; preds = %for.body.i
+  %idxprom = and i64 %indvars.iv.i, 4294967295
   %arrayidx = getelementptr inbounds i16, ptr %f, i64 %idxprom
   br label %if.end
 
-if.end:                                           ; preds = %for.inc.i, %int_find.exit, %if.else
-  %arrayidx.sink7 = phi ptr [ %arrayidx, %if.else ], [ @int_not_found, %int_find.exit ], [ @int_not_found, %for.inc.i ]
-  %3 = load i16, ptr %arrayidx.sink7, align 2
-  %inc1 = add i16 %3, 1
+if.end:                                           ; preds = %for.inc.i, %if.else
+  %arrayidx.sink7 = phi ptr [ %arrayidx, %if.else ], [ @int_not_found, %for.inc.i ]
+  %2 = load i16, ptr %arrayidx.sink7, align 2
+  %inc1 = add i16 %2, 1
   store i16 %inc1, ptr %arrayidx.sink7, align 2
   ret void
 }

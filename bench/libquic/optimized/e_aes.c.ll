@@ -1809,8 +1809,7 @@ for.body32:                                       ; preds = %for.cond29.preheade
 
 for.cond29.for.inc65_crit_edge:                   ; preds = %for.body32
   %indvars.iv.next32 = add nsw i64 %indvars.iv31, -1
-  %17 = trunc nsw i64 %indvars.iv.next32 to i32
-  %cmp27 = icmp ult i32 %17, 6
+  %cmp27 = icmp ult i64 %indvars.iv.next32, 6
   br i1 %cmp27, label %for.cond29.preheader, label %for.end67, !llvm.loop !13
 
 for.end67:                                        ; preds = %for.cond29.for.inc65_crit_edge

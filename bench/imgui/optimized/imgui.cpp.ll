@@ -29704,7 +29704,7 @@ for.inc:                                          ; preds = %_ZN8ImVectorItE9pus
 
 for.end:                                          ; preds = %lor.lhs.false13, %lor.lhs.false11, %lor.lhs.false, %land.lhs.true, %lor.lhs.false24, %land.lhs.true22, %land.lhs.true32, %land.lhs.true70, %lor.lhs.false115, %lor.lhs.false113, %lor.lhs.false111, %land.lhs.true109, %if.then44
   %50 = trunc nuw nsw i64 %indvars.iv to i32
-  %cmp142183.not = icmp eq i32 %50, 0
+  %cmp142183.not = icmp eq i64 %indvars.iv, 0
   br i1 %cmp142183.not, label %for.end148.if.end170_crit_edge, label %for.body143.lr.ph
 
 for.body143.lr.ph:                                ; preds = %for.inc, %for.end

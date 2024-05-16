@@ -276,30 +276,29 @@ for.inc43:                                        ; preds = %if.end.i.i, %if.end
 
 err_start:                                        ; preds = %cryptodev_get_vhost.exit54, %vhost_set_vring_enable.exit, %fail_start.i
   %r.0 = phi i32 [ %call6.i, %fail_start.i ], [ %call.i55, %cryptodev_get_vhost.exit54 ], [ %call6.i61, %vhost_set_vring_enable.exit ]
-  %14 = and i64 %indvars.iv93, 4294967295
-  %cmp4684.not = icmp eq i64 %14, 0
+  %cmp4684.not = icmp eq i64 %indvars.iv93, 0
   br i1 %cmp4684.not, label %while.end, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %err_start
   %dec83 = add nuw i64 %indvars.iv93, 4294967295
-  %15 = and i64 %dec83, 4294967295
+  %14 = and i64 %dec83, 4294967295
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %cryptodev_get_vhost.exit68
-  %indvars.iv98 = phi i64 [ %15, %while.body.preheader ], [ %indvars.iv.next99, %cryptodev_get_vhost.exit68 ]
+  %indvars.iv98 = phi i64 [ %14, %while.body.preheader ], [ %indvars.iv.next99, %cryptodev_get_vhost.exit68 ]
   %arrayidx52 = getelementptr [64 x ptr], ptr %conf21, i64 0, i64 %indvars.iv98
-  %16 = load ptr, ptr %arrayidx52, align 8
+  %15 = load ptr, ptr %arrayidx52, align 8
   %conv53 = trunc i64 %indvars.iv98 to i16
-  %tobool.not.i62 = icmp eq ptr %16, null
+  %tobool.not.i62 = icmp eq ptr %15, null
   br i1 %tobool.not.i62, label %cryptodev_get_vhost.exit68, label %if.end.i63
 
 if.end.i63:                                       ; preds = %while.body
-  %17 = load i32, ptr %16, align 8
-  %cond.i64 = icmp eq i32 %17, 1
+  %16 = load i32, ptr %15, align 8
+  %cond.i64 = icmp eq i32 %16, 1
   br i1 %cond.i64, label %sw.bb.i66, label %cryptodev_get_vhost.exit68
 
 sw.bb.i66:                                        ; preds = %if.end.i63
-  %call.i67 = tail call ptr @cryptodev_vhost_user_get_vhost(ptr noundef nonnull %16, ptr noundef nonnull %0, i16 noundef zeroext %conv53) #6
+  %call.i67 = tail call ptr @cryptodev_vhost_user_get_vhost(ptr noundef nonnull %15, ptr noundef nonnull %0, i16 noundef zeroext %conv53) #6
   br label %cryptodev_get_vhost.exit68
 
 cryptodev_get_vhost.exit68:                       ; preds = %while.body, %if.end.i63, %sw.bb.i66
@@ -311,9 +310,9 @@ cryptodev_get_vhost.exit68:                       ; preds = %while.body, %if.end
   br i1 %cmp46, label %while.body, label %while.end, !llvm.loop !9
 
 while.end:                                        ; preds = %cryptodev_get_vhost.exit68, %err_start
-  %18 = load ptr, ptr %set_guest_notifiers, align 8
-  %19 = load ptr, ptr %parent, align 8
-  %call57 = tail call i32 %18(ptr noundef %19, i32 noundef %total_queues, i1 noundef zeroext false) #6
+  %17 = load ptr, ptr %set_guest_notifiers, align 8
+  %18 = load ptr, ptr %parent, align 8
+  %call57 = tail call i32 %17(ptr noundef %18, i32 noundef %total_queues, i1 noundef zeroext false) #6
   %cmp58 = icmp slt i32 %call57, 0
   br i1 %cmp58, label %if.then60, label %return
 

@@ -120976,8 +120976,6 @@ define void @"_ZN14deltalake_core6kernel11expressions7scalars71_$LT$impl$u20$del
   br label %125
 
 156:                                              ; preds = %117
-  %.sroa.6.0.extract.shift.i = lshr i64 %118, 32
-  %.sroa.6.0.extract.trunc.i = trunc nuw i64 %.sroa.6.0.extract.shift.i to i32
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %22)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26639)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26642)
@@ -120998,10 +120996,12 @@ define void @"_ZN14deltalake_core6kernel11expressions7scalars71_$LT$impl$u20$del
   %.sroa.4.0..sroa_idx.i378 = getelementptr inbounds i8, ptr %22, i64 33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(3) %.sroa.4.0..sroa_idx.i378, ptr noundef nonnull readonly align 1 dereferenceable(3) %1, i64 3, i1 false), !alias.scope !26647, !noalias !26648
   store i64 33, ptr %22, align 8, !alias.scope !26639, !noalias !26646
-  %.not = icmp eq i32 %.sroa.6.0.extract.trunc.i, 0
+  %.not = icmp ult i64 %118, 4294967296
   br i1 %.not, label %174, label %163
 
 163:                                              ; preds = %156
+  %.sroa.6.0.extract.shift.i = lshr i64 %118, 32
+  %.sroa.6.0.extract.trunc.i = trunc nuw i64 %.sroa.6.0.extract.shift.i to i32
   call fastcc void @"_ZN4core3ptr57drop_in_place$LT$deltalake_core..kernel..error..Error$GT$17he099e7a03c202f52E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %22)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %22)
   %164 = call noundef align 4 dereferenceable(12) ptr @"_ZN186_$LT$deltalake_core..kernel..expressions..scalars..$LT$impl$u20$deltalake_core..kernel..models..schema..PrimitiveType$GT$..parse_scalar..UNIX_EPOCH$u20$as$u20$core..ops..deref..Deref$GT$5deref17h880efe2d37294e93E"(ptr noalias noundef nonnull readonly align 1 @"_ZN14deltalake_core6kernel11expressions7scalars71_$LT$impl$u20$deltalake_core..kernel..models..schema..PrimitiveType$GT$12parse_scalar10UNIX_EPOCH17hd7cdaf2b1ca4cdffE")

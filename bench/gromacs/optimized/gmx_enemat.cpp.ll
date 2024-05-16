@@ -308,7 +308,7 @@ define noundef range(i32 0, 2) i32 @_Z10gmx_enematiPPc(i32 noundef %0, ptr nound
           to label %85 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 85:                                               ; preds = %2
-  br i1 %84, label %.preheader612.preheader, label %741
+  br i1 %84, label %.preheader612.preheader, label %740
 
 .preheader612.preheader:                          ; preds = %85
   %86 = load i8, ptr @_ZZ10gmx_enematiPPcE7bCoulSR, align 1
@@ -330,12 +330,12 @@ define noundef range(i32 0, 2) i32 @_Z10gmx_enematiPPc(i32 noundef %0, ptr nound
   %99 = invoke noundef zeroext i1 @_Z8opt2bSetPKciPK8t_filenm(ptr noundef nonnull @.str.60, i32 noundef 5, ptr noundef nonnull %16)
           to label %100 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.loopexit:                                        ; preds = %621
+.loopexit:                                        ; preds = %620
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit:                      ; preds = %616, %539, %536
+.loopexit.split-lp.loopexit:                      ; preds = %615, %538, %535
   %lpad.loopexit576 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -370,7 +370,7 @@ define noundef range(i32 0, 2) i32 @_Z10gmx_enematiPPc(i32 noundef %0, ptr nound
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %619, %_ZL13gmx_snew_implIdEvPKcS1_iRPT_m.exit438, %_ZL13gmx_snew_implIdEvPKcS1_iRPT_m.exit437._crit_edge, %.loopexit584, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit436, %402, %263, %.split.us, %.thread560, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit, %180, %129, %740, %._crit_edge702, %656, %652, %_ZNSt10filesystem7__cxx114pathD2Ev.exit454, %637, %635, %400, %396, %127, %123, %121, %119, %112, %_ZNSt10filesystem7__cxx114pathD2Ev.exit, %102, %100, %.preheader612.preheader, %2
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %618, %_ZL13gmx_snew_implIdEvPKcS1_iRPT_m.exit438, %_ZL13gmx_snew_implIdEvPKcS1_iRPT_m.exit437._crit_edge, %.loopexit584, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit436, %402, %263, %.split.us, %.thread560, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit, %180, %129, %739, %._crit_edge702, %655, %651, %_ZNSt10filesystem7__cxx114pathD2Ev.exit454, %636, %634, %400, %396, %127, %123, %121, %119, %112, %_ZNSt10filesystem7__cxx114pathD2Ev.exit, %102, %100, %.preheader612.preheader, %2
   %lpad.loopexit.split-lp608 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -466,7 +466,7 @@ _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit.preheader: ; preds = %129
 
 _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit._crit_edge.thread: ; preds = %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit.preheader
   %138 = load ptr, ptr @stderr, align 8
-  %fputc902 = call i32 @fputc(i32 10, ptr %138)
+  %fputc901 = call i32 @fputc(i32 10, ptr %138)
   br label %177
 
 .preheader611.preheader:                          ; preds = %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit.preheader
@@ -567,7 +567,7 @@ _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit._crit_edge: ; preds = %_ZL13gmx_snew_imp
 177:                                              ; preds = %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit._crit_edge.thread, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit._crit_edge
   %178 = load ptr, ptr @stderr, align 8
   %179 = call i64 @fwrite(ptr nonnull @.str.75, i64 207, i64 1, ptr %178) #16
-  br label %741
+  br label %740
 
 180:                                              ; preds = %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit._crit_edge
   %181 = add i32 %.4356, 1
@@ -593,7 +593,7 @@ _ZL13gmx_snew_implI10t_enxframeEvPKcS2_iRPT_m.exit.preheader: ; preds = %_ZL13gm
 
 _ZL13gmx_snew_implI10t_enxframeEvPKcS2_iRPT_m.exit: ; preds = %242, %_ZL13gmx_snew_implI10t_enxframeEvPKcS2_iRPT_m.exit.preheader
   %indvars.iv742 = phi i64 [ 0, %_ZL13gmx_snew_implI10t_enxframeEvPKcS2_iRPT_m.exit.preheader ], [ %indvars.iv.next743, %242 ]
-  %.0 = phi ptr [ null, %_ZL13gmx_snew_implI10t_enxframeEvPKcS2_iRPT_m.exit.preheader ], [ %.1904, %242 ]
+  %.0 = phi ptr [ null, %_ZL13gmx_snew_implI10t_enxframeEvPKcS2_iRPT_m.exit.preheader ], [ %.1903, %242 ]
   %indvars746 = trunc i64 %indvars.iv742 to i32
   br label %191
 
@@ -692,7 +692,7 @@ _ZL15gmx_srenew_implIfEvPKcS1_iRPT_m.exit:        ; preds = %.lr.ph637
   br i1 %exitcond741.not, label %._crit_edge642, label %.lr.ph641, !llvm.loop !12
 
 ._crit_edge642:                                   ; preds = %.lr.ph641, %.loopexit600.thread, %.loopexit600
-  %.1904 = phi ptr [ %.1, %.loopexit600 ], [ %212, %.loopexit600.thread ], [ %.1, %.lr.ph641 ]
+  %.1903 = phi ptr [ %.1, %.loopexit600 ], [ %212, %.loopexit600.thread ], [ %.1, %.lr.ph641 ]
   %.0351.lcssa = phi float [ 0.000000e+00, %.loopexit600 ], [ 0.000000e+00, %.loopexit600.thread ], [ %236, %.lr.ph641 ]
   %237 = load i8, ptr @_ZZ10gmx_enematiPPcE4bSum, align 1
   %238 = trunc i8 %237 to i1
@@ -789,7 +789,7 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit435:       ; preds = %_ZL13gmx_snew_implI
 _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit435._crit_edge: ; preds = %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit435, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit435.preheader
   %261 = load i8, ptr @_ZZ10gmx_enematiPPcE9bMeanEmtx, align 1
   %262 = trunc i8 %261 to i1
-  br i1 %262, label %263, label %737
+  br i1 %262, label %263, label %736
 
 263:                                              ; preds = %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit435._crit_edge
   %264 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.67, i32 noundef 372, i64 noundef %250, i64 noundef 8)
@@ -799,8 +799,8 @@ _ZL13gmx_snew_implIPdEvPKcS2_iRPT_m.exit.preheader: ; preds = %263
   br i1 %137, label %.lr.ph651, label %._crit_edge666
 
 .lr.ph651:                                        ; preds = %_ZL13gmx_snew_implIPdEvPKcS2_iRPT_m.exit.preheader
-  %sext899 = shl i64 %indvars.iv742, 32
-  %265 = ashr exact i64 %sext899, 32
+  %sext898 = shl i64 %indvars.iv742, 32
+  %265 = ashr exact i64 %sext898, 32
   %wide.trip.count768 = zext nneg i32 %128 to i64
   br label %345
 
@@ -1200,7 +1200,7 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit439.preheader: ; preds = %_ZL13gmx_snew_i
   %457 = fadd double %454, %456
   %458 = getelementptr inbounds double, ptr %436, i64 %indvars.iv834
   store double %457, ptr %458, align 8
-  br i1 %99, label %459, label %492
+  br i1 %99, label %459, label %491
 
 459:                                              ; preds = %._crit_edge676
   %460 = load ptr, ptr %9, align 8
@@ -1253,45 +1253,40 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit439.preheader: ; preds = %_ZL13gmx_snew_i
   br i1 %exitcond34.not.i, label %_ZL11search_str2iPPcS_.exit.thread.loopexit, label %.lr.ph25.i, !llvm.loop !26
 
 _ZL11search_str2iPPcS_.exit:                      ; preds = %.noexc
-  %475 = and i64 %indvars.iv30.i, 4294967295
-  %.not425 = icmp eq i64 %475, 4294967295
-  %.pre898 = load double, ptr %458, align 8
-  br i1 %.not425, label %_ZL11search_str2iPPcS_.exit.thread, label %476
-
-476:                                              ; preds = %_ZL11search_str2iPPcS_.exit
+  %475 = load double, ptr %458, align 8
   %sext = shl i64 %indvars.iv30.i, 32
-  %477 = ashr exact i64 %sext, 32
-  %478 = getelementptr inbounds float, ptr %.0550, i64 %477
-  %479 = load float, ptr %478, align 4
-  %480 = fpext float %479 to double
-  %481 = fsub double %.pre898, %480
-  %482 = fptrunc double %481 to float
-  %483 = getelementptr inbounds float, ptr %437, i64 %indvars.iv834
-  store float %482, ptr %483, align 4
+  %476 = ashr exact i64 %sext, 32
+  %477 = getelementptr inbounds float, ptr %.0550, i64 %476
+  %478 = load float, ptr %477, align 4
+  %479 = fpext float %478 to double
+  %480 = fsub double %475, %479
+  %481 = fptrunc double %480 to float
+  %482 = getelementptr inbounds float, ptr %437, i64 %indvars.iv834
+  store float %481, ptr %482, align 4
   br label %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit439
 
 _ZL11search_str2iPPcS_.exit.thread.loopexit:      ; preds = %474
   %.pre897 = load double, ptr %458, align 8
   br label %_ZL11search_str2iPPcS_.exit.thread
 
-_ZL11search_str2iPPcS_.exit.thread:               ; preds = %_ZL11search_str2iPPcS_.exit.thread.loopexit, %.critedge.i, %_ZL11search_str2iPPcS_.exit
-  %484 = phi double [ %.pre897, %_ZL11search_str2iPPcS_.exit.thread.loopexit ], [ %457, %.critedge.i ], [ %.pre898, %_ZL11search_str2iPPcS_.exit ]
-  %485 = fptrunc double %484 to float
-  %486 = getelementptr inbounds float, ptr %437, i64 %indvars.iv834
-  store float %485, ptr %486, align 4
-  %487 = load ptr, ptr @stderr, align 8
-  %488 = load ptr, ptr %9, align 8
-  %489 = getelementptr inbounds ptr, ptr %488, i64 %indvars.iv834
-  %490 = load ptr, ptr %489, align 8
-  %491 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %487, ptr noundef nonnull @.str.96, ptr noundef %490) #17
+_ZL11search_str2iPPcS_.exit.thread:               ; preds = %_ZL11search_str2iPPcS_.exit.thread.loopexit, %.critedge.i
+  %483 = phi double [ %.pre897, %_ZL11search_str2iPPcS_.exit.thread.loopexit ], [ %457, %.critedge.i ]
+  %484 = fptrunc double %483 to float
+  %485 = getelementptr inbounds float, ptr %437, i64 %indvars.iv834
+  store float %484, ptr %485, align 4
+  %486 = load ptr, ptr @stderr, align 8
+  %487 = load ptr, ptr %9, align 8
+  %488 = getelementptr inbounds ptr, ptr %487, i64 %indvars.iv834
+  %489 = load ptr, ptr %488, align 8
+  %490 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %486, ptr noundef nonnull @.str.96, ptr noundef %489) #17
   br label %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit439
 
-492:                                              ; preds = %._crit_edge676
-  %493 = getelementptr inbounds float, ptr %437, i64 %indvars.iv834
-  store float 0.000000e+00, ptr %493, align 4
+491:                                              ; preds = %._crit_edge676
+  %492 = getelementptr inbounds float, ptr %437, i64 %indvars.iv834
+  store float 0.000000e+00, ptr %492, align 4
   br label %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit439
 
-_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit439:       ; preds = %492, %_ZL11search_str2iPPcS_.exit.thread, %476
+_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit439:       ; preds = %491, %_ZL11search_str2iPPcS_.exit.thread, %_ZL11search_str2iPPcS_.exit
   %indvars.iv.next835 = add nuw nsw i64 %indvars.iv834, 1
   %exitcond839.not = icmp eq i64 %indvars.iv.next835, %wide.trip.count838
   br i1 %exitcond839.not, label %.loopexit582, label %.preheader581, !llvm.loop !27
@@ -1300,7 +1295,7 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit439:       ; preds = %492, %_ZL11search_s
   %.0552 = phi ptr [ null, %._crit_edge666 ], [ %436, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit439.preheader ], [ %436, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit439 ]
   %.0549 = phi ptr [ null, %._crit_edge666 ], [ %437, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit439.preheader ], [ %437, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit439 ]
   store ptr @.str.97, ptr getelementptr inbounds ([6 x ptr], ptr @_ZL7egrp_nm, i64 0, i64 5), align 8
-  %494 = getelementptr inbounds i8, ptr %20, i64 32
+  %493 = getelementptr inbounds i8, ptr %20, i64 32
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %29, i64 16
   %.sroa.5521.0..sroa_idx = getelementptr inbounds i8, ptr %30, i64 16
   %.sroa.4526.0..sroa_idx = getelementptr inbounds i8, ptr %39, i64 8
@@ -1309,448 +1304,448 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit439:       ; preds = %492, %_ZL11search_s
   %.sroa.6.0..sroa_idx515 = getelementptr inbounds i8, ptr %50, i64 16
   %.sroa.5521.0..sroa_idx522 = getelementptr inbounds i8, ptr %51, i64 16
   %wide.trip.count850 = zext nneg i32 %128 to i64
-  br label %495
+  br label %494
 
-495:                                              ; preds = %.loopexit582, %618
-  %indvars.iv852 = phi i64 [ 0, %.loopexit582 ], [ %indvars.iv.next853, %618 ]
-  %496 = getelementptr inbounds [6 x i8], ptr %6, i64 0, i64 %indvars.iv852
-  %497 = load i8, ptr %496, align 1
-  %498 = trunc i8 %497 to i1
-  br i1 %498, label %.preheader575, label %618
+494:                                              ; preds = %.loopexit582, %617
+  %indvars.iv852 = phi i64 [ 0, %.loopexit582 ], [ %indvars.iv.next853, %617 ]
+  %495 = getelementptr inbounds [6 x i8], ptr %6, i64 0, i64 %indvars.iv852
+  %496 = load i8, ptr %495, align 1
+  %497 = trunc i8 %496 to i1
+  br i1 %497, label %.preheader575, label %617
 
-.preheader575:                                    ; preds = %495
+.preheader575:                                    ; preds = %494
   br i1 %137, label %.preheader574.lr.ph, label %._crit_edge685.thread
 
 .preheader574.lr.ph:                              ; preds = %.preheader575
-  %499 = getelementptr inbounds ptr, ptr %246, i64 %indvars.iv852
-  %500 = load ptr, ptr %499, align 8
+  %498 = getelementptr inbounds ptr, ptr %246, i64 %indvars.iv852
+  %499 = load ptr, ptr %498, align 8
   br label %.preheader574
 
-.preheader574:                                    ; preds = %.preheader574.lr.ph, %511
-  %indvars.iv840 = phi i64 [ 0, %.preheader574.lr.ph ], [ %indvars.iv.next841, %511 ]
-  %.0335684 = phi float [ 1.000000e+10, %.preheader574.lr.ph ], [ %.2337, %511 ]
-  %.0342683 = phi float [ -1.000000e+10, %.preheader574.lr.ph ], [ %.2344, %511 ]
-  %501 = getelementptr inbounds ptr, ptr %500, i64 %indvars.iv840
-  %502 = load ptr, ptr %501, align 8
-  br label %503
+.preheader574:                                    ; preds = %.preheader574.lr.ph, %510
+  %indvars.iv840 = phi i64 [ 0, %.preheader574.lr.ph ], [ %indvars.iv.next841, %510 ]
+  %.0335684 = phi float [ 1.000000e+10, %.preheader574.lr.ph ], [ %.2337, %510 ]
+  %.0342683 = phi float [ -1.000000e+10, %.preheader574.lr.ph ], [ %.2344, %510 ]
+  %500 = getelementptr inbounds ptr, ptr %499, i64 %indvars.iv840
+  %501 = load ptr, ptr %500, align 8
+  br label %502
 
-503:                                              ; preds = %.preheader574, %510
-  %indvars.iv842 = phi i64 [ %indvars.iv840, %.preheader574 ], [ %indvars.iv.next843, %510 ]
-  %.1336681 = phi float [ %.0335684, %.preheader574 ], [ %.2337, %510 ]
-  %.1343680 = phi float [ %.0342683, %.preheader574 ], [ %.2344, %510 ]
-  %504 = getelementptr inbounds float, ptr %502, i64 %indvars.iv842
-  %505 = load float, ptr %504, align 4
-  %506 = fcmp ogt float %505, %.1343680
-  br i1 %506, label %510, label %507
+502:                                              ; preds = %.preheader574, %509
+  %indvars.iv842 = phi i64 [ %indvars.iv840, %.preheader574 ], [ %indvars.iv.next843, %509 ]
+  %.1336681 = phi float [ %.0335684, %.preheader574 ], [ %.2337, %509 ]
+  %.1343680 = phi float [ %.0342683, %.preheader574 ], [ %.2344, %509 ]
+  %503 = getelementptr inbounds float, ptr %501, i64 %indvars.iv842
+  %504 = load float, ptr %503, align 4
+  %505 = fcmp ogt float %504, %.1343680
+  br i1 %505, label %509, label %506
 
-507:                                              ; preds = %503
-  %508 = fcmp olt float %505, %.1336681
-  br i1 %508, label %509, label %510
+506:                                              ; preds = %502
+  %507 = fcmp olt float %504, %.1336681
+  br i1 %507, label %508, label %509
 
-509:                                              ; preds = %507
-  br label %510
+508:                                              ; preds = %506
+  br label %509
 
-510:                                              ; preds = %503, %509, %507
-  %.2344 = phi float [ %.1343680, %509 ], [ %.1343680, %507 ], [ %505, %503 ]
-  %.2337 = phi float [ %505, %509 ], [ %.1336681, %507 ], [ %.1336681, %503 ]
+509:                                              ; preds = %502, %508, %506
+  %.2344 = phi float [ %.1343680, %508 ], [ %.1343680, %506 ], [ %504, %502 ]
+  %.2337 = phi float [ %504, %508 ], [ %.1336681, %506 ], [ %.1336681, %502 ]
   %indvars.iv.next843 = add nuw nsw i64 %indvars.iv842, 1
   %exitcond847.not = icmp eq i64 %indvars.iv.next843, %wide.trip.count850
-  br i1 %exitcond847.not, label %511, label %503, !llvm.loop !28
+  br i1 %exitcond847.not, label %510, label %502, !llvm.loop !28
 
-511:                                              ; preds = %510
+510:                                              ; preds = %509
   %indvars.iv.next841 = add nuw nsw i64 %indvars.iv840, 1
   %exitcond851.not = icmp eq i64 %indvars.iv.next841, %wide.trip.count850
   br i1 %exitcond851.not, label %._crit_edge685, label %.preheader574, !llvm.loop !29
 
-._crit_edge685:                                   ; preds = %511
-  %512 = fcmp oeq float %.2344, %.2337
-  br i1 %512, label %513, label %._crit_edge685.thread
+._crit_edge685:                                   ; preds = %510
+  %511 = fcmp oeq float %.2344, %.2337
+  br i1 %511, label %512, label %._crit_edge685.thread
 
-513:                                              ; preds = %._crit_edge685
-  %514 = load ptr, ptr @stderr, align 8
-  %515 = getelementptr inbounds [6 x ptr], ptr @_ZL7egrp_nm, i64 0, i64 %indvars.iv852
-  %516 = load ptr, ptr %515, align 8
-  %517 = fpext float %.2344 to double
-  %518 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %514, ptr noundef nonnull @.str.98, ptr noundef %516, double noundef %517) #17
-  br label %618
+512:                                              ; preds = %._crit_edge685
+  %513 = load ptr, ptr @stderr, align 8
+  %514 = getelementptr inbounds [6 x ptr], ptr @_ZL7egrp_nm, i64 0, i64 %indvars.iv852
+  %515 = load ptr, ptr %514, align 8
+  %516 = fpext float %.2344 to double
+  %517 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %513, ptr noundef nonnull @.str.98, ptr noundef %515, double noundef %516) #17
+  br label %617
 
 ._crit_edge685.thread:                            ; preds = %.preheader575, %._crit_edge685
-  %.0335.lcssa908 = phi float [ %.2337, %._crit_edge685 ], [ 1.000000e+10, %.preheader575 ]
-  %.0342.lcssa907 = phi float [ %.2344, %._crit_edge685 ], [ -1.000000e+10, %.preheader575 ]
-  %519 = load ptr, ptr @stderr, align 8
-  %520 = getelementptr inbounds [6 x ptr], ptr @_ZL7egrp_nm, i64 0, i64 %indvars.iv852
-  %521 = load ptr, ptr %520, align 8
-  %522 = fpext float %.0335.lcssa908 to double
-  %523 = fpext float %.0342.lcssa907 to double
-  %524 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %519, ptr noundef nonnull @.str.99, ptr noundef %521, double noundef %522, double noundef %523) #17
-  %525 = load float, ptr @_ZZ10gmx_enematiPPcE6cutmax, align 4
-  %526 = fcmp ogt float %.0342.lcssa907, %525
-  %or.cond = or i1 %120, %526
-  %.3345 = select i1 %or.cond, float %525, float %.0342.lcssa907
-  %527 = load float, ptr @_ZZ10gmx_enematiPPcE6cutmin, align 4
-  %528 = fcmp olt float %.0335.lcssa908, %527
-  %or.cond430 = select i1 %122, i1 true, i1 %528
-  %.3338 = select i1 %or.cond430, float %527, float %.0335.lcssa908
-  %529 = fcmp oeq float %.3345, %525
-  %530 = fcmp oeq float %.3338, %527
-  %or.cond432 = select i1 %529, i1 true, i1 %530
-  br i1 %or.cond432, label %531, label %536
+  %.0335.lcssa907 = phi float [ %.2337, %._crit_edge685 ], [ 1.000000e+10, %.preheader575 ]
+  %.0342.lcssa906 = phi float [ %.2344, %._crit_edge685 ], [ -1.000000e+10, %.preheader575 ]
+  %518 = load ptr, ptr @stderr, align 8
+  %519 = getelementptr inbounds [6 x ptr], ptr @_ZL7egrp_nm, i64 0, i64 %indvars.iv852
+  %520 = load ptr, ptr %519, align 8
+  %521 = fpext float %.0335.lcssa907 to double
+  %522 = fpext float %.0342.lcssa906 to double
+  %523 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %518, ptr noundef nonnull @.str.99, ptr noundef %520, double noundef %521, double noundef %522) #17
+  %524 = load float, ptr @_ZZ10gmx_enematiPPcE6cutmax, align 4
+  %525 = fcmp ogt float %.0342.lcssa906, %524
+  %or.cond = or i1 %120, %525
+  %.3345 = select i1 %or.cond, float %524, float %.0342.lcssa906
+  %526 = load float, ptr @_ZZ10gmx_enematiPPcE6cutmin, align 4
+  %527 = fcmp olt float %.0335.lcssa907, %526
+  %or.cond430 = select i1 %122, i1 true, i1 %527
+  %.3338 = select i1 %or.cond430, float %526, float %.0335.lcssa907
+  %528 = fcmp oeq float %.3345, %524
+  %529 = fcmp oeq float %.3338, %526
+  %or.cond432 = select i1 %528, i1 true, i1 %529
+  br i1 %or.cond432, label %530, label %535
 
-531:                                              ; preds = %._crit_edge685.thread
-  %532 = load ptr, ptr @stderr, align 8
-  %533 = fpext float %.3338 to double
-  %534 = fpext float %.3345 to double
-  %535 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %532, ptr noundef nonnull @.str.100, double noundef %533, double noundef %534) #17
-  br label %536
+530:                                              ; preds = %._crit_edge685.thread
+  %531 = load ptr, ptr @stderr, align 8
+  %532 = fpext float %.3338 to double
+  %533 = fpext float %.3345 to double
+  %534 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %531, ptr noundef nonnull @.str.100, double noundef %532, double noundef %533) #17
+  br label %535
 
-536:                                              ; preds = %._crit_edge685.thread, %531
-  %537 = load ptr, ptr %520, align 8
-  %538 = invoke noundef ptr @_Z6ftp2fniiPK8t_filenm(i32 noundef 40, i32 noundef 5, ptr noundef nonnull %16)
-          to label %539 unwind label %.loopexit.split-lp.loopexit
+535:                                              ; preds = %._crit_edge685.thread, %530
+  %536 = load ptr, ptr %519, align 8
+  %537 = invoke noundef ptr @_Z6ftp2fniiPK8t_filenm(i32 noundef 40, i32 noundef 5, ptr noundef nonnull %16)
+          to label %538 unwind label %.loopexit.split-lp.loopexit
 
-539:                                              ; preds = %536
-  %540 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) @.str.101, ptr noundef %537, ptr noundef %538) #14
-  %541 = load ptr, ptr %520, align 8
-  %542 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) @.str.102, ptr noundef %541) #14
+538:                                              ; preds = %535
+  %539 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) @.str.101, ptr noundef %536, ptr noundef %537) #14
+  %540 = load ptr, ptr %519, align 8
+  %541 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) @.str.102, ptr noundef %540) #14
   invoke void @_ZNSt10filesystem7__cxx114pathC2IA255_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %20, ptr noundef nonnull align 1 dereferenceable(255) %11, i8 noundef zeroext 2)
-          to label %543 unwind label %.loopexit.split-lp.loopexit
+          to label %542 unwind label %.loopexit.split-lp.loopexit
 
-543:                                              ; preds = %539
-  %544 = invoke noundef ptr @_Z10gmx_ffopenRKNSt10filesystem7__cxx114pathEPKc(ptr noundef nonnull align 8 dereferenceable(40) %20, ptr noundef nonnull @.str.103)
-          to label %545 unwind label %556
+542:                                              ; preds = %538
+  %543 = invoke noundef ptr @_Z10gmx_ffopenRKNSt10filesystem7__cxx114pathEPKc(ptr noundef nonnull align 8 dereferenceable(40) %20, ptr noundef nonnull @.str.103)
+          to label %544 unwind label %555
 
-545:                                              ; preds = %543
-  %546 = load ptr, ptr %494, align 8
-  %.not.i.i.i440 = icmp eq ptr %546, null
-  br i1 %.not.i.i.i440, label %_ZNSt10filesystem7__cxx114pathD2Ev.exit441, label %547
+544:                                              ; preds = %542
+  %545 = load ptr, ptr %493, align 8
+  %.not.i.i.i440 = icmp eq ptr %545, null
+  br i1 %.not.i.i.i440, label %_ZNSt10filesystem7__cxx114pathD2Ev.exit441, label %546
 
-547:                                              ; preds = %545
-  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1) %494, ptr noundef nonnull %546) #14
+546:                                              ; preds = %544
+  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1) %493, ptr noundef nonnull %545) #14
   br label %_ZNSt10filesystem7__cxx114pathD2Ev.exit441
 
-_ZNSt10filesystem7__cxx114pathD2Ev.exit441:       ; preds = %545, %547
-  store ptr null, ptr %494, align 8
+_ZNSt10filesystem7__cxx114pathD2Ev.exit441:       ; preds = %544, %546
+  store ptr null, ptr %493, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #14
-  %548 = fcmp ult float %.3338, 0.000000e+00
-  br i1 %548, label %572, label %549
+  %547 = fcmp ult float %.3338, 0.000000e+00
+  br i1 %547, label %571, label %548
 
-549:                                              ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit441
+548:                                              ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit441
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #14
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull %13, ptr noundef nonnull align 1 dereferenceable(1) %22)
-          to label %550 unwind label %558
+          to label %549 unwind label %557
 
-550:                                              ; preds = %549
+549:                                              ; preds = %548
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %24) #14
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull @.str.104, ptr noundef nonnull align 1 dereferenceable(1) %24)
-          to label %551 unwind label %560
+          to label %550 unwind label %559
 
-551:                                              ; preds = %550
+550:                                              ; preds = %549
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %26) #14
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull @.str.105, ptr noundef nonnull align 1 dereferenceable(1) %26)
-          to label %552 unwind label %562
+          to label %551 unwind label %561
 
-552:                                              ; preds = %551
+551:                                              ; preds = %550
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %28) #14
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull @.str.105, ptr noundef nonnull align 1 dereferenceable(1) %28)
-          to label %553 unwind label %564
+          to label %552 unwind label %563
 
-553:                                              ; preds = %552
-  %554 = getelementptr inbounds ptr, ptr %246, i64 %indvars.iv852
-  %555 = load ptr, ptr %554, align 8
+552:                                              ; preds = %551
+  %553 = getelementptr inbounds ptr, ptr %246, i64 %indvars.iv852
+  %554 = load ptr, ptr %553, align 8
   store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %29, align 16
   store double 1.000000e+00, ptr %.sroa.6.0..sroa_idx, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
   store double 1.000000e+00, ptr %.sroa.5521.0..sroa_idx, align 8
-  invoke void @_Z9write_xpmP8_IO_FILEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_S8_iiPKfSA_PKSA_ff5t_rgbSD_Pi(ptr noundef %544, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %27, i32 noundef %128, i32 noundef %128, ptr noundef %257, ptr noundef %257, ptr noundef %555, float noundef 0.000000e+00, float noundef %.3345, ptr noundef nonnull byval(%struct.t_rgb) align 8 %29, ptr noundef nonnull byval(%struct.t_rgb) align 8 %30, ptr noundef nonnull @_ZZ10gmx_enematiPPcE7nlevels)
-          to label %616 unwind label %566
+  invoke void @_Z9write_xpmP8_IO_FILEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_S8_iiPKfSA_PKSA_ff5t_rgbSD_Pi(ptr noundef %543, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %27, i32 noundef %128, i32 noundef %128, ptr noundef %257, ptr noundef %257, ptr noundef %554, float noundef 0.000000e+00, float noundef %.3345, ptr noundef nonnull byval(%struct.t_rgb) align 8 %29, ptr noundef nonnull byval(%struct.t_rgb) align 8 %30, ptr noundef nonnull @_ZZ10gmx_enematiPPcE7nlevels)
+          to label %615 unwind label %565
 
-556:                                              ; preds = %543
-  %557 = landingpad { ptr, i32 }
+555:                                              ; preds = %542
+  %556 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %20) #14
   br label %.loopexit.split-lp
 
-558:                                              ; preds = %549
-  %559 = landingpad { ptr, i32 }
-          cleanup
-  br label %571
-
-560:                                              ; preds = %550
-  %561 = landingpad { ptr, i32 }
+557:                                              ; preds = %548
+  %558 = landingpad { ptr, i32 }
           cleanup
   br label %570
 
-562:                                              ; preds = %551
-  %563 = landingpad { ptr, i32 }
+559:                                              ; preds = %549
+  %560 = landingpad { ptr, i32 }
           cleanup
   br label %569
 
-564:                                              ; preds = %552
-  %565 = landingpad { ptr, i32 }
+561:                                              ; preds = %550
+  %562 = landingpad { ptr, i32 }
           cleanup
   br label %568
 
-566:                                              ; preds = %553
-  %567 = landingpad { ptr, i32 }
+563:                                              ; preds = %551
+  %564 = landingpad { ptr, i32 }
+          cleanup
+  br label %567
+
+565:                                              ; preds = %552
+  %566 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #14
-  br label %568
+  br label %567
 
-568:                                              ; preds = %566, %564
-  %.pn420 = phi { ptr, i32 } [ %567, %566 ], [ %565, %564 ]
+567:                                              ; preds = %565, %563
+  %.pn420 = phi { ptr, i32 } [ %566, %565 ], [ %564, %563 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %28) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #14
-  br label %569
+  br label %568
 
-569:                                              ; preds = %568, %562
-  %.pn420.pn = phi { ptr, i32 } [ %.pn420, %568 ], [ %563, %562 ]
+568:                                              ; preds = %567, %561
+  %.pn420.pn = phi { ptr, i32 } [ %.pn420, %567 ], [ %562, %561 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %26) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #14
-  br label %570
+  br label %569
 
-570:                                              ; preds = %569, %560
-  %.pn420.pn.pn = phi { ptr, i32 } [ %.pn420.pn, %569 ], [ %561, %560 ]
+569:                                              ; preds = %568, %559
+  %.pn420.pn.pn = phi { ptr, i32 } [ %.pn420.pn, %568 ], [ %560, %559 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %24) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #14
-  br label %571
+  br label %570
 
-571:                                              ; preds = %570, %558
-  %.pn420.pn.pn.pn = phi { ptr, i32 } [ %.pn420.pn.pn, %570 ], [ %559, %558 ]
+570:                                              ; preds = %569, %557
+  %.pn420.pn.pn.pn = phi { ptr, i32 } [ %.pn420.pn.pn, %569 ], [ %558, %557 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #14
   br label %.loopexit.split-lp
 
-572:                                              ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit441
-  %573 = fcmp ugt float %.3345, 0.000000e+00
-  br i1 %573, label %595, label %574
+571:                                              ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit441
+  %572 = fcmp ugt float %.3345, 0.000000e+00
+  br i1 %572, label %594, label %573
 
-574:                                              ; preds = %572
+573:                                              ; preds = %571
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %32) #14
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull %13, ptr noundef nonnull align 1 dereferenceable(1) %32)
-          to label %575 unwind label %581
+          to label %574 unwind label %580
 
-575:                                              ; preds = %574
+574:                                              ; preds = %573
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %34) #14
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull @.str.104, ptr noundef nonnull align 1 dereferenceable(1) %34)
-          to label %576 unwind label %583
+          to label %575 unwind label %582
 
-576:                                              ; preds = %575
+575:                                              ; preds = %574
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %36) #14
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull @.str.105, ptr noundef nonnull align 1 dereferenceable(1) %36)
-          to label %577 unwind label %585
+          to label %576 unwind label %584
 
-577:                                              ; preds = %576
+576:                                              ; preds = %575
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %38) #14
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull @.str.105, ptr noundef nonnull align 1 dereferenceable(1) %38)
-          to label %578 unwind label %587
+          to label %577 unwind label %586
 
-578:                                              ; preds = %577
-  %579 = getelementptr inbounds ptr, ptr %246, i64 %indvars.iv852
-  %580 = load ptr, ptr %579, align 8
+577:                                              ; preds = %576
+  %578 = getelementptr inbounds ptr, ptr %246, i64 %indvars.iv852
+  %579 = load ptr, ptr %578, align 8
   store double 1.000000e+00, ptr %39, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4526.0..sroa_idx, i8 0, i64 16, i1 false)
   store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %40, align 16
   store double 1.000000e+00, ptr %.sroa.6.0..sroa_idx513, align 16
-  invoke void @_Z9write_xpmP8_IO_FILEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_S8_iiPKfSA_PKSA_ff5t_rgbSD_Pi(ptr noundef %544, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(32) %37, i32 noundef %128, i32 noundef %128, ptr noundef %257, ptr noundef %257, ptr noundef %580, float noundef %.3338, float noundef 0.000000e+00, ptr noundef nonnull byval(%struct.t_rgb) align 8 %39, ptr noundef nonnull byval(%struct.t_rgb) align 8 %40, ptr noundef nonnull @_ZZ10gmx_enematiPPcE7nlevels)
-          to label %616 unwind label %589
+  invoke void @_Z9write_xpmP8_IO_FILEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_S8_iiPKfSA_PKSA_ff5t_rgbSD_Pi(ptr noundef %543, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(32) %37, i32 noundef %128, i32 noundef %128, ptr noundef %257, ptr noundef %257, ptr noundef %579, float noundef %.3338, float noundef 0.000000e+00, ptr noundef nonnull byval(%struct.t_rgb) align 8 %39, ptr noundef nonnull byval(%struct.t_rgb) align 8 %40, ptr noundef nonnull @_ZZ10gmx_enematiPPcE7nlevels)
+          to label %615 unwind label %588
 
-581:                                              ; preds = %574
-  %582 = landingpad { ptr, i32 }
-          cleanup
-  br label %594
-
-583:                                              ; preds = %575
-  %584 = landingpad { ptr, i32 }
+580:                                              ; preds = %573
+  %581 = landingpad { ptr, i32 }
           cleanup
   br label %593
 
-585:                                              ; preds = %576
-  %586 = landingpad { ptr, i32 }
+582:                                              ; preds = %574
+  %583 = landingpad { ptr, i32 }
           cleanup
   br label %592
 
-587:                                              ; preds = %577
-  %588 = landingpad { ptr, i32 }
+584:                                              ; preds = %575
+  %585 = landingpad { ptr, i32 }
           cleanup
   br label %591
 
-589:                                              ; preds = %578
-  %590 = landingpad { ptr, i32 }
+586:                                              ; preds = %576
+  %587 = landingpad { ptr, i32 }
+          cleanup
+  br label %590
+
+588:                                              ; preds = %577
+  %589 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %37) #14
-  br label %591
+  br label %590
 
-591:                                              ; preds = %589, %587
-  %.pn415 = phi { ptr, i32 } [ %590, %589 ], [ %588, %587 ]
+590:                                              ; preds = %588, %586
+  %.pn415 = phi { ptr, i32 } [ %589, %588 ], [ %587, %586 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %38) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #14
-  br label %592
+  br label %591
 
-592:                                              ; preds = %591, %585
-  %.pn415.pn = phi { ptr, i32 } [ %.pn415, %591 ], [ %586, %585 ]
+591:                                              ; preds = %590, %584
+  %.pn415.pn = phi { ptr, i32 } [ %.pn415, %590 ], [ %585, %584 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %36) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %33) #14
-  br label %593
+  br label %592
 
-593:                                              ; preds = %592, %583
-  %.pn415.pn.pn = phi { ptr, i32 } [ %.pn415.pn, %592 ], [ %584, %583 ]
+592:                                              ; preds = %591, %582
+  %.pn415.pn.pn = phi { ptr, i32 } [ %.pn415.pn, %591 ], [ %583, %582 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %34) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #14
-  br label %594
+  br label %593
 
-594:                                              ; preds = %593, %581
-  %.pn415.pn.pn.pn = phi { ptr, i32 } [ %.pn415.pn.pn, %593 ], [ %582, %581 ]
+593:                                              ; preds = %592, %580
+  %.pn415.pn.pn.pn = phi { ptr, i32 } [ %.pn415.pn.pn, %592 ], [ %581, %580 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %32) #14
   br label %.loopexit.split-lp
 
-595:                                              ; preds = %572
+594:                                              ; preds = %571
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %42) #14
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull %13, ptr noundef nonnull align 1 dereferenceable(1) %42)
-          to label %596 unwind label %602
+          to label %595 unwind label %601
 
-596:                                              ; preds = %595
+595:                                              ; preds = %594
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %44) #14
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull @.str.104, ptr noundef nonnull align 1 dereferenceable(1) %44)
-          to label %597 unwind label %604
+          to label %596 unwind label %603
 
-597:                                              ; preds = %596
+596:                                              ; preds = %595
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %46) #14
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull @.str.105, ptr noundef nonnull align 1 dereferenceable(1) %46)
-          to label %598 unwind label %606
+          to label %597 unwind label %605
 
-598:                                              ; preds = %597
+597:                                              ; preds = %596
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %48) #14
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull @.str.105, ptr noundef nonnull align 1 dereferenceable(1) %48)
-          to label %599 unwind label %608
+          to label %598 unwind label %607
 
-599:                                              ; preds = %598
-  %600 = getelementptr inbounds ptr, ptr %246, i64 %indvars.iv852
-  %601 = load ptr, ptr %600, align 8
+598:                                              ; preds = %597
+  %599 = getelementptr inbounds ptr, ptr %246, i64 %indvars.iv852
+  %600 = load ptr, ptr %599, align 8
   store double 1.000000e+00, ptr %49, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4526.0..sroa_idx527, i8 0, i64 16, i1 false)
   store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %50, align 16
   store double 1.000000e+00, ptr %.sroa.6.0..sroa_idx515, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, i8 0, i64 16, i1 false)
   store double 1.000000e+00, ptr %.sroa.5521.0..sroa_idx522, align 8
-  invoke void @_Z10write_xpm3P8_IO_FILEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_S8_iiPfS9_PS9_fff5t_rgbSB_SB_Pi(ptr noundef %544, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) %47, i32 noundef %128, i32 noundef %128, ptr noundef %257, ptr noundef %257, ptr noundef %601, float noundef %.3338, float noundef 0.000000e+00, float noundef %.3345, ptr noundef nonnull byval(%struct.t_rgb) align 8 %49, ptr noundef nonnull byval(%struct.t_rgb) align 8 %50, ptr noundef nonnull byval(%struct.t_rgb) align 8 %51, ptr noundef nonnull @_ZZ10gmx_enematiPPcE7nlevels)
-          to label %616 unwind label %610
+  invoke void @_Z10write_xpm3P8_IO_FILEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_S8_iiPfS9_PS9_fff5t_rgbSB_SB_Pi(ptr noundef %543, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) %47, i32 noundef %128, i32 noundef %128, ptr noundef %257, ptr noundef %257, ptr noundef %600, float noundef %.3338, float noundef 0.000000e+00, float noundef %.3345, ptr noundef nonnull byval(%struct.t_rgb) align 8 %49, ptr noundef nonnull byval(%struct.t_rgb) align 8 %50, ptr noundef nonnull byval(%struct.t_rgb) align 8 %51, ptr noundef nonnull @_ZZ10gmx_enematiPPcE7nlevels)
+          to label %615 unwind label %609
 
-602:                                              ; preds = %595
-  %603 = landingpad { ptr, i32 }
-          cleanup
-  br label %615
-
-604:                                              ; preds = %596
-  %605 = landingpad { ptr, i32 }
+601:                                              ; preds = %594
+  %602 = landingpad { ptr, i32 }
           cleanup
   br label %614
 
-606:                                              ; preds = %597
-  %607 = landingpad { ptr, i32 }
+603:                                              ; preds = %595
+  %604 = landingpad { ptr, i32 }
           cleanup
   br label %613
 
-608:                                              ; preds = %598
-  %609 = landingpad { ptr, i32 }
+605:                                              ; preds = %596
+  %606 = landingpad { ptr, i32 }
           cleanup
   br label %612
 
-610:                                              ; preds = %599
-  %611 = landingpad { ptr, i32 }
+607:                                              ; preds = %597
+  %608 = landingpad { ptr, i32 }
+          cleanup
+  br label %611
+
+609:                                              ; preds = %598
+  %610 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %47) #14
-  br label %612
+  br label %611
 
-612:                                              ; preds = %610, %608
-  %.pn410 = phi { ptr, i32 } [ %611, %610 ], [ %609, %608 ]
+611:                                              ; preds = %609, %607
+  %.pn410 = phi { ptr, i32 } [ %610, %609 ], [ %608, %607 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %48) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %45) #14
-  br label %613
+  br label %612
 
-613:                                              ; preds = %612, %606
-  %.pn410.pn = phi { ptr, i32 } [ %.pn410, %612 ], [ %607, %606 ]
+612:                                              ; preds = %611, %605
+  %.pn410.pn = phi { ptr, i32 } [ %.pn410, %611 ], [ %606, %605 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %46) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %43) #14
-  br label %614
+  br label %613
 
-614:                                              ; preds = %613, %604
-  %.pn410.pn.pn = phi { ptr, i32 } [ %.pn410.pn, %613 ], [ %605, %604 ]
+613:                                              ; preds = %612, %603
+  %.pn410.pn.pn = phi { ptr, i32 } [ %.pn410.pn, %612 ], [ %604, %603 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %44) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %41) #14
-  br label %615
+  br label %614
 
-615:                                              ; preds = %614, %602
-  %.pn410.pn.pn.pn = phi { ptr, i32 } [ %.pn410.pn.pn, %614 ], [ %603, %602 ]
+614:                                              ; preds = %613, %601
+  %.pn410.pn.pn.pn = phi { ptr, i32 } [ %.pn410.pn.pn, %613 ], [ %602, %601 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %42) #14
   br label %.loopexit.split-lp
 
-616:                                              ; preds = %599, %578, %553
-  %.sink934 = phi ptr [ %27, %553 ], [ %37, %578 ], [ %47, %599 ]
-  %.sink933 = phi ptr [ %28, %553 ], [ %38, %578 ], [ %48, %599 ]
-  %.sink932 = phi ptr [ %25, %553 ], [ %35, %578 ], [ %45, %599 ]
-  %.sink931 = phi ptr [ %26, %553 ], [ %36, %578 ], [ %46, %599 ]
-  %.sink930 = phi ptr [ %23, %553 ], [ %33, %578 ], [ %43, %599 ]
-  %.sink929 = phi ptr [ %24, %553 ], [ %34, %578 ], [ %44, %599 ]
-  %.sink928 = phi ptr [ %21, %553 ], [ %31, %578 ], [ %41, %599 ]
-  %.sink = phi ptr [ %22, %553 ], [ %32, %578 ], [ %42, %599 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink934) #14
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink933) #14
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink932) #14
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink931) #14
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink930) #14
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink929) #14
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink928) #14
+615:                                              ; preds = %598, %577, %552
+  %.sink933 = phi ptr [ %27, %552 ], [ %37, %577 ], [ %47, %598 ]
+  %.sink932 = phi ptr [ %28, %552 ], [ %38, %577 ], [ %48, %598 ]
+  %.sink931 = phi ptr [ %25, %552 ], [ %35, %577 ], [ %45, %598 ]
+  %.sink930 = phi ptr [ %26, %552 ], [ %36, %577 ], [ %46, %598 ]
+  %.sink929 = phi ptr [ %23, %552 ], [ %33, %577 ], [ %43, %598 ]
+  %.sink928 = phi ptr [ %24, %552 ], [ %34, %577 ], [ %44, %598 ]
+  %.sink927 = phi ptr [ %21, %552 ], [ %31, %577 ], [ %41, %598 ]
+  %.sink = phi ptr [ %22, %552 ], [ %32, %577 ], [ %42, %598 ]
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink933) #14
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink932) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink931) #14
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink930) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink929) #14
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink928) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink927) #14
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #14
-  %617 = invoke noundef i32 @_Z11gmx_ffcloseP8_IO_FILE(ptr noundef %544)
-          to label %618 unwind label %.loopexit.split-lp.loopexit
+  %616 = invoke noundef i32 @_Z11gmx_ffcloseP8_IO_FILE(ptr noundef %543)
+          to label %617 unwind label %.loopexit.split-lp.loopexit
 
-618:                                              ; preds = %495, %616, %513
+617:                                              ; preds = %494, %615, %512
   %indvars.iv.next853 = add nuw nsw i64 %indvars.iv852, 1
   %exitcond856.not = icmp eq i64 %indvars.iv.next853, 6
-  br i1 %exitcond856.not, label %619, label %495, !llvm.loop !30
+  br i1 %exitcond856.not, label %618, label %494, !llvm.loop !30
 
-619:                                              ; preds = %618
-  %620 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.106, ptr noundef nonnull @.str.67, i32 noundef 573, i64 noundef 6, i64 noundef 8)
+618:                                              ; preds = %617
+  %619 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.106, ptr noundef nonnull @.str.67, i32 noundef 573, i64 noundef 6, i64 noundef 8)
           to label %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit443.preheader unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit443.preheader: ; preds = %619
+_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit443.preheader: ; preds = %618
   %wide.trip.count867 = zext nneg i32 %128 to i64
-  br label %621
+  br label %620
 
-621:                                              ; preds = %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit443.preheader, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit443
+620:                                              ; preds = %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit443.preheader, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit443
   %indvars.iv869 = phi i64 [ 0, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit443.preheader ], [ %indvars.iv.next870, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit443 ]
-  %622 = getelementptr inbounds ptr, ptr %620, i64 %indvars.iv869
-  %623 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.67, i32 noundef 576, i64 noundef %250, i64 noundef 4)
+  %621 = getelementptr inbounds ptr, ptr %619, i64 %indvars.iv869
+  %622 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.67, i32 noundef 576, i64 noundef %250, i64 noundef 4)
           to label %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit445 unwind label %.loopexit
 
-_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit445:       ; preds = %621
-  store ptr %623, ptr %622, align 8
+_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit445:       ; preds = %620
+  store ptr %622, ptr %621, align 8
   br i1 %137, label %.preheader.lr.ph, label %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit443
 
 .preheader.lr.ph:                                 ; preds = %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit445
-  %624 = getelementptr inbounds ptr, ptr %246, i64 %indvars.iv869
+  %623 = getelementptr inbounds ptr, ptr %246, i64 %indvars.iv869
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %._crit_edge691.us, %.preheader.lr.ph
   %indvars.iv863 = phi i64 [ %indvars.iv.next864, %._crit_edge691.us ], [ 0, %.preheader.lr.ph ]
-  br label %625
+  br label %624
 
-625:                                              ; preds = %.preheader.us, %625
-  %indvars.iv857 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next858, %625 ]
-  %626 = load ptr, ptr %624, align 8
-  %627 = getelementptr inbounds ptr, ptr %626, i64 %indvars.iv863
-  %628 = load ptr, ptr %627, align 8
-  %629 = getelementptr inbounds float, ptr %628, i64 %indvars.iv857
-  %630 = load float, ptr %629, align 4
-  %631 = load ptr, ptr %622, align 8
-  %632 = getelementptr inbounds float, ptr %631, i64 %indvars.iv863
-  %633 = load float, ptr %632, align 4
-  %634 = fadd float %630, %633
-  store float %634, ptr %632, align 4
+624:                                              ; preds = %.preheader.us, %624
+  %indvars.iv857 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next858, %624 ]
+  %625 = load ptr, ptr %623, align 8
+  %626 = getelementptr inbounds ptr, ptr %625, i64 %indvars.iv863
+  %627 = load ptr, ptr %626, align 8
+  %628 = getelementptr inbounds float, ptr %627, i64 %indvars.iv857
+  %629 = load float, ptr %628, align 4
+  %630 = load ptr, ptr %621, align 8
+  %631 = getelementptr inbounds float, ptr %630, i64 %indvars.iv863
+  %632 = load float, ptr %631, align 4
+  %633 = fadd float %629, %632
+  store float %633, ptr %631, align 4
   %indvars.iv.next858 = add nuw nsw i64 %indvars.iv857, 1
   %exitcond862.not = icmp eq i64 %indvars.iv.next858, %wide.trip.count867
-  br i1 %exitcond862.not, label %._crit_edge691.us, label %625, !llvm.loop !31
+  br i1 %exitcond862.not, label %._crit_edge691.us, label %624, !llvm.loop !31
 
-._crit_edge691.us:                                ; preds = %625
+._crit_edge691.us:                                ; preds = %624
   %indvars.iv.next864 = add nuw nsw i64 %indvars.iv863, 1
   %exitcond868.not = icmp eq i64 %indvars.iv.next864, %wide.trip.count867
   br i1 %exitcond868.not, label %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit443, label %.preheader.us, !llvm.loop !32
@@ -1758,369 +1753,369 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit445:       ; preds = %621
 _ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit443:      ; preds = %._crit_edge691.us, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit445
   %indvars.iv.next870 = add nuw nsw i64 %indvars.iv869, 1
   %exitcond873.not = icmp eq i64 %indvars.iv.next870, 6
-  br i1 %exitcond873.not, label %635, label %621, !llvm.loop !33
+  br i1 %exitcond873.not, label %634, label %620, !llvm.loop !33
 
-635:                                              ; preds = %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit443
-  %636 = invoke noundef ptr @_Z6ftp2fniiPK8t_filenm(i32 noundef 20, i32 noundef 5, ptr noundef nonnull %16)
+634:                                              ; preds = %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit443
+  %635 = invoke noundef ptr @_Z6ftp2fniiPK8t_filenm(i32 noundef 20, i32 noundef 5, ptr noundef nonnull %16)
+          to label %636 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+
+636:                                              ; preds = %634
+  store ptr %635, ptr %53, align 8
+  invoke void @_ZNSt10filesystem7__cxx114pathC2IPKcS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %52, ptr noundef nonnull align 8 dereferenceable(8) %53, i8 noundef zeroext 2)
           to label %637 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-637:                                              ; preds = %635
-  store ptr %636, ptr %53, align 8
-  invoke void @_ZNSt10filesystem7__cxx114pathC2IPKcS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %52, ptr noundef nonnull align 8 dereferenceable(8) %53, i8 noundef zeroext 2)
-          to label %638 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
-
-638:                                              ; preds = %637
+637:                                              ; preds = %636
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %55) #14
-  %639 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %54)
-          to label %.noexc446 unwind label %662
+  %638 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %54)
+          to label %.noexc446 unwind label %661
 
-.noexc446:                                        ; preds = %638
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %54, ptr noundef %639, ptr noundef nonnull align 1 dereferenceable(1) %55)
-          to label %.noexc447 unwind label %662
+.noexc446:                                        ; preds = %637
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %54, ptr noundef %638, ptr noundef nonnull align 1 dereferenceable(1) %55)
+          to label %.noexc447 unwind label %661
 
 .noexc447:                                        ; preds = %.noexc446
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull @.str.109, ptr noundef nonnull getelementptr inbounds ([8 x i8], ptr @.str.109, i64 0, i64 7))
-          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %640
+          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %639
 
-640:                                              ; preds = %.noexc447
-  %641 = landingpad { ptr, i32 }
+639:                                              ; preds = %.noexc447
+  %640 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %54) #14
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc447
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %57) #14
-  %642 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %56)
-          to label %.noexc448 unwind label %664
+  %641 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %56)
+          to label %.noexc448 unwind label %663
 
 .noexc448:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %56, ptr noundef %642, ptr noundef nonnull align 1 dereferenceable(1) %57)
-          to label %.noexc449 unwind label %664
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %56, ptr noundef %641, ptr noundef nonnull align 1 dereferenceable(1) %57)
+          to label %.noexc449 unwind label %663
 
 .noexc449:                                        ; preds = %.noexc448
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef nonnull @.str.110, ptr noundef nonnull getelementptr inbounds ([7 x i8], ptr @.str.110, i64 0, i64 6))
-          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit452 unwind label %643
+          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit452 unwind label %642
 
-643:                                              ; preds = %.noexc449
-  %644 = landingpad { ptr, i32 }
+642:                                              ; preds = %.noexc449
+  %643 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %56) #14
   br label %.body450
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit452: ; preds = %.noexc449
-  %645 = load ptr, ptr %15, align 8
-  %646 = invoke noundef ptr @_Z8xvgropenRKNSt10filesystem7__cxx114pathEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_PK16gmx_output_env_t(ptr noundef nonnull align 8 dereferenceable(40) %52, ptr noundef nonnull @.str.108, ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef %645)
-          to label %647 unwind label %666
+  %644 = load ptr, ptr %15, align 8
+  %645 = invoke noundef ptr @_Z8xvgropenRKNSt10filesystem7__cxx114pathEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_PK16gmx_output_env_t(ptr noundef nonnull align 8 dereferenceable(40) %52, ptr noundef nonnull @.str.108, ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef %644)
+          to label %646 unwind label %665
 
-647:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit452
+646:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit452
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %56) #14
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %57) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %54) #14
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %55) #14
-  %648 = getelementptr inbounds i8, ptr %52, i64 32
-  %649 = load ptr, ptr %648, align 8
-  %.not.i.i.i453 = icmp eq ptr %649, null
-  br i1 %.not.i.i.i453, label %_ZNSt10filesystem7__cxx114pathD2Ev.exit454, label %650
+  %647 = getelementptr inbounds i8, ptr %52, i64 32
+  %648 = load ptr, ptr %647, align 8
+  %.not.i.i.i453 = icmp eq ptr %648, null
+  br i1 %.not.i.i.i453, label %_ZNSt10filesystem7__cxx114pathD2Ev.exit454, label %649
 
-650:                                              ; preds = %647
-  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1) %648, ptr noundef nonnull %649) #14
+649:                                              ; preds = %646
+  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1) %647, ptr noundef nonnull %648) #14
   br label %_ZNSt10filesystem7__cxx114pathD2Ev.exit454
 
-_ZNSt10filesystem7__cxx114pathD2Ev.exit454:       ; preds = %647, %650
-  store ptr null, ptr %648, align 8
+_ZNSt10filesystem7__cxx114pathD2Ev.exit454:       ; preds = %646, %649
+  store ptr null, ptr %647, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %52) #14
-  %651 = load ptr, ptr %15, align 8
-  invoke void @_Z10xvgrLegendP8_IO_FILEN3gmx8ArrayRefIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPK16gmx_output_env_t(ptr noundef %646, ptr null, ptr null, ptr noundef %651)
-          to label %652 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+  %650 = load ptr, ptr %15, align 8
+  invoke void @_Z10xvgrLegendP8_IO_FILEN3gmx8ArrayRefIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPK16gmx_output_env_t(ptr noundef %645, ptr null, ptr null, ptr noundef %650)
+          to label %651 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-652:                                              ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit454
-  %653 = load ptr, ptr %15, align 8
-  %654 = invoke noundef zeroext i1 @_Z31output_env_get_print_xvgr_codesPK16gmx_output_env_t(ptr noundef %653)
-          to label %655 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+651:                                              ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit454
+  %652 = load ptr, ptr %15, align 8
+  %653 = invoke noundef zeroext i1 @_Z31output_env_get_print_xvgr_codesPK16gmx_output_env_t(ptr noundef %652)
+          to label %654 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-655:                                              ; preds = %652
-  br i1 %654, label %656, label %707
+654:                                              ; preds = %651
+  br i1 %653, label %655, label %706
 
-656:                                              ; preds = %655
-  %657 = load ptr, ptr %15, align 8
-  %658 = invoke noundef i32 @_Z25output_env_get_xvg_formatPK16gmx_output_env_t(ptr noundef %657)
-          to label %659 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+655:                                              ; preds = %654
+  %656 = load ptr, ptr %15, align 8
+  %657 = invoke noundef i32 @_Z25output_env_get_xvg_formatPK16gmx_output_env_t(ptr noundef %656)
+          to label %658 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-659:                                              ; preds = %656
-  %660 = icmp eq i32 %658, 1
-  br i1 %660, label %661, label %668
+658:                                              ; preds = %655
+  %659 = icmp eq i32 %657, 1
+  br i1 %659, label %660, label %667
 
-661:                                              ; preds = %659
+660:                                              ; preds = %658
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(17) %58, ptr noundef nonnull align 1 dereferenceable(17) @.str.111, i64 17, i1 false)
   store i16 32, ptr %59, align 16
   br label %.preheader
 
-662:                                              ; preds = %.noexc446, %638
-  %663 = landingpad { ptr, i32 }
+661:                                              ; preds = %.noexc446, %637
+  %662 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-664:                                              ; preds = %.noexc448, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
-  %665 = landingpad { ptr, i32 }
+663:                                              ; preds = %.noexc448, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
+  %664 = landingpad { ptr, i32 }
           cleanup
   br label %.body450
 
-666:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit452
-  %667 = landingpad { ptr, i32 }
+665:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit452
+  %666 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %56) #14
   br label %.body450
 
-.body450:                                         ; preds = %664, %643, %666
-  %.pn = phi { ptr, i32 } [ %667, %666 ], [ %665, %664 ], [ %644, %643 ]
+.body450:                                         ; preds = %663, %642, %665
+  %.pn = phi { ptr, i32 } [ %666, %665 ], [ %664, %663 ], [ %643, %642 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %57) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %54) #14
   br label %.body
 
-.body:                                            ; preds = %662, %640, %.body450
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body450 ], [ %663, %662 ], [ %641, %640 ]
+.body:                                            ; preds = %661, %639, %.body450
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body450 ], [ %662, %661 ], [ %640, %639 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %55) #14
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %52) #14
   br label %.loopexit.split-lp
 
-668:                                              ; preds = %659
+667:                                              ; preds = %658
   store i32 7544896, ptr %58, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(9) %59, ptr noundef nonnull align 1 dereferenceable(9) @.str.114, i64 9, i1 false)
   br label %.preheader
 
-.preheader:                                       ; preds = %668, %661
-  br label %669
+.preheader:                                       ; preds = %667, %660
+  br label %668
 
-669:                                              ; preds = %.preheader, %678
-  %indvars.iv874 = phi i64 [ %indvars.iv.next875, %678 ], [ 0, %.preheader ]
-  %.5383695 = phi i32 [ %.6384, %678 ], [ 0, %.preheader ]
-  %670 = getelementptr inbounds [6 x i8], ptr %6, i64 0, i64 %indvars.iv874
-  %671 = load i8, ptr %670, align 1
-  %672 = trunc i8 %671 to i1
-  br i1 %672, label %673, label %678
+668:                                              ; preds = %.preheader, %677
+  %indvars.iv874 = phi i64 [ %indvars.iv.next875, %677 ], [ 0, %.preheader ]
+  %.5383695 = phi i32 [ %.6384, %677 ], [ 0, %.preheader ]
+  %669 = getelementptr inbounds [6 x i8], ptr %6, i64 0, i64 %indvars.iv874
+  %670 = load i8, ptr %669, align 1
+  %671 = trunc i8 %670 to i1
+  br i1 %671, label %672, label %677
 
-673:                                              ; preds = %669
-  %674 = add nsw i32 %.5383695, 1
-  %675 = getelementptr inbounds [6 x ptr], ptr @_ZL7egrp_nm, i64 0, i64 %indvars.iv874
-  %676 = load ptr, ptr %675, align 8
-  %677 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %646, ptr noundef nonnull @.str.115, ptr noundef nonnull %58, i32 noundef %.5383695, ptr noundef nonnull %59, ptr noundef %676) #14
-  br label %678
+672:                                              ; preds = %668
+  %673 = add nsw i32 %.5383695, 1
+  %674 = getelementptr inbounds [6 x ptr], ptr @_ZL7egrp_nm, i64 0, i64 %indvars.iv874
+  %675 = load ptr, ptr %674, align 8
+  %676 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %645, ptr noundef nonnull @.str.115, ptr noundef nonnull %58, i32 noundef %.5383695, ptr noundef nonnull %59, ptr noundef %675) #14
+  br label %677
 
-678:                                              ; preds = %669, %673
-  %.6384 = phi i32 [ %674, %673 ], [ %.5383695, %669 ]
+677:                                              ; preds = %668, %672
+  %.6384 = phi i32 [ %673, %672 ], [ %.5383695, %668 ]
   %indvars.iv.next875 = add nuw nsw i64 %indvars.iv874, 1
   %exitcond878.not = icmp eq i64 %indvars.iv.next875, 6
-  br i1 %exitcond878.not, label %679, label %669, !llvm.loop !34
+  br i1 %exitcond878.not, label %678, label %668, !llvm.loop !34
 
-679:                                              ; preds = %678
-  %680 = load i8, ptr @_ZZ10gmx_enematiPPcE5bFree, align 1
-  %681 = trunc i8 %680 to i1
-  br i1 %681, label %682, label %687
+678:                                              ; preds = %677
+  %679 = load i8, ptr @_ZZ10gmx_enematiPPcE5bFree, align 1
+  %680 = trunc i8 %679 to i1
+  br i1 %680, label %681, label %686
 
-682:                                              ; preds = %679
-  %683 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %646, ptr noundef nonnull @.str.115, ptr noundef nonnull %58, i32 noundef %.6384, ptr noundef nonnull %59, ptr noundef nonnull @.str.116) #14
-  br i1 %99, label %684, label %687
+681:                                              ; preds = %678
+  %682 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %645, ptr noundef nonnull @.str.115, ptr noundef nonnull %58, i32 noundef %.6384, ptr noundef nonnull %59, ptr noundef nonnull @.str.116) #14
+  br i1 %99, label %683, label %686
 
-684:                                              ; preds = %682
-  %685 = add nsw i32 %.6384, 1
-  %686 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %646, ptr noundef nonnull @.str.115, ptr noundef nonnull %58, i32 noundef %685, ptr noundef nonnull %59, ptr noundef nonnull @.str.117) #14
-  br label %687
+683:                                              ; preds = %681
+  %684 = add nsw i32 %.6384, 1
+  %685 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %645, ptr noundef nonnull @.str.115, ptr noundef nonnull %58, i32 noundef %684, ptr noundef nonnull %59, ptr noundef nonnull @.str.117) #14
+  br label %686
 
-687:                                              ; preds = %682, %684, %679
-  %688 = call i64 @fwrite(ptr nonnull @.str.118, i64 9, i64 1, ptr %646)
-  %689 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %646, ptr noundef nonnull @.str.119, ptr noundef nonnull @.str.120) #14
-  br label %690
+686:                                              ; preds = %681, %683, %678
+  %687 = call i64 @fwrite(ptr nonnull @.str.118, i64 9, i64 1, ptr %645)
+  %688 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %645, ptr noundef nonnull @.str.119, ptr noundef nonnull @.str.120) #14
+  br label %689
 
-690:                                              ; preds = %687, %698
-  %indvars.iv879 = phi i64 [ 0, %687 ], [ %indvars.iv.next880, %698 ]
-  %691 = getelementptr inbounds [6 x i8], ptr %6, i64 0, i64 %indvars.iv879
-  %692 = load i8, ptr %691, align 1
-  %693 = trunc i8 %692 to i1
-  br i1 %693, label %694, label %698
+689:                                              ; preds = %686, %697
+  %indvars.iv879 = phi i64 [ 0, %686 ], [ %indvars.iv.next880, %697 ]
+  %690 = getelementptr inbounds [6 x i8], ptr %6, i64 0, i64 %indvars.iv879
+  %691 = load i8, ptr %690, align 1
+  %692 = trunc i8 %691 to i1
+  br i1 %692, label %693, label %697
 
-694:                                              ; preds = %690
-  %695 = getelementptr inbounds [6 x ptr], ptr @_ZL7egrp_nm, i64 0, i64 %indvars.iv879
-  %696 = load ptr, ptr %695, align 8
-  %697 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %646, ptr noundef nonnull @.str.121, ptr noundef %696) #14
-  br label %698
+693:                                              ; preds = %689
+  %694 = getelementptr inbounds [6 x ptr], ptr @_ZL7egrp_nm, i64 0, i64 %indvars.iv879
+  %695 = load ptr, ptr %694, align 8
+  %696 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %645, ptr noundef nonnull @.str.121, ptr noundef %695) #14
+  br label %697
 
-698:                                              ; preds = %690, %694
+697:                                              ; preds = %689, %693
   %indvars.iv.next880 = add nuw nsw i64 %indvars.iv879, 1
   %exitcond883.not = icmp eq i64 %indvars.iv.next880, 6
-  br i1 %exitcond883.not, label %699, label %690, !llvm.loop !35
+  br i1 %exitcond883.not, label %698, label %689, !llvm.loop !35
 
-699:                                              ; preds = %698
-  %700 = load i8, ptr @_ZZ10gmx_enematiPPcE5bFree, align 1
-  %701 = trunc i8 %700 to i1
-  br i1 %701, label %702, label %706
+698:                                              ; preds = %697
+  %699 = load i8, ptr @_ZZ10gmx_enematiPPcE5bFree, align 1
+  %700 = trunc i8 %699 to i1
+  br i1 %700, label %701, label %705
 
-702:                                              ; preds = %699
-  %703 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %646, ptr noundef nonnull @.str.121, ptr noundef nonnull @.str.116) #14
-  br i1 %99, label %704, label %706
+701:                                              ; preds = %698
+  %702 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %645, ptr noundef nonnull @.str.121, ptr noundef nonnull @.str.116) #14
+  br i1 %99, label %703, label %705
 
-704:                                              ; preds = %702
-  %705 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %646, ptr noundef nonnull @.str.121, ptr noundef nonnull @.str.117) #14
+703:                                              ; preds = %701
+  %704 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %645, ptr noundef nonnull @.str.121, ptr noundef nonnull @.str.117) #14
+  br label %705
+
+705:                                              ; preds = %701, %703, %698
+  %fputc408 = call i32 @fputc(i32 10, ptr %645)
   br label %706
 
-706:                                              ; preds = %702, %704, %699
-  %fputc408 = call i32 @fputc(i32 10, ptr %646)
-  br label %707
-
-707:                                              ; preds = %706, %655
+706:                                              ; preds = %705, %654
   br i1 %137, label %.lr.ph701.preheader, label %._crit_edge702
 
-.lr.ph701.preheader:                              ; preds = %707
+.lr.ph701.preheader:                              ; preds = %706
   %wide.trip.count893 = zext nneg i32 %128 to i64
   br label %.lr.ph701
 
-.lr.ph701:                                        ; preds = %.lr.ph701.preheader, %736
-  %indvars.iv889 = phi i64 [ 0, %.lr.ph701.preheader ], [ %indvars.iv.next890, %736 ]
-  %708 = getelementptr inbounds float, ptr %257, i64 %indvars.iv889
-  %709 = load float, ptr %708, align 4
-  %710 = fpext float %709 to double
-  %711 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %646, ptr noundef nonnull @.str.122, double noundef %710) #14
-  br label %712
+.lr.ph701:                                        ; preds = %.lr.ph701.preheader, %735
+  %indvars.iv889 = phi i64 [ 0, %.lr.ph701.preheader ], [ %indvars.iv.next890, %735 ]
+  %707 = getelementptr inbounds float, ptr %257, i64 %indvars.iv889
+  %708 = load float, ptr %707, align 4
+  %709 = fpext float %708 to double
+  %710 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %645, ptr noundef nonnull @.str.122, double noundef %709) #14
+  br label %711
 
-712:                                              ; preds = %.lr.ph701, %723
-  %indvars.iv884 = phi i64 [ 0, %.lr.ph701 ], [ %indvars.iv.next885, %723 ]
-  %713 = getelementptr inbounds [6 x i8], ptr %6, i64 0, i64 %indvars.iv884
-  %714 = load i8, ptr %713, align 1
-  %715 = trunc i8 %714 to i1
-  br i1 %715, label %716, label %723
+711:                                              ; preds = %.lr.ph701, %722
+  %indvars.iv884 = phi i64 [ 0, %.lr.ph701 ], [ %indvars.iv.next885, %722 ]
+  %712 = getelementptr inbounds [6 x i8], ptr %6, i64 0, i64 %indvars.iv884
+  %713 = load i8, ptr %712, align 1
+  %714 = trunc i8 %713 to i1
+  br i1 %714, label %715, label %722
 
-716:                                              ; preds = %712
-  %717 = getelementptr inbounds ptr, ptr %620, i64 %indvars.iv884
-  %718 = load ptr, ptr %717, align 8
-  %719 = getelementptr inbounds float, ptr %718, i64 %indvars.iv889
-  %720 = load float, ptr %719, align 4
-  %721 = fpext float %720 to double
-  %722 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %646, ptr noundef nonnull @.str.123, double noundef %721) #14
-  br label %723
+715:                                              ; preds = %711
+  %716 = getelementptr inbounds ptr, ptr %619, i64 %indvars.iv884
+  %717 = load ptr, ptr %716, align 8
+  %718 = getelementptr inbounds float, ptr %717, i64 %indvars.iv889
+  %719 = load float, ptr %718, align 4
+  %720 = fpext float %719 to double
+  %721 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %645, ptr noundef nonnull @.str.123, double noundef %720) #14
+  br label %722
 
-723:                                              ; preds = %712, %716
+722:                                              ; preds = %711, %715
   %indvars.iv.next885 = add nuw nsw i64 %indvars.iv884, 1
   %exitcond888.not = icmp eq i64 %indvars.iv.next885, 6
-  br i1 %exitcond888.not, label %724, label %712, !llvm.loop !36
+  br i1 %exitcond888.not, label %723, label %711, !llvm.loop !36
 
-724:                                              ; preds = %723
-  %725 = load i8, ptr @_ZZ10gmx_enematiPPcE5bFree, align 1
-  %726 = trunc i8 %725 to i1
-  br i1 %726, label %727, label %736
+723:                                              ; preds = %722
+  %724 = load i8, ptr @_ZZ10gmx_enematiPPcE5bFree, align 1
+  %725 = trunc i8 %724 to i1
+  br i1 %725, label %726, label %735
 
-727:                                              ; preds = %724
-  %728 = getelementptr inbounds double, ptr %.0552, i64 %indvars.iv889
-  %729 = load double, ptr %728, align 8
-  %730 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %646, ptr noundef nonnull @.str.123, double noundef %729) #14
-  br i1 %99, label %731, label %736
+726:                                              ; preds = %723
+  %727 = getelementptr inbounds double, ptr %.0552, i64 %indvars.iv889
+  %728 = load double, ptr %727, align 8
+  %729 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %645, ptr noundef nonnull @.str.123, double noundef %728) #14
+  br i1 %99, label %730, label %735
 
-731:                                              ; preds = %727
-  %732 = getelementptr inbounds float, ptr %.0549, i64 %indvars.iv889
-  %733 = load float, ptr %732, align 4
-  %734 = fpext float %733 to double
-  %735 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %646, ptr noundef nonnull @.str.123, double noundef %734) #14
-  br label %736
+730:                                              ; preds = %726
+  %731 = getelementptr inbounds float, ptr %.0549, i64 %indvars.iv889
+  %732 = load float, ptr %731, align 4
+  %733 = fpext float %732 to double
+  %734 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %645, ptr noundef nonnull @.str.123, double noundef %733) #14
+  br label %735
 
-736:                                              ; preds = %727, %731, %724
-  %fputc409 = call i32 @fputc(i32 10, ptr %646)
+735:                                              ; preds = %726, %730, %723
+  %fputc409 = call i32 @fputc(i32 10, ptr %645)
   %indvars.iv.next890 = add nuw nsw i64 %indvars.iv889, 1
   %exitcond894.not = icmp eq i64 %indvars.iv.next890, %wide.trip.count893
   br i1 %exitcond894.not, label %._crit_edge702, label %.lr.ph701, !llvm.loop !37
 
-._crit_edge702:                                   ; preds = %736, %707
-  invoke void @_Z9xvgrcloseP8_IO_FILE(ptr noundef %646)
+._crit_edge702:                                   ; preds = %735, %706
+  invoke void @_Z9xvgrcloseP8_IO_FILE(ptr noundef %645)
+          to label %739 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+
+736:                                              ; preds = %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit435._crit_edge
+  %737 = load ptr, ptr @stderr, align 8
+  %738 = call i64 @fwrite(ptr nonnull @.str.124, i64 92, i64 1, ptr %737) #16
+  br label %739
+
+739:                                              ; preds = %._crit_edge702, %736
+  invoke void @_Z9close_enxP9ener_file(ptr noundef %104)
           to label %740 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-737:                                              ; preds = %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit435._crit_edge
-  %738 = load ptr, ptr @stderr, align 8
-  %739 = call i64 @fwrite(ptr nonnull @.str.124, i64 92, i64 1, ptr %738) #16
-  br label %740
+740:                                              ; preds = %739, %85, %177
+  %.0332 = phi i32 [ 1, %177 ], [ 0, %85 ], [ 0, %739 ]
+  %741 = getelementptr inbounds i8, ptr %16, i64 280
+  br label %742
 
-740:                                              ; preds = %._crit_edge702, %737
-  invoke void @_Z9close_enxP9ener_file(ptr noundef %104)
-          to label %741 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
-
-741:                                              ; preds = %740, %85, %177
-  %.0332 = phi i32 [ 1, %177 ], [ 0, %85 ], [ 0, %740 ]
-  %742 = getelementptr inbounds i8, ptr %16, i64 280
-  br label %743
-
-743:                                              ; preds = %_ZN8t_filenmD2Ev.exit, %741
-  %744 = phi ptr [ %742, %741 ], [ %745, %_ZN8t_filenmD2Ev.exit ]
-  %745 = getelementptr inbounds i8, ptr %744, i64 -56
-  %746 = getelementptr inbounds i8, ptr %744, i64 -24
-  %747 = load ptr, ptr %746, align 8
-  %748 = getelementptr inbounds i8, ptr %744, i64 -16
-  %749 = load ptr, ptr %748, align 8
-  %.not4.i.i.i.i.i = icmp eq ptr %747, %749
+742:                                              ; preds = %_ZN8t_filenmD2Ev.exit, %740
+  %743 = phi ptr [ %741, %740 ], [ %744, %_ZN8t_filenmD2Ev.exit ]
+  %744 = getelementptr inbounds i8, ptr %743, i64 -56
+  %745 = getelementptr inbounds i8, ptr %743, i64 -24
+  %746 = load ptr, ptr %745, align 8
+  %747 = getelementptr inbounds i8, ptr %743, i64 -16
+  %748 = load ptr, ptr %747, align 8
+  %.not4.i.i.i.i.i = icmp eq ptr %746, %748
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %743, %.lr.ph.i.i.i.i.i
-  %.05.i.i.i.i.i = phi ptr [ %750, %.lr.ph.i.i.i.i.i ], [ %747, %743 ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %742, %.lr.ph.i.i.i.i.i
+  %.05.i.i.i.i.i = phi ptr [ %749, %.lr.ph.i.i.i.i.i ], [ %746, %742 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i) #14
-  %750 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 32
-  %.not.i.i.i.i.i = icmp eq ptr %750, %749
+  %749 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 32
+  %.not.i.i.i.i.i = icmp eq ptr %749, %748
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !38
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %.lr.ph.i.i.i.i.i
-  %.pr.i.i = load ptr, ptr %746, align 8
+  %.pr.i.i = load ptr, ptr %745, align 8
   br label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i
 
-_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i, %743
-  %751 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i ], [ %747, %743 ]
-  %.not.i.i.i.i = icmp eq ptr %751, null
-  br i1 %.not.i.i.i.i, label %_ZN8t_filenmD2Ev.exit, label %752
+_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i, %742
+  %750 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i ], [ %746, %742 ]
+  %.not.i.i.i.i = icmp eq ptr %750, null
+  br i1 %.not.i.i.i.i, label %_ZN8t_filenmD2Ev.exit, label %751
 
-752:                                              ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i
-  call void @_ZdlPv(ptr noundef nonnull %751) #19
+751:                                              ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i
+  call void @_ZdlPv(ptr noundef nonnull %750) #19
   br label %_ZN8t_filenmD2Ev.exit
 
-_ZN8t_filenmD2Ev.exit:                            ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i, %752
-  %753 = icmp eq ptr %745, %16
-  br i1 %753, label %754, label %743
+_ZN8t_filenmD2Ev.exit:                            ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i, %751
+  %752 = icmp eq ptr %744, %16
+  br i1 %752, label %753, label %742
 
-754:                                              ; preds = %_ZN8t_filenmD2Ev.exit
+753:                                              ; preds = %_ZN8t_filenmD2Ev.exit
   ret i32 %.0332
 
-.loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit, %.body, %615, %594, %571, %556, %117, %115
-  %.pn426 = phi { ptr, i32 } [ %118, %117 ], [ %.pn420.pn.pn.pn, %571 ], [ %.pn415.pn.pn.pn, %594 ], [ %.pn410.pn.pn.pn, %615 ], [ %557, %556 ], [ %.pn.pn, %.body ], [ %116, %115 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit576, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit579, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit585, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit592, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit595.us, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us ], [ %lpad.loopexit598.us, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us ], [ %lpad.loopexit601, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit604, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit607, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp608, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  %755 = getelementptr inbounds i8, ptr %16, i64 280
-  br label %756
+.loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit, %.body, %614, %593, %570, %555, %117, %115
+  %.pn426 = phi { ptr, i32 } [ %118, %117 ], [ %.pn420.pn.pn.pn, %570 ], [ %.pn415.pn.pn.pn, %593 ], [ %.pn410.pn.pn.pn, %614 ], [ %556, %555 ], [ %.pn.pn, %.body ], [ %116, %115 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit576, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit579, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit585, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit592, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit595.us, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us ], [ %lpad.loopexit598.us, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us ], [ %lpad.loopexit601, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit604, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit607, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp608, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %754 = getelementptr inbounds i8, ptr %16, i64 280
+  br label %755
 
-756:                                              ; preds = %_ZN8t_filenmD2Ev.exit463, %.loopexit.split-lp
-  %757 = phi ptr [ %755, %.loopexit.split-lp ], [ %758, %_ZN8t_filenmD2Ev.exit463 ]
-  %758 = getelementptr inbounds i8, ptr %757, i64 -56
-  %759 = getelementptr inbounds i8, ptr %757, i64 -24
-  %760 = load ptr, ptr %759, align 8
-  %761 = getelementptr inbounds i8, ptr %757, i64 -16
-  %762 = load ptr, ptr %761, align 8
-  %.not4.i.i.i.i.i455 = icmp eq ptr %760, %762
+755:                                              ; preds = %_ZN8t_filenmD2Ev.exit463, %.loopexit.split-lp
+  %756 = phi ptr [ %754, %.loopexit.split-lp ], [ %757, %_ZN8t_filenmD2Ev.exit463 ]
+  %757 = getelementptr inbounds i8, ptr %756, i64 -56
+  %758 = getelementptr inbounds i8, ptr %756, i64 -24
+  %759 = load ptr, ptr %758, align 8
+  %760 = getelementptr inbounds i8, ptr %756, i64 -16
+  %761 = load ptr, ptr %760, align 8
+  %.not4.i.i.i.i.i455 = icmp eq ptr %759, %761
   br i1 %.not4.i.i.i.i.i455, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i461, label %.lr.ph.i.i.i.i.i456
 
-.lr.ph.i.i.i.i.i456:                              ; preds = %756, %.lr.ph.i.i.i.i.i456
-  %.05.i.i.i.i.i457 = phi ptr [ %763, %.lr.ph.i.i.i.i.i456 ], [ %760, %756 ]
+.lr.ph.i.i.i.i.i456:                              ; preds = %755, %.lr.ph.i.i.i.i.i456
+  %.05.i.i.i.i.i457 = phi ptr [ %762, %.lr.ph.i.i.i.i.i456 ], [ %759, %755 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i457) #14
-  %763 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i457, i64 32
-  %.not.i.i.i.i.i458 = icmp eq ptr %763, %762
+  %762 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i457, i64 32
+  %.not.i.i.i.i.i458 = icmp eq ptr %762, %761
   br i1 %.not.i.i.i.i.i458, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i459, label %.lr.ph.i.i.i.i.i456, !llvm.loop !38
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i459: ; preds = %.lr.ph.i.i.i.i.i456
-  %.pr.i.i460 = load ptr, ptr %759, align 8
+  %.pr.i.i460 = load ptr, ptr %758, align 8
   br label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i461
 
-_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i461: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i459, %756
-  %764 = phi ptr [ %.pr.i.i460, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i459 ], [ %760, %756 ]
-  %.not.i.i.i.i462 = icmp eq ptr %764, null
-  br i1 %.not.i.i.i.i462, label %_ZN8t_filenmD2Ev.exit463, label %765
+_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i461: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i459, %755
+  %763 = phi ptr [ %.pr.i.i460, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i459 ], [ %759, %755 ]
+  %.not.i.i.i.i462 = icmp eq ptr %763, null
+  br i1 %.not.i.i.i.i462, label %_ZN8t_filenmD2Ev.exit463, label %764
 
-765:                                              ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i461
-  call void @_ZdlPv(ptr noundef nonnull %764) #19
+764:                                              ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i461
+  call void @_ZdlPv(ptr noundef nonnull %763) #19
   br label %_ZN8t_filenmD2Ev.exit463
 
-_ZN8t_filenmD2Ev.exit463:                         ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i461, %765
-  %766 = icmp eq ptr %758, %16
-  br i1 %766, label %767, label %756
+_ZN8t_filenmD2Ev.exit463:                         ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i461, %764
+  %765 = icmp eq ptr %757, %16
+  br i1 %765, label %766, label %755
 
-767:                                              ; preds = %_ZN8t_filenmD2Ev.exit463
+766:                                              ; preds = %_ZN8t_filenmD2Ev.exit463
   resume { ptr, i32 } %.pn426
 }
 

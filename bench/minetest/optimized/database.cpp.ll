@@ -31,7 +31,7 @@ entry:
   %cmp9.i = icmp slt i64 %i, 0
   %retval.0.i = select i1 %cmp9.i, i64 %sub4.i, i64 %rem.i
   %conv = trunc nuw nsw i64 %retval.0.i to i16
-  %cmp.i = icmp ult i16 %conv, 2048
+  %cmp.i = icmp ult i64 %retval.0.i, 2048
   %sub.i18 = add nsw i16 %conv, -4096
   %retval.0.i19 = select i1 %cmp.i, i16 %conv, i16 %sub.i18
   %conv3 = sext i16 %retval.0.i19 to i64
@@ -44,7 +44,7 @@ entry:
   %cmp9.i24 = icmp slt i64 %sub, -4095
   %retval.0.i25 = select i1 %cmp9.i24, i64 %sub4.i23, i64 %rem.i20
   %conv5 = trunc nuw nsw i64 %retval.0.i25 to i16
-  %cmp.i26 = icmp ult i16 %conv5, 2048
+  %cmp.i26 = icmp ult i64 %retval.0.i25, 2048
   %sub.i27 = add nsw i16 %conv5, -4096
   %retval.0.i28 = select i1 %cmp.i26, i16 %conv5, i16 %sub.i27
   %conv8 = sext i16 %retval.0.i28 to i64
@@ -57,7 +57,7 @@ entry:
   %cmp9.i33 = icmp slt i64 %sub9, -4095
   %retval.0.i34 = select i1 %cmp9.i33, i64 %sub4.i32, i64 %rem.i29
   %conv12 = trunc nuw nsw i64 %retval.0.i34 to i16
-  %cmp.i35 = icmp ult i16 %conv12, 2048
+  %cmp.i35 = icmp ult i64 %retval.0.i34, 2048
   %sub.i36 = add nsw i16 %conv12, -4096
   %retval.0.i37 = select i1 %cmp.i35, i16 %conv12, i16 %sub.i36
   %retval.sroa.5.0.insert.ext = zext i16 %retval.0.i37 to i48

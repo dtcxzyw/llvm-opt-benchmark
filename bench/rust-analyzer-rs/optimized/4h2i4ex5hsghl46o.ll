@@ -4030,8 +4030,8 @@ default.unreachable:                              ; preds = %"_ZN5alloc3vec16Vec
   %12 = getelementptr inbounds i8, ptr %1, i64 40
   %13 = load i64, ptr %12, align 8, !alias.scope !670, !noalias !673, !noundef !4
   %notsub = add i64 %13, -1
-  %isneg.i = icmp slt i64 %notsub, 0
-  br i1 %isneg.i, label %50, label %_ZN3fst3raw5Bound11exceeded_by17h6f7f53368cc18044E.exit.thread
+  %switch.i = icmp slt i64 %notsub, 0
+  br i1 %switch.i, label %50, label %_ZN3fst3raw5Bound11exceeded_by17h6f7f53368cc18044E.exit.thread
 
 _ZN3fst3raw5Bound11exceeded_by17h6f7f53368cc18044E.exit: ; preds = %8
   %14 = getelementptr inbounds i8, ptr %1, i64 40
@@ -4625,8 +4625,8 @@ _ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit: ; preds = %_ZN3fst3r
   %292 = sext i32 %291 to i64
   %293 = icmp eq i32 %291, 0
   %spec.store.select.i17.i83 = select i1 %293, i64 %290, i64 %292
-  %isneg.i84 = icmp sgt i64 %spec.store.select.i17.i83, -1
-  br i1 %isneg.i84, label %301, label %_ZN3fst3raw5Bound11exceeded_by17h6f7f53368cc18044E.exit88.thread
+  %switch.i84 = icmp sgt i64 %spec.store.select.i17.i83, -1
+  br i1 %switch.i84, label %301, label %_ZN3fst3raw5Bound11exceeded_by17h6f7f53368cc18044E.exit88.thread
 
 _ZN3fst3raw5Bound11exceeded_by17h6f7f53368cc18044E.exit88: ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hac27c2a065b79fe4E.exit81"
   %294 = load ptr, ptr %43, align 8, !alias.scope !775, !noalias !778, !nonnull !4, !noundef !4
@@ -4733,8 +4733,8 @@ default.unreachable:                              ; preds = %"_ZN5alloc3vec16Vec
   %11 = getelementptr inbounds i8, ptr %1, i64 40
   %12 = load i64, ptr %11, align 8, !alias.scope !791, !noalias !794, !noundef !4
   %notsub = add i64 %12, -1
-  %isneg.i = icmp slt i64 %notsub, 0
-  br i1 %isneg.i, label %38, label %_ZN3fst3raw5Bound11exceeded_by17h6f7f53368cc18044E.exit.thread
+  %switch.i = icmp slt i64 %notsub, 0
+  br i1 %switch.i, label %38, label %_ZN3fst3raw5Bound11exceeded_by17h6f7f53368cc18044E.exit.thread
 
 _ZN3fst3raw5Bound11exceeded_by17h6f7f53368cc18044E.exit: ; preds = %7
   %13 = getelementptr inbounds i8, ptr %1, i64 40
@@ -5344,8 +5344,8 @@ _ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit: ; preds = %_ZN3fst3r
   %262 = sext i32 %261 to i64
   %263 = icmp eq i32 %261, 0
   %spec.store.select.i17.i80 = select i1 %263, i64 %260, i64 %262
-  %isneg.i81 = icmp sgt i64 %spec.store.select.i17.i80, -1
-  br i1 %isneg.i81, label %271, label %_ZN3fst3raw5Bound11exceeded_by17h6f7f53368cc18044E.exit85.thread
+  %switch.i81 = icmp sgt i64 %spec.store.select.i17.i80, -1
+  br i1 %switch.i81, label %271, label %_ZN3fst3raw5Bound11exceeded_by17h6f7f53368cc18044E.exit85.thread
 
 _ZN3fst3raw5Bound11exceeded_by17h6f7f53368cc18044E.exit85: ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3cbb74363ba598e5E.exit78"
   %264 = load ptr, ptr %31, align 8, !alias.scope !888, !noalias !891, !nonnull !4, !noundef !4
@@ -5438,8 +5438,8 @@ default.unreachable:                              ; preds = %"_ZN5alloc3vec16Vec
   %12 = getelementptr inbounds i8, ptr %1, i64 40
   %13 = load i64, ptr %12, align 8, !alias.scope !904, !noalias !907, !noundef !4
   %notsub = add i64 %13, -1
-  %isneg.i = icmp slt i64 %notsub, 0
-  br i1 %isneg.i, label %50, label %_ZN3fst3raw5Bound11exceeded_by17h6f7f53368cc18044E.exit.thread
+  %switch.i = icmp slt i64 %notsub, 0
+  br i1 %switch.i, label %50, label %_ZN3fst3raw5Bound11exceeded_by17h6f7f53368cc18044E.exit.thread
 
 _ZN3fst3raw5Bound11exceeded_by17h6f7f53368cc18044E.exit: ; preds = %8
   %14 = getelementptr inbounds i8, ptr %1, i64 40
@@ -6042,8 +6042,8 @@ _ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit: ; preds = %_ZN3fst3r
   %294 = sext i32 %293 to i64
   %295 = icmp eq i32 %293, 0
   %spec.store.select.i17.i82 = select i1 %295, i64 %292, i64 %294
-  %isneg.i83 = icmp sgt i64 %spec.store.select.i17.i82, -1
-  br i1 %isneg.i83, label %303, label %_ZN3fst3raw5Bound11exceeded_by17h6f7f53368cc18044E.exit87.thread
+  %switch.i83 = icmp sgt i64 %spec.store.select.i17.i82, -1
+  br i1 %switch.i83, label %303, label %_ZN3fst3raw5Bound11exceeded_by17h6f7f53368cc18044E.exit87.thread
 
 _ZN3fst3raw5Bound11exceeded_by17h6f7f53368cc18044E.exit87: ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h14f30fd5c233f3c7E.exit80"
   %296 = load ptr, ptr %43, align 8, !alias.scope !1007, !noalias !1010, !nonnull !4, !noundef !4
@@ -44951,12 +44951,12 @@ define noundef zeroext i1 @_ZN6ide_db12symbol_index29SymbolsDatabaseGroupStorage
   %5 = alloca [1 x { ptr, ptr }], align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = alloca i16, align 2
-  %.sroa.4.0.extract.shift = lshr i64 %3, 48
-  %.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i16
-  %switch = icmp ult i16 %.sroa.4.0.extract.trunc, 4
+  %switch = icmp ult i64 %3, 1125899906842624
   br i1 %switch, label %14, label %8
 
 8:                                                ; preds = %4
+  %.sroa.4.0.extract.shift = lshr i64 %3, 48
+  %.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i16
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7)
   store i16 %.sroa.4.0.extract.trunc, ptr %7, align 2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)

@@ -1932,15 +1932,18 @@ for.body.i:                                       ; preds = %if.end.i, %for.body
   br i1 %cmp21.not.i, label %if.end.i, label %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i
 
 _ZN5arrow8bit_util7CeilDivEll.exit.preheader.i:   ; preds = %for.body.i
+  %cmp2739.i = icmp ugt i32 %.sroa.speculated.i, 8
+  br i1 %cmp2739.i, label %for.body28.preheader.i, label %for.end.i
+
+for.body28.preheader.i:                           ; preds = %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i
   %sub.i33.i = add i32 %.sroa.speculated.i, -1
   %div.i515253.i = lshr i32 %sub.i33.i, 3
-  %div.i51.zext.i = zext nneg i32 %div.i515253.i to i64
-  %cmp2739.not.i = icmp ult i32 %.sroa.speculated.i, 9
-  br i1 %cmp2739.not.i, label %for.end.i, label %for.body28.i
+  %wide.trip.count.i = zext nneg i32 %div.i515253.i to i64
+  br label %for.body28.i
 
-for.body28.i:                                     ; preds = %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i, %for.body28.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body28.i ], [ 0, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i ]
-  %result_or.041.i = phi i64 [ %or.i, %for.body28.i ], [ 0, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i ]
+for.body28.i:                                     ; preds = %for.body28.i, %for.body28.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %for.body28.preheader.i ], [ %indvars.iv.next.i, %for.body28.i ]
+  %result_or.041.i = phi i64 [ 0, %for.body28.preheader.i ], [ %or.i, %for.body28.i ]
   %add.ptr30.i = getelementptr inbounds i64, ptr %add.ptr16.i, i64 %indvars.iv.i
   %ret.0.copyload.i.i = load i64, ptr %add.ptr30.i, align 8
   %arrayidx33.i = getelementptr inbounds i64, ptr %add.ptr18.i, i64 %indvars.iv.i
@@ -1948,7 +1951,7 @@ for.body28.i:                                     ; preds = %_ZN5arrow8bit_util7
   %xor.i = xor i64 %14, %ret.0.copyload.i.i
   %or.i = or i64 %xor.i, %result_or.041.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %div.i51.zext.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body28.i, !llvm.loop !34
 
 for.end.i:                                        ; preds = %for.body28.i, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i
@@ -2065,15 +2068,18 @@ for.body.i:                                       ; preds = %if.end.i, %for.body
   br i1 %cmp21.not.i, label %if.end.i, label %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i
 
 _ZN5arrow8bit_util7CeilDivEll.exit.preheader.i:   ; preds = %for.body.i
+  %cmp2740.i = icmp ugt i32 %.sroa.speculated.i, 8
+  br i1 %cmp2740.i, label %for.body28.preheader.i, label %for.end.i
+
+for.body28.preheader.i:                           ; preds = %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i
   %sub.i.i = add i32 %.sroa.speculated.i, -1
   %div.i525354.i = lshr i32 %sub.i.i, 3
-  %div.i52.zext.i = zext nneg i32 %div.i525354.i to i64
-  %cmp2740.not.i = icmp ult i32 %.sroa.speculated.i, 9
-  br i1 %cmp2740.not.i, label %for.end.i, label %for.body28.i
+  %wide.trip.count.i = zext nneg i32 %div.i525354.i to i64
+  br label %for.body28.i
 
-for.body28.i:                                     ; preds = %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i, %for.body28.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body28.i ], [ 0, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i ]
-  %result_or.042.i = phi i64 [ %or.i, %for.body28.i ], [ 0, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i ]
+for.body28.i:                                     ; preds = %for.body28.i, %for.body28.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %for.body28.preheader.i ], [ %indvars.iv.next.i, %for.body28.i ]
+  %result_or.042.i = phi i64 [ 0, %for.body28.preheader.i ], [ %or.i, %for.body28.i ]
   %add.ptr30.i = getelementptr inbounds i64, ptr %add.ptr16.i, i64 %indvars.iv.i
   %ret.0.copyload.i.i = load i64, ptr %add.ptr30.i, align 8
   %arrayidx33.i = getelementptr inbounds i64, ptr %add.ptr18.i, i64 %indvars.iv.i
@@ -2081,7 +2087,7 @@ for.body28.i:                                     ; preds = %_ZN5arrow8bit_util7
   %xor.i = xor i64 %17, %ret.0.copyload.i.i
   %or.i = or i64 %xor.i, %result_or.042.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %div.i52.zext.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body28.i, !llvm.loop !36
 
 for.end.i:                                        ; preds = %for.body28.i, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i
@@ -2188,15 +2194,18 @@ for.body.i:                                       ; preds = %if.end.i, %for.body
   br i1 %cmp19.not.i, label %if.end.i, label %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i
 
 _ZN5arrow8bit_util7CeilDivEll.exit.preheader.i:   ; preds = %for.body.i
+  %cmp2439.i = icmp ugt i32 %.sroa.speculated.i, 8
+  br i1 %cmp2439.i, label %for.body25.preheader.i, label %for.end.i
+
+for.body25.preheader.i:                           ; preds = %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i
   %sub.i33.i = add i32 %.sroa.speculated.i, -1
   %div.i535455.i = lshr i32 %sub.i33.i, 3
-  %div.i53.zext.i = zext nneg i32 %div.i535455.i to i64
-  %cmp2439.not.i = icmp ult i32 %.sroa.speculated.i, 9
-  br i1 %cmp2439.not.i, label %for.end.i, label %for.body25.i
+  %wide.trip.count.i = zext nneg i32 %div.i535455.i to i64
+  br label %for.body25.i
 
-for.body25.i:                                     ; preds = %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i, %for.body25.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body25.i ], [ 0, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i ]
-  %result_or.041.i = phi i64 [ %or.i, %for.body25.i ], [ 0, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i ]
+for.body25.i:                                     ; preds = %for.body25.i, %for.body25.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %for.body25.preheader.i ], [ %indvars.iv.next.i, %for.body25.i ]
+  %result_or.041.i = phi i64 [ 0, %for.body25.preheader.i ], [ %or.i, %for.body25.i ]
   %add.ptr27.i = getelementptr inbounds i64, ptr %add.ptr14.i, i64 %indvars.iv.i
   %ret.0.copyload.i.i = load i64, ptr %add.ptr27.i, align 8
   %arrayidx30.i = getelementptr inbounds i64, ptr %add.ptr16.i, i64 %indvars.iv.i
@@ -2204,7 +2213,7 @@ for.body25.i:                                     ; preds = %_ZN5arrow8bit_util7
   %xor.i = xor i64 %13, %ret.0.copyload.i.i
   %or.i = or i64 %xor.i, %result_or.041.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %div.i53.zext.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body25.i, !llvm.loop !38
 
 for.end.i:                                        ; preds = %for.body25.i, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i
@@ -2318,15 +2327,18 @@ for.body.i:                                       ; preds = %if.end.i, %for.body
   br i1 %cmp19.not.i, label %if.end.i, label %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i
 
 _ZN5arrow8bit_util7CeilDivEll.exit.preheader.i:   ; preds = %for.body.i
+  %cmp2440.i = icmp ugt i32 %.sroa.speculated.i, 8
+  br i1 %cmp2440.i, label %for.body25.preheader.i, label %for.end.i
+
+for.body25.preheader.i:                           ; preds = %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i
   %sub.i.i = add i32 %.sroa.speculated.i, -1
   %div.i535455.i = lshr i32 %sub.i.i, 3
-  %div.i53.zext.i = zext nneg i32 %div.i535455.i to i64
-  %cmp2440.not.i = icmp ult i32 %.sroa.speculated.i, 9
-  br i1 %cmp2440.not.i, label %for.end.i, label %for.body25.i
+  %wide.trip.count.i = zext nneg i32 %div.i535455.i to i64
+  br label %for.body25.i
 
-for.body25.i:                                     ; preds = %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i, %for.body25.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body25.i ], [ 0, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i ]
-  %result_or.042.i = phi i64 [ %or.i, %for.body25.i ], [ 0, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i ]
+for.body25.i:                                     ; preds = %for.body25.i, %for.body25.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %for.body25.preheader.i ], [ %indvars.iv.next.i, %for.body25.i ]
+  %result_or.042.i = phi i64 [ 0, %for.body25.preheader.i ], [ %or.i, %for.body25.i ]
   %add.ptr27.i = getelementptr inbounds i64, ptr %add.ptr14.i, i64 %indvars.iv.i
   %ret.0.copyload.i.i = load i64, ptr %add.ptr27.i, align 8
   %arrayidx30.i = getelementptr inbounds i64, ptr %add.ptr16.i, i64 %indvars.iv.i
@@ -2334,7 +2346,7 @@ for.body25.i:                                     ; preds = %_ZN5arrow8bit_util7
   %xor.i = xor i64 %16, %ret.0.copyload.i.i
   %or.i = or i64 %xor.i, %result_or.042.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %div.i53.zext.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body25.i, !llvm.loop !40
 
 for.end.i:                                        ; preds = %for.body25.i, %_ZN5arrow8bit_util7CeilDivEll.exit.preheader.i

@@ -41254,7 +41254,7 @@ invoke.cont4:                                     ; preds = %.noexc
 
 invoke.cont14:                                    ; preds = %invoke.cont4
   %add.i.i = add nsw i32 %conv.i.i.i, 719468
-  %cmp.i.i = icmp sgt i32 %conv.i.i.i, -719469
+  %cmp.i.i = icmp sgt i64 %retval.sroa.0.0.copyload.i.i, -62162121600000000
   %sub.i.i = add nsw i32 %conv.i.i.i, 573372
   %cond.i.i = select i1 %cmp.i.i, i32 %add.i.i, i32 %sub.i.i
   %div.i.i = sdiv i32 %cond.i.i, 146097
@@ -41326,7 +41326,7 @@ lpad1:                                            ; preds = %if.end
 
 invoke.cont42:                                    ; preds = %invoke.cont4
   %add.i.i17 = add nsw i32 %conv.i.i.i, 719467
-  %cmp.i.i18 = icmp sgt i32 %conv.i.i.i, -719468
+  %cmp.i.i18 = icmp sgt i64 %retval.sroa.0.0.copyload.i.i, -62162035200000000
   %sub.i.i19 = add nsw i32 %conv.i.i.i, 573371
   %cond.i.i20 = select i1 %cmp.i.i18, i32 %add.i.i17, i32 %sub.i.i19
   %div.i.i21 = sdiv i32 %cond.i.i20, 146097

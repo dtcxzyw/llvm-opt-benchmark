@@ -3283,7 +3283,8 @@ define internal fastcc noundef ptr @timesub(ptr nocapture noundef readonly %0, i
 51:                                               ; preds = %.critedge
   %52 = sdiv i64 %.074, 366
   %53 = trunc nsw i64 %52 to i32
-  %54 = icmp eq i32 %53, 0
+  %.074.off = add nsw i64 %.074, 365
+  %54 = icmp ult i64 %.074.off, 731
   %55 = select i1 %35, i32 -1, i32 1
   %spec.select = select i1 %54, i32 %55, i32 %53
   %56 = icmp sgt i32 %.016, -1

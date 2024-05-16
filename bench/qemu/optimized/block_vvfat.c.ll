@@ -5514,7 +5514,7 @@ if.then56.i:                                      ; preds = %land.rhs42.i
   %idxprom64.i = sext i32 %add63.i to i64
   %arrayidx65.i = getelementptr [820 x i8], ptr %lfn, i64 0, i64 %idxprom64.i
   store i8 0, ptr %arrayidx65.i, align 1
-  %cmp6768.i = icmp sgt i32 %50, -1
+  %cmp6768.i = icmp sgt i64 %indvars.iv.i130, -1
   br i1 %cmp6768.i, label %for.body69.lr.ph.i, label %if.end109.i
 
 for.body69.lr.ph.i:                               ; preds = %if.then56.i

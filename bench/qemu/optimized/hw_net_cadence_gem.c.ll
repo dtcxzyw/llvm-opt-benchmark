@@ -2174,10 +2174,9 @@ for.inc.i:                                        ; preds = %land.lhs.true41.i, 
 
 gem_mac_address_filter.exit:                      ; preds = %land.lhs.true41.i
   %20 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %cmp = icmp eq i32 %20, -1
-  br i1 %cmp, label %return, label %if.end
+  br label %if.end
 
-if.end:                                           ; preds = %if.then3.i, %entry, %if.then31.i, %gem_mac_address_filter.exit
+if.end:                                           ; preds = %gem_mac_address_filter.exit, %if.then3.i, %entry, %if.then31.i
   %retval.0.i253 = phi i32 [ %20, %gem_mac_address_filter.exit ], [ -2, %entry ], [ %cond.i, %if.then31.i ], [ -3, %if.then3.i ]
   %21 = and i32 %0, 65536
   %tobool.not = icmp eq i32 %21, 0
@@ -2912,8 +2911,8 @@ for.body.i247:                                    ; preds = %gem_receive_updates
   %cmp.i250 = icmp ult i64 %indvars.iv.next.i249, %105
   br i1 %cmp.i250, label %for.body.i247, label %return, !llvm.loop !9
 
-return:                                           ; preds = %for.inc.i, %for.body.i247, %if.then19.i, %if.then24.i, %if.then.i166, %if.then3.i168, %if.then3.i, %gem_receive_updatestats.exit, %if.then3, %gem_mac_address_filter.exit, %do.end72
-  %retval.0 = phi i64 [ -1, %do.end72 ], [ %size, %gem_mac_address_filter.exit ], [ -1, %if.then3 ], [ %size.addr.0, %gem_receive_updatestats.exit ], [ %size, %if.then3.i ], [ -1, %if.then3.i168 ], [ -1, %if.then.i166 ], [ -1, %if.then24.i ], [ -1, %if.then19.i ], [ %size.addr.0, %for.body.i247 ], [ %size, %for.inc.i ]
+return:                                           ; preds = %for.inc.i, %for.body.i247, %if.then19.i, %if.then24.i, %if.then.i166, %if.then3.i168, %if.then3.i, %gem_receive_updatestats.exit, %if.then3, %do.end72
+  %retval.0 = phi i64 [ -1, %do.end72 ], [ -1, %if.then3 ], [ %size.addr.0, %gem_receive_updatestats.exit ], [ %size, %if.then3.i ], [ -1, %if.then3.i168 ], [ -1, %if.then.i166 ], [ -1, %if.then24.i ], [ -1, %if.then19.i ], [ %size.addr.0, %for.body.i247 ], [ %size, %for.inc.i ]
   ret i64 %retval.0
 }
 

@@ -3275,15 +3275,15 @@ define void @_ZN12regex_syntax3hir3Hir11alternation17h33d54a3cb69fcc54E(ptr noal
   br i1 %or.cond.not.i, label %133, label %115
 
 115:                                              ; preds = %112
-  %116 = icmp ult i32 %.sroa.5.0.extract.trunc.i, 128
+  %116 = icmp ult i64 %111, 549755813888
   br i1 %116, label %121, label %117
 
 117:                                              ; preds = %115
-  %118 = icmp ult i32 %.sroa.5.0.extract.trunc.i, 2048
+  %118 = icmp ult i64 %111, 8796093022208
   br i1 %118, label %121, label %119
 
 119:                                              ; preds = %117
-  %120 = icmp ult i32 %.sroa.5.0.extract.trunc.i, 65536
+  %120 = icmp ult i64 %111, 281474976710656
   %..i = select i1 %120, i64 3, i64 4
   br label %121
 

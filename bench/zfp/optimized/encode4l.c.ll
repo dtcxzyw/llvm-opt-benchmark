@@ -1008,7 +1008,7 @@ stream_write_bit.exit44.i:                        ; preds = %116, %.lr.ph96.i
 .critedge2.i:                                     ; preds = %stream_write_bit.exit44.i
   %120 = trunc nuw nsw i64 %indvars.iv131.i to i32
   %121 = add nuw i32 %120, 1
-  %122 = icmp ult i32 %120, 255
+  %122 = icmp ult i64 %indvars.iv131.i, 255
   br i1 %122, label %.lr.ph110.i, label %.critedge.i
 
 .critedge.i:                                      ; preds = %.critedge2.i, %stream_write_bit.exit43.i, %.critedge2.thread.i, %.preheader80.i

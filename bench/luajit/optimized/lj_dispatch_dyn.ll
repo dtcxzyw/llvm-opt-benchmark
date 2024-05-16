@@ -469,45 +469,39 @@ cond.end51:                                       ; preds = %cond.true24, %cond.
 lor.lhs.false:                                    ; preds = %cond.true42, %cond.false46
   %cond52.ph = phi ptr [ %add.ptr48, %cond.false46 ], [ %add.ptr45, %cond.true42 ]
   %14 = load i64, ptr %cond52.ph, align 8
-  %shr55 = ashr i64 %14, 47
-  %15 = and i64 %shr55, 4294967295
-  %cmp57 = icmp eq i64 %15, 4294967287
+  %shr55.mask = and i64 %14, -140737488355328
+  %cmp57 = icmp eq i64 %shr55.mask, -1266637395197952
   br i1 %cmp57, label %land.lhs.true, label %if.else68
 
 land.lhs.true:                                    ; preds = %cond.end51, %lor.lhs.false
-  %16 = phi i64 [ %14, %lor.lhs.false ], [ %.pre, %cond.end51 ]
-  %and59 = and i64 %16, 140737488355327
-  %17 = inttoptr i64 %and59 to ptr
-  %ffid = getelementptr inbounds i8, ptr %17, i64 10
-  %18 = load i8, ptr %ffid, align 2
-  %cmp61 = icmp eq i8 %18, 0
-  br i1 %cmp61, label %if.then63, label %land.lhs.true.if.else68_crit_edge
-
-land.lhs.true.if.else68_crit_edge:                ; preds = %land.lhs.true
-  %.pre55 = ashr i64 %16, 47
-  br label %if.else68
+  %15 = phi i64 [ %14, %lor.lhs.false ], [ %.pre, %cond.end51 ]
+  %and59 = and i64 %15, 140737488355327
+  %16 = inttoptr i64 %and59 to ptr
+  %ffid = getelementptr inbounds i8, ptr %16, i64 10
+  %17 = load i8, ptr %ffid, align 2
+  %cmp61 = icmp eq i8 %17, 0
+  br i1 %cmp61, label %if.then63, label %if.else68
 
 if.then63:                                        ; preds = %land.lhs.true
-  %pc = getelementptr inbounds i8, ptr %17, i64 32
-  %19 = load i64, ptr %pc, align 8
-  %20 = inttoptr i64 %19 to ptr
-  %add.ptr67 = getelementptr inbounds i8, ptr %20, i64 -104
+  %pc = getelementptr inbounds i8, ptr %16, i64 32
+  %18 = load i64, ptr %pc, align 8
+  %19 = inttoptr i64 %18 to ptr
+  %add.ptr67 = getelementptr inbounds i8, ptr %19, i64 -104
   br label %if.end78
 
-if.else68:                                        ; preds = %land.lhs.true.if.else68_crit_edge, %lor.lhs.false
-  %shr69.pre-phi = phi i64 [ %.pre55, %land.lhs.true.if.else68_crit_edge ], [ %shr55, %lor.lhs.false ]
-  %21 = phi i64 [ %16, %land.lhs.true.if.else68_crit_edge ], [ %14, %lor.lhs.false ]
-  %22 = and i64 %shr69.pre-phi, 4294967295
-  %cmp71 = icmp eq i64 %22, 4294967288
+if.else68:                                        ; preds = %land.lhs.true, %lor.lhs.false
+  %20 = phi i64 [ %15, %land.lhs.true ], [ %14, %lor.lhs.false ]
+  %shr69.mask = and i64 %20, -140737488355328
+  %cmp71 = icmp eq i64 %shr69.mask, -1125899906842624
   br i1 %cmp71, label %if.then73, label %return
 
 if.then73:                                        ; preds = %if.else68
-  %and75 = and i64 %21, 140737488355327
-  %23 = inttoptr i64 %and75 to ptr
+  %and75 = and i64 %20, 140737488355327
+  %21 = inttoptr i64 %and75 to ptr
   br label %if.end78
 
 if.end78:                                         ; preds = %if.then73, %if.then63
-  %pt.0 = phi ptr [ %add.ptr67, %if.then63 ], [ %23, %if.then73 ]
+  %pt.0 = phi ptr [ %add.ptr67, %if.then63 ], [ %21, %if.then73 ]
   %cond48 = icmp eq i32 %and, 4
   br i1 %cond48, label %if.then85, label %if.then81
 
@@ -518,9 +512,9 @@ if.then81:                                        ; preds = %if.end78
 
 if.then.i:                                        ; preds = %if.then81
   %flags.i = getelementptr inbounds i8, ptr %pt.0, i64 61
-  %24 = load i8, ptr %flags.i, align 1
-  %25 = and i8 %24, -9
-  store i8 %25, ptr %flags.i, align 1
+  %22 = load i8, ptr %flags.i, align 1
+  %23 = and i8 %22, -9
+  store i8 %23, ptr %flags.i, align 1
   tail call void @lj_trace_reenableproto(ptr noundef %pt.0) #12
   br label %setptmode.exit
 
@@ -531,9 +525,9 @@ if.else.i:                                        ; preds = %if.then81
 
 if.then5.i:                                       ; preds = %if.else.i
   %flags6.i = getelementptr inbounds i8, ptr %pt.0, i64 61
-  %26 = load i8, ptr %flags6.i, align 1
-  %27 = or i8 %26, 8
-  store i8 %27, ptr %flags6.i, align 1
+  %24 = load i8, ptr %flags6.i, align 1
+  %25 = or i8 %24, 8
+  store i8 %25, ptr %flags6.i, align 1
   br label %if.end.i50
 
 if.end.i50:                                       ; preds = %if.then5.i, %if.else.i
@@ -572,48 +566,47 @@ if.then100:                                       ; preds = %if.then97
 
 cond.true104:                                     ; preds = %if.then100
   %base105 = getelementptr inbounds i8, ptr %L, i64 32
-  %28 = load ptr, ptr %base105, align 8
-  %29 = zext nneg i32 %idx to i64
-  %30 = getelementptr %union.TValue, ptr %28, i64 %29
-  %add.ptr108 = getelementptr i8, ptr %30, i64 -8
+  %26 = load ptr, ptr %base105, align 8
+  %27 = zext nneg i32 %idx to i64
+  %28 = getelementptr %union.TValue, ptr %26, i64 %27
+  %add.ptr108 = getelementptr i8, ptr %28, i64 -8
   br label %cond.end113
 
 cond.false109:                                    ; preds = %if.then100
   %top110 = getelementptr inbounds i8, ptr %L, i64 40
-  %31 = load ptr, ptr %top110, align 8
+  %29 = load ptr, ptr %top110, align 8
   %idx.ext111 = sext i32 %idx to i64
-  %add.ptr112 = getelementptr inbounds %union.TValue, ptr %31, i64 %idx.ext111
+  %add.ptr112 = getelementptr inbounds %union.TValue, ptr %29, i64 %idx.ext111
   br label %cond.end113
 
 cond.end113:                                      ; preds = %cond.false109, %cond.true104
   %cond114 = phi ptr [ %add.ptr108, %cond.true104 ], [ %add.ptr112, %cond.false109 ]
-  %32 = load i64, ptr %cond114, align 8
-  %shr115 = ashr i64 %32, 47
-  %33 = and i64 %shr115, 4294967295
-  %cmp117 = icmp eq i64 %33, 4294967292
+  %30 = load i64, ptr %cond114, align 8
+  %shr115.mask = and i64 %30, -140737488355328
+  %cmp117 = icmp eq i64 %shr115.mask, -562949953421312
   br i1 %cmp117, label %if.then119, label %return
 
 if.then119:                                       ; preds = %cond.end113
-  %shr.i = lshr i64 %32, 39
+  %shr.i = lshr i64 %30, 39
   %and.i = and i64 %shr.i, 255
   %cmp.i = icmp eq i64 %and.i, 255
   br i1 %cmp.i, label %lightudV.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then119
   %lightudseg.i = getelementptr inbounds i8, ptr %1, i64 112
-  %34 = load i64, ptr %lightudseg.i, align 8
-  %35 = inttoptr i64 %34 to ptr
-  %arrayidx.i = getelementptr inbounds i32, ptr %35, i64 %and.i
-  %36 = load i32, ptr %arrayidx.i, align 4
-  %conv.i = zext i32 %36 to i64
+  %31 = load i64, ptr %lightudseg.i, align 8
+  %32 = inttoptr i64 %31 to ptr
+  %arrayidx.i = getelementptr inbounds i32, ptr %32, i64 %and.i
+  %33 = load i32, ptr %arrayidx.i, align 4
+  %conv.i = zext i32 %33 to i64
   %shl.i = shl nuw i64 %conv.i, 32
-  %and1.i = and i64 %32, 549755813887
+  %and1.i = and i64 %30, 549755813887
   %or.i = or i64 %shl.i, %and1.i
-  %37 = inttoptr i64 %or.i to ptr
+  %34 = inttoptr i64 %or.i to ptr
   br label %lightudV.exit
 
 lightudV.exit:                                    ; preds = %if.then119, %if.end.i
-  %retval.i.0 = phi ptr [ %37, %if.end.i ], [ null, %if.then119 ]
+  %retval.i.0 = phi ptr [ %34, %if.end.i ], [ null, %if.then119 ]
   %wrapf = getelementptr inbounds i8, ptr %1, i64 344
   store ptr %retval.i.0, ptr %wrapf, align 8
   %bc_cfunc_ext = getelementptr inbounds i8, ptr %1, i64 364

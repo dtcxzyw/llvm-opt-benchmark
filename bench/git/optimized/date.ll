@@ -1749,8 +1749,8 @@ return.sink.split.i.i:                            ; preds = %if.then25.i.i, %if.
 land.lhs.true42.i:                                ; preds = %if.then29.i
   %conv43.i = and i64 %div.i49, 4294967295
   %or.cond.i74.i = icmp ult i64 %conv43.i, 25
-  %91 = icmp ult i16 %div31.lhs.trunc.i, 6000
-  %or.cond2.i75.i = and i1 %or.cond.i74.i, %91
+  %91 = icmp ult i64 %rem.i50, 6000
+  %or.cond2.i75.i = and i1 %91, %or.cond.i74.i
   %92 = icmp ult i64 %rem33.i, 61
   %or.cond4.i76.i = and i1 %92, %or.cond2.i75.i
   br i1 %or.cond4.i76.i, label %land.lhs.true49.i, label %if.end64.i
@@ -1834,7 +1834,7 @@ if.end99.i:                                       ; preds = %land.lhs.true92.i, 
   br label %if.end100.i
 
 if.end100.i:                                      ; preds = %if.end99.i, %if.end69.i
-  %cmp101.i = icmp eq i32 %85, 4
+  %cmp101.i = icmp eq i64 %indvars.iv.next.i48, 4
   br i1 %cmp101.i, label %if.then103.i, label %if.end124.i
 
 if.then103.i:                                     ; preds = %if.end100.i
@@ -1884,7 +1884,7 @@ if.then120.i:                                     ; preds = %if.else114.i
   br label %match_digit.exit
 
 if.end124.i:                                      ; preds = %if.end100.i
-  %cmp125.i = icmp ugt i32 %84, 1
+  %cmp125.i = icmp ugt i64 %indvars.iv.i47, 1
   br i1 %cmp125.i, label %match_digit.exit, label %if.end128.i
 
 if.end128.i:                                      ; preds = %if.end124.i
@@ -1901,7 +1901,7 @@ if.then137.i:                                     ; preds = %if.end128.i
   br label %match_digit.exit
 
 if.end140.i:                                      ; preds = %if.end128.i
-  %cmp141.i = icmp eq i32 %85, 2
+  %cmp141.i = icmp eq i64 %indvars.iv.next.i48, 2
   %107 = load i32, ptr %tm_year, align 4
   %cmp145.i = icmp slt i32 %107, 0
   %or.cond128 = select i1 %cmp141.i, i1 %cmp145.i, i1 false

@@ -5177,7 +5177,7 @@ default.unreachable.i:                            ; preds = %305, %117
   br label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h535325ff3998e19cE.exit.i"
 
 "_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h535325ff3998e19cE.exit.i": ; preds = %358, %348, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h535325ff3998e19cE.exit169.i", %337, %320, %309, %306
-  %.551.i = phi i1 [ %357, %348 ], [ %347, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h535325ff3998e19cE.exit169.i" ], [ %329, %320 ], [ %346, %337 ], [ %isneg.i, %358 ], [ %312, %309 ], [ false, %306 ]
+  %.551.i = phi i1 [ %357, %348 ], [ %347, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h535325ff3998e19cE.exit169.i" ], [ %329, %320 ], [ %346, %337 ], [ %switch81.i, %358 ], [ %312, %309 ], [ false, %306 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %30), !noalias !960
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0a8e1931e892f4c6E.llvm.1642340305153456520"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %30, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %35)
           to label %.noexc178.i unwind label %303, !noalias !848
@@ -5252,7 +5252,7 @@ default.unreachable.i:                            ; preds = %305, %117
   %365 = sext i32 %364 to i64
   %366 = icmp eq i32 %364, 0
   %spec.store.select.i.i.i175.i = select i1 %366, i64 %363, i64 %365
-  %isneg.i = icmp sgt i64 %spec.store.select.i.i.i175.i, -1
+  %switch81.i = icmp sgt i64 %spec.store.select.i.i.i175.i, -1
   br label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h535325ff3998e19cE.exit.i"
 
 367:                                              ; preds = %332, %.noexc178.i

@@ -4218,7 +4218,7 @@ ir_allocate_unique_spill_slots.exit:              ; preds = %192, %._crit_edge60
   store ptr null, ptr %36, align 8
   %448 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 2, ptr %448, align 8
-  br label %12563
+  br label %12562
 
 449:                                              ; preds = %443
   store i32 %442, ptr %444, align 4
@@ -5425,7 +5425,7 @@ ir_emit_mov.exit.i:                               ; preds = %switch.lookup2004, 
 1012:                                             ; preds = %1004
   %1013 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1011, i1 true)
   %1014 = trunc nuw nsw i64 %1013 to i32
-  %1015 = icmp eq i32 %1014, 1
+  %1015 = icmp eq i64 %1013, 1
   %1016 = zext i8 %977 to i64
   %1017 = getelementptr inbounds [14 x i8], ptr @ir_type_size, i64 0, i64 %1016
   %1018 = load i8, ptr %1017, align 1
@@ -5660,7 +5660,7 @@ ir_ref_spill_slot.exit.i.i598:                    ; preds = %1089, %1072
 
 1128:                                             ; preds = %1124, %1097
   %.0.i608 = phi i8 [ %1127, %1124 ], [ %1112, %1097 ]
-  %1129 = icmp eq i32 %1120, 1
+  %1129 = icmp eq i64 %1119, 1
   %1130 = zext i8 %1101 to i64
   %1131 = getelementptr inbounds [14 x i8], ptr @ir_type_size, i64 0, i64 %1130
   %1132 = load i8, ptr %1131, align 1
@@ -5951,7 +5951,7 @@ ir_emit_mov.exit173.i:                            ; preds = %switch.lookup2012, 
 
 1259:                                             ; preds = %._crit_edge1980, %ir_emit_mov.exit173.i
   %1260 = phi i8 [ %.pre1983, %._crit_edge1980 ], [ %1255, %ir_emit_mov.exit173.i ]
-  %1261 = icmp eq i32 %1233, 1
+  %1261 = icmp eq i64 %1232, 1
   br i1 %1261, label %1262, label %1267
 
 1262:                                             ; preds = %1259
@@ -32336,7 +32336,7 @@ dasm_free.exit:                                   ; preds = %12236, %12239
   store ptr null, ptr %36, align 8
   %12240 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 3, ptr %12240, align 8
-  br label %12563
+  br label %12562
 
 ir_emit_lea.exit:                                 ; preds = %11902, %11893, %11845, %12101, %6944, %6958, %6967, %ir_emit_store.exit.i1730, %12177, %12155, %11802, %11801, %11758, %ir_emit_store.exit.i1664, %11651, %11633, %11632, %11631, %11630, %11611, %11608, %11585, %11584, %11545, %851, %ir_emit_store.exit116.i, %11406, %11405, %11361, %11284, %11283, %11277, %11276, %11271, %ir_may_avoid_spill_load.exit.thread.i1597, %ir_may_avoid_spill_load.exit.i1599, %11255, %11152, %11146, %ir_may_avoid_spill_load.exit.thread.i1554, %ir_may_avoid_spill_load.exit.i1556, %11135, %11032, %11031, %10991, %ir_may_avoid_spill_load.exit.thread.i1516, %ir_may_avoid_spill_load.exit.i1520, %10986, %10881, %10880, %10879, %10839, %ir_may_avoid_spill_load.exit.thread.i, %ir_may_avoid_spill_load.exit.i, %10834, %10729, %10728, %10722, %ir_emit_mov.exit.i1461, %10710, %10705, %10704, %10664, %10663, %ir_is_same_spill_slot.exit97.i, %10597, %10579, %10578, %ir_is_same_spill_slot.exit.i, %10509, %10508, %10473, %10468, %10464, %.thread2.i1420, %10446, %10445, %10440, %ir_is_same_mem_var.exit.i1419, %.thread2.i1412, %.thread.i1415, %ir_is_same_mem_var.exit.i1411, %10344, %10343, %ir_emit_load_mem.exit.i1399, %ir_is_same_mem_var.exit.i, %10260, %10259, %ir_var_spill_slot.exit.i1383, %10190, %10189, %10188, %10187, %10185, %10184, %10183, %10182, %10180, %10179, %10178, %10177, %10175, %10174, %10173, %10172, %10170, %10169, %10168, %10167, %10153, %10152, %10150, %10148, %10146, %10145, %10143, %10141, %10139, %10138, %10136, %10134, %10132, %10131, %10129, %10127, %10125, %10124, %10122, %10120, %10075, %10074, %10072, %10070, %10068, %10067, %10065, %10063, %10060, %10059, %10057, %10055, %10053, %10052, %10050, %10048, %10045, %10044, %10042, %10040, %10038, %10037, %10035, %10033, %10030, %10029, %10027, %10025, %10023, %10022, %10020, %10018, %10008, %10007, %10005, %10003, %10001, %10000, %9998, %9996, %9988, %9987, %9985, %9983, %9981, %9980, %9978, %9976, %9973, %9972, %9970, %9968, %9966, %9965, %9963, %9961, %9958, %9957, %9955, %9953, %9951, %9950, %9948, %9946, %9943, %9942, %9940, %9938, %9936, %9935, %9933, %9931, %9921, %9920, %9918, %9916, %9914, %9913, %9911, %9909, %9901, %9900, %9898, %9896, %9894, %9893, %9891, %9889, %9886, %9885, %9883, %9881, %9879, %9878, %9876, %9874, %9871, %9870, %9868, %9866, %9864, %9863, %9861, %9859, %9856, %9855, %9853, %9851, %9849, %9848, %9846, %9844, %9834, %9833, %9831, %9829, %9827, %9826, %9824, %9822, %9814, %9813, %9811, %9809, %9807, %9806, %9804, %9802, %9799, %9798, %9796, %9794, %9792, %9791, %9789, %9787, %9784, %9783, %9781, %9779, %9777, %9776, %9774, %9772, %9769, %9768, %9766, %9764, %9762, %9761, %9759, %9757, %9747, %9746, %9744, %9742, %9740, %9739, %9737, %9735, %9727, %9726, %9724, %9722, %9720, %9719, %9717, %9715, %9712, %9711, %9709, %9707, %9705, %9704, %9702, %9700, %9697, %9696, %9694, %9692, %9690, %9689, %9687, %9685, %9682, %9681, %9679, %9677, %9675, %9674, %9672, %9670, %9660, %9659, %9657, %9655, %9653, %9652, %9650, %9648, %9591, %9590, %9589, %9588, %9586, %9585, %9584, %9583, %9580, %9579, %9578, %9577, %9575, %9574, %9573, %9572, %9569, %9568, %9567, %9566, %9564, %9563, %9562, %9561, %9558, %9557, %9556, %9555, %9553, %9552, %9551, %9550, %9540, %9539, %9538, %9537, %9535, %9534, %9533, %9532, %9524, %9523, %9522, %9521, %9519, %9518, %9517, %9516, %9513, %9512, %9511, %9510, %9508, %9507, %9506, %9505, %9502, %9501, %9500, %9499, %9497, %9496, %9495, %9494, %9491, %9490, %9489, %9488, %9486, %9485, %9484, %9483, %9473, %9472, %9471, %9470, %9468, %9467, %9466, %9465, %9457, %9456, %9455, %9454, %9452, %9451, %9450, %9449, %9446, %9445, %9444, %9443, %9441, %9440, %9439, %9438, %9435, %9434, %9433, %9432, %9430, %9429, %9428, %9427, %9424, %9423, %9422, %9421, %9419, %9418, %9417, %9416, %9406, %9405, %9404, %9403, %9401, %9400, %9399, %9398, %9390, %9389, %9388, %9387, %9385, %9384, %9383, %9382, %9379, %9378, %9377, %9376, %9374, %9373, %9372, %9371, %9368, %9367, %9366, %9365, %9363, %9362, %9361, %9360, %9357, %9356, %9355, %9354, %9352, %9351, %9350, %9349, %9339, %9338, %9337, %9336, %9334, %9333, %9332, %9331, %9323, %9322, %9321, %9320, %9318, %9317, %9316, %9315, %9312, %9311, %9310, %9309, %9307, %9306, %9305, %9304, %9301, %9300, %9299, %9298, %9296, %9295, %9294, %9293, %9290, %9289, %9288, %9287, %9285, %9284, %9283, %9282, %9272, %9271, %9270, %9269, %9267, %9266, %9265, %9264, %9193, %9192, %9190, %9188, %9186, %9185, %9183, %9181, %9178, %9177, %9175, %9173, %9171, %9170, %9168, %9166, %9163, %9162, %9160, %9158, %9156, %9155, %9153, %9151, %9148, %9147, %9145, %9143, %9141, %9140, %9138, %9136, %9126, %9125, %9123, %9121, %9119, %9118, %9116, %9114, %9101, %9100, %9099, %9098, %9096, %9095, %9094, %9093, %9090, %9089, %9088, %9087, %9085, %9084, %9083, %9082, %9079, %9078, %9077, %9076, %9074, %9073, %9072, %9071, %9068, %9067, %9066, %9065, %9063, %9062, %9061, %9060, %9050, %9049, %9048, %9047, %9045, %9044, %9043, %9042, %9028, %9027, %9026, %9025, %9023, %9022, %9021, %9020, %9017, %9016, %9015, %9014, %9012, %9011, %9010, %9009, %9006, %9005, %9004, %9003, %9001, %9000, %8999, %8998, %8995, %8994, %8993, %8992, %8990, %8989, %8988, %8987, %8977, %8976, %8975, %8974, %8972, %8971, %8970, %8969, %8908, %8907, %8906, %8905, %8903, %8902, %8901, %8900, %8897, %8896, %8895, %8894, %8892, %8891, %8890, %8889, %8886, %8885, %8884, %8883, %8881, %8880, %8879, %8878, %8875, %8874, %8873, %8872, %8870, %8869, %8868, %8867, %8857, %8856, %8855, %8854, %8852, %8851, %8850, %8849, %8841, %8840, %8839, %8838, %8836, %8835, %8834, %8833, %8830, %8829, %8828, %8827, %8825, %8824, %8823, %8822, %8819, %8818, %8817, %8816, %8814, %8813, %8812, %8811, %8808, %8807, %8806, %8805, %8803, %8802, %8801, %8800, %8790, %8789, %8788, %8787, %8785, %8784, %8783, %8782, %8767, %8766, %8765, %8764, %8762, %8761, %8760, %8759, %8756, %8755, %8754, %8753, %8751, %8750, %8749, %8748, %8745, %8744, %8743, %8742, %8740, %8739, %8738, %8737, %8734, %8733, %8732, %8731, %8729, %8728, %8727, %8726, %8716, %8715, %8714, %8713, %8711, %8710, %8709, %8708, %8696, %8695, %8694, %8693, %8691, %8690, %8689, %8688, %8685, %8684, %8683, %8682, %8680, %8679, %8678, %8677, %8674, %8673, %8672, %8671, %8669, %8668, %8667, %8666, %8663, %8662, %8661, %8660, %8658, %8657, %8656, %8655, %8645, %8644, %8643, %8642, %8640, %8639, %8638, %8637, %8586, %8585, %8545, %8540, %8539, %8537, %8536, %8534, %8533, %8531, %8530, %8524, %8523, %8490, %8481, %8426, %8425, %8423, %8422, %8420, %8419, %8417, %8416, %8410, %8409, %8339, %8331, %8298, %8256, %8071, %8070, %8010, %8009, %8008, %7968, %7949, %7905, %._crit_edge1229.i, %._crit_edge1245.i, %7575, %7574, %ir_emit_load_mem.exit388.i, %6835, %6802, %6801, %6757, %6756, %ir_emit_store.exit.thread60.i, %ir_emit_store.exit.i1127, %6716, %6715, %6678, %6644, %6643, %ir_emit_store.exit.thread59.i, %ir_emit_store.exit.i1109, %6603, %6602, %6565, %6530, %6529, %6489, %6255, %6254, %6214, %5868, %5867, %5827, %5514, %5513, %5474, %5040, %5039, %ir_emit_load_mem.exit.i, %4897, %4896, %4856, %4580, %4579, %4539, %4264, %4263, %4220, %4190, %4189, %_ir_emit_setcc_int.exit.i875, %4134, %4133, %_ir_emit_setcc_int.exit.i862, %4074, %4073, %_ir_emit_setcc_int.exit.i, %4017, %4013, %3998, %3993, %3945, %3944, %3902, %3443, %3442, %3400, %2958, %2957, %2917, %2740, %2739, %2697, %2579, %2578, %2537, %2455, %2454, %2411, %2375, %2374, %2334, %2274, %2273, %2233, %2173, %2172, %2132, %1566, %1565, %1525, %1446, %1445, %1405, %1327, %1326, %.thread180.i, %1207, %1206, %.thread.i609, %1096, %1095, %1055, %972, %971, %931, %ir_emit_guard_overflow.exit, %2959, %3946, %6836, %ir_emit_test_and_branch_int.exit, %6855, %ir_emit_if_int.exit, %ir_emit_overflow_and_branch.exit, %8192, %ir_emit_return_int.exit, %ir_emit_return_fp.exit, %8242, %8909, %ir_emit_va_start.exit, %12216, %851, %851, %851, %851, %851, %851, %ir_emit_guard_cmp_int.exit, %ir_emit_guard_cmp_fp.exit, %ir_emit_guard_test_int.exit, %ir_emit_guard_jcc_int.exit, %8189, %8191, %ir_emit_guard.exit, %849
   %12241 = getelementptr inbounds i8, ptr %.04851911, i64 2
@@ -32568,7 +32568,7 @@ ir_emit_lea.exit:                                 ; preds = %11902, %11893, %118
 dasm_free.exit1750:                               ; preds = %12341, %12344
   call void @_efree(ptr noundef nonnull %12324) #22
   store ptr null, ptr %36, align 8
-  br label %12563
+  br label %12562
 
 12345:                                            ; preds = %12319
   %12346 = call i32 @dasm_link(ptr noundef nonnull %454, ptr noundef %1)
@@ -32594,7 +32594,7 @@ dasm_free.exit1750:                               ; preds = %12341, %12344
 12361:                                            ; preds = %12350
   store ptr null, ptr %36, align 8
   store i32 1, ptr %12321, align 8
-  br label %12563
+  br label %12562
 
 12362:                                            ; preds = %12350
   %12363 = inttoptr i64 %12355 to ptr
@@ -32662,7 +32662,7 @@ dasm_free.exit1759:                               ; preds = %12385, %12388
   call void @_efree(ptr noundef nonnull %12368) #22
   store ptr null, ptr %36, align 8
   store i32 1, ptr %12321, align 8
-  br label %12563
+  br label %12562
 
 12389:                                            ; preds = %12365
   %12390 = call i32 @ir_mem_unprotect(ptr noundef nonnull %12366, i64 noundef %12347) #22
@@ -32751,7 +32751,7 @@ dasm_free.exit1768:                               ; preds = %12411, %12414
 12426:                                            ; preds = %12416, %12421, %12424
   store ptr null, ptr %36, align 8
   store i32 5, ptr %12321, align 8
-  br label %12563
+  br label %12562
 
 12427:                                            ; preds = %12391
   %12428 = load i32, ptr %35, align 4
@@ -32905,104 +32905,103 @@ dasm_getpclabel.exit1773:                         ; preds = %dasm_getpclabel.exi
 dasm_getpclabel.exit1776:                         ; preds = %12511, %12521, %12522
   %.0.i1774 = phi i32 [ %12520, %12511 ], [ -2, %12522 ], [ -1, %12521 ]
   store i32 %.0.i1774, ptr %12494, align 4
-  %12523 = and i64 %indvars.iv.next1968, 4294967295
-  %.not517 = icmp eq i64 %12523, 0
+  %.not517 = icmp eq i64 %indvars.iv.next1968, 0
   br i1 %.not517, label %.loopexit1902, label %12485
 
 .loopexit1902:                                    ; preds = %dasm_getpclabel.exit1776, %dasm_getpclabel.exit1773
-  %12524 = load ptr, ptr %454, align 8
-  %12525 = getelementptr inbounds i8, ptr %12524, i64 72
-  %12526 = load i32, ptr %12525, align 8
-  %12527 = icmp sgt i32 %12526, 0
-  br i1 %12527, label %.lr.ph.i1780, label %._crit_edge.i1777
+  %12523 = load ptr, ptr %454, align 8
+  %12524 = getelementptr inbounds i8, ptr %12523, i64 72
+  %12525 = load i32, ptr %12524, align 8
+  %12526 = icmp sgt i32 %12525, 0
+  br i1 %12526, label %.lr.ph.i1780, label %._crit_edge.i1777
 
 .lr.ph.i1780:                                     ; preds = %.loopexit1902
-  %12528 = getelementptr inbounds i8, ptr %12524, i64 80
-  br label %12529
+  %12527 = getelementptr inbounds i8, ptr %12523, i64 80
+  br label %12528
 
-12529:                                            ; preds = %12534, %.lr.ph.i1780
-  %12530 = phi i32 [ %12526, %.lr.ph.i1780 ], [ %12535, %12534 ]
-  %indvars.iv.i1781 = phi i64 [ 0, %.lr.ph.i1780 ], [ %indvars.iv.next.i1784, %12534 ]
-  %12531 = getelementptr inbounds [1 x %struct.dasm_Section], ptr %12528, i64 0, i64 %indvars.iv.i1781, i32 1
-  %12532 = load ptr, ptr %12531, align 8
-  %.not16.i1782 = icmp eq ptr %12532, null
-  br i1 %.not16.i1782, label %12534, label %12533
+12528:                                            ; preds = %12533, %.lr.ph.i1780
+  %12529 = phi i32 [ %12525, %.lr.ph.i1780 ], [ %12534, %12533 ]
+  %indvars.iv.i1781 = phi i64 [ 0, %.lr.ph.i1780 ], [ %indvars.iv.next.i1784, %12533 ]
+  %12530 = getelementptr inbounds [1 x %struct.dasm_Section], ptr %12527, i64 0, i64 %indvars.iv.i1781, i32 1
+  %12531 = load ptr, ptr %12530, align 8
+  %.not16.i1782 = icmp eq ptr %12531, null
+  br i1 %.not16.i1782, label %12533, label %12532
 
-12533:                                            ; preds = %12529
-  call void @_efree(ptr noundef nonnull %12532) #22
-  %.pre.i1783 = load i32, ptr %12525, align 8
-  br label %12534
+12532:                                            ; preds = %12528
+  call void @_efree(ptr noundef nonnull %12531) #22
+  %.pre.i1783 = load i32, ptr %12524, align 8
+  br label %12533
 
-12534:                                            ; preds = %12533, %12529
-  %12535 = phi i32 [ %12530, %12529 ], [ %.pre.i1783, %12533 ]
+12533:                                            ; preds = %12532, %12528
+  %12534 = phi i32 [ %12529, %12528 ], [ %.pre.i1783, %12532 ]
   %indvars.iv.next.i1784 = add nuw nsw i64 %indvars.iv.i1781, 1
-  %12536 = sext i32 %12535 to i64
-  %12537 = icmp slt i64 %indvars.iv.next.i1784, %12536
-  br i1 %12537, label %12529, label %._crit_edge.i1777
+  %12535 = sext i32 %12534 to i64
+  %12536 = icmp slt i64 %indvars.iv.next.i1784, %12535
+  br i1 %12536, label %12528, label %._crit_edge.i1777
 
-._crit_edge.i1777:                                ; preds = %12534, %.loopexit1902
-  %12538 = getelementptr inbounds i8, ptr %12524, i64 32
-  %12539 = load ptr, ptr %12538, align 8
-  %.not.i1778 = icmp eq ptr %12539, null
-  br i1 %.not.i1778, label %12541, label %12540
+._crit_edge.i1777:                                ; preds = %12533, %.loopexit1902
+  %12537 = getelementptr inbounds i8, ptr %12523, i64 32
+  %12538 = load ptr, ptr %12537, align 8
+  %.not.i1778 = icmp eq ptr %12538, null
+  br i1 %.not.i1778, label %12540, label %12539
 
-12540:                                            ; preds = %._crit_edge.i1777
-  call void @_efree(ptr noundef nonnull %12539) #22
-  br label %12541
+12539:                                            ; preds = %._crit_edge.i1777
+  call void @_efree(ptr noundef nonnull %12538) #22
+  br label %12540
 
-12541:                                            ; preds = %12540, %._crit_edge.i1777
-  %12542 = getelementptr inbounds i8, ptr %12524, i64 16
-  %12543 = load ptr, ptr %12542, align 8
-  %.not15.i1779 = icmp eq ptr %12543, null
-  br i1 %.not15.i1779, label %dasm_free.exit1785, label %12544
+12540:                                            ; preds = %12539, %._crit_edge.i1777
+  %12541 = getelementptr inbounds i8, ptr %12523, i64 16
+  %12542 = load ptr, ptr %12541, align 8
+  %.not15.i1779 = icmp eq ptr %12542, null
+  br i1 %.not15.i1779, label %dasm_free.exit1785, label %12543
 
-12544:                                            ; preds = %12541
-  call void @_efree(ptr noundef nonnull %12543) #22
+12543:                                            ; preds = %12540
+  call void @_efree(ptr noundef nonnull %12542) #22
   br label %dasm_free.exit1785
 
-dasm_free.exit1785:                               ; preds = %12541, %12544
-  call void @_efree(ptr noundef nonnull %12524) #22
-  %12545 = call i32 @ir_mem_flush(ptr noundef %.0488, i64 noundef %12347) #22
-  %12546 = load i32, ptr %535, align 8
-  %12547 = and i32 %12546, 4194304
-  %.not518 = icmp eq i32 %12547, 0
-  br i1 %.not518, label %.loopexit, label %12548
+dasm_free.exit1785:                               ; preds = %12540, %12543
+  call void @_efree(ptr noundef nonnull %12523) #22
+  %12544 = call i32 @ir_mem_flush(ptr noundef %.0488, i64 noundef %12347) #22
+  %12545 = load i32, ptr %535, align 8
+  %12546 = and i32 %12545, 4194304
+  %.not518 = icmp eq i32 %12546, 0
+  br i1 %.not518, label %.loopexit, label %12547
 
-12548:                                            ; preds = %dasm_free.exit1785
-  %12549 = getelementptr inbounds i8, ptr %0, i64 36
-  %12550 = load i32, ptr %12549, align 4
-  %12551 = and i32 %12550, 256
-  %.not519 = icmp eq i32 %12551, 0
-  br i1 %.not519, label %.loopexit, label %12552
+12547:                                            ; preds = %dasm_free.exit1785
+  %12548 = getelementptr inbounds i8, ptr %0, i64 36
+  %12549 = load i32, ptr %12548, align 4
+  %12550 = and i32 %12549, 256
+  %.not519 = icmp eq i32 %12550, 0
+  br i1 %.not519, label %.loopexit, label %12551
 
-12552:                                            ; preds = %12548
-  %12553 = ptrtoint ptr %.0488 to i64
-  %12554 = and i64 %12553, -64
-  %12555 = add i64 %12347, %12553
-  br label %12556
+12551:                                            ; preds = %12547
+  %12552 = ptrtoint ptr %.0488 to i64
+  %12553 = and i64 %12552, -64
+  %12554 = add i64 %12347, %12552
+  br label %12555
 
-12556:                                            ; preds = %12556, %12552
-  %.0 = phi i64 [ %12554, %12552 ], [ %12557, %12556 ]
+12555:                                            ; preds = %12555, %12551
+  %.0 = phi i64 [ %12553, %12551 ], [ %12556, %12555 ]
   call void asm sideeffect ".byte 0x0f, 0x1c, 0x06", "{si},~{dirflag},~{fpsr},~{flags}"(i64 %.0) #22, !srcloc !4
-  %12557 = add i64 %.0, 64
-  %12558 = icmp ult i64 %12557, %12555
-  br i1 %12558, label %12556, label %.loopexit
+  %12556 = add i64 %.0, 64
+  %12557 = icmp ult i64 %12556, %12554
+  br i1 %12557, label %12555, label %.loopexit
 
-.loopexit:                                        ; preds = %12556, %12548, %dasm_free.exit1785
-  %12559 = load ptr, ptr %12348, align 8
-  %.not520 = icmp eq ptr %12559, null
-  br i1 %.not520, label %12560, label %12562
+.loopexit:                                        ; preds = %12555, %12547, %dasm_free.exit1785
+  %12558 = load ptr, ptr %12348, align 8
+  %.not520 = icmp eq ptr %12558, null
+  br i1 %.not520, label %12559, label %12561
 
-12560:                                            ; preds = %.loopexit
-  %12561 = call i32 @ir_mem_protect(ptr noundef %.0488, i64 noundef %12347) #22
+12559:                                            ; preds = %.loopexit
+  %12560 = call i32 @ir_mem_protect(ptr noundef %.0488, i64 noundef %12347) #22
+  br label %12561
+
+12561:                                            ; preds = %12559, %.loopexit
+  store ptr null, ptr %36, align 8
   br label %12562
 
-12562:                                            ; preds = %12560, %.loopexit
-  store ptr null, ptr %36, align 8
-  br label %12563
-
-12563:                                            ; preds = %12562, %12426, %dasm_free.exit1759, %12361, %dasm_free.exit1750, %dasm_free.exit, %447
-  %.0481 = phi ptr [ null, %447 ], [ null, %dasm_free.exit ], [ null, %dasm_free.exit1750 ], [ null, %12361 ], [ null, %12426 ], [ %.0488, %12562 ], [ null, %dasm_free.exit1759 ]
+12562:                                            ; preds = %12561, %12426, %dasm_free.exit1759, %12361, %dasm_free.exit1750, %dasm_free.exit, %447
+  %.0481 = phi ptr [ null, %447 ], [ null, %dasm_free.exit ], [ null, %dasm_free.exit1750 ], [ null, %12361 ], [ null, %12426 ], [ %.0488, %12561 ], [ null, %dasm_free.exit1759 ]
   ret ptr %.0481
 }
 

@@ -2093,7 +2093,7 @@ do.body:                                          ; preds = %if.end1116, %do.bod
   br i1 %tobool1127.not, label %while.end1150, label %do.body, !llvm.loop !17
 
 if.end1128:                                       ; preds = %if.end1116
-  %tobool1130.not767 = icmp eq i32 %n.15, 0
+  %tobool1130.not767 = icmp eq i64 %n.15.in, 0
   br i1 %tobool1130.not767, label %while.end1150, label %while.body1131
 
 while.body1131:                                   ; preds = %if.end1128, %if.end1149
@@ -3278,7 +3278,7 @@ if.end129:                                        ; preds = %for.cond119
   %rem125 = urem i64 %storemerge99, 100000000
   %div127 = udiv i64 %storemerge99, 100000000
   %n120.0 = trunc nuw nsw i64 %rem125 to i32
-  %tobool131.not86 = icmp eq i32 %n120.0, 0
+  %tobool131.not86 = icmp eq i64 %rem125, 0
   br i1 %tobool131.not86, label %while.body156.preheader, label %while.body132.preheader
 
 if.end129.thread:                                 ; preds = %for.cond119

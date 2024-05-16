@@ -1925,7 +1925,7 @@ define hidden void @"_ZN3gif7encoder16Encoder$LT$W$GT$20write_global_palette17h3
   %19 = zext nneg i8 %18 to i64
   %20 = shl i64 2, %19
   %21 = sub i64 %20, %.zext.i
-  %22 = icmp ugt i16 %.lhs.trunc.i, 2
+  %22 = icmp ugt i64 %3, 2
   %23 = getelementptr inbounds i8, ptr %1, i64 36
   %24 = zext i1 %22 to i8
   store i8 %24, ptr %23, align 4

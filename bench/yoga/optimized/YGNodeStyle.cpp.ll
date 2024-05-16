@@ -774,47 +774,48 @@ entry:
   %flexBasis_.i = getelementptr inbounds i8, ptr %node, i64 64
   %retval.sroa.0.0.copyload.i = load i32, ptr %flexBasis_.i, align 4
   switch i32 %retval.sroa.0.0.copyload.i, label %sw.epilog.i [
-    i32 2141891242, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit
-    i32 2140081935, label %if.end
+    i32 2141891242, label %sw.bb.i
+    i32 2140081935, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit
     i32 2139156720, label %sw.bb3.i
   ]
 
+sw.bb.i:                                          ; preds = %entry
+  %retval.sroa.0.0.copyload4.i = load i32, ptr @YGValueAuto, align 4
+  %retval.sroa.6.0.copyload.i = load i32, ptr getelementptr inbounds (%struct.YGValue, ptr @YGValueAuto, i64 0, i32 1), align 4
+  br label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit
+
 sw.bb3.i:                                         ; preds = %entry
-  br label %if.end
+  br label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit
 
 sw.epilog.i:                                      ; preds = %entry
   %0 = bitcast i32 %retval.sroa.0.0.copyload.i to float
   %1 = fcmp uno float %0, 0.000000e+00
-  br i1 %1, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit, label %if.end.i
+  br i1 %1, label %if.then.i, label %if.end.i
+
+if.then.i:                                        ; preds = %sw.epilog.i
+  %retval.sroa.0.0.copyload13.i = load i32, ptr @YGValueUndefined, align 4
+  %retval.sroa.6.0.copyload2.i = load i32, ptr getelementptr inbounds (%struct.YGValue, ptr @YGValueUndefined, i64 0, i32 1), align 4
+  br label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit
 
 if.end.i:                                         ; preds = %sw.epilog.i
   %and.i = and i32 %retval.sroa.0.0.copyload.i, -1073741825
   %add.i = add nuw nsw i32 %and.i, 536870912
   %and13.i = and i32 %retval.sroa.0.0.copyload.i, 1073741824
   %tobool.not.i = icmp eq i32 %and13.i, 0
-  %spec.select = select i1 %tobool.not.i, i64 4294967296, i64 8589934592
-  br label %if.end
+  %cond.i = select i1 %tobool.not.i, i32 1, i32 2
+  br label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit
 
-_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit: ; preds = %sw.epilog.i, %entry
-  %.in = phi ptr [ @YGValueAuto, %entry ], [ @YGValueUndefined, %sw.epilog.i ]
-  %retval.sroa.6.0.i.in = phi ptr [ getelementptr inbounds (%struct.YGValue, ptr @YGValueAuto, i64 0, i32 1), %entry ], [ getelementptr inbounds (%struct.YGValue, ptr @YGValueUndefined, i64 0, i32 1), %sw.epilog.i ]
-  %retval.sroa.6.0.i = load i32, ptr %retval.sroa.6.0.i.in, align 4
-  %2 = load i32, ptr %.in, align 4
+_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit: ; preds = %entry, %sw.bb.i, %sw.bb3.i, %if.then.i, %if.end.i
+  %2 = phi i32 [ %retval.sroa.0.0.copyload13.i, %if.then.i ], [ %add.i, %if.end.i ], [ 0, %sw.bb3.i ], [ %retval.sroa.0.0.copyload4.i, %sw.bb.i ], [ 0, %entry ]
+  %retval.sroa.6.0.i = phi i32 [ %retval.sroa.6.0.copyload2.i, %if.then.i ], [ %cond.i, %if.end.i ], [ 2, %sw.bb3.i ], [ %retval.sroa.6.0.copyload.i, %sw.bb.i ], [ 1, %entry ]
   %retval.sroa.6.0.insert.ext.i = zext i32 %retval.sroa.6.0.i to i64
   %retval.sroa.6.0.insert.shift.i = shl nuw i64 %retval.sroa.6.0.insert.ext.i, 32
-  switch i32 %retval.sroa.6.0.i, label %if.end [
-    i32 3, label %if.then
-    i32 0, label %if.then
-  ]
-
-if.then:                                          ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit
-  br label %if.end
-
-if.end:                                           ; preds = %entry, %sw.bb3.i, %if.end.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit, %if.then
-  %retval.sroa.6.0.insert.shift.i7 = phi i64 [ %retval.sroa.6.0.insert.shift.i, %if.then ], [ %retval.sroa.6.0.insert.shift.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit ], [ 4294967296, %entry ], [ 8589934592, %sw.bb3.i ], [ %spec.select, %if.end.i ]
-  %retval.sroa.0.0.insert.ext.shrunk = phi i32 [ 2143289344, %if.then ], [ %2, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit ], [ 0, %entry ], [ 0, %sw.bb3.i ], [ %add.i, %if.end.i ]
-  %retval.sroa.0.0.insert.ext = zext i32 %retval.sroa.0.0.insert.ext.shrunk to i64
-  %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.6.0.insert.shift.i7, %retval.sroa.0.0.insert.ext
+  %retval.sroa.0.0.insert.ext.i = zext i32 %2 to i64
+  %cmp = icmp eq i32 %retval.sroa.6.0.i, 0
+  %cmp5 = icmp eq i32 %retval.sroa.6.0.i, 3
+  %or.cond = or i1 %cmp, %cmp5
+  %spec.select = select i1 %or.cond, i64 2143289344, i64 %retval.sroa.0.0.insert.ext.i
+  %retval.sroa.0.0.insert.insert = or disjoint i64 %spec.select, %retval.sroa.6.0.insert.shift.i
   ret i64 %retval.sroa.0.0.insert.insert
 }
 

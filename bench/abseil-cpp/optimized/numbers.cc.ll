@@ -478,7 +478,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %conv1.i = trunc nuw i64 %i to i32
-  %cmp.i30.i = icmp ult i32 %conv1.i, 10
+  %cmp.i30.i = icmp ult i64 %i, 10
   br i1 %cmp.i30.i, label %if.then.i53.i, label %if.end.i31.i
 
 if.then.i53.i:                                    ; preds = %if.then.i
@@ -489,7 +489,7 @@ if.then.i53.i:                                    ; preds = %if.then.i
   br label %_ZN4absl12_GLOBAL__N_113EncodeFullU64EmPc.exit
 
 if.end.i31.i:                                     ; preds = %if.then.i
-  %cmp1.i32.i = icmp ult i32 %conv1.i, 100000000
+  %cmp1.i32.i = icmp ult i64 %i, 100000000
   br i1 %cmp1.i32.i, label %if.then2.i40.i, label %if.end8.i33.i
 
 if.then2.i40.i:                                   ; preds = %if.end.i31.i
@@ -574,9 +574,9 @@ if.end.i:                                         ; preds = %entry
   %cmp3.i = icmp ult i64 %i, 10000000000000000
   %div.i = udiv i64 %i, 100000000
   %mod08.i.0.in = urem i64 %i, 100000000
-  br i1 %cmp3.i, label %if.then4.i, label %if.else.i
+  br i1 %cmp3.i, label %if.then2.i.i, label %if.else.i
 
-if.then4.i:                                       ; preds = %if.end.i
+if.then2.i.i:                                     ; preds = %if.end.i
   %conv5.i = trunc nuw nsw i64 %div.i to i32
   %div.i78 = udiv i32 %conv5.i, 10000
   %rem.i79 = urem i32 %conv5.i, 10000
@@ -667,8 +667,8 @@ if.else.i:                                        ; preds = %if.end.i
   %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr25.i, i64 8
   br label %if.end18.i
 
-if.end18.i:                                       ; preds = %if.then4.i, %if.else.i
-  %buffer.addr.i.0 = phi ptr [ %add.ptr.i, %if.else.i ], [ %add.ptr7.i.i, %if.then4.i ]
+if.end18.i:                                       ; preds = %if.then2.i.i, %if.else.i
+  %buffer.addr.i.0 = phi ptr [ %add.ptr.i, %if.else.i ], [ %add.ptr7.i.i, %if.then2.i.i ]
   %mod08.i.0 = trunc nuw nsw i64 %mod08.i.0.in to i32
   %div.i128 = udiv i32 %mod08.i.0, 10000
   %rem.i129 = urem i32 %mod08.i.0, 10000
@@ -721,7 +721,7 @@ if.end:                                           ; preds = %if.then, %entry
 
 if.then.i:                                        ; preds = %if.end
   %conv1.i = trunc nuw i64 %u.0 to i32
-  %cmp.i30.i = icmp ult i32 %conv1.i, 10
+  %cmp.i30.i = icmp ult i64 %u.0, 10
   br i1 %cmp.i30.i, label %if.then.i53.i, label %if.end.i31.i
 
 if.then.i53.i:                                    ; preds = %if.then.i
@@ -732,7 +732,7 @@ if.then.i53.i:                                    ; preds = %if.then.i
   br label %_ZN4absl12_GLOBAL__N_113EncodeFullU64EmPc.exit
 
 if.end.i31.i:                                     ; preds = %if.then.i
-  %cmp1.i32.i = icmp ult i32 %conv1.i, 100000000
+  %cmp1.i32.i = icmp ult i64 %u.0, 100000000
   br i1 %cmp1.i32.i, label %if.then2.i40.i, label %if.end8.i33.i
 
 if.then2.i40.i:                                   ; preds = %if.end.i31.i
@@ -817,9 +817,9 @@ if.end.i:                                         ; preds = %if.end
   %cmp3.i = icmp ult i64 %u.0, 10000000000000000
   %div.i = udiv i64 %u.0, 100000000
   %mod08.i.0.in = urem i64 %u.0, 100000000
-  br i1 %cmp3.i, label %if.then4.i, label %if.else.i
+  br i1 %cmp3.i, label %if.then2.i.i, label %if.else.i
 
-if.then4.i:                                       ; preds = %if.end.i
+if.then2.i.i:                                     ; preds = %if.end.i
   %conv5.i = trunc nuw nsw i64 %div.i to i32
   %div.i81 = udiv i32 %conv5.i, 10000
   %rem.i82 = urem i32 %conv5.i, 10000
@@ -910,8 +910,8 @@ if.else.i:                                        ; preds = %if.end.i
   %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr25.i, i64 8
   br label %if.end18.i
 
-if.end18.i:                                       ; preds = %if.then4.i, %if.else.i
-  %buffer.addr.i.0 = phi ptr [ %add.ptr.i, %if.else.i ], [ %add.ptr7.i.i, %if.then4.i ]
+if.end18.i:                                       ; preds = %if.then2.i.i, %if.else.i
+  %buffer.addr.i.0 = phi ptr [ %add.ptr.i, %if.else.i ], [ %add.ptr7.i.i, %if.then2.i.i ]
   %mod08.i.0 = trunc nuw nsw i64 %mod08.i.0.in to i32
   %div.i131 = udiv i32 %mod08.i.0, 10000
   %rem.i132 = urem i32 %mod08.i.0, 10000

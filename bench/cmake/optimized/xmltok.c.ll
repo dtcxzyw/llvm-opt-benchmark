@@ -900,27 +900,25 @@ define dso_local range(i32 0, 2) i32 @XmlInitEncoding(ptr noundef %0, ptr nounde
   br i1 %exitcond.not.i, label %getEncodingIndex.exit.thread, label %.preheader.i, !llvm.loop !10
 
 getEncodingIndex.exit:                            ; preds = %12
-  %16 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %17 = icmp eq i32 %16, -1
-  br i1 %17, label %getEncodingIndex.exit.thread, label %getEncodingIndex.exit.thread13
+  %16 = trunc i64 %indvars.iv.i to i8
+  br label %getEncodingIndex.exit.thread13
 
-getEncodingIndex.exit.thread13:                   ; preds = %3, %getEncodingIndex.exit
-  %.06.i15 = phi i32 [ %16, %getEncodingIndex.exit ], [ 6, %3 ]
-  %18 = trunc i32 %.06.i15 to i8
-  %19 = getelementptr inbounds i8, ptr %0, i64 125
-  store i8 %18, ptr %19, align 1
+getEncodingIndex.exit.thread13:                   ; preds = %getEncodingIndex.exit, %3
+  %.06.i15 = phi i8 [ %16, %getEncodingIndex.exit ], [ 6, %3 ]
+  %17 = getelementptr inbounds i8, ptr %0, i64 125
+  store i8 %.06.i15, ptr %17, align 1
   store ptr @initScanProlog, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr @initScanContent, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 88
-  store ptr @initUpdatePosition, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 128
-  store ptr %1, ptr %22, align 8
+  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr @initScanContent, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 88
+  store ptr @initUpdatePosition, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 128
+  store ptr %1, ptr %20, align 8
   store ptr %0, ptr %1, align 8
   br label %getEncodingIndex.exit.thread
 
-getEncodingIndex.exit.thread:                     ; preds = %15, %getEncodingIndex.exit, %getEncodingIndex.exit.thread13
-  %.0 = phi i32 [ 1, %getEncodingIndex.exit.thread13 ], [ 0, %getEncodingIndex.exit ], [ 0, %15 ]
+getEncodingIndex.exit.thread:                     ; preds = %15, %getEncodingIndex.exit.thread13
+  %.0 = phi i32 [ 1, %getEncodingIndex.exit.thread13 ], [ 0, %15 ]
   ret i32 %.0
 }
 
@@ -1037,10 +1035,10 @@ normal_updatePosition.exit:                       ; preds = %50, %4
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @XmlParseXmlDecl(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr noundef writeonly %5, ptr noundef writeonly %6, ptr noundef writeonly %7, ptr noundef writeonly %8, ptr noundef writeonly %9) local_unnamed_addr #5 {
   %11 = alloca ptr, align 8
-  %12 = alloca [128 x i8], align 16
+  %12 = alloca [1 x i8], align 1
   %13 = alloca ptr, align 8
   %14 = alloca ptr, align 8
-  %15 = alloca [1 x i8], align 1
+  %15 = alloca [128 x i8], align 16
   %16 = alloca ptr, align 8
   %17 = alloca ptr, align 8
   %18 = alloca [1 x i8], align 1
@@ -1075,7 +1073,7 @@ define dso_local range(i32 0, 2) i32 @XmlParseXmlDecl(i32 noundef %0, ptr nounde
 
 37:                                               ; preds = %10
   %38 = load ptr, ptr %20, align 8
-  br label %.sink.split9.i
+  br label %.sink.split12.i
 
 39:                                               ; preds = %10
   %40 = getelementptr inbounds i8, ptr %1, i64 40
@@ -1087,7 +1085,7 @@ define dso_local range(i32 0, 2) i32 @XmlParseXmlDecl(i32 noundef %0, ptr nounde
 
 44:                                               ; preds = %39
   %.not72.i = icmp eq i32 %0, 0
-  br i1 %.not72.i, label %.sink.split9.i, label %59
+  br i1 %.not72.i, label %.sink.split12.i, label %59
 
 45:                                               ; preds = %39
   %.not73.i = icmp eq ptr %5, null
@@ -1114,7 +1112,7 @@ define dso_local range(i32 0, 2) i32 @XmlParseXmlDecl(i32 noundef %0, ptr nounde
 
 52:                                               ; preds = %50
   %53 = load ptr, ptr %20, align 8
-  br label %.sink.split9.i
+  br label %.sink.split12.i
 
 54:                                               ; preds = %50
   %55 = load ptr, ptr %22, align 8
@@ -1122,7 +1120,7 @@ define dso_local range(i32 0, 2) i32 @XmlParseXmlDecl(i32 noundef %0, ptr nounde
   br i1 %.not76.i, label %56, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %54
-  %.pre5.i = load ptr, ptr %23, align 8
+  %.pre7.i = load ptr, ptr %23, align 8
   br label %59
 
 56:                                               ; preds = %54
@@ -1131,15 +1129,15 @@ define dso_local range(i32 0, 2) i32 @XmlParseXmlDecl(i32 noundef %0, ptr nounde
 
 57:                                               ; preds = %56
   %58 = load ptr, ptr %20, align 8
-  br label %.sink.split9.i
+  br label %.sink.split12.i
 
 59:                                               ; preds = %._crit_edge.i, %44
-  %60 = phi ptr [ %.pre5.i, %._crit_edge.i ], [ %42, %44 ]
+  %60 = phi ptr [ %.pre7.i, %._crit_edge.i ], [ %42, %44 ]
   %61 = phi ptr [ %55, %._crit_edge.i ], [ %35, %44 ]
   %62 = load ptr, ptr %40, align 8
   %63 = tail call i32 %62(ptr noundef nonnull %1, ptr noundef nonnull %61, ptr noundef %60, ptr noundef nonnull @KW_encoding) #13
   %.not78.i = icmp eq i32 %63, 0
-  br i1 %.not78.i, label %123, label %64
+  br i1 %.not78.i, label %120, label %64
 
 64:                                               ; preds = %59
   %65 = load ptr, ptr %21, align 8
@@ -1163,7 +1161,7 @@ define dso_local range(i32 0, 2) i32 @XmlParseXmlDecl(i32 noundef %0, ptr nounde
   %75 = add nsw i32 %74, -65
   %or.cond893.i = icmp ult i32 %75, 26
   %or.cond89.i = select i1 %71, i1 %or.cond893.i, i1 false
-  br i1 %or.cond89.i, label %76, label %.sink.split9.i
+  br i1 %or.cond89.i, label %76, label %.sink.split12.i
 
 76:                                               ; preds = %64
   %.not79.i = icmp eq ptr %7, null
@@ -1175,224 +1173,219 @@ define dso_local range(i32 0, 2) i32 @XmlParseXmlDecl(i32 noundef %0, ptr nounde
 
 78:                                               ; preds = %77, %76
   %.not80.i = icmp eq ptr %8, null
-  %.pre6.i = load ptr, ptr %20, align 8
-  br i1 %.not80.i, label %117, label %79
+  %.pre8.i = load ptr, ptr %20, align 8
+  br i1 %.not80.i, label %114, label %79
 
 79:                                               ; preds = %78
   %80 = load i32, ptr %24, align 8
   %81 = sext i32 %80 to i64
   %82 = sub nsw i64 0, %81
-  %83 = getelementptr inbounds i8, ptr %.pre6.i, i64 %82
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
-  store ptr %65, ptr %11, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %12, i8 0, i64 128, i1 false)
-  store ptr %12, ptr %13, align 8
+  %83 = getelementptr inbounds i8, ptr %.pre8.i, i64 %82
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
+  store ptr %65, ptr %14, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %15, i8 0, i64 128, i1 false)
+  store ptr %15, ptr %16, align 8
   %84 = load ptr, ptr %66, align 8
-  %85 = getelementptr inbounds i8, ptr %12, i64 127
-  %86 = call i32 %84(ptr noundef nonnull %1, ptr noundef nonnull %11, ptr noundef %83, ptr noundef nonnull %13, ptr noundef nonnull %85) #13
-  %87 = load ptr, ptr %11, align 8
-  %.not.i9 = icmp eq ptr %87, %83
-  br i1 %.not.i9, label %88, label %findEncoding.exit
+  %85 = getelementptr inbounds i8, ptr %15, i64 127
+  %86 = call i32 %84(ptr noundef nonnull %1, ptr noundef nonnull %14, ptr noundef %83, ptr noundef nonnull %16, ptr noundef nonnull %85) #13
+  %87 = load ptr, ptr %14, align 8
+  %.not.i.i = icmp eq ptr %87, %83
+  br i1 %.not.i.i, label %88, label %findEncoding.exit.i
 
 88:                                               ; preds = %79
-  %89 = load ptr, ptr %13, align 8
+  %89 = load ptr, ptr %16, align 8
   store i8 0, ptr %89, align 1
   br label %90
 
 90:                                               ; preds = %95, %88
-  %.018.i.i = phi ptr [ %12, %88 ], [ %97, %95 ]
-  %.017.i.i = phi ptr [ @KW_UTF_16, %88 ], [ %96, %95 ]
-  %91 = load i8, ptr %.018.i.i, align 1
-  %92 = load i8, ptr %.017.i.i, align 1
+  %.018.i.i.i = phi ptr [ %15, %88 ], [ %97, %95 ]
+  %.017.i.i.i = phi ptr [ @KW_UTF_16, %88 ], [ %96, %95 ]
+  %91 = load i8, ptr %.018.i.i.i, align 1
+  %92 = load i8, ptr %.017.i.i.i, align 1
   %93 = add i8 %91, -97
-  %or.cond.i.i = icmp ult i8 %93, 26
-  %narrow.i.i = add nsw i8 %91, -32
-  %spec.select.i.i = select i1 %or.cond.i.i, i8 %narrow.i.i, i8 %91
+  %or.cond.i.i.i = icmp ult i8 %93, 26
+  %narrow.i.i.i = add nsw i8 %91, -32
+  %spec.select.i.i.i = select i1 %or.cond.i.i.i, i8 %narrow.i.i.i, i8 %91
   %94 = add i8 %92, -97
-  %or.cond5.i.i = icmp ult i8 %94, 26
-  %narrow22.i.i = add nsw i8 %92, -32
-  %.0.i.i = select i1 %or.cond5.i.i, i8 %narrow22.i.i, i8 %92
-  %.not.i.i = icmp eq i8 %spec.select.i.i, %.0.i.i
-  br i1 %.not.i.i, label %95, label %.preheader.i.i.preheader
+  %or.cond5.i.i.i = icmp ult i8 %94, 26
+  %narrow22.i.i.i = add nsw i8 %92, -32
+  %.0.i.i.i = select i1 %or.cond5.i.i.i, i8 %narrow22.i.i.i, i8 %92
+  %.not.i.i.i = icmp eq i8 %spec.select.i.i.i, %.0.i.i.i
+  br i1 %.not.i.i.i, label %95, label %.preheader.i.i.i.preheader
 
 95:                                               ; preds = %90
-  %96 = getelementptr inbounds i8, ptr %.017.i.i, i64 1
-  %97 = getelementptr inbounds i8, ptr %.018.i.i, i64 1
-  %.not23.i.i = icmp eq i8 %spec.select.i.i, 0
-  br i1 %.not23.i.i, label %streqci.exit.i, label %90
+  %96 = getelementptr inbounds i8, ptr %.017.i.i.i, i64 1
+  %97 = getelementptr inbounds i8, ptr %.018.i.i.i, i64 1
+  %.not23.i.i.i = icmp eq i8 %spec.select.i.i.i, 0
+  br i1 %.not23.i.i.i, label %streqci.exit.i.i, label %90
 
-streqci.exit.i:                                   ; preds = %95
+streqci.exit.i.i:                                 ; preds = %95
   %98 = load i32, ptr %24, align 8
   %99 = icmp eq i32 %98, 2
-  br i1 %99, label %findEncoding.exit, label %.preheader.i.i.preheader
+  br i1 %99, label %findEncoding.exit.i, label %.preheader.i.i.i.preheader
 
-.preheader.i.i.preheader:                         ; preds = %90, %streqci.exit.i
-  br label %.preheader.i.i
+.preheader.i.i.i.preheader:                       ; preds = %90, %streqci.exit.i.i
+  br label %.preheader.i.i.i
 
-.preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %110
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %110 ], [ 0, %.preheader.i.i.preheader ]
-  %100 = getelementptr inbounds [6 x ptr], ptr @getEncodingIndex.encodingNames, i64 0, i64 %indvars.iv.i.i
+.preheader.i.i.i:                                 ; preds = %.preheader.i.i.i.preheader, %110
+  %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %110 ], [ 0, %.preheader.i.i.i.preheader ]
+  %100 = getelementptr inbounds [6 x ptr], ptr @getEncodingIndex.encodingNames, i64 0, i64 %indvars.iv.i.i.i
   %101 = load ptr, ptr %100, align 8
   br label %102
 
-102:                                              ; preds = %107, %.preheader.i.i
-  %.018.i.i.i = phi ptr [ %12, %.preheader.i.i ], [ %109, %107 ]
-  %.017.i.i.i = phi ptr [ %101, %.preheader.i.i ], [ %108, %107 ]
-  %103 = load i8, ptr %.018.i.i.i, align 1
-  %104 = load i8, ptr %.017.i.i.i, align 1
+102:                                              ; preds = %107, %.preheader.i.i.i
+  %.018.i.i.i.i = phi ptr [ %15, %.preheader.i.i.i ], [ %109, %107 ]
+  %.017.i.i.i.i = phi ptr [ %101, %.preheader.i.i.i ], [ %108, %107 ]
+  %103 = load i8, ptr %.018.i.i.i.i, align 1
+  %104 = load i8, ptr %.017.i.i.i.i, align 1
   %105 = add i8 %103, -97
-  %or.cond.i.i.i = icmp ult i8 %105, 26
-  %narrow.i.i.i = add nsw i8 %103, -32
-  %spec.select.i.i.i = select i1 %or.cond.i.i.i, i8 %narrow.i.i.i, i8 %103
+  %or.cond.i.i.i.i = icmp ult i8 %105, 26
+  %narrow.i.i.i.i = add nsw i8 %103, -32
+  %spec.select.i.i.i.i = select i1 %or.cond.i.i.i.i, i8 %narrow.i.i.i.i, i8 %103
   %106 = add i8 %104, -97
-  %or.cond5.i.i.i = icmp ult i8 %106, 26
-  %narrow22.i.i.i = add nsw i8 %104, -32
-  %.0.i.i.i = select i1 %or.cond5.i.i.i, i8 %narrow22.i.i.i, i8 %104
-  %.not.i.i.i = icmp eq i8 %spec.select.i.i.i, %.0.i.i.i
-  br i1 %.not.i.i.i, label %107, label %110
+  %or.cond5.i.i.i.i = icmp ult i8 %106, 26
+  %narrow22.i.i.i.i = add nsw i8 %104, -32
+  %.0.i.i.i.i = select i1 %or.cond5.i.i.i.i, i8 %narrow22.i.i.i.i, i8 %104
+  %.not.i.i.i.i = icmp eq i8 %spec.select.i.i.i.i, %.0.i.i.i.i
+  br i1 %.not.i.i.i.i, label %107, label %110
 
 107:                                              ; preds = %102
-  %108 = getelementptr inbounds i8, ptr %.017.i.i.i, i64 1
-  %109 = getelementptr inbounds i8, ptr %.018.i.i.i, i64 1
-  %.not23.i.i.i = icmp eq i8 %spec.select.i.i.i, 0
-  br i1 %.not23.i.i.i, label %getEncodingIndex.exit.i, label %102
+  %108 = getelementptr inbounds i8, ptr %.017.i.i.i.i, i64 1
+  %109 = getelementptr inbounds i8, ptr %.018.i.i.i.i, i64 1
+  %.not23.i.i.i.i = icmp eq i8 %spec.select.i.i.i.i, 0
+  br i1 %.not23.i.i.i.i, label %getEncodingIndex.exit.i.i, label %102
 
 110:                                              ; preds = %102
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 6
-  br i1 %exitcond.not.i.i, label %findEncoding.exit, label %.preheader.i.i, !llvm.loop !10
+  %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 6
+  br i1 %exitcond.not.i.i.i, label %findEncoding.exit.i, label %.preheader.i.i.i, !llvm.loop !10
 
-getEncodingIndex.exit.i:                          ; preds = %107
-  %111 = and i64 %indvars.iv.i.i, 4294967295
-  %112 = icmp eq i64 %111, 4294967295
-  br i1 %112, label %findEncoding.exit, label %113
+getEncodingIndex.exit.i.i:                        ; preds = %107
+  %sext.i.i = shl i64 %indvars.iv.i.i.i, 32
+  %111 = ashr exact i64 %sext.i.i, 32
+  %112 = getelementptr inbounds [7 x ptr], ptr @encodings, i64 0, i64 %111
+  %113 = load ptr, ptr %112, align 8
+  br label %findEncoding.exit.i
 
-113:                                              ; preds = %getEncodingIndex.exit.i
-  %sext.i = shl i64 %indvars.iv.i.i, 32
-  %114 = ashr exact i64 %sext.i, 32
-  %115 = getelementptr inbounds [7 x ptr], ptr @encodings, i64 0, i64 %114
-  %116 = load ptr, ptr %115, align 8
-  br label %findEncoding.exit
+findEncoding.exit.i:                              ; preds = %110, %getEncodingIndex.exit.i.i, %streqci.exit.i.i, %79
+  %.0.i90.i = phi ptr [ %113, %getEncodingIndex.exit.i.i ], [ null, %79 ], [ %1, %streqci.exit.i.i ], [ null, %110 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
+  store ptr %.0.i90.i, ptr %8, align 8
+  br label %114
 
-findEncoding.exit:                                ; preds = %110, %79, %streqci.exit.i, %getEncodingIndex.exit.i, %113
-  %.0.i10 = phi ptr [ %116, %113 ], [ null, %79 ], [ %1, %streqci.exit.i ], [ null, %getEncodingIndex.exit.i ], [ null, %110 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
-  store ptr %.0.i10, ptr %8, align 8
-  br label %117
+114:                                              ; preds = %findEncoding.exit.i, %78
+  %115 = call fastcc i32 @parsePseudoAttribute(ptr noundef %1, ptr noundef %.pre8.i, ptr noundef %32, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef nonnull %21, ptr noundef nonnull %20)
+  %.not81.i = icmp eq i32 %115, 0
+  br i1 %.not81.i, label %116, label %118
 
-117:                                              ; preds = %findEncoding.exit, %78
-  %118 = call fastcc i32 @parsePseudoAttribute(ptr noundef nonnull %1, ptr noundef %.pre6.i, ptr noundef %32, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef nonnull %21, ptr noundef nonnull %20)
-  %.not81.i = icmp eq i32 %118, 0
-  br i1 %.not81.i, label %119, label %121
+116:                                              ; preds = %114
+  %117 = load ptr, ptr %20, align 8
+  br label %.sink.split12.i
 
-119:                                              ; preds = %117
-  %120 = load ptr, ptr %20, align 8
-  br label %.sink.split9.i
+118:                                              ; preds = %114
+  %119 = load ptr, ptr %22, align 8
+  %.not82.i = icmp eq ptr %119, null
+  br i1 %.not82.i, label %doParseXmlDecl.exit, label %._crit_edge9.i
 
-121:                                              ; preds = %117
-  %122 = load ptr, ptr %22, align 8
-  %.not82.i = icmp eq ptr %122, null
-  br i1 %.not82.i, label %doParseXmlDecl.exit, label %._crit_edge7.i
+._crit_edge9.i:                                   ; preds = %118
+  %.pre10.i = load ptr, ptr %23, align 8
+  br label %120
 
-._crit_edge7.i:                                   ; preds = %121
-  %.pre8.i = load ptr, ptr %23, align 8
-  br label %123
+120:                                              ; preds = %._crit_edge9.i, %59
+  %121 = phi ptr [ %.pre10.i, %._crit_edge9.i ], [ %60, %59 ]
+  %122 = phi ptr [ %119, %._crit_edge9.i ], [ %61, %59 ]
+  %123 = load ptr, ptr %40, align 8
+  %124 = call i32 %123(ptr noundef %1, ptr noundef nonnull %122, ptr noundef %121, ptr noundef nonnull @KW_standalone) #13
+  %125 = icmp eq i32 %124, 0
+  %126 = icmp ne i32 %0, 0
+  %or.cond7.i = or i1 %126, %125
+  br i1 %or.cond7.i, label %.sink.split12.i, label %127
 
-123:                                              ; preds = %._crit_edge7.i, %59
-  %124 = phi ptr [ %.pre8.i, %._crit_edge7.i ], [ %60, %59 ]
-  %125 = phi ptr [ %122, %._crit_edge7.i ], [ %61, %59 ]
-  %126 = load ptr, ptr %40, align 8
-  %127 = call i32 %126(ptr noundef nonnull %1, ptr noundef nonnull %125, ptr noundef %124, ptr noundef nonnull @KW_standalone) #13
-  %128 = icmp eq i32 %127, 0
-  %129 = icmp ne i32 %0, 0
-  %or.cond7.i = or i1 %129, %128
-  br i1 %or.cond7.i, label %.sink.split9.i, label %130
+127:                                              ; preds = %120
+  %128 = load ptr, ptr %40, align 8
+  %129 = load ptr, ptr %21, align 8
+  %130 = load ptr, ptr %20, align 8
+  %131 = load i32, ptr %24, align 8
+  %132 = sext i32 %131 to i64
+  %133 = sub nsw i64 0, %132
+  %134 = getelementptr inbounds i8, ptr %130, i64 %133
+  %135 = call i32 %128(ptr noundef nonnull %1, ptr noundef %129, ptr noundef %134, ptr noundef nonnull @KW_yes) #13
+  %.not83.i = icmp eq i32 %135, 0
+  br i1 %.not83.i, label %137, label %136
 
-130:                                              ; preds = %123
-  %131 = load ptr, ptr %40, align 8
-  %132 = load ptr, ptr %21, align 8
-  %133 = load ptr, ptr %20, align 8
-  %134 = load i32, ptr %24, align 8
-  %135 = sext i32 %134 to i64
-  %136 = sub nsw i64 0, %135
-  %137 = getelementptr inbounds i8, ptr %133, i64 %136
-  %138 = call i32 %131(ptr noundef nonnull %1, ptr noundef %132, ptr noundef %137, ptr noundef nonnull @KW_yes) #13
-  %.not83.i = icmp eq i32 %138, 0
-  br i1 %.not83.i, label %140, label %139
-
-139:                                              ; preds = %130
+136:                                              ; preds = %127
   %.not86.i = icmp eq ptr %9, null
-  br i1 %.not86.i, label %148, label %.sink.split.i
+  br i1 %.not86.i, label %145, label %.sink.split.i
 
-140:                                              ; preds = %130
-  %141 = load ptr, ptr %40, align 8
-  %142 = load i32, ptr %24, align 8
-  %143 = sext i32 %142 to i64
-  %144 = sub nsw i64 0, %143
-  %145 = getelementptr inbounds i8, ptr %133, i64 %144
-  %146 = call i32 %141(ptr noundef nonnull %1, ptr noundef %132, ptr noundef %145, ptr noundef nonnull @KW_no) #13
-  %.not84.i = icmp eq i32 %146, 0
-  br i1 %.not84.i, label %.sink.split9.i, label %147
+137:                                              ; preds = %127
+  %138 = load ptr, ptr %40, align 8
+  %139 = load i32, ptr %24, align 8
+  %140 = sext i32 %139 to i64
+  %141 = sub nsw i64 0, %140
+  %142 = getelementptr inbounds i8, ptr %130, i64 %141
+  %143 = call i32 %138(ptr noundef nonnull %1, ptr noundef %129, ptr noundef %142, ptr noundef nonnull @KW_no) #13
+  %.not84.i = icmp eq i32 %143, 0
+  br i1 %.not84.i, label %.sink.split12.i, label %144
 
-147:                                              ; preds = %140
+144:                                              ; preds = %137
   %.not85.i = icmp eq ptr %9, null
-  br i1 %.not85.i, label %148, label %.sink.split.i
+  br i1 %.not85.i, label %145, label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %147, %139
-  %.sink.i = phi i32 [ 1, %139 ], [ 0, %147 ]
+.sink.split.i:                                    ; preds = %144, %136
+  %.sink.i = phi i32 [ 1, %136 ], [ 0, %144 ]
   store i32 %.sink.i, ptr %9, align 4
+  br label %145
+
+145:                                              ; preds = %.sink.split.i, %144, %136
+  %146 = getelementptr inbounds i8, ptr %1, i64 104
+  %147 = getelementptr inbounds i8, ptr %12, i64 1
   br label %148
 
-148:                                              ; preds = %.sink.split.i, %147, %139
-  %149 = getelementptr inbounds i8, ptr %1, i64 104
-  %150 = getelementptr inbounds i8, ptr %15, i64 1
-  br label %151
-
-151:                                              ; preds = %isSpace.exit.i, %148
-  %152 = phi ptr [ %161, %isSpace.exit.i ], [ %133, %148 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
-  store ptr %152, ptr %14, align 8
-  store ptr %15, ptr %16, align 8
-  %153 = load ptr, ptr %149, align 8
-  %154 = call i32 %153(ptr noundef nonnull %1, ptr noundef nonnull %14, ptr noundef %32, ptr noundef nonnull %16, ptr noundef nonnull %150) #13
-  %155 = load ptr, ptr %16, align 8
-  %156 = icmp eq ptr %155, %15
-  %157 = load i8, ptr %15, align 1
-  %158 = sext i8 %157 to i32
-  %.0.i90.i = select i1 %156, i32 -1, i32 %158
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
-  switch i32 %.0.i90.i, label %162 [
+148:                                              ; preds = %isSpace.exit.i, %145
+  %149 = phi ptr [ %158, %isSpace.exit.i ], [ %130, %145 ]
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
+  store ptr %149, ptr %11, align 8
+  store ptr %12, ptr %13, align 8
+  %150 = load ptr, ptr %146, align 8
+  %151 = call i32 %150(ptr noundef nonnull %1, ptr noundef nonnull %11, ptr noundef %32, ptr noundef nonnull %13, ptr noundef nonnull %147) #13
+  %152 = load ptr, ptr %13, align 8
+  %153 = icmp eq ptr %152, %12
+  %154 = load i8, ptr %12, align 1
+  %155 = sext i8 %154 to i32
+  %.0.i91.i = select i1 %153, i32 -1, i32 %155
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
+  switch i32 %.0.i91.i, label %159 [
     i32 32, label %isSpace.exit.i
     i32 13, label %isSpace.exit.i
     i32 10, label %isSpace.exit.i
     i32 9, label %isSpace.exit.i
   ]
 
-isSpace.exit.i:                                   ; preds = %151, %151, %151, %151
-  %159 = load i32, ptr %24, align 8
-  %160 = sext i32 %159 to i64
-  %161 = getelementptr inbounds i8, ptr %152, i64 %160
-  br label %151, !llvm.loop !12
+isSpace.exit.i:                                   ; preds = %148, %148, %148, %148
+  %156 = load i32, ptr %24, align 8
+  %157 = sext i32 %156 to i64
+  %158 = getelementptr inbounds i8, ptr %149, i64 %157
+  br label %148, !llvm.loop !12
 
-162:                                              ; preds = %151
-  %.not88.i = icmp eq ptr %152, %32
-  br i1 %.not88.i, label %doParseXmlDecl.exit, label %.sink.split9.i
+159:                                              ; preds = %148
+  %.not88.i = icmp eq ptr %149, %32
+  br i1 %.not88.i, label %doParseXmlDecl.exit, label %.sink.split12.i
 
-.sink.split9.i:                                   ; preds = %162, %140, %123, %119, %64, %57, %52, %44, %37
-  %.lcssa.sink.i = phi ptr [ %120, %119 ], [ %58, %57 ], [ %53, %52 ], [ %38, %37 ], [ %35, %44 ], [ %65, %64 ], [ %125, %123 ], [ %132, %140 ], [ %152, %162 ]
+.sink.split12.i:                                  ; preds = %159, %137, %120, %116, %64, %57, %52, %44, %37
+  %.lcssa.sink.i = phi ptr [ %117, %116 ], [ %58, %57 ], [ %53, %52 ], [ %38, %37 ], [ %35, %44 ], [ %65, %64 ], [ %122, %120 ], [ %129, %137 ], [ %149, %159 ]
   store ptr %.lcssa.sink.i, ptr %4, align 8
   br label %doParseXmlDecl.exit
 
-doParseXmlDecl.exit:                              ; preds = %56, %121, %162, %.sink.split9.i
-  %.0.i = phi i32 [ 1, %56 ], [ 1, %121 ], [ 1, %162 ], [ 0, %.sink.split9.i ]
+doParseXmlDecl.exit:                              ; preds = %56, %118, %159, %.sink.split12.i
+  %.0.i = phi i32 [ 1, %56 ], [ 1, %118 ], [ 1, %159 ], [ 0, %.sink.split12.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)

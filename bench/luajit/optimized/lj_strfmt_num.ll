@@ -196,7 +196,7 @@ if.else93:                                        ; preds = %if.end85
   br i1 %tobool97.not, label %if.end114, label %if.then98
 
 if.then98:                                        ; preds = %if.else93
-  %tobool100.not = icmp eq i32 %t.sroa.0.4.extract.trunc164, 0
+  %tobool100.not = icmp ult i64 %t.sroa.0.4.insert.insert, 4294967296
   %11 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %t.sroa.0.0.extract.trunc118, i1 true)
   %12 = tail call range(i32 12, 33) i32 @llvm.ctlz.i32(i32 %t.sroa.0.4.extract.trunc164, i1 true)
   %.sink1211 = select i1 %tobool100.not, i32 %11, i32 %12
@@ -530,7 +530,7 @@ for.end.i:                                        ; preds = %if.end316, %if.then
   %mul.neg.i = mul i32 %conv9.i, -1000000000
   %sub11.i = add i32 %mul.neg.i, %conv10.i
   store i32 %sub11.i, ptr %nd, align 16
-  %tobool.not.i = icmp eq i32 %conv9.i, 0
+  %tobool.not.i = icmp ult i64 %or.i434, 1000000000
   br i1 %tobool.not.i, label %if.end341, label %if.end341.thread1196
 
 if.end341:                                        ; preds = %for.end.i
@@ -604,7 +604,7 @@ for.body.i478:                                    ; preds = %for.cond.preheader.
   br i1 %cmp6.not.i493, label %for.end.i494, label %for.body.i478, !llvm.loop !6
 
 for.end.i494:                                     ; preds = %for.body.i478
-  %tobool.not.i496 = icmp eq i32 %conv9.i488, 0
+  %tobool.not.i496 = icmp ult i64 %or.i486, 1000000000
   br i1 %tobool.not.i496, label %if.end24.i505, label %if.then14.i497
 
 if.then14.i497:                                   ; preds = %for.end.i494
@@ -660,7 +660,7 @@ for.body31.i441:                                  ; preds = %for.body31.i441, %f
   br i1 %cmp29.not.i456, label %for.end48.i457, label %for.body31.i441, !llvm.loop !8
 
 for.end48.i457:                                   ; preds = %for.body31.i441
-  %tobool49.not.i459 = icmp eq i32 %conv40.i451, 0
+  %tobool49.not.i459 = icmp ult i64 %or38.i449, 1000000000
   br i1 %tobool49.not.i459, label %if.end359, label %if.then50.i460
 
 if.then50.i460:                                   ; preds = %for.end48.i457

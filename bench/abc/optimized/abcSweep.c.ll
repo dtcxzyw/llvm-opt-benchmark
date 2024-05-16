@@ -1636,33 +1636,29 @@ define void @Abc_NodeConstantInput(ptr noundef %0, ptr noundef %1, i32 noundef %
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %Vec_IntFind.exit.thread, label %14, !llvm.loop !31
 
+Vec_IntFind.exit.thread:                          ; preds = %18, %3
+  %19 = tail call ptr @Abc_ObjName(ptr noundef %1) #9
+  %20 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef %19)
+  %21 = tail call ptr @Abc_ObjName(ptr noundef nonnull %0) #9
+  %22 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef %21)
+  br label %32
+
 Vec_IntFind.exit:                                 ; preds = %14
-  %19 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %20 = icmp eq i32 %19, -1
-  br i1 %20, label %Vec_IntFind.exit.thread, label %25
+  %23 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %24 = tail call ptr @Cudd_bddIthVar(ptr noundef %6, i32 noundef %23) #9
+  %25 = ptrtoint ptr %24 to i64
+  %26 = sext i32 %2 to i64
+  %27 = xor i64 %25, %26
+  %28 = inttoptr i64 %27 to ptr
+  %29 = getelementptr inbounds i8, ptr %0, i64 56
+  %30 = load ptr, ptr %29, align 8
+  %31 = tail call ptr @Cudd_Cofactor(ptr noundef %6, ptr noundef %30, ptr noundef %28) #9
+  store ptr %31, ptr %29, align 8
+  tail call void @Cudd_Ref(ptr noundef %31) #9
+  tail call void @Cudd_RecursiveDeref(ptr noundef %6, ptr noundef %30) #9
+  br label %32
 
-Vec_IntFind.exit.thread:                          ; preds = %18, %3, %Vec_IntFind.exit
-  %21 = tail call ptr @Abc_ObjName(ptr noundef %1) #9
-  %22 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef %21)
-  %23 = tail call ptr @Abc_ObjName(ptr noundef nonnull %0) #9
-  %24 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef %23)
-  br label %34
-
-25:                                               ; preds = %Vec_IntFind.exit
-  %26 = tail call ptr @Cudd_bddIthVar(ptr noundef %6, i32 noundef %19) #9
-  %27 = ptrtoint ptr %26 to i64
-  %28 = sext i32 %2 to i64
-  %29 = xor i64 %27, %28
-  %30 = inttoptr i64 %29 to ptr
-  %31 = getelementptr inbounds i8, ptr %0, i64 56
-  %32 = load ptr, ptr %31, align 8
-  %33 = tail call ptr @Cudd_Cofactor(ptr noundef %6, ptr noundef %32, ptr noundef %30) #9
-  store ptr %33, ptr %31, align 8
-  tail call void @Cudd_Ref(ptr noundef %33) #9
-  tail call void @Cudd_RecursiveDeref(ptr noundef %6, ptr noundef %32) #9
-  br label %34
-
-34:                                               ; preds = %25, %Vec_IntFind.exit.thread
+32:                                               ; preds = %Vec_IntFind.exit, %Vec_IntFind.exit.thread
   ret void
 }
 

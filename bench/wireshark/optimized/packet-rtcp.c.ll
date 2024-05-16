@@ -4177,17 +4177,14 @@ validate_xr_block_length.exit.i:                  ; preds = %.sink.split.i.i390,
 
 1365:                                             ; preds = %1194
   %.lhs.trunc.i = trunc nuw i32 %.0471.i to i16
-  %.not517.i = icmp ult i16 %.lhs.trunc.i, 3
-  br i1 %.not517.i, label %._crit_edge.i388, label %.lr.ph509.preheader.i
-
-.lr.ph509.preheader.i:                            ; preds = %1365
   %1366 = udiv i16 %.lhs.trunc.i, 3
-  %umax.i = zext nneg i16 %1366 to i32
-  br label %.lr.ph509.i
+  %.zext.i = zext nneg i16 %1366 to i32
+  %.not517.i = icmp ult i32 %.0471.i, 3
+  br i1 %.not517.i, label %._crit_edge.i388, label %.lr.ph509.i
 
-.lr.ph509.i:                                      ; preds = %.lr.ph509.i, %.lr.ph509.preheader.i
-  %.1508.i = phi i32 [ %1378, %.lr.ph509.i ], [ %1195, %.lr.ph509.preheader.i ]
-  %.0472507.i = phi i32 [ %1368, %.lr.ph509.i ], [ 0, %.lr.ph509.preheader.i ]
+.lr.ph509.i:                                      ; preds = %1365, %.lr.ph509.i
+  %.1508.i = phi i32 [ %1378, %.lr.ph509.i ], [ %1195, %1365 ]
+  %.0472507.i = phi i32 [ %1368, %.lr.ph509.i ], [ 0, %1365 ]
   %1367 = load i32, ptr @ett_xr_ssrc, align 4
   %1368 = add nuw nsw i32 %.0472507.i, 1
   %1369 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1198, ptr noundef %0, i32 noundef %.1508.i, i32 noundef 12, i32 noundef %1367, ptr noundef null, ptr noundef nonnull @.str.879, i32 noundef %1368) #7
@@ -4200,7 +4197,7 @@ validate_xr_block_length.exit.i:                  ; preds = %.sink.split.i.i390,
   %1376 = load i32, ptr @hf_rtcp_xr_dlrr, align 4
   %1377 = call ptr @proto_tree_add_item(ptr noundef %1369, i32 noundef %1376, ptr noundef %0, i32 noundef %1375, i32 noundef 4, i32 noundef 0) #7
   %1378 = add i32 %.1508.i, 12
-  %exitcond523.not.i = icmp eq i32 %1368, %umax.i
+  %exitcond523.not.i = icmp eq i32 %1368, %.zext.i
   br i1 %exitcond523.not.i, label %._crit_edge.i388, label %.lr.ph509.i, !llvm.loop !19
 
 ._crit_edge.i388:                                 ; preds = %.lr.ph509.i, %1365

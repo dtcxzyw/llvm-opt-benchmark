@@ -395,7 +395,7 @@ ReadArrayDimensions.exit.thread:                  ; preds = %76, %90, %ReadArray
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  %150 = icmp eq i32 %149, 0
+  %150 = icmp eq i64 %indvars.iv.i, 0
   %151 = load i8, ptr %64, align 1
   br i1 %150, label %152, label %159
 
@@ -457,7 +457,7 @@ ReadArrayDimensions.exit.thread:                  ; preds = %76, %90, %ReadArray
   %177 = getelementptr inbounds i8, ptr %.0119277, i64 24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  %178 = icmp ne i32 %149, 0
+  %178 = icmp ne i64 %indvars.iv.i, 0
   %179 = tail call ptr @palloc(i64 noundef 128) #17
   %180 = tail call ptr @palloc(i64 noundef 16) #17
   call void @initStringInfo(ptr noundef nonnull %2) #17

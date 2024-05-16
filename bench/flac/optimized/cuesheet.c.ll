@@ -563,9 +563,9 @@ if.else.i.i.i:                                    ; preds = %while.body.i.i.i
   br i1 %cmp3.not.i.i.i, label %local__parse_int64_.exit.i.i, label %while.body.i.i.i, !llvm.loop !9
 
 local__parse_int64_.exit.i.i:                     ; preds = %if.else.i.i.i
+  %or.cond.i.i = icmp ugt i64 %add.i.fr.i.i, 2147483647
   %conv.i304.i = trunc nuw nsw i64 %add.i.fr.i.i to i32
-  %or.cond655.not.i = icmp ult i64 %add.i.fr.i.i, 2147483648
-  br i1 %or.cond655.not.i, label %if.end96.i, label %if.then2
+  br i1 %or.cond.i.i, label %if.then2, label %if.end96.i
 
 if.end96.i:                                       ; preds = %local__parse_int64_.exit.i.i
   %num_indices.i = getelementptr inbounds i8, ptr %arrayidx82.i, i64 23
@@ -574,7 +574,7 @@ if.end96.i:                                       ; preds = %local__parse_int64_
   br i1 %cmp98.i, label %if.then100.i, label %if.else105.i
 
 if.then100.i:                                     ; preds = %if.end96.i
-  %cmp101.i = icmp ugt i32 %conv.i304.i, 1
+  %cmp101.i = icmp ugt i64 %add.i.fr.i.i, 1
   br i1 %cmp101.i, label %if.then2, label %if.end122.i
 
 if.else105.i:                                     ; preds = %if.end96.i
@@ -591,7 +591,7 @@ if.else105.i:                                     ; preds = %if.end96.i
   br i1 %cmp112.not.i, label %if.end116.i, label %if.then2
 
 if.end116.i:                                      ; preds = %if.else105.i
-  %cmp119.i = icmp ugt i32 %conv.i304.i, 99
+  %cmp119.i = icmp ugt i64 %add.i.fr.i.i, 99
   %or.cond2.i = and i1 %tobool.i, %cmp119.i
   br i1 %or.cond2.i, label %if.then2, label %if.end122.i
 
@@ -1300,27 +1300,27 @@ if.else.i.i466.i:                                 ; preds = %while.body.i.i460.i
   br i1 %cmp3.not.i.i473.i, label %local__parse_int64_.exit.i474.i, label %while.body.i.i460.i, !llvm.loop !9
 
 local__parse_int64_.exit.i474.i:                  ; preds = %if.else.i.i466.i
+  %or.cond.i475.i = icmp ugt i64 %add.i.fr.i471.i, 2147483647
   %conv.i476.i = trunc nuw nsw i64 %add.i.fr.i471.i to i32
-  %or.cond656.not.i = icmp ult i64 %add.i.fr.i471.i, 2147483648
-  br i1 %or.cond656.not.i, label %if.end356.i, label %if.then2
+  br i1 %or.cond.i475.i, label %if.then2, label %if.end356.i
 
 if.end356.i:                                      ; preds = %local__parse_int64_.exit.i474.i
-  %cmp357.i = icmp eq i32 %conv.i476.i, 0
+  %cmp357.i = icmp eq i64 %add.i.fr.i471.i, 0
   br i1 %cmp357.i, label %if.then2, label %if.end360.i
 
 if.end360.i:                                      ; preds = %if.end356.i
   br i1 %tobool.i, label %if.then362.i, label %if.else367.i
 
 if.then362.i:                                     ; preds = %if.end360.i
-  %cmp363.i = icmp ugt i32 %conv.i476.i, 99
+  %cmp363.i = icmp ugt i64 %add.i.fr.i471.i, 99
   br i1 %cmp363.i, label %if.then2, label %land.lhs.true379.i
 
 if.else367.i:                                     ; preds = %if.end360.i
-  %cmp368.i = icmp eq i32 %conv.i476.i, 255
+  %cmp368.i = icmp eq i64 %add.i.fr.i471.i, 255
   br i1 %cmp368.i, label %if.then2, label %if.else371.i
 
 if.else371.i:                                     ; preds = %if.else367.i
-  %cmp372.i = icmp ugt i32 %conv.i476.i, 255
+  %cmp372.i = icmp ugt i64 %add.i.fr.i471.i, 255
   br i1 %cmp372.i, label %if.then2, label %if.end395.i
 
 land.lhs.true379.i:                               ; preds = %if.then362.i

@@ -3995,8 +3995,8 @@ define i32 @Zyx_ManCollectFanins(ptr nocapture noundef %0, i32 noundef %1) local
 
 ; Function Attrs: nounwind uwtable
 define i32 @Zyx_ManAddCnfLazyTopo(ptr noundef %0) local_unnamed_addr #2 {
-  %.sroa.0321 = alloca i32, align 4
-  %.sroa.2322 = alloca i32, align 4
+  %.sroa.0318 = alloca i32, align 4
+  %.sroa.2319 = alloca i32, align 4
   %.sroa.0 = alloca i32, align 4
   %.sroa.2 = alloca i32, align 4
   %2 = load ptr, ptr %0, align 8
@@ -4177,7 +4177,7 @@ Zyx_ManCollectFanins.exit:                        ; preds = %14, %._crit_edge.lo
   br i1 %.not186, label %97, label %.thread, !llvm.loop !77
 
 106:                                              ; preds = %97
-  %107 = icmp eq i32 %99, 0
+  %107 = icmp eq i64 %indvars.iv, 0
   br i1 %107, label %108, label %.thread
 
 108:                                              ; preds = %106
@@ -4449,16 +4449,16 @@ Zyx_ManCollectFanins.exit:                        ; preds = %14, %._crit_edge.lo
   %.val195 = load ptr, ptr %262, align 8
   %263 = getelementptr inbounds i32, ptr %.val195, i64 %indvars.iv283
   %264 = load i32, ptr %263, align 4
-  store i32 %264, ptr %.sroa.0321, align 4
+  store i32 %264, ptr %.sroa.0318, align 4
   %265 = getelementptr inbounds i32, ptr %.val195, i64 %261
   %266 = load i32, ptr %265, align 4
-  store i32 %266, ptr %.sroa.2322, align 4
+  store i32 %266, ptr %.sroa.2319, align 4
   br label %267
 
 267:                                              ; preds = %259, %.loopexit
   %268 = phi i1 [ true, %259 ], [ false, %.loopexit ]
   %indvars.iv280.sroa.phi = phi ptr [ %.sroa.0, %259 ], [ %.sroa.2, %.loopexit ]
-  %indvars.iv280.sroa.phi319 = phi ptr [ %.sroa.0321, %259 ], [ %.sroa.2322, %.loopexit ]
+  %indvars.iv280.sroa.phi316 = phi ptr [ %.sroa.0318, %259 ], [ %.sroa.2319, %.loopexit ]
   store i32 -1, ptr %indvars.iv280.sroa.phi, align 4
   %269 = load ptr, ptr %0, align 8
   %270 = load i32, ptr %269, align 8
@@ -4467,7 +4467,7 @@ Zyx_ManCollectFanins.exit:                        ; preds = %14, %._crit_edge.lo
   br i1 %272, label %.lr.ph250, label %.loopexit
 
 .lr.ph250:                                        ; preds = %267
-  %273 = load i32, ptr %indvars.iv280.sroa.phi319, align 4
+  %273 = load i32, ptr %indvars.iv280.sroa.phi316, align 4
   br label %274
 
 274:                                              ; preds = %.lr.ph250, %286

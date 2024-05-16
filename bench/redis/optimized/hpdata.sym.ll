@@ -487,7 +487,7 @@ if.then24.i:                                      ; preds = %if.end21.i
   %sub.i = add i64 %22, -1
   %23 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %sub.i, i1 true)
   %24 = trunc nuw nsw i64 %23 to i32
-  %cmp27.i120 = icmp eq i32 %24, 0
+  %cmp27.i120 = icmp eq i64 %23, 0
   br i1 %cmp27.i120, label %ph_insert.exit, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %if.then24.i

@@ -300,7 +300,7 @@ for.inc:                                          ; preds = %land.rhs
 
 for.end:                                          ; preds = %land.rhs
   %2 = trunc nuw nsw i64 %indvars.iv to i32
-  %or.cond = icmp eq i32 %2, 0
+  %or.cond = icmp eq i64 %indvars.iv, 0
   br i1 %or.cond, label %return, label %if.end17
 
 if.end17:                                         ; preds = %for.end
@@ -335,7 +335,7 @@ if.end33:                                         ; preds = %if.else
 
 if.end34:                                         ; preds = %if.then24, %if.end33
   %ret.0 = phi ptr [ %call25, %if.then24 ], [ %3, %if.end33 ]
-  %cmp.i = icmp ugt i32 %2, 536870896
+  %cmp.i = icmp ugt i64 %indvars.iv, 536870896
   br i1 %cmp.i, label %err, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end34
@@ -373,27 +373,26 @@ for.cond44:                                       ; preds = %for.cond44, %while.
   %conv54 = zext nneg i32 %spec.store.select to i64
   %or = or i64 %shl, %conv54
   %indvars.iv.next51 = add nsw i64 %indvars.iv50, -1
-  %8 = and i64 %indvars.iv50, 4294967294
-  %cmp55 = icmp eq i64 %8, 0
+  %cmp55 = icmp ult i64 %indvars.iv50, 2
   br i1 %cmp55, label %if.then57, label %for.cond44
 
 if.then57:                                        ; preds = %for.cond44
-  %9 = load ptr, ptr %ret.0, align 8
+  %8 = load ptr, ptr %ret.0, align 8
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
-  %arrayidx60 = getelementptr inbounds i64, ptr %9, i64 %indvars.iv53
+  %arrayidx60 = getelementptr inbounds i64, ptr %8, i64 %indvars.iv53
   store i64 %or, ptr %arrayidx60, align 8
   %indvars.iv.next49 = add nsw i64 %indvars.iv48, -16
   %cmp40 = icmp sgt i64 %indvars.iv48, 16
   br i1 %cmp40, label %while.body, label %while.end, !llvm.loop !10
 
 while.end:                                        ; preds = %if.then57
-  %10 = trunc nuw nsw i64 %indvars.iv.next54 to i32
+  %9 = trunc nuw nsw i64 %indvars.iv.next54 to i32
   %top = getelementptr inbounds i8, ptr %ret.0, i64 8
-  store i32 %10, ptr %top, align 8
+  store i32 %9, ptr %top, align 8
   tail call void @bn_correct_top(ptr noundef nonnull %ret.0) #3
   store ptr %ret.0, ptr %bn, align 8
-  %11 = load i32, ptr %top, align 8
-  %cmp65.not = icmp eq i32 %11, 0
+  %10 = load i32, ptr %top, align 8
+  %cmp65.not = icmp eq i32 %10, 0
   br i1 %cmp65.not, label %return, label %if.then67
 
 if.then67:                                        ; preds = %while.end
@@ -402,8 +401,8 @@ if.then67:                                        ; preds = %while.end
   br label %return
 
 err:                                              ; preds = %if.end34, %if.end3.i
-  %12 = load ptr, ptr %bn, align 8
-  %cmp70 = icmp eq ptr %12, null
+  %11 = load ptr, ptr %bn, align 8
+  %cmp70 = icmp eq ptr %11, null
   br i1 %cmp70, label %if.then72, label %return
 
 if.then72:                                        ; preds = %err
@@ -471,7 +470,7 @@ for.inc:                                          ; preds = %land.rhs
 
 for.end:                                          ; preds = %land.rhs
   %2 = trunc nuw nsw i64 %indvars.iv to i32
-  %or.cond = icmp eq i32 %2, 0
+  %or.cond = icmp eq i64 %indvars.iv, 0
   br i1 %or.cond, label %err, label %if.end17
 
 if.end17:                                         ; preds = %for.end
@@ -495,7 +494,7 @@ if.else:                                          ; preds = %if.end21
 
 if.end30:                                         ; preds = %if.then24, %if.else
   %ret.0 = phi ptr [ %call25, %if.then24 ], [ %3, %if.else ]
-  %cmp.i = icmp ugt i32 %2, 536870896
+  %cmp.i = icmp ugt i64 %indvars.iv, 536870896
   br i1 %cmp.i, label %err, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end30
@@ -548,7 +547,7 @@ lor.lhs.false54:                                  ; preds = %if.then51
 if.end59:                                         ; preds = %lor.lhs.false54, %while.body
   %l.1 = phi i64 [ %add46, %while.body ], [ 0, %lor.lhs.false54 ]
   %j.1 = phi i32 [ %inc48, %while.body ], [ 0, %lor.lhs.false54 ]
-  %cmp40 = icmp ugt i32 %dec47.in, 1
+  %cmp40 = icmp sgt i32 %dec47.in, 1
   br i1 %cmp40, label %while.body, label %while.end, !llvm.loop !12
 
 while.end:                                        ; preds = %if.end59

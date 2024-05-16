@@ -11817,7 +11817,7 @@ if.then41.i:                                      ; preds = %find_and_clear_dirt
 
 if.end49.i:                                       ; preds = %if.then41.i, %find_and_clear_dirty_height.exit.i
   %n.1.i = phi i32 [ %add48.i, %if.then41.i ], [ %n.054.i, %find_and_clear_dirty_height.exit.i ]
-  %tobool50.not.i = icmp ne i32 %conv23.i, 0
+  %tobool50.not.i = icmp ne i64 %rem.i30, 0
   %cmp54.not.i = icmp ult i64 %call26.i34, %conv35.i
   %or.cond.i = or i1 %tobool50.not.i, %cmp54.not.i
   br i1 %or.cond.i, label %if.end62.i, label %if.then56.i

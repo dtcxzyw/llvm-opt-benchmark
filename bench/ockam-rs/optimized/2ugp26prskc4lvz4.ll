@@ -101301,7 +101301,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %60, ptr nonnull readonly align 8 %58, i64 %61, i1 false), !alias.scope !26600
   %62 = getelementptr inbounds ptr, ptr %58, i64 %1
   %63 = shl nsw i64 %21, 3
-  %64 = add i64 %63, 8
+  %64 = add nsw i64 %63, 8
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %58, ptr nonnull align 8 %62, i64 %64, i1 false)
   br label %.lr.ph.i
 
@@ -101452,7 +101452,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %57, ptr nonnull readonly align 8 %55, i64 %58, i1 false), !alias.scope !26630
   %59 = getelementptr inbounds ptr, ptr %55, i64 %1
   %60 = shl nsw i64 %21, 3
-  %61 = add i64 %60, 8
+  %61 = add nsw i64 %60, 8
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %55, ptr nonnull align 8 %59, i64 %61, i1 false)
   br label %.lr.ph.i
 

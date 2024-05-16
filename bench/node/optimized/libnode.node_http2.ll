@@ -19689,7 +19689,7 @@ do.body91:                                        ; preds = %if.end79
 
 do.body95:                                        ; preds = %if.end79
   %cmp96 = icmp ne i32 %call81, 0
-  %cmp97 = icmp eq i32 %ref.tmp.sroa.231.0.extract.trunc, 0
+  %cmp97 = icmp ult i64 %call26, 4294967296
   %or.cond62 = xor i1 %cmp97, %cmp96
   br i1 %or.cond62, label %do.body105, label %do.end108
 

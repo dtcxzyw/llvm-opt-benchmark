@@ -232,7 +232,7 @@ if.end.i157:                                      ; preds = %_run_fuzz.exit
   %call.i = tail call i64 @_Py_HashBytes(ptr noundef %data, i64 noundef %size) #8
   %rem.i = srem i64 %call.i, 37
   %conv.i158 = trunc nsw i64 %rem.i to i32
-  %cmp1.i = icmp eq i32 %conv.i158, 1
+  %cmp1.i = icmp eq i64 %rem.i, 1
   %spec.store.select.i = select i1 %cmp1.i, i32 0, i32 %conv.i158
   %cmp5.i = icmp eq i32 %spec.store.select.i, -1
   br i1 %cmp5.i, label %fuzz_builtin_int.exit, label %if.end8.i159

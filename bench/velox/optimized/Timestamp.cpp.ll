@@ -548,7 +548,7 @@ entry:
   %rem9 = srem i64 %add8, 7
   %conv10 = trunc nsw i64 %rem9 to i32
   %tm_wday = getelementptr inbounds i8, ptr %tm, i64 24
-  %cmp12 = icmp slt i32 %conv10, 0
+  %cmp12 = icmp slt i64 %rem9, 0
   %add14 = add nsw i32 %conv10, 7
   %spec.select = select i1 %cmp12, i32 %add14, i32 %conv10
   store i32 %spec.select, ptr %tm_wday, align 8

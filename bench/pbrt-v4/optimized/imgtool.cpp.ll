@@ -7889,11 +7889,9 @@ _ZN4pbrt5ErrorIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPKcDpO
 invoke.cont88:                                    ; preds = %if.end77
   %retval.sroa.0.0.copyload.i = load i64, ptr %resolution.i, align 4
   %ref.tmp83.sroa.0.0.extract.trunc = trunc i64 %retval.sroa.0.0.copyload.i to i32
-  %ref.tmp83.sroa.2.0.extract.shift = lshr i64 %retval.sroa.0.0.copyload.i, 32
-  %ref.tmp83.sroa.2.0.extract.trunc = trunc nuw i64 %ref.tmp83.sroa.2.0.extract.shift to i32
   %cmp.i101 = icmp eq i32 %ref.tmp83.sroa.0.0.extract.trunc, 0
-  %cmp4.i = icmp eq i32 %ref.tmp83.sroa.2.0.extract.trunc, 0
-  %36 = select i1 %cmp.i101, i1 %cmp4.i, i1 false
+  %cmp4.i = icmp ult i64 %retval.sroa.0.0.copyload.i, 4294967296
+  %36 = and i1 %cmp4.i, %cmp.i101
   br i1 %36, label %invoke.cont98, label %invoke.cont139
 
 invoke.cont98:                                    ; preds = %invoke.cont88
@@ -8047,6 +8045,8 @@ ehcleanup114:                                     ; preds = %lpad110, %lpad104
   br label %ehcleanup314
 
 invoke.cont139:                                   ; preds = %invoke.cont88
+  %ref.tmp83.sroa.2.0.extract.shift = lshr i64 %retval.sroa.0.0.copyload.i, 32
+  %ref.tmp83.sroa.2.0.extract.trunc = trunc nuw i64 %ref.tmp83.sroa.2.0.extract.shift to i32
   %51 = load i32, ptr %fullResolution, align 4
   %cmp.not.i136 = icmp ne i32 %51, %ref.tmp83.sroa.0.0.extract.trunc
   %52 = load i32, ptr %y.i139, align 8
@@ -44621,7 +44621,7 @@ if.then62:                                        ; preds = %if.end59
   br label %if.end64
 
 if.end64:                                         ; preds = %if.then62, %if.end59
-  %cmp66 = icmp eq i32 %resolution.sroa.9.0.extract.trunc, 1
+  %cmp66 = icmp eq i64 %resolution.sroa.9.0.extract.shift, 1
   br i1 %cmp66, label %if.then67, label %return
 
 if.then67:                                        ; preds = %if.end64

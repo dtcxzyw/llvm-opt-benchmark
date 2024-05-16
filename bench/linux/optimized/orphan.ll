@@ -1460,7 +1460,7 @@ define dso_local i32 @ext4_init_orphan_info(ptr noundef %0) local_unnamed_addr #
 
 .loopexit8:                                       ; preds = %64, %128, %74, %61
   %149 = phi i32 [ %63, %61 ], [ -5, %74 ], [ -5, %128 ], [ -5, %64 ]
-  %150 = icmp eq i32 %53, 0
+  %150 = icmp eq i64 %indvars.iv, 0
   br i1 %150, label %.loopexit, label %151
 
 151:                                              ; preds = %.loopexit8

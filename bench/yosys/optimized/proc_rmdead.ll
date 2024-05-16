@@ -409,14 +409,13 @@ _ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit37: ; preds = %74
 
 79:                                               ; preds = %_ZNK5Yosys5RTLIL6Design8selectedINS0_6ModuleENS0_7ProcessEEEbPT_PT0_.exit, %76
   %.2 = phi i32 [ %78, %76 ], [ %.12881, %_ZNK5Yosys5RTLIL6Design8selectedINS0_6ModuleENS0_7ProcessEEEbPT_PT0_.exit ]
-  %80 = and i64 %indvars.iv.next, 4294967295
-  %.not62 = icmp eq i64 %80, 0
+  %.not62 = icmp eq i64 %indvars.iv.next, 0
   br i1 %.not62, label %.loopexit, label %.lr.ph84
 
 .loopexit:                                        ; preds = %79, %39, %_ZNK5Yosys5RTLIL6Design8selectedINS0_6ModuleEEEbPT_.exit
   %.3 = phi i32 [ %.02790, %_ZNK5Yosys5RTLIL6Design8selectedINS0_6ModuleEEEbPT_.exit ], [ %.02790, %39 ], [ %.2, %79 ]
-  %81 = icmp eq i64 %indvars.iv99, 0
-  br i1 %81, label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_6ModuleEED2Ev.exit34.sink.split, label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_6ModuleEEppEv.exit
+  %80 = icmp eq i64 %indvars.iv99, 0
+  br i1 %80, label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_6ModuleEED2Ev.exit34.sink.split, label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_6ModuleEEppEv.exit
 
 _ZN5Yosys5RTLIL11ObjIteratorIPNS0_6ModuleEEppEv.exit: ; preds = %.loopexit
   %indvars.iv.next100 = add nsw i64 %indvars.iv99, -1
@@ -424,9 +423,9 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_6ModuleEEppEv.exit: ; preds = %.loopexit
 
 _ZN5Yosys5RTLIL11ObjIteratorIPNS0_6ModuleEED2Ev.exit36: ; preds = %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_6ModuleEED2Ev.exit36.loopexit, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_6ModuleEED2Ev.exit36.loopexit.split-lp.loopexit.split-lp, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_6ModuleEED2Ev.exit36.loopexit.split-lp.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_6ModuleEED2Ev.exit36.loopexit ], [ %lpad.loopexit64, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_6ModuleEED2Ev.exit36.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp65, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_6ModuleEED2Ev.exit36.loopexit.split-lp.loopexit.split-lp ]
-  %82 = load i32, ptr %21, align 4
-  %83 = add nsw i32 %82, -1
-  store i32 %83, ptr %21, align 4
+  %81 = load i32, ptr %21, align 4
+  %82 = add nsw i32 %81, -1
+  store i32 %82, ptr %21, align 4
   br label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_6ModuleEED2Ev.exit41
 
 _ZN5Yosys5RTLIL11ObjIteratorIPNS0_6ModuleEED2Ev.exit41: ; preds = %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_6ModuleEED2Ev.exit36, %32

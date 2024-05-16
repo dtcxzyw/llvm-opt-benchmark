@@ -5449,8 +5449,6 @@ define internal noundef zeroext i1 @"_ZN57_$LT$object..write..Error$u20$as$u20$c
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc i64 @_ZN5gimli5write4line10LineString5write17h7aea54dec1f4f944E(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(56) %1, i16 noundef %2, i32 %3, ptr readonly %.8.val, i64 %.16.val, ptr readonly %.8.val1, i64 %.16.val3) unnamed_addr #4 personality ptr @rust_eh_personality {
 switch.lookup:
-  %.sroa.5.0.extract.shift = lshr i32 %3, 16
-  %.sroa.5.0.extract.trunc = trunc nuw i32 %.sroa.5.0.extract.shift to i16
   %4 = load i64, ptr %0, align 8, !range !513, !noundef !4
   %5 = icmp slt i64 %4, -9223372036854775806
   %6 = add i64 %4, -9223372036854775807
@@ -5475,12 +5473,12 @@ switch.lookup:
 
 11:                                               ; preds = %9
   %12 = load i64, ptr %10, align 8, !noundef !4
-  %13 = icmp ult i16 %.sroa.5.0.extract.trunc, 5
+  %13 = icmp ult i32 %3, 327680
   br i1 %13, label %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit149.thread, label %49
 
 14:                                               ; preds = %9
   %15 = load i64, ptr %10, align 8, !noundef !4
-  %16 = icmp ult i16 %.sroa.5.0.extract.trunc, 5
+  %16 = icmp ult i32 %3, 327680
   br i1 %16, label %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit149.thread, label %126
 
 17:                                               ; preds = %9

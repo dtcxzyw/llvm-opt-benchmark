@@ -4654,26 +4654,18 @@ get_bit.exit156.i:                                ; preds = %if.end.i147.i, %get
   %retval.0.i155.i = phi i64 [ %conv4.i154.i, %if.end.i147.i ], [ 0, %get_bit.exit145.i ]
   %126 = shl nuw nsw i64 %retval.0.i155.i, 1
   %or9160.i = or i64 %or8459.i, %126
-  %or.cond.i157.i = icmp ugt i32 %91, 255
-  br i1 %or.cond.i157.i, label %get_bit.exit167.i, label %if.end.i158.i
-
-if.end.i158.i:                                    ; preds = %get_bit.exit156.i
   %arrayidx.i161.i = getelementptr inbounds i8, ptr %cond220, i64 %conv17.i
   %127 = load i8, ptr %arrayidx.i161.i, align 1
   %conv.i162.i = zext i8 %127 to i32
   %shr2.i164.i = lshr i32 %conv.i162.i, %and.i.i428
   %128 = and i32 %shr2.i164.i, 1
   %conv4.i165.i = zext nneg i32 %128 to i64
-  br label %get_bit.exit167.i
-
-get_bit.exit167.i:                                ; preds = %if.end.i158.i, %get_bit.exit156.i
-  %retval.0.i166.i = phi i64 [ %conv4.i165.i, %if.end.i158.i ], [ 0, %get_bit.exit156.i ]
-  %or9561.i = or i64 %or9160.i, %retval.0.i166.i
+  %or9561.i = or disjoint i64 %or9160.i, %conv4.i165.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %tmp.i, i8 0, i64 96, i1 false)
   br label %for.body.i168.i
 
-for.body.i168.i:                                  ; preds = %for.inc16.i178.i, %get_bit.exit167.i
-  %i.018.i169.i = phi i64 [ %inc17.i179.i, %for.inc16.i178.i ], [ 0, %get_bit.exit167.i ]
+for.body.i168.i:                                  ; preds = %for.inc16.i178.i, %get_bit.exit156.i
+  %i.018.i169.i = phi i64 [ %inc17.i179.i, %for.inc16.i178.i ], [ 0, %get_bit.exit156.i ]
   %arrayidx2.i170.i = getelementptr inbounds [3 x [4 x i64]], ptr @g_pre_comp, i64 %i.018.i169.i
   %xor.i171.i = xor i64 %i.018.i169.i, %or9561.i
   %shr.i172.i = lshr i64 %xor.i171.i, 4

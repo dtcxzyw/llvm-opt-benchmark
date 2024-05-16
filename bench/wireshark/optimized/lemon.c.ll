@@ -16700,7 +16700,7 @@ append_str.exit219:                               ; preds = %98, %103
 
 161:                                              ; preds = %158
   %162 = trunc nuw nsw i64 %indvars.iv to i32
-  %163 = icmp eq i32 %162, 0
+  %163 = icmp eq i64 %indvars.iv, 0
   %164 = icmp ne i32 %.0172270, 0
   %or.cond = select i1 %163, i1 %164, i1 false
   br i1 %or.cond, label %165, label %171

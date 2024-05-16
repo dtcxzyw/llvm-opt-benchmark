@@ -217,7 +217,7 @@ define dso_local ptr @__get_insn_slot(ptr noundef %0) local_unnamed_addr #0 alig
   br i1 %14, label %15, label %35
 
 15:                                               ; preds = %.preheader
-  %16 = icmp eq i32 %13, 0
+  %16 = icmp ugt i64 %11, 4096
   br i1 %16, label %.thread, label %17
 
 17:                                               ; preds = %15

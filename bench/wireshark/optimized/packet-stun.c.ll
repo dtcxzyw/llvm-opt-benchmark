@@ -978,8 +978,7 @@ dissect_stun_message_channel_data.exit:           ; preds = %._crit_edge.i, %73
   store i32 0, ptr %112, align 16
   %113 = getelementptr inbounds i8, ptr %9, i64 24
   store ptr null, ptr %113, align 8
-  %trunc = trunc nuw i16 %91 to i8
-  %114 = icmp ult i8 %trunc, 13
+  %114 = icmp ult i16 %91, 13
   %115 = trunc nuw nsw i16 %91 to i13
   %switch.downshift = lshr i13 -40, %115
   %switch.masked = trunc i13 %switch.downshift to i1

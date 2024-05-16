@@ -929,8 +929,7 @@ if.end11:                                         ; preds = %if.end10, %if.then
   %conv10.i41.i.i171 = fptoui float %add9.i40.i.i170 to i16
   %arrayidx11.i42.i.i172 = getelementptr inbounds i8, ptr %m_quantizedAabbMax.i.i140.sink219, i64 4
   store i16 %conv10.i41.i.i171, ptr %arrayidx11.i42.i.i172, align 2
-  %119 = and i64 %indvars.iv.next, 4294967295
-  %tobool.not = icmp eq i64 %119, 0
+  %tobool.not = icmp eq i64 %indvars.iv.next, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !14
 
 while.end:                                        ; preds = %if.end11, %entry

@@ -3698,12 +3698,12 @@ define internal fastcc void @x86_features_from_host(ptr noundef %0) unnamed_addr
   %17 = getelementptr inbounds i8, ptr %0, i64 16
   br label %18
 
-18:                                               ; preds = %.lr.ph, %64
-  %.039 = phi ptr [ %16, %.lr.ph ], [ %65, %64 ]
+18:                                               ; preds = %.lr.ph, %60
+  %.039 = phi ptr [ %16, %.lr.ph ], [ %61, %60 ]
   %19 = load i8, ptr %.039, align 1
-  switch i8 %19, label %64 [
+  switch i8 %19, label %60 [
     i8 45, label %20
-    i8 43, label %41
+    i8 43, label %39
   ]
 
 20:                                               ; preds = %18
@@ -3732,99 +3732,90 @@ define internal fastcc void @x86_features_from_host(ptr noundef %0) unnamed_addr
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %27 ], [ 0, %23 ]
   %32 = phi i8 [ %29, %27 ], [ %22, %23 ]
   %33 = icmp eq i8 %32, 0
-  br i1 %33, label %x86feature_from_string.exit, label %27
+  br i1 %33, label %x86features_remove_feature.exit, label %27
 
 ._crit_edge.i:                                    ; preds = %27, %23
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next22.i, 104
   br i1 %exitcond.not.i, label %x86feature_from_string.exit.thread, label %23, !llvm.loop !12
 
-x86feature_from_string.exit:                      ; preds = %.lr.ph.i
-  %34 = trunc nuw nsw i64 %indvars.iv21.i to i32
-  %35 = icmp slt i32 %34, 0
-  br i1 %35, label %x86feature_from_string.exit.thread, label %x86features_remove_feature.exit
+x86feature_from_string.exit.thread:               ; preds = %._crit_edge.i
+  %34 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.208, ptr noundef nonnull %21)
+  br label %60
 
-x86feature_from_string.exit.thread:               ; preds = %._crit_edge.i, %x86feature_from_string.exit
-  %36 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.208, ptr noundef nonnull %21)
-  br label %64
-
-x86features_remove_feature.exit:                  ; preds = %x86feature_from_string.exit
-  %37 = icmp ult i32 %34, 64
-  %38 = add nuw i64 %indvars.iv21.i, 4294967232
-  %.sink.i.idx = select i1 %37, i64 0, i64 8
+x86features_remove_feature.exit:                  ; preds = %.lr.ph.i
+  %35 = icmp ult i64 %indvars.iv21.i, 64
+  %36 = add nuw i64 %indvars.iv21.i, 4294967232
+  %.sink.i.idx = select i1 %35, i64 0, i64 8
   %.sink.i = getelementptr inbounds i8, ptr %0, i64 %.sink.i.idx
-  %.pn.in.i = select i1 %37, i64 %indvars.iv21.i, i64 %38
+  %.pn.in.i = select i1 %35, i64 %indvars.iv21.i, i64 %36
   %.pn.i = and i64 %.pn.in.i, 4294967295
   %.sink7.in.i = shl nuw i64 1, %.pn.i
   %.sink7.i = xor i64 %.sink7.in.i, -1
-  %39 = load i64, ptr %.sink.i, align 8
-  %40 = and i64 %39, %.sink7.i
-  store i64 %40, ptr %.sink.i, align 8
+  %37 = load i64, ptr %.sink.i, align 8
+  %38 = and i64 %37, %.sink7.i
+  store i64 %38, ptr %.sink.i, align 8
   store ptr null, ptr %17, align 8
-  br label %64
+  br label %60
 
-41:                                               ; preds = %18
-  %42 = getelementptr inbounds i8, ptr %.039, i64 1
-  %43 = load i8, ptr %42, align 1
-  br label %44
+39:                                               ; preds = %18
+  %40 = getelementptr inbounds i8, ptr %.039, i64 1
+  %41 = load i8, ptr %40, align 1
+  br label %42
 
-44:                                               ; preds = %._crit_edge.i24, %41
-  %indvars.iv21.i22 = phi i64 [ 0, %41 ], [ %indvars.iv.next22.i25, %._crit_edge.i24 ]
-  %45 = getelementptr inbounds [104 x ptr], ptr @x86_feature_name, i64 0, i64 %indvars.iv21.i22
-  %46 = load ptr, ptr %45, align 8
-  %47 = load i8, ptr %46, align 1
-  %.not16.i23 = icmp eq i8 %47, %43
+42:                                               ; preds = %._crit_edge.i24, %39
+  %indvars.iv21.i22 = phi i64 [ 0, %39 ], [ %indvars.iv.next22.i25, %._crit_edge.i24 ]
+  %43 = getelementptr inbounds [104 x ptr], ptr @x86_feature_name, i64 0, i64 %indvars.iv21.i22
+  %44 = load ptr, ptr %43, align 8
+  %45 = load i8, ptr %44, align 1
+  %.not16.i23 = icmp eq i8 %45, %41
   br i1 %.not16.i23, label %.lr.ph.i28, label %._crit_edge.i24
 
-48:                                               ; preds = %.lr.ph.i28
+46:                                               ; preds = %.lr.ph.i28
   %indvars.iv.next.i30 = add nuw nsw i64 %indvars.iv.i29, 1
-  %49 = getelementptr inbounds i8, ptr %42, i64 %indvars.iv.next.i30
+  %47 = getelementptr inbounds i8, ptr %40, i64 %indvars.iv.next.i30
+  %48 = load i8, ptr %47, align 1
+  %49 = getelementptr inbounds i8, ptr %44, i64 %indvars.iv.next.i30
   %50 = load i8, ptr %49, align 1
-  %51 = getelementptr inbounds i8, ptr %46, i64 %indvars.iv.next.i30
-  %52 = load i8, ptr %51, align 1
-  %.not.i31 = icmp eq i8 %52, %50
+  %.not.i31 = icmp eq i8 %50, %48
   br i1 %.not.i31, label %.lr.ph.i28, label %._crit_edge.i24
 
-.lr.ph.i28:                                       ; preds = %44, %48
-  %indvars.iv.i29 = phi i64 [ %indvars.iv.next.i30, %48 ], [ 0, %44 ]
-  %53 = phi i8 [ %50, %48 ], [ %43, %44 ]
-  %54 = icmp eq i8 %53, 0
-  br i1 %54, label %x86feature_from_string.exit33, label %48
+.lr.ph.i28:                                       ; preds = %42, %46
+  %indvars.iv.i29 = phi i64 [ %indvars.iv.next.i30, %46 ], [ 0, %42 ]
+  %51 = phi i8 [ %48, %46 ], [ %41, %42 ]
+  %52 = icmp eq i8 %51, 0
+  br i1 %52, label %x86feature_from_string.exit33, label %46
 
-._crit_edge.i24:                                  ; preds = %48, %44
+._crit_edge.i24:                                  ; preds = %46, %42
   %indvars.iv.next22.i25 = add nuw nsw i64 %indvars.iv21.i22, 1
   %exitcond.not.i26 = icmp eq i64 %indvars.iv.next22.i25, 104
-  br i1 %exitcond.not.i26, label %x86feature_from_string.exit33.thread, label %44, !llvm.loop !12
+  br i1 %exitcond.not.i26, label %x86feature_from_string.exit33.thread, label %42, !llvm.loop !12
+
+x86feature_from_string.exit33.thread:             ; preds = %._crit_edge.i24
+  %53 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #18
+  %54 = icmp eq i64 %53, 5
+  br i1 %54, label %55, label %57
+
+55:                                               ; preds = %x86feature_from_string.exit33.thread
+  %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %40, ptr noundef nonnull dereferenceable(5) @.str.209, i64 5)
+  %56 = icmp eq i32 %bcmp, 0
+  br i1 %56, label %60, label %57
+
+57:                                               ; preds = %55, %x86feature_from_string.exit33.thread
+  %58 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.208, ptr noundef nonnull %40)
+  br label %60
 
 x86feature_from_string.exit33:                    ; preds = %.lr.ph.i28
-  %55 = trunc nuw nsw i64 %indvars.iv21.i22 to i32
-  %56 = icmp slt i32 %55, 0
-  br i1 %56, label %x86feature_from_string.exit33.thread, label %63
+  %59 = trunc nuw nsw i64 %indvars.iv21.i22 to i32
+  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef %59)
+  br label %60
 
-x86feature_from_string.exit33.thread:             ; preds = %._crit_edge.i24, %x86feature_from_string.exit33
-  %57 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %42) #18
-  %58 = icmp eq i64 %57, 5
-  br i1 %58, label %59, label %61
-
-59:                                               ; preds = %x86feature_from_string.exit33.thread
-  %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %42, ptr noundef nonnull dereferenceable(5) @.str.209, i64 5)
-  %60 = icmp eq i32 %bcmp, 0
-  br i1 %60, label %64, label %61
-
-61:                                               ; preds = %59, %x86feature_from_string.exit33.thread
-  %62 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.208, ptr noundef nonnull %42)
-  br label %64
-
-63:                                               ; preds = %x86feature_from_string.exit33
-  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef %55)
-  br label %64
-
-64:                                               ; preds = %18, %x86features_remove_feature.exit, %63, %59, %61, %x86feature_from_string.exit.thread
-  %65 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.207) #17
-  %.not = icmp eq ptr %65, null
+60:                                               ; preds = %18, %x86features_remove_feature.exit, %x86feature_from_string.exit33, %55, %57, %x86feature_from_string.exit.thread
+  %61 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.207) #17
+  %.not = icmp eq ptr %61, null
   br i1 %.not, label %._crit_edge, label %18, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %64, %15
+._crit_edge:                                      ; preds = %60, %15
   tail call void @LLVMDisposeMessage(ptr noundef %2) #17
   ret void
 }

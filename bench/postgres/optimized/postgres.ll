@@ -552,8 +552,8 @@ define dso_local void @ProcessInterrupts() local_unnamed_addr #0 {
 74:                                               ; preds = %70
   %75 = tail call i64 @get_timeout_finish_time(i32 noundef 3) #25
   %76 = tail call i64 @get_timeout_finish_time(i32 noundef 2) #25
-  %.not35 = icmp slt i64 %75, %76
-  br i1 %.not35, label %82, label %78
+  %.not41 = icmp slt i64 %75, %76
+  br i1 %.not41, label %82, label %78
 
 77:                                               ; preds = %70
   br i1 %71, label %78, label %82
@@ -707,9 +707,9 @@ define dso_local void @ProcessInterrupts() local_unnamed_addr #0 {
   tail call void @pgstat_report_recovery_conflict(i32 noundef %105) #25
   %135 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #26
   tail call void @llvm.assume(i1 %135)
-  %136 = icmp eq i32 %105, 7
-  %spec.select = select i1 %136, i32 67240389, i32 16777220
-  %137 = tail call i32 @errcode(i32 noundef %spec.select) #25
+  %136 = icmp eq i64 %indvars.iv.i, 7
+  %spec.select.i = select i1 %136, i32 67240389, i32 16777220
+  %137 = tail call i32 @errcode(i32 noundef %spec.select.i) #25
   %138 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.106) #25
   tail call fastcc void @errdetail_recovery_conflict(i32 noundef %105)
   %139 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.13) #25

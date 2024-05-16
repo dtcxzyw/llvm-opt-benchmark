@@ -2706,7 +2706,7 @@ do.end11:                                         ; preds = %land.rhs
   %conv16 = trunc nuw i64 %spec.select to i32
   %arrayidx17 = getelementptr inbounds ptr, ptr %ptrs, i64 %filled.0116
   %9 = getelementptr inbounds i8, ptr %call7, i64 64
-  %cmp28.not.i = icmp eq i32 %conv16, 0
+  %cmp28.not.i = icmp eq i64 %spec.select, 0
   br i1 %cmp28.not.i, label %arena_slab_reg_alloc_batch.exit, label %while.cond3.preheader.lr.ph.i
 
 while.cond3.preheader.lr.ph.i:                    ; preds = %do.end11

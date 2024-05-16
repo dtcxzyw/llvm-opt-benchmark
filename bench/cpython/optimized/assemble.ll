@@ -1265,8 +1265,8 @@ if.end11:                                         ; preds = %if.end7
   br i1 %or.cond.not, label %if.else, label %if.then17
 
 if.then17:                                        ; preds = %if.end11
-  %cmp23 = icmp eq i32 %loc.sroa.9.0.extract.trunc, -1
-  %or.cond1 = or i1 %cmp31, %cmp23
+  %cmp23 = icmp eq i64 %loc.sroa.9.0.extract.shift, 4294967295
+  %or.cond1 = or i1 %cmp23, %cmp31
   %a.val.i.i77.pre108 = load ptr, ptr %a_linetable, align 8
   %a.val2.i.i78.pre111 = load i32, ptr %a_location_off, align 8
   br i1 %or.cond1, label %if.then25, label %if.end63

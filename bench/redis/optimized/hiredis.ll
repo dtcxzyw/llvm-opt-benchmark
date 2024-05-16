@@ -969,19 +969,18 @@ while.body379:                                    ; preds = %while.body379.prehe
   %arrayidx381 = getelementptr inbounds ptr, ptr %curargv.4, i64 %indvars.iv.next324
   %79 = load ptr, ptr %arrayidx381, align 8
   call void @hi_sdsfree(ptr noundef %79) #13
-  %80 = and i64 %indvars.iv.next324, 4294967295
-  %tobool378.not = icmp eq i64 %80, 0
+  %tobool378.not = icmp eq i64 %indvars.iv.next324, 0
   br i1 %tobool378.not, label %while.end382, label %while.body379
 
 while.end382:                                     ; preds = %while.body379, %while.cond377.preheader
-  %81 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
-  call void %81(ptr noundef nonnull %curargv.4) #13
+  %80 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
+  call void %80(ptr noundef nonnull %curargv.4) #13
   br label %if.end383
 
 if.end383:                                        ; preds = %while.end382, %cleanup
   call void @hi_sdsfree(ptr noundef %curarg.4) #13
-  %82 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
-  call void %82(ptr noundef null) #13
+  %81 = load ptr, ptr getelementptr inbounds (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i64 0, i32 4), align 8
+  call void %81(ptr noundef null) #13
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.end383, %for.end

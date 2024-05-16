@@ -19168,14 +19168,14 @@ if.end997:                                        ; preds = %for.body990
   br label %for.cond987.outer, !llvm.loop !30
 
 for.end1001:                                      ; preds = %for.cond987
-  %252 = trunc nuw nsw i64 %indvars.iv1404 to i32
   %idxprom1002 = and i64 %indvars.iv1404, 4294967295
   %arrayidx1003 = getelementptr inbounds i16, ptr %call986, i64 %idxprom1002
   store i16 0, ptr %arrayidx1003, align 2
-  %cmp1004.not = icmp eq i32 %252, 0
+  %cmp1004.not = icmp eq i64 %indvars.iv1404, 0
   br i1 %cmp1004.not, label %if.end1009, label %if.then1005
 
 if.then1005:                                      ; preds = %for.end1001
+  %252 = trunc nuw nsw i64 %indvars.iv1404 to i32
   call fastcc void @_ZN5ImStbL18stb_textedit_pasteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEPKti(ptr noundef %state.01435, ptr noundef nonnull %Stb608, ptr noundef nonnull %call986, i32 noundef %252)
   %CursorFollow1008 = getelementptr inbounds i8, ptr %state.01435, i64 3716
   store i8 1, ptr %CursorFollow1008, align 4

@@ -2083,7 +2083,7 @@ define internal fastcc noundef ptr @"_ZN108_$LT$kafka_protocol..messages..fetch_
 
 20:                                               ; preds = %2
   %21 = trunc nuw i64 %18 to i32
-  %22 = icmp ugt i32 %21, 127
+  %22 = icmp ugt i64 %18, 127
   br i1 %22, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %20, %.lr.ph.i
@@ -14010,7 +14010,7 @@ thread-pre-split:                                 ; preds = %58, %69
 
 71:                                               ; preds = %thread-pre-split
   %72 = trunc nuw i64 %67 to i32
-  %73 = icmp ugt i32 %72, 127
+  %73 = icmp ugt i64 %67, 127
   br i1 %73, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %71, %.lr.ph.i
@@ -16248,7 +16248,7 @@ define internal fastcc noundef ptr @"_ZN112_$LT$kafka_protocol..messages..fetch_
 
 20:                                               ; preds = %2
   %21 = trunc nuw i64 %18 to i32
-  %22 = icmp ugt i32 %21, 127
+  %22 = icmp ugt i64 %18, 127
   br i1 %22, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %20, %.lr.ph.i
@@ -17701,7 +17701,7 @@ define hidden noundef ptr @"_ZN113_$LT$kafka_protocol..messages..fetch_response.
 
 83:                                               ; preds = %.thread59
   %84 = trunc nuw i64 %81 to i32
-  %85 = icmp ugt i32 %84, 127
+  %85 = icmp ugt i64 %81, 127
   br i1 %85, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %83, %.lr.ph.i
@@ -36429,7 +36429,7 @@ define internal fastcc noundef ptr @"_ZN114_$LT$kafka_protocol..messages..fetch_
 
 21:                                               ; preds = %2
   %22 = trunc nuw i64 %19 to i32
-  %23 = icmp ugt i32 %22, 127
+  %23 = icmp ugt i64 %19, 127
   br i1 %23, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %21, %.lr.ph.i
@@ -37083,7 +37083,7 @@ define hidden noundef ptr @"_ZN116_$LT$kafka_protocol..messages..fetch_response.
 
 46:                                               ; preds = %41
   %47 = trunc nuw i64 %44 to i32
-  %48 = icmp ugt i32 %47, 127
+  %48 = icmp ugt i64 %44, 127
   br i1 %48, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %46, %.lr.ph.i
@@ -38170,7 +38170,7 @@ define hidden noundef ptr @"_ZN120_$LT$kafka_protocol..messages..fetch_response.
 
 43:                                               ; preds = %38
   %44 = trunc nuw i64 %41 to i32
-  %45 = icmp ugt i32 %44, 127
+  %45 = icmp ugt i64 %41, 127
   br i1 %45, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %43, %.lr.ph.i
@@ -39219,7 +39219,7 @@ define hidden noundef ptr @"_ZN120_$LT$kafka_protocol..messages..find_coordinato
 
 107:                                              ; preds = %.thread80
   %108 = trunc nuw i64 %105 to i32
-  %109 = icmp ugt i32 %108, 127
+  %109 = icmp ugt i64 %105, 127
   br i1 %109, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %107, %.lr.ph.i
@@ -44133,7 +44133,7 @@ define hidden noundef ptr @"_ZN132_$LT$kafka_protocol..messages..find_coordinato
 
 129:                                              ; preds = %.thread111
   %130 = trunc nuw i64 %127 to i32
-  %131 = icmp ugt i32 %130, 127
+  %131 = icmp ugt i64 %127, 127
   br i1 %131, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %129, %.lr.ph.i

@@ -7717,8 +7717,6 @@ while.cond.preheader:                             ; preds = %if.end43
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
   %conv64 = zext nneg i32 %cond30 to i64
-  %8 = and i64 %rem47, 4294967295
-  %tobool91.not = icmp ne i64 %8, 0
   %bdrv_co_pwrite_zeroes = getelementptr inbounds i8, ptr %0, i64 560
   %and113 = and i32 %flags, 16
   %tobool114.not = icmp eq i32 %and113, 0
@@ -7726,7 +7724,7 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
   %and134 = and i32 %flags, -267
   %supported_write_flags = getelementptr inbounds i8, ptr %bs, i64 16588
   %and141 = and i32 %flags, -283
-  %9 = getelementptr inbounds i8, ptr %qiov, i64 16
+  %8 = getelementptr inbounds i8, ptr %qiov, i64 16
   %local_iov.i = getelementptr inbounds i8, ptr %qiov, i64 24
   %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %qiov, i64 8
   %.compoundliteral.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %qiov, i64 32
@@ -7746,10 +7744,10 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %tobool62.not, label %if.else90, label %if.then63
 
 if.then63:                                        ; preds = %while.body
-  %10 = call i64 @llvm.umin.i64(i64 %bytes.addr.0122, i64 %conv64)
+  %9 = call i64 @llvm.umin.i64(i64 %bytes.addr.0122, i64 %conv64)
   %sub = sub i32 %cond15, %head.0119
   %conv72 = sext i32 %sub to i64
-  %cond79 = call i64 @llvm.smin.i64(i64 %10, i64 %conv72)
+  %cond79 = call i64 @llvm.smin.i64(i64 %9, i64 %conv72)
   %conv80 = sext i32 %head.0119 to i64
   %add81 = add nsw i64 %cond79, %conv80
   %rem83 = srem i64 %add81, %conv
@@ -7763,8 +7761,7 @@ if.else88:                                        ; preds = %if.then63
 
 if.else90:                                        ; preds = %while.body
   %cmp93 = icmp sgt i64 %bytes.addr.0122, %conv
-  %or.cond = and i1 %tobool91.not, %cmp93
-  %sub97 = select i1 %or.cond, i64 %rem47, i64 0
+  %sub97 = select i1 %cmp93, i64 %rem47, i64 0
   %spec.select126 = sub i64 %bytes.addr.0122, %sub97
   br label %if.end99
 
@@ -7772,17 +7769,17 @@ if.end99:                                         ; preds = %if.else90, %if.then
   %num.0 = phi i64 [ %cond79, %if.then63 ], [ %spec.select126, %if.else90 ]
   %head.1 = phi i32 [ %conv84, %if.then63 ], [ 0, %if.else90 ]
   %spec.select = call i64 @llvm.smin.i64(i64 %num.0, i64 %mul)
-  %11 = call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %bdrv_co_pwrite_zeroes, ptr nonnull @.str.4, ptr nonnull @.str.5, i32 574, ptr null)
-  %12 = load ptr, ptr %11, align 8
-  %tobool104.not = icmp eq ptr %12, null
+  %10 = call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %bdrv_co_pwrite_zeroes, ptr nonnull @.str.4, ptr nonnull @.str.5, i32 574, ptr null)
+  %11 = load ptr, ptr %10, align 8
+  %tobool104.not = icmp eq ptr %11, null
   br i1 %tobool104.not, label %if.else121, label %if.then105
 
 if.then105:                                       ; preds = %if.end99
-  %13 = call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %bdrv_co_pwrite_zeroes, ptr nonnull @.str.4, ptr nonnull @.str.5, i32 574, ptr null)
-  %14 = load ptr, ptr %13, align 8
-  %15 = load i32, ptr %supported_zero_flags, align 8
-  %and108 = and i32 %15, %flags
-  %call109 = call i32 %14(ptr noundef %bs, i64 noundef %offset.addr.0123, i64 noundef %spec.select, i32 noundef %and108) #14
+  %12 = call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %bdrv_co_pwrite_zeroes, ptr nonnull @.str.4, ptr nonnull @.str.5, i32 574, ptr null)
+  %13 = load ptr, ptr %12, align 8
+  %14 = load i32, ptr %supported_zero_flags, align 8
+  %and108 = and i32 %14, %flags
+  %call109 = call i32 %13(ptr noundef %bs, i64 noundef %offset.addr.0123, i64 noundef %spec.select, i32 noundef %and108) #14
   %cmp110.not = icmp eq i32 %call109, -95
   br i1 %cmp110.not, label %land.lhs.true130, label %land.lhs.true112
 
@@ -7790,15 +7787,15 @@ land.lhs.true112:                                 ; preds = %if.then105
   br i1 %tobool114.not, label %if.end166, label %land.lhs.true115
 
 land.lhs.true115:                                 ; preds = %land.lhs.true112
-  %16 = load i32, ptr %supported_zero_flags, align 8
-  %and117 = and i32 %16, 16
+  %15 = load i32, ptr %supported_zero_flags, align 8
+  %and117 = and i32 %15, 16
   %tobool118.not = icmp eq i32 %and117, 0
   %spec.select94 = select i1 %tobool118.not, i1 true, i1 %need_flush.0120
   br label %if.end166
 
 if.else121:                                       ; preds = %if.end99
-  %17 = load i32, ptr %supported_zero_flags, align 8
-  %tobool123.not = icmp eq i32 %17, 0
+  %16 = load i32, ptr %supported_zero_flags, align 8
+  %tobool123.not = icmp eq i32 %16, 0
   br i1 %tobool123.not, label %land.lhs.true130, label %if.else125
 
 if.else125:                                       ; preds = %if.else121
@@ -7812,8 +7809,8 @@ if.then133:                                       ; preds = %land.lhs.true130
   br i1 %tobool114.not, label %if.end142, label %land.lhs.true137
 
 land.lhs.true137:                                 ; preds = %if.then133
-  %18 = load i32, ptr %supported_write_flags, align 4
-  %and138 = and i32 %18, 16
+  %17 = load i32, ptr %supported_write_flags, align 4
+  %and138 = and i32 %17, 16
   %tobool139.not = icmp eq i32 %and138, 0
   %spec.select95 = select i1 %tobool139.not, i1 true, i1 %need_flush.0120
   %spec.select96 = select i1 %tobool139.not, i32 %and141, i32 %and134
@@ -7851,7 +7848,7 @@ if.end159:                                        ; preds = %qemu_try_blockalign
   %buf.1 = phi ptr [ %call4.i.i, %qemu_try_blockalign0.exit ], [ %buf.0121, %if.end142 ]
   store ptr %local_iov.i, ptr %qiov, align 8
   store i32 1, ptr %.compoundliteral.sroa.2.0..sroa_idx.i, align 8
-  store i32 -1, ptr %9, align 8
+  store i32 -1, ptr %8, align 8
   store ptr %buf.1, ptr %local_iov.i, align 8
   store i64 %cond150, ptr %.compoundliteral.sroa.5.0..sroa_idx.i, align 8
   %call160 = call i32 @bdrv_driver_pwritev(ptr noundef nonnull %bs, i64 noundef %offset.addr.0123, i64 noundef %cond150, ptr noundef nonnull %qiov, i64 noundef 0, i32 noundef %write_flags.0)
@@ -7870,8 +7867,8 @@ if.end166:                                        ; preds = %land.lhs.true112, %
   %sub168 = sub i64 %bytes.addr.0122, %num.2
   %cmp59 = icmp sgt i64 %sub168, 0
   %tobool61.not = icmp eq i32 %ret.2, 0
-  %19 = select i1 %cmp59, i1 %tobool61.not, i1 false
-  br i1 %19, label %while.body, label %fail, !llvm.loop !36
+  %18 = select i1 %cmp59, i1 %tobool61.not, i1 false
+  br i1 %18, label %while.body, label %fail, !llvm.loop !36
 
 fail:                                             ; preds = %if.end166
   %cmp169 = icmp eq i32 %ret.2, 0

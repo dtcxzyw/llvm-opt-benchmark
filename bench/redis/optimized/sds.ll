@@ -3806,8 +3806,7 @@ sdsHdrSize.exit.i:                                ; preds = %if.end.i, %switch.l
   br label %sdsfree.exit
 
 sdsfree.exit:                                     ; preds = %while.body, %sdsHdrSize.exit.i
-  %6 = and i64 %indvars.iv.next, 4294967295
-  %tobool1.not = icmp eq i64 %6, 0
+  %tobool1.not = icmp eq i64 %indvars.iv.next, 0
   br i1 %tobool1.not, label %while.end, label %while.body, !llvm.loop !13
 
 while.end:                                        ; preds = %sdsfree.exit, %while.cond.preheader

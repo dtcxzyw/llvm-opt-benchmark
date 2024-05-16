@@ -780,7 +780,7 @@ entry:
   %rem = srem i64 %nanos, 1000000000
   %conv = trunc nsw i64 %rem to i32
   %cmp2.i = icmp slt i64 %nanos, -999999999
-  %cmp3.i = icmp sgt i32 %conv, 0
+  %cmp3.i = icmp sgt i64 %rem, 0
   %or.cond1.i = and i1 %cmp2.i, %cmp3.i
   br i1 %or.cond1.i, label %if.then4.i, label %if.else.i
 
@@ -791,7 +791,7 @@ if.then4.i:                                       ; preds = %entry
 
 if.else.i:                                        ; preds = %entry
   %cmp6.i = icmp sgt i64 %nanos, 999999999
-  %cmp8.i = icmp slt i32 %conv, 0
+  %cmp8.i = icmp slt i64 %rem, 0
   %or.cond2.i = and i1 %cmp6.i, %cmp8.i
   br i1 %or.cond2.i, label %if.then9.i, label %_ZN6google8protobuf4util12_GLOBAL__N_116CreateNormalizedINS0_8DurationEEET_li.exit
 
@@ -819,7 +819,7 @@ entry:
   %0 = trunc nsw i64 %rem to i32
   %conv = mul nsw i32 %0, 1000
   %cmp2.i = icmp slt i64 %micros, -999999
-  %cmp3.i = icmp sgt i32 %0, 0
+  %cmp3.i = icmp sgt i64 %rem, 0
   %or.cond1.i = and i1 %cmp2.i, %cmp3.i
   br i1 %or.cond1.i, label %if.then4.i, label %if.else.i
 
@@ -830,7 +830,7 @@ if.then4.i:                                       ; preds = %entry
 
 if.else.i:                                        ; preds = %entry
   %cmp6.i = icmp sgt i64 %micros, 999999
-  %cmp8.i = icmp slt i32 %0, 0
+  %cmp8.i = icmp slt i64 %rem, 0
   %or.cond2.i = and i1 %cmp6.i, %cmp8.i
   br i1 %or.cond2.i, label %if.then9.i, label %_ZN6google8protobuf4util12_GLOBAL__N_116CreateNormalizedINS0_8DurationEEET_li.exit
 
@@ -858,7 +858,7 @@ entry:
   %0 = trunc nsw i64 %rem to i32
   %conv = mul nsw i32 %0, 1000000
   %cmp2.i = icmp slt i64 %millis, -999
-  %cmp3.i = icmp sgt i32 %0, 0
+  %cmp3.i = icmp sgt i64 %rem, 0
   %or.cond1.i = and i1 %cmp2.i, %cmp3.i
   br i1 %or.cond1.i, label %if.then4.i, label %if.else.i
 
@@ -869,7 +869,7 @@ if.then4.i:                                       ; preds = %entry
 
 if.else.i:                                        ; preds = %entry
   %cmp6.i = icmp sgt i64 %millis, 999
-  %cmp8.i = icmp slt i32 %0, 0
+  %cmp8.i = icmp slt i64 %rem, 0
   %or.cond2.i = and i1 %cmp6.i, %cmp8.i
   br i1 %or.cond2.i, label %if.then9.i, label %_ZN6google8protobuf4util12_GLOBAL__N_116CreateNormalizedINS0_8DurationEEET_li.exit
 
@@ -1021,7 +1021,7 @@ entry:
   %div = sdiv i64 %nanos, 1000000000
   %rem = srem i64 %nanos, 1000000000
   %conv = trunc nsw i64 %rem to i32
-  %cmp2.i = icmp slt i32 %conv, 0
+  %cmp2.i = icmp slt i64 %rem, 0
   %add4.i = add nsw i32 %conv, 1000000000
   %nanos.addr.1.i = select i1 %cmp2.i, i32 %add4.i, i32 %conv
   %sub.i = ashr i64 %rem, 63
@@ -1041,7 +1041,7 @@ entry:
   %rem = srem i64 %micros, 1000000
   %0 = trunc nsw i64 %rem to i32
   %conv = mul nsw i32 %0, 1000
-  %cmp2.i = icmp slt i32 %0, 0
+  %cmp2.i = icmp slt i64 %rem, 0
   %add4.i = add nsw i32 %conv, 1000000000
   %nanos.addr.1.i = select i1 %cmp2.i, i32 %add4.i, i32 %conv
   %nanos.addr.0.lobit.i = ashr i32 %conv, 31
@@ -1062,7 +1062,7 @@ entry:
   %rem = srem i64 %millis, 1000
   %0 = trunc nsw i64 %rem to i32
   %conv = mul nsw i32 %0, 1000000
-  %cmp2.i = icmp slt i32 %0, 0
+  %cmp2.i = icmp slt i64 %rem, 0
   %add4.i = add nsw i32 %conv, 1000000000
   %nanos.addr.1.i = select i1 %cmp2.i, i32 %add4.i, i32 %conv
   %nanos.addr.0.lobit.i = ashr i32 %conv, 31

@@ -397,16 +397,16 @@ define internal fastcc void @_scan_slurm_job_list() unnamed_addr #0 {
   br i1 %.not, label %4, label %9
 
 4:                                                ; preds = %0
-  br i1 %.not30, label %79, label %5
+  br i1 %.not30, label %77, label %5
 
 5:                                                ; preds = %4
   %6 = tail call i32 @get_log_level() #9
   %7 = icmp sgt i32 %6, 3
-  br i1 %7, label %8, label %79
+  br i1 %7, label %8, label %77
 
 8:                                                ; preds = %5
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._scan_slurm_job_list) #9
-  br label %79
+  br label %77
 
 9:                                                ; preds = %0
   br i1 %.not30, label %14, label %10
@@ -424,11 +424,11 @@ define internal fastcc void @_scan_slurm_job_list() unnamed_addr #0 {
   %15 = load ptr, ptr @job_list, align 8
   %16 = tail call ptr @list_iterator_create(ptr noundef %15) #9
   %17 = tail call ptr @list_next(ptr noundef %16) #9
-  %.not3243 = icmp eq ptr %17, null
-  br i1 %.not3243, label %._crit_edge, label %.lr.ph
+  %.not3242 = icmp eq ptr %17, null
+  br i1 %.not3242, label %_find_job_index.exit._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %14, %.backedge
-  %18 = phi ptr [ %68, %.backedge ], [ %17, %14 ]
+.lr.ph:                                           ; preds = %14, %_find_job_index.exit.backedge
+  %18 = phi ptr [ %66, %_find_job_index.exit.backedge ], [ %17, %14 ]
   %19 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
   %20 = and i64 %19, 8192
   %.not33 = icmp eq i64 %20, 0
@@ -447,7 +447,7 @@ define internal fastcc void @_scan_slurm_job_list() unnamed_addr #0 {
   %26 = getelementptr inbounds i8, ptr %18, i64 360
   %27 = load i32, ptr %26, align 8
   %.not34 = icmp eq i32 %27, 0
-  br i1 %.not34, label %28, label %.backedge
+  br i1 %.not34, label %28, label %_find_job_index.exit.backedge
 
 28:                                               ; preds = %25
   %29 = getelementptr inbounds i8, ptr %18, i64 448
@@ -455,7 +455,7 @@ define internal fastcc void @_scan_slurm_job_list() unnamed_addr #0 {
   %31 = and i32 %30, 255
   %trunc = trunc i32 %30 to i8
   switch i8 %trunc, label %36 [
-    i8 0, label %.backedge
+    i8 0, label %_find_job_index.exit.backedge
     i8 2, label %32
   ]
 
@@ -463,7 +463,7 @@ define internal fastcc void @_scan_slurm_job_list() unnamed_addr #0 {
   %33 = getelementptr inbounds i8, ptr %18, i64 712
   %34 = load i32, ptr %33, align 8
   %35 = icmp eq i32 %34, 0
-  br i1 %35, label %.backedge, label %36
+  br i1 %35, label %_find_job_index.exit.backedge, label %36
 
 36:                                               ; preds = %28, %32
   %37 = getelementptr inbounds i8, ptr %18, i64 664
@@ -489,10 +489,10 @@ define internal fastcc void @_scan_slurm_job_list() unnamed_addr #0 {
   %46 = load ptr, ptr @gs_part_list, align 8
   %47 = tail call ptr @list_find_first(ptr noundef %46, ptr noundef nonnull @_find_gs_part, ptr noundef %.0) #9
   %.not38 = icmp eq ptr %47, null
-  br i1 %switch, label %48, label %69
+  br i1 %switch, label %48, label %67
 
 48:                                               ; preds = %45
-  br i1 %.not38, label %.backedge, label %49
+  br i1 %.not38, label %_find_job_index.exit.backedge, label %49
 
 49:                                               ; preds = %48
   %50 = getelementptr inbounds i8, ptr %18, i64 392
@@ -517,58 +517,53 @@ define internal fastcc void @_scan_slurm_job_list() unnamed_addr #0 {
   %61 = getelementptr inbounds i8, ptr %60, i64 392
   %62 = load i32, ptr %61, align 8
   %63 = icmp eq i32 %62, %51
-  br i1 %63, label %_find_job_index.exit, label %64
+  br i1 %63, label %_find_job_index.exit.backedge, label %64, !llvm.loop !9
 
 64:                                               ; preds = %56
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_find_job_index.exit.thread, label %56, !llvm.loop !9
+  br i1 %exitcond.not.i, label %_find_job_index.exit.thread, label %56, !llvm.loop !10
 
-_find_job_index.exit:                             ; preds = %56
-  %65 = and i64 %indvars.iv.i, 2147483648
-  %66 = icmp eq i64 %65, 0
-  br i1 %66, label %.backedge, label %_find_job_index.exit.thread
+_find_job_index.exit.thread:                      ; preds = %64, %49
+  %65 = tail call fastcc zeroext i16 @_add_job_to_part(ptr noundef nonnull %47, ptr noundef nonnull %18)
+  br label %_find_job_index.exit.backedge
 
-_find_job_index.exit.thread:                      ; preds = %64, %49, %_find_job_index.exit
-  %67 = tail call fastcc zeroext i16 @_add_job_to_part(ptr noundef nonnull %47, ptr noundef nonnull %18)
-  br label %.backedge
+_find_job_index.exit.backedge:                    ; preds = %56, %_find_job_index.exit.thread, %68, %25, %32, %48, %67, %28
+  %66 = tail call ptr @list_next(ptr noundef %16) #9
+  %.not32 = icmp eq ptr %66, null
+  br i1 %.not32, label %_find_job_index.exit._crit_edge, label %.lr.ph, !llvm.loop !9
 
-.backedge:                                        ; preds = %_find_job_index.exit.thread, %70, %25, %32, %48, %_find_job_index.exit, %69, %28
-  %68 = tail call ptr @list_next(ptr noundef %16) #9
-  %.not32 = icmp eq ptr %68, null
-  br i1 %.not32, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+67:                                               ; preds = %45
+  br i1 %.not38, label %_find_job_index.exit.backedge, label %68
 
-69:                                               ; preds = %45
-  br i1 %.not38, label %.backedge, label %70
+68:                                               ; preds = %67
+  %69 = getelementptr inbounds i8, ptr %18, i64 392
+  %70 = load i32, ptr %69, align 8
+  tail call fastcc void @_remove_job_from_part(i32 noundef %70, ptr noundef nonnull %47, i1 noundef zeroext false)
+  br label %_find_job_index.exit.backedge
 
-70:                                               ; preds = %69
-  %71 = getelementptr inbounds i8, ptr %18, i64 392
-  %72 = load i32, ptr %71, align 8
-  tail call fastcc void @_remove_job_from_part(i32 noundef %72, ptr noundef nonnull %47, i1 noundef zeroext false)
-  br label %.backedge
-
-._crit_edge:                                      ; preds = %.backedge, %14
+_find_job_index.exit._crit_edge:                  ; preds = %_find_job_index.exit.backedge, %14
   tail call void @list_iterator_destroy(ptr noundef %16) #9
-  %73 = load ptr, ptr @gs_part_list, align 8
-  tail call void @list_sort(ptr noundef %73, ptr noundef nonnull @_sort_partitions) #9
-  %74 = load ptr, ptr @gs_part_list, align 8
-  %75 = tail call ptr @list_iterator_create(ptr noundef %74) #9
-  %76 = tail call ptr @list_next(ptr noundef %75) #9
-  %.not3.i = icmp eq ptr %76, null
+  %71 = load ptr, ptr @gs_part_list, align 8
+  tail call void @list_sort(ptr noundef %71, ptr noundef nonnull @_sort_partitions) #9
+  %72 = load ptr, ptr @gs_part_list, align 8
+  %73 = tail call ptr @list_iterator_create(ptr noundef %72) #9
+  %74 = tail call ptr @list_next(ptr noundef %73) #9
+  %.not3.i = icmp eq ptr %74, null
   br i1 %.not3.i, label %_update_all_active_rows.exit, label %.lr.ph.i39
 
-.lr.ph.i39:                                       ; preds = %._crit_edge, %.lr.ph.i39
-  %77 = phi ptr [ %78, %.lr.ph.i39 ], [ %76, %._crit_edge ]
-  tail call fastcc void @_update_active_row(ptr noundef nonnull %77, i32 noundef 1)
-  %78 = tail call ptr @list_next(ptr noundef %75) #9
-  %.not.i40 = icmp eq ptr %78, null
+.lr.ph.i39:                                       ; preds = %_find_job_index.exit._crit_edge, %.lr.ph.i39
+  %75 = phi ptr [ %76, %.lr.ph.i39 ], [ %74, %_find_job_index.exit._crit_edge ]
+  tail call fastcc void @_update_active_row(ptr noundef nonnull %75, i32 noundef 1)
+  %76 = tail call ptr @list_next(ptr noundef %73) #9
+  %.not.i40 = icmp eq ptr %76, null
   br i1 %.not.i40, label %_update_all_active_rows.exit, label %.lr.ph.i39, !llvm.loop !11
 
-_update_all_active_rows.exit:                     ; preds = %.lr.ph.i39, %._crit_edge
-  tail call void @list_iterator_destroy(ptr noundef %75) #9
-  br label %79
+_update_all_active_rows.exit:                     ; preds = %.lr.ph.i39, %_find_job_index.exit._crit_edge
+  tail call void @list_iterator_destroy(ptr noundef %73) #9
+  br label %77
 
-79:                                               ; preds = %8, %5, %4, %_update_all_active_rows.exit
+77:                                               ; preds = %8, %5, %4, %_update_all_active_rows.exit
   ret void
 }
 
@@ -986,146 +981,141 @@ define internal fastcc zeroext i16 @_add_job_to_part(ptr noundef %0, ptr noundef
 30:                                               ; preds = %22
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_find_job_index.exit.thread, label %22, !llvm.loop !9
+  br i1 %exitcond.not.i, label %_find_job_index.exit.thread, label %22, !llvm.loop !10
 
 _find_job_index.exit:                             ; preds = %22
-  %31 = and i64 %indvars.iv.i, 2147483648
-  %32 = icmp eq i64 %31, 0
-  br i1 %32, label %33, label %_find_job_index.exit.thread
+  %31 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %32 = and i64 %31, 8192
+  %.not51 = icmp eq i64 %32, 0
+  br i1 %.not51, label %37, label %33
 
 33:                                               ; preds = %_find_job_index.exit
-  %34 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
-  %35 = and i64 %34, 8192
-  %.not51 = icmp eq i64 %35, 0
-  br i1 %.not51, label %40, label %36
+  %34 = tail call i32 @get_log_level() #9
+  %35 = icmp sgt i32 %34, 3
+  br i1 %35, label %36, label %37
 
 36:                                               ; preds = %33
-  %37 = tail call i32 @get_log_level() #9
-  %38 = icmp sgt i32 %37, 3
-  br i1 %38, label %39, label %40
-
-39:                                               ; preds = %36
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.57, ptr noundef nonnull @__func__._add_job_to_part, ptr noundef %1) #9
-  br label %40
+  br label %37
 
-40:                                               ; preds = %33, %36, %39
-  %41 = load i32, ptr %18, align 8
-  tail call fastcc void @_remove_job_from_part(i32 noundef %41, ptr noundef %0, i1 noundef zeroext false)
+37:                                               ; preds = %_find_job_index.exit, %33, %36
+  %38 = load i32, ptr %18, align 8
+  tail call fastcc void @_remove_job_from_part(i32 noundef %38, ptr noundef %0, i1 noundef zeroext false)
   tail call fastcc void @_update_active_row(ptr noundef %0, i32 noundef 0)
   %.pre = load i32, ptr %20, align 4
   br label %_find_job_index.exit.thread
 
-_find_job_index.exit.thread:                      ; preds = %30, %16, %40, %_find_job_index.exit
-  %42 = phi i32 [ 0, %16 ], [ %.pre, %40 ], [ %21, %_find_job_index.exit ], [ %21, %30 ]
-  %43 = add i32 %42, 1
-  %44 = getelementptr inbounds i8, ptr %0, i64 24
-  %45 = load i32, ptr %44, align 8
-  %46 = icmp eq i32 %43, %45
-  br i1 %46, label %47, label %52
+_find_job_index.exit.thread:                      ; preds = %30, %16, %37
+  %39 = phi i32 [ 0, %16 ], [ %.pre, %37 ], [ %21, %30 ]
+  %40 = add i32 %39, 1
+  %41 = getelementptr inbounds i8, ptr %0, i64 24
+  %42 = load i32, ptr %41, align 8
+  %43 = icmp eq i32 %40, %42
+  br i1 %43, label %44, label %49
 
-47:                                               ; preds = %_find_job_index.exit.thread
-  %48 = shl i32 %43, 1
-  store i32 %48, ptr %44, align 8
-  %49 = zext i32 %48 to i64
-  %50 = shl nuw nsw i64 %49, 3
-  %51 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %11, i64 noundef 1, i64 noundef %50, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 903, ptr noundef nonnull @__func__._add_job_to_part) #9
-  br label %52
+44:                                               ; preds = %_find_job_index.exit.thread
+  %45 = shl i32 %40, 1
+  store i32 %45, ptr %41, align 8
+  %46 = zext i32 %45 to i64
+  %47 = shl nuw nsw i64 %46, 3
+  %48 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %11, i64 noundef 1, i64 noundef %47, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 903, ptr noundef nonnull @__func__._add_job_to_part) #9
+  br label %49
 
-52:                                               ; preds = %47, %_find_job_index.exit.thread
-  %53 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 906, ptr noundef nonnull @__func__._add_job_to_part) #9
-  %54 = load i32, ptr %18, align 8
-  store i32 %54, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %53, i64 8
-  store ptr %1, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %53, i64 16
-  store i16 1, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %53, i64 18
-  store i16 5, ptr %57, align 2
-  %58 = load ptr, ptr %11, align 8
-  %59 = load i32, ptr %20, align 4
-  %60 = add i32 %59, 1
-  store i32 %60, ptr %20, align 4
-  %61 = zext i32 %59 to i64
-  %62 = getelementptr inbounds ptr, ptr %58, i64 %61
-  store ptr %53, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %1, i64 448
-  %64 = load i32, ptr %63, align 8
-  %65 = and i32 %64, 255
-  %66 = icmp eq i32 %65, 2
-  br i1 %66, label %79, label %67
+49:                                               ; preds = %44, %_find_job_index.exit.thread
+  %50 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 906, ptr noundef nonnull @__func__._add_job_to_part) #9
+  %51 = load i32, ptr %18, align 8
+  store i32 %51, ptr %50, align 8
+  %52 = getelementptr inbounds i8, ptr %50, i64 8
+  store ptr %1, ptr %52, align 8
+  %53 = getelementptr inbounds i8, ptr %50, i64 16
+  store i16 1, ptr %53, align 8
+  %54 = getelementptr inbounds i8, ptr %50, i64 18
+  store i16 5, ptr %54, align 2
+  %55 = load ptr, ptr %11, align 8
+  %56 = load i32, ptr %20, align 4
+  %57 = add i32 %56, 1
+  store i32 %57, ptr %20, align 4
+  %58 = zext i32 %56 to i64
+  %59 = getelementptr inbounds ptr, ptr %55, i64 %58
+  store ptr %50, ptr %59, align 8
+  %60 = getelementptr inbounds i8, ptr %1, i64 448
+  %61 = load i32, ptr %60, align 8
+  %62 = and i32 %61, 255
+  %63 = icmp eq i32 %62, 2
+  br i1 %63, label %76, label %64
 
-67:                                               ; preds = %52
-  %68 = tail call fastcc i32 @_job_fits_in_active_row(ptr noundef nonnull %1, ptr noundef nonnull %0)
-  %.not52 = icmp eq i32 %68, 0
-  br i1 %.not52, label %79, label %69
+64:                                               ; preds = %49
+  %65 = tail call fastcc i32 @_job_fits_in_active_row(ptr noundef nonnull %1, ptr noundef nonnull %0)
+  %.not52 = icmp eq i32 %65, 0
+  br i1 %.not52, label %76, label %66
 
-69:                                               ; preds = %67
-  %70 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
-  %71 = and i64 %70, 8192
-  %.not53 = icmp eq i64 %71, 0
-  br i1 %.not53, label %76, label %72
+66:                                               ; preds = %64
+  %67 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %68 = and i64 %67, 8192
+  %.not53 = icmp eq i64 %68, 0
+  br i1 %.not53, label %73, label %69
+
+69:                                               ; preds = %66
+  %70 = tail call i32 @get_log_level() #9
+  %71 = icmp sgt i32 %70, 3
+  br i1 %71, label %72, label %73
 
 72:                                               ; preds = %69
-  %73 = tail call i32 @get_log_level() #9
-  %74 = icmp sgt i32 %73, 3
-  br i1 %74, label %75, label %76
-
-75:                                               ; preds = %72
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.58, ptr noundef nonnull @__func__._add_job_to_part, ptr noundef nonnull %1) #9
-  br label %76
+  br label %73
 
-76:                                               ; preds = %69, %72, %75
+73:                                               ; preds = %66, %69, %72
   tail call fastcc void @_add_job_to_active(ptr noundef nonnull %1, ptr noundef nonnull %0)
-  store i16 6, ptr %57, align 2
-  %77 = getelementptr inbounds i8, ptr %0, i64 8
-  %78 = load i16, ptr %77, align 8
-  tail call fastcc void @_cast_shadow(ptr noundef nonnull %53, i16 noundef zeroext %78)
-  br label %99
+  store i16 6, ptr %54, align 2
+  %74 = getelementptr inbounds i8, ptr %0, i64 8
+  %75 = load i16, ptr %74, align 8
+  tail call fastcc void @_cast_shadow(ptr noundef nonnull %50, i16 noundef zeroext %75)
+  br label %96
 
-79:                                               ; preds = %52, %67
-  %80 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
-  %81 = and i64 %80, 8192
-  %.not54 = icmp eq i64 %81, 0
-  br i1 %.not54, label %86, label %82
+76:                                               ; preds = %49, %64
+  %77 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %78 = and i64 %77, 8192
+  %.not54 = icmp eq i64 %78, 0
+  br i1 %.not54, label %83, label %79
+
+79:                                               ; preds = %76
+  %80 = tail call i32 @get_log_level() #9
+  %81 = icmp sgt i32 %80, 3
+  br i1 %81, label %82, label %83
 
 82:                                               ; preds = %79
-  %83 = tail call i32 @get_log_level() #9
-  %84 = icmp sgt i32 %83, 3
-  br i1 %84, label %85, label %86
-
-85:                                               ; preds = %82
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.34, ptr noundef nonnull @__func__._add_job_to_part, ptr noundef nonnull %1) #9
-  br label %86
+  br label %83
 
-86:                                               ; preds = %79, %82, %85
-  %87 = tail call zeroext i16 @slurm_job_preempt_mode(ptr noundef nonnull %1) #9
-  %88 = getelementptr inbounds i8, ptr %0, i64 28
-  %89 = load i32, ptr %88, align 4
-  %90 = icmp ne i32 %89, 0
-  %91 = icmp ugt i16 %87, 1
-  %or.cond5 = select i1 %90, i1 %91, i1 false
-  br i1 %or.cond5, label %92, label %96
+83:                                               ; preds = %76, %79, %82
+  %84 = tail call zeroext i16 @slurm_job_preempt_mode(ptr noundef nonnull %1) #9
+  %85 = getelementptr inbounds i8, ptr %0, i64 28
+  %86 = load i32, ptr %85, align 4
+  %87 = icmp ne i32 %86, 0
+  %88 = icmp ugt i16 %84, 1
+  %or.cond5 = select i1 %87, i1 %88, i1 false
+  br i1 %or.cond5, label %89, label %93
 
-92:                                               ; preds = %86
-  %93 = load i32, ptr %18, align 8
-  %94 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 544, ptr noundef nonnull @__func__._preempt_job_queue) #9
-  store i32 %93, ptr %94, align 4
-  %95 = load ptr, ptr @preempt_job_list, align 8
-  tail call void @list_append(ptr noundef %95, ptr noundef nonnull %94) #9
-  br label %98
+89:                                               ; preds = %83
+  %90 = load i32, ptr %18, align 8
+  %91 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 544, ptr noundef nonnull @__func__._preempt_job_queue) #9
+  store i32 %90, ptr %91, align 4
+  %92 = load ptr, ptr @preempt_job_list, align 8
+  tail call void @list_append(ptr noundef %92, ptr noundef nonnull %91) #9
+  br label %95
 
-96:                                               ; preds = %86
-  %97 = tail call fastcc i32 @_suspend_job(ptr noundef nonnull %1)
-  br label %98
+93:                                               ; preds = %83
+  %94 = tail call fastcc i32 @_suspend_job(ptr noundef nonnull %1)
+  br label %95
 
-98:                                               ; preds = %96, %92
-  store i16 0, ptr %56, align 8
-  br label %99
+95:                                               ; preds = %93, %89
+  store i16 0, ptr %53, align 8
+  br label %96
 
-99:                                               ; preds = %98, %76
+96:                                               ; preds = %95, %73
   tail call fastcc void @_print_jobs(ptr noundef nonnull %0)
-  %100 = load i16, ptr %56, align 8
-  ret i16 %100
+  %97 = load i16, ptr %53, align 8
+  ret i16 %97
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1534,107 +1524,103 @@ define internal fastcc void @_remove_job_from_part(i32 noundef %0, ptr nocapture
 18:                                               ; preds = %10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_find_job_index.exit.thread, label %10, !llvm.loop !9
+  br i1 %exitcond.not.i, label %_find_job_index.exit.thread, label %10, !llvm.loop !10
 
 _find_job_index.exit:                             ; preds = %10
   %19 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %20 = icmp slt i32 %19, 0
-  br i1 %20, label %_find_job_index.exit.thread, label %21
+  %20 = and i64 %indvars.iv.i, 4294967295
+  %21 = getelementptr inbounds ptr, ptr %9, i64 %20
+  %22 = load ptr, ptr %21, align 8
+  store ptr %22, ptr %4, align 8
+  %23 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %24 = and i64 %23, 8192
+  %.not22 = icmp eq i64 %24, 0
+  br i1 %.not22, label %32, label %25
 
-21:                                               ; preds = %_find_job_index.exit
-  %22 = and i64 %indvars.iv.i, 2147483647
-  %23 = getelementptr inbounds ptr, ptr %9, i64 %22
-  %24 = load ptr, ptr %23, align 8
-  store ptr %24, ptr %4, align 8
-  %25 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
-  %26 = and i64 %25, 8192
-  %.not22 = icmp eq i64 %26, 0
-  br i1 %.not22, label %34, label %27
+25:                                               ; preds = %_find_job_index.exit
+  %26 = tail call i32 @get_log_level() #9
+  %27 = icmp sgt i32 %26, 3
+  br i1 %27, label %28, label %32
 
-27:                                               ; preds = %21
-  %28 = tail call i32 @get_log_level() #9
-  %29 = icmp sgt i32 %28, 3
-  br i1 %29, label %30, label %34
+28:                                               ; preds = %25
+  %29 = getelementptr inbounds i8, ptr %22, i64 8
+  %30 = load ptr, ptr %29, align 8
+  %31 = load ptr, ptr %1, align 8
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.69, ptr noundef nonnull @__func__._remove_job_from_part, ptr noundef %30, ptr noundef %31) #9
+  br label %32
 
-30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %24, i64 8
-  %32 = load ptr, ptr %31, align 8
-  %33 = load ptr, ptr %1, align 8
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.69, ptr noundef nonnull @__func__._remove_job_from_part, ptr noundef %32, ptr noundef %33) #9
-  br label %34
+32:                                               ; preds = %_find_job_index.exit, %25, %28
+  tail call fastcc void @_clear_shadow(ptr noundef %22)
+  %33 = load i32, ptr %6, align 4
+  %34 = add i32 %33, -1
+  store i32 %34, ptr %6, align 4
+  %35 = icmp ugt i32 %34, %19
+  br i1 %35, label %.lr.ph, label %._crit_edge
 
-34:                                               ; preds = %21, %27, %30
-  tail call fastcc void @_clear_shadow(ptr noundef %24)
-  %35 = load i32, ptr %6, align 4
-  %36 = add i32 %35, -1
-  store i32 %36, ptr %6, align 4
-  %37 = icmp ugt i32 %36, %19
-  br i1 %37, label %.lr.ph, label %._crit_edge
-
-.lr.ph:                                           ; preds = %34, %.lr.ph
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %indvars.iv.i, %34 ]
-  %38 = load ptr, ptr %8, align 8
+.lr.ph:                                           ; preds = %32, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %indvars.iv.i, %32 ]
+  %36 = load ptr, ptr %8, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %39 = getelementptr inbounds ptr, ptr %38, i64 %indvars.iv.next
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds ptr, ptr %38, i64 %indvars.iv
-  store ptr %40, ptr %41, align 8
-  %42 = load i32, ptr %6, align 4
-  %43 = zext i32 %42 to i64
-  %44 = icmp ult i64 %indvars.iv.next, %43
-  br i1 %44, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  %37 = getelementptr inbounds ptr, ptr %36, i64 %indvars.iv.next
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds ptr, ptr %36, i64 %indvars.iv
+  store ptr %38, ptr %39, align 8
+  %40 = load i32, ptr %6, align 4
+  %41 = zext i32 %40 to i64
+  %42 = icmp ult i64 %indvars.iv.next, %41
+  br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %.lr.ph, %34
-  %.0.lcssa = phi i64 [ %indvars.iv.i, %34 ], [ %indvars.iv.next, %.lr.ph ]
-  %45 = load ptr, ptr %8, align 8
-  %46 = and i64 %.0.lcssa, 4294967295
-  %47 = getelementptr inbounds ptr, ptr %45, i64 %46
-  store ptr null, ptr %47, align 8
-  br i1 %2, label %66, label %48
+._crit_edge:                                      ; preds = %.lr.ph, %32
+  %.0.lcssa = phi i64 [ %indvars.iv.i, %32 ], [ %indvars.iv.next, %.lr.ph ]
+  %43 = load ptr, ptr %8, align 8
+  %44 = and i64 %.0.lcssa, 4294967295
+  %45 = getelementptr inbounds ptr, ptr %43, i64 %44
+  store ptr null, ptr %45, align 8
+  br i1 %2, label %64, label %46
 
-48:                                               ; preds = %._crit_edge
-  %49 = getelementptr inbounds i8, ptr %24, i64 16
-  %50 = load i16, ptr %49, align 8
-  %51 = icmp eq i16 %50, 0
-  br i1 %51, label %52, label %66
+46:                                               ; preds = %._crit_edge
+  %47 = getelementptr inbounds i8, ptr %22, i64 16
+  %48 = load i16, ptr %47, align 8
+  %49 = icmp eq i16 %48, 0
+  br i1 %49, label %50, label %64
 
-52:                                               ; preds = %48
-  %53 = getelementptr inbounds i8, ptr %24, i64 8
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 712
-  %56 = load i32, ptr %55, align 8
-  %.not23 = icmp eq i32 %56, 0
-  br i1 %.not23, label %66, label %57
+50:                                               ; preds = %46
+  %51 = getelementptr inbounds i8, ptr %22, i64 8
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds i8, ptr %52, i64 712
+  %54 = load i32, ptr %53, align 8
+  %.not23 = icmp eq i32 %54, 0
+  br i1 %.not23, label %64, label %55
 
-57:                                               ; preds = %52
-  %58 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
-  %59 = and i64 %58, 8192
-  %.not24 = icmp eq i64 %59, 0
-  br i1 %.not24, label %64, label %60
+55:                                               ; preds = %50
+  %56 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %57 = and i64 %56, 8192
+  %.not24 = icmp eq i64 %57, 0
+  br i1 %.not24, label %62, label %58
 
-60:                                               ; preds = %57
-  %61 = tail call i32 @get_log_level() #9
-  %62 = icmp sgt i32 %61, 3
-  %.pre32 = load ptr, ptr %53, align 8
-  br i1 %62, label %63, label %64
+58:                                               ; preds = %55
+  %59 = tail call i32 @get_log_level() #9
+  %60 = icmp sgt i32 %59, 3
+  %.pre32 = load ptr, ptr %51, align 8
+  br i1 %60, label %61, label %62
 
-63:                                               ; preds = %60
+61:                                               ; preds = %58
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.70, ptr noundef nonnull @__func__._remove_job_from_part, ptr noundef %.pre32) #9
-  %.pre = load ptr, ptr %53, align 8
+  %.pre = load ptr, ptr %51, align 8
+  br label %62
+
+62:                                               ; preds = %55, %58, %61
+  %63 = phi ptr [ %52, %55 ], [ %.pre32, %58 ], [ %.pre, %61 ]
+  tail call fastcc void @_resume_job(ptr noundef %63)
   br label %64
 
-64:                                               ; preds = %57, %60, %63
-  %65 = phi ptr [ %54, %57 ], [ %.pre32, %60 ], [ %.pre, %63 ]
-  tail call fastcc void @_resume_job(ptr noundef %65)
-  br label %66
-
-66:                                               ; preds = %64, %52, %48, %._crit_edge
-  %67 = getelementptr inbounds i8, ptr %24, i64 8
-  store ptr null, ptr %67, align 8
+64:                                               ; preds = %62, %50, %46, %._crit_edge
+  %65 = getelementptr inbounds i8, ptr %22, i64 8
+  store ptr null, ptr %65, align 8
   call void @slurm_xfree(ptr noundef nonnull %4) #9
   br label %_find_job_index.exit.thread
 
-_find_job_index.exit.thread:                      ; preds = %18, %5, %_find_job_index.exit, %3, %66
+_find_job_index.exit.thread:                      ; preds = %18, %5, %3, %64
   ret void
 }
 

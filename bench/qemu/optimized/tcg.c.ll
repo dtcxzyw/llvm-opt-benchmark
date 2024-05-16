@@ -3506,7 +3506,7 @@ for.inc26.i:                                      ; preds = %for.body23.i
 
 for.end28.i:                                      ; preds = %for.body23.i
   %120 = trunc nuw nsw i64 %indvars.iv48.i to i32
-  %cmp3039.not.i = icmp eq i32 %120, 0
+  %cmp3039.not.i = icmp eq i64 %indvars.iv48.i, 0
   br i1 %cmp3039.not.i, label %for.body45.preheader.i, label %for.body32.preheader.i
 
 for.body32.preheader.i:                           ; preds = %for.inc26.i, %for.end28.i

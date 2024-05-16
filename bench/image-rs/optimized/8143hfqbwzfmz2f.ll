@@ -6155,10 +6155,10 @@ define hidden void @_ZN12jpeg_decoder7huffman14HuffmanDecoder9read_bits17h971540
   store i64 %14, ptr %1, align 8
   %umax = call i8 @llvm.umax.i8(i8 %13, i8 49)
   %37 = add nuw nsw i8 %umax, 7
-  %38 = sub nuw nsw i8 %37, %13
-  %39 = and i8 %38, 120
+  %38 = sub nsw i8 %37, %13
+  %39 = and i8 %38, -8
   %40 = add nuw nsw i8 %13, 8
-  %41 = add nuw nsw i8 %40, %39
+  %41 = add i8 %40, %39
   store i8 %41, ptr %7, align 8
   br label %.outer._crit_edge
 
@@ -6241,7 +6241,7 @@ _ZN12jpeg_decoder7read_u817h354cb4f0ba47111dE.exit53: ; preds = %44, %"_ZN82_$LT
   %.fca.1.extract = extractvalue { i8, i8 } %56, 1
   store i8 %.fca.0.extract, ptr %9, align 1
   store i8 %.fca.1.extract, ptr %10, align 2
-  %59 = icmp ult i8 %36, 57
+  %59 = icmp ult i64 %indvars.iv, 57
   br i1 %59, label %.lr.ph, label %.outer._crit_edge
 }
 
@@ -6365,10 +6365,10 @@ define hidden void @_ZN12jpeg_decoder7huffman14HuffmanDecoder9read_bits17hc7878b
   store i64 %22, ptr %1, align 8
   %umax = call i8 @llvm.umax.i8(i8 %21, i8 49)
   %55 = add nuw nsw i8 %umax, 7
-  %56 = sub nuw nsw i8 %55, %21
-  %57 = and i8 %56, 120
+  %56 = sub nsw i8 %55, %21
+  %57 = and i8 %56, -8
   %58 = add nuw nsw i8 %21, 8
-  %59 = add nuw nsw i8 %58, %57
+  %59 = add i8 %58, %57
   store i8 %59, ptr %10, align 8
   br label %.outer._crit_edge
 
@@ -6475,7 +6475,7 @@ _ZN12jpeg_decoder7read_u817h69b5d9908e7785ebE.exit57: ; preds = %"_ZN3std2io6cur
   %.fca.1.extract = extractvalue { i8, i8 } %80, 1
   store i8 %.fca.0.extract, ptr %12, align 1
   store i8 %.fca.1.extract, ptr %17, align 2
-  %83 = icmp ult i8 %54, 57
+  %83 = icmp ult i64 %indvars.iv, 57
   br i1 %83, label %.lr.ph, label %.outer._crit_edge
 }
 
@@ -6560,10 +6560,10 @@ define hidden void @_ZN12jpeg_decoder7huffman14HuffmanDecoder9read_bits17hdd17f5
   store i64 %18, ptr %1, align 8
   %umax = call i8 @llvm.umax.i8(i8 %17, i8 49)
   %41 = add nuw nsw i8 %umax, 7
-  %42 = sub nuw nsw i8 %41, %17
-  %43 = and i8 %42, 120
+  %42 = sub nsw i8 %41, %17
+  %43 = and i8 %42, -8
   %44 = add nuw nsw i8 %17, 8
-  %45 = add nuw nsw i8 %44, %43
+  %45 = add i8 %44, %43
   store i8 %45, ptr %7, align 8
   br label %.outer._crit_edge
 
@@ -6642,7 +6642,7 @@ _ZN12jpeg_decoder7read_u817hd469f45e710aaef4E.exit51: ; preds = %48
   %.fca.1.extract = extractvalue { i8, i8 } %59, 1
   store i8 %.fca.0.extract, ptr %9, align 1
   store i8 %.fca.1.extract, ptr %14, align 2
-  %62 = icmp ult i8 %40, 57
+  %62 = icmp ult i64 %indvars.iv, 57
   br i1 %62, label %.lr.ph, label %.outer._crit_edge
 }
 

@@ -3753,7 +3753,7 @@ if.else53:                                        ; preds = %if.end50
   br label %if.end84
 
 if.else55:                                        ; preds = %for.end
-  %cmp56 = icmp eq i32 %4, 9
+  %cmp56 = icmp eq i64 %indvars.iv, 9
   %8 = add nsw i32 %4, -9
   %or.cond = icmp ult i32 %8, 2
   br i1 %or.cond, label %if.then60, label %if.end84

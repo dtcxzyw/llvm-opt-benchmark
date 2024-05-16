@@ -58,7 +58,7 @@ define i32 @ompi_comm_allreduce_pml(ptr noundef %0, ptr noundef %1, i32 noundef 
 25:                                               ; preds = %9
   %26 = udiv i64 8192, %15
   %27 = trunc nuw nsw i64 %26 to i32
-  %28 = icmp eq i32 %27, 0
+  %28 = icmp ugt i64 %15, 8192
   br i1 %28, label %ompi_datatype_copy_content_same_ddt.exit144, label %29
 
 29:                                               ; preds = %25
@@ -102,7 +102,7 @@ define i32 @ompi_comm_allreduce_pml(ptr noundef %0, ptr noundef %1, i32 noundef 
   br i1 %.not25.i134, label %.loopexit, label %.lr.ph.i135.preheader
 
 .lr.ph.i135.preheader:                            ; preds = %40
-  %49 = mul i64 %15, %44
+  %49 = mul nsw i64 %15, %44
   %50 = getelementptr inbounds i8, ptr %0, i64 %49
   br label %.lr.ph.i135
 

@@ -39097,7 +39097,7 @@ if.then14:                                        ; preds = %_ZNK13poly_rewriter
   store i32 0, ptr %m_pos.i.i55, align 8
   %m_capacity.i.i56 = getelementptr inbounds i8, ptr %todo, i64 12
   store i32 16, ptr %m_capacity.i.i56, align 4
-  %cmp3.not.i = icmp eq i32 %24, 0
+  %cmp3.not.i = icmp eq i64 %indvars.iv, 0
   br i1 %cmp3.not.i, label %_ZN10ptr_bufferI4exprLj16EE6appendEjPKPS0_.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %if.then14, %_ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit.i
@@ -41899,7 +41899,7 @@ if.then3:                                         ; preds = %_ZNK13poly_rewriter
   store i32 0, ptr %m_pos.i.i, align 8
   %m_capacity.i.i = getelementptr inbounds i8, ptr %flat_args, i64 12
   store i32 16, ptr %m_capacity.i.i, align 4
-  %cmp3.not.i = icmp eq i32 %6, 0
+  %cmp3.not.i = icmp eq i64 %indvars.iv, 0
   br i1 %cmp3.not.i, label %_ZN10ptr_bufferI4exprLj16EE6appendEjPKPS0_.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %if.then3, %_ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit.i

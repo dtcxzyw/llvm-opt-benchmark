@@ -578,7 +578,7 @@ define internal fastcc i32 @ext4_mb_init_group(ptr noundef %0, i32 noundef %1, i
   %39 = load i64, ptr %12, align 8
   %40 = mul i64 %39, %38
   %41 = getelementptr i8, ptr %37, i64 %40
-  %42 = icmp ugt i32 %15, 1
+  %42 = icmp ult i64 %13, 2049
   br i1 %42, label %54, label %43
 
 43:                                               ; preds = %30

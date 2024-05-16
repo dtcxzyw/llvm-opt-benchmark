@@ -109104,7 +109104,7 @@ define void @_ZN6hir_ty10lang_items21lang_items_for_bin_op17ha33816498edc719bE(p
   ]
 
 7:                                                ; preds = %2
-  %8 = icmp eq i8 %.sroa.4.0.extract.trunc, 2
+  %8 = icmp eq i16 %.sroa.4.0.extract.shift, 2
   %9 = trunc i16 %1 to i1
   br i1 %8, label %25, label %26
 

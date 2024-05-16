@@ -561,7 +561,7 @@ define internal fastcc i32 @ext4_read_inline_folio(ptr noundef %0, ptr noundef %
   %46 = add i64 %44, %45
   %47 = inttoptr i64 %46 to ptr
   %48 = trunc nuw nsw i64 %37 to i32
-  %49 = icmp eq i32 %48, 0
+  %49 = icmp eq i64 %37, 0
   br i1 %49, label %88, label %50
 
 50:                                               ; preds = %40
@@ -587,7 +587,7 @@ define internal fastcc i32 @ext4_read_inline_folio(ptr noundef %0, ptr noundef %
   %64 = getelementptr inbounds i8, ptr %63, i64 40
   %65 = zext nneg i32 %57 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %47, ptr align 1 %64, i64 %65, i1 false)
-  %66 = icmp ult i32 %48, 61
+  %66 = icmp ult i64 %37, 61
   br i1 %66, label %88, label %67
 
 67:                                               ; preds = %56

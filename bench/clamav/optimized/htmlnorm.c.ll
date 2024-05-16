@@ -5279,7 +5279,7 @@ define internal fastcc ptr @cli_readchunk(ptr noundef %0) unnamed_addr #0 {
 
 rewind_tospace.exit:                              ; preds = %95
   %105 = trunc nuw i64 %indvars.iv.i to i32
-  %106 = icmp eq i32 %105, 1
+  %106 = icmp eq i64 %indvars.iv.i, 1
   %..08.i = select i1 %106, i32 %.3, i32 %105
   %107 = icmp ult i32 %..08.i, %.3
   br i1 %107, label %108, label %116

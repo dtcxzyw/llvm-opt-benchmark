@@ -46736,11 +46736,10 @@ define void @_ZN7hir_def10item_scope9ItemScope20fully_resolve_import17h04a7565ed
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   %.sroa.0187.4.extract.shift = lshr i64 %64, 32
-  %.sroa.0187.4.extract.trunc = trunc nuw i64 %.sroa.0187.4.extract.shift to i32
-  %65 = icmp eq i32 %.sroa.0187.4.extract.trunc, 0
-  %.sroa.0187.0.extract.trunc = trunc i64 %64 to i32
+  %65 = icmp ult i64 %64, 4294967296
   %.sink4.i = select i1 %65, i64 928, i64 936
-  %.sink.i = select i1 %65, i32 %.sroa.0187.0.extract.trunc, i32 %.sroa.0187.4.extract.trunc
+  %.sink.i.v = select i1 %65, i64 %64, i64 %.sroa.0187.4.extract.shift
+  %.sink.i = trunc i64 %.sink.i.v to i32
   %66 = getelementptr inbounds i8, ptr %3, i64 %.sink4.i
   %67 = load ptr, ptr %66, align 8, !invariant.load !25, !alias.scope !13374, !noalias !13377, !nonnull !25
   %68 = invoke noundef nonnull ptr %67(ptr noundef nonnull align 1 %2, i32 noundef %.sink.i)
@@ -47014,11 +47013,10 @@ _ZN4core4hash11BuildHasher8hash_one17he3253b2de5cdee5aE.exit.i: ; preds = %104, 
   %.sroa.234.0.copyload = load i32, ptr %.sroa.234.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   %.sroa.0189.4.extract.shift = lshr i64 %173, 32
-  %.sroa.0189.4.extract.trunc = trunc nuw i64 %.sroa.0189.4.extract.shift to i32
-  %174 = icmp eq i32 %.sroa.0189.4.extract.trunc, 0
-  %.sroa.0189.0.extract.trunc = trunc i64 %173 to i32
+  %174 = icmp ult i64 %173, 4294967296
   %.sink4.i131 = select i1 %174, i64 928, i64 936
-  %.sink.i132 = select i1 %174, i32 %.sroa.0189.0.extract.trunc, i32 %.sroa.0189.4.extract.trunc
+  %.sink.i132.v = select i1 %174, i64 %173, i64 %.sroa.0189.4.extract.shift
+  %.sink.i132 = trunc i64 %.sink.i132.v to i32
   %175 = getelementptr inbounds i8, ptr %3, i64 %.sink4.i131
   %176 = load ptr, ptr %175, align 8, !invariant.load !25, !alias.scope !13438, !noalias !13441, !nonnull !25
   %177 = invoke noundef nonnull ptr %176(ptr noundef nonnull align 1 %2, i32 noundef %.sink.i132)
@@ -47182,11 +47180,10 @@ _ZN7hir_def8ModuleId7def_map17h12ba535c1628be3bE.exit134: ; preds = %"_ZN53_$LT$
   %.sroa.270.0.copyload = load i32, ptr %.sroa.270.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   %.sroa.0191.4.extract.shift = lshr i64 %242, 32
-  %.sroa.0191.4.extract.trunc = trunc nuw i64 %.sroa.0191.4.extract.shift to i32
-  %243 = icmp eq i32 %.sroa.0191.4.extract.trunc, 0
-  %.sroa.0191.0.extract.trunc = trunc i64 %242 to i32
+  %243 = icmp ult i64 %242, 4294967296
   %.sink4.i162 = select i1 %243, i64 928, i64 936
-  %.sink.i163 = select i1 %243, i32 %.sroa.0191.0.extract.trunc, i32 %.sroa.0191.4.extract.trunc
+  %.sink.i163.v = select i1 %243, i64 %242, i64 %.sroa.0191.4.extract.shift
+  %.sink.i163 = trunc i64 %.sink.i163.v to i32
   %244 = getelementptr inbounds i8, ptr %3, i64 %.sink4.i162
   %245 = load ptr, ptr %244, align 8, !invariant.load !25, !alias.scope !13497, !noalias !13500, !nonnull !25
   %246 = invoke noundef nonnull ptr %245(ptr noundef nonnull align 1 %2, i32 noundef %.sink.i163)

@@ -6198,104 +6198,103 @@ define internal fastcc i32 @era_next_child(ptr nocapture noundef readonly %0, i3
   br i1 %.not10.i, label %era_tree_rank_from_comm_rank.exit, label %12, !llvm.loop !34
 
 era_tree_rank_from_comm_rank.exit:                ; preds = %12
-  %15 = and i64 %indvars.iv.i, 4294967295
-  %16 = icmp eq i64 %15, 4294967295
-  br i1 %16, label %.critedge, label %.preheader
+  %15 = icmp eq i64 %indvars.iv.i, -1
+  br i1 %15, label %.critedge, label %.preheader
 
 .critedge:                                        ; preds = %..critedge_crit_edge, %era_tree_rank_from_comm_rank.exit
   %.pre-phi = phi i32 [ %.pre63, %..critedge_crit_edge ], [ %7, %era_tree_rank_from_comm_rank.exit ]
-  %17 = phi ptr [ %.pre62, %..critedge_crit_edge ], [ %10, %era_tree_rank_from_comm_rank.exit ]
-  %18 = getelementptr i8, ptr %4, i64 220
-  %.val = load i32, ptr %18, align 4
-  %19 = getelementptr i8, ptr %0, i64 56
+  %16 = phi ptr [ %.pre62, %..critedge_crit_edge ], [ %10, %era_tree_rank_from_comm_rank.exit ]
+  %17 = getelementptr i8, ptr %4, i64 220
+  %.val = load i32, ptr %17, align 4
+  %18 = getelementptr i8, ptr %0, i64 56
   %.not.i41 = icmp sgt i32 %.pre, %.val
-  %20 = select i1 %.not.i41, i32 %.val, i32 %.pre-phi
-  %21 = sext i32 %20 to i64
-  br label %22
+  %19 = select i1 %.not.i41, i32 %.val, i32 %.pre-phi
+  %20 = sext i32 %19 to i64
+  br label %21
 
-22:                                               ; preds = %22, %.critedge
-  %indvars.iv.i42 = phi i64 [ %indvars.iv.next.i44, %22 ], [ %21, %.critedge ]
-  %23 = getelementptr inbounds %struct.era_tree_s, ptr %17, i64 %indvars.iv.i42
-  %24 = load i32, ptr %23, align 4
-  %.not10.i43 = icmp eq i32 %24, %.val
+21:                                               ; preds = %21, %.critedge
+  %indvars.iv.i42 = phi i64 [ %indvars.iv.next.i44, %21 ], [ %20, %.critedge ]
+  %22 = getelementptr inbounds %struct.era_tree_s, ptr %16, i64 %indvars.iv.i42
+  %23 = load i32, ptr %22, align 4
+  %.not10.i43 = icmp eq i32 %23, %.val
   %indvars.iv.next.i44 = add nsw i64 %indvars.iv.i42, -1
-  br i1 %.not10.i43, label %era_tree_rank_from_comm_rank.exit45.preheader, label %22, !llvm.loop !34
+  br i1 %.not10.i43, label %era_tree_rank_from_comm_rank.exit45.preheader, label %21, !llvm.loop !34
 
-era_tree_rank_from_comm_rank.exit45.preheader:    ; preds = %22
+era_tree_rank_from_comm_rank.exit45.preheader:    ; preds = %21
   %sext51 = shl i64 %indvars.iv.i42, 32
-  %25 = ashr exact i64 %sext51, 32
-  %26 = getelementptr inbounds %struct.era_tree_s, ptr %17, i64 %25, i32 3
-  %27 = load i32, ptr %26, align 4
-  %28 = icmp eq i32 %27, %.pre
-  br i1 %28, label %.loopexit.sink.split, label %.lr.ph54
+  %24 = ashr exact i64 %sext51, 32
+  %25 = getelementptr inbounds %struct.era_tree_s, ptr %16, i64 %24, i32 3
+  %26 = load i32, ptr %25, align 4
+  %27 = icmp eq i32 %26, %.pre
+  br i1 %27, label %.loopexit.sink.split, label %.lr.ph54
 
 .lr.ph54:                                         ; preds = %era_tree_rank_from_comm_rank.exit45.preheader, %era_tree_rank_from_comm_rank.exit45
-  %29 = phi i32 [ %39, %era_tree_rank_from_comm_rank.exit45 ], [ %27, %era_tree_rank_from_comm_rank.exit45.preheader ]
-  %30 = phi ptr [ %37, %era_tree_rank_from_comm_rank.exit45 ], [ %17, %era_tree_rank_from_comm_rank.exit45.preheader ]
-  %31 = sext i32 %29 to i64
-  %32 = getelementptr inbounds %struct.era_tree_s, ptr %30, i64 %31
-  %33 = load i32, ptr %32, align 4
-  %34 = tail call zeroext i1 @ompi_comm_is_proc_active(ptr noundef %4, i32 noundef %33, i1 noundef zeroext false) #19
-  br i1 %34, label %.loopexit, label %era_tree_rank_from_comm_rank.exit45
+  %28 = phi i32 [ %38, %era_tree_rank_from_comm_rank.exit45 ], [ %26, %era_tree_rank_from_comm_rank.exit45.preheader ]
+  %29 = phi ptr [ %36, %era_tree_rank_from_comm_rank.exit45 ], [ %16, %era_tree_rank_from_comm_rank.exit45.preheader ]
+  %30 = sext i32 %28 to i64
+  %31 = getelementptr inbounds %struct.era_tree_s, ptr %29, i64 %30
+  %32 = load i32, ptr %31, align 4
+  %33 = tail call zeroext i1 @ompi_comm_is_proc_active(ptr noundef %4, i32 noundef %32, i1 noundef zeroext false) #19
+  br i1 %33, label %.loopexit, label %era_tree_rank_from_comm_rank.exit45
 
 era_tree_rank_from_comm_rank.exit45:              ; preds = %.lr.ph54
-  tail call fastcc void @era_tree_remove_node(ptr noundef nonnull %0, i32 noundef %29)
-  %35 = load ptr, ptr %19, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 32
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds %struct.era_tree_s, ptr %37, i64 %25, i32 3
-  %39 = load i32, ptr %38, align 4
-  %40 = getelementptr inbounds i8, ptr %35, i64 40
-  %41 = load i32, ptr %40, align 8
-  %42 = icmp eq i32 %39, %41
-  br i1 %42, label %.loopexit.sink.split, label %.lr.ph54
+  tail call fastcc void @era_tree_remove_node(ptr noundef nonnull %0, i32 noundef %28)
+  %34 = load ptr, ptr %18, align 8
+  %35 = getelementptr inbounds i8, ptr %34, i64 32
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds %struct.era_tree_s, ptr %36, i64 %24, i32 3
+  %38 = load i32, ptr %37, align 4
+  %39 = getelementptr inbounds i8, ptr %34, i64 40
+  %40 = load i32, ptr %39, align 8
+  %41 = icmp eq i32 %38, %40
+  br i1 %41, label %.loopexit.sink.split, label %.lr.ph54
 
 .preheader:                                       ; preds = %era_tree_rank_from_comm_rank.exit, %.preheader
   %indvars.iv.i47 = phi i64 [ %indvars.iv.next.i49, %.preheader ], [ %11, %era_tree_rank_from_comm_rank.exit ]
-  %43 = getelementptr inbounds %struct.era_tree_s, ptr %10, i64 %indvars.iv.i47
-  %44 = load i32, ptr %43, align 4
-  %.not10.i48 = icmp eq i32 %44, %1
+  %42 = getelementptr inbounds %struct.era_tree_s, ptr %10, i64 %indvars.iv.i47
+  %43 = load i32, ptr %42, align 4
+  %.not10.i48 = icmp eq i32 %43, %1
   %indvars.iv.next.i49 = add nsw i64 %indvars.iv.i47, -1
   br i1 %.not10.i48, label %era_tree_rank_from_comm_rank.exit50.preheader, label %.preheader, !llvm.loop !34
 
 era_tree_rank_from_comm_rank.exit50.preheader:    ; preds = %.preheader
   %sext = shl i64 %indvars.iv.i47, 32
-  %45 = ashr exact i64 %sext, 32
-  %46 = getelementptr inbounds %struct.era_tree_s, ptr %10, i64 %45, i32 2
-  %47 = load i32, ptr %46, align 4
-  %48 = icmp eq i32 %47, %.pre
-  br i1 %48, label %.loopexit.sink.split, label %.lr.ph
+  %44 = ashr exact i64 %sext, 32
+  %45 = getelementptr inbounds %struct.era_tree_s, ptr %10, i64 %44, i32 2
+  %46 = load i32, ptr %45, align 4
+  %47 = icmp eq i32 %46, %.pre
+  br i1 %47, label %.loopexit.sink.split, label %.lr.ph
 
 .lr.ph:                                           ; preds = %era_tree_rank_from_comm_rank.exit50.preheader, %era_tree_rank_from_comm_rank.exit50
-  %49 = phi i32 [ %59, %era_tree_rank_from_comm_rank.exit50 ], [ %47, %era_tree_rank_from_comm_rank.exit50.preheader ]
-  %50 = phi ptr [ %57, %era_tree_rank_from_comm_rank.exit50 ], [ %10, %era_tree_rank_from_comm_rank.exit50.preheader ]
-  %51 = sext i32 %49 to i64
-  %52 = getelementptr inbounds %struct.era_tree_s, ptr %50, i64 %51
-  %53 = load i32, ptr %52, align 4
-  %54 = tail call zeroext i1 @ompi_comm_is_proc_active(ptr noundef %4, i32 noundef %53, i1 noundef zeroext false) #19
-  br i1 %54, label %.loopexit, label %era_tree_rank_from_comm_rank.exit50
+  %48 = phi i32 [ %58, %era_tree_rank_from_comm_rank.exit50 ], [ %46, %era_tree_rank_from_comm_rank.exit50.preheader ]
+  %49 = phi ptr [ %56, %era_tree_rank_from_comm_rank.exit50 ], [ %10, %era_tree_rank_from_comm_rank.exit50.preheader ]
+  %50 = sext i32 %48 to i64
+  %51 = getelementptr inbounds %struct.era_tree_s, ptr %49, i64 %50
+  %52 = load i32, ptr %51, align 4
+  %53 = tail call zeroext i1 @ompi_comm_is_proc_active(ptr noundef %4, i32 noundef %52, i1 noundef zeroext false) #19
+  br i1 %53, label %.loopexit, label %era_tree_rank_from_comm_rank.exit50
 
 era_tree_rank_from_comm_rank.exit50:              ; preds = %.lr.ph
-  tail call fastcc void @era_tree_remove_node(ptr noundef nonnull %0, i32 noundef %49)
-  %55 = load ptr, ptr %.phi.trans.insert, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 32
-  %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds %struct.era_tree_s, ptr %57, i64 %45, i32 2
-  %59 = load i32, ptr %58, align 4
-  %60 = getelementptr inbounds i8, ptr %55, i64 40
-  %61 = load i32, ptr %60, align 8
-  %62 = icmp eq i32 %59, %61
-  br i1 %62, label %.loopexit.sink.split, label %.lr.ph
+  tail call fastcc void @era_tree_remove_node(ptr noundef nonnull %0, i32 noundef %48)
+  %54 = load ptr, ptr %.phi.trans.insert, align 8
+  %55 = getelementptr inbounds i8, ptr %54, i64 32
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr inbounds %struct.era_tree_s, ptr %56, i64 %44, i32 2
+  %58 = load i32, ptr %57, align 4
+  %59 = getelementptr inbounds i8, ptr %54, i64 40
+  %60 = load i32, ptr %59, align 8
+  %61 = icmp eq i32 %58, %60
+  br i1 %61, label %.loopexit.sink.split, label %.lr.ph
 
 .loopexit.sink.split:                             ; preds = %era_tree_rank_from_comm_rank.exit50, %era_tree_rank_from_comm_rank.exit45, %era_tree_rank_from_comm_rank.exit50.preheader, %era_tree_rank_from_comm_rank.exit45.preheader
-  %63 = getelementptr i8, ptr %4, i64 248
-  %.val40 = load ptr, ptr %63, align 8
-  %64 = getelementptr i8, ptr %.val40, i64 16
-  %.val40.val = load i32, ptr %64, align 8
+  %62 = getelementptr i8, ptr %4, i64 248
+  %.val40 = load ptr, ptr %62, align 8
+  %63 = getelementptr i8, ptr %.val40, i64 16
+  %.val40.val = load i32, ptr %63, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph54, %.loopexit.sink.split
-  %.0 = phi i32 [ %.val40.val, %.loopexit.sink.split ], [ %33, %.lr.ph54 ], [ %53, %.lr.ph ]
+  %.0 = phi i32 [ %.val40.val, %.loopexit.sink.split ], [ %32, %.lr.ph54 ], [ %52, %.lr.ph ]
   ret i32 %.0
 }
 

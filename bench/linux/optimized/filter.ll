@@ -6910,8 +6910,8 @@ define dso_local range(i64 -2147483648, 1) i64 @bpf_skb_adjust_room(i64 noundef 
   %221 = and i64 %3, 64
   %222 = icmp ne i64 %221, 0
   %223 = trunc nuw nsw i64 %187 to i32
-  %224 = icmp ult i32 %223, 14
-  %225 = and i1 %222, %224
+  %224 = icmp ult i64 %3, 1008806316530991104
+  %225 = and i1 %224, %222
   br i1 %225, label %.thread16, label %226
 
 226:                                              ; preds = %220

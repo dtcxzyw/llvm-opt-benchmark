@@ -1021,7 +1021,7 @@ define internal noundef i32 @svcauth_gss_accept(ptr noundef %0) #2 align 16 {
   %347 = zext i32 %310 to i64
   %348 = call i64 @llvm.usub.sat.i64(i64 %347, i64 4096)
   %349 = trunc nuw i64 %348 to i32
-  %350 = icmp eq i32 %349, 0
+  %350 = icmp ult i32 %310, 4097
   br i1 %350, label %.loopexit51.loopexit55.i, label %.preheader50.split.i, !llvm.loop !18
 
 .loopexit51.loopexit55.i:                         ; preds = %346
@@ -1420,7 +1420,7 @@ define internal noundef i32 @svcauth_gss_accept(ptr noundef %0) #2 align 16 {
   %579 = zext i32 %542 to i64
   %580 = call i64 @llvm.usub.sat.i64(i64 %579, i64 4096)
   %581 = trunc nuw i64 %580 to i32
-  %582 = icmp eq i32 %581, 0
+  %582 = icmp ult i32 %542, 4097
   br i1 %582, label %.loopexit.loopexit54.i, label %.preheader.split.i, !llvm.loop !29
 
 .loopexit.loopexit54.i:                           ; preds = %578

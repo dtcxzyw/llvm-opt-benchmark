@@ -1292,7 +1292,7 @@ for.body.i12:                                     ; preds = %if.then3, %for.inc.
   %indvars.iv.i13 = phi i64 [ %indvars.iv.next.i15, %for.inc.i14 ], [ 0, %if.then3 ]
   %add.ptr18.i = getelementptr inbounds %union.StackValue, ptr %add.ptr.i, i64 %indvars.iv.i13
   %cmp4.i = icmp eq ptr %add.ptr18.i, %o
-  br i1 %cmp4.i, label %instack.exit, label %for.inc.i14
+  br i1 %cmp4.i, label %if.end10, label %for.inc.i14
 
 for.inc.i14:                                      ; preds = %for.body.i12
   %indvars.iv.next.i15 = add nuw nsw i64 %indvars.iv.i13, 1
@@ -1300,12 +1300,8 @@ for.inc.i14:                                      ; preds = %for.body.i12
   %cmp.i = icmp ult ptr %add.ptr1.i, %9
   br i1 %cmp.i, label %for.body.i12, label %formatvarinfo.exit, !llvm.loop !13
 
-instack.exit:                                     ; preds = %for.body.i12
+if.end10:                                         ; preds = %for.body.i12
   %10 = trunc nuw nsw i64 %indvars.iv.i13 to i32
-  %cmp = icmp sgt i32 %10, -1
-  br i1 %cmp, label %if.end10, label %formatvarinfo.exit
-
-if.end10:                                         ; preds = %instack.exit
   %p = getelementptr inbounds i8, ptr %.val10.val, i64 24
   %11 = load ptr, ptr %p, align 8
   %12 = getelementptr i8, ptr %0, i64 32
@@ -1329,8 +1325,8 @@ if.else.i:                                        ; preds = %if.end10.thread24, 
   %call.i = tail call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %L, ptr noundef nonnull @.str.30, ptr noundef nonnull %kind.027, ptr noundef %15) #13
   br label %formatvarinfo.exit
 
-formatvarinfo.exit:                               ; preds = %for.inc.i14, %if.then3, %instack.exit, %entry, %if.end10, %if.else.i
-  %retval.0.i17 = phi ptr [ %call.i, %if.else.i ], [ @.str.10, %if.end10 ], [ @.str.10, %entry ], [ @.str.10, %instack.exit ], [ @.str.10, %if.then3 ], [ @.str.10, %for.inc.i14 ]
+formatvarinfo.exit:                               ; preds = %for.inc.i14, %if.then3, %entry, %if.end10, %if.else.i
+  %retval.0.i17 = phi ptr [ %call.i, %if.else.i ], [ @.str.10, %if.end10 ], [ @.str.10, %entry ], [ @.str.10, %if.then3 ], [ @.str.10, %for.inc.i14 ]
   ret ptr %retval.0.i17
 }
 

@@ -76,11 +76,13 @@ list_length.exit:                                 ; preds = %2, %3
   %19 = trunc nuw nsw i64 %18 to i32
   %20 = shl nuw nsw i64 %18, 3
   %21 = tail call ptr @palloc(i64 noundef %20) #10
-  %.not = icmp eq i32 %19, 0
+  %.not = icmp eq i32 %6, 0
   br i1 %.not, label %.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %._crit_edge
   %22 = getelementptr inbounds i8, ptr %7, i64 64
+  %umax = tail call i32 @llvm.umax.i32(i32 %19, i32 1)
+  %wide.trip.count109 = zext nneg i32 %umax to i64
   br label %28
 
 .preheader:                                       ; preds = %28, %._crit_edge
@@ -92,7 +94,7 @@ list_length.exit:                                 ; preds = %2, %3
   %25 = zext i32 %0 to i64
   %26 = load i32, ptr %23, align 4
   %27 = icmp sgt i32 %26, 0
-  br i1 %27, label %.lr.ph128, label %._crit_edge96
+  br i1 %27, label %.lr.ph129, label %._crit_edge96
 
 28:                                               ; preds = %.lr.ph, %28
   %indvars.iv106 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next107, %28 ]
@@ -101,14 +103,14 @@ list_length.exit:                                 ; preds = %2, %3
   %31 = getelementptr ptr, ptr %21, i64 %indvars.iv106
   store ptr %30, ptr %31, align 8
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
-  %exitcond110.not = icmp eq i64 %indvars.iv.next107, %18
+  %exitcond110.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count109
   br i1 %exitcond110.not, label %.preheader, label %28, !llvm.loop !8
 
-.lr.ph128:                                        ; preds = %.lr.ph95, %88
-  %.07593127 = phi i32 [ %.176, %88 ], [ 0, %.lr.ph95 ]
-  %indvars.iv111126 = phi i64 [ %indvars.iv.next112, %88 ], [ 0, %.lr.ph95 ]
+.lr.ph129:                                        ; preds = %.lr.ph95, %88
+  %.07593128 = phi i32 [ %.176, %88 ], [ 0, %.lr.ph95 ]
+  %indvars.iv111127 = phi i64 [ %indvars.iv.next112, %88 ], [ 0, %.lr.ph95 ]
   %32 = load ptr, ptr %24, align 8
-  %33 = getelementptr %union.ListCell, ptr %32, i64 %indvars.iv111126
+  %33 = getelementptr %union.ListCell, ptr %32, i64 %indvars.iv111127
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
@@ -117,7 +119,7 @@ list_length.exit:                                 ; preds = %2, %3
   %39 = icmp ugt i64 %38, 63
   br i1 %39, label %40, label %45
 
-40:                                               ; preds = %.lr.ph128
+40:                                               ; preds = %.lr.ph129
   %41 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   tail call void @llvm.assume(i1 %41)
   %42 = tail call i32 @errcode(i32 noundef 33579140) #10
@@ -126,8 +128,8 @@ list_length.exit:                                 ; preds = %2, %3
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 139, ptr noundef nonnull @__func__.EnumValuesCreate) #10
   unreachable
 
-45:                                               ; preds = %.lr.ph128
-  %46 = sext i32 %.07593127 to i64
+45:                                               ; preds = %.lr.ph129
+  %46 = sext i32 %.07593128 to i64
   %47 = getelementptr ptr, ptr %21, i64 %46
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 8
@@ -143,7 +145,7 @@ list_length.exit:                                 ; preds = %2, %3
   %58 = load i32, ptr %57, align 8
   %59 = sext i32 %58 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %55, i8 0, i64 %59, i1 false)
-  %60 = getelementptr i32, ptr %10, i64 %indvars.iv111126
+  %60 = getelementptr i32, ptr %10, i64 %indvars.iv111127
   %61 = load i32, ptr %60, align 4
   %62 = zext i32 %61 to i64
   %63 = load ptr, ptr %47, align 8
@@ -155,7 +157,7 @@ list_length.exit:                                 ; preds = %2, %3
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr i8, ptr %68, i64 8
   store i64 %25, ptr %69, align 8
-  %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111126, 1
+  %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111127, 1
   %70 = trunc nsw i64 %indvars.iv.next112 to i32
   %71 = sitofp i32 %70 to float
   %72 = bitcast float %71 to i32
@@ -174,7 +176,7 @@ list_length.exit:                                 ; preds = %2, %3
   store i64 %78, ptr %82, align 8
   %83 = load ptr, ptr %47, align 8
   %84 = tail call ptr @ExecStoreVirtualTuple(ptr noundef %83) #10
-  %85 = add i32 %.07593127, 1
+  %85 = add i32 %.07593128, 1
   %86 = icmp eq i32 %85, %19
   br i1 %86, label %87, label %88
 
@@ -187,7 +189,7 @@ list_length.exit:                                 ; preds = %2, %3
   %89 = load i32, ptr %23, align 4
   %90 = sext i32 %89 to i64
   %91 = icmp slt i64 %indvars.iv.next112, %90
-  br i1 %91, label %.lr.ph128, label %._crit_edge96
+  br i1 %91, label %.lr.ph129, label %._crit_edge96
 
 ._crit_edge96:                                    ; preds = %88, %.lr.ph95
   %.07593.lcssa = phi i32 [ 0, %.lr.ph95 ], [ %.176, %88 ]
@@ -200,16 +202,21 @@ list_length.exit:                                 ; preds = %2, %3
 
 ._crit_edge96.thread:                             ; preds = %.preheader, %93, %._crit_edge96
   tail call void @pfree(ptr noundef %10) #10
-  br i1 %.not, label %._crit_edge102, label %.lr.ph101
+  br i1 %.not, label %._crit_edge102, label %.lr.ph101.preheader
 
-.lr.ph101:                                        ; preds = %._crit_edge96.thread, %.lr.ph101
-  %indvars.iv116 = phi i64 [ %indvars.iv.next117, %.lr.ph101 ], [ 0, %._crit_edge96.thread ]
+.lr.ph101.preheader:                              ; preds = %._crit_edge96.thread
+  %umax119 = tail call i32 @llvm.umax.i32(i32 %19, i32 1)
+  %wide.trip.count120 = zext nneg i32 %umax119 to i64
+  br label %.lr.ph101
+
+.lr.ph101:                                        ; preds = %.lr.ph101.preheader, %.lr.ph101
+  %indvars.iv116 = phi i64 [ 0, %.lr.ph101.preheader ], [ %indvars.iv.next117, %.lr.ph101 ]
   %94 = getelementptr ptr, ptr %21, i64 %indvars.iv116
   %95 = load ptr, ptr %94, align 8
   tail call void @ExecDropSingleTupleTableSlot(ptr noundef %95) #10
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
-  %exitcond120.not = icmp eq i64 %indvars.iv.next117, %18
-  br i1 %exitcond120.not, label %._crit_edge102, label %.lr.ph101, !llvm.loop !9
+  %exitcond121.not = icmp eq i64 %indvars.iv.next117, %wide.trip.count120
+  br i1 %exitcond121.not, label %._crit_edge102, label %.lr.ph101, !llvm.loop !9
 
 ._crit_edge102:                                   ; preds = %.lr.ph101, %._crit_edge96.thread
   tail call void @CatalogCloseIndexes(ptr noundef %17) #10
@@ -1011,6 +1018,9 @@ declare void @llvm.assume(i1 noundef) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9

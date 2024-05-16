@@ -5621,10 +5621,9 @@ call6.i.noexc:                                    ; preds = %if.end5.i
 invoke.cont34:                                    ; preds = %call.i.noexc
   %19 = trunc nuw nsw i64 %indvars.iv.i to i32
   %add.i = or disjoint i32 %19, 4096
-  %cmp36 = icmp slt i32 %19, 0
-  br i1 %cmp36, label %if.then37, label %if.end39
+  br label %if.end39
 
-if.then37:                                        ; preds = %call6.i.noexc, %invoke.cont34
+if.then37:                                        ; preds = %call6.i.noexc
   %20 = load i32, ptr %errorCode, align 4
   %cmp.i.i43 = icmp slt i32 %20, 1
   br i1 %cmp.i.i43, label %if.end.i, label %cleanup
@@ -5642,7 +5641,7 @@ if.then2.i:                                       ; preds = %if.end.i
   invoke void @_ZN6icu_7519CollationRuleParser15setErrorContextEv(ptr noundef nonnull align 8 dereferenceable(76) %this)
           to label %cleanup unwind label %lpad10.loopexit.split-lp.loopexit.split-lp
 
-if.end39:                                         ; preds = %call6.i.noexc, %call2.i.noexc, %invoke.cont34
+if.end39:                                         ; preds = %invoke.cont34, %call6.i.noexc, %call2.i.noexc
   %retval.0.i57 = phi i32 [ %add.i, %invoke.cont34 ], [ %call2.i41, %call2.i.noexc ], [ 103, %call6.i.noexc ]
   %22 = load i32, ptr %count.i, align 8
   %cmp.i.i44 = icmp slt i32 %22, -1

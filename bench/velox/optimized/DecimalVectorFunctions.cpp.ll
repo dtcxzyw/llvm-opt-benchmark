@@ -3737,9 +3737,7 @@ dynamic_cast.notnull.i59:                         ; preds = %dynamic_cast.notnul
   %conv = trunc i64 %call4 to i32
   %conv.i = and i32 %conv, 255
   %add.i = add nuw nsw i32 %conv2.i, %conv.i
-  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %add.i, i32 38)
-  %.sroa.0.0.extract.trunc = trunc nuw nsw i32 %.sroa.speculated.i to i8
-  %cmp39 = icmp ugt i8 %.sroa.0.0.extract.trunc, 18
+  %cmp39 = icmp ugt i32 %add.i, 18
   br i1 %18, label %if.else37, label %if.then31
 
 if.then31:                                        ; preds = %dynamic_cast.notnull.i59
@@ -5163,9 +5161,7 @@ dynamic_cast.notnull.i59:                         ; preds = %dynamic_cast.notnul
   %sub.i = sub nsw i32 %conv2.i, %conv6.i
   %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %sub.i, i32 0)
   %add7.i = add nuw nsw i32 %add.i, %.sroa.speculated.i
-  %.sroa.speculated7.i = tail call i32 @llvm.umin.i32(i32 %add7.i, i32 38)
-  %.sroa.0.0.extract.trunc = trunc nuw nsw i32 %.sroa.speculated7.i to i8
-  %cmp39 = icmp ugt i8 %.sroa.0.0.extract.trunc, 18
+  %cmp39 = icmp ugt i32 %add7.i, 18
   br i1 %18, label %if.else37, label %if.then31
 
 if.then31:                                        ; preds = %dynamic_cast.notnull.i59
@@ -96544,9 +96540,6 @@ declare i8 @llvm.umax.i8(i8, i8) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #21
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #21

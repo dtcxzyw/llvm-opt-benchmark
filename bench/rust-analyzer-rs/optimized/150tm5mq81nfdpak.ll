@@ -44883,8 +44883,8 @@ define noundef zeroext i1 @_ZN6ide_db14syntax_helpers8node_ext15is_pattern_cond1
   %.sroa.5.0.extract.shift.mask = and i16 %8, -256
   %15 = icmp ne i16 %.sroa.5.0.extract.shift.mask, 768
   %16 = trunc i16 %8 to i1
-  %or.cond = or i1 %15, %16
-  br i1 %or.cond, label %.critedgethread-pre-split, label %17
+  %.0.i.not = or i1 %15, %16
+  br i1 %.0.i.not, label %.critedgethread-pre-split, label %17
 
 17:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)

@@ -3109,13 +3109,13 @@ if.else:                                          ; preds = %_ZN6vectorIN3sat7li
   %idxprom.i.i.i = zext nneg i32 %shr.i to i64
   %m_notify_theory.i.i = getelementptr inbounds %"struct.smt::bool_var_data", ptr %21, i64 %idxprom.i.i.i, i32 1
   %bf.load.i.i = load i64, ptr %m_notify_theory.i.i, align 8
+  %cmp.i.i20 = icmp ult i64 %bf.load.i.i, 72057594037927936
   %bf.lshr.i.i = lshr i64 %bf.load.i.i, 56
   %bf.cast.i.i = trunc nuw nsw i64 %bf.lshr.i.i to i32
-  %cmp.i.i20 = icmp eq i32 %bf.cast.i.i, 0
-  %spec.select.i.i = select i1 %cmp.i.i20, i32 -1, i32 %bf.cast.i.i
+  %cond.i.i = select i1 %cmp.i.i20, i32 -1, i32 %bf.cast.i.i
   %m_id.i = getelementptr inbounds i8, ptr %this, i64 8
   %22 = load i32, ptr %m_id.i, align 8
-  %cmp8 = icmp eq i32 %spec.select.i.i, %22
+  %cmp8 = icmp eq i32 %cond.i.i, %22
   br i1 %cmp8, label %if.then9, label %if.else18
 
 if.then9:                                         ; preds = %if.else

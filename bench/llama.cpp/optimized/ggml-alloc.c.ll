@@ -1955,7 +1955,7 @@ if.then52.i:                                      ; preds = %if.end47.i
   store ptr %7, ptr %arrayidx.i3, align 8
   %add55.i = add i64 %11, %add2.i.i
   store i64 %add55.i, ptr %size6.i.le, align 8
-  %cmp56.not.i = icmp eq i32 %15, 0
+  %cmp56.not.i = icmp eq i64 %indvars.iv.i, 0
   br i1 %cmp56.not.i, label %ggml_tallocr_free_tensor.exit, label %land.lhs.true58.i
 
 land.lhs.true58.i:                                ; preds = %if.then52.i

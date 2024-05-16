@@ -4702,9 +4702,9 @@ define hidden void @"_ZN6parser6output6Output4iter28_$u7b$$u7b$closure$u7d$$u7d$
   %16 = lshr i8 %15, 4
   switch i8 %16, label %29 [
     i8 0, label %30
-    i8 1, label %34
+    i8 1, label %32
     i8 2, label %28
-    i8 3, label %38
+    i8 3, label %34
   ]
 
 17:                                               ; preds = %7
@@ -4725,8 +4725,8 @@ define hidden void @"_ZN6parser6output6Output4iter28_$u7b$$u7b$closure$u7d$$u7d$
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %10, i64 noundef %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.31b280e91373b89e4d0209a821808cd8.32) #10
   unreachable
 
-28:                                               ; preds = %14, %38, %44, %50, %17
-  %.sink = phi i8 [ 1, %38 ], [ 0, %44 ], [ 2, %50 ], [ 4, %17 ], [ 3, %14 ]
+28:                                               ; preds = %14, %34, %40, %48, %17
+  %.sink = phi i8 [ 1, %34 ], [ 0, %40 ], [ 2, %48 ], [ 4, %17 ], [ 3, %14 ]
   store i8 %.sink, ptr %0, align 8
   ret void
 
@@ -4735,45 +4735,45 @@ define hidden void @"_ZN6parser6output6Output4iter28_$u7b$$u7b$closure$u7d$$u7d$
   unreachable
 
 30:                                               ; preds = %14
-  %31 = lshr i32 %4, 16
-  %32 = trunc nuw i32 %31 to i16
-  %33 = icmp ult i16 %32, 273
-  br i1 %33, label %44, label %43
+  %31 = icmp ult i32 %4, 17891328
+  br i1 %31, label %40, label %39
+
+32:                                               ; preds = %14
+  %33 = icmp ult i32 %4, 17891328
+  br i1 %33, label %48, label %47
 
 34:                                               ; preds = %14
-  %35 = lshr i32 %4, 16
-  %36 = trunc nuw i32 %35 to i16
-  %37 = icmp ult i16 %36, 273
-  br i1 %37, label %50, label %49
-
-38:                                               ; preds = %14
-  %39 = and i32 %4, 65280
-  %40 = icmp ne i32 %39, 0
-  %41 = getelementptr inbounds i8, ptr %0, i64 1
-  %42 = zext i1 %40 to i8
-  store i8 %42, ptr %41, align 1
+  %35 = and i32 %4, 65280
+  %36 = icmp ne i32 %35, 0
+  %37 = getelementptr inbounds i8, ptr %0, i64 1
+  %38 = zext i1 %36 to i8
+  store i8 %38, ptr %37, align 1
   br label %28
 
-43:                                               ; preds = %30
+39:                                               ; preds = %30
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.31b280e91373b89e4d0209a821808cd8.33, i64 noundef 50, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.31b280e91373b89e4d0209a821808cd8.35) #10
   unreachable
 
-44:                                               ; preds = %30
-  %45 = lshr i32 %4, 8
-  %46 = trunc i32 %45 to i8
-  %47 = getelementptr inbounds i8, ptr %0, i64 2
-  store i16 %32, ptr %47, align 2
-  %48 = getelementptr inbounds i8, ptr %0, i64 1
-  store i8 %46, ptr %48, align 1
+40:                                               ; preds = %30
+  %41 = lshr i32 %4, 16
+  %42 = trunc nuw i32 %41 to i16
+  %43 = lshr i32 %4, 8
+  %44 = trunc i32 %43 to i8
+  %45 = getelementptr inbounds i8, ptr %0, i64 2
+  store i16 %42, ptr %45, align 2
+  %46 = getelementptr inbounds i8, ptr %0, i64 1
+  store i8 %44, ptr %46, align 1
   br label %28
 
-49:                                               ; preds = %34
+47:                                               ; preds = %32
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.31b280e91373b89e4d0209a821808cd8.33, i64 noundef 50, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.31b280e91373b89e4d0209a821808cd8.35) #10
   unreachable
 
-50:                                               ; preds = %34
+48:                                               ; preds = %32
+  %49 = lshr i32 %4, 16
+  %50 = trunc nuw i32 %49 to i16
   %51 = getelementptr inbounds i8, ptr %0, i64 2
-  store i16 %36, ptr %51, align 2
+  store i16 %50, ptr %51, align 2
   br label %28
 }
 

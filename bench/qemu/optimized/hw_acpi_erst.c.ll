@@ -1269,7 +1269,7 @@ if.end.i:                                         ; preds = %for.body.i
 
 lookup_erst_record.exit:                          ; preds = %for.body.i
   %12 = trunc nuw i64 %indvars.iv.i to i32
-  %tobool.not.not = icmp eq i32 %12, 0
+  %tobool.not.not = icmp eq i64 %indvars.iv.i, 0
   br i1 %tobool.not.not, label %if.else, label %if.then25
 
 if.then25:                                        ; preds = %lookup_erst_record.exit
@@ -1306,11 +1306,11 @@ for.inc.i:                                        ; preds = %for.body.i40
   br i1 %exitcond.not.i, label %return, label %for.body.i40, !llvm.loop !7
 
 find_next_empty_record_index.exit:                ; preds = %for.body.i40
-  %17 = trunc nuw i64 %indvars.iv.i41 to i32
-  %tobool28.not = icmp eq i32 %17, 0
+  %tobool28.not = icmp eq i64 %indvars.iv.i41, 0
   br i1 %tobool28.not, label %return, label %if.end33
 
 if.end33:                                         ; preds = %find_next_empty_record_index.exit
+  %17 = trunc nuw i64 %indvars.iv.i41 to i32
   %call30 = tail call fastcc ptr @get_nvram_ptr_by_index(ptr noundef %s, i32 noundef %17)
   %tobool34.not = icmp eq ptr %call30, null
   br i1 %tobool34.not, label %return, label %if.then42
@@ -1490,11 +1490,11 @@ if.end.i:                                         ; preds = %for.body.i27
   br i1 %21, label %for.body.i27, label %if.else, !llvm.loop !5
 
 lookup_erst_record.exit:                          ; preds = %for.body.i27
-  %22 = trunc nuw i64 %indvars.iv.i28 to i32
-  %tobool.not = icmp eq i32 %22, 0
+  %tobool.not = icmp eq i64 %indvars.iv.i28, 0
   br i1 %tobool.not, label %if.else, label %if.then19
 
 if.then19:                                        ; preds = %lookup_erst_record.exit
+  %22 = trunc nuw i64 %indvars.iv.i28 to i32
   %call21 = tail call ptr @memory_region_get_ram_ptr(ptr noundef nonnull %exchange_mr) #10
   %23 = load i32, ptr %record_offset, align 4
   %idx.ext = zext i32 %23 to i64
@@ -1630,11 +1630,11 @@ if.end.i:                                         ; preds = %for.body.i
   br i1 %9, label %for.body.i, label %return, !llvm.loop !5
 
 lookup_erst_record.exit:                          ; preds = %for.body.i
-  %10 = trunc nuw i64 %indvars.iv.i to i32
-  %tobool.not = icmp eq i32 %10, 0
+  %tobool.not = icmp eq i64 %indvars.iv.i, 0
   br i1 %tobool.not, label %return, label %if.then4
 
 if.then4:                                         ; preds = %lookup_erst_record.exit
+  %10 = trunc nuw i64 %indvars.iv.i to i32
   %cmp.i = icmp ugt i32 %4, %10
   br i1 %cmp.i, label %if.then.i11, label %update_map_entry.exit
 

@@ -1942,7 +1942,6 @@ if.then12:                                        ; preds = %if.end
   br label %return
 
 if.end14:                                         ; preds = %if.end
-  %conv = trunc nuw i64 %6 to i32
   %retval.sroa.0.0.copyload.i = load i64, ptr %selfHandle.coerce, align 8
   %retval.sroa.0.0.copyload.i.i.i = load i64, ptr %newTarget.coerce, align 8
   %retval.sroa.0.0.copyload.i.i.i12 = load i64, ptr %thisArgument.coerce, align 8
@@ -1953,7 +1952,7 @@ if.end14:                                         ; preds = %if.end
   %inc.i = add i32 %9, 1
   store i32 %inc.i, ptr %nativeCallFrameDepth_.i, align 8
   %add1.i.i = add nuw nsw i64 %6, 7
-  %cmp.not.i.i = icmp ugt i32 %conv, -8
+  %cmp.not.i.i = icmp ugt i64 %6, 4294967288
   %10 = and i64 %add1.i.i, 4294967295
   %registerStackEnd_.i.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 9464
   %11 = load ptr, ptr %registerStackEnd_.i.i.i.i, align 8
@@ -1992,12 +1991,16 @@ if.end32:                                         ; preds = %if.end14
   store i64 %retval.sroa.0.0.copyload.i, ptr %arrayidx23.i.i, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -56
   store i64 %retval.sroa.0.0.copyload.i.i.i12, ptr %arrayidx.i.i, align 8
-  %cmp.not3.i.i.i.i = icmp eq i32 %conv, 0
-  br i1 %cmp.not3.i.i.i.i, label %_ZN6hermes2vm21ScopedNativeCallFrame13fillArgumentsEjNS0_11HermesValueE.exit, label %for.body.i.i.i.i
+  %cmp.not3.i.i.i.i = icmp eq i64 %6, 0
+  br i1 %cmp.not3.i.i.i.i, label %_ZN6hermes2vm21ScopedNativeCallFrame13fillArgumentsEjNS0_11HermesValueE.exit, label %for.body.i.i.i.i.preheader
 
-for.body.i.i.i.i:                                 ; preds = %if.end32, %for.body.i.i.i.i
-  %__n.addr.05.i.i.i.i = phi i32 [ %dec.i.i.i.i, %for.body.i.i.i.i ], [ %conv, %if.end32 ]
-  %storemerge4.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i ], [ %arrayidx.i.i, %if.end32 ]
+for.body.i.i.i.i.preheader:                       ; preds = %if.end32
+  %conv = trunc nuw i64 %6 to i32
+  br label %for.body.i.i.i.i
+
+for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i.preheader, %for.body.i.i.i.i
+  %__n.addr.05.i.i.i.i = phi i32 [ %dec.i.i.i.i, %for.body.i.i.i.i ], [ %conv, %for.body.i.i.i.i.preheader ]
+  %storemerge4.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i ], [ %arrayidx.i.i, %for.body.i.i.i.i.preheader ]
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %storemerge4.i.i.i.i, i64 -8
   store i64 -1688849860263936, ptr %incdec.ptr.i.i.i.i.i, align 8, !noalias !7
   %dec.i.i.i.i = add i32 %__n.addr.05.i.i.i.i, -1
@@ -2049,18 +2052,17 @@ _ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.ex
   %and.i.i.i = and i64 %17, 281474976710655
   %tobool.i.i = icmp ne i64 %and.i.i.i, 0
   %18 = and i1 %cmp.i.i.i19, %tobool.i.i
-  %cmp81.not.i = icmp eq i64 %6, 0
   br i1 %18, label %for.cond.preheader.i, label %for.cond58.preheader.i
 
 for.cond58.preheader.i:                           ; preds = %_ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.exit.i
-  br i1 %cmp81.not.i, label %if.end46, label %for.body60.i.preheader
+  br i1 %cmp.not3.i.i.i.i, label %if.end46, label %for.body60.i.preheader
 
 for.body60.i.preheader:                           ; preds = %for.cond58.preheader.i
   %invariant.gep = getelementptr i8, ptr %add.ptr.i.i, i64 -64
   br label %for.body60.i
 
 for.cond.preheader.i:                             ; preds = %_ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.exit.i
-  br i1 %cmp81.not.i, label %if.end46, label %for.body.lr.ph.i
+  br i1 %cmp.not3.i.i.i.i, label %if.end46, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
   %19 = ptrtoint ptr %runtime to i64

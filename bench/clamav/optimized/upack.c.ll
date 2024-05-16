@@ -777,7 +777,7 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   br i1 %412, label %632, label %413
 
 413:                                              ; preds = %410
-  %414 = shl nsw i32 %407, 2
+  %414 = shl nuw nsw i32 %407, 2
   %.not1007 = icmp eq i32 %407, 0
   %.not1008 = icmp ugt i32 %414, %2
   %or.cond1126 = select i1 %.not1007, i1 true, i1 %.not1008

@@ -16053,7 +16053,7 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_linux_knl_identify_4nodes(ptr
 thread-pre-split:                                 ; preds = %22
   %27 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %27, ptr %21, align 4
-  %28 = icmp eq i32 %27, 0
+  %28 = icmp eq i64 %indvars.iv, 0
   br i1 %28, label %thread-pre-split.thread, label %29
 
 29:                                               ; preds = %thread-pre-split

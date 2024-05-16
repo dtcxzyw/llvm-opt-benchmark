@@ -1476,7 +1476,7 @@ define dso_local noundef i32 @dm_table_complete(ptr noundef %0) local_unnamed_ad
   %154 = add nuw nsw i64 %153, 7
   %155 = lshr i64 %154, 3
   %156 = trunc nuw nsw i64 %155 to i32
-  %157 = icmp ugt i32 %156, 1
+  %157 = icmp ugt i32 %152, 8
   br i1 %157, label %.preheader39, label %.thread29
 
 .thread29:                                        ; preds = %150

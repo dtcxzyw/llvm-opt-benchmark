@@ -7665,18 +7665,17 @@ define internal fastcc void @"_ZN6syntax3ast9token_ext57_$LT$impl$u20$syntax..as
 
 3:                                                ; preds = %2
   %.sroa.6.0.extract.shift = lshr i64 %1, 32
-  %.sroa.6.0.extract.trunc = trunc nuw i64 %.sroa.6.0.extract.shift to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0)
   store i32 0, ptr %.sroa.0, align 4
-  %4 = icmp ult i32 %.sroa.6.0.extract.trunc, 128
+  %4 = icmp ult i64 %1, 549755813888
   br i1 %4, label %9, label %5
 
 5:                                                ; preds = %3
-  %6 = icmp ult i32 %.sroa.6.0.extract.trunc, 2048
+  %6 = icmp ult i64 %1, 8796093022208
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %5
-  %8 = icmp ult i32 %.sroa.6.0.extract.trunc, 65536
+  %8 = icmp ult i64 %1, 281474976710656
   br i1 %8, label %18, label %29
 
 9:                                                ; preds = %3
@@ -7686,7 +7685,7 @@ define internal fastcc void @"_ZN6syntax3ast9token_ext57_$LT$impl$u20$syntax..as
 
 11:                                               ; preds = %5
   %12 = lshr i64 %1, 38
-  %13 = trunc i64 %12 to i8
+  %13 = trunc nuw i64 %12 to i8
   %14 = or disjoint i8 %13, -64
   store i8 %14, ptr %.sroa.0, align 4, !alias.scope !754
   %15 = trunc i64 %.sroa.6.0.extract.shift to i8
@@ -7698,7 +7697,7 @@ define internal fastcc void @"_ZN6syntax3ast9token_ext57_$LT$impl$u20$syntax..as
 
 18:                                               ; preds = %7
   %19 = lshr i64 %1, 44
-  %20 = trunc i64 %19 to i8
+  %20 = trunc nuw i64 %19 to i8
   %21 = or disjoint i8 %20, -32
   store i8 %21, ptr %.sroa.0, align 4, !alias.scope !754
   %22 = lshr i64 %1, 38

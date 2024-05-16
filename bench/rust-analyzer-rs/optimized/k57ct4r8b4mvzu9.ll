@@ -32252,9 +32252,9 @@ define internal fastcc noundef zeroext i1 @"_ZN6syntax3ast4prec53_$LT$impl$u20$s
   br label %.body
 
 _ZN6syntax3ast9generated5nodes8CallExpr4expr17h28ebfa39bc203880E.exit: ; preds = %.invoke, %26, %23
-  %.pn110 = phi { i64, ptr } [ %24, %23 ], [ %27, %26 ], [ %25, %.invoke ]
-  %.pr = extractvalue { i64, ptr } %.pn110, 0
-  %.sroa.8.0 = extractvalue { i64, ptr } %.pn110, 1
+  %.pn109 = phi { i64, ptr } [ %24, %23 ], [ %27, %26 ], [ %25, %.invoke ]
+  %.pr = extractvalue { i64, ptr } %.pn109, 0
+  %.sroa.8.0 = extractvalue { i64, ptr } %.pn109, 1
   %.not = icmp eq i64 %.pr, 36
   br i1 %.not, label %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..Expr$GT$$GT$17hfffdd42a8286aa4cE.exit", label %28
 
@@ -33069,7 +33069,7 @@ _ZN6syntax3ast9generated5nodes9YieldExpr4expr17h3589adee3d938bfdE.exit.i: ; pred
 define internal fastcc { i8, i8 } @"_ZN6syntax3ast4prec53_$LT$impl$u20$syntax..ast..generated..nodes..Expr$GT$13binding_power17h185c880a6d3fffc0E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #1 {
   %2 = alloca { [9 x i8], i8, [6 x i8] }, align 8
   %3 = load i64, ptr %0, align 8, !range !230, !noundef !4
-  switch i64 %3, label %default.unreachable13 [
+  switch i64 %3, label %default.unreachable12 [
     i64 0, label %28
     i64 1, label %5
     i64 2, label %6
@@ -33108,7 +33108,7 @@ define internal fastcc { i8, i8 } @"_ZN6syntax3ast4prec53_$LT$impl$u20$syntax..a
     i64 35, label %5
   ]
 
-default.unreachable13:                            ; preds = %1
+default.unreachable12:                            ; preds = %1
   unreachable
 
 4:                                                ; preds = %"_ZN6syntax3ast8expr_ext56_$LT$impl$u20$syntax..ast..generated..nodes..BinExpr$GT$7op_kind17h2450c3baa4babd9fE.exit"
@@ -33186,13 +33186,13 @@ switch.lookup:                                    ; preds = %"_ZN6syntax3ast8exp
   %switch.gep = getelementptr inbounds [10 x i8], ptr @"switch.table._ZN6syntax3ast4prec53_$LT$impl$u20$syntax..ast..generated..nodes..Expr$GT$13binding_power17h185c880a6d3fffc0E", i64 0, i64 %26
   %switch.load = load i8, ptr %switch.gep, align 1
   %27 = sext i8 %.sroa.2.0.copyload.i to i64
-  %switch.gep14 = getelementptr inbounds [10 x i8], ptr @"switch.table._ZN6syntax3ast4prec53_$LT$impl$u20$syntax..ast..generated..nodes..Expr$GT$13binding_power17h185c880a6d3fffc0E.191", i64 0, i64 %27
-  %switch.load15 = load i8, ptr %switch.gep14, align 1
+  %switch.gep13 = getelementptr inbounds [10 x i8], ptr @"switch.table._ZN6syntax3ast4prec53_$LT$impl$u20$syntax..ast..generated..nodes..Expr$GT$13binding_power17h185c880a6d3fffc0E.191", i64 0, i64 %27
+  %switch.load14 = load i8, ptr %switch.gep13, align 1
   br label %28
 
 28:                                               ; preds = %switch.lookup, %"_ZN6syntax3ast8expr_ext56_$LT$impl$u20$syntax..ast..generated..nodes..BinExpr$GT$7op_kind17h2450c3baa4babd9fE.exit.thread", %25, %24, %"_ZN6syntax3ast8expr_ext56_$LT$impl$u20$syntax..ast..generated..nodes..BinExpr$GT$7op_kind17h2450c3baa4babd9fE.exit", %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %23, %22, %21, %20, %6, %5
   %.sroa.20.3 = phi i8 [ 5, %23 ], [ 27, %22 ], [ 32, %21 ], [ 26, %20 ], [ 0, %6 ], [ 1, %5 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 3, %25 ], [ %., %24 ], [ 11, %"_ZN6syntax3ast8expr_ext56_$LT$impl$u20$syntax..ast..generated..nodes..BinExpr$GT$7op_kind17h2450c3baa4babd9fE.exit" ], [ 0, %"_ZN6syntax3ast8expr_ext56_$LT$impl$u20$syntax..ast..generated..nodes..BinExpr$GT$7op_kind17h2450c3baa4babd9fE.exit.thread" ], [ %switch.load, %switch.lookup ]
-  %.sroa.0.3 = phi i8 [ 5, %23 ], [ 0, %22 ], [ 31, %21 ], [ 25, %20 ], [ 29, %6 ], [ 0, %5 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 4, %25 ], [ %.8, %24 ], [ 11, %"_ZN6syntax3ast8expr_ext56_$LT$impl$u20$syntax..ast..generated..nodes..BinExpr$GT$7op_kind17h2450c3baa4babd9fE.exit" ], [ 0, %"_ZN6syntax3ast8expr_ext56_$LT$impl$u20$syntax..ast..generated..nodes..BinExpr$GT$7op_kind17h2450c3baa4babd9fE.exit.thread" ], [ %switch.load15, %switch.lookup ]
+  %.sroa.0.3 = phi i8 [ 5, %23 ], [ 0, %22 ], [ 31, %21 ], [ 25, %20 ], [ 29, %6 ], [ 0, %5 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 4, %25 ], [ %.8, %24 ], [ 11, %"_ZN6syntax3ast8expr_ext56_$LT$impl$u20$syntax..ast..generated..nodes..BinExpr$GT$7op_kind17h2450c3baa4babd9fE.exit" ], [ 0, %"_ZN6syntax3ast8expr_ext56_$LT$impl$u20$syntax..ast..generated..nodes..BinExpr$GT$7op_kind17h2450c3baa4babd9fE.exit.thread" ], [ %switch.load14, %switch.lookup ]
   %29 = insertvalue { i8, i8 } poison, i8 %.sroa.0.3, 0
   %30 = insertvalue { i8, i8 } %29, i8 %.sroa.20.3, 1
   ret { i8, i8 } %30

@@ -961,8 +961,8 @@ if.then9:                                         ; preds = %if.end7
 if.end17:                                         ; preds = %if.end7
   %conv = trunc nuw i64 %c to i8
   store i8 %conv, ptr %chtmp, align 1
-  %cmp19.not = icmp ult i64 %c, 128
-  br i1 %cmp19.not, label %if.else, label %if.then21
+  %cmp19 = icmp ugt i64 %c, 127
+  br i1 %cmp19, label %if.then21, label %if.else
 
 if.then21:                                        ; preds = %if.end17
   %0 = and i8 %flags, 4
@@ -1025,7 +1025,7 @@ if.then57:                                        ; preds = %if.end53
   br label %return
 
 if.end66:                                         ; preds = %if.end53
-  %cmp68 = icmp ne i8 %conv, 92
+  %cmp68 = icmp ne i64 %c, 92
   %3 = and i8 %flags, 15
   %tobool72.not = icmp eq i8 %3, 0
   %or.cond = or i1 %cmp68, %tobool72.not

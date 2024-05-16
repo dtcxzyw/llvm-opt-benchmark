@@ -2967,7 +2967,7 @@ if.then7.i.i.i.i:                                 ; preds = %if.then7.i.i.i
   %6 = shl nuw nsw i64 %div34.i.i.i, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %bigmant, i8 0, i64 %6, i1 false)
   %7 = load i16, ptr %length.i.i5.i.i.i, align 8
-  %8 = trunc i64 %div34.i.i.i to i16
+  %8 = trunc nuw i64 %div34.i.i.i to i16
   %conv.i10.i.i.i.i = add i16 %7, %8
   store i16 %conv.i10.i.i.i.i, ptr %length.i.i5.i.i.i, align 8
   br label %_ZN14arrow_vendored10fast_float6bigint5pow10Ej.exit
@@ -3316,7 +3316,7 @@ if.end13.sink.split:                              ; preds = %if.then7.i.i.i, %if
   %14 = shl nuw nsw i64 %div34.i.i66.sink181, 3
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %bigmant.sink, i8 0, i64 %14, i1 false)
   %15 = load i16, ptr %length.i.i5.i.i92.sink180, align 8
-  %16 = trunc i64 %div34.i.i66.sink181 to i16
+  %16 = trunc nuw i64 %div34.i.i66.sink181 to i16
   %conv.i10.i.i.i104 = add i16 %15, %16
   store i16 %conv.i10.i.i.i104, ptr %length.i.i5.i.i92.sink180, align 8
   br label %if.end13
@@ -4087,7 +4087,7 @@ if.then7.i.i.i.i:                                 ; preds = %if.then7.i.i.i
   %6 = shl nuw nsw i64 %div34.i.i.i, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %bigmant, i8 0, i64 %6, i1 false)
   %7 = load i16, ptr %length.i.i5.i.i.i, align 8
-  %8 = trunc i64 %div34.i.i.i to i16
+  %8 = trunc nuw i64 %div34.i.i.i to i16
   %conv.i10.i.i.i.i = add i16 %7, %8
   store i16 %conv.i10.i.i.i.i, ptr %length.i.i5.i.i.i, align 8
   br label %_ZN14arrow_vendored10fast_float6bigint5pow10Ej.exit
@@ -4437,7 +4437,7 @@ if.end13.sink.split:                              ; preds = %if.then7.i.i.i, %if
   %14 = shl nuw nsw i64 %div34.i.i66.sink181, 3
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %bigmant.sink, i8 0, i64 %14, i1 false)
   %15 = load i16, ptr %length.i.i5.i.i92.sink180, align 8
-  %16 = trunc i64 %div34.i.i66.sink181 to i16
+  %16 = trunc nuw i64 %div34.i.i66.sink181 to i16
   %conv.i10.i.i.i104 = add i16 %15, %16
   store i16 %conv.i10.i.i.i104, ptr %length.i.i5.i.i92.sink180, align 8
   br label %if.end13

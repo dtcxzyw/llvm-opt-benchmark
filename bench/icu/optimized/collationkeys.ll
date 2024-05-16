@@ -819,8 +819,8 @@ invoke.cont21:                                    ; preds = %invoke.cont20
   %shr = lshr i64 %call22, 32
   %conv = trunc nuw i64 %shr to i32
   %cmp23 = icmp ugt i32 %variableTop.0, %conv
-  %cmp24 = icmp ugt i32 %conv, 33554432
-  %or.cond = and i1 %cmp23, %cmp24
+  %cmp24 = icmp ugt i64 %call22, 144115192370823167
+  %or.cond = and i1 %cmp24, %cmp23
   br i1 %or.cond, label %if.then25, label %if.end61
 
 if.then25:                                        ; preds = %invoke.cont21
@@ -1084,18 +1084,18 @@ do.body51.us:                                     ; preds = %if.end33, %do.body5
           to label %invoke.cont52.us unwind label %lpad19.loopexit.split-lp.loopexit.split.us
 
 invoke.cont52.us:                                 ; preds = %do.body51.us
-  %shr54.us = lshr i64 %call53.us, 32
-  %conv55.us = trunc nuw i64 %shr54.us to i32
-  %cmp56.us = icmp eq i32 %conv55.us, 0
+  %cmp56.us = icmp ult i64 %call53.us, 4294967296
   br i1 %cmp56.us, label %do.body51.us.backedge, label %do.cond57.us
 
 do.body51.us.backedge:                            ; preds = %invoke.cont52.us, %do.cond57.us
   br label %do.body51.us, !llvm.loop !6
 
 do.cond57.us:                                     ; preds = %invoke.cont52.us
+  %shr54.us = lshr i64 %call53.us, 32
+  %conv55.us = trunc nuw i64 %shr54.us to i32
   %cmp58.us = icmp ugt i32 %variableTop.0, %conv55.us
-  %cmp59.us = icmp ugt i32 %conv55.us, 33554432
-  %26 = and i1 %cmp58.us, %cmp59.us
+  %cmp59.us = icmp ugt i64 %call53.us, 144115192370823167
+  %26 = and i1 %cmp59.us, %cmp58.us
   br i1 %26, label %do.body51.us.backedge, label %if.end61
 
 lpad19.loopexit.split-lp.loopexit.split.us:       ; preds = %do.body51.us
@@ -1345,15 +1345,15 @@ do.body51:                                        ; preds = %do.body51.preheader
           to label %invoke.cont52 unwind label %lpad19.loopexit.split-lp.loopexit.split
 
 invoke.cont52:                                    ; preds = %do.body51
-  %shr54 = lshr i64 %call53, 32
-  %conv55 = trunc nuw i64 %shr54 to i32
-  %cmp56 = icmp eq i32 %conv55, 0
+  %cmp56 = icmp ult i64 %call53, 4294967296
   br i1 %cmp56, label %do.body51, label %do.cond57, !llvm.loop !7
 
 do.cond57:                                        ; preds = %invoke.cont52
+  %shr54 = lshr i64 %call53, 32
+  %conv55 = trunc nuw i64 %shr54 to i32
   %cmp58 = icmp ugt i32 %variableTop.0, %conv55
-  %cmp59 = icmp ugt i32 %conv55, 33554432
-  %56 = and i1 %cmp58, %cmp59
+  %cmp59 = icmp ugt i64 %call53, 144115192370823167
+  %56 = and i1 %cmp59, %cmp58
   br i1 %56, label %do.body, label %if.end61, !llvm.loop !6
 
 if.end61:                                         ; preds = %do.cond57, %do.cond57.us, %invoke.cont21

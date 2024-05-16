@@ -1475,7 +1475,7 @@ define internal i64 @store_energy_performance_preference(ptr noundef %0, ptr nou
 38:                                               ; preds = %35
   %39 = trunc nsw i64 %32 to i32
   %40 = load i32, ptr %6, align 4
-  %41 = icmp eq i32 %39, 0
+  %41 = icmp eq i64 %32, 0
   br i1 %41, label %42, label %46
 
 42:                                               ; preds = %38

@@ -225,8 +225,8 @@ bxt_port_to_phy_channel.exit.thread:              ; preds = %47, %55
 
 bxt_port_to_phy_channel.exit:                     ; preds = %33, %41
   %.ph.i = phi i32 [ 0, %33 ], [ 1, %41 ]
-  %59 = trunc i64 %indvars.iv.i to i32
-  %60 = icmp eq i32 %59, 0
+  %59 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %60 = icmp eq i64 %indvars.iv.i, 0
   %61 = shl i32 %59, 12
   %62 = add i32 %61, 1445888
   %spec.select = select i1 %60, i32 442368, i32 %62
@@ -907,8 +907,8 @@ bxt_port_to_phy_channel.exit.thread:              ; preds = %26, %34
 
 bxt_port_to_phy_channel.exit:                     ; preds = %12, %20
   %.ph.i = phi i32 [ 1336, %12 ], [ 2360, %20 ]
-  %38 = trunc i64 %indvars.iv.i to i32
-  %39 = icmp eq i32 %38, 0
+  %38 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %39 = icmp eq i64 %indvars.iv.i, 0
   %40 = shl i32 %38, 12
   %41 = add i32 %40, 1445888
   %spec.select = select i1 %39, i32 442368, i32 %41
@@ -1014,8 +1014,8 @@ bxt_port_to_phy_channel.exit.thread:              ; preds = %25, %33
 
 bxt_port_to_phy_channel.exit:                     ; preds = %11, %19
   %.ph.i = phi i32 [ 1336, %11 ], [ 2360, %19 ]
-  %37 = trunc i64 %indvars.iv.i to i32
-  %38 = icmp eq i32 %37, 0
+  %37 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %38 = icmp eq i64 %indvars.iv.i, 0
   %39 = shl i32 %37, 12
   %40 = add i32 %39, 1445888
   %spec.select = select i1 %38, i32 442368, i32 %40

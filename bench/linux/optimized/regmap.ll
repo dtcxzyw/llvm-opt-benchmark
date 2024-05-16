@@ -9714,28 +9714,28 @@ define internal fastcc i32 @_regmap_raw_read(ptr noundef %0, i32 noundef %1, ptr
   %35 = getelementptr inbounds i8, ptr %0, i64 104
   %36 = load i64, ptr %35, align 8
   %37 = udiv i64 %34, %36
-  %38 = trunc nuw i64 %37 to i32
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #23
-  %39 = sub i32 %1, %16
-  %40 = getelementptr inbounds i8, ptr %14, i64 64
-  %41 = load i32, ptr %40, align 8
-  %42 = urem i32 %39, %41
-  %43 = udiv i32 %39, %41
-  %44 = icmp ugt i32 %38, 1
-  br i1 %44, label %45, label %52
+  %38 = sub i32 %1, %16
+  %39 = getelementptr inbounds i8, ptr %14, i64 64
+  %40 = load i32, ptr %39, align 8
+  %41 = urem i32 %38, %40
+  %42 = udiv i32 %38, %40
+  %43 = icmp ugt i64 %37, 1
+  br i1 %43, label %44, label %52
 
-45:                                               ; preds = %33
+44:                                               ; preds = %33
+  %45 = trunc nuw i64 %37 to i32
   %46 = add i32 %1, -1
-  %47 = add i32 %46, %38
+  %47 = add i32 %46, %45
   %48 = icmp ugt i32 %47, %20
-  %49 = sub i32 %41, %42
-  %50 = icmp ult i32 %49, %38
+  %49 = sub i32 %40, %41
+  %50 = icmp ult i32 %49, %45
   %51 = or i1 %48, %50
   br i1 %51, label %.thread12, label %61
 
 52:                                               ; preds = %.thread, %33
-  %53 = phi i32 [ %32, %.thread ], [ %43, %33 ]
-  %54 = phi i32 [ %31, %.thread ], [ %42, %33 ]
+  %53 = phi i32 [ %32, %.thread ], [ %42, %33 ]
+  %54 = phi i32 [ %31, %.thread ], [ %41, %33 ]
   %55 = getelementptr inbounds i8, ptr %14, i64 60
   %56 = load i32, ptr %55, align 4
   %57 = add i32 %56, %54
@@ -9744,9 +9744,9 @@ define internal fastcc i32 @_regmap_raw_read(ptr noundef %0, i32 noundef %1, ptr
   %60 = icmp eq i32 %57, %59
   br i1 %60, label %77, label %61
 
-61:                                               ; preds = %52, %45
-  %62 = phi i32 [ %53, %52 ], [ %43, %45 ]
-  %63 = phi i32 [ %54, %52 ], [ %42, %45 ]
+61:                                               ; preds = %52, %44
+  %62 = phi i32 [ %53, %52 ], [ %42, %44 ]
+  %63 = phi i32 [ %54, %52 ], [ %41, %44 ]
   %64 = getelementptr inbounds i8, ptr %0, i64 72
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds i8, ptr %0, i64 624
@@ -9770,8 +9770,8 @@ define internal fastcc i32 @_regmap_raw_read(ptr noundef %0, i32 noundef %1, ptr
   %.pre15 = add i32 %.pre, %63
   br label %77
 
-.thread12:                                        ; preds = %45, %61
-  %.ph = phi i32 [ %75, %61 ], [ -22, %45 ]
+.thread12:                                        ; preds = %44, %61
+  %.ph = phi i32 [ %75, %61 ], [ -22, %44 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #23
   br label %183
 

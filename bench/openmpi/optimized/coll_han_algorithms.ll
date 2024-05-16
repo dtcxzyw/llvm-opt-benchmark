@@ -61,7 +61,7 @@ declare i32 @mca_coll_han_scatter_intra_simple(ptr noundef, i32 noundef, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @mca_coll_han_algorithm_id_is_valid(i32 noundef %0, i32 noundef %1) local_unnamed_addr #1 {
-  %3 = tail call zeroext i1 @mca_coll_han_is_coll_dynamic_implemented(i32 noundef %0) #7
+  %3 = tail call zeroext i1 @mca_coll_han_is_coll_dynamic_implemented(i32 noundef %0) #8
   %4 = icmp sgt i32 %1, -1
   %or.cond.not = and i1 %4, %3
   br i1 %or.cond.not, label %5, label %11
@@ -87,7 +87,7 @@ define ptr @mca_coll_han_algorithm_id_to_fn(i32 noundef %0, i32 noundef %1) loca
   br i1 %3, label %mca_coll_han_algorithm_id_is_valid.exit.thread, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call zeroext i1 @mca_coll_han_is_coll_dynamic_implemented(i32 noundef %0) #7
+  %5 = tail call zeroext i1 @mca_coll_han_is_coll_dynamic_implemented(i32 noundef %0) #8
   %6 = icmp sgt i32 %1, -1
   %or.cond.not.i = and i1 %6, %5
   br i1 %or.cond.not.i, label %mca_coll_han_algorithm_id_is_valid.exit, label %mca_coll_han_algorithm_id_is_valid.exit.thread
@@ -115,7 +115,7 @@ mca_coll_han_algorithm_id_is_valid.exit.thread:   ; preds = %4, %2, %mca_coll_ha
 
 ; Function Attrs: nounwind uwtable
 define ptr @mca_coll_han_algorithm_id_to_name(i32 noundef %0, i32 noundef %1) local_unnamed_addr #1 {
-  %3 = tail call zeroext i1 @mca_coll_han_is_coll_dynamic_implemented(i32 noundef %0) #7
+  %3 = tail call zeroext i1 @mca_coll_han_is_coll_dynamic_implemented(i32 noundef %0) #8
   %4 = icmp sgt i32 %1, -1
   %or.cond.not.i = and i1 %4, %3
   br i1 %or.cond.not.i, label %mca_coll_han_algorithm_id_is_valid.exit, label %mca_coll_han_algorithm_id_is_valid.exit.thread
@@ -147,7 +147,7 @@ mca_coll_han_algorithm_id_is_valid.exit.thread:   ; preds = %2, %8, %mca_coll_ha
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
 define i32 @mca_coll_han_algorithm_name_to_id(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
-  %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(8) @.str) #8
+  %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(8) @.str) #9
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %.loopexit, label %5
 
@@ -169,7 +169,7 @@ define i32 @mca_coll_han_algorithm_name_to_id(i32 noundef %0, ptr nocapture noun
 .lr.ph:                                           ; preds = %10, %18
   %indvars.iv = phi i64 [ %indvars.iv.next, %18 ], [ 0, %10 ]
   %15 = phi ptr [ %20, %18 ], [ %14, %10 ]
-  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %15) #8
+  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %15) #9
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %.loopexit.loopexit.split.loop.exit17, label %18
 
@@ -221,12 +221,12 @@ mca_han_algorithm_count.exit:                     ; preds = %.preheader.i
   %7 = trunc nuw nsw i64 %indvars.iv.i to i32
   %8 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 29, i64 %indvars.iv
   store i32 %7, ptr %8, align 4
-  %9 = icmp eq i32 %7, 0
+  %9 = icmp eq i64 %indvars.iv.i, 0
   br i1 %9, label %mca_han_algorithm_enumerator_create.exit.thread, label %10
 
 10:                                               ; preds = %mca_han_algorithm_count.exit
   %11 = trunc nuw nsw i64 %indvars.iv to i32
-  %12 = tail call zeroext i1 @mca_coll_han_is_coll_dynamic_implemented(i32 noundef %11) #7
+  %12 = tail call zeroext i1 @mca_coll_han_is_coll_dynamic_implemented(i32 noundef %11) #8
   br i1 %12, label %13, label %mca_han_algorithm_enumerator_create.exit.thread
 
 13:                                               ; preds = %10
@@ -246,47 +246,44 @@ mca_han_algorithm_count.exit:                     ; preds = %.preheader.i
 
 mca_han_algorithm_count.exit.i:                   ; preds = %.preheader.i.i
   %indvars22.le = trunc i64 %indvars.iv.i.i to i32
-  %18 = icmp eq i32 %indvars22.le, 0
+  %18 = icmp eq i64 %indvars.iv.i.i, 0
   br i1 %18, label %mca_han_algorithm_enumerator_create.exit.thread, label %19
 
 19:                                               ; preds = %mca_han_algorithm_count.exit.i
   %20 = shl i64 %indvars.iv.i.i, 32
   %sext.i = add i64 %20, 8589934592
   %21 = ashr exact i64 %sext.i, 28
-  %22 = tail call noalias ptr @malloc(i64 noundef %21) #9
+  %22 = tail call noalias ptr @malloc(i64 noundef %21) #10
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %35, label %24
+  br i1 %23, label %33, label %.lr.ph.preheader.i
 
-24:                                               ; preds = %19
+.lr.ph.preheader.i:                               ; preds = %19
   store i32 0, ptr %22, align 8
-  %25 = getelementptr inbounds i8, ptr %22, i64 8
-  store ptr @.str, ptr %25, align 8
-  %26 = icmp sgt i32 %indvars22.le, 0
-  br i1 %26, label %.lr.ph.preheader.i, label %._crit_edge.i
-
-.lr.ph.preheader.i:                               ; preds = %24
-  %wide.trip.count.i = and i64 %indvars.iv.i.i, 2147483647
+  %24 = getelementptr inbounds i8, ptr %22, i64 8
+  store ptr @.str, ptr %24, align 8
+  %smax.i = tail call i32 @llvm.smax.i32(i32 %indvars22.le, i32 1)
+  %wide.trip.count.i = zext nneg i32 %smax.i to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i10 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i11, %.lr.ph.i ]
   %indvars.iv.next.i11 = add nuw nsw i64 %indvars.iv.i10, 1
-  %27 = getelementptr inbounds %struct.mca_base_var_enum_value_t, ptr %22, i64 %indvars.iv.next.i11
-  %28 = trunc nuw nsw i64 %indvars.iv.next.i11 to i32
-  store i32 %28, ptr %27, align 8
-  %29 = getelementptr inbounds %struct.mca_coll_han_algorithm_value_s, ptr %15, i64 %indvars.iv.i10
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %27, i64 8
-  store ptr %30, ptr %31, align 8
+  %25 = getelementptr inbounds %struct.mca_base_var_enum_value_t, ptr %22, i64 %indvars.iv.next.i11
+  %26 = trunc nuw nsw i64 %indvars.iv.next.i11 to i32
+  store i32 %26, ptr %25, align 8
+  %27 = getelementptr inbounds %struct.mca_coll_han_algorithm_value_s, ptr %15, i64 %indvars.iv.i10
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr inbounds i8, ptr %25, i64 8
+  store ptr %28, ptr %29, align 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i11, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %24
-  %32 = ashr exact i64 %20, 32
-  %33 = getelementptr %struct.mca_base_var_enum_value_t, ptr %22, i64 %32
-  %34 = getelementptr i8, ptr %33, i64 16
-  store i32 0, ptr %34, align 8
-  %.sroa.21.0..sroa_idx.i = getelementptr i8, ptr %33, i64 24
+._crit_edge.i:                                    ; preds = %.lr.ph.i
+  %30 = ashr exact i64 %20, 32
+  %31 = getelementptr %struct.mca_base_var_enum_value_t, ptr %22, i64 %30
+  %32 = getelementptr i8, ptr %31, i64 16
+  store i32 0, ptr %32, align 8
+  %.sroa.21.0..sroa_idx.i = getelementptr i8, ptr %31, i64 24
   store ptr null, ptr %.sroa.21.0..sroa_idx.i, align 8
   store ptr %22, ptr %14, align 8
   br label %mca_han_algorithm_enumerator_create.exit.thread
@@ -296,28 +293,28 @@ mca_han_algorithm_enumerator_create.exit.thread:  ; preds = %13, %mca_han_algori
   %exitcond.not = icmp eq i64 %indvars.iv.next, 22
   br i1 %exitcond.not, label %mca_coll_han_free_algorithms.exit, label %1, !llvm.loop !8
 
-35:                                               ; preds = %19
-  tail call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.10) #7
-  br label %36
+33:                                               ; preds = %19
+  tail call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.10) #8
+  br label %34
 
-36:                                               ; preds = %40, %35
-  %indvars.iv.i12 = phi i64 [ 0, %35 ], [ %indvars.iv.next.i14, %40 ]
-  %37 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 30, i64 %indvars.iv.i12
-  %38 = load ptr, ptr %37, align 8
-  %.not.i13 = icmp eq ptr %38, null
-  br i1 %.not.i13, label %40, label %39
+34:                                               ; preds = %38, %33
+  %indvars.iv.i12 = phi i64 [ 0, %33 ], [ %indvars.iv.next.i14, %38 ]
+  %35 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 30, i64 %indvars.iv.i12
+  %36 = load ptr, ptr %35, align 8
+  %.not.i13 = icmp eq ptr %36, null
+  br i1 %.not.i13, label %38, label %37
 
-39:                                               ; preds = %36
-  tail call void @free(ptr noundef nonnull %38) #7
-  br label %40
+37:                                               ; preds = %34
+  tail call void @free(ptr noundef nonnull %36) #8
+  br label %38
 
-40:                                               ; preds = %39, %36
+38:                                               ; preds = %37, %34
   %indvars.iv.next.i14 = add nuw nsw i64 %indvars.iv.i12, 1
   %exitcond.not.i15 = icmp eq i64 %indvars.iv.next.i14, 22
-  br i1 %exitcond.not.i15, label %mca_coll_han_free_algorithms.exit, label %36, !llvm.loop !9
+  br i1 %exitcond.not.i15, label %mca_coll_han_free_algorithms.exit, label %34, !llvm.loop !9
 
-mca_coll_han_free_algorithms.exit:                ; preds = %mca_han_algorithm_enumerator_create.exit.thread, %40
-  %.09 = phi i32 [ -1, %40 ], [ 0, %mca_han_algorithm_enumerator_create.exit.thread ]
+mca_coll_han_free_algorithms.exit:                ; preds = %mca_han_algorithm_enumerator_create.exit.thread, %38
+  %.09 = phi i32 [ -1, %38 ], [ 0, %mca_han_algorithm_enumerator_create.exit.thread ]
   ret i32 %.09
 }
 
@@ -336,7 +333,7 @@ define noundef i32 @mca_coll_han_free_algorithms() local_unnamed_addr #1 {
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call void @free(ptr noundef nonnull %3) #7
+  tail call void @free(ptr noundef nonnull %3) #8
   br label %5
 
 5:                                                ; preds = %1, %4
@@ -356,6 +353,9 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 
 declare void @opal_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #0
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #7
+
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -363,9 +363,10 @@ attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind }
-attributes #8 = { nounwind willreturn memory(read) }
-attributes #9 = { nounwind allocsize(0) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind }
+attributes #9 = { nounwind willreturn memory(read) }
+attributes #10 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

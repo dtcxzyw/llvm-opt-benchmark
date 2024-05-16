@@ -708,10 +708,10 @@ define range(i64 -1, 2147483648) i64 @hostlist_deranged_string_dims(ptr noundef 
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 2370, ptr noundef nonnull @__func__.hostlist_deranged_string_dims) #25
   unreachable
 
-15:                                               ; preds = %.lr.ph, %31
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
-  %16 = phi i64 [ 0, %.lr.ph ], [ %36, %31 ]
-  %.03346 = phi i32 [ 0, %.lr.ph ], [ %32, %31 ]
+15:                                               ; preds = %.lr.ph, %30
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
+  %16 = phi i64 [ 0, %.lr.ph ], [ %36, %30 ]
+  %.03346 = phi i32 [ 0, %.lr.ph ], [ %32, %30 ]
   %.not42 = icmp eq i64 %indvars.iv, 0
   br i1 %.not42, label %20, label %17
 
@@ -734,12 +734,12 @@ define range(i64 -1, 2147483648) i64 @hostlist_deranged_string_dims(ptr noundef 
   %26 = sub i64 %1, %21
   %27 = getelementptr inbounds i8, ptr %2, i64 %21
   %28 = tail call fastcc i64 @hostrange_to_string(ptr noundef %25, i64 noundef %26, ptr noundef %27, i32 noundef %3)
-  %29 = trunc nsw i64 %28 to i32
-  %30 = icmp slt i32 %29, 0
-  br i1 %30, label %42, label %31
+  %29 = icmp slt i64 %28, 0
+  br i1 %29, label %42, label %30
 
-31:                                               ; preds = %22
-  %32 = add nuw nsw i32 %.1, %29
+30:                                               ; preds = %22
+  %31 = trunc nsw i64 %28 to i32
+  %32 = add nuw nsw i32 %.1, %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = load i32, ptr %7, align 4
   %34 = sext i32 %33 to i64
@@ -749,8 +749,8 @@ define range(i64 -1, 2147483648) i64 @hostlist_deranged_string_dims(ptr noundef 
   %38 = select i1 %35, i1 %37, i1 false
   br i1 %38, label %15, label %._crit_edge, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %31, %.preheader
-  %.lcssa = phi i64 [ 0, %.preheader ], [ %36, %31 ]
+._crit_edge:                                      ; preds = %30, %.preheader
+  %.lcssa = phi i64 [ 0, %.preheader ], [ %36, %30 ]
   %39 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %5) #22
   %.not41 = icmp eq i32 %39, 0
   br i1 %.not41, label %49, label %40
@@ -2088,21 +2088,21 @@ _is_bracket_needed.exit.i:                        ; preds = %242, %240, %hostran
   %272 = sub i64 %204, %271
   %273 = getelementptr inbounds i8, ptr %205, i64 %271
   %274 = tail call fastcc i64 @hostrange_numstr(ptr noundef %270, i64 noundef %272, ptr noundef writeonly %273)
-  %275 = trunc nsw i64 %274 to i32
-  %276 = icmp slt i32 %275, 0
-  br i1 %276, label %280, label %277
+  %275 = icmp slt i64 %274, 0
+  br i1 %275, label %280, label %276
 
-277:                                              ; preds = %268
-  %278 = add nuw nsw i32 %.2.i, %275
+276:                                              ; preds = %268
+  %277 = trunc nsw i64 %274 to i32
+  %278 = add nuw nsw i32 %.2.i, %277
   %279 = zext nneg i32 %278 to i64
   %.not54.i = icmp ugt i64 %260, %279
   br i1 %.not54.i, label %282, label %280
 
-280:                                              ; preds = %277, %268
+280:                                              ; preds = %276, %268
   %281 = trunc i64 %204 to i32
   br label %_get_bracketed_list.exit
 
-282:                                              ; preds = %277
+282:                                              ; preds = %276
   %indvars.iv.next.i165 = add nsw i64 %indvars.iv.i164, 1
   %283 = load i32, ptr %190, align 4
   %284 = sext i32 %283 to i64
@@ -3738,7 +3738,7 @@ hostrange_cmp.exit.thread:                        ; preds = %.lr.ph.i.split, %ho
 116:                                              ; preds = %115, %hostrange_cmp.exit.thread
   %.040.i = phi i32 [ %113, %115 ], [ 0, %hostrange_cmp.exit.thread ]
   tail call fastcc void @hostlist_insert_range(ptr noundef nonnull %.val, ptr noundef nonnull %19, i32 noundef %112)
-  %.not.i = icmp eq i32 %112, 0
+  %.not.i = icmp eq i64 %indvars.iv.i, 0
   br i1 %.not.i, label %.thread.i, label %117
 
 117:                                              ; preds = %116

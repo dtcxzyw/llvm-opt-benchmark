@@ -332,7 +332,7 @@ define internal range(i32 -1, 1) i32 @hwloc_nvml_discover(ptr nocapture noundef 
 
 hwloc__nvml_get_peer_gpu_by_pci.exit:             ; preds = %159
   %164 = trunc nuw i64 %indvars.iv.i to i32
-  %165 = icmp eq i32 %164, -1
+  %165 = icmp eq i64 %indvars.iv.i, 4294967295
   br i1 %165, label %hwloc__nvml_get_peer_gpu_by_pci.exit.thread, label %hwloc__nvml_store_peer_obj.exit
 
 hwloc__nvml_get_peer_gpu_by_pci.exit.thread:      ; preds = %163, %148, %hwloc__nvml_get_peer_gpu_by_pci.exit

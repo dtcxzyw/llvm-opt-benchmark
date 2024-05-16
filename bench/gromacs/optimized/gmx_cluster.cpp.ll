@@ -984,7 +984,7 @@ define noundef i32 @_Z11gmx_clusteriPPc(i32 noundef %0, ptr noundef %1) local_un
 
 .critedge.thread:                                 ; preds = %344
   %350 = trunc nuw nsw i64 %indvars.iv to i32
-  %351 = icmp eq i32 %350, 2
+  %351 = icmp eq i64 %indvars.iv, 2
   %352 = invoke noundef ptr @_Z6ftp2fniiPK8t_filenm(i32 noundef 19, i32 noundef 16, ptr noundef nonnull %82)
           to label %353 unwind label %.loopexit.split-lp705.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -1128,7 +1128,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %356, %359
   br label %414
 
 414:                                              ; preds = %410, %405
-  %415 = icmp eq i32 %350, 3
+  %415 = icmp eq i64 %indvars.iv, 3
   br i1 %415, label %416, label %419
 
 416:                                              ; preds = %414
@@ -1849,7 +1849,7 @@ _ZL14gmx_sfree_implIfEvPKcS1_iPT_.exit:           ; preds = %680
 ._crit_edge770:                                   ; preds = %.lr.ph769, %.preheader687
   %690 = getelementptr inbounds i8, ptr %681, i64 4
   %691 = load i32, ptr %690, align 4
-  %692 = icmp eq i32 %350, 4
+  %692 = icmp eq i64 %indvars.iv, 4
   %693 = invoke noundef ptr @_Z8init_matib(i32 noundef %691, i1 noundef zeroext %692)
           to label %694 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -1946,7 +1946,7 @@ _ZL14gmx_sfree_implIfEvPKcS1_iPT_.exit:           ; preds = %680
   br label %913
 
 744:                                              ; preds = %.thread661
-  %745 = icmp eq i32 %350, 4
+  %745 = icmp eq i64 %indvars.iv, 4
   %746 = invoke noundef ptr @_Z8init_matib(i32 noundef %.0, i1 noundef zeroext %745)
           to label %747 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

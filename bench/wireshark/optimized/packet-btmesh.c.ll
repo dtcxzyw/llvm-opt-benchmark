@@ -11954,37 +11954,33 @@ find_characteristic_id.exit.i:                    ; preds = %22, %find_character
   br i1 %exitcond.i.i, label %find_btmesh_property_characteristic_idx.exit.thread, label %find_characteristic_id.exit.i, !llvm.loop !36
 
 find_btmesh_property_characteristic_idx.exit:     ; preds = %find_characteristic_id.exit.i
-  %25 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  %.not = icmp eq i32 %25, -1
-  br i1 %.not, label %find_btmesh_property_characteristic_idx.exit.thread, label %26
-
-26:                                               ; preds = %find_btmesh_property_characteristic_idx.exit
   %sext = shl i64 %indvars.iv.i.i, 32
-  %27 = ashr exact i64 %sext, 32
-  %28 = and i64 %27, 2305843009213693951
-  %.not34 = icmp eq i64 %28, 89
-  br i1 %.not34, label %34, label %29
+  %25 = ashr exact i64 %sext, 32
+  %26 = and i64 %25, 2305843009213693951
+  %.not34 = icmp eq i64 %26, 89
+  br i1 %.not34, label %33, label %27
 
-29:                                               ; preds = %26
-  %30 = getelementptr [90 x %struct.bt_gatt_characteristic_t], ptr @bt_gatt_characteristics, i64 0, i64 %27, i32 1
-  %31 = load i16, ptr %30, align 2
-  %32 = zext i16 %31 to i32
-  %33 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %32, i32 noundef 0) #16
-  tail call fastcc void @dissect_btmesh_property_idx(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef %25)
-  br label %39
+27:                                               ; preds = %find_btmesh_property_characteristic_idx.exit
+  %28 = trunc nuw nsw i64 %indvars.iv.i.i to i32
+  %29 = getelementptr [90 x %struct.bt_gatt_characteristic_t], ptr @bt_gatt_characteristics, i64 0, i64 %25, i32 1
+  %30 = load i16, ptr %29, align 2
+  %31 = zext i16 %30 to i32
+  %32 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %31, i32 noundef 0) #16
+  tail call fastcc void @dissect_btmesh_property_idx(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef %28)
+  br label %38
 
-34:                                               ; preds = %26
-  %35 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %.030, i32 noundef 0) #16
-  %36 = trunc i32 %.030 to i16
-  br label %39
+33:                                               ; preds = %find_btmesh_property_characteristic_idx.exit
+  %34 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %.030, i32 noundef 0) #16
+  %35 = trunc i32 %.030 to i16
+  br label %38
 
-find_btmesh_property_characteristic_idx.exit.thread: ; preds = %.lr.ph.i, %22, %find_btmesh_property_characteristic_idx.exit
-  %37 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %.030, i32 noundef 0) #16
-  %38 = trunc i32 %.030 to i16
-  br label %39
+find_btmesh_property_characteristic_idx.exit.thread: ; preds = %.lr.ph.i, %22
+  %36 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %.030, i32 noundef 0) #16
+  %37 = trunc i32 %.030 to i16
+  br label %38
 
-39:                                               ; preds = %29, %34, %find_btmesh_property_characteristic_idx.exit.thread
-  %.0 = phi i16 [ %31, %29 ], [ %36, %34 ], [ %38, %find_btmesh_property_characteristic_idx.exit.thread ]
+38:                                               ; preds = %27, %33, %find_btmesh_property_characteristic_idx.exit.thread
+  %.0 = phi i16 [ %30, %27 ], [ %35, %33 ], [ %37, %find_btmesh_property_characteristic_idx.exit.thread ]
   ret i16 %.0
 }
 
@@ -11992,7 +11988,7 @@ find_btmesh_property_characteristic_idx.exit.thread: ; preds = %.lr.ph.i, %22, %
 define internal fastcc range(i32 -2, 262144) i32 @dissect_sensor_cadence(ptr noundef %0, ptr noundef %1, i32 noundef %2, i16 noundef zeroext %3, i8 noundef zeroext %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
   %7 = icmp eq i8 %4, 0
   %8 = icmp eq i16 %3, -1
-  br i1 %7, label %9, label %31
+  br i1 %7, label %9, label %29
 
 9:                                                ; preds = %6
   br i1 %8, label %find_characteristic_id.exit.preheader.i, label %.lr.ph.i
@@ -12020,7 +12016,7 @@ find_characteristic_id.exit.i:                    ; preds = %20, %find_character
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %20 ], [ 0, %find_characteristic_id.exit.preheader.i ]
   %18 = phi i16 [ %22, %20 ], [ -1, %find_characteristic_id.exit.preheader.i ]
   %19 = icmp eq i16 %18, %.lcssa.i
-  br i1 %19, label %find_characteristic_idx.exit.i, label %20
+  br i1 %19, label %find_btmesh_property_length.exit, label %20
 
 20:                                               ; preds = %find_characteristic_id.exit.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -12029,167 +12025,157 @@ find_characteristic_id.exit.i:                    ; preds = %20, %find_character
   %exitcond.i.i = icmp eq i64 %indvars.iv.next.i.i, 89
   br i1 %exitcond.i.i, label %find_btmesh_property_length.exit.thread, label %find_characteristic_id.exit.i, !llvm.loop !36
 
-find_characteristic_idx.exit.i:                   ; preds = %find_characteristic_id.exit.i
-  %23 = and i64 %indvars.iv.i.i, 4294967295
-  %24 = icmp eq i64 %23, 4294967295
-  br i1 %24, label %find_btmesh_property_length.exit.thread, label %find_btmesh_property_length.exit
-
-find_btmesh_property_length.exit:                 ; preds = %find_characteristic_idx.exit.i
+find_btmesh_property_length.exit:                 ; preds = %find_characteristic_id.exit.i
   %sext.i = shl i64 %indvars.iv.i.i, 32
-  %25 = ashr exact i64 %sext.i, 32
-  %26 = getelementptr [90 x %struct.bt_gatt_characteristic_t], ptr @bt_gatt_characteristics, i64 0, i64 %25, i32 1
-  %27 = load i16, ptr %26, align 2
-  %28 = zext i16 %27 to i32
-  %29 = and i64 %25, 2305843009213693951
-  %30 = icmp eq i64 %29, 89
-  br i1 %30, label %find_btmesh_property_length.exit.thread, label %.thread
+  %23 = ashr exact i64 %sext.i, 32
+  %24 = getelementptr [90 x %struct.bt_gatt_characteristic_t], ptr @bt_gatt_characteristics, i64 0, i64 %23, i32 1
+  %25 = load i16, ptr %24, align 2
+  %26 = zext i16 %25 to i32
+  %27 = and i64 %23, 2305843009213693951
+  %28 = icmp eq i64 %27, 89
+  br i1 %28, label %find_btmesh_property_length.exit.thread, label %.thread
 
-31:                                               ; preds = %6
+29:                                               ; preds = %6
   br i1 %8, label %find_characteristic_id.exit.preheader.i92, label %.lr.ph.i89
 
-.lr.ph.i89:                                       ; preds = %31, %37
-  %.067.i12.i90 = phi i32 [ %32, %37 ], [ 0, %31 ]
-  %32 = add i32 %.067.i12.i90, 1
-  %33 = sext i32 %32 to i64
-  %34 = getelementptr [180 x %struct.btmesh_property_t], ptr @btmesh_properties, i64 0, i64 %33
-  %35 = getelementptr inbounds i8, ptr %34, i64 2
-  %36 = load i16, ptr %35, align 2
-  %.not.i.i91 = icmp eq i16 %36, 0
-  br i1 %.not.i.i91, label %find_btmesh_property_length.exit101.thread, label %37, !llvm.loop !35
+.lr.ph.i89:                                       ; preds = %29, %35
+  %.067.i12.i90 = phi i32 [ %30, %35 ], [ 0, %29 ]
+  %30 = add i32 %.067.i12.i90, 1
+  %31 = sext i32 %30 to i64
+  %32 = getelementptr [180 x %struct.btmesh_property_t], ptr @btmesh_properties, i64 0, i64 %31
+  %33 = getelementptr inbounds i8, ptr %32, i64 2
+  %34 = load i16, ptr %33, align 2
+  %.not.i.i91 = icmp eq i16 %34, 0
+  br i1 %.not.i.i91, label %find_btmesh_property_length.exit101.thread, label %35, !llvm.loop !35
 
-37:                                               ; preds = %.lr.ph.i89
-  %38 = load i16, ptr %34, align 4
-  %39 = icmp eq i16 %38, %3
-  br i1 %39, label %find_characteristic_id.exit.preheader.i92, label %.lr.ph.i89, !llvm.loop !35
+35:                                               ; preds = %.lr.ph.i89
+  %36 = load i16, ptr %32, align 4
+  %37 = icmp eq i16 %36, %3
+  br i1 %37, label %find_characteristic_id.exit.preheader.i92, label %.lr.ph.i89, !llvm.loop !35
 
-find_characteristic_id.exit.preheader.i92:        ; preds = %37, %31
-  %.lcssa.i93 = phi i16 [ -1, %31 ], [ %36, %37 ]
+find_characteristic_id.exit.preheader.i92:        ; preds = %35, %29
+  %.lcssa.i93 = phi i16 [ -1, %29 ], [ %34, %35 ]
   br label %find_characteristic_id.exit.i94
 
-find_characteristic_id.exit.i94:                  ; preds = %42, %find_characteristic_id.exit.preheader.i92
-  %indvars.iv.i.i95 = phi i64 [ %indvars.iv.next.i.i96, %42 ], [ 0, %find_characteristic_id.exit.preheader.i92 ]
-  %40 = phi i16 [ %44, %42 ], [ -1, %find_characteristic_id.exit.preheader.i92 ]
-  %41 = icmp eq i16 %40, %.lcssa.i93
-  br i1 %41, label %find_characteristic_idx.exit.i99, label %42
+find_characteristic_id.exit.i94:                  ; preds = %40, %find_characteristic_id.exit.preheader.i92
+  %indvars.iv.i.i95 = phi i64 [ %indvars.iv.next.i.i96, %40 ], [ 0, %find_characteristic_id.exit.preheader.i92 ]
+  %38 = phi i16 [ %42, %40 ], [ -1, %find_characteristic_id.exit.preheader.i92 ]
+  %39 = icmp eq i16 %38, %.lcssa.i93
+  br i1 %39, label %find_btmesh_property_length.exit101, label %40
 
-42:                                               ; preds = %find_characteristic_id.exit.i94
+40:                                               ; preds = %find_characteristic_id.exit.i94
   %indvars.iv.next.i.i96 = add nuw nsw i64 %indvars.iv.i.i95, 1
-  %43 = getelementptr [90 x %struct.bt_gatt_characteristic_t], ptr @bt_gatt_characteristics, i64 0, i64 %indvars.iv.next.i.i96
-  %44 = load i16, ptr %43, align 8
+  %41 = getelementptr [90 x %struct.bt_gatt_characteristic_t], ptr @bt_gatt_characteristics, i64 0, i64 %indvars.iv.next.i.i96
+  %42 = load i16, ptr %41, align 8
   %exitcond.i.i97 = icmp eq i64 %indvars.iv.next.i.i96, 89
   br i1 %exitcond.i.i97, label %find_btmesh_property_length.exit101.thread, label %find_characteristic_id.exit.i94, !llvm.loop !36
 
-find_characteristic_idx.exit.i99:                 ; preds = %find_characteristic_id.exit.i94
-  %45 = and i64 %indvars.iv.i.i95, 4294967295
-  %46 = icmp eq i64 %45, 4294967295
-  br i1 %46, label %find_btmesh_property_length.exit101.thread, label %find_btmesh_property_length.exit101
-
-find_btmesh_property_length.exit101:              ; preds = %find_characteristic_idx.exit.i99
+find_btmesh_property_length.exit101:              ; preds = %find_characteristic_id.exit.i94
   %sext.i100 = shl i64 %indvars.iv.i.i95, 32
-  %47 = ashr exact i64 %sext.i100, 32
-  %48 = getelementptr [90 x %struct.bt_gatt_characteristic_t], ptr @bt_gatt_characteristics, i64 0, i64 %47, i32 1
-  %49 = load i16, ptr %48, align 2
-  %50 = zext i16 %49 to i32
-  %51 = and i64 %47, 2305843009213693951
-  %52 = icmp eq i64 %51, 89
-  br i1 %52, label %find_btmesh_property_length.exit101.thread, label %.thread
+  %43 = ashr exact i64 %sext.i100, 32
+  %44 = getelementptr [90 x %struct.bt_gatt_characteristic_t], ptr @bt_gatt_characteristics, i64 0, i64 %43, i32 1
+  %45 = load i16, ptr %44, align 2
+  %46 = zext i16 %45 to i32
+  %47 = and i64 %43, 2305843009213693951
+  %48 = icmp eq i64 %47, 89
+  br i1 %48, label %find_btmesh_property_length.exit101.thread, label %.thread
 
-find_btmesh_property_length.exit101.thread:       ; preds = %.lr.ph.i89, %42, %find_characteristic_idx.exit.i99, %find_btmesh_property_length.exit101
-  %53 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %2) #16
-  %54 = add i32 %53, -5
-  %55 = and i32 %54, 1
-  %56 = icmp eq i32 %55, 0
-  %57 = ashr exact i32 %54, 1
-  %spec.select88 = select i1 %56, i32 %57, i32 -1
+find_btmesh_property_length.exit101.thread:       ; preds = %.lr.ph.i89, %40, %find_btmesh_property_length.exit101
+  %49 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %2) #16
+  %50 = add i32 %49, -5
+  %51 = and i32 %50, 1
+  %52 = icmp eq i32 %51, 0
+  %53 = ashr exact i32 %50, 1
+  %spec.select88 = select i1 %52, i32 %53, i32 -1
   br label %.thread
 
-find_btmesh_property_length.exit.thread:          ; preds = %.lr.ph.i, %20, %find_characteristic_idx.exit.i, %find_btmesh_property_length.exit
-  %58 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %2) #16
-  %59 = add i32 %58, -1
-  %60 = and i32 %59, 3
-  %61 = icmp eq i32 %60, 0
-  %62 = ashr exact i32 %59, 2
-  %spec.select = select i1 %61, i32 %62, i32 -1
+find_btmesh_property_length.exit.thread:          ; preds = %.lr.ph.i, %20, %find_btmesh_property_length.exit
+  %54 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %2) #16
+  %55 = add i32 %54, -1
+  %56 = and i32 %55, 3
+  %57 = icmp eq i32 %56, 0
+  %58 = ashr exact i32 %55, 2
+  %spec.select = select i1 %57, i32 %58, i32 -1
   %.not = icmp eq i32 %spec.select, -1
-  br i1 %.not, label %107, label %.thread
+  br i1 %.not, label %103, label %.thread
 
 .thread:                                          ; preds = %find_btmesh_property_length.exit101.thread, %find_btmesh_property_length.exit, %find_btmesh_property_length.exit101, %find_btmesh_property_length.exit.thread
-  %.0108 = phi i32 [ %spec.select, %find_btmesh_property_length.exit.thread ], [ %spec.select88, %find_btmesh_property_length.exit101.thread ], [ %28, %find_btmesh_property_length.exit ], [ %50, %find_btmesh_property_length.exit101 ]
-  %.1107 = phi i32 [ %spec.select, %find_btmesh_property_length.exit.thread ], [ 2, %find_btmesh_property_length.exit101.thread ], [ %28, %find_btmesh_property_length.exit ], [ 2, %find_btmesh_property_length.exit101 ]
-  %63 = getelementptr inbounds i8, ptr %5, i64 8
-  %64 = load ptr, ptr %63, align 8
-  %65 = load i32, ptr %64, align 4
-  br i1 %7, label %66, label %73
+  %.0108 = phi i32 [ %spec.select, %find_btmesh_property_length.exit.thread ], [ %spec.select88, %find_btmesh_property_length.exit101.thread ], [ %26, %find_btmesh_property_length.exit ], [ %46, %find_btmesh_property_length.exit101 ]
+  %.1107 = phi i32 [ %spec.select, %find_btmesh_property_length.exit.thread ], [ 2, %find_btmesh_property_length.exit101.thread ], [ %26, %find_btmesh_property_length.exit ], [ 2, %find_btmesh_property_length.exit101 ]
+  %59 = getelementptr inbounds i8, ptr %5, i64 8
+  %60 = load ptr, ptr %59, align 8
+  %61 = load i32, ptr %60, align 4
+  br i1 %7, label %62, label %69
 
-66:                                               ; preds = %.thread
-  %67 = tail call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %0, i32 noundef %65, ptr noundef %1, i32 noundef %2, i16 noundef zeroext %3, i32 noundef %.1107)
-  %68 = zext i16 %67 to i32
-  %69 = add nuw nsw i32 %68, %2
-  %70 = load ptr, ptr %5, align 8
-  %71 = load i32, ptr %70, align 4
-  %72 = tail call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %0, i32 noundef %71, ptr noundef %1, i32 noundef %69, i16 noundef zeroext %3, i32 noundef %.1107)
-  br label %80
+62:                                               ; preds = %.thread
+  %63 = tail call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %0, i32 noundef %61, ptr noundef %1, i32 noundef %2, i16 noundef zeroext %3, i32 noundef %.1107)
+  %64 = zext i16 %63 to i32
+  %65 = add nuw nsw i32 %64, %2
+  %66 = load ptr, ptr %5, align 8
+  %67 = load i32, ptr %66, align 4
+  %68 = tail call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %0, i32 noundef %67, ptr noundef %1, i32 noundef %65, i16 noundef zeroext %3, i32 noundef %.1107)
+  br label %76
 
-73:                                               ; preds = %.thread
-  %74 = tail call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %0, i32 noundef %65, ptr noundef %1, i32 noundef %2, i16 noundef zeroext -1, i32 noundef %.1107)
-  %75 = zext i16 %74 to i32
-  %76 = add nuw nsw i32 %75, %2
-  %77 = load ptr, ptr %5, align 8
-  %78 = load i32, ptr %77, align 4
-  %79 = tail call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %0, i32 noundef %78, ptr noundef %1, i32 noundef %76, i16 noundef zeroext -1, i32 noundef %.1107)
-  br label %80
+69:                                               ; preds = %.thread
+  %70 = tail call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %0, i32 noundef %61, ptr noundef %1, i32 noundef %2, i16 noundef zeroext -1, i32 noundef %.1107)
+  %71 = zext i16 %70 to i32
+  %72 = add nuw nsw i32 %71, %2
+  %73 = load ptr, ptr %5, align 8
+  %74 = load i32, ptr %73, align 4
+  %75 = tail call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %0, i32 noundef %74, ptr noundef %1, i32 noundef %72, i16 noundef zeroext -1, i32 noundef %.1107)
+  br label %76
 
-80:                                               ; preds = %73, %66
-  %.sink128 = phi i16 [ %79, %73 ], [ %72, %66 ]
-  %.sink = phi i32 [ %76, %73 ], [ %69, %66 ]
-  %81 = zext i16 %.sink128 to i32
-  %82 = add nuw nsw i32 %.sink, %81
-  %83 = getelementptr inbounds i8, ptr %5, i64 16
-  %84 = load ptr, ptr %83, align 8
-  %85 = load i32, ptr %84, align 4
-  %86 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %85, ptr noundef %1, i32 noundef %82, i32 noundef 1, i32 noundef -2147483648) #16
-  %87 = add nuw nsw i32 %82, 1
+76:                                               ; preds = %69, %62
+  %.sink128 = phi i16 [ %75, %69 ], [ %68, %62 ]
+  %.sink = phi i32 [ %72, %69 ], [ %65, %62 ]
+  %77 = zext i16 %.sink128 to i32
+  %78 = add nuw nsw i32 %.sink, %77
+  %79 = getelementptr inbounds i8, ptr %5, i64 16
+  %80 = load ptr, ptr %79, align 8
+  %81 = load i32, ptr %80, align 4
+  %82 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %81, ptr noundef %1, i32 noundef %78, i32 noundef 1, i32 noundef -2147483648) #16
+  %83 = add nuw nsw i32 %78, 1
   %.not86 = icmp eq i32 %.0108, -1
-  br i1 %.not86, label %100, label %88
+  br i1 %.not86, label %96, label %84
 
-88:                                               ; preds = %80
-  %89 = getelementptr inbounds i8, ptr %5, i64 24
-  %90 = load ptr, ptr %89, align 8
-  %91 = load i32, ptr %90, align 4
-  %92 = tail call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %0, i32 noundef %91, ptr noundef %1, i32 noundef %87, i16 noundef zeroext %3, i32 noundef %.0108)
-  %93 = zext i16 %92 to i32
-  %94 = add nuw nsw i32 %87, %93
-  %95 = getelementptr inbounds i8, ptr %5, i64 32
-  %96 = load ptr, ptr %95, align 8
-  %97 = load i32, ptr %96, align 4
-  %98 = tail call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %0, i32 noundef %97, ptr noundef %1, i32 noundef %94, i16 noundef zeroext %3, i32 noundef %.0108)
-  %99 = zext i16 %98 to i32
-  br label %114
+84:                                               ; preds = %76
+  %85 = getelementptr inbounds i8, ptr %5, i64 24
+  %86 = load ptr, ptr %85, align 8
+  %87 = load i32, ptr %86, align 4
+  %88 = tail call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %0, i32 noundef %87, ptr noundef %1, i32 noundef %83, i16 noundef zeroext %3, i32 noundef %.0108)
+  %89 = zext i16 %88 to i32
+  %90 = add nuw nsw i32 %83, %89
+  %91 = getelementptr inbounds i8, ptr %5, i64 32
+  %92 = load ptr, ptr %91, align 8
+  %93 = load i32, ptr %92, align 4
+  %94 = tail call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %0, i32 noundef %93, ptr noundef %1, i32 noundef %90, i16 noundef zeroext %3, i32 noundef %.0108)
+  %95 = zext i16 %94 to i32
+  br label %110
 
-100:                                              ; preds = %80
-  %101 = getelementptr inbounds i8, ptr %5, i64 40
-  %102 = load ptr, ptr %101, align 8
-  %103 = load i32, ptr %102, align 4
-  %104 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %87) #16
-  %105 = tail call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %0, i32 noundef %103, ptr noundef %1, i32 noundef %87, i16 noundef zeroext %3, i32 noundef %104)
-  %106 = zext i16 %105 to i32
-  br label %114
+96:                                               ; preds = %76
+  %97 = getelementptr inbounds i8, ptr %5, i64 40
+  %98 = load ptr, ptr %97, align 8
+  %99 = load i32, ptr %98, align 4
+  %100 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %83) #16
+  %101 = tail call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %0, i32 noundef %99, ptr noundef %1, i32 noundef %83, i16 noundef zeroext %3, i32 noundef %100)
+  %102 = zext i16 %101 to i32
+  br label %110
 
-107:                                              ; preds = %find_btmesh_property_length.exit.thread
-  %108 = getelementptr inbounds i8, ptr %5, i64 40
-  %109 = load ptr, ptr %108, align 8
-  %110 = load i32, ptr %109, align 4
-  %111 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %2) #16
-  %112 = tail call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %0, i32 noundef %110, ptr noundef %1, i32 noundef %2, i16 noundef zeroext %3, i32 noundef %111)
-  %113 = zext i16 %112 to i32
-  br label %114
+103:                                              ; preds = %find_btmesh_property_length.exit.thread
+  %104 = getelementptr inbounds i8, ptr %5, i64 40
+  %105 = load ptr, ptr %104, align 8
+  %106 = load i32, ptr %105, align 4
+  %107 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %2) #16
+  %108 = tail call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %0, i32 noundef %106, ptr noundef %1, i32 noundef %2, i16 noundef zeroext %3, i32 noundef %107)
+  %109 = zext i16 %108 to i32
+  br label %110
 
-114:                                              ; preds = %88, %100, %107
-  %.sink130 = phi i32 [ %99, %88 ], [ %106, %100 ], [ %2, %107 ]
-  %.sink129 = phi i32 [ %94, %88 ], [ %87, %100 ], [ %113, %107 ]
-  %115 = add nuw nsw i32 %.sink129, %.sink130
-  %116 = sub nsw i32 %115, %2
-  ret i32 %116
+110:                                              ; preds = %84, %96, %103
+  %.sink130 = phi i32 [ %95, %84 ], [ %102, %96 ], [ %2, %103 ]
+  %.sink129 = phi i32 [ %90, %84 ], [ %83, %96 ], [ %109, %103 ]
+  %111 = add nuw nsw i32 %.sink129, %.sink130
+  %112 = sub nsw i32 %111, %2
+  ret i32 %112
 }
 
 ; Function Attrs: nounwind uwtable
@@ -12261,14 +12247,14 @@ find_btmesh_property_characteristic_idx.exit:     ; preds = %.lr.ph.i, %17, %.sp
   %37 = add nuw nsw i32 %36, %2
   %38 = load ptr, ptr %22, align 8
   %.not85 = icmp eq ptr %38, null
-  br i1 %.not85, label %97, label %39
+  br i1 %.not85, label %94, label %39
 
 39:                                               ; preds = %32
   %40 = load i32, ptr %38, align 4
   %41 = tail call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %0, i32 noundef %40, ptr noundef %1, i32 noundef %37, i16 noundef zeroext -2, i32 noundef 2)
   %42 = zext i16 %41 to i32
   %43 = add nuw nsw i32 %37, %42
-  br label %97
+  br label %94
 
 44:                                               ; preds = %27
   %45 = getelementptr [90 x %struct.bt_gatt_characteristic_t], ptr @bt_gatt_characteristics, i64 0, i64 %28
@@ -12289,94 +12275,85 @@ find_btmesh_property_characteristic_idx.exit:     ; preds = %.lr.ph.i, %17, %.sp
   br i1 %exitcond.i, label %find_column_properties_idx.exit.thread, label %47, !llvm.loop !37
 
 find_column_properties_idx.exit:                  ; preds = %47
-  %53 = and i64 %indvars.iv.i, 4294967295
-  %.not80 = icmp eq i64 %53, 4294967295
-  br i1 %.not80, label %find_column_properties_idx.exit.thread, label %54
-
-54:                                               ; preds = %find_column_properties_idx.exit
   %sext = shl i64 %indvars.iv.i, 32
-  %55 = ashr exact i64 %sext, 32
-  %56 = getelementptr [7 x %struct.btmesh_column_property_t], ptr @btmesh_column_properties, i64 0, i64 %55, i32 1
-  %57 = load i16, ptr %56, align 2
-  br label %58
+  %53 = ashr exact i64 %sext, 32
+  %54 = getelementptr [7 x %struct.btmesh_column_property_t], ptr @btmesh_column_properties, i64 0, i64 %53, i32 1
+  %55 = load i16, ptr %54, align 2
+  br label %56
 
-58:                                               ; preds = %61, %54
-  %indvars.iv.i88 = phi i64 [ 0, %54 ], [ %indvars.iv.next.i89, %61 ]
-  %59 = phi i16 [ -1, %54 ], [ %63, %61 ]
-  %60 = icmp eq i16 %59, %57
-  br i1 %60, label %find_characteristic_idx.exit, label %61
+56:                                               ; preds = %59, %find_column_properties_idx.exit
+  %indvars.iv.i88 = phi i64 [ 0, %find_column_properties_idx.exit ], [ %indvars.iv.next.i89, %59 ]
+  %57 = phi i16 [ -1, %find_column_properties_idx.exit ], [ %61, %59 ]
+  %58 = icmp eq i16 %57, %55
+  br i1 %58, label %find_characteristic_idx.exit, label %59
 
-61:                                               ; preds = %58
+59:                                               ; preds = %56
   %indvars.iv.next.i89 = add nuw nsw i64 %indvars.iv.i88, 1
-  %62 = getelementptr [90 x %struct.bt_gatt_characteristic_t], ptr @bt_gatt_characteristics, i64 0, i64 %indvars.iv.next.i89
-  %63 = load i16, ptr %62, align 8
+  %60 = getelementptr [90 x %struct.bt_gatt_characteristic_t], ptr @bt_gatt_characteristics, i64 0, i64 %indvars.iv.next.i89
+  %61 = load i16, ptr %60, align 8
   %exitcond.i90 = icmp eq i64 %indvars.iv.next.i89, 89
-  br i1 %exitcond.i90, label %find_column_properties_idx.exit.thread, label %58, !llvm.loop !36
+  br i1 %exitcond.i90, label %find_column_properties_idx.exit.thread, label %56, !llvm.loop !36
 
-find_characteristic_idx.exit:                     ; preds = %58
-  %64 = trunc nuw nsw i64 %indvars.iv.i88 to i32
-  %.not81 = icmp eq i32 %64, -1
-  br i1 %.not81, label %find_column_properties_idx.exit.thread, label %65
-
-65:                                               ; preds = %find_characteristic_idx.exit
+find_characteristic_idx.exit:                     ; preds = %56
+  %62 = trunc nuw nsw i64 %indvars.iv.i88 to i32
   %sext102 = shl i64 %indvars.iv.i88, 32
-  %66 = ashr exact i64 %sext102, 32
-  %67 = getelementptr [90 x %struct.bt_gatt_characteristic_t], ptr @bt_gatt_characteristics, i64 0, i64 %66
-  %68 = getelementptr inbounds i8, ptr %67, i64 2
-  %69 = load i16, ptr %68, align 2
-  %70 = zext i16 %69 to i32
-  %.not82 = icmp eq i16 %69, 0
-  br i1 %.not82, label %find_column_properties_idx.exit.thread, label %71
+  %63 = ashr exact i64 %sext102, 32
+  %64 = getelementptr [90 x %struct.bt_gatt_characteristic_t], ptr @bt_gatt_characteristics, i64 0, i64 %63
+  %65 = getelementptr inbounds i8, ptr %64, i64 2
+  %66 = load i16, ptr %65, align 2
+  %67 = zext i16 %66 to i32
+  %.not82 = icmp eq i16 %66, 0
+  br i1 %.not82, label %find_column_properties_idx.exit.thread, label %68
 
-71:                                               ; preds = %65
-  %72 = getelementptr inbounds i8, ptr %67, i64 8
-  %73 = load ptr, ptr %72, align 8
-  %.not83 = icmp eq ptr %73, null
-  br i1 %.not83, label %find_column_properties_idx.exit.thread, label %74
+68:                                               ; preds = %find_characteristic_idx.exit
+  %69 = getelementptr inbounds i8, ptr %64, i64 8
+  %70 = load ptr, ptr %69, align 8
+  %.not83 = icmp eq ptr %70, null
+  br i1 %.not83, label %find_column_properties_idx.exit.thread, label %71
 
-74:                                               ; preds = %71
-  %75 = getelementptr inbounds i8, ptr %67, i64 16
-  %76 = load i8, ptr %75, align 8
-  %77 = icmp eq i8 %76, 0
-  br i1 %77, label %78, label %find_column_properties_idx.exit.thread
+71:                                               ; preds = %68
+  %72 = getelementptr inbounds i8, ptr %64, i64 16
+  %73 = load i8, ptr %72, align 8
+  %74 = icmp eq i8 %73, 0
+  br i1 %74, label %75, label %find_column_properties_idx.exit.thread
 
-78:                                               ; preds = %74
-  %79 = load ptr, ptr %4, align 8
-  %80 = load i32, ptr %79, align 4
-  %81 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %80, ptr noundef %1, i32 noundef %2, i32 noundef %70, i32 noundef 0) #16
-  tail call fastcc void @dissect_btmesh_property_idx(ptr noundef %1, ptr noundef %0, i32 noundef %2, i32 noundef %64)
-  %82 = add nuw nsw i32 %70, %2
-  %83 = load ptr, ptr %22, align 8
-  %.not84 = icmp eq ptr %83, null
-  br i1 %.not84, label %97, label %84
+75:                                               ; preds = %71
+  %76 = load ptr, ptr %4, align 8
+  %77 = load i32, ptr %76, align 4
+  %78 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %77, ptr noundef %1, i32 noundef %2, i32 noundef %67, i32 noundef 0) #16
+  tail call fastcc void @dissect_btmesh_property_idx(ptr noundef %1, ptr noundef %0, i32 noundef %2, i32 noundef %62)
+  %79 = add nuw nsw i32 %67, %2
+  %80 = load ptr, ptr %22, align 8
+  %.not84 = icmp eq ptr %80, null
+  br i1 %.not84, label %94, label %81
 
-84:                                               ; preds = %78
-  %85 = load i32, ptr %83, align 4
-  %86 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %85, ptr noundef %1, i32 noundef %82, i32 noundef %70, i32 noundef 0) #16
-  tail call fastcc void @dissect_btmesh_property_idx(ptr noundef %1, ptr noundef %0, i32 noundef %82, i32 noundef %64)
-  %87 = add nuw nsw i32 %82, %70
-  br label %97
+81:                                               ; preds = %75
+  %82 = load i32, ptr %80, align 4
+  %83 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %82, ptr noundef %1, i32 noundef %79, i32 noundef %67, i32 noundef 0) #16
+  tail call fastcc void @dissect_btmesh_property_idx(ptr noundef %1, ptr noundef %0, i32 noundef %79, i32 noundef %62)
+  %84 = add nuw nsw i32 %79, %67
+  br label %94
 
-find_column_properties_idx.exit.thread:           ; preds = %50, %61, %65, %find_characteristic_idx.exit, %find_column_properties_idx.exit, %find_btmesh_property_characteristic_idx.exit, %74, %71
-  %.171.ph = phi i32 [ %70, %71 ], [ %70, %74 ], [ %spec.select, %find_btmesh_property_characteristic_idx.exit ], [ %spec.select, %find_column_properties_idx.exit ], [ %spec.select, %find_characteristic_idx.exit ], [ %spec.select, %65 ], [ %spec.select, %61 ], [ %spec.select, %50 ]
-  %88 = load ptr, ptr %4, align 8
-  %89 = load i32, ptr %88, align 4
-  %90 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %89, ptr noundef %1, i32 noundef %2, i32 noundef %.171.ph, i32 noundef 0) #16
-  %91 = add i32 %.171.ph, %2
-  %92 = load ptr, ptr %22, align 8
-  %.not87 = icmp eq ptr %92, null
-  br i1 %.not87, label %97, label %93
+find_column_properties_idx.exit.thread:           ; preds = %50, %59, %find_characteristic_idx.exit, %find_btmesh_property_characteristic_idx.exit, %71, %68
+  %.171.ph = phi i32 [ %67, %68 ], [ %67, %71 ], [ %spec.select, %find_btmesh_property_characteristic_idx.exit ], [ %spec.select, %find_characteristic_idx.exit ], [ %spec.select, %59 ], [ %spec.select, %50 ]
+  %85 = load ptr, ptr %4, align 8
+  %86 = load i32, ptr %85, align 4
+  %87 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %86, ptr noundef %1, i32 noundef %2, i32 noundef %.171.ph, i32 noundef 0) #16
+  %88 = add i32 %.171.ph, %2
+  %89 = load ptr, ptr %22, align 8
+  %.not87 = icmp eq ptr %89, null
+  br i1 %.not87, label %94, label %90
 
-93:                                               ; preds = %find_column_properties_idx.exit.thread
-  %94 = load i32, ptr %92, align 4
-  %95 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %94, ptr noundef %1, i32 noundef %91, i32 noundef %.171.ph, i32 noundef 0) #16
-  %96 = add i32 %91, %.171.ph
-  br label %97
+90:                                               ; preds = %find_column_properties_idx.exit.thread
+  %91 = load i32, ptr %89, align 4
+  %92 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %91, ptr noundef %1, i32 noundef %88, i32 noundef %.171.ph, i32 noundef 0) #16
+  %93 = add i32 %88, %.171.ph
+  br label %94
 
-97:                                               ; preds = %78, %84, %32, %39, %find_column_properties_idx.exit.thread, %93
-  %.1 = phi i32 [ %96, %93 ], [ %91, %find_column_properties_idx.exit.thread ], [ %43, %39 ], [ %37, %32 ], [ %87, %84 ], [ %82, %78 ]
-  %98 = sub i32 %.1, %2
-  ret i32 %98
+94:                                               ; preds = %75, %81, %32, %39, %find_column_properties_idx.exit.thread, %90
+  %.1 = phi i32 [ %93, %90 ], [ %88, %find_column_properties_idx.exit.thread ], [ %43, %39 ], [ %37, %32 ], [ %84, %81 ], [ %79, %75 ]
+  %95 = sub i32 %.1, %2
+  ret i32 %95
 }
 
 ; Function Attrs: nounwind uwtable
@@ -12422,184 +12399,166 @@ find_btmesh_property_characteristic_idx.exit.thread: ; preds = %.lr.ph.i, %17
 
 find_btmesh_property_characteristic_idx.exit:     ; preds = %find_characteristic_id.exit.i
   %21 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %2) #16
-  %22 = and i64 %indvars.iv.i.i, 4294967295
-  %.not = icmp eq i64 %22, 4294967295
-  br i1 %.not, label %find_column_properties_idx.exit.thread, label %23
-
-23:                                               ; preds = %find_btmesh_property_characteristic_idx.exit
   %sext = shl i64 %indvars.iv.i.i, 32
-  %24 = ashr exact i64 %sext, 32
-  %25 = getelementptr [90 x %struct.bt_gatt_characteristic_t], ptr @bt_gatt_characteristics, i64 0, i64 %24, i32 3
-  %26 = load i8, ptr %25, align 8
-  %27 = icmp eq i8 %26, 0
-  br i1 %27, label %28, label %34
+  %22 = ashr exact i64 %sext, 32
+  %23 = getelementptr [90 x %struct.bt_gatt_characteristic_t], ptr @bt_gatt_characteristics, i64 0, i64 %22, i32 3
+  %24 = load i8, ptr %23, align 8
+  %25 = icmp eq i8 %24, 0
+  br i1 %25, label %26, label %32
 
-28:                                               ; preds = %23
-  %29 = load ptr, ptr %4, align 8
-  %30 = load i32, ptr %29, align 4
-  %31 = tail call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %0, i32 noundef %30, ptr noundef %1, i32 noundef %2, i16 noundef zeroext %3, i32 noundef -1)
-  %32 = zext i16 %31 to i32
-  %33 = add i32 %32, %2
-  br label %118
+26:                                               ; preds = %find_btmesh_property_characteristic_idx.exit
+  %27 = load ptr, ptr %4, align 8
+  %28 = load i32, ptr %27, align 4
+  %29 = tail call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %0, i32 noundef %28, ptr noundef %1, i32 noundef %2, i16 noundef zeroext %3, i32 noundef -1)
+  %30 = zext i16 %29 to i32
+  %31 = add i32 %30, %2
+  br label %112
 
-34:                                               ; preds = %23
-  %35 = getelementptr [90 x %struct.bt_gatt_characteristic_t], ptr @bt_gatt_characteristics, i64 0, i64 %24
-  %36 = load i16, ptr %35, align 8
-  br label %37
+32:                                               ; preds = %find_btmesh_property_characteristic_idx.exit
+  %33 = getelementptr [90 x %struct.bt_gatt_characteristic_t], ptr @bt_gatt_characteristics, i64 0, i64 %22
+  %34 = load i16, ptr %33, align 8
+  br label %35
 
-37:                                               ; preds = %40, %34
-  %indvars.iv.i = phi i64 [ 0, %34 ], [ %indvars.iv.next.i, %40 ]
-  %38 = phi i16 [ 11022, %34 ], [ %42, %40 ]
-  %39 = icmp eq i16 %38, %36
-  br i1 %39, label %find_column_properties_idx.exit, label %40
+35:                                               ; preds = %38, %32
+  %indvars.iv.i = phi i64 [ 0, %32 ], [ %indvars.iv.next.i, %38 ]
+  %36 = phi i16 [ 11022, %32 ], [ %40, %38 ]
+  %37 = icmp eq i16 %36, %34
+  br i1 %37, label %find_column_properties_idx.exit, label %38
 
-40:                                               ; preds = %37
+38:                                               ; preds = %35
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %41 = getelementptr [7 x %struct.btmesh_column_property_t], ptr @btmesh_column_properties, i64 0, i64 %indvars.iv.next.i
-  %42 = load i16, ptr %41, align 2
+  %39 = getelementptr [7 x %struct.btmesh_column_property_t], ptr @btmesh_column_properties, i64 0, i64 %indvars.iv.next.i
+  %40 = load i16, ptr %39, align 2
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 6
-  br i1 %exitcond.i, label %find_column_properties_idx.exit.thread, label %37, !llvm.loop !37
+  br i1 %exitcond.i, label %find_column_properties_idx.exit.thread, label %35, !llvm.loop !37
 
-find_column_properties_idx.exit:                  ; preds = %37
-  %43 = and i64 %indvars.iv.i, 4294967295
-  %.not84 = icmp eq i64 %43, 4294967295
-  br i1 %.not84, label %find_column_properties_idx.exit.thread, label %44
-
-44:                                               ; preds = %find_column_properties_idx.exit
+find_column_properties_idx.exit:                  ; preds = %35
   %sext116 = shl i64 %indvars.iv.i, 32
-  %45 = ashr exact i64 %sext116, 32
-  %46 = getelementptr [7 x %struct.btmesh_column_property_t], ptr @btmesh_column_properties, i64 0, i64 %45
-  %47 = getelementptr inbounds i8, ptr %46, i64 2
-  %48 = load i16, ptr %47, align 2
-  br label %49
+  %41 = ashr exact i64 %sext116, 32
+  %42 = getelementptr [7 x %struct.btmesh_column_property_t], ptr @btmesh_column_properties, i64 0, i64 %41
+  %43 = getelementptr inbounds i8, ptr %42, i64 2
+  %44 = load i16, ptr %43, align 2
+  br label %45
 
-49:                                               ; preds = %52, %44
-  %indvars.iv.i92 = phi i64 [ 0, %44 ], [ %indvars.iv.next.i93, %52 ]
-  %50 = phi i16 [ -1, %44 ], [ %54, %52 ]
-  %51 = icmp eq i16 %50, %48
-  br i1 %51, label %find_characteristic_idx.exit, label %52
+45:                                               ; preds = %48, %find_column_properties_idx.exit
+  %indvars.iv.i92 = phi i64 [ 0, %find_column_properties_idx.exit ], [ %indvars.iv.next.i93, %48 ]
+  %46 = phi i16 [ -1, %find_column_properties_idx.exit ], [ %50, %48 ]
+  %47 = icmp eq i16 %46, %44
+  br i1 %47, label %find_characteristic_idx.exit, label %48
 
-52:                                               ; preds = %49
+48:                                               ; preds = %45
   %indvars.iv.next.i93 = add nuw nsw i64 %indvars.iv.i92, 1
-  %53 = getelementptr [90 x %struct.bt_gatt_characteristic_t], ptr @bt_gatt_characteristics, i64 0, i64 %indvars.iv.next.i93
-  %54 = load i16, ptr %53, align 8
+  %49 = getelementptr [90 x %struct.bt_gatt_characteristic_t], ptr @bt_gatt_characteristics, i64 0, i64 %indvars.iv.next.i93
+  %50 = load i16, ptr %49, align 8
   %exitcond.i94 = icmp eq i64 %indvars.iv.next.i93, 89
-  br i1 %exitcond.i94, label %find_column_properties_idx.exit.thread, label %49, !llvm.loop !36
+  br i1 %exitcond.i94, label %find_column_properties_idx.exit.thread, label %45, !llvm.loop !36
 
-find_characteristic_idx.exit:                     ; preds = %49
-  %55 = trunc nuw nsw i64 %indvars.iv.i92 to i32
-  %.not85 = icmp eq i32 %55, -1
-  br i1 %.not85, label %find_column_properties_idx.exit.thread, label %56
-
-56:                                               ; preds = %find_characteristic_idx.exit
+find_characteristic_idx.exit:                     ; preds = %45
+  %51 = trunc nuw nsw i64 %indvars.iv.i92 to i32
   %sext117 = shl i64 %indvars.iv.i92, 32
-  %57 = ashr exact i64 %sext117, 32
-  %58 = getelementptr [90 x %struct.bt_gatt_characteristic_t], ptr @bt_gatt_characteristics, i64 0, i64 %57
-  %59 = getelementptr inbounds i8, ptr %58, i64 2
-  %60 = load i16, ptr %59, align 2
-  %61 = zext i16 %60 to i32
-  %.not86 = icmp eq i16 %60, 0
-  br i1 %.not86, label %find_column_properties_idx.exit.thread, label %62
+  %52 = ashr exact i64 %sext117, 32
+  %53 = getelementptr [90 x %struct.bt_gatt_characteristic_t], ptr @bt_gatt_characteristics, i64 0, i64 %52
+  %54 = getelementptr inbounds i8, ptr %53, i64 2
+  %55 = load i16, ptr %54, align 2
+  %56 = zext i16 %55 to i32
+  %.not86 = icmp eq i16 %55, 0
+  br i1 %.not86, label %find_column_properties_idx.exit.thread, label %57
 
-62:                                               ; preds = %56
-  %63 = getelementptr inbounds i8, ptr %58, i64 8
-  %64 = load ptr, ptr %63, align 8
-  %.not87 = icmp eq ptr %64, null
-  br i1 %.not87, label %find_column_properties_idx.exit.thread, label %65
+57:                                               ; preds = %find_characteristic_idx.exit
+  %58 = getelementptr inbounds i8, ptr %53, i64 8
+  %59 = load ptr, ptr %58, align 8
+  %.not87 = icmp eq ptr %59, null
+  br i1 %.not87, label %find_column_properties_idx.exit.thread, label %60
 
-65:                                               ; preds = %62
-  %66 = getelementptr inbounds i8, ptr %58, i64 16
-  %67 = load i8, ptr %66, align 8
-  %68 = icmp eq i8 %67, 0
-  br i1 %68, label %69, label %find_column_properties_idx.exit.thread
+60:                                               ; preds = %57
+  %61 = getelementptr inbounds i8, ptr %53, i64 16
+  %62 = load i8, ptr %61, align 8
+  %63 = icmp eq i8 %62, 0
+  br i1 %63, label %64, label %find_column_properties_idx.exit.thread
 
-69:                                               ; preds = %65
-  %70 = load ptr, ptr %4, align 8
+64:                                               ; preds = %60
+  %65 = load ptr, ptr %4, align 8
+  %66 = load i32, ptr %65, align 4
+  %67 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %66, ptr noundef %1, i32 noundef %2, i32 noundef %56, i32 noundef 0) #16
+  tail call fastcc void @dissect_btmesh_property_idx(ptr noundef %1, ptr noundef %0, i32 noundef %2, i32 noundef %51)
+  %68 = add i32 %56, %2
+  %69 = getelementptr inbounds i8, ptr %4, i64 8
+  %70 = load ptr, ptr %69, align 8
   %71 = load i32, ptr %70, align 4
-  %72 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %71, ptr noundef %1, i32 noundef %2, i32 noundef %61, i32 noundef 0) #16
-  tail call fastcc void @dissect_btmesh_property_idx(ptr noundef %1, ptr noundef %0, i32 noundef %2, i32 noundef %55)
-  %73 = add i32 %61, %2
-  %74 = getelementptr inbounds i8, ptr %4, i64 8
-  %75 = load ptr, ptr %74, align 8
-  %76 = load i32, ptr %75, align 4
-  %77 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %76, ptr noundef %1, i32 noundef %73, i32 noundef %61, i32 noundef 0) #16
-  tail call fastcc void @dissect_btmesh_property_idx(ptr noundef %1, ptr noundef %0, i32 noundef %73, i32 noundef %55)
-  %78 = add i32 %73, %61
-  %79 = getelementptr inbounds i8, ptr %46, i64 4
-  %80 = load i16, ptr %79, align 2
-  br label %81
+  %72 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %71, ptr noundef %1, i32 noundef %68, i32 noundef %56, i32 noundef 0) #16
+  tail call fastcc void @dissect_btmesh_property_idx(ptr noundef %1, ptr noundef %0, i32 noundef %68, i32 noundef %51)
+  %73 = add i32 %68, %56
+  %74 = getelementptr inbounds i8, ptr %42, i64 4
+  %75 = load i16, ptr %74, align 2
+  br label %76
 
-81:                                               ; preds = %84, %69
-  %indvars.iv.i97 = phi i64 [ 0, %69 ], [ %indvars.iv.next.i98, %84 ]
-  %82 = phi i16 [ -1, %69 ], [ %86, %84 ]
-  %83 = icmp eq i16 %82, %80
-  br i1 %83, label %find_characteristic_idx.exit102, label %84
+76:                                               ; preds = %79, %64
+  %indvars.iv.i97 = phi i64 [ 0, %64 ], [ %indvars.iv.next.i98, %79 ]
+  %77 = phi i16 [ -1, %64 ], [ %81, %79 ]
+  %78 = icmp eq i16 %77, %75
+  br i1 %78, label %find_characteristic_idx.exit102, label %79
 
-84:                                               ; preds = %81
+79:                                               ; preds = %76
   %indvars.iv.next.i98 = add nuw nsw i64 %indvars.iv.i97, 1
-  %85 = getelementptr [90 x %struct.bt_gatt_characteristic_t], ptr @bt_gatt_characteristics, i64 0, i64 %indvars.iv.next.i98
-  %86 = load i16, ptr %85, align 8
+  %80 = getelementptr [90 x %struct.bt_gatt_characteristic_t], ptr @bt_gatt_characteristics, i64 0, i64 %indvars.iv.next.i98
+  %81 = load i16, ptr %80, align 8
   %exitcond.i99 = icmp eq i64 %indvars.iv.next.i98, 89
-  br i1 %exitcond.i99, label %find_characteristic_idx.exit102.thread, label %81, !llvm.loop !36
+  br i1 %exitcond.i99, label %find_characteristic_idx.exit102.thread, label %76, !llvm.loop !36
 
-find_characteristic_idx.exit102:                  ; preds = %81
-  %87 = trunc nuw nsw i64 %indvars.iv.i97 to i32
-  %.not88 = icmp eq i32 %87, -1
-  br i1 %.not88, label %find_characteristic_idx.exit102.thread, label %88
+find_characteristic_idx.exit102:                  ; preds = %76
+  %82 = trunc nuw nsw i64 %indvars.iv.i97 to i32
+  %sext118 = shl i64 %indvars.iv.i97, 32
+  %83 = ashr exact i64 %sext118, 32
+  %84 = getelementptr [90 x %struct.bt_gatt_characteristic_t], ptr @bt_gatt_characteristics, i64 0, i64 %83
+  %85 = getelementptr inbounds i8, ptr %84, i64 2
+  %86 = load i16, ptr %85, align 2
+  %87 = zext i16 %86 to i32
+  %.not89 = icmp eq i16 %86, 0
+  br i1 %.not89, label %find_characteristic_idx.exit102.thread, label %88
 
 88:                                               ; preds = %find_characteristic_idx.exit102
-  %sext118 = shl i64 %indvars.iv.i97, 32
-  %89 = ashr exact i64 %sext118, 32
-  %90 = getelementptr [90 x %struct.bt_gatt_characteristic_t], ptr @bt_gatt_characteristics, i64 0, i64 %89
-  %91 = getelementptr inbounds i8, ptr %90, i64 2
-  %92 = load i16, ptr %91, align 2
-  %93 = zext i16 %92 to i32
-  %.not89 = icmp eq i16 %92, 0
-  br i1 %.not89, label %find_characteristic_idx.exit102.thread, label %94
+  %89 = getelementptr inbounds i8, ptr %84, i64 8
+  %90 = load ptr, ptr %89, align 8
+  %.not90 = icmp eq ptr %90, null
+  br i1 %.not90, label %find_characteristic_idx.exit102.thread, label %91
 
-94:                                               ; preds = %88
-  %95 = getelementptr inbounds i8, ptr %90, i64 8
-  %96 = load ptr, ptr %95, align 8
-  %.not90 = icmp eq ptr %96, null
-  br i1 %.not90, label %find_characteristic_idx.exit102.thread, label %97
+91:                                               ; preds = %88
+  %92 = getelementptr inbounds i8, ptr %84, i64 16
+  %93 = load i8, ptr %92, align 8
+  %94 = icmp eq i8 %93, 0
+  br i1 %94, label %95, label %find_characteristic_idx.exit102.thread
 
-97:                                               ; preds = %94
-  %98 = getelementptr inbounds i8, ptr %90, i64 16
-  %99 = load i8, ptr %98, align 8
-  %100 = icmp eq i8 %99, 0
-  br i1 %100, label %101, label %find_characteristic_idx.exit102.thread
+95:                                               ; preds = %91
+  %96 = getelementptr inbounds i8, ptr %4, i64 16
+  %97 = load ptr, ptr %96, align 8
+  %98 = load i32, ptr %97, align 4
+  %99 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %98, ptr noundef %1, i32 noundef %73, i32 noundef %87, i32 noundef 0) #16
+  tail call fastcc void @dissect_btmesh_property_idx(ptr noundef %1, ptr noundef %0, i32 noundef %73, i32 noundef %82)
+  %100 = add i32 %73, %87
+  br label %112
 
-101:                                              ; preds = %97
-  %102 = getelementptr inbounds i8, ptr %4, i64 16
-  %103 = load ptr, ptr %102, align 8
-  %104 = load i32, ptr %103, align 4
-  %105 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %104, ptr noundef %1, i32 noundef %78, i32 noundef %93, i32 noundef 0) #16
-  tail call fastcc void @dissect_btmesh_property_idx(ptr noundef %1, ptr noundef %0, i32 noundef %78, i32 noundef %87)
-  %106 = add i32 %78, %93
-  br label %118
+find_characteristic_idx.exit102.thread:           ; preds = %79, %91, %88, %find_characteristic_idx.exit102
+  %101 = getelementptr inbounds i8, ptr %4, i64 16
+  %102 = load ptr, ptr %101, align 8
+  %103 = load i32, ptr %102, align 4
+  %104 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %73) #16
+  %105 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %103, ptr noundef %1, i32 noundef %73, i32 noundef %104, i32 noundef 0) #16
+  %106 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %73) #16
+  %107 = add i32 %106, %73
+  br label %112
 
-find_characteristic_idx.exit102.thread:           ; preds = %84, %97, %94, %88, %find_characteristic_idx.exit102
-  %107 = getelementptr inbounds i8, ptr %4, i64 16
-  %108 = load ptr, ptr %107, align 8
+find_column_properties_idx.exit.thread:           ; preds = %38, %48, %find_characteristic_idx.exit, %find_btmesh_property_characteristic_idx.exit.thread, %60, %57
+  %.077.ph = phi i32 [ %56, %57 ], [ %56, %60 ], [ %20, %find_btmesh_property_characteristic_idx.exit.thread ], [ %21, %find_characteristic_idx.exit ], [ %21, %48 ], [ %21, %38 ]
+  %108 = load ptr, ptr %4, align 8
   %109 = load i32, ptr %108, align 4
-  %110 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %78) #16
-  %111 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %109, ptr noundef %1, i32 noundef %78, i32 noundef %110, i32 noundef 0) #16
-  %112 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %78) #16
-  %113 = add i32 %112, %78
-  br label %118
+  %110 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %109, ptr noundef %1, i32 noundef %2, i32 noundef %.077.ph, i32 noundef 0) #16
+  %111 = add i32 %.077.ph, %2
+  br label %112
 
-find_column_properties_idx.exit.thread:           ; preds = %40, %52, %56, %find_characteristic_idx.exit, %find_column_properties_idx.exit, %find_btmesh_property_characteristic_idx.exit, %find_btmesh_property_characteristic_idx.exit.thread, %65, %62
-  %.077.ph = phi i32 [ %61, %62 ], [ %61, %65 ], [ %20, %find_btmesh_property_characteristic_idx.exit.thread ], [ %21, %find_btmesh_property_characteristic_idx.exit ], [ %21, %find_column_properties_idx.exit ], [ %21, %find_characteristic_idx.exit ], [ %21, %56 ], [ %21, %52 ], [ %21, %40 ]
-  %114 = load ptr, ptr %4, align 8
-  %115 = load i32, ptr %114, align 4
-  %116 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %115, ptr noundef %1, i32 noundef %2, i32 noundef %.077.ph, i32 noundef 0) #16
-  %117 = add i32 %.077.ph, %2
-  br label %118
-
-118:                                              ; preds = %101, %find_characteristic_idx.exit102.thread, %28, %find_column_properties_idx.exit.thread
-  %.1 = phi i32 [ %117, %find_column_properties_idx.exit.thread ], [ %33, %28 ], [ %106, %101 ], [ %113, %find_characteristic_idx.exit102.thread ]
-  %119 = sub i32 %.1, %2
-  ret i32 %119
+112:                                              ; preds = %95, %find_characteristic_idx.exit102.thread, %26, %find_column_properties_idx.exit.thread
+  %.1 = phi i32 [ %111, %find_column_properties_idx.exit.thread ], [ %31, %26 ], [ %100, %95 ], [ %107, %find_characteristic_idx.exit102.thread ]
+  %113 = sub i32 %.1, %2
+  ret i32 %113
 }
 
 ; Function Attrs: nounwind uwtable
@@ -12658,166 +12617,151 @@ define internal fastcc void @dissect_btmesh_property_idx(ptr noundef %0, ptr nou
   br i1 %exitcond.i, label %proto_item_set_generated.exit, label %29, !llvm.loop !37
 
 find_column_properties_idx.exit:                  ; preds = %29
-  %35 = and i64 %indvars.iv.i, 4294967295
-  %.not = icmp eq i64 %35, 4294967295
-  br i1 %.not, label %proto_item_set_generated.exit, label %36
-
-36:                                               ; preds = %find_column_properties_idx.exit
   %sext = shl i64 %indvars.iv.i, 32
-  %37 = ashr exact i64 %sext, 32
-  %38 = getelementptr [7 x %struct.btmesh_column_property_t], ptr @btmesh_column_properties, i64 0, i64 %37
-  %39 = getelementptr inbounds i8, ptr %38, i64 2
-  %40 = load i16, ptr %39, align 2
-  br label %41
+  %35 = ashr exact i64 %sext, 32
+  %36 = getelementptr [7 x %struct.btmesh_column_property_t], ptr @btmesh_column_properties, i64 0, i64 %35
+  %37 = getelementptr inbounds i8, ptr %36, i64 2
+  %38 = load i16, ptr %37, align 2
+  br label %39
 
-41:                                               ; preds = %44, %36
-  %indvars.iv.i60 = phi i64 [ 0, %36 ], [ %indvars.iv.next.i61, %44 ]
-  %42 = phi i16 [ -1, %36 ], [ %46, %44 ]
-  %43 = icmp eq i16 %42, %40
-  br i1 %43, label %find_characteristic_idx.exit, label %44
+39:                                               ; preds = %42, %find_column_properties_idx.exit
+  %indvars.iv.i60 = phi i64 [ 0, %find_column_properties_idx.exit ], [ %indvars.iv.next.i61, %42 ]
+  %40 = phi i16 [ -1, %find_column_properties_idx.exit ], [ %44, %42 ]
+  %41 = icmp eq i16 %40, %38
+  br i1 %41, label %find_characteristic_idx.exit, label %42
 
-44:                                               ; preds = %41
+42:                                               ; preds = %39
   %indvars.iv.next.i61 = add nuw nsw i64 %indvars.iv.i60, 1
-  %45 = getelementptr [90 x %struct.bt_gatt_characteristic_t], ptr @bt_gatt_characteristics, i64 0, i64 %indvars.iv.next.i61
-  %46 = load i16, ptr %45, align 8
+  %43 = getelementptr [90 x %struct.bt_gatt_characteristic_t], ptr @bt_gatt_characteristics, i64 0, i64 %indvars.iv.next.i61
+  %44 = load i16, ptr %43, align 8
   %exitcond.i62 = icmp eq i64 %indvars.iv.next.i61, 89
-  br i1 %exitcond.i62, label %proto_item_set_generated.exit, label %41, !llvm.loop !36
+  br i1 %exitcond.i62, label %proto_item_set_generated.exit, label %39, !llvm.loop !36
 
-find_characteristic_idx.exit:                     ; preds = %41
-  %47 = and i64 %indvars.iv.i60, 4294967295
-  %48 = icmp eq i64 %47, 4294967295
-  br i1 %48, label %proto_item_set_generated.exit, label %49
-
-49:                                               ; preds = %find_characteristic_idx.exit
+find_characteristic_idx.exit:                     ; preds = %39
   %sext83 = shl i64 %indvars.iv.i60, 32
-  %50 = ashr exact i64 %sext83, 32
-  %51 = getelementptr [90 x %struct.bt_gatt_characteristic_t], ptr @bt_gatt_characteristics, i64 0, i64 %50
-  %52 = getelementptr inbounds i8, ptr %51, i64 2
-  %53 = load i16, ptr %52, align 2
-  %54 = icmp eq i16 %53, 0
-  br i1 %54, label %proto_item_set_generated.exit, label %55
+  %45 = ashr exact i64 %sext83, 32
+  %46 = getelementptr [90 x %struct.bt_gatt_characteristic_t], ptr @bt_gatt_characteristics, i64 0, i64 %45
+  %47 = getelementptr inbounds i8, ptr %46, i64 2
+  %48 = load i16, ptr %47, align 2
+  %49 = icmp eq i16 %48, 0
+  br i1 %49, label %proto_item_set_generated.exit, label %50
 
-55:                                               ; preds = %49
-  %56 = getelementptr inbounds i8, ptr %51, i64 8
-  %57 = load ptr, ptr %56, align 8
-  %58 = icmp eq ptr %57, null
-  br i1 %58, label %proto_item_set_generated.exit, label %59
+50:                                               ; preds = %find_characteristic_idx.exit
+  %51 = getelementptr inbounds i8, ptr %46, i64 8
+  %52 = load ptr, ptr %51, align 8
+  %53 = icmp eq ptr %52, null
+  br i1 %53, label %proto_item_set_generated.exit, label %54
 
-59:                                               ; preds = %55
-  %60 = getelementptr inbounds i8, ptr %51, i64 16
-  %61 = load i8, ptr %60, align 8
-  %.not58 = icmp eq i8 %61, 0
-  br i1 %.not58, label %62, label %proto_item_set_generated.exit
+54:                                               ; preds = %50
+  %55 = getelementptr inbounds i8, ptr %46, i64 16
+  %56 = load i8, ptr %55, align 8
+  %.not58 = icmp eq i8 %56, 0
+  br i1 %.not58, label %57, label %proto_item_set_generated.exit
 
-62:                                               ; preds = %59
-  %63 = getelementptr inbounds i8, ptr %38, i64 4
-  %64 = load i16, ptr %63, align 2
-  br label %65
+57:                                               ; preds = %54
+  %58 = getelementptr inbounds i8, ptr %36, i64 4
+  %59 = load i16, ptr %58, align 2
+  br label %60
 
-65:                                               ; preds = %68, %62
-  %indvars.iv.i64 = phi i64 [ 0, %62 ], [ %indvars.iv.next.i65, %68 ]
-  %66 = phi i16 [ -1, %62 ], [ %70, %68 ]
-  %67 = icmp eq i16 %66, %64
-  br i1 %67, label %find_characteristic_idx.exit69, label %68
+60:                                               ; preds = %63, %57
+  %indvars.iv.i64 = phi i64 [ 0, %57 ], [ %indvars.iv.next.i65, %63 ]
+  %61 = phi i16 [ -1, %57 ], [ %65, %63 ]
+  %62 = icmp eq i16 %61, %59
+  br i1 %62, label %find_characteristic_idx.exit69, label %63
 
-68:                                               ; preds = %65
+63:                                               ; preds = %60
   %indvars.iv.next.i65 = add nuw nsw i64 %indvars.iv.i64, 1
-  %69 = getelementptr [90 x %struct.bt_gatt_characteristic_t], ptr @bt_gatt_characteristics, i64 0, i64 %indvars.iv.next.i65
-  %70 = load i16, ptr %69, align 8
+  %64 = getelementptr [90 x %struct.bt_gatt_characteristic_t], ptr @bt_gatt_characteristics, i64 0, i64 %indvars.iv.next.i65
+  %65 = load i16, ptr %64, align 8
   %exitcond.i66 = icmp eq i64 %indvars.iv.next.i65, 89
-  br i1 %exitcond.i66, label %proto_item_set_generated.exit, label %65, !llvm.loop !36
+  br i1 %exitcond.i66, label %proto_item_set_generated.exit, label %60, !llvm.loop !36
 
-find_characteristic_idx.exit69:                   ; preds = %65
-  %71 = and i64 %indvars.iv.i64, 4294967295
-  %72 = icmp eq i64 %71, 4294967295
-  br i1 %72, label %proto_item_set_generated.exit, label %73
-
-73:                                               ; preds = %find_characteristic_idx.exit69
+find_characteristic_idx.exit69:                   ; preds = %60
   %sext84 = shl i64 %indvars.iv.i64, 32
-  %74 = ashr exact i64 %sext84, 32
-  %75 = getelementptr [90 x %struct.bt_gatt_characteristic_t], ptr @bt_gatt_characteristics, i64 0, i64 %74
-  %76 = getelementptr inbounds i8, ptr %75, i64 2
-  %77 = load i16, ptr %76, align 2
-  %78 = icmp eq i16 %77, 0
-  br i1 %78, label %proto_item_set_generated.exit, label %79
+  %66 = ashr exact i64 %sext84, 32
+  %67 = getelementptr [90 x %struct.bt_gatt_characteristic_t], ptr @bt_gatt_characteristics, i64 0, i64 %66
+  %68 = getelementptr inbounds i8, ptr %67, i64 2
+  %69 = load i16, ptr %68, align 2
+  %70 = icmp eq i16 %69, 0
+  br i1 %70, label %proto_item_set_generated.exit, label %71
 
-79:                                               ; preds = %73
-  %80 = getelementptr inbounds i8, ptr %75, i64 8
-  %81 = load ptr, ptr %80, align 8
-  %82 = icmp eq ptr %81, null
-  br i1 %82, label %proto_item_set_generated.exit, label %83
+71:                                               ; preds = %find_characteristic_idx.exit69
+  %72 = getelementptr inbounds i8, ptr %67, i64 8
+  %73 = load ptr, ptr %72, align 8
+  %74 = icmp eq ptr %73, null
+  br i1 %74, label %proto_item_set_generated.exit, label %75
 
-83:                                               ; preds = %79
-  %84 = getelementptr inbounds i8, ptr %75, i64 16
-  %85 = load i8, ptr %84, align 8
-  %.not59 = icmp eq i8 %85, 0
-  br i1 %.not59, label %86, label %proto_item_set_generated.exit
+75:                                               ; preds = %71
+  %76 = getelementptr inbounds i8, ptr %67, i64 16
+  %77 = load i8, ptr %76, align 8
+  %.not59 = icmp eq i8 %77, 0
+  br i1 %.not59, label %78, label %proto_item_set_generated.exit
 
-86:                                               ; preds = %83
-  %87 = load i32, ptr %57, align 4
-  %88 = zext i16 %53 to i32
-  %89 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %87, ptr noundef %0, i32 noundef %2, i32 noundef %88, i32 noundef -2147483648) #16
-  %.not.i70 = icmp eq ptr %89, null
-  br i1 %.not.i70, label %proto_item_set_generated.exit72, label %90
+78:                                               ; preds = %75
+  %79 = load i32, ptr %52, align 4
+  %80 = zext i16 %48 to i32
+  %81 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %79, ptr noundef %0, i32 noundef %2, i32 noundef %80, i32 noundef -2147483648) #16
+  %.not.i70 = icmp eq ptr %81, null
+  br i1 %.not.i70, label %proto_item_set_generated.exit72, label %82
 
-90:                                               ; preds = %86
-  %91 = getelementptr inbounds i8, ptr %89, i64 32
-  %92 = load ptr, ptr %91, align 8
-  %.not5.i71 = icmp eq ptr %92, null
-  br i1 %.not5.i71, label %proto_item_set_generated.exit72, label %93
+82:                                               ; preds = %78
+  %83 = getelementptr inbounds i8, ptr %81, i64 32
+  %84 = load ptr, ptr %83, align 8
+  %.not5.i71 = icmp eq ptr %84, null
+  br i1 %.not5.i71, label %proto_item_set_generated.exit72, label %85
 
-93:                                               ; preds = %90
-  %94 = getelementptr inbounds i8, ptr %92, i64 28
-  %95 = load i32, ptr %94, align 4
-  %96 = or i32 %95, 2
-  store i32 %96, ptr %94, align 4
+85:                                               ; preds = %82
+  %86 = getelementptr inbounds i8, ptr %84, i64 28
+  %87 = load i32, ptr %86, align 4
+  %88 = or i32 %87, 2
+  store i32 %88, ptr %86, align 4
   br label %proto_item_set_generated.exit72
 
-proto_item_set_generated.exit72:                  ; preds = %86, %90, %93
-  %97 = load i32, ptr %57, align 4
-  %98 = add i32 %88, %2
-  %99 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %97, ptr noundef %0, i32 noundef %98, i32 noundef %88, i32 noundef -2147483648) #16
-  %.not.i73 = icmp eq ptr %99, null
-  br i1 %.not.i73, label %proto_item_set_generated.exit75, label %100
+proto_item_set_generated.exit72:                  ; preds = %78, %82, %85
+  %89 = load i32, ptr %52, align 4
+  %90 = add i32 %80, %2
+  %91 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %89, ptr noundef %0, i32 noundef %90, i32 noundef %80, i32 noundef -2147483648) #16
+  %.not.i73 = icmp eq ptr %91, null
+  br i1 %.not.i73, label %proto_item_set_generated.exit75, label %92
 
-100:                                              ; preds = %proto_item_set_generated.exit72
-  %101 = getelementptr inbounds i8, ptr %99, i64 32
-  %102 = load ptr, ptr %101, align 8
-  %.not5.i74 = icmp eq ptr %102, null
-  br i1 %.not5.i74, label %proto_item_set_generated.exit75, label %103
+92:                                               ; preds = %proto_item_set_generated.exit72
+  %93 = getelementptr inbounds i8, ptr %91, i64 32
+  %94 = load ptr, ptr %93, align 8
+  %.not5.i74 = icmp eq ptr %94, null
+  br i1 %.not5.i74, label %proto_item_set_generated.exit75, label %95
 
-103:                                              ; preds = %100
-  %104 = getelementptr inbounds i8, ptr %102, i64 28
-  %105 = load i32, ptr %104, align 4
-  %106 = or i32 %105, 2
-  store i32 %106, ptr %104, align 4
+95:                                               ; preds = %92
+  %96 = getelementptr inbounds i8, ptr %94, i64 28
+  %97 = load i32, ptr %96, align 4
+  %98 = or i32 %97, 2
+  store i32 %98, ptr %96, align 4
   br label %proto_item_set_generated.exit75
 
-proto_item_set_generated.exit75:                  ; preds = %proto_item_set_generated.exit72, %100, %103
-  %107 = shl i16 %53, 1
-  %108 = load i32, ptr %81, align 4
-  %109 = zext i16 %107 to i32
-  %110 = add i32 %109, %2
-  %111 = zext i16 %77 to i32
-  %112 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %108, ptr noundef %0, i32 noundef %110, i32 noundef %111, i32 noundef -2147483648) #16
-  %.not.i76 = icmp eq ptr %112, null
-  br i1 %.not.i76, label %proto_item_set_generated.exit, label %113
+proto_item_set_generated.exit75:                  ; preds = %proto_item_set_generated.exit72, %92, %95
+  %99 = shl i16 %48, 1
+  %100 = load i32, ptr %73, align 4
+  %101 = zext i16 %99 to i32
+  %102 = add i32 %101, %2
+  %103 = zext i16 %69 to i32
+  %104 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %100, ptr noundef %0, i32 noundef %102, i32 noundef %103, i32 noundef -2147483648) #16
+  %.not.i76 = icmp eq ptr %104, null
+  br i1 %.not.i76, label %proto_item_set_generated.exit, label %105
 
-113:                                              ; preds = %proto_item_set_generated.exit75
-  %114 = getelementptr inbounds i8, ptr %112, i64 32
-  %115 = load ptr, ptr %114, align 8
-  %.not5.i77 = icmp eq ptr %115, null
+105:                                              ; preds = %proto_item_set_generated.exit75
+  %106 = getelementptr inbounds i8, ptr %104, i64 32
+  %107 = load ptr, ptr %106, align 8
+  %.not5.i77 = icmp eq ptr %107, null
   br i1 %.not5.i77, label %proto_item_set_generated.exit, label %proto_item_set_generated.exit.sink.split
 
-proto_item_set_generated.exit.sink.split:         ; preds = %113, %24
-  %.sink8 = phi ptr [ %26, %24 ], [ %115, %113 ]
-  %116 = getelementptr inbounds i8, ptr %.sink8, i64 28
-  %117 = load i32, ptr %116, align 4
-  %118 = or i32 %117, 2
-  store i32 %118, ptr %116, align 4
+proto_item_set_generated.exit.sink.split:         ; preds = %105, %24
+  %.sink8 = phi ptr [ %26, %24 ], [ %107, %105 ]
+  %108 = getelementptr inbounds i8, ptr %.sink8, i64 28
+  %109 = load i32, ptr %108, align 4
+  %110 = or i32 %109, 2
+  store i32 %110, ptr %108, align 4
   br label %proto_item_set_generated.exit
 
-proto_item_set_generated.exit:                    ; preds = %32, %44, %68, %proto_item_set_generated.exit.sink.split, %113, %proto_item_set_generated.exit75, %24, %21, %find_column_properties_idx.exit, %find_characteristic_idx.exit69, %73, %79, %83, %find_characteristic_idx.exit, %49, %55, %59, %17, %6, %4
+proto_item_set_generated.exit:                    ; preds = %32, %42, %63, %proto_item_set_generated.exit.sink.split, %105, %proto_item_set_generated.exit75, %24, %21, %find_characteristic_idx.exit69, %71, %75, %find_characteristic_idx.exit, %50, %54, %17, %6, %4
   ret void
 }
 

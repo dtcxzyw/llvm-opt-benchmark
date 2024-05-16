@@ -237,7 +237,7 @@ while.body:                                       ; preds = %land.rhs
 
 while.end:                                        ; preds = %land.lhs.true, %land.rhs
   %12 = trunc nuw nsw i64 %indvars.iv to i32
-  %cmp32 = icmp eq i32 %12, 0
+  %cmp32 = icmp eq i64 %indvars.iv, 0
   br i1 %cmp32, label %land.lhs.true33, label %land.lhs.true40
 
 land.lhs.true33:                                  ; preds = %while.end

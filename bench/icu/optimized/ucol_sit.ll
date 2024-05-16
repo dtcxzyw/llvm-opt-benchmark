@@ -1951,7 +1951,7 @@ while.end:                                        ; preds = %_ZL15readHexCodeUni
   %10 = trunc nuw nsw i64 %indvars.iv.next to i32
   %variableTopStringLen = getelementptr inbounds i8, ptr %spec, i64 548
   store i32 %10, ptr %variableTopStringLen, align 4
-  %cmp7 = icmp eq i32 %10, 32
+  %cmp7 = icmp eq i64 %indvars.iv.next, 32
   br i1 %cmp7, label %land.lhs.true8, label %if.end17
 
 land.lhs.true8:                                   ; preds = %while.end

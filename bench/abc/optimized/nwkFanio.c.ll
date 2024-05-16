@@ -540,118 +540,113 @@ define void @Nwk_ObjPatchFanin(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %Nwk_ObjFindFanin.exit.thread, label %9, !llvm.loop !7
 
+Nwk_ObjFindFanin.exit.thread:                     ; preds = %14, %9, %3
+  %15 = getelementptr inbounds i8, ptr %1, i64 36
+  %16 = load i32, ptr %15, align 4
+  %17 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %16)
+  %18 = getelementptr inbounds i8, ptr %0, i64 36
+  %19 = load i32, ptr %18, align 4
+  %20 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %19)
+  br label %75
+
 Nwk_ObjFindFanin.exit:                            ; preds = %12
-  %15 = and i64 %indvars.iv.i, 4294967295
-  %16 = icmp eq i64 %15, 4294967295
-  br i1 %16, label %Nwk_ObjFindFanin.exit.thread, label %23
-
-Nwk_ObjFindFanin.exit.thread:                     ; preds = %14, %9, %3, %Nwk_ObjFindFanin.exit
-  %17 = getelementptr inbounds i8, ptr %1, i64 36
-  %18 = load i32, ptr %17, align 4
-  %19 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %18)
-  %20 = getelementptr inbounds i8, ptr %0, i64 36
-  %21 = load i32, ptr %20, align 4
-  %22 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %21)
-  br label %78
-
-23:                                               ; preds = %Nwk_ObjFindFanin.exit
   %sext = shl i64 %indvars.iv.i, 32
-  %24 = ashr exact i64 %sext, 32
-  %25 = getelementptr inbounds ptr, ptr %8, i64 %24
-  store ptr %2, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 64
-  %27 = load i32, ptr %26, align 8
-  %28 = icmp sgt i32 %27, 0
-  br i1 %28, label %.lr.ph, label %._crit_edge
+  %21 = ashr exact i64 %sext, 32
+  %22 = getelementptr inbounds ptr, ptr %8, i64 %21
+  store ptr %2, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %1, i64 64
+  %24 = load i32, ptr %23, align 8
+  %25 = icmp sgt i32 %24, 0
+  br i1 %25, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %23
-  %29 = getelementptr inbounds i8, ptr %1, i64 60
-  %30 = load i32, ptr %29, align 4
-  %31 = add nsw i32 %27, %30
-  %32 = getelementptr inbounds i8, ptr %1, i64 72
-  %33 = sext i32 %30 to i64
-  %34 = sext i32 %31 to i64
-  br label %35
+.lr.ph:                                           ; preds = %Nwk_ObjFindFanin.exit
+  %26 = getelementptr inbounds i8, ptr %1, i64 60
+  %27 = load i32, ptr %26, align 4
+  %28 = add nsw i32 %24, %27
+  %29 = getelementptr inbounds i8, ptr %1, i64 72
+  %30 = sext i32 %27 to i64
+  %31 = sext i32 %28 to i64
+  br label %32
 
-35:                                               ; preds = %.lr.ph, %43
-  %indvars.iv = phi i64 [ %33, %.lr.ph ], [ %indvars.iv.next, %43 ]
-  %.02733 = phi i32 [ %30, %.lr.ph ], [ %.1, %43 ]
-  %36 = load ptr, ptr %32, align 8
-  %37 = getelementptr inbounds ptr, ptr %36, i64 %indvars.iv
-  %38 = load ptr, ptr %37, align 8
-  %.not30 = icmp eq ptr %38, %0
-  br i1 %.not30, label %43, label %39
+32:                                               ; preds = %.lr.ph, %40
+  %indvars.iv = phi i64 [ %30, %.lr.ph ], [ %indvars.iv.next, %40 ]
+  %.02733 = phi i32 [ %27, %.lr.ph ], [ %.1, %40 ]
+  %33 = load ptr, ptr %29, align 8
+  %34 = getelementptr inbounds ptr, ptr %33, i64 %indvars.iv
+  %35 = load ptr, ptr %34, align 8
+  %.not30 = icmp eq ptr %35, %0
+  br i1 %.not30, label %40, label %36
 
-39:                                               ; preds = %35
-  %40 = add nsw i32 %.02733, 1
-  %41 = sext i32 %.02733 to i64
-  %42 = getelementptr inbounds ptr, ptr %36, i64 %41
-  store ptr %38, ptr %42, align 8
-  br label %43
+36:                                               ; preds = %32
+  %37 = add nsw i32 %.02733, 1
+  %38 = sext i32 %.02733 to i64
+  %39 = getelementptr inbounds ptr, ptr %33, i64 %38
+  store ptr %35, ptr %39, align 8
+  br label %40
 
-43:                                               ; preds = %35, %39
-  %.1 = phi i32 [ %40, %39 ], [ %.02733, %35 ]
+40:                                               ; preds = %32, %36
+  %.1 = phi i32 [ %37, %36 ], [ %.02733, %32 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %44 = icmp slt i64 %indvars.iv.next, %34
-  br i1 %44, label %35, label %._crit_edge.loopexit, !llvm.loop !12
+  %41 = icmp slt i64 %indvars.iv.next, %31
+  br i1 %41, label %32, label %._crit_edge.loopexit, !llvm.loop !12
 
-._crit_edge.loopexit:                             ; preds = %43
-  %.pre = load i32, ptr %26, align 8
+._crit_edge.loopexit:                             ; preds = %40
+  %.pre = load i32, ptr %23, align 8
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %23
-  %45 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %27, %23 ]
-  %46 = add nsw i32 %45, -1
-  store i32 %46, ptr %26, align 8
-  %47 = getelementptr inbounds i8, ptr %2, i64 60
-  %48 = load i32, ptr %47, align 4
-  %49 = getelementptr inbounds i8, ptr %2, i64 64
-  %50 = load i32, ptr %49, align 8
-  %51 = add nsw i32 %50, %48
-  %52 = getelementptr inbounds i8, ptr %2, i64 68
-  %53 = load i32, ptr %52, align 4
-  %.not = icmp eq i32 %51, %53
-  br i1 %.not, label %54, label %71
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %Nwk_ObjFindFanin.exit
+  %42 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %24, %Nwk_ObjFindFanin.exit ]
+  %43 = add nsw i32 %42, -1
+  store i32 %43, ptr %23, align 8
+  %44 = getelementptr inbounds i8, ptr %2, i64 60
+  %45 = load i32, ptr %44, align 4
+  %46 = getelementptr inbounds i8, ptr %2, i64 64
+  %47 = load i32, ptr %46, align 8
+  %48 = add nsw i32 %47, %45
+  %49 = getelementptr inbounds i8, ptr %2, i64 68
+  %50 = load i32, ptr %49, align 4
+  %.not = icmp eq i32 %48, %50
+  br i1 %.not, label %51, label %68
 
-54:                                               ; preds = %._crit_edge
-  %55 = getelementptr inbounds i8, ptr %2, i64 72
+51:                                               ; preds = %._crit_edge
+  %52 = getelementptr inbounds i8, ptr %2, i64 72
+  %53 = load ptr, ptr %52, align 8
+  %54 = load ptr, ptr %2, align 8
+  %55 = getelementptr inbounds i8, ptr %54, i64 88
   %56 = load ptr, ptr %55, align 8
-  %57 = load ptr, ptr %2, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 88
-  %59 = load ptr, ptr %58, align 8
-  %60 = shl i32 %51, 4
-  %61 = tail call ptr @Aig_MmFlexEntryFetch(ptr noundef %59, i32 noundef %60) #11
-  store ptr %61, ptr %55, align 8
-  %62 = load i32, ptr %52, align 4
-  %63 = sext i32 %62 to i64
-  %64 = shl nsw i64 %63, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %61, ptr align 8 %56, i64 %64, i1 false)
-  %65 = load i32, ptr %52, align 4
-  %66 = shl nsw i32 %65, 1
-  store i32 %66, ptr %52, align 4
-  %67 = load ptr, ptr %2, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 108
-  %69 = load i32, ptr %68, align 4
-  %70 = add nsw i32 %69, 1
-  store i32 %70, ptr %68, align 4
-  %.pre37 = load i32, ptr %47, align 4
-  %.pre38 = load i32, ptr %49, align 8
+  %57 = shl i32 %48, 4
+  %58 = tail call ptr @Aig_MmFlexEntryFetch(ptr noundef %56, i32 noundef %57) #11
+  store ptr %58, ptr %52, align 8
+  %59 = load i32, ptr %49, align 4
+  %60 = sext i32 %59 to i64
+  %61 = shl nsw i64 %60, 3
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %58, ptr align 8 %53, i64 %61, i1 false)
+  %62 = load i32, ptr %49, align 4
+  %63 = shl nsw i32 %62, 1
+  store i32 %63, ptr %49, align 4
+  %64 = load ptr, ptr %2, align 8
+  %65 = getelementptr inbounds i8, ptr %64, i64 108
+  %66 = load i32, ptr %65, align 4
+  %67 = add nsw i32 %66, 1
+  store i32 %67, ptr %65, align 4
+  %.pre37 = load i32, ptr %44, align 4
+  %.pre38 = load i32, ptr %46, align 8
   %.pre39 = add nsw i32 %.pre38, %.pre37
-  br label %71
+  br label %68
 
-71:                                               ; preds = %54, %._crit_edge
-  %.pre-phi = phi i32 [ %.pre39, %54 ], [ %51, %._crit_edge ]
-  %72 = phi i32 [ %.pre38, %54 ], [ %50, %._crit_edge ]
-  %73 = getelementptr inbounds i8, ptr %2, i64 72
-  %74 = load ptr, ptr %73, align 8
-  %75 = add nsw i32 %72, 1
-  store i32 %75, ptr %49, align 8
-  %76 = sext i32 %.pre-phi to i64
-  %77 = getelementptr inbounds ptr, ptr %74, i64 %76
-  store ptr %0, ptr %77, align 8
-  br label %78
+68:                                               ; preds = %51, %._crit_edge
+  %.pre-phi = phi i32 [ %.pre39, %51 ], [ %48, %._crit_edge ]
+  %69 = phi i32 [ %.pre38, %51 ], [ %47, %._crit_edge ]
+  %70 = getelementptr inbounds i8, ptr %2, i64 72
+  %71 = load ptr, ptr %70, align 8
+  %72 = add nsw i32 %69, 1
+  store i32 %72, ptr %46, align 8
+  %73 = sext i32 %.pre-phi to i64
+  %74 = getelementptr inbounds ptr, ptr %71, i64 %73
+  store ptr %0, ptr %74, align 8
+  br label %75
 
-78:                                               ; preds = %71, %Nwk_ObjFindFanin.exit.thread
+75:                                               ; preds = %68, %Nwk_ObjFindFanin.exit.thread
   ret void
 }
 

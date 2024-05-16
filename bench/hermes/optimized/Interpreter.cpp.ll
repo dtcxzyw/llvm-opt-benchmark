@@ -712,8 +712,7 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit: ; preds = %i
   br label %return
 
 if.end40:                                         ; preds = %if.end
-  %desc.sroa.1.0.extract.trunc.i = trunc nuw i64 %desc.sroa.320.0.extract.shift to i32
-  %cmp.i.i = icmp ult i32 %desc.sroa.1.0.extract.trunc.i, 5
+  %cmp.i.i = icmp ult i64 %desc.coerce, 21474836480
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end40
@@ -1677,8 +1676,7 @@ if.end59:                                         ; preds = %land.lhs.true, %if.
 if.then64:                                        ; preds = %if.end59
   %agg.tmp66.sroa.0.0.copyload = load i64, ptr %desc, align 8
   %desc.sroa.1.0.extract.shift.i = lshr i64 %agg.tmp66.sroa.0.0.copyload, 32
-  %desc.sroa.1.0.extract.trunc.i = trunc nuw i64 %desc.sroa.1.0.extract.shift.i to i32
-  %cmp.i.i31 = icmp ult i32 %desc.sroa.1.0.extract.trunc.i, 5
+  %cmp.i.i31 = icmp ult i64 %agg.tmp66.sroa.0.0.copyload, 21474836480
   br i1 %cmp.i.i31, label %if.then.i.i33, label %if.end.i.i32
 
 if.then.i.i33:                                    ; preds = %if.then64
@@ -5143,7 +5141,7 @@ if.then1389:                                      ; preds = %if.then1377
 
 if.end1397:                                       ; preds = %if.then1389, %if.then1377
   store ptr %416, ptr %currentIP_.i.i, align 8
-  %cmp.i3192 = icmp ult i32 %desc1351.sroa.3.0.extract.trunc, 5
+  %cmp.i3192 = icmp ult i64 %415, 21474836480
   br i1 %cmp.i3192, label %if.then.i3209, label %if.end.i3193
 
 if.then.i3209:                                    ; preds = %if.end1397

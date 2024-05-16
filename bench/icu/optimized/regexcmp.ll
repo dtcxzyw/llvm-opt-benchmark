@@ -10002,19 +10002,18 @@ for.cond:                                         ; preds = %for.cond, %if.then2
 
 for.end:                                          ; preds = %for.cond
   %cmp8 = icmp ne i32 %0, %c
-  %1 = and i64 %indvars.iv, 4294967295
-  %cmp1621.not = icmp eq i64 %1, 49
+  %cmp1621.not = icmp eq i64 %indvars.iv, 49
   %or.cond25 = or i1 %cmp8, %cmp1621.not
   br i1 %or.cond25, label %if.end32, label %do.body.preheader
 
 do.body.preheader:                                ; preds = %for.end
   %arrayidx13 = getelementptr inbounds [50 x i16], ptr @_ZZN6icu_7512RegexCompile27findCaseInsensitiveStartersEiPNS_10UnicodeSetEE15RECaseFixCounts, i64 0, i64 %indvars.iv
-  %2 = load i16, ptr %arrayidx13, align 2
+  %1 = load i16, ptr %arrayidx13, align 2
   %arrayidx11 = getelementptr inbounds [50 x i16], ptr @_ZZN6icu_7512RegexCompile27findCaseInsensitiveStartersEiPNS_10UnicodeSetEE22RECaseFixStringOffsets, i64 0, i64 %indvars.iv
-  %3 = load i16, ptr %arrayidx11, align 2
-  %conv = sext i16 %3 to i32
-  %4 = tail call i16 @llvm.smax.i16(i16 %2, i16 1)
-  %smax = zext nneg i16 %4 to i32
+  %2 = load i16, ptr %arrayidx11, align 2
+  %conv = sext i16 %2 to i32
+  %3 = tail call i16 @llvm.smax.i16(i16 %1, i16 1)
+  %smax = zext nneg i16 %3 to i32
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %do.end
@@ -10023,8 +10022,8 @@ do.body:                                          ; preds = %do.body.preheader, 
   %inc18 = add nsw i32 %dataIndex.022, 1
   %idxprom19 = sext i32 %dataIndex.022 to i64
   %arrayidx20 = getelementptr inbounds [105 x i16], ptr @_ZZN6icu_7512RegexCompile27findCaseInsensitiveStartersEiPNS_10UnicodeSetEE13RECaseFixData, i64 0, i64 %idxprom19
-  %5 = load i16, ptr %arrayidx20, align 2
-  %conv21 = zext i16 %5 to i32
+  %4 = load i16, ptr %arrayidx20, align 2
+  %conv21 = zext i16 %4 to i32
   %and = and i32 %conv21, 64512
   %cmp22 = icmp eq i32 %and, 55296
   br i1 %cmp22, label %if.then23, label %do.end
@@ -10034,8 +10033,8 @@ if.then23:                                        ; preds = %do.body
   %inc24 = add nsw i32 %dataIndex.022, 2
   %idxprom25 = sext i32 %inc18 to i64
   %arrayidx26 = getelementptr inbounds [105 x i16], ptr @_ZZN6icu_7512RegexCompile27findCaseInsensitiveStartersEiPNS_10UnicodeSetEE13RECaseFixData, i64 0, i64 %idxprom25
-  %6 = load i16, ptr %arrayidx26, align 2
-  %conv27 = zext i16 %6 to i32
+  %5 = load i16, ptr %arrayidx26, align 2
+  %conv27 = zext i16 %5 to i32
   %add = add nsw i32 %shl, -56613888
   %sub = add nuw nsw i32 %add, %conv27
   br label %do.end

@@ -2173,7 +2173,7 @@ _Py_str_to_int.exit.thread:                       ; preds = %lor.lhs.false.i, %i
 _Py_str_to_int.exit:                              ; preds = %lor.lhs.false.i
   %conv13.i = trunc nsw i64 %call1.i to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %endptr.i)
-  %cmp2 = icmp slt i32 %conv13.i, 0
+  %cmp2 = icmp slt i64 %call1.i, 0
   br i1 %cmp2, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %_Py_str_to_int.exit.thread, %_Py_str_to_int.exit

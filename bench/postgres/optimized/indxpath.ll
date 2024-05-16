@@ -4224,7 +4224,7 @@ list_length.exit171.i.i.i:                        ; preds = %351
 
 .critedge.i.i.i:                                  ; preds = %397, %392, %370, %363, %360
   %.1.i.i.i = phi ptr [ %364, %363 ], [ %.0146.i.i.i, %360 ], [ null, %370 ], [ %.0150.i.i.i, %392 ], [ %.0150.i.i.i, %397 ]
-  %415 = icmp sgt i32 %352, 1
+  %415 = icmp ugt i64 %indvars.iv219.i.i.i, 1
   br i1 %415, label %416, label %433
 
 416:                                              ; preds = %.critedge.i.i.i
@@ -4273,8 +4273,8 @@ list_length.exit171.i.i.i:                        ; preds = %351
   br label %expand_indexqual_rowcompare.exit.i.i
 
 expand_indexqual_rowcompare.exit.i.i:             ; preds = %433, %416, %list_length.exit171.i.i.i
-  %.sink238.i.i.i = phi ptr [ %432, %416 ], [ %444, %433 ], [ %1, %list_length.exit171.i.i.i ]
-  %445 = call ptr @list_make1_impl(i32 noundef 1, ptr %.sink238.i.i.i) #7
+  %.sink239.i.i.i = phi ptr [ %432, %416 ], [ %444, %433 ], [ %1, %list_length.exit171.i.i.i ]
+  %445 = call ptr @list_make1_impl(i32 noundef 1, ptr %.sink239.i.i.i) #7
   %446 = getelementptr inbounds i8, ptr %251, i64 16
   store ptr %445, ptr %446, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)

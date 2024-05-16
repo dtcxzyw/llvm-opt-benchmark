@@ -1575,7 +1575,7 @@ for.cond.preheader:                               ; preds = %while.cond3
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %conv1374 = zext i16 %6 to i32
   %tobool.not = icmp eq i8 %polarity, 0
-  %cmp2169.not = icmp eq i32 %5, 0
+  %cmp2169.not = icmp eq i64 %indvars.iv103, 0
   %wide.trip.count129 = zext i32 %indvars.iv111 to i64
   br i1 %tobool.not, label %for.body.us, label %for.body
 

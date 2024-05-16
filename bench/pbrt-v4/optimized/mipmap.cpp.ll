@@ -910,7 +910,7 @@ if.end59.i:                                       ; preds = %if.then33.i, %if.th
   %p.i.sroa.0.2 = phi i32 [ %p.i.sroa.0.0, %if.else42.i ], [ %sub50.i, %if.then46.i ], [ %sub37.i, %if.then33.i ]
   %cmp61.i = icmp eq i32 %resolution.sroa.0.0.extract.trunc.i, 1
   %spec.select = select i1 %cmp61.i, i32 0, i32 %p.i.sroa.0.2
-  %cmp66.i = icmp eq i32 %resolution.sroa.9.0.extract.trunc.i, 1
+  %cmp66.i = icmp eq i64 %resolution.sroa.9.0.extract.shift.i, 1
   %spec.select172 = select i1 %cmp66.i, i32 0, i32 %p.i.sroa.13.1
   br label %if.end.i
 
@@ -1815,7 +1815,7 @@ if.end59.i519:                                    ; preds = %if.then33.i525, %if
   %p.i239.sroa.0.2 = phi i32 [ %p.i239.sroa.0.0, %if.else42.i511 ], [ %sub50.i514, %if.then46.i513 ], [ %sub37.i526, %if.then33.i525 ]
   %cmp61.i520 = icmp eq i32 %resolution.sroa.0.0.extract.trunc.i467, 1
   %spec.select = select i1 %cmp61.i520, i32 0, i32 %p.i239.sroa.0.2
-  %cmp66.i522 = icmp eq i32 %resolution.sroa.9.0.extract.trunc.i469, 1
+  %cmp66.i522 = icmp eq i64 %resolution.sroa.9.0.extract.shift.i468, 1
   %spec.select726 = select i1 %cmp66.i522, i32 0, i32 %p.i239.sroa.13.1
   br label %if.end.i245
 
@@ -1983,6 +1983,7 @@ sw.default.i313:                                  ; preds = %if.end.i245
 
 _ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit314: ; preds = %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit535, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i308, %_ZNK4pbrt4HalfcvfEv.exit.i280, %sw.bb22.i246
   %resolution.sroa.9.0.extract.trunc.i399.pre-phi = phi i32 [ %resolution.sroa.9.0.extract.trunc.i469, %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit535 ], [ %.pre817, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i308 ], [ %resolution.sroa.9.0.extract.trunc.i469, %_ZNK4pbrt4HalfcvfEv.exit.i280 ], [ %resolution.sroa.9.0.extract.trunc.i469, %sw.bb22.i246 ]
+  %resolution.sroa.9.0.extract.shift.i398.pre-phi = phi i64 [ %resolution.sroa.9.0.extract.shift.i468, %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit535 ], [ %.pre816, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i308 ], [ %resolution.sroa.9.0.extract.shift.i468, %_ZNK4pbrt4HalfcvfEv.exit.i280 ], [ %resolution.sroa.9.0.extract.shift.i468, %sw.bb22.i246 ]
   %resolution.sroa.0.0.extract.trunc.i397.pre-phi = phi i32 [ %resolution.sroa.0.0.extract.trunc.i467, %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit535 ], [ %46, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i308 ], [ %resolution.sroa.0.0.extract.trunc.i467, %_ZNK4pbrt4HalfcvfEv.exit.i280 ], [ %resolution.sroa.0.0.extract.trunc.i467, %sw.bb22.i246 ]
   %56 = phi i32 [ %32, %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit535 ], [ %.pre811, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i308 ], [ %32, %_ZNK4pbrt4HalfcvfEv.exit.i280 ], [ %32, %sw.bb22.i246 ]
   %57 = phi ptr [ %29, %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit535 ], [ %.pre, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i308 ], [ %29, %_ZNK4pbrt4HalfcvfEv.exit.i280 ], [ %29, %sw.bb22.i246 ]
@@ -2046,7 +2047,7 @@ if.end59.i449:                                    ; preds = %if.then33.i455, %if
   %p.i163.sroa.0.2 = phi i32 [ %p.i163.sroa.0.0, %if.else42.i441 ], [ %sub50.i444, %if.then46.i443 ], [ %sub37.i456, %if.then33.i455 ]
   %cmp61.i450 = icmp eq i32 %resolution.sroa.0.0.extract.trunc.i397.pre-phi, 1
   %spec.select723 = select i1 %cmp61.i450, i32 0, i32 %p.i163.sroa.0.2
-  %cmp66.i452 = icmp eq i32 %resolution.sroa.9.0.extract.trunc.i399.pre-phi, 1
+  %cmp66.i452 = icmp eq i64 %resolution.sroa.9.0.extract.shift.i398.pre-phi, 1
   %spec.select727 = select i1 %cmp66.i452, i32 0, i32 %p.i163.sroa.13.1
   br label %if.end.i169
 
@@ -2226,6 +2227,7 @@ sw.default.i237:                                  ; preds = %if.end.i169
 
 _ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit238: ; preds = %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit465, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i232, %_ZNK4pbrt4HalfcvfEv.exit.i204, %sw.bb22.i170
   %resolution.sroa.9.0.extract.trunc.i329.pre-phi = phi i32 [ %resolution.sroa.9.0.extract.trunc.i399.pre-phi, %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit465 ], [ %.pre819, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i232 ], [ %resolution.sroa.9.0.extract.trunc.i399.pre-phi, %_ZNK4pbrt4HalfcvfEv.exit.i204 ], [ %resolution.sroa.9.0.extract.trunc.i399.pre-phi, %sw.bb22.i170 ]
+  %resolution.sroa.9.0.extract.shift.i328.pre-phi = phi i64 [ %resolution.sroa.9.0.extract.shift.i398.pre-phi, %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit465 ], [ %.pre818, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i232 ], [ %resolution.sroa.9.0.extract.shift.i398.pre-phi, %_ZNK4pbrt4HalfcvfEv.exit.i204 ], [ %resolution.sroa.9.0.extract.shift.i398.pre-phi, %sw.bb22.i170 ]
   %resolution.sroa.0.0.extract.trunc.i327.pre-phi = phi i32 [ %resolution.sroa.0.0.extract.trunc.i397.pre-phi, %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit465 ], [ %72, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i232 ], [ %resolution.sroa.0.0.extract.trunc.i397.pre-phi, %_ZNK4pbrt4HalfcvfEv.exit.i204 ], [ %resolution.sroa.0.0.extract.trunc.i397.pre-phi, %sw.bb22.i170 ]
   %84 = phi i32 [ %56, %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit465 ], [ %.pre814, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i232 ], [ %56, %_ZNK4pbrt4HalfcvfEv.exit.i204 ], [ %56, %sw.bb22.i170 ]
   %85 = phi ptr [ %57, %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit465 ], [ %.pre813, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i232 ], [ %57, %_ZNK4pbrt4HalfcvfEv.exit.i204 ], [ %57, %sw.bb22.i170 ]
@@ -2289,7 +2291,7 @@ if.end59.i379:                                    ; preds = %if.then33.i385, %if
   %p.i88.sroa.0.2 = phi i32 [ %p.i88.sroa.0.0, %if.else42.i371 ], [ %sub50.i374, %if.then46.i373 ], [ %sub37.i386, %if.then33.i385 ]
   %cmp61.i380 = icmp eq i32 %resolution.sroa.0.0.extract.trunc.i327.pre-phi, 1
   %spec.select724 = select i1 %cmp61.i380, i32 0, i32 %p.i88.sroa.0.2
-  %cmp66.i382 = icmp eq i32 %resolution.sroa.9.0.extract.trunc.i329.pre-phi, 1
+  %cmp66.i382 = icmp eq i64 %resolution.sroa.9.0.extract.shift.i328.pre-phi, 1
   %spec.select728 = select i1 %cmp66.i382, i32 0, i32 %p.i88.sroa.13.1
   br label %if.end.i94
 
@@ -2541,7 +2543,7 @@ if.end59.i:                                       ; preds = %if.then33.i, %if.th
   %p.i.sroa.0.2 = phi i32 [ %p.i.sroa.0.0, %if.else42.i ], [ %sub50.i, %if.then46.i ], [ %sub37.i, %if.then33.i ]
   %cmp61.i = icmp eq i32 %resolution.sroa.0.0.extract.trunc.i, 1
   %spec.select725 = select i1 %cmp61.i, i32 0, i32 %p.i.sroa.0.2
-  %cmp66.i = icmp eq i32 %resolution.sroa.9.0.extract.trunc.i, 1
+  %cmp66.i = icmp eq i64 %resolution.sroa.9.0.extract.shift.i, 1
   %spec.select729 = select i1 %cmp66.i, i32 0, i32 %p.i.sroa.13.1
   br label %if.end.i
 
@@ -5218,7 +5220,7 @@ if.then62:                                        ; preds = %if.end59
   br label %if.end64
 
 if.end64:                                         ; preds = %if.then62, %if.end59
-  %cmp66 = icmp eq i32 %resolution.sroa.9.0.extract.trunc, 1
+  %cmp66 = icmp eq i64 %resolution.sroa.9.0.extract.shift, 1
   br i1 %cmp66, label %if.then67, label %return
 
 if.then67:                                        ; preds = %if.end64

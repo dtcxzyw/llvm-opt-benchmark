@@ -93,7 +93,7 @@ define noundef i32 @mca_coll_han_get_all_coll_modules(ptr noundef %0, ptr nounde
   %5 = getelementptr inbounds i8, ptr %1, i64 872
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
-  br i1 %7, label %65, label %8
+  br i1 %7, label %62, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %0, i64 328
@@ -101,10 +101,10 @@ define noundef i32 @mca_coll_han_get_all_coll_modules(ptr noundef %0, ptr nounde
   %11 = getelementptr inbounds i8, ptr %10, i64 1104
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 32
-  %.03650 = load volatile ptr, ptr %13, align 8
+  %.03648 = load volatile ptr, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %12, i64 16
-  %.not51 = icmp eq ptr %.03650, %14
-  br i1 %.not51, label %._crit_edge, label %.lr.ph
+  %.not49 = icmp eq ptr %.03648, %14
+  br i1 %.not49, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8
   %15 = getelementptr inbounds i8, ptr %1, i64 816
@@ -112,12 +112,12 @@ define noundef i32 @mca_coll_han_get_all_coll_modules(ptr noundef %0, ptr nounde
   br label %17
 
 17:                                               ; preds = %.lr.ph, %mca_coll_han_component_name_to_id.exit.thread
-  %18 = phi ptr [ %10, %.lr.ph ], [ %45, %mca_coll_han_component_name_to_id.exit.thread ]
-  %.03653 = phi ptr [ %.03650, %.lr.ph ], [ %.036, %mca_coll_han_component_name_to_id.exit.thread ]
-  %.03552 = phi i32 [ 0, %.lr.ph ], [ %.1, %mca_coll_han_component_name_to_id.exit.thread ]
-  %19 = getelementptr inbounds i8, ptr %.03653, i64 48
+  %18 = phi ptr [ %10, %.lr.ph ], [ %42, %mca_coll_han_component_name_to_id.exit.thread ]
+  %.03651 = phi ptr [ %.03648, %.lr.ph ], [ %.036, %mca_coll_han_component_name_to_id.exit.thread ]
+  %.03550 = phi i32 [ 0, %.lr.ph ], [ %.1, %mca_coll_han_component_name_to_id.exit.thread ]
+  %19 = getelementptr inbounds i8, ptr %.03651, i64 48
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %.03653, i64 56
+  %21 = getelementptr inbounds i8, ptr %.03651, i64 56
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %mca_coll_han_component_name_to_id.exit.thread, label %.preheader.i
@@ -137,81 +137,79 @@ define noundef i32 @mca_coll_han_get_all_coll_modules(ptr noundef %0, ptr nounde
 
 mca_coll_han_component_name_to_id.exit:           ; preds = %.preheader.i
   %29 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %30 = icmp slt i32 %29, 0
-  %31 = icmp eq ptr %20, null
+  %.not46 = icmp eq ptr %20, null
   %.not39 = icmp eq ptr %20, %1
-  %32 = or i1 %31, %.not39
-  %or.cond40 = select i1 %30, i1 true, i1 %32
-  br i1 %or.cond40, label %mca_coll_han_component_name_to_id.exit.thread, label %33
+  %or.cond40 = or i1 %.not46, %.not39
+  br i1 %or.cond40, label %mca_coll_han_component_name_to_id.exit.thread, label %30
 
-33:                                               ; preds = %mca_coll_han_component_name_to_id.exit
-  %34 = and i64 %indvars.iv.i, 2147483647
-  %35 = getelementptr inbounds [7 x %struct.collective_module_storage_s], ptr %15, i64 0, i64 %34
-  store ptr %20, ptr %35, align 8
+30:                                               ; preds = %mca_coll_han_component_name_to_id.exit
+  %31 = and i64 %indvars.iv.i, 4294967295
+  %32 = getelementptr inbounds [7 x %struct.collective_module_storage_s], ptr %15, i64 0, i64 %31
+  store ptr %20, ptr %32, align 8
+  %33 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
+  %34 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 80, i32 noundef %33) #8
+  br i1 %34, label %35, label %40
+
+35:                                               ; preds = %30
   %36 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
-  %37 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 80, i32 noundef %36) #8
-  br i1 %37, label %38, label %43
+  %37 = tail call ptr @mca_coll_han_topo_lvl_to_str(i32 noundef %4) #8
+  %38 = tail call ptr @ompi_comm_print_cid(ptr noundef %0) #8
+  %39 = load ptr, ptr %16, align 8
+  tail call void (i32, ptr, ...) @opal_output(i32 noundef %36, ptr noundef nonnull @.str, ptr noundef nonnull %22, i32 noundef %29, i32 noundef %4, ptr noundef %37, ptr noundef %38, ptr noundef %39) #8
+  br label %40
 
-38:                                               ; preds = %33
-  %39 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
-  %40 = tail call ptr @mca_coll_han_topo_lvl_to_str(i32 noundef %4) #8
-  %41 = tail call ptr @ompi_comm_print_cid(ptr noundef %0) #8
-  %42 = load ptr, ptr %16, align 8
-  tail call void (i32, ptr, ...) @opal_output(i32 noundef %39, ptr noundef nonnull @.str, ptr noundef nonnull %22, i32 noundef %29, i32 noundef %4, ptr noundef %40, ptr noundef %41, ptr noundef %42) #8
-  br label %43
-
-43:                                               ; preds = %33, %38
-  %44 = add nsw i32 %.03552, 1
+40:                                               ; preds = %30, %35
+  %41 = add nsw i32 %.03550, 1
   %.pre = load ptr, ptr %9, align 8
   br label %mca_coll_han_component_name_to_id.exit.thread
 
-mca_coll_han_component_name_to_id.exit.thread:    ; preds = %28, %17, %mca_coll_han_component_name_to_id.exit, %43
-  %45 = phi ptr [ %.pre, %43 ], [ %18, %mca_coll_han_component_name_to_id.exit ], [ %18, %17 ], [ %18, %28 ]
-  %.1 = phi i32 [ %44, %43 ], [ %.03552, %mca_coll_han_component_name_to_id.exit ], [ %.03552, %17 ], [ %.03552, %28 ]
-  %46 = getelementptr inbounds i8, ptr %.03653, i64 16
-  %.036 = load volatile ptr, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %45, i64 1104
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 16
-  %.not = icmp eq ptr %.036, %49
+mca_coll_han_component_name_to_id.exit.thread:    ; preds = %28, %17, %mca_coll_han_component_name_to_id.exit, %40
+  %42 = phi ptr [ %.pre, %40 ], [ %18, %mca_coll_han_component_name_to_id.exit ], [ %18, %17 ], [ %18, %28 ]
+  %.1 = phi i32 [ %41, %40 ], [ %.03550, %mca_coll_han_component_name_to_id.exit ], [ %.03550, %17 ], [ %.03550, %28 ]
+  %43 = getelementptr inbounds i8, ptr %.03651, i64 16
+  %.036 = load volatile ptr, ptr %43, align 8
+  %44 = getelementptr inbounds i8, ptr %42, i64 1104
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds i8, ptr %45, i64 16
+  %.not = icmp eq ptr %.036, %46
   br i1 %.not, label %._crit_edge.loopexit, label %17, !llvm.loop !6
 
 ._crit_edge.loopexit:                             ; preds = %mca_coll_han_component_name_to_id.exit.thread
-  %.pre55 = load i32, ptr %3, align 8
+  %.pre53 = load i32, ptr %3, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %8
-  %50 = phi i32 [ %4, %8 ], [ %.pre55, %._crit_edge.loopexit ]
+  %47 = phi i32 [ %4, %8 ], [ %.pre53, %._crit_edge.loopexit ]
   %.035.lcssa = phi i32 [ 0, %8 ], [ %.1, %._crit_edge.loopexit ]
-  %51 = icmp eq i32 %50, 2
-  br i1 %51, label %52, label %55
+  %48 = icmp eq i32 %47, 2
+  br i1 %48, label %49, label %52
 
-52:                                               ; preds = %._crit_edge
-  %53 = getelementptr inbounds i8, ptr %1, i64 864
-  store ptr %1, ptr %53, align 8
-  %54 = add nsw i32 %.035.lcssa, 1
-  br label %55
+49:                                               ; preds = %._crit_edge
+  %50 = getelementptr inbounds i8, ptr %1, i64 864
+  store ptr %1, ptr %50, align 8
+  %51 = add nsw i32 %.035.lcssa, 1
+  br label %52
 
-55:                                               ; preds = %._crit_edge, %52
-  %.2 = phi i32 [ %54, %52 ], [ %.035.lcssa, %._crit_edge ]
+52:                                               ; preds = %._crit_edge, %49
+  %.2 = phi i32 [ %51, %49 ], [ %.035.lcssa, %._crit_edge ]
+  %53 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
+  %54 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 60, i32 noundef %53) #8
+  br i1 %54, label %55, label %61
+
+55:                                               ; preds = %52
   %56 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
-  %57 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 60, i32 noundef %56) #8
-  br i1 %57, label %58, label %64
+  %57 = tail call ptr @mca_coll_han_topo_lvl_to_str(i32 noundef %4) #8
+  %58 = tail call ptr @ompi_comm_print_cid(ptr noundef nonnull %0) #8
+  %59 = getelementptr inbounds i8, ptr %0, i64 160
+  %60 = load ptr, ptr %59, align 8
+  tail call void (i32, ptr, ...) @opal_output(i32 noundef %56, ptr noundef nonnull @.str.1, i32 noundef %4, ptr noundef %57, i32 noundef %.2, ptr noundef %58, ptr noundef %60) #8
+  br label %61
 
-58:                                               ; preds = %55
-  %59 = load i32, ptr getelementptr inbounds (%struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 2), align 4
-  %60 = tail call ptr @mca_coll_han_topo_lvl_to_str(i32 noundef %4) #8
-  %61 = tail call ptr @ompi_comm_print_cid(ptr noundef nonnull %0) #8
-  %62 = getelementptr inbounds i8, ptr %0, i64 160
-  %63 = load ptr, ptr %62, align 8
-  tail call void (i32, ptr, ...) @opal_output(i32 noundef %59, ptr noundef nonnull @.str.1, i32 noundef %4, ptr noundef %60, i32 noundef %.2, ptr noundef %61, ptr noundef %63) #8
-  br label %64
-
-64:                                               ; preds = %55, %58
+61:                                               ; preds = %52, %55
   store i8 1, ptr %5, align 8
-  br label %65
+  br label %62
 
-65:                                               ; preds = %2, %64
+62:                                               ; preds = %2, %61
   ret i32 0
 }
 

@@ -155,82 +155,83 @@ if.end.i:                                         ; preds = %if.end9
 while.cond.preheader.i:                           ; preds = %if.end.i
   %zread_file.i = getelementptr inbounds i8, ptr %us, i64 8
   %opaque.i = getelementptr inbounds i8, ptr %us, i64 56
-  %cmp2757.not.i = icmp ult i64 %call1.i.fr, 4
-  br i1 %cmp2757.not.i, label %while.end.thread.i, label %while.cond.i
+  %cmp2757.i = icmp ugt i64 %call1.i.fr, 3
+  br i1 %cmp2757.i, label %while.cond.i.us, label %while.end.thread.i
 
-while.cond.i:                                     ; preds = %while.cond.preheader.i, %for.end.i
-  %uBackRead.0.i = phi i64 [ %spec.select.add.i, %for.end.i ], [ 4, %while.cond.preheader.i ]
-  %cmp9.i = icmp ult i64 %uBackRead.0.i, %spec.select.i
-  br i1 %cmp9.i, label %while.body.i, label %while.end.thread.i
+while.cond.i.us:                                  ; preds = %while.cond.preheader.i, %for.end.i.us
+  %uBackRead.0.i.us = phi i64 [ %spec.select.add.i.us, %for.end.i.us ], [ 4, %while.cond.preheader.i ]
+  %cmp9.i.us = icmp ult i64 %uBackRead.0.i.us, %spec.select.i
+  br i1 %cmp9.i.us, label %while.body.i.us, label %while.end.thread.i
 
-while.body.i:                                     ; preds = %while.cond.i
-  %add.i = add nuw nsw i64 %uBackRead.0.i, 1024
-  %spec.select.add.i = call i64 @llvm.umin.i64(i64 %add.i, i64 %spec.select.i)
-  %sub.i = sub i64 %call1.i.fr, %spec.select.add.i
-  %cond.i = call i64 @llvm.umin.i64(i64 %spec.select.add.i, i64 1028)
-  %call17.i = call i64 @call_zseek64(ptr noundef nonnull %us, ptr noundef nonnull %call, i64 noundef %sub.i, i32 noundef 0) #14
-  %cmp18.not.i = icmp eq i64 %call17.i, 0
-  br i1 %cmp18.not.i, label %if.end20.i, label %while.end.thread.i
+while.body.i.us:                                  ; preds = %while.cond.i.us
+  %add.i.us = add nuw nsw i64 %uBackRead.0.i.us, 1024
+  %spec.select.add.i.us = call i64 @llvm.umin.i64(i64 %add.i.us, i64 %spec.select.i)
+  %sub.i.us = sub i64 %call1.i.fr, %spec.select.add.i.us
+  %cond.i.us = call i64 @llvm.umin.i64(i64 %spec.select.add.i.us, i64 1028)
+  %call17.i.us = call i64 @call_zseek64(ptr noundef nonnull %us, ptr noundef nonnull %call, i64 noundef %sub.i.us, i32 noundef 0) #14
+  %cmp18.not.i.us = icmp eq i64 %call17.i.us, 0
+  br i1 %cmp18.not.i.us, label %if.end20.i.us, label %while.end.thread.i
 
-if.end20.i:                                       ; preds = %while.body.i
+if.end20.i.us:                                    ; preds = %while.body.i.us
   %0 = load ptr, ptr %zread_file.i, align 8
   %1 = load ptr, ptr %opaque.i, align 8
-  %call22.i = call i64 %0(ptr noundef %1, ptr noundef nonnull %call, ptr noundef nonnull %call5.i, i64 noundef %cond.i) #14
-  %cmp23.not.i = icmp eq i64 %call22.i, %cond.i
-  br i1 %cmp23.not.i, label %if.end25.i, label %while.end.thread.i
+  %call22.i.us = call i64 %0(ptr noundef %1, ptr noundef nonnull %call, ptr noundef nonnull %call5.i, i64 noundef %cond.i.us) #14
+  %cmp23.not.i.us = icmp eq i64 %call22.i.us, %cond.i.us
+  br i1 %cmp23.not.i.us, label %if.end25.i.us, label %while.end.thread.i
 
-if.end25.i:                                       ; preds = %if.end20.i
-  %dec56.i = add nuw nsw i64 %cond.i, 4294967292
-  %2 = and i64 %dec56.i, 4294967295
-  br label %for.body.i
+if.end25.i.us:                                    ; preds = %if.end20.i.us
+  %dec56.i.us = add nuw nsw i64 %cond.i.us, 4294967292
+  %2 = and i64 %dec56.i.us, 4294967295
+  br label %for.body.i.us
 
-for.body.i:                                       ; preds = %if.end55.i, %if.end25.i
-  %indvars.iv.i = phi i64 [ %2, %if.end25.i ], [ %indvars.iv.next.i, %if.end55.i ]
-  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i, i64 %indvars.iv.i
-  %3 = load i8, ptr %add.ptr.i, align 1
-  %cmp30.i = icmp eq i8 %3, 80
-  br i1 %cmp30.i, label %land.lhs.true.i, label %if.end55.i
+for.body.i.us:                                    ; preds = %if.end55.i.us, %if.end25.i.us
+  %indvars.iv.i.us = phi i64 [ %2, %if.end25.i.us ], [ %indvars.iv.next.i.us, %if.end55.i.us ]
+  %add.ptr.i.us = getelementptr inbounds i8, ptr %call5.i, i64 %indvars.iv.i.us
+  %3 = load i8, ptr %add.ptr.i.us, align 1
+  %cmp30.i.us = icmp eq i8 %3, 80
+  br i1 %cmp30.i.us, label %land.lhs.true.i.us, label %if.end55.i.us
 
-land.lhs.true.i:                                  ; preds = %for.body.i
-  %add.ptr34.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 1
-  %4 = load i8, ptr %add.ptr34.i, align 1
-  %cmp36.i = icmp eq i8 %4, 75
-  br i1 %cmp36.i, label %land.lhs.true38.i, label %if.end55.i
+land.lhs.true.i.us:                               ; preds = %for.body.i.us
+  %add.ptr34.i.us = getelementptr inbounds i8, ptr %add.ptr.i.us, i64 1
+  %4 = load i8, ptr %add.ptr34.i.us, align 1
+  %cmp36.i.us = icmp eq i8 %4, 75
+  br i1 %cmp36.i.us, label %land.lhs.true38.i.us, label %if.end55.i.us
 
-land.lhs.true38.i:                                ; preds = %land.lhs.true.i
-  %add.ptr41.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 2
-  %5 = load i8, ptr %add.ptr41.i, align 1
-  %cmp43.i = icmp eq i8 %5, 6
-  br i1 %cmp43.i, label %land.lhs.true45.i, label %if.end55.i
+land.lhs.true38.i.us:                             ; preds = %land.lhs.true.i.us
+  %add.ptr41.i.us = getelementptr inbounds i8, ptr %add.ptr.i.us, i64 2
+  %5 = load i8, ptr %add.ptr41.i.us, align 1
+  %cmp43.i.us = icmp eq i8 %5, 6
+  br i1 %cmp43.i.us, label %land.lhs.true45.i.us, label %if.end55.i.us
 
-land.lhs.true45.i:                                ; preds = %land.lhs.true38.i
-  %add.ptr48.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 3
-  %6 = load i8, ptr %add.ptr48.i, align 1
-  %cmp50.i = icmp eq i8 %6, 7
-  br i1 %cmp50.i, label %if.then52.i, label %if.end55.i
+land.lhs.true45.i.us:                             ; preds = %land.lhs.true38.i.us
+  %add.ptr48.i.us = getelementptr inbounds i8, ptr %add.ptr.i.us, i64 3
+  %6 = load i8, ptr %add.ptr48.i.us, align 1
+  %cmp50.i.us = icmp eq i8 %6, 7
+  br i1 %cmp50.i.us, label %if.then52.i.us, label %if.end55.i.us
 
-if.then52.i:                                      ; preds = %land.lhs.true45.i
-  %conv53.i = and i64 %indvars.iv.i, 4294967295
-  %add54.i = add i64 %conv53.i, %sub.i
-  br label %for.end.i
+if.end55.i.us:                                    ; preds = %land.lhs.true45.i.us, %land.lhs.true38.i.us, %land.lhs.true.i.us, %for.body.i.us
+  %indvars.iv.next.i.us = add nsw i64 %indvars.iv.i.us, -1
+  %7 = trunc nuw i64 %indvars.iv.i.us to i32
+  %cmp27.i.us = icmp sgt i32 %7, 0
+  br i1 %cmp27.i.us, label %for.body.i.us, label %for.end.i.us
 
-if.end55.i:                                       ; preds = %land.lhs.true45.i, %land.lhs.true38.i, %land.lhs.true.i, %for.body.i
-  %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %cmp27.i = icmp sgt i64 %indvars.iv.i, 0
-  br i1 %cmp27.i, label %for.body.i, label %for.end.i
+if.then52.i.us:                                   ; preds = %land.lhs.true45.i.us
+  %conv53.i.us = and i64 %indvars.iv.i.us, 4294967295
+  %add54.i.us = add i64 %conv53.i.us, %sub.i.us
+  br label %for.end.i.us
 
-for.end.i:                                        ; preds = %if.end55.i, %if.then52.i
-  %uPosFound.1.i = phi i64 [ %add54.i, %if.then52.i ], [ 0, %if.end55.i ]
-  %cmp56.not.i = icmp eq i64 %uPosFound.1.i, 0
-  br i1 %cmp56.not.i, label %while.cond.i, label %if.end63.i
+for.end.i.us:                                     ; preds = %if.end55.i.us, %if.then52.i.us
+  %uPosFound.1.i.us = phi i64 [ %add54.i.us, %if.then52.i.us ], [ 0, %if.end55.i.us ]
+  %cmp56.not.i.us = icmp eq i64 %uPosFound.1.i.us, 0
+  br i1 %cmp56.not.i.us, label %while.cond.i.us, label %if.end63.i
 
-while.end.thread.i:                               ; preds = %while.cond.i, %while.body.i, %if.end20.i, %while.cond.preheader.i
+while.end.thread.i:                               ; preds = %while.cond.i.us, %while.body.i.us, %if.end20.i.us, %while.cond.preheader.i
   call void @free(ptr noundef nonnull %call5.i) #14
   br label %unz64local_SearchCentralDir64.exit.thread
 
-if.end63.i:                                       ; preds = %for.end.i
+if.end63.i:                                       ; preds = %for.end.i.us
   call void @free(ptr noundef nonnull %call5.i) #14
-  %call64.i = call i64 @call_zseek64(ptr noundef nonnull %us, ptr noundef nonnull %call, i64 noundef %uPosFound.1.i, i32 noundef 0) #14
+  %call64.i = call i64 @call_zseek64(ptr noundef nonnull %us, ptr noundef nonnull %call, i64 noundef %uPosFound.1.i.us, i32 noundef 0) #14
   %cmp65.not.i = icmp eq i64 %call64.i, 0
   br i1 %cmp65.not.i, label %if.end68.i, label %unz64local_SearchCentralDir64.exit.thread
 
@@ -242,8 +243,8 @@ if.end68.i:                                       ; preds = %if.end63.i
 if.end73.i:                                       ; preds = %if.end68.i
   %call74.i = call fastcc i32 @unz64local_getLong(ptr noundef nonnull %us, ptr noundef nonnull %call, ptr noundef nonnull %uL.i)
   %cmp75.not.i = icmp eq i32 %call74.i, 0
-  %7 = load i64, ptr %uL.i, align 8
-  %cmp79.not.i = icmp eq i64 %7, 0
+  %8 = load i64, ptr %uL.i, align 8
+  %cmp79.not.i = icmp eq i64 %8, 0
   %or.cond.i = select i1 %cmp75.not.i, i1 %cmp79.not.i, i1 false
   br i1 %or.cond.i, label %if.end82.i, label %unz64local_SearchCentralDir64.exit.thread
 
@@ -255,22 +256,22 @@ if.end82.i:                                       ; preds = %if.end73.i
 if.end87.i:                                       ; preds = %if.end82.i
   %call88.i = call fastcc i32 @unz64local_getLong(ptr noundef nonnull %us, ptr noundef nonnull %call, ptr noundef nonnull %uL.i)
   %cmp89.not.i = icmp eq i32 %call88.i, 0
-  %8 = load i64, ptr %uL.i, align 8
-  %cmp93.not.i = icmp eq i64 %8, 1
+  %9 = load i64, ptr %uL.i, align 8
+  %cmp93.not.i = icmp eq i64 %9, 1
   %or.cond50.i = select i1 %cmp89.not.i, i1 %cmp93.not.i, i1 false
   br i1 %or.cond50.i, label %if.end96.i, label %unz64local_SearchCentralDir64.exit.thread
 
 if.end96.i:                                       ; preds = %if.end87.i
-  %9 = load i64, ptr %relativeOffset.i, align 8
-  %call97.i = call i64 @call_zseek64(ptr noundef nonnull %us, ptr noundef nonnull %call, i64 noundef %9, i32 noundef 0) #14
+  %10 = load i64, ptr %relativeOffset.i, align 8
+  %call97.i = call i64 @call_zseek64(ptr noundef nonnull %us, ptr noundef nonnull %call, i64 noundef %10, i32 noundef 0) #14
   %cmp98.not.i = icmp eq i64 %call97.i, 0
   br i1 %cmp98.not.i, label %if.end101.i, label %unz64local_SearchCentralDir64.exit.thread
 
 if.end101.i:                                      ; preds = %if.end96.i
   %call102.i = call fastcc i32 @unz64local_getLong(ptr noundef nonnull %us, ptr noundef nonnull %call, ptr noundef nonnull %uL.i)
   %cmp103.not.i = icmp eq i32 %call102.i, 0
-  %10 = load i64, ptr %uL.i, align 8
-  %cmp107.not.i = icmp eq i64 %10, 101075792
+  %11 = load i64, ptr %uL.i, align 8
+  %cmp107.not.i = icmp eq i64 %11, 101075792
   %or.cond51.i = select i1 %cmp103.not.i, i1 %cmp107.not.i, i1 false
   br i1 %or.cond51.i, label %unz64local_SearchCentralDir64.exit, label %unz64local_SearchCentralDir64.exit.thread
 
@@ -282,30 +283,30 @@ unz64local_SearchCentralDir64.exit.thread:        ; preds = %if.end9, %if.end.i,
 unz64local_SearchCentralDir64.exit:               ; preds = %if.end101.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %uL.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %relativeOffset.i)
-  %tobool.not = icmp eq i64 %9, 0
+  %tobool.not = icmp eq i64 %10, 0
   br i1 %tobool.not, label %if.else89, label %if.then13
 
 if.then13:                                        ; preds = %unz64local_SearchCentralDir64.exit
   %isZip64 = getelementptr inbounds i8, ptr %us, i64 332
   store i32 1, ptr %isZip64, align 4
-  %11 = load ptr, ptr %filestream, align 8
-  %call16 = call i64 @call_zseek64(ptr noundef nonnull %us, ptr noundef %11, i64 noundef %9, i32 noundef 0) #14
-  %cmp17.not = icmp ne i64 %call16, 0
   %12 = load ptr, ptr %filestream, align 8
-  %call22 = call fastcc i32 @unz64local_getLong(ptr noundef nonnull %us, ptr noundef %12, ptr noundef nonnull %uL)
+  %call16 = call i64 @call_zseek64(ptr noundef nonnull %us, ptr noundef %12, i64 noundef %10, i32 noundef 0) #14
+  %cmp17.not = icmp ne i64 %call16, 0
   %13 = load ptr, ptr %filestream, align 8
-  %call28 = call fastcc i32 @unz64local_getLong64(ptr noundef nonnull %us, ptr noundef %13, ptr noundef nonnull %uL64)
-  %14 = or i32 %call28, %call22
-  %15 = icmp ne i32 %14, 0
-  %narrow315 = select i1 %15, i1 true, i1 %cmp17.not
+  %call22 = call fastcc i32 @unz64local_getLong(ptr noundef nonnull %us, ptr noundef %13, ptr noundef nonnull %uL)
+  %14 = load ptr, ptr %filestream, align 8
+  %call28 = call fastcc i32 @unz64local_getLong64(ptr noundef nonnull %us, ptr noundef %14, ptr noundef nonnull %uL64)
+  %15 = or i32 %call28, %call22
+  %16 = icmp ne i32 %15, 0
+  %narrow315 = select i1 %16, i1 true, i1 %cmp17.not
   %err.2 = sext i1 %narrow315 to i32
-  %16 = load ptr, ptr %filestream, align 8
+  %17 = load ptr, ptr %filestream, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %c.i.i)
-  %17 = load ptr, ptr %zread_file.i, align 8
-  %18 = load ptr, ptr %opaque.i, align 8
-  %call.i.i = call i64 %17(ptr noundef %18, ptr noundef %16, ptr noundef nonnull %c.i.i, i64 noundef 1) #14
-  %19 = and i64 %call.i.i, 4294967295
-  %cmp.i.i = icmp eq i64 %19, 1
+  %18 = load ptr, ptr %zread_file.i, align 8
+  %19 = load ptr, ptr %opaque.i, align 8
+  %call.i.i = call i64 %18(ptr noundef %19, ptr noundef %17, ptr noundef nonnull %c.i.i, i64 noundef 1) #14
+  %20 = and i64 %call.i.i, 4294967295
+  %cmp.i.i = icmp eq i64 %20, 1
   br i1 %cmp.i.i, label %unz64local_getByte.exit.thread.i, label %unz64local_getByte.exit.i
 
 unz64local_getByte.exit.thread.i:                 ; preds = %if.then13
@@ -314,48 +315,48 @@ unz64local_getByte.exit.thread.i:                 ; preds = %if.then13
 
 unz64local_getByte.exit.i:                        ; preds = %if.then13
   %zerror_file.i.i = getelementptr inbounds i8, ptr %us, i64 48
-  %20 = load ptr, ptr %zerror_file.i.i, align 8
-  %21 = load ptr, ptr %opaque.i, align 8
-  %call7.i.i = call i32 %20(ptr noundef %21, ptr noundef %16) #14
+  %21 = load ptr, ptr %zerror_file.i.i, align 8
+  %22 = load ptr, ptr %opaque.i, align 8
+  %call7.i.i = call i32 %21(ptr noundef %22, ptr noundef %17) #14
   %tobool.not.i.not.i = icmp eq i32 %call7.i.i, 0
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %c.i.i)
   br i1 %tobool.not.i.not.i, label %if.then.i, label %unz64local_getShort.exit.thread262
 
 if.then.i:                                        ; preds = %unz64local_getByte.exit.i, %unz64local_getByte.exit.thread.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %c.i7.i)
-  %22 = load ptr, ptr %zread_file.i, align 8
-  %23 = load ptr, ptr %opaque.i, align 8
-  %call.i10.i = call i64 %22(ptr noundef %23, ptr noundef %16, ptr noundef nonnull %c.i7.i, i64 noundef 1) #14
-  %24 = and i64 %call.i10.i, 4294967295
-  %cmp.i11.i = icmp eq i64 %24, 1
+  %23 = load ptr, ptr %zread_file.i, align 8
+  %24 = load ptr, ptr %opaque.i, align 8
+  %call.i10.i = call i64 %23(ptr noundef %24, ptr noundef %17, ptr noundef nonnull %c.i7.i, i64 noundef 1) #14
+  %25 = and i64 %call.i10.i, 4294967295
+  %cmp.i11.i = icmp eq i64 %25, 1
   br i1 %cmp.i11.i, label %unz64local_getShort.exit.thread, label %unz64local_getShort.exit
 
 unz64local_getShort.exit.thread:                  ; preds = %if.then.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %c.i7.i)
-  br label %27
+  br label %28
 
 unz64local_getShort.exit:                         ; preds = %if.then.i
   %zerror_file.i13.i = getelementptr inbounds i8, ptr %us, i64 48
-  %25 = load ptr, ptr %zerror_file.i13.i, align 8
-  %26 = load ptr, ptr %opaque.i, align 8
-  %call7.i14.i = call i32 %25(ptr noundef %26, ptr noundef %16) #14
+  %26 = load ptr, ptr %zerror_file.i13.i, align 8
+  %27 = load ptr, ptr %opaque.i, align 8
+  %call7.i14.i = call i32 %26(ptr noundef %27, ptr noundef %17) #14
   %call7.i14.fr.i = freeze i32 %call7.i14.i
   %tobool.not.i15.i.not = icmp eq i32 %call7.i14.fr.i, 0
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %c.i7.i)
-  br i1 %tobool.not.i15.i.not, label %27, label %unz64local_getShort.exit.thread262
+  br i1 %tobool.not.i15.i.not, label %28, label %unz64local_getShort.exit.thread262
 
-27:                                               ; preds = %unz64local_getShort.exit.thread, %unz64local_getShort.exit
+28:                                               ; preds = %unz64local_getShort.exit.thread, %unz64local_getShort.exit
   br label %unz64local_getShort.exit.thread262
 
-unz64local_getShort.exit.thread262:               ; preds = %unz64local_getByte.exit.i, %unz64local_getShort.exit, %27
-  %28 = phi i32 [ %err.2, %27 ], [ -1, %unz64local_getShort.exit ], [ -1, %unz64local_getByte.exit.i ]
-  %29 = load ptr, ptr %filestream, align 8
+unz64local_getShort.exit.thread262:               ; preds = %unz64local_getByte.exit.i, %unz64local_getShort.exit, %28
+  %29 = phi i32 [ %err.2, %28 ], [ -1, %unz64local_getShort.exit ], [ -1, %unz64local_getByte.exit.i ]
+  %30 = load ptr, ptr %filestream, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %c.i.i22)
-  %30 = load ptr, ptr %zread_file.i, align 8
-  %31 = load ptr, ptr %opaque.i, align 8
-  %call.i.i25 = call i64 %30(ptr noundef %31, ptr noundef %29, ptr noundef nonnull %c.i.i22, i64 noundef 1) #14
-  %32 = and i64 %call.i.i25, 4294967295
-  %cmp.i.i26 = icmp eq i64 %32, 1
+  %31 = load ptr, ptr %zread_file.i, align 8
+  %32 = load ptr, ptr %opaque.i, align 8
+  %call.i.i25 = call i64 %31(ptr noundef %32, ptr noundef %30, ptr noundef nonnull %c.i.i22, i64 noundef 1) #14
+  %33 = and i64 %call.i.i25, 4294967295
+  %cmp.i.i26 = icmp eq i64 %33, 1
   br i1 %cmp.i.i26, label %unz64local_getByte.exit.thread.i49, label %unz64local_getByte.exit.i27
 
 unz64local_getByte.exit.thread.i49:               ; preds = %unz64local_getShort.exit.thread262
@@ -364,88 +365,88 @@ unz64local_getByte.exit.thread.i49:               ; preds = %unz64local_getShort
 
 unz64local_getByte.exit.i27:                      ; preds = %unz64local_getShort.exit.thread262
   %zerror_file.i.i28 = getelementptr inbounds i8, ptr %us, i64 48
-  %33 = load ptr, ptr %zerror_file.i.i28, align 8
-  %34 = load ptr, ptr %opaque.i, align 8
-  %call7.i.i29 = call i32 %33(ptr noundef %34, ptr noundef %29) #14
+  %34 = load ptr, ptr %zerror_file.i.i28, align 8
+  %35 = load ptr, ptr %opaque.i, align 8
+  %call7.i.i29 = call i32 %34(ptr noundef %35, ptr noundef %30) #14
   %tobool.not.i.not.i30 = icmp eq i32 %call7.i.i29, 0
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %c.i.i22)
   br i1 %tobool.not.i.not.i30, label %if.then.i32, label %unz64local_getShort.exit51.thread267
 
 if.then.i32:                                      ; preds = %unz64local_getByte.exit.i27, %unz64local_getByte.exit.thread.i49
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %c.i7.i21)
-  %35 = load ptr, ptr %zread_file.i, align 8
-  %36 = load ptr, ptr %opaque.i, align 8
-  %call.i10.i35 = call i64 %35(ptr noundef %36, ptr noundef %29, ptr noundef nonnull %c.i7.i21, i64 noundef 1) #14
-  %37 = and i64 %call.i10.i35, 4294967295
-  %cmp.i11.i36 = icmp eq i64 %37, 1
+  %36 = load ptr, ptr %zread_file.i, align 8
+  %37 = load ptr, ptr %opaque.i, align 8
+  %call.i10.i35 = call i64 %36(ptr noundef %37, ptr noundef %30, ptr noundef nonnull %c.i7.i21, i64 noundef 1) #14
+  %38 = and i64 %call.i10.i35, 4294967295
+  %cmp.i11.i36 = icmp eq i64 %38, 1
   br i1 %cmp.i11.i36, label %unz64local_getShort.exit51.thread, label %unz64local_getShort.exit51
 
 unz64local_getShort.exit51.thread:                ; preds = %if.then.i32
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %c.i7.i21)
-  br label %40
+  br label %41
 
 unz64local_getShort.exit51:                       ; preds = %if.then.i32
   %zerror_file.i13.i38 = getelementptr inbounds i8, ptr %us, i64 48
-  %38 = load ptr, ptr %zerror_file.i13.i38, align 8
-  %39 = load ptr, ptr %opaque.i, align 8
-  %call7.i14.i39 = call i32 %38(ptr noundef %39, ptr noundef %29) #14
+  %39 = load ptr, ptr %zerror_file.i13.i38, align 8
+  %40 = load ptr, ptr %opaque.i, align 8
+  %call7.i14.i39 = call i32 %39(ptr noundef %40, ptr noundef %30) #14
   %call7.i14.fr.i40 = freeze i32 %call7.i14.i39
   %tobool.not.i15.i41.not = icmp eq i32 %call7.i14.fr.i40, 0
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %c.i7.i21)
-  br i1 %tobool.not.i15.i41.not, label %40, label %unz64local_getShort.exit51.thread267
+  br i1 %tobool.not.i15.i41.not, label %41, label %unz64local_getShort.exit51.thread267
 
-40:                                               ; preds = %unz64local_getShort.exit51.thread, %unz64local_getShort.exit51
+41:                                               ; preds = %unz64local_getShort.exit51.thread, %unz64local_getShort.exit51
   br label %unz64local_getShort.exit51.thread267
 
-unz64local_getShort.exit51.thread267:             ; preds = %unz64local_getByte.exit.i27, %unz64local_getShort.exit51, %40
-  %41 = phi i32 [ %28, %40 ], [ -1, %unz64local_getShort.exit51 ], [ -1, %unz64local_getByte.exit.i27 ]
-  %42 = load ptr, ptr %filestream, align 8
-  %call46 = call fastcc i32 @unz64local_getLong(ptr noundef nonnull %us, ptr noundef %42, ptr noundef nonnull %number_disk)
+unz64local_getShort.exit51.thread267:             ; preds = %unz64local_getByte.exit.i27, %unz64local_getShort.exit51, %41
+  %42 = phi i32 [ %29, %41 ], [ -1, %unz64local_getShort.exit51 ], [ -1, %unz64local_getByte.exit.i27 ]
   %43 = load ptr, ptr %filestream, align 8
-  %call52 = call fastcc i32 @unz64local_getLong(ptr noundef nonnull %us, ptr noundef %43, ptr noundef nonnull %number_disk_with_CD)
-  %44 = or i32 %call52, %call46
-  %45 = load ptr, ptr %filestream, align 8
+  %call46 = call fastcc i32 @unz64local_getLong(ptr noundef nonnull %us, ptr noundef %43, ptr noundef nonnull %number_disk)
+  %44 = load ptr, ptr %filestream, align 8
+  %call52 = call fastcc i32 @unz64local_getLong(ptr noundef nonnull %us, ptr noundef %44, ptr noundef nonnull %number_disk_with_CD)
+  %45 = or i32 %call52, %call46
+  %46 = load ptr, ptr %filestream, align 8
   %gi = getelementptr inbounds i8, ptr %us, i64 104
-  %call58 = call fastcc i32 @unz64local_getLong64(ptr noundef nonnull %us, ptr noundef %45, ptr noundef nonnull %gi)
-  %46 = or i32 %44, %call58
-  %47 = icmp eq i32 %46, 0
-  %48 = load ptr, ptr %filestream, align 8
-  %call64 = call fastcc i32 @unz64local_getLong64(ptr noundef nonnull %us, ptr noundef %48, ptr noundef nonnull %number_entry_CD)
+  %call58 = call fastcc i32 @unz64local_getLong64(ptr noundef nonnull %us, ptr noundef %46, ptr noundef nonnull %gi)
+  %47 = or i32 %45, %call58
+  %48 = icmp eq i32 %47, 0
+  %49 = load ptr, ptr %filestream, align 8
+  %call64 = call fastcc i32 @unz64local_getLong64(ptr noundef nonnull %us, ptr noundef %49, ptr noundef nonnull %number_entry_CD)
   %cmp65.not = icmp eq i32 %call64, 0
-  %49 = select i1 %cmp65.not, i1 %47, i1 false
-  %err.8 = select i1 %49, i32 %41, i32 -1
-  %50 = load i64, ptr %number_entry_CD, align 8
-  %51 = load i64, ptr %gi, align 8
-  %cmp70 = icmp ne i64 %50, %51
-  %52 = load i64, ptr %number_disk_with_CD, align 8
-  %cmp71 = icmp ne i64 %52, 0
+  %50 = select i1 %cmp65.not, i1 %48, i1 false
+  %err.8 = select i1 %50, i32 %42, i32 -1
+  %51 = load i64, ptr %number_entry_CD, align 8
+  %52 = load i64, ptr %gi, align 8
+  %cmp70 = icmp ne i64 %51, %52
+  %53 = load i64, ptr %number_disk_with_CD, align 8
+  %cmp71 = icmp ne i64 %53, 0
   %or.cond = select i1 %cmp70, i1 true, i1 %cmp71
-  %53 = load i64, ptr %number_disk, align 8
-  %cmp73 = icmp ne i64 %53, 0
+  %54 = load i64, ptr %number_disk, align 8
+  %cmp73 = icmp ne i64 %54, 0
   %or.cond1 = select i1 %or.cond, i1 true, i1 %cmp73
   %err.9 = select i1 %or.cond1, i32 -103, i32 %err.8
-  %54 = load ptr, ptr %filestream, align 8
-  %size_central_dir = getelementptr inbounds i8, ptr %us, i64 160
-  %call78 = call fastcc i32 @unz64local_getLong64(ptr noundef nonnull %us, ptr noundef %54, ptr noundef nonnull %size_central_dir)
-  %cmp79.not = icmp eq i32 %call78, 0
   %55 = load ptr, ptr %filestream, align 8
+  %size_central_dir = getelementptr inbounds i8, ptr %us, i64 160
+  %call78 = call fastcc i32 @unz64local_getLong64(ptr noundef nonnull %us, ptr noundef %55, ptr noundef nonnull %size_central_dir)
+  %cmp79.not = icmp eq i32 %call78, 0
+  %56 = load ptr, ptr %filestream, align 8
   %offset_central_dir = getelementptr inbounds i8, ptr %us, i64 168
-  %call84 = call fastcc i32 @unz64local_getLong64(ptr noundef nonnull %us, ptr noundef %55, ptr noundef nonnull %offset_central_dir)
+  %call84 = call fastcc i32 @unz64local_getLong64(ptr noundef nonnull %us, ptr noundef %56, ptr noundef nonnull %offset_central_dir)
   %cmp85.not = icmp eq i32 %call84, 0
-  %56 = select i1 %cmp85.not, i1 %cmp79.not, i1 false
-  %err.11 = select i1 %56, i32 %err.9, i32 -1
+  %57 = select i1 %cmp85.not, i1 %cmp79.not, i1 false
+  %err.11 = select i1 %57, i32 %err.9, i32 -1
   %size_comment = getelementptr inbounds i8, ptr %us, i64 112
   store i64 0, ptr %size_comment, align 8
   br label %if.end166
 
 if.else89:                                        ; preds = %unz64local_SearchCentralDir64.exit.thread, %unz64local_SearchCentralDir64.exit
-  %57 = load ptr, ptr %filestream, align 8
-  %call.i52 = call i64 @call_zseek64(ptr noundef nonnull %us, ptr noundef %57, i64 noundef 0, i32 noundef 2) #14
+  %58 = load ptr, ptr %filestream, align 8
+  %call.i52 = call i64 @call_zseek64(ptr noundef nonnull %us, ptr noundef %58, i64 noundef 0, i32 noundef 2) #14
   %cmp.not.i53 = icmp eq i64 %call.i52, 0
   br i1 %cmp.not.i53, label %if.end.i55, label %unz64local_SearchCentralDir.exit.thread
 
 if.end.i55:                                       ; preds = %if.else89
-  %call1.i56 = call i64 @call_ztell64(ptr noundef nonnull %us, ptr noundef %57) #14
+  %call1.i56 = call i64 @call_ztell64(ptr noundef nonnull %us, ptr noundef %58) #14
   %call1.i56.fr = freeze i64 %call1.i56
   %spec.select.i57 = call i64 @llvm.umin.i64(i64 %call1.i56.fr, i64 65535)
   %call5.i58 = call noalias dereferenceable_or_null(1028) ptr @malloc(i64 noundef 1028) #15
@@ -455,145 +456,146 @@ if.end.i55:                                       ; preds = %if.else89
 while.cond.preheader.i60:                         ; preds = %if.end.i55
   %zread_file.i61 = getelementptr inbounds i8, ptr %us, i64 8
   %opaque.i62 = getelementptr inbounds i8, ptr %us, i64 56
-  %cmp2737.not.i = icmp ult i64 %call1.i56.fr, 4
-  br i1 %cmp2737.not.i, label %unz64local_SearchCentralDir.exit.thread.sink.split, label %while.cond.i63
+  %cmp2737.i = icmp ugt i64 %call1.i56.fr, 3
+  br i1 %cmp2737.i, label %while.cond.i63.us, label %unz64local_SearchCentralDir.exit.thread.sink.split
 
-while.cond.i63:                                   ; preds = %while.cond.preheader.i60, %for.end.i85
-  %uBackRead.0.i64 = phi i64 [ %spec.select.add.i68, %for.end.i85 ], [ 4, %while.cond.preheader.i60 ]
-  %cmp9.i65 = icmp ult i64 %uBackRead.0.i64, %spec.select.i57
-  br i1 %cmp9.i65, label %while.body.i66, label %unz64local_SearchCentralDir.exit.thread.sink.split
+while.cond.i63.us:                                ; preds = %while.cond.preheader.i60, %for.end.i77.us
+  %uBackRead.0.i64.us = phi i64 [ %spec.select.add.i68.us, %for.end.i77.us ], [ 4, %while.cond.preheader.i60 ]
+  %cmp9.i65.us = icmp ult i64 %uBackRead.0.i64.us, %spec.select.i57
+  br i1 %cmp9.i65.us, label %while.body.i66.us, label %unz64local_SearchCentralDir.exit.thread.sink.split
 
-while.body.i66:                                   ; preds = %while.cond.i63
-  %add.i67 = add nuw nsw i64 %uBackRead.0.i64, 1024
-  %spec.select.add.i68 = call i64 @llvm.umin.i64(i64 %add.i67, i64 %spec.select.i57)
-  %sub.i69 = sub i64 %call1.i56.fr, %spec.select.add.i68
-  %cond.i70 = call i64 @llvm.umin.i64(i64 %spec.select.add.i68, i64 1028)
-  %call17.i71 = call i64 @call_zseek64(ptr noundef nonnull %us, ptr noundef %57, i64 noundef %sub.i69, i32 noundef 0) #14
-  %cmp18.not.i72 = icmp eq i64 %call17.i71, 0
-  br i1 %cmp18.not.i72, label %if.end20.i73, label %unz64local_SearchCentralDir.exit.thread.sink.split
+while.body.i66.us:                                ; preds = %while.cond.i63.us
+  %add.i67.us = add nuw nsw i64 %uBackRead.0.i64.us, 1024
+  %spec.select.add.i68.us = call i64 @llvm.umin.i64(i64 %add.i67.us, i64 %spec.select.i57)
+  %sub.i69.us = sub i64 %call1.i56.fr, %spec.select.add.i68.us
+  %cond.i70.us = call i64 @llvm.umin.i64(i64 %spec.select.add.i68.us, i64 1028)
+  %call17.i71.us = call i64 @call_zseek64(ptr noundef nonnull %us, ptr noundef %58, i64 noundef %sub.i69.us, i32 noundef 0) #14
+  %cmp18.not.i72.us = icmp eq i64 %call17.i71.us, 0
+  br i1 %cmp18.not.i72.us, label %if.end20.i73.us, label %unz64local_SearchCentralDir.exit.thread.sink.split
 
-if.end20.i73:                                     ; preds = %while.body.i66
-  %58 = load ptr, ptr %zread_file.i61, align 8
-  %59 = load ptr, ptr %opaque.i62, align 8
-  %call22.i74 = call i64 %58(ptr noundef %59, ptr noundef %57, ptr noundef nonnull %call5.i58, i64 noundef %cond.i70) #14
-  %cmp23.not.i75 = icmp eq i64 %call22.i74, %cond.i70
-  br i1 %cmp23.not.i75, label %if.end25.i76, label %unz64local_SearchCentralDir.exit.thread.sink.split
+if.end20.i73.us:                                  ; preds = %while.body.i66.us
+  %59 = load ptr, ptr %zread_file.i61, align 8
+  %60 = load ptr, ptr %opaque.i62, align 8
+  %call22.i74.us = call i64 %59(ptr noundef %60, ptr noundef %58, ptr noundef nonnull %call5.i58, i64 noundef %cond.i70.us) #14
+  %cmp23.not.i75.us = icmp eq i64 %call22.i74.us, %cond.i70.us
+  br i1 %cmp23.not.i75.us, label %if.end25.i76.us, label %unz64local_SearchCentralDir.exit.thread.sink.split
 
-if.end25.i76:                                     ; preds = %if.end20.i73
-  %dec36.i = add nuw nsw i64 %cond.i70, 4294967292
-  %60 = and i64 %dec36.i, 4294967295
-  br label %for.body.i78
+if.end25.i76.us:                                  ; preds = %if.end20.i73.us
+  %dec36.i.us = add nuw nsw i64 %cond.i70.us, 4294967292
+  %61 = and i64 %dec36.i.us, 4294967295
+  br label %for.body.i81.us
 
-for.body.i78:                                     ; preds = %if.end55.i82, %if.end25.i76
-  %indvars.iv.i79 = phi i64 [ %60, %if.end25.i76 ], [ %indvars.iv.next.i83, %if.end55.i82 ]
-  %add.ptr.i80 = getelementptr inbounds i8, ptr %call5.i58, i64 %indvars.iv.i79
-  %61 = load i8, ptr %add.ptr.i80, align 1
-  %cmp30.i81 = icmp eq i8 %61, 80
-  br i1 %cmp30.i81, label %land.lhs.true.i88, label %if.end55.i82
+for.body.i81.us:                                  ; preds = %if.end55.i85.us, %if.end25.i76.us
+  %indvars.iv.i82.us = phi i64 [ %61, %if.end25.i76.us ], [ %indvars.iv.next.i86.us, %if.end55.i85.us ]
+  %add.ptr.i83.us = getelementptr inbounds i8, ptr %call5.i58, i64 %indvars.iv.i82.us
+  %62 = load i8, ptr %add.ptr.i83.us, align 1
+  %cmp30.i84.us = icmp eq i8 %62, 80
+  br i1 %cmp30.i84.us, label %land.lhs.true.i88.us, label %if.end55.i85.us
 
-land.lhs.true.i88:                                ; preds = %for.body.i78
-  %add.ptr34.i89 = getelementptr inbounds i8, ptr %add.ptr.i80, i64 1
-  %62 = load i8, ptr %add.ptr34.i89, align 1
-  %cmp36.i90 = icmp eq i8 %62, 75
-  br i1 %cmp36.i90, label %land.lhs.true38.i91, label %if.end55.i82
+land.lhs.true.i88.us:                             ; preds = %for.body.i81.us
+  %add.ptr34.i89.us = getelementptr inbounds i8, ptr %add.ptr.i83.us, i64 1
+  %63 = load i8, ptr %add.ptr34.i89.us, align 1
+  %cmp36.i90.us = icmp eq i8 %63, 75
+  br i1 %cmp36.i90.us, label %land.lhs.true38.i91.us, label %if.end55.i85.us
 
-land.lhs.true38.i91:                              ; preds = %land.lhs.true.i88
-  %add.ptr41.i92 = getelementptr inbounds i8, ptr %add.ptr.i80, i64 2
-  %63 = load i8, ptr %add.ptr41.i92, align 1
-  %cmp43.i93 = icmp eq i8 %63, 5
-  br i1 %cmp43.i93, label %land.lhs.true45.i94, label %if.end55.i82
+land.lhs.true38.i91.us:                           ; preds = %land.lhs.true.i88.us
+  %add.ptr41.i92.us = getelementptr inbounds i8, ptr %add.ptr.i83.us, i64 2
+  %64 = load i8, ptr %add.ptr41.i92.us, align 1
+  %cmp43.i93.us = icmp eq i8 %64, 5
+  br i1 %cmp43.i93.us, label %land.lhs.true45.i94.us, label %if.end55.i85.us
 
-land.lhs.true45.i94:                              ; preds = %land.lhs.true38.i91
-  %add.ptr48.i95 = getelementptr inbounds i8, ptr %add.ptr.i80, i64 3
-  %64 = load i8, ptr %add.ptr48.i95, align 1
-  %cmp50.i96 = icmp eq i8 %64, 6
-  br i1 %cmp50.i96, label %if.then52.i97, label %if.end55.i82
+land.lhs.true45.i94.us:                           ; preds = %land.lhs.true38.i91.us
+  %add.ptr48.i95.us = getelementptr inbounds i8, ptr %add.ptr.i83.us, i64 3
+  %65 = load i8, ptr %add.ptr48.i95.us, align 1
+  %cmp50.i96.us = icmp eq i8 %65, 6
+  br i1 %cmp50.i96.us, label %if.then52.i97.us, label %if.end55.i85.us
 
-if.then52.i97:                                    ; preds = %land.lhs.true45.i94
-  %conv53.i98 = and i64 %indvars.iv.i79, 4294967295
-  %add54.i99 = add i64 %conv53.i98, %sub.i69
-  br label %for.end.i85
+if.end55.i85.us:                                  ; preds = %land.lhs.true45.i94.us, %land.lhs.true38.i91.us, %land.lhs.true.i88.us, %for.body.i81.us
+  %indvars.iv.next.i86.us = add nsw i64 %indvars.iv.i82.us, -1
+  %66 = trunc nuw i64 %indvars.iv.i82.us to i32
+  %cmp27.i87.us = icmp sgt i32 %66, 0
+  br i1 %cmp27.i87.us, label %for.body.i81.us, label %for.end.i77.us
 
-if.end55.i82:                                     ; preds = %land.lhs.true45.i94, %land.lhs.true38.i91, %land.lhs.true.i88, %for.body.i78
-  %indvars.iv.next.i83 = add nsw i64 %indvars.iv.i79, -1
-  %cmp27.i84 = icmp sgt i64 %indvars.iv.i79, 0
-  br i1 %cmp27.i84, label %for.body.i78, label %for.end.i85
+if.then52.i97.us:                                 ; preds = %land.lhs.true45.i94.us
+  %conv53.i98.us = and i64 %indvars.iv.i82.us, 4294967295
+  %add54.i99.us = add i64 %conv53.i98.us, %sub.i69.us
+  br label %for.end.i77.us
 
-for.end.i85:                                      ; preds = %if.end55.i82, %if.then52.i97
-  %uPosFound.1.i86 = phi i64 [ %add54.i99, %if.then52.i97 ], [ 0, %if.end55.i82 ]
-  %cmp56.not.i87 = icmp eq i64 %uPosFound.1.i86, 0
-  br i1 %cmp56.not.i87, label %while.cond.i63, label %unz64local_SearchCentralDir.exit.thread.sink.split
+for.end.i77.us:                                   ; preds = %if.end55.i85.us, %if.then52.i97.us
+  %uPosFound.1.i78.us = phi i64 [ %add54.i99.us, %if.then52.i97.us ], [ 0, %if.end55.i85.us ]
+  %cmp56.not.i79.us = icmp eq i64 %uPosFound.1.i78.us, 0
+  br i1 %cmp56.not.i79.us, label %while.cond.i63.us, label %unz64local_SearchCentralDir.exit.thread.sink.split
 
-unz64local_SearchCentralDir.exit.thread.sink.split: ; preds = %for.end.i85, %while.body.i66, %if.end20.i73, %while.cond.i63, %while.cond.preheader.i60
-  %retval.0.i54272.ph = phi i64 [ 0, %while.cond.preheader.i60 ], [ 0, %while.cond.i63 ], [ 0, %if.end20.i73 ], [ 0, %while.body.i66 ], [ %uPosFound.1.i86, %for.end.i85 ]
-  %.ph = phi i32 [ -1, %while.cond.preheader.i60 ], [ -1, %while.cond.i63 ], [ -1, %if.end20.i73 ], [ -1, %while.body.i66 ], [ 0, %for.end.i85 ]
+unz64local_SearchCentralDir.exit.thread.sink.split: ; preds = %for.end.i77.us, %if.end20.i73.us, %while.body.i66.us, %while.cond.i63.us, %while.cond.preheader.i60
+  %retval.0.i54272.ph = phi i64 [ 0, %while.cond.preheader.i60 ], [ 0, %while.cond.i63.us ], [ 0, %while.body.i66.us ], [ 0, %if.end20.i73.us ], [ %uPosFound.1.i78.us, %for.end.i77.us ]
+  %.ph = phi i32 [ -1, %while.cond.preheader.i60 ], [ -1, %while.cond.i63.us ], [ -1, %while.body.i66.us ], [ -1, %if.end20.i73.us ], [ 0, %for.end.i77.us ]
   call void @free(ptr noundef nonnull %call5.i58) #14
   br label %unz64local_SearchCentralDir.exit.thread
 
 unz64local_SearchCentralDir.exit.thread:          ; preds = %unz64local_SearchCentralDir.exit.thread.sink.split, %if.end.i55, %if.else89
   %retval.0.i54272 = phi i64 [ 0, %if.else89 ], [ 0, %if.end.i55 ], [ %retval.0.i54272.ph, %unz64local_SearchCentralDir.exit.thread.sink.split ]
-  %65 = phi i32 [ -1, %if.else89 ], [ -1, %if.end.i55 ], [ %.ph, %unz64local_SearchCentralDir.exit.thread.sink.split ]
+  %67 = phi i32 [ -1, %if.else89 ], [ -1, %if.end.i55 ], [ %.ph, %unz64local_SearchCentralDir.exit.thread.sink.split ]
   %isZip6496 = getelementptr inbounds i8, ptr %us, i64 332
   store i32 0, ptr %isZip6496, align 4
-  %66 = load ptr, ptr %filestream, align 8
-  %call99 = call i64 @call_zseek64(ptr noundef nonnull %us, ptr noundef %66, i64 noundef %retval.0.i54272, i32 noundef 0) #14
+  %68 = load ptr, ptr %filestream, align 8
+  %call99 = call i64 @call_zseek64(ptr noundef nonnull %us, ptr noundef %68, i64 noundef %retval.0.i54272, i32 noundef 0) #14
   %cmp100.not = icmp eq i64 %call99, 0
-  %67 = load ptr, ptr %filestream, align 8
-  %call105 = call fastcc i32 @unz64local_getLong(ptr noundef nonnull %us, ptr noundef %67, ptr noundef nonnull %uL)
-  %cmp106.not = icmp eq i32 %call105, 0
-  %68 = select i1 %cmp106.not, i1 %cmp100.not, i1 false
-  %err.14 = select i1 %68, i32 %65, i32 -1
   %69 = load ptr, ptr %filestream, align 8
+  %call105 = call fastcc i32 @unz64local_getLong(ptr noundef nonnull %us, ptr noundef %69, ptr noundef nonnull %uL)
+  %cmp106.not = icmp eq i32 %call105, 0
+  %70 = select i1 %cmp106.not, i1 %cmp100.not, i1 false
+  %err.14 = select i1 %70, i32 %67, i32 -1
+  %71 = load ptr, ptr %filestream, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %c.i.i101)
   %zread_file.i.i102 = getelementptr inbounds i8, ptr %us, i64 8
-  %70 = load ptr, ptr %zread_file.i.i102, align 8
+  %72 = load ptr, ptr %zread_file.i.i102, align 8
   %opaque.i.i103 = getelementptr inbounds i8, ptr %us, i64 56
-  %71 = load ptr, ptr %opaque.i.i103, align 8
-  %call.i.i104 = call i64 %70(ptr noundef %71, ptr noundef %69, ptr noundef nonnull %c.i.i101, i64 noundef 1) #14
-  %72 = and i64 %call.i.i104, 4294967295
-  %cmp.i.i105 = icmp eq i64 %72, 1
+  %73 = load ptr, ptr %opaque.i.i103, align 8
+  %call.i.i104 = call i64 %72(ptr noundef %73, ptr noundef %71, ptr noundef nonnull %c.i.i101, i64 noundef 1) #14
+  %74 = and i64 %call.i.i104, 4294967295
+  %cmp.i.i105 = icmp eq i64 %74, 1
   br i1 %cmp.i.i105, label %unz64local_getByte.exit.thread.i128, label %unz64local_getByte.exit.i106
 
 unz64local_getByte.exit.thread.i128:              ; preds = %unz64local_SearchCentralDir.exit.thread
-  %73 = load i8, ptr %c.i.i101, align 1
+  %75 = load i8, ptr %c.i.i101, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %c.i.i101)
-  %conv24.i129 = zext i8 %73 to i64
-  %74 = shl nuw nsw i64 %conv24.i129, 8
+  %conv24.i129 = zext i8 %75 to i64
+  %76 = shl nuw nsw i64 %conv24.i129, 8
   br label %if.then.i111
 
 unz64local_getByte.exit.i106:                     ; preds = %unz64local_SearchCentralDir.exit.thread
   %zerror_file.i.i107 = getelementptr inbounds i8, ptr %us, i64 48
-  %75 = load ptr, ptr %zerror_file.i.i107, align 8
-  %76 = load ptr, ptr %opaque.i.i103, align 8
-  %call7.i.i108 = call i32 %75(ptr noundef %76, ptr noundef %69) #14
+  %77 = load ptr, ptr %zerror_file.i.i107, align 8
+  %78 = load ptr, ptr %opaque.i.i103, align 8
+  %call7.i.i108 = call i32 %77(ptr noundef %78, ptr noundef %71) #14
   %tobool.not.i.not.i109 = icmp eq i32 %call7.i.i108, 0
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %c.i.i101)
   br i1 %tobool.not.i.not.i109, label %if.then.i111, label %unz64local_getShort.exit130.thread280
 
 if.then.i111:                                     ; preds = %unz64local_getByte.exit.i106, %unz64local_getByte.exit.thread.i128
   %conv28.i112 = phi i64 [ %conv24.i129, %unz64local_getByte.exit.thread.i128 ], [ 0, %unz64local_getByte.exit.i106 ]
-  %i.026.i113 = phi i64 [ %74, %unz64local_getByte.exit.thread.i128 ], [ 0, %unz64local_getByte.exit.i106 ]
+  %i.026.i113 = phi i64 [ %76, %unz64local_getByte.exit.thread.i128 ], [ 0, %unz64local_getByte.exit.i106 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %c.i7.i100)
-  %77 = load ptr, ptr %zread_file.i.i102, align 8
-  %78 = load ptr, ptr %opaque.i.i103, align 8
-  %call.i10.i114 = call i64 %77(ptr noundef %78, ptr noundef %69, ptr noundef nonnull %c.i7.i100, i64 noundef 1) #14
-  %79 = and i64 %call.i10.i114, 4294967295
-  %cmp.i11.i115 = icmp eq i64 %79, 1
+  %79 = load ptr, ptr %zread_file.i.i102, align 8
+  %80 = load ptr, ptr %opaque.i.i103, align 8
+  %call.i10.i114 = call i64 %79(ptr noundef %80, ptr noundef %71, ptr noundef nonnull %c.i7.i100, i64 noundef 1) #14
+  %81 = and i64 %call.i10.i114, 4294967295
+  %cmp.i11.i115 = icmp eq i64 %81, 1
   br i1 %cmp.i11.i115, label %unz64local_getShort.exit130.thread, label %unz64local_getShort.exit130
 
 unz64local_getShort.exit130.thread:               ; preds = %if.then.i111
-  %80 = load i8, ptr %c.i7.i100, align 1
+  %82 = load i8, ptr %c.i7.i100, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %c.i7.i100)
-  %conv342.i125 = zext i8 %80 to i64
+  %conv342.i125 = zext i8 %82 to i64
   %shl43.i126 = shl nuw nsw i64 %conv342.i125, 8
   %or44.i127 = or disjoint i64 %shl43.i126, %conv28.i112
   br label %unz64local_getShort.exit130.thread280
 
 unz64local_getShort.exit130:                      ; preds = %if.then.i111
   %zerror_file.i13.i117 = getelementptr inbounds i8, ptr %us, i64 48
-  %81 = load ptr, ptr %zerror_file.i13.i117, align 8
-  %82 = load ptr, ptr %opaque.i.i103, align 8
-  %call7.i14.i118 = call i32 %81(ptr noundef %82, ptr noundef %69) #14
+  %83 = load ptr, ptr %zerror_file.i13.i117, align 8
+  %84 = load ptr, ptr %opaque.i.i103, align 8
+  %call7.i14.i118 = call i32 %83(ptr noundef %84, ptr noundef %71) #14
   %call7.i14.fr.i119 = freeze i32 %call7.i14.i118
   %tobool.not.i15.i120.not = icmp eq i32 %call7.i14.fr.i119, 0
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %c.i7.i100)
@@ -603,238 +605,238 @@ unz64local_getShort.exit130:                      ; preds = %if.then.i111
   br label %unz64local_getShort.exit130.thread280
 
 unz64local_getShort.exit130.thread280:            ; preds = %unz64local_getByte.exit.i106, %unz64local_getShort.exit130, %unz64local_getShort.exit130.thread
-  %83 = phi i64 [ %or44.i127, %unz64local_getShort.exit130.thread ], [ %spec.select.i123, %unz64local_getShort.exit130 ], [ 0, %unz64local_getByte.exit.i106 ]
-  %84 = phi i32 [ %err.14, %unz64local_getShort.exit130.thread ], [ %spec.select311, %unz64local_getShort.exit130 ], [ -1, %unz64local_getByte.exit.i106 ]
-  %85 = load ptr, ptr %filestream, align 8
+  %85 = phi i64 [ %or44.i127, %unz64local_getShort.exit130.thread ], [ %spec.select.i123, %unz64local_getShort.exit130 ], [ 0, %unz64local_getByte.exit.i106 ]
+  %86 = phi i32 [ %err.14, %unz64local_getShort.exit130.thread ], [ %spec.select311, %unz64local_getShort.exit130 ], [ -1, %unz64local_getByte.exit.i106 ]
+  %87 = load ptr, ptr %filestream, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %c.i.i132)
-  %86 = load ptr, ptr %zread_file.i.i102, align 8
-  %87 = load ptr, ptr %opaque.i.i103, align 8
-  %call.i.i135 = call i64 %86(ptr noundef %87, ptr noundef %85, ptr noundef nonnull %c.i.i132, i64 noundef 1) #14
-  %88 = and i64 %call.i.i135, 4294967295
-  %cmp.i.i136 = icmp eq i64 %88, 1
+  %88 = load ptr, ptr %zread_file.i.i102, align 8
+  %89 = load ptr, ptr %opaque.i.i103, align 8
+  %call.i.i135 = call i64 %88(ptr noundef %89, ptr noundef %87, ptr noundef nonnull %c.i.i132, i64 noundef 1) #14
+  %90 = and i64 %call.i.i135, 4294967295
+  %cmp.i.i136 = icmp eq i64 %90, 1
   br i1 %cmp.i.i136, label %unz64local_getByte.exit.thread.i159, label %unz64local_getByte.exit.i137
 
 unz64local_getByte.exit.thread.i159:              ; preds = %unz64local_getShort.exit130.thread280
-  %89 = load i8, ptr %c.i.i132, align 1
+  %91 = load i8, ptr %c.i.i132, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %c.i.i132)
-  %conv24.i160 = zext i8 %89 to i64
-  %90 = shl nuw nsw i64 %conv24.i160, 8
+  %conv24.i160 = zext i8 %91 to i64
+  %92 = shl nuw nsw i64 %conv24.i160, 8
   br label %if.then.i142
 
 unz64local_getByte.exit.i137:                     ; preds = %unz64local_getShort.exit130.thread280
   %zerror_file.i.i138 = getelementptr inbounds i8, ptr %us, i64 48
-  %91 = load ptr, ptr %zerror_file.i.i138, align 8
-  %92 = load ptr, ptr %opaque.i.i103, align 8
-  %call7.i.i139 = call i32 %91(ptr noundef %92, ptr noundef %85) #14
+  %93 = load ptr, ptr %zerror_file.i.i138, align 8
+  %94 = load ptr, ptr %opaque.i.i103, align 8
+  %call7.i.i139 = call i32 %93(ptr noundef %94, ptr noundef %87) #14
   %tobool.not.i.not.i140 = icmp eq i32 %call7.i.i139, 0
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %c.i.i132)
   br i1 %tobool.not.i.not.i140, label %if.then.i142, label %unz64local_getShort.exit161.thread285
 
 if.then.i142:                                     ; preds = %unz64local_getByte.exit.i137, %unz64local_getByte.exit.thread.i159
   %conv28.i143 = phi i64 [ %conv24.i160, %unz64local_getByte.exit.thread.i159 ], [ 0, %unz64local_getByte.exit.i137 ]
-  %i.026.i144 = phi i64 [ %90, %unz64local_getByte.exit.thread.i159 ], [ 0, %unz64local_getByte.exit.i137 ]
+  %i.026.i144 = phi i64 [ %92, %unz64local_getByte.exit.thread.i159 ], [ 0, %unz64local_getByte.exit.i137 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %c.i7.i131)
-  %93 = load ptr, ptr %zread_file.i.i102, align 8
-  %94 = load ptr, ptr %opaque.i.i103, align 8
-  %call.i10.i145 = call i64 %93(ptr noundef %94, ptr noundef %85, ptr noundef nonnull %c.i7.i131, i64 noundef 1) #14
-  %95 = and i64 %call.i10.i145, 4294967295
-  %cmp.i11.i146 = icmp eq i64 %95, 1
+  %95 = load ptr, ptr %zread_file.i.i102, align 8
+  %96 = load ptr, ptr %opaque.i.i103, align 8
+  %call.i10.i145 = call i64 %95(ptr noundef %96, ptr noundef %87, ptr noundef nonnull %c.i7.i131, i64 noundef 1) #14
+  %97 = and i64 %call.i10.i145, 4294967295
+  %cmp.i11.i146 = icmp eq i64 %97, 1
   br i1 %cmp.i11.i146, label %unz64local_getShort.exit161.thread, label %unz64local_getShort.exit161
 
 unz64local_getShort.exit161.thread:               ; preds = %if.then.i142
-  %96 = load i8, ptr %c.i7.i131, align 1
+  %98 = load i8, ptr %c.i7.i131, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %c.i7.i131)
-  %conv342.i156 = zext i8 %96 to i64
+  %conv342.i156 = zext i8 %98 to i64
   %shl43.i157 = shl nuw nsw i64 %conv342.i156, 8
   %or44.i158 = or disjoint i64 %shl43.i157, %conv28.i143
   br label %unz64local_getShort.exit161.thread285
 
 unz64local_getShort.exit161:                      ; preds = %if.then.i142
   %zerror_file.i13.i148 = getelementptr inbounds i8, ptr %us, i64 48
-  %97 = load ptr, ptr %zerror_file.i13.i148, align 8
-  %98 = load ptr, ptr %opaque.i.i103, align 8
-  %call7.i14.i149 = call i32 %97(ptr noundef %98, ptr noundef %85) #14
+  %99 = load ptr, ptr %zerror_file.i13.i148, align 8
+  %100 = load ptr, ptr %opaque.i.i103, align 8
+  %call7.i14.i149 = call i32 %99(ptr noundef %100, ptr noundef %87) #14
   %call7.i14.fr.i150 = freeze i32 %call7.i14.i149
   %tobool.not.i15.i151.not = icmp eq i32 %call7.i14.fr.i150, 0
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %c.i7.i131)
   %or.i153 = or disjoint i64 %i.026.i144, %conv28.i143
   %spec.select.i154 = select i1 %tobool.not.i15.i151.not, i64 %or.i153, i64 0
-  %spec.select312 = select i1 %tobool.not.i15.i151.not, i32 %84, i32 -1
+  %spec.select312 = select i1 %tobool.not.i15.i151.not, i32 %86, i32 -1
   br label %unz64local_getShort.exit161.thread285
 
 unz64local_getShort.exit161.thread285:            ; preds = %unz64local_getByte.exit.i137, %unz64local_getShort.exit161, %unz64local_getShort.exit161.thread
-  %99 = phi i64 [ %or44.i158, %unz64local_getShort.exit161.thread ], [ %spec.select.i154, %unz64local_getShort.exit161 ], [ 0, %unz64local_getByte.exit.i137 ]
-  %100 = phi i32 [ %84, %unz64local_getShort.exit161.thread ], [ %spec.select312, %unz64local_getShort.exit161 ], [ -1, %unz64local_getByte.exit.i137 ]
-  %101 = load ptr, ptr %filestream, align 8
+  %101 = phi i64 [ %or44.i158, %unz64local_getShort.exit161.thread ], [ %spec.select.i154, %unz64local_getShort.exit161 ], [ 0, %unz64local_getByte.exit.i137 ]
+  %102 = phi i32 [ %86, %unz64local_getShort.exit161.thread ], [ %spec.select312, %unz64local_getShort.exit161 ], [ -1, %unz64local_getByte.exit.i137 ]
+  %103 = load ptr, ptr %filestream, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %c.i.i163)
-  %102 = load ptr, ptr %zread_file.i.i102, align 8
-  %103 = load ptr, ptr %opaque.i.i103, align 8
-  %call.i.i166 = call i64 %102(ptr noundef %103, ptr noundef %101, ptr noundef nonnull %c.i.i163, i64 noundef 1) #14
-  %104 = and i64 %call.i.i166, 4294967295
-  %cmp.i.i167 = icmp eq i64 %104, 1
+  %104 = load ptr, ptr %zread_file.i.i102, align 8
+  %105 = load ptr, ptr %opaque.i.i103, align 8
+  %call.i.i166 = call i64 %104(ptr noundef %105, ptr noundef %103, ptr noundef nonnull %c.i.i163, i64 noundef 1) #14
+  %106 = and i64 %call.i.i166, 4294967295
+  %cmp.i.i167 = icmp eq i64 %106, 1
   br i1 %cmp.i.i167, label %unz64local_getByte.exit.thread.i190, label %unz64local_getByte.exit.i168
 
 unz64local_getByte.exit.thread.i190:              ; preds = %unz64local_getShort.exit161.thread285
-  %105 = load i8, ptr %c.i.i163, align 1
+  %107 = load i8, ptr %c.i.i163, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %c.i.i163)
-  %conv24.i191 = zext i8 %105 to i64
-  %106 = shl nuw nsw i64 %conv24.i191, 8
+  %conv24.i191 = zext i8 %107 to i64
+  %108 = shl nuw nsw i64 %conv24.i191, 8
   br label %if.then.i173
 
 unz64local_getByte.exit.i168:                     ; preds = %unz64local_getShort.exit161.thread285
   %zerror_file.i.i169 = getelementptr inbounds i8, ptr %us, i64 48
-  %107 = load ptr, ptr %zerror_file.i.i169, align 8
-  %108 = load ptr, ptr %opaque.i.i103, align 8
-  %call7.i.i170 = call i32 %107(ptr noundef %108, ptr noundef %101) #14
+  %109 = load ptr, ptr %zerror_file.i.i169, align 8
+  %110 = load ptr, ptr %opaque.i.i103, align 8
+  %call7.i.i170 = call i32 %109(ptr noundef %110, ptr noundef %103) #14
   %tobool.not.i.not.i171 = icmp eq i32 %call7.i.i170, 0
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %c.i.i163)
   br i1 %tobool.not.i.not.i171, label %if.then.i173, label %unz64local_getShort.exit192.thread290
 
 if.then.i173:                                     ; preds = %unz64local_getByte.exit.i168, %unz64local_getByte.exit.thread.i190
   %conv28.i174 = phi i64 [ %conv24.i191, %unz64local_getByte.exit.thread.i190 ], [ 0, %unz64local_getByte.exit.i168 ]
-  %i.026.i175 = phi i64 [ %106, %unz64local_getByte.exit.thread.i190 ], [ 0, %unz64local_getByte.exit.i168 ]
+  %i.026.i175 = phi i64 [ %108, %unz64local_getByte.exit.thread.i190 ], [ 0, %unz64local_getByte.exit.i168 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %c.i7.i162)
-  %109 = load ptr, ptr %zread_file.i.i102, align 8
-  %110 = load ptr, ptr %opaque.i.i103, align 8
-  %call.i10.i176 = call i64 %109(ptr noundef %110, ptr noundef %101, ptr noundef nonnull %c.i7.i162, i64 noundef 1) #14
-  %111 = and i64 %call.i10.i176, 4294967295
-  %cmp.i11.i177 = icmp eq i64 %111, 1
+  %111 = load ptr, ptr %zread_file.i.i102, align 8
+  %112 = load ptr, ptr %opaque.i.i103, align 8
+  %call.i10.i176 = call i64 %111(ptr noundef %112, ptr noundef %103, ptr noundef nonnull %c.i7.i162, i64 noundef 1) #14
+  %113 = and i64 %call.i10.i176, 4294967295
+  %cmp.i11.i177 = icmp eq i64 %113, 1
   br i1 %cmp.i11.i177, label %unz64local_getShort.exit192.thread, label %unz64local_getShort.exit192
 
 unz64local_getShort.exit192.thread:               ; preds = %if.then.i173
-  %112 = load i8, ptr %c.i7.i162, align 1
+  %114 = load i8, ptr %c.i7.i162, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %c.i7.i162)
-  %conv342.i187 = zext i8 %112 to i64
+  %conv342.i187 = zext i8 %114 to i64
   %shl43.i188 = shl nuw nsw i64 %conv342.i187, 8
   %or44.i189 = or disjoint i64 %shl43.i188, %conv28.i174
   br label %unz64local_getShort.exit192.thread290
 
 unz64local_getShort.exit192:                      ; preds = %if.then.i173
   %zerror_file.i13.i179 = getelementptr inbounds i8, ptr %us, i64 48
-  %113 = load ptr, ptr %zerror_file.i13.i179, align 8
-  %114 = load ptr, ptr %opaque.i.i103, align 8
-  %call7.i14.i180 = call i32 %113(ptr noundef %114, ptr noundef %101) #14
+  %115 = load ptr, ptr %zerror_file.i13.i179, align 8
+  %116 = load ptr, ptr %opaque.i.i103, align 8
+  %call7.i14.i180 = call i32 %115(ptr noundef %116, ptr noundef %103) #14
   %call7.i14.fr.i181 = freeze i32 %call7.i14.i180
   %tobool.not.i15.i182.not = icmp eq i32 %call7.i14.fr.i181, 0
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %c.i7.i162)
   %or.i184 = or disjoint i64 %i.026.i175, %conv28.i174
   %spec.select.i185 = select i1 %tobool.not.i15.i182.not, i64 %or.i184, i64 0
-  %spec.select313 = select i1 %tobool.not.i15.i182.not, i32 %100, i32 -1
+  %spec.select313 = select i1 %tobool.not.i15.i182.not, i32 %102, i32 -1
   br label %unz64local_getShort.exit192.thread290
 
 unz64local_getShort.exit192.thread290:            ; preds = %unz64local_getByte.exit.i168, %unz64local_getShort.exit192, %unz64local_getShort.exit192.thread
-  %115 = phi i64 [ %or44.i189, %unz64local_getShort.exit192.thread ], [ %spec.select.i185, %unz64local_getShort.exit192 ], [ 0, %unz64local_getByte.exit.i168 ]
-  %116 = phi i32 [ %100, %unz64local_getShort.exit192.thread ], [ %spec.select313, %unz64local_getShort.exit192 ], [ -1, %unz64local_getByte.exit.i168 ]
+  %117 = phi i64 [ %or44.i189, %unz64local_getShort.exit192.thread ], [ %spec.select.i185, %unz64local_getShort.exit192 ], [ 0, %unz64local_getByte.exit.i168 ]
+  %118 = phi i32 [ %102, %unz64local_getShort.exit192.thread ], [ %spec.select313, %unz64local_getShort.exit192 ], [ -1, %unz64local_getByte.exit.i168 ]
   %gi127 = getelementptr inbounds i8, ptr %us, i64 104
-  store i64 %115, ptr %gi127, align 8
-  %117 = load ptr, ptr %filestream, align 8
+  store i64 %117, ptr %gi127, align 8
+  %119 = load ptr, ptr %filestream, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %c.i.i194)
-  %118 = load ptr, ptr %zread_file.i.i102, align 8
-  %119 = load ptr, ptr %opaque.i.i103, align 8
-  %call.i.i197 = call i64 %118(ptr noundef %119, ptr noundef %117, ptr noundef nonnull %c.i.i194, i64 noundef 1) #14
-  %120 = and i64 %call.i.i197, 4294967295
-  %cmp.i.i198 = icmp eq i64 %120, 1
+  %120 = load ptr, ptr %zread_file.i.i102, align 8
+  %121 = load ptr, ptr %opaque.i.i103, align 8
+  %call.i.i197 = call i64 %120(ptr noundef %121, ptr noundef %119, ptr noundef nonnull %c.i.i194, i64 noundef 1) #14
+  %122 = and i64 %call.i.i197, 4294967295
+  %cmp.i.i198 = icmp eq i64 %122, 1
   br i1 %cmp.i.i198, label %unz64local_getByte.exit.thread.i221, label %unz64local_getByte.exit.i199
 
 unz64local_getByte.exit.thread.i221:              ; preds = %unz64local_getShort.exit192.thread290
-  %121 = load i8, ptr %c.i.i194, align 1
+  %123 = load i8, ptr %c.i.i194, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %c.i.i194)
-  %conv24.i222 = zext i8 %121 to i64
-  %122 = shl nuw nsw i64 %conv24.i222, 8
+  %conv24.i222 = zext i8 %123 to i64
+  %124 = shl nuw nsw i64 %conv24.i222, 8
   br label %if.then.i204
 
 unz64local_getByte.exit.i199:                     ; preds = %unz64local_getShort.exit192.thread290
   %zerror_file.i.i200 = getelementptr inbounds i8, ptr %us, i64 48
-  %123 = load ptr, ptr %zerror_file.i.i200, align 8
-  %124 = load ptr, ptr %opaque.i.i103, align 8
-  %call7.i.i201 = call i32 %123(ptr noundef %124, ptr noundef %117) #14
+  %125 = load ptr, ptr %zerror_file.i.i200, align 8
+  %126 = load ptr, ptr %opaque.i.i103, align 8
+  %call7.i.i201 = call i32 %125(ptr noundef %126, ptr noundef %119) #14
   %tobool.not.i.not.i202 = icmp eq i32 %call7.i.i201, 0
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %c.i.i194)
   br i1 %tobool.not.i.not.i202, label %if.then.i204, label %unz64local_getShort.exit223.thread295
 
 unz64local_getShort.exit223.thread295:            ; preds = %unz64local_getByte.exit.i199
   store i64 0, ptr %uL, align 8
-  br label %131
+  br label %133
 
 if.then.i204:                                     ; preds = %unz64local_getByte.exit.i199, %unz64local_getByte.exit.thread.i221
   %conv28.i205 = phi i64 [ %conv24.i222, %unz64local_getByte.exit.thread.i221 ], [ 0, %unz64local_getByte.exit.i199 ]
-  %i.026.i206 = phi i64 [ %122, %unz64local_getByte.exit.thread.i221 ], [ 0, %unz64local_getByte.exit.i199 ]
+  %i.026.i206 = phi i64 [ %124, %unz64local_getByte.exit.thread.i221 ], [ 0, %unz64local_getByte.exit.i199 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %c.i7.i193)
-  %125 = load ptr, ptr %zread_file.i.i102, align 8
-  %126 = load ptr, ptr %opaque.i.i103, align 8
-  %call.i10.i207 = call i64 %125(ptr noundef %126, ptr noundef %117, ptr noundef nonnull %c.i7.i193, i64 noundef 1) #14
-  %127 = and i64 %call.i10.i207, 4294967295
-  %cmp.i11.i208 = icmp eq i64 %127, 1
+  %127 = load ptr, ptr %zread_file.i.i102, align 8
+  %128 = load ptr, ptr %opaque.i.i103, align 8
+  %call.i10.i207 = call i64 %127(ptr noundef %128, ptr noundef %119, ptr noundef nonnull %c.i7.i193, i64 noundef 1) #14
+  %129 = and i64 %call.i10.i207, 4294967295
+  %cmp.i11.i208 = icmp eq i64 %129, 1
   br i1 %cmp.i11.i208, label %unz64local_getShort.exit223.thread, label %unz64local_getShort.exit223
 
 unz64local_getShort.exit223.thread:               ; preds = %if.then.i204
-  %128 = load i8, ptr %c.i7.i193, align 1
+  %130 = load i8, ptr %c.i7.i193, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %c.i7.i193)
-  %conv342.i218 = zext i8 %128 to i64
+  %conv342.i218 = zext i8 %130 to i64
   %shl43.i219 = shl nuw nsw i64 %conv342.i218, 8
   %or44.i220 = or disjoint i64 %shl43.i219, %conv28.i205
   store i64 %or44.i220, ptr %uL, align 8
-  br label %131
+  br label %133
 
 unz64local_getShort.exit223:                      ; preds = %if.then.i204
   %zerror_file.i13.i210 = getelementptr inbounds i8, ptr %us, i64 48
-  %129 = load ptr, ptr %zerror_file.i13.i210, align 8
-  %130 = load ptr, ptr %opaque.i.i103, align 8
-  %call7.i14.i211 = call i32 %129(ptr noundef %130, ptr noundef %117) #14
+  %131 = load ptr, ptr %zerror_file.i13.i210, align 8
+  %132 = load ptr, ptr %opaque.i.i103, align 8
+  %call7.i14.i211 = call i32 %131(ptr noundef %132, ptr noundef %119) #14
   %call7.i14.fr.i212 = freeze i32 %call7.i14.i211
   %tobool.not.i15.i213.not = icmp eq i32 %call7.i14.fr.i212, 0
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %c.i7.i193)
   %or.i215 = or disjoint i64 %i.026.i206, %conv28.i205
   %spec.select.i216 = select i1 %tobool.not.i15.i213.not, i64 %or.i215, i64 0
   store i64 %spec.select.i216, ptr %uL, align 8
-  %spec.select314 = select i1 %tobool.not.i15.i213.not, i32 %116, i32 -1
-  br label %131
+  %spec.select314 = select i1 %tobool.not.i15.i213.not, i32 %118, i32 -1
+  br label %133
 
-131:                                              ; preds = %unz64local_getShort.exit223, %unz64local_getShort.exit223.thread, %unz64local_getShort.exit223.thread295
-  %132 = phi i64 [ 0, %unz64local_getShort.exit223.thread295 ], [ %or44.i220, %unz64local_getShort.exit223.thread ], [ %spec.select.i216, %unz64local_getShort.exit223 ]
-  %133 = phi i32 [ -1, %unz64local_getShort.exit223.thread295 ], [ %116, %unz64local_getShort.exit223.thread ], [ %spec.select314, %unz64local_getShort.exit223 ]
-  %134 = load i64, ptr %gi127, align 8
-  %cmp137 = icmp ne i64 %132, %134
-  %cmp139 = icmp ne i64 %99, 0
+133:                                              ; preds = %unz64local_getShort.exit223, %unz64local_getShort.exit223.thread, %unz64local_getShort.exit223.thread295
+  %134 = phi i64 [ 0, %unz64local_getShort.exit223.thread295 ], [ %or44.i220, %unz64local_getShort.exit223.thread ], [ %spec.select.i216, %unz64local_getShort.exit223 ]
+  %135 = phi i32 [ -1, %unz64local_getShort.exit223.thread295 ], [ %118, %unz64local_getShort.exit223.thread ], [ %spec.select314, %unz64local_getShort.exit223 ]
+  %136 = load i64, ptr %gi127, align 8
+  %cmp137 = icmp ne i64 %134, %136
+  %cmp139 = icmp ne i64 %101, 0
   %or.cond2 = select i1 %cmp137, i1 true, i1 %cmp139
-  %cmp141 = icmp ne i64 %83, 0
+  %cmp141 = icmp ne i64 %85, 0
   %or.cond3 = select i1 %or.cond2, i1 true, i1 %cmp141
-  %err.19 = select i1 %or.cond3, i32 -103, i32 %133
-  %135 = load ptr, ptr %filestream, align 8
-  %call146 = call fastcc i32 @unz64local_getLong(ptr noundef nonnull %us, ptr noundef %135, ptr noundef nonnull %uL)
-  %136 = load i64, ptr %uL, align 8
-  %size_central_dir150 = getelementptr inbounds i8, ptr %us, i64 160
-  store i64 %136, ptr %size_central_dir150, align 8
+  %err.19 = select i1 %or.cond3, i32 -103, i32 %135
   %137 = load ptr, ptr %filestream, align 8
-  %call153 = call fastcc i32 @unz64local_getLong(ptr noundef nonnull %us, ptr noundef %137, ptr noundef nonnull %uL)
-  %138 = or i32 %call153, %call146
-  %139 = icmp eq i32 %138, 0
-  %err.21 = select i1 %139, i32 %err.19, i32 -1
-  %140 = load i64, ptr %uL, align 8
+  %call146 = call fastcc i32 @unz64local_getLong(ptr noundef nonnull %us, ptr noundef %137, ptr noundef nonnull %uL)
+  %138 = load i64, ptr %uL, align 8
+  %size_central_dir150 = getelementptr inbounds i8, ptr %us, i64 160
+  store i64 %138, ptr %size_central_dir150, align 8
+  %139 = load ptr, ptr %filestream, align 8
+  %call153 = call fastcc i32 @unz64local_getLong(ptr noundef nonnull %us, ptr noundef %139, ptr noundef nonnull %uL)
+  %140 = or i32 %call153, %call146
+  %141 = icmp eq i32 %140, 0
+  %err.21 = select i1 %141, i32 %err.19, i32 -1
+  %142 = load i64, ptr %uL, align 8
   %offset_central_dir157 = getelementptr inbounds i8, ptr %us, i64 168
-  store i64 %140, ptr %offset_central_dir157, align 8
-  %141 = load ptr, ptr %filestream, align 8
+  store i64 %142, ptr %offset_central_dir157, align 8
+  %143 = load ptr, ptr %filestream, align 8
   %size_comment161 = getelementptr inbounds i8, ptr %us, i64 112
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %c.i.i225)
-  %142 = load ptr, ptr %zread_file.i.i102, align 8
-  %143 = load ptr, ptr %opaque.i.i103, align 8
-  %call.i.i228 = call i64 %142(ptr noundef %143, ptr noundef %141, ptr noundef nonnull %c.i.i225, i64 noundef 1) #14
-  %144 = and i64 %call.i.i228, 4294967295
-  %cmp.i.i229 = icmp eq i64 %144, 1
+  %144 = load ptr, ptr %zread_file.i.i102, align 8
+  %145 = load ptr, ptr %opaque.i.i103, align 8
+  %call.i.i228 = call i64 %144(ptr noundef %145, ptr noundef %143, ptr noundef nonnull %c.i.i225, i64 noundef 1) #14
+  %146 = and i64 %call.i.i228, 4294967295
+  %cmp.i.i229 = icmp eq i64 %146, 1
   br i1 %cmp.i.i229, label %unz64local_getByte.exit.thread.i252, label %unz64local_getByte.exit.i230
 
-unz64local_getByte.exit.thread.i252:              ; preds = %131
-  %145 = load i8, ptr %c.i.i225, align 1
+unz64local_getByte.exit.thread.i252:              ; preds = %133
+  %147 = load i8, ptr %c.i.i225, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %c.i.i225)
-  %conv24.i253 = zext i8 %145 to i64
-  %146 = shl nuw nsw i64 %conv24.i253, 8
+  %conv24.i253 = zext i8 %147 to i64
+  %148 = shl nuw nsw i64 %conv24.i253, 8
   br label %if.then.i235
 
-unz64local_getByte.exit.i230:                     ; preds = %131
+unz64local_getByte.exit.i230:                     ; preds = %133
   %zerror_file.i.i231 = getelementptr inbounds i8, ptr %us, i64 48
-  %147 = load ptr, ptr %zerror_file.i.i231, align 8
-  %148 = load ptr, ptr %opaque.i.i103, align 8
-  %call7.i.i232 = call i32 %147(ptr noundef %148, ptr noundef %141) #14
+  %149 = load ptr, ptr %zerror_file.i.i231, align 8
+  %150 = load ptr, ptr %opaque.i.i103, align 8
+  %call7.i.i232 = call i32 %149(ptr noundef %150, ptr noundef %143) #14
   %tobool.not.i.not.i233 = icmp eq i32 %call7.i.i232, 0
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %c.i.i225)
   br i1 %tobool.not.i.not.i233, label %if.then.i235, label %unz64local_getShort.exit254.thread300
@@ -845,19 +847,19 @@ unz64local_getShort.exit254.thread300:            ; preds = %unz64local_getByte.
 
 if.then.i235:                                     ; preds = %unz64local_getByte.exit.i230, %unz64local_getByte.exit.thread.i252
   %conv28.i236 = phi i64 [ %conv24.i253, %unz64local_getByte.exit.thread.i252 ], [ 0, %unz64local_getByte.exit.i230 ]
-  %i.026.i237 = phi i64 [ %146, %unz64local_getByte.exit.thread.i252 ], [ 0, %unz64local_getByte.exit.i230 ]
+  %i.026.i237 = phi i64 [ %148, %unz64local_getByte.exit.thread.i252 ], [ 0, %unz64local_getByte.exit.i230 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %c.i7.i224)
-  %149 = load ptr, ptr %zread_file.i.i102, align 8
-  %150 = load ptr, ptr %opaque.i.i103, align 8
-  %call.i10.i238 = call i64 %149(ptr noundef %150, ptr noundef %141, ptr noundef nonnull %c.i7.i224, i64 noundef 1) #14
-  %151 = and i64 %call.i10.i238, 4294967295
-  %cmp.i11.i239 = icmp eq i64 %151, 1
+  %151 = load ptr, ptr %zread_file.i.i102, align 8
+  %152 = load ptr, ptr %opaque.i.i103, align 8
+  %call.i10.i238 = call i64 %151(ptr noundef %152, ptr noundef %143, ptr noundef nonnull %c.i7.i224, i64 noundef 1) #14
+  %153 = and i64 %call.i10.i238, 4294967295
+  %cmp.i11.i239 = icmp eq i64 %153, 1
   br i1 %cmp.i11.i239, label %unz64local_getShort.exit254.thread, label %unz64local_getShort.exit254
 
 unz64local_getShort.exit254.thread:               ; preds = %if.then.i235
-  %152 = load i8, ptr %c.i7.i224, align 1
+  %154 = load i8, ptr %c.i7.i224, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %c.i7.i224)
-  %conv342.i249 = zext i8 %152 to i64
+  %conv342.i249 = zext i8 %154 to i64
   %shl43.i250 = shl nuw nsw i64 %conv342.i249, 8
   %or44.i251 = or disjoint i64 %shl43.i250, %conv28.i236
   store i64 %or44.i251, ptr %size_comment161, align 8
@@ -865,9 +867,9 @@ unz64local_getShort.exit254.thread:               ; preds = %if.then.i235
 
 unz64local_getShort.exit254:                      ; preds = %if.then.i235
   %zerror_file.i13.i241 = getelementptr inbounds i8, ptr %us, i64 48
-  %153 = load ptr, ptr %zerror_file.i13.i241, align 8
-  %154 = load ptr, ptr %opaque.i.i103, align 8
-  %call7.i14.i242 = call i32 %153(ptr noundef %154, ptr noundef %141) #14
+  %155 = load ptr, ptr %zerror_file.i13.i241, align 8
+  %156 = load ptr, ptr %opaque.i.i103, align 8
+  %call7.i14.i242 = call i32 %155(ptr noundef %156, ptr noundef %143) #14
   %call7.i14.fr.i243 = freeze i32 %call7.i14.i242
   %tobool.not.i15.i244.not = icmp eq i32 %call7.i14.fr.i243, 0
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %c.i7.i224)
@@ -877,13 +879,13 @@ unz64local_getShort.exit254:                      ; preds = %if.then.i235
   br i1 %tobool.not.i15.i244.not, label %if.end166, label %if.then174
 
 if.end166:                                        ; preds = %unz64local_getShort.exit254, %unz64local_getShort.exit254.thread, %unz64local_getShort.exit51.thread267
-  %central_pos.0 = phi i64 [ %9, %unz64local_getShort.exit51.thread267 ], [ %retval.0.i54272, %unz64local_getShort.exit254.thread ], [ %retval.0.i54272, %unz64local_getShort.exit254 ]
+  %central_pos.0 = phi i64 [ %10, %unz64local_getShort.exit51.thread267 ], [ %retval.0.i54272, %unz64local_getShort.exit254.thread ], [ %retval.0.i54272, %unz64local_getShort.exit254 ]
   %err.22 = phi i32 [ %err.11, %unz64local_getShort.exit51.thread267 ], [ %err.21, %unz64local_getShort.exit254.thread ], [ %err.21, %unz64local_getShort.exit254 ]
   %offset_central_dir167 = getelementptr inbounds i8, ptr %us, i64 168
-  %155 = load i64, ptr %offset_central_dir167, align 8
+  %157 = load i64, ptr %offset_central_dir167, align 8
   %size_central_dir168 = getelementptr inbounds i8, ptr %us, i64 160
-  %156 = load i64, ptr %size_central_dir168, align 8
-  %add = add i64 %156, %155
+  %158 = load i64, ptr %size_central_dir168, align 8
+  %add = add i64 %158, %157
   %cmp169 = icmp uge i64 %central_pos.0, %add
   %cmp173.not16 = icmp eq i32 %err.22, 0
   %cmp173.not = select i1 %cmp169, i1 %cmp173.not16, i1 false
@@ -891,11 +893,11 @@ if.end166:                                        ; preds = %unz64local_getShort
 
 if.then174:                                       ; preds = %unz64local_getShort.exit254.thread300, %unz64local_getShort.exit254, %if.end166
   %zclose_file = getelementptr inbounds i8, ptr %us, i64 40
-  %157 = load ptr, ptr %zclose_file, align 8
+  %159 = load ptr, ptr %zclose_file, align 8
   %opaque = getelementptr inbounds i8, ptr %us, i64 56
-  %158 = load ptr, ptr %opaque, align 8
-  %159 = load ptr, ptr %filestream, align 8
-  %call180 = call i32 %157(ptr noundef %158, ptr noundef %159) #14
+  %160 = load ptr, ptr %opaque, align 8
+  %161 = load ptr, ptr %filestream, align 8
+  %call180 = call i32 %159(ptr noundef %160, ptr noundef %161) #14
   br label %return
 
 if.end181:                                        ; preds = %if.end166
@@ -915,9 +917,9 @@ if.end181:                                        ; preds = %if.end166
 unzGoToFirstFile.exit:                            ; preds = %if.end181
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(336) %call186, ptr noundef nonnull align 8 dereferenceable(336) %us, i64 336, i1 false)
   %offset_central_dir.i = getelementptr inbounds i8, ptr %call186, i64 168
-  %160 = load i64, ptr %offset_central_dir.i, align 8
+  %162 = load i64, ptr %offset_central_dir.i, align 8
   %pos_in_central_dir.i = getelementptr inbounds i8, ptr %call186, i64 136
-  store i64 %160, ptr %pos_in_central_dir.i, align 8
+  store i64 %162, ptr %pos_in_central_dir.i, align 8
   %num_file.i = getelementptr inbounds i8, ptr %call186, i64 128
   store i64 0, ptr %num_file.i, align 8
   %cur_file_info.i = getelementptr inbounds i8, ptr %call186, i64 176

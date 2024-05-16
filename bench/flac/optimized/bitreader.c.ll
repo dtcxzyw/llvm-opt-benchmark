@@ -199,17 +199,16 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %shl.i.i = shl i32 %crc.010.i.i, 8
   %and.i.i = and i32 %shl.i.i, 65280
   %shr.i.i = lshr i32 %crc.010.i.i, 8
-  %8 = and i64 %7, 4294967232
-  %cmp2.i.i = icmp eq i64 %8, 0
+  %cmp2.i.i = icmp ult i64 %7, 64
   %shr3.i.i = lshr i64 %4, %7
-  %9 = trunc i64 %shr3.i.i to i32
-  %10 = and i32 %9, 255
-  %conv.i.i = select i1 %cmp2.i.i, i32 %10, i32 0
+  %8 = trunc i64 %shr3.i.i to i32
+  %9 = and i32 %8, 255
+  %conv.i.i = select i1 %cmp2.i.i, i32 %9, i32 0
   %xor.i.i = xor i32 %conv.i.i, %shr.i.i
   %idxprom.i.i = zext nneg i32 %xor.i.i to i64
   %arrayidx.i.i = getelementptr inbounds [256 x i16], ptr @FLAC__crc16_table, i64 0, i64 %idxprom.i.i
-  %11 = load i16, ptr %arrayidx.i.i, align 2
-  %conv5.i.i = zext i16 %11 to i32
+  %10 = load i16, ptr %arrayidx.i.i, align 2
+  %conv5.i.i = zext i16 %10 to i32
   %xor6.i.i = xor i32 %and.i.i, %conv5.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 8
   %cmp.i.i = icmp ult i64 %indvars.iv.i.i, 56
@@ -222,18 +221,18 @@ crc16_update_word_.exit.i:                        ; preds = %for.body.i.i, %if.t
   br label %if.end.i
 
 if.end.i:                                         ; preds = %crc16_update_word_.exit.i, %land.lhs.true.i, %entry
-  %12 = phi i32 [ %inc.i, %crc16_update_word_.exit.i ], [ %1, %land.lhs.true.i ], [ %1, %entry ]
-  %cmp4.i = icmp ugt i32 %0, %12
+  %11 = phi i32 [ %inc.i, %crc16_update_word_.exit.i ], [ %1, %land.lhs.true.i ], [ %1, %entry ]
+  %cmp4.i = icmp ugt i32 %0, %11
   br i1 %cmp4.i, label %if.then5.i, label %crc16_update_block_.exit
 
 if.then5.i:                                       ; preds = %if.end.i
-  %13 = load ptr, ptr %br, align 8
-  %idx.ext.i = zext i32 %12 to i64
-  %add.ptr.i = getelementptr inbounds i64, ptr %13, i64 %idx.ext.i
-  %sub.i = sub i32 %0, %12
+  %12 = load ptr, ptr %br, align 8
+  %idx.ext.i = zext i32 %11 to i64
+  %add.ptr.i = getelementptr inbounds i64, ptr %12, i64 %idx.ext.i
+  %sub.i = sub i32 %0, %11
   %read_crc16.i = getelementptr inbounds i8, ptr %br, i64 28
-  %14 = load i32, ptr %read_crc16.i, align 4
-  %conv.i = trunc i32 %14 to i16
+  %13 = load i32, ptr %read_crc16.i, align 4
+  %conv.i = trunc i32 %13 to i16
   %call.i = tail call zeroext i16 @FLAC__crc16_update_words64(ptr noundef %add.ptr.i, i32 noundef %sub.i, i16 noundef zeroext %conv.i) #18
   %conv10.i = zext i16 %call.i to i32
   store i32 %conv10.i, ptr %read_crc16.i, align 4
@@ -242,19 +241,19 @@ if.then5.i:                                       ; preds = %if.end.i
 crc16_update_block_.exit:                         ; preds = %if.end.i, %if.then5.i
   store i32 0, ptr %crc16_offset.i, align 8
   %consumed_bits = getelementptr inbounds i8, ptr %br, i64 24
-  %15 = load i32, ptr %consumed_bits, align 8
-  %tobool.not = icmp eq i32 %15, 0
+  %14 = load i32, ptr %consumed_bits, align 8
+  %tobool.not = icmp eq i32 %14, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %crc16_update_block_.exit
-  %16 = load ptr, ptr %br, align 8
-  %17 = load i32, ptr %consumed_words.i, align 4
-  %idxprom = zext i32 %17 to i64
-  %arrayidx = getelementptr inbounds i64, ptr %16, i64 %idxprom
-  %18 = load i64, ptr %arrayidx, align 8
+  %15 = load ptr, ptr %br, align 8
+  %16 = load i32, ptr %consumed_words.i, align 4
+  %idxprom = zext i32 %16 to i64
+  %arrayidx = getelementptr inbounds i64, ptr %15, i64 %idxprom
+  %17 = load i64, ptr %arrayidx, align 8
   %crc16_align = getelementptr inbounds i8, ptr %br, i64 36
   %crc16_align.promoted = load i32, ptr %crc16_align, align 4
-  %cmp12 = icmp ult i32 %crc16_align.promoted, %15
+  %cmp12 = icmp ult i32 %crc16_align.promoted, %14
   br i1 %cmp12, label %for.body.lr.ph, label %if.end
 
 for.body.lr.ph:                                   ; preds = %if.then
@@ -263,32 +262,32 @@ for.body.lr.ph:                                   ; preds = %if.then
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %19 = phi i32 [ %read_crc16.promoted, %for.body.lr.ph ], [ %xor9, %for.body ]
-  %20 = phi i32 [ %crc16_align.promoted, %for.body.lr.ph ], [ %add, %for.body ]
-  %shl = shl i32 %19, 8
+  %18 = phi i32 [ %read_crc16.promoted, %for.body.lr.ph ], [ %xor9, %for.body ]
+  %19 = phi i32 [ %crc16_align.promoted, %for.body.lr.ph ], [ %add, %for.body ]
+  %shl = shl i32 %18, 8
   %and = and i32 %shl, 65280
-  %shr = lshr i32 %19, 8
-  %sub = sub i32 56, %20
+  %shr = lshr i32 %18, 8
+  %sub = sub i32 56, %19
   %sh_prom = zext nneg i32 %sub to i64
-  %shr4 = lshr i64 %18, %sh_prom
-  %21 = trunc i64 %shr4 to i32
-  %conv = and i32 %21, 255
+  %shr4 = lshr i64 %17, %sh_prom
+  %20 = trunc i64 %shr4 to i32
+  %conv = and i32 %20, 255
   %xor = xor i32 %shr, %conv
   %idxprom6 = zext nneg i32 %xor to i64
   %arrayidx7 = getelementptr inbounds [256 x i16], ptr @FLAC__crc16_table, i64 0, i64 %idxprom6
-  %22 = load i16, ptr %arrayidx7, align 2
-  %conv8 = zext i16 %22 to i32
+  %21 = load i16, ptr %arrayidx7, align 2
+  %conv8 = zext i16 %21 to i32
   %xor9 = xor i32 %and, %conv8
   store i32 %xor9, ptr %read_crc16, align 4
-  %add = add i32 %20, 8
+  %add = add i32 %19, 8
   store i32 %add, ptr %crc16_align, align 4
-  %cmp = icmp ult i32 %add, %15
+  %cmp = icmp ult i32 %add, %14
   br i1 %cmp, label %for.body, label %if.end, !llvm.loop !6
 
 if.end:                                           ; preds = %for.body, %if.then, %crc16_update_block_.exit
   %read_crc1612 = getelementptr inbounds i8, ptr %br, i64 28
-  %23 = load i32, ptr %read_crc1612, align 4
-  %conv13 = trunc i32 %23 to i16
+  %22 = load i32, ptr %read_crc1612, align 4
+  %conv13 = trunc i32 %22 to i16
   ret i16 %conv13
 }
 
@@ -627,17 +626,16 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %shl.i.i = shl i32 %crc.010.i.i, 8
   %and.i.i = and i32 %shl.i.i, 65280
   %shr.i.i = lshr i32 %crc.010.i.i, 8
-  %7 = and i64 %6, 4294967232
-  %cmp2.i.i = icmp eq i64 %7, 0
+  %cmp2.i.i = icmp ult i64 %6, 64
   %shr3.i.i = lshr i64 %3, %6
-  %8 = trunc i64 %shr3.i.i to i32
-  %9 = and i32 %8, 255
-  %conv.i.i = select i1 %cmp2.i.i, i32 %9, i32 0
+  %7 = trunc i64 %shr3.i.i to i32
+  %8 = and i32 %7, 255
+  %conv.i.i = select i1 %cmp2.i.i, i32 %8, i32 0
   %xor.i.i = xor i32 %conv.i.i, %shr.i.i
   %idxprom.i.i = zext nneg i32 %xor.i.i to i64
   %arrayidx.i.i = getelementptr inbounds [256 x i16], ptr @FLAC__crc16_table, i64 0, i64 %idxprom.i.i
-  %10 = load i16, ptr %arrayidx.i.i, align 2
-  %conv5.i.i = zext i16 %10 to i32
+  %9 = load i16, ptr %arrayidx.i.i, align 2
+  %conv5.i.i = zext i16 %9 to i32
   %xor6.i.i = xor i32 %and.i.i, %conv5.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 8
   %cmp.i.i = icmp ult i64 %indvars.iv.i.i, 56
@@ -651,17 +649,17 @@ crc16_update_word_.exit.i:                        ; preds = %for.body.i.i, %if.t
 
 if.end.i:                                         ; preds = %if.then.if.end.i_crit_edge, %crc16_update_word_.exit.i, %land.lhs.true.i
   %.pre51 = phi ptr [ %.pre51.pre56, %crc16_update_word_.exit.i ], [ %.pre51.pre56, %land.lhs.true.i ], [ %.pre51.pre, %if.then.if.end.i_crit_edge ]
-  %11 = phi i32 [ %inc.i, %crc16_update_word_.exit.i ], [ %1, %land.lhs.true.i ], [ %1, %if.then.if.end.i_crit_edge ]
-  %cmp4.i = icmp ugt i32 %0, %11
+  %10 = phi i32 [ %inc.i, %crc16_update_word_.exit.i ], [ %1, %land.lhs.true.i ], [ %1, %if.then.if.end.i_crit_edge ]
+  %cmp4.i = icmp ugt i32 %0, %10
   br i1 %cmp4.i, label %if.then5.i, label %crc16_update_block_.exit
 
 if.then5.i:                                       ; preds = %if.end.i
-  %idx.ext.i = zext i32 %11 to i64
+  %idx.ext.i = zext i32 %10 to i64
   %add.ptr.i = getelementptr inbounds i64, ptr %.pre51, i64 %idx.ext.i
-  %sub.i = sub i32 %0, %11
+  %sub.i = sub i32 %0, %10
   %read_crc16.i = getelementptr inbounds i8, ptr %br, i64 28
-  %12 = load i32, ptr %read_crc16.i, align 4
-  %conv.i = trunc i32 %12 to i16
+  %11 = load i32, ptr %read_crc16.i, align 4
+  %conv.i = trunc i32 %11 to i16
   %call.i = tail call zeroext i16 @FLAC__crc16_update_words64(ptr noundef %add.ptr.i, i32 noundef %sub.i, i16 noundef zeroext %conv.i) #18
   %conv10.i = zext i16 %call.i to i32
   store i32 %conv10.i, ptr %read_crc16.i, align 4
@@ -670,100 +668,100 @@ if.then5.i:                                       ; preds = %if.end.i
   br label %crc16_update_block_.exit
 
 crc16_update_block_.exit:                         ; preds = %if.end.i, %if.then5.i
-  %13 = phi ptr [ %.pre51, %if.end.i ], [ %.pre50, %if.then5.i ]
-  %14 = phi i32 [ %0, %if.end.i ], [ %.pre, %if.then5.i ]
+  %12 = phi ptr [ %.pre51, %if.end.i ], [ %.pre50, %if.then5.i ]
+  %13 = phi i32 [ %0, %if.end.i ], [ %.pre, %if.then5.i ]
   store i32 0, ptr %crc16_offset.i, align 8
   %words = getelementptr inbounds i8, ptr %br, i64 12
-  %15 = load i32, ptr %words, align 4
+  %14 = load i32, ptr %words, align 4
   %bytes2 = getelementptr inbounds i8, ptr %br, i64 16
-  %16 = load i32, ptr %bytes2, align 8
-  %tobool.not = icmp ne i32 %16, 0
+  %15 = load i32, ptr %bytes2, align 8
+  %tobool.not = icmp ne i32 %15, 0
   %cond = zext i1 %tobool.not to i32
-  %idx.ext = zext i32 %14 to i64
-  %add.ptr = getelementptr inbounds i64, ptr %13, i64 %idx.ext
-  %add = sub i32 %15, %14
+  %idx.ext = zext i32 %13 to i64
+  %add.ptr = getelementptr inbounds i64, ptr %12, i64 %idx.ext
+  %add = sub i32 %14, %13
   %sub = add i32 %add, %cond
   %mul = shl i32 %sub, 3
   %conv = zext i32 %mul to i64
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %13, ptr align 8 %add.ptr, i64 %conv, i1 false)
-  %17 = load i32, ptr %words, align 4
-  %sub5 = sub i32 %17, %14
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %12, ptr align 8 %add.ptr, i64 %conv, i1 false)
+  %16 = load i32, ptr %words, align 4
+  %sub5 = sub i32 %16, %13
   store i32 %sub5, ptr %words, align 4
   store i32 0, ptr %consumed_words, align 4
   br label %if.end
 
 if.end:                                           ; preds = %entry.if.end_crit_edge, %crc16_update_block_.exit
-  %18 = phi i32 [ %.pre52, %entry.if.end_crit_edge ], [ %sub5, %crc16_update_block_.exit ]
+  %17 = phi i32 [ %.pre52, %entry.if.end_crit_edge ], [ %sub5, %crc16_update_block_.exit ]
   %capacity = getelementptr inbounds i8, ptr %br, i64 8
-  %19 = load i32, ptr %capacity, align 8
+  %18 = load i32, ptr %capacity, align 8
   %words7 = getelementptr inbounds i8, ptr %br, i64 12
-  %sub8 = sub i32 %19, %18
+  %sub8 = sub i32 %18, %17
   %mul9 = shl i32 %sub8, 3
   %bytes10 = getelementptr inbounds i8, ptr %br, i64 16
-  %20 = load i32, ptr %bytes10, align 8
-  %sub11 = sub i32 %mul9, %20
+  %19 = load i32, ptr %bytes10, align 8
+  %sub11 = sub i32 %mul9, %19
   %conv12 = zext i32 %sub11 to i64
   store i64 %conv12, ptr %bytes, align 8
-  %cmp13 = icmp eq i32 %mul9, %20
+  %cmp13 = icmp eq i32 %mul9, %19
   br i1 %cmp13, label %return, label %if.end16
 
 if.end16:                                         ; preds = %if.end
-  %21 = load ptr, ptr %br, align 8
-  %idx.ext19 = zext i32 %18 to i64
-  %add.ptr20 = getelementptr inbounds i64, ptr %21, i64 %idx.ext19
-  %idx.ext22 = zext i32 %20 to i64
+  %20 = load ptr, ptr %br, align 8
+  %idx.ext19 = zext i32 %17 to i64
+  %add.ptr20 = getelementptr inbounds i64, ptr %20, i64 %idx.ext19
+  %idx.ext22 = zext i32 %19 to i64
   %add.ptr23 = getelementptr inbounds i8, ptr %add.ptr20, i64 %idx.ext22
-  %22 = load i64, ptr %add.ptr20, align 8
-  %tobool27.not = icmp eq i32 %20, 0
+  %21 = load i64, ptr %add.ptr20, align 8
+  %tobool27.not = icmp eq i32 %19, 0
   br i1 %tobool27.not, label %if.end37, label %if.then28
 
 if.then28:                                        ; preds = %if.end16
-  %23 = tail call i64 @llvm.bswap.i64(i64 %22)
-  store i64 %23, ptr %add.ptr20, align 8
+  %22 = tail call i64 @llvm.bswap.i64(i64 %21)
+  store i64 %22, ptr %add.ptr20, align 8
   br label %if.end37
 
 if.end37:                                         ; preds = %if.then28, %if.end16
   %read_callback = getelementptr inbounds i8, ptr %br, i64 56
-  %24 = load ptr, ptr %read_callback, align 8
+  %23 = load ptr, ptr %read_callback, align 8
   %client_data = getelementptr inbounds i8, ptr %br, i64 64
-  %25 = load ptr, ptr %client_data, align 8
-  %call = call i32 %24(ptr noundef nonnull %add.ptr23, ptr noundef nonnull %bytes, ptr noundef %25) #18
+  %24 = load ptr, ptr %client_data, align 8
+  %call = call i32 %23(ptr noundef nonnull %add.ptr23, ptr noundef nonnull %bytes, ptr noundef %24) #18
   %tobool38.not = icmp eq i32 %call, 0
   br i1 %tobool38.not, label %if.then39, label %if.end44
 
 if.then39:                                        ; preds = %if.end37
-  %26 = load ptr, ptr %br, align 8
-  %27 = load i32, ptr %words7, align 4
-  %idxprom42 = zext i32 %27 to i64
-  %arrayidx43 = getelementptr inbounds i64, ptr %26, i64 %idxprom42
-  store i64 %22, ptr %arrayidx43, align 8
+  %25 = load ptr, ptr %br, align 8
+  %26 = load i32, ptr %words7, align 4
+  %idxprom42 = zext i32 %26 to i64
+  %arrayidx43 = getelementptr inbounds i64, ptr %25, i64 %idxprom42
+  store i64 %21, ptr %arrayidx43, align 8
   br label %return
 
 if.end44:                                         ; preds = %if.end37
-  %28 = load i32, ptr %words7, align 4
-  %mul46 = shl i32 %28, 3
-  %29 = load i32, ptr %bytes10, align 8
-  %30 = load i64, ptr %bytes, align 8
-  %conv49 = trunc i64 %30 to i32
-  %add48 = add i32 %29, 7
+  %27 = load i32, ptr %words7, align 4
+  %mul46 = shl i32 %27, 3
+  %28 = load i32, ptr %bytes10, align 8
+  %29 = load i64, ptr %bytes, align 8
+  %conv49 = trunc i64 %29 to i32
+  %add48 = add i32 %28, 7
   %add50 = add i32 %add48, %mul46
   %add51 = add i32 %add50, %conv49
   %div45 = lshr i32 %add51, 3
-  %cmp5347 = icmp ult i32 %28, %div45
+  %cmp5347 = icmp ult i32 %27, %div45
   br i1 %cmp5347, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %if.end44
-  %31 = zext nneg i32 %28 to i64
+  %30 = zext nneg i32 %27 to i64
   %wide.trip.count = zext nneg i32 %div45 to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
-  %indvars.iv = phi i64 [ %31, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %32 = load ptr, ptr %br, align 8
-  %arrayidx57 = getelementptr inbounds i64, ptr %32, i64 %indvars.iv
-  %33 = load i64, ptr %arrayidx57, align 8
-  %34 = call i64 @llvm.bswap.i64(i64 %33)
-  store i64 %34, ptr %arrayidx57, align 8
+  %indvars.iv = phi i64 [ %30, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
+  %31 = load ptr, ptr %br, align 8
+  %arrayidx57 = getelementptr inbounds i64, ptr %31, i64 %indvars.iv
+  %32 = load i64, ptr %arrayidx57, align 8
+  %33 = call i64 @llvm.bswap.i64(i64 %32)
+  store i64 %33, ptr %arrayidx57, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !8
@@ -779,8 +777,8 @@ for.end.loopexit:                                 ; preds = %for.body
 for.end:                                          ; preds = %for.end.loopexit, %if.end44
   %conv65.pre-phi = phi i32 [ %.pre59, %for.end.loopexit ], [ %conv49, %if.end44 ]
   %mul62.pre-phi = phi i32 [ %.pre58, %for.end.loopexit ], [ %mul46, %if.end44 ]
-  %35 = phi i32 [ %.pre54, %for.end.loopexit ], [ %29, %if.end44 ]
-  %add64 = add i32 %mul62.pre-phi, %35
+  %34 = phi i32 [ %.pre54, %for.end.loopexit ], [ %28, %if.end44 ]
+  %add64 = add i32 %mul62.pre-phi, %34
   %add66 = add i32 %add64, %conv65.pre-phi
   %div6746 = lshr i32 %add66, 3
   store i32 %div6746, ptr %words7, align 4
@@ -1506,7 +1504,7 @@ while.body13:                                     ; preds = %while.body13.lr.ph,
   %cwords.0108 = phi i32 [ %cwords.0.ph, %while.body13.lr.ph ], [ %cwords.3, %if.end59 ]
   %6 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %b.0110, i1 false)
   %cast.i.i = trunc nuw nsw i64 %6 to i32
-  %cmp15 = icmp eq i32 %cast.i.i, 64
+  %cmp15 = icmp eq i64 %b.0110, 0
   br i1 %cmp15, label %do.body, label %if.end25
 
 do.body:                                          ; preds = %while.body13, %if.end19
@@ -1524,7 +1522,7 @@ if.end19:                                         ; preds = %do.body
   %9 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %8, i1 false)
   %cast.i.i92 = trunc nuw nsw i64 %9 to i32
   %add = add i32 %x.0, %cast.i.i92
-  %cmp24 = icmp eq i32 %cast.i.i92, 64
+  %cmp24 = icmp eq i64 %8, 0
   br i1 %cmp24, label %do.body, label %if.end25, !llvm.loop !17
 
 if.end25:                                         ; preds = %if.end19, %while.body13
@@ -1761,7 +1759,7 @@ while.body13:                                     ; preds = %while.body13.lr.ph,
   %cwords.0108 = phi i32 [ %cwords.0.ph, %while.body13.lr.ph ], [ %cwords.3, %if.end59 ]
   %6 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %b.0110, i1 false)
   %cast.i.i = trunc nuw nsw i64 %6 to i32
-  %cmp15 = icmp eq i32 %cast.i.i, 64
+  %cmp15 = icmp eq i64 %b.0110, 0
   br i1 %cmp15, label %do.body, label %if.end25
 
 do.body:                                          ; preds = %while.body13, %if.end19
@@ -1779,7 +1777,7 @@ if.end19:                                         ; preds = %do.body
   %9 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %8, i1 false)
   %cast.i.i92 = trunc nuw nsw i64 %9 to i32
   %add = add i32 %x.0, %cast.i.i92
-  %cmp24 = icmp eq i32 %cast.i.i92, 64
+  %cmp24 = icmp eq i64 %8, 0
   br i1 %cmp24, label %do.body, label %if.end25, !llvm.loop !21
 
 if.end25:                                         ; preds = %if.end19, %while.body13

@@ -3204,7 +3204,7 @@ if.else.i:                                        ; preds = %for.body.i
   %add.ptr.i = getelementptr inbounds i8, ptr %in.addr.0.lcssa.i, i64 %call.i
   %10 = load i8, ptr %add.ptr.i, align 1
   %cmp15.i = icmp eq i8 %10, 91
-  br i1 %cmp15.i, label %if.then16.i, label %_ZN10ODDLParser13OpenDDLParser22parsePrimitiveDataTypeEPcS1_RNS_5Value9ValueTypeERm.exit
+  br i1 %cmp15.i, label %if.then16.i, label %if.then5
 
 if.then16.i:                                      ; preds = %if.else.i
   %incdec.ptr.i29 = getelementptr inbounds i8, ptr %add.ptr.i, i64 1
@@ -3227,15 +3227,11 @@ if.then23.i:                                      ; preds = %while.body.i31
   %call24.i = tail call i32 @atoi(ptr nocapture noundef nonnull %incdec.ptr.i29) #30
   %conv25.i = sext i32 %call24.i to i64
   %incdec.ptr26.i = getelementptr inbounds i8, ptr %in.addr.0.i, i64 2
-  br label %_ZN10ODDLParser13OpenDDLParser22parsePrimitiveDataTypeEPcS1_RNS_5Value9ValueTypeERm.exit
+  br label %if.then5
 
-_ZN10ODDLParser13OpenDDLParser22parsePrimitiveDataTypeEPcS1_RNS_5Value9ValueTypeERm.exit: ; preds = %if.else.i, %if.then23.i
+if.then5:                                         ; preds = %if.then23.i, %if.else.i
   %arrayLen.0 = phi i64 [ %conv25.i, %if.then23.i ], [ 1, %if.else.i ]
   %retval.0.i28 = phi ptr [ %incdec.ptr26.i, %if.then23.i ], [ %add.ptr.i, %if.else.i ]
-  %cmp.not = icmp eq i32 %conv.i32, -1
-  br i1 %cmp.not, label %if.else39, label %if.then5
-
-if.then5:                                         ; preds = %_ZN10ODDLParser13OpenDDLParser22parsePrimitiveDataTypeEPcS1_RNS_5Value9ValueTypeERm.exit
   %cmp.not8.i33 = icmp eq ptr %retval.0.i28, %end
   br i1 %cmp.not8.i33, label %_ZN10ODDLParser16lookForNextTokenIcEEPT_S2_S2_.exit44thread-pre-split, label %land.rhs.preheader.i34
 
@@ -3525,8 +3521,8 @@ ehcleanup36:                                      ; preds = %lpad, %lpad.i149, %
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp31) #25
   resume { ptr, i32 } %.pn.pn
 
-if.else39:                                        ; preds = %while.body.i.i, %land.rhs.i.i, %while.cond.i, %_ZN10ODDLParser16lookForNextTokenIcEEPT_S2_S2_.exit, %_ZN10ODDLParser13OpenDDLParser22parsePrimitiveDataTypeEPcS1_RNS_5Value9ValueTypeERm.exit
-  %retval.0.i28113 = phi ptr [ %retval.0.i28, %_ZN10ODDLParser13OpenDDLParser22parsePrimitiveDataTypeEPcS1_RNS_5Value9ValueTypeERm.exit ], [ %in.addr.0.lcssa.i, %_ZN10ODDLParser16lookForNextTokenIcEEPT_S2_S2_.exit ], [ %scevgep.i30, %while.cond.i ], [ %in.addr.09.i.i, %land.rhs.i.i ], [ %scevgep.i.i, %while.body.i.i ]
+if.else39:                                        ; preds = %while.body.i.i, %land.rhs.i.i, %while.cond.i, %_ZN10ODDLParser16lookForNextTokenIcEEPT_S2_S2_.exit
+  %retval.0.i28113 = phi ptr [ %in.addr.0.lcssa.i, %_ZN10ODDLParser16lookForNextTokenIcEEPT_S2_S2_.exit ], [ %scevgep.i30, %while.cond.i ], [ %in.addr.09.i.i, %land.rhs.i.i ], [ %scevgep.i.i, %while.body.i.i ]
   %call.i104 = tail call noundef ptr @_ZN10ODDLParser13OpenDDLParser11parseHeaderEPcS1_(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %retval.0.i28113, ptr noundef %end)
   %call2.i = tail call noundef ptr @_ZN10ODDLParser13OpenDDLParser14parseStructureEPcS1_(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %call.i104, ptr noundef %end)
   br label %return

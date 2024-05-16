@@ -516,7 +516,7 @@ _ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit:       ; preds = %_ZNSt10filesystem7_
           to label %214 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 214:                                              ; preds = %211
-  %215 = icmp eq i32 %208, 0
+  %215 = icmp eq i64 %indvars.iv158, 0
   br i1 %215, label %216, label %219
 
 216:                                              ; preds = %214

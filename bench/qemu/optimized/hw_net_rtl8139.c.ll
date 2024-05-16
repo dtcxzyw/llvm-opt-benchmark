@@ -1619,6 +1619,8 @@ if.then.i43:                                      ; preds = %sw.bb19
   %and7.lobit.i = and i32 %and7.i, 1
   %and8.i = lshr i32 %val, 2
   %and8.lobit.i = and i32 %and8.i, 1
+  %and11.i = lshr i32 %val, 1
+  %and11.lobit.i = and i32 %and11.i, 1
   %eeprom1.i.i = getelementptr inbounds i8, ptr %opaque, i64 10968
   %eecs2.i.i = getelementptr inbounds i8, ptr %opaque, i64 11110
   %8 = load i8, ptr %eecs2.i.i, align 2
@@ -1628,8 +1630,7 @@ if.then.i43:                                      ; preds = %sw.bb19
   store i8 %conv.i.i, ptr %eecs2.i.i, align 2
   %conv5.i.i = trunc nuw nsw i32 %and8.lobit.i to i8
   store i8 %conv5.i.i, ptr %eesk3.i.i, align 1
-  %10 = lshr i8 %7, 1
-  %conv7.i.i = and i8 %10, 1
+  %conv7.i.i = trunc nuw nsw i32 %and11.lobit.i to i8
   %eedi8.i.i = getelementptr inbounds i8, ptr %opaque, i64 11112
   store i8 %conv7.i.i, ptr %eedi8.i.i, align 4
   %tobool.i.i = icmp eq i8 %8, 0
@@ -1658,15 +1659,14 @@ if.end21.i.i:                                     ; preds = %if.end.i.i, %if.end
   br i1 %or.cond1.i.i, label %if.then25.i.i, label %rtl8139_Cfg9346_write.exit
 
 if.then25.i.i:                                    ; preds = %if.end21.i.i
-  %cond.i.i.i = zext nneg i8 %conv7.i.i to i32
   %tick.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 11100
-  %11 = load i32, ptr %tick.i.i.i, align 4
-  %inc.i.i.i = add i32 %11, 1
+  %10 = load i32, ptr %tick.i.i.i, align 4
+  %inc.i.i.i = add i32 %10, 1
   store i32 %inc.i.i.i, ptr %tick.i.i.i, align 4
   %eedo.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 11113
   %mode.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 11096
-  %12 = load i32, ptr %mode.i.i.i, align 4
-  switch i32 %12, label %rtl8139_Cfg9346_write.exit [
+  %11 = load i32, ptr %mode.i.i.i, align 4
+  switch i32 %11, label %rtl8139_Cfg9346_write.exit [
     i32 1, label %sw.bb.i.i.i
     i32 2, label %sw.bb9.i.i.i
     i32 3, label %sw.bb22.i.i.i
@@ -1675,7 +1675,7 @@ if.then25.i.i:                                    ; preds = %if.end21.i.i
   ]
 
 sw.bb.i.i.i:                                      ; preds = %if.then25.i.i
-  %tobool.not.i.i.not.i = icmp eq i8 %conv7.i.i, 0
+  %tobool.not.i.i.not.i = icmp eq i32 %and11.lobit.i, 0
   br i1 %tobool.not.i.i.not.i, label %rtl8139_Cfg9346_write.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %sw.bb.i.i.i
@@ -1687,10 +1687,10 @@ if.then.i.i.i:                                    ; preds = %sw.bb.i.i.i
 
 sw.bb9.i.i.i:                                     ; preds = %if.then25.i.i
   %input10.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 11106
-  %13 = load i16, ptr %input10.i.i.i, align 2
-  %conv11.i.i.i = zext i16 %13 to i32
+  %12 = load i16, ptr %input10.i.i.i, align 2
+  %conv11.i.i.i = zext i16 %12 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv11.i.i.i, 1
-  %or.i.i.i = or disjoint i32 %shl.i.i.i, %cond.i.i.i
+  %or.i.i.i = or disjoint i32 %shl.i.i.i, %and11.lobit.i
   %conv12.i.i.i = trunc i32 %or.i.i.i to i16
   store i16 %conv12.i.i.i, ptr %input10.i.i.i, align 2
   %cmp.i.i.i = icmp eq i32 %inc.i.i.i, 8
@@ -1710,9 +1710,9 @@ sw.bb.i.i.i.i:                                    ; preds = %if.then16.i.i.i
   store i8 %and3.i.i.i.i, ptr %address.i.i.i.i, align 4
   %idxprom.i.i.i.i = zext nneg i8 %and3.i.i.i.i to i64
   %arrayidx.i.i.i.i = getelementptr [64 x i16], ptr %eeprom1.i.i, i64 0, i64 %idxprom.i.i.i.i
-  %14 = load i16, ptr %arrayidx.i.i.i.i, align 2
+  %13 = load i16, ptr %arrayidx.i.i.i.i, align 2
   %output.i.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 11108
-  store i16 %14, ptr %output.i.i.i.i, align 4
+  store i16 %13, ptr %output.i.i.i.i, align 4
   store i8 0, ptr %eedo.i.i.i, align 1
   br label %sw.epilog30.sink.split.i.i.i.i
 
@@ -1735,11 +1735,11 @@ prom9346_decode_command.exit.i.i.i:               ; preds = %sw.epilog30.sink.sp
 
 sw.bb22.i.i.i:                                    ; preds = %if.then25.i.i
   %output.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 11108
-  %15 = load i16, ptr %output.i.i.i, align 4
-  %.lobit.i.i.i = lshr i16 %15, 15
+  %14 = load i16, ptr %output.i.i.i, align 4
+  %.lobit.i.i.i = lshr i16 %14, 15
   %conv27.i.i.i = trunc nuw nsw i16 %.lobit.i.i.i to i8
   store i8 %conv27.i.i.i, ptr %eedo.i.i.i, align 1
-  %shl31.i.i.i = shl i16 %15, 1
+  %shl31.i.i.i = shl i16 %14, 1
   store i16 %shl31.i.i.i, ptr %output.i.i.i, align 4
   %cmp34.i.i.i = icmp eq i32 %inc.i.i.i, 16
   br i1 %cmp34.i.i.i, label %if.then36.i.i.i, label %rtl8139_Cfg9346_write.exit
@@ -1753,10 +1753,10 @@ if.then36.i.i.i:                                  ; preds = %sw.bb22.i.i.i
 
 sw.bb42.i.i.i:                                    ; preds = %if.then25.i.i
   %input43.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 11106
-  %16 = load i16, ptr %input43.i.i.i, align 2
-  %conv44.i.i.i = zext i16 %16 to i32
+  %15 = load i16, ptr %input43.i.i.i, align 2
+  %conv44.i.i.i = zext i16 %15 to i32
   %shl45.i.i.i = shl nuw nsw i32 %conv44.i.i.i, 1
-  %or47.i.i.i = or disjoint i32 %shl45.i.i.i, %cond.i.i.i
+  %or47.i.i.i = or disjoint i32 %shl45.i.i.i, %and11.lobit.i
   %conv48.i.i.i = trunc i32 %or47.i.i.i to i16
   store i16 %conv48.i.i.i, ptr %input43.i.i.i, align 2
   %cmp51.i.i.i = icmp eq i32 %inc.i.i.i, 16
@@ -1764,8 +1764,8 @@ sw.bb42.i.i.i:                                    ; preds = %if.then25.i.i
 
 if.then53.i.i.i:                                  ; preds = %sw.bb42.i.i.i
   %address.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 11104
-  %17 = load i8, ptr %address.i.i.i, align 4
-  %idxprom.i.i.i = zext i8 %17 to i64
+  %16 = load i8, ptr %address.i.i.i, align 4
+  %idxprom.i.i.i = zext i8 %16 to i64
   %arrayidx.i.i.i = getelementptr [64 x i16], ptr %eeprom1.i.i, i64 0, i64 %idxprom.i.i.i
   store i16 %conv48.i.i.i, ptr %arrayidx.i.i.i, align 2
   store i32 0, ptr %mode.i.i.i, align 4
@@ -1775,10 +1775,10 @@ if.then53.i.i.i:                                  ; preds = %sw.bb42.i.i.i
 
 sw.bb64.i.i.i:                                    ; preds = %if.then25.i.i
   %input65.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 11106
-  %18 = load i16, ptr %input65.i.i.i, align 2
-  %conv66.i.i.i = zext i16 %18 to i32
+  %17 = load i16, ptr %input65.i.i.i, align 2
+  %conv66.i.i.i = zext i16 %17 to i32
   %shl67.i.i.i = shl nuw nsw i32 %conv66.i.i.i, 1
-  %or69.i.i.i = or disjoint i32 %shl67.i.i.i, %cond.i.i.i
+  %or69.i.i.i = or disjoint i32 %shl67.i.i.i, %and11.lobit.i
   %conv70.i.i.i = trunc i32 %or69.i.i.i to i16
   store i16 %conv70.i.i.i, ptr %input65.i.i.i, align 2
   %cmp73.i.i.i = icmp eq i32 %inc.i.i.i, 16
@@ -1809,92 +1809,92 @@ rtl8139_Cfg9346_write.exit:                       ; preds = %sw.bb19, %if.end.i.
   br label %sw.epilog
 
 sw.bb20:                                          ; preds = %entry
-  %19 = getelementptr i8, ptr %opaque, i64 2697
-  %s.val.i.i = load i8, ptr %19, align 1
-  %20 = and i8 %s.val.i.i, 4
-  %tobool.not.i.i = icmp eq i8 %20, 0
+  %18 = getelementptr i8, ptr %opaque, i64 2697
+  %s.val.i.i = load i8, ptr %18, align 1
+  %19 = and i8 %s.val.i.i, 4
+  %tobool.not.i.i = icmp eq i8 %19, 0
   br i1 %tobool.not.i.i, label %sw.epilog, label %if.end.i.i44
 
 if.end.i.i44:                                     ; preds = %sw.bb20
   %TxConfig.i = getelementptr inbounds i8, ptr %opaque, i64 2676
-  %21 = load i32, ptr %TxConfig.i, align 4
+  %20 = load i32, ptr %TxConfig.i, align 4
   %and1.i = and i32 %val, 240
-  %22 = and i32 %21, -241
-  %or.i.i = or disjoint i32 %22, %and1.i
+  %21 = and i32 %20, -241
+  %or.i.i = or disjoint i32 %21, %and1.i
   store i32 %or.i.i, ptr %TxConfig.i, align 4
   br label %sw.epilog
 
 sw.bb21:                                          ; preds = %entry
-  %23 = getelementptr i8, ptr %opaque, i64 2690
-  %s.val.i = load i8, ptr %23, align 2
+  %22 = getelementptr i8, ptr %opaque, i64 2690
+  %s.val.i = load i8, ptr %22, align 2
   %cmp.i.i = icmp ult i8 %s.val.i, -64
   br i1 %cmp.i.i, label %sw.epilog, label %if.end.i45
 
 if.end.i45:                                       ; preds = %sw.bb21
   %Config0.i = getelementptr inbounds i8, ptr %opaque, i64 2691
-  %24 = load i8, ptr %Config0.i, align 1
-  %25 = and i8 %24, -8
-  %26 = trunc i32 %val to i8
-  %27 = and i8 %26, 7
-  %conv4.i = or disjoint i8 %25, %27
+  %23 = load i8, ptr %Config0.i, align 1
+  %24 = and i8 %23, -8
+  %25 = trunc i32 %val to i8
+  %26 = and i8 %25, 7
+  %conv4.i = or disjoint i8 %24, %26
   store i8 %conv4.i, ptr %Config0.i, align 1
   br label %sw.epilog
 
 sw.bb22:                                          ; preds = %entry
-  %28 = getelementptr i8, ptr %opaque, i64 2690
-  %s.val.i46 = load i8, ptr %28, align 2
+  %27 = getelementptr i8, ptr %opaque, i64 2690
+  %s.val.i46 = load i8, ptr %27, align 2
   %cmp.i.i47 = icmp ult i8 %s.val.i46, -64
   br i1 %cmp.i.i47, label %sw.epilog, label %if.end.i48
 
 if.end.i48:                                       ; preds = %sw.bb22
   %Config1.i = getelementptr inbounds i8, ptr %opaque, i64 2692
-  %29 = load i8, ptr %Config1.i, align 4
-  %30 = and i8 %29, 12
-  %31 = trunc i32 %val to i8
-  %32 = and i8 %31, -13
-  %conv4.i49 = or disjoint i8 %30, %32
+  %28 = load i8, ptr %Config1.i, align 4
+  %29 = and i8 %28, 12
+  %30 = trunc i32 %val to i8
+  %31 = and i8 %30, -13
+  %conv4.i49 = or disjoint i8 %29, %31
   store i8 %conv4.i49, ptr %Config1.i, align 4
   br label %sw.epilog
 
 sw.bb23:                                          ; preds = %entry
-  %33 = getelementptr i8, ptr %opaque, i64 2690
-  %s.val.i50 = load i8, ptr %33, align 2
+  %32 = getelementptr i8, ptr %opaque, i64 2690
+  %s.val.i50 = load i8, ptr %32, align 2
   %cmp.i.i51 = icmp ult i8 %s.val.i50, -64
   br i1 %cmp.i.i51, label %sw.epilog, label %if.end.i52
 
 if.end.i52:                                       ; preds = %sw.bb23
   %Config3.i = getelementptr inbounds i8, ptr %opaque, i64 2693
-  %34 = load i8, ptr %Config3.i, align 1
-  %35 = and i8 %34, -113
-  %36 = trunc i32 %val to i8
-  %37 = and i8 %36, 112
-  %conv4.i53 = or disjoint i8 %35, %37
+  %33 = load i8, ptr %Config3.i, align 1
+  %34 = and i8 %33, -113
+  %35 = trunc i32 %val to i8
+  %36 = and i8 %35, 112
+  %conv4.i53 = or disjoint i8 %34, %36
   store i8 %conv4.i53, ptr %Config3.i, align 1
   br label %sw.epilog
 
 sw.bb24:                                          ; preds = %entry
-  %38 = getelementptr i8, ptr %opaque, i64 2690
-  %s.val.i54 = load i8, ptr %38, align 2
+  %37 = getelementptr i8, ptr %opaque, i64 2690
+  %s.val.i54 = load i8, ptr %37, align 2
   %cmp.i.i55 = icmp ult i8 %s.val.i54, -64
   br i1 %cmp.i.i55, label %sw.epilog, label %if.end.i56
 
 if.end.i56:                                       ; preds = %sw.bb24
   %Config4.i = getelementptr inbounds i8, ptr %opaque, i64 2694
-  %39 = load i8, ptr %Config4.i, align 2
-  %40 = and i8 %39, 10
-  %41 = trunc i32 %val to i8
-  %42 = and i8 %41, -11
-  %conv4.i57 = or disjoint i8 %40, %42
+  %38 = load i8, ptr %Config4.i, align 2
+  %39 = and i8 %38, 10
+  %40 = trunc i32 %val to i8
+  %41 = and i8 %40, -11
+  %conv4.i57 = or disjoint i8 %39, %41
   store i8 %conv4.i57, ptr %Config4.i, align 2
   br label %sw.epilog
 
 sw.bb25:                                          ; preds = %entry
   %Config5.i = getelementptr inbounds i8, ptr %opaque, i64 2695
-  %43 = load i8, ptr %Config5.i, align 1
-  %44 = and i8 %43, -128
-  %45 = trunc i32 %val to i8
-  %46 = and i8 %45, 127
-  %conv3.i = or disjoint i8 %44, %46
+  %42 = load i8, ptr %Config5.i, align 1
+  %43 = and i8 %42, -128
+  %44 = trunc i32 %val to i8
+  %45 = and i8 %44, 127
+  %conv3.i = or disjoint i8 %43, %45
   store i8 %conv3.i, ptr %Config5.i, align 1
   br label %sw.epilog
 

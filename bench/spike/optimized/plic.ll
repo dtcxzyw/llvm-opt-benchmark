@@ -1511,7 +1511,7 @@ define noundef zeroext i1 @_ZN6plic_t4loadEmmPh(ptr noundef nonnull align 8 dere
 18:                                               ; preds = %16
   %19 = lshr i64 %1, 2
   %20 = trunc nuw i64 %19 to i32
-  %.not.i = icmp ne i32 %20, 0
+  %.not.i = icmp ugt i64 %1, 3
   %21 = getelementptr inbounds i8, ptr %0, i64 40
   %22 = load i32, ptr %21, align 8
   %23 = icmp ugt i32 %22, %20
@@ -1711,7 +1711,7 @@ _Z23write_little_endian_regIjEvPT_mmPKh.exit:     ; preds = %.preheader
 31:                                               ; preds = %_Z23write_little_endian_regIjEvPT_mmPKh.exit
   %32 = lshr i64 %1, 2
   %33 = trunc nuw i64 %32 to i32
-  %.not.i = icmp ne i32 %33, 0
+  %.not.i = icmp ugt i64 %1, 3
   %34 = getelementptr inbounds i8, ptr %0, i64 40
   %35 = load i32, ptr %34, align 8
   %36 = icmp ugt i32 %35, %33
@@ -3146,19 +3146,13 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i11: ; preds = %27
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit18: ; preds = %27
   %37 = sub i64 %29, %31
-  %spec.select7.i.i.i.i15 = tail call i64 @llvm.smax.i64(i64 %37, i64 -2147483648)
-  %.08.i.i.i.i16 = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i15, i64 2147483647)
-  %38 = and i64 %.08.i.i.i.i16, 2147483648
-  %.not77 = icmp eq i64 %38, 0
-  br i1 %.not77, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i32, label %42
+  %38 = icmp slt i64 %37, 0
+  br i1 %38, label %42, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i32
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit18.thread68: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i11
   %39 = sub i64 %29, %31
-  %spec.select7.i.i.i.i1569 = tail call i64 @llvm.smax.i64(i64 %39, i64 -2147483648)
-  %.08.i.i.i.i1670 = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i1569, i64 2147483647)
-  %40 = and i64 %.08.i.i.i.i1670, 2147483648
-  %.not76 = icmp eq i64 %40, 0
-  br i1 %.not76, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i29, label %42
+  %40 = icmp slt i64 %39, 0
+  br i1 %40, label %42, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i29
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit18.thread: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i11
   %41 = icmp slt i32 %36, 0

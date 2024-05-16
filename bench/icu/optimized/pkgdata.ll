@@ -1344,41 +1344,38 @@ if.else.i.i:                                      ; preds = %for.body.i.i, %for.
   %.us-phi = phi i64 [ %indvars.iv.i.i.us, %for.body.i.i.us ], [ %indvars.iv.i.i, %for.body.i.i ]
   %107 = load ptr, ptr @stderr, align 8
   %108 = call i64 @fwrite(ptr nonnull @.str.80, i64 42, i64 1, ptr %107) #21
-  %109 = and i64 %.us-phi, 4294967280
-  %cmp1234.i.i = icmp eq i64 %109, 0
+  %cmp1234.i.i = icmp ult i64 %.us-phi, 16
   br i1 %cmp1234.i.i, label %for.body13.lr.ph.i.i, label %_ZL22initializePkgDataFlagsP12UPKGOptions_.exit.i
 
 for.body13.lr.ph.i.i:                             ; preds = %if.else.i.i
-  %110 = load ptr, ptr @_ZL12pkgDataFlags, align 8
-  %111 = shl nuw nsw i64 %.us-phi, 3
-  %112 = getelementptr i8, ptr %110, i64 %111
-  %scevgep.i.i = getelementptr i8, ptr %112, i64 8
-  %113 = sub nsw i64 120, %111
-  %114 = and i64 %113, 120
-  %115 = add nuw nsw i64 %114, 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i.i, i8 0, i64 %115, i1 false)
+  %109 = load ptr, ptr @_ZL12pkgDataFlags, align 8
+  %110 = shl nuw nsw i64 %.us-phi, 3
+  %111 = getelementptr i8, ptr %109, i64 %110
+  %scevgep.i.i = getelementptr i8, ptr %111, i64 8
+  %112 = sub nuw nsw i64 128, %110
+  call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i.i, i8 0, i64 %112, i1 false)
   br label %_ZL22initializePkgDataFlagsP12UPKGOptions_.exit.i
 
 if.else19.i.i:                                    ; preds = %do.bodythread-pre-split.i.i, %if.end201
-  %116 = load ptr, ptr @stderr, align 8
-  %117 = call i64 @fwrite(ptr nonnull @.str.80, i64 42, i64 1, ptr %116) #21
+  %113 = load ptr, ptr @stderr, align 8
+  %114 = call i64 @fwrite(ptr nonnull @.str.80, i64 42, i64 1, ptr %113) #21
   br label %_ZL22initializePkgDataFlagsP12UPKGOptions_.exit.i
 
 if.end21.i.i:                                     ; preds = %if.then6.i.i
   br i1 %tobool.not.i.i, label %if.end28.i.i, label %if.then25.i.i
 
 if.then25.i.i:                                    ; preds = %if.end21.i.i
-  %118 = load ptr, ptr @stdout, align 8
-  %call27.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %118, ptr noundef nonnull @.str.81, ptr noundef nonnull %spec.select171.fr)
+  %115 = load ptr, ptr @stdout, align 8
+  %call27.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %115, ptr noundef nonnull @.str.81, ptr noundef nonnull %spec.select171.fr)
   %.pre54.i.i = load ptr, ptr @_ZL12pkgDataFlags, align 8
   br label %if.end28.i.i
 
 if.end28.i.i:                                     ; preds = %if.then25.i.i, %if.end21.i.i
-  %119 = phi ptr [ %.pre54.i.i, %if.then25.i.i ], [ %106, %if.end21.i.i ]
+  %116 = phi ptr [ %.pre54.i.i, %if.then25.i.i ], [ %106, %if.end21.i.i ]
   store i32 0, ptr %status.i.i, align 4
-  %call30.i.i = call i32 @parseFlagsFile(ptr noundef nonnull %spec.select171.fr, ptr noundef %119, i32 noundef %currentBufferSize.033.i.i, ptr noundef nonnull @_ZL10FLAG_NAMES, i32 noundef 17, ptr noundef nonnull %status.i.i)
-  %120 = load i32, ptr %status.i.i, align 4
-  %cmp31.i.i = icmp eq i32 %120, 15
+  %call30.i.i = call i32 @parseFlagsFile(ptr noundef nonnull %spec.select171.fr, ptr noundef %116, i32 noundef %currentBufferSize.033.i.i, ptr noundef nonnull @_ZL10FLAG_NAMES, i32 noundef 17, ptr noundef nonnull %status.i.i)
+  %117 = load i32, ptr %status.i.i, align 4
+  %cmp31.i.i = icmp eq i32 %117, 15
   br i1 %cmp31.i.i, label %for.body36.preheader.i.i, label %if.else49.i.i
 
 for.body36.preheader.i.i:                         ; preds = %if.end28.i.i
@@ -1386,34 +1383,34 @@ for.body36.preheader.i.i:                         ; preds = %if.end28.i.i
   br label %for.body36.i.i
 
 for.body36.i.i:                                   ; preds = %for.inc46.i.i, %for.body36.preheader.i.i
-  %121 = phi ptr [ %.pre55.i.i, %for.body36.preheader.i.i ], [ %124, %for.inc46.i.i ]
+  %118 = phi ptr [ %.pre55.i.i, %for.body36.preheader.i.i ], [ %121, %for.inc46.i.i ]
   %indvars.iv40.i.i = phi i64 [ 0, %for.body36.preheader.i.i ], [ %indvars.iv.next41.i.i, %for.inc46.i.i ]
-  %arrayidx38.i.i = getelementptr inbounds ptr, ptr %121, i64 %indvars.iv40.i.i
-  %122 = load ptr, ptr %arrayidx38.i.i, align 8
-  %tobool39.not.i.i = icmp eq ptr %122, null
+  %arrayidx38.i.i = getelementptr inbounds ptr, ptr %118, i64 %indvars.iv40.i.i
+  %119 = load ptr, ptr %arrayidx38.i.i, align 8
+  %tobool39.not.i.i = icmp eq ptr %119, null
   br i1 %tobool39.not.i.i, label %for.inc46.i.i, label %if.then40.i.i
 
 if.then40.i.i:                                    ; preds = %for.body36.i.i
-  call void @uprv_free_75(ptr noundef nonnull %122)
-  %123 = load ptr, ptr @_ZL12pkgDataFlags, align 8
-  %arrayidx44.i.i = getelementptr inbounds ptr, ptr %123, i64 %indvars.iv40.i.i
+  call void @uprv_free_75(ptr noundef nonnull %119)
+  %120 = load ptr, ptr @_ZL12pkgDataFlags, align 8
+  %arrayidx44.i.i = getelementptr inbounds ptr, ptr %120, i64 %indvars.iv40.i.i
   store ptr null, ptr %arrayidx44.i.i, align 8
   br label %for.inc46.i.i
 
 for.inc46.i.i:                                    ; preds = %if.then40.i.i, %for.body36.i.i
-  %124 = phi ptr [ %121, %for.body36.i.i ], [ %123, %if.then40.i.i ]
+  %121 = phi ptr [ %118, %for.body36.i.i ], [ %120, %if.then40.i.i ]
   %indvars.iv.next41.i.i = add nuw nsw i64 %indvars.iv40.i.i, 1
   %exitcond43.not.i.i = icmp eq i64 %indvars.iv.next41.i.i, 17
   br i1 %exitcond43.not.i.i, label %if.end57.i.i, label %for.body36.i.i, !llvm.loop !18
 
 if.else49.i.i:                                    ; preds = %if.end28.i.i
-  %cmp.i.i.i = icmp slt i32 %120, 1
+  %cmp.i.i.i = icmp slt i32 %117, 1
   br i1 %cmp.i.i.i, label %if.end57.i.i, label %if.then52.i.i
 
 if.then52.i.i:                                    ; preds = %if.else49.i.i
-  %125 = load ptr, ptr @stderr, align 8
-  %call54.i.i = call ptr @u_errorName_75(i32 noundef %120)
-  %call55.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %125, ptr noundef nonnull @.str.82, ptr noundef nonnull %spec.select171.fr, ptr noundef %call54.i.i) #21
+  %122 = load ptr, ptr @stderr, align 8
+  %call54.i.i = call ptr @u_errorName_75(i32 noundef %117)
+  %call55.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %122, ptr noundef nonnull @.str.82, ptr noundef nonnull %spec.select171.fr, ptr noundef %call54.i.i) #21
   br label %_ZL22initializePkgDataFlagsP12UPKGOptions_.exit.i
 
 if.end57.i.i:                                     ; preds = %for.inc46.i.i, %if.else49.i.i
@@ -1421,32 +1418,32 @@ if.end57.i.i:                                     ; preds = %for.inc46.i.i, %if.
   br i1 %tobool.not.i.i, label %do.cond.i.i, label %if.then60.i.i
 
 if.then60.i.i:                                    ; preds = %if.end57.i.i
-  %126 = load ptr, ptr @stdout, align 8
-  %127 = call i64 @fwrite(ptr nonnull @.str.83, i64 16, i64 1, ptr %126)
+  %123 = load ptr, ptr @stdout, align 8
+  %124 = call i64 @fwrite(ptr nonnull @.str.83, i64 16, i64 1, ptr %123)
   br label %for.body65.i.i
 
 for.body65.i.i:                                   ; preds = %for.body65.i.i, %if.then60.i.i
   %indvars.iv44.i.i = phi i64 [ 0, %if.then60.i.i ], [ %indvars.iv.next45.i.i, %for.body65.i.i ]
-  %128 = load ptr, ptr @stdout, align 8
+  %125 = load ptr, ptr @stdout, align 8
   %arrayidx67.i.i = getelementptr inbounds [17 x ptr], ptr @_ZL10FLAG_NAMES, i64 0, i64 %indvars.iv44.i.i
-  %129 = load ptr, ptr %arrayidx67.i.i, align 8
-  %130 = load ptr, ptr @_ZL12pkgDataFlags, align 8
-  %arrayidx69.i.i = getelementptr inbounds ptr, ptr %130, i64 %indvars.iv44.i.i
-  %131 = load ptr, ptr %arrayidx69.i.i, align 8
-  %132 = trunc nuw nsw i64 %indvars.iv44.i.i to i32
-  %call70.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %128, ptr noundef nonnull @.str.84, i32 noundef %132, ptr noundef %129, ptr noundef %131)
+  %126 = load ptr, ptr %arrayidx67.i.i, align 8
+  %127 = load ptr, ptr @_ZL12pkgDataFlags, align 8
+  %arrayidx69.i.i = getelementptr inbounds ptr, ptr %127, i64 %indvars.iv44.i.i
+  %128 = load ptr, ptr %arrayidx69.i.i, align 8
+  %129 = trunc nuw nsw i64 %indvars.iv44.i.i to i32
+  %call70.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %125, ptr noundef nonnull @.str.84, i32 noundef %129, ptr noundef %126, ptr noundef %128)
   %indvars.iv.next45.i.i = add nuw nsw i64 %indvars.iv44.i.i, 1
   %exitcond47.not.i.i = icmp eq i64 %indvars.iv.next45.i.i, 17
   br i1 %exitcond47.not.i.i, label %for.end73.i.i, label %for.body65.i.i, !llvm.loop !19
 
 for.end73.i.i:                                    ; preds = %for.body65.i.i
-  %133 = load ptr, ptr @stdout, align 8
-  %fputc.i.i = call i32 @fputc(i32 10, ptr %133)
+  %130 = load ptr, ptr @stdout, align 8
+  %fputc.i.i = call i32 @fputc(i32 10, ptr %130)
   br label %do.cond.i.i
 
 do.cond.i.i:                                      ; preds = %for.end73.i.i, %if.end57.i.i
-  %134 = load i32, ptr %status.i.i, align 4
-  %cmp76.i.i = icmp eq i32 %134, 15
+  %131 = load i32, ptr %status.i.i, align 4
+  %cmp76.i.i = icmp eq i32 %131, 15
   br i1 %cmp76.i.i, label %do.bodythread-pre-split.i.i, label %_ZL22initializePkgDataFlagsP12UPKGOptions_.exit.i, !llvm.loop !20
 
 _ZL22initializePkgDataFlagsP12UPKGOptions_.exit.i: ; preds = %do.cond.i.i, %if.then6.i.i.us, %if.then52.i.i, %if.else19.i.i, %for.body13.lr.ph.i.i, %if.else.i.i
@@ -1468,12 +1465,12 @@ if.end.i75:                                       ; preds = %if.then.i73
   br i1 %tobool.not.i77, label %if.end16.i, label %if.then13.i78
 
 if.then13.i78:                                    ; preds = %if.end.i75
-  %135 = load ptr, ptr @stdout, align 8
-  %call15.i79 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %135, ptr noundef nonnull @.str.56, ptr noundef nonnull %targetDir.i)
+  %132 = load ptr, ptr @stdout, align 8
+  %call15.i79 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %132, ptr noundef nonnull @.str.56, ptr noundef nonnull %targetDir.i)
   br label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.then13.i78, %if.end.i75
-  %136 = load ptr, ptr %o.sroa.0.0.lcssa254, align 8
+  %133 = load ptr, ptr %o.sroa.0.0.lcssa254, align 8
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %cmd.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status.i123.i)
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %buffer.i.i)
@@ -1485,18 +1482,18 @@ if.end16.i:                                       ; preds = %if.then13.i78, %if.
 if.then.i.i:                                      ; preds = %if.end16.i
   store i32 0, ptr %status.i123.i, align 4
   call void @uprv_mkdir(ptr noundef nonnull %targetDir.i, ptr noundef nonnull %status.i123.i)
-  %137 = load i32, ptr %status.i123.i, align 4
-  %cmp.i.i132.i = icmp slt i32 %137, 1
+  %134 = load i32, ptr %status.i123.i, align 4
+  %cmp.i.i132.i = icmp slt i32 %134, 1
   br i1 %cmp.i.i132.i, label %if.end5.i.i, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.then.i.i
-  %138 = load ptr, ptr @stderr, align 8
-  %call4.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %138, ptr noundef nonnull @.str.103, ptr noundef nonnull %targetDir.i) #21
+  %135 = load ptr, ptr @stderr, align 8
+  %call4.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %135, ptr noundef nonnull @.str.103, ptr noundef nonnull %targetDir.i) #21
   br label %_ZL19pkg_installFileModePKcS0_S0_.exit.i
 
 if.end5.i.i:                                      ; preds = %if.then.i.i, %if.end16.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %buffer.i.i, i8 0, i64 512, i1 false)
-  %call6.i.i = call ptr @T_FileStream_open(ptr noundef %136, ptr noundef nonnull @.str.104)
+  %call6.i.i = call ptr @T_FileStream_open(ptr noundef %133, ptr noundef nonnull @.str.104)
   %cmp.not.i126.i = icmp eq ptr %call6.i.i, null
   br i1 %cmp.not.i126.i, label %if.else34.i.i, label %for.cond.preheader.i127.i
 
@@ -1519,13 +1516,13 @@ if.then14.i.i:                                    ; preds = %if.then10.i.i
   br label %if.end15.i.i
 
 if.end15.i.i:                                     ; preds = %if.then14.i.i, %if.then10.i.i
-  %139 = load ptr, ptr @_ZL12pkgDataFlags, align 8
-  %arrayidx17.i.i = getelementptr inbounds i8, ptr %139, i64 128
-  %140 = load ptr, ptr %arrayidx17.i.i, align 8
-  %call20.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %cmd.i.i, i64 noundef 512, ptr noundef nonnull @.str.105, ptr noundef %140, ptr noundef %o.sroa.43.0, ptr noundef nonnull @.str.55, ptr noundef nonnull %buffer.i.i, ptr noundef nonnull %targetDir.i, ptr noundef nonnull @.str.55, ptr noundef nonnull %buffer.i.i) #18
+  %136 = load ptr, ptr @_ZL12pkgDataFlags, align 8
+  %arrayidx17.i.i = getelementptr inbounds i8, ptr %136, i64 128
+  %137 = load ptr, ptr %arrayidx17.i.i, align 8
+  %call20.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %cmd.i.i, i64 noundef 512, ptr noundef nonnull @.str.105, ptr noundef %137, ptr noundef %o.sroa.43.0, ptr noundef nonnull @.str.55, ptr noundef nonnull %buffer.i.i, ptr noundef nonnull %targetDir.i, ptr noundef nonnull @.str.55, ptr noundef nonnull %buffer.i.i) #18
   %call.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %cmd.i.i) #22
-  %141 = and i64 %call.i.i.i, 4294967295
-  %cmp.i11.i.i = icmp eq i64 %141, 0
+  %138 = and i64 %call.i.i.i, 4294967295
+  %cmp.i11.i.i = icmp eq i64 %138, 0
   br i1 %cmp.i11.i.i, label %_ZL10runCommandPKca.exit.i.i, label %normal_command_mode.i.i.i
 
 normal_command_mode.i.i.i:                        ; preds = %if.end15.i.i
@@ -1540,10 +1537,10 @@ _ZL10runCommandPKca.exit.i.i:                     ; preds = %normal_command_mode
   br i1 %cmp9.not.i.i, label %if.else.i130.i, label %if.then10.i.i, !llvm.loop !21
 
 if.then24.i.i:                                    ; preds = %normal_command_mode.i.i.i
-  %142 = load ptr, ptr @stderr, align 8
-  %call7.i.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %142, ptr noundef nonnull @.str.110, i32 noundef %call4.i.i.i) #21
-  %143 = load ptr, ptr @stderr, align 8
-  %call26.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %143, ptr noundef nonnull @.str.106, ptr noundef nonnull %cmd.i.i) #21
+  %139 = load ptr, ptr @stderr, align 8
+  %call7.i.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %139, ptr noundef nonnull @.str.110, i32 noundef %call4.i.i.i) #21
+  %140 = load ptr, ptr @stderr, align 8
+  %call26.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %140, ptr noundef nonnull @.str.106, ptr noundef nonnull %cmd.i.i) #21
   br label %for.end.i.i
 
 if.else.i130.i:                                   ; preds = %_ZL10runCommandPKca.exit.i.i, %for.cond.preheader.i127.i
@@ -1552,8 +1549,8 @@ if.else.i130.i:                                   ; preds = %_ZL10runCommandPKca
   br i1 %tobool29.not.i.i, label %if.then30.i.i, label %for.end.i.i
 
 if.then30.i.i:                                    ; preds = %if.else.i130.i
-  %144 = load ptr, ptr @stderr, align 8
-  %call31.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %144, ptr noundef nonnull @.str.107, ptr noundef %136) #21
+  %141 = load ptr, ptr @stderr, align 8
+  %call31.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %141, ptr noundef nonnull @.str.107, ptr noundef %133) #21
   br label %for.end.i.i
 
 for.end.i.i:                                      ; preds = %if.then30.i.i, %if.else.i130.i, %if.then24.i.i
@@ -1562,8 +1559,8 @@ for.end.i.i:                                      ; preds = %if.then30.i.i, %if.
   br label %_ZL19pkg_installFileModePKcS0_S0_.exit.i
 
 if.else34.i.i:                                    ; preds = %if.end5.i.i
-  %145 = load ptr, ptr @stderr, align 8
-  %call35.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %145, ptr noundef nonnull @.str.108, ptr noundef %136) #21
+  %142 = load ptr, ptr @stderr, align 8
+  %call35.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %142, ptr noundef nonnull @.str.108, ptr noundef %133) #21
   br label %_ZL19pkg_installFileModePKcS0_S0_.exit.i
 
 _ZL19pkg_installFileModePKcS0_S0_.exit.i:         ; preds = %if.else34.i.i, %for.end.i.i, %if.then3.i.i
@@ -1592,24 +1589,24 @@ if.else.i58:                                      ; preds = %_ZL22initializePkgD
   br i1 %tobool42.not.i62, label %if.end46.i, label %if.then43.i
 
 if.then43.i:                                      ; preds = %if.else.i58
-  %146 = load ptr, ptr @stdout, align 8
-  %call45.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %146, ptr noundef nonnull @.str.58, ptr noundef nonnull %datFileNamePath.i)
+  %143 = load ptr, ptr @stdout, align 8
+  %call45.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %143, ptr noundef nonnull @.str.58, ptr noundef nonnull %datFileNamePath.i)
   br label %if.end46.i
 
 if.end46.i:                                       ; preds = %if.then43.i, %if.else.i58
-  %147 = load ptr, ptr %o.sroa.0.0.lcssa254, align 8
-  %call51.i = call i32 @writePackageDatFile(ptr noundef nonnull %datFileNamePath.i, ptr noundef %o.sroa.64.0, ptr noundef %o.sroa.43.0, ptr noundef %147, ptr noundef null, i8 noundef signext 108)
+  %144 = load ptr, ptr %o.sroa.0.0.lcssa254, align 8
+  %call51.i = call i32 @writePackageDatFile(ptr noundef nonnull %datFileNamePath.i, ptr noundef %o.sroa.64.0, ptr noundef %o.sroa.43.0, ptr noundef %144, ptr noundef null, i8 noundef signext 108)
   %cmp52.not.i = icmp eq i32 %call51.i, 0
   br i1 %cmp52.not.i, label %if.end55.i, label %if.then53.i63
 
 if.then53.i63:                                    ; preds = %if.end46.i
-  %148 = load ptr, ptr @stderr, align 8
-  %149 = call i64 @fwrite(ptr nonnull @.str.59, i64 32, i64 1, ptr %148) #21
+  %145 = load ptr, ptr @stderr, align 8
+  %146 = call i64 @fwrite(ptr nonnull @.str.59, i64 32, i64 1, ptr %145) #21
   br label %_ZL18pkg_executeOptionsP12UPKGOptions_.exit
 
 if.end55.i:                                       ; preds = %if.end46.i
-  %150 = and i8 %104, -3
-  %or.cond.i = icmp eq i8 %150, 97
+  %147 = and i8 %104, -3
+  %or.cond.i = icmp eq i8 %147, 97
   br i1 %or.cond.i, label %if.then60.i, label %if.else107.i
 
 if.then60.i:                                      ; preds = %if.end55.i
@@ -1631,8 +1628,8 @@ if.then75.i:                                      ; preds = %if.then71.i
   br i1 %cmp78.not.i, label %if.end83.i, label %if.then79.i
 
 if.then79.i:                                      ; preds = %if.then75.i
-  %151 = load ptr, ptr @stderr, align 8
-  %call81.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %151, ptr noundef nonnull @.str.60, ptr noundef nonnull %targetFileNamePath.i) #21
+  %148 = load ptr, ptr @stderr, align 8
+  %call81.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %148, ptr noundef nonnull @.str.60, ptr noundef nonnull %targetFileNamePath.i) #21
   br label %_ZL18pkg_executeOptionsP12UPKGOptions_.exit
 
 if.end83.i:                                       ; preds = %if.then75.i, %if.then71.i
@@ -1640,8 +1637,8 @@ if.end83.i:                                       ; preds = %if.then75.i, %if.th
   br i1 %tobool42.not.i62, label %if.end92.i, label %if.then89.i
 
 if.then89.i:                                      ; preds = %if.end83.i
-  %152 = load ptr, ptr @stdout, align 8
-  %call91.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %152, ptr noundef nonnull @.str.61, ptr noundef nonnull %targetFileNamePath.i)
+  %149 = load ptr, ptr @stdout, align 8
+  %call91.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %149, ptr noundef nonnull @.str.61, ptr noundef nonnull %targetFileNamePath.i)
   br label %if.end92.i
 
 if.end92.i:                                       ; preds = %if.then89.i, %if.end83.i
@@ -1649,8 +1646,8 @@ if.end92.i:                                       ; preds = %if.then89.i, %if.en
   br i1 %cmp93.not.i, label %if.end99.i, label %if.then94.i
 
 if.then94.i:                                      ; preds = %if.end92.i
-  %153 = load ptr, ptr @stderr, align 8
-  %call97.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %153, ptr noundef nonnull @.str.62, ptr noundef nonnull %datFileNamePath.i, ptr noundef nonnull %targetFileNamePath.i) #21
+  %150 = load ptr, ptr @stderr, align 8
+  %call97.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %150, ptr noundef nonnull @.str.62, ptr noundef nonnull %datFileNamePath.i, ptr noundef nonnull %targetFileNamePath.i) #21
   br label %_ZL18pkg_executeOptionsP12UPKGOptions_.exit
 
 if.end99.i:                                       ; preds = %if.end92.i, %if.then60.i
@@ -1668,23 +1665,23 @@ if.then102.i72:                                   ; preds = %if.end99.i
 if.then.i147.i:                                   ; preds = %if.then102.i72
   store i32 0, ptr %status.i134.i, align 4
   call void @uprv_mkdir(ptr noundef nonnull %o.sroa.68.0, ptr noundef nonnull %status.i134.i)
-  %154 = load i32, ptr %status.i134.i, align 4
-  %cmp.i.i148.i = icmp slt i32 %154, 1
+  %151 = load i32, ptr %status.i134.i, align 4
+  %cmp.i.i148.i = icmp slt i32 %151, 1
   br i1 %cmp.i.i148.i, label %if.end5.i137.i, label %if.then3.i149.i
 
 if.then3.i149.i:                                  ; preds = %if.then.i147.i
-  %155 = load ptr, ptr @stderr, align 8
-  %call4.i150.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %155, ptr noundef nonnull @.str.103, ptr noundef nonnull %o.sroa.68.0) #21
+  %152 = load ptr, ptr @stderr, align 8
+  %call4.i150.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %152, ptr noundef nonnull @.str.103, ptr noundef nonnull %o.sroa.68.0) #21
   br label %_ZL21pkg_installCommonModePKcS0_.exit.i
 
 if.end5.i137.i:                                   ; preds = %if.then.i147.i, %if.then102.i72
-  %156 = load ptr, ptr @_ZL12pkgDataFlags, align 8
-  %arrayidx.i138.i = getelementptr inbounds i8, ptr %156, i64 128
-  %157 = load ptr, ptr %arrayidx.i138.i, align 8
-  %call6.i139.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %cmd.i133.i, i64 noundef 512, ptr noundef nonnull @.str.111, ptr noundef %157, ptr noundef nonnull %targetFileNamePath.i, ptr noundef nonnull %o.sroa.68.0) #18
+  %153 = load ptr, ptr @_ZL12pkgDataFlags, align 8
+  %arrayidx.i138.i = getelementptr inbounds i8, ptr %153, i64 128
+  %154 = load ptr, ptr %arrayidx.i138.i, align 8
+  %call6.i139.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %cmd.i133.i, i64 noundef 512, ptr noundef nonnull @.str.111, ptr noundef %154, ptr noundef nonnull %targetFileNamePath.i, ptr noundef nonnull %o.sroa.68.0) #18
   %call.i.i140.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %cmd.i133.i) #22
-  %158 = and i64 %call.i.i140.i, 4294967295
-  %cmp.i5.i.i = icmp eq i64 %158, 0
+  %155 = and i64 %call.i.i140.i, 4294967295
+  %cmp.i5.i.i = icmp eq i64 %155, 0
   br i1 %cmp.i5.i.i, label %_ZL21pkg_installCommonModePKcS0_.exit.i, label %normal_command_mode.i.i141.i
 
 normal_command_mode.i.i141.i:                     ; preds = %if.end5.i137.i
@@ -1694,10 +1691,10 @@ normal_command_mode.i.i141.i:                     ; preds = %if.end5.i137.i
   br i1 %cmp5.not.i.i144.i, label %_ZL21pkg_installCommonModePKcS0_.exit.i, label %if.then9.i.i
 
 if.then9.i.i:                                     ; preds = %normal_command_mode.i.i141.i
-  %159 = load ptr, ptr @stderr, align 8
-  %call7.i.i145.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %159, ptr noundef nonnull @.str.110, i32 noundef %call4.i.i143.i) #21
-  %160 = load ptr, ptr @stderr, align 8
-  %call11.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %160, ptr noundef nonnull @.str.106, ptr noundef nonnull %cmd.i133.i) #21
+  %156 = load ptr, ptr @stderr, align 8
+  %call7.i.i145.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %156, ptr noundef nonnull @.str.110, i32 noundef %call4.i.i143.i) #21
+  %157 = load ptr, ptr @stderr, align 8
+  %call11.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %157, ptr noundef nonnull @.str.106, ptr noundef nonnull %cmd.i133.i) #21
   br label %_ZL21pkg_installCommonModePKcS0_.exit.i
 
 _ZL21pkg_installCommonModePKcS0_.exit.i:          ; preds = %if.then9.i.i, %normal_command_mode.i.i141.i, %if.end5.i137.i, %if.then3.i149.i
@@ -1715,8 +1712,8 @@ if.else107.i:                                     ; preds = %if.end55.i
 for.body.i68:                                     ; preds = %if.else107.i, %if.end119.i
   %indvars.iv.i69 = phi i64 [ %indvars.iv.next.i70, %if.end119.i ], [ 0, %if.else107.i ]
   %arrayidx113.i = getelementptr inbounds i8, ptr %cond86, i64 %indvars.iv.i69
-  %161 = load i8, ptr %arrayidx113.i, align 1
-  %cmp115.i = icmp eq i8 %161, 46
+  %158 = load i8, ptr %arrayidx113.i, align 1
+  %cmp115.i = icmp eq i8 %158, 46
   %arrayidx118.i = getelementptr inbounds [10 x i8], ptr %version_major.i, i64 0, i64 %indvars.iv.i69
   br i1 %cmp115.i, label %if.then116.i, label %if.end119.i
 
@@ -1725,103 +1722,103 @@ if.then116.i:                                     ; preds = %for.body.i68
   br label %if.end134.i
 
 if.end119.i:                                      ; preds = %for.body.i68
-  store i8 %161, ptr %arrayidx118.i, align 1
+  store i8 %158, ptr %arrayidx118.i, align 1
   %indvars.iv.next.i70 = add nuw nsw i64 %indvars.iv.i69, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i70, 10
   br i1 %exitcond.not.i, label %if.end134.i, label %for.body.i68, !llvm.loop !22
 
 if.else125.i:                                     ; preds = %if.else107.i
-  %162 = and i8 %104, -9
-  %or.cond1.i = icmp eq i8 %162, 100
+  %159 = and i8 %104, -9
+  %or.cond1.i = icmp eq i8 %159, 100
   br i1 %or.cond1.i, label %if.then131.i, label %if.end134.i
 
 if.then131.i:                                     ; preds = %if.else125.i
-  %163 = load ptr, ptr @stdout, align 8
-  %164 = call i64 @fwrite(ptr nonnull @.str.63, i64 112, i64 1, ptr %163)
+  %160 = load ptr, ptr @stdout, align 8
+  %161 = call i64 @fwrite(ptr nonnull @.str.63, i64 112, i64 1, ptr %160)
   br label %if.end134.i
 
 if.end134.i:                                      ; preds = %if.end119.i, %if.then131.i, %if.else125.i, %if.then116.i
-  %165 = phi ptr [ %48, %if.then116.i ], [ null, %if.then131.i ], [ null, %if.else125.i ], [ %48, %if.end119.i ]
+  %162 = phi ptr [ %48, %if.then116.i ], [ null, %if.then131.i ], [ null, %if.else125.i ], [ %48, %if.end119.i ]
   %noVersion.0.i = phi i8 [ 0, %if.then116.i ], [ 1, %if.then131.i ], [ 1, %if.else125.i ], [ 0, %if.end119.i ]
-  %166 = load ptr, ptr @_ZL12pkgDataFlags, align 8
-  %arrayidx135.i = getelementptr inbounds i8, ptr %166, i64 40
-  %167 = load ptr, ptr %arrayidx135.i, align 8
-  %call137.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %167) #22
-  %168 = getelementptr i8, ptr %167, i64 %call137.i
-  %arrayidx138.i = getelementptr i8, ptr %168, i64 -1
-  %169 = load i8, ptr %arrayidx138.i, align 1
-  %arrayidx140.i = getelementptr inbounds i8, ptr %166, i64 8
-  %170 = load ptr, ptr %arrayidx140.i, align 8
-  %call142.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %170) #22
-  %171 = getelementptr i8, ptr %170, i64 %call142.i
-  %arrayidx144.i = getelementptr i8, ptr %171, i64 -1
-  %172 = load i8, ptr %arrayidx144.i, align 1
-  %cmp146.i = icmp eq i8 %169, %172
-  %cmp151.i = icmp eq ptr %165, null
-  %cond.i65 = select i1 %cmp151.i, ptr @.str.11, ptr %165
-  %char0.i.i = load i8, ptr %170, align 1
+  %163 = load ptr, ptr @_ZL12pkgDataFlags, align 8
+  %arrayidx135.i = getelementptr inbounds i8, ptr %163, i64 40
+  %164 = load ptr, ptr %arrayidx135.i, align 8
+  %call137.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %164) #22
+  %165 = getelementptr i8, ptr %164, i64 %call137.i
+  %arrayidx138.i = getelementptr i8, ptr %165, i64 -1
+  %166 = load i8, ptr %arrayidx138.i, align 1
+  %arrayidx140.i = getelementptr inbounds i8, ptr %163, i64 8
+  %167 = load ptr, ptr %arrayidx140.i, align 8
+  %call142.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %167) #22
+  %168 = getelementptr i8, ptr %167, i64 %call142.i
+  %arrayidx144.i = getelementptr i8, ptr %168, i64 -1
+  %169 = load i8, ptr %arrayidx144.i, align 1
+  %cmp146.i = icmp eq i8 %166, %169
+  %cmp151.i = icmp eq ptr %162, null
+  %cond.i65 = select i1 %cmp151.i, ptr @.str.11, ptr %162
+  %char0.i.i = load i8, ptr %167, align 1
   %cmp.i.i = icmp eq i8 %char0.i.i, 0
   %cond.i.i = select i1 %cmp.i.i, ptr @.str.11, ptr @.str.21
-  %173 = load i8, ptr %167, align 1
-  %cmp3.i.i = icmp eq i8 %173, 46
+  %170 = load i8, ptr %164, align 1
+  %cmp3.i.i = icmp eq i8 %170, 46
   %cond4.i.i = select i1 %cmp3.i.i, ptr @.str.21, ptr @.str.11
-  %arrayidx5.i.i = getelementptr inbounds i8, ptr %166, i64 32
-  %174 = load ptr, ptr %arrayidx5.i.i, align 8
-  %call6.i152.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @_ZL12libFileNames, i64 noundef 256, ptr noundef nonnull @.str.64, ptr noundef %174, ptr noundef %spec.select170) #18
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %163, i64 32
+  %171 = load ptr, ptr %arrayidx5.i.i, align 8
+  %call6.i152.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @_ZL12libFileNames, i64 noundef 256, ptr noundef nonnull @.str.64, ptr noundef %171, ptr noundef %spec.select170) #18
   br i1 %tobool42.not.i62, label %if.end.i.i, label %if.then.i155.i
 
 if.then.i155.i:                                   ; preds = %if.end134.i
-  %175 = load ptr, ptr @stdout, align 8
-  %call7.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %175, ptr noundef nonnull @.str.112, ptr noundef nonnull @_ZL12libFileNames)
+  %172 = load ptr, ptr @stdout, align 8
+  %call7.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %172, ptr noundef nonnull @.str.112, ptr noundef nonnull @_ZL12libFileNames)
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i155.i, %if.end134.i
   %or.cond.i.i = or i1 %cmp108.not.not.i, %cmp146.i
-  %176 = load ptr, ptr @_ZL12pkgDataFlags, align 8
-  %arrayidx18.i.i = getelementptr inbounds i8, ptr %176, i64 16
-  %177 = load ptr, ptr %arrayidx18.i.i, align 8
+  %173 = load ptr, ptr @_ZL12pkgDataFlags, align 8
+  %arrayidx18.i.i = getelementptr inbounds i8, ptr %173, i64 16
+  %174 = load ptr, ptr %arrayidx18.i.i, align 8
   br i1 %or.cond.i.i, label %if.else.i158.i, label %if.then27.i.i
 
 if.else.i158.i:                                   ; preds = %if.end.i.i
   br i1 %cmp146.i, label %cond.true53.i.i, label %cond.end50.i.i
 
 if.then27.i.i:                                    ; preds = %if.end.i.i
-  %call12.i156.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 3), i64 noundef 256, ptr noundef nonnull @.str.113, ptr noundef nonnull @_ZL12libFileNames, ptr noundef nonnull %cond4.i.i, ptr noundef %177) #18
-  %178 = load ptr, ptr @_ZL12pkgDataFlags, align 8
-  %arrayidx28.i.i = getelementptr inbounds i8, ptr %178, i64 8
-  %179 = load ptr, ptr %arrayidx28.i.i, align 8
-  %call29.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 1), i64 noundef 256, ptr noundef nonnull @.str.113, ptr noundef nonnull @_ZL12libFileNames, ptr noundef nonnull %cond4.i.i, ptr noundef %179) #18
-  %180 = load ptr, ptr @_ZL12pkgDataFlags, align 8
-  %arrayidx30.i.i = getelementptr inbounds i8, ptr %180, i64 8
-  %181 = load ptr, ptr %arrayidx30.i.i, align 8
-  %call31.i157.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 2), i64 noundef 256, ptr noundef nonnull @.str.113, ptr noundef nonnull @_ZL12libFileNames, ptr noundef nonnull %cond4.i.i, ptr noundef %181) #18
+  %call12.i156.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 3), i64 noundef 256, ptr noundef nonnull @.str.113, ptr noundef nonnull @_ZL12libFileNames, ptr noundef nonnull %cond4.i.i, ptr noundef %174) #18
+  %175 = load ptr, ptr @_ZL12pkgDataFlags, align 8
+  %arrayidx28.i.i = getelementptr inbounds i8, ptr %175, i64 8
+  %176 = load ptr, ptr %arrayidx28.i.i, align 8
+  %call29.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 1), i64 noundef 256, ptr noundef nonnull @.str.113, ptr noundef nonnull @_ZL12libFileNames, ptr noundef nonnull %cond4.i.i, ptr noundef %176) #18
+  %177 = load ptr, ptr @_ZL12pkgDataFlags, align 8
+  %arrayidx30.i.i = getelementptr inbounds i8, ptr %177, i64 8
+  %178 = load ptr, ptr %arrayidx30.i.i, align 8
+  %call31.i157.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 2), i64 noundef 256, ptr noundef nonnull @.str.113, ptr noundef nonnull @_ZL12libFileNames, ptr noundef nonnull %cond4.i.i, ptr noundef %178) #18
   br label %if.end59.i.i
 
 cond.end50.i.i:                                   ; preds = %if.else.i158.i
-  %call22.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 3), i64 noundef 256, ptr noundef nonnull @.str.114, ptr noundef nonnull @_ZL12libFileNames, ptr noundef nonnull %cond4.i.i, ptr noundef %177, ptr noundef nonnull %cond.i.i, ptr noundef nonnull %cond.i65) #18
-  %182 = load ptr, ptr @_ZL12pkgDataFlags, align 8
-  %arrayidx36.i.i = getelementptr inbounds i8, ptr %182, i64 8
-  %183 = load ptr, ptr %arrayidx36.i.i, align 8
-  %call45.c.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 1), i64 noundef 256, ptr noundef nonnull @.str.114, ptr noundef nonnull @_ZL12libFileNames, ptr noundef nonnull %cond4.i.i, ptr noundef %183, ptr noundef nonnull %cond.i.i, ptr noundef nonnull %version_major.i) #18
-  %184 = load ptr, ptr @_ZL12pkgDataFlags, align 8
-  %arrayidx49.i.i = getelementptr inbounds i8, ptr %184, i64 8
-  %185 = load ptr, ptr %arrayidx49.i.i, align 8
+  %call22.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 3), i64 noundef 256, ptr noundef nonnull @.str.114, ptr noundef nonnull @_ZL12libFileNames, ptr noundef nonnull %cond4.i.i, ptr noundef %174, ptr noundef nonnull %cond.i.i, ptr noundef nonnull %cond.i65) #18
+  %179 = load ptr, ptr @_ZL12pkgDataFlags, align 8
+  %arrayidx36.i.i = getelementptr inbounds i8, ptr %179, i64 8
+  %180 = load ptr, ptr %arrayidx36.i.i, align 8
+  %call45.c.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 1), i64 noundef 256, ptr noundef nonnull @.str.114, ptr noundef nonnull @_ZL12libFileNames, ptr noundef nonnull %cond4.i.i, ptr noundef %180, ptr noundef nonnull %cond.i.i, ptr noundef nonnull %version_major.i) #18
+  %181 = load ptr, ptr @_ZL12pkgDataFlags, align 8
+  %arrayidx49.i.i = getelementptr inbounds i8, ptr %181, i64 8
+  %182 = load ptr, ptr %arrayidx49.i.i, align 8
   br label %cond.end56.i.i
 
 cond.true53.i.i:                                  ; preds = %if.else.i158.i
-  %call2228.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 3), i64 noundef 256, ptr noundef nonnull @.str.114, ptr noundef nonnull @_ZL12libFileNames, ptr noundef nonnull %cond4.i.i, ptr noundef nonnull %cond.i65, ptr noundef nonnull %cond.i.i, ptr noundef %177) #18
-  %186 = load ptr, ptr @_ZL12pkgDataFlags, align 8
-  %arrayidx41.i.i = getelementptr inbounds i8, ptr %186, i64 8
-  %187 = load ptr, ptr %arrayidx41.i.i, align 8
-  %call45.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 1), i64 noundef 256, ptr noundef nonnull @.str.114, ptr noundef nonnull @_ZL12libFileNames, ptr noundef nonnull %cond4.i.i, ptr noundef nonnull %version_major.i, ptr noundef nonnull %cond.i.i, ptr noundef %187) #18
-  %188 = load ptr, ptr @_ZL12pkgDataFlags, align 8
-  %arrayidx54.i.i = getelementptr inbounds i8, ptr %188, i64 8
-  %189 = load ptr, ptr %arrayidx54.i.i, align 8
+  %call2228.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 3), i64 noundef 256, ptr noundef nonnull @.str.114, ptr noundef nonnull @_ZL12libFileNames, ptr noundef nonnull %cond4.i.i, ptr noundef nonnull %cond.i65, ptr noundef nonnull %cond.i.i, ptr noundef %174) #18
+  %183 = load ptr, ptr @_ZL12pkgDataFlags, align 8
+  %arrayidx41.i.i = getelementptr inbounds i8, ptr %183, i64 8
+  %184 = load ptr, ptr %arrayidx41.i.i, align 8
+  %call45.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 1), i64 noundef 256, ptr noundef nonnull @.str.114, ptr noundef nonnull @_ZL12libFileNames, ptr noundef nonnull %cond4.i.i, ptr noundef nonnull %version_major.i, ptr noundef nonnull %cond.i.i, ptr noundef %184) #18
+  %185 = load ptr, ptr @_ZL12pkgDataFlags, align 8
+  %arrayidx54.i.i = getelementptr inbounds i8, ptr %185, i64 8
+  %186 = load ptr, ptr %arrayidx54.i.i, align 8
   br label %cond.end56.i.i
 
 cond.end56.i.i:                                   ; preds = %cond.true53.i.i, %cond.end50.i.i
-  %cond5132.i.i = phi ptr [ %cond.i65, %cond.true53.i.i ], [ %185, %cond.end50.i.i ]
-  %cond57.i.i = phi ptr [ %189, %cond.true53.i.i ], [ %cond.i65, %cond.end50.i.i ]
+  %cond5132.i.i = phi ptr [ %cond.i65, %cond.true53.i.i ], [ %182, %cond.end50.i.i ]
+  %cond57.i.i = phi ptr [ %186, %cond.true53.i.i ], [ %cond.i65, %cond.end50.i.i ]
   %call58.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 2), i64 noundef 256, ptr noundef nonnull @.str.114, ptr noundef nonnull @_ZL12libFileNames, ptr noundef nonnull %cond4.i.i, ptr noundef %cond5132.i.i, ptr noundef nonnull %cond.i.i, ptr noundef %cond57.i.i) #18
   br label %if.end59.i.i
 
@@ -1829,8 +1826,8 @@ if.end59.i.i:                                     ; preds = %cond.end56.i.i, %if
   br i1 %tobool42.not.i62, label %if.end64.i.i, label %if.then62.i.i
 
 if.then62.i.i:                                    ; preds = %if.end59.i.i
-  %190 = load ptr, ptr @stdout, align 8
-  %call63.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %190, ptr noundef nonnull @.str.115, ptr noundef nonnull getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 2))
+  %187 = load ptr, ptr @stdout, align 8
+  %call63.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %187, ptr noundef nonnull @.str.115, ptr noundef nonnull getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 2))
   br label %if.end64.i.i
 
 if.end64.i.i:                                     ; preds = %if.then62.i.i, %if.end59.i.i
@@ -1838,16 +1835,16 @@ if.end64.i.i:                                     ; preds = %if.then62.i.i, %if.
   br i1 %cmp66.i.i, label %if.then67.i.i, label %_ZL15createFileNamesP12UPKGOptions_cPKcS2_S2_aa.exit.i
 
 if.then67.i.i:                                    ; preds = %if.end64.i.i
-  %191 = load ptr, ptr @_ZL12pkgDataFlags, align 8
-  %arrayidx68.i.i = getelementptr inbounds i8, ptr %191, i64 24
-  %192 = load ptr, ptr %arrayidx68.i.i, align 8
-  %call69.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 2), i64 noundef 256, ptr noundef nonnull @.str.116, ptr noundef nonnull @_ZL12libFileNames, ptr noundef %192) #18
+  %188 = load ptr, ptr @_ZL12pkgDataFlags, align 8
+  %arrayidx68.i.i = getelementptr inbounds i8, ptr %188, i64 24
+  %189 = load ptr, ptr %arrayidx68.i.i, align 8
+  %call69.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 2), i64 noundef 256, ptr noundef nonnull @.str.116, ptr noundef nonnull @_ZL12libFileNames, ptr noundef %189) #18
   store i8 0, ptr getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 1), align 16
   br i1 %tobool42.not.i62, label %land.lhs.true.i, label %if.then72.i.i
 
 if.then72.i.i:                                    ; preds = %if.then67.i.i
-  %193 = load ptr, ptr @stdout, align 8
-  %call73.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %193, ptr noundef nonnull @.str.117, ptr noundef nonnull getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 2))
+  %190 = load ptr, ptr @stdout, align 8
+  %call73.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %190, ptr noundef nonnull @.str.117, ptr noundef nonnull getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 2))
   br label %land.lhs.true.i
 
 _ZL15createFileNamesP12UPKGOptions_cPKcS2_S2_aa.exit.i: ; preds = %if.end64.i.i
@@ -1883,8 +1880,8 @@ if.then182.i:                                     ; preds = %if.then179.i
   br i1 %tobool42.not.i62, label %if.end188.i, label %if.then185.i
 
 if.then185.i:                                     ; preds = %if.then182.i
-  %194 = load ptr, ptr @stdout, align 8
-  %call187.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %194, ptr noundef nonnull @.str.65, ptr noundef nonnull %o.sroa.68.0)
+  %191 = load ptr, ptr @stdout, align 8
+  %call187.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %191, ptr noundef nonnull @.str.65, ptr noundef nonnull %o.sroa.68.0)
   br label %if.end188.i
 
 if.end188.i:                                      ; preds = %if.then185.i, %if.then182.i
@@ -1910,35 +1907,35 @@ if.else212.i:                                     ; preds = %if.then163.i
 
 if.end228.i.sink.split:                           ; preds = %if.else212.i, %if.else200.i
   %.str.68.sink = phi ptr [ @.str.67, %if.else200.i ], [ @.str.68, %if.else212.i ]
-  %195 = load ptr, ptr @stdout, align 8
-  %call221.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %195, ptr noundef nonnull %.str.68.sink, ptr noundef nonnull %checkLibFile.i, ptr noundef nonnull %o.sroa.68.0)
+  %192 = load ptr, ptr @stdout, align 8
+  %call221.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %192, ptr noundef nonnull %.str.68.sink, ptr noundef nonnull %checkLibFile.i, ptr noundef nonnull %o.sroa.68.0)
   br label %if.end228.i
 
 if.end228.i:                                      ; preds = %if.end228.i.sink.split, %if.else212.i, %if.else200.i, %land.lhs.true.i, %_ZL15createFileNamesP12UPKGOptions_cPKcS2_S2_aa.exit.i
   br i1 %tobool177.not, label %land.lhs.true230.i, label %if.else282.i
 
 land.lhs.true230.i:                               ; preds = %if.end228.i
-  %196 = load ptr, ptr @_ZL12pkgDataFlags, align 8
-  %197 = load ptr, ptr %196, align 8
-  %198 = load i8, ptr %197, align 1
-  %cmp234.not.i = icmp eq i8 %198, 0
+  %193 = load ptr, ptr @_ZL12pkgDataFlags, align 8
+  %194 = load ptr, ptr %193, align 8
+  %195 = load i8, ptr %194, align 1
+  %cmp234.not.i = icmp eq i8 %195, 0
   br i1 %cmp234.not.i, label %if.else282.i, label %if.then235.i
 
 if.then235.i:                                     ; preds = %land.lhs.true230.i
   br i1 %tobool42.not.i62, label %land.lhs.true244.i, label %if.then239.i
 
 if.then239.i:                                     ; preds = %if.then235.i
-  %199 = load ptr, ptr @stdout, align 8
-  %call241.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %199, ptr noundef nonnull @.str.69, ptr noundef nonnull %gencFilePath.i, ptr noundef nonnull %197)
+  %196 = load ptr, ptr @stdout, align 8
+  %call241.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %196, ptr noundef nonnull @.str.69, ptr noundef nonnull %gencFilePath.i, ptr noundef nonnull %194)
   br label %land.lhs.true244.i
 
 land.lhs.true244.i:                               ; preds = %if.then239.i, %if.then235.i
-  %call245.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %197) #22
+  %call245.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %194) #22
   %cmp246.i = icmp ugt i64 %call245.i, 3
   br i1 %cmp246.i, label %land.lhs.true247.i, label %if.else279.i
 
 land.lhs.true247.i:                               ; preds = %land.lhs.true244.i
-  %add.ptr.i66 = getelementptr inbounds i8, ptr %197, i64 3
+  %add.ptr.i66 = getelementptr inbounds i8, ptr %194, i64 3
   %call248.i = call signext i8 @checkAssemblyHeaderName(ptr noundef nonnull %add.ptr.i66)
   %tobool249.not.i = icmp eq i8 %call248.i, 0
   br i1 %tobool249.not.i, label %if.else279.i, label %if.then250.i
@@ -1952,13 +1949,13 @@ if.then250.i:                                     ; preds = %land.lhs.true247.i
   %sub.i161.i = add i64 %call2.i160.i, -1
   %arrayidx.i162.i = getelementptr inbounds [512 x i8], ptr %tempObjectFile.i.i, i64 0, i64 %sub.i161.i
   store i8 111, ptr %arrayidx.i162.i, align 1
-  %200 = load ptr, ptr @_ZL12pkgDataFlags, align 8
-  %arrayidx3.i.i = getelementptr inbounds i8, ptr %200, i64 48
-  %201 = load ptr, ptr %arrayidx3.i.i, align 8
-  %call4.i163.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %201) #22
-  %arrayidx5.i164.i = getelementptr inbounds i8, ptr %200, i64 56
-  %202 = load ptr, ptr %arrayidx5.i164.i, align 8
-  %call6.i165.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %202) #22
+  %197 = load ptr, ptr @_ZL12pkgDataFlags, align 8
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %197, i64 48
+  %198 = load ptr, ptr %arrayidx3.i.i, align 8
+  %call4.i163.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %198) #22
+  %arrayidx5.i164.i = getelementptr inbounds i8, ptr %197, i64 56
+  %199 = load ptr, ptr %arrayidx5.i164.i, align 8
+  %call6.i165.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %199) #22
   %add.i.i = add i64 %call6.i165.i, %call4.i163.i
   %call8.i166.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %tempObjectFile.i.i) #22
   %add9.i.i = add i64 %add.i.i, %call8.i166.i
@@ -1972,31 +1969,31 @@ if.then250.i:                                     ; preds = %land.lhs.true247.i
   br i1 %cmp.i.not.i.i, label %cleanup.i.i, label %if.end.i168.i
 
 lpad.i.i:                                         ; preds = %if.end32.i.i, %normal_command_mode.i.i172.i
-  %203 = landingpad { ptr, i32 }
+  %200 = landingpad { ptr, i32 }
           cleanup
   invoke void @uprv_free_75(ptr noundef nonnull %call14.i.i)
           to label %_ZN6icu_7511LocalMemoryIcED2Ev.exit.i.i unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %lpad.i.i
-  %204 = landingpad { ptr, i32 }
+  %201 = landingpad { ptr, i32 }
           catch ptr null
-  %205 = extractvalue { ptr, i32 } %204, 0
-  call void @__clang_call_terminate(ptr %205) #20
+  %202 = extractvalue { ptr, i32 } %201, 0
+  call void @__clang_call_terminate(ptr %202) #20
   unreachable
 
 _ZN6icu_7511LocalMemoryIcED2Ev.exit.i.i:          ; preds = %lpad.i.i
-  resume { ptr, i32 } %203
+  resume { ptr, i32 } %200
 
 if.end.i168.i:                                    ; preds = %if.then250.i
-  %206 = load ptr, ptr @_ZL12pkgDataFlags, align 8
-  %arrayidx19.i.i = getelementptr inbounds i8, ptr %206, i64 48
-  %207 = load ptr, ptr %arrayidx19.i.i, align 8
-  %arrayidx20.i.i = getelementptr inbounds i8, ptr %206, i64 56
-  %208 = load ptr, ptr %arrayidx20.i.i, align 8
-  %call22.i169.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %call14.i.i, i64 noundef %conv13.i.i, ptr noundef nonnull @.str.120, ptr noundef %207, ptr noundef %208, ptr noundef nonnull %tempObjectFile.i.i, ptr noundef nonnull %gencFilePath.i) #18
+  %203 = load ptr, ptr @_ZL12pkgDataFlags, align 8
+  %arrayidx19.i.i = getelementptr inbounds i8, ptr %203, i64 48
+  %204 = load ptr, ptr %arrayidx19.i.i, align 8
+  %arrayidx20.i.i = getelementptr inbounds i8, ptr %203, i64 56
+  %205 = load ptr, ptr %arrayidx20.i.i, align 8
+  %call22.i169.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %call14.i.i, i64 noundef %conv13.i.i, ptr noundef nonnull @.str.120, ptr noundef %204, ptr noundef %205, ptr noundef nonnull %tempObjectFile.i.i, ptr noundef nonnull %gencFilePath.i) #18
   %call.i.i170.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call14.i.i) #22
-  %209 = and i64 %call.i.i170.i, 4294967295
-  %cmp.i5.i171.i = icmp eq i64 %209, 0
+  %206 = and i64 %call.i.i170.i, 4294967295
+  %cmp.i5.i171.i = icmp eq i64 %206, 0
   br i1 %cmp.i5.i171.i, label %if.end32.i.i, label %normal_command_mode.i.i172.i
 
 normal_command_mode.i.i172.i:                     ; preds = %if.end.i168.i
@@ -2009,10 +2006,10 @@ call4.i.noexc.i.i:                                ; preds = %normal_command_mode
   br i1 %cmp5.not.i.i174.i, label %if.end32.i.i, label %if.then27.i175.i
 
 if.then27.i175.i:                                 ; preds = %call4.i.noexc.i.i
-  %210 = load ptr, ptr @stderr, align 8
-  %call7.i.i176.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %210, ptr noundef nonnull @.str.110, i32 noundef %call4.i6.i.i) #21
-  %211 = load ptr, ptr @stderr, align 8
-  %call31.i177.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %211, ptr noundef nonnull @.str.121, ptr noundef nonnull %call14.i.i) #21
+  %207 = load ptr, ptr @stderr, align 8
+  %call7.i.i176.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %207, ptr noundef nonnull @.str.110, i32 noundef %call4.i6.i.i) #21
+  %208 = load ptr, ptr @stderr, align 8
+  %call31.i177.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %208, ptr noundef nonnull @.str.121, ptr noundef nonnull %call14.i.i) #21
   br label %cleanup.i.i
 
 if.end32.i.i:                                     ; preds = %call4.i.noexc.i.i, %if.end.i168.i
@@ -2025,10 +2022,10 @@ cleanup.i.i:                                      ; preds = %if.end32.i.i, %if.t
           to label %_ZL26pkg_createWithAssemblyCodePKccS0_.exit.i unwind label %terminate.lpad.i7.i.i
 
 terminate.lpad.i7.i.i:                            ; preds = %cleanup.i.i
-  %212 = landingpad { ptr, i32 }
+  %209 = landingpad { ptr, i32 }
           catch ptr null
-  %213 = extractvalue { ptr, i32 } %212, 0
-  call void @__clang_call_terminate(ptr %213) #20
+  %210 = extractvalue { ptr, i32 } %209, 0
+  call void @__clang_call_terminate(ptr %210) #20
   unreachable
 
 _ZL26pkg_createWithAssemblyCodePKccS0_.exit.i:    ; preds = %cleanup.i.i
@@ -2037,8 +2034,8 @@ _ZL26pkg_createWithAssemblyCodePKccS0_.exit.i:    ; preds = %cleanup.i.i
   br i1 %cmp257.not.i, label %if.else260.i, label %if.then258.i
 
 if.then258.i:                                     ; preds = %_ZL26pkg_createWithAssemblyCodePKccS0_.exit.i
-  %214 = load ptr, ptr @stderr, align 8
-  %215 = call i64 @fwrite(ptr nonnull @.str.70, i64 41, i64 1, ptr %214) #21
+  %211 = load ptr, ptr @stderr, align 8
+  %212 = call i64 @fwrite(ptr nonnull @.str.70, i64 41, i64 1, ptr %211) #21
   br label %_ZL18pkg_executeOptionsP12UPKGOptions_.exit
 
 if.else260.i:                                     ; preds = %_ZL26pkg_createWithAssemblyCodePKccS0_.exit.i
@@ -2052,8 +2049,8 @@ if.then266.i:                                     ; preds = %if.then263.i
   br i1 %tobool42.not.i62, label %if.end272.i, label %if.then269.i
 
 if.then269.i:                                     ; preds = %if.then266.i
-  %216 = load ptr, ptr @stdout, align 8
-  %call271.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %216, ptr noundef nonnull @.str.71, ptr noundef nonnull %o.sroa.68.0)
+  %213 = load ptr, ptr @stdout, align 8
+  %call271.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %213, ptr noundef nonnull @.str.71, ptr noundef nonnull %o.sroa.68.0)
   br label %if.end272.i
 
 if.end272.i:                                      ; preds = %if.then269.i, %if.then266.i
@@ -2061,16 +2058,16 @@ if.end272.i:                                      ; preds = %if.then269.i, %if.t
   br label %_ZL18pkg_executeOptionsP12UPKGOptions_.exit
 
 if.else279.i:                                     ; preds = %land.lhs.true247.i, %land.lhs.true244.i
-  %217 = load ptr, ptr @stderr, align 8
-  %call280.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %217, ptr noundef nonnull @.str.72, ptr noundef nonnull %197) #21
+  %214 = load ptr, ptr @stderr, align 8
+  %call280.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %214, ptr noundef nonnull @.str.72, ptr noundef nonnull %194) #21
   br label %_ZL18pkg_executeOptionsP12UPKGOptions_.exit
 
 if.else282.i:                                     ; preds = %if.end228.i, %land.lhs.true230.i
   br i1 %tobool42.not.i62, label %if.end288.i, label %if.then285.i
 
 if.then285.i:                                     ; preds = %if.else282.i
-  %218 = load ptr, ptr @stdout, align 8
-  %call287.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %218, ptr noundef nonnull @.str.73, ptr noundef nonnull %gencFilePath.i)
+  %215 = load ptr, ptr @stdout, align 8
+  %call287.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %215, ptr noundef nonnull @.str.73, ptr noundef nonnull %gencFilePath.i)
   br label %if.end288.i
 
 if.end288.i:                                      ; preds = %if.then285.i, %if.else282.i
@@ -2100,8 +2097,8 @@ if.end.i184.i:                                    ; preds = %if.then291.i
   br i1 %cmp3.i188.i, label %if.then4.i.i, label %if.else.i189.i
 
 if.then4.i.i:                                     ; preds = %if.end.i184.i
-  %219 = load ptr, ptr @stderr, align 8
-  %220 = call i64 @fwrite(ptr nonnull @.str.122, i64 35, i64 1, ptr %219) #21
+  %216 = load ptr, ptr @stderr, align 8
+  %217 = call i64 @fwrite(ptr nonnull @.str.122, i64 35, i64 1, ptr %216) #21
   br label %_ZL29pkg_createWithoutAssemblyCodeP12UPKGOptions_PKcc.exit.i
 
 if.else.i189.i:                                   ; preds = %if.end.i184.i
@@ -2116,8 +2113,8 @@ for.cond.preheader.i190.i:                        ; preds = %if.else.i189.i
   br i1 %cmp16.not50.i.i, label %if.then127.i.i, label %for.body.i191.i
 
 if.then11.i.i:                                    ; preds = %if.else.i189.i
-  %221 = load ptr, ptr @stderr, align 8
-  %222 = call i64 @fwrite(ptr nonnull @.str.123, i64 38, i64 1, ptr %221) #21
+  %218 = load ptr, ptr @stderr, align 8
+  %219 = call i64 @fwrite(ptr nonnull @.str.123, i64 38, i64 1, ptr %218) #21
   call void @uprv_free_75(ptr noundef nonnull %call2.i187.i)
   br label %_ZL29pkg_createWithoutAssemblyCodeP12UPKGOptions_PKcc.exit.i
 
@@ -2129,14 +2126,14 @@ for.body.i191.i:                                  ; preds = %for.cond.preheader.
   br i1 %cmp17.i.i, label %if.then18.i.i, label %if.else19.i192.i
 
 if.then18.i.i:                                    ; preds = %for.body.i191.i
-  %223 = load ptr, ptr %o.sroa.0.0.lcssa254, align 8
-  call void @createCommonDataFile(ptr noundef %o.sroa.36101.0, ptr noundef nonnull %49, ptr noundef %o.sroa.27.0, ptr noundef null, ptr noundef %o.sroa.43.0, ptr noundef %o.sroa.64.0, ptr noundef %223, i32 noundef 0, i8 noundef signext 1, i8 noundef signext %59, ptr noundef nonnull %gencmnFile.i.i)
+  %220 = load ptr, ptr %o.sroa.0.0.lcssa254, align 8
+  call void @createCommonDataFile(ptr noundef %o.sroa.36101.0, ptr noundef nonnull %49, ptr noundef %o.sroa.27.0, ptr noundef null, ptr noundef %o.sroa.43.0, ptr noundef %o.sroa.64.0, ptr noundef %220, i32 noundef 0, i8 noundef signext 1, i8 noundef signext %59, ptr noundef nonnull %gencmnFile.i.i)
   store i8 0, ptr %call9.i.i, align 1
   br label %if.end99.i.i
 
 if.else19.i192.i:                                 ; preds = %for.body.i191.i
-  %224 = load ptr, ptr %list.053.i.i, align 8
-  %225 = load ptr, ptr %listNames.052.i.i, align 8
+  %221 = load ptr, ptr %list.053.i.i, align 8
+  %222 = load ptr, ptr %listNames.052.i.i, align 8
   store i8 0, ptr %dataName.i.i, align 16
   store i8 0, ptr %newName.i.i, align 16
   br label %for.body26.i.i
@@ -2146,21 +2143,21 @@ for.body26.i.i:                                   ; preds = %if.end70.i.i, %if.e
   store i8 0, ptr %dataDirName.i.i, align 16
   %arrayidx29.i.i = getelementptr inbounds [9 x [10 x i8]], ptr @_ZL11DATA_PREFIX, i64 0, i64 %indvars.iv56.i.i
   %call31.i193.i = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %dataDirName.i.i, ptr noundef nonnull dereferenceable(1) @.str.64, ptr noundef nonnull %arrayidx29.i.i, ptr noundef nonnull @.str.55) #18
-  %call33.i.i = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %225, ptr noundef nonnull dereferenceable(1) %dataDirName.i.i) #22
+  %call33.i.i = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %222, ptr noundef nonnull dereferenceable(1) %dataDirName.i.i) #22
   %cmp34.not.i.i = icmp eq ptr %call33.i.i, null
   br i1 %cmp34.not.i.i, label %if.end70.i.i, label %if.then35.i.i
 
 if.then35.i.i:                                    ; preds = %for.body26.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %newNameTmp.i.i, i8 0, i64 512, i1 false)
   %call37.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %dataDirName.i.i) #22
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %225, i64 %call37.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %222, i64 %call37.i.i
   br label %for.cond39.i.i
 
 for.cond39.i.i:                                   ; preds = %for.inc.i.i, %if.then35.i.i
   %indvars.iv.i194.i = phi i64 [ %indvars.iv.next.i196.i, %for.inc.i.i ], [ 0, %if.then35.i.i ]
   %arrayidx41.i195.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %indvars.iv.i194.i
-  %226 = load i8, ptr %arrayidx41.i195.i, align 1
-  %cmp43.i.i = icmp eq i8 %226, 46
+  %223 = load i8, ptr %arrayidx41.i195.i, align 1
+  %cmp43.i.i = icmp eq i8 %223, 46
   %arrayidx46.i.i = getelementptr inbounds [512 x i8], ptr %newNameTmp.i.i, i64 0, i64 %indvars.iv.i194.i
   br i1 %cmp43.i.i, label %if.then44.i.i, label %if.end47.i.i
 
@@ -2169,9 +2166,9 @@ if.then44.i.i:                                    ; preds = %for.cond39.i.i
   br label %for.inc.i.i
 
 if.end47.i.i:                                     ; preds = %for.cond39.i.i
-  store i8 %226, ptr %arrayidx46.i.i, align 1
-  %227 = load i8, ptr %arrayidx41.i195.i, align 1
-  %cmp55.i.i = icmp eq i8 %227, 0
+  store i8 %223, ptr %arrayidx46.i.i, align 1
+  %224 = load i8, ptr %arrayidx41.i195.i, align 1
+  %cmp55.i.i = icmp eq i8 %224, 0
   br i1 %cmp55.i.i, label %for.end.i197.i, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.end47.i.i, %if.then44.i.i
@@ -2184,8 +2181,8 @@ for.end.i197.i:                                   ; preds = %if.end47.i.i
   br label %if.end70.i.i
 
 if.end70.i.i:                                     ; preds = %for.end.i197.i, %for.body26.i.i
-  %228 = load i8, ptr %newName.i.i, align 16
-  %cmp73.not.i.i = icmp eq i8 %228, 0
+  %225 = load i8, ptr %newName.i.i, align 16
+  %cmp73.not.i.i = icmp eq i8 %225, 0
   %indvars.iv.next57.i.i = add nuw nsw i64 %indvars.iv56.i.i, 1
   %cmp25.i.i = icmp ult i64 %indvars.iv56.i.i, 8
   %or.cond54.i.i = and i1 %cmp25.i.i, %cmp73.not.i.i
@@ -2200,13 +2197,13 @@ if.then80.i.i:                                    ; preds = %for.end78.i.i
   br label %if.end83.i.i
 
 if.end83.i.i:                                     ; preds = %if.then80.i.i, %for.end78.i.i
-  %229 = phi i8 [ %.pre, %if.then80.i.i ], [ %228, %for.end78.i.i ]
-  %230 = load i8, ptr %dataName.i.i, align 16
-  %cmp87.not.i.i = icmp eq i8 %230, 0
+  %226 = phi i8 [ %.pre, %if.then80.i.i ], [ %225, %for.end78.i.i ]
+  %227 = load i8, ptr %dataName.i.i, align 16
+  %cmp87.not.i.i = icmp eq i8 %227, 0
   %spec.select177 = select i1 %cmp87.not.i.i, ptr %49, ptr %dataName.i.i
-  %cmp92.not.i.i = icmp eq i8 %229, 0
+  %cmp92.not.i.i = icmp eq i8 %226, 0
   %cond97.i.i = select i1 %cmp92.not.i.i, ptr null, ptr %newName.i.i
-  call void @writeCCode(ptr noundef %224, ptr noundef %o.sroa.36101.0, ptr noundef null, ptr noundef nonnull %spec.select177, ptr noundef %cond97.i.i, ptr noundef nonnull %gencmnFile.i.i, i64 noundef 512)
+  call void @writeCCode(ptr noundef %221, ptr noundef %o.sroa.36101.0, ptr noundef null, ptr noundef nonnull %spec.select177, ptr noundef %cond97.i.i, ptr noundef nonnull %gencmnFile.i.i, i64 noundef 512)
   br label %if.end99.i.i
 
 if.end99.i.i:                                     ; preds = %if.end83.i.i, %if.then18.i.i
@@ -2215,15 +2212,15 @@ if.end99.i.i:                                     ; preds = %if.end83.i.i, %if.t
   %sub.i202.i = add i64 %call104.i.i, -1
   %arrayidx105.i.i = getelementptr inbounds [512 x i8], ptr %tempObjectFile.i180.i, i64 0, i64 %sub.i202.i
   store i8 111, ptr %arrayidx105.i.i, align 1
-  %231 = load ptr, ptr @_ZL12pkgDataFlags, align 8
-  %arrayidx106.i.i = getelementptr inbounds i8, ptr %231, i64 48
-  %232 = load ptr, ptr %arrayidx106.i.i, align 8
-  %arrayidx107.i.i = getelementptr inbounds i8, ptr %231, i64 56
-  %233 = load ptr, ptr %arrayidx107.i.i, align 8
-  %call110.i.i = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %call2.i187.i, ptr noundef nonnull dereferenceable(1) @.str.120, ptr noundef %232, ptr noundef %233, ptr noundef nonnull %tempObjectFile.i180.i, ptr noundef nonnull %gencmnFile.i.i) #18
+  %228 = load ptr, ptr @_ZL12pkgDataFlags, align 8
+  %arrayidx106.i.i = getelementptr inbounds i8, ptr %228, i64 48
+  %229 = load ptr, ptr %arrayidx106.i.i, align 8
+  %arrayidx107.i.i = getelementptr inbounds i8, ptr %228, i64 56
+  %230 = load ptr, ptr %arrayidx107.i.i, align 8
+  %call110.i.i = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %call2.i187.i, ptr noundef nonnull dereferenceable(1) @.str.120, ptr noundef %229, ptr noundef %230, ptr noundef nonnull %tempObjectFile.i180.i, ptr noundef nonnull %gencmnFile.i.i) #18
   %call.i.i203.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call2.i187.i) #22
-  %234 = and i64 %call.i.i203.i, 4294967295
-  %cmp.i.i204.i = icmp eq i64 %234, 0
+  %231 = and i64 %call.i.i203.i, 4294967295
+  %cmp.i.i204.i = icmp eq i64 %231, 0
   br i1 %cmp.i.i204.i, label %if.end115.i.i, label %normal_command_mode.i.i205.i
 
 normal_command_mode.i.i205.i:                     ; preds = %if.end99.i.i
@@ -2233,10 +2230,10 @@ normal_command_mode.i.i205.i:                     ; preds = %if.end99.i.i
   br i1 %cmp5.not.i.i208.i, label %if.end115.i.i, label %if.then113.i.i
 
 if.then113.i.i:                                   ; preds = %normal_command_mode.i.i205.i
-  %235 = load ptr, ptr @stderr, align 8
-  %call7.i.i209.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %235, ptr noundef nonnull @.str.110, i32 noundef %call4.i.i207.i) #21
-  %236 = load ptr, ptr @stderr, align 8
-  %call114.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %236, ptr noundef nonnull @.str.126, ptr noundef nonnull %call2.i187.i) #21
+  %232 = load ptr, ptr @stderr, align 8
+  %call7.i.i209.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %232, ptr noundef nonnull @.str.110, i32 noundef %call4.i.i207.i) #21
+  %233 = load ptr, ptr @stderr, align 8
+  %call114.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %233, ptr noundef nonnull @.str.126, ptr noundef nonnull %call2.i187.i) #21
   br label %if.end129.i.i
 
 if.end115.i.i:                                    ; preds = %normal_command_mode.i.i205.i, %if.end99.i.i
@@ -2248,14 +2245,14 @@ if.end115.i.i:                                    ; preds = %normal_command_mode
 
 if.then120.i.i:                                   ; preds = %if.end115.i.i
   %next.i.i = getelementptr inbounds i8, ptr %list.053.i.i, i64 8
-  %237 = load ptr, ptr %next.i.i, align 8
+  %234 = load ptr, ptr %next.i.i, align 8
   %next121.i.i = getelementptr inbounds i8, ptr %listNames.052.i.i, i64 8
-  %238 = load ptr, ptr %next121.i.i, align 8
+  %235 = load ptr, ptr %next121.i.i, align 8
   br label %for.inc123.i.i
 
 for.inc123.i.i:                                   ; preds = %if.then120.i.i, %if.end115.i.i
-  %listNames.1.i.i = phi ptr [ %238, %if.then120.i.i ], [ %listNames.052.i.i, %if.end115.i.i ]
-  %list.1.i.i = phi ptr [ %237, %if.then120.i.i ], [ %list.053.i.i, %if.end115.i.i ]
+  %listNames.1.i.i = phi ptr [ %235, %if.then120.i.i ], [ %listNames.052.i.i, %if.end115.i.i ]
+  %list.1.i.i = phi ptr [ %234, %if.then120.i.i ], [ %list.053.i.i, %if.end115.i.i ]
   %inc124.i.i = add nuw i32 %i.051.i.i, 1
   %exitcond.not.i211.i = icmp eq i32 %i.051.i.i, %call.i181.i
   br i1 %exitcond.not.i211.i, label %if.then127.i.i, label %for.body.i191.i, !llvm.loop !25
@@ -2290,13 +2287,13 @@ if.else294.i:                                     ; preds = %if.end288.i
 if.then.i215.i:                                   ; preds = %if.else294.i
   %call1.i.i = call i32 @T_FileStream_writeLine(ptr noundef nonnull %call.i213.i, ptr noundef nonnull @.str.128)
   call void @T_FileStream_close(ptr noundef nonnull %call.i213.i)
-  %239 = load ptr, ptr @_ZL12pkgDataFlags, align 8
-  %arrayidx.i216.i = getelementptr inbounds i8, ptr %239, i64 48
-  %240 = load ptr, ptr %arrayidx.i216.i, align 8
-  %call2.i217.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %cmd.i212.i, i64 noundef 2048, ptr noundef nonnull @.str.132, ptr noundef %240, ptr noundef nonnull @.str.129, ptr noundef nonnull @.str.130) #18
+  %236 = load ptr, ptr @_ZL12pkgDataFlags, align 8
+  %arrayidx.i216.i = getelementptr inbounds i8, ptr %236, i64 48
+  %237 = load ptr, ptr %arrayidx.i216.i, align 8
+  %call2.i217.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %cmd.i212.i, i64 noundef 2048, ptr noundef nonnull @.str.132, ptr noundef %237, ptr noundef nonnull @.str.129, ptr noundef nonnull @.str.130) #18
   %call.i.i218.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %cmd.i212.i) #22
-  %241 = and i64 %call.i.i218.i, 4294967295
-  %cmp.i.i219.i = icmp eq i64 %241, 0
+  %238 = and i64 %call.i.i218.i, 4294967295
+  %cmp.i.i219.i = icmp eq i64 %238, 0
   br i1 %cmp.i.i219.i, label %if.then6.i233.i, label %normal_command_mode.i.i220.i
 
 normal_command_mode.i.i220.i:                     ; preds = %if.then.i215.i
@@ -2310,10 +2307,10 @@ if.then6.i233.i:                                  ; preds = %normal_command_mode
   br label %if.end.i227.i
 
 if.else.i224.i:                                   ; preds = %normal_command_mode.i.i220.i
-  %242 = load ptr, ptr @stderr, align 8
-  %call7.i.i225.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %242, ptr noundef nonnull @.str.110, i32 noundef %call4.i.i222.i) #21
-  %243 = load ptr, ptr @stderr, align 8
-  %call8.i226.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %243, ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.129) #21
+  %239 = load ptr, ptr @stderr, align 8
+  %call7.i.i225.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %239, ptr noundef nonnull @.str.110, i32 noundef %call4.i.i222.i) #21
+  %240 = load ptr, ptr @stderr, align 8
+  %call8.i226.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %240, ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.129) #21
   br label %if.end.i227.i
 
 if.end.i227.i:                                    ; preds = %if.else.i224.i, %if.then6.i233.i
@@ -2323,39 +2320,39 @@ if.end.i227.i:                                    ; preds = %if.else.i224.i, %if
   br i1 %tobool.not.i229.i, label %if.then10.i231.i, label %_ZL22pkg_createOptMatchArchPc.exit.i
 
 if.then10.i231.i:                                 ; preds = %if.end.i227.i
-  %244 = load ptr, ptr @stderr, align 8
-  %call11.i232.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %244, ptr noundef nonnull @.str.135, ptr noundef nonnull @.str.129) #21
+  %241 = load ptr, ptr @stderr, align 8
+  %call11.i232.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %241, ptr noundef nonnull @.str.135, ptr noundef nonnull @.str.129) #21
   br label %_ZL22pkg_createOptMatchArchPc.exit.i
 
 _ZL22pkg_createOptMatchArchPc.exit.thread.i:      ; preds = %if.else294.i
-  %245 = load ptr, ptr @stderr, align 8
-  %call14.i234.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %245, ptr noundef nonnull @.str.136, ptr noundef nonnull @.str.129) #21
+  %242 = load ptr, ptr @stderr, align 8
+  %call14.i234.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %242, ptr noundef nonnull @.str.136, ptr noundef nonnull @.str.129) #21
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %cmd.i212.i)
-  br label %246
+  br label %243
 
 _ZL22pkg_createOptMatchArchPc.exit.i:             ; preds = %if.then10.i231.i, %if.end.i227.i
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %cmd.i212.i)
   %spec.select.i = select i1 %cmp301.i, ptr null, ptr %optMatchArch.i
-  br label %246
+  br label %243
 
-246:                                              ; preds = %_ZL22pkg_createOptMatchArchPc.exit.i, %_ZL22pkg_createOptMatchArchPc.exit.thread.i
-  %247 = phi ptr [ null, %_ZL22pkg_createOptMatchArchPc.exit.thread.i ], [ %spec.select.i, %_ZL22pkg_createOptMatchArchPc.exit.i ]
-  call void @writeObjectCode(ptr noundef nonnull %datFileNamePath.i, ptr noundef %o.sroa.36101.0, ptr noundef %o.sroa.27.0, ptr noundef %247, ptr noundef null, ptr noundef nonnull %gencFilePath.i, i64 noundef 512, i8 noundef signext 1)
+243:                                              ; preds = %_ZL22pkg_createOptMatchArchPc.exit.i, %_ZL22pkg_createOptMatchArchPc.exit.thread.i
+  %244 = phi ptr [ null, %_ZL22pkg_createOptMatchArchPc.exit.thread.i ], [ %spec.select.i, %_ZL22pkg_createOptMatchArchPc.exit.i ]
+  call void @writeObjectCode(ptr noundef nonnull %datFileNamePath.i, ptr noundef %o.sroa.36101.0, ptr noundef %o.sroa.27.0, ptr noundef %244, ptr noundef null, ptr noundef nonnull %gencFilePath.i, i64 noundef 512, i8 noundef signext 1)
   %call.i235.i = call signext i8 @T_FileStream_file_exists(ptr noundef nonnull %optMatchArch.i)
   %tobool.not.i236.i = icmp eq i8 %call.i235.i, 0
   br i1 %tobool.not.i236.i, label %_ZL23pkg_destroyOptMatchArchPc.exit.i, label %land.lhs.true.i.i
 
-land.lhs.true.i.i:                                ; preds = %246
+land.lhs.true.i.i:                                ; preds = %243
   %call1.i237.i = call signext i8 @T_FileStream_remove(ptr noundef nonnull %optMatchArch.i)
   %tobool2.not.i.i = icmp eq i8 %call1.i237.i, 0
   br i1 %tobool2.not.i.i, label %if.then.i239.i, label %_ZL23pkg_destroyOptMatchArchPc.exit.i
 
 if.then.i239.i:                                   ; preds = %land.lhs.true.i.i
-  %248 = load ptr, ptr @stderr, align 8
-  %call3.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %248, ptr noundef nonnull @.str.135, ptr noundef nonnull %optMatchArch.i) #21
+  %245 = load ptr, ptr @stderr, align 8
+  %call3.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %245, ptr noundef nonnull @.str.135, ptr noundef nonnull %optMatchArch.i) #21
   br label %_ZL23pkg_destroyOptMatchArchPc.exit.i
 
-_ZL23pkg_destroyOptMatchArchPc.exit.i:            ; preds = %if.then.i239.i, %land.lhs.true.i.i, %246
+_ZL23pkg_destroyOptMatchArchPc.exit.i:            ; preds = %if.then.i239.i, %land.lhs.true.i.i, %243
   %call311.i = call fastcc noundef i32 @_ZL23pkg_generateLibraryFilePKccS0_Pca(ptr noundef nonnull %targetDir.i, i8 noundef signext %104, ptr noundef nonnull %gencFilePath.i, ptr noundef null)
   br label %if.end312.i
 
@@ -2365,8 +2362,8 @@ if.end312.i:                                      ; preds = %_ZL23pkg_destroyOpt
   br i1 %cmp313.not.i, label %if.end317.i, label %if.then314.i
 
 if.then314.i:                                     ; preds = %if.end312.i
-  %249 = load ptr, ptr @stderr, align 8
-  %250 = call i64 @fwrite(ptr nonnull @.str.74, i64 31, i64 1, ptr %249) #21
+  %246 = load ptr, ptr @stderr, align 8
+  %247 = call i64 @fwrite(ptr nonnull @.str.74, i64 31, i64 1, ptr %246) #21
   br label %_ZL18pkg_executeOptionsP12UPKGOptions_.exit
 
 if.end317.i:                                      ; preds = %if.end312.i
@@ -2376,46 +2373,46 @@ if.then320.i:                                     ; preds = %if.end317.i, %if.el
   br i1 %tobool42.not.i62, label %if.end325.i, label %if.then323.i
 
 if.then323.i:                                     ; preds = %if.then320.i
-  %251 = load ptr, ptr @stdout, align 8
-  %252 = call i64 @fwrite(ptr nonnull @.str.75, i64 40, i64 1, ptr %251)
+  %248 = load ptr, ptr @stdout, align 8
+  %249 = call i64 @fwrite(ptr nonnull @.str.75, i64 40, i64 1, ptr %248)
   br label %if.end325.i
 
 if.end325.i:                                      ; preds = %if.then323.i, %if.then320.i
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %cmd.i240.i)
-  %253 = load ptr, ptr @_ZL12pkgDataFlags, align 8
-  %arrayidx.i241.i = getelementptr inbounds i8, ptr %253, i64 16
-  %254 = load ptr, ptr %arrayidx.i241.i, align 8
-  %arrayidx1.i242.i = getelementptr inbounds i8, ptr %253, i64 8
-  %255 = load ptr, ptr %arrayidx1.i242.i, align 8
-  %call.i243.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %254, ptr noundef nonnull dereferenceable(1) %255) #22
+  %250 = load ptr, ptr @_ZL12pkgDataFlags, align 8
+  %arrayidx.i241.i = getelementptr inbounds i8, ptr %250, i64 16
+  %251 = load ptr, ptr %arrayidx.i241.i, align 8
+  %arrayidx1.i242.i = getelementptr inbounds i8, ptr %250, i64 8
+  %252 = load ptr, ptr %arrayidx1.i242.i, align 8
+  %call.i243.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %251, ptr noundef nonnull dereferenceable(1) %252) #22
   %cmp.not.i244.i = icmp eq i32 %call.i243.i, 0
   br i1 %cmp.not.i244.i, label %if.else.i247.i, label %land.lhs.true.i245.i
 
 land.lhs.true.i245.i:                             ; preds = %if.end325.i
-  %arrayidx2.i.i = getelementptr inbounds i8, ptr %253, i64 24
-  %256 = load ptr, ptr %arrayidx2.i.i, align 8
-  %call4.i246.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %256, ptr noundef nonnull dereferenceable(1) %255) #22
+  %arrayidx2.i.i = getelementptr inbounds i8, ptr %250, i64 24
+  %253 = load ptr, ptr %arrayidx2.i.i, align 8
+  %call4.i246.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %253, ptr noundef nonnull dereferenceable(1) %252) #22
   %cmp5.i.i = icmp eq i32 %call4.i246.i, 0
   br i1 %cmp5.i.i, label %if.then.i249.i, label %if.else.i247.i
 
 if.then.i249.i:                                   ; preds = %land.lhs.true.i245.i
-  %arrayidx6.i.i = getelementptr inbounds i8, ptr %253, i64 40
-  %257 = load ptr, ptr %arrayidx6.i.i, align 8
-  %258 = load i8, ptr %257, align 1
-  %cmp8.i.i = icmp eq i8 %258, 46
+  %arrayidx6.i.i = getelementptr inbounds i8, ptr %250, i64 40
+  %254 = load ptr, ptr %arrayidx6.i.i, align 8
+  %255 = load i8, ptr %254, align 1
+  %cmp8.i.i = icmp eq i8 %255, 46
   %cond.i250.i = select i1 %cmp8.i.i, ptr @.str.21, ptr @.str.11
-  %.version.i.i = select i1 %cmp146.i, ptr %cond86, ptr %255
-  %spec.select.i.i = select i1 %cmp146.i, ptr %255, ptr %cond86
+  %.version.i.i = select i1 %cmp146.i, ptr %cond86, ptr %252
+  %spec.select.i.i = select i1 %cmp146.i, ptr %252, ptr %cond86
   %call17.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 2), i64 noundef 256, ptr noundef nonnull @.str.142, ptr noundef nonnull @_ZL12libFileNames, ptr noundef nonnull %cond.i250.i, ptr noundef %.version.i.i, ptr noundef %spec.select.i.i) #18
-  %259 = load ptr, ptr @_ZL12pkgDataFlags, align 8
-  %arrayidx18.i252.i = getelementptr inbounds i8, ptr %259, i64 104
-  %260 = load ptr, ptr %arrayidx18.i252.i, align 8
-  %arrayidx19.i253.i = getelementptr inbounds i8, ptr %259, i64 112
-  %261 = load ptr, ptr %arrayidx19.i253.i, align 8
-  %call20.i254.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %cmd.i240.i, i64 noundef 2048, ptr noundef nonnull @.str.143, ptr noundef %260, ptr noundef %261, ptr noundef nonnull %targetDir.i, ptr noundef nonnull getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 2), ptr noundef nonnull %targetDir.i, ptr noundef nonnull getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 3)) #18
+  %256 = load ptr, ptr @_ZL12pkgDataFlags, align 8
+  %arrayidx18.i252.i = getelementptr inbounds i8, ptr %256, i64 104
+  %257 = load ptr, ptr %arrayidx18.i252.i, align 8
+  %arrayidx19.i253.i = getelementptr inbounds i8, ptr %256, i64 112
+  %258 = load ptr, ptr %arrayidx19.i253.i, align 8
+  %call20.i254.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %cmd.i240.i, i64 noundef 2048, ptr noundef nonnull @.str.143, ptr noundef %257, ptr noundef %258, ptr noundef nonnull %targetDir.i, ptr noundef nonnull getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 2), ptr noundef nonnull %targetDir.i, ptr noundef nonnull getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 3)) #18
   %call.i.i255.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %cmd.i240.i) #22
-  %262 = and i64 %call.i.i255.i, 4294967295
-  %cmp.i.i256.i = icmp eq i64 %262, 0
+  %259 = and i64 %call.i.i255.i, 4294967295
+  %cmp.i.i256.i = icmp eq i64 %259, 0
   br i1 %cmp.i.i256.i, label %if.end.i264.i, label %normal_command_mode.i.i257.i
 
 normal_command_mode.i.i257.i:                     ; preds = %if.then.i249.i
@@ -2425,13 +2422,13 @@ normal_command_mode.i.i257.i:                     ; preds = %if.then.i249.i
   br i1 %cmp5.not.i.i260.i, label %if.end.i264.i, label %if.then330.i
 
 if.end.i264.i:                                    ; preds = %normal_command_mode.i.i257.i, %if.then.i249.i
-  %263 = load ptr, ptr @_ZL12pkgDataFlags, align 8
-  %arrayidx28.i265.i = getelementptr inbounds i8, ptr %263, i64 120
-  %264 = load ptr, ptr %arrayidx28.i265.i, align 8
-  %call29.i266.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %cmd.i240.i, i64 noundef 2048, ptr noundef nonnull @.str.139, ptr noundef %264, ptr noundef nonnull %targetDir.i, ptr noundef nonnull getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 2)) #18
+  %260 = load ptr, ptr @_ZL12pkgDataFlags, align 8
+  %arrayidx28.i265.i = getelementptr inbounds i8, ptr %260, i64 120
+  %261 = load ptr, ptr %arrayidx28.i265.i, align 8
+  %call29.i266.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %cmd.i240.i, i64 noundef 2048, ptr noundef nonnull @.str.139, ptr noundef %261, ptr noundef nonnull %targetDir.i, ptr noundef nonnull getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 2)) #18
   %call.i12.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %cmd.i240.i) #22
-  %265 = and i64 %call.i12.i.i, 4294967295
-  %cmp.i13.i.i = icmp eq i64 %265, 0
+  %262 = and i64 %call.i12.i.i, 4294967295
+  %cmp.i13.i.i = icmp eq i64 %262, 0
   br i1 %cmp.i13.i.i, label %if.end36.i.i, label %normal_command_mode.i14.i.i
 
 normal_command_mode.i14.i.i:                      ; preds = %if.end.i264.i
@@ -2443,8 +2440,8 @@ normal_command_mode.i14.i.i:                      ; preds = %if.end.i264.i
 if.end36.i.i:                                     ; preds = %normal_command_mode.i14.i.i, %if.end.i264.i
   %call38.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %cmd.i240.i, i64 noundef 2048, ptr noundef nonnull @.str.139, ptr noundef nonnull @.str.145, ptr noundef nonnull %targetDir.i, ptr noundef nonnull getelementptr inbounds ([4 x [256 x i8]], ptr @_ZL12libFileNames, i64 0, i64 3)) #18
   %call.i22.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %cmd.i240.i) #22
-  %266 = and i64 %call.i22.i.i, 4294967295
-  %cmp.i23.i.i = icmp eq i64 %266, 0
+  %263 = and i64 %call.i22.i.i, 4294967295
+  %cmp.i23.i.i = icmp eq i64 %263, 0
   br i1 %cmp.i23.i.i, label %if.end332.i, label %normal_command_mode.i24.i.i
 
 normal_command_mode.i24.i.i:                      ; preds = %if.end36.i.i
@@ -2459,13 +2456,13 @@ if.else.i247.i:                                   ; preds = %land.lhs.true.i245.
 
 if.then330.i:                                     ; preds = %normal_command_mode.i24.i.i, %normal_command_mode.i14.i.i, %normal_command_mode.i.i257.i
   %call4.i26.i.sink.i = phi i32 [ %call4.i.i259.i, %normal_command_mode.i.i257.i ], [ %call4.i16.i.i, %normal_command_mode.i14.i.i ], [ %call4.i26.i.i, %normal_command_mode.i24.i.i ]
-  %267 = load ptr, ptr @stderr, align 8
-  %call7.i29.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %267, ptr noundef nonnull @.str.110, i32 noundef %call4.i26.i.sink.i) #21
-  %268 = load ptr, ptr @stderr, align 8
-  %call44.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %268, ptr noundef nonnull @.str.144, ptr noundef nonnull %cmd.i240.i) #21
+  %264 = load ptr, ptr @stderr, align 8
+  %call7.i29.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %264, ptr noundef nonnull @.str.110, i32 noundef %call4.i26.i.sink.i) #21
+  %265 = load ptr, ptr @stderr, align 8
+  %call44.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %265, ptr noundef nonnull @.str.144, ptr noundef nonnull %cmd.i240.i) #21
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %cmd.i240.i)
-  %269 = load ptr, ptr @stderr, align 8
-  %270 = call i64 @fwrite(ptr nonnull @.str.76, i64 42, i64 1, ptr %269) #21
+  %266 = load ptr, ptr @stderr, align 8
+  %267 = call i64 @fwrite(ptr nonnull @.str.76, i64 42, i64 1, ptr %266) #21
   br label %_ZL18pkg_executeOptionsP12UPKGOptions_.exit
 
 if.end332.i:                                      ; preds = %if.else.i247.i, %normal_command_mode.i24.i.i, %if.end36.i.i
@@ -2478,8 +2475,8 @@ if.then334.i:                                     ; preds = %if.end332.i
   br i1 %cmp337.not.i, label %if.end342.i, label %if.then338.i
 
 if.then338.i:                                     ; preds = %if.then334.i
-  %271 = load ptr, ptr @stderr, align 8
-  %272 = call i64 @fwrite(ptr nonnull @.str.77, i64 56, i64 1, ptr %271) #21
+  %268 = load ptr, ptr @stderr, align 8
+  %269 = call i64 @fwrite(ptr nonnull @.str.77, i64 56, i64 1, ptr %268) #21
   br label %_ZL18pkg_executeOptionsP12UPKGOptions_.exit
 
 if.end342.i:                                      ; preds = %if.then334.i, %if.end332.i, %if.end317.i
@@ -2490,8 +2487,8 @@ if.then345.i:                                     ; preds = %if.end342.i
   br i1 %tobool42.not.i62, label %if.end351.i, label %if.then348.i
 
 if.then348.i:                                     ; preds = %if.then345.i
-  %273 = load ptr, ptr @stdout, align 8
-  %call350.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %273, ptr noundef nonnull @.str.78, ptr noundef nonnull %o.sroa.68.0)
+  %270 = load ptr, ptr @stdout, align 8
+  %call350.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %270, ptr noundef nonnull @.str.78, ptr noundef nonnull %o.sroa.68.0)
   br label %if.end351.i
 
 if.end351.i:                                      ; preds = %if.then348.i, %if.then345.i
@@ -2500,8 +2497,8 @@ if.end351.i:                                      ; preds = %if.then348.i, %if.t
   br i1 %cmp355.not.i, label %_ZL18pkg_executeOptionsP12UPKGOptions_.exit, label %if.then356.i
 
 if.then356.i:                                     ; preds = %if.end351.i
-  %274 = load ptr, ptr @stderr, align 8
-  %275 = call i64 @fwrite(ptr nonnull @.str.79, i64 35, i64 1, ptr %274) #21
+  %271 = load ptr, ptr @stderr, align 8
+  %272 = call i64 @fwrite(ptr nonnull @.str.79, i64 35, i64 1, ptr %271) #21
   br label %_ZL18pkg_executeOptionsP12UPKGOptions_.exit
 
 _ZL18pkg_executeOptionsP12UPKGOptions_.exit:      ; preds = %if.then.i73, %_ZL19pkg_installFileModePKcS0_S0_.exit.i, %if.then53.i63, %if.then79.i, %if.then94.i, %if.end99.i, %_ZL21pkg_installCommonModePKcS0_.exit.i, %if.end188.i, %if.else192.i, %if.then195.i, %if.then258.i, %if.then263.i, %if.end272.i, %if.else279.i, %if.then314.i, %if.then330.i, %if.then338.i, %if.end342.i, %if.end351.i, %if.then356.i
@@ -2515,31 +2512,31 @@ _ZL18pkg_executeOptionsP12UPKGOptions_.exit:      ; preds = %if.then.i73, %_ZL19
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %gencFilePath.i)
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %version_major.i)
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %optMatchArch.i)
-  %276 = load ptr, ptr @_ZL12pkgDataFlags, align 8
-  %cmp203.not = icmp eq ptr %276, null
+  %273 = load ptr, ptr @_ZL12pkgDataFlags, align 8
+  %cmp203.not = icmp eq ptr %273, null
   br i1 %cmp203.not, label %if.end218, label %for.body207
 
 for.body207:                                      ; preds = %_ZL18pkg_executeOptionsP12UPKGOptions_.exit, %for.inc215
-  %277 = phi ptr [ %279, %for.inc215 ], [ %276, %_ZL18pkg_executeOptionsP12UPKGOptions_.exit ]
+  %274 = phi ptr [ %276, %for.inc215 ], [ %273, %_ZL18pkg_executeOptionsP12UPKGOptions_.exit ]
   %indvars.iv238 = phi i64 [ %indvars.iv.next239, %for.inc215 ], [ 0, %_ZL18pkg_executeOptionsP12UPKGOptions_.exit ]
-  %arrayidx209 = getelementptr inbounds ptr, ptr %277, i64 %indvars.iv238
-  %278 = load ptr, ptr %arrayidx209, align 8
-  %cmp210.not = icmp eq ptr %278, null
+  %arrayidx209 = getelementptr inbounds ptr, ptr %274, i64 %indvars.iv238
+  %275 = load ptr, ptr %arrayidx209, align 8
+  %cmp210.not = icmp eq ptr %275, null
   br i1 %cmp210.not, label %for.inc215, label %if.then211
 
 if.then211:                                       ; preds = %for.body207
-  call void @uprv_free_75(ptr noundef nonnull %278)
+  call void @uprv_free_75(ptr noundef nonnull %275)
   %.pre250 = load ptr, ptr @_ZL12pkgDataFlags, align 8
   br label %for.inc215
 
 for.inc215:                                       ; preds = %for.body207, %if.then211
-  %279 = phi ptr [ %277, %for.body207 ], [ %.pre250, %if.then211 ]
+  %276 = phi ptr [ %274, %for.body207 ], [ %.pre250, %if.then211 ]
   %indvars.iv.next239 = add nuw nsw i64 %indvars.iv238, 1
   %exitcond241.not = icmp eq i64 %indvars.iv.next239, 17
   br i1 %exitcond241.not, label %for.end217, label %for.body207, !llvm.loop !26
 
 for.end217:                                       ; preds = %for.inc215
-  call void @uprv_free_75(ptr noundef %279)
+  call void @uprv_free_75(ptr noundef %276)
   br label %if.end218
 
 if.end218:                                        ; preds = %for.end217, %_ZL18pkg_executeOptionsP12UPKGOptions_.exit

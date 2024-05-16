@@ -454,22 +454,21 @@ define dso_local void @pgstat_reset_wait_event_storage() local_unnamed_addr #5 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef ptr @pgstat_get_wait_event_type(i32 noundef %0) local_unnamed_addr #6 {
   %2 = icmp eq i32 %0, 0
-  br i1 %2, label %8, label %3
+  br i1 %2, label %7, label %3
 
 3:                                                ; preds = %1
   %4 = add i32 %0, -16777216
-  %5 = lshr i32 %4, 24
-  %trunc = trunc nuw i32 %5 to i8
-  %6 = icmp ult i8 %trunc, 10
-  br i1 %6, label %switch.lookup, label %8
+  %5 = icmp ult i32 %4, 167772160
+  br i1 %5, label %switch.lookup, label %7
 
 switch.lookup:                                    ; preds = %3
-  %7 = zext nneg i32 %5 to i64
-  %switch.gep = getelementptr inbounds [10 x ptr], ptr @switch.table.pgstat_get_wait_event_type, i64 0, i64 %7
+  %6 = lshr i32 %4, 24
+  %trunc = zext nneg i32 %6 to i64
+  %switch.gep = getelementptr inbounds [10 x ptr], ptr @switch.table.pgstat_get_wait_event_type, i64 0, i64 %trunc
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %8
+  br label %7
 
-8:                                                ; preds = %3, %switch.lookup, %1
+7:                                                ; preds = %3, %switch.lookup, %1
   %.04 = phi ptr [ null, %1 ], [ %switch.load, %switch.lookup ], [ @.str.15, %3 ]
   ret ptr %.04
 }

@@ -7115,7 +7115,7 @@ define internal fastcc noundef zeroext i1 @_ZN13mini_lsm_mvcc11lsm_storage13rang
   br i1 %27, label %28, label %4
 
 28:                                               ; preds = %40, %29, %4, %17, %6
-  %.0 = phi i1 [ false, %6 ], [ false, %17 ], [ true, %4 ], [ %39, %29 ], [ %isneg, %40 ]
+  %.0 = phi i1 [ false, %6 ], [ false, %17 ], [ true, %4 ], [ %39, %29 ], [ %switch, %40 ]
   ret i1 %.0
 
 29:                                               ; preds = %4
@@ -7147,7 +7147,7 @@ define internal fastcc noundef zeroext i1 @_ZN13mini_lsm_mvcc11lsm_storage13rang
   %48 = sext i32 %47 to i64
   %49 = icmp eq i32 %47, 0
   %spec.store.select.i31 = select i1 %49, i64 %46, i64 %48
-  %isneg = icmp slt i64 %spec.store.select.i31, 0
+  %switch = icmp slt i64 %spec.store.select.i31, 0
   br label %28
 }
 

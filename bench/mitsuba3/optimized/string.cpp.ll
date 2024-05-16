@@ -4718,7 +4718,7 @@ _ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i.i: ; preds = %_ZN10fast_float6
   %34 = shl nuw nsw i64 %7, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %0, i8 0, i64 %34, i1 false)
   %35 = load i16, ptr %.phi.trans.insert, align 8
-  %36 = trunc i64 %7 to i16
+  %36 = trunc nuw i64 %7 to i16
   %37 = add i16 %35, %36
   store i16 %37, ptr %.phi.trans.insert, align 8
   br label %_ZN10fast_float6bigint5pow10Ej.exit
@@ -5076,7 +5076,7 @@ _ZN10fast_float6bigint4pow2Ej.exit.sink.split:    ; preds = %.lr.ph.i.i.i.i.preh
   %110 = shl nuw nsw i64 %.sink185, 3
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %.sink183, i8 0, i64 %110, i1 false)
   %111 = load i16, ptr %.sink182, align 8
-  %112 = trunc i64 %.sink185 to i16
+  %112 = trunc nuw i64 %.sink185 to i16
   %113 = add i16 %111, %112
   store i16 %113, ptr %.sink182, align 8
   br label %_ZN10fast_float6bigint4pow2Ej.exit
@@ -6729,7 +6729,7 @@ _ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i.i: ; preds = %_ZN10fast_float6
   %34 = shl nuw nsw i64 %7, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %0, i8 0, i64 %34, i1 false)
   %35 = load i16, ptr %.phi.trans.insert, align 8
-  %36 = trunc i64 %7 to i16
+  %36 = trunc nuw i64 %7 to i16
   %37 = add i16 %35, %36
   store i16 %37, ptr %.phi.trans.insert, align 8
   br label %_ZN10fast_float6bigint5pow10Ej.exit
@@ -7087,7 +7087,7 @@ _ZN10fast_float6bigint4pow2Ej.exit.sink.split:    ; preds = %.lr.ph.i.i.i.i.preh
   %111 = shl nuw nsw i64 %.sink185, 3
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %.sink183, i8 0, i64 %111, i1 false)
   %112 = load i16, ptr %.sink182, align 8
-  %113 = trunc i64 %.sink185 to i16
+  %113 = trunc nuw i64 %.sink185 to i16
   %114 = add i16 %112, %113
   store i16 %114, ptr %.sink182, align 8
   br label %_ZN10fast_float6bigint4pow2Ej.exit

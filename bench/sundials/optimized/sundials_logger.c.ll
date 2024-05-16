@@ -340,17 +340,17 @@ sunHashMapLinearProbeGet.exit.thread.i:           ; preds = %38, %34
   br i1 %37, label %sunHashMapLinearProbeGet.exit.thread.i, label %38
 
 38:                                               ; preds = %34
-  %39 = trunc nsw i64 %indvars.iv.i.i to i32
-  %40 = load ptr, ptr %36, align 8
-  %41 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull readonly dereferenceable(1) %1) #17
-  %.not.i29.i = icmp ne i32 %41, 0
-  %.not.i28.i = icmp eq i32 %39, -1
-  %or.cond.i = select i1 %.not.i29.i, i1 true, i1 %.not.i28.i
+  %39 = load ptr, ptr %36, align 8
+  %40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull readonly dereferenceable(1) %1) #17
+  %.not.i29.i = icmp ne i32 %40, 0
+  %.not.i28.i = icmp eq i64 %indvars.iv.i.i, -1
+  %or.cond.i = or i1 %.not.i28.i, %.not.i29.i
   br i1 %or.cond.i, label %sunHashMapLinearProbeGet.exit.thread.i, label %SUNHashMap_Iterate.exit.i
 
 SUNHashMap_Iterate.exit.i:                        ; preds = %38
-  %42 = icmp slt i32 %39, 0
-  %43 = icmp eq i32 %16, %39
+  %41 = trunc nsw i64 %indvars.iv.i.i to i32
+  %42 = icmp slt i64 %indvars.iv.i.i, 0
+  %43 = icmp eq i32 %16, %41
   %or.cond = or i1 %42, %43
   br i1 %or.cond, label %SUNHashMap_Iterate.exit.i.thread, label %44
 
@@ -441,15 +441,15 @@ fnv1a_hash.exit.i27:                              ; preds = %.lr.ph.i.i23, %61
   %indvars.iv.i.i34 = phi i64 [ %indvars.iv.next.i.i35, %81 ], [ %75, %78 ]
   %83 = getelementptr inbounds ptr, ptr %74, i64 %indvars.iv.i.i34
   %84 = load ptr, ptr %83, align 8
-  %85 = trunc nsw i64 %indvars.iv.i.i34 to i32
-  %86 = icmp ne ptr %84, null
-  %.not.i3234.i = icmp eq i32 %85, -1
-  %.not.i32.i = select i1 %86, i1 true, i1 %.not.i3234.i
+  %85 = icmp ne ptr %84, null
+  %.not.i3234.i = icmp eq i64 %indvars.iv.i.i34, -1
+  %.not.i32.i = or i1 %.not.i3234.i, %85
   br i1 %.not.i32.i, label %81, label %SUNHashMap_Iterate.exit.i31
 
 SUNHashMap_Iterate.exit.i31:                      ; preds = %.lr.ph.i31.i
-  %87 = icmp slt i32 %85, 0
-  %88 = icmp eq i32 %70, %85
+  %86 = trunc nsw i64 %indvars.iv.i.i34 to i32
+  %87 = icmp slt i64 %indvars.iv.i.i34, 0
+  %88 = icmp eq i32 %70, %86
   %or.cond40 = or i1 %87, %88
   br i1 %or.cond40, label %SUNHashMap_Insert.exit, label %89
 
@@ -552,17 +552,17 @@ sunHashMapLinearProbeGet.exit.thread.i:           ; preds = %38, %34
   br i1 %37, label %sunHashMapLinearProbeGet.exit.thread.i, label %38
 
 38:                                               ; preds = %34
-  %39 = trunc nsw i64 %indvars.iv.i.i to i32
-  %40 = load ptr, ptr %36, align 8
-  %41 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull readonly dereferenceable(1) %1) #17
-  %.not.i29.i = icmp ne i32 %41, 0
-  %.not.i28.i = icmp eq i32 %39, -1
-  %or.cond.i = select i1 %.not.i29.i, i1 true, i1 %.not.i28.i
+  %39 = load ptr, ptr %36, align 8
+  %40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull readonly dereferenceable(1) %1) #17
+  %.not.i29.i = icmp ne i32 %40, 0
+  %.not.i28.i = icmp eq i64 %indvars.iv.i.i, -1
+  %or.cond.i = or i1 %.not.i28.i, %.not.i29.i
   br i1 %or.cond.i, label %sunHashMapLinearProbeGet.exit.thread.i, label %SUNHashMap_Iterate.exit.i
 
 SUNHashMap_Iterate.exit.i:                        ; preds = %38
-  %42 = icmp slt i32 %39, 0
-  %43 = icmp eq i32 %16, %39
+  %41 = trunc nsw i64 %indvars.iv.i.i to i32
+  %42 = icmp slt i64 %indvars.iv.i.i, 0
+  %43 = icmp eq i32 %16, %41
   %or.cond = or i1 %42, %43
   br i1 %or.cond, label %SUNHashMap_Iterate.exit.i.thread, label %44
 
@@ -653,15 +653,15 @@ fnv1a_hash.exit.i27:                              ; preds = %.lr.ph.i.i23, %61
   %indvars.iv.i.i34 = phi i64 [ %indvars.iv.next.i.i35, %81 ], [ %75, %78 ]
   %83 = getelementptr inbounds ptr, ptr %74, i64 %indvars.iv.i.i34
   %84 = load ptr, ptr %83, align 8
-  %85 = trunc nsw i64 %indvars.iv.i.i34 to i32
-  %86 = icmp ne ptr %84, null
-  %.not.i3234.i = icmp eq i32 %85, -1
-  %.not.i32.i = select i1 %86, i1 true, i1 %.not.i3234.i
+  %85 = icmp ne ptr %84, null
+  %.not.i3234.i = icmp eq i64 %indvars.iv.i.i34, -1
+  %.not.i32.i = or i1 %.not.i3234.i, %85
   br i1 %.not.i32.i, label %81, label %SUNHashMap_Iterate.exit.i31
 
 SUNHashMap_Iterate.exit.i31:                      ; preds = %.lr.ph.i31.i
-  %87 = icmp slt i32 %85, 0
-  %88 = icmp eq i32 %70, %85
+  %86 = trunc nsw i64 %indvars.iv.i.i34 to i32
+  %87 = icmp slt i64 %indvars.iv.i.i34, 0
+  %88 = icmp eq i32 %70, %86
   %or.cond40 = or i1 %87, %88
   br i1 %or.cond40, label %SUNHashMap_Insert.exit, label %89
 

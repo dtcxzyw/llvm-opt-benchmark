@@ -496,68 +496,76 @@ while.end10.i:                                    ; preds = %if.then.i, %for.bod
   br i1 %tobool.not.i, label %aio_compute_bh_timeout.exit, label %for.body.i, !llvm.loop !13
 
 aio_compute_bh_timeout.exit:                      ; preds = %while.end10.i
+  %conv.i = sext i32 %timeout.addr.1.i to i64
   %cmp = icmp eq i32 %timeout.addr.1.i, 0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry, %aio_compute_bh_timeout.exit
-  %conv38 = phi i32 [ %timeout.addr.1.i, %aio_compute_bh_timeout.exit ], [ -1, %entry ]
+  %conv.i36 = phi i64 [ %conv.i, %aio_compute_bh_timeout.exit ], [ -1, %entry ]
   %bh_slice_list = getelementptr inbounds i8, ptr %ctx, i64 184
-  %s.046 = load ptr, ptr %bh_slice_list, align 8
-  %tobool.not47 = icmp eq ptr %s.046, null
-  br i1 %tobool.not47, label %for.end, label %for.body
+  %s.043 = load ptr, ptr %bh_slice_list, align 8
+  %tobool.not44 = icmp eq ptr %s.043, null
+  br i1 %tobool.not44, label %for.end, label %for.body.preheader
 
-for.cond:                                         ; preds = %for.body, %aio_compute_bh_timeout.exit29
-  %timeout.addr.0.lcssa.i2355 = phi i32 [ %timeout.addr.1.i19, %aio_compute_bh_timeout.exit29 ], [ %timeout.048, %for.body ]
-  %next = getelementptr inbounds i8, ptr %s.049, i64 8
+for.body.preheader:                               ; preds = %if.end
+  %3 = trunc nsw i64 %conv.i36 to i32
+  br label %for.body
+
+for.cond:                                         ; preds = %aio_compute_bh_timeout.exit29
+  %next = getelementptr inbounds i8, ptr %s.046, i64 8
   %s.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %s.0, null
-  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !14
+  br i1 %tobool.not, label %for.end.loopexit, label %for.body, !llvm.loop !14
 
-for.body:                                         ; preds = %if.end, %for.cond
-  %s.049 = phi ptr [ %s.0, %for.cond ], [ %s.046, %if.end ]
-  %timeout.048 = phi i32 [ %timeout.addr.0.lcssa.i2355, %for.cond ], [ %conv38, %if.end ]
-  %3 = load atomic i64, ptr %s.049 monotonic, align 8
+for.body:                                         ; preds = %for.body.preheader, %for.cond
+  %s.046 = phi ptr [ %s.0, %for.cond ], [ %s.043, %for.body.preheader ]
+  %timeout.0.in45 = phi i32 [ %timeout.addr.0.lcssa.i23, %for.cond ], [ %3, %for.body.preheader ]
+  %4 = load atomic i64, ptr %s.046 monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !11
-  %tobool.not6.i10 = icmp eq i64 %3, 0
-  br i1 %tobool.not6.i10, label %for.cond, label %for.body.i11
+  %tobool.not6.i10 = icmp eq i64 %4, 0
+  br i1 %tobool.not6.i10, label %aio_compute_bh_timeout.exit29, label %for.body.i11
 
 for.body.i11:                                     ; preds = %for.body, %while.end10.i18
-  %bh.08.in.i12 = phi i64 [ %5, %while.end10.i18 ], [ %3, %for.body ]
-  %timeout.addr.07.i13 = phi i32 [ %timeout.addr.1.i19, %while.end10.i18 ], [ %timeout.048, %for.body ]
+  %bh.08.in.i12 = phi i64 [ %6, %while.end10.i18 ], [ %4, %for.body ]
+  %timeout.addr.07.i13 = phi i32 [ %timeout.addr.1.i19, %while.end10.i18 ], [ %timeout.0.in45, %for.body ]
   %bh.08.i14 = inttoptr i64 %bh.08.in.i12 to ptr
   %flags.i15 = getelementptr inbounds i8, ptr %bh.08.i14, i64 40
-  %4 = load i32, ptr %flags.i15, align 8
-  %and.i16 = and i32 %4, 6
+  %5 = load i32, ptr %flags.i15, align 8
+  %and.i16 = and i32 %5, 6
   %cmp.i17 = icmp eq i32 %and.i16, 2
   br i1 %cmp.i17, label %if.then.i26, label %while.end10.i18
 
 if.then.i26:                                      ; preds = %for.body.i11
-  %and2.i27 = and i32 %4, 16
+  %and2.i27 = and i32 %5, 16
   %tobool3.not.i28 = icmp eq i32 %and2.i27, 0
   br i1 %tobool3.not.i28, label %return, label %while.end10.i18
 
 while.end10.i18:                                  ; preds = %if.then.i26, %for.body.i11
   %timeout.addr.1.i19 = phi i32 [ %timeout.addr.07.i13, %for.body.i11 ], [ 10000000, %if.then.i26 ]
   %next.i20 = getelementptr inbounds i8, ptr %bh.08.i14, i64 32
-  %5 = load atomic i64, ptr %next.i20 monotonic, align 8
+  %6 = load atomic i64, ptr %next.i20 monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !12
-  %tobool.not.i21 = icmp eq i64 %5, 0
+  %tobool.not.i21 = icmp eq i64 %6, 0
   br i1 %tobool.not.i21, label %aio_compute_bh_timeout.exit29, label %for.body.i11, !llvm.loop !13
 
-aio_compute_bh_timeout.exit29:                    ; preds = %while.end10.i18
-  %cmp5 = icmp eq i32 %timeout.addr.1.i19, 0
+aio_compute_bh_timeout.exit29:                    ; preds = %while.end10.i18, %for.body
+  %timeout.addr.0.lcssa.i23 = phi i32 [ %timeout.0.in45, %for.body ], [ %timeout.addr.1.i19, %while.end10.i18 ]
+  %cmp5 = icmp eq i32 %timeout.addr.0.lcssa.i23, 0
   br i1 %cmp5, label %return, label %for.cond
 
-for.end:                                          ; preds = %for.cond, %if.end
-  %timeout.0.lcssa = phi i32 [ %conv38, %if.end ], [ %timeout.addr.0.lcssa.i2355, %for.cond ]
+for.end.loopexit:                                 ; preds = %for.cond
+  %conv.i24 = sext i32 %timeout.addr.0.lcssa.i23 to i64
+  br label %for.end
+
+for.end:                                          ; preds = %for.end.loopexit, %if.end
+  %timeout.0.in.lcssa = phi i64 [ %conv.i36, %if.end ], [ %conv.i24, %for.end.loopexit ]
   %tlg = getelementptr inbounds i8, ptr %ctx, i64 480
   %call9 = tail call i64 @timerlistgroup_deadline_ns(ptr noundef nonnull %tlg) #12
   %cmp10 = icmp eq i64 %call9, 0
   br i1 %cmp10, label %return, label %if.else
 
 if.else:                                          ; preds = %for.end
-  %conv13 = sext i32 %timeout.0.lcssa to i64
-  %cond.i = tail call noundef i64 @llvm.umin.i64(i64 %conv13, i64 %call9)
+  %cond.i = tail call noundef i64 @llvm.umin.i64(i64 %timeout.0.in.lcssa, i64 %call9)
   br label %return
 
 return:                                           ; preds = %if.then.i, %aio_compute_bh_timeout.exit29, %if.then.i26, %for.end, %aio_compute_bh_timeout.exit, %if.else
@@ -1367,68 +1375,76 @@ while.end10.i.i:                                  ; preds = %if.then.i.i, %for.b
   br i1 %tobool.not.i.i, label %aio_compute_bh_timeout.exit.i, label %for.body.i.i, !llvm.loop !13
 
 aio_compute_bh_timeout.exit.i:                    ; preds = %while.end10.i.i
+  %conv.i.i = sext i32 %timeout.addr.1.i.i to i64
   %cmp.i = icmp eq i32 %timeout.addr.1.i.i, 0
   br i1 %cmp.i, label %aio_compute_timeout.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %aio_compute_bh_timeout.exit.i, %entry
-  %conv38.i = phi i32 [ %timeout.addr.1.i.i, %aio_compute_bh_timeout.exit.i ], [ -1, %entry ]
+  %conv.i36.i = phi i64 [ %conv.i.i, %aio_compute_bh_timeout.exit.i ], [ -1, %entry ]
   %bh_slice_list.i = getelementptr inbounds i8, ptr %source, i64 184
-  %s.046.i = load ptr, ptr %bh_slice_list.i, align 8
-  %tobool.not47.i = icmp eq ptr %s.046.i, null
-  br i1 %tobool.not47.i, label %for.end.i, label %for.body.i
+  %s.043.i = load ptr, ptr %bh_slice_list.i, align 8
+  %tobool.not44.i = icmp eq ptr %s.043.i, null
+  br i1 %tobool.not44.i, label %for.end.i, label %for.body.preheader.i
 
-for.cond.i:                                       ; preds = %aio_compute_bh_timeout.exit29.i, %for.body.i
-  %timeout.addr.0.lcssa.i2355.i = phi i32 [ %timeout.addr.1.i19.i, %aio_compute_bh_timeout.exit29.i ], [ %timeout.048.i, %for.body.i ]
-  %next.i = getelementptr inbounds i8, ptr %s.049.i, i64 8
+for.body.preheader.i:                             ; preds = %if.end.i
+  %4 = trunc nsw i64 %conv.i36.i to i32
+  br label %for.body.i
+
+for.cond.i:                                       ; preds = %aio_compute_bh_timeout.exit29.i
+  %next.i = getelementptr inbounds i8, ptr %s.046.i, i64 8
   %s.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i = icmp eq ptr %s.0.i, null
-  br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !14
+  br i1 %tobool.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !14
 
-for.body.i:                                       ; preds = %if.end.i, %for.cond.i
-  %s.049.i = phi ptr [ %s.0.i, %for.cond.i ], [ %s.046.i, %if.end.i ]
-  %timeout.048.i = phi i32 [ %timeout.addr.0.lcssa.i2355.i, %for.cond.i ], [ %conv38.i, %if.end.i ]
-  %4 = load atomic i64, ptr %s.049.i monotonic, align 8
+for.body.i:                                       ; preds = %for.cond.i, %for.body.preheader.i
+  %s.046.i = phi ptr [ %s.0.i, %for.cond.i ], [ %s.043.i, %for.body.preheader.i ]
+  %timeout.0.in45.i = phi i32 [ %timeout.addr.0.lcssa.i23.i, %for.cond.i ], [ %4, %for.body.preheader.i ]
+  %5 = load atomic i64, ptr %s.046.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !11
-  %tobool.not6.i10.i = icmp eq i64 %4, 0
-  br i1 %tobool.not6.i10.i, label %for.cond.i, label %for.body.i11.i
+  %tobool.not6.i10.i = icmp eq i64 %5, 0
+  br i1 %tobool.not6.i10.i, label %aio_compute_bh_timeout.exit29.i, label %for.body.i11.i
 
 for.body.i11.i:                                   ; preds = %for.body.i, %while.end10.i18.i
-  %bh.08.in.i12.i = phi i64 [ %6, %while.end10.i18.i ], [ %4, %for.body.i ]
-  %timeout.addr.07.i13.i = phi i32 [ %timeout.addr.1.i19.i, %while.end10.i18.i ], [ %timeout.048.i, %for.body.i ]
+  %bh.08.in.i12.i = phi i64 [ %7, %while.end10.i18.i ], [ %5, %for.body.i ]
+  %timeout.addr.07.i13.i = phi i32 [ %timeout.addr.1.i19.i, %while.end10.i18.i ], [ %timeout.0.in45.i, %for.body.i ]
   %bh.08.i14.i = inttoptr i64 %bh.08.in.i12.i to ptr
   %flags.i15.i = getelementptr inbounds i8, ptr %bh.08.i14.i, i64 40
-  %5 = load i32, ptr %flags.i15.i, align 8
-  %and.i16.i = and i32 %5, 6
+  %6 = load i32, ptr %flags.i15.i, align 8
+  %and.i16.i = and i32 %6, 6
   %cmp.i17.i = icmp eq i32 %and.i16.i, 2
   br i1 %cmp.i17.i, label %if.then.i26.i, label %while.end10.i18.i
 
 if.then.i26.i:                                    ; preds = %for.body.i11.i
-  %and2.i27.i = and i32 %5, 16
+  %and2.i27.i = and i32 %6, 16
   %tobool3.not.i28.i = icmp eq i32 %and2.i27.i, 0
   br i1 %tobool3.not.i28.i, label %aio_compute_timeout.exit, label %while.end10.i18.i
 
 while.end10.i18.i:                                ; preds = %if.then.i26.i, %for.body.i11.i
   %timeout.addr.1.i19.i = phi i32 [ %timeout.addr.07.i13.i, %for.body.i11.i ], [ 10000000, %if.then.i26.i ]
   %next.i20.i = getelementptr inbounds i8, ptr %bh.08.i14.i, i64 32
-  %6 = load atomic i64, ptr %next.i20.i monotonic, align 8
+  %7 = load atomic i64, ptr %next.i20.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !12
-  %tobool.not.i21.i = icmp eq i64 %6, 0
+  %tobool.not.i21.i = icmp eq i64 %7, 0
   br i1 %tobool.not.i21.i, label %aio_compute_bh_timeout.exit29.i, label %for.body.i11.i, !llvm.loop !13
 
-aio_compute_bh_timeout.exit29.i:                  ; preds = %while.end10.i18.i
-  %cmp5.i = icmp eq i32 %timeout.addr.1.i19.i, 0
+aio_compute_bh_timeout.exit29.i:                  ; preds = %while.end10.i18.i, %for.body.i
+  %timeout.addr.0.lcssa.i23.i = phi i32 [ %timeout.0.in45.i, %for.body.i ], [ %timeout.addr.1.i19.i, %while.end10.i18.i ]
+  %cmp5.i = icmp eq i32 %timeout.addr.0.lcssa.i23.i, 0
   br i1 %cmp5.i, label %aio_compute_timeout.exit, label %for.cond.i
 
-for.end.i:                                        ; preds = %for.cond.i, %if.end.i
-  %timeout.0.lcssa.i = phi i32 [ %conv38.i, %if.end.i ], [ %timeout.addr.0.lcssa.i2355.i, %for.cond.i ]
+for.end.loopexit.i:                               ; preds = %for.cond.i
+  %conv.i24.i = sext i32 %timeout.addr.0.lcssa.i23.i to i64
+  br label %for.end.i
+
+for.end.i:                                        ; preds = %for.end.loopexit.i, %if.end.i
+  %timeout.0.in.lcssa.i = phi i64 [ %conv.i36.i, %if.end.i ], [ %conv.i24.i, %for.end.loopexit.i ]
   %tlg.i = getelementptr inbounds i8, ptr %source, i64 480
   %call9.i = tail call i64 @timerlistgroup_deadline_ns(ptr noundef nonnull %tlg.i) #12
   %cmp10.i = icmp eq i64 %call9.i, 0
   br i1 %cmp10.i, label %aio_compute_timeout.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %for.end.i
-  %conv13.i = sext i32 %timeout.0.lcssa.i to i64
-  %cond.i.i = tail call noundef i64 @llvm.umin.i64(i64 %conv13.i, i64 %call9.i)
+  %cond.i.i = tail call noundef i64 @llvm.umin.i64(i64 %timeout.0.in.lcssa.i, i64 %call9.i)
   br label %aio_compute_timeout.exit
 
 aio_compute_timeout.exit:                         ; preds = %if.then.i.i, %aio_compute_bh_timeout.exit29.i, %if.then.i26.i, %aio_compute_bh_timeout.exit.i, %for.end.i, %if.else.i
@@ -1440,8 +1456,8 @@ aio_compute_timeout.exit:                         ; preds = %if.then.i.i, %aio_c
 
 aio_compute_timeout.exit.if.end_crit_edge:        ; preds = %aio_compute_timeout.exit
   %.pre = load i32, ptr %timeout, align 4
-  %7 = icmp eq i32 %.pre, 0
-  %8 = zext i1 %7 to i32
+  %8 = icmp eq i32 %.pre, 0
+  %9 = zext i1 %8 to i32
   br label %if.end
 
 if.then:                                          ; preds = %aio_compute_timeout.exit
@@ -1449,7 +1465,7 @@ if.then:                                          ; preds = %aio_compute_timeout
   br label %if.end
 
 if.end:                                           ; preds = %aio_compute_timeout.exit.if.end_crit_edge, %if.then
-  %cmp = phi i32 [ %8, %aio_compute_timeout.exit.if.end_crit_edge ], [ 1, %if.then ]
+  %cmp = phi i32 [ %9, %aio_compute_timeout.exit.if.end_crit_edge ], [ 1, %if.then ]
   ret i32 %cmp
 }
 

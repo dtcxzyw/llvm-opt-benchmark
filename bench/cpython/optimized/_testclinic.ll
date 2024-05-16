@@ -2807,8 +2807,7 @@ lor.lhs.false.i:                                  ; preds = %for.body.i
   br i1 %tobool20.not.i, label %cond.false22.i, label %for.cond27.preheader.i
 
 for.cond27.preheader.i:                           ; preds = %lor.lhs.false.i
-  %152 = and i64 %indvars.iv.i, 4294967295
-  %cmp287.not.i = icmp eq i64 %152, 0
+  %cmp287.not.i = icmp eq i64 %indvars.iv.i, 0
   br i1 %cmp287.not.i, label %char_converter_impl.exit, label %for.body30.preheader.i
 
 for.body30.preheader.i:                           ; preds = %for.cond27.preheader.i
@@ -2822,20 +2821,20 @@ cond.false22.i:                                   ; preds = %lor.lhs.false.i
 for.body30.i:                                     ; preds = %for.inc.i, %for.body30.preheader.i
   %indvars.iv21.i = phi i64 [ 0, %for.body30.preheader.i ], [ %indvars.iv.next22.i, %for.inc.i ]
   %arrayidx32.i = getelementptr [14 x ptr], ptr %out.i, i64 0, i64 %indvars.iv21.i
-  %153 = load ptr, ptr %arrayidx32.i, align 8
-  %154 = load i64, ptr %153, align 8
-  %155 = and i64 %154, 2147483648
-  %cmp.i71.not.i = icmp eq i64 %155, 0
+  %152 = load ptr, ptr %arrayidx32.i, align 8
+  %153 = load i64, ptr %152, align 8
+  %154 = and i64 %153, 2147483648
+  %cmp.i71.not.i = icmp eq i64 %154, 0
   br i1 %cmp.i71.not.i, label %if.end.i64.i, label %for.inc.i
 
 if.end.i64.i:                                     ; preds = %for.body30.i
-  %dec.i65.i = add i64 %154, -1
-  store i64 %dec.i65.i, ptr %153, align 8
+  %dec.i65.i = add i64 %153, -1
+  store i64 %dec.i65.i, ptr %152, align 8
   %cmp.i66.i = icmp eq i64 %dec.i65.i, 0
   br i1 %cmp.i66.i, label %if.then1.i67.i, label %for.inc.i
 
 if.then1.i67.i:                                   ; preds = %if.end.i64.i
-  tail call void @_Py_Dealloc(ptr noundef nonnull %153) #9
+  tail call void @_Py_Dealloc(ptr noundef nonnull %152) #9
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then1.i67.i, %if.end.i64.i, %for.body30.i
@@ -2856,20 +2855,20 @@ for.end35.i:                                      ; preds = %for.inc33.i
 for.body43.i:                                     ; preds = %for.end35.i, %for.inc46.i
   %indvars.iv17.i = phi i64 [ %indvars.iv.next18.i, %for.inc46.i ], [ 0, %for.end35.i ]
   %arrayidx45.i = getelementptr [14 x ptr], ptr %out.i, i64 0, i64 %indvars.iv17.i
-  %156 = load ptr, ptr %arrayidx45.i, align 8
-  %157 = load i64, ptr %156, align 8
-  %158 = and i64 %157, 2147483648
-  %cmp.i74.not.i = icmp eq i64 %158, 0
+  %155 = load ptr, ptr %arrayidx45.i, align 8
+  %156 = load i64, ptr %155, align 8
+  %157 = and i64 %156, 2147483648
+  %cmp.i74.not.i = icmp eq i64 %157, 0
   br i1 %cmp.i74.not.i, label %if.end.i.i, label %for.inc46.i
 
 if.end.i.i:                                       ; preds = %for.body43.i
-  %dec.i.i = add i64 %157, -1
-  store i64 %dec.i.i, ptr %156, align 8
+  %dec.i.i = add i64 %156, -1
+  store i64 %dec.i.i, ptr %155, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp.i.i, label %if.then1.i.i, label %for.inc46.i
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
-  tail call void @_Py_Dealloc(ptr noundef nonnull %156) #9
+  tail call void @_Py_Dealloc(ptr noundef nonnull %155) #9
   br label %for.inc46.i
 
 for.inc46.i:                                      ; preds = %if.then1.i.i, %if.end.i.i, %for.body43.i
@@ -2880,8 +2879,8 @@ for.inc46.i:                                      ; preds = %if.then1.i.i, %if.e
 for.body54.i:                                     ; preds = %for.end35.i, %for.body54.i
   %indvars.iv13.i = phi i64 [ %indvars.iv.next14.i, %for.body54.i ], [ 0, %for.end35.i ]
   %arrayidx57.i = getelementptr [14 x ptr], ptr %out.i, i64 0, i64 %indvars.iv13.i
-  %159 = load ptr, ptr %arrayidx57.i, align 8
-  tail call fastcc void @PyTuple_SET_ITEM(ptr noundef nonnull %call36.i, i64 noundef %indvars.iv13.i, ptr noundef %159)
+  %158 = load ptr, ptr %arrayidx57.i, align 8
+  tail call fastcc void @PyTuple_SET_ITEM(ptr noundef nonnull %call36.i, i64 noundef %indvars.iv13.i, ptr noundef %158)
   %indvars.iv.next14.i = add nuw nsw i64 %indvars.iv13.i, 1
   %exitcond16.not.i = icmp eq i64 %indvars.iv.next14.i, 14
   br i1 %exitcond16.not.i, label %char_converter_impl.exit, label %for.body54.i, !llvm.loop !8
@@ -3039,8 +3038,7 @@ lor.lhs.false.i:                                  ; preds = %for.body.i
   br i1 %tobool9.not.i, label %cond.false11.i, label %for.cond16.preheader.i
 
 for.cond16.preheader.i:                           ; preds = %lor.lhs.false.i
-  %8 = and i64 %indvars.iv.i, 4294967295
-  %cmp177.not.i = icmp eq i64 %8, 0
+  %cmp177.not.i = icmp eq i64 %indvars.iv.i, 0
   br i1 %cmp177.not.i, label %unsigned_char_converter_impl.exit, label %for.body19.preheader.i
 
 for.body19.preheader.i:                           ; preds = %for.cond16.preheader.i
@@ -3054,20 +3052,20 @@ cond.false11.i:                                   ; preds = %lor.lhs.false.i
 for.body19.i:                                     ; preds = %for.inc.i, %for.body19.preheader.i
   %indvars.iv21.i = phi i64 [ 0, %for.body19.preheader.i ], [ %indvars.iv.next22.i, %for.inc.i ]
   %arrayidx21.i = getelementptr [3 x ptr], ptr %out.i, i64 0, i64 %indvars.iv21.i
-  %9 = load ptr, ptr %arrayidx21.i, align 8
-  %10 = load i64, ptr %9, align 8
-  %11 = and i64 %10, 2147483648
-  %cmp.i60.not.i = icmp eq i64 %11, 0
+  %8 = load ptr, ptr %arrayidx21.i, align 8
+  %9 = load i64, ptr %8, align 8
+  %10 = and i64 %9, 2147483648
+  %cmp.i60.not.i = icmp eq i64 %10, 0
   br i1 %cmp.i60.not.i, label %if.end.i53.i, label %for.inc.i
 
 if.end.i53.i:                                     ; preds = %for.body19.i
-  %dec.i54.i = add i64 %10, -1
-  store i64 %dec.i54.i, ptr %9, align 8
+  %dec.i54.i = add i64 %9, -1
+  store i64 %dec.i54.i, ptr %8, align 8
   %cmp.i55.i = icmp eq i64 %dec.i54.i, 0
   br i1 %cmp.i55.i, label %if.then1.i56.i, label %for.inc.i
 
 if.then1.i56.i:                                   ; preds = %if.end.i53.i
-  tail call void @_Py_Dealloc(ptr noundef nonnull %9) #9
+  tail call void @_Py_Dealloc(ptr noundef nonnull %8) #9
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then1.i56.i, %if.end.i53.i, %for.body19.i
@@ -3088,20 +3086,20 @@ for.end24.i:                                      ; preds = %for.inc22.i
 for.body32.i:                                     ; preds = %for.end24.i, %for.inc35.i
   %indvars.iv17.i = phi i64 [ %indvars.iv.next18.i, %for.inc35.i ], [ 0, %for.end24.i ]
   %arrayidx34.i = getelementptr [3 x ptr], ptr %out.i, i64 0, i64 %indvars.iv17.i
-  %12 = load ptr, ptr %arrayidx34.i, align 8
-  %13 = load i64, ptr %12, align 8
-  %14 = and i64 %13, 2147483648
-  %cmp.i63.not.i = icmp eq i64 %14, 0
+  %11 = load ptr, ptr %arrayidx34.i, align 8
+  %12 = load i64, ptr %11, align 8
+  %13 = and i64 %12, 2147483648
+  %cmp.i63.not.i = icmp eq i64 %13, 0
   br i1 %cmp.i63.not.i, label %if.end.i.i, label %for.inc35.i
 
 if.end.i.i:                                       ; preds = %for.body32.i
-  %dec.i.i = add i64 %13, -1
-  store i64 %dec.i.i, ptr %12, align 8
+  %dec.i.i = add i64 %12, -1
+  store i64 %dec.i.i, ptr %11, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp.i.i, label %if.then1.i.i, label %for.inc35.i
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
-  tail call void @_Py_Dealloc(ptr noundef nonnull %12) #9
+  tail call void @_Py_Dealloc(ptr noundef nonnull %11) #9
   br label %for.inc35.i
 
 for.inc35.i:                                      ; preds = %if.then1.i.i, %if.end.i.i, %for.body32.i
@@ -3112,8 +3110,8 @@ for.inc35.i:                                      ; preds = %if.then1.i.i, %if.e
 for.body43.i:                                     ; preds = %for.end24.i, %for.body43.i
   %indvars.iv13.i = phi i64 [ %indvars.iv.next14.i, %for.body43.i ], [ 0, %for.end24.i ]
   %arrayidx46.i = getelementptr [3 x ptr], ptr %out.i, i64 0, i64 %indvars.iv13.i
-  %15 = load ptr, ptr %arrayidx46.i, align 8
-  tail call fastcc void @PyTuple_SET_ITEM(ptr noundef nonnull %call25.i, i64 noundef %indvars.iv13.i, ptr noundef %15)
+  %14 = load ptr, ptr %arrayidx46.i, align 8
+  tail call fastcc void @PyTuple_SET_ITEM(ptr noundef nonnull %call25.i, i64 noundef %indvars.iv13.i, ptr noundef %14)
   %indvars.iv.next14.i = add nuw nsw i64 %indvars.iv13.i, 1
   %exitcond16.not.i = icmp eq i64 %indvars.iv.next14.i, 3
   br i1 %exitcond16.not.i, label %unsigned_char_converter_impl.exit, label %for.body43.i, !llvm.loop !12
@@ -3364,8 +3362,7 @@ lor.lhs.false.i:                                  ; preds = %for.body.i
   br i1 %tobool12.not.i, label %cond.false14.i, label %for.cond19.preheader.i
 
 for.cond19.preheader.i:                           ; preds = %lor.lhs.false.i
-  %6 = and i64 %indvars.iv.i, 4294967295
-  %cmp207.not.i = icmp eq i64 %6, 0
+  %cmp207.not.i = icmp eq i64 %indvars.iv.i, 0
   br i1 %cmp207.not.i, label %unsigned_short_converter_impl.exit, label %for.body22.preheader.i
 
 for.body22.preheader.i:                           ; preds = %for.cond19.preheader.i
@@ -3379,20 +3376,20 @@ cond.false14.i:                                   ; preds = %lor.lhs.false.i
 for.body22.i:                                     ; preds = %for.inc.i, %for.body22.preheader.i
   %indvars.iv21.i = phi i64 [ 0, %for.body22.preheader.i ], [ %indvars.iv.next22.i, %for.inc.i ]
   %arrayidx24.i = getelementptr [3 x ptr], ptr %out.i, i64 0, i64 %indvars.iv21.i
-  %7 = load ptr, ptr %arrayidx24.i, align 8
-  %8 = load i64, ptr %7, align 8
-  %9 = and i64 %8, 2147483648
-  %cmp.i63.not.i = icmp eq i64 %9, 0
+  %6 = load ptr, ptr %arrayidx24.i, align 8
+  %7 = load i64, ptr %6, align 8
+  %8 = and i64 %7, 2147483648
+  %cmp.i63.not.i = icmp eq i64 %8, 0
   br i1 %cmp.i63.not.i, label %if.end.i56.i, label %for.inc.i
 
 if.end.i56.i:                                     ; preds = %for.body22.i
-  %dec.i57.i = add i64 %8, -1
-  store i64 %dec.i57.i, ptr %7, align 8
+  %dec.i57.i = add i64 %7, -1
+  store i64 %dec.i57.i, ptr %6, align 8
   %cmp.i58.i = icmp eq i64 %dec.i57.i, 0
   br i1 %cmp.i58.i, label %if.then1.i59.i, label %for.inc.i
 
 if.then1.i59.i:                                   ; preds = %if.end.i56.i
-  call void @_Py_Dealloc(ptr noundef nonnull %7) #9
+  call void @_Py_Dealloc(ptr noundef nonnull %6) #9
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then1.i59.i, %if.end.i56.i, %for.body22.i
@@ -3413,20 +3410,20 @@ for.end27.i:                                      ; preds = %for.inc25.i
 for.body35.i:                                     ; preds = %for.end27.i, %for.inc38.i
   %indvars.iv17.i = phi i64 [ %indvars.iv.next18.i, %for.inc38.i ], [ 0, %for.end27.i ]
   %arrayidx37.i = getelementptr [3 x ptr], ptr %out.i, i64 0, i64 %indvars.iv17.i
-  %10 = load ptr, ptr %arrayidx37.i, align 8
-  %11 = load i64, ptr %10, align 8
-  %12 = and i64 %11, 2147483648
-  %cmp.i66.not.i = icmp eq i64 %12, 0
+  %9 = load ptr, ptr %arrayidx37.i, align 8
+  %10 = load i64, ptr %9, align 8
+  %11 = and i64 %10, 2147483648
+  %cmp.i66.not.i = icmp eq i64 %11, 0
   br i1 %cmp.i66.not.i, label %if.end.i.i, label %for.inc38.i
 
 if.end.i.i:                                       ; preds = %for.body35.i
-  %dec.i.i = add i64 %11, -1
-  store i64 %dec.i.i, ptr %10, align 8
+  %dec.i.i = add i64 %10, -1
+  store i64 %dec.i.i, ptr %9, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp.i.i, label %if.then1.i.i, label %for.inc38.i
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
-  call void @_Py_Dealloc(ptr noundef nonnull %10) #9
+  call void @_Py_Dealloc(ptr noundef nonnull %9) #9
   br label %for.inc38.i
 
 for.inc38.i:                                      ; preds = %if.then1.i.i, %if.end.i.i, %for.body35.i
@@ -3437,8 +3434,8 @@ for.inc38.i:                                      ; preds = %if.then1.i.i, %if.e
 for.body46.i:                                     ; preds = %for.end27.i, %for.body46.i
   %indvars.iv13.i = phi i64 [ %indvars.iv.next14.i, %for.body46.i ], [ 0, %for.end27.i ]
   %arrayidx49.i = getelementptr [3 x ptr], ptr %out.i, i64 0, i64 %indvars.iv13.i
-  %13 = load ptr, ptr %arrayidx49.i, align 8
-  call fastcc void @PyTuple_SET_ITEM(ptr noundef nonnull %call28.i, i64 noundef %indvars.iv13.i, ptr noundef %13)
+  %12 = load ptr, ptr %arrayidx49.i, align 8
+  call fastcc void @PyTuple_SET_ITEM(ptr noundef nonnull %call28.i, i64 noundef %indvars.iv13.i, ptr noundef %12)
   %indvars.iv.next14.i = add nuw nsw i64 %indvars.iv13.i, 1
   %exitcond16.not.i = icmp eq i64 %indvars.iv.next14.i, 3
   br i1 %exitcond16.not.i, label %unsigned_short_converter_impl.exit, label %for.body46.i, !llvm.loop !16
@@ -3667,8 +3664,7 @@ lor.lhs.false.i:                                  ; preds = %for.body.i
   br i1 %tobool12.not.i, label %cond.false14.i, label %for.cond19.preheader.i
 
 for.cond19.preheader.i:                           ; preds = %lor.lhs.false.i
-  %19 = and i64 %indvars.iv.i, 4294967295
-  %cmp207.not.i = icmp eq i64 %19, 0
+  %cmp207.not.i = icmp eq i64 %indvars.iv.i, 0
   br i1 %cmp207.not.i, label %int_converter_impl.exit, label %for.body22.preheader.i
 
 for.body22.preheader.i:                           ; preds = %for.cond19.preheader.i
@@ -3682,20 +3678,20 @@ cond.false14.i:                                   ; preds = %lor.lhs.false.i
 for.body22.i:                                     ; preds = %for.inc.i, %for.body22.preheader.i
   %indvars.iv21.i = phi i64 [ 0, %for.body22.preheader.i ], [ %indvars.iv.next22.i, %for.inc.i ]
   %arrayidx24.i = getelementptr [3 x ptr], ptr %out.i, i64 0, i64 %indvars.iv21.i
-  %20 = load ptr, ptr %arrayidx24.i, align 8
-  %21 = load i64, ptr %20, align 8
-  %22 = and i64 %21, 2147483648
-  %cmp.i63.not.i = icmp eq i64 %22, 0
+  %19 = load ptr, ptr %arrayidx24.i, align 8
+  %20 = load i64, ptr %19, align 8
+  %21 = and i64 %20, 2147483648
+  %cmp.i63.not.i = icmp eq i64 %21, 0
   br i1 %cmp.i63.not.i, label %if.end.i56.i, label %for.inc.i
 
 if.end.i56.i:                                     ; preds = %for.body22.i
-  %dec.i57.i = add i64 %21, -1
-  store i64 %dec.i57.i, ptr %20, align 8
+  %dec.i57.i = add i64 %20, -1
+  store i64 %dec.i57.i, ptr %19, align 8
   %cmp.i58.i = icmp eq i64 %dec.i57.i, 0
   br i1 %cmp.i58.i, label %if.then1.i59.i, label %for.inc.i
 
 if.then1.i59.i:                                   ; preds = %if.end.i56.i
-  tail call void @_Py_Dealloc(ptr noundef nonnull %20) #9
+  tail call void @_Py_Dealloc(ptr noundef nonnull %19) #9
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then1.i59.i, %if.end.i56.i, %for.body22.i
@@ -3716,20 +3712,20 @@ for.end27.i:                                      ; preds = %for.inc25.i
 for.body35.i:                                     ; preds = %for.end27.i, %for.inc38.i
   %indvars.iv17.i = phi i64 [ %indvars.iv.next18.i, %for.inc38.i ], [ 0, %for.end27.i ]
   %arrayidx37.i = getelementptr [3 x ptr], ptr %out.i, i64 0, i64 %indvars.iv17.i
-  %23 = load ptr, ptr %arrayidx37.i, align 8
-  %24 = load i64, ptr %23, align 8
-  %25 = and i64 %24, 2147483648
-  %cmp.i66.not.i = icmp eq i64 %25, 0
+  %22 = load ptr, ptr %arrayidx37.i, align 8
+  %23 = load i64, ptr %22, align 8
+  %24 = and i64 %23, 2147483648
+  %cmp.i66.not.i = icmp eq i64 %24, 0
   br i1 %cmp.i66.not.i, label %if.end.i.i, label %for.inc38.i
 
 if.end.i.i:                                       ; preds = %for.body35.i
-  %dec.i.i = add i64 %24, -1
-  store i64 %dec.i.i, ptr %23, align 8
+  %dec.i.i = add i64 %23, -1
+  store i64 %dec.i.i, ptr %22, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp.i.i, label %if.then1.i.i, label %for.inc38.i
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
-  tail call void @_Py_Dealloc(ptr noundef nonnull %23) #9
+  tail call void @_Py_Dealloc(ptr noundef nonnull %22) #9
   br label %for.inc38.i
 
 for.inc38.i:                                      ; preds = %if.then1.i.i, %if.end.i.i, %for.body35.i
@@ -3740,8 +3736,8 @@ for.inc38.i:                                      ; preds = %if.then1.i.i, %if.e
 for.body46.i:                                     ; preds = %for.end27.i, %for.body46.i
   %indvars.iv13.i = phi i64 [ %indvars.iv.next14.i, %for.body46.i ], [ 0, %for.end27.i ]
   %arrayidx49.i = getelementptr [3 x ptr], ptr %out.i, i64 0, i64 %indvars.iv13.i
-  %26 = load ptr, ptr %arrayidx49.i, align 8
-  tail call fastcc void @PyTuple_SET_ITEM(ptr noundef nonnull %call28.i, i64 noundef %indvars.iv13.i, ptr noundef %26)
+  %25 = load ptr, ptr %arrayidx49.i, align 8
+  tail call fastcc void @PyTuple_SET_ITEM(ptr noundef nonnull %call28.i, i64 noundef %indvars.iv13.i, ptr noundef %25)
   %indvars.iv.next14.i = add nuw nsw i64 %indvars.iv13.i, 1
   %exitcond16.not.i = icmp eq i64 %indvars.iv.next14.i, 3
   br i1 %exitcond16.not.i, label %int_converter_impl.exit, label %for.body46.i, !llvm.loop !20
@@ -3854,8 +3850,7 @@ lor.lhs.false.i:                                  ; preds = %for.body.i
   br i1 %tobool12.not.i, label %cond.false14.i, label %for.cond19.preheader.i
 
 for.cond19.preheader.i:                           ; preds = %lor.lhs.false.i
-  %7 = and i64 %indvars.iv.i, 4294967295
-  %cmp207.not.i = icmp eq i64 %7, 0
+  %cmp207.not.i = icmp eq i64 %indvars.iv.i, 0
   br i1 %cmp207.not.i, label %unsigned_int_converter_impl.exit, label %for.body22.preheader.i
 
 for.body22.preheader.i:                           ; preds = %for.cond19.preheader.i
@@ -3869,20 +3864,20 @@ cond.false14.i:                                   ; preds = %lor.lhs.false.i
 for.body22.i:                                     ; preds = %for.inc.i, %for.body22.preheader.i
   %indvars.iv21.i = phi i64 [ 0, %for.body22.preheader.i ], [ %indvars.iv.next22.i, %for.inc.i ]
   %arrayidx24.i = getelementptr [3 x ptr], ptr %out.i, i64 0, i64 %indvars.iv21.i
-  %8 = load ptr, ptr %arrayidx24.i, align 8
-  %9 = load i64, ptr %8, align 8
-  %10 = and i64 %9, 2147483648
-  %cmp.i63.not.i = icmp eq i64 %10, 0
+  %7 = load ptr, ptr %arrayidx24.i, align 8
+  %8 = load i64, ptr %7, align 8
+  %9 = and i64 %8, 2147483648
+  %cmp.i63.not.i = icmp eq i64 %9, 0
   br i1 %cmp.i63.not.i, label %if.end.i56.i, label %for.inc.i
 
 if.end.i56.i:                                     ; preds = %for.body22.i
-  %dec.i57.i = add i64 %9, -1
-  store i64 %dec.i57.i, ptr %8, align 8
+  %dec.i57.i = add i64 %8, -1
+  store i64 %dec.i57.i, ptr %7, align 8
   %cmp.i58.i = icmp eq i64 %dec.i57.i, 0
   br i1 %cmp.i58.i, label %if.then1.i59.i, label %for.inc.i
 
 if.then1.i59.i:                                   ; preds = %if.end.i56.i
-  call void @_Py_Dealloc(ptr noundef nonnull %8) #9
+  call void @_Py_Dealloc(ptr noundef nonnull %7) #9
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then1.i59.i, %if.end.i56.i, %for.body22.i
@@ -3903,20 +3898,20 @@ for.end27.i:                                      ; preds = %for.inc25.i
 for.body35.i:                                     ; preds = %for.end27.i, %for.inc38.i
   %indvars.iv17.i = phi i64 [ %indvars.iv.next18.i, %for.inc38.i ], [ 0, %for.end27.i ]
   %arrayidx37.i = getelementptr [3 x ptr], ptr %out.i, i64 0, i64 %indvars.iv17.i
-  %11 = load ptr, ptr %arrayidx37.i, align 8
-  %12 = load i64, ptr %11, align 8
-  %13 = and i64 %12, 2147483648
-  %cmp.i66.not.i = icmp eq i64 %13, 0
+  %10 = load ptr, ptr %arrayidx37.i, align 8
+  %11 = load i64, ptr %10, align 8
+  %12 = and i64 %11, 2147483648
+  %cmp.i66.not.i = icmp eq i64 %12, 0
   br i1 %cmp.i66.not.i, label %if.end.i.i, label %for.inc38.i
 
 if.end.i.i:                                       ; preds = %for.body35.i
-  %dec.i.i = add i64 %12, -1
-  store i64 %dec.i.i, ptr %11, align 8
+  %dec.i.i = add i64 %11, -1
+  store i64 %dec.i.i, ptr %10, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp.i.i, label %if.then1.i.i, label %for.inc38.i
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
-  call void @_Py_Dealloc(ptr noundef nonnull %11) #9
+  call void @_Py_Dealloc(ptr noundef nonnull %10) #9
   br label %for.inc38.i
 
 for.inc38.i:                                      ; preds = %if.then1.i.i, %if.end.i.i, %for.body35.i
@@ -3927,8 +3922,8 @@ for.inc38.i:                                      ; preds = %if.then1.i.i, %if.e
 for.body46.i:                                     ; preds = %for.end27.i, %for.body46.i
   %indvars.iv13.i = phi i64 [ %indvars.iv.next14.i, %for.body46.i ], [ 0, %for.end27.i ]
   %arrayidx49.i = getelementptr [3 x ptr], ptr %out.i, i64 0, i64 %indvars.iv13.i
-  %14 = load ptr, ptr %arrayidx49.i, align 8
-  call fastcc void @PyTuple_SET_ITEM(ptr noundef nonnull %call28.i, i64 noundef %indvars.iv13.i, ptr noundef %14)
+  %13 = load ptr, ptr %arrayidx49.i, align 8
+  call fastcc void @PyTuple_SET_ITEM(ptr noundef nonnull %call28.i, i64 noundef %indvars.iv13.i, ptr noundef %13)
   %indvars.iv.next14.i = add nuw nsw i64 %indvars.iv13.i, 1
   %exitcond16.not.i = icmp eq i64 %indvars.iv.next14.i, 3
   br i1 %exitcond16.not.i, label %unsigned_int_converter_impl.exit, label %for.body46.i, !llvm.loop !24
@@ -4164,8 +4159,7 @@ lor.lhs.false.i:                                  ; preds = %for.body.i
   br i1 %tobool9.not.i, label %cond.false11.i, label %for.cond16.preheader.i
 
 for.cond16.preheader.i:                           ; preds = %lor.lhs.false.i
-  %9 = and i64 %indvars.iv.i, 4294967295
-  %cmp177.not.i = icmp eq i64 %9, 0
+  %cmp177.not.i = icmp eq i64 %indvars.iv.i, 0
   br i1 %cmp177.not.i, label %unsigned_long_converter_impl.exit, label %for.body18.preheader.i
 
 for.body18.preheader.i:                           ; preds = %for.cond16.preheader.i
@@ -4179,20 +4173,20 @@ cond.false11.i:                                   ; preds = %lor.lhs.false.i
 for.body18.i:                                     ; preds = %for.inc.i, %for.body18.preheader.i
   %indvars.iv21.i = phi i64 [ 0, %for.body18.preheader.i ], [ %indvars.iv.next22.i, %for.inc.i ]
   %arrayidx20.i = getelementptr [3 x ptr], ptr %out.i, i64 0, i64 %indvars.iv21.i
-  %10 = load ptr, ptr %arrayidx20.i, align 8
-  %11 = load i64, ptr %10, align 8
-  %12 = and i64 %11, 2147483648
-  %cmp.i56.not.i = icmp eq i64 %12, 0
+  %9 = load ptr, ptr %arrayidx20.i, align 8
+  %10 = load i64, ptr %9, align 8
+  %11 = and i64 %10, 2147483648
+  %cmp.i56.not.i = icmp eq i64 %11, 0
   br i1 %cmp.i56.not.i, label %if.end.i49.i, label %for.inc.i
 
 if.end.i49.i:                                     ; preds = %for.body18.i
-  %dec.i50.i = add i64 %11, -1
-  store i64 %dec.i50.i, ptr %10, align 8
+  %dec.i50.i = add i64 %10, -1
+  store i64 %dec.i50.i, ptr %9, align 8
   %cmp.i51.i = icmp eq i64 %dec.i50.i, 0
   br i1 %cmp.i51.i, label %if.then1.i52.i, label %for.inc.i
 
 if.then1.i52.i:                                   ; preds = %if.end.i49.i
-  call void @_Py_Dealloc(ptr noundef nonnull %10) #9
+  call void @_Py_Dealloc(ptr noundef nonnull %9) #9
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then1.i52.i, %if.end.i49.i, %for.body18.i
@@ -4213,20 +4207,20 @@ for.end23.i:                                      ; preds = %for.inc21.i
 for.body30.i:                                     ; preds = %for.end23.i, %for.inc33.i
   %indvars.iv17.i = phi i64 [ %indvars.iv.next18.i, %for.inc33.i ], [ 0, %for.end23.i ]
   %arrayidx32.i = getelementptr [3 x ptr], ptr %out.i, i64 0, i64 %indvars.iv17.i
-  %13 = load ptr, ptr %arrayidx32.i, align 8
-  %14 = load i64, ptr %13, align 8
-  %15 = and i64 %14, 2147483648
-  %cmp.i59.not.i = icmp eq i64 %15, 0
+  %12 = load ptr, ptr %arrayidx32.i, align 8
+  %13 = load i64, ptr %12, align 8
+  %14 = and i64 %13, 2147483648
+  %cmp.i59.not.i = icmp eq i64 %14, 0
   br i1 %cmp.i59.not.i, label %if.end.i.i, label %for.inc33.i
 
 if.end.i.i:                                       ; preds = %for.body30.i
-  %dec.i.i = add i64 %14, -1
-  store i64 %dec.i.i, ptr %13, align 8
+  %dec.i.i = add i64 %13, -1
+  store i64 %dec.i.i, ptr %12, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp.i.i, label %if.then1.i.i, label %for.inc33.i
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
-  call void @_Py_Dealloc(ptr noundef nonnull %13) #9
+  call void @_Py_Dealloc(ptr noundef nonnull %12) #9
   br label %for.inc33.i
 
 for.inc33.i:                                      ; preds = %if.then1.i.i, %if.end.i.i, %for.body30.i
@@ -4237,8 +4231,8 @@ for.inc33.i:                                      ; preds = %if.then1.i.i, %if.e
 for.body40.i:                                     ; preds = %for.end23.i, %for.body40.i
   %indvars.iv13.i = phi i64 [ %indvars.iv.next14.i, %for.body40.i ], [ 0, %for.end23.i ]
   %arrayidx42.i = getelementptr [3 x ptr], ptr %out.i, i64 0, i64 %indvars.iv13.i
-  %16 = load ptr, ptr %arrayidx42.i, align 8
-  call fastcc void @PyTuple_SET_ITEM(ptr noundef nonnull %call24.i, i64 noundef %indvars.iv13.i, ptr noundef %16)
+  %15 = load ptr, ptr %arrayidx42.i, align 8
+  call fastcc void @PyTuple_SET_ITEM(ptr noundef nonnull %call24.i, i64 noundef %indvars.iv13.i, ptr noundef %15)
   %indvars.iv.next14.i = add nuw nsw i64 %indvars.iv13.i, 1
   %exitcond16.not.i = icmp eq i64 %indvars.iv.next14.i, 3
   br i1 %exitcond16.not.i, label %unsigned_long_converter_impl.exit, label %for.body40.i, !llvm.loop !28
@@ -4474,8 +4468,7 @@ lor.lhs.false.i:                                  ; preds = %for.body.i
   br i1 %tobool9.not.i, label %cond.false11.i, label %for.cond16.preheader.i
 
 for.cond16.preheader.i:                           ; preds = %lor.lhs.false.i
-  %9 = and i64 %indvars.iv.i, 4294967295
-  %cmp177.not.i = icmp eq i64 %9, 0
+  %cmp177.not.i = icmp eq i64 %indvars.iv.i, 0
   br i1 %cmp177.not.i, label %unsigned_long_long_converter_impl.exit, label %for.body18.preheader.i
 
 for.body18.preheader.i:                           ; preds = %for.cond16.preheader.i
@@ -4489,20 +4482,20 @@ cond.false11.i:                                   ; preds = %lor.lhs.false.i
 for.body18.i:                                     ; preds = %for.inc.i, %for.body18.preheader.i
   %indvars.iv21.i = phi i64 [ 0, %for.body18.preheader.i ], [ %indvars.iv.next22.i, %for.inc.i ]
   %arrayidx20.i = getelementptr [3 x ptr], ptr %out.i, i64 0, i64 %indvars.iv21.i
-  %10 = load ptr, ptr %arrayidx20.i, align 8
-  %11 = load i64, ptr %10, align 8
-  %12 = and i64 %11, 2147483648
-  %cmp.i56.not.i = icmp eq i64 %12, 0
+  %9 = load ptr, ptr %arrayidx20.i, align 8
+  %10 = load i64, ptr %9, align 8
+  %11 = and i64 %10, 2147483648
+  %cmp.i56.not.i = icmp eq i64 %11, 0
   br i1 %cmp.i56.not.i, label %if.end.i49.i, label %for.inc.i
 
 if.end.i49.i:                                     ; preds = %for.body18.i
-  %dec.i50.i = add i64 %11, -1
-  store i64 %dec.i50.i, ptr %10, align 8
+  %dec.i50.i = add i64 %10, -1
+  store i64 %dec.i50.i, ptr %9, align 8
   %cmp.i51.i = icmp eq i64 %dec.i50.i, 0
   br i1 %cmp.i51.i, label %if.then1.i52.i, label %for.inc.i
 
 if.then1.i52.i:                                   ; preds = %if.end.i49.i
-  call void @_Py_Dealloc(ptr noundef nonnull %10) #9
+  call void @_Py_Dealloc(ptr noundef nonnull %9) #9
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then1.i52.i, %if.end.i49.i, %for.body18.i
@@ -4523,20 +4516,20 @@ for.end23.i:                                      ; preds = %for.inc21.i
 for.body30.i:                                     ; preds = %for.end23.i, %for.inc33.i
   %indvars.iv17.i = phi i64 [ %indvars.iv.next18.i, %for.inc33.i ], [ 0, %for.end23.i ]
   %arrayidx32.i = getelementptr [3 x ptr], ptr %out.i, i64 0, i64 %indvars.iv17.i
-  %13 = load ptr, ptr %arrayidx32.i, align 8
-  %14 = load i64, ptr %13, align 8
-  %15 = and i64 %14, 2147483648
-  %cmp.i59.not.i = icmp eq i64 %15, 0
+  %12 = load ptr, ptr %arrayidx32.i, align 8
+  %13 = load i64, ptr %12, align 8
+  %14 = and i64 %13, 2147483648
+  %cmp.i59.not.i = icmp eq i64 %14, 0
   br i1 %cmp.i59.not.i, label %if.end.i.i, label %for.inc33.i
 
 if.end.i.i:                                       ; preds = %for.body30.i
-  %dec.i.i = add i64 %14, -1
-  store i64 %dec.i.i, ptr %13, align 8
+  %dec.i.i = add i64 %13, -1
+  store i64 %dec.i.i, ptr %12, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp.i.i, label %if.then1.i.i, label %for.inc33.i
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
-  call void @_Py_Dealloc(ptr noundef nonnull %13) #9
+  call void @_Py_Dealloc(ptr noundef nonnull %12) #9
   br label %for.inc33.i
 
 for.inc33.i:                                      ; preds = %if.then1.i.i, %if.end.i.i, %for.body30.i
@@ -4547,8 +4540,8 @@ for.inc33.i:                                      ; preds = %if.then1.i.i, %if.e
 for.body40.i:                                     ; preds = %for.end23.i, %for.body40.i
   %indvars.iv13.i = phi i64 [ %indvars.iv.next14.i, %for.body40.i ], [ 0, %for.end23.i ]
   %arrayidx42.i = getelementptr [3 x ptr], ptr %out.i, i64 0, i64 %indvars.iv13.i
-  %16 = load ptr, ptr %arrayidx42.i, align 8
-  call fastcc void @PyTuple_SET_ITEM(ptr noundef nonnull %call24.i, i64 noundef %indvars.iv13.i, ptr noundef %16)
+  %15 = load ptr, ptr %arrayidx42.i, align 8
+  call fastcc void @PyTuple_SET_ITEM(ptr noundef nonnull %call24.i, i64 noundef %indvars.iv13.i, ptr noundef %15)
   %indvars.iv.next14.i = add nuw nsw i64 %indvars.iv13.i, 1
   %exitcond16.not.i = icmp eq i64 %indvars.iv.next14.i, 3
   br i1 %exitcond16.not.i, label %unsigned_long_long_converter_impl.exit, label %for.body40.i, !llvm.loop !32
@@ -4708,8 +4701,7 @@ lor.lhs.false.i:                                  ; preds = %for.body.i
   br i1 %tobool9.not.i, label %cond.false11.i, label %for.cond16.preheader.i
 
 for.cond16.preheader.i:                           ; preds = %lor.lhs.false.i
-  %9 = and i64 %indvars.iv.i, 4294967295
-  %cmp177.not.i = icmp eq i64 %9, 0
+  %cmp177.not.i = icmp eq i64 %indvars.iv.i, 0
   br i1 %cmp177.not.i, label %py_ssize_t_converter_impl.exit, label %for.body18.preheader.i
 
 for.body18.preheader.i:                           ; preds = %for.cond16.preheader.i
@@ -4723,20 +4715,20 @@ cond.false11.i:                                   ; preds = %lor.lhs.false.i
 for.body18.i:                                     ; preds = %for.inc.i, %for.body18.preheader.i
   %indvars.iv21.i = phi i64 [ 0, %for.body18.preheader.i ], [ %indvars.iv.next22.i, %for.inc.i ]
   %arrayidx20.i = getelementptr [3 x ptr], ptr %out.i, i64 0, i64 %indvars.iv21.i
-  %10 = load ptr, ptr %arrayidx20.i, align 8
-  %11 = load i64, ptr %10, align 8
-  %12 = and i64 %11, 2147483648
-  %cmp.i56.not.i = icmp eq i64 %12, 0
+  %9 = load ptr, ptr %arrayidx20.i, align 8
+  %10 = load i64, ptr %9, align 8
+  %11 = and i64 %10, 2147483648
+  %cmp.i56.not.i = icmp eq i64 %11, 0
   br i1 %cmp.i56.not.i, label %if.end.i49.i, label %for.inc.i
 
 if.end.i49.i:                                     ; preds = %for.body18.i
-  %dec.i50.i = add i64 %11, -1
-  store i64 %dec.i50.i, ptr %10, align 8
+  %dec.i50.i = add i64 %10, -1
+  store i64 %dec.i50.i, ptr %9, align 8
   %cmp.i51.i = icmp eq i64 %dec.i50.i, 0
   br i1 %cmp.i51.i, label %if.then1.i52.i, label %for.inc.i
 
 if.then1.i52.i:                                   ; preds = %if.end.i49.i
-  call void @_Py_Dealloc(ptr noundef nonnull %10) #9
+  call void @_Py_Dealloc(ptr noundef nonnull %9) #9
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then1.i52.i, %if.end.i49.i, %for.body18.i
@@ -4757,20 +4749,20 @@ for.end23.i:                                      ; preds = %for.inc21.i
 for.body30.i:                                     ; preds = %for.end23.i, %for.inc33.i
   %indvars.iv17.i = phi i64 [ %indvars.iv.next18.i, %for.inc33.i ], [ 0, %for.end23.i ]
   %arrayidx32.i = getelementptr [3 x ptr], ptr %out.i, i64 0, i64 %indvars.iv17.i
-  %13 = load ptr, ptr %arrayidx32.i, align 8
-  %14 = load i64, ptr %13, align 8
-  %15 = and i64 %14, 2147483648
-  %cmp.i59.not.i = icmp eq i64 %15, 0
+  %12 = load ptr, ptr %arrayidx32.i, align 8
+  %13 = load i64, ptr %12, align 8
+  %14 = and i64 %13, 2147483648
+  %cmp.i59.not.i = icmp eq i64 %14, 0
   br i1 %cmp.i59.not.i, label %if.end.i.i, label %for.inc33.i
 
 if.end.i.i:                                       ; preds = %for.body30.i
-  %dec.i.i = add i64 %14, -1
-  store i64 %dec.i.i, ptr %13, align 8
+  %dec.i.i = add i64 %13, -1
+  store i64 %dec.i.i, ptr %12, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp.i.i, label %if.then1.i.i, label %for.inc33.i
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
-  call void @_Py_Dealloc(ptr noundef nonnull %13) #9
+  call void @_Py_Dealloc(ptr noundef nonnull %12) #9
   br label %for.inc33.i
 
 for.inc33.i:                                      ; preds = %if.then1.i.i, %if.end.i.i, %for.body30.i
@@ -4781,8 +4773,8 @@ for.inc33.i:                                      ; preds = %if.then1.i.i, %if.e
 for.body40.i:                                     ; preds = %for.end23.i, %for.body40.i
   %indvars.iv13.i = phi i64 [ %indvars.iv.next14.i, %for.body40.i ], [ 0, %for.end23.i ]
   %arrayidx42.i = getelementptr [3 x ptr], ptr %out.i, i64 0, i64 %indvars.iv13.i
-  %16 = load ptr, ptr %arrayidx42.i, align 8
-  call fastcc void @PyTuple_SET_ITEM(ptr noundef nonnull %call24.i, i64 noundef %indvars.iv13.i, ptr noundef %16)
+  %15 = load ptr, ptr %arrayidx42.i, align 8
+  call fastcc void @PyTuple_SET_ITEM(ptr noundef nonnull %call24.i, i64 noundef %indvars.iv13.i, ptr noundef %15)
   %indvars.iv.next14.i = add nuw nsw i64 %indvars.iv13.i, 1
   %exitcond16.not.i = icmp eq i64 %indvars.iv.next14.i, 3
   br i1 %exitcond16.not.i, label %py_ssize_t_converter_impl.exit, label %for.body40.i, !llvm.loop !36
@@ -4892,8 +4884,7 @@ lor.lhs.false.i:                                  ; preds = %for.body.i
   br i1 %tobool9.not.i, label %cond.false11.i, label %for.cond16.preheader.i
 
 for.cond16.preheader.i:                           ; preds = %lor.lhs.false.i
-  %7 = and i64 %indvars.iv.i, 4294967295
-  %cmp177.not.i = icmp eq i64 %7, 0
+  %cmp177.not.i = icmp eq i64 %indvars.iv.i, 0
   br i1 %cmp177.not.i, label %slice_index_converter_impl.exit, label %for.body18.preheader.i
 
 for.body18.preheader.i:                           ; preds = %for.cond16.preheader.i
@@ -4907,20 +4898,20 @@ cond.false11.i:                                   ; preds = %lor.lhs.false.i
 for.body18.i:                                     ; preds = %for.inc.i, %for.body18.preheader.i
   %indvars.iv21.i = phi i64 [ 0, %for.body18.preheader.i ], [ %indvars.iv.next22.i, %for.inc.i ]
   %arrayidx20.i = getelementptr [3 x ptr], ptr %out.i, i64 0, i64 %indvars.iv21.i
-  %8 = load ptr, ptr %arrayidx20.i, align 8
-  %9 = load i64, ptr %8, align 8
-  %10 = and i64 %9, 2147483648
-  %cmp.i56.not.i = icmp eq i64 %10, 0
+  %7 = load ptr, ptr %arrayidx20.i, align 8
+  %8 = load i64, ptr %7, align 8
+  %9 = and i64 %8, 2147483648
+  %cmp.i56.not.i = icmp eq i64 %9, 0
   br i1 %cmp.i56.not.i, label %if.end.i49.i, label %for.inc.i
 
 if.end.i49.i:                                     ; preds = %for.body18.i
-  %dec.i50.i = add i64 %9, -1
-  store i64 %dec.i50.i, ptr %8, align 8
+  %dec.i50.i = add i64 %8, -1
+  store i64 %dec.i50.i, ptr %7, align 8
   %cmp.i51.i = icmp eq i64 %dec.i50.i, 0
   br i1 %cmp.i51.i, label %if.then1.i52.i, label %for.inc.i
 
 if.then1.i52.i:                                   ; preds = %if.end.i49.i
-  call void @_Py_Dealloc(ptr noundef nonnull %8) #9
+  call void @_Py_Dealloc(ptr noundef nonnull %7) #9
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then1.i52.i, %if.end.i49.i, %for.body18.i
@@ -4941,20 +4932,20 @@ for.end23.i:                                      ; preds = %for.inc21.i
 for.body30.i:                                     ; preds = %for.end23.i, %for.inc33.i
   %indvars.iv17.i = phi i64 [ %indvars.iv.next18.i, %for.inc33.i ], [ 0, %for.end23.i ]
   %arrayidx32.i = getelementptr [3 x ptr], ptr %out.i, i64 0, i64 %indvars.iv17.i
-  %11 = load ptr, ptr %arrayidx32.i, align 8
-  %12 = load i64, ptr %11, align 8
-  %13 = and i64 %12, 2147483648
-  %cmp.i59.not.i = icmp eq i64 %13, 0
+  %10 = load ptr, ptr %arrayidx32.i, align 8
+  %11 = load i64, ptr %10, align 8
+  %12 = and i64 %11, 2147483648
+  %cmp.i59.not.i = icmp eq i64 %12, 0
   br i1 %cmp.i59.not.i, label %if.end.i.i, label %for.inc33.i
 
 if.end.i.i:                                       ; preds = %for.body30.i
-  %dec.i.i = add i64 %12, -1
-  store i64 %dec.i.i, ptr %11, align 8
+  %dec.i.i = add i64 %11, -1
+  store i64 %dec.i.i, ptr %10, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp.i.i, label %if.then1.i.i, label %for.inc33.i
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
-  call void @_Py_Dealloc(ptr noundef nonnull %11) #9
+  call void @_Py_Dealloc(ptr noundef nonnull %10) #9
   br label %for.inc33.i
 
 for.inc33.i:                                      ; preds = %if.then1.i.i, %if.end.i.i, %for.body30.i
@@ -4965,8 +4956,8 @@ for.inc33.i:                                      ; preds = %if.then1.i.i, %if.e
 for.body40.i:                                     ; preds = %for.end23.i, %for.body40.i
   %indvars.iv13.i = phi i64 [ %indvars.iv.next14.i, %for.body40.i ], [ 0, %for.end23.i ]
   %arrayidx42.i = getelementptr [3 x ptr], ptr %out.i, i64 0, i64 %indvars.iv13.i
-  %14 = load ptr, ptr %arrayidx42.i, align 8
-  call fastcc void @PyTuple_SET_ITEM(ptr noundef nonnull %call24.i, i64 noundef %indvars.iv13.i, ptr noundef %14)
+  %13 = load ptr, ptr %arrayidx42.i, align 8
+  call fastcc void @PyTuple_SET_ITEM(ptr noundef nonnull %call24.i, i64 noundef %indvars.iv13.i, ptr noundef %13)
   %indvars.iv.next14.i = add nuw nsw i64 %indvars.iv13.i, 1
   %exitcond16.not.i = icmp eq i64 %indvars.iv.next14.i, 3
   br i1 %exitcond16.not.i, label %slice_index_converter_impl.exit, label %for.body40.i, !llvm.loop !40

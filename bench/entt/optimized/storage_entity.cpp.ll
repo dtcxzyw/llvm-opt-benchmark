@@ -16664,7 +16664,7 @@ _ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE7currentES1_.exit: ; preds = %lan
   store i16 %conv2.i.i, ptr %ref.tmp472, align 2, !tbaa !171
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp474) #21
   store i32 1, ptr %ref.tmp474, align 4, !tbaa !58
-  %cmp.i.i1714 = icmp eq i16 %conv2.i.i, 1
+  %cmp.i.i1714 = icmp eq i32 %shr.i.i, 1
   br i1 %cmp.i.i1714, label %if.then.i.i1716, label %if.end.i.i1715
 
 if.then.i.i1716:                                  ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE7currentES1_.exit

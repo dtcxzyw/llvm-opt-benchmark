@@ -1941,7 +1941,7 @@ define hidden void @"_ZN6brotli3enc11stride_eval23StrideEval$LT$Alloc$GT$3new17h
   br i1 %26, label %27, label %.critedge28
 
 27:                                               ; preds = %.critedge24
-  %28 = icmp eq i16 %.sroa.18.0.extract.trunc, 0
+  %28 = icmp ult i64 %16, 281474976710656
   br i1 %28, label %.critedge26, label %.critedge28
 
 .critedge26:                                      ; preds = %27

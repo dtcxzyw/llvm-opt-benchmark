@@ -3439,7 +3439,7 @@ mca_bml_base_btl_array_get_next.exit:             ; preds = %26, %28
   %45 = getelementptr inbounds i8, ptr %10, i64 76
   store i32 %44, ptr %45, align 4
   %46 = getelementptr inbounds i8, ptr %10, i64 80
-  %47 = icmp eq i32 %44, 1
+  %47 = icmp eq i64 %indvars.iv, 0
   br i1 %47, label %48, label %.lr.ph.i
 
 48:                                               ; preds = %._crit_edge

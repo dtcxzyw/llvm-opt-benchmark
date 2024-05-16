@@ -110,141 +110,140 @@ define dso_local nonnull ptr @RE_compile_and_cache(ptr noundef %0, i32 noundef %
   %wide.trip.count = zext nneg i32 %31 to i64
   br label %34
 
-34:                                               ; preds = %.lr.ph, %56
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %56 ]
+34:                                               ; preds = %.lr.ph, %54
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %54 ]
   %35 = getelementptr [32 x %struct.cached_re_str], ptr @re_array, i64 0, i64 %indvars.iv
   %36 = getelementptr inbounds i8, ptr %35, i64 16
   %37 = load i32, ptr %36, align 16
   %38 = icmp eq i32 %37, %28
-  br i1 %38, label %39, label %56
+  br i1 %38, label %39, label %54
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds i8, ptr %35, i64 20
   %41 = load i32, ptr %40, align 4
   %42 = icmp eq i32 %41, %1
-  br i1 %42, label %43, label %56
+  br i1 %42, label %43, label %54
 
 43:                                               ; preds = %39
   %44 = getelementptr inbounds i8, ptr %35, i64 24
   %45 = load i32, ptr %44, align 8
   %46 = icmp eq i32 %45, %2
-  br i1 %46, label %47, label %56
+  br i1 %46, label %47, label %54
 
 47:                                               ; preds = %43
   %48 = getelementptr inbounds i8, ptr %35, i64 8
   %49 = load ptr, ptr %48, align 8
   %bcmp = tail call i32 @bcmp(ptr %49, ptr nonnull %30, i64 %33)
   %50 = icmp eq i32 %bcmp, 0
-  br i1 %50, label %51, label %56
+  br i1 %50, label %51, label %54
 
 51:                                               ; preds = %47
-  %52 = trunc nuw nsw i64 %indvars.iv to i32
-  %53 = icmp sgt i32 %52, 0
-  br i1 %53, label %54, label %107
+  %.not60 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not60, label %105, label %52
 
-54:                                               ; preds = %51
+52:                                               ; preds = %51
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull align 16 dereferenceable(96) %35, i64 96, i1 false)
-  %55 = mul nuw nsw i64 %indvars.iv, 96
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 getelementptr inbounds ([32 x %struct.cached_re_str], ptr @re_array, i64 0, i64 1), ptr nonnull align 16 @re_array, i64 %55, i1 false)
+  %53 = mul nuw nsw i64 %indvars.iv, 96
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 getelementptr inbounds ([32 x %struct.cached_re_str], ptr @re_array, i64 0, i64 1), ptr nonnull align 16 @re_array, i64 %53, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) @re_array, ptr noundef nonnull align 8 dereferenceable(96) %4, i64 96, i1 false)
-  br label %107
+  br label %105
 
-56:                                               ; preds = %34, %39, %43, %47
+54:                                               ; preds = %34, %39, %43, %47
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %34, !llvm.loop !5
 
-._crit_edge:                                      ; preds = %56, %27
-  %57 = load ptr, ptr @RegexpCacheMemoryContext, align 8
-  %58 = icmp eq ptr %57, null
-  br i1 %58, label %59, label %62
+._crit_edge:                                      ; preds = %54, %27
+  %55 = load ptr, ptr @RegexpCacheMemoryContext, align 8
+  %56 = icmp eq ptr %55, null
+  br i1 %56, label %57, label %60
 
-59:                                               ; preds = %._crit_edge
-  %60 = load ptr, ptr @TopMemoryContext, align 8
-  %61 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %60, ptr noundef nonnull @.str, i64 noundef 0, i64 noundef 1024, i64 noundef 8192) #8
-  store ptr %61, ptr @RegexpCacheMemoryContext, align 8
-  br label %62
+57:                                               ; preds = %._crit_edge
+  %58 = load ptr, ptr @TopMemoryContext, align 8
+  %59 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %58, ptr noundef nonnull @.str, i64 noundef 0, i64 noundef 1024, i64 noundef 8192) #8
+  store ptr %59, ptr @RegexpCacheMemoryContext, align 8
+  br label %60
 
-62:                                               ; preds = %59, %._crit_edge
-  %63 = add nsw i32 %28, 1
-  %64 = sext i32 %63 to i64
-  %65 = shl nsw i64 %64, 2
-  %66 = tail call ptr @palloc(i64 noundef %65) #8
-  %67 = tail call i32 @pg_mb2wchar_with_len(ptr noundef nonnull %30, ptr noundef %66, i32 noundef %28) #8
+60:                                               ; preds = %57, %._crit_edge
+  %61 = add nsw i32 %28, 1
+  %62 = sext i32 %61 to i64
+  %63 = shl nsw i64 %62, 2
+  %64 = tail call ptr @palloc(i64 noundef %63) #8
+  %65 = tail call i32 @pg_mb2wchar_with_len(ptr noundef nonnull %30, ptr noundef %64, i32 noundef %28) #8
+  %66 = load ptr, ptr @CurrentMemoryContext, align 8
+  %67 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %66, ptr noundef nonnull @.str.1, i64 noundef 0, i64 noundef 1024, i64 noundef 8192) #8
+  store ptr %67, ptr %4, align 8
   %68 = load ptr, ptr @CurrentMemoryContext, align 8
-  %69 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %68, ptr noundef nonnull @.str.1, i64 noundef 0, i64 noundef 1024, i64 noundef 8192) #8
-  store ptr %69, ptr %4, align 8
-  %70 = load ptr, ptr @CurrentMemoryContext, align 8
-  store ptr %69, ptr @CurrentMemoryContext, align 8
-  %71 = getelementptr inbounds i8, ptr %4, i64 32
-  %72 = sext i32 %67 to i64
-  %73 = call i32 @pg_regcomp(ptr noundef nonnull %71, ptr noundef %66, i64 noundef %72, i32 noundef %1, i32 noundef %2) #8
-  call void @pfree(ptr noundef %66) #8
-  %.not50 = icmp eq i32 %73, 0
-  br i1 %.not50, label %79, label %74
+  store ptr %67, ptr @CurrentMemoryContext, align 8
+  %69 = getelementptr inbounds i8, ptr %4, i64 32
+  %70 = sext i32 %65 to i64
+  %71 = call i32 @pg_regcomp(ptr noundef nonnull %69, ptr noundef %64, i64 noundef %70, i32 noundef %1, i32 noundef %2) #8
+  call void @pfree(ptr noundef %64) #8
+  %.not50 = icmp eq i32 %71, 0
+  br i1 %.not50, label %77, label %72
 
-74:                                               ; preds = %62
-  %75 = call i64 @pg_regerror(i32 noundef %73, ptr noundef nonnull %71, ptr noundef nonnull %5, i64 noundef 100) #8
-  %76 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  call void @llvm.assume(i1 %76)
-  %77 = call i32 @errcode(i32 noundef 302252162) #8
-  %78 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef nonnull %5) #8
+72:                                               ; preds = %60
+  %73 = call i64 @pg_regerror(i32 noundef %71, ptr noundef nonnull %69, ptr noundef nonnull %5, i64 noundef 100) #8
+  %74 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  call void @llvm.assume(i1 %74)
+  %75 = call i32 @errcode(i32 noundef 302252162) #8
+  %76 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef nonnull %5) #8
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 224, ptr noundef nonnull @__func__.RE_compile_and_cache) #8
   unreachable
 
-79:                                               ; preds = %62
-  %80 = call ptr @palloc(i64 noundef %64) #8
-  %81 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr %80, ptr %81, align 8
-  %82 = sext i32 %28 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %80, ptr nonnull align 1 %30, i64 %82, i1 false)
-  %83 = load ptr, ptr %81, align 8
-  %84 = getelementptr i8, ptr %83, i64 %82
-  store i8 0, ptr %84, align 1
-  %85 = load ptr, ptr %4, align 8
-  %86 = load ptr, ptr %81, align 8
-  call void @MemoryContextSetIdentifier(ptr noundef %85, ptr noundef %86) #8
-  %87 = getelementptr inbounds i8, ptr %4, i64 16
-  store i32 %28, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %4, i64 20
-  store i32 %1, ptr %88, align 4
-  %89 = getelementptr inbounds i8, ptr %4, i64 24
-  store i32 %2, ptr %89, align 8
-  %90 = load i32, ptr @num_res, align 4
-  %91 = icmp sgt i32 %90, 31
-  br i1 %91, label %92, label %97
+77:                                               ; preds = %60
+  %78 = call ptr @palloc(i64 noundef %62) #8
+  %79 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %78, ptr %79, align 8
+  %80 = sext i32 %28 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %78, ptr nonnull align 1 %30, i64 %80, i1 false)
+  %81 = load ptr, ptr %79, align 8
+  %82 = getelementptr i8, ptr %81, i64 %80
+  store i8 0, ptr %82, align 1
+  %83 = load ptr, ptr %4, align 8
+  %84 = load ptr, ptr %79, align 8
+  call void @MemoryContextSetIdentifier(ptr noundef %83, ptr noundef %84) #8
+  %85 = getelementptr inbounds i8, ptr %4, i64 16
+  store i32 %28, ptr %85, align 8
+  %86 = getelementptr inbounds i8, ptr %4, i64 20
+  store i32 %1, ptr %86, align 4
+  %87 = getelementptr inbounds i8, ptr %4, i64 24
+  store i32 %2, ptr %87, align 8
+  %88 = load i32, ptr @num_res, align 4
+  %89 = icmp sgt i32 %88, 31
+  br i1 %89, label %90, label %95
 
-92:                                               ; preds = %79
-  %93 = add nsw i32 %90, -1
-  store i32 %93, ptr @num_res, align 4
-  %94 = zext nneg i32 %93 to i64
-  %95 = getelementptr [32 x %struct.cached_re_str], ptr @re_array, i64 0, i64 %94
-  %96 = load ptr, ptr %95, align 16
-  call void @MemoryContextDelete(ptr noundef %96) #8
-  br label %97
+90:                                               ; preds = %77
+  %91 = add nsw i32 %88, -1
+  store i32 %91, ptr @num_res, align 4
+  %92 = zext nneg i32 %91 to i64
+  %93 = getelementptr [32 x %struct.cached_re_str], ptr @re_array, i64 0, i64 %92
+  %94 = load ptr, ptr %93, align 16
+  call void @MemoryContextDelete(ptr noundef %94) #8
+  br label %95
 
-97:                                               ; preds = %92, %79
-  %98 = load ptr, ptr %4, align 8
-  %99 = load ptr, ptr @RegexpCacheMemoryContext, align 8
-  call void @MemoryContextSetParent(ptr noundef %98, ptr noundef %99) #8
-  %100 = load i32, ptr @num_res, align 4
-  %101 = icmp sgt i32 %100, 0
-  br i1 %101, label %102, label %105
+95:                                               ; preds = %90, %77
+  %96 = load ptr, ptr %4, align 8
+  %97 = load ptr, ptr @RegexpCacheMemoryContext, align 8
+  call void @MemoryContextSetParent(ptr noundef %96, ptr noundef %97) #8
+  %98 = load i32, ptr @num_res, align 4
+  %99 = icmp sgt i32 %98, 0
+  br i1 %99, label %100, label %103
 
-102:                                              ; preds = %97
-  %103 = zext nneg i32 %100 to i64
-  %104 = mul nuw nsw i64 %103, 96
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 getelementptr inbounds ([32 x %struct.cached_re_str], ptr @re_array, i64 0, i64 1), ptr nonnull align 16 @re_array, i64 %104, i1 false)
+100:                                              ; preds = %95
+  %101 = zext nneg i32 %98 to i64
+  %102 = mul nuw nsw i64 %101, 96
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 getelementptr inbounds ([32 x %struct.cached_re_str], ptr @re_array, i64 0, i64 1), ptr nonnull align 16 @re_array, i64 %102, i1 false)
+  br label %103
+
+103:                                              ; preds = %100, %95
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) @re_array, ptr noundef nonnull align 8 dereferenceable(96) %4, i64 96, i1 false)
+  %104 = add i32 %98, 1
+  store i32 %104, ptr @num_res, align 4
+  store ptr %68, ptr @CurrentMemoryContext, align 8
   br label %105
 
-105:                                              ; preds = %102, %97
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) @re_array, ptr noundef nonnull align 8 dereferenceable(96) %4, i64 96, i1 false)
-  %106 = add i32 %100, 1
-  store i32 %106, ptr @num_res, align 4
-  store ptr %70, ptr @CurrentMemoryContext, align 8
-  br label %107
-
-107:                                              ; preds = %51, %54, %105
+105:                                              ; preds = %51, %52, %103
   ret ptr getelementptr inbounds ([32 x %struct.cached_re_str], ptr @re_array, i64 0, i64 0, i32 5)
 }
 

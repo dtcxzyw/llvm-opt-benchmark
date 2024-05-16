@@ -3107,13 +3107,16 @@ while.end:                                        ; preds = %dictGetNext.exit, %
   %call96 = tail call i64 @random() #22
   %conv97 = zext nneg i32 %inc56 to i64
   %rem98 = srem i64 %call96, %conv97
-  %conv99 = trunc nsw i64 %rem98 to i32
-  %tobool101.not45 = icmp eq i32 %conv99, 0
-  br i1 %tobool101.not45, label %return, label %while.body102
+  %tobool101.not45 = icmp eq i64 %rem98, 0
+  br i1 %tobool101.not45, label %return, label %while.body102.preheader
 
-while.body102:                                    ; preds = %while.end, %dictGetNext.exit40
-  %he.247 = phi ptr [ %retval.0.i32, %dictGetNext.exit40 ], [ %he.0, %while.end ]
-  %listele.046 = phi i32 [ %dec, %dictGetNext.exit40 ], [ %conv99, %while.end ]
+while.body102.preheader:                          ; preds = %while.end
+  %conv99 = trunc nsw i64 %rem98 to i32
+  br label %while.body102
+
+while.body102:                                    ; preds = %while.body102.preheader, %dictGetNext.exit40
+  %he.247 = phi ptr [ %retval.0.i32, %dictGetNext.exit40 ], [ %he.0, %while.body102.preheader ]
+  %listele.046 = phi i32 [ %dec, %dictGetNext.exit40 ], [ %conv99, %while.body102.preheader ]
   %dec = add nsw i32 %listele.046, -1
   %17 = ptrtoint ptr %he.247 to i64
   %conv.i5.i30 = and i64 %17, 1

@@ -196,7 +196,7 @@ sub_119.i:                                        ; preds = %.tail.thread.i
 51:                                               ; preds = %47
   %52 = trunc nuw i64 %41 to i32
   store i32 %52, ptr @secs_per_test, align 4
-  %53 = icmp eq i32 %52, 0
+  %53 = icmp eq i64 %41, 0
   br i1 %53, label %54, label %.tail17.thread.i.backedge
 
 .tail17.thread.i.backedge:                        ; preds = %51, %35

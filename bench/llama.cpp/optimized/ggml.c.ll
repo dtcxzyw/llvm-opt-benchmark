@@ -25744,26 +25744,22 @@ gguf_get_key.exit.i:                              ; preds = %for.inc.i, %gguf_ge
   %46 = load ptr, ptr %data.i.i, align 8
   %call2.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(18) @.str.221, ptr noundef nonnull dereferenceable(1) %46) #48
   %cmp3.i = icmp eq i32 %call2.i, 0
-  br i1 %cmp3.i, label %gguf_find_key.exit, label %for.inc.i
+  br i1 %cmp3.i, label %if.then371, label %for.inc.i
 
 for.inc.i:                                        ; preds = %gguf_get_key.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %if.end375, label %gguf_get_key.exit.i, !llvm.loop !267
 
-gguf_find_key.exit:                               ; preds = %gguf_get_key.exit.i
+if.then371:                                       ; preds = %gguf_get_key.exit.i
   %47 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %cmp369.not = icmp eq i32 %47, -1
-  br i1 %cmp369.not, label %if.end375, label %if.then371
-
-if.then371:                                       ; preds = %gguf_find_key.exit
   %call372 = call i32 @gguf_get_val_u32(ptr noundef %retval.0.i, i32 noundef %47)
   %conv373 = zext i32 %call372 to i64
   store i64 %conv373, ptr %alignment, align 8
   br label %if.end375
 
-if.end375:                                        ; preds = %for.inc.i, %for.end367, %if.then371, %gguf_find_key.exit
-  %48 = phi i64 [ 32, %for.end367 ], [ %conv373, %if.then371 ], [ 32, %gguf_find_key.exit ], [ 32, %for.inc.i ]
+if.end375:                                        ; preds = %for.inc.i, %for.end367, %if.then371
+  %48 = phi i64 [ 32, %for.end367 ], [ %conv373, %if.then371 ], [ 32, %for.inc.i ]
   %rem = urem i64 %offset.24.lcssa, %48
   %cmp377.not = icmp eq i64 %rem, 0
   br i1 %cmp377.not, label %if.end382, label %if.then379
@@ -27192,23 +27188,14 @@ gguf_get_key.exit.i.i:                            ; preds = %for.inc.i.i, %gguf_
   %2 = load ptr, ptr %data.i.i.i, align 8
   %call2.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %2) #48
   %cmp3.i.i = icmp eq i32 %call2.i.i, 0
-  br i1 %cmp3.i.i, label %gguf_find_key.exit.i, label %for.inc.i.i
+  br i1 %cmp3.i.i, label %gguf_get_or_add_key.exit.loopexit, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %gguf_get_key.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %if.end.i, label %gguf_get_key.exit.i.i, !llvm.loop !267
 
-gguf_find_key.exit.i:                             ; preds = %gguf_get_key.exit.i.i
-  %3 = and i64 %indvars.iv.i.i, 2147483648
-  %cmp.i = icmp eq i64 %3, 0
-  br i1 %cmp.i, label %gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge, label %if.end.i
-
-gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge: ; preds = %gguf_find_key.exit.i
-  %.pre = and i64 %indvars.iv.i.i, 2147483647
-  br label %gguf_get_or_add_key.exit
-
-if.end.i:                                         ; preds = %for.inc.i.i, %gguf_find_key.exit.i, %entry
+if.end.i:                                         ; preds = %for.inc.i.i, %entry
   %add.i = shl i64 %0, 32
   %sext.i = add i64 %add.i, 4294967296
   %conv.i = ashr exact i64 %sext.i, 32
@@ -27222,18 +27209,23 @@ if.end.i:                                         ; preds = %for.inc.i.i, %gguf_
   %call7.i = tail call noalias ptr @strdup(ptr noundef readonly %key) #45
   %data.i = getelementptr inbounds %struct.gguf_kv, ptr %call2.i, i64 %idxprom.i, i32 0, i32 1
   store ptr %call7.i, ptr %data.i, align 8
-  %4 = load i64, ptr %n_kv.i.i.i, align 8
-  %inc.i = add i64 %4, 1
+  %3 = load i64, ptr %n_kv.i.i.i, align 8
+  %inc.i = add i64 %3, 1
   store i64 %inc.i, ptr %n_kv.i.i.i, align 8
   br label %gguf_get_or_add_key.exit
 
-gguf_get_or_add_key.exit:                         ; preds = %gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge, %if.end.i
-  %idxprom.pre-phi = phi i64 [ %.pre, %gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge ], [ %idxprom.i, %if.end.i ]
-  %5 = phi ptr [ %1, %gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge ], [ %call2.i, %if.end.i ]
-  %type = getelementptr inbounds %struct.gguf_kv, ptr %5, i64 %idxprom.pre-phi, i32 1
+gguf_get_or_add_key.exit.loopexit:                ; preds = %gguf_get_key.exit.i.i
+  %.pre = shl i64 %indvars.iv.i.i, 32
+  %.pre6 = ashr exact i64 %.pre, 32
+  br label %gguf_get_or_add_key.exit
+
+gguf_get_or_add_key.exit:                         ; preds = %gguf_get_or_add_key.exit.loopexit, %if.end.i
+  %idxprom.pre-phi = phi i64 [ %.pre6, %gguf_get_or_add_key.exit.loopexit ], [ %idxprom.i, %if.end.i ]
+  %4 = phi ptr [ %1, %gguf_get_or_add_key.exit.loopexit ], [ %call2.i, %if.end.i ]
+  %type = getelementptr inbounds %struct.gguf_kv, ptr %4, i64 %idxprom.pre-phi, i32 1
   store i32 0, ptr %type, align 8
-  %6 = load ptr, ptr %kv.i.i.i, align 8
-  %value = getelementptr inbounds %struct.gguf_kv, ptr %6, i64 %idxprom.pre-phi, i32 2
+  %5 = load ptr, ptr %kv.i.i.i, align 8
+  %value = getelementptr inbounds %struct.gguf_kv, ptr %5, i64 %idxprom.pre-phi, i32 2
   store i8 %val, ptr %value, align 8
   ret void
 }
@@ -27259,23 +27251,14 @@ gguf_get_key.exit.i.i:                            ; preds = %for.inc.i.i, %gguf_
   %2 = load ptr, ptr %data.i.i.i, align 8
   %call2.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %2) #48
   %cmp3.i.i = icmp eq i32 %call2.i.i, 0
-  br i1 %cmp3.i.i, label %gguf_find_key.exit.i, label %for.inc.i.i
+  br i1 %cmp3.i.i, label %gguf_get_or_add_key.exit.loopexit, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %gguf_get_key.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %if.end.i, label %gguf_get_key.exit.i.i, !llvm.loop !267
 
-gguf_find_key.exit.i:                             ; preds = %gguf_get_key.exit.i.i
-  %3 = and i64 %indvars.iv.i.i, 2147483648
-  %cmp.i = icmp eq i64 %3, 0
-  br i1 %cmp.i, label %gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge, label %if.end.i
-
-gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge: ; preds = %gguf_find_key.exit.i
-  %.pre = and i64 %indvars.iv.i.i, 2147483647
-  br label %gguf_get_or_add_key.exit
-
-if.end.i:                                         ; preds = %for.inc.i.i, %gguf_find_key.exit.i, %entry
+if.end.i:                                         ; preds = %for.inc.i.i, %entry
   %add.i = shl i64 %0, 32
   %sext.i = add i64 %add.i, 4294967296
   %conv.i = ashr exact i64 %sext.i, 32
@@ -27289,18 +27272,23 @@ if.end.i:                                         ; preds = %for.inc.i.i, %gguf_
   %call7.i = tail call noalias ptr @strdup(ptr noundef readonly %key) #45
   %data.i = getelementptr inbounds %struct.gguf_kv, ptr %call2.i, i64 %idxprom.i, i32 0, i32 1
   store ptr %call7.i, ptr %data.i, align 8
-  %4 = load i64, ptr %n_kv.i.i.i, align 8
-  %inc.i = add i64 %4, 1
+  %3 = load i64, ptr %n_kv.i.i.i, align 8
+  %inc.i = add i64 %3, 1
   store i64 %inc.i, ptr %n_kv.i.i.i, align 8
   br label %gguf_get_or_add_key.exit
 
-gguf_get_or_add_key.exit:                         ; preds = %gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge, %if.end.i
-  %idxprom.pre-phi = phi i64 [ %.pre, %gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge ], [ %idxprom.i, %if.end.i ]
-  %5 = phi ptr [ %1, %gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge ], [ %call2.i, %if.end.i ]
-  %type = getelementptr inbounds %struct.gguf_kv, ptr %5, i64 %idxprom.pre-phi, i32 1
+gguf_get_or_add_key.exit.loopexit:                ; preds = %gguf_get_key.exit.i.i
+  %.pre = shl i64 %indvars.iv.i.i, 32
+  %.pre6 = ashr exact i64 %.pre, 32
+  br label %gguf_get_or_add_key.exit
+
+gguf_get_or_add_key.exit:                         ; preds = %gguf_get_or_add_key.exit.loopexit, %if.end.i
+  %idxprom.pre-phi = phi i64 [ %.pre6, %gguf_get_or_add_key.exit.loopexit ], [ %idxprom.i, %if.end.i ]
+  %4 = phi ptr [ %1, %gguf_get_or_add_key.exit.loopexit ], [ %call2.i, %if.end.i ]
+  %type = getelementptr inbounds %struct.gguf_kv, ptr %4, i64 %idxprom.pre-phi, i32 1
   store i32 1, ptr %type, align 8
-  %6 = load ptr, ptr %kv.i.i.i, align 8
-  %value = getelementptr inbounds %struct.gguf_kv, ptr %6, i64 %idxprom.pre-phi, i32 2
+  %5 = load ptr, ptr %kv.i.i.i, align 8
+  %value = getelementptr inbounds %struct.gguf_kv, ptr %5, i64 %idxprom.pre-phi, i32 2
   store i8 %val, ptr %value, align 8
   ret void
 }
@@ -27326,23 +27314,14 @@ gguf_get_key.exit.i.i:                            ; preds = %for.inc.i.i, %gguf_
   %2 = load ptr, ptr %data.i.i.i, align 8
   %call2.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %2) #48
   %cmp3.i.i = icmp eq i32 %call2.i.i, 0
-  br i1 %cmp3.i.i, label %gguf_find_key.exit.i, label %for.inc.i.i
+  br i1 %cmp3.i.i, label %gguf_get_or_add_key.exit.loopexit, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %gguf_get_key.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %if.end.i, label %gguf_get_key.exit.i.i, !llvm.loop !267
 
-gguf_find_key.exit.i:                             ; preds = %gguf_get_key.exit.i.i
-  %3 = and i64 %indvars.iv.i.i, 2147483648
-  %cmp.i = icmp eq i64 %3, 0
-  br i1 %cmp.i, label %gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge, label %if.end.i
-
-gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge: ; preds = %gguf_find_key.exit.i
-  %.pre = and i64 %indvars.iv.i.i, 2147483647
-  br label %gguf_get_or_add_key.exit
-
-if.end.i:                                         ; preds = %for.inc.i.i, %gguf_find_key.exit.i, %entry
+if.end.i:                                         ; preds = %for.inc.i.i, %entry
   %add.i = shl i64 %0, 32
   %sext.i = add i64 %add.i, 4294967296
   %conv.i = ashr exact i64 %sext.i, 32
@@ -27356,18 +27335,23 @@ if.end.i:                                         ; preds = %for.inc.i.i, %gguf_
   %call7.i = tail call noalias ptr @strdup(ptr noundef readonly %key) #45
   %data.i = getelementptr inbounds %struct.gguf_kv, ptr %call2.i, i64 %idxprom.i, i32 0, i32 1
   store ptr %call7.i, ptr %data.i, align 8
-  %4 = load i64, ptr %n_kv.i.i.i, align 8
-  %inc.i = add i64 %4, 1
+  %3 = load i64, ptr %n_kv.i.i.i, align 8
+  %inc.i = add i64 %3, 1
   store i64 %inc.i, ptr %n_kv.i.i.i, align 8
   br label %gguf_get_or_add_key.exit
 
-gguf_get_or_add_key.exit:                         ; preds = %gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge, %if.end.i
-  %idxprom.pre-phi = phi i64 [ %.pre, %gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge ], [ %idxprom.i, %if.end.i ]
-  %5 = phi ptr [ %1, %gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge ], [ %call2.i, %if.end.i ]
-  %type = getelementptr inbounds %struct.gguf_kv, ptr %5, i64 %idxprom.pre-phi, i32 1
+gguf_get_or_add_key.exit.loopexit:                ; preds = %gguf_get_key.exit.i.i
+  %.pre = shl i64 %indvars.iv.i.i, 32
+  %.pre6 = ashr exact i64 %.pre, 32
+  br label %gguf_get_or_add_key.exit
+
+gguf_get_or_add_key.exit:                         ; preds = %gguf_get_or_add_key.exit.loopexit, %if.end.i
+  %idxprom.pre-phi = phi i64 [ %.pre6, %gguf_get_or_add_key.exit.loopexit ], [ %idxprom.i, %if.end.i ]
+  %4 = phi ptr [ %1, %gguf_get_or_add_key.exit.loopexit ], [ %call2.i, %if.end.i ]
+  %type = getelementptr inbounds %struct.gguf_kv, ptr %4, i64 %idxprom.pre-phi, i32 1
   store i32 2, ptr %type, align 8
-  %6 = load ptr, ptr %kv.i.i.i, align 8
-  %value = getelementptr inbounds %struct.gguf_kv, ptr %6, i64 %idxprom.pre-phi, i32 2
+  %5 = load ptr, ptr %kv.i.i.i, align 8
+  %value = getelementptr inbounds %struct.gguf_kv, ptr %5, i64 %idxprom.pre-phi, i32 2
   store i16 %val, ptr %value, align 8
   ret void
 }
@@ -27393,23 +27377,14 @@ gguf_get_key.exit.i.i:                            ; preds = %for.inc.i.i, %gguf_
   %2 = load ptr, ptr %data.i.i.i, align 8
   %call2.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %2) #48
   %cmp3.i.i = icmp eq i32 %call2.i.i, 0
-  br i1 %cmp3.i.i, label %gguf_find_key.exit.i, label %for.inc.i.i
+  br i1 %cmp3.i.i, label %gguf_get_or_add_key.exit.loopexit, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %gguf_get_key.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %if.end.i, label %gguf_get_key.exit.i.i, !llvm.loop !267
 
-gguf_find_key.exit.i:                             ; preds = %gguf_get_key.exit.i.i
-  %3 = and i64 %indvars.iv.i.i, 2147483648
-  %cmp.i = icmp eq i64 %3, 0
-  br i1 %cmp.i, label %gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge, label %if.end.i
-
-gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge: ; preds = %gguf_find_key.exit.i
-  %.pre = and i64 %indvars.iv.i.i, 2147483647
-  br label %gguf_get_or_add_key.exit
-
-if.end.i:                                         ; preds = %for.inc.i.i, %gguf_find_key.exit.i, %entry
+if.end.i:                                         ; preds = %for.inc.i.i, %entry
   %add.i = shl i64 %0, 32
   %sext.i = add i64 %add.i, 4294967296
   %conv.i = ashr exact i64 %sext.i, 32
@@ -27423,18 +27398,23 @@ if.end.i:                                         ; preds = %for.inc.i.i, %gguf_
   %call7.i = tail call noalias ptr @strdup(ptr noundef readonly %key) #45
   %data.i = getelementptr inbounds %struct.gguf_kv, ptr %call2.i, i64 %idxprom.i, i32 0, i32 1
   store ptr %call7.i, ptr %data.i, align 8
-  %4 = load i64, ptr %n_kv.i.i.i, align 8
-  %inc.i = add i64 %4, 1
+  %3 = load i64, ptr %n_kv.i.i.i, align 8
+  %inc.i = add i64 %3, 1
   store i64 %inc.i, ptr %n_kv.i.i.i, align 8
   br label %gguf_get_or_add_key.exit
 
-gguf_get_or_add_key.exit:                         ; preds = %gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge, %if.end.i
-  %idxprom.pre-phi = phi i64 [ %.pre, %gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge ], [ %idxprom.i, %if.end.i ]
-  %5 = phi ptr [ %1, %gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge ], [ %call2.i, %if.end.i ]
-  %type = getelementptr inbounds %struct.gguf_kv, ptr %5, i64 %idxprom.pre-phi, i32 1
+gguf_get_or_add_key.exit.loopexit:                ; preds = %gguf_get_key.exit.i.i
+  %.pre = shl i64 %indvars.iv.i.i, 32
+  %.pre6 = ashr exact i64 %.pre, 32
+  br label %gguf_get_or_add_key.exit
+
+gguf_get_or_add_key.exit:                         ; preds = %gguf_get_or_add_key.exit.loopexit, %if.end.i
+  %idxprom.pre-phi = phi i64 [ %.pre6, %gguf_get_or_add_key.exit.loopexit ], [ %idxprom.i, %if.end.i ]
+  %4 = phi ptr [ %1, %gguf_get_or_add_key.exit.loopexit ], [ %call2.i, %if.end.i ]
+  %type = getelementptr inbounds %struct.gguf_kv, ptr %4, i64 %idxprom.pre-phi, i32 1
   store i32 3, ptr %type, align 8
-  %6 = load ptr, ptr %kv.i.i.i, align 8
-  %value = getelementptr inbounds %struct.gguf_kv, ptr %6, i64 %idxprom.pre-phi, i32 2
+  %5 = load ptr, ptr %kv.i.i.i, align 8
+  %value = getelementptr inbounds %struct.gguf_kv, ptr %5, i64 %idxprom.pre-phi, i32 2
   store i16 %val, ptr %value, align 8
   ret void
 }
@@ -27460,23 +27440,14 @@ gguf_get_key.exit.i.i:                            ; preds = %for.inc.i.i, %gguf_
   %2 = load ptr, ptr %data.i.i.i, align 8
   %call2.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %2) #48
   %cmp3.i.i = icmp eq i32 %call2.i.i, 0
-  br i1 %cmp3.i.i, label %gguf_find_key.exit.i, label %for.inc.i.i
+  br i1 %cmp3.i.i, label %gguf_get_or_add_key.exit.loopexit, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %gguf_get_key.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %if.end.i, label %gguf_get_key.exit.i.i, !llvm.loop !267
 
-gguf_find_key.exit.i:                             ; preds = %gguf_get_key.exit.i.i
-  %3 = and i64 %indvars.iv.i.i, 2147483648
-  %cmp.i = icmp eq i64 %3, 0
-  br i1 %cmp.i, label %gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge, label %if.end.i
-
-gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge: ; preds = %gguf_find_key.exit.i
-  %.pre = and i64 %indvars.iv.i.i, 2147483647
-  br label %gguf_get_or_add_key.exit
-
-if.end.i:                                         ; preds = %for.inc.i.i, %gguf_find_key.exit.i, %entry
+if.end.i:                                         ; preds = %for.inc.i.i, %entry
   %add.i = shl i64 %0, 32
   %sext.i = add i64 %add.i, 4294967296
   %conv.i = ashr exact i64 %sext.i, 32
@@ -27490,18 +27461,23 @@ if.end.i:                                         ; preds = %for.inc.i.i, %gguf_
   %call7.i = tail call noalias ptr @strdup(ptr noundef readonly %key) #45
   %data.i = getelementptr inbounds %struct.gguf_kv, ptr %call2.i, i64 %idxprom.i, i32 0, i32 1
   store ptr %call7.i, ptr %data.i, align 8
-  %4 = load i64, ptr %n_kv.i.i.i, align 8
-  %inc.i = add i64 %4, 1
+  %3 = load i64, ptr %n_kv.i.i.i, align 8
+  %inc.i = add i64 %3, 1
   store i64 %inc.i, ptr %n_kv.i.i.i, align 8
   br label %gguf_get_or_add_key.exit
 
-gguf_get_or_add_key.exit:                         ; preds = %gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge, %if.end.i
-  %idxprom.pre-phi = phi i64 [ %.pre, %gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge ], [ %idxprom.i, %if.end.i ]
-  %5 = phi ptr [ %1, %gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge ], [ %call2.i, %if.end.i ]
-  %type = getelementptr inbounds %struct.gguf_kv, ptr %5, i64 %idxprom.pre-phi, i32 1
+gguf_get_or_add_key.exit.loopexit:                ; preds = %gguf_get_key.exit.i.i
+  %.pre = shl i64 %indvars.iv.i.i, 32
+  %.pre6 = ashr exact i64 %.pre, 32
+  br label %gguf_get_or_add_key.exit
+
+gguf_get_or_add_key.exit:                         ; preds = %gguf_get_or_add_key.exit.loopexit, %if.end.i
+  %idxprom.pre-phi = phi i64 [ %.pre6, %gguf_get_or_add_key.exit.loopexit ], [ %idxprom.i, %if.end.i ]
+  %4 = phi ptr [ %1, %gguf_get_or_add_key.exit.loopexit ], [ %call2.i, %if.end.i ]
+  %type = getelementptr inbounds %struct.gguf_kv, ptr %4, i64 %idxprom.pre-phi, i32 1
   store i32 4, ptr %type, align 8
-  %6 = load ptr, ptr %kv.i.i.i, align 8
-  %value = getelementptr inbounds %struct.gguf_kv, ptr %6, i64 %idxprom.pre-phi, i32 2
+  %5 = load ptr, ptr %kv.i.i.i, align 8
+  %value = getelementptr inbounds %struct.gguf_kv, ptr %5, i64 %idxprom.pre-phi, i32 2
   store i32 %val, ptr %value, align 8
   ret void
 }
@@ -27527,23 +27503,14 @@ gguf_get_key.exit.i.i:                            ; preds = %for.inc.i.i, %gguf_
   %2 = load ptr, ptr %data.i.i.i, align 8
   %call2.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %2) #48
   %cmp3.i.i = icmp eq i32 %call2.i.i, 0
-  br i1 %cmp3.i.i, label %gguf_find_key.exit.i, label %for.inc.i.i
+  br i1 %cmp3.i.i, label %gguf_get_or_add_key.exit.loopexit, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %gguf_get_key.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %if.end.i, label %gguf_get_key.exit.i.i, !llvm.loop !267
 
-gguf_find_key.exit.i:                             ; preds = %gguf_get_key.exit.i.i
-  %3 = and i64 %indvars.iv.i.i, 2147483648
-  %cmp.i = icmp eq i64 %3, 0
-  br i1 %cmp.i, label %gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge, label %if.end.i
-
-gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge: ; preds = %gguf_find_key.exit.i
-  %.pre = and i64 %indvars.iv.i.i, 2147483647
-  br label %gguf_get_or_add_key.exit
-
-if.end.i:                                         ; preds = %for.inc.i.i, %gguf_find_key.exit.i, %entry
+if.end.i:                                         ; preds = %for.inc.i.i, %entry
   %add.i = shl i64 %0, 32
   %sext.i = add i64 %add.i, 4294967296
   %conv.i = ashr exact i64 %sext.i, 32
@@ -27557,18 +27524,23 @@ if.end.i:                                         ; preds = %for.inc.i.i, %gguf_
   %call7.i = tail call noalias ptr @strdup(ptr noundef readonly %key) #45
   %data.i = getelementptr inbounds %struct.gguf_kv, ptr %call2.i, i64 %idxprom.i, i32 0, i32 1
   store ptr %call7.i, ptr %data.i, align 8
-  %4 = load i64, ptr %n_kv.i.i.i, align 8
-  %inc.i = add i64 %4, 1
+  %3 = load i64, ptr %n_kv.i.i.i, align 8
+  %inc.i = add i64 %3, 1
   store i64 %inc.i, ptr %n_kv.i.i.i, align 8
   br label %gguf_get_or_add_key.exit
 
-gguf_get_or_add_key.exit:                         ; preds = %gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge, %if.end.i
-  %idxprom.pre-phi = phi i64 [ %.pre, %gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge ], [ %idxprom.i, %if.end.i ]
-  %5 = phi ptr [ %1, %gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge ], [ %call2.i, %if.end.i ]
-  %type = getelementptr inbounds %struct.gguf_kv, ptr %5, i64 %idxprom.pre-phi, i32 1
+gguf_get_or_add_key.exit.loopexit:                ; preds = %gguf_get_key.exit.i.i
+  %.pre = shl i64 %indvars.iv.i.i, 32
+  %.pre6 = ashr exact i64 %.pre, 32
+  br label %gguf_get_or_add_key.exit
+
+gguf_get_or_add_key.exit:                         ; preds = %gguf_get_or_add_key.exit.loopexit, %if.end.i
+  %idxprom.pre-phi = phi i64 [ %.pre6, %gguf_get_or_add_key.exit.loopexit ], [ %idxprom.i, %if.end.i ]
+  %4 = phi ptr [ %1, %gguf_get_or_add_key.exit.loopexit ], [ %call2.i, %if.end.i ]
+  %type = getelementptr inbounds %struct.gguf_kv, ptr %4, i64 %idxprom.pre-phi, i32 1
   store i32 5, ptr %type, align 8
-  %6 = load ptr, ptr %kv.i.i.i, align 8
-  %value = getelementptr inbounds %struct.gguf_kv, ptr %6, i64 %idxprom.pre-phi, i32 2
+  %5 = load ptr, ptr %kv.i.i.i, align 8
+  %value = getelementptr inbounds %struct.gguf_kv, ptr %5, i64 %idxprom.pre-phi, i32 2
   store i32 %val, ptr %value, align 8
   ret void
 }
@@ -27594,23 +27566,14 @@ gguf_get_key.exit.i.i:                            ; preds = %for.inc.i.i, %gguf_
   %2 = load ptr, ptr %data.i.i.i, align 8
   %call2.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %2) #48
   %cmp3.i.i = icmp eq i32 %call2.i.i, 0
-  br i1 %cmp3.i.i, label %gguf_find_key.exit.i, label %for.inc.i.i
+  br i1 %cmp3.i.i, label %gguf_get_or_add_key.exit.loopexit, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %gguf_get_key.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %if.end.i, label %gguf_get_key.exit.i.i, !llvm.loop !267
 
-gguf_find_key.exit.i:                             ; preds = %gguf_get_key.exit.i.i
-  %3 = and i64 %indvars.iv.i.i, 2147483648
-  %cmp.i = icmp eq i64 %3, 0
-  br i1 %cmp.i, label %gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge, label %if.end.i
-
-gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge: ; preds = %gguf_find_key.exit.i
-  %.pre = and i64 %indvars.iv.i.i, 2147483647
-  br label %gguf_get_or_add_key.exit
-
-if.end.i:                                         ; preds = %for.inc.i.i, %gguf_find_key.exit.i, %entry
+if.end.i:                                         ; preds = %for.inc.i.i, %entry
   %add.i = shl i64 %0, 32
   %sext.i = add i64 %add.i, 4294967296
   %conv.i = ashr exact i64 %sext.i, 32
@@ -27624,18 +27587,23 @@ if.end.i:                                         ; preds = %for.inc.i.i, %gguf_
   %call7.i = tail call noalias ptr @strdup(ptr noundef readonly %key) #45
   %data.i = getelementptr inbounds %struct.gguf_kv, ptr %call2.i, i64 %idxprom.i, i32 0, i32 1
   store ptr %call7.i, ptr %data.i, align 8
-  %4 = load i64, ptr %n_kv.i.i.i, align 8
-  %inc.i = add i64 %4, 1
+  %3 = load i64, ptr %n_kv.i.i.i, align 8
+  %inc.i = add i64 %3, 1
   store i64 %inc.i, ptr %n_kv.i.i.i, align 8
   br label %gguf_get_or_add_key.exit
 
-gguf_get_or_add_key.exit:                         ; preds = %gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge, %if.end.i
-  %idxprom.pre-phi = phi i64 [ %.pre, %gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge ], [ %idxprom.i, %if.end.i ]
-  %5 = phi ptr [ %1, %gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge ], [ %call2.i, %if.end.i ]
-  %type = getelementptr inbounds %struct.gguf_kv, ptr %5, i64 %idxprom.pre-phi, i32 1
+gguf_get_or_add_key.exit.loopexit:                ; preds = %gguf_get_key.exit.i.i
+  %.pre = shl i64 %indvars.iv.i.i, 32
+  %.pre6 = ashr exact i64 %.pre, 32
+  br label %gguf_get_or_add_key.exit
+
+gguf_get_or_add_key.exit:                         ; preds = %gguf_get_or_add_key.exit.loopexit, %if.end.i
+  %idxprom.pre-phi = phi i64 [ %.pre6, %gguf_get_or_add_key.exit.loopexit ], [ %idxprom.i, %if.end.i ]
+  %4 = phi ptr [ %1, %gguf_get_or_add_key.exit.loopexit ], [ %call2.i, %if.end.i ]
+  %type = getelementptr inbounds %struct.gguf_kv, ptr %4, i64 %idxprom.pre-phi, i32 1
   store i32 6, ptr %type, align 8
-  %6 = load ptr, ptr %kv.i.i.i, align 8
-  %value = getelementptr inbounds %struct.gguf_kv, ptr %6, i64 %idxprom.pre-phi, i32 2
+  %5 = load ptr, ptr %kv.i.i.i, align 8
+  %value = getelementptr inbounds %struct.gguf_kv, ptr %5, i64 %idxprom.pre-phi, i32 2
   store float %val, ptr %value, align 8
   ret void
 }
@@ -27661,23 +27629,14 @@ gguf_get_key.exit.i.i:                            ; preds = %for.inc.i.i, %gguf_
   %2 = load ptr, ptr %data.i.i.i, align 8
   %call2.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %2) #48
   %cmp3.i.i = icmp eq i32 %call2.i.i, 0
-  br i1 %cmp3.i.i, label %gguf_find_key.exit.i, label %for.inc.i.i
+  br i1 %cmp3.i.i, label %gguf_get_or_add_key.exit.loopexit, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %gguf_get_key.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %if.end.i, label %gguf_get_key.exit.i.i, !llvm.loop !267
 
-gguf_find_key.exit.i:                             ; preds = %gguf_get_key.exit.i.i
-  %3 = and i64 %indvars.iv.i.i, 2147483648
-  %cmp.i = icmp eq i64 %3, 0
-  br i1 %cmp.i, label %gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge, label %if.end.i
-
-gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge: ; preds = %gguf_find_key.exit.i
-  %.pre = and i64 %indvars.iv.i.i, 2147483647
-  br label %gguf_get_or_add_key.exit
-
-if.end.i:                                         ; preds = %for.inc.i.i, %gguf_find_key.exit.i, %entry
+if.end.i:                                         ; preds = %for.inc.i.i, %entry
   %add.i = shl i64 %0, 32
   %sext.i = add i64 %add.i, 4294967296
   %conv.i = ashr exact i64 %sext.i, 32
@@ -27691,18 +27650,23 @@ if.end.i:                                         ; preds = %for.inc.i.i, %gguf_
   %call7.i = tail call noalias ptr @strdup(ptr noundef readonly %key) #45
   %data.i = getelementptr inbounds %struct.gguf_kv, ptr %call2.i, i64 %idxprom.i, i32 0, i32 1
   store ptr %call7.i, ptr %data.i, align 8
-  %4 = load i64, ptr %n_kv.i.i.i, align 8
-  %inc.i = add i64 %4, 1
+  %3 = load i64, ptr %n_kv.i.i.i, align 8
+  %inc.i = add i64 %3, 1
   store i64 %inc.i, ptr %n_kv.i.i.i, align 8
   br label %gguf_get_or_add_key.exit
 
-gguf_get_or_add_key.exit:                         ; preds = %gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge, %if.end.i
-  %idxprom.pre-phi = phi i64 [ %.pre, %gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge ], [ %idxprom.i, %if.end.i ]
-  %5 = phi ptr [ %1, %gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge ], [ %call2.i, %if.end.i ]
-  %type = getelementptr inbounds %struct.gguf_kv, ptr %5, i64 %idxprom.pre-phi, i32 1
+gguf_get_or_add_key.exit.loopexit:                ; preds = %gguf_get_key.exit.i.i
+  %.pre = shl i64 %indvars.iv.i.i, 32
+  %.pre6 = ashr exact i64 %.pre, 32
+  br label %gguf_get_or_add_key.exit
+
+gguf_get_or_add_key.exit:                         ; preds = %gguf_get_or_add_key.exit.loopexit, %if.end.i
+  %idxprom.pre-phi = phi i64 [ %.pre6, %gguf_get_or_add_key.exit.loopexit ], [ %idxprom.i, %if.end.i ]
+  %4 = phi ptr [ %1, %gguf_get_or_add_key.exit.loopexit ], [ %call2.i, %if.end.i ]
+  %type = getelementptr inbounds %struct.gguf_kv, ptr %4, i64 %idxprom.pre-phi, i32 1
   store i32 10, ptr %type, align 8
-  %6 = load ptr, ptr %kv.i.i.i, align 8
-  %value = getelementptr inbounds %struct.gguf_kv, ptr %6, i64 %idxprom.pre-phi, i32 2
+  %5 = load ptr, ptr %kv.i.i.i, align 8
+  %value = getelementptr inbounds %struct.gguf_kv, ptr %5, i64 %idxprom.pre-phi, i32 2
   store i64 %val, ptr %value, align 8
   ret void
 }
@@ -27728,23 +27692,14 @@ gguf_get_key.exit.i.i:                            ; preds = %for.inc.i.i, %gguf_
   %2 = load ptr, ptr %data.i.i.i, align 8
   %call2.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %2) #48
   %cmp3.i.i = icmp eq i32 %call2.i.i, 0
-  br i1 %cmp3.i.i, label %gguf_find_key.exit.i, label %for.inc.i.i
+  br i1 %cmp3.i.i, label %gguf_get_or_add_key.exit.loopexit, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %gguf_get_key.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %if.end.i, label %gguf_get_key.exit.i.i, !llvm.loop !267
 
-gguf_find_key.exit.i:                             ; preds = %gguf_get_key.exit.i.i
-  %3 = and i64 %indvars.iv.i.i, 2147483648
-  %cmp.i = icmp eq i64 %3, 0
-  br i1 %cmp.i, label %gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge, label %if.end.i
-
-gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge: ; preds = %gguf_find_key.exit.i
-  %.pre = and i64 %indvars.iv.i.i, 2147483647
-  br label %gguf_get_or_add_key.exit
-
-if.end.i:                                         ; preds = %for.inc.i.i, %gguf_find_key.exit.i, %entry
+if.end.i:                                         ; preds = %for.inc.i.i, %entry
   %add.i = shl i64 %0, 32
   %sext.i = add i64 %add.i, 4294967296
   %conv.i = ashr exact i64 %sext.i, 32
@@ -27758,18 +27713,23 @@ if.end.i:                                         ; preds = %for.inc.i.i, %gguf_
   %call7.i = tail call noalias ptr @strdup(ptr noundef readonly %key) #45
   %data.i = getelementptr inbounds %struct.gguf_kv, ptr %call2.i, i64 %idxprom.i, i32 0, i32 1
   store ptr %call7.i, ptr %data.i, align 8
-  %4 = load i64, ptr %n_kv.i.i.i, align 8
-  %inc.i = add i64 %4, 1
+  %3 = load i64, ptr %n_kv.i.i.i, align 8
+  %inc.i = add i64 %3, 1
   store i64 %inc.i, ptr %n_kv.i.i.i, align 8
   br label %gguf_get_or_add_key.exit
 
-gguf_get_or_add_key.exit:                         ; preds = %gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge, %if.end.i
-  %idxprom.pre-phi = phi i64 [ %.pre, %gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge ], [ %idxprom.i, %if.end.i ]
-  %5 = phi ptr [ %1, %gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge ], [ %call2.i, %if.end.i ]
-  %type = getelementptr inbounds %struct.gguf_kv, ptr %5, i64 %idxprom.pre-phi, i32 1
+gguf_get_or_add_key.exit.loopexit:                ; preds = %gguf_get_key.exit.i.i
+  %.pre = shl i64 %indvars.iv.i.i, 32
+  %.pre6 = ashr exact i64 %.pre, 32
+  br label %gguf_get_or_add_key.exit
+
+gguf_get_or_add_key.exit:                         ; preds = %gguf_get_or_add_key.exit.loopexit, %if.end.i
+  %idxprom.pre-phi = phi i64 [ %.pre6, %gguf_get_or_add_key.exit.loopexit ], [ %idxprom.i, %if.end.i ]
+  %4 = phi ptr [ %1, %gguf_get_or_add_key.exit.loopexit ], [ %call2.i, %if.end.i ]
+  %type = getelementptr inbounds %struct.gguf_kv, ptr %4, i64 %idxprom.pre-phi, i32 1
   store i32 11, ptr %type, align 8
-  %6 = load ptr, ptr %kv.i.i.i, align 8
-  %value = getelementptr inbounds %struct.gguf_kv, ptr %6, i64 %idxprom.pre-phi, i32 2
+  %5 = load ptr, ptr %kv.i.i.i, align 8
+  %value = getelementptr inbounds %struct.gguf_kv, ptr %5, i64 %idxprom.pre-phi, i32 2
   store i64 %val, ptr %value, align 8
   ret void
 }
@@ -27795,23 +27755,14 @@ gguf_get_key.exit.i.i:                            ; preds = %for.inc.i.i, %gguf_
   %2 = load ptr, ptr %data.i.i.i, align 8
   %call2.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %2) #48
   %cmp3.i.i = icmp eq i32 %call2.i.i, 0
-  br i1 %cmp3.i.i, label %gguf_find_key.exit.i, label %for.inc.i.i
+  br i1 %cmp3.i.i, label %gguf_get_or_add_key.exit.loopexit, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %gguf_get_key.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %if.end.i, label %gguf_get_key.exit.i.i, !llvm.loop !267
 
-gguf_find_key.exit.i:                             ; preds = %gguf_get_key.exit.i.i
-  %3 = and i64 %indvars.iv.i.i, 2147483648
-  %cmp.i = icmp eq i64 %3, 0
-  br i1 %cmp.i, label %gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge, label %if.end.i
-
-gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge: ; preds = %gguf_find_key.exit.i
-  %.pre = and i64 %indvars.iv.i.i, 2147483647
-  br label %gguf_get_or_add_key.exit
-
-if.end.i:                                         ; preds = %for.inc.i.i, %gguf_find_key.exit.i, %entry
+if.end.i:                                         ; preds = %for.inc.i.i, %entry
   %add.i = shl i64 %0, 32
   %sext.i = add i64 %add.i, 4294967296
   %conv.i = ashr exact i64 %sext.i, 32
@@ -27825,18 +27776,23 @@ if.end.i:                                         ; preds = %for.inc.i.i, %gguf_
   %call7.i = tail call noalias ptr @strdup(ptr noundef readonly %key) #45
   %data.i = getelementptr inbounds %struct.gguf_kv, ptr %call2.i, i64 %idxprom.i, i32 0, i32 1
   store ptr %call7.i, ptr %data.i, align 8
-  %4 = load i64, ptr %n_kv.i.i.i, align 8
-  %inc.i = add i64 %4, 1
+  %3 = load i64, ptr %n_kv.i.i.i, align 8
+  %inc.i = add i64 %3, 1
   store i64 %inc.i, ptr %n_kv.i.i.i, align 8
   br label %gguf_get_or_add_key.exit
 
-gguf_get_or_add_key.exit:                         ; preds = %gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge, %if.end.i
-  %idxprom.pre-phi = phi i64 [ %.pre, %gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge ], [ %idxprom.i, %if.end.i ]
-  %5 = phi ptr [ %1, %gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge ], [ %call2.i, %if.end.i ]
-  %type = getelementptr inbounds %struct.gguf_kv, ptr %5, i64 %idxprom.pre-phi, i32 1
+gguf_get_or_add_key.exit.loopexit:                ; preds = %gguf_get_key.exit.i.i
+  %.pre = shl i64 %indvars.iv.i.i, 32
+  %.pre6 = ashr exact i64 %.pre, 32
+  br label %gguf_get_or_add_key.exit
+
+gguf_get_or_add_key.exit:                         ; preds = %gguf_get_or_add_key.exit.loopexit, %if.end.i
+  %idxprom.pre-phi = phi i64 [ %.pre6, %gguf_get_or_add_key.exit.loopexit ], [ %idxprom.i, %if.end.i ]
+  %4 = phi ptr [ %1, %gguf_get_or_add_key.exit.loopexit ], [ %call2.i, %if.end.i ]
+  %type = getelementptr inbounds %struct.gguf_kv, ptr %4, i64 %idxprom.pre-phi, i32 1
   store i32 12, ptr %type, align 8
-  %6 = load ptr, ptr %kv.i.i.i, align 8
-  %value = getelementptr inbounds %struct.gguf_kv, ptr %6, i64 %idxprom.pre-phi, i32 2
+  %5 = load ptr, ptr %kv.i.i.i, align 8
+  %value = getelementptr inbounds %struct.gguf_kv, ptr %5, i64 %idxprom.pre-phi, i32 2
   store double %val, ptr %value, align 8
   ret void
 }
@@ -27862,23 +27818,14 @@ gguf_get_key.exit.i.i:                            ; preds = %for.inc.i.i, %gguf_
   %2 = load ptr, ptr %data.i.i.i, align 8
   %call2.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %2) #48
   %cmp3.i.i = icmp eq i32 %call2.i.i, 0
-  br i1 %cmp3.i.i, label %gguf_find_key.exit.i, label %for.inc.i.i
+  br i1 %cmp3.i.i, label %gguf_get_or_add_key.exit.loopexit, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %gguf_get_key.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %if.end.i, label %gguf_get_key.exit.i.i, !llvm.loop !267
 
-gguf_find_key.exit.i:                             ; preds = %gguf_get_key.exit.i.i
-  %3 = and i64 %indvars.iv.i.i, 2147483648
-  %cmp.i = icmp eq i64 %3, 0
-  br i1 %cmp.i, label %gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge, label %if.end.i
-
-gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge: ; preds = %gguf_find_key.exit.i
-  %.pre = and i64 %indvars.iv.i.i, 2147483647
-  br label %gguf_get_or_add_key.exit
-
-if.end.i:                                         ; preds = %for.inc.i.i, %gguf_find_key.exit.i, %entry
+if.end.i:                                         ; preds = %for.inc.i.i, %entry
   %add.i = shl i64 %0, 32
   %sext.i = add i64 %add.i, 4294967296
   %conv.i = ashr exact i64 %sext.i, 32
@@ -27892,19 +27839,24 @@ if.end.i:                                         ; preds = %for.inc.i.i, %gguf_
   %call7.i = tail call noalias ptr @strdup(ptr noundef readonly %key) #45
   %data.i = getelementptr inbounds %struct.gguf_kv, ptr %call2.i, i64 %idxprom.i, i32 0, i32 1
   store ptr %call7.i, ptr %data.i, align 8
-  %4 = load i64, ptr %n_kv.i.i.i, align 8
-  %inc.i = add i64 %4, 1
+  %3 = load i64, ptr %n_kv.i.i.i, align 8
+  %inc.i = add i64 %3, 1
   store i64 %inc.i, ptr %n_kv.i.i.i, align 8
   br label %gguf_get_or_add_key.exit
 
-gguf_get_or_add_key.exit:                         ; preds = %gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge, %if.end.i
-  %idxprom.pre-phi = phi i64 [ %.pre, %gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge ], [ %idxprom.i, %if.end.i ]
-  %5 = phi ptr [ %1, %gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge ], [ %call2.i, %if.end.i ]
+gguf_get_or_add_key.exit.loopexit:                ; preds = %gguf_get_key.exit.i.i
+  %.pre = shl i64 %indvars.iv.i.i, 32
+  %.pre6 = ashr exact i64 %.pre, 32
+  br label %gguf_get_or_add_key.exit
+
+gguf_get_or_add_key.exit:                         ; preds = %gguf_get_or_add_key.exit.loopexit, %if.end.i
+  %idxprom.pre-phi = phi i64 [ %.pre6, %gguf_get_or_add_key.exit.loopexit ], [ %idxprom.i, %if.end.i ]
+  %4 = phi ptr [ %1, %gguf_get_or_add_key.exit.loopexit ], [ %call2.i, %if.end.i ]
   %frombool = zext i1 %val to i8
-  %type = getelementptr inbounds %struct.gguf_kv, ptr %5, i64 %idxprom.pre-phi, i32 1
+  %type = getelementptr inbounds %struct.gguf_kv, ptr %4, i64 %idxprom.pre-phi, i32 1
   store i32 7, ptr %type, align 8
-  %6 = load ptr, ptr %kv.i.i.i, align 8
-  %value = getelementptr inbounds %struct.gguf_kv, ptr %6, i64 %idxprom.pre-phi, i32 2
+  %5 = load ptr, ptr %kv.i.i.i, align 8
+  %value = getelementptr inbounds %struct.gguf_kv, ptr %5, i64 %idxprom.pre-phi, i32 2
   store i8 %frombool, ptr %value, align 8
   ret void
 }
@@ -27930,23 +27882,14 @@ gguf_get_key.exit.i.i:                            ; preds = %for.inc.i.i, %gguf_
   %2 = load ptr, ptr %data.i.i.i, align 8
   %call2.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %2) #48
   %cmp3.i.i = icmp eq i32 %call2.i.i, 0
-  br i1 %cmp3.i.i, label %gguf_find_key.exit.i, label %for.inc.i.i
+  br i1 %cmp3.i.i, label %gguf_get_or_add_key.exit.loopexit, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %gguf_get_key.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %if.end.i, label %gguf_get_key.exit.i.i, !llvm.loop !267
 
-gguf_find_key.exit.i:                             ; preds = %gguf_get_key.exit.i.i
-  %3 = and i64 %indvars.iv.i.i, 2147483648
-  %cmp.i = icmp eq i64 %3, 0
-  br i1 %cmp.i, label %gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge, label %if.end.i
-
-gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge: ; preds = %gguf_find_key.exit.i
-  %.pre = and i64 %indvars.iv.i.i, 2147483647
-  br label %gguf_get_or_add_key.exit
-
-if.end.i:                                         ; preds = %for.inc.i.i, %gguf_find_key.exit.i, %entry
+if.end.i:                                         ; preds = %for.inc.i.i, %entry
   %add.i = shl i64 %0, 32
   %sext.i = add i64 %add.i, 4294967296
   %conv.i = ashr exact i64 %sext.i, 32
@@ -27960,23 +27903,28 @@ if.end.i:                                         ; preds = %for.inc.i.i, %gguf_
   %call7.i = tail call noalias ptr @strdup(ptr noundef readonly %key) #45
   %data.i = getelementptr inbounds %struct.gguf_kv, ptr %call2.i, i64 %idxprom.i, i32 0, i32 1
   store ptr %call7.i, ptr %data.i, align 8
-  %4 = load i64, ptr %n_kv.i.i.i, align 8
-  %inc.i = add i64 %4, 1
+  %3 = load i64, ptr %n_kv.i.i.i, align 8
+  %inc.i = add i64 %3, 1
   store i64 %inc.i, ptr %n_kv.i.i.i, align 8
   br label %gguf_get_or_add_key.exit
 
-gguf_get_or_add_key.exit:                         ; preds = %gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge, %if.end.i
-  %idxprom.pre-phi = phi i64 [ %.pre, %gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge ], [ %idxprom.i, %if.end.i ]
-  %5 = phi ptr [ %1, %gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge ], [ %call2.i, %if.end.i ]
-  %type = getelementptr inbounds %struct.gguf_kv, ptr %5, i64 %idxprom.pre-phi, i32 1
+gguf_get_or_add_key.exit.loopexit:                ; preds = %gguf_get_key.exit.i.i
+  %.pre = shl i64 %indvars.iv.i.i, 32
+  %.pre9 = ashr exact i64 %.pre, 32
+  br label %gguf_get_or_add_key.exit
+
+gguf_get_or_add_key.exit:                         ; preds = %gguf_get_or_add_key.exit.loopexit, %if.end.i
+  %idxprom.pre-phi = phi i64 [ %.pre9, %gguf_get_or_add_key.exit.loopexit ], [ %idxprom.i, %if.end.i ]
+  %4 = phi ptr [ %1, %gguf_get_or_add_key.exit.loopexit ], [ %call2.i, %if.end.i ]
+  %type = getelementptr inbounds %struct.gguf_kv, ptr %4, i64 %idxprom.pre-phi, i32 1
   store i32 8, ptr %type, align 8
   %call1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %val) #48
-  %6 = load ptr, ptr %kv.i.i.i, align 8
-  %value = getelementptr inbounds %struct.gguf_kv, ptr %6, i64 %idxprom.pre-phi, i32 2
+  %5 = load ptr, ptr %kv.i.i.i, align 8
+  %value = getelementptr inbounds %struct.gguf_kv, ptr %5, i64 %idxprom.pre-phi, i32 2
   store i64 %call1, ptr %value, align 8
   %call5 = tail call noalias ptr @strdup(ptr noundef %val) #45
-  %7 = load ptr, ptr %kv.i.i.i, align 8
-  %data = getelementptr inbounds %struct.gguf_kv, ptr %7, i64 %idxprom.pre-phi, i32 2, i32 0, i32 1
+  %6 = load ptr, ptr %kv.i.i.i, align 8
+  %data = getelementptr inbounds %struct.gguf_kv, ptr %6, i64 %idxprom.pre-phi, i32 2, i32 0, i32 1
   store ptr %call5, ptr %data, align 8
   ret void
 }
@@ -28005,23 +27953,14 @@ gguf_get_key.exit.i.i:                            ; preds = %for.inc.i.i, %gguf_
   %2 = load ptr, ptr %data.i.i.i, align 8
   %call2.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %2) #48
   %cmp3.i.i = icmp eq i32 %call2.i.i, 0
-  br i1 %cmp3.i.i, label %gguf_find_key.exit.i, label %for.inc.i.i
+  br i1 %cmp3.i.i, label %gguf_get_or_add_key.exit.loopexit, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %gguf_get_key.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %if.end.i, label %gguf_get_key.exit.i.i, !llvm.loop !267
 
-gguf_find_key.exit.i:                             ; preds = %gguf_get_key.exit.i.i
-  %3 = and i64 %indvars.iv.i.i, 2147483648
-  %cmp.i = icmp eq i64 %3, 0
-  br i1 %cmp.i, label %gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge, label %if.end.i
-
-gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge: ; preds = %gguf_find_key.exit.i
-  %.pre = and i64 %indvars.iv.i.i, 2147483647
-  br label %gguf_get_or_add_key.exit
-
-if.end.i:                                         ; preds = %for.inc.i.i, %gguf_find_key.exit.i, %entry
+if.end.i:                                         ; preds = %for.inc.i.i, %entry
   %add.i = shl i64 %0, 32
   %sext.i = add i64 %add.i, 4294967296
   %conv.i = ashr exact i64 %sext.i, 32
@@ -28035,35 +27974,40 @@ if.end.i:                                         ; preds = %for.inc.i.i, %gguf_
   %call7.i = tail call noalias ptr @strdup(ptr noundef readonly %key) #45
   %data.i = getelementptr inbounds %struct.gguf_kv, ptr %call2.i, i64 %idxprom.i, i32 0, i32 1
   store ptr %call7.i, ptr %data.i, align 8
-  %4 = load i64, ptr %n_kv.i.i.i, align 8
-  %inc.i = add i64 %4, 1
+  %3 = load i64, ptr %n_kv.i.i.i, align 8
+  %inc.i = add i64 %3, 1
   store i64 %inc.i, ptr %n_kv.i.i.i, align 8
   br label %gguf_get_or_add_key.exit
 
-gguf_get_or_add_key.exit:                         ; preds = %gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge, %if.end.i
-  %idxprom.pre-phi = phi i64 [ %.pre, %gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge ], [ %idxprom.i, %if.end.i ]
-  %5 = phi ptr [ %1, %gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge ], [ %call2.i, %if.end.i ]
-  %type1 = getelementptr inbounds %struct.gguf_kv, ptr %5, i64 %idxprom.pre-phi, i32 1
+gguf_get_or_add_key.exit.loopexit:                ; preds = %gguf_get_key.exit.i.i
+  %.pre = shl i64 %indvars.iv.i.i, 32
+  %.pre16 = ashr exact i64 %.pre, 32
+  br label %gguf_get_or_add_key.exit
+
+gguf_get_or_add_key.exit:                         ; preds = %gguf_get_or_add_key.exit.loopexit, %if.end.i
+  %idxprom.pre-phi = phi i64 [ %.pre16, %gguf_get_or_add_key.exit.loopexit ], [ %idxprom.i, %if.end.i ]
+  %4 = phi ptr [ %1, %gguf_get_or_add_key.exit.loopexit ], [ %call2.i, %if.end.i ]
+  %type1 = getelementptr inbounds %struct.gguf_kv, ptr %4, i64 %idxprom.pre-phi, i32 1
   store i32 9, ptr %type1, align 8
-  %6 = load ptr, ptr %kv.i.i.i, align 8
-  %value = getelementptr inbounds %struct.gguf_kv, ptr %6, i64 %idxprom.pre-phi, i32 2
+  %5 = load ptr, ptr %kv.i.i.i, align 8
+  %value = getelementptr inbounds %struct.gguf_kv, ptr %5, i64 %idxprom.pre-phi, i32 2
   store i32 %type, ptr %value, align 8
   %conv = sext i32 %n to i64
-  %7 = load ptr, ptr %kv.i.i.i, align 8
-  %n10 = getelementptr inbounds %struct.gguf_kv, ptr %7, i64 %idxprom.pre-phi, i32 2, i32 0, i32 1
+  %6 = load ptr, ptr %kv.i.i.i, align 8
+  %n10 = getelementptr inbounds %struct.gguf_kv, ptr %6, i64 %idxprom.pre-phi, i32 2, i32 0, i32 1
   store i64 %conv, ptr %n10, align 8
   %idxprom12 = zext i32 %type to i64
   %arrayidx13 = getelementptr inbounds [13 x i64], ptr @GGUF_TYPE_SIZE, i64 0, i64 %idxprom12
-  %8 = load i64, ptr %arrayidx13, align 8
-  %mul = mul i64 %8, %conv
+  %7 = load i64, ptr %arrayidx13, align 8
+  %mul = mul i64 %7, %conv
   %call14 = tail call noalias ptr @malloc(i64 noundef %mul) #49
-  %9 = load ptr, ptr %kv.i.i.i, align 8
-  %data19 = getelementptr inbounds %struct.gguf_kv, ptr %9, i64 %idxprom.pre-phi, i32 2, i32 0, i32 2
+  %8 = load ptr, ptr %kv.i.i.i, align 8
+  %data19 = getelementptr inbounds %struct.gguf_kv, ptr %8, i64 %idxprom.pre-phi, i32 2, i32 0, i32 2
   store ptr %call14, ptr %data19, align 8
-  %10 = load ptr, ptr %kv.i.i.i, align 8
-  %data24 = getelementptr inbounds %struct.gguf_kv, ptr %10, i64 %idxprom.pre-phi, i32 2, i32 0, i32 2
-  %11 = load ptr, ptr %data24, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr align 1 %data, i64 %mul, i1 false)
+  %9 = load ptr, ptr %kv.i.i.i, align 8
+  %data24 = getelementptr inbounds %struct.gguf_kv, ptr %9, i64 %idxprom.pre-phi, i32 2, i32 0, i32 2
+  %10 = load ptr, ptr %data24, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %10, ptr align 1 %data, i64 %mul, i1 false)
   ret void
 }
 
@@ -28088,23 +28032,14 @@ gguf_get_key.exit.i.i:                            ; preds = %for.inc.i.i, %gguf_
   %2 = load ptr, ptr %data.i.i.i, align 8
   %call2.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %2) #48
   %cmp3.i.i = icmp eq i32 %call2.i.i, 0
-  br i1 %cmp3.i.i, label %gguf_find_key.exit.i, label %for.inc.i.i
+  br i1 %cmp3.i.i, label %gguf_get_or_add_key.exit.loopexit, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %gguf_get_key.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %if.end.i, label %gguf_get_key.exit.i.i, !llvm.loop !267
 
-gguf_find_key.exit.i:                             ; preds = %gguf_get_key.exit.i.i
-  %3 = and i64 %indvars.iv.i.i, 2147483648
-  %cmp.i = icmp eq i64 %3, 0
-  br i1 %cmp.i, label %gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge, label %if.end.i
-
-gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge: ; preds = %gguf_find_key.exit.i
-  %.pre = and i64 %indvars.iv.i.i, 2147483647
-  br label %gguf_get_or_add_key.exit
-
-if.end.i:                                         ; preds = %for.inc.i.i, %gguf_find_key.exit.i, %entry
+if.end.i:                                         ; preds = %for.inc.i.i, %entry
   %add.i = shl i64 %0, 32
   %sext.i = add i64 %add.i, 4294967296
   %conv.i = ashr exact i64 %sext.i, 32
@@ -28118,27 +28053,32 @@ if.end.i:                                         ; preds = %for.inc.i.i, %gguf_
   %call7.i = tail call noalias ptr @strdup(ptr noundef readonly %key) #45
   %data.i = getelementptr inbounds %struct.gguf_kv, ptr %call2.i, i64 %idxprom.i, i32 0, i32 1
   store ptr %call7.i, ptr %data.i, align 8
-  %4 = load i64, ptr %n_kv.i.i.i, align 8
-  %inc.i = add i64 %4, 1
+  %3 = load i64, ptr %n_kv.i.i.i, align 8
+  %inc.i = add i64 %3, 1
   store i64 %inc.i, ptr %n_kv.i.i.i, align 8
   br label %gguf_get_or_add_key.exit
 
-gguf_get_or_add_key.exit:                         ; preds = %gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge, %if.end.i
-  %idxprom.pre-phi = phi i64 [ %.pre, %gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge ], [ %idxprom.i, %if.end.i ]
-  %5 = phi ptr [ %1, %gguf_find_key.exit.i.gguf_get_or_add_key.exit_crit_edge ], [ %call2.i, %if.end.i ]
-  %type = getelementptr inbounds %struct.gguf_kv, ptr %5, i64 %idxprom.pre-phi, i32 1
+gguf_get_or_add_key.exit.loopexit:                ; preds = %gguf_get_key.exit.i.i
+  %.pre = shl i64 %indvars.iv.i.i, 32
+  %.pre23 = ashr exact i64 %.pre, 32
+  br label %gguf_get_or_add_key.exit
+
+gguf_get_or_add_key.exit:                         ; preds = %gguf_get_or_add_key.exit.loopexit, %if.end.i
+  %idxprom.pre-phi = phi i64 [ %.pre23, %gguf_get_or_add_key.exit.loopexit ], [ %idxprom.i, %if.end.i ]
+  %4 = phi ptr [ %1, %gguf_get_or_add_key.exit.loopexit ], [ %call2.i, %if.end.i ]
+  %type = getelementptr inbounds %struct.gguf_kv, ptr %4, i64 %idxprom.pre-phi, i32 1
   store i32 9, ptr %type, align 8
-  %6 = load ptr, ptr %kv.i.i.i, align 8
-  %value = getelementptr inbounds %struct.gguf_kv, ptr %6, i64 %idxprom.pre-phi, i32 2
+  %5 = load ptr, ptr %kv.i.i.i, align 8
+  %value = getelementptr inbounds %struct.gguf_kv, ptr %5, i64 %idxprom.pre-phi, i32 2
   store i32 8, ptr %value, align 8
   %conv = sext i32 %n to i64
-  %7 = load ptr, ptr %kv.i.i.i, align 8
-  %n9 = getelementptr inbounds %struct.gguf_kv, ptr %7, i64 %idxprom.pre-phi, i32 2, i32 0, i32 1
+  %6 = load ptr, ptr %kv.i.i.i, align 8
+  %n9 = getelementptr inbounds %struct.gguf_kv, ptr %6, i64 %idxprom.pre-phi, i32 2, i32 0, i32 1
   store i64 %conv, ptr %n9, align 8
   %mul = shl nsw i64 %conv, 4
   %call11 = tail call noalias ptr @malloc(i64 noundef %mul) #49
-  %8 = load ptr, ptr %kv.i.i.i, align 8
-  %data16 = getelementptr inbounds %struct.gguf_kv, ptr %8, i64 %idxprom.pre-phi, i32 2, i32 0, i32 2
+  %7 = load ptr, ptr %kv.i.i.i, align 8
+  %data16 = getelementptr inbounds %struct.gguf_kv, ptr %7, i64 %idxprom.pre-phi, i32 2, i32 0, i32 2
   store ptr %call11, ptr %data16, align 8
   %cmp19 = icmp sgt i32 %n, 0
   br i1 %cmp19, label %for.body.preheader, label %for.end
@@ -28149,16 +28089,16 @@ for.body.preheader:                               ; preds = %gguf_get_or_add_key
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %9 = load ptr, ptr %kv.i.i.i, align 8
-  %data22 = getelementptr inbounds %struct.gguf_kv, ptr %9, i64 %idxprom.pre-phi, i32 2, i32 0, i32 2
-  %10 = load ptr, ptr %data22, align 8
-  %arrayidx24 = getelementptr inbounds %struct.gguf_str, ptr %10, i64 %indvars.iv
+  %8 = load ptr, ptr %kv.i.i.i, align 8
+  %data22 = getelementptr inbounds %struct.gguf_kv, ptr %8, i64 %idxprom.pre-phi, i32 2, i32 0, i32 2
+  %9 = load ptr, ptr %data22, align 8
+  %arrayidx24 = getelementptr inbounds %struct.gguf_str, ptr %9, i64 %indvars.iv
   %arrayidx26 = getelementptr inbounds ptr, ptr %data, i64 %indvars.iv
-  %11 = load ptr, ptr %arrayidx26, align 8
-  %call27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #48
+  %10 = load ptr, ptr %arrayidx26, align 8
+  %call27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #48
   store i64 %call27, ptr %arrayidx24, align 8
-  %12 = load ptr, ptr %arrayidx26, align 8
-  %call31 = tail call noalias ptr @strdup(ptr noundef %12) #45
+  %11 = load ptr, ptr %arrayidx26, align 8
+  %call31 = tail call noalias ptr @strdup(ptr noundef %11) #45
   %data32 = getelementptr inbounds i8, ptr %arrayidx24, i64 8
   store ptr %call31, ptr %data32, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -28587,29 +28527,24 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %2 = load ptr, ptr %data.i.i, align 8
   %call2.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) %2) #48
   %cmp3.i = icmp eq i32 %call2.i, 0
-  br i1 %cmp3.i, label %gguf_find_tensor.exit, label %for.inc.i
+  br i1 %cmp3.i, label %if.end, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %do.body, label %for.body.i, !llvm.loop !273
 
-gguf_find_tensor.exit:                            ; preds = %for.body.i
-  %3 = and i64 %indvars.iv.i, 2147483648
-  %cmp.not = icmp eq i64 %3, 0
-  br i1 %cmp.not, label %if.end, label %do.body
-
-do.body:                                          ; preds = %for.inc.i, %entry, %gguf_find_tensor.exit
-  %4 = load ptr, ptr @stdout, align 8
-  %call1 = tail call i32 @fflush(ptr noundef %4)
-  %5 = load ptr, ptr @stderr, align 8
-  %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 19377, ptr noundef nonnull @.str.242) #46
+do.body:                                          ; preds = %for.inc.i, %entry
+  %3 = load ptr, ptr @stdout, align 8
+  %call1 = tail call i32 @fflush(ptr noundef %3)
+  %4 = load ptr, ptr @stderr, align 8
+  %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 19377, ptr noundef nonnull @.str.242) #46
   tail call void @ggml_print_backtrace()
   tail call void @abort() #47
   unreachable
 
-if.end:                                           ; preds = %gguf_find_tensor.exit
-  %idxprom = and i64 %indvars.iv.i, 2147483647
+if.end:                                           ; preds = %for.body.i
+  %idxprom = and i64 %indvars.iv.i, 4294967295
   %type3 = getelementptr inbounds %struct.gguf_tensor_info, ptr %1, i64 %idxprom, i32 3
   store i32 %type, ptr %type3, align 8
   ret void
@@ -28636,35 +28571,31 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %2 = load ptr, ptr %data.i.i, align 8
   %call2.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) %2) #48
   %cmp3.i = icmp eq i32 %call2.i, 0
-  br i1 %cmp3.i, label %gguf_find_tensor.exit, label %for.inc.i
+  br i1 %cmp3.i, label %if.end, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %do.body, label %for.body.i, !llvm.loop !273
 
-gguf_find_tensor.exit:                            ; preds = %for.body.i
-  %3 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %cmp = icmp slt i32 %3, 0
-  br i1 %cmp, label %do.body, label %if.end
-
-do.body:                                          ; preds = %for.inc.i, %entry, %gguf_find_tensor.exit
-  %4 = load ptr, ptr @stdout, align 8
-  %call1 = tail call i32 @fflush(ptr noundef %4)
-  %5 = load ptr, ptr @stderr, align 8
-  %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 19386, ptr noundef nonnull @.str.242) #46
+do.body:                                          ; preds = %for.inc.i, %entry
+  %3 = load ptr, ptr @stdout, align 8
+  %call1 = tail call i32 @fflush(ptr noundef %3)
+  %4 = load ptr, ptr @stderr, align 8
+  %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 19386, ptr noundef nonnull @.str.242) #46
   tail call void @ggml_print_backtrace()
   tail call void @abort() #47
   unreachable
 
-if.end:                                           ; preds = %gguf_find_tensor.exit
-  %idxprom = and i64 %indvars.iv.i, 2147483647
+if.end:                                           ; preds = %for.body.i
+  %5 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %idxprom = and i64 %indvars.iv.i, 4294967295
   %data3 = getelementptr inbounds %struct.gguf_tensor_info, ptr %1, i64 %idxprom, i32 5
   store ptr %data, ptr %data3, align 8
   %6 = load ptr, ptr %infos.i.i, align 8
   %size7 = getelementptr inbounds %struct.gguf_tensor_info, ptr %6, i64 %idxprom, i32 6
   store i64 %size, ptr %size7, align 8
-  %i.019 = add nuw i32 %3, 1
+  %i.019 = add i32 %5, 1
   %conv20 = zext i32 %i.019 to i64
   %7 = load i64, ptr %n_tensors.i.i, align 8
   %cmp821 = icmp ugt i64 %7, %conv20
@@ -28677,7 +28608,7 @@ for.body.lr.ph:                                   ; preds = %if.end
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %conv24 = phi i64 [ %conv20, %for.body.lr.ph ], [ %conv, %for.body ]
   %i.023 = phi i32 [ %i.019, %for.body.lr.ph ], [ %i.0, %for.body ]
-  %i.0.in22 = phi i32 [ %3, %for.body.lr.ph ], [ %i.023, %for.body ]
+  %i.0.in22 = phi i32 [ %5, %for.body.lr.ph ], [ %i.023, %for.body ]
   %8 = load ptr, ptr %infos.i.i, align 8
   %idxprom11 = zext i32 %i.0.in22 to i64
   %arrayidx12 = getelementptr inbounds %struct.gguf_tensor_info, ptr %8, i64 %idxprom11

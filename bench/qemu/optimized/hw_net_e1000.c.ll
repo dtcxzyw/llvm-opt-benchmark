@@ -1405,7 +1405,7 @@ if.then111.i.i:                                   ; preds = %if.end104.i.i
 if.end123.i.i:                                    ; preds = %if.then111.i.i, %if.end104.i.i
   %28 = phi i16 [ %conv121.i.i, %if.then111.i.i ], [ %conv105.i.i, %if.end104.i.i ]
   %sub124.i.i = sub i32 %split_size.0.i.i, %conv74.i.i
-  %tobool125.i.i = icmp ne i32 %conv74.i.i, 0
+  %tobool125.i.i = icmp ne i32 %spec.select.i.i, 0
   %tobool126.i.i = icmp ne i32 %sub124.i.i, 0
   %29 = select i1 %tobool125.i.i, i1 %tobool126.i.i, i1 false
   br i1 %29, label %do.body.i.i, label %eop.i.i, !llvm.loop !9

@@ -1155,12 +1155,12 @@ if.end:                                           ; preds = %for.body
   %idxprom9 = sext i32 %3 to i64
   %arrayidx10 = getelementptr i64, ptr %values, i64 %idxprom9
   %4 = load i64, ptr %arrayidx10, align 8
-  %shr = lshr i64 %4, 32
-  %conv11 = trunc nuw i64 %shr to i32
   %cmp13 = icmp ugt i32 %conv3, 1
   br i1 %cmp13, label %if.then15, label %if.else
 
 if.then15:                                        ; preds = %if.end
+  %shr = lshr i64 %4, 32
+  %conv11 = trunc nuw i64 %shr to i32
   %5 = tail call noundef i32 @llvm.bswap.i32(i32 %conv11)
   %inc = add i32 %cellnum.018, 1
   %idxprom16 = sext i32 %cellnum.018 to i64
@@ -1169,7 +1169,7 @@ if.then15:                                        ; preds = %if.end
   br label %if.end22
 
 if.else:                                          ; preds = %if.end
-  %cmp18.not = icmp eq i32 %conv11, 0
+  %cmp18.not = icmp ult i64 %4, 4294967296
   br i1 %cmp18.not, label %if.end22, label %out
 
 if.end22:                                         ; preds = %if.else, %if.then15

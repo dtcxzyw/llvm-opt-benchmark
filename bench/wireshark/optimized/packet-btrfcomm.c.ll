@@ -518,12 +518,11 @@ dissect_btrfcomm_payload_length.exit:             ; preds = %dissect_btrfcomm_ad
   %87 = load i32, ptr @hf_len, align 4
   %88 = add nsw i32 %.0.i, -2
   %89 = tail call ptr @proto_tree_add_uint(ptr noundef %23, i32 noundef %87, ptr noundef %0, i32 noundef 2, i32 noundef %88, i32 noundef %.020.in.i) #6
-  %.020.i = trunc nuw nsw i32 %.020.in.i to i16
   %.not = icmp ult i8 %29, 4
   br i1 %.not, label %231, label %90
 
 90:                                               ; preds = %dissect_btrfcomm_payload_length.exit
-  %.not294 = icmp eq i16 %.020.i, 0
+  %.not294 = icmp eq i32 %.020.in.i, 0
   br i1 %.not294, label %switch.early.test, label %91
 
 switch.early.test:                                ; preds = %90
@@ -845,12 +844,12 @@ switch.early.test:                                ; preds = %90
 
 .thread283:                                       ; preds = %256, %245, %248
   %.0209.ph = phi i32 [ %260, %256 ], [ %.0.i, %245 ], [ %.0.i, %248 ]
-  %261 = icmp ne i16 %.020.i, 0
+  %261 = icmp ne i32 %.020.in.i, 0
   br label %455
 
 262:                                              ; preds = %252
-  %263 = icmp ne i16 %.020.i, 0
-  %or.cond22 = select i1 %.not, i1 %263, i1 false
+  %263 = icmp ne i32 %.020.in.i, 0
+  %or.cond22 = and i1 %.not, %263
   br i1 %or.cond22, label %264, label %455
 
 264:                                              ; preds = %262
@@ -1120,7 +1119,7 @@ dissect_ctrl_msc.exit:                            ; preds = %390, %437
   %.0.i.pn = phi i32 [ %.0.i, %452 ], [ %.0.i, %262 ], [ %.0209.ph, %.thread283 ]
   %.1 = phi i32 [ %453, %452 ], [ %.0.i, %262 ], [ %.0209.ph, %.thread283 ]
   %457 = add nuw nsw i32 %.0.i.pn, %.020.in.i
-  %or.cond25 = select i1 %236, i1 %456, i1 false
+  %or.cond25 = and i1 %236, %456
   br i1 %or.cond25, label %458, label %522
 
 458:                                              ; preds = %455

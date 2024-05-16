@@ -287,9 +287,8 @@ define noundef ptr @N_VCloneEmptyVectorArray(i32 noundef %0, ptr noundef %1) loc
   br i1 %16, label %.preheader.i, label %27
 
 .preheader.i:                                     ; preds = %10
-  %17 = and i64 %indvars.iv, 4294967294
-  %.not = icmp eq i64 %17, 0
-  br i1 %.not, label %N_VDestroyVectorArray.exit, label %.lr.ph.preheader.i
+  %17 = icmp ugt i64 %indvars.iv, 1
+  br i1 %17, label %.lr.ph.preheader.i, label %N_VDestroyVectorArray.exit
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
   %18 = add nuw i64 %indvars.iv, 4294967295
@@ -401,9 +400,8 @@ define noundef ptr @N_VCloneVectorArray(i32 noundef %0, ptr noundef %1) local_un
   br i1 %15, label %.preheader.i, label %26
 
 .preheader.i:                                     ; preds = %10
-  %16 = and i64 %indvars.iv, 4294967294
-  %.not = icmp eq i64 %16, 0
-  br i1 %.not, label %N_VDestroyVectorArray.exit, label %.lr.ph.preheader.i
+  %16 = icmp ugt i64 %indvars.iv, 1
+  br i1 %16, label %.lr.ph.preheader.i, label %N_VDestroyVectorArray.exit
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
   %17 = add nuw i64 %indvars.iv, 4294967295

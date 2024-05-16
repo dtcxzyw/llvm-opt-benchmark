@@ -2585,7 +2585,7 @@ _ZNK19rotation_derivativeIN12colvarmodule7rvectorES1_E26calc_derivative_wrt_grou
   %354 = load double, ptr @_ZN12colvarmodule25debug_gradients_step_sizeE, align 8
   %355 = load ptr, ptr %335, align 8
   %356 = trunc nuw nsw i64 %.077270 to i32
-  %357 = icmp eq i32 %356, 2
+  %357 = icmp eq i64 %.077270, 2
   %.idx.i = select i1 %357, i64 16, i64 0
   switch i32 %356, label %.preheader [
     i32 0, label %.preheader.us
@@ -7250,7 +7250,7 @@ _ZNK19rotation_derivativeIN12colvarmodule4atomENS0_7rvectorEE26calc_derivative_w
   %354 = load double, ptr @_ZN12colvarmodule25debug_gradients_step_sizeE, align 8
   %355 = load ptr, ptr %335, align 8
   %356 = trunc nuw nsw i64 %.077266 to i32
-  %357 = icmp eq i32 %356, 2
+  %357 = icmp eq i64 %.077266, 2
   %.idx.i = select i1 %357, i64 16, i64 0
   switch i32 %356, label %.preheader [
     i32 0, label %.preheader.us

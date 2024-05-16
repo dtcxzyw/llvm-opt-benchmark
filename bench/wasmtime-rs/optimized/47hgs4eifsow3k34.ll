@@ -843,13 +843,13 @@ define internal fastcc void @_ZN16wasmtime_runtime9component8libcalls18run_utf16
   %.sroa.5.0.extract.shift.i = lshr i64 %15, 32
   %.sroa.5.0.extract.trunc.i = trunc nuw i64 %.sroa.5.0.extract.shift.i to i32
   %20 = trunc nuw i8 %.0 to i1
-  %21 = icmp ult i32 %.sroa.5.0.extract.trunc.i, 256
+  %21 = icmp ult i64 %15, 1099511627776
   %narrow = and i1 %21, %20
   %.1 = zext i1 %narrow to i8
   call void @llvm.experimental.noalias.scope.decl(metadata !78)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   store i32 %.sroa.5.0.extract.trunc.i, ptr %10, align 4, !noalias !78
-  %22 = icmp ugt i32 %.sroa.5.0.extract.trunc.i, 65535
+  %22 = icmp ugt i64 %15, 281474976710655
   %23 = icmp eq i64 %.sroa.4.0, 0
   %or.cond.i = or i1 %23, %22
   br i1 %or.cond.i, label %24, label %26
@@ -867,9 +867,9 @@ define internal fastcc void @_ZN16wasmtime_runtime9component8libcalls18run_utf16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9), !noalias !78
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8), !noalias !78
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !78
-  %29 = icmp ult i32 %.sroa.5.0.extract.trunc.i, 1114112
+  %29 = icmp ult i64 %15, 4785074604081152
   call void @llvm.assume(i1 %29)
-  %30 = icmp ult i32 %.sroa.5.0.extract.trunc.i, 65536
+  %30 = icmp ult i64 %15, 281474976710656
   %..i = select i1 %30, i64 1, i64 2
   store i64 %..i, ptr %7, align 8, !noalias !78
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !78
@@ -1440,7 +1440,7 @@ _ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17hec5426d07a251dedE.
   br label %146
 
 51:                                               ; preds = %42
-  %52 = icmp ult i32 %.sroa.5.0.extract.trunc.i, 128
+  %52 = icmp ult i64 %37, 549755813888
   br i1 %52, label %122, label %118
 
 53:                                               ; preds = %122, %42
@@ -1450,15 +1450,15 @@ _ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17hec5426d07a251dedE.
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   store i32 %.sroa.5.0.extract.trunc.i, ptr %10, align 4, !noalias !130
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !130
-  %55 = icmp ult i32 %.sroa.5.0.extract.trunc.i, 128
+  %55 = icmp ult i64 %37, 549755813888
   br i1 %55, label %76, label %56
 
 56:                                               ; preds = %53
-  %57 = icmp ult i32 %.sroa.5.0.extract.trunc.i, 2048
+  %57 = icmp ult i64 %37, 8796093022208
   br i1 %57, label %70, label %58
 
 58:                                               ; preds = %56
-  %59 = icmp ult i32 %.sroa.5.0.extract.trunc.i, 65536
+  %59 = icmp ult i64 %37, 281474976710656
   br i1 %59, label %72, label %74
 
 60:                                               ; preds = %74, %72, %70
@@ -1511,7 +1511,7 @@ _ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17hec5426d07a251dedE.
 
 78:                                               ; preds = %70
   %79 = lshr i64 %37, 38
-  %80 = trunc i64 %79 to i8
+  %80 = trunc nuw i64 %79 to i8
   %81 = or disjoint i8 %80, -64
   store i8 %81, ptr %.sroa.013.0, align 1, !alias.scope !130
   %82 = trunc i64 %.sroa.5.0.extract.shift.i to i8
@@ -1523,7 +1523,7 @@ _ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17hec5426d07a251dedE.
 
 86:                                               ; preds = %72
   %87 = lshr i64 %37, 44
-  %88 = trunc i64 %87 to i8
+  %88 = trunc nuw i64 %87 to i8
   %89 = or disjoint i8 %88, -32
   store i8 %89, ptr %.sroa.013.0, align 1, !alias.scope !130
   %90 = lshr i64 %37, 38
@@ -1565,11 +1565,11 @@ _ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17hec5426d07a251dedE.
   br label %124
 
 118:                                              ; preds = %51
-  %119 = icmp ult i32 %.sroa.5.0.extract.trunc.i, 2048
+  %119 = icmp ult i64 %37, 8796093022208
   br i1 %119, label %122, label %120
 
 120:                                              ; preds = %118
-  %121 = icmp ult i32 %.sroa.5.0.extract.trunc.i, 65536
+  %121 = icmp ult i64 %37, 281474976710656
   %. = select i1 %121, i64 3, i64 4
   br label %122
 

@@ -75,29 +75,29 @@ define i32 @softfloat_addMagsF32(i64 noundef %0, i64 noundef %1) local_unnamed_a
   %.not76 = icmp eq i64 %4, 0
   %40 = select i1 %.not76, i64 %31, i64 536870912
   %41 = add nuw nsw i64 %40, %31
-  %42 = trunc nuw nsw i64 %41 to i32
-  %43 = sub nsw i64 0, %9
-  %44 = icmp ult i64 %43, 31
-  br i1 %44, label %45, label %54
+  %42 = sub nsw i64 0, %9
+  %43 = icmp ult i64 %42, 31
+  br i1 %43, label %44, label %54
 
-45:                                               ; preds = %39
-  %46 = trunc nuw nsw i64 %43 to i32
-  %47 = lshr i32 %42, %46
+44:                                               ; preds = %39
+  %45 = trunc nuw nsw i64 %41 to i32
+  %46 = trunc nuw nsw i64 %42 to i32
+  %47 = lshr i32 %45, %46
   %48 = sub nsw i32 0, %46
   %49 = and i32 %48, 31
-  %50 = shl i32 %42, %49
+  %50 = shl i32 %45, %49
   %51 = icmp ne i32 %50, 0
   %52 = zext i1 %51 to i32
   %53 = or i32 %47, %52
   br label %softfloat_shiftRightJam32.exit
 
 54:                                               ; preds = %39
-  %55 = icmp ne i32 %42, 0
+  %55 = icmp ne i64 %41, 0
   %56 = zext i1 %55 to i32
   br label %softfloat_shiftRightJam32.exit
 
-softfloat_shiftRightJam32.exit:                   ; preds = %45, %54
-  %57 = phi i32 [ %53, %45 ], [ %56, %54 ]
+softfloat_shiftRightJam32.exit:                   ; preds = %44, %54
+  %57 = phi i32 [ %53, %44 ], [ %56, %54 ]
   %58 = zext nneg i32 %57 to i64
   br label %81
 
@@ -113,28 +113,28 @@ softfloat_shiftRightJam32.exit:                   ; preds = %45, %54
   %.not74 = icmp eq i64 %7, 0
   %63 = select i1 %.not74, i64 %32, i64 536870912
   %64 = add nuw nsw i64 %63, %32
-  %65 = trunc nuw nsw i64 %64 to i32
-  %66 = icmp ult i64 %9, 31
-  br i1 %66, label %67, label %76
+  %65 = icmp ult i64 %9, 31
+  br i1 %65, label %66, label %76
 
-67:                                               ; preds = %62
+66:                                               ; preds = %62
+  %67 = trunc nuw nsw i64 %64 to i32
   %68 = trunc nuw nsw i64 %9 to i32
-  %69 = lshr i32 %65, %68
+  %69 = lshr i32 %67, %68
   %70 = sub nsw i32 0, %68
   %71 = and i32 %70, 31
-  %72 = shl i32 %65, %71
+  %72 = shl i32 %67, %71
   %73 = icmp ne i32 %72, 0
   %74 = zext i1 %73 to i32
   %75 = or i32 %69, %74
   br label %softfloat_shiftRightJam32.exit79
 
 76:                                               ; preds = %62
-  %77 = icmp ne i32 %65, 0
+  %77 = icmp ne i64 %64, 0
   %78 = zext i1 %77 to i32
   br label %softfloat_shiftRightJam32.exit79
 
-softfloat_shiftRightJam32.exit79:                 ; preds = %67, %76
-  %79 = phi i32 [ %75, %67 ], [ %78, %76 ]
+softfloat_shiftRightJam32.exit79:                 ; preds = %66, %76
+  %79 = phi i32 [ %75, %66 ], [ %78, %76 ]
   %80 = zext nneg i32 %79 to i64
   br label %81
 

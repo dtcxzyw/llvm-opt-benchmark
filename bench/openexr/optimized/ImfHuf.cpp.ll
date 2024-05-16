@@ -71,7 +71,7 @@ while.cond.i:                                     ; preds = %while.cond.i, %_ZN7
 
 for.cond.preheader.i:                             ; preds = %while.cond.i
   %3 = trunc nuw nsw i64 %indvars.iv.i13 to i32
-  %cmp207.i = icmp ult i32 %3, 65537
+  %cmp207.i = icmp ult i64 %indvars.iv.i13, 65537
   br i1 %cmp207.i, label %for.body.i, label %for.end.i
 
 lpad.i:                                           ; preds = %call.i.i.noexc
@@ -1829,7 +1829,7 @@ lpad.i.i80:                                       ; preds = %if.then.i78
   br label %common.resume.i81
 
 if.end.i84:                                       ; preds = %for.body.i72
-  %cmp4.i = icmp ugt i32 %conv.i76, 14
+  %cmp4.i = icmp ugt i64 %and.i.i75, 14
   br i1 %cmp4.i, label %if.then5.i, label %if.else45.i
 
 if.then5.i:                                       ; preds = %if.end.i84
@@ -1915,7 +1915,7 @@ if.end38.i:                                       ; preds = %call36.i.noexc, %de
   br label %for.inc80.i
 
 if.else45.i:                                      ; preds = %if.end.i84
-  %tobool46.not.i = icmp eq i32 %conv.i76, 0
+  %tobool46.not.i = icmp eq i64 %and.i.i75, 0
   br i1 %tobool46.not.i, label %for.inc80.i, label %if.then47.i
 
 if.then47.i:                                      ; preds = %if.else45.i

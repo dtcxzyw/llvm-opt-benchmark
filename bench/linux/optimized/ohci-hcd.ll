@@ -6105,7 +6105,7 @@ define internal i32 @ohci_urb_enqueue(ptr noundef %0, ptr noundef %1, i32 nounde
   %80 = icmp eq i32 %79, 1
   %81 = or i32 %77, 8192
   %82 = select i1 %80, i32 %81, i32 %77
-  %83 = icmp eq i8 %65, 2
+  %83 = icmp eq i32 %64, 2
   br i1 %83, label %118, label %93
 
 84:                                               ; preds = %46
@@ -6152,7 +6152,7 @@ define internal i32 @ohci_urb_enqueue(ptr noundef %0, ptr noundef %1, i32 nounde
   %106 = load i32, ptr %78, align 4
   %107 = lshr i8 %61, 7
   %108 = zext nneg i8 %107 to i32
-  %109 = icmp eq i8 %65, 0
+  %109 = icmp ult i32 %9, 1073741824
   %110 = zext i1 %109 to i32
   %111 = load i16, ptr %72, align 1
   %112 = and i16 %111, 2047

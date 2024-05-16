@@ -1439,7 +1439,7 @@ do.end28:                                         ; preds = %lor.rhs
   %call30 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE2atEm(ptr noundef nonnull align 8 dereferenceable(32) %result, i64 noundef %call29)
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %buffer.i)
   %add.ptr.i = getelementptr inbounds i8, ptr %buffer.i, i64 11
-  %cmp15.i.i = icmp ugt i32 %conv18, 99
+  %cmp15.i.i = icmp ugt i64 %rem17, 99
   br i1 %cmp15.i.i, label %while.body.i.i, label %while.end.i.i
 
 while.body.i.i:                                   ; preds = %do.end28, %while.body.i.i
@@ -2961,7 +2961,7 @@ do.end28:                                         ; preds = %lor.rhs
   %call30 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE2atEm(ptr noundef nonnull align 8 dereferenceable(32) %result, i64 noundef %call29)
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %buffer.i)
   %add.ptr.i = getelementptr inbounds i8, ptr %buffer.i, i64 11
-  %cmp15.i.i = icmp ugt i32 %conv18, 99
+  %cmp15.i.i = icmp ugt i64 %rem17, 99
   br i1 %cmp15.i.i, label %while.body.i.i, label %while.end.i.i
 
 while.body.i.i:                                   ; preds = %do.end28, %while.body.i.i

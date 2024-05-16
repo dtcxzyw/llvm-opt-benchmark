@@ -502,7 +502,7 @@ for.body62.lr.ph:                                 ; preds = %if.end57
   br label %for.body62
 
 for.body62:                                       ; preds = %for.body62.lr.ph, %for.inc78
-  %29 = phi i32 [ %28, %for.body62.lr.ph ], [ %44, %for.inc78 ]
+  %29 = phi i32 [ %28, %for.body62.lr.ph ], [ %43, %for.inc78 ]
   %indvars.iv133 = phi i64 [ 0, %for.body62.lr.ph ], [ %indvars.iv.next134, %for.inc78 ]
   %30 = load ptr, ptr %stdio63, align 8
   %add.ptr65 = getelementptr inbounds %struct.uv_stdio_container_s, ptr %30, i64 %indvars.iv133
@@ -550,35 +550,34 @@ uv__process_open_stream.exit.for.inc78_crit_edge: ; preds = %uv__process_open_st
   br label %for.inc78
 
 while.cond.preheader:                             ; preds = %uv__process_open_stream.exit
-  %39 = and i64 %indvars.iv133, 4294967295
-  %tobool74.not125 = icmp eq i64 %39, 0
+  %tobool74.not125 = icmp eq i64 %indvars.iv133, 0
   br i1 %tobool74.not125, label %for.cond89.preheader, label %while.body
 
 while.body:                                       ; preds = %while.cond.preheader, %uv__process_close_stream.exit
   %indvars.iv138 = phi i64 [ %indvars.iv.next139, %uv__process_close_stream.exit ], [ %indvars.iv133, %while.cond.preheader ]
   %indvars.iv.next139 = add nsw i64 %indvars.iv138, -1
-  %40 = load ptr, ptr %stdio63, align 8
-  %add.ptr77 = getelementptr inbounds %struct.uv_stdio_container_s, ptr %40, i64 %indvars.iv.next139
-  %41 = load i32, ptr %add.ptr77, align 8
-  %and.i87 = and i32 %41, 1
+  %39 = load ptr, ptr %stdio63, align 8
+  %add.ptr77 = getelementptr inbounds %struct.uv_stdio_container_s, ptr %39, i64 %indvars.iv.next139
+  %40 = load i32, ptr %add.ptr77, align 8
+  %and.i87 = and i32 %40, 1
   %tobool.not.i88 = icmp eq i32 %and.i87, 0
   br i1 %tobool.not.i88, label %uv__process_close_stream.exit, label %if.end.i89
 
 if.end.i89:                                       ; preds = %while.body
   %data.i90 = getelementptr inbounds i8, ptr %add.ptr77, i64 8
-  %42 = load ptr, ptr %data.i90, align 8
-  call void @uv__stream_close(ptr noundef %42) #12
+  %41 = load ptr, ptr %data.i90, align 8
+  call void @uv__stream_close(ptr noundef %41) #12
   br label %uv__process_close_stream.exit
 
 uv__process_close_stream.exit:                    ; preds = %while.body, %if.end.i89
-  %43 = icmp eq i64 %indvars.iv.next139, 0
-  br i1 %43, label %for.cond89.preheader, label %while.body
+  %42 = icmp eq i64 %indvars.iv.next139, 0
+  br i1 %42, label %for.cond89.preheader, label %while.body
 
 for.inc78:                                        ; preds = %uv__process_open_stream.exit.for.inc78_crit_edge, %for.body62, %lor.lhs.false.i
-  %44 = phi i32 [ %.pre, %uv__process_open_stream.exit.for.inc78_crit_edge ], [ %29, %for.body62 ], [ %29, %lor.lhs.false.i ]
+  %43 = phi i32 [ %.pre, %uv__process_open_stream.exit.for.inc78_crit_edge ], [ %29, %for.body62 ], [ %29, %lor.lhs.false.i ]
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
-  %45 = sext i32 %44 to i64
-  %cmp60 = icmp slt i64 %indvars.iv.next134, %45
+  %44 = sext i32 %43 to i64
+  %cmp60 = icmp slt i64 %indvars.iv.next134, %44
   br i1 %cmp60, label %for.body62, label %for.end80
 
 for.end80:                                        ; preds = %for.inc78, %if.end57
@@ -592,37 +591,37 @@ for.cond89.preheader:                             ; preds = %uv__process_init_st
 
 for.body92:                                       ; preds = %for.cond89.preheader, %for.inc128
   %indvars.iv141 = phi i64 [ 0, %for.cond89.preheader ], [ %indvars.iv.next142, %for.inc128 ]
-  %46 = load i32, ptr %stdio_count3, align 4
-  %47 = sext i32 %46 to i64
-  %cmp94 = icmp slt i64 %indvars.iv141, %47
+  %45 = load i32, ptr %stdio_count3, align 4
+  %46 = sext i32 %45 to i64
+  %cmp94 = icmp slt i64 %indvars.iv141, %46
   br i1 %cmp94, label %if.then96, label %if.end105
 
 if.then96:                                        ; preds = %for.body92
-  %48 = load ptr, ptr %stdio97, align 8
-  %arrayidx99 = getelementptr inbounds %struct.uv_stdio_container_s, ptr %48, i64 %indvars.iv141
-  %49 = load i32, ptr %arrayidx99, align 8
-  %and101 = and i32 %49, 6
+  %47 = load ptr, ptr %stdio97, align 8
+  %arrayidx99 = getelementptr inbounds %struct.uv_stdio_container_s, ptr %47, i64 %indvars.iv141
+  %48 = load i32, ptr %arrayidx99, align 8
+  %and101 = and i32 %48, 6
   %tobool102.not = icmp eq i32 %and101, 0
   br i1 %tobool102.not, label %if.end105, label %for.inc128
 
 if.end105:                                        ; preds = %if.then96, %for.body92
   %arrayidx107 = getelementptr inbounds [2 x i32], ptr %pipes.0146, i64 %indvars.iv141
-  %50 = load i32, ptr %arrayidx107, align 4
-  %cmp109.not = icmp eq i32 %50, -1
+  %49 = load i32, ptr %arrayidx107, align 4
+  %cmp109.not = icmp eq i32 %49, -1
   br i1 %cmp109.not, label %if.end116, label %if.then111
 
 if.then111:                                       ; preds = %if.end105
-  %call115 = call i32 @uv__close_nocheckstdio(i32 noundef %50) #12
+  %call115 = call i32 @uv__close_nocheckstdio(i32 noundef %49) #12
   br label %if.end116
 
 if.end116:                                        ; preds = %if.then111, %if.end105
   %arrayidx119 = getelementptr inbounds i8, ptr %arrayidx107, i64 4
-  %51 = load i32, ptr %arrayidx119, align 4
-  %cmp120.not = icmp eq i32 %51, -1
+  %50 = load i32, ptr %arrayidx119, align 4
+  %cmp120.not = icmp eq i32 %50, -1
   br i1 %cmp120.not, label %for.inc128, label %if.then122
 
 if.then122:                                       ; preds = %if.end116
-  %call126 = call i32 @uv__close_nocheckstdio(i32 noundef %51) #12
+  %call126 = call i32 @uv__close_nocheckstdio(i32 noundef %50) #12
   br label %for.inc128
 
 for.inc128:                                       ; preds = %if.end116, %if.then122, %if.then96

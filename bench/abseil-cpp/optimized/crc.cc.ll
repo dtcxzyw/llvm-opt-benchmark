@@ -15,8 +15,6 @@ $_ZTIN4absl12crc_internal7CRCImplE = comdat any
 @.str.1 = private unnamed_addr constant [20 x i8] c"Check %s failed: %s\00", align 1
 @.str.2 = private unnamed_addr constant [9 x i8] c"j <= 256\00", align 1
 @.str.3 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
-@.str.4 = private unnamed_addr constant [53 x i8] c"j <= static_cast<int>(ABSL_ARRAYSIZE(this->zeroes_))\00", align 1
-@.str.5 = private unnamed_addr constant [61 x i8] c"j <= static_cast<int>(ABSL_ARRAYSIZE(this->reverse_zeroes_))\00", align 1
 @_ZTVN4absl12crc_internal3CRCE = dso_local unnamed_addr constant { [9 x ptr] } { [9 x ptr] [ptr null, ptr @_ZTIN4absl12crc_internal3CRCE, ptr @_ZN4absl12crc_internal3CRCD2Ev, ptr @_ZN4absl12crc_internal3CRCD0Ev, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual] }, align 8
 @_ZZN4absl12crc_internal3CRC6Crc32cEvE9singleton = internal unnamed_addr global ptr null, align 8
 @_ZGVZN4absl12crc_internal3CRC6Crc32cEvE9singleton = internal global i64 0, align 8
@@ -224,8 +222,7 @@ for.end12:                                        ; preds = %_ZN4absl12crc_inter
   br i1 %cmp3.not, label %do.body, label %for.cond5.preheader, !llvm.loop !13
 
 do.body:                                          ; preds = %for.end12
-  %1 = trunc nsw i64 %indvars.iv to i32
-  %cmp16 = icmp sgt i32 %1, 255
+  %cmp16 = icmp sgt i64 %indvars.iv, 255
   br i1 %cmp16, label %do.body17, label %do.end20
 
 do.body17:                                        ; preds = %do.body
@@ -233,8 +230,8 @@ do.body17:                                        ; preds = %do.body
   unreachable
 
 do.end20:                                         ; preds = %do.body
-  %2 = trunc nsw i64 %indvars.iv.next to i32
-  ret i32 %2
+  %1 = trunc nsw i64 %indvars.iv.next to i32
+  ret i32 %1
 }
 
 declare void @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
@@ -546,8 +543,7 @@ for.end12.i:                                      ; preds = %_ZN4absl12crc_inter
   br i1 %cmp3.not.i92, label %do.body.i, label %for.cond5.preheader.i, !llvm.loop !13
 
 do.body.i:                                        ; preds = %for.end12.i
-  %14 = trunc nsw i64 %indvars.iv.i90 to i32
-  %cmp16.i = icmp sgt i32 %14, 255
+  %cmp16.i = icmp sgt i64 %indvars.iv.i90, 255
   br i1 %cmp16.i, label %do.body17.i, label %_ZN4absl12crc_internal7CRCImpl15FillZeroesTableEjPA256_j.exit
 
 do.body17.i:                                      ; preds = %do.body.i
@@ -555,29 +551,20 @@ do.body17.i:                                      ; preds = %do.body.i
   unreachable
 
 _ZN4absl12crc_internal7CRCImpl15FillZeroesTableEjPA256_j.exit: ; preds = %do.body.i
-  %15 = trunc nsw i64 %indvars.iv.next.i91 to i32
-  %cmp35 = icmp sgt i32 %15, 256
-  br i1 %cmp35, label %do.body36, label %for.cond41.preheader
-
-for.cond41.preheader:                             ; preds = %_ZN4absl12crc_internal7CRCImpl15FillZeroesTableEjPA256_j.exit
-  %cmp42222 = icmp sgt i32 %15, 0
+  %cmp42222 = icmp sgt i64 %indvars.iv.i90, -1
   br i1 %cmp42222, label %for.body43.lr.ph, label %for.body4.i134.preheader
 
-for.body43.lr.ph:                                 ; preds = %for.cond41.preheader
+for.body43.lr.ph:                                 ; preds = %_ZN4absl12crc_internal7CRCImpl15FillZeroesTableEjPA256_j.exit
   %zeroes_ = getelementptr inbounds i8, ptr %this, i64 1032
-  %16 = trunc i64 %j.035.i to i32
-  %17 = add i32 %16, 15
-  %smax = tail call i32 @llvm.smax.i32(i32 %17, i32 1)
-  %18 = zext nneg i32 %smax to i64
-  %19 = shl nuw nsw i64 %18, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %zeroes_, ptr noundef nonnull align 4 dereferenceable(1) %call, i64 %19, i1 false)
+  %14 = trunc i64 %j.035.i to i32
+  %15 = add i32 %14, 15
+  %smax = tail call i32 @llvm.smax.i32(i32 %15, i32 1)
+  %16 = zext nneg i32 %smax to i64
+  %17 = shl nuw nsw i64 %16, 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %zeroes_, ptr noundef nonnull align 4 dereferenceable(1) %call, i64 %17, i1 false)
   br label %for.body4.i134.preheader
 
-do.body36:                                        ; preds = %_ZN4absl12crc_internal7CRCImpl15FillZeroesTableEjPA256_j.exit
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([124 x i8], ptr @.str, i64 0, i64 117), i32 noundef 208, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.3)
-  unreachable
-
-for.body4.i134.preheader:                         ; preds = %for.cond41.preheader, %for.body43.lr.ph
+for.body4.i134.preheader:                         ; preds = %_ZN4absl12crc_internal7CRCImpl15FillZeroesTableEjPA256_j.exit, %for.body43.lr.ph
   tail call void @_ZdaPv(ptr noundef nonnull %call) #20
   %reverse_table0_ = getelementptr inbounds i8, ptr %this, i64 6152
   store i32 0, ptr %reverse_table0_, align 8
@@ -630,22 +617,22 @@ for.body38.i117:                                  ; preds = %for.inc.i149, %for.
   %shl40.i119 = shl i32 %i35.039.i118, 1
   %idxprom45.i120 = sext i32 %i35.039.i118 to i64
   %arrayidx46.i121 = getelementptr inbounds [256 x i32], ptr %reverse_table0_, i64 0, i64 %idxprom45.i120
-  %20 = or disjoint i32 %i35.039.i118, 1
-  %21 = zext i32 %20 to i64
-  %22 = zext i32 %shl40.i119 to i64
+  %18 = or disjoint i32 %i35.039.i118, 1
+  %19 = zext i32 %18 to i64
+  %20 = zext i32 %shl40.i119 to i64
   br label %for.body42.i122
 
 for.body42.i122:                                  ; preds = %for.body42.i122, %for.body38.i117
-  %indvars.iv.i123 = phi i64 [ %21, %for.body38.i117 ], [ %indvars.iv.next.i127, %for.body42.i122 ]
-  %23 = load i32, ptr %arrayidx46.i121, align 8
-  %24 = sub nuw nsw i64 %indvars.iv.i123, %idxprom45.i120
-  %arrayidx51.i124 = getelementptr inbounds [256 x i32], ptr %reverse_table0_, i64 0, i64 %24
-  %25 = load i32, ptr %arrayidx51.i124, align 4
-  %xor52.i125 = xor i32 %25, %23
+  %indvars.iv.i123 = phi i64 [ %19, %for.body38.i117 ], [ %indvars.iv.next.i127, %for.body42.i122 ]
+  %21 = load i32, ptr %arrayidx46.i121, align 8
+  %22 = sub nuw nsw i64 %indvars.iv.i123, %idxprom45.i120
+  %arrayidx51.i124 = getelementptr inbounds [256 x i32], ptr %reverse_table0_, i64 0, i64 %22
+  %23 = load i32, ptr %arrayidx51.i124, align 4
+  %xor52.i125 = xor i32 %23, %21
   %arrayidx56.i126 = getelementptr inbounds [256 x i32], ptr %reverse_table0_, i64 0, i64 %indvars.iv.i123
   store i32 %xor52.i125, ptr %arrayidx56.i126, align 4
   %indvars.iv.next.i127 = add nuw nsw i64 %indvars.iv.i123, 1
-  %cmp41.not.i128 = icmp eq i64 %indvars.iv.next.i127, %22
+  %cmp41.not.i128 = icmp eq i64 %indvars.iv.next.i127, %20
   br i1 %cmp41.not.i128, label %for.cond36.loopexit.i129, label %for.body42.i122, !llvm.loop !8
 
 for.body.i.preheader.i157:                        ; preds = %for.cond36.loopexit.i129, %_ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit.i175
@@ -684,11 +671,11 @@ for.cond5.preheader.i178:                         ; preds = %for.cond5.preheader
   %j.035.i180 = phi i64 [ %indvars.iv.next.i204, %for.end12.i207 ], [ 0, %for.cond5.preheader.i178.preheader ]
   %inc.134.i181 = phi i32 [ %spec.select.i15.i195, %for.end12.i207 ], [ %spec.select.i.i167, %for.cond5.preheader.i178.preheader ]
   %sext.i182 = shl i64 %j.035.i180, 32
-  %26 = ashr exact i64 %sext.i182, 32
+  %24 = ashr exact i64 %sext.i182, 32
   br label %for.body7.i183
 
 for.body7.i183:                                   ; preds = %_ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit23.i203, %for.cond5.preheader.i178
-  %indvars.iv.i184 = phi i64 [ %26, %for.cond5.preheader.i178 ], [ %indvars.iv.next.i204, %_ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit23.i203 ]
+  %indvars.iv.i184 = phi i64 [ %24, %for.cond5.preheader.i178 ], [ %indvars.iv.next.i204, %_ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit23.i203 ]
   %a.033.i185 = phi i32 [ 1, %for.cond5.preheader.i178 ], [ %inc11.i205, %_ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit23.i203 ]
   %v.031.i186 = phi i32 [ %inc.134.i181, %for.cond5.preheader.i178 ], [ %spec.select.i15.i195, %_ZN4absl12crc_internal12_GLOBAL__N_112PolyMultiplyEPjjj.exit23.i203 ]
   %arrayidx8.i187 = getelementptr inbounds [256 x i32], ptr %reverse_zeroes_, i64 0, i64 %indvars.iv.i184
@@ -724,24 +711,14 @@ for.end12.i207:                                   ; preds = %_ZN4absl12crc_inter
   br i1 %cmp3.not.i209, label %do.body.i210, label %for.cond5.preheader.i178, !llvm.loop !13
 
 do.body.i210:                                     ; preds = %for.end12.i207
-  %27 = trunc nsw i64 %indvars.iv.i184 to i32
-  %cmp16.i211 = icmp sgt i32 %27, 255
-  br i1 %cmp16.i211, label %do.body17.i212, label %_ZN4absl12crc_internal7CRCImpl15FillZeroesTableEjPA256_j.exit213
+  %cmp16.i211 = icmp sgt i64 %indvars.iv.i184, 255
+  br i1 %cmp16.i211, label %do.body17.i212, label %do.end64
 
 do.body17.i212:                                   ; preds = %do.body.i210
   tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([124 x i8], ptr @.str, i64 0, i64 117), i32 noundef 160, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3)
   unreachable
 
-_ZN4absl12crc_internal7CRCImpl15FillZeroesTableEjPA256_j.exit213: ; preds = %do.body.i210
-  %28 = trunc nsw i64 %indvars.iv.next.i204 to i32
-  %cmp55 = icmp sgt i32 %28, 256
-  br i1 %cmp55, label %do.body58, label %do.end64
-
-do.body58:                                        ; preds = %_ZN4absl12crc_internal7CRCImpl15FillZeroesTableEjPA256_j.exit213
-  tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([124 x i8], ptr @.str, i64 0, i64 117), i32 noundef 253, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.3)
-  unreachable
-
-do.end64:                                         ; preds = %_ZN4absl12crc_internal7CRCImpl15FillZeroesTableEjPA256_j.exit213
+do.end64:                                         ; preds = %do.body.i210
   ret void
 }
 

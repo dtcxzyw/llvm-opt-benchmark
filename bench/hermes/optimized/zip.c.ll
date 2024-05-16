@@ -5076,7 +5076,7 @@ while.body:                                       ; preds = %while.cond, %lor.rh
   %sub12 = sub i64 %7, %.conv
   store i64 %sub12, ptr %m_src_buf_left, align 8
   %add13 = add i32 %lookahead_size.0, %conv9
-  %tobool15.not215 = icmp eq i32 %conv9, 0
+  %tobool15.not215 = icmp eq i64 %.conv, 0
   br i1 %tobool15.not215, label %while.end, label %while.body16.preheader
 
 while.body16.preheader:                           ; preds = %while.body
@@ -5094,7 +5094,7 @@ while.body16:                                     ; preds = %while.body16.prehea
   %idx.ext = zext nneg i32 %dst_pos.0217 to i64
   %add.ptr = getelementptr inbounds i8, ptr %m_dict, i64 %idx.ext
   %conv25 = zext nneg i32 %cond24 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr, ptr noundef nonnull align 1 dereferenceable(1) %10, i64 %conv25, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr align 1 %10, i64 %conv25, i1 false)
   %cmp26 = icmp ult i32 %dst_pos.0217, 257
   br i1 %cmp26, label %if.then, label %if.end
 
@@ -8099,8 +8099,8 @@ for.cond.i:                                       ; preds = %lor.lhs.false.i
 if.end23.i:                                       ; preds = %if.end.i, %for.cond.i
   %spec.select2836.i = phi i64 [ %spec.select28.i, %for.cond.i ], [ %spec.select2832.i, %if.end.i ]
   %cur_file_ofs.035.i = phi i64 [ %sub54.i, %for.cond.i ], [ %spec.select.i, %if.end.i ]
-  %cmp2629.not.i = icmp ult i64 %spec.select2836.i, 4
-  br i1 %cmp2629.not.i, label %if.end45.i, label %for.body.preheader.i
+  %cmp2629.i = icmp ugt i64 %spec.select2836.i, 3
+  br i1 %cmp2629.i, label %for.body.preheader.i, label %if.end45.i
 
 for.body.preheader.i:                             ; preds = %if.end23.i
   %sub24.i = add nuw nsw i64 %spec.select2836.i, 4294967292

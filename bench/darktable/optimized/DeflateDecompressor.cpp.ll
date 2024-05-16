@@ -210,7 +210,7 @@ define hidden void @_ZN8rawspeed19DeflateDecompressor6decodeEPSt10unique_ptrIA_h
   tail call void @llvm.assume(i1 %37)
   %38 = icmp sgt i32 %34, -1
   tail call void @llvm.assume(i1 %38)
-  %39 = icmp ne i32 %9, 0
+  %39 = icmp ugt i64 %2, 4294967295
   tail call void @llvm.assume(i1 %39)
   %40 = load ptr, ptr %0, align 8, !tbaa !91, !nonnull !92, !noundef !92
   %41 = getelementptr inbounds i8, ptr %0, i64 8
@@ -272,8 +272,8 @@ define hidden void @_ZN8rawspeed19DeflateDecompressor6decodeEPSt10unique_ptrIA_h
   %80 = icmp ule i32 %79, %60
   call void @llvm.assume(i1 %80)
   %81 = icmp eq i32 %10, 0
-  %82 = icmp ne i32 %12, 0
-  %83 = xor i1 %81, %82
+  %82 = icmp ugt i64 %3, 4294967295
+  %83 = xor i1 %82, %81
   call void @llvm.assume(i1 %83)
   %84 = icmp sgt i32 %12, 0
   br i1 %84, label %85, label %.loopexit20

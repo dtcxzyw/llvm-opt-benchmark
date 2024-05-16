@@ -84,10 +84,10 @@ define noundef ptr @Llb_BddComputeBad(ptr noundef %0, ptr noundef %1, i64 nounde
   %42 = getelementptr i8, ptr %39, i64 8
   br label %43
 
-43:                                               ; preds = %.lr.ph128, %84
-  %.val104155 = phi i32 [ %.val104126, %.lr.ph128 ], [ %.val104, %84 ]
-  %indvars.iv146 = phi i32 [ 0, %.lr.ph128 ], [ %indvars.iv.next147, %84 ]
-  %indvars.iv140 = phi i64 [ 0, %.lr.ph128 ], [ %indvars.iv.next141, %84 ]
+43:                                               ; preds = %.lr.ph128, %83
+  %.val104155 = phi i32 [ %.val104126, %.lr.ph128 ], [ %.val104, %83 ]
+  %indvars.iv146 = phi i32 [ 0, %.lr.ph128 ], [ %indvars.iv.next147, %83 ]
+  %indvars.iv140 = phi i64 [ 0, %.lr.ph128 ], [ %indvars.iv.next141, %83 ]
   %.val96 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds ptr, ptr %.val96, i64 %indvars.iv140
   %45 = load ptr, ptr %44, align 8
@@ -97,7 +97,7 @@ define noundef ptr @Llb_BddComputeBad(ptr noundef %0, ptr noundef %1, i64 nounde
   %48 = and i32 %47, 7
   %49 = add nsw i32 %48, -7
   %narrow.i = icmp ult i32 %49, -2
-  br i1 %narrow.i, label %84, label %50
+  br i1 %narrow.i, label %83, label %50
 
 50:                                               ; preds = %43
   %51 = getelementptr i8, ptr %45, i64 8
@@ -126,151 +126,150 @@ define noundef ptr @Llb_BddComputeBad(ptr noundef %0, ptr noundef %1, i64 nounde
   %72 = getelementptr inbounds i8, ptr %45, i64 40
   store ptr %71, ptr %72, align 8
   %73 = icmp eq ptr %71, null
-  br i1 %73, label %.preheader, label %83
+  br i1 %73, label %.preheader, label %82
 
 .preheader:                                       ; preds = %50
-  %74 = and i64 %indvars.iv140, 4294967295
-  %.not = icmp eq i64 %74, 0
+  %.not = icmp eq i64 %indvars.iv140, 0
   br i1 %.not, label %.critedge6, label %.lr.ph137.preheader
 
 .lr.ph137.preheader:                              ; preds = %.preheader
   %wide.trip.count = zext nneg i32 %indvars.iv146 to i64
   br label %.lr.ph137
 
-.lr.ph137:                                        ; preds = %.lr.ph137.preheader, %80
-  %indvars.iv143 = phi i64 [ 0, %.lr.ph137.preheader ], [ %indvars.iv.next144, %80 ]
+.lr.ph137:                                        ; preds = %.lr.ph137.preheader, %79
+  %indvars.iv143 = phi i64 [ 0, %.lr.ph137.preheader ], [ %indvars.iv.next144, %79 ]
   %.val97 = load ptr, ptr %42, align 8
-  %75 = getelementptr inbounds ptr, ptr %.val97, i64 %indvars.iv143
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 40
-  %78 = load ptr, ptr %77, align 8
-  %.not90 = icmp eq ptr %78, null
-  br i1 %.not90, label %80, label %79
+  %74 = getelementptr inbounds ptr, ptr %.val97, i64 %indvars.iv143
+  %75 = load ptr, ptr %74, align 8
+  %76 = getelementptr inbounds i8, ptr %75, i64 40
+  %77 = load ptr, ptr %76, align 8
+  %.not90 = icmp eq ptr %77, null
+  br i1 %.not90, label %79, label %78
 
-79:                                               ; preds = %.lr.ph137
-  tail call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef nonnull %78) #3
-  br label %80
+78:                                               ; preds = %.lr.ph137
+  tail call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef nonnull %77) #3
+  br label %79
 
-80:                                               ; preds = %.lr.ph137, %79
+79:                                               ; preds = %.lr.ph137, %78
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next144, %wide.trip.count
   br i1 %exitcond.not, label %.critedge6, label %.lr.ph137, !llvm.loop !7
 
-.critedge6:                                       ; preds = %80, %.preheader
-  %81 = load ptr, ptr %42, align 8
-  %.not.i = icmp eq ptr %81, null
-  br i1 %.not.i, label %Vec_PtrFree.exit, label %82
+.critedge6:                                       ; preds = %79, %.preheader
+  %80 = load ptr, ptr %42, align 8
+  %.not.i = icmp eq ptr %80, null
+  br i1 %.not.i, label %Vec_PtrFree.exit, label %81
 
-82:                                               ; preds = %.critedge6
-  tail call void @free(ptr noundef nonnull %81) #3
+81:                                               ; preds = %.critedge6
+  tail call void @free(ptr noundef nonnull %80) #3
   br label %Vec_PtrFree.exit
 
-Vec_PtrFree.exit:                                 ; preds = %.critedge6, %82
+Vec_PtrFree.exit:                                 ; preds = %.critedge6, %81
   tail call void @free(ptr noundef nonnull %39) #3
-  br label %123
+  br label %122
 
-83:                                               ; preds = %50
+82:                                               ; preds = %50
   tail call void @Cudd_Ref(ptr noundef nonnull %71) #3
   %.val104.pre = load i32, ptr %40, align 4
-  br label %84
+  br label %83
 
-84:                                               ; preds = %43, %83
-  %.val104 = phi i32 [ %.val104155, %43 ], [ %.val104.pre, %83 ]
+83:                                               ; preds = %43, %82
+  %.val104 = phi i32 [ %.val104155, %43 ], [ %.val104.pre, %82 ]
   %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
-  %85 = sext i32 %.val104 to i64
-  %86 = icmp slt i64 %indvars.iv.next141, %85
+  %84 = sext i32 %.val104 to i64
+  %85 = icmp slt i64 %indvars.iv.next141, %84
   %indvars.iv.next147 = add nuw nsw i32 %indvars.iv146, 1
-  br i1 %86, label %43, label %.critedge4, !llvm.loop !8
+  br i1 %85, label %43, label %.critedge4, !llvm.loop !8
 
-.critedge4:                                       ; preds = %84, %.critedge2
-  %87 = tail call ptr @Cudd_ReadLogicZero(ptr noundef %1) #3
-  tail call void @Cudd_Ref(ptr noundef %87) #3
+.critedge4:                                       ; preds = %83, %.critedge2
+  %86 = tail call ptr @Cudd_ReadLogicZero(ptr noundef %1) #3
+  tail call void @Cudd_Ref(ptr noundef %86) #3
   %.val103129 = load i32, ptr %38, align 8
-  %88 = icmp sgt i32 %.val103129, 0
-  br i1 %88, label %.lr.ph132, label %.critedge8.preheader
+  %87 = icmp sgt i32 %.val103129, 0
+  br i1 %87, label %.lr.ph132, label %.critedge8.preheader
 
 .critedge8.preheader:                             ; preds = %.lr.ph132, %.critedge4
-  %.085.lcssa = phi ptr [ %87, %.critedge4 ], [ %105, %.lr.ph132 ]
+  %.085.lcssa = phi ptr [ %86, %.critedge4 ], [ %104, %.lr.ph132 ]
   %.val105133 = load i32, ptr %40, align 4
-  %89 = icmp sgt i32 %.val105133, 0
-  br i1 %89, label %.lr.ph135, label %.critedge10
+  %88 = icmp sgt i32 %.val105133, 0
+  br i1 %88, label %.lr.ph135, label %.critedge10
 
 .lr.ph135:                                        ; preds = %.critedge8.preheader
-  %90 = getelementptr i8, ptr %39, i64 8
-  br label %108
+  %89 = getelementptr i8, ptr %39, i64 8
+  br label %107
 
 .lr.ph132:                                        ; preds = %.critedge4, %.lr.ph132
   %indvars.iv149 = phi i64 [ %indvars.iv.next150, %.lr.ph132 ], [ 0, %.critedge4 ]
-  %.085130 = phi ptr [ %105, %.lr.ph132 ], [ %87, %.critedge4 ]
-  %91 = load ptr, ptr %35, align 8
-  %92 = getelementptr i8, ptr %91, i64 8
-  %.val98 = load ptr, ptr %92, align 8
-  %93 = getelementptr inbounds ptr, ptr %.val98, i64 %indvars.iv149
-  %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr i8, ptr %94, i64 8
-  %.val109 = load ptr, ptr %95, align 8
-  %96 = ptrtoint ptr %.val109 to i64
-  %97 = and i64 %96, -2
-  %98 = inttoptr i64 %97 to ptr
-  %99 = getelementptr inbounds i8, ptr %98, i64 40
-  %100 = load ptr, ptr %99, align 8
-  %101 = ptrtoint ptr %100 to i64
-  %102 = and i64 %96, 1
-  %103 = xor i64 %102, %101
-  %104 = inttoptr i64 %103 to ptr
-  %105 = tail call ptr @Cudd_bddOr(ptr noundef %1, ptr noundef %.085130, ptr noundef %104) #3
-  tail call void @Cudd_Ref(ptr noundef %105) #3
+  %.085130 = phi ptr [ %104, %.lr.ph132 ], [ %86, %.critedge4 ]
+  %90 = load ptr, ptr %35, align 8
+  %91 = getelementptr i8, ptr %90, i64 8
+  %.val98 = load ptr, ptr %91, align 8
+  %92 = getelementptr inbounds ptr, ptr %.val98, i64 %indvars.iv149
+  %93 = load ptr, ptr %92, align 8
+  %94 = getelementptr i8, ptr %93, i64 8
+  %.val109 = load ptr, ptr %94, align 8
+  %95 = ptrtoint ptr %.val109 to i64
+  %96 = and i64 %95, -2
+  %97 = inttoptr i64 %96 to ptr
+  %98 = getelementptr inbounds i8, ptr %97, i64 40
+  %99 = load ptr, ptr %98, align 8
+  %100 = ptrtoint ptr %99 to i64
+  %101 = and i64 %95, 1
+  %102 = xor i64 %101, %100
+  %103 = inttoptr i64 %102 to ptr
+  %104 = tail call ptr @Cudd_bddOr(ptr noundef %1, ptr noundef %.085130, ptr noundef %103) #3
+  tail call void @Cudd_Ref(ptr noundef %104) #3
   tail call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %.085130) #3
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
   %.val103 = load i32, ptr %38, align 8
-  %106 = sext i32 %.val103 to i64
-  %107 = icmp slt i64 %indvars.iv.next150, %106
-  br i1 %107, label %.lr.ph132, label %.critedge8.preheader, !llvm.loop !9
+  %105 = sext i32 %.val103 to i64
+  %106 = icmp slt i64 %indvars.iv.next150, %105
+  br i1 %106, label %.lr.ph132, label %.critedge8.preheader, !llvm.loop !9
 
-108:                                              ; preds = %.lr.ph135, %.critedge8
+107:                                              ; preds = %.lr.ph135, %.critedge8
   %.val105157 = phi i32 [ %.val105133, %.lr.ph135 ], [ %.val105, %.critedge8 ]
   %indvars.iv152 = phi i64 [ 0, %.lr.ph135 ], [ %indvars.iv.next153, %.critedge8 ]
-  %.val99 = load ptr, ptr %90, align 8
-  %109 = getelementptr inbounds ptr, ptr %.val99, i64 %indvars.iv152
-  %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr i8, ptr %110, i64 24
-  %.val107 = load i64, ptr %111, align 8
-  %112 = trunc i64 %.val107 to i32
-  %113 = and i32 %112, 7
-  %114 = add nsw i32 %113, -7
-  %narrow.i114 = icmp ult i32 %114, -2
-  br i1 %narrow.i114, label %.critedge8, label %115
+  %.val99 = load ptr, ptr %89, align 8
+  %108 = getelementptr inbounds ptr, ptr %.val99, i64 %indvars.iv152
+  %109 = load ptr, ptr %108, align 8
+  %110 = getelementptr i8, ptr %109, i64 24
+  %.val107 = load i64, ptr %110, align 8
+  %111 = trunc i64 %.val107 to i32
+  %112 = and i32 %111, 7
+  %113 = add nsw i32 %112, -7
+  %narrow.i114 = icmp ult i32 %113, -2
+  br i1 %narrow.i114, label %.critedge8, label %114
 
-115:                                              ; preds = %108
-  %116 = getelementptr inbounds i8, ptr %110, i64 40
-  %117 = load ptr, ptr %116, align 8
-  tail call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %117) #3
+114:                                              ; preds = %107
+  %115 = getelementptr inbounds i8, ptr %109, i64 40
+  %116 = load ptr, ptr %115, align 8
+  tail call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %116) #3
   %.val105.pre = load i32, ptr %40, align 4
   br label %.critedge8
 
-.critedge8:                                       ; preds = %108, %115
-  %.val105 = phi i32 [ %.val105157, %108 ], [ %.val105.pre, %115 ]
+.critedge8:                                       ; preds = %107, %114
+  %.val105 = phi i32 [ %.val105157, %107 ], [ %.val105.pre, %114 ]
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
-  %118 = sext i32 %.val105 to i64
-  %119 = icmp slt i64 %indvars.iv.next153, %118
-  br i1 %119, label %108, label %.critedge10, !llvm.loop !10
+  %117 = sext i32 %.val105 to i64
+  %118 = icmp slt i64 %indvars.iv.next153, %117
+  br i1 %118, label %107, label %.critedge10, !llvm.loop !10
 
 .critedge10:                                      ; preds = %.critedge8, %.critedge8.preheader
-  %120 = getelementptr inbounds i8, ptr %39, i64 8
-  %121 = load ptr, ptr %120, align 8
-  %.not.i115 = icmp eq ptr %121, null
-  br i1 %.not.i115, label %Vec_PtrFree.exit116, label %122
+  %119 = getelementptr inbounds i8, ptr %39, i64 8
+  %120 = load ptr, ptr %119, align 8
+  %.not.i115 = icmp eq ptr %120, null
+  br i1 %.not.i115, label %Vec_PtrFree.exit116, label %121
 
-122:                                              ; preds = %.critedge10
-  tail call void @free(ptr noundef nonnull %121) #3
+121:                                              ; preds = %.critedge10
+  tail call void @free(ptr noundef nonnull %120) #3
   br label %Vec_PtrFree.exit116
 
-Vec_PtrFree.exit116:                              ; preds = %.critedge10, %122
+Vec_PtrFree.exit116:                              ; preds = %.critedge10, %121
   tail call void @free(ptr noundef nonnull %39) #3
   tail call void @Cudd_Deref(ptr noundef %.085.lcssa) #3
-  br label %123
+  br label %122
 
-123:                                              ; preds = %Vec_PtrFree.exit116, %Vec_PtrFree.exit
+122:                                              ; preds = %Vec_PtrFree.exit116, %Vec_PtrFree.exit
   %.086 = phi ptr [ null, %Vec_PtrFree.exit ], [ %.085.lcssa, %Vec_PtrFree.exit116 ]
   ret ptr %.086
 }

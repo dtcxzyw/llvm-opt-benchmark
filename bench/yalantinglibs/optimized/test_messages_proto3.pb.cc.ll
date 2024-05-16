@@ -75015,19 +75015,13 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %while.body
 
 _ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclEPKSA_SD_.exit: ; preds = %while.body
   %sub.i.i.i.i.i = sub i64 %5, %2
-  %spec.select3.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i, i64 -2147483648)
-  %retval.04.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select3.i.i.i.i.i, i64 2147483647)
-  %8 = and i64 %retval.04.i.i.i.i.i, 2147483648
-  %cmp.i.i.i.not = icmp eq i64 %8, 0
-  br i1 %cmp.i.i.i.not, label %if.then.i.i.i.i27, label %if.end20
+  %cmp.i.i.i = icmp slt i64 %sub.i.i.i.i.i, 0
+  br i1 %cmp.i.i.i, label %if.end20, label %if.then.i.i.i.i27
 
 _ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclEPKSA_SD_.exit.thread65: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
   %sub.i.i.i.i.i66 = sub i64 %5, %2
-  %spec.select3.i.i.i.i.i67 = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i66, i64 -2147483648)
-  %retval.04.i.i.i.i.i68 = tail call i64 @llvm.smin.i64(i64 %spec.select3.i.i.i.i.i67, i64 2147483647)
-  %9 = and i64 %retval.04.i.i.i.i.i68, 2147483648
-  %cmp.i.i.i70.not = icmp eq i64 %9, 0
-  br i1 %cmp.i.i.i70.not, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i22, label %if.end20
+  %cmp.i.i.i70 = icmp slt i64 %sub.i.i.i.i.i66, 0
+  br i1 %cmp.i.i.i70, label %if.end20, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i22
 
 _ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclEPKSA_SD_.exit.thread: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
   %cmp.i.i.i64 = icmp slt i32 %call.i.i.i.i.i, 0
@@ -75052,33 +75046,33 @@ _ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stri
 
 if.else13:                                        ; preds = %_ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclEPKSA_SD_.exit32
   %_M_left.i33 = getelementptr inbounds i8, ptr %__x.079, i64 16
-  %10 = load ptr, ptr %_M_left.i33, align 8
+  %8 = load ptr, ptr %_M_left.i33, align 8
   %_M_right.i34 = getelementptr inbounds i8, ptr %__x.079, i64 24
-  %11 = load ptr, ptr %_M_right.i34, align 8
-  %cmp.not5.i = icmp eq ptr %10, null
+  %9 = load ptr, ptr %_M_right.i34, align 8
+  %cmp.not5.i = icmp eq ptr %8, null
   br i1 %cmp.not5.i, label %_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE14_M_lower_boundEPSt13_Rb_tree_nodeISB_EPSt18_Rb_tree_node_baseRKSB_.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %if.else13, %_ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclEPKSA_SD_.exit.i
-  %__x.addr.07.i = phi ptr [ %__x.addr.1.i, %_ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclEPKSA_SD_.exit.i ], [ %10, %if.else13 ]
+  %__x.addr.07.i = phi ptr [ %__x.addr.1.i, %_ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclEPKSA_SD_.exit.i ], [ %8, %if.else13 ]
   %__y.addr.06.i = phi ptr [ %__y.addr.1.i, %_ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclEPKSA_SD_.exit.i ], [ %__x.079, %if.else13 ]
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i, i64 32
-  %12 = load ptr, ptr %_M_storage.i.i.i, align 8
-  %13 = load ptr, ptr %12, align 8
-  %_M_string_length.i.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
-  %14 = load i64, ptr %_M_string_length.i.i.i.i.i.i, align 8
-  %.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %2, i64 %14)
+  %10 = load ptr, ptr %_M_storage.i.i.i, align 8
+  %11 = load ptr, ptr %10, align 8
+  %_M_string_length.i.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = load i64, ptr %_M_string_length.i.i.i.i.i.i, align 8
+  %.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %2, i64 %12)
   %cmp.i4.i.i.i.i.i = icmp eq i64 %.sroa.speculated.i.i.i.i.i, 0
   br i1 %cmp.i4.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i: ; preds = %while.body.i
-  %15 = load ptr, ptr %1, align 8
-  %16 = load ptr, ptr %13, align 8
-  %call.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %16, ptr noundef %15, i64 noundef %.sroa.speculated.i.i.i.i.i) #29
+  %13 = load ptr, ptr %1, align 8
+  %14 = load ptr, ptr %11, align 8
+  %call.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %14, ptr noundef %13, i64 noundef %.sroa.speculated.i.i.i.i.i) #29
   %tobool.not.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclEPKSA_SD_.exit.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i, %while.body.i
-  %sub.i.i.i.i.i.i = sub i64 %14, %2
+  %sub.i.i.i.i.i.i = sub i64 %12, %2
   %spec.select3.i.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i, i64 -2147483648)
   %retval.04.i.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select3.i.i.i.i.i.i, i64 2147483647)
   %retval.0.i5.i.i.i.i.i = trunc nsw i64 %retval.04.i.i.i.i.i.i to i32
@@ -75096,30 +75090,30 @@ _ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stri
 
 _ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE14_M_lower_boundEPSt13_Rb_tree_nodeISB_EPSt18_Rb_tree_node_baseRKSB_.exit: ; preds = %_ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclEPKSA_SD_.exit.i, %if.else13
   %__y.addr.0.lcssa.i = phi ptr [ %__x.079, %if.else13 ], [ %__y.addr.1.i, %_ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclEPKSA_SD_.exit.i ]
-  %cmp.not5.i35 = icmp eq ptr %11, null
+  %cmp.not5.i35 = icmp eq ptr %9, null
   br i1 %cmp.not5.i35, label %return, label %while.body.i38
 
 while.body.i38:                                   ; preds = %_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE14_M_lower_boundEPSt13_Rb_tree_nodeISB_EPSt18_Rb_tree_node_baseRKSB_.exit, %_ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclEPKSA_SD_.exit.i48
-  %__x.addr.07.i39 = phi ptr [ %__x.addr.1.i54, %_ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclEPKSA_SD_.exit.i48 ], [ %11, %_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE14_M_lower_boundEPSt13_Rb_tree_nodeISB_EPSt18_Rb_tree_node_baseRKSB_.exit ]
+  %__x.addr.07.i39 = phi ptr [ %__x.addr.1.i54, %_ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclEPKSA_SD_.exit.i48 ], [ %9, %_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE14_M_lower_boundEPSt13_Rb_tree_nodeISB_EPSt18_Rb_tree_node_baseRKSB_.exit ]
   %__y.addr.06.i40 = phi ptr [ %__y.addr.1.i51, %_ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclEPKSA_SD_.exit.i48 ], [ %__y.078, %_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE14_M_lower_boundEPSt13_Rb_tree_nodeISB_EPSt18_Rb_tree_node_baseRKSB_.exit ]
   %_M_storage.i.i.i41 = getelementptr inbounds i8, ptr %__x.addr.07.i39, i64 32
-  %17 = load ptr, ptr %_M_storage.i.i.i41, align 8
-  %18 = load ptr, ptr %17, align 8
-  %_M_string_length.i3.i.i.i.i.i42 = getelementptr inbounds i8, ptr %18, i64 8
-  %19 = load i64, ptr %_M_string_length.i3.i.i.i.i.i42, align 8
-  %.sroa.speculated.i.i.i.i.i43 = tail call i64 @llvm.umin.i64(i64 %19, i64 %2)
+  %15 = load ptr, ptr %_M_storage.i.i.i41, align 8
+  %16 = load ptr, ptr %15, align 8
+  %_M_string_length.i3.i.i.i.i.i42 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = load i64, ptr %_M_string_length.i3.i.i.i.i.i42, align 8
+  %.sroa.speculated.i.i.i.i.i43 = tail call i64 @llvm.umin.i64(i64 %17, i64 %2)
   %cmp.i4.i.i.i.i.i44 = icmp eq i64 %.sroa.speculated.i.i.i.i.i43, 0
   br i1 %cmp.i4.i.i.i.i.i44, label %if.then.i.i.i.i.i57, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i45
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i45: ; preds = %while.body.i38
-  %20 = load ptr, ptr %18, align 8
-  %21 = load ptr, ptr %1, align 8
-  %call.i.i.i.i.i.i46 = tail call i32 @memcmp(ptr noundef %21, ptr noundef %20, i64 noundef %.sroa.speculated.i.i.i.i.i43) #29
+  %18 = load ptr, ptr %16, align 8
+  %19 = load ptr, ptr %1, align 8
+  %call.i.i.i.i.i.i46 = tail call i32 @memcmp(ptr noundef %19, ptr noundef %18, i64 noundef %.sroa.speculated.i.i.i.i.i43) #29
   %tobool.not.i.i.i.i.i47 = icmp eq i32 %call.i.i.i.i.i.i46, 0
   br i1 %tobool.not.i.i.i.i.i47, label %if.then.i.i.i.i.i57, label %_ZNK6google8protobuf8internal12DerefCompareINS1_7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclEPKSA_SD_.exit.i48
 
 if.then.i.i.i.i.i57:                              ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i45, %while.body.i38
-  %sub.i.i.i.i.i.i58 = sub i64 %2, %19
+  %sub.i.i.i.i.i.i58 = sub i64 %2, %17
   %spec.select3.i.i.i.i.i.i59 = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i58, i64 -2147483648)
   %retval.04.i.i.i.i.i.i60 = tail call i64 @llvm.smin.i64(i64 %spec.select3.i.i.i.i.i.i59, i64 2147483647)
   %retval.0.i5.i.i.i.i.i61 = trunc nsw i64 %retval.04.i.i.i.i.i.i60 to i32

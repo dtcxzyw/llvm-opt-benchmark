@@ -19203,11 +19203,11 @@ protoo_strlcpy.exit287:                           ; preds = %protoo_strlcpy.exit
   %207 = load i32, ptr %11, align 8
   %208 = icmp eq i32 %207, 35
   %spec.store.select.i300 = select i1 %208, i32 1, i32 %190
-  %trunc.i = trunc nuw i32 %spec.store.select.i300 to i8
-  %209 = icmp ult i8 %trunc.i, 7
+  %209 = icmp ult i32 %spec.store.select.i300, 7
   br i1 %209, label %switch.hole_check, label %hfinfo_numeric_value_format64.exit
 
 switch.hole_check:                                ; preds = %206
+  %trunc.i = trunc nuw i32 %spec.store.select.i300 to i8
   %switch.shifted = lshr i8 121, %trunc.i
   %switch.lobit = trunc i8 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %hfinfo_numeric_value_format64.exit
@@ -20077,11 +20077,11 @@ define internal fastcc ptr @hfinfo_numeric_value_format(ptr nocapture noundef re
   %11 = icmp eq i32 %spec.store.select, 17
   %spec.store.select6 = select i1 %11, i32 2, i32 %spec.store.select
   %.0 = select i1 %or.cond5, i32 1, i32 %spec.store.select6
-  %trunc = trunc nuw i32 %.0 to i8
-  %12 = icmp ult i8 %trunc, 7
+  %12 = icmp ult i32 %.0, 7
   br i1 %12, label %switch.hole_check, label %14
 
 switch.hole_check:                                ; preds = %3
+  %trunc = trunc nuw i32 %.0 to i8
   %switch.shifted = lshr i8 121, %trunc
   %switch.lobit = trunc i8 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %14

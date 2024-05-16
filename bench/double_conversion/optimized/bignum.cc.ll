@@ -743,8 +743,7 @@ for.inc:                                          ; preds = %_ZN17double_convers
   %tmp.1 = phi i64 [ %shr, %if.then ], [ %or, %_ZN17double_conversionL12HexCharValueEi.exit ]
   %cnt.1 = phi i32 [ %sub9, %if.then ], [ %add5, %_ZN17double_conversionL12HexCharValueEi.exit ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %6 = and i64 %indvars.iv.next, 4294967295
-  %cmp.i8 = icmp eq i64 %6, 0
+  %cmp.i8 = icmp eq i64 %indvars.iv.next, 0
   br i1 %cmp.i8, label %for.end, label %for.body, !llvm.loop !18
 
 for.end:                                          ; preds = %for.inc
@@ -753,8 +752,8 @@ for.end:                                          ; preds = %for.inc
   br i1 %cmp10.not, label %if.end18, label %if.then11
 
 if.then11:                                        ; preds = %for.end
-  %7 = trunc i64 %tmp.1 to i32
-  %conv13 = and i32 %7, 268435455
+  %6 = trunc i64 %tmp.1 to i32
+  %conv13 = and i32 %6, 268435455
   %inc15 = add i16 %.pr.i.pre30.pre, 1
   store i16 %inc15, ptr %this, align 4
   %bigits_buffer_.i13 = getelementptr inbounds i8, ptr %this, i64 4
@@ -774,19 +773,19 @@ land.rhs.lr.ph.i:                                 ; preds = %if.end18
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %while.body.i, %land.rhs.lr.ph.i
-  %8 = phi i16 [ %.pr.i, %land.rhs.lr.ph.i ], [ %dec.i20, %while.body.i ]
-  %conv.i19 = zext nneg i16 %8 to i64
+  %7 = phi i16 [ %.pr.i, %land.rhs.lr.ph.i ], [ %dec.i20, %while.body.i ]
+  %conv.i19 = zext nneg i16 %7 to i64
   %sub.i = add nuw nsw i64 %conv.i19, 4294967295
   %idxprom.i.i = and i64 %sub.i, 4294967295
   %arrayidx.i.i = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i.i, i64 0, i64 %idxprom.i.i
-  %9 = load i32, ptr %arrayidx.i.i, align 4
-  %cmp4.i = icmp eq i32 %9, 0
+  %8 = load i32, ptr %arrayidx.i.i, align 4
+  %cmp4.i = icmp eq i32 %8, 0
   br i1 %cmp4.i, label %while.body.i, label %_ZN17double_conversion6Bignum5ClampEv.exit
 
 while.body.i:                                     ; preds = %land.rhs.i
-  %dec.i20 = add nsw i16 %8, -1
+  %dec.i20 = add nsw i16 %7, -1
   store i16 %dec.i20, ptr %this, align 4
-  %cmp.i21 = icmp sgt i16 %8, 1
+  %cmp.i21 = icmp sgt i16 %7, 1
   br i1 %cmp.i21, label %land.rhs.i, label %if.then.i17, !llvm.loop !9
 
 while.end.i:                                      ; preds = %if.end18

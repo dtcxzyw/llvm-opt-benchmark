@@ -4873,10 +4873,9 @@ for.inc.i:                                        ; preds = %for.body.i21
 
 searchupvalue.exit:                               ; preds = %for.body.i21
   %14 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %cmp7 = icmp slt i32 %14, 0
-  br i1 %cmp7, label %if.then9, label %if.end19
+  br label %if.end19
 
-if.then9:                                         ; preds = %for.inc.i, %if.else5, %searchupvalue.exit
+if.then9:                                         ; preds = %for.inc.i, %if.else5
   %prev = getelementptr inbounds i8, ptr %fs, i64 8
   %15 = load ptr, ptr %prev, align 8
   tail call fastcc void @singlevaraux(ptr noundef %15, ptr noundef %n, ptr noundef %var, i32 noundef 0)
@@ -5010,7 +5009,7 @@ newupvalue.exit:                                  ; preds = %if.end.i, %land.lhs
   %sub.i = add nsw i32 %conv20.i, -1
   br label %if.end19
 
-if.end19:                                         ; preds = %newupvalue.exit, %searchupvalue.exit
+if.end19:                                         ; preds = %searchupvalue.exit, %newupvalue.exit
   %idx.0 = phi i32 [ %sub.i, %newupvalue.exit ], [ %14, %searchupvalue.exit ]
   %t.i34 = getelementptr inbounds i8, ptr %var, i64 16
   store i32 -1, ptr %t.i34, align 8

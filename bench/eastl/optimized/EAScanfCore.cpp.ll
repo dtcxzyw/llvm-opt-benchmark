@@ -4416,7 +4416,7 @@ while.end197:                                     ; preds = %land.rhs184
   br i1 %or.cond2, label %if.then201, label %while.end236.loopexit
 
 if.then201:                                       ; preds = %while.end197
-  %cmp200 = icmp eq i32 %31, 4
+  %cmp200 = icmp eq i64 %indvars.iv, 4
   br i1 %cmp200, label %land.rhs206.preheader, label %if.end224
 
 land.rhs206.preheader:                            ; preds = %while.body193, %if.then201
@@ -4605,14 +4605,14 @@ if.end293:                                        ; preds = %if.end284
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %buffer.i)
   %50 = add i16 %conv275, 6
   %or.cond.i = icmp ult i16 %50, 18
-  %cmp625.i = icmp sgt i16 %conv269, 0
+  %cmp625.i = icmp sgt i32 %i249.0.in193, 0
   br i1 %or.cond.i, label %for.cond.preheader.i, label %for.cond15.preheader.i
 
 for.cond15.preheader.i:                           ; preds = %if.end293
   br i1 %cmp625.i, label %for.body19.preheader.i, label %if.then29.i
 
 for.body19.preheader.i:                           ; preds = %for.cond15.preheader.i
-  %conv17.i = and i32 %i249.0.in193, 32767
+  %conv17.i = and i32 %i249.0.in193, 65535
   %51 = zext nneg i32 %conv17.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buffer.i, ptr nonnull readonly align 2 %doubleValue, i64 %51, i1 false)
   br label %if.then29.i
@@ -4621,7 +4621,7 @@ for.cond.preheader.i:                             ; preds = %if.end293
   br i1 %cmp625.i, label %for.body.preheader.i, label %for.end.i
 
 for.body.preheader.i:                             ; preds = %for.cond.preheader.i
-  %conv269.mask190 = and i32 %i249.0.in193, 32767
+  %conv269.mask190 = and i32 %i249.0.in193, 65535
   %conv5.i = zext nneg i32 %conv269.mask190 to i64
   br label %for.body.i
 
@@ -5778,7 +5778,7 @@ while.end197:                                     ; preds = %_ZN2EA4StdC7Toupper
   br i1 %or.cond2, label %if.then201, label %while.end236.loopexit
 
 if.then201:                                       ; preds = %while.end197
-  %cmp200 = icmp eq i32 %21, 4
+  %cmp200 = icmp eq i64 %indvars.iv, 4
   br i1 %cmp200, label %land.rhs206.preheader, label %if.end224
 
 land.rhs206.preheader:                            ; preds = %while.body193, %if.then201
@@ -5977,14 +5977,14 @@ if.end293:                                        ; preds = %if.end284
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %buffer.i)
   %40 = add i16 %conv275, 6
   %or.cond.i = icmp ult i16 %40, 18
-  %cmp625.i = icmp sgt i16 %conv269, 0
+  %cmp625.i = icmp sgt i32 %i249.0.in222, 0
   br i1 %or.cond.i, label %for.cond.preheader.i, label %for.cond15.preheader.i
 
 for.cond15.preheader.i:                           ; preds = %if.end293
   br i1 %cmp625.i, label %for.body19.preheader.i, label %if.then29.i
 
 for.body19.preheader.i:                           ; preds = %for.cond15.preheader.i
-  %conv17.i = and i32 %i249.0.in222, 32767
+  %conv17.i = and i32 %i249.0.in222, 65535
   %41 = zext nneg i32 %conv17.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buffer.i, ptr nonnull readonly align 2 %doubleValue, i64 %41, i1 false)
   br label %if.then29.i
@@ -5993,7 +5993,7 @@ for.cond.preheader.i:                             ; preds = %if.end293
   br i1 %cmp625.i, label %for.body.preheader.i, label %for.end.i
 
 for.body.preheader.i:                             ; preds = %for.cond.preheader.i
-  %conv269.mask220 = and i32 %i249.0.in222, 32767
+  %conv269.mask220 = and i32 %i249.0.in222, 65535
   %conv5.i = zext nneg i32 %conv269.mask220 to i64
   br label %for.body.i
 
@@ -7118,7 +7118,7 @@ while.end184:                                     ; preds = %_ZN2EA4StdC7Toupper
   br i1 %or.cond2, label %if.then188, label %while.end221.loopexit
 
 if.then188:                                       ; preds = %while.end184
-  %cmp187 = icmp eq i32 %16, 4
+  %cmp187 = icmp eq i64 %indvars.iv, 4
   br i1 %cmp187, label %land.rhs193.preheader, label %if.end209
 
 land.rhs193.preheader:                            ; preds = %while.body180, %if.then188
@@ -7314,14 +7314,14 @@ if.end278:                                        ; preds = %if.end269
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %buffer.i)
   %34 = add i16 %conv260, 6
   %or.cond.i = icmp ult i16 %34, 18
-  %cmp625.i = icmp sgt i16 %conv254, 0
+  %cmp625.i = icmp sgt i32 %i234.0.in214, 0
   br i1 %or.cond.i, label %for.cond.preheader.i, label %for.cond15.preheader.i
 
 for.cond15.preheader.i:                           ; preds = %if.end278
   br i1 %cmp625.i, label %for.body19.preheader.i, label %if.then29.i
 
 for.body19.preheader.i:                           ; preds = %for.cond15.preheader.i
-  %conv17.i = and i32 %i234.0.in214, 32767
+  %conv17.i = and i32 %i234.0.in214, 65535
   %35 = zext nneg i32 %conv17.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buffer.i, ptr nonnull readonly align 2 %doubleValue, i64 %35, i1 false)
   br label %if.then29.i
@@ -7330,7 +7330,7 @@ for.cond.preheader.i:                             ; preds = %if.end278
   br i1 %cmp625.i, label %for.body.preheader.i, label %for.end.i
 
 for.body.preheader.i:                             ; preds = %for.cond.preheader.i
-  %conv254.mask212 = and i32 %i234.0.in214, 32767
+  %conv254.mask212 = and i32 %i234.0.in214, 65535
   %conv5.i = zext nneg i32 %conv254.mask212 to i64
   br label %for.body.i
 

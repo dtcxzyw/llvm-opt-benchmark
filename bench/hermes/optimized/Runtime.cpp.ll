@@ -1321,7 +1321,7 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EEONS0_
   br label %return
 
 if.end:                                           ; preds = %entry
-  %cmp.i.i = icmp ult i32 %desc.sroa.44.0.extract.trunc, 5
+  %cmp.i.i = icmp ult i64 %desc.coerce, 21474836480
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end
@@ -1575,7 +1575,7 @@ if.end41:                                         ; preds = %if.then33, %if.then
   %retval.sroa.0.0.copyload.i.i.i18 = load i64, ptr %obj.coerce, align 8
   %and.i.i.i.i.i19 = and i64 %retval.sroa.0.0.copyload.i.i.i18, 281474976710655
   %25 = inttoptr i64 %and.i.i.i.i.i19 to ptr
-  %cmp.i20 = icmp ult i32 %desc.sroa.3.0.extract.trunc, 5
+  %cmp.i20 = icmp ult i64 %22, 21474836480
   br i1 %cmp.i20, label %if.then.i37, label %if.end.i21
 
 if.then.i37:                                      ; preds = %if.end41
@@ -10870,12 +10870,12 @@ return:                                           ; preds = %for.inc, %cleanup.t
 define linkonce_odr hidden { i32, i64 } @_ZN6hermes2vm8JSObject17getNamedSlotValueENS0_6HandleIS1_EERNS0_7RuntimeENS0_23NamedPropertyDescriptorE(ptr %self.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i64 %desc.coerce) local_unnamed_addr #0 comdat align 2 {
 entry:
   %desc.sroa.43.0.extract.shift = lshr i64 %desc.coerce, 32
-  %desc.sroa.43.0.extract.trunc = trunc nuw i64 %desc.sroa.43.0.extract.shift to i32
   %0 = and i64 %desc.coerce, 1280
   %or.cond = icmp eq i64 %0, 0
   br i1 %or.cond, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
+  %desc.sroa.43.0.extract.trunc = trunc nuw i64 %desc.sroa.43.0.extract.shift to i32
   %call.i = tail call { i32, i64 } @_ZN6hermes2vm8JSObject24getNamedWithReceiver_RJSENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDENS2_INS0_11HermesValueEEENS0_11PropOpFlagsEPNS0_18PropertyCacheEntryE(ptr %self.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 %desc.sroa.43.0.extract.trunc, ptr %self.coerce, i32 0, ptr noundef null) #26
   %1 = extractvalue { i32, i64 } %call.i, 0
   %2 = extractvalue { i32, i64 } %call.i, 1
@@ -10885,7 +10885,7 @@ if.end:                                           ; preds = %entry
   %retval.sroa.0.0.copyload.i.i = load i64, ptr %self.coerce, align 8
   %and.i.i.i.i = and i64 %retval.sroa.0.0.copyload.i.i, 281474976710655
   %3 = inttoptr i64 %and.i.i.i.i to ptr
-  %cmp.i.i = icmp ult i32 %desc.sroa.43.0.extract.trunc, 5
+  %cmp.i.i = icmp ult i64 %desc.coerce, 21474836480
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end

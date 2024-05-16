@@ -5430,7 +5430,7 @@ if.then19.i:                                      ; preds = %do.body15.i
   br label %return
 
 do.end21.i:                                       ; preds = %do.body15.i
-  %tobool23.not.i = icmp eq i32 %6, 0
+  %tobool23.not.i = icmp eq i64 %indvars.iv, 0
   br i1 %tobool23.not.i, label %if.end25.i, label %if.then24.i
 
 if.then24.i:                                      ; preds = %do.end21.i

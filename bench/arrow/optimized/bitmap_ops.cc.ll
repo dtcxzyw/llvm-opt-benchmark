@@ -276,13 +276,12 @@ while.body:                                       ; preds = %while.body.preheade
   %dest_offset.addr.048 = phi i64 [ %add51, %if.end36 ], [ %dest_offset, %while.body.preheader ]
   %add3 = add nsw i64 %length.addr.051, %offset
   %rem4 = srem i64 %add3, 8
-  %0 = and i64 %rem4, 255
-  %tobool.not = icmp eq i64 %0, 0
-  %1 = trunc nsw i64 %rem4 to i8
-  %conv6 = select i1 %tobool.not, i8 8, i8 %1
+  %conv = trunc nsw i64 %rem4 to i8
+  %tobool.not = icmp eq i64 %rem4, 0
+  %conv6 = select i1 %tobool.not, i8 8, i8 %conv
   %rem7 = srem i64 %dest_offset.addr.048, 8
-  %2 = trunc nsw i64 %rem7 to i8
-  %conv9 = sub nsw i8 8, %2
+  %0 = trunc nsw i64 %rem7 to i8
+  %conv9 = sub nsw i8 8, %0
   %conv10 = zext nneg i8 %conv9 to i32
   %sub11 = sub nsw i32 8, %conv10
   %shl = shl nuw nsw i32 255, %sub11
@@ -295,8 +294,8 @@ land.lhs.true:                                    ; preds = %while.body
   br i1 %cmp16, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
-  %3 = trunc i64 %add15 to i32
-  %conv20 = sub nsw i32 8, %3
+  %1 = trunc i64 %add15 to i32
+  %conv20 = sub nsw i32 8, %1
   %shl23 = shl i32 %shl, %conv20
   %conv26 = and i32 %shl23, 255
   %shr = lshr i32 %conv26, %conv20
@@ -308,34 +307,34 @@ if.end:                                           ; preds = %if.then, %land.lhs.
   br i1 %cmp28, label %if.then29, label %if.else
 
 if.then29:                                        ; preds = %if.end
-  %4 = load i8, ptr %add.ptr, align 1
-  %conv.i36 = zext i8 %4 to i32
+  %2 = load i8, ptr %add.ptr, align 1
+  %conv.i36 = zext i8 %2 to i32
   %shl.i = shl nuw nsw i32 %conv.i36, 8
   %add.i37 = or disjoint i32 %shl.i, %conv.i36
   br label %if.end36
 
 if.else:                                          ; preds = %if.end
   %gep = getelementptr i8, ptr %invariant.gep, i64 %j_src.049
-  %5 = load i16, ptr %gep, align 1
-  %6 = zext i16 %5 to i32
+  %3 = load i16, ptr %gep, align 1
+  %4 = zext i16 %3 to i32
   br label %if.end36
 
 if.end36:                                         ; preds = %if.else, %if.then29
-  %.sink = phi i32 [ %6, %if.else ], [ %add.i37, %if.then29 ]
+  %.sink = phi i32 [ %4, %if.else ], [ %add.i37, %if.then29 ]
   %conv2.i43 = zext nneg i8 %conv6 to i32
   %shr.i44 = lshr i32 %.sink, %conv2.i43
   %conv3.i45 = trunc i32 %shr.i44 to i8
   %rev.i.i46 = tail call noundef i8 @llvm.bitreverse.i8(i8 %conv3.i45)
   %arrayidx38 = getelementptr inbounds i8, ptr %add.ptr2, i64 %i_dest.050
-  %7 = load i8, ptr %arrayidx38, align 1
-  %8 = trunc i32 %left_trailing_mask_dest.0.in to i8
-  %9 = xor i8 %8, -1
-  %conv40 = and i8 %7, %9
+  %5 = load i8, ptr %arrayidx38, align 1
+  %6 = trunc i32 %left_trailing_mask_dest.0.in to i8
+  %7 = xor i8 %6, -1
+  %conv40 = and i8 %5, %7
   %conv41 = zext i8 %rev.i.i46 to i32
   %shl44 = shl nuw nsw i32 %conv41, %sub11
   %and46 = and i32 %shl44, %left_trailing_mask_dest.0.in
-  %10 = trunc i32 %and46 to i8
-  %conv49 = or i8 %conv40, %10
+  %8 = trunc i32 %and46 to i8
+  %conv49 = or i8 %conv40, %8
   store i8 %conv49, ptr %arrayidx38, align 1
   %conv50 = zext nneg i8 %conv9 to i64
   %add51 = add nsw i64 %dest_offset.addr.048, %conv50
@@ -475,7 +474,7 @@ while.cond6.preheader:                            ; preds = %while.body, %while.
   %writer.sroa.20.1.lcssa = phi i8 [ %writer.sroa.20.0, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit ], [ undef, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ], [ %writer.sroa.20.0178183, %while.body.us ], [ %writer.sroa.20.32.extract.trunc113, %while.body ]
   %reader.sroa.21.1.lcssa = phi i8 [ %reader.sroa.21.0, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit ], [ %reader.sroa.21.0, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ], [ %reader.sroa.21.40.extract.trunc122.us, %while.body.us ], [ %reader.sroa.21.40.extract.trunc122, %while.body ]
   %writer.sroa.4.0.lcssa = phi ptr [ %add.ptr.i24, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit ], [ %add.ptr.i24, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ], [ %add.ptr21.i.us, %while.body.us ], [ %add.ptr.i45, %while.body ]
-  %tobool8.not165 = icmp eq i32 %conv15.i, 0
+  %tobool8.not165 = icmp eq i64 %add.i10.i, 0
   br i1 %tobool8.not165, label %if.end35, label %while.body9.lr.ph
 
 while.body9.lr.ph:                                ; preds = %while.cond6.preheader
@@ -859,7 +858,7 @@ while.cond6.preheader:                            ; preds = %while.body, %while.
   %writer.sroa.20.1.lcssa = phi i8 [ %writer.sroa.20.0, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit ], [ undef, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ], [ %writer.sroa.20.0186191, %while.body.us ], [ %writer.sroa.20.32.extract.trunc116, %while.body ]
   %reader.sroa.21.1.lcssa = phi i8 [ %reader.sroa.21.0, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit ], [ %reader.sroa.21.0, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ], [ %reader.sroa.21.40.extract.trunc125.us, %while.body.us ], [ %reader.sroa.21.40.extract.trunc125, %while.body ]
   %writer.sroa.4.0.lcssa = phi ptr [ %add.ptr.i27, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit ], [ %add.ptr.i27, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ], [ %add.ptr21.i.us, %while.body.us ], [ %add.ptr.i48, %while.body ]
-  %tobool8.not170 = icmp eq i32 %conv15.i, 0
+  %tobool8.not170 = icmp eq i64 %add.i10.i, 0
   br i1 %tobool8.not170, label %if.end45, label %while.body9.lr.ph
 
 while.body9.lr.ph:                                ; preds = %while.cond6.preheader
@@ -1164,13 +1163,12 @@ while.body.i:                                     ; preds = %if.end36.i, %while.
   %dest_offset.addr.048.i = phi i64 [ %add51.i, %if.end36.i ], [ %dest_offset, %while.body.preheader.i ]
   %add3.i = add nsw i64 %length.addr.051.i, %offset
   %rem4.i = srem i64 %add3.i, 8
-  %0 = and i64 %rem4.i, 255
-  %tobool.not.i = icmp eq i64 %0, 0
-  %1 = trunc nsw i64 %rem4.i to i8
-  %conv6.i = select i1 %tobool.not.i, i8 8, i8 %1
+  %conv.i = trunc nsw i64 %rem4.i to i8
+  %tobool.not.i = icmp eq i64 %rem4.i, 0
+  %conv6.i = select i1 %tobool.not.i, i8 8, i8 %conv.i
   %rem7.i = srem i64 %dest_offset.addr.048.i, 8
-  %2 = trunc nsw i64 %rem7.i to i8
-  %conv9.i = sub nsw i8 8, %2
+  %0 = trunc nsw i64 %rem7.i to i8
+  %conv9.i = sub nsw i8 8, %0
   %conv10.i = zext nneg i8 %conv9.i to i32
   %sub11.i = sub nsw i32 8, %conv10.i
   %shl.i = shl nuw nsw i32 255, %sub11.i
@@ -1183,8 +1181,8 @@ land.lhs.true.i:                                  ; preds = %while.body.i
   br i1 %cmp16.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %3 = trunc i64 %add15.i to i32
-  %conv20.i = sub nsw i32 8, %3
+  %1 = trunc i64 %add15.i to i32
+  %conv20.i = sub nsw i32 8, %1
   %shl23.i = shl i32 %shl.i, %conv20.i
   %conv26.i = and i32 %shl23.i, 255
   %shr.i = lshr i32 %conv26.i, %conv20.i
@@ -1196,34 +1194,34 @@ if.end.i:                                         ; preds = %if.then.i, %land.lh
   br i1 %cmp28.i, label %if.then29.i, label %if.else.i
 
 if.then29.i:                                      ; preds = %if.end.i
-  %4 = load i8, ptr %add.ptr.i, align 1
-  %conv.i36.i = zext i8 %4 to i32
+  %2 = load i8, ptr %add.ptr.i, align 1
+  %conv.i36.i = zext i8 %2 to i32
   %shl.i.i = shl nuw nsw i32 %conv.i36.i, 8
   %add.i37.i = or disjoint i32 %shl.i.i, %conv.i36.i
   br label %if.end36.i
 
 if.else.i:                                        ; preds = %if.end.i
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %j_src.049.i
-  %5 = load i16, ptr %gep.i, align 1
-  %6 = zext i16 %5 to i32
+  %3 = load i16, ptr %gep.i, align 1
+  %4 = zext i16 %3 to i32
   br label %if.end36.i
 
 if.end36.i:                                       ; preds = %if.else.i, %if.then29.i
-  %.sink.i = phi i32 [ %6, %if.else.i ], [ %add.i37.i, %if.then29.i ]
+  %.sink.i = phi i32 [ %4, %if.else.i ], [ %add.i37.i, %if.then29.i ]
   %conv2.i43.i = zext nneg i8 %conv6.i to i32
   %shr.i44.i = lshr i32 %.sink.i, %conv2.i43.i
   %conv3.i45.i = trunc i32 %shr.i44.i to i8
   %rev.i.i46.i = tail call noundef i8 @llvm.bitreverse.i8(i8 %conv3.i45.i)
   %arrayidx38.i = getelementptr inbounds i8, ptr %add.ptr2.i, i64 %i_dest.050.i
-  %7 = load i8, ptr %arrayidx38.i, align 1
-  %8 = trunc i32 %left_trailing_mask_dest.0.in.i to i8
-  %9 = xor i8 %8, -1
-  %conv40.i = and i8 %7, %9
+  %5 = load i8, ptr %arrayidx38.i, align 1
+  %6 = trunc i32 %left_trailing_mask_dest.0.in.i to i8
+  %7 = xor i8 %6, -1
+  %conv40.i = and i8 %5, %7
   %conv41.i = zext i8 %rev.i.i46.i to i32
   %shl44.i = shl nuw nsw i32 %conv41.i, %sub11.i
   %and46.i = and i32 %shl44.i, %left_trailing_mask_dest.0.in.i
-  %10 = trunc i32 %and46.i to i8
-  %conv49.i = or i8 %conv40.i, %10
+  %8 = trunc i32 %and46.i to i8
+  %conv49.i = or i8 %conv40.i, %8
   store i8 %conv49.i, ptr %arrayidx38.i, align 1
   %conv50.i = zext nneg i8 %conv9.i to i64
   %add51.i = add nsw i64 %dest_offset.addr.048.i, %conv50.i
@@ -1469,15 +1467,14 @@ while.body.i:                                     ; preds = %if.end36.i, %while.
   %dest_offset.addr.048.i = phi i64 [ %add51.i, %if.end36.i ], [ 0, %while.body.preheader.i ]
   %add3.i = add nsw i64 %length.addr.051.i, %offset
   %rem4.i = srem i64 %add3.i, 8
-  %7 = and i64 %rem4.i, 255
-  %tobool.not.i = icmp eq i64 %7, 0
-  %8 = trunc nsw i64 %rem4.i to i8
-  %conv6.i = select i1 %tobool.not.i, i8 8, i8 %8
+  %conv.i = trunc nsw i64 %rem4.i to i8
+  %tobool.not.i = icmp eq i64 %rem4.i, 0
+  %conv6.i = select i1 %tobool.not.i, i8 8, i8 %conv.i
   %rem7.i = and i64 %dest_offset.addr.048.i, 7
-  %9 = trunc nuw nsw i64 %rem7.i to i8
-  %conv9.i = sub nuw nsw i8 8, %9
-  %10 = trunc nuw nsw i64 %rem7.i to i32
-  %shl.i = shl nuw nsw i32 255, %10
+  %7 = trunc nuw nsw i64 %rem7.i to i8
+  %conv9.i = sub nuw nsw i8 8, %7
+  %8 = trunc nuw nsw i64 %rem7.i to i32
+  %shl.i = shl nuw nsw i32 255, %8
   %cmp13.i = icmp ult i64 %length.addr.051.i, 9
   br i1 %cmp13.i, label %land.lhs.true.i, label %if.end.i
 
@@ -1487,10 +1484,10 @@ land.lhs.true.i:                                  ; preds = %while.body.i
   br i1 %cmp16.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %11 = trunc nuw i64 %add15.i to i32
-  %conv20.i = sub nuw nsw i32 8, %11
-  %12 = lshr i32 254, %conv20.i
-  %shr.i = and i32 %12, %shl.i
+  %9 = trunc nuw i64 %add15.i to i32
+  %conv20.i = sub nuw nsw i32 8, %9
+  %10 = lshr i32 254, %conv20.i
+  %shr.i = and i32 %10, %shl.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %land.lhs.true.i, %while.body.i
@@ -1499,34 +1496,34 @@ if.end.i:                                         ; preds = %if.then.i, %land.lh
   br i1 %cmp28.i, label %if.then29.i, label %if.else.i
 
 if.then29.i:                                      ; preds = %if.end.i
-  %13 = load i8, ptr %add.ptr.i, align 1
-  %conv.i36.i = zext i8 %13 to i32
+  %11 = load i8, ptr %add.ptr.i, align 1
+  %conv.i36.i = zext i8 %11 to i32
   %shl.i.i = shl nuw nsw i32 %conv.i36.i, 8
   %add.i37.i = or disjoint i32 %shl.i.i, %conv.i36.i
   br label %if.end36.i
 
 if.else.i:                                        ; preds = %if.end.i
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %j_src.049.i
-  %14 = load i16, ptr %gep.i, align 1
-  %15 = zext i16 %14 to i32
+  %12 = load i16, ptr %gep.i, align 1
+  %13 = zext i16 %12 to i32
   br label %if.end36.i
 
 if.end36.i:                                       ; preds = %if.else.i, %if.then29.i
-  %.sink.i = phi i32 [ %15, %if.else.i ], [ %add.i37.i, %if.then29.i ]
+  %.sink.i = phi i32 [ %13, %if.else.i ], [ %add.i37.i, %if.then29.i ]
   %conv2.i43.i = zext nneg i8 %conv6.i to i32
   %shr.i44.i = lshr i32 %.sink.i, %conv2.i43.i
   %conv3.i45.i = trunc i32 %shr.i44.i to i8
   %rev.i.i46.i = call noundef i8 @llvm.bitreverse.i8(i8 %conv3.i45.i)
   %arrayidx38.i = getelementptr inbounds i8, ptr %cond.i, i64 %i_dest.050.i
-  %16 = load i8, ptr %arrayidx38.i, align 1
-  %17 = trunc i32 %left_trailing_mask_dest.0.in.i to i8
-  %18 = xor i8 %17, -1
-  %conv40.i = and i8 %16, %18
+  %14 = load i8, ptr %arrayidx38.i, align 1
+  %15 = trunc i32 %left_trailing_mask_dest.0.in.i to i8
+  %16 = xor i8 %15, -1
+  %conv40.i = and i8 %14, %16
   %conv41.i = zext i8 %rev.i.i46.i to i32
-  %shl44.i = shl nuw nsw i32 %conv41.i, %10
+  %shl44.i = shl nuw nsw i32 %conv41.i, %8
   %and46.i = and i32 %shl44.i, %left_trailing_mask_dest.0.in.i
-  %19 = trunc i32 %and46.i to i8
-  %conv49.i = or i8 %conv40.i, %19
+  %17 = trunc i32 %and46.i to i8
+  %conv49.i = or i8 %conv40.i, %17
   store i8 %conv49.i, ptr %arrayidx38.i, align 1
   %conv50.i = zext nneg i8 %conv9.i to i64
   %add51.i = add nuw nsw i64 %dest_offset.addr.048.i, %conv50.i
@@ -2600,7 +2597,7 @@ while.cond6.preheader.i:                          ; preds = %while.body.i, %whil
   %writer.sroa.4.0.lcssa.i = phi ptr [ %add.ptr.i44.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %add.ptr.i44.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %add.ptr21.i.us.i, %while.body.us.i ], [ %add.ptr.i70.i, %while.body.i ]
   %left_reader.sroa.4.0.lcssa.i = phi ptr [ %add.ptr.i.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %add.ptr.i.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %add.ptr.i59.us.i, %while.body.us.i ], [ %add.ptr.i59.i, %while.body.i ]
   %left_reader.sroa.21.1.lcssa.i = phi i8 [ %left_reader.sroa.21.0255.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %left_reader.sroa.21.0255.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %left_reader.sroa.21.40.extract.trunc213.us.i, %while.body.us.i ], [ %left_reader.sroa.21.40.extract.trunc213.i, %while.body.i ]
-  %tobool8.not237.i = icmp eq i32 %conv15.i.i, 0
+  %tobool8.not237.i = icmp eq i64 %add.i10.i.i, 0
   br i1 %tobool8.not237.i, label %if.end, label %while.body9.lr.ph.i
 
 while.body9.lr.ph.i:                              ; preds = %while.cond6.preheader.i
@@ -3155,7 +3152,7 @@ while.cond6.preheader.i:                          ; preds = %while.body.i, %whil
   %writer.sroa.4.0.lcssa.i = phi ptr [ %add.ptr.i44.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %add.ptr.i44.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %add.ptr21.i.us.i, %while.body.us.i ], [ %add.ptr.i71.i, %while.body.i ]
   %left_reader.sroa.4.0.lcssa.i = phi ptr [ %add.ptr.i.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %add.ptr.i.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %add.ptr.i59.us.i, %while.body.us.i ], [ %add.ptr.i59.i, %while.body.i ]
   %left_reader.sroa.21.1.lcssa.i = phi i8 [ %left_reader.sroa.21.0255.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %left_reader.sroa.21.0255.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %left_reader.sroa.21.40.extract.trunc213.us.i, %while.body.us.i ], [ %left_reader.sroa.21.40.extract.trunc213.i, %while.body.i ]
-  %tobool8.not237.i = icmp eq i32 %conv15.i.i, 0
+  %tobool8.not237.i = icmp eq i64 %add.i10.i.i, 0
   br i1 %tobool8.not237.i, label %if.end, label %while.body9.lr.ph.i
 
 while.body9.lr.ph.i:                              ; preds = %while.cond6.preheader.i
@@ -3710,7 +3707,7 @@ while.cond6.preheader.i:                          ; preds = %while.body.i, %whil
   %writer.sroa.4.0.lcssa.i = phi ptr [ %add.ptr.i44.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %add.ptr.i44.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %add.ptr21.i.us.i, %while.body.us.i ], [ %add.ptr.i70.i, %while.body.i ]
   %left_reader.sroa.4.0.lcssa.i = phi ptr [ %add.ptr.i.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %add.ptr.i.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %add.ptr.i59.us.i, %while.body.us.i ], [ %add.ptr.i59.i, %while.body.i ]
   %left_reader.sroa.21.1.lcssa.i = phi i8 [ %left_reader.sroa.21.0254.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %left_reader.sroa.21.0254.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %left_reader.sroa.21.40.extract.trunc212.us.i, %while.body.us.i ], [ %left_reader.sroa.21.40.extract.trunc212.i, %while.body.i ]
-  %tobool8.not236.i = icmp eq i32 %conv15.i.i, 0
+  %tobool8.not236.i = icmp eq i64 %add.i10.i.i, 0
   br i1 %tobool8.not236.i, label %if.end, label %while.body9.lr.ph.i
 
 while.body9.lr.ph.i:                              ; preds = %while.cond6.preheader.i
@@ -4267,7 +4264,7 @@ while.cond6.preheader.i:                          ; preds = %while.body.i, %whil
   %writer.sroa.4.0.lcssa.i = phi ptr [ %add.ptr.i44.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %add.ptr.i44.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %add.ptr21.i.us.i, %while.body.us.i ], [ %add.ptr.i70.i, %while.body.i ]
   %left_reader.sroa.4.0.lcssa.i = phi ptr [ %add.ptr.i.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %add.ptr.i.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %add.ptr.i59.us.i, %while.body.us.i ], [ %add.ptr.i59.i, %while.body.i ]
   %left_reader.sroa.21.1.lcssa.i = phi i8 [ %left_reader.sroa.21.0258.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %left_reader.sroa.21.0258.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %left_reader.sroa.21.40.extract.trunc216.us.i, %while.body.us.i ], [ %left_reader.sroa.21.40.extract.trunc216.i, %while.body.i ]
-  %tobool8.not240.i = icmp eq i32 %conv15.i.i, 0
+  %tobool8.not240.i = icmp eq i64 %add.i10.i.i, 0
   br i1 %tobool8.not240.i, label %if.end, label %while.body9.lr.ph.i
 
 while.body9.lr.ph.i:                              ; preds = %while.cond6.preheader.i
@@ -4826,7 +4823,7 @@ while.cond6.preheader.i:                          ; preds = %while.body.i, %whil
   %writer.sroa.4.0.lcssa.i = phi ptr [ %add.ptr.i44.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %add.ptr.i44.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %add.ptr21.i.us.i, %while.body.us.i ], [ %add.ptr.i71.i, %while.body.i ]
   %left_reader.sroa.4.0.lcssa.i = phi ptr [ %add.ptr.i.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %add.ptr.i.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %add.ptr.i59.us.i, %while.body.us.i ], [ %add.ptr.i59.i, %while.body.i ]
   %left_reader.sroa.21.1.lcssa.i = phi i8 [ %left_reader.sroa.21.0258.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %left_reader.sroa.21.0258.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %left_reader.sroa.21.40.extract.trunc216.us.i, %while.body.us.i ], [ %left_reader.sroa.21.40.extract.trunc216.i, %while.body.i ]
-  %tobool8.not240.i = icmp eq i32 %conv15.i.i, 0
+  %tobool8.not240.i = icmp eq i64 %add.i10.i.i, 0
   br i1 %tobool8.not240.i, label %if.end, label %while.body9.lr.ph.i
 
 while.body9.lr.ph.i:                              ; preds = %while.cond6.preheader.i

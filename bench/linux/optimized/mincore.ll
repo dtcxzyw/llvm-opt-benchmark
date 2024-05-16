@@ -312,12 +312,12 @@ define internal noundef i32 @mincore_pte_range(ptr noundef %0, i64 noundef %1, i
 20:                                               ; preds = %4
   %21 = getelementptr inbounds i8, ptr %3, i64 32
   store i32 2, ptr %21, align 8
-  br label %95
+  br label %93
 
 22:                                               ; preds = %.preheader, %__mincore_unmapped_range.exit
-  %23 = phi ptr [ %85, %__mincore_unmapped_range.exit ], [ %10, %.preheader ]
-  %24 = phi ptr [ %86, %__mincore_unmapped_range.exit ], [ %14, %.preheader ]
-  %25 = phi i64 [ %87, %__mincore_unmapped_range.exit ], [ %1, %.preheader ]
+  %23 = phi ptr [ %83, %__mincore_unmapped_range.exit ], [ %10, %.preheader ]
+  %24 = phi ptr [ %84, %__mincore_unmapped_range.exit ], [ %14, %.preheader ]
+  %25 = phi i64 [ %85, %__mincore_unmapped_range.exit ], [ %1, %.preheader ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %26 = load volatile i64, ptr %24, align 8
   store volatile i64 %26, ptr %5, align 8
@@ -372,74 +372,71 @@ define internal noundef i32 @mincore_pte_range(ptr noundef %0, i64 noundef %1, i
 
 57:                                               ; preds = %29
   %58 = icmp eq i64 %30, 0
-  br i1 %58, label %59, label %__mincore_unmapped_range.exit
+  %59 = icmp ult i64 %26, -2305843009213693952
+  %or.cond = and i1 %58, %59
+  br i1 %or.cond, label %60, label %__mincore_unmapped_range.exit
 
-59:                                               ; preds = %57
-  %60 = lshr i64 %26, 59
-  %61 = trunc nuw nsw i64 %60 to i32
-  %62 = icmp ult i32 %61, 28
-  br i1 %62, label %63, label %__mincore_unmapped_range.exit
+60:                                               ; preds = %57
+  %61 = lshr i64 %26, 59
+  %62 = xor i64 %26, -1
+  %63 = lshr i64 %62, 9
+  %64 = and i64 %63, 1125899906842623
+  %65 = getelementptr [0 x ptr], ptr @swapper_spaces, i64 0, i64 %61
+  %66 = load ptr, ptr %65, align 8
+  %67 = lshr i64 %64, 14
+  %68 = getelementptr %struct.address_space, ptr %66, i64 %67
+  %69 = call ptr @filemap_get_incore_folio(ptr noundef %68, i64 noundef %64) #7
+  %70 = icmp ugt ptr %69, inttoptr (i64 -4096 to ptr)
+  br i1 %70, label %__mincore_unmapped_range.exit, label %71
 
-63:                                               ; preds = %59
-  %64 = xor i64 %26, -1
-  %65 = lshr i64 %64, 9
-  %66 = and i64 %65, 1125899906842623
-  %67 = getelementptr [0 x ptr], ptr @swapper_spaces, i64 0, i64 %60
-  %68 = load ptr, ptr %67, align 8
-  %69 = lshr i64 %66, 14
-  %70 = getelementptr %struct.address_space, ptr %68, i64 %69
-  %71 = call ptr @filemap_get_incore_folio(ptr noundef %70, i64 noundef %66) #7
-  %72 = icmp ugt ptr %71, inttoptr (i64 -4096 to ptr)
-  br i1 %72, label %__mincore_unmapped_range.exit, label %73
+71:                                               ; preds = %60
+  %72 = load volatile i64, ptr %69, align 8
+  %73 = and i64 %72, 8
+  %74 = icmp eq i64 %73, 0
+  br i1 %74, label %76, label %75
 
-73:                                               ; preds = %63
-  %74 = load volatile i64, ptr %71, align 8
-  %75 = and i64 %74, 8
-  %76 = icmp eq i64 %75, 0
-  br i1 %76, label %78, label %77
-
-77:                                               ; preds = %73
+75:                                               ; preds = %71
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !17
-  br label %78
+  br label %76
 
-78:                                               ; preds = %77, %73
-  %79 = lshr exact i64 %75, 3
-  %80 = trunc nuw nsw i64 %79 to i8
-  %81 = getelementptr inbounds i8, ptr %71, i64 52
-  %82 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %81, ptr elementtype(i32) %81) #7, !srcloc !18
-  %83 = icmp ult i8 %82, 2
-  call void @llvm.assume(i1 %83)
-  %84 = icmp eq i8 %82, 0
-  br i1 %84, label %__mincore_unmapped_range.exit, label %__mincore_unmapped_range.exit.sink.split
+76:                                               ; preds = %75, %71
+  %77 = lshr exact i64 %73, 3
+  %78 = trunc nuw nsw i64 %77 to i8
+  %79 = getelementptr inbounds i8, ptr %69, i64 52
+  %80 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %79, ptr elementtype(i32) %79) #7, !srcloc !18
+  %81 = icmp ult i8 %80, 2
+  call void @llvm.assume(i1 %81)
+  %82 = icmp eq i8 %80, 0
+  br i1 %82, label %__mincore_unmapped_range.exit, label %__mincore_unmapped_range.exit.sink.split
 
-__mincore_unmapped_range.exit.sink.split:         ; preds = %78, %50
-  %.sink8 = phi ptr [ %43, %50 ], [ %71, %78 ]
-  %.sink.ph = phi i8 [ %52, %50 ], [ %80, %78 ]
+__mincore_unmapped_range.exit.sink.split:         ; preds = %76, %50
+  %.sink8 = phi ptr [ %43, %50 ], [ %69, %76 ]
+  %.sink.ph = phi i8 [ %52, %50 ], [ %78, %76 ]
   call void @__folio_put(ptr noundef %.sink8) #7
   br label %__mincore_unmapped_range.exit
 
-__mincore_unmapped_range.exit:                    ; preds = %__mincore_unmapped_range.exit.sink.split, %59, %63, %78, %57, %35, %50, %.thread
-  %.sink = phi i8 [ 0, %.thread ], [ 0, %35 ], [ %52, %50 ], [ 1, %57 ], [ 1, %59 ], [ 0, %63 ], [ %80, %78 ], [ %.sink.ph, %__mincore_unmapped_range.exit.sink.split ]
+__mincore_unmapped_range.exit:                    ; preds = %__mincore_unmapped_range.exit.sink.split, %60, %76, %57, %35, %50, %.thread
+  %.sink = phi i8 [ 0, %.thread ], [ 0, %35 ], [ %52, %50 ], [ 1, %57 ], [ 0, %60 ], [ %78, %76 ], [ %.sink.ph, %__mincore_unmapped_range.exit.sink.split ]
   store i8 %.sink, ptr %23, align 1
-  %85 = getelementptr i8, ptr %23, i64 1
-  %86 = getelementptr i8, ptr %24, i64 8
-  %87 = add i64 %25, 4096
-  %88 = icmp eq i64 %87, %2
-  br i1 %88, label %.loopexit, label %22, !llvm.loop !19
+  %83 = getelementptr i8, ptr %23, i64 1
+  %84 = getelementptr i8, ptr %24, i64 8
+  %85 = add i64 %25, 4096
+  %86 = icmp eq i64 %85, %2
+  br i1 %86, label %.loopexit, label %22, !llvm.loop !19
 
 .loopexit:                                        ; preds = %__mincore_unmapped_range.exit, %16
-  %89 = load ptr, ptr %6, align 8
-  call void @_raw_spin_unlock(ptr noundef %89) #7
+  %87 = load ptr, ptr %6, align 8
+  call void @_raw_spin_unlock(ptr noundef %87) #7
   call void @__rcu_read_unlock() #7
-  %90 = load ptr, ptr %9, align 8
-  %91 = shl i64 %11, 20
-  %92 = ashr i64 %91, 32
-  %93 = getelementptr i8, ptr %90, i64 %92
-  store ptr %93, ptr %9, align 8
-  %94 = call i32 @__SCT__cond_resched() #7
-  br label %95
+  %88 = load ptr, ptr %9, align 8
+  %89 = shl i64 %11, 20
+  %90 = ashr i64 %89, 32
+  %91 = getelementptr i8, ptr %88, i64 %90
+  store ptr %91, ptr %9, align 8
+  %92 = call i32 @__SCT__cond_resched() #7
+  br label %93
 
-95:                                               ; preds = %.loopexit, %20
+93:                                               ; preds = %.loopexit, %20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
   ret i32 0
 }

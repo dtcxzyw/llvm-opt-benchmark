@@ -1046,7 +1046,7 @@ for.inc:                                          ; preds = %invoke.cont99
 
 for.end:                                          ; preds = %invoke.cont99
   %70 = trunc nuw nsw i64 %indvars.iv to i32
-  %cmp103 = icmp eq i32 %70, 0
+  %cmp103 = icmp eq i64 %indvars.iv, 0
   br i1 %cmp103, label %while.cond.outer209.backedge, label %invoke.cont109.preheader
 
 invoke.cont109.preheader:                         ; preds = %for.inc, %for.end

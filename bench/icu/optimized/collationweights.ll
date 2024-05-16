@@ -715,7 +715,7 @@ if.then12:                                        ; preds = %if.then
 if.end:                                           ; preds = %if.then12, %if.then
   %add17 = add nuw nsw i32 %3, 1
   store i32 %add17, ptr %rangeCount, align 4
-  %cmp20.not = icmp eq i32 %3, 0
+  %cmp20.not = icmp eq i64 %indvars.iv, 0
   br i1 %cmp20.not, label %return, label %if.then21
 
 if.then21:                                        ; preds = %if.end
@@ -1094,7 +1094,7 @@ if.then12.i:                                      ; preds = %if.then.i
 if.end.i:                                         ; preds = %if.then12.i, %if.then.i
   %add17.i = add nuw nsw i32 %4, 1
   store i32 %add17.i, ptr %rangeCount.i, align 4
-  %cmp20.not.i = icmp eq i32 %4, 0
+  %cmp20.not.i = icmp eq i64 %indvars.iv.i, 0
   br i1 %cmp20.not.i, label %_ZN6icu_7516CollationWeights25allocWeightsInShortRangesEii.exit, label %if.then21.i
 
 if.then21.i:                                      ; preds = %if.end.i

@@ -6541,7 +6541,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit763
   %.0.sroa.speculated.i859 = call noundef i64 @llvm.umin.i64(i64 %.0.sroa.speculated.i, i64 %700)
   %701 = trunc nuw nsw i64 %.0.sroa.speculated.i859 to i32
   store i32 %701, ptr %87, align 4
-  %.not537 = icmp eq i32 %701, 0
+  %.not537 = icmp eq i64 %.0.sroa.speculated.i859, 0
   br i1 %.not537, label %710, label %702
 
 702:                                              ; preds = %699

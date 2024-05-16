@@ -1823,7 +1823,7 @@ define internal fastcc noundef i32 @_ZL11calc_nbeginiPff(i32 noundef %0, ptr noc
 .critedge:                                        ; preds = %.lr.ph
   %10 = trunc nuw nsw i64 %indvars.iv to i32
   %11 = icmp eq i32 %10, %0
-  %12 = icmp eq i32 %10, 0
+  %12 = icmp eq i64 %indvars.iv, 0
   %or.cond = or i1 %11, %12
   br i1 %or.cond, label %.critedge.thread, label %24
 

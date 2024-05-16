@@ -5062,7 +5062,7 @@ _ZN5arrow8internal15BitBlockCounter8NextWordEv.exit.i.i.i.i.i: ; preds = %if.end
   %retval.sroa.5.0.i.i.i.i.i.i = phi i32 [ %retval.sroa.5.0.extract.shift.i.i.i.i.i.i, %if.then6.i.i.i.i.i.i ], [ %conv.i.i.i.i.i.i, %if.end23.i.i.i.i.i.i ], [ %retval.sroa.5.0.extract.shift2.i.i.i.i.i.i, %if.then13.i.i.i.i.i.i ], [ 0, %call33.i.i.noexc.i.i.i ]
   %filter_block.sroa.0.0.extract.trunc.i.i.i.i.i = trunc i32 %retval.sroa.0.0.i.i.i.i.i.i to i16
   %filter_block.sroa.10.0.extract.trunc.i.i.i.i.i = trunc nuw i32 %retval.sroa.5.0.i.i.i.i.i.i to i16
-  %cmp.i65.i.i.i.i.i = icmp eq i16 %filter_block.sroa.10.0.extract.trunc.i.i.i.i.i, 0
+  %cmp.i65.i.i.i.i.i = icmp eq i32 %retval.sroa.5.0.i.i.i.i.i.i, 0
   %or.cond.i.i.i.i.i = select i1 %cmp.i65.i.i.i.i.i, i1 %cmp36.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then37.i.i.i.i.i, label %if.else.i.i.i.i.i
 
@@ -6149,7 +6149,7 @@ _ZN5arrow8internal15BitBlockCounter8NextWordEv.exit.i.i.i.i.i: ; preds = %if.end
   %retval.sroa.5.0.i.i.i.i.i.i = phi i32 [ %retval.sroa.5.0.extract.shift.i.i.i.i.i.i, %if.then6.i.i.i.i.i.i ], [ %conv.i.i.i.i.i.i, %if.end23.i.i.i.i.i.i ], [ %retval.sroa.5.0.extract.shift2.i.i.i.i.i.i, %if.then13.i.i.i.i.i.i ], [ 0, %call33.i.i.noexc.i.i.i ]
   %filter_block.sroa.0.0.extract.trunc.i.i.i.i.i = trunc i32 %retval.sroa.0.0.i.i.i.i.i.i to i16
   %filter_block.sroa.10.0.extract.trunc.i.i.i.i.i = trunc nuw i32 %retval.sroa.5.0.i.i.i.i.i.i to i16
-  %cmp.i65.i.i.i.i.i = icmp eq i16 %filter_block.sroa.10.0.extract.trunc.i.i.i.i.i, 0
+  %cmp.i65.i.i.i.i.i = icmp eq i32 %retval.sroa.5.0.i.i.i.i.i.i, 0
   %or.cond.i.i.i.i.i = select i1 %cmp.i65.i.i.i.i.i, i1 %cmp36.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then37.i.i.i.i.i, label %if.else.i.i.i.i.i
 
@@ -7207,7 +7207,7 @@ _ZN5arrow8internal15BitBlockCounter8NextWordEv.exit.i.i.i.i.i: ; preds = %if.end
   %retval.sroa.5.0.i.i.i.i.i.i = phi i32 [ %retval.sroa.5.0.extract.shift.i.i.i.i.i.i, %if.then6.i.i.i.i.i.i ], [ %conv.i.i.i.i.i.i, %if.end23.i.i.i.i.i.i ], [ %retval.sroa.5.0.extract.shift2.i.i.i.i.i.i, %if.then13.i.i.i.i.i.i ], [ 0, %call33.i.i.noexc.i.i.i ]
   %filter_block.sroa.0.0.extract.trunc.i.i.i.i.i = trunc i32 %retval.sroa.0.0.i.i.i.i.i.i to i16
   %filter_block.sroa.10.0.extract.trunc.i.i.i.i.i = trunc nuw i32 %retval.sroa.5.0.i.i.i.i.i.i to i16
-  %cmp.i65.i.i.i.i.i = icmp eq i16 %filter_block.sroa.10.0.extract.trunc.i.i.i.i.i, 0
+  %cmp.i65.i.i.i.i.i = icmp eq i32 %retval.sroa.5.0.i.i.i.i.i.i, 0
   %or.cond.i.i.i.i.i = select i1 %cmp.i65.i.i.i.i.i, i1 %cmp36.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then37.i.i.i.i.i, label %if.else.i.i.i.i.i
 
@@ -8357,7 +8357,7 @@ _ZN5arrow8internal15BitBlockCounter8NextWordEv.exit.i.i.i.i.i: ; preds = %if.end
   %retval.sroa.5.0.i.i.i.i.i.i = phi i32 [ %retval.sroa.5.0.extract.shift.i.i.i.i.i.i, %if.then6.i.i.i.i.i.i ], [ %conv.i.i.i.i.i.i, %if.end23.i.i.i.i.i.i ], [ %retval.sroa.5.0.extract.shift2.i.i.i.i.i.i, %if.then13.i.i.i.i.i.i ], [ 0, %call33.i.i.noexc.i.i.i ]
   %filter_block.sroa.0.0.extract.trunc.i.i.i.i.i = trunc i32 %retval.sroa.0.0.i.i.i.i.i.i to i16
   %filter_block.sroa.10.0.extract.trunc.i.i.i.i.i = trunc nuw i32 %retval.sroa.5.0.i.i.i.i.i.i to i16
-  %cmp.i65.i.i.i.i.i = icmp eq i16 %filter_block.sroa.10.0.extract.trunc.i.i.i.i.i, 0
+  %cmp.i65.i.i.i.i.i = icmp eq i32 %retval.sroa.5.0.i.i.i.i.i.i, 0
   %or.cond.i.i.i.i.i = select i1 %cmp.i65.i.i.i.i.i, i1 %cmp36.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then37.i.i.i.i.i, label %if.else.i.i.i.i.i
 
@@ -9569,7 +9569,7 @@ _ZN5arrow8internal15BitBlockCounter8NextWordEv.exit.i.i.i.i.i: ; preds = %if.end
   %retval.sroa.5.0.i.i.i.i.i.i = phi i32 [ %retval.sroa.5.0.extract.shift.i.i.i.i.i.i, %if.then6.i.i.i.i.i.i ], [ %conv.i.i.i.i.i.i, %if.end23.i.i.i.i.i.i ], [ %retval.sroa.5.0.extract.shift2.i.i.i.i.i.i, %if.then13.i.i.i.i.i.i ], [ 0, %call33.i.i.noexc.i.i.i ]
   %filter_block.sroa.0.0.extract.trunc.i.i.i.i.i = trunc i32 %retval.sroa.0.0.i.i.i.i.i.i to i16
   %filter_block.sroa.10.0.extract.trunc.i.i.i.i.i = trunc nuw i32 %retval.sroa.5.0.i.i.i.i.i.i to i16
-  %cmp.i65.i.i.i.i.i = icmp eq i16 %filter_block.sroa.10.0.extract.trunc.i.i.i.i.i, 0
+  %cmp.i65.i.i.i.i.i = icmp eq i32 %retval.sroa.5.0.i.i.i.i.i.i, 0
   %or.cond.i.i.i.i.i = select i1 %cmp.i65.i.i.i.i.i, i1 %cmp36.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then37.i.i.i.i.i, label %if.else.i.i.i.i.i
 
@@ -10753,7 +10753,7 @@ _ZN5arrow8internal15BitBlockCounter8NextWordEv.exit.i.i.i.i.i: ; preds = %if.end
   %retval.sroa.5.0.i.i.i.i.i.i = phi i32 [ %retval.sroa.5.0.extract.shift.i.i.i.i.i.i, %if.then6.i.i.i.i.i.i ], [ %conv.i.i.i.i.i.i, %if.end23.i.i.i.i.i.i ], [ %retval.sroa.5.0.extract.shift2.i.i.i.i.i.i, %if.then13.i.i.i.i.i.i ], [ 0, %call33.i.i.noexc.i.i.i ]
   %filter_block.sroa.0.0.extract.trunc.i.i.i.i.i = trunc i32 %retval.sroa.0.0.i.i.i.i.i.i to i16
   %filter_block.sroa.10.0.extract.trunc.i.i.i.i.i = trunc nuw i32 %retval.sroa.5.0.i.i.i.i.i.i to i16
-  %cmp.i65.i.i.i.i.i = icmp eq i16 %filter_block.sroa.10.0.extract.trunc.i.i.i.i.i, 0
+  %cmp.i65.i.i.i.i.i = icmp eq i32 %retval.sroa.5.0.i.i.i.i.i.i, 0
   %or.cond.i.i.i.i.i = select i1 %cmp.i65.i.i.i.i.i, i1 %cmp36.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.then37.i.i.i.i.i, label %if.else.i.i.i.i.i
 

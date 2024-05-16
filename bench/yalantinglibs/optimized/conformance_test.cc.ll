@@ -6693,19 +6693,13 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %while.body
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit: ; preds = %while.body
   %sub.i.i.i.i = sub i64 %2, %0
-  %spec.select3.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i, i64 -2147483648)
-  %retval.04.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select3.i.i.i.i, i64 2147483647)
-  %4 = and i64 %retval.04.i.i.i.i, 2147483648
-  %cmp.i.i.not = icmp eq i64 %4, 0
-  br i1 %cmp.i.i.not, label %if.then.i.i.i27, label %if.end19
+  %cmp.i.i = icmp slt i64 %sub.i.i.i.i, 0
+  br i1 %cmp.i.i, label %if.end19, label %if.then.i.i.i27
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.thread65: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
   %sub.i.i.i.i66 = sub i64 %2, %0
-  %spec.select3.i.i.i.i67 = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i66, i64 -2147483648)
-  %retval.04.i.i.i.i68 = tail call i64 @llvm.smin.i64(i64 %spec.select3.i.i.i.i67, i64 2147483647)
-  %5 = and i64 %retval.04.i.i.i.i68, 2147483648
-  %cmp.i.i70.not = icmp eq i64 %5, 0
-  br i1 %cmp.i.i70.not, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i22, label %if.end19
+  %cmp.i.i70 = icmp slt i64 %sub.i.i.i.i66, 0
+  br i1 %cmp.i.i70, label %if.end19, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i22
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.thread: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
   %cmp.i.i64 = icmp slt i32 %call.i.i.i.i, 0
@@ -6730,30 +6724,30 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 if.else12:                                        ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit32
   %_M_left.i33 = getelementptr inbounds i8, ptr %__x.078, i64 16
-  %6 = load ptr, ptr %_M_left.i33, align 8
+  %4 = load ptr, ptr %_M_left.i33, align 8
   %_M_right.i34 = getelementptr inbounds i8, ptr %__x.078, i64 24
-  %7 = load ptr, ptr %_M_right.i34, align 8
-  %cmp.not5.i = icmp eq ptr %6, null
+  %5 = load ptr, ptr %_M_right.i34, align 8
+  %cmp.not5.i = icmp eq ptr %4, null
   br i1 %cmp.not5.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRKS5_.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %if.else12, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i
-  %__x.addr.07.i = phi ptr [ %__x.addr.1.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i ], [ %6, %if.else12 ]
+  %__x.addr.07.i = phi ptr [ %__x.addr.1.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i ], [ %4, %if.else12 ]
   %__y.addr.06.i = phi ptr [ %__y.addr.1.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i ], [ %__x.078, %if.else12 ]
   %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i, i64 40
-  %8 = load i64, ptr %_M_string_length.i.i.i.i.i, align 8
-  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %0, i64 %8)
+  %6 = load i64, ptr %_M_string_length.i.i.i.i.i, align 8
+  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %0, i64 %6)
   %cmp.i4.i.i.i.i = icmp eq i64 %.sroa.speculated.i.i.i.i, 0
   br i1 %cmp.i4.i.i.i.i, label %if.then.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %while.body.i
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i, i64 32
-  %9 = load ptr, ptr %_M_storage.i.i.i, align 8
-  %call.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %9, ptr noundef %1, i64 noundef %.sroa.speculated.i.i.i.i) #18
+  %7 = load ptr, ptr %_M_storage.i.i.i, align 8
+  %call.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %7, ptr noundef %1, i64 noundef %.sroa.speculated.i.i.i.i) #18
   %tobool.not.i.i.i.i = icmp eq i32 %call.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i, label %if.then.i.i.i.i, label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %while.body.i
-  %sub.i.i.i.i.i = sub i64 %8, %0
+  %sub.i.i.i.i.i = sub i64 %6, %0
   %spec.select3.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i, i64 -2147483648)
   %retval.04.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select3.i.i.i.i.i, i64 2147483647)
   %retval.0.i5.i.i.i.i = trunc nsw i64 %retval.04.i.i.i.i.i to i32
@@ -6771,27 +6765,27 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRKS5_.exit: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i, %if.else12
   %__y.addr.0.lcssa.i = phi ptr [ %__x.078, %if.else12 ], [ %__y.addr.1.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i ]
-  %cmp.not5.i35 = icmp eq ptr %7, null
+  %cmp.not5.i35 = icmp eq ptr %5, null
   br i1 %cmp.not5.i35, label %return, label %while.body.i38
 
 while.body.i38:                                   ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRKS5_.exit, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i48
-  %__x.addr.07.i39 = phi ptr [ %__x.addr.1.i54, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i48 ], [ %7, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRKS5_.exit ]
+  %__x.addr.07.i39 = phi ptr [ %__x.addr.1.i54, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i48 ], [ %5, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRKS5_.exit ]
   %__y.addr.06.i40 = phi ptr [ %__y.addr.1.i51, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i48 ], [ %__y.077, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRKS5_.exit ]
   %_M_string_length.i3.i.i.i.i41 = getelementptr inbounds i8, ptr %__x.addr.07.i39, i64 40
-  %10 = load i64, ptr %_M_string_length.i3.i.i.i.i41, align 8
-  %.sroa.speculated.i.i.i.i42 = tail call i64 @llvm.umin.i64(i64 %10, i64 %0)
+  %8 = load i64, ptr %_M_string_length.i3.i.i.i.i41, align 8
+  %.sroa.speculated.i.i.i.i42 = tail call i64 @llvm.umin.i64(i64 %8, i64 %0)
   %cmp.i4.i.i.i.i43 = icmp eq i64 %.sroa.speculated.i.i.i.i42, 0
   br i1 %cmp.i4.i.i.i.i43, label %if.then.i.i.i.i57, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i44
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i44: ; preds = %while.body.i38
   %_M_storage.i.i.i45 = getelementptr inbounds i8, ptr %__x.addr.07.i39, i64 32
-  %11 = load ptr, ptr %_M_storage.i.i.i45, align 8
-  %call.i.i.i.i.i46 = tail call i32 @memcmp(ptr noundef %1, ptr noundef %11, i64 noundef %.sroa.speculated.i.i.i.i42) #18
+  %9 = load ptr, ptr %_M_storage.i.i.i45, align 8
+  %call.i.i.i.i.i46 = tail call i32 @memcmp(ptr noundef %1, ptr noundef %9, i64 noundef %.sroa.speculated.i.i.i.i42) #18
   %tobool.not.i.i.i.i47 = icmp eq i32 %call.i.i.i.i.i46, 0
   br i1 %tobool.not.i.i.i.i47, label %if.then.i.i.i.i57, label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i48
 
 if.then.i.i.i.i57:                                ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i44, %while.body.i38
-  %sub.i.i.i.i.i58 = sub i64 %0, %10
+  %sub.i.i.i.i.i58 = sub i64 %0, %8
   %spec.select3.i.i.i.i.i59 = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i58, i64 -2147483648)
   %retval.04.i.i.i.i.i60 = tail call i64 @llvm.smin.i64(i64 %spec.select3.i.i.i.i.i59, i64 2147483647)
   %retval.0.i5.i.i.i.i61 = trunc nsw i64 %retval.04.i.i.i.i.i60 to i32

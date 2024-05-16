@@ -275,7 +275,7 @@ land.lhs.true:                                    ; preds = %land.rhs, %land.rhs
   %call.i9.lcssa = phi i32 [ %call.i7, %land.rhs.lr.ph ], [ %call.i, %land.rhs ]
   %.lcssa = phi i32 [ %1, %land.rhs.lr.ph ], [ %2, %land.rhs ]
   %cmp9 = icmp eq i32 %.lcssa, 22
-  %cmp12 = icmp eq i32 %conv, 8
+  %cmp12 = icmp eq i64 %0, 8
   %or.cond = and i1 %cmp12, %cmp9
   br i1 %or.cond, label %if.then, label %if.end
 

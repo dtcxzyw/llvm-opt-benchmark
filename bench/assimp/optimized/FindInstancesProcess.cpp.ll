@@ -559,7 +559,7 @@ while.body.i:                                     ; preds = %land.rhs.i189
 
 _ZNK6aiMesh16GetNumUVChannelsEv.exit:             ; preds = %land.rhs.i189
   %69 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %cmp85306.not = icmp eq i32 %69, 0
+  %cmp85306.not = icmp eq i64 %indvars.iv.i, 0
   br i1 %cmp85306.not, label %for.end, label %for.body86.lr.ph
 
 for.body86.lr.ph:                                 ; preds = %while.body.i, %_ZNK6aiMesh16GetNumUVChannelsEv.exit
@@ -646,7 +646,7 @@ while.body.i216:                                  ; preds = %land.rhs.i212
 
 _ZNK6aiMesh19GetNumColorChannelsEv.exit:          ; preds = %land.rhs.i212
   %82 = trunc nuw nsw i64 %indvars.iv.i213 to i32
-  %cmp111308.not = icmp eq i32 %82, 0
+  %cmp111308.not = icmp eq i64 %indvars.iv.i213, 0
   br i1 %cmp111308.not, label %for.end131, label %for.body112.lr.ph
 
 for.body112.lr.ph:                                ; preds = %while.body.i216, %_ZNK6aiMesh19GetNumColorChannelsEv.exit

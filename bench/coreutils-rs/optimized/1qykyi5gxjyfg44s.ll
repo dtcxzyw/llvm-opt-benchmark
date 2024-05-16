@@ -76,9 +76,9 @@ define hidden { i64, ptr } @_ZN6uu_yes6splice11splice_data17hd1b9d08603eff842E(p
   br label %84
 
 34:                                               ; preds = %26
-  %35 = icmp ult i32 %.sroa.451.0.extract.trunc, 134
+  %35 = icmp ult i64 %27, 575525617664
   tail call void @llvm.assume(i1 %35)
-  %36 = and i64 %27, -4294967294
+  %36 = and i64 %27, 1095216660482
   %37 = inttoptr i64 %36 to ptr
   br label %80
 

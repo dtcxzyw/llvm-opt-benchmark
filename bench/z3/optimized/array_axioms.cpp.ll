@@ -7972,27 +7972,26 @@ invoke.cont44:                                    ; preds = %invoke.cont35
   %cmp46 = icmp eq i32 %22, 0
   %spec.select = select i1 %cmp46, i1 true, i1 %prop.1.ph39
   %dec933 = add i64 %indvars.iv, 4294967295
-  %23 = and i64 %indvars.iv, 4294967295
-  %cmp10.not34 = icmp eq i64 %23, 0
+  %cmp10.not34 = icmp eq i64 %indvars.iv, 0
   br i1 %cmp10.not34, label %for.cond.loopexit, label %invoke.cont14.lr.ph, !llvm.loop !26
 
 for.end49:                                        ; preds = %for.cond.loopexit, %for.body, %invoke.cont2
   %prop.0.lcssa = phi i1 [ false, %invoke.cont2 ], [ %prop.044, %for.body ], [ %prop.1.ph.lcssa30, %for.cond.loopexit ]
-  %24 = load ptr, ptr %roots, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %24, %0
-  %cmp.i.i.i.i.i = icmp eq ptr %24, null
+  %23 = load ptr, ptr %roots, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %23, %0
+  %cmp.i.i.i.i.i = icmp eq ptr %23, null
   %or.cond.i.i.i.i = or i1 %cmp.not.i.i.i.i, %cmp.i.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %_ZN7sbufferIiLj16EED2Ev.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %for.end49
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %24)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %23)
           to label %_ZN7sbufferIiLj16EED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.end.i.i.i.i.i
-  %25 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           catch ptr null
-  %26 = extractvalue { ptr, i32 } %25, 0
-  call void @__clang_call_terminate(ptr %26) #17
+  %25 = extractvalue { ptr, i32 } %24, 0
+  call void @__clang_call_terminate(ptr %25) #17
   unreachable
 
 _ZN7sbufferIiLj16EED2Ev.exit:                     ; preds = %for.end49, %if.end.i.i.i.i.i

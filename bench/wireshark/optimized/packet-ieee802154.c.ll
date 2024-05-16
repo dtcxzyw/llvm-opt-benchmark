@@ -6047,7 +6047,7 @@ define hidden range(i32 0, 2) i32 @ccm_cbc_mac(ptr noundef %0, ptr noundef %1, p
 
 .preheader63:                                     ; preds = %.lr.ph
   %45 = trunc nuw nsw i64 %indvars.iv.next to i32
-  %46 = icmp ult i32 %45, 16
+  %46 = icmp ult i64 %indvars.iv, 15
   br i1 %46, label %.lr.ph70.preheader, label %._crit_edge
 
 .lr.ph70.preheader:                               ; preds = %33, %.preheader63
@@ -6058,7 +6058,7 @@ define hidden range(i32 0, 2) i32 @ccm_cbc_mac(ptr noundef %0, ptr noundef %1, p
   %scevgep74 = getelementptr i8, ptr %9, i64 %47
   %narrow79 = sub nuw nsw i32 16, %.1.lcssa91
   %48 = zext nneg i32 %narrow79 to i64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep74, i8 0, i64 %48, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 1 %scevgep74, i8 0, i64 %48, i1 false)
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph

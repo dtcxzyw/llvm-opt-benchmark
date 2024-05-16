@@ -5843,7 +5843,7 @@ _ZN12colvarmodule7rvectorixEi.exit38.us222:       ; preds = %236, %235, %_ZN12co
   br i1 %exitcond.not, label %.split.us, label %_ZN12colvarmodule7rvectorixEi.exit.us221, !llvm.loop !175
 
 .preheader.split:                                 ; preds = %.preheader
-  %241 = icmp eq i32 %223, 2
+  %241 = icmp eq i64 %.031228, 2
   %.idx.i = select i1 %241, i64 16, i64 0
   %invariant.gep = getelementptr inbounds i8, ptr %222, i64 %.idx.i
   br label %_ZN12colvarmodule7rvectorixEi.exit
@@ -6793,7 +6793,7 @@ _ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEm.exit: ; preds = %1
   %.1214 = phi double [ %.0216, %75 ], [ %.us-phi, %.split.us ]
   %.019212 = phi i64 [ 0, %75 ], [ %268, %.split.us ]
   %228 = trunc nuw nsw i64 %.019212 to i32
-  %229 = icmp eq i32 %228, 2
+  %229 = icmp eq i64 %.019212, 2
   %.idx.i = select i1 %229, i64 16, i64 0
   switch i32 %228, label %_ZN12colvarmodule7rvectorixEi.exit [
     i32 0, label %_ZN12colvarmodule7rvectorixEi.exit.us

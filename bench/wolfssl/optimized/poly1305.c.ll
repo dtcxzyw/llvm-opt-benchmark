@@ -479,7 +479,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   %leftover.i = getelementptr inbounds i8, ptr %ctx, i64 64
   %0 = load i64, ptr %leftover.i, align 8
   %tobool.not.i = icmp eq i64 %0, 0
-  br i1 %tobool.not.i, label %if.end42.i.thread, label %if.then6.i
+  br i1 %tobool.not.i, label %if.then31.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %lor.lhs.false.i
   %sub.i = sub i64 16, %0
@@ -518,44 +518,54 @@ for.end.i:                                        ; preds = %for.end.loopexit.i,
 if.end28.i:                                       ; preds = %for.end.i
   %add.ptr.i = getelementptr inbounds i8, ptr %little64, i64 %spec.select.i
   %conv17.i = trunc nuw nsw i64 %spec.select.i to i32
-  %sub18.i = sub nuw nsw i64 16, %spec.select.i
+  %sub18.i = sub nuw nsw i32 16, %conv17.i
   %buffer26.i = getelementptr inbounds i8, ptr %ctx, i64 72
   tail call fastcc void @poly1305_blocks(ptr noundef nonnull %ctx, ptr noundef nonnull readonly %buffer26.i, i64 noundef 16)
   store i64 0, ptr %leftover.i, align 8
-  switch i32 %conv17.i, label %for.cond45.preheader.i [
-    i32 0, label %if.end42.i.thread
-    i32 16, label %return
-  ]
+  %cmp29.i = icmp eq i64 %0, 16
+  br i1 %cmp29.i, label %if.then31.i, label %if.end42.i
 
-if.end42.i.thread:                                ; preds = %if.end28.i, %lor.lhs.false.i
+if.then31.i:                                      ; preds = %lor.lhs.false.i, %if.end28.i
   %m.addr.0.i7 = phi ptr [ %add.ptr.i, %if.end28.i ], [ %little64, %lor.lhs.false.i ]
-  call fastcc void @poly1305_blocks(ptr noundef nonnull %ctx, ptr noundef nonnull %m.addr.0.i7, i64 noundef 16)
-  br label %return
+  %bytes.addr.0.i6 = phi i32 [ %sub18.i, %if.end28.i ], [ 16, %lor.lhs.false.i ]
+  %4 = and i32 %bytes.addr.0.i6, 16
+  %and.i = zext nneg i32 %4 to i64
+  call fastcc void @poly1305_blocks(ptr noundef nonnull %ctx, ptr noundef nonnull %m.addr.0.i7, i64 noundef %and.i)
+  %add.ptr39.i = getelementptr inbounds i8, ptr %m.addr.0.i7, i64 %and.i
+  %sub41.i = and i32 %bytes.addr.0.i6, 15
+  br label %if.end42.i
 
-for.cond45.preheader.i:                           ; preds = %if.end28.i
+if.end42.i:                                       ; preds = %if.then31.i, %if.end28.i
+  %bytes.addr.1.i = phi i32 [ %sub41.i, %if.then31.i ], [ %sub18.i, %if.end28.i ]
+  %m.addr.1.i = phi ptr [ %add.ptr39.i, %if.then31.i ], [ %add.ptr.i, %if.end28.i ]
+  %tobool43.not.i = icmp eq i32 %bytes.addr.1.i, 0
+  br i1 %tobool43.not.i, label %return, label %for.cond45.preheader.i
+
+for.cond45.preheader.i:                           ; preds = %if.end42.i
+  %conv46.i = zext nneg i32 %bytes.addr.1.i to i64
   %buffer51.i = getelementptr inbounds i8, ptr %ctx, i64 72
   br label %for.body49.i
 
 for.body49.i:                                     ; preds = %for.body49.i, %for.cond45.preheader.i
   %i.145.i = phi i64 [ 0, %for.cond45.preheader.i ], [ %inc56.i, %for.body49.i ]
-  %arrayidx50.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %i.145.i
-  %4 = load i8, ptr %arrayidx50.i, align 1
-  %5 = load i64, ptr %leftover.i, align 8
-  %add53.i = add i64 %5, %i.145.i
+  %arrayidx50.i = getelementptr inbounds i8, ptr %m.addr.1.i, i64 %i.145.i
+  %5 = load i8, ptr %arrayidx50.i, align 1
+  %6 = load i64, ptr %leftover.i, align 8
+  %add53.i = add i64 %6, %i.145.i
   %arrayidx54.i = getelementptr inbounds [16 x i8], ptr %buffer51.i, i64 0, i64 %add53.i
-  store i8 %4, ptr %arrayidx54.i, align 1
+  store i8 %5, ptr %arrayidx54.i, align 1
   %inc56.i = add nuw nsw i64 %i.145.i, 1
-  %exitcond46.not.i = icmp eq i64 %inc56.i, %sub18.i
+  %exitcond46.not.i = icmp eq i64 %inc56.i, %conv46.i
   br i1 %exitcond46.not.i, label %for.end57.i, label %for.body49.i, !llvm.loop !6
 
 for.end57.i:                                      ; preds = %for.body49.i
-  %6 = load i64, ptr %leftover.i, align 8
-  %add60.i = add i64 %6, %sub18.i
+  %7 = load i64, ptr %leftover.i, align 8
+  %add60.i = add i64 %7, %conv46.i
   store i64 %add60.i, ptr %leftover.i, align 8
   br label %return
 
-return:                                           ; preds = %if.end28.i, %if.end42.i.thread, %for.end57.i, %for.end.i, %entry
-  %retval.0 = phi i32 [ -173, %entry ], [ 0, %for.end.i ], [ 0, %for.end57.i ], [ 0, %if.end42.i.thread ], [ 0, %if.end28.i ]
+return:                                           ; preds = %for.end57.i, %if.end42.i, %for.end.i, %entry
+  %retval.0 = phi i32 [ -173, %entry ], [ 0, %for.end.i ], [ 0, %if.end42.i ], [ 0, %for.end57.i ]
   ret i32 %retval.0
 }
 
@@ -573,7 +583,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   %leftover.i = getelementptr inbounds i8, ptr %ctx, i64 64
   %0 = load i64, ptr %leftover.i, align 8
   %tobool.not.i = icmp eq i64 %0, 0
-  br i1 %tobool.not.i, label %if.end42.i.thread, label %if.then6.i
+  br i1 %tobool.not.i, label %if.then31.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %lor.lhs.false.i
   %sub.i = sub i64 16, %0
@@ -612,44 +622,54 @@ for.end.i:                                        ; preds = %for.end.loopexit.i,
 if.end28.i:                                       ; preds = %for.end.i
   %add.ptr.i = getelementptr inbounds i8, ptr %little64, i64 %spec.select.i
   %conv17.i = trunc nuw nsw i64 %spec.select.i to i32
-  %sub18.i = sub nuw nsw i64 16, %spec.select.i
+  %sub18.i = sub nuw nsw i32 16, %conv17.i
   %buffer26.i = getelementptr inbounds i8, ptr %ctx, i64 72
   tail call fastcc void @poly1305_blocks(ptr noundef nonnull %ctx, ptr noundef nonnull readonly %buffer26.i, i64 noundef 16)
   store i64 0, ptr %leftover.i, align 8
-  switch i32 %conv17.i, label %for.cond45.preheader.i [
-    i32 0, label %if.end42.i.thread
-    i32 16, label %return
-  ]
+  %cmp29.i = icmp eq i64 %0, 16
+  br i1 %cmp29.i, label %if.then31.i, label %if.end42.i
 
-if.end42.i.thread:                                ; preds = %if.end28.i, %lor.lhs.false.i
+if.then31.i:                                      ; preds = %lor.lhs.false.i, %if.end28.i
   %m.addr.0.i6 = phi ptr [ %add.ptr.i, %if.end28.i ], [ %little64, %lor.lhs.false.i ]
-  call fastcc void @poly1305_blocks(ptr noundef nonnull %ctx, ptr noundef nonnull %m.addr.0.i6, i64 noundef 16)
-  br label %return
+  %bytes.addr.0.i5 = phi i32 [ %sub18.i, %if.end28.i ], [ 16, %lor.lhs.false.i ]
+  %4 = and i32 %bytes.addr.0.i5, 16
+  %and.i = zext nneg i32 %4 to i64
+  call fastcc void @poly1305_blocks(ptr noundef nonnull %ctx, ptr noundef nonnull %m.addr.0.i6, i64 noundef %and.i)
+  %add.ptr39.i = getelementptr inbounds i8, ptr %m.addr.0.i6, i64 %and.i
+  %sub41.i = and i32 %bytes.addr.0.i5, 15
+  br label %if.end42.i
 
-for.cond45.preheader.i:                           ; preds = %if.end28.i
+if.end42.i:                                       ; preds = %if.then31.i, %if.end28.i
+  %bytes.addr.1.i = phi i32 [ %sub41.i, %if.then31.i ], [ %sub18.i, %if.end28.i ]
+  %m.addr.1.i = phi ptr [ %add.ptr39.i, %if.then31.i ], [ %add.ptr.i, %if.end28.i ]
+  %tobool43.not.i = icmp eq i32 %bytes.addr.1.i, 0
+  br i1 %tobool43.not.i, label %return, label %for.cond45.preheader.i
+
+for.cond45.preheader.i:                           ; preds = %if.end42.i
+  %conv46.i = zext nneg i32 %bytes.addr.1.i to i64
   %buffer51.i = getelementptr inbounds i8, ptr %ctx, i64 72
   br label %for.body49.i
 
 for.body49.i:                                     ; preds = %for.body49.i, %for.cond45.preheader.i
   %i.145.i = phi i64 [ 0, %for.cond45.preheader.i ], [ %inc56.i, %for.body49.i ]
-  %arrayidx50.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %i.145.i
-  %4 = load i8, ptr %arrayidx50.i, align 1
-  %5 = load i64, ptr %leftover.i, align 8
-  %add53.i = add i64 %5, %i.145.i
+  %arrayidx50.i = getelementptr inbounds i8, ptr %m.addr.1.i, i64 %i.145.i
+  %5 = load i8, ptr %arrayidx50.i, align 1
+  %6 = load i64, ptr %leftover.i, align 8
+  %add53.i = add i64 %6, %i.145.i
   %arrayidx54.i = getelementptr inbounds [16 x i8], ptr %buffer51.i, i64 0, i64 %add53.i
-  store i8 %4, ptr %arrayidx54.i, align 1
+  store i8 %5, ptr %arrayidx54.i, align 1
   %inc56.i = add nuw nsw i64 %i.145.i, 1
-  %exitcond46.not.i = icmp eq i64 %inc56.i, %sub18.i
+  %exitcond46.not.i = icmp eq i64 %inc56.i, %conv46.i
   br i1 %exitcond46.not.i, label %for.end57.i, label %for.body49.i, !llvm.loop !6
 
 for.end57.i:                                      ; preds = %for.body49.i
-  %6 = load i64, ptr %leftover.i, align 8
-  %add60.i = add i64 %6, %sub18.i
+  %7 = load i64, ptr %leftover.i, align 8
+  %add60.i = add i64 %7, %conv46.i
   store i64 %add60.i, ptr %leftover.i, align 8
   br label %return
 
-return:                                           ; preds = %if.end28.i, %if.end42.i.thread, %for.end57.i, %for.end.i, %entry
-  %retval.0 = phi i32 [ -173, %entry ], [ 0, %for.end.i ], [ 0, %for.end57.i ], [ 0, %if.end42.i.thread ], [ 0, %if.end28.i ]
+return:                                           ; preds = %for.end57.i, %if.end42.i, %for.end.i, %entry
+  %retval.0 = phi i32 [ -173, %entry ], [ 0, %for.end.i ], [ 0, %if.end42.i ], [ 0, %for.end57.i ]
   ret i32 %retval.0
 }
 

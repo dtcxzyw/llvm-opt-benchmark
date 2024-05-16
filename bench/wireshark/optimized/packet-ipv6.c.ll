@@ -6665,7 +6665,7 @@ dissect_opt_quickstart.exit:                      ; preds = %dissect_opt_quickst
   %351 = zext i8 %310 to i32
   %352 = shl nuw nsw i32 %351, 2
   %353 = and i32 %349, 65535
-  %354 = icmp ne i16 %350, 0
+  %354 = icmp ne i32 %322, %321
   %355 = icmp ule i32 %352, %353
   %356 = select i1 %354, i1 %355, i1 false
   br i1 %356, label %.lr.ph.i.i, label %._crit_edge.i.i

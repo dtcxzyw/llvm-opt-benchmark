@@ -1418,7 +1418,7 @@ if.else13.i.i.i164:                               ; preds = %if.else.i.i.i149
   br label %if.end.i.i211
 
 if.end.i113:                                      ; preds = %_ZN4llvh11SmallVectorIcLj32EEC2EmRKc.exit
-  %tobool.not.i4.i114 = icmp ult i32 %str16.sroa.9.8.extract.trunc, 1073741824
+  %tobool.not.i4.i114 = icmp ult i64 %bf.set.i.i, 1073741824
   br i1 %tobool.not.i4.i114, label %if.end.i177, label %if.end.i5.i115
 
 if.end.i5.i115:                                   ; preds = %if.end.i113

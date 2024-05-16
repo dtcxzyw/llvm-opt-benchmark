@@ -3164,23 +3164,23 @@ define dso_local i32 @kernel_wait(i32 noundef %0, ptr nocapture noundef writeonl
   %6 = tail call ptr @find_get_pid(i32 noundef %0) #15
   store ptr %6, ptr %5, align 8
   %7 = call fastcc i64 @do_wait(ptr noundef nonnull %3), !range !76
-  %8 = trunc nsw i64 %7 to i32
-  %9 = icmp sgt i32 %8, 0
-  %10 = getelementptr inbounds i8, ptr %3, i64 24
-  %11 = load i32, ptr %10, align 8
-  %12 = icmp ne i32 %11, 0
-  %13 = select i1 %9, i1 %12, i1 false
-  br i1 %13, label %14, label %15
+  %8 = icmp sgt i64 %7, 0
+  %9 = getelementptr inbounds i8, ptr %3, i64 24
+  %10 = load i32, ptr %9, align 8
+  %11 = icmp ne i32 %10, 0
+  %12 = select i1 %8, i1 %11, i1 false
+  br i1 %12, label %13, label %14
 
-14:                                               ; preds = %2
-  store i32 %11, ptr %1, align 4
-  br label %15
+13:                                               ; preds = %2
+  store i32 %10, ptr %1, align 4
+  br label %14
 
-15:                                               ; preds = %14, %2
+14:                                               ; preds = %13, %2
+  %15 = trunc nsw i64 %7 to i32
   %16 = load ptr, ptr %5, align 8
   call void @put_pid(ptr noundef %16) #15
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %3) #15
-  ret i32 %8
+  ret i32 %15
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

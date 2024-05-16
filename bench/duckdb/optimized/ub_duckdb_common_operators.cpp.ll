@@ -44141,8 +44141,6 @@ entry:
 define linkonce_odr noundef i64 @_ZN6duckdb20IntervalToStringCast6FormatENS_10interval_tEPc(i64 %interval.coerce0, i64 %interval.coerce1, ptr noundef %buffer) local_unnamed_addr #1 comdat align 2 {
 entry:
   %interval.sroa.0.0.extract.trunc = trunc i64 %interval.coerce0 to i32
-  %interval.sroa.4.0.extract.shift = lshr i64 %interval.coerce0, 32
-  %interval.sroa.4.0.extract.trunc = trunc nuw i64 %interval.sroa.4.0.extract.shift to i32
   %cmp.not = icmp eq i32 %interval.sroa.0.0.extract.trunc, 0
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -44352,7 +44350,7 @@ if.then5.i129:                                    ; preds = %_ZN6duckdb20Interva
 
 if.end:                                           ; preds = %if.then5.i129, %_ZN6duckdb20IntervalToStringCast18FormatSignedNumberElPcRm.exit.i125, %_ZN6duckdb20IntervalToStringCast19FormatIntervalValueEiPcRmPKcm.exit.thread, %_ZN6duckdb20IntervalToStringCast19FormatIntervalValueEiPcRmPKcm.exit, %entry
   %length.4 = phi i64 [ 0, %entry ], [ %length.1, %_ZN6duckdb20IntervalToStringCast19FormatIntervalValueEiPcRmPKcm.exit ], [ %add.i127, %_ZN6duckdb20IntervalToStringCast18FormatSignedNumberElPcRm.exit.i125 ], [ %inc6.i130, %if.then5.i129 ], [ 0, %_ZN6duckdb20IntervalToStringCast19FormatIntervalValueEiPcRmPKcm.exit.thread ]
-  %cmp4.not = icmp eq i32 %interval.sroa.4.0.extract.trunc, 0
+  %cmp4.not = icmp ult i64 %interval.coerce0, 4294967296
   br i1 %cmp4.not, label %if.end7, label %if.end.i151
 
 if.end.i151:                                      ; preds = %if.end
@@ -44444,7 +44442,8 @@ _ZN6duckdb20IntervalToStringCast18FormatSignedNumberElPcRm.exit.i188.thread: ; p
 _ZN6duckdb20IntervalToStringCast18FormatSignedNumberElPcRm.exit.i188: ; preds = %_ZN6duckdb13NumericHelper14FormatUnsignedImEEPcT_S2_.exit.i.i181
   store i32 2036425760, ptr %add.ptr.i.i166, align 1
   %add.i190 = add nsw i64 %add.i.i165, 4
-  %cmp4.not.i191 = icmp eq i32 %interval.sroa.4.0.extract.trunc, 1
+  %interval.sroa.4.0.extract.shift.mask = and i64 %interval.coerce0, 9223372032559808512
+  %cmp4.not.i191 = icmp eq i64 %interval.sroa.4.0.extract.shift.mask, 4294967296
   br i1 %cmp4.not.i191, label %if.end7, label %if.then5.i192
 
 if.then5.i192:                                    ; preds = %_ZN6duckdb20IntervalToStringCast18FormatSignedNumberElPcRm.exit.i188, %_ZN6duckdb20IntervalToStringCast18FormatSignedNumberElPcRm.exit.i188.thread
@@ -45789,7 +45788,7 @@ if.then39:                                        ; preds = %if.end35
   %arrayidx41 = getelementptr inbounds i8, ptr %cond.i, i64 %add
   store i8 58, ptr %arrayidx41, align 1, !tbaa !7
   %add.ptr42 = getelementptr i8, ptr %arrayidx41, i64 1
-  %cmp.i107 = icmp ult i16 %div11.lhs.trunc, 600
+  %cmp.i107 = icmp ult i32 %rem, 600
   br i1 %cmp.i107, label %if.then.i117, label %if.else.i108
 
 if.then.i117:                                     ; preds = %if.then39
@@ -108591,7 +108590,7 @@ if.end6:                                          ; preds = %if.end
   %conv10 = trunc nsw i32 %rem to i16
   %div = sdiv i32 %conv7, %conv9
   %conv16 = trunc nsw i32 %div to i16
-  %cmp37.i43 = icmp ugt i16 %conv10, 99
+  %cmp37.i43 = icmp ugt i32 %rem, 99
   br i1 %cmp37.i43, label %while.body.i59, label %while.end.i44
 
 while.body.i59:                                   ; preds = %if.end6, %while.body.i59
@@ -108667,7 +108666,7 @@ while.end:                                        ; preds = %while.body.preheade
   br i1 %cmp24, label %if.then25, label %cleanup
 
 if.then25:                                        ; preds = %while.end
-  %cmp37.i72 = icmp ugt i16 %conv16, 99
+  %cmp37.i72 = icmp ugt i32 %div, 99
   br i1 %cmp37.i72, label %while.body.i88, label %while.end.i73
 
 while.body.i88:                                   ; preds = %if.then25, %while.body.i88

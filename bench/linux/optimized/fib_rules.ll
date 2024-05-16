@@ -1692,7 +1692,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @fib_nl2rule(ptr %.24.val.4
 229:                                              ; preds = %223
   %230 = lshr i64 %226, 32
   %231 = trunc nuw i64 %230 to i32
-  %232 = icmp eq i32 %231, -1
+  %232 = icmp eq i64 %230, 4294967295
   %233 = icmp ugt i32 %227, %231
   %or.cond = or i1 %232, %233
   br i1 %or.cond, label %234, label %238

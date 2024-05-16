@@ -5903,7 +5903,7 @@ if.then250:                                       ; preds = %for.end229
   br i1 %cmp254.not, label %lor.lhs.false256, label %if.then310
 
 lor.lhs.false256:                                 ; preds = %if.then250
-  %cmp257 = icmp eq i32 %conv204, 3
+  %cmp257 = icmp eq i64 %rem, 3
   br i1 %cmp257, label %land.lhs.true259, label %for.cond285.preheader
 
 land.lhs.true259:                                 ; preds = %lor.lhs.false256

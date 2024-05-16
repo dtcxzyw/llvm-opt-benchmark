@@ -2938,7 +2938,7 @@ invoke.cont45:                                    ; preds = %_ZNKSt14default_del
   br i1 %tobool, label %if.then51, label %if.else124
 
 if.then51:                                        ; preds = %invoke.cont45
-  %cmp52 = icmp eq i32 %column_metadata.sroa.325.0.extract.trunc500, 0
+  %cmp52 = icmp ult i64 %retval.sroa.0.0.copyload.i.i499, 4294967296
   br i1 %cmp52, label %if.then53, label %if.else
 
 if.then53:                                        ; preds = %if.then51
@@ -3575,7 +3575,7 @@ do.end243:                                        ; preds = %_ZN5arrow6StatusD2E
   br i1 %tobool246, label %if.then247, label %_ZN5arrow6StatusD2Ev.exit456
 
 if.then247:                                       ; preds = %do.end243
-  %cmp249 = icmp eq i32 %column_metadata.sroa.325.0.extract.trunc500, 0
+  %cmp249 = icmp ult i64 %retval.sroa.0.0.copyload.i.i499, 4294967296
   %140 = load ptr, ptr %arrayidx, align 8
   br i1 %cmp249, label %_ZN5arrow6StatusD2Ev.exit370, label %_ZN5arrow6StatusD2Ev.exit417
 
@@ -5475,7 +5475,7 @@ while.body.lr.ph:                                 ; preds = %_ZN5arrow6ResultINS
   br i1 %tobool, label %while.body.lr.ph.split.us, label %while.body.lr.ph.split
 
 while.body.lr.ph.split.us:                        ; preds = %while.body.lr.ph
-  %cmp3 = icmp eq i32 %column_metadata.sroa.26.0.extract.trunc19, 0
+  %cmp3 = icmp ult i64 %retval.sroa.0.0.copyload.i.i18, 4294967296
   br i1 %cmp3, label %while.body.us.us, label %while.body.us
 
 while.body.us.us:                                 ; preds = %while.body.lr.ph.split.us, %while.body.us.us
@@ -8067,7 +8067,7 @@ for.cond24.preheader.i908:                        ; preds = %_ZN5arrow6ResultINS
   br i1 %cmp2567.i, label %for.body26.lr.ph.i909, label %"_ZN5arrow7compute16ExecBatchBuilder5VisitIZNS1_14AppendSelectedERKSt10shared_ptrINS_9ArrayDataEEPNS0_18ResizableArrayDataEiPKtPNS_10MemoryPoolEE3$_7EEvS7_iSB_T_.exit"
 
 for.body26.lr.ph.i909:                            ; preds = %for.cond24.preheader.i908
-  %cmp.i.i43.i = icmp eq i32 %metadata.sroa.211.0.extract.trunc63.i, 0
+  %cmp.i.i43.i = icmp ult i64 %retval.sroa.0.0.copyload.i.i61.i, 4294967296
   %sub.i.i45.i910 = add i32 %metadata.sroa.211.0.extract.trunc63.i, -1
   %div.i678.i46.i = lshr i32 %sub.i.i45.i910, 3
   %360 = add nuw nsw i32 %div.i678.i46.i, 1

@@ -11770,12 +11770,12 @@ if.end64.i:                                       ; preds = %if.then60.i, %lor.l
 
 if.then70.i:                                      ; preds = %if.end64.i
   %47 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %a0.5.i, i1 true)
-  %cast.i.i = trunc nuw nsw i64 %47 to i32
   %shl.i123.i = shl i64 %a1.3.i, %47
-  %cmp.i124.i = icmp eq i32 %cast.i.i, 0
+  %cmp.i124.i = icmp eq i64 %47, 0
   br i1 %cmp.i124.i, label %if.end87.i, label %cond.false.i125.i
 
 cond.false.i125.i:                                ; preds = %if.then70.i
+  %cast.i.i = trunc nuw nsw i64 %47 to i32
   %shl2.i126.i = shl i64 %a0.5.i, %47
   %sub.i127.i = sub nsw i64 0, %47
   %and.i128.i = and i64 %sub.i127.i, 63
@@ -12610,7 +12610,7 @@ if.then69.i:                                      ; preds = %if.end63.i
   %cast.i.i = trunc nuw nsw i64 %85 to i32
   %shl2.i160.i = shl i64 %a1.5.i, %85
   %shl4.i161.i = shl i64 %a0.5.i, %85
-  %cmp.i162.not.i = icmp eq i32 %cast.i.i, 0
+  %cmp.i162.not.i = icmp eq i64 %85, 0
   br i1 %cmp.i162.not.i, label %shortShift192Left.exit174.i, label %if.then.i167.i
 
 if.then.i167.i:                                   ; preds = %if.then69.i
@@ -12638,7 +12638,7 @@ if.then79.i:                                      ; preds = %if.else71.i
   %89 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %a1.5.i, i1 true)
   %cast.i175.i = trunc nuw nsw i64 %89 to i32
   %shl.i177.i = shl i64 %a2.3.i, %89
-  %cmp.i178.i = icmp eq i32 %cast.i175.i, 0
+  %cmp.i178.i = icmp eq i64 %89, 0
   br i1 %cmp.i178.i, label %shortShift128Left.exit.i, label %cond.false.i179.i
 
 cond.false.i179.i:                                ; preds = %if.then79.i
@@ -23134,9 +23134,9 @@ if.end:                                           ; preds = %if.then4, %if.then
   %a.sroa.0.0.insert.insert.i21.pre-phi = phi i128 [ %a.sroa.0.0.insert.insert.neg.i, %if.then4 ], [ %a.sroa.0.0.insert.insert.i, %if.then ]
   %a.addr.0.off0 = phi i64 [ %retval.sroa.0.0.extract.trunc.i, %if.then4 ], [ %a.coerce0, %if.then ]
   %a.addr.0.off64 = phi i64 [ %retval.sroa.2.0.extract.trunc.i, %if.then4 ], [ %a.coerce1, %if.then ]
-  %0 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %a.addr.0.off64, i1 false)
+  %0 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %a.addr.0.off64, i1 true)
   %cast.i = trunc nuw nsw i64 %0 to i32
-  %cmp = icmp eq i32 %cast.i, 64
+  %cmp = icmp eq i64 %a.addr.0.off64, 0
   %1 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %a.addr.0.off0, i1 false)
   %cast.i17 = trunc nuw nsw i64 %1 to i32
   %add = add nuw nsw i32 %cast.i17, 64
@@ -24955,9 +24955,9 @@ entry:
   br i1 %cmp.i.not, label %if.end17, label %if.then
 
 if.then:                                          ; preds = %entry
-  %0 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %a.coerce1, i1 false)
+  %0 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %a.coerce1, i1 true)
   %cast.i = trunc nuw nsw i64 %0 to i32
-  %cmp = icmp eq i32 %cast.i, 64
+  %cmp = icmp eq i64 %a.coerce1, 0
   %1 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %a.coerce0, i1 false)
   %cast.i9 = trunc nuw nsw i64 %1 to i32
   %add = add nuw nsw i32 %cast.i9, 64
@@ -31875,8 +31875,7 @@ entry:
   %zSig0.addr.0 = select i1 %cmp, i64 %zSig1, i64 %zSig0
   %zSig1.addr.0 = select i1 %cmp, i64 0, i64 %zSig1
   %0 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %zSig0.addr.0, i1 false)
-  %cast.i = trunc nuw nsw i64 %0 to i32
-  %cmp.i = icmp eq i32 %cast.i, 0
+  %cmp.i = icmp eq i64 %0, 0
   br i1 %cmp.i, label %shortShift128Left.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %entry
@@ -31889,6 +31888,7 @@ cond.false.i:                                     ; preds = %entry
 
 shortShift128Left.exit:                           ; preds = %entry, %cond.false.i
   %cond.i = phi i64 [ %or.i, %cond.false.i ], [ %zSig0.addr.0, %entry ]
+  %cast.i = trunc nuw nsw i64 %0 to i32
   %shl.i = shl i64 %zSig1.addr.0, %0
   %sub = add i32 %zExp, -64
   %zExp.addr.0 = select i1 %cmp, i32 %sub, i32 %zExp
@@ -35362,7 +35362,7 @@ if.end19:                                         ; preds = %frac256_shrjam.exit
 if.then.i:                                        ; preds = %if.end19
   %125 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %124, i1 true)
   %cast.i.i = trunc nuw nsw i64 %125 to i32
-  %cmp.i = icmp eq i32 %cast.i.i, 0
+  %cmp.i = icmp eq i64 %125, 0
   br i1 %cmp.i, label %if.then26, label %if.end22.i
 
 if.else.i:                                        ; preds = %if.end19
@@ -35383,11 +35383,11 @@ if.end16.i:                                       ; preds = %if.else10.i, %if.el
   %a2.0.i130 = phi i64 [ %121, %if.else.i ], [ 0, %if.else7.i ], [ 0, %if.else10.i ]
   %ret.0.i = phi i32 [ 64, %if.else.i ], [ 128, %if.else7.i ], [ 192, %if.else10.i ]
   %126 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %a0.0.i128, i1 true)
-  %cast.i38.i = trunc nuw nsw i64 %126 to i32
-  %cmp18.i = icmp eq i32 %cast.i38.i, 0
+  %cmp18.i = icmp eq i64 %126, 0
   br i1 %cmp18.i, label %frac256_normalize.exit.thread136, label %if.end21.i
 
 if.end21.i:                                       ; preds = %if.end16.i
+  %cast.i38.i = trunc nuw nsw i64 %126 to i32
   %add.i = or disjoint i32 %ret.0.i, %cast.i38.i
   br label %if.end22.i
 

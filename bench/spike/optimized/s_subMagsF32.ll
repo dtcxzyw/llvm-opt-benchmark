@@ -51,7 +51,7 @@ define i32 @softfloat_subMagsF32(i64 noundef %0, i64 noundef %1) local_unnamed_a
   %.064 = tail call i64 @llvm.abs.i64(i64 %21, i1 true)
   %.062 = select i1 %24, i1 %.not76, i1 %23
   %25 = trunc nuw nsw i64 %.064 to i32
-  %26 = icmp ult i32 %25, 65536
+  %26 = icmp ult i64 %.064, 65536
   %27 = shl nuw i32 %25, 16
   %spec.select.i = select i1 %26, i32 %27, i32 %25
   %spec.select12.i = select i1 %26, i8 16, i8 0
@@ -134,28 +134,28 @@ define i32 @softfloat_subMagsF32(i64 noundef %0, i64 noundef %1) local_unnamed_a
   %.0 = phi i64 [ %62, %60 ], [ %69, %67 ]
   %.059 = add nuw nsw i64 %.059.in, 1073741824
   %.1 = add nsw i64 %.1.in, -1
-  %73 = trunc nuw nsw i64 %.0 to i32
-  %74 = icmp ult i64 %.066, 31
-  br i1 %74, label %75, label %84
+  %73 = icmp ult i64 %.066, 31
+  br i1 %73, label %74, label %84
 
-75:                                               ; preds = %72
+74:                                               ; preds = %72
+  %75 = trunc nuw nsw i64 %.0 to i32
   %76 = trunc nuw nsw i64 %.066 to i32
-  %77 = lshr i32 %73, %76
+  %77 = lshr i32 %75, %76
   %78 = sub nsw i32 0, %76
   %79 = and i32 %78, 31
-  %80 = shl i32 %73, %79
+  %80 = shl i32 %75, %79
   %81 = icmp ne i32 %80, 0
   %82 = zext i1 %81 to i32
   %83 = or i32 %77, %82
   br label %softfloat_shiftRightJam32.exit
 
 84:                                               ; preds = %72
-  %85 = icmp ne i32 %73, 0
+  %85 = icmp ne i64 %.0, 0
   %86 = zext i1 %85 to i32
   br label %softfloat_shiftRightJam32.exit
 
-softfloat_shiftRightJam32.exit:                   ; preds = %75, %84
-  %87 = phi i32 [ %83, %75 ], [ %86, %84 ]
+softfloat_shiftRightJam32.exit:                   ; preds = %74, %84
+  %87 = phi i32 [ %83, %74 ], [ %86, %84 ]
   %88 = zext nneg i32 %87 to i64
   %89 = sub nsw i64 %.059, %88
   %90 = tail call i32 @softfloat_normRoundPackToF32(i1 noundef zeroext %.163, i64 noundef %.1, i64 noundef %89) #3

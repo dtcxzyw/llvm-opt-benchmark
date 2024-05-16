@@ -40449,13 +40449,13 @@ define internal fastcc void @tg3_read_mgmtfw_ver(ptr noundef %0) unnamed_addr #2
   store i32 0, ptr %3, align 4, !annotation !5
   %35 = call fastcc i32 @tg3_nvram_read(ptr noundef %0, i32 noundef %34, ptr noundef nonnull %3), !range !7
   %36 = icmp eq i32 %35, 0
-  br i1 %36, label %37, label %86
+  br i1 %36, label %37, label %85
 
 37:                                               ; preds = %33
   %38 = load i32, ptr %3, align 4
   %39 = and i32 %38, -67108864
   %40 = icmp eq i32 %39, 201326592
-  br i1 %40, label %41, label %86
+  br i1 %40, label %41, label %85
 
 41:                                               ; preds = %37
   %42 = add i32 %34, 4
@@ -40493,56 +40493,55 @@ define internal fastcc void @tg3_read_mgmtfw_ver(ptr noundef %0) unnamed_addr #2
   %66 = ashr exact i64 %sext, 32
   br label %67
 
-67:                                               ; preds = %82, %52
-  %indvars.iv = phi i64 [ %indvars.iv.next, %82 ], [ %66, %52 ]
-  %68 = phi i32 [ %84, %82 ], [ 0, %52 ]
-  %69 = phi i32 [ %83, %82 ], [ %56, %52 ]
+67:                                               ; preds = %81, %52
+  %indvars.iv = phi i64 [ %indvars.iv.next, %81 ], [ %66, %52 ]
+  %68 = phi i32 [ %83, %81 ], [ 0, %52 ]
+  %69 = phi i32 [ %82, %81 ], [ %56, %52 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #26
   store i32 0, ptr %2, align 4, !annotation !5
   %70 = call fastcc i32 @tg3_nvram_read(ptr noundef %0, i32 noundef %69, ptr noundef nonnull %2), !range !7
   %71 = icmp eq i32 %70, 0
-  br i1 %71, label %72, label %81
+  br i1 %71, label %72, label %80
 
 72:                                               ; preds = %67
   %73 = load i32, ptr %2, align 4
   %74 = tail call i32 @llvm.bswap.i32(i32 %73)
   store i32 %74, ptr %7, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #26
-  %75 = trunc nsw i64 %indvars.iv to i32
-  %76 = icmp ugt i32 %75, 28
-  %77 = getelementptr [32 x i8], ptr %57, i64 0, i64 %indvars.iv
-  br i1 %76, label %78, label %82
+  %75 = icmp ugt i64 %indvars.iv, 28
+  %76 = getelementptr [32 x i8], ptr %57, i64 0, i64 %indvars.iv
+  br i1 %75, label %77, label %81
 
-78:                                               ; preds = %72
-  %79 = shl i64 %indvars.iv, 32
-  %sext29 = sub i64 137438953472, %79
-  %80 = ashr exact i64 %sext29, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %77, ptr nonnull align 4 %7, i64 %80, i1 false)
+77:                                               ; preds = %72
+  %78 = shl i64 %indvars.iv, 32
+  %sext29 = sub i64 137438953472, %78
+  %79 = ashr exact i64 %sext29, 32
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %76, ptr nonnull align 4 %7, i64 %79, i1 false)
   br label %.thread3
 
-81:                                               ; preds = %67
+80:                                               ; preds = %67
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #26
   br label %.thread3
 
-.thread3:                                         ; preds = %78, %81
+.thread3:                                         ; preds = %77, %80
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   br label %.thread
 
-82:                                               ; preds = %72
-  %83 = add i32 %69, 4
-  store i32 %74, ptr %77, align 1
+81:                                               ; preds = %72
+  %82 = add i32 %69, 4
+  store i32 %74, ptr %76, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  %84 = add nuw nsw i32 %68, 1
-  %85 = icmp eq i32 %84, 4
-  br i1 %85, label %.thread, label %67, !llvm.loop !264
+  %83 = add nuw nsw i32 %68, 1
+  %84 = icmp eq i32 %83, 4
+  br i1 %84, label %.thread, label %67, !llvm.loop !264
 
-86:                                               ; preds = %37, %33
+85:                                               ; preds = %37, %33
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #26
   br label %.thread
 
-.thread:                                          ; preds = %8, %16, %82, %.thread3, %86, %48, %41, %29, %25
+.thread:                                          ; preds = %8, %16, %81, %.thread3, %85, %48, %41, %29, %25
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #26
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #26
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #26

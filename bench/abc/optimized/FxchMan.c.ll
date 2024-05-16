@@ -1684,189 +1684,188 @@ define internal fastcc void @Fxch_ManDivDoubleCube(ptr nocapture noundef %0, i32
 .critedge:                                        ; preds = %15, %4
   %.058.lcssa = phi i32 [ 0, %4 ], [ %21, %15 ]
   %22 = trunc nuw nsw i32 %3 to i8
-  %23 = and i32 %2, 255
-  %.not.i = icmp eq i32 %23, 0
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
-  %25 = load ptr, ptr %24, align 8
+  %.not.i = icmp eq i32 %2, 0
+  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = load ptr, ptr %23, align 8
   br i1 %.not.i, label %Fxch_ManSCAddRemove.exit, label %Fxch_ManSCAddRemove.exit.thread
 
 Fxch_ManSCAddRemove.exit:                         ; preds = %.critedge
-  %26 = tail call i32 @Fxch_SCHashTableRemove(ptr noundef %25, ptr noundef %7, i32 noundef %.058.lcssa, i32 noundef %1, i32 noundef 0, i32 noundef 0, i8 noundef signext %22) #19
+  %25 = tail call i32 @Fxch_SCHashTableRemove(ptr noundef %24, ptr noundef %7, i32 noundef %.058.lcssa, i32 noundef %1, i32 noundef 0, i32 noundef 0, i8 noundef signext %22) #19
   %.val7187 = load i32, ptr %11, align 4
-  %27 = icmp sgt i32 %.val7187, 1
-  br i1 %27, label %Fxch_ManSCAddRemove.exit75.us.preheader, label %.critedge2
+  %26 = icmp sgt i32 %.val7187, 1
+  br i1 %26, label %Fxch_ManSCAddRemove.exit75.us.preheader, label %.critedge2
 
 Fxch_ManSCAddRemove.exit.thread:                  ; preds = %.critedge
-  %28 = tail call i32 @Fxch_SCHashTableInsert(ptr noundef %25, ptr noundef %7, i32 noundef %.058.lcssa, i32 noundef %1, i32 noundef 0, i32 noundef 0, i8 noundef signext %22) #19
+  %27 = tail call i32 @Fxch_SCHashTableInsert(ptr noundef %24, ptr noundef %7, i32 noundef %.058.lcssa, i32 noundef %1, i32 noundef 0, i32 noundef 0, i8 noundef signext %22) #19
   %.val7187126 = load i32, ptr %11, align 4
-  %29 = icmp sgt i32 %.val7187126, 1
-  br i1 %29, label %Fxch_ManSCAddRemove.exit75.preheader, label %.critedge2
+  %28 = icmp sgt i32 %.val7187126, 1
+  br i1 %28, label %Fxch_ManSCAddRemove.exit75.preheader, label %.critedge2
 
 Fxch_ManSCAddRemove.exit75.preheader:             ; preds = %Fxch_ManSCAddRemove.exit.thread
-  %30 = getelementptr i8, ptr %10, i64 8
-  %31 = getelementptr i8, ptr %6, i64 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 204
-  %.val65.pre = load ptr, ptr %31, align 8
+  %29 = getelementptr i8, ptr %10, i64 8
+  %30 = getelementptr i8, ptr %6, i64 8
+  %31 = getelementptr inbounds i8, ptr %0, i64 204
+  %.val65.pre = load ptr, ptr %30, align 8
   br label %Fxch_ManSCAddRemove.exit75
 
 Fxch_ManSCAddRemove.exit75.us.preheader:          ; preds = %Fxch_ManSCAddRemove.exit
-  %33 = getelementptr i8, ptr %10, i64 8
-  %34 = getelementptr i8, ptr %6, i64 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 204
-  %.val65.us.pre = load ptr, ptr %34, align 8
+  %32 = getelementptr i8, ptr %10, i64 8
+  %33 = getelementptr i8, ptr %6, i64 8
+  %34 = getelementptr inbounds i8, ptr %0, i64 204
+  %.val65.us.pre = load ptr, ptr %33, align 8
   br label %Fxch_ManSCAddRemove.exit75.us
 
 Fxch_ManSCAddRemove.exit75.us:                    ; preds = %Fxch_ManSCAddRemove.exit75.us.preheader, %.critedge4.us
   %.val65.us = phi ptr [ %.val65.us.pre, %Fxch_ManSCAddRemove.exit75.us.preheader ], [ %.val61.us, %.critedge4.us ]
   %indvars.iv111 = phi i64 [ 1, %Fxch_ManSCAddRemove.exit75.us.preheader ], [ %indvars.iv.next112.pre-phi, %.critedge4.us ]
   %indvars.iv106 = phi i64 [ 2, %Fxch_ManSCAddRemove.exit75.us.preheader ], [ %indvars.iv.next107, %.critedge4.us ]
-  %.191.us = phi i32 [ %.058.lcssa, %Fxch_ManSCAddRemove.exit75.us.preheader ], [ %51, %.critedge4.us ]
-  %.val66.us = load ptr, ptr %33, align 8
-  %36 = getelementptr inbounds i32, ptr %.val66.us, i64 %indvars.iv111
-  %37 = load i32, ptr %36, align 4
-  %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds i32, ptr %.val65.us, i64 %38
-  %40 = load i32, ptr %39, align 4
-  %41 = sub nsw i32 %.191.us, %40
-  %42 = load ptr, ptr %24, align 8
-  %43 = load ptr, ptr %0, align 8
-  %44 = trunc nuw nsw i64 %indvars.iv111 to i32
-  %45 = tail call i32 @Fxch_SCHashTableRemove(ptr noundef %42, ptr noundef %43, i32 noundef %41, i32 noundef %1, i32 noundef %44, i32 noundef 0, i8 noundef signext %22) #19
-  %46 = load i32, ptr %35, align 4
-  %47 = add nsw i32 %46, %45
-  store i32 %47, ptr %35, align 4
+  %.191.us = phi i32 [ %.058.lcssa, %Fxch_ManSCAddRemove.exit75.us.preheader ], [ %50, %.critedge4.us ]
+  %.val66.us = load ptr, ptr %32, align 8
+  %35 = getelementptr inbounds i32, ptr %.val66.us, i64 %indvars.iv111
+  %36 = load i32, ptr %35, align 4
+  %37 = sext i32 %36 to i64
+  %38 = getelementptr inbounds i32, ptr %.val65.us, i64 %37
+  %39 = load i32, ptr %38, align 4
+  %40 = sub nsw i32 %.191.us, %39
+  %41 = load ptr, ptr %23, align 8
+  %42 = load ptr, ptr %0, align 8
+  %43 = trunc nuw nsw i64 %indvars.iv111 to i32
+  %44 = tail call i32 @Fxch_SCHashTableRemove(ptr noundef %41, ptr noundef %42, i32 noundef %40, i32 noundef %1, i32 noundef %43, i32 noundef 0, i8 noundef signext %22) #19
+  %45 = load i32, ptr %34, align 4
+  %46 = add nsw i32 %45, %44
+  store i32 %46, ptr %34, align 4
   %.val70.us = load i32, ptr %11, align 4
-  %48 = icmp sgt i32 %.val70.us, 2
-  br i1 %48, label %.preheader.us, label %Fxch_ManSCAddRemove.exit75.us..critedge4.us_crit_edge
+  %47 = icmp sgt i32 %.val70.us, 2
+  br i1 %47, label %.preheader.us, label %Fxch_ManSCAddRemove.exit75.us..critedge4.us_crit_edge
 
 Fxch_ManSCAddRemove.exit75.us..critedge4.us_crit_edge: ; preds = %Fxch_ManSCAddRemove.exit75.us
-  %.val61.us.pre = load ptr, ptr %34, align 8
+  %.val61.us.pre = load ptr, ptr %33, align 8
   %.pre = add nuw nsw i64 %indvars.iv111, 1
   br label %.critedge4.us
 
 .critedge4.us:                                    ; preds = %Fxch_ManSCAddRemove.exit78.us.us, %Fxch_ManSCAddRemove.exit75.us..critedge4.us_crit_edge, %.preheader.us
-  %indvars.iv.next112.pre-phi = phi i64 [ %.pre, %Fxch_ManSCAddRemove.exit75.us..critedge4.us_crit_edge ], [ %54, %.preheader.us ], [ %54, %Fxch_ManSCAddRemove.exit78.us.us ]
+  %indvars.iv.next112.pre-phi = phi i64 [ %.pre, %Fxch_ManSCAddRemove.exit75.us..critedge4.us_crit_edge ], [ %53, %.preheader.us ], [ %53, %Fxch_ManSCAddRemove.exit78.us.us ]
   %.val71.us = phi i32 [ %.val70.us, %Fxch_ManSCAddRemove.exit75.us..critedge4.us_crit_edge ], [ %.val70.us, %.preheader.us ], [ %.val69.us.us, %Fxch_ManSCAddRemove.exit78.us.us ]
   %.val61.us = phi ptr [ %.val61.us.pre, %Fxch_ManSCAddRemove.exit75.us..critedge4.us_crit_edge ], [ %.val61.us.pre122, %.preheader.us ], [ %.val62.us.us, %Fxch_ManSCAddRemove.exit78.us.us ]
-  %.3.us = phi i32 [ %41, %Fxch_ManSCAddRemove.exit75.us..critedge4.us_crit_edge ], [ %41, %.preheader.us ], [ %71, %Fxch_ManSCAddRemove.exit78.us.us ]
-  %49 = getelementptr inbounds i32, ptr %.val61.us, i64 %38
-  %50 = load i32, ptr %49, align 4
-  %51 = add nsw i32 %50, %.3.us
-  %52 = sext i32 %.val71.us to i64
-  %53 = icmp slt i64 %indvars.iv.next112.pre-phi, %52
+  %.3.us = phi i32 [ %40, %Fxch_ManSCAddRemove.exit75.us..critedge4.us_crit_edge ], [ %40, %.preheader.us ], [ %70, %Fxch_ManSCAddRemove.exit78.us.us ]
+  %48 = getelementptr inbounds i32, ptr %.val61.us, i64 %37
+  %49 = load i32, ptr %48, align 4
+  %50 = add nsw i32 %49, %.3.us
+  %51 = sext i32 %.val71.us to i64
+  %52 = icmp slt i64 %indvars.iv.next112.pre-phi, %51
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
-  br i1 %53, label %Fxch_ManSCAddRemove.exit75.us, label %.critedge2, !llvm.loop !26
+  br i1 %52, label %Fxch_ManSCAddRemove.exit75.us, label %.critedge2, !llvm.loop !26
 
 .preheader.us:                                    ; preds = %Fxch_ManSCAddRemove.exit75.us
-  %54 = add nuw nsw i64 %indvars.iv111, 1
-  %55 = zext nneg i32 %.val70.us to i64
-  %56 = icmp slt i64 %54, %55
-  %.val61.us.pre122 = load ptr, ptr %34, align 8
-  br i1 %56, label %Fxch_ManSCAddRemove.exit78.us.us, label %.critedge4.us
+  %53 = add nuw nsw i64 %indvars.iv111, 1
+  %54 = zext nneg i32 %.val70.us to i64
+  %55 = icmp slt i64 %53, %54
+  %.val61.us.pre122 = load ptr, ptr %33, align 8
+  br i1 %55, label %Fxch_ManSCAddRemove.exit78.us.us, label %.critedge4.us
 
 Fxch_ManSCAddRemove.exit78.us.us:                 ; preds = %.preheader.us, %Fxch_ManSCAddRemove.exit78.us.us
   %.val63.us.us = phi ptr [ %.val62.us.us, %Fxch_ManSCAddRemove.exit78.us.us ], [ %.val61.us.pre122, %.preheader.us ]
   %indvars.iv108 = phi i64 [ %indvars.iv.next109, %Fxch_ManSCAddRemove.exit78.us.us ], [ %indvars.iv106, %.preheader.us ]
-  %.283.us.us = phi i32 [ %71, %Fxch_ManSCAddRemove.exit78.us.us ], [ %41, %.preheader.us ]
-  %.val64.us.us = load ptr, ptr %33, align 8
-  %57 = getelementptr inbounds i32, ptr %.val64.us.us, i64 %indvars.iv108
-  %58 = load i32, ptr %57, align 4
-  %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds i32, ptr %.val63.us.us, i64 %59
-  %61 = load i32, ptr %60, align 4
-  %62 = sub nsw i32 %.283.us.us, %61
-  %63 = load ptr, ptr %24, align 8
-  %64 = load ptr, ptr %0, align 8
-  %65 = trunc nuw nsw i64 %indvars.iv108 to i32
-  %66 = tail call i32 @Fxch_SCHashTableRemove(ptr noundef %63, ptr noundef %64, i32 noundef %62, i32 noundef %1, i32 noundef %44, i32 noundef %65, i8 noundef signext %22) #19
-  %67 = load i32, ptr %35, align 4
-  %68 = add nsw i32 %67, %66
-  store i32 %68, ptr %35, align 4
-  %.val62.us.us = load ptr, ptr %34, align 8
-  %69 = getelementptr inbounds i32, ptr %.val62.us.us, i64 %59
-  %70 = load i32, ptr %69, align 4
-  %71 = add nsw i32 %70, %62
+  %.283.us.us = phi i32 [ %70, %Fxch_ManSCAddRemove.exit78.us.us ], [ %40, %.preheader.us ]
+  %.val64.us.us = load ptr, ptr %32, align 8
+  %56 = getelementptr inbounds i32, ptr %.val64.us.us, i64 %indvars.iv108
+  %57 = load i32, ptr %56, align 4
+  %58 = sext i32 %57 to i64
+  %59 = getelementptr inbounds i32, ptr %.val63.us.us, i64 %58
+  %60 = load i32, ptr %59, align 4
+  %61 = sub nsw i32 %.283.us.us, %60
+  %62 = load ptr, ptr %23, align 8
+  %63 = load ptr, ptr %0, align 8
+  %64 = trunc nuw nsw i64 %indvars.iv108 to i32
+  %65 = tail call i32 @Fxch_SCHashTableRemove(ptr noundef %62, ptr noundef %63, i32 noundef %61, i32 noundef %1, i32 noundef %43, i32 noundef %64, i8 noundef signext %22) #19
+  %66 = load i32, ptr %34, align 4
+  %67 = add nsw i32 %66, %65
+  store i32 %67, ptr %34, align 4
+  %.val62.us.us = load ptr, ptr %33, align 8
+  %68 = getelementptr inbounds i32, ptr %.val62.us.us, i64 %58
+  %69 = load i32, ptr %68, align 4
+  %70 = add nsw i32 %69, %61
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %.val69.us.us = load i32, ptr %11, align 4
-  %72 = trunc nuw i64 %indvars.iv.next109 to i32
-  %73 = icmp sgt i32 %.val69.us.us, %72
-  br i1 %73, label %Fxch_ManSCAddRemove.exit78.us.us, label %.critedge4.us, !llvm.loop !27
+  %71 = trunc nuw i64 %indvars.iv.next109 to i32
+  %72 = icmp sgt i32 %.val69.us.us, %71
+  br i1 %72, label %Fxch_ManSCAddRemove.exit78.us.us, label %.critedge4.us, !llvm.loop !27
 
 Fxch_ManSCAddRemove.exit75:                       ; preds = %Fxch_ManSCAddRemove.exit75.preheader, %.critedge4
   %.val65 = phi ptr [ %.val65.pre, %Fxch_ManSCAddRemove.exit75.preheader ], [ %.val61, %.critedge4 ]
   %indvars.iv102 = phi i64 [ 1, %Fxch_ManSCAddRemove.exit75.preheader ], [ %indvars.iv.next103.pre-phi, %.critedge4 ]
   %indvars.iv97 = phi i64 [ 2, %Fxch_ManSCAddRemove.exit75.preheader ], [ %indvars.iv.next98, %.critedge4 ]
-  %.191 = phi i32 [ %.058.lcssa, %Fxch_ManSCAddRemove.exit75.preheader ], [ %109, %.critedge4 ]
-  %.val66 = load ptr, ptr %30, align 8
-  %74 = getelementptr inbounds i32, ptr %.val66, i64 %indvars.iv102
-  %75 = load i32, ptr %74, align 4
-  %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds i32, ptr %.val65, i64 %76
-  %78 = load i32, ptr %77, align 4
-  %79 = sub nsw i32 %.191, %78
-  %80 = load ptr, ptr %24, align 8
-  %81 = load ptr, ptr %0, align 8
-  %82 = trunc nuw nsw i64 %indvars.iv102 to i32
-  %83 = tail call i32 @Fxch_SCHashTableInsert(ptr noundef %80, ptr noundef %81, i32 noundef %79, i32 noundef %1, i32 noundef %82, i32 noundef 0, i8 noundef signext %22) #19
-  %84 = load i32, ptr %32, align 4
-  %85 = add nsw i32 %84, %83
-  store i32 %85, ptr %32, align 4
+  %.191 = phi i32 [ %.058.lcssa, %Fxch_ManSCAddRemove.exit75.preheader ], [ %108, %.critedge4 ]
+  %.val66 = load ptr, ptr %29, align 8
+  %73 = getelementptr inbounds i32, ptr %.val66, i64 %indvars.iv102
+  %74 = load i32, ptr %73, align 4
+  %75 = sext i32 %74 to i64
+  %76 = getelementptr inbounds i32, ptr %.val65, i64 %75
+  %77 = load i32, ptr %76, align 4
+  %78 = sub nsw i32 %.191, %77
+  %79 = load ptr, ptr %23, align 8
+  %80 = load ptr, ptr %0, align 8
+  %81 = trunc nuw nsw i64 %indvars.iv102 to i32
+  %82 = tail call i32 @Fxch_SCHashTableInsert(ptr noundef %79, ptr noundef %80, i32 noundef %78, i32 noundef %1, i32 noundef %81, i32 noundef 0, i8 noundef signext %22) #19
+  %83 = load i32, ptr %31, align 4
+  %84 = add nsw i32 %83, %82
+  store i32 %84, ptr %31, align 4
   %.val70 = load i32, ptr %11, align 4
-  %86 = icmp sgt i32 %.val70, 2
-  br i1 %86, label %.preheader, label %Fxch_ManSCAddRemove.exit75..critedge4_crit_edge
+  %85 = icmp sgt i32 %.val70, 2
+  br i1 %85, label %.preheader, label %Fxch_ManSCAddRemove.exit75..critedge4_crit_edge
 
 Fxch_ManSCAddRemove.exit75..critedge4_crit_edge:  ; preds = %Fxch_ManSCAddRemove.exit75
-  %.val61.pre = load ptr, ptr %31, align 8
+  %.val61.pre = load ptr, ptr %30, align 8
   %.pre125 = add nuw nsw i64 %indvars.iv102, 1
   br label %.critedge4
 
 .preheader:                                       ; preds = %Fxch_ManSCAddRemove.exit75
-  %87 = add nuw nsw i64 %indvars.iv102, 1
-  %88 = zext nneg i32 %.val70 to i64
-  %89 = icmp slt i64 %87, %88
-  %.val61.pre117 = load ptr, ptr %31, align 8
-  br i1 %89, label %Fxch_ManSCAddRemove.exit78, label %.critedge4
+  %86 = add nuw nsw i64 %indvars.iv102, 1
+  %87 = zext nneg i32 %.val70 to i64
+  %88 = icmp slt i64 %86, %87
+  %.val61.pre117 = load ptr, ptr %30, align 8
+  br i1 %88, label %Fxch_ManSCAddRemove.exit78, label %.critedge4
 
 Fxch_ManSCAddRemove.exit78:                       ; preds = %.preheader, %Fxch_ManSCAddRemove.exit78
   %.val63 = phi ptr [ %.val62, %Fxch_ManSCAddRemove.exit78 ], [ %.val61.pre117, %.preheader ]
   %indvars.iv99 = phi i64 [ %indvars.iv.next100, %Fxch_ManSCAddRemove.exit78 ], [ %indvars.iv97, %.preheader ]
-  %.283 = phi i32 [ %104, %Fxch_ManSCAddRemove.exit78 ], [ %79, %.preheader ]
-  %.val64 = load ptr, ptr %30, align 8
-  %90 = getelementptr inbounds i32, ptr %.val64, i64 %indvars.iv99
-  %91 = load i32, ptr %90, align 4
-  %92 = sext i32 %91 to i64
-  %93 = getelementptr inbounds i32, ptr %.val63, i64 %92
-  %94 = load i32, ptr %93, align 4
-  %95 = sub nsw i32 %.283, %94
-  %96 = load ptr, ptr %24, align 8
-  %97 = load ptr, ptr %0, align 8
-  %98 = trunc nuw nsw i64 %indvars.iv99 to i32
-  %99 = tail call i32 @Fxch_SCHashTableInsert(ptr noundef %96, ptr noundef %97, i32 noundef %95, i32 noundef %1, i32 noundef %82, i32 noundef %98, i8 noundef signext %22) #19
-  %100 = load i32, ptr %32, align 4
-  %101 = add nsw i32 %100, %99
-  store i32 %101, ptr %32, align 4
-  %.val62 = load ptr, ptr %31, align 8
-  %102 = getelementptr inbounds i32, ptr %.val62, i64 %92
-  %103 = load i32, ptr %102, align 4
-  %104 = add nsw i32 %103, %95
+  %.283 = phi i32 [ %103, %Fxch_ManSCAddRemove.exit78 ], [ %78, %.preheader ]
+  %.val64 = load ptr, ptr %29, align 8
+  %89 = getelementptr inbounds i32, ptr %.val64, i64 %indvars.iv99
+  %90 = load i32, ptr %89, align 4
+  %91 = sext i32 %90 to i64
+  %92 = getelementptr inbounds i32, ptr %.val63, i64 %91
+  %93 = load i32, ptr %92, align 4
+  %94 = sub nsw i32 %.283, %93
+  %95 = load ptr, ptr %23, align 8
+  %96 = load ptr, ptr %0, align 8
+  %97 = trunc nuw nsw i64 %indvars.iv99 to i32
+  %98 = tail call i32 @Fxch_SCHashTableInsert(ptr noundef %95, ptr noundef %96, i32 noundef %94, i32 noundef %1, i32 noundef %81, i32 noundef %97, i8 noundef signext %22) #19
+  %99 = load i32, ptr %31, align 4
+  %100 = add nsw i32 %99, %98
+  store i32 %100, ptr %31, align 4
+  %.val62 = load ptr, ptr %30, align 8
+  %101 = getelementptr inbounds i32, ptr %.val62, i64 %91
+  %102 = load i32, ptr %101, align 4
+  %103 = add nsw i32 %102, %94
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %.val69 = load i32, ptr %11, align 4
-  %105 = trunc nuw i64 %indvars.iv.next100 to i32
-  %106 = icmp sgt i32 %.val69, %105
-  br i1 %106, label %Fxch_ManSCAddRemove.exit78, label %.critedge4, !llvm.loop !27
+  %104 = trunc nuw i64 %indvars.iv.next100 to i32
+  %105 = icmp sgt i32 %.val69, %104
+  br i1 %105, label %Fxch_ManSCAddRemove.exit78, label %.critedge4, !llvm.loop !27
 
 .critedge4:                                       ; preds = %Fxch_ManSCAddRemove.exit78, %Fxch_ManSCAddRemove.exit75..critedge4_crit_edge, %.preheader
-  %indvars.iv.next103.pre-phi = phi i64 [ %.pre125, %Fxch_ManSCAddRemove.exit75..critedge4_crit_edge ], [ %87, %.preheader ], [ %87, %Fxch_ManSCAddRemove.exit78 ]
+  %indvars.iv.next103.pre-phi = phi i64 [ %.pre125, %Fxch_ManSCAddRemove.exit75..critedge4_crit_edge ], [ %86, %.preheader ], [ %86, %Fxch_ManSCAddRemove.exit78 ]
   %.val71 = phi i32 [ %.val70, %Fxch_ManSCAddRemove.exit75..critedge4_crit_edge ], [ %.val70, %.preheader ], [ %.val69, %Fxch_ManSCAddRemove.exit78 ]
   %.val61 = phi ptr [ %.val61.pre, %Fxch_ManSCAddRemove.exit75..critedge4_crit_edge ], [ %.val61.pre117, %.preheader ], [ %.val62, %Fxch_ManSCAddRemove.exit78 ]
-  %.3 = phi i32 [ %79, %Fxch_ManSCAddRemove.exit75..critedge4_crit_edge ], [ %79, %.preheader ], [ %104, %Fxch_ManSCAddRemove.exit78 ]
-  %107 = getelementptr inbounds i32, ptr %.val61, i64 %76
-  %108 = load i32, ptr %107, align 4
-  %109 = add nsw i32 %108, %.3
-  %110 = sext i32 %.val71 to i64
-  %111 = icmp slt i64 %indvars.iv.next103.pre-phi, %110
+  %.3 = phi i32 [ %78, %Fxch_ManSCAddRemove.exit75..critedge4_crit_edge ], [ %78, %.preheader ], [ %103, %Fxch_ManSCAddRemove.exit78 ]
+  %106 = getelementptr inbounds i32, ptr %.val61, i64 %75
+  %107 = load i32, ptr %106, align 4
+  %108 = add nsw i32 %107, %.3
+  %109 = sext i32 %.val71 to i64
+  %110 = icmp slt i64 %indvars.iv.next103.pre-phi, %109
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
-  br i1 %111, label %Fxch_ManSCAddRemove.exit75, label %.critedge2, !llvm.loop !26
+  br i1 %110, label %Fxch_ManSCAddRemove.exit75, label %.critedge2, !llvm.loop !26
 
 .critedge2:                                       ; preds = %.critedge4, %.critedge4.us, %Fxch_ManSCAddRemove.exit.thread, %Fxch_ManSCAddRemove.exit
   ret void

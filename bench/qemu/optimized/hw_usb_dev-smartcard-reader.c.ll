@@ -1464,7 +1464,7 @@ if.then.i:                                        ; preds = %ccid_bulk_in_get.ex
   %31 = load i64, ptr %size.i23, align 8
   %cond.i = tail call i64 @llvm.umin.i64(i64 %31, i64 %conv.i22)
   %conv6.i = trunc nuw i64 %cond.i to i32
-  %tobool.not.i = icmp eq i32 %conv6.i, 0
+  %tobool.not.i = icmp eq i64 %cond.i, 0
   br i1 %tobool.not.i, label %if.end.i25, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.then.i
@@ -1491,7 +1491,7 @@ if.end.i25:                                       ; preds = %if.then7.i, %if.the
   %36 = load i32, ptr %len17.i, align 4
   %cmp18.i = icmp ne i32 %35, %36
   %cmp20.not.i = icmp eq i32 %24, %conv6.i
-  %or.cond.i = or i1 %cmp20.not.i, %cmp18.i
+  %or.cond.i = select i1 %cmp18.i, i1 true, i1 %cmp20.not.i
   br i1 %or.cond.i, label %if.end24.i, label %ccid_bulk_in_release.exit.i
 
 ccid_bulk_in_release.exit.i:                      ; preds = %if.end.i25

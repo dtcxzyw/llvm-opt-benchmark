@@ -7521,8 +7521,8 @@ for.cond.i:                                       ; preds = %lor.lhs.false.i
 if.end23.i:                                       ; preds = %if.end.i, %for.cond.i
   %spec.select3442.i = phi i64 [ %spec.select34.i, %for.cond.i ], [ %spec.select3438.i, %if.end.i ]
   %cur_file_ofs.041.i = phi i64 [ %sub71.i, %for.cond.i ], [ %spec.select.i, %if.end.i ]
-  %cmp2635.not.i = icmp ult i64 %spec.select3442.i, 4
-  br i1 %cmp2635.not.i, label %if.end62.i, label %for.body.preheader.i
+  %cmp2635.i = icmp ugt i64 %spec.select3442.i, 3
+  br i1 %cmp2635.i, label %for.body.preheader.i, label %if.end62.i
 
 for.body.preheader.i:                             ; preds = %if.end23.i
   %sub24.i = add nuw nsw i64 %spec.select3442.i, 4294967292

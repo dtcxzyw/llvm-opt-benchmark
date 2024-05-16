@@ -2428,8 +2428,7 @@ for.end:                                          ; preds = %for.cond
   br i1 %cmp1, label %return, label %for.cond3.preheader
 
 for.cond3.preheader:                              ; preds = %for.end
-  %2 = and i64 %indvars.iv, 4294967295
-  %cmp429.not = icmp eq i64 %2, 0
+  %cmp429.not = icmp eq i64 %indvars.iv, 0
   br i1 %cmp429.not, label %return.sink.split, label %for.body6.preheader
 
 for.body6.preheader:                              ; preds = %for.cond3.preheader
@@ -2439,14 +2438,14 @@ for.body6.preheader:                              ; preds = %for.cond3.preheader
 for.body6:                                        ; preds = %for.body6.preheader, %for.inc28
   %indvars.iv37 = phi i64 [ 0, %for.body6.preheader ], [ %indvars.iv.next38, %for.inc28 ]
   %cnt.031 = phi i32 [ 0, %for.body6.preheader ], [ %cnt.1, %for.inc28 ]
-  %3 = load ptr, ptr @environ, align 8
-  %arrayidx8 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv37
-  %4 = load ptr, ptr %arrayidx8, align 8
-  %cmp9 = icmp eq ptr %4, null
+  %2 = load ptr, ptr @environ, align 8
+  %arrayidx8 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv37
+  %3 = load ptr, ptr %arrayidx8, align 8
+  %cmp9 = icmp eq ptr %3, null
   br i1 %cmp9, label %return.sink.split, label %if.end12
 
 if.end12:                                         ; preds = %for.body6
-  %call15 = tail call ptr @uv__strdup(ptr noundef nonnull %4) #23
+  %call15 = tail call ptr @uv__strdup(ptr noundef nonnull %3) #23
   %cmp16 = icmp eq ptr %call15, null
   br i1 %cmp16, label %for.cond31.preheader, label %if.end19
 
@@ -2469,9 +2468,9 @@ if.then23:                                        ; preds = %if.end19
 
 if.end24:                                         ; preds = %if.end19
   store i8 0, ptr %call20, align 1
-  %5 = load ptr, ptr %envitems, align 8
+  %4 = load ptr, ptr %envitems, align 8
   %idxprom25 = sext i32 %cnt.031 to i64
-  %arrayidx26 = getelementptr inbounds %struct.uv_env_item_s, ptr %5, i64 %idxprom25
+  %arrayidx26 = getelementptr inbounds %struct.uv_env_item_s, ptr %4, i64 %idxprom25
   store ptr %call15, ptr %arrayidx26, align 8
   %add.ptr = getelementptr inbounds i8, ptr %call20, i64 1
   %value = getelementptr inbounds i8, ptr %arrayidx26, i64 8
@@ -2487,17 +2486,17 @@ for.inc28:                                        ; preds = %if.end24, %if.then2
 
 for.body34:                                       ; preds = %for.body34.lr.ph, %for.body34
   %i.134 = phi i32 [ 0, %for.body34.lr.ph ], [ %inc39, %for.body34 ]
-  %6 = load ptr, ptr %envitems, align 8
-  %arrayidx36 = getelementptr inbounds %struct.uv_env_item_s, ptr %6, i64 %idxprom35
-  %7 = load ptr, ptr %arrayidx36, align 8
-  tail call void @uv__free(ptr noundef %7) #23
+  %5 = load ptr, ptr %envitems, align 8
+  %arrayidx36 = getelementptr inbounds %struct.uv_env_item_s, ptr %5, i64 %idxprom35
+  %6 = load ptr, ptr %arrayidx36, align 8
+  tail call void @uv__free(ptr noundef %6) #23
   %inc39 = add nuw nsw i32 %i.134, 1
   %exitcond42.not = icmp eq i32 %inc39, %cnt.031
   br i1 %exitcond42.not, label %for.end40, label %for.body34
 
 for.end40:                                        ; preds = %for.body34, %for.cond31.preheader
-  %8 = load ptr, ptr %envitems, align 8
-  tail call void @uv__free(ptr noundef %8) #23
+  %7 = load ptr, ptr %envitems, align 8
+  tail call void @uv__free(ptr noundef %7) #23
   store ptr null, ptr %envitems, align 8
   br label %return.sink.split
 

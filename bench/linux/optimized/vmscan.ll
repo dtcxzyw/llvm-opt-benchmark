@@ -3899,7 +3899,7 @@ thread-pre-split:                                 ; preds = %144, %147, %153
   br label %286
 
 286:                                              ; preds = %284, %280, %278, %272, %248
-  %287 = icmp ugt i32 %86, 1
+  %287 = icmp ugt i64 %85, 1
   br i1 %287, label %288, label %297
 
 288:                                              ; preds = %286
@@ -4421,7 +4421,7 @@ thread-pre-split:                                 ; preds = %144, %147, %153
   br label %642, !llvm.loop !74
 
 596:                                              ; preds = %278, %274
-  %597 = icmp ugt i32 %86, 1
+  %597 = icmp ugt i64 %85, 1
   br i1 %597, label %598, label %.thread23
 
 598:                                              ; preds = %596

@@ -1234,7 +1234,7 @@ Vec_PtrCleanSimInfo.exit:                         ; preds = %28, %Vec_PtrAllocSi
   br label %216
 
 212:                                              ; preds = %200
-  %213 = icmp eq i32 %201, 0
+  %213 = icmp eq i64 %indvars.iv167, 0
   br i1 %213, label %214, label %216
 
 214:                                              ; preds = %212

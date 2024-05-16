@@ -10583,7 +10583,7 @@ define internal i64 @int_chr(i32 noundef %0, ptr nocapture noundef readonly %1, 
   ]
 
 14:                                               ; preds = %12
-  %15 = icmp ugt i32 %13, 255
+  %15 = icmp ugt i64 %7, 255
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %14
@@ -10599,7 +10599,7 @@ define internal i64 @int_chr(i32 noundef %0, ptr nocapture noundef readonly %1, 
 20:                                               ; preds = %14
   %21 = trunc nuw i64 %7 to i8
   store i8 %21, ptr %4, align 1
-  %22 = icmp ult i32 %13, 128
+  %22 = icmp ult i64 %7, 128
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %20

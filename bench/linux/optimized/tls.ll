@@ -63,7 +63,7 @@ define dso_local range(i32 -22, 1) i32 @do_set_thread_area(ptr noundef %0, i32 n
   %25 = icmp eq i32 %24, -1
   %26 = icmp ne i32 %3, 0
   %27 = and i1 %26, %25
-  br i1 %27, label %28, label %55
+  br i1 %27, label %28, label %53
 
 28:                                               ; preds = %21
   %29 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !7
@@ -89,103 +89,99 @@ define dso_local range(i32 -22, 1) i32 @do_set_thread_area(ptr noundef %0, i32 n
 43:                                               ; preds = %32
   %44 = trunc nuw nsw i64 %33 to i32
   %45 = or disjoint i32 %44, 12
-  %46 = icmp slt i32 %44, 0
-  br i1 %46, label %.thread, label %47
+  %46 = call i64 @llvm.read_register.i64(metadata !0)
+  %47 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %2, i32 %45, i64 4, i64 %46) #12, !srcloc !11
+  %48 = extractvalue { ptr, i64 } %47, 0
+  %49 = extractvalue { ptr, i64 } %47, 1
+  %50 = ptrtoint ptr %48 to i64
+  call void @llvm.write_register.i64(metadata !0, i64 %49)
+  %51 = and i64 %50, 4294967295
+  %52 = icmp eq i64 %51, 0
+  br i1 %52, label %53, label %.thread
 
-47:                                               ; preds = %43
-  %48 = call i64 @llvm.read_register.i64(metadata !0)
-  %49 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %2, i32 %45, i64 4, i64 %48) #12, !srcloc !11
-  %50 = extractvalue { ptr, i64 } %49, 0
-  %51 = extractvalue { ptr, i64 } %49, 1
-  %52 = ptrtoint ptr %50 to i64
-  call void @llvm.write_register.i64(metadata !0, i64 %51)
-  %53 = and i64 %52, 4294967295
-  %54 = icmp eq i64 %53, 0
-  br i1 %54, label %55, label %.thread
+53:                                               ; preds = %43, %21
+  %54 = phi i32 [ %45, %43 ], [ %24, %21 ]
+  %55 = add i32 %54, -15
+  %56 = icmp ult i32 %55, -3
+  br i1 %56, label %.thread, label %57
 
-55:                                               ; preds = %47, %21
-  %56 = phi i32 [ %45, %47 ], [ %24, %21 ]
-  %57 = add i32 %56, -15
-  %58 = icmp ult i32 %57, -3
-  br i1 %58, label %.thread, label %59
+57:                                               ; preds = %53
+  call fastcc void @set_tls_desc(ptr noundef %0, i32 noundef %54, ptr noundef nonnull %5, i32 noundef 1)
+  %58 = trunc nuw i32 %54 to i16
+  %59 = shl nuw nsw i16 %58, 3
+  %60 = or disjoint i16 %59, 3
+  %61 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !7
+  %62 = inttoptr i64 %61 to ptr
+  %63 = icmp eq ptr %62, %0
+  br i1 %63, label %64, label %83
 
-59:                                               ; preds = %55
-  call fastcc void @set_tls_desc(ptr noundef %0, i32 noundef %56, ptr noundef nonnull %5, i32 noundef 1)
-  %60 = trunc nuw i32 %56 to i16
-  %61 = shl nuw nsw i16 %60, 3
-  %62 = or disjoint i16 %61, 3
-  %63 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !7
-  %64 = inttoptr i64 %63 to ptr
-  %65 = icmp eq ptr %64, %0
-  br i1 %65, label %66, label %85
+64:                                               ; preds = %57
+  %65 = call i16 asm "mov %ds,$0", "=r,~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !12
+  %66 = icmp eq i16 %65, %60
+  br i1 %66, label %67, label %69
 
-66:                                               ; preds = %59
-  %67 = call i16 asm "mov %ds,$0", "=r,~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !12
-  %68 = icmp eq i16 %67, %62
-  br i1 %68, label %69, label %71
+67:                                               ; preds = %64
+  %68 = call i16 asm sideeffect "\09\09\09\09\09\09\0A1:\09movl ${0:k},%ds\09\09\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (1b) - .\0A.macro extable_type_reg type:req reg:req\0A.set .Lfound, 0\0A.set .Lregnr, 0\0A.irp rs,rax,rcx,rdx,rbx,rsp,rbp,rsi,rdi,r8,r9,r10,r11,r12,r13,r14,r15\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.set .Lregnr, 0\0A.irp rs,eax,ecx,edx,ebx,esp,ebp,esi,edi,r8d,r9d,r10d,r11d,r12d,r13d,r14d,r15d\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.if (.Lfound != 1)\0A.error \22extable_type_reg: bad register argument\22\0A.endif\0A.endm\0Aextable_type_reg reg=${0:k}, type=(17 $| ((0) << 16)) \0A.purgem extable_type_reg\0A .popsection\0A", "=r,0,~{memory},~{dirflag},~{fpsr},~{flags}"(i16 %60) #12, !srcloc !13
+  br label %69
 
-69:                                               ; preds = %66
-  %70 = call i16 asm sideeffect "\09\09\09\09\09\09\0A1:\09movl ${0:k},%ds\09\09\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (1b) - .\0A.macro extable_type_reg type:req reg:req\0A.set .Lfound, 0\0A.set .Lregnr, 0\0A.irp rs,rax,rcx,rdx,rbx,rsp,rbp,rsi,rdi,r8,r9,r10,r11,r12,r13,r14,r15\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.set .Lregnr, 0\0A.irp rs,eax,ecx,edx,ebx,esp,ebp,esi,edi,r8d,r9d,r10d,r11d,r12d,r13d,r14d,r15d\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.if (.Lfound != 1)\0A.error \22extable_type_reg: bad register argument\22\0A.endif\0A.endm\0Aextable_type_reg reg=${0:k}, type=(17 $| ((0) << 16)) \0A.purgem extable_type_reg\0A .popsection\0A", "=r,0,~{memory},~{dirflag},~{fpsr},~{flags}"(i16 %62) #12, !srcloc !13
-  br label %71
+69:                                               ; preds = %67, %64
+  %70 = call i16 asm "mov %es,$0", "=r,~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !14
+  %71 = icmp eq i16 %70, %60
+  br i1 %71, label %72, label %74
 
-71:                                               ; preds = %69, %66
-  %72 = call i16 asm "mov %es,$0", "=r,~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !14
-  %73 = icmp eq i16 %72, %62
-  br i1 %73, label %74, label %76
+72:                                               ; preds = %69
+  %73 = call i16 asm sideeffect "\09\09\09\09\09\09\0A1:\09movl ${0:k},%es\09\09\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (1b) - .\0A.macro extable_type_reg type:req reg:req\0A.set .Lfound, 0\0A.set .Lregnr, 0\0A.irp rs,rax,rcx,rdx,rbx,rsp,rbp,rsi,rdi,r8,r9,r10,r11,r12,r13,r14,r15\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.set .Lregnr, 0\0A.irp rs,eax,ecx,edx,ebx,esp,ebp,esi,edi,r8d,r9d,r10d,r11d,r12d,r13d,r14d,r15d\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.if (.Lfound != 1)\0A.error \22extable_type_reg: bad register argument\22\0A.endif\0A.endm\0Aextable_type_reg reg=${0:k}, type=(17 $| ((0) << 16)) \0A.purgem extable_type_reg\0A .popsection\0A", "=r,0,~{memory},~{dirflag},~{fpsr},~{flags}"(i16 %60) #12, !srcloc !15
+  br label %74
 
-74:                                               ; preds = %71
-  %75 = call i16 asm sideeffect "\09\09\09\09\09\09\0A1:\09movl ${0:k},%es\09\09\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (1b) - .\0A.macro extable_type_reg type:req reg:req\0A.set .Lfound, 0\0A.set .Lregnr, 0\0A.irp rs,rax,rcx,rdx,rbx,rsp,rbp,rsi,rdi,r8,r9,r10,r11,r12,r13,r14,r15\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.set .Lregnr, 0\0A.irp rs,eax,ecx,edx,ebx,esp,ebp,esi,edi,r8d,r9d,r10d,r11d,r12d,r13d,r14d,r15d\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.if (.Lfound != 1)\0A.error \22extable_type_reg: bad register argument\22\0A.endif\0A.endm\0Aextable_type_reg reg=${0:k}, type=(17 $| ((0) << 16)) \0A.purgem extable_type_reg\0A .popsection\0A", "=r,0,~{memory},~{dirflag},~{fpsr},~{flags}"(i16 %62) #12, !srcloc !15
-  br label %76
+74:                                               ; preds = %72, %69
+  %75 = call i16 asm "mov %fs,$0", "=r,~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !16
+  %76 = icmp eq i16 %75, %60
+  br i1 %76, label %77, label %78
 
-76:                                               ; preds = %74, %71
-  %77 = call i16 asm "mov %fs,$0", "=r,~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !16
-  %78 = icmp eq i16 %77, %62
-  br i1 %78, label %79, label %80
+77:                                               ; preds = %74
+  call void asm sideeffect "\09\09\09\09\09\09\0A1:\09movw $0, %fs\09\09\09\0A2:\09\09\09\09\09\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 5 \0A .popsection\0A", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(i16 %60) #12, !srcloc !17
+  br label %78
 
-79:                                               ; preds = %76
-  call void asm sideeffect "\09\09\09\09\09\09\0A1:\09movw $0, %fs\09\09\09\0A2:\09\09\09\09\09\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 5 \0A .popsection\0A", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(i16 %62) #12, !srcloc !17
-  br label %80
+78:                                               ; preds = %77, %74
+  %79 = call i16 asm "mov %gs,$0", "=r,~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !18
+  %80 = icmp eq i16 %79, %60
+  br i1 %80, label %81, label %.thread
 
-80:                                               ; preds = %79, %76
-  %81 = call i16 asm "mov %gs,$0", "=r,~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !18
-  %82 = icmp eq i16 %81, %62
-  br i1 %82, label %83, label %.thread
-
-83:                                               ; preds = %80
-  %84 = zext nneg i16 %62 to i32
-  call fastcc void @load_gs_index(i32 noundef %84)
+81:                                               ; preds = %78
+  %82 = zext nneg i16 %60 to i32
+  call fastcc void @load_gs_index(i32 noundef %82)
   br label %.thread
 
-85:                                               ; preds = %59
-  %86 = getelementptr inbounds i8, ptr %0, i64 2852
-  %87 = load i16, ptr %86, align 4
-  %88 = icmp eq i16 %87, %62
-  br i1 %88, label %89, label %93
+83:                                               ; preds = %57
+  %84 = getelementptr inbounds i8, ptr %0, i64 2852
+  %85 = load i16, ptr %84, align 4
+  %86 = icmp eq i16 %85, %60
+  br i1 %86, label %87, label %91
 
-89:                                               ; preds = %85
-  %90 = load i32, ptr %9, align 4
-  %91 = zext i32 %90 to i64
-  %92 = getelementptr inbounds i8, ptr %0, i64 2856
-  store i64 %91, ptr %92, align 8
-  br label %93
+87:                                               ; preds = %83
+  %88 = load i32, ptr %9, align 4
+  %89 = zext i32 %88 to i64
+  %90 = getelementptr inbounds i8, ptr %0, i64 2856
+  store i64 %89, ptr %90, align 8
+  br label %91
 
-93:                                               ; preds = %89, %85
-  %94 = getelementptr inbounds i8, ptr %0, i64 2854
-  %95 = load i16, ptr %94, align 2
-  %96 = icmp eq i16 %95, %62
-  br i1 %96, label %97, label %.thread
+91:                                               ; preds = %87, %83
+  %92 = getelementptr inbounds i8, ptr %0, i64 2854
+  %93 = load i16, ptr %92, align 2
+  %94 = icmp eq i16 %93, %60
+  br i1 %94, label %95, label %.thread
 
-97:                                               ; preds = %93
-  %98 = load i32, ptr %9, align 4
-  %99 = zext i32 %98 to i64
-  %100 = getelementptr inbounds i8, ptr %0, i64 2864
-  store i64 %99, ptr %100, align 16
+95:                                               ; preds = %91
+  %96 = load i32, ptr %9, align 4
+  %97 = zext i32 %96 to i64
+  %98 = getelementptr inbounds i8, ptr %0, i64 2864
+  store i64 %97, ptr %98, align 16
   br label %.thread
 
-.thread:                                          ; preds = %40, %97, %93, %83, %80, %55, %47, %43, %._crit_edge, %4
-  %101 = phi i32 [ -14, %4 ], [ %45, %43 ], [ -14, %47 ], [ -22, %55 ], [ 0, %93 ], [ 0, %97 ], [ 0, %80 ], [ 0, %83 ], [ -22, %._crit_edge ], [ -3, %40 ]
+.thread:                                          ; preds = %40, %95, %91, %81, %78, %53, %43, %._crit_edge, %4
+  %99 = phi i32 [ -14, %4 ], [ -14, %43 ], [ -22, %53 ], [ 0, %91 ], [ 0, %95 ], [ 0, %78 ], [ 0, %81 ], [ -22, %._crit_edge ], [ -3, %40 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #12
-  ret i32 %101
+  ret i32 %99
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

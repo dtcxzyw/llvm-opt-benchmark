@@ -39,14 +39,13 @@ define i32 @Xz_ReadVarInt(ptr nocapture noundef readonly %0, i64 noundef %1, ptr
 16:                                               ; preds = %7
   %17 = trunc nuw nsw i64 %indvars.iv.next to i32
   %18 = icmp eq i8 %9, 0
-  %19 = and i64 %indvars.iv, 4294967295
-  %20 = icmp ne i64 %19, 0
-  %or.cond = and i1 %20, %18
-  %21 = select i1 %or.cond, i32 0, i32 %17
+  %19 = icmp ne i64 %indvars.iv, 0
+  %or.cond = and i1 %19, %18
+  %20 = select i1 %or.cond, i32 0, i32 %17
   br label %.loopexit
 
 .loopexit:                                        ; preds = %5, %16
-  %.0 = phi i32 [ %21, %16 ], [ 0, %5 ]
+  %.0 = phi i32 [ %20, %16 ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -814,7 +813,7 @@ define range(i32 0, 17) i32 @XzBlock_Parse(ptr nocapture noundef writeonly %0, p
   store i8 %12, ptr %13, align 8
   %14 = and i8 %12, 64
   %.not72 = icmp eq i8 %14, 0
-  br i1 %.not72, label %41, label %15
+  br i1 %.not72, label %40, label %15
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds i8, ptr %1, i64 2
@@ -845,194 +844,190 @@ define range(i32 0, 17) i32 @XzBlock_Parse(ptr nocapture noundef writeonly %0, p
 
 31:                                               ; preds = %22
   %32 = icmp eq i8 %24, 0
-  %33 = and i64 %indvars.iv.i, 4294967295
-  %34 = icmp ne i64 %33, 0
-  %or.cond.i = and i1 %34, %32
-  %35 = icmp eq i64 %29, 0
-  %or.cond164 = select i1 %or.cond.i, i1 true, i1 %35
-  br i1 %or.cond164, label %Xz_ReadVarInt.exit.thread, label %36
+  %33 = icmp ne i64 %indvars.iv.i, 0
+  %or.cond.i = and i1 %33, %32
+  %34 = icmp eq i64 %29, 0
+  %or.cond164 = select i1 %or.cond.i, i1 true, i1 %34
+  br i1 %or.cond164, label %Xz_ReadVarInt.exit.thread, label %35
 
-36:                                               ; preds = %31
-  %37 = trunc nuw nsw i64 %indvars.iv.next.i to i32
-  %38 = add i32 %37, 2
-  %39 = add i64 %29, %6
-  %40 = icmp slt i64 %39, 0
-  br i1 %40, label %Xz_ReadVarInt.exit.thread, label %41
+35:                                               ; preds = %31
+  %36 = trunc nuw nsw i64 %indvars.iv.next.i to i32
+  %37 = add i32 %36, 2
+  %38 = add i64 %29, %6
+  %39 = icmp slt i64 %38, 0
+  br i1 %39, label %Xz_ReadVarInt.exit.thread, label %40
 
-41:                                               ; preds = %36, %10
-  %.064 = phi i32 [ %38, %36 ], [ 2, %10 ]
+40:                                               ; preds = %35, %10
+  %.064 = phi i32 [ %37, %35 ], [ 2, %10 ]
   %.not73 = icmp sgt i8 %12, -1
-  br i1 %.not73, label %66, label %42
+  br i1 %.not73, label %64, label %41
 
-42:                                               ; preds = %41
-  %43 = zext i32 %.064 to i64
-  %44 = getelementptr inbounds i8, ptr %1, i64 %43
-  %45 = sub i32 %5, %.064
-  %46 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 0, ptr %46, align 8
-  %47 = tail call i32 @llvm.umin.i32(i32 %45, i32 9)
-  %48 = zext nneg i32 %47 to i64
-  br label %49
+41:                                               ; preds = %40
+  %42 = zext i32 %.064 to i64
+  %43 = getelementptr inbounds i8, ptr %1, i64 %42
+  %44 = sub i32 %5, %.064
+  %45 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 0, ptr %45, align 8
+  %46 = tail call i32 @llvm.umin.i32(i32 %44, i32 9)
+  %47 = zext nneg i32 %46 to i64
+  br label %48
 
-49:                                               ; preds = %51, %42
-  %50 = phi i64 [ %58, %51 ], [ 0, %42 ]
-  %indvars.iv.i75 = phi i64 [ %indvars.iv.next.i77, %51 ], [ 0, %42 ]
-  %exitcond.not.i76 = icmp eq i64 %indvars.iv.i75, %48
-  br i1 %exitcond.not.i76, label %Xz_ReadVarInt.exit.thread, label %51
+48:                                               ; preds = %50, %41
+  %49 = phi i64 [ %57, %50 ], [ 0, %41 ]
+  %indvars.iv.i75 = phi i64 [ %indvars.iv.next.i77, %50 ], [ 0, %41 ]
+  %exitcond.not.i76 = icmp eq i64 %indvars.iv.i75, %47
+  br i1 %exitcond.not.i76, label %Xz_ReadVarInt.exit.thread, label %50
 
-51:                                               ; preds = %49
-  %52 = getelementptr inbounds i8, ptr %44, i64 %indvars.iv.i75
-  %53 = load i8, ptr %52, align 1
-  %54 = and i8 %53, 127
-  %55 = zext nneg i8 %54 to i64
+50:                                               ; preds = %48
+  %51 = getelementptr inbounds i8, ptr %43, i64 %indvars.iv.i75
+  %52 = load i8, ptr %51, align 1
+  %53 = and i8 %52, 127
+  %54 = zext nneg i8 %53 to i64
   %indvars.iv.next.i77 = add nuw nsw i64 %indvars.iv.i75, 1
-  %56 = mul nuw nsw i64 %indvars.iv.i75, 7
-  %57 = shl i64 %55, %56
-  %58 = or i64 %57, %50
-  store i64 %58, ptr %46, align 8
-  %59 = icmp sgt i8 %53, -1
-  br i1 %59, label %60, label %49
+  %55 = mul nuw nsw i64 %indvars.iv.i75, 7
+  %56 = shl i64 %54, %55
+  %57 = or i64 %56, %49
+  store i64 %57, ptr %45, align 8
+  %58 = icmp sgt i8 %52, -1
+  br i1 %58, label %59, label %48
 
-60:                                               ; preds = %51
-  %61 = icmp eq i8 %53, 0
-  %62 = and i64 %indvars.iv.i75, 4294967295
-  %63 = icmp ne i64 %62, 0
-  %or.cond.i78 = and i1 %63, %61
+59:                                               ; preds = %50
+  %60 = icmp eq i8 %52, 0
+  %61 = icmp ne i64 %indvars.iv.i75, 0
+  %or.cond.i78 = and i1 %61, %60
   br i1 %or.cond.i78, label %Xz_ReadVarInt.exit.thread, label %Xz_ReadVarInt.exit80
 
-Xz_ReadVarInt.exit80:                             ; preds = %60
-  %64 = trunc nuw nsw i64 %indvars.iv.next.i77 to i32
-  %65 = add i32 %.064, %64
-  br label %66
+Xz_ReadVarInt.exit80:                             ; preds = %59
+  %62 = trunc nuw nsw i64 %indvars.iv.next.i77 to i32
+  %63 = add i32 %.064, %62
+  br label %64
 
-66:                                               ; preds = %Xz_ReadVarInt.exit80, %41
-  %.1 = phi i32 [ %65, %Xz_ReadVarInt.exit80 ], [ %.064, %41 ]
-  %67 = and i8 %12, 3
-  %narrow = add nuw nsw i8 %67, 1
-  %68 = getelementptr inbounds i8, ptr %0, i64 24
+64:                                               ; preds = %Xz_ReadVarInt.exit80, %40
+  %.1 = phi i32 [ %63, %Xz_ReadVarInt.exit80 ], [ %.064, %40 ]
+  %65 = and i8 %12, 3
+  %narrow = add nuw nsw i8 %65, 1
+  %66 = getelementptr inbounds i8, ptr %0, i64 24
   %wide.trip.count = zext nneg i8 %narrow to i64
-  br label %69
+  br label %67
 
-69:                                               ; preds = %66, %120
-  %indvars.iv = phi i64 [ 0, %66 ], [ %indvars.iv.next, %120 ]
-  %.2121 = phi i32 [ %.1, %66 ], [ %126, %120 ]
-  %70 = getelementptr inbounds %struct.CXzFilter, ptr %68, i64 %indvars.iv
-  %71 = zext i32 %.2121 to i64
-  %72 = getelementptr inbounds i8, ptr %1, i64 %71
-  %73 = sub i32 %5, %.2121
-  store i64 0, ptr %70, align 8
-  %74 = tail call i32 @llvm.umin.i32(i32 %73, i32 9)
-  %75 = zext nneg i32 %74 to i64
-  %76 = add i32 %.2121, 2
-  br label %77
+67:                                               ; preds = %64, %116
+  %indvars.iv = phi i64 [ 0, %64 ], [ %indvars.iv.next, %116 ]
+  %.2121 = phi i32 [ %.1, %64 ], [ %122, %116 ]
+  %68 = getelementptr inbounds %struct.CXzFilter, ptr %66, i64 %indvars.iv
+  %69 = zext i32 %.2121 to i64
+  %70 = getelementptr inbounds i8, ptr %1, i64 %69
+  %71 = sub i32 %5, %.2121
+  store i64 0, ptr %68, align 8
+  %72 = tail call i32 @llvm.umin.i32(i32 %71, i32 9)
+  %73 = zext nneg i32 %72 to i64
+  %74 = add i32 %.2121, 2
+  br label %75
 
-77:                                               ; preds = %79, %69
-  %indvars.iv137 = phi i32 [ %indvars.iv.next138, %79 ], [ %76, %69 ]
-  %78 = phi i64 [ %86, %79 ], [ 0, %69 ]
-  %indvars.iv.i81 = phi i64 [ %indvars.iv.next.i83, %79 ], [ 0, %69 ]
-  %exitcond.not.i82 = icmp eq i64 %indvars.iv.i81, %75
-  br i1 %exitcond.not.i82, label %Xz_ReadVarInt.exit.thread, label %79
+75:                                               ; preds = %77, %67
+  %indvars.iv137 = phi i32 [ %indvars.iv.next138, %77 ], [ %74, %67 ]
+  %76 = phi i64 [ %84, %77 ], [ 0, %67 ]
+  %indvars.iv.i81 = phi i64 [ %indvars.iv.next.i83, %77 ], [ 0, %67 ]
+  %exitcond.not.i82 = icmp eq i64 %indvars.iv.i81, %73
+  br i1 %exitcond.not.i82, label %Xz_ReadVarInt.exit.thread, label %77
 
-79:                                               ; preds = %77
-  %80 = getelementptr inbounds i8, ptr %72, i64 %indvars.iv.i81
-  %81 = load i8, ptr %80, align 1
-  %82 = and i8 %81, 127
-  %83 = zext nneg i8 %82 to i64
+77:                                               ; preds = %75
+  %78 = getelementptr inbounds i8, ptr %70, i64 %indvars.iv.i81
+  %79 = load i8, ptr %78, align 1
+  %80 = and i8 %79, 127
+  %81 = zext nneg i8 %80 to i64
   %indvars.iv.next.i83 = add nuw nsw i64 %indvars.iv.i81, 1
-  %84 = mul nuw nsw i64 %indvars.iv.i81, 7
-  %85 = shl i64 %83, %84
-  %86 = or i64 %85, %78
-  store i64 %86, ptr %70, align 8
-  %87 = icmp sgt i8 %81, -1
+  %82 = mul nuw nsw i64 %indvars.iv.i81, 7
+  %83 = shl i64 %81, %82
+  %84 = or i64 %83, %76
+  store i64 %84, ptr %68, align 8
+  %85 = icmp sgt i8 %79, -1
   %indvars.iv.next138 = add i32 %indvars.iv137, 1
-  br i1 %87, label %88, label %77
+  br i1 %85, label %86, label %75
 
-88:                                               ; preds = %79
-  %89 = icmp eq i8 %81, 0
-  %90 = and i64 %indvars.iv.i81, 4294967295
-  %91 = icmp ne i64 %90, 0
-  %or.cond.i84 = and i1 %91, %89
+86:                                               ; preds = %77
+  %87 = icmp eq i8 %79, 0
+  %88 = icmp ne i64 %indvars.iv.i81, 0
+  %or.cond.i84 = and i1 %88, %87
   br i1 %or.cond.i84, label %Xz_ReadVarInt.exit.thread, label %Xz_ReadVarInt.exit86
 
-Xz_ReadVarInt.exit86:                             ; preds = %88
-  %92 = trunc nuw nsw i64 %indvars.iv.next.i83 to i32
-  %93 = add i32 %.2121, %92
-  %94 = zext i32 %93 to i64
-  %95 = getelementptr inbounds i8, ptr %1, i64 %94
-  %96 = sub i32 %5, %93
-  %97 = tail call i32 @llvm.umin.i32(i32 %96, i32 9)
-  %98 = zext nneg i32 %97 to i64
-  br label %99
+Xz_ReadVarInt.exit86:                             ; preds = %86
+  %89 = trunc nuw nsw i64 %indvars.iv.next.i83 to i32
+  %90 = add i32 %.2121, %89
+  %91 = zext i32 %90 to i64
+  %92 = getelementptr inbounds i8, ptr %1, i64 %91
+  %93 = sub i32 %5, %90
+  %94 = tail call i32 @llvm.umin.i32(i32 %93, i32 9)
+  %95 = zext nneg i32 %94 to i64
+  br label %96
 
-99:                                               ; preds = %101, %Xz_ReadVarInt.exit86
-  %indvars.iv140 = phi i32 [ %indvars.iv.next141, %101 ], [ %indvars.iv137, %Xz_ReadVarInt.exit86 ]
-  %100 = phi i64 [ %108, %101 ], [ 0, %Xz_ReadVarInt.exit86 ]
-  %indvars.iv.i87 = phi i64 [ %indvars.iv.next.i89, %101 ], [ 0, %Xz_ReadVarInt.exit86 ]
-  %exitcond.not.i88 = icmp eq i64 %indvars.iv.i87, %98
-  br i1 %exitcond.not.i88, label %Xz_ReadVarInt.exit.thread, label %101
+96:                                               ; preds = %98, %Xz_ReadVarInt.exit86
+  %indvars.iv140 = phi i32 [ %indvars.iv.next141, %98 ], [ %indvars.iv137, %Xz_ReadVarInt.exit86 ]
+  %97 = phi i64 [ %105, %98 ], [ 0, %Xz_ReadVarInt.exit86 ]
+  %indvars.iv.i87 = phi i64 [ %indvars.iv.next.i89, %98 ], [ 0, %Xz_ReadVarInt.exit86 ]
+  %exitcond.not.i88 = icmp eq i64 %indvars.iv.i87, %95
+  br i1 %exitcond.not.i88, label %Xz_ReadVarInt.exit.thread, label %98
 
-101:                                              ; preds = %99
-  %102 = getelementptr inbounds i8, ptr %95, i64 %indvars.iv.i87
-  %103 = load i8, ptr %102, align 1
-  %104 = and i8 %103, 127
-  %105 = zext nneg i8 %104 to i64
+98:                                               ; preds = %96
+  %99 = getelementptr inbounds i8, ptr %92, i64 %indvars.iv.i87
+  %100 = load i8, ptr %99, align 1
+  %101 = and i8 %100, 127
+  %102 = zext nneg i8 %101 to i64
   %indvars.iv.next.i89 = add nuw nsw i64 %indvars.iv.i87, 1
-  %106 = mul nuw nsw i64 %indvars.iv.i87, 7
-  %107 = shl i64 %105, %106
-  %108 = or i64 %107, %100
-  %109 = icmp sgt i8 %103, -1
+  %103 = mul nuw nsw i64 %indvars.iv.i87, 7
+  %104 = shl i64 %102, %103
+  %105 = or i64 %104, %97
+  %106 = icmp sgt i8 %100, -1
   %indvars.iv.next141 = add i32 %indvars.iv140, 1
-  br i1 %109, label %110, label %99
+  br i1 %106, label %107, label %96
 
-110:                                              ; preds = %101
-  %111 = icmp eq i8 %103, 0
-  %112 = and i64 %indvars.iv.i87, 4294967295
-  %113 = icmp ne i64 %112, 0
-  %or.cond.i90 = and i1 %113, %111
+107:                                              ; preds = %98
+  %108 = icmp eq i8 %100, 0
+  %109 = icmp ne i64 %indvars.iv.i87, 0
+  %or.cond.i90 = and i1 %109, %108
   br i1 %or.cond.i90, label %Xz_ReadVarInt.exit.thread, label %Xz_ReadVarInt.exit92
 
-Xz_ReadVarInt.exit92:                             ; preds = %110
-  %114 = trunc nuw nsw i64 %indvars.iv.next.i89 to i32
-  %115 = add i32 %93, %114
-  %116 = sub i32 %5, %115
-  %117 = zext i32 %116 to i64
-  %118 = icmp ugt i64 %108, %117
-  %119 = icmp ugt i64 %108, 20
-  %or.cond = or i1 %118, %119
-  br i1 %or.cond, label %Xz_ReadVarInt.exit.thread, label %120
+Xz_ReadVarInt.exit92:                             ; preds = %107
+  %110 = trunc nuw nsw i64 %indvars.iv.next.i89 to i32
+  %111 = add i32 %90, %110
+  %112 = sub i32 %5, %111
+  %113 = zext i32 %112 to i64
+  %114 = icmp ugt i64 %105, %113
+  %115 = icmp ugt i64 %105, 20
+  %or.cond = or i1 %114, %115
+  br i1 %or.cond, label %Xz_ReadVarInt.exit.thread, label %116
 
-120:                                              ; preds = %Xz_ReadVarInt.exit92
-  %121 = trunc nuw i64 %108 to i32
-  %122 = getelementptr inbounds i8, ptr %70, i64 8
-  store i32 %121, ptr %122, align 8
-  %123 = getelementptr inbounds i8, ptr %70, i64 12
-  %124 = zext i32 %115 to i64
-  %125 = getelementptr inbounds i8, ptr %1, i64 %124
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %123, ptr nonnull align 1 %125, i64 %108, i1 false)
-  %126 = add i32 %115, %121
+116:                                              ; preds = %Xz_ReadVarInt.exit92
+  %117 = trunc nuw i64 %105 to i32
+  %118 = getelementptr inbounds i8, ptr %68, i64 8
+  store i32 %117, ptr %118, align 8
+  %119 = getelementptr inbounds i8, ptr %68, i64 12
+  %120 = zext i32 %111 to i64
+  %121 = getelementptr inbounds i8, ptr %1, i64 %120
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %119, ptr nonnull align 1 %121, i64 %105, i1 false)
+  %122 = add i32 %111, %117
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader.preheader, label %69
+  br i1 %exitcond.not, label %.preheader.preheader, label %67
 
-.preheader.preheader:                             ; preds = %120
-  %127 = add i32 %indvars.iv140, %121
-  %128 = zext i32 %127 to i64
+.preheader.preheader:                             ; preds = %116
+  %123 = add i32 %indvars.iv140, %117
+  %124 = zext i32 %123 to i64
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.preheader, %130
-  %indvars.iv144 = phi i64 [ %128, %.preheader.preheader ], [ %indvars.iv.next145, %130 ]
-  %129 = icmp ult i64 %indvars.iv144, %6
-  br i1 %129, label %130, label %Xz_ReadVarInt.exit.thread
+.preheader:                                       ; preds = %.preheader.preheader, %126
+  %indvars.iv144 = phi i64 [ %124, %.preheader.preheader ], [ %indvars.iv.next145, %126 ]
+  %125 = icmp ult i64 %indvars.iv144, %6
+  br i1 %125, label %126, label %Xz_ReadVarInt.exit.thread
 
-130:                                              ; preds = %.preheader
+126:                                              ; preds = %.preheader
   %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
-  %131 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv144
-  %132 = load i8, ptr %131, align 1
-  %.not74 = icmp eq i8 %132, 0
+  %127 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv144
+  %128 = load i8, ptr %127, align 1
+  %.not74 = icmp eq i8 %128, 0
   br i1 %.not74, label %.preheader, label %Xz_ReadVarInt.exit.thread
 
-Xz_ReadVarInt.exit.thread:                        ; preds = %20, %49, %110, %88, %Xz_ReadVarInt.exit92, %77, %99, %.preheader, %130, %60, %31, %36, %2
-  %.0 = phi i32 [ 16, %2 ], [ 16, %36 ], [ 16, %31 ], [ 16, %60 ], [ 0, %.preheader ], [ 16, %130 ], [ 16, %99 ], [ 16, %77 ], [ 16, %Xz_ReadVarInt.exit92 ], [ 16, %88 ], [ 16, %110 ], [ 16, %49 ], [ 16, %20 ]
+Xz_ReadVarInt.exit.thread:                        ; preds = %20, %48, %107, %86, %Xz_ReadVarInt.exit92, %75, %96, %.preheader, %126, %59, %31, %35, %2
+  %.0 = phi i32 [ 16, %2 ], [ 16, %35 ], [ 16, %31 ], [ 16, %59 ], [ 0, %.preheader ], [ 16, %126 ], [ 16, %96 ], [ 16, %75 ], [ 16, %Xz_ReadVarInt.exit92 ], [ 16, %86 ], [ 16, %107 ], [ 16, %48 ], [ 16, %20 ]
   ret i32 %.0
 }
 

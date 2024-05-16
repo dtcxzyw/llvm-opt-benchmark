@@ -2123,7 +2123,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @aio_setup_ring(ptr noundef
   %41 = getelementptr inbounds i8, ptr %0, i64 448
   %42 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr %41, ptr %42, align 8
-  %43 = icmp ugt i32 %13, 8
+  %43 = icmp ugt i32 %1, 1021
   br i1 %43, label %44, label %58
 
 44:                                               ; preds = %36

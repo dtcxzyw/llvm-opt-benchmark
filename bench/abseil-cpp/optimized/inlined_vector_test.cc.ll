@@ -108107,8 +108107,8 @@ for.body:                                         ; preds = %entry, %_ZN4absl13I
   %i.037 = phi i64 [ 0, %entry ], [ %inc9, %_ZN4absl13InlinedVectorIiLm4ESaIiEED2Ev.exit14 ]
   %indvars39 = trunc i64 %i.037 to i32
   store i64 0, ptr %v, align 8
-  %.not = icmp eq i64 %i.037, 0
-  br i1 %.not, label %for.end, label %for.body4
+  %cmp335.not = icmp eq i64 %i.037, 0
+  br i1 %cmp335.not, label %for.end, label %for.body4
 
 for.body4:                                        ; preds = %for.body, %for.inc
   %0 = phi i64 [ %storemerge.i, %for.inc ], [ 0, %for.body ]

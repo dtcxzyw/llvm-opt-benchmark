@@ -2314,7 +2314,7 @@ lor.lhs.false6:                                   ; preds = %lor.lhs.false
 
 if.end11:                                         ; preds = %for.cond, %lor.lhs.false6
   %4 = trunc nuw nsw i64 %indvars.iv.next to i16
-  %cmp1314 = icmp ult i16 %4, 4
+  %cmp1314 = icmp ult i64 %indvars.iv, 3
   br i1 %cmp1314, label %while.body.preheader, label %while.end
 
 while.body.preheader:                             ; preds = %for.cond.preheader, %if.end, %if.end11
@@ -2323,7 +2323,7 @@ while.body.preheader:                             ; preds = %for.cond.preheader,
   %scevgep = getelementptr i8, ptr %versionArray, i64 %5
   %narrow = sub nuw nsw i16 4, %part.122
   %6 = zext nneg i16 %narrow to i64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 0, i64 %6, i1 false)
   br label %while.end
 
 while.end:                                        ; preds = %lor.lhs.false, %while.body.preheader, %if.end11, %entry
@@ -2382,7 +2382,7 @@ lor.lhs.false6.i:                                 ; preds = %lor.lhs.false.i
 
 if.end11.i:                                       ; preds = %lor.lhs.false6.i, %for.cond.i
   %4 = trunc nuw nsw i64 %indvars.iv.next.i to i16
-  %cmp1314.i = icmp ult i16 %4, 4
+  %cmp1314.i = icmp ult i64 %indvars.iv.i, 3
   br i1 %cmp1314.i, label %while.body.preheader.i, label %u_versionFromString_75.exit
 
 while.body.preheader.i:                           ; preds = %if.end11.i, %if.end.i
@@ -2391,7 +2391,7 @@ while.body.preheader.i:                           ; preds = %if.end11.i, %if.end
   %scevgep.i = getelementptr i8, ptr %versionArray, i64 %5
   %narrow.i = sub nuw nsw i16 4, %part.122.i
   %6 = zext nneg i16 %narrow.i to i64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(1) %scevgep.i, i8 0, i64 %6, i1 false)
+  call void @llvm.memset.p0.i64(ptr writeonly align 1 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %u_versionFromString_75.exit
 
 u_versionFromString_75.exit:                      ; preds = %lor.lhs.false.i, %if.end11.i, %while.body.preheader.i
@@ -2563,7 +2563,7 @@ lor.lhs.false6.i:                                 ; preds = %lor.lhs.false.i
 
 if.end11.i:                                       ; preds = %lor.lhs.false6.i, %for.cond.i
   %4 = trunc nuw nsw i64 %indvars.iv.next.i to i16
-  %cmp1314.i = icmp ult i16 %4, 4
+  %cmp1314.i = icmp ult i64 %indvars.iv.i, 3
   br i1 %cmp1314.i, label %while.body.preheader.i, label %u_versionFromString_75.exit
 
 while.body.preheader.i:                           ; preds = %if.end11.i, %if.end.i
@@ -2572,7 +2572,7 @@ while.body.preheader.i:                           ; preds = %if.end11.i, %if.end
   %scevgep.i = getelementptr i8, ptr %versionArray, i64 %5
   %narrow.i = sub nuw nsw i16 4, %part.122.i
   %6 = zext nneg i16 %narrow.i to i64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(1) %scevgep.i, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %u_versionFromString_75.exit
 
 u_versionFromString_75.exit:                      ; preds = %lor.lhs.false.i, %entry, %if.end11.i, %while.body.preheader.i

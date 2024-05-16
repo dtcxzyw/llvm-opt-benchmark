@@ -1700,10 +1700,10 @@ define noalias noundef ptr @Cudd_bddCharToVect(ptr noundef %0, ptr noundef %1) l
   %.pre57 = load ptr, ptr %18, align 8
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %38
-  %22 = phi ptr [ %.pre57, %.lr.ph.preheader ], [ %45, %38 ]
-  %indvars.iv54 = phi i32 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next55, %38 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %38 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %37
+  %22 = phi ptr [ %.pre57, %.lr.ph.preheader ], [ %44, %37 ]
+  %indvars.iv54 = phi i32 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next55, %37 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %37 ]
   %23 = load ptr, ptr %17, align 8
   %24 = getelementptr inbounds i32, ptr %22, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4
@@ -1712,11 +1712,10 @@ define noalias noundef ptr @Cudd_bddCharToVect(ptr noundef %0, ptr noundef %1) l
   %28 = load ptr, ptr %27, align 8
   %29 = tail call ptr @cuddBddCharToVect(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %28)
   %30 = icmp eq ptr %29, null
-  br i1 %30, label %.preheader, label %38
+  br i1 %30, label %.preheader, label %37
 
 .preheader:                                       ; preds = %.lr.ph
-  %31 = and i64 %indvars.iv, 4294967295
-  %.not = icmp eq i64 %31, 0
+  %.not = icmp eq i64 %indvars.iv, 0
   br i1 %.not, label %.thread, label %.lr.ph47.preheader
 
 .lr.ph47.preheader:                               ; preds = %.preheader
@@ -1725,53 +1724,53 @@ define noalias noundef ptr @Cudd_bddCharToVect(ptr noundef %0, ptr noundef %1) l
 
 .lr.ph47:                                         ; preds = %.lr.ph47.preheader, %.lr.ph47
   %indvars.iv51 = phi i64 [ 0, %.lr.ph47.preheader ], [ %indvars.iv.next52, %.lr.ph47 ]
-  %32 = load ptr, ptr %18, align 8
-  %33 = getelementptr inbounds i32, ptr %32, i64 %indvars.iv51
-  %34 = load i32, ptr %33, align 4
-  %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds ptr, ptr %14, i64 %35
-  %37 = load ptr, ptr %36, align 8
-  tail call void @Cudd_IterDerefBdd(ptr noundef nonnull %0, ptr noundef %37) #8
+  %31 = load ptr, ptr %18, align 8
+  %32 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv51
+  %33 = load i32, ptr %32, align 4
+  %34 = sext i32 %33 to i64
+  %35 = getelementptr inbounds ptr, ptr %14, i64 %34
+  %36 = load ptr, ptr %35, align 8
+  tail call void @Cudd_IterDerefBdd(ptr noundef nonnull %0, ptr noundef %36) #8
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next52, %wide.trip.count
   br i1 %exitcond.not, label %.thread, label %.lr.ph47, !llvm.loop !13
 
-38:                                               ; preds = %.lr.ph
-  %39 = ptrtoint ptr %29 to i64
-  %40 = and i64 %39, -2
-  %41 = inttoptr i64 %40 to ptr
-  %42 = getelementptr inbounds i8, ptr %41, i64 4
-  %43 = load i32, ptr %42, align 4
-  %44 = add i32 %43, 1
-  store i32 %44, ptr %42, align 4
-  %45 = load ptr, ptr %18, align 8
-  %46 = getelementptr inbounds i32, ptr %45, i64 %indvars.iv
-  %47 = load i32, ptr %46, align 4
-  %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds ptr, ptr %14, i64 %48
-  store ptr %29, ptr %49, align 8
+37:                                               ; preds = %.lr.ph
+  %38 = ptrtoint ptr %29 to i64
+  %39 = and i64 %38, -2
+  %40 = inttoptr i64 %39 to ptr
+  %41 = getelementptr inbounds i8, ptr %40, i64 4
+  %42 = load i32, ptr %41, align 4
+  %43 = add i32 %42, 1
+  store i32 %43, ptr %41, align 4
+  %44 = load ptr, ptr %18, align 8
+  %45 = getelementptr inbounds i32, ptr %44, i64 %indvars.iv
+  %46 = load i32, ptr %45, align 4
+  %47 = sext i32 %46 to i64
+  %48 = getelementptr inbounds ptr, ptr %14, i64 %47
+  store ptr %29, ptr %48, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %50 = load i32, ptr %10, align 8
-  %51 = sext i32 %50 to i64
-  %52 = icmp slt i64 %indvars.iv.next, %51
+  %49 = load i32, ptr %10, align 8
+  %50 = sext i32 %49 to i64
+  %51 = icmp slt i64 %indvars.iv.next, %50
   %indvars.iv.next55 = add nuw nsw i32 %indvars.iv54, 1
-  br i1 %52, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %51, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %38
+._crit_edge:                                      ; preds = %37
   %.pre58 = load i32, ptr %16, align 8
-  %53 = icmp eq i32 %.pre58, 1
-  br i1 %53, label %.backedge, label %.split.thread66
+  %52 = icmp eq i32 %.pre58, 1
+  br i1 %52, label %.backedge, label %.split.thread66
 
 .backedge:                                        ; preds = %.thread..backedge_crit_edge, %._crit_edge
-  %.pre = phi i32 [ %50, %._crit_edge ], [ %.pre.pre, %.thread..backedge_crit_edge ]
+  %.pre = phi i32 [ %49, %._crit_edge ], [ %.pre.pre, %.thread..backedge_crit_edge ]
   store i32 0, ptr %16, align 8
-  %54 = icmp sgt i32 %.pre, 0
-  br i1 %54, label %.lr.ph.preheader, label %.split, !llvm.loop !15
+  %53 = icmp sgt i32 %.pre, 0
+  br i1 %53, label %.lr.ph.preheader, label %.split, !llvm.loop !15
 
 .thread:                                          ; preds = %.lr.ph47, %.preheader
-  %55 = load i32, ptr %16, align 8
-  %56 = icmp eq i32 %55, 1
-  br i1 %56, label %.thread..backedge_crit_edge, label %.thread40
+  %54 = load i32, ptr %16, align 8
+  %55 = icmp eq i32 %54, 1
+  br i1 %55, label %.thread..backedge_crit_edge, label %.thread40
 
 .thread..backedge_crit_edge:                      ; preds = %.thread
   %.pre.pre = load i32, ptr %10, align 8

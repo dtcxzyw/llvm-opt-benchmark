@@ -956,7 +956,7 @@ if.end14.i:                                       ; preds = %if.end.i
   %4 = load i64, ptr %sz15.i, align 8
   %add.i = add i64 %sz, 8
   %add16.i = add i64 %add.i, %4
-  %cmp.i.i.i = icmp sgt i32 %bf.cast, -1
+  %cmp.i.i.i = icmp sgt i64 %bf.ashr, -1
   br i1 %cmp.i.i.i, label %_quicklistNodeAllowInsert.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end14.i
@@ -1093,7 +1093,7 @@ if.end14.i:                                       ; preds = %if.end.i
   %4 = load i64, ptr %sz15.i, align 8
   %add.i = add i64 %sz, 8
   %add16.i = add i64 %add.i, %4
-  %cmp.i.i.i = icmp sgt i32 %bf.cast, -1
+  %cmp.i.i.i = icmp sgt i64 %bf.ashr, -1
   br i1 %cmp.i.i.i, label %_quicklistNodeAllowInsert.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end14.i
@@ -2144,7 +2144,7 @@ if.end10.i:                                       ; preds = %lor.rhs.i
   %add.i = add i64 %6, 4294967289
   %conv12.i = add i64 %add.i, %7
   %conv13.i = and i64 %conv12.i, 4294967295
-  %cmp.i.i.i = icmp sgt i32 %bf.cast, -1
+  %cmp.i.i.i = icmp sgt i64 %bf.ashr, -1
   br i1 %cmp.i.i.i, label %_quicklistNodeAllowMerge.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end10.i
@@ -2198,7 +2198,7 @@ if.end10.i43:                                     ; preds = %lor.rhs.i39
   %add.i46 = add i64 %12, 4294967289
   %conv12.i47 = add i64 %add.i46, %13
   %conv13.i48 = and i64 %conv12.i47, 4294967295
-  %cmp.i.i.i49 = icmp sgt i32 %bf.cast, -1
+  %cmp.i.i.i49 = icmp sgt i64 %bf.ashr, -1
   br i1 %cmp.i.i.i49, label %_quicklistNodeAllowMerge.exit67, label %if.then.i.i50
 
 if.then.i.i50:                                    ; preds = %if.end10.i43
@@ -2251,7 +2251,7 @@ if.end10.i80:                                     ; preds = %lor.rhs.i76
   %add.i83 = add i64 %19, 4294967289
   %conv12.i84 = add i64 %add.i83, %20
   %conv13.i85 = and i64 %conv12.i84, 4294967295
-  %cmp.i.i.i86 = icmp sgt i32 %bf.cast, -1
+  %cmp.i.i.i86 = icmp sgt i64 %bf.ashr, -1
   br i1 %cmp.i.i.i86, label %_quicklistNodeAllowMerge.exit104, label %if.then.i.i87
 
 if.then.i.i87:                                    ; preds = %if.end10.i80
@@ -2308,7 +2308,7 @@ if.end10.i117:                                    ; preds = %lor.rhs.i113
   %add.i120 = add i64 %26, 4294967289
   %conv12.i121 = add i64 %add.i120, %27
   %conv13.i122 = and i64 %conv12.i121, 4294967295
-  %cmp.i.i.i123 = icmp sgt i32 %bf.cast, -1
+  %cmp.i.i.i123 = icmp sgt i64 %bf.ashr, -1
   br i1 %cmp.i.i.i123, label %_quicklistNodeAllowMerge.exit141, label %if.then.i.i124
 
 if.then.i.i124:                                   ; preds = %if.end10.i117
@@ -2526,7 +2526,7 @@ if.end14.i:                                       ; preds = %if.end.i
   %12 = load i64, ptr %sz15.i, align 8
   %add.i = add i64 %sz, 8
   %add16.i = add i64 %add.i, %12
-  %cmp.i.i.i = icmp sgt i32 %bf.cast, -1
+  %cmp.i.i.i = icmp sgt i64 %bf.ashr, -1
   br i1 %cmp.i.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end14.i
@@ -2586,7 +2586,7 @@ if.end14.i226:                                    ; preds = %if.end.i221
   %19 = load i64, ptr %sz15.i227, align 8
   %add.i228 = add i64 %sz, 8
   %add16.i229 = add i64 %add.i228, %19
-  %cmp.i.i.i230 = icmp sgt i32 %bf.cast, -1
+  %cmp.i.i.i230 = icmp sgt i64 %bf.ashr, -1
   br i1 %cmp.i.i.i230, label %_quicklistNodeAllowInsert.exit247, label %if.then.i.i231
 
 if.then.i.i231:                                   ; preds = %if.end14.i226
@@ -2639,7 +2639,7 @@ if.end14.i254:                                    ; preds = %if.end.i249
   %25 = load i64, ptr %sz15.i255, align 8
   %add.i256 = add i64 %sz, 8
   %add16.i257 = add i64 %add.i256, %25
-  %cmp.i.i.i258 = icmp sgt i32 %bf.cast, -1
+  %cmp.i.i.i258 = icmp sgt i64 %bf.ashr, -1
   br i1 %cmp.i.i.i258, label %_quicklistNodeAllowInsert.exit275, label %if.then.i.i259
 
 if.then.i.i259:                                   ; preds = %if.end14.i254

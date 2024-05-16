@@ -385,7 +385,6 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %if
   br i1 %exitcond.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i, !llvm.loop !4
 
 for.end.i.i.i:                                    ; preds = %for.body.i.i.i
-  %conv.i.i.i = trunc nuw i64 %size to i32
   %shr.i.i.i59.i.i = lshr i64 %xor.i.i47.i.i, 37
   %xor.i.i43.i60.i.i = xor i64 %shr.i.i.i59.i.i, %xor.i.i47.i.i
   %mul.i.i61.i.i = mul i64 %xor.i.i43.i60.i.i, 1609587791953885689
@@ -396,11 +395,14 @@ for.end.i.i.i:                                    ; preds = %for.body.i.i.i
   %mul.i46.i.i.i = mul i64 %xor.i.i45.i.i.i, 1609587791953885689
   %shr.i4.i47.i.i.i = lshr i64 %mul.i46.i.i.i, 32
   %xor.i5.i48.i.i.i = xor i64 %shr.i4.i47.i.i.i, %mul.i46.i.i.i
-  %cmp164.i.i.i = icmp ugt i32 %conv.i.i.i, 159
+  %cmp164.i.i.i = icmp ugt i64 %size, 159
   br i1 %cmp164.i.i.i, label %for.body17.preheader.i.i.i, label %_ZL22XXH3_len_129to240_128bPKhmS0_mm.exit.i.i
 
 for.body17.preheader.i.i.i:                       ; preds = %for.end.i.i.i
-  %div36.i.i.i = lshr i64 %size, 5
+  %conv.i.i.i = trunc nuw i64 %size to i32
+  %div36.i.i.i = lshr i32 %conv.i.i.i, 5
+  %umax.i.i.i = tail call i32 @llvm.umax.i32(i32 %div36.i.i.i, i32 5)
+  %wide.trip.count.i.i.i = zext nneg i32 %umax.i.i.i to i64
   br label %for.body17.i.i.i
 
 for.body17.i.i.i:                                 ; preds = %for.body17.i.i.i, %for.body17.preheader.i.i.i
@@ -448,7 +450,7 @@ for.body17.i.i.i:                                 ; preds = %for.body17.i.i.i, %
   %add12.i74.i.i.i = add i64 %add.ptr22.val39.i.i.i, %add.ptr22.val.i.i.i
   %xor14.i75.i.i.i = xor i64 %add8.i73.i.i.i, %add12.i74.i.i.i
   %indvars.iv.next12.i.i.i = add nuw nsw i64 %indvars.iv11.i.i.i, 1
-  %exitcond15.not.i.i.i = icmp eq i64 %indvars.iv.next12.i.i.i, %div36.i.i.i
+  %exitcond15.not.i.i.i = icmp eq i64 %indvars.iv.next12.i.i.i, %wide.trip.count.i.i.i
   br i1 %exitcond15.not.i.i.i, label %_ZL22XXH3_len_129to240_128bPKhmS0_mm.exit.i.i, label %for.body17.i.i.i, !llvm.loop !6
 
 _ZL22XXH3_len_129to240_128bPKhmS0_mm.exit.i.i:    ; preds = %for.body17.i.i.i, %for.end.i.i.i
@@ -803,6 +805,9 @@ declare i64 @llvm.bswap.i64(i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #7
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8

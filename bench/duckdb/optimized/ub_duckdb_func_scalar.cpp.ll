@@ -2464,8 +2464,7 @@ sw.bb88:                                          ; preds = %entry
   %arrayidx89 = getelementptr inbounds i8, ptr %data, i64 8
   %84 = load i32, ptr %arrayidx89, align 4, !tbaa !48
   %rem90 = srem i32 %84, 100
-  %conv91 = trunc nsw i32 %rem90 to i8
-  %cmp.i337 = icmp ugt i8 %conv91, 9
+  %cmp.i337 = icmp ugt i32 %rem90, 9
   br i1 %cmp.i337, label %if.then.i342, label %if.else.i338
 
 if.then.i342:                                     ; preds = %sw.bb88
@@ -2485,6 +2484,7 @@ if.then.i342:                                     ; preds = %sw.bb88
   br label %return
 
 if.else.i338:                                     ; preds = %sw.bb88
+  %conv91 = trunc nuw nsw i32 %rem90 to i8
   %add.i339 = or disjoint i8 %conv91, 48
   store i8 %add.i339, ptr %target, align 1, !tbaa !14
   %add.ptr.i340 = getelementptr inbounds i8, ptr %target, i64 1
@@ -2523,8 +2523,7 @@ sw.bb97:                                          ; preds = %entry
   %90 = load i32, ptr %data, align 4, !tbaa !48
   %cond.i367 = tail call noundef i32 @llvm.abs.i32(i32 %90, i1 true)
   %rem100455 = urem i32 %cond.i367, 100
-  %conv101 = trunc nuw nsw i32 %rem100455 to i8
-  %cmp.i368 = icmp ugt i8 %conv101, 9
+  %cmp.i368 = icmp ugt i32 %rem100455, 9
   br i1 %cmp.i368, label %if.then.i373, label %if.else.i369
 
 if.then.i373:                                     ; preds = %sw.bb97
@@ -2543,6 +2542,7 @@ if.then.i373:                                     ; preds = %sw.bb97
   br label %return
 
 if.else.i369:                                     ; preds = %sw.bb97
+  %conv101 = trunc nuw nsw i32 %rem100455 to i8
   %add.i370 = or disjoint i8 %conv101, 48
   store i8 %add.i370, ptr %target, align 1, !tbaa !14
   %add.ptr.i371 = getelementptr inbounds i8, ptr %target, i64 1

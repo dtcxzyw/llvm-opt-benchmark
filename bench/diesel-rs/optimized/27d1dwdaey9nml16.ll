@@ -6323,7 +6323,7 @@ _ZN6diesel5mysql5value10MysqlValue10time_value17h70e069816a28c4d6E.exit.thread: 
   br i1 %50, label %60, label %51
 
 51:                                               ; preds = %41
-  %52 = icmp ugt i32 %37, 23
+  %52 = icmp ugt ptr %.sroa.7.0.copyload, inttoptr (i64 103079215103 to ptr)
   %53 = icmp ugt i32 %44, 59
   %or.cond.i.i.i = or i1 %52, %53
   %54 = icmp ugt i32 %45, 59

@@ -4242,7 +4242,7 @@ Wlc_ObjFanins.exit:                               ; preds = %Wlc_ObjHasArray.exi
 
 .preheader:                                       ; preds = %.lr.ph
   %22 = trunc nuw nsw i64 %indvars.iv.next to i32
-  %23 = icmp ult i32 %22, 4
+  %23 = icmp ult i64 %indvars.iv, 3
   br i1 %23, label %.lr.ph27.preheader, label %._crit_edge
 
 .lr.ph27.preheader:                               ; preds = %Wlc_ObjFanins.exit, %.preheader

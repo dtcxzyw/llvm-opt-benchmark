@@ -1670,334 +1670,333 @@ define internal i32 @dissect_usb_vid_get_set(ptr nocapture noundef readonly %0, 
   %8 = getelementptr inbounds i8, ptr %5, i64 32
   %9 = load i16, ptr %8, align 4
   %10 = lshr i16 %9, 8
-  %11 = trunc nuw i16 %10 to i8
-  %12 = getelementptr inbounds i8, ptr %5, i64 30
-  %13 = load i16, ptr %12, align 2
-  %14 = lshr i16 %13, 8
-  %15 = zext nneg i16 %14 to i32
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
-  %17 = load ptr, ptr %16, align 8
-  tail call void @col_append_str(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.536) #4
-  %18 = icmp eq ptr %6, null
-  br i1 %18, label %get_control_selector_name.exit.thread, label %19
+  %11 = getelementptr inbounds i8, ptr %5, i64 30
+  %12 = load i16, ptr %11, align 2
+  %13 = lshr i16 %12, 8
+  %14 = zext nneg i16 %13 to i32
+  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = load ptr, ptr %15, align 8
+  tail call void @col_append_str(ptr noundef %16, i32 noundef 25, ptr noundef nonnull @.str.536) #4
+  %17 = icmp eq ptr %6, null
+  br i1 %17, label %get_control_selector_name.exit.thread, label %18
 
-19:                                               ; preds = %7
-  %20 = getelementptr inbounds i8, ptr %6, i64 72
-  %21 = load ptr, ptr %20, align 8
-  %.not.i.i = icmp eq ptr %21, null
-  br i1 %.not.i.i, label %.thread.i.i, label %22
+18:                                               ; preds = %7
+  %19 = getelementptr inbounds i8, ptr %6, i64 72
+  %20 = load ptr, ptr %19, align 8
+  %.not.i.i = icmp eq ptr %20, null
+  br i1 %.not.i.i, label %.thread.i.i, label %21
 
-22:                                               ; preds = %19
-  %23 = load ptr, ptr %21, align 8
-  %24 = zext nneg i16 %10 to i32
-  %25 = tail call ptr @wmem_tree_lookup32(ptr noundef %23, i32 noundef %24) #4
-  %26 = icmp eq i8 %11, 0
-  br i1 %26, label %28, label %31
+21:                                               ; preds = %18
+  %22 = load ptr, ptr %20, align 8
+  %23 = zext nneg i16 %10 to i32
+  %24 = tail call ptr @wmem_tree_lookup32(ptr noundef %22, i32 noundef %23) #4
+  %25 = icmp ult i16 %9, 256
+  br i1 %25, label %27, label %30
 
-.thread.i.i:                                      ; preds = %19
-  %27 = icmp eq i8 %11, 0
-  br i1 %27, label %28, label %get_control_selector_name.exit.thread
+.thread.i.i:                                      ; preds = %18
+  %26 = icmp ult i16 %9, 256
+  br i1 %26, label %27, label %get_control_selector_name.exit.thread.thread
 
-28:                                               ; preds = %.thread.i.i, %22
-  %29 = getelementptr inbounds i8, ptr %6, i64 38
-  %30 = load i16, ptr %29, align 2
-  switch i16 %30, label %get_control_selector_name.exit.thread [
+27:                                               ; preds = %.thread.i.i, %21
+  %28 = getelementptr inbounds i8, ptr %6, i64 38
+  %29 = load i16, ptr %28, align 2
+  switch i16 %29, label %get_control_selector_name.exit.thread.thread131 [
     i16 1, label %get_control_selector_name.exit
     i16 2, label %get_control_selector_values.exit.thread10.fold.split.i
   ]
 
-31:                                               ; preds = %22
-  %.not15.i.i = icmp eq ptr %25, null
-  br i1 %.not15.i.i, label %get_control_selector_name.exit.thread, label %32
+30:                                               ; preds = %21
+  %.not15.i.i = icmp eq ptr %24, null
+  br i1 %.not15.i.i, label %get_control_selector_name.exit.thread.thread, label %31
 
-32:                                               ; preds = %31
-  %33 = getelementptr inbounds i8, ptr %25, i64 1
-  %34 = load i8, ptr %33, align 1
-  switch i8 %34, label %get_control_selector_name.exit.thread [
-    i8 2, label %35
+31:                                               ; preds = %30
+  %32 = getelementptr inbounds i8, ptr %24, i64 1
+  %33 = load i8, ptr %32, align 1
+  switch i8 %33, label %get_control_selector_name.exit.thread.thread [
+    i8 2, label %34
     i8 5, label %get_control_selector_name.exit
-    i8 4, label %39
+    i8 4, label %38
   ]
 
-35:                                               ; preds = %32
-  %36 = getelementptr inbounds i8, ptr %25, i64 2
-  %37 = load i16, ptr %36, align 2
-  %38 = icmp eq i16 %37, 513
-  br i1 %38, label %get_control_selector_name.exit, label %get_control_selector_name.exit.thread
+34:                                               ; preds = %31
+  %35 = getelementptr inbounds i8, ptr %24, i64 2
+  %36 = load i16, ptr %35, align 2
+  %37 = icmp eq i16 %36, 513
+  br i1 %37, label %get_control_selector_name.exit, label %get_control_selector_name.exit.thread.thread
 
-39:                                               ; preds = %32
+38:                                               ; preds = %31
   br label %get_control_selector_name.exit
 
-get_control_selector_values.exit.thread10.fold.split.i: ; preds = %28
+get_control_selector_values.exit.thread10.fold.split.i: ; preds = %27
   br label %get_control_selector_name.exit
 
-get_control_selector_name.exit:                   ; preds = %28, %32, %35, %39, %get_control_selector_values.exit.thread10.fold.split.i
-  %.012.i13.i = phi ptr [ @cs_selector_unit_ext, %39 ], [ @cs_processing_unit_ext, %32 ], [ @cs_control_interface_ext, %28 ], [ @cs_camera_terminal_ext, %35 ], [ @cs_streaming_interface_ext, %get_control_selector_values.exit.thread10.fold.split.i ]
-  %40 = tail call ptr @try_val_to_str_ext(i32 noundef %15, ptr noundef nonnull %.012.i13.i) #4
-  %.not = icmp eq ptr %40, null
-  br i1 %.not, label %get_control_selector_name.exit.thread, label %41
+get_control_selector_name.exit:                   ; preds = %27, %31, %34, %38, %get_control_selector_values.exit.thread10.fold.split.i
+  %.012.i13.i = phi ptr [ @cs_selector_unit_ext, %38 ], [ @cs_processing_unit_ext, %31 ], [ @cs_control_interface_ext, %27 ], [ @cs_camera_terminal_ext, %34 ], [ @cs_streaming_interface_ext, %get_control_selector_values.exit.thread10.fold.split.i ]
+  %39 = tail call ptr @try_val_to_str_ext(i32 noundef %14, ptr noundef nonnull %.012.i13.i) #4
+  %.not = icmp eq ptr %39, null
+  br i1 %.not, label %get_control_selector_name.exit.thread, label %40
 
-41:                                               ; preds = %get_control_selector_name.exit
-  %42 = load ptr, ptr %16, align 8
-  tail call void @col_append_str(ptr noundef %42, i32 noundef 25, ptr noundef nonnull %40) #4
-  br label %52
+40:                                               ; preds = %get_control_selector_name.exit
+  %41 = load ptr, ptr %15, align 8
+  tail call void @col_append_str(ptr noundef %41, i32 noundef 25, ptr noundef nonnull %39) #4
+  br label %49
 
-get_control_selector_name.exit.thread:            ; preds = %28, %.thread.i.i, %35, %31, %32, %7, %get_control_selector_name.exit
-  %43 = icmp ult i16 %9, 256
-  br i1 %43, label %44, label %49
+get_control_selector_name.exit.thread:            ; preds = %7, %get_control_selector_name.exit
+  %42 = icmp ult i16 %9, 256
+  br i1 %42, label %get_control_selector_name.exit.thread.thread131, label %get_control_selector_name.exit.thread.thread
 
-44:                                               ; preds = %get_control_selector_name.exit.thread
-  %45 = load ptr, ptr %16, align 8
-  %46 = getelementptr inbounds i8, ptr %6, i64 42
-  %47 = load i8, ptr %46, align 2
-  %48 = zext i8 %47 to i32
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %45, i32 noundef 25, ptr noundef nonnull @.str.537, i32 noundef %48, i32 noundef %15) #4
-  br label %52
+get_control_selector_name.exit.thread.thread131:  ; preds = %27, %get_control_selector_name.exit.thread
+  %43 = load ptr, ptr %15, align 8
+  %44 = getelementptr inbounds i8, ptr %6, i64 42
+  %45 = load i8, ptr %44, align 2
+  %46 = zext i8 %45 to i32
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %43, i32 noundef 25, ptr noundef nonnull @.str.537, i32 noundef %46, i32 noundef %14) #4
+  br label %49
 
-49:                                               ; preds = %get_control_selector_name.exit.thread
-  %50 = zext nneg i16 %10 to i32
-  %51 = load ptr, ptr %16, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %51, i32 noundef 25, ptr noundef nonnull @.str.538, i32 noundef %50, i32 noundef %15) #4
-  br label %52
+get_control_selector_name.exit.thread.thread:     ; preds = %31, %30, %34, %.thread.i.i, %get_control_selector_name.exit.thread
+  %47 = zext nneg i16 %10 to i32
+  %48 = load ptr, ptr %15, align 8
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %48, i32 noundef 25, ptr noundef nonnull @.str.538, i32 noundef %47, i32 noundef %14) #4
+  br label %49
 
-52:                                               ; preds = %44, %49, %41
-  %.0111 = phi ptr [ %40, %41 ], [ @.str.441, %44 ], [ @.str.441, %49 ]
-  %53 = load ptr, ptr %16, align 8
-  tail call void @col_append_str(ptr noundef %53, i32 noundef 25, ptr noundef nonnull @.str.539) #4
-  %54 = load ptr, ptr %16, align 8
-  tail call void @col_set_fence(ptr noundef %54, i32 noundef 25) #4
+49:                                               ; preds = %get_control_selector_name.exit.thread.thread131, %get_control_selector_name.exit.thread.thread, %40
+  %.0111 = phi ptr [ %39, %40 ], [ @.str.441, %get_control_selector_name.exit.thread.thread131 ], [ @.str.441, %get_control_selector_name.exit.thread.thread ]
+  %50 = load ptr, ptr %15, align 8
+  tail call void @col_append_str(ptr noundef %50, i32 noundef 25, ptr noundef nonnull @.str.539) #4
+  %51 = load ptr, ptr %15, align 8
+  tail call void @col_set_fence(ptr noundef %51, i32 noundef 25) #4
   %.not116 = icmp eq i32 %4, 0
-  br i1 %.not116, label %55, label %87
+  br i1 %.not116, label %52, label %84
 
-55:                                               ; preds = %52
-  %56 = load i32, ptr @hf_usb_vid_control_interface, align 4
-  %57 = load i16, ptr %8, align 4
-  %58 = and i16 %57, 255
-  %59 = zext nneg i16 %58 to i32
-  %60 = tail call ptr @proto_tree_add_uint(ptr noundef %1, i32 noundef %56, ptr noundef %2, i32 noundef 0, i32 noundef 0, i32 noundef %59) #4
-  %.not.i = icmp eq ptr %60, null
-  br i1 %.not.i, label %proto_item_set_generated.exit, label %61
+52:                                               ; preds = %49
+  %53 = load i32, ptr @hf_usb_vid_control_interface, align 4
+  %54 = load i16, ptr %8, align 4
+  %55 = and i16 %54, 255
+  %56 = zext nneg i16 %55 to i32
+  %57 = tail call ptr @proto_tree_add_uint(ptr noundef %1, i32 noundef %53, ptr noundef %2, i32 noundef 0, i32 noundef 0, i32 noundef %56) #4
+  %.not.i = icmp eq ptr %57, null
+  br i1 %.not.i, label %proto_item_set_generated.exit, label %58
 
-61:                                               ; preds = %55
-  %62 = getelementptr inbounds i8, ptr %60, i64 32
-  %63 = load ptr, ptr %62, align 8
-  %.not5.i = icmp eq ptr %63, null
-  br i1 %.not5.i, label %proto_item_set_generated.exit, label %64
+58:                                               ; preds = %52
+  %59 = getelementptr inbounds i8, ptr %57, i64 32
+  %60 = load ptr, ptr %59, align 8
+  %.not5.i = icmp eq ptr %60, null
+  br i1 %.not5.i, label %proto_item_set_generated.exit, label %61
 
-64:                                               ; preds = %61
-  %65 = getelementptr inbounds i8, ptr %63, i64 28
-  %66 = load i32, ptr %65, align 4
-  %67 = or i32 %66, 2
-  store i32 %67, ptr %65, align 4
+61:                                               ; preds = %58
+  %62 = getelementptr inbounds i8, ptr %60, i64 28
+  %63 = load i32, ptr %62, align 4
+  %64 = or i32 %63, 2
+  store i32 %64, ptr %62, align 4
   br label %proto_item_set_generated.exit
 
-proto_item_set_generated.exit:                    ; preds = %55, %61, %64
-  %68 = load i32, ptr @hf_usb_vid_control_entity, align 4
-  %69 = zext nneg i16 %10 to i32
-  %70 = tail call ptr @proto_tree_add_uint(ptr noundef %1, i32 noundef %68, ptr noundef %2, i32 noundef 0, i32 noundef 0, i32 noundef %69) #4
-  %.not.i118 = icmp eq ptr %70, null
-  br i1 %.not.i118, label %proto_item_set_generated.exit120, label %71
+proto_item_set_generated.exit:                    ; preds = %52, %58, %61
+  %65 = load i32, ptr @hf_usb_vid_control_entity, align 4
+  %66 = zext nneg i16 %10 to i32
+  %67 = tail call ptr @proto_tree_add_uint(ptr noundef %1, i32 noundef %65, ptr noundef %2, i32 noundef 0, i32 noundef 0, i32 noundef %66) #4
+  %.not.i118 = icmp eq ptr %67, null
+  br i1 %.not.i118, label %proto_item_set_generated.exit120, label %68
 
-71:                                               ; preds = %proto_item_set_generated.exit
-  %72 = getelementptr inbounds i8, ptr %70, i64 32
-  %73 = load ptr, ptr %72, align 8
-  %.not5.i119 = icmp eq ptr %73, null
-  br i1 %.not5.i119, label %proto_item_set_generated.exit120, label %74
+68:                                               ; preds = %proto_item_set_generated.exit
+  %69 = getelementptr inbounds i8, ptr %67, i64 32
+  %70 = load ptr, ptr %69, align 8
+  %.not5.i119 = icmp eq ptr %70, null
+  br i1 %.not5.i119, label %proto_item_set_generated.exit120, label %71
 
-74:                                               ; preds = %71
-  %75 = getelementptr inbounds i8, ptr %73, i64 28
-  %76 = load i32, ptr %75, align 4
-  %77 = or i32 %76, 2
-  store i32 %77, ptr %75, align 4
+71:                                               ; preds = %68
+  %72 = getelementptr inbounds i8, ptr %70, i64 28
+  %73 = load i32, ptr %72, align 4
+  %74 = or i32 %73, 2
+  store i32 %74, ptr %72, align 4
   br label %proto_item_set_generated.exit120
 
-proto_item_set_generated.exit120:                 ; preds = %proto_item_set_generated.exit, %71, %74
-  %78 = load i32, ptr @hf_usb_vid_control_selector, align 4
-  %79 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1, i32 noundef %78, ptr noundef %2, i32 noundef 0, i32 noundef 0, i32 noundef %15, ptr noundef nonnull @.str.540, ptr noundef nonnull %.0111, i32 noundef %15) #4
-  %.not.i121 = icmp eq ptr %79, null
-  br i1 %.not.i121, label %proto_item_set_generated.exit123.thread, label %80
+proto_item_set_generated.exit120:                 ; preds = %proto_item_set_generated.exit, %68, %71
+  %75 = load i32, ptr @hf_usb_vid_control_selector, align 4
+  %76 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1, i32 noundef %75, ptr noundef %2, i32 noundef 0, i32 noundef 0, i32 noundef %14, ptr noundef nonnull @.str.540, ptr noundef nonnull %.0111, i32 noundef %14) #4
+  %.not.i121 = icmp eq ptr %76, null
+  br i1 %.not.i121, label %proto_item_set_generated.exit123.thread, label %77
 
-80:                                               ; preds = %proto_item_set_generated.exit120
-  %81 = getelementptr inbounds i8, ptr %79, i64 32
-  %82 = load ptr, ptr %81, align 8
-  %.not5.i122 = icmp eq ptr %82, null
-  br i1 %.not5.i122, label %proto_item_set_generated.exit123.thread, label %83
+77:                                               ; preds = %proto_item_set_generated.exit120
+  %78 = getelementptr inbounds i8, ptr %76, i64 32
+  %79 = load ptr, ptr %78, align 8
+  %.not5.i122 = icmp eq ptr %79, null
+  br i1 %.not5.i122, label %proto_item_set_generated.exit123.thread, label %80
 
-83:                                               ; preds = %80
-  %84 = getelementptr inbounds i8, ptr %82, i64 28
-  %85 = load i32, ptr %84, align 4
-  %86 = or i32 %85, 2
-  store i32 %86, ptr %84, align 4
+80:                                               ; preds = %77
+  %81 = getelementptr inbounds i8, ptr %79, i64 28
+  %82 = load i32, ptr %81, align 4
+  %83 = or i32 %82, 2
+  store i32 %83, ptr %81, align 4
   br label %proto_item_set_generated.exit123.thread
 
-87:                                               ; preds = %52
-  %88 = add i32 %3, 1
-  %89 = load i32, ptr @hf_usb_vid_control_selector, align 4
-  %90 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1, i32 noundef %89, ptr noundef %2, i32 noundef %88, i32 noundef 1, i32 noundef %15, ptr noundef nonnull @.str.540, ptr noundef nonnull %.0111, i32 noundef %15) #4
-  %91 = add i32 %3, 2
-  %92 = load i32, ptr @hf_usb_vid_control_interface, align 4
+84:                                               ; preds = %49
+  %85 = add i32 %3, 1
+  %86 = load i32, ptr @hf_usb_vid_control_selector, align 4
+  %87 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1, i32 noundef %86, ptr noundef %2, i32 noundef %85, i32 noundef 1, i32 noundef %14, ptr noundef nonnull @.str.540, ptr noundef nonnull %.0111, i32 noundef %14) #4
+  %88 = add i32 %3, 2
+  %89 = load i32, ptr @hf_usb_vid_control_interface, align 4
+  %90 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %89, ptr noundef %2, i32 noundef %88, i32 noundef 1, i32 noundef -2147483648) #4
+  %91 = add i32 %3, 3
+  %92 = load i32, ptr @hf_usb_vid_control_entity, align 4
   %93 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %92, ptr noundef %2, i32 noundef %91, i32 noundef 1, i32 noundef -2147483648) #4
-  %94 = add i32 %3, 3
-  %95 = load i32, ptr @hf_usb_vid_control_entity, align 4
-  %96 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %95, ptr noundef %2, i32 noundef %94, i32 noundef 1, i32 noundef -2147483648) #4
-  %97 = add i32 %3, 4
-  %98 = load i32, ptr @hf_usb_vid_length, align 4
-  %99 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %98, ptr noundef %2, i32 noundef %97, i32 noundef 2, i32 noundef -2147483648) #4
-  %100 = add i32 %3, 6
-  %101 = getelementptr inbounds i8, ptr %5, i64 29
-  %102 = load i8, ptr %101, align 1
-  %103 = icmp eq i8 %102, 1
-  br i1 %103, label %proto_item_set_generated.exit123.thread, label %203
+  %94 = add i32 %3, 4
+  %95 = load i32, ptr @hf_usb_vid_length, align 4
+  %96 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %95, ptr noundef %2, i32 noundef %94, i32 noundef 2, i32 noundef -2147483648) #4
+  %97 = add i32 %3, 6
+  %98 = getelementptr inbounds i8, ptr %5, i64 29
+  %99 = load i8, ptr %98, align 1
+  %100 = icmp eq i8 %99, 1
+  br i1 %100, label %proto_item_set_generated.exit123.thread, label %200
 
-proto_item_set_generated.exit123.thread:          ; preds = %proto_item_set_generated.exit120, %80, %83, %87
-  %.0128 = phi i32 [ %100, %87 ], [ %3, %83 ], [ %3, %80 ], [ %3, %proto_item_set_generated.exit120 ]
-  %104 = tail call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %.0128) #4
-  %.not117 = icmp eq i32 %104, 0
-  br i1 %.not117, label %203, label %105
+proto_item_set_generated.exit123.thread:          ; preds = %proto_item_set_generated.exit120, %77, %80, %84
+  %.0128 = phi i32 [ %97, %84 ], [ %3, %80 ], [ %3, %77 ], [ %3, %proto_item_set_generated.exit120 ]
+  %101 = tail call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %.0128) #4
+  %.not117 = icmp eq i32 %101, 0
+  br i1 %.not117, label %200, label %102
 
-105:                                              ; preds = %proto_item_set_generated.exit123.thread
-  %106 = icmp ult i16 %9, 256
-  br i1 %106, label %107, label %170
+102:                                              ; preds = %proto_item_set_generated.exit123.thread
+  %103 = icmp ult i16 %9, 256
+  br i1 %103, label %104, label %167
 
-107:                                              ; preds = %105
-  %108 = getelementptr inbounds i8, ptr %6, i64 38
-  %109 = load i16, ptr %108, align 2
-  %110 = icmp eq i16 %109, 2
-  br i1 %110, label %111, label %170
+104:                                              ; preds = %102
+  %105 = getelementptr inbounds i8, ptr %6, i64 38
+  %106 = load i16, ptr %105, align 2
+  %107 = icmp eq i16 %106, 2
+  br i1 %107, label %108, label %167
 
-111:                                              ; preds = %107
-  %112 = add nsw i16 %14, -1
-  %or.cond = icmp ult i16 %112, 2
-  br i1 %or.cond, label %113, label %197
+108:                                              ; preds = %104
+  %109 = add nsw i16 %13, -1
+  %or.cond = icmp ult i16 %109, 2
+  br i1 %or.cond, label %110, label %194
 
-113:                                              ; preds = %111
-  %114 = load i32, ptr @ett_video_probe, align 4
-  %115 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %2, i32 noundef %.0128, i32 noundef -1, i32 noundef %114, ptr noundef null, ptr noundef nonnull @.str.565) #4
-  %116 = load i32, ptr @hf_usb_vid_probe_hint, align 4
-  %117 = load i32, ptr @ett_probe_hint, align 4
-  %118 = tail call ptr @proto_tree_add_bitmask(ptr noundef %115, ptr noundef %2, i32 noundef %.0128, i32 noundef %116, i32 noundef %117, ptr noundef nonnull @dissect_usb_vid_probe.hint_bits, i32 noundef -2147483648) #4
-  %119 = load i32, ptr @hf_usb_vid_format_index, align 4
-  %120 = add i32 %.0128, 2
-  %121 = tail call ptr @proto_tree_add_item(ptr noundef %115, i32 noundef %119, ptr noundef %2, i32 noundef %120, i32 noundef 1, i32 noundef -2147483648) #4
-  %122 = load i32, ptr @hf_usb_vid_frame_index, align 4
-  %123 = add i32 %.0128, 3
-  %124 = tail call ptr @proto_tree_add_item(ptr noundef %115, i32 noundef %122, ptr noundef %2, i32 noundef %123, i32 noundef 1, i32 noundef -2147483648) #4
-  %125 = load i32, ptr @hf_usb_vid_frame_interval, align 4
-  %126 = add i32 %.0128, 4
-  %127 = tail call ptr @proto_tree_add_item(ptr noundef %115, i32 noundef %125, ptr noundef %2, i32 noundef %126, i32 noundef 4, i32 noundef -2147483648) #4
-  %128 = load i32, ptr @hf_usb_vid_probe_key_frame_rate, align 4
-  %129 = add i32 %.0128, 8
-  %130 = tail call ptr @proto_tree_add_item(ptr noundef %115, i32 noundef %128, ptr noundef %2, i32 noundef %129, i32 noundef 2, i32 noundef -2147483648) #4
-  %131 = load i32, ptr @hf_usb_vid_probe_p_frame_rate, align 4
-  %132 = add i32 %.0128, 10
-  %133 = tail call ptr @proto_tree_add_item(ptr noundef %115, i32 noundef %131, ptr noundef %2, i32 noundef %132, i32 noundef 2, i32 noundef -2147483648) #4
-  %134 = load i32, ptr @hf_usb_vid_probe_comp_quality, align 4
-  %135 = add i32 %.0128, 12
-  %136 = tail call ptr @proto_tree_add_item(ptr noundef %115, i32 noundef %134, ptr noundef %2, i32 noundef %135, i32 noundef 2, i32 noundef -2147483648) #4
-  %137 = load i32, ptr @hf_usb_vid_probe_comp_window, align 4
-  %138 = add i32 %.0128, 14
-  %139 = tail call ptr @proto_tree_add_item(ptr noundef %115, i32 noundef %137, ptr noundef %2, i32 noundef %138, i32 noundef 2, i32 noundef -2147483648) #4
-  %140 = load i32, ptr @hf_usb_vid_probe_delay, align 4
-  %141 = add i32 %.0128, 16
-  %142 = tail call ptr @proto_tree_add_item(ptr noundef %115, i32 noundef %140, ptr noundef %2, i32 noundef %141, i32 noundef 2, i32 noundef -2147483648) #4
-  %143 = load i32, ptr @hf_usb_vid_probe_max_frame_sz, align 4
-  %144 = add i32 %.0128, 18
-  %145 = tail call ptr @proto_tree_add_item(ptr noundef %115, i32 noundef %143, ptr noundef %2, i32 noundef %144, i32 noundef 4, i32 noundef -2147483648) #4
-  %146 = load i32, ptr @hf_usb_vid_probe_max_payload_sz, align 4
-  %147 = add i32 %.0128, 22
-  %148 = tail call ptr @proto_tree_add_item(ptr noundef %115, i32 noundef %146, ptr noundef %2, i32 noundef %147, i32 noundef 4, i32 noundef -2147483648) #4
-  %149 = add i32 %.0128, 26
-  %150 = tail call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %149) #4
-  %151 = icmp sgt i32 %150, 0
-  br i1 %151, label %152, label %dissect_usb_vid_probe.exit
+110:                                              ; preds = %108
+  %111 = load i32, ptr @ett_video_probe, align 4
+  %112 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %2, i32 noundef %.0128, i32 noundef -1, i32 noundef %111, ptr noundef null, ptr noundef nonnull @.str.565) #4
+  %113 = load i32, ptr @hf_usb_vid_probe_hint, align 4
+  %114 = load i32, ptr @ett_probe_hint, align 4
+  %115 = tail call ptr @proto_tree_add_bitmask(ptr noundef %112, ptr noundef %2, i32 noundef %.0128, i32 noundef %113, i32 noundef %114, ptr noundef nonnull @dissect_usb_vid_probe.hint_bits, i32 noundef -2147483648) #4
+  %116 = load i32, ptr @hf_usb_vid_format_index, align 4
+  %117 = add i32 %.0128, 2
+  %118 = tail call ptr @proto_tree_add_item(ptr noundef %112, i32 noundef %116, ptr noundef %2, i32 noundef %117, i32 noundef 1, i32 noundef -2147483648) #4
+  %119 = load i32, ptr @hf_usb_vid_frame_index, align 4
+  %120 = add i32 %.0128, 3
+  %121 = tail call ptr @proto_tree_add_item(ptr noundef %112, i32 noundef %119, ptr noundef %2, i32 noundef %120, i32 noundef 1, i32 noundef -2147483648) #4
+  %122 = load i32, ptr @hf_usb_vid_frame_interval, align 4
+  %123 = add i32 %.0128, 4
+  %124 = tail call ptr @proto_tree_add_item(ptr noundef %112, i32 noundef %122, ptr noundef %2, i32 noundef %123, i32 noundef 4, i32 noundef -2147483648) #4
+  %125 = load i32, ptr @hf_usb_vid_probe_key_frame_rate, align 4
+  %126 = add i32 %.0128, 8
+  %127 = tail call ptr @proto_tree_add_item(ptr noundef %112, i32 noundef %125, ptr noundef %2, i32 noundef %126, i32 noundef 2, i32 noundef -2147483648) #4
+  %128 = load i32, ptr @hf_usb_vid_probe_p_frame_rate, align 4
+  %129 = add i32 %.0128, 10
+  %130 = tail call ptr @proto_tree_add_item(ptr noundef %112, i32 noundef %128, ptr noundef %2, i32 noundef %129, i32 noundef 2, i32 noundef -2147483648) #4
+  %131 = load i32, ptr @hf_usb_vid_probe_comp_quality, align 4
+  %132 = add i32 %.0128, 12
+  %133 = tail call ptr @proto_tree_add_item(ptr noundef %112, i32 noundef %131, ptr noundef %2, i32 noundef %132, i32 noundef 2, i32 noundef -2147483648) #4
+  %134 = load i32, ptr @hf_usb_vid_probe_comp_window, align 4
+  %135 = add i32 %.0128, 14
+  %136 = tail call ptr @proto_tree_add_item(ptr noundef %112, i32 noundef %134, ptr noundef %2, i32 noundef %135, i32 noundef 2, i32 noundef -2147483648) #4
+  %137 = load i32, ptr @hf_usb_vid_probe_delay, align 4
+  %138 = add i32 %.0128, 16
+  %139 = tail call ptr @proto_tree_add_item(ptr noundef %112, i32 noundef %137, ptr noundef %2, i32 noundef %138, i32 noundef 2, i32 noundef -2147483648) #4
+  %140 = load i32, ptr @hf_usb_vid_probe_max_frame_sz, align 4
+  %141 = add i32 %.0128, 18
+  %142 = tail call ptr @proto_tree_add_item(ptr noundef %112, i32 noundef %140, ptr noundef %2, i32 noundef %141, i32 noundef 4, i32 noundef -2147483648) #4
+  %143 = load i32, ptr @hf_usb_vid_probe_max_payload_sz, align 4
+  %144 = add i32 %.0128, 22
+  %145 = tail call ptr @proto_tree_add_item(ptr noundef %112, i32 noundef %143, ptr noundef %2, i32 noundef %144, i32 noundef 4, i32 noundef -2147483648) #4
+  %146 = add i32 %.0128, 26
+  %147 = tail call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %146) #4
+  %148 = icmp sgt i32 %147, 0
+  br i1 %148, label %149, label %dissect_usb_vid_probe.exit
 
-152:                                              ; preds = %113
-  %153 = load i32, ptr @hf_usb_vid_probe_clock_freq, align 4
-  %154 = tail call ptr @proto_tree_add_item(ptr noundef %115, i32 noundef %153, ptr noundef %2, i32 noundef %149, i32 noundef 4, i32 noundef -2147483648) #4
-  %155 = add i32 %.0128, 30
-  %156 = load i32, ptr @hf_usb_vid_probe_framing, align 4
-  %157 = load i32, ptr @ett_probe_framing, align 4
-  %158 = tail call ptr @proto_tree_add_bitmask(ptr noundef %115, ptr noundef %2, i32 noundef %155, i32 noundef %156, i32 noundef %157, ptr noundef nonnull @dissect_usb_vid_probe.framing_bits, i32 noundef 0) #4
-  %159 = add i32 %.0128, 31
-  %160 = load i32, ptr @hf_usb_vid_probe_preferred_ver, align 4
-  %161 = tail call ptr @proto_tree_add_item(ptr noundef %115, i32 noundef %160, ptr noundef %2, i32 noundef %159, i32 noundef 1, i32 noundef -2147483648) #4
-  %162 = load i32, ptr @hf_usb_vid_probe_min_ver, align 4
-  %163 = add i32 %.0128, 32
-  %164 = tail call ptr @proto_tree_add_item(ptr noundef %115, i32 noundef %162, ptr noundef %2, i32 noundef %163, i32 noundef 1, i32 noundef -2147483648) #4
-  %165 = load i32, ptr @hf_usb_vid_probe_max_ver, align 4
-  %166 = add i32 %.0128, 33
-  %167 = tail call ptr @proto_tree_add_item(ptr noundef %115, i32 noundef %165, ptr noundef %2, i32 noundef %166, i32 noundef 1, i32 noundef -2147483648) #4
-  %168 = add i32 %.0128, 34
+149:                                              ; preds = %110
+  %150 = load i32, ptr @hf_usb_vid_probe_clock_freq, align 4
+  %151 = tail call ptr @proto_tree_add_item(ptr noundef %112, i32 noundef %150, ptr noundef %2, i32 noundef %146, i32 noundef 4, i32 noundef -2147483648) #4
+  %152 = add i32 %.0128, 30
+  %153 = load i32, ptr @hf_usb_vid_probe_framing, align 4
+  %154 = load i32, ptr @ett_probe_framing, align 4
+  %155 = tail call ptr @proto_tree_add_bitmask(ptr noundef %112, ptr noundef %2, i32 noundef %152, i32 noundef %153, i32 noundef %154, ptr noundef nonnull @dissect_usb_vid_probe.framing_bits, i32 noundef 0) #4
+  %156 = add i32 %.0128, 31
+  %157 = load i32, ptr @hf_usb_vid_probe_preferred_ver, align 4
+  %158 = tail call ptr @proto_tree_add_item(ptr noundef %112, i32 noundef %157, ptr noundef %2, i32 noundef %156, i32 noundef 1, i32 noundef -2147483648) #4
+  %159 = load i32, ptr @hf_usb_vid_probe_min_ver, align 4
+  %160 = add i32 %.0128, 32
+  %161 = tail call ptr @proto_tree_add_item(ptr noundef %112, i32 noundef %159, ptr noundef %2, i32 noundef %160, i32 noundef 1, i32 noundef -2147483648) #4
+  %162 = load i32, ptr @hf_usb_vid_probe_max_ver, align 4
+  %163 = add i32 %.0128, 33
+  %164 = tail call ptr @proto_tree_add_item(ptr noundef %112, i32 noundef %162, ptr noundef %2, i32 noundef %163, i32 noundef 1, i32 noundef -2147483648) #4
+  %165 = add i32 %.0128, 34
   br label %dissect_usb_vid_probe.exit
 
-dissect_usb_vid_probe.exit:                       ; preds = %113, %152
-  %.0.i124 = phi i32 [ %168, %152 ], [ %149, %113 ]
-  %.neg = add i32 %104, %.0128
-  %169 = sub i32 %.neg, %.0.i124
-  br label %197
+dissect_usb_vid_probe.exit:                       ; preds = %110, %149
+  %.0.i124 = phi i32 [ %165, %149 ], [ %146, %110 ]
+  %.neg = add i32 %101, %.0128
+  %166 = sub i32 %.neg, %.0.i124
+  br label %194
 
-170:                                              ; preds = %107, %105
-  %171 = getelementptr inbounds i8, ptr %5, i64 29
-  %172 = load i8, ptr %171, align 1
-  switch i8 %172, label %184 [
-    i8 -122, label %173
-    i8 -123, label %179
+167:                                              ; preds = %104, %102
+  %168 = getelementptr inbounds i8, ptr %5, i64 29
+  %169 = load i8, ptr %168, align 1
+  switch i8 %169, label %181 [
+    i8 -122, label %170
+    i8 -123, label %176
   ]
 
-173:                                              ; preds = %170
-  %174 = load i32, ptr @hf_usb_vid_control_info, align 4
-  %175 = load i32, ptr @ett_control_capabilities, align 4
-  %176 = tail call ptr @proto_tree_add_bitmask(ptr noundef %1, ptr noundef %2, i32 noundef %.0128, i32 noundef %174, i32 noundef %175, ptr noundef nonnull @dissect_usb_vid_control_info.capability_bits, i32 noundef 0) #4
-  %177 = add i32 %.0128, 1
-  %178 = add i32 %104, -1
-  br label %197
+170:                                              ; preds = %167
+  %171 = load i32, ptr @hf_usb_vid_control_info, align 4
+  %172 = load i32, ptr @ett_control_capabilities, align 4
+  %173 = tail call ptr @proto_tree_add_bitmask(ptr noundef %1, ptr noundef %2, i32 noundef %.0128, i32 noundef %171, i32 noundef %172, ptr noundef nonnull @dissect_usb_vid_control_info.capability_bits, i32 noundef 0) #4
+  %174 = add i32 %.0128, 1
+  %175 = add i32 %101, -1
+  br label %194
 
-179:                                              ; preds = %170
-  %180 = load i32, ptr @hf_usb_vid_control_length, align 4
-  %181 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %180, ptr noundef %2, i32 noundef %.0128, i32 noundef 2, i32 noundef -2147483648) #4
-  %182 = add i32 %.0128, 2
-  %183 = add i32 %104, -2
-  br label %197
+176:                                              ; preds = %167
+  %177 = load i32, ptr @hf_usb_vid_control_length, align 4
+  %178 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %177, ptr noundef %2, i32 noundef %.0128, i32 noundef 2, i32 noundef -2147483648) #4
+  %179 = add i32 %.0128, 2
+  %180 = add i32 %101, -2
+  br label %194
 
-184:                                              ; preds = %170
-  %185 = icmp eq i8 %172, -127
-  %or.cond5 = and i1 %106, %185
-  br i1 %or.cond5, label %186, label %.thread
+181:                                              ; preds = %167
+  %182 = icmp eq i8 %169, -127
+  %or.cond5 = and i1 %103, %182
+  br i1 %or.cond5, label %183, label %.thread
 
-186:                                              ; preds = %184
-  %187 = getelementptr inbounds i8, ptr %6, i64 38
-  %188 = load i16, ptr %187, align 2
-  %189 = icmp eq i16 %188, 1
-  %190 = icmp eq i16 %14, 2
-  %or.cond8 = select i1 %189, i1 %190, i1 false
-  br i1 %or.cond8, label %191, label %.thread
+183:                                              ; preds = %181
+  %184 = getelementptr inbounds i8, ptr %6, i64 38
+  %185 = load i16, ptr %184, align 2
+  %186 = icmp eq i16 %185, 1
+  %187 = icmp eq i16 %13, 2
+  %or.cond8 = select i1 %186, i1 %187, i1 false
+  br i1 %or.cond8, label %188, label %.thread
 
-191:                                              ; preds = %186
-  %192 = load i32, ptr @hf_usb_vid_request_error, align 4
-  %193 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %192, ptr noundef %2, i32 noundef %.0128, i32 noundef 1, i32 noundef -2147483648) #4
-  %194 = add i32 %.0128, 1
-  %195 = add i32 %104, -1
-  br label %197
+188:                                              ; preds = %183
+  %189 = load i32, ptr @hf_usb_vid_request_error, align 4
+  %190 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %189, ptr noundef %2, i32 noundef %.0128, i32 noundef 1, i32 noundef -2147483648) #4
+  %191 = add i32 %.0128, 1
+  %192 = add i32 %101, -1
+  br label %194
 
-.thread:                                          ; preds = %184, %186
-  tail call fastcc void @dissect_usb_vid_control_value(ptr noundef %1, ptr noundef %2, i32 noundef %.0128, i8 noundef zeroext %172)
-  %196 = add i32 %104, %.0128
-  br label %203
+.thread:                                          ; preds = %181, %183
+  tail call fastcc void @dissect_usb_vid_control_value(ptr noundef %1, ptr noundef %2, i32 noundef %.0128, i8 noundef zeroext %169)
+  %193 = add i32 %101, %.0128
+  br label %200
 
-197:                                              ; preds = %173, %191, %179, %dissect_usb_vid_probe.exit, %111
-  %.0110 = phi i32 [ %169, %dissect_usb_vid_probe.exit ], [ %104, %111 ], [ %178, %173 ], [ %183, %179 ], [ %195, %191 ]
-  %.1 = phi i32 [ %.0.i124, %dissect_usb_vid_probe.exit ], [ %.0128, %111 ], [ %177, %173 ], [ %182, %179 ], [ %194, %191 ]
-  %198 = icmp sgt i32 %.0110, 0
-  br i1 %198, label %199, label %203
+194:                                              ; preds = %170, %188, %176, %dissect_usb_vid_probe.exit, %108
+  %.0110 = phi i32 [ %166, %dissect_usb_vid_probe.exit ], [ %101, %108 ], [ %175, %170 ], [ %180, %176 ], [ %192, %188 ]
+  %.1 = phi i32 [ %.0.i124, %dissect_usb_vid_probe.exit ], [ %.0128, %108 ], [ %174, %170 ], [ %179, %176 ], [ %191, %188 ]
+  %195 = icmp sgt i32 %.0110, 0
+  br i1 %195, label %196, label %200
 
-199:                                              ; preds = %197
-  %200 = load i32, ptr @hf_usb_vid_control_data, align 4
-  %201 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %200, ptr noundef %2, i32 noundef %.1, i32 noundef -1, i32 noundef 0) #4
-  %202 = add i32 %.1, %.0110
-  br label %203
+196:                                              ; preds = %194
+  %197 = load i32, ptr @hf_usb_vid_control_data, align 4
+  %198 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %197, ptr noundef %2, i32 noundef %.1, i32 noundef -1, i32 noundef 0) #4
+  %199 = add i32 %.1, %.0110
+  br label %200
 
-203:                                              ; preds = %.thread, %proto_item_set_generated.exit123.thread, %199, %197, %87
-  %.2 = phi i32 [ %202, %199 ], [ %.1, %197 ], [ %.0128, %proto_item_set_generated.exit123.thread ], [ %100, %87 ], [ %196, %.thread ]
+200:                                              ; preds = %.thread, %proto_item_set_generated.exit123.thread, %196, %194, %84
+  %.2 = phi i32 [ %199, %196 ], [ %.1, %194 ], [ %.0128, %proto_item_set_generated.exit123.thread ], [ %97, %84 ], [ %193, %.thread ]
   ret i32 %.2
 }
 

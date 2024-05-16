@@ -271,12 +271,15 @@ define internal fastcc noalias noundef ptr @dupEvents(ptr noundef readonly %0, i
   br i1 %.not43, label %.preheader, label %28
 
 .preheader:                                       ; preds = %.lr.ph
-  %22 = trunc nuw nsw i64 %indvars.iv to i32
-  %.not51 = icmp eq i32 %22, 0
-  br i1 %.not51, label %._crit_edge50, label %.lr.ph49
+  %.not51 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not51, label %._crit_edge50, label %.lr.ph49.preheader
 
-.lr.ph49:                                         ; preds = %.preheader, %.lr.ph49
-  %.in = phi i32 [ %23, %.lr.ph49 ], [ %22, %.preheader ]
+.lr.ph49.preheader:                               ; preds = %.preheader
+  %22 = trunc nuw nsw i64 %indvars.iv to i32
+  br label %.lr.ph49
+
+.lr.ph49:                                         ; preds = %.lr.ph49.preheader, %.lr.ph49
+  %.in = phi i32 [ %23, %.lr.ph49 ], [ %22, %.lr.ph49.preheader ]
   %23 = add nsw i32 %.in, -1
   %24 = zext nneg i32 %23 to i64
   %25 = getelementptr %struct.PGEvent, ptr %8, i64 %24, i32 1

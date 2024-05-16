@@ -532,7 +532,7 @@ define hidden void @_ZN10pdf_writer4font11UnicodeCmap18pair_with_multiple17h8354
   %18 = lshr i16 %1, 8
   %19 = trunc nuw i16 %18 to i8
   %20 = lshr i8 %19, 4
-  %21 = icmp ult i8 %19, -96
+  %21 = icmp ult i16 %1, -24576
   %22 = or disjoint i8 %20, 48
   %23 = add nuw nsw i8 %20, 55
   %.0.i = select i1 %21, i8 %22, i8 %23
@@ -784,7 +784,7 @@ define hidden void @_ZN10pdf_writer4font11UnicodeCmap18pair_with_multiple17h8354
   %150 = lshr i16 %149, 8
   %151 = trunc nuw i16 %150 to i8
   %152 = lshr i8 %151, 4
-  %153 = icmp ult i8 %151, -96
+  %153 = icmp ult i16 %149, -24576
   %154 = or disjoint i8 %152, 48
   %155 = add nuw nsw i8 %152, 55
   %.0.i22 = select i1 %153, i8 %154, i8 %155

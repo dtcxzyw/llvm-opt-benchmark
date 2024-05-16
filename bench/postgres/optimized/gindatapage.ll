@@ -2550,7 +2550,7 @@ leafRepackItems.exit.i:                           ; preds = %400, %381
 
 ._crit_edge.i:                                    ; preds = %420
   %432 = trunc nuw nsw i64 %indvars.iv47 to i32
-  %433 = icmp eq i32 %432, 0
+  %433 = icmp eq i64 %indvars.iv47, 0
   br i1 %433, label %._crit_edge.thread.i, label %._crit_edge.thread50.i
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %.preheader13.i

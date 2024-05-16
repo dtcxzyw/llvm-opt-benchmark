@@ -29217,9 +29217,9 @@ do.end.i:                                         ; preds = %land.lhs.true
   br i1 %cmp5.i, label %if.then30, label %lor.lhs.false6.i
 
 lor.lhs.false6.i:                                 ; preds = %do.end.i
-  %cmp7.i = icmp eq i32 %partial_utf8.sroa.2.0.extract.trunc.i, 1
+  %cmp7.i = icmp eq i64 %partial_utf8.sroa.2.0.extract.shift.i, 1
   %cmp8.i = icmp ult i32 %partial_utf8.sroa.0.0.extract.trunc.i, 2
-  %or.cond.i = select i1 %cmp7.i, i1 %cmp8.i, i1 false
+  %or.cond.i = and i1 %cmp7.i, %cmp8.i
   br i1 %or.cond.i, label %if.then30, label %if.end10.i
 
 if.end10.i:                                       ; preds = %lor.lhs.false6.i
@@ -29229,9 +29229,9 @@ if.end10.i:                                       ; preds = %lor.lhs.false6.i
   %sub.i = xor i32 %notmask.i, -1
   %or.i = or i32 %shl.i, %sub.i
   %cmp13.i = icmp eq i32 %shl.i, 0
-  %switch.selectcmp.i = icmp eq i32 %partial_utf8.sroa.2.0.extract.trunc.i, 3
+  %switch.selectcmp.i = icmp eq i64 %partial_utf8.sroa.2.0.extract.shift.i, 3
   %switch.select.i = select i1 %switch.selectcmp.i, i32 65536, i32 0
-  %switch.selectcmp26.i = icmp eq i32 %partial_utf8.sroa.2.0.extract.trunc.i, 2
+  %switch.selectcmp26.i = icmp eq i64 %partial_utf8.sroa.2.0.extract.shift.i, 2
   %switch.select27.i = select i1 %switch.selectcmp26.i, i32 2048, i32 %switch.select.i
   %low.0.i = select i1 %cmp13.i, i32 %switch.select27.i, i32 %shl.i
   br label %do.body22.i

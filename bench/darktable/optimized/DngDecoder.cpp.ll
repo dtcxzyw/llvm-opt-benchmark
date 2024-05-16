@@ -3148,7 +3148,7 @@ define hidden void @_ZN8rawspeed10DngDecoder14handleMetadataEPKNS_7TiffIFDE(ptr 
   %86 = urem i32 %85, %75
   %87 = udiv i32 %85, %75
   %88 = icmp ne i32 %86, 0
-  %89 = icmp eq i32 %79, 0
+  %89 = icmp ult i64 %72, 4294967296
   %90 = select i1 %88, i1 true, i1 %89
   br i1 %90, label %91, label %93
 
@@ -3240,7 +3240,7 @@ define hidden void @_ZN8rawspeed10DngDecoder14handleMetadataEPKNS_7TiffIFDE(ptr 
   %145 = urem i32 %144, %136
   %146 = udiv i32 %144, %136
   %147 = icmp ne i32 %145, 0
-  %148 = icmp eq i32 %140, 0
+  %148 = icmp ult i64 %133, 4294967296
   %149 = select i1 %147, i1 true, i1 %148
   br i1 %149, label %150, label %152
 
@@ -3371,8 +3371,8 @@ define hidden void @_ZN8rawspeed10DngDecoder14handleMetadataEPKNS_7TiffIFDE(ptr 
 
 223:                                              ; preds = %212
   %224 = icmp eq i32 %218, 0
-  %225 = icmp eq i32 %220, 0
-  %226 = select i1 %224, i1 true, i1 %225
+  %225 = icmp ult i64 %211, 4294967296
+  %226 = or i1 %225, %224
   br i1 %226, label %240, label %227
 
 227:                                              ; preds = %223

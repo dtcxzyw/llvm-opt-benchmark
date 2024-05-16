@@ -400,8 +400,7 @@ while.end:                                        ; preds = %if.end12, %collect_
   %shr.lcssa = phi i32 [ %shr125, %collect_attrib ], [ %shr, %if.end12 ]
   %15 = load i64, ptr %key, align 8
   %shr14 = ashr i64 %15, 47
-  %conv15 = trunc nsw i64 %shr14 to i32
-  %cmp16 = icmp ult i32 %conv15, -14
+  %cmp16 = icmp ult i64 %shr14, -14
   br i1 %cmp16, label %if.then18, label %if.else55
 
 if.then18:                                        ; preds = %while.end
@@ -482,9 +481,9 @@ if.end51:                                         ; preds = %if.then.i266, %if.e
   br label %return
 
 if.else55:                                        ; preds = %while.end
-  switch i32 %conv15, label %if.end174 [
-    i32 -11, label %if.then60
-    i32 -5, label %if.then85
+  switch i64 %shr14, label %if.end174 [
+    i64 -11, label %if.then60
+    i64 -5, label %if.then85
   ]
 
 if.then60:                                        ; preds = %if.else55

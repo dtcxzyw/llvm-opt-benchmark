@@ -32,7 +32,7 @@ define noundef i32 @ungetwc_unlocked(i32 noundef %0, ptr nocapture noundef %1) l
   %21 = zext nneg i32 %9 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr nonnull align 1 %3, i64 %21, i1 false)
   %22 = load i8, ptr %12, align 1
-  %23 = trunc i32 %9 to i8
+  %23 = trunc nuw i32 %9 to i8
   %24 = add i8 %22, %23
   store i8 %24, ptr %12, align 1
   br label %25
@@ -84,7 +84,7 @@ define noundef i32 @ungetwc(i32 noundef %0, ptr noundef %1) local_unnamed_addr #
   %24 = zext nneg i32 %12 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr nonnull align 1 %3, i64 %24, i1 false)
   %25 = load i8, ptr %15, align 1
-  %26 = trunc i32 %12 to i8
+  %26 = trunc nuw i32 %12 to i8
   %27 = add i8 %25, %26
   store i8 %27, ptr %15, align 1
   br label %ungetwc_unlocked.exit

@@ -2152,8 +2152,8 @@ if.end9:                                          ; preds = %if.end
   %version = getelementptr inbounds i8, ptr %ssl, i64 694
   %3 = load i8, ptr %version, align 2
   %cmp24 = icmp eq i8 %3, %args.sroa.0.sroa.0.0.extract.trunc
-  %cmp29 = icmp ult i8 %args.sroa.0.sroa.4.0.extract.trunc, 3
-  %4 = select i1 %cmp24, i1 %cmp29, i1 false
+  %cmp29 = icmp ult i16 %2, 768
+  %4 = and i1 %cmp29, %cmp24
   br i1 %4, label %land.lhs.true, label %if.end40
 
 land.lhs.true:                                    ; preds = %if.end9
@@ -2172,8 +2172,8 @@ if.then36:                                        ; preds = %land.lhs.true
   br label %return
 
 if.end40:                                         ; preds = %if.end9
-  %cmp56.not = icmp eq i8 %args.sroa.0.sroa.4.0.extract.trunc, 3
-  %or.cond = select i1 %cmp24, i1 %cmp56.not, i1 false
+  %cmp56.not = icmp eq i16 %args.sroa.0.sroa.4.0.extract.shift, 3
+  %or.cond = and i1 %cmp24, %cmp56.not
   br i1 %or.cond, label %if.end60, label %if.then58
 
 if.then58:                                        ; preds = %land.lhs.true, %if.end40
@@ -2279,7 +2279,7 @@ if.end192:                                        ; preds = %if.then183
   store i64 %bf.clear199, ptr %haveSessionId, align 8
   %minDowngrade = getelementptr inbounds i8, ptr %ssl, i64 1025
   %15 = load i8, ptr %minDowngrade, align 1
-  %cmp207 = icmp ugt i8 %15, 3
+  %cmp207 = icmp ugt i8 %15, %args.sroa.0.sroa.4.0.extract.trunc
   br i1 %cmp207, label %if.then209, label %if.end211
 
 if.then209:                                       ; preds = %if.end192
@@ -2347,7 +2347,7 @@ if.end276:                                        ; preds = %if.then264
   br i1 %tobool282.not, label %land.lhs.true283, label %land.lhs.true304
 
 land.lhs.true283:                                 ; preds = %if.end276
-  %cmp291 = icmp ugt i8 %21, 3
+  %cmp291 = icmp ugt i8 %21, %args.sroa.0.sroa.4.0.extract.trunc
   br i1 %cmp291, label %if.then293, label %if.end316
 
 if.then293:                                       ; preds = %land.lhs.true283
@@ -2355,7 +2355,7 @@ if.then293:                                       ; preds = %land.lhs.true283
   br label %return
 
 land.lhs.true304:                                 ; preds = %if.end276
-  %cmp312 = icmp ult i8 %21, 3
+  %cmp312 = icmp ult i8 %21, %args.sroa.0.sroa.4.0.extract.trunc
   br i1 %cmp312, label %if.then314, label %if.end316
 
 if.then314:                                       ; preds = %land.lhs.true304
@@ -2364,7 +2364,7 @@ if.then314:                                       ; preds = %land.lhs.true304
 
 if.end316:                                        ; preds = %land.lhs.true283, %land.lhs.true304
   %minor321 = getelementptr inbounds i8, ptr %ssl, i64 695
-  store i8 3, ptr %minor321, align 1
+  store i8 %args.sroa.0.sroa.4.0.extract.trunc, ptr %minor321, align 1
   br label %if.end323
 
 if.end323:                                        ; preds = %if.end262, %if.end316
@@ -2554,8 +2554,8 @@ if.end25:                                         ; preds = %if.end
 
 if.then27:                                        ; preds = %if.end25
   %cmp32.not = icmp ne i8 %args.sroa.0.sroa.0.0.extract.trunc, 3
-  %cmp43 = icmp ugt i8 %args.sroa.0.sroa.4.0.extract.trunc, 3
-  %or.cond183 = or i1 %cmp32.not, %cmp43
+  %cmp43 = icmp ugt i16 %1, 1023
+  %or.cond183 = or i1 %cmp43, %cmp32.not
   br i1 %or.cond183, label %if.then45, label %if.else
 
 if.then45:                                        ; preds = %if.then27
@@ -2564,7 +2564,7 @@ if.then45:                                        ; preds = %if.then27
   br label %if.then94
 
 if.else:                                          ; preds = %if.then27
-  %cmp67.not = icmp eq i8 %args.sroa.0.sroa.4.0.extract.trunc, 3
+  %cmp67.not = icmp eq i16 %args.sroa.0.sroa.4.0.extract.shift, 3
   br i1 %cmp67.not, label %if.then79, label %if.then69
 
 if.then69:                                        ; preds = %if.else

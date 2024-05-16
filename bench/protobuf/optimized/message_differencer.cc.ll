@@ -14953,7 +14953,7 @@ if.then93:                                        ; preds = %if.then82
 
 lor.lhs.false131.thread:                          ; preds = %if.then93
   store i32 0, ptr %add.ptr.i, align 4
-  br label %for.end140.thread292
+  br label %land.lhs.true146
 
 if.else98:                                        ; preds = %if.then93
   %72 = load ptr, ptr %repeated_field.addr, align 8
@@ -15032,12 +15032,12 @@ invoke.cont115:                                   ; preds = %invoke.cont110
   br i1 %cmp119, label %lor.lhs.false131, label %for.inc138
 
 if.end127:                                        ; preds = %if.else87
-  br i1 %call89, label %for.end140.thread, label %for.inc138
+  br i1 %call89, label %if.end158, label %for.inc138
 
 lor.lhs.false131:                                 ; preds = %invoke.cont110, %invoke.cont115
   store i32 %80, ptr %add.ptr.i, align 4
   %cmp134 = icmp eq i32 %80, 0
-  br i1 %cmp134, label %for.end140.thread292, label %for.inc138
+  br i1 %cmp134, label %land.lhs.true146, label %for.inc138
 
 for.inc138:                                       ; preds = %invoke.cont99, %invoke.cont115, %if.then102, %if.end127, %lor.lhs.false131, %if.then65, %lor.lhs.false67, %invoke.cont73
   %matched_j.1 = phi i32 [ %matched_j.0341, %lor.lhs.false67 ], [ %matched_j.0341, %invoke.cont73 ], [ %68, %lor.lhs.false131 ], [ %matched_j.0341, %if.end127 ], [ %matched_j.0341, %if.then65 ], [ %matched_j.0341, %if.then102 ], [ %matched_j.0341, %invoke.cont115 ], [ %matched_j.0341, %invoke.cont99 ]
@@ -15050,19 +15050,11 @@ for.end140:                                       ; preds = %for.inc138
   %cmp141.not = icmp eq i32 %matched_j.1, -1
   br i1 %cmp141.not, label %if.end165, label %if.then144
 
-for.end140.thread292:                             ; preds = %lor.lhs.false131, %lor.lhs.false131.thread
-  %cmp141294.not = icmp eq i32 %68, -1
-  br i1 %cmp141294.not, label %if.end165, label %land.lhs.true146
-
-for.end140.thread:                                ; preds = %if.end127
-  %cmp141288.not = icmp eq i32 %71, -1
-  br i1 %cmp141288.not, label %if.end165, label %if.end158
-
 if.then144:                                       ; preds = %for.end140
   br i1 %call5, label %land.lhs.true146, label %if.end158
 
-land.lhs.true146:                                 ; preds = %for.end140.thread292, %if.then144
-  %matched_j.2289297 = phi i32 [ %matched_j.1, %if.then144 ], [ %68, %for.end140.thread292 ]
+land.lhs.true146:                                 ; preds = %lor.lhs.false131, %lor.lhs.false131.thread, %if.then144
+  %matched_j.2289297 = phi i32 [ %matched_j.1, %if.then144 ], [ %68, %lor.lhs.false131.thread ], [ %68, %lor.lhs.false131 ]
   %conv147 = sext i32 %matched_j.2289297 to i64
   %86 = load ptr, ptr %_M_finish.i.i.i125, align 8
   %87 = load ptr, ptr %match_list2, align 8
@@ -15095,9 +15087,9 @@ invoke.cont156:                                   ; preds = %invoke.cont153
   store i32 -1, ptr %add.ptr.i.i206, align 4
   br label %if.end158
 
-if.end158:                                        ; preds = %for.end140.thread, %invoke.cont156, %invoke.cont148, %if.then144
-  %matched_j.2289291 = phi i32 [ %matched_j.2289297, %invoke.cont156 ], [ %matched_j.2289297, %invoke.cont148 ], [ %matched_j.1, %if.then144 ], [ %71, %for.end140.thread ]
-  %match.2 = phi i1 [ false, %invoke.cont156 ], [ true, %invoke.cont148 ], [ true, %if.then144 ], [ true, %for.end140.thread ]
+if.end158:                                        ; preds = %if.end127, %invoke.cont156, %invoke.cont148, %if.then144
+  %matched_j.2289291 = phi i32 [ %matched_j.2289297, %invoke.cont156 ], [ %matched_j.2289297, %invoke.cont148 ], [ %matched_j.1, %if.then144 ], [ %71, %if.end127 ]
+  %match.2 = phi i1 [ false, %invoke.cont156 ], [ true, %invoke.cont148 ], [ true, %if.then144 ], [ true, %if.end127 ]
   %91 = load ptr, ptr %_M_finish.i.i.i199, align 8
   %92 = load ptr, ptr %match_list1, align 8
   %sub.ptr.lhs.cast.i.i.i210 = ptrtoint ptr %91 to i64
@@ -15135,8 +15127,8 @@ invoke.cont163:                                   ; preds = %invoke.cont160
   store i32 %97, ptr %add.ptr.i.i226, align 4
   br label %if.end165
 
-if.end165:                                        ; preds = %for.cond58.preheader, %for.end140.thread292, %for.end140.thread, %invoke.cont163, %for.end140
-  %match.3 = phi i1 [ %match.2, %invoke.cont163 ], [ false, %for.end140 ], [ false, %for.end140.thread ], [ false, %for.end140.thread292 ], [ false, %for.cond58.preheader ]
+if.end165:                                        ; preds = %for.cond58.preheader, %invoke.cont163, %for.end140
+  %match.3 = phi i1 [ %match.2, %invoke.cont163 ], [ false, %for.end140 ], [ false, %for.cond58.preheader ]
   %or.cond.not = or i1 %match.3, %cmp168
   br i1 %or.cond.not, label %if.end170, label %cleanup187
 
@@ -17216,7 +17208,7 @@ _ZN4absl12lts_2023080216numbers_internal24FastHexToBufferZeroPad16EmPc.exit.i.i.
   %div.neg567.i.i.i.i = lshr i32 %div.neg5.lhs.trunc.i.i.i.i, 2
   %narrow.i.i.i.i = sub nuw nsw i32 16, %div.neg567.i.i.i.i
   %sub3.i.i.i.i = zext nneg i32 %narrow.i.i.i.i to i64
-  %cmp.not.i.i.i = icmp ugt i32 %div.neg5.lhs.trunc.i.i.i.i, 35
+  %cmp.not.i.i.i = icmp ult i64 %or.i.i.i.i, 268435456
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %_ZN4absl12lts_2023080216strings_internal22ExtractStringificationINS0_3HexEEESt17basic_string_viewIcSt11char_traitsIcEERNS1_13StringifySinkERKT_.exit.i
 
 if.else.i.i.i:                                    ; preds = %_ZN4absl12lts_2023080216numbers_internal24FastHexToBufferZeroPad16EmPc.exit.i.i.i
@@ -17286,13 +17278,13 @@ for.body.i.i.i.i19:                               ; preds = %for.body.i.i.i.i19,
 
 _ZN4absl12lts_2023080216numbers_internal24FastHexToBufferZeroPad16EmPc.exit.i.i.i28: ; preds = %for.body.i.i.i.i19
   %or.i.i.i.i30 = or i64 %17, 1
-  %22 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i30, i1 true)
-  %div.neg5.lhs.trunc.i.i.i.i31 = trunc nuw nsw i64 %22 to i32
-  %cmp.not.i.i.i36.not = icmp ult i32 %div.neg5.lhs.trunc.i.i.i.i31, 4
+  %cmp.not.i.i.i36.not = icmp ugt i64 %or.i.i.i.i30, 1152921504606846975
   br i1 %cmp.not.i.i.i36.not, label %_ZN4absl12lts_2023080216strings_internal22ExtractStringificationINS0_3HexEEESt17basic_string_viewIcSt11char_traitsIcEERNS1_13StringifySinkERKT_.exit.i37, label %if.else.i.i.i42
 
 if.else.i.i.i42:                                  ; preds = %_ZN4absl12lts_2023080216numbers_internal24FastHexToBufferZeroPad16EmPc.exit.i.i.i28
   %arrayidx.i.i.i29 = getelementptr inbounds i8, ptr %buffer.i.i.i14, i64 32
+  %22 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i30, i1 true)
+  %div.neg5.lhs.trunc.i.i.i.i31 = trunc nuw nsw i64 %22 to i32
   %div.neg567.i.i.i.i32 = lshr i32 %div.neg5.lhs.trunc.i.i.i.i31, 2
   %narrow.i.i.i.i33 = sub nuw nsw i32 16, %div.neg567.i.i.i.i32
   %sub3.i.i.i.i34 = zext nneg i32 %narrow.i.i.i.i33 to i64

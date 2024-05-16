@@ -24,7 +24,7 @@ entry:
 cond.end:                                         ; preds = %entry
   %0 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %hugetlbsize, i1 true)
   %cast.i = trunc nuw nsw i64 %0 to i32
-  %tobool1.not = icmp eq i32 %cast.i, 0
+  %tobool1.not = icmp eq i64 %0, 0
   %shl = shl nuw i64 1, %0
   %cmp.not = icmp eq i64 %shl, %hugetlbsize
   %or.cond = select i1 %tobool1.not, i1 true, i1 %cmp.not

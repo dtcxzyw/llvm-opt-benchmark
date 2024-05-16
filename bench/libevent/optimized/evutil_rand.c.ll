@@ -547,7 +547,7 @@ if.then2.i:                                       ; preds = %do.end.i
   br label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.then2.i, %do.end.i
-  %cmp8.i.not = icmp eq i32 %cond, 0
+  %cmp8.i.not = icmp eq i64 %n, 0
   br i1 %cmp8.i.not, label %do.body5.i, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %if.end4.i

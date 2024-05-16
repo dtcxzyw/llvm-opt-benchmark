@@ -3446,8 +3446,8 @@ if.end5.i:                                        ; preds = %if.end.i301
   %44 = inttoptr i64 %sub.i.i22.i to ptr
   %45 = load i64, ptr %44, align 8
   %shr.i.i = lshr i64 %45, 32
-  %conv.i24.i = trunc nuw i64 %shr.i.i to i32
-  switch i32 %conv.i24.i, label %do.body35 [
+  %trunc = trunc nuw i64 %shr.i.i to i32
+  switch i32 %trunc, label %do.body35 [
     i32 5, label %do.end38
     i32 3, label %do.end38
   ]
@@ -3642,9 +3642,8 @@ _ZNK2v85Value22QuickIsNullOrUndefinedEv.exit359:  ; preds = %if.end.i338
   %80 = inttoptr i64 %sub.i.i22.i350 to ptr
   %81 = load i64, ptr %80, align 8
   %shr.i.i352 = lshr i64 %81, 32
-  %conv.i24.i353 = trunc nuw i64 %shr.i.i352 to i32
-  %cmp7.i354 = icmp eq i32 %conv.i24.i353, 3
-  %cmp8.i356 = icmp eq i32 %conv.i24.i353, 5
+  %cmp7.i354 = icmp eq i64 %shr.i.i352, 3
+  %cmp8.i356 = icmp eq i64 %shr.i.i352, 5
   %82 = or i1 %cmp7.i354, %cmp8.i356
   %83 = and i1 %needs_passphrase.2, %82
   br i1 %83, label %if.end106, label %do.body99
@@ -3992,8 +3991,8 @@ if.end5.i430:                                     ; preds = %if.end.i425
   %68 = inttoptr i64 %sub.i.i22.i to ptr
   %69 = load i64, ptr %68, align 8
   %shr.i.i = lshr i64 %69, 32
-  %conv.i24.i = trunc nuw i64 %shr.i.i to i32
-  switch i32 %conv.i24.i, label %do.body109 [
+  %trunc = trunc nuw i64 %shr.i.i to i32
+  switch i32 %trunc, label %do.body109 [
     i32 5, label %do.end112
     i32 3, label %do.end112
   ]

@@ -5220,7 +5220,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @xhci_setup_port_arrays(ptr
   %197 = trunc nuw nsw i32 %196 to i8
   %198 = getelementptr inbounds i8, ptr %193, i64 8
   store i8 %197, ptr %198, align 8
-  %199 = icmp eq i8 %197, 0
+  %199 = icmp ult i32 %179, 268435456
   br i1 %199, label %.loopexit45, label %200
 
 200:                                              ; preds = %195

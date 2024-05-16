@@ -7305,7 +7305,7 @@ if.else:                                          ; preds = %while.body
 
 if.end23:                                         ; preds = %while.body, %if.else
   %part.0 = phi i64 [ %shl, %if.else ], [ 0, %while.body ]
-  %tobool24.not = icmp eq i32 %14, 0
+  %tobool24.not = icmp eq i64 %indvars.iv.next, 0
   br i1 %tobool24.not, label %while.body.preheader.i, label %if.then26
 
 if.then26:                                        ; preds = %if.end23
@@ -7343,7 +7343,7 @@ _ZN4llvhL9partAsHexEPcmjPKc.exit:                 ; preds = %while.body.i
   %dst.addr.0.add48 = add nuw nsw i64 %dst.addr.0.idx69, %17
   %sub37 = sub i32 %outputDigits.167, %spec.select
   %tobool19 = icmp ne i32 %sub37, 0
-  %tobool20 = icmp ne i32 %14, 0
+  %tobool20 = icmp ne i64 %indvars.iv.next, 0
   %21 = and i1 %tobool19, %tobool20
   br i1 %21, label %while.body, label %while.end.loopexit, !llvm.loop !37
 

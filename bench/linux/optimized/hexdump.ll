@@ -207,7 +207,7 @@ define dso_local i32 @hex_dump_to_buffer(ptr nocapture noundef readonly %0, i64 
   ]
 
 37:                                               ; preds = %36
-  %.not = icmp eq i32 %28, 0
+  %.not = icmp ult i64 %11, %26
   br i1 %.not, label %.loopexit17, label %38
 
 38:                                               ; preds = %37
@@ -219,7 +219,7 @@ define dso_local i32 @hex_dump_to_buffer(ptr nocapture noundef readonly %0, i64 
   br i1 %43, label %.preheader22, label %.loopexit18
 
 44:                                               ; preds = %36
-  %.not12 = icmp eq i32 %28, 0
+  %.not12 = icmp ult i64 %11, %26
   br i1 %.not12, label %.loopexit17, label %45
 
 45:                                               ; preds = %44
@@ -230,7 +230,7 @@ define dso_local i32 @hex_dump_to_buffer(ptr nocapture noundef readonly %0, i64 
   br i1 %49, label %.preheader19, label %.loopexit18
 
 50:                                               ; preds = %36
-  %.not13 = icmp eq i32 %28, 0
+  %.not13 = icmp ult i64 %11, %26
   br i1 %.not13, label %.loopexit17, label %51
 
 51:                                               ; preds = %50

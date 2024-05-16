@@ -1153,30 +1153,30 @@ Dau_DsdComputeMatches.exit:                       ; preds = %24, %7
 define i64 @Dau_Dsd6TruthCompose_rec(i64 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #8 {
   switch i64 %0, label %tailrecurse.preheader [
     i64 0, label %common.ret.loopexit
-    i64 -1, label %common.ret55
+    i64 -1, label %common.ret52
   ]
 
 tailrecurse.preheader:                            ; preds = %3
   %4 = sext i32 %2 to i64
   br label %tailrecurse
 
-tailrecurse:                                      ; preds = %tailrecurse.preheader, %12
-  %indvars.iv = phi i64 [ %4, %tailrecurse.preheader ], [ %indvars.iv.next, %12 ]
+tailrecurse:                                      ; preds = %tailrecurse.preheader, %11
+  %indvars.iv = phi i64 [ %4, %tailrecurse.preheader ], [ %indvars.iv.next, %11 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %5 = trunc nsw i64 %indvars.iv.next to i32
-  %6 = icmp eq i32 %5, 0
-  br i1 %6, label %7, label %12
+  %5 = icmp eq i64 %indvars.iv.next, 0
+  br i1 %5, label %6, label %11
 
-7:                                                ; preds = %tailrecurse
-  %8 = load i64, ptr @s_Truths6, align 16
-  %9 = icmp ne i64 %8, %0
-  %10 = load i64, ptr %1, align 8
-  %11 = sext i1 %9 to i64
-  %spec.select = xor i64 %10, %11
-  br label %common.ret55
+6:                                                ; preds = %tailrecurse
+  %7 = load i64, ptr @s_Truths6, align 16
+  %8 = icmp ne i64 %7, %0
+  %9 = load i64, ptr %1, align 8
+  %10 = sext i1 %8 to i64
+  %spec.select = xor i64 %9, %10
+  br label %common.ret52
 
-12:                                               ; preds = %tailrecurse
-  %13 = shl nuw i32 1, %5
+11:                                               ; preds = %tailrecurse
+  %12 = trunc nsw i64 %indvars.iv.next to i32
+  %13 = shl nuw i32 1, %12
   %14 = zext nneg i32 %13 to i64
   %15 = lshr i64 %0, %14
   %16 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv.next
@@ -1187,30 +1187,30 @@ tailrecurse:                                      ; preds = %tailrecurse.prehead
   br i1 %.not27, label %tailrecurse, label %20
 
 common.ret.loopexit:                              ; preds = %3
-  br label %common.ret55
+  br label %common.ret52
 
-common.ret55:                                     ; preds = %common.ret.loopexit, %3, %7, %20
-  %common.ret55.op = phi i64 [ %36, %20 ], [ 0, %common.ret.loopexit ], [ %0, %3 ], [ %spec.select, %7 ]
-  ret i64 %common.ret55.op
+common.ret52:                                     ; preds = %common.ret.loopexit, %3, %6, %20
+  %common.ret52.op = phi i64 [ %36, %20 ], [ 0, %common.ret.loopexit ], [ %0, %3 ], [ %spec.select, %6 ]
+  ret i64 %common.ret52.op
 
-20:                                               ; preds = %12
+20:                                               ; preds = %11
   %21 = and i64 %17, %0
   %22 = shl i64 %21, %14
   %23 = or i64 %22, %21
-  %24 = tail call i64 @Dau_Dsd6TruthCompose_rec(i64 noundef %23, ptr noundef %1, i32 noundef %5)
+  %24 = tail call i64 @Dau_Dsd6TruthCompose_rec(i64 noundef %23, ptr noundef %1, i32 noundef %12)
   %25 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv.next
   %26 = load i64, ptr %25, align 8
   %27 = and i64 %26, %0
   %28 = lshr i64 %27, %14
   %29 = or i64 %28, %27
-  %30 = tail call i64 @Dau_Dsd6TruthCompose_rec(i64 noundef %29, ptr noundef %1, i32 noundef %5)
+  %30 = tail call i64 @Dau_Dsd6TruthCompose_rec(i64 noundef %29, ptr noundef %1, i32 noundef %12)
   %31 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv.next
   %32 = load i64, ptr %31, align 8
   %33 = xor i64 %32, -1
   %34 = and i64 %24, %33
   %35 = and i64 %32, %30
   %36 = or i64 %34, %35
-  br label %common.ret55
+  br label %common.ret52
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -1755,55 +1755,54 @@ Dau_DsdComputeMatches.exit:                       ; preds = %28, %.thread
 define void @Dau_DsdTruth6Compose_rec(i64 noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #7 {
   %6 = alloca [2 x [64 x i64]], align 16
   switch i64 %0, label %tailrecurse.preheader [
-    i64 0, label %10
-    i64 -1, label %14
+    i64 0, label %9
+    i64 -1, label %13
   ]
 
 tailrecurse.preheader:                            ; preds = %5
   %7 = sext i32 %3 to i64
   br label %tailrecurse
 
-tailrecurse:                                      ; preds = %tailrecurse.preheader, %27
-  %indvars.iv = phi i64 [ %7, %tailrecurse.preheader ], [ %indvars.iv.next, %27 ]
+tailrecurse:                                      ; preds = %tailrecurse.preheader, %26
+  %indvars.iv = phi i64 [ %7, %tailrecurse.preheader ], [ %indvars.iv.next, %26 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %8 = trunc nsw i64 %indvars.iv.next to i32
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %18, label %27
+  %8 = icmp eq i64 %indvars.iv.next, 0
+  br i1 %8, label %17, label %26
 
-10:                                               ; preds = %5
-  %11 = icmp sgt i32 %4, 0
-  br i1 %11, label %.lr.ph.preheader.i, label %Abc_TtConst0.exit
+9:                                                ; preds = %5
+  %10 = icmp sgt i32 %4, 0
+  br i1 %10, label %.lr.ph.preheader.i, label %Abc_TtConst0.exit
 
-.lr.ph.preheader.i:                               ; preds = %10
-  %12 = zext nneg i32 %4 to i64
-  %13 = shl nuw nsw i64 %12, 3
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %2, i8 0, i64 %13, i1 false)
+.lr.ph.preheader.i:                               ; preds = %9
+  %11 = zext nneg i32 %4 to i64
+  %12 = shl nuw nsw i64 %11, 3
+  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %2, i8 0, i64 %12, i1 false)
   br label %Abc_TtConst0.exit
 
-14:                                               ; preds = %5
-  %15 = icmp sgt i32 %4, 0
-  br i1 %15, label %.lr.ph.preheader.i32, label %Abc_TtConst0.exit
+13:                                               ; preds = %5
+  %14 = icmp sgt i32 %4, 0
+  br i1 %14, label %.lr.ph.preheader.i32, label %Abc_TtConst0.exit
 
-.lr.ph.preheader.i32:                             ; preds = %14
-  %16 = zext nneg i32 %4 to i64
-  %17 = shl nuw nsw i64 %16, 3
-  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %2, i8 -1, i64 %17, i1 false)
+.lr.ph.preheader.i32:                             ; preds = %13
+  %15 = zext nneg i32 %4 to i64
+  %16 = shl nuw nsw i64 %15, 3
+  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %2, i8 -1, i64 %16, i1 false)
   br label %Abc_TtConst0.exit
 
-18:                                               ; preds = %tailrecurse
+17:                                               ; preds = %tailrecurse
   %.not = icmp eq i64 %0, 6148914691236517205
-  %19 = icmp sgt i32 %4, 0
+  %18 = icmp sgt i32 %4, 0
   br i1 %.not, label %.preheader14.i, label %.preheader.i
 
-.preheader14.i:                                   ; preds = %18
-  br i1 %19, label %.lr.ph.preheader.i33, label %Abc_TtConst0.exit
+.preheader14.i:                                   ; preds = %17
+  br i1 %18, label %.lr.ph.preheader.i33, label %Abc_TtConst0.exit
 
 .lr.ph.preheader.i33:                             ; preds = %.preheader14.i
   %wide.trip.count.i = zext nneg i32 %4 to i64
   br label %.lr.ph.i
 
-.preheader.i:                                     ; preds = %18
-  br i1 %19, label %.lr.ph18.preheader.i, label %Abc_TtConst0.exit
+.preheader.i:                                     ; preds = %17
+  br i1 %18, label %.lr.ph18.preheader.i, label %Abc_TtConst0.exit
 
 .lr.ph18.preheader.i:                             ; preds = %.preheader.i
   %wide.trip.count24.i = zext nneg i32 %4 to i64
@@ -1811,27 +1810,28 @@ tailrecurse:                                      ; preds = %tailrecurse.prehead
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i33
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i33 ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %20 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv.i
-  %21 = load i64, ptr %20, align 8
-  %22 = xor i64 %21, -1
-  %23 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv.i
-  store i64 %22, ptr %23, align 8
+  %19 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv.i
+  %20 = load i64, ptr %19, align 8
+  %21 = xor i64 %20, -1
+  %22 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv.i
+  store i64 %21, ptr %22, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %Abc_TtConst0.exit, label %.lr.ph.i, !llvm.loop !30
 
 .lr.ph18.i:                                       ; preds = %.lr.ph18.i, %.lr.ph18.preheader.i
   %indvars.iv21.i = phi i64 [ 0, %.lr.ph18.preheader.i ], [ %indvars.iv.next22.i, %.lr.ph18.i ]
-  %24 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv21.i
-  %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv21.i
-  store i64 %25, ptr %26, align 8
+  %23 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv21.i
+  %24 = load i64, ptr %23, align 8
+  %25 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv21.i
+  store i64 %24, ptr %25, align 8
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
   %exitcond25.not.i = icmp eq i64 %indvars.iv.next22.i, %wide.trip.count24.i
   br i1 %exitcond25.not.i, label %Abc_TtConst0.exit, label %.lr.ph18.i, !llvm.loop !31
 
-27:                                               ; preds = %tailrecurse
-  %28 = shl nuw i32 1, %8
+26:                                               ; preds = %tailrecurse
+  %27 = trunc nsw i64 %indvars.iv.next to i32
+  %28 = shl nuw i32 1, %27
   %29 = zext nneg i32 %28 to i64
   %30 = lshr i64 %0, %29
   %31 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv.next
@@ -1841,18 +1841,18 @@ tailrecurse:                                      ; preds = %tailrecurse.prehead
   %.not40 = icmp eq i64 %34, 0
   br i1 %.not40, label %tailrecurse, label %35
 
-35:                                               ; preds = %27
+35:                                               ; preds = %26
   %36 = and i64 %32, %0
   %37 = shl i64 %36, %29
   %38 = or i64 %37, %36
-  call void @Dau_DsdTruth6Compose_rec(i64 noundef %38, ptr noundef %1, ptr noundef nonnull %6, i32 noundef %8, i32 noundef %4)
+  call void @Dau_DsdTruth6Compose_rec(i64 noundef %38, ptr noundef %1, ptr noundef nonnull %6, i32 noundef %27, i32 noundef %4)
   %39 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv.next
   %40 = load i64, ptr %39, align 8
   %41 = and i64 %40, %0
   %42 = lshr i64 %41, %29
   %43 = or i64 %42, %41
   %44 = getelementptr inbounds i8, ptr %6, i64 512
-  call void @Dau_DsdTruth6Compose_rec(i64 noundef %43, ptr noundef %1, ptr noundef nonnull %44, i32 noundef %8, i32 noundef %4)
+  call void @Dau_DsdTruth6Compose_rec(i64 noundef %43, ptr noundef %1, ptr noundef nonnull %44, i32 noundef %27, i32 noundef %4)
   %45 = getelementptr inbounds [64 x i64], ptr %1, i64 %indvars.iv.next
   %46 = icmp sgt i32 %4, 0
   br i1 %46, label %.lr.ph.preheader.i34, label %Abc_TtConst0.exit
@@ -1879,7 +1879,7 @@ tailrecurse:                                      ; preds = %tailrecurse.prehead
   %exitcond.not.i39 = icmp eq i64 %indvars.iv.next.i38, %wide.trip.count.i35
   br i1 %exitcond.not.i39, label %Abc_TtConst0.exit, label %.lr.ph.i36, !llvm.loop !32
 
-Abc_TtConst0.exit:                                ; preds = %.lr.ph.i36, %.lr.ph18.i, %.lr.ph.i, %35, %.preheader.i, %.preheader14.i, %.lr.ph.preheader.i32, %14, %.lr.ph.preheader.i, %10
+Abc_TtConst0.exit:                                ; preds = %.lr.ph.i36, %.lr.ph18.i, %.lr.ph.i, %35, %.preheader.i, %.preheader14.i, %.lr.ph.preheader.i32, %13, %.lr.ph.preheader.i, %9
   ret void
 }
 

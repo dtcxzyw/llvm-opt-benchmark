@@ -723,7 +723,7 @@ define void @ADIOI_Calc_my_off_len(ptr nocapture noundef %0, i32 noundef %1, ptr
   %43 = add i64 %41, -1
   %44 = add i64 %43, %42
   store i64 %44, ptr %8, align 8
-  br label %233
+  br label %231
 
 45:                                               ; preds = %10
   %46 = load i32, ptr %13, align 4
@@ -765,12 +765,12 @@ define void @ADIOI_Calc_my_off_len(ptr nocapture noundef %0, i32 noundef %1, ptr
   %67 = add nsw i64 %66, %65
   %68 = add nsw i64 %67, -1
   store i64 %68, ptr %8, align 8
-  br i1 %51, label %69, label %233
+  br i1 %51, label %69, label %231
 
 69:                                               ; preds = %60
   %70 = getelementptr inbounds i8, ptr %0, i64 40
   store i64 %67, ptr %70, align 8
-  br label %233
+  br label %231
 
 71:                                               ; preds = %45
   %72 = load ptr, ptr %16, align 8
@@ -795,22 +795,22 @@ define void @ADIOI_Calc_my_off_len(ptr nocapture noundef %0, i32 noundef %1, ptr
   %89 = getelementptr inbounds i8, ptr %73, i64 8
   %90 = load i64, ptr %89, align 8
   %91 = icmp sgt i64 %90, 0
-  br i1 %91, label %.lr.ph248, label %.loopexit
+  br i1 %91, label %.lr.ph247, label %.loopexit
 
-.lr.ph248:                                        ; preds = %77
+.lr.ph247:                                        ; preds = %77
   %92 = getelementptr inbounds i8, ptr %73, i64 16
   %93 = load ptr, ptr %92, align 8
   br label %94
 
-94:                                               ; preds = %.lr.ph248, %114
-  %indvars.iv293 = phi i64 [ 0, %.lr.ph248 ], [ %indvars.iv.next294, %114 ]
-  %95 = getelementptr inbounds i64, ptr %93, i64 %indvars.iv293
+94:                                               ; preds = %.lr.ph247, %114
+  %indvars.iv290 = phi i64 [ 0, %.lr.ph247 ], [ %indvars.iv.next291, %114 ]
+  %95 = getelementptr inbounds i64, ptr %93, i64 %indvars.iv290
   %96 = load i64, ptr %95, align 8
   %97 = icmp eq i64 %96, 0
   br i1 %97, label %114, label %98
 
 98:                                               ; preds = %94
-  %99 = getelementptr inbounds i64, ptr %82, i64 %indvars.iv293
+  %99 = getelementptr inbounds i64, ptr %82, i64 %indvars.iv290
   %100 = load i64, ptr %99, align 8
   %101 = sub i64 %96, %88
   %102 = add i64 %101, %100
@@ -818,7 +818,7 @@ define void @ADIOI_Calc_my_off_len(ptr nocapture noundef %0, i32 noundef %1, ptr
   br i1 %103, label %104, label %112
 
 104:                                              ; preds = %98
-  %105 = trunc nuw nsw i64 %indvars.iv293 to i32
+  %105 = trunc nuw nsw i64 %indvars.iv290 to i32
   %106 = add nuw nsw i32 %105, 1
   %107 = zext nneg i32 %106 to i64
   %108 = getelementptr inbounds i64, ptr %82, i64 %107
@@ -832,13 +832,13 @@ define void @ADIOI_Calc_my_off_len(ptr nocapture noundef %0, i32 noundef %1, ptr
   br i1 %113, label %.loopexit.loopexit, label %114
 
 114:                                              ; preds = %112, %94
-  %indvars.iv.next294 = add nuw nsw i64 %indvars.iv293, 1
-  %exitcond296.not = icmp eq i64 %indvars.iv.next294, %90
-  br i1 %exitcond296.not, label %.loopexit.loopexit, label %94, !llvm.loop !16
+  %indvars.iv.next291 = add nuw nsw i64 %indvars.iv290, 1
+  %exitcond293.not = icmp eq i64 %indvars.iv.next291, %90
+  br i1 %exitcond293.not, label %.loopexit.loopexit, label %94, !llvm.loop !16
 
 .loopexit.loopexit:                               ; preds = %112, %114
   %.0208.ph = phi i64 [ %102, %112 ], [ 0, %114 ]
-  %.1194.ph.in = phi i64 [ %indvars.iv293, %112 ], [ %90, %114 ]
+  %.1194.ph.in = phi i64 [ %indvars.iv290, %112 ], [ %90, %114 ]
   %.1194.ph = trunc i64 %.1194.ph.in to i32
   br label %.loopexit
 
@@ -860,10 +860,10 @@ define void @ADIOI_Calc_my_off_len(ptr nocapture noundef %0, i32 noundef %1, ptr
 
 126:                                              ; preds = %.lr.ph, %140
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %140 ]
-  %.0207245 = phi i64 [ 0, %.lr.ph ], [ %129, %140 ]
+  %.0207244 = phi i64 [ 0, %.lr.ph ], [ %129, %140 ]
   %127 = getelementptr inbounds i64, ptr %125, i64 %indvars.iv
   %128 = load i64, ptr %127, align 8
-  %129 = add nsw i64 %128, %.0207245
+  %129 = add nsw i64 %128, %.0207244
   %130 = icmp sgt i64 %129, %120
   br i1 %130, label %131, label %140
 
@@ -874,7 +874,7 @@ define void @ADIOI_Calc_my_off_len(ptr nocapture noundef %0, i32 noundef %1, ptr
   %135 = load ptr, ptr %134, align 8
   %136 = getelementptr inbounds i64, ptr %135, i64 %indvars.iv
   %137 = load i64, ptr %136, align 8
-  %138 = sub i64 %120, %.0207245
+  %138 = sub i64 %120, %.0207244
   %139 = add i64 %138, %137
   br label %.loopexit236
 
@@ -893,35 +893,35 @@ define void @ADIOI_Calc_my_off_len(ptr nocapture noundef %0, i32 noundef %1, ptr
 
 .loopexit:                                        ; preds = %104, %77, %.loopexit.loopexit, %.loopexit236
   %.0212.sink = phi i64 [ %.0212, %.loopexit236 ], [ %87, %.loopexit.loopexit ], [ %87, %77 ], [ %87, %104 ]
-  %.sink307 = phi i64 [ %142, %.loopexit236 ], [ %88, %.loopexit.loopexit ], [ %88, %77 ], [ %109, %104 ]
+  %.sink303 = phi i64 [ %142, %.loopexit236 ], [ %88, %.loopexit.loopexit ], [ %88, %77 ], [ %109, %104 ]
   %143 = phi i64 [ %122, %.loopexit236 ], [ %90, %.loopexit.loopexit ], [ %90, %77 ], [ %90, %104 ]
   %.1218 = phi i32 [ %.0217, %.loopexit236 ], [ %.1194.ph, %.loopexit.loopexit ], [ 0, %77 ], [ %106, %104 ]
   %.0213 = phi i64 [ %118, %.loopexit236 ], [ %86, %.loopexit.loopexit ], [ %86, %77 ], [ %86, %104 ]
   %.2210 = phi i64 [ %.1209, %.loopexit236 ], [ %.0208.ph, %.loopexit.loopexit ], [ 0, %77 ], [ %111, %104 ]
   %144 = add i64 %.0212.sink, %75
-  %145 = add i64 %144, %.sink307
+  %145 = add i64 %144, %.sink303
   %146 = load i64, ptr %12, align 8
   %147 = sext i32 %1 to i64
   %148 = mul nsw i64 %146, %147
   %149 = call i64 @llvm.smin.i64(i64 %.2210, i64 %148)
   %150 = icmp sgt i64 %148, 0
-  br i1 %150, label %.lr.ph257, label %._crit_edge
+  br i1 %150, label %.lr.ph256, label %._crit_edge
 
-.lr.ph257:                                        ; preds = %.loopexit
+.lr.ph256:                                        ; preds = %.loopexit
   %151 = getelementptr inbounds i8, ptr %73, i64 16
   %152 = load ptr, ptr %151, align 8
   br label %153
 
-153:                                              ; preds = %.lr.ph257, %153
-  %.0198256 = phi i32 [ %.1218, %.lr.ph257 ], [ %159, %153 ]
-  %.0201255 = phi i32 [ 0, %.lr.ph257 ], [ %spec.select, %153 ]
-  %.0205254 = phi i64 [ 0, %.lr.ph257 ], [ %155, %153 ]
-  %.3211253 = phi i64 [ %149, %.lr.ph257 ], [ %163, %153 ]
-  %.not235 = icmp ne i64 %.3211253, 0
+153:                                              ; preds = %.lr.ph256, %153
+  %.0198255 = phi i32 [ %.1218, %.lr.ph256 ], [ %159, %153 ]
+  %.0201254 = phi i32 [ 0, %.lr.ph256 ], [ %spec.select, %153 ]
+  %.0205253 = phi i64 [ 0, %.lr.ph256 ], [ %155, %153 ]
+  %.3211252 = phi i64 [ %149, %.lr.ph256 ], [ %163, %153 ]
+  %.not235 = icmp ne i64 %.3211252, 0
   %154 = zext i1 %.not235 to i32
-  %spec.select = add nuw nsw i32 %.0201255, %154
-  %155 = add nsw i64 %.0205254, %.3211253
-  %156 = add nsw i32 %.0198256, 1
+  %spec.select = add nuw nsw i32 %.0201254, %154
+  %155 = add nsw i64 %.0205253, %.3211252
+  %156 = add nsw i32 %.0198255, 1
   %157 = sext i32 %156 to i64
   %158 = srem i64 %157, %143
   %159 = trunc nsw i64 %158 to i32
@@ -945,39 +945,39 @@ define void @ADIOI_Calc_my_off_len(ptr nocapture noundef %0, i32 noundef %1, ptr
   store ptr %171, ptr %6, align 8
   %172 = load ptr, ptr %5, align 8
   store i64 %145, ptr %7, align 8
-  br i1 %150, label %.lr.ph275, label %229
+  br i1 %150, label %.lr.ph273, label %227
 
-.lr.ph275:                                        ; preds = %._crit_edge
+.lr.ph273:                                        ; preds = %._crit_edge
   %173 = getelementptr inbounds i8, ptr %73, i64 24
   %174 = getelementptr inbounds i8, ptr %73, i64 16
   %175 = getelementptr inbounds i8, ptr %73, i64 8
   br label %176
 
-176:                                              ; preds = %.lr.ph275, %226
-  %.0196273 = phi i64 [ %145, %.lr.ph275 ], [ %.1197, %226 ]
-  %.1199272 = phi i32 [ %.1218, %.lr.ph275 ], [ %.3, %226 ]
-  %.0203271 = phi i32 [ 0, %.lr.ph275 ], [ %.1204, %226 ]
-  %.1206270 = phi i64 [ 0, %.lr.ph275 ], [ %183, %226 ]
-  %.4269 = phi i64 [ %149, %.lr.ph275 ], [ %.5, %226 ]
-  %.1214268 = phi i64 [ %.0213, %.lr.ph275 ], [ %.3216, %226 ]
-  %.not234 = icmp eq i64 %.4269, 0
+176:                                              ; preds = %.lr.ph273, %224
+  %.0196271 = phi i64 [ %145, %.lr.ph273 ], [ %.1197, %224 ]
+  %.1199270 = phi i32 [ %.1218, %.lr.ph273 ], [ %.3, %224 ]
+  %.0203269 = phi i32 [ 0, %.lr.ph273 ], [ %.1204, %224 ]
+  %.1206268 = phi i64 [ 0, %.lr.ph273 ], [ %183, %224 ]
+  %.4267 = phi i64 [ %149, %.lr.ph273 ], [ %.5, %224 ]
+  %.1214266 = phi i64 [ %.0213, %.lr.ph273 ], [ %.3216, %224 ]
+  %.not234 = icmp eq i64 %.4267, 0
   br i1 %.not234, label %182, label %177
 
 177:                                              ; preds = %176
-  %178 = sext i32 %.0203271 to i64
+  %178 = sext i32 %.0203269 to i64
   %179 = getelementptr inbounds i64, ptr %172, i64 %178
-  store i64 %.0196273, ptr %179, align 8
+  store i64 %.0196271, ptr %179, align 8
   %180 = getelementptr inbounds i64, ptr %171, i64 %178
-  store i64 %.4269, ptr %180, align 8
-  %181 = add nsw i32 %.0203271, 1
+  store i64 %.4267, ptr %180, align 8
+  %181 = add nsw i32 %.0203269, 1
   br label %182
 
 182:                                              ; preds = %177, %176
-  %.1204 = phi i32 [ %181, %177 ], [ %.0203271, %176 ]
-  %183 = add nsw i64 %.1206270, %.4269
-  %184 = add nsw i64 %.0196273, %.4269
+  %.1204 = phi i32 [ %181, %177 ], [ %.0203269, %176 ]
+  %183 = add nsw i64 %.1206268, %.4267
+  %184 = add nsw i64 %.0196271, %.4267
   %185 = load ptr, ptr %173, align 8
-  %186 = sext i32 %.1199272 to i64
+  %186 = sext i32 %.1199270 to i64
   %187 = getelementptr inbounds i64, ptr %185, i64 %186
   %188 = load i64, ptr %187, align 8
   %189 = add nsw i64 %188, %75
@@ -986,83 +986,81 @@ define void @ADIOI_Calc_my_off_len(ptr nocapture noundef %0, i32 noundef %1, ptr
   %192 = load i64, ptr %191, align 8
   %193 = add nsw i64 %189, %192
   %194 = load i64, ptr %14, align 8
-  %195 = mul nsw i64 %194, %.1214268
+  %195 = mul nsw i64 %194, %.1214266
   %196 = add nsw i64 %193, %195
   %197 = icmp slt i64 %184, %196
-  br i1 %197, label %226, label %198
+  br i1 %197, label %224, label %198
 
 198:                                              ; preds = %182
-  %199 = add nsw i32 %.1199272, 1
+  %199 = add nsw i32 %.1199270, 1
   %200 = sext i32 %199 to i64
   %201 = load i64, ptr %175, align 8
   %202 = srem i64 %200, %201
-  %203 = trunc nsw i64 %202 to i32
-  %204 = icmp eq i32 %203, 0
-  %205 = zext i1 %204 to i64
-  %206 = add nsw i64 %.1214268, %205
-  %207 = getelementptr inbounds i64, ptr %190, i64 %202
-  %208 = load i64, ptr %207, align 8
-  %209 = icmp eq i64 %208, 0
-  br i1 %209, label %.lr.ph262, label %._crit_edge263
+  %203 = icmp eq i64 %202, 0
+  %204 = zext i1 %203 to i64
+  %205 = add nsw i64 %.1214266, %204
+  %206 = getelementptr inbounds i64, ptr %190, i64 %202
+  %207 = load i64, ptr %206, align 8
+  %208 = icmp eq i64 %207, 0
+  br i1 %208, label %.lr.ph261, label %._crit_edge262
 
-.lr.ph262:                                        ; preds = %198, %.lr.ph262
-  %.2200260 = phi i64 [ %212, %.lr.ph262 ], [ %202, %198 ]
-  %.2215259 = phi i64 [ %216, %.lr.ph262 ], [ %206, %198 ]
-  %210 = shl nsw i64 %.2200260, 32
-  %sext = add i64 %210, 4294967296
-  %211 = ashr exact i64 %sext, 32
-  %212 = srem i64 %211, %201
-  %213 = trunc nsw i64 %212 to i32
-  %214 = icmp eq i32 %213, 0
-  %215 = zext i1 %214 to i64
-  %216 = add nsw i64 %.2215259, %215
-  %217 = getelementptr inbounds i64, ptr %190, i64 %212
-  %218 = load i64, ptr %217, align 8
-  %219 = icmp eq i64 %218, 0
-  br i1 %219, label %.lr.ph262, label %._crit_edge263, !llvm.loop !19
+.lr.ph261:                                        ; preds = %198, %.lr.ph261
+  %.2200.in259 = phi i64 [ %211, %.lr.ph261 ], [ %202, %198 ]
+  %.2215258 = phi i64 [ %214, %.lr.ph261 ], [ %205, %198 ]
+  %209 = shl nsw i64 %.2200.in259, 32
+  %sext = add i64 %209, 4294967296
+  %210 = ashr exact i64 %sext, 32
+  %211 = srem i64 %210, %201
+  %212 = icmp eq i64 %211, 0
+  %213 = zext i1 %212 to i64
+  %214 = add nsw i64 %.2215258, %213
+  %215 = getelementptr inbounds i64, ptr %190, i64 %211
+  %216 = load i64, ptr %215, align 8
+  %217 = icmp eq i64 %216, 0
+  br i1 %217, label %.lr.ph261, label %._crit_edge262, !llvm.loop !19
 
-._crit_edge263:                                   ; preds = %.lr.ph262, %198
-  %.2215.lcssa = phi i64 [ %206, %198 ], [ %216, %.lr.ph262 ]
-  %.2200.lcssa = phi i32 [ %203, %198 ], [ %213, %.lr.ph262 ]
-  %.lcssa237 = phi i64 [ %202, %198 ], [ %212, %.lr.ph262 ]
-  %.lcssa = phi i64 [ %208, %198 ], [ %218, %.lr.ph262 ]
-  %220 = getelementptr inbounds i64, ptr %185, i64 %.lcssa237
-  %221 = load i64, ptr %220, align 8
-  %222 = mul nsw i64 %.2215.lcssa, %194
-  %223 = add i64 %222, %75
-  %224 = add i64 %223, %221
-  %225 = sub nsw i64 %148, %183
-  %. = call i64 @llvm.smin.i64(i64 %.lcssa, i64 %225)
-  br label %226
+._crit_edge262:                                   ; preds = %.lr.ph261, %198
+  %.2215.lcssa = phi i64 [ %205, %198 ], [ %214, %.lr.ph261 ]
+  %.2200.in.lcssa = phi i64 [ %202, %198 ], [ %211, %.lr.ph261 ]
+  %.lcssa = phi i64 [ %207, %198 ], [ %216, %.lr.ph261 ]
+  %.2200 = trunc nsw i64 %.2200.in.lcssa to i32
+  %218 = getelementptr inbounds i64, ptr %185, i64 %.2200.in.lcssa
+  %219 = load i64, ptr %218, align 8
+  %220 = mul nsw i64 %.2215.lcssa, %194
+  %221 = add i64 %220, %75
+  %222 = add i64 %221, %219
+  %223 = sub nsw i64 %148, %183
+  %. = call i64 @llvm.smin.i64(i64 %.lcssa, i64 %223)
+  br label %224
 
-226:                                              ; preds = %182, %._crit_edge263
-  %.3216 = phi i64 [ %.2215.lcssa, %._crit_edge263 ], [ %.1214268, %182 ]
-  %.5 = phi i64 [ %., %._crit_edge263 ], [ %.4269, %182 ]
-  %.3 = phi i32 [ %.2200.lcssa, %._crit_edge263 ], [ %.1199272, %182 ]
-  %.1197 = phi i64 [ %224, %._crit_edge263 ], [ %184, %182 ]
-  %227 = icmp slt i64 %183, %148
-  br i1 %227, label %176, label %._crit_edge276, !llvm.loop !20
+224:                                              ; preds = %182, %._crit_edge262
+  %.3216 = phi i64 [ %.2215.lcssa, %._crit_edge262 ], [ %.1214266, %182 ]
+  %.5 = phi i64 [ %., %._crit_edge262 ], [ %.4267, %182 ]
+  %.3 = phi i32 [ %.2200, %._crit_edge262 ], [ %.1199270, %182 ]
+  %.1197 = phi i64 [ %222, %._crit_edge262 ], [ %184, %182 ]
+  %225 = icmp slt i64 %183, %148
+  br i1 %225, label %176, label %._crit_edge274, !llvm.loop !20
 
-._crit_edge276:                                   ; preds = %226
-  %228 = add nsw i64 %184, -1
-  br label %229
+._crit_edge274:                                   ; preds = %224
+  %226 = add nsw i64 %184, -1
+  br label %227
 
-229:                                              ; preds = %._crit_edge276, %._crit_edge
-  %.0196.lcssa = phi i64 [ %.1197, %._crit_edge276 ], [ %145, %._crit_edge ]
-  %.0195.lcssa = phi i64 [ %228, %._crit_edge276 ], [ 0, %._crit_edge ]
-  br i1 %76, label %230, label %232
+227:                                              ; preds = %._crit_edge274, %._crit_edge
+  %.0196.lcssa = phi i64 [ %.1197, %._crit_edge274 ], [ %145, %._crit_edge ]
+  %.0195.lcssa = phi i64 [ %226, %._crit_edge274 ], [ 0, %._crit_edge ]
+  br i1 %76, label %228, label %230
 
-230:                                              ; preds = %229
-  %231 = getelementptr inbounds i8, ptr %0, i64 40
-  store i64 %.0196.lcssa, ptr %231, align 8
-  br label %232
+228:                                              ; preds = %227
+  %229 = getelementptr inbounds i8, ptr %0, i64 40
+  store i64 %.0196.lcssa, ptr %229, align 8
+  br label %230
 
-232:                                              ; preds = %230, %229
+230:                                              ; preds = %228, %227
   store i32 %.0201.lcssa, ptr %9, align 4
   store i64 %.0195.lcssa, ptr %8, align 8
-  br label %233
+  br label %231
 
-233:                                              ; preds = %60, %69, %232, %39
+231:                                              ; preds = %60, %69, %230, %39
   ret void
 }
 

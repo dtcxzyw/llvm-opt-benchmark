@@ -5756,23 +5756,19 @@ LZ4HC_init_internal.exit.i:                       ; preds = %if.then.i.i, %LZ4_i
   %lowLimit.i.i = getelementptr inbounds i8, ptr %LZ4_streamHCPtr, i64 262172
   store i32 65536, ptr %lowLimit.i.i, align 4
   store ptr %6, ptr %end, align 8
-  %cmp3.i.not = icmp ult i64 %sub.ptr.sub, 4
-  br i1 %cmp3.i.not, label %if.end16, label %if.then5.i
+  %cmp3.i = icmp ugt i64 %sub.ptr.sub, 3
+  br i1 %cmp3.i, label %if.then5.i, label %if.end16
 
 if.then5.i:                                       ; preds = %LZ4HC_init_internal.exit.i
   %chainTable1.i.i = getelementptr inbounds i8, ptr %LZ4_streamHCPtr, i64 131072
   %11 = trunc nuw nsw i64 %spec.store.select to i32
   %add.i.i = add nuw nsw i32 %11, 65533
-  %cmp.i41.i = icmp ugt i32 %11, 3
-  br i1 %cmp.i41.i, label %while.body.i.lr.ph.i, label %LZ4HC_Insert.exit.i
-
-while.body.i.lr.ph.i:                             ; preds = %if.then5.i
   %invariant.gep.i = getelementptr i8, ptr %add.ptr, i64 -65536
   %wide.trip.count.i = zext nneg i32 %add.i.i to i64
   br label %while.body.i.i
 
-while.body.i.i:                                   ; preds = %while.body.i.i, %while.body.i.lr.ph.i
-  %indvars.iv.i = phi i64 [ 65536, %while.body.i.lr.ph.i ], [ %indvars.iv.next.i, %while.body.i.i ]
+while.body.i.i:                                   ; preds = %while.body.i.i, %if.then5.i
+  %indvars.iv.i = phi i64 [ 65536, %if.then5.i ], [ %indvars.iv.next.i, %while.body.i.i ]
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv.i
   %add.ptr6.i.val.i = load i32, ptr %gep.i, align 1
   %mul.i.i = mul i32 %add.ptr6.i.val.i, -1640531535
@@ -5792,7 +5788,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %LZ4HC_Insert.exit.i, label %while.body.i.i, !llvm.loop !4
 
-LZ4HC_Insert.exit.i:                              ; preds = %while.body.i.i, %if.then5.i
+LZ4HC_Insert.exit.i:                              ; preds = %while.body.i.i
   store i32 %add.i.i, ptr %nextToUpdate.i40.i, align 8
   br label %if.end16
 

@@ -108,14 +108,13 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %2 = load i64, ptr %0, align 8
   %shr = ashr i64 %2, 47
-  %conv = trunc nsw i64 %shr to i32
-  %conv.off = add nsw i32 %conv, 3
-  %switch = icmp ult i32 %conv.off, 2
+  %shr.off = add nsw i64 %shr, 3
+  %switch = icmp ult i64 %shr.off, 2
   br i1 %switch, label %if.then, label %if.else
 
 if.then:                                          ; preds = %land.lhs.true
-  %3 = and i64 %shr, 4294967295
-  %tobool.not = icmp eq i64 %3, 4294967294
+  %shr10.mask = and i64 %2, -140737488355328
+  %tobool.not = icmp eq i64 %shr10.mask, -281474976710656
   %cond = zext i1 %tobool.not to i32
   br label %if.end
 
@@ -126,19 +125,17 @@ if.else:                                          ; preds = %land.lhs.true, %ent
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %4 = phi ptr [ %1, %if.then ], [ %.pre10, %if.else ]
-  %5 = phi ptr [ %0, %if.then ], [ %.pre, %if.else ]
+  %3 = phi ptr [ %1, %if.then ], [ %.pre10, %if.else ]
+  %4 = phi ptr [ %0, %if.then ], [ %.pre, %if.else ]
   %status.0 = phi i32 [ %cond, %if.then ], [ %call, %if.else ]
-  %add.ptr = getelementptr inbounds i8, ptr %5, i64 8
-  %cmp14 = icmp ult ptr %add.ptr, %4
+  %add.ptr = getelementptr inbounds i8, ptr %4, i64 8
+  %cmp14 = icmp ult ptr %add.ptr, %3
   br i1 %cmp14, label %land.lhs.true16, label %if.end24
 
 land.lhs.true16:                                  ; preds = %if.end
-  %6 = load i64, ptr %add.ptr, align 8
-  %shr19 = ashr i64 %6, 47
-  %7 = and i64 %shr19, 4294967294
-  %cmp21.not = icmp eq i64 %7, 4294967294
-  br i1 %cmp21.not, label %if.end24, label %if.then23
+  %5 = load i64, ptr %add.ptr, align 8
+  %cmp21 = icmp ult i64 %5, -281474976710656
+  br i1 %cmp21, label %if.then23, label %if.end24
 
 if.then23:                                        ; preds = %land.lhs.true16
   tail call void @lua_close(ptr noundef nonnull %L) #12

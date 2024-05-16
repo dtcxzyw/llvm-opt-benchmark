@@ -21292,7 +21292,7 @@ _ZNK7AstNode6isWideEv.exit.thread:                ; preds = %36, %_ZNK7AstNode6i
 74:                                               ; preds = %71
   %75 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %58, i1 true)
   %76 = trunc nuw nsw i64 %75 to i32
-  %.not55 = icmp eq i32 %76, 0
+  %.not55 = icmp eq i64 %75, 0
   br i1 %.not55, label %_ZN9AstShiftRC2EP8FileLineP11AstNodeExprS3_i.exit, label %77
 
 77:                                               ; preds = %74

@@ -17769,7 +17769,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   br i1 %exitcond54.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !60
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i19.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i19.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i19.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -17785,8 +17785,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp345.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %9 = shl nuw nsw i64 %conv10.i.i.i.i, 2
   call void @llvm.memset.p0.i64(ptr align 4 %out_data.0, i8 0, i64 %9, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %9
@@ -18289,7 +18288,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   br i1 %exitcond58.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !72
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i19.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i19.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i19.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -18305,8 +18304,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp349.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %11 = shl nuw nsw i64 %conv10.i.i.i.i, 2
   call void @llvm.memset.p0.i64(ptr align 4 %out_data.0, i8 0, i64 %11, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %11
@@ -18672,7 +18670,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   br i1 %exitcond54.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !84
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i19.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i19.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i19.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -18688,8 +18686,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp345.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %9 = shl nuw nsw i64 %conv10.i.i.i.i, 2
   call void @llvm.memset.p0.i64(ptr align 4 %out_data.0, i8 0, i64 %9, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %9
@@ -18869,7 +18866,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   br i1 %exitcond64.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !90
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i19.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i19.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i19.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -18885,8 +18882,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp355.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %11 = shl nuw nsw i64 %conv10.i.i.i.i, 2
   call void @llvm.memset.p0.i64(ptr align 4 %out_data.0, i8 0, i64 %11, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %11
@@ -19254,7 +19250,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   br i1 %exitcond52.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !102
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i19.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i19.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i19.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -19270,8 +19266,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp343.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %9 = shl nuw nsw i64 %conv10.i.i.i.i, 2
   call void @llvm.memset.p0.i64(ptr align 4 %out_data.0, i8 0, i64 %9, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %9
@@ -19447,7 +19442,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   br i1 %exitcond62.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !108
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i19.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i19.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i19.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -19463,8 +19458,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp353.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %11 = shl nuw nsw i64 %conv10.i.i.i.i, 2
   call void @llvm.memset.p0.i64(ptr align 4 %out_data.0, i8 0, i64 %11, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %11
@@ -19830,7 +19824,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   br i1 %exitcond52.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !120
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i19.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i19.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i19.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -19846,8 +19840,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp343.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %9 = shl nuw nsw i64 %conv10.i.i.i.i, 2
   call void @llvm.memset.p0.i64(ptr align 4 %out_data.0, i8 0, i64 %9, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %9
@@ -20023,7 +20016,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   br i1 %exitcond62.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !126
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i19.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i19.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i19.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -20039,8 +20032,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp353.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %11 = shl nuw nsw i64 %conv10.i.i.i.i, 2
   call void @llvm.memset.p0.i64(ptr align 4 %out_data.0, i8 0, i64 %11, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %11
@@ -20293,7 +20285,7 @@ call.i.i.i.i.i.i.i.noexc:                         ; preds = %for.body.i.i.i.i
   br i1 %exitcond51.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !140
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i16.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i16.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i16.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -20309,8 +20301,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp342.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %11 = shl nuw nsw i64 %conv10.i.i.i.i, 2
   call void @llvm.memset.p0.i64(ptr align 4 %out_data.0, i8 0, i64 %11, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %11
@@ -21201,7 +21192,7 @@ call.i.i.i.i.i.i.i.noexc:                         ; preds = %for.body.i.i.i.i
   br i1 %exitcond48.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !163
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i16.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i16.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i16.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -21217,8 +21208,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp339.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %11 = shl nuw nsw i64 %conv10.i.i.i.i, 2
   call void @llvm.memset.p0.i64(ptr align 4 %out_data.0, i8 0, i64 %11, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %11
@@ -22280,7 +22270,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   br i1 %exitcond56.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !197
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i19.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i19.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i19.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -22296,8 +22286,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp347.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %9 = shl nuw nsw i64 %conv10.i.i.i.i, 3
   call void @llvm.memset.p0.i64(ptr align 8 %out_data.0, i8 0, i64 %9, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %9
@@ -22475,7 +22464,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   br i1 %exitcond60.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !203
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i19.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i19.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i19.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -22491,8 +22480,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp351.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %11 = shl nuw nsw i64 %conv10.i.i.i.i, 3
   call void @llvm.memset.p0.i64(ptr align 8 %out_data.0, i8 0, i64 %11, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %11
@@ -22860,7 +22848,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   br i1 %exitcond56.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !215
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i19.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i19.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i19.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -22876,8 +22864,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp347.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %9 = shl nuw nsw i64 %conv10.i.i.i.i, 3
   call void @llvm.memset.p0.i64(ptr align 8 %out_data.0, i8 0, i64 %9, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %9
@@ -23061,7 +23048,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   br i1 %exitcond66.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !221
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i19.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i19.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i19.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -23077,8 +23064,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp357.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %11 = shl nuw nsw i64 %conv10.i.i.i.i, 3
   call void @llvm.memset.p0.i64(ptr align 8 %out_data.0, i8 0, i64 %11, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %11
@@ -23448,7 +23434,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   br i1 %exitcond52.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !233
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i19.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i19.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i19.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -23464,8 +23450,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp343.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %9 = shl nuw nsw i64 %conv10.i.i.i.i, 3
   call void @llvm.memset.p0.i64(ptr align 8 %out_data.0, i8 0, i64 %9, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %9
@@ -23641,7 +23626,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   br i1 %exitcond62.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !239
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i19.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i19.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i19.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -23657,8 +23642,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp353.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %11 = shl nuw nsw i64 %conv10.i.i.i.i, 3
   call void @llvm.memset.p0.i64(ptr align 8 %out_data.0, i8 0, i64 %11, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %11
@@ -24024,7 +24008,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   br i1 %exitcond52.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !251
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i19.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i19.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i19.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -24040,8 +24024,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp343.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %9 = shl nuw nsw i64 %conv10.i.i.i.i, 3
   call void @llvm.memset.p0.i64(ptr align 8 %out_data.0, i8 0, i64 %9, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %9
@@ -24217,7 +24200,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   br i1 %exitcond62.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !257
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i19.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i19.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i19.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -24233,8 +24216,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp353.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %11 = shl nuw nsw i64 %conv10.i.i.i.i, 3
   call void @llvm.memset.p0.i64(ptr align 8 %out_data.0, i8 0, i64 %11, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %11
@@ -24438,7 +24420,7 @@ call.i.i.i.i.i.i.i.noexc:                         ; preds = %for.body.i.i.i.i
   br i1 %exitcond51.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !268
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i16.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i16.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i16.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -24454,8 +24436,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp342.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %11 = shl nuw nsw i64 %conv10.i.i.i.i, 3
   call void @llvm.memset.p0.i64(ptr align 8 %out_data.0, i8 0, i64 %11, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %11
@@ -25267,7 +25248,7 @@ call.i.i.i.i.i.i.i.noexc:                         ; preds = %for.body.i.i.i.i
   br i1 %exitcond48.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !291
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i16.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i16.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i16.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -25283,8 +25264,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp339.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %11 = shl nuw nsw i64 %conv10.i.i.i.i, 3
   call void @llvm.memset.p0.i64(ptr align 8 %out_data.0, i8 0, i64 %11, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %11
@@ -27861,7 +27841,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   br i1 %exitcond59.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !339
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i21.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i21.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i21.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -27877,8 +27857,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp350.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %10 = shl nuw nsw i64 %conv10.i.i.i.i, 2
   call void @llvm.memset.p0.i64(ptr align 4 %out_data.0, i8 0, i64 %10, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %10
@@ -28061,7 +28040,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   br i1 %exitcond62.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !345
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i19.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i19.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i19.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -28077,8 +28056,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp353.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %12 = shl nuw nsw i64 %conv10.i.i.i.i, 2
   call void @llvm.memset.p0.i64(ptr align 4 %out_data.0, i8 0, i64 %12, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %12
@@ -28455,7 +28433,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   br i1 %exitcond59.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !357
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i21.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i21.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i21.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -28471,8 +28449,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp350.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %10 = shl nuw nsw i64 %conv10.i.i.i.i, 2
   call void @llvm.memset.p0.i64(ptr align 4 %out_data.0, i8 0, i64 %10, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %10
@@ -28661,7 +28638,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   br i1 %exitcond68.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !363
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i19.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i19.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i19.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -28677,8 +28654,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp359.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %12 = shl nuw nsw i64 %conv10.i.i.i.i, 2
   call void @llvm.memset.p0.i64(ptr align 4 %out_data.0, i8 0, i64 %12, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %12
@@ -29059,7 +29035,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   br i1 %exitcond57.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !375
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i21.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i21.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i21.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -29075,8 +29051,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp348.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %10 = shl nuw nsw i64 %conv10.i.i.i.i, 2
   call void @llvm.memset.p0.i64(ptr align 4 %out_data.0, i8 0, i64 %10, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %10
@@ -29261,7 +29236,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   br i1 %exitcond66.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !381
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i19.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i19.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i19.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -29277,8 +29252,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp357.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %12 = shl nuw nsw i64 %conv10.i.i.i.i, 2
   call void @llvm.memset.p0.i64(ptr align 4 %out_data.0, i8 0, i64 %12, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %12
@@ -29657,7 +29631,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   br i1 %exitcond57.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !393
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i21.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i21.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i21.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -29673,8 +29647,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp348.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %10 = shl nuw nsw i64 %conv10.i.i.i.i, 2
   call void @llvm.memset.p0.i64(ptr align 4 %out_data.0, i8 0, i64 %10, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %10
@@ -29859,7 +29832,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   br i1 %exitcond66.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !399
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i19.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i19.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i19.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -29875,8 +29848,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp357.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %12 = shl nuw nsw i64 %conv10.i.i.i.i, 2
   call void @llvm.memset.p0.i64(ptr align 4 %out_data.0, i8 0, i64 %12, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %12
@@ -30259,7 +30231,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   br i1 %exitcond61.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !411
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i21.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i21.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i21.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -30275,8 +30247,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp352.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %10 = shl nuw nsw i64 %conv10.i.i.i.i, 2
   call void @llvm.memset.p0.i64(ptr align 4 %out_data.0, i8 0, i64 %10, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %10
@@ -30463,7 +30434,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   br i1 %exitcond64.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !417
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i19.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i19.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i19.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -30479,8 +30450,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp355.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %12 = shl nuw nsw i64 %conv10.i.i.i.i, 2
   call void @llvm.memset.p0.i64(ptr align 4 %out_data.0, i8 0, i64 %12, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %12
@@ -30861,7 +30831,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   br i1 %exitcond61.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !429
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i21.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i21.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i21.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -30877,8 +30847,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp352.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %10 = shl nuw nsw i64 %conv10.i.i.i.i, 2
   call void @llvm.memset.p0.i64(ptr align 4 %out_data.0, i8 0, i64 %10, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %10
@@ -31071,7 +31040,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   br i1 %exitcond70.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !435
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i19.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i19.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i19.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -31087,8 +31056,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp361.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %12 = shl nuw nsw i64 %conv10.i.i.i.i, 2
   call void @llvm.memset.p0.i64(ptr align 4 %out_data.0, i8 0, i64 %12, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %12
@@ -31471,7 +31439,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   br i1 %exitcond57.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !447
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i21.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i21.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i21.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -31487,8 +31455,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp348.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %10 = shl nuw nsw i64 %conv10.i.i.i.i, 2
   call void @llvm.memset.p0.i64(ptr align 4 %out_data.0, i8 0, i64 %10, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %10
@@ -31673,7 +31640,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   br i1 %exitcond66.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !453
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i19.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i19.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i19.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -31689,8 +31656,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp357.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %12 = shl nuw nsw i64 %conv10.i.i.i.i, 2
   call void @llvm.memset.p0.i64(ptr align 4 %out_data.0, i8 0, i64 %12, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %12
@@ -32069,7 +32035,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   br i1 %exitcond57.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !465
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i21.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i21.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i21.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -32085,8 +32051,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp348.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %10 = shl nuw nsw i64 %conv10.i.i.i.i, 2
   call void @llvm.memset.p0.i64(ptr align 4 %out_data.0, i8 0, i64 %10, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %10
@@ -32271,7 +32236,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   br i1 %exitcond66.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !471
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i19.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i19.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i19.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -32287,8 +32252,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp357.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %12 = shl nuw nsw i64 %conv10.i.i.i.i, 2
   call void @llvm.memset.p0.i64(ptr align 4 %out_data.0, i8 0, i64 %12, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %12
@@ -32821,7 +32785,7 @@ _ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratio
   br i1 %exitcond125.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !489
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i19.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i19.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i19.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -32837,8 +32801,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp3116.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %26 = shl nuw nsw i64 %conv10.i.i.i.i, 2
   call void @llvm.memset.p0.i64(ptr align 4 %out_data.0, i8 0, i64 %26, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %26
@@ -33327,7 +33290,7 @@ _ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratio
   br i1 %exitcond129.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !507
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i19.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i19.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i19.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -33343,8 +33306,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp3120.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %28 = shl nuw nsw i64 %conv10.i.i.i.i, 2
   call void @llvm.memset.p0.i64(ptr align 4 %out_data.0, i8 0, i64 %28, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %28
@@ -34017,7 +33979,7 @@ _ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratio
   br i1 %exitcond125.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !531
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i19.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i19.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i19.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -34033,8 +33995,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp3116.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %26 = shl nuw nsw i64 %conv10.i.i.i.i, 2
   call void @llvm.memset.p0.i64(ptr align 4 %out_data.0, i8 0, i64 %26, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %26
@@ -34529,7 +34490,7 @@ _ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratio
   br i1 %exitcond135.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !549
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i19.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i19.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i19.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -34545,8 +34506,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp3126.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %28 = shl nuw nsw i64 %conv10.i.i.i.i, 2
   call void @llvm.memset.p0.i64(ptr align 4 %out_data.0, i8 0, i64 %28, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %28
@@ -35221,7 +35181,7 @@ _ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratio
   br i1 %exitcond121.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !573
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i19.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i19.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i19.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -35237,8 +35197,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp3112.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %26 = shl nuw nsw i64 %conv10.i.i.i.i, 2
   call void @llvm.memset.p0.i64(ptr align 4 %out_data.0, i8 0, i64 %26, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %26
@@ -35725,7 +35684,7 @@ _ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratio
   br i1 %exitcond131.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !591
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i19.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i19.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i19.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -35741,8 +35700,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp3122.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %28 = shl nuw nsw i64 %conv10.i.i.i.i, 2
   call void @llvm.memset.p0.i64(ptr align 4 %out_data.0, i8 0, i64 %28, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %28
@@ -36413,7 +36371,7 @@ _ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratio
   br i1 %exitcond121.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !615
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i19.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i19.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i19.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -36429,8 +36387,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp3112.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %26 = shl nuw nsw i64 %conv10.i.i.i.i, 2
   call void @llvm.memset.p0.i64(ptr align 4 %out_data.0, i8 0, i64 %26, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %26
@@ -36917,7 +36874,7 @@ _ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratio
   br i1 %exitcond131.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !633
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i19.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i19.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i19.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -36933,8 +36890,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp3122.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %28 = shl nuw nsw i64 %conv10.i.i.i.i, 2
   call void @llvm.memset.p0.i64(ptr align 4 %out_data.0, i8 0, i64 %28, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %28
@@ -38568,7 +38524,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   br i1 %exitcond60.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !675
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i21.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i21.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i21.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -38584,8 +38540,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp351.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %10 = shl nuw nsw i64 %conv10.i.i.i.i, 3
   call void @llvm.memset.p0.i64(ptr align 8 %out_data.0, i8 0, i64 %10, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %10
@@ -38770,7 +38725,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   br i1 %exitcond63.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !681
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i19.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i19.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i19.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -38786,8 +38741,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp354.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %12 = shl nuw nsw i64 %conv10.i.i.i.i, 3
   call void @llvm.memset.p0.i64(ptr align 8 %out_data.0, i8 0, i64 %12, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %12
@@ -39166,7 +39120,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   br i1 %exitcond60.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !693
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i21.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i21.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i21.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -39182,8 +39136,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp351.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %10 = shl nuw nsw i64 %conv10.i.i.i.i, 3
   call void @llvm.memset.p0.i64(ptr align 8 %out_data.0, i8 0, i64 %10, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %10
@@ -39374,7 +39327,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   br i1 %exitcond69.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !699
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i19.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i19.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i19.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -39390,8 +39343,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp360.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %12 = shl nuw nsw i64 %conv10.i.i.i.i, 3
   call void @llvm.memset.p0.i64(ptr align 8 %out_data.0, i8 0, i64 %12, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %12
@@ -39772,7 +39724,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   br i1 %exitcond56.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !711
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i21.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i21.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i21.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -39788,8 +39740,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp347.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %10 = shl nuw nsw i64 %conv10.i.i.i.i, 3
   call void @llvm.memset.p0.i64(ptr align 8 %out_data.0, i8 0, i64 %10, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %10
@@ -39972,7 +39923,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   br i1 %exitcond65.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !717
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i19.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i19.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i19.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -39988,8 +39939,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp356.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %12 = shl nuw nsw i64 %conv10.i.i.i.i, 3
   call void @llvm.memset.p0.i64(ptr align 8 %out_data.0, i8 0, i64 %12, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %12
@@ -40366,7 +40316,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   br i1 %exitcond56.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !729
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i21.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i21.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i21.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -40382,8 +40332,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp347.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %10 = shl nuw nsw i64 %conv10.i.i.i.i, 3
   call void @llvm.memset.p0.i64(ptr align 8 %out_data.0, i8 0, i64 %10, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %10
@@ -40566,7 +40515,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   br i1 %exitcond65.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !735
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i19.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i19.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i19.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -40582,8 +40531,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp356.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %12 = shl nuw nsw i64 %conv10.i.i.i.i, 3
   call void @llvm.memset.p0.i64(ptr align 8 %out_data.0, i8 0, i64 %12, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %12
@@ -40964,7 +40912,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   br i1 %exitcond60.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !747
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i21.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i21.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i21.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -40980,8 +40928,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp351.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %10 = shl nuw nsw i64 %conv10.i.i.i.i, 3
   call void @llvm.memset.p0.i64(ptr align 8 %out_data.0, i8 0, i64 %10, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %10
@@ -41166,7 +41113,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   br i1 %exitcond63.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !753
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i19.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i19.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i19.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -41182,8 +41129,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp354.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %12 = shl nuw nsw i64 %conv10.i.i.i.i, 3
   call void @llvm.memset.p0.i64(ptr align 8 %out_data.0, i8 0, i64 %12, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %12
@@ -41562,7 +41508,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   br i1 %exitcond60.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !765
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i21.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i21.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i21.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -41578,8 +41524,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp351.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %10 = shl nuw nsw i64 %conv10.i.i.i.i, 3
   call void @llvm.memset.p0.i64(ptr align 8 %out_data.0, i8 0, i64 %10, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %10
@@ -41770,7 +41715,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   br i1 %exitcond69.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !771
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i19.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i19.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i19.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -41786,8 +41731,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp360.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %12 = shl nuw nsw i64 %conv10.i.i.i.i, 3
   call void @llvm.memset.p0.i64(ptr align 8 %out_data.0, i8 0, i64 %12, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %12
@@ -42168,7 +42112,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   br i1 %exitcond56.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !783
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i21.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i21.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i21.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -42184,8 +42128,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp347.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %10 = shl nuw nsw i64 %conv10.i.i.i.i, 3
   call void @llvm.memset.p0.i64(ptr align 8 %out_data.0, i8 0, i64 %10, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %10
@@ -42368,7 +42311,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   br i1 %exitcond65.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !789
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i19.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i19.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i19.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -42384,8 +42327,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp356.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %12 = shl nuw nsw i64 %conv10.i.i.i.i, 3
   call void @llvm.memset.p0.i64(ptr align 8 %out_data.0, i8 0, i64 %12, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %12
@@ -42762,7 +42704,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   br i1 %exitcond56.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !801
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i21.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i21.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i21.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -42778,8 +42720,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp347.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %10 = shl nuw nsw i64 %conv10.i.i.i.i, 3
   call void @llvm.memset.p0.i64(ptr align 8 %out_data.0, i8 0, i64 %10, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %10
@@ -42962,7 +42903,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   br i1 %exitcond65.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !807
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i19.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i19.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i19.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -42978,8 +42919,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp356.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %12 = shl nuw nsw i64 %conv10.i.i.i.i, 3
   call void @llvm.memset.p0.i64(ptr align 8 %out_data.0, i8 0, i64 %12, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %12
@@ -43505,7 +43445,7 @@ _ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratio
   br i1 %exitcond120.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !825
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i19.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i19.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i19.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -43521,8 +43461,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp3111.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %26 = shl nuw nsw i64 %conv10.i.i.i.i, 3
   call void @llvm.memset.p0.i64(ptr align 8 %out_data.0, i8 0, i64 %26, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %26
@@ -43999,7 +43938,7 @@ _ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratio
   br i1 %exitcond124.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !843
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i19.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i19.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i19.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -44015,8 +43954,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp3115.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %28 = shl nuw nsw i64 %conv10.i.i.i.i, 3
   call void @llvm.memset.p0.i64(ptr align 8 %out_data.0, i8 0, i64 %28, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %28
@@ -44677,7 +44615,7 @@ _ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratio
   br i1 %exitcond120.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !867
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i19.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i19.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i19.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -44693,8 +44631,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp3111.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %26 = shl nuw nsw i64 %conv10.i.i.i.i, 3
   call void @llvm.memset.p0.i64(ptr align 8 %out_data.0, i8 0, i64 %26, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %26
@@ -45177,7 +45114,7 @@ _ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratio
   br i1 %exitcond130.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !885
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i19.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i19.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i19.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -45193,8 +45130,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp3121.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %28 = shl nuw nsw i64 %conv10.i.i.i.i, 3
   call void @llvm.memset.p0.i64(ptr align 8 %out_data.0, i8 0, i64 %28, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %28
@@ -45857,7 +45793,7 @@ _ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratio
   br i1 %exitcond116.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !909
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i19.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i19.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i19.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -45873,8 +45809,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp3107.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %26 = shl nuw nsw i64 %conv10.i.i.i.i, 3
   call void @llvm.memset.p0.i64(ptr align 8 %out_data.0, i8 0, i64 %26, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %26
@@ -46349,7 +46284,7 @@ _ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratio
   br i1 %exitcond126.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !927
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i19.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i19.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i19.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -46365,8 +46300,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp3117.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %28 = shl nuw nsw i64 %conv10.i.i.i.i, 3
   call void @llvm.memset.p0.i64(ptr align 8 %out_data.0, i8 0, i64 %28, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %28
@@ -47025,7 +46959,7 @@ _ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratio
   br i1 %exitcond116.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !951
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i19.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i19.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i19.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -47041,8 +46975,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp3107.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %26 = shl nuw nsw i64 %conv10.i.i.i.i, 3
   call void @llvm.memset.p0.i64(ptr align 8 %out_data.0, i8 0, i64 %26, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %26
@@ -47517,7 +47450,7 @@ _ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratio
   br i1 %exitcond126.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !969
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i19.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i19.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i19.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -47533,8 +47466,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp3117.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %28 = shl nuw nsw i64 %conv10.i.i.i.i, 3
   call void @llvm.memset.p0.i64(ptr align 8 %out_data.0, i8 0, i64 %28, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %28
@@ -48868,7 +48800,7 @@ call.i.i.i.i.i.i.i.noexc:                         ; preds = %for.body.i.i.i.i
   br i1 %exitcond51.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !1008
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i16.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i16.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i16.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -48884,8 +48816,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp342.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %11 = shl nuw nsw i64 %conv10.i.i.i.i, 3
   call void @llvm.memset.p0.i64(ptr align 8 %out_data.0, i8 0, i64 %11, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %11
@@ -50452,7 +50383,7 @@ call.i.i.i.i.i.i.i.noexc:                         ; preds = %for.body.i.i.i.i
   br i1 %exitcond48.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !1026
 
 if.else.i.i.i.i2:                                 ; preds = %call.i.i.i.i.noexc
-  %cmp.i16.i.i.i.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i.i.i.i, 0
+  %cmp.i16.i.i.i.i = icmp ult i32 %call.i.i.i.i4, 65536
   br i1 %cmp.i16.i.i.i.i, label %for.cond8.preheader.i.i.i.i, label %for.cond19.preheader.i.i.i.i
 
 for.cond19.preheader.i.i.i.i:                     ; preds = %if.else.i.i.i.i2
@@ -50468,8 +50399,7 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i2
   br i1 %cmp339.i.i.i.i, label %for.body12.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader.i.i.i.i
-  %block.sroa.0.0.extract.trunc.i.i.i.i.mask = and i32 %call.i.i.i.i4, 32767
-  %conv10.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.i.i.i.i.mask to i64
+  %conv10.i.i.i.i = zext nneg i32 %call.i.i.i.i4 to i64
   %11 = shl nuw nsw i64 %conv10.i.i.i.i, 3
   call void @llvm.memset.p0.i64(ptr align 8 %out_data.0, i8 0, i64 %11, i1 false)
   %scevgep = getelementptr i8, ptr %out_data.0, i64 %11

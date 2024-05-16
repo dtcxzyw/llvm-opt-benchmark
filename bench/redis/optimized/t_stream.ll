@@ -10275,16 +10275,15 @@ createObjectFromStreamID.exit125:                 ; preds = %if.end164, %sw.bb.i
   br label %while.cond88.outer, !llvm.loop !47
 
 while.end175:                                     ; preds = %while.cond88, %land.rhs
-  %99 = trunc nsw i64 %indvars.iv to i32
   %call176 = call i32 @raxNext(ptr noundef nonnull %ri) #16
   %call177 = call i32 @raxEOF(ptr noundef nonnull %ri) #16
   %tobool178.not = icmp eq i32 %call177, 0
   br i1 %tobool178.not, label %if.else180, label %if.end182
 
 if.else180:                                       ; preds = %while.end175
-  %100 = load ptr, ptr %key, align 8
-  %e.sroa.0.0.copyload.i126 = load i64, ptr %100, align 1
-  %e.sroa.2.0..sroa_idx.i127 = getelementptr inbounds i8, ptr %100, i64 8
+  %99 = load ptr, ptr %key, align 8
+  %e.sroa.0.0.copyload.i126 = load i64, ptr %99, align 1
+  %e.sroa.2.0..sroa_idx.i127 = getelementptr inbounds i8, ptr %99, i64 8
   %e.sroa.2.0.copyload.i128 = load i64, ptr %e.sroa.2.0..sroa_idx.i127, align 1
   %call.i129 = call i64 @intrev64(i64 noundef %e.sroa.0.0.copyload.i126) #16
   %call2.i130 = call i64 @intrev64(i64 noundef %e.sroa.2.0.copyload.i128) #16
@@ -10294,15 +10293,15 @@ if.end182:                                        ; preds = %while.end175, %if.e
   %.sink196 = phi i64 [ %call.i129, %if.else180 ], [ 0, %while.end175 ]
   %.sink = phi i64 [ %call2.i130, %if.else180 ], [ 0, %while.end175 ]
   store i64 %.sink196, ptr %endid, align 8
-  %101 = getelementptr inbounds i8, ptr %endid, i64 8
-  store i64 %.sink, ptr %101, align 8
+  %100 = getelementptr inbounds i8, ptr %endid, i64 8
+  store i64 %.sink, ptr %100, align 8
   call void @raxStop(ptr noundef nonnull %ri) #16
   call void @setDeferredArrayLen(ptr noundef %c, ptr noundef %call84, i64 noundef %arraylen.0.ph) #16
   call void @setDeferredReplyStreamID(ptr noundef %c, ptr noundef %call83, ptr noundef nonnull %endid)
   %sext = shl i64 %indvars.iv, 32
   %conv183 = ashr exact i64 %sext, 32
   call void @addReplyArrayLen(ptr noundef %c, i64 noundef %conv183) #16
-  %cmp184177 = icmp sgt i32 %99, 0
+  %cmp184177 = icmp sgt i64 %indvars.iv, 0
   br i1 %cmp184177, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %if.end182
@@ -10312,12 +10311,12 @@ for.body.preheader:                               ; preds = %if.end182
 for.body:                                         ; preds = %for.body.preheader, %addReplyStreamID.exit145
   %indvars.iv189 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next190, %addReplyStreamID.exit145 ]
   %arrayidx187 = getelementptr inbounds %struct.streamID, ptr %call63, i64 %indvars.iv189
-  %102 = load ptr, ptr @SDS_NOINIT, align 8
-  %call.i.i132 = call ptr @sdsnewlen(ptr noundef %102, i64 noundef 44) #16
+  %101 = load ptr, ptr @SDS_NOINIT, align 8
+  %call.i.i132 = call ptr @sdsnewlen(ptr noundef %101, i64 noundef 44) #16
   %arrayidx.i.i.i133 = getelementptr inbounds i8, ptr %call.i.i132, i64 -1
-  %103 = load i8, ptr %arrayidx.i.i.i133, align 1
-  %104 = and i8 %103, 7
-  switch i8 %104, label %addReplyStreamID.exit145 [
+  %102 = load i8, ptr %arrayidx.i.i.i133, align 1
+  %103 = and i8 %102, 7
+  switch i8 %103, label %addReplyStreamID.exit145 [
     i8 0, label %sw.bb.i.i.i144
     i8 1, label %sw.bb2.i.i.i142
     i8 2, label %sw.bb5.i.i.i140
@@ -10350,10 +10349,10 @@ sw.bb13.i.i.i134:                                 ; preds = %for.body
   br label %addReplyStreamID.exit145
 
 addReplyStreamID.exit145:                         ; preds = %for.body, %sw.bb.i.i.i144, %sw.bb2.i.i.i142, %sw.bb5.i.i.i140, %sw.bb9.i.i.i138, %sw.bb13.i.i.i134
-  %105 = load i64, ptr %arrayidx187, align 8
+  %104 = load i64, ptr %arrayidx187, align 8
   %seq.i.i136 = getelementptr inbounds i8, ptr %arrayidx187, i64 8
-  %106 = load i64, ptr %seq.i.i136, align 8
-  %call1.i.i137 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef nonnull %call.i.i132, ptr noundef nonnull @.str.15, i64 noundef %105, i64 noundef %106) #16
+  %105 = load i64, ptr %seq.i.i136, align 8
+  %call1.i.i137 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef nonnull %call.i.i132, ptr noundef nonnull @.str.15, i64 noundef %104, i64 noundef %105) #16
   call void @addReplyBulkSds(ptr noundef %c, ptr noundef %call1.i.i137) #16
   %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next190, %wide.trip.count

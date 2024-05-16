@@ -1423,7 +1423,7 @@ define hidden void @_ZN8rawspeed12RawImageData9clearAreaENS_12iRectangle2DE(ptr 
   %62 = icmp ule i32 %61, %36
   tail call void @llvm.assume(i1 %62)
   %63 = icmp eq i32 %54, 0
-  %64 = icmp ne i32 %16, 0
+  %64 = icmp ugt i64 %11, 4294967295
   %65 = xor i1 %64, %63
   tail call void @llvm.assume(i1 %65)
   %66 = icmp slt i32 %18, %20

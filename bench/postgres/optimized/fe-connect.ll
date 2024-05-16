@@ -8427,12 +8427,12 @@ define internal fastcc range(i32 0, 4) i32 @parseServiceFile(ptr noundef %0, ptr
   br label %.loopexit
 
 16:                                               ; preds = %.lr.ph103
-  %17 = trunc nuw nsw i64 %13 to i32
   %invariant.gep = getelementptr i8, ptr %11, i64 -1
-  %.not129 = icmp eq i32 %17, 0
-  br i1 %.not129, label %.critedge, label %.lr.ph
+  %.not105 = icmp eq i64 %13, 0
+  br i1 %.not105, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %16
+  %17 = trunc nuw nsw i64 %13 to i32
   %18 = tail call ptr @__ctype_b_loc() #26
   br label %19
 

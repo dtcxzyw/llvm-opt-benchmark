@@ -3239,7 +3239,7 @@ for.end:                                          ; preds = %land.rhs
   br i1 %cmp26.not, label %for.inc48, label %if.then27
 
 if.then27:                                        ; preds = %for.end
-  %cmp3.not.i = icmp eq i32 %16, 0
+  %cmp3.not.i = icmp eq i64 %indvars.iv, 0
   br i1 %cmp3.not.i, label %invoke.cont30, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %if.then27

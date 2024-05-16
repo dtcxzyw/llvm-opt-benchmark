@@ -3105,9 +3105,9 @@ define i32 @ompi_instance_get_pset_info(ptr nocapture noundef readnone %0, ptr n
 39:                                               ; preds = %44, %.lr.ph.i
   %.091.i = phi i64 [ 0, %.lr.ph.i ], [ %57, %44 ]
   %40 = load i32, ptr @opal_process_info, align 8
-  %41 = trunc nuw i64 %.091.i to i32
-  %42 = call i32 @opal_pmix_convert_jobid(ptr noundef nonnull %4, i32 noundef %40) #13
-  store i32 %41, ptr %38, align 4
+  %41 = call i32 @opal_pmix_convert_jobid(ptr noundef nonnull %4, i32 noundef %40) #13
+  %42 = trunc i64 %.091.i to i32
+  store i32 %42, ptr %38, align 4
   %43 = call i32 @PMIx_Get(ptr noundef nonnull %4, ptr noundef nonnull @.str.72, ptr noundef null, i64 noundef 0, ptr noundef nonnull %5) #13
   %.not.i = icmp eq i32 %43, 0
   br i1 %.not.i, label %44, label %61

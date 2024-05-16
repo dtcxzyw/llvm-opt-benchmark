@@ -1240,22 +1240,22 @@ define range(i32 0, 2) i32 @Abc_NodeCollapsePermMap(ptr nocapture noundef readon
   %14 = icmp slt i64 %indvars.iv.next, %13
   br i1 %14, label %.lr.ph, label %.preheader, !llvm.loop !23
 
-15:                                               ; preds = %.lr.ph34, %36
-  %.val2145 = phi i32 [ %.val2132, %.lr.ph34 ], [ %.val21, %36 ]
-  %indvars.iv42 = phi i64 [ 0, %.lr.ph34 ], [ %indvars.iv.next43, %36 ]
+15:                                               ; preds = %.lr.ph34, %35
+  %.val2144 = phi i32 [ %.val2132, %.lr.ph34 ], [ %.val21, %35 ]
+  %indvars.iv41 = phi i64 [ 0, %.lr.ph34 ], [ %indvars.iv.next42, %35 ]
   %.val22 = load ptr, ptr %0, align 8
   %.val23 = load ptr, ptr %9, align 8
   %16 = getelementptr i8, ptr %.val22, i64 32
   %.val22.val = load ptr, ptr %16, align 8
   %17 = getelementptr i8, ptr %.val22.val, i64 8
   %.val22.val.val = load ptr, ptr %17, align 8
-  %18 = getelementptr inbounds i32, ptr %.val23, i64 %indvars.iv42
+  %18 = getelementptr inbounds i32, ptr %.val23, i64 %indvars.iv41
   %19 = load i32, ptr %18, align 4
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds ptr, ptr %.val22.val.val, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, %1
-  br i1 %23, label %36, label %24
+  br i1 %23, label %35, label %24
 
 24:                                               ; preds = %15
   %.val.i = load i32, ptr %5, align 4
@@ -1280,31 +1280,27 @@ define range(i32 0, 2) i32 @Abc_NodeCollapsePermMap(ptr nocapture noundef readon
   br i1 %exitcond.not.i, label %Abc_ObjFaninNumberNew.exit.thread, label %26, !llvm.loop !22
 
 Abc_ObjFaninNumberNew.exit.thread:                ; preds = %24, %30
-  %31 = and i64 %indvars.iv42, 4294967295
+  %31 = and i64 %indvars.iv41, 4294967295
   %32 = getelementptr inbounds i32, ptr %3, i64 %31
   store i32 -1, ptr %32, align 4
   br label %.critedge
 
 Abc_ObjFaninNumberNew.exit:                       ; preds = %26
   %33 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %34 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv42
+  %34 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv41
   store i32 %33, ptr %34, align 4
-  %35 = icmp eq i32 %33, -1
-  br i1 %35, label %.critedge, label %Abc_ObjFaninNumberNew.exit._crit_edge
-
-Abc_ObjFaninNumberNew.exit._crit_edge:            ; preds = %Abc_ObjFaninNumberNew.exit
   %.val21.pre = load i32, ptr %7, align 4
-  br label %36
+  br label %35
 
-36:                                               ; preds = %Abc_ObjFaninNumberNew.exit._crit_edge, %15
-  %.val21 = phi i32 [ %.val21.pre, %Abc_ObjFaninNumberNew.exit._crit_edge ], [ %.val2145, %15 ]
-  %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
-  %37 = sext i32 %.val21 to i64
-  %38 = icmp slt i64 %indvars.iv.next43, %37
-  br i1 %38, label %15, label %.critedge, !llvm.loop !24
+35:                                               ; preds = %Abc_ObjFaninNumberNew.exit, %15
+  %.val21 = phi i32 [ %.val21.pre, %Abc_ObjFaninNumberNew.exit ], [ %.val2144, %15 ]
+  %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
+  %36 = sext i32 %.val21 to i64
+  %37 = icmp slt i64 %indvars.iv.next42, %36
+  br i1 %37, label %15, label %.critedge, !llvm.loop !24
 
-.critedge:                                        ; preds = %Abc_ObjFaninNumberNew.exit, %36, %.preheader, %Abc_ObjFaninNumberNew.exit.thread
-  %.019 = phi i32 [ 0, %Abc_ObjFaninNumberNew.exit.thread ], [ 1, %.preheader ], [ 0, %Abc_ObjFaninNumberNew.exit ], [ 1, %36 ]
+.critedge:                                        ; preds = %35, %.preheader, %Abc_ObjFaninNumberNew.exit.thread
+  %.019 = phi i32 [ 0, %Abc_ObjFaninNumberNew.exit.thread ], [ 1, %.preheader ], [ 1, %35 ]
   ret i32 %.019
 }
 
@@ -1329,7 +1325,7 @@ define noundef ptr @Abc_NodeCollapseFunc(ptr noundef readonly %0, ptr nocapture 
   br label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
-  %.099 = phi i32 [ undef, %.lr.ph.i ], [ %.1, %.lr.ph.split.i ]
+  %.098 = phi i32 [ undef, %.lr.ph.i ], [ %.1, %.lr.ph.split.i ]
   %.val24.i = phi i32 [ %.val15.i, %.lr.ph.i ], [ %.val.i, %.lr.ph.split.i ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %.lr.ph.split.i ]
   %.018.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %.lr.ph.split.i ]
@@ -1340,7 +1336,7 @@ define noundef ptr @Abc_NodeCollapseFunc(ptr noundef readonly %0, ptr nocapture 
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, %0
   %20 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %.1 = select i1 %19, i32 %20, i32 %.099
+  %.1 = select i1 %19, i32 %20, i32 %.098
   %.val.i = select i1 %19, i32 %.val15.i, i32 %.val24.i
   %21 = zext i1 %19 to i32
   %.1.i = add nuw nsw i32 %.018.i, %21
@@ -1448,22 +1444,22 @@ Abc_NodeCollapseSuppSize.exit:                    ; preds = %.critedge.i, %.crit
   %59 = icmp slt i64 %indvars.iv.next.i67, %58
   br i1 %59, label %.lr.ph.i65, label %.preheader.i, !llvm.loop !23
 
-60:                                               ; preds = %81, %.lr.ph34.i
-  %.val2145.i = phi i32 [ %.val2132.i, %.lr.ph34.i ], [ %.val21.i64, %81 ]
-  %indvars.iv42.i = phi i64 [ 0, %.lr.ph34.i ], [ %indvars.iv.next43.i, %81 ]
+60:                                               ; preds = %80, %.lr.ph34.i
+  %.val2144.i = phi i32 [ %.val2132.i, %.lr.ph34.i ], [ %.val21.i64, %80 ]
+  %indvars.iv41.i = phi i64 [ 0, %.lr.ph34.i ], [ %indvars.iv.next42.i, %80 ]
   %.val22.i59 = load ptr, ptr %0, align 8
   %.val23.i60 = load ptr, ptr %54, align 8
   %61 = getelementptr i8, ptr %.val22.i59, i64 32
   %.val22.val.i61 = load ptr, ptr %61, align 8
   %62 = getelementptr i8, ptr %.val22.val.i61, i64 8
   %.val22.val.val.i62 = load ptr, ptr %62, align 8
-  %63 = getelementptr inbounds i32, ptr %.val23.i60, i64 %indvars.iv42.i
+  %63 = getelementptr inbounds i32, ptr %.val23.i60, i64 %indvars.iv41.i
   %64 = load i32, ptr %63, align 4
   %65 = sext i32 %64 to i64
   %66 = getelementptr inbounds ptr, ptr %.val22.val.val.i62, i64 %65
   %67 = load ptr, ptr %66, align 8
   %68 = icmp eq ptr %67, null
-  br i1 %68, label %81, label %69
+  br i1 %68, label %80, label %69
 
 69:                                               ; preds = %60
   %.val.i.i = load i32, ptr %25, align 4
@@ -1488,149 +1484,141 @@ Abc_NodeCollapseSuppSize.exit:                    ; preds = %.critedge.i, %.crit
   br i1 %exitcond.not.i.i, label %Abc_ObjFaninNumberNew.exit.thread.i, label %71, !llvm.loop !22
 
 Abc_ObjFaninNumberNew.exit.thread.i:              ; preds = %69, %75
-  %76 = and i64 %indvars.iv42.i, 4294967295
+  %76 = and i64 %indvars.iv41.i, 4294967295
   %77 = getelementptr inbounds i32, ptr %3, i64 %76
   store i32 -1, ptr %77, align 4
   br label %Abc_NodeCollapsePermMap.exit
 
 Abc_ObjFaninNumberNew.exit.i:                     ; preds = %71
   %78 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  %79 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv42.i
+  %79 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv41.i
   store i32 %78, ptr %79, align 4
-  %80 = icmp eq i32 %78, -1
-  br i1 %80, label %Abc_NodeCollapsePermMap.exit, label %Abc_ObjFaninNumberNew.exit._crit_edge.i
-
-Abc_ObjFaninNumberNew.exit._crit_edge.i:          ; preds = %Abc_ObjFaninNumberNew.exit.i
   %.val21.pre.i63 = load i32, ptr %27, align 4
-  br label %81
+  br label %80
 
-81:                                               ; preds = %Abc_ObjFaninNumberNew.exit._crit_edge.i, %60
-  %.val21.i64 = phi i32 [ %.val21.pre.i63, %Abc_ObjFaninNumberNew.exit._crit_edge.i ], [ %.val2145.i, %60 ]
-  %indvars.iv.next43.i = add nuw nsw i64 %indvars.iv42.i, 1
-  %82 = sext i32 %.val21.i64 to i64
-  %83 = icmp slt i64 %indvars.iv.next43.i, %82
-  br i1 %83, label %60, label %Abc_NodeCollapsePermMap.exit, !llvm.loop !24
+80:                                               ; preds = %Abc_ObjFaninNumberNew.exit.i, %60
+  %.val21.i64 = phi i32 [ %.val21.pre.i63, %Abc_ObjFaninNumberNew.exit.i ], [ %.val2144.i, %60 ]
+  %indvars.iv.next42.i = add nuw nsw i64 %indvars.iv41.i, 1
+  %81 = sext i32 %.val21.i64 to i64
+  %82 = icmp slt i64 %indvars.iv.next42.i, %81
+  br i1 %82, label %60, label %Abc_NodeCollapsePermMap.exit, !llvm.loop !24
 
-Abc_NodeCollapsePermMap.exit:                     ; preds = %Abc_ObjFaninNumberNew.exit.i, %81, %.preheader.i, %Abc_ObjFaninNumberNew.exit.thread.i
+Abc_NodeCollapsePermMap.exit:                     ; preds = %80, %.preheader.i, %Abc_ObjFaninNumberNew.exit.thread.i
   %.val30.i69 = load i32, ptr %25, align 4
-  %84 = icmp sgt i32 %.val30.i69, 0
-  br i1 %84, label %.lr.ph.i94, label %.preheader.i70
+  %83 = icmp sgt i32 %.val30.i69, 0
+  br i1 %83, label %.lr.ph.i93, label %.preheader.i70
 
-.preheader.i70:                                   ; preds = %.lr.ph.i94, %Abc_NodeCollapsePermMap.exit
+.preheader.i70:                                   ; preds = %.lr.ph.i93, %Abc_NodeCollapsePermMap.exit
   %.val2132.i71 = load i32, ptr %9, align 4
-  %85 = icmp sgt i32 %.val2132.i71, 0
-  br i1 %85, label %.lr.ph34.i74, label %Abc_NodeCollapsePermMap.exit98
+  %84 = icmp sgt i32 %.val2132.i71, 0
+  br i1 %84, label %.lr.ph34.i74, label %Abc_NodeCollapsePermMap.exit97
 
 .lr.ph34.i74:                                     ; preds = %.preheader.i70
-  %86 = getelementptr i8, ptr %2, i64 8
-  br label %91
+  %85 = getelementptr i8, ptr %2, i64 8
+  br label %90
 
-.lr.ph.i94:                                       ; preds = %Abc_NodeCollapsePermMap.exit, %.lr.ph.i94
-  %indvars.iv.i95 = phi i64 [ %indvars.iv.next.i96, %.lr.ph.i94 ], [ 0, %Abc_NodeCollapsePermMap.exit ]
-  %87 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i95
-  %88 = trunc nuw nsw i64 %indvars.iv.i95 to i32
-  store i32 %88, ptr %87, align 4
-  %indvars.iv.next.i96 = add nuw nsw i64 %indvars.iv.i95, 1
-  %.val.i97 = load i32, ptr %25, align 4
-  %89 = sext i32 %.val.i97 to i64
-  %90 = icmp slt i64 %indvars.iv.next.i96, %89
-  br i1 %90, label %.lr.ph.i94, label %.preheader.i70, !llvm.loop !23
+.lr.ph.i93:                                       ; preds = %Abc_NodeCollapsePermMap.exit, %.lr.ph.i93
+  %indvars.iv.i94 = phi i64 [ %indvars.iv.next.i95, %.lr.ph.i93 ], [ 0, %Abc_NodeCollapsePermMap.exit ]
+  %86 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i94
+  %87 = trunc nuw nsw i64 %indvars.iv.i94 to i32
+  store i32 %87, ptr %86, align 4
+  %indvars.iv.next.i95 = add nuw nsw i64 %indvars.iv.i94, 1
+  %.val.i96 = load i32, ptr %25, align 4
+  %88 = sext i32 %.val.i96 to i64
+  %89 = icmp slt i64 %indvars.iv.next.i95, %88
+  br i1 %89, label %.lr.ph.i93, label %.preheader.i70, !llvm.loop !23
 
-91:                                               ; preds = %112, %.lr.ph34.i74
-  %.val2145.i75 = phi i32 [ %.val2132.i71, %.lr.ph34.i74 ], [ %.val21.i92, %112 ]
-  %indvars.iv42.i76 = phi i64 [ 0, %.lr.ph34.i74 ], [ %indvars.iv.next43.i93, %112 ]
+90:                                               ; preds = %110, %.lr.ph34.i74
+  %.val2144.i75 = phi i32 [ %.val2132.i71, %.lr.ph34.i74 ], [ %.val21.i91, %110 ]
+  %indvars.iv41.i76 = phi i64 [ 0, %.lr.ph34.i74 ], [ %indvars.iv.next42.i92, %110 ]
   %.val22.i77 = load ptr, ptr %1, align 8
   %.val23.i78 = load ptr, ptr %11, align 8
-  %92 = getelementptr i8, ptr %.val22.i77, i64 32
-  %.val22.val.i79 = load ptr, ptr %92, align 8
-  %93 = getelementptr i8, ptr %.val22.val.i79, i64 8
-  %.val22.val.val.i80 = load ptr, ptr %93, align 8
-  %94 = getelementptr inbounds i32, ptr %.val23.i78, i64 %indvars.iv42.i76
-  %95 = load i32, ptr %94, align 4
-  %96 = sext i32 %95 to i64
-  %97 = getelementptr inbounds ptr, ptr %.val22.val.val.i80, i64 %96
-  %98 = load ptr, ptr %97, align 8
-  %99 = icmp eq ptr %98, %0
-  br i1 %99, label %112, label %100
+  %91 = getelementptr i8, ptr %.val22.i77, i64 32
+  %.val22.val.i79 = load ptr, ptr %91, align 8
+  %92 = getelementptr i8, ptr %.val22.val.i79, i64 8
+  %.val22.val.val.i80 = load ptr, ptr %92, align 8
+  %93 = getelementptr inbounds i32, ptr %.val23.i78, i64 %indvars.iv41.i76
+  %94 = load i32, ptr %93, align 4
+  %95 = sext i32 %94 to i64
+  %96 = getelementptr inbounds ptr, ptr %.val22.val.val.i80, i64 %95
+  %97 = load ptr, ptr %96, align 8
+  %98 = icmp eq ptr %97, %0
+  br i1 %98, label %110, label %99
 
-100:                                              ; preds = %91
+99:                                               ; preds = %90
   %.val.i.i81 = load i32, ptr %25, align 4
-  %101 = icmp sgt i32 %.val.i.i81, 0
-  br i1 %101, label %.lr.ph.i.i83, label %Abc_ObjFaninNumberNew.exit.thread.i82
+  %100 = icmp sgt i32 %.val.i.i81, 0
+  br i1 %100, label %.lr.ph.i.i83, label %Abc_ObjFaninNumberNew.exit.thread.i82
 
-.lr.ph.i.i83:                                     ; preds = %100
-  %.val9.i.i84 = load ptr, ptr %86, align 8
+.lr.ph.i.i83:                                     ; preds = %99
+  %.val9.i.i84 = load ptr, ptr %85, align 8
   %wide.trip.count.i.i85 = zext nneg i32 %.val.i.i81 to i64
-  br label %102
+  br label %101
 
-102:                                              ; preds = %106, %.lr.ph.i.i83
-  %indvars.iv.i.i86 = phi i64 [ 0, %.lr.ph.i.i83 ], [ %indvars.iv.next.i.i87, %106 ]
-  %103 = getelementptr inbounds ptr, ptr %.val9.i.i84, i64 %indvars.iv.i.i86
-  %104 = load ptr, ptr %103, align 8
-  %105 = icmp eq ptr %104, %98
-  br i1 %105, label %Abc_ObjFaninNumberNew.exit.i89, label %106
+101:                                              ; preds = %105, %.lr.ph.i.i83
+  %indvars.iv.i.i86 = phi i64 [ 0, %.lr.ph.i.i83 ], [ %indvars.iv.next.i.i87, %105 ]
+  %102 = getelementptr inbounds ptr, ptr %.val9.i.i84, i64 %indvars.iv.i.i86
+  %103 = load ptr, ptr %102, align 8
+  %104 = icmp eq ptr %103, %97
+  br i1 %104, label %Abc_ObjFaninNumberNew.exit.i89, label %105
 
-106:                                              ; preds = %102
+105:                                              ; preds = %101
   %indvars.iv.next.i.i87 = add nuw nsw i64 %indvars.iv.i.i86, 1
   %exitcond.not.i.i88 = icmp eq i64 %indvars.iv.next.i.i87, %wide.trip.count.i.i85
-  br i1 %exitcond.not.i.i88, label %Abc_ObjFaninNumberNew.exit.thread.i82, label %102, !llvm.loop !22
+  br i1 %exitcond.not.i.i88, label %Abc_ObjFaninNumberNew.exit.thread.i82, label %101, !llvm.loop !22
 
-Abc_ObjFaninNumberNew.exit.thread.i82:            ; preds = %100, %106
-  %107 = and i64 %indvars.iv42.i76, 4294967295
-  %108 = getelementptr inbounds i32, ptr %4, i64 %107
-  store i32 -1, ptr %108, align 4
-  br label %Abc_NodeCollapsePermMap.exit98
+Abc_ObjFaninNumberNew.exit.thread.i82:            ; preds = %99, %105
+  %106 = and i64 %indvars.iv41.i76, 4294967295
+  %107 = getelementptr inbounds i32, ptr %4, i64 %106
+  store i32 -1, ptr %107, align 4
+  br label %Abc_NodeCollapsePermMap.exit97
 
-Abc_ObjFaninNumberNew.exit.i89:                   ; preds = %102
-  %109 = trunc nuw nsw i64 %indvars.iv.i.i86 to i32
-  %110 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv42.i76
-  store i32 %109, ptr %110, align 4
-  %111 = icmp eq i32 %109, -1
-  br i1 %111, label %Abc_NodeCollapsePermMap.exit98, label %Abc_ObjFaninNumberNew.exit._crit_edge.i90
+Abc_ObjFaninNumberNew.exit.i89:                   ; preds = %101
+  %108 = trunc nuw nsw i64 %indvars.iv.i.i86 to i32
+  %109 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv41.i76
+  store i32 %108, ptr %109, align 4
+  %.val21.pre.i90 = load i32, ptr %9, align 4
+  br label %110
 
-Abc_ObjFaninNumberNew.exit._crit_edge.i90:        ; preds = %Abc_ObjFaninNumberNew.exit.i89
-  %.val21.pre.i91 = load i32, ptr %9, align 4
-  br label %112
+110:                                              ; preds = %Abc_ObjFaninNumberNew.exit.i89, %90
+  %.val21.i91 = phi i32 [ %.val21.pre.i90, %Abc_ObjFaninNumberNew.exit.i89 ], [ %.val2144.i75, %90 ]
+  %indvars.iv.next42.i92 = add nuw nsw i64 %indvars.iv41.i76, 1
+  %111 = sext i32 %.val21.i91 to i64
+  %112 = icmp slt i64 %indvars.iv.next42.i92, %111
+  br i1 %112, label %90, label %Abc_NodeCollapsePermMap.exit97, !llvm.loop !24
 
-112:                                              ; preds = %Abc_ObjFaninNumberNew.exit._crit_edge.i90, %91
-  %.val21.i92 = phi i32 [ %.val21.pre.i91, %Abc_ObjFaninNumberNew.exit._crit_edge.i90 ], [ %.val2145.i75, %91 ]
-  %indvars.iv.next43.i93 = add nuw nsw i64 %indvars.iv42.i76, 1
-  %113 = sext i32 %.val21.i92 to i64
-  %114 = icmp slt i64 %indvars.iv.next43.i93, %113
-  br i1 %114, label %91, label %Abc_NodeCollapsePermMap.exit98, !llvm.loop !24
-
-Abc_NodeCollapsePermMap.exit98:                   ; preds = %Abc_ObjFaninNumberNew.exit.i89, %112, %.preheader.i70, %Abc_ObjFaninNumberNew.exit.thread.i82
-  %115 = tail call ptr @Cudd_bddIthVar(ptr noundef %8, i32 noundef %.1) #15
-  %116 = getelementptr inbounds i8, ptr %1, i64 56
-  %117 = load ptr, ptr %116, align 8
-  %118 = ptrtoint ptr %115 to i64
-  %119 = xor i64 %118, 1
-  %120 = inttoptr i64 %119 to ptr
-  %121 = tail call ptr @Cudd_Cofactor(ptr noundef %8, ptr noundef %117, ptr noundef %120) #15
+Abc_NodeCollapsePermMap.exit97:                   ; preds = %110, %.preheader.i70, %Abc_ObjFaninNumberNew.exit.thread.i82
+  %113 = tail call ptr @Cudd_bddIthVar(ptr noundef %8, i32 noundef %.1) #15
+  %114 = getelementptr inbounds i8, ptr %1, i64 56
+  %115 = load ptr, ptr %114, align 8
+  %116 = ptrtoint ptr %113 to i64
+  %117 = xor i64 %116, 1
+  %118 = inttoptr i64 %117 to ptr
+  %119 = tail call ptr @Cudd_Cofactor(ptr noundef %8, ptr noundef %115, ptr noundef %118) #15
+  tail call void @Cudd_Ref(ptr noundef %119) #15
+  %120 = load ptr, ptr %114, align 8
+  %121 = tail call ptr @Cudd_Cofactor(ptr noundef %8, ptr noundef %120, ptr noundef %113) #15
   tail call void @Cudd_Ref(ptr noundef %121) #15
-  %122 = load ptr, ptr %116, align 8
-  %123 = tail call ptr @Cudd_Cofactor(ptr noundef %8, ptr noundef %122, ptr noundef %115) #15
+  %122 = tail call ptr @Cudd_bddPermute(ptr noundef %8, ptr noundef %119, ptr noundef %4) #15
+  tail call void @Cudd_Ref(ptr noundef %122) #15
+  tail call void @Cudd_RecursiveDeref(ptr noundef %8, ptr noundef %119) #15
+  %123 = tail call ptr @Cudd_bddPermute(ptr noundef %8, ptr noundef %121, ptr noundef %4) #15
   tail call void @Cudd_Ref(ptr noundef %123) #15
-  %124 = tail call ptr @Cudd_bddPermute(ptr noundef %8, ptr noundef %121, ptr noundef %4) #15
-  tail call void @Cudd_Ref(ptr noundef %124) #15
   tail call void @Cudd_RecursiveDeref(ptr noundef %8, ptr noundef %121) #15
-  %125 = tail call ptr @Cudd_bddPermute(ptr noundef %8, ptr noundef %123, ptr noundef %4) #15
-  tail call void @Cudd_Ref(ptr noundef %125) #15
+  %124 = getelementptr inbounds i8, ptr %0, i64 56
+  %125 = load ptr, ptr %124, align 8
+  %126 = tail call ptr @Cudd_bddPermute(ptr noundef %8, ptr noundef %125, ptr noundef %3) #15
+  tail call void @Cudd_Ref(ptr noundef %126) #15
+  %127 = tail call ptr @Cudd_bddIte(ptr noundef %8, ptr noundef %126, ptr noundef %123, ptr noundef %122) #15
+  tail call void @Cudd_Ref(ptr noundef %127) #15
+  tail call void @Cudd_RecursiveDeref(ptr noundef %8, ptr noundef %126) #15
   tail call void @Cudd_RecursiveDeref(ptr noundef %8, ptr noundef %123) #15
-  %126 = getelementptr inbounds i8, ptr %0, i64 56
-  %127 = load ptr, ptr %126, align 8
-  %128 = tail call ptr @Cudd_bddPermute(ptr noundef %8, ptr noundef %127, ptr noundef %3) #15
-  tail call void @Cudd_Ref(ptr noundef %128) #15
-  %129 = tail call ptr @Cudd_bddIte(ptr noundef %8, ptr noundef %128, ptr noundef %125, ptr noundef %124) #15
-  tail call void @Cudd_Ref(ptr noundef %129) #15
-  tail call void @Cudd_RecursiveDeref(ptr noundef %8, ptr noundef %128) #15
-  tail call void @Cudd_RecursiveDeref(ptr noundef %8, ptr noundef %125) #15
-  tail call void @Cudd_RecursiveDeref(ptr noundef %8, ptr noundef %124) #15
-  tail call void @Cudd_Deref(ptr noundef %129) #15
+  tail call void @Cudd_RecursiveDeref(ptr noundef %8, ptr noundef %122) #15
+  tail call void @Cudd_Deref(ptr noundef %127) #15
   br label %Abc_NodeCheckDupFanin.exit.thread
 
-Abc_NodeCheckDupFanin.exit.thread:                ; preds = %5, %Abc_NodeCheckDupFanin.exit, %Abc_NodeCollapsePermMap.exit98
-  %.0 = phi ptr [ %129, %Abc_NodeCollapsePermMap.exit98 ], [ null, %Abc_NodeCheckDupFanin.exit ], [ null, %5 ]
+Abc_NodeCheckDupFanin.exit.thread:                ; preds = %5, %Abc_NodeCheckDupFanin.exit, %Abc_NodeCollapsePermMap.exit97
+  %.0 = phi ptr [ %127, %Abc_NodeCollapsePermMap.exit97 ], [ null, %Abc_NodeCheckDupFanin.exit ], [ null, %5 ]
   ret ptr %.0
 }
 
@@ -2320,7 +2308,7 @@ define ptr @Abc_NodeCollapseFunc1(ptr noundef readonly %0, ptr nocapture noundef
   br label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
-  %.076 = phi i32 [ undef, %.lr.ph.i ], [ %.1, %.lr.ph.split.i ]
+  %.075 = phi i32 [ undef, %.lr.ph.i ], [ %.1, %.lr.ph.split.i ]
   %.val24.i = phi i32 [ %.val15.i, %.lr.ph.i ], [ %.val.i, %.lr.ph.split.i ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %.lr.ph.split.i ]
   %.018.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %.lr.ph.split.i ]
@@ -2331,7 +2319,7 @@ define ptr @Abc_NodeCollapseFunc1(ptr noundef readonly %0, ptr nocapture noundef
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, %0
   %20 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %.1 = select i1 %19, i32 %20, i32 %.076
+  %.1 = select i1 %19, i32 %20, i32 %.075
   %.val.i = select i1 %19, i32 %.val15.i, i32 %.val24.i
   %21 = zext i1 %19 to i32
   %.1.i = add nuw nsw i32 %.018.i, %21
@@ -2438,22 +2426,22 @@ Abc_NodeCollapseSuppSize.exit:                    ; preds = %.critedge.i, %.crit
   %58 = icmp slt i64 %indvars.iv.next.i44, %57
   br i1 %58, label %.lr.ph.i42, label %.preheader.i, !llvm.loop !23
 
-59:                                               ; preds = %80, %.lr.ph34.i
-  %.val2145.i = phi i32 [ %.val2132.i, %.lr.ph34.i ], [ %.val21.i41, %80 ]
-  %indvars.iv42.i = phi i64 [ 0, %.lr.ph34.i ], [ %indvars.iv.next43.i, %80 ]
+59:                                               ; preds = %79, %.lr.ph34.i
+  %.val2144.i = phi i32 [ %.val2132.i, %.lr.ph34.i ], [ %.val21.i41, %79 ]
+  %indvars.iv41.i = phi i64 [ 0, %.lr.ph34.i ], [ %indvars.iv.next42.i, %79 ]
   %.val22.i36 = load ptr, ptr %0, align 8
   %.val23.i37 = load ptr, ptr %53, align 8
   %60 = getelementptr i8, ptr %.val22.i36, i64 32
   %.val22.val.i38 = load ptr, ptr %60, align 8
   %61 = getelementptr i8, ptr %.val22.val.i38, i64 8
   %.val22.val.val.i39 = load ptr, ptr %61, align 8
-  %62 = getelementptr inbounds i32, ptr %.val23.i37, i64 %indvars.iv42.i
+  %62 = getelementptr inbounds i32, ptr %.val23.i37, i64 %indvars.iv41.i
   %63 = load i32, ptr %62, align 4
   %64 = sext i32 %63 to i64
   %65 = getelementptr inbounds ptr, ptr %.val22.val.val.i39, i64 %64
   %66 = load ptr, ptr %65, align 8
   %67 = icmp eq ptr %66, null
-  br i1 %67, label %80, label %68
+  br i1 %67, label %79, label %68
 
 68:                                               ; preds = %59
   %.val.i.i = load i32, ptr %25, align 4
@@ -2478,134 +2466,126 @@ Abc_NodeCollapseSuppSize.exit:                    ; preds = %.critedge.i, %.crit
   br i1 %exitcond.not.i.i, label %Abc_ObjFaninNumberNew.exit.thread.i, label %70, !llvm.loop !22
 
 Abc_ObjFaninNumberNew.exit.thread.i:              ; preds = %68, %74
-  %75 = and i64 %indvars.iv42.i, 4294967295
+  %75 = and i64 %indvars.iv41.i, 4294967295
   %76 = getelementptr inbounds i32, ptr %3, i64 %75
   store i32 -1, ptr %76, align 4
   br label %Abc_NodeCollapsePermMap.exit
 
 Abc_ObjFaninNumberNew.exit.i:                     ; preds = %70
   %77 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  %78 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv42.i
+  %78 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv41.i
   store i32 %77, ptr %78, align 4
-  %79 = icmp eq i32 %77, -1
-  br i1 %79, label %Abc_NodeCollapsePermMap.exit, label %Abc_ObjFaninNumberNew.exit._crit_edge.i
-
-Abc_ObjFaninNumberNew.exit._crit_edge.i:          ; preds = %Abc_ObjFaninNumberNew.exit.i
   %.val21.pre.i40 = load i32, ptr %27, align 4
-  br label %80
+  br label %79
 
-80:                                               ; preds = %Abc_ObjFaninNumberNew.exit._crit_edge.i, %59
-  %.val21.i41 = phi i32 [ %.val21.pre.i40, %Abc_ObjFaninNumberNew.exit._crit_edge.i ], [ %.val2145.i, %59 ]
-  %indvars.iv.next43.i = add nuw nsw i64 %indvars.iv42.i, 1
-  %81 = sext i32 %.val21.i41 to i64
-  %82 = icmp slt i64 %indvars.iv.next43.i, %81
-  br i1 %82, label %59, label %Abc_NodeCollapsePermMap.exit, !llvm.loop !24
+79:                                               ; preds = %Abc_ObjFaninNumberNew.exit.i, %59
+  %.val21.i41 = phi i32 [ %.val21.pre.i40, %Abc_ObjFaninNumberNew.exit.i ], [ %.val2144.i, %59 ]
+  %indvars.iv.next42.i = add nuw nsw i64 %indvars.iv41.i, 1
+  %80 = sext i32 %.val21.i41 to i64
+  %81 = icmp slt i64 %indvars.iv.next42.i, %80
+  br i1 %81, label %59, label %Abc_NodeCollapsePermMap.exit, !llvm.loop !24
 
-Abc_NodeCollapsePermMap.exit:                     ; preds = %Abc_ObjFaninNumberNew.exit.i, %80, %.preheader.i, %Abc_ObjFaninNumberNew.exit.thread.i
+Abc_NodeCollapsePermMap.exit:                     ; preds = %79, %.preheader.i, %Abc_ObjFaninNumberNew.exit.thread.i
   %.val30.i46 = load i32, ptr %25, align 4
-  %83 = icmp sgt i32 %.val30.i46, 0
-  br i1 %83, label %.lr.ph.i71, label %.preheader.i47
+  %82 = icmp sgt i32 %.val30.i46, 0
+  br i1 %82, label %.lr.ph.i70, label %.preheader.i47
 
-.preheader.i47:                                   ; preds = %.lr.ph.i71, %Abc_NodeCollapsePermMap.exit
+.preheader.i47:                                   ; preds = %.lr.ph.i70, %Abc_NodeCollapsePermMap.exit
   %.val2132.i48 = load i32, ptr %9, align 4
-  %84 = icmp sgt i32 %.val2132.i48, 0
-  br i1 %84, label %.lr.ph34.i51, label %Abc_NodeCollapsePermMap.exit75
+  %83 = icmp sgt i32 %.val2132.i48, 0
+  br i1 %83, label %.lr.ph34.i51, label %Abc_NodeCollapsePermMap.exit74
 
 .lr.ph34.i51:                                     ; preds = %.preheader.i47
-  %85 = getelementptr i8, ptr %2, i64 8
-  br label %90
+  %84 = getelementptr i8, ptr %2, i64 8
+  br label %89
 
-.lr.ph.i71:                                       ; preds = %Abc_NodeCollapsePermMap.exit, %.lr.ph.i71
-  %indvars.iv.i72 = phi i64 [ %indvars.iv.next.i73, %.lr.ph.i71 ], [ 0, %Abc_NodeCollapsePermMap.exit ]
-  %86 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i72
-  %87 = trunc nuw nsw i64 %indvars.iv.i72 to i32
-  store i32 %87, ptr %86, align 4
-  %indvars.iv.next.i73 = add nuw nsw i64 %indvars.iv.i72, 1
-  %.val.i74 = load i32, ptr %25, align 4
-  %88 = sext i32 %.val.i74 to i64
-  %89 = icmp slt i64 %indvars.iv.next.i73, %88
-  br i1 %89, label %.lr.ph.i71, label %.preheader.i47, !llvm.loop !23
+.lr.ph.i70:                                       ; preds = %Abc_NodeCollapsePermMap.exit, %.lr.ph.i70
+  %indvars.iv.i71 = phi i64 [ %indvars.iv.next.i72, %.lr.ph.i70 ], [ 0, %Abc_NodeCollapsePermMap.exit ]
+  %85 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i71
+  %86 = trunc nuw nsw i64 %indvars.iv.i71 to i32
+  store i32 %86, ptr %85, align 4
+  %indvars.iv.next.i72 = add nuw nsw i64 %indvars.iv.i71, 1
+  %.val.i73 = load i32, ptr %25, align 4
+  %87 = sext i32 %.val.i73 to i64
+  %88 = icmp slt i64 %indvars.iv.next.i72, %87
+  br i1 %88, label %.lr.ph.i70, label %.preheader.i47, !llvm.loop !23
 
-90:                                               ; preds = %111, %.lr.ph34.i51
-  %.val2145.i52 = phi i32 [ %.val2132.i48, %.lr.ph34.i51 ], [ %.val21.i69, %111 ]
-  %indvars.iv42.i53 = phi i64 [ 0, %.lr.ph34.i51 ], [ %indvars.iv.next43.i70, %111 ]
+89:                                               ; preds = %109, %.lr.ph34.i51
+  %.val2144.i52 = phi i32 [ %.val2132.i48, %.lr.ph34.i51 ], [ %.val21.i68, %109 ]
+  %indvars.iv41.i53 = phi i64 [ 0, %.lr.ph34.i51 ], [ %indvars.iv.next42.i69, %109 ]
   %.val22.i54 = load ptr, ptr %1, align 8
   %.val23.i55 = load ptr, ptr %11, align 8
-  %91 = getelementptr i8, ptr %.val22.i54, i64 32
-  %.val22.val.i56 = load ptr, ptr %91, align 8
-  %92 = getelementptr i8, ptr %.val22.val.i56, i64 8
-  %.val22.val.val.i57 = load ptr, ptr %92, align 8
-  %93 = getelementptr inbounds i32, ptr %.val23.i55, i64 %indvars.iv42.i53
-  %94 = load i32, ptr %93, align 4
-  %95 = sext i32 %94 to i64
-  %96 = getelementptr inbounds ptr, ptr %.val22.val.val.i57, i64 %95
-  %97 = load ptr, ptr %96, align 8
-  %98 = icmp eq ptr %97, %0
-  br i1 %98, label %111, label %99
+  %90 = getelementptr i8, ptr %.val22.i54, i64 32
+  %.val22.val.i56 = load ptr, ptr %90, align 8
+  %91 = getelementptr i8, ptr %.val22.val.i56, i64 8
+  %.val22.val.val.i57 = load ptr, ptr %91, align 8
+  %92 = getelementptr inbounds i32, ptr %.val23.i55, i64 %indvars.iv41.i53
+  %93 = load i32, ptr %92, align 4
+  %94 = sext i32 %93 to i64
+  %95 = getelementptr inbounds ptr, ptr %.val22.val.val.i57, i64 %94
+  %96 = load ptr, ptr %95, align 8
+  %97 = icmp eq ptr %96, %0
+  br i1 %97, label %109, label %98
 
-99:                                               ; preds = %90
+98:                                               ; preds = %89
   %.val.i.i58 = load i32, ptr %25, align 4
-  %100 = icmp sgt i32 %.val.i.i58, 0
-  br i1 %100, label %.lr.ph.i.i60, label %Abc_ObjFaninNumberNew.exit.thread.i59
+  %99 = icmp sgt i32 %.val.i.i58, 0
+  br i1 %99, label %.lr.ph.i.i60, label %Abc_ObjFaninNumberNew.exit.thread.i59
 
-.lr.ph.i.i60:                                     ; preds = %99
-  %.val9.i.i61 = load ptr, ptr %85, align 8
+.lr.ph.i.i60:                                     ; preds = %98
+  %.val9.i.i61 = load ptr, ptr %84, align 8
   %wide.trip.count.i.i62 = zext nneg i32 %.val.i.i58 to i64
-  br label %101
+  br label %100
 
-101:                                              ; preds = %105, %.lr.ph.i.i60
-  %indvars.iv.i.i63 = phi i64 [ 0, %.lr.ph.i.i60 ], [ %indvars.iv.next.i.i64, %105 ]
-  %102 = getelementptr inbounds ptr, ptr %.val9.i.i61, i64 %indvars.iv.i.i63
-  %103 = load ptr, ptr %102, align 8
-  %104 = icmp eq ptr %103, %97
-  br i1 %104, label %Abc_ObjFaninNumberNew.exit.i66, label %105
+100:                                              ; preds = %104, %.lr.ph.i.i60
+  %indvars.iv.i.i63 = phi i64 [ 0, %.lr.ph.i.i60 ], [ %indvars.iv.next.i.i64, %104 ]
+  %101 = getelementptr inbounds ptr, ptr %.val9.i.i61, i64 %indvars.iv.i.i63
+  %102 = load ptr, ptr %101, align 8
+  %103 = icmp eq ptr %102, %96
+  br i1 %103, label %Abc_ObjFaninNumberNew.exit.i66, label %104
 
-105:                                              ; preds = %101
+104:                                              ; preds = %100
   %indvars.iv.next.i.i64 = add nuw nsw i64 %indvars.iv.i.i63, 1
   %exitcond.not.i.i65 = icmp eq i64 %indvars.iv.next.i.i64, %wide.trip.count.i.i62
-  br i1 %exitcond.not.i.i65, label %Abc_ObjFaninNumberNew.exit.thread.i59, label %101, !llvm.loop !22
+  br i1 %exitcond.not.i.i65, label %Abc_ObjFaninNumberNew.exit.thread.i59, label %100, !llvm.loop !22
 
-Abc_ObjFaninNumberNew.exit.thread.i59:            ; preds = %99, %105
-  %106 = and i64 %indvars.iv42.i53, 4294967295
-  %107 = getelementptr inbounds i32, ptr %4, i64 %106
-  store i32 -1, ptr %107, align 4
-  br label %Abc_NodeCollapsePermMap.exit75
+Abc_ObjFaninNumberNew.exit.thread.i59:            ; preds = %98, %104
+  %105 = and i64 %indvars.iv41.i53, 4294967295
+  %106 = getelementptr inbounds i32, ptr %4, i64 %105
+  store i32 -1, ptr %106, align 4
+  br label %Abc_NodeCollapsePermMap.exit74
 
-Abc_ObjFaninNumberNew.exit.i66:                   ; preds = %101
-  %108 = trunc nuw nsw i64 %indvars.iv.i.i63 to i32
-  %109 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv42.i53
-  store i32 %108, ptr %109, align 4
-  %110 = icmp eq i32 %108, -1
-  br i1 %110, label %Abc_NodeCollapsePermMap.exit75, label %Abc_ObjFaninNumberNew.exit._crit_edge.i67
+Abc_ObjFaninNumberNew.exit.i66:                   ; preds = %100
+  %107 = trunc nuw nsw i64 %indvars.iv.i.i63 to i32
+  %108 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv41.i53
+  store i32 %107, ptr %108, align 4
+  %.val21.pre.i67 = load i32, ptr %9, align 4
+  br label %109
 
-Abc_ObjFaninNumberNew.exit._crit_edge.i67:        ; preds = %Abc_ObjFaninNumberNew.exit.i66
-  %.val21.pre.i68 = load i32, ptr %9, align 4
-  br label %111
+109:                                              ; preds = %Abc_ObjFaninNumberNew.exit.i66, %89
+  %.val21.i68 = phi i32 [ %.val21.pre.i67, %Abc_ObjFaninNumberNew.exit.i66 ], [ %.val2144.i52, %89 ]
+  %indvars.iv.next42.i69 = add nuw nsw i64 %indvars.iv41.i53, 1
+  %110 = sext i32 %.val21.i68 to i64
+  %111 = icmp slt i64 %indvars.iv.next42.i69, %110
+  br i1 %111, label %89, label %Abc_NodeCollapsePermMap.exit74, !llvm.loop !24
 
-111:                                              ; preds = %Abc_ObjFaninNumberNew.exit._crit_edge.i67, %90
-  %.val21.i69 = phi i32 [ %.val21.pre.i68, %Abc_ObjFaninNumberNew.exit._crit_edge.i67 ], [ %.val2145.i52, %90 ]
-  %indvars.iv.next43.i70 = add nuw nsw i64 %indvars.iv42.i53, 1
-  %112 = sext i32 %.val21.i69 to i64
-  %113 = icmp slt i64 %indvars.iv.next43.i70, %112
-  br i1 %113, label %90, label %Abc_NodeCollapsePermMap.exit75, !llvm.loop !24
-
-Abc_NodeCollapsePermMap.exit75:                   ; preds = %Abc_ObjFaninNumberNew.exit.i66, %111, %.preheader.i47, %Abc_ObjFaninNumberNew.exit.thread.i59
-  %114 = sext i32 %.1 to i64
-  %115 = getelementptr inbounds i32, ptr %4, i64 %114
-  store i32 %.val.i30, ptr %115, align 4
-  %116 = getelementptr inbounds i8, ptr %0, i64 56
-  %117 = load ptr, ptr %116, align 8
+Abc_NodeCollapsePermMap.exit74:                   ; preds = %109, %.preheader.i47, %Abc_ObjFaninNumberNew.exit.thread.i59
+  %112 = sext i32 %.1 to i64
+  %113 = getelementptr inbounds i32, ptr %4, i64 %112
+  store i32 %.val.i30, ptr %113, align 4
+  %114 = getelementptr inbounds i8, ptr %0, i64 56
+  %115 = load ptr, ptr %114, align 8
   %.val29 = load i32, ptr %27, align 4
-  %118 = tail call ptr @Hop_Permute(ptr noundef %8, ptr noundef %117, i32 noundef %.val29, ptr noundef %3) #15
-  %119 = getelementptr inbounds i8, ptr %1, i64 56
-  %120 = load ptr, ptr %119, align 8
+  %116 = tail call ptr @Hop_Permute(ptr noundef %8, ptr noundef %115, i32 noundef %.val29, ptr noundef %3) #15
+  %117 = getelementptr inbounds i8, ptr %1, i64 56
+  %118 = load ptr, ptr %117, align 8
   %.val = load i32, ptr %9, align 4
-  %121 = tail call ptr @Hop_Permute(ptr noundef %8, ptr noundef %120, i32 noundef %.val, ptr noundef %4) #15
-  %122 = tail call ptr @Hop_Compose(ptr noundef %8, ptr noundef %121, ptr noundef %118, i32 noundef %.val.i30) #15
+  %119 = tail call ptr @Hop_Permute(ptr noundef %8, ptr noundef %118, i32 noundef %.val, ptr noundef %4) #15
+  %120 = tail call ptr @Hop_Compose(ptr noundef %8, ptr noundef %119, ptr noundef %116, i32 noundef %.val.i30) #15
   br label %Abc_NodeCheckDupFanin.exit.thread
 
-Abc_NodeCheckDupFanin.exit.thread:                ; preds = %5, %Abc_NodeCheckDupFanin.exit, %Abc_NodeCollapsePermMap.exit75
-  %.0 = phi ptr [ %122, %Abc_NodeCollapsePermMap.exit75 ], [ null, %Abc_NodeCheckDupFanin.exit ], [ null, %5 ]
+Abc_NodeCheckDupFanin.exit.thread:                ; preds = %5, %Abc_NodeCheckDupFanin.exit, %Abc_NodeCollapsePermMap.exit74
+  %.0 = phi ptr [ %120, %Abc_NodeCollapsePermMap.exit74 ], [ null, %Abc_NodeCheckDupFanin.exit ], [ null, %5 ]
   ret ptr %.0
 }
 

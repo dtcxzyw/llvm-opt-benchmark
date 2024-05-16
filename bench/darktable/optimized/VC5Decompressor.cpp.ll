@@ -5794,8 +5794,8 @@ define hidden void @_ZNK8rawspeed15VC5Decompressor7Wavelet12HighPassBand6decodeE
   store i16 %97, ptr %27, align 2, !tbaa !32
   store i32 %99, ptr %28, align 4, !tbaa !19
   %100 = icmp eq i16 %97, 1
-  %101 = icmp eq i32 %99, 0
-  %102 = and i1 %100, %101
+  %101 = icmp ult i64 %95, 4294967296
+  %102 = and i1 %101, %100
   br i1 %102, label %299, label %103
 
 103:                                              ; preds = %96, %92

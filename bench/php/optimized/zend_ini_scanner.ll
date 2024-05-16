@@ -7386,7 +7386,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 .critedge65:                                      ; preds = %3097
   %3102 = trunc nuw i64 %indvars.iv to i32
-  %.not3733 = icmp eq i32 %3102, 1
+  %.not3733 = icmp eq i64 %indvars.iv, 1
   br i1 %.not3733, label %.critedge65.thread, label %3103
 
 3103:                                             ; preds = %.critedge65

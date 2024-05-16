@@ -60640,8 +60640,8 @@ entry:
   %screensize.sroa.3.0.extract.shift = lshr i64 %screensize.coerce, 32
   %screensize.sroa.3.0.extract.trunc = trunc nuw i64 %screensize.sroa.3.0.extract.shift to i32
   %cmp = icmp eq i32 %screensize.sroa.0.0.extract.trunc, 0
-  %cmp2 = icmp eq i32 %screensize.sroa.3.0.extract.trunc, 0
-  %or.cond = or i1 %cmp, %cmp2
+  %cmp2 = icmp ult i64 %screensize.coerce, 4294967296
+  %or.cond = or i1 %cmp2, %cmp
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry

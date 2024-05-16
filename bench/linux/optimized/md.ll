@@ -17531,7 +17531,7 @@ split:                                            ; preds = %12, %._crit_edge
   br i1 %38, label %64, label %39
 
 39:                                               ; preds = %35
-  %40 = icmp eq i32 %34, 6
+  %40 = icmp eq i64 %indvars.iv.lcssa.sink, 6
   %41 = add i32 %34, -5
   %42 = icmp ult i32 %41, 2
   br i1 %42, label %43, label %64

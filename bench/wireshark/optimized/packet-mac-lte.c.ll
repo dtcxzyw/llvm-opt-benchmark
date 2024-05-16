@@ -7400,16 +7400,16 @@ set_drx_info.exit:                                ; preds = %136, %133, %128, %1
   br label %mac_lte_drx_new_ulsch_data.exit.sink.split
 
 mac_lte_drx_new_ulsch_data.exit.sink.split:       ; preds = %166, %184, %200
-  %.sink2274 = phi ptr [ %196, %200 ], [ %180, %184 ], [ %162, %166 ]
-  %.sink2273.in = phi ptr [ %202, %200 ], [ %186, %184 ], [ %168, %166 ]
-  %.sink2270 = phi ptr [ %201, %200 ], [ %185, %184 ], [ %167, %166 ]
-  %.sink2273 = load i32, ptr %.sink2273.in, align 4
-  %203 = getelementptr inbounds i8, ptr %.sink2274, i64 88
+  %.sink2277 = phi ptr [ %196, %200 ], [ %180, %184 ], [ %162, %166 ]
+  %.sink2276.in = phi ptr [ %202, %200 ], [ %186, %184 ], [ %168, %166 ]
+  %.sink2273 = phi ptr [ %201, %200 ], [ %185, %184 ], [ %167, %166 ]
+  %.sink2276 = load i32, ptr %.sink2276.in, align 4
+  %203 = getelementptr inbounds i8, ptr %.sink2277, i64 88
   %204 = load i64, ptr %203, align 8
-  %205 = and i32 %.sink2273, 65535
+  %205 = and i32 %.sink2276, 65535
   %206 = zext nneg i32 %205 to i64
   %207 = add i64 %204, %206
-  store i64 %207, ptr %.sink2270, align 8
+  store i64 %207, ptr %.sink2273, align 8
   br label %mac_lte_drx_new_ulsch_data.exit
 
 mac_lte_drx_new_ulsch_data.exit:                  ; preds = %mac_lte_drx_new_ulsch_data.exit.sink.split, %197, %191, %181, %175, %163, %157, %set_drx_info.exit, %187, %153, %show_ues_tti.exit
@@ -8283,7 +8283,7 @@ write_pdu_label_and_info_literal.exit:            ; preds = %590, %588, %587, %.
   %626 = trunc nuw nsw i64 %indvars.iv.next to i16
   %627 = trunc i64 %indvars.iv.next to i32
   %628 = and i32 %627, 65535
-  %629 = icmp ugt i16 %626, 1023
+  %629 = icmp ugt i64 %indvars.iv, 1022
   br i1 %629, label %630, label %632
 
 630:                                              ; preds = %625
@@ -9507,7 +9507,7 @@ get_mac_lte_ue_simult_pucch_pusch.exit:           ; preds = %1392, %1398
 1435:                                             ; preds = %1429, %1427
   %.1.i1971 = phi i32 [ %1434, %1429 ], [ %1428, %1427 ]
   %.not37.i = icmp eq i32 %1417, 0
-  br i1 %.not37.i, label %.preheader17, label %1436
+  br i1 %.not37.i, label %.preheader20, label %1436
 
 1436:                                             ; preds = %1435
   %1437 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.1.i1971) #16
@@ -9516,15 +9516,15 @@ get_mac_lte_ue_simult_pucch_pusch.exit:           ; preds = %1392, %1398
   %1440 = zext i1 %1439 to i32
   %spec.select41.i = add i32 %.1.i1971, 1
   %1441 = add i32 %spec.select41.i, %1440
-  br label %.preheader17
+  br label %.preheader20
 
-.preheader17:                                     ; preds = %1436, %1435
+.preheader20:                                     ; preds = %1436, %1435
   %.447.i.ph = phi i32 [ %.1.i1971, %1435 ], [ %1441, %1436 ]
   br label %1442
 
-1442:                                             ; preds = %.preheader17, %1444
-  %.447.i = phi i32 [ %1449, %1444 ], [ %.447.i.ph, %.preheader17 ]
-  %.13446.i = phi i32 [ %1450, %1444 ], [ 0, %.preheader17 ]
+1442:                                             ; preds = %.preheader20, %1444
+  %.447.i = phi i32 [ %1449, %1444 ], [ %.447.i.ph, %.preheader20 ]
+  %.13446.i = phi i32 [ %1450, %1444 ], [ 0, %.preheader20 ]
   %1443 = sub i32 %.447.i, %.42149
   %.not39.i = icmp ult i32 %1443, %1411
   br i1 %.not39.i, label %1444, label %get_dual_conn_phr_num_c_bytes.exit
@@ -9943,23 +9943,23 @@ get_mac_lte_ue_simult_pucch_pusch.exit1973:       ; preds = %1689, %1695
   %1731 = zext i8 %1714 to i32
   %1732 = and i32 %1731, 1
   %.not1852 = icmp eq i32 %1732, 0
-  br i1 %.not1852, label %.preheader19, label %1733
+  br i1 %.not1852, label %.preheader22, label %1733
 
-.preheader19:                                     ; preds = %1733, %1708
+.preheader22:                                     ; preds = %1733, %1708
   br label %1737
 
 1733:                                             ; preds = %1708
   %1734 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %1730, ptr noundef nonnull @ei_mac_lte_reserved_not_zero, ptr noundef nonnull @.str.1540) #16
-  br label %.preheader19
+  br label %.preheader22
 
 .preheader:                                       ; preds = %1737
   %1735 = add i32 %.42149, 1
   %1736 = zext i8 %spec.select1898 to i32
   br label %1742
 
-1737:                                             ; preds = %.preheader19, %1737
-  %.017522133 = phi i32 [ %1741, %1737 ], [ 0, %.preheader19 ]
-  %.017552132 = phi i8 [ %spec.select1898, %1737 ], [ 0, %.preheader19 ]
+1737:                                             ; preds = %.preheader22, %1737
+  %.017522133 = phi i32 [ %1741, %1737 ], [ 0, %.preheader22 ]
+  %.017552132 = phi i8 [ %spec.select1898, %1737 ], [ 0, %.preheader22 ]
   %1738 = lshr exact i32 128, %.017522133
   %1739 = and i32 %1738, %1731
   %.not1864 = icmp ne i32 %1739, 0
@@ -10071,7 +10071,7 @@ get_mac_lte_ue_simult_pucch_pusch.exit1973:       ; preds = %1689, %1695
   %1810 = call ptr @val_to_str_ext_const(i32 noundef %1809, ptr noundef nonnull @power_headroom_vals_ext, ptr noundef nonnull @.str.1448) #16
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1808, ptr noundef nonnull @.str.1514, ptr noundef %1810) #16
   %1811 = add i32 %.01748, 1
-  br i1 %.not1859, label %1812, label %.preheader18
+  br i1 %.not1859, label %1812, label %.preheader21
 
 1812:                                             ; preds = %1795
   %1813 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1811) #16
@@ -10094,16 +10094,16 @@ get_mac_lte_ue_simult_pucch_pusch.exit1973:       ; preds = %1689, %1695
   %1825 = call ptr @val_to_str_ext_const(i32 noundef %1824, ptr noundef nonnull @pcmaxc_vals_ext, ptr noundef nonnull @.str.1448) #16
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1823, ptr noundef nonnull @.str.1514, ptr noundef %1825) #16
   %1826 = add i32 %.01748, 2
-  br label %.preheader18
+  br label %.preheader21
 
-.preheader18:                                     ; preds = %1820, %1795
+.preheader21:                                     ; preds = %1820, %1795
   %.217502139.ph = phi i32 [ %1811, %1795 ], [ %1826, %1820 ]
   br label %1827
 
-1827:                                             ; preds = %.preheader18, %1861
-  %.217502139 = phi i32 [ %.31751, %1861 ], [ %.217502139.ph, %.preheader18 ]
-  %.217542138 = phi i32 [ %1862, %1861 ], [ 1, %.preheader18 ]
-  %.01757.in2137 = phi i8 [ %.017572140, %1861 ], [ %1714, %.preheader18 ]
+1827:                                             ; preds = %.preheader21, %1861
+  %.217502139 = phi i32 [ %.31751, %1861 ], [ %.217502139.ph, %.preheader21 ]
+  %.217542138 = phi i32 [ %1862, %1861 ], [ 1, %.preheader21 ]
+  %.01757.in2137 = phi i8 [ %.017572140, %1861 ], [ %1714, %.preheader21 ]
   %.017572140 = lshr i8 %.01757.in2137, 1
   %1828 = and i8 %.01757.in2137, 2
   %.not1861 = icmp eq i8 %1828, 0
@@ -10639,11 +10639,11 @@ proto_item_set_generated.exit1994:                ; preds = %2083, %2084, %2087
   br label %.sink.split
 
 .sink.split:                                      ; preds = %2109, %2120
-  %.sink2291 = phi i64 [ %2110, %2109 ], [ %2127, %2120 ]
-  %.sink2279 = and i32 %2107, 65535
-  %2128 = getelementptr [33 x i32], ptr %2094, i64 0, i64 %.sink2291
+  %.sink2294 = phi i64 [ %2110, %2109 ], [ %2127, %2120 ]
+  %.sink2282 = and i32 %2107, 65535
+  %2128 = getelementptr [33 x i32], ptr %2094, i64 0, i64 %.sink2294
   %2129 = load i32, ptr %2128, align 4
-  %2130 = add i32 %2129, %.sink2279
+  %2130 = add i32 %2129, %.sink2282
   store i32 %2130, ptr %2128, align 4
   br label %2131
 
@@ -10780,11 +10780,11 @@ proto_item_set_hidden.exit:                       ; preds = %2146, %2147, %2150
 
 .thread2069.sink.split:                           ; preds = %2184, %2192, %2203
   %hf_mac_lte_control_data_vol_power_headroom_level.sink = phi ptr [ @hf_mac_lte_control_data_vol_power_headroom_level_4_bits, %2203 ], [ @hf_mac_lte_control_data_vol_power_headroom_level, %2192 ], [ @hf_mac_lte_control_data_vol_power_headroom_level, %2184 ]
-  %.sink2284 = phi ptr [ %2207, %2203 ], [ %2188, %2192 ], [ %2188, %2184 ]
+  %.sink2287 = phi ptr [ %2207, %2203 ], [ %2188, %2192 ], [ %2188, %2184 ]
   %2208 = load i32, ptr %hf_mac_lte_control_data_vol_power_headroom_level.sink, align 4
-  %2209 = call ptr @proto_tree_add_item(ptr noundef %.sink2284, i32 noundef %2208, ptr noundef %0, i32 noundef %.82162, i32 noundef 1, i32 noundef 0) #16
+  %2209 = call ptr @proto_tree_add_item(ptr noundef %.sink2287, i32 noundef %2208, ptr noundef %0, i32 noundef %.82162, i32 noundef 1, i32 noundef 0) #16
   %2210 = load i32, ptr @hf_mac_lte_control_data_vol_power_headroom_data_vol, align 4
-  %2211 = call ptr @proto_tree_add_item(ptr noundef %.sink2284, i32 noundef %2210, ptr noundef %0, i32 noundef %.82162, i32 noundef 1, i32 noundef 0) #16
+  %2211 = call ptr @proto_tree_add_item(ptr noundef %.sink2287, i32 noundef %2210, ptr noundef %0, i32 noundef %.82162, i32 noundef 1, i32 noundef 0) #16
   %2212 = add i32 %.82162, 1
   %2213 = sext i1 %2169 to i16
   %spec.select1905 = add i16 %2174, %2213
@@ -11356,7 +11356,7 @@ proto_item_set_hidden.exit2016:                   ; preds = %2422, %2424, %2427
   %2444 = load i32, ptr %2443, align 4
   %2445 = add i32 %2444, 1
   store i32 %2445, ptr %2443, align 4
-  br label %.sink.split2286
+  br label %.sink.split2289
 
 2446:                                             ; preds = %.critedge.thread, %.critedge
   %2447 = phi i32 [ %2438, %.critedge.thread ], [ %2439, %.critedge ]
@@ -11379,19 +11379,19 @@ proto_item_set_hidden.exit2016:                   ; preds = %2422, %2424, %2427
   %2459 = add i32 %2458, 1
   store i32 %2459, ptr %2457, align 4
   %2460 = add nsw i64 %2454, -21
-  br label %.sink.split2286
+  br label %.sink.split2289
 
-.sink.split2286:                                  ; preds = %2453, %2441
-  %.sink2292 = phi i64 [ %2460, %2453 ], [ %2442, %2441 ]
+.sink.split2289:                                  ; preds = %2453, %2441
+  %.sink2295 = phi i64 [ %2460, %2453 ], [ %2442, %2441 ]
   %.ph = phi i32 [ %2447, %2453 ], [ %2439, %2441 ]
-  %2461 = getelementptr [33 x i32], ptr %2160, i64 0, i64 %.sink2292
+  %2461 = getelementptr [33 x i32], ptr %2160, i64 0, i64 %.sink2295
   %2462 = load i32, ptr %2461, align 4
   %2463 = add i32 %2462, %2220
   store i32 %2463, ptr %2461, align 4
   br label %2464
 
-2464:                                             ; preds = %.sink.split2286, %2449, %2446
-  %2465 = phi i32 [ %2447, %2449 ], [ %2447, %2446 ], [ %.ph, %.sink.split2286 ]
+2464:                                             ; preds = %.sink.split2289, %2449, %2446
+  %2465 = phi i32 [ %2447, %2449 ], [ %2447, %2446 ], [ %.ph, %.sink.split2289 ]
   %2466 = add nuw nsw i16 %.217142161, 1
   %exitcond2207.not = icmp eq i16 %2466, %indvars.iv2198
   br i1 %exitcond2207.not, label %._crit_edge, label %2161, !llvm.loop !30
@@ -11784,8 +11784,8 @@ proto_item_set_hidden.exit:                       ; preds = %write_pdu_label_and
   %.not272 = icmp eq i32 %.1254, 0
   %.not273 = icmp eq i8 %50, 31
   %or.cond281 = or i1 %58, %.not273
-  %or.cond370 = select i1 %.not272, i1 true, i1 %or.cond281
-  br i1 %or.cond370, label %61, label %59
+  %or.cond371 = select i1 %.not272, i1 true, i1 %or.cond281
+  br i1 %or.cond371, label %61, label %59
 
 59:                                               ; preds = %43
   %60 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %53, ptr noundef nonnull @ei_mac_lte_control_subheader_after_data_subheader, ptr noundef nonnull @.str.1563) #16
@@ -11978,7 +11978,7 @@ write_pdu_label_and_info_literal.exit284:         ; preds = %99
   %133 = trunc nuw nsw i64 %indvars.iv.next to i16
   %134 = trunc i64 %indvars.iv.next to i32
   %135 = and i32 %134, 65535
-  %136 = icmp ugt i16 %133, 1023
+  %136 = icmp ugt i64 %indvars.iv, 1022
   br i1 %136, label %137, label %.lr.ph322.preheader
 
 137:                                              ; preds = %132
@@ -12590,7 +12590,7 @@ write_pdu_label_and_info_literal.exit:            ; preds = %.critedge.thread
   %140 = trunc nuw nsw i64 %indvars.iv.next to i16
   %141 = trunc i64 %indvars.iv.next to i32
   %142 = and i32 %141, 65535
-  %143 = icmp ugt i16 %140, 1023
+  %143 = icmp ugt i64 %indvars.iv, 1022
   br i1 %143, label %144, label %.lr.ph.preheader
 
 144:                                              ; preds = %139

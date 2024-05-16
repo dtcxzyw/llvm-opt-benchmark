@@ -121,7 +121,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br i1 %.not67, label %.preheader, label %tailrecurse.backedge
 
 .preheader:                                       ; preds = %18
-  %21 = icmp sgt i32 %20, 0
+  %21 = icmp sgt i64 %indvars.iv, 0
   br i1 %21, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
@@ -300,7 +300,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br i1 %.not69, label %.preheader, label %tailrecurse.backedge
 
 .preheader:                                       ; preds = %18
-  %21 = icmp sgt i32 %20, 0
+  %21 = icmp sgt i64 %indvars.iv, 0
   br i1 %21, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
@@ -542,7 +542,7 @@ define noalias noundef ptr @Cudd_zddFirstPath(ptr noundef %0, ptr noundef %1, pt
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
-  br i1 %or.cond, label %90, label %6
+  br i1 %or.cond, label %89, label %6
 
 6:                                                ; preds = %3
   %7 = tail call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #10
@@ -552,7 +552,7 @@ define noalias noundef ptr @Cudd_zddFirstPath(ptr noundef %0, ptr noundef %1, pt
 9:                                                ; preds = %6
   %10 = getelementptr inbounds i8, ptr %0, i64 624
   store i32 1, ptr %10, align 8
-  br label %90
+  br label %89
 
 11:                                               ; preds = %6
   store ptr %0, ptr %7, align 8
@@ -586,7 +586,7 @@ define noalias noundef ptr @Cudd_zddFirstPath(ptr noundef %0, ptr noundef %1, pt
   %26 = getelementptr inbounds i8, ptr %0, i64 624
   store i32 1, ptr %26, align 8
   tail call void @free(ptr noundef nonnull %7) #11
-  br label %90
+  br label %89
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
@@ -620,7 +620,7 @@ define noalias noundef ptr @Cudd_zddFirstPath(ptr noundef %0, ptr noundef %1, pt
   store i32 1, ptr %36, align 8
   tail call void @free(ptr noundef nonnull %22) #11
   tail call void @free(ptr noundef nonnull %7) #11
-  br label %90
+  br label %89
 
 ._crit_edge104:                                   ; preds = %.lr.ph103.preheader, %.preheader
   store ptr %1, ptr %31, align 8
@@ -657,7 +657,7 @@ define noalias noundef ptr @Cudd_zddFirstPath(ptr noundef %0, ptr noundef %1, pt
 58:                                               ; preds = %38
   %59 = load ptr, ptr %37, align 8
   %60 = icmp eq ptr %59, %45
-  br i1 %60, label %thread-pre-split, label %85
+  br i1 %60, label %thread-pre-split, label %84
 
 thread-pre-split:                                 ; preds = %58
   %61 = icmp eq i32 %.pr111, 1
@@ -666,7 +666,7 @@ thread-pre-split:                                 ; preds = %58
 thread-pre-split._crit_edge:                      ; preds = %thread-pre-split, %77
   store i32 0, ptr %13, align 4
   store i32 0, ptr %16, align 8
-  br label %88
+  br label %87
 
 .lr.ph106:                                        ; preds = %thread-pre-split, %77
   %indvars.iv132 = phi i64 [ %indvars.iv.next133, %77 ], [ %39, %thread-pre-split ]
@@ -705,25 +705,24 @@ thread-pre-split._crit_edge:                      ; preds = %thread-pre-split, %
   store i32 2, ptr %81, align 4
   %indvars.iv.next133 = add nsw i64 %indvars.iv132, -1
   %82 = load ptr, ptr %63, align 8
-  %83 = and i64 %indvars.iv.next133, 4294967295
-  %84 = icmp eq i64 %83, 1
-  br i1 %84, label %thread-pre-split._crit_edge, label %.lr.ph106
+  %83 = icmp eq i64 %indvars.iv.next133, 1
+  br i1 %83, label %thread-pre-split._crit_edge, label %.lr.ph106
 
-85:                                               ; preds = %58
+84:                                               ; preds = %58
   store i32 %.pr111, ptr %16, align 8
   store i32 1, ptr %13, align 4
-  %86 = getelementptr inbounds i8, ptr %45, i64 16
-  %87 = load double, ptr %86, align 8
-  store double %87, ptr %15, align 8
-  br label %88
+  %85 = getelementptr inbounds i8, ptr %45, i64 16
+  %86 = load double, ptr %85, align 8
+  store double %86, ptr %15, align 8
+  br label %87
 
-88:                                               ; preds = %85, %thread-pre-split._crit_edge
-  %89 = load ptr, ptr %14, align 8
-  store ptr %89, ptr %2, align 8
-  br label %90
+87:                                               ; preds = %84, %thread-pre-split._crit_edge
+  %88 = load ptr, ptr %14, align 8
+  store ptr %88, ptr %2, align 8
+  br label %89
 
-90:                                               ; preds = %3, %88, %35, %25, %9
-  %.0 = phi ptr [ null, %9 ], [ null, %25 ], [ null, %35 ], [ %7, %88 ], [ null, %3 ]
+89:                                               ; preds = %3, %87, %35, %25, %9
+  %.0 = phi ptr [ null, %9 ], [ null, %25 ], [ null, %35 ], [ %7, %87 ], [ null, %3 ]
   ret ptr %.0
 }
 

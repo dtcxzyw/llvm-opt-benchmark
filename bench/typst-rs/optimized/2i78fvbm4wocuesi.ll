@@ -76037,8 +76037,8 @@ define hidden { ptr, i64 } @"_ZN9hayagriva3csl16Context$LT$T$GT$4term17hca0019a8
   %.sroa.7.0.extract.trunc = trunc nuw i16 %.sroa.7.0.extract.shift to i8
   %21 = and i16 %1, 255
   %22 = icmp eq i16 %21, 106
-  %23 = icmp eq i8 %.sroa.7.0.extract.trunc, 6
-  %.0.i = select i1 %22, i1 %23, i1 false
+  %23 = icmp eq i16 %.sroa.7.0.extract.shift, 6
+  %.0.i = and i1 %22, %23
   br i1 %.0.i, label %24, label %27
 
 24:                                               ; preds = %4

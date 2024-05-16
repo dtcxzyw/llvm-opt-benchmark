@@ -2097,7 +2097,7 @@ while.body:                                       ; preds = %while.cond
 while.end:                                        ; preds = %while.cond
   %9 = trunc nuw i64 %indvars.iv27 to i32
   %10 = trunc nuw i64 %indvars.iv to i32
-  %cmp13 = icmp eq i32 %10, 0
+  %cmp13 = icmp eq i64 %indvars.iv, 0
   %sub14 = sub nsw i32 0, %9
   %cond = select i1 %cmp13, i32 %sub14, i32 %10
   br label %return

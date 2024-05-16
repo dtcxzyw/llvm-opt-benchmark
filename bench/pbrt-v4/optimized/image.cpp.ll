@@ -7164,7 +7164,7 @@ if.then62:                                        ; preds = %if.end59
   br label %if.end64
 
 if.end64:                                         ; preds = %if.then62, %if.end59
-  %cmp66 = icmp eq i32 %resolution.sroa.9.0.extract.trunc, 1
+  %cmp66 = icmp eq i64 %resolution.sroa.9.0.extract.shift, 1
   br i1 %cmp66, label %if.then67, label %return
 
 if.then67:                                        ; preds = %if.end64
@@ -11218,7 +11218,7 @@ if.end59.i.us.i.us.us.us.us.us:                   ; preds = %if.then33.i.us.i.us
   %p.sroa.9.1.us.i.us.us.us.us.us = phi i32 [ %p.sroa.9.0.us.i.us.us.us.us.us, %if.else42.i.us.i.us.us.us.us.us ], [ %sub40.i.us.i.us.us.us.us.us, %if.then33.i.us.i.us.us.us.us.us ], [ %sub56.i.us.i.us.us.us.us.us, %if.then46.i.us.i.us.us.us.us.us ]
   %cmp61.i.us.i.us.us.us.us.us = icmp eq i32 %resolution.sroa.0.0.extract.trunc.i.us.i.us.us.us.us.us, 1
   %spec.select.us.i.us.us.us.us.us = select i1 %cmp61.i.us.i.us.us.us.us.us, i32 0, i32 %p.sroa.0.2.us.i.us.us.us.us.us
-  %cmp66.i.us.i.us.us.us.us.us = icmp eq i32 %resolution.sroa.9.0.extract.trunc.i.us.i.us.us.us.us.us, 1
+  %cmp66.i.us.i.us.us.us.us.us = icmp eq i64 %resolution.sroa.9.0.extract.shift.i.us.i.us.us.us.us.us, 1
   %spec.select116.us.i.us.us.us.us.us = select i1 %cmp66.i.us.i.us.us.us.us.us, i32 0, i32 %p.sroa.9.1.us.i.us.us.us.us.us
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %wrapMode.i.sroa.0.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %wrapMode.i.sroa.4.i)
@@ -11785,7 +11785,7 @@ if.end59.i.us.us.us.us.us.us.i:                   ; preds = %if.then33.i.us.us.u
   %p.sroa.9.1.us.us.us.us.us.us.i = phi i32 [ %p.sroa.9.0.us.us.us.us.us.us.i, %if.else42.i.us.us.us.us.us.us.i ], [ %sub40.i.us.us.us.us.us.us.i, %if.then33.i.us.us.us.us.us.us.i ], [ %sub56.i.us.us.us.us.us.us.i, %if.then46.i.us.us.us.us.us.us.i ]
   %cmp61.i.us.us.us.us.us.us.i = icmp eq i32 %resolution.sroa.0.0.extract.trunc.i.us.us.us.us.us.us.i, 1
   %spec.select.us.us.us.us.us.us.i = select i1 %cmp61.i.us.us.us.us.us.us.i, i32 0, i32 %p.sroa.0.2.us.us.us.us.us.us.i
-  %cmp66.i.us.us.us.us.us.us.i = icmp eq i32 %resolution.sroa.9.0.extract.trunc.i.us.us.us.us.us.us.i, 1
+  %cmp66.i.us.us.us.us.us.us.i = icmp eq i64 %resolution.sroa.9.0.extract.shift.i.us.us.us.us.us.us.i, 1
   %spec.select125.us.us.us.us.us.us.i = select i1 %cmp66.i.us.us.us.us.us.us.i, i32 0, i32 %p.sroa.9.1.us.us.us.us.us.us.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %wrapMode.i.sroa.0.i52)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %wrapMode.i.sroa.4.i53)
@@ -12240,7 +12240,7 @@ if.end59.i.us.us.us.us.us.us.i264:                ; preds = %if.then33.i.us.us.u
   %p.sroa.9.1.us.us.us.us.us.us.i266 = phi i32 [ %p.sroa.9.0.us.us.us.us.us.us.i256, %if.else42.i.us.us.us.us.us.us.i258 ], [ %sub40.i.us.us.us.us.us.us.i280, %if.then33.i.us.us.us.us.us.us.i278 ], [ %sub56.i.us.us.us.us.us.us.i263, %if.then46.i.us.us.us.us.us.us.i260 ]
   %cmp61.i.us.us.us.us.us.us.i267 = icmp eq i32 %resolution.sroa.0.0.extract.trunc.i.us.us.us.us.us.us.i245, 1
   %spec.select.us.us.us.us.us.us.i268 = select i1 %cmp61.i.us.us.us.us.us.us.i267, i32 0, i32 %p.sroa.0.2.us.us.us.us.us.us.i265
-  %cmp66.i.us.us.us.us.us.us.i269 = icmp eq i32 %resolution.sroa.9.0.extract.trunc.i.us.us.us.us.us.us.i247, 1
+  %cmp66.i.us.us.us.us.us.us.i269 = icmp eq i64 %resolution.sroa.9.0.extract.shift.i.us.us.us.us.us.us.i246, 1
   %spec.select104.us.us.us.us.us.us.i = select i1 %cmp66.i.us.us.us.us.us.us.i269, i32 0, i32 %p.sroa.9.1.us.us.us.us.us.us.i266
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %wrapMode.i.sroa.0.i150)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %wrapMode.i.sroa.4.i151)

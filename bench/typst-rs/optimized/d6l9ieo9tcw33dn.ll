@@ -157888,7 +157888,7 @@ define void @_ZN5typst9visualize5color5Color6to_hex17h42f3a118686b99a3E(ptr noal
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14)
   store i8 %.sroa.690.0.extract.trunc, ptr %14, align 1
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %13)
-  %20 = icmp eq i8 %.sroa.690.0.extract.trunc, -1
+  %20 = icmp eq i32 %.sroa.690.0.extract.shift, 255
   br i1 %20, label %21, label %35
 
 21:                                               ; preds = %2

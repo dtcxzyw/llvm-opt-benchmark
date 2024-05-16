@@ -2474,7 +2474,7 @@ sw.bb.i:                                          ; preds = %entry, %entry
   br i1 %cmp.i19, label %if.then.i20, label %if.end30.i
 
 if.then.i20:                                      ; preds = %sw.bb.i
-  %cmp4.i.not = icmp eq i32 %arg.i.sroa.2.0.extract.trunc, 0
+  %cmp4.i.not = icmp ult i64 %arg.coerce, 4294967296
   br i1 %cmp4.i.not, label %if.end.i23, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.then.i20
@@ -2561,7 +2561,7 @@ if.end.i.i.i:                                     ; preds = %while.end.i.i.i
   br label %_ZN3fmt3v106detail14format_decimalIcjEENS1_21format_decimal_resultIPT_EES5_T0_i.exit.i.i
 
 _ZN3fmt3v106detail14format_decimalIcjEENS1_21format_decimal_resultIPT_EES5_T0_i.exit.i.i: ; preds = %if.end.i.i.i, %if.then.i.i.i72
-  %cmp.not10.i.i.i.i.i = icmp eq i32 %conv1.i.i, 0
+  %cmp.not10.i.i.i.i.i = icmp ult i64 %add.i.i, 4294967296
   br i1 %cmp.not10.i.i.i.i.i, label %_ZZN3fmt3v106detail9write_intIcNS0_8appenderEjEET0_S4_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEENKUlS3_E_clES3_.exit, label %while.body.lr.ph.i.i.i.i.i
 
 while.body.lr.ph.i.i.i.i.i:                       ; preds = %_ZN3fmt3v106detail14format_decimalIcjEENS1_21format_decimal_resultIPT_EES5_T0_i.exit.i.i
@@ -2672,7 +2672,7 @@ sw.bb11.i:                                        ; preds = %entry, %entry
 
 if.then.i:                                        ; preds = %sw.bb11.i
   %or.i = select i1 %cmp.i, i32 22576, i32 30768
-  %cmp.not.i = icmp eq i32 %arg.i.sroa.2.0.extract.trunc, 0
+  %cmp.not.i = icmp ult i64 %arg.coerce, 4294967296
   %shl.i = shl nuw nsw i32 %or.i, 8
   %cond.i = select i1 %cmp.not.i, i32 %or.i, i32 %shl.i
   %or.i79 = or i32 %cond.i, %arg.i.sroa.2.0.extract.trunc
@@ -2899,7 +2899,7 @@ sw.bb24.i:                                        ; preds = %entry, %entry
 if.then34.i:                                      ; preds = %sw.bb24.i
   %cmp27.i = icmp eq i8 %0, 6
   %or39.i = select i1 %cmp27.i, i32 16944, i32 25136
-  %cmp.not.i150 = icmp eq i32 %arg.i.sroa.2.0.extract.trunc, 0
+  %cmp.not.i150 = icmp ult i64 %arg.coerce, 4294967296
   %shl.i151 = shl nuw nsw i32 %or39.i, 8
   %cond.i152 = select i1 %cmp.not.i150, i32 %or39.i, i32 %shl.i151
   %or.i153 = or i32 %cond.i152, %arg.i.sroa.2.0.extract.trunc
@@ -3132,7 +3132,7 @@ land.lhs.true.i:                                  ; preds = %sw.bb50.i
   br i1 %or.cond, label %if.then61.i, label %if.end62.i
 
 if.then61.i:                                      ; preds = %land.lhs.true.i
-  %cmp.not.i243 = icmp eq i32 %arg.i.sroa.2.0.extract.trunc, 0
+  %cmp.not.i243 = icmp ult i64 %arg.coerce, 4294967296
   %cond.i244 = select i1 %cmp.not.i243, i32 48, i32 12288
   %or.i245 = or i32 %cond.i244, %arg.i.sroa.2.0.extract.trunc
   %add4.i246 = add i32 %or.i245, 16777216

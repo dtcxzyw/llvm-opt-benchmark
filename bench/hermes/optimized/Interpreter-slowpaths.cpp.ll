@@ -2371,7 +2371,7 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EEONS0_
   br label %return
 
 if.end:                                           ; preds = %entry
-  %cmp.i.i = icmp ult i32 %desc.sroa.44.0.extract.trunc, 5
+  %cmp.i.i = icmp ult i64 %desc.coerce, 21474836480
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end

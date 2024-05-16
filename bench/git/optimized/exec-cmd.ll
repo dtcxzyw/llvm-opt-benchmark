@@ -344,14 +344,13 @@ vaarg.end:                                        ; preds = %vaarg.in_mem, %vaar
   br i1 %or.cond, label %while.body, label %while.end, !llvm.loop !5
 
 while.end:                                        ; preds = %vaarg.end
-  %5 = trunc nuw nsw i64 %indvars.iv to i32
   call void @llvm.va_end.p0(ptr nonnull %param)
-  %cmp4 = icmp ugt i32 %5, 30
+  %cmp4 = icmp ugt i64 %indvars.iv, 30
   br i1 %cmp4, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %while.end
-  %6 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i = icmp eq i32 %6, 0
+  %5 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i = icmp eq i32 %5, 0
   br i1 %tobool1.not.i, label %_.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.then5
@@ -364,8 +363,7 @@ _.exit:                                           ; preds = %if.then5, %if.end3.
   br label %return
 
 if.end8:                                          ; preds = %while.end
-  %idxprom9 = and i64 %indvars.iv.next, 63
-  %arrayidx10 = getelementptr inbounds [33 x ptr], ptr %argv, i64 0, i64 %idxprom9
+  %arrayidx10 = getelementptr inbounds [33 x ptr], ptr %argv, i64 0, i64 %indvars.iv.next
   store ptr null, ptr %arrayidx10, align 8
   %call12 = call i32 @execv_git_cmd(ptr noundef nonnull %argv)
   br label %return

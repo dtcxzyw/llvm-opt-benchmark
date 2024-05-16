@@ -4142,7 +4142,7 @@ php_cli_server_parse_addr.exit.i:                 ; preds = %75, %73, %66, %64
   %120 = load i16, ptr %.sink50.i.i, align 2
   %121 = zext i16 %120 to i32
   store i32 %121, ptr getelementptr inbounds (%struct.php_cli_server, ptr @server, i64 0, i32 5), align 4
-  %122 = icmp eq i32 %76, 0
+  %122 = icmp eq i64 %.sink45.i.i, 0
   br i1 %122, label %123, label %.thread.i.i
 
 123:                                              ; preds = %118

@@ -716,13 +716,13 @@ for.body12:                                       ; preds = %for.body12.lr.ph, %
   %__begin16.0227 = phi ptr [ %54, %for.body12.lr.ph ], [ %incdec.ptr17, %_ZN6hermesL25addPrecanonicalCharactersENS_14CodePointRangeEPNS_12CodePointSetEb.exit ]
   %agg.tmp14.sroa.0.0.copyload = load i64, ptr %__begin16.0227, align 4
   %range.sroa.0.0.extract.trunc.i41 = trunc i64 %agg.tmp14.sroa.0.0.copyload to i32
-  %range.sroa.4.0.extract.shift.i42 = lshr i64 %agg.tmp14.sroa.0.0.copyload, 32
-  %range.sroa.4.0.extract.trunc.i43 = trunc nuw i64 %range.sroa.4.0.extract.shift.i42 to i32
-  %cmp.i44 = icmp eq i32 %range.sroa.4.0.extract.trunc.i43, 0
+  %cmp.i44 = icmp ult i64 %agg.tmp14.sroa.0.0.copyload, 4294967296
   %brmerge = select i1 %cmp.i44, i1 true, i1 %cmp6.not49.i
   br i1 %brmerge, label %_ZN6hermesL25addPrecanonicalCharactersENS_14CodePointRangeEPNS_12CodePointSetEb.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.body12
+  %range.sroa.4.0.extract.shift.i42 = lshr i64 %agg.tmp14.sroa.0.0.copyload, 32
+  %range.sroa.4.0.extract.trunc.i43 = trunc nuw i64 %range.sroa.4.0.extract.shift.i42 to i32
   %add.i3.i.i = add i32 %range.sroa.4.0.extract.trunc.i43, %range.sroa.0.0.extract.trunc.i41
   br label %for.body.i49
 
@@ -739,7 +739,7 @@ for.body.i49:                                     ; preds = %for.inc31.i, %for.b
   %add.i.i.i53 = add nsw i32 %add.i52, %56
   %cmp.i.i54 = icmp ule i32 %add.i.i.i53, %range.sroa.0.0.extract.trunc.i41
   %cmp4.i.i = icmp uge i32 %add.i52, %add.i3.i.i
-  %.not64.i = or i1 %cmp4.i.i, %cmp.i.i54
+  %.not64.i = select i1 %cmp.i.i54, i1 true, i1 %cmp4.i.i
   %cmp2044.not.i = icmp ult i32 %55, 16777216
   %or.cond.i = or i1 %cmp2044.not.i, %.not64.i
   br i1 %or.cond.i, label %for.inc31.i, label %for.body21.lr.ph.i

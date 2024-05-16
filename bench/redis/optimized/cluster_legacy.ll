@@ -16405,7 +16405,7 @@ cond.end:                                         ; preds = %land.lhs.true, %con
   br label %for.body29
 
 for.body29:                                       ; preds = %cond.end, %for.inc44
-  %13 = phi ptr [ %.pre63, %cond.end ], [ %18, %for.inc44 ]
+  %13 = phi ptr [ %.pre63, %cond.end ], [ %16, %for.inc44 ]
   %indvars.iv55 = phi i64 [ 0, %cond.end ], [ %indvars.iv.next56, %for.inc44 ]
   %tot_msg_sent.049 = phi i64 [ 0, %cond.end ], [ %tot_msg_sent.1, %for.inc44 ]
   %info.048 = phi ptr [ %call26, %cond.end ], [ %info.1, %for.inc44 ]
@@ -16417,13 +16417,11 @@ for.body29:                                       ; preds = %cond.end, %for.inc4
 
 if.end34:                                         ; preds = %for.body29
   %add38 = add nsw i64 %14, %tot_msg_sent.049
-  %15 = trunc nuw nsw i64 %indvars.iv55 to i32
-  %16 = icmp ult i32 %15, 11
-  br i1 %16, label %switch.lookup, label %clusterGetMessageTypeString.exit
+  %15 = icmp ult i64 %indvars.iv55, 11
+  br i1 %15, label %switch.lookup, label %clusterGetMessageTypeString.exit
 
 switch.lookup:                                    ; preds = %if.end34
-  %17 = and i64 %indvars.iv55, 15
-  %switch.gep = getelementptr inbounds [11 x ptr], ptr @switch.table.genClusterInfoString.15, i64 0, i64 %17
+  %switch.gep = getelementptr inbounds [11 x ptr], ptr @switch.table.genClusterInfoString.15, i64 0, i64 %indvars.iv55
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %clusterGetMessageTypeString.exit
 
@@ -16434,7 +16432,7 @@ clusterGetMessageTypeString.exit:                 ; preds = %if.end34, %switch.l
   br label %for.inc44
 
 for.inc44:                                        ; preds = %for.body29, %clusterGetMessageTypeString.exit
-  %18 = phi ptr [ %13, %for.body29 ], [ %.pre, %clusterGetMessageTypeString.exit ]
+  %16 = phi ptr [ %13, %for.body29 ], [ %.pre, %clusterGetMessageTypeString.exit ]
   %info.1 = phi ptr [ %info.048, %for.body29 ], [ %call43, %clusterGetMessageTypeString.exit ]
   %tot_msg_sent.1 = phi i64 [ %tot_msg_sent.049, %for.body29 ], [ %add38, %clusterGetMessageTypeString.exit ]
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
@@ -16447,36 +16445,34 @@ for.end46:                                        ; preds = %for.inc44
   br label %for.body51
 
 for.body51:                                       ; preds = %for.end46, %for.inc66
-  %19 = phi ptr [ %.pre65, %for.end46 ], [ %24, %for.inc66 ]
+  %17 = phi ptr [ %.pre65, %for.end46 ], [ %20, %for.inc66 ]
   %indvars.iv59 = phi i64 [ 0, %for.end46 ], [ %indvars.iv.next60, %for.inc66 ]
   %tot_msg_received.052 = phi i64 [ 0, %for.end46 ], [ %tot_msg_received.1, %for.inc66 ]
   %info.251 = phi ptr [ %call47, %for.end46 ], [ %info.3, %for.inc66 ]
-  %stats_bus_messages_received = getelementptr inbounds i8, ptr %19, i64 393448
+  %stats_bus_messages_received = getelementptr inbounds i8, ptr %17, i64 393448
   %arrayidx53 = getelementptr inbounds [11 x i64], ptr %stats_bus_messages_received, i64 0, i64 %indvars.iv59
-  %20 = load i64, ptr %arrayidx53, align 8
-  %cmp54 = icmp eq i64 %20, 0
+  %18 = load i64, ptr %arrayidx53, align 8
+  %cmp54 = icmp eq i64 %18, 0
   br i1 %cmp54, label %for.inc66, label %if.end56
 
 if.end56:                                         ; preds = %for.body51
-  %add60 = add nsw i64 %20, %tot_msg_received.052
-  %21 = trunc nuw nsw i64 %indvars.iv59 to i32
-  %22 = icmp ult i32 %21, 11
-  br i1 %22, label %switch.lookup66, label %clusterGetMessageTypeString.exit42
+  %add60 = add nsw i64 %18, %tot_msg_received.052
+  %19 = icmp ult i64 %indvars.iv59, 11
+  br i1 %19, label %switch.lookup66, label %clusterGetMessageTypeString.exit42
 
 switch.lookup66:                                  ; preds = %if.end56
-  %23 = and i64 %indvars.iv59, 15
-  %switch.gep67 = getelementptr inbounds [11 x ptr], ptr @switch.table.genClusterInfoString.15, i64 0, i64 %23
+  %switch.gep67 = getelementptr inbounds [11 x ptr], ptr @switch.table.genClusterInfoString.15, i64 0, i64 %indvars.iv59
   %switch.load68 = load ptr, ptr %switch.gep67, align 8
   br label %clusterGetMessageTypeString.exit42
 
 clusterGetMessageTypeString.exit42:               ; preds = %if.end56, %switch.lookup66
   %retval.0.i31 = phi ptr [ %switch.load68, %switch.lookup66 ], [ @.str.179, %if.end56 ]
-  %call65 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %info.251, ptr noundef nonnull @.str.202, ptr noundef nonnull %retval.0.i31, i64 noundef %20) #32
+  %call65 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %info.251, ptr noundef nonnull @.str.202, ptr noundef nonnull %retval.0.i31, i64 noundef %18) #32
   %.pre64 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 367), align 8
   br label %for.inc66
 
 for.inc66:                                        ; preds = %for.body51, %clusterGetMessageTypeString.exit42
-  %24 = phi ptr [ %19, %for.body51 ], [ %.pre64, %clusterGetMessageTypeString.exit42 ]
+  %20 = phi ptr [ %17, %for.body51 ], [ %.pre64, %clusterGetMessageTypeString.exit42 ]
   %info.3 = phi ptr [ %info.251, %for.body51 ], [ %call65, %clusterGetMessageTypeString.exit42 ]
   %tot_msg_received.1 = phi i64 [ %tot_msg_received.052, %for.body51 ], [ %add60, %clusterGetMessageTypeString.exit42 ]
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
@@ -16485,10 +16481,10 @@ for.inc66:                                        ; preds = %for.body51, %cluste
 
 for.end68:                                        ; preds = %for.inc66
   %call69 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %info.3, ptr noundef nonnull @.str.203, i64 noundef %tot_msg_received.1) #32
-  %25 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 367), align 8
-  %stat_cluster_links_buffer_limit_exceeded = getelementptr inbounds i8, ptr %25, i64 393544
-  %26 = load i64, ptr %stat_cluster_links_buffer_limit_exceeded, align 8
-  %call70 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call69, ptr noundef nonnull @.str.204, i64 noundef %26) #32
+  %21 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 367), align 8
+  %stat_cluster_links_buffer_limit_exceeded = getelementptr inbounds i8, ptr %21, i64 393544
+  %22 = load i64, ptr %stat_cluster_links_buffer_limit_exceeded, align 8
+  %call70 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call69, ptr noundef nonnull @.str.204, i64 noundef %22) #32
   ret ptr %call70
 }
 

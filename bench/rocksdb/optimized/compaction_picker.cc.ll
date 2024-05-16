@@ -3299,7 +3299,7 @@ for.inc:                                          ; preds = %land.rhs
 
 if.end:                                           ; preds = %land.rhs
   %8 = trunc nuw nsw i64 %indvars.iv to i32
-  %cmp7 = icmp ne i32 %8, 0
+  %cmp7 = icmp ne i64 %indvars.iv, 0
   %_M_node_count.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %9 = load i64, ptr %_M_node_count.i.i, align 8
   %cmp.i.i = icmp eq i64 %9, 0

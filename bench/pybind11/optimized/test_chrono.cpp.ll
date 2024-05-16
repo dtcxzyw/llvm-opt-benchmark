@@ -22510,7 +22510,7 @@ define linkonce_odr hidden ptr @_ZN8pybind116detail11type_casterINSt6chrono10tim
   %9 = srem i64 %.sroa.0.0.copyload.i, 1000000000
   %.lhs.trunc = trunc nsw i64 %9 to i32
   %10 = sdiv i32 %.lhs.trunc, 1000
-  %11 = icmp slt i32 %.lhs.trunc, -999
+  %11 = icmp slt i64 %9, -999
   %12 = add nsw i32 %10, 1000000
   %spec.select = select i1 %11, i32 %12, i32 %10
   %13 = zext nneg i32 %spec.select to i64
@@ -32987,7 +32987,7 @@ define linkonce_odr hidden ptr @_ZN8pybind116detail11type_casterINSt6chrono10tim
   %9 = srem i64 %.sroa.0.0.copyload.i, 1000
   %10 = trunc nsw i64 %9 to i32
   %11 = mul nsw i32 %10, 1000
-  %12 = icmp slt i32 %10, 0
+  %12 = icmp slt i64 %9, 0
   %13 = add nsw i32 %11, 1000000
   %spec.select = select i1 %12, i32 %13, i32 %11
   %14 = mul nsw i64 %.sroa.0.0.copyload.i, 1000
@@ -33635,7 +33635,7 @@ define linkonce_odr hidden ptr @_ZN8pybind116detail11type_casterINSt6chrono10tim
   %.sroa.0.0.copyload.i = load i64, ptr %0, align 8
   %9 = srem i64 %.sroa.0.0.copyload.i, 1000000
   %10 = trunc nsw i64 %9 to i32
-  %11 = icmp slt i32 %10, 0
+  %11 = icmp slt i64 %9, 0
   %12 = add nsw i32 %10, 1000000
   %spec.select = select i1 %11, i32 %12, i32 %10
   %13 = zext nneg i32 %spec.select to i64

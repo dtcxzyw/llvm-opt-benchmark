@@ -4633,7 +4633,6 @@ if.end:                                           ; preds = %if.else, %if.then
   %storemerge = load i64, ptr %ref.tmp3.sink, align 4
   %full_path.sroa.0.0.extract.trunc = trunc i64 %storemerge to i32
   %full_path.sroa.4.0.extract.shift = lshr i64 %storemerge, 32
-  %full_path.sroa.4.0.extract.trunc = trunc nuw i64 %full_path.sroa.4.0.extract.shift to i32
   %username = getelementptr inbounds i8, ptr %parsed, i64 8
   %password = getelementptr inbounds i8, ptr %parsed, i64 16
   %host = getelementptr inbounds i8, ptr %parsed, i64 24
@@ -4642,7 +4641,7 @@ if.end:                                           ; preds = %if.else, %if.then
   %path = getelementptr inbounds i8, ptr %parsed, i64 40
   %query = getelementptr inbounds i8, ptr %parsed, i64 48
   %ref = getelementptr inbounds i8, ptr %parsed, i64 56
-  %cmp.i = icmp eq i32 %full_path.sroa.4.0.extract.trunc, -1
+  %cmp.i = icmp eq i64 %full_path.sroa.4.0.extract.shift, 4294967295
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end
@@ -4653,6 +4652,7 @@ if.then.i:                                        ; preds = %if.end
   br label %_ZN3url12_GLOBAL__N_19ParsePathIcEEvPKT_RKNS_9ComponentEPS5_S8_S8_.exit
 
 if.end.i:                                         ; preds = %if.end
+  %full_path.sroa.4.0.extract.trunc = trunc nuw i64 %full_path.sroa.4.0.extract.shift to i32
   %add.i = add nsw i32 %full_path.sroa.4.0.extract.trunc, %full_path.sroa.0.0.extract.trunc
   %cmp343.i = icmp sgt i32 %full_path.sroa.4.0.extract.trunc, 0
   br i1 %cmp343.i, label %for.body.preheader.i28, label %if.else.i
@@ -4869,7 +4869,6 @@ if.end:                                           ; preds = %if.else, %if.then
   %storemerge = load i64, ptr %ref.tmp3.sink, align 4
   %full_path.sroa.0.0.extract.trunc = trunc i64 %storemerge to i32
   %full_path.sroa.4.0.extract.shift = lshr i64 %storemerge, 32
-  %full_path.sroa.4.0.extract.trunc = trunc nuw i64 %full_path.sroa.4.0.extract.shift to i32
   %username = getelementptr inbounds i8, ptr %parsed, i64 8
   %password = getelementptr inbounds i8, ptr %parsed, i64 16
   %host = getelementptr inbounds i8, ptr %parsed, i64 24
@@ -4878,7 +4877,7 @@ if.end:                                           ; preds = %if.else, %if.then
   %path = getelementptr inbounds i8, ptr %parsed, i64 40
   %query = getelementptr inbounds i8, ptr %parsed, i64 48
   %ref = getelementptr inbounds i8, ptr %parsed, i64 56
-  %cmp.i = icmp eq i32 %full_path.sroa.4.0.extract.trunc, -1
+  %cmp.i = icmp eq i64 %full_path.sroa.4.0.extract.shift, 4294967295
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end
@@ -4889,6 +4888,7 @@ if.then.i:                                        ; preds = %if.end
   br label %_ZN3url12_GLOBAL__N_19ParsePathItEEvPKT_RKNS_9ComponentEPS5_S8_S8_.exit
 
 if.end.i:                                         ; preds = %if.end
+  %full_path.sroa.4.0.extract.trunc = trunc nuw i64 %full_path.sroa.4.0.extract.shift to i32
   %add.i = add nsw i32 %full_path.sroa.4.0.extract.trunc, %full_path.sroa.0.0.extract.trunc
   %cmp343.i = icmp sgt i32 %full_path.sroa.4.0.extract.trunc, 0
   br i1 %cmp343.i, label %for.body.preheader.i28, label %if.else.i

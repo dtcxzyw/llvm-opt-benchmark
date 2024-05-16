@@ -6144,7 +6144,7 @@ _ZNK4entt14basic_registryINS_6entityESaIS1_EE7currentES1_.exit: ; preds = %land.
   store i16 %conv2.i.i.i1121, ptr %ref.tmp241, align 2, !tbaa !146
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ref.tmp245) #21
   store i16 0, ptr %ref.tmp245, align 2, !tbaa !146
-  %cmp.i.i1122 = icmp eq i16 %conv2.i.i.i1121, 0
+  %cmp.i.i1122 = icmp ult i32 %158, 1048576
   br i1 %cmp.i.i1122, label %if.then.i.i1124, label %if.end.i.i1123
 
 if.then.i.i1124:                                  ; preds = %_ZNK4entt14basic_registryINS_6entityESaIS1_EE7currentES1_.exit

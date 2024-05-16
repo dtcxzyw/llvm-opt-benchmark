@@ -1178,7 +1178,7 @@ for.inc.i:                                        ; preds = %land.lhs.true.i, %f
 
 gc_select_generation.exit:                        ; preds = %if.then.i
   %7 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %cmp4 = icmp slt i32 %7, 0
+  %cmp4 = icmp slt i64 %indvars.iv.i, 0
   br i1 %cmp4, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %for.inc.i, %gc_select_generation.exit

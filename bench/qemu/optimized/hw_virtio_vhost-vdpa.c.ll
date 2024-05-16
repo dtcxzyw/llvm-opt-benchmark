@@ -2183,13 +2183,12 @@ err_map.i:                                        ; preds = %if.then34.i, %vhost
 err44.i:                                          ; preds = %err_map.i, %vhost_vdpa_svq_setup.exit.thread45.i, %vhost_vdpa_svq_setup.exit.thread.i
   %50 = load ptr, ptr %err.i, align 8
   call void (ptr, ptr, ...) @error_reportf_err(ptr noundef %50, ptr noundef nonnull @.str.88, i32 noundef %23) #12
-  %cmp46131.not.i = icmp eq i32 %23, 0
+  %cmp46131.not.i = icmp eq i64 %indvars.iv.i, 0
   br i1 %cmp46131.not.i, label %vhost_vdpa_svqs_start.exit, label %for.body48.lr.ph.i
 
 for.body48.lr.ph.i:                               ; preds = %err44.i
   %desc_user_addr.i42.i = getelementptr inbounds i8, ptr %svq_addr.i41.i, i64 8
   %used_user_addr.i43.i = getelementptr inbounds i8, ptr %svq_addr.i41.i, i64 16
-  %wide.trip.count.i = and i64 %indvars.iv.i, 4294967295
   br label %for.body48.i
 
 for.body48.i:                                     ; preds = %for.body48.i, %for.body48.lr.ph.i
@@ -2208,7 +2207,7 @@ for.body48.i:                                     ; preds = %for.body48.i, %for.
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %svq_addr.i41.i)
   call void @vhost_svq_stop(ptr noundef %53) #12
   %indvars.iv.next208.i = add nuw nsw i64 %indvars.iv207.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next208.i, %wide.trip.count.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next208.i, %indvars.iv.i
   br i1 %exitcond.not.i, label %vhost_vdpa_svqs_start.exit, label %for.body48.i, !llvm.loop !11
 
 vhost_vdpa_svqs_start.exit.thread:                ; preds = %for.inc.i33, %vhost_vdpa_host_notifiers_init.exit, %for.cond.preheader.i

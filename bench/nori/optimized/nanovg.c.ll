@@ -15997,7 +15997,7 @@ stbi__zreceive.exit.i.i:                          ; preds = %100
   %111 = sub i32 %110, %109
   store i32 %118, ptr %37, align 4
   store i32 %111, ptr %36, align 8
-  %112 = icmp ult i32 %.pr.i.i, 25
+  %112 = icmp ult i64 %indvars.iv.i.i, 3
   br i1 %112, label %.lr.ph42.i.i, label %._crit_edge.i.i
 
 .lr.ph42.i.i:                                     ; preds = %.preheader.i.i, %104
@@ -16409,12 +16409,12 @@ stbi__fill_bits.exit.i.i.i:                       ; preds = %stbi__zget8.exit.i.
   br i1 %310, label %311, label %307
 
 311:                                              ; preds = %307
-  %312 = trunc nuw nsw i64 %indvars.iv.i.i.i.i to i32
-  %313 = icmp eq i32 %312, 16
-  br i1 %313, label %stbi__compute_huffman_codes.exit.thread.sink.split.i, label %314
+  %312 = icmp eq i64 %indvars.iv.i.i.i.i, 16
+  br i1 %312, label %stbi__compute_huffman_codes.exit.thread.sink.split.i, label %313
 
-314:                                              ; preds = %311
-  %315 = sub nsw i32 16, %312
+313:                                              ; preds = %311
+  %314 = trunc nuw nsw i64 %indvars.iv.i.i.i.i to i32
+  %315 = sub nsw i32 16, %314
   %316 = lshr i32 %306, %315
   %317 = getelementptr inbounds [16 x i16], ptr %44, i64 0, i64 %indvars.iv.i.i.i.i
   %318 = load i16, ptr %317, align 2
@@ -16424,9 +16424,9 @@ stbi__fill_bits.exit.i.i.i:                       ; preds = %stbi__zget8.exit.i.
   %322 = load i16, ptr %321, align 2
   %323 = zext i16 %322 to i32
   %324 = add nsw i32 %320, %323
-  %325 = lshr i32 %294, %312
+  %325 = lshr i32 %294, %314
   store i32 %325, ptr %37, align 4
-  %326 = sub nsw i32 %293, %312
+  %326 = sub nsw i32 %293, %314
   store i32 %326, ptr %36, align 8
   %327 = sext i32 %324 to i64
   %328 = getelementptr inbounds [288 x i16], ptr %46, i64 0, i64 %327
@@ -16434,10 +16434,10 @@ stbi__fill_bits.exit.i.i.i:                       ; preds = %stbi__zget8.exit.i.
   %330 = zext i16 %329 to i32
   br label %stbi__zhuffman_decode.exit.i.i
 
-stbi__zhuffman_decode.exit.i.i:                   ; preds = %314, %299
-  %.promoted6.i.i112.i.i = phi i32 [ %302, %299 ], [ %325, %314 ]
-  %331 = phi i32 [ %303, %299 ], [ %326, %314 ]
-  %.0.i.i47.i = phi i32 [ %304, %299 ], [ %330, %314 ]
+stbi__zhuffman_decode.exit.i.i:                   ; preds = %313, %299
+  %.promoted6.i.i112.i.i = phi i32 [ %302, %299 ], [ %325, %313 ]
+  %331 = phi i32 [ %303, %299 ], [ %326, %313 ]
+  %.0.i.i47.i = phi i32 [ %304, %299 ], [ %330, %313 ]
   %or.cond.i.i = icmp ugt i32 %.0.i.i47.i, 18
   br i1 %or.cond.i.i, label %stbi__compute_huffman_codes.exit.thread.sink.split.i, label %332
 
@@ -16733,12 +16733,12 @@ stbi__fill_bits.exit.i.i56.i:                     ; preds = %stbi__zget8.exit.i.
   br i1 %469, label %470, label %466
 
 470:                                              ; preds = %466
-  %471 = trunc nuw nsw i64 %indvars.iv.i.i.i68.i to i32
-  %472 = icmp eq i32 %471, 16
-  br i1 %472, label %491, label %473
+  %471 = icmp eq i64 %indvars.iv.i.i.i68.i, 16
+  br i1 %471, label %491, label %472
 
-473:                                              ; preds = %470
-  %474 = sub nsw i32 16, %471
+472:                                              ; preds = %470
+  %473 = trunc nuw nsw i64 %indvars.iv.i.i.i68.i to i32
+  %474 = sub nsw i32 16, %473
   %475 = lshr i32 %465, %474
   %476 = getelementptr inbounds [16 x i16], ptr %48, i64 0, i64 %indvars.iv.i.i.i68.i
   %477 = load i16, ptr %476, align 2
@@ -16748,9 +16748,9 @@ stbi__fill_bits.exit.i.i56.i:                     ; preds = %stbi__zget8.exit.i.
   %481 = load i16, ptr %480, align 2
   %482 = zext i16 %481 to i32
   %483 = add nsw i32 %479, %482
-  %484 = lshr i32 %453, %471
+  %484 = lshr i32 %453, %473
   store i32 %484, ptr %37, align 4
-  %485 = sub nsw i32 %452, %471
+  %485 = sub nsw i32 %452, %473
   store i32 %485, ptr %36, align 8
   %486 = sext i32 %483 to i64
   %487 = getelementptr inbounds [288 x i16], ptr %50, i64 0, i64 %486
@@ -16758,10 +16758,10 @@ stbi__fill_bits.exit.i.i56.i:                     ; preds = %stbi__zget8.exit.i.
   %489 = zext i16 %488 to i32
   br label %stbi__zhuffman_decode.exit.i58.i
 
-stbi__zhuffman_decode.exit.i58.i:                 ; preds = %473, %458
-  %.promoted6.i.i78.i.i = phi i32 [ %461, %458 ], [ %484, %473 ]
-  %.pr.i59.i = phi i32 [ %462, %458 ], [ %485, %473 ]
-  %.0.i.i60.i = phi i32 [ %463, %458 ], [ %489, %473 ]
+stbi__zhuffman_decode.exit.i58.i:                 ; preds = %472, %458
+  %.promoted6.i.i78.i.i = phi i32 [ %461, %458 ], [ %484, %472 ]
+  %.pr.i59.i = phi i32 [ %462, %458 ], [ %485, %472 ]
+  %.0.i.i60.i = phi i32 [ %463, %458 ], [ %489, %472 ]
   %490 = icmp ult i32 %.0.i.i60.i, 256
   br i1 %490, label %492, label %520
 
@@ -16962,12 +16962,12 @@ stbi__fill_bits.exit.i85.i.i:                     ; preds = %stbi__zget8.exit.i.
   br i1 %588, label %589, label %585
 
 589:                                              ; preds = %585
-  %590 = trunc nuw nsw i64 %indvars.iv.i.i90.i.i to i32
-  %591 = icmp eq i32 %590, 16
-  br i1 %591, label %stbi__zhuffman_decode.exit97.i.i, label %592
+  %590 = icmp eq i64 %indvars.iv.i.i90.i.i, 16
+  br i1 %590, label %stbi__zhuffman_decode.exit97.i.i, label %591
 
-592:                                              ; preds = %589
-  %593 = sub nsw i32 16, %590
+591:                                              ; preds = %589
+  %592 = trunc nuw nsw i64 %indvars.iv.i.i90.i.i to i32
+  %593 = sub nsw i32 16, %592
   %594 = lshr i32 %584, %593
   %595 = getelementptr inbounds [16 x i16], ptr %52, i64 0, i64 %indvars.iv.i.i90.i.i
   %596 = load i16, ptr %595, align 2
@@ -16977,9 +16977,9 @@ stbi__fill_bits.exit.i85.i.i:                     ; preds = %stbi__zget8.exit.i.
   %600 = load i16, ptr %599, align 2
   %601 = zext i16 %600 to i32
   %602 = add nsw i32 %598, %601
-  %603 = lshr i32 %572, %590
+  %603 = lshr i32 %572, %592
   store i32 %603, ptr %37, align 4
-  %604 = sub nsw i32 %571, %590
+  %604 = sub nsw i32 %571, %592
   store i32 %604, ptr %36, align 8
   %605 = sext i32 %602 to i64
   %606 = getelementptr inbounds [288 x i16], ptr %54, i64 0, i64 %605
@@ -16991,10 +16991,10 @@ stbi__zhuffman_decode.exit97.i.i:                 ; preds = %589
   store ptr @.str.50, ptr @stbi__g_failure_reason, align 8
   br label %stbi__parse_zlib.exit
 
-609:                                              ; preds = %592, %577
-  %.promoted6.i.i104.i.i = phi i32 [ %603, %592 ], [ %580, %577 ]
-  %610 = phi i32 [ %604, %592 ], [ %581, %577 ]
-  %.0.i87.ph.i.i = phi i32 [ %608, %592 ], [ %582, %577 ]
+609:                                              ; preds = %591, %577
+  %.promoted6.i.i104.i.i = phi i32 [ %603, %591 ], [ %580, %577 ]
+  %610 = phi i32 [ %604, %591 ], [ %581, %577 ]
+  %.0.i87.ph.i.i = phi i32 [ %608, %591 ], [ %582, %577 ]
   %611 = zext nneg i32 %.0.i87.ph.i.i to i64
   %612 = getelementptr inbounds [32 x i32], ptr @stbi__zdist_base, i64 0, i64 %611
   %613 = load i32, ptr %612, align 4
@@ -23786,30 +23786,28 @@ nvgFindFont.exit:                                 ; preds = %19, %3, %5, %._crit
 nvgFindFont.exit12:                               ; preds = %30
   %37 = trunc nuw nsw i64 %indvars.iv.i.i8 to i32
   %38 = icmp eq i32 %.0.i, -1
-  %39 = icmp eq i32 %37, -1
-  %or.cond.i = or i1 %38, %39
-  br i1 %or.cond.i, label %nvgAddFallbackFontId.exit, label %40
+  br i1 %38, label %nvgAddFallbackFontId.exit, label %39
 
-40:                                               ; preds = %nvgFindFont.exit12
-  %41 = sext i32 %.0.i to i64
-  %42 = getelementptr inbounds ptr, ptr %29, i64 %41
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 1272
-  %45 = load i32, ptr %44, align 8
-  %46 = icmp slt i32 %45, 20
-  br i1 %46, label %47, label %nvgAddFallbackFontId.exit
+39:                                               ; preds = %nvgFindFont.exit12
+  %40 = sext i32 %.0.i to i64
+  %41 = getelementptr inbounds ptr, ptr %29, i64 %40
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds i8, ptr %42, i64 1272
+  %44 = load i32, ptr %43, align 8
+  %45 = icmp slt i32 %44, 20
+  br i1 %45, label %46, label %nvgAddFallbackFontId.exit
 
-47:                                               ; preds = %40
-  %48 = getelementptr inbounds i8, ptr %43, i64 1192
-  %49 = add nsw i32 %45, 1
-  store i32 %49, ptr %44, align 8
-  %50 = sext i32 %45 to i64
-  %51 = getelementptr inbounds [20 x i32], ptr %48, i64 0, i64 %50
-  store i32 %37, ptr %51, align 4
+46:                                               ; preds = %39
+  %47 = getelementptr inbounds i8, ptr %42, i64 1192
+  %48 = add nsw i32 %44, 1
+  store i32 %48, ptr %43, align 8
+  %49 = sext i32 %44 to i64
+  %50 = getelementptr inbounds [20 x i32], ptr %47, i64 0, i64 %49
+  store i32 %37, ptr %50, align 4
   br label %nvgAddFallbackFontId.exit
 
-nvgAddFallbackFontId.exit:                        ; preds = %36, %22, %nvgFindFont.exit, %nvgFindFont.exit12, %40, %47
-  %.0.i13 = phi i32 [ 0, %nvgFindFont.exit12 ], [ 1, %47 ], [ 0, %40 ], [ 0, %nvgFindFont.exit ], [ 0, %22 ], [ 0, %36 ]
+nvgAddFallbackFontId.exit:                        ; preds = %36, %22, %nvgFindFont.exit, %nvgFindFont.exit12, %39, %46
+  %.0.i13 = phi i32 [ 0, %nvgFindFont.exit12 ], [ 1, %46 ], [ 0, %39 ], [ 0, %nvgFindFont.exit ], [ 0, %22 ], [ 0, %36 ]
   ret i32 %.0.i13
 }
 
@@ -28053,7 +28051,7 @@ stbi__jpeg_get_bit.exit.i.us.i.i.i.i:             ; preds = %575, %572
 
 622:                                              ; preds = %618
   %623 = trunc nuw nsw i64 %indvars.iv.i145.i.us.i.i.i.i to i32
-  %624 = icmp eq i32 %623, 17
+  %624 = icmp eq i64 %indvars.iv.i145.i.us.i.i.i.i, 17
   %625 = load i32, ptr %55, align 4
   br i1 %624, label %stbi__jpeg_decode_block_prog_ac.exit.sink.split.sink.split.i.i.i.i, label %626
 
@@ -28350,7 +28348,7 @@ stbi__jpeg_get_bit.exit152.i.us.i.i.i.i:          ; preds = %681, %678
 
 766:                                              ; preds = %762
   %767 = trunc nuw nsw i64 %indvars.iv.i.i.us.i.i.i.i to i32
-  %768 = icmp eq i32 %767, 17
+  %768 = icmp eq i64 %indvars.iv.i.i.us.i.i.i.i, 17
   %769 = load i32, ptr %55, align 4
   br i1 %768, label %stbi__jpeg_decode_block_prog_ac.exit.sink.split.sink.split.i.i.i.i, label %770
 
@@ -41607,7 +41605,7 @@ stbi__get8.exit201:                               ; preds = %480, %483, %stbi__r
 
 527:                                              ; preds = %524
   %528 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %529 = shl i32 %528, %523
+  %529 = shl nuw nsw i32 %528, %523
   %530 = and i32 %529, 511
   %531 = sub nsw i32 9, %520
   %532 = lshr i32 %530, %531
@@ -43674,7 +43672,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi__jpeg_decode_block(ptr nocaptur
 
 40:                                               ; preds = %36
   %41 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %42 = icmp eq i32 %41, 17
+  %42 = icmp eq i64 %indvars.iv.i, 17
   %43 = load i32, ptr %8, align 4
   br i1 %42, label %.loopexit72.sink.split.sink.split, label %44
 
@@ -43853,7 +43851,7 @@ stbi__extend_receive.exit:                        ; preds = %61, %64
 
 149:                                              ; preds = %145
   %150 = trunc nuw nsw i64 %indvars.iv.i64 to i32
-  %151 = icmp eq i32 %150, 17
+  %151 = icmp eq i64 %indvars.iv.i64, 17
   %152 = load i32, ptr %8, align 4
   br i1 %151, label %.loopexit72.sink.split.sink.split, label %153
 
@@ -44272,7 +44270,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi__jpeg_decode_block_prog_dc(ptr 
 
 48:                                               ; preds = %44
   %49 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %50 = icmp eq i32 %49, 17
+  %50 = icmp eq i64 %indvars.iv.i, 17
   %51 = load i32, ptr %9, align 4
   br i1 %50, label %52, label %54
 
@@ -45008,12 +45006,11 @@ stbi__get8.exit297.thread:                        ; preds = %193, %stbi__get8.ex
   br i1 %.not246, label %.preheader, label %238
 
 .preheader:                                       ; preds = %235
-  %.not688 = icmp ult i16 %.lhs.trunc, 3
+  %.not688 = icmp ult i32 %52, 3
   br i1 %.not688, label %stbi__skip.exit, label %.lr.ph685.preheader
 
 .lr.ph685.preheader:                              ; preds = %.preheader
-  %umax = tail call i32 @llvm.umax.i32(i32 %.zext, i32 1)
-  %wide.trip.count999 = zext nneg i32 %umax to i64
+  %wide.trip.count999 = zext nneg i16 %236 to i64
   %.pre1007 = load ptr, ptr %12, align 8
   %.pre1008 = load ptr, ptr %13, align 8
   br label %.lr.ph685

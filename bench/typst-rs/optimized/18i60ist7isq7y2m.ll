@@ -4298,10 +4298,9 @@ default.unreachable161:                           ; preds = %71
   %.sroa.45.0.extract.shift.i = lshr i32 %77, 8
   %.sroa.56.0.extract.shift.i = lshr i32 %77, 16
   %.sroa.67.0.extract.shift.i = lshr i32 %77, 24
-  %.sroa.67.0.extract.trunc.i = trunc nuw i32 %.sroa.67.0.extract.shift.i to i8
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %17), !noalias !788
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %23)
-  %.not.i = icmp eq i8 %.sroa.67.0.extract.trunc.i, -1
+  %.not.i = icmp eq i32 %.sroa.67.0.extract.shift.i, 255
   br i1 %.not.i, label %91, label %94
 
 91:                                               ; preds = %90
@@ -4314,6 +4313,7 @@ default.unreachable161:                           ; preds = %71
   br label %116
 
 94:                                               ; preds = %90
+  %.sroa.67.0.extract.trunc.i = trunc nuw i32 %.sroa.67.0.extract.shift.i to i8
   %95 = and i32 %77, 255
   %96 = mul nuw nsw i32 %95, %.sroa.67.0.extract.shift.i
   %97 = add nuw nsw i32 %96, 128
@@ -6264,10 +6264,9 @@ define i32 @"_ZN76_$LT$typst_render..GradientSampler$u20$as$u20$typst_render..Pa
   %.sroa.45.0.extract.shift.i = lshr i32 %22, 8
   %.sroa.56.0.extract.shift.i = lshr i32 %22, 16
   %.sroa.67.0.extract.shift.i = lshr i32 %22, 24
-  %.sroa.67.0.extract.trunc.i = trunc nuw i32 %.sroa.67.0.extract.shift.i to i8
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4), !noalias !1038
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5)
-  %.not.i = icmp eq i8 %.sroa.67.0.extract.trunc.i, -1
+  %.not.i = icmp eq i32 %.sroa.67.0.extract.shift.i, 255
   br i1 %.not.i, label %23, label %26
 
 23:                                               ; preds = %3
@@ -6280,6 +6279,7 @@ define i32 @"_ZN76_$LT$typst_render..GradientSampler$u20$as$u20$typst_render..Pa
   br label %_ZN9tiny_skia5color7ColorU811premultiply17h8c58aadcfbc7a0a2E.llvm.16692754411296152993.exit
 
 26:                                               ; preds = %3
+  %.sroa.67.0.extract.trunc.i = trunc nuw i32 %.sroa.67.0.extract.shift.i to i8
   %27 = and i32 %22, 255
   %28 = mul nuw nsw i32 %27, %.sroa.67.0.extract.shift.i
   %29 = add nuw nsw i32 %28, 128

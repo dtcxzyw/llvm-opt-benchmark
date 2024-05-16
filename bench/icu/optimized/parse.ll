@@ -1643,8 +1643,7 @@ if.then49.invoke:                                 ; preds = %if.end34, %if.end30
           to label %cleanup unwind label %lpad18
 
 for.end:                                          ; preds = %for.cond
-  %23 = trunc nuw nsw i64 %indvars.iv62 to i32
-  %cmp52 = icmp eq i32 %23, 0
+  %cmp52 = icmp eq i64 %indvars.iv62, 0
   br i1 %cmp52, label %if.then53, label %if.else
 
 if.then53:                                        ; preds = %for.end
@@ -1653,14 +1652,15 @@ if.then53:                                        ; preds = %for.end
 
 invoke.cont54:                                    ; preds = %if.then53
   %bundle = getelementptr inbounds i8, ptr %state, i64 208
-  %24 = load ptr, ptr %bundle, align 8
-  %call56 = invoke ptr @bin_open(ptr noundef %24, ptr noundef %tag, i32 noundef 0, ptr noundef null, ptr noundef nonnull @.str.35, ptr noundef %comment, ptr noundef nonnull %status)
+  %23 = load ptr, ptr %bundle, align 8
+  %call56 = invoke ptr @bin_open(ptr noundef %23, ptr noundef %tag, i32 noundef 0, ptr noundef null, ptr noundef nonnull @.str.35, ptr noundef %comment, ptr noundef nonnull %status)
           to label %cleanup unwind label %lpad18
 
 if.else:                                          ; preds = %for.end
+  %24 = trunc nuw nsw i64 %indvars.iv62 to i32
   %bundle57 = getelementptr inbounds i8, ptr %state, i64 208
   %25 = load ptr, ptr %bundle57, align 8
-  %call61 = invoke ptr @bin_open(ptr noundef %25, ptr noundef %tag, i32 noundef %23, ptr noundef %value.sroa.0.2, ptr noundef null, ptr noundef %comment, ptr noundef nonnull %status)
+  %call61 = invoke ptr @bin_open(ptr noundef %25, ptr noundef %tag, i32 noundef %24, ptr noundef %value.sroa.0.2, ptr noundef null, ptr noundef %comment, ptr noundef nonnull %status)
           to label %cleanup unwind label %lpad18
 
 cleanup:                                          ; preds = %if.then49.invoke, %if.else, %invoke.cont54, %if.then22

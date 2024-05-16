@@ -45,21 +45,21 @@ if.then7:                                         ; preds = %if.else
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then7
-  %cmp3.not.i = icmp sgt i64 %1, -1
-  br i1 %cmp3.not.i, label %if.else.i, label %land.lhs.true.i
+  %cmp3.i = icmp slt i64 %1, 0
+  br i1 %cmp3.i, label %land.lhs.true.i, label %if.else.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
   %cmp5.i = fcmp oeq double %0, 0.000000e+00
   br i1 %cmp5.i, label %return, label %if.then10.i
 
 if.then10.i:                                      ; preds = %land.lhs.true.i
-  %sub.i5 = add i64 %1, -1
-  %6 = bitcast i64 %sub.i5 to double
+  %sub.i6 = add i64 %1, -1
+  %6 = bitcast i64 %sub.i6 to double
   br label %return
 
 if.else.i:                                        ; preds = %if.end.i
-  %add.i6 = add nuw i64 %1, 1
-  %7 = bitcast i64 %add.i6 to double
+  %add.i5 = add nuw i64 %1, 1
+  %7 = bitcast i64 %add.i5 to double
   br label %return
 
 if.else10:                                        ; preds = %if.else
@@ -72,25 +72,25 @@ if.else15:                                        ; preds = %if.else10
   br i1 %cmp.i10, label %return, label %if.end.i11
 
 if.end.i11:                                       ; preds = %if.else15
-  %cmp3.not.i12 = icmp sgt i64 %1, -1
-  br i1 %cmp3.not.i12, label %if.else.i18, label %land.lhs.true.i13
+  %cmp3.i12 = icmp slt i64 %1, 0
+  br i1 %cmp3.i12, label %land.lhs.true.i16, label %if.else.i13
 
-land.lhs.true.i13:                                ; preds = %if.end.i11
-  %cmp5.i14 = fcmp oeq double %0, 0.000000e+00
-  br i1 %cmp5.i14, label %return, label %if.then10.i15
+land.lhs.true.i16:                                ; preds = %if.end.i11
+  %cmp5.i17 = fcmp oeq double %0, 0.000000e+00
+  br i1 %cmp5.i17, label %return, label %if.then10.i18
 
-if.then10.i15:                                    ; preds = %land.lhs.true.i13
-  %sub.i16 = add nsw i64 %1, -1
-  %8 = bitcast i64 %sub.i16 to double
+if.then10.i18:                                    ; preds = %land.lhs.true.i16
+  %sub.i19 = add nsw i64 %1, -1
+  %8 = bitcast i64 %sub.i19 to double
   br label %return
 
-if.else.i18:                                      ; preds = %if.end.i11
-  %add.i19 = add nuw i64 %1, 1
-  %9 = bitcast i64 %add.i19 to double
+if.else.i13:                                      ; preds = %if.end.i11
+  %add.i14 = add nuw i64 %1, 1
+  %9 = bitcast i64 %add.i14 to double
   br label %return
 
-return:                                           ; preds = %entry, %if.else.i18, %if.then10.i15, %land.lhs.true.i13, %if.else15, %if.else10, %if.else.i, %if.then10.i, %land.lhs.true.i, %if.then7, %if.end
-  %retval.0 = phi double [ %0, %if.end ], [ %6, %if.then10.i ], [ %7, %if.else.i ], [ 0.000000e+00, %land.lhs.true.i ], [ 0x7FF0000000000000, %if.then7 ], [ %0, %if.else10 ], [ %8, %if.then10.i15 ], [ %9, %if.else.i18 ], [ 0.000000e+00, %land.lhs.true.i13 ], [ 0x7FF0000000000000, %if.else15 ], [ %0, %entry ]
+return:                                           ; preds = %entry, %if.else.i13, %if.then10.i18, %land.lhs.true.i16, %if.else15, %if.else10, %if.else.i, %if.then10.i, %land.lhs.true.i, %if.then7, %if.end
+  %retval.0 = phi double [ %0, %if.end ], [ %6, %if.then10.i ], [ %7, %if.else.i ], [ 0.000000e+00, %land.lhs.true.i ], [ 0x7FF0000000000000, %if.then7 ], [ %0, %if.else10 ], [ %8, %if.then10.i18 ], [ %9, %if.else.i13 ], [ 0.000000e+00, %land.lhs.true.i16 ], [ 0x7FF0000000000000, %if.else15 ], [ %0, %entry ]
   ret double %retval.0
 }
 
@@ -670,7 +670,7 @@ for.body.i10.i:                                   ; preds = %for.cond.i.i
 _ZN14arrow_vendored17double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.i: ; preds = %for.body.i10.i
   %sub.i = sub nsw i32 %retval.sroa.3.0.i.i, %3
   %add.i = add nsw i32 %sub.i, %exponent
-  %cmp.i = icmp ugt i32 %3, 780
+  %cmp.i = icmp ugt i64 %indvars.iv.i6.i, 780
   br i1 %cmp.i, label %for.body.i15.i.preheader, label %_ZN14arrow_vendored17double_conversionL10TrimAndCutENS0_6VectorIKcEEiPciPS3_Pi.exit
 
 for.body.i15.i.preheader:                         ; preds = %_ZN14arrow_vendored17double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.i
@@ -717,21 +717,21 @@ if.then7.i:                                       ; preds = %if.else.i4
   br i1 %cmp.i.i5, label %_ZN14arrow_vendored17double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then7.i
-  %cmp3.not.i.i = icmp sgt i64 %7, -1
-  br i1 %cmp3.not.i.i, label %if.else.i.i, label %land.lhs.true.i.i
+  %cmp3.i.i = icmp slt i64 %7, 0
+  br i1 %cmp3.i.i, label %land.lhs.true.i.i, label %if.else.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end.i.i
   %cmp5.i.i = fcmp oeq double %6, 0.000000e+00
   br i1 %cmp5.i.i, label %_ZN14arrow_vendored17double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit, label %if.then10.i.i
 
 if.then10.i.i:                                    ; preds = %land.lhs.true.i.i
-  %sub.i5.i = add i64 %7, -1
-  %12 = bitcast i64 %sub.i5.i to double
+  %sub.i6.i = add i64 %7, -1
+  %12 = bitcast i64 %sub.i6.i to double
   br label %_ZN14arrow_vendored17double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit
 
 if.else.i.i:                                      ; preds = %if.end.i.i
-  %add.i6.i = add nuw i64 %7, 1
-  %13 = bitcast i64 %add.i6.i to double
+  %add.i5.i = add nuw i64 %7, 1
+  %13 = bitcast i64 %add.i5.i to double
   br label %_ZN14arrow_vendored17double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit
 
 if.else10.i:                                      ; preds = %if.else.i4
@@ -744,25 +744,25 @@ if.else15.i:                                      ; preds = %if.else10.i
   br i1 %cmp.i10.i, label %_ZN14arrow_vendored17double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit, label %if.end.i11.i
 
 if.end.i11.i:                                     ; preds = %if.else15.i
-  %cmp3.not.i12.i = icmp sgt i64 %7, -1
-  br i1 %cmp3.not.i12.i, label %if.else.i18.i, label %land.lhs.true.i13.i
+  %cmp3.i12.i = icmp slt i64 %7, 0
+  br i1 %cmp3.i12.i, label %land.lhs.true.i16.i, label %if.else.i13.i
 
-land.lhs.true.i13.i:                              ; preds = %if.end.i11.i
-  %cmp5.i14.i = fcmp oeq double %6, 0.000000e+00
-  br i1 %cmp5.i14.i, label %_ZN14arrow_vendored17double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit, label %if.then10.i15.i
+land.lhs.true.i16.i:                              ; preds = %if.end.i11.i
+  %cmp5.i17.i = fcmp oeq double %6, 0.000000e+00
+  br i1 %cmp5.i17.i, label %_ZN14arrow_vendored17double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit, label %if.then10.i18.i
 
-if.then10.i15.i:                                  ; preds = %land.lhs.true.i13.i
-  %sub.i16.i = add nsw i64 %7, -1
-  %14 = bitcast i64 %sub.i16.i to double
+if.then10.i18.i:                                  ; preds = %land.lhs.true.i16.i
+  %sub.i19.i = add nsw i64 %7, -1
+  %14 = bitcast i64 %sub.i19.i to double
   br label %_ZN14arrow_vendored17double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit
 
-if.else.i18.i:                                    ; preds = %if.end.i11.i
-  %add.i19.i = add nuw i64 %7, 1
-  %15 = bitcast i64 %add.i19.i to double
+if.else.i13.i:                                    ; preds = %if.end.i11.i
+  %add.i14.i = add nuw i64 %7, 1
+  %15 = bitcast i64 %add.i14.i to double
   br label %_ZN14arrow_vendored17double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit
 
-_ZN14arrow_vendored17double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit: ; preds = %_ZN14arrow_vendored17double_conversionL10TrimAndCutENS0_6VectorIKcEEiPciPS3_Pi.exit, %if.end.i, %if.then7.i, %land.lhs.true.i.i, %if.then10.i.i, %if.else.i.i, %if.else10.i, %if.else15.i, %land.lhs.true.i13.i, %if.then10.i15.i, %if.else.i18.i
-  %retval.0.i = phi double [ %6, %if.end.i ], [ %12, %if.then10.i.i ], [ %13, %if.else.i.i ], [ 0.000000e+00, %land.lhs.true.i.i ], [ 0x7FF0000000000000, %if.then7.i ], [ %6, %if.else10.i ], [ %14, %if.then10.i15.i ], [ %15, %if.else.i18.i ], [ 0.000000e+00, %land.lhs.true.i13.i ], [ 0x7FF0000000000000, %if.else15.i ], [ %6, %_ZN14arrow_vendored17double_conversionL10TrimAndCutENS0_6VectorIKcEEiPciPS3_Pi.exit ]
+_ZN14arrow_vendored17double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit: ; preds = %_ZN14arrow_vendored17double_conversionL10TrimAndCutENS0_6VectorIKcEEiPciPS3_Pi.exit, %if.end.i, %if.then7.i, %land.lhs.true.i.i, %if.then10.i.i, %if.else.i.i, %if.else10.i, %if.else15.i, %land.lhs.true.i16.i, %if.then10.i18.i, %if.else.i13.i
+  %retval.0.i = phi double [ %6, %if.end.i ], [ %12, %if.then10.i.i ], [ %13, %if.else.i.i ], [ 0.000000e+00, %land.lhs.true.i.i ], [ 0x7FF0000000000000, %if.then7.i ], [ %6, %if.else10.i ], [ %14, %if.then10.i18.i ], [ %15, %if.else.i13.i ], [ 0.000000e+00, %land.lhs.true.i16.i ], [ 0x7FF0000000000000, %if.else15.i ], [ %6, %_ZN14arrow_vendored17double_conversionL10TrimAndCutENS0_6VectorIKcEEiPciPS3_Pi.exit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %guess.i)
   ret double %retval.0.i
 }
@@ -822,7 +822,7 @@ for.body.i10.i:                                   ; preds = %for.cond.i.i
 _ZN14arrow_vendored17double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.i: ; preds = %for.body.i10.i
   %sub.i = sub nsw i32 %retval.sroa.3.0.i.i, %3
   %add.i = add nsw i32 %sub.i, %exponent
-  %cmp.i = icmp ugt i32 %3, 780
+  %cmp.i = icmp ugt i64 %indvars.iv.i6.i, 780
   br i1 %cmp.i, label %for.body.i15.i.preheader, label %_ZN14arrow_vendored17double_conversionL10TrimAndCutENS0_6VectorIKcEEiPciPS3_Pi.exit
 
 for.body.i15.i.preheader:                         ; preds = %_ZN14arrow_vendored17double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.i
@@ -873,8 +873,8 @@ if.end:                                           ; preds = %_ZN14arrow_vendored
   br i1 %cmp.i16, label %_ZNK14arrow_vendored17double_conversion6Double14PreviousDoubleEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  %cmp3.not.i = icmp sgt i64 %1, -1
-  br i1 %cmp3.not.i, label %if.else.i23, label %land.lhs.true.i
+  %cmp3.i = icmp slt i64 %1, 0
+  br i1 %cmp3.i, label %land.lhs.true.i, label %if.else.i21
 
 land.lhs.true.i:                                  ; preds = %if.end.i
   %cmp5.i = fcmp oeq double %0, 0.000000e+00
@@ -886,31 +886,31 @@ _ZNK14arrow_vendored17double_conversion6Double10NextDoubleEv.exit: ; preds = %la
   %cmp.i18 = icmp eq i64 %1, -4503599627370496
   br i1 %cmp.i18, label %if.else3.i30, label %_ZNK14arrow_vendored17double_conversion6Double14PreviousDoubleEv.exit
 
-if.else.i23:                                      ; preds = %if.end.i
+if.else.i21:                                      ; preds = %if.end.i
   %add.i = add nuw i64 %1, 1
   %3 = bitcast i64 %add.i to double
   %cmp8.i = icmp eq i64 %1, 0
   br i1 %cmp8.i, label %if.else3.i30, label %_ZNK14arrow_vendored17double_conversion6Double14PreviousDoubleEv.exit
 
-_ZNK14arrow_vendored17double_conversion6Double14PreviousDoubleEv.exit: ; preds = %if.else.i23, %if.end, %land.lhs.true.i, %_ZNK14arrow_vendored17double_conversion6Double10NextDoubleEv.exit
-  %.sink = phi i64 [ 1, %_ZNK14arrow_vendored17double_conversion6Double10NextDoubleEv.exit ], [ 1, %land.lhs.true.i ], [ -1, %if.end ], [ -1, %if.else.i23 ]
-  %retval.0.i1774 = phi double [ %2, %_ZNK14arrow_vendored17double_conversion6Double10NextDoubleEv.exit ], [ 0.000000e+00, %land.lhs.true.i ], [ 0x7FF0000000000000, %if.end ], [ %3, %if.else.i23 ]
-  %add.i21 = add nsw i64 %.sink, %1
-  %retval.0.i22 = bitcast i64 %add.i21 to double
-  %cmp.i25 = fcmp ult double %retval.0.i22, 0x47EFFFFFE0000000
+_ZNK14arrow_vendored17double_conversion6Double14PreviousDoubleEv.exit: ; preds = %if.else.i21, %if.end, %land.lhs.true.i, %_ZNK14arrow_vendored17double_conversion6Double10NextDoubleEv.exit
+  %.sink = phi i64 [ 1, %_ZNK14arrow_vendored17double_conversion6Double10NextDoubleEv.exit ], [ 1, %land.lhs.true.i ], [ -1, %if.end ], [ -1, %if.else.i21 ]
+  %retval.0.i1774 = phi double [ %2, %_ZNK14arrow_vendored17double_conversion6Double10NextDoubleEv.exit ], [ 0.000000e+00, %land.lhs.true.i ], [ 0x7FF0000000000000, %if.end ], [ %3, %if.else.i21 ]
+  %add.i24 = add nsw i64 %.sink, %1
+  %retval.0.i23 = bitcast i64 %add.i24 to double
+  %cmp.i25 = fcmp ult double %retval.0.i23, 0x47EFFFFFE0000000
   br i1 %cmp.i25, label %if.else3.i30, label %if.then.i26
 
 if.then.i26:                                      ; preds = %_ZNK14arrow_vendored17double_conversion6Double14PreviousDoubleEv.exit
-  %cmp1.i27 = fcmp ult double %retval.0.i22, 0x47EFFFFFF0000000
+  %cmp1.i27 = fcmp ult double %retval.0.i23, 0x47EFFFFFF0000000
   br i1 %cmp1.i27, label %_ZN14arrow_vendored17double_conversionL18SanitizedDoubletofEd.exit32, label %if.then2.i28
 
 if.then2.i28:                                     ; preds = %if.then.i26
   br label %_ZN14arrow_vendored17double_conversionL18SanitizedDoubletofEd.exit32
 
-if.else3.i30:                                     ; preds = %_ZNK14arrow_vendored17double_conversion6Double10NextDoubleEv.exit, %if.else.i23, %_ZNK14arrow_vendored17double_conversion6Double14PreviousDoubleEv.exit
-  %retval.0.i2290 = phi double [ %retval.0.i22, %_ZNK14arrow_vendored17double_conversion6Double14PreviousDoubleEv.exit ], [ 0xFFF0000000000000, %_ZNK14arrow_vendored17double_conversion6Double10NextDoubleEv.exit ], [ -0.000000e+00, %if.else.i23 ]
-  %retval.0.i177489 = phi double [ %retval.0.i1774, %_ZNK14arrow_vendored17double_conversion6Double14PreviousDoubleEv.exit ], [ %2, %_ZNK14arrow_vendored17double_conversion6Double10NextDoubleEv.exit ], [ %3, %if.else.i23 ]
-  %conv4.i31 = fptrunc double %retval.0.i2290 to float
+if.else3.i30:                                     ; preds = %_ZNK14arrow_vendored17double_conversion6Double10NextDoubleEv.exit, %if.else.i21, %_ZNK14arrow_vendored17double_conversion6Double14PreviousDoubleEv.exit
+  %retval.0.i2390 = phi double [ %retval.0.i23, %_ZNK14arrow_vendored17double_conversion6Double14PreviousDoubleEv.exit ], [ 0xFFF0000000000000, %_ZNK14arrow_vendored17double_conversion6Double10NextDoubleEv.exit ], [ -0.000000e+00, %if.else.i21 ]
+  %retval.0.i177489 = phi double [ %retval.0.i1774, %_ZNK14arrow_vendored17double_conversion6Double14PreviousDoubleEv.exit ], [ %2, %_ZNK14arrow_vendored17double_conversion6Double10NextDoubleEv.exit ], [ %3, %if.else.i21 ]
+  %conv4.i31 = fptrunc double %retval.0.i2390 to float
   br label %_ZN14arrow_vendored17double_conversionL18SanitizedDoubletofEd.exit32
 
 _ZN14arrow_vendored17double_conversionL18SanitizedDoubletofEd.exit32: ; preds = %if.then.i26, %if.then2.i28, %if.else3.i30
@@ -940,30 +940,30 @@ if.else:                                          ; preds = %_ZN14arrow_vendored
   br i1 %cmp.i41, label %if.then2.i55, label %if.end.i42
 
 if.end.i42:                                       ; preds = %if.else
-  %cmp3.not.i43 = icmp sgt i64 %4, -1
-  br i1 %cmp3.not.i43, label %_ZNK14arrow_vendored17double_conversion6Double10NextDoubleEv.exit51, label %land.lhs.true.i44
+  %cmp3.i43 = icmp slt i64 %4, 0
+  br i1 %cmp3.i43, label %land.lhs.true.i47, label %_ZNK14arrow_vendored17double_conversion6Double10NextDoubleEv.exit51
 
-land.lhs.true.i44:                                ; preds = %if.end.i42
-  %cmp5.i45 = fcmp oeq double %retval.0.i177488, 0.000000e+00
-  br i1 %cmp5.i45, label %if.else3.i57, label %_ZNK14arrow_vendored17double_conversion6Double10NextDoubleEv.exit51
+land.lhs.true.i47:                                ; preds = %if.end.i42
+  %cmp5.i48 = fcmp oeq double %retval.0.i177488, 0.000000e+00
+  br i1 %cmp5.i48, label %if.else3.i57, label %_ZNK14arrow_vendored17double_conversion6Double10NextDoubleEv.exit51
 
-_ZNK14arrow_vendored17double_conversion6Double10NextDoubleEv.exit51: ; preds = %if.end.i42, %land.lhs.true.i44
-  %.sink100 = phi i64 [ -1, %land.lhs.true.i44 ], [ 1, %if.end.i42 ]
-  %sub.i47 = add i64 %.sink100, %4
-  %retval.0.i48 = bitcast i64 %sub.i47 to double
-  %cmp.i52 = fcmp ult double %retval.0.i48, 0x47EFFFFFE0000000
+_ZNK14arrow_vendored17double_conversion6Double10NextDoubleEv.exit51: ; preds = %if.end.i42, %land.lhs.true.i47
+  %.sink100 = phi i64 [ -1, %land.lhs.true.i47 ], [ 1, %if.end.i42 ]
+  %sub.i50 = add i64 %.sink100, %4
+  %retval.0.i46 = bitcast i64 %sub.i50 to double
+  %cmp.i52 = fcmp ult double %retval.0.i46, 0x47EFFFFFE0000000
   br i1 %cmp.i52, label %if.else3.i57, label %if.then.i53
 
 if.then.i53:                                      ; preds = %_ZNK14arrow_vendored17double_conversion6Double10NextDoubleEv.exit51
-  %cmp1.i54 = fcmp ult double %retval.0.i48, 0x47EFFFFFF0000000
+  %cmp1.i54 = fcmp ult double %retval.0.i46, 0x47EFFFFFF0000000
   br i1 %cmp1.i54, label %if.end11, label %if.then2.i55
 
 if.then2.i55:                                     ; preds = %if.else, %if.then.i53
   br label %if.end11
 
-if.else3.i57:                                     ; preds = %land.lhs.true.i44, %_ZNK14arrow_vendored17double_conversion6Double10NextDoubleEv.exit51
-  %retval.0.i4893 = phi double [ %retval.0.i48, %_ZNK14arrow_vendored17double_conversion6Double10NextDoubleEv.exit51 ], [ 0.000000e+00, %land.lhs.true.i44 ]
-  %conv4.i58 = fptrunc double %retval.0.i4893 to float
+if.else3.i57:                                     ; preds = %land.lhs.true.i47, %_ZNK14arrow_vendored17double_conversion6Double10NextDoubleEv.exit51
+  %retval.0.i4693 = phi double [ %retval.0.i46, %_ZNK14arrow_vendored17double_conversion6Double10NextDoubleEv.exit51 ], [ 0.000000e+00, %land.lhs.true.i47 ]
+  %conv4.i58 = fptrunc double %retval.0.i4693 to float
   br label %if.end11
 
 if.end11:                                         ; preds = %if.else3.i57, %if.then2.i55, %if.then.i53, %_ZN14arrow_vendored17double_conversionL18SanitizedDoubletofEd.exit40

@@ -14213,30 +14213,29 @@ land.lhs.true96:                                  ; preds = %land.lhs.true
   br i1 %call97, label %if.then98, label %for.inc105
 
 if.then98:                                        ; preds = %land.lhs.true96
-  %22 = and i64 %indvars.iv, 4294967295
-  %cmp99.not = icmp eq i64 %22, 0
+  %cmp99.not = icmp eq i64 %indvars.iv, 0
   br i1 %cmp99.not, label %return, label %if.then100
 
 if.then100:                                       ; preds = %if.then98
-  %23 = load ptr, ptr %m_nodes.i, align 8
-  %arrayidx.i52 = getelementptr inbounds %"struct.std::pair", ptr %23, i64 %indvars.iv
+  %22 = load ptr, ptr %m_nodes.i, align 8
+  %arrayidx.i52 = getelementptr inbounds %"struct.std::pair", ptr %22, i64 %indvars.iv
   %__tmp.sroa.0.0.copyload.i.i.i = load i64, ptr %arrayidx.i52, align 8
-  %24 = load i64, ptr %23, align 8
-  store i64 %24, ptr %arrayidx.i52, align 8
-  store i64 %__tmp.sroa.0.0.copyload.i.i.i, ptr %23, align 8
+  %23 = load i64, ptr %22, align 8
+  store i64 %23, ptr %arrayidx.i52, align 8
+  store i64 %__tmp.sroa.0.0.copyload.i.i.i, ptr %22, align 8
   %second.i.i = getelementptr inbounds i8, ptr %arrayidx.i52, i64 8
-  %second3.i.i = getelementptr inbounds i8, ptr %23, i64 8
-  %25 = load ptr, ptr %second.i.i, align 8
-  %26 = load ptr, ptr %second3.i.i, align 8
-  store ptr %26, ptr %second.i.i, align 8
-  store ptr %25, ptr %second3.i.i, align 8
+  %second3.i.i = getelementptr inbounds i8, ptr %22, i64 8
+  %24 = load ptr, ptr %second.i.i, align 8
+  %25 = load ptr, ptr %second3.i.i, align 8
+  store ptr %25, ptr %second.i.i, align 8
+  store ptr %24, ptr %second3.i.i, align 8
   br label %return
 
 for.inc105:                                       ; preds = %if.end90, %land.lhs.true, %land.lhs.true96
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %27 = load i32, ptr %m_pos.i, align 8
-  %28 = zext i32 %27 to i64
-  %cmp42 = icmp ult i64 %indvars.iv.next, %28
+  %26 = load i32, ptr %m_pos.i, align 8
+  %27 = zext i32 %26 to i64
+  %cmp42 = icmp ult i64 %indvars.iv.next, %27
   br i1 %cmp42, label %for.body43, label %return, !llvm.loop !103
 
 return:                                           ; preds = %for.inc105, %if.else36, %if.then98, %if.then100, %if.then, %for.end26, %for.end

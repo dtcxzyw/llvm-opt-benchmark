@@ -631,8 +631,8 @@ define internal void @format_occ(ptr nocapture noundef writeonly %0, i64 noundef
   %3 = lshr i64 %1, 32
   %4 = trunc nuw i64 %3 to i32
   %5 = trunc i64 %1 to i32
-  %6 = add i32 %4, -14
-  %or.cond = icmp ult i32 %6, -13
+  %6 = add i64 %1, -60129542144
+  %or.cond = icmp ult i64 %6, -55834574848
   br i1 %or.cond, label %7, label %8
 
 7:                                                ; preds = %2

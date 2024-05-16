@@ -6961,7 +6961,7 @@ if.then62:                                        ; preds = %if.end59
   br label %if.end64
 
 if.end64:                                         ; preds = %if.then62, %if.end59
-  %cmp66 = icmp eq i32 %resolution.sroa.9.0.extract.trunc, 1
+  %cmp66 = icmp eq i64 %resolution.sroa.9.0.extract.shift, 1
   br i1 %cmp66, label %if.then67, label %return
 
 if.then67:                                        ; preds = %if.end64
@@ -8781,7 +8781,7 @@ if.then40.lr.ph:                                  ; preds = %if.end
 
 if.then40:                                        ; preds = %if.then40.lr.ph, %_ZN4pbrt14SampleDiscreteEN4pstd4spanIKfEEfPfS4_.exit
   %bf.load70 = phi i32 [ %bf.load49, %if.then40.lr.ph ], [ %bf.load, %_ZN4pbrt14SampleDiscreteEN4pstd4spanIKfEEfPfS4_.exit ]
-  %13 = phi ptr [ %12, %if.then40.lr.ph ], [ %19, %_ZN4pbrt14SampleDiscreteEN4pstd4spanIKfEEfPfS4_.exit ]
+  %13 = phi ptr [ %12, %if.then40.lr.ph ], [ %18, %_ZN4pbrt14SampleDiscreteEN4pstd4spanIKfEEfPfS4_.exit ]
   %nodeIndex.053 = phi i32 [ 0, %if.then40.lr.ph ], [ %cond72, %_ZN4pbrt14SampleDiscreteEN4pstd4spanIKfEEfPfS4_.exit ]
   %pmf35.052 = phi float [ %sub32, %if.then40.lr.ph ], [ %mul67, %_ZN4pbrt14SampleDiscreteEN4pstd4spanIKfEEfPfS4_.exit ]
   %u.addr.051 = phi float [ %.sroa.speculated, %if.then40.lr.ph ], [ %.sroa.speculated.i, %_ZN4pbrt14SampleDiscreteEN4pstd4spanIKfEEfPfS4_.exit ]
@@ -8853,20 +8853,19 @@ _ZN4pbrt14SampleDiscreteEN4pstd4spanIKfEEfPfS4_.exit: ; preds = %while.cond.i
   %cmp.i23.i = fcmp ogt float %div24.i, 0x3FEFFFFFE0000000
   %.sroa.speculated.i = select i1 %cmp.i23.i, float 0x3FEFFFFFE0000000, float %div24.i
   %mul67 = fmul float %pmf35.052, %div.i
-  %18 = and i64 %indvars.iv.i, 4294967295
-  %cmp68 = icmp eq i64 %18, 0
+  %cmp68 = icmp eq i64 %indvars.iv.i, 0
   %cond72 = select i1 %cmp68, i32 %add42, i32 %bf.load70
   %conv38 = zext nneg i32 %cond72 to i64
-  %19 = load ptr, ptr %ptr.i26, align 8
-  %arrayidx.i27 = getelementptr inbounds %"struct.pbrt::LightBVHNode", ptr %19, i64 %conv38
+  %18 = load ptr, ptr %ptr.i26, align 8
+  %arrayidx.i27 = getelementptr inbounds %"struct.pbrt::LightBVHNode", ptr %18, i64 %conv38
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %node, ptr noundef nonnull align 32 dereferenceable(32) %arrayidx.i27, i64 32, i1 false)
   %bf.load = load i32, ptr %11, align 8
   %tobool.not = icmp sgt i32 %bf.load, -1
   br i1 %tobool.not, label %if.then40, label %if.else73, !llvm.loop !127
 
 if.else73:                                        ; preds = %_ZN4pbrt14SampleDiscreteEN4pstd4spanIKfEEfPfS4_.exit
-  %20 = icmp sgt i32 %cond72, 0
-  br i1 %20, label %if.then84, label %lor.lhs.false
+  %19 = icmp sgt i32 %cond72, 0
+  br i1 %19, label %if.then84, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end, %if.else73
   %pmf35.0.lcssa62 = phi float [ %mul67, %if.else73 ], [ %sub32, %if.end ]
@@ -8885,12 +8884,12 @@ if.then84:                                        ; preds = %lor.lhs.false.if.th
   %bf.clear88 = and i32 %bf.load87, 2147483647
   %conv89 = zext nneg i32 %bf.clear88 to i64
   %ptr.i33 = getelementptr inbounds i8, ptr %this, i64 8
-  %21 = load ptr, ptr %ptr.i33, align 8
-  %arrayidx.i34 = getelementptr inbounds %"class.pbrt::Light", ptr %21, i64 %conv89
-  %22 = load i64, ptr %arrayidx.i34, align 8
+  %20 = load ptr, ptr %ptr.i33, align 8
+  %arrayidx.i34 = getelementptr inbounds %"class.pbrt::Light", ptr %20, i64 %conv89
+  %21 = load i64, ptr %arrayidx.i34, align 8
   %set.i35 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i8 1, ptr %set.i35, align 8
-  store i64 %22, ptr %agg.result, align 8
+  store i64 %21, ptr %agg.result, align 8
   %p.i.i36 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store float %pmf35.0.lcssa63, ptr %p.i.i36, align 8
   br label %return

@@ -6691,8 +6691,7 @@ invoke.cont16:                                    ; preds = %invoke.cont6
   %9 = load ptr, ptr %runtime_, align 8
   %agg.tmp19.sroa.0.0.copyload = load i64, ptr %desc, align 8
   %desc.sroa.1.0.extract.shift.i = lshr i64 %agg.tmp19.sroa.0.0.copyload, 32
-  %desc.sroa.1.0.extract.trunc.i = trunc nuw i64 %desc.sroa.1.0.extract.shift.i to i32
-  %cmp.i.i = icmp ult i32 %desc.sroa.1.0.extract.trunc.i, 5
+  %cmp.i.i = icmp ult i64 %agg.tmp19.sroa.0.0.copyload, 21474836480
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont16
@@ -6870,8 +6869,7 @@ invoke.cont26:                                    ; preds = %invoke.cont22
   %14 = load ptr, ptr %runtime_, align 8
   %agg.tmp29.sroa.0.0.copyload = load i64, ptr %desc, align 8
   %desc.sroa.1.0.extract.shift.i = lshr i64 %agg.tmp29.sroa.0.0.copyload, 32
-  %desc.sroa.1.0.extract.trunc.i = trunc nuw i64 %desc.sroa.1.0.extract.shift.i to i32
-  %cmp.i.i = icmp ult i32 %desc.sroa.1.0.extract.trunc.i, 5
+  %cmp.i.i = icmp ult i64 %agg.tmp29.sroa.0.0.copyload, 21474836480
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont26
@@ -9093,7 +9091,6 @@ cleanup.action:                                   ; preds = %ehcleanup.thread, %
 
 invoke.cont18:                                    ; preds = %invoke.cont2
   %6 = load ptr, ptr %runtime_, align 8
-  %conv12 = trunc nuw i64 %count to i32
   %retval.sroa.0.0.copyload.i = load i64, ptr %3, align 8
   %7 = load i32, ptr %jsThis, align 8
   switch i32 %7, label %lor.lhs.false23.i [
@@ -9146,16 +9143,15 @@ invoke.cont22:                                    ; preds = %return.fold.split.i
   %inc.i = add i32 %16, 1
   store i32 %inc.i, ptr %nativeCallFrameDepth_.i, align 8
   %add1.i.i = add nuw nsw i64 %count, 7
-  %cmp.not.i.i = icmp ugt i32 %conv12, -8
-  %17 = and i64 %add1.i.i, 4294967295
+  %cmp.not.i.i = icmp ugt i64 %count, 4294967288
   %registerStackEnd_.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 9464
-  %18 = load ptr, ptr %registerStackEnd_.i.i.i.i, align 8
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %18 to i64
+  %17 = load ptr, ptr %registerStackEnd_.i.i.i.i, align 8
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %17 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div.i.i.i.i = lshr exact i64 %sub.ptr.sub.i.i.i.i, 3
   %conv.i.i.i = and i64 %sub.ptr.div.i.i.i.i, 4294967295
-  %conv2.i.i.i = select i1 %cmp.not.i.i, i64 4294967295, i64 %17
+  %conv2.i.i.i = select i1 %cmp.not.i.i, i64 4294967295, i64 %add1.i.i
   %add.i.i.i = add nuw nsw i64 %conv2.i.i.i, 32
   %cmp.i.i.i = icmp ugt i64 %add.i.i.i, %conv.i.i.i
   %cmp.i2.i.i = icmp ugt i32 %inc.i, 384
@@ -9167,9 +9163,9 @@ invoke.cont28:                                    ; preds = %invoke.cont22
   store ptr %add.ptr.i.i, ptr %stackPointer_.i.i, align 8
   %currentFrame_.i = getelementptr inbounds i8, ptr %6, i64 9496
   %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %currentFrame_.i, align 8
-  %19 = ptrtoint ptr %agg.tmp.sroa.0.0.copyload.i to i64
+  %18 = ptrtoint ptr %agg.tmp.sroa.0.0.copyload.i to i64
   %arrayidx.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -8
-  store i64 %19, ptr %arrayidx.i.i, align 8
+  store i64 %18, ptr %arrayidx.i.i, align 8
   %arrayidx14.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -24
   %or.i.i.i10 = or disjoint i64 %count, -1125899906842624
   %arrayidx19.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -32
@@ -9184,8 +9180,8 @@ invoke.cont28:                                    ; preds = %invoke.cont22
   br label %if.end38
 
 if.then33:                                        ; preds = %invoke.cont22
-  %20 = load ptr, ptr %runtime_, align 8
-  %call36 = invoke noundef i32 @_ZN6hermes2vm7Runtime18raiseStackOverflowENS1_17StackOverflowKindE(ptr noundef nonnull align 8 dereferenceable(9832) %20, i32 noundef 1)
+  %19 = load ptr, ptr %runtime_, align 8
+  %call36 = invoke noundef i32 @_ZN6hermes2vm7Runtime18raiseStackOverflowENS1_17StackOverflowKindE(ptr noundef nonnull align 8 dereferenceable(9832) %19, i32 noundef 1)
           to label %invoke.cont35 unwind label %lpad29
 
 invoke.cont35:                                    ; preds = %if.then33
@@ -9193,10 +9189,10 @@ invoke.cont35:                                    ; preds = %if.then33
   br i1 %cmp.not.i, label %if.end.i36.invoke, label %if.end38
 
 lpad29:                                           ; preds = %if.end.i36.invoke, %for.end, %invoke.cont65, %if.then33
-  %21 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
-  %22 = load i32, ptr %nativeCallFrameDepth_.i, align 8
-  %dec.i = add i32 %22, -1
+  %21 = load i32, ptr %nativeCallFrameDepth_.i, align 8
+  %dec.i = add i32 %21, -1
   store i32 %dec.i, ptr %nativeCallFrameDepth_.i, align 8
   store ptr %15, ptr %stackPointer_.i.i, align 8
   br label %ehcleanup73
@@ -9214,8 +9210,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv3956 = phi i64 [ 0, %for.body.lr.ph ], [ %conv39, %for.inc ]
   %i.055 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %arrayidx = getelementptr inbounds %"class.facebook::jsi::Value", ptr %args, i64 %conv3956
-  %23 = load i32, ptr %arrayidx, align 8
-  switch i32 %23, label %lor.lhs.false23.i28 [
+  %22 = load i32, ptr %arrayidx, align 8
+  switch i32 %22, label %lor.lhs.false23.i28 [
     i32 0, label %for.inc
     i32 1, label %return.fold.split.i27
     i32 2, label %if.then8.i23
@@ -9227,30 +9223,30 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 if.then8.i23:                                     ; preds = %for.body
   %data_.i.i24 = getelementptr inbounds i8, ptr %arrayidx, i64 8
-  %24 = load i8, ptr %data_.i.i24, align 8
-  %25 = and i8 %24, 1
-  %conv.i.i25 = zext nneg i8 %25 to i64
+  %23 = load i8, ptr %data_.i.i24, align 8
+  %24 = and i8 %23, 1
+  %conv.i.i25 = zext nneg i8 %24 to i64
   %or.i.i.i26 = or disjoint i64 %conv.i.i25, -1407374883553280
   br label %for.inc
 
 if.then14.i20:                                    ; preds = %for.body
   %data_.i14.i21 = getelementptr inbounds i8, ptr %arrayidx, i64 8
-  %26 = load double, ptr %data_.i14.i21, align 8
-  %27 = fcmp uno double %26, 0.000000e+00
-  %28 = bitcast double %26 to i64
-  %retval.sroa.0.0.i.i22 = select i1 %27, i64 9221120237041090560, i64 %28
+  %25 = load double, ptr %data_.i14.i21, align 8
+  %26 = fcmp uno double %25, 0.000000e+00
+  %27 = bitcast double %25 to i64
+  %retval.sroa.0.0.i.i22 = select i1 %26, i64 9221120237041090560, i64 %27
   br label %for.inc
 
 lor.lhs.false23.i28:                              ; preds = %for.body
-  %cmp.i18.i29 = icmp eq i32 %23, 7
+  %cmp.i18.i29 = icmp eq i32 %22, 7
   call void @llvm.assume(i1 %cmp.i18.i29)
   br label %if.then25.i16
 
 if.then25.i16:                                    ; preds = %lor.lhs.false23.i28, %for.body, %for.body, %for.body
   %data_.i.i.i17 = getelementptr inbounds i8, ptr %arrayidx, i64 8
-  %29 = load ptr, ptr %data_.i.i.i17, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 16
-  %retval.sroa.0.0.copyload.i18 = load i64, ptr %30, align 8
+  %28 = load ptr, ptr %data_.i.i.i17, align 8
+  %29 = getelementptr inbounds i8, ptr %28, i64 16
+  %retval.sroa.0.0.copyload.i18 = load i64, ptr %29, align 8
   br label %for.inc
 
 return.fold.split.i27:                            ; preds = %for.body
@@ -9268,23 +9264,23 @@ for.inc:                                          ; preds = %return.fold.split.i
   br i1 %cmp40.not, label %for.end, label %for.body, !llvm.loop !164
 
 for.end:                                          ; preds = %for.inc, %if.end38
-  %31 = load ptr, ptr %runtime_, align 8
+  %30 = load ptr, ptr %runtime_, align 8
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i64, ptr %3, align 8
   %and.i.i.i.i.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i, 281474976710655
-  %32 = inttoptr i64 %and.i.i.i.i.i.i to ptr
-  %bf.load.i.i.i.i = load i32, ptr %32, align 4
+  %31 = inttoptr i64 %and.i.i.i.i.i.i to ptr
+  %bf.load.i.i.i.i = load i32, ptr %31, align 4
   %bf.lshr.i.i.i.i = lshr i32 %bf.load.i.i.i.i, 24
   %conv.i.i.i.i = zext nneg i32 %bf.lshr.i.i.i.i to i64
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [79 x ptr], ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 0, i64 %conv.i.i.i.i
-  %33 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
-  %call3.i = getelementptr inbounds i8, ptr %33, i64 112
-  %34 = load ptr, ptr %call3.i, align 8
-  %call6.i34 = invoke { i32, i64 } %34(ptr nonnull %3, ptr noundef nonnull align 8 dereferenceable(9832) %31)
+  %32 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
+  %call3.i = getelementptr inbounds i8, ptr %32, i64 112
+  %33 = load ptr, ptr %call3.i, align 8
+  %call6.i34 = invoke { i32, i64 } %33(ptr nonnull %3, ptr noundef nonnull align 8 dereferenceable(9832) %30)
           to label %invoke.cont59 unwind label %lpad29
 
 invoke.cont59:                                    ; preds = %for.end
-  %35 = extractvalue { i32, i64 } %call6.i34, 0
-  %cmp.not.i35 = icmp eq i32 %35, 0
+  %34 = extractvalue { i32, i64 } %call6.i34, 0
+  %cmp.not.i35 = icmp eq i32 %34, 0
   br i1 %cmp.not.i35, label %if.end.i36.invoke, label %invoke.cont65
 
 if.end.i36.invoke:                                ; preds = %invoke.cont35, %invoke.cont59
@@ -9295,20 +9291,20 @@ if.end.i36.cont:                                  ; preds = %if.end.i36.invoke
   unreachable
 
 invoke.cont65:                                    ; preds = %invoke.cont59
-  %36 = extractvalue { i32, i64 } %call6.i34, 1
-  invoke void @_ZN8facebook6hermes17HermesRuntimeImpl20valueFromHermesValueEN6hermes2vm11HermesValueE(ptr sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, i64 %36)
+  %35 = extractvalue { i32, i64 } %call6.i34, 1
+  invoke void @_ZN8facebook6hermes17HermesRuntimeImpl20valueFromHermesValueEN6hermes2vm11HermesValueE(ptr sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, i64 %35)
           to label %invoke.cont71 unwind label %lpad29
 
 invoke.cont71:                                    ; preds = %invoke.cont65
-  %37 = load i32, ptr %nativeCallFrameDepth_.i, align 8
-  %dec.i41 = add i32 %37, -1
+  %36 = load i32, ptr %nativeCallFrameDepth_.i, align 8
+  %dec.i41 = add i32 %36, -1
   store i32 %dec.i41, ptr %nativeCallFrameDepth_.i, align 8
   store ptr %15, ptr %stackPointer_.i.i, align 8
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope) #37
   ret void
 
 ehcleanup73:                                      ; preds = %ehcleanup, %cleanup.action, %lpad29
-  %.pn.pn = phi { ptr, i32 } [ %.pn50, %cleanup.action ], [ %5, %ehcleanup ], [ %21, %lpad29 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn50, %cleanup.action ], [ %5, %ehcleanup ], [ %20, %lpad29 ]
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope) #37
   resume { ptr, i32 } %.pn.pn
 
@@ -9426,7 +9422,6 @@ invoke.cont37:                                    ; preds = %if.end.i.i.i.i.i.i.
   %retval.sroa.0.0.copyload.i10 = phi i64 [ %or.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %retval.sroa.0.0.copyload.i10.pre, %if.end.i.i.i.i.i.i.invoke.cont37_crit_edge ]
   %retval.0.i.i.i.i.i.i = phi ptr [ %11, %if.then.i.i.i.i.i.i ], [ %call7.i.i.i.i.i.i8, %if.end.i.i.i.i.i.i.invoke.cont37_crit_edge ]
   %13 = load ptr, ptr %runtime_, align 8
-  %conv27 = trunc nuw i64 %count to i32
   %retval.sroa.0.0.copyload.i = load i64, ptr %3, align 8
   %stackPointer_.i.i = getelementptr inbounds i8, ptr %13, i64 9472
   %14 = load ptr, ptr %stackPointer_.i.i, align 8
@@ -9435,16 +9430,15 @@ invoke.cont37:                                    ; preds = %if.end.i.i.i.i.i.i.
   %inc.i = add i32 %15, 1
   store i32 %inc.i, ptr %nativeCallFrameDepth_.i, align 8
   %add1.i.i = add nuw nsw i64 %count, 7
-  %cmp.not.i.i = icmp ugt i32 %conv27, -8
-  %16 = and i64 %add1.i.i, 4294967295
+  %cmp.not.i.i = icmp ugt i64 %count, 4294967288
   %registerStackEnd_.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 9464
-  %17 = load ptr, ptr %registerStackEnd_.i.i.i.i, align 8
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %17 to i64
+  %16 = load ptr, ptr %registerStackEnd_.i.i.i.i, align 8
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %16 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div.i.i.i.i = lshr exact i64 %sub.ptr.sub.i.i.i.i, 3
   %conv.i.i.i = and i64 %sub.ptr.div.i.i.i.i, 4294967295
-  %conv2.i.i.i = select i1 %cmp.not.i.i, i64 4294967295, i64 %16
+  %conv2.i.i.i = select i1 %cmp.not.i.i, i64 4294967295, i64 %add1.i.i
   %add.i.i.i = add nuw nsw i64 %conv2.i.i.i, 32
   %cmp.i.i.i = icmp ugt i64 %add.i.i.i, %conv.i.i.i
   %cmp.i2.i.i = icmp ugt i32 %inc.i, 384
@@ -9456,9 +9450,9 @@ invoke.cont43:                                    ; preds = %invoke.cont37
   store ptr %add.ptr.i.i, ptr %stackPointer_.i.i, align 8
   %currentFrame_.i = getelementptr inbounds i8, ptr %13, i64 9496
   %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %currentFrame_.i, align 8
-  %18 = ptrtoint ptr %agg.tmp.sroa.0.0.copyload.i to i64
+  %17 = ptrtoint ptr %agg.tmp.sroa.0.0.copyload.i to i64
   %arrayidx.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -8
-  store i64 %18, ptr %arrayidx.i.i, align 8
+  store i64 %17, ptr %arrayidx.i.i, align 8
   %arrayidx14.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -24
   %or.i.i.i = or disjoint i64 %count, -1125899906842624
   %arrayidx19.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -32
@@ -9473,8 +9467,8 @@ invoke.cont43:                                    ; preds = %invoke.cont37
   br label %if.end52
 
 if.then47:                                        ; preds = %invoke.cont37
-  %19 = load ptr, ptr %runtime_, align 8
-  %call50 = invoke noundef i32 @_ZN6hermes2vm7Runtime18raiseStackOverflowENS1_17StackOverflowKindE(ptr noundef nonnull align 8 dereferenceable(9832) %19, i32 noundef 1)
+  %18 = load ptr, ptr %runtime_, align 8
+  %call50 = invoke noundef i32 @_ZN6hermes2vm7Runtime18raiseStackOverflowENS1_17StackOverflowKindE(ptr noundef nonnull align 8 dereferenceable(9832) %18, i32 noundef 1)
           to label %invoke.cont49 unwind label %lpad44
 
 invoke.cont49:                                    ; preds = %if.then47
@@ -9482,10 +9476,10 @@ invoke.cont49:                                    ; preds = %if.then47
   br i1 %cmp.not.i, label %if.end.i24.invoke, label %if.end52
 
 lpad44:                                           ; preds = %if.end.i24.invoke, %for.end, %cond.end, %if.then47
-  %20 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %21 = load i32, ptr %nativeCallFrameDepth_.i, align 8
-  %dec.i = add i32 %21, -1
+  %20 = load i32, ptr %nativeCallFrameDepth_.i, align 8
+  %dec.i = add i32 %20, -1
   store i32 %dec.i, ptr %nativeCallFrameDepth_.i, align 8
   store ptr %14, ptr %stackPointer_.i.i, align 8
   br label %ehcleanup92
@@ -9503,8 +9497,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv5348 = phi i64 [ 0, %for.body.lr.ph ], [ %conv53, %for.inc ]
   %i.047 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %arrayidx = getelementptr inbounds %"class.facebook::jsi::Value", ptr %args, i64 %conv5348
-  %22 = load i32, ptr %arrayidx, align 8
-  switch i32 %22, label %lor.lhs.false23.i [
+  %21 = load i32, ptr %arrayidx, align 8
+  switch i32 %21, label %lor.lhs.false23.i [
     i32 0, label %for.inc
     i32 1, label %return.fold.split.i
     i32 2, label %if.then8.i
@@ -9516,30 +9510,30 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 if.then8.i:                                       ; preds = %for.body
   %data_.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
-  %23 = load i8, ptr %data_.i.i, align 8
-  %24 = and i8 %23, 1
-  %conv.i.i17 = zext nneg i8 %24 to i64
+  %22 = load i8, ptr %data_.i.i, align 8
+  %23 = and i8 %22, 1
+  %conv.i.i17 = zext nneg i8 %23 to i64
   %or.i.i.i18 = or disjoint i64 %conv.i.i17, -1407374883553280
   br label %for.inc
 
 if.then14.i:                                      ; preds = %for.body
   %data_.i14.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
-  %25 = load double, ptr %data_.i14.i, align 8
-  %26 = fcmp uno double %25, 0.000000e+00
-  %27 = bitcast double %25 to i64
-  %retval.sroa.0.0.i.i = select i1 %26, i64 9221120237041090560, i64 %27
+  %24 = load double, ptr %data_.i14.i, align 8
+  %25 = fcmp uno double %24, 0.000000e+00
+  %26 = bitcast double %24 to i64
+  %retval.sroa.0.0.i.i = select i1 %25, i64 9221120237041090560, i64 %26
   br label %for.inc
 
 lor.lhs.false23.i:                                ; preds = %for.body
-  %cmp.i18.i = icmp eq i32 %22, 7
+  %cmp.i18.i = icmp eq i32 %21, 7
   call void @llvm.assume(i1 %cmp.i18.i)
   br label %if.then25.i
 
 if.then25.i:                                      ; preds = %lor.lhs.false23.i, %for.body, %for.body, %for.body
   %data_.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
-  %28 = load ptr, ptr %data_.i.i.i, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 16
-  %retval.sroa.0.0.copyload.i16 = load i64, ptr %29, align 8
+  %27 = load ptr, ptr %data_.i.i.i, align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 16
+  %retval.sroa.0.0.copyload.i16 = load i64, ptr %28, align 8
   br label %for.inc
 
 return.fold.split.i:                              ; preds = %for.body
@@ -9557,23 +9551,23 @@ for.inc:                                          ; preds = %return.fold.split.i
   br i1 %cmp54.not, label %for.end, label %for.body, !llvm.loop !165
 
 for.end:                                          ; preds = %for.inc, %if.end52
-  %30 = load ptr, ptr %runtime_, align 8
+  %29 = load ptr, ptr %runtime_, align 8
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i64, ptr %3, align 8
   %and.i.i.i.i.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i, 281474976710655
-  %31 = inttoptr i64 %and.i.i.i.i.i.i to ptr
-  %bf.load.i.i.i.i = load i32, ptr %31, align 4
+  %30 = inttoptr i64 %and.i.i.i.i.i.i to ptr
+  %bf.load.i.i.i.i = load i32, ptr %30, align 4
   %bf.lshr.i.i.i.i = lshr i32 %bf.load.i.i.i.i, 24
   %conv.i.i.i.i = zext nneg i32 %bf.lshr.i.i.i.i to i64
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [79 x ptr], ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 0, i64 %conv.i.i.i.i
-  %32 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
-  %call3.i = getelementptr inbounds i8, ptr %32, i64 112
-  %33 = load ptr, ptr %call3.i, align 8
-  %call6.i22 = invoke { i32, i64 } %33(ptr nonnull %3, ptr noundef nonnull align 8 dereferenceable(9832) %30)
+  %31 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
+  %call3.i = getelementptr inbounds i8, ptr %31, i64 112
+  %32 = load ptr, ptr %call3.i, align 8
+  %call6.i22 = invoke { i32, i64 } %32(ptr nonnull %3, ptr noundef nonnull align 8 dereferenceable(9832) %29)
           to label %invoke.cont73 unwind label %lpad44
 
 invoke.cont73:                                    ; preds = %for.end
-  %34 = extractvalue { i32, i64 } %call6.i22, 0
-  %cmp.not.i23 = icmp eq i32 %34, 0
+  %33 = extractvalue { i32, i64 } %call6.i22, 0
+  %cmp.not.i23 = icmp eq i32 %33, 0
   br i1 %cmp.not.i23, label %if.end.i24.invoke, label %invoke.cont78
 
 if.end.i24.invoke:                                ; preds = %invoke.cont49, %invoke.cont73
@@ -9584,8 +9578,8 @@ if.end.i24.cont:                                  ; preds = %if.end.i24.invoke
   unreachable
 
 invoke.cont78:                                    ; preds = %invoke.cont73
-  %35 = extractvalue { i32, i64 } %call6.i22, 1
-  %cmp.i = icmp ugt i64 %35, -281474976710657
+  %34 = extractvalue { i32, i64 } %call6.i22, 1
+  %cmp.i = icmp ugt i64 %34, -281474976710657
   br i1 %cmp.i, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %invoke.cont78
@@ -9593,20 +9587,20 @@ cond.false:                                       ; preds = %invoke.cont78
   br label %cond.end
 
 cond.end:                                         ; preds = %invoke.cont78, %cond.false
-  %resultHValue.sroa.0.0 = phi i64 [ %retval.sroa.0.0.copyload.i28, %cond.false ], [ %35, %invoke.cont78 ]
+  %resultHValue.sroa.0.0 = phi i64 [ %retval.sroa.0.0.copyload.i28, %cond.false ], [ %34, %invoke.cont78 ]
   invoke void @_ZN8facebook6hermes17HermesRuntimeImpl20valueFromHermesValueEN6hermes2vm11HermesValueE(ptr sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, i64 %resultHValue.sroa.0.0)
           to label %invoke.cont90 unwind label %lpad44
 
 invoke.cont90:                                    ; preds = %cond.end
-  %36 = load i32, ptr %nativeCallFrameDepth_.i, align 8
-  %dec.i30 = add i32 %36, -1
+  %35 = load i32, ptr %nativeCallFrameDepth_.i, align 8
+  %dec.i30 = add i32 %35, -1
   store i32 %dec.i30, ptr %nativeCallFrameDepth_.i, align 8
   store ptr %14, ptr %stackPointer_.i.i, align 8
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope) #37
   ret void
 
 ehcleanup92:                                      ; preds = %ehcleanup, %cleanup.action, %lpad44, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %.pn42, %cleanup.action ], [ %6, %ehcleanup ], [ %20, %lpad44 ], [ %4, %lpad ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn42, %cleanup.action ], [ %6, %ehcleanup ], [ %19, %lpad44 ], [ %4, %lpad ]
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope) #37
   resume { ptr, i32 } %.pn.pn
 

@@ -12277,7 +12277,7 @@ for.body.lr.ph:                                   ; preds = %if.end14, %land.lhs
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %7 = phi ptr [ %2, %for.body.lr.ph ], [ %43, %for.inc ]
+  %7 = phi ptr [ %2, %for.body.lr.ph ], [ %42, %for.inc ]
   %relevant_parents.0119 = phi i32 [ 0, %for.body.lr.ph ], [ %spec.select, %for.inc ]
   %irrelevant_change.0118 = phi i32 [ 0, %for.body.lr.ph ], [ %irrelevant_change.2, %for.inc ]
   %relevant_change.0117 = phi i32 [ 0, %for.body.lr.ph ], [ %relevant_change.2, %for.inc ]
@@ -12500,20 +12500,19 @@ if.end84:                                         ; preds = %lor.lhs.false75
   %bf.load87 = load i64, ptr %prune, align 8
   %36 = and i64 %bf.load87, 256
   %tobool91 = icmp ne i64 %36, 0
-  %37 = and i64 %indvars.iv, 4294967295
-  %tobool93 = icmp ne i64 %37, 0
+  %tobool93 = icmp ne i64 %indvars.iv, 0
   %or.cond1 = and i1 %tobool91, %tobool93
   br i1 %or.cond1, label %if.end163, label %if.end163.sink.split
 
 sw.bb105:                                         ; preds = %if.end67, %rev_compare_tree.exit
   %bf.load106 = load i64, ptr %prune, align 8
-  %38 = and i64 %bf.load106, 64
-  %tobool110.not = icmp eq i64 %38, 0
+  %37 = and i64 %bf.load106, 64
+  %tobool110.not = icmp eq i64 %37, 0
   br i1 %tobool110.not, label %sw.bb128, label %land.lhs.true111
 
 land.lhs.true111:                                 ; preds = %sw.bb105
-  %39 = load ptr, ptr @the_repository, align 8
-  %call.i71 = tail call ptr @repo_get_commit_tree(ptr noundef %39, ptr noundef nonnull %8) #25
+  %38 = load ptr, ptr @the_repository, align 8
+  %call.i71 = tail call ptr @repo_get_commit_tree(ptr noundef %38, ptr noundef nonnull %8) #25
   %tobool.not.i72 = icmp eq ptr %call.i71, null
   br i1 %tobool.not.i72, label %sw.bb128, label %rev_same_tree_as_empty.exit80
 
@@ -12522,13 +12521,13 @@ rev_same_tree_as_empty.exit80:                    ; preds = %land.lhs.true111
   store i32 0, ptr %has_changes23.i, align 4
   %oid.i76 = getelementptr inbounds i8, ptr %call.i71, i64 4
   tail call void @diff_tree_oid(ptr noundef null, ptr noundef nonnull %oid.i76, ptr noundef nonnull @.str.36, ptr noundef nonnull %pruning22.i) #25
-  %40 = load i32, ptr @tree_difference, align 4
-  %cmp.i77.not = icmp eq i32 %40, 0
+  %39 = load i32, ptr @tree_difference, align 4
+  %cmp.i77.not = icmp eq i32 %39, 0
   br i1 %cmp.i77.not, label %if.then114, label %sw.bb128
 
 if.then114:                                       ; preds = %rev_same_tree_as_empty.exit80
-  %41 = load ptr, ptr %repo, align 8
-  %call.i81 = tail call i32 @repo_parse_commit_gently(ptr noundef %41, ptr noundef nonnull %8, i32 noundef 0) #25
+  %40 = load ptr, ptr %repo, align 8
+  %call.i81 = tail call i32 @repo_parse_commit_gently(ptr noundef %40, ptr noundef nonnull %8, i32 noundef 0) #25
   %cmp117 = icmp slt i32 %call.i81, 0
   br i1 %cmp117, label %if.then118, label %if.end125
 
@@ -12547,8 +12546,8 @@ if.end125:                                        ; preds = %if.then114
 
 sw.bb128:                                         ; preds = %land.lhs.true111, %if.then6.i, %if.end.i64, %sw.bb105, %rev_same_tree_as_empty.exit80, %if.end125, %rev_compare_tree.exit, %rev_compare_tree.exit
   %.val = load i32, ptr %8, align 8
-  %42 = and i32 %.val, 16416
-  %cmp.i82.not = icmp eq i32 %42, 32
+  %41 = and i32 %.val, 16416
+  %cmp.i82.not = icmp eq i32 %41, 32
   %relevant_change.0. = select i1 %cmp.i82.not, i32 %relevant_change.0117, i32 1
   %.irrelevant_change.0 = select i1 %cmp.i82.not, i32 1, i32 %irrelevant_change.0118
   %tobool133.not = icmp eq i64 %indvars.iv, 0
@@ -12568,8 +12567,8 @@ for.inc:                                          ; preds = %sw.bb128, %if.then1
   %irrelevant_change.2 = phi i32 [ %.irrelevant_change.0, %sw.bb128 ], [ %.irrelevant_change.0, %if.then134 ], [ %irrelevant_change.0118, %if.then80 ], [ %irrelevant_change.0118, %if.then78 ]
   %next148 = getelementptr inbounds i8, ptr %7, i64 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %43 = load ptr, ptr %next148, align 8
-  %cmp.not = icmp eq ptr %43, null
+  %42 = load ptr, ptr %next148, align 8
+  %cmp.not = icmp eq ptr %42, null
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !93
 
 for.end:                                          ; preds = %for.inc, %if.then30

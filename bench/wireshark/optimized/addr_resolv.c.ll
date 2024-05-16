@@ -4447,10 +4447,10 @@ define hidden range(i32 0, 2) i32 @str_to_eth(ptr noundef %0, ptr nocapture noun
   %5 = load ptr, ptr @g_ascii_table, align 8
   br label %6
 
-6:                                                ; preds = %27, %2
-  %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %27 ]
-  %.078.i = phi i8 [ 0, %2 ], [ %.1.i, %27 ]
-  %.05276.i = phi ptr [ %0, %2 ], [ %28, %27 ]
+6:                                                ; preds = %26, %2
+  %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %26 ]
+  %.078.i = phi i8 [ 0, %2 ], [ %.1.i, %26 ]
+  %.05276.i = phi ptr [ %0, %2 ], [ %27, %26 ]
   %7 = load i8, ptr %.05276.i, align 1
   %8 = zext i8 %7 to i64
   %9 = getelementptr i16, ptr %5, i64 %8
@@ -4472,48 +4472,47 @@ define hidden range(i32 0, 2) i32 @str_to_eth(ptr noundef %0, ptr nocapture noun
   %19 = getelementptr [6 x i8], ptr %4, i64 0, i64 %indvars.iv.i
   store i8 %18, ptr %19, align 1
   %20 = load i8, ptr %14, align 1
-  switch i8 %20, label %23 [
+  switch i8 %20, label %22 [
     i8 47, label %parse_ether_address.exit.thread
     i8 0, label %21
   ]
 
 21:                                               ; preds = %17
-  %22 = and i64 %indvars.iv.i, 4294967295
-  %cond = icmp eq i64 %22, 5
+  %cond = icmp eq i64 %indvars.iv.i, 5
   br i1 %cond, label %.loopexit, label %parse_ether_address.exit.thread
 
-23:                                               ; preds = %17
-  %24 = icmp eq i8 %.078.i, 0
-  br i1 %24, label %25, label %26
+22:                                               ; preds = %17
+  %23 = icmp eq i8 %.078.i, 0
+  br i1 %23, label %24, label %25
 
-25:                                               ; preds = %23
+24:                                               ; preds = %22
   switch i8 %20, label %parse_ether_address.exit.thread [
-    i8 58, label %27
-    i8 45, label %27
-    i8 46, label %27
+    i8 58, label %26
+    i8 45, label %26
+    i8 46, label %26
   ]
 
-26:                                               ; preds = %23
+25:                                               ; preds = %22
   %.not58.i = icmp eq i8 %20, %.078.i
-  br i1 %.not58.i, label %27, label %parse_ether_address.exit.thread
+  br i1 %.not58.i, label %26, label %parse_ether_address.exit.thread
 
-27:                                               ; preds = %26, %25, %25, %25
-  %.1.i = phi i8 [ %.078.i, %26 ], [ %20, %25 ], [ %20, %25 ], [ %20, %25 ]
-  %28 = getelementptr i8, ptr %14, i64 1
+26:                                               ; preds = %25, %24, %24, %24
+  %.1.i = phi i8 [ %.078.i, %25 ], [ %20, %24 ], [ %20, %24 ], [ %20, %24 ]
+  %27 = getelementptr i8, ptr %14, i64 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
   br i1 %exitcond.not.i, label %.loopexit, label %6, !llvm.loop !30
 
-parse_ether_address.exit.thread:                  ; preds = %26, %25, %12, %6, %17, %21
+parse_ether_address.exit.thread:                  ; preds = %25, %24, %12, %6, %17, %21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br label %29
+  br label %28
 
-.loopexit:                                        ; preds = %27, %21
+.loopexit:                                        ; preds = %26, %21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %1, ptr noundef nonnull align 1 dereferenceable(6) %4, i64 6, i1 false)
-  br label %29
+  br label %28
 
-29:                                               ; preds = %parse_ether_address.exit.thread, %.loopexit
+28:                                               ; preds = %parse_ether_address.exit.thread, %.loopexit
   %.0 = phi i32 [ 1, %.loopexit ], [ 0, %parse_ether_address.exit.thread ]
   ret i32 %.0
 }

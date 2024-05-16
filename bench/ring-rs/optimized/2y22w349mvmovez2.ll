@@ -858,61 +858,60 @@ define hidden noundef zeroext i1 @_ZN4ring2io10der_writer9write_tlv17h59241b8b3a
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   %8 = load ptr, ptr %7, align 8, !invariant.load !16, !noalias !16, !nonnull !16
   %9 = call noundef zeroext i1 %8(ptr noundef nonnull align 1 %3, ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.931894935b2e277744aad6b42ceca7b7.28), !noalias !122
-  br i1 %9, label %14, label %10
+  br i1 %9, label %13, label %10
 
 10:                                               ; preds = %5
   %11 = load i64, ptr %6, align 8, !noundef !16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %12 = icmp ugt i64 %11, 65535
-  %13 = trunc nuw i64 %11 to i16
-  br i1 %12, label %35, label %15
+  br i1 %12, label %34, label %14
 
-14:                                               ; preds = %5
+13:                                               ; preds = %5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  br label %35
+  br label %34
 
-15:                                               ; preds = %10
-  %16 = add i8 %2, -1
-  %17 = icmp ult i8 %16, -93
-  call void @llvm.assume(i1 %17)
-  %18 = getelementptr inbounds i8, ptr %1, i64 24
-  %19 = load ptr, ptr %18, align 8, !invariant.load !16, !nonnull !16
-  %20 = call noundef zeroext i1 %19(ptr noundef nonnull align 1 %0, i8 noundef %2)
-  br i1 %20, label %35, label %21
+14:                                               ; preds = %10
+  %15 = add i8 %2, -1
+  %16 = icmp ult i8 %15, -93
+  call void @llvm.assume(i1 %16)
+  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %18 = load ptr, ptr %17, align 8, !invariant.load !16, !nonnull !16
+  %19 = call noundef zeroext i1 %18(ptr noundef nonnull align 1 %0, i8 noundef %2)
+  br i1 %19, label %34, label %20
 
-21:                                               ; preds = %15
+20:                                               ; preds = %14
   %.sroa.09.0.extract.trunc = trunc i64 %11 to i8
   %.sroa.410.0.extract.shift45 = lshr i64 %11, 8
   %.sroa.410.0.extract.trunc = trunc nuw i64 %.sroa.410.0.extract.shift45 to i8
-  %22 = icmp ugt i16 %13, 255
-  br i1 %22, label %25, label %23
+  %21 = icmp ugt i64 %11, 255
+  br i1 %21, label %24, label %22
 
-23:                                               ; preds = %21
-  %24 = icmp ugt i16 %13, 127
-  br i1 %24, label %27, label %29
+22:                                               ; preds = %20
+  %23 = icmp ugt i64 %11, 127
+  br i1 %23, label %26, label %28
 
-25:                                               ; preds = %21
-  %26 = call noundef zeroext i1 %19(ptr noundef nonnull align 1 %0, i8 noundef -126)
-  br i1 %26, label %35, label %31
+24:                                               ; preds = %20
+  %25 = call noundef zeroext i1 %18(ptr noundef nonnull align 1 %0, i8 noundef -126)
+  br i1 %25, label %34, label %30
 
-27:                                               ; preds = %23
-  %28 = call noundef zeroext i1 %19(ptr noundef nonnull align 1 %0, i8 noundef -127)
-  br i1 %28, label %35, label %29
+26:                                               ; preds = %22
+  %27 = call noundef zeroext i1 %18(ptr noundef nonnull align 1 %0, i8 noundef -127)
+  br i1 %27, label %34, label %28
 
-29:                                               ; preds = %31, %27, %23
-  %30 = call noundef zeroext i1 %19(ptr noundef nonnull align 1 %0, i8 noundef %.sroa.09.0.extract.trunc)
-  br i1 %30, label %35, label %33
+28:                                               ; preds = %30, %26, %22
+  %29 = call noundef zeroext i1 %18(ptr noundef nonnull align 1 %0, i8 noundef %.sroa.09.0.extract.trunc)
+  br i1 %29, label %34, label %32
 
-31:                                               ; preds = %25
-  %32 = call noundef zeroext i1 %19(ptr noundef nonnull align 1 %0, i8 noundef %.sroa.410.0.extract.trunc)
-  br i1 %32, label %35, label %29
+30:                                               ; preds = %24
+  %31 = call noundef zeroext i1 %18(ptr noundef nonnull align 1 %0, i8 noundef %.sroa.410.0.extract.trunc)
+  br i1 %31, label %34, label %28
 
-33:                                               ; preds = %29
-  %34 = call noundef zeroext i1 %8(ptr noundef nonnull align 1 %3, ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1), !noalias !125
-  br label %35
+32:                                               ; preds = %28
+  %33 = call noundef zeroext i1 %8(ptr noundef nonnull align 1 %3, ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1), !noalias !125
+  br label %34
 
-35:                                               ; preds = %31, %29, %27, %25, %15, %10, %14, %33
-  %.0 = phi i1 [ true, %14 ], [ %34, %33 ], [ true, %10 ], [ true, %15 ], [ true, %27 ], [ true, %25 ], [ true, %31 ], [ true, %29 ]
+34:                                               ; preds = %30, %28, %26, %24, %14, %10, %13, %32
+  %.0 = phi i1 [ true, %13 ], [ %33, %32 ], [ true, %10 ], [ true, %14 ], [ true, %26 ], [ true, %24 ], [ true, %30 ], [ true, %28 ]
   ret i1 %.0
 }
 
@@ -940,66 +939,65 @@ define hidden noundef zeroext i1 @_ZN4ring2io10der_writer9write_tlv17h97171babf5
   %16 = load i64, ptr %6, align 8, !noundef !16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %17 = icmp ugt i64 %16, 65535
-  %18 = trunc nuw i64 %16 to i16
-  br i1 %17, label %"_ZN4ring2io10der_writer22write_positive_integer28_$u7b$$u7b$closure$u7d$$u7d$17h54f99c09ec6dc587E.exit47", label %19
+  br i1 %17, label %"_ZN4ring2io10der_writer22write_positive_integer28_$u7b$$u7b$closure$u7d$$u7d$17h54f99c09ec6dc587E.exit47", label %18
 
 "_ZN4ring2io10der_writer22write_positive_integer28_$u7b$$u7b$closure$u7d$$u7d$17h54f99c09ec6dc587E.exit.thread": ; preds = %9, %"_ZN4ring2io10der_writer22write_positive_integer28_$u7b$$u7b$closure$u7d$$u7d$17h54f99c09ec6dc587E.exit"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %"_ZN4ring2io10der_writer22write_positive_integer28_$u7b$$u7b$closure$u7d$$u7d$17h54f99c09ec6dc587E.exit47"
 
-19:                                               ; preds = %15
-  %20 = add i8 %2, -1
-  %21 = icmp ult i8 %20, -93
-  call void @llvm.assume(i1 %21)
-  %22 = getelementptr inbounds i8, ptr %1, i64 24
-  %23 = load ptr, ptr %22, align 8, !invariant.load !16, !nonnull !16
-  %24 = call noundef zeroext i1 %23(ptr noundef nonnull align 1 %0, i8 noundef %2)
-  br i1 %24, label %"_ZN4ring2io10der_writer22write_positive_integer28_$u7b$$u7b$closure$u7d$$u7d$17h54f99c09ec6dc587E.exit47", label %25
+18:                                               ; preds = %15
+  %19 = add i8 %2, -1
+  %20 = icmp ult i8 %19, -93
+  call void @llvm.assume(i1 %20)
+  %21 = getelementptr inbounds i8, ptr %1, i64 24
+  %22 = load ptr, ptr %21, align 8, !invariant.load !16, !nonnull !16
+  %23 = call noundef zeroext i1 %22(ptr noundef nonnull align 1 %0, i8 noundef %2)
+  br i1 %23, label %"_ZN4ring2io10der_writer22write_positive_integer28_$u7b$$u7b$closure$u7d$$u7d$17h54f99c09ec6dc587E.exit47", label %24
 
-25:                                               ; preds = %19
+24:                                               ; preds = %18
   %.sroa.09.0.extract.trunc = trunc i64 %16 to i8
   %.sroa.410.0.extract.shift50 = lshr i64 %16, 8
   %.sroa.410.0.extract.trunc = trunc nuw i64 %.sroa.410.0.extract.shift50 to i8
-  %26 = icmp ugt i16 %18, 255
-  br i1 %26, label %29, label %27
+  %25 = icmp ugt i64 %16, 255
+  br i1 %25, label %28, label %26
 
-27:                                               ; preds = %25
-  %28 = icmp ugt i16 %18, 127
-  br i1 %28, label %31, label %33
+26:                                               ; preds = %24
+  %27 = icmp ugt i64 %16, 127
+  br i1 %27, label %30, label %32
 
-29:                                               ; preds = %25
-  %30 = call noundef zeroext i1 %23(ptr noundef nonnull align 1 %0, i8 noundef -126)
-  br i1 %30, label %"_ZN4ring2io10der_writer22write_positive_integer28_$u7b$$u7b$closure$u7d$$u7d$17h54f99c09ec6dc587E.exit47", label %35
+28:                                               ; preds = %24
+  %29 = call noundef zeroext i1 %22(ptr noundef nonnull align 1 %0, i8 noundef -126)
+  br i1 %29, label %"_ZN4ring2io10der_writer22write_positive_integer28_$u7b$$u7b$closure$u7d$$u7d$17h54f99c09ec6dc587E.exit47", label %34
 
-31:                                               ; preds = %27
-  %32 = call noundef zeroext i1 %23(ptr noundef nonnull align 1 %0, i8 noundef -127)
-  br i1 %32, label %"_ZN4ring2io10der_writer22write_positive_integer28_$u7b$$u7b$closure$u7d$$u7d$17h54f99c09ec6dc587E.exit47", label %33
+30:                                               ; preds = %26
+  %31 = call noundef zeroext i1 %22(ptr noundef nonnull align 1 %0, i8 noundef -127)
+  br i1 %31, label %"_ZN4ring2io10der_writer22write_positive_integer28_$u7b$$u7b$closure$u7d$$u7d$17h54f99c09ec6dc587E.exit47", label %32
 
-33:                                               ; preds = %35, %31, %27
-  %34 = call noundef zeroext i1 %23(ptr noundef nonnull align 1 %0, i8 noundef %.sroa.09.0.extract.trunc)
-  br i1 %34, label %"_ZN4ring2io10der_writer22write_positive_integer28_$u7b$$u7b$closure$u7d$$u7d$17h54f99c09ec6dc587E.exit47", label %37
+32:                                               ; preds = %34, %30, %26
+  %33 = call noundef zeroext i1 %22(ptr noundef nonnull align 1 %0, i8 noundef %.sroa.09.0.extract.trunc)
+  br i1 %33, label %"_ZN4ring2io10der_writer22write_positive_integer28_$u7b$$u7b$closure$u7d$$u7d$17h54f99c09ec6dc587E.exit47", label %36
 
-35:                                               ; preds = %29
-  %36 = call noundef zeroext i1 %23(ptr noundef nonnull align 1 %0, i8 noundef %.sroa.410.0.extract.trunc)
-  br i1 %36, label %"_ZN4ring2io10der_writer22write_positive_integer28_$u7b$$u7b$closure$u7d$$u7d$17h54f99c09ec6dc587E.exit47", label %33
+34:                                               ; preds = %28
+  %35 = call noundef zeroext i1 %22(ptr noundef nonnull align 1 %0, i8 noundef %.sroa.410.0.extract.trunc)
+  br i1 %35, label %"_ZN4ring2io10der_writer22write_positive_integer28_$u7b$$u7b$closure$u7d$$u7d$17h54f99c09ec6dc587E.exit47", label %32
 
-37:                                               ; preds = %33
+36:                                               ; preds = %32
   call void @llvm.experimental.noalias.scope.decl(metadata !135)
-  br i1 %8, label %40, label %38
+  br i1 %8, label %39, label %37
 
-38:                                               ; preds = %37
-  %39 = call noundef zeroext i1 %23(ptr noundef nonnull align 1 %0, i8 noundef 0), !noalias !135
-  br i1 %39, label %"_ZN4ring2io10der_writer22write_positive_integer28_$u7b$$u7b$closure$u7d$$u7d$17h54f99c09ec6dc587E.exit47", label %40
+37:                                               ; preds = %36
+  %38 = call noundef zeroext i1 %22(ptr noundef nonnull align 1 %0, i8 noundef 0), !noalias !135
+  br i1 %38, label %"_ZN4ring2io10der_writer22write_positive_integer28_$u7b$$u7b$closure$u7d$$u7d$17h54f99c09ec6dc587E.exit47", label %39
 
-40:                                               ; preds = %38, %37
+39:                                               ; preds = %37, %36
   call void @llvm.experimental.noalias.scope.decl(metadata !138)
-  %41 = getelementptr inbounds i8, ptr %1, i64 32
-  %42 = load ptr, ptr %41, align 8, !invariant.load !16, !alias.scope !141, !noalias !142, !nonnull !16
-  %43 = call noundef zeroext i1 %42(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 %11, i64 noundef %13), !noalias !141
+  %40 = getelementptr inbounds i8, ptr %1, i64 32
+  %41 = load ptr, ptr %40, align 8, !invariant.load !16, !alias.scope !141, !noalias !142, !nonnull !16
+  %42 = call noundef zeroext i1 %41(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 %11, i64 noundef %13), !noalias !141
   br label %"_ZN4ring2io10der_writer22write_positive_integer28_$u7b$$u7b$closure$u7d$$u7d$17h54f99c09ec6dc587E.exit47"
 
-"_ZN4ring2io10der_writer22write_positive_integer28_$u7b$$u7b$closure$u7d$$u7d$17h54f99c09ec6dc587E.exit47": ; preds = %40, %38, %35, %33, %31, %29, %19, %15, %"_ZN4ring2io10der_writer22write_positive_integer28_$u7b$$u7b$closure$u7d$$u7d$17h54f99c09ec6dc587E.exit.thread"
-  %.0 = phi i1 [ true, %"_ZN4ring2io10der_writer22write_positive_integer28_$u7b$$u7b$closure$u7d$$u7d$17h54f99c09ec6dc587E.exit.thread" ], [ true, %15 ], [ true, %19 ], [ true, %31 ], [ true, %29 ], [ true, %35 ], [ true, %33 ], [ %43, %40 ], [ true, %38 ]
+"_ZN4ring2io10der_writer22write_positive_integer28_$u7b$$u7b$closure$u7d$$u7d$17h54f99c09ec6dc587E.exit47": ; preds = %39, %37, %34, %32, %30, %28, %18, %15, %"_ZN4ring2io10der_writer22write_positive_integer28_$u7b$$u7b$closure$u7d$$u7d$17h54f99c09ec6dc587E.exit.thread"
+  %.0 = phi i1 [ true, %"_ZN4ring2io10der_writer22write_positive_integer28_$u7b$$u7b$closure$u7d$$u7d$17h54f99c09ec6dc587E.exit.thread" ], [ true, %15 ], [ true, %18 ], [ true, %30 ], [ true, %28 ], [ true, %34 ], [ true, %32 ], [ %42, %39 ], [ true, %37 ]
   ret i1 %.0
 }
 

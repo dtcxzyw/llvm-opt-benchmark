@@ -1266,23 +1266,22 @@ _ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit23.i.i: ; 
 
 if.end11.i.i:                                     ; preds = %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit23.i.i, %if.end.i.i
   %text_buffer.2.i.i = phi ptr [ %text_buffer.117.i.i, %if.end.i.i ], [ %incdec.ptr.i21.i.i, %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit23.i.i ]
-  %1 = icmp ult i32 %sh_prom.i.i, 3
+  %1 = icmp ult i64 %algorithm.018.i.i, 3
   br i1 %1, label %switch.lookup, label %_ZN9grpc_core28CompressionAlgorithmAsStringE26grpc_compression_algorithm.exit.i.i
 
 switch.lookup:                                    ; preds = %if.end11.i.i
-  %2 = and i64 %algorithm.018.i.i, 3
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._GLOBAL__sub_I_compression_internal.cc, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._GLOBAL__sub_I_compression_internal.cc, i64 0, i64 %algorithm.018.i.i
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN9grpc_core28CompressionAlgorithmAsStringE26grpc_compression_algorithm.exit.i.i
 
 _ZN9grpc_core28CompressionAlgorithmAsStringE26grpc_compression_algorithm.exit.i.i: ; preds = %if.end11.i.i, %switch.lookup
   %retval.0.i.i.i = phi ptr [ %switch.load, %switch.lookup ], [ null, %if.end11.i.i ]
-  %3 = load i8, ptr %retval.0.i.i.i, align 1
-  %cmp15.not14.i.i = icmp eq i8 %3, 0
+  %2 = load i8, ptr %retval.0.i.i.i, align 1
+  %cmp15.not14.i.i = icmp eq i8 %2, 0
   br i1 %cmp15.not14.i.i, label %for.inc17.i.i, label %for.body16.i.i
 
 for.body16.i.i:                                   ; preds = %_ZN9grpc_core28CompressionAlgorithmAsStringE26grpc_compression_algorithm.exit.i.i, %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit31.i.i
-  %4 = phi i8 [ %5, %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit31.i.i ], [ %3, %_ZN9grpc_core28CompressionAlgorithmAsStringE26grpc_compression_algorithm.exit.i.i ]
+  %3 = phi i8 [ %4, %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit31.i.i ], [ %2, %_ZN9grpc_core28CompressionAlgorithmAsStringE26grpc_compression_algorithm.exit.i.i ]
   %p.016.i.i = phi ptr [ %incdec.ptr.i.i, %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit31.i.i ], [ %retval.0.i.i.i, %_ZN9grpc_core28CompressionAlgorithmAsStringE26grpc_compression_algorithm.exit.i.i ]
   %text_buffer.315.i.i = phi ptr [ %incdec.ptr.i29.i.i, %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit31.i.i ], [ %text_buffer.2.i.i, %_ZN9grpc_core28CompressionAlgorithmAsStringE26grpc_compression_algorithm.exit.i.i ]
   %sub.ptr.lhs.cast.i25.i.i = ptrtoint ptr %text_buffer.315.i.i to i64
@@ -1296,10 +1295,10 @@ if.then.i30.i.i:                                  ; preds = %for.body16.i.i
 
 _ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit31.i.i: ; preds = %for.body16.i.i
   %incdec.ptr.i29.i.i = getelementptr inbounds i8, ptr %text_buffer.315.i.i, i64 1
-  store i8 %4, ptr %text_buffer.315.i.i, align 1
+  store i8 %3, ptr %text_buffer.315.i.i, align 1
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %p.016.i.i, i64 1
-  %5 = load i8, ptr %incdec.ptr.i.i, align 1
-  %cmp15.not.i.i = icmp eq i8 %5, 0
+  %4 = load i8, ptr %incdec.ptr.i.i, align 1
+  %cmp15.not.i.i = icmp eq i8 %4, 0
   br i1 %cmp15.not.i.i, label %for.inc17.i.i, label %for.body16.i.i, !llvm.loop !41
 
 for.inc17.i.i:                                    ; preds = %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit31.i.i, %_ZN9grpc_core28CompressionAlgorithmAsStringE26grpc_compression_algorithm.exit.i.i, %for.body7.i.i

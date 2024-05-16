@@ -25128,9 +25128,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec14handle_reserve28_$u7b$$u7b$closu
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef range(i64 0, 256) i64 @"_ZN5gimli4read3str66_$LT$impl$u20$gimli..common..DebugStrOffsetsBase$LT$Offset$GT$$GT$29default_for_encoding_and_file17h63b4b64e435f6eaaE"(i32 %0, i1 noundef zeroext %1) unnamed_addr #6 {
-  %.sroa.5.0.extract.shift = lshr i32 %0, 16
-  %.sroa.5.0.extract.trunc = trunc nuw i32 %.sroa.5.0.extract.shift to i16
-  %3 = icmp ugt i16 %.sroa.5.0.extract.trunc, 4
+  %3 = icmp ugt i32 %0, 327679
   %brmerge.not = and i1 %3, %1
   %4 = and i32 %0, 65280
   %switch = icmp eq i32 %4, 2048
@@ -25181,9 +25179,7 @@ define hidden { i64, i64 } @"_ZN5gimli4read4unit57_$LT$impl$u20$gimli..common..D
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef range(i64 0, 256) i64 @"_ZN5gimli4read8loclists64_$LT$impl$u20$gimli..common..DebugLocListsBase$LT$Offset$GT$$GT$29default_for_encoding_and_file17h2edc3f7e5e38e5a6E"(i32 %0, i1 noundef zeroext %1) unnamed_addr #6 {
-  %.sroa.5.0.extract.shift = lshr i32 %0, 16
-  %.sroa.5.0.extract.trunc = trunc nuw i32 %.sroa.5.0.extract.shift to i16
-  %3 = icmp ugt i16 %.sroa.5.0.extract.trunc, 4
+  %3 = icmp ugt i32 %0, 327679
   %brmerge.not = and i1 %3, %1
   %4 = and i32 %0, 65280
   %switch = icmp eq i32 %4, 2048
@@ -25194,9 +25190,7 @@ define hidden noundef range(i64 0, 256) i64 @"_ZN5gimli4read8loclists64_$LT$impl
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef range(i64 0, 256) i64 @"_ZN5gimli4read8rnglists64_$LT$impl$u20$gimli..common..DebugRngListsBase$LT$Offset$GT$$GT$29default_for_encoding_and_file17hc2a2bc1c8a02f8deE"(i32 %0, i1 noundef zeroext %1) unnamed_addr #6 {
-  %.sroa.5.0.extract.shift = lshr i32 %0, 16
-  %.sroa.5.0.extract.trunc = trunc nuw i32 %.sroa.5.0.extract.shift to i16
-  %3 = icmp ugt i16 %.sroa.5.0.extract.trunc, 4
+  %3 = icmp ugt i32 %0, 327679
   %brmerge.not = and i1 %3, %1
   %4 = and i32 %0, 65280
   %switch = icmp eq i32 %4, 2048

@@ -2978,42 +2978,37 @@ for.body23:                                       ; preds = %if.end18, %for.inc3
 land.lhs.true27:                                  ; preds = %for.body23
   %call32 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %locale, ptr noundef nonnull dereferenceable(1) %64) #20
   %cmp33 = icmp eq i32 %call32, 0
-  br i1 %cmp33, label %for.end38, label %for.inc36
+  br i1 %cmp33, label %if.else, label %for.inc36
 
 for.inc36:                                        ; preds = %for.body23, %land.lhs.true27
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
   %exitcond148.not = icmp eq i64 %indvars.iv.next146, 10
   br i1 %exitcond148.not, label %if.then41, label %for.body23, !llvm.loop !20
 
-for.end38:                                        ; preds = %land.lhs.true27
-  %65 = and i64 %indvars.iv145, 255
-  %cmp40 = icmp eq i64 %65, 255
-  br i1 %cmp40, label %if.then41, label %if.else
-
-if.then41:                                        ; preds = %for.inc36, %for.end38
-  %66 = load i8, ptr @_ZL22currentCacheEntryIndex, align 1
-  %idxprom42 = zext nneg i8 %66 to i64
+if.then41:                                        ; preds = %for.inc36
+  %65 = load i8, ptr @_ZL22currentCacheEntryIndex, align 1
+  %idxprom42 = zext nneg i8 %65 to i64
   %arrayidx43 = getelementptr inbounds [10 x ptr], ptr @_ZL9currCache, i64 0, i64 %idxprom42
-  %67 = load ptr, ptr %arrayidx43, align 8
-  %tobool44.not = icmp eq ptr %67, null
+  %66 = load ptr, ptr %arrayidx43, align 8
+  %tobool44.not = icmp eq ptr %66, null
   br i1 %tobool44.not, label %if.end51, label %if.then45
 
 if.then45:                                        ; preds = %if.then41
-  %refCount46 = getelementptr inbounds i8, ptr %67, i64 188
-  %68 = load i32, ptr %refCount46, align 4
-  %dec = add nsw i32 %68, -1
+  %refCount46 = getelementptr inbounds i8, ptr %66, i64 188
+  %67 = load i32, ptr %refCount46, align 4
+  %dec = add nsw i32 %67, -1
   store i32 %dec, ptr %refCount46, align 4
   %cmp48 = icmp eq i32 %dec, 0
   br i1 %cmp48, label %if.then49, label %if.end51
 
 if.then49:                                        ; preds = %if.then45
-  call fastcc void @_ZL16deleteCacheEntryP22CurrencyNameCacheEntry(ptr noundef nonnull %67)
+  call fastcc void @_ZL16deleteCacheEntryP22CurrencyNameCacheEntry(ptr noundef nonnull %66)
   br label %if.end51
 
 if.end51:                                         ; preds = %if.then45, %if.then49, %if.then41
   %call52 = call noalias dereferenceable_or_null(192) ptr @uprv_malloc_75(i64 noundef 192) #18
-  %69 = load i8, ptr @_ZL22currentCacheEntryIndex, align 1
-  %idxprom53 = zext nneg i8 %69 to i64
+  %68 = load i8, ptr @_ZL22currentCacheEntryIndex, align 1
+  %idxprom53 = zext nneg i8 %68 to i64
   %arrayidx54 = getelementptr inbounds [10 x ptr], ptr @_ZL9currCache, i64 0, i64 %idxprom53
   store ptr %call52, ptr %arrayidx54, align 8
   %call57 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %call52, ptr noundef nonnull dereferenceable(1) %locale) #17
@@ -3027,13 +3022,13 @@ if.end51:                                         ; preds = %if.then45, %if.then
   store i32 %total_currency_symbol_count.11, ptr %totalCurrencySymbolCount, align 8
   %refCount60 = getelementptr inbounds i8, ptr %call52, i64 188
   store i32 2, ptr %refCount60, align 4
-  %add = add i8 %69, 1
+  %add = add i8 %68, 1
   %rem = urem i8 %add, 10
   store i8 %rem, ptr @_ZL22currentCacheEntryIndex, align 1
   call void @ucln_common_registerCleanup_75(i32 noundef 13, ptr noundef nonnull @_ZL16currency_cleanupv)
   br label %if.end67
 
-if.else:                                          ; preds = %for.end38
+if.else:                                          ; preds = %land.lhs.true27
   %cmp6.i = icmp sgt i32 %total_currency_name_count.15, 0
   br i1 %cmp6.i, label %for.body.preheader.i, label %_ZL19deleteCurrencyNamesP18CurrencyNameStructi.exit
 
@@ -3045,15 +3040,15 @@ for.body.i34:                                     ; preds = %for.inc.i39, %for.b
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.inc.i39 ]
   %arrayidx.i35 = getelementptr inbounds %struct.CurrencyNameStruct, ptr %call7.i, i64 %indvars.iv.i
   %flag.i36 = getelementptr inbounds i8, ptr %arrayidx.i35, i64 20
-  %70 = load i32, ptr %flag.i36, align 4
-  %and.i = and i32 %70, 1
+  %69 = load i32, ptr %flag.i36, align 4
+  %and.i = and i32 %69, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %for.inc.i39, label %if.then.i37
 
 if.then.i37:                                      ; preds = %for.body.i34
   %currencyName.i38 = getelementptr inbounds i8, ptr %arrayidx.i35, i64 8
-  %71 = load ptr, ptr %currencyName.i38, align 8
-  call void @uprv_free_75(ptr noundef %71)
+  %70 = load ptr, ptr %currencyName.i38, align 8
+  call void @uprv_free_75(ptr noundef %70)
   br label %for.inc.i39
 
 for.inc.i39:                                      ; preds = %if.then.i37, %for.body.i34
@@ -3074,15 +3069,15 @@ for.body.i45:                                     ; preds = %for.inc.i53, %for.b
   %indvars.iv.i46 = phi i64 [ 0, %for.body.preheader.i43 ], [ %indvars.iv.next.i54, %for.inc.i53 ]
   %arrayidx.i47 = getelementptr inbounds %struct.CurrencyNameStruct, ptr %call11.i, i64 %indvars.iv.i46
   %flag.i48 = getelementptr inbounds i8, ptr %arrayidx.i47, i64 20
-  %72 = load i32, ptr %flag.i48, align 4
-  %and.i49 = and i32 %72, 1
+  %71 = load i32, ptr %flag.i48, align 4
+  %and.i49 = and i32 %71, 1
   %tobool.not.i50 = icmp eq i32 %and.i49, 0
   br i1 %tobool.not.i50, label %for.inc.i53, label %if.then.i51
 
 if.then.i51:                                      ; preds = %for.body.i45
   %currencyName.i52 = getelementptr inbounds i8, ptr %arrayidx.i47, i64 8
-  %73 = load ptr, ptr %currencyName.i52, align 8
-  call void @uprv_free_75(ptr noundef %73)
+  %72 = load ptr, ptr %currencyName.i52, align 8
+  call void @uprv_free_75(ptr noundef %72)
   br label %for.inc.i53
 
 for.inc.i53:                                      ; preds = %if.then.i51, %for.body.i45
@@ -3095,15 +3090,15 @@ _ZL19deleteCurrencyNamesP18CurrencyNameStructi.exit56: ; preds = %for.inc.i53, %
   %sext = shl i64 %indvars.iv145, 56
   %idxprom63 = ashr exact i64 %sext, 56
   %arrayidx64 = getelementptr inbounds [10 x ptr], ptr @_ZL9currCache, i64 0, i64 %idxprom63
-  %74 = load ptr, ptr %arrayidx64, align 8
-  %refCount65 = getelementptr inbounds i8, ptr %74, i64 188
-  %75 = load i32, ptr %refCount65, align 4
-  %inc66 = add nsw i32 %75, 1
+  %73 = load ptr, ptr %arrayidx64, align 8
+  %refCount65 = getelementptr inbounds i8, ptr %73, i64 188
+  %74 = load i32, ptr %refCount65, align 4
+  %inc66 = add nsw i32 %74, 1
   store i32 %inc66, ptr %refCount65, align 4
   br label %if.end67
 
 if.end67:                                         ; preds = %_ZL19deleteCurrencyNamesP18CurrencyNameStructi.exit56, %if.end51
-  %cacheEntry.1 = phi ptr [ %call52, %if.end51 ], [ %74, %_ZL19deleteCurrencyNamesP18CurrencyNameStructi.exit56 ]
+  %cacheEntry.1 = phi ptr [ %call52, %if.end51 ], [ %73, %_ZL19deleteCurrencyNamesP18CurrencyNameStructi.exit56 ]
   call void @umtx_unlock_75(ptr noundef nonnull @_ZL19gCurrencyCacheMutex)
   br label %return
 

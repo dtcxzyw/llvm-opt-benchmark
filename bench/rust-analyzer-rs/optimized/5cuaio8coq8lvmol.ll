@@ -31933,12 +31933,12 @@ define noundef zeroext i1 @_ZN10hir_expand2db28ExpandDatabaseGroupStorage__23cyc
   %5 = alloca [1 x { ptr, ptr }], align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = alloca i16, align 2
-  %.sroa.4.0.extract.shift = lshr i64 %3, 48
-  %.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i16
-  %switch = icmp ult i16 %.sroa.4.0.extract.trunc, 13
+  %switch = icmp ult i64 %3, 3659174697238528
   br i1 %switch, label %14, label %8
 
 8:                                                ; preds = %4
+  %.sroa.4.0.extract.shift = lshr i64 %3, 48
+  %.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i16
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7)
   store i16 %.sroa.4.0.extract.trunc, ptr %7, align 2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)

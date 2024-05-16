@@ -11647,7 +11647,7 @@ if.then.i59:                                      ; preds = %_ZNK2v820FunctionCa
   br label %_ZNO2v85MaybeIiE8FromJustEv.exit
 
 _ZNO2v85MaybeIiE8FromJustEv.exit:                 ; preds = %if.then.i59, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
-  %cmp = icmp eq i32 %ref.tmp.sroa.28.0.extract.trunc, -1000
+  %cmp = icmp eq i64 %ref.tmp.sroa.28.0.extract.shift, 4294966296
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %_ZNO2v85MaybeIiE8FromJustEv.exit

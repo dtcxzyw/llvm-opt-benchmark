@@ -2382,7 +2382,7 @@ define internal fastcc noundef i32 @setup_launch(ptr nocapture noundef writeonly
 
 find_shell.exit.i:                                ; preds = %47
   %52 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  %53 = icmp eq i32 %52, 6
+  %53 = icmp eq i64 %indvars.iv.i.i, 6
   br i1 %53, label %find_shell.exit.thread.i, label %find_shell.exit58.thread75.i
 
 find_shell.exit.thread.i:                         ; preds = %51, %find_shell.exit.i, %42, %39, %35, %30
@@ -2419,7 +2419,7 @@ find_shell.exit.thread.i:                         ; preds = %51, %find_shell.exi
 
 find_shell.exit58.i:                              ; preds = %63
   %68 = trunc nuw nsw i64 %indvars.iv.i52.i to i32
-  %69 = icmp eq i32 %68, 6
+  %69 = icmp eq i64 %indvars.iv.i52.i, 6
   br i1 %69, label %find_shell.exit58.thread.i, label %find_shell.exit58.thread75.i
 
 find_shell.exit58.thread.i:                       ; preds = %67, %find_shell.exit58.i, %58, %55, %find_shell.exit.thread.i

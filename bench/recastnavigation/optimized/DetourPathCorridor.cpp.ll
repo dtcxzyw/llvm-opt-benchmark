@@ -484,9 +484,9 @@ define noundef i32 @_ZN14dtPathCorridor11findCornersEPfPhPjiP14dtNavMeshQueryPK1
   %.not2757 = icmp eq i8 %32, 0
   br i1 %.not2757, label %.lr.ph59, label %._crit_edge
 
-.lr.ph59:                                         ; preds = %.lr.ph, %45
-  %indvars.iv58 = phi i64 [ %indvars.iv.next, %45 ], [ %30, %.lr.ph ]
-  %33 = phi i32 [ %44, %45 ], [ %.promoted, %.lr.ph ]
+.lr.ph59:                                         ; preds = %.lr.ph, %44
+  %indvars.iv58 = phi i64 [ %indvars.iv.next, %44 ], [ %30, %.lr.ph ]
+  %33 = phi i32 [ %45, %44 ], [ %.promoted, %.lr.ph ]
   %34 = load float, ptr %0, align 8
   %35 = load float, ptr %1, align 4
   %36 = fsub float %34, %35
@@ -500,11 +500,11 @@ define noundef i32 @_ZN14dtPathCorridor11findCornersEPfPhPjiP14dtNavMeshQueryPK1
 
 43:                                               ; preds = %.lr.ph59
   %indvars.iv.next = add nsw i64 %indvars.iv58, -1
-  %44 = trunc nsw i64 %indvars.iv.next to i32
-  %cond = icmp eq i32 %44, 0
-  br i1 %cond, label %.loopexit, label %45
+  %cond = icmp eq i64 %indvars.iv.next, 0
+  br i1 %cond, label %.loopexit, label %44
 
-45:                                               ; preds = %43
+44:                                               ; preds = %43
+  %45 = trunc nsw i64 %indvars.iv.next to i32
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %2, ptr nonnull align 1 %27, i64 %indvars.iv.next, i1 false)
   %46 = shl nsw i64 %indvars.iv.next, 2
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %3, ptr nonnull align 4 %28, i64 %46, i1 false)
@@ -515,38 +515,37 @@ define noundef i32 @_ZN14dtPathCorridor11findCornersEPfPhPjiP14dtNavMeshQueryPK1
   %.not27 = icmp eq i8 %49, 0
   br i1 %.not27, label %.lr.ph59, label %._crit_edge
 
-._crit_edge:                                      ; preds = %45, %.lr.ph59, %.lr.ph
-  %.lcssa = phi i32 [ %.promoted, %.lr.ph ], [ %44, %45 ], [ %33, %.lr.ph59 ]
-  %indvars.iv.lcssa = phi i64 [ %30, %.lr.ph ], [ %indvars.iv.next, %45 ], [ %indvars.iv58, %.lr.ph59 ]
-  %50 = trunc nsw i64 %indvars.iv.lcssa to i32
-  %51 = icmp sgt i32 %50, 0
-  br i1 %51, label %.lr.ph41.preheader, label %.loopexit
+._crit_edge:                                      ; preds = %44, %.lr.ph59, %.lr.ph
+  %.lcssa = phi i32 [ %.promoted, %.lr.ph ], [ %45, %44 ], [ %33, %.lr.ph59 ]
+  %indvars.iv.lcssa = phi i64 [ %30, %.lr.ph ], [ %indvars.iv.next, %44 ], [ %indvars.iv58, %.lr.ph59 ]
+  %50 = icmp sgt i64 %indvars.iv.lcssa, 0
+  br i1 %50, label %.lr.ph41.preheader, label %.loopexit
 
 .lr.ph41.preheader:                               ; preds = %._crit_edge
-  %wide.trip.count = and i64 %indvars.iv.lcssa, 2147483647
+  %wide.trip.count = and i64 %indvars.iv.lcssa, 4294967295
   br label %.lr.ph41
 
-.lr.ph41:                                         ; preds = %.lr.ph41.preheader, %58
-  %indvars.iv44 = phi i64 [ 0, %.lr.ph41.preheader ], [ %indvars.iv.next45, %58 ]
-  %52 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv44
-  %53 = load i8, ptr %52, align 1
-  %54 = and i8 %53, 4
-  %.not29 = icmp eq i8 %54, 0
-  br i1 %.not29, label %58, label %55
+.lr.ph41:                                         ; preds = %.lr.ph41.preheader, %57
+  %indvars.iv44 = phi i64 [ 0, %.lr.ph41.preheader ], [ %indvars.iv.next45, %57 ]
+  %51 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv44
+  %52 = load i8, ptr %51, align 1
+  %53 = and i8 %52, 4
+  %.not29 = icmp eq i8 %53, 0
+  br i1 %.not29, label %57, label %54
 
-55:                                               ; preds = %.lr.ph41
-  %56 = trunc nuw nsw i64 %indvars.iv44 to i32
-  %57 = add nuw nsw i32 %56, 1
+54:                                               ; preds = %.lr.ph41
+  %55 = trunc nuw nsw i64 %indvars.iv44 to i32
+  %56 = add nuw nsw i32 %55, 1
   br label %.loopexit
 
-58:                                               ; preds = %.lr.ph41
+57:                                               ; preds = %.lr.ph41
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next45, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph41, !llvm.loop !13
 
-.loopexit:                                        ; preds = %43, %58, %20, %._crit_edge, %55
-  %59 = phi i32 [ %.lcssa, %._crit_edge ], [ %57, %55 ], [ 0, %20 ], [ %.lcssa, %58 ], [ 0, %43 ]
-  ret i32 %59
+.loopexit:                                        ; preds = %43, %57, %20, %._crit_edge, %54
+  %58 = phi i32 [ %.lcssa, %._crit_edge ], [ %56, %54 ], [ 0, %20 ], [ %.lcssa, %57 ], [ 0, %43 ]
+  ret i32 %58
 }
 
 declare noundef i32 @_ZNK14dtNavMeshQuery16findStraightPathEPKfS1_PKjiPfPhPjPiii(ptr noundef nonnull align 8 dereferenceable(104), ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3

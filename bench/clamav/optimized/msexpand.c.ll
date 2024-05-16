@@ -82,7 +82,7 @@ define range(i32 0, 27) i32 @cli_msexpand(ptr noundef %0, i32 noundef %1) local_
   %30 = sub i64 %29, %.0126
   %spec.select = call i64 @llvm.umin.i64(i64 %30, i64 2048)
   %31 = trunc nuw nsw i64 %spec.select to i32
-  %.not199 = icmp eq i32 %31, 0
+  %.not199 = icmp eq i64 %29, %.0126
   br i1 %.not199, label %134, label %32
 
 32:                                               ; preds = %28
@@ -130,7 +130,7 @@ define range(i32 0, 27) i32 @cli_msexpand(ptr noundef %0, i32 noundef %1) local_
   %48 = sub i64 %47, %.2251
   %spec.select216 = call i64 @llvm.umin.i64(i64 %48, i64 2048)
   %49 = trunc nuw nsw i64 %spec.select216 to i32
-  %.not212 = icmp eq i32 %49, 0
+  %.not212 = icmp eq i64 %47, %.2251
   br i1 %.not212, label %.loopexit274, label %50
 
 50:                                               ; preds = %46
@@ -187,7 +187,7 @@ define range(i32 0, 27) i32 @cli_msexpand(ptr noundef %0, i32 noundef %1) local_
   %76 = sub i64 %75, %.2251
   %spec.select218 = call i64 @llvm.umin.i64(i64 %76, i64 2048)
   %77 = trunc nuw nsw i64 %spec.select218 to i32
-  %.not205 = icmp eq i32 %77, 0
+  %.not205 = icmp eq i64 %75, %.2251
   br i1 %.not205, label %.loopexit274, label %78
 
 78:                                               ; preds = %74
@@ -218,7 +218,7 @@ define range(i32 0, 27) i32 @cli_msexpand(ptr noundef %0, i32 noundef %1) local_
   %92 = sub i64 %91, %.4
   %spec.select219 = call i64 @llvm.umin.i64(i64 %92, i64 2048)
   %93 = trunc nuw nsw i64 %spec.select219 to i32
-  %.not207 = icmp eq i32 %93, 0
+  %.not207 = icmp eq i64 %91, %.4
   br i1 %.not207, label %.loopexit274, label %94
 
 94:                                               ; preds = %90

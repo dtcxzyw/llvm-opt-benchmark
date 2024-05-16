@@ -3413,15 +3413,18 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %.loopexit1
 
 117:                                              ; preds = %39
-  %.lhs.trunc = add nsw i16 %11, -4
-  %118 = sdiv i16 %.lhs.trunc, 6
-  %119 = trunc nuw nsw i16 %118 to i8
-  %.not4 = icmp eq i8 %119, 0
-  br i1 %.not4, label %.loopexit1, label %.lr.ph
+  %.not4 = icmp ult i16 %11, 10
+  br i1 %.not4, label %.loopexit1, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %117, %.loopexit
-  %.in = phi i8 [ %120, %.loopexit ], [ %119, %117 ]
-  %.12015 = phi i32 [ %143, %.loopexit ], [ %49, %117 ]
+.lr.ph.preheader:                                 ; preds = %117
+  %.lhs.trunc = add nsw i16 %11, -4
+  %118 = udiv i16 %.lhs.trunc, 6
+  %119 = trunc nuw nsw i16 %118 to i8
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit
+  %.in = phi i8 [ %120, %.loopexit ], [ %119, %.lr.ph.preheader ]
+  %.12015 = phi i32 [ %143, %.loopexit ], [ %49, %.lr.ph.preheader ]
   %120 = add i8 %.in, -1
   %121 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.12015) #8
   %122 = load i32, ptr @ett_org_spc_dcbx_cee_app, align 4

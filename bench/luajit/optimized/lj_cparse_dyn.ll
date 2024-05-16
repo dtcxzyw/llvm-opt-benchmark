@@ -2624,8 +2624,7 @@ if.end7.i383.i:                                   ; preds = %lor.lhs.false3.i.i
   store ptr %add.ptr.i.i, ptr %param.i.i, align 8
   %270 = load i64, ptr %266, align 8
   %shr.i.i = ashr i64 %270, 47
-  %conv9.i.i = trunc nsw i64 %shr.i.i to i32
-  %cmp10.i.i = icmp eq i32 %conv9.i.i, -5
+  %cmp10.i.i = icmp eq i64 %shr.i.i, -5
   %271 = bitcast i64 %270 to double
   br i1 %cmp10.i.i, label %if.then12.i.i, label %if.else.i384.i
 
@@ -2644,7 +2643,7 @@ if.then12.i.i:                                    ; preds = %if.end7.i383.i
   br label %cp_next_.exit
 
 if.else.i384.i:                                   ; preds = %if.end7.i383.i
-  %cmp17.i.i = icmp ult i32 %conv9.i.i, -13
+  %cmp17.i.i = icmp ult i64 %shr.i.i, -13
   br i1 %cmp17.i.i, label %if.then19.i.i, label %if.else24.i.i
 
 if.then19.i.i:                                    ; preds = %if.else.i384.i
@@ -2656,7 +2655,7 @@ if.then19.i.i:                                    ; preds = %if.else.i384.i
   br label %cp_next_.exit
 
 if.else24.i.i:                                    ; preds = %if.else.i384.i
-  %cmp27.i.i = icmp eq i32 %conv9.i.i, -11
+  %cmp27.i.i = icmp eq i64 %shr.i.i, -11
   br i1 %cmp27.i.i, label %if.end33.i.i, label %if.then29.i.i
 
 if.then29.i.i:                                    ; preds = %if.else24.i.i

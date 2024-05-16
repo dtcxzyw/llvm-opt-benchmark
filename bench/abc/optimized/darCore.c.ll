@@ -259,7 +259,7 @@ Abc_Clock.exit166:                                ; preds = %Abc_Clock.exit164, 
   %123 = load i64, ptr %83, align 8
   %124 = lshr i64 %123, 56
   %125 = trunc nuw nsw i64 %124 to i32
-  %.not197 = icmp eq i32 %125, 0
+  %.not197 = icmp ult i64 %123, 72057594037927936
   br i1 %.not197, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %Abc_Clock.exit166
@@ -651,7 +651,7 @@ define i32 @Dar_ManCutCount(ptr nocapture noundef readonly %0, ptr noundef write
 17:                                               ; preds = %12
   %18 = lshr i64 %.val30, 56
   %19 = trunc nuw nsw i64 %18 to i32
-  %.not43 = icmp eq i32 %19, 0
+  %.not43 = icmp ult i64 %.val30, 72057594037927936
   br i1 %.not43, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %17
@@ -847,7 +847,7 @@ Abc_Clock.exit:                                   ; preds = %4, %10
 70:                                               ; preds = %65
   %71 = lshr i64 %.val30.i, 56
   %72 = trunc nuw nsw i64 %71 to i32
-  %.not43.i = icmp eq i32 %72, 0
+  %.not43.i = icmp ult i64 %.val30.i, 72057594037927936
   br i1 %.not43.i, label %.loopexit.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %70

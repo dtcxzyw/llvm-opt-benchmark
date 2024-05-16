@@ -5319,7 +5319,7 @@ define dso_local noundef range(i32 0, 2) i32 @update_rt_rq_load_avg(i64 noundef 
   br i1 %16, label %.critedge, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %126
-  %128 = trunc i64 %13 to i32
+  %128 = trunc nuw i64 %13 to i32
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 2632
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   %.phi.trans.insert11 = getelementptr inbounds i8, ptr %1, i64 2640
@@ -5600,7 +5600,7 @@ define dso_local noundef range(i32 0, 2) i32 @update_dl_rq_load_avg(i64 noundef 
   br i1 %16, label %.critedge, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %126
-  %128 = trunc i64 %13 to i32
+  %128 = trunc nuw i64 %13 to i32
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 2696
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   %.phi.trans.insert11 = getelementptr inbounds i8, ptr %1, i64 2704

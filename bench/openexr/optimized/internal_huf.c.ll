@@ -1878,8 +1878,8 @@ return:                                           ; preds = %for.inc.i64, %fasth
 define internal fastcc range(i32 0, 24) i32 @fasthuf_decode(ptr noundef %pctxt, ptr nocapture noundef readonly %fhd, ptr nocapture noundef readonly %src, i64 noundef %numSrcBits, ptr nocapture noundef %dst, i64 noundef %numDstElems) unnamed_addr #2 {
 entry:
   %sub = add i64 %numSrcBits, -128
-  %cmp155.not = icmp eq i64 %numDstElems, 0
-  br i1 %cmp155.not, label %while.end95, label %while.body.lr.ph
+  %cmp156.not = icmp eq i64 %numDstElems, 0
+  br i1 %cmp156.not, label %while.end95, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
   %add.ptr1 = getelementptr inbounds i8, ptr %src, i64 8
@@ -1898,19 +1898,19 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end94
-  %dstIdx.0162 = phi i64 [ 0, %while.body.lr.ph ], [ %dstIdx.1, %if.end94 ]
-  %bufferNumBits.0161 = phi i32 [ 64, %while.body.lr.ph ], [ %bufferNumBits.3, %if.end94 ]
-  %currByte.0160 = phi ptr [ %add.ptr, %while.body.lr.ph ], [ %currByte.13, %if.end94 ]
-  %bufferBackNumBits.0159 = phi i32 [ 64, %while.body.lr.ph ], [ %bufferBackNumBits.9, %if.end94 ]
-  %bufferBack.0158 = phi i64 [ %or19.i58, %while.body.lr.ph ], [ %bufferBack.13, %if.end94 ]
-  %buffer.0157 = phi i64 [ %or19.i, %while.body.lr.ph ], [ %buffer.5, %if.end94 ]
-  %numSrcBits.addr.0156 = phi i64 [ %sub, %while.body.lr.ph ], [ %numSrcBits.addr.11, %if.end94 ]
+  %dstIdx.0163 = phi i64 [ 0, %while.body.lr.ph ], [ %dstIdx.1, %if.end94 ]
+  %bufferNumBits.0162 = phi i32 [ 64, %while.body.lr.ph ], [ %bufferNumBits.3, %if.end94 ]
+  %currByte.0161 = phi ptr [ %add.ptr, %while.body.lr.ph ], [ %currByte.13, %if.end94 ]
+  %bufferBackNumBits.0160 = phi i32 [ 64, %while.body.lr.ph ], [ %bufferBackNumBits.9, %if.end94 ]
+  %bufferBack.0159 = phi i64 [ %or19.i58, %while.body.lr.ph ], [ %bufferBack.13, %if.end94 ]
+  %buffer.0158 = phi i64 [ %or19.i, %while.body.lr.ph ], [ %buffer.5, %if.end94 ]
+  %numSrcBits.addr.0157 = phi i64 [ %sub, %while.body.lr.ph ], [ %numSrcBits.addr.11, %if.end94 ]
   %2 = load i64, ptr %_tableMin, align 8
-  %cmp3.not = icmp ugt i64 %2, %buffer.0157
+  %cmp3.not = icmp ugt i64 %2, %buffer.0158
   br i1 %cmp3.not, label %while.cond5, label %if.then
 
 if.then:                                          ; preds = %while.body
-  %shr = lshr i64 %buffer.0157, 50
+  %shr = lshr i64 %buffer.0158, 50
   %arrayidx = getelementptr inbounds [16384 x i32], ptr %_lookupSymbol, i64 0, i64 %shr
   %3 = load i32, ptr %arrayidx, align 4
   %shr4 = ashr i32 %3, 24
@@ -1921,7 +1921,7 @@ while.cond5:                                      ; preds = %while.body, %while.
   %indvars.iv = phi i64 [ %indvars.iv.next, %while.cond5 ], [ 15, %while.body ]
   %arrayidx6 = getelementptr inbounds [60 x i64], ptr %_ljBase, i64 0, i64 %indvars.iv
   %4 = load i64, ptr %arrayidx6, align 8
-  %cmp7 = icmp ugt i64 %4, %buffer.0157
+  %cmp7 = icmp ugt i64 %4, %buffer.0158
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br i1 %cmp7, label %while.cond5, label %while.end, !llvm.loop !36
 
@@ -1947,7 +1947,7 @@ if.end14:                                         ; preds = %while.end
   %9 = load i64, ptr %arrayidx16, align 8
   %sub17 = sub nsw i64 64, %indvars.iv
   %sh_prom = and i64 %sub17, 4294967295
-  %shr18 = lshr i64 %buffer.0157, %sh_prom
+  %shr18 = lshr i64 %buffer.0158, %sh_prom
   %add = add i64 %9, %shr18
   %10 = load i32, ptr %_numSymbols, align 4
   %conv19 = zext i32 %10 to i64
@@ -1973,8 +1973,8 @@ if.end31:                                         ; preds = %if.then22, %if.then
   %codeLen.1 = phi i32 [ %shr4, %if.then ], [ %5, %if.then22 ]
   %symbol.0 = phi i32 [ %and, %if.then ], [ %11, %if.then22 ]
   %sh_prom32 = zext nneg i32 %codeLen.1 to i64
-  %shl = shl i64 %buffer.0157, %sh_prom32
-  %sub33 = sub nsw i32 %bufferNumBits.0161, %codeLen.1
+  %shl = shl i64 %buffer.0158, %sh_prom32
+  %sub33 = sub nsw i32 %bufferNumBits.0162, %codeLen.1
   %13 = load i32, ptr %fhd, align 8
   %cmp34 = icmp eq i32 %symbol.0, %13
   br i1 %cmp34, label %if.then36, label %if.else85
@@ -1986,40 +1986,40 @@ if.then36:                                        ; preds = %if.end31
 if.then39:                                        ; preds = %if.then36
   %sub40 = sub nsw i32 64, %sub33
   %sh_prom.i = zext nneg i32 %sub33 to i64
-  %shr.i = lshr i64 %bufferBack.0158, %sh_prom.i
+  %shr.i = lshr i64 %bufferBack.0159, %sh_prom.i
   %or.i = or i64 %shr.i, %shl
-  %cmp.i = icmp slt i32 %bufferBackNumBits.0159, %sub40
+  %cmp.i = icmp slt i32 %bufferBackNumBits.0160, %sub40
   br i1 %cmp.i, label %if.then.i, label %if.then39.if.end22.i_crit_edge
 
 if.then39.if.end22.i_crit_edge:                   ; preds = %if.then39
-  %.pre170 = sub nsw i32 %bufferBackNumBits.0159, %sub40
+  %.pre171 = sub nsw i32 %bufferBackNumBits.0160, %sub40
   br label %if.end22.i
 
 if.then.i:                                        ; preds = %if.then39
-  %sub1.i = sub nsw i32 %sub40, %bufferBackNumBits.0159
-  %cmp2.i = icmp ugt i64 %numSrcBits.addr.0156, 63
+  %sub1.i = sub nsw i32 %sub40, %bufferBackNumBits.0160
+  %cmp2.i = icmp ugt i64 %numSrcBits.addr.0157, 63
   br i1 %cmp2.i, label %if.then3.i, label %if.else.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  %14 = load i64, ptr %currByte.0160, align 8
+  %14 = load i64, ptr %currByte.0161, align 8
   %or19.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %14)
-  %add.ptr.i = getelementptr inbounds i8, ptr %currByte.0160, i64 8
-  %sub4.i = add i64 %numSrcBits.addr.0156, -64
+  %add.ptr.i = getelementptr inbounds i8, ptr %currByte.0161, i64 8
+  %sub4.i = add i64 %numSrcBits.addr.0157, -64
   br label %if.end17.i
 
 if.else.i:                                        ; preds = %if.then.i
-  %cmp535.i = icmp ugt i64 %numSrcBits.addr.0156, 7
+  %cmp535.i = icmp ugt i64 %numSrcBits.addr.0157, 7
   br i1 %cmp535.i, label %while.body.i.preheader, label %while.end.i
 
 while.body.i.preheader:                           ; preds = %if.else.i
-  %15 = add nsw i64 %numSrcBits.addr.0156, -8
+  %15 = add nsw i64 %numSrcBits.addr.0157, -8
   %16 = lshr i64 %15, 3
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.preheader, %while.body.i
-  %numSrcBits.addr.1 = phi i64 [ %sub8.i, %while.body.i ], [ %numSrcBits.addr.0156, %while.body.i.preheader ]
+  %numSrcBits.addr.1 = phi i64 [ %sub8.i, %while.body.i ], [ %numSrcBits.addr.0157, %while.body.i.preheader ]
   %bufferBack.1 = phi i64 [ %or6.i, %while.body.i ], [ 0, %while.body.i.preheader ]
-  %currByte.1 = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %currByte.0160, %while.body.i.preheader ]
+  %currByte.1 = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %currByte.0161, %while.body.i.preheader ]
   %shift.036.i = phi i64 [ %sub7.i, %while.body.i ], [ 56, %while.body.i.preheader ]
   %17 = load i8, ptr %currByte.1, align 1
   %conv.i = zext i8 %17 to i64
@@ -2032,14 +2032,14 @@ while.body.i:                                     ; preds = %while.body.i.prehea
   br i1 %cmp5.i, label %while.body.i, label %while.end.i.loopexit, !llvm.loop !37
 
 while.end.i.loopexit:                             ; preds = %while.body.i
-  %scevgep = getelementptr i8, ptr %currByte.0160, i64 1
-  %scevgep164 = getelementptr i8, ptr %scevgep, i64 %16
+  %scevgep = getelementptr i8, ptr %currByte.0161, i64 1
+  %scevgep165 = getelementptr i8, ptr %scevgep, i64 %16
   br label %while.end.i
 
 while.end.i:                                      ; preds = %while.end.i.loopexit, %if.else.i
-  %numSrcBits.addr.2 = phi i64 [ %numSrcBits.addr.0156, %if.else.i ], [ %sub8.i, %while.end.i.loopexit ]
+  %numSrcBits.addr.2 = phi i64 [ %numSrcBits.addr.0157, %if.else.i ], [ %sub8.i, %while.end.i.loopexit ]
   %bufferBack.2 = phi i64 [ 0, %if.else.i ], [ %or6.i, %while.end.i.loopexit ]
-  %currByte.2 = phi ptr [ %currByte.0160, %if.else.i ], [ %scevgep164, %while.end.i.loopexit ]
+  %currByte.2 = phi ptr [ %currByte.0161, %if.else.i ], [ %scevgep165, %while.end.i.loopexit ]
   %shift.0.lcssa.i = phi i64 [ 56, %if.else.i ], [ %sub7.i, %while.end.i.loopexit ]
   %cmp9.not.i = icmp eq i64 %numSrcBits.addr.2, 0
   br i1 %cmp9.not.i, label %if.end17.i, label %if.then11.i
@@ -2063,12 +2063,12 @@ if.end17.i:                                       ; preds = %if.then3.i, %if.the
   br label %if.end22.i
 
 if.end22.i:                                       ; preds = %if.then39.if.end22.i_crit_edge, %if.end17.i
-  %sub30.i.pre-phi = phi i32 [ %.pre170, %if.then39.if.end22.i_crit_edge ], [ %sub18.i, %if.end17.i ]
-  %numSrcBits.addr.4 = phi i64 [ %numSrcBits.addr.0156, %if.then39.if.end22.i_crit_edge ], [ %numSrcBits.addr.3, %if.end17.i ]
+  %sub30.i.pre-phi = phi i32 [ %.pre171, %if.then39.if.end22.i_crit_edge ], [ %sub18.i, %if.end17.i ]
+  %numSrcBits.addr.4 = phi i64 [ %numSrcBits.addr.0157, %if.then39.if.end22.i_crit_edge ], [ %numSrcBits.addr.3, %if.end17.i ]
   %buffer.1 = phi i64 [ %or.i, %if.then39.if.end22.i_crit_edge ], [ %or21.i, %if.end17.i ]
-  %bufferBack.5 = phi i64 [ %bufferBack.0158, %if.then39.if.end22.i_crit_edge ], [ %bufferBack.4, %if.end17.i ]
-  %bufferBackNumBits.3 = phi i32 [ %bufferBackNumBits.0159, %if.then39.if.end22.i_crit_edge ], [ 64, %if.end17.i ]
-  %currByte.5 = phi ptr [ %currByte.0160, %if.then39.if.end22.i_crit_edge ], [ %currByte.4, %if.end17.i ]
+  %bufferBack.5 = phi i64 [ %bufferBack.0159, %if.then39.if.end22.i_crit_edge ], [ %bufferBack.4, %if.end17.i ]
+  %bufferBackNumBits.3 = phi i32 [ %bufferBackNumBits.0160, %if.then39.if.end22.i_crit_edge ], [ 64, %if.end17.i ]
+  %currByte.5 = phi ptr [ %currByte.0161, %if.then39.if.end22.i_crit_edge ], [ %currByte.4, %if.end17.i ]
   %numBits.addr.0.i = phi i32 [ %sub40, %if.then39.if.end22.i_crit_edge ], [ %sub1.i, %if.end17.i ]
   %cmp23.not.i = icmp sgt i32 %bufferBackNumBits.3, %numBits.addr.0.i
   %sh_prom27.i = zext nneg i32 %numBits.addr.0.i to i64
@@ -2077,14 +2077,14 @@ if.end22.i:                                       ; preds = %if.then39.if.end22.
   br label %if.end41
 
 if.end41:                                         ; preds = %if.end22.i, %if.then36
-  %numSrcBits.addr.5 = phi i64 [ %numSrcBits.addr.4, %if.end22.i ], [ %numSrcBits.addr.0156, %if.then36 ]
+  %numSrcBits.addr.5 = phi i64 [ %numSrcBits.addr.4, %if.end22.i ], [ %numSrcBits.addr.0157, %if.then36 ]
   %buffer.2 = phi i64 [ %buffer.1, %if.end22.i ], [ %shl, %if.then36 ]
-  %bufferBack.6 = phi i64 [ %storemerge.i, %if.end22.i ], [ %bufferBack.0158, %if.then36 ]
-  %bufferBackNumBits.4 = phi i32 [ %sub30.i.pre-phi, %if.end22.i ], [ %bufferBackNumBits.0159, %if.then36 ]
-  %currByte.6 = phi ptr [ %currByte.5, %if.end22.i ], [ %currByte.0160, %if.then36 ]
+  %bufferBack.6 = phi i64 [ %storemerge.i, %if.end22.i ], [ %bufferBack.0159, %if.then36 ]
+  %bufferBackNumBits.4 = phi i32 [ %sub30.i.pre-phi, %if.end22.i ], [ %bufferBackNumBits.0160, %if.then36 ]
+  %currByte.6 = phi ptr [ %currByte.5, %if.end22.i ], [ %currByte.0161, %if.then36 ]
   %bufferNumBits.1 = phi i32 [ 64, %if.end22.i ], [ %sub33, %if.then36 ]
   %shr42 = lshr i64 %buffer.2, 56
-  %cmp44 = icmp eq i64 %dstIdx.0162, 0
+  %cmp44 = icmp eq i64 %dstIdx.0163, 0
   br i1 %cmp44, label %if.then46, label %if.end52
 
 if.then46:                                        ; preds = %if.end41
@@ -2098,7 +2098,7 @@ if.then48:                                        ; preds = %if.then46
   br label %return
 
 if.end52:                                         ; preds = %if.end41
-  %add54 = add i64 %shr42, %dstIdx.0162
+  %add54 = add i64 %shr42, %dstIdx.0163
   %cmp55 = icmp ugt i64 %add54, %numDstElems
   br i1 %cmp55, label %if.then57, label %if.end63
 
@@ -2114,10 +2114,10 @@ if.then59:                                        ; preds = %if.then57
 
 if.end63:                                         ; preds = %if.end52
   %cmp64 = icmp ult i64 %buffer.2, 72057594037927936
-  br i1 %cmp64, label %if.then66, label %for.cond.preheader
+  br i1 %cmp64, label %if.then66, label %for.body.lr.ph
 
-for.cond.preheader:                               ; preds = %if.end63
-  %21 = getelementptr i16, ptr %dst, i64 %dstIdx.0162
+for.body.lr.ph:                                   ; preds = %if.end63
+  %21 = getelementptr i16, ptr %dst, i64 %dstIdx.0163
   %arrayidx76 = getelementptr i8, ptr %21, i64 -2
   %.pre = load i16, ptr %arrayidx76, align 2
   br label %for.body
@@ -2132,12 +2132,12 @@ if.then68:                                        ; preds = %if.then66
   %call70 = tail call i32 (ptr, i32, ptr, ...) %22(ptr noundef nonnull %pctxt, i32 noundef 23, ptr noundef nonnull @.str.8) #10
   br label %return
 
-for.body:                                         ; preds = %for.cond.preheader, %for.body
-  %indvars.iv165 = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next166, %for.body ]
-  %arrayidx79 = getelementptr i16, ptr %21, i64 %indvars.iv165
+for.body:                                         ; preds = %for.body.lr.ph, %for.body
+  %indvars.iv166 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next167, %for.body ]
+  %arrayidx79 = getelementptr i16, ptr %21, i64 %indvars.iv166
   store i16 %.pre, ptr %arrayidx79, align 2
-  %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next166, %shr42
+  %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next167, %shr42
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !38
 
 for.end:                                          ; preds = %for.body
@@ -2147,17 +2147,17 @@ for.end:                                          ; preds = %for.body
 
 if.else85:                                        ; preds = %if.end31
   %conv86 = trunc i32 %symbol.0 to i16
-  %arrayidx87 = getelementptr inbounds i16, ptr %dst, i64 %dstIdx.0162
+  %arrayidx87 = getelementptr inbounds i16, ptr %dst, i64 %dstIdx.0163
   store i16 %conv86, ptr %arrayidx87, align 2
-  %inc88 = add i64 %dstIdx.0162, 1
+  %inc88 = add i64 %dstIdx.0163, 1
   br label %if.end89
 
 if.end89:                                         ; preds = %if.else85, %for.end
-  %numSrcBits.addr.6 = phi i64 [ %numSrcBits.addr.5, %for.end ], [ %numSrcBits.addr.0156, %if.else85 ]
+  %numSrcBits.addr.6 = phi i64 [ %numSrcBits.addr.5, %for.end ], [ %numSrcBits.addr.0157, %if.else85 ]
   %buffer.3 = phi i64 [ %shl83, %for.end ], [ %shl, %if.else85 ]
-  %bufferBack.7 = phi i64 [ %bufferBack.6, %for.end ], [ %bufferBack.0158, %if.else85 ]
-  %bufferBackNumBits.5 = phi i32 [ %bufferBackNumBits.4, %for.end ], [ %bufferBackNumBits.0159, %if.else85 ]
-  %currByte.7 = phi ptr [ %currByte.6, %for.end ], [ %currByte.0160, %if.else85 ]
+  %bufferBack.7 = phi i64 [ %bufferBack.6, %for.end ], [ %bufferBack.0159, %if.else85 ]
+  %bufferBackNumBits.5 = phi i32 [ %bufferBackNumBits.4, %for.end ], [ %bufferBackNumBits.0160, %if.else85 ]
+  %currByte.7 = phi ptr [ %currByte.6, %for.end ], [ %currByte.0161, %if.else85 ]
   %bufferNumBits.2 = phi i32 [ %sub84, %for.end ], [ %sub33, %if.else85 ]
   %dstIdx.1 = phi i64 [ %add54, %for.end ], [ %inc88, %if.else85 ]
   %cmp90 = icmp slt i32 %bufferNumBits.2, 64
@@ -2172,7 +2172,7 @@ if.then92:                                        ; preds = %if.end89
   br i1 %cmp.i62, label %if.then.i71, label %if.then92.if.end22.i63_crit_edge
 
 if.then92.if.end22.i63_crit_edge:                 ; preds = %if.then92
-  %.pre171 = sub nsw i32 %bufferBackNumBits.5, %sub93
+  %.pre172 = sub nsw i32 %bufferBackNumBits.5, %sub93
   br label %if.end22.i63
 
 if.then.i71:                                      ; preds = %if.then92
@@ -2212,14 +2212,14 @@ while.body.i94:                                   ; preds = %while.body.i94.preh
   br i1 %cmp5.i102, label %while.body.i94, label %while.end.i77.loopexit, !llvm.loop !37
 
 while.end.i77.loopexit:                           ; preds = %while.body.i94
-  %scevgep168 = getelementptr i8, ptr %currByte.7, i64 1
-  %scevgep169 = getelementptr i8, ptr %scevgep168, i64 %25
+  %scevgep169 = getelementptr i8, ptr %currByte.7, i64 1
+  %scevgep170 = getelementptr i8, ptr %scevgep169, i64 %25
   br label %while.end.i77
 
 while.end.i77:                                    ; preds = %while.end.i77.loopexit, %if.else.i74
   %numSrcBits.addr.8 = phi i64 [ %numSrcBits.addr.6, %if.else.i74 ], [ %sub8.i101, %while.end.i77.loopexit ]
   %bufferBack.9 = phi i64 [ 0, %if.else.i74 ], [ %or6.i98, %while.end.i77.loopexit ]
-  %currByte.9 = phi ptr [ %currByte.7, %if.else.i74 ], [ %scevgep169, %while.end.i77.loopexit ]
+  %currByte.9 = phi ptr [ %currByte.7, %if.else.i74 ], [ %scevgep170, %while.end.i77.loopexit ]
   %shift.0.lcssa.i79 = phi i64 [ 56, %if.else.i74 ], [ %sub7.i100, %while.end.i77.loopexit ]
   %cmp9.not.i80 = icmp eq i64 %numSrcBits.addr.8, 0
   br i1 %cmp9.not.i80, label %if.end17.i88, label %if.then11.i81
@@ -2243,7 +2243,7 @@ if.end17.i88:                                     ; preds = %if.then3.i103, %if.
   br label %if.end22.i63
 
 if.end22.i63:                                     ; preds = %if.then92.if.end22.i63_crit_edge, %if.end17.i88
-  %sub30.i67.pre-phi = phi i32 [ %.pre171, %if.then92.if.end22.i63_crit_edge ], [ %sub18.i89, %if.end17.i88 ]
+  %sub30.i67.pre-phi = phi i32 [ %.pre172, %if.then92.if.end22.i63_crit_edge ], [ %sub18.i89, %if.end17.i88 ]
   %numSrcBits.addr.10 = phi i64 [ %numSrcBits.addr.6, %if.then92.if.end22.i63_crit_edge ], [ %numSrcBits.addr.9, %if.end17.i88 ]
   %buffer.4 = phi i64 [ %or.i61, %if.then92.if.end22.i63_crit_edge ], [ %or21.i92, %if.end17.i88 ]
   %bufferBack.12 = phi i64 [ %bufferBack.7, %if.then92.if.end22.i63_crit_edge ], [ %bufferBack.11, %if.end17.i88 ]

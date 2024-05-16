@@ -4354,9 +4354,8 @@ define internal fastcc void @_ZL11parse_coordPKc(ptr dead_on_unwind noalias writ
   br i1 %34, label %35, label %39
 
 35:                                               ; preds = %32
-  %36 = and i64 %indvars.iv, 4294967294
-  %.not36 = icmp eq i64 %36, 0
-  br i1 %.not36, label %38, label %37
+  %36 = icmp ugt i64 %indvars.iv, 1
+  br i1 %36, label %37, label %38
 
 37:                                               ; preds = %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)

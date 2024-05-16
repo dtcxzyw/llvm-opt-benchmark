@@ -619,7 +619,7 @@ define internal fastcc range(i32 0, 2) i32 @Csw_CutMergeOrdered(ptr nocapture no
   br i1 %54, label %.thread, label %46, !llvm.loop !15
 
 55:                                               ; preds = %46
-  %56 = icmp eq i32 %47, 0
+  %56 = icmp eq i64 %indvars.iv133, 0
   br i1 %56, label %.loopexit, label %.thread
 
 .thread:                                          ; preds = %49, %55

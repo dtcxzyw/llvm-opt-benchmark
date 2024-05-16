@@ -3528,7 +3528,7 @@ define hidden void @"_ZN6brotli3enc10prior_eval22PriorEval$LT$Alloc$GT$3new17h66
   br i1 %61, label %62, label %.critedge39
 
 62:                                               ; preds = %.critedge35
-  %63 = icmp eq i16 %.sroa.18.0.extract.trunc, 0
+  %63 = icmp ult i64 %49, 281474976710656
   br i1 %63, label %.critedge37, label %.critedge39
 
 .critedge37:                                      ; preds = %62
@@ -3575,7 +3575,7 @@ define hidden void @"_ZN6brotli3enc10prior_eval22PriorEval$LT$Alloc$GT$3new17h66
   br i1 %80, label %81, label %.critedge47
 
 81:                                               ; preds = %.critedge43
-  %82 = icmp eq i16 %.sroa.18166.0.extract.trunc, 0
+  %82 = icmp ult i64 %50, 281474976710656
   br i1 %82, label %.critedge45, label %.critedge47
 
 .critedge45:                                      ; preds = %81

@@ -805,7 +805,7 @@ sw.epilog:                                        ; preds = %if.end54, %if.end41
   br i1 %cmp.not.i, label %if.else.i, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %sw.epilog
-  %cmp129.i.not = icmp eq i32 %conv64, 0
+  %cmp129.i.not = icmp eq i64 %shr.i118, 0
   br i1 %cmp129.i.not, label %count_contiguous_subclusters.exit.thread, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i

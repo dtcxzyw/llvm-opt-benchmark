@@ -2928,12 +2928,12 @@ if.end:                                           ; preds = %if.then.i, %removeC
   store i64 %add.i, ptr %arrayidx3.i, align 8
   store i32 %call1.i, ptr %last_memory_type.i, align 8
   store i64 %call.i18, ptr %last_memory_usage.i19, align 8
-  %15 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %call.i18, i1 false)
-  %cast.i = trunc nuw nsw i64 %15 to i32
-  %cmp1.i = icmp ult i32 %cast.i, 31
+  %cmp1.i = icmp ugt i64 %call.i18, 8589934591
   br i1 %cmp1.i, label %getMemUsageBucket.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end
+  %15 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %call.i18, i1 false)
+  %cast.i = trunc nuw nsw i64 %15 to i32
   %sub.i21 = sub nuw nsw i32 64, %cast.i
   %spec.store.select.i = tail call i32 @llvm.umax.i32(i32 %sub.i21, i32 15)
   %16 = add nsw i32 %spec.store.select.i, -15
@@ -6688,26 +6688,25 @@ for.body:                                         ; preds = %entry, %for.inc8
   br i1 %cmp1, label %for.cond2.preheader, label %for.inc8
 
 for.cond2.preheader:                              ; preds = %for.body
-  %3 = and i64 %indvars.iv, 4294967295
-  %cmp314.not = icmp eq i64 %3, 0
+  %cmp314.not = icmp eq i64 %indvars.iv, 0
   br i1 %cmp314.not, label %return, label %for.body4
 
 for.body4:                                        ; preds = %for.cond2.preheader, %for.body4
   %indvars.iv20 = phi i64 [ %indvars.iv.next21, %for.body4 ], [ %indvars.iv, %for.cond2.preheader ]
   %indvars.iv.next21 = add nsw i64 %indvars.iv20, -1
-  %4 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 14), align 8
+  %3 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 14), align 8
   %idxprom6 = and i64 %indvars.iv.next21, 4294967295
   %arrayidx7 = getelementptr inbounds [16 x i32], ptr %sfd, i64 0, i64 %idxprom6
-  %5 = load i32, ptr %arrayidx7, align 4
-  tail call void @aeDeleteFileEvent(ptr noundef %4, i32 noundef %5, i32 noundef 1) #38
-  %6 = icmp sgt i64 %indvars.iv20, 1
-  br i1 %6, label %for.body4, label %return, !llvm.loop !27
+  %4 = load i32, ptr %arrayidx7, align 4
+  tail call void @aeDeleteFileEvent(ptr noundef %3, i32 noundef %4, i32 noundef 1) #38
+  %5 = icmp sgt i64 %indvars.iv20, 1
+  br i1 %5, label %for.body4, label %return, !llvm.loop !27
 
 for.inc8:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %7 = load i32, ptr %count, align 8
-  %8 = sext i32 %7 to i64
-  %cmp = icmp slt i64 %indvars.iv.next, %8
+  %6 = load i32, ptr %count, align 8
+  %7 = sext i32 %6 to i64
+  %cmp = icmp slt i64 %indvars.iv.next, %7
   br i1 %cmp, label %for.body, label %return, !llvm.loop !28
 
 return:                                           ; preds = %for.inc8, %for.body4, %entry, %for.cond2.preheader
@@ -7630,39 +7629,38 @@ for.body.i:                                       ; preds = %connAcceptHandler.e
   br i1 %cmp1.i, label %for.cond2.preheader.i, label %for.inc8.i
 
 for.cond2.preheader.i:                            ; preds = %for.body.i
-  %24 = and i64 %indvars.iv.i, 4294967295
-  %cmp314.not.i = icmp eq i64 %24, 0
+  %cmp314.not.i = icmp eq i64 %indvars.iv.i, 0
   br i1 %cmp314.not.i, label %if.then76, label %for.body4.i
 
 for.body4.i:                                      ; preds = %for.cond2.preheader.i, %for.body4.i
   %indvars.iv20.i = phi i64 [ %indvars.iv.next21.i, %for.body4.i ], [ %indvars.iv.i, %for.cond2.preheader.i ]
   %indvars.iv.next21.i = add nsw i64 %indvars.iv20.i, -1
-  %25 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 14), align 8
+  %24 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 14), align 8
   %idxprom6.i = and i64 %indvars.iv.next21.i, 4294967295
   %arrayidx7.i = getelementptr inbounds [16 x i32], ptr %arrayidx55, i64 0, i64 %idxprom6.i
-  %26 = load i32, ptr %arrayidx7.i, align 4
-  tail call void @aeDeleteFileEvent(ptr noundef %25, i32 noundef %26, i32 noundef 1) #38
-  %27 = icmp sgt i64 %indvars.iv20.i, 1
-  br i1 %27, label %for.body4.i, label %if.then76, !llvm.loop !27
+  %25 = load i32, ptr %arrayidx7.i, align 4
+  tail call void @aeDeleteFileEvent(ptr noundef %24, i32 noundef %25, i32 noundef 1) #38
+  %26 = icmp sgt i64 %indvars.iv20.i, 1
+  br i1 %26, label %for.body4.i, label %if.then76, !llvm.loop !27
 
 for.inc8.i:                                       ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %28 = load i32, ptr %count.i, align 8
-  %29 = sext i32 %28 to i64
-  %cmp.i = icmp slt i64 %indvars.iv.next.i, %29
+  %27 = load i32, ptr %count.i, align 8
+  %28 = sext i32 %27 to i64
+  %cmp.i = icmp slt i64 %indvars.iv.next.i, %28
   br i1 %cmp.i, label %for.body.i, label %if.end80, !llvm.loop !28
 
 if.then76:                                        ; preds = %for.body4.i, %for.cond2.preheader.i
-  %30 = load ptr, ptr %ct56, align 8
-  %31 = load ptr, ptr %30, align 8
-  %call79 = tail call ptr %31(ptr noundef null) #38
+  %29 = load ptr, ptr %ct56, align 8
+  %30 = load ptr, ptr %29, align 8
+  %call79 = tail call ptr %30(ptr noundef null) #38
   tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.9, i32 noundef 2903, ptr noundef nonnull @.str.157, ptr noundef %call79) #38
   tail call void @abort() #40
   unreachable
 
 if.end80:                                         ; preds = %for.inc8.i, %connAcceptHandler.exit
-  %32 = phi i32 [ %21, %connAcceptHandler.exit ], [ %28, %for.inc8.i ]
-  %add = add nsw i32 %32, %listen_fds.040
+  %31 = phi i32 [ %21, %connAcceptHandler.exit ], [ %27, %for.inc8.i ]
+  %add = add nsw i32 %31, %listen_fds.040
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.end80
@@ -7676,8 +7674,8 @@ for.end:                                          ; preds = %for.inc
   br i1 %cmp81, label %do.body83, label %if.end88
 
 do.body83:                                        ; preds = %for.end
-  %33 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
-  %cmp84 = icmp sgt i32 %33, 3
+  %32 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
+  %cmp84 = icmp sgt i32 %32, 3
   br i1 %cmp84, label %do.end87, label %if.end86
 
 if.end86:                                         ; preds = %do.body83
@@ -16445,46 +16443,45 @@ for.body.i10:                                     ; preds = %if.end6, %for.inc8.
   br i1 %cmp1.i14, label %for.cond2.preheader.i, label %for.inc8.i
 
 for.cond2.preheader.i:                            ; preds = %for.body.i10
-  %19 = and i64 %indvars.iv.i11, 4294967295
-  %cmp314.not.i = icmp eq i64 %19, 0
+  %cmp314.not.i = icmp eq i64 %indvars.iv.i11, 0
   br i1 %cmp314.not.i, label %if.then9, label %for.body4.i
 
 for.body4.i:                                      ; preds = %for.cond2.preheader.i, %for.body4.i
   %indvars.iv20.i = phi i64 [ %indvars.iv.next21.i, %for.body4.i ], [ %indvars.iv.i11, %for.cond2.preheader.i ]
   %indvars.iv.next21.i = add nsw i64 %indvars.iv20.i, -1
-  %20 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 14), align 8
+  %19 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 14), align 8
   %idxprom6.i = and i64 %indvars.iv.next21.i, 4294967295
   %arrayidx7.i = getelementptr inbounds [16 x i32], ptr %listener, i64 0, i64 %idxprom6.i
-  %21 = load i32, ptr %arrayidx7.i, align 4
-  tail call void @aeDeleteFileEvent(ptr noundef %20, i32 noundef %21, i32 noundef 1) #38
-  %22 = icmp sgt i64 %indvars.iv20.i, 1
-  br i1 %22, label %for.body4.i, label %if.then9, !llvm.loop !27
+  %20 = load i32, ptr %arrayidx7.i, align 4
+  tail call void @aeDeleteFileEvent(ptr noundef %19, i32 noundef %20, i32 noundef 1) #38
+  %21 = icmp sgt i64 %indvars.iv20.i, 1
+  br i1 %21, label %for.body4.i, label %if.then9, !llvm.loop !27
 
 for.inc8.i:                                       ; preds = %for.body.i10
   %indvars.iv.next.i15 = add nuw nsw i64 %indvars.iv.i11, 1
-  %23 = load i32, ptr %count.i, align 8
-  %24 = sext i32 %23 to i64
-  %cmp.i16 = icmp slt i64 %indvars.iv.next.i15, %24
+  %22 = load i32, ptr %count.i, align 8
+  %23 = sext i32 %22 to i64
+  %cmp.i16 = icmp slt i64 %indvars.iv.next.i15, %23
   br i1 %cmp.i16, label %for.body.i10, label %if.end12, !llvm.loop !28
 
 if.then9:                                         ; preds = %for.body4.i, %for.cond2.preheader.i
-  %25 = load ptr, ptr %ct.i, align 8
-  %26 = load ptr, ptr %25, align 8
-  %call11 = tail call ptr %26(ptr noundef null) #38
+  %24 = load ptr, ptr %ct.i, align 8
+  %25 = load ptr, ptr %24, align 8
+  %call11 = tail call ptr %25(ptr noundef null) #38
   tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.9, i32 noundef 6350, ptr noundef nonnull @.str.424, ptr noundef %call11) #38
   tail call void @abort() #40
   unreachable
 
 if.end12:                                         ; preds = %for.inc8.i, %if.end6
-  %27 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 177), align 8
-  %tobool13.not = icmp eq i32 %27, 0
+  %26 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 177), align 8
+  %tobool13.not = icmp eq i32 %26, 0
   br i1 %tobool13.not, label %return, label %if.then14
 
 if.then14:                                        ; preds = %if.end12
-  %28 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 4), align 8
-  %29 = load ptr, ptr %28, align 8
-  %30 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 178), align 8
-  %call.i.i18 = tail call ptr @sdstemplate(ptr noundef %30, ptr noundef nonnull @redisProcTitleGetVariable, ptr noundef %29) #38
+  %27 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 4), align 8
+  %28 = load ptr, ptr %27, align 8
+  %29 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 178), align 8
+  %call.i.i18 = tail call ptr @sdstemplate(ptr noundef %29, ptr noundef nonnull @redisProcTitleGetVariable, ptr noundef %28) #38
   %tobool.not.i.i19 = icmp eq ptr %call.i.i18, null
   br i1 %tobool.not.i.i19, label %return, label %expandProcTitleTemplate.exit.i20
 

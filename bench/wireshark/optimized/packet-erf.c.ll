@@ -5256,7 +5256,7 @@ define internal fastcc void @erf_ts_to_nstime(i64 noundef %0, ptr nocapture noun
   %13 = trunc nuw nsw i64 %12 to i32
   %14 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 %13, ptr %14, align 8
-  %15 = icmp ugt i32 %13, 999999999
+  %15 = icmp ugt i64 %11, 4294967295999999999
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %3

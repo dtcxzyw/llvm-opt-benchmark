@@ -707,7 +707,7 @@ define internal fastcc range(i32 -13, 1) i32 @mca_pml_base_pml_check_selected_im
   %26 = call i32 @opal_pmix_convert_jobid(ptr noundef nonnull %4, i32 noundef %25) #10
   %27 = getelementptr inbounds i8, ptr %3, i64 4
   %28 = getelementptr inbounds i8, ptr %4, i64 256
-  %cond = icmp eq i32 %24, -1
+  %cond = icmp eq i64 %23, 4294967295
   %spec.select = select i1 %cond, i32 -4, i32 %24
   store i32 %spec.select, ptr %28, align 4
   %29 = call ptr @mca_base_component_to_string(ptr noundef nonnull @pml_base_component) #10

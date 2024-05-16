@@ -238,7 +238,7 @@ define ptr @Cudd_addResidue(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
   %7 = icmp slt i32 %1, 1
   %8 = icmp slt i32 %2, 2
   %or.cond = and i1 %7, %8
-  br i1 %or.cond, label %133, label %9
+  br i1 %or.cond, label %132, label %9
 
 9:                                                ; preds = %5
   %10 = and i32 %3, 1
@@ -253,7 +253,7 @@ define ptr @Cudd_addResidue(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %0, i64 624
   store i32 1, ptr %17, align 8
-  br label %133
+  br label %132
 
 18:                                               ; preds = %9
   %19 = tail call noalias ptr @malloc(i64 noundef %13) #7
@@ -270,7 +270,7 @@ define ptr @Cudd_addResidue(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
   tail call void @free(ptr noundef nonnull %14) #6
   %24 = getelementptr inbounds i8, ptr %0, i64 624
   store i32 1, ptr %24, align 8
-  br label %133
+  br label %132
 
 .lr.ph157.preheader:                              ; preds = %.preheader148
   %25 = zext nneg i32 %2 to i64
@@ -305,7 +305,7 @@ define ptr @Cudd_addResidue(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
   br i1 %35, label %.preheader, label %38
 
 .preheader:                                       ; preds = %.lr.ph157
-  %.not179 = icmp eq i32 %32, 0
+  %.not179 = icmp eq i64 %indvars.iv, 0
   br i1 %.not179, label %._crit_edge178, label %.lr.ph177.preheader
 
 .lr.ph177.preheader:                              ; preds = %.preheader
@@ -324,7 +324,7 @@ define ptr @Cudd_addResidue(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
 ._crit_edge178:                                   ; preds = %.lr.ph177, %.preheader
   tail call void @free(ptr noundef %14) #6
   tail call void @free(ptr noundef nonnull %19) #6
-  br label %133
+  br label %132
 
 38:                                               ; preds = %.lr.ph157
   %39 = ptrtoint ptr %34 to i64
@@ -341,7 +341,7 @@ define ptr @Cudd_addResidue(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
   %indvars.iv.next228 = add nuw nsw i32 %indvars.iv227, 1
   br i1 %exitcond.not, label %.preheader146, label %.lr.ph157, !llvm.loop !8
 
-.preheader144:                                    ; preds = %119, %.preheader146
+.preheader144:                                    ; preds = %118, %.preheader146
   %46 = icmp sgt i32 %2, 1
   %47 = and i32 %1, 1
   %48 = xor i32 %47, 1
@@ -352,11 +352,11 @@ define ptr @Cudd_addResidue(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
   %50 = getelementptr inbounds [2 x ptr], ptr %6, i64 0, i64 %49
   %51 = load ptr, ptr %50, align 8
   %wide.trip.count204 = zext nneg i32 %2 to i64
-  br label %121
+  br label %120
 
-52:                                               ; preds = %.lr.ph164, %119
-  %.0111163 = phi i32 [ 0, %.lr.ph164 ], [ %120, %119 ]
-  %.0112162 = phi i32 [ 1, %.lr.ph164 ], [ %.1113, %119 ]
+52:                                               ; preds = %.lr.ph164, %118
+  %.0111163 = phi i32 [ 0, %.lr.ph164 ], [ %119, %118 ]
+  %.0112162 = phi i32 [ 1, %.lr.ph164 ], [ %.1113, %118 ]
   %53 = and i32 %.0111163, 1
   %54 = xor i32 %53, 1
   %55 = xor i32 %.0111163, -1
@@ -391,7 +391,7 @@ define ptr @Cudd_addResidue(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
 ._crit_edge175:                                   ; preds = %65, %.preheader141
   tail call void @free(ptr noundef %14) #6
   tail call void @free(ptr noundef %19) #6
-  br label %133
+  br label %132
 
 68:                                               ; preds = %52
   %69 = ptrtoint ptr %60 to i64
@@ -411,18 +411,18 @@ define ptr @Cudd_addResidue(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
   %79 = getelementptr inbounds [2 x ptr], ptr %6, i64 0, i64 %78
   br label %83
 
-.preheader145:                                    ; preds = %101
+.preheader145:                                    ; preds = %100
   br i1 %22, label %.lr.ph161, label %._crit_edge
 
 .lr.ph161:                                        ; preds = %.preheader145
   %80 = zext nneg i32 %54 to i64
   %81 = getelementptr inbounds [2 x ptr], ptr %6, i64 0, i64 %80
   %82 = load ptr, ptr %81, align 8
-  br label %110
+  br label %109
 
-83:                                               ; preds = %.lr.ph159, %101
-  %indvars.iv209 = phi i32 [ 0, %.lr.ph159 ], [ %indvars.iv.next210, %101 ]
-  %indvars.iv190 = phi i64 [ 0, %.lr.ph159 ], [ %indvars.iv.next191, %101 ]
+83:                                               ; preds = %.lr.ph159, %100
+  %indvars.iv209 = phi i32 [ 0, %.lr.ph159 ], [ %indvars.iv.next210, %100 ]
+  %indvars.iv190 = phi i64 [ 0, %.lr.ph159 ], [ %indvars.iv.next191, %100 ]
   %84 = trunc i64 %indvars.iv190 to i32
   %85 = add i32 %.0112162, %84
   %86 = srem i32 %85, %2
@@ -433,37 +433,36 @@ define ptr @Cudd_addResidue(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
   %91 = load ptr, ptr %90, align 8
   %92 = tail call ptr @Cudd_addIte(ptr noundef %0, ptr noundef nonnull %60, ptr noundef %89, ptr noundef %91) #6
   %93 = icmp eq ptr %92, null
-  br i1 %93, label %.preheader143, label %101
+  br i1 %93, label %.preheader143, label %100
 
 .preheader143:                                    ; preds = %83
-  %94 = and i64 %indvars.iv190, 4294967295
-  %.not = icmp eq i64 %94, 0
+  %.not = icmp eq i64 %indvars.iv190, 0
   br i1 %.not, label %.lr.ph171.preheader, label %.lr.ph169
 
 .lr.ph169:                                        ; preds = %.preheader143
-  %95 = load ptr, ptr %79, align 8
+  %94 = load ptr, ptr %79, align 8
   %wide.trip.count212 = zext nneg i32 %indvars.iv209 to i64
-  br label %96
+  br label %95
 
-.lr.ph171.preheader:                              ; preds = %96, %.preheader143
+.lr.ph171.preheader:                              ; preds = %95, %.preheader143
   %smax = tail call i32 @llvm.smax.i32(i32 %2, i32 1)
   %wide.trip.count217 = zext nneg i32 %smax to i64
   br label %.lr.ph171
 
-96:                                               ; preds = %.lr.ph169, %96
-  %indvars.iv206 = phi i64 [ 0, %.lr.ph169 ], [ %indvars.iv.next207, %96 ]
-  %97 = getelementptr inbounds ptr, ptr %95, i64 %indvars.iv206
-  %98 = load ptr, ptr %97, align 8
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %98) #6
+95:                                               ; preds = %.lr.ph169, %95
+  %indvars.iv206 = phi i64 [ 0, %.lr.ph169 ], [ %indvars.iv.next207, %95 ]
+  %96 = getelementptr inbounds ptr, ptr %94, i64 %indvars.iv206
+  %97 = load ptr, ptr %96, align 8
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %97) #6
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
   %exitcond213.not = icmp eq i64 %indvars.iv.next207, %wide.trip.count212
-  br i1 %exitcond213.not, label %.lr.ph171.preheader, label %96, !llvm.loop !10
+  br i1 %exitcond213.not, label %.lr.ph171.preheader, label %95, !llvm.loop !10
 
 .lr.ph171:                                        ; preds = %.lr.ph171.preheader, %.lr.ph171
   %indvars.iv214 = phi i64 [ 0, %.lr.ph171.preheader ], [ %indvars.iv.next215, %.lr.ph171 ]
-  %99 = getelementptr inbounds ptr, ptr %77, i64 %indvars.iv214
-  %100 = load ptr, ptr %99, align 8
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %100) #6
+  %98 = getelementptr inbounds ptr, ptr %77, i64 %indvars.iv214
+  %99 = load ptr, ptr %98, align 8
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %99) #6
   %indvars.iv.next215 = add nuw nsw i64 %indvars.iv214, 1
   %exitcond218.not = icmp eq i64 %indvars.iv.next215, %wide.trip.count217
   br i1 %exitcond218.not, label %._crit_edge172, label %.lr.ph171, !llvm.loop !11
@@ -471,78 +470,78 @@ define ptr @Cudd_addResidue(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
 ._crit_edge172:                                   ; preds = %.lr.ph171
   tail call void @free(ptr noundef %14) #6
   tail call void @free(ptr noundef %19) #6
-  br label %133
+  br label %132
 
-101:                                              ; preds = %83
-  %102 = ptrtoint ptr %92 to i64
-  %103 = and i64 %102, -2
-  %104 = inttoptr i64 %103 to ptr
-  %105 = getelementptr inbounds i8, ptr %104, i64 4
-  %106 = load i32, ptr %105, align 4
-  %107 = add i32 %106, 1
-  store i32 %107, ptr %105, align 4
-  %108 = load ptr, ptr %79, align 8
-  %109 = getelementptr inbounds ptr, ptr %108, i64 %indvars.iv190
-  store ptr %92, ptr %109, align 8
+100:                                              ; preds = %83
+  %101 = ptrtoint ptr %92 to i64
+  %102 = and i64 %101, -2
+  %103 = inttoptr i64 %102 to ptr
+  %104 = getelementptr inbounds i8, ptr %103, i64 4
+  %105 = load i32, ptr %104, align 4
+  %106 = add i32 %105, 1
+  store i32 %106, ptr %104, align 4
+  %107 = load ptr, ptr %79, align 8
+  %108 = getelementptr inbounds ptr, ptr %107, i64 %indvars.iv190
+  store ptr %92, ptr %108, align 8
   %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
   %exitcond194.not = icmp eq i64 %indvars.iv.next191, %wide.trip.count193
   %indvars.iv.next210 = add nuw nsw i32 %indvars.iv209, 1
   br i1 %exitcond194.not, label %.preheader145, label %83, !llvm.loop !12
 
-110:                                              ; preds = %.lr.ph161, %110
-  %indvars.iv195 = phi i64 [ 0, %.lr.ph161 ], [ %indvars.iv.next196, %110 ]
-  %111 = getelementptr inbounds ptr, ptr %82, i64 %indvars.iv195
-  %112 = load ptr, ptr %111, align 8
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %112) #6
+109:                                              ; preds = %.lr.ph161, %109
+  %indvars.iv195 = phi i64 [ 0, %.lr.ph161 ], [ %indvars.iv.next196, %109 ]
+  %110 = getelementptr inbounds ptr, ptr %82, i64 %indvars.iv195
+  %111 = load ptr, ptr %110, align 8
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %111) #6
   %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1
   %exitcond199.not = icmp eq i64 %indvars.iv.next196, %wide.trip.count198
-  br i1 %exitcond199.not, label %._crit_edge, label %110, !llvm.loop !13
+  br i1 %exitcond199.not, label %._crit_edge, label %109, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %110, %68, %.preheader145
+._crit_edge:                                      ; preds = %109, %68, %.preheader145
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %60) #6
-  %113 = shl nsw i32 %.0112162, 1
-  %114 = srem i32 %113, %2
-  %115 = icmp eq i32 %.0111163, %31
-  %or.cond140 = select i1 %.not131, i1 %115, i1 false
-  br i1 %or.cond140, label %116, label %119
+  %112 = shl nsw i32 %.0112162, 1
+  %113 = srem i32 %112, %2
+  %114 = icmp eq i32 %.0111163, %31
+  %or.cond140 = select i1 %.not131, i1 %114, i1 false
+  br i1 %or.cond140, label %115, label %118
 
-116:                                              ; preds = %._crit_edge
-  %117 = sub nsw i32 %2, %114
-  %118 = srem i32 %117, %2
-  br label %119
+115:                                              ; preds = %._crit_edge
+  %116 = sub nsw i32 %2, %113
+  %117 = srem i32 %116, %2
+  br label %118
 
-119:                                              ; preds = %._crit_edge, %116
-  %.1113 = phi i32 [ %118, %116 ], [ %114, %._crit_edge ]
-  %120 = add nuw nsw i32 %.0111163, 1
-  %exitcond200.not = icmp eq i32 %120, %1
+118:                                              ; preds = %._crit_edge, %115
+  %.1113 = phi i32 [ %117, %115 ], [ %113, %._crit_edge ]
+  %119 = add nuw nsw i32 %.0111163, 1
+  %exitcond200.not = icmp eq i32 %119, %1
   br i1 %exitcond200.not, label %.preheader144, label %52, !llvm.loop !14
 
-121:                                              ; preds = %.lr.ph166, %121
-  %indvars.iv201 = phi i64 [ 1, %.lr.ph166 ], [ %indvars.iv.next202, %121 ]
-  %122 = getelementptr inbounds ptr, ptr %51, i64 %indvars.iv201
-  %123 = load ptr, ptr %122, align 8
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %123) #6
+120:                                              ; preds = %.lr.ph166, %120
+  %indvars.iv201 = phi i64 [ 1, %.lr.ph166 ], [ %indvars.iv.next202, %120 ]
+  %121 = getelementptr inbounds ptr, ptr %51, i64 %indvars.iv201
+  %122 = load ptr, ptr %121, align 8
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %122) #6
   %indvars.iv.next202 = add nuw nsw i64 %indvars.iv201, 1
   %exitcond205.not = icmp eq i64 %indvars.iv.next202, %wide.trip.count204
-  br i1 %exitcond205.not, label %._crit_edge167, label %121, !llvm.loop !15
+  br i1 %exitcond205.not, label %._crit_edge167, label %120, !llvm.loop !15
 
-._crit_edge167:                                   ; preds = %121, %.preheader144
-  %124 = getelementptr inbounds [2 x ptr], ptr %6, i64 0, i64 %49
+._crit_edge167:                                   ; preds = %120, %.preheader144
+  %123 = getelementptr inbounds [2 x ptr], ptr %6, i64 0, i64 %49
+  %124 = load ptr, ptr %123, align 8
   %125 = load ptr, ptr %124, align 8
-  %126 = load ptr, ptr %125, align 8
   tail call void @free(ptr noundef %14) #6
   tail call void @free(ptr noundef %19) #6
-  %127 = ptrtoint ptr %126 to i64
-  %128 = and i64 %127, -2
-  %129 = inttoptr i64 %128 to ptr
-  %130 = getelementptr inbounds i8, ptr %129, i64 4
-  %131 = load i32, ptr %130, align 4
-  %132 = add i32 %131, -1
-  store i32 %132, ptr %130, align 4
-  br label %133
+  %126 = ptrtoint ptr %125 to i64
+  %127 = and i64 %126, -2
+  %128 = inttoptr i64 %127 to ptr
+  %129 = getelementptr inbounds i8, ptr %128, i64 4
+  %130 = load i32, ptr %129, align 4
+  %131 = add i32 %130, -1
+  store i32 %131, ptr %129, align 4
+  br label %132
 
-133:                                              ; preds = %._crit_edge172, %._crit_edge175, %._crit_edge178, %5, %._crit_edge167, %23, %16
-  %.0 = phi ptr [ null, %16 ], [ null, %23 ], [ %126, %._crit_edge167 ], [ null, %5 ], [ null, %._crit_edge178 ], [ null, %._crit_edge175 ], [ null, %._crit_edge172 ]
+132:                                              ; preds = %._crit_edge172, %._crit_edge175, %._crit_edge178, %5, %._crit_edge167, %23, %16
+  %.0 = phi ptr [ null, %16 ], [ null, %23 ], [ %125, %._crit_edge167 ], [ null, %5 ], [ null, %._crit_edge178 ], [ null, %._crit_edge175 ], [ null, %._crit_edge172 ]
   ret ptr %.0
 }
 

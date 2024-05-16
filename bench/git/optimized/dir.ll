@@ -778,8 +778,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
 
 while.body.i:                                     ; preds = %land.rhs.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %34 = and i64 %indvars.iv.next.i, 4294967295
-  %tobool.not.i49 = icmp eq i64 %34, 0
+  %tobool.not.i49 = icmp eq i64 %indvars.iv.next.i, 0
   br i1 %tobool.not.i49, label %treat_leading_path.exit.thread, label %land.rhs.i, !llvm.loop !10
 
 treat_leading_path.exit.thread:                   ; preds = %while.body.i
@@ -789,7 +788,7 @@ treat_leading_path.exit.thread:                   ; preds = %while.body.i
   br label %lor.lhs.false.split
 
 if.end.i46:                                       ; preds = %land.rhs.i
-  %35 = trunc nsw i64 %indvars.iv.i to i32
+  %34 = trunc nsw i64 %indvars.iv.i to i32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %cdir.i, i8 0, i64 56, i1 false)
   %d_type.i = getelementptr inbounds i8, ptr %cdir.i, i64 32
   store i32 4, ptr %d_type.i, align 8
@@ -815,57 +814,57 @@ while.body4.i:                                    ; preds = %if.end31.i, %if.end
   %sub.ptr.lhs.cast11.i = ptrtoint ptr %call.i47 to i64
   %sub.ptr.sub13.i = sub i64 %sub.ptr.lhs.cast11.i, %sub.ptr.rhs.cast12.i
   %conv14.i = trunc i64 %sub.ptr.sub13.i to i32
-  %baselen.1.i = select i1 %tobool9.not.i, i32 %35, i32 %conv14.i
+  %baselen.1.i = select i1 %tobool9.not.i, i32 %34, i32 %conv14.i
   store i64 0, ptr %len2.i.i, align 8
-  %36 = load ptr, ptr %buf.i.i, align 8
-  %cmp3.not.i.i = icmp eq ptr %36, @strbuf_slopbuf
+  %35 = load ptr, ptr %buf.i.i, align 8
+  %cmp3.not.i.i = icmp eq ptr %35, @strbuf_slopbuf
   br i1 %cmp3.not.i.i, label %strbuf_setlen.exit.i, label %if.then4.i.i
 
 if.then4.i.i:                                     ; preds = %while.body4.i
-  store i8 0, ptr %36, align 1
+  store i8 0, ptr %35, align 1
   br label %strbuf_setlen.exit.i
 
 strbuf_setlen.exit.i:                             ; preds = %if.then4.i.i, %while.body4.i
   %conv16.i = sext i32 %baselen.1.i to i64
   call void @strbuf_add(ptr noundef nonnull %sb.i, ptr noundef %path, i64 noundef %conv16.i) #25
-  %37 = load ptr, ptr %buf.i.i, align 8
-  %call17.i = call i32 @is_directory(ptr noundef %37) #25
+  %36 = load ptr, ptr %buf.i.i, align 8
+  %call17.i = call i32 @is_directory(ptr noundef %36) #25
   %tobool18.not.i = icmp eq i32 %call17.i, 0
   br i1 %tobool18.not.i, label %treat_leading_path.exit, label %if.end20.i
 
 if.end20.i:                                       ; preds = %strbuf_setlen.exit.i
   store i64 0, ptr %len2.i.i, align 8
-  %38 = load ptr, ptr %buf.i.i, align 8
-  %cmp3.not.i33.i = icmp eq ptr %38, @strbuf_slopbuf
+  %37 = load ptr, ptr %buf.i.i, align 8
+  %cmp3.not.i33.i = icmp eq ptr %37, @strbuf_slopbuf
   br i1 %cmp3.not.i33.i, label %strbuf_setlen.exit35.i, label %if.then4.i34.i
 
 if.then4.i34.i:                                   ; preds = %if.end20.i
-  store i8 0, ptr %38, align 1
+  store i8 0, ptr %37, align 1
   br label %strbuf_setlen.exit35.i
 
 strbuf_setlen.exit35.i:                           ; preds = %if.then4.i34.i, %if.end20.i
   call void @strbuf_add(ptr noundef nonnull %sb.i, ptr noundef %path, i64 noundef %idx.ext.i) #25
   store i64 0, ptr %len2.i37.i, align 8
-  %39 = load ptr, ptr %buf.i38.i, align 8
-  %cmp3.not.i39.i = icmp eq ptr %39, @strbuf_slopbuf
+  %38 = load ptr, ptr %buf.i38.i, align 8
+  %cmp3.not.i39.i = icmp eq ptr %38, @strbuf_slopbuf
   br i1 %cmp3.not.i39.i, label %strbuf_setlen.exit41.i, label %if.then4.i40.i
 
 if.then4.i40.i:                                   ; preds = %strbuf_setlen.exit35.i
-  store i8 0, ptr %39, align 1
+  store i8 0, ptr %38, align 1
   br label %strbuf_setlen.exit41.i
 
 strbuf_setlen.exit41.i:                           ; preds = %if.then4.i40.i, %strbuf_setlen.exit35.i
   %sub24.i = sub nsw i32 %baselen.1.i, %add.i
   %conv25.i = sext i32 %sub24.i to i64
   call void @strbuf_add(ptr noundef nonnull %subdir.i, ptr noundef %add.ptr.i, i64 noundef %conv25.i) #25
-  %40 = load ptr, ptr %buf.i38.i, align 8
-  store ptr %40, ptr %d_name.i, align 8
+  %39 = load ptr, ptr %buf.i38.i, align 8
+  store ptr %39, ptr %d_name.i, align 8
   %call27.i = call fastcc i32 @treat_path(ptr noundef %dir, ptr noundef null, ptr noundef nonnull %cdir.i, ptr noundef %istate, ptr noundef nonnull %sb.i, i32 noundef %add.i, ptr noundef %pathspec)
   %cmp28.not.i = icmp eq i32 %call27.i, 1
   br i1 %cmp28.not.i, label %if.end31.i, label %treat_leading_path.exit
 
 if.end31.i:                                       ; preds = %strbuf_setlen.exit41.i
-  %cmp32.not.i = icmp slt i32 %baselen.1.i, %35
+  %cmp32.not.i = icmp slt i32 %baselen.1.i, %34
   br i1 %cmp32.not.i, label %while.body4.i, label %treat_leading_path.exit
 
 treat_leading_path.exit:                          ; preds = %strbuf_setlen.exit.i, %strbuf_setlen.exit41.i, %if.end31.i
@@ -885,32 +884,32 @@ lor.lhs.false.split:                              ; preds = %treat_leading_path.
 
 if.end13:                                         ; preds = %if.end7.split, %lor.lhs.false.split, %treat_leading_path.exit
   %nr14 = getelementptr inbounds i8, ptr %dir, i64 4
-  %41 = load i32, ptr %nr14, align 4
-  %cmp.i50 = icmp ugt i32 %41, 1
+  %40 = load i32, ptr %nr14, align 4
+  %cmp.i50 = icmp ugt i32 %40, 1
   br i1 %cmp.i50, label %if.then.i, label %sane_qsort.exit
 
 if.then.i:                                        ; preds = %if.end13
-  %conv = sext i32 %41 to i64
+  %conv = sext i32 %40 to i64
   %entries = getelementptr inbounds i8, ptr %dir, i64 16
-  %42 = load ptr, ptr %entries, align 8
-  call void @qsort(ptr noundef %42, i64 noundef %conv, i64 noundef 8, ptr noundef nonnull @cmp_dir_entry) #25
+  %41 = load ptr, ptr %entries, align 8
+  call void @qsort(ptr noundef %41, i64 noundef %conv, i64 noundef 8, ptr noundef nonnull @cmp_dir_entry) #25
   br label %sane_qsort.exit
 
 sane_qsort.exit:                                  ; preds = %if.end13, %if.then.i
   %ignored_nr = getelementptr inbounds i8, ptr %dir, i64 8
-  %43 = load i32, ptr %ignored_nr, align 8
-  %cmp.i52 = icmp ugt i32 %43, 1
+  %42 = load i32, ptr %ignored_nr, align 8
+  %cmp.i52 = icmp ugt i32 %42, 1
   br i1 %cmp.i52, label %if.then.i54, label %sane_qsort.exit55
 
 if.then.i54:                                      ; preds = %sane_qsort.exit
-  %conv15 = sext i32 %43 to i64
+  %conv15 = sext i32 %42 to i64
   %ignored = getelementptr inbounds i8, ptr %dir, i64 24
-  %44 = load ptr, ptr %ignored, align 8
-  call void @qsort(ptr noundef %44, i64 noundef %conv15, i64 noundef 8, ptr noundef nonnull @cmp_dir_entry) #25
+  %43 = load ptr, ptr %ignored, align 8
+  call void @qsort(ptr noundef %43, i64 noundef %conv15, i64 noundef 8, ptr noundef nonnull @cmp_dir_entry) #25
   br label %sane_qsort.exit55
 
 sane_qsort.exit55:                                ; preds = %sane_qsort.exit, %if.then.i54
-  %45 = load ptr, ptr %repo, align 8
+  %44 = load ptr, ptr %repo, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i)
   %call.i56 = call i32 @trace2_is_enabled() #25
   %tobool.not.i57 = icmp eq i32 %call.i56, 0
@@ -920,7 +919,7 @@ if.end.i58:                                       ; preds = %sane_qsort.exit55
   br i1 %tobool8.not, label %if.then2.i, label %if.else.i
 
 if.then2.i:                                       ; preds = %if.end.i58
-  call void @trace2_data_string_fl(ptr noundef nonnull @.str, i32 noundef 3011, ptr noundef nonnull @.str.6, ptr noundef %45, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.2) #25
+  call void @trace2_data_string_fl(ptr noundef nonnull @.str, i32 noundef 3011, ptr noundef nonnull @.str.6, ptr noundef %44, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.2) #25
   br label %if.end3.i
 
 if.else.i:                                        ; preds = %if.end.i58
@@ -928,55 +927,55 @@ if.else.i:                                        ; preds = %if.end.i58
   %conv.i = sext i32 %len to i64
   call void @strbuf_add(ptr noundef nonnull %tmp.i, ptr noundef %path, i64 noundef %conv.i) #25
   %buf.i = getelementptr inbounds i8, ptr %tmp.i, i64 16
-  %46 = load ptr, ptr %buf.i, align 8
-  call void @trace2_data_string_fl(ptr noundef nonnull @.str, i32 noundef 3015, ptr noundef nonnull @.str.6, ptr noundef %45, ptr noundef nonnull @.str.51, ptr noundef %46) #25
+  %45 = load ptr, ptr %buf.i, align 8
+  call void @trace2_data_string_fl(ptr noundef nonnull @.str, i32 noundef 3015, ptr noundef nonnull @.str.6, ptr noundef %44, ptr noundef nonnull @.str.51, ptr noundef %45) #25
   call void @strbuf_release(ptr noundef nonnull %tmp.i) #25
   br label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.else.i, %if.then2.i
-  %47 = load i32, ptr %visited_directories, align 8
-  %conv4.i = zext i32 %47 to i64
-  call void @trace2_data_intmax_fl(ptr noundef nonnull @.str, i32 noundef 3020, ptr noundef nonnull @.str.6, ptr noundef %45, ptr noundef nonnull @.str.52, i64 noundef %conv4.i) #25
-  %48 = load i32, ptr %visited_paths, align 4
-  %conv6.i = zext i32 %48 to i64
-  call void @trace2_data_intmax_fl(ptr noundef nonnull @.str, i32 noundef 3022, ptr noundef nonnull @.str.6, ptr noundef %45, ptr noundef nonnull @.str.53, i64 noundef %conv6.i) #25
-  %49 = load ptr, ptr %untracked.i, align 8
-  %tobool7.not.i = icmp eq ptr %49, null
+  %46 = load i32, ptr %visited_directories, align 8
+  %conv4.i = zext i32 %46 to i64
+  call void @trace2_data_intmax_fl(ptr noundef nonnull @.str, i32 noundef 3020, ptr noundef nonnull @.str.6, ptr noundef %44, ptr noundef nonnull @.str.52, i64 noundef %conv4.i) #25
+  %47 = load i32, ptr %visited_paths, align 4
+  %conv6.i = zext i32 %47 to i64
+  call void @trace2_data_intmax_fl(ptr noundef nonnull @.str, i32 noundef 3022, ptr noundef nonnull @.str.6, ptr noundef %44, ptr noundef nonnull @.str.53, i64 noundef %conv6.i) #25
+  %48 = load ptr, ptr %untracked.i, align 8
+  %tobool7.not.i = icmp eq ptr %48, null
   br i1 %tobool7.not.i, label %emit_traversal_statistics.exit, label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.end3.i
-  %dir_created.i = getelementptr inbounds i8, ptr %49, i64 208
-  %50 = load i32, ptr %dir_created.i, align 8
-  %conv11.i = sext i32 %50 to i64
-  call void @trace2_data_intmax_fl(ptr noundef nonnull @.str, i32 noundef 3027, ptr noundef nonnull @.str.6, ptr noundef %45, ptr noundef nonnull @.str.54, i64 noundef %conv11.i) #25
-  %51 = load ptr, ptr %untracked.i, align 8
-  %gitignore_invalidated.i = getelementptr inbounds i8, ptr %51, i64 212
-  %52 = load i32, ptr %gitignore_invalidated.i, align 4
-  %conv13.i = sext i32 %52 to i64
-  call void @trace2_data_intmax_fl(ptr noundef nonnull @.str, i32 noundef 3030, ptr noundef nonnull @.str.6, ptr noundef %45, ptr noundef nonnull @.str.55, i64 noundef %conv13.i) #25
-  %53 = load ptr, ptr %untracked.i, align 8
-  %dir_invalidated.i = getelementptr inbounds i8, ptr %53, i64 216
-  %54 = load i32, ptr %dir_invalidated.i, align 8
-  %conv15.i = sext i32 %54 to i64
-  call void @trace2_data_intmax_fl(ptr noundef nonnull @.str, i32 noundef 3033, ptr noundef nonnull @.str.6, ptr noundef %45, ptr noundef nonnull @.str.56, i64 noundef %conv15.i) #25
-  %55 = load ptr, ptr %untracked.i, align 8
-  %dir_opened.i = getelementptr inbounds i8, ptr %55, i64 220
-  %56 = load i32, ptr %dir_opened.i, align 4
-  %conv17.i = sext i32 %56 to i64
-  call void @trace2_data_intmax_fl(ptr noundef nonnull @.str, i32 noundef 3035, ptr noundef nonnull @.str.6, ptr noundef %45, ptr noundef nonnull @.str.57, i64 noundef %conv17.i) #25
+  %dir_created.i = getelementptr inbounds i8, ptr %48, i64 208
+  %49 = load i32, ptr %dir_created.i, align 8
+  %conv11.i = sext i32 %49 to i64
+  call void @trace2_data_intmax_fl(ptr noundef nonnull @.str, i32 noundef 3027, ptr noundef nonnull @.str.6, ptr noundef %44, ptr noundef nonnull @.str.54, i64 noundef %conv11.i) #25
+  %50 = load ptr, ptr %untracked.i, align 8
+  %gitignore_invalidated.i = getelementptr inbounds i8, ptr %50, i64 212
+  %51 = load i32, ptr %gitignore_invalidated.i, align 4
+  %conv13.i = sext i32 %51 to i64
+  call void @trace2_data_intmax_fl(ptr noundef nonnull @.str, i32 noundef 3030, ptr noundef nonnull @.str.6, ptr noundef %44, ptr noundef nonnull @.str.55, i64 noundef %conv13.i) #25
+  %52 = load ptr, ptr %untracked.i, align 8
+  %dir_invalidated.i = getelementptr inbounds i8, ptr %52, i64 216
+  %53 = load i32, ptr %dir_invalidated.i, align 8
+  %conv15.i = sext i32 %53 to i64
+  call void @trace2_data_intmax_fl(ptr noundef nonnull @.str, i32 noundef 3033, ptr noundef nonnull @.str.6, ptr noundef %44, ptr noundef nonnull @.str.56, i64 noundef %conv15.i) #25
+  %54 = load ptr, ptr %untracked.i, align 8
+  %dir_opened.i = getelementptr inbounds i8, ptr %54, i64 220
+  %55 = load i32, ptr %dir_opened.i, align 4
+  %conv17.i = sext i32 %55 to i64
+  call void @trace2_data_intmax_fl(ptr noundef nonnull @.str, i32 noundef 3035, ptr noundef nonnull @.str.6, ptr noundef %44, ptr noundef nonnull @.str.57, i64 noundef %conv17.i) #25
   br label %emit_traversal_statistics.exit
 
 emit_traversal_statistics.exit:                   ; preds = %sane_qsort.exit55, %if.end3.i, %if.end9.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %tmp.i)
-  %57 = load ptr, ptr %repo, align 8
-  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str, i32 noundef 3066, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef %57) #25
-  %58 = load ptr, ptr %untracked.i, align 8
-  %tobool19.not = icmp eq ptr %58, null
+  %56 = load ptr, ptr %repo, align 8
+  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str, i32 noundef 3066, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef %56) #25
+  %57 = load ptr, ptr %untracked.i, align 8
+  %tobool19.not = icmp eq ptr %57, null
   br i1 %tobool19.not, label %return, label %if.then20
 
 if.then20:                                        ; preds = %emit_traversal_statistics.exit
-  %59 = load i32, ptr @read_directory.force_untracked_cache, align 4
-  %cmp = icmp slt i32 %59, 0
+  %58 = load i32, ptr @read_directory.force_untracked_cache, align 4
+  %cmp = icmp slt i32 %58, 0
   br i1 %cmp, label %if.end24, label %if.end31
 
 if.end24:                                         ; preds = %if.then20
@@ -986,17 +985,17 @@ if.end24:                                         ; preds = %if.then20
   br i1 %cmp25, label %if.then27, label %if.end31
 
 if.then27:                                        ; preds = %if.end24
-  %60 = load ptr, ptr %repo, align 8
-  %core_untracked_cache = getelementptr inbounds i8, ptr %60, i64 208
-  %61 = load i32, ptr %core_untracked_cache, align 8
-  %cmp29 = icmp eq i32 %61, 2
+  %59 = load ptr, ptr %repo, align 8
+  %core_untracked_cache = getelementptr inbounds i8, ptr %59, i64 208
+  %60 = load i32, ptr %core_untracked_cache, align 8
+  %cmp29 = icmp eq i32 %60, 2
   %conv30 = zext i1 %cmp29 to i32
   store i32 %conv30, ptr @read_directory.force_untracked_cache, align 4
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then20, %if.then27, %if.end24
-  %62 = phi i32 [ %conv30, %if.then27 ], [ %call23, %if.end24 ], [ %59, %if.then20 ]
-  %tobool32.not = icmp ne i32 %62, 0
+  %61 = phi i32 [ %conv30, %if.then27 ], [ %call23, %if.end24 ], [ %58, %if.then20 ]
+  %tobool32.not = icmp ne i32 %61, 0
   %.pre69 = load ptr, ptr %untracked.i, align 8
   %untracked49.phi.trans.insert = getelementptr inbounds i8, ptr %istate, i64 200
   %.pre70 = load ptr, ptr %untracked49.phi.trans.insert, align 8
@@ -1006,38 +1005,38 @@ if.end31:                                         ; preds = %if.then20, %if.then
 
 land.lhs.true37:                                  ; preds = %if.end31
   %dir_opened = getelementptr inbounds i8, ptr %.pre69, i64 220
-  %63 = load i32, ptr %dir_opened, align 4
-  %tobool39.not = icmp eq i32 %63, 0
+  %62 = load i32, ptr %dir_opened, align 4
+  %tobool39.not = icmp eq i32 %62, 0
   br i1 %tobool39.not, label %lor.lhs.false40, label %if.then46
 
 lor.lhs.false40:                                  ; preds = %land.lhs.true37
   %gitignore_invalidated = getelementptr inbounds i8, ptr %.pre69, i64 212
-  %64 = load i32, ptr %gitignore_invalidated, align 4
-  %tobool42.not = icmp eq i32 %64, 0
+  %63 = load i32, ptr %gitignore_invalidated, align 4
+  %tobool42.not = icmp eq i32 %63, 0
   br i1 %tobool42.not, label %lor.lhs.false43, label %if.then46
 
 lor.lhs.false43:                                  ; preds = %lor.lhs.false40
   %dir_invalidated = getelementptr inbounds i8, ptr %.pre69, i64 216
-  %65 = load i32, ptr %dir_invalidated, align 8
-  %tobool45.not = icmp eq i32 %65, 0
+  %64 = load i32, ptr %dir_invalidated, align 8
+  %tobool45.not = icmp eq i32 %64, 0
   br i1 %tobool45.not, label %return, label %if.then46
 
 if.then46:                                        ; preds = %lor.lhs.false43, %lor.lhs.false40, %land.lhs.true37
   %cache_changed = getelementptr inbounds i8, ptr %istate, i64 20
-  %66 = load i32, ptr %cache_changed, align 4
-  %or = or i32 %66, 128
+  %65 = load i32, ptr %cache_changed, align 4
+  %or = or i32 %65, 128
   store i32 %or, ptr %cache_changed, align 4
   %.pre = load ptr, ptr %untracked.i, align 8
   br label %if.end47
 
 if.end47:                                         ; preds = %if.end31, %if.then46
-  %67 = phi ptr [ %.pre69, %if.then46 ], [ %.pre70, %if.end31 ]
-  %68 = phi ptr [ %.pre, %if.then46 ], [ %.pre69, %if.end31 ]
-  %cmp50.not = icmp eq ptr %68, %67
+  %66 = phi ptr [ %.pre69, %if.then46 ], [ %.pre70, %if.end31 ]
+  %67 = phi ptr [ %.pre, %if.then46 ], [ %.pre69, %if.end31 ]
+  %cmp50.not = icmp eq ptr %67, %66
   br i1 %cmp50.not, label %return, label %do.body
 
 do.body:                                          ; preds = %if.end47
-  call void @free(ptr noundef %68) #25
+  call void @free(ptr noundef %67) #25
   store ptr null, ptr %untracked.i, align 8
   br label %return
 

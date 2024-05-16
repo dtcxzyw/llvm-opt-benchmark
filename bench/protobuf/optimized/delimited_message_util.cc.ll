@@ -361,7 +361,7 @@ if.then.i.i:                                      ; preds = %if.end
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i: ; preds = %if.then.i.i, %if.end
   %retval.0.i.i = phi ptr [ %call.i.i, %if.then.i.i ], [ %1, %if.end ]
-  %cmp.i7.i.i = icmp ugt i32 %conv, 127
+  %cmp.i7.i.i = icmp ugt i64 %call, 127
   br i1 %cmp.i7.i.i, label %while.body.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit
 
 while.body.i.i.i:                                 ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i, %while.body.i.i.i

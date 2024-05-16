@@ -20458,7 +20458,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit:    ; preds = %39
   br label %291
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hdfea2586a1465bd1E.exit.i.i.i": ; preds = %68
-  %.not.i.i.i = icmp eq i8 %69, 3
+  %.not.i.i.i = icmp eq i64 %66, 3
   %..i.i.i = select i1 %.not.i.i.i, i8 3, i8 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15), !noalias !5256
   %narrow.i = add nuw nsw i8 %..i.i.i, 1

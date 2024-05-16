@@ -3596,77 +3596,71 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK8rawspeed8CameraIdltERKS0_(pt
 
 18:                                               ; preds = %13
   %19 = icmp slt i32 %16, 0
-  br label %68
+  br label %62
 
 20:                                               ; preds = %13, %2
   %21 = sub i64 %8, %10
-  %22 = tail call i64 @llvm.smax.i64(i64 %21, i64 -2147483648)
-  %23 = tail call i64 @llvm.smin.i64(i64 %22, i64 2147483647)
-  %24 = trunc nsw i64 %23 to i32
-  %25 = icmp slt i32 %24, 0
-  %26 = icmp eq i32 %24, 0
-  br i1 %26, label %27, label %68
+  %22 = icmp slt i64 %21, 0
+  %23 = icmp eq i64 %8, %10
+  br i1 %23, label %24, label %62
 
-27:                                               ; preds = %20
-  %28 = getelementptr inbounds i8, ptr %0, i64 40
-  %29 = load i64, ptr %28, align 8, !tbaa !34
-  %30 = getelementptr inbounds i8, ptr %1, i64 40
-  %31 = load i64, ptr %30, align 8, !tbaa !34
-  %32 = tail call i64 @llvm.umin.i64(i64 %31, i64 %29)
-  %33 = icmp eq i64 %32, 0
-  br i1 %33, label %41, label %34
+24:                                               ; preds = %20
+  %25 = getelementptr inbounds i8, ptr %0, i64 40
+  %26 = load i64, ptr %25, align 8, !tbaa !34
+  %27 = getelementptr inbounds i8, ptr %1, i64 40
+  %28 = load i64, ptr %27, align 8, !tbaa !34
+  %29 = tail call i64 @llvm.umin.i64(i64 %28, i64 %26)
+  %30 = icmp eq i64 %29, 0
+  br i1 %30, label %38, label %31
 
-34:                                               ; preds = %27
-  %35 = load ptr, ptr %5, align 8, !tbaa !31
-  %36 = load ptr, ptr %3, align 8, !tbaa !31
-  %37 = tail call i32 @memcmp(ptr noundef %36, ptr noundef %35, i64 noundef %32) #26
-  %38 = icmp eq i32 %37, 0
-  br i1 %38, label %41, label %39
+31:                                               ; preds = %24
+  %32 = load ptr, ptr %5, align 8, !tbaa !31
+  %33 = load ptr, ptr %3, align 8, !tbaa !31
+  %34 = tail call i32 @memcmp(ptr noundef %33, ptr noundef %32, i64 noundef %29) #26
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %38, label %36
 
-39:                                               ; preds = %34
-  %40 = icmp slt i32 %37, 0
-  br label %68
+36:                                               ; preds = %31
+  %37 = icmp slt i32 %34, 0
+  br label %62
 
-41:                                               ; preds = %34, %27
-  %42 = sub i64 %29, %31
-  %43 = tail call i64 @llvm.smax.i64(i64 %42, i64 -2147483648)
-  %44 = tail call i64 @llvm.smin.i64(i64 %43, i64 2147483647)
-  %45 = trunc nsw i64 %44 to i32
-  %46 = icmp slt i32 %45, 0
-  %47 = icmp eq i32 %45, 0
-  br i1 %47, label %48, label %68
+38:                                               ; preds = %31, %24
+  %39 = sub i64 %26, %28
+  %40 = icmp slt i64 %39, 0
+  %41 = icmp eq i64 %26, %28
+  br i1 %41, label %42, label %62
 
-48:                                               ; preds = %41
-  %49 = getelementptr inbounds i8, ptr %0, i64 72
-  %50 = load i64, ptr %49, align 8, !tbaa !34
-  %51 = getelementptr inbounds i8, ptr %1, i64 72
-  %52 = load i64, ptr %51, align 8, !tbaa !34
-  %53 = tail call i64 @llvm.umin.i64(i64 %52, i64 %50)
-  %54 = icmp eq i64 %53, 0
-  br i1 %54, label %62, label %55
+42:                                               ; preds = %38
+  %43 = getelementptr inbounds i8, ptr %0, i64 72
+  %44 = load i64, ptr %43, align 8, !tbaa !34
+  %45 = getelementptr inbounds i8, ptr %1, i64 72
+  %46 = load i64, ptr %45, align 8, !tbaa !34
+  %47 = tail call i64 @llvm.umin.i64(i64 %46, i64 %44)
+  %48 = icmp eq i64 %47, 0
+  br i1 %48, label %56, label %49
 
-55:                                               ; preds = %48
-  %56 = load ptr, ptr %6, align 8, !tbaa !31
-  %57 = load ptr, ptr %4, align 8, !tbaa !31
-  %58 = tail call i32 @memcmp(ptr noundef %57, ptr noundef %56, i64 noundef %53) #26
-  %59 = icmp eq i32 %58, 0
-  br i1 %59, label %62, label %60
+49:                                               ; preds = %42
+  %50 = load ptr, ptr %6, align 8, !tbaa !31
+  %51 = load ptr, ptr %4, align 8, !tbaa !31
+  %52 = tail call i32 @memcmp(ptr noundef %51, ptr noundef %50, i64 noundef %47) #26
+  %53 = icmp eq i32 %52, 0
+  br i1 %53, label %56, label %54
 
-60:                                               ; preds = %55
-  %61 = icmp slt i32 %58, 0
-  br label %68
+54:                                               ; preds = %49
+  %55 = icmp slt i32 %52, 0
+  br label %62
 
-62:                                               ; preds = %55, %48
-  %63 = sub i64 %50, %52
-  %64 = tail call i64 @llvm.smax.i64(i64 %63, i64 -2147483648)
-  %65 = tail call i64 @llvm.smin.i64(i64 %64, i64 2147483647)
-  %66 = and i64 %65, 2147483648
-  %67 = icmp ne i64 %66, 0
-  br label %68
+56:                                               ; preds = %49, %42
+  %57 = sub i64 %44, %46
+  %58 = tail call i64 @llvm.smax.i64(i64 %57, i64 -2147483648)
+  %59 = tail call i64 @llvm.smin.i64(i64 %58, i64 2147483647)
+  %60 = and i64 %59, 2147483648
+  %61 = icmp ne i64 %60, 0
+  br label %62
 
-68:                                               ; preds = %62, %60, %41, %39, %20, %18
-  %69 = phi i1 [ %25, %20 ], [ %19, %18 ], [ %46, %41 ], [ %40, %39 ], [ %61, %60 ], [ %67, %62 ]
-  ret i1 %69
+62:                                               ; preds = %56, %54, %38, %36, %20, %18
+  %63 = phi i1 [ %22, %20 ], [ %19, %18 ], [ %40, %38 ], [ %37, %36 ], [ %55, %54 ], [ %61, %56 ]
+  ret i1 %63
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)

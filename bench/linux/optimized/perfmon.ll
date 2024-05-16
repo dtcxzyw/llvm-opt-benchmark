@@ -266,7 +266,7 @@ define dso_local noundef range(i32 -19, 1) i32 @alloc_iommu_pmu(ptr noundef %0) 
   %36 = trunc nuw nsw i64 %17 to i32
   %37 = getelementptr inbounds i8, ptr %33, i64 8
   store i32 %36, ptr %37, align 8
-  %38 = icmp ugt i32 %36, 64
+  %38 = icmp ugt i64 %17, 64
   br i1 %38, label %39, label %44
 
 39:                                               ; preds = %35

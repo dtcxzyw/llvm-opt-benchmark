@@ -79,7 +79,7 @@ do.body:                                          ; preds = %if.end6, %for.body
   br i1 %cmp2530, label %for.body26, label %for.cond33.preheader
 
 for.cond33.preheader:                             ; preds = %for.body26, %do.body
-  %cmp3432.not = icmp eq i32 %9, 0
+  %cmp3432.not = icmp eq i64 %indvars.iv, 0
   br i1 %cmp3432.not, label %for.end47, label %for.body35.lr.ph
 
 for.body35.lr.ph:                                 ; preds = %for.cond33.preheader

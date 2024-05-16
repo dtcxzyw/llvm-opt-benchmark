@@ -17425,7 +17425,7 @@ land.lhs.true.i:                                  ; preds = %land.rhs.i, %land.r
   %call.i9.i.lcssa = phi i32 [ %call.i7.i, %land.rhs.lr.ph.i ], [ %call.i.i, %land.rhs.i ]
   %.lcssa = phi i32 [ %22, %land.rhs.lr.ph.i ], [ %23, %land.rhs.i ]
   %cmp9.i = icmp eq i32 %.lcssa, 22
-  %cmp12.i = icmp eq i32 %conv.i, 8
+  %cmp12.i = icmp eq i64 %21, 8
   %or.cond.i = and i1 %cmp12.i, %cmp9.i
   br i1 %or.cond.i, label %_mi_prim_reset.exit, label %if.then3
 
@@ -17475,7 +17475,7 @@ land.lhs.true:                                    ; preds = %land.rhs, %land.rhs
   %call.i9.lcssa = phi i32 [ %call.i7, %land.rhs.lr.ph ], [ %call.i, %land.rhs ]
   %.lcssa = phi i32 [ %1, %land.rhs.lr.ph ], [ %2, %land.rhs ]
   %cmp9 = icmp eq i32 %.lcssa, 22
-  %cmp12 = icmp eq i32 %conv, 8
+  %cmp12 = icmp eq i64 %0, 8
   %or.cond = and i1 %cmp12, %cmp9
   br i1 %or.cond, label %if.then, label %if.end
 
@@ -29555,11 +29555,11 @@ cond.end:                                         ; preds = %_mi_segment_page_st
   %7 = load i32, ptr %call, align 8
   %conv.i.i.i16 = zext i32 %7 to i64
   %mul.i.i.i17 = shl nuw nsw i64 %conv.i.i.i16, 16
-  %cmp.i.i.i = icmp ugt i32 %cond.i, 7
+  %cmp.i.i.i = icmp ugt i64 %cond, 7
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_mi_segment_page_start.exit.i18
 
 if.then.i.i.i:                                    ; preds = %cond.end
-  %cmp2.i.i.i = icmp ult i32 %cond.i, 65
+  %cmp2.i.i.i = icmp ult i64 %cond, 65
   br i1 %cmp2.i.i.i, label %if.then4.i.i.i, label %if.else.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.then.i.i.i
@@ -29567,7 +29567,7 @@ if.then4.i.i.i:                                   ; preds = %if.then.i.i.i
   br label %_mi_segment_page_start.exit.i18
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  %cmp6.i.i.i = icmp ult i32 %cond.i, 513
+  %cmp6.i.i.i = icmp ult i64 %cond, 513
   %spec.select.i.i.i = select i1 %cmp6.i.i.i, i64 %cond11.i, i64 0
   br label %_mi_segment_page_start.exit.i18
 
@@ -29608,7 +29608,7 @@ if.end5.i.i:                                      ; preds = %if.end.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i.i.i, label %_mi_page_start.exit.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end5.i.i
-  %cmp2.i.i.i.i.i = icmp ult i32 %cond.i, 65
+  %cmp2.i.i.i.i.i = icmp ult i64 %cond, 65
   br i1 %cmp2.i.i.i.i.i, label %if.then4.i.i.i.i.i, label %if.else.i.i.i.i.i
 
 if.then4.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i.i
@@ -29616,7 +29616,7 @@ if.then4.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i.i
   br label %_mi_page_start.exit.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i.i
-  %cmp6.i.i.i.i.i = icmp ult i32 %cond.i, 513
+  %cmp6.i.i.i.i.i = icmp ult i64 %cond, 513
   %spec.select.i.i.i.i.i = select i1 %cmp6.i.i.i.i.i, i64 %cond11.i, i64 0
   br label %_mi_page_start.exit.i.i
 
@@ -29644,7 +29644,7 @@ cond.end21.i.i:                                   ; preds = %cond.false19.i.i, %
   br i1 %cmp.i.i.i, label %if.then.i.i.i.i.i.i, label %_mi_page_start.exit.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %cond.end21.i.i
-  %cmp2.i.i.i.i.i.i = icmp ult i32 %cond.i, 65
+  %cmp2.i.i.i.i.i.i = icmp ult i64 %cond, 65
   br i1 %cmp2.i.i.i.i.i.i, label %if.then4.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.then4.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i.i
@@ -29652,7 +29652,7 @@ if.then4.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i.i
   br label %_mi_page_start.exit.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i.i
-  %cmp6.i.i.i.i.i.i = icmp ult i32 %cond.i, 513
+  %cmp6.i.i.i.i.i.i = icmp ult i64 %cond, 513
   %spec.select.i.i.i.i.i.i = select i1 %cmp6.i.i.i.i.i.i, i64 %cond11.i, i64 0
   br label %_mi_page_start.exit.i.i.i
 

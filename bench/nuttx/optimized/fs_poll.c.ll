@@ -279,8 +279,7 @@ define i32 @poll(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_a
 .preheader.i:                                     ; preds = %19, %.thread55.i
   %.0.i57.i = phi i32 [ %17, %.thread55.i ], [ %21, %19 ]
   %23 = getelementptr inbounds i8, ptr %9, i64 8
-  %24 = and i64 %indvars.iv.i, 4294967295
-  %.not43.i = icmp eq i64 %24, 0
+  %.not43.i = icmp eq i64 %indvars.iv.i, 0
   br i1 %.not43.i, label %.thread, label %.lr.ph42.preheader.i
 
 .lr.ph42.preheader.i:                             ; preds = %.preheader.i
@@ -289,88 +288,88 @@ define i32 @poll(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_a
 
 .lr.ph42.i:                                       ; preds = %poll_fdsetup.exit34.i, %.lr.ph42.preheader.i
   %indvars.iv47.i = phi i64 [ 0, %.lr.ph42.preheader.i ], [ %indvars.iv.next48.i, %poll_fdsetup.exit34.i ]
-  %25 = getelementptr inbounds %struct.pollfd, ptr %0, i64 %indvars.iv47.i
-  %26 = load i32, ptr %25, align 8
+  %24 = getelementptr inbounds %struct.pollfd, ptr %0, i64 %indvars.iv47.i
+  %25 = load i32, ptr %24, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %27 = call i32 @fs_getfilep(i32 noundef %26, ptr noundef nonnull %5) #4
-  %28 = icmp slt i32 %27, 0
-  br i1 %28, label %poll_fdsetup.exit34.i, label %29
+  %26 = call i32 @fs_getfilep(i32 noundef %25, ptr noundef nonnull %5) #4
+  %27 = icmp slt i32 %26, 0
+  br i1 %27, label %poll_fdsetup.exit34.i, label %28
 
-29:                                               ; preds = %.lr.ph42.i
-  %30 = load ptr, ptr %5, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
-  %32 = load ptr, ptr %31, align 8
-  %.not.i.i = icmp eq ptr %32, null
-  br i1 %.not.i.i, label %.lr.ph.split.i32.preheader.split.i.i, label %39
+28:                                               ; preds = %.lr.ph42.i
+  %29 = load ptr, ptr %5, align 8
+  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %31 = load ptr, ptr %30, align 8
+  %.not.i.i = icmp eq ptr %31, null
+  br i1 %.not.i.i, label %.lr.ph.split.i32.preheader.split.i.i, label %38
 
-.lr.ph.split.i32.preheader.split.i.i:             ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %25, i64 8
-  %34 = getelementptr inbounds i8, ptr %25, i64 24
-  %35 = load ptr, ptr %34, align 8
-  %36 = icmp eq ptr %35, null
-  %.promoted.i.i = load i32, ptr %33, align 8
-  %37 = and i32 %.promoted.i.i, -29
-  %38 = or disjoint i32 %37, 24
-  store i32 %38, ptr %33, align 8
-  br i1 %36, label %poll_fdsetup.exit34.i, label %poll_notify.exit.loopexit48.i.i
+.lr.ph.split.i32.preheader.split.i.i:             ; preds = %28
+  %32 = getelementptr inbounds i8, ptr %24, i64 8
+  %33 = getelementptr inbounds i8, ptr %24, i64 24
+  %34 = load ptr, ptr %33, align 8
+  %35 = icmp eq ptr %34, null
+  %.promoted.i.i = load i32, ptr %32, align 8
+  %36 = and i32 %.promoted.i.i, -29
+  %37 = or disjoint i32 %36, 24
+  store i32 %37, ptr %32, align 8
+  br i1 %35, label %poll_fdsetup.exit34.i, label %poll_notify.exit.loopexit48.i.i
 
-39:                                               ; preds = %29
-  %40 = getelementptr inbounds i8, ptr %32, i64 26
-  %41 = load i16, ptr %40, align 2
-  %42 = and i16 %41, 15
-  switch i16 %42, label %poll_fdsetup.exit34.i [
-    i16 1, label %43
-    i16 5, label %43
-    i16 9, label %43
-    i16 10, label %43
+38:                                               ; preds = %28
+  %39 = getelementptr inbounds i8, ptr %31, i64 26
+  %40 = load i16, ptr %39, align 2
+  %41 = and i16 %40, 15
+  switch i16 %41, label %poll_fdsetup.exit34.i [
+    i16 1, label %42
+    i16 5, label %42
+    i16 9, label %42
+    i16 10, label %42
     i16 3, label %._crit_edge.i.i
   ]
 
-._crit_edge.i.i:                                  ; preds = %39
-  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %32, i64 32
+._crit_edge.i.i:                                  ; preds = %38
+  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %31, i64 32
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
-  br label %52
+  br label %51
 
-43:                                               ; preds = %39, %39, %39, %39
-  %44 = getelementptr inbounds i8, ptr %32, i64 32
-  %45 = load ptr, ptr %44, align 8
-  %.not28.i.i = icmp eq ptr %45, null
-  br i1 %.not28.i.i, label %51, label %46
+42:                                               ; preds = %38, %38, %38, %38
+  %43 = getelementptr inbounds i8, ptr %31, i64 32
+  %44 = load ptr, ptr %43, align 8
+  %.not28.i.i = icmp eq ptr %44, null
+  br i1 %.not28.i.i, label %50, label %45
 
-46:                                               ; preds = %43
-  %47 = getelementptr inbounds i8, ptr %45, i64 64
-  %48 = load ptr, ptr %47, align 8
-  %.not29.i.i = icmp eq ptr %48, null
-  br i1 %.not29.i.i, label %51, label %49
+45:                                               ; preds = %42
+  %46 = getelementptr inbounds i8, ptr %44, i64 64
+  %47 = load ptr, ptr %46, align 8
+  %.not29.i.i = icmp eq ptr %47, null
+  br i1 %.not29.i.i, label %50, label %48
 
-49:                                               ; preds = %46
-  %50 = call i32 %48(ptr noundef nonnull %30, ptr noundef nonnull %25, i1 noundef zeroext false) #4
+48:                                               ; preds = %45
+  %49 = call i32 %47(ptr noundef nonnull %29, ptr noundef nonnull %24, i1 noundef zeroext false) #4
   br label %poll_fdsetup.exit34.i
 
-51:                                               ; preds = %46, %43
-  %cond.i = icmp eq i16 %42, 3
-  br i1 %cond.i, label %52, label %poll_fdsetup.exit34.i
+50:                                               ; preds = %45, %42
+  %cond.i = icmp eq i16 %41, 3
+  br i1 %cond.i, label %51, label %poll_fdsetup.exit34.i
 
-52:                                               ; preds = %51, %._crit_edge.i.i
-  %53 = phi ptr [ %.pre.i.i, %._crit_edge.i.i ], [ %45, %51 ]
-  %.not30.i.i = icmp eq ptr %53, null
-  br i1 %.not30.i.i, label %poll_fdsetup.exit34.i, label %54
+51:                                               ; preds = %50, %._crit_edge.i.i
+  %52 = phi ptr [ %.pre.i.i, %._crit_edge.i.i ], [ %44, %50 ]
+  %.not30.i.i = icmp eq ptr %52, null
+  br i1 %.not30.i.i, label %poll_fdsetup.exit34.i, label %53
 
-54:                                               ; preds = %52
-  %55 = getelementptr inbounds i8, ptr %53, i64 64
-  %56 = load ptr, ptr %55, align 8
-  %.not31.i.i = icmp eq ptr %56, null
-  br i1 %.not31.i.i, label %poll_fdsetup.exit34.i, label %57
+53:                                               ; preds = %51
+  %54 = getelementptr inbounds i8, ptr %52, i64 64
+  %55 = load ptr, ptr %54, align 8
+  %.not31.i.i = icmp eq ptr %55, null
+  br i1 %.not31.i.i, label %poll_fdsetup.exit34.i, label %56
 
-57:                                               ; preds = %54
-  %58 = call i32 %56(ptr noundef nonnull %30, ptr noundef nonnull %25, i1 noundef zeroext false) #4
+56:                                               ; preds = %53
+  %57 = call i32 %55(ptr noundef nonnull %29, ptr noundef nonnull %24, i1 noundef zeroext false) #4
   br label %poll_fdsetup.exit34.i
 
 poll_notify.exit.loopexit48.i.i:                  ; preds = %.lr.ph.split.i32.preheader.split.i.i
-  call void %35(ptr noundef nonnull %25) #4
+  call void %34(ptr noundef nonnull %24) #4
   br label %poll_fdsetup.exit34.i
 
-poll_fdsetup.exit34.i:                            ; preds = %poll_notify.exit.loopexit48.i.i, %57, %54, %52, %51, %49, %39, %.lr.ph.split.i32.preheader.split.i.i, %.lr.ph42.i
+poll_fdsetup.exit34.i:                            ; preds = %poll_notify.exit.loopexit48.i.i, %56, %53, %51, %50, %48, %38, %.lr.ph.split.i32.preheader.split.i.i, %.lr.ph42.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %indvars.iv.next48.i = add nuw nsw i64 %indvars.iv47.i, 1
   %exitcond54.not.i = icmp eq i64 %indvars.iv.next48.i, %wide.trip.count53.i
@@ -382,181 +381,181 @@ poll_fdsetup.exit34.i:                            ; preds = %poll_notify.exit.lo
   br i1 %exitcond.not.i, label %poll_setup.exit.thread, label %.lr.ph.i, !llvm.loop !9
 
 poll_setup.exit.thread:                           ; preds = %.thread.i, %3
-  %59 = icmp eq i32 %2, 0
-  br i1 %59, label %70, label %60
+  %58 = icmp eq i32 %2, 0
+  br i1 %58, label %69, label %59
 
-60:                                               ; preds = %poll_setup.exit.thread
-  %61 = icmp sgt i32 %2, 0
-  br i1 %61, label %62, label %68
+59:                                               ; preds = %poll_setup.exit.thread
+  %60 = icmp sgt i32 %2, 0
+  br i1 %60, label %61, label %67
 
-62:                                               ; preds = %60
-  %63 = mul i32 %2, 1000
-  %64 = call i32 @nxsem_tickwait(ptr noundef nonnull %7, i32 noundef %63) #4
-  %65 = icmp slt i32 %64, 0
-  br i1 %65, label %66, label %70
+61:                                               ; preds = %59
+  %62 = mul i32 %2, 1000
+  %63 = call i32 @nxsem_tickwait(ptr noundef nonnull %7, i32 noundef %62) #4
+  %64 = icmp slt i32 %63, 0
+  br i1 %64, label %65, label %69
 
-66:                                               ; preds = %62
-  %67 = icmp eq i32 %64, -110
-  %spec.store.select = select i1 %67, i32 0, i32 %64
-  br label %70
+65:                                               ; preds = %61
+  %66 = icmp eq i32 %63, -110
+  %spec.store.select = select i1 %66, i32 0, i32 %63
+  br label %69
 
-68:                                               ; preds = %60
-  %69 = call i32 @nxsem_wait(ptr noundef nonnull %7) #4
-  br label %70
+67:                                               ; preds = %59
+  %68 = call i32 @nxsem_wait(ptr noundef nonnull %7) #4
+  br label %69
 
-70:                                               ; preds = %poll_setup.exit.thread, %68, %66, %62
-  %.019 = phi i32 [ %spec.store.select, %66 ], [ %64, %62 ], [ %69, %68 ], [ 0, %poll_setup.exit.thread ]
+69:                                               ; preds = %poll_setup.exit.thread, %67, %65, %61
+  %.019 = phi i32 [ %spec.store.select, %65 ], [ %63, %61 ], [ %68, %67 ], [ 0, %poll_setup.exit.thread ]
   br i1 %.not.i, label %.loopexit, label %.lr.ph.preheader.i25
 
-.lr.ph.preheader.i25:                             ; preds = %70
+.lr.ph.preheader.i25:                             ; preds = %69
   %wide.trip.count.i26 = zext i32 %1 to i64
   br label %.lr.ph.i27
 
-.lr.ph.i27:                                       ; preds = %107, %.lr.ph.preheader.i25
-  %.045 = phi i32 [ 0, %.lr.ph.preheader.i25 ], [ %spec.select52, %107 ]
-  %indvars.iv.i28 = phi i64 [ 0, %.lr.ph.preheader.i25 ], [ %indvars.iv.next.i30, %107 ]
-  %.026.i = phi i32 [ 0, %.lr.ph.preheader.i25 ], [ %.1.i, %107 ]
-  %.02024.i = phi i32 [ %.019, %.lr.ph.preheader.i25 ], [ %spec.select.i, %107 ]
-  %71 = getelementptr inbounds %struct.pollfd, ptr %0, i64 %indvars.iv.i28
-  %72 = load i32, ptr %71, align 8
-  %73 = icmp sgt i32 %72, -1
-  br i1 %73, label %74, label %107
+.lr.ph.i27:                                       ; preds = %106, %.lr.ph.preheader.i25
+  %.045 = phi i32 [ 0, %.lr.ph.preheader.i25 ], [ %spec.select52, %106 ]
+  %indvars.iv.i28 = phi i64 [ 0, %.lr.ph.preheader.i25 ], [ %indvars.iv.next.i30, %106 ]
+  %.026.i = phi i32 [ 0, %.lr.ph.preheader.i25 ], [ %.1.i, %106 ]
+  %.02024.i = phi i32 [ %.019, %.lr.ph.preheader.i25 ], [ %spec.select.i, %106 ]
+  %70 = getelementptr inbounds %struct.pollfd, ptr %0, i64 %indvars.iv.i28
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp sgt i32 %71, -1
+  br i1 %72, label %73, label %106
 
-74:                                               ; preds = %.lr.ph.i27
+73:                                               ; preds = %.lr.ph.i27
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %75 = call i32 @fs_getfilep(i32 noundef %72, ptr noundef nonnull %4) #4
-  %76 = icmp slt i32 %75, 0
-  br i1 %76, label %poll_fdsetup.exit.i, label %77
+  %74 = call i32 @fs_getfilep(i32 noundef %71, ptr noundef nonnull %4) #4
+  %75 = icmp slt i32 %74, 0
+  br i1 %75, label %poll_fdsetup.exit.i, label %76
 
-77:                                               ; preds = %74
-  %78 = load ptr, ptr %4, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 8
-  %80 = load ptr, ptr %79, align 8
-  %.not.i.i33 = icmp eq ptr %80, null
-  br i1 %.not.i.i33, label %.lr.ph.split.i32.preheader.split.i.i41, label %87
+76:                                               ; preds = %73
+  %77 = load ptr, ptr %4, align 8
+  %78 = getelementptr inbounds i8, ptr %77, i64 8
+  %79 = load ptr, ptr %78, align 8
+  %.not.i.i33 = icmp eq ptr %79, null
+  br i1 %.not.i.i33, label %.lr.ph.split.i32.preheader.split.i.i41, label %86
 
-.lr.ph.split.i32.preheader.split.i.i41:           ; preds = %77
-  %81 = getelementptr inbounds i8, ptr %71, i64 8
-  %82 = getelementptr inbounds i8, ptr %71, i64 24
-  %83 = load ptr, ptr %82, align 8
-  %84 = icmp eq ptr %83, null
-  %.promoted.i.i42 = load i32, ptr %81, align 8
-  %85 = and i32 %.promoted.i.i42, -29
-  %86 = or disjoint i32 %85, 24
-  store i32 %86, ptr %81, align 8
-  br i1 %84, label %poll_fdsetup.exit.i, label %poll_notify.exit.loopexit48.i.i43
+.lr.ph.split.i32.preheader.split.i.i41:           ; preds = %76
+  %80 = getelementptr inbounds i8, ptr %70, i64 8
+  %81 = getelementptr inbounds i8, ptr %70, i64 24
+  %82 = load ptr, ptr %81, align 8
+  %83 = icmp eq ptr %82, null
+  %.promoted.i.i42 = load i32, ptr %80, align 8
+  %84 = and i32 %.promoted.i.i42, -29
+  %85 = or disjoint i32 %84, 24
+  store i32 %85, ptr %80, align 8
+  br i1 %83, label %poll_fdsetup.exit.i, label %poll_notify.exit.loopexit48.i.i43
 
-87:                                               ; preds = %77
-  %88 = getelementptr inbounds i8, ptr %80, i64 26
-  %89 = load i16, ptr %88, align 2
-  %90 = and i16 %89, 15
-  switch i16 %90, label %poll_fdsetup.exit.i [
-    i16 1, label %91
-    i16 5, label %91
-    i16 9, label %91
-    i16 10, label %91
+86:                                               ; preds = %76
+  %87 = getelementptr inbounds i8, ptr %79, i64 26
+  %88 = load i16, ptr %87, align 2
+  %89 = and i16 %88, 15
+  switch i16 %89, label %poll_fdsetup.exit.i [
+    i16 1, label %90
+    i16 5, label %90
+    i16 9, label %90
+    i16 10, label %90
     i16 3, label %._crit_edge.i.i34
     i16 2, label %.thread.i.i
     i16 7, label %.thread.i.i
   ]
 
-._crit_edge.i.i34:                                ; preds = %87
-  %.phi.trans.insert.i.i35 = getelementptr inbounds i8, ptr %80, i64 32
+._crit_edge.i.i34:                                ; preds = %86
+  %.phi.trans.insert.i.i35 = getelementptr inbounds i8, ptr %79, i64 32
   %.pre.i.i36 = load ptr, ptr %.phi.trans.insert.i.i35, align 8
-  br label %100
+  br label %99
 
-91:                                               ; preds = %87, %87, %87, %87
-  %92 = getelementptr inbounds i8, ptr %80, i64 32
-  %93 = load ptr, ptr %92, align 8
-  %.not28.i.i39 = icmp eq ptr %93, null
-  br i1 %.not28.i.i39, label %99, label %94
+90:                                               ; preds = %86, %86, %86, %86
+  %91 = getelementptr inbounds i8, ptr %79, i64 32
+  %92 = load ptr, ptr %91, align 8
+  %.not28.i.i39 = icmp eq ptr %92, null
+  br i1 %.not28.i.i39, label %98, label %93
 
-94:                                               ; preds = %91
-  %95 = getelementptr inbounds i8, ptr %93, i64 64
-  %96 = load ptr, ptr %95, align 8
-  %.not29.i.i40 = icmp eq ptr %96, null
-  br i1 %.not29.i.i40, label %99, label %97
+93:                                               ; preds = %90
+  %94 = getelementptr inbounds i8, ptr %92, i64 64
+  %95 = load ptr, ptr %94, align 8
+  %.not29.i.i40 = icmp eq ptr %95, null
+  br i1 %.not29.i.i40, label %98, label %96
 
-97:                                               ; preds = %94
-  %98 = call i32 %96(ptr noundef nonnull %78, ptr noundef nonnull %71, i1 noundef zeroext false) #4
+96:                                               ; preds = %93
+  %97 = call i32 %95(ptr noundef nonnull %77, ptr noundef nonnull %70, i1 noundef zeroext false) #4
   br label %poll_fdsetup.exit.i
 
-99:                                               ; preds = %94, %91
-  switch i16 %90, label %poll_fdsetup.exit.i [
-    i16 3, label %100
+98:                                               ; preds = %93, %90
+  switch i16 %89, label %poll_fdsetup.exit.i [
+    i16 3, label %99
     i16 2, label %.thread.i.i
     i16 7, label %.thread.i.i
   ]
 
-100:                                              ; preds = %99, %._crit_edge.i.i34
-  %101 = phi ptr [ %.pre.i.i36, %._crit_edge.i.i34 ], [ %93, %99 ]
-  %.not30.i.i37 = icmp eq ptr %101, null
-  br i1 %.not30.i.i37, label %.thread.i.i, label %102
+99:                                               ; preds = %98, %._crit_edge.i.i34
+  %100 = phi ptr [ %.pre.i.i36, %._crit_edge.i.i34 ], [ %92, %98 ]
+  %.not30.i.i37 = icmp eq ptr %100, null
+  br i1 %.not30.i.i37, label %.thread.i.i, label %101
 
-102:                                              ; preds = %100
-  %103 = getelementptr inbounds i8, ptr %101, i64 64
-  %104 = load ptr, ptr %103, align 8
-  %.not31.i.i38 = icmp eq ptr %104, null
-  br i1 %.not31.i.i38, label %.thread.i.i, label %105
+101:                                              ; preds = %99
+  %102 = getelementptr inbounds i8, ptr %100, i64 64
+  %103 = load ptr, ptr %102, align 8
+  %.not31.i.i38 = icmp eq ptr %103, null
+  br i1 %.not31.i.i38, label %.thread.i.i, label %104
 
-105:                                              ; preds = %102
-  %106 = call i32 %104(ptr noundef nonnull %78, ptr noundef nonnull %71, i1 noundef zeroext false) #4
+104:                                              ; preds = %101
+  %105 = call i32 %103(ptr noundef nonnull %77, ptr noundef nonnull %70, i1 noundef zeroext false) #4
   br label %poll_fdsetup.exit.i
 
-.thread.i.i:                                      ; preds = %102, %100, %99, %99, %87, %87
+.thread.i.i:                                      ; preds = %101, %99, %98, %98, %86, %86
   br label %poll_fdsetup.exit.i
 
 poll_notify.exit.loopexit48.i.i43:                ; preds = %.lr.ph.split.i32.preheader.split.i.i41
-  call void %83(ptr noundef nonnull %71) #4
+  call void %82(ptr noundef nonnull %70) #4
   br label %poll_fdsetup.exit.i
 
-poll_fdsetup.exit.i:                              ; preds = %poll_notify.exit.loopexit48.i.i43, %.thread.i.i, %105, %99, %97, %87, %.lr.ph.split.i32.preheader.split.i.i41, %74
-  %.0.i.i = phi i32 [ %75, %74 ], [ %98, %97 ], [ %106, %105 ], [ 0, %.thread.i.i ], [ -38, %99 ], [ -38, %87 ], [ 0, %poll_notify.exit.loopexit48.i.i43 ], [ 0, %.lr.ph.split.i32.preheader.split.i.i41 ]
+poll_fdsetup.exit.i:                              ; preds = %poll_notify.exit.loopexit48.i.i43, %.thread.i.i, %104, %98, %96, %86, %.lr.ph.split.i32.preheader.split.i.i41, %73
+  %.0.i.i = phi i32 [ %74, %73 ], [ %97, %96 ], [ %105, %104 ], [ 0, %.thread.i.i ], [ -38, %98 ], [ -38, %86 ], [ 0, %poll_notify.exit.loopexit48.i.i43 ], [ 0, %.lr.ph.split.i32.preheader.split.i.i41 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %107
+  br label %106
 
-107:                                              ; preds = %poll_fdsetup.exit.i, %.lr.ph.i27
+106:                                              ; preds = %poll_fdsetup.exit.i, %.lr.ph.i27
   %.1.i = phi i32 [ %.0.i.i, %poll_fdsetup.exit.i ], [ %.026.i, %.lr.ph.i27 ]
-  %108 = icmp slt i32 %.1.i, 0
-  %spec.select.i = select i1 %108, i32 %.1.i, i32 %.02024.i
-  %109 = getelementptr inbounds i8, ptr %71, i64 8
-  %110 = load i32, ptr %109, align 8
-  %.not.i29 = icmp ne i32 %110, 0
-  %111 = zext i1 %.not.i29 to i32
-  %spec.select52 = add nuw nsw i32 %.045, %111
-  %112 = getelementptr inbounds i8, ptr %71, i64 16
+  %107 = icmp slt i32 %.1.i, 0
+  %spec.select.i = select i1 %107, i32 %.1.i, i32 %.02024.i
+  %108 = getelementptr inbounds i8, ptr %70, i64 8
+  %109 = load i32, ptr %108, align 8
+  %.not.i29 = icmp ne i32 %109, 0
+  %110 = zext i1 %.not.i29 to i32
+  %spec.select52 = add nuw nsw i32 %.045, %110
+  %111 = getelementptr inbounds i8, ptr %70, i64 16
   %indvars.iv.next.i30 = add nuw nsw i64 %indvars.iv.i28, 1
   %exitcond.not.i31 = icmp eq i64 %indvars.iv.next.i30, %wide.trip.count.i26
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %112, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %111, i8 0, i64 16, i1 false)
   br i1 %exitcond.not.i31, label %.loopexit, label %.lr.ph.i27, !llvm.loop !10
 
 .thread:                                          ; preds = %poll_fdsetup.exit34.i, %.preheader.i
   %storemerge.in = load i32, ptr %23, align 8
   %storemerge = or i32 %storemerge.in, 8
   store i32 %storemerge, ptr %23, align 8
-  %113 = call i32 @nxsem_destroy(ptr noundef nonnull %7) #4
-  br label %118
+  %112 = call i32 @nxsem_destroy(ptr noundef nonnull %7) #4
+  br label %117
 
-.loopexit:                                        ; preds = %107, %70
-  %.2 = phi i32 [ 0, %70 ], [ %spec.select52, %107 ]
-  %.020.lcssa.i = phi i32 [ %.019, %70 ], [ %spec.select.i, %107 ]
-  %114 = icmp slt i32 %.020.lcssa.i, 0
-  %115 = icmp sgt i32 %.019, -1
-  %or.cond = and i1 %115, %114
+.loopexit:                                        ; preds = %106, %69
+  %.2 = phi i32 [ 0, %69 ], [ %spec.select52, %106 ]
+  %.020.lcssa.i = phi i32 [ %.019, %69 ], [ %spec.select.i, %106 ]
+  %113 = icmp slt i32 %.020.lcssa.i, 0
+  %114 = icmp sgt i32 %.019, -1
+  %or.cond = and i1 %114, %113
   %spec.select = select i1 %or.cond, i32 %.020.lcssa.i, i32 %.019
-  %116 = call i32 @nxsem_destroy(ptr noundef nonnull %7) #4
-  %117 = icmp slt i32 %spec.select, 0
-  br i1 %117, label %118, label %121
+  %115 = call i32 @nxsem_destroy(ptr noundef nonnull %7) #4
+  %116 = icmp slt i32 %spec.select, 0
+  br i1 %116, label %117, label %120
 
-118:                                              ; preds = %.thread, %.loopexit
+117:                                              ; preds = %.thread, %.loopexit
   %.151 = phi i32 [ %.0.i57.i, %.thread ], [ %spec.select, %.loopexit ]
-  %119 = sub nsw i32 0, %.151
-  %120 = call ptr @__errno() #4
-  store i32 %119, ptr %120, align 4
-  br label %121
+  %118 = sub nsw i32 0, %.151
+  %119 = call ptr @__errno() #4
+  store i32 %118, ptr %119, align 4
+  br label %120
 
-121:                                              ; preds = %.loopexit, %118
-  %.0 = phi i32 [ -1, %118 ], [ %.2, %.loopexit ]
+120:                                              ; preds = %.loopexit, %117
+  %.0 = phi i32 [ -1, %117 ], [ %.2, %.loopexit ]
   ret i32 %.0
 }
 

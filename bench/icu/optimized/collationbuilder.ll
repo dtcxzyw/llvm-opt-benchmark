@@ -1054,7 +1054,7 @@ cond.true.i:                                      ; preds = %cond.true.i.lr.ph, 
   %5 = load i64, ptr %arrayidx, align 8
   %shr.i = lshr i64 %5, 32
   %conv.i57 = trunc nuw i64 %shr.i to i32
-  %cmp7 = icmp eq i32 %conv.i57, 0
+  %cmp7 = icmp ult i64 %5, 4294967296
   %cond = select i1 %cmp7, i32 0, i32 1280
   br i1 %cmp7, label %cond.end, label %cond.false
 
@@ -1947,7 +1947,7 @@ if.else42:                                        ; preds = %while.end
 if.then44:                                        ; preds = %if.else42
   %shr.i108 = lshr i64 %node.0.lcssa, 32
   %conv.i109 = trunc nuw i64 %shr.i108 to i32
-  %cmp46 = icmp eq i32 %conv.i109, 0
+  %cmp46 = icmp ult i64 %node.0.lcssa, 4294967296
   br i1 %cmp46, label %if.then47, label %if.end48
 
 if.then47:                                        ; preds = %if.then44
@@ -1972,7 +1972,7 @@ if.then51:                                        ; preds = %if.end48
   br label %return
 
 if.end52:                                         ; preds = %if.end48
-  %cmp53 = icmp eq i32 %conv.i109, -16645632
+  %cmp53 = icmp eq i64 %shr.i108, 4278321664
   br i1 %cmp53, label %if.then54, label %if.end55
 
 if.then54:                                        ; preds = %if.end52
@@ -2067,10 +2067,8 @@ _ZNK6icu_759UVector6410elementAtiEi.exit41.i:     ; preds = %do.body.i
 lor.lhs.false.i:                                  ; preds = %_ZNK6icu_759UVector6410elementAtiEi.exit41.i
   %and.i44.i199 = and i64 %34, 2
   %cmp18.i = icmp ne i64 %and.i44.i199, 0
-  %shr.i45.i = lshr i64 %34, 48
-  %conv.i46.i = trunc nuw nsw i64 %shr.i45.i to i32
-  %cmp20.i = icmp ult i32 %conv.i46.i, 1280
-  %or.cond.i128 = select i1 %cmp18.i, i1 true, i1 %cmp20.i
+  %cmp20.i = icmp ult i64 %34, 360287970189639680
+  %or.cond.i128 = or i1 %cmp20.i, %cmp18.i
   br i1 %or.cond.i128, label %do.body.i.backedge, label %_ZNK6icu_7516CollationBuilder14findCommonNodeEii.exit
 
 do.body.i.backedge:                               ; preds = %lor.lhs.false.i, %_ZNK6icu_759UVector6410elementAtiEi.exit41.i, %do.body.i
@@ -3110,7 +3108,7 @@ _ZN6icu_7516CollationBuilder10ceStrengthEl.exit.thread: ; preds = %if.else
 for.inc:                                          ; preds = %_ZN6icu_7516CollationBuilder10ceStrengthEl.exit.thread, %_ZN6icu_7516CollationBuilder10ceStrengthEl.exit
   %6 = trunc nsw i64 %indvars.iv.next to i32
   store i32 %6, ptr %cesLength, align 8
-  %cmp = icmp eq i32 %6, 0
+  %cmp = icmp eq i64 %indvars.iv.next, 0
   br i1 %cmp, label %if.end17.thread, label %if.else, !llvm.loop !20
 
 for.end:                                          ; preds = %_ZN6icu_7516CollationBuilder10ceStrengthEl.exit
@@ -3385,10 +3383,8 @@ lor.lhs.false:                                    ; preds = %_ZNK6icu_759UVector
   %conv.i43 = trunc i64 %7 to i32
   %and.i44 = and i32 %conv.i43, 3
   %cmp18 = icmp sgt i32 %and.i44, %strength
-  %shr.i45 = lshr i64 %7, 48
-  %conv.i46 = trunc nuw nsw i64 %shr.i45 to i32
-  %cmp20 = icmp ult i32 %conv.i46, 1280
-  %or.cond = select i1 %cmp18, i1 true, i1 %cmp20
+  %cmp20 = icmp ult i64 %7, 360287970189639680
+  %or.cond = or i1 %cmp18, %cmp20
   br i1 %or.cond, label %do.body.backedge, label %return
 
 return:                                           ; preds = %lor.lhs.false, %cond.true, %cond.false, %_ZNK6icu_759UVector6410elementAtiEi.exit
@@ -3692,10 +3688,8 @@ lor.lhs.false.i:                                  ; preds = %_ZNK6icu_759UVector
   %conv.i43.i = trunc i64 %8 to i32
   %and.i44.i = and i32 %conv.i43.i, 3
   %cmp18.i = icmp sgt i32 %and.i44.i, %level
-  %shr.i45.i = lshr i64 %8, 48
-  %conv.i46.i = trunc nuw nsw i64 %shr.i45.i to i32
-  %cmp20.i = icmp ult i32 %conv.i46.i, 1280
-  %or.cond.i = select i1 %cmp18.i, i1 true, i1 %cmp20.i
+  %cmp20.i = icmp ult i64 %8, 360287970189639680
+  %or.cond.i = or i1 %cmp20.i, %cmp18.i
   br i1 %or.cond.i, label %do.body.i.backedge, label %return
 
 do.body.i.backedge:                               ; preds = %lor.lhs.false.i, %_ZNK6icu_759UVector6410elementAtiEi.exit41.i, %do.body.i
@@ -4403,12 +4397,10 @@ _ZNK6icu_759UVector6410elementAtiEi.exit41.i:     ; preds = %do.body.i
   br i1 %tobool16.not.i, label %lor.lhs.false.i, label %do.body.i.backedge
 
 lor.lhs.false.i:                                  ; preds = %_ZNK6icu_759UVector6410elementAtiEi.exit41.i
-  %and.i44.i112 = and i64 %6, 2
-  %cmp18.i = icmp ne i64 %and.i44.i112, 0
-  %shr.i45.i = lshr i64 %6, 48
-  %conv.i46.i = trunc nuw nsw i64 %shr.i45.i to i32
-  %cmp20.i = icmp ult i32 %conv.i46.i, 1280
-  %or.cond.i = select i1 %cmp18.i, i1 true, i1 %cmp20.i
+  %and.i44.i110 = and i64 %6, 2
+  %cmp18.i = icmp ne i64 %and.i44.i110, 0
+  %cmp20.i = icmp ult i64 %6, 360287970189639680
+  %or.cond.i = or i1 %cmp20.i, %cmp18.i
   br i1 %or.cond.i, label %do.body.i.backedge, label %_ZNK6icu_7516CollationBuilder14findCommonNodeEii.exit
 
 do.body.i.backedge:                               ; preds = %lor.lhs.false.i, %_ZNK6icu_759UVector6410elementAtiEi.exit41.i, %do.body.i
@@ -4427,33 +4419,33 @@ if.then5:                                         ; preds = %_ZNK6icu_7516Collat
   br i1 %or.cond.i.i21, label %_ZNK6icu_759UVector6410elementAtiEi.exit.i22, label %if.end8
 
 _ZNK6icu_759UVector6410elementAtiEi.exit.i22:     ; preds = %if.then5
-  %elements.i.i60 = getelementptr inbounds i8, ptr %this, i64 608
-  %8 = load ptr, ptr %elements.i.i60, align 8
-  %idxprom.i.i61 = zext nneg i32 %retval.0.i to i64
-  %arrayidx.i.i62 = getelementptr inbounds i64, ptr %8, i64 %idxprom.i.i61
-  %9 = load i64, ptr %arrayidx.i.i62, align 8
+  %elements.i.i58 = getelementptr inbounds i8, ptr %this, i64 608
+  %8 = load ptr, ptr %elements.i.i58, align 8
+  %idxprom.i.i59 = zext nneg i32 %retval.0.i to i64
+  %arrayidx.i.i60 = getelementptr inbounds i64, ptr %8, i64 %idxprom.i.i59
+  %9 = load i64, ptr %arrayidx.i.i60, align 8
   %conv.i.i24 = trunc i64 %9 to i32
   %and.i.i25 = and i32 %conv.i.i24, 2
   %cmp.not.i26 = icmp ne i32 %and.i.i25, 0
   %10 = and i64 %9, 32
   %tobool6.not.i = icmp eq i64 %10, 0
-  %or.cond111 = or i1 %tobool6.not.i, %cmp.not.i26
-  br i1 %or.cond111, label %if.end8, label %if.end8.i29
+  %or.cond109 = or i1 %tobool6.not.i, %cmp.not.i26
+  br i1 %or.cond109, label %if.end8, label %if.end8.i29
 
 if.end8.i29:                                      ; preds = %_ZNK6icu_759UVector6410elementAtiEi.exit.i22
   %shr.i.i30 = lshr i32 %conv.i.i24, 8
   %and.i18.i31 = and i32 %shr.i.i30, 1048575
   %cmp2.i21.i32 = icmp sgt i32 %1, %and.i18.i31
-  br i1 %cmp2.i21.i32, label %cond.true.i24.i56, label %do.body.i36.preheader
+  br i1 %cmp2.i21.i32, label %cond.true.i24.i54, label %do.body.i36.preheader
 
-cond.true.i24.i56:                                ; preds = %if.end8.i29
-  %idxprom.i26.i57 = zext nneg i32 %and.i18.i31 to i64
-  %arrayidx.i27.i58 = getelementptr inbounds i64, ptr %8, i64 %idxprom.i26.i57
-  %11 = load i64, ptr %arrayidx.i27.i58, align 8
+cond.true.i24.i54:                                ; preds = %if.end8.i29
+  %idxprom.i26.i55 = zext nneg i32 %and.i18.i31 to i64
+  %arrayidx.i27.i56 = getelementptr inbounds i64, ptr %8, i64 %idxprom.i26.i55
+  %11 = load i64, ptr %arrayidx.i27.i56, align 8
   br label %do.body.i36.preheader
 
-do.body.i36.preheader:                            ; preds = %cond.true.i24.i56, %if.end8.i29
-  %node.0.i37.ph = phi i64 [ 0, %if.end8.i29 ], [ %11, %cond.true.i24.i56 ]
+do.body.i36.preheader:                            ; preds = %cond.true.i24.i54, %if.end8.i29
+  %node.0.i37.ph = phi i64 [ 0, %if.end8.i29 ], [ %11, %cond.true.i24.i54 ]
   br label %do.body.i36
 
 do.body.i36:                                      ; preds = %do.body.i36.backedge, %do.body.i36.preheader
@@ -4473,13 +4465,11 @@ _ZNK6icu_759UVector6410elementAtiEi.exit41.i44:   ; preds = %do.body.i36
   br i1 %tobool16.not.i47, label %lor.lhs.false.i48, label %do.body.i36.backedge
 
 lor.lhs.false.i48:                                ; preds = %_ZNK6icu_759UVector6410elementAtiEi.exit41.i44
-  %and.i44.i50113 = and i64 %12, 3
-  %cmp18.i51 = icmp eq i64 %and.i44.i50113, 3
-  %shr.i45.i52 = lshr i64 %12, 48
-  %conv.i46.i53 = trunc nuw nsw i64 %shr.i45.i52 to i32
-  %cmp20.i54 = icmp ult i32 %conv.i46.i53, 1280
-  %or.cond.i55 = select i1 %cmp18.i51, i1 true, i1 %cmp20.i54
-  br i1 %or.cond.i55, label %do.body.i36.backedge, label %if.end8
+  %and.i44.i50111 = and i64 %12, 3
+  %cmp18.i51 = icmp eq i64 %and.i44.i50111, 3
+  %cmp20.i52 = icmp ult i64 %12, 360287970189639680
+  %or.cond.i53 = or i1 %cmp20.i52, %cmp18.i51
+  br i1 %or.cond.i53, label %do.body.i36.backedge, label %if.end8
 
 do.body.i36.backedge:                             ; preds = %lor.lhs.false.i48, %_ZNK6icu_759UVector6410elementAtiEi.exit41.i44, %do.body.i36
   %node.0.i37.be = phi i64 [ %12, %_ZNK6icu_759UVector6410elementAtiEi.exit41.i44 ], [ %12, %lor.lhs.false.i48 ], [ 0, %do.body.i36 ]
@@ -4489,13 +4479,13 @@ if.end8:                                          ; preds = %lor.lhs.false.i48, 
   %14 = phi i32 [ %1, %_ZNK6icu_7516CollationBuilder14findCommonNodeEii.exit ], [ %.pre, %if.end.if.end8_crit_edge ], [ %1, %_ZNK6icu_759UVector6410elementAtiEi.exit.i22 ], [ %1, %if.then5 ], [ %1, %lor.lhs.false.i48 ]
   %index.addr.0 = phi i32 [ %retval.0.i, %_ZNK6icu_7516CollationBuilder14findCommonNodeEii.exit ], [ %index, %if.end.if.end8_crit_edge ], [ %retval.0.i, %_ZNK6icu_759UVector6410elementAtiEi.exit.i22 ], [ %retval.0.i, %if.then5 ], [ %and.i31.i40, %lor.lhs.false.i48 ]
   %nodes = getelementptr inbounds i8, ptr %this, i64 584
-  %cmp.i64 = icmp sgt i32 %index.addr.0, -1
+  %cmp.i62 = icmp sgt i32 %index.addr.0, -1
   %count.i = getelementptr inbounds i8, ptr %this, i64 592
   %cmp2.i = icmp sgt i32 %14, %index.addr.0
-  %or.cond.i65 = select i1 %cmp.i64, i1 %cmp2.i, i1 false
+  %or.cond.i63 = select i1 %cmp.i62, i1 %cmp2.i, i1 false
   %elements.i = getelementptr inbounds i8, ptr %this, i64 608
   %15 = load ptr, ptr %elements.i, align 8
-  br i1 %or.cond.i65, label %cond.true.i, label %_ZNK6icu_759UVector6410elementAtiEi.exit
+  br i1 %or.cond.i63, label %cond.true.i, label %_ZNK6icu_759UVector6410elementAtiEi.exit
 
 cond.true.i:                                      ; preds = %if.end8
   %idxprom.i = zext nneg i32 %index.addr.0 to i64
@@ -4505,19 +4495,19 @@ cond.true.i:                                      ; preds = %if.end8
 
 _ZNK6icu_759UVector6410elementAtiEi.exit:         ; preds = %if.end8, %cond.true.i
   %cond.i = phi i64 [ %16, %cond.true.i ], [ 0, %if.end8 ]
-  %elements.i86 = getelementptr inbounds i8, ptr %this, i64 608
+  %elements.i84 = getelementptr inbounds i8, ptr %this, i64 608
   br label %while.cond
 
-while.cond:                                       ; preds = %_ZNK6icu_759UVector6410elementAtiEi.exit89, %_ZNK6icu_759UVector6410elementAtiEi.exit
-  %index.addr.1 = phi i32 [ %index.addr.0, %_ZNK6icu_759UVector6410elementAtiEi.exit ], [ %and.i, %_ZNK6icu_759UVector6410elementAtiEi.exit89 ]
-  %node.0 = phi i64 [ %cond.i, %_ZNK6icu_759UVector6410elementAtiEi.exit ], [ %cond.i84, %_ZNK6icu_759UVector6410elementAtiEi.exit89 ]
-  %conv.i66 = trunc i64 %node.0 to i32
-  %shr.i = lshr i32 %conv.i66, 8
+while.cond:                                       ; preds = %_ZNK6icu_759UVector6410elementAtiEi.exit87, %_ZNK6icu_759UVector6410elementAtiEi.exit
+  %index.addr.1 = phi i32 [ %index.addr.0, %_ZNK6icu_759UVector6410elementAtiEi.exit ], [ %and.i, %_ZNK6icu_759UVector6410elementAtiEi.exit87 ]
+  %node.0 = phi i64 [ %cond.i, %_ZNK6icu_759UVector6410elementAtiEi.exit ], [ %cond.i82, %_ZNK6icu_759UVector6410elementAtiEi.exit87 ]
+  %conv.i64 = trunc i64 %node.0 to i32
+  %shr.i = lshr i32 %conv.i64, 8
   %and.i = and i32 %shr.i, 1048575
   %cmp11.not = icmp eq i32 %and.i, 0
-  br i1 %cmp11.not, label %if.end.i70, label %while.body
+  br i1 %cmp11.not, label %if.end.i68, label %while.body
 
-if.end.i70:                                       ; preds = %while.cond
+if.end.i68:                                       ; preds = %while.cond
   %17 = or i32 %strength, 8
   %or13 = sext i32 %17 to i64
   %conv.i13.i = sext i32 %index.addr.1 to i64
@@ -4530,7 +4520,7 @@ if.end.i70:                                       ; preds = %while.cond
   %or.cond.i.i.i = select i1 %cmp.i.i.i, i1 true, i1 %cmp2.not.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN6icu_759UVector6414ensureCapacityEiR10UErrorCode.exit.i.i, label %if.then.i.i
 
-_ZN6icu_759UVector6414ensureCapacityEiR10UErrorCode.exit.i.i: ; preds = %if.end.i70
+_ZN6icu_759UVector6414ensureCapacityEiR10UErrorCode.exit.i.i: ; preds = %if.end.i68
   %add.i.i = add nsw i32 %14, 1
   %call.i.i.i = tail call noundef signext i8 @_ZN6icu_759UVector6414expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %nodes, i32 noundef %add.i.i, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %tobool.not.i.i = icmp eq i8 %call.i.i.i, 0
@@ -4538,15 +4528,15 @@ _ZN6icu_759UVector6414ensureCapacityEiR10UErrorCode.exit.i.i: ; preds = %if.end.
 
 _ZN6icu_759UVector6414ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i.i: ; preds = %_ZN6icu_759UVector6414ensureCapacityEiR10UErrorCode.exit.i.i
   %.pre.i.i = load i32, ptr %count.i, align 8
-  %.pre119 = load ptr, ptr %elements.i86, align 8
+  %.pre117 = load ptr, ptr %elements.i84, align 8
   br label %if.then.i.i
 
-if.then.i.i:                                      ; preds = %_ZN6icu_759UVector6414ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i.i, %if.end.i70
-  %19 = phi ptr [ %.pre119, %_ZN6icu_759UVector6414ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i.i ], [ %15, %if.end.i70 ]
-  %20 = phi i32 [ %.pre.i.i, %_ZN6icu_759UVector6414ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i.i ], [ %14, %if.end.i70 ]
-  %idxprom.i.i73 = sext i32 %20 to i64
-  %arrayidx.i.i74 = getelementptr inbounds i64, ptr %19, i64 %idxprom.i.i73
-  store i64 %or.i, ptr %arrayidx.i.i74, align 8
+if.then.i.i:                                      ; preds = %_ZN6icu_759UVector6414ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i.i, %if.end.i68
+  %19 = phi ptr [ %.pre117, %_ZN6icu_759UVector6414ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i.i ], [ %15, %if.end.i68 ]
+  %20 = phi i32 [ %.pre.i.i, %_ZN6icu_759UVector6414ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i.i ], [ %14, %if.end.i68 ]
+  %idxprom.i.i71 = sext i32 %20 to i64
+  %arrayidx.i.i72 = getelementptr inbounds i64, ptr %19, i64 %idxprom.i.i71
+  store i64 %or.i, ptr %arrayidx.i.i72, align 8
   %21 = load i32, ptr %count.i, align 8
   %inc.i.i = add nsw i32 %21, 1
   store i32 %inc.i.i, ptr %count.i, align 8
@@ -4560,51 +4550,51 @@ _ZN6icu_759UVector6410addElementElR10UErrorCode.exit.i: ; preds = %if.then.i.i, 
 if.end10.i:                                       ; preds = %_ZN6icu_759UVector6410addElementElR10UErrorCode.exit.i
   %cmp.i19.i = icmp sgt i32 %index.addr.1, -1
   %23 = load i32, ptr %count.i, align 8
-  %cmp2.i.i75 = icmp sgt i32 %23, %index.addr.1
-  %or.cond.i.i76 = select i1 %cmp.i19.i, i1 %cmp2.i.i75, i1 false
-  br i1 %or.cond.i.i76, label %cond.true.i.i79, label %_ZNK6icu_759UVector6410elementAtiEi.exit.i77
+  %cmp2.i.i73 = icmp sgt i32 %23, %index.addr.1
+  %or.cond.i.i74 = select i1 %cmp.i19.i, i1 %cmp2.i.i73, i1 false
+  br i1 %or.cond.i.i74, label %cond.true.i.i77, label %_ZNK6icu_759UVector6410elementAtiEi.exit.i75
 
-cond.true.i.i79:                                  ; preds = %if.end10.i
-  %24 = load ptr, ptr %elements.i86, align 8
+cond.true.i.i77:                                  ; preds = %if.end10.i
+  %24 = load ptr, ptr %elements.i84, align 8
   %idxprom.i22.i = zext nneg i32 %index.addr.1 to i64
   %arrayidx.i23.i = getelementptr inbounds i64, ptr %24, i64 %idxprom.i22.i
   %25 = load i64, ptr %arrayidx.i23.i, align 8
   %26 = and i64 %25, -268435201
-  br label %_ZNK6icu_759UVector6410elementAtiEi.exit.i77
+  br label %_ZNK6icu_759UVector6410elementAtiEi.exit.i75
 
-_ZNK6icu_759UVector6410elementAtiEi.exit.i77:     ; preds = %cond.true.i.i79, %if.end10.i
-  %cond.i.i78 = phi i64 [ %26, %cond.true.i.i79 ], [ 0, %if.end10.i ]
+_ZNK6icu_759UVector6410elementAtiEi.exit.i75:     ; preds = %cond.true.i.i77, %if.end10.i
+  %cond.i.i76 = phi i64 [ %26, %cond.true.i.i77 ], [ 0, %if.end10.i ]
   %shl.i.i.i = shl i32 %14, 8
   %conv.i.i.i = sext i32 %shl.i.i.i to i64
-  %or.i.i = or i64 %cond.i.i78, %conv.i.i.i
+  %or.i.i = or i64 %cond.i.i76, %conv.i.i.i
   tail call void @_ZN6icu_759UVector6412setElementAtEli(ptr noundef nonnull align 8 dereferenceable(32) %nodes, i64 noundef %or.i.i, i32 noundef %index.addr.1)
   br label %return
 
 while.body:                                       ; preds = %while.cond
-  %cmp2.i82 = icmp sgt i32 %14, %and.i
-  br i1 %cmp2.i82, label %cond.true.i85, label %_ZNK6icu_759UVector6410elementAtiEi.exit89
+  %cmp2.i80 = icmp sgt i32 %14, %and.i
+  br i1 %cmp2.i80, label %cond.true.i83, label %_ZNK6icu_759UVector6410elementAtiEi.exit87
 
-cond.true.i85:                                    ; preds = %while.body
-  %idxprom.i87 = zext nneg i32 %and.i to i64
-  %arrayidx.i88 = getelementptr inbounds i64, ptr %15, i64 %idxprom.i87
-  %27 = load i64, ptr %arrayidx.i88, align 8
-  br label %_ZNK6icu_759UVector6410elementAtiEi.exit89
+cond.true.i83:                                    ; preds = %while.body
+  %idxprom.i85 = zext nneg i32 %and.i to i64
+  %arrayidx.i86 = getelementptr inbounds i64, ptr %15, i64 %idxprom.i85
+  %27 = load i64, ptr %arrayidx.i86, align 8
+  br label %_ZNK6icu_759UVector6410elementAtiEi.exit87
 
-_ZNK6icu_759UVector6410elementAtiEi.exit89:       ; preds = %while.body, %cond.true.i85
-  %cond.i84 = phi i64 [ %27, %cond.true.i85 ], [ 0, %while.body ]
-  %conv.i90 = trunc i64 %cond.i84 to i32
-  %and.i91 = and i32 %conv.i90, 3
-  %cmp15.not = icmp sgt i32 %and.i91, %strength
+_ZNK6icu_759UVector6410elementAtiEi.exit87:       ; preds = %while.body, %cond.true.i83
+  %cond.i82 = phi i64 [ %27, %cond.true.i83 ], [ 0, %while.body ]
+  %conv.i88 = trunc i64 %cond.i82 to i32
+  %and.i89 = and i32 %conv.i88, 3
+  %cmp15.not = icmp sgt i32 %and.i89, %strength
   br i1 %cmp15.not, label %while.cond, label %while.body.split, !llvm.loop !30
 
-while.body.split:                                 ; preds = %_ZNK6icu_759UVector6410elementAtiEi.exit89
+while.body.split:                                 ; preds = %_ZNK6icu_759UVector6410elementAtiEi.exit87
   %28 = or i32 %strength, 8
   %or16 = zext nneg i32 %28 to i64
   %call1917 = tail call noundef i32 @_ZN6icu_7516CollationBuilder17insertNodeBetweenEiilR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(616) %this, i32 noundef %index.addr.1, i32 noundef %and.i, i64 noundef %or16, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   br label %return
 
-return:                                           ; preds = %_ZNK6icu_759UVector6410elementAtiEi.exit.i77, %_ZN6icu_759UVector6410addElementElR10UErrorCode.exit.i, %while.body.split, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ %call1917, %while.body.split ], [ 0, %_ZN6icu_759UVector6410addElementElR10UErrorCode.exit.i ], [ %14, %_ZNK6icu_759UVector6410elementAtiEi.exit.i77 ]
+return:                                           ; preds = %_ZNK6icu_759UVector6410elementAtiEi.exit.i75, %_ZN6icu_759UVector6410addElementElR10UErrorCode.exit.i, %while.body.split, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ %call1917, %while.body.split ], [ 0, %_ZN6icu_759UVector6410addElementElR10UErrorCode.exit.i ], [ %14, %_ZNK6icu_759UVector6410elementAtiEi.exit.i75 ]
   ret i32 %retval.0
 }
 

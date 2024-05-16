@@ -1488,7 +1488,7 @@ msix_set_notifier_for_vector.exit:                ; preds = %lor.rhs.i.i.i, %msi
   br i1 %cmp7, label %while.cond.preheader, label %for.inc
 
 while.cond.preheader:                             ; preds = %msix_set_notifier_for_vector.exit
-  %cmp1849.not = icmp eq i32 %7, 0
+  %cmp1849.not = icmp eq i64 %indvars.iv, 0
   br i1 %cmp1849.not, label %while.end, label %while.body
 
 for.inc:                                          ; preds = %if.end.i.i.i, %lor.rhs.i.i.i, %msix_is_masked.exit.i, %msix_set_notifier_for_vector.exit

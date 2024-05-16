@@ -1658,28 +1658,21 @@ land.lhs.true.i:                                  ; preds = %for.body.i
 for.inc.i:                                        ; preds = %land.lhs.true.i, %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %for.body.i29.preheader, label %for.body.i, !llvm.loop !21
+  br i1 %exitcond.not.i, label %for.body.i29, label %for.body.i, !llvm.loop !21
 
 in_cache.exit:                                    ; preds = %land.lhs.true.i
-  %8 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %cmp.not.not = icmp eq i32 %8, -1
-  br i1 %cmp.not.not, label %for.body.i29.preheader, label %if.then
-
-for.body.i29.preheader:                           ; preds = %for.inc.i, %in_cache.exit
-  br label %for.body.i29
-
-if.then:                                          ; preds = %in_cache.exit
-  %9 = load ptr, ptr @update_hit, align 8
-  %tobool.not = icmp eq ptr %9, null
+  %8 = load ptr, ptr @update_hit, align 8
+  %tobool.not = icmp eq ptr %8, null
   br i1 %tobool.not, label %return, label %if.then3
 
-if.then3:                                         ; preds = %if.then
+if.then3:                                         ; preds = %in_cache.exit
+  %9 = trunc nuw nsw i64 %indvars.iv.i to i32
   %conv = trunc i64 %shr.i to i32
-  tail call void %9(ptr noundef nonnull %cache, i32 noundef %conv, i32 noundef %8) #11
+  tail call void %8(ptr noundef nonnull %cache, i32 noundef %conv, i32 noundef %9) #11
   br label %return
 
-for.body.i29:                                     ; preds = %for.body.i29.preheader, %for.inc.i33
-  %indvars.iv.i30 = phi i64 [ %indvars.iv.next.i34, %for.inc.i33 ], [ 0, %for.body.i29.preheader ]
+for.body.i29:                                     ; preds = %for.inc.i, %for.inc.i33
+  %indvars.iv.i30 = phi i64 [ %indvars.iv.next.i34, %for.inc.i33 ], [ 0, %for.inc.i ]
   %valid.i31 = getelementptr inbounds %struct.CacheBlock, ptr %5, i64 %indvars.iv.i30, i32 1
   %10 = load i8, ptr %valid.i31, align 8
   %tobool.i32 = trunc i8 %10 to i1
@@ -1692,10 +1685,9 @@ for.inc.i33:                                      ; preds = %for.body.i29
 
 get_invalid_block.exit:                           ; preds = %for.body.i29
   %11 = trunc nuw nsw i64 %indvars.iv.i30 to i32
-  %cmp6 = icmp eq i32 %11, -1
-  br i1 %cmp6, label %if.then8, label %if.end11
+  br label %if.end11
 
-if.then8:                                         ; preds = %for.inc.i33, %entry, %get_invalid_block.exit
+if.then8:                                         ; preds = %for.inc.i33, %entry
   %12 = load i32, ptr @policy, align 4
   switch i32 %12, label %do.body.i [
     i32 2, label %sw.bb.i
@@ -1754,7 +1746,7 @@ do.body.i:                                        ; preds = %if.then8
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.24, i32 noundef 326, ptr noundef nonnull @__func__.get_replaced_block, ptr noundef null) #13
   unreachable
 
-if.end11:                                         ; preds = %for.body.i.i, %sw.bb3.i, %sw.bb1.i, %sw.bb.i, %get_invalid_block.exit
+if.end11:                                         ; preds = %for.body.i.i, %get_invalid_block.exit, %sw.bb3.i, %sw.bb1.i, %sw.bb.i
   %replaced_blk.0 = phi i32 [ %11, %get_invalid_block.exit ], [ %conv.i5.i, %sw.bb3.i ], [ %call.i, %sw.bb.i ], [ 0, %sw.bb1.i ], [ %spec.select.i.i, %for.body.i.i ]
   %21 = load ptr, ptr @update_miss, align 8
   %tobool12.not = icmp eq ptr %21, null
@@ -1779,8 +1771,8 @@ if.end15:                                         ; preds = %if.then13, %if.end1
   store i8 1, ptr %valid, align 8
   br label %return
 
-return:                                           ; preds = %if.then, %if.then3, %if.end15
-  %cmp.not41 = phi i1 [ true, %if.then ], [ true, %if.then3 ], [ false, %if.end15 ]
+return:                                           ; preds = %in_cache.exit, %if.then3, %if.end15
+  %cmp.not41 = phi i1 [ true, %in_cache.exit ], [ true, %if.then3 ], [ false, %if.end15 ]
   ret i1 %cmp.not41
 }
 

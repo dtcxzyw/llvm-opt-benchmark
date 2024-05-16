@@ -1417,7 +1417,7 @@ define internal noalias noundef ptr @_ume_agent(ptr nocapture readnone %0) #0 {
   br i1 %.not45, label %.preheader.lr.ph, label %._crit_edge47
 
 .preheader.lr.ph:                                 ; preds = %36
-  %38 = icmp sgt i32 %16, 0
+  %38 = icmp sgt i64 %indvars.iv, 0
   %39 = getelementptr inbounds i8, ptr %2, i64 8
   br i1 %38, label %.preheader.us.preheader, label %.preheader.preheader
 
@@ -1503,7 +1503,7 @@ define internal noalias noundef ptr @_ume_agent(ptr nocapture readnone %0) #0 {
   br i1 %.not, label %.preheader.preheader, label %._crit_edge47, !llvm.loop !18
 
 ._crit_edge47:                                    ; preds = %.preheader.preheader, %.thread, %._crit_edge.us, %43, %36
-  %78 = icmp sgt i32 %16, 0
+  %78 = icmp sgt i64 %indvars.iv, 0
   br i1 %78, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %._crit_edge47

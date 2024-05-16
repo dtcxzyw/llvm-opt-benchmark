@@ -3362,7 +3362,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i21:    ; preds = %36
   %44 = getelementptr inbounds i8, ptr %0, i64 48
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, null
-  %47 = icmp eq i32 %16, 0
+  %47 = icmp eq i64 %.0.i.i, 0
   %or.cond = or i1 %47, %46
   br i1 %or.cond, label %52, label %48
 

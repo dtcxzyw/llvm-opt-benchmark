@@ -3222,8 +3222,8 @@ for.inc.i:                                        ; preds = %for.body.i
 
 sched_backend_prio.exit:                          ; preds = %for.body.i
   %2 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %or.cond = icmp ugt i32 %0, %2
-  br i1 %or.cond, label %do.end, label %if.then
+  %cmp1 = icmp sgt i32 %0, %2
+  br i1 %cmp1, label %do.end, label %if.then
 
 if.then:                                          ; preds = %for.inc.i, %entry, %sched_backend_prio.exit
   %3 = load ptr, ptr @stdout, align 8

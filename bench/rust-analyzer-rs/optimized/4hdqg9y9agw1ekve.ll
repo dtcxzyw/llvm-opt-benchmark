@@ -24365,7 +24365,7 @@ define hidden noundef zeroext i1 @_ZN11ide_assists8handlers14apply_demorgan14app
   %.sroa.0139.0.extract.trunc = trunc i16 %35 to i8
   %.sroa.4140.0.extract.shift = lshr i16 %35, 8
   %.sroa.4140.0.extract.trunc = trunc nuw i16 %.sroa.4140.0.extract.shift to i8
-  %43 = icmp eq i8 %.sroa.4140.0.extract.trunc, 7
+  %43 = icmp eq i16 %.sroa.4140.0.extract.shift, 7
   br i1 %43, label %_ZN9text_size5range9TextRange14contains_range17h647aeeafda0cedbfE.llvm.14339125420948612040.exit.thread, label %44
 
 44:                                               ; preds = %42
@@ -24485,7 +24485,7 @@ _ZN9text_size5range9TextRange14contains_range17h647aeeafda0cedbfE.llvm.143391254
   %narrow4.i = select i1 %89, i8 %88, i8 2
   %.not.i244 = icmp ne i8 %.sroa.0139.0.extract.trunc, 10
   %90 = icmp eq i8 %.sroa.0139.0.extract.trunc, 10
-  %91 = icmp eq i8 %.sroa.4140.0.extract.trunc, 2
+  %91 = icmp eq i16 %.sroa.4140.0.extract.shift, 2
   %not..i.i = xor i1 %91, true
   br label %98
 
@@ -24558,7 +24558,7 @@ _ZN4core3ops8function6FnOnce9call_once17h6fae9c9096edf875E.exit: ; preds = %111
   %.sroa.0284.0.extract.trunc = trunc i16 %115 to i8
   %.sroa.5285.0.extract.shift = lshr i16 %115, 8
   %.sroa.5285.0.extract.trunc = trunc nuw i16 %.sroa.5285.0.extract.shift to i8
-  %.not176 = icmp eq i8 %.sroa.5285.0.extract.trunc, 7
+  %.not176 = icmp eq i16 %.sroa.5285.0.extract.shift, 7
   br i1 %.not176, label %"_ZN73_$LT$syntax..ast..operators..BinaryOp$u20$as$u20$core..cmp..PartialEq$GT$2eq17h51d7df11bce73736E.exit.thread", label %119
 
 119:                                              ; preds = %118
@@ -24588,7 +24588,7 @@ _ZN4core3ops8function6FnOnce9call_once17h6fae9c9096edf875E.exit: ; preds = %111
   br i1 %128, label %149, label %"_ZN73_$LT$syntax..ast..operators..BinaryOp$u20$as$u20$core..cmp..PartialEq$GT$2eq17h51d7df11bce73736E.exit.thread"
 
 129:                                              ; preds = %123
-  %130 = icmp ne i8 %.sroa.5285.0.extract.trunc, 2
+  %130 = icmp ne i16 %.sroa.5285.0.extract.shift, 2
   %131 = xor i1 %91, %130
   br i1 %131, label %132, label %"_ZN73_$LT$syntax..ast..operators..BinaryOp$u20$as$u20$core..cmp..PartialEq$GT$2eq17h51d7df11bce73736E.exit.thread"
 
@@ -24694,8 +24694,9 @@ _ZN4core3ops8function6FnOnce9call_once17h6fae9c9096edf875E.exit: ; preds = %111
 
 168:                                              ; preds = %.loopexit361
   %.sroa.0141.0.extract.trunc = trunc i16 %167 to i8
-  %.sroa.4142.0.extract.shift.mask = and i16 %167, -256
-  %cond = icmp eq i16 %.sroa.4142.0.extract.shift.mask, 768
+  %.sroa.4142.0.extract.shift = lshr i16 %167, 8
+  %.sroa.4142.0.extract.trunc = trunc nuw i16 %.sroa.4142.0.extract.shift to i8
+  %cond = icmp eq i16 %.sroa.4142.0.extract.shift, 3
   br i1 %cond, label %169, label %_ZN9text_size5range9TextRange14contains_range17h647aeeafda0cedbfE.llvm.14339125420948612040.exit.thread
 
 169:                                              ; preds = %168
@@ -25063,13 +25064,13 @@ _ZN6syntax3ast7AstNode16clone_for_update17h17cebb0e223fdb73E.exit: ; preds = %.n
 
 297:                                              ; preds = %295
   %.sroa.4144.0.extract.shift = lshr i16 %296, 8
-  %.sroa.4144.0.extract.trunc = trunc nuw i16 %.sroa.4144.0.extract.shift to i8
-  %298 = icmp eq i8 %.sroa.4144.0.extract.trunc, 7
+  %298 = icmp eq i16 %.sroa.4144.0.extract.shift, 7
   br i1 %298, label %.loopexit340, label %299
 
 299:                                              ; preds = %297
   %.sroa.0143.0.extract.trunc = trunc i16 %296 to i8
-  %300 = call fastcc noundef zeroext i1 @"_ZN73_$LT$syntax..ast..operators..BinaryOp$u20$as$u20$core..cmp..PartialEq$GT$2eq17h51d7df11bce73736E"(i8 %.sroa.0141.0.extract.trunc, i8 3, i8 %.sroa.0143.0.extract.trunc, i8 %.sroa.4144.0.extract.trunc)
+  %.sroa.4144.0.extract.trunc = trunc nuw i16 %.sroa.4144.0.extract.shift to i8
+  %300 = call fastcc noundef zeroext i1 @"_ZN73_$LT$syntax..ast..operators..BinaryOp$u20$as$u20$core..cmp..PartialEq$GT$2eq17h51d7df11bce73736E"(i8 %.sroa.0141.0.extract.trunc, i8 %.sroa.4142.0.extract.trunc, i8 %.sroa.0143.0.extract.trunc, i8 %.sroa.4144.0.extract.trunc)
   br i1 %300, label %305, label %301
 
 301:                                              ; preds = %299
@@ -57619,8 +57620,8 @@ define hidden noundef zeroext i1 @_ZN11ide_assists8handlers12flip_binexpr12flip_
   %.sroa.0130.0.extract.trunc = trunc i16 %104 to i8
   %.sroa.5131.0.extract.shift = lshr i16 %104, 8
   %.sroa.5131.0.extract.trunc = trunc nuw i16 %.sroa.5131.0.extract.shift to i8
-  %106 = icmp eq i8 %.sroa.5.0.extract.trunc, 7
-  %107 = icmp eq i8 %.sroa.5131.0.extract.trunc, 7
+  %106 = icmp eq i16 %.sroa.5.0.extract.shift, 7
+  %107 = icmp eq i16 %.sroa.5131.0.extract.shift, 7
   br i1 %106, label %108, label %109
 
 108:                                              ; preds = %105
@@ -57659,8 +57660,8 @@ define hidden noundef zeroext i1 @_ZN11ide_assists8handlers12flip_binexpr12flip_
   br i1 %121, label %138, label %.critedge
 
 122:                                              ; preds = %116
-  %123 = icmp ne i8 %.sroa.5.0.extract.trunc, 2
-  %124 = icmp eq i8 %.sroa.5131.0.extract.trunc, 2
+  %123 = icmp ne i16 %.sroa.5.0.extract.shift, 2
+  %124 = icmp eq i16 %.sroa.5131.0.extract.shift, 2
   %not..i.i = xor i1 %124, true
   %125 = xor i1 %123, %124
   br i1 %125, label %126, label %.critedge
@@ -57965,11 +57966,11 @@ _ZN9text_size5range9TextRange14contains_range17h647aeeafda0cedbfE.llvm.143391254
 
 239:                                              ; preds = %232
   %.sroa.448.0.extract.shift = lshr i16 %233, 8
-  %.sroa.448.0.extract.trunc = trunc nuw i16 %.sroa.448.0.extract.shift to i8
-  %240 = icmp eq i8 %.sroa.448.0.extract.trunc, 7
+  %240 = icmp eq i16 %.sroa.448.0.extract.shift, 7
   br i1 %240, label %256, label %241
 
 241:                                              ; preds = %239
+  %.sroa.448.0.extract.trunc = trunc nuw i16 %.sroa.448.0.extract.shift to i8
   %242 = add i8 %.sroa.448.0.extract.trunc, -3
   %243 = icmp ult i8 %242, 4
   %narrow.i105 = select i1 %243, i8 %242, i8 2
@@ -57979,7 +57980,7 @@ _ZN9text_size5range9TextRange14contains_range17h647aeeafda0cedbfE.llvm.143391254
   ]
 
 244:                                              ; preds = %241
-  %.not.i106 = icmp eq i8 %.sroa.448.0.extract.trunc, 2
+  %.not.i106 = icmp eq i16 %.sroa.448.0.extract.shift, 2
   br i1 %.not.i106, label %249, label %245
 
 245:                                              ; preds = %244
@@ -58175,7 +58176,7 @@ define void @"_ZN127_$LT$ide_assists..handlers..flip_binexpr..FlipAction$u20$as$
   ]
 
 5:                                                ; preds = %2
-  %.not = icmp eq i8 %.sroa.4.0.extract.trunc, 2
+  %.not = icmp eq i16 %.sroa.4.0.extract.shift, 2
   br i1 %.not, label %11, label %7
 
 6:                                                ; preds = %2

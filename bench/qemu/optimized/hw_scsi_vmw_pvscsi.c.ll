@@ -1629,8 +1629,8 @@ trace_pvscsi_process_io.exit:                     ; preds = %while.body, %land.l
   %.fr.scalar = bitcast <4 x i8> %.fr to i32
   %22 = icmp eq i32 %.fr.scalar, 0
   %23 = and i1 %tobool.not.i.i.i, %22
-  %op.rdx30 = select i1 %23, i1 %tobool3.not.i.i.i, i1 false
-  br i1 %op.rdx30, label %lor.lhs.false20.i.i.i, label %pvscsi_queue_pending_descriptor.exit.i
+  %op.rdx42 = select i1 %23, i1 %tobool3.not.i.i.i, i1 false
+  br i1 %op.rdx42, label %lor.lhs.false20.i.i.i, label %pvscsi_queue_pending_descriptor.exit.i
 
 lor.lhs.false20.i.i.i:                            ; preds = %trace_pvscsi_process_io.exit
   %24 = load i8, ptr %arrayidx21.i.i.i, align 8
@@ -1870,8 +1870,8 @@ if.end32.i:                                       ; preds = %land.lhs.true24.i, 
 if.then.i72.i:                                    ; preds = %if.end32.i
   %dataLen.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 104
   %63 = load i64, ptr %dataLen.i.i.i, align 8
-  %tobool31.not.i.i.i = icmp eq i64 %63, 0
-  br i1 %tobool31.not.i.i.i, label %pvscsi_build_sglist.exit.i, label %while.cond2.preheader.lr.ph.i.i.i
+  %tobool41.not.i.i.i = icmp eq i64 %63, 0
+  br i1 %tobool41.not.i.i.i, label %pvscsi_build_sglist.exit.i, label %while.cond2.preheader.lr.ph.i.i.i
 
 while.cond2.preheader.lr.ph.i.i.i:                ; preds = %if.then.i72.i
   %sg.sroa.8.0.sg1.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 80
@@ -1883,32 +1883,32 @@ while.cond2.preheader.lr.ph.i.i.i:                ; preds = %if.then.i72.i
   br label %while.cond2.preheader.i.i.i
 
 while.cond2.preheader.i.i.i:                      ; preds = %if.end.i.i.i, %while.cond2.preheader.lr.ph.i.i.i
-  %elmcnt.036.i.i.i = phi i32 [ 0, %while.cond2.preheader.lr.ph.i.i.i ], [ %elmcnt.2.i.i.i, %if.end.i.i.i ]
-  %data_length.035.i.i.i = phi i64 [ %63, %while.cond2.preheader.lr.ph.i.i.i ], [ %sub.i.i.i, %if.end.i.i.i ]
-  %sg.sroa.0.034.i.i.i = phi i64 [ %sg.sroa.0.0.copyload.i.i.i, %while.cond2.preheader.lr.ph.i.i.i ], [ %sg.sroa.0.1.lcssa.i.i.i, %if.end.i.i.i ]
-  %sg.sroa.4.033.i.i.i = phi i64 [ %sg.sroa.4.0.copyload.i.i.i, %while.cond2.preheader.lr.ph.i.i.i ], [ %add.i.i.i, %if.end.i.i.i ]
-  %sg.sroa.8.032.i.i.i = phi i32 [ %sg.sroa.8.0.copyload.i.i.i, %while.cond2.preheader.lr.ph.i.i.i ], [ %sub23.i.i.i, %if.end.i.i.i ]
-  %tobool3.not19.i.i.i = icmp eq i32 %sg.sroa.8.032.i.i.i, 0
-  br i1 %tobool3.not19.i.i.i, label %while.body7.i.i.i, label %while.end.i.i.i
+  %elmcnt.046.i.i.i = phi i32 [ 0, %while.cond2.preheader.lr.ph.i.i.i ], [ %elmcnt.1.lcssa.i.i.i, %if.end.i.i.i ]
+  %data_length.045.i.i.i = phi i64 [ %63, %while.cond2.preheader.lr.ph.i.i.i ], [ %sub.i.i.i, %if.end.i.i.i ]
+  %sg.sroa.0.044.i.i.i = phi i64 [ %sg.sroa.0.0.copyload.i.i.i, %while.cond2.preheader.lr.ph.i.i.i ], [ %sg.sroa.0.1.lcssa.i.i.i, %if.end.i.i.i ]
+  %sg.sroa.4.043.i.i.i = phi i64 [ %sg.sroa.4.0.copyload.i.i.i, %while.cond2.preheader.lr.ph.i.i.i ], [ %add.i.i.i, %if.end.i.i.i ]
+  %sg.sroa.8.042.i.i.i = phi i32 [ %sg.sroa.8.0.copyload.i.i.i, %while.cond2.preheader.lr.ph.i.i.i ], [ %81, %if.end.i.i.i ]
+  %tobool3.not33.i.i.i = icmp eq i32 %sg.sroa.8.042.i.i.i, 0
+  br i1 %tobool3.not33.i.i.i, label %land.rhs4.i.i.i, label %if.end.i.i.i
 
-land.rhs4.i.i.i:                                  ; preds = %trace_pvscsi_convert_sglist.exit.i.i.i
-  %exitcond.not.i.i.i = icmp eq i32 %inc.i9.i.i, 2048
-  br i1 %exitcond.not.i.i.i, label %while.end.i.i.i, label %while.body7.i.i.i, !llvm.loop !12
+land.rhs4.i.i.i:                                  ; preds = %while.cond2.preheader.i.i.i, %trace_pvscsi_convert_sglist.exit.i.i.i
+  %elmcnt.137.i.i.i = phi i32 [ %inc.i.i.i, %trace_pvscsi_convert_sglist.exit.i.i.i ], [ %elmcnt.046.i.i.i, %while.cond2.preheader.i.i.i ]
+  %sg.sroa.0.136.i.i.i = phi i64 [ %add.i.i.i.i, %trace_pvscsi_convert_sglist.exit.i.i.i ], [ %sg.sroa.0.044.i.i.i, %while.cond2.preheader.i.i.i ]
+  %inc.i.i.i = add i32 %elmcnt.137.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i32 %elmcnt.137.i.i.i, 2048
+  br i1 %exitcond.not.i.i.i, label %pvscsi_build_sglist.exit.i, label %while.body7.i.i.i
 
-while.body7.i.i.i:                                ; preds = %while.cond2.preheader.i.i.i, %land.rhs4.i.i.i
-  %inc.i9.in.i.i = phi i32 [ %inc.i9.i.i, %land.rhs4.i.i.i ], [ %elmcnt.036.i.i.i, %while.cond2.preheader.i.i.i ]
-  %sg.sroa.0.122.i8.i.i = phi i64 [ %add.i.i.i.i, %land.rhs4.i.i.i ], [ %sg.sroa.0.034.i.i.i, %while.cond2.preheader.i.i.i ]
-  %inc.i9.i.i = add i32 %inc.i9.in.i.i, 1
+while.body7.i.i.i:                                ; preds = %land.rhs4.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %elem.i.i.i.i)
-  call void @cpu_physical_memory_rw(i64 noundef %sg.sroa.0.122.i8.i.i, ptr noundef nonnull %elem.i.i.i.i, i64 noundef 16, i1 noundef zeroext false) #9
+  call void @cpu_physical_memory_rw(i64 noundef %sg.sroa.0.136.i.i.i, ptr noundef nonnull %elem.i.i.i.i, i64 noundef 16, i1 noundef zeroext false) #9
   %64 = load i32, ptr %flags.i.i.i.i, align 4
   %cmp.not.i.i.i.i = icmp ult i32 %64, 32
-  %.pre37.i.i.i = load i32, ptr @trace_events_enabled_count, align 4
+  %.pre52.i.i.i = load i32, ptr @trace_events_enabled_count, align 4
   br i1 %cmp.not.i.i.i.i, label %pvscsi_get_next_sg_elem.exit.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body7.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i.i.i.i)
-  %tobool.i.i.i.i.i.i = icmp ne i32 %.pre37.i.i.i, 0
+  %tobool.i.i.i.i.i.i = icmp ne i32 %.pre52.i.i.i, 0
   %65 = load i16, ptr @_TRACE_PVSCSI_GET_NEXT_SG_ELEM_DSTATE, align 2
   %tobool4.i.i.i.i.i.i = icmp ne i16 %65, 0
   %or.cond.i.i.i.i.i.i = select i1 %tobool.i.i.i.i.i.i, i1 %tobool4.i.i.i.i.i.i, i1 false
@@ -1943,8 +1943,8 @@ trace_pvscsi_get_next_sg_elem.exit.i.i.i.i:       ; preds = %if.else.i.i.i.i.i.i
   br label %pvscsi_get_next_sg_elem.exit.i.i.i
 
 pvscsi_get_next_sg_elem.exit.i.i.i:               ; preds = %trace_pvscsi_get_next_sg_elem.exit.i.i.i.i, %while.body7.i.i.i
-  %70 = phi i32 [ %.pre37.i.i.i, %while.body7.i.i.i ], [ %.pre.i.i.i, %trace_pvscsi_get_next_sg_elem.exit.i.i.i.i ]
-  %add.i.i.i.i = add i64 %sg.sroa.0.122.i8.i.i, 16
+  %70 = phi i32 [ %.pre52.i.i.i, %while.body7.i.i.i ], [ %.pre.i.i.i, %trace_pvscsi_get_next_sg_elem.exit.i.i.i.i ]
+  %add.i.i.i.i = add i64 %sg.sroa.0.136.i.i.i, 16
   %71 = load i64, ptr %elem.i.i.i.i, align 8
   %72 = load i32, ptr %length.i.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %elem.i.i.i.i)
@@ -1983,57 +1983,50 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i.i
 
 trace_pvscsi_convert_sglist.exit.i.i.i:           ; preds = %if.else.i.i.i.i.i, %if.then8.i.i.i.i.i, %land.lhs.true5.i.i.i.i.i, %pvscsi_get_next_sg_elem.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i.i.i)
-  %tobool3.not.i.i76.i = icmp eq i32 %72, 0
-  br i1 %tobool3.not.i.i76.i, label %land.rhs4.i.i.i, label %while.end.i.i.i, !llvm.loop !12
+  %tobool3.not.i.i75.i = icmp eq i32 %72, 0
+  br i1 %tobool3.not.i.i75.i, label %land.rhs4.i.i.i, label %if.end.i.i.i, !llvm.loop !12
 
-while.end.i.i.i:                                  ; preds = %trace_pvscsi_convert_sglist.exit.i.i.i, %land.rhs4.i.i.i, %while.cond2.preheader.i.i.i
-  %sg.sroa.8.1.lcssa.i.i.i = phi i32 [ %sg.sroa.8.032.i.i.i, %while.cond2.preheader.i.i.i ], [ 0, %land.rhs4.i.i.i ], [ %72, %trace_pvscsi_convert_sglist.exit.i.i.i ]
-  %sg.sroa.4.1.lcssa.i.i.i = phi i64 [ %sg.sroa.4.033.i.i.i, %while.cond2.preheader.i.i.i ], [ %71, %land.rhs4.i.i.i ], [ %71, %trace_pvscsi_convert_sglist.exit.i.i.i ]
-  %sg.sroa.0.1.lcssa.i.i.i = phi i64 [ %sg.sroa.0.034.i.i.i, %while.cond2.preheader.i.i.i ], [ %add.i.i.i.i, %land.rhs4.i.i.i ], [ %add.i.i.i.i, %trace_pvscsi_convert_sglist.exit.i.i.i ]
-  %elmcnt.2.i.i.i = phi i32 [ %elmcnt.036.i.i.i, %while.cond2.preheader.i.i.i ], [ 2049, %land.rhs4.i.i.i ], [ %inc.i9.i.i, %trace_pvscsi_convert_sglist.exit.i.i.i ]
+if.end.i.i.i:                                     ; preds = %trace_pvscsi_convert_sglist.exit.i.i.i, %while.cond2.preheader.i.i.i
+  %sg.sroa.8.1.lcssa.i.i.i = phi i32 [ %sg.sroa.8.042.i.i.i, %while.cond2.preheader.i.i.i ], [ %72, %trace_pvscsi_convert_sglist.exit.i.i.i ]
+  %sg.sroa.4.1.lcssa.i.i.i = phi i64 [ %sg.sroa.4.043.i.i.i, %while.cond2.preheader.i.i.i ], [ %71, %trace_pvscsi_convert_sglist.exit.i.i.i ]
+  %sg.sroa.0.1.lcssa.i.i.i = phi i64 [ %sg.sroa.0.044.i.i.i, %while.cond2.preheader.i.i.i ], [ %add.i.i.i.i, %trace_pvscsi_convert_sglist.exit.i.i.i ]
+  %elmcnt.1.lcssa.i.i.i = phi i32 [ %elmcnt.046.i.i.i, %while.cond2.preheader.i.i.i ], [ %inc.i.i.i, %trace_pvscsi_convert_sglist.exit.i.i.i ]
   %conv.i.i.i = zext i32 %sg.sroa.8.1.lcssa.i.i.i to i64
-  %cond.i.i.i = call i64 @llvm.umin.i64(i64 %data_length.035.i.i.i, i64 %conv.i.i.i)
+  %cond.i.i.i = call i64 @llvm.umin.i64(i64 %data_length.045.i.i.i, i64 %conv.i.i.i)
   %conv15.i.i.i = trunc nuw i64 %cond.i.i.i to i32
-  %tobool16.not.i.i.i = icmp eq i32 %conv15.i.i.i, 0
-  br i1 %tobool16.not.i.i.i, label %if.end.i.i.i, label %if.then.i.i73.i
-
-if.then.i.i73.i:                                  ; preds = %while.end.i.i.i
   call void @qemu_sglist_add(ptr noundef nonnull %sgl.i.i, i64 noundef %sg.sroa.4.1.lcssa.i.i.i, i64 noundef %cond.i.i.i) #9
-  br label %if.end.i.i.i
-
-if.end.i.i.i:                                     ; preds = %if.then.i.i73.i, %while.end.i.i.i
+  %81 = sub i32 %sg.sroa.8.1.lcssa.i.i.i, %conv15.i.i.i
   %add.i.i.i = add i64 %cond.i.i.i, %sg.sroa.4.1.lcssa.i.i.i
-  %sub.i.i.i = sub i64 %data_length.035.i.i.i, %cond.i.i.i
-  %sub23.i.i.i = sub i32 %sg.sroa.8.1.lcssa.i.i.i, %conv15.i.i.i
-  %tobool.i.i74.i = icmp ne i64 %sub.i.i.i, 0
-  %cmp.i.i75.i = icmp ult i32 %elmcnt.2.i.i.i, 2048
-  %81 = select i1 %tobool.i.i74.i, i1 %cmp.i.i75.i, i1 false
-  br i1 %81, label %while.cond2.preheader.i.i.i, label %pvscsi_build_sglist.exit.i, !llvm.loop !13
+  %sub.i.i.i = sub i64 %data_length.045.i.i.i, %cond.i.i.i
+  %tobool.i.i73.i = icmp ne i64 %sub.i.i.i, 0
+  %cmp.i.i74.i = icmp ult i32 %elmcnt.1.lcssa.i.i.i, 2048
+  %82 = select i1 %tobool.i.i73.i, i1 %cmp.i.i74.i, i1 false
+  br i1 %82, label %while.cond2.preheader.i.i.i, label %pvscsi_build_sglist.exit.i, !llvm.loop !13
 
 if.else.i.i6:                                     ; preds = %if.end32.i
   %dataAddr.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 96
-  %82 = load i64, ptr %dataAddr.i.i, align 8
+  %83 = load i64, ptr %dataAddr.i.i, align 8
   %dataLen.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 104
-  %83 = load i64, ptr %dataLen.i.i, align 8
-  call void @qemu_sglist_add(ptr noundef nonnull %sgl.i.i, i64 noundef %82, i64 noundef %83) #9
+  %84 = load i64, ptr %dataLen.i.i, align 8
+  call void @qemu_sglist_add(ptr noundef nonnull %sgl.i.i, i64 noundef %83, i64 noundef %84) #9
   br label %pvscsi_build_sglist.exit.i
 
-pvscsi_build_sglist.exit.i:                       ; preds = %if.end.i.i.i, %if.else.i.i6, %if.then.i72.i
-  %84 = load ptr, ptr %call.i.i, align 8
-  %call34.i = call i32 @scsi_req_enqueue(ptr noundef %84) #9
+pvscsi_build_sglist.exit.i:                       ; preds = %if.end.i.i.i, %land.rhs4.i.i.i, %if.else.i.i6, %if.then.i72.i
+  %85 = load ptr, ptr %call.i.i, align 8
+  %call34.i = call i32 @scsi_req_enqueue(ptr noundef %85) #9
   %tobool36.not.i = icmp eq i32 %call34.i, 0
   br i1 %tobool36.not.i, label %while.cond.backedge, label %if.then37.i
 
 if.then37.i:                                      ; preds = %pvscsi_build_sglist.exit.i
-  %85 = load ptr, ptr %call.i.i, align 8
-  call void @scsi_req_continue(ptr noundef %85) #9
+  %86 = load ptr, ptr %call.i.i, align 8
+  call void @scsi_req_continue(ptr noundef %86) #9
   br label %while.cond.backedge
 
 while.end:                                        ; preds = %pvscsi_ring_pop_req_descr.exit, %pvscsi_ring_pop_req_descr.exit.thread
-  %86 = phi i64 [ %3, %pvscsi_ring_pop_req_descr.exit.thread ], [ %inc.i, %pvscsi_ring_pop_req_descr.exit ]
-  %87 = load i64, ptr %rings, align 8
-  %add.i = add i64 %87, 4
-  %conv.i10 = trunc i64 %86 to i32
+  %87 = phi i64 [ %3, %pvscsi_ring_pop_req_descr.exit.thread ], [ %inc.i, %pvscsi_ring_pop_req_descr.exit ]
+  %88 = load i64, ptr %rings, align 8
+  %add.i = add i64 %88, 4
+  %conv.i10 = trunc i64 %87 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.addr.i.i.i)
   store i32 %conv.i10, ptr %val.addr.i.i.i, align 4
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !8

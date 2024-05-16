@@ -27073,7 +27073,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   br i1 %exitcond52.not.i, label %if.end32.i, label %for.body.i, !llvm.loop !565
 
 if.else.i:                                        ; preds = %while.body.i
-  %cmp.i16.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i, 0
+  %cmp.i16.i = icmp ult i32 %call.i, 65536
   br i1 %cmp.i16.i, label %for.cond8.preheader.i, label %for.cond19.preheader.i
 
 for.cond19.preheader.i:                           ; preds = %if.else.i
@@ -27358,7 +27358,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   br i1 %exitcond55.not.i, label %if.end32.i, label %for.body.i, !llvm.loop !569
 
 if.else.i:                                        ; preds = %while.body.i
-  %cmp.i16.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i, 0
+  %cmp.i16.i = icmp ult i32 %call.i, 65536
   br i1 %cmp.i16.i, label %for.cond8.preheader.i, label %for.cond19.preheader.i
 
 for.cond19.preheader.i:                           ; preds = %if.else.i
@@ -28799,7 +28799,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   br i1 %exitcond50.not.i, label %if.end32.i, label %for.body.i, !llvm.loop !601
 
 if.else.i:                                        ; preds = %while.body.i
-  %cmp.i16.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i, 0
+  %cmp.i16.i = icmp ult i32 %call.i, 65536
   br i1 %cmp.i16.i, label %for.cond8.preheader.i, label %for.cond19.preheader.i
 
 for.cond19.preheader.i:                           ; preds = %if.else.i
@@ -28976,7 +28976,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   br i1 %exitcond52.not.i, label %if.end32.i, label %for.body.i, !llvm.loop !605
 
 if.else.i:                                        ; preds = %while.body.i
-  %cmp.i16.i = icmp eq i16 %block.sroa.5.0.extract.trunc.i, 0
+  %cmp.i16.i = icmp ult i32 %call.i, 65536
   br i1 %cmp.i16.i, label %for.cond8.preheader.i, label %for.cond19.preheader.i
 
 for.cond19.preheader.i:                           ; preds = %if.else.i

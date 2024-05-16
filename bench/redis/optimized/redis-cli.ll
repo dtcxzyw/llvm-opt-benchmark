@@ -11050,11 +11050,11 @@ while.body.i149:                                  ; preds = %land.rhs.i135
   br i1 %exitcond.not.i151, label %lor.lhs.false.i139, label %land.rhs.i135, !llvm.loop !96
 
 while.end.i137:                                   ; preds = %land.rhs.i135
-  %386 = trunc nuw nsw i64 %indvars.iv.i136 to i32
-  %cmp36.i = icmp eq i32 %386, 0
+  %cmp36.i = icmp eq i64 %indvars.iv.i136, 0
   br i1 %cmp36.i, label %for.inc.i144, label %if.end39.i
 
 if.end39.i:                                       ; preds = %while.end.i137
+  %386 = trunc nuw nsw i64 %indvars.iv.i136 to i32
   %dec.i138 = add nsw i32 %386, -1
   %cmp40.i = icmp eq i32 %dec.i138, 0
   br i1 %cmp40.i, label %if.then46.i, label %lor.lhs.false.i139

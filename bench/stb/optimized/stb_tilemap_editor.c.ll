@@ -5151,18 +5151,17 @@ lor.lhs.false86:                                  ; preds = %if.end80
 
 if.end93:                                         ; preds = %lor.lhs.false86
   %arrayidx73.le = getelementptr inbounds i16, ptr %result, i64 %indvars.iv.next
-  %16 = and i64 %indvars.iv.next, 4294967295
-  %cmp94 = icmp eq i64 %16, 0
+  %cmp94 = icmp eq i64 %indvars.iv.next, 0
   br i1 %cmp94, label %land.lhs.true96, label %cond.end112
 
 land.lhs.true96:                                  ; preds = %if.end93
   %background_tile100 = getelementptr inbounds i8, ptr %tm, i64 801056
-  %17 = load i16, ptr %background_tile100, align 8
-  %cmp102 = icmp eq i16 %11, %17
+  %16 = load i16, ptr %background_tile100, align 8
+  %cmp102 = icmp eq i16 %11, %16
   br i1 %cmp102, label %return, label %cond.end112
 
 cond.end112:                                      ; preds = %land.lhs.true96, %if.end93
-  %cond113 = phi i16 [ -1, %if.end93 ], [ %17, %land.lhs.true96 ]
+  %cond113 = phi i16 [ -1, %if.end93 ], [ %16, %land.lhs.true96 ]
   store i16 %cond113, ptr %arrayidx73.le, align 2
   br label %return
 
@@ -5171,56 +5170,55 @@ for.inc:                                          ; preds = %if.end80, %lor.lhs.
   br i1 %cmp70, label %for.body, label %if.end117, !llvm.loop !31
 
 if.end117:                                        ; preds = %for.inc, %if.then69, %if.end64
-  %18 = add i32 %allow_any, -3
-  %or.cond1 = icmp ult i32 %18, -2
+  %17 = add i32 %allow_any, -3
+  %or.cond1 = icmp ult i32 %17, -2
   br i1 %or.cond1, label %return, label %if.end124
 
 if.end124:                                        ; preds = %if.end117
   %num_layers125 = getelementptr inbounds i8, ptr %tm, i64 800008
-  %19 = load i32, ptr %num_layers125, align 8
-  %cmp12878 = icmp sgt i32 %19, 0
+  %18 = load i32, ptr %num_layers125, align 8
+  %cmp12878 = icmp sgt i32 %18, 0
   br i1 %cmp12878, label %for.body130.lr.ph, label %for.end180
 
 for.body130.lr.ph:                                ; preds = %if.end124
-  %i.277 = add nsw i32 %19, -1
+  %i.277 = add nsw i32 %18, -1
   %layerinfo138 = getelementptr inbounds i8, ptr %tm, i64 800896
   %background_tile157 = getelementptr inbounds i8, ptr %tm, i64 801056
-  %20 = zext nneg i32 %i.277 to i64
+  %19 = zext nneg i32 %i.277 to i64
   br i1 %cmp67, label %for.body130.us, label %for.body130
 
 for.body130.us:                                   ; preds = %for.body130.lr.ph, %for.inc178.us
-  %indvars.iv96 = phi i64 [ %indvars.iv.next97, %for.inc178.us ], [ %20, %for.body130.lr.ph ]
+  %indvars.iv96 = phi i64 [ %indvars.iv.next97, %for.inc178.us ], [ %19, %for.body130.lr.ph ]
   %arrayidx132.us = getelementptr inbounds i16, ptr %result, i64 %indvars.iv96
-  %21 = load i16, ptr %arrayidx132.us, align 2
-  %cmp134.us = icmp slt i16 %21, 0
+  %20 = load i16, ptr %arrayidx132.us, align 2
+  %cmp134.us = icmp slt i16 %20, 0
   br i1 %cmp134.us, label %for.inc178.us, label %if.end137.us
 
 if.end137.us:                                     ; preds = %for.body130.us
   %arrayidx140.us = getelementptr inbounds [8 x %struct.stbte__layer], ptr %layerinfo138, i64 0, i64 %indvars.iv96
   %locked141.us = getelementptr inbounds i8, ptr %arrayidx140.us, i64 8
-  %22 = load i32, ptr %locked141.us, align 8
-  %tobool142.not.us = icmp eq i32 %22, 0
+  %21 = load i32, ptr %locked141.us, align 8
+  %tobool142.not.us = icmp eq i32 %21, 0
   br i1 %tobool142.not.us, label %lor.lhs.false143.us, label %for.inc178.us
 
 lor.lhs.false143.us:                              ; preds = %if.end137.us
   %hidden147.us = getelementptr inbounds i8, ptr %arrayidx140.us, i64 12
-  %23 = load i32, ptr %hidden147.us, align 4
-  %tobool148.not.us = icmp eq i32 %23, 0
+  %22 = load i32, ptr %hidden147.us, align 4
+  %tobool148.not.us = icmp eq i32 %22, 0
   br i1 %tobool148.not.us, label %if.end150.us, label %for.inc178.us
 
 if.end150.us:                                     ; preds = %lor.lhs.false143.us
   %arrayidx132.us.le = getelementptr inbounds i16, ptr %result, i64 %indvars.iv96
-  %24 = and i64 %indvars.iv96, 4294967295
-  %cmp151.us = icmp eq i64 %24, 0
+  %cmp151.us = icmp eq i64 %indvars.iv96, 0
   br i1 %cmp151.us, label %land.lhs.true153.us, label %cond.end169.us
 
 land.lhs.true153.us:                              ; preds = %if.end150.us
-  %25 = load i16, ptr %background_tile157, align 8
-  %cmp159.us = icmp eq i16 %21, %25
+  %23 = load i16, ptr %background_tile157, align 8
+  %cmp159.us = icmp eq i16 %20, %23
   br i1 %cmp159.us, label %return, label %cond.end169.us
 
 cond.end169.us:                                   ; preds = %land.lhs.true153.us, %if.end150.us
-  %cond170.us = phi i16 [ -1, %if.end150.us ], [ %25, %land.lhs.true153.us ]
+  %cond170.us = phi i16 [ -1, %if.end150.us ], [ %23, %land.lhs.true153.us ]
   store i16 %cond170.us, ptr %arrayidx132.us.le, align 2
   br label %return
 
@@ -5230,23 +5228,23 @@ for.inc178.us:                                    ; preds = %lor.lhs.false143.us
   br i1 %cmp128.us, label %for.body130.us, label %for.end180, !llvm.loop !32
 
 for.body130:                                      ; preds = %for.body130.lr.ph, %for.inc178
-  %indvars.iv93 = phi i64 [ %indvars.iv.next94, %for.inc178 ], [ %20, %for.body130.lr.ph ]
+  %indvars.iv93 = phi i64 [ %indvars.iv.next94, %for.inc178 ], [ %19, %for.body130.lr.ph ]
   %arrayidx132 = getelementptr inbounds i16, ptr %result, i64 %indvars.iv93
-  %26 = load i16, ptr %arrayidx132, align 2
-  %cmp134 = icmp slt i16 %26, 0
+  %24 = load i16, ptr %arrayidx132, align 2
+  %cmp134 = icmp slt i16 %24, 0
   br i1 %cmp134, label %for.inc178, label %if.end137
 
 if.end137:                                        ; preds = %for.body130
   %arrayidx140 = getelementptr inbounds [8 x %struct.stbte__layer], ptr %layerinfo138, i64 0, i64 %indvars.iv93
   %locked141 = getelementptr inbounds i8, ptr %arrayidx140, i64 8
-  %27 = load i32, ptr %locked141, align 8
-  %tobool142.not = icmp eq i32 %27, 0
+  %25 = load i32, ptr %locked141, align 8
+  %tobool142.not = icmp eq i32 %25, 0
   br i1 %tobool142.not, label %lor.lhs.false143, label %for.inc178
 
 lor.lhs.false143:                                 ; preds = %if.end137
   %hidden147 = getelementptr inbounds i8, ptr %arrayidx140, i64 12
-  %28 = load i32, ptr %hidden147, align 4
-  %tobool148.not = icmp eq i32 %28, 0
+  %26 = load i32, ptr %hidden147, align 4
+  %tobool148.not = icmp eq i32 %26, 0
   br i1 %tobool148.not, label %if.end150, label %for.inc178
 
 if.end150:                                        ; preds = %lor.lhs.false143
@@ -5254,12 +5252,12 @@ if.end150:                                        ; preds = %lor.lhs.false143
   br i1 %cmp151, label %land.lhs.true153, label %cond.end169
 
 land.lhs.true153:                                 ; preds = %if.end150
-  %29 = load i16, ptr %background_tile157, align 8
-  %cmp159 = icmp eq i16 %26, %29
+  %27 = load i16, ptr %background_tile157, align 8
+  %cmp159 = icmp eq i16 %24, %27
   br i1 %cmp159, label %return, label %cond.end169
 
 cond.end169:                                      ; preds = %land.lhs.true153, %if.end150
-  %cond170 = phi i16 [ -1, %if.end150 ], [ %29, %land.lhs.true153 ]
+  %cond170 = phi i16 [ -1, %if.end150 ], [ %27, %land.lhs.true153 ]
   store i16 %cond170, ptr %arrayidx132, align 2
   br label %for.inc178
 
@@ -5422,19 +5420,19 @@ lor.lhs.false126:                                 ; preds = %if.end120
   br i1 %tobool131.not, label %if.end133, label %for.inc
 
 if.end133:                                        ; preds = %lor.lhs.false126
-  %16 = trunc nuw nsw i64 %indvars.iv.next to i32
-  %cmp134 = icmp eq i32 %16, 0
+  %cmp134 = icmp eq i64 %indvars.iv.next, 0
   br i1 %cmp134, label %land.lhs.true136, label %if.end150
 
 land.lhs.true136:                                 ; preds = %if.end133
   %background_tile145 = getelementptr inbounds i8, ptr %tm, i64 801056
-  %17 = load i16, ptr %background_tile145, align 8
-  %cmp147 = icmp eq i16 %11, %17
+  %16 = load i16, ptr %background_tile145, align 8
+  %cmp147 = icmp eq i16 %11, %16
   br i1 %cmp147, label %return, label %cond.true161
 
 if.end150:                                        ; preds = %if.end133
+  %17 = trunc nuw nsw i64 %indvars.iv.next to i32
   %conv158124 = sext i16 %11 to i32
-  tail call void @stbte__undo_record(ptr noundef nonnull %tm, i32 noundef %x, i32 noundef %y, i32 noundef %16, i32 noundef %conv158124)
+  tail call void @stbte__undo_record(ptr noundef nonnull %tm, i32 noundef %x, i32 noundef %y, i32 noundef %17, i32 noundef %conv158124)
   br label %cond.end165
 
 cond.true161:                                     ; preds = %land.lhs.true136
@@ -5493,11 +5491,11 @@ lor.lhs.false206.us:                              ; preds = %if.end200.us
   br i1 %tobool211.not.us, label %if.end213.us, label %for.inc259.us
 
 if.end213.us:                                     ; preds = %lor.lhs.false206.us
-  %25 = trunc nuw nsw i64 %indvars.iv153 to i32
-  %cmp214.us = icmp eq i32 %25, 0
+  %cmp214.us = icmp eq i64 %indvars.iv153, 0
   br i1 %cmp214.us, label %land.lhs.true216.us, label %if.end230.us
 
 if.end230.us:                                     ; preds = %if.end213.us
+  %25 = trunc nuw nsw i64 %indvars.iv153 to i32
   %conv238126.us = zext nneg i16 %22 to i32
   tail call void @stbte__undo_record(ptr noundef nonnull %tm, i32 noundef %x, i32 noundef %y, i32 noundef %25, i32 noundef %conv238126.us)
   br label %cond.end245.us

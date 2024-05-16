@@ -2256,8 +2256,8 @@ if.end4:                                          ; preds = %if.end
   %sub.ptr.sub40 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast39
   %call741 = tail call noundef ptr @memchr(ptr noundef %3, i32 noundef 10, i64 noundef %sub.ptr.sub40) #25
   %cmp42 = icmp ne ptr %call741, null
-  %cmp843 = icmp ne i32 %coords.sroa.3.0.extract.trunc, 1
-  %5 = select i1 %cmp42, i1 %cmp843, i1 false
+  %cmp843 = icmp ne i64 %coords.sroa.3.0.extract.shift, 1
+  %5 = and i1 %cmp42, %cmp843
   br i1 %5, label %while.body, label %while.end
 
 while.body:                                       ; preds = %if.end4, %while.body

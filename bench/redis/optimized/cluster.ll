@@ -3001,7 +3001,7 @@ if.end145:                                        ; preds = %if.end135
   %arrayidx154 = getelementptr inbounds ptr, ptr %48, i64 %49
   %50 = load ptr, ptr %arrayidx154, align 8
   %call155 = call ptr @dictGetIterator(ptr noundef %50) #16
-  %cmp156214.not = icmp eq i32 %conv152, 0
+  %cmp156214.not = icmp eq i64 %46, 0
   br i1 %cmp156214.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %if.end145, %sdslen.exit155

@@ -6301,36 +6301,32 @@ multirange_get_typcache.exit:                     ; preds = %26, %36
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @multirange_lt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = tail call i64 @multirange_cmp(ptr noundef %0)
-  %3 = lshr i64 %2, 31
-  %.lobit = and i64 %3, 1
+  %.lobit = lshr i64 %2, 63
   ret i64 %.lobit
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @multirange_le(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = tail call i64 @multirange_cmp(ptr noundef %0)
-  %3 = trunc nsw i64 %2 to i32
-  %4 = icmp slt i32 %3, 1
-  %5 = zext i1 %4 to i64
-  ret i64 %5
+  %3 = icmp slt i64 %2, 1
+  %4 = zext i1 %3 to i64
+  ret i64 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @multirange_ge(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = tail call i64 @multirange_cmp(ptr noundef %0)
-  %3 = lshr i64 %2, 31
-  %.lobit = and i64 %3, 1
-  %4 = xor i64 %.lobit, 1
+  %3 = icmp sgt i64 %2, -1
+  %4 = zext i1 %3 to i64
   ret i64 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @multirange_gt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = tail call i64 @multirange_cmp(ptr noundef %0)
-  %3 = trunc nsw i64 %2 to i32
-  %4 = icmp sgt i32 %3, 0
-  %5 = zext i1 %4 to i64
-  ret i64 %5
+  %3 = icmp sgt i64 %2, 0
+  %4 = zext i1 %3 to i64
+  ret i64 %4
 }
 
 ; Function Attrs: nounwind uwtable

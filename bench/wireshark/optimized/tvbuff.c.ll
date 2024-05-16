@@ -306,171 +306,173 @@ define ptr @tvb_new_octet_aligned(ptr noundef %0, i32 noundef %1, i32 noundef %2
 21:                                               ; preds = %10
   %22 = ashr i32 %2, 3
   %23 = srem i32 %2, 8
-  %24 = trunc nsw i32 %23 to i8
-  %.not78 = icmp ne i8 %24, 0
-  %25 = zext i1 %.not78 to i32
-  %spec.select = add nsw i32 %22, %25
+  %.not78 = icmp eq i32 %23, 0
+  br i1 %.not78, label %_tvb_captured_length_remaining.exit, label %24
+
+24:                                               ; preds = %21
+  %25 = trunc nsw i32 %23 to i8
+  %26 = add nsw i32 %22, 1
   br label %_tvb_captured_length_remaining.exit
 
-_tvb_captured_length_remaining.exit:              ; preds = %19, %21
-  %.071 = phi i32 [ %spec.select, %21 ], [ %20, %19 ]
-  %.068 = phi i8 [ %24, %21 ], [ 0, %19 ]
-  %26 = icmp eq i32 %12, 0
-  %27 = icmp eq i8 %.068, 0
-  %or.cond = and i1 %26, %27
-  br i1 %or.cond, label %29, label %31
+_tvb_captured_length_remaining.exit:              ; preds = %19, %21, %24
+  %.071 = phi i32 [ %26, %24 ], [ %22, %21 ], [ %20, %19 ]
+  %.068 = phi i8 [ %25, %24 ], [ 0, %21 ], [ 0, %19 ]
+  %27 = icmp eq i32 %12, 0
+  %28 = icmp eq i8 %.068, 0
+  %or.cond = select i1 %27, i1 %28, i1 false
+  br i1 %or.cond, label %30, label %32
 
 _tvb_captured_length_remaining.exit.thread:       ; preds = %16
-  %28 = icmp eq i32 %12, 0
-  br i1 %28, label %29, label %.thread
+  %29 = icmp eq i32 %12, 0
+  br i1 %29, label %30, label %.thread
 
-29:                                               ; preds = %_tvb_captured_length_remaining.exit.thread, %_tvb_captured_length_remaining.exit
-  %.07186 = phi i32 [ 0, %_tvb_captured_length_remaining.exit.thread ], [ %.071, %_tvb_captured_length_remaining.exit ]
-  %30 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef nonnull %0, i32 noundef %11, i32 noundef %.07186, i32 noundef %.07186) #17
-  br label %99
+30:                                               ; preds = %_tvb_captured_length_remaining.exit.thread, %_tvb_captured_length_remaining.exit
+  %.07185 = phi i32 [ 0, %_tvb_captured_length_remaining.exit.thread ], [ %.071, %_tvb_captured_length_remaining.exit ]
+  %31 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef nonnull %0, i32 noundef %11, i32 noundef %.07185, i32 noundef %.07185) #17
+  br label %100
 
-31:                                               ; preds = %_tvb_captured_length_remaining.exit
-  %32 = icmp sgt i32 %.071, 0
-  br i1 %32, label %_tvb_captured_length_remaining.exit81, label %.thread
+32:                                               ; preds = %_tvb_captured_length_remaining.exit
+  %33 = icmp sgt i32 %.071, 0
+  br i1 %33, label %_tvb_captured_length_remaining.exit80, label %.thread
 
-.thread:                                          ; preds = %_tvb_captured_length_remaining.exit.thread, %31
+.thread:                                          ; preds = %_tvb_captured_length_remaining.exit.thread, %32
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 396, ptr noundef nonnull @.str.6) #16
   unreachable
 
-_tvb_captured_length_remaining.exit81:            ; preds = %31
-  %33 = getelementptr inbounds i8, ptr %0, i64 40
-  %34 = load i32, ptr %33, align 8
-  %spec.select91 = tail call i32 @llvm.usub.sat.i32(i32 %34, i32 %11)
-  %35 = icmp sgt i32 %spec.select91, %.071
-  br i1 %35, label %36, label %60
+_tvb_captured_length_remaining.exit80:            ; preds = %32
+  %34 = getelementptr inbounds i8, ptr %0, i64 40
+  %35 = load i32, ptr %34, align 8
+  %spec.select = tail call i32 @llvm.usub.sat.i32(i32 %35, i32 %11)
+  %36 = icmp sgt i32 %spec.select, %.071
+  br i1 %36, label %37, label %61
 
-36:                                               ; preds = %_tvb_captured_length_remaining.exit81
-  %37 = add nuw nsw i32 %.071, 1
+37:                                               ; preds = %_tvb_captured_length_remaining.exit80
+  %38 = add nuw nsw i32 %.071, 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  %38 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %0, i32 noundef %11, i32 noundef %37, ptr noundef nonnull %5)
-  %39 = icmp eq ptr %38, null
-  br i1 %39, label %40, label %.lr.ph94
+  %39 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %0, i32 noundef %11, i32 noundef %38, ptr noundef nonnull %5)
+  %40 = icmp eq ptr %39, null
+  br i1 %40, label %41, label %.lr.ph92
 
-40:                                               ; preds = %36
-  %41 = load i32, ptr %5, align 4
-  %42 = icmp sgt i32 %41, 0
-  br i1 %42, label %44, label %43
+41:                                               ; preds = %37
+  %42 = load i32, ptr %5, align 4
+  %43 = icmp sgt i32 %42, 0
+  br i1 %43, label %45, label %44
 
-43:                                               ; preds = %40
+44:                                               ; preds = %41
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 886, ptr noundef nonnull @.str.33) #16
   unreachable
 
-44:                                               ; preds = %40
-  %45 = zext nneg i32 %41 to i64
-  call void @except_throw(i64 noundef 1, i64 noundef %45, ptr noundef null) #16
+45:                                               ; preds = %41
+  %46 = zext nneg i32 %42 to i64
+  call void @except_throw(i64 noundef 1, i64 noundef %46, ptr noundef null) #16
   unreachable
 
-.lr.ph94:                                         ; preds = %36
+.lr.ph92:                                         ; preds = %37
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  %46 = zext nneg i32 %.071 to i64
-  %47 = call noalias ptr @g_malloc(i64 noundef %46) #15
-  %48 = zext nneg i8 %14 to i32
-  %.pre102 = load i8, ptr %38, align 1
-  br label %49
+  %47 = zext nneg i32 %.071 to i64
+  %48 = call noalias ptr @g_malloc(i64 noundef %47) #15
+  %49 = zext nneg i8 %14 to i32
+  %.pre100 = load i8, ptr %39, align 1
+  br label %50
 
-49:                                               ; preds = %.lr.ph94, %49
-  %50 = phi i8 [ %.pre102, %.lr.ph94 ], [ %54, %49 ]
-  %indvars.iv97 = phi i64 [ 0, %.lr.ph94 ], [ %indvars.iv.next98, %49 ]
-  %51 = zext i8 %50 to i32
-  %52 = shl nuw nsw i32 %51, %12
-  %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
-  %53 = getelementptr i8, ptr %38, i64 %indvars.iv.next98
-  %54 = load i8, ptr %53, align 1
-  %55 = zext i8 %54 to i32
-  %56 = lshr i32 %55, %48
-  %57 = or i32 %56, %52
-  %58 = trunc i32 %57 to i8
-  %59 = getelementptr i8, ptr %47, i64 %indvars.iv97
-  store i8 %58, ptr %59, align 1
-  %exitcond101.not = icmp eq i64 %indvars.iv.next98, %46
-  br i1 %exitcond101.not, label %.loopexit, label %49, !llvm.loop !7
+50:                                               ; preds = %.lr.ph92, %50
+  %51 = phi i8 [ %.pre100, %.lr.ph92 ], [ %55, %50 ]
+  %indvars.iv95 = phi i64 [ 0, %.lr.ph92 ], [ %indvars.iv.next96, %50 ]
+  %52 = zext i8 %51 to i32
+  %53 = shl nuw nsw i32 %52, %12
+  %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
+  %54 = getelementptr i8, ptr %39, i64 %indvars.iv.next96
+  %55 = load i8, ptr %54, align 1
+  %56 = zext i8 %55 to i32
+  %57 = lshr i32 %56, %49
+  %58 = or i32 %57, %53
+  %59 = trunc i32 %58 to i8
+  %60 = getelementptr i8, ptr %48, i64 %indvars.iv95
+  store i8 %59, ptr %60, align 1
+  %exitcond99.not = icmp eq i64 %indvars.iv.next96, %47
+  br i1 %exitcond99.not, label %.loopexit, label %50, !llvm.loop !7
 
-60:                                               ; preds = %_tvb_captured_length_remaining.exit81
+61:                                               ; preds = %_tvb_captured_length_remaining.exit80
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 0, ptr %4, align 4
-  %61 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %0, i32 noundef %11, i32 noundef %.071, ptr noundef nonnull %4)
-  %62 = icmp eq ptr %61, null
-  br i1 %62, label %63, label %ensure_contiguous.exit82
+  %62 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %0, i32 noundef %11, i32 noundef %.071, ptr noundef nonnull %4)
+  %63 = icmp eq ptr %62, null
+  br i1 %63, label %64, label %ensure_contiguous.exit81
 
-63:                                               ; preds = %60
-  %64 = load i32, ptr %4, align 4
-  %65 = icmp sgt i32 %64, 0
-  br i1 %65, label %67, label %66
+64:                                               ; preds = %61
+  %65 = load i32, ptr %4, align 4
+  %66 = icmp sgt i32 %65, 0
+  br i1 %66, label %68, label %67
 
-66:                                               ; preds = %63
+67:                                               ; preds = %64
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 886, ptr noundef nonnull @.str.33) #16
   unreachable
 
-67:                                               ; preds = %63
-  %68 = zext nneg i32 %64 to i64
-  call void @except_throw(i64 noundef 1, i64 noundef %68, ptr noundef null) #16
+68:                                               ; preds = %64
+  %69 = zext nneg i32 %65 to i64
+  call void @except_throw(i64 noundef 1, i64 noundef %69, ptr noundef null) #16
   unreachable
 
-ensure_contiguous.exit82:                         ; preds = %60
+ensure_contiguous.exit81:                         ; preds = %61
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  %69 = zext nneg i32 %.071 to i64
-  %70 = call noalias ptr @g_malloc(i64 noundef %69) #15
-  %.not95 = icmp eq i32 %.071, 1
-  br i1 %.not95, label %._crit_edge, label %.lr.ph
+  %70 = zext nneg i32 %.071 to i64
+  %71 = call noalias ptr @g_malloc(i64 noundef %70) #15
+  %.not93 = icmp eq i32 %.071, 1
+  br i1 %.not93, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %ensure_contiguous.exit82
-  %71 = add nsw i32 %.071, -1
-  %72 = zext nneg i8 %14 to i32
-  %wide.trip.count = zext nneg i32 %71 to i64
-  %.pre = load i8, ptr %61, align 1
-  br label %73
+.lr.ph:                                           ; preds = %ensure_contiguous.exit81
+  %72 = add nsw i32 %.071, -1
+  %73 = zext nneg i8 %14 to i32
+  %wide.trip.count = zext nneg i32 %72 to i64
+  %.pre = load i8, ptr %62, align 1
+  br label %74
 
-73:                                               ; preds = %.lr.ph, %73
-  %74 = phi i8 [ %.pre, %.lr.ph ], [ %78, %73 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %73 ]
-  %75 = zext i8 %74 to i32
-  %76 = shl nuw nsw i32 %75, %12
+74:                                               ; preds = %.lr.ph, %74
+  %75 = phi i8 [ %.pre, %.lr.ph ], [ %79, %74 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %74 ]
+  %76 = zext i8 %75 to i32
+  %77 = shl nuw nsw i32 %76, %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %77 = getelementptr i8, ptr %61, i64 %indvars.iv.next
-  %78 = load i8, ptr %77, align 1
-  %79 = zext i8 %78 to i32
-  %80 = lshr i32 %79, %72
-  %81 = or i32 %80, %76
-  %82 = trunc i32 %81 to i8
-  %83 = getelementptr i8, ptr %70, i64 %indvars.iv
-  store i8 %82, ptr %83, align 1
+  %78 = getelementptr i8, ptr %62, i64 %indvars.iv.next
+  %79 = load i8, ptr %78, align 1
+  %80 = zext i8 %79 to i32
+  %81 = lshr i32 %80, %73
+  %82 = or i32 %81, %77
+  %83 = trunc i32 %82 to i8
+  %84 = getelementptr i8, ptr %71, i64 %indvars.iv
+  store i8 %83, ptr %84, align 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %73, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %74, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %73, %ensure_contiguous.exit82
-  %.pre-phi = phi i64 [ 0, %ensure_contiguous.exit82 ], [ %wide.trip.count, %73 ]
-  %84 = getelementptr i8, ptr %61, i64 %.pre-phi
-  %85 = load i8, ptr %84, align 1
-  %86 = zext i8 %85 to i32
-  %87 = shl nuw nsw i32 %86, %12
-  %88 = trunc i32 %87 to i8
-  %89 = getelementptr i8, ptr %70, i64 %.pre-phi
-  store i8 %88, ptr %89, align 1
+._crit_edge:                                      ; preds = %74, %ensure_contiguous.exit81
+  %.pre-phi = phi i64 [ 0, %ensure_contiguous.exit81 ], [ %wide.trip.count, %74 ]
+  %85 = getelementptr i8, ptr %62, i64 %.pre-phi
+  %86 = load i8, ptr %85, align 1
+  %87 = zext i8 %86 to i32
+  %88 = shl nuw nsw i32 %87, %12
+  %89 = trunc i32 %88 to i8
+  %90 = getelementptr i8, ptr %71, i64 %.pre-phi
+  store i8 %89, ptr %90, align 1
   br label %.loopexit
 
-.loopexit:                                        ; preds = %49, %._crit_edge
-  %.0 = phi ptr [ %70, %._crit_edge ], [ %47, %49 ]
-  %90 = zext i8 %.068 to i64
-  %91 = getelementptr [8 x i8], ptr @left_aligned_bitmask, i64 0, i64 %90
-  %92 = load i8, ptr %91, align 1
-  %93 = add nsw i32 %.071, -1
-  %94 = zext nneg i32 %93 to i64
-  %95 = getelementptr i8, ptr %.0, i64 %94
-  %96 = load i8, ptr %95, align 1
-  %97 = and i8 %96, %92
-  store i8 %97, ptr %95, align 1
-  %98 = call ptr @tvb_new_child_real_data(ptr noundef nonnull %0, ptr noundef nonnull %.0, i32 noundef %.071, i32 noundef %.071) #17
-  call void @tvb_set_free_cb(ptr noundef %98, ptr noundef nonnull @g_free) #17
-  br label %99
+.loopexit:                                        ; preds = %50, %._crit_edge
+  %.0 = phi ptr [ %71, %._crit_edge ], [ %48, %50 ]
+  %91 = zext i8 %.068 to i64
+  %92 = getelementptr [8 x i8], ptr @left_aligned_bitmask, i64 0, i64 %91
+  %93 = load i8, ptr %92, align 1
+  %94 = add nsw i32 %.071, -1
+  %95 = zext nneg i32 %94 to i64
+  %96 = getelementptr i8, ptr %.0, i64 %95
+  %97 = load i8, ptr %96, align 1
+  %98 = and i8 %97, %93
+  store i8 %98, ptr %96, align 1
+  %99 = call ptr @tvb_new_child_real_data(ptr noundef nonnull %0, ptr noundef nonnull %.0, i32 noundef %.071, i32 noundef %.071) #17
+  call void @tvb_set_free_cb(ptr noundef %99, ptr noundef nonnull @g_free) #17
+  br label %100
 
-99:                                               ; preds = %.loopexit, %29
-  %.069 = phi ptr [ %30, %29 ], [ %98, %.loopexit ]
+100:                                              ; preds = %.loopexit, %30
+  %.069 = phi ptr [ %31, %30 ], [ %99, %.loopexit ]
   ret ptr %.069
 }
 
@@ -522,141 +524,143 @@ define ptr @tvb_new_octet_right_aligned(ptr noundef %0, i32 noundef %1, i32 noun
 20:                                               ; preds = %9
   %21 = sdiv i32 %2, 8
   %22 = srem i32 %2, 8
-  %23 = trunc nsw i32 %22 to i8
-  %.not71 = icmp ne i8 %23, 0
-  %24 = zext i1 %.not71 to i32
-  %spec.select = add nsw i32 %21, %24
+  %.not71 = icmp eq i32 %22, 0
+  br i1 %.not71, label %_tvb_captured_length_remaining.exit, label %23
+
+23:                                               ; preds = %20
+  %24 = trunc nsw i32 %22 to i8
+  %25 = add nsw i32 %21, 1
   br label %_tvb_captured_length_remaining.exit
 
-_tvb_captured_length_remaining.exit:              ; preds = %18, %20
-  %.065 = phi i32 [ %spec.select, %20 ], [ %19, %18 ]
-  %.063 = phi i8 [ %23, %20 ], [ 0, %18 ]
-  %25 = icmp eq i32 %11, 0
-  %26 = zext nneg i8 %.063 to i32
-  %27 = icmp eq i8 %.063, 0
-  %or.cond = and i1 %25, %27
-  br i1 %or.cond, label %29, label %31
+_tvb_captured_length_remaining.exit:              ; preds = %18, %20, %23
+  %.065 = phi i32 [ %25, %23 ], [ %21, %20 ], [ %19, %18 ]
+  %.063 = phi i8 [ %24, %23 ], [ 0, %20 ], [ 0, %18 ]
+  %26 = icmp eq i32 %11, 0
+  %27 = zext nneg i8 %.063 to i32
+  %28 = icmp eq i8 %.063, 0
+  %or.cond = select i1 %26, i1 %28, i1 false
+  br i1 %or.cond, label %30, label %32
 
 _tvb_captured_length_remaining.exit.thread:       ; preds = %15
-  %28 = icmp eq i32 %11, 0
-  br i1 %28, label %29, label %.thread
+  %29 = icmp eq i32 %11, 0
+  br i1 %29, label %30, label %.thread
 
-29:                                               ; preds = %_tvb_captured_length_remaining.exit.thread, %_tvb_captured_length_remaining.exit
-  %.06579 = phi i32 [ 0, %_tvb_captured_length_remaining.exit.thread ], [ %.065, %_tvb_captured_length_remaining.exit ]
-  %30 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef nonnull %0, i32 noundef %10, i32 noundef %.06579, i32 noundef %.06579) #17
-  br label %86
+30:                                               ; preds = %_tvb_captured_length_remaining.exit.thread, %_tvb_captured_length_remaining.exit
+  %.06578 = phi i32 [ 0, %_tvb_captured_length_remaining.exit.thread ], [ %.065, %_tvb_captured_length_remaining.exit ]
+  %31 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef nonnull %0, i32 noundef %10, i32 noundef %.06578, i32 noundef %.06578) #17
+  br label %87
 
-31:                                               ; preds = %_tvb_captured_length_remaining.exit
-  %32 = icmp sgt i32 %.065, 0
-  br i1 %32, label %_tvb_captured_length_remaining.exit75, label %.thread
+32:                                               ; preds = %_tvb_captured_length_remaining.exit
+  %33 = icmp sgt i32 %.065, 0
+  br i1 %33, label %_tvb_captured_length_remaining.exit74, label %.thread
 
-.thread:                                          ; preds = %_tvb_captured_length_remaining.exit.thread, %31
+.thread:                                          ; preds = %_tvb_captured_length_remaining.exit.thread, %32
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 464, ptr noundef nonnull @.str.7) #16
   unreachable
 
-_tvb_captured_length_remaining.exit75:            ; preds = %31
-  %33 = getelementptr inbounds i8, ptr %0, i64 40
-  %34 = load i32, ptr %33, align 8
-  %spec.select82 = tail call i32 @llvm.usub.sat.i32(i32 %34, i32 %10)
-  %35 = icmp sgt i32 %spec.select82, %.065
-  %36 = zext i1 %35 to i32
-  %.064 = add nuw i32 %.065, %36
+_tvb_captured_length_remaining.exit74:            ; preds = %32
+  %34 = getelementptr inbounds i8, ptr %0, i64 40
+  %35 = load i32, ptr %34, align 8
+  %spec.select = tail call i32 @llvm.usub.sat.i32(i32 %35, i32 %10)
+  %36 = icmp sgt i32 %spec.select, %.065
+  %37 = zext i1 %36 to i32
+  %.064 = add nuw i32 %.065, %37
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 0, ptr %4, align 4
-  %37 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %0, i32 noundef %10, i32 noundef %.064, ptr noundef nonnull %4)
-  %38 = icmp eq ptr %37, null
-  br i1 %38, label %39, label %ensure_contiguous.exit
+  %38 = call fastcc ptr @ensure_contiguous_no_exception(ptr noundef nonnull %0, i32 noundef %10, i32 noundef %.064, ptr noundef nonnull %4)
+  %39 = icmp eq ptr %38, null
+  br i1 %39, label %40, label %ensure_contiguous.exit
 
-39:                                               ; preds = %_tvb_captured_length_remaining.exit75
-  %40 = load i32, ptr %4, align 4
-  %41 = icmp sgt i32 %40, 0
-  br i1 %41, label %43, label %42
+40:                                               ; preds = %_tvb_captured_length_remaining.exit74
+  %41 = load i32, ptr %4, align 4
+  %42 = icmp sgt i32 %41, 0
+  br i1 %42, label %44, label %43
 
-42:                                               ; preds = %39
+43:                                               ; preds = %40
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 886, ptr noundef nonnull @.str.33) #16
   unreachable
 
-43:                                               ; preds = %39
-  %44 = zext nneg i32 %40 to i64
-  call void @except_throw(i64 noundef 1, i64 noundef %44, ptr noundef null) #16
+44:                                               ; preds = %40
+  %45 = zext nneg i32 %41 to i64
+  call void @except_throw(i64 noundef 1, i64 noundef %45, ptr noundef null) #16
   unreachable
 
-ensure_contiguous.exit:                           ; preds = %_tvb_captured_length_remaining.exit75
+ensure_contiguous.exit:                           ; preds = %_tvb_captured_length_remaining.exit74
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  %45 = zext nneg i32 %.065 to i64
-  %46 = call noalias ptr @g_malloc(i64 noundef %45) #15
-  %47 = add nsw i32 %.065, -1
-  %.not84 = icmp eq i32 %.065, 1
-  br i1 %.not84, label %._crit_edge, label %.lr.ph
+  %46 = zext nneg i32 %.065 to i64
+  %47 = call noalias ptr @g_malloc(i64 noundef %46) #15
+  %48 = add nsw i32 %.065, -1
+  %.not82 = icmp eq i32 %.065, 1
+  br i1 %.not82, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %ensure_contiguous.exit
-  %48 = zext nneg i8 %13 to i32
-  %wide.trip.count = zext nneg i32 %47 to i64
-  %.pre = load i8, ptr %37, align 1
-  br label %49
+  %49 = zext nneg i8 %13 to i32
+  %wide.trip.count = zext nneg i32 %48 to i64
+  %.pre = load i8, ptr %38, align 1
+  br label %50
 
-49:                                               ; preds = %.lr.ph, %49
-  %50 = phi i8 [ %.pre, %.lr.ph ], [ %54, %49 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %49 ]
-  %51 = zext i8 %50 to i32
-  %52 = lshr i32 %51, %11
+50:                                               ; preds = %.lr.ph, %50
+  %51 = phi i8 [ %.pre, %.lr.ph ], [ %55, %50 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %50 ]
+  %52 = zext i8 %51 to i32
+  %53 = lshr i32 %52, %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %53 = getelementptr i8, ptr %37, i64 %indvars.iv.next
-  %54 = load i8, ptr %53, align 1
-  %55 = zext i8 %54 to i32
-  %56 = shl nuw nsw i32 %55, %48
-  %57 = or i32 %56, %52
-  %58 = trunc i32 %57 to i8
-  %59 = getelementptr i8, ptr %46, i64 %indvars.iv
-  store i8 %58, ptr %59, align 1
+  %54 = getelementptr i8, ptr %38, i64 %indvars.iv.next
+  %55 = load i8, ptr %54, align 1
+  %56 = zext i8 %55 to i32
+  %57 = shl nuw nsw i32 %56, %49
+  %58 = or i32 %57, %53
+  %59 = trunc i32 %58 to i8
+  %60 = getelementptr i8, ptr %47, i64 %indvars.iv
+  store i8 %59, ptr %60, align 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %49, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %50, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %49, %ensure_contiguous.exit
-  %.066.lcssa = phi i32 [ 0, %ensure_contiguous.exit ], [ %47, %49 ]
-  %60 = zext nneg i32 %.066.lcssa to i64
-  %61 = getelementptr i8, ptr %37, i64 %60
-  %62 = load i8, ptr %61, align 1
-  %63 = zext i8 %62 to i32
-  %64 = lshr i32 %63, %11
-  %65 = trunc nuw i32 %64 to i8
-  %66 = getelementptr i8, ptr %46, i64 %60
-  store i8 %65, ptr %66, align 1
-  %67 = icmp sgt i32 %.064, %.065
-  br i1 %67, label %68, label %78
+._crit_edge:                                      ; preds = %50, %ensure_contiguous.exit
+  %.066.lcssa = phi i32 [ 0, %ensure_contiguous.exit ], [ %48, %50 ]
+  %61 = zext nneg i32 %.066.lcssa to i64
+  %62 = getelementptr i8, ptr %38, i64 %61
+  %63 = load i8, ptr %62, align 1
+  %64 = zext i8 %63 to i32
+  %65 = lshr i32 %64, %11
+  %66 = trunc nuw i32 %65 to i8
+  %67 = getelementptr i8, ptr %47, i64 %61
+  store i8 %66, ptr %67, align 1
+  %68 = icmp sgt i32 %.064, %.065
+  br i1 %68, label %69, label %79
 
-68:                                               ; preds = %._crit_edge
-  %69 = sext i32 %.066.lcssa to i64
-  %70 = getelementptr i8, ptr %37, i64 %69
-  %71 = getelementptr i8, ptr %70, i64 1
-  %72 = load i8, ptr %71, align 1
-  %73 = zext i8 %72 to i32
-  %74 = zext nneg i8 %13 to i32
-  %75 = shl nuw nsw i32 %73, %74
-  %76 = or i32 %75, %64
-  %77 = trunc i32 %76 to i8
-  store i8 %77, ptr %66, align 1
-  br label %78
+69:                                               ; preds = %._crit_edge
+  %70 = sext i32 %.066.lcssa to i64
+  %71 = getelementptr i8, ptr %38, i64 %70
+  %72 = getelementptr i8, ptr %71, i64 1
+  %73 = load i8, ptr %72, align 1
+  %74 = zext i8 %73 to i32
+  %75 = zext nneg i8 %13 to i32
+  %76 = shl nuw nsw i32 %74, %75
+  %77 = or i32 %76, %65
+  %78 = trunc i32 %77 to i8
+  store i8 %78, ptr %67, align 1
+  br label %79
 
-78:                                               ; preds = %68, %._crit_edge
-  %79 = phi i8 [ %77, %68 ], [ %65, %._crit_edge ]
-  br i1 %27, label %84, label %80
+79:                                               ; preds = %69, %._crit_edge
+  %80 = phi i8 [ %78, %69 ], [ %66, %._crit_edge ]
+  br i1 %28, label %85, label %81
 
-80:                                               ; preds = %78
-  %notmask = shl nsw i32 -1, %26
-  %81 = trunc i32 %notmask to i8
-  %82 = xor i8 %81, -1
-  %83 = and i8 %79, %82
-  store i8 %83, ptr %66, align 1
-  br label %84
+81:                                               ; preds = %79
+  %notmask = shl nsw i32 -1, %27
+  %82 = trunc i32 %notmask to i8
+  %83 = xor i8 %82, -1
+  %84 = and i8 %80, %83
+  store i8 %84, ptr %67, align 1
+  br label %85
 
-84:                                               ; preds = %80, %78
-  %85 = call ptr @tvb_new_child_real_data(ptr noundef nonnull %0, ptr noundef nonnull %46, i32 noundef %.065, i32 noundef %.065) #17
-  call void @tvb_set_free_cb(ptr noundef %85, ptr noundef nonnull @g_free) #17
-  br label %86
+85:                                               ; preds = %81, %79
+  %86 = call ptr @tvb_new_child_real_data(ptr noundef nonnull %0, ptr noundef nonnull %47, i32 noundef %.065, i32 noundef %.065) #17
+  call void @tvb_set_free_cb(ptr noundef %86, ptr noundef nonnull @g_free) #17
+  br label %87
 
-86:                                               ; preds = %84, %29
-  %.0 = phi ptr [ %30, %29 ], [ %85, %84 ]
+87:                                               ; preds = %85, %30
+  %.0 = phi ptr [ %31, %30 ], [ %86, %85 ]
   ret ptr %.0
 }
 

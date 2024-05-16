@@ -5314,7 +5314,7 @@ define internal fastcc range(i32 -5, 1) i32 @ompi_comm_split_type_get_part(ptr n
   store ptr %5, ptr %6, align 8
   store ptr null, ptr %8, align 8
   %30 = call i32 @opal_pmix_convert_jobid(ptr noundef nonnull %7, i32 noundef %.sroa.0.0.extract.trunc) #19
-  %cond = icmp eq i32 %.sroa.2.0.extract.trunc, -1
+  %cond = icmp eq i64 %.sroa.2.0.extract.shift, 4294967295
   %spec.select87 = select i1 %cond, i32 -4, i32 %.sroa.2.0.extract.trunc
   store i32 %spec.select87, ptr %19, align 4
   %31 = call i32 @PMIx_Info_load(ptr noundef nonnull %9, ptr noundef nonnull @.str.42, ptr noundef null, i16 noundef zeroext 1) #19

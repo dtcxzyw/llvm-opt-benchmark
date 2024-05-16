@@ -626,41 +626,15 @@ define weak_odr noundef float @_ZNK7mitsuba12CheckerboardIfN5drjit6MatrixINS_8Sp
   %19 = fcmp contract ogt <2 x float> %18, <float 5.000000e-01, float 5.000000e-01>
   %20 = extractelement <2 x i1> %19, i64 0
   %21 = extractelement <2 x i1> %19, i64 1
-  %.sroa.2.0.insert.shift = select i1 %21, i16 256, i16 0
-  %.sroa.0.0.insert.ext = zext i1 %20 to i16
-  %.sroa.0.0.insert.insert = or disjoint i16 %.sroa.2.0.insert.shift, %.sroa.0.0.insert.ext
-  %22 = lshr exact i16 %.sroa.2.0.insert.shift, 8
-  %23 = xor i16 %22, %.sroa.0.0.insert.insert
-  %24 = trunc i16 %23 to i1
-  br i1 %24, label %25, label %32
-
-25:                                               ; preds = %.critedge
-  %26 = getelementptr inbounds i8, ptr %0, i64 40
+  %22 = xor i1 %21, %20
+  %. = select i1 %22, i64 40, i64 48
+  %23 = getelementptr inbounds i8, ptr %0, i64 %.
+  %24 = load ptr, ptr %23, align 8
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 112
   %27 = load ptr, ptr %26, align 8
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 112
-  %30 = load ptr, ptr %29, align 8
-  %31 = tail call noundef float %30(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 16 dereferenceable(240) %1, i1 noundef zeroext true)
-  br label %32
-
-32:                                               ; preds = %25, %.critedge
-  %.0136 = phi float [ 0.000000e+00, %.critedge ], [ %31, %25 ]
-  %33 = and i16 %23, 1
-  %.not.not = icmp eq i16 %33, 0
-  br i1 %.not.not, label %34, label %41
-
-34:                                               ; preds = %32
-  %35 = getelementptr inbounds i8, ptr %0, i64 48
-  %36 = load ptr, ptr %35, align 16
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 112
-  %39 = load ptr, ptr %38, align 8
-  %40 = tail call noundef float %39(ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 16 dereferenceable(240) %1, i1 noundef zeroext true)
-  br label %41
-
-41:                                               ; preds = %34, %32
-  %.1 = phi float [ %.0136, %32 ], [ %40, %34 ]
-  ret float %.1
+  %28 = tail call noundef float %27(ptr noundef nonnull align 8 dereferenceable(40) %24, ptr noundef nonnull align 16 dereferenceable(240) %1, i1 noundef zeroext true)
+  ret float %28
 }
 
 ; Function Attrs: mustprogress uwtable

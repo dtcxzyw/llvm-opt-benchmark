@@ -1911,17 +1911,13 @@ define ptr @slurm_step_layout_host_name(ptr nocapture noundef readonly %0, i32 n
 
 slurm_step_layout_host_id.exit:                   ; preds = %20
   %24 = trunc nuw nsw i64 %indvars.iv30.i to i32
-  %25 = icmp slt i32 %24, 0
-  br i1 %25, label %slurm_step_layout_host_id.exit.thread, label %26
-
-26:                                               ; preds = %slurm_step_layout_host_id.exit
-  %27 = getelementptr inbounds i8, ptr %0, i64 48
-  %28 = load ptr, ptr %27, align 8
-  %29 = tail call ptr @nodelist_nth_host(ptr noundef %28, i32 noundef %24) #7
+  %25 = getelementptr inbounds i8, ptr %0, i64 48
+  %26 = load ptr, ptr %25, align 8
+  %27 = tail call ptr @nodelist_nth_host(ptr noundef %26, i32 noundef %24) #7
   br label %slurm_step_layout_host_id.exit.thread
 
-slurm_step_layout_host_id.exit.thread:            ; preds = %._crit_edge.i, %.preheader20.i, %2, %5, %8, %slurm_step_layout_host_id.exit, %26
-  %.0 = phi ptr [ %29, %26 ], [ null, %slurm_step_layout_host_id.exit ], [ null, %8 ], [ null, %5 ], [ null, %2 ], [ null, %.preheader20.i ], [ null, %._crit_edge.i ]
+slurm_step_layout_host_id.exit.thread:            ; preds = %._crit_edge.i, %.preheader20.i, %2, %5, %8, %slurm_step_layout_host_id.exit
+  %.0 = phi ptr [ %27, %slurm_step_layout_host_id.exit ], [ null, %8 ], [ null, %5 ], [ null, %2 ], [ null, %.preheader20.i ], [ null, %._crit_edge.i ]
   ret ptr %.0
 }
 

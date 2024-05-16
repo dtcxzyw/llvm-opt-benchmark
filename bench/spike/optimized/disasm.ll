@@ -30484,7 +30484,7 @@ define internal void @"_ZNK4$_589to_stringB5cxx11E6insn_t"(ptr dead_on_unwind no
   %.v = select i1 %.not, i64 2047, i64 1023
   %19 = and i64 %.v, %11
   %20 = trunc nuw nsw i64 %19 to i32
-  %.not9 = icmp ult i32 %20, 256
+  %.not9 = icmp ult i64 %19, 256
   %21 = getelementptr inbounds i8, ptr %4, i64 16
   br i1 %.not9, label %30, label %22
 

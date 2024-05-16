@@ -357,20 +357,19 @@ define internal range(i32 0, 3) i32 @read_set_decode_as_entries(ptr nocapture no
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %.preheader92, label %.thread
 
-.preheader92:                                     ; preds = %4, %17
-  %indvars.iv109 = phi i32 [ %indvars.iv.next110, %17 ], [ 0, %4 ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %17 ], [ 0, %4 ]
-  %.06495 = phi ptr [ %23, %17 ], [ %1, %4 ]
+.preheader92:                                     ; preds = %4, %16
+  %indvars.iv109 = phi i32 [ %indvars.iv.next110, %16 ], [ 0, %4 ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 0, %4 ]
+  %.06495 = phi ptr [ %22, %16 ], [ %1, %4 ]
   %9 = getelementptr [4 x i8], ptr @__const.read_set_decode_as_entries.delimiter, i64 0, i64 %indvars.iv
   %10 = load i8, ptr %9, align 1
   %11 = sext i8 %10 to i32
   %12 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.06495, i32 noundef %11) #16
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %.preheader, label %17
+  br i1 %13, label %.preheader, label %16
 
 .preheader:                                       ; preds = %.preheader92
-  %14 = and i64 %indvars.iv, 4294967295
-  %.not98 = icmp eq i64 %14, 0
+  %.not98 = icmp eq i64 %indvars.iv, 0
   br i1 %.not98, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
@@ -379,47 +378,47 @@ define internal range(i32 0, 3) i32 @read_set_decode_as_entries(ptr nocapture no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv106 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next107, %.lr.ph ]
-  %15 = getelementptr [4 x ptr], ptr %5, i64 0, i64 %indvars.iv106
-  %16 = load ptr, ptr %15, align 8
-  tail call void @g_free(ptr noundef %16) #14
+  %14 = getelementptr [4 x ptr], ptr %5, i64 0, i64 %indvars.iv106
+  %15 = load ptr, ptr %14, align 8
+  tail call void @g_free(ptr noundef %15) #14
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %exitcond112.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count
   br i1 %exitcond112.not, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
-17:                                               ; preds = %.preheader92
-  %18 = ptrtoint ptr %12 to i64
-  %19 = ptrtoint ptr %.06495 to i64
-  %20 = sub i64 %18, %19
-  %21 = tail call noalias ptr @g_strndup(ptr noundef %.06495, i64 noundef %20) #14
-  %22 = getelementptr [4 x ptr], ptr %5, i64 0, i64 %indvars.iv
-  store ptr %21, ptr %22, align 8
-  %23 = getelementptr i8, ptr %12, i64 1
+16:                                               ; preds = %.preheader92
+  %17 = ptrtoint ptr %12 to i64
+  %18 = ptrtoint ptr %.06495 to i64
+  %19 = sub i64 %17, %18
+  %20 = tail call noalias ptr @g_strndup(ptr noundef %.06495, i64 noundef %19) #14
+  %21 = getelementptr [4 x ptr], ptr %5, i64 0, i64 %indvars.iv
+  store ptr %20, ptr %21, align 8
+  %22 = getelementptr i8, ptr %12, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   %indvars.iv.next110 = add nuw nsw i32 %indvars.iv109, 1
-  br i1 %exitcond.not, label %24, label %.preheader92, !llvm.loop !7
+  br i1 %exitcond.not, label %23, label %.preheader92, !llvm.loop !7
 
-24:                                               ; preds = %17
-  %25 = load ptr, ptr %5, align 16
-  %26 = tail call ptr @find_dissector_table(ptr noundef %25) #14
-  %.not = icmp eq ptr %26, null
-  br i1 %.not, label %.thread, label %27
+23:                                               ; preds = %16
+  %24 = load ptr, ptr %5, align 16
+  %25 = tail call ptr @find_dissector_table(ptr noundef %24) #14
+  %.not = icmp eq ptr %25, null
+  br i1 %.not, label %.thread, label %26
 
-27:                                               ; preds = %24
-  %28 = tail call i32 @dissector_table_get_type(ptr noundef nonnull %26) #14
-  %29 = getelementptr inbounds i8, ptr %5, i64 24
-  %30 = load ptr, ptr %29, align 8
-  %31 = tail call ptr @dissector_table_get_dissector_handle(ptr noundef nonnull %26, ptr noundef %30) #14
-  %.not79 = icmp eq ptr %31, null
-  br i1 %.not79, label %32, label %.critedge
+26:                                               ; preds = %23
+  %27 = tail call i32 @dissector_table_get_type(ptr noundef nonnull %25) #14
+  %28 = getelementptr inbounds i8, ptr %5, i64 24
+  %29 = load ptr, ptr %28, align 8
+  %30 = tail call ptr @dissector_table_get_dissector_handle(ptr noundef nonnull %25, ptr noundef %29) #14
+  %.not79 = icmp eq ptr %30, null
+  br i1 %.not79, label %31, label %.critedge
 
-32:                                               ; preds = %27
-  %33 = tail call i32 @g_ascii_strcasecmp(ptr noundef %30, ptr noundef nonnull @.str.11) #14
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %.critedge, label %.thread
+31:                                               ; preds = %26
+  %32 = tail call i32 @g_ascii_strcasecmp(ptr noundef %29, ptr noundef nonnull @.str.11) #14
+  %33 = icmp eq i32 %32, 0
+  br i1 %33, label %.critedge, label %.thread
 
-.critedge:                                        ; preds = %32, %27
-  switch i32 %28, label %37 [
+.critedge:                                        ; preds = %31, %26
+  switch i32 %27, label %36 [
     i32 45, label %.thread86
     i32 43, label %.thread86
     i32 28, label %.thread86
@@ -428,131 +427,131 @@ define internal range(i32 0, 3) i32 @read_set_decode_as_entries(ptr nocapture no
   ]
 
 .thread86:                                        ; preds = %.critedge, %.critedge, %.critedge, %.critedge, %.critedge
-  %35 = getelementptr inbounds i8, ptr %5, i64 8
-  %36 = load ptr, ptr %35, align 8
-  tail call void @dissector_change_string(ptr noundef %25, ptr noundef %36, ptr noundef %31) #14
-  br label %68
-
-37:                                               ; preds = %.critedge
-  %38 = getelementptr inbounds i8, ptr %5, i64 8
-  %39 = load ptr, ptr %38, align 8
-  %40 = call i64 @strtol(ptr noundef %39, ptr noundef nonnull %6, i32 noundef 0) #14
-  %41 = load ptr, ptr %6, align 8
-  %42 = icmp eq ptr %41, %25
-  br i1 %42, label %49, label %43
-
-43:                                               ; preds = %37
-  %44 = load i8, ptr %41, align 1
-  %45 = icmp ne i8 %44, 0
-  %46 = icmp ugt i64 %40, 4294967295
-  %or.cond11 = select i1 %45, i1 true, i1 %46
-  br i1 %or.cond11, label %49, label %47
-
-47:                                               ; preds = %43
-  %48 = trunc nuw i64 %40 to i32
-  tail call void @dissector_change_uint(ptr noundef %25, i32 noundef %48, ptr noundef %31) #14
-  br label %49
-
-49:                                               ; preds = %37, %43, %47
-  %.not82 = phi i1 [ false, %47 ], [ true, %43 ], [ true, %37 ]
-  %.067 = phi i32 [ 0, %47 ], [ 1, %43 ], [ 1, %37 ]
-  br i1 %.not79, label %67, label %50
-
-50:                                               ; preds = %49
-  %51 = tail call i32 @dissector_handle_get_protocol_index(ptr noundef nonnull %31) #14
-  %52 = tail call ptr @proto_get_protocol_filter_name(i32 noundef %51) #14
-  %53 = tail call ptr @prefs_find_module(ptr noundef %52) #14
-  %54 = tail call ptr @prefs_find_preference(ptr noundef %53, ptr noundef %25) #14
-  %.not81 = icmp eq ptr %54, null
-  br i1 %.not81, label %67, label %55
-
-55:                                               ; preds = %50
-  %56 = tail call ptr @g_hash_table_lookup(ptr noundef %2, ptr noundef %52) #14
-  %57 = icmp eq ptr %56, null
-  br i1 %57, label %58, label %60
-
-58:                                               ; preds = %55
-  %59 = tail call i32 @g_hash_table_insert(ptr noundef %2, ptr noundef %52, ptr noundef %52) #14
-  br label %60
-
-60:                                               ; preds = %58, %55
-  %.0 = phi i32 [ 1, %58 ], [ 0, %55 ]
-  %61 = trunc i64 %40 to i32
-  %62 = tail call i32 @prefs_add_decode_as_value(ptr noundef nonnull %54, i32 noundef %61, i32 noundef %.0) #14
-  %63 = tail call i32 @prefs_get_effect_flags(ptr noundef nonnull %54) #14
-  %64 = getelementptr inbounds i8, ptr %53, i64 60
-  %65 = load i32, ptr %64, align 4
-  %66 = or i32 %65, %63
-  store i32 %66, ptr %64, align 4
+  %34 = getelementptr inbounds i8, ptr %5, i64 8
+  %35 = load ptr, ptr %34, align 8
+  tail call void @dissector_change_string(ptr noundef %24, ptr noundef %35, ptr noundef %30) #14
   br label %67
 
-67:                                               ; preds = %50, %60, %49
-  br i1 %.not82, label %.thread, label %68
+36:                                               ; preds = %.critedge
+  %37 = getelementptr inbounds i8, ptr %5, i64 8
+  %38 = load ptr, ptr %37, align 8
+  %39 = call i64 @strtol(ptr noundef %38, ptr noundef nonnull %6, i32 noundef 0) #14
+  %40 = load ptr, ptr %6, align 8
+  %41 = icmp eq ptr %40, %24
+  br i1 %41, label %48, label %42
 
-68:                                               ; preds = %.thread86, %67
-  %69 = phi ptr [ %36, %.thread86 ], [ %39, %67 ]
-  %.16890 = phi i32 [ 0, %.thread86 ], [ %.067, %67 ]
-  %70 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #17
-  %71 = tail call noalias ptr @g_strdup(ptr noundef %25) #14
-  store ptr %71, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %70, i64 8
-  store i32 %28, ptr %72, align 8
-  switch i32 %28, label %82 [
-    i32 4, label %73
-    i32 5, label %73
-    i32 6, label %73
-    i32 7, label %73
-    i32 0, label %77
-    i32 26, label %79
-    i32 27, label %79
-    i32 28, label %79
-    i32 43, label %79
-    i32 45, label %79
+42:                                               ; preds = %36
+  %43 = load i8, ptr %40, align 1
+  %44 = icmp ne i8 %43, 0
+  %45 = icmp ugt i64 %39, 4294967295
+  %or.cond11 = select i1 %44, i1 true, i1 %45
+  br i1 %or.cond11, label %48, label %46
+
+46:                                               ; preds = %42
+  %47 = trunc nuw i64 %39 to i32
+  tail call void @dissector_change_uint(ptr noundef %24, i32 noundef %47, ptr noundef %30) #14
+  br label %48
+
+48:                                               ; preds = %36, %42, %46
+  %.not82 = phi i1 [ false, %46 ], [ true, %42 ], [ true, %36 ]
+  %.067 = phi i32 [ 0, %46 ], [ 1, %42 ], [ 1, %36 ]
+  br i1 %.not79, label %66, label %49
+
+49:                                               ; preds = %48
+  %50 = tail call i32 @dissector_handle_get_protocol_index(ptr noundef nonnull %30) #14
+  %51 = tail call ptr @proto_get_protocol_filter_name(i32 noundef %50) #14
+  %52 = tail call ptr @prefs_find_module(ptr noundef %51) #14
+  %53 = tail call ptr @prefs_find_preference(ptr noundef %52, ptr noundef %24) #14
+  %.not81 = icmp eq ptr %53, null
+  br i1 %.not81, label %66, label %54
+
+54:                                               ; preds = %49
+  %55 = tail call ptr @g_hash_table_lookup(ptr noundef %2, ptr noundef %51) #14
+  %56 = icmp eq ptr %55, null
+  br i1 %56, label %57, label %59
+
+57:                                               ; preds = %54
+  %58 = tail call i32 @g_hash_table_insert(ptr noundef %2, ptr noundef %51, ptr noundef %51) #14
+  br label %59
+
+59:                                               ; preds = %57, %54
+  %.0 = phi i32 [ 1, %57 ], [ 0, %54 ]
+  %60 = trunc i64 %39 to i32
+  %61 = tail call i32 @prefs_add_decode_as_value(ptr noundef nonnull %53, i32 noundef %60, i32 noundef %.0) #14
+  %62 = tail call i32 @prefs_get_effect_flags(ptr noundef nonnull %53) #14
+  %63 = getelementptr inbounds i8, ptr %52, i64 60
+  %64 = load i32, ptr %63, align 4
+  %65 = or i32 %64, %62
+  store i32 %65, ptr %63, align 4
+  br label %66
+
+66:                                               ; preds = %49, %59, %48
+  br i1 %.not82, label %.thread, label %67
+
+67:                                               ; preds = %.thread86, %66
+  %68 = phi ptr [ %35, %.thread86 ], [ %38, %66 ]
+  %.16890 = phi i32 [ 0, %.thread86 ], [ %.067, %66 ]
+  %69 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #17
+  %70 = tail call noalias ptr @g_strdup(ptr noundef %24) #14
+  store ptr %70, ptr %69, align 8
+  %71 = getelementptr inbounds i8, ptr %69, i64 8
+  store i32 %27, ptr %71, align 8
+  switch i32 %27, label %81 [
+    i32 4, label %72
+    i32 5, label %72
+    i32 6, label %72
+    i32 7, label %72
+    i32 0, label %76
+    i32 26, label %78
+    i32 27, label %78
+    i32 28, label %78
+    i32 43, label %78
+    i32 45, label %78
   ]
 
-73:                                               ; preds = %68, %68, %68, %68
-  %74 = ptrtoint ptr %69 to i64
-  %75 = trunc i64 %74 to i32
-  %76 = getelementptr inbounds i8, ptr %70, i64 16
-  store i32 %75, ptr %76, align 8
+72:                                               ; preds = %67, %67, %67, %67
+  %73 = ptrtoint ptr %68 to i64
+  %74 = trunc i64 %73 to i32
+  %75 = getelementptr inbounds i8, ptr %69, i64 16
+  store i32 %74, ptr %75, align 8
   br label %decode_build_reset_list.exit
 
-77:                                               ; preds = %68
-  %78 = getelementptr inbounds i8, ptr %70, i64 16
-  store i32 0, ptr %78, align 8
+76:                                               ; preds = %67
+  %77 = getelementptr inbounds i8, ptr %69, i64 16
+  store i32 0, ptr %77, align 8
   br label %decode_build_reset_list.exit
 
-79:                                               ; preds = %68, %68, %68, %68, %68
-  %80 = tail call noalias ptr @g_strdup(ptr noundef %69) #14
-  %81 = getelementptr inbounds i8, ptr %70, i64 16
-  store ptr %80, ptr %81, align 8
+78:                                               ; preds = %67, %67, %67, %67, %67
+  %79 = tail call noalias ptr @g_strdup(ptr noundef %68) #14
+  %80 = getelementptr inbounds i8, ptr %69, i64 16
+  store ptr %79, ptr %80, align 8
   br label %decode_build_reset_list.exit
 
-82:                                               ; preds = %68
+81:                                               ; preds = %67
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 480, ptr noundef nonnull @__func__.decode_build_reset_list, ptr noundef nonnull @.str.8) #15
   unreachable
 
-decode_build_reset_list.exit:                     ; preds = %73, %77, %79
-  %83 = load ptr, ptr @dissector_reset_list, align 8
-  %84 = tail call ptr @g_slist_prepend(ptr noundef %83, ptr noundef nonnull %70) #14
-  store ptr %84, ptr @dissector_reset_list, align 8
+decode_build_reset_list.exit:                     ; preds = %72, %76, %78
+  %82 = load ptr, ptr @dissector_reset_list, align 8
+  %83 = tail call ptr @g_slist_prepend(ptr noundef %82, ptr noundef nonnull %69) #14
+  store ptr %83, ptr @dissector_reset_list, align 8
   br label %.thread
 
-.thread:                                          ; preds = %32, %4, %24, %decode_build_reset_list.exit, %67
-  %.2 = phi i32 [ %.16890, %decode_build_reset_list.exit ], [ %.067, %67 ], [ 1, %24 ], [ 2, %4 ], [ 0, %32 ]
-  br label %85
+.thread:                                          ; preds = %31, %4, %23, %decode_build_reset_list.exit, %66
+  %.2 = phi i32 [ %.16890, %decode_build_reset_list.exit ], [ %.067, %66 ], [ 1, %23 ], [ 2, %4 ], [ 0, %31 ]
+  br label %84
 
-85:                                               ; preds = %.thread, %85
-  %indvars.iv102 = phi i64 [ 0, %.thread ], [ %indvars.iv.next103, %85 ]
-  %86 = getelementptr [4 x ptr], ptr %5, i64 0, i64 %indvars.iv102
-  %87 = load ptr, ptr %86, align 8
-  tail call void @g_free(ptr noundef %87) #14
+84:                                               ; preds = %.thread, %84
+  %indvars.iv102 = phi i64 [ 0, %.thread ], [ %indvars.iv.next103, %84 ]
+  %85 = getelementptr [4 x ptr], ptr %5, i64 0, i64 %indvars.iv102
+  %86 = load ptr, ptr %85, align 8
+  tail call void @g_free(ptr noundef %86) #14
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %exitcond105.not = icmp eq i64 %indvars.iv.next103, 4
-  br i1 %exitcond105.not, label %.loopexit, label %85, !llvm.loop !8
+  br i1 %exitcond105.not, label %.loopexit, label %84, !llvm.loop !8
 
-.loopexit:                                        ; preds = %85, %.lr.ph, %.preheader
-  %.063 = phi i32 [ 1, %.preheader ], [ 1, %.lr.ph ], [ %.2, %85 ]
+.loopexit:                                        ; preds = %84, %.lr.ph, %.preheader
+  %.063 = phi i32 [ 1, %.preheader ], [ 1, %.lr.ph ], [ %.2, %84 ]
   ret i32 %.063
 }
 

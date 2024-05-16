@@ -193,8 +193,8 @@ entry:
   %delta.sroa.3.0.extract.shift = lshr i64 %0, 32
   %delta.sroa.3.0.extract.trunc = trunc nuw i64 %delta.sroa.3.0.extract.shift to i32
   %tobool.not.i = icmp eq i32 %delta.sroa.0.0.extract.trunc, 0
-  %tobool2.not.i = icmp eq i32 %delta.sroa.3.0.extract.trunc, 0
-  %1 = select i1 %tobool.not.i, i1 %tobool2.not.i, i1 false
+  %tobool2.not.i = icmp ult i64 %0, 4294967296
+  %1 = and i1 %tobool2.not.i, %tobool.not.i
   br i1 %1, label %do.end, label %if.end
 
 if.end:                                           ; preds = %entry

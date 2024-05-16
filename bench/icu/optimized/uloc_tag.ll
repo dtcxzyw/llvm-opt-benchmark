@@ -6297,7 +6297,7 @@ for.inc.i.i:                                      ; preds = %for.cond.i.i
 for.end.i.i:                                      ; preds = %for.cond.i.i, %for.cond.i.i
   %add.ptr.le.i.i = getelementptr inbounds i8, ptr %pTag.0271.i.i, i64 %indvars.iv.i.i
   %104 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  %cmp1.i.i.i = icmp eq i32 %104, 2
+  %cmp1.i.i.i = icmp eq i64 %indvars.iv.i.i, 2
   br i1 %cmp1.i.i.i, label %land.lhs.true.i.i.i, label %if.end.i78.i
 
 land.lhs.true.i.i.i:                              ; preds = %for.end.i.i
@@ -6718,7 +6718,7 @@ for.inc80.i.i:                                    ; preds = %for.cond69.i.i
 for.end82.i.i:                                    ; preds = %for.cond69.i.i, %for.cond69.i.i
   %add.ptr71.le.i.i = getelementptr inbounds i8, ptr %pTag.2282.i.i, i64 %indvars.iv300.i.i
   %151 = trunc nuw nsw i64 %indvars.iv300.i.i to i32
-  %cmp1.i128.i.i = icmp eq i32 %151, 2
+  %cmp1.i128.i.i = icmp eq i64 %indvars.iv300.i.i, 2
   br i1 %cmp1.i128.i.i, label %land.lhs.true.i131.i.i, label %if.else90.i.i
 
 land.lhs.true.i131.i.i:                           ; preds = %for.end82.i.i
@@ -7132,8 +7132,8 @@ _ZL19_addExtensionToListPP18ExtensionListEntryS0_a.exit199.i.i: ; preds = %if.en
   br i1 %cmp192.not.i.i, label %invoke.cont13.i, label %while.body193.i.i, !llvm.loop !55
 
 while.end196.sink.split.i.i:                      ; preds = %call.i.i229.noexc.i, %land.lhs.true.i221.i, %call156.i.noexc.i, %call147.i.noexc.i, %if.then137.i.i, %call126.i.noexc.i, %call116.i.noexc.i, %if.then107.i.i, %call176.i.noexc.thread300.i
-  %.sink332.i.i = phi i32 [ 7, %call176.i.noexc.thread300.i ], [ 1, %if.then107.i.i ], [ 1, %call116.i.noexc.i ], [ 7, %call126.i.noexc.i ], [ 1, %if.then137.i.i ], [ 1, %call147.i.noexc.i ], [ 7, %call156.i.noexc.i ], [ 7, %call.i.i229.noexc.i ], [ 7, %land.lhs.true.i221.i ]
-  store i32 %.sink332.i.i, ptr %status, align 4
+  %.sink333.i.i = phi i32 [ 7, %call176.i.noexc.thread300.i ], [ 1, %if.then107.i.i ], [ 1, %call116.i.noexc.i ], [ 7, %call126.i.noexc.i ], [ 1, %if.then137.i.i ], [ 1, %call147.i.noexc.i ], [ 7, %call156.i.noexc.i ], [ 7, %call.i.i229.noexc.i ], [ 7, %land.lhs.true.i221.i ]
+  store i32 %.sink333.i.i, ptr %status, align 4
   br label %invoke.cont13.i
 
 invoke.cont13.i:                                  ; preds = %if.end159.i.i, %if.end129.i.i, %_ZL19_addExtensionToListPP18ExtensionListEntryS0_a.exit199.i.i, %while.end196.sink.split.i.i, %if.end190.i.i, %_ZN6icu_7510MemoryPoolI18AttributeListEntryLi8EED2Ev.exit.i.i

@@ -1692,7 +1692,7 @@ sub_2.i.i:                                        ; preds = %sub_1.i.i
   %525 = sext i32 %.080181.i.i to i64
   %526 = getelementptr inbounds i32, ptr %523, i64 %525
   store i32 %520, ptr %526, align 4
-  %527 = icmp sgt i32 %520, 0
+  %527 = icmp sgt i64 %indvars.iv.i289.i, 0
   br i1 %527, label %.lr.ph.i298.i, label %.critedge2.i.i
 
 528:                                              ; preds = %.lr.ph.i298.i

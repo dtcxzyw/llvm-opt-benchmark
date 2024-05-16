@@ -450,14 +450,13 @@ is_printable.exit.thread:                         ; preds = %land.lhs.true
   br label %if.end
 
 if.end.i:                                         ; preds = %land.lhs.true
-  %conv.i = trunc nuw nsw i64 %value to i32
-  %1 = and i32 %conv.i, 95
-  %2 = add nsw i32 %1, -65
-  %or.cond12.i = icmp ult i32 %2, 26
-  %3 = add nsw i32 %conv.i, -48
-  %or.cond2.i = icmp ult i32 %3, 10
+  %1 = and i64 %value, 95
+  %2 = add nsw i64 %1, -65
+  %or.cond12.i = icmp ult i64 %2, 26
+  %3 = add nsw i64 %value, -48
+  %or.cond2.i = icmp ult i64 %3, 10
   %or.cond13.i = select i1 %or.cond12.i, i1 true, i1 %or.cond2.i
-  %cmp21.i = icmp eq i32 %conv.i, 32
+  %cmp21.i = icmp eq i64 %value, 32
   %or.cond14.i = or i1 %cmp21.i, %or.cond13.i
   br i1 %or.cond14.i, label %if.end, label %is_printable.exit
 

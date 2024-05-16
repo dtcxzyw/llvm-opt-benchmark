@@ -61,7 +61,7 @@ if.then.i:                                        ; preds = %if.end
   br label %progress_getnanotime.exit
 
 if.else.i:                                        ; preds = %if.end
-  %call.i = tail call i64 @getnanotime() #12
+  %call.i = tail call i64 @getnanotime() #11
   br label %progress_getnanotime.exit
 
 progress_getnanotime.exit:                        ; preds = %if.then.i, %if.else.i
@@ -70,7 +70,7 @@ progress_getnanotime.exit:                        ; preds = %if.then.i, %if.else
   br i1 %tobool1.not, label %if.then2, label %if.end5
 
 if.then2:                                         ; preds = %progress_getnanotime.exit
-  %call3 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 128) #12
+  %call3 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 128) #11
   store ptr %call3, ptr %throughput, align 8
   store i64 %total, ptr %call3, align 8
   %prev_total = getelementptr inbounds i8, ptr %call3, i64 8
@@ -78,7 +78,7 @@ if.then2:                                         ; preds = %progress_getnanotim
   %prev_ns = getelementptr inbounds i8, ptr %call3, i64 16
   store i64 %retval.0.i, ptr %prev_ns, align 8
   %display = getelementptr inbounds i8, ptr %call3, i64 104
-  tail call void @strbuf_init(ptr noundef nonnull %display, i64 noundef 0) #12
+  tail call void @strbuf_init(ptr noundef nonnull %display, i64 noundef 0) #11
   br label %if.end44
 
 if.end5:                                          ; preds = %progress_getnanotime.exit
@@ -141,12 +141,12 @@ if.then4.i.i:                                     ; preds = %if.end9
   br label %throughput_string.exit
 
 throughput_string.exit:                           ; preds = %if.end9, %if.then4.i.i
-  tail call void @strbuf_add(ptr noundef nonnull %display38, ptr noundef nonnull @.str.2, i64 noundef 2) #12
-  tail call void @strbuf_humanise_bytes(ptr noundef nonnull %display38, i64 noundef %total) #12
-  tail call void @strbuf_add(ptr noundef nonnull %display38, ptr noundef nonnull @.str.3, i64 noundef 3) #12
+  tail call void @strbuf_add(ptr noundef nonnull %display38, ptr noundef nonnull @.str.2, i64 noundef 2) #11
+  tail call void @strbuf_humanise_bytes(ptr noundef nonnull %display38, i64 noundef %total) #11
+  tail call void @strbuf_add(ptr noundef nonnull %display38, ptr noundef nonnull @.str.3, i64 noundef 3) #11
   %mul.i = shl i32 %div, 10
   %conv.i = zext i32 %mul.i to i64
-  tail call void @strbuf_humanise_rate(ptr noundef nonnull %display38, i64 noundef %conv.i) #12
+  tail call void @strbuf_humanise_rate(ptr noundef nonnull %display38, i64 noundef %conv.i) #11
   %last_value = getelementptr inbounds i8, ptr %progress, i64 8
   %14 = load i64, ptr %last_value, align 8
   %cmp39.not = icmp eq i64 %14, -1
@@ -240,7 +240,7 @@ if.then4.i:                                       ; preds = %if.then14
 
 strbuf_setlen.exit:                               ; preds = %if.then14, %if.then4.i
   %9 = phi i64 [ %5, %if.then14 ], [ %.pre, %if.then4.i ]
-  tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %counters_sb1, ptr noundef nonnull @.str.7, i32 noundef %conv10, i64 noundef %n, i64 noundef %9, ptr noundef %cond) #12
+  tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %counters_sb1, ptr noundef nonnull @.str.7, i32 noundef %conv10, i64 noundef %n, i64 noundef %9, ptr noundef %cond) #11
   br label %if.then23.critedge
 
 if.else:                                          ; preds = %cond.end
@@ -260,13 +260,13 @@ if.then4.i50:                                     ; preds = %if.then19
   br label %strbuf_setlen.exit51
 
 strbuf_setlen.exit51:                             ; preds = %if.then19, %if.then4.i50
-  tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %counters_sb1, ptr noundef nonnull @.str.8, i64 noundef %n, ptr noundef %cond) #12
+  tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %counters_sb1, ptr noundef nonnull @.str.8, i64 noundef %n, ptr noundef %cond) #11
   br label %if.then23.critedge
 
 if.then23.critedge:                               ; preds = %strbuf_setlen.exit51, %strbuf_setlen.exit
   %12 = load ptr, ptr @stderr, align 8
-  %call = tail call i32 @fileno(ptr noundef %12) #12
-  %call.i = tail call i32 @tcgetpgrp(i32 noundef %call) #12
+  %call = tail call i32 @fileno(ptr noundef %12) #11
+  %call.i = tail call i32 @tcgetpgrp(i32 noundef %call) #11
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %is_foreground_fd.exit.thread, label %is_foreground_fd.exit
 
@@ -275,7 +275,7 @@ is_foreground_fd.exit.thread:                     ; preds = %if.then23.critedge
   br label %if.then28
 
 is_foreground_fd.exit:                            ; preds = %if.then23.critedge
-  %call1.i = tail call i32 @getpgid(i32 noundef 0) #12
+  %call1.i = tail call i32 @getpgid(i32 noundef 0) #11
   %cmp2.i = icmp eq i32 %call.i, %call1.i
   %tobool27 = icmp ne ptr %done, null
   %or.cond = or i1 %tobool27, %cmp2.i
@@ -294,7 +294,7 @@ if.then28:                                        ; preds = %is_foreground_fd.ex
   %cond43 = select i1 %cmp36, i32 %15, i32 0
   %title_len = getelementptr inbounds i8, ptr %progress, i64 80
   %16 = load i32, ptr %title_len, align 8
-  %call48 = tail call i32 @term_columns() #12
+  %call48 = tail call i32 @term_columns() #11
   %split = getelementptr inbounds i8, ptr %progress, i64 84
   %17 = load i32, ptr %split, align 4
   %tobool49.not = icmp eq i32 %17, 0
@@ -304,7 +304,7 @@ if.then50:                                        ; preds = %if.then28
   %18 = load ptr, ptr @stderr, align 8
   %buf51 = getelementptr inbounds i8, ptr %progress, i64 72
   %19 = load ptr, ptr %buf51, align 8
-  %call53 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.10, ptr noundef %19, i32 noundef %cond43, ptr noundef nonnull %cond33) #13
+  %call53 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.10, ptr noundef %19, i32 noundef %cond43, ptr noundef nonnull %cond33) #12
   br label %if.end83
 
 if.else54:                                        ; preds = %if.then28
@@ -327,7 +327,7 @@ if.then60:                                        ; preds = %if.else54
   %23 = load ptr, ptr %progress, align 8
   %buf74 = getelementptr inbounds i8, ptr %progress, i64 72
   %24 = load ptr, ptr %buf74, align 8
-  %call75 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.11, ptr noundef %23, i32 noundef %cond71, ptr noundef nonnull @.str.6, ptr noundef %24, ptr noundef nonnull %cond33) #13
+  %call75 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.11, ptr noundef %23, i32 noundef %cond71, ptr noundef nonnull @.str.6, ptr noundef %24, ptr noundef nonnull %cond33) #12
   store i32 1, ptr %split, align 4
   br label %if.end83
 
@@ -336,7 +336,7 @@ if.else77:                                        ; preds = %if.else54
   %26 = load ptr, ptr %progress, align 8
   %buf79 = getelementptr inbounds i8, ptr %progress, i64 72
   %27 = load ptr, ptr %buf79, align 8
-  %call81 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.12, ptr noundef %26, ptr noundef %27, i32 noundef %cond43, ptr noundef nonnull %cond33) #13
+  %call81 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.12, ptr noundef %26, ptr noundef %27, i32 noundef %cond43, ptr noundef nonnull %cond33) #12
   br label %if.end83
 
 if.end83:                                         ; preds = %if.then60, %if.else77, %if.then50
@@ -374,7 +374,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %get_default_delay.exit
 
 if.then.i:                                        ; preds = %entry
-  %call.i = tail call i64 @git_env_ulong(ptr noundef nonnull @.str.14, i64 noundef 2) #12
+  %call.i = tail call i64 @git_env_ulong(ptr noundef nonnull @.str.14, i64 noundef 2) #11
   %conv.i = trunc i64 %call.i to i32
   store i32 %conv.i, ptr @get_default_delay.delay_in_secs, align 4
   br label %get_default_delay.exit
@@ -390,7 +390,7 @@ define internal fastcc noundef ptr @start_progress_delay(ptr noundef %title, i64
 entry:
   %sa.i = alloca %struct.sigaction, align 8
   %v.i = alloca %struct.itimerval, align 8
-  %call = tail call ptr @xmalloc(i64 noundef 88) #12
+  %call = tail call ptr @xmalloc(i64 noundef 88) #11
   store ptr %title, ptr %call, align 8
   %total2 = getelementptr inbounds i8, ptr %call, i64 16
   store i64 %total, ptr %total2, align 8
@@ -404,12 +404,12 @@ entry:
   store i32 %sparse, ptr %sparse4, align 8
   %throughput = getelementptr inbounds i8, ptr %call, i64 40
   store ptr null, ptr %throughput, align 8
-  %call5 = tail call i64 @getnanotime() #12
+  %call5 = tail call i64 @getnanotime() #11
   %start_ns = getelementptr inbounds i8, ptr %call, i64 48
   store i64 %call5, ptr %start_ns, align 8
   %counters_sb = getelementptr inbounds i8, ptr %call, i64 56
-  tail call void @strbuf_init(ptr noundef nonnull %counters_sb, i64 noundef 0) #12
-  %call6 = tail call i32 @utf8_strwidth(ptr noundef %title) #12
+  tail call void @strbuf_init(ptr noundef nonnull %counters_sb, i64 noundef 0) #11
+  %call6 = tail call i32 @utf8_strwidth(ptr noundef %title) #11
   %title_len = getelementptr inbounds i8, ptr %call, i64 80
   store i32 %call6, ptr %title_len, align 8
   %split = getelementptr inbounds i8, ptr %call, i64 84
@@ -425,23 +425,23 @@ if.end.i:                                         ; preds = %entry
   %1 = getelementptr inbounds i8, ptr %sa.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %1, i8 0, i64 144, i1 false)
   store ptr @progress_interval, ptr %sa.i, align 8
-  %call.i = call i32 @sigemptyset(ptr noundef nonnull %1) #12
+  %call.i = call i32 @sigemptyset(ptr noundef nonnull %1) #11
   %sa_flags.i = getelementptr inbounds i8, ptr %sa.i, i64 136
   store i32 268435456, ptr %sa_flags.i, align 8
-  %call1.i = call i32 @sigaction(i32 noundef 14, ptr noundef nonnull %sa.i, ptr noundef null) #12
+  %call1.i = call i32 @sigaction(i32 noundef 14, ptr noundef nonnull %sa.i, ptr noundef null) #11
   store i64 1, ptr %v.i, align 8
   %tv_usec.i = getelementptr inbounds i8, ptr %v.i, i64 8
   store i64 0, ptr %tv_usec.i, align 8
   %it_value.i = getelementptr inbounds i8, ptr %v.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it_value.i, ptr noundef nonnull align 8 dereferenceable(16) %v.i, i64 16, i1 false)
-  %call4.i = call i32 @setitimer(i32 noundef 0, ptr noundef nonnull %v.i, ptr noundef null) #12
+  %call4.i = call i32 @setitimer(i32 noundef 0, ptr noundef nonnull %v.i, ptr noundef null) #11
   br label %set_progress_signal.exit
 
 set_progress_signal.exit:                         ; preds = %entry, %if.end.i
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %sa.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %v.i)
   %2 = load ptr, ptr @the_repository, align 8
-  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_enter_fl(ptr noundef nonnull @.str, i32 noundef 270, ptr noundef nonnull @.str.13, ptr noundef %title, ptr noundef %2) #12
+  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_enter_fl(ptr noundef nonnull @.str, i32 noundef 270, ptr noundef nonnull @.str.13, ptr noundef %title, ptr noundef %2) #11
   ret ptr %call
 }
 
@@ -467,7 +467,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %get_default_delay.exit
 
 if.then.i:                                        ; preds = %entry
-  %call.i = tail call i64 @git_env_ulong(ptr noundef nonnull @.str.14, i64 noundef 2) #12
+  %call.i = tail call i64 @git_env_ulong(ptr noundef nonnull @.str.14, i64 noundef 2) #11
   %conv.i = trunc i64 %call.i to i32
   store i32 %conv.i, ptr @get_default_delay.delay_in_secs, align 4
   br label %get_default_delay.exit
@@ -486,7 +486,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str, i32 noundef 356, ptr noundef nonnull @.str.1) #14
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str, i32 noundef 356, ptr noundef nonnull @.str.1) #13
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -538,7 +538,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   br label %progress_getnanotime.exit.i
 
 if.else.i.i:                                      ; preds = %if.then.i
-  %call.i.i = tail call i64 @getnanotime() #12
+  %call.i.i = tail call i64 @getnanotime() #11
   %start_ns.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 48
   %.pre.i = load i64, ptr %start_ns.phi.trans.insert.i, align 8
   br label %progress_getnanotime.exit.i
@@ -549,10 +549,9 @@ progress_getnanotime.exit.i:                      ; preds = %if.else.i.i, %if.th
   %sub.i = sub i64 %retval.0.i.i, %9
   %mul.i = mul i64 %sub.i, 4398
   %shr.i = lshr i64 %mul.i, 32
-  %conv.i = trunc nuw i64 %shr.i to i32
   %10 = load i64, ptr %5, align 8
-  %cond.i = tail call i32 @llvm.umax.i32(i32 %conv.i, i32 1)
-  %conv2.i = zext i32 %cond.i to i64
+  %tobool1.not.i = icmp ult i64 %mul.i, 4294967296
+  %conv2.i = select i1 %tobool1.not.i, i64 1, i64 %shr.i
   %div.i = sdiv i64 %10, %conv2.i
   %display.i = getelementptr inbounds i8, ptr %5, i64 104
   %len2.i.i.i = getelementptr inbounds i8, ptr %5, i64 112
@@ -567,27 +566,27 @@ if.then4.i.i.i:                                   ; preds = %progress_getnanotim
   br label %throughput_string.exit.i
 
 throughput_string.exit.i:                         ; preds = %if.then4.i.i.i, %progress_getnanotime.exit.i
-  tail call void @strbuf_add(ptr noundef nonnull %display.i, ptr noundef nonnull @.str.2, i64 noundef 2) #12
-  tail call void @strbuf_humanise_bytes(ptr noundef nonnull %display.i, i64 noundef %10) #12
-  tail call void @strbuf_add(ptr noundef nonnull %display.i, ptr noundef nonnull @.str.3, i64 noundef 3) #12
+  tail call void @strbuf_add(ptr noundef nonnull %display.i, ptr noundef nonnull @.str.2, i64 noundef 2) #11
+  tail call void @strbuf_humanise_bytes(ptr noundef nonnull %display.i, i64 noundef %10) #11
+  tail call void @strbuf_add(ptr noundef nonnull %display.i, ptr noundef nonnull @.str.3, i64 noundef 3) #11
   %mul.i.i = shl i64 %div.i, 10
   %conv.i.i = and i64 %mul.i.i, 4294966272
-  tail call void @strbuf_humanise_rate(ptr noundef nonnull %display.i, i64 noundef %conv.i.i) #12
+  tail call void @strbuf_humanise_rate(ptr noundef nonnull %display.i, i64 noundef %conv.i.i) #11
   br label %force_last_update.exit
 
 force_last_update.exit:                           ; preds = %if.then4, %throughput_string.exit.i
   store volatile i32 1, ptr @progress_update, align 4
-  %call5.i = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.15, ptr noundef %msg) #12
+  %call5.i = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.15, ptr noundef %msg) #11
   %12 = load i64, ptr %last_value, align 8
   tail call fastcc void @display(ptr noundef nonnull %0, i64 noundef %12, ptr noundef %call5.i)
-  tail call void @free(ptr noundef %call5.i) #12
+  tail call void @free(ptr noundef %call5.i) #11
   br label %if.end5
 
 if.end5:                                          ; preds = %force_last_update.exit, %finish_if_sparse.exit
   %13 = load ptr, ptr @the_repository, align 8
   %total.i15 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load i64, ptr %total.i15, align 8
-  tail call void @trace2_data_intmax_fl(ptr noundef nonnull @.str, i32 noundef 342, ptr noundef nonnull @.str.13, ptr noundef %13, ptr noundef nonnull @.str.16, i64 noundef %14) #12
+  tail call void @trace2_data_intmax_fl(ptr noundef nonnull @.str, i32 noundef 342, ptr noundef nonnull @.str.13, ptr noundef %13, ptr noundef nonnull @.str.16, i64 noundef %14) #11
   %throughput.i16 = getelementptr inbounds i8, ptr %0, i64 40
   %15 = load ptr, ptr %throughput.i16, align 8
   %tobool.not.i17 = icmp eq ptr %15, null
@@ -596,13 +595,13 @@ if.end5:                                          ; preds = %force_last_update.e
 if.then.i18:                                      ; preds = %if.end5
   %16 = load ptr, ptr @the_repository, align 8
   %17 = load i64, ptr %15, align 8
-  tail call void @trace2_data_intmax_fl(ptr noundef nonnull @.str, i32 noundef 346, ptr noundef nonnull @.str.13, ptr noundef %16, ptr noundef nonnull @.str.17, i64 noundef %17) #12
+  tail call void @trace2_data_intmax_fl(ptr noundef nonnull @.str, i32 noundef 346, ptr noundef nonnull @.str.13, ptr noundef %16, ptr noundef nonnull @.str.17, i64 noundef %17) #11
   br label %log_trace2.exit
 
 log_trace2.exit:                                  ; preds = %if.end5, %if.then.i18
   %18 = load ptr, ptr %0, align 8
   %19 = load ptr, ptr @the_repository, align 8
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str, i32 noundef 348, ptr noundef nonnull @.str.13, ptr noundef %18, ptr noundef %19) #12
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str, i32 noundef 348, ptr noundef nonnull @.str.13, ptr noundef %18, ptr noundef %19) #11
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %v.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %v.i, i8 0, i64 32, i1 false)
   %20 = load i32, ptr @progress_testing, align 4
@@ -610,29 +609,29 @@ log_trace2.exit:                                  ; preds = %if.end5, %if.then.i
   br i1 %tobool.not.i19, label %if.end.i, label %clear_progress_signal.exit
 
 if.end.i:                                         ; preds = %log_trace2.exit
-  %call.i = call i32 @setitimer(i32 noundef 0, ptr noundef nonnull %v.i, ptr noundef null) #12
-  %call1.i = tail call ptr @signal(i32 noundef 14, ptr noundef nonnull inttoptr (i64 1 to ptr)) #12
+  %call.i = call i32 @setitimer(i32 noundef 0, ptr noundef nonnull %v.i, ptr noundef null) #11
+  %call1.i = tail call ptr @signal(i32 noundef 14, ptr noundef nonnull inttoptr (i64 1 to ptr)) #11
   store volatile i32 0, ptr @progress_update, align 4
   br label %clear_progress_signal.exit
 
 clear_progress_signal.exit:                       ; preds = %log_trace2.exit, %if.end.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %v.i)
   %counters_sb = getelementptr inbounds i8, ptr %0, i64 56
-  tail call void @strbuf_release(ptr noundef nonnull %counters_sb) #12
+  tail call void @strbuf_release(ptr noundef nonnull %counters_sb) #11
   %21 = load ptr, ptr %throughput.i16, align 8
   %tobool6.not = icmp eq ptr %21, null
   br i1 %tobool6.not, label %if.end9, label %if.then7
 
 if.then7:                                         ; preds = %clear_progress_signal.exit
   %display = getelementptr inbounds i8, ptr %21, i64 104
-  tail call void @strbuf_release(ptr noundef nonnull %display) #12
+  tail call void @strbuf_release(ptr noundef nonnull %display) #11
   %.pre = load ptr, ptr %throughput.i16, align 8
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then7, %clear_progress_signal.exit
   %22 = phi ptr [ %.pre, %if.then7 ], [ null, %clear_progress_signal.exit ]
-  tail call void @free(ptr noundef %22) #12
-  tail call void @free(ptr noundef nonnull %0) #12
+  tail call void @free(ptr noundef %22) #11
+  tail call void @free(ptr noundef nonnull %0) #11
   br label %return
 
 return:                                           ; preds = %if.end, %if.end9
@@ -713,14 +712,11 @@ declare void @trace2_region_leave_fl(ptr noundef, i32 noundef, ptr noundef, ptr 
 ; Function Attrs: nounwind
 declare ptr @signal(i32 noundef, ptr noundef) local_unnamed_addr #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #10
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
 
 attributes #0 = { nofree norecurse nounwind memory(readwrite, argmem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -732,11 +728,10 @@ attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nounwind }
-attributes #13 = { cold }
-attributes #14 = { noreturn nounwind }
+attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { nounwind }
+attributes #12 = { cold }
+attributes #13 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

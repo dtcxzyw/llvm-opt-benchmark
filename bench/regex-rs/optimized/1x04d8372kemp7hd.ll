@@ -13182,7 +13182,7 @@ thread-pre-split.i:                               ; preds = %5
 "_ZN107_$LT$regex_automata..util..alphabet..ByteSetRangeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a579f35be183a20E.exit.thread": ; preds = %.lr.ph.i.preheader, %"_ZN107_$LT$regex_automata..util..alphabet..ByteSetRangeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a579f35be183a20E.exit"
   %.sroa.4.0.i26 = phi i8 [ %.sroa.4.0.i, %"_ZN107_$LT$regex_automata..util..alphabet..ByteSetRangeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a579f35be183a20E.exit" ], [ %6, %.lr.ph.i.preheader ]
   %.sroa.4.325 = phi i64 [ %27, %"_ZN107_$LT$regex_automata..util..alphabet..ByteSetRangeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a579f35be183a20E.exit" ], [ %7, %.lr.ph.i.preheader ]
-  %.not.i3 = icmp eq i8 %6, 0
+  %.not.i3 = icmp eq i64 %.sroa.4.1, 0
   br i1 %.not.i3, label %_ZN14regex_automata4util8alphabet12ByteClassSet9set_range17h80899899759d6f5dE.exit, label %"_ZN107_$LT$regex_automata..util..alphabet..ByteSetRangeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a579f35be183a20E.exit.thread.thread"
 
 "_ZN107_$LT$regex_automata..util..alphabet..ByteSetRangeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a579f35be183a20E.exit.thread.thread": ; preds = %thread-pre-split.i, %"_ZN107_$LT$regex_automata..util..alphabet..ByteSetRangeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a579f35be183a20E.exit.thread"

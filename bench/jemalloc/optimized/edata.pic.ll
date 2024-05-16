@@ -453,7 +453,7 @@ if.end18.i:                                       ; preds = %if.then15.i, %if.en
   tail call void @llvm.assume(i1 %cmp.i.i110)
   %11 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %inc.i, i1 true)
   %12 = trunc nuw nsw i64 %11 to i32
-  %cmp24.i127 = icmp eq i32 %12, 0
+  %cmp24.i127 = icmp eq i64 %11, 0
   br i1 %cmp24.i127, label %ph_insert.exit, label %for.body.i.lr.ph
 
 for.body.i.lr.ph:                                 ; preds = %if.end18.i
@@ -2559,7 +2559,7 @@ if.end18.i:                                       ; preds = %if.then15.i, %if.en
   tail call void @llvm.assume(i1 %cmp.i.i116)
   %13 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %inc.i, i1 true)
   %14 = trunc nuw nsw i64 %13 to i32
-  %cmp24.i129 = icmp eq i32 %14, 0
+  %cmp24.i129 = icmp eq i64 %13, 0
   br i1 %cmp24.i129, label %ph_insert.exit, label %for.body.i.lr.ph
 
 for.body.i.lr.ph:                                 ; preds = %if.end18.i

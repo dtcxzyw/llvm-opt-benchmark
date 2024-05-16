@@ -39098,19 +39098,19 @@ zend_make_tmp_result.exit137:                     ; preds = %362, %373
   store i32 %378, ptr %376, align 8
   %379 = getelementptr inbounds i8, ptr %.2126, i64 8
   store i32 %377, ptr %379, align 8
-  %380 = zext i32 %.3 to i64
-  %381 = shl nuw nsw i64 %380, 3
-  %382 = add nuw nsw i64 %381, 15
-  %383 = lshr i64 %382, 4
-  %384 = trunc nuw i64 %383 to i32
-  %385 = icmp ugt i32 %384, 1
-  br i1 %385, label %.lr.ph160, label %.preheader
+  %380 = icmp ugt i32 %.3, 2
+  br i1 %380, label %.lr.ph160, label %.preheader
 
 .lr.ph160:                                        ; preds = %zend_make_tmp_result.exit137
+  %381 = zext i32 %.3 to i64
+  %382 = shl nuw nsw i64 %381, 3
+  %383 = add nuw nsw i64 %382, 15
+  %384 = lshr i64 %383, 4
+  %385 = trunc nuw i64 %384 to i32
   %386 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 4), align 8
   %387 = getelementptr inbounds i8, ptr %386, i64 72
   %.promoted = load i32, ptr %387, align 8
-  %388 = add i32 %.promoted, %384
+  %388 = add i32 %.promoted, %385
   %389 = add i32 %388, -1
   store i32 %389, ptr %387, align 8
   br label %.preheader

@@ -3023,11 +3023,11 @@ entry:
   %1 = load i32, ptr %fileSize, align 8
   %idx.ext = zext i32 %1 to i64
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %idx.ext
-  %cmp7681 = icmp ult i32 %1, 8
-  br i1 %cmp7681, label %while.end, label %if.end.lr.ph.lr.ph
+  %cmp7782 = icmp ult i32 %1, 8
+  br i1 %cmp7782, label %while.end, label %if.end.lr.ph.lr.ph
 
 if.end.lr.ph.lr.ph:                               ; preds = %entry
-  %add.ptr37580 = getelementptr inbounds i8, ptr %0, i64 8
+  %add.ptr37681 = getelementptr inbounds i8, ptr %0, i64 8
   %mIsLWO3163 = getelementptr inbounds i8, ptr %this, i64 74
   %mTags = getelementptr inbounds i8, ptr %this, i64 96
   %mCurLayer132 = getelementptr inbounds i8, ptr %this, i64 88
@@ -3049,20 +3049,20 @@ if.end.lr.ph.lr.ph:                               ; preds = %entry
   br label %if.end.lr.ph
 
 if.end.lr.ph:                                     ; preds = %if.end.lr.ph.lr.ph, %sw.epilog
-  %add.ptr37585 = phi ptr [ %add.ptr37580, %if.end.lr.ph.lr.ph ], [ %add.ptr375, %sw.epilog ]
-  %mFileBuffer.promoted84 = phi ptr [ %0, %if.end.lr.ph.lr.ph ], [ %add.ptr14, %sw.epilog ]
-  %skip.0.ph83 = phi i8 [ 0, %if.end.lr.ph.lr.ph ], [ %skip.3, %sw.epilog ]
-  %iUnnamed.0.ph82 = phi i32 [ 0, %if.end.lr.ph.lr.ph ], [ %iUnnamed.2, %sw.epilog ]
+  %add.ptr37686 = phi ptr [ %add.ptr37681, %if.end.lr.ph.lr.ph ], [ %add.ptr376, %sw.epilog ]
+  %mFileBuffer.promoted85 = phi ptr [ %0, %if.end.lr.ph.lr.ph ], [ %add.ptr14, %sw.epilog ]
+  %skip.0.ph84 = phi i8 [ 0, %if.end.lr.ph.lr.ph ], [ %skip.3, %sw.epilog ]
+  %iUnnamed.0.ph83 = phi i32 [ 0, %if.end.lr.ph.lr.ph ], [ %iUnnamed.2, %sw.epilog ]
   br label %if.end
 
 if.end:                                           ; preds = %if.end.lr.ph, %if.then26
-  %add.ptr378 = phi ptr [ %add.ptr37585, %if.end.lr.ph ], [ %add.ptr3, %if.then26 ]
-  %add.ptr1.i397377 = phi ptr [ %mFileBuffer.promoted84, %if.end.lr.ph ], [ %add.ptr14, %if.then26 ]
-  %2 = load i32, ptr %add.ptr1.i397377, align 1
-  %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr1.i397377, i64 4
+  %add.ptr379 = phi ptr [ %add.ptr37686, %if.end.lr.ph ], [ %add.ptr3, %if.then26 ]
+  %add.ptr1.i397478 = phi ptr [ %mFileBuffer.promoted85, %if.end.lr.ph ], [ %add.ptr14, %if.then26 ]
+  %2 = load i32, ptr %add.ptr1.i397478, align 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr1.i397478, i64 4
   store ptr %add.ptr.i, ptr %mFileBuffer, align 8
   %3 = load i32, ptr %add.ptr.i, align 1
-  store ptr %add.ptr378, ptr %mFileBuffer, align 8
+  store ptr %add.ptr379, ptr %mFileBuffer, align 8
   %4 = zext i32 %3 to i64
   %5 = zext i32 %2 to i64
   %6 = shl nuw i64 %5, 32
@@ -3075,7 +3075,7 @@ if.end:                                           ; preds = %if.end.lr.ph, %if.t
 if.then6:                                         ; preds = %if.end
   store ptr %add.ptr.i, ptr %mFileBuffer, align 8
   %8 = load i32, ptr %add.ptr.i, align 1
-  %add.ptr1.i39 = getelementptr inbounds i8, ptr %add.ptr1.i397377, i64 8
+  %add.ptr1.i39 = getelementptr inbounds i8, ptr %add.ptr1.i397478, i64 8
   store ptr %add.ptr1.i39, ptr %mFileBuffer, align 8
   %9 = load i32, ptr %add.ptr1.i39, align 1
   %10 = zext i32 %8 to i64
@@ -3087,12 +3087,12 @@ if.then6:                                         ; preds = %if.end
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then6, %if.end
-  %add.ptr1.i3974 = phi ptr [ %add.ptr1.i39, %if.then6 ], [ %add.ptr378, %if.end ]
+  %add.ptr1.i3975 = phi ptr [ %add.ptr1.i39, %if.then6 ], [ %add.ptr379, %if.end ]
   %bufOffset.0 = phi i64 [ 4, %if.then6 ], [ 0, %if.end ]
   %head.sroa.0.0 = phi i32 [ %head.sroa.0.0.extract.trunc14, %if.then6 ], [ %head.sroa.0.0.extract.trunc, %if.end ]
   %head.sroa.5.0.in.in = phi i64 [ %retval.sroa.0.0.insert.insert.i40, %if.then6 ], [ %retval.sroa.0.0.insert.insert.i, %if.end ]
   %head.sroa.5.0.in = lshr i64 %head.sroa.5.0.in.in, 32
-  %add.ptr14 = getelementptr inbounds i8, ptr %add.ptr1.i3974, i64 %head.sroa.5.0.in
+  %add.ptr14 = getelementptr inbounds i8, ptr %add.ptr1.i3975, i64 %head.sroa.5.0.in
   %cmp15 = icmp ugt ptr %add.ptr14, %add.ptr
   br i1 %cmp15, label %if.then16, label %if.end17
 
@@ -3112,10 +3112,9 @@ lpad:                                             ; preds = %if.then16
   br label %eh.resume
 
 if.end17:                                         ; preds = %if.end11
-  %head.sroa.5.0 = trunc nuw i64 %head.sroa.5.0.in to i32
-  %add.ptr24 = getelementptr inbounds i8, ptr %add.ptr1.i3974, i64 %bufOffset.0
+  %add.ptr24 = getelementptr inbounds i8, ptr %add.ptr1.i3975, i64 %bufOffset.0
   store ptr %add.ptr24, ptr %mFileBuffer, align 8
-  %tobool.not = icmp eq i32 %head.sroa.5.0, 0
+  %tobool.not = icmp ult i64 %head.sroa.5.0.in.in, 4294967296
   br i1 %tobool.not, label %if.then26, label %if.end28
 
 if.then26:                                        ; preds = %if.end17
@@ -3125,6 +3124,7 @@ if.then26:                                        ; preds = %if.end17
   br i1 %cmp, label %while.end, label %if.end, !llvm.loop !27
 
 if.end28:                                         ; preds = %if.end17
+  %head.sroa.5.0.le = trunc nuw i64 %head.sroa.5.0.in to i32
   switch i32 %head.sroa.0.0, label %sw.epilog [
     i32 1279351122, label %sw.bb
     i32 1347310675, label %sw.bb88
@@ -3179,7 +3179,7 @@ invoke.cont32:                                    ; preds = %call5.i.i.i.i.i.i.n
   %19 = load ptr, ptr %_M_prev.i.i, align 8
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %19, i64 16
   store ptr %_M_storage.i.i.i, ptr %mCurLayer132, align 8
-  %cmp36 = icmp ult i32 %head.sroa.5.0, 16
+  %cmp36 = icmp ult i64 %head.sroa.5.0.in.in, 68719476736
   br i1 %cmp36, label %if.then37, label %if.end41
 
 if.then37:                                        ; preds = %invoke.cont32
@@ -3257,19 +3257,19 @@ if.end48:                                         ; preds = %land.lhs.true, %if.
   %z = getelementptr inbounds i8, ptr %33, i64 336
   store i32 %f.2.insert.insert.i50, ptr %z, align 8
   %mName = getelementptr inbounds i8, ptr %19, i64 312
-  %sub60 = add i32 %head.sroa.5.0, -16
+  %sub60 = add i32 %head.sroa.5.0.le, -16
   call void @_ZN6Assimp11LWOImporter5GetS0ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj(ptr noundef nonnull align 8 dereferenceable(233) %this, ptr noundef nonnull align 8 dereferenceable(32) %mName, i32 noundef %sub60)
   %call62 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %mName) #23
   br i1 %call62, label %if.then63, label %if.end68
 
 if.then63:                                        ; preds = %if.end48
-  %inc = add i32 %iUnnamed.0.ph82, 1
-  %call64 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buffer, i64 noundef 128, ptr noundef nonnull @.str.92, i32 noundef %iUnnamed.0.ph82) #23
+  %inc = add i32 %iUnnamed.0.ph83, 1
+  %call64 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buffer, i64 noundef 128, ptr noundef nonnull @.str.92, i32 noundef %iUnnamed.0.ph83) #23
   %call67 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %mName, ptr noundef nonnull %buffer)
   br label %if.end68
 
 if.end68:                                         ; preds = %if.then63, %if.end48
-  %iUnnamed.1 = phi i32 [ %inc, %if.then63 ], [ %iUnnamed.0.ph82, %if.end48 ]
+  %iUnnamed.1 = phi i32 [ %inc, %if.then63 ], [ %iUnnamed.0.ph83, %if.end48 ]
   %call69 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %configLayerName) #23
   %tobool70.not = icmp eq i64 %call69, 0
   br i1 %tobool70.not, label %if.else76, label %land.lhs.true71
@@ -3318,7 +3318,7 @@ if.end85:                                         ; preds = %if.end77, %if.then8
   br label %sw.epilog
 
 sw.bb88:                                          ; preds = %if.end28
-  %tobool89 = trunc nuw i8 %skip.0.ph83 to i1
+  %tobool89 = trunc nuw i8 %skip.0.ph84 to i1
   br i1 %tobool89, label %sw.epilog, label %if.end91
 
 if.end91:                                         ; preds = %sw.bb88
@@ -3331,7 +3331,7 @@ if.end91:                                         ; preds = %sw.bb88
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 12
   %conv94 = trunc i64 %sub.ptr.div.i to i32
-  call void @_ZN6Assimp11LWOImporter13LoadLWOPointsEj(ptr noundef nonnull align 8 dereferenceable(233) %this, i32 noundef %head.sroa.5.0)
+  call void @_ZN6Assimp11LWOImporter13LoadLWOPointsEj(ptr noundef nonnull align 8 dereferenceable(233) %this, i32 noundef %head.sroa.5.0.le)
   %40 = load ptr, ptr %mCurLayer132, align 8
   %mPointIDXOfs = getelementptr inbounds i8, ptr %40, i64 284
   store i32 %conv94, ptr %mPointIDXOfs, align 4
@@ -3352,7 +3352,7 @@ if.then100:                                       ; preds = %sw.bb97
   br label %sw.epilog
 
 sw.bb103:                                         ; preds = %sw.bb97, %if.end28
-  %tobool104 = trunc nuw i8 %skip.0.ph83 to i1
+  %tobool104 = trunc nuw i8 %skip.0.ph84 to i1
   br i1 %tobool104, label %sw.epilog, label %if.end106
 
 if.end106:                                        ; preds = %sw.bb103
@@ -3370,11 +3370,11 @@ if.then110:                                       ; preds = %if.end106
 
 if.else112:                                       ; preds = %if.end106
   %cmp115 = icmp eq i32 %head.sroa.0.0, 1447903556
-  call void @_ZN6Assimp11LWOImporter17LoadLWO2VertexMapEjb(ptr noundef nonnull align 8 dereferenceable(233) %this, i32 noundef %head.sroa.5.0, i1 noundef zeroext %cmp115)
+  call void @_ZN6Assimp11LWOImporter17LoadLWO2VertexMapEjb(ptr noundef nonnull align 8 dereferenceable(233) %this, i32 noundef %head.sroa.5.0.le, i1 noundef zeroext %cmp115)
   br label %sw.epilog
 
 sw.bb117:                                         ; preds = %if.end28
-  %tobool118 = trunc nuw i8 %skip.0.ph83 to i1
+  %tobool118 = trunc nuw i8 %skip.0.ph84 to i1
   br i1 %tobool118, label %sw.epilog, label %if.end120
 
 if.end120:                                        ; preds = %sw.bb117
@@ -3388,14 +3388,14 @@ if.end120:                                        ; preds = %sw.bb117
   %sub.ptr.sub.i60 = sub i64 %sub.ptr.lhs.cast.i58, %sub.ptr.rhs.cast.i59
   %sub.ptr.div.i61 = lshr exact i64 %sub.ptr.sub.i60, 5
   %conv125 = trunc i64 %sub.ptr.div.i61 to i32
-  call void @_ZN6Assimp11LWOImporter16LoadLWO2PolygonsEj(ptr noundef nonnull align 8 dereferenceable(233) %this, i32 noundef %head.sroa.5.0)
+  call void @_ZN6Assimp11LWOImporter16LoadLWO2PolygonsEj(ptr noundef nonnull align 8 dereferenceable(233) %this, i32 noundef %head.sroa.5.0.le)
   %50 = load ptr, ptr %mCurLayer132, align 8
   %mFaceIDXOfs = getelementptr inbounds i8, ptr %50, i64 280
   store i32 %conv125, ptr %mFaceIDXOfs, align 8
   br label %sw.epilog
 
 sw.bb128:                                         ; preds = %if.end28
-  %tobool129 = trunc nuw i8 %skip.0.ph83 to i1
+  %tobool129 = trunc nuw i8 %skip.0.ph84 to i1
   br i1 %tobool129, label %sw.epilog, label %if.end131
 
 if.end131:                                        ; preds = %sw.bb128
@@ -3413,7 +3413,7 @@ if.then135:                                       ; preds = %if.end131
   br label %sw.epilog
 
 if.else137:                                       ; preds = %if.end131
-  call void @_ZN6Assimp11LWOImporter19LoadLWO2PolygonTagsEj(ptr noundef nonnull align 8 dereferenceable(233) %this, i32 noundef %head.sroa.5.0)
+  call void @_ZN6Assimp11LWOImporter19LoadLWO2PolygonTagsEj(ptr noundef nonnull align 8 dereferenceable(233) %this, i32 noundef %head.sroa.5.0.le)
   br label %sw.epilog
 
 sw.bb140:                                         ; preds = %if.end28
@@ -3430,7 +3430,7 @@ if.then142:                                       ; preds = %sw.bb140
   br label %sw.epilog
 
 if.else144:                                       ; preds = %sw.bb140
-  call void @_ZN6Assimp11LWOImporter11LoadLWOTagsEj(ptr noundef nonnull align 8 dereferenceable(233) %this, i32 noundef %head.sroa.5.0)
+  call void @_ZN6Assimp11LWOImporter11LoadLWOTagsEj(ptr noundef nonnull align 8 dereferenceable(233) %this, i32 noundef %head.sroa.5.0.le)
   br label %sw.epilog
 
 sw.bb147:                                         ; preds = %if.end28
@@ -3439,11 +3439,11 @@ sw.bb147:                                         ; preds = %if.end28
   br i1 %tobool148, label %if.then149, label %if.else151
 
 if.then149:                                       ; preds = %sw.bb147
-  call void @_ZN6Assimp11LWOImporter15LoadLWO3SurfaceEj(ptr noundef nonnull align 8 dereferenceable(233) %this, i32 noundef %head.sroa.5.0)
+  call void @_ZN6Assimp11LWOImporter15LoadLWO3SurfaceEj(ptr noundef nonnull align 8 dereferenceable(233) %this, i32 noundef %head.sroa.5.0.le)
   br label %sw.epilog
 
 if.else151:                                       ; preds = %sw.bb147
-  call void @_ZN6Assimp11LWOImporter15LoadLWO2SurfaceEj(ptr noundef nonnull align 8 dereferenceable(233) %this, i32 noundef %head.sroa.5.0)
+  call void @_ZN6Assimp11LWOImporter15LoadLWO2SurfaceEj(ptr noundef nonnull align 8 dereferenceable(233) %this, i32 noundef %head.sroa.5.0.le)
   br label %sw.epilog
 
 sw.bb154:                                         ; preds = %if.end28
@@ -3452,11 +3452,11 @@ sw.bb154:                                         ; preds = %if.end28
   br i1 %tobool156, label %if.then157, label %if.else159
 
 if.then157:                                       ; preds = %sw.bb154
-  call void @_ZN6Assimp11LWOImporter12LoadLWO3ClipEj(ptr noundef nonnull align 8 dereferenceable(233) %this, i32 noundef %head.sroa.5.0)
+  call void @_ZN6Assimp11LWOImporter12LoadLWO3ClipEj(ptr noundef nonnull align 8 dereferenceable(233) %this, i32 noundef %head.sroa.5.0.le)
   br label %sw.epilog
 
 if.else159:                                       ; preds = %sw.bb154
-  call void @_ZN6Assimp11LWOImporter12LoadLWO2ClipEj(ptr noundef nonnull align 8 dereferenceable(233) %this, i32 noundef %head.sroa.5.0)
+  call void @_ZN6Assimp11LWOImporter12LoadLWO2ClipEj(ptr noundef nonnull align 8 dereferenceable(233) %this, i32 noundef %head.sroa.5.0.le)
   br label %sw.epilog
 
 sw.bb162:                                         ; preds = %if.end28
@@ -3465,20 +3465,20 @@ sw.bb162:                                         ; preds = %if.end28
   br i1 %tobool164, label %if.then165, label %if.else167
 
 if.then165:                                       ; preds = %sw.bb162
-  call void @_ZN6Assimp11LWOImporter16LoadLWO3EnvelopeEj(ptr noundef nonnull align 8 dereferenceable(233) %this, i32 noundef %head.sroa.5.0)
+  call void @_ZN6Assimp11LWOImporter16LoadLWO3EnvelopeEj(ptr noundef nonnull align 8 dereferenceable(233) %this, i32 noundef %head.sroa.5.0.le)
   br label %sw.epilog
 
 if.else167:                                       ; preds = %sw.bb162
-  call void @_ZN6Assimp11LWOImporter16LoadLWO2EnvelopeEj(ptr noundef nonnull align 8 dereferenceable(233) %this, i32 noundef %head.sroa.5.0)
+  call void @_ZN6Assimp11LWOImporter16LoadLWO2EnvelopeEj(ptr noundef nonnull align 8 dereferenceable(233) %this, i32 noundef %head.sroa.5.0.le)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.then165, %if.else167, %if.then157, %if.else159, %if.then149, %if.else151, %if.then142, %if.else144, %if.then135, %if.else137, %sw.bb128, %sw.bb117, %if.then110, %if.else112, %sw.bb103, %sw.bb88, %if.end120, %if.then100, %if.end91, %if.end85, %if.end28
-  %iUnnamed.2 = phi i32 [ %iUnnamed.0.ph82, %if.end28 ], [ %iUnnamed.0.ph82, %if.then165 ], [ %iUnnamed.0.ph82, %if.else167 ], [ %iUnnamed.0.ph82, %if.then157 ], [ %iUnnamed.0.ph82, %if.else159 ], [ %iUnnamed.0.ph82, %if.then149 ], [ %iUnnamed.0.ph82, %if.else151 ], [ %iUnnamed.0.ph82, %if.else144 ], [ %iUnnamed.0.ph82, %if.then142 ], [ %iUnnamed.0.ph82, %sw.bb128 ], [ %iUnnamed.0.ph82, %if.then135 ], [ %iUnnamed.0.ph82, %if.else137 ], [ %iUnnamed.0.ph82, %sw.bb117 ], [ %iUnnamed.0.ph82, %if.end120 ], [ %iUnnamed.0.ph82, %sw.bb103 ], [ %iUnnamed.0.ph82, %if.then110 ], [ %iUnnamed.0.ph82, %if.else112 ], [ %iUnnamed.0.ph82, %if.then100 ], [ %iUnnamed.0.ph82, %sw.bb88 ], [ %iUnnamed.0.ph82, %if.end91 ], [ %iUnnamed.1, %if.end85 ]
-  %skip.3 = phi i8 [ %skip.0.ph83, %if.end28 ], [ %skip.0.ph83, %if.then165 ], [ %skip.0.ph83, %if.else167 ], [ %skip.0.ph83, %if.then157 ], [ %skip.0.ph83, %if.else159 ], [ %skip.0.ph83, %if.then149 ], [ %skip.0.ph83, %if.else151 ], [ %skip.0.ph83, %if.else144 ], [ %skip.0.ph83, %if.then142 ], [ %skip.0.ph83, %sw.bb128 ], [ %skip.0.ph83, %if.then135 ], [ %skip.0.ph83, %if.else137 ], [ %skip.0.ph83, %sw.bb117 ], [ %skip.0.ph83, %if.end120 ], [ %skip.0.ph83, %sw.bb103 ], [ %skip.0.ph83, %if.then110 ], [ %skip.0.ph83, %if.else112 ], [ %skip.0.ph83, %if.then100 ], [ %skip.0.ph83, %sw.bb88 ], [ %skip.0.ph83, %if.end91 ], [ %skip.2, %if.end85 ]
+  %iUnnamed.2 = phi i32 [ %iUnnamed.0.ph83, %if.end28 ], [ %iUnnamed.0.ph83, %if.then165 ], [ %iUnnamed.0.ph83, %if.else167 ], [ %iUnnamed.0.ph83, %if.then157 ], [ %iUnnamed.0.ph83, %if.else159 ], [ %iUnnamed.0.ph83, %if.then149 ], [ %iUnnamed.0.ph83, %if.else151 ], [ %iUnnamed.0.ph83, %if.else144 ], [ %iUnnamed.0.ph83, %if.then142 ], [ %iUnnamed.0.ph83, %sw.bb128 ], [ %iUnnamed.0.ph83, %if.then135 ], [ %iUnnamed.0.ph83, %if.else137 ], [ %iUnnamed.0.ph83, %sw.bb117 ], [ %iUnnamed.0.ph83, %if.end120 ], [ %iUnnamed.0.ph83, %sw.bb103 ], [ %iUnnamed.0.ph83, %if.then110 ], [ %iUnnamed.0.ph83, %if.else112 ], [ %iUnnamed.0.ph83, %if.then100 ], [ %iUnnamed.0.ph83, %sw.bb88 ], [ %iUnnamed.0.ph83, %if.end91 ], [ %iUnnamed.1, %if.end85 ]
+  %skip.3 = phi i8 [ %skip.0.ph84, %if.end28 ], [ %skip.0.ph84, %if.then165 ], [ %skip.0.ph84, %if.else167 ], [ %skip.0.ph84, %if.then157 ], [ %skip.0.ph84, %if.else159 ], [ %skip.0.ph84, %if.then149 ], [ %skip.0.ph84, %if.else151 ], [ %skip.0.ph84, %if.else144 ], [ %skip.0.ph84, %if.then142 ], [ %skip.0.ph84, %sw.bb128 ], [ %skip.0.ph84, %if.then135 ], [ %skip.0.ph84, %if.else137 ], [ %skip.0.ph84, %sw.bb117 ], [ %skip.0.ph84, %if.end120 ], [ %skip.0.ph84, %sw.bb103 ], [ %skip.0.ph84, %if.then110 ], [ %skip.0.ph84, %if.else112 ], [ %skip.0.ph84, %if.then100 ], [ %skip.0.ph84, %sw.bb88 ], [ %skip.0.ph84, %if.end91 ], [ %skip.2, %if.end85 ]
   store ptr %add.ptr14, ptr %mFileBuffer, align 8
-  %add.ptr375 = getelementptr inbounds i8, ptr %add.ptr14, i64 8
-  %cmp76 = icmp ugt ptr %add.ptr375, %add.ptr
-  br i1 %cmp76, label %while.end, label %if.end.lr.ph, !llvm.loop !27
+  %add.ptr376 = getelementptr inbounds i8, ptr %add.ptr14, i64 8
+  %cmp77 = icmp ugt ptr %add.ptr376, %add.ptr
+  br i1 %cmp77, label %while.end, label %if.end.lr.ph, !llvm.loop !27
 
 while.end:                                        ; preds = %sw.epilog, %if.then26, %entry
   ret void
@@ -9592,7 +9592,7 @@ _ZNSt6vectorIN6Assimp3LWO4ClipESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit: ; pred
   ]
 
 sw.bb:                                            ; preds = %_ZNSt6vectorIN6Assimp3LWO4ClipESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit
-  %cmp7 = icmp eq i32 %head.sroa.2.0.extract.trunc, 0
+  %cmp7 = icmp ult i64 %retval.sroa.0.0.insert.insert.i, 4294967296
   br i1 %cmp7, label %if.then8, label %if.end12
 
 if.then8:                                         ; preds = %sw.bb
@@ -9617,7 +9617,7 @@ if.end12:                                         ; preds = %sw.bb
   br label %sw.epilog
 
 sw.bb15:                                          ; preds = %_ZNSt6vectorIN6Assimp3LWO4ClipESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit
-  %cmp17 = icmp ult i32 %head.sroa.2.0.extract.trunc, 16
+  %cmp17 = icmp ult i64 %retval.sroa.0.0.insert.insert.i, 68719476736
   br i1 %cmp17, label %if.then18, label %if.end22
 
 if.then18:                                        ; preds = %sw.bb15
@@ -9726,7 +9726,7 @@ sw.bb61:                                          ; preds = %_ZNSt6vectorIN6Assi
   br label %sw.epilog
 
 sw.bb63:                                          ; preds = %_ZNSt6vectorIN6Assimp3LWO4ClipESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit
-  %cmp65 = icmp ult i32 %head.sroa.2.0.extract.trunc, 4
+  %cmp65 = icmp ult i64 %retval.sroa.0.0.insert.insert.i, 17179869184
   br i1 %cmp65, label %if.then66, label %if.end71
 
 if.then66:                                        ; preds = %sw.bb63
@@ -9756,7 +9756,7 @@ if.end71:                                         ; preds = %sw.bb63
   br label %sw.epilog
 
 sw.bb74:                                          ; preds = %_ZNSt6vectorIN6Assimp3LWO4ClipESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit
-  %cmp76 = icmp ult i32 %head.sroa.2.0.extract.trunc, 2
+  %cmp76 = icmp ult i64 %retval.sroa.0.0.insert.insert.i, 8589934592
   br i1 %cmp76, label %if.then77, label %if.end82
 
 if.then77:                                        ; preds = %sw.bb74
@@ -10312,7 +10312,6 @@ if.end10:                                         ; preds = %if.end10.lr.ph, %sw
   %18 = or disjoint i64 %17, %15
   %retval.sroa.0.0.insert.insert.i = tail call i64 @llvm.bswap.i64(i64 %18)
   %head.sroa.2.0.extract.shift = lshr i64 %retval.sroa.0.0.insert.insert.i, 32
-  %head.sroa.2.0.extract.trunc = trunc nuw i64 %head.sroa.2.0.extract.shift to i32
   %add.ptr16 = getelementptr inbounds i8, ptr %add.ptr754, i64 %head.sroa.2.0.extract.shift
   %cmp17 = icmp ugt ptr %add.ptr16, %add.ptr
   br i1 %cmp17, label %if.then18, label %if.end22
@@ -10342,7 +10341,7 @@ if.end22:                                         ; preds = %if.end10
   ]
 
 sw.bb:                                            ; preds = %if.end22
-  %cmp28 = icmp ult i32 %head.sroa.2.0.extract.trunc, 4
+  %cmp28 = icmp ult i64 %retval.sroa.0.0.insert.insert.i, 17179869184
   br i1 %cmp28, label %if.then29, label %if.end33
 
 if.then29:                                        ; preds = %sw.bb
@@ -10371,7 +10370,7 @@ if.end33:                                         ; preds = %sw.bb
   br label %sw.epilog105
 
 sw.bb39:                                          ; preds = %if.end22
-  %cmp41 = icmp ult i32 %head.sroa.2.0.extract.trunc, 4
+  %cmp41 = icmp ult i64 %retval.sroa.0.0.insert.insert.i, 17179869184
   br i1 %cmp41, label %if.then42, label %if.end46
 
 if.then42:                                        ; preds = %sw.bb39
@@ -10398,7 +10397,7 @@ if.end46:                                         ; preds = %sw.bb39
   br label %sw.epilog105
 
 sw.bb49:                                          ; preds = %if.end22
-  %cmp51 = icmp ult i32 %head.sroa.2.0.extract.trunc, 4
+  %cmp51 = icmp ult i64 %retval.sroa.0.0.insert.insert.i, 17179869184
   br i1 %cmp51, label %if.then52, label %if.end56
 
 if.then52:                                        ; preds = %sw.bb49
@@ -10425,7 +10424,7 @@ if.end56:                                         ; preds = %sw.bb49
   br label %sw.epilog105
 
 sw.bb59:                                          ; preds = %if.end22
-  %cmp61 = icmp ult i32 %head.sroa.2.0.extract.trunc, 10
+  %cmp61 = icmp ult i64 %retval.sroa.0.0.insert.insert.i, 42949672960
   br i1 %cmp61, label %if.then62, label %if.end66
 
 if.then62:                                        ; preds = %sw.bb59
@@ -10487,7 +10486,7 @@ _ZNSt6vectorIN6Assimp3LWO3KeyESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit: ; preds
   br label %sw.epilog105
 
 sw.bb73:                                          ; preds = %if.end22
-  %cmp75 = icmp ult i32 %head.sroa.2.0.extract.trunc, 6
+  %cmp75 = icmp ult i64 %retval.sroa.0.0.insert.insert.i, 25769803776
   br i1 %cmp75, label %if.then76, label %if.end80
 
 if.then76:                                        ; preds = %sw.bb73

@@ -13170,7 +13170,7 @@ default.unreachable487:                           ; preds = %159, %114
 
 138:                                              ; preds = %136
   %139 = add i32 %69, 1
-  %.not120 = icmp eq i32 %69, -1
+  %.not120 = icmp eq i64 %67, 4294967295
   br i1 %.not120, label %140, label %142
 
 140:                                              ; preds = %138

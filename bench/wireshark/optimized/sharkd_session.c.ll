@@ -2647,7 +2647,7 @@ json_find_attr.exit.thread.thread63.i:            ; preds = %126
 
 json_find_attr.exit.thread.i:                     ; preds = %json_find_attr.exit.us.i, %101
   call void @col_setup(ptr noundef nonnull %15, i32 noundef %94) #17
-  %.not.i113 = icmp eq i32 %94, 0
+  %.not.i113 = icmp eq i64 %indvars.iv.i112, 0
   br i1 %.not.i113, label %sharkd_session_create_columns.exit, label %.lr.ph.i114
 
 .lr.ph.i114:                                      ; preds = %json_find_attr.exit.thread.i, %json_find_attr.exit.thread.thread63.i

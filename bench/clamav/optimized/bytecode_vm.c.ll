@@ -19447,7 +19447,7 @@ ptr_register_stack.exit11926:                     ; preds = %._crit_edge12286, %
   %9235 = lshr i64 %.04582, 32
   %9236 = trunc nuw i64 %9235 to i32
   %9237 = trunc i64 %.04582 to i32
-  %.not.i11927 = icmp eq i32 %9236, 0
+  %.not.i11927 = icmp ult i64 %.04582, 4294967296
   br i1 %.not.i11927, label %.thread12148, label %9238
 
 9238:                                             ; preds = %9232
@@ -19826,7 +19826,7 @@ ptr_torealptr.exit._crit_edge:                    ; preds = %ptr_torealptr.exit
   %9411 = lshr i64 %.04566, 32
   %9412 = trunc nuw i64 %9411 to i32
   %9413 = trunc i64 %.04566 to i32
-  %.not.i11929 = icmp eq i32 %9412, 0
+  %.not.i11929 = icmp ult i64 %.04566, 4294967296
   br i1 %.not.i11929, label %.thread12148, label %9414
 
 9414:                                             ; preds = %9408
@@ -19957,7 +19957,7 @@ ptr_torealptr.exit11937:                          ; preds = %9430
   %9475 = lshr i64 %.04561, 32
   %9476 = trunc nuw i64 %9475 to i32
   %9477 = trunc i64 %.04561 to i32
-  %.not.i11938 = icmp eq i32 %9476, 0
+  %.not.i11938 = icmp ult i64 %.04561, 4294967296
   br i1 %.not.i11938, label %.thread12148, label %9478
 
 9478:                                             ; preds = %9472
@@ -20087,7 +20087,7 @@ ptr_torealptr.exit11946:                          ; preds = %9494
   %9538 = lshr i64 %.04556, 32
   %9539 = trunc nuw i64 %9538 to i32
   %9540 = trunc i64 %.04556 to i32
-  %.not.i11947 = icmp eq i32 %9539, 0
+  %.not.i11947 = icmp ult i64 %.04556, 4294967296
   br i1 %.not.i11947, label %.thread12148, label %9541
 
 9541:                                             ; preds = %9535
@@ -20227,7 +20227,7 @@ ptr_torealptr.exit11955:                          ; preds = %9557
   %9605 = lshr i64 %.04551, 32
   %9606 = trunc nuw i64 %9605 to i32
   %9607 = trunc i64 %.04551 to i32
-  %.not.i11956 = icmp eq i32 %9606, 0
+  %.not.i11956 = icmp ult i64 %.04551, 4294967296
   br i1 %.not.i11956, label %.thread12148, label %9608
 
 9608:                                             ; preds = %9602
@@ -20367,7 +20367,7 @@ ptr_torealptr.exit11964:                          ; preds = %9624
   %9672 = lshr i64 %.04546, 32
   %9673 = trunc nuw i64 %9672 to i32
   %9674 = trunc i64 %.04546 to i32
-  %.not.i11965 = icmp eq i32 %9673, 0
+  %.not.i11965 = icmp ult i64 %.04546, 4294967296
   br i1 %.not.i11965, label %.thread12148, label %9675
 
 9675:                                             ; preds = %9669
@@ -20726,7 +20726,7 @@ ptr_torealptr.exit11973:                          ; preds = %9691
   %9848 = lshr i64 %.04531, 32
   %9849 = trunc nuw i64 %9848 to i32
   %9850 = trunc i64 %.04531 to i32
-  %.not.i11974 = icmp eq i32 %9849, 0
+  %.not.i11974 = icmp ult i64 %.04531, 4294967296
   br i1 %.not.i11974, label %.thread12148, label %9851
 
 9851:                                             ; preds = %9845
@@ -20837,7 +20837,7 @@ ptr_torealptr.exit11982:                          ; preds = %9867
   %9904 = lshr i64 %.04527, 32
   %9905 = trunc nuw i64 %9904 to i32
   %9906 = trunc i64 %.04527 to i32
-  %.not.i11983 = icmp eq i32 %9905, 0
+  %.not.i11983 = icmp ult i64 %.04527, 4294967296
   br i1 %.not.i11983, label %.thread12148, label %9907
 
 9907:                                             ; preds = %9901
@@ -21015,7 +21015,7 @@ ptr_torealptr.exit11991._crit_edge:               ; preds = %ptr_torealptr.exit1
   %9990 = lshr i64 %.04516, 32
   %9991 = trunc nuw i64 %9990 to i32
   %9992 = trunc i64 %.04516 to i32
-  %.not.i11992 = icmp eq i32 %9991, 0
+  %.not.i11992 = icmp ult i64 %.04516, 4294967296
   br i1 %.not.i11992, label %.thread12148, label %9993
 
 9993:                                             ; preds = %9987
@@ -21126,7 +21126,7 @@ ptr_torealptr.exit12000:                          ; preds = %10009
   %10046 = lshr i64 %.04510, 32
   %10047 = trunc nuw i64 %10046 to i32
   %10048 = trunc i64 %.04510 to i32
-  %.not.i12001 = icmp eq i32 %10047, 0
+  %.not.i12001 = icmp ult i64 %.04510, 4294967296
   br i1 %.not.i12001, label %.thread12148, label %10049
 
 10049:                                            ; preds = %10043
@@ -21286,7 +21286,7 @@ ptr_torealptr.exit12009:                          ; preds = %10065
   %10124 = lshr i64 %.04503, 32
   %10125 = trunc nuw i64 %10124 to i32
   %10126 = trunc i64 %.04503 to i32
-  %.not.i12010 = icmp eq i32 %10125, 0
+  %.not.i12010 = icmp ult i64 %.04503, 4294967296
   br i1 %.not.i12010, label %.thread12148, label %10127
 
 10127:                                            ; preds = %10120
@@ -21398,7 +21398,7 @@ ptr_torealptr.exit12018:                          ; preds = %10143
   %10181 = lshr i64 %.04500, 32
   %10182 = trunc nuw i64 %10181 to i32
   %10183 = trunc i64 %.04500 to i32
-  %.not.i12019 = icmp eq i32 %10182, 0
+  %.not.i12019 = icmp ult i64 %.04500, 4294967296
   br i1 %.not.i12019, label %.thread12148, label %10184
 
 10184:                                            ; preds = %10177
@@ -21559,7 +21559,7 @@ ptr_torealptr.exit12027:                          ; preds = %10200
   %10259 = lshr i64 %.04496, 32
   %10260 = trunc nuw i64 %10259 to i32
   %10261 = trunc i64 %.04496 to i32
-  %.not.i12028 = icmp eq i32 %10260, 0
+  %.not.i12028 = icmp ult i64 %.04496, 4294967296
   br i1 %.not.i12028, label %.thread12148, label %10262
 
 10262:                                            ; preds = %10255
@@ -22438,7 +22438,7 @@ define internal fastcc ptr @ptr_torealptr(ptr nocapture noundef readonly %0, i64
   %4 = lshr i64 %1, 32
   %5 = trunc nuw i64 %4 to i32
   %6 = trunc i64 %1 to i32
-  %.not = icmp eq i32 %5, 0
+  %.not = icmp ult i64 %1, 4294967296
   br i1 %.not, label %.critedge, label %7
 
 7:                                                ; preds = %3

@@ -916,7 +916,7 @@ define internal i32 @__mpage_writepage(ptr noundef %0, ptr noundef %1, ptr nocap
   %98 = ashr i64 %97, %12
   %99 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %0, ptr %99, align 8
-  %100 = icmp eq i32 %14, 0
+  %100 = icmp ugt i8 %10, 12
   br i1 %100, label %.thread27, label %101
 
 101:                                              ; preds = %96

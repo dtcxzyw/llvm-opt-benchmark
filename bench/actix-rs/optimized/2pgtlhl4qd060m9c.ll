@@ -2532,7 +2532,7 @@ define hidden void @_ZN4time10formatting11formattable6sealed6Sealed6format17h4b8
   tail call void @llvm.assume(i1 %41)
   %42 = icmp slt i8 %.sroa.10.0.extract.trunc.i, 60
   tail call void @llvm.assume(i1 %42)
-  %43 = icmp eq i8 %.sroa.10.0.extract.trunc.i, 0
+  %43 = icmp ult i32 %4, 16777216
   br i1 %43, label %44, label %213
 
 44:                                               ; preds = %40

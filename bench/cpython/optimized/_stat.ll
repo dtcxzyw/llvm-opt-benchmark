@@ -129,7 +129,7 @@ if.then5.i:                                       ; preds = %if.end.i, %land.lhs
 
 _PyLong_AsMode_t.exit:                            ; preds = %if.end.i
   %conv.i = trunc nuw i64 %call.i to i32
-  %cmp = icmp eq i32 %conv.i, -1
+  %cmp = icmp eq i64 %call.i, 4294967295
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %land.lhs.true.i, %if.then5.i, %_PyLong_AsMode_t.exit
@@ -173,7 +173,7 @@ if.then5.i:                                       ; preds = %if.end.i, %land.lhs
 
 _PyLong_AsMode_t.exit:                            ; preds = %if.end.i
   %conv.i = trunc nuw i64 %call.i to i32
-  %cmp = icmp eq i32 %conv.i, -1
+  %cmp = icmp eq i64 %call.i, 4294967295
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %land.lhs.true.i, %if.then5.i, %_PyLong_AsMode_t.exit
@@ -217,7 +217,7 @@ if.then5.i:                                       ; preds = %if.end.i, %land.lhs
 
 _PyLong_AsMode_t.exit:                            ; preds = %if.end.i
   %conv.i = trunc nuw i64 %call.i to i32
-  %cmp = icmp eq i32 %conv.i, -1
+  %cmp = icmp eq i64 %call.i, 4294967295
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %land.lhs.true.i, %if.then5.i, %_PyLong_AsMode_t.exit
@@ -261,7 +261,7 @@ if.then5.i:                                       ; preds = %if.end.i, %land.lhs
 
 _PyLong_AsMode_t.exit:                            ; preds = %if.end.i
   %conv.i = trunc nuw i64 %call.i to i32
-  %cmp = icmp eq i32 %conv.i, -1
+  %cmp = icmp eq i64 %call.i, 4294967295
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %land.lhs.true.i, %if.then5.i, %_PyLong_AsMode_t.exit
@@ -305,7 +305,7 @@ if.then5.i:                                       ; preds = %if.end.i, %land.lhs
 
 _PyLong_AsMode_t.exit:                            ; preds = %if.end.i
   %conv.i = trunc nuw i64 %call.i to i32
-  %cmp = icmp eq i32 %conv.i, -1
+  %cmp = icmp eq i64 %call.i, 4294967295
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %land.lhs.true.i, %if.then5.i, %_PyLong_AsMode_t.exit
@@ -349,7 +349,7 @@ if.then5.i:                                       ; preds = %if.end.i, %land.lhs
 
 _PyLong_AsMode_t.exit:                            ; preds = %if.end.i
   %conv.i = trunc nuw i64 %call.i to i32
-  %cmp = icmp eq i32 %conv.i, -1
+  %cmp = icmp eq i64 %call.i, 4294967295
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %land.lhs.true.i, %if.then5.i, %_PyLong_AsMode_t.exit
@@ -393,7 +393,7 @@ if.then5.i:                                       ; preds = %if.end.i, %land.lhs
 
 _PyLong_AsMode_t.exit:                            ; preds = %if.end.i
   %conv.i = trunc nuw i64 %call.i to i32
-  %cmp = icmp eq i32 %conv.i, -1
+  %cmp = icmp eq i64 %call.i, 4294967295
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %land.lhs.true.i, %if.then5.i, %_PyLong_AsMode_t.exit
@@ -637,7 +637,7 @@ if.then5.i:                                       ; preds = %if.end.i, %land.lhs
 
 _PyLong_AsMode_t.exit:                            ; preds = %if.end.i
   %conv.i = trunc nuw i64 %call.i to i32
-  %cmp = icmp eq i32 %conv.i, -1
+  %cmp = icmp eq i64 %call.i, 4294967295
   br i1 %cmp, label %land.lhs.true, label %entry.split
 
 entry.split:                                      ; preds = %_PyLong_AsMode_t.exit

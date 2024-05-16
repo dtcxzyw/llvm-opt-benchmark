@@ -299,7 +299,7 @@ define hidden range(i32 -1, 2) i32 @nstrace_open(ptr noundef %0, ptr noundef %1,
   br label %114
 
 114:                                              ; preds = %nstrace_read_page.exit.i.i, %105
-  %.046.i.i = phi i32 [ %111, %105 ], [ %153, %nstrace_read_page.exit.i.i ]
+  %.046.i.i = phi i32 [ %111, %105 ], [ %154, %nstrace_read_page.exit.i.i ]
   %.045.i.i = phi i32 [ %109, %105 ], [ 0, %nstrace_read_page.exit.i.i ]
   %115 = icmp ult i32 %.045.i.i, %.046.i.i
   br i1 %115, label %.lr.ph.i.i, label %._crit_edge.i.i
@@ -375,13 +375,13 @@ nstrace_set_start_time.exit.thread119:            ; preds = %122
   %150 = add i64 %149, %148
   store i64 %150, ptr %112, align 8
   %151 = load i64, ptr %113, align 8
-  %152 = sub i64 %151, %150
-  %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %152, i64 8192)
-  %153 = trunc nuw nsw i64 %spec.select.i.i to i32
-  %.not.i.i = icmp eq i32 %153, 0
-  br i1 %.not.i.i, label %nstrace_set_start_time.exit.threadthread-pre-split, label %154
+  %.not.i.i = icmp eq i64 %151, %150
+  br i1 %.not.i.i, label %nstrace_set_start_time.exit.threadthread-pre-split, label %152
 
-154:                                              ; preds = %._crit_edge.i.i
+152:                                              ; preds = %._crit_edge.i.i
+  %153 = sub i64 %151, %150
+  %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %153, i64 8192)
+  %154 = trunc nuw nsw i64 %spec.select.i.i to i32
   %155 = load ptr, ptr %77, align 8
   %156 = load ptr, ptr %155, align 8
   %157 = getelementptr inbounds i8, ptr %155, i64 8
@@ -391,13 +391,13 @@ nstrace_set_start_time.exit.thread119:            ; preds = %122
   %161 = icmp slt i32 %160, 0
   br i1 %161, label %162, label %165
 
-162:                                              ; preds = %154
+162:                                              ; preds = %152
   %163 = load ptr, ptr %0, align 8
   %164 = tail call i32 @file_error(ptr noundef %163, ptr noundef %2) #10
   store i32 %164, ptr %1, align 4
   br label %nstrace_set_start_time.exit.thread
 
-165:                                              ; preds = %154
+165:                                              ; preds = %152
   %166 = icmp eq i32 %160, 0
   br i1 %166, label %nstrace_set_start_time.exit.thread.thread, label %nstrace_read_page.exit.i.i
 
@@ -499,7 +499,7 @@ define internal range(i32 0, 2) i32 @nstrace_read_v10(ptr nocapture noundef read
   br label %21
 
 21:                                               ; preds = %nstrace_read_page.exit, %6
-  %.0171 = phi i32 [ %15, %6 ], [ %217, %nstrace_read_page.exit ]
+  %.0171 = phi i32 [ %15, %6 ], [ %218, %nstrace_read_page.exit ]
   %.0170 = phi i32 [ %13, %6 ], [ 0, %nstrace_read_page.exit ]
   %22 = icmp ult i32 %.0170, %.0171
   %23 = sub i32 %.0171, %.0170
@@ -895,13 +895,13 @@ nstrace_ensure_buflen.exit216:                    ; preds = %191
   %214 = add i64 %213, %212
   store i64 %214, ptr %19, align 8
   %215 = load i64, ptr %20, align 8
-  %216 = sub i64 %215, %214
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %216, i64 8192)
-  %217 = trunc nuw nsw i64 %spec.select to i32
-  %.not = icmp eq i32 %217, 0
-  br i1 %.not, label %.critedge, label %218
+  %.not = icmp eq i64 %215, %214
+  br i1 %.not, label %.critedge, label %216
 
-218:                                              ; preds = %._crit_edge
+216:                                              ; preds = %._crit_edge
+  %217 = sub i64 %215, %214
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %217, i64 8192)
+  %218 = trunc nuw nsw i64 %spec.select to i32
   %219 = load ptr, ptr %7, align 8
   %220 = load ptr, ptr %219, align 8
   %221 = getelementptr inbounds i8, ptr %219, i64 8
@@ -911,13 +911,13 @@ nstrace_ensure_buflen.exit216:                    ; preds = %191
   %225 = icmp slt i32 %224, 0
   br i1 %225, label %226, label %229
 
-226:                                              ; preds = %218
+226:                                              ; preds = %216
   %227 = load ptr, ptr %0, align 8
   %228 = tail call i32 @file_error(ptr noundef %227, ptr noundef nonnull %4) #10
   store i32 %228, ptr %3, align 4
   br label %.critedge
 
-229:                                              ; preds = %218
+229:                                              ; preds = %216
   %230 = icmp eq i32 %224, 0
   br i1 %230, label %231, label %nstrace_read_page.exit
 
@@ -1073,7 +1073,7 @@ define internal noundef i32 @nstrace_read_v20(ptr nocapture noundef readonly %0,
   br label %21
 
 21:                                               ; preds = %nstrace_read_page.exit, %6
-  %.0994 = phi i32 [ %15, %6 ], [ %1293, %nstrace_read_page.exit ]
+  %.0994 = phi i32 [ %15, %6 ], [ %1294, %nstrace_read_page.exit ]
   %.0993 = phi i32 [ %13, %6 ], [ 0, %nstrace_read_page.exit ]
   %22 = icmp ult i32 %.0993, %.0994
   br i1 %22, label %.lr.ph, label %._crit_edge
@@ -3344,13 +3344,13 @@ nstrace_ensure_buflen.exit1120:                   ; preds = %1264
   %1290 = add i64 %1289, %1288
   store i64 %1290, ptr %19, align 8
   %1291 = load i64, ptr %20, align 8
-  %1292 = sub i64 %1291, %1290
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %1292, i64 8192)
-  %1293 = trunc nuw nsw i64 %spec.select to i32
-  %.not = icmp eq i32 %1293, 0
-  br i1 %.not, label %.critedge, label %1294
+  %.not = icmp eq i64 %1291, %1290
+  br i1 %.not, label %.critedge, label %1292
 
-1294:                                             ; preds = %._crit_edge
+1292:                                             ; preds = %._crit_edge
+  %1293 = sub i64 %1291, %1290
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %1293, i64 8192)
+  %1294 = trunc nuw nsw i64 %spec.select to i32
   %1295 = load ptr, ptr %7, align 8
   %1296 = load ptr, ptr %1295, align 8
   %1297 = getelementptr inbounds i8, ptr %1295, i64 8
@@ -3360,13 +3360,13 @@ nstrace_ensure_buflen.exit1120:                   ; preds = %1264
   %1301 = icmp slt i32 %1300, 0
   br i1 %1301, label %1302, label %1305
 
-1302:                                             ; preds = %1294
+1302:                                             ; preds = %1292
   %1303 = load ptr, ptr %0, align 8
   %1304 = tail call i32 @file_error(ptr noundef %1303, ptr noundef nonnull %4) #10
   store i32 %1304, ptr %3, align 4
   br label %.critedge
 
-1305:                                             ; preds = %1294
+1305:                                             ; preds = %1292
   %1306 = icmp eq i32 %1300, 0
   br i1 %1306, label %1307, label %nstrace_read_page.exit
 
@@ -5246,7 +5246,7 @@ define internal fastcc range(i32 0, 2) i32 @nstrace_set_start_time_v20(ptr nocap
   br label %13
 
 13:                                               ; preds = %nstrace_read_page.exit, %3
-  %.052 = phi i32 [ %10, %3 ], [ %71, %nstrace_read_page.exit ]
+  %.052 = phi i32 [ %10, %3 ], [ %72, %nstrace_read_page.exit ]
   %.051 = phi i32 [ %8, %3 ], [ 0, %nstrace_read_page.exit ]
   %14 = icmp ult i32 %.051, %.052
   br i1 %14, label %.lr.ph, label %._crit_edge
@@ -5361,13 +5361,13 @@ nstrace_ensure_buflen.exit66:                     ; preds = %23
   %68 = add i64 %67, %66
   store i64 %68, ptr %11, align 8
   %69 = load i64, ptr %12, align 8
-  %70 = sub i64 %69, %68
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %70, i64 8192)
-  %71 = trunc nuw nsw i64 %spec.select to i32
-  %.not = icmp eq i32 %71, 0
-  br i1 %.not, label %.critedge, label %72
+  %.not = icmp eq i64 %69, %68
+  br i1 %.not, label %.critedge, label %70
 
-72:                                               ; preds = %._crit_edge
+70:                                               ; preds = %._crit_edge
+  %71 = sub i64 %69, %68
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %71, i64 8192)
+  %72 = trunc nuw nsw i64 %spec.select to i32
   %73 = load ptr, ptr %4, align 8
   %74 = load ptr, ptr %73, align 8
   %75 = getelementptr inbounds i8, ptr %73, i64 8
@@ -5377,13 +5377,13 @@ nstrace_ensure_buflen.exit66:                     ; preds = %23
   %79 = icmp slt i32 %78, 0
   br i1 %79, label %80, label %83
 
-80:                                               ; preds = %72
+80:                                               ; preds = %70
   %81 = load ptr, ptr %0, align 8
   %82 = tail call i32 @file_error(ptr noundef %81, ptr noundef %2) #10
   store i32 %82, ptr %1, align 4
   br label %.critedge
 
-83:                                               ; preds = %72
+83:                                               ; preds = %70
   %84 = icmp eq i32 %78, 0
   br i1 %84, label %85, label %nstrace_read_page.exit
 

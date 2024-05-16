@@ -520,7 +520,7 @@ cli_compare_ftm_file.exit:                        ; preds = %61, %._crit_edge.i2
 
 73:                                               ; preds = %cli_compare_ftm_file.exit
   %74 = icmp eq i32 %.014.i, 517
-  %75 = icmp ugt i32 %.0146, 70
+  %75 = icmp ugt i64 %.0146.in, 70
   %or.cond = and i1 %75, %74
   br i1 %or.cond, label %76, label %131
 

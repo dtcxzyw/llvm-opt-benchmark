@@ -15275,61 +15275,60 @@ entry:
 
 if.then:                                          ; preds = %entry
   %conv = trunc nuw nsw i64 %value to i32
-  %cmp1 = icmp ult i32 %conv, 10000
+  %cmp1 = icmp ult i64 %value, 10000
   br i1 %cmp1, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.then
-  %div.lhs.trunc = trunc nuw i64 %value to i16
-  %div209 = udiv i16 %div.lhs.trunc, 100
-  %0 = shl nuw nsw i16 %div209, 1
-  %rem210 = urem i16 %div.lhs.trunc, 100
-  %1 = shl nuw nsw i16 %rem210, 1
-  %cmp4 = icmp ugt i32 %conv, 999
+  %div = udiv i32 %conv, 100
+  %shl = shl nuw nsw i32 %div, 1
+  %rem = urem i32 %conv, 100
+  %shl3 = shl nuw nsw i32 %rem, 1
+  %cmp4 = icmp ugt i64 %value, 999
   br i1 %cmp4, label %if.end.thread, label %if.end
 
 if.end.thread:                                    ; preds = %if.then2
-  %idxprom = zext nneg i16 %0 to i64
+  %idxprom = zext nneg i32 %shl to i64
   %arrayidx = getelementptr inbounds i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %idxprom
-  %2 = load i8, ptr %arrayidx, align 2
+  %0 = load i8, ptr %arrayidx, align 2
   %incdec.ptr = getelementptr inbounds i8, ptr %buffer, i64 1
-  store i8 %2, ptr %buffer, align 1
+  store i8 %0, ptr %buffer, align 1
   br label %if.end11.thread
 
 if.end:                                           ; preds = %if.then2
-  %cmp6 = icmp ugt i32 %conv, 99
+  %cmp6 = icmp ugt i64 %value, 99
   br i1 %cmp6, label %if.end11.thread, label %if.end11
 
 if.end11.thread:                                  ; preds = %if.end, %if.end.thread
   %buffer.addr.0181 = phi ptr [ %incdec.ptr, %if.end.thread ], [ %buffer, %if.end ]
-  %3 = or disjoint i16 %0, 1
-  %idxprom8 = zext nneg i16 %3 to i64
+  %add = or disjoint i32 %shl, 1
+  %idxprom8 = zext nneg i32 %add to i64
   %arrayidx9 = getelementptr inbounds i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %idxprom8
-  %4 = load i8, ptr %arrayidx9, align 1
+  %1 = load i8, ptr %arrayidx9, align 1
   %incdec.ptr10 = getelementptr inbounds i8, ptr %buffer.addr.0181, i64 1
-  store i8 %4, ptr %buffer.addr.0181, align 1
+  store i8 %1, ptr %buffer.addr.0181, align 1
   br label %if.then13
 
 if.end11:                                         ; preds = %if.end
-  %cmp12 = icmp ugt i32 %conv, 9
+  %cmp12 = icmp ugt i64 %value, 9
   br i1 %cmp12, label %if.then13, label %if.end17
 
 if.then13:                                        ; preds = %if.end11.thread, %if.end11
   %buffer.addr.1184 = phi ptr [ %incdec.ptr10, %if.end11.thread ], [ %buffer, %if.end11 ]
-  %idxprom14 = zext nneg i16 %1 to i64
+  %idxprom14 = zext nneg i32 %shl3 to i64
   %arrayidx15 = getelementptr inbounds i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %idxprom14
-  %5 = load i8, ptr %arrayidx15, align 2
+  %2 = load i8, ptr %arrayidx15, align 2
   %incdec.ptr16 = getelementptr inbounds i8, ptr %buffer.addr.1184, i64 1
-  store i8 %5, ptr %buffer.addr.1184, align 1
+  store i8 %2, ptr %buffer.addr.1184, align 1
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then13, %if.end11
   %buffer.addr.2 = phi ptr [ %incdec.ptr16, %if.then13 ], [ %buffer, %if.end11 ]
-  %6 = or disjoint i16 %1, 1
-  %idxprom19 = zext nneg i16 %6 to i64
+  %add18 = or disjoint i32 %shl3, 1
+  %idxprom19 = zext nneg i32 %add18 to i64
   %arrayidx20 = getelementptr inbounds i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %idxprom19
-  %7 = load i8, ptr %arrayidx20, align 1
+  %3 = load i8, ptr %arrayidx20, align 1
   %incdec.ptr21 = getelementptr inbounds i8, ptr %buffer.addr.2, i64 1
-  store i8 %7, ptr %buffer.addr.2, align 1
+  store i8 %3, ptr %buffer.addr.2, align 1
   br label %if.end339
 
 if.else:                                          ; preds = %if.then
@@ -15338,22 +15337,22 @@ if.else:                                          ; preds = %if.then
   %div25 = udiv i32 %conv, 1000000
   %shl26 = shl nuw nsw i32 %div25, 1
   %rem28.lhs.trunc = trunc nuw i32 %div22 to i16
-  %rem28211 = urem i16 %rem28.lhs.trunc, 100
-  %8 = shl nuw nsw i16 %rem28211, 1
+  %rem28209 = urem i16 %rem28.lhs.trunc, 100
+  %4 = shl nuw nsw i16 %rem28209, 1
   %div30.lhs.trunc = trunc nuw nsw i32 %rem23 to i16
-  %div30212 = udiv i16 %div30.lhs.trunc, 100
-  %9 = shl nuw nsw i16 %div30212, 1
-  %rem32213 = urem i16 %div30.lhs.trunc, 100
-  %10 = shl nuw nsw i16 %rem32213, 1
+  %div30210 = udiv i16 %div30.lhs.trunc, 100
+  %5 = shl nuw nsw i16 %div30210, 1
+  %rem32211 = urem i16 %div30.lhs.trunc, 100
+  %6 = shl nuw nsw i16 %rem32211, 1
   %cmp34 = icmp ugt i64 %value, 9999999
   br i1 %cmp34, label %if.end39.thread, label %if.end39
 
 if.end39.thread:                                  ; preds = %if.else
   %idxprom36 = zext nneg i32 %shl26 to i64
   %arrayidx37 = getelementptr inbounds i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %idxprom36
-  %11 = load i8, ptr %arrayidx37, align 2
+  %7 = load i8, ptr %arrayidx37, align 2
   %incdec.ptr38 = getelementptr inbounds i8, ptr %buffer, i64 1
-  store i8 %11, ptr %buffer, align 1
+  store i8 %7, ptr %buffer, align 1
   br label %if.end46.thread
 
 if.end39:                                         ; preds = %if.else
@@ -15365,9 +15364,9 @@ if.end46.thread:                                  ; preds = %if.end39, %if.end39
   %add42 = or disjoint i32 %shl26, 1
   %idxprom43 = zext nneg i32 %add42 to i64
   %arrayidx44 = getelementptr inbounds i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %idxprom43
-  %12 = load i8, ptr %arrayidx44, align 1
+  %8 = load i8, ptr %arrayidx44, align 1
   %incdec.ptr45 = getelementptr inbounds i8, ptr %buffer.addr.3187, i64 1
-  store i8 %12, ptr %buffer.addr.3187, align 1
+  store i8 %8, ptr %buffer.addr.3187, align 1
   br label %if.then48
 
 if.end46:                                         ; preds = %if.end39
@@ -15376,43 +15375,43 @@ if.end46:                                         ; preds = %if.end39
 
 if.then48:                                        ; preds = %if.end46.thread, %if.end46
   %buffer.addr.4190 = phi ptr [ %incdec.ptr45, %if.end46.thread ], [ %buffer, %if.end46 ]
-  %idxprom49 = zext nneg i16 %8 to i64
+  %idxprom49 = zext nneg i16 %4 to i64
   %arrayidx50 = getelementptr inbounds i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %idxprom49
-  %13 = load i8, ptr %arrayidx50, align 2
+  %9 = load i8, ptr %arrayidx50, align 2
   %incdec.ptr51 = getelementptr inbounds i8, ptr %buffer.addr.4190, i64 1
-  store i8 %13, ptr %buffer.addr.4190, align 1
+  store i8 %9, ptr %buffer.addr.4190, align 1
   br label %if.end52
 
 if.end52:                                         ; preds = %if.then48, %if.end46
   %buffer.addr.5 = phi ptr [ %incdec.ptr51, %if.then48 ], [ %buffer, %if.end46 ]
-  %14 = or disjoint i16 %8, 1
-  %idxprom54 = zext nneg i16 %14 to i64
+  %10 = or disjoint i16 %4, 1
+  %idxprom54 = zext nneg i16 %10 to i64
   %arrayidx55 = getelementptr inbounds i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %idxprom54
-  %15 = load i8, ptr %arrayidx55, align 1
+  %11 = load i8, ptr %arrayidx55, align 1
   %incdec.ptr56 = getelementptr inbounds i8, ptr %buffer.addr.5, i64 1
-  store i8 %15, ptr %buffer.addr.5, align 1
-  %idxprom57 = zext nneg i16 %9 to i64
+  store i8 %11, ptr %buffer.addr.5, align 1
+  %idxprom57 = zext nneg i16 %5 to i64
   %arrayidx58 = getelementptr inbounds i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %idxprom57
-  %16 = load i8, ptr %arrayidx58, align 2
+  %12 = load i8, ptr %arrayidx58, align 2
   %incdec.ptr59 = getelementptr inbounds i8, ptr %buffer.addr.5, i64 2
-  store i8 %16, ptr %incdec.ptr56, align 1
-  %17 = or disjoint i16 %9, 1
-  %idxprom61 = zext nneg i16 %17 to i64
+  store i8 %12, ptr %incdec.ptr56, align 1
+  %13 = or disjoint i16 %5, 1
+  %idxprom61 = zext nneg i16 %13 to i64
   %arrayidx62 = getelementptr inbounds i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %idxprom61
-  %18 = load i8, ptr %arrayidx62, align 1
+  %14 = load i8, ptr %arrayidx62, align 1
   %incdec.ptr63 = getelementptr inbounds i8, ptr %buffer.addr.5, i64 3
-  store i8 %18, ptr %incdec.ptr59, align 1
-  %idxprom64 = zext nneg i16 %10 to i64
+  store i8 %14, ptr %incdec.ptr59, align 1
+  %idxprom64 = zext nneg i16 %6 to i64
   %arrayidx65 = getelementptr inbounds i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %idxprom64
-  %19 = load i8, ptr %arrayidx65, align 2
+  %15 = load i8, ptr %arrayidx65, align 2
   %incdec.ptr66 = getelementptr inbounds i8, ptr %buffer.addr.5, i64 4
-  store i8 %19, ptr %incdec.ptr63, align 1
-  %20 = or disjoint i16 %10, 1
-  %idxprom68 = zext nneg i16 %20 to i64
+  store i8 %15, ptr %incdec.ptr63, align 1
+  %16 = or disjoint i16 %6, 1
+  %idxprom68 = zext nneg i16 %16 to i64
   %arrayidx69 = getelementptr inbounds i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %idxprom68
-  %21 = load i8, ptr %arrayidx69, align 1
+  %17 = load i8, ptr %arrayidx69, align 1
   %incdec.ptr70 = getelementptr inbounds i8, ptr %buffer.addr.5, i64 5
-  store i8 %21, ptr %incdec.ptr66, align 1
+  store i8 %17, ptr %incdec.ptr66, align 1
   br label %if.end339
 
 if.else72:                                        ; preds = %entry
@@ -15429,34 +15428,34 @@ if.then74:                                        ; preds = %if.else72
   %div82 = udiv i32 %conv76, 1000000
   %shl83 = shl nuw nsw i32 %div82, 1
   %rem85.lhs.trunc = trunc nuw i32 %div79 to i16
-  %rem85214 = urem i16 %rem85.lhs.trunc, 100
-  %22 = shl nuw nsw i16 %rem85214, 1
+  %rem85212 = urem i16 %rem85.lhs.trunc, 100
+  %18 = shl nuw nsw i16 %rem85212, 1
   %div88.lhs.trunc = trunc nuw nsw i32 %rem80 to i16
-  %div88215 = udiv i16 %div88.lhs.trunc, 100
-  %23 = shl nuw nsw i16 %div88215, 1
-  %rem91216 = urem i16 %div88.lhs.trunc, 100
-  %24 = shl nuw nsw i16 %rem91216, 1
+  %div88213 = udiv i16 %div88.lhs.trunc, 100
+  %19 = shl nuw nsw i16 %div88213, 1
+  %rem91214 = urem i16 %div88.lhs.trunc, 100
+  %20 = shl nuw nsw i16 %rem91214, 1
   %div93 = udiv i32 %conv78, 10000
   %rem94 = urem i32 %conv78, 10000
   %div95 = udiv i32 %conv78, 1000000
   %shl96 = shl nuw nsw i32 %div95, 1
   %rem97.lhs.trunc = trunc nuw nsw i32 %div93 to i16
-  %rem97217 = urem i16 %rem97.lhs.trunc, 100
-  %25 = shl nuw nsw i16 %rem97217, 1
+  %rem97215 = urem i16 %rem97.lhs.trunc, 100
+  %21 = shl nuw nsw i16 %rem97215, 1
   %div99.lhs.trunc = trunc nuw nsw i32 %rem94 to i16
-  %div99218 = udiv i16 %div99.lhs.trunc, 100
-  %26 = shl nuw nsw i16 %div99218, 1
-  %rem101219 = urem i16 %div99.lhs.trunc, 100
-  %27 = shl nuw nsw i16 %rem101219, 1
+  %div99216 = udiv i16 %div99.lhs.trunc, 100
+  %22 = shl nuw nsw i16 %div99216, 1
+  %rem101217 = urem i16 %div99.lhs.trunc, 100
+  %23 = shl nuw nsw i16 %rem101217, 1
   %cmp103 = icmp ugt i64 %value, 999999999999999
   br i1 %cmp103, label %if.end108.thread, label %if.end108
 
 if.end108.thread:                                 ; preds = %if.then74
   %idxprom105 = zext nneg i32 %shl83 to i64
   %arrayidx106 = getelementptr inbounds i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %idxprom105
-  %28 = load i8, ptr %arrayidx106, align 2
+  %24 = load i8, ptr %arrayidx106, align 2
   %incdec.ptr107 = getelementptr inbounds i8, ptr %buffer, i64 1
-  store i8 %28, ptr %buffer, align 1
+  store i8 %24, ptr %buffer, align 1
   br label %if.end115.thread
 
 if.end108:                                        ; preds = %if.then74
@@ -15468,9 +15467,9 @@ if.end115.thread:                                 ; preds = %if.end108, %if.end1
   %add111 = or disjoint i32 %shl83, 1
   %idxprom112 = zext nneg i32 %add111 to i64
   %arrayidx113 = getelementptr inbounds i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %idxprom112
-  %29 = load i8, ptr %arrayidx113, align 1
+  %25 = load i8, ptr %arrayidx113, align 1
   %incdec.ptr114 = getelementptr inbounds i8, ptr %buffer.addr.6193, i64 1
-  store i8 %29, ptr %buffer.addr.6193, align 1
+  store i8 %25, ptr %buffer.addr.6193, align 1
   br label %if.end121.thread
 
 if.end115:                                        ; preds = %if.end108
@@ -15479,11 +15478,11 @@ if.end115:                                        ; preds = %if.end108
 
 if.end121.thread:                                 ; preds = %if.end115, %if.end115.thread
   %buffer.addr.7196 = phi ptr [ %incdec.ptr114, %if.end115.thread ], [ %buffer, %if.end115 ]
-  %idxprom118 = zext nneg i16 %22 to i64
+  %idxprom118 = zext nneg i16 %18 to i64
   %arrayidx119 = getelementptr inbounds i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %idxprom118
-  %30 = load i8, ptr %arrayidx119, align 2
+  %26 = load i8, ptr %arrayidx119, align 2
   %incdec.ptr120 = getelementptr inbounds i8, ptr %buffer.addr.7196, i64 1
-  store i8 %30, ptr %buffer.addr.7196, align 1
+  store i8 %26, ptr %buffer.addr.7196, align 1
   br label %if.end128.thread
 
 if.end121:                                        ; preds = %if.end115
@@ -15492,12 +15491,12 @@ if.end121:                                        ; preds = %if.end115
 
 if.end128.thread:                                 ; preds = %if.end121, %if.end121.thread
   %buffer.addr.8199 = phi ptr [ %incdec.ptr120, %if.end121.thread ], [ %buffer, %if.end121 ]
-  %31 = or disjoint i16 %22, 1
-  %idxprom125 = zext nneg i16 %31 to i64
+  %27 = or disjoint i16 %18, 1
+  %idxprom125 = zext nneg i16 %27 to i64
   %arrayidx126 = getelementptr inbounds i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %idxprom125
-  %32 = load i8, ptr %arrayidx126, align 1
+  %28 = load i8, ptr %arrayidx126, align 1
   %incdec.ptr127 = getelementptr inbounds i8, ptr %buffer.addr.8199, i64 1
-  store i8 %32, ptr %buffer.addr.8199, align 1
+  store i8 %28, ptr %buffer.addr.8199, align 1
   br label %if.end134.thread
 
 if.end128:                                        ; preds = %if.end121
@@ -15506,11 +15505,11 @@ if.end128:                                        ; preds = %if.end121
 
 if.end134.thread:                                 ; preds = %if.end128, %if.end128.thread
   %buffer.addr.9202 = phi ptr [ %incdec.ptr127, %if.end128.thread ], [ %buffer, %if.end128 ]
-  %idxprom131 = zext nneg i16 %23 to i64
+  %idxprom131 = zext nneg i16 %19 to i64
   %arrayidx132 = getelementptr inbounds i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %idxprom131
-  %33 = load i8, ptr %arrayidx132, align 2
+  %29 = load i8, ptr %arrayidx132, align 2
   %incdec.ptr133 = getelementptr inbounds i8, ptr %buffer.addr.9202, i64 1
-  store i8 %33, ptr %buffer.addr.9202, align 1
+  store i8 %29, ptr %buffer.addr.9202, align 1
   br label %if.end141.thread
 
 if.end134:                                        ; preds = %if.end128
@@ -15519,12 +15518,12 @@ if.end134:                                        ; preds = %if.end128
 
 if.end141.thread:                                 ; preds = %if.end134, %if.end134.thread
   %buffer.addr.10205 = phi ptr [ %incdec.ptr133, %if.end134.thread ], [ %buffer, %if.end134 ]
-  %34 = or disjoint i16 %23, 1
-  %idxprom138 = zext nneg i16 %34 to i64
+  %30 = or disjoint i16 %19, 1
+  %idxprom138 = zext nneg i16 %30 to i64
   %arrayidx139 = getelementptr inbounds i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %idxprom138
-  %35 = load i8, ptr %arrayidx139, align 1
+  %31 = load i8, ptr %arrayidx139, align 1
   %incdec.ptr140 = getelementptr inbounds i8, ptr %buffer.addr.10205, i64 1
-  store i8 %35, ptr %buffer.addr.10205, align 1
+  store i8 %31, ptr %buffer.addr.10205, align 1
   br label %if.then143
 
 if.end141:                                        ; preds = %if.end134
@@ -15533,72 +15532,72 @@ if.end141:                                        ; preds = %if.end134
 
 if.then143:                                       ; preds = %if.end141.thread, %if.end141
   %buffer.addr.11208 = phi ptr [ %incdec.ptr140, %if.end141.thread ], [ %buffer, %if.end141 ]
-  %idxprom144 = zext nneg i16 %24 to i64
+  %idxprom144 = zext nneg i16 %20 to i64
   %arrayidx145 = getelementptr inbounds i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %idxprom144
-  %36 = load i8, ptr %arrayidx145, align 2
+  %32 = load i8, ptr %arrayidx145, align 2
   %incdec.ptr146 = getelementptr inbounds i8, ptr %buffer.addr.11208, i64 1
-  store i8 %36, ptr %buffer.addr.11208, align 1
+  store i8 %32, ptr %buffer.addr.11208, align 1
   br label %if.end147
 
 if.end147:                                        ; preds = %if.then143, %if.end141
   %buffer.addr.12 = phi ptr [ %incdec.ptr146, %if.then143 ], [ %buffer, %if.end141 ]
-  %37 = or disjoint i16 %24, 1
-  %idxprom149 = zext nneg i16 %37 to i64
+  %33 = or disjoint i16 %20, 1
+  %idxprom149 = zext nneg i16 %33 to i64
   %arrayidx150 = getelementptr inbounds i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %idxprom149
-  %38 = load i8, ptr %arrayidx150, align 1
+  %34 = load i8, ptr %arrayidx150, align 1
   %incdec.ptr151 = getelementptr inbounds i8, ptr %buffer.addr.12, i64 1
-  store i8 %38, ptr %buffer.addr.12, align 1
+  store i8 %34, ptr %buffer.addr.12, align 1
   %idxprom152 = zext nneg i32 %shl96 to i64
   %arrayidx153 = getelementptr inbounds i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %idxprom152
-  %39 = load i8, ptr %arrayidx153, align 2
+  %35 = load i8, ptr %arrayidx153, align 2
   %incdec.ptr154 = getelementptr inbounds i8, ptr %buffer.addr.12, i64 2
-  store i8 %39, ptr %incdec.ptr151, align 1
+  store i8 %35, ptr %incdec.ptr151, align 1
   %add155 = or disjoint i32 %shl96, 1
   %idxprom156 = zext nneg i32 %add155 to i64
   %arrayidx157 = getelementptr inbounds i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %idxprom156
-  %40 = load i8, ptr %arrayidx157, align 1
+  %36 = load i8, ptr %arrayidx157, align 1
   %incdec.ptr158 = getelementptr inbounds i8, ptr %buffer.addr.12, i64 3
-  store i8 %40, ptr %incdec.ptr154, align 1
-  %idxprom159 = zext nneg i16 %25 to i64
+  store i8 %36, ptr %incdec.ptr154, align 1
+  %idxprom159 = zext nneg i16 %21 to i64
   %arrayidx160 = getelementptr inbounds i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %idxprom159
-  %41 = load i8, ptr %arrayidx160, align 2
+  %37 = load i8, ptr %arrayidx160, align 2
   %incdec.ptr161 = getelementptr inbounds i8, ptr %buffer.addr.12, i64 4
-  store i8 %41, ptr %incdec.ptr158, align 1
-  %42 = or disjoint i16 %25, 1
-  %idxprom163 = zext nneg i16 %42 to i64
+  store i8 %37, ptr %incdec.ptr158, align 1
+  %38 = or disjoint i16 %21, 1
+  %idxprom163 = zext nneg i16 %38 to i64
   %arrayidx164 = getelementptr inbounds i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %idxprom163
-  %43 = load i8, ptr %arrayidx164, align 1
+  %39 = load i8, ptr %arrayidx164, align 1
   %incdec.ptr165 = getelementptr inbounds i8, ptr %buffer.addr.12, i64 5
-  store i8 %43, ptr %incdec.ptr161, align 1
-  %idxprom166 = zext nneg i16 %26 to i64
+  store i8 %39, ptr %incdec.ptr161, align 1
+  %idxprom166 = zext nneg i16 %22 to i64
   %arrayidx167 = getelementptr inbounds i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %idxprom166
-  %44 = load i8, ptr %arrayidx167, align 2
+  %40 = load i8, ptr %arrayidx167, align 2
   %incdec.ptr168 = getelementptr inbounds i8, ptr %buffer.addr.12, i64 6
-  store i8 %44, ptr %incdec.ptr165, align 1
-  %45 = or disjoint i16 %26, 1
-  %idxprom170 = zext nneg i16 %45 to i64
+  store i8 %40, ptr %incdec.ptr165, align 1
+  %41 = or disjoint i16 %22, 1
+  %idxprom170 = zext nneg i16 %41 to i64
   %arrayidx171 = getelementptr inbounds i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %idxprom170
-  %46 = load i8, ptr %arrayidx171, align 1
+  %42 = load i8, ptr %arrayidx171, align 1
   %incdec.ptr172 = getelementptr inbounds i8, ptr %buffer.addr.12, i64 7
-  store i8 %46, ptr %incdec.ptr168, align 1
-  %idxprom173 = zext nneg i16 %27 to i64
+  store i8 %42, ptr %incdec.ptr168, align 1
+  %idxprom173 = zext nneg i16 %23 to i64
   %arrayidx174 = getelementptr inbounds i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %idxprom173
-  %47 = load i8, ptr %arrayidx174, align 2
+  %43 = load i8, ptr %arrayidx174, align 2
   %incdec.ptr175 = getelementptr inbounds i8, ptr %buffer.addr.12, i64 8
-  store i8 %47, ptr %incdec.ptr172, align 1
-  %48 = or disjoint i16 %27, 1
-  %idxprom177 = zext nneg i16 %48 to i64
+  store i8 %43, ptr %incdec.ptr172, align 1
+  %44 = or disjoint i16 %23, 1
+  %idxprom177 = zext nneg i16 %44 to i64
   %arrayidx178 = getelementptr inbounds i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %idxprom177
-  %49 = load i8, ptr %arrayidx178, align 1
+  %45 = load i8, ptr %arrayidx178, align 1
   %incdec.ptr179 = getelementptr inbounds i8, ptr %buffer.addr.12, i64 9
-  store i8 %49, ptr %incdec.ptr175, align 1
+  store i8 %45, ptr %incdec.ptr175, align 1
   br label %if.end339
 
 if.else180:                                       ; preds = %if.else72
   %div181 = udiv i64 %value, 10000000000000000
   %conv182 = trunc nuw nsw i64 %div181 to i32
   %rem183 = urem i64 %value, 10000000000000000
-  %cmp184 = icmp ult i32 %conv182, 10
+  %cmp184 = icmp ult i64 %value, 100000000000000000
   br i1 %cmp184, label %if.then185, label %if.else191
 
 if.then185:                                       ; preds = %if.else180
@@ -15609,76 +15608,76 @@ if.then185:                                       ; preds = %if.else180
   br label %if.end243
 
 if.else191:                                       ; preds = %if.else180
-  %cmp192 = icmp ult i32 %conv182, 100
+  %cmp192 = icmp ult i64 %value, 1000000000000000000
   br i1 %cmp192, label %if.then193, label %if.else202
 
 if.then193:                                       ; preds = %if.else191
   %shl194 = shl nuw nsw i32 %conv182, 1
   %idxprom195 = zext nneg i32 %shl194 to i64
   %arrayidx196 = getelementptr inbounds i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %idxprom195
-  %50 = load i8, ptr %arrayidx196, align 2
+  %46 = load i8, ptr %arrayidx196, align 2
   %incdec.ptr197 = getelementptr inbounds i8, ptr %buffer, i64 1
-  store i8 %50, ptr %buffer, align 1
+  store i8 %46, ptr %buffer, align 1
   %add198 = or disjoint i32 %shl194, 1
   %idxprom199 = zext nneg i32 %add198 to i64
   %arrayidx200 = getelementptr inbounds i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %idxprom199
-  %51 = load i8, ptr %arrayidx200, align 1
+  %47 = load i8, ptr %arrayidx200, align 1
   %incdec.ptr201 = getelementptr inbounds i8, ptr %buffer, i64 2
-  store i8 %51, ptr %incdec.ptr197, align 1
+  store i8 %47, ptr %incdec.ptr197, align 1
   br label %if.end243
 
 if.else202:                                       ; preds = %if.else191
-  %cmp203 = icmp ult i32 %conv182, 1000
+  %cmp203 = icmp ult i64 %value, -8446744073709551616
   %div205.lhs.trunc = trunc nuw nsw i64 %div181 to i16
-  %div205226 = udiv i16 %div205.lhs.trunc, 100
-  %rem225229 = urem i16 %div205.lhs.trunc, 100
+  %div205224 = udiv i16 %div205.lhs.trunc, 100
+  %rem225227 = urem i16 %div205.lhs.trunc, 100
   br i1 %cmp203, label %if.then204, label %if.else221
 
 if.then204:                                       ; preds = %if.else202
-  %52 = trunc nuw nsw i16 %div205226 to i8
-  %conv209 = or disjoint i8 %52, 48
+  %48 = trunc nuw nsw i16 %div205224 to i8
+  %conv209 = add nuw nsw i8 %48, 48
   %incdec.ptr210 = getelementptr inbounds i8, ptr %buffer, i64 1
   store i8 %conv209, ptr %buffer, align 1
-  %rem212227 = urem i16 %div205.lhs.trunc, 100
-  %53 = shl nuw nsw i16 %rem212227, 1
-  %idxprom214 = zext nneg i16 %53 to i64
+  %rem212225 = urem i16 %div205.lhs.trunc, 100
+  %49 = shl nuw nsw i16 %rem212225, 1
+  %idxprom214 = zext nneg i16 %49 to i64
   %arrayidx215 = getelementptr inbounds i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %idxprom214
-  %54 = load i8, ptr %arrayidx215, align 2
+  %50 = load i8, ptr %arrayidx215, align 2
   %incdec.ptr216 = getelementptr inbounds i8, ptr %buffer, i64 2
-  store i8 %54, ptr %incdec.ptr210, align 1
-  %55 = or disjoint i16 %53, 1
-  %idxprom218 = zext nneg i16 %55 to i64
+  store i8 %50, ptr %incdec.ptr210, align 1
+  %51 = or disjoint i16 %49, 1
+  %idxprom218 = zext nneg i16 %51 to i64
   %arrayidx219 = getelementptr inbounds i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %idxprom218
-  %56 = load i8, ptr %arrayidx219, align 1
+  %52 = load i8, ptr %arrayidx219, align 1
   %incdec.ptr220 = getelementptr inbounds i8, ptr %buffer, i64 3
-  store i8 %56, ptr %incdec.ptr216, align 1
+  store i8 %52, ptr %incdec.ptr216, align 1
   br label %if.end243
 
 if.else221:                                       ; preds = %if.else202
-  %57 = shl nuw nsw i16 %div205226, 1
-  %58 = shl nuw nsw i16 %rem225229, 1
-  %idxprom227 = zext nneg i16 %57 to i64
+  %53 = shl nuw nsw i16 %div205224, 1
+  %54 = shl nuw nsw i16 %rem225227, 1
+  %idxprom227 = zext nneg i16 %53 to i64
   %arrayidx228 = getelementptr inbounds i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %idxprom227
-  %59 = load i8, ptr %arrayidx228, align 2
+  %55 = load i8, ptr %arrayidx228, align 2
   %incdec.ptr229 = getelementptr inbounds i8, ptr %buffer, i64 1
-  store i8 %59, ptr %buffer, align 1
-  %60 = or disjoint i16 %57, 1
-  %idxprom231 = zext nneg i16 %60 to i64
+  store i8 %55, ptr %buffer, align 1
+  %56 = or disjoint i16 %53, 1
+  %idxprom231 = zext nneg i16 %56 to i64
   %arrayidx232 = getelementptr inbounds i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %idxprom231
-  %61 = load i8, ptr %arrayidx232, align 1
+  %57 = load i8, ptr %arrayidx232, align 1
   %incdec.ptr233 = getelementptr inbounds i8, ptr %buffer, i64 2
-  store i8 %61, ptr %incdec.ptr229, align 1
-  %idxprom234 = zext nneg i16 %58 to i64
+  store i8 %57, ptr %incdec.ptr229, align 1
+  %idxprom234 = zext nneg i16 %54 to i64
   %arrayidx235 = getelementptr inbounds i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %idxprom234
-  %62 = load i8, ptr %arrayidx235, align 2
+  %58 = load i8, ptr %arrayidx235, align 2
   %incdec.ptr236 = getelementptr inbounds i8, ptr %buffer, i64 3
-  store i8 %62, ptr %incdec.ptr233, align 1
-  %63 = or disjoint i16 %58, 1
-  %idxprom238 = zext nneg i16 %63 to i64
+  store i8 %58, ptr %incdec.ptr233, align 1
+  %59 = or disjoint i16 %54, 1
+  %idxprom238 = zext nneg i16 %59 to i64
   %arrayidx239 = getelementptr inbounds i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %idxprom238
-  %64 = load i8, ptr %arrayidx239, align 1
+  %60 = load i8, ptr %arrayidx239, align 1
   %incdec.ptr240 = getelementptr inbounds i8, ptr %buffer, i64 4
-  store i8 %64, ptr %incdec.ptr236, align 1
+  store i8 %60, ptr %incdec.ptr236, align 1
   br label %if.end243
 
 if.end243:                                        ; preds = %if.then193, %if.else221, %if.then204, %if.then185
@@ -15692,113 +15691,113 @@ if.end243:                                        ; preds = %if.then193, %if.els
   %div255 = udiv i32 %conv246, 1000000
   %shl256 = shl nuw nsw i32 %div255, 1
   %rem258.lhs.trunc = trunc nuw nsw i32 %div251 to i16
-  %rem258220 = urem i16 %rem258.lhs.trunc, 100
-  %65 = shl nuw nsw i16 %rem258220, 1
+  %rem258218 = urem i16 %rem258.lhs.trunc, 100
+  %61 = shl nuw nsw i16 %rem258218, 1
   %div261.lhs.trunc = trunc nuw nsw i32 %rem253 to i16
-  %div261221 = udiv i16 %div261.lhs.trunc, 100
-  %66 = shl nuw nsw i16 %div261221, 1
-  %rem264222 = urem i16 %div261.lhs.trunc, 100
-  %67 = shl nuw nsw i16 %rem264222, 1
+  %div261219 = udiv i16 %div261.lhs.trunc, 100
+  %62 = shl nuw nsw i16 %div261219, 1
+  %rem264220 = urem i16 %div261.lhs.trunc, 100
+  %63 = shl nuw nsw i16 %rem264220, 1
   %div267 = udiv i32 %conv249, 10000
   %rem269 = urem i32 %conv249, 10000
   %div271 = udiv i32 %conv249, 1000000
   %shl272 = shl nuw nsw i32 %div271, 1
   %rem274.lhs.trunc = trunc nuw nsw i32 %div267 to i16
-  %rem274223 = urem i16 %rem274.lhs.trunc, 100
-  %68 = shl nuw nsw i16 %rem274223, 1
+  %rem274221 = urem i16 %rem274.lhs.trunc, 100
+  %64 = shl nuw nsw i16 %rem274221, 1
   %div277.lhs.trunc = trunc nuw nsw i32 %rem269 to i16
-  %div277224 = udiv i16 %div277.lhs.trunc, 100
-  %69 = shl nuw nsw i16 %div277224, 1
-  %rem280225 = urem i16 %div277.lhs.trunc, 100
-  %70 = shl nuw nsw i16 %rem280225, 1
+  %div277222 = udiv i16 %div277.lhs.trunc, 100
+  %65 = shl nuw nsw i16 %div277222, 1
+  %rem280223 = urem i16 %div277.lhs.trunc, 100
+  %66 = shl nuw nsw i16 %rem280223, 1
   %idxprom282 = zext nneg i32 %shl256 to i64
   %arrayidx283 = getelementptr inbounds i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %idxprom282
-  %71 = load i8, ptr %arrayidx283, align 2
+  %67 = load i8, ptr %arrayidx283, align 2
   %incdec.ptr284 = getelementptr inbounds i8, ptr %buffer.addr.13, i64 1
-  store i8 %71, ptr %buffer.addr.13, align 1
+  store i8 %67, ptr %buffer.addr.13, align 1
   %add285 = or disjoint i32 %shl256, 1
   %idxprom286 = zext nneg i32 %add285 to i64
   %arrayidx287 = getelementptr inbounds i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %idxprom286
-  %72 = load i8, ptr %arrayidx287, align 1
+  %68 = load i8, ptr %arrayidx287, align 1
   %incdec.ptr288 = getelementptr inbounds i8, ptr %buffer.addr.13, i64 2
-  store i8 %72, ptr %incdec.ptr284, align 1
-  %idxprom289 = zext nneg i16 %65 to i64
+  store i8 %68, ptr %incdec.ptr284, align 1
+  %idxprom289 = zext nneg i16 %61 to i64
   %arrayidx290 = getelementptr inbounds i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %idxprom289
-  %73 = load i8, ptr %arrayidx290, align 2
+  %69 = load i8, ptr %arrayidx290, align 2
   %incdec.ptr291 = getelementptr inbounds i8, ptr %buffer.addr.13, i64 3
-  store i8 %73, ptr %incdec.ptr288, align 1
-  %74 = or disjoint i16 %65, 1
-  %idxprom293 = zext nneg i16 %74 to i64
+  store i8 %69, ptr %incdec.ptr288, align 1
+  %70 = or disjoint i16 %61, 1
+  %idxprom293 = zext nneg i16 %70 to i64
   %arrayidx294 = getelementptr inbounds i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %idxprom293
-  %75 = load i8, ptr %arrayidx294, align 1
+  %71 = load i8, ptr %arrayidx294, align 1
   %incdec.ptr295 = getelementptr inbounds i8, ptr %buffer.addr.13, i64 4
-  store i8 %75, ptr %incdec.ptr291, align 1
-  %idxprom296 = zext nneg i16 %66 to i64
+  store i8 %71, ptr %incdec.ptr291, align 1
+  %idxprom296 = zext nneg i16 %62 to i64
   %arrayidx297 = getelementptr inbounds i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %idxprom296
-  %76 = load i8, ptr %arrayidx297, align 2
+  %72 = load i8, ptr %arrayidx297, align 2
   %incdec.ptr298 = getelementptr inbounds i8, ptr %buffer.addr.13, i64 5
-  store i8 %76, ptr %incdec.ptr295, align 1
-  %77 = or disjoint i16 %66, 1
-  %idxprom300 = zext nneg i16 %77 to i64
+  store i8 %72, ptr %incdec.ptr295, align 1
+  %73 = or disjoint i16 %62, 1
+  %idxprom300 = zext nneg i16 %73 to i64
   %arrayidx301 = getelementptr inbounds i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %idxprom300
-  %78 = load i8, ptr %arrayidx301, align 1
+  %74 = load i8, ptr %arrayidx301, align 1
   %incdec.ptr302 = getelementptr inbounds i8, ptr %buffer.addr.13, i64 6
-  store i8 %78, ptr %incdec.ptr298, align 1
-  %idxprom303 = zext nneg i16 %67 to i64
+  store i8 %74, ptr %incdec.ptr298, align 1
+  %idxprom303 = zext nneg i16 %63 to i64
   %arrayidx304 = getelementptr inbounds i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %idxprom303
-  %79 = load i8, ptr %arrayidx304, align 2
+  %75 = load i8, ptr %arrayidx304, align 2
   %incdec.ptr305 = getelementptr inbounds i8, ptr %buffer.addr.13, i64 7
-  store i8 %79, ptr %incdec.ptr302, align 1
-  %80 = or disjoint i16 %67, 1
-  %idxprom307 = zext nneg i16 %80 to i64
+  store i8 %75, ptr %incdec.ptr302, align 1
+  %76 = or disjoint i16 %63, 1
+  %idxprom307 = zext nneg i16 %76 to i64
   %arrayidx308 = getelementptr inbounds i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %idxprom307
-  %81 = load i8, ptr %arrayidx308, align 1
+  %77 = load i8, ptr %arrayidx308, align 1
   %incdec.ptr309 = getelementptr inbounds i8, ptr %buffer.addr.13, i64 8
-  store i8 %81, ptr %incdec.ptr305, align 1
+  store i8 %77, ptr %incdec.ptr305, align 1
   %idxprom310 = zext nneg i32 %shl272 to i64
   %arrayidx311 = getelementptr inbounds i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %idxprom310
-  %82 = load i8, ptr %arrayidx311, align 2
+  %78 = load i8, ptr %arrayidx311, align 2
   %incdec.ptr312 = getelementptr inbounds i8, ptr %buffer.addr.13, i64 9
-  store i8 %82, ptr %incdec.ptr309, align 1
+  store i8 %78, ptr %incdec.ptr309, align 1
   %add313 = or disjoint i32 %shl272, 1
   %idxprom314 = zext nneg i32 %add313 to i64
   %arrayidx315 = getelementptr inbounds i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %idxprom314
-  %83 = load i8, ptr %arrayidx315, align 1
+  %79 = load i8, ptr %arrayidx315, align 1
   %incdec.ptr316 = getelementptr inbounds i8, ptr %buffer.addr.13, i64 10
-  store i8 %83, ptr %incdec.ptr312, align 1
-  %idxprom317 = zext nneg i16 %68 to i64
+  store i8 %79, ptr %incdec.ptr312, align 1
+  %idxprom317 = zext nneg i16 %64 to i64
   %arrayidx318 = getelementptr inbounds i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %idxprom317
-  %84 = load i8, ptr %arrayidx318, align 2
+  %80 = load i8, ptr %arrayidx318, align 2
   %incdec.ptr319 = getelementptr inbounds i8, ptr %buffer.addr.13, i64 11
-  store i8 %84, ptr %incdec.ptr316, align 1
-  %85 = or disjoint i16 %68, 1
-  %idxprom321 = zext nneg i16 %85 to i64
+  store i8 %80, ptr %incdec.ptr316, align 1
+  %81 = or disjoint i16 %64, 1
+  %idxprom321 = zext nneg i16 %81 to i64
   %arrayidx322 = getelementptr inbounds i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %idxprom321
-  %86 = load i8, ptr %arrayidx322, align 1
+  %82 = load i8, ptr %arrayidx322, align 1
   %incdec.ptr323 = getelementptr inbounds i8, ptr %buffer.addr.13, i64 12
-  store i8 %86, ptr %incdec.ptr319, align 1
-  %idxprom324 = zext nneg i16 %69 to i64
+  store i8 %82, ptr %incdec.ptr319, align 1
+  %idxprom324 = zext nneg i16 %65 to i64
   %arrayidx325 = getelementptr inbounds i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %idxprom324
-  %87 = load i8, ptr %arrayidx325, align 2
+  %83 = load i8, ptr %arrayidx325, align 2
   %incdec.ptr326 = getelementptr inbounds i8, ptr %buffer.addr.13, i64 13
-  store i8 %87, ptr %incdec.ptr323, align 1
-  %88 = or disjoint i16 %69, 1
-  %idxprom328 = zext nneg i16 %88 to i64
+  store i8 %83, ptr %incdec.ptr323, align 1
+  %84 = or disjoint i16 %65, 1
+  %idxprom328 = zext nneg i16 %84 to i64
   %arrayidx329 = getelementptr inbounds i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %idxprom328
-  %89 = load i8, ptr %arrayidx329, align 1
+  %85 = load i8, ptr %arrayidx329, align 1
   %incdec.ptr330 = getelementptr inbounds i8, ptr %buffer.addr.13, i64 14
-  store i8 %89, ptr %incdec.ptr326, align 1
-  %idxprom331 = zext nneg i16 %70 to i64
+  store i8 %85, ptr %incdec.ptr326, align 1
+  %idxprom331 = zext nneg i16 %66 to i64
   %arrayidx332 = getelementptr inbounds i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %idxprom331
-  %90 = load i8, ptr %arrayidx332, align 2
+  %86 = load i8, ptr %arrayidx332, align 2
   %incdec.ptr333 = getelementptr inbounds i8, ptr %buffer.addr.13, i64 15
-  store i8 %90, ptr %incdec.ptr330, align 1
-  %91 = or disjoint i16 %70, 1
-  %idxprom335 = zext nneg i16 %91 to i64
+  store i8 %86, ptr %incdec.ptr330, align 1
+  %87 = or disjoint i16 %66, 1
+  %idxprom335 = zext nneg i16 %87 to i64
   %arrayidx336 = getelementptr inbounds i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %idxprom335
-  %92 = load i8, ptr %arrayidx336, align 1
+  %88 = load i8, ptr %arrayidx336, align 1
   %incdec.ptr337 = getelementptr inbounds i8, ptr %buffer.addr.13, i64 16
-  store i8 %92, ptr %incdec.ptr333, align 1
+  store i8 %88, ptr %incdec.ptr333, align 1
   br label %if.end339
 
 if.end339:                                        ; preds = %if.end147, %if.end243, %if.end17, %if.end52

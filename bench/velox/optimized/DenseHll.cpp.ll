@@ -354,36 +354,31 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %15 = load i16, ptr %add.ptr2.i.i20, align 2
   %conv3.i = zext i16 %15 to i32
   %cmp4.i = icmp eq i32 %conv3.i, %index
-  br i1 %cmp4.i, label %_ZNK8facebook5velox6common3hll8DenseHll17findOverflowEntryEi.exit, label %for.inc.i
+  br i1 %cmp4.i, label %if.then16, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %conv.i18
   br i1 %exitcond.not.i, label %if.else, label %for.body.i, !llvm.loop !6
 
-_ZNK8facebook5velox6common3hll8DenseHll17findOverflowEntryEi.exit: ; preds = %for.body.i
-  %16 = and i64 %indvars.iv.i, 4294967295
-  %cmp15.not = icmp eq i64 %16, 4294967295
-  br i1 %cmp15.not, label %if.else, label %if.then16
-
-if.then16:                                        ; preds = %_ZNK8facebook5velox6common3hll8DenseHll17findOverflowEntryEi.exit
+if.then16:                                        ; preds = %for.body.i
   %sext = shl i64 %indvars.iv.i, 32
   %conv17 = ashr exact i64 %sext, 32
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 88
-  %17 = load ptr, ptr %add.ptr.i, align 8
-  %add.ptr2.i = getelementptr inbounds i8, ptr %17, i64 %conv17
+  %16 = load ptr, ptr %add.ptr.i, align 8
+  %add.ptr2.i = getelementptr inbounds i8, ptr %16, i64 %conv17
   store i8 %conv13, ptr %add.ptr2.i, align 1
   br label %if.end20
 
-if.else:                                          ; preds = %for.inc.i, %if.then11.if.else_crit_edge, %_ZNK8facebook5velox6common3hll8DenseHll17findOverflowEntryEi.exit
-  %18 = phi ptr [ %.pre, %if.then11.if.else_crit_edge ], [ %14, %_ZNK8facebook5velox6common3hll8DenseHll17findOverflowEntryEi.exit ], [ %14, %for.inc.i ]
+if.else:                                          ; preds = %for.inc.i, %if.then11.if.else_crit_edge
+  %17 = phi ptr [ %.pre, %if.then11.if.else_crit_edge ], [ %14, %for.inc.i ]
   %conv.i22 = sext i16 %13 to i64
   %add.i = add nsw i64 %conv.i22, 1
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  %19 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %19 to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %18 to i64
+  %18 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %18 to i64
+  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %17 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 1
   %cmp.i.i = icmp ult i64 %sub.ptr.div.i.i.i, %add.i
@@ -403,8 +398,8 @@ if.else.i.i:                                      ; preds = %if.else
   br i1 %cmp4.i.i23, label %if.then5.i.i, label %_ZNSt6vectorItN8facebook5velox12StlAllocatorItEEE6resizeEm.exit.i
 
 if.then5.i.i:                                     ; preds = %if.else.i.i
-  %add.ptr6.i.i = getelementptr inbounds i16, ptr %18, i64 %add.i
-  %tobool.not.i.i.i = icmp eq ptr %19, %add.ptr6.i.i
+  %add.ptr6.i.i = getelementptr inbounds i16, ptr %17, i64 %add.i
+  %tobool.not.i.i.i = icmp eq ptr %18, %add.ptr6.i.i
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorItN8facebook5velox12StlAllocatorItEEE6resizeEm.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then5.i.i
@@ -416,10 +411,10 @@ _ZNSt6vectorItN8facebook5velox12StlAllocatorItEEE6resizeEm.exit.i: ; preds = %if
   %conv4.pre-phi.i = phi i64 [ %.pre18.i, %if.then.i.i25 ], [ %conv.i22, %if.else.i.i ], [ %conv.i22, %if.then5.i.i ], [ %conv.i22, %if.then.i.i.i ]
   %add.ptr.i.i1.i = getelementptr inbounds i8, ptr %this, i64 88
   %_M_finish.i.i2.i = getelementptr inbounds i8, ptr %this, i64 96
-  %20 = load ptr, ptr %_M_finish.i.i2.i, align 8
-  %21 = load ptr, ptr %add.ptr.i.i1.i, align 8
-  %sub.ptr.lhs.cast.i.i3.i = ptrtoint ptr %20 to i64
-  %sub.ptr.rhs.cast.i.i4.i = ptrtoint ptr %21 to i64
+  %19 = load ptr, ptr %_M_finish.i.i2.i, align 8
+  %20 = load ptr, ptr %add.ptr.i.i1.i, align 8
+  %sub.ptr.lhs.cast.i.i3.i = ptrtoint ptr %19 to i64
+  %sub.ptr.rhs.cast.i.i4.i = ptrtoint ptr %20 to i64
   %sub.ptr.sub.i.i5.i = sub i64 %sub.ptr.lhs.cast.i.i3.i, %sub.ptr.rhs.cast.i.i4.i
   %cmp.i6.i = icmp ult i64 %sub.ptr.sub.i.i5.i, %add5.pre-phi.i
   br i1 %cmp.i6.i, label %if.then.i13.i, label %if.else.i7.i
@@ -437,8 +432,8 @@ if.else.i7.i:                                     ; preds = %_ZNSt6vectorItN8fac
   br i1 %cmp4.i8.i, label %if.then5.i9.i, label %_ZN8facebook5velox6common3hll8DenseHll11addOverflowEia.exit
 
 if.then5.i9.i:                                    ; preds = %if.else.i7.i
-  %add.ptr6.i10.i = getelementptr inbounds i8, ptr %21, i64 %add5.pre-phi.i
-  %tobool.not.i.i11.i = icmp eq ptr %20, %add.ptr6.i10.i
+  %add.ptr6.i10.i = getelementptr inbounds i8, ptr %20, i64 %add5.pre-phi.i
+  %tobool.not.i.i11.i = icmp eq ptr %19, %add.ptr6.i10.i
   br i1 %tobool.not.i.i11.i, label %_ZN8facebook5velox6common3hll8DenseHll11addOverflowEia.exit, label %if.then.i.i12.i
 
 if.then.i.i12.i:                                  ; preds = %if.then5.i9.i
@@ -448,16 +443,16 @@ if.then.i.i12.i:                                  ; preds = %if.then5.i9.i
 _ZN8facebook5velox6common3hll8DenseHll11addOverflowEia.exit: ; preds = %if.then.i13.i, %if.else.i7.i, %if.then5.i9.i, %if.then.i.i12.i
   %conv10.pre-phi.i = phi i64 [ %.pre20.i, %if.then.i13.i ], [ %conv4.pre-phi.i, %if.else.i7.i ], [ %conv4.pre-phi.i, %if.then5.i9.i ], [ %conv4.pre-phi.i, %if.then.i.i12.i ]
   %conv7.i = trunc i32 %index to i16
-  %22 = load ptr, ptr %add.ptr.i.i.i, align 8
-  %add.ptr2.i.i24 = getelementptr inbounds i16, ptr %22, i64 %conv10.pre-phi.i
+  %21 = load ptr, ptr %add.ptr.i.i.i, align 8
+  %add.ptr2.i.i24 = getelementptr inbounds i16, ptr %21, i64 %conv10.pre-phi.i
   store i16 %conv7.i, ptr %add.ptr2.i.i24, align 2
-  %23 = load i16, ptr %overflows_.i17, align 8
-  %conv13.i = sext i16 %23 to i64
-  %24 = load ptr, ptr %add.ptr.i.i1.i, align 8
-  %add.ptr2.i16.i = getelementptr inbounds i8, ptr %24, i64 %conv13.i
+  %22 = load i16, ptr %overflows_.i17, align 8
+  %conv13.i = sext i16 %22 to i64
+  %23 = load ptr, ptr %add.ptr.i.i1.i, align 8
+  %add.ptr2.i16.i = getelementptr inbounds i8, ptr %23, i64 %conv13.i
   store i8 %conv13, ptr %add.ptr2.i16.i, align 1
-  %25 = load i16, ptr %overflows_.i17, align 8
-  %inc.i = add i16 %25, 1
+  %24 = load i16, ptr %overflows_.i17, align 8
+  %inc.i = add i16 %24, 1
   store i16 %inc.i, ptr %overflows_.i17, align 8
   br label %if.end20
 
@@ -465,25 +460,25 @@ if.end20:                                         ; preds = %if.then16, %_ZN8fac
   %delta.0 = phi i32 [ %sub, %if.end ], [ 15, %_ZN8facebook5velox6common3hll8DenseHll11addOverflowEia.exit ], [ 15, %if.then16 ]
   %conv21 = trunc nuw nsw i32 %delta.0 to i8
   %shl.i = shl nuw i8 15, %conv.i.i
-  %26 = xor i8 %shl.i, -1
-  %27 = load ptr, ptr %add.ptr.i.i, align 8
-  %add.ptr2.i.i30 = getelementptr inbounds i8, ptr %27, i64 %conv.i
-  %28 = load i8, ptr %add.ptr2.i.i30, align 1
-  %and4.i = and i8 %28, %26
+  %25 = xor i8 %shl.i, -1
+  %26 = load ptr, ptr %add.ptr.i.i, align 8
+  %add.ptr2.i.i30 = getelementptr inbounds i8, ptr %26, i64 %conv.i
+  %27 = load i8, ptr %add.ptr2.i.i30, align 1
+  %and4.i = and i8 %27, %25
   store i8 %and4.i, ptr %add.ptr2.i.i30, align 1
   %shl11.i = shl i8 %conv21, %conv.i.i
-  %29 = load ptr, ptr %add.ptr.i.i, align 8
-  %add.ptr2.i9.i = getelementptr inbounds i8, ptr %29, i64 %conv.i
-  %30 = load i8, ptr %add.ptr2.i9.i, align 1
-  %or5.i = or i8 %30, %shl11.i
+  %28 = load ptr, ptr %add.ptr.i.i, align 8
+  %add.ptr2.i9.i = getelementptr inbounds i8, ptr %28, i64 %conv.i
+  %29 = load i8, ptr %add.ptr2.i9.i, align 1
+  %or5.i = or i8 %29, %shl11.i
   store i8 %or5.i, ptr %add.ptr2.i9.i, align 1
   %cmp23 = icmp eq i8 %and.i, 0
   br i1 %cmp23, label %if.then24, label %if.end25
 
 if.then24:                                        ; preds = %if.end20
   %baselineCount_ = getelementptr inbounds i8, ptr %this, i64 4
-  %31 = load i32, ptr %baselineCount_, align 4
-  %dec = add nsw i32 %31, -1
+  %30 = load i32, ptr %baselineCount_, align 4
+  %dec = add nsw i32 %30, -1
   store i32 %dec, ptr %baselineCount_, align 4
   tail call void @_ZN8facebook5velox6common3hll8DenseHll22adjustBaselineIfNeededEv(ptr noundef nonnull align 8 dereferenceable(112) %this)
   br label %if.end25

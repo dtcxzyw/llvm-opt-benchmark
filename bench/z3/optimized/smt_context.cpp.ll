@@ -4054,7 +4054,7 @@ invoke.cont20:                                    ; preds = %invoke.cont13
   %cmp.i = icmp eq ptr %16, %15
   br i1 %cmp.i, label %_ZN7obj_refI3app11ast_managerED2Ev.exit, label %invoke.cont28
 
-lpad6.loopexit:                                   ; preds = %land.lhs.true76
+lpad6.loopexit:                                   ; preds = %if.end.i107
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup125
@@ -4238,9 +4238,9 @@ invoke.cont72:                                    ; preds = %_ZNK6vectorIN3sat7l
   %m_notify_theory.i = getelementptr inbounds %"struct.smt::bool_var_data", ptr %42, i64 %idxprom.i.i100, i32 1
   %bf.load.i = load i64, ptr %m_notify_theory.i, align 8
   %cmp.i102 = icmp ugt i64 %bf.load.i, 72057594037927935
-  br i1 %cmp.i102, label %land.lhs.true76, label %if.end86
+  br i1 %cmp.i102, label %if.end.i107, label %if.end86
 
-land.lhs.true76:                                  ; preds = %invoke.cont72
+if.end.i107:                                      ; preds = %invoke.cont72
   %bf.lshr.i = lshr i64 %bf.load.i, 56
   %bf.cast.i = trunc nuw nsw i64 %bf.lshr.i to i32
   %43 = load ptr, ptr %m_theories, align 8, !nonnull !17, !noundef !17
@@ -4256,7 +4256,7 @@ land.lhs.true76:                                  ; preds = %invoke.cont72
   %call84 = invoke noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(53) %.then.val.i, i32 noundef %shr.i)
           to label %invoke.cont83 unwind label %lpad6.loopexit
 
-invoke.cont83:                                    ; preds = %land.lhs.true76
+invoke.cont83:                                    ; preds = %if.end.i107
   br i1 %call84, label %if.end86, label %for.inc113
 
 if.end86:                                         ; preds = %invoke.cont83, %invoke.cont72
@@ -12224,9 +12224,9 @@ if.then.i60:                                      ; preds = %invoke.cont
 
 if.else45:                                        ; preds = %if.end11
   %cmp.i63 = icmp ugt i64 %bf.load.i24, 72057594037927935
-  br i1 %cmp.i63, label %if.then47, label %if.else51
+  br i1 %cmp.i63, label %if.end.i68, label %if.else51
 
-if.then47:                                        ; preds = %if.else45
+if.end.i68:                                       ; preds = %if.else45
   %bf.lshr.i = lshr i64 %bf.load.i24, 56
   %bf.cast.i = trunc nuw nsw i64 %bf.lshr.i to i32
   %48 = load ptr, ptr %m_theories, align 8, !nonnull !17, !noundef !17
@@ -12263,8 +12263,8 @@ if.then56:                                        ; preds = %if.then53
   tail call void @_ZN3smt18quantifier_manager9assign_ehEP10quantifier(ptr noundef nonnull align 8 dereferenceable(13) %56, ptr noundef %55)
   br label %if.end63
 
-if.end63:                                         ; preds = %invoke.cont, %if.then.i60, %if.then47, %if.then53, %if.then56, %if.else51, %if.then14, %if.else27, %land.lhs.true, %if.then22
-  %ref.tmp34.sroa.1.1 = phi i8 [ %ref.tmp34.sroa.1.0, %if.then14 ], [ %ref.tmp34.sroa.1.0, %if.then22 ], [ %ref.tmp34.sroa.1.0, %if.else27 ], [ %ref.tmp34.sroa.1.0, %land.lhs.true ], [ %ref.tmp34.sroa.1.0, %if.then47 ], [ %ref.tmp34.sroa.1.0, %if.then56 ], [ %ref.tmp34.sroa.1.0, %if.then53 ], [ %ref.tmp34.sroa.1.0, %if.else51 ], [ %bf.set4.i.i, %if.then.i60 ], [ %bf.set4.i.i, %invoke.cont ]
+if.end63:                                         ; preds = %invoke.cont, %if.then.i60, %if.end.i68, %if.then53, %if.then56, %if.else51, %if.then14, %if.else27, %land.lhs.true, %if.then22
+  %ref.tmp34.sroa.1.1 = phi i8 [ %ref.tmp34.sroa.1.0, %if.then14 ], [ %ref.tmp34.sroa.1.0, %if.then22 ], [ %ref.tmp34.sroa.1.0, %if.else27 ], [ %ref.tmp34.sroa.1.0, %land.lhs.true ], [ %ref.tmp34.sroa.1.0, %if.end.i68 ], [ %ref.tmp34.sroa.1.0, %if.then56 ], [ %ref.tmp34.sroa.1.0, %if.then53 ], [ %ref.tmp34.sroa.1.0, %if.else51 ], [ %bf.set4.i.i, %if.then.i60 ], [ %bf.set4.i.i, %invoke.cont ]
   %57 = load ptr, ptr %m_conflict.i, align 8
   %58 = load ptr, ptr @_ZN3smtL20null_b_justificationE, align 8
   %cmp.i.i.i83 = icmp ne ptr %57, %58
@@ -14742,9 +14742,9 @@ if.then11:                                        ; preds = %land.lhs.true
 
 land.lhs.true22:                                  ; preds = %sw.bb
   %cmp.i17 = icmp ugt i64 %bf.load.i, 72057594037927935
-  br i1 %cmp.i17, label %if.then24, label %if.end48
+  br i1 %cmp.i17, label %if.end.i, label %if.end48
 
-if.then24:                                        ; preds = %land.lhs.true22
+if.end.i:                                         ; preds = %land.lhs.true22
   %m_theories = getelementptr inbounds i8, ptr %this, i64 9216
   %bf.lshr.i = lshr i64 %bf.load.i, 56
   %bf.cast.i = trunc nuw nsw i64 %bf.lshr.i to i32
@@ -14762,11 +14762,11 @@ if.then24:                                        ; preds = %land.lhs.true22
   %cmp28.not = icmp eq i32 %call27, 0
   br i1 %cmp28.not, label %if.end32, label %if.then29
 
-if.then29:                                        ; preds = %if.then24
+if.then29:                                        ; preds = %if.end.i
   %cmp30 = icmp eq i32 %call27, 1
   br label %return
 
-if.end32:                                         ; preds = %if.then24
+if.end32:                                         ; preds = %if.end.i
   %.pre = load ptr, ptr %m_fparams, align 8
   %m_phase_selection.i.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 552
   %.pre37 = load i32, ptr %m_phase_selection.i.phi.trans.insert, align 8

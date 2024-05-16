@@ -2988,17 +2988,17 @@ local_heap_sort.exit:                             ; preds = %540, %._crit_edge13
   br i1 %.not548, label %.loopexit745, label %741, !llvm.loop !54
 
 .loopexit745:                                     ; preds = %784, %.thread741
-  %795 = trunc nsw i64 %indvars.iv678 to i32
-  %796 = getelementptr inbounds i8, ptr %3, i64 72
-  %797 = load i64, ptr %796, align 8
-  %798 = add nsw i64 %797, %732
-  store i64 %798, ptr %796, align 8
+  %795 = getelementptr inbounds i8, ptr %3, i64 72
+  %796 = load i64, ptr %795, align 8
+  %797 = add nsw i64 %796, %732
+  store i64 %797, ptr %795, align 8
   store i32 %.6, ptr %8, align 4
-  %799 = icmp sgt i32 %795, -2
-  br i1 %799, label %800, label %819
+  %798 = icmp sgt i64 %indvars.iv678, -2
+  br i1 %798, label %799, label %819
 
-800:                                              ; preds = %.loopexit745
-  %801 = add nsw i32 %795, 2
+799:                                              ; preds = %.loopexit745
+  %800 = trunc nsw i64 %indvars.iv678 to i32
+  %801 = add nsw i32 %800, 2
   %802 = call i32 @ompi_datatype_create_hindexed(i32 noundef %801, ptr noundef nonnull %.2493, ptr noundef %.2488, ptr noundef nonnull @ompi_mpi_byte, ptr noundef nonnull %6) #11
   %.val555 = load ptr, ptr %6, align 8
   %803 = call i32 @opal_datatype_commit(ptr noundef %.val555) #11
@@ -3017,11 +3017,11 @@ local_heap_sort.exit:                             ; preds = %540, %._crit_edge13
   %.not549 = icmp eq ptr %815, @ompi_mpi_datatype_null
   br i1 %.not549, label %818, label %816
 
-816:                                              ; preds = %800
+816:                                              ; preds = %799
   %817 = call i32 @ompi_datatype_destroy(ptr noundef nonnull %6) #11
   br label %818
 
-818:                                              ; preds = %816, %800
+818:                                              ; preds = %816, %799
   %.not550 = icmp eq i32 %814, 0
   br i1 %.not550, label %819, label %.loopexit
 

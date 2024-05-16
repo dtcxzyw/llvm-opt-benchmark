@@ -875,15 +875,15 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   %56 = load i64, ptr %54, align 1
   store i64 %56, ptr %7, align 8
   %57 = lshr i64 %56, 56
-  %58 = icmp ult i64 %56, 72057594037927936
-  %59 = trunc nuw nsw i64 %57 to i32
-  %60 = tail call i32 @llvm.ctlz.i32(i32 %59, i1 true), !range !20
+  %58 = trunc nuw nsw i64 %57 to i32
+  %59 = icmp ult i64 %56, 72057594037927936
+  %60 = tail call i32 @llvm.ctlz.i32(i32 %58, i1 true), !range !20
   %61 = xor i32 %60, 31
   %62 = sub nuw nsw i32 8, %61
-  %63 = select i1 %58, i32 0, i32 %62
+  %63 = select i1 %59, i32 0, i32 %62
   %64 = getelementptr inbounds i8, ptr %7, i64 8
   store i32 %63, ptr %64, align 8
-  br i1 %58, label %.thread, label %124
+  br i1 %59, label %.thread, label %124
 
 65:                                               ; preds = %48
   %66 = getelementptr inbounds i8, ptr %7, i64 16
@@ -997,15 +997,15 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   %137 = load i64, ptr %135, align 1
   store i64 %137, ptr %8, align 8
   %138 = lshr i64 %137, 56
-  %139 = icmp ult i64 %137, 72057594037927936
-  %140 = trunc nuw nsw i64 %138 to i32
-  %141 = tail call i32 @llvm.ctlz.i32(i32 %140, i1 true), !range !20
+  %139 = trunc nuw nsw i64 %138 to i32
+  %140 = icmp ult i64 %137, 72057594037927936
+  %141 = tail call i32 @llvm.ctlz.i32(i32 %139, i1 true), !range !20
   %142 = xor i32 %141, 31
   %143 = sub nuw nsw i32 8, %142
-  %144 = select i1 %139, i32 0, i32 %143
+  %144 = select i1 %140, i32 0, i32 %143
   %145 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 %144, ptr %145, align 8
-  br i1 %139, label %.thread, label %205
+  br i1 %140, label %.thread, label %205
 
 146:                                              ; preds = %129
   %147 = getelementptr inbounds i8, ptr %8, i64 16
@@ -1119,15 +1119,15 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   %218 = load i64, ptr %216, align 1
   store i64 %218, ptr %9, align 8
   %219 = lshr i64 %218, 56
-  %220 = icmp ult i64 %218, 72057594037927936
-  %221 = trunc nuw nsw i64 %219 to i32
-  %222 = tail call i32 @llvm.ctlz.i32(i32 %221, i1 true), !range !20
+  %220 = trunc nuw nsw i64 %219 to i32
+  %221 = icmp ult i64 %218, 72057594037927936
+  %222 = tail call i32 @llvm.ctlz.i32(i32 %220, i1 true), !range !20
   %223 = xor i32 %222, 31
   %224 = sub nuw nsw i32 8, %223
-  %225 = select i1 %220, i32 0, i32 %224
+  %225 = select i1 %221, i32 0, i32 %224
   %226 = getelementptr inbounds i8, ptr %9, i64 8
   store i32 %225, ptr %226, align 8
-  br i1 %220, label %.thread, label %286
+  br i1 %221, label %.thread, label %286
 
 227:                                              ; preds = %210
   %228 = getelementptr inbounds i8, ptr %9, i64 16
@@ -3689,15 +3689,15 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %57 = load i64, ptr %55, align 1
   store i64 %57, ptr %7, align 8
   %58 = lshr i64 %57, 56
-  %59 = icmp ult i64 %57, 72057594037927936
-  %60 = trunc nuw nsw i64 %58 to i32
-  %61 = tail call i32 @llvm.ctlz.i32(i32 %60, i1 true), !range !20
+  %59 = trunc nuw nsw i64 %58 to i32
+  %60 = icmp ult i64 %57, 72057594037927936
+  %61 = tail call i32 @llvm.ctlz.i32(i32 %59, i1 true), !range !20
   %62 = xor i32 %61, 31
   %63 = sub nuw nsw i32 8, %62
-  %64 = select i1 %59, i32 0, i32 %63
+  %64 = select i1 %60, i32 0, i32 %63
   %65 = getelementptr inbounds i8, ptr %7, i64 8
   store i32 %64, ptr %65, align 8
-  br i1 %59, label %.thread, label %125
+  br i1 %60, label %.thread, label %125
 
 66:                                               ; preds = %49
   %67 = getelementptr inbounds i8, ptr %7, i64 16
@@ -3811,15 +3811,15 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %138 = load i64, ptr %136, align 1
   store i64 %138, ptr %8, align 8
   %139 = lshr i64 %138, 56
-  %140 = icmp ult i64 %138, 72057594037927936
-  %141 = trunc nuw nsw i64 %139 to i32
-  %142 = tail call i32 @llvm.ctlz.i32(i32 %141, i1 true), !range !20
+  %140 = trunc nuw nsw i64 %139 to i32
+  %141 = icmp ult i64 %138, 72057594037927936
+  %142 = tail call i32 @llvm.ctlz.i32(i32 %140, i1 true), !range !20
   %143 = xor i32 %142, 31
   %144 = sub nuw nsw i32 8, %143
-  %145 = select i1 %140, i32 0, i32 %144
+  %145 = select i1 %141, i32 0, i32 %144
   %146 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 %145, ptr %146, align 8
-  br i1 %140, label %.thread, label %206
+  br i1 %141, label %.thread, label %206
 
 147:                                              ; preds = %130
   %148 = getelementptr inbounds i8, ptr %8, i64 16
@@ -3934,15 +3934,15 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %219 = load i64, ptr %217, align 1
   store i64 %219, ptr %9, align 8
   %220 = lshr i64 %219, 56
-  %221 = icmp ult i64 %219, 72057594037927936
-  %222 = trunc nuw nsw i64 %220 to i32
-  %223 = tail call i32 @llvm.ctlz.i32(i32 %222, i1 true), !range !20
+  %221 = trunc nuw nsw i64 %220 to i32
+  %222 = icmp ult i64 %219, 72057594037927936
+  %223 = tail call i32 @llvm.ctlz.i32(i32 %221, i1 true), !range !20
   %224 = xor i32 %223, 31
   %225 = sub nuw nsw i32 8, %224
-  %226 = select i1 %221, i32 0, i32 %225
+  %226 = select i1 %222, i32 0, i32 %225
   %227 = getelementptr inbounds i8, ptr %9, i64 8
   store i32 %226, ptr %227, align 8
-  br i1 %221, label %.thread, label %287
+  br i1 %222, label %.thread, label %287
 
 228:                                              ; preds = %211
   %229 = getelementptr inbounds i8, ptr %9, i64 16
@@ -7063,15 +7063,15 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal_bmi2(ptr noun
   %51 = load i64, ptr %49, align 1
   store i64 %51, ptr %6, align 8
   %52 = lshr i64 %51, 56
-  %53 = icmp ult i64 %51, 72057594037927936
-  %54 = trunc nuw nsw i64 %52 to i32
-  %55 = tail call i32 @llvm.ctlz.i32(i32 %54, i1 true), !range !20
+  %53 = trunc nuw nsw i64 %52 to i32
+  %54 = icmp ult i64 %51, 72057594037927936
+  %55 = tail call i32 @llvm.ctlz.i32(i32 %53, i1 true), !range !20
   %56 = xor i32 %55, 31
   %57 = sub nuw nsw i32 8, %56
-  %58 = select i1 %53, i32 0, i32 %57
+  %58 = select i1 %54, i32 0, i32 %57
   %59 = getelementptr inbounds i8, ptr %6, i64 8
   store i32 %58, ptr %59, align 8
-  br i1 %53, label %.thread, label %119
+  br i1 %54, label %.thread, label %119
 
 60:                                               ; preds = %43
   %61 = getelementptr inbounds i8, ptr %6, i64 16
@@ -7185,15 +7185,15 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal_bmi2(ptr noun
   %132 = load i64, ptr %130, align 1
   store i64 %132, ptr %7, align 8
   %133 = lshr i64 %132, 56
-  %134 = icmp ult i64 %132, 72057594037927936
-  %135 = trunc nuw nsw i64 %133 to i32
-  %136 = tail call i32 @llvm.ctlz.i32(i32 %135, i1 true), !range !20
+  %134 = trunc nuw nsw i64 %133 to i32
+  %135 = icmp ult i64 %132, 72057594037927936
+  %136 = tail call i32 @llvm.ctlz.i32(i32 %134, i1 true), !range !20
   %137 = xor i32 %136, 31
   %138 = sub nuw nsw i32 8, %137
-  %139 = select i1 %134, i32 0, i32 %138
+  %139 = select i1 %135, i32 0, i32 %138
   %140 = getelementptr inbounds i8, ptr %7, i64 8
   store i32 %139, ptr %140, align 8
-  br i1 %134, label %.thread, label %200
+  br i1 %135, label %.thread, label %200
 
 141:                                              ; preds = %124
   %142 = getelementptr inbounds i8, ptr %7, i64 16
@@ -7307,15 +7307,15 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal_bmi2(ptr noun
   %213 = load i64, ptr %211, align 1
   store i64 %213, ptr %8, align 8
   %214 = lshr i64 %213, 56
-  %215 = icmp ult i64 %213, 72057594037927936
-  %216 = trunc nuw nsw i64 %214 to i32
-  %217 = tail call i32 @llvm.ctlz.i32(i32 %216, i1 true), !range !20
+  %215 = trunc nuw nsw i64 %214 to i32
+  %216 = icmp ult i64 %213, 72057594037927936
+  %217 = tail call i32 @llvm.ctlz.i32(i32 %215, i1 true), !range !20
   %218 = xor i32 %217, 31
   %219 = sub nuw nsw i32 8, %218
-  %220 = select i1 %215, i32 0, i32 %219
+  %220 = select i1 %216, i32 0, i32 %219
   %221 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 %220, ptr %221, align 8
-  br i1 %215, label %.thread, label %281
+  br i1 %216, label %.thread, label %281
 
 222:                                              ; preds = %205
   %223 = getelementptr inbounds i8, ptr %8, i64 16
@@ -7430,15 +7430,15 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal_bmi2(ptr noun
   %295 = load i64, ptr %293, align 1
   store i64 %295, ptr %9, align 8
   %296 = lshr i64 %295, 56
-  %297 = icmp ult i64 %295, 72057594037927936
-  %298 = trunc nuw nsw i64 %296 to i32
-  %299 = tail call i32 @llvm.ctlz.i32(i32 %298, i1 true), !range !20
+  %297 = trunc nuw nsw i64 %296 to i32
+  %298 = icmp ult i64 %295, 72057594037927936
+  %299 = tail call i32 @llvm.ctlz.i32(i32 %297, i1 true), !range !20
   %300 = xor i32 %299, 31
   %301 = sub nuw nsw i32 8, %300
-  %302 = select i1 %297, i32 0, i32 %301
+  %302 = select i1 %298, i32 0, i32 %301
   %303 = getelementptr inbounds i8, ptr %9, i64 8
   store i32 %302, ptr %303, align 8
-  br i1 %297, label %.thread, label %BIT_initDStream.exit
+  br i1 %298, label %.thread, label %BIT_initDStream.exit
 
 304:                                              ; preds = %286
   %305 = getelementptr inbounds i8, ptr %9, i64 16
@@ -9264,15 +9264,15 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal_bmi2(ptr noun
   %52 = load i64, ptr %50, align 1
   store i64 %52, ptr %6, align 8
   %53 = lshr i64 %52, 56
-  %54 = icmp ult i64 %52, 72057594037927936
-  %55 = trunc nuw nsw i64 %53 to i32
-  %56 = tail call i32 @llvm.ctlz.i32(i32 %55, i1 true), !range !20
+  %54 = trunc nuw nsw i64 %53 to i32
+  %55 = icmp ult i64 %52, 72057594037927936
+  %56 = tail call i32 @llvm.ctlz.i32(i32 %54, i1 true), !range !20
   %57 = xor i32 %56, 31
   %58 = sub nuw nsw i32 8, %57
-  %59 = select i1 %54, i32 0, i32 %58
+  %59 = select i1 %55, i32 0, i32 %58
   %60 = getelementptr inbounds i8, ptr %6, i64 8
   store i32 %59, ptr %60, align 8
-  br i1 %54, label %.thread, label %120
+  br i1 %55, label %.thread, label %120
 
 61:                                               ; preds = %44
   %62 = getelementptr inbounds i8, ptr %6, i64 16
@@ -9386,15 +9386,15 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal_bmi2(ptr noun
   %133 = load i64, ptr %131, align 1
   store i64 %133, ptr %7, align 8
   %134 = lshr i64 %133, 56
-  %135 = icmp ult i64 %133, 72057594037927936
-  %136 = trunc nuw nsw i64 %134 to i32
-  %137 = tail call i32 @llvm.ctlz.i32(i32 %136, i1 true), !range !20
+  %135 = trunc nuw nsw i64 %134 to i32
+  %136 = icmp ult i64 %133, 72057594037927936
+  %137 = tail call i32 @llvm.ctlz.i32(i32 %135, i1 true), !range !20
   %138 = xor i32 %137, 31
   %139 = sub nuw nsw i32 8, %138
-  %140 = select i1 %135, i32 0, i32 %139
+  %140 = select i1 %136, i32 0, i32 %139
   %141 = getelementptr inbounds i8, ptr %7, i64 8
   store i32 %140, ptr %141, align 8
-  br i1 %135, label %.thread, label %201
+  br i1 %136, label %.thread, label %201
 
 142:                                              ; preds = %125
   %143 = getelementptr inbounds i8, ptr %7, i64 16
@@ -9508,15 +9508,15 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal_bmi2(ptr noun
   %214 = load i64, ptr %212, align 1
   store i64 %214, ptr %8, align 8
   %215 = lshr i64 %214, 56
-  %216 = icmp ult i64 %214, 72057594037927936
-  %217 = trunc nuw nsw i64 %215 to i32
-  %218 = tail call i32 @llvm.ctlz.i32(i32 %217, i1 true), !range !20
+  %216 = trunc nuw nsw i64 %215 to i32
+  %217 = icmp ult i64 %214, 72057594037927936
+  %218 = tail call i32 @llvm.ctlz.i32(i32 %216, i1 true), !range !20
   %219 = xor i32 %218, 31
   %220 = sub nuw nsw i32 8, %219
-  %221 = select i1 %216, i32 0, i32 %220
+  %221 = select i1 %217, i32 0, i32 %220
   %222 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 %221, ptr %222, align 8
-  br i1 %216, label %.thread, label %282
+  br i1 %217, label %.thread, label %282
 
 223:                                              ; preds = %206
   %224 = getelementptr inbounds i8, ptr %8, i64 16
@@ -9631,15 +9631,15 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal_bmi2(ptr noun
   %296 = load i64, ptr %294, align 1
   store i64 %296, ptr %9, align 8
   %297 = lshr i64 %296, 56
-  %298 = icmp ult i64 %296, 72057594037927936
-  %299 = trunc nuw nsw i64 %297 to i32
-  %300 = tail call i32 @llvm.ctlz.i32(i32 %299, i1 true), !range !20
+  %298 = trunc nuw nsw i64 %297 to i32
+  %299 = icmp ult i64 %296, 72057594037927936
+  %300 = tail call i32 @llvm.ctlz.i32(i32 %298, i1 true), !range !20
   %301 = xor i32 %300, 31
   %302 = sub nuw nsw i32 8, %301
-  %303 = select i1 %298, i32 0, i32 %302
+  %303 = select i1 %299, i32 0, i32 %302
   %304 = getelementptr inbounds i8, ptr %9, i64 8
   store i32 %303, ptr %304, align 8
-  br i1 %298, label %.thread, label %BIT_initDStream.exit
+  br i1 %299, label %.thread, label %BIT_initDStream.exit
 
 305:                                              ; preds = %287
   %306 = getelementptr inbounds i8, ptr %9, i64 16

@@ -2823,29 +2823,29 @@ define void @wtap_buffer_append_epdu_uint(ptr noundef %0, i16 noundef zeroext %1
 ; Function Attrs: nounwind uwtable
 define void @wtap_buffer_append_epdu_string(ptr noundef %0, i16 noundef zeroext %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #19
-  %spec.store.select = tail call i64 @llvm.umin.i64(i64 %4, i64 65535)
-  %5 = trunc nuw i64 %spec.store.select to i16
-  %6 = icmp ne i16 %1, 0
-  %7 = icmp ne ptr %2, null
-  %or.cond.i = and i1 %6, %7
-  %8 = icmp ne i16 %5, 0
-  %or.cond4.i = and i1 %or.cond.i, %8
-  br i1 %or.cond4.i, label %9, label %16
+  %5 = icmp ne i16 %1, 0
+  %6 = icmp ne ptr %2, null
+  %or.cond.i = and i1 %5, %6
+  %7 = icmp ne i64 %4, 0
+  %or.cond4.i = and i1 %or.cond.i, %7
+  br i1 %or.cond4.i, label %8, label %16
 
-9:                                                ; preds = %3
-  %10 = add i16 %5, 3
+8:                                                ; preds = %3
+  %spec.store.select = tail call i64 @llvm.umin.i64(i64 %4, i64 65535)
+  %9 = trunc nuw i64 %spec.store.select to i16
+  %10 = add i16 %9, 3
   %11 = and i16 %10, 252
-  %12 = sub i16 %11, %5
+  %12 = sub i16 %11, %9
   %.mask.i = and i16 %12, 255
   %13 = zext nneg i16 %.mask.i to i64
   %14 = add nuw nsw i64 %spec.store.select, 4
   %15 = add nuw nsw i64 %14, %13
   br label %16
 
-16:                                               ; preds = %9, %3
-  %.030.i = phi i16 [ %.mask.i, %9 ], [ 0, %3 ]
-  %.029.i = phi i64 [ %15, %9 ], [ 4, %3 ]
-  %.0.i = phi i16 [ %5, %9 ], [ 0, %3 ]
+16:                                               ; preds = %8, %3
+  %.030.i = phi i16 [ %.mask.i, %8 ], [ 0, %3 ]
+  %.029.i = phi i64 [ %15, %8 ], [ 4, %3 ]
+  %.0.i = phi i16 [ %9, %8 ], [ 0, %3 ]
   tail call void @ws_buffer_assure_space(ptr noundef %0, i64 noundef %.029.i) #18
   %17 = load ptr, ptr %0, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 24

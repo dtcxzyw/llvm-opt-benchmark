@@ -617,11 +617,11 @@ _ZNK6hermes2vm10StringView15castToChar16PtrEv.exit: ; preds = %if.end, %if.then.
 if.end.i34:                                       ; preds = %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit
   %13 = load i16, ptr %add.ptr10.i23, align 2
   %cmp1.i35 = icmp eq i16 %13, 48
-  br i1 %cmp1.i35, label %if.then2.i56, label %do.body.i36
+  br i1 %cmp1.i35, label %if.then2.i55, label %do.body.i36
 
-if.then2.i56:                                     ; preds = %if.end.i34
-  %cmp3.i58 = icmp eq i64 %str.sroa.8.8.extract.shift, 1
-  br i1 %cmp3.i58, label %17, label %_ZN6hermes12toArrayIndexIPKDsEENS_8OptValueIjEET_S5_.exit
+if.then2.i55:                                     ; preds = %if.end.i34
+  %cmp3.i57 = icmp eq i64 %str.sroa.8.8.extract.shift, 1
+  br i1 %cmp3.i57, label %17, label %_ZN6hermes12toArrayIndexIPKDsEENS_8OptValueIjEET_S5_.exit
 
 do.body.i36:                                      ; preds = %if.end.i34, %if.end17.i49
   %res.0.i37 = phi i64 [ %add.fr.i45, %if.end17.i49 ], [ 0, %if.end.i34 ]
@@ -649,13 +649,13 @@ return.i52:                                       ; preds = %if.end17.i49
   %cmp21.not.i53 = icmp eq i64 %add.fr.i45, 4294967295
   br i1 %cmp21.not.i53, label %_ZN6hermes12toArrayIndexIPKDsEENS_8OptValueIjEET_S5_.exit, label %17
 
-17:                                               ; preds = %return.i52, %if.then2.i56
-  %retval.sroa.0.025.i55 = phi i64 [ 0, %if.then2.i56 ], [ %add.fr.i45, %return.i52 ]
+17:                                               ; preds = %return.i52, %if.then2.i55
+  %retval.sroa.0.025.i54 = phi i64 [ 0, %if.then2.i55 ], [ %add.fr.i45, %return.i52 ]
   br label %_ZN6hermes12toArrayIndexIPKDsEENS_8OptValueIjEET_S5_.exit
 
-_ZN6hermes12toArrayIndexIPKDsEENS_8OptValueIjEET_S5_.exit: ; preds = %do.body.i36, %if.end12.i40, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit, %if.then2.i56, %return.i52, %17
-  %retval.sroa.0.023.i47 = phi i64 [ %retval.sroa.0.025.i55, %17 ], [ 0, %return.i52 ], [ 0, %if.then2.i56 ], [ 0, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit ], [ 0, %if.end12.i40 ], [ 0, %do.body.i36 ]
-  %18 = phi i64 [ 4294967296, %17 ], [ 0, %return.i52 ], [ 0, %if.then2.i56 ], [ 0, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit ], [ 0, %if.end12.i40 ], [ 0, %do.body.i36 ]
+_ZN6hermes12toArrayIndexIPKDsEENS_8OptValueIjEET_S5_.exit: ; preds = %do.body.i36, %if.end12.i40, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit, %if.then2.i55, %return.i52, %17
+  %retval.sroa.0.023.i47 = phi i64 [ %retval.sroa.0.025.i54, %17 ], [ 0, %return.i52 ], [ 0, %if.then2.i55 ], [ 0, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit ], [ 0, %if.end12.i40 ], [ 0, %do.body.i36 ]
+  %18 = phi i64 [ 4294967296, %17 ], [ 0, %return.i52 ], [ 0, %if.then2.i55 ], [ 0, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit ], [ 0, %if.end12.i40 ], [ 0, %do.body.i36 ]
   %retval.sroa.0.0.insert.insert.i48 = or i64 %18, %retval.sroa.0.023.i47
   br label %return
 

@@ -1311,11 +1311,11 @@ lpad.i.i178:                                      ; preds = %if.then.i.i176
   br label %common.resume
 
 _ZN3ue210verify_u32ImEEjT_.exit181:               ; preds = %if.then76
-  %conv.i.i180 = trunc nuw i64 %add.i174 to i32
-  %cmp79 = icmp ult i32 %conv.i.i180, 32
+  %cmp79 = icmp ult i64 %add.i174, 32
   br i1 %cmp79, label %cond.end84, label %cond.end84.thread
 
 cond.end84:                                       ; preds = %_ZN3ue210verify_u32ImEEjT_.exit181
+  %conv.i.i180 = trunc nuw i64 %add.i174 to i32
   %spec.select226 = call i32 @llvm.umax.i32(i32 %m.5, i32 %conv.i.i180)
   br label %if.end100
 

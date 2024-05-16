@@ -617,19 +617,18 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %cmp.not.i, label %for.end.i, label %for.body.i, !llvm.loop !9
 
 for.end.i:                                        ; preds = %for.body.i
-  %21 = and i32 %add6.i, 65280
-  %22 = icmp eq i32 %21, 0
+  %21 = icmp ult i32 %add6.i, 256
   %.pre64 = load i64, ptr %seedlen, align 8
   %sub14.i = sub i64 %.pre64, %16
   %cmp16.not23.i = icmp eq i64 %sub14.i, 0
-  %or.cond70 = select i1 %22, i1 true, i1 %cmp16.not23.i
+  %or.cond70 = select i1 %21, i1 true, i1 %cmp16.not23.i
   br i1 %or.cond70, label %add_bytes.exit, label %for.body18.i
 
 for.body18.i:                                     ; preds = %for.end.i, %for.body18.i
   %d.125.i = phi ptr [ %incdec.ptr28.i, %for.body18.i ], [ %d.0.i, %for.end.i ]
   %i.124.i = phi i64 [ %dec27.i, %for.body18.i ], [ %sub14.i, %for.end.i ]
-  %23 = load i8, ptr %d.125.i, align 1
-  %add20.i = add i8 %23, 1
+  %22 = load i8, ptr %d.125.i, align 1
+  %add20.i = add i8 %22, 1
   store i8 %add20.i, ptr %d.125.i, align 1
   %cmp23.not.i = icmp ne i8 %add20.i, 0
   %dec27.i = add i64 %i.124.i, -1
@@ -643,22 +642,22 @@ add_bytes.exit.loopexit:                          ; preds = %for.body18.i
   br label %add_bytes.exit
 
 add_bytes.exit:                                   ; preds = %add_bytes.exit.loopexit, %land.lhs.true24, %for.end.i
-  %24 = phi i64 [ %.pre63, %add_bytes.exit.loopexit ], [ 0, %land.lhs.true24 ], [ %.pre64, %for.end.i ]
-  %25 = getelementptr i8, ptr %V, i64 %24
-  %d.016.i20 = getelementptr inbounds i8, ptr %25, i64 -1
-  %26 = getelementptr inbounds i8, ptr %counter, i64 4
+  %23 = phi i64 [ %.pre63, %add_bytes.exit.loopexit ], [ 0, %land.lhs.true24 ], [ %.pre64, %for.end.i ]
+  %24 = getelementptr i8, ptr %V, i64 %23
+  %d.016.i20 = getelementptr inbounds i8, ptr %24, i64 -1
+  %25 = getelementptr inbounds i8, ptr %counter, i64 4
   br label %for.body.i21
 
 for.body.i21:                                     ; preds = %for.body.i21, %add_bytes.exit
   %d.021.i22 = phi ptr [ %d.0.i34, %for.body.i21 ], [ %d.016.i20, %add_bytes.exit ]
   %carry.020.i23 = phi i32 [ %shr.i31, %for.body.i21 ], [ 0, %add_bytes.exit ]
-  %.pn1519.i24 = phi ptr [ %add.0.i26, %for.body.i21 ], [ %26, %add_bytes.exit ]
+  %.pn1519.i24 = phi ptr [ %add.0.i26, %for.body.i21 ], [ %25, %add_bytes.exit ]
   %i.018.i25 = phi i64 [ %dec.i33, %for.body.i21 ], [ 4, %add_bytes.exit ]
   %add.0.i26 = getelementptr inbounds i8, ptr %.pn1519.i24, i64 -1
-  %27 = load i8, ptr %d.021.i22, align 1
-  %conv.i27 = zext i8 %27 to i32
-  %28 = load i8, ptr %add.0.i26, align 1
-  %conv3.i28 = zext i8 %28 to i32
+  %26 = load i8, ptr %d.021.i22, align 1
+  %conv.i27 = zext i8 %26 to i32
+  %27 = load i8, ptr %add.0.i26, align 1
+  %conv3.i28 = zext i8 %27 to i32
   %add4.i29 = add nuw nsw i32 %carry.020.i23, %conv.i27
   %add6.i30 = add nuw nsw i32 %add4.i29, %conv3.i28
   %shr.i31 = lshr i32 %add6.i30, 8
@@ -670,21 +669,20 @@ for.body.i21:                                     ; preds = %for.body.i21, %add_
   br i1 %cmp.not.i35, label %for.end.i36, label %for.body.i21, !llvm.loop !9
 
 for.end.i36:                                      ; preds = %for.body.i21
-  %29 = and i32 %add6.i30, 65280
-  %30 = icmp eq i32 %29, 0
-  br i1 %30, label %land.end, label %if.then.i37
+  %28 = icmp ult i32 %add6.i30, 256
+  br i1 %28, label %land.end, label %if.then.i37
 
 if.then.i37:                                      ; preds = %for.end.i36
-  %31 = load i64, ptr %seedlen, align 8
-  %sub14.i38 = add i64 %31, -4
+  %29 = load i64, ptr %seedlen, align 8
+  %sub14.i38 = add i64 %29, -4
   %cmp16.not23.i39 = icmp eq i64 %sub14.i38, 0
   br i1 %cmp16.not23.i39, label %land.end, label %for.body18.i40
 
 for.body18.i40:                                   ; preds = %if.then.i37, %for.body18.i40
   %d.125.i41 = phi ptr [ %incdec.ptr28.i46, %for.body18.i40 ], [ %d.0.i34, %if.then.i37 ]
   %i.124.i42 = phi i64 [ %dec27.i45, %for.body18.i40 ], [ %sub14.i38, %if.then.i37 ]
-  %32 = load i8, ptr %d.125.i41, align 1
-  %add20.i43 = add i8 %32, 1
+  %30 = load i8, ptr %d.125.i41, align 1
+  %add20.i43 = add i8 %30, 1
   store i8 %add20.i43, ptr %d.125.i41, align 1
   %cmp23.not.i44 = icmp ne i8 %add20.i43, 0
   %dec27.i45 = add i64 %i.124.i42, -1
@@ -1036,21 +1034,20 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %cmp.not.i, label %for.end.i, label %for.body.i, !llvm.loop !9
 
 for.end.i:                                        ; preds = %for.body.i
-  %9 = and i32 %add6.i, 65280
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %land.end, label %if.then.i
+  %9 = icmp ult i32 %add6.i, 256
+  br i1 %9, label %land.end, label %if.then.i
 
 if.then.i:                                        ; preds = %for.end.i
-  %11 = load i64, ptr %seedlen, align 8
-  %sub14.i = sub i64 %11, %3
+  %10 = load i64, ptr %seedlen, align 8
+  %sub14.i = sub i64 %10, %3
   %cmp16.not23.i = icmp eq i64 %sub14.i, 0
   br i1 %cmp16.not23.i, label %land.end, label %for.body18.i
 
 for.body18.i:                                     ; preds = %if.then.i, %for.body18.i
   %d.125.i = phi ptr [ %incdec.ptr28.i, %for.body18.i ], [ %d.0.i, %if.then.i ]
   %i.124.i = phi i64 [ %dec27.i, %for.body18.i ], [ %sub14.i, %if.then.i ]
-  %12 = load i8, ptr %d.125.i, align 1
-  %add20.i = add i8 %12, 1
+  %11 = load i8, ptr %d.125.i, align 1
+  %add20.i = add i8 %11, 1
   store i8 %add20.i, ptr %d.125.i, align 1
   %cmp23.not.i = icmp ne i8 %add20.i, 0
   %dec27.i = add i64 %i.124.i, -1

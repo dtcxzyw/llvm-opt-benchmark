@@ -1085,8 +1085,8 @@ if.then:                                          ; preds = %entry
   %conv = trunc nuw i64 %shr to i32
   %and = and i64 %dom_size, 4294967295
   %cmp1 = icmp ne i64 %and, 0
-  %cmp2 = icmp ne i32 %conv, -1
-  %or.cond = select i1 %cmp1, i1 %cmp2, i1 false
+  %cmp2 = icmp ne i64 %shr, 4294967295
+  %or.cond = and i1 %cmp1, %cmp2
   %inc = add nuw i32 %conv, 1
   br i1 %or.cond, label %if.else9, label %if.end5
 
@@ -1177,8 +1177,8 @@ if.then.i:                                        ; preds = %for.body
   %conv.i = trunc nuw i64 %shr.i to i32
   %and.i = and i64 %5, 4294967295
   %cmp1.i = icmp ne i64 %and.i, 0
-  %cmp2.i = icmp ne i32 %conv.i, -1
-  %or.cond.i = select i1 %cmp1.i, i1 %cmp2.i, i1 false
+  %cmp2.i = icmp ne i64 %shr.i, 4294967295
+  %or.cond.i = and i1 %cmp1.i, %cmp2.i
   %inc.i = add nuw i32 %conv.i, 1
   br i1 %or.cond.i, label %if.else9.i, label %if.end5.i
 

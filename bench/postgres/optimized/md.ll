@@ -447,11 +447,12 @@ define internal fastcc void @mdunlinkfork(i64 %0, i64 %1, i32 noundef %2, i1 nou
   %5 = alloca %struct.FileTag, align 8
   %6 = alloca %struct.FileTag, align 8
   %7 = alloca %struct.FileTag, align 8
+  %.fr = freeze i64 %1
   %.sroa.0.0.extract.trunc = trunc i64 %0 to i32
   %.sroa.5.0.extract.shift = lshr i64 %0, 32
   %.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.5.0.extract.shift to i32
-  %.sroa.6.8.extract.trunc = trunc i64 %1 to i32
-  %.sroa.11.8.extract.shift = lshr i64 %1, 32
+  %.sroa.6.8.extract.trunc = trunc i64 %.fr to i32
+  %.sroa.11.8.extract.shift = lshr i64 %.fr, 32
   %.sroa.11.8.extract.trunc = trunc nuw i64 %.sroa.11.8.extract.shift to i32
   %8 = tail call ptr @GetRelationPath(i32 noundef %.sroa.5.0.extract.trunc, i32 noundef %.sroa.0.0.extract.trunc, i32 noundef %.sroa.6.8.extract.trunc, i32 noundef %.sroa.11.8.extract.trunc, i32 noundef %2) #14
   br i1 %3, label %14, label %9
@@ -461,12 +462,12 @@ define internal fastcc void @mdunlinkfork(i64 %0, i64 %1, i32 noundef %2, i1 nou
   %11 = trunc i8 %10 to i1
   %12 = icmp ne i32 %2, 0
   %or.cond = or i1 %12, %11
-  %13 = icmp ne i32 %.sroa.11.8.extract.trunc, -1
+  %13 = icmp ne i64 %.sroa.11.8.extract.shift, 4294967295
   %or.cond4 = or i1 %13, %or.cond
   br i1 %or.cond4, label %14, label %44
 
 14:                                               ; preds = %9, %4
-  %.not = icmp eq i32 %.sroa.11.8.extract.trunc, -1
+  %.not = icmp eq i64 %.sroa.11.8.extract.shift, 4294967295
   br i1 %.not, label %15, label %.thread
 
 15:                                               ; preds = %14
@@ -587,7 +588,7 @@ define internal fastcc void @mdunlinkfork(i64 %0, i64 %1, i32 noundef %2, i1 nou
   %61 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #17
   %62 = add i64 %61, 12
   %63 = call ptr @palloc(i64 noundef %62) #14
-  %.not79 = icmp eq i32 %.sroa.11.8.extract.trunc, -1
+  %.not79 = icmp eq i64 %.sroa.11.8.extract.shift, 4294967295
   %64 = getelementptr inbounds i8, ptr %5, i64 4
   %.sroa.2.0..sroa_idx.i87 = getelementptr inbounds i8, ptr %5, i64 12
   %65 = trunc i32 %2 to i16
@@ -1070,7 +1071,7 @@ define dso_local void @mdzeroextend(ptr nocapture noundef %0, i32 noundef %1, i3
   %7 = sext i32 %3 to i64
   %8 = add nsw i64 %7, %6
   %9 = icmp ugt i64 %8, 4294967294
-  br i1 %9, label %34, label %.preheader
+  br i1 %9, label %32, label %.preheader
 
 .preheader:                                       ; preds = %5
   %10 = icmp sgt i32 %3, 0
@@ -1080,9 +1081,9 @@ define dso_local void @mdzeroextend(ptr nocapture noundef %0, i32 noundef %1, i3
   %11 = getelementptr inbounds i8, ptr %0, i64 12
   br i1 %4, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %30
-  %.044.us = phi i32 [ %32, %30 ], [ %2, %.lr.ph ]
-  %.03943.us = phi i32 [ %31, %30 ], [ %3, %.lr.ph ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %28
+  %.044.us = phi i32 [ %30, %28 ], [ %2, %.lr.ph ]
+  %.03943.us = phi i32 [ %29, %28 ], [ %3, %.lr.ph ]
   %12 = and i32 %.044.us, 131071
   %13 = shl nuw nsw i32 %12, 13
   %14 = zext nneg i32 %13 to i64
@@ -1093,113 +1094,109 @@ define dso_local void @mdzeroextend(ptr nocapture noundef %0, i32 noundef %1, i3
   %18 = tail call fastcc ptr @_mdfd_getseg(ptr noundef %0, i32 noundef %1, i32 noundef %.044.us, i1 noundef zeroext true, i32 noundef 4)
   %19 = icmp ugt i32 %.040.us, 8
   %20 = load i32, ptr %18, align 4
-  br i1 %19, label %26, label %21
+  %21 = shl nuw nsw i32 %.040.us, 13
+  %22 = zext nneg i32 %21 to i64
+  br i1 %19, label %26, label %23
 
-21:                                               ; preds = %.lr.ph.split.us
-  %22 = shl nuw nsw i32 %.040.us, 13
-  %23 = zext nneg i32 %22 to i64
-  %24 = tail call i32 @FileZero(i32 noundef %20, i64 noundef %14, i64 noundef %23, i32 noundef 167772173) #14
+23:                                               ; preds = %.lr.ph.split.us
+  %24 = tail call i32 @FileZero(i32 noundef %20, i64 noundef %14, i64 noundef %22, i32 noundef 167772173) #14
   %25 = icmp slt i32 %24, 0
-  br i1 %25, label %.split.us, label %30
+  br i1 %25, label %.split.us, label %28
 
 26:                                               ; preds = %.lr.ph.split.us
-  %27 = zext nneg i32 %.040.us to i64
-  %28 = shl nuw nsw i64 %27, 13
-  %29 = tail call i32 @FileFallocate(i32 noundef %20, i64 noundef %14, i64 noundef %28, i32 noundef 167772173) #14
-  %.not.us = icmp eq i32 %29, 0
-  br i1 %.not.us, label %30, label %.split46.us
+  %27 = tail call i32 @FileFallocate(i32 noundef %20, i64 noundef %14, i64 noundef %22, i32 noundef 167772173) #14
+  %.not.us = icmp eq i32 %27, 0
+  br i1 %.not.us, label %28, label %.split46.us
 
-30:                                               ; preds = %26, %21
-  %31 = sub nsw i32 %.03943.us, %.040.us
-  %32 = add i32 %.040.us, %.044.us
-  %33 = icmp sgt i32 %31, 0
-  br i1 %33, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !8
+28:                                               ; preds = %26, %23
+  %29 = sub nsw i32 %.03943.us, %.040.us
+  %30 = add i32 %.040.us, %.044.us
+  %31 = icmp sgt i32 %29, 0
+  br i1 %31, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !8
 
-34:                                               ; preds = %5
-  %35 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  tail call void @llvm.assume(i1 %35)
-  %36 = tail call i32 @errcode(i32 noundef 261) #14
-  %37 = getelementptr inbounds i8, ptr %0, i64 4
-  %38 = load i32, ptr %37, align 4
-  %39 = load i32, ptr %0, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 8
-  %41 = load i32, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 12
-  %43 = load i32, ptr %42, align 4
-  %44 = tail call ptr @GetRelationPath(i32 noundef %38, i32 noundef %39, i32 noundef %41, i32 noundef %43, i32 noundef %1) #14
-  %45 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef %44, i32 noundef -1) #14
+32:                                               ; preds = %5
+  %33 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  tail call void @llvm.assume(i1 %33)
+  %34 = tail call i32 @errcode(i32 noundef 261) #14
+  %35 = getelementptr inbounds i8, ptr %0, i64 4
+  %36 = load i32, ptr %35, align 4
+  %37 = load i32, ptr %0, align 8
+  %38 = getelementptr inbounds i8, ptr %0, i64 8
+  %39 = load i32, ptr %38, align 8
+  %40 = getelementptr inbounds i8, ptr %0, i64 12
+  %41 = load i32, ptr %40, align 4
+  %42 = tail call ptr @GetRelationPath(i32 noundef %36, i32 noundef %37, i32 noundef %39, i32 noundef %41, i32 noundef %1) #14
+  %43 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef %42, i32 noundef -1) #14
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 552, ptr noundef nonnull @__func__.mdzeroextend) #14
   unreachable
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %79
-  %.044 = phi i32 [ %81, %79 ], [ %2, %.lr.ph ]
-  %.03943 = phi i32 [ %80, %79 ], [ %3, %.lr.ph ]
-  %46 = and i32 %.044, 131071
-  %47 = shl nuw nsw i32 %46, 13
-  %48 = zext nneg i32 %47 to i64
-  %49 = add nuw i32 %46, %.03943
-  %50 = icmp ugt i32 %49, 131072
-  %51 = sub nuw nsw i32 131072, %46
-  %.040 = select i1 %50, i32 %51, i32 %.03943
-  %52 = tail call fastcc ptr @_mdfd_getseg(ptr noundef %0, i32 noundef %1, i32 noundef %.044, i1 noundef zeroext false, i32 noundef 4)
-  %53 = icmp ugt i32 %.040, 8
-  %54 = load i32, ptr %52, align 4
-  br i1 %53, label %55, label %65
+.lr.ph.split:                                     ; preds = %.lr.ph, %75
+  %.044 = phi i32 [ %77, %75 ], [ %2, %.lr.ph ]
+  %.03943 = phi i32 [ %76, %75 ], [ %3, %.lr.ph ]
+  %44 = and i32 %.044, 131071
+  %45 = shl nuw nsw i32 %44, 13
+  %46 = zext nneg i32 %45 to i64
+  %47 = add nuw i32 %44, %.03943
+  %48 = icmp ugt i32 %47, 131072
+  %49 = sub nuw nsw i32 131072, %44
+  %.040 = select i1 %48, i32 %49, i32 %.03943
+  %50 = tail call fastcc ptr @_mdfd_getseg(ptr noundef %0, i32 noundef %1, i32 noundef %.044, i1 noundef zeroext false, i32 noundef 4)
+  %51 = icmp ugt i32 %.040, 8
+  %52 = load i32, ptr %50, align 4
+  %53 = shl nuw nsw i32 %.040, 13
+  %54 = zext nneg i32 %53 to i64
+  br i1 %51, label %55, label %63
 
 55:                                               ; preds = %.lr.ph.split
-  %56 = zext nneg i32 %.040 to i64
-  %57 = shl nuw nsw i64 %56, 13
-  %58 = tail call i32 @FileFallocate(i32 noundef %54, i64 noundef %48, i64 noundef %57, i32 noundef 167772173) #14
-  %.not = icmp eq i32 %58, 0
-  br i1 %.not, label %76, label %.split46.us
+  %56 = tail call i32 @FileFallocate(i32 noundef %52, i64 noundef %46, i64 noundef %54, i32 noundef 167772173) #14
+  %.not = icmp eq i32 %56, 0
+  br i1 %.not, label %72, label %.split46.us
 
 .split46.us:                                      ; preds = %55, %26
-  %.us-phi47 = phi ptr [ %18, %26 ], [ %52, %55 ]
-  %59 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  tail call void @llvm.assume(i1 %59)
-  %60 = tail call i32 @errcode_for_file_access() #14
-  %61 = load i32, ptr %.us-phi47, align 4
-  %62 = tail call ptr @FilePathName(i32 noundef %61) #14
-  %63 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef %62) #14
-  %64 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.5) #14
+  %.us-phi47 = phi ptr [ %18, %26 ], [ %50, %55 ]
+  %57 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  tail call void @llvm.assume(i1 %57)
+  %58 = tail call i32 @errcode_for_file_access() #14
+  %59 = load i32, ptr %.us-phi47, align 4
+  %60 = tail call ptr @FilePathName(i32 noundef %59) #14
+  %61 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef %60) #14
+  %62 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.5) #14
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 594, ptr noundef nonnull @__func__.mdzeroextend) #14
   unreachable
 
-65:                                               ; preds = %.lr.ph.split
-  %66 = shl nuw nsw i32 %.040, 13
-  %67 = zext nneg i32 %66 to i64
-  %68 = tail call i32 @FileZero(i32 noundef %54, i64 noundef %48, i64 noundef %67, i32 noundef 167772173) #14
-  %69 = icmp slt i32 %68, 0
-  br i1 %69, label %.split.us, label %76
+63:                                               ; preds = %.lr.ph.split
+  %64 = tail call i32 @FileZero(i32 noundef %52, i64 noundef %46, i64 noundef %54, i32 noundef 167772173) #14
+  %65 = icmp slt i32 %64, 0
+  br i1 %65, label %.split.us, label %72
 
-.split.us:                                        ; preds = %65, %21
-  %.us-phi = phi ptr [ %18, %21 ], [ %52, %65 ]
-  %70 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  tail call void @llvm.assume(i1 %70)
-  %71 = tail call i32 @errcode_for_file_access() #14
-  %72 = load i32, ptr %.us-phi, align 4
-  %73 = tail call ptr @FilePathName(i32 noundef %72) #14
-  %74 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef %73) #14
-  %75 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.5) #14
+.split.us:                                        ; preds = %63, %23
+  %.us-phi = phi ptr [ %18, %23 ], [ %50, %63 ]
+  %66 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  tail call void @llvm.assume(i1 %66)
+  %67 = tail call i32 @errcode_for_file_access() #14
+  %68 = load i32, ptr %.us-phi, align 4
+  %69 = tail call ptr @FilePathName(i32 noundef %68) #14
+  %70 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef %69) #14
+  %71 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.5) #14
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 616, ptr noundef nonnull @__func__.mdzeroextend) #14
   unreachable
 
-76:                                               ; preds = %65, %55
-  %77 = load i32, ptr %11, align 4
-  %.not41 = icmp eq i32 %77, -1
-  br i1 %.not41, label %78, label %79
+72:                                               ; preds = %63, %55
+  %73 = load i32, ptr %11, align 4
+  %.not41 = icmp eq i32 %73, -1
+  br i1 %.not41, label %74, label %75
 
-78:                                               ; preds = %76
-  tail call fastcc void @register_dirty_segment(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %52)
-  br label %79
+74:                                               ; preds = %72
+  tail call fastcc void @register_dirty_segment(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %50)
+  br label %75
 
-79:                                               ; preds = %78, %76
-  %80 = sub nsw i32 %.03943, %.040
-  %81 = add i32 %.040, %.044
-  %82 = icmp sgt i32 %80, 0
-  br i1 %82, label %.lr.ph.split, label %._crit_edge, !llvm.loop !8
+75:                                               ; preds = %74, %72
+  %76 = sub nsw i32 %.03943, %.040
+  %77 = add i32 %.040, %.044
+  %78 = icmp sgt i32 %76, 0
+  br i1 %78, label %.lr.ph.split, label %._crit_edge, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %79, %30, %.preheader
+._crit_edge:                                      ; preds = %75, %28, %.preheader
   ret void
 }
 

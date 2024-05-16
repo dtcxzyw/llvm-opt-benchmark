@@ -241,7 +241,7 @@ _ZL9find_atomPKcPPPcii.exit.i:                    ; preds = %.lr.ph.i.i
   %46 = trunc nsw i64 %indvars.iv.i.i to i32
   %47 = getelementptr inbounds [5 x i32], ptr %10, i64 0, i64 %.028.i
   store i32 %46, ptr %47, align 4
-  %48 = icmp eq i32 %46, -1
+  %48 = icmp eq i64 %indvars.iv.i.i, -1
   br i1 %48, label %.loopexit.i, label %49
 
 49:                                               ; preds = %_ZL9find_atomPKcPPPcii.exit.i

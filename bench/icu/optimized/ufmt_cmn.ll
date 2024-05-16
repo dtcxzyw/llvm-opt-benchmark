@@ -72,15 +72,14 @@ do.body.us:                                       ; preds = %entry, %do.body.us
   %indvars.iv32 = phi i64 [ %indvars.iv.next33, %do.body.us ], [ 0, %entry ]
   %value.addr.0.us = phi i64 [ %div.us, %do.body.us ], [ %value, %entry ]
   %rem.us = urem i64 %value.addr.0.us, %conv
-  %conv1.us = trunc nuw nsw i64 %rem.us to i32
+  %conv1.us = trunc nuw nsw i64 %rem.us to i16
   %div.us = udiv i64 %value.addr.0.us, %conv
-  %cmp.us = icmp ult i32 %conv1.us, 10
-  %cond12.v.us = select i1 %cmp.us, i32 48, i32 55
-  %cond14.us = add nuw nsw i32 %cond12.v.us, %conv1.us
-  %conv15.us = trunc nuw nsw i32 %cond14.us to i16
+  %cmp.us = icmp ult i64 %rem.us, 10
+  %cond12.v.us = select i1 %cmp.us, i16 48, i16 55
+  %cond14.us = add nuw nsw i16 %cond12.v.us, %conv1.us
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %arrayidx.us = getelementptr inbounds i16, ptr %buffer, i64 %indvars.iv32
-  store i16 %conv15.us, ptr %arrayidx.us, align 2
+  store i16 %cond14.us, ptr %arrayidx.us, align 2
   %tobool16.not.us = icmp ult i64 %value.addr.0.us, %conv
   br i1 %tobool16.not.us, label %do.end, label %do.body.us, !llvm.loop !4
 
@@ -88,15 +87,14 @@ do.body:                                          ; preds = %entry, %do.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %do.body ], [ 0, %entry ]
   %value.addr.0 = phi i64 [ %div, %do.body ], [ %value, %entry ]
   %rem = urem i64 %value.addr.0, %conv
-  %conv1 = trunc nuw nsw i64 %rem to i32
+  %conv1 = trunc nuw nsw i64 %rem to i16
   %div = udiv i64 %value.addr.0, %conv
-  %cmp = icmp ult i32 %conv1, 10
-  %cond.v = select i1 %cmp, i32 48, i32 87
-  %cond14 = add nuw nsw i32 %cond.v, %conv1
-  %conv15 = trunc nuw nsw i32 %cond14 to i16
+  %cmp = icmp ult i64 %rem, 10
+  %cond.v = select i1 %cmp, i16 48, i16 87
+  %cond14 = add nuw nsw i16 %cond.v, %conv1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx = getelementptr inbounds i16, ptr %buffer, i64 %indvars.iv
-  store i16 %conv15, ptr %arrayidx, align 2
+  store i16 %cond14, ptr %arrayidx, align 2
   %tobool16.not = icmp ult i64 %value.addr.0, %conv
   br i1 %tobool16.not, label %do.end, label %do.body, !llvm.loop !4
 

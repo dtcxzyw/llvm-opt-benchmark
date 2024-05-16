@@ -355,11 +355,11 @@ entry:
 
 if.then:                                          ; preds = %entry
   %conv = trunc nuw i64 %u to i32
-  %cmp.i = icmp ugt i32 %conv, 99999999
+  %cmp.i = icmp ugt i64 %u, 99999999
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
-  %cmp.i.i = icmp ult i32 %conv, 1000000000
+  %cmp.i.i = icmp ult i64 %u, 1000000000
   %div.i.i = udiv i32 %conv, 100000000
   br i1 %cmp.i.i, label %if.end16.thread53.i, label %sw.bb.i.i
 
@@ -370,11 +370,11 @@ if.end16.thread53.i:                              ; preds = %if.then.i
   br label %sw.bb1.i.i
 
 if.else.i:                                        ; preds = %if.then
-  %cmp1.i = icmp ult i32 %conv, 100
+  %cmp1.i = icmp ult i64 %u, 100
   br i1 %cmp1.i, label %if.then2.i, label %if.else4.i
 
 if.then2.i:                                       ; preds = %if.else.i
-  %cmp.i10.i = icmp ult i32 %conv, 10
+  %cmp.i10.i = icmp ult i64 %u, 10
   br i1 %cmp.i10.i, label %if.end16.thread.i, label %sw.bb20.i.i
 
 if.end16.thread.i:                                ; preds = %if.then2.i
@@ -385,11 +385,11 @@ if.end16.thread.i:                                ; preds = %if.then2.i
   br label %common.ret
 
 if.else4.i:                                       ; preds = %if.else.i
-  %cmp5.i = icmp ult i32 %conv, 10000
+  %cmp5.i = icmp ult i64 %u, 10000
   br i1 %cmp5.i, label %if.then6.i, label %if.else8.i
 
 if.then6.i:                                       ; preds = %if.else4.i
-  %cmp.i17.i = icmp ult i32 %conv, 1000
+  %cmp.i17.i = icmp ult i64 %u, 1000
   br i1 %cmp.i17.i, label %if.end16.thread77.i, label %sw.bb14.i.i
 
 if.end16.thread77.i:                              ; preds = %if.then6.i
@@ -403,11 +403,11 @@ if.end16.thread77.i:                              ; preds = %if.then6.i
   br label %sw.bb17.i.i
 
 if.else8.i:                                       ; preds = %if.else4.i
-  %cmp9.i = icmp ult i32 %conv, 1000000
+  %cmp9.i = icmp ult i64 %u, 1000000
   br i1 %cmp9.i, label %if.then10.i, label %if.else12.i
 
 if.then10.i:                                      ; preds = %if.else8.i
-  %cmp.i24.i = icmp ult i32 %conv, 100000
+  %cmp.i24.i = icmp ult i64 %u, 100000
   br i1 %cmp.i24.i, label %if.end16.thread69.i, label %sw.bb8.i.i
 
 if.end16.thread69.i:                              ; preds = %if.then10.i
@@ -419,7 +419,7 @@ if.end16.thread69.i:                              ; preds = %if.then10.i
   br label %sw.bb11.i.i
 
 if.else12.i:                                      ; preds = %if.else8.i
-  %cmp.i31.i = icmp ult i32 %conv, 10000000
+  %cmp.i31.i = icmp ult i64 %u, 10000000
   br i1 %cmp.i31.i, label %if.end16.thread61.i, label %sw.bb2.i.i
 
 if.end16.thread61.i:                              ; preds = %if.else12.i

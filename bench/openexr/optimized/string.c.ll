@@ -383,7 +383,7 @@ exr_attr_string_init.exit.if.then5_crit_edge.i25: ; preds = %exr_attr_string_ini
 
 if.then5.i19:                                     ; preds = %exr_attr_string_init.exit.if.then5_crit_edge.i25, %exr_attr_string_init.exit.thread.i17
   %8 = phi ptr [ %.pre.i27, %exr_attr_string_init.exit.if.then5_crit_edge.i25 ], [ %call7.i.i14, %exr_attr_string_init.exit.thread.i17 ]
-  %cmp6.i.not = icmp eq i32 %conv, 0
+  %cmp6.i.not = icmp eq i64 %call, 0
   br i1 %cmp6.i.not, label %if.end13.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.then5.i19

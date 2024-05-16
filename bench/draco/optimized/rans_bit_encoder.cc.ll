@@ -532,9 +532,9 @@ define void @_ZN5draco14RAnsBitEncoder11EndEncodingEPNS_13EncoderBufferE(ptr noc
   %13 = fptoui double %12 to i32
   %storemerge72 = tail call i32 @llvm.umin.i32(i32 %13, i32 255)
   %storemerge = trunc nuw i32 %storemerge72 to i8
-  %14 = icmp eq i8 %storemerge, 0
+  %14 = icmp eq i32 %13, 0
   %15 = zext i1 %14 to i8
-  %16 = add i8 %15, %storemerge
+  %16 = add i8 %storemerge, %15
   store i8 %16, ptr %3, align 1
   %17 = getelementptr inbounds i8, ptr %0, i64 24
   %18 = getelementptr inbounds i8, ptr %0, i64 32

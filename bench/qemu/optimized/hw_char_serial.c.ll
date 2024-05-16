@@ -417,8 +417,7 @@ sw.bb:                                            ; preds = %if.end
   br i1 %tobool.not, label %if.else5, label %if.then2
 
 if.then2:                                         ; preds = %sw.bb
-  %addr.tr46 = trunc nuw i64 %addr to i32
-  %cmp3.i = icmp ult i32 %addr.tr46, 2
+  %cmp3.i = icmp ult i64 %addr, 2
   br i1 %cmp3.i, label %extract16.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then2
@@ -426,6 +425,7 @@ if.else.i:                                        ; preds = %if.then2
   unreachable
 
 extract16.exit:                                   ; preds = %if.then2
+  %addr.tr46 = trunc nuw i64 %addr to i32
   %conv3 = shl nuw nsw i32 %addr.tr46, 3
   %divider = getelementptr inbounds i8, ptr %opaque, i64 160
   %1 = load i16, ptr %divider, align 16
@@ -727,7 +727,7 @@ sw.bb:                                            ; preds = %trace_serial_write.
   br i1 %tobool.not, label %if.else10, label %if.then4
 
 if.then4:                                         ; preds = %sw.bb
-  %cmp3.i = icmp ult i32 %conv, 4
+  %cmp3.i = icmp ult i64 %addr, 4
   br i1 %cmp3.i, label %deposit32.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then4

@@ -4346,8 +4346,8 @@ lpLength.exit:                                    ; preds = %entry, %do.body.i
   br i1 %tobool.not, label %cond.false, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %while.end.i, %lpLength.exit
-  %.in = phi i32 [ %retval.0.in.i, %lpLength.exit ], [ %inc.i, %while.end.i ]
-  %5 = lshr i32 %.in, 1
+  %div3178.in = phi i32 [ %retval.0.in.i, %lpLength.exit ], [ %inc.i, %while.end.i ]
+  %div3178 = lshr i32 %div3178.in, 1
   %cmp48.not = icmp eq i32 %count, 0
   br i1 %cmp48.not, label %for.end, label %for.body
 
@@ -4359,26 +4359,26 @@ cond.false:                                       ; preds = %lpLength.exit
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.cond.preheader ]
   %call7 = tail call i32 @rand() #15
-  %rem = urem i32 %call7, %5
+  %rem = urem i32 %call7, %div3178
   %mul8 = shl nuw i32 %rem, 1
   %arrayidx = getelementptr inbounds %struct.rand_pick, ptr %call, i64 %indvars.iv
   store i32 %mul8, ptr %arrayidx, align 4
   %order = getelementptr inbounds i8, ptr %arrayidx, i64 4
-  %6 = trunc nuw i64 %indvars.iv to i32
-  store i32 %6, ptr %order, align 4
+  %5 = trunc nuw i64 %indvars.iv to i32
+  store i32 %5, ptr %order, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %conv
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !17
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
   tail call void @qsort(ptr noundef %call, i64 noundef %conv, i64 noundef 8, ptr noundef nonnull @uintCompare) #15
-  %7 = load i32, ptr %call, align 4
-  %conv14 = zext i32 %7 to i64
+  %6 = load i32, ptr %call, align 4
+  %conv14 = zext i32 %6 to i64
   %call15 = tail call ptr @lpSeek(ptr noundef %lp, i64 noundef %conv14)
   %tobool1654 = icmp ne ptr %call15, null
   %cmp1755 = icmp ne i32 %count, 0
-  %8 = and i1 %cmp1755, %tobool1654
-  br i1 %8, label %while.body.lr.ph, label %while.end53
+  %7 = and i1 %cmp1755, %tobool1654
+  br i1 %7, label %while.body.lr.ph, label %while.end53
 
 while.body.lr.ph:                                 ; preds = %for.end
   %tobool48.not = icmp eq ptr %vals, null
@@ -4387,16 +4387,16 @@ while.body.lr.ph:                                 ; preds = %for.end
 while.body.us:                                    ; preds = %while.body.lr.ph, %while.end.us
   %p.063.us = phi ptr [ %call52.us, %while.end.us ], [ %call15, %while.body.lr.ph ]
   %pickindex.062.us = phi i32 [ %pickindex.1.lcssa.us, %while.end.us ], [ 0, %while.body.lr.ph ]
-  %lpindex.060.us = phi i32 [ %add.us, %while.end.us ], [ %7, %while.body.lr.ph ]
+  %lpindex.060.us = phi i32 [ %add.us, %while.end.us ], [ %6, %while.body.lr.ph ]
   %klval.058.us = phi i64 [ %spec.select45.us, %while.end.us ], [ 0, %while.body.lr.ph ]
   %klen.056.us = phi i32 [ %spec.select.us, %while.end.us ], [ 0, %while.body.lr.ph ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ele_len.i)
   %call.i.i.us = call fastcc ptr @lpGetWithSize(ptr noundef nonnull %p.063.us, ptr noundef nonnull writeonly %ele_len.i, ptr noundef null, ptr noundef null)
   %tobool.not.i32.us = icmp eq ptr %call.i.i.us, null
-  %9 = load i64, ptr %ele_len.i, align 8
-  %conv.i33.us = trunc i64 %9 to i32
+  %8 = load i64, ptr %ele_len.i, align 8
+  %conv.i33.us = trunc i64 %8 to i32
   %spec.select.us = select i1 %tobool.not.i32.us, i32 %klen.056.us, i32 %conv.i33.us
-  %spec.select45.us = select i1 %tobool.not.i32.us, i64 %9, i64 %klval.058.us
+  %spec.select45.us = select i1 %tobool.not.i32.us, i64 %8, i64 %klval.058.us
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ele_len.i)
   %call20.us = tail call ptr @lpNext(ptr noundef %lp, ptr noundef nonnull %p.063.us)
   %tobool21.not.us = icmp eq ptr %call20.us, null
@@ -4410,33 +4410,33 @@ cond.end30.us:                                    ; preds = %while.body.us
   br i1 %cmp3350.us, label %land.rhs35.us.us.preheader, label %while.end.us
 
 land.rhs35.us.us.preheader:                       ; preds = %cond.end30.us
-  %10 = zext i32 %pickindex.062.us to i64
+  %9 = zext i32 %pickindex.062.us to i64
   br label %land.rhs35.us.us
 
 while.end.us.loopexit.split.loop.exit:            ; preds = %land.rhs35.us.us
-  %11 = trunc nuw i64 %indvars.iv71 to i32
+  %10 = trunc nuw i64 %indvars.iv71 to i32
   br label %while.end.us
 
 while.end.us:                                     ; preds = %while.body42.us.us, %while.end.us.loopexit.split.loop.exit, %cond.end30.us
-  %pickindex.1.lcssa.us = phi i32 [ %pickindex.062.us, %cond.end30.us ], [ %11, %while.end.us.loopexit.split.loop.exit ], [ %count, %while.body42.us.us ]
+  %pickindex.1.lcssa.us = phi i32 [ %pickindex.062.us, %cond.end30.us ], [ %10, %while.end.us.loopexit.split.loop.exit ], [ %count, %while.body42.us.us ]
   %add.us = add i32 %lpindex.060.us, 2
   %call52.us = tail call ptr @lpNext(ptr noundef %lp, ptr noundef nonnull %call20.us)
   %tobool16.us = icmp ne ptr %call52.us, null
   %cmp17.us = icmp ult i32 %pickindex.1.lcssa.us, %count
-  %12 = and i1 %cmp17.us, %tobool16.us
-  br i1 %12, label %while.body.us, label %while.end53, !llvm.loop !18
+  %11 = and i1 %cmp17.us, %tobool16.us
+  br i1 %11, label %while.body.us, label %while.end53, !llvm.loop !18
 
 land.rhs35.us.us:                                 ; preds = %land.rhs35.us.us.preheader, %while.body42.us.us
-  %indvars.iv71 = phi i64 [ %10, %land.rhs35.us.us.preheader ], [ %indvars.iv.next72, %while.body42.us.us ]
+  %indvars.iv71 = phi i64 [ %9, %land.rhs35.us.us.preheader ], [ %indvars.iv.next72, %while.body42.us.us ]
   %arrayidx37.us.us = getelementptr inbounds %struct.rand_pick, ptr %call, i64 %indvars.iv71
-  %13 = load i32, ptr %arrayidx37.us.us, align 4
-  %cmp39.us.us = icmp eq i32 %lpindex.060.us, %13
+  %12 = load i32, ptr %arrayidx37.us.us, align 4
+  %cmp39.us.us = icmp eq i32 %lpindex.060.us, %12
   br i1 %cmp39.us.us, label %while.body42.us.us, label %while.end.us.loopexit.split.loop.exit
 
 while.body42.us.us:                               ; preds = %land.rhs35.us.us
   %order45.us.us = getelementptr inbounds i8, ptr %arrayidx37.us.us, i64 4
-  %14 = load i32, ptr %order45.us.us, align 4
-  %idxprom46.us.us = sext i32 %14 to i64
+  %13 = load i32, ptr %order45.us.us, align 4
+  %idxprom46.us.us = sext i32 %13 to i64
   %arrayidx47.us.us = getelementptr inbounds %struct.listpackEntry, ptr %keys, i64 %idxprom46.us.us
   store ptr %call.i.i.us, ptr %arrayidx47.us.us, align 8
   %slen.i.us.us = getelementptr inbounds i8, ptr %arrayidx47.us.us, i64 8
@@ -4450,7 +4450,7 @@ while.body42.us.us:                               ; preds = %land.rhs35.us.us
 while.body:                                       ; preds = %while.body.lr.ph, %while.end
   %p.063 = phi ptr [ %call52, %while.end ], [ %call15, %while.body.lr.ph ]
   %pickindex.062 = phi i32 [ %pickindex.1.lcssa, %while.end ], [ 0, %while.body.lr.ph ]
-  %lpindex.060 = phi i32 [ %add, %while.end ], [ %7, %while.body.lr.ph ]
+  %lpindex.060 = phi i32 [ %add, %while.end ], [ %6, %while.body.lr.ph ]
   %vlval.059 = phi i64 [ %spec.select47, %while.end ], [ 0, %while.body.lr.ph ]
   %klval.058 = phi i64 [ %spec.select45, %while.end ], [ 0, %while.body.lr.ph ]
   %vlen.057 = phi i32 [ %spec.select46, %while.end ], [ 0, %while.body.lr.ph ]
@@ -4458,10 +4458,10 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ele_len.i)
   %call.i.i = call fastcc ptr @lpGetWithSize(ptr noundef nonnull %p.063, ptr noundef nonnull writeonly %ele_len.i, ptr noundef null, ptr noundef null)
   %tobool.not.i32 = icmp eq ptr %call.i.i, null
-  %15 = load i64, ptr %ele_len.i, align 8
-  %conv.i33 = trunc i64 %15 to i32
+  %14 = load i64, ptr %ele_len.i, align 8
+  %conv.i33 = trunc i64 %14 to i32
   %spec.select = select i1 %tobool.not.i32, i32 %klen.056, i32 %conv.i33
-  %spec.select45 = select i1 %tobool.not.i32, i64 %15, i64 %klval.058
+  %spec.select45 = select i1 %tobool.not.i32, i64 %14, i64 %klval.058
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ele_len.i)
   %call20 = tail call ptr @lpNext(ptr noundef %lp, ptr noundef nonnull %p.063)
   %tobool21.not = icmp eq ptr %call20, null
@@ -4476,29 +4476,29 @@ cond.end30:                                       ; preds = %while.body
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ele_len.i35)
   %call.i.i36 = call fastcc ptr @lpGetWithSize(ptr noundef nonnull %call20, ptr noundef nonnull writeonly %ele_len.i35, ptr noundef null, ptr noundef null)
   %tobool.not.i37 = icmp eq ptr %call.i.i36, null
-  %16 = load i64, ptr %ele_len.i35, align 8
-  %conv.i39 = trunc i64 %16 to i32
+  %15 = load i64, ptr %ele_len.i35, align 8
+  %conv.i39 = trunc i64 %15 to i32
   %spec.select46 = select i1 %tobool.not.i37, i32 %vlen.057, i32 %conv.i39
-  %spec.select47 = select i1 %tobool.not.i37, i64 %16, i64 %vlval.059
+  %spec.select47 = select i1 %tobool.not.i37, i64 %15, i64 %vlval.059
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ele_len.i35)
   %cmp3350 = icmp ult i32 %pickindex.062, %count
   br i1 %cmp3350, label %land.rhs35.preheader, label %while.end
 
 land.rhs35.preheader:                             ; preds = %cond.end30
-  %17 = zext i32 %pickindex.062 to i64
+  %16 = zext i32 %pickindex.062 to i64
   br label %land.rhs35
 
 land.rhs35:                                       ; preds = %land.rhs35.preheader, %while.body42
-  %indvars.iv67 = phi i64 [ %17, %land.rhs35.preheader ], [ %indvars.iv.next68, %while.body42 ]
+  %indvars.iv67 = phi i64 [ %16, %land.rhs35.preheader ], [ %indvars.iv.next68, %while.body42 ]
   %arrayidx37 = getelementptr inbounds %struct.rand_pick, ptr %call, i64 %indvars.iv67
-  %18 = load i32, ptr %arrayidx37, align 4
-  %cmp39 = icmp eq i32 %lpindex.060, %18
-  br i1 %cmp39, label %while.body42, label %while.end.loopexit.split.loop.exit79
+  %17 = load i32, ptr %arrayidx37, align 4
+  %cmp39 = icmp eq i32 %lpindex.060, %17
+  br i1 %cmp39, label %while.body42, label %while.end.loopexit.split.loop.exit81
 
 while.body42:                                     ; preds = %land.rhs35
   %order45 = getelementptr inbounds i8, ptr %arrayidx37, i64 4
-  %19 = load i32, ptr %order45, align 4
-  %idxprom46 = sext i32 %19 to i64
+  %18 = load i32, ptr %order45, align 4
+  %idxprom46 = sext i32 %18 to i64
   %arrayidx47 = getelementptr inbounds %struct.listpackEntry, ptr %keys, i64 %idxprom46
   store ptr %call.i.i, ptr %arrayidx47, align 8
   %slen.i = getelementptr inbounds i8, ptr %arrayidx47, i64 8
@@ -4515,18 +4515,18 @@ while.body42:                                     ; preds = %land.rhs35
   %exitcond70.not = icmp eq i64 %indvars.iv.next68, %conv
   br i1 %exitcond70.not, label %while.end, label %land.rhs35, !llvm.loop !19
 
-while.end.loopexit.split.loop.exit79:             ; preds = %land.rhs35
-  %20 = trunc nuw i64 %indvars.iv67 to i32
+while.end.loopexit.split.loop.exit81:             ; preds = %land.rhs35
+  %19 = trunc nuw i64 %indvars.iv67 to i32
   br label %while.end
 
-while.end:                                        ; preds = %while.body42, %while.end.loopexit.split.loop.exit79, %cond.end30
-  %pickindex.1.lcssa = phi i32 [ %pickindex.062, %cond.end30 ], [ %20, %while.end.loopexit.split.loop.exit79 ], [ %count, %while.body42 ]
+while.end:                                        ; preds = %while.body42, %while.end.loopexit.split.loop.exit81, %cond.end30
+  %pickindex.1.lcssa = phi i32 [ %pickindex.062, %cond.end30 ], [ %19, %while.end.loopexit.split.loop.exit81 ], [ %count, %while.body42 ]
   %add = add i32 %lpindex.060, 2
   %call52 = tail call ptr @lpNext(ptr noundef %lp, ptr noundef nonnull %call20)
   %tobool16 = icmp ne ptr %call52, null
   %cmp17 = icmp ult i32 %pickindex.1.lcssa, %count
-  %21 = and i1 %cmp17, %tobool16
-  br i1 %21, label %while.body, label %while.end53, !llvm.loop !18
+  %20 = and i1 %cmp17, %tobool16
+  br i1 %20, label %while.body, label %while.end53, !llvm.loop !18
 
 while.end53:                                      ; preds = %while.end, %while.end.us, %for.end
   tail call void @zfree(ptr noundef nonnull %call) #15

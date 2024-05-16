@@ -945,8 +945,8 @@ if.end61.i.i:                                     ; preds = %switch.early.test.u
   %32 = load i64, ptr %1, align 16, !noalias !42
   %cmp62.i.i = icmp eq i64 %previous.0.i.i, %32
   %spec.select.i.i = select i1 %cmp62.i.i, i64 1, i64 %or.i.i
-  %cmp65.i.i = icmp eq i32 %conv.i451, 7
-  %cmp66.i.i = icmp eq i32 %conv.i451, 10
+  %cmp65.i.i = icmp eq i64 %.us-phi.i, 7
+  %cmp66.i.i = icmp eq i64 %.us-phi.i, 10
   switch i32 %conv.i451, label %"_ZN5folly6detail17distributed_mutex18lockImplementationISt6atomicLb1ES3_ImENS1_20RequestWithoutReturnIZNS_14HeapTimekeeper6workerEvE3$_0EEEENS1_16DistributedMutexIT_XT0_EE26DistributedMutexStateProxyERSB_RT1_RT2_.exit.i" [
     i32 10, label %if.then70.i.i
     i32 7, label %if.then70.i.i

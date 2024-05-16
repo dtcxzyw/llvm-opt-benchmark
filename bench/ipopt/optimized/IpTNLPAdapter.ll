@@ -15979,7 +15979,7 @@ define noundef zeroext i1 @_ZN5Ipopt11TNLPAdapter16CheckDerivativesENS0_18Deriva
   %indvars.iv683 = phi i64 [ %smax, %.lr.ph640 ], [ %indvars.iv.next684, %893 ]
   %.6638 = phi i32 [ %.5, %.lr.ph640 ], [ %.7.lcssa, %893 ]
   %699 = trunc nsw i64 %indvars.iv683 to i32
-  %700 = icmp eq i32 %699, -1
+  %700 = icmp eq i64 %indvars.iv683, -1
   br i1 %700, label %701, label %702
 
 701:                                              ; preds = %697

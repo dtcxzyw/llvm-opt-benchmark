@@ -2706,171 +2706,170 @@ define internal fastcc noundef zeroext i1 @do_fetch(ptr noundef %0, ptr noundef 
   %448 = load ptr, ptr %445, align 8
   %449 = getelementptr inbounds %struct._zval_struct, ptr %448, i64 %indvars.iv.next587
   call void @zval_ptr_dtor(ptr noundef %449) #16
-  %450 = and i64 %indvars.iv.next587, 4294967295
-  %.not507 = icmp eq i64 %450, 0
+  %.not507 = icmp eq i64 %indvars.iv.next587, 0
   br i1 %.not507, label %.loopexit, label %447
 
 .loopexit:                                        ; preds = %447, %444, %._crit_edge, %419, %421
-  br i1 %216, label %451, label %get_lazy_object.exit
+  br i1 %216, label %450, label %get_lazy_object.exit
 
-451:                                              ; preds = %.loopexit
-  %452 = and i32 %.0448, 196608
-  %453 = icmp eq i32 %452, 196608
-  %454 = load ptr, ptr %5, align 8
-  %455 = load ptr, ptr %13, align 8
-  %456 = getelementptr inbounds i8, ptr %455, i64 24
-  %457 = getelementptr inbounds i8, ptr %455, i64 16
-  %458 = load i64, ptr %457, align 8
-  %459 = load i8, ptr %456, align 1
-  %460 = icmp sgt i8 %459, 57
-  br i1 %453, label %461, label %475
+450:                                              ; preds = %.loopexit
+  %451 = and i32 %.0448, 196608
+  %452 = icmp eq i32 %451, 196608
+  %453 = load ptr, ptr %5, align 8
+  %454 = load ptr, ptr %13, align 8
+  %455 = getelementptr inbounds i8, ptr %454, i64 24
+  %456 = getelementptr inbounds i8, ptr %454, i64 16
+  %457 = load i64, ptr %456, align 8
+  %458 = load i8, ptr %455, align 1
+  %459 = icmp sgt i8 %458, 57
+  br i1 %452, label %460, label %474
 
-461:                                              ; preds = %451
-  br i1 %460, label %.critedge539, label %462
+460:                                              ; preds = %450
+  br i1 %459, label %.critedge539, label %461
 
-462:                                              ; preds = %461
-  %463 = icmp slt i8 %459, 48
-  br i1 %463, label %464, label %469
+461:                                              ; preds = %460
+  %462 = icmp slt i8 %458, 48
+  br i1 %462, label %463, label %468
 
-464:                                              ; preds = %462
-  %.not513 = icmp eq i8 %459, 45
-  br i1 %.not513, label %465, label %.critedge539
+463:                                              ; preds = %461
+  %.not513 = icmp eq i8 %458, 45
+  br i1 %.not513, label %464, label %.critedge539
 
-465:                                              ; preds = %464
-  %466 = getelementptr inbounds i8, ptr %455, i64 25
-  %467 = load i8, ptr %466, align 1
-  %468 = add i8 %467, -58
-  %or.cond537 = icmp ult i8 %468, -10
-  br i1 %or.cond537, label %.critedge539, label %469
+464:                                              ; preds = %463
+  %465 = getelementptr inbounds i8, ptr %454, i64 25
+  %466 = load i8, ptr %465, align 1
+  %467 = add i8 %466, -58
+  %or.cond537 = icmp ult i8 %467, -10
+  br i1 %or.cond537, label %.critedge539, label %468
 
-469:                                              ; preds = %465, %462
-  %470 = call zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef nonnull %456, i64 noundef %458, ptr noundef nonnull %11) #16
-  br i1 %470, label %471, label %.critedge539
+468:                                              ; preds = %464, %461
+  %469 = call zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef nonnull %455, i64 noundef %457, ptr noundef nonnull %11) #16
+  br i1 %469, label %470, label %.critedge539
 
-471:                                              ; preds = %469
-  %472 = load i64, ptr %11, align 8
-  %473 = call ptr @zend_hash_index_update(ptr noundef %454, i64 noundef %472, ptr noundef %1) #16
-  br label %522
+470:                                              ; preds = %468
+  %471 = load i64, ptr %11, align 8
+  %472 = call ptr @zend_hash_index_update(ptr noundef %453, i64 noundef %471, ptr noundef %1) #16
+  br label %521
 
-.critedge539:                                     ; preds = %461, %464, %465, %469
-  %474 = call ptr @zend_hash_update(ptr noundef %454, ptr noundef nonnull %455, ptr noundef %1) #16
-  br label %522
+.critedge539:                                     ; preds = %460, %463, %464, %468
+  %473 = call ptr @zend_hash_update(ptr noundef %453, ptr noundef nonnull %454, ptr noundef %1) #16
+  br label %521
 
-475:                                              ; preds = %451
-  br i1 %460, label %.critedge542, label %476
+474:                                              ; preds = %450
+  br i1 %459, label %.critedge542, label %475
 
-476:                                              ; preds = %475
-  %477 = icmp slt i8 %459, 48
-  br i1 %477, label %478, label %483
+475:                                              ; preds = %474
+  %476 = icmp slt i8 %458, 48
+  br i1 %476, label %477, label %482
 
-478:                                              ; preds = %476
-  %.not511 = icmp eq i8 %459, 45
-  br i1 %.not511, label %479, label %.critedge542
+477:                                              ; preds = %475
+  %.not511 = icmp eq i8 %458, 45
+  br i1 %.not511, label %478, label %.critedge542
 
-479:                                              ; preds = %478
-  %480 = getelementptr inbounds i8, ptr %455, i64 25
-  %481 = load i8, ptr %480, align 1
-  %482 = add i8 %481, -58
-  %or.cond540 = icmp ult i8 %482, -10
-  br i1 %or.cond540, label %.critedge542, label %483
+478:                                              ; preds = %477
+  %479 = getelementptr inbounds i8, ptr %454, i64 25
+  %480 = load i8, ptr %479, align 1
+  %481 = add i8 %480, -58
+  %or.cond540 = icmp ult i8 %481, -10
+  br i1 %or.cond540, label %.critedge542, label %482
 
-483:                                              ; preds = %479, %476
-  %484 = call zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef nonnull %456, i64 noundef %458, ptr noundef nonnull %7) #16
-  br i1 %484, label %485, label %.critedge542
+482:                                              ; preds = %478, %475
+  %483 = call zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef nonnull %455, i64 noundef %457, ptr noundef nonnull %7) #16
+  br i1 %483, label %484, label %.critedge542
 
-485:                                              ; preds = %483
-  %486 = load i64, ptr %7, align 8
-  %487 = call ptr @zend_hash_index_find(ptr noundef %454, i64 noundef %486) #16
-  br label %489
+484:                                              ; preds = %482
+  %485 = load i64, ptr %7, align 8
+  %486 = call ptr @zend_hash_index_find(ptr noundef %453, i64 noundef %485) #16
+  br label %488
 
-.critedge542:                                     ; preds = %475, %478, %479, %483
-  %488 = call ptr @zend_hash_find(ptr noundef %454, ptr noundef nonnull %455) #16
-  br label %489
+.critedge542:                                     ; preds = %474, %477, %478, %482
+  %487 = call ptr @zend_hash_find(ptr noundef %453, ptr noundef nonnull %454) #16
+  br label %488
 
-489:                                              ; preds = %.critedge542, %485
-  %.0445 = phi ptr [ %487, %485 ], [ %488, %.critedge542 ]
-  %490 = icmp eq ptr %.0445, null
-  br i1 %490, label %491, label %514
+488:                                              ; preds = %.critedge542, %484
+  %.0445 = phi ptr [ %486, %484 ], [ %487, %.critedge542 ]
+  %489 = icmp eq ptr %.0445, null
+  br i1 %489, label %490, label %513
 
-491:                                              ; preds = %489
-  %492 = call ptr @_zend_new_array_0() #16
-  store ptr %492, ptr %19, align 8
-  %493 = getelementptr inbounds i8, ptr %19, i64 8
-  store i32 775, ptr %493, align 8
-  %494 = load ptr, ptr %5, align 8
-  %495 = load ptr, ptr %13, align 8
-  %496 = getelementptr inbounds i8, ptr %495, i64 24
-  %497 = getelementptr inbounds i8, ptr %495, i64 16
-  %498 = load i64, ptr %497, align 8
-  %499 = load i8, ptr %496, align 1
-  %500 = icmp sgt i8 %499, 57
-  br i1 %500, label %.critedge545, label %501
+490:                                              ; preds = %488
+  %491 = call ptr @_zend_new_array_0() #16
+  store ptr %491, ptr %19, align 8
+  %492 = getelementptr inbounds i8, ptr %19, i64 8
+  store i32 775, ptr %492, align 8
+  %493 = load ptr, ptr %5, align 8
+  %494 = load ptr, ptr %13, align 8
+  %495 = getelementptr inbounds i8, ptr %494, i64 24
+  %496 = getelementptr inbounds i8, ptr %494, i64 16
+  %497 = load i64, ptr %496, align 8
+  %498 = load i8, ptr %495, align 1
+  %499 = icmp sgt i8 %498, 57
+  br i1 %499, label %.critedge545, label %500
 
-501:                                              ; preds = %491
-  %502 = icmp slt i8 %499, 48
-  br i1 %502, label %503, label %508
+500:                                              ; preds = %490
+  %501 = icmp slt i8 %498, 48
+  br i1 %501, label %502, label %507
 
-503:                                              ; preds = %501
-  %.not512 = icmp eq i8 %499, 45
-  br i1 %.not512, label %504, label %.critedge545
+502:                                              ; preds = %500
+  %.not512 = icmp eq i8 %498, 45
+  br i1 %.not512, label %503, label %.critedge545
 
-504:                                              ; preds = %503
-  %505 = getelementptr inbounds i8, ptr %495, i64 25
-  %506 = load i8, ptr %505, align 1
-  %507 = add i8 %506, -58
-  %or.cond543 = icmp ult i8 %507, -10
-  br i1 %or.cond543, label %.critedge545, label %508
+503:                                              ; preds = %502
+  %504 = getelementptr inbounds i8, ptr %494, i64 25
+  %505 = load i8, ptr %504, align 1
+  %506 = add i8 %505, -58
+  %or.cond543 = icmp ult i8 %506, -10
+  br i1 %or.cond543, label %.critedge545, label %507
 
-508:                                              ; preds = %504, %501
-  %509 = call zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef nonnull %496, i64 noundef %498, ptr noundef nonnull %12) #16
-  br i1 %509, label %510, label %.critedge545
+507:                                              ; preds = %503, %500
+  %508 = call zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef nonnull %495, i64 noundef %497, ptr noundef nonnull %12) #16
+  br i1 %508, label %509, label %.critedge545
 
-510:                                              ; preds = %508
-  %511 = load i64, ptr %12, align 8
-  %512 = call ptr @zend_hash_index_update(ptr noundef %494, i64 noundef %511, ptr noundef nonnull %19) #16
-  br label %519
+509:                                              ; preds = %507
+  %510 = load i64, ptr %12, align 8
+  %511 = call ptr @zend_hash_index_update(ptr noundef %493, i64 noundef %510, ptr noundef nonnull %19) #16
+  br label %518
 
-.critedge545:                                     ; preds = %491, %503, %504, %508
-  %513 = call ptr @zend_hash_update(ptr noundef %494, ptr noundef nonnull %495, ptr noundef nonnull %19) #16
-  br label %519
+.critedge545:                                     ; preds = %490, %502, %503, %507
+  %512 = call ptr @zend_hash_update(ptr noundef %493, ptr noundef nonnull %494, ptr noundef nonnull %19) #16
+  br label %518
 
-514:                                              ; preds = %489
-  %515 = load ptr, ptr %.0445, align 8
-  %516 = getelementptr inbounds i8, ptr %.0445, i64 8
-  %517 = load i32, ptr %516, align 8
-  store ptr %515, ptr %19, align 8
-  %518 = getelementptr inbounds i8, ptr %19, i64 8
-  store i32 %517, ptr %518, align 8
-  br label %519
+513:                                              ; preds = %488
+  %514 = load ptr, ptr %.0445, align 8
+  %515 = getelementptr inbounds i8, ptr %.0445, i64 8
+  %516 = load i32, ptr %515, align 8
+  store ptr %514, ptr %19, align 8
+  %517 = getelementptr inbounds i8, ptr %19, i64 8
+  store i32 %516, ptr %517, align 8
+  br label %518
 
-519:                                              ; preds = %510, %.critedge545, %514
-  %520 = load ptr, ptr %19, align 8
-  %521 = call ptr @zend_hash_next_index_insert(ptr noundef %520, ptr noundef %1) #16
-  br label %522
+518:                                              ; preds = %509, %.critedge545, %513
+  %519 = load ptr, ptr %19, align 8
+  %520 = call ptr @zend_hash_next_index_insert(ptr noundef %519, ptr noundef %1) #16
+  br label %521
 
-522:                                              ; preds = %471, %.critedge539, %519
-  %523 = getelementptr inbounds i8, ptr %13, i64 9
-  %524 = load i8, ptr %523, align 1
-  %.not514 = icmp eq i8 %524, 0
-  br i1 %.not514, label %get_lazy_object.exit, label %525
+521:                                              ; preds = %470, %.critedge539, %518
+  %522 = getelementptr inbounds i8, ptr %13, i64 9
+  %523 = load i8, ptr %522, align 1
+  %.not514 = icmp eq i8 %523, 0
+  br i1 %.not514, label %get_lazy_object.exit, label %524
 
-525:                                              ; preds = %522
-  %526 = load ptr, ptr %13, align 8
-  %527 = load i32, ptr %526, align 4
-  %528 = icmp ne i32 %527, 0
-  call void @llvm.assume(i1 %528)
-  %529 = add i32 %527, -1
-  store i32 %529, ptr %526, align 4
-  %.not515 = icmp eq i32 %529, 0
-  br i1 %.not515, label %530, label %get_lazy_object.exit
+524:                                              ; preds = %521
+  %525 = load ptr, ptr %13, align 8
+  %526 = load i32, ptr %525, align 4
+  %527 = icmp ne i32 %526, 0
+  call void @llvm.assume(i1 %527)
+  %528 = add i32 %526, -1
+  store i32 %528, ptr %525, align 4
+  %.not515 = icmp eq i32 %528, 0
+  br i1 %.not515, label %529, label %get_lazy_object.exit
 
-530:                                              ; preds = %525
-  %531 = load ptr, ptr %13, align 8
-  call void @_efree(ptr noundef %531) #16
+529:                                              ; preds = %524
+  %530 = load ptr, ptr %13, align 8
+  call void @_efree(ptr noundef %530) #16
   br label %get_lazy_object.exit
 
-get_lazy_object.exit:                             ; preds = %55, %51, %.loopexit, %530, %525, %522, %192, %133, %107, %90, %._crit_edge589, %24, %433, %410, %392, %375, %359, %284, %186, %165, %152, %140, %127, %82, %78, %70, %30
-  %.0447 = phi i1 [ true, %30 ], [ false, %186 ], [ false, %392 ], [ false, %375 ], [ false, %359 ], [ true, %284 ], [ false, %433 ], [ false, %410 ], [ false, %165 ], [ false, %152 ], [ false, %140 ], [ false, %127 ], [ false, %78 ], [ false, %82 ], [ false, %70 ], [ false, %24 ], [ true, %._crit_edge589 ], [ true, %90 ], [ false, %107 ], [ false, %133 ], [ false, %192 ], [ true, %522 ], [ true, %525 ], [ true, %530 ], [ true, %.loopexit ], [ true, %51 ], [ true, %55 ]
+get_lazy_object.exit:                             ; preds = %55, %51, %.loopexit, %529, %524, %521, %192, %133, %107, %90, %._crit_edge589, %24, %433, %410, %392, %375, %359, %284, %186, %165, %152, %140, %127, %82, %78, %70, %30
+  %.0447 = phi i1 [ true, %30 ], [ false, %186 ], [ false, %392 ], [ false, %375 ], [ false, %359 ], [ true, %284 ], [ false, %433 ], [ false, %410 ], [ false, %165 ], [ false, %152 ], [ false, %140 ], [ false, %127 ], [ false, %78 ], [ false, %82 ], [ false, %70 ], [ false, %24 ], [ true, %._crit_edge589 ], [ true, %90 ], [ false, %107 ], [ false, %133 ], [ false, %192 ], [ true, %521 ], [ true, %524 ], [ true, %529 ], [ true, %.loopexit ], [ true, %51 ], [ true, %55 ]
   ret i1 %.0447
 }
 

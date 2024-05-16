@@ -1830,7 +1830,7 @@ define internal fastcc void @vm_setinstancevariable(i64 noundef %0, i64 noundef 
   br i1 %21, label %44, label %22
 
 22:                                               ; preds = %18
-  %.not.i = icmp eq i32 %12, -1
+  %.not.i = icmp eq i64 %11, 4294967295
   br i1 %.not.i, label %vm_setivar.exit.thread, label %23
 
 23:                                               ; preds = %22
@@ -7232,7 +7232,7 @@ ROBJECT_IVPTR.exit.i:                             ; preds = %355, %rb_ractor_mai
   br label %vm_getinstancevariable.exit
 
 370:                                              ; preds = %ROBJECT_IVPTR.exit.i
-  %371 = icmp eq i32 %340, 11
+  %371 = icmp eq i64 %339, 11
   br i1 %371, label %372, label %387
 
 372:                                              ; preds = %370
@@ -8899,7 +8899,7 @@ ROBJECT_IVPTR.exit:                               ; preds = %1258, %1255, %rb_ra
   br label %1320
 
 1282:                                             ; preds = %ROBJECT_IVPTR.exit
-  %1283 = icmp eq i32 %1252, 11
+  %1283 = icmp eq i64 %1251, 11
   br i1 %1283, label %1284, label %1299
 
 1284:                                             ; preds = %1282
@@ -39071,7 +39071,7 @@ RB_OBJ_FROZEN.exit.thread:                        ; preds = %23, %3
   br i1 %34, label %57, label %35
 
 35:                                               ; preds = %31
-  %.not.i = icmp eq i32 %13, -1
+  %.not.i = icmp eq i64 %12, 4294967295
   br i1 %.not.i, label %vm_setivar.exit.thread, label %36
 
 36:                                               ; preds = %35
@@ -39311,7 +39311,7 @@ ROBJECT_IVPTR.exit:                               ; preds = %35, %32, %rb_ractor
   br label %.thread
 
 60:                                               ; preds = %ROBJECT_IVPTR.exit
-  %61 = icmp eq i32 %29, 11
+  %61 = icmp eq i64 %28, 11
   br i1 %61, label %62, label %77
 
 62:                                               ; preds = %60

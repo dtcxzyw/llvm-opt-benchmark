@@ -228,7 +228,7 @@ define hidden range(i32 0, 2) i32 @decode_as_command_option(ptr noundef %0) loca
   br i1 %80, label %81, label %88
 
 81:                                               ; preds = %78
-  %82 = icmp eq i32 %79, 0
+  %82 = icmp eq i64 %71, 0
   br i1 %82, label %87, label %83
 
 83:                                               ; preds = %81

@@ -37188,40 +37188,40 @@ if.end67:                                         ; preds = %_ZN11realclosure7ma
   br label %while.body, !llvm.loop !96
 
 if.else68:                                        ; preds = %_ZN11realclosure7manager3imp14first_non_zeroERK9ptr_arrayINS_5valueEE.exit55
-  %87 = and i64 %indvars.iv.i, 4294967295
-  %cmp = icmp eq i64 %87, 0
-  %arrayidx.i191 = getelementptr inbounds ptr, ptr %0, i64 %87
-  %88 = load ptr, ptr %arrayidx.i191, align 8
-  %cmp.i.i192 = icmp eq ptr %88, null
+  %cmp = icmp eq i64 %indvars.iv.i, 0
+  %idxprom.i = and i64 %indvars.iv.i, 4294967295
+  %arrayidx.i191 = getelementptr inbounds ptr, ptr %0, i64 %idxprom.i
+  %87 = load ptr, ptr %arrayidx.i191, align 8
+  %cmp.i.i192 = icmp eq ptr %87, null
   br i1 %cmp.i.i192, label %_ZN11realclosure7manager3imp4signEPNS_5valueE.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.else68
-  %m_rational.i.i.i = getelementptr inbounds i8, ptr %88, i64 4
-  %89 = load i8, ptr %m_rational.i.i.i, align 4
-  %tobool.i.i.i = trunc i8 %89 to i1
+  %m_rational.i.i.i = getelementptr inbounds i8, ptr %87, i64 4
+  %88 = load i8, ptr %m_rational.i.i.i, align 4
+  %tobool.i.i.i = trunc i8 %88 to i1
   br i1 %tobool.i.i.i, label %if.then3.i, label %if.else7.i
 
 if.then3.i:                                       ; preds = %if.else.i
-  %m_value.i.i = getelementptr inbounds i8, ptr %88, i64 72
-  %90 = load i32, ptr %m_value.i.i, align 8
-  %cmp.i.i.i.inv.i = icmp slt i32 %90, 1
+  %m_value.i.i = getelementptr inbounds i8, ptr %87, i64 72
+  %89 = load i32, ptr %m_value.i.i, align 8
+  %cmp.i.i.i.inv.i = icmp slt i32 %89, 1
   %cond.i = select i1 %cmp.i.i.i.inv.i, i32 -1, i32 1
   br label %_ZN11realclosure7manager3imp4signEPNS_5valueE.exit
 
 if.else7.i:                                       ; preds = %if.else.i
-  %m_interval.i.i = getelementptr inbounds i8, ptr %88, i64 8
-  %m_lower_inf.i.i.i.i.i.i = getelementptr inbounds i8, ptr %88, i64 56
-  %91 = load i8, ptr %m_lower_inf.i.i.i.i.i.i, align 8
-  %cmp.i.i.not.i.i.i.i = icmp eq i8 %91, 0
-  %92 = load i32, ptr %m_interval.i.i, align 8
-  %cmp.i.i.i.i.i.i193 = icmp sgt i32 %92, 0
-  %93 = select i1 %cmp.i.i.not.i.i.i.i, i1 %cmp.i.i.i.i.i.i193, i1 false
-  br i1 %93, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i
+  %m_interval.i.i = getelementptr inbounds i8, ptr %87, i64 8
+  %m_lower_inf.i.i.i.i.i.i = getelementptr inbounds i8, ptr %87, i64 56
+  %90 = load i8, ptr %m_lower_inf.i.i.i.i.i.i, align 8
+  %cmp.i.i.not.i.i.i.i = icmp eq i8 %90, 0
+  %91 = load i32, ptr %m_interval.i.i, align 8
+  %cmp.i.i.i.i.i.i193 = icmp sgt i32 %91, 0
+  %92 = select i1 %cmp.i.i.not.i.i.i.i, i1 %cmp.i.i.i.i.i.i193, i1 false
+  br i1 %92, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i
 
 _ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i: ; preds = %if.else7.i
-  %cmp.i.i.i.i4.i.i = icmp eq i32 %92, 0
-  %94 = select i1 %cmp.i.i.not.i.i.i.i, i1 %cmp.i.i.i.i4.i.i, i1 false
-  %cond.fr.i = freeze i1 %94
+  %cmp.i.i.i.i4.i.i = icmp eq i32 %91, 0
+  %93 = select i1 %cmp.i.i.not.i.i.i.i, i1 %cmp.i.i.i.i4.i.i, i1 false
+  %cond.fr.i = freeze i1 %93
   br i1 %cond.fr.i, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i, label %_ZN11realclosure7manager3imp4signEPNS_5valueE.exit
 
 _ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i: ; preds = %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i, %if.else7.i
@@ -37231,37 +37231,37 @@ _ZN11realclosure7manager3imp4signEPNS_5valueE.exit: ; preds = %if.else68, %if.th
   %retval.0.i194 = phi i32 [ %cond.i, %if.then3.i ], [ 0, %if.else68 ], [ 1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i ], [ -1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i ]
   %idxprom.i195 = and i64 %indvars.iv.i48, 4294967295
   %arrayidx.i196 = getelementptr inbounds ptr, ptr %4, i64 %idxprom.i195
-  %95 = load ptr, ptr %arrayidx.i196, align 8
-  %cmp.i.i197 = icmp eq ptr %95, null
+  %94 = load ptr, ptr %arrayidx.i196, align 8
+  %cmp.i.i197 = icmp eq ptr %94, null
   br i1 %cmp.i.i197, label %_ZN11realclosure7manager3imp4signEPNS_5valueE.exit215, label %if.else.i198
 
 if.else.i198:                                     ; preds = %_ZN11realclosure7manager3imp4signEPNS_5valueE.exit
-  %m_rational.i.i.i199 = getelementptr inbounds i8, ptr %95, i64 4
-  %96 = load i8, ptr %m_rational.i.i.i199, align 4
-  %tobool.i.i.i200 = trunc i8 %96 to i1
+  %m_rational.i.i.i199 = getelementptr inbounds i8, ptr %94, i64 4
+  %95 = load i8, ptr %m_rational.i.i.i199, align 4
+  %tobool.i.i.i200 = trunc i8 %95 to i1
   br i1 %tobool.i.i.i200, label %if.then3.i211, label %if.else7.i201
 
 if.then3.i211:                                    ; preds = %if.else.i198
-  %m_value.i.i212 = getelementptr inbounds i8, ptr %95, i64 72
-  %97 = load i32, ptr %m_value.i.i212, align 8
-  %cmp.i.i.i.inv.i213 = icmp slt i32 %97, 1
+  %m_value.i.i212 = getelementptr inbounds i8, ptr %94, i64 72
+  %96 = load i32, ptr %m_value.i.i212, align 8
+  %cmp.i.i.i.inv.i213 = icmp slt i32 %96, 1
   %cond.i214 = select i1 %cmp.i.i.i.inv.i213, i32 -1, i32 1
   br label %_ZN11realclosure7manager3imp4signEPNS_5valueE.exit215
 
 if.else7.i201:                                    ; preds = %if.else.i198
-  %m_interval.i.i202 = getelementptr inbounds i8, ptr %95, i64 8
-  %m_lower_inf.i.i.i.i.i.i203 = getelementptr inbounds i8, ptr %95, i64 56
-  %98 = load i8, ptr %m_lower_inf.i.i.i.i.i.i203, align 8
-  %cmp.i.i.not.i.i.i.i204 = icmp eq i8 %98, 0
-  %99 = load i32, ptr %m_interval.i.i202, align 8
-  %cmp.i.i.i.i.i.i205 = icmp sgt i32 %99, 0
-  %100 = select i1 %cmp.i.i.not.i.i.i.i204, i1 %cmp.i.i.i.i.i.i205, i1 false
-  br i1 %100, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i210, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i206
+  %m_interval.i.i202 = getelementptr inbounds i8, ptr %94, i64 8
+  %m_lower_inf.i.i.i.i.i.i203 = getelementptr inbounds i8, ptr %94, i64 56
+  %97 = load i8, ptr %m_lower_inf.i.i.i.i.i.i203, align 8
+  %cmp.i.i.not.i.i.i.i204 = icmp eq i8 %97, 0
+  %98 = load i32, ptr %m_interval.i.i202, align 8
+  %cmp.i.i.i.i.i.i205 = icmp sgt i32 %98, 0
+  %99 = select i1 %cmp.i.i.not.i.i.i.i204, i1 %cmp.i.i.i.i.i.i205, i1 false
+  br i1 %99, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i210, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i206
 
 _ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i206: ; preds = %if.else7.i201
-  %cmp.i.i.i.i4.i.i207 = icmp eq i32 %99, 0
-  %101 = select i1 %cmp.i.i.not.i.i.i.i204, i1 %cmp.i.i.i.i4.i.i207, i1 false
-  %cond.fr.i208 = freeze i1 %101
+  %cmp.i.i.i.i4.i.i207 = icmp eq i32 %98, 0
+  %100 = select i1 %cmp.i.i.not.i.i.i.i204, i1 %cmp.i.i.i.i4.i.i207, i1 false
+  %cond.fr.i208 = freeze i1 %100
   br i1 %cond.fr.i208, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i210, label %_ZN11realclosure7manager3imp4signEPNS_5valueE.exit215
 
 _ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i210: ; preds = %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i206, %if.else7.i201
@@ -44119,40 +44119,40 @@ terminate.lpad.i163:                              ; preds = %.noexc.i164, %_ZN16
   unreachable
 
 if.else54:                                        ; preds = %_ZN11realclosure7manager3imp14first_non_zeroERK9ptr_arrayINS_5valueEE.exit47
-  %79 = and i64 %indvars.iv.i, 4294967295
-  %cmp = icmp eq i64 %79, 0
-  %arrayidx.i167 = getelementptr inbounds ptr, ptr %0, i64 %79
-  %80 = load ptr, ptr %arrayidx.i167, align 8
-  %cmp.i.i168 = icmp eq ptr %80, null
+  %cmp = icmp eq i64 %indvars.iv.i, 0
+  %idxprom.i = and i64 %indvars.iv.i, 4294967295
+  %arrayidx.i167 = getelementptr inbounds ptr, ptr %0, i64 %idxprom.i
+  %79 = load ptr, ptr %arrayidx.i167, align 8
+  %cmp.i.i168 = icmp eq ptr %79, null
   br i1 %cmp.i.i168, label %_ZN11realclosure7manager3imp4signEPNS_5valueE.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.else54
-  %m_rational.i.i.i = getelementptr inbounds i8, ptr %80, i64 4
-  %81 = load i8, ptr %m_rational.i.i.i, align 4
-  %tobool.i.i.i = trunc i8 %81 to i1
+  %m_rational.i.i.i = getelementptr inbounds i8, ptr %79, i64 4
+  %80 = load i8, ptr %m_rational.i.i.i, align 4
+  %tobool.i.i.i = trunc i8 %80 to i1
   br i1 %tobool.i.i.i, label %if.then3.i, label %if.else7.i
 
 if.then3.i:                                       ; preds = %if.else.i
-  %m_value.i.i = getelementptr inbounds i8, ptr %80, i64 72
-  %82 = load i32, ptr %m_value.i.i, align 8
-  %cmp.i.i.i.inv.i = icmp slt i32 %82, 1
+  %m_value.i.i = getelementptr inbounds i8, ptr %79, i64 72
+  %81 = load i32, ptr %m_value.i.i, align 8
+  %cmp.i.i.i.inv.i = icmp slt i32 %81, 1
   %cond.i = select i1 %cmp.i.i.i.inv.i, i32 -1, i32 1
   br label %_ZN11realclosure7manager3imp4signEPNS_5valueE.exit
 
 if.else7.i:                                       ; preds = %if.else.i
-  %m_interval.i.i = getelementptr inbounds i8, ptr %80, i64 8
-  %m_lower_inf.i.i.i.i.i.i = getelementptr inbounds i8, ptr %80, i64 56
-  %83 = load i8, ptr %m_lower_inf.i.i.i.i.i.i, align 8
-  %cmp.i.i.not.i.i.i.i = icmp eq i8 %83, 0
-  %84 = load i32, ptr %m_interval.i.i, align 8
-  %cmp.i.i.i.i.i.i169 = icmp sgt i32 %84, 0
-  %85 = select i1 %cmp.i.i.not.i.i.i.i, i1 %cmp.i.i.i.i.i.i169, i1 false
-  br i1 %85, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i
+  %m_interval.i.i = getelementptr inbounds i8, ptr %79, i64 8
+  %m_lower_inf.i.i.i.i.i.i = getelementptr inbounds i8, ptr %79, i64 56
+  %82 = load i8, ptr %m_lower_inf.i.i.i.i.i.i, align 8
+  %cmp.i.i.not.i.i.i.i = icmp eq i8 %82, 0
+  %83 = load i32, ptr %m_interval.i.i, align 8
+  %cmp.i.i.i.i.i.i169 = icmp sgt i32 %83, 0
+  %84 = select i1 %cmp.i.i.not.i.i.i.i, i1 %cmp.i.i.i.i.i.i169, i1 false
+  br i1 %84, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i
 
 _ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i: ; preds = %if.else7.i
-  %cmp.i.i.i.i4.i.i = icmp eq i32 %84, 0
-  %86 = select i1 %cmp.i.i.not.i.i.i.i, i1 %cmp.i.i.i.i4.i.i, i1 false
-  %cond.fr.i = freeze i1 %86
+  %cmp.i.i.i.i4.i.i = icmp eq i32 %83, 0
+  %85 = select i1 %cmp.i.i.not.i.i.i.i, i1 %cmp.i.i.i.i4.i.i, i1 false
+  %cond.fr.i = freeze i1 %85
   br i1 %cond.fr.i, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i, label %_ZN11realclosure7manager3imp4signEPNS_5valueE.exit
 
 _ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i: ; preds = %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i, %if.else7.i
@@ -44162,37 +44162,37 @@ _ZN11realclosure7manager3imp4signEPNS_5valueE.exit: ; preds = %if.else54, %if.th
   %retval.0.i170 = phi i32 [ %cond.i, %if.then3.i ], [ 0, %if.else54 ], [ 1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i ], [ -1, %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i ]
   %idxprom.i171 = and i64 %indvars.iv.i40, 4294967295
   %arrayidx.i172 = getelementptr inbounds ptr, ptr %4, i64 %idxprom.i171
-  %87 = load ptr, ptr %arrayidx.i172, align 8
-  %cmp.i.i173 = icmp eq ptr %87, null
+  %86 = load ptr, ptr %arrayidx.i172, align 8
+  %cmp.i.i173 = icmp eq ptr %86, null
   br i1 %cmp.i.i173, label %_ZN11realclosure7manager3imp4signEPNS_5valueE.exit191, label %if.else.i174
 
 if.else.i174:                                     ; preds = %_ZN11realclosure7manager3imp4signEPNS_5valueE.exit
-  %m_rational.i.i.i175 = getelementptr inbounds i8, ptr %87, i64 4
-  %88 = load i8, ptr %m_rational.i.i.i175, align 4
-  %tobool.i.i.i176 = trunc i8 %88 to i1
+  %m_rational.i.i.i175 = getelementptr inbounds i8, ptr %86, i64 4
+  %87 = load i8, ptr %m_rational.i.i.i175, align 4
+  %tobool.i.i.i176 = trunc i8 %87 to i1
   br i1 %tobool.i.i.i176, label %if.then3.i187, label %if.else7.i177
 
 if.then3.i187:                                    ; preds = %if.else.i174
-  %m_value.i.i188 = getelementptr inbounds i8, ptr %87, i64 72
-  %89 = load i32, ptr %m_value.i.i188, align 8
-  %cmp.i.i.i.inv.i189 = icmp slt i32 %89, 1
+  %m_value.i.i188 = getelementptr inbounds i8, ptr %86, i64 72
+  %88 = load i32, ptr %m_value.i.i188, align 8
+  %cmp.i.i.i.inv.i189 = icmp slt i32 %88, 1
   %cond.i190 = select i1 %cmp.i.i.i.inv.i189, i32 -1, i32 1
   br label %_ZN11realclosure7manager3imp4signEPNS_5valueE.exit191
 
 if.else7.i177:                                    ; preds = %if.else.i174
-  %m_interval.i.i178 = getelementptr inbounds i8, ptr %87, i64 8
-  %m_lower_inf.i.i.i.i.i.i179 = getelementptr inbounds i8, ptr %87, i64 56
-  %90 = load i8, ptr %m_lower_inf.i.i.i.i.i.i179, align 8
-  %cmp.i.i.not.i.i.i.i180 = icmp eq i8 %90, 0
-  %91 = load i32, ptr %m_interval.i.i178, align 8
-  %cmp.i.i.i.i.i.i181 = icmp sgt i32 %91, 0
-  %92 = select i1 %cmp.i.i.not.i.i.i.i180, i1 %cmp.i.i.i.i.i.i181, i1 false
-  br i1 %92, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i186, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i182
+  %m_interval.i.i178 = getelementptr inbounds i8, ptr %86, i64 8
+  %m_lower_inf.i.i.i.i.i.i179 = getelementptr inbounds i8, ptr %86, i64 56
+  %89 = load i8, ptr %m_lower_inf.i.i.i.i.i.i179, align 8
+  %cmp.i.i.not.i.i.i.i180 = icmp eq i8 %89, 0
+  %90 = load i32, ptr %m_interval.i.i178, align 8
+  %cmp.i.i.i.i.i.i181 = icmp sgt i32 %90, 0
+  %91 = select i1 %cmp.i.i.not.i.i.i.i180, i1 %cmp.i.i.i.i.i.i181, i1 false
+  br i1 %91, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i186, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i182
 
 _ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i182: ; preds = %if.else7.i177
-  %cmp.i.i.i.i4.i.i183 = icmp eq i32 %91, 0
-  %93 = select i1 %cmp.i.i.not.i.i.i.i180, i1 %cmp.i.i.i.i4.i.i183, i1 false
-  %cond.fr.i184 = freeze i1 %93
+  %cmp.i.i.i.i4.i.i183 = icmp eq i32 %90, 0
+  %92 = select i1 %cmp.i.i.not.i.i.i.i180, i1 %cmp.i.i.i.i4.i.i183, i1 false
+  %cond.fr.i184 = freeze i1 %92
   br i1 %cond.fr.i184, label %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i186, label %_ZN11realclosure7manager3imp4signEPNS_5valueE.exit191
 
 _ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.thread.i186: ; preds = %_ZNK16interval_managerIN11realclosure11mpbq_configEE4is_PERKNS1_8intervalE.exit.i182, %if.else7.i177
@@ -44217,8 +44217,8 @@ if.then62:                                        ; preds = %if.then60
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then62
-  %94 = load i32, ptr %m_num.i, align 8
-  store i32 %94, ptr %m_interval.i192, align 8
+  %93 = load i32, ptr %m_num.i, align 8
+  store i32 %93, ptr %m_interval.i192, align 8
   %m_kind.i.i.i.i194 = getelementptr inbounds i8, ptr %v, i64 12
   %bf.load.i.i.i.i195 = load i8, ptr %m_kind.i.i.i.i194, align 4
   %bf.clear.i.i.i.i = and i8 %bf.load.i.i.i.i195, -2
@@ -44227,23 +44227,23 @@ if.then.i.i.i.i:                                  ; preds = %if.then62
 
 if.else.i.i.i.i:                                  ; preds = %if.then62
   %m_bqm.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %95 = load ptr, ptr %m_bqm.i.i.i, align 8
-  tail call void @_ZN11mpz_managerILb0EE7big_setER3mpzRKS1_(ptr noundef nonnull align 8 dereferenceable(600) %95, ptr noundef nonnull align 8 dereferenceable(16) %m_interval.i192, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i)
+  %94 = load ptr, ptr %m_bqm.i.i.i, align 8
+  tail call void @_ZN11mpz_managerILb0EE7big_setER3mpzRKS1_(ptr noundef nonnull align 8 dereferenceable(600) %94, ptr noundef nonnull align 8 dereferenceable(16) %m_interval.i192, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i)
   br label %_ZN11realclosure7manager3imp9set_lowerERNS_11mpbq_config8intervalERK4mpbqb.exit
 
 _ZN11realclosure7manager3imp9set_lowerERNS_11mpbq_config8intervalERK4mpbqb.exit: ; preds = %if.then.i.i.i.i, %if.else.i.i.i.i
   %m_k.i.i.i193 = getelementptr inbounds i8, ptr %this, i64 1448
-  %96 = load i32, ptr %m_k.i.i.i193, align 8
+  %95 = load i32, ptr %m_k.i.i.i193, align 8
   %m_k3.i.i.i = getelementptr inbounds i8, ptr %v, i64 24
-  store i32 %96, ptr %m_k3.i.i.i, align 8
+  store i32 %95, ptr %m_k3.i.i.i, align 8
   %m_lower_open.i.i.i = getelementptr inbounds i8, ptr %v, i64 58
   store i8 1, ptr %m_lower_open.i.i.i, align 2
   %m_lower_inf.i.i.i = getelementptr inbounds i8, ptr %v, i64 56
   store i8 0, ptr %m_lower_inf.i.i.i, align 8
   %m_bqm.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %m_upper.i.i197 = getelementptr inbounds i8, ptr %v, i64 32
-  %97 = load ptr, ptr %m_bqm.i.i, align 8
-  tail call void @_ZN11mpz_managerILb0EE5resetER3mpz(ptr noundef nonnull align 8 dereferenceable(600) %97, ptr noundef nonnull align 8 dereferenceable(16) %m_upper.i.i197)
+  %96 = load ptr, ptr %m_bqm.i.i, align 8
+  tail call void @_ZN11mpz_managerILb0EE5resetER3mpz(ptr noundef nonnull align 8 dereferenceable(600) %96, ptr noundef nonnull align 8 dereferenceable(16) %m_upper.i.i197)
   %m_k.i.i = getelementptr inbounds i8, ptr %v, i64 48
   store i32 0, ptr %m_k.i.i, align 8
   %m_upper_open.i.i = getelementptr inbounds i8, ptr %v, i64 59
@@ -44254,8 +44254,8 @@ _ZN11realclosure7manager3imp9set_lowerERNS_11mpbq_config8intervalERK4mpbqb.exit:
 
 if.else66:                                        ; preds = %if.then60
   %m_bqm.i.i200 = getelementptr inbounds i8, ptr %this, i64 48
-  %98 = load ptr, ptr %m_bqm.i.i200, align 8
-  tail call void @_ZN11mpz_managerILb0EE5resetER3mpz(ptr noundef nonnull align 8 dereferenceable(600) %98, ptr noundef nonnull align 8 dereferenceable(16) %m_interval.i192)
+  %97 = load ptr, ptr %m_bqm.i.i200, align 8
+  tail call void @_ZN11mpz_managerILb0EE5resetER3mpz(ptr noundef nonnull align 8 dereferenceable(600) %97, ptr noundef nonnull align 8 dereferenceable(16) %m_interval.i192)
   %m_k.i.i201 = getelementptr inbounds i8, ptr %v, i64 24
   store i32 0, ptr %m_k.i.i201, align 8
   %m_lower_open.i.i = getelementptr inbounds i8, ptr %v, i64 58
@@ -44271,8 +44271,8 @@ if.else66:                                        ; preds = %if.then60
   br i1 %cmp.i.i.i.i.i208, label %if.then.i.i.i.i213, label %if.else.i.i.i.i209
 
 if.then.i.i.i.i213:                               ; preds = %if.else66
-  %99 = load i32, ptr %m_num.i204, align 8
-  store i32 %99, ptr %m_upper.i.i.i, align 8
+  %98 = load i32, ptr %m_num.i204, align 8
+  store i32 %98, ptr %m_upper.i.i.i, align 8
   %m_kind.i.i.i.i214 = getelementptr inbounds i8, ptr %v, i64 36
   %bf.load.i.i.i.i215 = load i8, ptr %m_kind.i.i.i.i214, align 4
   %bf.clear.i.i.i.i216 = and i8 %bf.load.i.i.i.i215, -2
@@ -44280,15 +44280,15 @@ if.then.i.i.i.i213:                               ; preds = %if.else66
   br label %_ZN11realclosure7manager3imp9set_upperERNS_11mpbq_config8intervalERK4mpbqb.exit
 
 if.else.i.i.i.i209:                               ; preds = %if.else66
-  %100 = load ptr, ptr %m_bqm.i.i200, align 8
-  tail call void @_ZN11mpz_managerILb0EE7big_setER3mpzRKS1_(ptr noundef nonnull align 8 dereferenceable(600) %100, ptr noundef nonnull align 8 dereferenceable(16) %m_upper.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i204)
+  %99 = load ptr, ptr %m_bqm.i.i200, align 8
+  tail call void @_ZN11mpz_managerILb0EE7big_setER3mpzRKS1_(ptr noundef nonnull align 8 dereferenceable(600) %99, ptr noundef nonnull align 8 dereferenceable(16) %m_upper.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i204)
   br label %_ZN11realclosure7manager3imp9set_upperERNS_11mpbq_config8intervalERK4mpbqb.exit
 
 _ZN11realclosure7manager3imp9set_upperERNS_11mpbq_config8intervalERK4mpbqb.exit: ; preds = %if.then.i.i.i.i213, %if.else.i.i.i.i209
   %m_k.i.i.i211 = getelementptr inbounds i8, ptr %this, i64 1480
-  %101 = load i32, ptr %m_k.i.i.i211, align 8
+  %100 = load i32, ptr %m_k.i.i.i211, align 8
   %m_k3.i.i.i212 = getelementptr inbounds i8, ptr %v, i64 48
-  store i32 %101, ptr %m_k3.i.i.i212, align 8
+  store i32 %100, ptr %m_k3.i.i.i212, align 8
   %m_upper_open.i.i.i = getelementptr inbounds i8, ptr %v, i64 59
   store i8 1, ptr %m_upper_open.i.i.i, align 1
   %m_upper_inf.i.i.i = getelementptr inbounds i8, ptr %v, i64 57
@@ -44316,26 +44316,26 @@ _ZN11realclosure7manager3imp9set_upperERNS_11mpbq_config8intervalERK4mpbqb.exit2
   %m_lower_inf.i.i.i232 = getelementptr inbounds i8, ptr %v, i64 56
   store i8 0, ptr %m_lower_inf.i.i.i232, align 8
   %m_ini_precision77 = getelementptr inbounds i8, ptr %this, i64 1412
-  %102 = load i32, ptr %m_ini_precision77, align 4
+  %101 = load i32, ptr %m_ini_precision77, align 4
   store i32 1, ptr %m_upper.i.i.i244, align 8
   %bf.load.i.i.i.i257 = load i8, ptr %m_kind.i.i.i.i256, align 4
   %bf.clear.i.i.i.i258 = and i8 %bf.load.i.i.i.i257, -2
   store i8 %bf.clear.i.i.i.i258, ptr %m_kind.i.i.i.i256, align 4
-  store i32 %102, ptr %m_k3.i.i.i252, align 8
+  store i32 %101, ptr %m_k3.i.i.i252, align 8
   store i8 1, ptr %m_upper_open.i.i.i253, align 1
   store i8 0, ptr %m_upper_inf.i.i.i254, align 1
   br label %if.end86
 
 _ZN11realclosure7manager3imp9set_upperERNS_11mpbq_config8intervalERK4mpbqb.exit302: ; preds = %if.else71
   %m_ini_precision81 = getelementptr inbounds i8, ptr %this, i64 1412
-  %103 = load i32, ptr %m_ini_precision81, align 4
+  %102 = load i32, ptr %m_ini_precision81, align 4
   store i32 -1, ptr %m_interval.i192, align 8
   %m_kind.i.i.i.i277 = getelementptr inbounds i8, ptr %v, i64 12
   %bf.load.i.i.i.i278 = load i8, ptr %m_kind.i.i.i.i277, align 4
   %bf.clear.i.i.i.i279 = and i8 %bf.load.i.i.i.i278, -2
   store i8 %bf.clear.i.i.i.i279, ptr %m_kind.i.i.i.i277, align 4
   %m_k3.i.i.i273 = getelementptr inbounds i8, ptr %v, i64 24
-  store i32 %103, ptr %m_k3.i.i.i273, align 8
+  store i32 %102, ptr %m_k3.i.i.i273, align 8
   %m_lower_open.i.i.i274 = getelementptr inbounds i8, ptr %v, i64 58
   store i8 1, ptr %m_lower_open.i.i.i274, align 2
   %m_lower_inf.i.i.i275 = getelementptr inbounds i8, ptr %v, i64 56

@@ -415,7 +415,7 @@ for.end36.i:                                      ; preds = %for.body3.i309, %fo
   br i1 %cmp.i325, label %for.body.i306, label %_ZL11btSolveL1_1PKfPfii.exit, !llvm.loop !12
 
 _ZL11btSolveL1_1PKfPfii.exit:                     ; preds = %for.end36.i
-  %cmp164352 = icmp sgt i32 %147, 5
+  %cmp164352 = icmp ugt i64 %indvars.iv, 3
   br i1 %cmp164352, label %for.body165, label %for.cond208.preheader
 
 for.cond208.preheader:                            ; preds = %for.body165, %_ZL11btSolveL1_1PKfPfii.exit

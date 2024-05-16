@@ -4171,7 +4171,7 @@ define internal fastcc void @_ZN5gimli4read4line15FileEntryFormat5parse17h6acbd2
 59:                                               ; preds = %39
   %.075126 = call i64 @llvm.umin.i64(i64 %45, i64 65535)
   %.075 = trunc nuw i64 %.075126 to i16
-  %60 = icmp eq i16 %.075, 1
+  %60 = icmp eq i64 %45, 1
   %61 = zext i1 %60 to i32
   %.1 = add i32 %.0158, %61
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
@@ -7126,8 +7126,6 @@ define hidden void @_ZN5gimli4read4unit15parse_attribute17h1c0fab4e2bdd62e2E(ptr
   %.sroa.011.0.extract.trunc = trunc i32 %2 to i8
   %.sroa.4.0.extract.shift = lshr i32 %2, 8
   %.sroa.4.0.extract.trunc = trunc i32 %.sroa.4.0.extract.shift to i8
-  %.sroa.5.0.extract.shift = lshr i32 %2, 16
-  %.sroa.5.0.extract.trunc = trunc nuw i32 %.sroa.5.0.extract.shift to i16
   %19 = getelementptr inbounds i8, ptr %3, i64 10
   %20 = load i16, ptr %19, align 2, !noundef !4
   %21 = getelementptr inbounds i8, ptr %18, i64 2
@@ -7727,7 +7725,8 @@ _ZN5gimli4read6reader6Reader11read_offset17h66962feeefdeb8ffE.exit: ; preds = %2
   br i1 %255, label %659, label %241
 
 256:                                              ; preds = %22
-  %257 = icmp eq i16 %.sroa.5.0.extract.trunc, 2
+  %.sroa.5.0.extract.shift.mask = and i32 %2, -65536
+  %257 = icmp eq i32 %.sroa.5.0.extract.shift.mask, 131072
   br i1 %257, label %661, label %664
 
 258:                                              ; preds = %22
@@ -8638,8 +8637,8 @@ _ZN5gimli4read6reader6Reader11read_offset17h66962feeefdeb8ffE.exit1658: ; preds 
   ]
 
 543:                                              ; preds = %540
-  %544 = and i16 %.sroa.5.0.extract.trunc, -2
-  %switch1437 = icmp eq i16 %544, 2
+  %544 = and i32 %2, -131072
+  %switch1437 = icmp eq i32 %544, 131072
   br i1 %switch1437, label %.critedge, label %.critedge1432
 
 .critedge:                                        ; preds = %543, %540, %540, %540, %540, %540, %540, %540, %540, %540, %540, %540, %540, %540
@@ -8746,8 +8745,8 @@ _ZN5gimli4read6reader6Reader11read_offset17h66962feeefdeb8ffE.exit1658: ; preds 
   ]
 
 567:                                              ; preds = %564
-  %568 = and i16 %.sroa.5.0.extract.trunc, -2
-  %switch1439 = icmp eq i16 %568, 2
+  %568 = and i32 %2, -131072
+  %switch1439 = icmp eq i32 %568, 131072
   br i1 %switch1439, label %.critedge1434, label %.critedge1436
 
 .critedge1434:                                    ; preds = %567, %564, %564, %564, %564, %564, %564, %564, %564, %564, %564, %564, %564, %564
@@ -14786,10 +14785,8 @@ define hidden void @_ZN5gimli4read6reader6Reader9read_word17h3b3983e54968a644E(p
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc i64 @_ZN5gimli5write3loc16write_expression17h6fbe6ec0488e085aE(ptr noalias noundef align 8 dereferenceable(56) %0, ptr noalias noundef align 8 dereferenceable(24) %1, i32 %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %3, ptr noalias noundef readonly align 8 dereferenceable(24) %4) unnamed_addr #4 {
-  %.sroa.4.0.extract.shift = lshr i32 %2, 16
-  %.sroa.4.0.extract.trunc = trunc nuw i32 %.sroa.4.0.extract.shift to i16
   %6 = tail call noundef i64 @_ZN5gimli5write2op10Expression4size17h062611d9ad35957fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4, i32 %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %3)
-  %7 = icmp ult i16 %.sroa.4.0.extract.trunc, 5
+  %7 = icmp ult i32 %2, 327680
   br i1 %7, label %12, label %8
 
 8:                                                ; preds = %5
@@ -15709,15 +15706,15 @@ define hidden void @_ZN5gimli5write3loc17LocationListTable5write17h6e55bbfb9fc64
   br label %12
 
 10:                                               ; preds = %5
-  %11 = add i16 %.sroa.4.0.extract.trunc, -2
-  %or.cond = icmp ult i16 %11, 3
+  %11 = add i32 %3, -131072
+  %or.cond = icmp ult i32 %11, 196608
   br i1 %or.cond, label %15, label %13
 
 12:                                               ; preds = %21, %18, %15, %9
   ret void
 
 13:                                               ; preds = %10
-  %14 = icmp eq i16 %.sroa.4.0.extract.trunc, 5
+  %14 = icmp eq i32 %.sroa.4.0.extract.shift, 5
   br i1 %14, label %18, label %21
 
 15:                                               ; preds = %10
@@ -15729,9 +15726,7 @@ define hidden void @_ZN5gimli5write3loc17LocationListTable5write17h6e55bbfb9fc64
 18:                                               ; preds = %13
   %19 = getelementptr inbounds i8, ptr %2, i64 392
   %20 = getelementptr inbounds i8, ptr %2, i64 664
-  %.sroa.0.0.insert.ext4 = and i32 %3, 65535
-  %.sroa.0.0.insert.insert6 = or disjoint i32 %.sroa.0.0.insert.ext4, 327680
-  tail call void @_ZN5gimli5write3loc17LocationListTable14write_loclists17hb480897600ac7b9cE.llvm.16537435173619923488(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %1, ptr noalias noundef nonnull align 8 dereferenceable(56) %19, ptr noalias noundef nonnull align 8 dereferenceable(24) %20, i32 %.sroa.0.0.insert.insert6, ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %4)
+  tail call void @_ZN5gimli5write3loc17LocationListTable14write_loclists17hb480897600ac7b9cE.llvm.16537435173619923488(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %1, ptr noalias noundef nonnull align 8 dereferenceable(56) %19, ptr noalias noundef nonnull align 8 dereferenceable(24) %20, i32 %3, ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %4)
   br label %12
 
 21:                                               ; preds = %13

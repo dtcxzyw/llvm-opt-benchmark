@@ -3842,7 +3842,7 @@ minstrel_ht_sort_best_tp_rates.exit52:            ; preds = %797, %799
   store i8 %1250, ptr %1232, align 2
   %1303 = getelementptr i16, ptr %1196, i64 %1242
   store i16 %1302, ptr %1303, align 2
-  %1304 = icmp eq i16 %1302, 0
+  %1304 = icmp eq i32 %1285, 0
   br i1 %1304, label %.loopexit67, label %1237
 
 .loopexit67:                                      ; preds = %1301, %1237, %.thread54, %1230

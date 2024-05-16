@@ -397,7 +397,7 @@ define dso_local noundef i32 @skb_gro_receive(ptr noundef %0, ptr noundef %1) lo
   %184 = add i64 %183, %182
   %185 = trunc i64 %184 to i32
   %186 = add i32 %10, %185
-  %187 = trunc i32 %164 to i8
+  %187 = trunc nuw i32 %164 to i8
   %188 = add i8 %166, %187
   store i8 %188, ptr %123, align 2
   store ptr %163, ptr %174, align 8
@@ -2009,39 +2009,39 @@ define dso_local zeroext i16 @__skb_gro_checksum_complete(ptr noundef %0) #0 ali
   %11 = shl i32 %10, 16
   %12 = and i32 %10, -65536
   %13 = tail call i32 asm "  addl $1,$0\0A  adcl $$0xffff,$0", "=r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %11, i32 %12) #16, !srcloc !54
-  %14 = xor i32 %13, -1
-  %15 = lshr i32 %14, 16
-  %16 = trunc nuw i32 %15 to i16
-  %17 = icmp eq i16 %16, 0
-  br i1 %17, label %18, label %31, !prof !11
+  %14 = icmp ugt i32 %13, -65537
+  br i1 %14, label %15, label %28, !prof !11
 
-18:                                               ; preds = %1
-  %19 = getelementptr inbounds i8, ptr %0, i64 128
-  %20 = load i8, ptr %19, align 8
-  %21 = and i8 %20, 96
-  %22 = icmp eq i8 %21, 64
-  br i1 %22, label %23, label %31, !prof !12
+15:                                               ; preds = %1
+  %16 = getelementptr inbounds i8, ptr %0, i64 128
+  %17 = load i8, ptr %16, align 8
+  %18 = and i8 %17, 96
+  %19 = icmp eq i8 %18, 64
+  br i1 %19, label %20, label %28, !prof !12
 
-23:                                               ; preds = %18
-  %24 = getelementptr inbounds i8, ptr %0, i64 129
-  %25 = load i24, ptr %24, align 1
-  %26 = and i24 %25, 16
-  %27 = icmp eq i24 %26, 0
-  br i1 %27, label %28, label %31
+20:                                               ; preds = %15
+  %21 = getelementptr inbounds i8, ptr %0, i64 129
+  %22 = load i24, ptr %21, align 1
+  %23 = and i24 %22, 16
+  %24 = icmp eq i24 %23, 0
+  br i1 %24, label %25, label %28
 
-28:                                               ; preds = %23
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
-  %30 = load ptr, ptr %29, align 8
-  tail call void @netdev_rx_csum_fault(ptr noundef %30, ptr noundef %0) #13
-  br label %31
+25:                                               ; preds = %20
+  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %27 = load ptr, ptr %26, align 8
+  tail call void @netdev_rx_csum_fault(ptr noundef %27, ptr noundef %0) #13
+  br label %28
 
-31:                                               ; preds = %28, %23, %18, %1
+28:                                               ; preds = %25, %20, %15, %1
+  %29 = xor i32 %13, -1
+  %30 = lshr i32 %29, 16
+  %31 = trunc nuw i32 %30 to i16
   store i32 %7, ptr %8, align 8
   %32 = getelementptr inbounds i8, ptr %0, i64 70
   %33 = load i16, ptr %32, align 2
   %34 = or i16 %33, 4
   store i16 %34, ptr %32, align 2
-  ret i16 %16
+  ret i16 %31
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -3503,8 +3503,8 @@ log_ref_write_fd.exit:                            ; preds = %strbuf_avail.exit.i
   %call3.i = call i64 @write_in_full(i32 noundef %1, ptr noundef %15, i64 noundef %16) #19
   call void @strbuf_release(ptr noundef nonnull %sb.i) #19
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %sb.i)
-  %isneg = icmp sgt i64 %call3.i, -1
-  br i1 %isneg, label %if.end15, label %if.then11
+  %tobool10.not = icmp sgt i64 %call3.i, -1
+  br i1 %tobool10.not, label %if.end15, label %if.then11
 
 if.then11:                                        ; preds = %log_ref_write_fd.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb, ptr noundef nonnull align 8 dereferenceable(24) @__const.files_reflog_expire.err.114, i64 24, i1 false)

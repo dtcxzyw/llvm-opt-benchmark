@@ -15,13 +15,13 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
 define dso_local noundef ptr @rb_parser_st_init_existing_table_with_size(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %2, i1 false)
-  %5 = trunc nuw nsw i64 %4 to i32
-  %6 = icmp ult i32 %5, 2
-  br i1 %6, label %46, label %7
+  %4 = icmp ugt i64 %2, 4611686018427387903
+  br i1 %4, label %46, label %5
 
-7:                                                ; preds = %3
-  %8 = sub nuw nsw i32 64, %5
+5:                                                ; preds = %3
+  %6 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %2, i1 false)
+  %7 = trunc nuw nsw i64 %6 to i32
+  %8 = sub nuw nsw i32 64, %7
   %9 = tail call i32 @llvm.umax.i32(i32 %8, i32 2)
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %10, align 8
@@ -37,15 +37,15 @@ define dso_local noundef ptr @rb_parser_st_init_existing_table_with_size(ptr nou
   %18 = load i8, ptr %17, align 2
   %19 = getelementptr inbounds i8, ptr %0, i64 2
   store i8 %18, ptr %19, align 2
-  %20 = icmp ugt i32 %5, 59
+  %20 = icmp ult i64 %2, 16
   br i1 %20, label %21, label %23
 
-21:                                               ; preds = %7
+21:                                               ; preds = %5
   %22 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr null, ptr %22, align 8
   br label %31
 
-23:                                               ; preds = %7
+23:                                               ; preds = %5
   %24 = getelementptr [63 x %struct.st_features], ptr @features, i64 0, i64 %12, i32 3
   %25 = load i64, ptr %24, align 8
   %26 = shl i64 %25, 3

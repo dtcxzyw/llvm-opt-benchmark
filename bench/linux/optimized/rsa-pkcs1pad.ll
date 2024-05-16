@@ -1100,7 +1100,7 @@ define internal fastcc noundef i32 @pkcs1pad_decrypt_complete(ptr nocapture noun
 
 35:                                               ; preds = %.preheader
   %36 = trunc nuw i64 %indvars.iv to i32
-  %37 = icmp ult i32 %36, 9
+  %37 = icmp ult i64 %indvars.iv, 9
   %38 = icmp eq i32 %24, %36
   %39 = or i1 %37, %38
   br i1 %39, label %.thread, label %40
@@ -1226,7 +1226,7 @@ define internal fastcc i32 @pkcs1pad_verify_complete(ptr nocapture noundef %0, i
 
 43:                                               ; preds = %.preheader
   %44 = trunc nuw i64 %indvars.iv to i32
-  %45 = icmp ult i32 %44, 9
+  %45 = icmp ult i64 %indvars.iv, 9
   %46 = icmp eq i32 %32, %44
   %47 = or i1 %45, %46
   br i1 %47, label %.thread, label %48

@@ -362,16 +362,15 @@ for.inc.i188:                                     ; preds = %for.body.i184
   br i1 %exitcond.not.i190, label %if.else165, label %for.body.i184, !llvm.loop !9
 
 _ZN7meshoptL15getCodeAuxIndexEhPKh.exit:          ; preds = %for.body.i184
-  %35 = trunc nuw nsw i64 %indvars.iv.i185 to i32
-  %36 = icmp ult i32 %35, 14
-  %or.cond8 = and i1 %cmp116, %36
+  %35 = icmp ult i64 %indvars.iv.i185, 14
+  %or.cond8 = and i1 %cmp116, %35
   %or.cond8.not = xor i1 %or.cond8, true
   %brmerge = or i1 %or.cond4, %or.cond8.not
   br i1 %brmerge, label %if.else165, label %if.then161
 
 if.then161:                                       ; preds = %_ZN7meshoptL15getCodeAuxIndexEhPKh.exit
-  %37 = trunc i64 %indvars.iv.i185 to i8
-  %conv163 = or disjoint i8 %37, -16
+  %36 = trunc i64 %indvars.iv.i185 to i8
+  %conv163 = or disjoint i8 %36, -16
   store i8 %conv163, ptr %code.0315, align 1
   br label %if.end170
 
@@ -537,9 +536,9 @@ for.body209:                                      ; preds = %for.end, %for.body2
   %i206.0321 = phi i64 [ %inc213, %for.body209 ], [ 0, %for.end ]
   %data.11320 = phi ptr [ %incdec.ptr211, %for.body209 ], [ %data.0.lcssa, %for.end ]
   %arrayidx210 = getelementptr inbounds i8, ptr @_ZN7meshoptL21kCodeAuxEncodingTableE, i64 %i206.0321
-  %38 = load i8, ptr %arrayidx210, align 1
+  %37 = load i8, ptr %arrayidx210, align 1
   %incdec.ptr211 = getelementptr inbounds i8, ptr %data.11320, i64 1
-  store i8 %38, ptr %data.11320, align 1
+  store i8 %37, ptr %data.11320, align 1
   %inc213 = add nuw nsw i64 %i206.0321, 1
   %exitcond.not = icmp eq i64 %inc213, 16
   br i1 %exitcond.not, label %for.end214, label %for.body209, !llvm.loop !11

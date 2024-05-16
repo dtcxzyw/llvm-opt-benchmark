@@ -897,7 +897,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit349:       ; preds = %238, %241
           to label %336 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 336:                                              ; preds = %332
-  %337 = icmp ult i32 %333, 99
+  %337 = icmp ult i64 %indvars.iv572, 99
   br i1 %337, label %338, label %343
 
 338:                                              ; preds = %336

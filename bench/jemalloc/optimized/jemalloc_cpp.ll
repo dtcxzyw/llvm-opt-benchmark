@@ -1131,20 +1131,20 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %if.end.i
-  %conv.i = trunc nuw nsw i64 %alignment to i32
-  %.not46 = icmp eq i32 %conv.i, 0
+  %.not46 = icmp eq i64 %alignment, 0
   br i1 %.not46, label %if.then.i4, label %cond.end.i
 
 cond.false.i:                                     ; preds = %if.end.i
   %shr.i = lshr i64 %alignment, 32
   %conv3.i = trunc nuw i64 %shr.i to i32
   %cttz = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %conv3.i, i1 true)
-  %.not = icmp eq i32 %conv3.i, 0
+  %.not = icmp ult i64 %alignment, 4294967296
   %0 = or disjoint i32 %cttz, 32
   %add.i = select i1 %.not, i32 31, i32 %0
   br label %if.then.i4
 
 cond.end.i:                                       ; preds = %cond.true.i
+  %conv.i = trunc nuw nsw i64 %alignment to i32
   %cttz45 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %conv.i, i1 true)
   %cmp.i3.not = icmp eq i32 %cttz45, 0
   br i1 %cmp.i3.not, label %lor.lhs.false.i, label %if.then.i4
@@ -1215,20 +1215,20 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %if.end.i
-  %conv.i = trunc nuw nsw i64 %alignment to i32
-  %.not46 = icmp eq i32 %conv.i, 0
+  %.not46 = icmp eq i64 %alignment, 0
   br i1 %.not46, label %if.then.i4, label %cond.end.i
 
 cond.false.i:                                     ; preds = %if.end.i
   %shr.i = lshr i64 %alignment, 32
   %conv3.i = trunc nuw i64 %shr.i to i32
   %cttz = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %conv3.i, i1 true)
-  %.not = icmp eq i32 %conv3.i, 0
+  %.not = icmp ult i64 %alignment, 4294967296
   %0 = or disjoint i32 %cttz, 32
   %add.i = select i1 %.not, i32 31, i32 %0
   br label %if.then.i4
 
 cond.end.i:                                       ; preds = %cond.true.i
+  %conv.i = trunc nuw nsw i64 %alignment to i32
   %cttz45 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %conv.i, i1 true)
   %cmp.i3.not = icmp eq i32 %cttz45, 0
   br i1 %cmp.i3.not, label %lor.lhs.false.i, label %if.then.i4

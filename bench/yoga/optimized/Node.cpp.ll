@@ -4366,48 +4366,42 @@ switch.lookup:                                    ; preds = %entry
   %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZN8facebook4yoga4Node21styleDefinesDimensionENS0_13FlexDirectionEf, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = zext nneg i8 %axis to i64
-  %switch.gep38 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN8facebook4yoga4Node21styleDefinesDimensionENS0_13FlexDirectionEf.1, i64 0, i64 %2
-  %switch.load39 = load i64, ptr %switch.gep38, align 8
+  %switch.gep40 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN8facebook4yoga4Node21styleDefinesDimensionENS0_13FlexDirectionEf.1, i64 0, i64 %2
+  %switch.load41 = load i64, ptr %switch.gep40, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %this, i64 %switch.load
   %3 = getelementptr inbounds i8, ptr %this, i64 624
-  %cmp.i.i27.in.in.in = load i64, ptr %arrayidx.i.i.i, align 8
-  %cmp.i.i27.in.in = trunc i64 %cmp.i.i27.in.in.in to i32
-  %cmp.i.i27.in = bitcast i32 %cmp.i.i27.in.in to float
-  %cmp.i.i27 = fcmp ord float %cmp.i.i27.in, 0.000000e+00
-  %arrayidx.i.i.i15 = getelementptr inbounds [2 x %struct.YGValue], ptr %3, i64 0, i64 %switch.load39
-  %retval.sroa.0.0.copyload.i16 = load i64, ptr %arrayidx.i.i.i15, align 8
-  %resolvedDimension.sroa.0.0.extract.trunc = trunc i64 %retval.sroa.0.0.copyload.i16 to i32
+  %cmp.i.i28.in.in.in = load i64, ptr %arrayidx.i.i.i, align 8
+  %cmp.i.i28.in.in = trunc i64 %cmp.i.i28.in.in.in to i32
+  %cmp.i.i28.in = bitcast i32 %cmp.i.i28.in.in to float
+  %cmp.i.i28 = fcmp ord float %cmp.i.i28.in, 0.000000e+00
+  %arrayidx.i.i.i16 = getelementptr inbounds [2 x %struct.YGValue], ptr %3, i64 0, i64 %switch.load41
+  %retval.sroa.0.0.copyload.i17 = load i64, ptr %arrayidx.i.i.i16, align 8
+  %resolvedDimension.sroa.3.0.extract.shift = lshr i64 %retval.sroa.0.0.copyload.i17, 32
+  %cmp = icmp eq i64 %resolvedDimension.sroa.3.0.extract.shift, 3
+  %cmp7 = icmp ult i64 %retval.sroa.0.0.copyload.i17, 4294967296
+  %or.cond = or i1 %cmp7, %cmp
+  br i1 %or.cond, label %lor.end22, label %lor.lhs.false8
+
+lor.lhs.false8:                                   ; preds = %switch.lookup
+  %resolvedDimension.sroa.0.0.extract.trunc = trunc i64 %retval.sroa.0.0.copyload.i17 to i32
   %4 = bitcast i32 %resolvedDimension.sroa.0.0.extract.trunc to float
-  %resolvedDimension.sroa.3.0.extract.shift = lshr i64 %retval.sroa.0.0.copyload.i16, 32
-  %resolvedDimension.sroa.3.0.extract.trunc = trunc nuw i64 %resolvedDimension.sroa.3.0.extract.shift to i32
-  switch i32 %resolvedDimension.sroa.3.0.extract.trunc, label %lor.end22.fold.split [
-    i32 3, label %lor.end22
-    i32 0, label %lor.end22
-    i32 1, label %land.lhs.true
-    i32 2, label %land.lhs.true16
-  ]
-
-land.lhs.true:                                    ; preds = %switch.lookup
+  %cmp10 = icmp eq i64 %resolvedDimension.sroa.3.0.extract.shift, 1
   %cmp13 = fcmp olt float %4, 0.000000e+00
-  %or.cond1 = and i1 %cmp.i.i27, %cmp13
-  br i1 %or.cond1, label %lor.end22, label %lor.end22.fold.split
+  %5 = and i1 %cmp10, %cmp13
+  %or.cond8 = and i1 %cmp.i.i28, %5
+  br i1 %or.cond8, label %lor.end22, label %lor.rhs
 
-land.lhs.true16:                                  ; preds = %switch.lookup
-  br i1 %cmp.i.i27, label %land.rhs, label %lor.end22
-
-land.rhs:                                         ; preds = %land.lhs.true16
-  %cmp19 = fcmp olt float %4, 0.000000e+00
-  br i1 %cmp19, label %lor.end22, label %lor.rhs20
-
-lor.rhs20:                                        ; preds = %land.rhs
+lor.rhs:                                          ; preds = %lor.lhs.false8
+  %cmp15 = icmp ne i64 %resolvedDimension.sroa.3.0.extract.shift, 2
+  %call3.not = xor i1 %cmp.i.i28, true
+  %brmerge = or i1 %cmp15, %call3.not
+  %brmerge39 = or i1 %brmerge, %cmp13
   %cmp.i = fcmp ord float %ownerSize, 0.000000e+00
+  %spec.select = select i1 %brmerge39, i1 %brmerge, i1 %cmp.i
   br label %lor.end22
 
-lor.end22.fold.split:                             ; preds = %land.lhs.true, %switch.lookup
-  br label %lor.end22
-
-lor.end22:                                        ; preds = %switch.lookup, %switch.lookup, %lor.end22.fold.split, %land.lhs.true16, %lor.rhs20, %land.rhs, %land.lhs.true
-  %lnot = phi i1 [ false, %switch.lookup ], [ false, %land.lhs.true ], [ true, %land.lhs.true16 ], [ false, %land.rhs ], [ %cmp.i, %lor.rhs20 ], [ false, %switch.lookup ], [ true, %lor.end22.fold.split ]
+lor.end22:                                        ; preds = %lor.rhs, %lor.lhs.false8, %switch.lookup
+  %lnot = phi i1 [ false, %switch.lookup ], [ false, %lor.lhs.false8 ], [ %spec.select, %lor.rhs ]
   ret i1 %lnot
 }
 
@@ -5463,19 +5457,19 @@ if.end.i:                                         ; preds = %sw.epilog.i
   br label %if.then
 
 _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit: ; preds = %sw.epilog.i, %entry
-  %.in = phi ptr [ @YGValueAuto, %entry ], [ @YGValueUndefined, %sw.epilog.i ]
-  %retval.sroa.6.0.i.in = phi ptr [ getelementptr inbounds (%struct.YGValue, ptr @YGValueAuto, i64 0, i32 1), %entry ], [ getelementptr inbounds (%struct.YGValue, ptr @YGValueUndefined, i64 0, i32 1), %sw.epilog.i ]
-  %retval.sroa.6.0.i = load i32, ptr %retval.sroa.6.0.i.in, align 4
-  %2 = load i32, ptr %.in, align 4
-  switch i32 %retval.sroa.6.0.i, label %if.then [
+  %YGValueAuto.sink = phi ptr [ @YGValueAuto, %entry ], [ @YGValueUndefined, %sw.epilog.i ]
+  %.sink = phi ptr [ getelementptr inbounds (%struct.YGValue, ptr @YGValueAuto, i64 0, i32 1), %entry ], [ getelementptr inbounds (%struct.YGValue, ptr @YGValueUndefined, i64 0, i32 1), %sw.epilog.i ]
+  %retval.sroa.0.0.copyload4.i = load i32, ptr %YGValueAuto.sink, align 4
+  %retval.sroa.6.0.copyload.i = load i32, ptr %.sink, align 4
+  switch i32 %retval.sroa.6.0.copyload.i, label %if.then [
     i32 3, label %if.end
     i32 0, label %if.end
   ]
 
-if.then:                                          ; preds = %entry, %sw.bb3.i, %if.end.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit
-  %retval.sroa.0.0.insert.insert.i14 = phi i32 [ %2, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit ], [ 0, %entry ], [ 0, %sw.bb3.i ], [ %add.i, %if.end.i ]
-  %retval.sroa.6.0.i13 = phi i32 [ %retval.sroa.6.0.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit ], [ 1, %entry ], [ 2, %sw.bb3.i ], [ %spec.select, %if.end.i ]
-  %3 = bitcast i32 %retval.sroa.0.0.insert.insert.i14 to float
+if.then:                                          ; preds = %if.end.i, %entry, %sw.bb3.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit
+  %retval.sroa.6.0.i10 = phi i32 [ %retval.sroa.6.0.copyload.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit ], [ 1, %entry ], [ 2, %sw.bb3.i ], [ %spec.select, %if.end.i ]
+  %2 = phi i32 [ %retval.sroa.0.0.copyload4.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit ], [ 0, %entry ], [ 0, %sw.bb3.i ], [ %add.i, %if.end.i ]
+  %3 = bitcast i32 %2 to float
   br label %return
 
 if.end:                                           ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit
@@ -5503,7 +5497,7 @@ if.end18:                                         ; preds = %if.end
 
 return:                                           ; preds = %if.end18, %if.then16, %if.then
   %retval.sroa.0.0 = phi float [ %3, %if.then ], [ %retval.sroa.0.0.copyload, %if.then16 ], [ %retval.sroa.0.0.copyload2, %if.end18 ]
-  %retval.sroa.4.0 = phi i32 [ %retval.sroa.6.0.i13, %if.then ], [ %retval.sroa.4.0.copyload, %if.then16 ], [ %retval.sroa.4.0.copyload3, %if.end18 ]
+  %retval.sroa.4.0 = phi i32 [ %retval.sroa.6.0.i10, %if.then ], [ %retval.sroa.4.0.copyload, %if.then16 ], [ %retval.sroa.4.0.copyload3, %if.end18 ]
   %5 = bitcast float %retval.sroa.0.0 to i32
   %retval.sroa.4.0.insert.ext = zext i32 %retval.sroa.4.0 to i64
   %retval.sroa.4.0.insert.shift = shl nuw i64 %retval.sroa.4.0.insert.ext, 32

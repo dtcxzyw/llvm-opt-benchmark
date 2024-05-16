@@ -24123,7 +24123,7 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9
   %.0192.i.i.i.i.i.i = phi i64 [ 0, %22 ], [ %.022.i.i.i.i.i.i, %38 ]
   %.0201.i.i.i.i.i.i = phi i64 [ 45, %22 ], [ %.021.i.i.i.i.i.i, %38 ]
   %26 = lshr i64 %.03.i.i.i.i.i.i, 1
-  %27 = add nuw i64 %26, %.0192.i.i.i.i.i.i
+  %27 = add nuw nsw i64 %26, %.0192.i.i.i.i.i.i
   %28 = icmp ult i64 %27, 45
   tail call void @llvm.assume(i1 %28)
   %29 = getelementptr inbounds { { ptr, i64 }, { ptr, [1 x i64] }, { ptr, [1 x i64] }, i8, [7 x i8] }, ptr @anon.fb11057230c6fbfae78435798457d9df.171, i64 %27

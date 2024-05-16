@@ -356,15 +356,15 @@ define hidden noundef align 8 ptr @_ZN10serde_bare2de10from_slice17hd71fb9df9465
   br label %"_ZN19ockam_transport_uds7workers6sender1_107_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_transport_uds..workers..sender..UdsSendWorkerMsg$GT$11deserialize17h3a9a6d2f551de5eeE.llvm.15328536302644105373.exit"
 
 15:                                               ; preds = %13
-  %.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %12 to i64
-  %16 = and i64 %.cast.i.i.i.i.i.i.i.i, 4294967295
-  %17 = icmp eq i64 %16, 0
-  br i1 %17, label %.thread.i.i.i, label %18
+  %16 = icmp eq ptr %12, null
+  br i1 %16, label %.thread.i.i.i, label %17
 
-18:                                               ; preds = %15
+17:                                               ; preds = %15
+  %.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %12 to i64
+  %18 = and i64 %.cast.i.i.i.i.i.i.i.i, 4294967295
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !42
   %19 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 %16, ptr %19, align 8, !noalias !42
+  store i64 %18, ptr %19, align 8, !noalias !42
   store i8 1, ptr %3, align 8, !noalias !42
   %20 = call noundef nonnull align 8 ptr @_ZN5serde2de5Error13invalid_value17h6190f6c8049a8564E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 @anon.33daa8398ade7879db166a44c16fb5f5.82, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.33daa8398ade7879db166a44c16fb5f5.18)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !42
@@ -377,8 +377,8 @@ _ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.i.i.i: ; preds = %2
 .thread.i.i.i:                                    ; preds = %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.i.i.i, %15
   br label %"_ZN19ockam_transport_uds7workers6sender1_107_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_transport_uds..workers..sender..UdsSendWorkerMsg$GT$11deserialize17h3a9a6d2f551de5eeE.llvm.15328536302644105373.exit"
 
-"_ZN19ockam_transport_uds7workers6sender1_107_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_transport_uds..workers..sender..UdsSendWorkerMsg$GT$11deserialize17h3a9a6d2f551de5eeE.llvm.15328536302644105373.exit": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h363d4d0fd8987810E.exit.i.i.i.i.i.i.i.i", %18, %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.i.i.i, %.thread.i.i.i
-  %.0.i.i.i = phi ptr [ null, %.thread.i.i.i ], [ %12, %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.i.i.i ], [ %20, %18 ], [ %14, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h363d4d0fd8987810E.exit.i.i.i.i.i.i.i.i" ]
+"_ZN19ockam_transport_uds7workers6sender1_107_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_transport_uds..workers..sender..UdsSendWorkerMsg$GT$11deserialize17h3a9a6d2f551de5eeE.llvm.15328536302644105373.exit": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h363d4d0fd8987810E.exit.i.i.i.i.i.i.i.i", %17, %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.i.i.i, %.thread.i.i.i
+  %.0.i.i.i = phi ptr [ null, %.thread.i.i.i ], [ %12, %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.i.i.i ], [ %20, %17 ], [ %14, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h363d4d0fd8987810E.exit.i.i.i.i.i.i.i.i" ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   ret ptr %.0.i.i.i
 }
@@ -723,47 +723,46 @@ define hidden void @"_ZN167_$LT$$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$
   %6 = getelementptr inbounds i8, ptr %4, i64 8
   %7 = load ptr, ptr %6, align 8, !noalias !142
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !142
-  br i1 %trunc.i, label %19, label %8
+  br i1 %trunc.i, label %18, label %8
 
 8:                                                ; preds = %2
   %.not.i = icmp ugt ptr %7, inttoptr (i64 4294967295 to ptr)
-  br i1 %.not.i, label %16, label %9
+  br i1 %.not.i, label %15, label %9
 
 9:                                                ; preds = %8
   %.cast.i = ptrtoint ptr %7 to i64
-  %10 = trunc nuw i64 %.cast.i to i32
-  %11 = icmp ult i32 %10, 14
-  br i1 %11, label %switch.lookup, label %12
+  %10 = icmp ult ptr %7, inttoptr (i64 14 to ptr)
+  br i1 %10, label %switch.lookup, label %11
 
-12:                                               ; preds = %9
-  %13 = and i64 %.cast.i, 4294967295
+11:                                               ; preds = %9
+  %12 = and i64 %.cast.i, 4294967295
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !147
-  %14 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 %13, ptr %14, align 8, !noalias !147
+  %13 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 %12, ptr %13, align 8, !noalias !147
   store i8 1, ptr %3, align 8, !noalias !147
-  %15 = call noundef nonnull align 8 ptr @_ZN5serde2de5Error13invalid_value17h6190f6c8049a8564E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 @anon.eec5d0513fc9a621de95af08950674ab.83.llvm.16230734151311195137, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.eec5d0513fc9a621de95af08950674ab.81.llvm.16230734151311195137), !noalias !152
+  %14 = call noundef nonnull align 8 ptr @_ZN5serde2de5Error13invalid_value17h6190f6c8049a8564E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 @anon.eec5d0513fc9a621de95af08950674ab.83.llvm.16230734151311195137, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.eec5d0513fc9a621de95af08950674ab.81.llvm.16230734151311195137), !noalias !152
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !147
-  br label %19
+  br label %18
 
-16:                                               ; preds = %8
-  %17 = tail call noundef nonnull align 8 ptr @"_ZN61_$LT$serde_bare..error..Error$u20$as$u20$serde..de..Error$GT$6custom17hee41412d5f24028bE"(ptr noalias noundef nonnull readonly align 1 @anon.33daa8398ade7879db166a44c16fb5f5.50, i64 noundef 50), !noalias !153
-  br label %19
+15:                                               ; preds = %8
+  %16 = tail call noundef nonnull align 8 ptr @"_ZN61_$LT$serde_bare..error..Error$u20$as$u20$serde..de..Error$GT$6custom17hee41412d5f24028bE"(ptr noalias noundef nonnull readonly align 1 @anon.33daa8398ade7879db166a44c16fb5f5.50, i64 noundef 50), !noalias !153
+  br label %18
 
 switch.lookup:                                    ; preds = %9
   %switch.idx.cast = trunc i64 %.cast.i to i8
   store i8 %switch.idx.cast, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %1, ptr %18, align 8
-  br label %21
+  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %1, ptr %17, align 8
+  br label %20
 
-19:                                               ; preds = %16, %12, %2
-  %.sroa.199.0 = phi ptr [ %17, %16 ], [ %15, %12 ], [ %7, %2 ]
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sroa.199.0, ptr %20, align 8
+18:                                               ; preds = %15, %11, %2
+  %.sroa.199.0 = phi ptr [ %16, %15 ], [ %14, %11 ], [ %7, %2 ]
+  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %.sroa.199.0, ptr %19, align 8
   store i8 14, ptr %0, align 8
-  br label %21
+  br label %20
 
-21:                                               ; preds = %19, %switch.lookup
+20:                                               ; preds = %18, %switch.lookup
   ret void
 }
 
@@ -4282,15 +4281,15 @@ define hidden noundef align 8 ptr @"_ZN52_$LT$T$u20$as$u20$ockam_core..message..
   br label %21
 
 15:                                               ; preds = %13
-  %.cast.i.i.i.i.i.i.i.i.i = ptrtoint ptr %12 to i64
-  %16 = and i64 %.cast.i.i.i.i.i.i.i.i.i, 4294967295
-  %17 = icmp eq i64 %16, 0
-  br i1 %17, label %_ZN10serde_bare2de10from_slice17hd71fb9df94651cedE.llvm.15328536302644105373.exit, label %18
+  %16 = icmp eq ptr %12, null
+  br i1 %16, label %_ZN10serde_bare2de10from_slice17hd71fb9df94651cedE.llvm.15328536302644105373.exit, label %17
 
-18:                                               ; preds = %15
+17:                                               ; preds = %15
+  %.cast.i.i.i.i.i.i.i.i.i = ptrtoint ptr %12 to i64
+  %18 = and i64 %.cast.i.i.i.i.i.i.i.i.i, 4294967295
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !1153
   %19 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 %16, ptr %19, align 8, !noalias !1153
+  store i64 %18, ptr %19, align 8, !noalias !1153
   store i8 1, ptr %3, align 8, !noalias !1153
   %20 = call noundef nonnull align 8 ptr @_ZN5serde2de5Error13invalid_value17h6190f6c8049a8564E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 @anon.33daa8398ade7879db166a44c16fb5f5.82, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.33daa8398ade7879db166a44c16fb5f5.18)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1153
@@ -4304,8 +4303,8 @@ _ZN10serde_bare2de10from_slice17hd71fb9df94651cedE.llvm.15328536302644105373.exi
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !1150
   br label %23
 
-21:                                               ; preds = %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.i.i.i.i, %18, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h363d4d0fd8987810E.exit.i.i.i.i.i.i.i.i.i"
-  %.0.i.i.i.i.ph = phi ptr [ %14, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h363d4d0fd8987810E.exit.i.i.i.i.i.i.i.i.i" ], [ %20, %18 ], [ %12, %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.i.i.i.i ]
+21:                                               ; preds = %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.i.i.i.i, %17, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h363d4d0fd8987810E.exit.i.i.i.i.i.i.i.i.i"
+  %.0.i.i.i.i.ph = phi ptr [ %14, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h363d4d0fd8987810E.exit.i.i.i.i.i.i.i.i.i" ], [ %20, %17 ], [ %12, %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !1150
   %22 = call noundef nonnull align 8 ptr @"_ZN10ockam_core7message106_$LT$impl$u20$core..convert..From$LT$serde_bare..error..Error$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17h7dbbf957bb8a38b8E"(ptr noalias noundef nonnull align 8 %.0.i.i.i.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.33daa8398ade7879db166a44c16fb5f5.39.llvm.15328536302644105373)
   br label %23
@@ -6910,15 +6909,15 @@ define hidden noundef align 8 ptr @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deseri
   br label %"_ZN210_$LT$ockam_transport_uds..workers..sender.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_transport_uds..workers..sender..UdsSendWorkerMsg$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hd050ba90f528a078E.llvm.15328536302644105373.exit"
 
 13:                                               ; preds = %11
-  %.cast.i.i.i.i.i.i = ptrtoint ptr %10 to i64
-  %14 = and i64 %.cast.i.i.i.i.i.i, 4294967295
-  %15 = icmp eq i64 %14, 0
-  br i1 %15, label %.thread.i, label %16
+  %14 = icmp eq ptr %10, null
+  br i1 %14, label %.thread.i, label %15
 
-16:                                               ; preds = %13
+15:                                               ; preds = %13
+  %.cast.i.i.i.i.i.i = ptrtoint ptr %10 to i64
+  %16 = and i64 %.cast.i.i.i.i.i.i, 4294967295
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !1630
   %17 = getelementptr inbounds i8, ptr %6, i64 8
-  store i64 %14, ptr %17, align 8, !noalias !1630
+  store i64 %16, ptr %17, align 8, !noalias !1630
   store i8 1, ptr %6, align 8, !noalias !1630
   %18 = call noundef nonnull align 8 ptr @_ZN5serde2de5Error13invalid_value17h6190f6c8049a8564E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 1 @anon.33daa8398ade7879db166a44c16fb5f5.82, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.33daa8398ade7879db166a44c16fb5f5.18)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !1630
@@ -6931,8 +6930,8 @@ _ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.i: ; preds = %5
 .thread.i:                                        ; preds = %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.i, %13
   br label %"_ZN210_$LT$ockam_transport_uds..workers..sender.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_transport_uds..workers..sender..UdsSendWorkerMsg$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hd050ba90f528a078E.llvm.15328536302644105373.exit"
 
-"_ZN210_$LT$ockam_transport_uds..workers..sender.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_transport_uds..workers..sender..UdsSendWorkerMsg$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hd050ba90f528a078E.llvm.15328536302644105373.exit": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h363d4d0fd8987810E.exit.i.i.i.i.i.i", %16, %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.i, %.thread.i
-  %.0.i = phi ptr [ null, %.thread.i ], [ %10, %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.i ], [ %18, %16 ], [ %12, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h363d4d0fd8987810E.exit.i.i.i.i.i.i" ]
+"_ZN210_$LT$ockam_transport_uds..workers..sender.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_transport_uds..workers..sender..UdsSendWorkerMsg$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hd050ba90f528a078E.llvm.15328536302644105373.exit": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h363d4d0fd8987810E.exit.i.i.i.i.i.i", %15, %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.i, %.thread.i
+  %.0.i = phi ptr [ null, %.thread.i ], [ %10, %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.i ], [ %18, %15 ], [ %12, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h363d4d0fd8987810E.exit.i.i.i.i.i.i" ]
   ret ptr %.0.i
 }
 
@@ -8887,15 +8886,15 @@ define hidden noundef align 8 ptr @"_ZN19ockam_transport_uds7workers6sender1_107
   br label %"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_enum17h10e1de5c7e05b90eE.llvm.15328536302644105373.exit"
 
 9:                                                ; preds = %7
-  %.cast.i.i.i.i.i.i.i = ptrtoint ptr %6 to i64
-  %10 = and i64 %.cast.i.i.i.i.i.i.i, 4294967295
-  %11 = icmp eq i64 %10, 0
-  br i1 %11, label %.thread.i.i, label %12
+  %10 = icmp eq ptr %6, null
+  br i1 %10, label %.thread.i.i, label %11
 
-12:                                               ; preds = %9
+11:                                               ; preds = %9
+  %.cast.i.i.i.i.i.i.i = ptrtoint ptr %6 to i64
+  %12 = and i64 %.cast.i.i.i.i.i.i.i, 4294967295
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !2253
   %13 = getelementptr inbounds i8, ptr %2, i64 8
-  store i64 %10, ptr %13, align 8, !noalias !2253
+  store i64 %12, ptr %13, align 8, !noalias !2253
   store i8 1, ptr %2, align 8, !noalias !2253
   %14 = call noundef nonnull align 8 ptr @_ZN5serde2de5Error13invalid_value17h6190f6c8049a8564E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 1 @anon.33daa8398ade7879db166a44c16fb5f5.82, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.33daa8398ade7879db166a44c16fb5f5.18)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !2253
@@ -8908,8 +8907,8 @@ _ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.i.i: ; preds = %1
 .thread.i.i:                                      ; preds = %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.i.i, %9
   br label %"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_enum17h10e1de5c7e05b90eE.llvm.15328536302644105373.exit"
 
-"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_enum17h10e1de5c7e05b90eE.llvm.15328536302644105373.exit": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h363d4d0fd8987810E.exit.i.i.i.i.i.i.i", %12, %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.i.i, %.thread.i.i
-  %.0.i.i = phi ptr [ null, %.thread.i.i ], [ %6, %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.i.i ], [ %14, %12 ], [ %8, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h363d4d0fd8987810E.exit.i.i.i.i.i.i.i" ]
+"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_enum17h10e1de5c7e05b90eE.llvm.15328536302644105373.exit": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h363d4d0fd8987810E.exit.i.i.i.i.i.i.i", %11, %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.i.i, %.thread.i.i
+  %.0.i.i = phi ptr [ null, %.thread.i.i ], [ %6, %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.i.i ], [ %14, %11 ], [ %8, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h363d4d0fd8987810E.exit.i.i.i.i.i.i.i" ]
   ret ptr %.0.i.i
 }
 
@@ -8935,15 +8934,15 @@ define hidden noundef align 8 ptr @"_ZN210_$LT$ockam_transport_uds..workers..sen
   br label %.thread32
 
 9:                                                ; preds = %7
-  %.cast.i.i.i.i.i = ptrtoint ptr %6 to i64
-  %10 = and i64 %.cast.i.i.i.i.i, 4294967295
-  %11 = icmp eq i64 %10, 0
-  br i1 %11, label %.thread, label %12
+  %10 = icmp eq ptr %6, null
+  br i1 %10, label %.thread, label %11
 
-12:                                               ; preds = %9
+11:                                               ; preds = %9
+  %.cast.i.i.i.i.i = ptrtoint ptr %6 to i64
+  %12 = and i64 %.cast.i.i.i.i.i, 4294967295
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !2271
   %13 = getelementptr inbounds i8, ptr %2, i64 8
-  store i64 %10, ptr %13, align 8, !noalias !2271
+  store i64 %12, ptr %13, align 8, !noalias !2271
   store i8 1, ptr %2, align 8, !noalias !2271
   %14 = call noundef nonnull align 8 ptr @_ZN5serde2de5Error13invalid_value17h6190f6c8049a8564E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 1 @anon.33daa8398ade7879db166a44c16fb5f5.82, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.33daa8398ade7879db166a44c16fb5f5.18)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !2271
@@ -8956,8 +8955,8 @@ _ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit: ; preds = %1
 .thread:                                          ; preds = %9, %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit
   br label %.thread32
 
-.thread32:                                        ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h363d4d0fd8987810E.exit.i.i.i.i.i", %12, %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit, %.thread
-  %.0 = phi ptr [ null, %.thread ], [ %6, %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit ], [ %14, %12 ], [ %8, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h363d4d0fd8987810E.exit.i.i.i.i.i" ]
+.thread32:                                        ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h363d4d0fd8987810E.exit.i.i.i.i.i", %11, %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit, %.thread
+  %.0 = phi ptr [ null, %.thread ], [ %6, %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit ], [ %14, %11 ], [ %8, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h363d4d0fd8987810E.exit.i.i.i.i.i" ]
   ret ptr %.0
 }
 

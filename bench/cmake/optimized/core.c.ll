@@ -2177,89 +2177,88 @@ define dso_local range(i32 -12, 1) i32 @uv_os_environ(ptr nocapture noundef %0, 
   %8 = tail call ptr @uv__calloc(i64 noundef %indvars.iv, i64 noundef 16) #22
   store ptr %8, ptr %0, align 8
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %38, label %.preheader42
+  br i1 %9, label %37, label %.preheader42
 
 .preheader42:                                     ; preds = %7
-  %10 = and i64 %indvars.iv, 4294967295
-  %.not51 = icmp eq i64 %10, 0
+  %.not51 = icmp eq i64 %indvars.iv, 0
   br i1 %.not51, label %.sink.split, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader42
   %wide.trip.count = zext i32 %indvars.iv57 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %31
-  %indvars.iv54 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next55, %31 ]
-  %.03645 = phi i32 [ 0, %.lr.ph.preheader ], [ %.137, %31 ]
-  %11 = load ptr, ptr @environ, align 8
-  %12 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv54
-  %13 = load ptr, ptr %12, align 8
-  %14 = icmp eq ptr %13, null
-  br i1 %14, label %.sink.split, label %15
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %30
+  %indvars.iv54 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next55, %30 ]
+  %.03645 = phi i32 [ 0, %.lr.ph.preheader ], [ %.137, %30 ]
+  %10 = load ptr, ptr @environ, align 8
+  %11 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv54
+  %12 = load ptr, ptr %11, align 8
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %.sink.split, label %14
 
-15:                                               ; preds = %.lr.ph
-  %16 = tail call ptr @uv__strdup(ptr noundef nonnull %13) #22
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %.preheader, label %20
+14:                                               ; preds = %.lr.ph
+  %15 = tail call ptr @uv__strdup(ptr noundef nonnull %12) #22
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %.preheader, label %19
 
-.preheader:                                       ; preds = %15
-  %18 = icmp sgt i32 %.03645, 0
-  br i1 %18, label %.lr.ph49, label %._crit_edge50
+.preheader:                                       ; preds = %14
+  %17 = icmp sgt i32 %.03645, 0
+  br i1 %17, label %.lr.ph49, label %._crit_edge50
 
 .lr.ph49:                                         ; preds = %.preheader
-  %19 = zext nneg i32 %.03645 to i64
-  br label %32
-
-20:                                               ; preds = %15
-  %21 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %16, i32 noundef 61) #24
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %23, label %24
-
-23:                                               ; preds = %20
-  tail call void @uv__free(ptr noundef nonnull %16) #22
+  %18 = zext nneg i32 %.03645 to i64
   br label %31
 
-24:                                               ; preds = %20
-  store i8 0, ptr %21, align 1
-  %25 = load ptr, ptr %0, align 8
-  %26 = sext i32 %.03645 to i64
-  %27 = getelementptr inbounds %struct.uv_env_item_s, ptr %25, i64 %26
-  store ptr %16, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %21, i64 1
-  %29 = getelementptr inbounds i8, ptr %27, i64 8
-  store ptr %28, ptr %29, align 8
-  %30 = add nsw i32 %.03645, 1
-  br label %31
+19:                                               ; preds = %14
+  %20 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %15, i32 noundef 61) #24
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %22, label %23
 
-31:                                               ; preds = %24, %23
-  %.137 = phi i32 [ %.03645, %23 ], [ %30, %24 ]
+22:                                               ; preds = %19
+  tail call void @uv__free(ptr noundef nonnull %15) #22
+  br label %30
+
+23:                                               ; preds = %19
+  store i8 0, ptr %20, align 1
+  %24 = load ptr, ptr %0, align 8
+  %25 = sext i32 %.03645 to i64
+  %26 = getelementptr inbounds %struct.uv_env_item_s, ptr %24, i64 %25
+  store ptr %15, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %20, i64 1
+  %28 = getelementptr inbounds i8, ptr %26, i64 8
+  store ptr %27, ptr %28, align 8
+  %29 = add nsw i32 %.03645, 1
+  br label %30
+
+30:                                               ; preds = %23, %22
+  %.137 = phi i32 [ %.03645, %22 ], [ %29, %23 ]
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count
   br i1 %exitcond.not, label %.sink.split, label %.lr.ph, !llvm.loop !18
 
-32:                                               ; preds = %.lr.ph49, %32
-  %.148 = phi i32 [ 0, %.lr.ph49 ], [ %36, %32 ]
-  %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds %struct.uv_env_item_s, ptr %33, i64 %19
-  %35 = load ptr, ptr %34, align 8
-  tail call void @uv__free(ptr noundef %35) #22
-  %36 = add nuw nsw i32 %.148, 1
-  %exitcond59.not = icmp eq i32 %36, %.03645
-  br i1 %exitcond59.not, label %._crit_edge50, label %32, !llvm.loop !19
+31:                                               ; preds = %.lr.ph49, %31
+  %.148 = phi i32 [ 0, %.lr.ph49 ], [ %35, %31 ]
+  %32 = load ptr, ptr %0, align 8
+  %33 = getelementptr inbounds %struct.uv_env_item_s, ptr %32, i64 %18
+  %34 = load ptr, ptr %33, align 8
+  tail call void @uv__free(ptr noundef %34) #22
+  %35 = add nuw nsw i32 %.148, 1
+  %exitcond59.not = icmp eq i32 %35, %.03645
+  br i1 %exitcond59.not, label %._crit_edge50, label %31, !llvm.loop !19
 
-._crit_edge50:                                    ; preds = %32, %.preheader
-  %37 = load ptr, ptr %0, align 8
-  tail call void @uv__free(ptr noundef %37) #22
+._crit_edge50:                                    ; preds = %31, %.preheader
+  %36 = load ptr, ptr %0, align 8
+  tail call void @uv__free(ptr noundef %36) #22
   store ptr null, ptr %0, align 8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %.lr.ph, %31, %.preheader42, %._crit_edge50
-  %.sink = phi i32 [ 0, %._crit_edge50 ], [ 0, %.preheader42 ], [ %.03645, %.lr.ph ], [ %.137, %31 ]
-  %.0.ph = phi i32 [ -12, %._crit_edge50 ], [ 0, %.preheader42 ], [ 0, %31 ], [ 0, %.lr.ph ]
+.sink.split:                                      ; preds = %.lr.ph, %30, %.preheader42, %._crit_edge50
+  %.sink = phi i32 [ 0, %._crit_edge50 ], [ 0, %.preheader42 ], [ %.03645, %.lr.ph ], [ %.137, %30 ]
+  %.0.ph = phi i32 [ -12, %._crit_edge50 ], [ 0, %.preheader42 ], [ 0, %30 ], [ 0, %.lr.ph ]
   store i32 %.sink, ptr %1, align 4
-  br label %38
+  br label %37
 
-38:                                               ; preds = %.sink.split, %7
+37:                                               ; preds = %.sink.split, %7
   %.0 = phi i32 [ -12, %7 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }

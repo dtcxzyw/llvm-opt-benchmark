@@ -1541,7 +1541,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @quota_getxstate(ptr nounde
   %28 = trunc nuw nsw i32 %27 to i16
   %29 = getelementptr inbounds i8, ptr %5, i64 2
   store i16 %28, ptr %29, align 2
-  %30 = icmp eq i16 %28, 0
+  %30 = icmp eq i32 %27, 0
   br i1 %30, label %94, label %31
 
 31:                                               ; preds = %14
@@ -1858,7 +1858,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @quota_getxstatev(ptr nound
   %37 = trunc nuw nsw i32 %36 to i16
   %38 = getelementptr inbounds i8, ptr %5, i64 2
   store i16 %37, ptr %38, align 2
-  %39 = icmp eq i16 %37, 0
+  %39 = icmp eq i32 %36, 0
   br i1 %39, label %104, label %40
 
 40:                                               ; preds = %23

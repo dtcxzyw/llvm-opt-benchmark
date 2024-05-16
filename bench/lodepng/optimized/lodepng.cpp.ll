@@ -910,11 +910,10 @@ if.end47.us:                                      ; preds = %land.lhs.true.us, %
   %18 = load ptr, ptr %arrayidx.us, align 8
   %index.us = getelementptr inbounds i8, ptr %18, i64 4
   %19 = load i32, ptr %index.us, align 4
-  %cmp.us = icmp eq i32 %16, 0
+  %cmp.us = icmp eq i64 %indvars.iv.next, 0
   br i1 %cmp.us, label %if.then, label %if.else.us
 
 if.then:                                          ; preds = %if.end47.us, %entry
-  %idxprom.lcssa = phi i64 [ 0, %entry ], [ %indvars.iv.next, %if.end47.us ]
   %.lcssa53 = phi ptr [ %1, %entry ], [ %18, %if.end47.us ]
   %.lcssa50 = phi i32 [ %2, %entry ], [ %19, %if.end47.us ]
   %conv = zext i32 %.lcssa50 to i64
@@ -924,8 +923,7 @@ if.then:                                          ; preds = %if.end47.us, %entry
 if.end:                                           ; preds = %if.then
   %chains0 = getelementptr inbounds i8, ptr %lists, i64 40
   %20 = load ptr, ptr %chains0, align 8
-  %arrayidx7 = getelementptr inbounds ptr, ptr %20, i64 %idxprom.lcssa
-  store ptr %.lcssa53, ptr %arrayidx7, align 8
+  store ptr %.lcssa53, ptr %20, align 8
   %arrayidx9 = getelementptr inbounds %struct.BPMNode, ptr %leaves, i64 %conv
   %21 = load i32, ptr %arrayidx9, align 8
   %add = add i32 %.lcssa50, 1
@@ -976,7 +974,7 @@ if.end47:                                         ; preds = %land.lhs.true, %if.
   br label %if.end64.sink.split
 
 if.end64.sink.split:                              ; preds = %if.end, %if.then35, %if.end47
-  %idxprom60.sink = phi i64 [ %idxprom60, %if.end47 ], [ %.us-phi69, %if.then35 ], [ %idxprom.lcssa, %if.end ]
+  %idxprom60.sink = phi i64 [ %idxprom60, %if.end47 ], [ %.us-phi69, %if.then35 ], [ 0, %if.end ]
   %call52.sink = phi ptr [ %call52, %if.end47 ], [ %call43, %if.then35 ], [ %call, %if.end ]
   %33 = load ptr, ptr %chains1, align 8
   %arrayidx55 = getelementptr inbounds ptr, ptr %33, i64 %idxprom60.sink
@@ -21096,7 +21094,7 @@ if.end46:                                         ; preds = %if.end46.lr.ph, %if
   br i1 %cmp60, label %for.end, label %if.end62
 
 if.end62:                                         ; preds = %if.end46
-  %cmp63.not = icmp eq i32 %conv59, 0
+  %cmp63.not = icmp eq i64 %cond58, 0
   br i1 %cmp63.not, label %if.end92, label %if.then64
 
 if.then64:                                        ; preds = %if.end62

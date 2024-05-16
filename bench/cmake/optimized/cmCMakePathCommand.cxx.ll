@@ -8429,19 +8429,13 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i13: ; preds = %22
 
 _ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit23: ; preds = %22
   %27 = sub i64 %.sroa.01.0.copyload.i10, %.sroa.0.0.copyload.i11
-  %spec.select7.i.i.i.i20 = tail call i64 @llvm.smax.i64(i64 %27, i64 -2147483648)
-  %.08.i.i.i.i21 = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i20, i64 2147483647)
-  %28 = and i64 %.08.i.i.i.i21, 2147483648
-  %.not97 = icmp eq i64 %28, 0
-  br i1 %.not97, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i47, label %32
+  %28 = icmp slt i64 %27, 0
+  br i1 %28, label %32, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i47
 
 _ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit23.thread88: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i13
   %29 = sub i64 %.sroa.01.0.copyload.i10, %.sroa.0.0.copyload.i11
-  %spec.select7.i.i.i.i2089 = tail call i64 @llvm.smax.i64(i64 %29, i64 -2147483648)
-  %.08.i.i.i.i2190 = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i2089, i64 2147483647)
-  %30 = and i64 %.08.i.i.i.i2190, 2147483648
-  %.not96 = icmp eq i64 %30, 0
-  br i1 %.not96, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i41, label %32
+  %30 = icmp slt i64 %29, 0
+  br i1 %30, label %32, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i41
 
 _ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit23.thread: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i13
   %31 = icmp slt i32 %25, 0
@@ -13122,19 +13116,13 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i13: ; preds = %22
 
 _ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit23: ; preds = %22
   %27 = sub i64 %.sroa.01.0.copyload.i10, %.sroa.0.0.copyload.i11
-  %spec.select7.i.i.i.i20 = tail call i64 @llvm.smax.i64(i64 %27, i64 -2147483648)
-  %.08.i.i.i.i21 = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i20, i64 2147483647)
-  %28 = and i64 %.08.i.i.i.i21, 2147483648
-  %.not97 = icmp eq i64 %28, 0
-  br i1 %.not97, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i47, label %32
+  %28 = icmp slt i64 %27, 0
+  br i1 %28, label %32, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i47
 
 _ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit23.thread88: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i13
   %29 = sub i64 %.sroa.01.0.copyload.i10, %.sroa.0.0.copyload.i11
-  %spec.select7.i.i.i.i2089 = tail call i64 @llvm.smax.i64(i64 %29, i64 -2147483648)
-  %.08.i.i.i.i2190 = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i2089, i64 2147483647)
-  %30 = and i64 %.08.i.i.i.i2190, 2147483648
-  %.not96 = icmp eq i64 %30, 0
-  br i1 %.not96, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i41, label %32
+  %30 = icmp slt i64 %29, 0
+  br i1 %30, label %32, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i41
 
 _ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit23.thread: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i13
   %31 = icmp slt i32 %25, 0

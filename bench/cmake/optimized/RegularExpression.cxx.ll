@@ -38,7 +38,7 @@ define dso_local void @_ZN5cmsys17RegularExpressionC2ERKS0_(ptr nocapture nounde
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 544
   store ptr null, ptr %6, align 8
-  br label %40
+  br label %39
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %1, i64 552
@@ -61,48 +61,47 @@ define dso_local void @_ZN5cmsys17RegularExpressionC2ERKS0_(ptr nocapture nounde
   %17 = load ptr, ptr %13, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 %indvars.iv.next
   store i8 %16, ptr %18, align 1
-  %19 = and i64 %indvars.iv.next, 4294967295
-  %.not19 = icmp eq i64 %19, 0
+  %.not19 = icmp eq i64 %indvars.iv.next, 0
   br i1 %.not19, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef nonnull align 8 dereferenceable(520) %1, i64 520, i1 false)
-  %20 = getelementptr inbounds i8, ptr %1, i64 528
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 528
-  store ptr %21, ptr %22, align 8
-  %.not20 = icmp eq ptr %21, null
-  br i1 %.not20, label %30, label %._crit_edge29
+  %19 = getelementptr inbounds i8, ptr %1, i64 528
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds i8, ptr %0, i64 528
+  store ptr %20, ptr %21, align 8
+  %.not20 = icmp eq ptr %20, null
+  br i1 %.not20, label %29, label %._crit_edge29
 
 ._crit_edge29:                                    ; preds = %._crit_edge
-  %23 = ptrtoint ptr %21 to i64
-  %24 = load ptr, ptr %3, align 8
-  %.not2124 = icmp eq ptr %24, %21
-  %25 = ptrtoint ptr %24 to i64
-  %26 = sub i64 %23, %25
-  %27 = and i64 %26, 4294967295
-  %.1.lcssa = select i1 %.not2124, i64 0, i64 %27
-  %28 = load ptr, ptr %13, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 %.1.lcssa
-  store ptr %29, ptr %22, align 8
-  br label %30
+  %22 = ptrtoint ptr %20 to i64
+  %23 = load ptr, ptr %3, align 8
+  %.not2124 = icmp eq ptr %23, %20
+  %24 = ptrtoint ptr %23 to i64
+  %25 = sub i64 %22, %24
+  %26 = and i64 %25, 4294967295
+  %.1.lcssa = select i1 %.not2124, i64 0, i64 %26
+  %27 = load ptr, ptr %13, align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 %.1.lcssa
+  store ptr %28, ptr %21, align 8
+  br label %29
 
-30:                                               ; preds = %._crit_edge29, %._crit_edge
-  %31 = getelementptr inbounds i8, ptr %1, i64 520
-  %32 = load i8, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 520
-  store i8 %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 521
-  %35 = load i8, ptr %34, align 1
-  %36 = getelementptr inbounds i8, ptr %0, i64 521
-  store i8 %35, ptr %36, align 1
-  %37 = getelementptr inbounds i8, ptr %1, i64 536
-  %38 = load i64, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 536
-  store i64 %38, ptr %39, align 8
-  br label %40
+29:                                               ; preds = %._crit_edge29, %._crit_edge
+  %30 = getelementptr inbounds i8, ptr %1, i64 520
+  %31 = load i8, ptr %30, align 8
+  %32 = getelementptr inbounds i8, ptr %0, i64 520
+  store i8 %31, ptr %32, align 8
+  %33 = getelementptr inbounds i8, ptr %1, i64 521
+  %34 = load i8, ptr %33, align 1
+  %35 = getelementptr inbounds i8, ptr %0, i64 521
+  store i8 %34, ptr %35, align 1
+  %36 = getelementptr inbounds i8, ptr %1, i64 536
+  %37 = load i64, ptr %36, align 8
+  %38 = getelementptr inbounds i8, ptr %0, i64 536
+  store i64 %37, ptr %38, align 8
+  br label %39
 
-40:                                               ; preds = %30, %5
+39:                                               ; preds = %29, %5
   ret void
 }
 
@@ -115,7 +114,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(556) ptr @_ZN5cmsys17RegularExpressionaSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(556) %0, ptr noundef nonnull readonly align 8 dereferenceable(556) %1) local_unnamed_addr #0 align 2 {
   %3 = icmp eq ptr %0, %1
-  br i1 %3, label %47, label %4
+  br i1 %3, label %46, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %1, i64 544
@@ -126,7 +125,7 @@ define dso_local noundef nonnull align 8 dereferenceable(556) ptr @_ZN5cmsys17Re
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %0, i64 544
   store ptr null, ptr %8, align 8
-  br label %47
+  br label %46
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds i8, ptr %1, i64 552
@@ -160,48 +159,47 @@ define dso_local noundef nonnull align 8 dereferenceable(556) ptr @_ZN5cmsys17Re
   %24 = load ptr, ptr %13, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 %indvars.iv.next
   store i8 %23, ptr %25, align 1
-  %26 = and i64 %indvars.iv.next, 4294967295
-  %.not25 = icmp eq i64 %26, 0
+  %.not25 = icmp eq i64 %indvars.iv.next, 0
   br i1 %.not25, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %17
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef nonnull align 8 dereferenceable(520) %1, i64 520, i1 false)
-  %27 = getelementptr inbounds i8, ptr %1, i64 528
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 528
-  store ptr %28, ptr %29, align 8
-  %.not26 = icmp eq ptr %28, null
-  br i1 %.not26, label %37, label %._crit_edge35
+  %26 = getelementptr inbounds i8, ptr %1, i64 528
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %0, i64 528
+  store ptr %27, ptr %28, align 8
+  %.not26 = icmp eq ptr %27, null
+  br i1 %.not26, label %36, label %._crit_edge35
 
 ._crit_edge35:                                    ; preds = %._crit_edge
-  %30 = ptrtoint ptr %28 to i64
-  %31 = load ptr, ptr %5, align 8
-  %.not2730 = icmp eq ptr %31, %28
-  %32 = ptrtoint ptr %31 to i64
-  %33 = sub i64 %30, %32
-  %34 = and i64 %33, 4294967295
-  %.1.lcssa = select i1 %.not2730, i64 0, i64 %34
-  %35 = load ptr, ptr %13, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 %.1.lcssa
-  store ptr %36, ptr %29, align 8
-  br label %37
+  %29 = ptrtoint ptr %27 to i64
+  %30 = load ptr, ptr %5, align 8
+  %.not2730 = icmp eq ptr %30, %27
+  %31 = ptrtoint ptr %30 to i64
+  %32 = sub i64 %29, %31
+  %33 = and i64 %32, 4294967295
+  %.1.lcssa = select i1 %.not2730, i64 0, i64 %33
+  %34 = load ptr, ptr %13, align 8
+  %35 = getelementptr inbounds i8, ptr %34, i64 %.1.lcssa
+  store ptr %35, ptr %28, align 8
+  br label %36
 
-37:                                               ; preds = %._crit_edge35, %._crit_edge
-  %38 = getelementptr inbounds i8, ptr %1, i64 520
-  %39 = load i8, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 520
-  store i8 %39, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 521
-  %42 = load i8, ptr %41, align 1
-  %43 = getelementptr inbounds i8, ptr %0, i64 521
-  store i8 %42, ptr %43, align 1
-  %44 = getelementptr inbounds i8, ptr %1, i64 536
-  %45 = load i64, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 536
-  store i64 %45, ptr %46, align 8
-  br label %47
+36:                                               ; preds = %._crit_edge35, %._crit_edge
+  %37 = getelementptr inbounds i8, ptr %1, i64 520
+  %38 = load i8, ptr %37, align 8
+  %39 = getelementptr inbounds i8, ptr %0, i64 520
+  store i8 %38, ptr %39, align 8
+  %40 = getelementptr inbounds i8, ptr %1, i64 521
+  %41 = load i8, ptr %40, align 1
+  %42 = getelementptr inbounds i8, ptr %0, i64 521
+  store i8 %41, ptr %42, align 1
+  %43 = getelementptr inbounds i8, ptr %1, i64 536
+  %44 = load i64, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %0, i64 536
+  store i64 %44, ptr %45, align 8
+  br label %46
 
-47:                                               ; preds = %2, %37, %7
+46:                                               ; preds = %2, %36, %7
   ret ptr %0
 }
 

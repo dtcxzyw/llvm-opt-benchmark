@@ -976,7 +976,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE7compareES2_.exit: ; preds = %entr
   %spec.select3.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i, i64 -2147483648)
   %retval.04.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select3.i.i, i64 2147483647)
   %retval.0.i3.i = trunc nsw i64 %retval.04.i.i to i32
-  %cmp.not = icmp eq i32 %retval.0.i3.i, 0
+  %cmp.not = icmp eq i64 %target_name.coerce0, %other_target_name.coerce0
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE7compareES2_.exit

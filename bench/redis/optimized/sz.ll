@@ -25,13 +25,13 @@ sz_psz2ind.exit:                                  ; preds = %entry
   %1 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub, i1 false)
   %2 = trunc nuw nsw i64 %1 to i32
   %cond.i = tail call i32 @llvm.usub.sat.i32(i32 50, i32 %2)
-  %cmp4.i = icmp ugt i32 %2, 49
+  %cmp4.i = icmp ult i64 %sub, 16384
   %add.i = add nuw nsw i32 %cond.i, 11
-  %cond10.i = select i1 %cmp4.i, i32 12, i32 %add.i
-  %sh_prom.i = zext nneg i32 %cond10.i to i64
+  %3 = zext nneg i32 %add.i to i64
+  %sh_prom.i = select i1 %cmp4.i, i64 12, i64 %3
   %shr.i = lshr i64 %sub, %sh_prom.i
-  %3 = trunc i64 %shr.i to i32
-  %conv12.i = and i32 %3, 3
+  %4 = trunc i64 %shr.i to i32
+  %conv12.i = and i32 %4, 3
   %shl.i = shl nuw nsw i32 %cond.i, 2
   %add13.i = or disjoint i32 %conv12.i, %shl.i
   %cmp = icmp eq i32 %add13.i, 0
@@ -42,8 +42,8 @@ if.end:                                           ; preds = %entry, %sz_psz2ind.
   %sub3 = add nsw i32 %retval.i.011, -1
   %idxprom.i.i = zext nneg i32 %sub3 to i64
   %arrayidx.i.i = getelementptr inbounds [200 x i64], ptr @sz_pind2sz_tab, i64 0, i64 %idxprom.i.i
-  %4 = load i64, ptr %arrayidx.i.i, align 8
-  %add5 = add i64 %4, %0
+  %5 = load i64, ptr %arrayidx.i.i, align 8
+  %add5 = add i64 %5, %0
   br label %return
 
 return:                                           ; preds = %sz_psz2ind.exit, %if.end
@@ -66,13 +66,13 @@ sz_psz2ind.exit.i:                                ; preds = %entry
   %1 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i, i1 false)
   %2 = trunc nuw nsw i64 %1 to i32
   %cond.i.i = tail call i32 @llvm.usub.sat.i32(i32 50, i32 %2)
-  %cmp4.i.i = icmp ugt i32 %2, 49
+  %cmp4.i.i = icmp ult i64 %sub.i, 16384
   %add.i.i = add nuw nsw i32 %cond.i.i, 11
-  %cond10.i.i = select i1 %cmp4.i.i, i32 12, i32 %add.i.i
-  %sh_prom.i.i = zext nneg i32 %cond10.i.i to i64
+  %3 = zext nneg i32 %add.i.i to i64
+  %sh_prom.i.i = select i1 %cmp4.i.i, i64 12, i64 %3
   %shr.i.i = lshr i64 %sub.i, %sh_prom.i.i
-  %3 = trunc i64 %shr.i.i to i32
-  %conv12.i.i = and i32 %3, 3
+  %4 = trunc i64 %shr.i.i to i32
+  %conv12.i.i = and i32 %4, 3
   %shl.i.i = shl nuw nsw i32 %cond.i.i, 2
   %add13.i.i = or disjoint i32 %conv12.i.i, %shl.i.i
   %cmp.i10 = icmp eq i32 %add13.i.i, 0
@@ -83,39 +83,39 @@ sz_psz_quantize_floor.exit:                       ; preds = %entry, %sz_psz2ind.
   %sub3.i = add nsw i32 %retval.i.011.i, -1
   %idxprom.i.i.i = zext nneg i32 %sub3.i to i64
   %arrayidx.i.i.i = getelementptr inbounds [200 x i64], ptr @sz_pind2sz_tab, i64 0, i64 %idxprom.i.i.i
-  %4 = load i64, ptr %arrayidx.i.i.i, align 8
-  %add5.i = add i64 %4, %0
+  %5 = load i64, ptr %arrayidx.i.i.i, align 8
+  %add5.i = add i64 %5, %0
   %cmp = icmp ult i64 %add5.i, %size
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %sz_psz_quantize_floor.exit
-  %add = add i64 %4, 1
+  %add = add i64 %5, 1
   %cmp.i = icmp ugt i64 %add, 8070450532247928832
   br i1 %cmp.i, label %sz_psz2ind.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
   %cmp.i.i12 = icmp ne i64 %add, 0
   tail call void @llvm.assume(i1 %cmp.i.i12)
-  %5 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %4, i1 false)
-  %6 = trunc nuw nsw i64 %5 to i32
-  %cond.i = tail call i32 @llvm.usub.sat.i32(i32 50, i32 %6)
-  %cmp4.i = icmp ugt i32 %6, 49
+  %6 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %5, i1 false)
+  %7 = trunc nuw nsw i64 %6 to i32
+  %cond.i = tail call i32 @llvm.usub.sat.i32(i32 50, i32 %7)
+  %cmp4.i = icmp ult i64 %5, 16384
   %add.i = add nuw nsw i32 %cond.i, 11
-  %cond10.i = select i1 %cmp4.i, i32 12, i32 %add.i
-  %sh_prom.i = zext nneg i32 %cond10.i to i64
-  %shr.i = lshr i64 %4, %sh_prom.i
-  %7 = trunc i64 %shr.i to i32
-  %conv12.i = and i32 %7, 3
+  %8 = zext nneg i32 %add.i to i64
+  %sh_prom.i = select i1 %cmp4.i, i64 12, i64 %8
+  %shr.i = lshr i64 %5, %sh_prom.i
+  %9 = trunc i64 %shr.i to i32
+  %conv12.i = and i32 %9, 3
   %shl.i = shl nuw nsw i32 %cond.i, 2
   %add13.i = or disjoint i32 %conv12.i, %shl.i
-  %8 = zext nneg i32 %add13.i to i64
+  %10 = zext nneg i32 %add13.i to i64
   br label %sz_psz2ind.exit
 
 sz_psz2ind.exit:                                  ; preds = %if.then, %if.end.i
-  %retval.i.0 = phi i64 [ %8, %if.end.i ], [ 199, %if.then ]
+  %retval.i.0 = phi i64 [ %10, %if.end.i ], [ 199, %if.then ]
   %arrayidx.i.i = getelementptr inbounds [200 x i64], ptr @sz_pind2sz_tab, i64 0, i64 %retval.i.0
-  %9 = load i64, ptr %arrayidx.i.i, align 8
-  %add7 = add i64 %9, %0
+  %11 = load i64, ptr %arrayidx.i.i, align 8
+  %add7 = add i64 %11, %0
   br label %if.end
 
 if.end:                                           ; preds = %sz_psz2ind.exit.i, %sz_psz2ind.exit, %sz_psz_quantize_floor.exit

@@ -214,8 +214,7 @@ if.then:                                          ; preds = %entry
 if.then9:                                         ; preds = %if.then
   %agg.tmp11.sroa.0.0.copyload = load i64, ptr %desc, align 8
   %desc.sroa.1.0.extract.shift.i = lshr i64 %agg.tmp11.sroa.0.0.copyload, 32
-  %desc.sroa.1.0.extract.trunc.i = trunc nuw i64 %desc.sroa.1.0.extract.shift.i to i32
-  %cmp.i.i5 = icmp ult i32 %desc.sroa.1.0.extract.trunc.i, 5
+  %cmp.i.i5 = icmp ult i64 %agg.tmp11.sroa.0.0.copyload, 21474836480
   br i1 %cmp.i.i5, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.then9
@@ -3067,8 +3066,7 @@ land.lhs.true52.i:                                ; preds = %if.end50.i, %if.the
 if.then67.i:                                      ; preds = %land.lhs.true52.i
   %agg.tmp70.sroa.0.0.copyload.i = load i64, ptr %desc.i, align 8
   %desc.sroa.1.0.extract.shift.i.i = lshr i64 %agg.tmp70.sroa.0.0.copyload.i, 32
-  %desc.sroa.1.0.extract.trunc.i.i = trunc nuw i64 %desc.sroa.1.0.extract.shift.i.i to i32
-  %cmp.i.i47.i = icmp ult i32 %desc.sroa.1.0.extract.trunc.i.i, 5
+  %cmp.i.i47.i = icmp ult i64 %agg.tmp70.sroa.0.0.copyload.i, 21474836480
   br i1 %cmp.i.i47.i, label %if.then.i.i.i218, label %if.end.i.i.i
 
 if.then.i.i.i218:                                 ; preds = %if.then67.i

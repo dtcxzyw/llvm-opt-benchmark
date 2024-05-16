@@ -12277,12 +12277,12 @@ _ZN4pbrt7FastExpEf.exit:                          ; preds = %if.end52, %if.end.i
   %conv2.val.i.i94 = select i1 %cmp3.i.i93, float 1.000000e+00, float %div87
   %retval.0.i.i95 = select i1 %cmp.i.i92, float -1.000000e+00, float %conv2.val.i.i94
   %call.i.i96 = tail call noundef float @asinf(float noundef %retval.0.i.i95) #23
-  %cmp92 = icmp slt i32 %9, 3
+  %cmp92 = icmp ult i64 %indvars.iv.i, 3
   br i1 %cmp92, label %if.then93, label %if.else97
 
 if.then93:                                        ; preds = %_ZN4pbrt7FastExpEf.exit
-  %mul.i97 = shl nsw i32 %9, 1
-  %conv.i98 = sitofp i32 %mul.i97 to float
+  %mul.i97 = shl nuw nsw i32 %9, 1
+  %conv.i98 = uitofp nneg i32 %mul.i97 to float
   %mul1.i = fmul float %call.i.i96, %conv.i98
   %mul2.i = fmul float %call.i.i, 2.000000e+00
   %sub.i99 = fsub float %mul1.i, %mul2.i

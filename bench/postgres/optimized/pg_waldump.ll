@@ -1618,183 +1618,183 @@ define internal fastcc noundef zeroext i1 @XLogRecordMatchesRelationBlock(ptr no
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 84
   %12 = load i32, ptr %11, align 4
-  %.not30 = icmp sgt i32 %12, -1
-  br i1 %.not30, label %.lr.ph, label %._crit_edge
+  %.not29 = icmp sgt i32 %12, -1
+  br i1 %.not29, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
   %13 = icmp eq i32 %4, -1
   %14 = icmp eq i32 %2, 0
-  %15 = icmp eq i32 %.sroa.3.0.extract.trunc, 0
-  %or.cond = select i1 %14, i1 %15, i1 false
+  %15 = icmp ult i64 %1, 4294967296
   %16 = icmp eq i32 %.sroa.013.0.extract.trunc, 0
-  %or.cond5 = select i1 %or.cond, i1 %16, i1 false
-  %17 = getelementptr inbounds i8, ptr %6, i64 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 4
-  %19 = icmp eq i32 %3, -1
+  %17 = and i1 %15, %16
+  %or.cond5 = select i1 %14, i1 %17, i1 false
+  %18 = getelementptr inbounds i8, ptr %6, i64 8
+  %19 = getelementptr inbounds i8, ptr %6, i64 4
+  %20 = icmp eq i32 %3, -1
   %or.cond5.fr = freeze i1 %or.cond5
   br i1 %or.cond5.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   br i1 %13, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
-.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %25
-  %.031.us.us = phi i32 [ %26, %25 ], [ 0, %.lr.ph.split.us ]
-  %20 = trunc i32 %.031.us.us to i8
-  %21 = call zeroext i1 @XLogRecGetBlockTagExtended(ptr noundef nonnull %0, i8 noundef zeroext %20, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null) #15
-  br i1 %21, label %22, label %25
+.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %26
+  %.030.us.us = phi i32 [ %27, %26 ], [ 0, %.lr.ph.split.us ]
+  %21 = trunc i32 %.030.us.us to i8
+  %22 = call zeroext i1 @XLogRecGetBlockTagExtended(ptr noundef nonnull %0, i8 noundef zeroext %21, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null) #15
+  br i1 %22, label %23, label %26
 
-22:                                               ; preds = %.lr.ph.split.us.split.us
-  %23 = load i32, ptr %8, align 4
-  %24 = icmp eq i32 %23, %3
-  %or.cond29.us.us = select i1 %19, i1 true, i1 %24
-  br i1 %or.cond29.us.us, label %._crit_edge, label %25
+23:                                               ; preds = %.lr.ph.split.us.split.us
+  %24 = load i32, ptr %8, align 4
+  %25 = icmp eq i32 %24, %3
+  %or.cond28.us.us = select i1 %20, i1 true, i1 %25
+  br i1 %or.cond28.us.us, label %._crit_edge, label %26
 
-25:                                               ; preds = %22, %.lr.ph.split.us.split.us
-  %26 = add i32 %.031.us.us, 1
-  %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 84
-  %29 = load i32, ptr %28, align 4
-  %.not.us.us.not = icmp sgt i32 %26, %29
+26:                                               ; preds = %23, %.lr.ph.split.us.split.us
+  %27 = add i32 %.030.us.us, 1
+  %28 = load ptr, ptr %9, align 8
+  %29 = getelementptr inbounds i8, ptr %28, i64 84
+  %30 = load i32, ptr %29, align 4
+  %.not.us.us.not = icmp sgt i32 %27, %30
   br i1 %.not.us.us.not, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !12
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us
-  br i1 %19, label %.lr.ph.split.us.split.split.us, label %.lr.ph.split.us.split.split
+  br i1 %20, label %.lr.ph.split.us.split.split.us, label %.lr.ph.split.us.split.split
 
-.lr.ph.split.us.split.split.us:                   ; preds = %.lr.ph.split.us.split, %34
-  %.031.us.us59 = phi i32 [ %35, %34 ], [ 0, %.lr.ph.split.us.split ]
-  %30 = trunc i32 %.031.us.us59 to i8
-  %31 = call zeroext i1 @XLogRecGetBlockTagExtended(ptr noundef nonnull %0, i8 noundef zeroext %30, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null) #15
-  %32 = load i32, ptr %7, align 4
-  %33 = icmp eq i32 %32, %4
-  %or.cond68 = select i1 %31, i1 %33, i1 false
-  br i1 %or.cond68, label %._crit_edge, label %34
+.lr.ph.split.us.split.split.us:                   ; preds = %.lr.ph.split.us.split, %35
+  %.030.us.us58 = phi i32 [ %36, %35 ], [ 0, %.lr.ph.split.us.split ]
+  %31 = trunc i32 %.030.us.us58 to i8
+  %32 = call zeroext i1 @XLogRecGetBlockTagExtended(ptr noundef nonnull %0, i8 noundef zeroext %31, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null) #15
+  %33 = load i32, ptr %7, align 4
+  %34 = icmp eq i32 %33, %4
+  %or.cond = select i1 %32, i1 %34, i1 false
+  br i1 %or.cond, label %._crit_edge, label %35
 
-34:                                               ; preds = %.lr.ph.split.us.split.split.us
-  %35 = add i32 %.031.us.us59, 1
-  %36 = load ptr, ptr %9, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 84
-  %38 = load i32, ptr %37, align 4
-  %.not.us.us61.not = icmp sgt i32 %35, %38
-  br i1 %.not.us.us61.not, label %._crit_edge, label %.lr.ph.split.us.split.split.us, !llvm.loop !12
+35:                                               ; preds = %.lr.ph.split.us.split.split.us
+  %36 = add i32 %.030.us.us58, 1
+  %37 = load ptr, ptr %9, align 8
+  %38 = getelementptr inbounds i8, ptr %37, i64 84
+  %39 = load i32, ptr %38, align 4
+  %.not.us.us60.not = icmp sgt i32 %36, %39
+  br i1 %.not.us.us60.not, label %._crit_edge, label %.lr.ph.split.us.split.split.us, !llvm.loop !12
 
-.lr.ph.split.us.split.split:                      ; preds = %.lr.ph.split.us.split, %45
-  %.031.us = phi i32 [ %46, %45 ], [ 0, %.lr.ph.split.us.split ]
-  %39 = trunc i32 %.031.us to i8
-  %40 = call zeroext i1 @XLogRecGetBlockTagExtended(ptr noundef nonnull %0, i8 noundef zeroext %39, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null) #15
-  %41 = load i32, ptr %7, align 4
-  %42 = icmp eq i32 %41, %4
-  %or.cond70 = select i1 %40, i1 %42, i1 false
-  %43 = load i32, ptr %8, align 4
-  %44 = icmp eq i32 %43, %3
-  %or.cond72 = select i1 %or.cond70, i1 %44, i1 false
-  br i1 %or.cond72, label %._crit_edge, label %45
+.lr.ph.split.us.split.split:                      ; preds = %.lr.ph.split.us.split, %46
+  %.030.us = phi i32 [ %47, %46 ], [ 0, %.lr.ph.split.us.split ]
+  %40 = trunc i32 %.030.us to i8
+  %41 = call zeroext i1 @XLogRecGetBlockTagExtended(ptr noundef nonnull %0, i8 noundef zeroext %40, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null) #15
+  %42 = load i32, ptr %7, align 4
+  %43 = icmp eq i32 %42, %4
+  %or.cond68 = select i1 %41, i1 %43, i1 false
+  %44 = load i32, ptr %8, align 4
+  %45 = icmp eq i32 %44, %3
+  %or.cond70 = select i1 %or.cond68, i1 %45, i1 false
+  br i1 %or.cond70, label %._crit_edge, label %46
 
-45:                                               ; preds = %.lr.ph.split.us.split.split
-  %46 = add i32 %.031.us, 1
-  %47 = load ptr, ptr %9, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 84
-  %49 = load i32, ptr %48, align 4
-  %.not.us.not = icmp sgt i32 %46, %49
+46:                                               ; preds = %.lr.ph.split.us.split.split
+  %47 = add i32 %.030.us, 1
+  %48 = load ptr, ptr %9, align 8
+  %49 = getelementptr inbounds i8, ptr %48, i64 84
+  %50 = load i32, ptr %49, align 4
+  %.not.us.not = icmp sgt i32 %47, %50
   br i1 %.not.us.not, label %._crit_edge, label %.lr.ph.split.us.split.split, !llvm.loop !12
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %13, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %62
-  %.031.us37 = phi i32 [ %63, %62 ], [ 0, %.lr.ph.split ]
-  %50 = trunc i32 %.031.us37 to i8
-  %51 = call zeroext i1 @XLogRecGetBlockTagExtended(ptr noundef nonnull %0, i8 noundef zeroext %50, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null) #15
-  br i1 %51, label %52, label %62
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %63
+  %.030.us36 = phi i32 [ %64, %63 ], [ 0, %.lr.ph.split ]
+  %51 = trunc i32 %.030.us36 to i8
+  %52 = call zeroext i1 @XLogRecGetBlockTagExtended(ptr noundef nonnull %0, i8 noundef zeroext %51, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null) #15
+  br i1 %52, label %53, label %63
 
-52:                                               ; preds = %.lr.ph.split.split.us
-  %53 = load i32, ptr %17, align 4
-  %54 = icmp eq i32 %53, %2
-  %55 = load i32, ptr %18, align 4
-  %56 = icmp eq i32 %55, %.sroa.3.0.extract.trunc
-  %or.cond25.us = select i1 %54, i1 %56, i1 false
-  %57 = load i32, ptr %6, align 4
-  %58 = icmp eq i32 %57, %.sroa.013.0.extract.trunc
-  %or.cond27.us = select i1 %or.cond25.us, i1 %58, i1 false
-  br i1 %or.cond27.us, label %59, label %62
+53:                                               ; preds = %.lr.ph.split.split.us
+  %54 = load i32, ptr %18, align 4
+  %55 = icmp eq i32 %54, %2
+  %56 = load i32, ptr %19, align 4
+  %57 = icmp eq i32 %56, %.sroa.3.0.extract.trunc
+  %or.cond24.us = select i1 %55, i1 %57, i1 false
+  %58 = load i32, ptr %6, align 4
+  %59 = icmp eq i32 %58, %.sroa.013.0.extract.trunc
+  %or.cond26.us = select i1 %or.cond24.us, i1 %59, i1 false
+  br i1 %or.cond26.us, label %60, label %63
 
-59:                                               ; preds = %52
-  %60 = load i32, ptr %8, align 4
-  %61 = icmp eq i32 %60, %3
-  %or.cond29.us39 = select i1 %19, i1 true, i1 %61
-  br i1 %or.cond29.us39, label %._crit_edge, label %62
+60:                                               ; preds = %53
+  %61 = load i32, ptr %8, align 4
+  %62 = icmp eq i32 %61, %3
+  %or.cond28.us38 = select i1 %20, i1 true, i1 %62
+  br i1 %or.cond28.us38, label %._crit_edge, label %63
 
-62:                                               ; preds = %59, %52, %.lr.ph.split.split.us
-  %63 = add i32 %.031.us37, 1
-  %64 = load ptr, ptr %9, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 84
-  %66 = load i32, ptr %65, align 4
-  %.not.us40.not = icmp sgt i32 %63, %66
-  br i1 %.not.us40.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !12
+63:                                               ; preds = %60, %53, %.lr.ph.split.split.us
+  %64 = add i32 %.030.us36, 1
+  %65 = load ptr, ptr %9, align 8
+  %66 = getelementptr inbounds i8, ptr %65, i64 84
+  %67 = load i32, ptr %66, align 4
+  %.not.us39.not = icmp sgt i32 %64, %67
+  br i1 %.not.us39.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !12
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
-  br i1 %19, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
+  br i1 %20, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
 
-.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %78
-  %.031.us46 = phi i32 [ %79, %78 ], [ 0, %.lr.ph.split.split ]
-  %67 = trunc i32 %.031.us46 to i8
-  %68 = call zeroext i1 @XLogRecGetBlockTagExtended(ptr noundef nonnull %0, i8 noundef zeroext %67, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null) #15
-  %69 = load i32, ptr %7, align 4
-  %70 = icmp eq i32 %69, %4
-  %or.cond74 = select i1 %68, i1 %70, i1 false
-  br i1 %or.cond74, label %71, label %78
+.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %79
+  %.030.us45 = phi i32 [ %80, %79 ], [ 0, %.lr.ph.split.split ]
+  %68 = trunc i32 %.030.us45 to i8
+  %69 = call zeroext i1 @XLogRecGetBlockTagExtended(ptr noundef nonnull %0, i8 noundef zeroext %68, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null) #15
+  %70 = load i32, ptr %7, align 4
+  %71 = icmp eq i32 %70, %4
+  %or.cond72 = select i1 %69, i1 %71, i1 false
+  br i1 %or.cond72, label %72, label %79
 
-71:                                               ; preds = %.lr.ph.split.split.split.us
-  %72 = load i32, ptr %17, align 4
-  %73 = icmp eq i32 %72, %2
-  %74 = load i32, ptr %18, align 4
-  %75 = icmp eq i32 %74, %.sroa.3.0.extract.trunc
-  %or.cond25.us47 = select i1 %73, i1 %75, i1 false
-  %76 = load i32, ptr %6, align 4
-  %77 = icmp eq i32 %76, %.sroa.013.0.extract.trunc
-  %or.cond27.us48 = select i1 %or.cond25.us47, i1 %77, i1 false
-  br i1 %or.cond27.us48, label %._crit_edge, label %78
+72:                                               ; preds = %.lr.ph.split.split.split.us
+  %73 = load i32, ptr %18, align 4
+  %74 = icmp eq i32 %73, %2
+  %75 = load i32, ptr %19, align 4
+  %76 = icmp eq i32 %75, %.sroa.3.0.extract.trunc
+  %or.cond24.us46 = select i1 %74, i1 %76, i1 false
+  %77 = load i32, ptr %6, align 4
+  %78 = icmp eq i32 %77, %.sroa.013.0.extract.trunc
+  %or.cond26.us47 = select i1 %or.cond24.us46, i1 %78, i1 false
+  br i1 %or.cond26.us47, label %._crit_edge, label %79
 
-78:                                               ; preds = %71, %.lr.ph.split.split.split.us
-  %79 = add i32 %.031.us46, 1
-  %80 = load ptr, ptr %9, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 84
-  %82 = load i32, ptr %81, align 4
-  %.not.us50.not = icmp sgt i32 %79, %82
-  br i1 %.not.us50.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !12
+79:                                               ; preds = %72, %.lr.ph.split.split.split.us
+  %80 = add i32 %.030.us45, 1
+  %81 = load ptr, ptr %9, align 8
+  %82 = getelementptr inbounds i8, ptr %81, i64 84
+  %83 = load i32, ptr %82, align 4
+  %.not.us49.not = icmp sgt i32 %80, %83
+  br i1 %.not.us49.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !12
 
-.lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %96
-  %.031 = phi i32 [ %97, %96 ], [ 0, %.lr.ph.split.split ]
-  %83 = trunc i32 %.031 to i8
-  %84 = call zeroext i1 @XLogRecGetBlockTagExtended(ptr noundef nonnull %0, i8 noundef zeroext %83, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null) #15
-  %85 = load i32, ptr %7, align 4
-  %86 = icmp eq i32 %85, %4
-  %or.cond76 = select i1 %84, i1 %86, i1 false
-  br i1 %or.cond76, label %87, label %96
+.lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %97
+  %.030 = phi i32 [ %98, %97 ], [ 0, %.lr.ph.split.split ]
+  %84 = trunc i32 %.030 to i8
+  %85 = call zeroext i1 @XLogRecGetBlockTagExtended(ptr noundef nonnull %0, i8 noundef zeroext %84, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null) #15
+  %86 = load i32, ptr %7, align 4
+  %87 = icmp eq i32 %86, %4
+  %or.cond74 = select i1 %85, i1 %87, i1 false
+  br i1 %or.cond74, label %88, label %97
 
-87:                                               ; preds = %.lr.ph.split.split.split
-  %88 = load i32, ptr %17, align 4
-  %89 = icmp eq i32 %88, %2
-  %90 = load i32, ptr %18, align 4
-  %91 = icmp eq i32 %90, %.sroa.3.0.extract.trunc
-  %or.cond25 = select i1 %89, i1 %91, i1 false
-  %92 = load i32, ptr %6, align 4
-  %93 = icmp eq i32 %92, %.sroa.013.0.extract.trunc
-  %or.cond27 = select i1 %or.cond25, i1 %93, i1 false
-  %94 = load i32, ptr %8, align 4
-  %95 = icmp eq i32 %94, %3
-  %or.cond78 = select i1 %or.cond27, i1 %95, i1 false
-  br i1 %or.cond78, label %._crit_edge, label %96
+88:                                               ; preds = %.lr.ph.split.split.split
+  %89 = load i32, ptr %18, align 4
+  %90 = icmp eq i32 %89, %2
+  %91 = load i32, ptr %19, align 4
+  %92 = icmp eq i32 %91, %.sroa.3.0.extract.trunc
+  %or.cond24 = select i1 %90, i1 %92, i1 false
+  %93 = load i32, ptr %6, align 4
+  %94 = icmp eq i32 %93, %.sroa.013.0.extract.trunc
+  %or.cond26 = select i1 %or.cond24, i1 %94, i1 false
+  %95 = load i32, ptr %8, align 4
+  %96 = icmp eq i32 %95, %3
+  %or.cond76 = select i1 %or.cond26, i1 %96, i1 false
+  br i1 %or.cond76, label %._crit_edge, label %97
 
-96:                                               ; preds = %87, %.lr.ph.split.split.split
-  %97 = add i32 %.031, 1
-  %98 = load ptr, ptr %9, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 84
-  %100 = load i32, ptr %99, align 4
-  %.not.not = icmp sgt i32 %97, %100
+97:                                               ; preds = %88, %.lr.ph.split.split.split
+  %98 = add i32 %.030, 1
+  %99 = load ptr, ptr %9, align 8
+  %100 = getelementptr inbounds i8, ptr %99, i64 84
+  %101 = load i32, ptr %100, align 4
+  %.not.not = icmp sgt i32 %98, %101
   br i1 %.not.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %87, %96, %71, %78, %59, %62, %.lr.ph.split.us.split.split, %45, %.lr.ph.split.us.split.split.us, %34, %22, %25, %5
-  %.not.lcssa = phi i1 [ false, %5 ], [ false, %25 ], [ true, %22 ], [ %or.cond68, %34 ], [ %or.cond68, %.lr.ph.split.us.split.split.us ], [ %or.cond72, %45 ], [ %or.cond72, %.lr.ph.split.us.split.split ], [ false, %62 ], [ true, %59 ], [ false, %78 ], [ true, %71 ], [ false, %96 ], [ true, %87 ]
+._crit_edge:                                      ; preds = %88, %97, %72, %79, %60, %63, %.lr.ph.split.us.split.split, %46, %.lr.ph.split.us.split.split.us, %35, %23, %26, %5
+  %.not.lcssa = phi i1 [ false, %5 ], [ false, %26 ], [ true, %23 ], [ %or.cond, %35 ], [ %or.cond, %.lr.ph.split.us.split.split.us ], [ %or.cond70, %46 ], [ %or.cond70, %.lr.ph.split.us.split.split ], [ false, %63 ], [ true, %60 ], [ false, %79 ], [ true, %72 ], [ false, %97 ], [ true, %88 ]
   ret i1 %.not.lcssa
 }
 

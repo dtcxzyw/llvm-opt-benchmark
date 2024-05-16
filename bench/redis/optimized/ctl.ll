@@ -6919,11 +6919,11 @@ if.end23.loopexit:                                ; preds = %for.body
 if.end23:                                         ; preds = %do.body4.thread, %if.end23.loopexit, %if.end7
   %8 = phi i64 [ %4, %if.end7 ], [ %4, %if.end23.loopexit ], [ %5, %do.body4.thread ]
   %dss_prec.1 = phi i32 [ 3, %if.end7 ], [ %7, %if.end23.loopexit ], [ 3, %do.body4.thread ]
-  %conv38 = trunc nuw i64 %8 to i32
-  %cmp24 = icmp eq i32 %conv38, 4096
+  %cmp24 = icmp eq i64 %8, 4096
   br i1 %cmp24, label %if.then28, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end23
+  %conv38 = trunc nuw i64 %8 to i32
   %9 = load ptr, ptr @ctl_arenas, align 8
   %narenas = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load i32, ptr %narenas, align 8

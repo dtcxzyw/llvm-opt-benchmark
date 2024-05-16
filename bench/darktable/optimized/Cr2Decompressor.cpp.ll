@@ -1506,7 +1506,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %251 = lshr i64 %248, 32
   %252 = trunc nuw i64 %251 to i32
   %253 = add nsw i32 %252, %250
-  %254 = icmp eq i32 %252, 0
+  %254 = icmp ult i64 %248, 4294967296
   br i1 %254, label %.loopexit40, label %255
 
 255:                                              ; preds = %240
@@ -2501,7 +2501,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %251 = lshr i64 %248, 32
   %252 = trunc nuw i64 %251 to i32
   %253 = add nsw i32 %252, %250
-  %254 = icmp eq i32 %252, 0
+  %254 = icmp ult i64 %248, 4294967296
   br i1 %254, label %.loopexit40, label %255
 
 255:                                              ; preds = %240
@@ -3490,7 +3490,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %249 = lshr i64 %246, 32
   %250 = trunc nuw i64 %249 to i32
   %251 = add nsw i32 %250, %248
-  %252 = icmp eq i32 %250, 0
+  %252 = icmp ult i64 %246, 4294967296
   br i1 %252, label %.loopexit39, label %253
 
 253:                                              ; preds = %238
@@ -4465,7 +4465,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %238 = lshr i64 %235, 32
   %239 = trunc nuw i64 %238 to i32
   %240 = add nsw i32 %239, %237
-  %241 = icmp eq i32 %239, 0
+  %241 = icmp ult i64 %235, 4294967296
   br i1 %241, label %.loopexit40, label %242
 
 242:                                              ; preds = %227

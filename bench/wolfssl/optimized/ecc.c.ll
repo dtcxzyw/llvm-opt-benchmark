@@ -63,7 +63,7 @@ for.body.i:                                       ; preds = %for.inc.i, %entry
   %id.i = getelementptr inbounds i8, ptr %arrayidx6.i, i64 4
   %0 = load i32, ptr %id.i, align 4
   %cmp3.i = icmp eq i32 %0, %curve_id
-  br i1 %cmp3.i, label %wc_ecc_get_curve_idx.exit, label %for.inc.i
+  br i1 %cmp3.i, label %if.end, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -71,20 +71,15 @@ for.inc.i:                                        ; preds = %for.body.i
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 5
   br i1 %exitcond.i, label %return, label %for.body.i, !llvm.loop !4
 
-wc_ecc_get_curve_idx.exit:                        ; preds = %for.body.i
-  %1 = and i64 %indvars.iv.i, 4294967295
-  %cmp = icmp eq i64 %1, 4294967295
-  br i1 %cmp, label %return, label %if.end
-
-if.end:                                           ; preds = %wc_ecc_get_curve_idx.exit
+if.end:                                           ; preds = %for.body.i
   %sext = shl i64 %indvars.iv.i, 32
   %idxprom = ashr exact i64 %sext, 32
   %name = getelementptr inbounds [6 x %struct.ecc_set_type], ptr @ecc_sets, i64 0, i64 %idxprom, i32 2
-  %2 = load ptr, ptr %name, align 8
+  %1 = load ptr, ptr %name, align 8
   br label %return
 
-return:                                           ; preds = %for.inc.i, %wc_ecc_get_curve_idx.exit, %if.end
-  %retval.0 = phi ptr [ %2, %if.end ], [ null, %wc_ecc_get_curve_idx.exit ], [ null, %for.inc.i ]
+return:                                           ; preds = %for.inc.i, %if.end
+  %retval.0 = phi ptr [ %1, %if.end ], [ null, %for.inc.i ]
   ret ptr %retval.0
 }
 
@@ -1924,7 +1919,7 @@ for.body.i:                                       ; preds = %for.inc.i, %entry
   %id.i = getelementptr inbounds i8, ptr %arrayidx6.i, i64 4
   %0 = load i32, ptr %id.i, align 4
   %cmp3.i = icmp eq i32 %0, %curve_id
-  br i1 %cmp3.i, label %wc_ecc_get_curve_idx.exit, label %for.inc.i
+  br i1 %cmp3.i, label %if.end, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1932,20 +1927,15 @@ for.inc.i:                                        ; preds = %for.body.i
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 5
   br i1 %exitcond.i, label %return, label %for.body.i, !llvm.loop !4
 
-wc_ecc_get_curve_idx.exit:                        ; preds = %for.body.i
-  %1 = and i64 %indvars.iv.i, 4294967295
-  %cmp = icmp eq i64 %1, 4294967295
-  br i1 %cmp, label %return, label %if.end
-
-if.end:                                           ; preds = %wc_ecc_get_curve_idx.exit
+if.end:                                           ; preds = %for.body.i
   %sext = shl i64 %indvars.iv.i, 32
   %idxprom = ashr exact i64 %sext, 32
   %arrayidx = getelementptr inbounds [6 x %struct.ecc_set_type], ptr @ecc_sets, i64 0, i64 %idxprom
-  %2 = load i32, ptr %arrayidx, align 8
+  %1 = load i32, ptr %arrayidx, align 8
   br label %return
 
-return:                                           ; preds = %for.inc.i, %wc_ecc_get_curve_idx.exit, %if.end
-  %retval.0 = phi i32 [ %2, %if.end ], [ -170, %wc_ecc_get_curve_idx.exit ], [ -170, %for.inc.i ]
+return:                                           ; preds = %for.inc.i, %if.end
+  %retval.0 = phi i32 [ %1, %if.end ], [ -170, %for.inc.i ]
   ret i32 %retval.0
 }
 
@@ -2003,7 +1993,7 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
 land.lhs.true.i:                                  ; preds = %for.body.i
   %call.i = tail call i32 @strcasecmp(ptr noundef nonnull %0, ptr noundef nonnull readonly %curveName) #20
   %cmp7.i = icmp eq i32 %call.i, 0
-  br i1 %cmp7.i, label %wc_ecc_get_curve_idx_from_name.exit, label %for.inc.i
+  br i1 %cmp7.i, label %if.end3, label %for.inc.i
 
 for.inc.i:                                        ; preds = %land.lhs.true.i, %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2011,19 +2001,14 @@ for.inc.i:                                        ; preds = %land.lhs.true.i, %f
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 5
   br i1 %exitcond.i, label %return, label %for.body.i, !llvm.loop !12
 
-wc_ecc_get_curve_idx_from_name.exit:              ; preds = %land.lhs.true.i
-  %1 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %cmp1 = icmp slt i32 %1, 0
-  br i1 %cmp1, label %return, label %if.end3
-
-if.end3:                                          ; preds = %wc_ecc_get_curve_idx_from_name.exit
-  %idxprom = and i64 %indvars.iv.i, 2147483647
+if.end3:                                          ; preds = %land.lhs.true.i
+  %idxprom = and i64 %indvars.iv.i, 4294967295
   %arrayidx = getelementptr inbounds [6 x %struct.ecc_set_type], ptr @ecc_sets, i64 0, i64 %idxprom
-  %2 = load i32, ptr %arrayidx, align 8
+  %1 = load i32, ptr %arrayidx, align 8
   br label %return
 
-return:                                           ; preds = %for.inc.i, %wc_ecc_get_curve_idx_from_name.exit, %entry, %if.end3
-  %retval.0 = phi i32 [ %2, %if.end3 ], [ -173, %entry ], [ %1, %wc_ecc_get_curve_idx_from_name.exit ], [ -1, %for.inc.i ]
+return:                                           ; preds = %for.inc.i, %entry, %if.end3
+  %retval.0 = phi i32 [ %1, %if.end3 ], [ -173, %entry ], [ -1, %for.inc.i ]
   ret i32 %retval.0
 }
 
@@ -2044,7 +2029,7 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
 land.lhs.true.i:                                  ; preds = %for.body.i
   %call.i = tail call i32 @strcasecmp(ptr noundef nonnull %0, ptr noundef nonnull readonly %curveName) #20
   %cmp7.i = icmp eq i32 %call.i, 0
-  br i1 %cmp7.i, label %wc_ecc_get_curve_idx_from_name.exit, label %for.inc.i
+  br i1 %cmp7.i, label %if.end3, label %for.inc.i
 
 for.inc.i:                                        ; preds = %land.lhs.true.i, %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2052,19 +2037,14 @@ for.inc.i:                                        ; preds = %land.lhs.true.i, %f
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 5
   br i1 %exitcond.i, label %return, label %for.body.i, !llvm.loop !12
 
-wc_ecc_get_curve_idx_from_name.exit:              ; preds = %land.lhs.true.i
-  %1 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %cmp1 = icmp slt i32 %1, 0
-  br i1 %cmp1, label %return, label %if.end3
-
-if.end3:                                          ; preds = %wc_ecc_get_curve_idx_from_name.exit
-  %idxprom = and i64 %indvars.iv.i, 2147483647
+if.end3:                                          ; preds = %land.lhs.true.i
+  %idxprom = and i64 %indvars.iv.i, 4294967295
   %id = getelementptr inbounds [6 x %struct.ecc_set_type], ptr @ecc_sets, i64 0, i64 %idxprom, i32 1
-  %2 = load i32, ptr %id, align 4
+  %1 = load i32, ptr %id, align 4
   br label %return
 
-return:                                           ; preds = %for.inc.i, %wc_ecc_get_curve_idx_from_name.exit, %entry, %if.end3
-  %retval.0 = phi i32 [ %2, %if.end3 ], [ -173, %entry ], [ %1, %wc_ecc_get_curve_idx_from_name.exit ], [ -1, %for.inc.i ]
+return:                                           ; preds = %for.inc.i, %entry, %if.end3
+  %retval.0 = phi i32 [ %1, %if.end3 ], [ -173, %entry ], [ -1, %for.inc.i ]
   ret i32 %retval.0
 }
 

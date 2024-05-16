@@ -24648,7 +24648,7 @@ if.end12:                                         ; preds = %entry
 
 lor.lhs.false:                                    ; preds = %if.end12
   %Height = getelementptr inbounds i8, ptr %this, i64 84
-  %cmp18 = icmp eq i32 %7, 0
+  %cmp18 = icmp ult i64 %4, 4294967296
   br i1 %cmp18, label %if.then19, label %if.end20
 
 if.then19:                                        ; preds = %lor.lhs.false, %if.end12

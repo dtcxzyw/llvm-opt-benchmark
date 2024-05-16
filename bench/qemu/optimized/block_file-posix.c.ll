@@ -876,52 +876,52 @@ get_sysfs_zoned_model.exit.i:                     ; preds = %if.else.i.i, %if.en
   %zoned2.i = getelementptr inbounds i8, ptr %bs, i64 16552
   store i32 %zoned.0.i, ptr %zoned2.i, align 8
   %call3.i36 = call fastcc i64 @get_sysfs_long_val(ptr noundef nonnull readonly %st, ptr noundef nonnull @.str.63)
-  %conv.i37 = trunc nsw i64 %call3.i36 to i32
-  %cmp4.i38 = icmp sgt i32 %conv.i37, -1
-  br i1 %cmp4.i38, label %if.then6.i44, label %if.end8.i39
+  %cmp4.i37 = icmp sgt i64 %call3.i36, -1
+  br i1 %cmp4.i37, label %if.then6.i43, label %if.end8.i38
 
-if.then6.i44:                                     ; preds = %get_sysfs_zoned_model.exit.i
+if.then6.i43:                                     ; preds = %get_sysfs_zoned_model.exit.i
+  %conv.i44 = trunc nsw i64 %call3.i36 to i32
   %max_open_zones.i = getelementptr inbounds i8, ptr %bs, i64 16568
-  store i32 %conv.i37, ptr %max_open_zones.i, align 8
-  br label %if.end8.i39
+  store i32 %conv.i44, ptr %max_open_zones.i, align 8
+  br label %if.end8.i38
 
-if.end8.i39:                                      ; preds = %if.then6.i44, %get_sysfs_zoned_model.exit.i
-  %call9.i40 = call fastcc i64 @get_sysfs_long_val(ptr noundef nonnull readonly %st, ptr noundef nonnull @.str.64)
-  %conv10.i = trunc nsw i64 %call9.i40 to i32
-  %cmp11.i = icmp sgt i32 %conv10.i, -1
+if.end8.i38:                                      ; preds = %if.then6.i43, %get_sysfs_zoned_model.exit.i
+  %call9.i39 = call fastcc i64 @get_sysfs_long_val(ptr noundef nonnull readonly %st, ptr noundef nonnull @.str.64)
+  %cmp11.i = icmp sgt i64 %call9.i39, -1
   br i1 %cmp11.i, label %if.then13.i, label %if.end15.i
 
-if.then13.i:                                      ; preds = %if.end8.i39
+if.then13.i:                                      ; preds = %if.end8.i38
+  %conv10.i = trunc nsw i64 %call9.i39 to i32
   %max_active_zones.i = getelementptr inbounds i8, ptr %bs, i64 16572
   store i32 %conv10.i, ptr %max_active_zones.i, align 4
   br label %if.end15.i
 
-if.end15.i:                                       ; preds = %if.then13.i, %if.end8.i39
+if.end15.i:                                       ; preds = %if.then13.i, %if.end8.i38
   %call16.i = call fastcc i64 @get_sysfs_long_val(ptr noundef nonnull readonly %st, ptr noundef nonnull @.str.65)
   %conv17.i = trunc nsw i64 %call16.i to i32
-  %cmp18.i = icmp slt i32 %conv17.i, 0
-  br i1 %cmp18.i, label %if.then20.i, label %if.else.i41
+  %cmp18.i = icmp slt i64 %call16.i, 0
+  br i1 %cmp18.i, label %if.then20.i, label %if.else.i40
 
 if.then20.i:                                      ; preds = %if.end15.i
-  %sub.i43 = sub i32 0, %conv17.i
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.14, i32 noundef 1436, ptr noundef nonnull @__func__.raw_refresh_zoned_limits, i32 noundef %sub.i43, ptr noundef nonnull @.str.66) #17
+  %sub.i42 = sub i32 0, %conv17.i
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.14, i32 noundef 1436, ptr noundef nonnull @__func__.raw_refresh_zoned_limits, i32 noundef %sub.i42, ptr noundef nonnull @.str.66) #17
   br label %no_zoned.i
 
-if.else.i41:                                      ; preds = %if.end15.i
-  %tobool.not.i = icmp eq i32 %conv17.i, 0
+if.else.i40:                                      ; preds = %if.end15.i
+  %tobool.not.i = icmp eq i64 %call16.i, 0
   br i1 %tobool.not.i, label %if.then21.i, label %if.end23.i
 
-if.then21.i:                                      ; preds = %if.else.i41
+if.then21.i:                                      ; preds = %if.else.i40
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.14, i32 noundef 1439, ptr noundef nonnull @__func__.raw_refresh_zoned_limits, ptr noundef nonnull @.str.67) #17
   br label %no_zoned.i
 
-if.end23.i:                                       ; preds = %if.else.i41
+if.end23.i:                                       ; preds = %if.else.i40
   %shl.i = shl i32 %conv17.i, 9
   %zone_size.i = getelementptr inbounds i8, ptr %bs, i64 16556
   store i32 %shl.i, ptr %zone_size.i, align 4
   %call25.i = call fastcc i64 @get_sysfs_long_val(ptr noundef nonnull readonly %st, ptr noundef nonnull @.str.68)
   %conv26.i = trunc nsw i64 %call25.i to i32
-  %cmp27.i = icmp slt i32 %conv26.i, 0
+  %cmp27.i = icmp slt i64 %call25.i, 0
   br i1 %cmp27.i, label %if.then29.i, label %if.else31.i
 
 if.then29.i:                                      ; preds = %if.end23.i
@@ -930,7 +930,7 @@ if.then29.i:                                      ; preds = %if.end23.i
   br label %no_zoned.i
 
 if.else31.i:                                      ; preds = %if.end23.i
-  %tobool32.not.i = icmp eq i32 %conv26.i, 0
+  %tobool32.not.i = icmp eq i64 %call25.i, 0
   br i1 %tobool32.not.i, label %if.then33.i, label %if.end35.i
 
 if.then33.i:                                      ; preds = %if.else31.i
@@ -941,11 +941,11 @@ if.end35.i:                                       ; preds = %if.else31.i
   %nr_zones.i = getelementptr inbounds i8, ptr %bs, i64 16560
   store i32 %conv26.i, ptr %nr_zones.i, align 8
   %call37.i = call fastcc i64 @get_sysfs_long_val(ptr noundef nonnull readonly %st, ptr noundef nonnull @.str.71)
-  %conv38.i = trunc nsw i64 %call37.i to i32
-  %cmp39.i = icmp sgt i32 %conv38.i, 0
+  %cmp39.i = icmp sgt i64 %call37.i, 0
   br i1 %cmp39.i, label %if.then41.i, label %if.end43.i
 
 if.then41.i:                                      ; preds = %if.end35.i
+  %conv38.i = trunc nsw i64 %call37.i to i32
   %shr.i = lshr i32 %conv38.i, 9
   %max_append_sectors.i = getelementptr inbounds i8, ptr %bs, i64 16564
   store i32 %shr.i, ptr %max_append_sectors.i, align 4
@@ -953,11 +953,11 @@ if.then41.i:                                      ; preds = %if.end35.i
 
 if.end43.i:                                       ; preds = %if.then41.i, %if.end35.i
   %call44.i = call fastcc i64 @get_sysfs_long_val(ptr noundef nonnull readonly %st, ptr noundef nonnull @.str.72)
-  %conv45.i = trunc nsw i64 %call44.i to i32
-  %cmp46.i = icmp sgt i32 %conv45.i, -1
+  %cmp46.i = icmp sgt i64 %call44.i, -1
   br i1 %cmp46.i, label %if.then48.i, label %if.end50.i
 
 if.then48.i:                                      ; preds = %if.end43.i
+  %conv45.i = trunc nsw i64 %call44.i to i32
   %write_granularity.i = getelementptr inbounds i8, ptr %bs, i64 16576
   store i32 %conv45.i, ptr %write_granularity.i, align 8
   br label %if.end50.i
@@ -968,8 +968,8 @@ if.end50.i:                                       ; preds = %if.then48.i, %if.en
   call void @g_free(ptr noundef %20) #17
   %21 = load i32, ptr %nr_zones.i, align 8
   %conv53.i = zext i32 %21 to i64
-  %mul.i42 = shl nuw nsw i64 %conv53.i, 3
-  %add.i = add nuw nsw i64 %mul.i42, 48
+  %mul.i41 = shl nuw nsw i64 %conv53.i, 3
+  %add.i = add nuw nsw i64 %mul.i41, 48
   %call54.i = call noalias ptr @g_malloc(i64 noundef %add.i) #22
   store ptr %call54.i, ptr %wps.i, align 8
   %22 = load i32, ptr %14, align 8

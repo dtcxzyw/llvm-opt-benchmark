@@ -1444,16 +1444,16 @@ define dso_local i64 @ZSTD_decompressBlock_internal(ptr noundef %0, ptr noundef 
   %121 = load i64, ptr %119, align 1
   store i64 %121, ptr %10, align 8
   %122 = lshr i64 %121, 56
-  %123 = icmp ugt i64 %121, 72057594037927935
-  %124 = trunc nuw nsw i64 %122 to i32
-  %125 = tail call i32 @llvm.ctlz.i32(i32 %124, i1 true), !range !15
+  %123 = trunc nuw nsw i64 %122 to i32
+  %124 = icmp ugt i64 %121, 72057594037927935
+  %125 = tail call i32 @llvm.ctlz.i32(i32 %123, i1 true), !range !15
   %126 = xor i32 %125, 31
   %127 = sub nuw nsw i32 8, %126
-  %128 = select i1 %123, i32 %127, i32 0
+  %128 = select i1 %124, i32 %127, i32 0
   %129 = getelementptr inbounds i8, ptr %10, i64 8
   store i32 %128, ptr %129, align 8
   %130 = icmp ult i64 %26, -119
-  %or.cond = select i1 %123, i1 %130, i1 false
+  %or.cond = select i1 %124, i1 %130, i1 false
   br i1 %or.cond, label %190, label %.thread117
 
 131:                                              ; preds = %112
@@ -4058,16 +4058,16 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   %53 = load i64, ptr %51, align 1
   store i64 %53, ptr %11, align 8
   %54 = lshr i64 %53, 56
-  %55 = icmp ugt i64 %53, 72057594037927935
-  %56 = trunc nuw nsw i64 %54 to i32
-  %57 = tail call i32 @llvm.ctlz.i32(i32 %56, i1 true), !range !15
+  %55 = trunc nuw nsw i64 %54 to i32
+  %56 = icmp ugt i64 %53, 72057594037927935
+  %57 = tail call i32 @llvm.ctlz.i32(i32 %55, i1 true), !range !15
   %58 = xor i32 %57, 31
   %59 = sub nuw nsw i32 8, %58
-  %60 = select i1 %55, i32 %59, i32 0
+  %60 = select i1 %56, i32 %59, i32 0
   %61 = getelementptr inbounds i8, ptr %11, i64 8
   store i32 %60, ptr %61, align 8
   %62 = icmp ult i64 %4, -119
-  %or.cond = and i1 %62, %55
+  %or.cond = and i1 %62, %56
   br i1 %or.cond, label %122, label %.thread113
 
 63:                                               ; preds = %44
@@ -6142,16 +6142,16 @@ define internal fastcc i64 @ZSTD_decompressSequences(ptr nocapture noundef %0, p
   %61 = load i64, ptr %59, align 1
   store i64 %61, ptr %9, align 8
   %62 = lshr i64 %61, 56
-  %63 = icmp ugt i64 %61, 72057594037927935
-  %64 = trunc nuw nsw i64 %62 to i32
-  %65 = tail call i32 @llvm.ctlz.i32(i32 %64, i1 true), !range !15
+  %63 = trunc nuw nsw i64 %62 to i32
+  %64 = icmp ugt i64 %61, 72057594037927935
+  %65 = tail call i32 @llvm.ctlz.i32(i32 %63, i1 true), !range !15
   %66 = xor i32 %65, 31
   %67 = sub nuw nsw i32 8, %66
-  %68 = select i1 %63, i32 %67, i32 0
+  %68 = select i1 %64, i32 %67, i32 0
   %69 = getelementptr inbounds i8, ptr %9, i64 8
   store i32 %68, ptr %69, align 8
   %70 = icmp ult i64 %4, -119
-  %or.cond = and i1 %70, %63
+  %or.cond = and i1 %70, %64
   br i1 %or.cond, label %130, label %.thread43
 
 71:                                               ; preds = %52
@@ -7173,16 +7173,16 @@ define internal fastcc i64 @ZSTD_decompressSequencesLong_bmi2(ptr noundef %0, pt
   %58 = load i64, ptr %56, align 1
   store i64 %58, ptr %9, align 8
   %59 = lshr i64 %58, 56
-  %60 = icmp ugt i64 %58, 72057594037927935
-  %61 = trunc nuw nsw i64 %59 to i32
-  %62 = tail call i32 @llvm.ctlz.i32(i32 %61, i1 true), !range !15
+  %60 = trunc nuw nsw i64 %59 to i32
+  %61 = icmp ugt i64 %58, 72057594037927935
+  %62 = tail call i32 @llvm.ctlz.i32(i32 %60, i1 true), !range !15
   %63 = xor i32 %62, 31
   %64 = sub nuw nsw i32 8, %63
-  %65 = select i1 %60, i32 %64, i32 0
+  %65 = select i1 %61, i32 %64, i32 0
   %66 = getelementptr inbounds i8, ptr %9, i64 8
   store i32 %65, ptr %66, align 8
   %67 = icmp ult i64 %4, -119
-  %or.cond = and i1 %67, %60
+  %or.cond = and i1 %67, %61
   br i1 %or.cond, label %127, label %.thread113
 
 68:                                               ; preds = %49
@@ -10297,16 +10297,16 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   %47 = load i64, ptr %45, align 1
   store i64 %47, ptr %11, align 8
   %48 = lshr i64 %47, 56
-  %49 = icmp ugt i64 %47, 72057594037927935
-  %50 = trunc nuw nsw i64 %48 to i32
-  %51 = tail call i32 @llvm.ctlz.i32(i32 %50, i1 true), !range !15
+  %49 = trunc nuw nsw i64 %48 to i32
+  %50 = icmp ugt i64 %47, 72057594037927935
+  %51 = tail call i32 @llvm.ctlz.i32(i32 %49, i1 true), !range !15
   %52 = xor i32 %51, 31
   %53 = sub nuw nsw i32 8, %52
-  %54 = select i1 %49, i32 %53, i32 0
+  %54 = select i1 %50, i32 %53, i32 0
   %55 = getelementptr inbounds i8, ptr %11, i64 8
   store i32 %54, ptr %55, align 8
   %56 = icmp ult i64 %4, -119
-  %or.cond = and i1 %56, %49
+  %or.cond = and i1 %56, %50
   br i1 %or.cond, label %116, label %.thread113
 
 57:                                               ; preds = %38
@@ -12367,16 +12367,16 @@ define internal fastcc i64 @ZSTD_decompressSequences_bmi2(ptr nocapture noundef 
   %55 = load i64, ptr %53, align 1
   store i64 %55, ptr %9, align 8
   %56 = lshr i64 %55, 56
-  %57 = icmp ugt i64 %55, 72057594037927935
-  %58 = trunc nuw nsw i64 %56 to i32
-  %59 = tail call i32 @llvm.ctlz.i32(i32 %58, i1 true), !range !15
+  %57 = trunc nuw nsw i64 %56 to i32
+  %58 = icmp ugt i64 %55, 72057594037927935
+  %59 = tail call i32 @llvm.ctlz.i32(i32 %57, i1 true), !range !15
   %60 = xor i32 %59, 31
   %61 = sub nuw nsw i32 8, %60
-  %62 = select i1 %57, i32 %61, i32 0
+  %62 = select i1 %58, i32 %61, i32 0
   %63 = getelementptr inbounds i8, ptr %9, i64 8
   store i32 %62, ptr %63, align 8
   %64 = icmp ult i64 %4, -119
-  %or.cond = and i1 %64, %57
+  %or.cond = and i1 %64, %58
   br i1 %or.cond, label %124, label %.thread43
 
 65:                                               ; preds = %46

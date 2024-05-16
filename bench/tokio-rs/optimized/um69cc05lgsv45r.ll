@@ -8788,8 +8788,8 @@ _ZN5tokio7runtime7process6Driver4park17hdad69bc4fe2e7f2eE.exit.i: ; preds = %37
   %69 = trunc nuw nsw i64 %68 to i32
   %70 = mul nuw nsw i32 %69, 1000000
   %71 = icmp ult i64 %66, 1000
-  %.not62 = icmp eq i32 %69, 0
-  %or.cond = select i1 %71, i1 %.not62, i1 false
+  %.not62 = icmp eq i64 %68, 0
+  %or.cond = and i1 %71, %.not62
   br i1 %or.cond, label %72, label %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h0113a959e2ea9a8eE.exit.thread"
 
 "_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h0113a959e2ea9a8eE.exit.thread": ; preds = %.noexc41

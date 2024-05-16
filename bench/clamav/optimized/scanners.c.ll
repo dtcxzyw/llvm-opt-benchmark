@@ -5676,7 +5676,7 @@ fmap_need_off_once_len.exit:                      ; preds = %20
   %29 = trunc nuw nsw i64 %28 to i32
   store i32 %29, ptr %14, align 8
   %30 = add i64 %28, %.0
-  %.not35 = icmp eq i32 %29, 0
+  %.not35 = icmp eq i64 %28, 0
   br i1 %.not35, label %.loopexit, label %31
 
 .loopexit:                                        ; preds = %fmap_need_off_once_len.exit, %fmap_need_off_once_len.exit.thread

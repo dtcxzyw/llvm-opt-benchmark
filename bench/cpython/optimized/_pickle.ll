@@ -1738,7 +1738,7 @@ if.end5.i:                                        ; preds = %if.else6.i.i, %land
   br i1 %cmp1.not.i.i, label %if.end9.i, label %land.lhs.true.i12.i
 
 land.lhs.true.i12.i:                              ; preds = %if.end5.i
-  %cmp2.i.i = icmp ult i32 %conv.i.i, 5
+  %cmp2.i.i = icmp ult i64 %proto.0.i.i, 5
   br i1 %cmp2.i.i, label %_Pickler_SetBufferCallback.exit.thread.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %land.lhs.true.i12.i

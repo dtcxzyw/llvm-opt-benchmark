@@ -206,7 +206,7 @@ define void @Ree_ManCutPrint(ptr nocapture noundef readonly %0, i32 noundef %1, 
 
 .preheader:                                       ; preds = %.lr.ph
   %8 = trunc nuw i64 %indvars.iv.next to i32
-  %9 = icmp ult i32 %8, 5
+  %9 = icmp ult i64 %indvars.iv, 4
   br i1 %9, label %.lr.ph11.preheader, label %._crit_edge
 
 .lr.ph11.preheader:                               ; preds = %4, %.preheader

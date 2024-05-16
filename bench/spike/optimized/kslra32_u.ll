@@ -160,10 +160,10 @@ define noundef i64 @_Z20fast_rv64i_kslra32_uP11processor_t6insn_tm(ptr nocapture
   %34 = shl i64 %33, 58
   %35 = ashr exact i64 %34, 58
   %36 = trunc nsw i64 %35 to i32
-  %37 = icmp slt i32 %36, 0
-  %38 = and i64 %35, 2147483647
+  %37 = icmp slt i64 %35, 0
+  %38 = and i64 %35, 4294967295
   %39 = getelementptr inbounds i8, ptr %0, i64 659712
-  %40 = icmp eq i32 %36, -32
+  %40 = icmp eq i64 %34, -9223372036854775808
   %41 = xor i32 %36, -1
   %42 = select i1 %40, i32 30, i32 %41
   br i1 %37, label %.split.us, label %.split
@@ -323,10 +323,10 @@ define noundef i64 @_Z22logged_rv64i_kslra32_uP11processor_t6insn_tm(ptr noundef
   %34 = shl i64 %33, 58
   %35 = ashr exact i64 %34, 58
   %36 = trunc nsw i64 %35 to i32
-  %37 = icmp slt i32 %36, 0
-  %38 = and i64 %35, 2147483647
+  %37 = icmp slt i64 %35, 0
+  %38 = and i64 %35, 4294967295
   %39 = getelementptr inbounds i8, ptr %0, i64 659712
-  %40 = icmp eq i32 %36, -32
+  %40 = icmp eq i64 %34, -9223372036854775808
   %41 = xor i32 %36, -1
   %42 = select i1 %40, i32 30, i32 %41
   br i1 %37, label %.split.us, label %.split
@@ -585,10 +585,10 @@ define noundef i64 @_Z20fast_rv64e_kslra32_uP11processor_t6insn_tm(ptr nocapture
   %55 = shl i64 %54, 58
   %56 = ashr exact i64 %55, 58
   %57 = trunc nsw i64 %56 to i32
-  %58 = icmp slt i32 %57, 0
-  %59 = and i64 %56, 2147483647
+  %58 = icmp slt i64 %56, 0
+  %59 = and i64 %56, 4294967295
   %60 = getelementptr inbounds i8, ptr %0, i64 659712
-  %61 = icmp eq i32 %57, -32
+  %61 = icmp eq i64 %55, -9223372036854775808
   %62 = xor i32 %57, -1
   %63 = select i1 %61, i32 30, i32 %62
   br i1 %58, label %.split.us, label %.split
@@ -790,10 +790,10 @@ define noundef i64 @_Z22logged_rv64e_kslra32_uP11processor_t6insn_tm(ptr noundef
   %55 = shl i64 %54, 58
   %56 = ashr exact i64 %55, 58
   %57 = trunc nsw i64 %56 to i32
-  %58 = icmp slt i32 %57, 0
-  %59 = and i64 %56, 2147483647
+  %58 = icmp slt i64 %56, 0
+  %59 = and i64 %56, 4294967295
   %60 = getelementptr inbounds i8, ptr %0, i64 659712
-  %61 = icmp eq i32 %57, -32
+  %61 = icmp eq i64 %55, -9223372036854775808
   %62 = xor i32 %57, -1
   %63 = select i1 %61, i32 30, i32 %62
   br i1 %58, label %.split.us, label %.split

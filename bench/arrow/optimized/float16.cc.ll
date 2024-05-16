@@ -74,9 +74,8 @@ entry:
   %conv.i = and i16 %1, -32768
   %and1.i = and i32 %0, 2139095040
   %shr2.i = lshr exact i32 %and1.i, 23
-  %2 = trunc nuw nsw i32 %shr2.i to i16
   %and8.i = and i32 %0, 8388607
-  %cmp.i = icmp ugt i16 %2, 142
+  %cmp.i = icmp ugt i32 %and1.i, 1191182336
   br i1 %cmp.i, label %if.then.i, label %if.end26.i
 
 if.then.i:                                        ; preds = %entry
@@ -99,11 +98,11 @@ if.end22.i:                                       ; preds = %if.then.i
   br label %_ZN5arrow4util12_GLOBAL__N_115BinaryConverterIjE10ToBinary16Ej.exit
 
 if.end26.i:                                       ; preds = %entry
-  %cmp28.i = icmp ult i16 %2, 113
+  %cmp28.i = icmp ult i32 %and1.i, 947912704
   br i1 %cmp28.i, label %if.then29.i, label %if.end52.i
 
 if.then29.i:                                      ; preds = %if.end26.i
-  %cmp31.i = icmp ult i16 %2, 102
+  %cmp31.i = icmp ult i32 %and1.i, 855638016
   br i1 %cmp31.i, label %_ZN5arrow4util12_GLOBAL__N_115BinaryConverterIjE10ToBinary16Ej.exit, label %if.end33.i
 
 if.end33.i:                                       ; preds = %if.then29.i
@@ -218,7 +217,7 @@ entry:
   %shr2.i = lshr exact i64 %and1.i, 52
   %conv3.i = trunc nuw nsw i64 %shr2.i to i16
   %and8.i = and i64 %0, 4503599627370495
-  %cmp.i = icmp ugt i16 %conv3.i, 1038
+  %cmp.i = icmp ugt i64 %and1.i, 4674736413210574848
   br i1 %cmp.i, label %if.then.i, label %if.end26.i
 
 if.then.i:                                        ; preds = %entry
@@ -241,11 +240,11 @@ if.end22.i:                                       ; preds = %if.then.i
   br label %_ZN5arrow4util12_GLOBAL__N_115BinaryConverterImE10ToBinary16Em.exit
 
 if.end26.i:                                       ; preds = %entry
-  %cmp28.i = icmp ult i16 %conv3.i, 1009
+  %cmp28.i = icmp ult i64 %and1.i, 4544132024016830464
   br i1 %cmp28.i, label %if.then29.i, label %if.end52.i
 
 if.then29.i:                                      ; preds = %if.end26.i
-  %cmp31.i = icmp ult i16 %conv3.i, 998
+  %cmp31.i = icmp ult i64 %and1.i, 4494592428115755008
   br i1 %cmp31.i, label %_ZN5arrow4util12_GLOBAL__N_115BinaryConverterImE10ToBinary16Em.exit, label %if.end33.i
 
 if.end33.i:                                       ; preds = %if.then29.i

@@ -2052,104 +2052,104 @@ cli_targetinfo.exit:                              ; preds = %cli_targetinfo.exit
   %201 = getelementptr inbounds i8, ptr %200, i64 88
   %202 = load i64, ptr %201, align 8
   %203 = sub i64 %202, %193
+  %204 = icmp ult i64 %203, 131072
   %spec.select = call i64 @llvm.umin.i64(i64 %203, i64 131072)
-  %204 = trunc nuw nsw i64 %spec.select to i32
-  %205 = getelementptr inbounds i8, ptr %200, i64 104
-  %206 = load ptr, ptr %205, align 8
-  %207 = call ptr %206(ptr noundef %200, i64 noundef %193, i64 noundef %spec.select, i32 noundef 0) #12
-  %.not320 = icmp eq ptr %207, null
-  br i1 %.not320, label %._crit_edge, label %208
+  %205 = trunc nuw nsw i64 %spec.select to i32
+  %206 = getelementptr inbounds i8, ptr %200, i64 104
+  %207 = load ptr, ptr %206, align 8
+  %208 = call ptr %207(ptr noundef %200, i64 noundef %193, i64 noundef %spec.select, i32 noundef 0) #12
+  %.not320 = icmp eq ptr %208, null
+  br i1 %.not320, label %._crit_edge, label %209
 
-208:                                              ; preds = %199
-  %209 = load ptr, ptr %186, align 8
-  %.not321 = icmp eq ptr %209, null
-  br i1 %.not321, label %214, label %210
+209:                                              ; preds = %199
+  %210 = load ptr, ptr %186, align 8
+  %.not321 = icmp eq ptr %210, null
+  br i1 %.not321, label %215, label %211
 
-210:                                              ; preds = %208
-  %211 = lshr i64 %spec.select, 12
-  %212 = load i64, ptr %209, align 8
-  %213 = add i64 %212, %211
-  store i64 %213, ptr %209, align 8
-  br label %214
+211:                                              ; preds = %209
+  %212 = lshr i64 %spec.select, 12
+  %213 = load i64, ptr %210, align 8
+  %214 = add i64 %213, %212
+  store i64 %214, ptr %210, align 8
+  br label %215
 
-214:                                              ; preds = %210, %208
-  br i1 %98, label %215, label %218
+215:                                              ; preds = %211, %209
+  br i1 %98, label %216, label %219
 
-215:                                              ; preds = %214
+216:                                              ; preds = %215
   store ptr null, ptr %16, align 8
-  %216 = load ptr, ptr %67, align 8
-  %217 = call fastcc i32 @matcher_run(ptr noundef nonnull %.2240, ptr noundef nonnull %207, i32 noundef %204, ptr noundef nonnull %16, ptr noundef nonnull %10, i32 noundef %.0253510, ptr noundef nonnull %15, i32 noundef %1, ptr noundef %3, i32 noundef %4, i32 noundef 2, ptr noundef %5, ptr noundef %216, ptr noundef %., ptr noundef nonnull %13, ptr noundef nonnull %0)
-  switch i32 %217, label %218 [
+  %217 = load ptr, ptr %67, align 8
+  %218 = call fastcc i32 @matcher_run(ptr noundef nonnull %.2240, ptr noundef nonnull %208, i32 noundef %205, ptr noundef nonnull %16, ptr noundef nonnull %10, i32 noundef %.0253510, ptr noundef nonnull %15, i32 noundef %1, ptr noundef %3, i32 noundef %4, i32 noundef 2, ptr noundef %5, ptr noundef %217, ptr noundef %., ptr noundef nonnull %13, ptr noundef nonnull %0)
+  switch i32 %218, label %219 [
     i32 20, label %.loopexit498
     i32 1, label %.loopexit498
   ]
 
-218:                                              ; preds = %215, %214
-  %.4 = phi i32 [ %217, %215 ], [ %.3512, %214 ]
-  br i1 %2, label %249, label %219
+219:                                              ; preds = %216, %215
+  %.4 = phi i32 [ %218, %216 ], [ %.3512, %215 ]
+  br i1 %2, label %250, label %220
 
-219:                                              ; preds = %218
+220:                                              ; preds = %219
   store ptr null, ptr %17, align 8
-  %220 = load ptr, ptr %67, align 8
-  %221 = call fastcc i32 @matcher_run(ptr noundef %.0241, ptr noundef nonnull %207, i32 noundef %204, ptr noundef nonnull %17, ptr noundef nonnull %9, i32 noundef %.0253510, ptr noundef nonnull %15, i32 noundef %1, ptr noundef %3, i32 noundef %4, i32 noundef 2, ptr noundef %5, ptr noundef %220, ptr noundef null, ptr noundef nonnull %12, ptr noundef nonnull %0)
-  switch i32 %221, label %222 [
+  %221 = load ptr, ptr %67, align 8
+  %222 = call fastcc i32 @matcher_run(ptr noundef %.0241, ptr noundef nonnull %208, i32 noundef %205, ptr noundef nonnull %17, ptr noundef nonnull %9, i32 noundef %.0253510, ptr noundef nonnull %15, i32 noundef %1, ptr noundef %3, i32 noundef %4, i32 noundef 2, ptr noundef %5, ptr noundef %221, ptr noundef null, ptr noundef nonnull %12, ptr noundef nonnull %0)
+  switch i32 %222, label %223 [
     i32 20, label %.loopexit498
     i32 1, label %.loopexit498
   ]
 
-222:                                              ; preds = %219
-  %223 = icmp ugt i32 %221, 499
-  %or.cond11 = and i1 %189, %223
-  %224 = call i32 @llvm.umax.i32(i32 %221, i32 %.0230511)
-  %.1231 = select i1 %or.cond11, i32 %224, i32 %.0230511
-  br i1 %127, label %249, label %225
+223:                                              ; preds = %220
+  %224 = icmp ugt i32 %222, 499
+  %or.cond11 = and i1 %189, %224
+  %225 = call i32 @llvm.umax.i32(i32 %222, i32 %.0230511)
+  %.1231 = select i1 %or.cond11, i32 %225, i32 %.0230511
+  br i1 %127, label %250, label %226
 
-225:                                              ; preds = %222
+226:                                              ; preds = %223
   %.not322 = icmp eq i32 %.0253510, 0
-  %226 = select i1 %.not322, i32 0, i32 %.0255
-  %227 = icmp ult i32 %226, %204
-  br i1 %227, label %228, label %249
+  %227 = select i1 %.not322, i32 0, i32 %.0255
+  %228 = icmp ult i32 %227, %205
+  br i1 %228, label %229, label %250
 
-228:                                              ; preds = %225
-  %229 = zext nneg i32 %226 to i64
-  %230 = getelementptr inbounds i8, ptr %207, i64 %229
-  %231 = sub nsw i32 %204, %226
-  %232 = load i8, ptr %8, align 1
-  %233 = trunc i8 %232 to i1
-  br i1 %233, label %234, label %237
+229:                                              ; preds = %226
+  %230 = zext nneg i32 %227 to i64
+  %231 = getelementptr inbounds i8, ptr %208, i64 %230
+  %232 = sub nsw i32 %205, %227
+  %233 = load i8, ptr %8, align 1
+  %234 = trunc i8 %233 to i1
+  br i1 %234, label %235, label %238
 
-234:                                              ; preds = %228
-  %235 = zext i32 %231 to i64
-  %236 = call i32 @cl_update_hash(ptr noundef nonnull %24, ptr noundef nonnull %230, i64 noundef %235) #12
-  br label %237
+235:                                              ; preds = %229
+  %236 = zext i32 %232 to i64
+  %237 = call i32 @cl_update_hash(ptr noundef nonnull %24, ptr noundef nonnull %231, i64 noundef %236) #12
+  br label %238
 
-237:                                              ; preds = %234, %228
-  %238 = load i8, ptr %190, align 1
-  %239 = trunc i8 %238 to i1
-  br i1 %239, label %240, label %243
+238:                                              ; preds = %235, %229
+  %239 = load i8, ptr %190, align 1
+  %240 = trunc i8 %239 to i1
+  br i1 %240, label %241, label %244
 
-240:                                              ; preds = %237
-  %241 = zext i32 %231 to i64
-  %242 = call i32 @cl_update_hash(ptr noundef nonnull %26, ptr noundef nonnull %230, i64 noundef %241) #12
-  br label %243
+241:                                              ; preds = %238
+  %242 = zext i32 %232 to i64
+  %243 = call i32 @cl_update_hash(ptr noundef nonnull %26, ptr noundef nonnull %231, i64 noundef %242) #12
+  br label %244
 
-243:                                              ; preds = %240, %237
-  %244 = load i8, ptr %191, align 1
-  %245 = trunc i8 %244 to i1
-  br i1 %245, label %246, label %249
+244:                                              ; preds = %241, %238
+  %245 = load i8, ptr %191, align 1
+  %246 = trunc i8 %245 to i1
+  br i1 %246, label %247, label %250
 
-246:                                              ; preds = %243
-  %247 = zext i32 %231 to i64
-  %248 = call i32 @cl_update_hash(ptr noundef nonnull %28, ptr noundef nonnull %230, i64 noundef %247) #12
-  br label %249
+247:                                              ; preds = %244
+  %248 = zext i32 %232 to i64
+  %249 = call i32 @cl_update_hash(ptr noundef nonnull %28, ptr noundef nonnull %231, i64 noundef %248) #12
+  br label %250
 
-249:                                              ; preds = %222, %225, %246, %243, %218
-  %.2232 = phi i32 [ %.0230511, %218 ], [ %.1231, %246 ], [ %.1231, %243 ], [ %.1231, %225 ], [ %.1231, %222 ]
-  %.5 = phi i32 [ %.4, %218 ], [ %221, %246 ], [ %221, %243 ], [ %221, %225 ], [ %221, %222 ]
-  %250 = icmp ult i32 %204, 131072
-  br i1 %250, label %._crit_edge, label %251
+250:                                              ; preds = %223, %226, %247, %244, %219
+  %.2232 = phi i32 [ %.0230511, %219 ], [ %.1231, %247 ], [ %.1231, %244 ], [ %.1231, %226 ], [ %.1231, %223 ]
+  %.5 = phi i32 [ %.4, %219 ], [ %222, %247 ], [ %222, %244 ], [ %222, %226 ], [ %222, %223 ]
+  br i1 %204, label %._crit_edge, label %251
 
-251:                                              ; preds = %249
+251:                                              ; preds = %250
   %reass.sub525 = sub i32 %.0253510, %.0255
   %252 = add i32 %reass.sub525, 131072
   %253 = zext i32 %252 to i64
@@ -2159,9 +2159,9 @@ cli_targetinfo.exit:                              ; preds = %cli_targetinfo.exit
   %257 = icmp ugt i64 %256, %253
   br i1 %257, label %192, label %._crit_edge
 
-._crit_edge:                                      ; preds = %251, %199, %249, %182
-  %.3233 = phi i32 [ 0, %182 ], [ %.2232, %249 ], [ %.0230511, %199 ], [ %.2232, %251 ]
-  %.6 = phi i32 [ 0, %182 ], [ %.5, %249 ], [ %.3512, %199 ], [ %.5, %251 ]
+._crit_edge:                                      ; preds = %251, %199, %250, %182
+  %.3233 = phi i32 [ 0, %182 ], [ %.2232, %250 ], [ %.0230511, %199 ], [ %.2232, %251 ]
+  %.6 = phi i32 [ 0, %182 ], [ %.5, %250 ], [ %.3512, %199 ], [ %.5, %251 ]
   br i1 %or.cond5.not, label %.loopexit, label %258
 
 258:                                              ; preds = %._crit_edge
@@ -2282,18 +2282,18 @@ cli_targetinfo.exit:                              ; preds = %cli_targetinfo.exit
   %315 = call i32 @cli_exp_eval(ptr noundef %0, ptr noundef nonnull %.0241, ptr noundef nonnull %9, ptr noundef nonnull %15, ptr noundef %6)
   br label %.loopexit498
 
-.loopexit498:                                     ; preds = %219, %219, %215, %215, %305, %299, %51, %312, %314, %119, %117, %107, %99, %95, %93, %85, %81, %195
-  %.1252 = phi i8 [ 0, %81 ], [ %.0244, %99 ], [ %.0244, %107 ], [ %.0244, %117 ], [ %.0244, %119 ], [ %.0244, %195 ], [ %.0244, %314 ], [ %.0244, %312 ], [ 0, %85 ], [ 1, %93 ], [ 1, %95 ], [ 0, %51 ], [ %.0244, %299 ], [ %.0244, %305 ], [ %.0244, %215 ], [ %.0244, %215 ], [ %.0244, %219 ], [ %.0244, %219 ]
-  %.1250 = phi i8 [ 0, %81 ], [ 0, %99 ], [ 1, %107 ], [ 1, %117 ], [ 1, %119 ], [ %.0242, %195 ], [ %.0242, %314 ], [ %.0242, %312 ], [ 0, %85 ], [ 0, %93 ], [ 0, %95 ], [ 0, %51 ], [ %.0242, %299 ], [ %.0242, %305 ], [ %.0242, %215 ], [ %.0242, %215 ], [ %.0242, %219 ], [ %.0242, %219 ]
-  %.2248 = phi i8 [ 0, %81 ], [ 0, %99 ], [ 0, %107 ], [ 0, %117 ], [ %.0246, %119 ], [ %.1247, %195 ], [ %.1247, %314 ], [ %.1247, %312 ], [ 0, %85 ], [ 0, %93 ], [ 0, %95 ], [ 0, %51 ], [ %.1247, %299 ], [ %.1247, %305 ], [ %.1247, %215 ], [ %.1247, %215 ], [ %.1247, %219 ], [ %.1247, %219 ]
-  %.1245 = phi i8 [ 0, %81 ], [ %.0244, %99 ], [ %.0244, %107 ], [ %.0244, %117 ], [ %.0244, %119 ], [ %.0244, %195 ], [ %.0244, %314 ], [ %.0244, %312 ], [ 0, %85 ], [ 0, %93 ], [ 0, %95 ], [ 0, %51 ], [ %.0244, %299 ], [ %.0244, %305 ], [ %.0244, %215 ], [ %.0244, %215 ], [ %.0244, %219 ], [ %.0244, %219 ]
-  %.1243 = phi i8 [ 0, %81 ], [ 0, %99 ], [ 0, %107 ], [ 0, %117 ], [ 0, %119 ], [ %.0242, %195 ], [ %.0242, %314 ], [ %.0242, %312 ], [ 0, %85 ], [ 0, %93 ], [ 0, %95 ], [ 0, %51 ], [ %.0242, %299 ], [ %.0242, %305 ], [ %.0242, %215 ], [ %.0242, %215 ], [ %.0242, %219 ], [ %.0242, %219 ]
-  %.0237 = phi i1 [ true, %81 ], [ true, %99 ], [ true, %107 ], [ true, %117 ], [ true, %119 ], [ true, %195 ], [ true, %314 ], [ true, %312 ], [ true, %85 ], [ true, %93 ], [ true, %95 ], [ false, %51 ], [ true, %299 ], [ true, %305 ], [ true, %215 ], [ true, %215 ], [ true, %219 ], [ true, %219 ]
-  %.4234 = phi i32 [ 0, %81 ], [ 0, %99 ], [ 0, %107 ], [ 0, %117 ], [ 0, %119 ], [ %.0230511, %195 ], [ %.3233, %314 ], [ %.3233, %312 ], [ 0, %85 ], [ 0, %93 ], [ 0, %95 ], [ 0, %51 ], [ %.3233, %299 ], [ %.3233, %305 ], [ %.0230511, %215 ], [ %.0230511, %215 ], [ %.0230511, %219 ], [ %.0230511, %219 ]
-  %.2229 = phi ptr [ %24, %81 ], [ %24, %99 ], [ %24, %107 ], [ %24, %117 ], [ %24, %119 ], [ %24, %195 ], [ %.1228, %314 ], [ %.1228, %312 ], [ %24, %85 ], [ %24, %93 ], [ %24, %95 ], [ %24, %51 ], [ %.0227, %299 ], [ %.0227, %305 ], [ %24, %215 ], [ %24, %215 ], [ %24, %219 ], [ %24, %219 ]
-  %.2226 = phi ptr [ %26, %81 ], [ %26, %99 ], [ %26, %107 ], [ %26, %117 ], [ %26, %119 ], [ %26, %195 ], [ %.1225, %314 ], [ %.1225, %312 ], [ %26, %85 ], [ %26, %93 ], [ %26, %95 ], [ %26, %51 ], [ %.0224, %299 ], [ %.0224, %305 ], [ %26, %215 ], [ %26, %215 ], [ %26, %219 ], [ %26, %219 ]
-  %.2223 = phi ptr [ %28, %81 ], [ %28, %99 ], [ %28, %107 ], [ %28, %117 ], [ %28, %119 ], [ %28, %195 ], [ %.1222, %314 ], [ %.1222, %312 ], [ %28, %85 ], [ %28, %93 ], [ %28, %95 ], [ %28, %51 ], [ %.0221, %299 ], [ %.0221, %305 ], [ %28, %215 ], [ %28, %215 ], [ %28, %219 ], [ %28, %219 ]
-  %.11 = phi i32 [ %82, %81 ], [ %106, %99 ], [ %108, %107 ], [ %118, %117 ], [ %120, %119 ], [ 21, %195 ], [ %315, %314 ], [ %.10, %312 ], [ %92, %85 ], [ %94, %93 ], [ %96, %95 ], [ 0, %51 ], [ %307, %305 ], [ %301, %299 ], [ %221, %219 ], [ %221, %219 ], [ %217, %215 ], [ %217, %215 ]
+.loopexit498:                                     ; preds = %220, %220, %216, %216, %305, %299, %51, %312, %314, %119, %117, %107, %99, %95, %93, %85, %81, %195
+  %.1252 = phi i8 [ 0, %81 ], [ %.0244, %99 ], [ %.0244, %107 ], [ %.0244, %117 ], [ %.0244, %119 ], [ %.0244, %195 ], [ %.0244, %314 ], [ %.0244, %312 ], [ 0, %85 ], [ 1, %93 ], [ 1, %95 ], [ 0, %51 ], [ %.0244, %299 ], [ %.0244, %305 ], [ %.0244, %216 ], [ %.0244, %216 ], [ %.0244, %220 ], [ %.0244, %220 ]
+  %.1250 = phi i8 [ 0, %81 ], [ 0, %99 ], [ 1, %107 ], [ 1, %117 ], [ 1, %119 ], [ %.0242, %195 ], [ %.0242, %314 ], [ %.0242, %312 ], [ 0, %85 ], [ 0, %93 ], [ 0, %95 ], [ 0, %51 ], [ %.0242, %299 ], [ %.0242, %305 ], [ %.0242, %216 ], [ %.0242, %216 ], [ %.0242, %220 ], [ %.0242, %220 ]
+  %.2248 = phi i8 [ 0, %81 ], [ 0, %99 ], [ 0, %107 ], [ 0, %117 ], [ %.0246, %119 ], [ %.1247, %195 ], [ %.1247, %314 ], [ %.1247, %312 ], [ 0, %85 ], [ 0, %93 ], [ 0, %95 ], [ 0, %51 ], [ %.1247, %299 ], [ %.1247, %305 ], [ %.1247, %216 ], [ %.1247, %216 ], [ %.1247, %220 ], [ %.1247, %220 ]
+  %.1245 = phi i8 [ 0, %81 ], [ %.0244, %99 ], [ %.0244, %107 ], [ %.0244, %117 ], [ %.0244, %119 ], [ %.0244, %195 ], [ %.0244, %314 ], [ %.0244, %312 ], [ 0, %85 ], [ 0, %93 ], [ 0, %95 ], [ 0, %51 ], [ %.0244, %299 ], [ %.0244, %305 ], [ %.0244, %216 ], [ %.0244, %216 ], [ %.0244, %220 ], [ %.0244, %220 ]
+  %.1243 = phi i8 [ 0, %81 ], [ 0, %99 ], [ 0, %107 ], [ 0, %117 ], [ 0, %119 ], [ %.0242, %195 ], [ %.0242, %314 ], [ %.0242, %312 ], [ 0, %85 ], [ 0, %93 ], [ 0, %95 ], [ 0, %51 ], [ %.0242, %299 ], [ %.0242, %305 ], [ %.0242, %216 ], [ %.0242, %216 ], [ %.0242, %220 ], [ %.0242, %220 ]
+  %.0237 = phi i1 [ true, %81 ], [ true, %99 ], [ true, %107 ], [ true, %117 ], [ true, %119 ], [ true, %195 ], [ true, %314 ], [ true, %312 ], [ true, %85 ], [ true, %93 ], [ true, %95 ], [ false, %51 ], [ true, %299 ], [ true, %305 ], [ true, %216 ], [ true, %216 ], [ true, %220 ], [ true, %220 ]
+  %.4234 = phi i32 [ 0, %81 ], [ 0, %99 ], [ 0, %107 ], [ 0, %117 ], [ 0, %119 ], [ %.0230511, %195 ], [ %.3233, %314 ], [ %.3233, %312 ], [ 0, %85 ], [ 0, %93 ], [ 0, %95 ], [ 0, %51 ], [ %.3233, %299 ], [ %.3233, %305 ], [ %.0230511, %216 ], [ %.0230511, %216 ], [ %.0230511, %220 ], [ %.0230511, %220 ]
+  %.2229 = phi ptr [ %24, %81 ], [ %24, %99 ], [ %24, %107 ], [ %24, %117 ], [ %24, %119 ], [ %24, %195 ], [ %.1228, %314 ], [ %.1228, %312 ], [ %24, %85 ], [ %24, %93 ], [ %24, %95 ], [ %24, %51 ], [ %.0227, %299 ], [ %.0227, %305 ], [ %24, %216 ], [ %24, %216 ], [ %24, %220 ], [ %24, %220 ]
+  %.2226 = phi ptr [ %26, %81 ], [ %26, %99 ], [ %26, %107 ], [ %26, %117 ], [ %26, %119 ], [ %26, %195 ], [ %.1225, %314 ], [ %.1225, %312 ], [ %26, %85 ], [ %26, %93 ], [ %26, %95 ], [ %26, %51 ], [ %.0224, %299 ], [ %.0224, %305 ], [ %26, %216 ], [ %26, %216 ], [ %26, %220 ], [ %26, %220 ]
+  %.2223 = phi ptr [ %28, %81 ], [ %28, %99 ], [ %28, %107 ], [ %28, %117 ], [ %28, %119 ], [ %28, %195 ], [ %.1222, %314 ], [ %.1222, %312 ], [ %28, %85 ], [ %28, %93 ], [ %28, %95 ], [ %28, %51 ], [ %.0221, %299 ], [ %.0221, %305 ], [ %28, %216 ], [ %28, %216 ], [ %28, %220 ], [ %28, %220 ]
+  %.11 = phi i32 [ %82, %81 ], [ %106, %99 ], [ %108, %107 ], [ %118, %117 ], [ %120, %119 ], [ 21, %195 ], [ %315, %314 ], [ %.10, %312 ], [ %92, %85 ], [ %94, %93 ], [ %96, %95 ], [ 0, %51 ], [ %307, %305 ], [ %301, %299 ], [ %222, %220 ], [ %222, %220 ], [ %218, %216 ], [ %218, %216 ]
   %.not326 = icmp eq ptr %.2229, null
   br i1 %.not326, label %316, label %.thread359
 

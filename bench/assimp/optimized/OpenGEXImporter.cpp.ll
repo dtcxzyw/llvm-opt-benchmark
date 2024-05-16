@@ -2276,10 +2276,9 @@ for.inc.i:                                        ; preds = %for.body.i
 
 invoke.cont16:                                    ; preds = %for.body.i
   %conv.i = trunc nuw nsw i64 %i.06.i to i32
-  %cmp18.not = icmp eq i32 %conv.i, -1
-  br i1 %cmp18.not, label %if.end58, label %if.then19
+  br label %if.then19
 
-if.then19:                                        ; preds = %invoke.cont, %invoke.cont16
+if.then19:                                        ; preds = %invoke.cont16, %invoke.cont
   %retval.0.i40 = phi i32 [ %conv.i, %invoke.cont16 ], [ 0, %invoke.cont ]
   %call21 = invoke noundef ptr @_ZNK10ODDLParser7DDLNode8getValueEv(ptr noundef nonnull align 8 dereferenceable(136) %node)
           to label %invoke.cont20 unwind label %lpad15.loopexit
@@ -2414,7 +2413,7 @@ lpad52:                                           ; preds = %if.else51
   call void @__cxa_free_exception(ptr %exception) #25
   br label %ehcleanup
 
-if.end58:                                         ; preds = %for.inc.i, %invoke.cont20, %invoke.cont32, %invoke.cont46, %invoke.cont27, %invoke.cont16
+if.end58:                                         ; preds = %for.inc.i, %invoke.cont20, %invoke.cont32, %invoke.cont46, %invoke.cont27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %valName) #25
   br label %if.end60
 

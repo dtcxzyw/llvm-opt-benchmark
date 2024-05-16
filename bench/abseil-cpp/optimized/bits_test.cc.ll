@@ -11678,7 +11678,7 @@ _ZN7testing15AssertionResultD2Ev.exit528:         ; preds = %if.end418, %_ZNKSt1
   %cast.i.i = trunc nuw nsw i64 %195 to i32
   store i32 %cast.i.i, ptr %ref.tmp421, align 4
   store i32 63, ptr %ref.tmp426, align 4
-  %cmp.i.i529 = icmp eq i32 %cast.i.i, 63
+  %cmp.i.i529 = icmp eq i64 %195, 63
   br i1 %cmp.i.i529, label %if.then.i.i531, label %if.end.i.i530
 
 if.then.i.i531:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit528

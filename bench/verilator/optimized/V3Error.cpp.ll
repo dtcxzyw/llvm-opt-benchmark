@@ -533,7 +533,7 @@ define dso_local void @_ZN11V3ErrorCodeC2EPKc(ptr nocapture noundef nonnull writ
 
 8:                                                ; preds = %3
   %9 = trunc i64 %indvars.iv to i8
-  %10 = icmp eq i8 %9, 64
+  %10 = icmp eq i64 %indvars.iv, 64
   %spec.store.select = select i1 %10, i8 22, i8 %9
   br label %.loopexit
 

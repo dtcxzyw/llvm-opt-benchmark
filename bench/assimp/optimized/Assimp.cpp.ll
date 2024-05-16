@@ -7542,7 +7542,7 @@ while.end.thread.i.i:                             ; preds = %if.end.i45.i
   br i1 %cmp854.i.i, label %_ZL30stbi__parse_uncompressed_blockP10stbi__zbuf.exit.thread.i, label %while.body14.lr.ph.i.i
 
 while.cond12.preheader.i.i:                       ; preds = %while.end.i.i
-  %cmp1339.i.i = icmp ult i32 %.pr.i.i, 25
+  %cmp1339.i.i = icmp ult i64 %indvars.iv.i.i, 3
   br i1 %cmp1339.i.i, label %while.body14.lr.ph.i.i, label %while.end19.i.i
 
 while.body14.lr.ph.i.i:                           ; preds = %while.cond12.preheader.i.i, %while.end.thread.i.i
@@ -12609,12 +12609,11 @@ if.end124:                                        ; preds = %if.end119
   br i1 %cmp128.not, label %for.cond132.preheader, label %if.then129
 
 for.cond132.preheader:                            ; preds = %if.end124
-  %cmp133925.not = icmp ult i16 %div126.lhs.trunc, 3
+  %cmp133925.not = icmp ult i32 %call1.i.i, 3
   br i1 %cmp133925.not, label %sw.epilog, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %for.cond132.preheader
-  %umax = tail call i32 @llvm.umax.i32(i32 %div126.zext, i32 1)
-  %wide.trip.count1301 = zext nneg i32 %umax to i64
+  %wide.trip.count1301 = zext nneg i16 %div126556 to i64
   %.pre1305 = load ptr, ptr %img_buffer.i.i, align 8
   %.pre1306 = load ptr, ptr %img_buffer_end.i.i, align 8
   br label %for.body
@@ -15538,7 +15537,7 @@ for.cond.i:                                       ; preds = %for.cond.i, %if.end
 
 for.end.i:                                        ; preds = %for.cond.i
   %9 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %cmp1.i = icmp ugt i32 %9, 15
+  %cmp1.i = icmp ugt i64 %indvars.iv.i, 15
   br i1 %cmp1.i, label %return, label %if.end3.i
 
 if.end3.i:                                        ; preds = %for.end.i

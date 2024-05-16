@@ -5305,8 +5305,7 @@ while.body:                                       ; preds = %land.rhs
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %arrayidx15 = getelementptr inbounds i8, ptr %call9, i64 %indvars.iv.next
   store i8 0, ptr %arrayidx15, align 1
-  %4 = and i64 %indvars.iv.next, 4294967295
-  %tobool11.not = icmp eq i64 %4, 0
+  %tobool11.not = icmp eq i64 %indvars.iv.next, 0
   br i1 %tobool11.not, label %return, label %land.rhs, !llvm.loop !21
 
 return:                                           ; preds = %land.rhs, %while.body, %if.end, %lor.lhs.false, %land.lhs.true, %if.then6

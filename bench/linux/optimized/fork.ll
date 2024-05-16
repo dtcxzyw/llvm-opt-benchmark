@@ -5606,8 +5606,8 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_clone3(i
 93:                                               ; preds = %87
   %94 = and i64 %45, 98304
   %95 = icmp eq i64 %94, 0
-  %96 = icmp eq i32 %59, 0
-  %97 = select i1 %95, i1 true, i1 %96
+  %96 = icmp eq i64 %42, 0
+  %97 = or i1 %95, %96
   br i1 %97, label %98, label %112
 
 98:                                               ; preds = %93

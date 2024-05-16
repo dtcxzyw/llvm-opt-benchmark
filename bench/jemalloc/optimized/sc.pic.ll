@@ -188,7 +188,7 @@ while.end110.i:                                   ; preds = %size_class.exit163.
 size_classes.exit:                                ; preds = %while.end110.i
   %12 = trunc i64 %index.3184.i to i32
   %13 = add i32 %12, 3
-  %cmp.i.i.i.i.i = icmp ne i32 %13, 0
+  %cmp.i.i.i.i.i = icmp ne i64 %indvars.iv.next194.i, 0
   tail call void @llvm.assume(i1 %cmp.i.i.i.i.i)
   %sext209.i = shl i64 %indvars.iv193.i, 32
   %14 = ashr exact i64 %sext209.i, 32

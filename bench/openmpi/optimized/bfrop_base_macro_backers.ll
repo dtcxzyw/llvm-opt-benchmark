@@ -4065,7 +4065,7 @@ pmix_strncpy.exit.i:                              ; preds = %20, %.lr.ph.i.i
   %24 = getelementptr inbounds i8, ptr %0, i64 %.0.i.i
   store i8 58, ptr %24, align 1
   %25 = getelementptr i8, ptr %24, i64 1
-  %26 = sub nsw i64 255, %.0.i.i
+  %26 = sub nuw nsw i64 255, %.0.i.i
   br label %.lr.ph.i19.i
 
 .lr.ph.i19.i:                                     ; preds = %29, %pmix_strncpy.exit.i

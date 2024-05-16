@@ -1975,15 +1975,17 @@ if.end33.i:                                       ; preds = %if.end27.i
   %sh_offset36.i = getelementptr %struct.elf64_shdr, ptr %call.i159, i64 %indvars.iv.i, i32 4
   %63 = load i64, ptr %sh_offset36.i, align 8
   %call37.i = call zeroext i1 @imgsrc_read(ptr noundef nonnull %call30.i, i64 noundef %63, i64 noundef %62, ptr noundef %src, ptr noundef null) #19
+  br i1 %call37.i, label %for.cond40.preheader.i, label %give_up.i
+
+for.cond40.preheader.i:                           ; preds = %if.end33.i
   %div.i = udiv i64 %62, 24
   %conv29.i = trunc nuw nsw i64 %div.i to i32
-  %cmp416.i = icmp ne i32 %conv29.i, 0
-  %or.cond17.i = select i1 %call37.i, i1 %cmp416.i, i1 false
-  br i1 %or.cond17.i, label %for.body43.i, label %give_up.i
+  %cmp416.not.i = icmp ult i64 %62, 24
+  br i1 %cmp416.not.i, label %for.end74.i, label %for.body43.i
 
-for.body43.i:                                     ; preds = %if.end33.i, %if.end73.i
-  %i.18.i = phi i32 [ %i.2.i, %if.end73.i ], [ 0, %if.end33.i ]
-  %nsyms.07.i = phi i32 [ %nsyms.1.i, %if.end73.i ], [ %conv29.i, %if.end33.i ]
+for.body43.i:                                     ; preds = %for.cond40.preheader.i, %if.end73.i
+  %i.18.i = phi i32 [ %i.2.i, %if.end73.i ], [ 0, %for.cond40.preheader.i ]
+  %nsyms.07.i = phi i32 [ %nsyms.1.i, %if.end73.i ], [ %conv29.i, %for.cond40.preheader.i ]
   %idx.ext.i = sext i32 %i.18.i to i64
   %add.ptr.i = getelementptr %struct.elf64_sym, ptr %call30.i, i64 %idx.ext.i
   %st_shndx.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 6
@@ -2024,12 +2026,13 @@ if.end73.i:                                       ; preds = %if.else.i164, %if.t
   %cmp41.i = icmp slt i32 %i.2.i, %nsyms.1.i
   br i1 %cmp41.i, label %for.body43.i, label %for.end74.i, !llvm.loop !15
 
-for.end74.i:                                      ; preds = %if.end73.i
-  %cmp75.i = icmp eq i32 %nsyms.1.i, 0
+for.end74.i:                                      ; preds = %if.end73.i, %for.cond40.preheader.i
+  %nsyms.0.lcssa.i = phi i32 [ %conv29.i, %for.cond40.preheader.i ], [ %nsyms.1.i, %if.end73.i ]
+  %cmp75.i = icmp eq i32 %nsyms.0.lcssa.i, 0
   br i1 %cmp75.i, label %give_up.i, label %if.end78.i
 
 if.end78.i:                                       ; preds = %for.end74.i
-  %conv79.i = sext i32 %nsyms.1.i to i64
+  %conv79.i = sext i32 %nsyms.0.lcssa.i to i64
   %call80.i = call ptr @g_try_realloc_n(ptr noundef nonnull %call30.i, i64 noundef %conv79.i, i64 noundef 24) #19
   %cmp81.i = icmp eq ptr %call80.i, null
   br i1 %cmp81.i, label %give_up.i, label %if.end84.i
@@ -2040,7 +2043,7 @@ if.end84.i:                                       ; preds = %if.end78.i
   %disas_strtab.i = getelementptr inbounds i8, ptr %call86.i, i64 24
   store ptr %call13.i, ptr %disas_strtab.i, align 8
   %disas_num_syms.i = getelementptr inbounds i8, ptr %call86.i, i64 8
-  store i32 %nsyms.1.i, ptr %disas_num_syms.i, align 8
+  store i32 %nsyms.0.lcssa.i, ptr %disas_num_syms.i, align 8
   %disas_symtab.i = getelementptr inbounds i8, ptr %call86.i, i64 16
   store ptr %call80.i, ptr %disas_symtab.i, align 8
   store ptr @lookup_symbolxx, ptr %call86.i, align 8

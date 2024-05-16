@@ -713,7 +713,7 @@ loadInt.exit.i101:                                ; preds = %if.end.i.i.i95
   store ptr %call1.i104, ptr %k.i, align 8
   %sizek.i = getelementptr inbounds i8, ptr %f, i64 20
   store i32 %conv.i.i102, ptr %sizek.i, align 4
-  %cmp37.not.i = icmp eq i32 %conv.i.i102, 0
+  %cmp37.not.i = icmp eq i64 %or.i.i.i99, 0
   br i1 %cmp37.not.i, label %do.body.i.i.i114.preheader, label %for.body.i
 
 for.body.i:                                       ; preds = %loadInt.exit.i101, %for.body.i
@@ -887,7 +887,7 @@ loadInt.exit.i132:                                ; preds = %if.end.i.i.i126
   store ptr %call1.i135, ptr %upvalues.i, align 8
   %sizeupvalues.i = getelementptr inbounds i8, ptr %f, i64 16
   store i32 %conv.i.i133, ptr %sizeupvalues.i, align 8
-  %cmp49.not.i = icmp eq i32 %conv.i.i133, 0
+  %cmp49.not.i = icmp eq i64 %or.i.i.i130, 0
   br i1 %cmp49.not.i, label %do.body.i.i205.preheader, label %for.body.i136
 
 for.body.i136:                                    ; preds = %loadInt.exit.i132, %for.body.i136
@@ -1059,7 +1059,7 @@ loadInt.exit228:                                  ; preds = %if.end.i.i217
   store ptr %call1.i162, ptr %p.i163, align 8
   %sizep.i = getelementptr inbounds i8, ptr %f, i64 32
   store i32 %conv.i223, ptr %sizep.i, align 8
-  %cmp.i229.not = icmp eq i32 %conv.i223, 0
+  %cmp.i229.not = icmp eq i64 %or.i.i221, 0
   br i1 %cmp.i229.not, label %do.body.i.i.i169.preheader, label %for.body.i166
 
 for.cond4.i.preheader:                            ; preds = %for.body.i166
@@ -1237,7 +1237,7 @@ loadInt.exit79.i:                                 ; preds = %if.end.i.i68.i
   store ptr %call9.i193, ptr %abslineinfo.i, align 8
   %sizeabslineinfo.i = getelementptr inbounds i8, ptr %f, i64 40
   store i32 %conv.i74.i, ptr %sizeabslineinfo.i, align 8
-  %cmp230.not.i = icmp eq i32 %conv.i74.i, 0
+  %cmp230.not.i = icmp eq i64 %or.i.i72.i, 0
   br i1 %cmp230.not.i, label %do.body.i.i131.i.preheader, label %do.body.i.i81.preheader.i
 
 do.body.i.i81.preheader.i:                        ; preds = %loadInt.exit79.i, %loadInt.exit129.i
@@ -1410,7 +1410,7 @@ loadInt.exit154.i:                                ; preds = %if.end.i.i143.i
   store ptr %call21.i, ptr %locvars.i, align 8
   %sizelocvars.i = getelementptr inbounds i8, ptr %f, i64 36
   store i32 %conv.i149.i, ptr %sizelocvars.i, align 4
-  %cmp23232.not.i = icmp eq i32 %conv.i149.i, 0
+  %cmp23232.not.i = icmp eq i64 %or.i.i147.i, 0
   br i1 %cmp23232.not.i, label %do.body.i.i206.i.preheader, label %for.body25.i
 
 for.body25.i:                                     ; preds = %loadInt.exit154.i, %for.body25.i

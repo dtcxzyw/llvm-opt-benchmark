@@ -968,7 +968,7 @@ hwloc_get_type_or_above_depth.exit:               ; preds = %163, %169
 
 .preheader1014:                                   ; preds = %.lr.ph1173
   %436 = trunc nuw nsw i64 %indvars.iv.next1389 to i32
-  %437 = icmp ult i32 %436, 101
+  %437 = icmp ult i64 %indvars.iv1388, 100
   br i1 %437, label %.lr.ph1176.preheader, label %._crit_edge1177
 
 .lr.ph1176.preheader:                             ; preds = %434, %.preheader1014
@@ -976,8 +976,8 @@ hwloc_get_type_or_above_depth.exit:               ; preds = %163, %169
   %438 = shl nuw nsw i32 %.14.lcssa1475, 2
   %439 = zext nneg i32 %438 to i64
   %scevgep = getelementptr i8, ptr %.0796, i64 %439
-  %440 = shl nuw nsw i32 %.14.lcssa1475, 2
-  %441 = sub nsw i32 400, %440
+  %440 = shl i32 %.14.lcssa1475, 2
+  %441 = sub i32 400, %440
   %442 = zext i32 %441 to i64
   %443 = add nuw nsw i64 %442, 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep, i8 0, i64 %443, i1 false)

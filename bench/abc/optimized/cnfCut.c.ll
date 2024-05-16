@@ -82,7 +82,7 @@ define noundef ptr @Cnf_CutCreate(ptr nocapture noundef readonly %0, ptr nocaptu
   %4 = load i64, ptr %3, align 8
   %5 = lshr i64 %4, 56
   %6 = trunc nuw nsw i64 %5 to i32
-  %.not.i = icmp eq i32 %6, 0
+  %.not.i = icmp ult i64 %4, 72057594037927936
   br i1 %.not.i, label %Dar_ObjBestCut.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %2

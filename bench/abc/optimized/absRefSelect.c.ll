@@ -23,8 +23,8 @@ define void @Rnm_ManPrintSelected(ptr nocapture noundef readonly %0, ptr nocaptu
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 4
-  %.val25 = load i32, ptr %5, align 4
-  %6 = icmp sgt i32 %.val25, 0
+  %.val24 = load i32, ptr %5, align 4
+  %6 = icmp sgt i32 %.val24, 0
   br i1 %6, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %2
@@ -32,10 +32,10 @@ define void @Rnm_ManPrintSelected(ptr nocapture noundef readonly %0, ptr nocaptu
   %8 = getelementptr inbounds i8, ptr %1, i64 8
   br label %9
 
-9:                                                ; preds = %.lr.ph, %40
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %40 ]
-  %10 = phi ptr [ %4, %.lr.ph ], [ %41, %40 ]
-  %.027 = phi i32 [ 0, %.lr.ph ], [ %.1, %40 ]
+9:                                                ; preds = %.lr.ph, %37
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
+  %10 = phi ptr [ %4, %.lr.ph ], [ %38, %37 ]
+  %.026 = phi i32 [ 0, %.lr.ph ], [ %.1, %37 ]
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr i8, ptr %10, i64 8
   %.val17 = load ptr, ptr %12, align 8
@@ -70,7 +70,7 @@ Gia_ObjIsPi.exit:                                 ; preds = %16
 
 27:                                               ; preds = %Gia_ObjIsPi.exit
   %putchar16 = tail call i32 @putchar(i32 45)
-  br label %40
+  br label %37
 
 Gia_ObjIsPi.exit.thread:                          ; preds = %16, %Gia_ObjIsPi.exit
   %28 = load i32, ptr %7, align 4
@@ -95,32 +95,27 @@ Gia_ObjIsPi.exit.thread:                          ; preds = %16, %Gia_ObjIsPi.ex
   br i1 %exitcond.not.i, label %Vec_IntFind.exit.thread, label %31, !llvm.loop !4
 
 Vec_IntFind.exit:                                 ; preds = %31
-  %36 = and i64 %indvars.iv.i, 2147483648
-  %37 = icmp eq i64 %36, 0
-  br i1 %37, label %38, label %Vec_IntFind.exit.thread
-
-38:                                               ; preds = %Vec_IntFind.exit
   %putchar15 = tail call i32 @putchar(i32 49)
-  %39 = add nsw i32 %.027, 1
-  br label %40
+  %36 = add nsw i32 %.026, 1
+  br label %37
 
-Vec_IntFind.exit.thread:                          ; preds = %35, %Gia_ObjIsPi.exit.thread, %Vec_IntFind.exit
+Vec_IntFind.exit.thread:                          ; preds = %35, %Gia_ObjIsPi.exit.thread
   %putchar = tail call i32 @putchar(i32 48)
-  br label %40
+  br label %37
 
-40:                                               ; preds = %27, %Vec_IntFind.exit.thread, %38
-  %.1 = phi i32 [ %.027, %27 ], [ %39, %38 ], [ %.027, %Vec_IntFind.exit.thread ]
+37:                                               ; preds = %27, %Vec_IntFind.exit.thread, %Vec_IntFind.exit
+  %.1 = phi i32 [ %.026, %27 ], [ %36, %Vec_IntFind.exit ], [ %.026, %Vec_IntFind.exit.thread ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %41 = load ptr, ptr %3, align 8
-  %42 = getelementptr i8, ptr %41, i64 4
-  %.val = load i32, ptr %42, align 4
-  %43 = sext i32 %.val to i64
-  %44 = icmp slt i64 %indvars.iv.next, %43
-  br i1 %44, label %9, label %.critedge, !llvm.loop !6
+  %38 = load ptr, ptr %3, align 8
+  %39 = getelementptr i8, ptr %38, i64 4
+  %.val = load i32, ptr %39, align 4
+  %40 = sext i32 %.val to i64
+  %41 = icmp slt i64 %indvars.iv.next, %40
+  br i1 %41, label %9, label %.critedge, !llvm.loop !6
 
-.critedge:                                        ; preds = %9, %40, %2
-  %.0.lcssa = phi i32 [ 0, %2 ], [ %.1, %40 ], [ %.027, %9 ]
-  %45 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %.0.lcssa)
+.critedge:                                        ; preds = %9, %37, %2
+  %.0.lcssa = phi i32 [ 0, %2 ], [ %.1, %37 ], [ %.026, %9 ]
+  %42 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %.0.lcssa)
   ret void
 }
 

@@ -68,37 +68,37 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 16:                                               ; preds = %.backedge, %2
   %.0.i = phi i32 [ 0, %2 ], [ %.0.i.be, %.backedge ]
   %17 = tail call i32 @getopt(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.9) #9
-  switch i32 %17, label %423 [
-    i32 -1, label %429
+  switch i32 %17, label %422 [
+    i32 -1, label %428
     i32 99, label %18
     i32 67, label %39
     i32 77, label %48
     i32 100, label %57
     i32 71, label %58
     i32 103, label %59
-    i32 104, label %103
-    i32 107, label %124
-    i32 98, label %145
-    i32 66, label %154
-    i32 109, label %163
-    i32 114, label %184
-    i32 82, label %193
-    i32 110, label %214
-    i32 78, label %216
-    i32 111, label %218
-    i32 112, label %226
-    i32 83, label %247
-    i32 115, label %267
-    i32 116, label %288
-    i32 84, label %297
-    i32 105, label %371
+    i32 104, label %102
+    i32 107, label %123
+    i32 98, label %144
+    i32 66, label %153
+    i32 109, label %162
+    i32 114, label %183
+    i32 82, label %192
+    i32 110, label %213
+    i32 78, label %215
+    i32 111, label %217
+    i32 112, label %225
+    i32 83, label %246
+    i32 115, label %266
+    i32 116, label %287
+    i32 84, label %296
+    i32 105, label %370
     i32 118, label %.backedge
-    i32 119, label %392
-    i32 63, label %413
+    i32 119, label %391
+    i32 63, label %412
   ]
 
-.backedge:                                        ; preds = %16, %420, %setOne.exit149.i, %readOne.exit.i, %setTwoTwoOpt.exit.i, %setTwoTwoOpt.exit.thread20.i, %288, %setOne.exit127.i, %256, %setOne.exit117.i, %openFile.exit.i, %216, %214, %setOne.exit111.i, %184, %setOne.exit103.i, %154, %145, %setOne.exit93.i, %setOne.exit87.i, %setTwo.exit.i, %57, %48, %39, %setOne.exit.i
-  %.0.i.be = phi i32 [ %.0.i, %420 ], [ 16, %setOne.exit149.i ], [ %.0.i, %readOne.exit.i ], [ 7, %setTwoTwoOpt.exit.i ], [ 6, %288 ], [ 15, %setOne.exit127.i ], [ 13, %256 ], [ 5, %setOne.exit117.i ], [ %.0.i, %openFile.exit.i ], [ %.0.i, %216 ], [ %.0.i, %214 ], [ 11, %setOne.exit111.i ], [ 10, %184 ], [ 17, %setOne.exit103.i ], [ 12, %154 ], [ 4, %145 ], [ 3, %setOne.exit93.i ], [ 14, %setOne.exit87.i ], [ 1, %setTwo.exit.i ], [ %.0.i, %57 ], [ 9, %48 ], [ 8, %39 ], [ 2, %setOne.exit.i ], [ 7, %setTwoTwoOpt.exit.thread20.i ], [ %.0.i, %16 ]
+.backedge:                                        ; preds = %16, %419, %setOne.exit149.i, %readOne.exit.i, %setTwoTwoOpt.exit.i, %setTwoTwoOpt.exit.thread20.i, %287, %setOne.exit127.i, %255, %setOne.exit117.i, %openFile.exit.i, %215, %213, %setOne.exit111.i, %183, %setOne.exit103.i, %153, %144, %setOne.exit93.i, %setOne.exit87.i, %setTwo.exit.i, %57, %48, %39, %setOne.exit.i
+  %.0.i.be = phi i32 [ %.0.i, %419 ], [ 16, %setOne.exit149.i ], [ %.0.i, %readOne.exit.i ], [ 7, %setTwoTwoOpt.exit.i ], [ 6, %287 ], [ 15, %setOne.exit127.i ], [ 13, %255 ], [ 5, %setOne.exit117.i ], [ %.0.i, %openFile.exit.i ], [ %.0.i, %215 ], [ %.0.i, %213 ], [ 11, %setOne.exit111.i ], [ 10, %183 ], [ 17, %setOne.exit103.i ], [ 12, %153 ], [ 4, %144 ], [ 3, %setOne.exit93.i ], [ 14, %setOne.exit87.i ], [ 1, %setTwo.exit.i ], [ %.0.i, %57 ], [ 9, %48 ], [ 8, %39 ], [ 2, %setOne.exit.i ], [ 7, %setTwoTwoOpt.exit.thread20.i ], [ %.0.i, %16 ]
   br label %16
 
 18:                                               ; preds = %16
@@ -251,862 +251,862 @@ readPos.exit.i.i:                                 ; preds = %72
   br label %.loopexit.i
 
 readPos.exit16.i.i:                               ; preds = %91
-  %96 = trunc nuw nsw i64 %84 to i32
-  %97 = icmp ugt i32 %96, 1
-  br i1 %97, label %setTwo.exit.i, label %.loopexit.i
+  %.not3.i.i = icmp eq i64 %84, 1
+  br i1 %.not3.i.i, label %.loopexit.i, label %setTwo.exit.i
 
 setTwo.exit.i:                                    ; preds = %readPos.exit16.i.i
+  %96 = trunc nuw nsw i64 %84 to i32
   store i32 %96, ptr @opts.1, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   br label %.backedge
 
 .loopexit.i:                                      ; preds = %readPos.exit16.i.i, %93, %88, %79, %74, %69
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
-  %98 = load ptr, ptr @stderr, align 8
-  %99 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %98, ptr noundef nonnull @.str.10, i32 noundef %17) #10
-  %100 = load ptr, ptr @stderr, align 8
-  %101 = load ptr, ptr @cmd, align 8
-  %102 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %100, ptr noundef nonnull @.str.18, ptr noundef %101) #10
+  %97 = load ptr, ptr @stderr, align 8
+  %98 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %97, ptr noundef nonnull @.str.10, i32 noundef %17) #10
+  %99 = load ptr, ptr @stderr, align 8
+  %100 = load ptr, ptr @cmd, align 8
+  %101 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %99, ptr noundef nonnull @.str.18, ptr noundef %100) #10
   tail call fastcc void @graphviz_exit(i32 noundef 1) #11
   unreachable
 
-103:                                              ; preds = %16
-  %104 = load ptr, ptr @optarg, align 8
+102:                                              ; preds = %16
+  %103 = load ptr, ptr @optarg, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
-  %105 = call i64 @strtol(ptr noundef %104, ptr noundef nonnull %12, i32 noundef 10) #9
-  %106 = load ptr, ptr %12, align 8
-  %107 = icmp eq ptr %106, %104
-  %108 = icmp sgt i64 %105, 2147483647
-  %or.cond.i.i.i84.i = select i1 %107, i1 true, i1 %108
-  br i1 %or.cond.i.i.i84.i, label %109, label %112
+  %104 = call i64 @strtol(ptr noundef %103, ptr noundef nonnull %12, i32 noundef 10) #9
+  %105 = load ptr, ptr %12, align 8
+  %106 = icmp eq ptr %105, %103
+  %107 = icmp sgt i64 %104, 2147483647
+  %or.cond.i.i.i84.i = select i1 %106, i1 true, i1 %107
+  br i1 %or.cond.i.i.i84.i, label %108, label %111
 
-109:                                              ; preds = %103
-  %110 = load ptr, ptr @stderr, align 8
-  %111 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %110, ptr noundef nonnull @.str.12, ptr noundef %104) #10
-  br label %118
+108:                                              ; preds = %102
+  %109 = load ptr, ptr @stderr, align 8
+  %110 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %109, ptr noundef nonnull @.str.12, ptr noundef %103) #10
+  br label %117
 
-112:                                              ; preds = %103
-  %113 = icmp slt i64 %105, 1
-  br i1 %113, label %114, label %setOne.exit87.i
+111:                                              ; preds = %102
+  %112 = icmp slt i64 %104, 1
+  br i1 %112, label %113, label %setOne.exit87.i
 
-114:                                              ; preds = %112
-  %115 = load ptr, ptr @stderr, align 8
-  %116 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %115, ptr noundef nonnull @.str.13, ptr noundef %104, i32 noundef 1) #10
-  br label %118
+113:                                              ; preds = %111
+  %114 = load ptr, ptr @stderr, align 8
+  %115 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %114, ptr noundef nonnull @.str.13, ptr noundef %103, i32 noundef 1) #10
+  br label %117
 
-setOne.exit87.i:                                  ; preds = %112
-  %117 = trunc nuw nsw i64 %105 to i32
-  store i32 %117, ptr @opts.0, align 8
+setOne.exit87.i:                                  ; preds = %111
+  %116 = trunc nuw nsw i64 %104 to i32
+  store i32 %116, ptr @opts.0, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   br label %.backedge
 
-118:                                              ; preds = %114, %109
+117:                                              ; preds = %113, %108
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  %119 = load ptr, ptr @stderr, align 8
-  %120 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %119, ptr noundef nonnull @.str.10, i32 noundef 104) #10
-  %121 = load ptr, ptr @stderr, align 8
-  %122 = load ptr, ptr @cmd, align 8
-  %123 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %121, ptr noundef nonnull @.str.18, ptr noundef %122) #10
+  %118 = load ptr, ptr @stderr, align 8
+  %119 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %118, ptr noundef nonnull @.str.10, i32 noundef 104) #10
+  %120 = load ptr, ptr @stderr, align 8
+  %121 = load ptr, ptr @cmd, align 8
+  %122 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %120, ptr noundef nonnull @.str.18, ptr noundef %121) #10
   tail call fastcc void @graphviz_exit(i32 noundef 1) #11
   unreachable
 
-124:                                              ; preds = %16
-  %125 = load ptr, ptr @optarg, align 8
+123:                                              ; preds = %16
+  %124 = load ptr, ptr @optarg, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  %126 = call i64 @strtol(ptr noundef %125, ptr noundef nonnull %11, i32 noundef 10) #9
-  %127 = load ptr, ptr %11, align 8
-  %128 = icmp eq ptr %127, %125
-  %129 = icmp sgt i64 %126, 2147483647
-  %or.cond.i.i.i90.i = select i1 %128, i1 true, i1 %129
-  br i1 %or.cond.i.i.i90.i, label %130, label %133
+  %125 = call i64 @strtol(ptr noundef %124, ptr noundef nonnull %11, i32 noundef 10) #9
+  %126 = load ptr, ptr %11, align 8
+  %127 = icmp eq ptr %126, %124
+  %128 = icmp sgt i64 %125, 2147483647
+  %or.cond.i.i.i90.i = select i1 %127, i1 true, i1 %128
+  br i1 %or.cond.i.i.i90.i, label %129, label %132
 
-130:                                              ; preds = %124
-  %131 = load ptr, ptr @stderr, align 8
-  %132 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %131, ptr noundef nonnull @.str.12, ptr noundef %125) #10
-  br label %139
+129:                                              ; preds = %123
+  %130 = load ptr, ptr @stderr, align 8
+  %131 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %130, ptr noundef nonnull @.str.12, ptr noundef %124) #10
+  br label %138
 
-133:                                              ; preds = %124
-  %134 = icmp slt i64 %126, 1
-  br i1 %134, label %135, label %setOne.exit93.i
+132:                                              ; preds = %123
+  %133 = icmp slt i64 %125, 1
+  br i1 %133, label %134, label %setOne.exit93.i
 
-135:                                              ; preds = %133
-  %136 = load ptr, ptr @stderr, align 8
-  %137 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %136, ptr noundef nonnull @.str.13, ptr noundef %125, i32 noundef 1) #10
-  br label %139
+134:                                              ; preds = %132
+  %135 = load ptr, ptr @stderr, align 8
+  %136 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %135, ptr noundef nonnull @.str.13, ptr noundef %124, i32 noundef 1) #10
+  br label %138
 
-setOne.exit93.i:                                  ; preds = %133
-  %138 = trunc nuw nsw i64 %126 to i32
-  store i32 %138, ptr @opts.0, align 8
+setOne.exit93.i:                                  ; preds = %132
+  %137 = trunc nuw nsw i64 %125 to i32
+  store i32 %137, ptr @opts.0, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   br label %.backedge
 
-139:                                              ; preds = %135, %130
+138:                                              ; preds = %134, %129
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  %140 = load ptr, ptr @stderr, align 8
-  %141 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %140, ptr noundef nonnull @.str.10, i32 noundef 107) #10
-  %142 = load ptr, ptr @stderr, align 8
-  %143 = load ptr, ptr @cmd, align 8
-  %144 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %142, ptr noundef nonnull @.str.18, ptr noundef %143) #10
+  %139 = load ptr, ptr @stderr, align 8
+  %140 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %139, ptr noundef nonnull @.str.10, i32 noundef 107) #10
+  %141 = load ptr, ptr @stderr, align 8
+  %142 = load ptr, ptr @cmd, align 8
+  %143 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %141, ptr noundef nonnull @.str.18, ptr noundef %142) #10
   tail call fastcc void @graphviz_exit(i32 noundef 1) #11
   unreachable
 
-145:                                              ; preds = %16
-  %146 = load ptr, ptr @optarg, align 8
-  %147 = tail call fastcc i32 @setTwo(ptr noundef %146)
-  %.not70.i = icmp eq i32 %147, 0
-  br i1 %.not70.i, label %.backedge, label %148
+144:                                              ; preds = %16
+  %145 = load ptr, ptr @optarg, align 8
+  %146 = tail call fastcc i32 @setTwo(ptr noundef %145)
+  %.not70.i = icmp eq i32 %146, 0
+  br i1 %.not70.i, label %.backedge, label %147
 
-148:                                              ; preds = %145
-  %149 = load ptr, ptr @stderr, align 8
-  %150 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %149, ptr noundef nonnull @.str.10, i32 noundef 98) #10
-  %151 = load ptr, ptr @stderr, align 8
-  %152 = load ptr, ptr @cmd, align 8
-  %153 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %151, ptr noundef nonnull @.str.18, ptr noundef %152) #10
+147:                                              ; preds = %144
+  %148 = load ptr, ptr @stderr, align 8
+  %149 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %148, ptr noundef nonnull @.str.10, i32 noundef 98) #10
+  %150 = load ptr, ptr @stderr, align 8
+  %151 = load ptr, ptr @cmd, align 8
+  %152 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %150, ptr noundef nonnull @.str.18, ptr noundef %151) #10
   tail call fastcc void @graphviz_exit(i32 noundef 1) #11
   unreachable
 
-154:                                              ; preds = %16
-  %155 = load ptr, ptr @optarg, align 8
-  %156 = tail call fastcc i32 @setTwo(ptr noundef %155)
-  %.not69.i = icmp eq i32 %156, 0
-  br i1 %.not69.i, label %.backedge, label %157
+153:                                              ; preds = %16
+  %154 = load ptr, ptr @optarg, align 8
+  %155 = tail call fastcc i32 @setTwo(ptr noundef %154)
+  %.not69.i = icmp eq i32 %155, 0
+  br i1 %.not69.i, label %.backedge, label %156
 
-157:                                              ; preds = %154
-  %158 = load ptr, ptr @stderr, align 8
-  %159 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %158, ptr noundef nonnull @.str.10, i32 noundef 66) #10
-  %160 = load ptr, ptr @stderr, align 8
-  %161 = load ptr, ptr @cmd, align 8
-  %162 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %160, ptr noundef nonnull @.str.18, ptr noundef %161) #10
+156:                                              ; preds = %153
+  %157 = load ptr, ptr @stderr, align 8
+  %158 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %157, ptr noundef nonnull @.str.10, i32 noundef 66) #10
+  %159 = load ptr, ptr @stderr, align 8
+  %160 = load ptr, ptr @cmd, align 8
+  %161 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %159, ptr noundef nonnull @.str.18, ptr noundef %160) #10
   tail call fastcc void @graphviz_exit(i32 noundef 1) #11
   unreachable
 
-163:                                              ; preds = %16
-  %164 = load ptr, ptr @optarg, align 8
+162:                                              ; preds = %16
+  %163 = load ptr, ptr @optarg, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  %165 = call i64 @strtol(ptr noundef %164, ptr noundef nonnull %10, i32 noundef 10) #9
-  %166 = load ptr, ptr %10, align 8
-  %167 = icmp eq ptr %166, %164
-  %168 = icmp sgt i64 %165, 2147483647
-  %or.cond.i.i.i100.i = select i1 %167, i1 true, i1 %168
-  br i1 %or.cond.i.i.i100.i, label %169, label %172
+  %164 = call i64 @strtol(ptr noundef %163, ptr noundef nonnull %10, i32 noundef 10) #9
+  %165 = load ptr, ptr %10, align 8
+  %166 = icmp eq ptr %165, %163
+  %167 = icmp sgt i64 %164, 2147483647
+  %or.cond.i.i.i100.i = select i1 %166, i1 true, i1 %167
+  br i1 %or.cond.i.i.i100.i, label %168, label %171
 
-169:                                              ; preds = %163
-  %170 = load ptr, ptr @stderr, align 8
-  %171 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %170, ptr noundef nonnull @.str.12, ptr noundef %164) #10
-  br label %178
+168:                                              ; preds = %162
+  %169 = load ptr, ptr @stderr, align 8
+  %170 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %169, ptr noundef nonnull @.str.12, ptr noundef %163) #10
+  br label %177
 
-172:                                              ; preds = %163
-  %173 = icmp slt i64 %165, 1
-  br i1 %173, label %174, label %setOne.exit103.i
+171:                                              ; preds = %162
+  %172 = icmp slt i64 %164, 1
+  br i1 %172, label %173, label %setOne.exit103.i
 
-174:                                              ; preds = %172
-  %175 = load ptr, ptr @stderr, align 8
-  %176 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %175, ptr noundef nonnull @.str.13, ptr noundef %164, i32 noundef 1) #10
-  br label %178
+173:                                              ; preds = %171
+  %174 = load ptr, ptr @stderr, align 8
+  %175 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %174, ptr noundef nonnull @.str.13, ptr noundef %163, i32 noundef 1) #10
+  br label %177
 
-setOne.exit103.i:                                 ; preds = %172
-  %177 = trunc nuw nsw i64 %165 to i32
-  store i32 %177, ptr @opts.0, align 8
+setOne.exit103.i:                                 ; preds = %171
+  %176 = trunc nuw nsw i64 %164 to i32
+  store i32 %176, ptr @opts.0, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   br label %.backedge
 
-178:                                              ; preds = %174, %169
+177:                                              ; preds = %173, %168
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  %179 = load ptr, ptr @stderr, align 8
-  %180 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %179, ptr noundef nonnull @.str.10, i32 noundef 109) #10
-  %181 = load ptr, ptr @stderr, align 8
-  %182 = load ptr, ptr @cmd, align 8
-  %183 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %181, ptr noundef nonnull @.str.18, ptr noundef %182) #10
+  %178 = load ptr, ptr @stderr, align 8
+  %179 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %178, ptr noundef nonnull @.str.10, i32 noundef 109) #10
+  %180 = load ptr, ptr @stderr, align 8
+  %181 = load ptr, ptr @cmd, align 8
+  %182 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %180, ptr noundef nonnull @.str.18, ptr noundef %181) #10
   tail call fastcc void @graphviz_exit(i32 noundef 1) #11
   unreachable
 
-184:                                              ; preds = %16
-  %185 = load ptr, ptr @optarg, align 8
-  %186 = tail call fastcc i32 @setTwo(ptr noundef %185)
-  %.not67.i = icmp eq i32 %186, 0
-  br i1 %.not67.i, label %.backedge, label %187
+183:                                              ; preds = %16
+  %184 = load ptr, ptr @optarg, align 8
+  %185 = tail call fastcc i32 @setTwo(ptr noundef %184)
+  %.not67.i = icmp eq i32 %185, 0
+  br i1 %.not67.i, label %.backedge, label %186
 
-187:                                              ; preds = %184
-  %188 = load ptr, ptr @stderr, align 8
-  %189 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %188, ptr noundef nonnull @.str.10, i32 noundef 114) #10
-  %190 = load ptr, ptr @stderr, align 8
-  %191 = load ptr, ptr @cmd, align 8
-  %192 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %190, ptr noundef nonnull @.str.18, ptr noundef %191) #10
+186:                                              ; preds = %183
+  %187 = load ptr, ptr @stderr, align 8
+  %188 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %187, ptr noundef nonnull @.str.10, i32 noundef 114) #10
+  %189 = load ptr, ptr @stderr, align 8
+  %190 = load ptr, ptr @cmd, align 8
+  %191 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %189, ptr noundef nonnull @.str.18, ptr noundef %190) #10
   tail call fastcc void @graphviz_exit(i32 noundef 1) #11
   unreachable
 
-193:                                              ; preds = %16
-  %194 = load ptr, ptr @optarg, align 8
+192:                                              ; preds = %16
+  %193 = load ptr, ptr @optarg, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  %195 = call i64 @strtol(ptr noundef %194, ptr noundef nonnull %9, i32 noundef 10) #9
-  %196 = load ptr, ptr %9, align 8
-  %197 = icmp eq ptr %196, %194
-  %198 = icmp sgt i64 %195, 2147483647
-  %or.cond.i.i.i108.i = select i1 %197, i1 true, i1 %198
-  br i1 %or.cond.i.i.i108.i, label %199, label %202
+  %194 = call i64 @strtol(ptr noundef %193, ptr noundef nonnull %9, i32 noundef 10) #9
+  %195 = load ptr, ptr %9, align 8
+  %196 = icmp eq ptr %195, %193
+  %197 = icmp sgt i64 %194, 2147483647
+  %or.cond.i.i.i108.i = select i1 %196, i1 true, i1 %197
+  br i1 %or.cond.i.i.i108.i, label %198, label %201
 
-199:                                              ; preds = %193
-  %200 = load ptr, ptr @stderr, align 8
-  %201 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %200, ptr noundef nonnull @.str.12, ptr noundef %194) #10
-  br label %208
+198:                                              ; preds = %192
+  %199 = load ptr, ptr @stderr, align 8
+  %200 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %199, ptr noundef nonnull @.str.12, ptr noundef %193) #10
+  br label %207
 
-202:                                              ; preds = %193
-  %203 = icmp slt i64 %195, 1
-  br i1 %203, label %204, label %setOne.exit111.i
+201:                                              ; preds = %192
+  %202 = icmp slt i64 %194, 1
+  br i1 %202, label %203, label %setOne.exit111.i
 
-204:                                              ; preds = %202
-  %205 = load ptr, ptr @stderr, align 8
-  %206 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %205, ptr noundef nonnull @.str.13, ptr noundef %194, i32 noundef 1) #10
-  br label %208
+203:                                              ; preds = %201
+  %204 = load ptr, ptr @stderr, align 8
+  %205 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %204, ptr noundef nonnull @.str.13, ptr noundef %193, i32 noundef 1) #10
+  br label %207
 
-setOne.exit111.i:                                 ; preds = %202
-  %207 = trunc nuw nsw i64 %195 to i32
-  store i32 %207, ptr @opts.0, align 8
+setOne.exit111.i:                                 ; preds = %201
+  %206 = trunc nuw nsw i64 %194 to i32
+  store i32 %206, ptr @opts.0, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   br label %.backedge
 
-208:                                              ; preds = %204, %199
+207:                                              ; preds = %203, %198
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  %209 = load ptr, ptr @stderr, align 8
-  %210 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %209, ptr noundef nonnull @.str.10, i32 noundef 82) #10
-  %211 = load ptr, ptr @stderr, align 8
-  %212 = load ptr, ptr @cmd, align 8
-  %213 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %211, ptr noundef nonnull @.str.18, ptr noundef %212) #10
+  %208 = load ptr, ptr @stderr, align 8
+  %209 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %208, ptr noundef nonnull @.str.10, i32 noundef 82) #10
+  %210 = load ptr, ptr @stderr, align 8
+  %211 = load ptr, ptr @cmd, align 8
+  %212 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %210, ptr noundef nonnull @.str.18, ptr noundef %211) #10
   tail call fastcc void @graphviz_exit(i32 noundef 1) #11
   unreachable
 
-214:                                              ; preds = %16
-  %215 = load ptr, ptr @optarg, align 8
-  store ptr %215, ptr @opts.10, align 8
+213:                                              ; preds = %16
+  %214 = load ptr, ptr @optarg, align 8
+  store ptr %214, ptr @opts.10, align 8
   br label %.backedge
 
-216:                                              ; preds = %16
-  %217 = load ptr, ptr @optarg, align 8
-  store ptr %217, ptr @opts.11, align 8
+215:                                              ; preds = %16
+  %216 = load ptr, ptr @optarg, align 8
+  store ptr %216, ptr @opts.11, align 8
   br label %.backedge
 
-218:                                              ; preds = %16
-  %219 = load ptr, ptr @cmd, align 8
-  %220 = load ptr, ptr @optarg, align 8
-  %221 = tail call noalias ptr @fopen(ptr noundef %220, ptr noundef nonnull @.str.4)
-  %222 = icmp eq ptr %221, null
-  br i1 %222, label %223, label %openFile.exit.i
+217:                                              ; preds = %16
+  %218 = load ptr, ptr @cmd, align 8
+  %219 = load ptr, ptr @optarg, align 8
+  %220 = tail call noalias ptr @fopen(ptr noundef %219, ptr noundef nonnull @.str.4)
+  %221 = icmp eq ptr %220, null
+  br i1 %221, label %222, label %openFile.exit.i
 
-223:                                              ; preds = %218
-  %224 = load ptr, ptr @stderr, align 8
-  %225 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %224, ptr noundef nonnull @.str.17, ptr noundef %219, ptr noundef %220, ptr noundef nonnull @.str.16) #10
-  tail call void @perror(ptr noundef %220) #12
+222:                                              ; preds = %217
+  %223 = load ptr, ptr @stderr, align 8
+  %224 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %223, ptr noundef nonnull @.str.17, ptr noundef %218, ptr noundef %219, ptr noundef nonnull @.str.16) #10
+  tail call void @perror(ptr noundef %219) #12
   tail call fastcc void @graphviz_exit(i32 noundef 1) #11
   unreachable
 
-openFile.exit.i:                                  ; preds = %218
-  store ptr %221, ptr @opts.9, align 8
+openFile.exit.i:                                  ; preds = %217
+  store ptr %220, ptr @opts.9, align 8
   br label %.backedge
 
-226:                                              ; preds = %16
-  %227 = load ptr, ptr @optarg, align 8
+225:                                              ; preds = %16
+  %226 = load ptr, ptr @optarg, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  %228 = call i64 @strtol(ptr noundef %227, ptr noundef nonnull %8, i32 noundef 10) #9
-  %229 = load ptr, ptr %8, align 8
-  %230 = icmp eq ptr %229, %227
-  %231 = icmp sgt i64 %228, 2147483647
-  %or.cond.i.i.i114.i = select i1 %230, i1 true, i1 %231
-  br i1 %or.cond.i.i.i114.i, label %232, label %235
+  %227 = call i64 @strtol(ptr noundef %226, ptr noundef nonnull %8, i32 noundef 10) #9
+  %228 = load ptr, ptr %8, align 8
+  %229 = icmp eq ptr %228, %226
+  %230 = icmp sgt i64 %227, 2147483647
+  %or.cond.i.i.i114.i = select i1 %229, i1 true, i1 %230
+  br i1 %or.cond.i.i.i114.i, label %231, label %234
 
-232:                                              ; preds = %226
-  %233 = load ptr, ptr @stderr, align 8
-  %234 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %233, ptr noundef nonnull @.str.12, ptr noundef %227) #10
-  br label %241
+231:                                              ; preds = %225
+  %232 = load ptr, ptr @stderr, align 8
+  %233 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %232, ptr noundef nonnull @.str.12, ptr noundef %226) #10
+  br label %240
 
-235:                                              ; preds = %226
-  %236 = icmp slt i64 %228, 1
-  br i1 %236, label %237, label %setOne.exit117.i
+234:                                              ; preds = %225
+  %235 = icmp slt i64 %227, 1
+  br i1 %235, label %236, label %setOne.exit117.i
 
-237:                                              ; preds = %235
-  %238 = load ptr, ptr @stderr, align 8
-  %239 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %238, ptr noundef nonnull @.str.13, ptr noundef %227, i32 noundef 1) #10
-  br label %241
+236:                                              ; preds = %234
+  %237 = load ptr, ptr @stderr, align 8
+  %238 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %237, ptr noundef nonnull @.str.13, ptr noundef %226, i32 noundef 1) #10
+  br label %240
 
-setOne.exit117.i:                                 ; preds = %235
-  %240 = trunc nuw nsw i64 %228 to i32
-  store i32 %240, ptr @opts.0, align 8
+setOne.exit117.i:                                 ; preds = %234
+  %239 = trunc nuw nsw i64 %227 to i32
+  store i32 %239, ptr @opts.0, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %.backedge
 
-241:                                              ; preds = %237, %232
+240:                                              ; preds = %236, %231
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  %242 = load ptr, ptr @stderr, align 8
-  %243 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %242, ptr noundef nonnull @.str.10, i32 noundef 112) #10
-  %244 = load ptr, ptr @stderr, align 8
-  %245 = load ptr, ptr @cmd, align 8
-  %246 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %244, ptr noundef nonnull @.str.18, ptr noundef %245) #10
+  %241 = load ptr, ptr @stderr, align 8
+  %242 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %241, ptr noundef nonnull @.str.10, i32 noundef 112) #10
+  %243 = load ptr, ptr @stderr, align 8
+  %244 = load ptr, ptr @cmd, align 8
+  %245 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %243, ptr noundef nonnull @.str.18, ptr noundef %244) #10
   tail call fastcc void @graphviz_exit(i32 noundef 1) #11
   unreachable
 
-247:                                              ; preds = %16
-  %248 = load ptr, ptr @optarg, align 8
-  %249 = tail call fastcc i32 @setTwoOpt(ptr noundef %248)
-  %.not64.i = icmp eq i32 %249, 0
-  br i1 %.not64.i, label %256, label %250
+246:                                              ; preds = %16
+  %247 = load ptr, ptr @optarg, align 8
+  %248 = tail call fastcc i32 @setTwoOpt(ptr noundef %247)
+  %.not64.i = icmp eq i32 %248, 0
+  br i1 %.not64.i, label %255, label %249
 
-250:                                              ; preds = %247
-  %251 = load ptr, ptr @stderr, align 8
-  %252 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %251, ptr noundef nonnull @.str.10, i32 noundef 83) #10
-  %253 = load ptr, ptr @stderr, align 8
-  %254 = load ptr, ptr @cmd, align 8
-  %255 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %253, ptr noundef nonnull @.str.18, ptr noundef %254) #10
+249:                                              ; preds = %246
+  %250 = load ptr, ptr @stderr, align 8
+  %251 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %250, ptr noundef nonnull @.str.10, i32 noundef 83) #10
+  %252 = load ptr, ptr @stderr, align 8
+  %253 = load ptr, ptr @cmd, align 8
+  %254 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %252, ptr noundef nonnull @.str.18, ptr noundef %253) #10
   tail call fastcc void @graphviz_exit(i32 noundef 1) #11
   unreachable
 
-256:                                              ; preds = %247
-  %257 = load i32, ptr @opts.1, align 8
-  %258 = icmp sgt i32 %257, 3
-  br i1 %258, label %259, label %.backedge
+255:                                              ; preds = %246
+  %256 = load i32, ptr @opts.1, align 8
+  %257 = icmp sgt i32 %256, 3
+  br i1 %257, label %258, label %.backedge
 
-259:                                              ; preds = %256
-  %260 = load ptr, ptr @stderr, align 8
-  %261 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %260, ptr noundef nonnull @.str.5, i32 noundef %257) #10
-  %262 = load ptr, ptr @stderr, align 8
-  %263 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %262, ptr noundef nonnull @.str.10, i32 noundef 83) #10
-  %264 = load ptr, ptr @stderr, align 8
-  %265 = load ptr, ptr @cmd, align 8
-  %266 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %264, ptr noundef nonnull @.str.18, ptr noundef %265) #10
+258:                                              ; preds = %255
+  %259 = load ptr, ptr @stderr, align 8
+  %260 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %259, ptr noundef nonnull @.str.5, i32 noundef %256) #10
+  %261 = load ptr, ptr @stderr, align 8
+  %262 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %261, ptr noundef nonnull @.str.10, i32 noundef 83) #10
+  %263 = load ptr, ptr @stderr, align 8
+  %264 = load ptr, ptr @cmd, align 8
+  %265 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %263, ptr noundef nonnull @.str.18, ptr noundef %264) #10
   tail call fastcc void @graphviz_exit(i32 noundef 1) #11
   unreachable
 
-267:                                              ; preds = %16
-  %268 = load ptr, ptr @optarg, align 8
+266:                                              ; preds = %16
+  %267 = load ptr, ptr @optarg, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %269 = call i64 @strtol(ptr noundef %268, ptr noundef nonnull %7, i32 noundef 10) #9
-  %270 = load ptr, ptr %7, align 8
-  %271 = icmp eq ptr %270, %268
-  %272 = icmp sgt i64 %269, 2147483647
-  %or.cond.i.i.i124.i = select i1 %271, i1 true, i1 %272
-  br i1 %or.cond.i.i.i124.i, label %273, label %276
+  %268 = call i64 @strtol(ptr noundef %267, ptr noundef nonnull %7, i32 noundef 10) #9
+  %269 = load ptr, ptr %7, align 8
+  %270 = icmp eq ptr %269, %267
+  %271 = icmp sgt i64 %268, 2147483647
+  %or.cond.i.i.i124.i = select i1 %270, i1 true, i1 %271
+  br i1 %or.cond.i.i.i124.i, label %272, label %275
 
-273:                                              ; preds = %267
-  %274 = load ptr, ptr @stderr, align 8
-  %275 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %274, ptr noundef nonnull @.str.12, ptr noundef %268) #10
-  br label %282
+272:                                              ; preds = %266
+  %273 = load ptr, ptr @stderr, align 8
+  %274 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %273, ptr noundef nonnull @.str.12, ptr noundef %267) #10
+  br label %281
 
-276:                                              ; preds = %267
-  %277 = icmp slt i64 %269, 1
-  br i1 %277, label %278, label %setOne.exit127.i
+275:                                              ; preds = %266
+  %276 = icmp slt i64 %268, 1
+  br i1 %276, label %277, label %setOne.exit127.i
 
-278:                                              ; preds = %276
-  %279 = load ptr, ptr @stderr, align 8
-  %280 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %279, ptr noundef nonnull @.str.13, ptr noundef %268, i32 noundef 1) #10
-  br label %282
+277:                                              ; preds = %275
+  %278 = load ptr, ptr @stderr, align 8
+  %279 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %278, ptr noundef nonnull @.str.13, ptr noundef %267, i32 noundef 1) #10
+  br label %281
 
-setOne.exit127.i:                                 ; preds = %276
-  %281 = trunc nuw nsw i64 %269 to i32
-  store i32 %281, ptr @opts.0, align 8
+setOne.exit127.i:                                 ; preds = %275
+  %280 = trunc nuw nsw i64 %268 to i32
+  store i32 %280, ptr @opts.0, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %.backedge
 
-282:                                              ; preds = %278, %273
+281:                                              ; preds = %277, %272
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  %283 = load ptr, ptr @stderr, align 8
-  %284 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %283, ptr noundef nonnull @.str.10, i32 noundef 115) #10
-  %285 = load ptr, ptr @stderr, align 8
-  %286 = load ptr, ptr @cmd, align 8
-  %287 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %285, ptr noundef nonnull @.str.18, ptr noundef %286) #10
+  %282 = load ptr, ptr @stderr, align 8
+  %283 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %282, ptr noundef nonnull @.str.10, i32 noundef 115) #10
+  %284 = load ptr, ptr @stderr, align 8
+  %285 = load ptr, ptr @cmd, align 8
+  %286 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %284, ptr noundef nonnull @.str.18, ptr noundef %285) #10
   tail call fastcc void @graphviz_exit(i32 noundef 1) #11
   unreachable
 
-288:                                              ; preds = %16
-  %289 = load ptr, ptr @optarg, align 8
-  %290 = tail call fastcc i32 @setTwoOpt(ptr noundef %289)
-  %.not62.i = icmp eq i32 %290, 0
-  br i1 %.not62.i, label %.backedge, label %291
+287:                                              ; preds = %16
+  %288 = load ptr, ptr @optarg, align 8
+  %289 = tail call fastcc i32 @setTwoOpt(ptr noundef %288)
+  %.not62.i = icmp eq i32 %289, 0
+  br i1 %.not62.i, label %.backedge, label %290
 
-291:                                              ; preds = %288
-  %292 = load ptr, ptr @stderr, align 8
-  %293 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %292, ptr noundef nonnull @.str.10, i32 noundef 116) #10
-  %294 = load ptr, ptr @stderr, align 8
-  %295 = load ptr, ptr @cmd, align 8
-  %296 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %294, ptr noundef nonnull @.str.18, ptr noundef %295) #10
+290:                                              ; preds = %287
+  %291 = load ptr, ptr @stderr, align 8
+  %292 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %291, ptr noundef nonnull @.str.10, i32 noundef 116) #10
+  %293 = load ptr, ptr @stderr, align 8
+  %294 = load ptr, ptr @cmd, align 8
+  %295 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %293, ptr noundef nonnull @.str.18, ptr noundef %294) #10
   tail call fastcc void @graphviz_exit(i32 noundef 1) #11
   unreachable
 
-297:                                              ; preds = %16
-  %298 = load ptr, ptr @optarg, align 8
+296:                                              ; preds = %16
+  %297 = load ptr, ptr @optarg, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  %299 = call i64 @strtol(ptr noundef %298, ptr noundef nonnull %6, i32 noundef 10) #9
-  %300 = load ptr, ptr %6, align 8
-  %301 = icmp eq ptr %300, %298
-  %302 = icmp sgt i64 %299, 2147483647
-  %or.cond.i.i132.i = select i1 %301, i1 true, i1 %302
-  br i1 %or.cond.i.i132.i, label %303, label %306
+  %298 = call i64 @strtol(ptr noundef %297, ptr noundef nonnull %6, i32 noundef 10) #9
+  %299 = load ptr, ptr %6, align 8
+  %300 = icmp eq ptr %299, %297
+  %301 = icmp sgt i64 %298, 2147483647
+  %or.cond.i.i132.i = select i1 %300, i1 true, i1 %301
+  br i1 %or.cond.i.i132.i, label %302, label %305
 
-303:                                              ; preds = %297
-  %304 = load ptr, ptr @stderr, align 8
-  %305 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %304, ptr noundef nonnull @.str.12, ptr noundef %298) #10
+302:                                              ; preds = %296
+  %303 = load ptr, ptr @stderr, align 8
+  %304 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %303, ptr noundef nonnull @.str.12, ptr noundef %297) #10
   br label %setTwoTwoOpt.exit.thread.i
 
-306:                                              ; preds = %297
-  %307 = icmp slt i64 %299, 1
-  br i1 %307, label %308, label %readPos.exit.i133.i
+305:                                              ; preds = %296
+  %306 = icmp slt i64 %298, 1
+  br i1 %306, label %307, label %readPos.exit.i133.i
 
-308:                                              ; preds = %306
-  %309 = load ptr, ptr @stderr, align 8
-  %310 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %309, ptr noundef nonnull @.str.13, ptr noundef %298, i32 noundef 1) #10
+307:                                              ; preds = %305
+  %308 = load ptr, ptr @stderr, align 8
+  %309 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %308, ptr noundef nonnull @.str.13, ptr noundef %297, i32 noundef 1) #10
   br label %setTwoTwoOpt.exit.thread.i
 
-readPos.exit.i133.i:                              ; preds = %306
-  %311 = trunc nuw nsw i64 %299 to i32
-  store i32 %311, ptr @opts.0, align 8
-  %312 = load i8, ptr %300, align 1
-  %.not.i134.i = icmp eq i8 %312, 44
-  br i1 %.not.i134.i, label %316, label %313
+readPos.exit.i133.i:                              ; preds = %305
+  %310 = trunc nuw nsw i64 %298 to i32
+  store i32 %310, ptr @opts.0, align 8
+  %311 = load i8, ptr %299, align 1
+  %.not.i134.i = icmp eq i8 %311, 44
+  br i1 %.not.i134.i, label %315, label %312
 
-313:                                              ; preds = %readPos.exit.i133.i
-  %314 = load ptr, ptr @stderr, align 8
-  %315 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %314, ptr noundef nonnull @.str.11, ptr noundef %298) #10
+312:                                              ; preds = %readPos.exit.i133.i
+  %313 = load ptr, ptr @stderr, align 8
+  %314 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %313, ptr noundef nonnull @.str.11, ptr noundef %297) #10
   br label %setTwoTwoOpt.exit.thread.i
 
-316:                                              ; preds = %readPos.exit.i133.i
-  %317 = getelementptr inbounds i8, ptr %300, i64 1
-  %318 = call i64 @strtol(ptr noundef nonnull %317, ptr noundef nonnull %6, i32 noundef 10) #9
-  %319 = load ptr, ptr %6, align 8
-  %320 = icmp eq ptr %319, %317
-  %321 = icmp sgt i64 %318, 2147483647
-  %or.cond.i28.i.i = select i1 %320, i1 true, i1 %321
-  br i1 %or.cond.i28.i.i, label %322, label %325
+315:                                              ; preds = %readPos.exit.i133.i
+  %316 = getelementptr inbounds i8, ptr %299, i64 1
+  %317 = call i64 @strtol(ptr noundef nonnull %316, ptr noundef nonnull %6, i32 noundef 10) #9
+  %318 = load ptr, ptr %6, align 8
+  %319 = icmp eq ptr %318, %316
+  %320 = icmp sgt i64 %317, 2147483647
+  %or.cond.i28.i.i = select i1 %319, i1 true, i1 %320
+  br i1 %or.cond.i28.i.i, label %321, label %324
 
-322:                                              ; preds = %316
-  %323 = load ptr, ptr @stderr, align 8
-  %324 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %323, ptr noundef nonnull @.str.12, ptr noundef nonnull %317) #10
+321:                                              ; preds = %315
+  %322 = load ptr, ptr @stderr, align 8
+  %323 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %322, ptr noundef nonnull @.str.12, ptr noundef nonnull %316) #10
   br label %setTwoTwoOpt.exit.thread20.i
 
-325:                                              ; preds = %316
-  %326 = icmp slt i64 %318, 1
-  br i1 %326, label %327, label %readPos.exit30.i.i
+324:                                              ; preds = %315
+  %325 = icmp slt i64 %317, 1
+  br i1 %325, label %326, label %readPos.exit30.i.i
 
-327:                                              ; preds = %325
-  %328 = load ptr, ptr @stderr, align 8
-  %329 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %328, ptr noundef nonnull @.str.13, ptr noundef nonnull %317, i32 noundef 1) #10
+326:                                              ; preds = %324
+  %327 = load ptr, ptr @stderr, align 8
+  %328 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %327, ptr noundef nonnull @.str.13, ptr noundef nonnull %316, i32 noundef 1) #10
   br label %setTwoTwoOpt.exit.thread20.i
 
-readPos.exit30.i.i:                               ; preds = %325
-  %330 = trunc nuw nsw i64 %318 to i32
-  store i32 %330, ptr @opts.1, align 8
-  %331 = load i8, ptr %319, align 1
-  %.not26.i.i = icmp eq i8 %331, 44
-  br i1 %.not26.i.i, label %333, label %332
+readPos.exit30.i.i:                               ; preds = %324
+  %329 = trunc nuw nsw i64 %317 to i32
+  store i32 %329, ptr @opts.1, align 8
+  %330 = load i8, ptr %318, align 1
+  %.not26.i.i = icmp eq i8 %330, 44
+  br i1 %.not26.i.i, label %332, label %331
 
-332:                                              ; preds = %readPos.exit30.i.i
+331:                                              ; preds = %readPos.exit30.i.i
   store i32 0, ptr @opts.4, align 8
   store i32 0, ptr @opts.3, align 8
   br label %setTwoTwoOpt.exit.thread20.i
 
-333:                                              ; preds = %readPos.exit30.i.i
-  %334 = getelementptr inbounds i8, ptr %319, i64 1
-  %335 = call i64 @strtol(ptr noundef nonnull %334, ptr noundef nonnull %6, i32 noundef 10) #9
-  %336 = load ptr, ptr %6, align 8
-  %337 = icmp eq ptr %336, %334
-  %338 = icmp sgt i64 %335, 2147483647
-  %or.cond.i31.i.i = select i1 %337, i1 true, i1 %338
-  br i1 %or.cond.i31.i.i, label %339, label %342
+332:                                              ; preds = %readPos.exit30.i.i
+  %333 = getelementptr inbounds i8, ptr %318, i64 1
+  %334 = call i64 @strtol(ptr noundef nonnull %333, ptr noundef nonnull %6, i32 noundef 10) #9
+  %335 = load ptr, ptr %6, align 8
+  %336 = icmp eq ptr %335, %333
+  %337 = icmp sgt i64 %334, 2147483647
+  %or.cond.i31.i.i = select i1 %336, i1 true, i1 %337
+  br i1 %or.cond.i31.i.i, label %338, label %341
 
-339:                                              ; preds = %333
-  %340 = load ptr, ptr @stderr, align 8
-  %341 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %340, ptr noundef nonnull @.str.12, ptr noundef nonnull %334) #10
+338:                                              ; preds = %332
+  %339 = load ptr, ptr @stderr, align 8
+  %340 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %339, ptr noundef nonnull @.str.12, ptr noundef nonnull %333) #10
   br label %setTwoTwoOpt.exit.thread.i
 
-342:                                              ; preds = %333
-  %343 = icmp slt i64 %335, 1
-  br i1 %343, label %344, label %readPos.exit33.i.i
+341:                                              ; preds = %332
+  %342 = icmp slt i64 %334, 1
+  br i1 %342, label %343, label %readPos.exit33.i.i
 
-344:                                              ; preds = %342
-  %345 = load ptr, ptr @stderr, align 8
-  %346 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %345, ptr noundef nonnull @.str.13, ptr noundef nonnull %334, i32 noundef 1) #10
+343:                                              ; preds = %341
+  %344 = load ptr, ptr @stderr, align 8
+  %345 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %344, ptr noundef nonnull @.str.13, ptr noundef nonnull %333, i32 noundef 1) #10
   br label %setTwoTwoOpt.exit.thread.i
 
-readPos.exit33.i.i:                               ; preds = %342
-  %347 = trunc nuw nsw i64 %335 to i32
-  store i32 %347, ptr @opts.3, align 8
-  %348 = load i8, ptr %336, align 1
-  %.not27.i.i = icmp eq i8 %348, 44
-  br i1 %.not27.i.i, label %350, label %349
+readPos.exit33.i.i:                               ; preds = %341
+  %346 = trunc nuw nsw i64 %334 to i32
+  store i32 %346, ptr @opts.3, align 8
+  %347 = load i8, ptr %335, align 1
+  %.not27.i.i = icmp eq i8 %347, 44
+  br i1 %.not27.i.i, label %349, label %348
 
-349:                                              ; preds = %readPos.exit33.i.i
+348:                                              ; preds = %readPos.exit33.i.i
   store i32 0, ptr @opts.4, align 8
   br label %setTwoTwoOpt.exit.thread20.i
 
-350:                                              ; preds = %readPos.exit33.i.i
-  %351 = getelementptr inbounds i8, ptr %336, i64 1
+349:                                              ; preds = %readPos.exit33.i.i
+  %350 = getelementptr inbounds i8, ptr %335, i64 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %352 = call i64 @strtol(ptr noundef nonnull %351, ptr noundef nonnull %5, i32 noundef 10) #9
-  %353 = load ptr, ptr %5, align 8
-  %354 = icmp eq ptr %353, %351
-  %355 = icmp sgt i64 %352, 2147483647
-  %or.cond.i.i.i136.i = select i1 %354, i1 true, i1 %355
-  br i1 %or.cond.i.i.i136.i, label %356, label %359
+  %351 = call i64 @strtol(ptr noundef nonnull %350, ptr noundef nonnull %5, i32 noundef 10) #9
+  %352 = load ptr, ptr %5, align 8
+  %353 = icmp eq ptr %352, %350
+  %354 = icmp sgt i64 %351, 2147483647
+  %or.cond.i.i.i136.i = select i1 %353, i1 true, i1 %354
+  br i1 %or.cond.i.i.i136.i, label %355, label %358
 
-356:                                              ; preds = %350
-  %357 = load ptr, ptr @stderr, align 8
-  %358 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %357, ptr noundef nonnull @.str.12, ptr noundef nonnull %351) #10
+355:                                              ; preds = %349
+  %356 = load ptr, ptr @stderr, align 8
+  %357 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %356, ptr noundef nonnull @.str.12, ptr noundef nonnull %350) #10
   br label %setTwoTwoOpt.exit.thread24.i
 
-359:                                              ; preds = %350
-  %360 = icmp slt i64 %352, 1
-  br i1 %360, label %361, label %setTwoTwoOpt.exit.i
+358:                                              ; preds = %349
+  %359 = icmp slt i64 %351, 1
+  br i1 %359, label %360, label %setTwoTwoOpt.exit.i
 
-361:                                              ; preds = %359
-  %362 = load ptr, ptr @stderr, align 8
-  %363 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %362, ptr noundef nonnull @.str.13, ptr noundef nonnull %351, i32 noundef 1) #10
+360:                                              ; preds = %358
+  %361 = load ptr, ptr @stderr, align 8
+  %362 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %361, ptr noundef nonnull @.str.13, ptr noundef nonnull %350, i32 noundef 1) #10
   br label %setTwoTwoOpt.exit.thread24.i
 
-setTwoTwoOpt.exit.thread.i:                       ; preds = %344, %339, %313, %308, %303
+setTwoTwoOpt.exit.thread.i:                       ; preds = %343, %338, %312, %307, %302
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  br label %365
+  br label %364
 
-setTwoTwoOpt.exit.thread20.i:                     ; preds = %349, %332, %327, %322
+setTwoTwoOpt.exit.thread20.i:                     ; preds = %348, %331, %326, %321
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %.backedge
 
-setTwoTwoOpt.exit.thread24.i:                     ; preds = %361, %356
+setTwoTwoOpt.exit.thread24.i:                     ; preds = %360, %355
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  br label %365
+  br label %364
 
-setTwoTwoOpt.exit.i:                              ; preds = %359
-  %364 = trunc nuw nsw i64 %352 to i32
-  store i32 %364, ptr @opts.4, align 8
+setTwoTwoOpt.exit.i:                              ; preds = %358
+  %363 = trunc nuw nsw i64 %351 to i32
+  store i32 %363, ptr @opts.4, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %.backedge
 
-365:                                              ; preds = %setTwoTwoOpt.exit.thread24.i, %setTwoTwoOpt.exit.thread.i
-  %366 = load ptr, ptr @stderr, align 8
-  %367 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %366, ptr noundef nonnull @.str.10, i32 noundef 84) #10
-  %368 = load ptr, ptr @stderr, align 8
-  %369 = load ptr, ptr @cmd, align 8
-  %370 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %368, ptr noundef nonnull @.str.18, ptr noundef %369) #10
+364:                                              ; preds = %setTwoTwoOpt.exit.thread24.i, %setTwoTwoOpt.exit.thread.i
+  %365 = load ptr, ptr @stderr, align 8
+  %366 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %365, ptr noundef nonnull @.str.10, i32 noundef 84) #10
+  %367 = load ptr, ptr @stderr, align 8
+  %368 = load ptr, ptr @cmd, align 8
+  %369 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %367, ptr noundef nonnull @.str.18, ptr noundef %368) #10
   tail call fastcc void @graphviz_exit(i32 noundef 1) #11
   unreachable
 
-371:                                              ; preds = %16
-  %372 = load ptr, ptr @optarg, align 8
+370:                                              ; preds = %16
+  %371 = load ptr, ptr @optarg, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %373 = call i64 @strtol(ptr noundef %372, ptr noundef nonnull %4, i32 noundef 10) #9
-  %374 = load ptr, ptr %4, align 8
-  %375 = icmp eq ptr %374, %372
-  %376 = icmp sgt i64 %373, 2147483647
-  %or.cond.i.i140.i = select i1 %375, i1 true, i1 %376
-  br i1 %or.cond.i.i140.i, label %377, label %380
+  %372 = call i64 @strtol(ptr noundef %371, ptr noundef nonnull %4, i32 noundef 10) #9
+  %373 = load ptr, ptr %4, align 8
+  %374 = icmp eq ptr %373, %371
+  %375 = icmp sgt i64 %372, 2147483647
+  %or.cond.i.i140.i = select i1 %374, i1 true, i1 %375
+  br i1 %or.cond.i.i140.i, label %376, label %379
 
-377:                                              ; preds = %371
-  %378 = load ptr, ptr @stderr, align 8
-  %379 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %378, ptr noundef nonnull @.str.12, ptr noundef %372) #10
-  br label %386
+376:                                              ; preds = %370
+  %377 = load ptr, ptr @stderr, align 8
+  %378 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %377, ptr noundef nonnull @.str.12, ptr noundef %371) #10
+  br label %385
 
-380:                                              ; preds = %371
-  %381 = icmp slt i64 %373, 1
-  br i1 %381, label %382, label %readOne.exit.i
+379:                                              ; preds = %370
+  %380 = icmp slt i64 %372, 1
+  br i1 %380, label %381, label %readOne.exit.i
 
-382:                                              ; preds = %380
-  %383 = load ptr, ptr @stderr, align 8
-  %384 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %383, ptr noundef nonnull @.str.13, ptr noundef %372, i32 noundef 1) #10
-  br label %386
+381:                                              ; preds = %379
+  %382 = load ptr, ptr @stderr, align 8
+  %383 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %382, ptr noundef nonnull @.str.13, ptr noundef %371, i32 noundef 1) #10
+  br label %385
 
-readOne.exit.i:                                   ; preds = %380
-  %385 = trunc nuw nsw i64 %373 to i32
-  store i32 %385, ptr @opts.2, align 8
+readOne.exit.i:                                   ; preds = %379
+  %384 = trunc nuw nsw i64 %372 to i32
+  store i32 %384, ptr @opts.2, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %.backedge
 
-386:                                              ; preds = %382, %377
+385:                                              ; preds = %381, %376
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %387 = load ptr, ptr @stderr, align 8
-  %388 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %387, ptr noundef nonnull @.str.10, i32 noundef 105) #10
-  %389 = load ptr, ptr @stderr, align 8
-  %390 = load ptr, ptr @cmd, align 8
-  %391 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %389, ptr noundef nonnull @.str.18, ptr noundef %390) #10
+  %386 = load ptr, ptr @stderr, align 8
+  %387 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %386, ptr noundef nonnull @.str.10, i32 noundef 105) #10
+  %388 = load ptr, ptr @stderr, align 8
+  %389 = load ptr, ptr @cmd, align 8
+  %390 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %388, ptr noundef nonnull @.str.18, ptr noundef %389) #10
   tail call fastcc void @graphviz_exit(i32 noundef 1) #11
   unreachable
 
-392:                                              ; preds = %16
-  %393 = load ptr, ptr @optarg, align 8
+391:                                              ; preds = %16
+  %392 = load ptr, ptr @optarg, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %394 = call i64 @strtol(ptr noundef %393, ptr noundef nonnull %3, i32 noundef 10) #9
-  %395 = load ptr, ptr %3, align 8
-  %396 = icmp eq ptr %395, %393
-  %397 = icmp sgt i64 %394, 2147483647
-  %or.cond.i.i.i145.i = select i1 %396, i1 true, i1 %397
-  br i1 %or.cond.i.i.i145.i, label %398, label %401
+  %393 = call i64 @strtol(ptr noundef %392, ptr noundef nonnull %3, i32 noundef 10) #9
+  %394 = load ptr, ptr %3, align 8
+  %395 = icmp eq ptr %394, %392
+  %396 = icmp sgt i64 %393, 2147483647
+  %or.cond.i.i.i145.i = select i1 %395, i1 true, i1 %396
+  br i1 %or.cond.i.i.i145.i, label %397, label %400
 
-398:                                              ; preds = %392
-  %399 = load ptr, ptr @stderr, align 8
-  %400 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %399, ptr noundef nonnull @.str.12, ptr noundef %393) #10
-  br label %407
+397:                                              ; preds = %391
+  %398 = load ptr, ptr @stderr, align 8
+  %399 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %398, ptr noundef nonnull @.str.12, ptr noundef %392) #10
+  br label %406
 
-401:                                              ; preds = %392
-  %402 = icmp slt i64 %394, 1
-  br i1 %402, label %403, label %setOne.exit149.i
+400:                                              ; preds = %391
+  %401 = icmp slt i64 %393, 1
+  br i1 %401, label %402, label %setOne.exit149.i
 
-403:                                              ; preds = %401
-  %404 = load ptr, ptr @stderr, align 8
-  %405 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %404, ptr noundef nonnull @.str.13, ptr noundef %393, i32 noundef 1) #10
-  br label %407
+402:                                              ; preds = %400
+  %403 = load ptr, ptr @stderr, align 8
+  %404 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %403, ptr noundef nonnull @.str.13, ptr noundef %392, i32 noundef 1) #10
+  br label %406
 
-setOne.exit149.i:                                 ; preds = %401
-  %406 = trunc nuw nsw i64 %394 to i32
-  store i32 %406, ptr @opts.0, align 8
+setOne.exit149.i:                                 ; preds = %400
+  %405 = trunc nuw nsw i64 %393 to i32
+  store i32 %405, ptr @opts.0, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %.backedge
 
-407:                                              ; preds = %403, %398
+406:                                              ; preds = %402, %397
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %408 = load ptr, ptr @stderr, align 8
-  %409 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %408, ptr noundef nonnull @.str.10, i32 noundef 119) #10
-  %410 = load ptr, ptr @stderr, align 8
-  %411 = load ptr, ptr @cmd, align 8
-  %412 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %410, ptr noundef nonnull @.str.18, ptr noundef %411) #10
+  %407 = load ptr, ptr @stderr, align 8
+  %408 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %407, ptr noundef nonnull @.str.10, i32 noundef 119) #10
+  %409 = load ptr, ptr @stderr, align 8
+  %410 = load ptr, ptr @cmd, align 8
+  %411 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %409, ptr noundef nonnull @.str.18, ptr noundef %410) #10
   tail call fastcc void @graphviz_exit(i32 noundef 1) #11
   unreachable
 
-413:                                              ; preds = %16
-  %414 = load i32, ptr @optopt, align 4
-  %415 = icmp eq i32 %414, 63
-  br i1 %415, label %416, label %420
+412:                                              ; preds = %16
+  %413 = load i32, ptr @optopt, align 4
+  %414 = icmp eq i32 %413, 63
+  br i1 %414, label %415, label %419
 
-416:                                              ; preds = %413
-  %417 = load ptr, ptr @stdout, align 8
-  %418 = load ptr, ptr @cmd, align 8
-  %419 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %417, ptr noundef nonnull @.str.18, ptr noundef %418) #9
+415:                                              ; preds = %412
+  %416 = load ptr, ptr @stdout, align 8
+  %417 = load ptr, ptr @cmd, align 8
+  %418 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %416, ptr noundef nonnull @.str.18, ptr noundef %417) #9
   tail call fastcc void @graphviz_exit(i32 noundef 0) #11
   unreachable
 
-420:                                              ; preds = %413
-  %421 = load ptr, ptr @stderr, align 8
-  %422 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %421, ptr noundef nonnull @.str.6, i32 noundef %414) #10
+419:                                              ; preds = %412
+  %420 = load ptr, ptr @stderr, align 8
+  %421 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %420, ptr noundef nonnull @.str.6, i32 noundef %413) #10
   br label %.backedge
 
-423:                                              ; preds = %16
-  %424 = load ptr, ptr @stderr, align 8
-  %425 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 17, i64 1, ptr %424) #12
-  %426 = load ptr, ptr @stderr, align 8
-  %427 = load ptr, ptr @cmd, align 8
-  %428 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %426, ptr noundef nonnull @.str.18, ptr noundef %427) #10
+422:                                              ; preds = %16
+  %423 = load ptr, ptr @stderr, align 8
+  %424 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 17, i64 1, ptr %423) #12
+  %425 = load ptr, ptr @stderr, align 8
+  %426 = load ptr, ptr @cmd, align 8
+  %427 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %425, ptr noundef nonnull @.str.18, ptr noundef %426) #10
   tail call fastcc void @graphviz_exit(i32 noundef 1) #11
   unreachable
 
-429:                                              ; preds = %16
-  %430 = load ptr, ptr @opts.9, align 8
-  %.not58.i = icmp eq ptr %430, null
-  br i1 %.not58.i, label %431, label %433
+428:                                              ; preds = %16
+  %429 = load ptr, ptr @opts.9, align 8
+  %.not58.i = icmp eq ptr %429, null
+  br i1 %.not58.i, label %430, label %432
 
-431:                                              ; preds = %429
-  %432 = load ptr, ptr @stdout, align 8
-  store ptr %432, ptr @opts.9, align 8
-  br label %433
+430:                                              ; preds = %428
+  %431 = load ptr, ptr @stdout, align 8
+  store ptr %431, ptr @opts.9, align 8
+  br label %432
 
-433:                                              ; preds = %431, %429
-  %434 = phi ptr [ %432, %431 ], [ %430, %429 ]
-  %435 = icmp eq i32 %.0.i, 0
-  br i1 %435, label %436, label %init.exit
+432:                                              ; preds = %430, %428
+  %433 = phi ptr [ %431, %430 ], [ %429, %428 ]
+  %434 = icmp eq i32 %.0.i, 0
+  br i1 %434, label %435, label %init.exit
 
-436:                                              ; preds = %433
-  %437 = load ptr, ptr @stderr, align 8
-  %438 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 19, i64 1, ptr %437) #12
-  %439 = load ptr, ptr @stderr, align 8
-  %440 = load ptr, ptr @cmd, align 8
-  %441 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %439, ptr noundef nonnull @.str.18, ptr noundef %440) #10
+435:                                              ; preds = %432
+  %436 = load ptr, ptr @stderr, align 8
+  %437 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 19, i64 1, ptr %436) #12
+  %438 = load ptr, ptr @stderr, align 8
+  %439 = load ptr, ptr @cmd, align 8
+  %440 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %438, ptr noundef nonnull @.str.18, ptr noundef %439) #10
   tail call fastcc void @graphviz_exit(i32 noundef 1) #11
   unreachable
 
-init.exit:                                        ; preds = %433
+init.exit:                                        ; preds = %432
   %.b415 = load i1, ptr @opts.8, align 8
-  %442 = load ptr, ptr @opts.11, align 8
+  %441 = load ptr, ptr @opts.11, align 8
   %.str.2..str.1 = select i1 %.b415, ptr @.str.1, ptr @.str.2
   %undirfn.dirfn = select i1 %.b415, ptr @dirfn, ptr @undirfn
-  %443 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %434, ptr noundef nonnull %.str.2..str.1, ptr noundef %442) #9
-  switch i32 %.0.i, label %514 [
-    i32 1, label %444
-    i32 2, label %449
-    i32 5, label %451
-    i32 6, label %453
-    i32 17, label %459
-    i32 12, label %461
-    i32 7, label %464
-    i32 8, label %473
-    i32 9, label %476
-    i32 13, label %479
-    i32 3, label %485
-    i32 10, label %487
-    i32 11, label %490
-    i32 4, label %505
-    i32 14, label %508
-    i32 15, label %510
-    i32 16, label %512
+  %442 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %433, ptr noundef nonnull %.str.2..str.1, ptr noundef %441) #9
+  switch i32 %.0.i, label %513 [
+    i32 1, label %443
+    i32 2, label %448
+    i32 5, label %450
+    i32 6, label %452
+    i32 17, label %458
+    i32 12, label %460
+    i32 7, label %463
+    i32 8, label %472
+    i32 9, label %475
+    i32 13, label %478
+    i32 3, label %484
+    i32 10, label %486
+    i32 11, label %489
+    i32 4, label %504
+    i32 14, label %507
+    i32 15, label %509
+    i32 16, label %511
   ]
 
-444:                                              ; preds = %init.exit
-  %445 = load i32, ptr @opts.0, align 8
-  %446 = load i32, ptr @opts.1, align 8
+443:                                              ; preds = %init.exit
+  %444 = load i32, ptr @opts.0, align 8
+  %445 = load i32, ptr @opts.1, align 8
   %.b413 = load i1, ptr @opts.7, align 8
-  %447 = zext i1 %.b413 to i32
+  %446 = zext i1 %.b413 to i32
   %.b = load i1, ptr @opts.6, align 8
-  %448 = zext i1 %.b to i32
-  tail call void @makeSquareGrid(i32 noundef %445, i32 noundef %446, i32 noundef %447, i32 noundef %448, ptr noundef nonnull %undirfn.dirfn) #9
-  br label %514
+  %447 = zext i1 %.b to i32
+  tail call void @makeSquareGrid(i32 noundef %444, i32 noundef %445, i32 noundef %446, i32 noundef %447, ptr noundef nonnull %undirfn.dirfn) #9
+  br label %513
 
-449:                                              ; preds = %init.exit
-  %450 = load i32, ptr @opts.0, align 8
-  tail call void @makeCircle(i32 noundef %450, ptr noundef nonnull %undirfn.dirfn) #9
-  br label %514
+448:                                              ; preds = %init.exit
+  %449 = load i32, ptr @opts.0, align 8
+  tail call void @makeCircle(i32 noundef %449, ptr noundef nonnull %undirfn.dirfn) #9
+  br label %513
 
-451:                                              ; preds = %init.exit
-  %452 = load i32, ptr @opts.0, align 8
-  tail call void @makePath(i32 noundef %452, ptr noundef nonnull %undirfn.dirfn) #9
-  br label %514
+450:                                              ; preds = %init.exit
+  %451 = load i32, ptr @opts.0, align 8
+  tail call void @makePath(i32 noundef %451, ptr noundef nonnull %undirfn.dirfn) #9
+  br label %513
 
-453:                                              ; preds = %init.exit
-  %454 = load i32, ptr @opts.1, align 8
-  %455 = icmp eq i32 %454, 2
-  %456 = load i32, ptr @opts.0, align 8
-  br i1 %455, label %457, label %458
+452:                                              ; preds = %init.exit
+  %453 = load i32, ptr @opts.1, align 8
+  %454 = icmp eq i32 %453, 2
+  %455 = load i32, ptr @opts.0, align 8
+  br i1 %454, label %456, label %457
 
-457:                                              ; preds = %453
-  tail call void @makeBinaryTree(i32 noundef %456, ptr noundef nonnull %undirfn.dirfn) #9
-  br label %514
+456:                                              ; preds = %452
+  tail call void @makeBinaryTree(i32 noundef %455, ptr noundef nonnull %undirfn.dirfn) #9
+  br label %513
 
-458:                                              ; preds = %453
-  tail call void @makeTree(i32 noundef %456, i32 noundef %454, ptr noundef nonnull %undirfn.dirfn) #9
-  br label %514
+457:                                              ; preds = %452
+  tail call void @makeTree(i32 noundef %455, i32 noundef %453, ptr noundef nonnull %undirfn.dirfn) #9
+  br label %513
 
-459:                                              ; preds = %init.exit
-  %460 = load i32, ptr @opts.0, align 8
-  tail call void @makeTriMesh(i32 noundef %460, ptr noundef nonnull %undirfn.dirfn) #9
-  br label %514
+458:                                              ; preds = %init.exit
+  %459 = load i32, ptr @opts.0, align 8
+  tail call void @makeTriMesh(i32 noundef %459, ptr noundef nonnull %undirfn.dirfn) #9
+  br label %513
 
-461:                                              ; preds = %init.exit
-  %462 = load i32, ptr @opts.0, align 8
-  %463 = load i32, ptr @opts.1, align 8
-  tail call void @makeBall(i32 noundef %462, i32 noundef %463, ptr noundef nonnull %undirfn.dirfn) #9
-  br label %514
+460:                                              ; preds = %init.exit
+  %461 = load i32, ptr @opts.0, align 8
+  %462 = load i32, ptr @opts.1, align 8
+  tail call void @makeBall(i32 noundef %461, i32 noundef %462, ptr noundef nonnull %undirfn.dirfn) #9
+  br label %513
 
-464:                                              ; preds = %init.exit
-  %465 = load i32, ptr @opts.3, align 8
-  %466 = icmp eq i32 %465, 0
-  %467 = load i32, ptr @opts.4, align 8
-  %468 = icmp eq i32 %467, 0
-  %or.cond = select i1 %466, i1 %468, i1 false
-  %469 = load i32, ptr @opts.0, align 8
-  %470 = load i32, ptr @opts.1, align 8
-  br i1 %or.cond, label %471, label %472
+463:                                              ; preds = %init.exit
+  %464 = load i32, ptr @opts.3, align 8
+  %465 = icmp eq i32 %464, 0
+  %466 = load i32, ptr @opts.4, align 8
+  %467 = icmp eq i32 %466, 0
+  %or.cond = select i1 %465, i1 %467, i1 false
+  %468 = load i32, ptr @opts.0, align 8
+  %469 = load i32, ptr @opts.1, align 8
+  br i1 %or.cond, label %470, label %471
 
-471:                                              ; preds = %464
-  tail call void @makeTorus(i32 noundef %469, i32 noundef %470, ptr noundef nonnull %undirfn.dirfn) #9
-  br label %514
+470:                                              ; preds = %463
+  tail call void @makeTorus(i32 noundef %468, i32 noundef %469, ptr noundef nonnull %undirfn.dirfn) #9
+  br label %513
 
-472:                                              ; preds = %464
-  tail call void @makeTwistedTorus(i32 noundef %469, i32 noundef %470, i32 noundef %465, i32 noundef %467, ptr noundef nonnull %undirfn.dirfn) #9
-  br label %514
+471:                                              ; preds = %463
+  tail call void @makeTwistedTorus(i32 noundef %468, i32 noundef %469, i32 noundef %464, i32 noundef %466, ptr noundef nonnull %undirfn.dirfn) #9
+  br label %513
 
-473:                                              ; preds = %init.exit
-  %474 = load i32, ptr @opts.0, align 8
-  %475 = load i32, ptr @opts.1, align 8
-  tail call void @makeCylinder(i32 noundef %474, i32 noundef %475, ptr noundef nonnull %undirfn.dirfn) #9
-  br label %514
+472:                                              ; preds = %init.exit
+  %473 = load i32, ptr @opts.0, align 8
+  %474 = load i32, ptr @opts.1, align 8
+  tail call void @makeCylinder(i32 noundef %473, i32 noundef %474, ptr noundef nonnull %undirfn.dirfn) #9
+  br label %513
 
-476:                                              ; preds = %init.exit
-  %477 = load i32, ptr @opts.0, align 8
-  %478 = load i32, ptr @opts.1, align 8
-  tail call void @makeMobius(i32 noundef %477, i32 noundef %478, ptr noundef nonnull %undirfn.dirfn) #9
-  br label %514
+475:                                              ; preds = %init.exit
+  %476 = load i32, ptr @opts.0, align 8
+  %477 = load i32, ptr @opts.1, align 8
+  tail call void @makeMobius(i32 noundef %476, i32 noundef %477, ptr noundef nonnull %undirfn.dirfn) #9
+  br label %513
 
-479:                                              ; preds = %init.exit
-  %480 = load i32, ptr @opts.1, align 8
-  %481 = icmp eq i32 %480, 2
-  %482 = load i32, ptr @opts.0, align 8
-  br i1 %481, label %483, label %484
+478:                                              ; preds = %init.exit
+  %479 = load i32, ptr @opts.1, align 8
+  %480 = icmp eq i32 %479, 2
+  %481 = load i32, ptr @opts.0, align 8
+  br i1 %480, label %482, label %483
 
-483:                                              ; preds = %479
-  tail call void @makeSierpinski(i32 noundef %482, ptr noundef nonnull %undirfn.dirfn) #9
-  br label %514
+482:                                              ; preds = %478
+  tail call void @makeSierpinski(i32 noundef %481, ptr noundef nonnull %undirfn.dirfn) #9
+  br label %513
 
-484:                                              ; preds = %479
-  tail call void @makeTetrix(i32 noundef %482, ptr noundef nonnull %undirfn.dirfn) #9
-  br label %514
+483:                                              ; preds = %478
+  tail call void @makeTetrix(i32 noundef %481, ptr noundef nonnull %undirfn.dirfn) #9
+  br label %513
 
-485:                                              ; preds = %init.exit
-  %486 = load i32, ptr @opts.0, align 8
-  tail call void @makeComplete(i32 noundef %486, ptr noundef nonnull %undirfn.dirfn) #9
-  br label %514
+484:                                              ; preds = %init.exit
+  %485 = load i32, ptr @opts.0, align 8
+  tail call void @makeComplete(i32 noundef %485, ptr noundef nonnull %undirfn.dirfn) #9
+  br label %513
 
-487:                                              ; preds = %init.exit
-  %488 = load i32, ptr @opts.0, align 8
-  %489 = load i32, ptr @opts.1, align 8
-  tail call void @makeRandom(i32 noundef %488, i32 noundef %489, ptr noundef nonnull %undirfn.dirfn) #9
-  br label %514
+486:                                              ; preds = %init.exit
+  %487 = load i32, ptr @opts.0, align 8
+  %488 = load i32, ptr @opts.1, align 8
+  tail call void @makeRandom(i32 noundef %487, i32 noundef %488, ptr noundef nonnull %undirfn.dirfn) #9
+  br label %513
 
-490:                                              ; preds = %init.exit
-  %491 = load i32, ptr @opts.0, align 8
-  %492 = tail call ptr @makeTreeGen(i32 noundef %491) #9
-  %493 = load i32, ptr @opts.2, align 8
-  %.not31159 = icmp slt i32 %493, 1
+489:                                              ; preds = %init.exit
+  %490 = load i32, ptr @opts.0, align 8
+  %491 = tail call ptr @makeTreeGen(i32 noundef %490) #9
+  %492 = load i32, ptr @opts.2, align 8
+  %.not31159 = icmp slt i32 %492, 1
   br i1 %.not31159, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %490, %closeOpen.exit
-  %.029160 = phi i32 [ %501, %closeOpen.exit ], [ 1, %490 ]
-  tail call void @makeRandomTree(ptr noundef %492, ptr noundef nonnull %undirfn.dirfn) #9
-  %494 = load i32, ptr @opts.2, align 8
-  %.not32 = icmp eq i32 %.029160, %494
-  br i1 %.not32, label %closeOpen.exit, label %495
+.lr.ph:                                           ; preds = %489, %closeOpen.exit
+  %.029160 = phi i32 [ %500, %closeOpen.exit ], [ 1, %489 ]
+  tail call void @makeRandomTree(ptr noundef %491, ptr noundef nonnull %undirfn.dirfn) #9
+  %493 = load i32, ptr @opts.2, align 8
+  %.not32 = icmp eq i32 %.029160, %493
+  br i1 %.not32, label %closeOpen.exit, label %494
 
-495:                                              ; preds = %.lr.ph
+494:                                              ; preds = %.lr.ph
   %.b414 = load i1, ptr @opts.8, align 8
-  %496 = load ptr, ptr @opts.9, align 8
-  br i1 %.b414, label %497, label %499
+  %495 = load ptr, ptr @opts.9, align 8
+  br i1 %.b414, label %496, label %498
 
-497:                                              ; preds = %495
-  %498 = tail call i64 @fwrite(ptr nonnull @.str.22, i64 12, i64 1, ptr %496)
+496:                                              ; preds = %494
+  %497 = tail call i64 @fwrite(ptr nonnull @.str.22, i64 12, i64 1, ptr %495)
   br label %closeOpen.exit
 
-499:                                              ; preds = %495
-  %500 = tail call i64 @fwrite(ptr nonnull @.str.23, i64 10, i64 1, ptr %496)
+498:                                              ; preds = %494
+  %499 = tail call i64 @fwrite(ptr nonnull @.str.23, i64 10, i64 1, ptr %495)
   br label %closeOpen.exit
 
-closeOpen.exit:                                   ; preds = %499, %497, %.lr.ph
-  %501 = add nuw nsw i32 %.029160, 1
-  %502 = load i32, ptr @opts.2, align 8
-  %.not31.not = icmp slt i32 %.029160, %502
+closeOpen.exit:                                   ; preds = %498, %496, %.lr.ph
+  %500 = add nuw nsw i32 %.029160, 1
+  %501 = load i32, ptr @opts.2, align 8
+  %.not31.not = icmp slt i32 %.029160, %501
   br i1 %.not31.not, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %closeOpen.exit, %490
-  tail call void @freeTreeGen(ptr noundef %492) #9
-  %503 = load i32, ptr @opts.0, align 8
-  %504 = load i32, ptr @opts.1, align 8
-  tail call void @makeRandom(i32 noundef %503, i32 noundef %504, ptr noundef nonnull %undirfn.dirfn) #9
-  br label %514
+._crit_edge:                                      ; preds = %closeOpen.exit, %489
+  tail call void @freeTreeGen(ptr noundef %491) #9
+  %502 = load i32, ptr @opts.0, align 8
+  %503 = load i32, ptr @opts.1, align 8
+  tail call void @makeRandom(i32 noundef %502, i32 noundef %503, ptr noundef nonnull %undirfn.dirfn) #9
+  br label %513
 
-505:                                              ; preds = %init.exit
-  %506 = load i32, ptr @opts.0, align 8
-  %507 = load i32, ptr @opts.1, align 8
-  tail call void @makeCompleteB(i32 noundef %506, i32 noundef %507, ptr noundef nonnull %undirfn.dirfn) #9
-  br label %514
+504:                                              ; preds = %init.exit
+  %505 = load i32, ptr @opts.0, align 8
+  %506 = load i32, ptr @opts.1, align 8
+  tail call void @makeCompleteB(i32 noundef %505, i32 noundef %506, ptr noundef nonnull %undirfn.dirfn) #9
+  br label %513
 
-508:                                              ; preds = %init.exit
-  %509 = load i32, ptr @opts.0, align 8
-  tail call void @makeHypercube(i32 noundef %509, ptr noundef nonnull %undirfn.dirfn) #9
-  br label %514
+507:                                              ; preds = %init.exit
+  %508 = load i32, ptr @opts.0, align 8
+  tail call void @makeHypercube(i32 noundef %508, ptr noundef nonnull %undirfn.dirfn) #9
+  br label %513
 
-510:                                              ; preds = %init.exit
-  %511 = load i32, ptr @opts.0, align 8
-  tail call void @makeStar(i32 noundef %511, ptr noundef nonnull %undirfn.dirfn) #9
-  br label %514
+509:                                              ; preds = %init.exit
+  %510 = load i32, ptr @opts.0, align 8
+  tail call void @makeStar(i32 noundef %510, ptr noundef nonnull %undirfn.dirfn) #9
+  br label %513
 
-512:                                              ; preds = %init.exit
-  %513 = load i32, ptr @opts.0, align 8
-  tail call void @makeWheel(i32 noundef %513, ptr noundef nonnull %undirfn.dirfn) #9
-  br label %514
+511:                                              ; preds = %init.exit
+  %512 = load i32, ptr @opts.0, align 8
+  tail call void @makeWheel(i32 noundef %512, ptr noundef nonnull %undirfn.dirfn) #9
+  br label %513
 
-514:                                              ; preds = %init.exit, %483, %484, %471, %472, %457, %458, %512, %510, %508, %505, %._crit_edge, %487, %485, %476, %473, %461, %459, %451, %449, %444
-  %515 = load ptr, ptr @opts.9, align 8
-  %516 = tail call i64 @fwrite(ptr nonnull @.str.3, i64 2, i64 1, ptr %515)
+513:                                              ; preds = %init.exit, %482, %483, %470, %471, %456, %457, %511, %509, %507, %504, %._crit_edge, %486, %484, %475, %472, %460, %458, %450, %448, %443
+  %514 = load ptr, ptr @opts.9, align 8
+  %515 = tail call i64 @fwrite(ptr nonnull @.str.3, i64 2, i64 1, ptr %514)
   tail call fastcc void @graphviz_exit(i32 noundef 0) #11
   unreachable
 }
@@ -1265,16 +1265,16 @@ readPos.exit:                                     ; preds = %10
   br label %readPos.exit.thread
 
 readPos.exit16:                                   ; preds = %29
-  %34 = trunc nuw nsw i64 %22 to i32
-  %35 = icmp ugt i32 %34, 1
-  br i1 %35, label %36, label %readPos.exit.thread
+  %.not3 = icmp eq i64 %22, 1
+  br i1 %.not3, label %readPos.exit.thread, label %34
 
-36:                                               ; preds = %readPos.exit16
-  store i32 %34, ptr @opts.1, align 8
+34:                                               ; preds = %readPos.exit16
+  %35 = trunc nuw nsw i64 %22 to i32
+  store i32 %35, ptr @opts.1, align 8
   br label %readPos.exit.thread
 
-readPos.exit.thread:                              ; preds = %31, %26, %12, %7, %readPos.exit16, %36, %17
-  %.0 = phi i32 [ -1, %17 ], [ 0, %36 ], [ 1, %readPos.exit16 ], [ -1, %7 ], [ -1, %12 ], [ -1, %26 ], [ -1, %31 ]
+readPos.exit.thread:                              ; preds = %31, %26, %12, %7, %readPos.exit16, %34, %17
+  %.0 = phi i32 [ -1, %17 ], [ 0, %34 ], [ 1, %readPos.exit16 ], [ -1, %7 ], [ -1, %12 ], [ -1, %26 ], [ -1, %31 ]
   ret i32 %.0
 }
 
@@ -1337,16 +1337,16 @@ readPos.exit:                                     ; preds = %10
   br label %readPos.exit.thread
 
 readPos.exit17:                                   ; preds = %27
-  %32 = trunc nuw nsw i64 %20 to i32
-  %33 = icmp ugt i32 %32, 1
-  br i1 %33, label %34, label %readPos.exit.thread
+  %.not3 = icmp eq i64 %20, 1
+  br i1 %.not3, label %readPos.exit.thread, label %32
 
-34:                                               ; preds = %readPos.exit17
-  store i32 %32, ptr @opts.1, align 8
+32:                                               ; preds = %readPos.exit17
+  %33 = trunc nuw nsw i64 %20 to i32
+  store i32 %33, ptr @opts.1, align 8
   br label %readPos.exit.thread
 
-readPos.exit.thread:                              ; preds = %29, %24, %12, %7, %readPos.exit17, %34, %17
-  %.0 = phi i32 [ 0, %17 ], [ 0, %34 ], [ 1, %readPos.exit17 ], [ -1, %7 ], [ -1, %12 ], [ -1, %24 ], [ -1, %29 ]
+readPos.exit.thread:                              ; preds = %29, %24, %12, %7, %readPos.exit17, %32, %17
+  %.0 = phi i32 [ 0, %17 ], [ 0, %32 ], [ 1, %readPos.exit17 ], [ -1, %7 ], [ -1, %12 ], [ -1, %24 ], [ -1, %29 ]
   ret i32 %.0
 }
 

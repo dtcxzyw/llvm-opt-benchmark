@@ -1948,8 +1948,7 @@ define void @Extra_bddPermuteArray(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %exitcond43.not, label %.loopexit.us, label %.lr.ph29.us, !llvm.loop !31
 
 .preheader.us:                                    ; preds = %9
-  %26 = and i64 %indvars.iv, 4294967295
-  %.not = icmp eq i64 %26, 0
+  %.not = icmp eq i64 %indvars.iv, 0
   br i1 %.not, label %.loopexit.us, label %.lr.ph29.us.preheader
 
 .lr.ph29.us.preheader:                            ; preds = %.preheader.us
@@ -1958,11 +1957,11 @@ define void @Extra_bddPermuteArray(ptr noundef %0, ptr nocapture noundef readonl
 
 .loopexit25:                                      ; preds = %5, %.loopexit25
   store i32 0, ptr %6, align 8
-  %27 = tail call ptr @cuddHashTableInit(ptr noundef %0, i32 noundef 1, i32 noundef 2) #18
-  tail call void @cuddHashTableQuit(ptr noundef %27) #18
-  %28 = load i32, ptr %6, align 8
-  %29 = icmp eq i32 %28, 1
-  br i1 %29, label %.loopexit25, label %.split31.us, !llvm.loop !30
+  %26 = tail call ptr @cuddHashTableInit(ptr noundef %0, i32 noundef 1, i32 noundef 2) #18
+  tail call void @cuddHashTableQuit(ptr noundef %26) #18
+  %27 = load i32, ptr %6, align 8
+  %28 = icmp eq i32 %27, 1
+  br i1 %28, label %.loopexit25, label %.split31.us, !llvm.loop !30
 
 .split31.us:                                      ; preds = %.loopexit25, %.loopexit.us
   ret void

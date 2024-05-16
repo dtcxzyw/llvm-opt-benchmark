@@ -517,7 +517,7 @@ _ZNK14NodeDefManager3getEt.exit:                  ; preds = %cond.false.i, %land
   br i1 %cmp.i249.not, label %if.else123, label %if.then115
 
 if.then115:                                       ; preds = %_ZNK14NodeDefManager3getEt.exit
-  %cmp117 = icmp ult i8 %n.sroa.6.0.extract.trunc, 10
+  %cmp117 = icmp ult i32 %31, 167772160
   %37 = or disjoint i8 %n.sroa.6.0.extract.trunc, 48
   %spec.select = select i1 %cmp117, i8 %37, i8 119
   br label %if.end161

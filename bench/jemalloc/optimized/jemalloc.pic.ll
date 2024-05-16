@@ -3785,20 +3785,20 @@ entry:
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %conv = trunc nuw nsw i64 %alignment to i32
-  %.not4 = icmp eq i32 %conv, 0
+  %.not4 = icmp eq i64 %alignment, 0
   br i1 %.not4, label %entry.split.i, label %cond.end
 
 cond.false:                                       ; preds = %entry
   %shr = lshr i64 %alignment, 32
   %conv1 = trunc nuw i64 %shr to i32
   %cttz = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %conv1, i1 true)
-  %.not = icmp eq i32 %conv1, 0
+  %.not = icmp ult i64 %alignment, 4294967296
   %0 = or disjoint i32 %cttz, 32
   %add = select i1 %.not, i32 31, i32 %0
   br label %entry.split.i
 
 cond.end:                                         ; preds = %cond.true
+  %conv = trunc nuw nsw i64 %alignment to i32
   %cttz3 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %conv, i1 true)
   %cmp.i.not.i = icmp eq i32 %cttz3, 0
   br i1 %cmp.i.not.i, label %lor.lhs.false.i.i, label %entry.split.i

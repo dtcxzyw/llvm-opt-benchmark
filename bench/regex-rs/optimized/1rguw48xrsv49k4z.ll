@@ -11595,7 +11595,7 @@ define internal fastcc void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$12par
   %141 = xor i32 %.sroa.553.0.extract.trunc.i.i, 55296
   %142 = add i32 %141, -1114112
   %143 = icmp ult i32 %142, -1112064
-  %144 = icmp eq i32 %.sroa.553.0.extract.trunc.i.i, 1114112
+  %144 = icmp eq i64 %.sroa.553.0.extract.shift.i.i, 1114112
   %or.cond.i.i = select i1 %143, i1 true, i1 %144
   br i1 %or.cond.i.i, label %.thread.i.i, label %150
 
@@ -11793,7 +11793,7 @@ switch.lookup:                                    ; preds = %177
   %195 = xor i32 %.sroa.552.0.extract.trunc.i.i, 55296
   %196 = add i32 %195, -1114112
   %197 = icmp ult i32 %196, -1112064
-  %198 = icmp eq i32 %.sroa.552.0.extract.trunc.i.i, 1114112
+  %198 = icmp eq i64 %.sroa.552.0.extract.shift.i.i, 1114112
   %or.cond.i41.i = select i1 %197, i1 true, i1 %198
   br i1 %or.cond.i41.i, label %.thread103.i.i, label %204
 
@@ -13426,9 +13426,11 @@ _ZN12regex_syntax23is_escapeable_character17h7765be5dc862e0e7E.exit.thread581: ;
   %662 = xor i32 %.sroa.6.0.extract.trunc.i.i, 55296
   %663 = add i32 %662, -1114112
   %664 = icmp ult i32 %663, -1112064
-  br i1 %664, label %665, label %"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$11parse_octal17h257ac4b0d9b75006E.exit"
+  %665 = icmp eq i64 %.sroa.6.0.extract.shift.i.i, 1114112
+  %666 = or i1 %665, %664
+  br i1 %666, label %667, label %"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$11parse_octal17h257ac4b0d9b75006E.exit"
 
-665:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h7ac79e0685c34a79E.exit.i"
+667:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h7ac79e0685c34a79E.exit.i"
   tail call void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.ed16137989d64f70c3f50139d1d1d1dc.123, i64 noundef 20, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ed16137989d64f70c3f50139d1d1d1dc.124) #23, !noalias !1227
   unreachable
 

@@ -426,7 +426,7 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph705:                                        ; preds = %164, %190
   %.7703 = phi ptr [ %.8, %190 ], [ %.6283, %164 ]
-  %.1289.in702 = phi i64 [ %193, %190 ], [ %163, %164 ]
+  %.1289.in702 = phi i64 [ 256, %190 ], [ %163, %164 ]
   %.7324701 = phi i64 [ %.8325, %190 ], [ %.6323, %164 ]
   %.7342700 = phi i64 [ %191, %190 ], [ %161, %164 ]
   %.7372699 = phi i32 [ %.8373, %190 ], [ %.6371, %164 ]
@@ -462,19 +462,22 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef %0) local_unnamed_addr #0 {
   %191 = add nsw i64 %.8343, -9
   %192 = lshr i64 %.8325, %191
   %193 = and i64 %192, 511
-  %194 = trunc nuw nsw i64 %193 to i32
-  %195 = icmp ne i32 %194, 256
-  %196 = icmp eq i32 %.8373, 0
-  %or.cond13 = select i1 %195, i1 true, i1 %196
-  br i1 %or.cond13, label %._crit_edge706, label %.lr.ph705
+  %194 = icmp ne i64 %193, 256
+  %195 = icmp eq i32 %.8373, 0
+  %or.cond13 = select i1 %194, i1 true, i1 %195
+  br i1 %or.cond13, label %._crit_edge706.loopexit, label %.lr.ph705
 
-._crit_edge706:                                   ; preds = %190, %164
-  %.7372.lcssa = phi i32 [ %.6371, %164 ], [ %.8373, %190 ]
-  %.7342.lcssa = phi i64 [ %161, %164 ], [ %191, %190 ]
-  %.7324.lcssa = phi i64 [ %.6323, %164 ], [ %.8325, %190 ]
-  %.1289.in.lcssa = phi i64 [ %163, %164 ], [ %193, %190 ]
-  %.7.lcssa = phi ptr [ %.6283, %164 ], [ %.8, %190 ]
-  %.lcssa517 = phi i32 [ %169, %164 ], [ %194, %190 ]
+._crit_edge706.loopexit:                          ; preds = %190
+  %196 = trunc nuw nsw i64 %193 to i32
+  br label %._crit_edge706
+
+._crit_edge706:                                   ; preds = %._crit_edge706.loopexit, %164
+  %.7372.lcssa = phi i32 [ %.6371, %164 ], [ %.8373, %._crit_edge706.loopexit ]
+  %.7342.lcssa = phi i64 [ %161, %164 ], [ %191, %._crit_edge706.loopexit ]
+  %.7324.lcssa = phi i64 [ %.6323, %164 ], [ %.8325, %._crit_edge706.loopexit ]
+  %.1289.in.lcssa = phi i64 [ %163, %164 ], [ %193, %._crit_edge706.loopexit ]
+  %.7.lcssa = phi ptr [ %.6283, %164 ], [ %.8, %._crit_edge706.loopexit ]
+  %.lcssa517 = phi i32 [ %169, %164 ], [ %196, %._crit_edge706.loopexit ]
   %197 = icmp ult i32 %.lcssa517, 256
   br i1 %197, label %198, label %202
 

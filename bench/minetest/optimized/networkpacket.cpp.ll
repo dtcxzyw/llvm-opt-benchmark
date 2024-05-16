@@ -891,7 +891,7 @@ if.then.i.i23:                                    ; preds = %_ZN13NetworkPacketl
   br label %_ZN13NetworkPacket13checkDataSizeEj.exit.i
 
 _ZN13NetworkPacket13checkDataSizeEj.exit.i:       ; preds = %if.then.i.i23, %_ZN13NetworkPacketlsEt.exit
-  %cmp.i = icmp eq i32 %10, 0
+  %cmp.i = icmp eq i64 %src.coerce0, 0
   br i1 %cmp.i, label %_ZN13NetworkPacket12putRawStringEPKcj.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %_ZN13NetworkPacket13checkDataSizeEj.exit.i
@@ -1038,7 +1038,7 @@ if.then.i.i22:                                    ; preds = %_ZN13NetworkPacketl
   br label %_ZN13NetworkPacket13checkDataSizeEj.exit.i
 
 _ZN13NetworkPacket13checkDataSizeEj.exit.i:       ; preds = %if.then.i.i22, %_ZN13NetworkPacketlsEj.exit
-  %cmp.i = icmp eq i32 %conv, 0
+  %cmp.i = icmp eq i64 %src.coerce0, 0
   br i1 %cmp.i, label %_ZN13NetworkPacket12putRawStringEPKcj.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %_ZN13NetworkPacket13checkDataSizeEj.exit.i

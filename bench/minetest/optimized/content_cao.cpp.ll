@@ -16738,8 +16738,8 @@ _ZNK9ItemStack19getToolCapabilitiesEPK15IItemDefManager.exit: ; preds = %_ZNSt7_
   %tobool = icmp ne i64 %14, 0
   %result.sroa.0.4.extract.shift53 = lshr i64 %call3.fca.0.extract, 32
   %result.sroa.0.4.extract.trunc54 = trunc nuw i64 %result.sroa.0.4.extract.shift53 to i32
-  %cmp = icmp ne i32 %result.sroa.0.4.extract.trunc54, 0
-  %or.cond = and i1 %tobool, %cmp
+  %cmp = icmp ugt i64 %call3.fca.0.extract, 4294967295
+  %or.cond = and i1 %cmp, %tobool
   br i1 %or.cond, label %if.then, label %if.end41
 
 if.then:                                          ; preds = %_ZNK9ItemStack19getToolCapabilitiesEPK15IItemDefManager.exit

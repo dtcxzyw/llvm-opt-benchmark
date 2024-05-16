@@ -28255,11 +28255,10 @@ define internal fastcc void @_ZN7hir_def9find_path15find_in_prelude17h65a28a6881
   %.sroa.426.0.copyload = load i64, ptr %.sroa.426.0..sroa_idx, align 4, !alias.scope !6486
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6490)
   %.sroa.039.4.extract.shift = lshr i64 %.sroa.426.0.copyload, 32
-  %.sroa.039.4.extract.trunc = trunc nuw i64 %.sroa.039.4.extract.shift to i32
-  %18 = icmp eq i32 %.sroa.039.4.extract.trunc, 0
-  %.sroa.039.0.extract.trunc = trunc i64 %.sroa.426.0.copyload to i32
+  %18 = icmp ult i64 %.sroa.426.0.copyload, 4294967296
   %.sink4.i = select i1 %18, i64 928, i64 936
-  %.sink.i = select i1 %18, i32 %.sroa.039.0.extract.trunc, i32 %.sroa.039.4.extract.trunc
+  %.sink.i.v = select i1 %18, i64 %.sroa.426.0.copyload, i64 %.sroa.039.4.extract.shift
+  %.sink.i = trunc i64 %.sink.i.v to i32
   %19 = getelementptr inbounds i8, ptr %2, i64 %.sink4.i
   %20 = load ptr, ptr %19, align 8, !invariant.load !4, !alias.scope !6490, !noalias !6493, !nonnull !4
   %21 = tail call noundef nonnull ptr %20(ptr noundef nonnull align 1 %1, i32 noundef %.sink.i), !noalias !6495

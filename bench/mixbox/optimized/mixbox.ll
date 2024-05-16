@@ -4006,7 +4006,7 @@ _ZL9fill_bitsP4zbuf.exit.i:                       ; preds = %160, %89, %.prehead
 
 208:                                              ; preds = %204
   %209 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
-  %210 = icmp ugt i32 %209, 15
+  %210 = icmp ugt i64 %indvars.iv.i.i.i, 15
   br i1 %210, label %_ZL21compute_huffman_codesP4zbuf.exit.thread.i, label %211
 
 211:                                              ; preds = %208
@@ -4242,7 +4242,7 @@ _ZL21compute_huffman_codesP4zbuf.exit.i:          ; preds = %294
 
 326:                                              ; preds = %322
   %327 = trunc nuw nsw i64 %indvars.iv.i.i55.i to i32
-  %328 = icmp ugt i32 %327, 15
+  %328 = icmp ugt i64 %indvars.iv.i.i55.i, 15
   br i1 %328, label %_ZL10decompressPci.exit, label %329
 
 329:                                              ; preds = %326
@@ -4387,7 +4387,7 @@ thread-pre-split.i.i:                             ; preds = %373, %362
 
 406:                                              ; preds = %402
   %407 = trunc nuw nsw i64 %indvars.iv.i120.i.i to i32
-  %408 = icmp ugt i32 %407, 15
+  %408 = icmp ugt i64 %indvars.iv.i120.i.i, 15
   br i1 %408, label %_ZL10decompressPci.exit, label %409
 
 409:                                              ; preds = %406

@@ -79,7 +79,7 @@ define dso_local range(i32 0, 2) i32 @allow_list_init(ptr noundef %0) local_unna
 
 6:                                                ; preds = %1
   %7 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.1, ptr noundef %0) #8
-  br label %54
+  br label %53
 
 8:                                                ; preds = %.lr.ph61, %.backedge
   %9 = load i8, ptr %2, align 16
@@ -130,108 +130,107 @@ define dso_local range(i32 0, 2) i32 @allow_list_init(ptr noundef %0) local_unna
   br i1 %22, label %.lr.ph, label %.thread
 
 23:                                               ; preds = %.lr.ph
-  %24 = and i64 %indvars.iv, 4294967295
-  %.not42 = icmp eq i64 %24, 0
+  %.not42 = icmp eq i64 %indvars.iv, 0
   br i1 %.not42, label %.backedge, label %.thread
 
-.backedge:                                        ; preds = %23, %38, %8, %8, %8
-  %25 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 2048, ptr noundef nonnull %3)
-  %.not37 = icmp eq ptr %25, null
+.backedge:                                        ; preds = %23, %37, %8, %8, %8
+  %24 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 2048, ptr noundef nonnull %3)
+  %.not37 = icmp eq ptr %24, null
   br i1 %.not37, label %._crit_edge, label %8
 
 .thread:                                          ; preds = %21, %14, %23
-  %26 = call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #10
-  %.not43 = icmp eq ptr %26, null
-  br i1 %.not43, label %27, label %38
+  %25 = call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #10
+  %.not43 = icmp eq ptr %25, null
+  br i1 %.not43, label %26, label %37
 
-27:                                               ; preds = %.thread
-  %28 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.4) #8
+26:                                               ; preds = %.thread
+  %27 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.4) #8
   %.pr.i = load ptr, ptr @wfrom, align 8
   %.not5.i = icmp eq ptr %.pr.i, null
   br i1 %.not5.i, label %thread-pre-split.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %27, %.lr.ph.i
-  %29 = phi ptr [ %31, %.lr.ph.i ], [ %.pr.i, %27 ]
-  %30 = getelementptr inbounds i8, ptr %29, i64 32
-  %31 = load ptr, ptr %30, align 8
-  call void @cli_regfree(ptr noundef nonnull %29) #8
-  %32 = load ptr, ptr @wfrom, align 8
-  call void @free(ptr noundef %32) #8
-  store ptr %31, ptr @wfrom, align 8
-  %.not.i = icmp eq ptr %31, null
+.lr.ph.i:                                         ; preds = %26, %.lr.ph.i
+  %28 = phi ptr [ %30, %.lr.ph.i ], [ %.pr.i, %26 ]
+  %29 = getelementptr inbounds i8, ptr %28, i64 32
+  %30 = load ptr, ptr %29, align 8
+  call void @cli_regfree(ptr noundef nonnull %28) #8
+  %31 = load ptr, ptr @wfrom, align 8
+  call void @free(ptr noundef %31) #8
+  store ptr %30, ptr @wfrom, align 8
+  %.not.i = icmp eq ptr %30, null
   br i1 %.not.i, label %thread-pre-split.i, label %.lr.ph.i
 
-thread-pre-split.i:                               ; preds = %.lr.ph.i, %27
+thread-pre-split.i:                               ; preds = %.lr.ph.i, %26
   %.pr4.i = load ptr, ptr @wto, align 8
   %.not36.i = icmp eq ptr %.pr4.i, null
   br i1 %.not36.i, label %allow_list_free.exit, label %.lr.ph7.i
 
 .lr.ph7.i:                                        ; preds = %thread-pre-split.i, %.lr.ph7.i
-  %33 = phi ptr [ %35, %.lr.ph7.i ], [ %.pr4.i, %thread-pre-split.i ]
-  %34 = getelementptr inbounds i8, ptr %33, i64 32
-  %35 = load ptr, ptr %34, align 8
-  call void @cli_regfree(ptr noundef nonnull %33) #8
-  %36 = load ptr, ptr @wto, align 8
-  call void @free(ptr noundef %36) #8
-  store ptr %35, ptr @wto, align 8
-  %.not3.i = icmp eq ptr %35, null
+  %32 = phi ptr [ %34, %.lr.ph7.i ], [ %.pr4.i, %thread-pre-split.i ]
+  %33 = getelementptr inbounds i8, ptr %32, i64 32
+  %34 = load ptr, ptr %33, align 8
+  call void @cli_regfree(ptr noundef nonnull %32) #8
+  %35 = load ptr, ptr @wto, align 8
+  call void @free(ptr noundef %35) #8
+  store ptr %34, ptr @wto, align 8
+  %.not3.i = icmp eq ptr %34, null
   br i1 %.not3.i, label %allow_list_free.exit, label %.lr.ph7.i
 
 allow_list_free.exit:                             ; preds = %.lr.ph7.i, %thread-pre-split.i
-  %37 = call i32 @fclose(ptr noundef nonnull %3)
-  br label %54
+  %36 = call i32 @fclose(ptr noundef nonnull %3)
+  br label %53
 
-38:                                               ; preds = %.thread
-  %39 = load ptr, ptr %.033, align 8
-  %40 = getelementptr inbounds i8, ptr %26, i64 32
-  store ptr %39, ptr %40, align 8
-  store ptr %26, ptr %.033, align 8
-  %41 = call i32 @cli_regcomp(ptr noundef nonnull %26, ptr noundef nonnull %.032, i32 noundef 6) #8
-  %.not44 = icmp eq i32 %41, 0
-  br i1 %.not44, label %.backedge, label %42
+37:                                               ; preds = %.thread
+  %38 = load ptr, ptr %.033, align 8
+  %39 = getelementptr inbounds i8, ptr %25, i64 32
+  store ptr %38, ptr %39, align 8
+  store ptr %25, ptr %.033, align 8
+  %40 = call i32 @cli_regcomp(ptr noundef nonnull %25, ptr noundef nonnull %.032, i32 noundef 6) #8
+  %.not44 = icmp eq i32 %40, 0
+  br i1 %.not44, label %.backedge, label %41
 
-42:                                               ; preds = %38
-  %43 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.5, ptr noundef nonnull %.032) #8
+41:                                               ; preds = %37
+  %42 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.5, ptr noundef nonnull %.032) #8
   %.pr.i45 = load ptr, ptr @wfrom, align 8
   %.not5.i46 = icmp eq ptr %.pr.i45, null
   br i1 %.not5.i46, label %thread-pre-split.i49, label %.lr.ph.i47
 
-.lr.ph.i47:                                       ; preds = %42, %.lr.ph.i47
-  %44 = phi ptr [ %46, %.lr.ph.i47 ], [ %.pr.i45, %42 ]
-  %45 = getelementptr inbounds i8, ptr %44, i64 32
-  %46 = load ptr, ptr %45, align 8
-  call void @cli_regfree(ptr noundef nonnull %44) #8
-  %47 = load ptr, ptr @wfrom, align 8
-  call void @free(ptr noundef %47) #8
-  store ptr %46, ptr @wfrom, align 8
-  %.not.i48 = icmp eq ptr %46, null
+.lr.ph.i47:                                       ; preds = %41, %.lr.ph.i47
+  %43 = phi ptr [ %45, %.lr.ph.i47 ], [ %.pr.i45, %41 ]
+  %44 = getelementptr inbounds i8, ptr %43, i64 32
+  %45 = load ptr, ptr %44, align 8
+  call void @cli_regfree(ptr noundef nonnull %43) #8
+  %46 = load ptr, ptr @wfrom, align 8
+  call void @free(ptr noundef %46) #8
+  store ptr %45, ptr @wfrom, align 8
+  %.not.i48 = icmp eq ptr %45, null
   br i1 %.not.i48, label %thread-pre-split.i49, label %.lr.ph.i47
 
-thread-pre-split.i49:                             ; preds = %.lr.ph.i47, %42
+thread-pre-split.i49:                             ; preds = %.lr.ph.i47, %41
   %.pr4.i50 = load ptr, ptr @wto, align 8
   %.not36.i51 = icmp eq ptr %.pr4.i50, null
   br i1 %.not36.i51, label %allow_list_free.exit54, label %.lr.ph7.i52
 
 .lr.ph7.i52:                                      ; preds = %thread-pre-split.i49, %.lr.ph7.i52
-  %48 = phi ptr [ %50, %.lr.ph7.i52 ], [ %.pr4.i50, %thread-pre-split.i49 ]
-  %49 = getelementptr inbounds i8, ptr %48, i64 32
-  %50 = load ptr, ptr %49, align 8
-  call void @cli_regfree(ptr noundef nonnull %48) #8
-  %51 = load ptr, ptr @wto, align 8
-  call void @free(ptr noundef %51) #8
-  store ptr %50, ptr @wto, align 8
-  %.not3.i53 = icmp eq ptr %50, null
+  %47 = phi ptr [ %49, %.lr.ph7.i52 ], [ %.pr4.i50, %thread-pre-split.i49 ]
+  %48 = getelementptr inbounds i8, ptr %47, i64 32
+  %49 = load ptr, ptr %48, align 8
+  call void @cli_regfree(ptr noundef nonnull %47) #8
+  %50 = load ptr, ptr @wto, align 8
+  call void @free(ptr noundef %50) #8
+  store ptr %49, ptr @wto, align 8
+  %.not3.i53 = icmp eq ptr %49, null
   br i1 %.not3.i53, label %allow_list_free.exit54, label %.lr.ph7.i52
 
 allow_list_free.exit54:                           ; preds = %.lr.ph7.i52, %thread-pre-split.i49
-  %52 = call i32 @fclose(ptr noundef nonnull %3)
-  br label %54
+  %51 = call i32 @fclose(ptr noundef nonnull %3)
+  br label %53
 
 ._crit_edge:                                      ; preds = %.backedge, %.preheader
-  %53 = call i32 @fclose(ptr noundef nonnull %3)
-  br label %54
+  %52 = call i32 @fclose(ptr noundef nonnull %3)
+  br label %53
 
-54:                                               ; preds = %._crit_edge, %allow_list_free.exit54, %allow_list_free.exit, %6
+53:                                               ; preds = %._crit_edge, %allow_list_free.exit54, %allow_list_free.exit, %6
   %.034 = phi i32 [ 1, %allow_list_free.exit54 ], [ 1, %allow_list_free.exit ], [ 0, %._crit_edge ], [ 1, %6 ]
   ret i32 %.034
 }
@@ -343,21 +342,21 @@ define dso_local range(i32 0, 2) i32 @smtpauth_init(ptr noundef %0) local_unname
   br i1 %20, label %.lr.ph, label %.backedge
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %21 = trunc nuw nsw i64 %indvars.iv to i32
-  %22 = icmp slt i32 %21, 1
-  br i1 %22, label %.backedge, label %24
+  %21 = icmp slt i64 %indvars.iv, 1
+  br i1 %21, label %.backedge, label %23
 
 .backedge:                                        ; preds = %19, %12, %._crit_edge, %10, %10, %10
-  %23 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 2048, ptr noundef nonnull %6)
-  %.not98 = icmp eq ptr %23, null
+  %22 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 2048, ptr noundef nonnull %6)
+  %.not98 = icmp eq ptr %22, null
   br i1 %.not98, label %.outer._crit_edge, label %10
 
-24:                                               ; preds = %._crit_edge
-  %25 = mul nuw nsw i32 %21, 3
+23:                                               ; preds = %._crit_edge
+  %24 = trunc nuw nsw i64 %indvars.iv to i32
+  %25 = mul nuw nsw i32 %24, 3
   %.not102 = icmp slt i32 %25, %.079.ph158
   br i1 %.not102, label %36, label %26
 
-26:                                               ; preds = %24
+26:                                               ; preds = %23
   %27 = add nsw i32 %.083.ph157, 2048
   %28 = sext i32 %27 to i64
   %29 = call ptr @realloc(ptr noundef %.086.ph156, i64 noundef %28) #11
@@ -380,11 +379,11 @@ define dso_local range(i32 0, 2) i32 @smtpauth_init(ptr noundef %0) local_unname
   store i8 40, ptr %35, align 1
   br label %36
 
-36:                                               ; preds = %33, %34, %24
-  %.187 = phi ptr [ %29, %33 ], [ %29, %34 ], [ %.086.ph156, %24 ]
-  %.184 = phi i32 [ %27, %33 ], [ %27, %34 ], [ %.083.ph157, %24 ]
-  %.180 = phi i32 [ 2048, %33 ], [ 2046, %34 ], [ %.079.ph158, %24 ]
-  %.1 = phi i32 [ %.078.ph159, %33 ], [ 2, %34 ], [ %.078.ph159, %24 ]
+36:                                               ; preds = %33, %34, %23
+  %.187 = phi ptr [ %29, %33 ], [ %29, %34 ], [ %.086.ph156, %23 ]
+  %.184 = phi i32 [ %27, %33 ], [ %27, %34 ], [ %.083.ph157, %23 ]
+  %.180 = phi i32 [ 2048, %33 ], [ 2046, %34 ], [ %.079.ph158, %23 ]
+  %.1 = phi i32 [ %.078.ph159, %33 ], [ 2, %34 ], [ %.078.ph159, %23 ]
   %37 = load i8, ptr %2, align 16
   %.not105145 = icmp eq i8 %37, 0
   br i1 %.not105145, label %.outer, label %.lr.ph151

@@ -3026,7 +3026,7 @@ define dso_local noundef i32 @pci_reassign_bridge_resources(ptr noundef %0, i64 
 
 54:                                               ; preds = %31, %49
   call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
-  %55 = icmp eq i32 %16, 10
+  %55 = icmp eq i64 %14, 10
   br i1 %55, label %.thread15, label %56
 
 56:                                               ; preds = %54

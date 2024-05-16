@@ -36306,10 +36306,9 @@ define hidden noundef range(i8 0, 3) i8 @_ZN8wasmtime6engine13serialization18det
 
 7:                                                ; preds = %5
   %.sroa.7.0.extract.shift = lshr i64 %2, 32
-  %.sroa.7.0.extract.trunc = trunc nuw i64 %.sroa.7.0.extract.shift to i32
-  %switch.selectcmp = icmp eq i32 %.sroa.7.0.extract.trunc, 2
+  %switch.selectcmp = icmp eq i64 %.sroa.7.0.extract.shift, 2
   %switch.select = select i1 %switch.selectcmp, i8 1, i8 2
-  %switch.selectcmp14 = icmp eq i32 %.sroa.7.0.extract.trunc, 1
+  %switch.selectcmp14 = icmp eq i64 %.sroa.7.0.extract.shift, 1
   %switch.select15 = select i1 %switch.selectcmp14, i8 0, i8 %switch.select
   br label %8
 

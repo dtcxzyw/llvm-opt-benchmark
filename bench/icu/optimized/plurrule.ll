@@ -9649,7 +9649,7 @@ for.inc:                                          ; preds = %for.body
 
 if.then3:                                         ; preds = %for.body
   %3 = trunc nuw nsw i64 %indvars.iv to i32
-  %cmp.i = icmp eq i32 %3, 0
+  %cmp.i = icmp eq i64 %indvars.iv, 0
   %4 = tail call double @llvm.floor.f64(double %0)
   %cmp1.i = fcmp oeq double %4, %0
   %or.cond.i = or i1 %cmp1.i, %cmp.i

@@ -3998,7 +3998,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   %61 = shl nuw nsw i64 %1, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %60, ptr nonnull readonly align 8 %58, i64 %61, i1 false), !alias.scope !602
   %62 = getelementptr inbounds ptr, ptr %58, i64 %1
-  %63 = add i64 %48, 8
+  %63 = add nsw i64 %48, 8
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %58, ptr nonnull align 8 %62, i64 %63, i1 false)
   br label %.lr.ph.i
 
@@ -19000,7 +19000,7 @@ _ZN3std2io4Read11read_to_end17h7eaf7264827c2d19E.exit.i.i: ; preds = %556
 
 867:                                              ; preds = %865, %850
   %.010.i.i = phi i8 [ %855, %850 ], [ %spec.select20.i.i, %865 ]
-  %868 = icmp ugt i8 %855, 39
+  %868 = icmp sgt i32 %.1.i.i, 39
   br i1 %806, label %870, label %869
 
 869:                                              ; preds = %867
@@ -19011,11 +19011,11 @@ _ZN3std2io4Read11read_to_end17h7eaf7264827c2d19E.exit.i.i: ; preds = %556
   br label %"_ZN5image6codecs4webp3vp819Vp8Decoder$LT$R$GT$27calculate_filter_parameters17hf3bc7392eb113143E.exit.i"
 
 871:                                              ; preds = %869
-  %872 = icmp ugt i8 %855, 19
+  %872 = icmp sgt i32 %.1.i.i, 19
   br i1 %872, label %"_ZN5image6codecs4webp3vp819Vp8Decoder$LT$R$GT$27calculate_filter_parameters17hf3bc7392eb113143E.exit.thread.i", label %873
 
 873:                                              ; preds = %871
-  %874 = icmp ugt i8 %855, 14
+  %874 = icmp sgt i32 %.1.i.i, 14
   %spec.select.i.i = zext i1 %874 to i8
   br label %"_ZN5image6codecs4webp3vp819Vp8Decoder$LT$R$GT$27calculate_filter_parameters17hf3bc7392eb113143E.exit.i"
 
@@ -19027,7 +19027,7 @@ _ZN3std2io4Read11read_to_end17h7eaf7264827c2d19E.exit.i.i: ; preds = %556
 "_ZN5image6codecs4webp3vp819Vp8Decoder$LT$R$GT$27calculate_filter_parameters17hf3bc7392eb113143E.exit.i": ; preds = %873, %870
   %.0.i.i = phi i8 [ %.19.i.i, %870 ], [ %spec.select.i.i, %873 ]
   %spec.store.select.i.i = call i8 @llvm.umax.i8(i8 %.010.i.i, i8 1)
-  %.not.i83 = icmp eq i8 %855, 0
+  %.not.i83 = icmp slt i32 %.1.i.i, 1
   br i1 %.not.i83, label %"_ZN5image6codecs4webp3vp819Vp8Decoder$LT$R$GT$11loop_filter17h9b5aad990fd1da25E.exit", label %875
 
 875:                                              ; preds = %"_ZN5image6codecs4webp3vp819Vp8Decoder$LT$R$GT$27calculate_filter_parameters17hf3bc7392eb113143E.exit.i", %"_ZN5image6codecs4webp3vp819Vp8Decoder$LT$R$GT$27calculate_filter_parameters17hf3bc7392eb113143E.exit.thread.i"

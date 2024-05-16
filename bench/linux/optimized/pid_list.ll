@@ -321,14 +321,14 @@ define dso_local noundef range(i32 -22, 1) i32 @trace_pid_list_next(ptr noundef 
   br label %49
 
 39:                                               ; preds = %28
-  %40 = trunc nuw nsw i64 %17 to i32
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %0, i64 noundef %12) #7
-  %41 = icmp ugt i32 %40, 255
-  br i1 %41, label %49, label %42
+  %40 = icmp ugt i64 %17, 255
+  br i1 %40, label %49, label %41
 
-42:                                               ; preds = %39
+41:                                               ; preds = %39
+  %42 = trunc nuw nsw i64 %17 to i32
   %43 = trunc nuw nsw i64 %23 to i32
-  %44 = shl nuw nsw i32 %40, 22
+  %44 = shl nuw nsw i32 %42, 22
   %45 = shl nuw nsw i32 %43, 14
   %46 = and i32 %45, 4177920
   %47 = or disjoint i32 %46, %44
@@ -336,8 +336,8 @@ define dso_local noundef range(i32 -22, 1) i32 @trace_pid_list_next(ptr noundef 
   store i32 %48, ptr %2, align 4
   br label %49
 
-49:                                               ; preds = %.thread, %42, %39, %5, %3
-  %50 = phi i32 [ 0, %42 ], [ -19, %3 ], [ -22, %5 ], [ -1, %39 ], [ -1, %.thread ]
+49:                                               ; preds = %.thread, %41, %39, %5, %3
+  %50 = phi i32 [ 0, %41 ], [ -19, %3 ], [ -22, %5 ], [ -1, %39 ], [ -1, %.thread ]
   ret i32 %50
 }
 

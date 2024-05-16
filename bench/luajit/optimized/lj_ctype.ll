@@ -701,28 +701,27 @@ if.end:                                           ; preds = %if.else, %if.then
 
 land.lhs.true18:                                  ; preds = %if.end
   %6 = load i64, ptr %tv.0, align 8
-  %shr19 = ashr i64 %6, 47
-  %7 = and i64 %shr19, 4294967295
-  %cmp20 = icmp eq i64 %7, 4294967284
+  %shr19.mask = and i64 %6, -140737488355328
+  %cmp20 = icmp eq i64 %shr19.mask, -1688849860263936
   br i1 %cmp20, label %land.lhs.true22, label %if.end32
 
 land.lhs.true22:                                  ; preds = %land.lhs.true18
   %and23 = and i64 %6, 140737488355327
-  %8 = inttoptr i64 %and23 to ptr
+  %7 = inttoptr i64 %and23 to ptr
   %g24 = getelementptr inbounds i8, ptr %cts, i64 24
-  %9 = load ptr, ptr %g24, align 8
-  %gcroot = getelementptr inbounds i8, ptr %9, i64 424
+  %8 = load ptr, ptr %g24, align 8
+  %gcroot = getelementptr inbounds i8, ptr %8, i64 424
   %idxprom = zext i32 %mm to i64
   %arrayidx = getelementptr inbounds [38 x %struct.GCRef], ptr %gcroot, i64 0, i64 %idxprom
-  %10 = load i64, ptr %arrayidx, align 8
-  %11 = inttoptr i64 %10 to ptr
-  %call26 = tail call ptr @lj_tab_getstr(ptr noundef %8, ptr noundef %11) #14
+  %9 = load i64, ptr %arrayidx, align 8
+  %10 = inttoptr i64 %9 to ptr
+  %call26 = tail call ptr @lj_tab_getstr(ptr noundef %7, ptr noundef %10) #14
   %tobool27.not = icmp eq ptr %call26, null
   br i1 %tobool27.not, label %if.end32, label %land.lhs.true28
 
 land.lhs.true28:                                  ; preds = %land.lhs.true22
-  %12 = load i64, ptr %call26, align 8
-  %cmp29 = icmp eq i64 %12, -1
+  %11 = load i64, ptr %call26, align 8
+  %cmp29 = icmp eq i64 %11, -1
   br i1 %cmp29, label %if.end32, label %return
 
 if.end32:                                         ; preds = %land.lhs.true28, %land.lhs.true22, %land.lhs.true18, %if.end

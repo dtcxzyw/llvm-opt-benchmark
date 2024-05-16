@@ -2054,13 +2054,16 @@ define dso_local i32 @fib_table_lookup(ptr noundef %0, ptr noundef %1, ptr nocap
   %126 = load i8, ptr %125, align 4
   %127 = zext nneg i8 %126 to i64
   %128 = lshr i64 %124, %127
-  %129 = trunc nuw i64 %128 to i32
-  %130 = icmp eq i32 %129, 0
-  br i1 %130, label %.lr.ph104, label %._crit_edge, !llvm.loop !48
+  %129 = icmp eq i64 %128, 0
+  br i1 %129, label %.lr.ph104, label %._crit_edge.loopexit, !llvm.loop !48
 
-._crit_edge:                                      ; preds = %118, %.loopexit27
-  %.lcssa29 = phi i32 [ %89, %.loopexit27 ], [ %129, %118 ]
-  %.lcssa = phi ptr [ %90, %.loopexit27 ], [ %121, %118 ]
+._crit_edge.loopexit:                             ; preds = %118
+  %130 = trunc nuw i64 %128 to i32
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.loopexit27
+  %.lcssa29 = phi i32 [ %89, %.loopexit27 ], [ %130, %._crit_edge.loopexit ]
+  %.lcssa = phi ptr [ %90, %.loopexit27 ], [ %121, %._crit_edge.loopexit ]
   %131 = add i32 %.lcssa29, -1
   %132 = and i32 %131, %.lcssa29
   %133 = getelementptr inbounds i8, ptr %.lcssa, i64 8

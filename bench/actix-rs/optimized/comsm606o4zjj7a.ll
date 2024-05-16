@@ -15150,74 +15150,88 @@ define hidden i64 @"_ZN6brotli3enc9interface41PredictionModeContextMap$LT$SliceT
   %18 = load i8, ptr %17, align 1, !noundef !62
   %19 = getelementptr inbounds i8, ptr %.val, i64 8203
   %20 = load i8, ptr %19, align 1, !noundef !62
-  %21 = icmp ult i8 %7, 8
-  br i1 %21, label %34, label %22
+  %.sroa.4.0.insert.ext.i = zext i8 %20 to i32
+  %.sroa.4.0.insert.shift.i = shl nuw i32 %.sroa.4.0.insert.ext.i, 24
+  %.sroa.3.0.insert.ext.i = zext i8 %11 to i32
+  %.sroa.3.0.insert.shift.i = shl nuw nsw i32 %.sroa.3.0.insert.ext.i, 16
+  %.sroa.2.0.insert.ext.i = zext i8 %18 to i32
+  %.sroa.2.0.insert.shift.i = shl nuw nsw i32 %.sroa.2.0.insert.ext.i, 8
+  %.sroa.0.0.insert.ext.i = zext i8 %7 to i32
+  %.sroa.3.0.insert.insert.i = or disjoint i32 %.sroa.3.0.insert.shift.i, %.sroa.0.0.insert.ext.i
+  %21 = or disjoint i32 %.sroa.3.0.insert.insert.i, %.sroa.2.0.insert.shift.i
+  %.sroa.0.0.insert.insert.i = or disjoint i32 %21, %.sroa.4.0.insert.shift.i
+  %.sroa.411.0.extract.shift = lshr i32 %.sroa.0.0.insert.insert.i, 8
+  %.sroa.411.0.extract.trunc = trunc i32 %.sroa.411.0.extract.shift to i8
+  %.sroa.512.0.extract.shift = lshr i32 %.sroa.0.0.insert.insert.i, 16
+  %.sroa.512.0.extract.trunc = trunc i32 %.sroa.512.0.extract.shift to i8
+  %22 = icmp ult i8 %7, 8
+  br i1 %22, label %35, label %23
 
-22:                                               ; preds = %"_ZN6brotli3enc9interface41PredictionModeContextMap$LT$SliceType$GT$20context_map_speed_f817hc9dc51f998be4f9cE.exit"
-  %23 = lshr i8 %7, 3
-  %24 = add nuw nsw i8 %23, 15
-  %25 = and i8 %7, 7
-  %26 = zext nneg i8 %25 to i16
-  %27 = and i8 %24, 15
-  %28 = zext nneg i8 %27 to i16
-  %29 = shl i16 %26, %28
-  %30 = shl nuw i16 1, %28
-  %31 = lshr i16 %29, 3
-  %32 = or i16 %31, %30
-  %33 = zext i16 %32 to i64
-  br label %34
+23:                                               ; preds = %"_ZN6brotli3enc9interface41PredictionModeContextMap$LT$SliceType$GT$20context_map_speed_f817hc9dc51f998be4f9cE.exit"
+  %24 = lshr i8 %7, 3
+  %25 = add nuw nsw i8 %24, 15
+  %26 = and i8 %7, 7
+  %27 = zext nneg i8 %26 to i16
+  %28 = and i8 %25, 15
+  %29 = zext nneg i8 %28 to i16
+  %30 = shl i16 %27, %29
+  %31 = shl nuw i16 1, %29
+  %32 = lshr i16 %30, 3
+  %33 = or i16 %32, %31
+  %34 = zext i16 %33 to i64
+  br label %35
 
-34:                                               ; preds = %"_ZN6brotli3enc9interface41PredictionModeContextMap$LT$SliceType$GT$20context_map_speed_f817hc9dc51f998be4f9cE.exit", %22
-  %.016 = phi i64 [ %33, %22 ], [ 0, %"_ZN6brotli3enc9interface41PredictionModeContextMap$LT$SliceType$GT$20context_map_speed_f817hc9dc51f998be4f9cE.exit" ]
-  %35 = icmp ult i8 %18, 8
-  br i1 %35, label %49, label %36
+35:                                               ; preds = %"_ZN6brotli3enc9interface41PredictionModeContextMap$LT$SliceType$GT$20context_map_speed_f817hc9dc51f998be4f9cE.exit", %23
+  %.016 = phi i64 [ %34, %23 ], [ 0, %"_ZN6brotli3enc9interface41PredictionModeContextMap$LT$SliceType$GT$20context_map_speed_f817hc9dc51f998be4f9cE.exit" ]
+  %36 = icmp ult i8 %.sroa.411.0.extract.trunc, 8
+  br i1 %36, label %50, label %37
 
-36:                                               ; preds = %34
-  %37 = lshr i8 %18, 3
-  %38 = add nuw nsw i8 %37, 15
-  %39 = and i8 %18, 7
-  %40 = zext nneg i8 %39 to i16
-  %41 = and i8 %38, 15
-  %42 = zext nneg i8 %41 to i16
-  %43 = shl i16 %40, %42
-  %44 = shl nuw i16 1, %42
-  %45 = lshr i16 %43, 3
-  %46 = or i16 %45, %44
-  %47 = zext i16 %46 to i64
-  %48 = shl nuw nsw i64 %47, 16
-  br label %49
+37:                                               ; preds = %35
+  %38 = lshr i8 %.sroa.411.0.extract.trunc, 3
+  %39 = add nuw nsw i8 %38, 15
+  %40 = trunc i32 %.sroa.411.0.extract.shift to i16
+  %41 = and i16 %40, 7
+  %42 = and i8 %39, 15
+  %43 = zext nneg i8 %42 to i16
+  %44 = shl i16 %41, %43
+  %45 = shl nuw i16 1, %43
+  %46 = lshr i16 %44, 3
+  %47 = or i16 %46, %45
+  %48 = zext i16 %47 to i64
+  %49 = shl nuw nsw i64 %48, 16
+  br label %50
 
-49:                                               ; preds = %34, %36
-  %.015 = phi i64 [ %48, %36 ], [ 0, %34 ]
-  %50 = icmp ult i8 %11, 8
-  br i1 %50, label %64, label %51
+50:                                               ; preds = %35, %37
+  %.015 = phi i64 [ %49, %37 ], [ 0, %35 ]
+  %51 = icmp ult i8 %.sroa.512.0.extract.trunc, 8
+  br i1 %51, label %65, label %52
 
-51:                                               ; preds = %49
-  %52 = lshr i8 %11, 3
-  %53 = add nuw nsw i8 %52, 15
-  %54 = and i8 %11, 7
-  %55 = zext nneg i8 %54 to i16
-  %56 = and i8 %53, 15
-  %57 = zext nneg i8 %56 to i16
-  %58 = shl i16 %55, %57
-  %59 = shl nuw i16 1, %57
-  %60 = lshr i16 %58, 3
-  %61 = or i16 %60, %59
-  %62 = zext i16 %61 to i64
-  %63 = shl nuw nsw i64 %62, 32
-  br label %64
+52:                                               ; preds = %50
+  %53 = lshr i8 %.sroa.512.0.extract.trunc, 3
+  %54 = add nuw nsw i8 %53, 15
+  %55 = trunc nuw i32 %.sroa.512.0.extract.shift to i16
+  %56 = and i16 %55, 7
+  %57 = and i8 %54, 15
+  %58 = zext nneg i8 %57 to i16
+  %59 = shl i16 %56, %58
+  %60 = shl nuw i16 1, %58
+  %61 = lshr i16 %59, 3
+  %62 = or i16 %61, %60
+  %63 = zext i16 %62 to i64
+  %64 = shl nuw nsw i64 %63, 32
+  br label %65
 
-64:                                               ; preds = %49, %51
-  %.014 = phi i64 [ %63, %51 ], [ 0, %49 ]
-  %65 = icmp ult i8 %20, 8
-  br i1 %65, label %79, label %66
+65:                                               ; preds = %50, %52
+  %.014 = phi i64 [ %64, %52 ], [ 0, %50 ]
+  %66 = icmp ult i32 %.sroa.0.0.insert.insert.i, 134217728
+  br i1 %66, label %79, label %67
 
-66:                                               ; preds = %64
-  %67 = lshr i8 %20, 3
-  %68 = add nuw nsw i8 %67, 15
+67:                                               ; preds = %65
+  %68 = lshr i8 %20, 3
+  %narrow = add nuw nsw i8 %68, 15
   %69 = and i8 %20, 7
   %70 = zext nneg i8 %69 to i16
-  %71 = and i8 %68, 15
+  %71 = and i8 %narrow, 15
   %72 = zext nneg i8 %71 to i16
   %73 = shl i16 %70, %72
   %74 = shl nuw i16 1, %72
@@ -15227,8 +15241,8 @@ define hidden i64 @"_ZN6brotli3enc9interface41PredictionModeContextMap$LT$SliceT
   %78 = shl nuw i64 %77, 48
   br label %79
 
-79:                                               ; preds = %64, %66
-  %.0 = phi i64 [ %78, %66 ], [ 0, %64 ]
+79:                                               ; preds = %65, %67
+  %.0 = phi i64 [ %78, %67 ], [ 0, %65 ]
   %.sroa.3.0.insert.insert = or disjoint i64 %.015, %.016
   %.sroa.2.0.insert.insert = or i64 %.sroa.3.0.insert.insert, %.014
   %.sroa.0.0.insert.insert = or i64 %.sroa.2.0.insert.insert, %.0
@@ -15281,74 +15295,88 @@ define hidden i64 @"_ZN6brotli3enc9interface41PredictionModeContextMap$LT$SliceT
   %18 = load i8, ptr %17, align 1, !noundef !62
   %19 = getelementptr inbounds i8, ptr %.val, i64 8199
   %20 = load i8, ptr %19, align 1, !noundef !62
-  %21 = icmp ult i8 %7, 8
-  br i1 %21, label %34, label %22
+  %.sroa.4.0.insert.ext.i = zext i8 %20 to i32
+  %.sroa.4.0.insert.shift.i = shl nuw i32 %.sroa.4.0.insert.ext.i, 24
+  %.sroa.3.0.insert.ext.i = zext i8 %11 to i32
+  %.sroa.3.0.insert.shift.i = shl nuw nsw i32 %.sroa.3.0.insert.ext.i, 16
+  %.sroa.2.0.insert.ext.i = zext i8 %18 to i32
+  %.sroa.2.0.insert.shift.i = shl nuw nsw i32 %.sroa.2.0.insert.ext.i, 8
+  %.sroa.0.0.insert.ext.i = zext i8 %7 to i32
+  %.sroa.3.0.insert.insert.i = or disjoint i32 %.sroa.3.0.insert.shift.i, %.sroa.0.0.insert.ext.i
+  %21 = or disjoint i32 %.sroa.3.0.insert.insert.i, %.sroa.2.0.insert.shift.i
+  %.sroa.0.0.insert.insert.i = or disjoint i32 %21, %.sroa.4.0.insert.shift.i
+  %.sroa.411.0.extract.shift = lshr i32 %.sroa.0.0.insert.insert.i, 8
+  %.sroa.411.0.extract.trunc = trunc i32 %.sroa.411.0.extract.shift to i8
+  %.sroa.512.0.extract.shift = lshr i32 %.sroa.0.0.insert.insert.i, 16
+  %.sroa.512.0.extract.trunc = trunc i32 %.sroa.512.0.extract.shift to i8
+  %22 = icmp ult i8 %7, 8
+  br i1 %22, label %35, label %23
 
-22:                                               ; preds = %"_ZN6brotli3enc9interface41PredictionModeContextMap$LT$SliceType$GT$23stride_context_speed_f817hdfe40a7bec4c03eaE.exit"
-  %23 = lshr i8 %7, 3
-  %24 = add nuw nsw i8 %23, 15
-  %25 = and i8 %7, 7
-  %26 = zext nneg i8 %25 to i16
-  %27 = and i8 %24, 15
-  %28 = zext nneg i8 %27 to i16
-  %29 = shl i16 %26, %28
-  %30 = shl nuw i16 1, %28
-  %31 = lshr i16 %29, 3
-  %32 = or i16 %31, %30
-  %33 = zext i16 %32 to i64
-  br label %34
+23:                                               ; preds = %"_ZN6brotli3enc9interface41PredictionModeContextMap$LT$SliceType$GT$23stride_context_speed_f817hdfe40a7bec4c03eaE.exit"
+  %24 = lshr i8 %7, 3
+  %25 = add nuw nsw i8 %24, 15
+  %26 = and i8 %7, 7
+  %27 = zext nneg i8 %26 to i16
+  %28 = and i8 %25, 15
+  %29 = zext nneg i8 %28 to i16
+  %30 = shl i16 %27, %29
+  %31 = shl nuw i16 1, %29
+  %32 = lshr i16 %30, 3
+  %33 = or i16 %32, %31
+  %34 = zext i16 %33 to i64
+  br label %35
 
-34:                                               ; preds = %"_ZN6brotli3enc9interface41PredictionModeContextMap$LT$SliceType$GT$23stride_context_speed_f817hdfe40a7bec4c03eaE.exit", %22
-  %.016 = phi i64 [ %33, %22 ], [ 0, %"_ZN6brotli3enc9interface41PredictionModeContextMap$LT$SliceType$GT$23stride_context_speed_f817hdfe40a7bec4c03eaE.exit" ]
-  %35 = icmp ult i8 %18, 8
-  br i1 %35, label %49, label %36
+35:                                               ; preds = %"_ZN6brotli3enc9interface41PredictionModeContextMap$LT$SliceType$GT$23stride_context_speed_f817hdfe40a7bec4c03eaE.exit", %23
+  %.016 = phi i64 [ %34, %23 ], [ 0, %"_ZN6brotli3enc9interface41PredictionModeContextMap$LT$SliceType$GT$23stride_context_speed_f817hdfe40a7bec4c03eaE.exit" ]
+  %36 = icmp ult i8 %.sroa.411.0.extract.trunc, 8
+  br i1 %36, label %50, label %37
 
-36:                                               ; preds = %34
-  %37 = lshr i8 %18, 3
-  %38 = add nuw nsw i8 %37, 15
-  %39 = and i8 %18, 7
-  %40 = zext nneg i8 %39 to i16
-  %41 = and i8 %38, 15
-  %42 = zext nneg i8 %41 to i16
-  %43 = shl i16 %40, %42
-  %44 = shl nuw i16 1, %42
-  %45 = lshr i16 %43, 3
-  %46 = or i16 %45, %44
-  %47 = zext i16 %46 to i64
-  %48 = shl nuw nsw i64 %47, 16
-  br label %49
+37:                                               ; preds = %35
+  %38 = lshr i8 %.sroa.411.0.extract.trunc, 3
+  %39 = add nuw nsw i8 %38, 15
+  %40 = trunc i32 %.sroa.411.0.extract.shift to i16
+  %41 = and i16 %40, 7
+  %42 = and i8 %39, 15
+  %43 = zext nneg i8 %42 to i16
+  %44 = shl i16 %41, %43
+  %45 = shl nuw i16 1, %43
+  %46 = lshr i16 %44, 3
+  %47 = or i16 %46, %45
+  %48 = zext i16 %47 to i64
+  %49 = shl nuw nsw i64 %48, 16
+  br label %50
 
-49:                                               ; preds = %34, %36
-  %.015 = phi i64 [ %48, %36 ], [ 0, %34 ]
-  %50 = icmp ult i8 %11, 8
-  br i1 %50, label %64, label %51
+50:                                               ; preds = %35, %37
+  %.015 = phi i64 [ %49, %37 ], [ 0, %35 ]
+  %51 = icmp ult i8 %.sroa.512.0.extract.trunc, 8
+  br i1 %51, label %65, label %52
 
-51:                                               ; preds = %49
-  %52 = lshr i8 %11, 3
-  %53 = add nuw nsw i8 %52, 15
-  %54 = and i8 %11, 7
-  %55 = zext nneg i8 %54 to i16
-  %56 = and i8 %53, 15
-  %57 = zext nneg i8 %56 to i16
-  %58 = shl i16 %55, %57
-  %59 = shl nuw i16 1, %57
-  %60 = lshr i16 %58, 3
-  %61 = or i16 %60, %59
-  %62 = zext i16 %61 to i64
-  %63 = shl nuw nsw i64 %62, 32
-  br label %64
+52:                                               ; preds = %50
+  %53 = lshr i8 %.sroa.512.0.extract.trunc, 3
+  %54 = add nuw nsw i8 %53, 15
+  %55 = trunc nuw i32 %.sroa.512.0.extract.shift to i16
+  %56 = and i16 %55, 7
+  %57 = and i8 %54, 15
+  %58 = zext nneg i8 %57 to i16
+  %59 = shl i16 %56, %58
+  %60 = shl nuw i16 1, %58
+  %61 = lshr i16 %59, 3
+  %62 = or i16 %61, %60
+  %63 = zext i16 %62 to i64
+  %64 = shl nuw nsw i64 %63, 32
+  br label %65
 
-64:                                               ; preds = %49, %51
-  %.014 = phi i64 [ %63, %51 ], [ 0, %49 ]
-  %65 = icmp ult i8 %20, 8
-  br i1 %65, label %79, label %66
+65:                                               ; preds = %50, %52
+  %.014 = phi i64 [ %64, %52 ], [ 0, %50 ]
+  %66 = icmp ult i32 %.sroa.0.0.insert.insert.i, 134217728
+  br i1 %66, label %79, label %67
 
-66:                                               ; preds = %64
-  %67 = lshr i8 %20, 3
-  %68 = add nuw nsw i8 %67, 15
+67:                                               ; preds = %65
+  %68 = lshr i8 %20, 3
+  %narrow = add nuw nsw i8 %68, 15
   %69 = and i8 %20, 7
   %70 = zext nneg i8 %69 to i16
-  %71 = and i8 %68, 15
+  %71 = and i8 %narrow, 15
   %72 = zext nneg i8 %71 to i16
   %73 = shl i16 %70, %72
   %74 = shl nuw i16 1, %72
@@ -15358,8 +15386,8 @@ define hidden i64 @"_ZN6brotli3enc9interface41PredictionModeContextMap$LT$SliceT
   %78 = shl nuw i64 %77, 48
   br label %79
 
-79:                                               ; preds = %64, %66
-  %.0 = phi i64 [ %78, %66 ], [ 0, %64 ]
+79:                                               ; preds = %65, %67
+  %.0 = phi i64 [ %78, %67 ], [ 0, %65 ]
   %.sroa.3.0.insert.insert = or disjoint i64 %.015, %.016
   %.sroa.2.0.insert.insert = or i64 %.sroa.3.0.insert.insert, %.014
   %.sroa.0.0.insert.insert = or i64 %.sroa.2.0.insert.insert, %.0

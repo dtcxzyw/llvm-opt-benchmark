@@ -145,12 +145,12 @@ define i64 @_ZN12AudioRouting7convertEb(ptr nocapture noundef nonnull readonly a
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN12AudioRouting17mergeAudioRoutingES_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) %0, i64 %1) local_unnamed_addr #0 align 2 {
-  %.sroa.32.0.extract.shift = lshr i64 %1, 32
-  %.sroa.32.0.extract.trunc = trunc nuw i64 %.sroa.32.0.extract.shift to i32
-  %3 = icmp eq i32 %.sroa.32.0.extract.trunc, 0
+  %3 = icmp ult i64 %1, 4294967296
   br i1 %3, label %6, label %4
 
 4:                                                ; preds = %2
+  %.sroa.32.0.extract.shift = lshr i64 %1, 32
+  %.sroa.32.0.extract.trunc = trunc nuw i64 %.sroa.32.0.extract.shift to i32
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %.sroa.32.0.extract.trunc, ptr %5, align 4
   br label %6

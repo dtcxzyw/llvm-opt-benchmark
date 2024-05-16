@@ -90273,23 +90273,23 @@ define void @"_ZN14deltalake_core7storage5utils133_$LT$impl$u20$core..convert..T
   br i1 %26, label %"_ZN126_$LT$deltalake_core..errors..DeltaTableError$u20$as$u20$core..convert..From$LT$deltalake_core..protocol..ProtocolError$GT$$GT$4from17h734b83826ebe1ebeE.exit", label %27
 
 27:                                               ; preds = %22
-  %28 = trunc nsw i64 %spec.select.i.i to i32
-  %29 = icmp ugt i32 %28, 86399
-  %30 = icmp ugt i32 %16, 1999999999
-  %or.cond1.i = or i1 %30, %29
-  br i1 %or.cond1.i, label %"_ZN126_$LT$deltalake_core..errors..DeltaTableError$u20$as$u20$core..convert..From$LT$deltalake_core..protocol..ProtocolError$GT$$GT$4from17h734b83826ebe1ebeE.exit", label %31
+  %28 = icmp ugt i64 %spec.select.i.i, 86399
+  %29 = icmp ugt i32 %16, 1999999999
+  %or.cond1.i = or i1 %29, %28
+  br i1 %or.cond1.i, label %"_ZN126_$LT$deltalake_core..errors..DeltaTableError$u20$as$u20$core..convert..From$LT$deltalake_core..protocol..ProtocolError$GT$$GT$4from17h734b83826ebe1ebeE.exit", label %30
 
-31:                                               ; preds = %27
+30:                                               ; preds = %27
+  %31 = trunc nuw nsw i64 %spec.select.i.i to i32
   %32 = icmp ugt i32 %16, 999999999
-  %33 = urem i32 %28, 60
+  %33 = urem i32 %31, 60
   %34 = icmp ne i32 %33, 59
   %or.cond3.not.i = and i1 %32, %34
   %spec.select = select i1 %or.cond3.not.i, i32 0, i32 %25
   br label %"_ZN126_$LT$deltalake_core..errors..DeltaTableError$u20$as$u20$core..convert..From$LT$deltalake_core..protocol..ProtocolError$GT$$GT$4from17h734b83826ebe1ebeE.exit"
 
-"_ZN126_$LT$deltalake_core..errors..DeltaTableError$u20$as$u20$core..convert..From$LT$deltalake_core..protocol..ProtocolError$GT$$GT$4from17h734b83826ebe1ebeE.exit": ; preds = %31, %2, %27, %22
-  %.sroa.753.0 = phi i32 [ undef, %2 ], [ undef, %27 ], [ undef, %22 ], [ %28, %31 ]
-  %.sroa.0.082 = phi i32 [ 0, %2 ], [ 0, %27 ], [ 0, %22 ], [ %spec.select, %31 ]
+"_ZN126_$LT$deltalake_core..errors..DeltaTableError$u20$as$u20$core..convert..From$LT$deltalake_core..protocol..ProtocolError$GT$$GT$4from17h734b83826ebe1ebeE.exit": ; preds = %30, %2, %27, %22
+  %.sroa.753.0 = phi i32 [ undef, %2 ], [ undef, %27 ], [ undef, %22 ], [ %31, %30 ]
+  %.sroa.0.082 = phi i32 [ 0, %2 ], [ 0, %27 ], [ 0, %22 ], [ %spec.select, %30 ]
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store ptr %9, ptr %6, align 8

@@ -1084,7 +1084,7 @@ define noundef zeroext i1 @"_ZN63_$LT$regex_syntax..debug..Bytes$u20$as$u20$core
   br label %.loopexit
 
 58:                                               ; preds = %51
-  %59 = icmp ult i32 %.sroa.683.0.extract.trunc132, 128
+  %59 = icmp ult i64 %52, 549755813888
   br i1 %59, label %66, label %62
 
 60:                                               ; preds = %51
@@ -1117,11 +1117,11 @@ define noundef zeroext i1 @"_ZN63_$LT$regex_syntax..debug..Bytes$u20$as$u20$core
   br i1 %61, label %99, label %97
 
 62:                                               ; preds = %58
-  %63 = icmp ult i32 %.sroa.683.0.extract.trunc132, 2048
+  %63 = icmp ult i64 %52, 8796093022208
   br i1 %63, label %66, label %64
 
 64:                                               ; preds = %62
-  %65 = icmp ult i32 %.sroa.683.0.extract.trunc132, 65536
+  %65 = icmp ult i64 %52, 281474976710656
   %. = select i1 %65, i64 3, i64 4
   br label %66
 
@@ -1148,10 +1148,10 @@ define noundef zeroext i1 @"_ZN63_$LT$regex_syntax..debug..Bytes$u20$as$u20$core
   unreachable
 
 72:                                               ; preds = %68
-  %73 = add i32 %.sroa.683.0.extract.trunc132, -1
-  %or.cond = icmp ult i32 %73, 8
-  %74 = add i32 %.sroa.683.0.extract.trunc132, -14
-  %or.cond1 = icmp ult i32 %74, 12
+  %73 = add i64 %52, -4294967296
+  %or.cond = icmp ult i64 %73, 34359738368
+  %74 = add i64 %52, -60129542144
+  %or.cond1 = icmp ult i64 %74, 51539607552
   %or.cond103 = or i1 %or.cond, %or.cond1
   br i1 %or.cond103, label %77, label %79
 

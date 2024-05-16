@@ -3042,7 +3042,7 @@ define linkonce_odr void @_ZN6opencc28CalculatePrefixSuffixEntropyILb1EEEvRKSt6v
 .lr.ph:                                           ; preds = %.loopexit98
   %36 = trunc nuw i64 %.0116 to i8
   %.sroa.4.8.insert.ext.i = and i64 %.0116, 255
-  %.not.i.i.i26 = icmp eq i8 %36, 0
+  %.not.i.i.i26 = icmp eq i64 %.0116, 0
   %37 = add i64 %.0116, %1
   %.pre132 = trunc i64 %.0116 to i8
   br label %38
@@ -3835,10 +3835,10 @@ define linkonce_odr void @_ZN6opencc28CalculatePrefixSuffixEntropyILb0EEEvRKSt6v
 .lr.ph:                                           ; preds = %.loopexit105
   %36 = trunc nuw i64 %.0123 to i8
   %37 = and i64 %.0123, 255
-  %.not.i = icmp eq i8 %36, 0
+  %.not.i = icmp eq i64 %.0123, 0
   %38 = add i64 %.0123, %1
   %39 = add i8 %36, %21
-  %40 = icmp eq i8 %36, 0
+  %40 = icmp eq i64 %.0123, 0
   br label %41
 
 41:                                               ; preds = %.lr.ph, %256

@@ -3492,7 +3492,7 @@ define hidden void @_ZN6chrono5naive8datetime13NaiveDateTime18from_timestamp_opt
   %15 = tail call { i32, i32 } @_ZN6chrono5naive4date9NaiveDate25from_num_days_from_ce_opt17h595b40ed6f44e1a0E(i32 noundef %14)
   %.fca.1.extract = extractvalue { i32, i32 } %15, 1
   %16 = trunc nsw i64 %spec.select.i to i32
-  %17 = icmp ugt i32 %16, 86399
+  %17 = icmp ugt i64 %spec.select.i, 86399
   %18 = icmp ugt i32 %2, 1999999999
   %or.cond1 = or i1 %18, %17
   br i1 %or.cond1, label %.thread, label %19
@@ -5291,8 +5291,8 @@ define void @"_ZN6diesel5mysql5types13date_and_time6chrono152_$LT$impl$u20$diese
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #32, !noalias !1446
   unreachable
 
-common.resume:                                    ; preds = %46, %23
-  %common.resume.op = phi { ptr, i32 } [ %24, %23 ], [ %47, %46 ]
+common.resume:                                    ; preds = %43, %23
+  %common.resume.op = phi { ptr, i32 } [ %24, %23 ], [ %44, %43 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h1ceaa034c956f07eE.llvm.15310856661090120578.exit.i": ; preds = %17
@@ -5319,35 +5319,32 @@ _ZN6diesel5mysql5value10MysqlValue10time_value17h70e069816a28c4d6E.exit: ; preds
   store i8 %.sroa.04.sroa.4.0.copyload.i, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.711.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 33
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %.sroa.711.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(15) %.sroa.04.sroa.5.0..sroa_idx.i, i64 15, i1 false)
-  %29 = ptrtoint ptr %.sroa.7.0.copyload to i64
-  %30 = lshr i64 %29, 32
-  %31 = trunc nuw i64 %30 to i32
-  %32 = load i32, ptr %.sroa.5.0..sroa_idx, align 8, !noundef !11
-  %33 = getelementptr inbounds i8, ptr %7, i64 20
-  %34 = load i32, ptr %33, align 4, !noundef !11
-  %35 = icmp ugt i32 %31, 23
-  %36 = icmp ugt i32 %32, 59
-  %or.cond.i = or i1 %35, %36
-  %37 = icmp ugt i32 %34, 59
-  %or.cond1.i = or i1 %or.cond.i, %37
-  br i1 %or.cond1.i, label %40, label %51
+  %29 = load i32, ptr %.sroa.5.0..sroa_idx, align 8, !noundef !11
+  %30 = getelementptr inbounds i8, ptr %7, i64 20
+  %31 = load i32, ptr %30, align 4, !noundef !11
+  %32 = icmp ugt ptr %.sroa.7.0.copyload, inttoptr (i64 103079215103 to ptr)
+  %33 = icmp ugt i32 %29, 59
+  %or.cond.i = or i1 %32, %33
+  %34 = icmp ugt i32 %31, 59
+  %or.cond1.i = or i1 %or.cond.i, %34
+  br i1 %or.cond1.i, label %37, label %48
 
 _ZN6diesel5mysql5value10MysqlValue10time_value17h70e069816a28c4d6E.exit.thread: ; preds = %10, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h1ceaa034c956f07eE.llvm.15310856661090120578.exit.i", %_ZN6diesel5mysql5value10MysqlValue10time_value17h70e069816a28c4d6E.exit
   %.sroa.0.02229 = phi ptr [ %.sroa.0.0.copyload, %_ZN6diesel5mysql5value10MysqlValue10time_value17h70e069816a28c4d6E.exit ], [ %12, %10 ], [ %22, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h1ceaa034c956f07eE.llvm.15310856661090120578.exit.i" ]
   %.sroa.7.02328 = phi ptr [ %.sroa.7.0.copyload, %_ZN6diesel5mysql5value10MysqlValue10time_value17h70e069816a28c4d6E.exit ], [ %13, %10 ], [ @anon.cf04e442cd8014c0c5a5b487a5ba4dfe.89.llvm.15310856661090120578, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h1ceaa034c956f07eE.llvm.15310856661090120578.exit.i" ]
-  %38 = icmp ne ptr %.sroa.0.02229, null
-  tail call void @llvm.assume(i1 %38)
+  %35 = icmp ne ptr %.sroa.0.02229, null
+  tail call void @llvm.assume(i1 %35)
   store ptr %.sroa.0.02229, ptr %0, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sroa.7.02328, ptr %39, align 8
+  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %.sroa.7.02328, ptr %36, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
   br label %59
 
-40:                                               ; preds = %28
+37:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !1454
   store ptr %7, ptr %6, align 8, !noalias !1454
-  %41 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr @"_ZN83_$LT$diesel..mysql..types..date_and_time..MysqlTime$u20$as$u20$core..fmt..Debug$GT$3fmt17h9e9db0d6cec4c001E", ptr %41, align 8, !noalias !1454
+  %38 = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr @"_ZN83_$LT$diesel..mysql..types..date_and_time..MysqlTime$u20$as$u20$core..fmt..Debug$GT$3fmt17h9e9db0d6cec4c001E", ptr %38, align 8, !noalias !1454
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !1457
   store ptr @anon.79a827165c543c4357c85996b6252779.79, ptr %4, align 8, !noalias !1468
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 8
@@ -5362,43 +5359,46 @@ _ZN6diesel5mysql5value10MysqlValue10time_value17h70e069816a28c4d6E.exit.thread: 
   call void @_ZN5alloc3fmt6format12format_inner17h4f5d4c1ba302c88bE(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 dereferenceable(24) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !1457
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !1454
-  %42 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !1469
-  %43 = call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #30, !noalias !1472
-  %44 = icmp eq ptr %43, null
-  br i1 %44, label %45, label %"_ZN6diesel5mysql5types13date_and_time6chrono152_$LT$impl$u20$diesel..deserialize..FromSql$LT$diesel..sql_types..Time$C$diesel..mysql..backend..Mysql$GT$$u20$for$u20$chrono..naive..time..NaiveTime$GT$8from_sql28_$u7b$$u7b$closure$u7d$$u7d$17heed4fd5c4363b549E.exit"
+  %39 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !1469
+  %40 = call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #30, !noalias !1472
+  %41 = icmp eq ptr %40, null
+  br i1 %41, label %42, label %"_ZN6diesel5mysql5types13date_and_time6chrono152_$LT$impl$u20$diesel..deserialize..FromSql$LT$diesel..sql_types..Time$C$diesel..mysql..backend..Mysql$GT$$u20$for$u20$chrono..naive..time..NaiveTime$GT$8from_sql28_$u7b$$u7b$closure$u7d$$u7d$17heed4fd5c4363b549E.exit"
 
-45:                                               ; preds = %40
+42:                                               ; preds = %37
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h81706c48453a6249E(i64 noundef 8, i64 noundef 24) #29
-          to label %.noexc.i unwind label %46
+          to label %.noexc.i unwind label %43
 
-.noexc.i:                                         ; preds = %45
+.noexc.i:                                         ; preds = %42
   unreachable
 
-46:                                               ; preds = %45
-  %47 = landingpad { ptr, i32 }
+43:                                               ; preds = %42
+  %44 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr205drop_in_place$LT$$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$u20$as$u20$core..convert..From$LT$alloc..string..String$GT$$GT$..from..StringError$GT$17hfbe952fa3d1979e5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #31
-          to label %common.resume unwind label %48
+          to label %common.resume unwind label %45
 
-48:                                               ; preds = %46
-  %49 = landingpad { ptr, i32 }
+45:                                               ; preds = %43
+  %46 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #32
   unreachable
 
-"_ZN6diesel5mysql5types13date_and_time6chrono152_$LT$impl$u20$diesel..deserialize..FromSql$LT$diesel..sql_types..Time$C$diesel..mysql..backend..Mysql$GT$$u20$for$u20$chrono..naive..time..NaiveTime$GT$8from_sql28_$u7b$$u7b$closure$u7d$$u7d$17heed4fd5c4363b549E.exit": ; preds = %40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %43, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
+"_ZN6diesel5mysql5types13date_and_time6chrono152_$LT$impl$u20$diesel..deserialize..FromSql$LT$diesel..sql_types..Time$C$diesel..mysql..backend..Mysql$GT$$u20$for$u20$chrono..naive..time..NaiveTime$GT$8from_sql28_$u7b$$u7b$closure$u7d$$u7d$17heed4fd5c4363b549E.exit": ; preds = %37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !1454
-  store ptr %43, ptr %0, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr @anon.79a827165c543c4357c85996b6252779.81, ptr %50, align 8
+  store ptr %40, ptr %0, align 8
+  %47 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr @anon.79a827165c543c4357c85996b6252779.81, ptr %47, align 8
   br label %58
 
-51:                                               ; preds = %28
-  %52 = mul nuw nsw i32 %31, 3600
-  %53 = mul nuw nsw i32 %32, 60
+48:                                               ; preds = %28
+  %49 = ptrtoint ptr %.sroa.7.0.copyload to i64
+  %50 = lshr i64 %49, 32
+  %51 = trunc nuw i64 %50 to i32
+  %52 = mul nuw nsw i32 %51, 3600
+  %53 = mul nuw nsw i32 %29, 60
   %54 = add nuw nsw i32 %53, %52
-  %55 = add nuw nsw i32 %54, %34
+  %55 = add nuw nsw i32 %54, %31
   %56 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %55, ptr %56, align 8
   %57 = getelementptr inbounds i8, ptr %0, i64 12
@@ -5406,7 +5406,7 @@ _ZN6diesel5mysql5value10MysqlValue10time_value17h70e069816a28c4d6E.exit.thread: 
   store ptr null, ptr %0, align 8
   br label %58
 
-58:                                               ; preds = %51, %"_ZN6diesel5mysql5types13date_and_time6chrono152_$LT$impl$u20$diesel..deserialize..FromSql$LT$diesel..sql_types..Time$C$diesel..mysql..backend..Mysql$GT$$u20$for$u20$chrono..naive..time..NaiveTime$GT$8from_sql28_$u7b$$u7b$closure$u7d$$u7d$17heed4fd5c4363b549E.exit"
+58:                                               ; preds = %48, %"_ZN6diesel5mysql5types13date_and_time6chrono152_$LT$impl$u20$diesel..deserialize..FromSql$LT$diesel..sql_types..Time$C$diesel..mysql..backend..Mysql$GT$$u20$for$u20$chrono..naive..time..NaiveTime$GT$8from_sql28_$u7b$$u7b$closure$u7d$$u7d$17heed4fd5c4363b549E.exit"
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
   br label %59
 
@@ -7173,7 +7173,7 @@ define hidden void @_ZN6diesel6sqlite5types13date_and_time6chrono12parse_julian1
   %21 = tail call { i32, i32 } @_ZN6chrono5naive4date9NaiveDate25from_num_days_from_ce_opt17h595b40ed6f44e1a0E(i32 noundef %20), !noalias !1999
   %.fca.1.extract.i = extractvalue { i32, i32 } %21, 1
   %22 = trunc nsw i64 %spec.select.i.i to i32
-  %23 = icmp ugt i32 %22, 86399
+  %23 = icmp ugt i64 %spec.select.i.i, 86399
   %24 = icmp ugt i32 %9, 1999999999
   %or.cond1.i = or i1 %24, %23
   br i1 %or.cond1.i, label %_ZN6chrono5naive8datetime13NaiveDateTime18from_timestamp_opt17h79ea9ce2d436d4abE.llvm.12760481706496575883.exit, label %25

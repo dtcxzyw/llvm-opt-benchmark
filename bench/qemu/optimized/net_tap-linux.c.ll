@@ -224,13 +224,13 @@ entry:
 cond.false:                                       ; preds = %entry
   %sndbuf1 = getelementptr inbounds i8, ptr %tap, i64 64
   %1 = load i64, ptr %sndbuf1, align 8
-  %.fr11 = freeze i64 %1
-  %cmp = icmp ugt i64 %.fr11, 2147483647
+  %.fr = freeze i64 %1
+  %cmp = icmp ugt i64 %.fr, 2147483647
   br i1 %cmp, label %cond.end5.thread7, label %cond.end5
 
 cond.end5:                                        ; preds = %cond.false
-  %2 = trunc nuw i64 %.fr11 to i32
-  %tobool7.not = icmp eq i32 %2, 0
+  %2 = trunc nuw nsw i64 %.fr to i32
+  %tobool7.not = icmp eq i64 %.fr, 0
   br i1 %tobool7.not, label %cond.end5.thread, label %cond.end5.thread7
 
 cond.end5.thread:                                 ; preds = %entry, %cond.end5

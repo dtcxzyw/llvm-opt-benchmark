@@ -550,19 +550,19 @@ lor.lhs.false6:                                   ; preds = %lor.lhs.false4
   %arrayidx = getelementptr i8, ptr %2, i64 -1
   %3 = load i8, ptr %arrayidx, align 1
   %tobool.not = icmp sgt i8 %3, -1
-  br i1 %tobool.not, label %if.end, label %if.then
+  br i1 %tobool.not, label %for.body.preheader, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false6, %lor.lhs.false4, %entry
   tail call void @ERR_put_error(i32 noundef 12, i32 noundef 0, i32 noundef 146, ptr noundef nonnull @.str, i32 noundef 281) #8
   br label %return
 
-if.end:                                           ; preds = %lor.lhs.false6
-  %conv7 = trunc nuw nsw i64 %len to i32
+for.body.preheader:                               ; preds = %lor.lhs.false6
+  %conv7 = trunc nuw i64 %len to i32
   br label %for.body
 
-for.body:                                         ; preds = %if.end, %for.inc
-  %i.052 = phi i32 [ %inc, %for.inc ], [ 0, %if.end ]
-  %p.051 = phi ptr [ %incdec.ptr, %for.inc ], [ %1, %if.end ]
+for.body:                                         ; preds = %for.body.preheader, %for.inc
+  %i.052 = phi i32 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
+  %p.051 = phi ptr [ %incdec.ptr, %for.inc ], [ %1, %for.body.preheader ]
   %4 = load i8, ptr %p.051, align 1
   %cmp11 = icmp eq i8 %4, -128
   br i1 %cmp11, label %land.lhs.true, label %for.inc

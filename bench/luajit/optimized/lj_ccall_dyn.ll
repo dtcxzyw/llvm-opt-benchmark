@@ -14,16 +14,15 @@ define hidden i32 @lj_ccall_ctid_vararg(ptr noundef %cts, ptr nocapture noundef 
 entry:
   %0 = load i64, ptr %o, align 8
   %shr = ashr i64 %0, 47
-  %conv = trunc nsw i64 %shr to i32
-  %cmp = icmp ult i32 %conv, -13
+  %cmp = icmp ult i64 %shr, -13
   br i1 %cmp, label %return, label %if.else
 
 if.else:                                          ; preds = %entry
-  switch i32 %conv, label %if.else55 [
-    i32 -11, label %if.then6
-    i32 -5, label %return
-    i32 -2, label %if.then54
-    i32 -3, label %if.then54
+  switch i64 %shr, label %if.else55 [
+    i64 -11, label %if.then6
+    i64 -5, label %return
+    i64 -2, label %if.then54
+    i64 -3, label %if.then54
   ]
 
 if.then6:                                         ; preds = %if.else

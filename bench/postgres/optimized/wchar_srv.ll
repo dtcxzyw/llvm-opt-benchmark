@@ -469,87 +469,79 @@ define internal i32 @pg_wchar2euc_with_len(ptr nocapture noundef readonly %0, pt
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %3, %34
-  %.046 = phi i32 [ %37, %34 ], [ 0, %3 ]
-  %.03245 = phi i32 [ %39, %34 ], [ %2, %3 ]
-  %.03344 = phi ptr [ %36, %34 ], [ %1, %3 ]
-  %.03543 = phi ptr [ %38, %34 ], [ %0, %3 ]
+.lr.ph:                                           ; preds = %3, %22
+  %.046 = phi i32 [ %25, %22 ], [ 0, %3 ]
+  %.03245 = phi i32 [ %27, %22 ], [ %2, %3 ]
+  %.03344 = phi ptr [ %24, %22 ], [ %1, %3 ]
+  %.03543 = phi ptr [ %26, %22 ], [ %0, %3 ]
   %5 = load i32, ptr %.03543, align 4
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %.critedge, label %6
 
 6:                                                ; preds = %.lr.ph
-  %7 = lshr i32 %5, 24
-  %8 = trunc nuw i32 %7 to i8
-  %.not40 = icmp eq i8 %8, 0
-  br i1 %.not40, label %19, label %9
+  %.not40 = icmp ult i32 %5, 16777216
+  br i1 %.not40, label %12, label %7
 
-9:                                                ; preds = %6
+7:                                                ; preds = %6
+  %8 = lshr i32 %5, 24
+  %9 = trunc nuw i32 %8 to i8
   %10 = getelementptr i8, ptr %.03344, i64 1
-  store i8 %8, ptr %.03344, align 1
+  store i8 %9, ptr %.03344, align 1
   %11 = load i32, ptr %.03543, align 4
-  %12 = lshr i32 %11, 16
-  %13 = trunc i32 %12 to i8
-  %14 = getelementptr i8, ptr %.03344, i64 2
-  store i8 %13, ptr %10, align 1
-  %15 = load i32, ptr %.03543, align 4
-  %16 = lshr i32 %15, 8
-  %17 = trunc i32 %16 to i8
-  %18 = getelementptr i8, ptr %.03344, i64 3
-  store i8 %17, ptr %14, align 1
+  br label %.sink.split.sink.split
+
+12:                                               ; preds = %6
+  %.not41 = icmp ult i32 %5, 65536
+  br i1 %.not41, label %13, label %.sink.split.sink.split
+
+13:                                               ; preds = %12
+  %.not42 = icmp ult i32 %5, 256
+  br i1 %.not42, label %22, label %.sink.split
+
+.sink.split.sink.split:                           ; preds = %12, %7
+  %.sink64 = phi i32 [ %11, %7 ], [ %5, %12 ]
+  %.sink62 = phi i64 [ 2, %7 ], [ 1, %12 ]
+  %.sink61 = phi ptr [ %10, %7 ], [ %.03344, %12 ]
+  %.sink57.ph = phi i64 [ 3, %7 ], [ 2, %12 ]
+  %.sink53.ph.ph = phi i64 [ 4, %7 ], [ 3, %12 ]
+  %.sink.ph.ph = phi i32 [ 4, %7 ], [ 3, %12 ]
+  %14 = lshr i32 %.sink64, 16
+  %15 = trunc i32 %14 to i8
+  %16 = getelementptr i8, ptr %.03344, i64 %.sink62
+  store i8 %15, ptr %.sink61, align 1
+  %17 = load i32, ptr %.03543, align 4
   br label %.sink.split
 
-19:                                               ; preds = %6
-  %20 = lshr i32 %5, 16
-  %21 = trunc i32 %20 to i8
-  %.not41 = icmp eq i8 %21, 0
-  br i1 %.not41, label %28, label %22
+.sink.split:                                      ; preds = %.sink.split.sink.split, %13
+  %.sink59 = phi i32 [ %5, %13 ], [ %17, %.sink.split.sink.split ]
+  %.sink57 = phi i64 [ 1, %13 ], [ %.sink57.ph, %.sink.split.sink.split ]
+  %.sink56 = phi ptr [ %.03344, %13 ], [ %16, %.sink.split.sink.split ]
+  %.sink53.ph = phi i64 [ 2, %13 ], [ %.sink53.ph.ph, %.sink.split.sink.split ]
+  %.sink.ph = phi i32 [ 2, %13 ], [ %.sink.ph.ph, %.sink.split.sink.split ]
+  %18 = lshr i32 %.sink59, 8
+  %19 = trunc i32 %18 to i8
+  %20 = getelementptr i8, ptr %.03344, i64 %.sink57
+  store i8 %19, ptr %.sink56, align 1
+  %21 = load i32, ptr %.03543, align 4
+  br label %22
 
-22:                                               ; preds = %19
-  %23 = getelementptr i8, ptr %.03344, i64 1
-  store i8 %21, ptr %.03344, align 1
-  %24 = load i32, ptr %.03543, align 4
-  %25 = lshr i32 %24, 8
-  %26 = trunc i32 %25 to i8
-  %27 = getelementptr i8, ptr %.03344, i64 2
-  store i8 %26, ptr %23, align 1
-  br label %.sink.split
+22:                                               ; preds = %.sink.split, %13
+  %.sink54 = phi i32 [ %5, %13 ], [ %21, %.sink.split ]
+  %.sink53 = phi i64 [ 1, %13 ], [ %.sink53.ph, %.sink.split ]
+  %.sink52 = phi ptr [ %.03344, %13 ], [ %20, %.sink.split ]
+  %.sink = phi i32 [ 1, %13 ], [ %.sink.ph, %.sink.split ]
+  %23 = trunc i32 %.sink54 to i8
+  %24 = getelementptr i8, ptr %.03344, i64 %.sink53
+  store i8 %23, ptr %.sink52, align 1
+  %25 = add i32 %.046, %.sink
+  %26 = getelementptr i8, ptr %.03543, i64 4
+  %27 = add nsw i32 %.03245, -1
+  %28 = icmp sgt i32 %.03245, 1
+  br i1 %28, label %.lr.ph, label %.critedge, !llvm.loop !9
 
-28:                                               ; preds = %19
-  %29 = lshr i32 %5, 8
-  %30 = trunc i32 %29 to i8
-  %.not42 = icmp eq i8 %30, 0
-  br i1 %.not42, label %34, label %31
-
-31:                                               ; preds = %28
-  %32 = getelementptr i8, ptr %.03344, i64 1
-  store i8 %30, ptr %.03344, align 1
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %9, %31, %22
-  %.sink53.ph = phi i64 [ 4, %9 ], [ 2, %31 ], [ 3, %22 ]
-  %.sink52.ph = phi ptr [ %18, %9 ], [ %32, %31 ], [ %27, %22 ]
-  %.sink.ph = phi i32 [ 4, %9 ], [ 2, %31 ], [ 3, %22 ]
-  %33 = load i32, ptr %.03543, align 4
-  br label %34
-
-34:                                               ; preds = %.sink.split, %28
-  %.sink54 = phi i32 [ %5, %28 ], [ %33, %.sink.split ]
-  %.sink53 = phi i64 [ 1, %28 ], [ %.sink53.ph, %.sink.split ]
-  %.sink52 = phi ptr [ %.03344, %28 ], [ %.sink52.ph, %.sink.split ]
-  %.sink = phi i32 [ 1, %28 ], [ %.sink.ph, %.sink.split ]
-  %35 = trunc i32 %.sink54 to i8
-  %36 = getelementptr i8, ptr %.03344, i64 %.sink53
-  store i8 %35, ptr %.sink52, align 1
-  %37 = add i32 %.046, %.sink
-  %38 = getelementptr i8, ptr %.03543, i64 4
-  %39 = add nsw i32 %.03245, -1
-  %40 = icmp sgt i32 %.03245, 1
-  br i1 %40, label %.lr.ph, label %.critedge, !llvm.loop !9
-
-.critedge:                                        ; preds = %.lr.ph, %34, %3
-  %.033.lcssa = phi ptr [ %1, %3 ], [ %36, %34 ], [ %.03344, %.lr.ph ]
-  %.0.lcssa = phi i32 [ 0, %3 ], [ %37, %34 ], [ %.046, %.lr.ph ]
+.critedge:                                        ; preds = %.lr.ph, %22, %3
+  %.033.lcssa = phi ptr [ %1, %3 ], [ %24, %22 ], [ %.03344, %.lr.ph ]
+  %.0.lcssa = phi i32 [ 0, %3 ], [ %25, %22 ], [ %.046, %.lr.ph ]
   store i8 0, ptr %.033.lcssa, align 1
   ret i32 %.0.lcssa
 }

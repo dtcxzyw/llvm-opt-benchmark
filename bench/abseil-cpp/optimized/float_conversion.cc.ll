@@ -4544,7 +4544,7 @@ for.end.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i.i.i.
   %7 = load i32, ptr %arrayidx.i4.i.i.i.i.i.i, align 4
   %cmp8.i.i.i.i.i.i = icmp eq i32 %7, 0
   %spec.select.i.i.i.i = select i1 %cmp8.i.i.i.i.i.i, i64 %sub6.i.i.i.i.i.i, i64 %sub6.i19.i143.lcssa155.i.i.i.i
-  %cmp25.i.i.i.i.i = icmp eq i8 %conv3.i.le.i.i.i.i.i.i, 9
+  %cmp25.i.i.i.i.i = icmp eq i64 %shr.i.i.i.i.i.i.i, 9
   br i1 %cmp25.i.i.i.i.i, label %while.body.lr.ph.i.i.i.i.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator9GetDigitsEv.exit.i.i.i.i
 
 while.body.lr.ph.i.i.i.i.i:                       ; preds = %for.end.i.i.i.i.i.i
@@ -4577,19 +4577,22 @@ for.body.i6.i.i.i.i.i:                            ; preds = %for.body.i6.i.i.i.i
   br i1 %cmp.not.i16.i.i.i.i.i, label %for.end.i17.i.i.i.i.i, label %for.body.i6.i.i.i.i.i, !llvm.loop !39
 
 for.end.i17.i.i.i.i.i:                            ; preds = %for.body.i6.i.i.i.i.i
-  %conv3.i.le.i18.i.i.i.i.i = trunc nuw nsw i64 %shr.i.i15.i.i.i.i.i to i8
   %sub6.i19.i.i.i.i.i = add i64 %9, -1
   %arrayidx.i4.i20.i.i.i.i.i = getelementptr inbounds i32, ptr %agg.tmp.sroa.4.0.copyload.i.i.i, i64 %sub6.i19.i.i.i.i.i
   %11 = load i32, ptr %arrayidx.i4.i20.i.i.i.i.i, align 4
   %cmp8.i21.i.i.i.i.i = icmp eq i32 %11, 0
   %spec.select160.i.i.i.i = select i1 %cmp8.i21.i.i.i.i.i, i64 %sub6.i19.i.i.i.i.i, i64 %9
-  %cmp.i.i.i.i.i = icmp eq i8 %conv3.i.le.i18.i.i.i.i.i, 9
-  br i1 %cmp.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator9GetDigitsEv.exit.i.i.i.i, !llvm.loop !48
+  %cmp.i.i.i.i.i = icmp eq i64 %shr.i.i15.i.i.i.i.i, 9
+  br i1 %cmp.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator9GetDigitsEv.exit.loopexit.split.loop.exit178.i.i.i.i, !llvm.loop !48
 
-_ZN4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator9GetDigitsEv.exit.i.i.i.i: ; preds = %for.end.i17.i.i.i.i.i, %while.body.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i, %for.end.i.i.i.i.i.i, %while.body.i.i.i.i
-  %digit_gen.val10.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %for.end.i.i.i.i.i.i ], [ 0, %while.body.i.i.i.i ], [ 0, %while.body.lr.ph.i.i.i.i.i ], [ %spec.select160.i.i.i.i, %for.end.i17.i.i.i.i.i ], [ 0, %while.body.i.i.i.i.i ]
-  %digit_gen.val9.i.i.i.i = phi i8 [ %conv3.i.le.i.i.i.i.i.i, %for.end.i.i.i.i.i.i ], [ 0, %while.body.i.i.i.i ], [ 0, %while.body.lr.ph.i.i.i.i.i ], [ %conv3.i.le.i18.i.i.i.i.i, %for.end.i17.i.i.i.i.i ], [ 0, %while.body.i.i.i.i.i ]
-  %retval.sroa.2.0.lcssa.i.i.i.i.i = phi i64 [ 0, %for.end.i.i.i.i.i.i ], [ 0, %while.body.i.i.i.i ], [ 1, %while.body.lr.ph.i.i.i.i.i ], [ %inc.i147.i.i.i.i, %for.end.i17.i.i.i.i.i ], [ %inc.i.i.i.i.i, %while.body.i.i.i.i.i ]
+_ZN4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator9GetDigitsEv.exit.loopexit.split.loop.exit178.i.i.i.i: ; preds = %for.end.i17.i.i.i.i.i
+  %conv3.i.le.i18.i.le.i.i.i.i = trunc nuw nsw i64 %shr.i.i15.i.i.i.i.i to i8
+  br label %_ZN4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator9GetDigitsEv.exit.i.i.i.i
+
+_ZN4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator9GetDigitsEv.exit.i.i.i.i: ; preds = %while.body.i.i.i.i.i, %_ZN4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator9GetDigitsEv.exit.loopexit.split.loop.exit178.i.i.i.i, %while.body.lr.ph.i.i.i.i.i, %for.end.i.i.i.i.i.i, %while.body.i.i.i.i
+  %digit_gen.val10.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %for.end.i.i.i.i.i.i ], [ 0, %while.body.i.i.i.i ], [ 0, %while.body.lr.ph.i.i.i.i.i ], [ %spec.select160.i.i.i.i, %_ZN4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator9GetDigitsEv.exit.loopexit.split.loop.exit178.i.i.i.i ], [ 0, %while.body.i.i.i.i.i ]
+  %digit_gen.val9.i.i.i.i = phi i8 [ %conv3.i.le.i.i.i.i.i.i, %for.end.i.i.i.i.i.i ], [ 0, %while.body.i.i.i.i ], [ 0, %while.body.lr.ph.i.i.i.i.i ], [ %conv3.i.le.i18.i.le.i.i.i.i, %_ZN4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator9GetDigitsEv.exit.loopexit.split.loop.exit178.i.i.i.i ], [ 0, %while.body.i.i.i.i.i ]
+  %retval.sroa.2.0.lcssa.i.i.i.i.i = phi i64 [ 0, %for.end.i.i.i.i.i.i ], [ 0, %while.body.i.i.i.i ], [ 1, %while.body.lr.ph.i.i.i.i.i ], [ %inc.i147.i.i.i.i, %_ZN4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator9GetDigitsEv.exit.loopexit.split.loop.exit178.i.i.i.i ], [ %inc.i.i.i.i.i, %while.body.i.i.i.i.i ]
   %add.i.i.i.i = add i64 %retval.sroa.2.0.lcssa.i.i.i.i.i, 1
   %12 = load ptr, ptr %2, align 8
   %13 = load i64, ptr %12, align 8
@@ -4700,7 +4703,7 @@ _ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit43.i.i.i.i: ; preds 
 if.else.i.i.i.i:                                  ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator9GetDigitsEv.exit.i.i.i.i
   %cmp14.i.i.i.i = icmp ugt i64 %add.i.i.i.i, %13
   %cmp.i44.i.i.i.i = icmp sgt i8 %digit_gen.val9.i.i.i.i, 5
-  %or.cond.i.i.i.i = or i1 %cmp.i44.i.i.i.i, %cmp14.i.i.i.i
+  %or.cond.i.i.i.i = select i1 %cmp14.i.i.i.i, i1 true, i1 %cmp.i44.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %if.then30.i.i.i.i, label %_ZNK4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator17IsGreaterThanHalfEv.exit.i.i.i.i
 
 _ZNK4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator17IsGreaterThanHalfEv.exit.i.i.i.i: ; preds = %if.else.i.i.i.i

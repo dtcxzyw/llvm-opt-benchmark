@@ -15065,7 +15065,6 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = tail call noundef range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %bits)
-  %conv = trunc nuw nsw i64 %0 to i32
   %this.val.i.i = load ptr, ptr %this, align 8
   %1 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %bits, i1 true)
   %cast.i.i.i.i = trunc nuw nsw i64 %1 to i32
@@ -15095,7 +15094,7 @@ if.end:                                           ; preds = %entry
   %add.i.i.i.i.i.i = add i32 %cast.i.i.i.i.i.i.i, %idx
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.val3.i.i.i.i, i64 12
   store i32 %add.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i, align 4
-  %cmp.i = icmp ugt i32 %conv, 4
+  %cmp.i = icmp ugt i64 %0, 4
   br i1 %cmp.i, label %if.then.i, label %if.end8
 
 if.then.i:                                        ; preds = %if.end
@@ -15131,7 +15130,7 @@ if.then.i:                                        ; preds = %if.end
   %add.i.i.i.i.i.i.i = add i32 %cast.i.i.i.i.i.i.i.i, %idx
   %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.val3.i.i.i.i.i, i64 28
   store i32 %add.i.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i, align 4
-  %cmp.i.i = icmp ugt i32 %conv, 8
+  %cmp.i.i = icmp ugt i64 %0, 8
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end8
 
 if.then.i.i:                                      ; preds = %if.then.i
@@ -15167,7 +15166,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %add.i.i.i.i.i.i.i.i = add i32 %cast.i.i.i.i.i.i.i.i.i, %idx
   %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.val3.i.i.i.i.i.i, i64 44
   store i32 %add.i.i.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i.i, align 4
-  %cmp.i.i.i = icmp ugt i32 %conv, 12
+  %cmp.i.i.i = icmp ugt i64 %0, 12
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end8
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
@@ -15203,7 +15202,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.i.i.i.i.i.i.i.i.i = add i32 %cast.i.i.i.i.i.i.i.i.i.i, %idx
   %arrayidx.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.val3.i.i.i.i.i.i.i, i64 60
   store i32 %add.i.i.i.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i.i.i, align 4
-  %cmp.i.i.i.i = icmp ugt i32 %conv, 16
+  %cmp.i.i.i.i = icmp ugt i64 %0, 16
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.end8
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
@@ -15239,7 +15238,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %add.i.i.i.i.i.i.i.i.i.i = add i32 %cast.i.i.i.i.i.i.i.i.i.i.i, %idx
   %arrayidx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.val3.i.i.i.i.i.i.i.i, i64 76
   store i32 %add.i.i.i.i.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i, align 4
-  %cmp.i.i.i.i.i = icmp ugt i32 %conv, 20
+  %cmp.i.i.i.i.i = icmp ugt i64 %0, 20
   br i1 %cmp.i.i.i.i.i, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage111bit_indexer21write_indexes_steppedILi0ELi24ELi4EEEijRmi.exit, label %if.end8
 
 _ZN8simdjson7haswell12_GLOBAL__N_16stage111bit_indexer21write_indexes_steppedILi0ELi24ELi4EEEijRmi.exit: ; preds = %if.then.i.i.i.i
@@ -15275,8 +15274,8 @@ _ZN8simdjson7haswell12_GLOBAL__N_16stage111bit_indexer21write_indexes_steppedILi
   %add.i.i.i.i.i.i.i.i.i.i.i = add i32 %cast.i.i.i.i.i.i.i.i.i.i.i.i, %idx
   %arrayidx.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.val3.i.i.i.i.i.i.i.i.i, i64 92
   store i32 %add.i.i.i.i.i.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i, align 4
-  %cmp3 = icmp ugt i32 %conv, 24
-  br i1 %cmp3, label %for.body.preheader, label %if.end8
+  %cmp733 = icmp ugt i64 %0, 24
+  br i1 %cmp733, label %for.body.preheader, label %if.end8
 
 for.body.preheader:                               ; preds = %_ZN8simdjson7haswell12_GLOBAL__N_16stage111bit_indexer21write_indexes_steppedILi0ELi24ELi4EEEijRmi.exit
   %sub.i.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %and.i.i.i.i.i.i.i20.i.i.i.i.i, -1
@@ -15284,16 +15283,16 @@ for.body.preheader:                               ; preds = %_ZN8simdjson7haswel
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
-  %indvars.iv = phi i64 [ 24, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %bits.addr.135 = phi i64 [ %and.i.i.i.i.i.i.i.i.i.i.i.i.i, %for.body.preheader ], [ %and.i.i.i, %for.body ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 24, %for.body.preheader ]
+  %bits.addr.134 = phi i64 [ %and.i.i.i, %for.body ], [ %and.i.i.i.i.i.i.i.i.i.i.i.i.i, %for.body.preheader ]
   %this.val = load ptr, ptr %this, align 8
-  %25 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %bits.addr.135, i1 true)
+  %25 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %bits.addr.134, i1 true)
   %cast.i.i = trunc nuw nsw i64 %25 to i32
   %add.i = add i32 %cast.i.i, %idx
   %arrayidx.i = getelementptr inbounds i32, ptr %this.val, i64 %indvars.iv
   store i32 %add.i, ptr %arrayidx.i, align 4
-  %sub.i.i.i = add i64 %bits.addr.135, -1
-  %and.i.i.i = and i64 %sub.i.i.i, %bits.addr.135
+  %sub.i.i.i = add i64 %bits.addr.134, -1
+  %and.i.i.i = and i64 %sub.i.i.i, %bits.addr.134
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %0
   br i1 %exitcond.not, label %if.end8, label %for.body, !llvm.loop !91
@@ -17995,7 +17994,6 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = tail call noundef range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %bits)
-  %conv = trunc nuw nsw i64 %0 to i32
   %this.val.i.i = load ptr, ptr %this, align 8
   %1 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %bits, i1 true)
   %cast.i.i.i.i = trunc nuw nsw i64 %1 to i32
@@ -18025,7 +18023,7 @@ if.end:                                           ; preds = %entry
   %add.i.i.i.i.i.i = add i32 %cast.i.i.i.i.i.i.i, %idx
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.val3.i.i.i.i, i64 12
   store i32 %add.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i, align 4
-  %cmp.i = icmp ugt i32 %conv, 4
+  %cmp.i = icmp ugt i64 %0, 4
   br i1 %cmp.i, label %if.then.i, label %if.end8
 
 if.then.i:                                        ; preds = %if.end
@@ -18061,7 +18059,7 @@ if.then.i:                                        ; preds = %if.end
   %add.i.i.i.i.i.i.i = add i32 %cast.i.i.i.i.i.i.i.i, %idx
   %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.val3.i.i.i.i.i, i64 28
   store i32 %add.i.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i, align 4
-  %cmp.i.i = icmp ugt i32 %conv, 8
+  %cmp.i.i = icmp ugt i64 %0, 8
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end8
 
 if.then.i.i:                                      ; preds = %if.then.i
@@ -18097,7 +18095,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %add.i.i.i.i.i.i.i.i = add i32 %cast.i.i.i.i.i.i.i.i.i, %idx
   %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.val3.i.i.i.i.i.i, i64 44
   store i32 %add.i.i.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i.i, align 4
-  %cmp.i.i.i = icmp ugt i32 %conv, 12
+  %cmp.i.i.i = icmp ugt i64 %0, 12
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end8
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
@@ -18133,7 +18131,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add.i.i.i.i.i.i.i.i.i = add i32 %cast.i.i.i.i.i.i.i.i.i.i, %idx
   %arrayidx.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.val3.i.i.i.i.i.i.i, i64 60
   store i32 %add.i.i.i.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i.i.i, align 4
-  %cmp.i.i.i.i = icmp ugt i32 %conv, 16
+  %cmp.i.i.i.i = icmp ugt i64 %0, 16
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.end8
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
@@ -18169,7 +18167,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %add.i.i.i.i.i.i.i.i.i.i = add i32 %cast.i.i.i.i.i.i.i.i.i.i.i, %idx
   %arrayidx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.val3.i.i.i.i.i.i.i.i, i64 76
   store i32 %add.i.i.i.i.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i, align 4
-  %cmp.i.i.i.i.i = icmp ugt i32 %conv, 20
+  %cmp.i.i.i.i.i = icmp ugt i64 %0, 20
   br i1 %cmp.i.i.i.i.i, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage111bit_indexer21write_indexes_steppedILi0ELi24ELi4EEEijRmi.exit, label %if.end8
 
 _ZN8simdjson8westmere12_GLOBAL__N_16stage111bit_indexer21write_indexes_steppedILi0ELi24ELi4EEEijRmi.exit: ; preds = %if.then.i.i.i.i
@@ -18205,8 +18203,8 @@ _ZN8simdjson8westmere12_GLOBAL__N_16stage111bit_indexer21write_indexes_steppedIL
   %add.i.i.i.i.i.i.i.i.i.i.i = add i32 %cast.i.i.i.i.i.i.i.i.i.i.i.i, %idx
   %arrayidx.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.val3.i.i.i.i.i.i.i.i.i, i64 92
   store i32 %add.i.i.i.i.i.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i, align 4
-  %cmp3 = icmp ugt i32 %conv, 24
-  br i1 %cmp3, label %for.body.preheader, label %if.end8
+  %cmp733 = icmp ugt i64 %0, 24
+  br i1 %cmp733, label %for.body.preheader, label %if.end8
 
 for.body.preheader:                               ; preds = %_ZN8simdjson8westmere12_GLOBAL__N_16stage111bit_indexer21write_indexes_steppedILi0ELi24ELi4EEEijRmi.exit
   %sub.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %and.i.i.i.i.i.i20.i.i.i.i.i, -1
@@ -18214,16 +18212,16 @@ for.body.preheader:                               ; preds = %_ZN8simdjson8westme
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
-  %indvars.iv = phi i64 [ 24, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %bits.addr.135 = phi i64 [ %and.i.i.i.i.i.i.i.i.i.i.i.i, %for.body.preheader ], [ %and.i.i, %for.body ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 24, %for.body.preheader ]
+  %bits.addr.134 = phi i64 [ %and.i.i, %for.body ], [ %and.i.i.i.i.i.i.i.i.i.i.i.i, %for.body.preheader ]
   %this.val = load ptr, ptr %this, align 8
-  %25 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %bits.addr.135, i1 true)
+  %25 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %bits.addr.134, i1 true)
   %cast.i.i = trunc nuw nsw i64 %25 to i32
   %add.i = add i32 %cast.i.i, %idx
   %arrayidx.i = getelementptr inbounds i32, ptr %this.val, i64 %indvars.iv
   store i32 %add.i, ptr %arrayidx.i, align 4
-  %sub.i.i = add i64 %bits.addr.135, -1
-  %and.i.i = and i64 %sub.i.i, %bits.addr.135
+  %sub.i.i = add i64 %bits.addr.134, -1
+  %and.i.i = and i64 %sub.i.i, %bits.addr.134
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %0
   br i1 %exitcond.not, label %if.end8, label %for.body, !llvm.loop !128

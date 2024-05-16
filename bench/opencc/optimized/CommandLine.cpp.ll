@@ -6200,9 +6200,8 @@ define linkonce_odr dso_local void @_ZNK5TCLAP3Arg8trimFlagERNSt7__cxx1112basic_
   br i1 %13, label %.lr.ph, label %.thread, !llvm.loop !79
 
 14:                                               ; preds = %.lr.ph
-  %15 = and i64 %indvars.iv, 4294967294
-  %.not18 = icmp eq i64 %15, 0
-  br i1 %.not18, label %.thread, label %16
+  %15 = icmp ugt i64 %indvars.iv, 1
+  br i1 %15, label %16, label %.thread
 
 16:                                               ; preds = %14
   %17 = add nuw i64 %indvars.iv, 1

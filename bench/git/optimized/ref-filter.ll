@@ -757,7 +757,7 @@ if.then154:                                       ; preds = %if.end150
   br label %if.end155
 
 if.end155:                                        ; preds = %if.then154, %if.end150
-  %cmp156 = icmp eq i32 %7, 34
+  %cmp156 = icmp eq i64 %indvars.iv87, 34
   br i1 %cmp156, label %if.then158, label %return
 
 if.then158:                                       ; preds = %if.end155
@@ -3975,7 +3975,7 @@ lor.lhs.false:                                    ; preds = %lor.lhs.false.i
   %conv9.i = trunc nuw i64 %call2.i to i32
   store i32 %conv9.i, ptr %length, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i)
-  %cmp = icmp eq i32 %conv9.i, 0
+  %cmp = icmp eq i64 %call2.i, 0
   br i1 %cmp, label %if.then15, label %if.end
 
 if.then15:                                        ; preds = %strtoul_ui.exit.thread, %lor.lhs.false

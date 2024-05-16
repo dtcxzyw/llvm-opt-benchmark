@@ -1301,116 +1301,115 @@ declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef 
 define internal fastcc ptr @num_word(i64 noundef %0) unnamed_addr #0 {
   %2 = urem i64 %0, 100
   %3 = udiv i64 %0, 100
-  %4 = trunc nuw nsw i64 %2 to i32
-  %5 = icmp slt i64 %0, 21
-  br i1 %5, label %6, label %9
+  %4 = icmp slt i64 %0, 21
+  br i1 %4, label %5, label %8
 
-6:                                                ; preds = %1
-  %7 = getelementptr [28 x ptr], ptr @num_word.small, i64 0, i64 %0
-  %8 = load ptr, ptr %7, align 8
-  br label %74
+5:                                                ; preds = %1
+  %6 = getelementptr [28 x ptr], ptr @num_word.small, i64 0, i64 %0
+  %7 = load ptr, ptr %6, align 8
+  br label %73
 
-9:                                                ; preds = %1
-  %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %10, label %15
+8:                                                ; preds = %1
+  %.not = icmp eq i64 %2, 0
+  br i1 %.not, label %9, label %14
 
-10:                                               ; preds = %9
-  %11 = udiv i64 %0, 100
-  %12 = getelementptr [28 x ptr], ptr @num_word.small, i64 0, i64 %11
-  %13 = load ptr, ptr %12, align 8
-  %14 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull @num_word.buf, ptr noundef nonnull @.str.52, ptr noundef %13) #12
-  br label %74
+9:                                                ; preds = %8
+  %10 = udiv i64 %0, 100
+  %11 = getelementptr [28 x ptr], ptr @num_word.small, i64 0, i64 %10
+  %12 = load ptr, ptr %11, align 8
+  %13 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull @num_word.buf, ptr noundef nonnull @.str.52, ptr noundef %12) #12
+  br label %73
 
-15:                                               ; preds = %9
-  %16 = icmp ugt i64 %0, 99
-  br i1 %16, label %17, label %48
+14:                                               ; preds = %8
+  %15 = icmp ugt i64 %0, 99
+  br i1 %15, label %16, label %47
 
-17:                                               ; preds = %15
-  %18 = urem i64 %0, 10
-  %19 = icmp eq i64 %18, 0
-  %20 = icmp ugt i32 %4, 10
-  %or.cond = select i1 %19, i1 %20, i1 false
-  br i1 %or.cond, label %21, label %30
+16:                                               ; preds = %14
+  %17 = urem i64 %0, 10
+  %18 = icmp eq i64 %17, 0
+  %19 = icmp ugt i64 %2, 10
+  %or.cond = and i1 %18, %19
+  br i1 %or.cond, label %20, label %29
 
-21:                                               ; preds = %17
-  %22 = udiv i64 %0, 100
-  %23 = getelementptr [28 x ptr], ptr @num_word.small, i64 0, i64 %22
-  %24 = load ptr, ptr %23, align 8
+20:                                               ; preds = %16
+  %21 = udiv i64 %0, 100
+  %22 = getelementptr [28 x ptr], ptr @num_word.small, i64 0, i64 %21
+  %23 = load ptr, ptr %22, align 8
   %.lhs.trunc = trunc nuw nsw i64 %2 to i8
-  %25 = udiv i8 %.lhs.trunc, 10
-  %26 = zext nneg i8 %25 to i64
-  %27 = getelementptr ptr, ptr getelementptr inbounds ([28 x ptr], ptr @num_word.small, i64 0, i64 18), i64 %26
-  %28 = load ptr, ptr %27, align 8
-  %29 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull @num_word.buf, ptr noundef nonnull @.str.53, ptr noundef %24, ptr noundef %28) #12
-  br label %74
+  %24 = udiv i8 %.lhs.trunc, 10
+  %25 = zext nneg i8 %24 to i64
+  %26 = getelementptr ptr, ptr getelementptr inbounds ([28 x ptr], ptr @num_word.small, i64 0, i64 18), i64 %25
+  %27 = load ptr, ptr %26, align 8
+  %28 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull @num_word.buf, ptr noundef nonnull @.str.53, ptr noundef %23, ptr noundef %27) #12
+  br label %73
 
-30:                                               ; preds = %17
-  %31 = icmp ult i32 %4, 20
-  %32 = getelementptr [28 x ptr], ptr @num_word.small, i64 0, i64 %3
-  %33 = load ptr, ptr %32, align 8
-  br i1 %31, label %34, label %38
+29:                                               ; preds = %16
+  %30 = icmp ult i64 %2, 20
+  %31 = getelementptr [28 x ptr], ptr @num_word.small, i64 0, i64 %3
+  %32 = load ptr, ptr %31, align 8
+  br i1 %30, label %33, label %37
 
-34:                                               ; preds = %30
-  %35 = getelementptr [28 x ptr], ptr @num_word.small, i64 0, i64 %2
-  %36 = load ptr, ptr %35, align 8
-  %37 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull @num_word.buf, ptr noundef nonnull @.str.54, ptr noundef %33, ptr noundef %36) #12
-  br label %74
+33:                                               ; preds = %29
+  %34 = getelementptr [28 x ptr], ptr @num_word.small, i64 0, i64 %2
+  %35 = load ptr, ptr %34, align 8
+  %36 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull @num_word.buf, ptr noundef nonnull @.str.54, ptr noundef %32, ptr noundef %35) #12
+  br label %73
 
-38:                                               ; preds = %30
+37:                                               ; preds = %29
   %.lhs.trunc32 = trunc nuw nsw i64 %2 to i8
-  %39 = udiv i8 %.lhs.trunc32, 10
-  %40 = zext nneg i8 %39 to i64
-  %41 = getelementptr ptr, ptr getelementptr inbounds ([28 x ptr], ptr @num_word.small, i64 0, i64 18), i64 %40
-  %42 = load ptr, ptr %41, align 8
-  %43 = urem i8 %.lhs.trunc32, 10
-  %44 = zext nneg i8 %43 to i64
-  %45 = getelementptr [28 x ptr], ptr @num_word.small, i64 0, i64 %44
-  %46 = load ptr, ptr %45, align 8
-  %47 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull @num_word.buf, ptr noundef nonnull @.str.55, ptr noundef %33, ptr noundef %42, ptr noundef %46) #12
-  br label %74
+  %38 = udiv i8 %.lhs.trunc32, 10
+  %39 = zext nneg i8 %38 to i64
+  %40 = getelementptr ptr, ptr getelementptr inbounds ([28 x ptr], ptr @num_word.small, i64 0, i64 18), i64 %39
+  %41 = load ptr, ptr %40, align 8
+  %42 = urem i8 %.lhs.trunc32, 10
+  %43 = zext nneg i8 %42 to i64
+  %44 = getelementptr [28 x ptr], ptr @num_word.small, i64 0, i64 %43
+  %45 = load ptr, ptr %44, align 8
+  %46 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull @num_word.buf, ptr noundef nonnull @.str.55, ptr noundef %32, ptr noundef %41, ptr noundef %45) #12
+  br label %73
 
-48:                                               ; preds = %15
+47:                                               ; preds = %14
   %.lhs.trunc36 = trunc nuw i64 %0 to i8
-  %49 = urem i8 %.lhs.trunc36, 10
-  %50 = icmp eq i8 %49, 0
-  %51 = icmp ugt i32 %4, 10
-  %or.cond3 = select i1 %50, i1 %51, i1 false
-  br i1 %or.cond3, label %52, label %58
+  %48 = urem i8 %.lhs.trunc36, 10
+  %49 = icmp eq i8 %48, 0
+  %50 = icmp ugt i64 %2, 10
+  %or.cond3 = and i1 %50, %49
+  br i1 %or.cond3, label %51, label %57
 
-52:                                               ; preds = %48
+51:                                               ; preds = %47
   %.lhs.trunc38 = trunc nuw nsw i64 %2 to i8
-  %53 = udiv i8 %.lhs.trunc38, 10
-  %54 = zext nneg i8 %53 to i64
-  %55 = getelementptr ptr, ptr getelementptr inbounds ([28 x ptr], ptr @num_word.small, i64 0, i64 18), i64 %54
-  %56 = load ptr, ptr %55, align 8
-  %57 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull @num_word.buf, ptr noundef nonnull @.str.56, ptr noundef %56) #12
-  br label %74
+  %52 = udiv i8 %.lhs.trunc38, 10
+  %53 = zext nneg i8 %52 to i64
+  %54 = getelementptr ptr, ptr getelementptr inbounds ([28 x ptr], ptr @num_word.small, i64 0, i64 18), i64 %53
+  %55 = load ptr, ptr %54, align 8
+  %56 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull @num_word.buf, ptr noundef nonnull @.str.56, ptr noundef %55) #12
+  br label %73
 
-58:                                               ; preds = %48
-  %59 = icmp ult i32 %4, 20
-  br i1 %59, label %60, label %64
+57:                                               ; preds = %47
+  %58 = icmp ult i64 %2, 20
+  br i1 %58, label %59, label %63
 
-60:                                               ; preds = %58
-  %61 = getelementptr [28 x ptr], ptr @num_word.small, i64 0, i64 %2
-  %62 = load ptr, ptr %61, align 8
-  %63 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull @num_word.buf, ptr noundef nonnull @.str.56, ptr noundef %62) #12
-  br label %74
+59:                                               ; preds = %57
+  %60 = getelementptr [28 x ptr], ptr @num_word.small, i64 0, i64 %2
+  %61 = load ptr, ptr %60, align 8
+  %62 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull @num_word.buf, ptr noundef nonnull @.str.56, ptr noundef %61) #12
+  br label %73
 
-64:                                               ; preds = %58
+63:                                               ; preds = %57
   %.lhs.trunc40 = trunc nuw nsw i64 %2 to i8
-  %65 = udiv i8 %.lhs.trunc40, 10
-  %66 = zext nneg i8 %65 to i64
-  %67 = getelementptr ptr, ptr getelementptr inbounds ([28 x ptr], ptr @num_word.small, i64 0, i64 18), i64 %66
-  %68 = load ptr, ptr %67, align 8
-  %69 = urem i8 %.lhs.trunc40, 10
-  %70 = zext nneg i8 %69 to i64
-  %71 = getelementptr [28 x ptr], ptr @num_word.small, i64 0, i64 %70
-  %72 = load ptr, ptr %71, align 8
-  %73 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull @num_word.buf, ptr noundef nonnull @.str.57, ptr noundef %68, ptr noundef %72) #12
-  br label %74
+  %64 = udiv i8 %.lhs.trunc40, 10
+  %65 = zext nneg i8 %64 to i64
+  %66 = getelementptr ptr, ptr getelementptr inbounds ([28 x ptr], ptr @num_word.small, i64 0, i64 18), i64 %65
+  %67 = load ptr, ptr %66, align 8
+  %68 = urem i8 %.lhs.trunc40, 10
+  %69 = zext nneg i8 %68 to i64
+  %70 = getelementptr [28 x ptr], ptr @num_word.small, i64 0, i64 %69
+  %71 = load ptr, ptr %70, align 8
+  %72 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull @num_word.buf, ptr noundef nonnull @.str.57, ptr noundef %67, ptr noundef %71) #12
+  br label %73
 
-74:                                               ; preds = %34, %38, %21, %60, %64, %52, %10, %6
-  %.0 = phi ptr [ %8, %6 ], [ @num_word.buf, %10 ], [ @num_word.buf, %52 ], [ @num_word.buf, %64 ], [ @num_word.buf, %60 ], [ @num_word.buf, %21 ], [ @num_word.buf, %38 ], [ @num_word.buf, %34 ]
+73:                                               ; preds = %33, %37, %20, %59, %63, %51, %9, %5
+  %.0 = phi ptr [ %7, %5 ], [ @num_word.buf, %9 ], [ @num_word.buf, %51 ], [ @num_word.buf, %63 ], [ @num_word.buf, %59 ], [ @num_word.buf, %20 ], [ @num_word.buf, %37 ], [ @num_word.buf, %33 ]
   ret ptr %.0
 }
 

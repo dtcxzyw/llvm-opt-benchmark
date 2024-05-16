@@ -258,9 +258,9 @@ define dso_local i32 @sacctmgr_list_stats(i32 noundef %0, ptr noundef %1) local_
 
 55:                                               ; preds = %51
   %56 = trunc nuw nsw i64 %indvars.iv to i32
-  %switch.selectcmp = icmp eq i32 %56, 1
+  %switch.selectcmp = icmp eq i64 %indvars.iv, 1
   %switch.select = select i1 %switch.selectcmp, ptr @.str.5, ptr @.str.6
-  %switch.selectcmp87 = icmp eq i32 %56, 0
+  %switch.selectcmp87 = icmp eq i64 %indvars.iv, 0
   %switch.select88 = select i1 %switch.selectcmp87, ptr @.str.4, ptr %switch.select
   %57 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %switch.select88)
   call fastcc void @_print_rollup_stats(ptr noundef nonnull %39, i32 noundef %56)

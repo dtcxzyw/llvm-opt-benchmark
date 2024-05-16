@@ -4303,9 +4303,9 @@ if.end6:                                          ; preds = %if.end
   br i1 %tobool.i24.not, label %if.then8, label %if.else
 
 if.then8:                                         ; preds = %if.end6
+  %cmp.i27 = icmp ult i64 %bf.load.i23, 72057594037927936
   %bf.lshr.i = lshr i64 %bf.load.i23, 56
   %bf.cast.i = trunc nuw nsw i64 %bf.lshr.i to i32
-  %cmp.i27 = icmp eq i32 %bf.cast.i, 0
   br i1 %cmp.i27, label %if.end59, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then8
@@ -4347,10 +4347,10 @@ if.else:                                          ; preds = %if.end6
 
 if.then16:                                        ; preds = %if.else
   %bf.load.i31 = load i64, ptr %m_enode.i, align 8
-  %bf.lshr.i32 = lshr i64 %bf.load.i31, 56
-  %bf.cast.i33 = trunc nuw nsw i64 %bf.lshr.i32 to i32
-  %cmp.i34 = icmp eq i32 %bf.cast.i33, 0
-  br i1 %cmp.i34, label %if.end59, label %if.end.i.i36
+  %cmp.i32 = icmp ult i64 %bf.load.i31, 72057594037927936
+  %bf.lshr.i33 = lshr i64 %bf.load.i31, 56
+  %bf.cast.i34 = trunc nuw nsw i64 %bf.lshr.i33 to i32
+  br i1 %cmp.i32, label %if.end59, label %if.end.i.i36
 
 if.end.i.i36:                                     ; preds = %if.then16
   %18 = load ptr, ptr %ctx, align 8
@@ -4362,11 +4362,11 @@ if.end.i.i36:                                     ; preds = %if.then16
 _ZNK6vectorIPN3smt6theoryELb0EjE3getEjRKS2_.exit.i.i39: ; preds = %if.end.i.i36
   %arrayidx.i.i.i.i40 = getelementptr inbounds i8, ptr %19, i64 -4
   %20 = load i32, ptr %arrayidx.i.i.i.i40, align 4
-  %cmp.not.i.i.i41 = icmp ugt i32 %20, %bf.cast.i33
+  %cmp.not.i.i.i41 = icmp ugt i32 %20, %bf.cast.i34
   br i1 %cmp.not.i.i.i41, label %_ZNK6vectorIPN3smt6theoryELb0EjE3getEjRKS2_.exit.then.i.i43, label %if.end59
 
 _ZNK6vectorIPN3smt6theoryELb0EjE3getEjRKS2_.exit.then.i.i43: ; preds = %_ZNK6vectorIPN3smt6theoryELb0EjE3getEjRKS2_.exit.i.i39
-  %arrayidx.i.i.i45 = getelementptr inbounds ptr, ptr %19, i64 %bf.lshr.i32
+  %arrayidx.i.i.i45 = getelementptr inbounds ptr, ptr %19, i64 %bf.lshr.i33
   br label %if.end21
 
 if.end21:                                         ; preds = %_ZNK6vectorIPN3smt6theoryELb0EjE3getEjRKS2_.exit.then.i.i43, %_ZNK6vectorIPN3smt6theoryELb0EjE3getEjRKS2_.exit.then.i.i

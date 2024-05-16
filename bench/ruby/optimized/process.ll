@@ -8921,7 +8921,7 @@ RB_SYMBOL_P.exit.thread:                          ; preds = %18, %RB_SYMBOL_P.ex
   %138 = udiv i64 %131, 1000000000
   %139 = add nuw nsw i64 %138, %137
   store i64 %139, ptr %4, align 8
-  %140 = icmp ugt i32 %135, 999999999
+  %140 = icmp ugt i64 %134, 999999999
   br i1 %140, label %141, label %144
 
 141:                                              ; preds = %128

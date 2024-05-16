@@ -6237,26 +6237,22 @@ entry:
 define linkonce_odr hidden noundef zeroext i1 @_ZN9SampleICC21IccXYZArrayTypeReader4ReadERSij(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(16) %istream, i32 noundef %size) unnamed_addr #6 comdat align 2 {
 entry:
   %res = alloca i32, align 4
-  %conv = zext i32 %size to i64
   %cmp = icmp ult i32 %size, 20
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
+  %conv = zext i32 %size to i64
   %vtable = load ptr, ptr %istream, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %istream, i64 %vbase.offset
   %call = tail call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr)
-  br i1 %call, label %if.end, label %return
+  %sub.off = add nsw i64 %conv, -20
+  %cmp4.not = icmp ult i64 %sub.off, 12
+  %or.cond = select i1 %call, i1 %cmp4.not, i1 false
+  br i1 %or.cond, label %if.end6, label %return
 
-if.end:                                           ; preds = %lor.lhs.false
-  %sub = add nsw i64 %conv, -8
-  %div = udiv i64 %sub, 12
-  %0 = and i64 %div, 4294967295
-  %cmp4.not = icmp eq i64 %0, 1
-  br i1 %cmp4.not, label %if.end6, label %return
-
-if.end6:                                          ; preds = %if.end
+if.end6:                                          ; preds = %lor.lhs.false
   %vtable.i.i = load ptr, ptr %istream, align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %vtable.i.i, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
@@ -6274,9 +6270,9 @@ _ZN9SampleICC5Read8ERSiPvi.exit.i:                ; preds = %if.end6
   br i1 %call6.i.i, label %if.end9, label %return
 
 if.end9:                                          ; preds = %_ZN9SampleICC5Read8ERSiPvi.exit.i
-  %1 = load <4 x i8>, ptr %res, align 4
-  %2 = shufflevector <4 x i8> %1, <4 x i8> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
-  store <4 x i8> %2, ptr %res, align 4
+  %0 = load <4 x i8>, ptr %res, align 4
+  %1 = shufflevector <4 x i8> %0, <4 x i8> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
+  store <4 x i8> %1, ptr %res, align 4
   %vtable.i.i6 = load ptr, ptr %istream, align 8
   %vbase.offset.ptr.i.i7 = getelementptr i8, ptr %vtable.i.i6, i64 -24
   %vbase.offset.i.i8 = load i64, ptr %vbase.offset.ptr.i.i7, align 8
@@ -6297,16 +6293,16 @@ _ZN9SampleICC5Read8ERSiPvi.exit.i12:              ; preds = %if.end9
 while.body.i.i20:                                 ; preds = %_ZN9SampleICC5Read8ERSiPvi.exit.i12, %while.body.i.i20
   %ptr.08.i.i21 = phi ptr [ %add.ptr.i4.i26, %while.body.i.i20 ], [ %mXYZ, %_ZN9SampleICC5Read8ERSiPvi.exit.i12 ]
   %num.addr.07.i.i22 = phi i32 [ %dec.i.i27, %while.body.i.i20 ], [ 3, %_ZN9SampleICC5Read8ERSiPvi.exit.i12 ]
-  %3 = load <4 x i8>, ptr %ptr.08.i.i21, align 1
-  %4 = shufflevector <4 x i8> %3, <4 x i8> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
-  store <4 x i8> %4, ptr %ptr.08.i.i21, align 1
+  %2 = load <4 x i8>, ptr %ptr.08.i.i21, align 1
+  %3 = shufflevector <4 x i8> %2, <4 x i8> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
+  store <4 x i8> %3, ptr %ptr.08.i.i21, align 1
   %add.ptr.i4.i26 = getelementptr inbounds i8, ptr %ptr.08.i.i21, i64 4
   %dec.i.i27 = add nsw i32 %num.addr.07.i.i22, -1
   %cmp.i.i28 = icmp ugt i32 %num.addr.07.i.i22, 1
   br i1 %cmp.i.i28, label %while.body.i.i20, label %return, !llvm.loop !6
 
-return:                                           ; preds = %while.body.i.i20, %_ZN9SampleICC5Read8ERSiPvi.exit.i, %_ZN9SampleICC5Read8ERSiPvi.exit.i12, %if.end9, %if.end6, %if.end, %entry, %lor.lhs.false
-  %retval.0 = phi i1 [ false, %lor.lhs.false ], [ false, %entry ], [ false, %if.end ], [ false, %if.end6 ], [ false, %_ZN9SampleICC5Read8ERSiPvi.exit.i12 ], [ false, %if.end9 ], [ false, %_ZN9SampleICC5Read8ERSiPvi.exit.i ], [ true, %while.body.i.i20 ]
+return:                                           ; preds = %while.body.i.i20, %_ZN9SampleICC5Read8ERSiPvi.exit.i, %_ZN9SampleICC5Read8ERSiPvi.exit.i12, %if.end9, %if.end6, %entry, %lor.lhs.false
+  %retval.0 = phi i1 [ false, %lor.lhs.false ], [ false, %entry ], [ false, %if.end6 ], [ false, %_ZN9SampleICC5Read8ERSiPvi.exit.i12 ], [ false, %if.end9 ], [ false, %_ZN9SampleICC5Read8ERSiPvi.exit.i ], [ true, %while.body.i.i20 ]
   ret i1 %retval.0
 }
 

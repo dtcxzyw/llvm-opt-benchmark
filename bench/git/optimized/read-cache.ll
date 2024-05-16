@@ -2264,36 +2264,35 @@ land.rhs:                                         ; preds = %land.rhs.preheader,
 
 while.body:                                       ; preds = %land.rhs
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %7 = and i64 %indvars.iv.next, 4294967295
-  %tobool32.not = icmp eq i64 %7, 0
+  %tobool32.not = icmp eq i64 %indvars.iv.next, 0
   br i1 %tobool32.not, label %if.end36, label %land.rhs, !llvm.loop !13
 
 if.end36.loopexit.split.loop.exit:                ; preds = %land.rhs
-  %8 = trunc nsw i64 %indvars.iv to i32
+  %7 = trunc nsw i64 %indvars.iv to i32
   br label %if.end36
 
 if.end36:                                         ; preds = %while.body, %if.end36.loopexit.split.loop.exit, %while.cond.preheader, %if.end18
-  %namelen.1 = phi i32 [ %conv, %if.end18 ], [ 0, %while.cond.preheader ], [ %8, %if.end36.loopexit.split.loop.exit ], [ 0, %while.body ]
+  %namelen.1 = phi i32 [ %conv, %if.end18 ], [ 0, %while.cond.preheader ], [ %7, %if.end36.loopexit.split.loop.exit ], [ 0, %while.body ]
   %conv37 = sext i32 %namelen.1 to i64
   %split_index.i.i = getelementptr inbounds i8, ptr %istate, i64 40
-  %9 = load ptr, ptr %split_index.i.i, align 8
-  %tobool.not.i.i = icmp eq ptr %9, null
+  %8 = load ptr, ptr %split_index.i.i, align 8
+  %tobool.not.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i, label %if.else.i.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end36
-  %base.i.i = getelementptr inbounds i8, ptr %9, i64 40
-  %10 = load ptr, ptr %base.i.i, align 8
-  %tobool2.not.i.i = icmp eq ptr %10, null
+  %base.i.i = getelementptr inbounds i8, ptr %8, i64 40
+  %9 = load ptr, ptr %base.i.i, align 8
+  %tobool2.not.i.i = icmp eq ptr %9, null
   br i1 %tobool2.not.i.i, label %if.else.i.i, label %if.end.i.i
 
 if.else.i.i:                                      ; preds = %land.lhs.true.i.i, %if.end36
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.else.i.i, %land.lhs.true.i.i
-  %.pn.i.i = phi ptr [ %istate, %if.else.i.i ], [ %10, %land.lhs.true.i.i ]
+  %.pn.i.i = phi ptr [ %istate, %if.else.i.i ], [ %9, %land.lhs.true.i.i ]
   %pool_ptr.0.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 224
-  %11 = load ptr, ptr %pool_ptr.0.i.i, align 8
-  %tobool6.not.i.i = icmp eq ptr %11, null
+  %10 = load ptr, ptr %pool_ptr.0.i.i, align 8
+  %tobool6.not.i.i = icmp eq ptr %10, null
   br i1 %tobool6.not.i.i, label %if.then7.i.i, label %make_empty_cache_entry.exit
 
 if.then7.i.i:                                     ; preds = %if.end.i.i
@@ -2304,9 +2303,9 @@ if.then7.i.i:                                     ; preds = %if.end.i.i
   br label %make_empty_cache_entry.exit
 
 make_empty_cache_entry.exit:                      ; preds = %if.end.i.i, %if.then7.i.i
-  %12 = phi ptr [ %.pre.i.i, %if.then7.i.i ], [ %11, %if.end.i.i ]
+  %11 = phi ptr [ %.pre.i.i, %if.then7.i.i ], [ %10, %if.end.i.i ]
   %add1.i.i = add nsw i64 %conv37, 109
-  %call.i1.i = call ptr @mem_pool_calloc(ptr noundef %12, i64 noundef 1, i64 noundef %add1.i.i) #28
+  %call.i1.i = call ptr @mem_pool_calloc(ptr noundef %11, i64 noundef 1, i64 noundef %add1.i.i) #28
   %mem_pool_allocated.i.i = getelementptr inbounds i8, ptr %call.i1.i, i64 60
   store i32 1, ptr %mem_pool_allocated.i.i, align 4
   %name = getelementptr inbounds i8, ptr %call.i1.i, i64 108
@@ -2321,16 +2320,16 @@ if.then41:                                        ; preds = %make_empty_cache_en
 
 if.else:                                          ; preds = %make_empty_cache_entry.exit
   %ce_flags = getelementptr inbounds i8, ptr %call.i1.i, i64 56
-  %13 = load i32, ptr %ce_flags, align 8
-  %or42 = or i32 %13, 536870912
+  %12 = load i32, ptr %ce_flags, align 8
+  %or42 = or i32 %12, 536870912
   store i32 %or42, ptr %ce_flags, align 8
   br label %if.end43
 
 if.end43:                                         ; preds = %if.else, %if.then41
-  %14 = load i32, ptr @trust_executable_bit, align 4
-  %tobool44 = icmp ne i32 %14, 0
-  %15 = load i32, ptr @has_symlinks, align 4
-  %tobool46 = icmp ne i32 %15, 0
+  %13 = load i32, ptr @trust_executable_bit, align 4
+  %tobool44 = icmp ne i32 %13, 0
+  %14 = load i32, ptr @has_symlinks, align 4
+  %tobool46 = icmp ne i32 %14, 0
   %or.cond = select i1 %tobool44, i1 %tobool46, i1 false
   br i1 %or.cond, label %if.then47, label %if.else49
 
@@ -2366,56 +2365,56 @@ if.else49.cond.true_crit_edge:                    ; preds = %if.else49
 if.end.i86:                                       ; preds = %if.else49
   %sub.i = xor i32 %call.i.i84, -1
   %cache_nr.i = getelementptr inbounds i8, ptr %istate, i64 12
-  %16 = load i32, ptr %cache_nr.i, align 4
-  %cmp1.not.i = icmp ugt i32 %16, %sub.i
+  %15 = load i32, ptr %cache_nr.i, align 4
+  %cmp1.not.i = icmp ugt i32 %15, %sub.i
   br i1 %cmp1.not.i, label %lor.lhs.false.i, label %cond.end
 
 lor.lhs.false.i:                                  ; preds = %if.end.i86
-  %17 = load ptr, ptr %istate, align 8
+  %16 = load ptr, ptr %istate, align 8
   %idxprom.i = zext nneg i32 %sub.i to i64
-  %arrayidx.i = getelementptr inbounds ptr, ptr %17, i64 %idxprom.i
-  %18 = load ptr, ptr %arrayidx.i, align 8
-  %ce_namelen.i.i = getelementptr inbounds i8, ptr %18, i64 64
-  %19 = load i32, ptr %ce_namelen.i.i, align 8
-  %cmp.not.i.i = icmp eq i32 %19, %namelen.1
+  %arrayidx.i = getelementptr inbounds ptr, ptr %16, i64 %idxprom.i
+  %17 = load ptr, ptr %arrayidx.i, align 8
+  %ce_namelen.i.i = getelementptr inbounds i8, ptr %17, i64 64
+  %18 = load i32, ptr %ce_namelen.i.i, align 8
+  %cmp.not.i.i = icmp eq i32 %18, %namelen.1
   br i1 %cmp.not.i.i, label %compare_name.exit.i, label %cond.end
 
 compare_name.exit.i:                              ; preds = %lor.lhs.false.i
-  %name.i.i = getelementptr inbounds i8, ptr %18, i64 108
+  %name.i.i = getelementptr inbounds i8, ptr %17, i64 108
   %bcmp.i.i = call i32 @bcmp(ptr readonly %path, ptr nonnull readonly %name.i.i, i64 %conv37)
   %tobool.i.not.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %tobool.i.not.i, label %if.end4.i, label %cond.end
 
 if.end4.i:                                        ; preds = %compare_name.exit.i
-  %ce_flags.i = getelementptr inbounds i8, ptr %18, i64 56
-  %20 = load i32, ptr %ce_flags.i, align 8
-  %21 = and i32 %20, 12288
-  %cmp5.i = icmp eq i32 %21, 4096
+  %ce_flags.i = getelementptr inbounds i8, ptr %17, i64 56
+  %19 = load i32, ptr %ce_flags.i, align 8
+  %20 = and i32 %19, 12288
+  %cmp5.i = icmp eq i32 %20, 4096
   br i1 %cmp5.i, label %land.lhs.true.i, label %cond.true
 
 land.lhs.true.i:                                  ; preds = %if.end4.i
   %add.i = sub nsw i32 0, %call.i.i84
-  %cmp7.i = icmp ugt i32 %16, %add.i
+  %cmp7.i = icmp ugt i32 %15, %add.i
   br i1 %cmp7.i, label %land.lhs.true8.i, label %cond.true
 
 land.lhs.true8.i:                                 ; preds = %land.lhs.true.i
   %idxprom11.i = zext nneg i32 %add.i to i64
-  %arrayidx12.i = getelementptr inbounds ptr, ptr %17, i64 %idxprom11.i
-  %22 = load ptr, ptr %arrayidx12.i, align 8
-  %ce_flags13.i = getelementptr inbounds i8, ptr %22, i64 56
-  %23 = load i32, ptr %ce_flags13.i, align 8
-  %24 = and i32 %23, 12288
-  %cmp16.i = icmp eq i32 %24, 8192
+  %arrayidx12.i = getelementptr inbounds ptr, ptr %16, i64 %idxprom11.i
+  %21 = load ptr, ptr %arrayidx12.i, align 8
+  %ce_flags13.i = getelementptr inbounds i8, ptr %21, i64 56
+  %22 = load i32, ptr %ce_flags13.i, align 8
+  %23 = and i32 %22, 12288
+  %cmp16.i = icmp eq i32 %23, 8192
   br i1 %cmp16.i, label %land.lhs.true17.i, label %cond.true
 
 land.lhs.true17.i:                                ; preds = %land.lhs.true8.i
-  %ce_namelen.i18.i = getelementptr inbounds i8, ptr %22, i64 64
-  %25 = load i32, ptr %ce_namelen.i18.i, align 8
-  %cmp.not.i19.i = icmp eq i32 %25, %namelen.1
+  %ce_namelen.i18.i = getelementptr inbounds i8, ptr %21, i64 64
+  %24 = load i32, ptr %ce_namelen.i18.i, align 8
+  %cmp.not.i19.i = icmp eq i32 %24, %namelen.1
   br i1 %cmp.not.i19.i, label %compare_name.exit26.i, label %cond.true
 
 compare_name.exit26.i:                            ; preds = %land.lhs.true17.i
-  %name.i22.i = getelementptr inbounds i8, ptr %22, i64 108
+  %name.i22.i = getelementptr inbounds i8, ptr %21, i64 108
   %bcmp.i24.i = call i32 @bcmp(ptr readonly %path, ptr nonnull readonly %name.i22.i, i64 %conv37)
   %bcmp.i24.fr.i = freeze i32 %bcmp.i24.i
   %tobool.i25.not.i = icmp eq i32 %bcmp.i24.fr.i, 0
@@ -2423,17 +2422,17 @@ compare_name.exit26.i:                            ; preds = %land.lhs.true17.i
   br label %cond.true
 
 cond.true:                                        ; preds = %if.else49.cond.true_crit_edge, %land.lhs.true8.i, %land.lhs.true.i, %if.end4.i, %land.lhs.true17.i, %compare_name.exit26.i
-  %26 = phi ptr [ %17, %compare_name.exit26.i ], [ %17, %land.lhs.true17.i ], [ %17, %if.end4.i ], [ %17, %land.lhs.true.i ], [ %17, %land.lhs.true8.i ], [ %.pre, %if.else49.cond.true_crit_edge ]
+  %25 = phi ptr [ %16, %compare_name.exit26.i ], [ %16, %land.lhs.true17.i ], [ %16, %if.end4.i ], [ %16, %land.lhs.true.i ], [ %16, %land.lhs.true8.i ], [ %.pre, %if.else49.cond.true_crit_edge ]
   %retval.0.i87.ph = phi i32 [ %spec.select.i, %compare_name.exit26.i ], [ %sub.i, %land.lhs.true17.i ], [ %sub.i, %if.end4.i ], [ %sub.i, %land.lhs.true.i ], [ %sub.i, %land.lhs.true8.i ], [ %call.i.i84, %if.else49.cond.true_crit_edge ]
   %idxprom53 = zext nneg i32 %retval.0.i87.ph to i64
-  %arrayidx54 = getelementptr inbounds ptr, ptr %26, i64 %idxprom53
-  %27 = load ptr, ptr %arrayidx54, align 8
+  %arrayidx54 = getelementptr inbounds ptr, ptr %25, i64 %idxprom53
+  %26 = load ptr, ptr %arrayidx54, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %compare_name.exit.i, %lor.lhs.false.i, %if.end.i86, %cond.true
-  %cond55 = phi ptr [ %27, %cond.true ], [ null, %if.end.i86 ], [ null, %lor.lhs.false.i ], [ null, %compare_name.exit.i ]
-  %28 = load i32, ptr @has_symlinks, align 4
-  %tobool.not.i88 = icmp eq i32 %28, 0
+  %cond55 = phi ptr [ %26, %cond.true ], [ null, %if.end.i86 ], [ null, %lor.lhs.false.i ], [ null, %compare_name.exit.i ]
+  %27 = load i32, ptr @has_symlinks, align 4
+  %tobool.not.i88 = icmp eq i32 %27, 0
   br i1 %tobool.not.i88, label %land.lhs.true.i95, label %if.end.i90
 
 land.lhs.true.i95:                                ; preds = %cond.end
@@ -2444,21 +2443,21 @@ land.lhs.true.i95:                                ; preds = %cond.end
 
 land.lhs.true3.i:                                 ; preds = %land.lhs.true.i95
   %ce_mode.i = getelementptr inbounds i8, ptr %cond55, i64 52
-  %29 = load i32, ptr %ce_mode.i, align 4
-  %and4.i = and i32 %29, 61440
+  %28 = load i32, ptr %ce_mode.i, align 4
+  %and4.i = and i32 %28, 61440
   %cmp5.i97 = icmp eq i32 %and4.i, 40960
   br i1 %cmp5.i97, label %if.end58, label %if.end.thread.i
 
 if.end.i90:                                       ; preds = %land.lhs.true.i95, %cond.end
-  %30 = load i32, ptr @trust_executable_bit, align 4
-  %tobool7.not.i = icmp eq i32 %30, 0
+  %29 = load i32, ptr @trust_executable_bit, align 4
+  %tobool7.not.i = icmp eq i32 %29, 0
   %cmp10.i = icmp eq i32 %and9, 32768
   %or.cond8.i = and i1 %cmp10.i, %tobool7.not.i
   br i1 %or.cond8.i, label %if.then11.i, label %if.end20.i
 
 if.end.thread.i:                                  ; preds = %land.lhs.true3.i
-  %31 = load i32, ptr @trust_executable_bit, align 4
-  %tobool7.not10.i = icmp eq i32 %31, 0
+  %30 = load i32, ptr @trust_executable_bit, align 4
+  %tobool7.not10.i = icmp eq i32 %30, 0
   br i1 %tobool7.not10.i, label %land.lhs.true13.i, label %if.end9.i.i
 
 if.then11.i:                                      ; preds = %if.end.i90
@@ -2473,7 +2472,7 @@ if.then11.i.land.lhs.true13.i_crit_edge:          ; preds = %if.then11.i
 
 land.lhs.true13.i:                                ; preds = %if.then11.i.land.lhs.true13.i_crit_edge, %if.end.thread.i
   %and15.i.pre-phi = phi i32 [ %.pre222, %if.then11.i.land.lhs.true13.i_crit_edge ], [ %and4.i, %if.end.thread.i ]
-  %32 = phi i32 [ %.pre218, %if.then11.i.land.lhs.true13.i_crit_edge ], [ %29, %if.end.thread.i ]
+  %31 = phi i32 [ %.pre218, %if.then11.i.land.lhs.true13.i_crit_edge ], [ %28, %if.end.thread.i ]
   %cmp16.i94 = icmp eq i32 %and15.i.pre-phi, 32768
   br i1 %cmp16.i94, label %if.end58, label %if.end19.i
 
@@ -2501,11 +2500,11 @@ if.end9.i.i:                                      ; preds = %if.end3.i.i, %if.en
   br label %if.end58
 
 if.end58:                                         ; preds = %if.end9.i.i, %if.end3.i.i, %if.end3.i.i, %if.end.i.i91, %if.end20.i, %if.end19.i, %land.lhs.true13.i, %land.lhs.true3.i, %if.end9.i, %if.end3.i82, %if.end3.i82, %if.end.i, %if.then47
-  %retval.0.i92.sink = phi i32 [ %or.i, %if.end9.i ], [ 40960, %if.then47 ], [ 16384, %if.end.i ], [ 57344, %if.end3.i82 ], [ 57344, %if.end3.i82 ], [ 33188, %if.end19.i ], [ %29, %land.lhs.true3.i ], [ %32, %land.lhs.true13.i ], [ %or.i.i, %if.end9.i.i ], [ 40960, %if.end20.i ], [ 16384, %if.end.i.i91 ], [ 57344, %if.end3.i.i ], [ 57344, %if.end3.i.i ]
+  %retval.0.i92.sink = phi i32 [ %or.i, %if.end9.i ], [ 40960, %if.then47 ], [ 16384, %if.end.i ], [ 57344, %if.end3.i82 ], [ 57344, %if.end3.i82 ], [ 33188, %if.end19.i ], [ %28, %land.lhs.true3.i ], [ %31, %land.lhs.true13.i ], [ %or.i.i, %if.end9.i.i ], [ 40960, %if.end20.i ], [ 16384, %if.end.i.i91 ], [ 57344, %if.end3.i.i ], [ 57344, %if.end3.i.i ]
   %ce_mode57 = getelementptr inbounds i8, ptr %call.i1.i, i64 52
   store i32 %retval.0.i92.sink, ptr %ce_mode57, align 4
-  %33 = load i32, ptr @ignore_case, align 4
-  %tobool59.not = icmp eq i32 %33, 0
+  %32 = load i32, ptr @ignore_case, align 4
+  %tobool59.not = icmp eq i32 %32, 0
   br i1 %tobool59.not, label %if.end63, label %if.then60
 
 if.then60:                                        ; preds = %if.end58
@@ -2516,23 +2515,23 @@ if.end63:                                         ; preds = %if.then60, %if.end5
   br i1 %tobool7.not, label %if.then66, label %if.end91
 
 if.then66:                                        ; preds = %if.end63
-  %34 = load i32, ptr %ce_namelen, align 8
-  %35 = load i32, ptr @ignore_case, align 4
-  %call70 = call ptr @index_file_exists(ptr noundef nonnull %istate, ptr noundef nonnull %name, i32 noundef %34, i32 noundef %35) #28
+  %33 = load i32, ptr %ce_namelen, align 8
+  %34 = load i32, ptr @ignore_case, align 4
+  %call70 = call ptr @index_file_exists(ptr noundef nonnull %istate, ptr noundef nonnull %name, i32 noundef %33, i32 noundef %34) #28
   %tobool71.not = icmp eq ptr %call70, null
   br i1 %tobool71.not, label %if.end91, label %land.lhs.true72
 
 land.lhs.true72:                                  ; preds = %if.then66
   %ce_flags73 = getelementptr inbounds i8, ptr %call70, i64 56
-  %36 = load i32, ptr %ce_flags73, align 8
-  %37 = and i32 %36, 12288
-  %tobool75.not = icmp eq i32 %37, 0
+  %35 = load i32, ptr %ce_flags73, align 8
+  %36 = and i32 %35, 12288
+  %tobool75.not = icmp eq i32 %36, 0
   br i1 %tobool75.not, label %land.lhs.true76, label %if.end91
 
 land.lhs.true76:                                  ; preds = %land.lhs.true72
   call void @refresh_fsmonitor(ptr noundef nonnull %istate) #28
-  %38 = load i32, ptr %ce_flags73, align 8
-  %and19.i = and i32 %38, 2097152
+  %37 = load i32, ptr %ce_flags73, align 8
+  %and19.i = and i32 %37, 2097152
   %tobool20.not.i = icmp eq i32 %and19.i, 0
   br i1 %tobool20.not.i, label %if.end22.i, label %land.lhs.true76.if.then79_crit_edge
 
@@ -2543,7 +2542,7 @@ land.lhs.true76.if.then79_crit_edge:              ; preds = %land.lhs.true76
   br label %if.then79
 
 if.end22.i:                                       ; preds = %land.lhs.true76
-  %and24.i = and i32 %38, 536870912
+  %and24.i = and i32 %37, 536870912
   %tobool25.not.i = icmp eq i32 %and24.i, 0
   br i1 %tobool25.not.i, label %if.end27.i, label %if.end91
 
@@ -2554,8 +2553,8 @@ if.end27.i:                                       ; preds = %if.end22.i
 
 land.lhs.true29.i:                                ; preds = %if.end27.i
   %ce_mode.i.i = getelementptr inbounds i8, ptr %call70, i64 52
-  %39 = load i32, ptr %ce_mode.i.i, align 4
-  %and.i.i = and i32 %39, 61440
+  %38 = load i32, ptr %ce_mode.i.i, align 4
+  %and.i.i = and i32 %38, 61440
   %cmp.i.i102 = icmp eq i32 %and.i.i, 57344
   br i1 %cmp.i.i102, label %if.then79.thread, label %land.rhs.i.i
 
@@ -2564,15 +2563,15 @@ if.then79.thread:                                 ; preds = %land.lhs.true29.i
   br label %land.lhs.true.i104
 
 land.rhs.i.i:                                     ; preds = %land.lhs.true29.i
-  %40 = getelementptr i8, ptr %istate, i64 48
-  %istate.val.i.i = load i32, ptr %40, align 8
+  %39 = getelementptr i8, ptr %istate, i64 48
+  %istate.val.i.i = load i32, ptr %39, align 8
   %tobool.not.i.i.i = icmp eq i32 %istate.val.i.i, 0
   br i1 %tobool.not.i.i.i, label %if.then79, label %is_racy_timestamp.exit.i
 
 is_racy_timestamp.exit.i:                         ; preds = %land.rhs.i.i
   %sd_mtime.i.i.i = getelementptr inbounds i8, ptr %call70, i64 24
-  %41 = load i32, ptr %sd_mtime.i.i.i, align 4
-  %cmp.i.i.not.i = icmp ult i32 %41, %istate.val.i.i
+  %40 = load i32, ptr %sd_mtime.i.i.i, align 4
+  %cmp.i.i.not.i = icmp ult i32 %40, %istate.val.i.i
   br i1 %cmp.i.i.not.i, label %if.then79, label %if.end91
 
 if.then79:                                        ; preds = %land.lhs.true76.if.then79_crit_edge, %is_racy_timestamp.exit.i, %land.rhs.i.i
@@ -2584,11 +2583,11 @@ if.then79:                                        ; preds = %land.lhs.true76.if.
   br label %land.lhs.true.i104
 
 land.lhs.true.i104:                               ; preds = %if.then79, %if.then79.thread
-  %42 = phi i32 [ %.pre220225, %if.then79.thread ], [ %spec.select228, %if.then79 ]
-  %or89 = or i32 %42, 524288
+  %41 = phi i32 [ %.pre220225, %if.then79.thread ], [ %spec.select228, %if.then79 ]
+  %or89 = or i32 %41, 524288
   store i32 %or89, ptr %ce_flags73, align 8
-  %43 = load i32, ptr @should_validate_cache_entries.validate_index_cache_entries, align 4
-  %cmp.i.i105 = icmp slt i32 %43, 0
+  %42 = load i32, ptr @should_validate_cache_entries.validate_index_cache_entries, align 4
+  %cmp.i.i105 = icmp slt i32 %42, 0
   br i1 %cmp.i.i105, label %if.then.i.i, label %should_validate_cache_entries.exit.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i104
@@ -2599,20 +2598,20 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i104
   br label %should_validate_cache_entries.exit.i
 
 should_validate_cache_entries.exit.i:             ; preds = %if.then.i.i, %land.lhs.true.i104
-  %44 = phi i32 [ %43, %land.lhs.true.i104 ], [ %..i.i, %if.then.i.i ]
-  %tobool1.not.i106 = icmp eq i32 %44, 0
+  %43 = phi i32 [ %42, %land.lhs.true.i104 ], [ %..i.i, %if.then.i.i ]
+  %tobool1.not.i106 = icmp eq i32 %43, 0
   br i1 %tobool1.not.i106, label %land.lhs.true4.i, label %if.then.i
 
 if.then.i:                                        ; preds = %should_validate_cache_entries.exit.i
-  %45 = load i32, ptr %ce_namelen, align 8
-  %conv.i = zext i32 %45 to i64
+  %44 = load i32, ptr %ce_namelen, align 8
+  %conv.i = zext i32 %44 to i64
   %add2.i = add nuw nsw i64 %conv.i, 109
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %call.i1.i, i8 -51, i64 %add2.i, i1 false)
   br label %land.lhs.true4.i
 
 land.lhs.true4.i:                                 ; preds = %if.then.i, %should_validate_cache_entries.exit.i
-  %46 = load i32, ptr %mem_pool_allocated.i.i, align 4
-  %tobool5.not.i = icmp eq i32 %46, 0
+  %45 = load i32, ptr %mem_pool_allocated.i.i, align 4
+  %tobool5.not.i = icmp eq i32 %45, 0
   br i1 %tobool5.not.i, label %if.end7.i, label %return
 
 if.end7.i:                                        ; preds = %land.lhs.true4.i
@@ -2630,8 +2629,8 @@ if.then93:                                        ; preds = %if.end91
   br i1 %tobool96.not, label %if.end103, label %land.lhs.true.i110
 
 land.lhs.true.i110:                               ; preds = %if.then93
-  %47 = load i32, ptr @should_validate_cache_entries.validate_index_cache_entries, align 4
-  %cmp.i.i111 = icmp slt i32 %47, 0
+  %46 = load i32, ptr @should_validate_cache_entries.validate_index_cache_entries, align 4
+  %cmp.i.i111 = icmp slt i32 %46, 0
   br i1 %cmp.i.i111, label %if.then.i.i122, label %should_validate_cache_entries.exit.i112
 
 if.then.i.i122:                                   ; preds = %land.lhs.true.i110
@@ -2642,20 +2641,20 @@ if.then.i.i122:                                   ; preds = %land.lhs.true.i110
   br label %should_validate_cache_entries.exit.i112
 
 should_validate_cache_entries.exit.i112:          ; preds = %if.then.i.i122, %land.lhs.true.i110
-  %48 = phi i32 [ %47, %land.lhs.true.i110 ], [ %..i.i125, %if.then.i.i122 ]
-  %tobool1.not.i113 = icmp eq i32 %48, 0
+  %47 = phi i32 [ %46, %land.lhs.true.i110 ], [ %..i.i125, %if.then.i.i122 ]
+  %tobool1.not.i113 = icmp eq i32 %47, 0
   br i1 %tobool1.not.i113, label %land.lhs.true4.i118, label %if.then.i114
 
 if.then.i114:                                     ; preds = %should_validate_cache_entries.exit.i112
-  %49 = load i32, ptr %ce_namelen, align 8
-  %conv.i116 = zext i32 %49 to i64
+  %48 = load i32, ptr %ce_namelen, align 8
+  %conv.i116 = zext i32 %48 to i64
   %add2.i117 = add nuw nsw i64 %conv.i116, 109
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %call.i1.i, i8 -51, i64 %add2.i117, i1 false)
   br label %land.lhs.true4.i118
 
 land.lhs.true4.i118:                              ; preds = %if.then.i114, %should_validate_cache_entries.exit.i112
-  %50 = load i32, ptr %mem_pool_allocated.i.i, align 4
-  %tobool5.not.i120 = icmp eq i32 %50, 0
+  %49 = load i32, ptr %mem_pool_allocated.i.i, align 4
+  %tobool5.not.i120 = icmp eq i32 %49, 0
   br i1 %tobool5.not.i120, label %if.end7.i121, label %discard_cache_entry.exit126
 
 if.end7.i121:                                     ; preds = %land.lhs.true4.i118
@@ -2663,8 +2662,8 @@ if.end7.i121:                                     ; preds = %land.lhs.true4.i118
   br label %discard_cache_entry.exit126
 
 discard_cache_entry.exit126:                      ; preds = %land.lhs.true4.i118, %if.end7.i121
-  %51 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i128 = icmp eq i32 %51, 0
+  %50 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i128 = icmp eq i32 %50, 0
   br i1 %tobool1.not.i128, label %_.exit132, label %if.end3.i129
 
 if.end3.i129:                                     ; preds = %discard_cache_entry.exit126
@@ -2691,37 +2690,37 @@ set_object_name_for_intent_to_add_entry.exit:     ; preds = %if.else102
   %oid2.i = getelementptr inbounds i8, ptr %call.i1.i, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %oid2.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid.i, i64 32, i1 false)
   %algo.i.i = getelementptr inbounds i8, ptr %oid.i, i64 32
-  %52 = load i32, ptr %algo.i.i, align 4
+  %51 = load i32, ptr %algo.i.i, align 4
   %algo3.i.i = getelementptr inbounds i8, ptr %call.i1.i, i64 104
-  store i32 %52, ptr %algo3.i.i, align 4
+  store i32 %51, ptr %algo3.i.i, align 4
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %oid.i)
   br label %if.end103
 
 if.end103:                                        ; preds = %if.then93, %set_object_name_for_intent_to_add_entry.exit
-  %53 = load i32, ptr @ignore_case, align 4
-  %tobool104 = icmp ne i32 %53, 0
+  %52 = load i32, ptr @ignore_case, align 4
+  %tobool104 = icmp ne i32 %52, 0
   %tobool106 = icmp ne ptr %alias.0, null
   %or.cond1 = and i1 %tobool106, %tobool104
   br i1 %or.cond1, label %land.lhs.true107, label %if.end112
 
 land.lhs.true107:                                 ; preds = %if.end103
-  %54 = load i32, ptr %ce_namelen, align 8
+  %53 = load i32, ptr %ce_namelen, align 8
   %ce_namelen1.i = getelementptr inbounds i8, ptr %alias.0, i64 64
-  %55 = load i32, ptr %ce_namelen1.i, align 8
-  %cmp.not.i = icmp eq i32 %55, %54
+  %54 = load i32, ptr %ce_namelen1.i, align 8
+  %cmp.not.i = icmp eq i32 %54, %53
   br i1 %cmp.not.i, label %different_name.exit, label %if.then110
 
 different_name.exit:                              ; preds = %land.lhs.true107
   %name2.i = getelementptr inbounds i8, ptr %alias.0, i64 108
-  %conv.i138 = sext i32 %54 to i64
+  %conv.i138 = sext i32 %53 to i64
   %bcmp.i = call i32 @bcmp(ptr nonnull readonly %name, ptr nonnull readonly %name2.i, i64 %conv.i138)
   %tobool.i.not = icmp eq i32 %bcmp.i, 0
   br i1 %tobool.i.not, label %if.end112.thread, label %if.then110
 
 if.then110:                                       ; preds = %land.lhs.true107, %different_name.exit
   %ce_flags.i139 = getelementptr inbounds i8, ptr %alias.0, i64 56
-  %56 = load i32, ptr %ce_flags.i139, align 8
-  %and.i140 = and i32 %56, 524288
+  %55 = load i32, ptr %ce_flags.i139, align 8
+  %and.i140 = and i32 %55, 524288
   %tobool.not.i141 = icmp eq i32 %and.i140, 0
   br i1 %tobool.not.i141, label %if.end.i145, label %if.then.i142
 
@@ -2732,24 +2731,24 @@ if.then.i142:                                     ; preds = %if.then110
   unreachable
 
 if.end.i145:                                      ; preds = %if.then110
-  %57 = load ptr, ptr %split_index.i.i, align 8
-  %tobool.not.i.i.i147 = icmp eq ptr %57, null
+  %56 = load ptr, ptr %split_index.i.i, align 8
+  %tobool.not.i.i.i147 = icmp eq ptr %56, null
   br i1 %tobool.not.i.i.i147, label %if.else.i.i.i, label %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %if.end.i145
-  %base.i.i.i = getelementptr inbounds i8, ptr %57, i64 40
-  %58 = load ptr, ptr %base.i.i.i, align 8
-  %tobool2.not.i.i.i = icmp eq ptr %58, null
+  %base.i.i.i = getelementptr inbounds i8, ptr %56, i64 40
+  %57 = load ptr, ptr %base.i.i.i, align 8
+  %tobool2.not.i.i.i = icmp eq ptr %57, null
   br i1 %tobool2.not.i.i.i, label %if.else.i.i.i, label %if.end.i.i.i
 
 if.else.i.i.i:                                    ; preds = %land.lhs.true.i.i.i, %if.end.i145
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %land.lhs.true.i.i.i
-  %.pn.i.i.i = phi ptr [ %istate, %if.else.i.i.i ], [ %58, %land.lhs.true.i.i.i ]
+  %.pn.i.i.i = phi ptr [ %istate, %if.else.i.i.i ], [ %57, %land.lhs.true.i.i.i ]
   %pool_ptr.0.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i.i, i64 224
-  %59 = load ptr, ptr %pool_ptr.0.i.i.i, align 8
-  %tobool6.not.i.i.i = icmp eq ptr %59, null
+  %58 = load ptr, ptr %pool_ptr.0.i.i.i, align 8
+  %tobool6.not.i.i.i = icmp eq ptr %58, null
   br i1 %tobool6.not.i.i.i, label %if.then7.i.i.i, label %create_alias_ce.exit
 
 if.then7.i.i.i:                                   ; preds = %if.end.i.i.i
@@ -2760,23 +2759,23 @@ if.then7.i.i.i:                                   ; preds = %if.end.i.i.i
   br label %create_alias_ce.exit
 
 create_alias_ce.exit:                             ; preds = %if.end.i.i.i, %if.then7.i.i.i
-  %60 = phi ptr [ %.pre.i.i.i, %if.then7.i.i.i ], [ %59, %if.end.i.i.i ]
-  %conv.i148 = sext i32 %55 to i64
+  %59 = phi ptr [ %.pre.i.i.i, %if.then7.i.i.i ], [ %58, %if.end.i.i.i ]
+  %conv.i148 = sext i32 %54 to i64
   %add1.i.i.i = add nsw i64 %conv.i148, 109
-  %call.i1.i.i = call ptr @mem_pool_calloc(ptr noundef %60, i64 noundef 1, i64 noundef %add1.i.i.i) #28
+  %call.i1.i.i = call ptr @mem_pool_calloc(ptr noundef %59, i64 noundef 1, i64 noundef %add1.i.i.i) #28
   %mem_pool_allocated.i.i.i = getelementptr inbounds i8, ptr %call.i1.i.i, i64 60
   store i32 1, ptr %mem_pool_allocated.i.i.i, align 4
   %name4.i = getelementptr inbounds i8, ptr %call.i1.i.i, i64 108
   %name6.i = getelementptr inbounds i8, ptr %alias.0, i64 108
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %name4.i, ptr nonnull align 4 %name6.i, i64 %conv.i148, i1 false)
   %ce_flags.i.i = getelementptr inbounds i8, ptr %call.i1.i.i, i64 56
-  %61 = load i32, ptr %ce_flags.i.i, align 8
-  %and.i.i149 = and i32 %61, 1048576
+  %60 = load i32, ptr %ce_flags.i.i, align 8
+  %and.i.i149 = and i32 %60, 1048576
   %ce_stat_data.i.i = getelementptr inbounds i8, ptr %call.i1.i.i, i64 16
   %ce_stat_data2.i.i = getelementptr inbounds i8, ptr %call.i1.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(92) %ce_stat_data.i.i, ptr noundef nonnull readonly align 8 dereferenceable(92) %ce_stat_data2.i.i, i64 92, i1 false)
-  %62 = load i32, ptr %ce_flags.i.i, align 8
-  %and4.i.i = and i32 %62, -1048577
+  %61 = load i32, ptr %ce_flags.i.i, align 8
+  %and4.i.i = and i32 %61, -1048577
   %or.i.i150 = or disjoint i32 %and4.i.i, %and.i.i149
   store i32 %or.i.i150, ptr %ce_flags.i.i, align 8
   store i32 1, ptr %mem_pool_allocated.i.i.i, align 4
@@ -2786,49 +2785,49 @@ create_alias_ce.exit:                             ; preds = %if.end.i.i.i, %if.t
 if.end112.thread:                                 ; preds = %create_alias_ce.exit, %different_name.exit
   %ce.0.ph = phi ptr [ %call.i1.i, %different_name.exit ], [ %call.i1.i.i, %create_alias_ce.exit ]
   %ce_flags113210 = getelementptr inbounds i8, ptr %ce.0.ph, i64 56
-  %63 = load i32, ptr %ce_flags113210, align 8
-  %or114211 = or i32 %63, 524288
+  %62 = load i32, ptr %ce_flags113210, align 8
+  %or114211 = or i32 %62, 524288
   store i32 %or114211, ptr %ce_flags113210, align 8
   br label %land.lhs.true116
 
 if.end112:                                        ; preds = %if.end103
   %ce_flags113 = getelementptr inbounds i8, ptr %call.i1.i, i64 56
-  %64 = load i32, ptr %ce_flags113, align 8
-  %or114 = or i32 %64, 524288
+  %63 = load i32, ptr %ce_flags113, align 8
+  %or114 = or i32 %63, 524288
   store i32 %or114, ptr %ce_flags113, align 8
   br i1 %tobool106, label %land.lhs.true116, label %land.end131
 
 land.lhs.true116:                                 ; preds = %if.end112.thread, %if.end112
   %ce.0213 = phi ptr [ %ce.0.ph, %if.end112.thread ], [ %call.i1.i, %if.end112 ]
   %ce_flags117 = getelementptr inbounds i8, ptr %alias.0, i64 56
-  %65 = load i32, ptr %ce_flags117, align 8
-  %66 = and i32 %65, 12288
-  %tobool120.not = icmp eq i32 %66, 0
+  %64 = load i32, ptr %ce_flags117, align 8
+  %65 = and i32 %64, 12288
+  %tobool120.not = icmp eq i32 %65, 0
   br i1 %tobool120.not, label %land.lhs.true121, label %land.end131
 
 land.lhs.true121:                                 ; preds = %land.lhs.true116
   %oid122 = getelementptr inbounds i8, ptr %alias.0, i64 72
   %oid123 = getelementptr inbounds i8, ptr %ce.0213, i64 72
   %algo.i = getelementptr inbounds i8, ptr %alias.0, i64 104
-  %67 = load i32, ptr %algo.i, align 4
-  %tobool.not.i151 = icmp eq i32 %67, 0
+  %66 = load i32, ptr %algo.i, align 4
+  %tobool.not.i151 = icmp eq i32 %66, 0
   br i1 %tobool.not.i151, label %if.then.i159, label %if.else.i
 
 if.then.i159:                                     ; preds = %land.lhs.true121
-  %68 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i = getelementptr inbounds i8, ptr %68, i64 256
-  %69 = load ptr, ptr %hash_algo.i, align 8
+  %67 = load ptr, ptr @the_repository, align 8
+  %hash_algo.i = getelementptr inbounds i8, ptr %67, i64 256
+  %68 = load ptr, ptr %hash_algo.i, align 8
   br label %if.end.i154
 
 if.else.i:                                        ; preds = %land.lhs.true121
-  %idxprom.i152 = sext i32 %67 to i64
+  %idxprom.i152 = sext i32 %66 to i64
   %arrayidx.i153 = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i152
   br label %if.end.i154
 
 if.end.i154:                                      ; preds = %if.else.i, %if.then.i159
-  %algop.0.i = phi ptr [ %arrayidx.i153, %if.else.i ], [ %69, %if.then.i159 ]
-  %70 = getelementptr i8, ptr %algop.0.i, i64 16
-  %algop.0.val.i = load i64, ptr %70, align 8
+  %algop.0.i = phi ptr [ %arrayidx.i153, %if.else.i ], [ %68, %if.then.i159 ]
+  %69 = getelementptr i8, ptr %algop.0.i, i64 16
+  %algop.0.val.i = load i64, ptr %69, align 8
   %cmp.i.i155 = icmp eq i64 %algop.0.val.i, 32
   br i1 %cmp.i.i155, label %if.then.i.i158, label %if.end.i.i156
 
@@ -2847,20 +2846,20 @@ oideq.exit:                                       ; preds = %if.then.i.i158, %if
 
 land.rhs126:                                      ; preds = %oideq.exit
   %ce_mode127 = getelementptr inbounds i8, ptr %ce.0213, i64 52
-  %71 = load i32, ptr %ce_mode127, align 4
+  %70 = load i32, ptr %ce_mode127, align 4
   %ce_mode128 = getelementptr inbounds i8, ptr %alias.0, i64 52
-  %72 = load i32, ptr %ce_mode128, align 4
-  %cmp129 = icmp eq i32 %71, %72
+  %71 = load i32, ptr %ce_mode128, align 4
+  %cmp129 = icmp eq i32 %70, %71
   br label %land.end131
 
 land.end131:                                      ; preds = %land.rhs126, %oideq.exit, %land.lhs.true116, %if.end112
   %ce.0212 = phi ptr [ %ce.0213, %oideq.exit ], [ %ce.0213, %land.lhs.true116 ], [ %call.i1.i, %if.end112 ], [ %ce.0213, %land.rhs126 ]
-  %73 = phi i1 [ false, %oideq.exit ], [ false, %land.lhs.true116 ], [ false, %if.end112 ], [ %cmp129, %land.rhs126 ]
+  %72 = phi i1 [ false, %oideq.exit ], [ false, %land.lhs.true116 ], [ false, %if.end112 ], [ %cmp129, %land.rhs126 ]
   br i1 %tobool4.not, label %if.else134, label %land.lhs.true.i161
 
 land.lhs.true.i161:                               ; preds = %land.end131
-  %74 = load i32, ptr @should_validate_cache_entries.validate_index_cache_entries, align 4
-  %cmp.i.i162 = icmp slt i32 %74, 0
+  %73 = load i32, ptr @should_validate_cache_entries.validate_index_cache_entries, align 4
+  %cmp.i.i162 = icmp slt i32 %73, 0
   br i1 %cmp.i.i162, label %if.then.i.i173, label %should_validate_cache_entries.exit.i163
 
 if.then.i.i173:                                   ; preds = %land.lhs.true.i161
@@ -2871,22 +2870,22 @@ if.then.i.i173:                                   ; preds = %land.lhs.true.i161
   br label %should_validate_cache_entries.exit.i163
 
 should_validate_cache_entries.exit.i163:          ; preds = %if.then.i.i173, %land.lhs.true.i161
-  %75 = phi i32 [ %74, %land.lhs.true.i161 ], [ %..i.i176, %if.then.i.i173 ]
-  %tobool1.not.i164 = icmp eq i32 %75, 0
+  %74 = phi i32 [ %73, %land.lhs.true.i161 ], [ %..i.i176, %if.then.i.i173 ]
+  %tobool1.not.i164 = icmp eq i32 %74, 0
   br i1 %tobool1.not.i164, label %land.lhs.true4.i169, label %if.then.i165
 
 if.then.i165:                                     ; preds = %should_validate_cache_entries.exit.i163
   %ce_namelen.i166 = getelementptr inbounds i8, ptr %ce.0212, i64 64
-  %76 = load i32, ptr %ce_namelen.i166, align 8
-  %conv.i167 = zext i32 %76 to i64
+  %75 = load i32, ptr %ce_namelen.i166, align 8
+  %conv.i167 = zext i32 %75 to i64
   %add2.i168 = add nuw nsw i64 %conv.i167, 109
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %ce.0212, i8 -51, i64 %add2.i168, i1 false)
   br label %land.lhs.true4.i169
 
 land.lhs.true4.i169:                              ; preds = %if.then.i165, %should_validate_cache_entries.exit.i163
   %mem_pool_allocated.i170 = getelementptr inbounds i8, ptr %ce.0212, i64 60
-  %77 = load i32, ptr %mem_pool_allocated.i170, align 4
-  %tobool5.not.i171 = icmp eq i32 %77, 0
+  %76 = load i32, ptr %mem_pool_allocated.i170, align 4
+  %tobool5.not.i171 = icmp eq i32 %76, 0
   br i1 %tobool5.not.i171, label %if.end7.i172, label %if.end142
 
 if.end7.i172:                                     ; preds = %land.lhs.true4.i169
@@ -2899,8 +2898,8 @@ if.else134:                                       ; preds = %land.end131
   br i1 %tobool136.not, label %if.end142, label %land.lhs.true.i179
 
 land.lhs.true.i179:                               ; preds = %if.else134
-  %78 = load i32, ptr @should_validate_cache_entries.validate_index_cache_entries, align 4
-  %cmp.i.i180 = icmp slt i32 %78, 0
+  %77 = load i32, ptr @should_validate_cache_entries.validate_index_cache_entries, align 4
+  %cmp.i.i180 = icmp slt i32 %77, 0
   br i1 %cmp.i.i180, label %if.then.i.i191, label %should_validate_cache_entries.exit.i181
 
 if.then.i.i191:                                   ; preds = %land.lhs.true.i179
@@ -2911,22 +2910,22 @@ if.then.i.i191:                                   ; preds = %land.lhs.true.i179
   br label %should_validate_cache_entries.exit.i181
 
 should_validate_cache_entries.exit.i181:          ; preds = %if.then.i.i191, %land.lhs.true.i179
-  %79 = phi i32 [ %78, %land.lhs.true.i179 ], [ %..i.i194, %if.then.i.i191 ]
-  %tobool1.not.i182 = icmp eq i32 %79, 0
+  %78 = phi i32 [ %77, %land.lhs.true.i179 ], [ %..i.i194, %if.then.i.i191 ]
+  %tobool1.not.i182 = icmp eq i32 %78, 0
   br i1 %tobool1.not.i182, label %land.lhs.true4.i187, label %if.then.i183
 
 if.then.i183:                                     ; preds = %should_validate_cache_entries.exit.i181
   %ce_namelen.i184 = getelementptr inbounds i8, ptr %ce.0212, i64 64
-  %80 = load i32, ptr %ce_namelen.i184, align 8
-  %conv.i185 = zext i32 %80 to i64
+  %79 = load i32, ptr %ce_namelen.i184, align 8
+  %conv.i185 = zext i32 %79 to i64
   %add2.i186 = add nuw nsw i64 %conv.i185, 109
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %ce.0212, i8 -51, i64 %add2.i186, i1 false)
   br label %land.lhs.true4.i187
 
 land.lhs.true4.i187:                              ; preds = %if.then.i183, %should_validate_cache_entries.exit.i181
   %mem_pool_allocated.i188 = getelementptr inbounds i8, ptr %ce.0212, i64 60
-  %81 = load i32, ptr %mem_pool_allocated.i188, align 4
-  %tobool5.not.i189 = icmp eq i32 %81, 0
+  %80 = load i32, ptr %mem_pool_allocated.i188, align 4
+  %tobool5.not.i189 = icmp eq i32 %80, 0
   br i1 %tobool5.not.i189, label %if.end7.i190, label %discard_cache_entry.exit195
 
 if.end7.i190:                                     ; preds = %land.lhs.true4.i187
@@ -2934,8 +2933,8 @@ if.end7.i190:                                     ; preds = %land.lhs.true4.i187
   br label %discard_cache_entry.exit195
 
 discard_cache_entry.exit195:                      ; preds = %land.lhs.true4.i187, %if.end7.i190
-  %82 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i197 = icmp eq i32 %82, 0
+  %81 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i197 = icmp eq i32 %81, 0
   br i1 %tobool1.not.i197, label %_.exit201, label %if.end3.i198
 
 if.end3.i198:                                     ; preds = %discard_cache_entry.exit195
@@ -2949,7 +2948,7 @@ _.exit201:                                        ; preds = %discard_cache_entry
 
 if.end142:                                        ; preds = %if.end7.i172, %land.lhs.true4.i169, %if.else134
   %tobool143 = icmp eq i32 %and, 0
-  %or.cond2 = select i1 %tobool143, i1 true, i1 %73
+  %or.cond2 = select i1 %tobool143, i1 true, i1 %72
   br i1 %or.cond2, label %return, label %if.then146
 
 if.then146:                                       ; preds = %if.end142

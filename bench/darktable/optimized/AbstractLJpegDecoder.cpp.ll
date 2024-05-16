@@ -3304,13 +3304,13 @@ define linkonce_odr hidden void @_ZN8rawspeed20PrefixCodeLUTDecoderINS_15Baselin
   %115 = and i32 %114, %77
   %116 = icmp eq i32 %115, 0
   %117 = select i1 %116, i32 %78, i32 0
-  %118 = add i32 %117, %114
+  %118 = add nsw i32 %117, %114
   br label %119
 
 119:                                              ; preds = %111, %110, %104
   %120 = phi i32 [ %70, %111 ], [ %70, %110 ], [ %69, %104 ]
   %121 = phi i32 [ %118, %111 ], [ -32768, %110 ], [ -32768, %104 ]
-  %122 = shl i32 %121, 9
+  %122 = shl nsw i32 %121, 9
   %123 = or i32 %122, %120
   store i32 %123, ptr %105, align 4, !tbaa !47
   br label %124

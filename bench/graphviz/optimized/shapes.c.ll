@@ -3286,10 +3286,9 @@ gv_alloc.exit:                                    ; preds = %1
   %152 = call i64 @gvusershape_size(ptr noundef %151, ptr noundef %150) #25
   %.sroa.0372.0.extract.trunc378 = trunc i64 %152 to i32
   %.sroa.13379.0.extract.shift380 = lshr i64 %152, 32
-  %.sroa.13379.0.extract.trunc381 = trunc nuw i64 %.sroa.13379.0.extract.shift380 to i32
   %153 = icmp eq i32 %.sroa.0372.0.extract.trunc378, -1
-  %154 = icmp eq i32 %.sroa.13379.0.extract.trunc381, -1
-  %or.cond5 = select i1 %153, i1 %154, i1 false
+  %154 = icmp eq i64 %.sroa.13379.0.extract.shift380, 4294967295
+  %or.cond5 = and i1 %153, %154
   br i1 %or.cond5, label %155, label %159
 
 155:                                              ; preds = %149
@@ -3300,6 +3299,7 @@ gv_alloc.exit:                                    ; preds = %1
   br label %185
 
 159:                                              ; preds = %149
+  %.sroa.13379.0.extract.trunc381 = trunc nuw i64 %.sroa.13379.0.extract.shift380 to i32
   %160 = call ptr @agraphof(ptr noundef nonnull %0) #25
   %161 = getelementptr inbounds i8, ptr %160, i64 16
   %162 = load ptr, ptr %161, align 8
@@ -3324,10 +3324,9 @@ gv_alloc.exit:                                    ; preds = %1
   %172 = call i64 @gvusershape_size(ptr noundef %171, ptr noundef nonnull %167) #25
   %.sroa.0372.0.extract.trunc = trunc i64 %172 to i32
   %.sroa.13379.0.extract.shift = lshr i64 %172, 32
-  %.sroa.13379.0.extract.trunc = trunc nuw i64 %.sroa.13379.0.extract.shift to i32
   %173 = icmp eq i32 %.sroa.0372.0.extract.trunc, -1
-  %174 = icmp eq i32 %.sroa.13379.0.extract.trunc, -1
-  %or.cond8 = select i1 %173, i1 %174, i1 false
+  %174 = icmp eq i64 %.sroa.13379.0.extract.shift, 4294967295
+  %or.cond8 = and i1 %173, %174
   br i1 %or.cond8, label %175, label %178
 
 175:                                              ; preds = %170
@@ -3336,6 +3335,7 @@ gv_alloc.exit:                                    ; preds = %1
   br label %185
 
 178:                                              ; preds = %170
+  %.sroa.13379.0.extract.trunc = trunc nuw i64 %.sroa.13379.0.extract.shift to i32
   %179 = call ptr @agraphof(ptr noundef nonnull %0) #25
   %180 = getelementptr inbounds i8, ptr %179, i64 16
   %181 = load ptr, ptr %180, align 8

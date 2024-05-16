@@ -3040,7 +3040,7 @@ if.then4.i:                                       ; preds = %for.end50
   br i1 %cmp.i.i, label %if.then.i.i107, label %for.body8.lr.ph.i
 
 if.then.i.i107:                                   ; preds = %if.then4.i
-  %tobool.not.i.i.i = icmp eq i32 %21, 0
+  %tobool.not.i.i.i = icmp eq i64 %indvars.iv121, 0
   br i1 %tobool.not.i.i.i, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE8allocateEi.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i107

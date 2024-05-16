@@ -939,17 +939,17 @@ ss_compare.exit.i.i:                              ; preds = %299, %.thread.i.i.i
 
 349:                                              ; preds = %335
   %.neg.i.i.i = xor i32 %.087.i.i.i, -1
-  br label %.outer155
+  br label %.outer151
 
-.outer155:                                        ; preds = %355, %349
+.outer151:                                        ; preds = %355, %349
   %.262.i.i.i.ph = phi ptr [ %.06684.i.i.i, %349 ], [ %356, %355 ]
   %.149.i.i.i.ph = phi i32 [ %.04886.i.i.i, %349 ], [ %357, %355 ]
   %.254.i.i.i.ph = load i32, ptr %.262.i.i.i.ph, align 4
   br label %350
 
-350:                                              ; preds = %.outer155, %350
-  %.262.i.i.i = phi ptr [ %352, %350 ], [ %.262.i.i.i.ph, %.outer155 ]
-  %.258.i.i.i = phi ptr [ %354, %350 ], [ %.045.i.i, %.outer155 ]
+350:                                              ; preds = %.outer151, %350
+  %.262.i.i.i = phi ptr [ %352, %350 ], [ %.262.i.i.i.ph, %.outer151 ]
+  %.258.i.i.i = phi ptr [ %354, %350 ], [ %.045.i.i, %.outer151 ]
   %351 = load i32, ptr %.258.i.i.i, align 4
   %352 = getelementptr inbounds i8, ptr %.262.i.i.i, i64 4
   store i32 %351, ptr %.262.i.i.i, align 4
@@ -964,7 +964,7 @@ ss_compare.exit.i.i:                              ; preds = %299, %.thread.i.i.i
   %356 = getelementptr inbounds i8, ptr %.262.i.i.i, i64 8
   %357 = add i32 %.149.i.i.i.ph, %.neg.i.i.i
   %.not74.i.i.i = icmp sgt i32 %357, %.087.i.i.i
-  br i1 %.not74.i.i.i, label %.outer155, label %.loopexit.i.i.i
+  br i1 %.not74.i.i.i, label %.outer151, label %.loopexit.i.i.i
 
 .loopexit.i.i.i:                                  ; preds = %355, %345
   %.167.i.i.i = phi ptr [ %.06684.i.i.i, %345 ], [ %356, %355 ]
@@ -1142,7 +1142,7 @@ sssort.exit:                                      ; preds = %.critedge.i, %ss_in
   %430 = trunc i64 %425 to i32
   %431 = sub nsw i32 %430, %.9255449
   store i32 %431, ptr %429, align 4
-  %432 = icmp eq i32 %422, 1
+  %432 = icmp eq i64 %indvars.iv591, 1
   br i1 %432, label %.loopexit329, label %433
 
 433:                                              ; preds = %.critedge4, %.lr.ph450
@@ -1173,7 +1173,7 @@ sssort.exit:                                      ; preds = %.critedge.i, %ss_in
   %447 = getelementptr inbounds i32, ptr %81, i64 %446
   store i32 %.11257, ptr %447, align 4
   %448 = add nsw i32 %445, -2
-  %449 = icmp sgt i32 %445, 1
+  %449 = icmp sgt i64 %indvars.iv594, 1
   br i1 %449, label %.lr.ph450, label %.loopexit329, !llvm.loop !28
 
 .loopexit329:                                     ; preds = %444, %.critedge4, %.critedge4.thread

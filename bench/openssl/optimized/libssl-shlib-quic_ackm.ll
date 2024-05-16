@@ -53,8 +53,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %cmp.i.not, label %while.cond.preheader, label %for.inc
 
 while.cond.preheader:                             ; preds = %for.body
-  %0 = and i64 %indvars.iv, 4294967295
-  %cmp3029.not = icmp eq i64 %0, 0
+  %cmp3029.not = icmp eq i64 %indvars.iv, 0
   br i1 %cmp3029.not, label %while.end, label %while.body
 
 for.inc:                                          ; preds = %for.body
@@ -95,11 +94,11 @@ while.body:                                       ; preds = %while.cond.preheade
   %idxprom32 = and i64 %indvars.iv.next39, 4294967295
   %arrayidx33 = getelementptr inbounds [3 x %struct.tx_pkt_history_st], ptr %call, i64 0, i64 %idxprom32
   %map.i25 = getelementptr inbounds i8, ptr %arrayidx33, i64 24
-  %1 = load ptr, ptr %map.i25, align 8
-  tail call void @OPENSSL_LH_free(ptr noundef %1) #11
+  %0 = load ptr, ptr %map.i25, align 8
+  tail call void @OPENSSL_LH_free(ptr noundef %0) #11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx33, i8 0, i64 32, i1 false)
-  %2 = icmp sgt i64 %indvars.iv38, 1
-  br i1 %2, label %while.body, label %while.end, !llvm.loop !7
+  %1 = icmp sgt i64 %indvars.iv38, 1
+  br i1 %1, label %while.body, label %while.end, !llvm.loop !7
 
 while.end:                                        ; preds = %while.body, %while.cond.preheader
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str, i32 noundef 1058) #11

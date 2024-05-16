@@ -6683,18 +6683,17 @@ land.rhs:                                         ; preds = %land.rhs.preheader,
 
 while.body:                                       ; preds = %land.rhs
   %indvars.iv.next345 = add nsw i64 %indvars.iv344, -1
-  %37 = and i64 %indvars.iv.next345, 4294967295
-  %tobool129.not = icmp eq i64 %37, 0
+  %tobool129.not = icmp eq i64 %indvars.iv.next345, 0
   br i1 %tobool129.not, label %while.end.loopexit, label %land.rhs, !llvm.loop !251
 
 while.end.loopexit:                               ; preds = %while.body, %land.rhs
   %len.0.lcssa.ph = phi i64 [ %indvars.iv344, %land.rhs ], [ 0, %while.body ]
   %sext = shl i64 %len.0.lcssa.ph, 32
-  %38 = ashr exact i64 %sext, 32
+  %37 = ashr exact i64 %sext, 32
   br label %while.end
 
 while.end:                                        ; preds = %while.end.loopexit, %_ZN18OpenImageIO_v2_6_014tiff_data_sizeERK12TIFFDirEntry.exit
-  %len.0.lcssa = phi i64 [ 0, %_ZN18OpenImageIO_v2_6_014tiff_data_sizeERK12TIFFDirEntry.exit ], [ %38, %while.end.loopexit ]
+  %len.0.lcssa = phi i64 [ 0, %_ZN18OpenImageIO_v2_6_014tiff_data_sizeERK12TIFFDirEntry.exit ], [ %37, %while.end.loopexit ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp135) #30
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %str, ptr noundef nonnull %retval.0.i249, i64 noundef %len.0.lcssa, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp135)
           to label %invoke.cont137 unwind label %lpad136
@@ -6729,7 +6728,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
   unreachable
 
 lpad.i205:                                        ; preds = %if.end.i, %if.then.i
-  %39 = landingpad { ptr, i32 }
+  %38 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp143) #30
   br label %lpad146.body
@@ -6747,18 +6746,18 @@ invoke.cont147:                                   ; preds = %if.end.i
   br label %if.end149
 
 lpad136:                                          ; preds = %while.end
-  %40 = landingpad { ptr, i32 }
+  %39 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp135) #30
   br label %eh.resume
 
 lpad146:                                          ; preds = %call.i.noexc, %if.then142
-  %41 = landingpad { ptr, i32 }
+  %40 = landingpad { ptr, i32 }
           cleanup
   br label %lpad146.body
 
 lpad146.body:                                     ; preds = %lpad.i205, %lpad146
-  %eh.lpad-body207 = phi { ptr, i32 } [ %41, %lpad146 ], [ %39, %lpad.i205 ]
+  %eh.lpad-body207 = phi { ptr, i32 } [ %40, %lpad146 ], [ %38, %lpad.i205 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp145) #30
   br label %ehcleanup
 
@@ -6788,12 +6787,12 @@ invoke.cont153:                                   ; preds = %_ZN18OpenImageIO_v2
   br label %if.end164
 
 lpad152:                                          ; preds = %_ZN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit213
-  %42 = landingpad { ptr, i32 }
+  %41 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad152, %lpad146.body
-  %.pn = phi { ptr, i32 } [ %42, %lpad152 ], [ %eh.lpad-body207, %lpad146.body ]
+  %.pn = phi { ptr, i32 } [ %41, %lpad152 ], [ %eh.lpad-body207, %lpad146.body ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %str) #30
   br label %eh.resume
 
@@ -6801,7 +6800,7 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %cmp.i.i, label %if.then160, label %if.end164
 
 if.then160:                                       ; preds = %land.lhs.true
-  %43 = load i8, ptr %retval.0.i249, align 1
+  %42 = load i8, ptr %retval.0.i249, align 1
   %tobool.not.i215 = icmp eq ptr %name, null
   br i1 %tobool.not.i215, label %_ZN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit220, label %cond.true.i216
 
@@ -6811,7 +6810,7 @@ cond.true.i216:                                   ; preds = %if.then160
 
 _ZN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit220: ; preds = %if.then160, %cond.true.i216
   %cond.i218 = phi i64 [ %call.i.i.i217, %cond.true.i216 ], [ 0, %if.then160 ]
-  %conv163 = zext i8 %43 to i32
+  %conv163 = zext i8 %42 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i221)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i222)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp2.i223)
@@ -6832,7 +6831,7 @@ if.end164:                                        ; preds = %if.end, %lor.lhs.fa
   ret void
 
 eh.resume:                                        ; preds = %if.then.i.i.i114, %lpad32, %if.then.i.i.i76, %lpad13, %ehcleanup, %lpad136
-  %.pn69 = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %40, %lpad136 ], [ %7, %lpad13 ], [ %7, %if.then.i.i.i76 ], [ %10, %lpad32 ], [ %10, %if.then.i.i.i114 ]
+  %.pn69 = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %39, %lpad136 ], [ %7, %lpad13 ], [ %7, %if.then.i.i.i76 ], [ %10, %lpad32 ], [ %10, %if.then.i.i.i114 ]
   resume { ptr, i32 } %.pn69
 }
 

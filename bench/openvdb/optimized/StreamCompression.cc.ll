@@ -213,9 +213,9 @@ if.end10:                                         ; preds = %if.end6
 
 if.then12:                                        ; preds = %if.end10
   %call = invoke noalias noundef nonnull dereferenceable(128) ptr @_Znam(i64 noundef 128) #19
-          to label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit unwind label %lpad
+          to label %for.body.preheader unwind label %lpad
 
-_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit: ; preds = %if.then12
+for.body.preheader:                               ; preds = %if.then12
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call, ptr align 1 %uncompressedBuffer, i64 %uncompressedBytes, i1 false)
   %scevgep = getelementptr i8, ptr %call, i64 %uncompressedBytes
   %0 = sub nuw nsw i64 128, %uncompressedBytes
@@ -228,10 +228,10 @@ lpad:                                             ; preds = %if.then21, %if.end1
           cleanup
   br label %ehcleanup
 
-if.end17:                                         ; preds = %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit, %if.end10
-  %paddedBuffer.sroa.0.1 = phi ptr [ null, %if.end10 ], [ %call, %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit ]
-  %inputBytes.0 = phi i64 [ %uncompressedBytes, %if.end10 ], [ 128, %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit ]
-  %buffer.0 = phi ptr [ %uncompressedBuffer, %if.end10 ], [ %call, %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit ]
+if.end17:                                         ; preds = %for.body.preheader, %if.end10
+  %paddedBuffer.sroa.0.1 = phi ptr [ null, %if.end10 ], [ %call, %for.body.preheader ]
+  %inputBytes.0 = phi i64 [ %uncompressedBytes, %if.end10 ], [ 128, %for.body.preheader ]
+  %buffer.0 = phi ptr [ %uncompressedBuffer, %if.end10 ], [ %call, %for.body.preheader ]
   %call19 = invoke i32 @blosc_compress_ctx(i32 noundef 9, i32 noundef 1, i64 noundef 4, i64 noundef %inputBytes.0, ptr noundef %buffer.0, ptr noundef %compressedBuffer, i64 noundef %bufferBytes, ptr noundef nonnull @.str, i64 noundef %inputBytes.0, i32 noundef 1)
           to label %invoke.cont18 unwind label %lpad
 

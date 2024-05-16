@@ -105815,8 +105815,8 @@ switch.lookup:
   %.sroa.4.0.extract.trunc.i = trunc nuw i16 %.sroa.4.0.extract.shift.i to i8
   %2 = and i16 %0, 255
   %switch.i = icmp eq i16 %2, 4
-  %3 = icmp eq i8 %.sroa.4.0.extract.trunc.i, 4
-  %4 = select i1 %switch.i, i1 true, i1 %3
+  %3 = icmp eq i16 %.sroa.4.0.extract.shift.i, 4
+  %4 = or i1 %switch.i, %3
   %spec.select = select i1 %4, i8 0, i8 %.sroa.4.0.extract.trunc.i
   %switch.idx.cast = trunc i8 %1 to i1
   switch i8 %spec.select, label %5 [

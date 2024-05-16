@@ -3657,35 +3657,33 @@ land.rhs:                                         ; preds = %land.lhs.true
   br i1 %cmp26, label %for.cond, label %for.end, !llvm.loop !29
 
 for.end:                                          ; preds = %land.lhs.true, %land.rhs
-  %26 = trunc nuw nsw i64 %indvars.iv to i32
-  %cmp3060 = icmp sgt i32 %26, 0
+  %cmp3060 = icmp sgt i64 %indvars.iv, 0
   br i1 %cmp3060, label %for.body32.preheader, label %if.then52
 
 for.body32.preheader:                             ; preds = %for.end
-  %27 = and i64 %indvars.iv, 2147483646
+  %26 = and i64 %indvars.iv, 4294967294
   br label %for.body32
 
 for.body32:                                       ; preds = %for.body32.preheader, %for.body32
   %indvars.iv66 = phi i64 [ 0, %for.body32.preheader ], [ %indvars.iv.next67, %for.body32 ]
   %arrayidx34 = getelementptr inbounds [16 x i8], ptr %addr, i64 0, i64 %indvars.iv66
-  %28 = load i8, ptr %arrayidx34, align 2
-  %conv35 = zext i8 %28 to i32
+  %27 = load i8, ptr %arrayidx34, align 2
+  %conv35 = zext i8 %27 to i32
   %shl = shl nuw nsw i32 %conv35, 8
-  %29 = or disjoint i64 %indvars.iv66, 1
-  %arrayidx37 = getelementptr inbounds [16 x i8], ptr %addr, i64 0, i64 %29
-  %30 = load i8, ptr %arrayidx37, align 1
-  %conv38 = zext i8 %30 to i32
+  %28 = or disjoint i64 %indvars.iv66, 1
+  %arrayidx37 = getelementptr inbounds [16 x i8], ptr %addr, i64 0, i64 %28
+  %29 = load i8, ptr %arrayidx37, align 1
+  %conv38 = zext i8 %29 to i32
   %or = or disjoint i32 %shl, %conv38
   %cmp39 = icmp ult i64 %indvars.iv66, 14
   %cond = select i1 %cmp39, ptr @.str.44, ptr @.str.24
   %call41 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.43, i32 noundef %or, ptr noundef nonnull %cond) #15
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 2
-  %cmp30 = icmp ult i64 %indvars.iv.next67, %27
+  %cmp30 = icmp ult i64 %indvars.iv.next67, %26
   br i1 %cmp30, label %for.body32, label %for.end44, !llvm.loop !30
 
 for.end44:                                        ; preds = %for.body32
-  %31 = and i64 %indvars.iv.next67, 4294967280
-  %cmp45 = icmp eq i64 %31, 0
+  %cmp45 = icmp ult i64 %indvars.iv66, 14
   br i1 %cmp45, label %if.end49, label %return
 
 if.end49:                                         ; preds = %for.end44
@@ -3701,22 +3699,22 @@ for.body59:                                       ; preds = %for.body59.lr.ph, %
   %indvars.iv70 = phi i64 [ 0, %for.body59.lr.ph ], [ %indvars.iv.next71, %for.body59 ]
   %cmp60.not = icmp eq i64 %indvars.iv70, 0
   %cond62 = select i1 %cmp60.not, ptr @.str.24, ptr @.str.44
-  %32 = load ptr, ptr %data, align 8
-  %arrayidx64 = getelementptr inbounds i8, ptr %32, i64 %indvars.iv70
-  %33 = load i8, ptr %arrayidx64, align 1
-  %conv65 = zext i8 %33 to i32
+  %30 = load ptr, ptr %data, align 8
+  %arrayidx64 = getelementptr inbounds i8, ptr %30, i64 %indvars.iv70
+  %31 = load i8, ptr %arrayidx64, align 1
+  %conv65 = zext i8 %31 to i32
   %call66 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.45, ptr noundef nonnull %cond62, i32 noundef %conv65) #15
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
-  %34 = load i32, ptr %bs, align 8
-  %35 = sext i32 %34 to i64
-  %cmp57 = icmp slt i64 %indvars.iv.next71, %35
+  %32 = load i32, ptr %bs, align 8
+  %33 = sext i32 %32 to i64
+  %cmp57 = icmp slt i64 %indvars.iv.next71, %33
   br i1 %cmp57, label %for.body59, label %for.end68, !llvm.loop !31
 
 for.end68:                                        ; preds = %for.body59, %for.cond55.preheader
   %flags = getelementptr inbounds i8, ptr %bs, i64 16
-  %36 = load i64, ptr %flags, align 8
-  %37 = trunc i64 %36 to i32
-  %conv69 = and i32 %37, 7
+  %34 = load i64, ptr %flags, align 8
+  %35 = trunc i64 %34 to i32
+  %conv69 = and i32 %35, 7
   %call70 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.46, i32 noundef %conv69) #15
   br label %return
 

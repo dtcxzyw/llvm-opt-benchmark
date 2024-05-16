@@ -2375,10 +2375,9 @@ pushFontInfo.exit:                                ; preds = %35, %33, %25, %4
   %108 = tail call i64 @gvusershape_size(ptr noundef %105, ptr noundef %107) #20
   %.sroa.4.8.extract.trunc.i.i = trunc i64 %108 to i32
   %.sroa.8.8.extract.shift.i.i = lshr i64 %108, 32
-  %.sroa.8.8.extract.trunc.i.i = trunc nuw i64 %.sroa.8.8.extract.shift.i.i to i32
   %109 = icmp eq i32 %.sroa.4.8.extract.trunc.i.i, -1
-  %110 = icmp eq i32 %.sroa.8.8.extract.trunc.i.i, -1
-  %or.cond.i.i = select i1 %109, i1 %110, i1 false
+  %110 = icmp eq i64 %.sroa.8.8.extract.shift.i.i, 4294967295
+  %or.cond.i.i = and i1 %109, %110
   br i1 %or.cond.i.i, label %111, label %114
 
 111:                                              ; preds = %103
@@ -2387,6 +2386,7 @@ pushFontInfo.exit:                                ; preds = %35, %33, %25, %4
   br label %size_html_img.exit.i
 
 114:                                              ; preds = %103
+  %.sroa.8.8.extract.trunc.i.i = trunc nuw i64 %.sroa.8.8.extract.shift.i.i to i32
   %115 = load ptr, ptr %62, align 8
   %116 = getelementptr inbounds i8, ptr %115, i64 16
   %117 = load ptr, ptr %116, align 8

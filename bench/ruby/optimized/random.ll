@@ -3913,149 +3913,149 @@ define internal fastcc i64 @random_ulong_limited(i64 noundef %0, ptr noundef %1,
 
 5:                                                ; preds = %3
   %.not33 = icmp eq ptr %1, null
-  br i1 %.not33, label %6, label %36
+  br i1 %.not33, label %6, label %37
 
 6:                                                ; preds = %5
   %7 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %2, i1 true)
   %narrow = sub nuw nsw i64 64, %7
-  %.not35 = icmp ugt i64 %2, 4294967295
-  %8 = select i1 %.not35, i32 8, i32 4
-  %9 = shl nsw i64 -1, %narrow
-  %10 = xor i64 %9, -1
-  %11 = zext nneg i32 %8 to i64
-  %12 = shl nuw nsw i32 %8, 3
-  %13 = zext nneg i32 %12 to i64
-  %14 = shl nsw i64 -1, %13
-  %15 = xor i64 %14, -1
-  %16 = select i1 %.not35, i64 -1, i64 %15
-  br i1 %.not35, label %.split.us, label %.split
+  %8 = icmp ult i64 %2, 4294967296
+  %9 = select i1 %8, i32 4, i32 8
+  %10 = shl nsw i64 -1, %narrow
+  %11 = xor i64 %10, -1
+  %12 = zext nneg i32 %9 to i64
+  %13 = shl nuw nsw i32 %9, 3
+  %14 = zext nneg i32 %13 to i64
+  %15 = shl nsw i64 -1, %14
+  %16 = xor i64 %15, -1
+  %17 = select i1 %8, i64 %16, i64 -1
+  br i1 %8, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %6, %21
-  %.027.us = phi i64 [ %22, %21 ], [ 0, %6 ]
-  %.0.us = phi i64 [ %23, %21 ], [ 0, %6 ]
-  %17 = or i64 %.0.us, %9
-  %.not34.us = icmp eq i64 %17, -1
-  br i1 %.not34.us, label %21, label %18
+.split.us:                                        ; preds = %6, %23
+  %.027.us = phi i64 [ %24, %23 ], [ 0, %6 ]
+  %.0.us = phi i64 [ %25, %23 ], [ 0, %6 ]
+  %18 = or i64 %.0.us, %10
+  %.not34.us = icmp eq i64 %18, -1
+  br i1 %.not34.us, label %23, label %19
 
-18:                                               ; preds = %.split.us
-  %19 = call fastcc i64 @obj_random_bytes(i64 noundef %0, ptr noundef nonnull %4, i64 noundef %11)
-  %20 = load i64, ptr %4, align 8
-  br label %21
+19:                                               ; preds = %.split.us
+  %20 = call fastcc i64 @obj_random_bytes(i64 noundef %0, ptr noundef nonnull %4, i64 noundef %12)
+  %21 = load i32, ptr %4, align 8
+  %22 = zext i32 %21 to i64
+  br label %23
 
-21:                                               ; preds = %18, %.split.us
-  %.128.us = phi i64 [ %20, %18 ], [ %.027.us, %.split.us ]
-  %.1.us = phi i64 [ %16, %18 ], [ %.0.us, %.split.us ]
-  %22 = lshr i64 %.128.us, %narrow
-  %23 = lshr i64 %.1.us, %narrow
-  %24 = and i64 %.128.us, %10
-  %25 = icmp ugt i64 %24, %2
-  br i1 %25, label %.split.us, label %limited_rand.exit, !llvm.loop !36
+23:                                               ; preds = %19, %.split.us
+  %.128.us = phi i64 [ %22, %19 ], [ %.027.us, %.split.us ]
+  %.1.us = phi i64 [ %17, %19 ], [ %.0.us, %.split.us ]
+  %24 = lshr i64 %.128.us, %narrow
+  %25 = lshr i64 %.1.us, %narrow
+  %26 = and i64 %.128.us, %11
+  %27 = icmp ugt i64 %26, %2
+  br i1 %27, label %.split.us, label %limited_rand.exit, !llvm.loop !36
 
-.split:                                           ; preds = %6, %31
-  %.027 = phi i64 [ %32, %31 ], [ 0, %6 ]
-  %.0 = phi i64 [ %33, %31 ], [ 0, %6 ]
-  %26 = or i64 %.0, %9
-  %.not34 = icmp eq i64 %26, -1
-  br i1 %.not34, label %31, label %27
+.split:                                           ; preds = %6, %32
+  %.027 = phi i64 [ %33, %32 ], [ 0, %6 ]
+  %.0 = phi i64 [ %34, %32 ], [ 0, %6 ]
+  %28 = or i64 %.0, %10
+  %.not34 = icmp eq i64 %28, -1
+  br i1 %.not34, label %32, label %29
 
-27:                                               ; preds = %.split
-  %28 = call fastcc i64 @obj_random_bytes(i64 noundef %0, ptr noundef nonnull %4, i64 noundef %11)
-  %29 = load i32, ptr %4, align 8
-  %30 = zext i32 %29 to i64
-  br label %31
+29:                                               ; preds = %.split
+  %30 = call fastcc i64 @obj_random_bytes(i64 noundef %0, ptr noundef nonnull %4, i64 noundef %12)
+  %31 = load i64, ptr %4, align 8
+  br label %32
 
-31:                                               ; preds = %27, %.split
-  %.128 = phi i64 [ %30, %27 ], [ %.027, %.split ]
-  %.1 = phi i64 [ %16, %27 ], [ %.0, %.split ]
-  %32 = lshr i64 %.128, %narrow
-  %33 = lshr i64 %.1, %narrow
-  %34 = and i64 %.128, %10
-  %35 = icmp ugt i64 %34, %2
-  br i1 %35, label %.split, label %limited_rand.exit, !llvm.loop !36
+32:                                               ; preds = %29, %.split
+  %.128 = phi i64 [ %31, %29 ], [ %.027, %.split ]
+  %.1 = phi i64 [ %17, %29 ], [ %.0, %.split ]
+  %33 = lshr i64 %.128, %narrow
+  %34 = lshr i64 %.1, %narrow
+  %35 = and i64 %.128, %11
+  %36 = icmp ugt i64 %35, %2
+  br i1 %36, label %.split, label %limited_rand.exit, !llvm.loop !36
 
-36:                                               ; preds = %5
-  %37 = load ptr, ptr @default_rand_key, align 8
-  %38 = tail call ptr @rb_ractor_local_storage_ptr(ptr noundef %37) #21
-  %39 = icmp eq ptr %38, null
-  br i1 %39, label %40, label %default_rand.exit.i
+37:                                               ; preds = %5
+  %38 = load ptr, ptr @default_rand_key, align 8
+  %39 = tail call ptr @rb_ractor_local_storage_ptr(ptr noundef %38) #21
+  %40 = icmp eq ptr %39, null
+  br i1 %40, label %41, label %default_rand.exit.i
 
-40:                                               ; preds = %36
-  %41 = tail call noalias nonnull dereferenceable(2520) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 2520) #22
-  %42 = load ptr, ptr @default_rand_key, align 8
-  tail call void @rb_ractor_local_storage_ptr_set(ptr noundef %42, ptr noundef nonnull %41) #21
+41:                                               ; preds = %37
+  %42 = tail call noalias nonnull dereferenceable(2520) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 2520) #22
+  %43 = load ptr, ptr @default_rand_key, align 8
+  tail call void @rb_ractor_local_storage_ptr_set(ptr noundef %43, ptr noundef nonnull %42) #21
   br label %default_rand.exit.i
 
-default_rand.exit.i:                              ; preds = %40, %36
-  %.0.i.i = phi ptr [ %41, %40 ], [ %38, %36 ]
-  %43 = icmp eq ptr %.0.i.i, %1
-  br i1 %43, label %try_rand_if.exit, label %44
+default_rand.exit.i:                              ; preds = %41, %37
+  %.0.i.i = phi ptr [ %42, %41 ], [ %39, %37 ]
+  %44 = icmp eq ptr %.0.i.i, %1
+  br i1 %44, label %try_rand_if.exit, label %45
 
-44:                                               ; preds = %default_rand.exit.i
-  %45 = inttoptr i64 %0 to ptr
-  %46 = getelementptr inbounds i8, ptr %45, i64 16
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 56
-  %49 = load ptr, ptr %48, align 8
+45:                                               ; preds = %default_rand.exit.i
+  %46 = inttoptr i64 %0 to ptr
+  %47 = getelementptr inbounds i8, ptr %46, i64 16
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds i8, ptr %48, i64 56
+  %50 = load ptr, ptr %49, align 8
   br label %try_rand_if.exit
 
-try_rand_if.exit:                                 ; preds = %44, %default_rand.exit.i
-  %.0.i = phi ptr [ %49, %44 ], [ @random_mt_if, %default_rand.exit.i ]
-  %50 = lshr i64 %2, 1
-  %51 = or i64 %50, %2
-  %52 = lshr i64 %51, 2
-  %53 = or i64 %52, %51
-  %54 = lshr i64 %53, 4
-  %55 = or i64 %54, %53
-  %56 = lshr i64 %55, 8
-  %57 = or i64 %56, %55
-  %58 = lshr i64 %57, 16
-  %59 = or i64 %58, %57
-  %60 = lshr i64 %59, 32
-  %61 = or i64 %60, %59
-  %62 = icmp ugt i64 %2, 4294967295
-  %63 = getelementptr inbounds i8, ptr %.0.i, i64 32
-  br i1 %62, label %.loopexit28.i, label %.preheader29.i
+try_rand_if.exit:                                 ; preds = %45, %default_rand.exit.i
+  %.0.i = phi ptr [ %50, %45 ], [ @random_mt_if, %default_rand.exit.i ]
+  %51 = lshr i64 %2, 1
+  %52 = or i64 %51, %2
+  %53 = lshr i64 %52, 2
+  %54 = or i64 %53, %52
+  %55 = lshr i64 %54, 4
+  %56 = or i64 %55, %54
+  %57 = lshr i64 %56, 8
+  %58 = or i64 %57, %56
+  %59 = lshr i64 %58, 16
+  %60 = or i64 %59, %58
+  %61 = lshr i64 %60, 32
+  %62 = or i64 %61, %60
+  %63 = icmp ugt i64 %2, 4294967295
+  %64 = getelementptr inbounds i8, ptr %.0.i, i64 32
+  br i1 %63, label %.loopexit28.i, label %.preheader29.i
 
 .loopexit28.i:                                    ; preds = %try_rand_if.exit, %.loopexit28.i.backedge
   %indvars.iv.i = phi i64 [ %indvars.iv.i.be, %.loopexit28.i.backedge ], [ 1, %try_rand_if.exit ]
   %.02332.i = phi i64 [ %.02332.i.be, %.loopexit28.i.backedge ], [ 0, %try_rand_if.exit ]
-  %64 = shl nuw nsw i64 %indvars.iv.i, 5
-  %65 = shl i64 4294967295, %64
-  %66 = and i64 %65, %61
-  %.not27.i = icmp eq i64 %66, 0
-  br i1 %.not27.i, label %75, label %67
+  %65 = shl nuw nsw i64 %indvars.iv.i, 5
+  %66 = shl i64 4294967295, %65
+  %67 = and i64 %66, %62
+  %.not27.i = icmp eq i64 %67, 0
+  br i1 %.not27.i, label %76, label %68
 
-67:                                               ; preds = %.loopexit28.i
-  %68 = load ptr, ptr %63, align 8
-  %69 = tail call i32 %68(ptr noundef nonnull %1) #21
-  %70 = zext i32 %69 to i64
-  %71 = shl nuw i64 %70, %64
-  %72 = or i64 %71, %.02332.i
-  %73 = and i64 %72, %61
-  %74 = icmp ugt i64 %73, %2
-  br i1 %74, label %.loopexit28.i.backedge, label %75
+68:                                               ; preds = %.loopexit28.i
+  %69 = load ptr, ptr %64, align 8
+  %70 = tail call i32 %69(ptr noundef nonnull %1) #21
+  %71 = zext i32 %70 to i64
+  %72 = shl nuw i64 %71, %65
+  %73 = or i64 %72, %.02332.i
+  %74 = and i64 %73, %62
+  %75 = icmp ugt i64 %74, %2
+  br i1 %75, label %.loopexit28.i.backedge, label %76
 
-75:                                               ; preds = %67, %.loopexit28.i
-  %.1.i = phi i64 [ %73, %67 ], [ %.02332.i, %.loopexit28.i ]
+76:                                               ; preds = %68, %.loopexit28.i
+  %.1.i = phi i64 [ %74, %68 ], [ %.02332.i, %.loopexit28.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %.not36.i = icmp eq i64 %indvars.iv.i, 0
   br i1 %.not36.i, label %limited_rand.exit, label %.loopexit28.i.backedge
 
-.loopexit28.i.backedge:                           ; preds = %75, %67
-  %indvars.iv.i.be = phi i64 [ %indvars.iv.next.i, %75 ], [ 1, %67 ]
-  %.02332.i.be = phi i64 [ %.1.i, %75 ], [ 0, %67 ]
+.loopexit28.i.backedge:                           ; preds = %76, %68
+  %indvars.iv.i.be = phi i64 [ %indvars.iv.next.i, %76 ], [ 1, %68 ]
+  %.02332.i.be = phi i64 [ %.1.i, %76 ], [ 0, %68 ]
   br label %.loopexit28.i, !llvm.loop !12
 
 .preheader29.i:                                   ; preds = %try_rand_if.exit, %.preheader29.i
-  %76 = load ptr, ptr %63, align 8
-  %77 = tail call i32 %76(ptr noundef nonnull %1) #21
-  %78 = zext i32 %77 to i64
-  %79 = and i64 %61, %78
-  %80 = icmp ugt i64 %79, %2
-  br i1 %80, label %.preheader29.i, label %limited_rand.exit, !llvm.loop !13
+  %77 = load ptr, ptr %64, align 8
+  %78 = tail call i32 %77(ptr noundef nonnull %1) #21
+  %79 = zext i32 %78 to i64
+  %80 = and i64 %62, %79
+  %81 = icmp ugt i64 %80, %2
+  br i1 %81, label %.preheader29.i, label %limited_rand.exit, !llvm.loop !13
 
-limited_rand.exit:                                ; preds = %.preheader29.i, %75, %31, %21, %3
-  %.029 = phi i64 [ 0, %3 ], [ %24, %21 ], [ %34, %31 ], [ %.1.i, %75 ], [ %79, %.preheader29.i ]
+limited_rand.exit:                                ; preds = %.preheader29.i, %76, %32, %23, %3
+  %.029 = phi i64 [ 0, %3 ], [ %26, %23 ], [ %35, %32 ], [ %.1.i, %76 ], [ %80, %.preheader29.i ]
   ret i64 %.029
 }
 
@@ -4267,7 +4267,7 @@ rb_alloc_tmp_buffer2.exit:                        ; preds = %11
   %35 = lshr i64 %34, 16
   %36 = or i64 %35, %34
   %37 = trunc nuw i64 %36 to i32
-  %.not39.us = icmp eq i32 %37, 0
+  %.not39.us = icmp eq i64 %36, 0
   br i1 %.not39.us, label %46, label %.thread.us
 
 .thread.us:                                       ; preds = %25, %.lr.ph.us

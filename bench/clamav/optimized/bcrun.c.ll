@@ -206,15 +206,15 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not166, label %57, label %54
 
 57:                                               ; preds = %54
-  %58 = trunc nuw nsw i64 %indvars.iv to i32
-  %59 = icmp ugt i32 %58, 1
-  br i1 %59, label %60, label %61
+  %58 = icmp ugt i64 %indvars.iv, 1
+  br i1 %58, label %59, label %61
 
-60:                                               ; preds = %57
-  tail call void @cli_bytecode_debug(i32 noundef %58, ptr noundef nonnull %49) #15
+59:                                               ; preds = %57
+  %60 = trunc nuw nsw i64 %indvars.iv to i32
+  tail call void @cli_bytecode_debug(i32 noundef %60, ptr noundef nonnull %49) #15
   br label %61
 
-61:                                               ; preds = %60, %57
+61:                                               ; preds = %59, %57
   %62 = tail call ptr @optget(ptr noundef nonnull %9, ptr noundef nonnull @.str.9) #15
   %63 = getelementptr inbounds i8, ptr %62, i64 32
   %64 = load i32, ptr %63, align 8

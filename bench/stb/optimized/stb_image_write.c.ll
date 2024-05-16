@@ -2377,18 +2377,17 @@ for.cond189:                                      ; preds = %for.cond189, %if.th
 
 cond.false225:                                    ; preds = %for.cond189
   %conv188 = trunc i64 %sub.ptr.sub187 to i32
-  %35 = trunc nuw nsw i64 %indvars.iv1206 to i32
-  %cmp227 = icmp ult i32 %35, 23
+  %cmp227 = icmp ult i64 %indvars.iv1206, 23
   br i1 %cmp227, label %while.body.i297.preheader, label %cond.false238
 
 while.body.i297.preheader:                        ; preds = %cond.false225
-  %36 = trunc nuw nsw i64 %indvars.iv.next1207 to i32
+  %35 = trunc nuw nsw i64 %indvars.iv.next1207 to i32
   br label %while.body.i297
 
 while.body.i297:                                  ; preds = %while.body.i297.preheader, %while.body.i297
   %res.06.i = phi i32 [ %or.i, %while.body.i297 ], [ 0, %while.body.i297.preheader ]
   %codebits.addr.05.i = phi i32 [ %dec.i, %while.body.i297 ], [ 7, %while.body.i297.preheader ]
-  %code.addr.04.i = phi i32 [ %shr.i298, %while.body.i297 ], [ %36, %while.body.i297.preheader ]
+  %code.addr.04.i = phi i32 [ %shr.i298, %while.body.i297 ], [ %35, %while.body.i297.preheader ]
   %dec.i = add nsw i32 %codebits.addr.05.i, -1
   %shl.i = shl i32 %res.06.i, 1
   %and.i = and i32 %code.addr.04.i, 1
@@ -2414,14 +2413,14 @@ while.body.i303:                                  ; preds = %stbiw__zlib_bitrev.
 lor.lhs.false.i306:                               ; preds = %while.body.i303
   %add.ptr.i307 = getelementptr inbounds i8, ptr %data.addr.07.i304, i64 -8
   %arrayidx.i308 = getelementptr inbounds i8, ptr %data.addr.07.i304, i64 -4
-  %37 = load i32, ptr %arrayidx.i308, align 4
-  %add.i309 = add nsw i32 %37, 1
-  %38 = load i32, ptr %add.ptr.i307, align 4
-  %cmp4.not.i310 = icmp slt i32 %add.i309, %38
+  %36 = load i32, ptr %arrayidx.i308, align 4
+  %add.i309 = add nsw i32 %36, 1
+  %37 = load i32, ptr %add.ptr.i307, align 4
+  %cmp4.not.i310 = icmp slt i32 %add.i309, %37
   br i1 %cmp4.not.i310, label %cond.end.i325, label %cond.true.i.i311
 
 cond.true.i.i311:                                 ; preds = %lor.lhs.false.i306
-  %mul.i.i312 = shl nsw i32 %38, 1
+  %mul.i.i312 = shl nsw i32 %37, 1
   %add.i.i313 = or disjoint i32 %mul.i.i312, 1
   br label %cond.end.i.i314
 
@@ -2452,10 +2451,10 @@ cond.end.i325:                                    ; preds = %if.end.i.i323, %con
   %data.addr.2.i326 = phi ptr [ %data.addr.07.i304, %lor.lhs.false.i306 ], [ %data.addr.07.i304, %cond.end.i.i314 ], [ %add.ptr14.i.i324, %if.end.i.i323 ]
   %conv.i327 = trunc i32 %bitbuf.5 to i8
   %arrayidx6.i328 = getelementptr inbounds i8, ptr %data.addr.2.i326, i64 -4
-  %39 = load i32, ptr %arrayidx6.i328, align 4
-  %inc.i329 = add nsw i32 %39, 1
+  %38 = load i32, ptr %arrayidx6.i328, align 4
+  %inc.i329 = add nsw i32 %38, 1
   store i32 %inc.i329, ptr %arrayidx6.i328, align 4
-  %idxprom.i330 = sext i32 %39 to i64
+  %idxprom.i330 = sext i32 %38 to i64
   %arrayidx7.i331 = getelementptr inbounds i8, ptr %data.addr.2.i326, i64 %idxprom.i330
   store i8 %conv.i327, ptr %arrayidx7.i331, align 1
   %shr.i332 = lshr i32 %bitbuf.5, 8
@@ -2464,7 +2463,8 @@ cond.end.i325:                                    ; preds = %if.end.i.i323, %con
   br i1 %cmp.i334, label %while.body.i303, label %cond.end251, !llvm.loop !23
 
 cond.false238:                                    ; preds = %cond.false225
-  %sub241 = add nuw nsw i32 %35, 169
+  %39 = trunc nuw nsw i64 %indvars.iv1206 to i32
+  %sub241 = add nuw nsw i32 %39, 169
   br label %while.body.i338
 
 while.body.i338:                                  ; preds = %while.body.i338, %cond.false238
@@ -2728,7 +2728,7 @@ stbiw__zlib_flushf.exit473:                       ; preds = %cond.end.i461, %stb
   %bitbuf.14 = phi i32 [ %or283, %stbiw__zlib_bitrev.exit435 ], [ %shr.i468, %cond.end.i461 ]
   %bitcount.14 = phi i32 [ %add284, %stbiw__zlib_bitrev.exit435 ], [ %sub.i469, %cond.end.i461 ]
   %data.addr.0.lcssa.i438 = phi ptr [ %out.6, %stbiw__zlib_bitrev.exit435 ], [ %data.addr.2.i462, %cond.end.i461 ]
-  %tobool288.not = icmp ult i32 %50, 4
+  %tobool288.not = icmp ult i64 %indvars.iv1209, 4
   br i1 %tobool288.not, label %if.end332, label %if.then289
 
 if.then289:                                       ; preds = %stbiw__zlib_flushf.exit473

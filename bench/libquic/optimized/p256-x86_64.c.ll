@@ -325,14 +325,14 @@ for.body.lr.ph:                                   ; preds = %if.end18
 
 for.cond65.preheader:                             ; preds = %for.body
   %3 = trunc nuw nsw i64 %indvars.iv.next to i32
-  %cmp66116 = icmp ult i32 %3, 33
+  %cmp66116 = icmp ult i64 %indvars.iv, 25
   br i1 %cmp66116, label %for.body68.preheader, label %for.end72
 
 for.body68.preheader:                             ; preds = %if.end18, %for.cond65.preheader
   %i.0.lcssa137 = phi i32 [ %3, %for.cond65.preheader ], [ 0, %if.end18 ]
   %4 = zext nneg i32 %i.0.lcssa137 to i64
   %scevgep = getelementptr i8, ptr %p_str, i64 %4
-  %narrow = sub nsw i32 33, %i.0.lcssa137
+  %narrow = sub i32 33, %i.0.lcssa137
   %5 = zext i32 %narrow to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 0, i64 %5, i1 false)
   br label %for.end72
@@ -567,15 +567,15 @@ for.body.lr.ph.i:                                 ; preds = %if.end16.i
 
 for.cond63.preheader.i:                           ; preds = %for.body.i
   %48 = trunc nuw nsw i64 %indvars.iv.next.i to i32
-  %cmp64193.i = icmp ult i32 %48, 33
+  %cmp64193.i = icmp ult i64 %indvars.iv.i, 25
   br i1 %cmp64193.i, label %for.body66.preheader.i, label %for.end70.i
 
 for.body66.preheader.i:                           ; preds = %for.cond63.preheader.i, %if.end16.i
   %j.0.lcssa210.i = phi i32 [ %48, %for.cond63.preheader.i ], [ 0, %if.end16.i ]
   %49 = zext nneg i32 %j.0.lcssa210.i to i64
   %scevgep.i = getelementptr i8, ptr %p_str.i, i64 %49
-  %narrow.i = sub nuw nsw i32 33, %j.0.lcssa210.i
-  %50 = zext nneg i32 %narrow.i to i64
+  %narrow.i = sub i32 33, %j.0.lcssa210.i
+  %50 = zext i32 %narrow.i to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep.i, i8 0, i64 %50, i1 false)
   br label %for.end70.i
 

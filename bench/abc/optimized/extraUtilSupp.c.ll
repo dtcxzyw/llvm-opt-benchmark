@@ -1679,7 +1679,7 @@ define noalias noundef ptr @Abc_SuppReadMin(ptr noundef %0, ptr nocapture nounde
   br i1 %.not59, label %.loopexit, label %32
 
 32:                                               ; preds = %29
-  %33 = icmp ugt i32 %30, 64
+  %33 = icmp ugt i64 %indvars.iv, 64
   br i1 %33, label %34, label %38
 
 34:                                               ; preds = %32

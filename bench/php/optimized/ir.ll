@@ -8216,8 +8216,7 @@ ir_emit_N.exit:                                   ; preds = %._crit_edge.i15
   %94 = load i32, ptr %93, align 4
   %95 = getelementptr inbounds i32, ptr %91, i64 %indvars.iv
   store i32 %94, ptr %95, align 4
-  %96 = and i64 %indvars.iv.next, 4294967295
-  %.not = icmp eq i64 %96, 0
+  %.not = icmp eq i64 %indvars.iv.next, 0
   br i1 %.not, label %_ir_BEGIN.exit, label %.lr.ph
 
 _ir_BEGIN.exit:                                   ; preds = %.lr.ph, %ir_emit_N.exit, %ir_emit1.exit.i, %17

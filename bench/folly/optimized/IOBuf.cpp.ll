@@ -5763,9 +5763,8 @@ if.end:                                           ; preds = %invoke.cont4
   %isnotnull.i128 = icmp ne i32 %call34, 0
   %isnotnull.zext.i129 = zext i1 %isnotnull.i128 to i32
   %add.i130 = or i32 %c.lobit.neg.i127, %isnotnull.zext.i129
-  %conv3.i131 = trunc nsw i32 %add.i130 to i8
-  %cmp.not = icmp eq i8 %conv3.i131, 0
-  br i1 %cmp.not, label %if.end38, label %cleanup44
+  %cmp.not = icmp eq i32 %add.i130, 0
+  br i1 %cmp.not, label %if.end38, label %cleanup44.loopexit
 
 if.end38:                                         ; preds = %if.end
   %37 = ptrtoint ptr %19 to i64
@@ -5811,8 +5810,12 @@ cleanup42:                                        ; preds = %if.else.i138, %if.t
   %.pre179 = load ptr, ptr %crtPos_.i.i, align 8, !tbaa !187
   br label %for.cond, !llvm.loop !196
 
-cleanup44:                                        ; preds = %if.end, %if.then
-  %retval.2.ph = phi i8 [ %conv3.i, %if.then ], [ %conv3.i131, %if.end ]
+cleanup44.loopexit:                               ; preds = %if.end
+  %conv3.i131.le = trunc nsw i32 %add.i130 to i8
+  br label %cleanup44
+
+cleanup44:                                        ; preds = %cleanup44.loopexit, %if.then
+  %retval.2.ph = phi i8 [ %conv3.i, %if.then ], [ %conv3.i131.le, %cleanup44.loopexit ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %cb) #32
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %ca) #32
   ret i8 %retval.2.ph

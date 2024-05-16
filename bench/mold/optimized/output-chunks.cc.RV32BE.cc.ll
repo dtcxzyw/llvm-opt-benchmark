@@ -27967,11 +27967,10 @@ if.end17:                                         ; preds = %if.then10, %land.lh
 
 land.rhs.lr.ph.i:                                 ; preds = %if.end17
   %__value.sroa.0.sroa.6.0.extract.shift.i = lshr i64 %__value.coerce0, 56
-  %__value.sroa.0.sroa.6.0.extract.trunc.i = trunc nuw i64 %__value.sroa.0.sroa.6.0.extract.shift.i to i8
   %__value.sroa.0.sroa.5.0.extract.shift.i = lshr i64 %__value.coerce0, 48
-  %switch.selectcmp.i5.i.i.i = icmp eq i8 %__value.sroa.0.sroa.6.0.extract.trunc.i, 58
+  %switch.selectcmp.i5.i.i.i = icmp eq i64 %__value.sroa.0.sroa.6.0.extract.shift.i, 58
   %switch.select.i6.i.i.i = select i1 %switch.selectcmp.i5.i.i.i, i32 2, i32 1
-  %switch.selectcmp2.i7.i.i.i = icmp eq i8 %__value.sroa.0.sroa.6.0.extract.trunc.i, 3
+  %switch.selectcmp2.i7.i.i.i = icmp eq i64 %__value.sroa.0.sroa.6.0.extract.shift.i, 3
   %switch.select3.i8.i.i.i = select i1 %switch.selectcmp2.i7.i.i.i, i32 0, i32 %switch.select.i6.i.i.i
   %sh.diff.i = lshr i64 %__value.coerce0, 16
   %tr.sh.diff.i = trunc i64 %sh.diff.i to i32
@@ -49802,11 +49801,8 @@ _ZNKSt8__detail10_Synth3wayclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 
 _ZNKSt8__detail10_Synth3wayclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit
   %sub.i.i.i.i.i.i.i = sub i64 %25, %26
-  %spec.select3.i.i.i.i.i.i.i = call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i.i, i64 -2147483648)
-  %retval.04.i.i.i.i.i.i.i = call i64 @llvm.smin.i64(i64 %spec.select3.i.i.i.i.i.i.i, i64 2147483647)
-  %retval.0.i5.i.i.i.i.i.i = trunc nsw i64 %retval.04.i.i.i.i.i.i.i to i32
-  %cmp.lt.i.i.i.i.i.i = icmp slt i32 %retval.0.i5.i.i.i.i.i.i, 0
-  %cmp.eq.i.i.i.i.i.i = icmp eq i32 %retval.0.i5.i.i.i.i.i.i, 0
+  %cmp.lt.i.i.i.i.i.i = icmp slt i64 %sub.i.i.i.i.i.i.i, 0
+  %cmp.eq.i.i.i.i.i.i = icmp eq i64 %25, %26
   br i1 %cmp.eq.i.i.i.i.i.i, label %if.end.i.i.i, label %_ZStssIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEtEJS5_tEENSt26common_comparison_categoryIJDpDTclL_ZNSt8__detail11__synth3wayEEclsr3stdE7declvalIRT_EEclsr3stdE7declvalIRT0_EEEEEE4typeERKSt5tupleIJDpS8_EERKSG_IJDpSA_EE.exit.i
 
 if.end.i.i.i:                                     ; preds = %_ZNKSt8__detail10_Synth3wayclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i
@@ -50034,11 +50030,8 @@ _ZNKSt8__detail10_Synth3wayclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 
 _ZNKSt8__detail10_Synth3wayclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i, %entry
   %sub.i.i.i.i.i.i = sub i64 %6, %7
-  %spec.select3.i.i.i.i.i.i = call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i, i64 -2147483648)
-  %retval.04.i.i.i.i.i.i = call i64 @llvm.smin.i64(i64 %spec.select3.i.i.i.i.i.i, i64 2147483647)
-  %retval.0.i5.i.i.i.i.i = trunc nsw i64 %retval.04.i.i.i.i.i.i to i32
-  %cmp.lt.i.i.i.i.i = icmp slt i32 %retval.0.i5.i.i.i.i.i, 0
-  %cmp.eq.i.i.i.i.i = icmp eq i32 %retval.0.i5.i.i.i.i.i, 0
+  %cmp.lt.i.i.i.i.i = icmp slt i64 %sub.i.i.i.i.i.i, 0
+  %cmp.eq.i.i.i.i.i = icmp eq i64 %6, %7
   br i1 %cmp.eq.i.i.i.i.i, label %if.end.i.i, label %_ZStssIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEtEJS5_tEENSt26common_comparison_categoryIJDpDTclL_ZNSt8__detail11__synth3wayEEclsr3stdE7declvalIRT_EEclsr3stdE7declvalIRT0_EEEEEE4typeERKSt5tupleIJDpS8_EERKSG_IJDpSA_EE.exit
 
 if.end.i.i:                                       ; preds = %_ZNKSt8__detail10_Synth3wayclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i
@@ -50614,11 +50607,8 @@ _ZNKSt8__detail10_Synth3wayclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 
 _ZNKSt8__detail10_Synth3wayclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit
   %sub.i.i.i.i.i.i.i = sub i64 %20, %21
-  %spec.select3.i.i.i.i.i.i.i = call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i.i, i64 -2147483648)
-  %retval.04.i.i.i.i.i.i.i = call i64 @llvm.smin.i64(i64 %spec.select3.i.i.i.i.i.i.i, i64 2147483647)
-  %retval.0.i5.i.i.i.i.i.i = trunc nsw i64 %retval.04.i.i.i.i.i.i.i to i32
-  %cmp.lt.i.i.i.i.i.i = icmp slt i32 %retval.0.i5.i.i.i.i.i.i, 0
-  %cmp.eq.i.i.i.i.i.i = icmp eq i32 %retval.0.i5.i.i.i.i.i.i, 0
+  %cmp.lt.i.i.i.i.i.i = icmp slt i64 %sub.i.i.i.i.i.i.i, 0
+  %cmp.eq.i.i.i.i.i.i = icmp eq i64 %20, %21
   br i1 %cmp.eq.i.i.i.i.i.i, label %if.end.i.i.i, label %_ZStssIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEtEJS5_tEENSt26common_comparison_categoryIJDpDTclL_ZNSt8__detail11__synth3wayEEclsr3stdE7declvalIRT_EEclsr3stdE7declvalIRT0_EEEEEE4typeERKSt5tupleIJDpS8_EERKSG_IJDpSA_EE.exit.i
 
 if.end.i.i.i:                                     ; preds = %_ZNKSt8__detail10_Synth3wayclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i
@@ -50959,11 +50949,8 @@ _ZNKSt8__detail10_Synth3wayclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 
 _ZNKSt8__detail10_Synth3wayclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit
   %sub.i.i.i.i.i.i.i = sub i64 %20, %21
-  %spec.select3.i.i.i.i.i.i.i = call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i.i, i64 -2147483648)
-  %retval.04.i.i.i.i.i.i.i = call i64 @llvm.smin.i64(i64 %spec.select3.i.i.i.i.i.i.i, i64 2147483647)
-  %retval.0.i5.i.i.i.i.i.i = trunc nsw i64 %retval.04.i.i.i.i.i.i.i to i32
-  %cmp.lt.i.i.i.i.i.i = icmp slt i32 %retval.0.i5.i.i.i.i.i.i, 0
-  %cmp.eq.i.i.i.i.i.i = icmp eq i32 %retval.0.i5.i.i.i.i.i.i, 0
+  %cmp.lt.i.i.i.i.i.i = icmp slt i64 %sub.i.i.i.i.i.i.i, 0
+  %cmp.eq.i.i.i.i.i.i = icmp eq i64 %20, %21
   br i1 %cmp.eq.i.i.i.i.i.i, label %if.end.i.i.i, label %_ZStssIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEtEJS5_tEENSt26common_comparison_categoryIJDpDTclL_ZNSt8__detail11__synth3wayEEclsr3stdE7declvalIRT_EEclsr3stdE7declvalIRT0_EEEEEE4typeERKSt5tupleIJDpS8_EERKSG_IJDpSA_EE.exit.i
 
 if.end.i.i.i:                                     ; preds = %_ZNKSt8__detail10_Synth3wayclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i

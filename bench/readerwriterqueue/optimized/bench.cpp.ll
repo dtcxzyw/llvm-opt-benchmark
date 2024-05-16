@@ -566,13 +566,11 @@ if.end:                                           ; preds = %cond.end327, %_ZSt1
   %rwqOpsPerSec.1 = phi double [ %add, %cond.end327 ], [ %rwqOpsPerSec.0223, %_ZSt10accumulateIPddET0_T_S2_S1_.exit136 ]
   %call331 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @_ZSt4leftRSt8ios_base)
   %call336 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %call331, i32 17)
-  %23 = and i64 %indvars.iv248, 4294967288
-  %24 = icmp eq i64 %23, 0
-  br i1 %24, label %switch.lookup, label %_Z13benchmarkName13BenchmarkType.exit
+  %23 = icmp ult i64 %indvars.iv248, 8
+  br i1 %23, label %switch.lookup, label %_Z13benchmarkName13BenchmarkType.exit
 
 switch.lookup:                                    ; preds = %if.end
-  %25 = and i64 %indvars.iv248, 7
-  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table._Z13benchmarkName13BenchmarkType, i64 0, i64 %25
+  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table._Z13benchmarkName13BenchmarkType, i64 0, i64 %indvars.iv248
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_Z13benchmarkName13BenchmarkType.exit
 

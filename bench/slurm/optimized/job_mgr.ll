@@ -21026,17 +21026,17 @@ define dso_local ptr @get_job_env(ptr noundef %0, ptr nocapture noundef writeonl
   br i1 %.not101.i, label %127, label %145
 
 127:                                              ; preds = %118
-  %128 = trunc nuw nsw i64 %indvars.iv156.i to i32
-  %129 = icmp eq i32 %128, 0
-  br i1 %129, label %.thread.i, label %131
+  %128 = icmp eq i64 %indvars.iv156.i, 0
+  br i1 %128, label %.thread.i, label %130
 
 .thread.i:                                        ; preds = %127
-  %130 = load ptr, ptr %77, align 8
-  store i8 0, ptr %130, align 1
+  %129 = load ptr, ptr %77, align 8
+  store i8 0, ptr %129, align 1
   br label %.loopexit._crit_edge.i
 
-131:                                              ; preds = %127
-  %132 = getelementptr inbounds ptr, ptr %77, i64 %indvars.iv156.i
+130:                                              ; preds = %127
+  %131 = getelementptr inbounds ptr, ptr %77, i64 %indvars.iv156.i
+  %132 = trunc nuw nsw i64 %indvars.iv156.i to i32
   %133 = load ptr, ptr %3, align 8
   %134 = sext i32 %.4133.i to i64
   %135 = getelementptr inbounds i8, ptr %133, i64 %134
@@ -21049,7 +21049,7 @@ define dso_local ptr @get_job_env(ptr noundef %0, ptr nocapture noundef writeonl
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %135, ptr align 1 %140, i64 %141, i1 false)
   %142 = load ptr, ptr %3, align 8
   %143 = getelementptr inbounds i8, ptr %142, i64 %134
-  store ptr %143, ptr %132, align 8
+  store ptr %143, ptr %131, align 8
   %144 = add nsw i32 %112, %.4133.i
   br label %.loopexit.i
 
@@ -21058,9 +21058,9 @@ define dso_local ptr @get_job_env(ptr noundef %0, ptr nocapture noundef writeonl
   %exitcond160.not.i = icmp eq i64 %indvars.iv.next157.i, %wide.trip.count159.i
   br i1 %exitcond160.not.i, label %.loopexit._crit_edge.i, label %118, !llvm.loop !57
 
-.loopexit.i:                                      ; preds = %131, %109
-  %.193114.i = phi i32 [ %128, %131 ], [ 0, %109 ]
-  %.5.i = phi i32 [ %144, %131 ], [ %.4133.i, %109 ]
+.loopexit.i:                                      ; preds = %130, %109
+  %.193114.i = phi i32 [ %132, %130 ], [ 0, %109 ]
+  %.5.i = phi i32 [ %144, %130 ], [ %.4133.i, %109 ]
   %.not102.i = icmp ult i32 %.193114.i, %100
   br i1 %.not102.i, label %160, label %.loopexit.i..loopexit._crit_edge.i_crit_edge
 
@@ -38002,7 +38002,7 @@ find_job_record.exit:                             ; preds = %.lr.ph.i, %55
 
 241:                                              ; preds = %240, %._crit_edge257.i
   %.not140.i = icmp eq i32 %.0.ph.lcssa.i, 0
-  br i1 %.not140.i, label %269, label %242
+  br i1 %.not140.i, label %268, label %242
 
 242:                                              ; preds = %241
   %243 = call ptr @list_iterator_create(ptr noundef %157) #28
@@ -38015,7 +38015,7 @@ find_job_record.exit:                             ; preds = %.lr.ph.i, %55
   %.1109.i = phi i64 [ %265, %248 ], [ %.0108.lcssa.i, %242 ]
   %247 = call ptr @list_next(ptr noundef %243) #28
   %.not141.i = icmp eq ptr %247, null
-  br i1 %.not141.i, label %268, label %248
+  br i1 %.not141.i, label %267, label %248
 
 248:                                              ; preds = %246
   %249 = sdiv i64 %.1109.i, %indvars.iv.i
@@ -38042,61 +38042,60 @@ find_job_record.exit:                             ; preds = %.lr.ph.i, %55
   store i64 %264, ptr %262, align 8
   %265 = sub nsw i64 %.1109.i, %.0110.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %266 = and i64 %indvars.iv.next.i, 4294967295
-  %267 = icmp eq i64 %266, 0
-  br i1 %267, label %268, label %246, !llvm.loop !111
+  %266 = icmp eq i64 %indvars.iv.next.i, 0
+  br i1 %266, label %267, label %246, !llvm.loop !111
 
-268:                                              ; preds = %248, %246
+267:                                              ; preds = %248, %246
   call void @list_iterator_destroy(ptr noundef %243) #28
-  br label %269
+  br label %268
 
-269:                                              ; preds = %268, %241
+268:                                              ; preds = %267, %241
   %.not143.i = icmp eq ptr %157, null
-  br i1 %.not143.i, label %271, label %270
+  br i1 %.not143.i, label %270, label %269
 
-270:                                              ; preds = %269
+269:                                              ; preds = %268
   call void @list_destroy(ptr noundef nonnull %157) #28
-  br label %271
+  br label %270
 
-271:                                              ; preds = %270, %269
-  %272 = call i64 @time(ptr noundef null) #28
-  store i64 %272, ptr @last_job_update, align 8
+270:                                              ; preds = %269, %268
+  %271 = call i64 @time(ptr noundef null) #28
+  store i64 %271, ptr @last_job_update, align 8
   br label %_set_top.exit
 
-_set_top.exit:                                    ; preds = %152, %153, %154, %155, %271
-  %.0118.i = phi i32 [ 0, %271 ], [ %.0115.ph.i, %153 ], [ %.0115.ph.i, %152 ], [ %.0114.ph157.lcssa173307.i, %155 ], [ %.0114.ph157.lcssa173307.i, %154 ]
+_set_top.exit:                                    ; preds = %152, %153, %154, %155, %270
+  %.0118.i = phi i32 [ 0, %270 ], [ %.0115.ph.i, %153 ], [ %.0115.ph.i, %152 ], [ %.0114.ph157.lcssa173307.i, %155 ], [ %.0114.ph157.lcssa173307.i, %154 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %find_job_record.exit.thread
 
 find_job_record.exit.thread:                      ; preds = %40, %30, %55, %51, %49, %._crit_edge, %26, %29, %_set_top.exit
   %.031 = phi i32 [ %.0118.i, %_set_top.exit ], [ 2017, %29 ], [ 2017, %26 ], [ 2017, %._crit_edge ], [ 2017, %49 ], [ 2017, %51 ], [ 2017, %55 ], [ 2017, %30 ], [ 2017, %40 ]
   %.not47 = icmp eq ptr %16, null
-  br i1 %.not47, label %.thread53, label %273
+  br i1 %.not47, label %.thread53, label %272
 
-273:                                              ; preds = %find_job_record.exit.thread
+272:                                              ; preds = %find_job_record.exit.thread
   call void @list_destroy(ptr noundef nonnull %16) #28
   br label %.thread53
 
-.thread53:                                        ; preds = %12, %273, %find_job_record.exit.thread
-  %.03157 = phi i32 [ %.031, %273 ], [ %.031, %find_job_record.exit.thread ], [ 2002, %12 ]
+.thread53:                                        ; preds = %12, %272, %find_job_record.exit.thread
+  %.03157 = phi i32 [ %.031, %272 ], [ %.031, %find_job_record.exit.thread ], [ 2002, %12 ]
   call void @slurm_xfree(ptr noundef nonnull %6) #28
-  %274 = icmp sgt i32 %2, -1
-  br i1 %274, label %275, label %280
+  %273 = icmp sgt i32 %2, -1
+  br i1 %273, label %274, label %279
 
-275:                                              ; preds = %.thread53
+274:                                              ; preds = %.thread53
   call void @slurm_msg_t_init(ptr noundef nonnull %9) #28
-  %276 = getelementptr inbounds i8, ptr %9, i64 206
-  store i16 %3, ptr %276, align 2
-  %277 = getelementptr inbounds i8, ptr %9, i64 204
-  store i16 8001, ptr %277, align 4
+  %275 = getelementptr inbounds i8, ptr %9, i64 206
+  store i16 %3, ptr %275, align 2
+  %276 = getelementptr inbounds i8, ptr %9, i64 204
+  store i16 8001, ptr %276, align 4
   store i32 %.03157, ptr %10, align 4
-  %278 = getelementptr inbounds i8, ptr %9, i64 192
-  store ptr %10, ptr %278, align 8
+  %277 = getelementptr inbounds i8, ptr %9, i64 192
+  store ptr %10, ptr %277, align 8
   call void @slurm_msg_set_r_uid(ptr noundef nonnull %9, i32 noundef %1) #28
-  %279 = call i32 @slurm_send_node_msg(i32 noundef %2, ptr noundef nonnull %9) #28
-  br label %280
+  %278 = call i32 @slurm_send_node_msg(i32 noundef %2, ptr noundef nonnull %9) #28
+  br label %279
 
-280:                                              ; preds = %275, %.thread53
+279:                                              ; preds = %274, %.thread53
   ret i32 %.03157
 }
 

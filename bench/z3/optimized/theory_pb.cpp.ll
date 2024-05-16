@@ -13212,13 +13212,13 @@ if.end31:                                         ; preds = %if.then6, %_Z11is_u
   %idxprom.i.i.i23 = zext i32 %17 to i64
   %m_notify_theory.i.i24 = getelementptr inbounds %"struct.smt::bool_var_data", ptr %28, i64 %idxprom.i.i.i23, i32 1
   %bf.load.i.i25 = load i64, ptr %m_notify_theory.i.i24, align 8
-  %bf.lshr.i.i26 = lshr i64 %bf.load.i.i25, 56
-  %bf.cast.i.i27 = trunc nuw nsw i64 %bf.lshr.i.i26 to i32
-  %cmp.i.i28 = icmp eq i32 %bf.cast.i.i27, 0
-  %spec.select.i.i29 = select i1 %cmp.i.i28, i32 -1, i32 %bf.cast.i.i27
+  %cmp.i.i26 = icmp ult i64 %bf.load.i.i25, 72057594037927936
+  %bf.lshr.i.i27 = lshr i64 %bf.load.i.i25, 56
+  %bf.cast.i.i28 = trunc nuw nsw i64 %bf.lshr.i.i27 to i32
+  %cond.i.i29 = select i1 %cmp.i.i26, i32 -1, i32 %bf.cast.i.i28
   %m_id.i30 = getelementptr inbounds i8, ptr %this, i64 8
   %29 = load i32, ptr %m_id.i30, align 8
-  %cmp19 = icmp eq i32 %spec.select.i.i29, %29
+  %cmp19 = icmp eq i32 %cond.i.i29, %29
   br i1 %cmp19, label %if.end71, label %if.end31.if.then33_crit_edge
 
 if.end31.if.then33_crit_edge:                     ; preds = %if.end31

@@ -441,10 +441,9 @@ define range(i32 0, 2) i32 @explode(ptr noundef %0) local_unnamed_addr #1 {
 
 lookup_tree.exit:                                 ; preds = %.lr.ph.i
   %177 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %.not438 = icmp eq i32 %177, -1
-  br i1 %.not438, label %lookup_tree.exit.thread, label %.thread457
+  br label %.thread457
 
-lookup_tree.exit.thread:                          ; preds = %176, %lookup_tree.exit
+lookup_tree.exit.thread:                          ; preds = %176
   %178 = add i32 %160, 1
   store i32 %178, ptr %159, align 8
   br label %130
@@ -747,10 +746,9 @@ lookup_tree.exit.thread:                          ; preds = %176, %lookup_tree.e
 
 lookup_tree.exit446:                              ; preds = %.lr.ph.i440
   %349 = trunc nuw nsw i64 %indvars.iv.i441 to i32
-  %.not420 = icmp eq i32 %349, -1
-  br i1 %.not420, label %lookup_tree.exit446.thread, label %.thread462
+  br label %.thread462
 
-lookup_tree.exit446.thread:                       ; preds = %348, %lookup_tree.exit446
+lookup_tree.exit446.thread:                       ; preds = %348
   %350 = add i32 %332, 1
   store i32 %350, ptr %331, align 8
   br label %302
@@ -871,10 +869,9 @@ lookup_tree.exit446.thread:                       ; preds = %348, %lookup_tree.e
 
 lookup_tree.exit453:                              ; preds = %.lr.ph.i447
   %413 = trunc nuw nsw i64 %indvars.iv.i448 to i32
-  %.not424 = icmp eq i32 %413, -1
-  br i1 %.not424, label %lookup_tree.exit453.thread, label %415
+  br label %415
 
-lookup_tree.exit453.thread:                       ; preds = %412, %lookup_tree.exit453
+lookup_tree.exit453.thread:                       ; preds = %412
   %414 = add i32 %396, 1
   store i32 %414, ptr %395, align 8
   br label %366

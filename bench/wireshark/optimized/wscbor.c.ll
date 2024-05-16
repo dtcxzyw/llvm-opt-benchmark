@@ -374,7 +374,7 @@ wscbor_get_length.exit125:                        ; preds = %121
   store i32 %133, ptr %2, align 4
   %134 = add i32 %104, %131
   store i32 %134, ptr %64, align 8
-  %.not117 = icmp eq i32 %131, 0
+  %.not117 = icmp eq i64 %123, 0
   br i1 %.not117, label %148, label %wscbor_get_length.exit125._crit_edge
 
 wscbor_get_length.exit125._crit_edge:             ; preds = %wscbor_get_length.exit125

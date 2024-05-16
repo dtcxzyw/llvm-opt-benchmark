@@ -16748,7 +16748,7 @@ invoke.cont:                                      ; preds = %if.else, %if.then.i
   %__val.sroa.0.0.extract.trunc.i = trunc i64 %21 to i32
   %__val.sroa.4.0.extract.shift.i = lshr i64 %21, 32
   %__val.sroa.4.0.extract.trunc.i = trunc nuw i64 %__val.sroa.4.0.extract.shift.i to i32
-  %cmp.i.i.i = icmp eq i32 %__val.sroa.4.0.extract.trunc.i, 0
+  %cmp.i.i.i = icmp ult i64 %21, 4294967296
   %idxprom.i.i.i.i = and i64 %21, 4294967295
   br i1 %cmp.i.i.i, label %while.cond.us.i.preheader, label %entry.split.i
 

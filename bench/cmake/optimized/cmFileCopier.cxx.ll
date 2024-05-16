@@ -3235,7 +3235,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   br label %149
 
 61:                                               ; preds = %28
-  %.not = icmp eq i32 %.sroa.1.0.extract.trunc, 0
+  %.not = icmp ult i64 %3, 4294967296
   %62 = getelementptr inbounds i8, ptr %0, i64 104
   %63 = load i32, ptr %62, align 8
   %64 = select i1 %.not, i32 %63, i32 %.sroa.1.0.extract.trunc
@@ -3701,7 +3701,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   br label %113
 
 .critedge:                                        ; preds = %21, %73, %62
-  %.not = icmp eq i32 %.sroa.1.0.extract.trunc, 0
+  %.not = icmp ult i64 %3, 4294967296
   %104 = getelementptr inbounds i8, ptr %0, i64 100
   %105 = load i32, ptr %104, align 4
   %106 = select i1 %.not, i32 %105, i32 %.sroa.1.0.extract.trunc

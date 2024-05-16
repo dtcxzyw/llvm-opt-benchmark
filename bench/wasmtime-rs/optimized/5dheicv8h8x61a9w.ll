@@ -13643,7 +13643,7 @@ common.resume:                                    ; preds = %171, %79, %411
 
 324:                                              ; preds = %317
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4)
-  %.not111 = icmp eq i32 %319, 0
+  %.not111 = icmp eq i64 %.1100, 0
   br i1 %.not111, label %327, label %325
 
 325:                                              ; preds = %324

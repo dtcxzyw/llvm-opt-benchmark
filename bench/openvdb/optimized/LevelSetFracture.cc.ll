@@ -87260,18 +87260,17 @@ lpad.loopexit.split-lp:                           ; preds = %invoke.cont14, %inv
 if.end:                                           ; preds = %for.cond.i, %invoke.cont14, %invoke.cont9
   %firstPass.0 = phi i1 [ true, %invoke.cont9 ], [ false, %invoke.cont14 ], [ true, %for.cond.i ]
   %count.sroa.0.0.copyload = load i64, ptr %mMipLevels, align 8
-  %count.sroa.0.sroa.5.0.extract.shift158 = lshr i64 %count.sroa.0.0.copyload, 32
-  %count.sroa.0.sroa.5.0.extract.trunc159 = trunc nuw i64 %count.sroa.0.sroa.5.0.extract.shift158 to i32
   %count.sroa.7.0.copyload = load i32, ptr %arrayidx.i.i7.i, align 8
-  %16 = and i64 %count.sroa.0.0.copyload, 4294967295
-  %cmp.i.i.i13171 = icmp ne i64 %16, 0
-  %cmp.i6.i.i172 = icmp ne i32 %count.sroa.0.sroa.5.0.extract.trunc159, 0
-  %or.cond162.not164173 = select i1 %cmp.i.i.i13171, i1 true, i1 %cmp.i6.i.i172
+  %or.cond162.not164173 = icmp ne i64 %count.sroa.0.0.copyload, 0
   %cmp.i9.i.i174 = icmp ne i32 %count.sroa.7.0.copyload, 0
   %or.cond163175 = select i1 %or.cond162.not164173, i1 true, i1 %cmp.i9.i.i174
   br i1 %or.cond163175, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.end
+  %16 = and i64 %count.sroa.0.0.copyload, 4294967295
+  %cmp.i.i.i13171 = icmp ne i64 %16, 0
+  %count.sroa.0.sroa.5.0.extract.shift158 = lshr i64 %count.sroa.0.0.copyload, 32
+  %count.sroa.0.sroa.5.0.extract.trunc159 = trunc nuw i64 %count.sroa.0.sroa.5.0.extract.shift158 to i32
   %invMat.i14 = getelementptr inbounds i8, ptr %xform26, i64 128
   %mPivot = getelementptr inbounds i8, ptr %this, i64 48
   %arrayidx.i15 = getelementptr inbounds i8, ptr %xform26, i64 96
@@ -206986,18 +206985,17 @@ lpad.loopexit.split-lp:                           ; preds = %invoke.cont14, %inv
 if.end:                                           ; preds = %for.cond.i, %invoke.cont14, %invoke.cont9
   %firstPass.0 = phi i1 [ true, %invoke.cont9 ], [ false, %invoke.cont14 ], [ true, %for.cond.i ]
   %count.sroa.0.0.copyload = load i64, ptr %mMipLevels, align 8
-  %count.sroa.0.sroa.5.0.extract.shift158 = lshr i64 %count.sroa.0.0.copyload, 32
-  %count.sroa.0.sroa.5.0.extract.trunc159 = trunc nuw i64 %count.sroa.0.sroa.5.0.extract.shift158 to i32
   %count.sroa.7.0.copyload = load i32, ptr %arrayidx.i.i7.i, align 8
-  %16 = and i64 %count.sroa.0.0.copyload, 4294967295
-  %cmp.i.i.i13171 = icmp ne i64 %16, 0
-  %cmp.i6.i.i172 = icmp ne i32 %count.sroa.0.sroa.5.0.extract.trunc159, 0
-  %or.cond162.not164173 = select i1 %cmp.i.i.i13171, i1 true, i1 %cmp.i6.i.i172
+  %or.cond162.not164173 = icmp ne i64 %count.sroa.0.0.copyload, 0
   %cmp.i9.i.i174 = icmp ne i32 %count.sroa.7.0.copyload, 0
   %or.cond163175 = select i1 %or.cond162.not164173, i1 true, i1 %cmp.i9.i.i174
   br i1 %or.cond163175, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.end
+  %16 = and i64 %count.sroa.0.0.copyload, 4294967295
+  %cmp.i.i.i13171 = icmp ne i64 %16, 0
+  %count.sroa.0.sroa.5.0.extract.shift158 = lshr i64 %count.sroa.0.0.copyload, 32
+  %count.sroa.0.sroa.5.0.extract.trunc159 = trunc nuw i64 %count.sroa.0.sroa.5.0.extract.shift158 to i32
   %invMat.i14 = getelementptr inbounds i8, ptr %xform26, i64 128
   %mPivot = getelementptr inbounds i8, ptr %this, i64 48
   %arrayidx.i15 = getelementptr inbounds i8, ptr %xform26, i64 96

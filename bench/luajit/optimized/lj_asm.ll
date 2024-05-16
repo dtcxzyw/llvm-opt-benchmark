@@ -31379,7 +31379,7 @@ if.else.i:                                        ; preds = %lor.lhs.false.i, %l
   %conv15.i = or i8 %20, -72
   %arrayidx16.i = getelementptr inbounds i8, ptr %13, i64 -5
   store i8 %conv15.i, ptr %arrayidx16.i, align 1
-  %cmp22.not.i = icmp ult i8 %20, 8
+  %cmp22.not.i = icmp ult i32 %r.0170, 8
   br i1 %cmp22.not.i, label %if.end.i59, label %if.then24.i
 
 if.then24.i:                                      ; preds = %if.else.i

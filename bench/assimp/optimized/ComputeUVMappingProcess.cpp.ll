@@ -1453,16 +1453,12 @@ call.i50.noexc:                                   ; preds = %for.end.i
 
 invoke.cont74:                                    ; preds = %for.body.i
   %45 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %cmp76 = icmp eq i32 %45, -1
-  br i1 %cmp76, label %for.inc103, label %lor.lhs.false77
-
-lor.lhs.false77:                                  ; preds = %invoke.cont74
   %mNumVertices = getelementptr inbounds i8, ptr %41, i64 4
   %46 = load i32, ptr %mNumVertices, align 4
   %tobool78.not = icmp eq i32 %46, 0
   br i1 %tobool78.not, label %for.inc103, label %if.end80
 
-if.end80:                                         ; preds = %lor.lhs.false77
+if.end80:                                         ; preds = %invoke.cont74
   %conv = zext i32 %46 to i64
   %47 = mul nuw nsw i64 %conv, 12
   %call83 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %47) #21
@@ -1524,7 +1520,7 @@ if.end102:                                        ; preds = %invoke.cont99, %sw.
   store i32 %45, ptr %idx, align 4
   br label %for.inc103
 
-for.inc103:                                       ; preds = %call.i50.noexc, %for.body69, %invoke.cont74, %lor.lhs.false77, %if.end102
+for.inc103:                                       ; preds = %call.i50.noexc, %for.body69, %invoke.cont74, %if.end102
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %54 = load i32, ptr %mNumMeshes, align 8
   %55 = zext i32 %54 to i64

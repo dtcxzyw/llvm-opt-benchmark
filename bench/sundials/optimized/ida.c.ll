@@ -230,7 +230,7 @@ define range(i32 -22, 1) i32 @IDAInit(ptr noundef %0, ptr noundef %1, double nou
 
 9:                                                ; preds = %5
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -20, i32 noundef 387, ptr noundef nonnull @__func__.IDAInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3)
-  br label %183
+  br label %182
 
 10:                                               ; preds = %5
   %11 = icmp eq ptr %3, null
@@ -238,7 +238,7 @@ define range(i32 -22, 1) i32 @IDAInit(ptr noundef %0, ptr noundef %1, double nou
 
 12:                                               ; preds = %10
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 398, ptr noundef nonnull @__func__.IDAInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4)
-  br label %183
+  br label %182
 
 13:                                               ; preds = %10
   %14 = icmp eq ptr %4, null
@@ -246,7 +246,7 @@ define range(i32 -22, 1) i32 @IDAInit(ptr noundef %0, ptr noundef %1, double nou
 
 15:                                               ; preds = %13
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 406, ptr noundef nonnull @__func__.IDAInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5)
-  br label %183
+  br label %182
 
 16:                                               ; preds = %13
   %17 = icmp eq ptr %1, null
@@ -254,7 +254,7 @@ define range(i32 -22, 1) i32 @IDAInit(ptr noundef %0, ptr noundef %1, double nou
 
 18:                                               ; preds = %16
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 414, ptr noundef nonnull @__func__.IDAInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6)
-  br label %183
+  br label %182
 
 19:                                               ; preds = %16
   %20 = getelementptr i8, ptr %3, i64 8
@@ -326,7 +326,7 @@ IDACheckNvector.exit:                             ; preds = %56
 
 IDACheckNvector.exit.thread:                      ; preds = %19, %24, %28, %32, %36, %40, %44, %48, %52, %56, %IDACheckNvector.exit
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 425, ptr noundef nonnull @__func__.IDAInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7)
-  br label %183
+  br label %182
 
 62:                                               ; preds = %IDACheckNvector.exit
   %63 = getelementptr inbounds i8, ptr %.val, i64 32
@@ -428,13 +428,13 @@ IDACheckNvector.exit.thread:                      ; preds = %19, %24, %28, %32, 
   %wide.trip.count.i = zext i32 %113 to i64
   br label %114
 
-114:                                              ; preds = %131, %109
-  %indvars.iv.i = phi i64 [ 0, %109 ], [ %indvars.iv.next.i, %131 ]
+114:                                              ; preds = %130, %109
+  %indvars.iv.i = phi i64 [ 0, %109 ], [ %indvars.iv.next.i, %130 ]
   %115 = call ptr @N_VClone(ptr noundef nonnull %3) #13
   %116 = getelementptr inbounds [6 x ptr], ptr %112, i64 0, i64 %indvars.iv.i
   store ptr %115, ptr %116, align 8
   %117 = icmp eq ptr %115, null
-  br i1 %117, label %118, label %131
+  br i1 %117, label %118, label %130
 
 118:                                              ; preds = %114
   %119 = load ptr, ptr %73, align 8
@@ -455,8 +455,7 @@ IDACheckNvector.exit.thread:                      ; preds = %19, %24, %28, %32, 
   call void @N_VDestroy(ptr noundef %126) #13
   %127 = load ptr, ptr %105, align 8
   call void @N_VDestroy(ptr noundef %127) #13
-  %128 = and i64 %indvars.iv.i, 4294967295
-  %.not.i = icmp eq i64 %128, 0
+  %.not.i = icmp eq i64 %indvars.iv.i, 0
   br i1 %.not.i, label %.loopexit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %118
@@ -465,17 +464,17 @@ IDACheckNvector.exit.thread:                      ; preds = %19, %24, %28, %32, 
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv104.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next105.i, %.lr.ph.i ]
-  %129 = getelementptr inbounds [6 x ptr], ptr %112, i64 0, i64 %indvars.iv104.i
-  %130 = load ptr, ptr %129, align 8
-  call void @N_VDestroy(ptr noundef %130) #13
+  %128 = getelementptr inbounds [6 x ptr], ptr %112, i64 0, i64 %indvars.iv104.i
+  %129 = load ptr, ptr %128, align 8
+  call void @N_VDestroy(ptr noundef %129) #13
   %indvars.iv.next105.i = add nuw nsw i64 %indvars.iv104.i, 1
   %exitcond111.not.i = icmp eq i64 %indvars.iv.next105.i, %wide.trip.count110.i
   br i1 %exitcond111.not.i, label %.loopexit, label %.lr.ph.i
 
-131:                                              ; preds = %114
+130:                                              ; preds = %114
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %139, label %114
+  br i1 %exitcond.not.i, label %138, label %114
 
 .loopexit.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split: ; preds = %99, %107
   %.sink99 = phi ptr [ %77, %107 ], [ %73, %99 ]
@@ -485,8 +484,8 @@ IDACheckNvector.exit.thread:                      ; preds = %19, %24, %28, %32, 
   %.sink95.ph.ph.ph.ph = phi ptr [ %93, %107 ], [ %89, %99 ]
   %.sink94.ph.ph.ph.ph.ph = phi ptr [ %97, %107 ], [ %93, %99 ]
   %.sink93.ph.ph.ph.ph.ph.ph = phi ptr [ %101, %107 ], [ %97, %99 ]
-  %132 = load ptr, ptr %.sink99, align 8
-  call void @N_VDestroy(ptr noundef %132) #13
+  %131 = load ptr, ptr %.sink99, align 8
+  call void @N_VDestroy(ptr noundef %131) #13
   br label %.loopexit.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split
 
 .loopexit.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split: ; preds = %.loopexit.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split, %95
@@ -496,8 +495,8 @@ IDACheckNvector.exit.thread:                      ; preds = %19, %24, %28, %32, 
   %.sink95.ph.ph.ph = phi ptr [ %85, %95 ], [ %.sink95.ph.ph.ph.ph, %.loopexit.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split ]
   %.sink94.ph.ph.ph.ph = phi ptr [ %89, %95 ], [ %.sink94.ph.ph.ph.ph.ph, %.loopexit.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split ]
   %.sink93.ph.ph.ph.ph.ph = phi ptr [ %93, %95 ], [ %.sink93.ph.ph.ph.ph.ph.ph, %.loopexit.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split ]
-  %133 = load ptr, ptr %.sink98, align 8
-  call void @N_VDestroy(ptr noundef %133) #13
+  %132 = load ptr, ptr %.sink98, align 8
+  call void @N_VDestroy(ptr noundef %132) #13
   br label %.loopexit.sink.split.sink.split.sink.split.sink.split.sink.split
 
 .loopexit.sink.split.sink.split.sink.split.sink.split.sink.split: ; preds = %.loopexit.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split, %91
@@ -506,8 +505,8 @@ IDACheckNvector.exit.thread:                      ; preds = %19, %24, %28, %32, 
   %.sink95.ph.ph = phi ptr [ %81, %91 ], [ %.sink95.ph.ph.ph, %.loopexit.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split ]
   %.sink94.ph.ph.ph = phi ptr [ %85, %91 ], [ %.sink94.ph.ph.ph.ph, %.loopexit.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split ]
   %.sink93.ph.ph.ph.ph = phi ptr [ %89, %91 ], [ %.sink93.ph.ph.ph.ph.ph, %.loopexit.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split ]
-  %134 = load ptr, ptr %.sink97, align 8
-  call void @N_VDestroy(ptr noundef %134) #13
+  %133 = load ptr, ptr %.sink97, align 8
+  call void @N_VDestroy(ptr noundef %133) #13
   br label %.loopexit.sink.split.sink.split.sink.split.sink.split
 
 .loopexit.sink.split.sink.split.sink.split.sink.split: ; preds = %.loopexit.sink.split.sink.split.sink.split.sink.split.sink.split, %87
@@ -515,118 +514,118 @@ IDACheckNvector.exit.thread:                      ; preds = %19, %24, %28, %32, 
   %.sink95.ph = phi ptr [ %77, %87 ], [ %.sink95.ph.ph, %.loopexit.sink.split.sink.split.sink.split.sink.split.sink.split ]
   %.sink94.ph.ph = phi ptr [ %81, %87 ], [ %.sink94.ph.ph.ph, %.loopexit.sink.split.sink.split.sink.split.sink.split.sink.split ]
   %.sink93.ph.ph.ph = phi ptr [ %85, %87 ], [ %.sink93.ph.ph.ph.ph, %.loopexit.sink.split.sink.split.sink.split.sink.split.sink.split ]
-  %135 = load ptr, ptr %.sink96, align 8
-  call void @N_VDestroy(ptr noundef %135) #13
+  %134 = load ptr, ptr %.sink96, align 8
+  call void @N_VDestroy(ptr noundef %134) #13
   br label %.loopexit.sink.split.sink.split.sink.split
 
 .loopexit.sink.split.sink.split.sink.split:       ; preds = %.loopexit.sink.split.sink.split.sink.split.sink.split, %83
   %.sink95 = phi ptr [ %73, %83 ], [ %.sink95.ph, %.loopexit.sink.split.sink.split.sink.split.sink.split ]
   %.sink94.ph = phi ptr [ %77, %83 ], [ %.sink94.ph.ph, %.loopexit.sink.split.sink.split.sink.split.sink.split ]
   %.sink93.ph.ph = phi ptr [ %81, %83 ], [ %.sink93.ph.ph.ph, %.loopexit.sink.split.sink.split.sink.split.sink.split ]
-  %136 = load ptr, ptr %.sink95, align 8
-  call void @N_VDestroy(ptr noundef %136) #13
+  %135 = load ptr, ptr %.sink95, align 8
+  call void @N_VDestroy(ptr noundef %135) #13
   br label %.loopexit.sink.split.sink.split
 
 .loopexit.sink.split.sink.split:                  ; preds = %.loopexit.sink.split.sink.split.sink.split, %79
   %.sink94 = phi ptr [ %73, %79 ], [ %.sink94.ph, %.loopexit.sink.split.sink.split.sink.split ]
   %.sink93.ph = phi ptr [ %77, %79 ], [ %.sink93.ph.ph, %.loopexit.sink.split.sink.split.sink.split ]
-  %137 = load ptr, ptr %.sink94, align 8
-  call void @N_VDestroy(ptr noundef %137) #13
+  %136 = load ptr, ptr %.sink94, align 8
+  call void @N_VDestroy(ptr noundef %136) #13
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %.loopexit.sink.split.sink.split, %75
   %.sink93 = phi ptr [ %73, %75 ], [ %.sink93.ph, %.loopexit.sink.split.sink.split ]
-  %138 = load ptr, ptr %.sink93, align 8
-  call void @N_VDestroy(ptr noundef %138) #13
+  %137 = load ptr, ptr %.sink93, align 8
+  call void @N_VDestroy(ptr noundef %137) #13
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i, %.loopexit.sink.split, %67, %118
   call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -21, i32 noundef 447, ptr noundef nonnull @__func__.IDAInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2)
-  br label %183
+  br label %182
 
-139:                                              ; preds = %131
-  %140 = add nuw nsw i32 %spec.select.i79, 10
-  %141 = zext nneg i32 %140 to i64
-  %142 = load i64, ptr %70, align 8
-  %143 = mul nsw i64 %142, %141
-  %144 = getelementptr inbounds i8, ptr %0, i64 936
-  %145 = load i64, ptr %144, align 8
-  %146 = add nsw i64 %145, %143
-  store i64 %146, ptr %144, align 8
-  %147 = load i64, ptr %71, align 8
-  %148 = mul nsw i64 %147, %141
-  %149 = getelementptr inbounds i8, ptr %0, i64 944
-  %150 = load i64, ptr %149, align 8
-  %151 = add nsw i64 %150, %148
-  store i64 %151, ptr %149, align 8
-  %152 = load i32, ptr %110, align 8
-  %153 = getelementptr inbounds i8, ptr %0, i64 780
-  store i32 %152, ptr %153, align 4
-  %154 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %1, ptr %154, align 8
-  %155 = getelementptr inbounds i8, ptr %0, i64 680
-  store double %2, ptr %155, align 8
-  %156 = load ptr, ptr %112, align 8
-  call void @N_VScale(double noundef 1.000000e+00, ptr noundef nonnull %3, ptr noundef %156) #13
-  %157 = getelementptr inbounds i8, ptr %0, i64 104
-  %158 = load ptr, ptr %157, align 8
-  call void @N_VScale(double noundef 1.000000e+00, ptr noundef nonnull %4, ptr noundef %158) #13
-  %159 = load ptr, ptr %0, align 8
-  %160 = call ptr @SUNNonlinSol_Newton(ptr noundef nonnull %3, ptr noundef %159) #13
-  %161 = icmp eq ptr %160, null
-  br i1 %161, label %162, label %163
+138:                                              ; preds = %130
+  %139 = add nuw nsw i32 %spec.select.i79, 10
+  %140 = zext nneg i32 %139 to i64
+  %141 = load i64, ptr %70, align 8
+  %142 = mul nsw i64 %141, %140
+  %143 = getelementptr inbounds i8, ptr %0, i64 936
+  %144 = load i64, ptr %143, align 8
+  %145 = add nsw i64 %144, %142
+  store i64 %145, ptr %143, align 8
+  %146 = load i64, ptr %71, align 8
+  %147 = mul nsw i64 %146, %140
+  %148 = getelementptr inbounds i8, ptr %0, i64 944
+  %149 = load i64, ptr %148, align 8
+  %150 = add nsw i64 %149, %147
+  store i64 %150, ptr %148, align 8
+  %151 = load i32, ptr %110, align 8
+  %152 = getelementptr inbounds i8, ptr %0, i64 780
+  store i32 %151, ptr %152, align 4
+  %153 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %1, ptr %153, align 8
+  %154 = getelementptr inbounds i8, ptr %0, i64 680
+  store double %2, ptr %154, align 8
+  %155 = load ptr, ptr %112, align 8
+  call void @N_VScale(double noundef 1.000000e+00, ptr noundef nonnull %3, ptr noundef %155) #13
+  %156 = getelementptr inbounds i8, ptr %0, i64 104
+  %157 = load ptr, ptr %156, align 8
+  call void @N_VScale(double noundef 1.000000e+00, ptr noundef nonnull %4, ptr noundef %157) #13
+  %158 = load ptr, ptr %0, align 8
+  %159 = call ptr @SUNNonlinSol_Newton(ptr noundef nonnull %3, ptr noundef %158) #13
+  %160 = icmp eq ptr %159, null
+  br i1 %160, label %161, label %162
 
-162:                                              ; preds = %139
+161:                                              ; preds = %138
   call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -21, i32 noundef 469, ptr noundef nonnull @__func__.IDAInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2)
   call fastcc void @IDAFreeVectors(ptr noundef nonnull %0)
-  br label %183
+  br label %182
 
-163:                                              ; preds = %139
-  %164 = call i32 @IDASetNonlinearSolver(ptr noundef nonnull %0, ptr noundef nonnull %160) #13
-  %.not78 = icmp eq i32 %164, 0
-  br i1 %.not78, label %167, label %165
+162:                                              ; preds = %138
+  %163 = call i32 @IDASetNonlinearSolver(ptr noundef nonnull %0, ptr noundef nonnull %159) #13
+  %.not78 = icmp eq i32 %163, 0
+  br i1 %.not78, label %166, label %164
 
-165:                                              ; preds = %163
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef %164, i32 noundef 482, ptr noundef nonnull @__func__.IDAInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8)
+164:                                              ; preds = %162
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef %163, i32 noundef 482, ptr noundef nonnull @__func__.IDAInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8)
   call fastcc void @IDAFreeVectors(ptr noundef nonnull %0)
-  %166 = call i32 @SUNNonlinSolFree(ptr noundef nonnull %160) #13
-  br label %183
+  %165 = call i32 @SUNNonlinSolFree(ptr noundef nonnull %159) #13
+  br label %182
 
-167:                                              ; preds = %163
-  %168 = getelementptr inbounds i8, ptr %0, i64 992
-  store i32 1, ptr %168, align 8
-  %169 = getelementptr inbounds i8, ptr %0, i64 1008
-  %170 = getelementptr inbounds i8, ptr %0, i64 864
-  %171 = getelementptr inbounds i8, ptr %0, i64 620
-  store i32 0, ptr %171, align 4
-  %172 = getelementptr inbounds i8, ptr %0, i64 664
-  store double 0.000000e+00, ptr %172, align 8
-  %173 = getelementptr inbounds i8, ptr %0, i64 952
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %170, i8 0, i64 56, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %169, i8 0, i64 48, i1 false)
-  store double 1.000000e+00, ptr %173, align 8
-  %174 = getelementptr inbounds i8, ptr %0, i64 1172
-  %175 = getelementptr inbounds i8, ptr %0, i64 564
-  store i32 0, ptr %175, align 4
-  %176 = getelementptr inbounds i8, ptr %0, i64 1128
-  %177 = getelementptr inbounds i8, ptr %0, i64 1088
-  %178 = getelementptr inbounds i8, ptr %0, i64 1072
-  store ptr null, ptr %178, align 8
-  %179 = getelementptr inbounds i8, ptr %0, i64 1080
-  store i32 0, ptr %179, align 8
-  %180 = getelementptr inbounds i8, ptr %0, i64 1192
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %177, i8 0, i64 16, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %176, i8 0, i64 24, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %174, i8 0, i64 20, i1 false)
-  store i32 1, ptr %180, align 8
-  %181 = getelementptr inbounds i8, ptr %0, i64 960
-  store i32 0, ptr %181, align 8
-  %182 = getelementptr inbounds i8, ptr %0, i64 976
-  store i32 1, ptr %182, align 8
-  br label %183
+166:                                              ; preds = %162
+  %167 = getelementptr inbounds i8, ptr %0, i64 992
+  store i32 1, ptr %167, align 8
+  %168 = getelementptr inbounds i8, ptr %0, i64 1008
+  %169 = getelementptr inbounds i8, ptr %0, i64 864
+  %170 = getelementptr inbounds i8, ptr %0, i64 620
+  store i32 0, ptr %170, align 4
+  %171 = getelementptr inbounds i8, ptr %0, i64 664
+  store double 0.000000e+00, ptr %171, align 8
+  %172 = getelementptr inbounds i8, ptr %0, i64 952
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %169, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %168, i8 0, i64 48, i1 false)
+  store double 1.000000e+00, ptr %172, align 8
+  %173 = getelementptr inbounds i8, ptr %0, i64 1172
+  %174 = getelementptr inbounds i8, ptr %0, i64 564
+  store i32 0, ptr %174, align 4
+  %175 = getelementptr inbounds i8, ptr %0, i64 1128
+  %176 = getelementptr inbounds i8, ptr %0, i64 1088
+  %177 = getelementptr inbounds i8, ptr %0, i64 1072
+  store ptr null, ptr %177, align 8
+  %178 = getelementptr inbounds i8, ptr %0, i64 1080
+  store i32 0, ptr %178, align 8
+  %179 = getelementptr inbounds i8, ptr %0, i64 1192
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %176, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %175, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %173, i8 0, i64 20, i1 false)
+  store i32 1, ptr %179, align 8
+  %180 = getelementptr inbounds i8, ptr %0, i64 960
+  store i32 0, ptr %180, align 8
+  %181 = getelementptr inbounds i8, ptr %0, i64 976
+  store i32 1, ptr %181, align 8
+  br label %182
 
-183:                                              ; preds = %167, %165, %162, %.loopexit, %IDACheckNvector.exit.thread, %18, %15, %12, %9
-  %.0 = phi i32 [ -20, %9 ], [ -22, %12 ], [ -22, %15 ], [ -22, %18 ], [ -21, %162 ], [ -21, %165 ], [ 0, %167 ], [ -21, %.loopexit ], [ -22, %IDACheckNvector.exit.thread ]
+182:                                              ; preds = %166, %164, %161, %.loopexit, %IDACheckNvector.exit.thread, %18, %15, %12, %9
+  %.0 = phi i32 [ -20, %9 ], [ -22, %12 ], [ -22, %15 ], [ -22, %18 ], [ -21, %161 ], [ -21, %164 ], [ 0, %166 ], [ -21, %.loopexit ], [ -22, %IDACheckNvector.exit.thread ]
   ret i32 %.0
 }
 

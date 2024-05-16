@@ -8664,24 +8664,24 @@ define internal fastcc i32 @__skb_send_sock(ptr noundef %0, ptr noundef readonly
 126:                                              ; preds = %114
   %127 = getelementptr inbounds i8, ptr %121, i64 48
   %128 = getelementptr [17 x %struct.bio_vec], ptr %127, i64 0, i64 %115
-  %129 = sext i32 %117 to i64
-  %130 = getelementptr inbounds i8, ptr %128, i64 8
-  %131 = load i32, ptr %130, align 8
-  %132 = sub i32 %131, %116
-  %133 = zext i32 %132 to i64
-  %134 = call i64 @llvm.umin.i64(i64 %129, i64 %133)
-  %135 = trunc nuw i64 %134 to i32
-  %136 = icmp eq i32 %135, 0
-  br i1 %136, label %.loopexit, label %137
+  %129 = getelementptr inbounds i8, ptr %128, i64 8
+  %130 = load i32, ptr %129, align 8
+  %131 = icmp eq i32 %130, %116
+  br i1 %131, label %.loopexit, label %132
 
-137:                                              ; preds = %126
+132:                                              ; preds = %126
+  %133 = sub i32 %130, %116
+  %134 = zext i32 %133 to i64
+  %135 = sext i32 %117 to i64
+  %136 = call i64 @llvm.umin.i64(i64 %135, i64 %134)
+  %137 = trunc nuw i64 %136 to i32
   %138 = getelementptr inbounds i8, ptr %128, i64 12
   br i1 %13, label %.split.us, label %.split, !prof !26
 
-.split.us:                                        ; preds = %137, %162
-  %139 = phi i32 [ %164, %162 ], [ %116, %137 ]
-  %140 = phi i32 [ %163, %162 ], [ %117, %137 ]
-  %141 = phi i32 [ %165, %162 ], [ %135, %137 ]
+.split.us:                                        ; preds = %132, %162
+  %139 = phi i32 [ %164, %162 ], [ %116, %132 ]
+  %140 = phi i32 [ %163, %162 ], [ %117, %132 ]
+  %141 = phi i32 [ %165, %162 ], [ %137, %132 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false), !annotation !22
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %9) #22
@@ -8730,13 +8730,13 @@ define internal fastcc i32 @__skb_send_sock(ptr noundef %0, ptr noundef readonly
   %166 = icmp eq i32 %165, 0
   br i1 %166, label %.loopexit, label %.split.us, !llvm.loop !165
 
-.split:                                           ; preds = %137
+.split:                                           ; preds = %132
   br i1 %14, label %.split.split.us, label %.split.split, !prof !26
 
 .split.split.us:                                  ; preds = %.split, %179
   %167 = phi i32 [ %181, %179 ], [ %116, %.split ]
   %168 = phi i32 [ %180, %179 ], [ %117, %.split ]
-  %169 = phi i32 [ %182, %179 ], [ %135, %.split ]
+  %169 = phi i32 [ %182, %179 ], [ %137, %.split ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false), !annotation !22
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %9) #22
@@ -8780,7 +8780,7 @@ define internal fastcc i32 @__skb_send_sock(ptr noundef %0, ptr noundef readonly
 .split.split:                                     ; preds = %.split, %184
   %189 = phi i32 [ %186, %184 ], [ %116, %.split ]
   %190 = phi i32 [ %185, %184 ], [ %117, %.split ]
-  %191 = phi i32 [ %187, %184 ], [ %135, %.split ]
+  %191 = phi i32 [ %187, %184 ], [ %137, %.split ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false), !annotation !22
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %9) #22
@@ -9705,49 +9705,49 @@ define dso_local zeroext i16 @__skb_checksum_complete_head(ptr noundef %0, i32 n
   %8 = shl i32 %7, 16
   %9 = and i32 %7, -65536
   %10 = tail call i32 asm "  addl $1,$0\0A  adcl $$0xffff,$0", "=r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %8, i32 %9) #23, !srcloc !194
-  %11 = xor i32 %10, -1
-  %12 = lshr i32 %11, 16
-  %13 = trunc nuw i32 %12 to i16
-  %14 = icmp eq i16 %13, 0
-  br i1 %14, label %15, label %28, !prof !26
+  %11 = icmp ugt i32 %10, -65537
+  br i1 %11, label %12, label %25, !prof !26
 
-15:                                               ; preds = %2
-  %16 = getelementptr inbounds i8, ptr %0, i64 128
-  %17 = load i8, ptr %16, align 8
-  %18 = and i8 %17, 96
-  %19 = icmp eq i8 %18, 64
-  br i1 %19, label %20, label %28, !prof !6
+12:                                               ; preds = %2
+  %13 = getelementptr inbounds i8, ptr %0, i64 128
+  %14 = load i8, ptr %13, align 8
+  %15 = and i8 %14, 96
+  %16 = icmp eq i8 %15, 64
+  br i1 %16, label %17, label %25, !prof !6
 
-20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %0, i64 129
-  %22 = load i24, ptr %21, align 1
-  %23 = and i24 %22, 16
-  %24 = icmp eq i24 %23, 0
-  br i1 %24, label %25, label %28
+17:                                               ; preds = %12
+  %18 = getelementptr inbounds i8, ptr %0, i64 129
+  %19 = load i24, ptr %18, align 1
+  %20 = and i24 %19, 16
+  %21 = icmp eq i24 %20, 0
+  br i1 %21, label %22, label %25
 
-25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
-  %27 = load ptr, ptr %26, align 8
-  tail call void @netdev_rx_csum_fault(ptr noundef %27, ptr noundef %0) #22
-  br label %28
+22:                                               ; preds = %17
+  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = load ptr, ptr %23, align 8
+  tail call void @netdev_rx_csum_fault(ptr noundef %24, ptr noundef %0) #22
+  br label %25
 
-28:                                               ; preds = %25, %20, %15, %2
-  %29 = getelementptr inbounds i8, ptr %0, i64 212
-  %30 = load volatile i32, ptr %29, align 4
-  %31 = icmp eq i32 %30, 1
-  br i1 %31, label %32, label %38
+25:                                               ; preds = %22, %17, %12, %2
+  %26 = getelementptr inbounds i8, ptr %0, i64 212
+  %27 = load volatile i32, ptr %26, align 4
+  %28 = icmp eq i32 %27, 1
+  br i1 %28, label %29, label %35
 
-32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %0, i64 129
-  %34 = load i24, ptr %33, align 1
-  %35 = select i1 %14, i24 32768, i24 0
-  %36 = and i24 %34, -32769
-  %37 = or disjoint i24 %36, %35
-  store i24 %37, ptr %33, align 1
-  br label %38
+29:                                               ; preds = %25
+  %30 = getelementptr inbounds i8, ptr %0, i64 129
+  %31 = load i24, ptr %30, align 1
+  %32 = select i1 %11, i24 32768, i24 0
+  %33 = and i24 %31, -32769
+  %34 = or disjoint i24 %33, %32
+  store i24 %34, ptr %30, align 1
+  br label %35
 
-38:                                               ; preds = %32, %28
-  ret i16 %13
+35:                                               ; preds = %29, %25
+  %36 = xor i32 %10, -1
+  %37 = lshr i32 %36, 16
+  %38 = trunc nuw i32 %37 to i16
+  ret i16 %38
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -9771,53 +9771,53 @@ define dso_local zeroext i16 @__skb_checksum_complete(ptr noundef %0) #0 align 1
   %11 = shl i32 %10, 16
   %12 = and i32 %10, -65536
   %13 = tail call i32 asm "  addl $1,$0\0A  adcl $$0xffff,$0", "=r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %11, i32 %12) #23, !srcloc !194
-  %14 = xor i32 %13, -1
-  %15 = lshr i32 %14, 16
-  %16 = trunc nuw i32 %15 to i16
-  %17 = icmp eq i16 %16, 0
-  br i1 %17, label %18, label %30, !prof !26
+  %14 = icmp ugt i32 %13, -65537
+  br i1 %14, label %15, label %27, !prof !26
 
-18:                                               ; preds = %1
-  %19 = load i8, ptr %7, align 8
-  %20 = and i8 %19, 96
-  %21 = icmp eq i8 %20, 64
-  br i1 %21, label %22, label %30, !prof !6
+15:                                               ; preds = %1
+  %16 = load i8, ptr %7, align 8
+  %17 = and i8 %16, 96
+  %18 = icmp eq i8 %17, 64
+  br i1 %18, label %19, label %27, !prof !6
 
-22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %0, i64 129
-  %24 = load i24, ptr %23, align 1
-  %25 = and i24 %24, 16
-  %26 = icmp eq i24 %25, 0
-  br i1 %26, label %27, label %30
+19:                                               ; preds = %15
+  %20 = getelementptr inbounds i8, ptr %0, i64 129
+  %21 = load i24, ptr %20, align 1
+  %22 = and i24 %21, 16
+  %23 = icmp eq i24 %22, 0
+  br i1 %23, label %24, label %27
 
-27:                                               ; preds = %22
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
-  %29 = load ptr, ptr %28, align 8
-  tail call void @netdev_rx_csum_fault(ptr noundef %29, ptr noundef %0) #22
-  br label %30
+24:                                               ; preds = %19
+  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = load ptr, ptr %25, align 8
+  tail call void @netdev_rx_csum_fault(ptr noundef %26, ptr noundef %0) #22
+  br label %27
 
-30:                                               ; preds = %27, %22, %18, %1
-  %31 = getelementptr inbounds i8, ptr %0, i64 212
-  %32 = load volatile i32, ptr %31, align 4
-  %33 = icmp eq i32 %32, 1
-  br i1 %33, label %34, label %43
+27:                                               ; preds = %24, %19, %15, %1
+  %28 = getelementptr inbounds i8, ptr %0, i64 212
+  %29 = load volatile i32, ptr %28, align 4
+  %30 = icmp eq i32 %29, 1
+  br i1 %30, label %31, label %40
 
-34:                                               ; preds = %30
+31:                                               ; preds = %27
   store i32 %6, ptr %8, align 8
-  %35 = load i8, ptr %7, align 8
-  %36 = and i8 %35, -97
-  %37 = or disjoint i8 %36, 64
-  store i8 %37, ptr %7, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 129
-  %39 = load i24, ptr %38, align 1
-  %40 = and i24 %39, -32785
-  %41 = select i1 %17, i24 32784, i24 16
-  %42 = or disjoint i24 %40, %41
-  store i24 %42, ptr %38, align 1
-  br label %43
+  %32 = load i8, ptr %7, align 8
+  %33 = and i8 %32, -97
+  %34 = or disjoint i8 %33, 64
+  store i8 %34, ptr %7, align 8
+  %35 = getelementptr inbounds i8, ptr %0, i64 129
+  %36 = load i24, ptr %35, align 1
+  %37 = and i24 %36, -32785
+  %38 = select i1 %14, i24 32784, i24 16
+  %39 = or disjoint i24 %37, %38
+  store i24 %39, ptr %35, align 1
+  br label %40
 
-43:                                               ; preds = %34, %30
-  ret i16 %16
+40:                                               ; preds = %31, %27
+  %41 = xor i32 %13, -1
+  %42 = lshr i32 %41, 16
+  %43 = trunc nuw i32 %42 to i16
+  ret i16 %43
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)

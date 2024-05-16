@@ -1005,8 +1005,8 @@ define i32 @Abc_ObjChangeEval(ptr noundef %0, ptr nocapture noundef readonly %1,
 27:                                               ; preds = %23, %24
   %.046 = phi i32 [ %26, %24 ], [ %3, %23 ]
   %28 = getelementptr i8, ptr %0, i64 44
-  %.val5679 = load i32, ptr %28, align 4
-  %29 = icmp sgt i32 %.val5679, 0
+  %.val5681 = load i32, ptr %28, align 4
+  %29 = icmp sgt i32 %.val5681, 0
   br i1 %29, label %.lr.ph, label %.critedge.thread
 
 .lr.ph:                                           ; preds = %27
@@ -1014,10 +1014,10 @@ define i32 @Abc_ObjChangeEval(ptr noundef %0, ptr nocapture noundef readonly %1,
   %31 = getelementptr i8, ptr %0, i64 32
   br label %32
 
-32:                                               ; preds = %.lr.ph, %105
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %105 ]
-  %.182 = phi i32 [ %.046, %.lr.ph ], [ %.2, %105 ]
-  %.04781 = phi i32 [ 0, %.lr.ph ], [ %.148, %105 ]
+32:                                               ; preds = %.lr.ph, %103
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %103 ]
+  %.184 = phi i32 [ %.046, %.lr.ph ], [ %.2, %103 ]
+  %.04783 = phi i32 [ 0, %.lr.ph ], [ %.148, %103 ]
   %.val57 = load ptr, ptr %0, align 8
   %.val58 = load ptr, ptr %30, align 8
   %33 = getelementptr i8, ptr %.val57, i64 32
@@ -1087,17 +1087,17 @@ define i32 @Abc_ObjChangeEval(ptr noundef %0, ptr nocapture noundef readonly %1,
   %.val64 = load i32, ptr %60, align 4
   %61 = and i32 %.val64, 15
   %.not72 = icmp eq i32 %61, 7
-  br i1 %.not72, label %62, label %105
+  br i1 %.not72, label %62, label %103
 
 62:                                               ; preds = %.loopexit
   %63 = tail call i32 @Abc_NodeIsBuf(ptr noundef nonnull %39) #12
   %.not53 = icmp eq i32 %63, 0
-  br i1 %.not53, label %64, label %105
+  br i1 %.not53, label %64, label %103
 
 64:                                               ; preds = %62
   %65 = tail call i32 @Abc_NodeIsInv(ptr noundef nonnull %39) #12
   %.not54 = icmp eq i32 %65, 0
-  br i1 %.not54, label %86, label %66
+  br i1 %.not54, label %84, label %66
 
 66:                                               ; preds = %64
   %67 = getelementptr i8, ptr %39, i64 44
@@ -1124,7 +1124,7 @@ define i32 @Abc_ObjChangeEval(ptr noundef %0, ptr nocapture noundef readonly %1,
   %77 = load ptr, ptr %76, align 8
   %78 = tail call i32 @Abc_NodeFindFanin(ptr noundef %77, ptr noundef nonnull %0) #12
   %79 = icmp sgt i32 %78, -1
-  br i1 %79, label %Abc_NodeCheckFanoutHasFanin.exit, label %80
+  br i1 %79, label %Abc_ObjHasDupFanins.exit, label %80
 
 80:                                               ; preds = %70
   %indvars.iv.next.i67 = add nuw nsw i64 %indvars.iv.i66, 1
@@ -1133,64 +1133,59 @@ define i32 @Abc_ObjChangeEval(ptr noundef %0, ptr nocapture noundef readonly %1,
   %82 = icmp slt i64 %indvars.iv.next.i67, %81
   br i1 %82, label %70, label %Abc_NodeCheckFanoutHasFanin.exit.thread, !llvm.loop !18
 
-Abc_NodeCheckFanoutHasFanin.exit:                 ; preds = %70
-  %83 = and i64 %indvars.iv.i66, 2147483648
-  %84 = icmp eq i64 %83, 0
-  br i1 %84, label %Abc_ObjHasDupFanins.exit, label %Abc_NodeCheckFanoutHasFanin.exit.thread
+Abc_NodeCheckFanoutHasFanin.exit.thread:          ; preds = %80, %66
+  %83 = add nsw i32 %.184, %3
+  br label %103
 
-Abc_NodeCheckFanoutHasFanin.exit.thread:          ; preds = %80, %66, %Abc_NodeCheckFanoutHasFanin.exit
-  %85 = add nsw i32 %.182, %3
-  br label %105
-
-86:                                               ; preds = %64
-  %87 = getelementptr inbounds i8, ptr %39, i64 56
-  %88 = load ptr, ptr %87, align 8
-  %89 = tail call i32 @Mio_GateReadCell(ptr noundef %88) #12
+84:                                               ; preds = %64
+  %85 = getelementptr inbounds i8, ptr %39, i64 56
+  %86 = load ptr, ptr %85, align 8
+  %87 = tail call i32 @Mio_GateReadCell(ptr noundef %86) #12
   %.val = load ptr, ptr %9, align 8
-  %90 = sext i32 %89 to i64
-  %91 = getelementptr inbounds i32, ptr %.val, i64 %90
-  %92 = load i32, ptr %91, align 4
+  %88 = sext i32 %87 to i64
+  %89 = getelementptr inbounds i32, ptr %.val, i64 %88
+  %90 = load i32, ptr %89, align 4
   %.val61 = load ptr, ptr %13, align 8
-  %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds i32, ptr %.val61, i64 %93
-  %95 = tail call i32 @Abc_NodeFindFanin(ptr noundef nonnull %39, ptr noundef nonnull %0) #12
-  %96 = mul nsw i32 %95, 3
-  %97 = sext i32 %96 to i64
-  %98 = getelementptr inbounds i32, ptr %94, i64 %97
-  %99 = load i32, ptr %98, align 4
-  %100 = icmp eq i32 %99, -1
-  br i1 %100, label %105, label %101
+  %91 = sext i32 %90 to i64
+  %92 = getelementptr inbounds i32, ptr %.val61, i64 %91
+  %93 = tail call i32 @Abc_NodeFindFanin(ptr noundef nonnull %39, ptr noundef nonnull %0) #12
+  %94 = mul nsw i32 %93, 3
+  %95 = sext i32 %94 to i64
+  %96 = getelementptr inbounds i32, ptr %92, i64 %95
+  %97 = load i32, ptr %96, align 4
+  %98 = icmp eq i32 %97, -1
+  br i1 %98, label %103, label %99
 
-101:                                              ; preds = %86
-  %102 = getelementptr i8, ptr %98, i64 8
-  %103 = load i32, ptr %102, align 4
-  %104 = add nsw i32 %103, %.182
-  br label %105
+99:                                               ; preds = %84
+  %100 = getelementptr i8, ptr %96, i64 8
+  %101 = load i32, ptr %100, align 4
+  %102 = add nsw i32 %101, %.184
+  br label %103
 
-105:                                              ; preds = %86, %.loopexit, %62, %101, %Abc_NodeCheckFanoutHasFanin.exit.thread
-  %.148 = phi i32 [ %.04781, %Abc_NodeCheckFanoutHasFanin.exit.thread ], [ %.04781, %101 ], [ 1, %62 ], [ 1, %.loopexit ], [ 1, %86 ]
-  %.2 = phi i32 [ %85, %Abc_NodeCheckFanoutHasFanin.exit.thread ], [ %104, %101 ], [ %.182, %62 ], [ %.182, %.loopexit ], [ %.182, %86 ]
+103:                                              ; preds = %84, %.loopexit, %62, %99, %Abc_NodeCheckFanoutHasFanin.exit.thread
+  %.148 = phi i32 [ %.04783, %Abc_NodeCheckFanoutHasFanin.exit.thread ], [ %.04783, %99 ], [ 1, %62 ], [ 1, %.loopexit ], [ 1, %84 ]
+  %.2 = phi i32 [ %83, %Abc_NodeCheckFanoutHasFanin.exit.thread ], [ %102, %99 ], [ %.184, %62 ], [ %.184, %.loopexit ], [ %.184, %84 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val56 = load i32, ptr %28, align 4
-  %106 = sext i32 %.val56 to i64
-  %107 = icmp slt i64 %indvars.iv.next, %106
-  br i1 %107, label %32, label %.critedge, !llvm.loop !23
+  %104 = sext i32 %.val56 to i64
+  %105 = icmp slt i64 %indvars.iv.next, %104
+  br i1 %105, label %32, label %.critedge, !llvm.loop !23
 
-.critedge:                                        ; preds = %105
+.critedge:                                        ; preds = %103
   %.not50 = icmp eq i32 %.148, 0
-  %spec.select97 = select i1 %.not50, i32 0, i32 %3
+  %spec.select99 = select i1 %.not50, i32 0, i32 %3
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.critedge, %27
-  %.1.lcssa93 = phi i32 [ %.046, %27 ], [ %.2, %.critedge ]
-  %.047.lcssa91 = phi i32 [ 0, %27 ], [ %.148, %.critedge ]
-  %108 = phi i32 [ 0, %27 ], [ %spec.select97, %.critedge ]
-  %spec.select = sub nsw i32 %.1.lcssa93, %108
-  store i32 %.047.lcssa91, ptr %4, align 4
+  %.1.lcssa95 = phi i32 [ %.046, %27 ], [ %.2, %.critedge ]
+  %.047.lcssa93 = phi i32 [ 0, %27 ], [ %.148, %.critedge ]
+  %106 = phi i32 [ 0, %27 ], [ %spec.select99, %.critedge ]
+  %spec.select = sub nsw i32 %.1.lcssa95, %106
+  store i32 %.047.lcssa93, ptr %4, align 4
   br label %Abc_ObjHasDupFanins.exit
 
-Abc_ObjHasDupFanins.exit:                         ; preds = %Abc_NodeCheckFanoutHasFanin.exit, %40, %56, %5, %.critedge.thread
-  %.0 = phi i32 [ %spec.select, %.critedge.thread ], [ 0, %5 ], [ 0, %56 ], [ 0, %40 ], [ 0, %Abc_NodeCheckFanoutHasFanin.exit ]
+Abc_ObjHasDupFanins.exit:                         ; preds = %40, %70, %56, %5, %.critedge.thread
+  %.0 = phi i32 [ %spec.select, %.critedge.thread ], [ 0, %5 ], [ 0, %56 ], [ 0, %70 ], [ 0, %40 ]
   ret i32 %.0
 }
 

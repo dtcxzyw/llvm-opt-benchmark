@@ -279,7 +279,7 @@ if.end45:                                         ; preds = %if.end18, %for.end
   br i1 %cmp52, label %if.then54, label %for.cond56.preheader
 
 for.cond56.preheader:                             ; preds = %if.end45
-  %cmp58152.not = icmp eq i32 %conv46, 0
+  %cmp58152.not = icmp eq i64 %temp_page_count.0.lcssa180, 0
   br i1 %cmp58152.not, label %for.end101, label %while.body.preheader
 
 if.then54:                                        ; preds = %if.end45

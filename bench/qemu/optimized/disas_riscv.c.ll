@@ -2112,7 +2112,7 @@ sw.bb221.i:                                       ; preds = %if.end20
   %or.i528.i = or disjoint i64 %shl1.i526.i, %shr3.i527.i
   %conv.i529.i = trunc nuw nsw i64 %or.i528.i to i32
   %cmp.i530.i = icmp eq i32 %isa, 2
-  %tobool.not.i531.i = icmp eq i32 %conv.i529.i, 0
+  %tobool.not.i531.i = icmp eq i64 %or.i528.i, 0
   %138 = select i1 %cmp.i530.i, i1 %tobool.not.i531.i, i1 false
   %imm.0.i532.i = select i1 %138, i32 64, i32 %conv.i529.i
   %imm228.i = getelementptr inbounds i8, ptr %dec, i64 32
@@ -6685,10 +6685,9 @@ sw.bb880:                                         ; preds = %sw.bb675
   %shr883 = lshr i64 %0, 12
   %and884 = and i64 %shr883, 7
   %or885 = or disjoint i64 %and882, %and884
-  %trunc243 = trunc nuw i64 %or885 to i8
-  %switch.selectcmp289 = icmp eq i8 %trunc243, 1
+  %switch.selectcmp289 = icmp eq i64 %or885, 1
   %switch.select290 = select i1 %switch.selectcmp289, i16 155, i16 0
-  %switch.selectcmp291 = icmp eq i8 %trunc243, 0
+  %switch.selectcmp291 = icmp eq i64 %or885, 0
   %switch.select292 = select i1 %switch.selectcmp291, i16 154, i16 %switch.select290
   br label %sw.epilog1655
 
@@ -6752,10 +6751,9 @@ sw.bb917:                                         ; preds = %sw.bb675
   %shr920 = lshr i64 %0, 12
   %and921 = and i64 %shr920, 7
   %or922 = or disjoint i64 %and919, %and921
-  %trunc240 = trunc nuw i64 %or922 to i8
-  %switch.selectcmp294 = icmp eq i8 %trunc240, 8
+  %switch.selectcmp294 = icmp eq i64 %or922, 8
   %switch.select295 = select i1 %switch.selectcmp294, i16 801, i16 0
-  %switch.selectcmp296 = icmp eq i8 %trunc240, 0
+  %switch.selectcmp296 = icmp eq i64 %or922, 0
   %switch.select297 = select i1 %switch.selectcmp296, i16 156, i16 %switch.select295
   br label %sw.epilog1655
 
@@ -6765,10 +6763,9 @@ sw.bb926:                                         ; preds = %sw.bb675
   %shr929 = lshr i64 %0, 12
   %and930 = and i64 %shr929, 7
   %or931 = or disjoint i64 %and928, %and930
-  %trunc239 = trunc nuw i64 %or931 to i8
-  %switch.selectcmp298 = icmp eq i8 %trunc239, 8
+  %switch.selectcmp298 = icmp eq i64 %or931, 8
   %switch.select299 = select i1 %switch.selectcmp298, i16 802, i16 0
-  %switch.selectcmp300 = icmp eq i8 %trunc239, 0
+  %switch.selectcmp300 = icmp eq i64 %or931, 0
   %switch.select301 = select i1 %switch.selectcmp300, i16 192, i16 %switch.select299
   br label %sw.epilog1655
 
@@ -6778,10 +6775,9 @@ sw.bb935:                                         ; preds = %sw.bb675
   %shr938 = lshr i64 %0, 12
   %and939 = and i64 %shr938, 7
   %or940 = or disjoint i64 %and937, %and939
-  %trunc238 = trunc nuw i64 %or940 to i8
-  %switch.selectcmp302 = icmp eq i8 %trunc238, 8
+  %switch.selectcmp302 = icmp eq i64 %or940, 8
   %switch.select303 = select i1 %switch.selectcmp302, i16 804, i16 0
-  %switch.selectcmp304 = icmp eq i8 %trunc238, 0
+  %switch.selectcmp304 = icmp eq i64 %or940, 0
   %switch.select305 = select i1 %switch.selectcmp304, i16 799, i16 %switch.select303
   br label %sw.epilog1655
 
@@ -6791,10 +6787,9 @@ sw.bb944:                                         ; preds = %sw.bb675
   %shr947 = lshr i64 %0, 12
   %and948 = and i64 %shr947, 7
   %or949 = or disjoint i64 %and946, %and948
-  %trunc = trunc nuw i64 %or949 to i8
-  %switch.selectcmp306 = icmp eq i8 %trunc, 8
+  %switch.selectcmp306 = icmp eq i64 %or949, 8
   %switch.select307 = select i1 %switch.selectcmp306, i16 803, i16 0
-  %switch.selectcmp308 = icmp eq i8 %trunc, 0
+  %switch.selectcmp308 = icmp eq i64 %or949, 0
   %switch.select309 = select i1 %switch.selectcmp308, i16 226, i16 %switch.select307
   br label %sw.epilog1655
 

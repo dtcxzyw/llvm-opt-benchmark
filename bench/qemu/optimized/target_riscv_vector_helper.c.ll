@@ -9570,15 +9570,15 @@ entry:
   %div.i = udiv i64 %4, %conv3.i
   %conv4.i = trunc i64 %div.i to i32
   %rem.i = urem i64 %4, %conv3.i
-  %conv7.i = trunc nuw nsw i64 %rem.i to i32
-  %tobool.not.i = icmp eq i32 %conv7.i, 0
-  br i1 %tobool.not.i, label %if.end.i, label %for.cond.preheader.i
+  %tobool.not.i = icmp eq i64 %rem.i, 0
+  br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
-for.cond.preheader.i:                             ; preds = %entry
+if.then.i:                                        ; preds = %entry
+  %conv7.i = trunc nuw nsw i64 %rem.i to i32
   %cmp42.i = icmp ugt i32 %shr.i, %conv7.i
   br i1 %cmp42.i, label %for.body.lr.ph.i, label %for.end.i
 
-for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
+for.body.lr.ph.i:                                 ; preds = %if.then.i
   %mul.i = mul i32 %conv4.i, %shr.i
   %5 = getelementptr i8, ptr %env, i64 5056
   %6 = getelementptr i8, ptr %env, i64 5064
@@ -9607,7 +9607,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %cmp.i = icmp ult i64 %indvars.iv.next, %7
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !18
 
-for.end.i:                                        ; preds = %for.body.i, %for.cond.preheader.i
+for.end.i:                                        ; preds = %for.body.i, %if.then.i
   %inc16.i = add i32 %conv4.i, 1
   br label %if.end.i
 
@@ -9679,15 +9679,15 @@ entry:
   %div.i = udiv i64 %4, %conv3.i
   %conv4.i = trunc i64 %div.i to i32
   %rem.i = urem i64 %4, %conv3.i
-  %conv7.i = trunc nuw nsw i64 %rem.i to i32
-  %tobool.not.i = icmp eq i32 %conv7.i, 0
-  br i1 %tobool.not.i, label %if.end.i, label %for.cond.preheader.i
+  %tobool.not.i = icmp eq i64 %rem.i, 0
+  br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
-for.cond.preheader.i:                             ; preds = %entry
+if.then.i:                                        ; preds = %entry
+  %conv7.i = trunc nuw nsw i64 %rem.i to i32
   %cmp42.i = icmp ugt i32 %shr2.i, %conv7.i
   br i1 %cmp42.i, label %for.body.lr.ph.i, label %for.end.i
 
-for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
+for.body.lr.ph.i:                                 ; preds = %if.then.i
   %mul.i = mul i32 %conv4.i, %shr2.i
   %5 = getelementptr i8, ptr %env, i64 5056
   %6 = getelementptr i8, ptr %env, i64 5064
@@ -9718,7 +9718,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %cmp.i = icmp ult i64 %indvars.iv.next, %7
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !18
 
-for.end.i:                                        ; preds = %for.body.i, %for.cond.preheader.i
+for.end.i:                                        ; preds = %for.body.i, %if.then.i
   %inc16.i = add i32 %conv4.i, 1
   br label %if.end.i
 
@@ -9792,15 +9792,15 @@ entry:
   %div.i = udiv i64 %4, %conv3.i
   %conv4.i = trunc i64 %div.i to i32
   %rem.i = urem i64 %4, %conv3.i
-  %conv7.i = trunc nuw nsw i64 %rem.i to i32
-  %tobool.not.i = icmp eq i32 %conv7.i, 0
-  br i1 %tobool.not.i, label %if.end.i, label %for.cond.preheader.i
+  %tobool.not.i = icmp eq i64 %rem.i, 0
+  br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
-for.cond.preheader.i:                             ; preds = %entry
+if.then.i:                                        ; preds = %entry
+  %conv7.i = trunc nuw nsw i64 %rem.i to i32
   %cmp42.i = icmp ugt i32 %shr2.i, %conv7.i
   br i1 %cmp42.i, label %for.body.lr.ph.i, label %for.end.i
 
-for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
+for.body.lr.ph.i:                                 ; preds = %if.then.i
   %mul.i = mul i32 %conv4.i, %shr2.i
   %5 = getelementptr i8, ptr %env, i64 5056
   %6 = getelementptr i8, ptr %env, i64 5064
@@ -9830,7 +9830,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %cmp.i = icmp ult i64 %indvars.iv.next, %7
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !18
 
-for.end.i:                                        ; preds = %for.body.i, %for.cond.preheader.i
+for.end.i:                                        ; preds = %for.body.i, %if.then.i
   %inc16.i = add i32 %conv4.i, 1
   br label %if.end.i
 
@@ -9903,15 +9903,15 @@ entry:
   %div.i = udiv i64 %4, %conv3.i
   %conv4.i = trunc i64 %div.i to i32
   %rem.i = urem i64 %4, %conv3.i
-  %conv7.i = trunc nuw nsw i64 %rem.i to i32
-  %tobool.not.i = icmp eq i32 %conv7.i, 0
-  br i1 %tobool.not.i, label %if.end.i, label %for.cond.preheader.i
+  %tobool.not.i = icmp eq i64 %rem.i, 0
+  br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
-for.cond.preheader.i:                             ; preds = %entry
+if.then.i:                                        ; preds = %entry
+  %conv7.i = trunc nuw nsw i64 %rem.i to i32
   %cmp42.i = icmp ugt i32 %shr2.i, %conv7.i
   br i1 %cmp42.i, label %for.body.lr.ph.i, label %for.end.i
 
-for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
+for.body.lr.ph.i:                                 ; preds = %if.then.i
   %mul.i = mul i32 %conv4.i, %shr2.i
   %5 = getelementptr i8, ptr %env, i64 5056
   %6 = getelementptr i8, ptr %env, i64 5064
@@ -9941,7 +9941,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %cmp.i = icmp ult i64 %indvars.iv.next, %7
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !18
 
-for.end.i:                                        ; preds = %for.body.i, %for.cond.preheader.i
+for.end.i:                                        ; preds = %for.body.i, %if.then.i
   %inc16.i = add i32 %conv4.i, 1
   br label %if.end.i
 
@@ -10014,15 +10014,15 @@ entry:
   %div.i = udiv i64 %4, %conv3.i
   %conv4.i = trunc i64 %div.i to i32
   %rem.i = urem i64 %4, %conv3.i
-  %conv7.i = trunc nuw nsw i64 %rem.i to i32
-  %tobool.not.i = icmp eq i32 %conv7.i, 0
-  br i1 %tobool.not.i, label %if.end.i, label %for.cond.preheader.i
+  %tobool.not.i = icmp eq i64 %rem.i, 0
+  br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
-for.cond.preheader.i:                             ; preds = %entry
+if.then.i:                                        ; preds = %entry
+  %conv7.i = trunc nuw nsw i64 %rem.i to i32
   %cmp42.i = icmp ugt i32 %shr.i, %conv7.i
   br i1 %cmp42.i, label %for.body.lr.ph.i, label %for.end.i
 
-for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
+for.body.lr.ph.i:                                 ; preds = %if.then.i
   %mul.i = mul i32 %conv4.i, %shr.i
   %5 = getelementptr i8, ptr %env, i64 5056
   %6 = getelementptr i8, ptr %env, i64 5064
@@ -10051,7 +10051,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %cmp.i = icmp ult i64 %indvars.iv.next, %7
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !18
 
-for.end.i:                                        ; preds = %for.body.i, %for.cond.preheader.i
+for.end.i:                                        ; preds = %for.body.i, %if.then.i
   %inc16.i = add i32 %conv4.i, 1
   br label %if.end.i
 
@@ -10123,15 +10123,15 @@ entry:
   %div.i = udiv i64 %4, %conv3.i
   %conv4.i = trunc i64 %div.i to i32
   %rem.i = urem i64 %4, %conv3.i
-  %conv7.i = trunc nuw nsw i64 %rem.i to i32
-  %tobool.not.i = icmp eq i32 %conv7.i, 0
-  br i1 %tobool.not.i, label %if.end.i, label %for.cond.preheader.i
+  %tobool.not.i = icmp eq i64 %rem.i, 0
+  br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
-for.cond.preheader.i:                             ; preds = %entry
+if.then.i:                                        ; preds = %entry
+  %conv7.i = trunc nuw nsw i64 %rem.i to i32
   %cmp42.i = icmp ugt i32 %shr2.i, %conv7.i
   br i1 %cmp42.i, label %for.body.lr.ph.i, label %for.end.i
 
-for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
+for.body.lr.ph.i:                                 ; preds = %if.then.i
   %mul.i = mul i32 %conv4.i, %shr2.i
   %5 = getelementptr i8, ptr %env, i64 5056
   %6 = getelementptr i8, ptr %env, i64 5064
@@ -10162,7 +10162,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %cmp.i = icmp ult i64 %indvars.iv.next, %7
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !18
 
-for.end.i:                                        ; preds = %for.body.i, %for.cond.preheader.i
+for.end.i:                                        ; preds = %for.body.i, %if.then.i
   %inc16.i = add i32 %conv4.i, 1
   br label %if.end.i
 
@@ -10236,15 +10236,15 @@ entry:
   %div.i = udiv i64 %4, %conv3.i
   %conv4.i = trunc i64 %div.i to i32
   %rem.i = urem i64 %4, %conv3.i
-  %conv7.i = trunc nuw nsw i64 %rem.i to i32
-  %tobool.not.i = icmp eq i32 %conv7.i, 0
-  br i1 %tobool.not.i, label %if.end.i, label %for.cond.preheader.i
+  %tobool.not.i = icmp eq i64 %rem.i, 0
+  br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
-for.cond.preheader.i:                             ; preds = %entry
+if.then.i:                                        ; preds = %entry
+  %conv7.i = trunc nuw nsw i64 %rem.i to i32
   %cmp42.i = icmp ugt i32 %shr2.i, %conv7.i
   br i1 %cmp42.i, label %for.body.lr.ph.i, label %for.end.i
 
-for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
+for.body.lr.ph.i:                                 ; preds = %if.then.i
   %mul.i = mul i32 %conv4.i, %shr2.i
   %5 = getelementptr i8, ptr %env, i64 5056
   %6 = getelementptr i8, ptr %env, i64 5064
@@ -10274,7 +10274,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %cmp.i = icmp ult i64 %indvars.iv.next, %7
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !18
 
-for.end.i:                                        ; preds = %for.body.i, %for.cond.preheader.i
+for.end.i:                                        ; preds = %for.body.i, %if.then.i
   %inc16.i = add i32 %conv4.i, 1
   br label %if.end.i
 
@@ -10347,15 +10347,15 @@ entry:
   %div.i = udiv i64 %4, %conv3.i
   %conv4.i = trunc i64 %div.i to i32
   %rem.i = urem i64 %4, %conv3.i
-  %conv7.i = trunc nuw nsw i64 %rem.i to i32
-  %tobool.not.i = icmp eq i32 %conv7.i, 0
-  br i1 %tobool.not.i, label %if.end.i, label %for.cond.preheader.i
+  %tobool.not.i = icmp eq i64 %rem.i, 0
+  br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
-for.cond.preheader.i:                             ; preds = %entry
+if.then.i:                                        ; preds = %entry
+  %conv7.i = trunc nuw nsw i64 %rem.i to i32
   %cmp42.i = icmp ugt i32 %shr2.i, %conv7.i
   br i1 %cmp42.i, label %for.body.lr.ph.i, label %for.end.i
 
-for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
+for.body.lr.ph.i:                                 ; preds = %if.then.i
   %mul.i = mul i32 %conv4.i, %shr2.i
   %5 = getelementptr i8, ptr %env, i64 5056
   %6 = getelementptr i8, ptr %env, i64 5064
@@ -10385,7 +10385,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %cmp.i = icmp ult i64 %indvars.iv.next, %7
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !18
 
-for.end.i:                                        ; preds = %for.body.i, %for.cond.preheader.i
+for.end.i:                                        ; preds = %for.body.i, %if.then.i
   %inc16.i = add i32 %conv4.i, 1
   br label %if.end.i
 
@@ -10458,15 +10458,15 @@ entry:
   %div.i = udiv i64 %4, %conv3.i
   %conv4.i = trunc i64 %div.i to i32
   %rem.i = urem i64 %4, %conv3.i
-  %conv7.i = trunc nuw nsw i64 %rem.i to i32
-  %tobool.not.i = icmp eq i32 %conv7.i, 0
-  br i1 %tobool.not.i, label %if.end.i, label %for.cond.preheader.i
+  %tobool.not.i = icmp eq i64 %rem.i, 0
+  br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
-for.cond.preheader.i:                             ; preds = %entry
+if.then.i:                                        ; preds = %entry
+  %conv7.i = trunc nuw nsw i64 %rem.i to i32
   %cmp42.i = icmp ugt i32 %shr.i, %conv7.i
   br i1 %cmp42.i, label %for.body.lr.ph.i, label %for.end.i
 
-for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
+for.body.lr.ph.i:                                 ; preds = %if.then.i
   %mul.i = mul i32 %conv4.i, %shr.i
   %5 = getelementptr i8, ptr %env, i64 5056
   %6 = getelementptr i8, ptr %env, i64 5064
@@ -10495,7 +10495,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %cmp.i = icmp ult i64 %indvars.iv.next, %7
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !18
 
-for.end.i:                                        ; preds = %for.body.i, %for.cond.preheader.i
+for.end.i:                                        ; preds = %for.body.i, %if.then.i
   %inc16.i = add i32 %conv4.i, 1
   br label %if.end.i
 
@@ -10567,15 +10567,15 @@ entry:
   %div.i = udiv i64 %4, %conv3.i
   %conv4.i = trunc i64 %div.i to i32
   %rem.i = urem i64 %4, %conv3.i
-  %conv7.i = trunc nuw nsw i64 %rem.i to i32
-  %tobool.not.i = icmp eq i32 %conv7.i, 0
-  br i1 %tobool.not.i, label %if.end.i, label %for.cond.preheader.i
+  %tobool.not.i = icmp eq i64 %rem.i, 0
+  br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
-for.cond.preheader.i:                             ; preds = %entry
+if.then.i:                                        ; preds = %entry
+  %conv7.i = trunc nuw nsw i64 %rem.i to i32
   %cmp42.i = icmp ugt i32 %shr2.i, %conv7.i
   br i1 %cmp42.i, label %for.body.lr.ph.i, label %for.end.i
 
-for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
+for.body.lr.ph.i:                                 ; preds = %if.then.i
   %mul.i = mul i32 %conv4.i, %shr2.i
   %5 = getelementptr i8, ptr %env, i64 5056
   %6 = getelementptr i8, ptr %env, i64 5064
@@ -10606,7 +10606,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %cmp.i = icmp ult i64 %indvars.iv.next, %7
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !18
 
-for.end.i:                                        ; preds = %for.body.i, %for.cond.preheader.i
+for.end.i:                                        ; preds = %for.body.i, %if.then.i
   %inc16.i = add i32 %conv4.i, 1
   br label %if.end.i
 
@@ -10680,15 +10680,15 @@ entry:
   %div.i = udiv i64 %4, %conv3.i
   %conv4.i = trunc i64 %div.i to i32
   %rem.i = urem i64 %4, %conv3.i
-  %conv7.i = trunc nuw nsw i64 %rem.i to i32
-  %tobool.not.i = icmp eq i32 %conv7.i, 0
-  br i1 %tobool.not.i, label %if.end.i, label %for.cond.preheader.i
+  %tobool.not.i = icmp eq i64 %rem.i, 0
+  br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
-for.cond.preheader.i:                             ; preds = %entry
+if.then.i:                                        ; preds = %entry
+  %conv7.i = trunc nuw nsw i64 %rem.i to i32
   %cmp42.i = icmp ugt i32 %shr2.i, %conv7.i
   br i1 %cmp42.i, label %for.body.lr.ph.i, label %for.end.i
 
-for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
+for.body.lr.ph.i:                                 ; preds = %if.then.i
   %mul.i = mul i32 %conv4.i, %shr2.i
   %5 = getelementptr i8, ptr %env, i64 5056
   %6 = getelementptr i8, ptr %env, i64 5064
@@ -10718,7 +10718,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %cmp.i = icmp ult i64 %indvars.iv.next, %7
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !18
 
-for.end.i:                                        ; preds = %for.body.i, %for.cond.preheader.i
+for.end.i:                                        ; preds = %for.body.i, %if.then.i
   %inc16.i = add i32 %conv4.i, 1
   br label %if.end.i
 
@@ -10791,15 +10791,15 @@ entry:
   %div.i = udiv i64 %4, %conv3.i
   %conv4.i = trunc i64 %div.i to i32
   %rem.i = urem i64 %4, %conv3.i
-  %conv7.i = trunc nuw nsw i64 %rem.i to i32
-  %tobool.not.i = icmp eq i32 %conv7.i, 0
-  br i1 %tobool.not.i, label %if.end.i, label %for.cond.preheader.i
+  %tobool.not.i = icmp eq i64 %rem.i, 0
+  br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
-for.cond.preheader.i:                             ; preds = %entry
+if.then.i:                                        ; preds = %entry
+  %conv7.i = trunc nuw nsw i64 %rem.i to i32
   %cmp42.i = icmp ugt i32 %shr2.i, %conv7.i
   br i1 %cmp42.i, label %for.body.lr.ph.i, label %for.end.i
 
-for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
+for.body.lr.ph.i:                                 ; preds = %if.then.i
   %mul.i = mul i32 %conv4.i, %shr2.i
   %5 = getelementptr i8, ptr %env, i64 5056
   %6 = getelementptr i8, ptr %env, i64 5064
@@ -10829,7 +10829,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %cmp.i = icmp ult i64 %indvars.iv.next, %7
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !18
 
-for.end.i:                                        ; preds = %for.body.i, %for.cond.preheader.i
+for.end.i:                                        ; preds = %for.body.i, %if.then.i
   %inc16.i = add i32 %conv4.i, 1
   br label %if.end.i
 
@@ -10902,15 +10902,15 @@ entry:
   %div.i = udiv i64 %4, %conv3.i
   %conv4.i = trunc i64 %div.i to i32
   %rem.i = urem i64 %4, %conv3.i
-  %conv7.i = trunc nuw nsw i64 %rem.i to i32
-  %tobool.not.i = icmp eq i32 %conv7.i, 0
-  br i1 %tobool.not.i, label %if.end.i, label %for.cond.preheader.i
+  %tobool.not.i = icmp eq i64 %rem.i, 0
+  br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
-for.cond.preheader.i:                             ; preds = %entry
+if.then.i:                                        ; preds = %entry
+  %conv7.i = trunc nuw nsw i64 %rem.i to i32
   %cmp42.i = icmp ugt i32 %shr.i, %conv7.i
   br i1 %cmp42.i, label %for.body.lr.ph.i, label %for.end.i
 
-for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
+for.body.lr.ph.i:                                 ; preds = %if.then.i
   %mul.i = mul i32 %conv4.i, %shr.i
   %5 = getelementptr i8, ptr %env, i64 5056
   %6 = getelementptr i8, ptr %env, i64 5064
@@ -10939,7 +10939,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %cmp.i = icmp ult i64 %indvars.iv.next, %7
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !18
 
-for.end.i:                                        ; preds = %for.body.i, %for.cond.preheader.i
+for.end.i:                                        ; preds = %for.body.i, %if.then.i
   %inc16.i = add i32 %conv4.i, 1
   br label %if.end.i
 
@@ -11011,15 +11011,15 @@ entry:
   %div.i = udiv i64 %4, %conv3.i
   %conv4.i = trunc i64 %div.i to i32
   %rem.i = urem i64 %4, %conv3.i
-  %conv7.i = trunc nuw nsw i64 %rem.i to i32
-  %tobool.not.i = icmp eq i32 %conv7.i, 0
-  br i1 %tobool.not.i, label %if.end.i, label %for.cond.preheader.i
+  %tobool.not.i = icmp eq i64 %rem.i, 0
+  br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
-for.cond.preheader.i:                             ; preds = %entry
+if.then.i:                                        ; preds = %entry
+  %conv7.i = trunc nuw nsw i64 %rem.i to i32
   %cmp42.i = icmp ugt i32 %shr2.i, %conv7.i
   br i1 %cmp42.i, label %for.body.lr.ph.i, label %for.end.i
 
-for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
+for.body.lr.ph.i:                                 ; preds = %if.then.i
   %mul.i = mul i32 %conv4.i, %shr2.i
   %5 = getelementptr i8, ptr %env, i64 5056
   %6 = getelementptr i8, ptr %env, i64 5064
@@ -11050,7 +11050,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %cmp.i = icmp ult i64 %indvars.iv.next, %7
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !18
 
-for.end.i:                                        ; preds = %for.body.i, %for.cond.preheader.i
+for.end.i:                                        ; preds = %for.body.i, %if.then.i
   %inc16.i = add i32 %conv4.i, 1
   br label %if.end.i
 
@@ -11124,15 +11124,15 @@ entry:
   %div.i = udiv i64 %4, %conv3.i
   %conv4.i = trunc i64 %div.i to i32
   %rem.i = urem i64 %4, %conv3.i
-  %conv7.i = trunc nuw nsw i64 %rem.i to i32
-  %tobool.not.i = icmp eq i32 %conv7.i, 0
-  br i1 %tobool.not.i, label %if.end.i, label %for.cond.preheader.i
+  %tobool.not.i = icmp eq i64 %rem.i, 0
+  br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
-for.cond.preheader.i:                             ; preds = %entry
+if.then.i:                                        ; preds = %entry
+  %conv7.i = trunc nuw nsw i64 %rem.i to i32
   %cmp42.i = icmp ugt i32 %shr2.i, %conv7.i
   br i1 %cmp42.i, label %for.body.lr.ph.i, label %for.end.i
 
-for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
+for.body.lr.ph.i:                                 ; preds = %if.then.i
   %mul.i = mul i32 %conv4.i, %shr2.i
   %5 = getelementptr i8, ptr %env, i64 5056
   %6 = getelementptr i8, ptr %env, i64 5064
@@ -11162,7 +11162,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %cmp.i = icmp ult i64 %indvars.iv.next, %7
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !18
 
-for.end.i:                                        ; preds = %for.body.i, %for.cond.preheader.i
+for.end.i:                                        ; preds = %for.body.i, %if.then.i
   %inc16.i = add i32 %conv4.i, 1
   br label %if.end.i
 
@@ -11235,15 +11235,15 @@ entry:
   %div.i = udiv i64 %4, %conv3.i
   %conv4.i = trunc i64 %div.i to i32
   %rem.i = urem i64 %4, %conv3.i
-  %conv7.i = trunc nuw nsw i64 %rem.i to i32
-  %tobool.not.i = icmp eq i32 %conv7.i, 0
-  br i1 %tobool.not.i, label %if.end.i, label %for.cond.preheader.i
+  %tobool.not.i = icmp eq i64 %rem.i, 0
+  br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
-for.cond.preheader.i:                             ; preds = %entry
+if.then.i:                                        ; preds = %entry
+  %conv7.i = trunc nuw nsw i64 %rem.i to i32
   %cmp42.i = icmp ugt i32 %shr2.i, %conv7.i
   br i1 %cmp42.i, label %for.body.lr.ph.i, label %for.end.i
 
-for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
+for.body.lr.ph.i:                                 ; preds = %if.then.i
   %mul.i = mul i32 %conv4.i, %shr2.i
   %5 = getelementptr i8, ptr %env, i64 5056
   %6 = getelementptr i8, ptr %env, i64 5064
@@ -11273,7 +11273,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %cmp.i = icmp ult i64 %indvars.iv.next, %7
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !18
 
-for.end.i:                                        ; preds = %for.body.i, %for.cond.preheader.i
+for.end.i:                                        ; preds = %for.body.i, %if.then.i
   %inc16.i = add i32 %conv4.i, 1
   br label %if.end.i
 
@@ -11346,15 +11346,15 @@ entry:
   %div.i = udiv i64 %4, %conv3.i
   %conv4.i = trunc i64 %div.i to i32
   %rem.i = urem i64 %4, %conv3.i
-  %conv7.i = trunc nuw nsw i64 %rem.i to i32
-  %tobool.not.i = icmp eq i32 %conv7.i, 0
-  br i1 %tobool.not.i, label %if.end.i, label %for.cond.preheader.i
+  %tobool.not.i = icmp eq i64 %rem.i, 0
+  br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
-for.cond.preheader.i:                             ; preds = %entry
+if.then.i:                                        ; preds = %entry
+  %conv7.i = trunc nuw nsw i64 %rem.i to i32
   %cmp42.i = icmp ugt i32 %shr.i, %conv7.i
   br i1 %cmp42.i, label %for.body.lr.ph.i, label %for.end.i
 
-for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
+for.body.lr.ph.i:                                 ; preds = %if.then.i
   %mul.i = mul i32 %conv4.i, %shr.i
   %5 = getelementptr i8, ptr %env, i64 5056
   %6 = getelementptr i8, ptr %env, i64 5064
@@ -11383,7 +11383,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %cmp.i = icmp ult i64 %indvars.iv.next, %7
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !18
 
-for.end.i:                                        ; preds = %for.body.i, %for.cond.preheader.i
+for.end.i:                                        ; preds = %for.body.i, %if.then.i
   %inc16.i = add i32 %conv4.i, 1
   br label %if.end.i
 
@@ -11455,15 +11455,15 @@ entry:
   %div.i = udiv i64 %4, %conv3.i
   %conv4.i = trunc i64 %div.i to i32
   %rem.i = urem i64 %4, %conv3.i
-  %conv7.i = trunc nuw nsw i64 %rem.i to i32
-  %tobool.not.i = icmp eq i32 %conv7.i, 0
-  br i1 %tobool.not.i, label %if.end.i, label %for.cond.preheader.i
+  %tobool.not.i = icmp eq i64 %rem.i, 0
+  br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
-for.cond.preheader.i:                             ; preds = %entry
+if.then.i:                                        ; preds = %entry
+  %conv7.i = trunc nuw nsw i64 %rem.i to i32
   %cmp42.i = icmp ugt i32 %shr.i, %conv7.i
   br i1 %cmp42.i, label %for.body.lr.ph.i, label %for.end.i
 
-for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
+for.body.lr.ph.i:                                 ; preds = %if.then.i
   %mul.i = mul i32 %conv4.i, %shr.i
   %5 = getelementptr i8, ptr %env, i64 5056
   %6 = getelementptr i8, ptr %env, i64 5064
@@ -11492,7 +11492,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %cmp.i = icmp ult i64 %indvars.iv.next, %7
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !18
 
-for.end.i:                                        ; preds = %for.body.i, %for.cond.preheader.i
+for.end.i:                                        ; preds = %for.body.i, %if.then.i
   %inc16.i = add i32 %conv4.i, 1
   br label %if.end.i
 
@@ -11564,15 +11564,15 @@ entry:
   %div.i = udiv i64 %4, %conv3.i
   %conv4.i = trunc i64 %div.i to i32
   %rem.i = urem i64 %4, %conv3.i
-  %conv7.i = trunc nuw nsw i64 %rem.i to i32
-  %tobool.not.i = icmp eq i32 %conv7.i, 0
-  br i1 %tobool.not.i, label %if.end.i, label %for.cond.preheader.i
+  %tobool.not.i = icmp eq i64 %rem.i, 0
+  br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
-for.cond.preheader.i:                             ; preds = %entry
+if.then.i:                                        ; preds = %entry
+  %conv7.i = trunc nuw nsw i64 %rem.i to i32
   %cmp42.i = icmp ugt i32 %shr.i, %conv7.i
   br i1 %cmp42.i, label %for.body.lr.ph.i, label %for.end.i
 
-for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
+for.body.lr.ph.i:                                 ; preds = %if.then.i
   %mul.i = mul i32 %conv4.i, %shr.i
   %5 = getelementptr i8, ptr %env, i64 5056
   %6 = getelementptr i8, ptr %env, i64 5064
@@ -11601,7 +11601,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %cmp.i = icmp ult i64 %indvars.iv.next, %7
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !18
 
-for.end.i:                                        ; preds = %for.body.i, %for.cond.preheader.i
+for.end.i:                                        ; preds = %for.body.i, %if.then.i
   %inc16.i = add i32 %conv4.i, 1
   br label %if.end.i
 
@@ -11673,15 +11673,15 @@ entry:
   %div.i = udiv i64 %4, %conv3.i
   %conv4.i = trunc i64 %div.i to i32
   %rem.i = urem i64 %4, %conv3.i
-  %conv7.i = trunc nuw nsw i64 %rem.i to i32
-  %tobool.not.i = icmp eq i32 %conv7.i, 0
-  br i1 %tobool.not.i, label %if.end.i, label %for.cond.preheader.i
+  %tobool.not.i = icmp eq i64 %rem.i, 0
+  br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
-for.cond.preheader.i:                             ; preds = %entry
+if.then.i:                                        ; preds = %entry
+  %conv7.i = trunc nuw nsw i64 %rem.i to i32
   %cmp42.i = icmp ugt i32 %shr.i, %conv7.i
   br i1 %cmp42.i, label %for.body.lr.ph.i, label %for.end.i
 
-for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
+for.body.lr.ph.i:                                 ; preds = %if.then.i
   %mul.i = mul i32 %conv4.i, %shr.i
   %5 = getelementptr i8, ptr %env, i64 5056
   %6 = getelementptr i8, ptr %env, i64 5064
@@ -11710,7 +11710,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %cmp.i = icmp ult i64 %indvars.iv.next, %7
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !18
 
-for.end.i:                                        ; preds = %for.body.i, %for.cond.preheader.i
+for.end.i:                                        ; preds = %for.body.i, %if.then.i
   %inc16.i = add i32 %conv4.i, 1
   br label %if.end.i
 

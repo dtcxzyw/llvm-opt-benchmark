@@ -369,7 +369,7 @@ define void @_Z5ltrimPc(ptr noundef %0) local_unnamed_addr #9 {
 
 .critedge:                                        ; preds = %.lr.ph
   %11 = trunc nuw nsw i64 %indvars.iv to i32
-  %.not22 = icmp eq i32 %11, 0
+  %.not22 = icmp eq i64 %indvars.iv, 0
   br i1 %.not22, label %.critedge.thread, label %.preheader
 
 .preheader:                                       ; preds = %7, %.critedge
@@ -444,7 +444,7 @@ define void @_Z4trimPc(ptr noundef %0) local_unnamed_addr #9 {
 
 .critedge.i:                                      ; preds = %.lr.ph.i
   %11 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %.not22.i = icmp eq i32 %11, 0
+  %.not22.i = icmp eq i64 %indvars.iv.i, 0
   br i1 %.not22.i, label %25, label %.preheader.i
 
 .preheader.i:                                     ; preds = %7, %.critedge.i

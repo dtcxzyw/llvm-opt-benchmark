@@ -38,7 +38,7 @@ define range(i32 -1, -2147483648) i32 @Fxu_Select(ptr noundef %0, ptr nocapture 
 
 19:                                               ; preds = %13
   %20 = trunc nuw nsw i64 %indvars.iv to i32
-  %.not124 = icmp eq i32 %20, 0
+  %.not124 = icmp eq i64 %indvars.iv, 0
   br i1 %.not124, label %.preheader107, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18, %19
@@ -89,7 +89,7 @@ define range(i32 -1, -2147483648) i32 @Fxu_Select(ptr noundef %0, ptr nocapture 
 
 35:                                               ; preds = %29
   %36 = trunc nuw nsw i64 %indvars.iv135 to i32
-  %.not125 = icmp eq i32 %36, 0
+  %.not125 = icmp eq i64 %indvars.iv135, 0
   br i1 %.not125, label %.preheader106, label %.lr.ph112
 
 .lr.ph112:                                        ; preds = %34, %35

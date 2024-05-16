@@ -36401,7 +36401,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt3v106detail18write_int_noinlineIcNS0_8
   br i1 %32, label %33, label %97
 
 33:                                               ; preds = %16
-  %.not155 = icmp eq i32 %.sroa.258.0.extract.trunc, 0
+  %.not155 = icmp ult i64 %1, 4294967296
   br i1 %.not155, label %.loopexit, label %34
 
 34:                                               ; preds = %33
@@ -36488,7 +36488,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit: ; preds = %3
   br label %_ZN3fmt3v106detail14format_decimalIcjEENS1_21format_decimal_resultIPT_EES5_T0_i.exit.i.i
 
 _ZN3fmt3v106detail14format_decimalIcjEENS1_21format_decimal_resultIPT_EES5_T0_i.exit.i.i: ; preds = %68, %64
-  %.not17.i.i.i.i.i = icmp eq i32 %26, 0
+  %.not17.i.i.i.i.i = icmp ult i64 %24, 4294967296
   br i1 %.not17.i.i.i.i.i, label %_ZZN3fmt3v106detail9write_intIcNS0_8appenderEjEET0_S4_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEENKUlS3_E_clES3_.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN3fmt3v106detail14format_decimalIcjEENS1_21format_decimal_resultIPT_EES5_T0_i.exit.i.i
@@ -36599,7 +36599,7 @@ _ZN3fmt3v106detail14write_int_dataIcEC2EijRKNS0_12format_specsIcEE.exit: ; preds
 
 126:                                              ; preds = %120
   %127 = select i1 %121, i32 22576, i32 30768
-  %.not.i = icmp eq i32 %.sroa.258.0.extract.trunc, 0
+  %.not.i = icmp ult i64 %1, 4294967296
   %128 = shl nuw nsw i32 %127, 8
   %129 = select i1 %.not.i, i32 %127, i32 %128
   %130 = or i32 %129, %.sroa.258.0.extract.trunc
@@ -36825,7 +36825,7 @@ _ZN3fmt3v106detail14write_int_dataIcEC2EijRKNS0_12format_specsIcEE.exit174: ; pr
 234:                                              ; preds = %230
   %235 = icmp eq i8 %15, 6
   %236 = select i1 %235, i32 16944, i32 25136
-  %.not.i175 = icmp eq i32 %.sroa.258.0.extract.trunc, 0
+  %.not.i175 = icmp ult i64 %1, 4294967296
   %237 = shl nuw nsw i32 %236, 8
   %238 = select i1 %.not.i175, i32 %236, i32 %237
   %239 = or i32 %238, %.sroa.258.0.extract.trunc
@@ -37057,7 +37057,7 @@ _ZN3fmt3v106detail14write_int_dataIcEC2EijRKNS0_12format_specsIcEE.exit198: ; pr
   br i1 %or.cond, label %348, label %._crit_edge
 
 348:                                              ; preds = %345
-  %.not.i199 = icmp eq i32 %.sroa.258.0.extract.trunc, 0
+  %.not.i199 = icmp ult i64 %1, 4294967296
   %349 = select i1 %.not.i199, i32 48, i32 12288
   %350 = or i32 %349, %.sroa.258.0.extract.trunc
   %351 = add i32 %350, 16777216

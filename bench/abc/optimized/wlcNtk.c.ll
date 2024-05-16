@@ -5349,7 +5349,7 @@ Wlc_NtkCountRealPis.exit:                         ; preds = %.lr.ph.i.i805, %.cr
   %1391 = trunc nuw nsw i64 %indvars.iv894 to i32
   %1392 = urem i32 %1391, 6
   %1393 = icmp eq i32 %1392, 5
-  %1394 = icmp ne i32 %1386, 0
+  %1394 = icmp ugt i64 %1384, 4398046511103
   %or.cond = select i1 %1393, i1 %1394, i1 false
   br i1 %or.cond, label %1398, label %1395
 
@@ -5391,7 +5391,7 @@ Wlc_NtkCountRealPis.exit:                         ; preds = %.lr.ph.i.i805, %.cr
   br label %1417
 
 1417:                                             ; preds = %1412, %1402
-  %.not346 = icmp eq i32 %1386, 0
+  %.not346 = icmp ult i64 %1384, 4398046511104
   br i1 %.not346, label %1423, label %1418
 
 1418:                                             ; preds = %1417

@@ -2677,7 +2677,7 @@ _ZN12regex_syntax3hir9translate11TranslatorI21ast_literal_to_scalar17hec5dd475a9
   br i1 %.0.i.i264, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hc957d5cdc84fe9e6E.exit.i", label %483
 
 483:                                              ; preds = %480
-  %484 = icmp ult i32 %.sroa.313.0.extract.trunc, 128
+  %484 = icmp ult i64 %.sroa.8.0577.ph, 549755813888
   br i1 %484, label %489, label %611
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17hc957d5cdc84fe9e6E.exit.i": ; preds = %480

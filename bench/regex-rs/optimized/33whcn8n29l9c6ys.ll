@@ -1657,7 +1657,7 @@ default.unreachable669:                           ; preds = %189
 
 57:                                               ; preds = %48
   %58 = trunc nuw nsw i64 %55 to i32
-  %59 = icmp ugt i32 %58, 2097152
+  %59 = icmp ugt i64 %55, 2097152
   br i1 %59, label %87, label %60
 
 60:                                               ; preds = %57
@@ -1707,7 +1707,7 @@ _ZN14regex_automata3dfa7onepass3DFA20set_pattern_epsilons17hd7653d042860e1b5E.ex
 
 85:                                               ; preds = %76, %_ZN14regex_automata3dfa7onepass3DFA20set_pattern_epsilons17hd7653d042860e1b5E.exit.i
   store i32 %58, ptr %16, align 4
-  %86 = icmp eq i32 %58, 0
+  %86 = icmp eq i64 %55, 0
   br i1 %86, label %90, label %89
 
 87:                                               ; preds = %84, %48, %57
@@ -2761,7 +2761,7 @@ define internal fastcc void @_ZN14regex_automata3dfa7onepass15InternalBuilder27a
 
 20:                                               ; preds = %11
   %21 = trunc nuw nsw i64 %18 to i32
-  %22 = icmp ugt i32 %21, 2097152
+  %22 = icmp ugt i64 %18, 2097152
   br i1 %22, label %68, label %23
 
 23:                                               ; preds = %20

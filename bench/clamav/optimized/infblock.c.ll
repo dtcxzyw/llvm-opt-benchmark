@@ -2423,12 +2423,12 @@ define internal fastcc range(i32 -5, 1) i32 @huft_build(ptr nocapture noundef re
   %95 = sext i32 %.1182289 to i64
   br label %.lr.ph260
 
-.lr.ph260:                                        ; preds = %.lr.ph260.preheader, %140
-  %indvars.iv337 = phi i64 [ %95, %.lr.ph260.preheader ], [ %indvars.iv.next338, %140 ]
-  %indvars.iv334 = phi i32 [ %94, %.lr.ph260.preheader ], [ %indvars.iv.next335, %140 ]
-  %96 = phi i32 [ %91, %.lr.ph260.preheader ], [ %141, %140 ]
-  %.2156259 = phi i32 [ %.1155294, %.lr.ph260.preheader ], [ %96, %140 ]
-  %.sroa.8.2258 = phi i16 [ %.sroa.8.1293, %.lr.ph260.preheader ], [ %.sroa.8.3, %140 ]
+.lr.ph260:                                        ; preds = %.lr.ph260.preheader, %139
+  %indvars.iv337 = phi i64 [ %95, %.lr.ph260.preheader ], [ %indvars.iv.next338, %139 ]
+  %indvars.iv334 = phi i32 [ %94, %.lr.ph260.preheader ], [ %indvars.iv.next335, %139 ]
+  %96 = phi i32 [ %91, %.lr.ph260.preheader ], [ %140, %139 ]
+  %.2156259 = phi i32 [ %.1155294, %.lr.ph260.preheader ], [ %96, %139 ]
+  %.sroa.8.2258 = phi i16 [ %.sroa.8.1293, %.lr.ph260.preheader ], [ %.sroa.8.3, %139 ]
   %umin336 = tail call i32 @llvm.umin.i32(i32 %spec.select218, i32 %indvars.iv334)
   %indvars.iv.next338 = add nsw i64 %indvars.iv337, 1
   %97 = sub nsw i32 %.1175.lcssa, %96
@@ -2479,52 +2479,55 @@ define internal fastcc range(i32 -5, 1) i32 @huft_build(ptr nocapture noundef re
   %122 = getelementptr inbounds [15 x ptr], ptr %11, i64 0, i64 %indvars.iv.next338
   store ptr %121, ptr %122, align 8
   store i32 %117, ptr %8, align 4
-  %123 = trunc nsw i64 %indvars.iv.next338 to i32
-  %.not217 = icmp eq i32 %123, 0
-  br i1 %.not217, label %139, label %124
+  %.not217 = icmp eq i64 %indvars.iv.next338, 0
+  br i1 %.not217, label %138, label %123
 
-124:                                              ; preds = %119
-  %125 = getelementptr inbounds [16 x i32], ptr %12, i64 0, i64 %indvars.iv.next338
-  store i32 %.5179290, ptr %125, align 4
-  %126 = trunc i32 %.4171 to i8
-  %127 = lshr i32 %.5179290, %.2156259
-  %128 = getelementptr inbounds [15 x ptr], ptr %11, i64 0, i64 %indvars.iv337
-  %129 = load ptr, ptr %128, align 8
-  %130 = ptrtoint ptr %121 to i64
-  %131 = ptrtoint ptr %129 to i64
-  %132 = sub i64 %130, %131
-  %133 = zext i32 %127 to i64
-  %134 = trunc i64 %132 to i32
-  %135 = lshr i32 %134, 2
-  %136 = sub i32 %135, %127
-  %137 = trunc i32 %136 to i16
-  %138 = getelementptr inbounds %struct.inflate_huft_s, ptr %129, i64 %133
-  store i8 %126, ptr %138, align 2
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %138, i64 1
+123:                                              ; preds = %119
+  %124 = getelementptr inbounds [16 x i32], ptr %12, i64 0, i64 %indvars.iv.next338
+  store i32 %.5179290, ptr %124, align 4
+  %125 = trunc i32 %.4171 to i8
+  %126 = lshr i32 %.5179290, %.2156259
+  %127 = getelementptr inbounds [15 x ptr], ptr %11, i64 0, i64 %indvars.iv337
+  %128 = load ptr, ptr %127, align 8
+  %129 = ptrtoint ptr %121 to i64
+  %130 = ptrtoint ptr %128 to i64
+  %131 = sub i64 %129, %130
+  %132 = zext i32 %126 to i64
+  %133 = trunc i64 %131 to i32
+  %134 = lshr i32 %133, 2
+  %135 = sub i32 %134, %126
+  %136 = trunc i32 %135 to i16
+  %137 = getelementptr inbounds %struct.inflate_huft_s, ptr %128, i64 %132
+  store i8 %125, ptr %137, align 2
+  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %137, i64 1
   store i8 %77, ptr %.sroa.6.0..sroa_idx, align 1
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %138, i64 2
-  store i16 %137, ptr %.sroa.8.0..sroa_idx, align 2
-  br label %140
+  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %137, i64 2
+  store i16 %136, ptr %.sroa.8.0..sroa_idx, align 2
+  br label %139
 
-139:                                              ; preds = %119
+138:                                              ; preds = %119
   store ptr %121, ptr %5, align 8
-  br label %140
+  br label %139
 
-140:                                              ; preds = %139, %124
-  %.sroa.8.3 = phi i16 [ %137, %124 ], [ %.sroa.8.2258, %139 ]
-  %141 = add nsw i32 %96, %spec.select218
-  %142 = sext i32 %141 to i64
-  %143 = icmp sgt i64 %indvars.iv342, %142
+139:                                              ; preds = %138, %123
+  %.sroa.8.3 = phi i16 [ %136, %123 ], [ %.sroa.8.2258, %138 ]
+  %140 = add nsw i32 %96, %spec.select218
+  %141 = sext i32 %140 to i64
+  %142 = icmp sgt i64 %indvars.iv342, %141
   %indvars.iv.next335 = sub i32 %indvars.iv334, %spec.select218
-  br i1 %143, label %.lr.ph260, label %._crit_edge261
+  br i1 %142, label %.lr.ph260, label %._crit_edge261.loopexit
 
-._crit_edge261:                                   ; preds = %140, %.preheader221.._crit_edge261_crit_edge
-  %.pre-phi349 = phi i32 [ %.pre348, %.preheader221.._crit_edge261_crit_edge ], [ %99, %140 ]
-  %.2183.lcssa = phi i32 [ %.1182289, %.preheader221.._crit_edge261_crit_edge ], [ %123, %140 ]
-  %.2159.lcssa = phi ptr [ %.1158292, %.preheader221.._crit_edge261_crit_edge ], [ %121, %140 ]
-  %.sroa.8.2.lcssa = phi i16 [ %.sroa.8.1293, %.preheader221.._crit_edge261_crit_edge ], [ %.sroa.8.3, %140 ]
-  %.2156.lcssa = phi i32 [ %.1155294, %.preheader221.._crit_edge261_crit_edge ], [ %96, %140 ]
-  %.2.lcssa = phi i32 [ %.1295, %.preheader221.._crit_edge261_crit_edge ], [ %115, %140 ]
+._crit_edge261.loopexit:                          ; preds = %139
+  %143 = trunc nsw i64 %indvars.iv.next338 to i32
+  br label %._crit_edge261
+
+._crit_edge261:                                   ; preds = %._crit_edge261.loopexit, %.preheader221.._crit_edge261_crit_edge
+  %.pre-phi349 = phi i32 [ %.pre348, %.preheader221.._crit_edge261_crit_edge ], [ %99, %._crit_edge261.loopexit ]
+  %.2183.lcssa = phi i32 [ %.1182289, %.preheader221.._crit_edge261_crit_edge ], [ %143, %._crit_edge261.loopexit ]
+  %.2159.lcssa = phi ptr [ %.1158292, %.preheader221.._crit_edge261_crit_edge ], [ %121, %._crit_edge261.loopexit ]
+  %.sroa.8.2.lcssa = phi i16 [ %.sroa.8.1293, %.preheader221.._crit_edge261_crit_edge ], [ %.sroa.8.3, %._crit_edge261.loopexit ]
+  %.2156.lcssa = phi i32 [ %.1155294, %.preheader221.._crit_edge261_crit_edge ], [ %96, %._crit_edge261.loopexit ]
+  %.2.lcssa = phi i32 [ %.1295, %.preheader221.._crit_edge261_crit_edge ], [ %115, %._crit_edge261.loopexit ]
   %144 = trunc i32 %.pre-phi349 to i8
   %.not214 = icmp ult ptr %.5291, %79
   br i1 %.not214, label %145, label %163

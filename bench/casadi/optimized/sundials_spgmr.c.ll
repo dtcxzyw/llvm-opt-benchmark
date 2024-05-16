@@ -6,13 +6,13 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @SpgmrMalloc(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp slt i32 %0, 1
-  br i1 %3, label %63, label %4
+  br i1 %3, label %62, label %4
 
 4:                                                ; preds = %2
   %5 = add nuw i32 %0, 1
   %6 = tail call ptr @N_VCloneVectorArray(i32 noundef %5, ptr noundef %1) #6
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %63, label %8
+  br i1 %7, label %62, label %8
 
 8:                                                ; preds = %4
   %9 = zext i32 %5 to i64
@@ -28,20 +28,19 @@ define noalias noundef ptr @SpgmrMalloc(i32 noundef %0, ptr noundef %1) local_un
 
 15:                                               ; preds = %8
   tail call void @N_VDestroyVectorArray(ptr noundef nonnull %6, i32 noundef %5) #6
-  br label %63
+  br label %62
 
-16:                                               ; preds = %.lr.ph, %23
-  %indvars.iv164 = phi i32 [ 0, %.lr.ph ], [ %indvars.iv.next165, %23 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
+16:                                               ; preds = %.lr.ph, %22
+  %indvars.iv164 = phi i32 [ 0, %.lr.ph ], [ %indvars.iv.next165, %22 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
   %17 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv
   %18 = tail call noalias ptr @malloc(i64 noundef %14) #7
   store ptr %18, ptr %17, align 8
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %.preheader127, label %23
+  br i1 %19, label %.preheader127, label %22
 
 .preheader127:                                    ; preds = %16
-  %20 = and i64 %indvars.iv, 4294967295
-  %.not = icmp eq i64 %20, 0
+  %.not = icmp eq i64 %indvars.iv, 0
   br i1 %.not, label %._crit_edge134, label %.lr.ph133.preheader
 
 .lr.ph133.preheader:                              ; preds = %.preheader127
@@ -50,10 +49,10 @@ define noalias noundef ptr @SpgmrMalloc(i32 noundef %0, ptr noundef %1) local_un
 
 .lr.ph133:                                        ; preds = %.lr.ph133.preheader, %.lr.ph133
   %indvars.iv161 = phi i64 [ 0, %.lr.ph133.preheader ], [ %indvars.iv.next162, %.lr.ph133 ]
-  %21 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv161
-  %22 = load ptr, ptr %21, align 8
-  tail call void @free(ptr noundef %22) #6
-  store ptr null, ptr %21, align 8
+  %20 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv161
+  %21 = load ptr, ptr %20, align 8
+  tail call void @free(ptr noundef %21) #6
+  store ptr null, ptr %20, align 8
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
   %exitcond168.not = icmp eq i64 %indvars.iv.next162, %wide.trip.count167
   br i1 %exitcond168.not, label %._crit_edge134, label %.lr.ph133, !llvm.loop !4
@@ -61,33 +60,33 @@ define noalias noundef ptr @SpgmrMalloc(i32 noundef %0, ptr noundef %1) local_un
 ._crit_edge134:                                   ; preds = %.lr.ph133, %.preheader127
   tail call void @free(ptr noundef nonnull %11) #6
   tail call void @N_VDestroyVectorArray(ptr noundef nonnull %6, i32 noundef %5) #6
-  br label %63
+  br label %62
 
-23:                                               ; preds = %16
+22:                                               ; preds = %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %9
   %indvars.iv.next165 = add nuw i32 %indvars.iv164, 1
   br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %23
-  %24 = shl nuw nsw i32 %0, 1
-  %25 = zext nneg i32 %24 to i64
-  %26 = shl nuw nsw i64 %25, 3
-  %27 = tail call noalias ptr @malloc(i64 noundef %26) #7
-  %28 = icmp eq ptr %27, null
-  br i1 %28, label %.lr.ph157.preheader, label %32
+._crit_edge:                                      ; preds = %22
+  %23 = shl nuw nsw i32 %0, 1
+  %24 = zext nneg i32 %23 to i64
+  %25 = shl nuw nsw i64 %24, 3
+  %26 = tail call noalias ptr @malloc(i64 noundef %25) #7
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %.lr.ph157.preheader, label %31
 
 .lr.ph157.preheader:                              ; preds = %._crit_edge
-  %29 = add nuw i32 %0, 1
-  %wide.trip.count196 = zext i32 %29 to i64
+  %28 = add nuw i32 %0, 1
+  %wide.trip.count196 = zext i32 %28 to i64
   br label %.lr.ph157
 
 .lr.ph157:                                        ; preds = %.lr.ph157.preheader, %.lr.ph157
   %indvars.iv192 = phi i64 [ 0, %.lr.ph157.preheader ], [ %indvars.iv.next193, %.lr.ph157 ]
-  %30 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv192
-  %31 = load ptr, ptr %30, align 8
-  tail call void @free(ptr noundef %31) #6
-  store ptr null, ptr %30, align 8
+  %29 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv192
+  %30 = load ptr, ptr %29, align 8
+  tail call void @free(ptr noundef %30) #6
+  store ptr null, ptr %29, align 8
   %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 1
   %exitcond197.not = icmp eq i64 %indvars.iv.next193, %wide.trip.count196
   br i1 %exitcond197.not, label %._crit_edge158, label %.lr.ph157, !llvm.loop !7
@@ -95,25 +94,25 @@ define noalias noundef ptr @SpgmrMalloc(i32 noundef %0, ptr noundef %1) local_un
 ._crit_edge158:                                   ; preds = %.lr.ph157
   tail call void @free(ptr noundef nonnull %11) #6
   tail call void @N_VDestroyVectorArray(ptr noundef nonnull %6, i32 noundef %5) #6
-  br label %63
+  br label %62
 
-32:                                               ; preds = %._crit_edge
-  %33 = tail call ptr @N_VClone(ptr noundef %1) #6
-  %34 = icmp eq ptr %33, null
-  br i1 %34, label %.lr.ph153.preheader, label %38
+31:                                               ; preds = %._crit_edge
+  %32 = tail call ptr @N_VClone(ptr noundef %1) #6
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %.lr.ph153.preheader, label %37
 
-.lr.ph153.preheader:                              ; preds = %32
-  tail call void @free(ptr noundef nonnull %27) #6
-  %35 = add nuw i32 %0, 1
-  %wide.trip.count190 = zext i32 %35 to i64
+.lr.ph153.preheader:                              ; preds = %31
+  tail call void @free(ptr noundef nonnull %26) #6
+  %34 = add nuw i32 %0, 1
+  %wide.trip.count190 = zext i32 %34 to i64
   br label %.lr.ph153
 
 .lr.ph153:                                        ; preds = %.lr.ph153.preheader, %.lr.ph153
   %indvars.iv186 = phi i64 [ 0, %.lr.ph153.preheader ], [ %indvars.iv.next187, %.lr.ph153 ]
-  %36 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv186
-  %37 = load ptr, ptr %36, align 8
-  tail call void @free(ptr noundef %37) #6
-  store ptr null, ptr %36, align 8
+  %35 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv186
+  %36 = load ptr, ptr %35, align 8
+  tail call void @free(ptr noundef %36) #6
+  store ptr null, ptr %35, align 8
   %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
   %exitcond191.not = icmp eq i64 %indvars.iv.next187, %wide.trip.count190
   br i1 %exitcond191.not, label %._crit_edge154, label %.lr.ph153, !llvm.loop !8
@@ -121,26 +120,26 @@ define noalias noundef ptr @SpgmrMalloc(i32 noundef %0, ptr noundef %1) local_un
 ._crit_edge154:                                   ; preds = %.lr.ph153
   tail call void @free(ptr noundef nonnull %11) #6
   tail call void @N_VDestroyVectorArray(ptr noundef nonnull %6, i32 noundef %5) #6
-  br label %63
+  br label %62
 
-38:                                               ; preds = %32
-  %39 = tail call noalias ptr @malloc(i64 noundef %10) #7
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %.lr.ph148.preheader, label %44
+37:                                               ; preds = %31
+  %38 = tail call noalias ptr @malloc(i64 noundef %10) #7
+  %39 = icmp eq ptr %38, null
+  br i1 %39, label %.lr.ph148.preheader, label %43
 
-.lr.ph148.preheader:                              ; preds = %38
-  tail call void @N_VDestroy(ptr noundef nonnull %33) #6
-  tail call void @free(ptr noundef nonnull %27) #6
-  %41 = add nuw i32 %0, 1
-  %wide.trip.count184 = zext i32 %41 to i64
+.lr.ph148.preheader:                              ; preds = %37
+  tail call void @N_VDestroy(ptr noundef nonnull %32) #6
+  tail call void @free(ptr noundef nonnull %26) #6
+  %40 = add nuw i32 %0, 1
+  %wide.trip.count184 = zext i32 %40 to i64
   br label %.lr.ph148
 
 .lr.ph148:                                        ; preds = %.lr.ph148.preheader, %.lr.ph148
   %indvars.iv180 = phi i64 [ 0, %.lr.ph148.preheader ], [ %indvars.iv.next181, %.lr.ph148 ]
-  %42 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv180
-  %43 = load ptr, ptr %42, align 8
-  tail call void @free(ptr noundef %43) #6
-  store ptr null, ptr %42, align 8
+  %41 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv180
+  %42 = load ptr, ptr %41, align 8
+  tail call void @free(ptr noundef %42) #6
+  store ptr null, ptr %41, align 8
   %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
   %exitcond185.not = icmp eq i64 %indvars.iv.next181, %wide.trip.count184
   br i1 %exitcond185.not, label %._crit_edge149, label %.lr.ph148, !llvm.loop !9
@@ -148,27 +147,27 @@ define noalias noundef ptr @SpgmrMalloc(i32 noundef %0, ptr noundef %1) local_un
 ._crit_edge149:                                   ; preds = %.lr.ph148
   tail call void @free(ptr noundef nonnull %11) #6
   tail call void @N_VDestroyVectorArray(ptr noundef nonnull %6, i32 noundef %5) #6
-  br label %63
+  br label %62
 
-44:                                               ; preds = %38
-  %45 = tail call ptr @N_VClone(ptr noundef %1) #6
-  %46 = icmp eq ptr %45, null
-  br i1 %46, label %.lr.ph143.preheader, label %50
+43:                                               ; preds = %37
+  %44 = tail call ptr @N_VClone(ptr noundef %1) #6
+  %45 = icmp eq ptr %44, null
+  br i1 %45, label %.lr.ph143.preheader, label %49
 
-.lr.ph143.preheader:                              ; preds = %44
-  tail call void @free(ptr noundef nonnull %39) #6
-  tail call void @N_VDestroy(ptr noundef nonnull %33) #6
-  tail call void @free(ptr noundef nonnull %27) #6
-  %47 = add nuw i32 %0, 1
-  %wide.trip.count178 = zext i32 %47 to i64
+.lr.ph143.preheader:                              ; preds = %43
+  tail call void @free(ptr noundef nonnull %38) #6
+  tail call void @N_VDestroy(ptr noundef nonnull %32) #6
+  tail call void @free(ptr noundef nonnull %26) #6
+  %46 = add nuw i32 %0, 1
+  %wide.trip.count178 = zext i32 %46 to i64
   br label %.lr.ph143
 
 .lr.ph143:                                        ; preds = %.lr.ph143.preheader, %.lr.ph143
   %indvars.iv174 = phi i64 [ 0, %.lr.ph143.preheader ], [ %indvars.iv.next175, %.lr.ph143 ]
-  %48 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv174
-  %49 = load ptr, ptr %48, align 8
-  tail call void @free(ptr noundef %49) #6
-  store ptr null, ptr %48, align 8
+  %47 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv174
+  %48 = load ptr, ptr %47, align 8
+  tail call void @free(ptr noundef %48) #6
+  store ptr null, ptr %47, align 8
   %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
   %exitcond179.not = icmp eq i64 %indvars.iv.next175, %wide.trip.count178
   br i1 %exitcond179.not, label %._crit_edge144, label %.lr.ph143, !llvm.loop !10
@@ -176,28 +175,28 @@ define noalias noundef ptr @SpgmrMalloc(i32 noundef %0, ptr noundef %1) local_un
 ._crit_edge144:                                   ; preds = %.lr.ph143
   tail call void @free(ptr noundef nonnull %11) #6
   tail call void @N_VDestroyVectorArray(ptr noundef nonnull %6, i32 noundef %5) #6
-  br label %63
+  br label %62
 
-50:                                               ; preds = %44
-  %51 = tail call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #7
-  %52 = icmp eq ptr %51, null
-  br i1 %52, label %.lr.ph138.preheader, label %56
+49:                                               ; preds = %43
+  %50 = tail call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #7
+  %51 = icmp eq ptr %50, null
+  br i1 %51, label %.lr.ph138.preheader, label %55
 
-.lr.ph138.preheader:                              ; preds = %50
-  tail call void @N_VDestroy(ptr noundef nonnull %45) #6
-  tail call void @free(ptr noundef nonnull %39) #6
-  tail call void @N_VDestroy(ptr noundef nonnull %33) #6
-  tail call void @free(ptr noundef nonnull %27) #6
-  %53 = add nuw i32 %0, 1
-  %wide.trip.count172 = zext i32 %53 to i64
+.lr.ph138.preheader:                              ; preds = %49
+  tail call void @N_VDestroy(ptr noundef nonnull %44) #6
+  tail call void @free(ptr noundef nonnull %38) #6
+  tail call void @N_VDestroy(ptr noundef nonnull %32) #6
+  tail call void @free(ptr noundef nonnull %26) #6
+  %52 = add nuw i32 %0, 1
+  %wide.trip.count172 = zext i32 %52 to i64
   br label %.lr.ph138
 
 .lr.ph138:                                        ; preds = %.lr.ph138.preheader, %.lr.ph138
   %indvars.iv169 = phi i64 [ 0, %.lr.ph138.preheader ], [ %indvars.iv.next170, %.lr.ph138 ]
-  %54 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv169
-  %55 = load ptr, ptr %54, align 8
-  tail call void @free(ptr noundef %55) #6
-  store ptr null, ptr %54, align 8
+  %53 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv169
+  %54 = load ptr, ptr %53, align 8
+  tail call void @free(ptr noundef %54) #6
+  store ptr null, ptr %53, align 8
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
   %exitcond173.not = icmp eq i64 %indvars.iv.next170, %wide.trip.count172
   br i1 %exitcond173.not, label %._crit_edge139, label %.lr.ph138, !llvm.loop !11
@@ -205,26 +204,26 @@ define noalias noundef ptr @SpgmrMalloc(i32 noundef %0, ptr noundef %1) local_un
 ._crit_edge139:                                   ; preds = %.lr.ph138
   tail call void @free(ptr noundef nonnull %11) #6
   tail call void @N_VDestroyVectorArray(ptr noundef nonnull %6, i32 noundef %5) #6
-  br label %63
+  br label %62
 
-56:                                               ; preds = %50
-  store i32 %0, ptr %51, align 8
-  %57 = getelementptr inbounds i8, ptr %51, i64 8
-  store ptr %6, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %51, i64 16
-  store ptr %11, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %51, i64 24
-  store ptr %27, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %51, i64 32
-  store ptr %33, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %51, i64 40
-  store ptr %39, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %51, i64 48
-  store ptr %45, ptr %62, align 8
-  br label %63
+55:                                               ; preds = %49
+  store i32 %0, ptr %50, align 8
+  %56 = getelementptr inbounds i8, ptr %50, i64 8
+  store ptr %6, ptr %56, align 8
+  %57 = getelementptr inbounds i8, ptr %50, i64 16
+  store ptr %11, ptr %57, align 8
+  %58 = getelementptr inbounds i8, ptr %50, i64 24
+  store ptr %26, ptr %58, align 8
+  %59 = getelementptr inbounds i8, ptr %50, i64 32
+  store ptr %32, ptr %59, align 8
+  %60 = getelementptr inbounds i8, ptr %50, i64 40
+  store ptr %38, ptr %60, align 8
+  %61 = getelementptr inbounds i8, ptr %50, i64 48
+  store ptr %44, ptr %61, align 8
+  br label %62
 
-63:                                               ; preds = %4, %2, %56, %._crit_edge139, %._crit_edge144, %._crit_edge149, %._crit_edge154, %._crit_edge158, %._crit_edge134, %15
-  %.0113 = phi ptr [ null, %15 ], [ null, %._crit_edge134 ], [ null, %._crit_edge158 ], [ null, %._crit_edge154 ], [ null, %._crit_edge149 ], [ null, %._crit_edge144 ], [ null, %._crit_edge139 ], [ %51, %56 ], [ null, %2 ], [ null, %4 ]
+62:                                               ; preds = %4, %2, %55, %._crit_edge139, %._crit_edge144, %._crit_edge149, %._crit_edge154, %._crit_edge158, %._crit_edge134, %15
+  %.0113 = phi ptr [ null, %15 ], [ null, %._crit_edge134 ], [ null, %._crit_edge158 ], [ null, %._crit_edge154 ], [ null, %._crit_edge149 ], [ null, %._crit_edge144 ], [ null, %._crit_edge139 ], [ %50, %55 ], [ null, %2 ], [ null, %4 ]
   ret ptr %.0113
 }
 

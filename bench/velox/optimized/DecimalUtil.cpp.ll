@@ -354,7 +354,7 @@ _ZN8facebook5velox11DecimalUtil18getByteArrayLengthEn.exit: ; preds = %if.else.i
   %4 = tail call noundef i64 @llvm.bswap.i64(i64 %value.coerce0)
   store i64 %4, ptr %lowBig, align 8
   %conv3 = zext nneg i32 %add.i to i64
-  %cmp.not = icmp eq i32 %cast.i10.i, 0
+  %cmp.not = icmp eq i64 %3, 0
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %_ZN8facebook5velox11DecimalUtil18getByteArrayLengthEn.exit.thread, %_ZN8facebook5velox11DecimalUtil18getByteArrayLengthEn.exit

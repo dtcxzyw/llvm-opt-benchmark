@@ -1232,20 +1232,24 @@ for.inc.i:                                        ; preds = %land.lhs.true.tail.
 
 for.end.i:                                        ; preds = %land.lhs.true.tail.i
   %62 = trunc nuw nsw i64 %indvars.iv.i to i32
-  switch i32 %62, label %if.then21.i [
+  switch i32 %62, label %if.else19.i [
     i32 0, label %parse_branchname_arg.exit
     i32 1, label %if.end25.i
   ]
 
-if.then21.i:                                      ; preds = %for.end.i
+if.else19.i:                                      ; preds = %for.end.i
+  %cmp20.i = icmp ugt i64 %indvars.iv.i, 1
+  br i1 %cmp20.i, label %if.then21.i, label %if.end25.i
+
+if.then21.i:                                      ; preds = %if.else19.i
   %call22.i = call fastcc ptr @_(ptr noundef nonnull @.str.100)
   call void (ptr, ...) @die(ptr noundef %call22.i, i32 noundef %62) #16
   unreachable
 
-if.end25.i:                                       ; preds = %for.inc.i, %for.end.i, %if.end6.thread.i, %if.end6.i
-  %63 = phi ptr [ %49, %for.end.i ], [ %49, %if.end6.thread.i ], [ %48, %if.end6.i ], [ %49, %for.inc.i ]
-  %tobool27.not.i = phi i1 [ false, %for.end.i ], [ true, %if.end6.thread.i ], [ false, %if.end6.i ], [ true, %for.inc.i ]
-  %has_dash_dash.1.i = phi i32 [ %62, %for.end.i ], [ 0, %if.end6.thread.i ], [ 1, %if.end6.i ], [ 0, %for.inc.i ]
+if.end25.i:                                       ; preds = %for.inc.i, %if.else19.i, %for.end.i, %if.end6.thread.i, %if.end6.i
+  %63 = phi ptr [ %49, %if.else19.i ], [ %49, %for.end.i ], [ %49, %if.end6.thread.i ], [ %48, %if.end6.i ], [ %49, %for.inc.i ]
+  %tobool27.not.i = phi i1 [ true, %if.else19.i ], [ false, %for.end.i ], [ true, %if.end6.thread.i ], [ false, %if.end6.i ], [ true, %for.inc.i ]
+  %has_dash_dash.1.i = phi i32 [ 0, %if.else19.i ], [ %62, %for.end.i ], [ 0, %if.end6.thread.i ], [ 1, %if.end6.i ], [ 0, %for.inc.i ]
   %quiet.i = getelementptr inbounds i8, ptr %opts, i64 4
   %64 = load i32, ptr %quiet.i, align 4
   %65 = or i32 %64, %has_dash_dash.1.i

@@ -3595,13 +3595,13 @@ _ZN14regex_automata4util8alphabet12ByteClassSet9set_range17h80899899759d6f5dE.ex
 .thread.i:                                        ; preds = %68, %66
   %.0.in9.i = phi i16 [ 255, %66 ], [ %.0.in.i, %68 ]
   %.07.i = phi i16 [ %64, %66 ], [ %.0.i, %68 ]
-  %74 = trunc nuw i16 %.0235.i to i8
-  %75 = trunc nuw i16 %.0.in9.i to i8
-  %.not.i24.i = icmp eq i8 %74, 0
-  br i1 %.not.i24.i, label %_ZN14regex_automata4util8alphabet12ByteClassSet9set_range17h80899899759d6f5dE.exit27.i, label %76
+  %74 = trunc nuw i16 %.0.in9.i to i8
+  %.not.i24.i = icmp eq i16 %.0235.i, 0
+  br i1 %.not.i24.i, label %_ZN14regex_automata4util8alphabet12ByteClassSet9set_range17h80899899759d6f5dE.exit27.i, label %75
 
-76:                                               ; preds = %.thread.i
-  %77 = add i8 %74, -1
+75:                                               ; preds = %.thread.i
+  %76 = trunc nuw i16 %.0235.i to i8
+  %77 = add i8 %76, -1
   %.lobit.i1.i25.i = lshr i8 %77, 7
   %78 = zext nneg i8 %.lobit.i1.i25.i to i64
   %79 = and i8 %77, 127
@@ -3613,10 +3613,10 @@ _ZN14regex_automata4util8alphabet12ByteClassSet9set_range17h80899899759d6f5dE.ex
   store i128 %84, ptr %82, align 8, !alias.scope !383
   br label %_ZN14regex_automata4util8alphabet12ByteClassSet9set_range17h80899899759d6f5dE.exit27.i
 
-_ZN14regex_automata4util8alphabet12ByteClassSet9set_range17h80899899759d6f5dE.exit27.i: ; preds = %76, %.thread.i
-  %.lobit.i.i26.i = lshr i8 %75, 7
+_ZN14regex_automata4util8alphabet12ByteClassSet9set_range17h80899899759d6f5dE.exit27.i: ; preds = %75, %.thread.i
+  %.lobit.i.i26.i = lshr i8 %74, 7
   %85 = zext nneg i8 %.lobit.i.i26.i to i64
-  %86 = and i8 %75, 127
+  %86 = and i8 %74, 127
   %87 = zext nneg i8 %86 to i128
   %88 = shl nuw i128 1, %87
   %89 = getelementptr inbounds [2 x i128], ptr %43, i64 0, i64 %85

@@ -962,12 +962,12 @@ define range(i32 -1, 1) i32 @select_g_select_nodeinfo_unpack(ptr nocapture nound
   store ptr %7, ptr %0, align 8
   %8 = zext i16 %2 to i32
   %9 = icmp ugt i16 %2, 10239
-  br i1 %9, label %10, label %35
+  br i1 %9, label %10, label %33
 
 10:                                               ; preds = %3
   %11 = call i32 @unpack32(ptr noundef nonnull %5, ptr noundef %1) #15
   %.not24 = icmp eq i32 %11, 0
-  br i1 %.not24, label %12, label %88
+  br i1 %.not24, label %12, label %83
 
 12:                                               ; preds = %10
   %13 = load i32, ptr %5, align 4
@@ -993,184 +993,174 @@ define range(i32 -1, 1) i32 @select_g_select_nodeinfo_unpack(ptr nocapture nound
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %select_get_plugin_id_pos.exit.thread.preheader, label %17, !llvm.loop !12
 
-select_get_plugin_id_pos.exit:                    ; preds = %17
-  %23 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %24 = icmp eq i32 %23, -1
-  br i1 %24, label %select_get_plugin_id_pos.exit.thread.preheader, label %70
-
-select_get_plugin_id_pos.exit.thread.preheader:   ; preds = %22, %12, %select_get_plugin_id_pos.exit
+select_get_plugin_id_pos.exit.thread.preheader:   ; preds = %22, %12
   br label %select_get_plugin_id_pos.exit.thread
 
-25:                                               ; preds = %select_get_plugin_id_pos.exit.thread
-  br i1 %26, label %select_get_plugin_id_pos.exit.thread, label %33, !llvm.loop !6
+23:                                               ; preds = %select_get_plugin_id_pos.exit.thread
+  br i1 %24, label %select_get_plugin_id_pos.exit.thread, label %31, !llvm.loop !6
 
-select_get_plugin_id_pos.exit.thread:             ; preds = %select_get_plugin_id_pos.exit.thread.preheader, %25
-  %26 = phi i1 [ false, %25 ], [ true, %select_get_plugin_id_pos.exit.thread.preheader ]
-  %indvars.iv.i27 = phi i64 [ 1, %25 ], [ 0, %select_get_plugin_id_pos.exit.thread.preheader ]
-  %27 = getelementptr inbounds [2 x %struct.plugin_id_name], ptr @plugin_ids, i64 0, i64 %indvars.iv.i27
-  %28 = load i32, ptr %27, align 16
-  %29 = icmp eq i32 %28, %13
-  br i1 %29, label %30, label %25
+select_get_plugin_id_pos.exit.thread:             ; preds = %select_get_plugin_id_pos.exit.thread.preheader, %23
+  %24 = phi i1 [ false, %23 ], [ true, %select_get_plugin_id_pos.exit.thread.preheader ]
+  %indvars.iv.i27 = phi i64 [ 1, %23 ], [ 0, %select_get_plugin_id_pos.exit.thread.preheader ]
+  %25 = getelementptr inbounds [2 x %struct.plugin_id_name], ptr @plugin_ids, i64 0, i64 %indvars.iv.i27
+  %26 = load i32, ptr %25, align 16
+  %27 = icmp eq i32 %26, %13
+  br i1 %27, label %28, label %23
 
-30:                                               ; preds = %select_get_plugin_id_pos.exit.thread
-  %31 = getelementptr inbounds i8, ptr %27, i64 8
-  %32 = load ptr, ptr %31, align 8
+28:                                               ; preds = %select_get_plugin_id_pos.exit.thread
+  %29 = getelementptr inbounds i8, ptr %25, i64 8
+  %30 = load ptr, ptr %29, align 8
   br label %.sink.split
 
-33:                                               ; preds = %25
-  %34 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.34, ptr noundef nonnull @__func__.select_plugin_id_to_string, i32 noundef %13) #15
+31:                                               ; preds = %23
+  %32 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.34, ptr noundef nonnull @__func__.select_plugin_id_to_string, i32 noundef %13) #15
   br label %.sink.split
 
-35:                                               ; preds = %3
-  %36 = icmp ugt i16 %2, 9983
-  br i1 %36, label %37, label %66
+33:                                               ; preds = %3
+  %34 = icmp ugt i16 %2, 9983
+  br i1 %34, label %35, label %62
+
+35:                                               ; preds = %33
+  %36 = call i32 @unpack32(ptr noundef nonnull %6, ptr noundef %1) #15
+  %.not = icmp eq i32 %36, 0
+  br i1 %.not, label %37, label %83
 
 37:                                               ; preds = %35
-  %38 = call i32 @unpack32(ptr noundef nonnull %6, ptr noundef %1) #15
-  %.not = icmp eq i32 %38, 0
-  br i1 %.not, label %39, label %88
+  %38 = load i32, ptr %6, align 4
+  %39 = icmp eq i32 %38, 101
+  br i1 %39, label %40, label %41
 
-39:                                               ; preds = %37
-  %40 = load i32, ptr %6, align 4
-  %41 = icmp eq i32 %40, 101
-  br i1 %41, label %42, label %43
-
-42:                                               ; preds = %39
+40:                                               ; preds = %37
   store i32 109, ptr %6, align 4
-  br label %43
+  br label %41
 
-43:                                               ; preds = %42, %39
-  %44 = phi i32 [ 109, %42 ], [ %40, %39 ]
-  %45 = load i32, ptr @select_context_cnt, align 4
-  %46 = icmp sgt i32 %45, 0
-  br i1 %46, label %.lr.ph.i30, label %select_get_plugin_id_pos.exit36.thread.preheader
+41:                                               ; preds = %40, %37
+  %42 = phi i32 [ 109, %40 ], [ %38, %37 ]
+  %43 = load i32, ptr @select_context_cnt, align 4
+  %44 = icmp sgt i32 %43, 0
+  br i1 %44, label %.lr.ph.i30, label %select_get_plugin_id_pos.exit36.thread.preheader
 
-.lr.ph.i30:                                       ; preds = %43
-  %47 = load ptr, ptr @ops, align 8
-  %wide.trip.count.i31 = zext nneg i32 %45 to i64
-  br label %48
+.lr.ph.i30:                                       ; preds = %41
+  %45 = load ptr, ptr @ops, align 8
+  %wide.trip.count.i31 = zext nneg i32 %43 to i64
+  br label %46
 
-48:                                               ; preds = %53, %.lr.ph.i30
-  %indvars.iv.i32 = phi i64 [ 0, %.lr.ph.i30 ], [ %indvars.iv.next.i33, %53 ]
-  %49 = getelementptr inbounds %struct.slurm_select_ops_t, ptr %47, i64 %indvars.iv.i32
-  %50 = load ptr, ptr %49, align 8
-  %51 = load i32, ptr %50, align 4
-  %52 = icmp eq i32 %51, %44
-  br i1 %52, label %select_get_plugin_id_pos.exit36, label %53
+46:                                               ; preds = %51, %.lr.ph.i30
+  %indvars.iv.i32 = phi i64 [ 0, %.lr.ph.i30 ], [ %indvars.iv.next.i33, %51 ]
+  %47 = getelementptr inbounds %struct.slurm_select_ops_t, ptr %45, i64 %indvars.iv.i32
+  %48 = load ptr, ptr %47, align 8
+  %49 = load i32, ptr %48, align 4
+  %50 = icmp eq i32 %49, %42
+  br i1 %50, label %select_get_plugin_id_pos.exit, label %51
 
-53:                                               ; preds = %48
+51:                                               ; preds = %46
   %indvars.iv.next.i33 = add nuw nsw i64 %indvars.iv.i32, 1
   %exitcond.not.i34 = icmp eq i64 %indvars.iv.next.i33, %wide.trip.count.i31
-  br i1 %exitcond.not.i34, label %select_get_plugin_id_pos.exit36.thread.preheader, label %48, !llvm.loop !12
+  br i1 %exitcond.not.i34, label %select_get_plugin_id_pos.exit36.thread.preheader, label %46, !llvm.loop !12
 
-select_get_plugin_id_pos.exit36:                  ; preds = %48
-  %54 = trunc nuw nsw i64 %indvars.iv.i32 to i32
-  %55 = icmp eq i32 %54, -1
-  br i1 %55, label %select_get_plugin_id_pos.exit36.thread.preheader, label %70
-
-select_get_plugin_id_pos.exit36.thread.preheader: ; preds = %53, %43, %select_get_plugin_id_pos.exit36
+select_get_plugin_id_pos.exit36.thread.preheader: ; preds = %51, %41
   br label %select_get_plugin_id_pos.exit36.thread
 
-56:                                               ; preds = %select_get_plugin_id_pos.exit36.thread
-  br i1 %57, label %select_get_plugin_id_pos.exit36.thread, label %64, !llvm.loop !6
+52:                                               ; preds = %select_get_plugin_id_pos.exit36.thread
+  br i1 %53, label %select_get_plugin_id_pos.exit36.thread, label %60, !llvm.loop !6
 
-select_get_plugin_id_pos.exit36.thread:           ; preds = %select_get_plugin_id_pos.exit36.thread.preheader, %56
-  %57 = phi i1 [ false, %56 ], [ true, %select_get_plugin_id_pos.exit36.thread.preheader ]
-  %indvars.iv.i37 = phi i64 [ 1, %56 ], [ 0, %select_get_plugin_id_pos.exit36.thread.preheader ]
-  %58 = getelementptr inbounds [2 x %struct.plugin_id_name], ptr @plugin_ids, i64 0, i64 %indvars.iv.i37
-  %59 = load i32, ptr %58, align 16
-  %60 = icmp eq i32 %59, %44
-  br i1 %60, label %61, label %56
+select_get_plugin_id_pos.exit36.thread:           ; preds = %select_get_plugin_id_pos.exit36.thread.preheader, %52
+  %53 = phi i1 [ false, %52 ], [ true, %select_get_plugin_id_pos.exit36.thread.preheader ]
+  %indvars.iv.i37 = phi i64 [ 1, %52 ], [ 0, %select_get_plugin_id_pos.exit36.thread.preheader ]
+  %54 = getelementptr inbounds [2 x %struct.plugin_id_name], ptr @plugin_ids, i64 0, i64 %indvars.iv.i37
+  %55 = load i32, ptr %54, align 16
+  %56 = icmp eq i32 %55, %42
+  br i1 %56, label %57, label %52
 
-61:                                               ; preds = %select_get_plugin_id_pos.exit36.thread
-  %62 = getelementptr inbounds i8, ptr %58, i64 8
-  %63 = load ptr, ptr %62, align 8
+57:                                               ; preds = %select_get_plugin_id_pos.exit36.thread
+  %58 = getelementptr inbounds i8, ptr %54, i64 8
+  %59 = load ptr, ptr %58, align 8
   br label %.sink.split
 
-64:                                               ; preds = %56
-  %65 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.34, ptr noundef nonnull @__func__.select_plugin_id_to_string, i32 noundef %44) #15
+60:                                               ; preds = %52
+  %61 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.34, ptr noundef nonnull @__func__.select_plugin_id_to_string, i32 noundef %42) #15
   br label %.sink.split
 
-66:                                               ; preds = %35
-  %67 = load i32, ptr @select_context_default, align 4
-  %68 = getelementptr inbounds i8, ptr %7, i64 8
-  store i32 %67, ptr %68, align 8
-  %69 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.57, ptr noundef nonnull @__func__.select_g_select_nodeinfo_unpack, i32 noundef %8) #15
+62:                                               ; preds = %33
+  %63 = load i32, ptr @select_context_default, align 4
+  %64 = getelementptr inbounds i8, ptr %7, i64 8
+  store i32 %63, ptr %64, align 8
+  %65 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.57, ptr noundef nonnull @__func__.select_g_select_nodeinfo_unpack, i32 noundef %8) #15
   br label %.thread
 
-70:                                               ; preds = %select_get_plugin_id_pos.exit36, %select_get_plugin_id_pos.exit
-  %.sink = phi i32 [ %23, %select_get_plugin_id_pos.exit ], [ %54, %select_get_plugin_id_pos.exit36 ]
-  %71 = phi i64 [ %indvars.iv.i, %select_get_plugin_id_pos.exit ], [ %indvars.iv.i32, %select_get_plugin_id_pos.exit36 ]
-  %72 = phi ptr [ %16, %select_get_plugin_id_pos.exit ], [ %47, %select_get_plugin_id_pos.exit36 ]
-  %73 = getelementptr inbounds i8, ptr %7, i64 8
-  store i32 %.sink, ptr %73, align 8
-  %74 = and i64 %71, 4294967295
-  %75 = getelementptr inbounds %struct.slurm_select_ops_t, ptr %72, i64 %74, i32 17
-  %76 = load ptr, ptr %75, align 8
-  %77 = call i32 %76(ptr noundef nonnull %7, ptr noundef %1, i16 noundef zeroext %2) #15
-  %.not25 = icmp eq i32 %77, 0
-  br i1 %.not25, label %78, label %.thread
+select_get_plugin_id_pos.exit:                    ; preds = %46, %17
+  %indvars.iv.i32.lcssa.sink = phi i64 [ %indvars.iv.i, %17 ], [ %indvars.iv.i32, %46 ]
+  %66 = phi ptr [ %16, %17 ], [ %45, %46 ]
+  %67 = trunc nuw nsw i64 %indvars.iv.i32.lcssa.sink to i32
+  %68 = getelementptr inbounds i8, ptr %7, i64 8
+  store i32 %67, ptr %68, align 8
+  %69 = and i64 %indvars.iv.i32.lcssa.sink, 4294967295
+  %70 = getelementptr inbounds %struct.slurm_select_ops_t, ptr %66, i64 %69, i32 17
+  %71 = load ptr, ptr %70, align 8
+  %72 = call i32 %71(ptr noundef nonnull %7, ptr noundef %1, i16 noundef zeroext %2) #15
+  %.not25 = icmp eq i32 %72, 0
+  br i1 %.not25, label %73, label %.thread
 
-78:                                               ; preds = %70
-  %79 = getelementptr inbounds i8, ptr %7, i64 8
-  %80 = load i32, ptr %79, align 8
-  %81 = load i32, ptr @select_context_default, align 4
-  %.not26 = icmp eq i32 %80, %81
-  br i1 %.not26, label %101, label %82
+73:                                               ; preds = %select_get_plugin_id_pos.exit
+  %74 = getelementptr inbounds i8, ptr %7, i64 8
+  %75 = load i32, ptr %74, align 8
+  %76 = load i32, ptr @select_context_default, align 4
+  %.not26 = icmp eq i32 %75, %76
+  br i1 %.not26, label %96, label %77
 
-82:                                               ; preds = %78
-  %83 = call zeroext i1 @running_in_slurmctld() #15
-  br i1 %83, label %84, label %101
+77:                                               ; preds = %73
+  %78 = call zeroext i1 @running_in_slurmctld() #15
+  br i1 %78, label %79, label %96
 
-84:                                               ; preds = %82
-  %85 = call i32 @select_g_select_nodeinfo_free(ptr noundef nonnull %7)
-  %86 = call ptr @select_g_select_nodeinfo_alloc()
-  store ptr %86, ptr %0, align 8
-  br label %101
+79:                                               ; preds = %77
+  %80 = call i32 @select_g_select_nodeinfo_free(ptr noundef nonnull %7)
+  %81 = call ptr @select_g_select_nodeinfo_alloc()
+  store ptr %81, ptr %0, align 8
+  br label %96
 
-.thread:                                          ; preds = %70, %66
+.thread:                                          ; preds = %select_get_plugin_id_pos.exit, %62
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %7, ptr %4, align 8
-  br label %89
+  br label %84
 
-.sink.split:                                      ; preds = %64, %61, %33, %30
-  %.06.i38.sink = phi ptr [ %32, %30 ], [ null, %33 ], [ %63, %61 ], [ null, %64 ]
-  %87 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.58, ptr noundef nonnull @__func__.select_g_select_nodeinfo_unpack, ptr noundef %.06.i38.sink) #15
-  br label %88
+.sink.split:                                      ; preds = %60, %57, %31, %28
+  %.06.i38.sink = phi ptr [ %30, %28 ], [ null, %31 ], [ %59, %57 ], [ null, %60 ]
+  %82 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.58, ptr noundef nonnull @__func__.select_g_select_nodeinfo_unpack, ptr noundef %.06.i38.sink) #15
+  br label %83
 
-88:                                               ; preds = %.sink.split, %37, %10
+83:                                               ; preds = %.sink.split, %35, %10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %7, ptr %4, align 8
   %.not.i = icmp eq ptr %7, null
-  br i1 %.not.i, label %select_g_select_nodeinfo_free.exit, label %89
+  br i1 %.not.i, label %select_g_select_nodeinfo_free.exit, label %84
 
-89:                                               ; preds = %.thread, %88
-  %90 = load ptr, ptr %7, align 8
-  %.not3.i = icmp eq ptr %90, null
-  br i1 %.not3.i, label %99, label %91
+84:                                               ; preds = %.thread, %83
+  %85 = load ptr, ptr %7, align 8
+  %.not3.i = icmp eq ptr %85, null
+  br i1 %.not3.i, label %94, label %86
 
-91:                                               ; preds = %89
-  %92 = load ptr, ptr @ops, align 8
-  %93 = getelementptr inbounds i8, ptr %7, i64 8
-  %94 = load i32, ptr %93, align 8
-  %95 = zext i32 %94 to i64
-  %96 = getelementptr inbounds %struct.slurm_select_ops_t, ptr %92, i64 %95, i32 19
-  %97 = load ptr, ptr %96, align 8
-  %98 = call i32 %97(ptr noundef nonnull %90) #15
-  br label %99
+86:                                               ; preds = %84
+  %87 = load ptr, ptr @ops, align 8
+  %88 = getelementptr inbounds i8, ptr %7, i64 8
+  %89 = load i32, ptr %88, align 8
+  %90 = zext i32 %89 to i64
+  %91 = getelementptr inbounds %struct.slurm_select_ops_t, ptr %87, i64 %90, i32 19
+  %92 = load ptr, ptr %91, align 8
+  %93 = call i32 %92(ptr noundef nonnull %85) #15
+  br label %94
 
-99:                                               ; preds = %91, %89
+94:                                               ; preds = %86, %84
   call void @slurm_xfree(ptr noundef nonnull %4) #15
   br label %select_g_select_nodeinfo_free.exit
 
-select_g_select_nodeinfo_free.exit:               ; preds = %88, %99
+select_g_select_nodeinfo_free.exit:               ; preds = %83, %94
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   store ptr null, ptr %0, align 8
-  %100 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.59, ptr noundef nonnull @__func__.select_g_select_nodeinfo_unpack) #15
-  br label %101
+  %95 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.59, ptr noundef nonnull @__func__.select_g_select_nodeinfo_unpack) #15
+  br label %96
 
-101:                                              ; preds = %78, %82, %84, %select_g_select_nodeinfo_free.exit
-  %.0 = phi i32 [ -1, %select_g_select_nodeinfo_free.exit ], [ 0, %84 ], [ 0, %82 ], [ 0, %78 ]
+96:                                               ; preds = %73, %77, %79, %select_g_select_nodeinfo_free.exit
+  %.0 = phi i32 [ -1, %select_g_select_nodeinfo_free.exit ], [ 0, %79 ], [ 0, %77 ], [ 0, %73 ]
   ret i32 %.0
 }
 
@@ -1440,12 +1430,12 @@ define range(i32 -1, 1) i32 @select_g_select_jobinfo_unpack(ptr nocapture nounde
   store ptr %7, ptr %0, align 8
   %8 = zext i16 %2 to i32
   %9 = icmp ugt i16 %2, 10239
-  br i1 %9, label %10, label %35
+  br i1 %9, label %10, label %33
 
 10:                                               ; preds = %3
   %11 = call i32 @unpack32(ptr noundef nonnull %5, ptr noundef %1) #15
   %.not24 = icmp eq i32 %11, 0
-  br i1 %.not24, label %12, label %88
+  br i1 %.not24, label %12, label %83
 
 12:                                               ; preds = %10
   %13 = load i32, ptr %5, align 4
@@ -1471,184 +1461,174 @@ define range(i32 -1, 1) i32 @select_g_select_jobinfo_unpack(ptr nocapture nounde
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %select_get_plugin_id_pos.exit.thread.preheader, label %17, !llvm.loop !12
 
-select_get_plugin_id_pos.exit:                    ; preds = %17
-  %23 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %24 = icmp eq i32 %23, -1
-  br i1 %24, label %select_get_plugin_id_pos.exit.thread.preheader, label %70
-
-select_get_plugin_id_pos.exit.thread.preheader:   ; preds = %22, %12, %select_get_plugin_id_pos.exit
+select_get_plugin_id_pos.exit.thread.preheader:   ; preds = %22, %12
   br label %select_get_plugin_id_pos.exit.thread
 
-25:                                               ; preds = %select_get_plugin_id_pos.exit.thread
-  br i1 %26, label %select_get_plugin_id_pos.exit.thread, label %33, !llvm.loop !6
+23:                                               ; preds = %select_get_plugin_id_pos.exit.thread
+  br i1 %24, label %select_get_plugin_id_pos.exit.thread, label %31, !llvm.loop !6
 
-select_get_plugin_id_pos.exit.thread:             ; preds = %select_get_plugin_id_pos.exit.thread.preheader, %25
-  %26 = phi i1 [ false, %25 ], [ true, %select_get_plugin_id_pos.exit.thread.preheader ]
-  %indvars.iv.i27 = phi i64 [ 1, %25 ], [ 0, %select_get_plugin_id_pos.exit.thread.preheader ]
-  %27 = getelementptr inbounds [2 x %struct.plugin_id_name], ptr @plugin_ids, i64 0, i64 %indvars.iv.i27
-  %28 = load i32, ptr %27, align 16
-  %29 = icmp eq i32 %28, %13
-  br i1 %29, label %30, label %25
+select_get_plugin_id_pos.exit.thread:             ; preds = %select_get_plugin_id_pos.exit.thread.preheader, %23
+  %24 = phi i1 [ false, %23 ], [ true, %select_get_plugin_id_pos.exit.thread.preheader ]
+  %indvars.iv.i27 = phi i64 [ 1, %23 ], [ 0, %select_get_plugin_id_pos.exit.thread.preheader ]
+  %25 = getelementptr inbounds [2 x %struct.plugin_id_name], ptr @plugin_ids, i64 0, i64 %indvars.iv.i27
+  %26 = load i32, ptr %25, align 16
+  %27 = icmp eq i32 %26, %13
+  br i1 %27, label %28, label %23
 
-30:                                               ; preds = %select_get_plugin_id_pos.exit.thread
-  %31 = getelementptr inbounds i8, ptr %27, i64 8
-  %32 = load ptr, ptr %31, align 8
+28:                                               ; preds = %select_get_plugin_id_pos.exit.thread
+  %29 = getelementptr inbounds i8, ptr %25, i64 8
+  %30 = load ptr, ptr %29, align 8
   br label %.sink.split
 
-33:                                               ; preds = %25
-  %34 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.34, ptr noundef nonnull @__func__.select_plugin_id_to_string, i32 noundef %13) #15
+31:                                               ; preds = %23
+  %32 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.34, ptr noundef nonnull @__func__.select_plugin_id_to_string, i32 noundef %13) #15
   br label %.sink.split
 
-35:                                               ; preds = %3
-  %36 = icmp ugt i16 %2, 9983
-  br i1 %36, label %37, label %66
+33:                                               ; preds = %3
+  %34 = icmp ugt i16 %2, 9983
+  br i1 %34, label %35, label %62
+
+35:                                               ; preds = %33
+  %36 = call i32 @unpack32(ptr noundef nonnull %6, ptr noundef %1) #15
+  %.not = icmp eq i32 %36, 0
+  br i1 %.not, label %37, label %83
 
 37:                                               ; preds = %35
-  %38 = call i32 @unpack32(ptr noundef nonnull %6, ptr noundef %1) #15
-  %.not = icmp eq i32 %38, 0
-  br i1 %.not, label %39, label %88
+  %38 = load i32, ptr %6, align 4
+  %39 = icmp eq i32 %38, 101
+  br i1 %39, label %40, label %41
 
-39:                                               ; preds = %37
-  %40 = load i32, ptr %6, align 4
-  %41 = icmp eq i32 %40, 101
-  br i1 %41, label %42, label %43
-
-42:                                               ; preds = %39
+40:                                               ; preds = %37
   store i32 109, ptr %6, align 4
-  br label %43
+  br label %41
 
-43:                                               ; preds = %42, %39
-  %44 = phi i32 [ 109, %42 ], [ %40, %39 ]
-  %45 = load i32, ptr @select_context_cnt, align 4
-  %46 = icmp sgt i32 %45, 0
-  br i1 %46, label %.lr.ph.i30, label %select_get_plugin_id_pos.exit36.thread.preheader
+41:                                               ; preds = %40, %37
+  %42 = phi i32 [ 109, %40 ], [ %38, %37 ]
+  %43 = load i32, ptr @select_context_cnt, align 4
+  %44 = icmp sgt i32 %43, 0
+  br i1 %44, label %.lr.ph.i30, label %select_get_plugin_id_pos.exit36.thread.preheader
 
-.lr.ph.i30:                                       ; preds = %43
-  %47 = load ptr, ptr @ops, align 8
-  %wide.trip.count.i31 = zext nneg i32 %45 to i64
-  br label %48
+.lr.ph.i30:                                       ; preds = %41
+  %45 = load ptr, ptr @ops, align 8
+  %wide.trip.count.i31 = zext nneg i32 %43 to i64
+  br label %46
 
-48:                                               ; preds = %53, %.lr.ph.i30
-  %indvars.iv.i32 = phi i64 [ 0, %.lr.ph.i30 ], [ %indvars.iv.next.i33, %53 ]
-  %49 = getelementptr inbounds %struct.slurm_select_ops_t, ptr %47, i64 %indvars.iv.i32
-  %50 = load ptr, ptr %49, align 8
-  %51 = load i32, ptr %50, align 4
-  %52 = icmp eq i32 %51, %44
-  br i1 %52, label %select_get_plugin_id_pos.exit36, label %53
+46:                                               ; preds = %51, %.lr.ph.i30
+  %indvars.iv.i32 = phi i64 [ 0, %.lr.ph.i30 ], [ %indvars.iv.next.i33, %51 ]
+  %47 = getelementptr inbounds %struct.slurm_select_ops_t, ptr %45, i64 %indvars.iv.i32
+  %48 = load ptr, ptr %47, align 8
+  %49 = load i32, ptr %48, align 4
+  %50 = icmp eq i32 %49, %42
+  br i1 %50, label %select_get_plugin_id_pos.exit, label %51
 
-53:                                               ; preds = %48
+51:                                               ; preds = %46
   %indvars.iv.next.i33 = add nuw nsw i64 %indvars.iv.i32, 1
   %exitcond.not.i34 = icmp eq i64 %indvars.iv.next.i33, %wide.trip.count.i31
-  br i1 %exitcond.not.i34, label %select_get_plugin_id_pos.exit36.thread.preheader, label %48, !llvm.loop !12
+  br i1 %exitcond.not.i34, label %select_get_plugin_id_pos.exit36.thread.preheader, label %46, !llvm.loop !12
 
-select_get_plugin_id_pos.exit36:                  ; preds = %48
-  %54 = trunc nuw nsw i64 %indvars.iv.i32 to i32
-  %55 = icmp eq i32 %54, -1
-  br i1 %55, label %select_get_plugin_id_pos.exit36.thread.preheader, label %70
-
-select_get_plugin_id_pos.exit36.thread.preheader: ; preds = %53, %43, %select_get_plugin_id_pos.exit36
+select_get_plugin_id_pos.exit36.thread.preheader: ; preds = %51, %41
   br label %select_get_plugin_id_pos.exit36.thread
 
-56:                                               ; preds = %select_get_plugin_id_pos.exit36.thread
-  br i1 %57, label %select_get_plugin_id_pos.exit36.thread, label %64, !llvm.loop !6
+52:                                               ; preds = %select_get_plugin_id_pos.exit36.thread
+  br i1 %53, label %select_get_plugin_id_pos.exit36.thread, label %60, !llvm.loop !6
 
-select_get_plugin_id_pos.exit36.thread:           ; preds = %select_get_plugin_id_pos.exit36.thread.preheader, %56
-  %57 = phi i1 [ false, %56 ], [ true, %select_get_plugin_id_pos.exit36.thread.preheader ]
-  %indvars.iv.i37 = phi i64 [ 1, %56 ], [ 0, %select_get_plugin_id_pos.exit36.thread.preheader ]
-  %58 = getelementptr inbounds [2 x %struct.plugin_id_name], ptr @plugin_ids, i64 0, i64 %indvars.iv.i37
-  %59 = load i32, ptr %58, align 16
-  %60 = icmp eq i32 %59, %44
-  br i1 %60, label %61, label %56
+select_get_plugin_id_pos.exit36.thread:           ; preds = %select_get_plugin_id_pos.exit36.thread.preheader, %52
+  %53 = phi i1 [ false, %52 ], [ true, %select_get_plugin_id_pos.exit36.thread.preheader ]
+  %indvars.iv.i37 = phi i64 [ 1, %52 ], [ 0, %select_get_plugin_id_pos.exit36.thread.preheader ]
+  %54 = getelementptr inbounds [2 x %struct.plugin_id_name], ptr @plugin_ids, i64 0, i64 %indvars.iv.i37
+  %55 = load i32, ptr %54, align 16
+  %56 = icmp eq i32 %55, %42
+  br i1 %56, label %57, label %52
 
-61:                                               ; preds = %select_get_plugin_id_pos.exit36.thread
-  %62 = getelementptr inbounds i8, ptr %58, i64 8
-  %63 = load ptr, ptr %62, align 8
+57:                                               ; preds = %select_get_plugin_id_pos.exit36.thread
+  %58 = getelementptr inbounds i8, ptr %54, i64 8
+  %59 = load ptr, ptr %58, align 8
   br label %.sink.split
 
-64:                                               ; preds = %56
-  %65 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.34, ptr noundef nonnull @__func__.select_plugin_id_to_string, i32 noundef %44) #15
+60:                                               ; preds = %52
+  %61 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.34, ptr noundef nonnull @__func__.select_plugin_id_to_string, i32 noundef %42) #15
   br label %.sink.split
 
-66:                                               ; preds = %35
-  %67 = load i32, ptr @select_context_default, align 4
-  %68 = getelementptr inbounds i8, ptr %7, i64 8
-  store i32 %67, ptr %68, align 8
-  %69 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.57, ptr noundef nonnull @__func__.select_g_select_jobinfo_unpack, i32 noundef %8) #15
+62:                                               ; preds = %33
+  %63 = load i32, ptr @select_context_default, align 4
+  %64 = getelementptr inbounds i8, ptr %7, i64 8
+  store i32 %63, ptr %64, align 8
+  %65 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.57, ptr noundef nonnull @__func__.select_g_select_jobinfo_unpack, i32 noundef %8) #15
   br label %.thread
 
-70:                                               ; preds = %select_get_plugin_id_pos.exit36, %select_get_plugin_id_pos.exit
-  %.sink = phi i32 [ %23, %select_get_plugin_id_pos.exit ], [ %54, %select_get_plugin_id_pos.exit36 ]
-  %71 = phi i64 [ %indvars.iv.i, %select_get_plugin_id_pos.exit ], [ %indvars.iv.i32, %select_get_plugin_id_pos.exit36 ]
-  %72 = phi ptr [ %16, %select_get_plugin_id_pos.exit ], [ %47, %select_get_plugin_id_pos.exit36 ]
-  %73 = getelementptr inbounds i8, ptr %7, i64 8
-  store i32 %.sink, ptr %73, align 8
-  %74 = and i64 %71, 4294967295
-  %75 = getelementptr inbounds %struct.slurm_select_ops_t, ptr %72, i64 %74, i32 29
-  %76 = load ptr, ptr %75, align 8
-  %77 = call i32 %76(ptr noundef nonnull %7, ptr noundef %1, i16 noundef zeroext %2) #15
-  %.not25 = icmp eq i32 %77, 0
-  br i1 %.not25, label %78, label %.thread
+select_get_plugin_id_pos.exit:                    ; preds = %46, %17
+  %indvars.iv.i32.lcssa.sink = phi i64 [ %indvars.iv.i, %17 ], [ %indvars.iv.i32, %46 ]
+  %66 = phi ptr [ %16, %17 ], [ %45, %46 ]
+  %67 = trunc nuw nsw i64 %indvars.iv.i32.lcssa.sink to i32
+  %68 = getelementptr inbounds i8, ptr %7, i64 8
+  store i32 %67, ptr %68, align 8
+  %69 = and i64 %indvars.iv.i32.lcssa.sink, 4294967295
+  %70 = getelementptr inbounds %struct.slurm_select_ops_t, ptr %66, i64 %69, i32 29
+  %71 = load ptr, ptr %70, align 8
+  %72 = call i32 %71(ptr noundef nonnull %7, ptr noundef %1, i16 noundef zeroext %2) #15
+  %.not25 = icmp eq i32 %72, 0
+  br i1 %.not25, label %73, label %.thread
 
-78:                                               ; preds = %70
-  %79 = getelementptr inbounds i8, ptr %7, i64 8
-  %80 = load i32, ptr %79, align 8
-  %81 = load i32, ptr @select_context_default, align 4
-  %.not26 = icmp eq i32 %80, %81
-  br i1 %.not26, label %101, label %82
+73:                                               ; preds = %select_get_plugin_id_pos.exit
+  %74 = getelementptr inbounds i8, ptr %7, i64 8
+  %75 = load i32, ptr %74, align 8
+  %76 = load i32, ptr @select_context_default, align 4
+  %.not26 = icmp eq i32 %75, %76
+  br i1 %.not26, label %96, label %77
 
-82:                                               ; preds = %78
-  %83 = call zeroext i1 @running_in_slurmctld() #15
-  br i1 %83, label %84, label %101
+77:                                               ; preds = %73
+  %78 = call zeroext i1 @running_in_slurmctld() #15
+  br i1 %78, label %79, label %96
 
-84:                                               ; preds = %82
-  %85 = call i32 @select_g_select_jobinfo_free(ptr noundef nonnull %7)
-  %86 = call ptr @select_g_select_jobinfo_alloc()
-  store ptr %86, ptr %0, align 8
-  br label %101
+79:                                               ; preds = %77
+  %80 = call i32 @select_g_select_jobinfo_free(ptr noundef nonnull %7)
+  %81 = call ptr @select_g_select_jobinfo_alloc()
+  store ptr %81, ptr %0, align 8
+  br label %96
 
-.thread:                                          ; preds = %70, %66
+.thread:                                          ; preds = %select_get_plugin_id_pos.exit, %62
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %7, ptr %4, align 8
-  br label %89
+  br label %84
 
-.sink.split:                                      ; preds = %64, %61, %33, %30
-  %.06.i38.sink = phi ptr [ %32, %30 ], [ null, %33 ], [ %63, %61 ], [ null, %64 ]
-  %87 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.58, ptr noundef nonnull @__func__.select_g_select_jobinfo_unpack, ptr noundef %.06.i38.sink) #15
-  br label %88
+.sink.split:                                      ; preds = %60, %57, %31, %28
+  %.06.i38.sink = phi ptr [ %30, %28 ], [ null, %31 ], [ %59, %57 ], [ null, %60 ]
+  %82 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.58, ptr noundef nonnull @__func__.select_g_select_jobinfo_unpack, ptr noundef %.06.i38.sink) #15
+  br label %83
 
-88:                                               ; preds = %.sink.split, %37, %10
+83:                                               ; preds = %.sink.split, %35, %10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %7, ptr %4, align 8
   %.not.i = icmp eq ptr %7, null
-  br i1 %.not.i, label %select_g_select_jobinfo_free.exit, label %89
+  br i1 %.not.i, label %select_g_select_jobinfo_free.exit, label %84
 
-89:                                               ; preds = %.thread, %88
-  %90 = load ptr, ptr %7, align 8
-  %.not3.i = icmp eq ptr %90, null
-  br i1 %.not3.i, label %99, label %91
+84:                                               ; preds = %.thread, %83
+  %85 = load ptr, ptr %7, align 8
+  %.not3.i = icmp eq ptr %85, null
+  br i1 %.not3.i, label %94, label %86
 
-91:                                               ; preds = %89
-  %92 = load ptr, ptr @ops, align 8
-  %93 = getelementptr inbounds i8, ptr %7, i64 8
-  %94 = load i32, ptr %93, align 8
-  %95 = zext i32 %94 to i64
-  %96 = getelementptr inbounds %struct.slurm_select_ops_t, ptr %92, i64 %95, i32 24
-  %97 = load ptr, ptr %96, align 8
-  %98 = call i32 %97(ptr noundef nonnull %90) #15
-  br label %99
+86:                                               ; preds = %84
+  %87 = load ptr, ptr @ops, align 8
+  %88 = getelementptr inbounds i8, ptr %7, i64 8
+  %89 = load i32, ptr %88, align 8
+  %90 = zext i32 %89 to i64
+  %91 = getelementptr inbounds %struct.slurm_select_ops_t, ptr %87, i64 %90, i32 24
+  %92 = load ptr, ptr %91, align 8
+  %93 = call i32 %92(ptr noundef nonnull %85) #15
+  br label %94
 
-99:                                               ; preds = %91, %89
+94:                                               ; preds = %86, %84
   call void @slurm_xfree(ptr noundef nonnull %4) #15
   br label %select_g_select_jobinfo_free.exit
 
-select_g_select_jobinfo_free.exit:                ; preds = %88, %99
+select_g_select_jobinfo_free.exit:                ; preds = %83, %94
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   store ptr null, ptr %0, align 8
-  %100 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.59, ptr noundef nonnull @__func__.select_g_select_jobinfo_unpack) #15
-  br label %101
+  %95 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.59, ptr noundef nonnull @__func__.select_g_select_jobinfo_unpack) #15
+  br label %96
 
-101:                                              ; preds = %78, %82, %84, %select_g_select_jobinfo_free.exit
-  %.0 = phi i32 [ -1, %select_g_select_jobinfo_free.exit ], [ 0, %84 ], [ 0, %82 ], [ 0, %78 ]
+96:                                               ; preds = %73, %77, %79, %select_g_select_jobinfo_free.exit
+  %.0 = phi i32 [ -1, %select_g_select_jobinfo_free.exit ], [ 0, %79 ], [ 0, %77 ], [ 0, %73 ]
   ret i32 %.0
 }
 

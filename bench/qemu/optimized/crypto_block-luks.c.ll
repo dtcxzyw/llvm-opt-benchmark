@@ -1238,10 +1238,9 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
 
 qcrypto_block_luks_find_free_keyslot.exit.i:      ; preds = %for.body.i.i
   %conv.le.i.i = trunc nuw nsw i64 %i.06.i.i to i32
-  %cmp22.i = icmp eq i32 %conv.le.i.i, -1
-  br i1 %cmp22.i, label %if.then24.i, label %if.end26.i
+  br label %if.end26.i
 
-if.then24.i:                                      ; preds = %for.inc.i.i, %qcrypto_block_luks_find_free_keyslot.exit.i
+if.then24.i:                                      ; preds = %for.inc.i.i
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1623, ptr noundef nonnull @__func__.qcrypto_block_luks_amend_add_keyslot, ptr noundef nonnull @.str.44) #16
   br label %qcrypto_block_luks_amend_add_keyslot.exit
 
@@ -1491,7 +1490,7 @@ for.end.i:                                        ; preds = %for.inc.i
   %and6.i.i = and i64 %slots_to_erase_bitmap.val.i, 255
   %26 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %and6.i.i)
   %conv72.i = trunc nuw nsw i64 %26 to i32
-  %cmp73.i = icmp eq i32 %conv72.i, 0
+  %cmp73.i = icmp eq i64 %and6.i.i, 0
   br i1 %cmp73.i, label %if.then75.i, label %if.end76.i
 
 if.then75.i:                                      ; preds = %for.end.i

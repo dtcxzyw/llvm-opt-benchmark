@@ -432,7 +432,7 @@ if.end25.thread.i:                                ; preds = %if.then10.i
 if.end25.i:                                       ; preds = %if.end.i
   %14 = trunc nuw nsw i64 %indvars.iv.i to i32
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.20, i32 noundef %14) #10
-  %cmp8.i.not.i = icmp eq i32 %14, 0
+  %cmp8.i.not.i = icmp eq i64 %indvars.iv.i, 0
   br i1 %cmp8.i.not.i, label %if.then7, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.end25.i, %for.inc.i.i

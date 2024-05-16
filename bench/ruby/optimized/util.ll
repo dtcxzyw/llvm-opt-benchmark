@@ -2319,9 +2319,9 @@ ratio.exit:                                       ; preds = %763, %774, %786
   br i1 %830, label %831, label %834
 
 831:                                              ; preds = %821
-  %832 = icmp eq i32 %.sroa.0103.4.extract.trunc232, 2146435071
+  %832 = icmp eq i64 %.sroa.0103.4.extract.shift231, 2146435071
   %833 = icmp eq i64 %.sroa.0103.4.insert.mask239, 4294967295
-  %or.cond33 = and i1 %833, %832
+  %or.cond33 = and i1 %832, %833
   br i1 %or.cond33, label %279, label %872
 
 834:                                              ; preds = %821
@@ -2918,7 +2918,7 @@ Balloc.exit:                                      ; preds = %14, %35
   %.sroa.0.4.insert.insert = bitcast double %43 to i64
   %sum.shift = lshr i64 %.sroa.0.4.insert.insert, 52
   %44 = trunc nuw nsw i64 %sum.shift to i32
-  %.not = icmp eq i32 %44, 0
+  %.not = icmp ult i64 %.sroa.0.4.insert.insert, 4503599627370496
   %45 = or disjoint i32 %42, 1048576
   %spec.select = select i1 %.not, i32 %42, i32 %45
   %.sroa.0.0.extract.trunc = trunc i64 %.sroa.0.4.insert.insert to i32
@@ -4935,7 +4935,7 @@ i2b.exit656:                                      ; preds = %365, %386
   %398 = or i32 %397, %.sroa.088.0.extract.trunc131
   %399 = icmp ne i32 %398, 0
   %or.cond624.not754 = or i1 %399, %or.cond20.not592
-  %.not594 = icmp ult i32 %.sroa.088.4.extract.trunc137, 2097152
+  %.not594 = icmp ult i64 %.pre-phi, 9007199254740992
   %or.cond625 = or i1 %.not594, %or.cond624.not754
   %not.or.cond625 = xor i1 %or.cond625, true
   %400 = zext i1 %not.or.cond625 to i32
@@ -6360,75 +6360,64 @@ define hidden noundef ptr @ruby_hdtoa(double noundef %0, ptr nocapture noundef r
 
 21:                                               ; preds = %16
   %22 = bitcast double %.pre-phi to i64
-  %sum.shift = lshr i64 %22, 52
-  %23 = trunc nuw nsw i64 %sum.shift to i32
-  %.not84 = icmp eq i32 %23, 0
-  br i1 %.not84, label %26, label %24
-
-24:                                               ; preds = %21
-  %25 = add nsw i32 %23, -1022
-  br label %31
-
-26:                                               ; preds = %21
-  %27 = fmul double %.pre-phi, 0x6010000000000000
-  %28 = bitcast double %27 to i64
-  %sum.shift85 = lshr i64 %28, 52
-  %29 = trunc nuw nsw i64 %sum.shift85 to i32
-  %30 = add nsw i32 %29, -1536
-  br label %31
-
-31:                                               ; preds = %24, %26
-  %storemerge = phi i32 [ %30, %26 ], [ %25, %24 ]
-  %.sroa.0.1 = phi double [ %27, %26 ], [ %.pre-phi, %24 ]
-  store i32 %storemerge, ptr %3, align 4
+  %.not84 = icmp ult i64 %22, 4503599627370496
+  %23 = fmul double %.pre-phi, 0x6010000000000000
+  %24 = bitcast double %23 to i64
+  %.sink107 = select i1 %.not84, i64 %24, i64 %22
+  %.sink106 = select i1 %.not84, i32 -1536, i32 -1022
+  %.sroa.0.1 = select i1 %.not84, double %23, double %.pre-phi
+  %sum.shift = lshr i64 %.sink107, 52
+  %25 = trunc nuw nsw i64 %sum.shift to i32
+  %26 = add nsw i32 %.sink106, %25
+  store i32 %26, ptr %3, align 4
   %spec.store.select = tail call i32 @llvm.umax.i32(i32 %2, i32 1)
-  %32 = icmp sgt i32 %spec.store.select, 0
-  %33 = select i1 %32, i32 %spec.store.select, i32 15
-  %34 = add nuw i32 %33, 1
-  %35 = sext i32 %34 to i64
-  %36 = tail call noalias ptr @malloc(i64 noundef %35) #22
+  %27 = icmp sgt i32 %spec.store.select, 0
+  %28 = select i1 %27, i32 %spec.store.select, i32 15
+  %29 = add nuw i32 %28, 1
+  %30 = sext i32 %29 to i64
+  %31 = tail call noalias ptr @malloc(i64 noundef %30) #22
   %or.cond = icmp ult i32 %2, 15
-  br i1 %or.cond, label %37, label %._crit_edge102
+  br i1 %or.cond, label %32, label %._crit_edge102
 
-._crit_edge102:                                   ; preds = %31
+._crit_edge102:                                   ; preds = %21
   %.pre103 = bitcast double %.sroa.0.1 to i64
-  br label %51
+  br label %46
 
-37:                                               ; preds = %31
-  %38 = shl nuw nsw i32 %spec.store.select, 2
-  %39 = bitcast double %.sroa.0.1 to i64
-  %.sroa.0.4.extract.shift36 = lshr i64 %39, 32
+32:                                               ; preds = %21
+  %33 = shl nuw nsw i32 %spec.store.select, 2
+  %34 = bitcast double %.sroa.0.1 to i64
+  %.sroa.0.4.extract.shift36 = lshr i64 %34, 32
   %.sroa.0.4.extract.trunc37 = trunc nuw i64 %.sroa.0.4.extract.shift36 to i32
-  %40 = and i32 %.sroa.0.4.extract.trunc37, -2146435073
-  %41 = shl nuw nsw i32 %spec.store.select, 22
-  %42 = add nuw nsw i32 %41, 1013972992
-  %43 = or disjoint i32 %40, %42
-  %.sroa.0.4.insert.ext39 = zext i32 %43 to i64
+  %35 = and i32 %.sroa.0.4.extract.trunc37, -2146435073
+  %36 = shl nuw nsw i32 %spec.store.select, 22
+  %37 = add nuw nsw i32 %36, 1013972992
+  %38 = or disjoint i32 %35, %37
+  %.sroa.0.4.insert.ext39 = zext i32 %38 to i64
   %.sroa.0.4.insert.shift40 = shl nuw i64 %.sroa.0.4.insert.ext39, 32
-  %.sroa.0.4.insert.mask41 = and i64 %39, 4294967295
+  %.sroa.0.4.insert.mask41 = and i64 %34, 4294967295
   %.sroa.0.4.insert.insert42 = or disjoint i64 %.sroa.0.4.insert.shift40, %.sroa.0.4.insert.mask41
-  %44 = bitcast i64 %.sroa.0.4.insert.insert42 to double
-  %45 = fadd double %44, 1.000000e+00
-  %46 = fadd double %45, -1.000000e+00
-  %47 = bitcast double %46 to i64
-  %sum.shift86 = lshr i64 %47, 52
-  %48 = trunc nuw nsw i64 %sum.shift86 to i32
-  %reass.sub = sub nsw i32 %storemerge, %38
-  %49 = add nsw i32 %reass.sub, -967
-  %50 = add nsw i32 %49, %48
-  store i32 %50, ptr %3, align 4
-  br label %51
+  %39 = bitcast i64 %.sroa.0.4.insert.insert42 to double
+  %40 = fadd double %39, 1.000000e+00
+  %41 = fadd double %40, -1.000000e+00
+  %42 = bitcast double %41 to i64
+  %sum.shift86 = lshr i64 %42, 52
+  %43 = trunc nuw nsw i64 %sum.shift86 to i32
+  %reass.sub = sub nsw i32 %26, %33
+  %44 = add nsw i32 %reass.sub, -967
+  %45 = add nsw i32 %44, %43
+  store i32 %45, ptr %3, align 4
+  br label %46
 
-51:                                               ; preds = %._crit_edge102, %37
-  %.pre-phi104 = phi i64 [ %.pre103, %._crit_edge102 ], [ %47, %37 ]
-  store i8 49, ptr %36, align 1
-  %52 = zext nneg i32 %33 to i64
-  %53 = getelementptr i8, ptr %36, i64 %52
-  %.08196 = getelementptr i8, ptr %36, i64 1
-  %54 = icmp ult ptr %.08196, %53
-  br i1 %54, label %.lr.ph.preheader, label %._crit_edge
+46:                                               ; preds = %._crit_edge102, %32
+  %.pre-phi104 = phi i64 [ %.pre103, %._crit_edge102 ], [ %42, %32 ]
+  store i8 49, ptr %31, align 1
+  %47 = zext nneg i32 %28 to i64
+  %48 = getelementptr i8, ptr %31, i64 %47
+  %.08196 = getelementptr i8, ptr %31, i64 1
+  %49 = icmp ult ptr %.08196, %48
+  br i1 %49, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %51
+.lr.ph.preheader:                                 ; preds = %46
   %.sroa.0.0.extract.trunc = trunc i64 %.pre-phi104 to i32
   %.sroa.0.4.extract.shift47 = lshr i64 %.pre-phi104, 32
   %.sroa.0.4.extract.trunc48 = trunc nuw i64 %.sroa.0.4.extract.shift47 to i32
@@ -6436,47 +6425,47 @@ define hidden noundef ptr @ruby_hdtoa(double noundef %0, ptr nocapture noundef r
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.08199 = phi ptr [ %.081, %.lr.ph ], [ %.08196, %.lr.ph.preheader ]
-  %.07998 = phi i32 [ %61, %.lr.ph ], [ %.sroa.0.0.extract.trunc, %.lr.ph.preheader ]
-  %.08097 = phi i32 [ %60, %.lr.ph ], [ %.sroa.0.4.extract.trunc48, %.lr.ph.preheader ]
-  %55 = lshr i32 %.08097, 16
-  %56 = and i32 %55, 15
-  %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr i8, ptr %1, i64 %57
-  %59 = load i8, ptr %58, align 1
-  store i8 %59, ptr %.08199, align 1
-  %60 = tail call i32 @llvm.fshl.i32(i32 %.08097, i32 %.07998, i32 4)
-  %61 = shl i32 %.07998, 4
+  %.07998 = phi i32 [ %56, %.lr.ph ], [ %.sroa.0.0.extract.trunc, %.lr.ph.preheader ]
+  %.08097 = phi i32 [ %55, %.lr.ph ], [ %.sroa.0.4.extract.trunc48, %.lr.ph.preheader ]
+  %50 = lshr i32 %.08097, 16
+  %51 = and i32 %50, 15
+  %52 = zext nneg i32 %51 to i64
+  %53 = getelementptr i8, ptr %1, i64 %52
+  %54 = load i8, ptr %53, align 1
+  store i8 %54, ptr %.08199, align 1
+  %55 = tail call i32 @llvm.fshl.i32(i32 %.08097, i32 %.07998, i32 4)
+  %56 = shl i32 %.07998, 4
   %.081 = getelementptr i8, ptr %.08199, i64 1
-  %exitcond.not = icmp eq ptr %.081, %53
+  %exitcond.not = icmp eq ptr %.081, %48
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !55
 
-._crit_edge:                                      ; preds = %.lr.ph, %51
-  %62 = icmp slt i32 %spec.store.select, 0
-  br i1 %62, label %.preheader, label %.loopexit
+._crit_edge:                                      ; preds = %.lr.ph, %46
+  %57 = icmp slt i32 %spec.store.select, 0
+  br i1 %57, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %._crit_edge, %.preheader
-  %.078 = phi i32 [ %63, %.preheader ], [ 15, %._crit_edge ]
-  %63 = add i32 %.078, -1
-  %64 = sext i32 %63 to i64
-  %65 = getelementptr i8, ptr %36, i64 %64
-  %66 = load i8, ptr %65, align 1
-  %67 = icmp eq i8 %66, 48
-  br i1 %67, label %.preheader, label %.loopexit, !llvm.loop !56
+  %.078 = phi i32 [ %58, %.preheader ], [ 15, %._crit_edge ]
+  %58 = add i32 %.078, -1
+  %59 = sext i32 %58 to i64
+  %60 = getelementptr i8, ptr %31, i64 %59
+  %61 = load i8, ptr %60, align 1
+  %62 = icmp eq i8 %61, 48
+  br i1 %62, label %.preheader, label %.loopexit, !llvm.loop !56
 
 .loopexit:                                        ; preds = %.preheader, %._crit_edge
   %.1 = phi i32 [ %spec.store.select, %._crit_edge ], [ %.078, %.preheader ]
-  %68 = sext i32 %.1 to i64
-  %69 = getelementptr i8, ptr %36, i64 %68
-  store i8 0, ptr %69, align 1
+  %63 = sext i32 %.1 to i64
+  %64 = getelementptr i8, ptr %31, i64 %63
+  store i8 0, ptr %64, align 1
   %.not87 = icmp eq ptr %5, null
-  br i1 %.not87, label %nrv_alloc.exit, label %70
+  br i1 %.not87, label %nrv_alloc.exit, label %65
 
-70:                                               ; preds = %.loopexit
-  store ptr %69, ptr %5, align 8
+65:                                               ; preds = %.loopexit
+  store ptr %64, ptr %5, align 8
   br label %nrv_alloc.exit
 
-nrv_alloc.exit:                                   ; preds = %20, %.lr.ph.i88, %11, %._crit_edge.i, %.loopexit, %70, %14
-  %.0 = phi ptr [ %15, %14 ], [ %36, %70 ], [ %36, %.loopexit ], [ %10, %._crit_edge.i ], [ %10, %11 ], [ %18, %.lr.ph.i88 ], [ %18, %20 ]
+nrv_alloc.exit:                                   ; preds = %20, %.lr.ph.i88, %11, %._crit_edge.i, %.loopexit, %65, %14
+  %.0 = phi ptr [ %15, %14 ], [ %31, %65 ], [ %31, %.loopexit ], [ %10, %._crit_edge.i ], [ %10, %11 ], [ %18, %.lr.ph.i88 ], [ %18, %20 ]
   ret ptr %.0
 }
 

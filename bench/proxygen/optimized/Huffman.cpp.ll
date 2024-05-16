@@ -189,7 +189,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %while
   %conv20.i.i = trunc nuw i32 %sub.i.i to i8
   %not.i.i = xor i32 %shl.i.i, -1
   %and21.i.i = and i32 %code.addr.018.i.i, %not.i.i
-  %cmp.i.i = icmp ugt i8 %conv20.i.i, 8
+  %cmp.i.i = icmp ugt i32 %sub.i.i, 8
   br i1 %cmp.i.i, label %while.body.i.i, label %_ZN8proxygen7huffman8HuffTree6insertEjhh.exit.i, !llvm.loop !4
 
 _ZN8proxygen7huffman8HuffTree6insertEjhh.exit.i:  ; preds = %if.end.i.i, %for.body.i
@@ -265,7 +265,7 @@ if.end.i:                                         ; preds = %if.then.i, %while.b
   %conv20.i = trunc nuw i32 %sub.i to i8
   %not.i = xor i32 %shl.i, -1
   %and21.i = and i32 %code.addr.018.i, %not.i
-  %cmp.i = icmp ugt i8 %conv20.i, 8
+  %cmp.i = icmp ugt i32 %sub.i, 8
   br i1 %cmp.i, label %while.body.i, label %_ZN8proxygen7huffman8HuffTree6insertEjhh.exit, !llvm.loop !4
 
 _ZN8proxygen7huffman8HuffTree6insertEjhh.exit:    ; preds = %if.end.i, %for.body
@@ -373,7 +373,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %while
   %conv20.i.i = trunc nuw i32 %sub.i.i to i8
   %not.i.i = xor i32 %shl.i.i, -1
   %and21.i.i = and i32 %code.addr.018.i.i, %not.i.i
-  %cmp.i.i = icmp ugt i8 %conv20.i.i, 8
+  %cmp.i.i = icmp ugt i32 %sub.i.i, 8
   br i1 %cmp.i.i, label %while.body.i.i, label %_ZN8proxygen7huffman8HuffTree6insertEjhh.exit.i, !llvm.loop !4
 
 _ZN8proxygen7huffman8HuffTree6insertEjhh.exit.i:  ; preds = %if.end.i.i, %for.body.i
@@ -529,7 +529,7 @@ if.end:                                           ; preds = %while.body.if.end_c
   %conv20 = trunc nuw i32 %sub to i8
   %not = xor i32 %shl, -1
   %and21 = and i32 %code.addr.018, %not
-  %cmp = icmp ugt i8 %conv20, 8
+  %cmp = icmp ugt i32 %sub, 8
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !4
 
 while.end:                                        ; preds = %if.end, %entry

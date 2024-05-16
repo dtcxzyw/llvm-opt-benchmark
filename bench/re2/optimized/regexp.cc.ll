@@ -3133,7 +3133,7 @@ while.body:                                       ; preds = %land.rhs
 
 while.end:                                        ; preds = %land.rhs
   %6 = trunc nuw nsw i64 %indvars.iv to i32
-  %cmp7.not = icmp eq i32 %6, 0
+  %cmp7.not = icmp eq i64 %indvars.iv, 0
   br i1 %cmp7.not, label %return, label %if.end12
 
 if.end12:                                         ; preds = %while.end

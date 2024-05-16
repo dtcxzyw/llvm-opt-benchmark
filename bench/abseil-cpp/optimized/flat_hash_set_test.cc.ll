@@ -81741,12 +81741,12 @@ call.i.noexc:                                     ; preds = %if.then.i.i.i
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit
 
 call.i.i.i.i.noexc:                               ; preds = %call.i.noexc
-  %2 = lshr i64 %call.i.i.i.i24, 32
-  %3 = trunc nuw i64 %2 to i32
-  %or.cond.i = icmp ugt i32 %3, 1
+  %or.cond.i = icmp ugt i64 %call.i.i.i.i24, 8589934591
   br i1 %or.cond.i, label %invoke.cont, label %if.then.i.i.i, !llvm.loop !1687
 
 invoke.cont:                                      ; preds = %call.i.i.i.i.noexc
+  %2 = lshr i64 %call.i.i.i.i24, 32
+  %3 = trunc nuw i64 %2 to i32
   %cmp.not.i.i = icmp eq ptr %values.sroa.7.0206, %values.sroa.13.0205
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
@@ -88160,12 +88160,12 @@ call.i.noexc:                                     ; preds = %if.then.i.i.i
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit
 
 call.i.i.i.i.noexc:                               ; preds = %call.i.noexc
-  %0 = lshr i64 %call.i.i.i.i17, 32
-  %1 = trunc nuw i64 %0 to i32
-  %or.cond.i = icmp ugt i32 %1, 1
+  %or.cond.i = icmp ugt i64 %call.i.i.i.i17, 8589934591
   br i1 %or.cond.i, label %invoke.cont, label %if.then.i.i.i, !llvm.loop !1687
 
 invoke.cont:                                      ; preds = %call.i.i.i.i.noexc
+  %0 = lshr i64 %call.i.i.i.i17, 32
+  %1 = trunc nuw i64 %0 to i32
   %cmp.not.i.i = icmp eq ptr %values.sroa.7.0143, %values.sroa.13.0142
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
@@ -92611,12 +92611,12 @@ call.i.noexc:                                     ; preds = %if.then.i.i.i
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit
 
 call.i.i.i.i.noexc:                               ; preds = %call.i.noexc
-  %1 = lshr i64 %call.i.i.i.i20, 32
-  %2 = trunc nuw i64 %1 to i32
-  %or.cond.i = icmp ugt i32 %2, 1
+  %or.cond.i = icmp ugt i64 %call.i.i.i.i20, 8589934591
   br i1 %or.cond.i, label %invoke.cont, label %if.then.i.i.i, !llvm.loop !1687
 
 invoke.cont:                                      ; preds = %call.i.i.i.i.noexc
+  %1 = lshr i64 %call.i.i.i.i20, 32
+  %2 = trunc nuw i64 %1 to i32
   %cmp.not.i.i = icmp eq ptr %values.sroa.7.0174, %values.sroa.13.0173
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
@@ -99215,7 +99215,7 @@ entry:
   br label %if.then.i.i.i.preheader
 
 if.then.i.i.i.preheader:                          ; preds = %entry, %for.inc
-  %i.0191 = phi i64 [ 0, %entry ], [ %inc, %for.inc ]
+  %i.0190 = phi i64 [ 0, %entry ], [ %inc, %for.inc ]
   br label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i.i.preheader, %call.i.i.i.i.noexc
@@ -99227,12 +99227,12 @@ call.i.noexc:                                     ; preds = %if.then.i.i.i
           to label %call.i.i.i.i.noexc unwind label %lpad3.loopexit
 
 call.i.i.i.i.noexc:                               ; preds = %call.i.noexc
-  %5 = lshr i64 %call.i.i.i.i24, 32
-  %6 = trunc nuw i64 %5 to i32
-  %or.cond.i = icmp ugt i32 %6, 1
+  %or.cond.i = icmp ugt i64 %call.i.i.i.i24, 8589934591
   br i1 %or.cond.i, label %invoke.cont4, label %if.then.i.i.i, !llvm.loop !1687
 
 invoke.cont4:                                     ; preds = %call.i.i.i.i.noexc
+  %5 = lshr i64 %call.i.i.i.i24, 32
+  %6 = trunc nuw i64 %5 to i32
   %7 = load ptr, ptr %m, align 8, !noalias !2231
   call void @llvm.prefetch.p0(ptr %7, i32 0, i32 1, i32 1), !noalias !2231
   %add.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %5, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
@@ -99303,7 +99303,7 @@ call38.i.i.i.i.i.i.i.noexc:                       ; preds = %if.then.i.i.i.i.i.i
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body.i.i.i.i.i.i.i, %call38.i.i.i.i.i.i.i.noexc
-  %inc = add nuw nsw i64 %i.0191, 1
+  %inc = add nuw nsw i64 %i.0190, 1
   %cmp.not = icmp eq i64 %inc, 10
   br i1 %cmp.not, label %for.end, label %if.then.i.i.i.preheader, !llvm.loop !2247
 
@@ -106772,7 +106772,7 @@ entry:
   br label %if.then.i.i.i.preheader
 
 if.then.i.i.i.preheader:                          ; preds = %entry, %for.inc
-  %i.0137 = phi i64 [ 0, %entry ], [ %inc, %for.inc ]
+  %i.0136 = phi i64 [ 0, %entry ], [ %inc, %for.inc ]
   br label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i.i.preheader, %call.i.i.i.i.noexc
@@ -106784,12 +106784,12 @@ call.i.noexc:                                     ; preds = %if.then.i.i.i
           to label %call.i.i.i.i.noexc unwind label %lpad2.loopexit
 
 call.i.i.i.i.noexc:                               ; preds = %call.i.noexc
-  %5 = lshr i64 %call.i.i.i.i21, 32
-  %6 = trunc nuw i64 %5 to i32
-  %or.cond.i = icmp ugt i32 %6, 1
+  %or.cond.i = icmp ugt i64 %call.i.i.i.i21, 8589934591
   br i1 %or.cond.i, label %invoke.cont3, label %if.then.i.i.i, !llvm.loop !1687
 
 invoke.cont3:                                     ; preds = %call.i.i.i.i.noexc
+  %5 = lshr i64 %call.i.i.i.i21, 32
+  %6 = trunc nuw i64 %5 to i32
   %7 = load ptr, ptr %m, align 8, !noalias !2501
   call void @llvm.prefetch.p0(ptr %7, i32 0, i32 1, i32 1), !noalias !2501
   %add.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %5, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
@@ -106860,7 +106860,7 @@ call38.i.i.i.i.i.i.i.noexc:                       ; preds = %if.then.i.i.i.i.i.i
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body.i.i.i.i.i.i.i, %call38.i.i.i.i.i.i.i.noexc
-  %inc = add nuw nsw i64 %i.0137, 1
+  %inc = add nuw nsw i64 %i.0136, 1
   %cmp.not = icmp eq i64 %inc, 10
   br i1 %cmp.not, label %for.end, label %if.then.i.i.i.preheader, !llvm.loop !2517
 
@@ -112328,7 +112328,7 @@ entry:
   br label %if.then.i.i.i.preheader
 
 if.then.i.i.i.preheader:                          ; preds = %entry, %for.inc
-  %i.0161 = phi i64 [ 0, %entry ], [ %inc, %for.inc ]
+  %i.0160 = phi i64 [ 0, %entry ], [ %inc, %for.inc ]
   br label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i.i.preheader, %call.i.i.i.i.noexc
@@ -112340,12 +112340,12 @@ call.i.noexc:                                     ; preds = %if.then.i.i.i
           to label %call.i.i.i.i.noexc unwind label %lpad3.loopexit
 
 call.i.i.i.i.noexc:                               ; preds = %call.i.noexc
-  %5 = lshr i64 %call.i.i.i.i22, 32
-  %6 = trunc nuw i64 %5 to i32
-  %or.cond.i = icmp ugt i32 %6, 1
+  %or.cond.i = icmp ugt i64 %call.i.i.i.i22, 8589934591
   br i1 %or.cond.i, label %invoke.cont4, label %if.then.i.i.i, !llvm.loop !1687
 
 invoke.cont4:                                     ; preds = %call.i.i.i.i.noexc
+  %5 = lshr i64 %call.i.i.i.i22, 32
+  %6 = trunc nuw i64 %5 to i32
   %7 = load ptr, ptr %m, align 8, !noalias !2699
   call void @llvm.prefetch.p0(ptr %7, i32 0, i32 1, i32 1), !noalias !2699
   %add.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %5, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
@@ -112416,7 +112416,7 @@ call38.i.i.i.i.i.i.i.noexc:                       ; preds = %if.then.i.i.i.i.i.i
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body.i.i.i.i.i.i.i, %call38.i.i.i.i.i.i.i.noexc
-  %inc = add nuw nsw i64 %i.0161, 1
+  %inc = add nuw nsw i64 %i.0160, 1
   %cmp.not = icmp eq i64 %inc, 10
   br i1 %cmp.not, label %for.end, label %if.then.i.i.i.preheader, !llvm.loop !2715
 
@@ -117288,7 +117288,7 @@ entry:
   br label %if.then.i.i.i.preheader
 
 if.then.i.i.i.preheader:                          ; preds = %entry, %for.inc
-  %i.0161 = phi i64 [ 0, %entry ], [ %inc, %for.inc ]
+  %i.0160 = phi i64 [ 0, %entry ], [ %inc, %for.inc ]
   br label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i.i.preheader, %call.i.i.i.i.noexc
@@ -117300,12 +117300,12 @@ call.i.noexc:                                     ; preds = %if.then.i.i.i
           to label %call.i.i.i.i.noexc unwind label %lpad2.loopexit
 
 call.i.i.i.i.noexc:                               ; preds = %call.i.noexc
-  %5 = lshr i64 %call.i.i.i.i22, 32
-  %6 = trunc nuw i64 %5 to i32
-  %or.cond.i = icmp ugt i32 %6, 1
+  %or.cond.i = icmp ugt i64 %call.i.i.i.i22, 8589934591
   br i1 %or.cond.i, label %invoke.cont3, label %if.then.i.i.i, !llvm.loop !1687
 
 invoke.cont3:                                     ; preds = %call.i.i.i.i.noexc
+  %5 = lshr i64 %call.i.i.i.i22, 32
+  %6 = trunc nuw i64 %5 to i32
   %7 = load ptr, ptr %m, align 8, !noalias !2910
   call void @llvm.prefetch.p0(ptr %7, i32 0, i32 1, i32 1), !noalias !2910
   %add.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %5, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
@@ -117376,7 +117376,7 @@ call38.i.i.i.i.i.i.i.noexc:                       ; preds = %if.then.i.i.i.i.i.i
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body.i.i.i.i.i.i.i, %call38.i.i.i.i.i.i.i.noexc
-  %inc = add nuw nsw i64 %i.0161, 1
+  %inc = add nuw nsw i64 %i.0160, 1
   %cmp.not = icmp eq i64 %inc, 10
   br i1 %cmp.not, label %for.end, label %if.then.i.i.i.preheader, !llvm.loop !2926
 
@@ -122632,64 +122632,64 @@ entry:
 if.then.i.i.i:                                    ; preds = %if.then.i.i.i, %entry
   %call.i = tail call noundef ptr @_ZN4absl18container_internal13hash_internal12GetSharedRngEv()
   %call.i.i.i.i = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %call.i)
-  %0 = lshr i64 %call.i.i.i.i, 32
-  %1 = trunc nuw i64 %0 to i32
-  %or.cond.i = icmp ugt i32 %1, 1
+  %or.cond.i = icmp ugt i64 %call.i.i.i.i, 8589934591
   br i1 %or.cond.i, label %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit, label %if.then.i.i.i, !llvm.loop !1687
 
 _ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit: ; preds = %if.then.i.i.i
+  %0 = lshr i64 %call.i.i.i.i, 32
+  %1 = trunc nuw i64 %0 to i32
   store i32 %1, ptr %ref.tmp, align 4
   br label %if.then.i.i.i21
 
 if.then.i.i.i21:                                  ; preds = %if.then.i.i.i21, %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit
   %call.i22 = tail call noundef ptr @_ZN4absl18container_internal13hash_internal12GetSharedRngEv()
   %call.i.i.i.i23 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %call.i22)
-  %2 = lshr i64 %call.i.i.i.i23, 32
-  %3 = trunc nuw i64 %2 to i32
-  %or.cond.i24 = icmp ugt i32 %3, 1
+  %or.cond.i24 = icmp ugt i64 %call.i.i.i.i23, 8589934591
   br i1 %or.cond.i24, label %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit25, label %if.then.i.i.i21, !llvm.loop !1687
 
 _ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit25: ; preds = %if.then.i.i.i21
   %arrayinit.element = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  %2 = lshr i64 %call.i.i.i.i23, 32
+  %3 = trunc nuw i64 %2 to i32
   store i32 %3, ptr %arrayinit.element, align 4
   br label %if.then.i.i.i26
 
 if.then.i.i.i26:                                  ; preds = %if.then.i.i.i26, %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit25
   %call.i27 = tail call noundef ptr @_ZN4absl18container_internal13hash_internal12GetSharedRngEv()
   %call.i.i.i.i28 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %call.i27)
-  %4 = lshr i64 %call.i.i.i.i28, 32
-  %5 = trunc nuw i64 %4 to i32
-  %or.cond.i29 = icmp ugt i32 %5, 1
+  %or.cond.i29 = icmp ugt i64 %call.i.i.i.i28, 8589934591
   br i1 %or.cond.i29, label %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit30, label %if.then.i.i.i26, !llvm.loop !1687
 
 _ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit30: ; preds = %if.then.i.i.i26
   %arrayinit.element3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %4 = lshr i64 %call.i.i.i.i28, 32
+  %5 = trunc nuw i64 %4 to i32
   store i32 %5, ptr %arrayinit.element3, align 4
   br label %if.then.i.i.i31
 
 if.then.i.i.i31:                                  ; preds = %if.then.i.i.i31, %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit30
   %call.i32 = tail call noundef ptr @_ZN4absl18container_internal13hash_internal12GetSharedRngEv()
   %call.i.i.i.i33 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %call.i32)
-  %6 = lshr i64 %call.i.i.i.i33, 32
-  %7 = trunc nuw i64 %6 to i32
-  %or.cond.i34 = icmp ugt i32 %7, 1
+  %or.cond.i34 = icmp ugt i64 %call.i.i.i.i33, 8589934591
   br i1 %or.cond.i34, label %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit35, label %if.then.i.i.i31, !llvm.loop !1687
 
 _ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit35: ; preds = %if.then.i.i.i31
   %arrayinit.element5 = getelementptr inbounds i8, ptr %ref.tmp, i64 12
+  %6 = lshr i64 %call.i.i.i.i33, 32
+  %7 = trunc nuw i64 %6 to i32
   store i32 %7, ptr %arrayinit.element5, align 4
   br label %if.then.i.i.i36
 
 if.then.i.i.i36:                                  ; preds = %if.then.i.i.i36, %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit35
   %call.i37 = tail call noundef ptr @_ZN4absl18container_internal13hash_internal12GetSharedRngEv()
   %call.i.i.i.i38 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %call.i37)
-  %8 = lshr i64 %call.i.i.i.i38, 32
-  %9 = trunc nuw i64 %8 to i32
-  %or.cond.i39 = icmp ugt i32 %9, 1
+  %or.cond.i39 = icmp ugt i64 %call.i.i.i.i38, 8589934591
   br i1 %or.cond.i39, label %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit40, label %if.then.i.i.i36, !llvm.loop !1687
 
 _ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit40: ; preds = %if.then.i.i.i36
   %arrayinit.element7 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %8 = lshr i64 %call.i.i.i.i38, 32
+  %9 = trunc nuw i64 %8 to i32
   store i32 %9, ptr %arrayinit.element7, align 4
   %10 = load i64, ptr @_ZZN4absl18container_internal21hash_testing_internal6WithIdINS0_19StatefulTestingHashEE7next_idIS3_EEmvE3gId, align 8
   %inc.i.i.i = add i64 %10, 1
@@ -127293,64 +127293,64 @@ entry:
 if.then.i.i.i:                                    ; preds = %if.then.i.i.i, %entry
   %call.i = tail call noundef ptr @_ZN4absl18container_internal13hash_internal12GetSharedRngEv()
   %call.i.i.i.i = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %call.i)
-  %0 = lshr i64 %call.i.i.i.i, 32
-  %1 = trunc nuw i64 %0 to i32
-  %or.cond.i = icmp ugt i32 %1, 1
+  %or.cond.i = icmp ugt i64 %call.i.i.i.i, 8589934591
   br i1 %or.cond.i, label %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit, label %if.then.i.i.i, !llvm.loop !1687
 
 _ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit: ; preds = %if.then.i.i.i
+  %0 = lshr i64 %call.i.i.i.i, 32
+  %1 = trunc nuw i64 %0 to i32
   store i32 %1, ptr %ref.tmp, align 4
   br label %if.then.i.i.i15
 
 if.then.i.i.i15:                                  ; preds = %if.then.i.i.i15, %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit
   %call.i16 = tail call noundef ptr @_ZN4absl18container_internal13hash_internal12GetSharedRngEv()
   %call.i.i.i.i17 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %call.i16)
-  %2 = lshr i64 %call.i.i.i.i17, 32
-  %3 = trunc nuw i64 %2 to i32
-  %or.cond.i18 = icmp ugt i32 %3, 1
+  %or.cond.i18 = icmp ugt i64 %call.i.i.i.i17, 8589934591
   br i1 %or.cond.i18, label %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit19, label %if.then.i.i.i15, !llvm.loop !1687
 
 _ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit19: ; preds = %if.then.i.i.i15
   %arrayinit.element = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  %2 = lshr i64 %call.i.i.i.i17, 32
+  %3 = trunc nuw i64 %2 to i32
   store i32 %3, ptr %arrayinit.element, align 4
   br label %if.then.i.i.i20
 
 if.then.i.i.i20:                                  ; preds = %if.then.i.i.i20, %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit19
   %call.i21 = tail call noundef ptr @_ZN4absl18container_internal13hash_internal12GetSharedRngEv()
   %call.i.i.i.i22 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %call.i21)
-  %4 = lshr i64 %call.i.i.i.i22, 32
-  %5 = trunc nuw i64 %4 to i32
-  %or.cond.i23 = icmp ugt i32 %5, 1
+  %or.cond.i23 = icmp ugt i64 %call.i.i.i.i22, 8589934591
   br i1 %or.cond.i23, label %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit24, label %if.then.i.i.i20, !llvm.loop !1687
 
 _ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit24: ; preds = %if.then.i.i.i20
   %arrayinit.element2 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %4 = lshr i64 %call.i.i.i.i22, 32
+  %5 = trunc nuw i64 %4 to i32
   store i32 %5, ptr %arrayinit.element2, align 4
   br label %if.then.i.i.i25
 
 if.then.i.i.i25:                                  ; preds = %if.then.i.i.i25, %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit24
   %call.i26 = tail call noundef ptr @_ZN4absl18container_internal13hash_internal12GetSharedRngEv()
   %call.i.i.i.i27 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %call.i26)
-  %6 = lshr i64 %call.i.i.i.i27, 32
-  %7 = trunc nuw i64 %6 to i32
-  %or.cond.i28 = icmp ugt i32 %7, 1
+  %or.cond.i28 = icmp ugt i64 %call.i.i.i.i27, 8589934591
   br i1 %or.cond.i28, label %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit29, label %if.then.i.i.i25, !llvm.loop !1687
 
 _ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit29: ; preds = %if.then.i.i.i25
   %arrayinit.element4 = getelementptr inbounds i8, ptr %ref.tmp, i64 12
+  %6 = lshr i64 %call.i.i.i.i27, 32
+  %7 = trunc nuw i64 %6 to i32
   store i32 %7, ptr %arrayinit.element4, align 4
   br label %if.then.i.i.i30
 
 if.then.i.i.i30:                                  ; preds = %if.then.i.i.i30, %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit29
   %call.i31 = tail call noundef ptr @_ZN4absl18container_internal13hash_internal12GetSharedRngEv()
   %call.i.i.i.i32 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %call.i31)
-  %8 = lshr i64 %call.i.i.i.i32, 32
-  %9 = trunc nuw i64 %8 to i32
-  %or.cond.i33 = icmp ugt i32 %9, 1
+  %or.cond.i33 = icmp ugt i64 %call.i.i.i.i32, 8589934591
   br i1 %or.cond.i33, label %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit34, label %if.then.i.i.i30, !llvm.loop !1687
 
 _ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit34: ; preds = %if.then.i.i.i30
   %arrayinit.element6 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %8 = lshr i64 %call.i.i.i.i32, 32
+  %9 = trunc nuw i64 %8 to i32
   store i32 %9, ptr %arrayinit.element6, align 4
   store i64 0, ptr %alloc, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i)
@@ -131456,24 +131456,24 @@ entry:
 if.then.i.i.i:                                    ; preds = %if.then.i.i.i, %entry
   %call.i18 = tail call noundef ptr @_ZN4absl18container_internal13hash_internal12GetSharedRngEv()
   %call.i.i.i.i19 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %call.i18)
-  %1 = lshr i64 %call.i.i.i.i19, 32
-  %2 = trunc nuw i64 %1 to i32
-  %or.cond.i = icmp ugt i32 %2, 1
+  %or.cond.i = icmp ugt i64 %call.i.i.i.i19, 8589934591
   br i1 %or.cond.i, label %invoke.cont, label %if.then.i.i.i, !llvm.loop !1687
 
 invoke.cont:                                      ; preds = %if.then.i.i.i
+  %1 = lshr i64 %call.i.i.i.i19, 32
+  %2 = trunc nuw i64 %1 to i32
   store i32 %2, ptr %ref.tmp, align 4
   br label %if.then.i.i.i20
 
 if.then.i.i.i20:                                  ; preds = %if.then.i.i.i20, %invoke.cont
   %call.i23 = tail call noundef ptr @_ZN4absl18container_internal13hash_internal12GetSharedRngEv()
   %call.i.i.i.i25 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %call.i23)
-  %3 = lshr i64 %call.i.i.i.i25, 32
-  %4 = trunc nuw i64 %3 to i32
-  %or.cond.i21 = icmp ugt i32 %4, 1
+  %or.cond.i21 = icmp ugt i64 %call.i.i.i.i25, 8589934591
   br i1 %or.cond.i21, label %invoke.cont1, label %if.then.i.i.i20, !llvm.loop !1687
 
 invoke.cont1:                                     ; preds = %if.then.i.i.i20
+  %3 = lshr i64 %call.i.i.i.i25, 32
+  %4 = trunc nuw i64 %3 to i32
   %arrayinit.element = getelementptr inbounds i8, ptr %ref.tmp, i64 4
   store i32 %4, ptr %arrayinit.element, align 4
   br label %if.then.i.i.i27
@@ -131481,12 +131481,12 @@ invoke.cont1:                                     ; preds = %if.then.i.i.i20
 if.then.i.i.i27:                                  ; preds = %if.then.i.i.i27, %invoke.cont1
   %call.i30 = tail call noundef ptr @_ZN4absl18container_internal13hash_internal12GetSharedRngEv()
   %call.i.i.i.i32 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %call.i30)
-  %5 = lshr i64 %call.i.i.i.i32, 32
-  %6 = trunc nuw i64 %5 to i32
-  %or.cond.i28 = icmp ugt i32 %6, 1
+  %or.cond.i28 = icmp ugt i64 %call.i.i.i.i32, 8589934591
   br i1 %or.cond.i28, label %invoke.cont4, label %if.then.i.i.i27, !llvm.loop !1687
 
 invoke.cont4:                                     ; preds = %if.then.i.i.i27
+  %5 = lshr i64 %call.i.i.i.i32, 32
+  %6 = trunc nuw i64 %5 to i32
   %arrayinit.element3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i32 %6, ptr %arrayinit.element3, align 4
   br label %if.then.i.i.i34
@@ -131494,12 +131494,12 @@ invoke.cont4:                                     ; preds = %if.then.i.i.i27
 if.then.i.i.i34:                                  ; preds = %if.then.i.i.i34, %invoke.cont4
   %call.i37 = tail call noundef ptr @_ZN4absl18container_internal13hash_internal12GetSharedRngEv()
   %call.i.i.i.i39 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %call.i37)
-  %7 = lshr i64 %call.i.i.i.i39, 32
-  %8 = trunc nuw i64 %7 to i32
-  %or.cond.i35 = icmp ugt i32 %8, 1
+  %or.cond.i35 = icmp ugt i64 %call.i.i.i.i39, 8589934591
   br i1 %or.cond.i35, label %invoke.cont7, label %if.then.i.i.i34, !llvm.loop !1687
 
 invoke.cont7:                                     ; preds = %if.then.i.i.i34
+  %7 = lshr i64 %call.i.i.i.i39, 32
+  %8 = trunc nuw i64 %7 to i32
   %arrayinit.element6 = getelementptr inbounds i8, ptr %ref.tmp, i64 12
   store i32 %8, ptr %arrayinit.element6, align 4
   br label %if.then.i.i.i41
@@ -131507,12 +131507,12 @@ invoke.cont7:                                     ; preds = %if.then.i.i.i34
 if.then.i.i.i41:                                  ; preds = %if.then.i.i.i41, %invoke.cont7
   %call.i44 = tail call noundef ptr @_ZN4absl18container_internal13hash_internal12GetSharedRngEv()
   %call.i.i.i.i46 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %call.i44)
-  %9 = lshr i64 %call.i.i.i.i46, 32
-  %10 = trunc nuw i64 %9 to i32
-  %or.cond.i42 = icmp ugt i32 %10, 1
+  %or.cond.i42 = icmp ugt i64 %call.i.i.i.i46, 8589934591
   br i1 %or.cond.i42, label %invoke.cont10, label %if.then.i.i.i41, !llvm.loop !1687
 
 invoke.cont10:                                    ; preds = %if.then.i.i.i41
+  %9 = lshr i64 %call.i.i.i.i46, 32
+  %10 = trunc nuw i64 %9 to i32
   %arrayinit.element9 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store i32 %10, ptr %arrayinit.element9, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i)
@@ -135927,24 +135927,24 @@ entry:
 if.then.i.i.i:                                    ; preds = %if.then.i.i.i, %entry
   %call.i13 = tail call noundef ptr @_ZN4absl18container_internal13hash_internal12GetSharedRngEv()
   %call.i.i.i.i14 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %call.i13)
-  %2 = lshr i64 %call.i.i.i.i14, 32
-  %3 = trunc nuw i64 %2 to i32
-  %or.cond.i = icmp ugt i32 %3, 1
+  %or.cond.i = icmp ugt i64 %call.i.i.i.i14, 8589934591
   br i1 %or.cond.i, label %invoke.cont, label %if.then.i.i.i, !llvm.loop !1687
 
 invoke.cont:                                      ; preds = %if.then.i.i.i
+  %2 = lshr i64 %call.i.i.i.i14, 32
+  %3 = trunc nuw i64 %2 to i32
   store i32 %3, ptr %ref.tmp, align 4
   br label %if.then.i.i.i15
 
 if.then.i.i.i15:                                  ; preds = %if.then.i.i.i15, %invoke.cont
   %call.i18 = tail call noundef ptr @_ZN4absl18container_internal13hash_internal12GetSharedRngEv()
   %call.i.i.i.i20 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %call.i18)
-  %4 = lshr i64 %call.i.i.i.i20, 32
-  %5 = trunc nuw i64 %4 to i32
-  %or.cond.i16 = icmp ugt i32 %5, 1
+  %or.cond.i16 = icmp ugt i64 %call.i.i.i.i20, 8589934591
   br i1 %or.cond.i16, label %invoke.cont2, label %if.then.i.i.i15, !llvm.loop !1687
 
 invoke.cont2:                                     ; preds = %if.then.i.i.i15
+  %4 = lshr i64 %call.i.i.i.i20, 32
+  %5 = trunc nuw i64 %4 to i32
   %arrayinit.element = getelementptr inbounds i8, ptr %ref.tmp, i64 4
   store i32 %5, ptr %arrayinit.element, align 4
   br label %if.then.i.i.i22
@@ -135952,12 +135952,12 @@ invoke.cont2:                                     ; preds = %if.then.i.i.i15
 if.then.i.i.i22:                                  ; preds = %if.then.i.i.i22, %invoke.cont2
   %call.i25 = tail call noundef ptr @_ZN4absl18container_internal13hash_internal12GetSharedRngEv()
   %call.i.i.i.i27 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %call.i25)
-  %6 = lshr i64 %call.i.i.i.i27, 32
-  %7 = trunc nuw i64 %6 to i32
-  %or.cond.i23 = icmp ugt i32 %7, 1
+  %or.cond.i23 = icmp ugt i64 %call.i.i.i.i27, 8589934591
   br i1 %or.cond.i23, label %invoke.cont5, label %if.then.i.i.i22, !llvm.loop !1687
 
 invoke.cont5:                                     ; preds = %if.then.i.i.i22
+  %6 = lshr i64 %call.i.i.i.i27, 32
+  %7 = trunc nuw i64 %6 to i32
   %arrayinit.element4 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i32 %7, ptr %arrayinit.element4, align 4
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 12
@@ -140159,24 +140159,24 @@ entry:
 if.then.i.i.i:                                    ; preds = %if.then.i.i.i, %entry
   %call.i14 = tail call noundef ptr @_ZN4absl18container_internal13hash_internal12GetSharedRngEv()
   %call.i.i.i.i15 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %call.i14)
-  %2 = lshr i64 %call.i.i.i.i15, 32
-  %3 = trunc nuw i64 %2 to i32
-  %or.cond.i = icmp ugt i32 %3, 1
+  %or.cond.i = icmp ugt i64 %call.i.i.i.i15, 8589934591
   br i1 %or.cond.i, label %invoke.cont, label %if.then.i.i.i, !llvm.loop !1687
 
 invoke.cont:                                      ; preds = %if.then.i.i.i
+  %2 = lshr i64 %call.i.i.i.i15, 32
+  %3 = trunc nuw i64 %2 to i32
   store i32 %3, ptr %ref.tmp, align 4
   br label %if.then.i.i.i16
 
 if.then.i.i.i16:                                  ; preds = %if.then.i.i.i16, %invoke.cont
   %call.i19 = tail call noundef ptr @_ZN4absl18container_internal13hash_internal12GetSharedRngEv()
   %call.i.i.i.i21 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %call.i19)
-  %4 = lshr i64 %call.i.i.i.i21, 32
-  %5 = trunc nuw i64 %4 to i32
-  %or.cond.i17 = icmp ugt i32 %5, 1
+  %or.cond.i17 = icmp ugt i64 %call.i.i.i.i21, 8589934591
   br i1 %or.cond.i17, label %invoke.cont2, label %if.then.i.i.i16, !llvm.loop !1687
 
 invoke.cont2:                                     ; preds = %if.then.i.i.i16
+  %4 = lshr i64 %call.i.i.i.i21, 32
+  %5 = trunc nuw i64 %4 to i32
   %arrayinit.element = getelementptr inbounds i8, ptr %ref.tmp, i64 4
   store i32 %5, ptr %arrayinit.element, align 4
   br label %if.then.i.i.i23
@@ -140184,12 +140184,12 @@ invoke.cont2:                                     ; preds = %if.then.i.i.i16
 if.then.i.i.i23:                                  ; preds = %if.then.i.i.i23, %invoke.cont2
   %call.i26 = tail call noundef ptr @_ZN4absl18container_internal13hash_internal12GetSharedRngEv()
   %call.i.i.i.i28 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %call.i26)
-  %6 = lshr i64 %call.i.i.i.i28, 32
-  %7 = trunc nuw i64 %6 to i32
-  %or.cond.i24 = icmp ugt i32 %7, 1
+  %or.cond.i24 = icmp ugt i64 %call.i.i.i.i28, 8589934591
   br i1 %or.cond.i24, label %invoke.cont5, label %if.then.i.i.i23, !llvm.loop !1687
 
 invoke.cont5:                                     ; preds = %if.then.i.i.i23
+  %6 = lshr i64 %call.i.i.i.i28, 32
+  %7 = trunc nuw i64 %6 to i32
   %arrayinit.element4 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i32 %7, ptr %arrayinit.element4, align 4
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 12
@@ -140216,22 +140216,22 @@ invoke.cont18:                                    ; preds = %invoke.cont5
   %13 = getelementptr inbounds i8, ptr %n, i64 48
   %capacity_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %n, i64 16
   %add.ptr.i.i.i30.phi.trans.insert = getelementptr inbounds i8, ptr %m, i64 32
-  %.pre140 = load i64, ptr %add.ptr.i.i.i30.phi.trans.insert, align 8, !noalias !3585
+  %.pre136 = load i64, ptr %add.ptr.i.i.i30.phi.trans.insert, align 8, !noalias !3585
   %add.ptr.i.i9.i.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %t, i64 48
-  %.pre139 = load i64, ptr %add.ptr.i.i9.i.i.i.i.phi.trans.insert, align 8
+  %.pre135 = load i64, ptr %add.ptr.i.i9.i.i.i.i.phi.trans.insert, align 8
   %add.ptr.i.i.i.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %t, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %n, ptr noundef nonnull align 8 dereferenceable(32) %t, i64 32, i1 false)
   %14 = load <2 x i64>, ptr %add.ptr.i.i.i.i.i.i.phi.trans.insert, align 8
   store <2 x i64> %14, ptr %11, align 8
-  store i64 %.pre139, ptr %13, align 8
+  store i64 %.pre135, ptr %13, align 8
   store ptr getelementptr inbounds ([32 x i8], ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 0, i64 16), ptr %t, align 8
   %ref.tmp.sroa.3.0.that.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %t, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.that.sroa_idx.i.i.i.i, i8 0, i64 24, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !3585)
-  store i64 %.pre140, ptr %ref.tmp15, align 8, !alias.scope !3585
+  store i64 %.pre136, ptr %ref.tmp15, align 8, !alias.scope !3585
   %15 = extractelement <2 x i64> %14, i64 0
   store i64 %15, ptr %ref.tmp17, align 8, !alias.scope !3588
-  %cmp.i.i.i = icmp eq i64 %.pre140, %15
+  %cmp.i.i.i = icmp eq i64 %.pre136, %15
   br i1 %cmp.i.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont18
@@ -143679,64 +143679,64 @@ entry:
 if.then.i.i.i:                                    ; preds = %if.then.i.i.i, %entry
   %call.i = tail call noundef ptr @_ZN4absl18container_internal13hash_internal12GetSharedRngEv()
   %call.i.i.i.i = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %call.i)
-  %0 = lshr i64 %call.i.i.i.i, 32
-  %1 = trunc nuw i64 %0 to i32
-  %or.cond.i = icmp ugt i32 %1, 1
+  %or.cond.i = icmp ugt i64 %call.i.i.i.i, 8589934591
   br i1 %or.cond.i, label %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit, label %if.then.i.i.i, !llvm.loop !1687
 
 _ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit: ; preds = %if.then.i.i.i
+  %0 = lshr i64 %call.i.i.i.i, 32
+  %1 = trunc nuw i64 %0 to i32
   store i32 %1, ptr %ref.tmp, align 4
   br label %if.then.i.i.i10
 
 if.then.i.i.i10:                                  ; preds = %if.then.i.i.i10, %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit
   %call.i11 = tail call noundef ptr @_ZN4absl18container_internal13hash_internal12GetSharedRngEv()
   %call.i.i.i.i12 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %call.i11)
-  %2 = lshr i64 %call.i.i.i.i12, 32
-  %3 = trunc nuw i64 %2 to i32
-  %or.cond.i13 = icmp ugt i32 %3, 1
+  %or.cond.i13 = icmp ugt i64 %call.i.i.i.i12, 8589934591
   br i1 %or.cond.i13, label %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit14, label %if.then.i.i.i10, !llvm.loop !1687
 
 _ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit14: ; preds = %if.then.i.i.i10
   %arrayinit.element = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  %2 = lshr i64 %call.i.i.i.i12, 32
+  %3 = trunc nuw i64 %2 to i32
   store i32 %3, ptr %arrayinit.element, align 4
   br label %if.then.i.i.i15
 
 if.then.i.i.i15:                                  ; preds = %if.then.i.i.i15, %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit14
   %call.i16 = tail call noundef ptr @_ZN4absl18container_internal13hash_internal12GetSharedRngEv()
   %call.i.i.i.i17 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %call.i16)
-  %4 = lshr i64 %call.i.i.i.i17, 32
-  %5 = trunc nuw i64 %4 to i32
-  %or.cond.i18 = icmp ugt i32 %5, 1
+  %or.cond.i18 = icmp ugt i64 %call.i.i.i.i17, 8589934591
   br i1 %or.cond.i18, label %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit19, label %if.then.i.i.i15, !llvm.loop !1687
 
 _ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit19: ; preds = %if.then.i.i.i15
   %arrayinit.element3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %4 = lshr i64 %call.i.i.i.i17, 32
+  %5 = trunc nuw i64 %4 to i32
   store i32 %5, ptr %arrayinit.element3, align 4
   br label %if.then.i.i.i20
 
 if.then.i.i.i20:                                  ; preds = %if.then.i.i.i20, %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit19
   %call.i21 = tail call noundef ptr @_ZN4absl18container_internal13hash_internal12GetSharedRngEv()
   %call.i.i.i.i22 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %call.i21)
-  %6 = lshr i64 %call.i.i.i.i22, 32
-  %7 = trunc nuw i64 %6 to i32
-  %or.cond.i23 = icmp ugt i32 %7, 1
+  %or.cond.i23 = icmp ugt i64 %call.i.i.i.i22, 8589934591
   br i1 %or.cond.i23, label %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit24, label %if.then.i.i.i20, !llvm.loop !1687
 
 _ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit24: ; preds = %if.then.i.i.i20
   %arrayinit.element5 = getelementptr inbounds i8, ptr %ref.tmp, i64 12
+  %6 = lshr i64 %call.i.i.i.i22, 32
+  %7 = trunc nuw i64 %6 to i32
   store i32 %7, ptr %arrayinit.element5, align 4
   br label %if.then.i.i.i25
 
 if.then.i.i.i25:                                  ; preds = %if.then.i.i.i25, %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit24
   %call.i26 = tail call noundef ptr @_ZN4absl18container_internal13hash_internal12GetSharedRngEv()
   %call.i.i.i.i27 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %call.i26)
-  %8 = lshr i64 %call.i.i.i.i27, 32
-  %9 = trunc nuw i64 %8 to i32
-  %or.cond.i28 = icmp ugt i32 %9, 1
+  %or.cond.i28 = icmp ugt i64 %call.i.i.i.i27, 8589934591
   br i1 %or.cond.i28, label %invoke.cont12, label %if.then.i.i.i25, !llvm.loop !1687
 
 invoke.cont12:                                    ; preds = %if.then.i.i.i25
   %arrayinit.element7 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %8 = lshr i64 %call.i.i.i.i27, 32
+  %9 = trunc nuw i64 %8 to i32
   store i32 %9, ptr %arrayinit.element7, align 4
   %10 = load i64, ptr @_ZZN4absl18container_internal21hash_testing_internal6WithIdINS0_19StatefulTestingHashEE7next_idIS3_EEmvE3gId, align 8
   %inc.i.i.i.i = add i64 %10, 1
@@ -146735,38 +146735,38 @@ entry:
 if.then.i.i.i:                                    ; preds = %if.then.i.i.i, %entry
   %call.i = tail call noundef ptr @_ZN4absl18container_internal13hash_internal12GetSharedRngEv()
   %call.i.i.i.i = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %call.i)
-  %0 = lshr i64 %call.i.i.i.i, 32
-  %1 = trunc nuw i64 %0 to i32
-  %or.cond.i = icmp ugt i32 %1, 1
+  %or.cond.i = icmp ugt i64 %call.i.i.i.i, 8589934591
   br i1 %or.cond.i, label %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit, label %if.then.i.i.i, !llvm.loop !1687
 
 _ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit: ; preds = %if.then.i.i.i
+  %0 = lshr i64 %call.i.i.i.i, 32
+  %1 = trunc nuw i64 %0 to i32
   store i32 %1, ptr %ref.tmp, align 4
   br label %if.then.i.i.i6
 
 if.then.i.i.i6:                                   ; preds = %if.then.i.i.i6, %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit
   %call.i7 = tail call noundef ptr @_ZN4absl18container_internal13hash_internal12GetSharedRngEv()
   %call.i.i.i.i8 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %call.i7)
-  %2 = lshr i64 %call.i.i.i.i8, 32
-  %3 = trunc nuw i64 %2 to i32
-  %or.cond.i9 = icmp ugt i32 %3, 1
+  %or.cond.i9 = icmp ugt i64 %call.i.i.i.i8, 8589934591
   br i1 %or.cond.i9, label %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit10, label %if.then.i.i.i6, !llvm.loop !1687
 
 _ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit10: ; preds = %if.then.i.i.i6
   %arrayinit.element = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  %2 = lshr i64 %call.i.i.i.i8, 32
+  %3 = trunc nuw i64 %2 to i32
   store i32 %3, ptr %arrayinit.element, align 4
   br label %if.then.i.i.i11
 
 if.then.i.i.i11:                                  ; preds = %if.then.i.i.i11, %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit10
   %call.i12 = tail call noundef ptr @_ZN4absl18container_internal13hash_internal12GetSharedRngEv()
   %call.i.i.i.i13 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %call.i12)
-  %4 = lshr i64 %call.i.i.i.i13, 32
-  %5 = trunc nuw i64 %4 to i32
-  %or.cond.i14 = icmp ugt i32 %5, 1
+  %or.cond.i14 = icmp ugt i64 %call.i.i.i.i13, 8589934591
   br i1 %or.cond.i14, label %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit15, label %if.then.i.i.i11, !llvm.loop !1687
 
 _ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit15: ; preds = %if.then.i.i.i11
   %arrayinit.element3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %4 = lshr i64 %call.i.i.i.i13, 32
+  %5 = trunc nuw i64 %4 to i32
   store i32 %5, ptr %arrayinit.element3, align 4
   %6 = load i64, ptr @_ZZN4absl18container_internal21hash_testing_internal6WithIdINS0_19StatefulTestingHashEE7next_idIS3_EEmvE3gId, align 8
   %inc.i.i.i = add i64 %6, 1
@@ -146790,12 +146790,12 @@ call.i18.noexc:                                   ; preds = %if.then.i.i.i17
           to label %call.i.i.i.i19.noexc unwind label %lpad11
 
 call.i.i.i.i19.noexc:                             ; preds = %call.i18.noexc
-  %8 = lshr i64 %call.i.i.i.i1922, 32
-  %9 = trunc nuw i64 %8 to i32
-  %or.cond.i20 = icmp ugt i32 %9, 1
+  %or.cond.i20 = icmp ugt i64 %call.i.i.i.i1922, 8589934591
   br i1 %or.cond.i20, label %invoke.cont20, label %if.then.i.i.i17, !llvm.loop !1687
 
 invoke.cont20:                                    ; preds = %call.i.i.i.i19.noexc
+  %8 = lshr i64 %call.i.i.i.i1922, 32
+  %9 = trunc nuw i64 %8 to i32
   store i32 %9, ptr %ref.tmp9, align 4
   %10 = load i64, ptr @_ZZN4absl18container_internal21hash_testing_internal6WithIdINS0_19StatefulTestingHashEE7next_idIS3_EEmvE3gId, align 8
   %inc.i.i.i24 = add i64 %10, 1
@@ -149869,38 +149869,38 @@ entry:
 if.then.i.i.i:                                    ; preds = %if.then.i.i.i, %entry
   %call.i = tail call noundef ptr @_ZN4absl18container_internal13hash_internal12GetSharedRngEv()
   %call.i.i.i.i = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %call.i)
-  %0 = lshr i64 %call.i.i.i.i, 32
-  %1 = trunc nuw i64 %0 to i32
-  %or.cond.i = icmp ugt i32 %1, 1
+  %or.cond.i = icmp ugt i64 %call.i.i.i.i, 8589934591
   br i1 %or.cond.i, label %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit, label %if.then.i.i.i, !llvm.loop !1687
 
 _ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit: ; preds = %if.then.i.i.i
+  %0 = lshr i64 %call.i.i.i.i, 32
+  %1 = trunc nuw i64 %0 to i32
   store i32 %1, ptr %ref.tmp, align 4
   br label %if.then.i.i.i7
 
 if.then.i.i.i7:                                   ; preds = %if.then.i.i.i7, %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit
   %call.i8 = tail call noundef ptr @_ZN4absl18container_internal13hash_internal12GetSharedRngEv()
   %call.i.i.i.i9 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %call.i8)
-  %2 = lshr i64 %call.i.i.i.i9, 32
-  %3 = trunc nuw i64 %2 to i32
-  %or.cond.i10 = icmp ugt i32 %3, 1
+  %or.cond.i10 = icmp ugt i64 %call.i.i.i.i9, 8589934591
   br i1 %or.cond.i10, label %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit11, label %if.then.i.i.i7, !llvm.loop !1687
 
 _ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit11: ; preds = %if.then.i.i.i7
   %arrayinit.element = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  %2 = lshr i64 %call.i.i.i.i9, 32
+  %3 = trunc nuw i64 %2 to i32
   store i32 %3, ptr %arrayinit.element, align 4
   br label %if.then.i.i.i12
 
 if.then.i.i.i12:                                  ; preds = %if.then.i.i.i12, %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit11
   %call.i13 = tail call noundef ptr @_ZN4absl18container_internal13hash_internal12GetSharedRngEv()
   %call.i.i.i.i14 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %call.i13)
-  %4 = lshr i64 %call.i.i.i.i14, 32
-  %5 = trunc nuw i64 %4 to i32
-  %or.cond.i15 = icmp ugt i32 %5, 1
+  %or.cond.i15 = icmp ugt i64 %call.i.i.i.i14, 8589934591
   br i1 %or.cond.i15, label %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit16, label %if.then.i.i.i12, !llvm.loop !1687
 
 _ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit16: ; preds = %if.then.i.i.i12
   %arrayinit.element3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %4 = lshr i64 %call.i.i.i.i14, 32
+  %5 = trunc nuw i64 %4 to i32
   store i32 %5, ptr %arrayinit.element3, align 4
   %6 = load i64, ptr @_ZZN4absl18container_internal21hash_testing_internal6WithIdINS0_19StatefulTestingHashEE7next_idIS3_EEmvE3gId, align 8
   %inc.i.i.i = add i64 %6, 1
@@ -149935,12 +149935,12 @@ call.i19.noexc:                                   ; preds = %if.then.i.i.i18
           to label %call.i.i.i.i20.noexc unwind label %lpad13
 
 call.i.i.i.i20.noexc:                             ; preds = %call.i19.noexc
-  %9 = lshr i64 %call.i.i.i.i2023, 32
-  %10 = trunc nuw i64 %9 to i32
-  %or.cond.i21 = icmp ugt i32 %10, 1
+  %or.cond.i21 = icmp ugt i64 %call.i.i.i.i2023, 8589934591
   br i1 %or.cond.i21, label %invoke.cont22, label %if.then.i.i.i18, !llvm.loop !1687
 
 invoke.cont22:                                    ; preds = %call.i.i.i.i20.noexc
+  %9 = lshr i64 %call.i.i.i.i2023, 32
+  %10 = trunc nuw i64 %9 to i32
   store i32 %10, ptr %ref.tmp11, align 4
   %11 = load i64, ptr @_ZZN4absl18container_internal21hash_testing_internal6WithIdINS0_19StatefulTestingHashEE7next_idIS3_EEmvE3gId, align 8
   %inc.i.i.i25 = add i64 %11, 1
@@ -153003,64 +153003,64 @@ entry:
 if.then.i.i.i:                                    ; preds = %if.then.i.i.i, %entry
   %call.i = tail call noundef ptr @_ZN4absl18container_internal13hash_internal12GetSharedRngEv()
   %call.i.i.i.i = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %call.i)
-  %0 = lshr i64 %call.i.i.i.i, 32
-  %1 = trunc nuw i64 %0 to i32
-  %or.cond.i = icmp ugt i32 %1, 1
+  %or.cond.i = icmp ugt i64 %call.i.i.i.i, 8589934591
   br i1 %or.cond.i, label %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit, label %if.then.i.i.i, !llvm.loop !1687
 
 _ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit: ; preds = %if.then.i.i.i
+  %0 = lshr i64 %call.i.i.i.i, 32
+  %1 = trunc nuw i64 %0 to i32
   store i32 %1, ptr %ref.tmp, align 4
   br label %if.then.i.i.i10
 
 if.then.i.i.i10:                                  ; preds = %if.then.i.i.i10, %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit
   %call.i11 = tail call noundef ptr @_ZN4absl18container_internal13hash_internal12GetSharedRngEv()
   %call.i.i.i.i12 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %call.i11)
-  %2 = lshr i64 %call.i.i.i.i12, 32
-  %3 = trunc nuw i64 %2 to i32
-  %or.cond.i13 = icmp ugt i32 %3, 1
+  %or.cond.i13 = icmp ugt i64 %call.i.i.i.i12, 8589934591
   br i1 %or.cond.i13, label %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit14, label %if.then.i.i.i10, !llvm.loop !1687
 
 _ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit14: ; preds = %if.then.i.i.i10
   %arrayinit.element = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  %2 = lshr i64 %call.i.i.i.i12, 32
+  %3 = trunc nuw i64 %2 to i32
   store i32 %3, ptr %arrayinit.element, align 4
   br label %if.then.i.i.i15
 
 if.then.i.i.i15:                                  ; preds = %if.then.i.i.i15, %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit14
   %call.i16 = tail call noundef ptr @_ZN4absl18container_internal13hash_internal12GetSharedRngEv()
   %call.i.i.i.i17 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %call.i16)
-  %4 = lshr i64 %call.i.i.i.i17, 32
-  %5 = trunc nuw i64 %4 to i32
-  %or.cond.i18 = icmp ugt i32 %5, 1
+  %or.cond.i18 = icmp ugt i64 %call.i.i.i.i17, 8589934591
   br i1 %or.cond.i18, label %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit19, label %if.then.i.i.i15, !llvm.loop !1687
 
 _ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit19: ; preds = %if.then.i.i.i15
   %arrayinit.element3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %4 = lshr i64 %call.i.i.i.i17, 32
+  %5 = trunc nuw i64 %4 to i32
   store i32 %5, ptr %arrayinit.element3, align 4
   br label %if.then.i.i.i20
 
 if.then.i.i.i20:                                  ; preds = %if.then.i.i.i20, %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit19
   %call.i21 = tail call noundef ptr @_ZN4absl18container_internal13hash_internal12GetSharedRngEv()
   %call.i.i.i.i22 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %call.i21)
-  %6 = lshr i64 %call.i.i.i.i22, 32
-  %7 = trunc nuw i64 %6 to i32
-  %or.cond.i23 = icmp ugt i32 %7, 1
+  %or.cond.i23 = icmp ugt i64 %call.i.i.i.i22, 8589934591
   br i1 %or.cond.i23, label %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit24, label %if.then.i.i.i20, !llvm.loop !1687
 
 _ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit24: ; preds = %if.then.i.i.i20
   %arrayinit.element5 = getelementptr inbounds i8, ptr %ref.tmp, i64 12
+  %6 = lshr i64 %call.i.i.i.i22, 32
+  %7 = trunc nuw i64 %6 to i32
   store i32 %7, ptr %arrayinit.element5, align 4
   br label %if.then.i.i.i25
 
 if.then.i.i.i25:                                  ; preds = %if.then.i.i.i25, %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit24
   %call.i26 = tail call noundef ptr @_ZN4absl18container_internal13hash_internal12GetSharedRngEv()
   %call.i.i.i.i27 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %call.i26)
-  %8 = lshr i64 %call.i.i.i.i27, 32
-  %9 = trunc nuw i64 %8 to i32
-  %or.cond.i28 = icmp ugt i32 %9, 1
+  %or.cond.i28 = icmp ugt i64 %call.i.i.i.i27, 8589934591
   br i1 %or.cond.i28, label %invoke.cont12, label %if.then.i.i.i25, !llvm.loop !1687
 
 invoke.cont12:                                    ; preds = %if.then.i.i.i25
   %arrayinit.element7 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %8 = lshr i64 %call.i.i.i.i27, 32
+  %9 = trunc nuw i64 %8 to i32
   store i32 %9, ptr %arrayinit.element7, align 4
   %10 = load i64, ptr @_ZZN4absl18container_internal21hash_testing_internal6WithIdINS0_19StatefulTestingHashEE7next_idIS3_EEmvE3gId, align 8
   %inc.i.i.i.i = add i64 %10, 1
@@ -155858,64 +155858,64 @@ entry:
 if.then.i.i.i:                                    ; preds = %if.then.i.i.i, %entry
   %call.i = tail call noundef ptr @_ZN4absl18container_internal13hash_internal12GetSharedRngEv()
   %call.i.i.i.i = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %call.i)
-  %0 = lshr i64 %call.i.i.i.i, 32
-  %1 = trunc nuw i64 %0 to i32
-  %or.cond.i = icmp ugt i32 %1, 1
+  %or.cond.i = icmp ugt i64 %call.i.i.i.i, 8589934591
   br i1 %or.cond.i, label %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit, label %if.then.i.i.i, !llvm.loop !1687
 
 _ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit: ; preds = %if.then.i.i.i
+  %0 = lshr i64 %call.i.i.i.i, 32
+  %1 = trunc nuw i64 %0 to i32
   store i32 %1, ptr %ref.tmp, align 4
   br label %if.then.i.i.i9
 
 if.then.i.i.i9:                                   ; preds = %if.then.i.i.i9, %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit
   %call.i10 = tail call noundef ptr @_ZN4absl18container_internal13hash_internal12GetSharedRngEv()
   %call.i.i.i.i11 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %call.i10)
-  %2 = lshr i64 %call.i.i.i.i11, 32
-  %3 = trunc nuw i64 %2 to i32
-  %or.cond.i12 = icmp ugt i32 %3, 1
+  %or.cond.i12 = icmp ugt i64 %call.i.i.i.i11, 8589934591
   br i1 %or.cond.i12, label %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit13, label %if.then.i.i.i9, !llvm.loop !1687
 
 _ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit13: ; preds = %if.then.i.i.i9
   %arrayinit.element = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  %2 = lshr i64 %call.i.i.i.i11, 32
+  %3 = trunc nuw i64 %2 to i32
   store i32 %3, ptr %arrayinit.element, align 4
   br label %if.then.i.i.i14
 
 if.then.i.i.i14:                                  ; preds = %if.then.i.i.i14, %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit13
   %call.i15 = tail call noundef ptr @_ZN4absl18container_internal13hash_internal12GetSharedRngEv()
   %call.i.i.i.i16 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %call.i15)
-  %4 = lshr i64 %call.i.i.i.i16, 32
-  %5 = trunc nuw i64 %4 to i32
-  %or.cond.i17 = icmp ugt i32 %5, 1
+  %or.cond.i17 = icmp ugt i64 %call.i.i.i.i16, 8589934591
   br i1 %or.cond.i17, label %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit18, label %if.then.i.i.i14, !llvm.loop !1687
 
 _ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit18: ; preds = %if.then.i.i.i14
   %arrayinit.element3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %4 = lshr i64 %call.i.i.i.i16, 32
+  %5 = trunc nuw i64 %4 to i32
   store i32 %5, ptr %arrayinit.element3, align 4
   br label %if.then.i.i.i19
 
 if.then.i.i.i19:                                  ; preds = %if.then.i.i.i19, %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit18
   %call.i20 = tail call noundef ptr @_ZN4absl18container_internal13hash_internal12GetSharedRngEv()
   %call.i.i.i.i21 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %call.i20)
-  %6 = lshr i64 %call.i.i.i.i21, 32
-  %7 = trunc nuw i64 %6 to i32
-  %or.cond.i22 = icmp ugt i32 %7, 1
+  %or.cond.i22 = icmp ugt i64 %call.i.i.i.i21, 8589934591
   br i1 %or.cond.i22, label %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit23, label %if.then.i.i.i19, !llvm.loop !1687
 
 _ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit23: ; preds = %if.then.i.i.i19
   %arrayinit.element5 = getelementptr inbounds i8, ptr %ref.tmp, i64 12
+  %6 = lshr i64 %call.i.i.i.i21, 32
+  %7 = trunc nuw i64 %6 to i32
   store i32 %7, ptr %arrayinit.element5, align 4
   br label %if.then.i.i.i24
 
 if.then.i.i.i24:                                  ; preds = %if.then.i.i.i24, %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit23
   %call.i25 = tail call noundef ptr @_ZN4absl18container_internal13hash_internal12GetSharedRngEv()
   %call.i.i.i.i26 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %call.i25)
-  %8 = lshr i64 %call.i.i.i.i26, 32
-  %9 = trunc nuw i64 %8 to i32
-  %or.cond.i27 = icmp ugt i32 %9, 1
+  %or.cond.i27 = icmp ugt i64 %call.i.i.i.i26, 8589934591
   br i1 %or.cond.i27, label %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit28, label %if.then.i.i.i24, !llvm.loop !1687
 
 _ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit28: ; preds = %if.then.i.i.i24
   %arrayinit.element7 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %8 = lshr i64 %call.i.i.i.i26, 32
+  %9 = trunc nuw i64 %8 to i32
   store i32 %9, ptr %arrayinit.element7, align 4
   %10 = load i64, ptr @_ZZN4absl18container_internal21hash_testing_internal6WithIdINS0_19StatefulTestingHashEE7next_idIS3_EEmvE3gId, align 8
   %inc.i.i.i = add i64 %10, 1
@@ -160610,13 +160610,13 @@ _ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm2
   %xor4.i = xor i64 %and3.i, %xor.i
   %shl5.i = shl i64 %xor4.i, 37
   %and6.i = and i64 %shl5.i, -2270628950310912
-  %xor9.i = xor i64 %and6.i, %xor4.i
-  %12 = lshr i64 %xor9.i, 32
-  %13 = trunc nuw i64 %12 to i32
-  %or.cond.i = icmp ugt i32 %13, 1
+  %xor7.i = xor i64 %and6.i, %xor4.i
+  %or.cond.i = icmp ugt i64 %xor7.i, 8589934591
   br i1 %or.cond.i, label %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit, label %if.then.i.i.i, !llvm.loop !1687
 
 _ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit: ; preds = %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv.exit
+  %12 = lshr i64 %xor7.i, 32
+  %13 = trunc nuw i64 %12 to i32
   %14 = load ptr, ptr %_M_finish.i.i.i, align 8
   %15 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %14, %15
@@ -190505,12 +190505,12 @@ entry:
 if.then.i.i.i:                                    ; preds = %if.then.i.i.i, %entry
   %call.i = tail call noundef ptr @_ZN4absl18container_internal13hash_internal12GetSharedRngEv()
   %call.i.i.i.i = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %call.i)
-  %0 = lshr i64 %call.i.i.i.i, 32
-  %1 = trunc nuw i64 %0 to i32
-  %or.cond.i = icmp ugt i32 %1, 1
+  %or.cond.i = icmp ugt i64 %call.i.i.i.i, 8589934591
   br i1 %or.cond.i, label %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit, label %if.then.i.i.i, !llvm.loop !1687
 
 _ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit: ; preds = %if.then.i.i.i
+  %0 = lshr i64 %call.i.i.i.i, 32
+  %1 = trunc nuw i64 %0 to i32
   store i32 %1, ptr %val, align 4
   %2 = load i64, ptr @_ZZN4absl18container_internal21hash_testing_internal6WithIdINS0_19StatefulTestingHashEE7next_idIS3_EEmvE3gId, align 8
   %inc.i.i.i.i = add i64 %2, 1
@@ -193998,12 +193998,12 @@ entry:
 if.then.i.i.i:                                    ; preds = %if.then.i.i.i, %entry
   %call.i = tail call noundef ptr @_ZN4absl18container_internal13hash_internal12GetSharedRngEv()
   %call.i.i.i.i = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %call.i)
-  %0 = lshr i64 %call.i.i.i.i, 32
-  %1 = trunc nuw i64 %0 to i32
-  %or.cond.i = icmp ugt i32 %1, 1
+  %or.cond.i = icmp ugt i64 %call.i.i.i.i, 8589934591
   br i1 %or.cond.i, label %invoke.cont, label %if.then.i.i.i, !llvm.loop !1687
 
 invoke.cont:                                      ; preds = %if.then.i.i.i
+  %0 = lshr i64 %call.i.i.i.i, 32
+  %1 = trunc nuw i64 %0 to i32
   store i32 %1, ptr %val, align 4
   %2 = load i64, ptr @_ZZN4absl18container_internal21hash_testing_internal6WithIdINS0_19StatefulTestingHashEE7next_idIS3_EEmvE3gId, align 8
   %inc.i.i.i.i = add i64 %2, 1
@@ -194053,8 +194053,8 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %for.end.i.i.i.i.i.i
 
 invoke.cont9.thread:                              ; preds = %while.body.i.i.i.i.i.i.i.i
   store i8 0, ptr %gtest_ar_, align 8
-  %message_.i159 = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
-  store ptr null, ptr %message_.i159, align 8
+  %message_.i157 = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
+  store ptr null, ptr %message_.i157, align 8
   br label %if.else
 
 invoke.cont9:                                     ; preds = %if.then.i.i.i.i.i.i.i
@@ -194078,8 +194078,8 @@ lpad:                                             ; preds = %if.end.i.i109, %if.
   br label %ehcleanup103
 
 if.else:                                          ; preds = %invoke.cont9.thread, %invoke.cont9
-  %message_.i162 = phi ptr [ %message_.i159, %invoke.cont9.thread ], [ %message_.i, %invoke.cont9 ]
-  %add.ptr3.i.i.i.i.i.i.i.i160 = phi ptr [ undef, %invoke.cont9.thread ], [ %add.ptr3.i.i.i.i.i.i.i.i, %invoke.cont9 ]
+  %message_.i160 = phi ptr [ %message_.i157, %invoke.cont9.thread ], [ %message_.i, %invoke.cont9 ]
+  %add.ptr3.i.i.i.i.i.i.i.i158 = phi ptr [ undef, %invoke.cont9.thread ], [ %add.ptr3.i.i.i.i.i.i.i.i, %invoke.cont9 ]
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp14)
           to label %invoke.cont16 unwind label %lpad15
 
@@ -194155,7 +194155,7 @@ _ZN7testing7MessageD2Ev.exit20:                   ; preds = %ehcleanup26, %_ZNKS
 
 if.end:                                           ; preds = %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i, %invoke.cont25
   store ptr null, ptr %ref.tmp14, align 8
-  %.pr = load ptr, ptr %message_.i162, align 8
+  %.pr = load ptr, ptr %message_.i160, align 8
   %cmp.not.i.i22 = icmp eq ptr %.pr, null
   br i1 %cmp.not.i.i22, label %invoke.cont28, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
 
@@ -194165,11 +194165,11 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %invoke.cont28
 
 invoke.cont28:                                    ; preds = %invoke.cont9, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i, %if.end
-  %message_.i163 = phi ptr [ %message_.i, %invoke.cont9 ], [ %message_.i162, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i ], [ %message_.i162, %if.end ]
-  %add.ptr3.i.i.i.i.i.i.i.i161 = phi ptr [ %add.ptr3.i.i.i.i.i.i.i.i, %invoke.cont9 ], [ %add.ptr3.i.i.i.i.i.i.i.i160, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i ], [ %add.ptr3.i.i.i.i.i.i.i.i160, %if.end ]
-  store ptr null, ptr %message_.i163, align 8
+  %message_.i161 = phi ptr [ %message_.i, %invoke.cont9 ], [ %message_.i160, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i ], [ %message_.i160, %if.end ]
+  %add.ptr3.i.i.i.i.i.i.i.i159 = phi ptr [ %add.ptr3.i.i.i.i.i.i.i.i, %invoke.cont9 ], [ %add.ptr3.i.i.i.i.i.i.i.i158, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i ], [ %add.ptr3.i.i.i.i.i.i.i.i158, %if.end ]
+  store ptr null, ptr %message_.i161, align 8
   %21 = load i32, ptr %val, align 4, !noalias !4923
-  %22 = load i32, ptr %add.ptr3.i.i.i.i.i.i.i.i161, align 4, !noalias !4923
+  %22 = load i32, ptr %add.ptr3.i.i.i.i.i.i.i.i159, align 4, !noalias !4923
   %cmp.i.i23 = icmp eq i32 %21, %22
   br i1 %cmp.i.i23, label %if.then.i.i, label %if.end.i.i
 
@@ -194178,7 +194178,7 @@ if.then.i.i:                                      ; preds = %invoke.cont28
           to label %invoke.cont30 unwind label %lpad
 
 if.end.i.i:                                       ; preds = %invoke.cont28
-  invoke void @_ZN7testing8internal18CmpHelperEQFailureIN4absl18container_internal13hash_internal4EnumES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar, ptr noundef nonnull @.str.260, ptr noundef nonnull @.str.240, ptr noundef nonnull align 4 dereferenceable(4) %val, ptr noundef nonnull align 4 dereferenceable(4) %add.ptr3.i.i.i.i.i.i.i.i161)
+  invoke void @_ZN7testing8internal18CmpHelperEQFailureIN4absl18container_internal13hash_internal4EnumES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar, ptr noundef nonnull @.str.260, ptr noundef nonnull @.str.240, ptr noundef nonnull align 4 dereferenceable(4) %val, ptr noundef nonnull align 4 dereferenceable(4) %add.ptr3.i.i.i.i.i.i.i.i159)
           to label %invoke.cont30 unwind label %lpad
 
 invoke.cont30:                                    ; preds = %if.then.i.i, %if.end.i.i
@@ -201039,12 +201039,12 @@ entry:
 if.then.i.i.i:                                    ; preds = %if.then.i.i.i, %entry
   %call.i = tail call noundef ptr @_ZN4absl18container_internal13hash_internal12GetSharedRngEv()
   %call.i.i.i.i = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %call.i)
-  %0 = lshr i64 %call.i.i.i.i, 32
-  %1 = trunc nuw i64 %0 to i32
-  %or.cond.i = icmp ugt i32 %1, 1
+  %or.cond.i = icmp ugt i64 %call.i.i.i.i, 8589934591
   br i1 %or.cond.i, label %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit, label %if.then.i.i.i, !llvm.loop !1687
 
 _ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit: ; preds = %if.then.i.i.i
+  %0 = lshr i64 %call.i.i.i.i, 32
+  %1 = trunc nuw i64 %0 to i32
   %2 = load i64, ptr @_ZZN4absl18container_internal21hash_testing_internal6WithIdINS0_19StatefulTestingHashEE7next_idIS3_EEmvE3gId, align 8
   %inc.i.i.i.i = add i64 %2, 1
   store i64 %inc.i.i.i.i, ptr @_ZZN4absl18container_internal21hash_testing_internal6WithIdINS0_19StatefulTestingHashEE7next_idIS3_EEmvE3gId, align 8
@@ -201072,13 +201072,13 @@ if.then.i:                                        ; preds = %_ZNK4absl18containe
 if.then.i.invoke.cont2_crit_edge:                 ; preds = %if.then.i
   %capacity_.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %m, i64 16
   %.pre = load i64, ptr %capacity_.i.i.i.phi.trans.insert, align 8
-  %.pre108 = load ptr, ptr %m, align 8, !noalias !5195
-  %.pre109 = load ptr, ptr %ref.tmp.sroa.3.0.this.sroa_idx.i.i, align 8, !noalias !5195
+  %.pre106 = load ptr, ptr %m, align 8, !noalias !5195
+  %.pre107 = load ptr, ptr %ref.tmp.sroa.3.0.this.sroa_idx.i.i, align 8, !noalias !5195
   br label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %if.then.i.invoke.cont2_crit_edge, %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit
-  %8 = phi ptr [ %.pre109, %if.then.i.invoke.cont2_crit_edge ], [ null, %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit ]
-  %9 = phi ptr [ %.pre108, %if.then.i.invoke.cont2_crit_edge ], [ getelementptr inbounds ([32 x i8], ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 0, i64 16), %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit ]
+  %8 = phi ptr [ %.pre107, %if.then.i.invoke.cont2_crit_edge ], [ null, %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit ]
+  %9 = phi ptr [ %.pre106, %if.then.i.invoke.cont2_crit_edge ], [ getelementptr inbounds ([32 x i8], ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 0, i64 16), %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit ]
   %10 = phi i64 [ %.pre, %if.then.i.invoke.cont2_crit_edge ], [ 0, %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit ]
   %capacity_.i.i.i = getelementptr inbounds i8, ptr %m, i64 16
   store i64 %10, ptr %original_capacity, align 8
@@ -201150,10 +201150,10 @@ invoke.cont6:                                     ; preds = %if.then.i.i.i.i.i.i
   %20 = load ptr, ptr %ref.tmp.sroa.3.0.this.sroa_idx.i.i, align 8, !noalias !5195
   %add.ptr.i2.i.i.i.i.i.i = getelementptr inbounds i32, ptr %20, i64 %call38.i.i.i.i.i.i.i7
   store i32 %1, ptr %add.ptr.i2.i.i.i.i.i.i, align 4, !noalias !5195
-  %.pre110 = load i64, ptr %capacity_.i.i.i, align 8
-  %.pre111 = load i64, ptr %original_capacity, align 8, !noalias !5208
-  store i64 %.pre110, ptr %ref.tmp5, align 8
-  %cmp.i.i = icmp eq i64 %.pre110, %.pre111
+  %.pre108 = load i64, ptr %capacity_.i.i.i, align 8
+  %.pre109 = load i64, ptr %original_capacity, align 8, !noalias !5208
+  store i64 %.pre108, ptr %ref.tmp5, align 8
+  %cmp.i.i = icmp eq i64 %.pre108, %.pre109
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont6.thread, %invoke.cont6
@@ -201316,11 +201316,11 @@ call38.i.i.i.i.i.i.i.noexc64:                     ; preds = %if.then.i.i.i.i.i.i
   %43 = load ptr, ptr %ref.tmp.sroa.3.0.this.sroa_idx.i.i, align 8, !noalias !5213
   %add.ptr.i2.i.i.i.i.i.i52 = getelementptr inbounds i32, ptr %43, i64 %call38.i.i.i.i.i.i.i65
   store i32 %1, ptr %add.ptr.i2.i.i.i.i.i.i52, align 4, !noalias !5213
-  %.pre112 = load i64, ptr %capacity_.i.i.i, align 8
+  %.pre110 = load i64, ptr %capacity_.i.i.i, align 8
   br label %invoke.cont25
 
 invoke.cont25:                                    ; preds = %for.body.i.i.i.i.i.i.i39, %call38.i.i.i.i.i.i.i.noexc64
-  %44 = phi i64 [ %.pre112, %call38.i.i.i.i.i.i.i.noexc64 ], [ %33, %for.body.i.i.i.i.i.i.i39 ]
+  %44 = phi i64 [ %.pre110, %call38.i.i.i.i.i.i.i.noexc64 ], [ %33, %for.body.i.i.i.i.i.i.i39 ]
   store i64 %44, ptr %ref.tmp24, align 8
   %45 = load i64, ptr %original_capacity, align 8, !noalias !5226
   %cmp.i.i68 = icmp eq i64 %44, %45
@@ -206380,12 +206380,12 @@ entry:
 if.then.i.i.i:                                    ; preds = %if.then.i.i.i, %entry
   %call.i = tail call noundef ptr @_ZN4absl18container_internal13hash_internal12GetSharedRngEv()
   %call.i.i.i.i = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %call.i)
-  %0 = lshr i64 %call.i.i.i.i, 32
-  %1 = trunc nuw i64 %0 to i32
-  %or.cond.i = icmp ugt i32 %1, 1
+  %or.cond.i = icmp ugt i64 %call.i.i.i.i, 8589934591
   br i1 %or.cond.i, label %_ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit, label %if.then.i.i.i, !llvm.loop !1687
 
 _ZNK4absl18container_internal13hash_internal9GeneratorINS1_4EnumEvEclEv.exit: ; preds = %if.then.i.i.i
+  %0 = lshr i64 %call.i.i.i.i, 32
+  %1 = trunc nuw i64 %0 to i32
   store i32 %1, ptr %val, align 4
   %2 = load i64, ptr @_ZZN4absl18container_internal21hash_testing_internal6WithIdINS0_19StatefulTestingHashEE7next_idIS3_EEmvE3gId, align 8
   %inc.i.i.i.i = add i64 %2, 1
@@ -209870,12 +209870,12 @@ entry:
 if.then.i.i.i:                                    ; preds = %if.then.i.i.i, %entry
   %call.i = tail call noundef ptr @_ZN4absl18container_internal13hash_internal12GetSharedRngEv()
   %call.i.i.i.i = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %call.i)
-  %0 = lshr i64 %call.i.i.i.i, 32
-  %1 = trunc nuw i64 %0 to i32
-  %or.cond.i = icmp ugt i32 %1, 1
+  %or.cond.i = icmp ugt i64 %call.i.i.i.i, 8589934591
   br i1 %or.cond.i, label %invoke.cont, label %if.then.i.i.i, !llvm.loop !1687
 
 invoke.cont:                                      ; preds = %if.then.i.i.i
+  %0 = lshr i64 %call.i.i.i.i, 32
+  %1 = trunc nuw i64 %0 to i32
   store i32 %1, ptr %val, align 4
   %2 = load i64, ptr @_ZZN4absl18container_internal21hash_testing_internal6WithIdINS0_19StatefulTestingHashEE7next_idIS3_EEmvE3gId, align 8
   %inc.i.i.i.i = add i64 %2, 1
@@ -209930,8 +209930,8 @@ invoke.cont7:                                     ; preds = %if.then.i.i.i.i.i.i
   store i32 %11, ptr %add.ptr.i2.i.i.i.i.i.i, align 4, !noalias !5496
   %.pre20.i.i.i.i.i.i = load ptr, ptr %ref.tmp.sroa.3.0.this.sroa_idx.i.i, align 8, !noalias !5496
   %add.ptr3.i.i.i.i.i.i.i.phi.trans.insert = getelementptr inbounds i32, ptr %.pre20.i.i.i.i.i.i, i64 %call38.i.i.i.i.i.i.i7
-  %.pre108 = load i32, ptr %add.ptr3.i.i.i.i.i.i.i.phi.trans.insert, align 4, !noalias !5507
-  %cmp.i.i = icmp eq i32 %11, %.pre108
+  %.pre106 = load i32, ptr %add.ptr3.i.i.i.i.i.i.i.phi.trans.insert, align 4, !noalias !5507
+  %cmp.i.i = icmp eq i32 %11, %.pre106
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %while.body.i.i.i.i.i.i.i, %invoke.cont7
@@ -210111,8 +210111,8 @@ invoke.cont29:                                    ; preds = %if.then.i.i.i.i.i.i
   store i32 %37, ptr %add.ptr.i2.i.i.i.i.i.i51, align 4, !noalias !5512
   %.pre20.i.i.i.i.i.i53 = load ptr, ptr %ref.tmp.sroa.3.0.this.sroa_idx.i.i, align 8, !noalias !5512
   %add.ptr3.i.i.i.i.i.i.i56.phi.trans.insert = getelementptr inbounds i32, ptr %.pre20.i.i.i.i.i.i53, i64 %call38.i.i.i.i.i.i.i63
-  %.pre109 = load i32, ptr %add.ptr3.i.i.i.i.i.i.i56.phi.trans.insert, align 4, !noalias !5526
-  %cmp.i.i65 = icmp eq i32 %37, %.pre109
+  %.pre107 = load i32, ptr %add.ptr3.i.i.i.i.i.i.i56.phi.trans.insert, align 4, !noalias !5526
+  %cmp.i.i65 = icmp eq i32 %37, %.pre107
   br i1 %cmp.i.i65, label %if.then.i.i67, label %if.end.i.i66
 
 if.then.i.i67:                                    ; preds = %for.body.i.i.i.i.i.i.i38, %invoke.cont29

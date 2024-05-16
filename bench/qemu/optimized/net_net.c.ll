@@ -3474,12 +3474,9 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %exitcond.not.i, label %if.then14, label %for.body.i, !llvm.loop !39
 
 nic_get_free_idx.exit:                            ; preds = %for.body.i
-  %6 = and i64 %indvars.iv.i, 4294967295
-  %cmp = icmp eq i64 %6, 4294967295
-  %7 = load i32, ptr @nb_nics, align 4
-  %cmp13 = icmp sgt i32 %7, 7
-  %or.cond = select i1 %cmp, i1 true, i1 %cmp13
-  br i1 %or.cond, label %if.then14, label %if.end15
+  %6 = load i32, ptr @nb_nics, align 4
+  %cmp13 = icmp sgt i32 %6, 7
+  br i1 %cmp13, label %if.then14, label %if.end15
 
 if.then14:                                        ; preds = %for.inc.i, %nic_get_free_idx.exit
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1625, ptr noundef nonnull @__func__.net_param_nic, ptr noundef nonnull @.str.81) #26
@@ -3528,8 +3525,8 @@ if.then32:                                        ; preds = %if.then29
 
 if.end33:                                         ; preds = %if.then29
   %arrayidx.val = load i8, ptr %arrayidx, align 8
-  %8 = and i8 %arrayidx.val, 1
-  %tobool38.not = icmp eq i8 %8, 0
+  %7 = and i8 %arrayidx.val, 1
+  %tobool38.not = icmp eq i8 %7, 0
   br i1 %tobool38.not, label %if.end41, label %if.then39
 
 if.then39:                                        ; preds = %if.end33
@@ -3548,19 +3545,19 @@ if.then.i:                                        ; preds = %if.end41
 
 if.else.i:                                        ; preds = %if.then.i
   %arrayidx.i.i = getelementptr i8, ptr %arrayidx, i64 5
-  %9 = load i8, ptr %arrayidx.i.i, align 1
-  %10 = zext i8 %9 to i64
-  %arrayidx3.i.i = getelementptr [256 x i32], ptr @mac_table, i64 0, i64 %10
+  %8 = load i8, ptr %arrayidx.i.i, align 1
+  %9 = zext i8 %8 to i64
+  %arrayidx3.i.i = getelementptr [256 x i32], ptr @mac_table, i64 0, i64 %9
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %if.else.i
   %indvars.iv.i.i = phi i64 [ 86, %if.else.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
-  %cmp1.i.i = icmp eq i64 %indvars.iv.i.i, %10
+  %cmp1.i.i = icmp eq i64 %indvars.iv.i.i, %9
   br i1 %cmp1.i.i, label %if.then.i.i, label %for.inc.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
-  %11 = load i32, ptr %arrayidx3.i.i, align 4
-  %inc.i.i = add i32 %11, 1
+  %10 = load i32, ptr %arrayidx3.i.i, align 4
+  %inc.i.i = add i32 %10, 1
   store i32 %inc.i.i, ptr %arrayidx3.i.i, align 4
   br label %for.inc.i.i
 
@@ -3578,8 +3575,8 @@ if.end.i:                                         ; preds = %if.end41
 for.body.i11.i:                                   ; preds = %for.inc.i15.i, %if.end.i
   %indvars.iv.i12.i = phi i64 [ 86, %if.end.i ], [ %indvars.iv.next.i16.i, %for.inc.i15.i ]
   %arrayidx.i13.i = getelementptr [256 x i32], ptr @mac_table, i64 0, i64 %indvars.iv.i12.i
-  %12 = load i32, ptr %arrayidx.i13.i, align 4
-  %cmp1.i14.i = icmp eq i32 %12, 0
+  %11 = load i32, ptr %arrayidx.i13.i, align 4
+  %cmp1.i14.i = icmp eq i32 %11, 0
   br i1 %cmp1.i14.i, label %return.split.loop.exit6.i.i, label %for.inc.i15.i
 
 for.inc.i15.i:                                    ; preds = %for.body.i11.i
@@ -3588,25 +3585,25 @@ for.inc.i15.i:                                    ; preds = %for.body.i11.i
   br i1 %exitcond.not.i17.i, label %qemu_macaddr_get_free.exit.i, label %for.body.i11.i, !llvm.loop !7
 
 return.split.loop.exit6.i.i:                      ; preds = %for.body.i11.i
-  %13 = trunc i64 %indvars.iv.i12.i to i8
+  %12 = trunc i64 %indvars.iv.i12.i to i8
   br label %qemu_macaddr_get_free.exit.i
 
 qemu_macaddr_get_free.exit.i:                     ; preds = %for.inc.i15.i, %return.split.loop.exit6.i.i
-  %retval.0.i.i = phi i8 [ %13, %return.split.loop.exit6.i.i ], [ -1, %for.inc.i15.i ]
+  %retval.0.i.i = phi i8 [ %12, %return.split.loop.exit6.i.i ], [ -1, %for.inc.i15.i ]
   %arrayidx15.i = getelementptr i8, ptr %arrayidx, i64 5
   store i8 %retval.0.i.i, ptr %arrayidx15.i, align 1
-  %14 = zext i8 %retval.0.i.i to i64
-  %arrayidx3.i19.i = getelementptr [256 x i32], ptr @mac_table, i64 0, i64 %14
+  %13 = zext i8 %retval.0.i.i to i64
+  %arrayidx3.i19.i = getelementptr [256 x i32], ptr @mac_table, i64 0, i64 %13
   br label %for.body.i20.i
 
 for.body.i20.i:                                   ; preds = %for.inc.i23.i, %qemu_macaddr_get_free.exit.i
   %indvars.iv.i21.i = phi i64 [ 86, %qemu_macaddr_get_free.exit.i ], [ %indvars.iv.next.i24.i, %for.inc.i23.i ]
-  %cmp1.i22.i = icmp eq i64 %indvars.iv.i21.i, %14
+  %cmp1.i22.i = icmp eq i64 %indvars.iv.i21.i, %13
   br i1 %cmp1.i22.i, label %if.then.i26.i, label %for.inc.i23.i
 
 if.then.i26.i:                                    ; preds = %for.body.i20.i
-  %15 = load i32, ptr %arrayidx3.i19.i, align 4
-  %inc.i27.i = add i32 %15, 1
+  %14 = load i32, ptr %arrayidx3.i19.i, align 4
+  %inc.i27.i = add i32 %14, 1
   store i32 %inc.i27.i, ptr %arrayidx3.i19.i, align 4
   br label %for.inc.i23.i
 
@@ -3627,15 +3624,15 @@ if.then45:                                        ; preds = %qemu_macaddr_defaul
 
 for.body.i29:                                     ; preds = %if.then45, %for.inc.i31
   %nc.07.i = phi ptr [ %nc.0.i, %for.inc.i31 ], [ %nc.05.i, %if.then45 ]
-  %16 = load ptr, ptr %nc.07.i, align 8
-  %17 = load i32, ptr %16, align 8
-  %cmp.i = icmp eq i32 %17, 1
+  %15 = load ptr, ptr %nc.07.i, align 8
+  %16 = load i32, ptr %15, align 8
+  %cmp.i = icmp eq i32 %16, 1
   br i1 %cmp.i, label %for.inc.i31, label %if.end.i30
 
 if.end.i30:                                       ; preds = %for.body.i29
   %name.i = getelementptr inbounds i8, ptr %nc.07.i, i64 56
-  %18 = load ptr, ptr %name.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull readonly dereferenceable(1) %nd_id.0) #29
+  %17 = load ptr, ptr %name.i, align 8
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull readonly dereferenceable(1) %nd_id.0) #29
   %tobool1.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool1.not.i, label %qemu_find_netdev.exit, label %for.inc.i31
 
@@ -3651,8 +3648,8 @@ qemu_find_netdev.exit:                            ; preds = %if.end.i30, %for.in
   store ptr %nc.0.lcssa.i, ptr %netdev, align 8
   %used = getelementptr inbounds i8, ptr %arrayidx, i64 40
   store i32 1, ptr %used, align 8
-  %19 = load i32, ptr @nb_nics, align 4
-  %inc = add i32 %19, 1
+  %18 = load i32, ptr @nb_nics, align 4
+  %inc = add i32 %18, 1
   store i32 %inc, ptr @nb_nics, align 4
   br label %out
 
@@ -4202,11 +4199,9 @@ for.inc.i:                                        ; preds = %for.body.i
 
 nic_get_free_idx.exit:                            ; preds = %for.body.i
   %2 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %cmp1 = icmp eq i32 %2, -1
   %3 = load i32, ptr @nb_nics, align 4
   %cmp2 = icmp sgt i32 %3, 7
-  %or.cond = select i1 %cmp1, i1 true, i1 %cmp2
-  br i1 %or.cond, label %if.then3, label %if.end4
+  br i1 %cmp2, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %for.inc.i, %nic_get_free_idx.exit
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1035, ptr noundef nonnull @__func__.net_init_nic, ptr noundef nonnull @.str.70) #26

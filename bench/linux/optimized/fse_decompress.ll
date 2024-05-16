@@ -1470,15 +1470,15 @@ define dso_local i64 @FSE_decompress_wksp_bmi2(ptr noundef %0, i64 noundef %1, p
   %71 = load i64, ptr %69, align 1
   store i64 %71, ptr %9, align 8
   %72 = lshr i64 %71, 56
-  %73 = icmp ult i64 %71, 72057594037927936
-  %74 = trunc nuw nsw i64 %72 to i32
-  %75 = call i32 @llvm.ctlz.i32(i32 %74, i1 true), !range !15
+  %73 = trunc nuw nsw i64 %72 to i32
+  %74 = icmp ult i64 %71, 72057594037927936
+  %75 = call i32 @llvm.ctlz.i32(i32 %73, i1 true), !range !15
   %76 = xor i32 %75, 31
   %77 = sub nuw nsw i32 8, %76
-  %78 = select i1 %73, i32 0, i32 %77
+  %78 = select i1 %74, i32 0, i32 %77
   %79 = getelementptr inbounds i8, ptr %9, i64 8
   store i32 %78, ptr %79, align 8
-  br i1 %73, label %.thread36, label %138
+  br i1 %74, label %.thread36, label %138
 
 80:                                               ; preds = %62
   %81 = getelementptr inbounds i8, ptr %9, i64 16
@@ -2354,15 +2354,15 @@ define internal fastcc i64 @FSE_decompress_wksp_body_bmi2(ptr noundef %0, i64 no
   %66 = load i64, ptr %64, align 1
   store i64 %66, ptr %8, align 8
   %67 = lshr i64 %66, 56
-  %68 = icmp ult i64 %66, 72057594037927936
-  %69 = trunc nuw nsw i64 %67 to i32
-  %70 = call i32 @llvm.ctlz.i32(i32 %69, i1 true), !range !15
+  %68 = trunc nuw nsw i64 %67 to i32
+  %69 = icmp ult i64 %66, 72057594037927936
+  %70 = call i32 @llvm.ctlz.i32(i32 %68, i1 true), !range !15
   %71 = xor i32 %70, 31
   %72 = sub nuw nsw i32 8, %71
-  %73 = select i1 %68, i32 0, i32 %72
+  %73 = select i1 %69, i32 0, i32 %72
   %74 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 %73, ptr %74, align 8
-  br i1 %68, label %.thread35, label %133
+  br i1 %69, label %.thread35, label %133
 
 75:                                               ; preds = %57
   %76 = getelementptr inbounds i8, ptr %8, i64 16
@@ -2812,15 +2812,15 @@ define internal fastcc i64 @FSE_decompress_wksp_body_bmi2(ptr noundef %0, i64 no
   %394 = load i64, ptr %392, align 1
   store i64 %394, ptr %11, align 8
   %395 = lshr i64 %394, 56
-  %396 = icmp ult i64 %394, 72057594037927936
-  %397 = trunc nuw nsw i64 %395 to i32
-  %398 = call i32 @llvm.ctlz.i32(i32 %397, i1 true), !range !15
+  %396 = trunc nuw nsw i64 %395 to i32
+  %397 = icmp ult i64 %394, 72057594037927936
+  %398 = call i32 @llvm.ctlz.i32(i32 %396, i1 true), !range !15
   %399 = xor i32 %398, 31
   %400 = sub nuw nsw i32 8, %399
-  %401 = select i1 %396, i32 0, i32 %400
+  %401 = select i1 %397, i32 0, i32 %400
   %402 = getelementptr inbounds i8, ptr %11, i64 8
   store i32 %401, ptr %402, align 8
-  br i1 %396, label %BIT_initDStream.exit.thread, label %BIT_initDStream.exit
+  br i1 %397, label %BIT_initDStream.exit.thread, label %BIT_initDStream.exit
 
 403:                                              ; preds = %385
   %404 = getelementptr inbounds i8, ptr %11, i64 16

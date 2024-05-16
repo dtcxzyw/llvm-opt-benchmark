@@ -406,7 +406,7 @@ do.body3:                                         ; preds = %do.cond32, %do.body
 
 if.then:                                          ; preds = %do.body3
   %conv6 = trunc nuw nsw i64 %sub.ptr.sub to i32
-  %cmp7 = icmp ult i32 %conv6, 5
+  %cmp7 = icmp ult i64 %sub.ptr.sub, 5
   br i1 %cmp7, label %do.body10, label %if.end
 
 do.body10:                                        ; preds = %if.then, %do.body10

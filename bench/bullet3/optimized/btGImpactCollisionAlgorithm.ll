@@ -1691,8 +1691,7 @@ _ZN27btGImpactCollisionAlgorithm15addContactPointEPK24btCollisionObjectWrapperS2
   %vfn7.i = getelementptr inbounds i8, ptr %vtable6.i, i64 32
   %238 = load ptr, ptr %vfn7.i, align 8
   call void %238(ptr noundef nonnull align 8 dereferenceable(52) %237, ptr noundef nonnull align 4 dereferenceable(16) %m_separating_normal, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx, float noundef %fneg)
-  %239 = and i64 %indvars.iv.next, 4294967295
-  %tobool13.not = icmp eq i64 %239, 0
+  %tobool13.not = icmp eq i64 %indvars.iv.next, 0
   br i1 %tobool13.not, label %if.end15, label %while.body14, !llvm.loop !18
 
 if.end15:                                         ; preds = %_ZN27btGImpactCollisionAlgorithm15addContactPointEPK24btCollisionObjectWrapperS2_RK9btVector3S5_f.exit, %if.then, %while.body
@@ -1702,12 +1701,12 @@ if.end15:                                         ; preds = %_ZN27btGImpactColli
 while.end16:                                      ; preds = %if.end15, %entry
   %vtable17 = load ptr, ptr %shape0, align 8
   %vfn18 = getelementptr inbounds i8, ptr %vtable17, i64 232
-  %240 = load ptr, ptr %vfn18, align 8
-  call void %240(ptr noundef nonnull align 8 dereferenceable(280) %shape0)
+  %239 = load ptr, ptr %vfn18, align 8
+  call void %239(ptr noundef nonnull align 8 dereferenceable(280) %shape0)
   %vtable19 = load ptr, ptr %shape1, align 8
   %vfn20 = getelementptr inbounds i8, ptr %vtable19, i64 232
-  %241 = load ptr, ptr %vfn20, align 8
-  call void %241(ptr noundef nonnull align 8 dereferenceable(280) %shape1)
+  %240 = load ptr, ptr %vfn20, align 8
+  call void %240(ptr noundef nonnull align 8 dereferenceable(280) %shape1)
   ret void
 }
 
@@ -2883,15 +2882,14 @@ if.end99:                                         ; preds = %if.else97, %if.then
   %m_body1Wrap.i91 = getelementptr inbounds i8, ptr %35, i64 24
   %m_body1Wrap.i91.sink = select i1 %cmp107, ptr %m_body0Wrap.i87, ptr %m_body1Wrap.i91
   store ptr %prevObj.0, ptr %m_body1Wrap.i91.sink, align 8
-  %39 = and i64 %indvars.iv.next, 4294967295
-  %tobool44.not = icmp eq i64 %39, 0
+  %tobool44.not = icmp eq i64 %indvars.iv.next, 0
   br i1 %tobool44.not, label %while.end115, label %while.body45, !llvm.loop !36
 
 while.end115:                                     ; preds = %if.end99, %invoke.cont37
   %vtable116 = load ptr, ptr %shape0, align 8
   %vfn117 = getelementptr inbounds i8, ptr %vtable116, i64 232
-  %40 = load ptr, ptr %vfn117, align 8
-  invoke void %40(ptr noundef nonnull align 8 dereferenceable(184) %shape0)
+  %39 = load ptr, ptr %vfn117, align 8
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(184) %shape0)
           to label %invoke.cont118 unwind label %lpad36.loopexit.split-lp
 
 invoke.cont118:                                   ; preds = %while.end115
@@ -2900,24 +2898,24 @@ invoke.cont118:                                   ; preds = %while.end115
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont, %invoke.cont118
-  %41 = load ptr, ptr %m_data.i.i60, align 8
-  %tobool.not.i.i.i = icmp eq ptr %41, null
+  %40 = load ptr, ptr %m_data.i.i60, align 8
+  %tobool.not.i.i.i = icmp eq ptr %40, null
   br i1 %tobool.not.i.i.i, label %cleanup.cont, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %cleanup
-  %42 = load i8, ptr %m_ownsMemory.i.i, align 8
-  %tobool2.i.i.i = trunc i8 %42 to i1
+  %41 = load i8, ptr %m_ownsMemory.i.i, align 8
+  %tobool2.i.i.i = trunc i8 %41 to i1
   br i1 %tobool2.i.i.i, label %if.then3.i.i.i, label %cleanup.cont
 
 if.then3.i.i.i:                                   ; preds = %if.then.i.i.i
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %41)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %40)
           to label %cleanup.cont unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then3.i.i.i
-  %43 = landingpad { ptr, i32 }
+  %42 = landingpad { ptr, i32 }
           catch ptr null
-  %44 = extractvalue { ptr, i32 } %43, 0
-  call void @__clang_call_terminate(ptr %44) #15
+  %43 = extractvalue { ptr, i32 } %42, 0
+  call void @__clang_call_terminate(ptr %43) #15
   unreachable
 
 cleanup.cont:                                     ; preds = %while.body, %if.then3.i.i.i, %if.then.i.i.i, %cleanup, %if.then, %if.then19, %if.then16, %if.then12
@@ -3519,7 +3517,7 @@ if.end:                                           ; preds = %while.body, %if.els
   %m_body1Wrap.i24 = getelementptr inbounds i8, ptr %69, i64 24
   %m_body1Wrap.i24.sink = select i1 %cmp20, ptr %m_body0Wrap.i20, ptr %m_body1Wrap.i24
   store ptr %tmp.0, ptr %m_body1Wrap.i24.sink, align 8
-  %tobool.not = icmp eq i32 %64, 0
+  %tobool.not = icmp eq i64 %indvars.iv.next, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !44
 
 while.end:                                        ; preds = %if.end, %entry

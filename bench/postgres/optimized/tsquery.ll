@@ -2224,7 +2224,7 @@ define dso_local i64 @tsqueryrecv(ptr nocapture noundef readonly %0) local_unnam
 
 46:                                               ; preds = %41
   %47 = trunc nuw i64 %31 to i32
-  %.not108122 = icmp eq i32 %47, 0
+  %.not108122 = icmp eq i64 %31, 0
   br i1 %.not108122, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %46, %.lr.ph

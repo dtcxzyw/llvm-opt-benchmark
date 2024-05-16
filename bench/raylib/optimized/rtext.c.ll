@@ -9141,10 +9141,10 @@ TextLength.exit:                                  ; preds = %.lr.ph.i
   br label %34
 
 34:                                               ; preds = %.lr.ph, %155
-  %.046 = phi i32 [ 0, %.lr.ph ], [ %.1, %155 ]
-  %.02845 = phi float [ 0.000000e+00, %.lr.ph ], [ %.129, %155 ]
-  %.03044 = phi i32 [ 0, %.lr.ph ], [ %156, %155 ]
-  %35 = sext i32 %.03044 to i64
+  %.048 = phi i32 [ 0, %.lr.ph ], [ %.1, %155 ]
+  %.02847 = phi float [ 0.000000e+00, %.lr.ph ], [ %.129, %155 ]
+  %.03046 = phi i32 [ 0, %.lr.ph ], [ %156, %155 ]
+  %35 = sext i32 %.03046 to i64
   %36 = getelementptr inbounds i8, ptr %1, i64 %35
   %37 = load i8, ptr %36, align 1
   %38 = sext i8 %37 to i32
@@ -9272,7 +9272,7 @@ GetCodepointNext.exit:                            ; preds = %41, %46, %51, %69, 
   br i1 %exitcond.not.i, label %.thread.i, label %.lr.ph.i35
 
 108:                                              ; preds = %.lr.ph.i35
-  %109 = icmp eq i32 %105, 0
+  %109 = icmp eq i64 %indvars.iv.i, 0
   br i1 %109, label %.thread.i, label %GetGlyphIndex.exit
 
 .thread.i:                                        ; preds = %107, %108, %GetCodepointNext.exit
@@ -9292,12 +9292,12 @@ GetGlyphIndex.exit:                               ; preds = %108, %.thread.i
 
 111:                                              ; preds = %GetGlyphIndex.exit
   %112 = load i32, ptr @textLineSpacing, align 4
-  %113 = add nsw i32 %112, %.046
+  %113 = add nsw i32 %112, %.048
   br label %155
 
 114:                                              ; preds = %GetGlyphIndex.exit
-  %115 = sitofp i32 %.046 to float
-  %116 = insertelement <2 x float> poison, float %.02845, i64 0
+  %115 = sitofp i32 %.048 to float
+  %116 = insertelement <2 x float> poison, float %.02847, i64 0
   %117 = insertelement <2 x float> %116, float %115, i64 1
   %118 = fadd <2 x float> %117, %2
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %7)
@@ -9320,7 +9320,7 @@ GetGlyphIndex.exit:                               ; preds = %108, %.thread.i
   br i1 %exitcond.not.i.i, label %.thread.i.i, label %.lr.ph.i.i
 
 125:                                              ; preds = %.lr.ph.i.i
-  %126 = icmp eq i32 %122, 0
+  %126 = icmp eq i64 %indvars.iv.i.i, 0
   br i1 %126, label %.thread.i.i, label %DrawTextCodepoint.exit
 
 .thread.i.i:                                      ; preds = %124, %125, %114
@@ -9361,19 +9361,19 @@ DrawTextCodepoint.exit:                           ; preds = %125, %.thread.i.i
   %147 = getelementptr inbounds %struct.Rectangle, ptr %.sroa.7.0.copyload, i64 %142, i32 2
   %148 = load float, ptr %147, align 4
   %149 = tail call float @llvm.fmuladd.f32(float %148, float %19, float %4)
-  %150 = fadd float %.02845, %149
+  %150 = fadd float %.02847, %149
   br label %155
 
 151:                                              ; preds = %141
   %152 = sitofp i32 %144 to float
   %153 = tail call float @llvm.fmuladd.f32(float %152, float %19, float %4)
-  %154 = fadd float %.02845, %153
+  %154 = fadd float %.02847, %153
   br label %155
 
 155:                                              ; preds = %146, %151, %111
   %.129 = phi float [ 0.000000e+00, %111 ], [ %150, %146 ], [ %154, %151 ]
-  %.1 = phi i32 [ %113, %111 ], [ %.046, %146 ], [ %.046, %151 ]
-  %156 = add nsw i32 %.037, %.03044
+  %.1 = phi i32 [ %113, %111 ], [ %.048, %146 ], [ %.048, %151 ]
+  %156 = add nsw i32 %.037, %.03046
   %157 = icmp slt i32 %156, %15
   br i1 %157, label %34, label %._crit_edge
 
@@ -9548,7 +9548,7 @@ define i32 @GetGlyphIndex(ptr nocapture noundef readonly byval(%struct.Font) ali
   br i1 %exitcond.not, label %.thread, label %8
 
 15:                                               ; preds = %8
-  %16 = icmp eq i32 %12, 0
+  %16 = icmp eq i64 %indvars.iv, 0
   br i1 %16, label %.thread, label %18
 
 .thread:                                          ; preds = %14, %2, %15
@@ -9594,7 +9594,7 @@ define void @DrawTextCodepoint(ptr nocapture noundef readonly byval(%struct.Font
   br i1 %exitcond.not.i, label %.thread.i, label %12
 
 19:                                               ; preds = %12
-  %20 = icmp eq i32 %16, 0
+  %20 = icmp eq i64 %indvars.iv.i, 0
   br i1 %20, label %.thread.i, label %GetGlyphIndex.exit
 
 .thread.i:                                        ; preds = %18, %19, %5
@@ -9704,8 +9704,8 @@ define void @DrawTextCodepoints(ptr nocapture noundef readonly byval(%struct.Fon
 
 26:                                               ; preds = %.lr.ph, %82
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %82 ]
-  %.042 = phi i32 [ 0, %.lr.ph ], [ %.1, %82 ]
-  %.03040 = phi float [ 0.000000e+00, %.lr.ph ], [ %.131, %82 ]
+  %.044 = phi i32 [ 0, %.lr.ph ], [ %.1, %82 ]
+  %.03042 = phi float [ 0.000000e+00, %.lr.ph ], [ %.131, %82 ]
   %27 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4
   br i1 %15, label %.lr.ph.i, label %.thread.i
@@ -9727,7 +9727,7 @@ define void @DrawTextCodepoints(ptr nocapture noundef readonly byval(%struct.Fon
   br i1 %exitcond.not.i, label %.thread.i, label %.lr.ph.i
 
 35:                                               ; preds = %.lr.ph.i
-  %36 = icmp eq i32 %32, 0
+  %36 = icmp eq i64 %indvars.iv.i, 0
   br i1 %36, label %.thread.i, label %GetGlyphIndex.exit
 
 .thread.i:                                        ; preds = %34, %35, %26
@@ -9747,12 +9747,12 @@ GetGlyphIndex.exit:                               ; preds = %35, %.thread.i
 
 38:                                               ; preds = %GetGlyphIndex.exit
   %39 = load i32, ptr @textLineSpacing, align 4
-  %40 = add nsw i32 %39, %.042
+  %40 = add nsw i32 %39, %.044
   br label %82
 
 41:                                               ; preds = %GetGlyphIndex.exit
-  %42 = sitofp i32 %.042 to float
-  %43 = insertelement <2 x float> poison, float %.03040, i64 0
+  %42 = sitofp i32 %.044 to float
+  %43 = insertelement <2 x float> poison, float %.03042, i64 0
   %44 = insertelement <2 x float> %43, float %42, i64 1
   %45 = fadd <2 x float> %44, %3
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %8)
@@ -9775,7 +9775,7 @@ GetGlyphIndex.exit:                               ; preds = %35, %.thread.i
   br i1 %exitcond.not.i.i, label %.thread.i.i, label %.lr.ph.i.i
 
 52:                                               ; preds = %.lr.ph.i.i
-  %53 = icmp eq i32 %49, 0
+  %53 = icmp eq i64 %indvars.iv.i.i, 0
   br i1 %53, label %.thread.i.i, label %DrawTextCodepoint.exit
 
 .thread.i.i:                                      ; preds = %51, %52, %41
@@ -9816,18 +9816,18 @@ DrawTextCodepoint.exit:                           ; preds = %52, %.thread.i.i
   %74 = getelementptr inbounds %struct.Rectangle, ptr %.sroa.7.0.copyload, i64 %69, i32 2
   %75 = load float, ptr %74, align 4
   %76 = tail call float @llvm.fmuladd.f32(float %75, float %11, float %5)
-  %77 = fadd float %.03040, %76
+  %77 = fadd float %.03042, %76
   br label %82
 
 78:                                               ; preds = %68
   %79 = sitofp i32 %71 to float
   %80 = tail call float @llvm.fmuladd.f32(float %79, float %11, float %5)
-  %81 = fadd float %.03040, %80
+  %81 = fadd float %.03042, %80
   br label %82
 
 82:                                               ; preds = %38, %78, %73
   %.131 = phi float [ 0.000000e+00, %38 ], [ %77, %73 ], [ %81, %78 ]
-  %.1 = phi i32 [ %40, %38 ], [ %.042, %73 ], [ %.042, %78 ]
+  %.1 = phi i32 [ %40, %38 ], [ %.044, %73 ], [ %.044, %78 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %26
@@ -9909,14 +9909,14 @@ TextLength.exit:                                  ; preds = %.lr.ph.i
   br label %25
 
 25:                                               ; preds = %.lr.ph, %123
-  %.059 = phi i32 [ 0, %.lr.ph ], [ %103, %123 ]
-  %.03458 = phi float [ %2, %.lr.ph ], [ %.1, %123 ]
-  %.03557 = phi float [ 0.000000e+00, %.lr.ph ], [ %.2, %123 ]
-  %.03756 = phi float [ 0.000000e+00, %.lr.ph ], [ %.138, %123 ]
-  %.03955 = phi i32 [ 0, %.lr.ph ], [ %.140, %123 ]
-  %.04154 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %123 ]
-  %26 = add nsw i32 %.03955, 1
-  %27 = sext i32 %.059 to i64
+  %.060 = phi i32 [ 0, %.lr.ph ], [ %103, %123 ]
+  %.03459 = phi float [ %2, %.lr.ph ], [ %.1, %123 ]
+  %.03558 = phi float [ 0.000000e+00, %.lr.ph ], [ %.2, %123 ]
+  %.03757 = phi float [ 0.000000e+00, %.lr.ph ], [ %.138, %123 ]
+  %.03956 = phi i32 [ 0, %.lr.ph ], [ %.140, %123 ]
+  %.04155 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %123 ]
+  %26 = add nsw i32 %.03956, 1
+  %27 = sext i32 %.060 to i64
   %28 = getelementptr inbounds i8, ptr %1, i64 %27
   %29 = load i8, ptr %28, align 1
   %30 = sext i8 %29 to i32
@@ -10044,7 +10044,7 @@ GetCodepointNext.exit:                            ; preds = %33, %38, %43, %61, 
   br i1 %exitcond.not.i, label %.thread.i, label %.lr.ph.i48
 
 100:                                              ; preds = %.lr.ph.i48
-  %101 = icmp eq i32 %97, 0
+  %101 = icmp eq i64 %indvars.iv.i, 0
   br i1 %101, label %.thread.i, label %GetGlyphIndex.exit
 
 .thread.i:                                        ; preds = %99, %100, %GetCodepointNext.exit
@@ -10056,7 +10056,7 @@ GetCodepointNext.exit:                            ; preds = %33, %38, %43, %61, 
 
 GetGlyphIndex.exit:                               ; preds = %100, %.thread.i
   %.113.i = phi i32 [ %97, %100 ], [ %spec.select14.i, %.thread.i ]
-  %103 = add nsw i32 %.050, %.059
+  %103 = add nsw i32 %.050, %.060
   %.not = icmp eq i32 %.030.i, 10
   br i1 %.not, label %120, label %104
 
@@ -10070,7 +10070,7 @@ GetGlyphIndex.exit:                               ; preds = %100, %.thread.i
 
 109:                                              ; preds = %104
   %110 = sitofp i32 %108 to float
-  %111 = fadd float %.03756, %110
+  %111 = fadd float %.03757, %110
   br label %123
 
 112:                                              ; preds = %104
@@ -10080,21 +10080,21 @@ GetGlyphIndex.exit:                               ; preds = %100, %.thread.i
   %116 = load i32, ptr %115, align 4
   %117 = sitofp i32 %116 to float
   %118 = fadd float %114, %117
-  %119 = fadd float %.03756, %118
+  %119 = fadd float %.03757, %118
   br label %123
 
 120:                                              ; preds = %GetGlyphIndex.exit
-  %121 = fcmp olt float %.03557, %.03756
-  %.136 = select i1 %121, float %.03756, float %.03557
-  %122 = fadd float %.03458, %24
+  %121 = fcmp olt float %.03558, %.03757
+  %.136 = select i1 %121, float %.03757, float %.03558
+  %122 = fadd float %.03459, %24
   br label %123
 
 123:                                              ; preds = %109, %112, %120
   %.140 = phi i32 [ %26, %109 ], [ %26, %112 ], [ 0, %120 ]
   %.138 = phi float [ %111, %109 ], [ %119, %112 ], [ 0.000000e+00, %120 ]
-  %.2 = phi float [ %.03557, %109 ], [ %.03557, %112 ], [ %.136, %120 ]
-  %.1 = phi float [ %.03458, %109 ], [ %.03458, %112 ], [ %122, %120 ]
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %.04154, i32 %.140)
+  %.2 = phi float [ %.03558, %109 ], [ %.03558, %112 ], [ %.136, %120 ]
+  %.1 = phi float [ %.03459, %109 ], [ %.03459, %112 ], [ %122, %120 ]
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %.04155, i32 %.140)
   %124 = icmp slt i32 %103, %12
   br i1 %124, label %25, label %._crit_edge.loopexit
 
@@ -10154,7 +10154,7 @@ define void @GetGlyphInfo(ptr dead_on_unwind noalias nocapture writable writeonl
   br i1 %exitcond.not.i, label %.thread.i, label %9
 
 16:                                               ; preds = %9
-  %17 = icmp eq i32 %13, 0
+  %17 = icmp eq i64 %indvars.iv.i, 0
   br i1 %17, label %.thread.i, label %GetGlyphIndex.exit
 
 .thread.i:                                        ; preds = %15, %16, %3
@@ -10204,7 +10204,7 @@ define { <2 x float>, <2 x float> } @GetGlyphAtlasRec(ptr nocapture noundef read
   br i1 %exitcond.not.i, label %.thread.i, label %10
 
 17:                                               ; preds = %10
-  %18 = icmp eq i32 %14, 0
+  %18 = icmp eq i64 %indvars.iv.i, 0
   br i1 %18, label %.thread.i, label %GetGlyphIndex.exit
 
 .thread.i:                                        ; preds = %16, %17, %2

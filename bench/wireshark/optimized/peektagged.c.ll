@@ -167,7 +167,7 @@ wtap_file_read_number.exit:                       ; preds = %wtap_file_read_till
   %47 = trunc nuw i64 %41 to i32
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %.not77 = icmp eq i32 %47, 9
+  %.not77 = icmp eq i64 %41, 9
   br i1 %.not77, label %49, label %.thread
 
 .thread:                                          ; preds = %wtap_file_read_number.exit, %46

@@ -344,7 +344,7 @@ define internal i32 @msi_set_affinity(ptr noundef %0, ptr noundef %1, i1 noundef
   %41 = load i32, ptr %40, align 4
   %42 = getelementptr inbounds i8, ptr %8, i64 4
   %43 = icmp ne i32 %41, %32
-  %44 = icmp ne i32 %32, 239
+  %44 = icmp ne i64 %31, 239
   %45 = and i1 %43, %44
   %46 = and i32 %36, 4194304
   %47 = icmp ne i32 %46, 0

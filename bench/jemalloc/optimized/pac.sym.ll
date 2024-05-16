@@ -421,21 +421,21 @@ sz_psz2ind.exit:                                  ; preds = %if.then
   %1 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %0, i1 false)
   %2 = trunc nuw nsw i64 %1 to i32
   %cond.i = tail call i32 @llvm.usub.sat.i32(i32 50, i32 %2)
-  %cmp4.i = icmp ugt i32 %2, 49
+  %cmp4.i = icmp ult i64 %0, 16384
   %add.i = add nuw nsw i32 %cond.i, 11
-  %cond10.i = select i1 %cmp4.i, i32 12, i32 %add.i
-  %sh_prom.i = zext nneg i32 %cond10.i to i64
+  %3 = zext nneg i32 %add.i to i64
+  %sh_prom.i = select i1 %cmp4.i, i64 12, i64 %3
   %shr.i = lshr i64 %0, %sh_prom.i
-  %3 = trunc i64 %shr.i to i32
-  %conv12.i = and i32 %3, 3
+  %4 = trunc i64 %shr.i to i32
+  %conv12.i = and i32 %4, 3
   %shl.i = shl nuw nsw i32 %cond.i, 2
   %add13.i = add nsw i32 %shl.i, -1
-  %4 = add nsw i32 %add13.i, %conv12.i
-  %cmp1 = icmp ugt i32 %4, 198
+  %5 = add nsw i32 %add13.i, %conv12.i
+  %cmp1 = icmp ugt i32 %5, 198
   br i1 %cmp1, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.then, %sz_psz2ind.exit, %entry
-  %new_ind.0 = phi i32 [ %4, %sz_psz2ind.exit ], [ 0, %entry ], [ 198, %if.then ]
+  %new_ind.0 = phi i32 [ %5, %sz_psz2ind.exit ], [ 0, %entry ], [ 198, %if.then ]
   %lock.i.i = getelementptr inbounds i8, ptr %pac, i64 58480
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %lock.i.i) #8
   %cmp.i.not.i = icmp eq i32 %call.i.i, 0
@@ -450,19 +450,19 @@ if.then.i:                                        ; preds = %if.end4
 
 if.end.i14:                                       ; preds = %if.then.i, %if.end4
   %n_lock_ops.i.i = getelementptr inbounds i8, ptr %pac, i64 58464
-  %5 = load i64, ptr %n_lock_ops.i.i, align 8
-  %inc.i.i = add i64 %5, 1
+  %6 = load i64, ptr %n_lock_ops.i.i, align 8
+  %inc.i.i = add i64 %6, 1
   store i64 %inc.i.i, ptr %n_lock_ops.i.i, align 8
   %prev_owner.i.i = getelementptr inbounds i8, ptr %pac, i64 58456
-  %6 = load ptr, ptr %prev_owner.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %6, %tsdn
+  %7 = load ptr, ptr %prev_owner.i.i, align 8
+  %cmp.not.i.i = icmp eq ptr %7, %tsdn
   br i1 %cmp.not.i.i, label %malloc_mutex_lock.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i14
   store ptr %tsdn, ptr %prev_owner.i.i, align 8
   %n_owner_switches.i.i = getelementptr inbounds i8, ptr %pac, i64 58448
-  %7 = load i64, ptr %n_owner_switches.i.i, align 8
-  %inc2.i.i = add i64 %7, 1
+  %8 = load i64, ptr %n_owner_switches.i.i, align 8
+  %inc2.i.i = add i64 %8, 1
   store i64 %inc2.i.i, ptr %n_owner_switches.i.i, align 8
   br label %malloc_mutex_lock.exit
 
@@ -472,11 +472,11 @@ malloc_mutex_lock.exit:                           ; preds = %if.end.i14, %if.the
 
 if.then7:                                         ; preds = %malloc_mutex_lock.exit
   %limit8 = getelementptr inbounds i8, ptr %pac, i64 58404
-  %8 = load i32, ptr %limit8, align 4
-  %idxprom.i.i = zext i32 %8 to i64
+  %9 = load i32, ptr %limit8, align 4
+  %idxprom.i.i = zext i32 %9 to i64
   %arrayidx.i.i = getelementptr inbounds [200 x i64], ptr @sz_pind2sz_tab, i64 0, i64 %idxprom.i.i
-  %9 = load i64, ptr %arrayidx.i.i, align 8
-  store i64 %9, ptr %old_limit, align 8
+  %10 = load i64, ptr %arrayidx.i.i, align 8
+  store i64 %10, ptr %old_limit, align 8
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then7, %malloc_mutex_lock.exit

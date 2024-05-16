@@ -1143,7 +1143,7 @@ do.end204:                                        ; preds = %land.rhs198
   %77 = trunc i64 %75 to i32
   %sub205 = sub nsw i32 %77, %i.9388
   store i32 %sub205, ptr %arrayidx191.le, align 4
-  %cmp209 = icmp eq i32 %74, 1
+  %cmp209 = icmp eq i64 %indvars.iv489, 1
   br i1 %cmp209, label %for.end234, label %if.end213
 
 if.end213:                                        ; preds = %do.end204, %for.body183
@@ -1174,7 +1174,7 @@ do.end227:                                        ; preds = %do.body214
   %arrayidx231 = getelementptr inbounds i32, ptr %add.ptr101, i64 %idxprom230
   store i32 %i.11, ptr %arrayidx231, align 4
   %dec233 = add nsw i32 %81, -2
-  %cmp181 = icmp sgt i32 %81, 1
+  %cmp181 = icmp sgt i64 %indvars.iv493, 1
   br i1 %cmp181, label %for.body183, label %for.end234, !llvm.loop !27
 
 for.end234:                                       ; preds = %do.end227, %do.end204, %do.end204.thread

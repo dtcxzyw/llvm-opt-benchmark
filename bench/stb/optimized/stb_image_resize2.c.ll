@@ -1838,7 +1838,7 @@ while.end:                                        ; preds = %land.rhs174
   %add184 = add i32 %83, -1
   %sub185 = add i32 %add184, %88
   store i32 %sub185, ptr %n1165, align 4
-  %cmp189.not.not = icmp sgt i32 %88, 0
+  %cmp189.not.not = icmp sgt i64 %indvars.iv347, 0
   br i1 %cmp189.not.not, label %if.then191, label %if.end208
 
 if.then191:                                       ; preds = %while.end

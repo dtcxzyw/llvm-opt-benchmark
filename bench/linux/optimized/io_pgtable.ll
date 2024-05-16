@@ -194,11 +194,11 @@ define internal noundef range(i32 -22, 1) i32 @iommu_v1_map_pages(ptr noundef %0
   %45 = icmp eq ptr %7, null
   br i1 %31, label %.split.us, label %.split, !prof !13
 
-.split.us:                                        ; preds = %29, %313
-  %46 = phi i64 [ %307, %313 ], [ %1, %29 ]
-  %47 = phi i64 [ %308, %313 ], [ %2, %29 ]
-  %48 = phi i64 [ %309, %313 ], [ %4, %29 ]
-  %49 = phi i8 [ %306, %313 ], [ 0, %29 ]
+.split.us:                                        ; preds = %29, %312
+  %46 = phi i64 [ %306, %312 ], [ %1, %29 ]
+  %47 = phi i64 [ %307, %312 ], [ %2, %29 ]
+  %48 = phi i64 [ %308, %312 ], [ %4, %29 ]
+  %49 = phi i8 [ %305, %312 ], [ 0, %29 ]
   %50 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %3) #12, !srcloc !14
   %51 = add i64 %50, -12
   %52 = urem i64 %51, 9
@@ -565,39 +565,39 @@ define internal noundef range(i32 -22, 1) i32 @iommu_v1_map_pages(ptr noundef %0
 290:                                              ; preds = %287
   %291 = load volatile ptr, ptr %11, align 8
   %292 = icmp eq ptr %291, %11
-  %293 = icmp ugt i32 %54, 1
-  %294 = or i64 %47, %16
-  %295 = and i64 %294, %42
-  %296 = or disjoint i64 %295, 1152921504606850561
-  %297 = or i64 %47, 1152921504606846977
-  %298 = select i1 %293, i64 %296, i64 %297
-  %299 = or i64 %298, %44
-  br label %300
+  %.not.us = icmp eq i64 %52, 0
+  %293 = or i64 %47, %16
+  %294 = and i64 %293, %42
+  %295 = or disjoint i64 %294, 1152921504606850561
+  %296 = or i64 %47, 1152921504606846977
+  %297 = select i1 %.not.us, i64 %296, i64 %295
+  %298 = or i64 %297, %44
+  br label %299
 
-300:                                              ; preds = %300, %290
-  %301 = phi i64 [ 0, %290 ], [ %303, %300 ]
-  %302 = getelementptr i64, ptr %242, i64 %301
-  store i64 %299, ptr %302, align 8
-  %303 = add nuw nsw i64 %301, 1
-  %304 = icmp eq i64 %303, %246
-  br i1 %304, label %305, label %300, !llvm.loop !30
+299:                                              ; preds = %299, %290
+  %300 = phi i64 [ 0, %290 ], [ %302, %299 ]
+  %301 = getelementptr i64, ptr %242, i64 %300
+  store i64 %298, ptr %301, align 8
+  %302 = add nuw nsw i64 %300, 1
+  %303 = icmp eq i64 %302, %246
+  br i1 %303, label %304, label %299, !llvm.loop !30
 
-305:                                              ; preds = %300
-  %306 = select i1 %292, i8 %241, i8 1
-  %307 = add i64 %46, %3
-  %308 = add i64 %47, %3
-  %309 = add i64 %48, -1
-  br i1 %45, label %313, label %310
+304:                                              ; preds = %299
+  %305 = select i1 %292, i8 %241, i8 1
+  %306 = add i64 %46, %3
+  %307 = add i64 %47, %3
+  %308 = add i64 %48, -1
+  br i1 %45, label %312, label %309
 
-310:                                              ; preds = %305
-  %311 = load i64, ptr %7, align 8
-  %312 = add i64 %311, %3
-  store i64 %312, ptr %7, align 8
-  br label %313
+309:                                              ; preds = %304
+  %310 = load i64, ptr %7, align 8
+  %311 = add i64 %310, %3
+  store i64 %311, ptr %7, align 8
+  br label %312
 
-313:                                              ; preds = %310, %305
-  %314 = icmp eq i64 %309, 0
-  br i1 %314, label %.thread25, label %.split.us, !llvm.loop !31
+312:                                              ; preds = %309, %304
+  %313 = icmp eq i64 %308, 0
+  br i1 %313, label %.thread25, label %.split.us, !llvm.loop !31
 
 default.unreachable:                              ; preds = %265
   unreachable
@@ -607,23 +607,23 @@ default.unreachable:                              ; preds = %265
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 205, i32 0, i64 12) #11, !srcloc !33
   unreachable
 
-.thread25:                                        ; preds = %313, %.loopexit31.us, %79, %76, %192, %189, %161
-  %315 = phi i8 [ %146, %161 ], [ %146, %189 ], [ %146, %192 ], [ %49, %76 ], [ %49, %79 ], [ %241, %.loopexit31.us ], [ %306, %313 ]
-  %316 = phi i32 [ -12, %161 ], [ -12, %189 ], [ -12, %192 ], [ -12, %76 ], [ -12, %79 ], [ -12, %.loopexit31.us ], [ 0, %313 ]
-  %317 = icmp eq i8 %315, 0
-  br i1 %317, label %.thread28, label %318
+.thread25:                                        ; preds = %312, %.loopexit31.us, %79, %76, %192, %189, %161
+  %314 = phi i8 [ %146, %161 ], [ %146, %189 ], [ %146, %192 ], [ %49, %76 ], [ %49, %79 ], [ %241, %.loopexit31.us ], [ %305, %312 ]
+  %315 = phi i32 [ -12, %161 ], [ -12, %189 ], [ -12, %192 ], [ -12, %76 ], [ -12, %79 ], [ -12, %.loopexit31.us ], [ 0, %312 ]
+  %316 = icmp eq i8 %314, 0
+  br i1 %316, label %.thread28, label %317
 
-318:                                              ; preds = %.thread25
-  %319 = call i64 @_raw_spin_lock_irqsave(ptr noundef %37) #11
+317:                                              ; preds = %.thread25
+  %318 = call i64 @_raw_spin_lock_irqsave(ptr noundef %37) #11
   call void @amd_iommu_domain_flush_pages(ptr noundef %12, i64 noundef %1, i64 noundef %15) #11
-  call void @_raw_spin_unlock_irqrestore(ptr noundef %37, i64 noundef %319) #11
+  call void @_raw_spin_unlock_irqrestore(ptr noundef %37, i64 noundef %318) #11
   br label %.thread28
 
-.thread28:                                        ; preds = %27, %24, %318, %.thread25
-  %320 = phi i32 [ %316, %318 ], [ %316, %.thread25 ], [ 0, %27 ], [ -22, %24 ]
+.thread28:                                        ; preds = %27, %24, %317, %.thread25
+  %319 = phi i32 [ %315, %317 ], [ %315, %.thread25 ], [ 0, %27 ], [ -22, %24 ]
   call void @put_pages_list(ptr noundef nonnull %11) #11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #11
-  ret i32 %320
+  ret i32 %319
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

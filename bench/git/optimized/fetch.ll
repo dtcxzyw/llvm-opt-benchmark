@@ -2655,7 +2655,7 @@ for.cond.i.i.i:                                   ; preds = %for.cond.i.i.i, %if
 for.end.i.i.i:                                    ; preds = %for.cond.i.i.i
   %174 = trunc nsw i64 %indvars.iv.i99.i.i to i32
   store i32 %174, ptr %url_len.i.i.i, align 8
-  %cmp13.i.i.i = icmp sgt i32 %174, 5
+  %cmp13.i.i.i = icmp sgt i64 %indvars.iv.i99.i.i, 5
   br i1 %cmp13.i.i.i, label %land.lhs.true.i109.i.i, label %if.end22.i.i.i
 
 land.lhs.true.i109.i.i:                           ; preds = %for.end.i.i.i

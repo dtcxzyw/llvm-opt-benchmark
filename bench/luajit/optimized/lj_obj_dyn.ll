@@ -24,7 +24,6 @@ define hidden range(i32 0, 2) i32 @lj_obj_equal(ptr nocapture noundef readonly %
 entry:
   %0 = load i64, ptr %o1, align 8
   %shr = ashr i64 %0, 47
-  %conv = trunc nsw i64 %shr to i32
   %1 = load i64, ptr %o2, align 8
   %shr1 = ashr i64 %1, 47
   %cmp = icmp eq i64 %shr, %shr1
@@ -33,11 +32,11 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %cmp6 = icmp ugt i32 %conv, -4
+  %cmp6 = icmp ugt i64 %shr, -4
   br i1 %cmp6, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then
-  %cmp11 = icmp ult i32 %conv, -14
+  %cmp11 = icmp ult i64 %shr, -14
   br i1 %cmp11, label %if.end28, label %if.then13
 
 if.then13:                                        ; preds = %if.end
@@ -45,10 +44,9 @@ if.then13:                                        ; preds = %if.end
   br label %return
 
 if.else:                                          ; preds = %entry
-  %conv2 = trunc nsw i64 %shr1 to i32
-  %cmp20 = icmp ult i32 %conv, -13
-  %cmp24 = icmp ult i32 %conv2, -13
-  %or.cond = select i1 %cmp20, i1 %cmp24, i1 false
+  %cmp20 = icmp ult i64 %shr, -13
+  %cmp24 = icmp ult i64 %shr1, -13
+  %or.cond = and i1 %cmp20, %cmp24
   br i1 %or.cond, label %if.end28, label %return
 
 if.end28:                                         ; preds = %if.else, %if.end
@@ -66,11 +64,10 @@ define hidden ptr @lj_obj_ptr(ptr nocapture noundef readonly %g, ptr nocapture n
 entry:
   %0 = load i64, ptr %o, align 8
   %shr = ashr i64 %0, 47
-  %conv = trunc nsw i64 %shr to i32
-  switch i32 %conv, label %if.else16 [
-    i32 -13, label %if.then
-    i32 -4, label %if.then6
-    i32 -11, label %if.then12
+  switch i64 %shr, label %if.else16 [
+    i64 -13, label %if.then
+    i64 -4, label %if.then6
+    i64 -11, label %if.then12
   ]
 
 if.then:                                          ; preds = %entry
@@ -105,6 +102,7 @@ if.then12:                                        ; preds = %entry
   br label %return
 
 if.else16:                                        ; preds = %entry
+  %conv = trunc nsw i64 %shr to i32
   %7 = add nsw i32 %conv, 13
   %cmp19 = icmp ult i32 %7, 9
   br i1 %cmp19, label %if.then21, label %return

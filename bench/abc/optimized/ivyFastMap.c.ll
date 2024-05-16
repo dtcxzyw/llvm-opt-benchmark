@@ -2806,7 +2806,7 @@ define internal fastcc range(i32 0, 2) i32 @Ivy_FastMapMerge(ptr nocapture nound
   br i1 %50, label %.thread, label %42, !llvm.loop !30
 
 51:                                               ; preds = %42
-  %52 = icmp eq i32 %43, 0
+  %52 = icmp eq i64 %indvars.iv134, 0
   br i1 %52, label %.loopexit, label %.thread
 
 .thread:                                          ; preds = %45, %51

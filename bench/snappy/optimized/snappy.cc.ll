@@ -166,19 +166,19 @@ entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %input_size, i64 65536)
   %conv = trunc nuw nsw i64 %.sroa.speculated to i32
-  %cmp.i5 = icmp ugt i32 %conv, 16384
+  %cmp.i5 = icmp ugt i64 %input_size, 16384
   br i1 %cmp.i5, label %_ZN6snappy12_GLOBAL__N_118CalculateTableSizeEj.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %cmp2.i = icmp ult i32 %conv, 256
+  %cmp2.i = icmp ult i64 %input_size, 256
   br i1 %cmp2.i, label %_ZN6snappy12_GLOBAL__N_118CalculateTableSizeEj.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i
   %sub.i = add nsw i32 %conv, -1
   %0 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub.i, i1 true)
   %xor.i.i.i = xor i32 %0, 31
-  %1 = shl nuw nsw i32 4, %xor.i.i.i
-  %2 = zext nneg i32 %1 to i64
+  %1 = shl i32 4, %xor.i.i.i
+  %2 = zext i32 %1 to i64
   br label %_ZN6snappy12_GLOBAL__N_118CalculateTableSizeEj.exit
 
 _ZN6snappy12_GLOBAL__N_118CalculateTableSizeEj.exit: ; preds = %entry, %if.end.i, %if.end4.i
@@ -1146,19 +1146,19 @@ _ZN6snappy6Varint8Encode32EPcj.exit:              ; preds = %if.then.i, %if.then
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
   %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %call, i64 65536)
   %conv.i37 = trunc nuw nsw i64 %.sroa.speculated.i to i32
-  %cmp.i5.i = icmp ugt i32 %conv.i37, 16384
+  %cmp.i5.i = icmp ugt i64 %call, 16384
   br i1 %cmp.i5.i, label %_ZN6snappy8internal13WorkingMemoryC2Em.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %_ZN6snappy6Varint8Encode32EPcj.exit
-  %cmp2.i.i = icmp ult i32 %conv.i37, 256
+  %cmp2.i.i = icmp ult i64 %call, 256
   br i1 %cmp2.i.i, label %_ZN6snappy8internal13WorkingMemoryC2Em.exit, label %if.end4.i.i
 
 if.end4.i.i:                                      ; preds = %if.end.i.i
   %sub.i.i = add nsw i32 %conv.i37, -1
   %8 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub.i.i, i1 true)
   %xor.i.i.i.i = xor i32 %8, 31
-  %9 = shl nuw nsw i32 4, %xor.i.i.i.i
-  %10 = zext nneg i32 %9 to i64
+  %9 = shl i32 4, %xor.i.i.i.i
+  %10 = zext i32 %9 to i64
   br label %_ZN6snappy8internal13WorkingMemoryC2Em.exit
 
 _ZN6snappy8internal13WorkingMemoryC2Em.exit:      ; preds = %_ZN6snappy6Varint8Encode32EPcj.exit, %if.end.i.i, %if.end4.i.i
@@ -1222,11 +1222,11 @@ if.end:                                           ; preds = %while.body20, %whil
   %fragment.0 = phi ptr [ %call12, %while.body ], [ %add.ptr.i, %while.body20 ]
   store i64 %.sroa.speculated60, ptr %fragment_size, align 8
   %conv.i42 = trunc nuw nsw i64 %.sroa.speculated60 to i32
-  %cmp.i.i = icmp ugt i32 %conv.i42, 16384
+  %cmp.i.i = icmp ugt i64 %N.073, 16384
   br i1 %cmp.i.i, label %_ZNK6snappy8internal13WorkingMemory12GetHashTableEmPi.exit, label %if.end.i.i43
 
 if.end.i.i43:                                     ; preds = %if.end
-  %cmp2.i.i44 = icmp ult i32 %conv.i42, 256
+  %cmp2.i.i44 = icmp ult i64 %N.073, 256
   br i1 %cmp2.i.i44, label %_ZNK6snappy8internal13WorkingMemory12GetHashTableEmPi.exit, label %if.end4.i.i45
 
 if.end4.i.i45:                                    ; preds = %if.end.i.i43

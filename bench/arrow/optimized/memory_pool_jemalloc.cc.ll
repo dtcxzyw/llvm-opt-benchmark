@@ -99,7 +99,7 @@ if.end:                                           ; preds = %entry
 cond.true:                                        ; preds = %if.end
   %conv = trunc nuw nsw i64 %alignment to i32
   %cttz5 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %conv, i1 true)
-  %.not6 = icmp eq i32 %conv, 0
+  %.not6 = icmp eq i64 %alignment, 0
   %sub = select i1 %.not6, i32 -1, i32 %cttz5
   br label %cond.end
 
@@ -107,7 +107,7 @@ cond.false:                                       ; preds = %if.end
   %shr = lshr i64 %alignment, 32
   %conv2 = trunc nuw i64 %shr to i32
   %cttz = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %conv2, i1 true)
-  %.not = icmp eq i32 %conv2, 0
+  %.not = icmp ult i64 %alignment, 4294967296
   %0 = or disjoint i32 %cttz, 32
   %add = select i1 %.not, i32 31, i32 %0
   br label %cond.end
@@ -163,7 +163,7 @@ if.end.i:                                         ; preds = %while.end6
 cond.true.i:                                      ; preds = %if.end.i
   %conv.i = trunc nuw nsw i64 %alignment to i32
   %cttz5.i = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %conv.i, i1 true)
-  %.not6.i = icmp eq i32 %conv.i, 0
+  %.not6.i = icmp eq i64 %alignment, 0
   %sub.i = select i1 %.not6.i, i32 -1, i32 %cttz5.i
   br label %cond.end.i
 
@@ -171,7 +171,7 @@ cond.false.i:                                     ; preds = %if.end.i
   %shr.i = lshr i64 %alignment, 32
   %conv2.i = trunc nuw i64 %shr.i to i32
   %cttz.i = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %conv2.i, i1 true)
-  %.not.i = icmp eq i32 %conv2.i, 0
+  %.not.i = icmp ult i64 %alignment, 4294967296
   %1 = or disjoint i32 %cttz.i, 32
   %add.i = select i1 %.not.i, i32 31, i32 %1
   br label %cond.end.i
@@ -206,7 +206,7 @@ if.else.i:                                        ; preds = %if.end
 cond.true.i24:                                    ; preds = %if.else.i
   %conv.i25 = trunc nuw nsw i64 %alignment to i32
   %cttz4.i = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %conv.i25, i1 true)
-  %.not5.i = icmp eq i32 %conv.i25, 0
+  %.not5.i = icmp eq i64 %alignment, 0
   %sub.i26 = select i1 %.not5.i, i32 -1, i32 %cttz4.i
   br label %_ZN5arrow11memory_pool8internal17JemallocAllocator17DeallocateAlignedEPhll.exit
 
@@ -214,7 +214,7 @@ cond.false.i16:                                   ; preds = %if.else.i
   %shr.i17 = lshr i64 %alignment, 32
   %conv8.i = trunc nuw i64 %shr.i17 to i32
   %cttz.i18 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %conv8.i, i1 true)
-  %.not.i19 = icmp eq i32 %conv8.i, 0
+  %.not.i19 = icmp ult i64 %alignment, 4294967296
   %2 = or disjoint i32 %cttz.i18, 32
   %add.i20 = select i1 %.not.i19, i32 31, i32 %2
   br label %_ZN5arrow11memory_pool8internal17JemallocAllocator17DeallocateAlignedEPhll.exit
@@ -232,7 +232,7 @@ if.end9:                                          ; preds = %if.end
 cond.true:                                        ; preds = %if.end9
   %conv = trunc nuw nsw i64 %alignment to i32
   %cttz13 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %conv, i1 true)
-  %.not14 = icmp eq i32 %conv, 0
+  %.not14 = icmp eq i64 %alignment, 0
   %sub = select i1 %.not14, i32 -1, i32 %cttz13
   br label %cond.end
 
@@ -240,7 +240,7 @@ cond.false:                                       ; preds = %if.end9
   %shr = lshr i64 %alignment, 32
   %conv11 = trunc nuw i64 %shr to i32
   %cttz = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %conv11, i1 true)
-  %.not = icmp eq i32 %conv11, 0
+  %.not = icmp ult i64 %alignment, 4294967296
   %3 = or disjoint i32 %cttz, 32
   %add = select i1 %.not, i32 31, i32 %3
   br label %cond.end
@@ -278,7 +278,7 @@ if.else:                                          ; preds = %entry
 cond.true:                                        ; preds = %if.else
   %conv = trunc nuw nsw i64 %alignment to i32
   %cttz4 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %conv, i1 true)
-  %.not5 = icmp eq i32 %conv, 0
+  %.not5 = icmp eq i64 %alignment, 0
   %sub = select i1 %.not5, i32 -1, i32 %cttz4
   br label %cond.end
 
@@ -286,7 +286,7 @@ cond.false:                                       ; preds = %if.else
   %shr = lshr i64 %alignment, 32
   %conv8 = trunc nuw i64 %shr to i32
   %cttz = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %conv8, i1 true)
-  %.not = icmp eq i32 %conv8, 0
+  %.not = icmp ult i64 %alignment, 4294967296
   %0 = or disjoint i32 %cttz, 32
   %add = select i1 %.not, i32 31, i32 %0
   br label %cond.end

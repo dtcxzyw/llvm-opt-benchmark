@@ -10398,7 +10398,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @mas_ascend(ptr nocapture nou
   br label %.loopexit
 
 57:                                               ; preds = %46
-  %58 = icmp eq i8 %37, 0
+  %58 = icmp eq i64 %36, 0
   br i1 %58, label %59, label %62
 
 59:                                               ; preds = %57

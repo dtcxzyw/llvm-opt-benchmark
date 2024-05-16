@@ -24388,7 +24388,7 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i31: ; preds = %141
   br label %125
 
 150:                                              ; preds = %_ZN17cranelift_codegen3isa3x648encoding3rex3Imm3new17hdfb5f1496f602de6E.exit
-  %151 = icmp eq i8 %37, 0
+  %151 = icmp eq i64 %.sroa.01.0.i, 0
   br i1 %151, label %152, label %_ZN17cranelift_codegen3isa3x648encoding3rex3Imm15force_immediate17h10bdfbf250dede36E.exit
 
 152:                                              ; preds = %150
@@ -24457,7 +24457,7 @@ _ZN17cranelift_codegen3isa3x648encoding3rex3Imm3new17hdfb5f1496f602de6E.exit48: 
   %173 = and i8 %48, 7
   %174 = icmp eq i8 %173, 5
   %175 = trunc nuw nsw i64 %.sroa.01.0.i38 to i8
-  %176 = icmp eq i8 %175, 0
+  %176 = icmp eq i64 %.sroa.01.0.i38, 0
   %or.cond = select i1 %174, i1 %176, i1 false
   br i1 %or.cond, label %222, label %_ZN17cranelift_codegen3isa3x648encoding3rex3Imm15force_immediate17h10bdfbf250dede36E.exit66
 

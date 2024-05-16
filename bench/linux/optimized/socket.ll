@@ -4906,7 +4906,7 @@ define internal fastcc i32 @____sys_sendmsg(ptr noundef %0, ptr noundef %1, i32 
   %14 = or i32 %13, %2
   %15 = trunc nuw nsw i64 %8 to i32
   %16 = icmp slt i32 %14, 0
-  %17 = icmp ne i32 %15, 0
+  %17 = icmp ne i64 %8, 0
   %18 = and i1 %17, %16
   br i1 %18, label %19, label %29
 

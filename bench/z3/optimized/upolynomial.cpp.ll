@@ -27466,7 +27466,7 @@ invoke.cont45.thread:                             ; preds = %_ZNK6vectorI3mpzLb0
 invoke.cont45:                                    ; preds = %land.rhs.i.i126
   %44 = trunc nuw i64 %indvars.iv.i.i127 to i32
   store i32 %44, ptr %arrayidx.i.i.i122, align 4
-  %45 = icmp ult i32 %44, 2
+  %45 = icmp ult i64 %indvars.iv.i.i127, 2
   br i1 %45, label %if.end79thread-pre-split, label %while.body
 
 while.body:                                       ; preds = %invoke.cont45

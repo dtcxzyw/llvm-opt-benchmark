@@ -702,7 +702,7 @@ define internal fastcc i32 @get_record(ptr nocapture noundef %0, ptr noundef %1,
 18:                                               ; preds = %.sink.split, %6
   %.083 = phi ptr [ %9, %6 ], [ %17, %.sink.split ]
   %.081 = phi i32 [ %12, %6 ], [ 8192, %.sink.split ]
-  %19 = icmp eq i32 %15, 0
+  %19 = icmp eq i64 %14, 0
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %18

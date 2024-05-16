@@ -22640,13 +22640,13 @@ land.lhs.true.i:                                  ; preds = %for.body113
   %67 = load i16, ptr %arrayidx.i.i, align 2
   %and1.i.i = and i16 %67, %conv.i
   %tobool.i.not.i = icmp ne i16 %and1.i.i, 0
-  %cmp.i91 = icmp eq i8 %conv115, 95
+  %cmp.i91 = icmp eq i64 %indvars.iv193, 95
   %or.cond.i = and i1 %tobool11.i, %cmp.i91
   %or.cond184 = or i1 %tobool.i.not.i, %or.cond.i
   br i1 %or.cond184, label %if.then117, label %if.else15.i
 
 if.else9.i:                                       ; preds = %for.body113
-  %cmp.i91.old = icmp eq i8 %conv115, 95
+  %cmp.i91.old = icmp eq i64 %indvars.iv193, 95
   %or.cond.i.old = and i1 %tobool11.i, %cmp.i91.old
   br i1 %or.cond.i.old, label %if.then117, label %if.else15.i
 
@@ -22776,13 +22776,13 @@ land.lhs.true.i95:                                ; preds = %for.body150
   %85 = load i16, ptr %arrayidx.i.i100, align 2
   %and1.i.i101 = and i16 %85, %conv.i97
   %tobool.i.not.i102 = icmp ne i16 %and1.i.i101, 0
-  %cmp.i107 = icmp eq i8 %conv152, 95
+  %cmp.i107 = icmp eq i64 %indvars.iv197, 95
   %or.cond.i108 = and i1 %tobool11.i106, %cmp.i107
   %or.cond185 = or i1 %tobool.i.not.i102, %or.cond.i108
   br i1 %or.cond185, label %for.inc161, label %if.else15.i109
 
 if.else9.i104:                                    ; preds = %for.body150
-  %cmp.i107.old = icmp eq i8 %conv152, 95
+  %cmp.i107.old = icmp eq i64 %indvars.iv197, 95
   %or.cond.i108.old = and i1 %tobool11.i106, %cmp.i107.old
   br i1 %or.cond.i108.old, label %for.inc161, label %if.else15.i109
 
@@ -28116,7 +28116,7 @@ land.lhs.true.i:                                  ; preds = %for.body123
 if.else9.i:                                       ; preds = %land.lhs.true.i, %for.body123
   %and10.i = and i32 %55, 33554432
   %tobool11.i = icmp ne i32 %and10.i, 0
-  %cmp.i191 = icmp eq i8 %conv125, 95
+  %cmp.i191 = icmp eq i64 %indvars.iv535, 95
   %or.cond.i = and i1 %cmp.i191, %tobool11.i
   br i1 %or.cond.i, label %for.inc138, label %if.else15.i
 
@@ -28227,7 +28227,7 @@ land.lhs.true.i194:                               ; preds = %for.body154
 if.else9.i203:                                    ; preds = %land.lhs.true.i194, %for.body154
   %and10.i204 = and i32 %74, 33554432
   %tobool11.i205 = icmp ne i32 %and10.i204, 0
-  %cmp.i206 = icmp eq i8 %conv156, 95
+  %cmp.i206 = icmp eq i64 %indvars.iv531, 95
   %or.cond.i207 = and i1 %cmp.i206, %tobool11.i205
   br i1 %or.cond.i207, label %if.then160, label %if.else15.i208
 

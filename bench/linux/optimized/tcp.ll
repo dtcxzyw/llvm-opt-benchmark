@@ -9131,83 +9131,82 @@ define internal fastcc noundef range(i32 -27, 1) i32 @tcp_repair_options_est(ptr
   %61 = icmp ugt i32 %21, 7
   br i1 %61, label %.split.us, label %.loopexit, !llvm.loop !99
 
-.thread:                                          ; preds = %8, %104
-  %62 = phi i64 [ %66, %104 ], [ 0, %8 ]
-  %63 = phi i32 [ %67, %104 ], [ %3, %8 ]
+.thread:                                          ; preds = %8, %103
+  %62 = phi i64 [ %66, %103 ], [ 0, %8 ]
+  %63 = phi i32 [ %67, %103 ], [ %3, %8 ]
   %64 = getelementptr i8, ptr %1, i64 %62
   %65 = load i64, ptr %64, align 1
   %66 = add nuw nsw i64 %62, 8
   %67 = add i32 %63, -8
   %68 = trunc i64 %65 to i32
   %69 = lshr i64 %65, 32
-  %70 = trunc nuw i64 %69 to i32
-  switch i32 %68, label %104 [
-    i32 2, label %71
-    i32 3, label %73
-    i32 4, label %89
-    i32 8, label %99
+  switch i32 %68, label %103 [
+    i32 2, label %70
+    i32 3, label %72
+    i32 4, label %88
+    i32 8, label %98
   ]
 
-71:                                               ; preds = %.thread
-  %72 = trunc i64 %69 to i16
-  store i16 %72, ptr %12, align 2
+70:                                               ; preds = %.thread
+  %71 = trunc i64 %69 to i16
+  store i16 %71, ptr %12, align 2
   tail call void @tcp_mtup_init(ptr noundef %0) #22
-  br label %104
+  br label %103
 
-73:                                               ; preds = %.thread
-  %74 = and i32 %70, 65535
-  %75 = icmp ult i32 %74, 15
-  %76 = icmp ult i32 %70, 983040
-  %77 = and i1 %76, %75
-  br i1 %77, label %78, label %.loopexit
+72:                                               ; preds = %.thread
+  %73 = and i64 %65, 281470681743360
+  %74 = icmp ult i64 %73, 64424509440
+  %75 = icmp ult i64 %65, 4222124650659840
+  %76 = and i1 %75, %74
+  br i1 %76, label %77, label %.loopexit
 
-78:                                               ; preds = %73
-  %79 = trunc nuw i64 %69 to i24
-  %80 = load i24, ptr %11, align 4
-  %81 = shl i24 %79, 8
-  %82 = and i24 %81, 3840
-  %83 = and i24 %80, -65289
-  %84 = lshr i24 %79, 4
-  %85 = and i24 %84, 61440
+77:                                               ; preds = %72
+  %78 = trunc nuw i64 %69 to i24
+  %79 = load i24, ptr %11, align 4
+  %80 = shl i24 %78, 8
+  %81 = and i24 %80, 3840
+  %82 = and i24 %79, -65289
+  %83 = lshr i24 %78, 4
+  %84 = and i24 %83, 61440
+  %85 = or disjoint i24 %84, %81
   %86 = or disjoint i24 %85, %82
-  %87 = or disjoint i24 %86, %83
-  %88 = or disjoint i24 %87, 8
-  store i24 %88, ptr %11, align 4
-  br label %104
+  %87 = or disjoint i24 %86, 8
+  store i24 %87, ptr %11, align 4
+  br label %103
 
-89:                                               ; preds = %.thread
-  %90 = icmp eq i32 %70, 0
-  br i1 %90, label %91, label %.loopexit
+88:                                               ; preds = %.thread
+  %89 = icmp ult i64 %65, 4294967296
+  br i1 %89, label %90, label %.loopexit
 
-91:                                               ; preds = %89
-  %92 = load i24, ptr %11, align 4
-  %93 = trunc i24 %92 to i16
-  %94 = and i16 %93, 96
-  %95 = or disjoint i16 %94, 16
-  %96 = zext nneg i16 %95 to i24
-  %97 = and i24 %92, -113
-  %98 = or disjoint i24 %97, %96
-  store i24 %98, ptr %11, align 4
-  br label %104
+90:                                               ; preds = %88
+  %91 = load i24, ptr %11, align 4
+  %92 = trunc i24 %91 to i16
+  %93 = and i16 %92, 96
+  %94 = or disjoint i16 %93, 16
+  %95 = zext nneg i16 %94 to i24
+  %96 = and i24 %91, -113
+  %97 = or disjoint i24 %96, %95
+  store i24 %97, ptr %11, align 4
+  br label %103
 
-99:                                               ; preds = %.thread
-  %100 = icmp eq i32 %70, 0
-  br i1 %100, label %101, label %.loopexit
+98:                                               ; preds = %.thread
+  %99 = icmp ult i64 %65, 4294967296
+  br i1 %99, label %100, label %.loopexit
 
-101:                                              ; preds = %99
-  %102 = load i24, ptr %11, align 4
-  %103 = or i24 %102, 2
-  store i24 %103, ptr %11, align 4
-  br label %104
+100:                                              ; preds = %98
+  %101 = load i24, ptr %11, align 4
+  %102 = or i24 %101, 2
+  store i24 %102, ptr %11, align 4
+  br label %103
 
-104:                                              ; preds = %101, %91, %78, %71, %.thread
-  %105 = icmp ugt i32 %67, 7
-  br i1 %105, label %.thread, label %.loopexit, !llvm.loop !99
+103:                                              ; preds = %100, %90, %77, %70, %.thread
+  %104 = icmp ugt i32 %67, 7
+  br i1 %104, label %.thread, label %.loopexit, !llvm.loop !99
 
-.loopexit:                                        ; preds = %73, %89, %99, %104, %60, %40, %29, %23, %.split.us, %4
-  %106 = phi i32 [ 0, %4 ], [ -27, %40 ], [ 0, %60 ], [ -22, %23 ], [ -22, %29 ], [ -14, %.split.us ], [ -27, %73 ], [ 0, %104 ], [ -22, %99 ], [ -22, %89 ]
+.loopexit:                                        ; preds = %72, %88, %98, %103, %60, %40, %29, %23, %.split.us, %4
+  %105 = phi i32 [ 0, %4 ], [ -27, %40 ], [ 0, %60 ], [ -22, %23 ], [ -22, %29 ], [ -14, %.split.us ], [ -27, %72 ], [ 0, %103 ], [ -22, %98 ], [ -22, %88 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
-  ret i32 %106
+  ret i32 %105
 }
 
 ; Function Attrs: null_pointer_is_valid

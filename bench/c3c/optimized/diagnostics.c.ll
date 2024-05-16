@@ -360,7 +360,7 @@ define dso_local void @span_to_scratch(i64 %0) local_unnamed_addr #0 {
   %.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i32
   %5 = tail call ptr @source_file_by_id(i16 noundef zeroext %.sroa.0.0.extract.trunc) #8
   %6 = and i32 %3, 255
-  %7 = icmp ne i32 %.sroa.4.0.extract.trunc, 0
+  %7 = icmp ugt i64 %0, 4294967295
   %8 = icmp ne i32 %6, 0
   %or.cond = and i1 %7, %8
   %9 = and i64 %0, 4278190080
@@ -371,7 +371,7 @@ define dso_local void @span_to_scratch(i64 %0) local_unnamed_addr #0 {
 .preheader:                                       ; preds = %1
   %11 = getelementptr inbounds i8, ptr %5, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = icmp ugt i32 %.sroa.4.0.extract.trunc, 1
+  %13 = icmp ugt i64 %0, 8589934591
   br i1 %13, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %18
@@ -451,7 +451,7 @@ define dso_local ptr @span_to_string(i64 %0) local_unnamed_addr #0 {
   %.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i32
   %5 = tail call ptr @source_file_by_id(i16 noundef zeroext %.sroa.0.0.extract.trunc) #8
   %6 = and i32 %3, 255
-  %7 = icmp ne i32 %.sroa.4.0.extract.trunc, 0
+  %7 = icmp ugt i64 %0, 4294967295
   %8 = icmp ne i32 %6, 0
   %or.cond = and i1 %7, %8
   %9 = and i64 %0, 4278190080
@@ -462,7 +462,7 @@ define dso_local ptr @span_to_string(i64 %0) local_unnamed_addr #0 {
 .preheader:                                       ; preds = %1
   %11 = getelementptr inbounds i8, ptr %5, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = icmp ugt i32 %.sroa.4.0.extract.trunc, 1
+  %13 = icmp ugt i64 %0, 8589934591
   br i1 %13, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %18

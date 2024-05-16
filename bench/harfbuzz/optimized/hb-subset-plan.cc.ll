@@ -36910,7 +36910,7 @@ if.end40:                                         ; preds = %if.end.i.i242, %if.
   %conv4.i.i.i.i.i267 = zext i8 %78 to i64
   %add.i.i.i.i.i268 = or disjoint i64 %shl.i.i.i.i.i265, %conv4.i.i.i.i.i267
   %f_iter.sroa.8.sroa.0.0.extract.trunc = trunc nuw nsw i64 %add.i.i.i.i.i268 to i32
-  %tobool.i.i.not6.i.i.i = icmp eq i32 %f_iter.sroa.8.sroa.0.0.extract.trunc, 0
+  %tobool.i.i.not6.i.i.i = icmp eq i64 %add.i.i.i.i.i268, 0
   br i1 %tobool.i.i.not6.i.i.i, label %"_ZorI10hb_array_tIKN2OT5IndexEE24hb_filter_iter_factory_tIRPK8hb_map_tRK4$_10ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSF_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISF_Efp_EEEOSF_OSL_.exit", label %land.rhs.lr.ph.i.i.i
 
 land.rhs.lr.ph.i.i.i:                             ; preds = %if.end40
@@ -37001,7 +37001,7 @@ _ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.i.i.i: ; preds = %if.end
   %conv4.i.i.i.i.i281 = zext i8 %92 to i64
   %add.i.i.i.i.i282 = or disjoint i64 %shl.i.i.i.i.i279, %conv4.i.i.i.i.i281
   %other_f_iter.sroa.8.sroa.0.0.extract.trunc = trunc nuw nsw i64 %add.i.i.i.i.i282 to i32
-  %tobool.i.i.not6.i.i.i295 = icmp eq i32 %other_f_iter.sroa.8.sroa.0.0.extract.trunc, 0
+  %tobool.i.i.not6.i.i.i295 = icmp eq i64 %add.i.i.i.i.i282, 0
   br i1 %tobool.i.i.not6.i.i.i295, label %"_ZorI10hb_array_tIKN2OT5IndexEE24hb_filter_iter_factory_tIRPK8hb_map_tRK4$_10ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSF_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISF_Efp_EEEOSF_OSL_.exit345", label %land.rhs.lr.ph.i.i.i296
 
 land.rhs.lr.ph.i.i.i296:                          ; preds = %"_ZorI10hb_array_tIKN2OT5IndexEE24hb_filter_iter_factory_tIRPK8hb_map_tRK4$_10ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSF_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISF_Efp_EEEOSF_OSL_.exit"
@@ -60751,7 +60751,7 @@ if.end:                                           ; preds = %entry
   %conv4.i.i.i.i.i = zext i8 %5 to i64
   %add.i.i.i.i.i = or disjoint i64 %shl.i.i.i.i.i, %conv4.i.i.i.i.i
   %ref.tmp.sroa.4.sroa.0.0.extract.trunc = trunc nuw nsw i64 %add.i.i.i.i.i to i32
-  %tobool.i.i.not6.i.i.i = icmp eq i32 %ref.tmp.sroa.4.sroa.0.0.extract.trunc, 0
+  %tobool.i.i.not6.i.i.i = icmp eq i64 %add.i.i.i.i.i, 0
   br i1 %tobool.i.i.not6.i.i.i, label %"_ZorI10hb_array_tIKN2OT5IndexEE24hb_filter_iter_factory_tIRPK8hb_map_tRK4$_10ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSF_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISF_Efp_EEEOSF_OSL_.exit", label %land.rhs.lr.ph.i.i.i
 
 land.rhs.lr.ph.i.i.i:                             ; preds = %if.end
@@ -60845,7 +60845,7 @@ _ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.i.i.i: ; preds = %if.end
   %conv4.i.i.i.i.i15 = zext i8 %19 to i64
   %add.i.i.i.i.i16 = or disjoint i64 %shl.i.i.i.i.i13, %conv4.i.i.i.i.i15
   %ref.tmp11.sroa.4.sroa.0.0.extract.trunc = trunc nuw nsw i64 %add.i.i.i.i.i16 to i32
-  %tobool.i.i.not6.i.i.i29 = icmp eq i32 %ref.tmp11.sroa.4.sroa.0.0.extract.trunc, 0
+  %tobool.i.i.not6.i.i.i29 = icmp eq i64 %add.i.i.i.i.i16, 0
   br i1 %tobool.i.i.not6.i.i.i29, label %"_ZorI10hb_array_tIKN2OT5IndexEE24hb_filter_iter_factory_tIRPK8hb_map_tRK4$_10ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSF_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISF_Efp_EEEOSF_OSL_.exit79", label %land.rhs.lr.ph.i.i.i30
 
 land.rhs.lr.ph.i.i.i30:                           ; preds = %"_ZorI10hb_array_tIKN2OT5IndexEE24hb_filter_iter_factory_tIRPK8hb_map_tRK4$_10ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSF_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISF_Efp_EEEOSF_OSL_.exit"

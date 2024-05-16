@@ -433,7 +433,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_seq_timer_set_position_time(
   br i1 %6, label %26, label %7
 
 7:                                                ; preds = %2
-  %8 = icmp ugt i32 %5, 999999999
+  %8 = icmp ugt i64 %1, 4294967295999999999
   br i1 %8, label %9, label %16
 
 9:                                                ; preds = %7

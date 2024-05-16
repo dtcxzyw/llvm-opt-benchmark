@@ -2366,7 +2366,7 @@ evaluate_sdnv.exit362.thread.i:                   ; preds = %977
 evaluate_sdnv.exit362.i:                          ; preds = %977
   %982 = trunc nuw nsw i64 %978 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25)
-  %.not.i59 = icmp eq i32 %982, 0
+  %.not.i59 = icmp eq i64 %978, 0
   br i1 %.not.i59, label %.loopexit469.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %evaluate_sdnv.exit362.i, %evaluate_sdnv.exit362.thread.i

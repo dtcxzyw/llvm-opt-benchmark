@@ -601,7 +601,7 @@ define i64 @php_random_range(ptr nocapture readonly %0, ptr %1, i64 noundef %2, 
   br i1 %64, label %52, label %65
 
 65:                                               ; preds = %56
-  %66 = icmp eq i32 %50, -1
+  %66 = icmp eq i64 %5, 4294967295
   br i1 %66, label %php_random_range32.exit, label %67
 
 67:                                               ; preds = %65

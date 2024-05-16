@@ -3699,7 +3699,7 @@ st_mult.exit:                                     ; preds = %if.end837
 
 while.end:                                        ; preds = %while.cond
   %116 = trunc nsw i64 %indvars.iv384 to i32
-  %cmp844 = icmp eq i32 %116, 0
+  %cmp844 = icmp eq i64 %indvars.iv384, 0
   br i1 %cmp844, label %done, label %if.end847
 
 if.end847:                                        ; preds = %while.end
@@ -3713,7 +3713,7 @@ if.then850:                                       ; preds = %if.end847
   br i1 %cmp851, label %if.then853, label %if.else856
 
 if.then853:                                       ; preds = %if.then850
-  %cmp854 = icmp sgt i32 %116, 1
+  %cmp854 = icmp sgt i64 %indvars.iv384, 1
   %conv855 = zext i1 %cmp854 to i32
   store i32 %conv855, ptr %cover_letter, align 4
   br label %if.end860
@@ -3733,9 +3733,9 @@ if.end860:                                        ; preds = %if.then853, %if.els
   br i1 %or.cond7.not, label %if.end870, label %land.lhs.true864
 
 land.lhs.true864:                                 ; preds = %if.end860
-  %cmp865 = icmp sgt i32 %116, 1
+  %cmp865 = icmp sgt i64 %indvars.iv384, 1
   %tobool868 = icmp ne i32 %119, 0
-  %or.cond8 = or i1 %cmp865, %tobool868
+  %or.cond8 = select i1 %cmp865, i1 true, i1 %tobool868
   br i1 %or.cond8, label %if.end870.thread, label %if.end870
 
 if.end870.thread:                                 ; preds = %land.lhs.true864
@@ -3763,8 +3763,8 @@ if.end876:                                        ; preds = %if.then872, %if.end
 
 if.then879:                                       ; preds = %if.end876
   %tobool880 = icmp eq i32 %119, 0
-  %cmp882 = icmp ne i32 %116, 1
-  %or.cond9 = and i1 %tobool880, %cmp882
+  %cmp882 = icmp ne i64 %indvars.iv384, 1
+  %or.cond9 = select i1 %tobool880, i1 %cmp882, i1 false
   br i1 %or.cond9, label %if.then884, label %if.end886
 
 if.then884:                                       ; preds = %if.then879
@@ -3830,8 +3830,8 @@ if.then908:                                       ; preds = %if.else901, %if.end
   %130 = phi ptr [ %.pr321, %if.end906 ], [ %129, %if.else901 ]
   %131 = load i32, ptr %cover_letter, align 4
   %tobool909 = icmp eq i32 %131, 0
-  %cmp911 = icmp ne i32 %116, 1
-  %or.cond10 = and i1 %tobool909, %cmp911
+  %cmp911 = icmp ne i64 %indvars.iv384, 1
+  %or.cond10 = select i1 %tobool909, i1 %cmp911, i1 false
   br i1 %or.cond10, label %if.then913, label %if.end915
 
 if.then913:                                       ; preds = %if.then908
@@ -4040,7 +4040,7 @@ if.end41.i:                                       ; preds = %if.end34.i, %if.the
   %die_on_failure.056.i = phi i1 [ %cmp.i198, %if.end34.i ], [ false, %if.then7.i ]
   %base.0.i = phi ptr [ %147, %if.end34.i ], [ %call.i204, %if.then7.i ]
   %sext = shl i64 %indvars.iv384, 32
-  %mul.ov.i.i = icmp slt i32 %116, 0
+  %mul.ov.i.i = icmp slt i64 %indvars.iv384, 0
   br i1 %mul.ov.i.i, label %if.then.i.i203, label %for.body.preheader.i
 
 if.then.i.i203:                                   ; preds = %if.end41.i
@@ -4049,13 +4049,13 @@ if.then.i.i203:                                   ; preds = %if.end41.i
   unreachable
 
 for.body.preheader.i:                             ; preds = %if.end41.i
-  %mul.i.i = lshr exact i64 %sext, 29
+  %mul.i.i = ashr exact i64 %sext, 29
   %call44.i = call ptr @xmalloc(i64 noundef %mul.i.i) #20
-  %wide.trip.count.i = and i64 %indvars.iv384, 2147483647
+  %wide.trip.count.i = and i64 %indvars.iv384, 4294967295
   br label %for.body.i
 
 while.cond.preheader.i:                           ; preds = %for.body.i
-  %cmp4963.i = icmp sgt i32 %116, 1
+  %cmp4963.i = icmp sgt i64 %indvars.iv384, 1
   br i1 %cmp4963.i, label %for.cond51.preheader.i, label %while.end.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
@@ -4453,11 +4453,11 @@ if.end952:                                        ; preds = %get_base_commit.exi
 
 if.end967.thread:                                 ; preds = %if.end952
   %200 = load i32, ptr %just_numbers, align 4
-  %numbered_files402 = getelementptr inbounds i8, ptr %rev, i64 368
-  store i32 %200, ptr %numbered_files402, align 8
+  %numbered_files403 = getelementptr inbounds i8, ptr %rev, i64 368
+  store i32 %200, ptr %numbered_files403, align 8
   %201 = load ptr, ptr @fmt_patch_suffix, align 8
-  %patch_suffix403 = getelementptr inbounds i8, ptr %rev, i64 360
-  store ptr %201, ptr %patch_suffix403, align 8
+  %patch_suffix404 = getelementptr inbounds i8, ptr %rev, i64 360
+  store ptr %201, ptr %patch_suffix404, align 8
   br label %if.end984
 
 if.end961:                                        ; preds = %if.end952
@@ -4542,14 +4542,14 @@ clean_message_id.exit:                            ; preds = %if.then26.i, %if.en
   br label %if.end967
 
 if.end967:                                        ; preds = %clean_message_id.exit, %if.end961
-  %.pr401 = load i32, ptr %cover_letter, align 4
+  %.pr402 = load i32, ptr %cover_letter, align 4
   %213 = load i32, ptr %just_numbers, align 4
   %numbered_files = getelementptr inbounds i8, ptr %rev, i64 368
   store i32 %213, ptr %numbered_files, align 8
   %214 = load ptr, ptr @fmt_patch_suffix, align 8
   %patch_suffix = getelementptr inbounds i8, ptr %rev, i64 360
   store ptr %214, ptr %patch_suffix, align 8
-  %tobool968.not = icmp eq i32 %.pr401, 0
+  %tobool968.not = icmp eq i32 %.pr402, 0
   br i1 %tobool968.not, label %if.end984, label %if.then969
 
 if.then969:                                       ; preds = %if.end967
@@ -4620,12 +4620,12 @@ if.end9.i:                                        ; preds = %land.lhs.true.i244,
   call void @log_write_email_headers(ptr noundef nonnull %rev, ptr noundef %220, ptr noundef nonnull %after_subject.i, ptr noundef nonnull %need_8bit_cte.i, i32 noundef 0) #20
   %224 = load i32, ptr %need_8bit_cte.i, align 4
   %tobool10.not53.i = icmp eq i32 %224, 0
-  %cmp54.i = icmp sgt i32 %116, 0
+  %cmp54.i = icmp sgt i64 %indvars.iv384, 0
   %225 = and i1 %cmp54.i, %tobool10.not53.i
   br i1 %225, label %for.body.preheader.i267, label %for.end.i246
 
 for.body.preheader.i267:                          ; preds = %if.end9.i
-  %226 = and i64 %indvars.iv384, 2147483647
+  %226 = and i64 %indvars.iv384, 4294967295
   br label %for.body.i268
 
 for.body.i268:                                    ; preds = %if.end16.i, %for.body.preheader.i267
@@ -4926,7 +4926,7 @@ prepare_cover_text.exit.i:                        ; preds = %if.else31.i.i, %if.
   br i1 %cmp54.i, label %for.body34.preheader.i, label %for.end39.i
 
 for.body34.preheader.i:                           ; preds = %prepare_cover_text.exit.i
-  %wide.trip.count.i256 = and i64 %indvars.iv384, 2147483647
+  %wide.trip.count.i256 = and i64 %indvars.iv384, 4294967295
   br label %for.body34.i
 
 for.body34.i:                                     ; preds = %for.body34.i, %for.body34.preheader.i
@@ -5096,7 +5096,7 @@ print_signature.exit:                             ; preds = %make_cover_letter.e
   br label %if.end984
 
 if.end984:                                        ; preds = %if.end967.thread, %print_signature.exit, %if.end967
-  %numbered_files405 = phi ptr [ %numbered_files, %print_signature.exit ], [ %numbered_files, %if.end967 ], [ %numbered_files402, %if.end967.thread ]
+  %numbered_files406 = phi ptr [ %numbered_files, %print_signature.exit ], [ %numbered_files, %if.end967 ], [ %numbered_files403, %if.end967.thread ]
   %total.0 = phi i32 [ %inc981, %print_signature.exit ], [ %116, %if.end967 ], [ %116, %if.end967.thread ]
   %291 = load i32, ptr @do_signoff, align 4
   %add_signoff = getelementptr inbounds i8, ptr %rev, i64 464
@@ -5122,7 +5122,7 @@ _.exit287:                                        ; preds = %if.then986, %if.end
   br label %if.end990
 
 if.end990:                                        ; preds = %_.exit287, %if.end984
-  %cmp993359 = icmp sgt i32 %116, 0
+  %cmp993359 = icmp sgt i64 %indvars.iv384, 0
   br i1 %cmp993359, label %while.body995.lr.ph, label %while.end1075
 
 while.body995.lr.ph:                              ; preds = %if.end990
@@ -5131,7 +5131,8 @@ while.body995.lr.ph:                              ; preds = %if.end990
   %ref_message_ids1011 = getelementptr inbounds i8, ptr %rev, i64 456
   %file1056 = getelementptr inbounds i8, ptr %rev, i64 1920
   %mime_boundary1057 = getelementptr inbounds i8, ptr %rev, i64 352
-  %294 = and i64 %indvars.iv384, 2147483647
+  %sext396 = shl i64 %indvars.iv384, 32
+  %294 = ashr exact i64 %sext396, 32
   %295 = sext i32 %total.0 to i64
   %.pre393 = load ptr, ptr %progress, align 8
   br label %while.body995
@@ -5205,7 +5206,7 @@ if.end1032:                                       ; preds = %if.end1028, %while.
   br i1 %tobool1033.not, label %if.end1045, label %land.lhs.true1034
 
 land.lhs.true1034:                                ; preds = %if.end1032
-  %306 = load i32, ptr %numbered_files405, align 8
+  %306 = load i32, ptr %numbered_files406, align 8
   %tobool1036.not = icmp eq i32 %306, 0
   %cond1040 = select i1 %tobool1036.not, ptr %297, ptr null
   %307 = load i32, ptr %quiet, align 4
@@ -5289,7 +5290,7 @@ if.then1070:                                      ; preds = %if.end1068
   br label %if.end1074
 
 if.end1074:                                       ; preds = %if.then1070, %if.end1068
-  %cmp993 = icmp ugt i64 %indvars.iv387, 1
+  %cmp993 = icmp sgt i64 %indvars.iv387, 1
   br i1 %cmp993, label %while.body995, label %while.end1075, !llvm.loop !29
 
 while.end1075:                                    ; preds = %if.end1074, %if.end990
@@ -7230,16 +7231,15 @@ land.rhs:                                         ; preds = %land.rhs.preheader,
 
 while.body:                                       ; preds = %land.rhs
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %3 = and i64 %indvars.iv.next, 4294967295
-  %tobool.not = icmp eq i64 %3, 0
+  %tobool.not = icmp eq i64 %indvars.iv.next, 0
   br i1 %tobool.not, label %while.end, label %land.rhs, !llvm.loop !35
 
 while.end.loopexit.split.loop.exit16:             ; preds = %land.rhs
-  %4 = trunc nsw i64 %indvars.iv to i32
+  %3 = trunc nsw i64 %indvars.iv to i32
   br label %while.end
 
 while.end:                                        ; preds = %while.body, %while.end.loopexit.split.loop.exit16, %entry
-  %len.0.lcssa = phi i32 [ 0, %entry ], [ %4, %while.end.loopexit.split.loop.exit16 ], [ 0, %while.body ]
+  %len.0.lcssa = phi i32 [ 0, %entry ], [ %3, %while.end.loopexit.split.loop.exit16 ], [ 0, %while.body ]
   %call3 = tail call i32 @strncasecmp(ptr noundef %value, ptr noundef nonnull @.str.198, i64 noundef 4) #21
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %if.then, label %if.else
@@ -7268,9 +7268,9 @@ if.else13:                                        ; preds = %if.else
 if.end15:                                         ; preds = %if.then9, %if.else13, %if.then
   %item.0 = phi ptr [ %call14, %if.else13 ], [ %call11, %if.then9 ], [ %call5, %if.then ]
   %len.1 = phi i32 [ %len.0.lcssa, %if.else13 ], [ %sub12, %if.then9 ], [ %sub6, %if.then ]
-  %5 = load ptr, ptr %item.0, align 8
+  %4 = load ptr, ptr %item.0, align 8
   %idxprom16 = sext i32 %len.1 to i64
-  %arrayidx17 = getelementptr inbounds i8, ptr %5, i64 %idxprom16
+  %arrayidx17 = getelementptr inbounds i8, ptr %4, i64 %idxprom16
   store i8 0, ptr %arrayidx17, align 1
   ret void
 }

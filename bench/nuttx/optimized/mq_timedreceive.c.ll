@@ -169,32 +169,30 @@ define range(i64 -1, 2147483648) i64 @mq_timedreceive(i32 noundef %0, ptr nounde
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %7 = call i32 @fs_getfilep(i32 noundef %0, ptr noundef nonnull %6) #3
   %8 = icmp slt i32 %7, 0
-  br i1 %8, label %9, label %11
+  br i1 %8, label %nxmq_timedreceive.exit.thread, label %nxmq_timedreceive.exit
 
-9:                                                ; preds = %5
-  %10 = sext i32 %7 to i64
-  br label %nxmq_timedreceive.exit
-
-11:                                               ; preds = %5
-  %12 = load ptr, ptr %6, align 8
-  %13 = call i64 @file_mq_timedreceive(ptr noundef %12, ptr noundef %1, i64 poison, ptr noundef %3, ptr noundef %4)
-  br label %nxmq_timedreceive.exit
-
-nxmq_timedreceive.exit:                           ; preds = %9, %11
-  %.0.i = phi i64 [ %10, %9 ], [ %13, %11 ]
+nxmq_timedreceive.exit.thread:                    ; preds = %5
+  %9 = zext i32 %7 to i64
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %14 = trunc nsw i64 %.0.i to i32
-  %15 = icmp slt i32 %14, 0
-  br i1 %15, label %16, label %19
+  br label %13
 
-16:                                               ; preds = %nxmq_timedreceive.exit
-  %17 = sub nsw i32 0, %14
-  %18 = call ptr @__errno() #3
-  store i32 %17, ptr %18, align 4
-  br label %19
+nxmq_timedreceive.exit:                           ; preds = %5
+  %10 = load ptr, ptr %6, align 8
+  %11 = call i64 @file_mq_timedreceive(ptr noundef %10, ptr noundef %1, i64 poison, ptr noundef %3, ptr noundef %4)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  %12 = icmp slt i64 %11, 0
+  br i1 %12, label %13, label %17
 
-19:                                               ; preds = %16, %nxmq_timedreceive.exit
-  %.0 = phi i64 [ -1, %16 ], [ %.0.i, %nxmq_timedreceive.exit ]
+13:                                               ; preds = %nxmq_timedreceive.exit.thread, %nxmq_timedreceive.exit
+  %.0.i9 = phi i64 [ %9, %nxmq_timedreceive.exit.thread ], [ %11, %nxmq_timedreceive.exit ]
+  %14 = trunc i64 %.0.i9 to i32
+  %15 = sub nsw i32 0, %14
+  %16 = call ptr @__errno() #3
+  store i32 %15, ptr %16, align 4
+  br label %17
+
+17:                                               ; preds = %13, %nxmq_timedreceive.exit
+  %.0 = phi i64 [ -1, %13 ], [ %11, %nxmq_timedreceive.exit ]
   ret i64 %.0
 }
 

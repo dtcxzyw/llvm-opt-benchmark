@@ -686,7 +686,7 @@ while.body:                                       ; preds = %land.rhs
 
 while.end:                                        ; preds = %land.rhs
   %13 = trunc nuw nsw i64 %indvars.iv to i32
-  %cmp74.not = icmp eq i32 %13, 0
+  %cmp74.not = icmp eq i64 %indvars.iv, 0
   br i1 %cmp74.not, label %if.end80, label %if.then75
 
 if.then75:                                        ; preds = %while.body, %while.end

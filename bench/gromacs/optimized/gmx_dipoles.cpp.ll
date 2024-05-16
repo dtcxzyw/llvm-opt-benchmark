@@ -6420,7 +6420,7 @@ _ZL10print_cmapPKcP8t_gkrbinPi.exit:              ; preds = %.noexc945
   br i1 %.not, label %2027, label %2010
 
 2010:                                             ; preds = %2009
-  %2011 = icmp eq i32 %1582, 0
+  %2011 = icmp eq i64 %indvars.iv347, 0
   br i1 %2011, label %2012, label %2013
 
 2012:                                             ; preds = %2010

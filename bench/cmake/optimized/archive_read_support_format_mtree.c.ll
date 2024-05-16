@@ -3450,21 +3450,21 @@ define internal fastcc range(i32 -20, 1) i32 @parse_device(ptr nocapture noundef
   br i1 %31, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %27
-  %32 = trunc nuw nsw i64 %indvars.iv.next to i32
-  %33 = icmp ult i32 %32, 2
-  br i1 %33, label %._crit_edge.thread, label %34
+  %32 = icmp eq i64 %indvars.iv, 0
+  br i1 %32, label %._crit_edge.thread, label %33
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %1, i32 noundef 84, ptr noundef nonnull @.str.67) #19
   br label %41
 
-34:                                               ; preds = %._crit_edge
-  %35 = call i64 %10(i32 noundef %32, ptr noundef nonnull %5, ptr noundef nonnull %7) #19
+33:                                               ; preds = %._crit_edge
+  %34 = trunc nuw nsw i64 %indvars.iv.next to i32
+  %35 = call i64 %10(i32 noundef %34, ptr noundef nonnull %5, ptr noundef nonnull %7) #19
   %36 = load ptr, ptr %7, align 8
   %.not20 = icmp eq ptr %36, null
   br i1 %.not20, label %40, label %37
 
-37:                                               ; preds = %34
+37:                                               ; preds = %33
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %1, i32 noundef 84, ptr noundef nonnull @.str.68, ptr noundef nonnull %36) #19
   br label %41
 
@@ -3472,8 +3472,8 @@ define internal fastcc range(i32 -20, 1) i32 @parse_device(ptr nocapture noundef
   %39 = call fastcc i64 @mtree_atol(ptr noundef nonnull %4, i32 noundef 0)
   br label %40
 
-40:                                               ; preds = %34, %38
-  %.0 = phi i64 [ %35, %34 ], [ %39, %38 ]
+40:                                               ; preds = %33, %38
+  %.0 = phi i64 [ %35, %33 ], [ %39, %38 ]
   store i64 %.0, ptr %0, align 8
   br label %41
 

@@ -5797,7 +5797,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL19tdefl_compress_fastP16t
   %36 = sub i64 %27, %.
   store i64 %36, ptr %17, align 8
   %37 = add i32 %.0215, %35
-  %.not269307 = icmp eq i32 %35, 0
+  %.not269307 = icmp eq i64 %., 0
   br i1 %.not269307, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.critedge
@@ -5815,7 +5815,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL19tdefl_compress_fastP16t
   %42 = zext nneg i32 %.0257309 to i64
   %43 = getelementptr inbounds i8, ptr %19, i64 %42
   %44 = zext nneg i32 %41 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %43, ptr noundef nonnull align 1 dereferenceable(1) %39, i64 %44, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %43, ptr align 1 %39, i64 %44, i1 false)
   %45 = icmp ult i32 %.0257309, 257
   br i1 %45, label %46, label %52
 
@@ -10853,12 +10853,12 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL30mz_zip_reader_read_cent
 .lr.ph212:                                        ; preds = %8, %37
   %spec.select179211 = phi i64 [ %spec.select179, %37 ], [ %spec.select179208, %8 ]
   %.0148210 = phi i64 [ %38, %37 ], [ %spec.select, %8 ]
-  %17 = trunc nuw nsw i64 %spec.select179211 to i32
-  %18 = icmp ugt i32 %17, 3
-  br i1 %18, label %.lr.ph.preheader, label %.critedge
+  %17 = icmp ugt i64 %spec.select179211, 3
+  br i1 %17, label %.lr.ph.preheader, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph212
-  %19 = add nsw i32 %17, -4
+  %18 = trunc nuw nsw i64 %spec.select179211 to i32
+  %19 = add nsw i32 %18, -4
   br label %.lr.ph
 
 20:                                               ; preds = %.lr.ph

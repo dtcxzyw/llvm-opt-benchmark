@@ -3011,10 +3011,9 @@ for.inc:                                          ; preds = %land.rhs
   br i1 %exitcond.not, label %return, label %land.rhs, !llvm.loop !7
 
 for.end:                                          ; preds = %land.rhs
-  %3 = trunc i64 %indvars.iv to i32
-  %switch.selectcmp = icmp eq i32 %3, 2
+  %switch.selectcmp = icmp eq i64 %indvars.iv, 2
   %spec.select = select i1 %switch.selectcmp, i32 682, i32 0
-  %switch.selectcmp6 = icmp eq i32 %3, 4
+  %switch.selectcmp6 = icmp eq i64 %indvars.iv, 4
   %spec.select19 = select i1 %switch.selectcmp6, i32 683, i32 %spec.select
   br label %return
 

@@ -94,7 +94,7 @@ build_mss.exit:                                   ; preds = %26, %3
   %32 = load ptr, ptr %31, align 8
   %33 = call ptr @build_sorted_items(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef %8, i32 noundef %30, ptr noundef %32) #12
   %.not = icmp eq ptr %33, null
-  br i1 %.not, label %246, label %34
+  br i1 %.not, label %245, label %34
 
 34:                                               ; preds = %build_mss.exit
   %35 = load i32, ptr %6, align 4
@@ -188,46 +188,46 @@ build_distinct_groups.exit:                       ; preds = %53, %count_distinct
   %wide.trip.count = zext nneg i32 %spec.store.select to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %72
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %72 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %71
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %71 ]
   %66 = getelementptr %struct.SortItem, ptr %44, i64 %indvars.iv, i32 2
   %67 = load i32, ptr %66, align 8
   %68 = sitofp i32 %67 to double
   %69 = fcmp ogt double %.0.i, %68
-  br i1 %69, label %thread-pre-split, label %72
+  br i1 %69, label %thread-pre-split, label %71
 
 thread-pre-split:                                 ; preds = %.lr.ph
   %70 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %70, ptr %4, align 4
-  %71 = icmp sgt i32 %70, 0
-  br i1 %71, label %.critedge, label %thread-pre-split.thread
+  %.not139 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not139, label %thread-pre-split.thread, label %.critedge
 
-72:                                               ; preds = %.lr.ph
+71:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !9
 
-.critedge:                                        ; preds = %72, %thread-pre-split
-  %73 = call ptr @palloc(i64 noundef 72) #12
-  %74 = sext i32 %35 to i64
-  %75 = shl nsw i64 %74, 2
-  %76 = call ptr @palloc0(i64 noundef %75) #12
-  %77 = load i32, ptr %8, align 8
-  %78 = sext i32 %77 to i64
-  %79 = add nsw i64 %43, 8
-  %80 = mul i64 %79, %78
-  %81 = call ptr @palloc(i64 noundef %80) #12
-  %82 = load i32, ptr %8, align 8
-  %83 = sext i32 %82 to i64
-  %84 = shl nsw i64 %83, 3
-  %85 = getelementptr i8, ptr %81, i64 %84
-  %86 = icmp sgt i32 %82, 0
-  br i1 %86, label %.lr.ph82.i, label %build_column_frequencies.exit
+.critedge:                                        ; preds = %71, %thread-pre-split
+  %72 = call ptr @palloc(i64 noundef 72) #12
+  %73 = sext i32 %35 to i64
+  %74 = shl nsw i64 %73, 2
+  %75 = call ptr @palloc0(i64 noundef %74) #12
+  %76 = load i32, ptr %8, align 8
+  %77 = sext i32 %76 to i64
+  %78 = add nsw i64 %43, 8
+  %79 = mul i64 %78, %77
+  %80 = call ptr @palloc(i64 noundef %79) #12
+  %81 = load i32, ptr %8, align 8
+  %82 = sext i32 %81 to i64
+  %83 = shl nsw i64 %82, 3
+  %84 = getelementptr i8, ptr %80, i64 %83
+  %85 = icmp sgt i32 %81, 0
+  br i1 %85, label %.lr.ph82.i, label %build_column_frequencies.exit
 
 .lr.ph82.i:                                       ; preds = %.critedge
-  %87 = getelementptr inbounds i8, ptr %8, i64 8
-  %88 = icmp sgt i32 %.0.lcssa.i.i, 1
-  br i1 %88, label %.lr.ph82.split.us.preheader.i, label %.lr.ph82.split.i
+  %86 = getelementptr inbounds i8, ptr %8, i64 8
+  %87 = icmp sgt i32 %.0.lcssa.i.i, 1
+  br i1 %87, label %.lr.ph82.split.us.preheader.i, label %.lr.ph82.split.i
 
 .lr.ph82.split.us.preheader.i:                    ; preds = %.lr.ph82.i
   %.pre114.i = zext nneg i32 %.0.lcssa.i.i to i64
@@ -235,310 +235,310 @@ thread-pre-split:                                 ; preds = %.lr.ph
 
 .lr.ph82.split.us.i:                              ; preds = %._crit_edge78.us.i, %.lr.ph82.split.us.preheader.i
   %indvars.iv108.i = phi i64 [ 0, %.lr.ph82.split.us.preheader.i ], [ %indvars.iv.next109.i, %._crit_edge78.us.i ]
-  %.06880.us.i = phi ptr [ %85, %.lr.ph82.split.us.preheader.i ], [ %152, %._crit_edge78.us.i ]
-  %89 = getelementptr ptr, ptr %81, i64 %indvars.iv108.i
-  store ptr %.06880.us.i, ptr %89, align 8
+  %.06880.us.i = phi ptr [ %84, %.lr.ph82.split.us.preheader.i ], [ %151, %._crit_edge78.us.i ]
+  %88 = getelementptr ptr, ptr %80, i64 %indvars.iv108.i
+  store ptr %.06880.us.i, ptr %88, align 8
   br label %.lr.ph.us.i
 
 .lr.ph77.us.loopexit.i:                           ; preds = %.lr.ph.us.i
-  %90 = getelementptr [0 x %struct.SortSupportData], ptr %87, i64 0, i64 %indvars.iv108.i
-  %.pre.i97 = load ptr, ptr %89, align 8
-  call void @qsort_interruptible(ptr noundef %.pre.i97, i64 noundef %42, i64 noundef 24, ptr noundef nonnull @sort_item_compare, ptr noundef %90) #12
-  %91 = getelementptr i32, ptr %76, i64 %indvars.iv108.i
-  store i32 1, ptr %91, align 4
-  %92 = getelementptr inbounds i8, ptr %90, i64 24
-  %93 = getelementptr inbounds i8, ptr %90, i64 12
-  br label %94
+  %89 = getelementptr [0 x %struct.SortSupportData], ptr %86, i64 0, i64 %indvars.iv108.i
+  %.pre.i97 = load ptr, ptr %88, align 8
+  call void @qsort_interruptible(ptr noundef %.pre.i97, i64 noundef %42, i64 noundef 24, ptr noundef nonnull @sort_item_compare, ptr noundef %89) #12
+  %90 = getelementptr i32, ptr %75, i64 %indvars.iv108.i
+  store i32 1, ptr %90, align 4
+  %91 = getelementptr inbounds i8, ptr %89, i64 24
+  %92 = getelementptr inbounds i8, ptr %89, i64 12
+  br label %93
 
-94:                                               ; preds = %137, %.lr.ph77.us.loopexit.i
-  %indvars.iv103.i = phi i64 [ 1, %.lr.ph77.us.loopexit.i ], [ %indvars.iv.next104.i, %137 ]
-  %95 = load ptr, ptr %89, align 8
-  %96 = getelementptr %struct.SortItem, ptr %95, i64 %indvars.iv103.i
-  %97 = getelementptr i8, ptr %96, i64 -24
-  %98 = load ptr, ptr %97, align 8
-  %99 = load i64, ptr %98, align 8
-  %100 = getelementptr i8, ptr %96, i64 -16
-  %101 = load ptr, ptr %100, align 8
-  %102 = load i8, ptr %101, align 1
-  %103 = trunc i8 %102 to i1
-  %104 = load ptr, ptr %96, align 8
-  %105 = load i64, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %96, i64 8
-  %107 = load ptr, ptr %106, align 8
-  %108 = load i8, ptr %107, align 1
-  %109 = trunc i8 %108 to i1
-  br i1 %103, label %120, label %110
+93:                                               ; preds = %136, %.lr.ph77.us.loopexit.i
+  %indvars.iv103.i = phi i64 [ 1, %.lr.ph77.us.loopexit.i ], [ %indvars.iv.next104.i, %136 ]
+  %94 = load ptr, ptr %88, align 8
+  %95 = getelementptr %struct.SortItem, ptr %94, i64 %indvars.iv103.i
+  %96 = getelementptr i8, ptr %95, i64 -24
+  %97 = load ptr, ptr %96, align 8
+  %98 = load i64, ptr %97, align 8
+  %99 = getelementptr i8, ptr %95, i64 -16
+  %100 = load ptr, ptr %99, align 8
+  %101 = load i8, ptr %100, align 1
+  %102 = trunc i8 %101 to i1
+  %103 = load ptr, ptr %95, align 8
+  %104 = load i64, ptr %103, align 8
+  %105 = getelementptr inbounds i8, ptr %95, i64 8
+  %106 = load ptr, ptr %105, align 8
+  %107 = load i8, ptr %106, align 1
+  %108 = trunc i8 %107 to i1
+  br i1 %102, label %119, label %109
 
-110:                                              ; preds = %94
-  br i1 %109, label %sort_item_compare.exit.thread.us.i, label %111
+109:                                              ; preds = %93
+  br i1 %108, label %sort_item_compare.exit.thread.us.i, label %110
 
-111:                                              ; preds = %110
-  %112 = load ptr, ptr %92, align 8
-  %113 = call i32 %112(i64 noundef %99, i64 noundef %105, ptr noundef %90) #12
-  %114 = load i8, ptr %93, align 4
-  %115 = trunc i8 %114 to i1
-  br i1 %115, label %116, label %sort_item_compare.exit.us.i
+110:                                              ; preds = %109
+  %111 = load ptr, ptr %91, align 8
+  %112 = call i32 %111(i64 noundef %98, i64 noundef %104, ptr noundef %89) #12
+  %113 = load i8, ptr %92, align 4
+  %114 = trunc i8 %113 to i1
+  br i1 %114, label %115, label %sort_item_compare.exit.us.i
 
-116:                                              ; preds = %111
-  %117 = icmp slt i32 %113, 0
-  %118 = sub nsw i32 0, %113
-  br i1 %117, label %.sort_item_compare.exit.thread.us_crit_edge.i, label %sort_item_compare.exit.us.i
+115:                                              ; preds = %110
+  %116 = icmp slt i32 %112, 0
+  %117 = sub nsw i32 0, %112
+  br i1 %116, label %.sort_item_compare.exit.thread.us_crit_edge.i, label %sort_item_compare.exit.us.i
 
-.sort_item_compare.exit.thread.us_crit_edge.i:    ; preds = %116
-  %.pre112.i = load ptr, ptr %89, align 8
+.sort_item_compare.exit.thread.us_crit_edge.i:    ; preds = %115
+  %.pre112.i = load ptr, ptr %88, align 8
   br label %sort_item_compare.exit.thread.us.i
 
-sort_item_compare.exit.us.i:                      ; preds = %116, %111
-  %.0.i.i.us.i = phi i32 [ %118, %116 ], [ %113, %111 ]
-  %119 = icmp eq i32 %.0.i.i.us.i, 0
-  %.pre113.i = load ptr, ptr %89, align 8
-  br i1 %119, label %sort_item_compare.exit.thread72.us.i, label %sort_item_compare.exit.thread.us.i
+sort_item_compare.exit.us.i:                      ; preds = %115, %110
+  %.0.i.i.us.i = phi i32 [ %117, %115 ], [ %112, %110 ]
+  %118 = icmp eq i32 %.0.i.i.us.i, 0
+  %.pre113.i = load ptr, ptr %88, align 8
+  br i1 %118, label %sort_item_compare.exit.thread72.us.i, label %sort_item_compare.exit.thread.us.i
 
-120:                                              ; preds = %94
-  br i1 %109, label %sort_item_compare.exit.thread72.us.i, label %sort_item_compare.exit.thread.us.i
+119:                                              ; preds = %93
+  br i1 %108, label %sort_item_compare.exit.thread72.us.i, label %sort_item_compare.exit.thread.us.i
 
-sort_item_compare.exit.thread.us.i:               ; preds = %120, %sort_item_compare.exit.us.i, %.sort_item_compare.exit.thread.us_crit_edge.i, %110
-  %121 = phi ptr [ %.pre112.i, %.sort_item_compare.exit.thread.us_crit_edge.i ], [ %95, %120 ], [ %.pre113.i, %sort_item_compare.exit.us.i ], [ %95, %110 ]
-  %122 = load i32, ptr %91, align 4
-  %123 = sext i32 %122 to i64
-  %124 = getelementptr %struct.SortItem, ptr %121, i64 %123
-  %125 = getelementptr %struct.SortItem, ptr %121, i64 %indvars.iv103.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %124, ptr noundef nonnull align 8 dereferenceable(24) %125, i64 24, i1 false)
-  %126 = load i32, ptr %91, align 4
-  %127 = add i32 %126, 1
-  store i32 %127, ptr %91, align 4
-  br label %137
+sort_item_compare.exit.thread.us.i:               ; preds = %119, %sort_item_compare.exit.us.i, %.sort_item_compare.exit.thread.us_crit_edge.i, %109
+  %120 = phi ptr [ %.pre112.i, %.sort_item_compare.exit.thread.us_crit_edge.i ], [ %94, %119 ], [ %.pre113.i, %sort_item_compare.exit.us.i ], [ %94, %109 ]
+  %121 = load i32, ptr %90, align 4
+  %122 = sext i32 %121 to i64
+  %123 = getelementptr %struct.SortItem, ptr %120, i64 %122
+  %124 = getelementptr %struct.SortItem, ptr %120, i64 %indvars.iv103.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %123, ptr noundef nonnull align 8 dereferenceable(24) %124, i64 24, i1 false)
+  %125 = load i32, ptr %90, align 4
+  %126 = add i32 %125, 1
+  store i32 %126, ptr %90, align 4
+  br label %136
 
-sort_item_compare.exit.thread72.us.i:             ; preds = %120, %sort_item_compare.exit.us.i
-  %128 = phi ptr [ %95, %120 ], [ %.pre113.i, %sort_item_compare.exit.us.i ]
-  %129 = getelementptr %struct.SortItem, ptr %128, i64 %indvars.iv103.i, i32 2
-  %130 = load i32, ptr %129, align 8
-  %131 = load i32, ptr %91, align 4
-  %132 = add i32 %131, -1
-  %133 = sext i32 %132 to i64
-  %134 = getelementptr %struct.SortItem, ptr %128, i64 %133, i32 2
-  %135 = load i32, ptr %134, align 8
-  %136 = add i32 %135, %130
-  store i32 %136, ptr %134, align 8
-  br label %137
+sort_item_compare.exit.thread72.us.i:             ; preds = %119, %sort_item_compare.exit.us.i
+  %127 = phi ptr [ %94, %119 ], [ %.pre113.i, %sort_item_compare.exit.us.i ]
+  %128 = getelementptr %struct.SortItem, ptr %127, i64 %indvars.iv103.i, i32 2
+  %129 = load i32, ptr %128, align 8
+  %130 = load i32, ptr %90, align 4
+  %131 = add i32 %130, -1
+  %132 = sext i32 %131 to i64
+  %133 = getelementptr %struct.SortItem, ptr %127, i64 %132, i32 2
+  %134 = load i32, ptr %133, align 8
+  %135 = add i32 %134, %129
+  store i32 %135, ptr %133, align 8
+  br label %136
 
-137:                                              ; preds = %sort_item_compare.exit.thread72.us.i, %sort_item_compare.exit.thread.us.i
+136:                                              ; preds = %sort_item_compare.exit.thread72.us.i, %sort_item_compare.exit.thread.us.i
   %indvars.iv.next104.i = add nuw nsw i64 %indvars.iv103.i, 1
   %exitcond107.not.i = icmp eq i64 %indvars.iv.next104.i, %.pre114.i
-  br i1 %exitcond107.not.i, label %._crit_edge78.us.i, label %94, !llvm.loop !10
+  br i1 %exitcond107.not.i, label %._crit_edge78.us.i, label %93, !llvm.loop !10
 
 .lr.ph.us.i:                                      ; preds = %.lr.ph82.split.us.i, %.lr.ph.us.i
   %indvars.iv98.i = phi i64 [ %indvars.iv.next99.i, %.lr.ph.us.i ], [ 0, %.lr.ph82.split.us.i ]
-  %138 = getelementptr %struct.SortItem, ptr %44, i64 %indvars.iv98.i
-  %139 = load ptr, ptr %138, align 8
-  %140 = getelementptr i64, ptr %139, i64 %indvars.iv108.i
-  %141 = load ptr, ptr %89, align 8
-  %142 = getelementptr %struct.SortItem, ptr %141, i64 %indvars.iv98.i
-  store ptr %140, ptr %142, align 8
-  %143 = getelementptr inbounds i8, ptr %138, i64 8
-  %144 = load ptr, ptr %143, align 8
-  %145 = getelementptr i8, ptr %144, i64 %indvars.iv108.i
-  %146 = load ptr, ptr %89, align 8
-  %147 = getelementptr %struct.SortItem, ptr %146, i64 %indvars.iv98.i, i32 1
-  store ptr %145, ptr %147, align 8
-  %148 = getelementptr inbounds i8, ptr %138, i64 16
-  %149 = load i32, ptr %148, align 8
-  %150 = load ptr, ptr %89, align 8
-  %151 = getelementptr %struct.SortItem, ptr %150, i64 %indvars.iv98.i, i32 2
-  store i32 %149, ptr %151, align 8
+  %137 = getelementptr %struct.SortItem, ptr %44, i64 %indvars.iv98.i
+  %138 = load ptr, ptr %137, align 8
+  %139 = getelementptr i64, ptr %138, i64 %indvars.iv108.i
+  %140 = load ptr, ptr %88, align 8
+  %141 = getelementptr %struct.SortItem, ptr %140, i64 %indvars.iv98.i
+  store ptr %139, ptr %141, align 8
+  %142 = getelementptr inbounds i8, ptr %137, i64 8
+  %143 = load ptr, ptr %142, align 8
+  %144 = getelementptr i8, ptr %143, i64 %indvars.iv108.i
+  %145 = load ptr, ptr %88, align 8
+  %146 = getelementptr %struct.SortItem, ptr %145, i64 %indvars.iv98.i, i32 1
+  store ptr %144, ptr %146, align 8
+  %147 = getelementptr inbounds i8, ptr %137, i64 16
+  %148 = load i32, ptr %147, align 8
+  %149 = load ptr, ptr %88, align 8
+  %150 = getelementptr %struct.SortItem, ptr %149, i64 %indvars.iv98.i, i32 2
+  store i32 %148, ptr %150, align 8
   %indvars.iv.next99.i = add nuw nsw i64 %indvars.iv98.i, 1
   %exitcond102.not.i = icmp eq i64 %indvars.iv.next99.i, %.pre114.i
   br i1 %exitcond102.not.i, label %.lr.ph77.us.loopexit.i, label %.lr.ph.us.i, !llvm.loop !11
 
-._crit_edge78.us.i:                               ; preds = %137
-  %152 = getelementptr i8, ptr %.06880.us.i, i64 %43
+._crit_edge78.us.i:                               ; preds = %136
+  %151 = getelementptr i8, ptr %.06880.us.i, i64 %43
   %indvars.iv.next109.i = add nuw nsw i64 %indvars.iv108.i, 1
-  %153 = load i32, ptr %8, align 8
-  %154 = sext i32 %153 to i64
-  %155 = icmp slt i64 %indvars.iv.next109.i, %154
-  br i1 %155, label %.lr.ph82.split.us.i, label %build_column_frequencies.exit, !llvm.loop !12
+  %152 = load i32, ptr %8, align 8
+  %153 = sext i32 %152 to i64
+  %154 = icmp slt i64 %indvars.iv.next109.i, %153
+  br i1 %154, label %.lr.ph82.split.us.i, label %build_column_frequencies.exit, !llvm.loop !12
 
 .lr.ph82.split.i:                                 ; preds = %.lr.ph82.i
-  %156 = icmp eq i32 %.0.lcssa.i.i, 1
-  br i1 %156, label %.lr.ph.us87.preheader.i, label %.lr.ph82.split.split.i
+  %155 = icmp eq i32 %.0.lcssa.i.i, 1
+  br i1 %155, label %.lr.ph.us87.preheader.i, label %.lr.ph82.split.split.i
 
 .lr.ph.us87.preheader.i:                          ; preds = %.lr.ph82.split.i
-  %157 = getelementptr inbounds i8, ptr %44, i64 8
+  %156 = getelementptr inbounds i8, ptr %44, i64 8
   br label %.lr.ph.us87.i
 
 .lr.ph.us87.i:                                    ; preds = %.lr.ph.us87.i, %.lr.ph.us87.preheader.i
   %indvars.iv95.i = phi i64 [ 0, %.lr.ph.us87.preheader.i ], [ %indvars.iv.next96.i, %.lr.ph.us87.i ]
-  %.06880.us84.i = phi ptr [ %85, %.lr.ph.us87.preheader.i ], [ %169, %.lr.ph.us87.i ]
-  %158 = getelementptr ptr, ptr %81, i64 %indvars.iv95.i
-  store ptr %.06880.us84.i, ptr %158, align 8
-  %159 = load ptr, ptr %44, align 8
-  %160 = getelementptr i64, ptr %159, i64 %indvars.iv95.i
-  store ptr %160, ptr %.06880.us84.i, align 8
-  %161 = load ptr, ptr %157, align 8
-  %162 = getelementptr i8, ptr %161, i64 %indvars.iv95.i
-  %163 = load ptr, ptr %158, align 8
-  %164 = getelementptr i8, ptr %163, i64 8
-  store ptr %162, ptr %164, align 8
-  %165 = load i32, ptr %45, align 8
-  %166 = load ptr, ptr %158, align 8
-  %167 = getelementptr i8, ptr %166, i64 16
-  store i32 %165, ptr %167, align 8
-  %168 = getelementptr [0 x %struct.SortSupportData], ptr %87, i64 0, i64 %indvars.iv95.i
-  %169 = getelementptr i8, ptr %.06880.us84.i, i64 %43
-  %170 = load ptr, ptr %158, align 8
-  call void @qsort_interruptible(ptr noundef %170, i64 noundef %42, i64 noundef 24, ptr noundef nonnull @sort_item_compare, ptr noundef %168) #12
-  %171 = getelementptr i32, ptr %76, i64 %indvars.iv95.i
-  store i32 1, ptr %171, align 4
+  %.06880.us84.i = phi ptr [ %84, %.lr.ph.us87.preheader.i ], [ %168, %.lr.ph.us87.i ]
+  %157 = getelementptr ptr, ptr %80, i64 %indvars.iv95.i
+  store ptr %.06880.us84.i, ptr %157, align 8
+  %158 = load ptr, ptr %44, align 8
+  %159 = getelementptr i64, ptr %158, i64 %indvars.iv95.i
+  store ptr %159, ptr %.06880.us84.i, align 8
+  %160 = load ptr, ptr %156, align 8
+  %161 = getelementptr i8, ptr %160, i64 %indvars.iv95.i
+  %162 = load ptr, ptr %157, align 8
+  %163 = getelementptr i8, ptr %162, i64 8
+  store ptr %161, ptr %163, align 8
+  %164 = load i32, ptr %45, align 8
+  %165 = load ptr, ptr %157, align 8
+  %166 = getelementptr i8, ptr %165, i64 16
+  store i32 %164, ptr %166, align 8
+  %167 = getelementptr [0 x %struct.SortSupportData], ptr %86, i64 0, i64 %indvars.iv95.i
+  %168 = getelementptr i8, ptr %.06880.us84.i, i64 %43
+  %169 = load ptr, ptr %157, align 8
+  call void @qsort_interruptible(ptr noundef %169, i64 noundef %42, i64 noundef 24, ptr noundef nonnull @sort_item_compare, ptr noundef %167) #12
+  %170 = getelementptr i32, ptr %75, i64 %indvars.iv95.i
+  store i32 1, ptr %170, align 4
   %indvars.iv.next96.i = add nuw nsw i64 %indvars.iv95.i, 1
-  %172 = load i32, ptr %8, align 8
-  %173 = sext i32 %172 to i64
-  %174 = icmp slt i64 %indvars.iv.next96.i, %173
-  br i1 %174, label %.lr.ph.us87.i, label %build_column_frequencies.exit, !llvm.loop !12
+  %171 = load i32, ptr %8, align 8
+  %172 = sext i32 %171 to i64
+  %173 = icmp slt i64 %indvars.iv.next96.i, %172
+  br i1 %173, label %.lr.ph.us87.i, label %build_column_frequencies.exit, !llvm.loop !12
 
 .lr.ph82.split.split.i:                           ; preds = %.lr.ph82.split.i, %.lr.ph82.split.split.i
   %indvars.iv.i93 = phi i64 [ %indvars.iv.next.i94, %.lr.ph82.split.split.i ], [ 0, %.lr.ph82.split.i ]
-  %.06880.i = phi ptr [ %177, %.lr.ph82.split.split.i ], [ %85, %.lr.ph82.split.i ]
-  %175 = getelementptr [0 x %struct.SortSupportData], ptr %87, i64 0, i64 %indvars.iv.i93
-  %176 = getelementptr ptr, ptr %81, i64 %indvars.iv.i93
-  store ptr %.06880.i, ptr %176, align 8
-  %177 = getelementptr i8, ptr %.06880.i, i64 %43
-  call void @qsort_interruptible(ptr noundef %.06880.i, i64 noundef %42, i64 noundef 24, ptr noundef nonnull @sort_item_compare, ptr noundef %175) #12
-  %178 = getelementptr i32, ptr %76, i64 %indvars.iv.i93
-  store i32 1, ptr %178, align 4
+  %.06880.i = phi ptr [ %176, %.lr.ph82.split.split.i ], [ %84, %.lr.ph82.split.i ]
+  %174 = getelementptr [0 x %struct.SortSupportData], ptr %86, i64 0, i64 %indvars.iv.i93
+  %175 = getelementptr ptr, ptr %80, i64 %indvars.iv.i93
+  store ptr %.06880.i, ptr %175, align 8
+  %176 = getelementptr i8, ptr %.06880.i, i64 %43
+  call void @qsort_interruptible(ptr noundef %.06880.i, i64 noundef %42, i64 noundef 24, ptr noundef nonnull @sort_item_compare, ptr noundef %174) #12
+  %177 = getelementptr i32, ptr %75, i64 %indvars.iv.i93
+  store i32 1, ptr %177, align 4
   %indvars.iv.next.i94 = add nuw nsw i64 %indvars.iv.i93, 1
-  %179 = load i32, ptr %8, align 8
-  %180 = sext i32 %179 to i64
-  %181 = icmp slt i64 %indvars.iv.next.i94, %180
-  br i1 %181, label %.lr.ph82.split.split.i, label %build_column_frequencies.exit, !llvm.loop !12
+  %178 = load i32, ptr %8, align 8
+  %179 = sext i32 %178 to i64
+  %180 = icmp slt i64 %indvars.iv.next.i94, %179
+  br i1 %180, label %.lr.ph82.split.split.i, label %build_column_frequencies.exit, !llvm.loop !12
 
 build_column_frequencies.exit:                    ; preds = %.lr.ph82.split.split.i, %.lr.ph.us87.i, %._crit_edge78.us.i, %.critedge
-  %182 = load i32, ptr %4, align 4
-  %183 = sext i32 %182 to i64
-  %184 = shl nsw i64 %183, 5
-  %185 = add nsw i64 %184, 48
-  %186 = call ptr @palloc0(i64 noundef %185) #12
-  store i32 -509193790, ptr %186, align 8
-  %187 = getelementptr inbounds i8, ptr %186, i64 4
-  store i32 1, ptr %187, align 4
-  %188 = trunc i32 %35 to i16
-  %189 = getelementptr inbounds i8, ptr %186, i64 12
-  store i16 %188, ptr %189, align 4
-  %190 = load i32, ptr %4, align 4
-  %191 = getelementptr inbounds i8, ptr %186, i64 8
-  store i32 %190, ptr %191, align 8
-  %192 = icmp sgt i32 %35, 0
-  br i1 %192, label %.lr.ph106, label %.preheader
+  %181 = load i32, ptr %4, align 4
+  %182 = sext i32 %181 to i64
+  %183 = shl nsw i64 %182, 5
+  %184 = add nsw i64 %183, 48
+  %185 = call ptr @palloc0(i64 noundef %184) #12
+  store i32 -509193790, ptr %185, align 8
+  %186 = getelementptr inbounds i8, ptr %185, i64 4
+  store i32 1, ptr %186, align 4
+  %187 = trunc i32 %35 to i16
+  %188 = getelementptr inbounds i8, ptr %185, i64 12
+  store i16 %187, ptr %188, align 4
+  %189 = load i32, ptr %4, align 4
+  %190 = getelementptr inbounds i8, ptr %185, i64 8
+  store i32 %189, ptr %190, align 8
+  %191 = icmp sgt i32 %35, 0
+  br i1 %191, label %.lr.ph106, label %.preheader
 
 .lr.ph106:                                        ; preds = %build_column_frequencies.exit
-  %193 = getelementptr inbounds i8, ptr %0, i64 16
-  %194 = getelementptr inbounds i8, ptr %186, i64 16
+  %192 = getelementptr inbounds i8, ptr %0, i64 16
+  %193 = getelementptr inbounds i8, ptr %185, i64 16
   %wide.trip.count120 = zext nneg i32 %35 to i64
-  br label %202
+  br label %201
 
-.preheader.loopexit:                              ; preds = %202
+.preheader.loopexit:                              ; preds = %201
   %.pre = load i32, ptr %4, align 4
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.loopexit, %build_column_frequencies.exit
-  %195 = phi i32 [ %.pre, %.preheader.loopexit ], [ %190, %build_column_frequencies.exit ]
-  %196 = icmp sgt i32 %195, 0
-  br i1 %196, label %.lr.ph110, label %._crit_edge111
+  %194 = phi i32 [ %.pre, %.preheader.loopexit ], [ %189, %build_column_frequencies.exit ]
+  %195 = icmp sgt i32 %194, 0
+  br i1 %195, label %.lr.ph110, label %._crit_edge111
 
 .lr.ph110:                                        ; preds = %.preheader
-  %197 = getelementptr inbounds i8, ptr %186, i64 48
-  %198 = shl nsw i64 %74, 3
-  %199 = getelementptr inbounds i8, ptr %73, i64 8
-  %200 = getelementptr inbounds i8, ptr %8, i64 8
-  %201 = getelementptr inbounds i8, ptr %5, i64 8
+  %196 = getelementptr inbounds i8, ptr %185, i64 48
+  %197 = shl nsw i64 %73, 3
+  %198 = getelementptr inbounds i8, ptr %72, i64 8
+  %199 = getelementptr inbounds i8, ptr %8, i64 8
+  %200 = getelementptr inbounds i8, ptr %5, i64 8
   %wide.trip.count125 = zext nneg i32 %35 to i64
-  br label %209
+  br label %208
 
-202:                                              ; preds = %.lr.ph106, %202
-  %indvars.iv117 = phi i64 [ 0, %.lr.ph106 ], [ %indvars.iv.next118, %202 ]
-  %203 = load ptr, ptr %193, align 8
-  %204 = getelementptr ptr, ptr %203, i64 %indvars.iv117
-  %205 = load ptr, ptr %204, align 8
-  %206 = getelementptr inbounds i8, ptr %205, i64 4
-  %207 = load i32, ptr %206, align 4
-  %208 = getelementptr [8 x i32], ptr %194, i64 0, i64 %indvars.iv117
-  store i32 %207, ptr %208, align 4
+201:                                              ; preds = %.lr.ph106, %201
+  %indvars.iv117 = phi i64 [ 0, %.lr.ph106 ], [ %indvars.iv.next118, %201 ]
+  %202 = load ptr, ptr %192, align 8
+  %203 = getelementptr ptr, ptr %202, i64 %indvars.iv117
+  %204 = load ptr, ptr %203, align 8
+  %205 = getelementptr inbounds i8, ptr %204, i64 4
+  %206 = load i32, ptr %205, align 4
+  %207 = getelementptr [8 x i32], ptr %193, i64 0, i64 %indvars.iv117
+  store i32 %206, ptr %207, align 4
   %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
   %exitcond121.not = icmp eq i64 %indvars.iv.next118, %wide.trip.count120
-  br i1 %exitcond121.not, label %.preheader.loopexit, label %202, !llvm.loop !13
+  br i1 %exitcond121.not, label %.preheader.loopexit, label %201, !llvm.loop !13
 
-209:                                              ; preds = %.lr.ph110, %._crit_edge
+208:                                              ; preds = %.lr.ph110, %._crit_edge
   %indvars.iv127 = phi i64 [ 0, %.lr.ph110 ], [ %indvars.iv.next128, %._crit_edge ]
-  %210 = getelementptr [0 x %struct.MCVItem], ptr %197, i64 0, i64 %indvars.iv127
-  %211 = call ptr @palloc(i64 noundef %198) #12
-  %212 = getelementptr inbounds i8, ptr %210, i64 24
-  store ptr %211, ptr %212, align 8
-  %213 = call ptr @palloc(i64 noundef %74) #12
-  %214 = getelementptr inbounds i8, ptr %210, i64 16
-  store ptr %213, ptr %214, align 8
-  %215 = load ptr, ptr %212, align 8
-  %216 = getelementptr %struct.SortItem, ptr %44, i64 %indvars.iv127
-  %217 = load ptr, ptr %216, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %215, ptr align 8 %217, i64 %198, i1 false)
-  %218 = load ptr, ptr %214, align 8
-  %219 = getelementptr inbounds i8, ptr %216, i64 8
-  %220 = load ptr, ptr %219, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %218, ptr align 1 %220, i64 %74, i1 false)
-  %221 = getelementptr inbounds i8, ptr %216, i64 16
-  %222 = load i32, ptr %221, align 8
-  %223 = sitofp i32 %222 to double
-  %224 = fdiv double %223, %57
-  store double %224, ptr %210, align 8
-  %225 = getelementptr inbounds i8, ptr %210, i64 8
-  store double 1.000000e+00, ptr %225, align 8
-  br i1 %192, label %.lr.ph108, label %._crit_edge
+  %209 = getelementptr [0 x %struct.MCVItem], ptr %196, i64 0, i64 %indvars.iv127
+  %210 = call ptr @palloc(i64 noundef %197) #12
+  %211 = getelementptr inbounds i8, ptr %209, i64 24
+  store ptr %210, ptr %211, align 8
+  %212 = call ptr @palloc(i64 noundef %73) #12
+  %213 = getelementptr inbounds i8, ptr %209, i64 16
+  store ptr %212, ptr %213, align 8
+  %214 = load ptr, ptr %211, align 8
+  %215 = getelementptr %struct.SortItem, ptr %44, i64 %indvars.iv127
+  %216 = load ptr, ptr %215, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %214, ptr align 8 %216, i64 %197, i1 false)
+  %217 = load ptr, ptr %213, align 8
+  %218 = getelementptr inbounds i8, ptr %215, i64 8
+  %219 = load ptr, ptr %218, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %217, ptr align 1 %219, i64 %73, i1 false)
+  %220 = getelementptr inbounds i8, ptr %215, i64 16
+  %221 = load i32, ptr %220, align 8
+  %222 = sitofp i32 %221 to double
+  %223 = fdiv double %222, %57
+  store double %223, ptr %209, align 8
+  %224 = getelementptr inbounds i8, ptr %209, i64 8
+  store double 1.000000e+00, ptr %224, align 8
+  br i1 %191, label %.lr.ph108, label %._crit_edge
 
-.lr.ph108:                                        ; preds = %209, %.lr.ph108
-  %indvars.iv122 = phi i64 [ %indvars.iv.next123, %.lr.ph108 ], [ 0, %209 ]
-  store i32 1, ptr %73, align 8
-  %226 = getelementptr [0 x %struct.SortSupportData], ptr %200, i64 0, i64 %indvars.iv122
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %199, ptr noundef nonnull align 8 dereferenceable(64) %226, i64 64, i1 false)
-  %227 = load ptr, ptr %216, align 8
-  %228 = getelementptr i64, ptr %227, i64 %indvars.iv122
-  store ptr %228, ptr %5, align 8
-  %229 = load ptr, ptr %219, align 8
-  %230 = getelementptr i8, ptr %229, i64 %indvars.iv122
-  store ptr %230, ptr %201, align 8
-  %231 = getelementptr ptr, ptr %81, i64 %indvars.iv122
-  %232 = load ptr, ptr %231, align 8
-  %233 = getelementptr i32, ptr %76, i64 %indvars.iv122
-  %234 = load i32, ptr %233, align 4
-  %235 = sext i32 %234 to i64
-  %236 = call ptr @bsearch_arg(ptr noundef nonnull %5, ptr noundef %232, i64 noundef %235, i64 noundef 24, ptr noundef nonnull @multi_sort_compare, ptr noundef nonnull %73) #12
-  %237 = getelementptr inbounds i8, ptr %236, i64 16
-  %238 = load i32, ptr %237, align 8
-  %239 = sitofp i32 %238 to double
-  %240 = fdiv double %239, %57
-  %241 = load double, ptr %225, align 8
-  %242 = fmul double %241, %240
-  store double %242, ptr %225, align 8
+.lr.ph108:                                        ; preds = %208, %.lr.ph108
+  %indvars.iv122 = phi i64 [ %indvars.iv.next123, %.lr.ph108 ], [ 0, %208 ]
+  store i32 1, ptr %72, align 8
+  %225 = getelementptr [0 x %struct.SortSupportData], ptr %199, i64 0, i64 %indvars.iv122
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %198, ptr noundef nonnull align 8 dereferenceable(64) %225, i64 64, i1 false)
+  %226 = load ptr, ptr %215, align 8
+  %227 = getelementptr i64, ptr %226, i64 %indvars.iv122
+  store ptr %227, ptr %5, align 8
+  %228 = load ptr, ptr %218, align 8
+  %229 = getelementptr i8, ptr %228, i64 %indvars.iv122
+  store ptr %229, ptr %200, align 8
+  %230 = getelementptr ptr, ptr %80, i64 %indvars.iv122
+  %231 = load ptr, ptr %230, align 8
+  %232 = getelementptr i32, ptr %75, i64 %indvars.iv122
+  %233 = load i32, ptr %232, align 4
+  %234 = sext i32 %233 to i64
+  %235 = call ptr @bsearch_arg(ptr noundef nonnull %5, ptr noundef %231, i64 noundef %234, i64 noundef 24, ptr noundef nonnull @multi_sort_compare, ptr noundef nonnull %72) #12
+  %236 = getelementptr inbounds i8, ptr %235, i64 16
+  %237 = load i32, ptr %236, align 8
+  %238 = sitofp i32 %237 to double
+  %239 = fdiv double %238, %57
+  %240 = load double, ptr %224, align 8
+  %241 = fmul double %240, %239
+  store double %241, ptr %224, align 8
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %exitcond126.not = icmp eq i64 %indvars.iv.next123, %wide.trip.count125
   br i1 %exitcond126.not, label %._crit_edge, label %.lr.ph108, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %.lr.ph108, %209
+._crit_edge:                                      ; preds = %.lr.ph108, %208
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
-  %243 = load i32, ptr %4, align 4
-  %244 = sext i32 %243 to i64
-  %245 = icmp slt i64 %indvars.iv.next128, %244
-  br i1 %245, label %209, label %._crit_edge111, !llvm.loop !15
+  %242 = load i32, ptr %4, align 4
+  %243 = sext i32 %242 to i64
+  %244 = icmp slt i64 %indvars.iv.next128, %243
+  br i1 %244, label %208, label %._crit_edge111, !llvm.loop !15
 
 ._crit_edge111:                                   ; preds = %._crit_edge, %.preheader
-  call void @pfree(ptr noundef %76) #12
-  call void @pfree(ptr noundef %81) #12
+  call void @pfree(ptr noundef %75) #12
+  call void @pfree(ptr noundef %80) #12
   br label %thread-pre-split.thread
 
 thread-pre-split.thread:                          ; preds = %build_distinct_groups.exit, %._crit_edge111, %thread-pre-split
-  %.083 = phi ptr [ %186, %._crit_edge111 ], [ null, %thread-pre-split ], [ null, %build_distinct_groups.exit ]
+  %.083 = phi ptr [ %185, %._crit_edge111 ], [ null, %thread-pre-split ], [ null, %build_distinct_groups.exit ]
   call void @pfree(ptr noundef nonnull %33) #12
   call void @pfree(ptr noundef %44) #12
-  br label %246
+  br label %245
 
-246:                                              ; preds = %build_mss.exit, %thread-pre-split.thread
+245:                                              ; preds = %build_mss.exit, %thread-pre-split.thread
   %.0 = phi ptr [ %.083, %thread-pre-split.thread ], [ null, %build_mss.exit ]
   ret ptr %.0
 }

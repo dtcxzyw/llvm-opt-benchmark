@@ -2821,70 +2821,66 @@ define dso_local noundef zeroext i1 @_ZN10cmPolicies11GetPolicyIDEPKcRNS_8Policy
 
 5:                                                ; preds = %2
   %6 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #16
-  %.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %6, i64 3)
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %_ZL10stringToIdPKcRN10cmPolicies8PolicyIDE.exit, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i: ; preds = %5
+  %.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %6, i64 3)
   %bcmp.i.i.i = tail call i32 @bcmp(ptr %0, ptr nonnull @.str.203, i64 %.sroa.speculated.i.i.i.i.i)
   %8 = icmp eq i32 %bcmp.i.i.i, 0
-  br i1 %8, label %_Z18cmHasLiteralPrefixILm4EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.i, label %_ZL10stringToIdPKcRN10cmPolicies8PolicyIDE.exit
+  %9 = icmp ugt i64 %6, 2
+  %or.cond.i = and i1 %9, %8
+  br i1 %or.cond.i, label %10, label %_ZL10stringToIdPKcRN10cmPolicies8PolicyIDE.exit
 
-_Z18cmHasLiteralPrefixILm4EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i
-  %9 = add nuw nsw i64 %.sroa.speculated.i.i.i.i.i, 4294967293
-  %10 = and i64 %9, 4294967295
-  %11 = icmp eq i64 %10, 0
-  br i1 %11, label %12, label %_ZL10stringToIdPKcRN10cmPolicies8PolicyIDE.exit
-
-12:                                               ; preds = %_Z18cmHasLiteralPrefixILm4EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.i
+10:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i
   %.not.i.i.i = icmp ult i64 %6, 4
   br i1 %.not.i.i.i, label %_Z18cmHasLiteralSuffixILm5EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.preheader.i.preheader, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i12.i
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i12.i: ; preds = %12
-  %13 = getelementptr i8, ptr %0, i64 %6
-  %14 = getelementptr i8, ptr %13, i64 -4
-  %bcmp.i.i13.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %14, ptr noundef nonnull dereferenceable(4) @.str.204, i64 4)
-  %15 = icmp eq i32 %bcmp.i.i13.i, 0
-  br i1 %15, label %_Z18cmHasLiteralPrefixILm4EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.thread.sink.split.i, label %_Z18cmHasLiteralSuffixILm5EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.preheader.i.preheader
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i12.i: ; preds = %10
+  %11 = getelementptr i8, ptr %0, i64 %6
+  %12 = getelementptr i8, ptr %11, i64 -4
+  %bcmp.i.i13.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %12, ptr noundef nonnull dereferenceable(4) @.str.204, i64 4)
+  %13 = icmp eq i32 %bcmp.i.i13.i, 0
+  br i1 %13, label %_Z18cmHasLiteralPrefixILm4EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.thread17.sink.split.i, label %_Z18cmHasLiteralSuffixILm5EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.preheader.i.preheader
 
-_Z18cmHasLiteralSuffixILm5EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.preheader.i.preheader: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i12.i, %12
+_Z18cmHasLiteralSuffixILm5EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.preheader.i.preheader: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i12.i, %10
   br label %_Z18cmHasLiteralSuffixILm5EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.preheader.i
 
 _Z18cmHasLiteralSuffixILm5EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.i: ; preds = %_Z18cmHasLiteralSuffixILm5EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 7
-  br i1 %exitcond.not.i, label %19, label %_Z18cmHasLiteralSuffixILm5EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.preheader.i, !llvm.loop !82
+  br i1 %exitcond.not.i, label %17, label %_Z18cmHasLiteralSuffixILm5EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.preheader.i, !llvm.loop !82
 
 _Z18cmHasLiteralSuffixILm5EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.preheader.i: ; preds = %_Z18cmHasLiteralSuffixILm5EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.preheader.i.preheader, %_Z18cmHasLiteralSuffixILm5EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_Z18cmHasLiteralSuffixILm5EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.i ], [ 3, %_Z18cmHasLiteralSuffixILm5EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.preheader.i.preheader ]
-  %16 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i
-  %17 = load i8, ptr %16, align 1
-  %18 = sext i8 %17 to i32
-  %isdigittmp.i = add nsw i32 %18, -48
+  %14 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i
+  %15 = load i8, ptr %14, align 1
+  %16 = sext i8 %15 to i32
+  %isdigittmp.i = add nsw i32 %16, -48
   %isdigit.i = icmp ult i32 %isdigittmp.i, 10
   br i1 %isdigit.i, label %_Z18cmHasLiteralSuffixILm5EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.i, label %_ZL10stringToIdPKcRN10cmPolicies8PolicyIDE.exit
 
-19:                                               ; preds = %_Z18cmHasLiteralSuffixILm5EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.i
-  %20 = getelementptr inbounds i8, ptr %0, i64 3
-  %21 = call noundef zeroext i1 @_Z11cmStrToLongPKcPl(ptr noundef nonnull %20, ptr noundef nonnull %3)
-  br i1 %21, label %22, label %_ZL10stringToIdPKcRN10cmPolicies8PolicyIDE.exit
+17:                                               ; preds = %_Z18cmHasLiteralSuffixILm5EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.i
+  %18 = getelementptr inbounds i8, ptr %0, i64 3
+  %19 = call noundef zeroext i1 @_Z11cmStrToLongPKcPl(ptr noundef nonnull %18, ptr noundef nonnull %3)
+  br i1 %19, label %20, label %_ZL10stringToIdPKcRN10cmPolicies8PolicyIDE.exit
 
-22:                                               ; preds = %19
-  %23 = load i64, ptr %3, align 8
-  %24 = icmp sgt i64 %23, 162
-  br i1 %24, label %_ZL10stringToIdPKcRN10cmPolicies8PolicyIDE.exit, label %25
+20:                                               ; preds = %17
+  %21 = load i64, ptr %3, align 8
+  %22 = icmp sgt i64 %21, 162
+  br i1 %22, label %_ZL10stringToIdPKcRN10cmPolicies8PolicyIDE.exit, label %23
 
-25:                                               ; preds = %22
-  %26 = trunc i64 %23 to i32
-  br label %_Z18cmHasLiteralPrefixILm4EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.thread.sink.split.i
+23:                                               ; preds = %20
+  %24 = trunc i64 %21 to i32
+  br label %_Z18cmHasLiteralPrefixILm4EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.thread17.sink.split.i
 
-_Z18cmHasLiteralPrefixILm4EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.thread.sink.split.i: ; preds = %25, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i12.i
-  %.sink.i = phi i32 [ %26, %25 ], [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i12.i ]
+_Z18cmHasLiteralPrefixILm4EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.thread17.sink.split.i: ; preds = %23, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i12.i
+  %.sink.i = phi i32 [ %24, %23 ], [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i12.i ]
   store i32 %.sink.i, ptr %1, align 4
   br label %_ZL10stringToIdPKcRN10cmPolicies8PolicyIDE.exit
 
-_ZL10stringToIdPKcRN10cmPolicies8PolicyIDE.exit:  ; preds = %_Z18cmHasLiteralSuffixILm5EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.preheader.i, %2, %5, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i, %_Z18cmHasLiteralPrefixILm4EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.i, %19, %22, %_Z18cmHasLiteralPrefixILm4EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.thread.sink.split.i
-  %.010.i = phi i1 [ false, %2 ], [ false, %_Z18cmHasLiteralPrefixILm4EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.i ], [ false, %19 ], [ false, %22 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i ], [ false, %5 ], [ true, %_Z18cmHasLiteralPrefixILm4EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.thread.sink.split.i ], [ false, %_Z18cmHasLiteralSuffixILm5EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.preheader.i ]
+_ZL10stringToIdPKcRN10cmPolicies8PolicyIDE.exit:  ; preds = %_Z18cmHasLiteralSuffixILm5EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.preheader.i, %2, %5, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i, %17, %20, %_Z18cmHasLiteralPrefixILm4EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.thread17.sink.split.i
+  %.010.i = phi i1 [ false, %2 ], [ false, %17 ], [ false, %20 ], [ false, %5 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i ], [ true, %_Z18cmHasLiteralPrefixILm4EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.thread17.sink.split.i ], [ false, %_Z18cmHasLiteralSuffixILm5EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit.preheader.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   ret i1 %.010.i
 }

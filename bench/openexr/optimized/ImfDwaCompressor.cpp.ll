@@ -3254,7 +3254,7 @@ land.rhs.i.us:                                    ; preds = %while.body17.i.us, 
 
 while.end.i.us:                                   ; preds = %land.rhs.i.us
   %142 = trunc nuw nsw i64 %indvars.iv.i332.us to i32
-  %cmp19.i.us = icmp eq i32 %142, 1
+  %cmp19.i.us = icmp eq i64 %indvars.iv.i332.us, 1
   br i1 %cmp19.i.us, label %if.end39.i.us, label %if.else.i334.us
 
 if.else.i334.us:                                  ; preds = %while.end.i.us
@@ -3709,7 +3709,7 @@ while.body17:                                     ; preds = %land.rhs
 
 while.end:                                        ; preds = %land.rhs
   %8 = trunc nuw nsw i64 %indvars.iv to i32
-  %cmp19 = icmp eq i32 %8, 1
+  %cmp19 = icmp eq i64 %indvars.iv, 1
   br i1 %cmp19, label %if.then20, label %if.else
 
 if.then20:                                        ; preds = %while.cond7.preheader, %while.end

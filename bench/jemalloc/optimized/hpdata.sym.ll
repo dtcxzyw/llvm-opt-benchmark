@@ -398,7 +398,7 @@ if.end18.i:                                       ; preds = %if.then15.i, %if.en
   tail call void @llvm.assume(i1 %cmp.i.i)
   %10 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %inc.i, i1 true)
   %11 = trunc nuw nsw i64 %10 to i32
-  %cmp24.i117 = icmp eq i32 %11, 0
+  %cmp24.i117 = icmp eq i64 %10, 0
   br i1 %cmp24.i117, label %ph_insert.exit, label %for.body.i.lr.ph
 
 for.body.i.lr.ph:                                 ; preds = %if.end18.i

@@ -2080,9 +2080,9 @@ define internal fastcc void @"_ZN4core4char7methods22_$LT$impl$u20$char$GT$14esc
     i32 9, label %6
     i32 13, label %7
     i32 10, label %8
-    i32 92, label %9
-    i32 39, label %9
-    i32 34, label %9
+    i32 34, label %10
+    i32 39, label %10
+    i32 92, label %10
   ]
 
 4:                                                ; preds = %2
@@ -2092,35 +2092,35 @@ define internal fastcc void @"_ZN4core4char7methods22_$LT$impl$u20$char$GT$14esc
 
 6:                                                ; preds = %2
   tail call void @_ZN4core4char13EscapeDefault9backslash17ha6ee3f177cb8435eE(ptr noalias nocapture noundef nonnull sret({ { [10 x i8], { i8, i8 } } }) align 1 dereferenceable(12) %0, i8 noundef 116)
-  br label %11
+  br label %9
 
 7:                                                ; preds = %2
   tail call void @_ZN4core4char13EscapeDefault9backslash17ha6ee3f177cb8435eE(ptr noalias nocapture noundef nonnull sret({ { [10 x i8], { i8, i8 } } }) align 1 dereferenceable(12) %0, i8 noundef 114)
-  br label %11
+  br label %9
 
 8:                                                ; preds = %2
   tail call void @_ZN4core4char13EscapeDefault9backslash17ha6ee3f177cb8435eE(ptr noalias nocapture noundef nonnull sret({ { [10 x i8], { i8, i8 } } }) align 1 dereferenceable(12) %0, i8 noundef 110)
-  br label %11
+  br label %9
 
-9:                                                ; preds = %2, %2, %2
-  %10 = trunc nuw nsw i32 %1 to i8
-  tail call void @_ZN4core4char13EscapeDefault9backslash17ha6ee3f177cb8435eE(ptr noalias nocapture noundef nonnull sret({ { [10 x i8], { i8, i8 } } }) align 1 dereferenceable(12) %0, i8 noundef %10)
-  br label %11
-
-11:                                               ; preds = %13, %12, %9, %8, %7, %6
+9:                                                ; preds = %13, %12, %10, %8, %7, %6
   ret void
+
+10:                                               ; preds = %2, %2, %2
+  %11 = trunc nuw nsw i32 %1 to i8
+  tail call void @_ZN4core4char13EscapeDefault9backslash17ha6ee3f177cb8435eE(ptr noalias nocapture noundef nonnull sret({ { [10 x i8], { i8, i8 } } }) align 1 dereferenceable(12) %0, i8 noundef %11)
+  br label %9
 
 12:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3)
   call void @_ZN4core4char13EscapeUnicode3new17h77e3075cf0bfbb8aE(ptr noalias nocapture noundef nonnull sret({ { [10 x i8], { i8, i8 } } }) align 1 dereferenceable(12) %3, i32 noundef %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %0, ptr noundef nonnull align 1 dereferenceable(12) %3, i64 12, i1 false)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3)
-  br label %11
+  br label %9
 
 13:                                               ; preds = %4
   %14 = trunc nuw nsw i32 %1 to i8
   tail call void @_ZN4core4char13EscapeDefault9printable17hab34dc383073051eE(ptr noalias nocapture noundef nonnull sret({ { [10 x i8], { i8, i8 } } }) align 1 dereferenceable(12) %0, i8 noundef %14)
-  br label %11
+  br label %9
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

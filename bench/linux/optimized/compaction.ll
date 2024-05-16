@@ -8135,7 +8135,7 @@ define internal noundef ptr @compaction_alloc(ptr nocapture readnone %0, i64 nou
   %22 = trunc nuw nsw i64 %21 to i32
   %23 = add nuw nsw i32 %22, 1
   %24 = lshr i32 %23, 1
-  %25 = icmp eq i32 %22, 0
+  %25 = icmp ugt i16 %18, 5
   %26 = select i1 %25, i32 1, i32 %24
   %27 = getelementptr inbounds i8, ptr %7, i64 40
   %28 = load i64, ptr %27, align 8

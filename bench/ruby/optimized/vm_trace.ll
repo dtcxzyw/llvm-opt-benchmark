@@ -5313,37 +5313,33 @@ define dso_local range(i32 0, 2) i32 @rb_postponed_job_register(i32 noundef %0, 
   br i1 %exitcond.not.i.i, label %pjob_register_legacy_impl.exit, label %8, !llvm.loop !19
 
 rb_postponed_job_preregister.exit.i:              ; preds = %8
-  %16 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  %17 = getelementptr inbounds i8, ptr %9, i64 8
-  %18 = ptrtoint ptr %2 to i64
-  %19 = atomicrmw volatile xchg ptr %17, i64 %18 seq_cst, align 8
-  %20 = icmp eq i32 %16, -1
-  br i1 %20, label %pjob_register_legacy_impl.exit, label %21
+  %16 = getelementptr inbounds i8, ptr %9, i64 8
+  %17 = ptrtoint ptr %2 to i64
+  %18 = atomicrmw volatile xchg ptr %16, i64 %17 seq_cst, align 8
+  %19 = trunc nuw nsw i64 %indvars.iv.i.i to i32
+  %20 = load ptr, ptr @ruby_current_vm_ptr, align 8
+  %21 = getelementptr inbounds i8, ptr %20, i64 1184
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds i8, ptr %22, i64 512
+  %24 = shl nuw i32 1, %19
+  %25 = atomicrmw volatile or ptr %23, i32 %24 seq_cst, align 4
+  %26 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
+  %27 = load ptr, ptr %26, align 8
+  %28 = icmp eq ptr %27, null
+  br i1 %28, label %29, label %rb_postponed_job_trigger.exit.i
 
-21:                                               ; preds = %rb_postponed_job_preregister.exit.i
-  %22 = load ptr, ptr @ruby_current_vm_ptr, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 1184
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 512
-  %26 = shl nuw i32 1, %16
-  %27 = atomicrmw volatile or ptr %25, i32 %26 seq_cst, align 4
-  %28 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
-  %29 = load ptr, ptr %28, align 8
-  %30 = icmp eq ptr %29, null
-  br i1 %30, label %31, label %rb_postponed_job_trigger.exit.i
-
-31:                                               ; preds = %21
-  %32 = tail call ptr @rb_vm_main_ractor_ec(ptr noundef nonnull %22) #4
+29:                                               ; preds = %rb_postponed_job_preregister.exit.i
+  %30 = tail call ptr @rb_vm_main_ractor_ec(ptr noundef nonnull %20) #4
   br label %rb_postponed_job_trigger.exit.i
 
-rb_postponed_job_trigger.exit.i:                  ; preds = %31, %21
-  %.0.i.i.i = phi ptr [ %32, %31 ], [ %29, %21 ]
-  %33 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 32
-  %34 = atomicrmw volatile or ptr %33, i32 4 seq_cst, align 4
+rb_postponed_job_trigger.exit.i:                  ; preds = %29, %rb_postponed_job_preregister.exit.i
+  %.0.i.i.i = phi ptr [ %30, %29 ], [ %27, %rb_postponed_job_preregister.exit.i ]
+  %31 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 32
+  %32 = atomicrmw volatile or ptr %31, i32 4 seq_cst, align 4
   br label %pjob_register_legacy_impl.exit
 
-pjob_register_legacy_impl.exit:                   ; preds = %15, %rb_postponed_job_preregister.exit.i, %rb_postponed_job_trigger.exit.i
-  %.0.i = phi i32 [ 1, %rb_postponed_job_trigger.exit.i ], [ 0, %rb_postponed_job_preregister.exit.i ], [ 0, %15 ]
+pjob_register_legacy_impl.exit:                   ; preds = %15, %rb_postponed_job_trigger.exit.i
+  %.0.i = phi i32 [ 1, %rb_postponed_job_trigger.exit.i ], [ 0, %15 ]
   ret i32 %.0.i
 }
 
@@ -5372,37 +5368,33 @@ define dso_local range(i32 0, 2) i32 @rb_postponed_job_register_one(i32 noundef 
   br i1 %exitcond.not.i.i, label %pjob_register_legacy_impl.exit, label %8, !llvm.loop !19
 
 rb_postponed_job_preregister.exit.i:              ; preds = %8
-  %16 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  %17 = getelementptr inbounds i8, ptr %9, i64 8
-  %18 = ptrtoint ptr %2 to i64
-  %19 = atomicrmw volatile xchg ptr %17, i64 %18 seq_cst, align 8
-  %20 = icmp eq i32 %16, -1
-  br i1 %20, label %pjob_register_legacy_impl.exit, label %21
+  %16 = getelementptr inbounds i8, ptr %9, i64 8
+  %17 = ptrtoint ptr %2 to i64
+  %18 = atomicrmw volatile xchg ptr %16, i64 %17 seq_cst, align 8
+  %19 = trunc nuw nsw i64 %indvars.iv.i.i to i32
+  %20 = load ptr, ptr @ruby_current_vm_ptr, align 8
+  %21 = getelementptr inbounds i8, ptr %20, i64 1184
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds i8, ptr %22, i64 512
+  %24 = shl nuw i32 1, %19
+  %25 = atomicrmw volatile or ptr %23, i32 %24 seq_cst, align 4
+  %26 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
+  %27 = load ptr, ptr %26, align 8
+  %28 = icmp eq ptr %27, null
+  br i1 %28, label %29, label %rb_postponed_job_trigger.exit.i
 
-21:                                               ; preds = %rb_postponed_job_preregister.exit.i
-  %22 = load ptr, ptr @ruby_current_vm_ptr, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 1184
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 512
-  %26 = shl nuw i32 1, %16
-  %27 = atomicrmw volatile or ptr %25, i32 %26 seq_cst, align 4
-  %28 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
-  %29 = load ptr, ptr %28, align 8
-  %30 = icmp eq ptr %29, null
-  br i1 %30, label %31, label %rb_postponed_job_trigger.exit.i
-
-31:                                               ; preds = %21
-  %32 = tail call ptr @rb_vm_main_ractor_ec(ptr noundef nonnull %22) #4
+29:                                               ; preds = %rb_postponed_job_preregister.exit.i
+  %30 = tail call ptr @rb_vm_main_ractor_ec(ptr noundef nonnull %20) #4
   br label %rb_postponed_job_trigger.exit.i
 
-rb_postponed_job_trigger.exit.i:                  ; preds = %31, %21
-  %.0.i.i.i = phi ptr [ %32, %31 ], [ %29, %21 ]
-  %33 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 32
-  %34 = atomicrmw volatile or ptr %33, i32 4 seq_cst, align 4
+rb_postponed_job_trigger.exit.i:                  ; preds = %29, %rb_postponed_job_preregister.exit.i
+  %.0.i.i.i = phi ptr [ %30, %29 ], [ %27, %rb_postponed_job_preregister.exit.i ]
+  %31 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 32
+  %32 = atomicrmw volatile or ptr %31, i32 4 seq_cst, align 4
   br label %pjob_register_legacy_impl.exit
 
-pjob_register_legacy_impl.exit:                   ; preds = %15, %rb_postponed_job_preregister.exit.i, %rb_postponed_job_trigger.exit.i
-  %.0.i = phi i32 [ 1, %rb_postponed_job_trigger.exit.i ], [ 0, %rb_postponed_job_preregister.exit.i ], [ 0, %15 ]
+pjob_register_legacy_impl.exit:                   ; preds = %15, %rb_postponed_job_trigger.exit.i
+  %.0.i = phi i32 [ 1, %rb_postponed_job_trigger.exit.i ], [ 0, %15 ]
   ret i32 %.0.i
 }
 

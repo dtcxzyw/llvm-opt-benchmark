@@ -35720,9 +35720,9 @@ default.unreachable:                              ; preds = %402
   %.sroa.0268.0.extract.trunc = trunc i16 %145 to i8
   %.sroa.4269.0.extract.shift = lshr i16 %145, 8
   %.sroa.4269.0.extract.trunc = trunc nuw i16 %.sroa.4269.0.extract.shift to i8
-  %cond = icmp eq i8 %.sroa.4269.0.extract.trunc, 6
+  %cond = icmp eq i16 %.sroa.4269.0.extract.shift, 6
   %372 = icmp eq i8 %.sroa.0268.0.extract.trunc, 10
-  %or.cond456 = select i1 %cond, i1 %372, i1 false
+  %or.cond456 = and i1 %cond, %372
   br i1 %or.cond456, label %375, label %373
 
 373:                                              ; preds = %371, %375
