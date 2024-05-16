@@ -7,11 +7,11 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.base::BasicStringPiece" = type { ptr, i64 }
+%"class.std::allocator.1" = type { i8 }
 %"class.std::reverse_iterator" = type { %"class.__gnu_cxx::__normal_iterator" }
 %"class.__gnu_cxx::__normal_iterator" = type { ptr }
 %"class.std::reverse_iterator.6" = type { %"class.__gnu_cxx::__normal_iterator.5" }
 %"class.__gnu_cxx::__normal_iterator.5" = type { ptr }
-%"class.std::allocator.1" = type { i8 }
 %"class.std::__cxx11::basic_string.0" = type { %"struct.std::__cxx11::basic_string<unsigned short, base::string16_char_traits>::_Alloc_hider", i64, %union.anon.4 }
 %"struct.std::__cxx11::basic_string<unsigned short, base::string16_char_traits>::_Alloc_hider" = type { ptr }
 %union.anon.4 = type { i64, [8 x i8] }
@@ -593,7 +593,7 @@ entry:
 define weak_odr dso_local void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 %__svw.coerce0, ptr %__svw.coerce1, ptr noundef nonnull align 1 dereferenceable(1) %__a) unnamed_addr #4 comdat($_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC5ENS4_12__sv_wrapperERKS3_) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr %0, ptr %this, align 8
+  tail call void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_Alloc_hiderC1EPtRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull %0, ptr noundef nonnull align 1 dereferenceable(1) %__a)
   %cmp.i = icmp eq ptr %__svw.coerce1, null
   %cmp2.i = icmp ne i64 %__svw.coerce0, 0
   %or.cond.i = and i1 %cmp2.i, %cmp.i
@@ -624,23 +624,24 @@ if.end.i.thread.i:                                ; preds = %if.then.i.i
   br label %if.else.i.i.i.i
 
 if.end.i.i:                                       ; preds = %if.end.i
+  %.pre.i.i = load ptr, ptr %this, align 8
   %cmp.i.i.i.i = icmp eq i64 %__svw.coerce0, 1
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i.i
   %1 = load i16, ptr %__svw.coerce1, align 2
-  store i16 %1, ptr %0, align 8
+  store i16 %1, ptr %.pre.i.i, align 2
   br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC2EPKtmRKS3_.exit
 
 if.else.i.i.i.i:                                  ; preds = %if.end.i.i, %if.end.i.thread.i
-  %2 = phi ptr [ %call5.i.i.i.i4.i, %if.end.i.thread.i ], [ %0, %if.end.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 2 %2, ptr readonly align 2 %__svw.coerce1, i64 %add.ptr.idx.i, i1 false)
+  %2 = phi ptr [ %call5.i.i.i.i4.i, %if.end.i.thread.i ], [ %.pre.i.i, %if.end.i.i ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 2 %2, ptr readonly align 2 %__svw.coerce1, i64 %add.ptr.idx.i, i1 false)
   br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC2EPKtmRKS3_.exit
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC2EPKtmRKS3_.exit: ; preds = %if.then.i.i.i.i, %if.else.i.i.i.i
-  %3 = phi ptr [ %2, %if.else.i.i.i.i ], [ %0, %if.then.i.i.i.i ]
   %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %__svw.coerce0, ptr %_M_string_length.i.i.i.i, align 8
+  %3 = load ptr, ptr %this, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %3, i64 %add.ptr.idx.i
   store i16 0, ptr %arrayidx.i.i.i, align 2
   ret void
@@ -650,7 +651,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC2EPKtmRKS3_.exi
 define weak_odr dso_local void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC2EPKtmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__s, i64 noundef %__n, ptr noundef nonnull align 1 dereferenceable(1) %__a) unnamed_addr #4 comdat($_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC5EPKtmRKS3_) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr %0, ptr %this, align 8
+  tail call void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_Alloc_hiderC1EPtRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull %0, ptr noundef nonnull align 1 dereferenceable(1) %__a)
   %cmp = icmp eq ptr %__s, null
   %cmp2 = icmp ne i64 %__n, 0
   %or.cond = and i1 %cmp, %cmp2
@@ -681,23 +682,24 @@ if.end.i.thread:                                  ; preds = %if.then.i
   br label %if.else.i.i.i
 
 if.end.i:                                         ; preds = %if.end
+  %.pre.i = load ptr, ptr %this, align 8
   %cmp.i.i.i = icmp eq i64 %__n, 1
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i
   %1 = load i16, ptr %__s, align 2
-  store i16 %1, ptr %0, align 8
+  store i16 %1, ptr %.pre.i, align 2
   br label %invoke.cont3
 
 if.else.i.i.i:                                    ; preds = %if.end.i.thread, %if.end.i
-  %2 = phi ptr [ %call5.i.i.i.i4, %if.end.i.thread ], [ %0, %if.end.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 2 %2, ptr readonly align 2 %__s, i64 %add.ptr.idx, i1 false)
+  %2 = phi ptr [ %call5.i.i.i.i4, %if.end.i.thread ], [ %.pre.i, %if.end.i ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 2 %2, ptr readonly align 2 %__s, i64 %add.ptr.idx, i1 false)
   br label %invoke.cont3
 
 invoke.cont3:                                     ; preds = %if.else.i.i.i, %if.then.i.i.i
-  %3 = phi ptr [ %2, %if.else.i.i.i ], [ %0, %if.then.i.i.i ]
   %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %__n, ptr %_M_string_length.i.i.i, align 8
+  %3 = load ptr, ptr %this, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %3, i64 %add.ptr.idx
   store i16 0, ptr %arrayidx.i.i, align 2
   ret void
@@ -1478,31 +1480,55 @@ if.end:                                           ; preds = %if.else.i, %if.then
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #7 comdat($_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC5Ev) align 2 personality ptr @__gxx_personality_v0 {
-invoke.cont3:
+entry:
+  %ref.tmp = alloca %"class.std::allocator.1", align 1
   %0 = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr %0, ptr %this, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_Alloc_hiderC1EPtOS3_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull %0, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
+          to label %invoke.cont3 unwind label %terminate.lpad
+
+invoke.cont3:                                     ; preds = %entry
   %_M_string_length.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 0, ptr %_M_string_length.i.i, align 8
-  store i16 0, ptr %0, align 8
+  %1 = load ptr, ptr %this, align 8
+  store i16 0, ptr %1, align 2
   ret void
+
+terminate.lpad:                                   ; preds = %entry
+  %2 = landingpad { ptr, i32 }
+          catch ptr null
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #21
+  unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 1 dereferenceable(1) %__a) unnamed_addr #7 comdat($_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC5ERKS3_) align 2 personality ptr @__gxx_personality_v0 {
-invoke.cont3:
+entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr %0, ptr %this, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_Alloc_hiderC1EPtRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull %0, ptr noundef nonnull align 1 dereferenceable(1) %__a)
+          to label %invoke.cont3 unwind label %terminate.lpad
+
+invoke.cont3:                                     ; preds = %entry
   %_M_string_length.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 0, ptr %_M_string_length.i.i, align 8
-  store i16 0, ptr %0, align 8
+  %1 = load ptr, ptr %this, align 8
+  store i16 0, ptr %1, align 2
   ret void
+
+terminate.lpad:                                   ; preds = %entry
+  %2 = landingpad { ptr, i32 }
+          catch ptr null
+  %3 = extractvalue { ptr, i32 } %2, 0
+  tail call void @__clang_call_terminate(ptr %3) #21
+  unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %__str) unnamed_addr #4 comdat($_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC5ERKS4_) align 2 personality ptr @__gxx_personality_v0 {
 entry:
+  %ref.tmp = alloca %"class.std::allocator.1", align 1
   %0 = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr %0, ptr %this, align 8
+  call void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_Alloc_hiderC1EPtOS3_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull %0, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
   %1 = load ptr, ptr %__str, align 8
   %_M_string_length.i = getelementptr inbounds i8, ptr %__str, i64 8
   %2 = load i64, ptr %_M_string_length.i, align 8
@@ -1515,34 +1541,35 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.thread
 
 if.then.i.i:                                      ; preds = %if.then.i
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #18
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #18
   unreachable
 
 if.end.i.thread:                                  ; preds = %if.then.i
   %mul.i.i.i.i = add nuw nsw i64 %add.ptr.idx, 2
-  %call5.i.i.i.i4 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #19
-  store ptr %call5.i.i.i.i4, ptr %this, align 8
+  %call5.i.i.i.i5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #19
+  store ptr %call5.i.i.i.i5, ptr %this, align 8
   store i64 %2, ptr %0, align 8
   br label %if.else.i.i.i
 
 if.end.i:                                         ; preds = %entry
+  %.pre.i = load ptr, ptr %this, align 8
   %cmp.i.i.i = icmp eq i64 %2, 1
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i
   %3 = load i16, ptr %1, align 2
-  store i16 %3, ptr %0, align 8
+  store i16 %3, ptr %.pre.i, align 2
   br label %invoke.cont7
 
 if.else.i.i.i:                                    ; preds = %if.end.i.thread, %if.end.i
-  %4 = phi ptr [ %call5.i.i.i.i4, %if.end.i.thread ], [ %0, %if.end.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 2 %4, ptr readonly align 2 %1, i64 %add.ptr.idx, i1 false)
+  %4 = phi ptr [ %call5.i.i.i.i5, %if.end.i.thread ], [ %.pre.i, %if.end.i ]
+  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 2 %4, ptr readonly align 2 %1, i64 %add.ptr.idx, i1 false)
   br label %invoke.cont7
 
 invoke.cont7:                                     ; preds = %if.else.i.i.i, %if.then.i.i.i
-  %5 = phi ptr [ %4, %if.else.i.i.i ], [ %0, %if.then.i.i.i ]
   %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %2, ptr %_M_string_length.i.i.i, align 8
+  %5 = load ptr, ptr %this, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %5, i64 %add.ptr.idx
   store i16 0, ptr %arrayidx.i.i, align 2
   ret void
@@ -1552,7 +1579,7 @@ invoke.cont7:                                     ; preds = %if.else.i.i.i, %if.
 define weak_odr dso_local void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC2ERKS4_mRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %__str, i64 noundef %__pos, ptr noundef nonnull align 1 dereferenceable(1) %__a) unnamed_addr #4 comdat($_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC5ERKS4_mRKS3_) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr %0, ptr %this, align 8
+  tail call void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_Alloc_hiderC1EPtRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull %0, ptr noundef nonnull align 1 dereferenceable(1) %__a)
   %_M_string_length.i.i = getelementptr inbounds i8, ptr %__str, i64 8
   %1 = load i64, ptr %_M_string_length.i.i, align 8
   %cmp.i = icmp ult i64 %1, %__pos
@@ -1587,23 +1614,24 @@ if.end.i.thread:                                  ; preds = %if.then.i7
   br label %if.else.i.i.i
 
 if.end.i:                                         ; preds = %invoke.cont
+  %.pre.i = load ptr, ptr %this, align 8
   %cmp.i.i.i = icmp eq i64 %3, 1
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i
   %4 = load i16, ptr %add.ptr, align 2
-  store i16 %4, ptr %0, align 8
+  store i16 %4, ptr %.pre.i, align 2
   br label %invoke.cont6
 
 if.else.i.i.i:                                    ; preds = %if.end.i.thread, %if.end.i
-  %5 = phi ptr [ %call5.i.i.i.i9, %if.end.i.thread ], [ %0, %if.end.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 2 %5, ptr readonly align 2 %add.ptr, i64 %gepdiff, i1 false)
+  %5 = phi ptr [ %call5.i.i.i.i9, %if.end.i.thread ], [ %.pre.i, %if.end.i ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 2 %5, ptr readonly align 2 %add.ptr, i64 %gepdiff, i1 false)
   br label %invoke.cont6
 
 invoke.cont6:                                     ; preds = %if.else.i.i.i, %if.then.i.i.i
-  %6 = phi ptr [ %5, %if.else.i.i.i ], [ %0, %if.then.i.i.i ]
   %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %3, ptr %_M_string_length.i.i.i, align 8
+  %6 = load ptr, ptr %this, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %6, i64 %gepdiff
   store i16 0, ptr %arrayidx.i.i, align 2
   ret void
@@ -1612,59 +1640,61 @@ invoke.cont6:                                     ; preds = %if.else.i.i.i, %if.
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC2ERKS4_mm(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %__str, i64 noundef %__pos, i64 noundef %__n) unnamed_addr #4 comdat($_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC5ERKS4_mm) align 2 personality ptr @__gxx_personality_v0 {
 entry:
+  %ref.tmp = alloca %"class.std::allocator.1", align 1
   %0 = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr %0, ptr %this, align 8
+  call void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_Alloc_hiderC1EPtOS3_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull %0, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
   %_M_string_length.i.i = getelementptr inbounds i8, ptr %__str, i64 8
   %1 = load i64, ptr %_M_string_length.i.i, align 8
   %cmp.i = icmp ult i64 %1, %__pos
   br i1 %cmp.i, label %if.then.i, label %invoke.cont4
 
 if.then.i:                                        ; preds = %entry
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i64 noundef %__pos, i64 noundef %1) #18
+  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i64 noundef %__pos, i64 noundef %1) #18
   unreachable
 
 invoke.cont4:                                     ; preds = %entry
   %2 = load ptr, ptr %__str, align 8
   %add.ptr = getelementptr inbounds i16, ptr %2, i64 %__pos
   %sub.i = sub i64 %1, %__pos
-  %spec.select.i = tail call noundef i64 @llvm.umin.i64(i64 %sub.i, i64 %__n)
+  %spec.select.i = call noundef i64 @llvm.umin.i64(i64 %sub.i, i64 %__n)
   %add.ptr7.idx = shl nsw i64 %spec.select.i, 1
-  %cmp.i6 = icmp ugt i64 %spec.select.i, 7
-  br i1 %cmp.i6, label %if.then.i7, label %if.end.i
+  %cmp.i7 = icmp ugt i64 %spec.select.i, 7
+  br i1 %cmp.i7, label %if.then.i8, label %if.end.i
 
-if.then.i7:                                       ; preds = %invoke.cont4
+if.then.i8:                                       ; preds = %invoke.cont4
   %cmp.i.i = icmp ugt i64 %spec.select.i, 2305843009213693951
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.thread
 
-if.then.i.i:                                      ; preds = %if.then.i7
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #18
+if.then.i.i:                                      ; preds = %if.then.i8
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #18
   unreachable
 
-if.end.i.thread:                                  ; preds = %if.then.i7
+if.end.i.thread:                                  ; preds = %if.then.i8
   %mul.i.i.i.i = add nuw nsw i64 %add.ptr7.idx, 2
-  %call5.i.i.i.i9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #19
-  store ptr %call5.i.i.i.i9, ptr %this, align 8
+  %call5.i.i.i.i10 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #19
+  store ptr %call5.i.i.i.i10, ptr %this, align 8
   store i64 %spec.select.i, ptr %0, align 8
   br label %if.else.i.i.i
 
 if.end.i:                                         ; preds = %invoke.cont4
+  %.pre.i = load ptr, ptr %this, align 8
   %cmp.i.i.i = icmp eq i64 %spec.select.i, 1
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i
   %3 = load i16, ptr %add.ptr, align 2
-  store i16 %3, ptr %0, align 8
+  store i16 %3, ptr %.pre.i, align 2
   br label %invoke.cont8
 
 if.else.i.i.i:                                    ; preds = %if.end.i.thread, %if.end.i
-  %4 = phi ptr [ %call5.i.i.i.i9, %if.end.i.thread ], [ %0, %if.end.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 2 %4, ptr readonly align 2 %add.ptr, i64 %add.ptr7.idx, i1 false)
+  %4 = phi ptr [ %call5.i.i.i.i10, %if.end.i.thread ], [ %.pre.i, %if.end.i ]
+  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 2 %4, ptr readonly align 2 %add.ptr, i64 %add.ptr7.idx, i1 false)
   br label %invoke.cont8
 
 invoke.cont8:                                     ; preds = %if.else.i.i.i, %if.then.i.i.i
-  %5 = phi ptr [ %4, %if.else.i.i.i ], [ %0, %if.then.i.i.i ]
   %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %spec.select.i, ptr %_M_string_length.i.i.i, align 8
+  %5 = load ptr, ptr %this, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %5, i64 %add.ptr7.idx
   store i16 0, ptr %arrayidx.i.i, align 2
   ret void
@@ -1674,7 +1704,7 @@ invoke.cont8:                                     ; preds = %if.else.i.i.i, %if.
 define weak_odr dso_local void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC2ERKS4_mmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %__str, i64 noundef %__pos, i64 noundef %__n, ptr noundef nonnull align 1 dereferenceable(1) %__a) unnamed_addr #4 comdat($_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC5ERKS4_mmRKS3_) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr %0, ptr %this, align 8
+  tail call void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_Alloc_hiderC1EPtRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull %0, ptr noundef nonnull align 1 dereferenceable(1) %__a)
   %_M_string_length.i.i = getelementptr inbounds i8, ptr %__str, i64 8
   %1 = load i64, ptr %_M_string_length.i.i, align 8
   %cmp.i = icmp ult i64 %1, %__pos
@@ -1709,23 +1739,24 @@ if.end.i.thread:                                  ; preds = %if.then.i7
   br label %if.else.i.i.i
 
 if.end.i:                                         ; preds = %invoke.cont
+  %.pre.i = load ptr, ptr %this, align 8
   %cmp.i.i.i = icmp eq i64 %spec.select.i, 1
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i
   %3 = load i16, ptr %add.ptr, align 2
-  store i16 %3, ptr %0, align 8
+  store i16 %3, ptr %.pre.i, align 2
   br label %invoke.cont6
 
 if.else.i.i.i:                                    ; preds = %if.end.i.thread, %if.end.i
-  %4 = phi ptr [ %call5.i.i.i.i9, %if.end.i.thread ], [ %0, %if.end.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 2 %4, ptr readonly align 2 %add.ptr, i64 %add.ptr5.idx, i1 false)
+  %4 = phi ptr [ %call5.i.i.i.i9, %if.end.i.thread ], [ %.pre.i, %if.end.i ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 2 %4, ptr readonly align 2 %add.ptr, i64 %add.ptr5.idx, i1 false)
   br label %invoke.cont6
 
 invoke.cont6:                                     ; preds = %if.else.i.i.i, %if.then.i.i.i
-  %5 = phi ptr [ %4, %if.else.i.i.i ], [ %0, %if.then.i.i.i ]
   %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %spec.select.i, ptr %_M_string_length.i.i.i, align 8
+  %5 = load ptr, ptr %this, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %5, i64 %add.ptr5.idx
   store i16 0, ptr %arrayidx.i.i, align 2
   ret void
@@ -1738,13 +1769,16 @@ declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #8
 define weak_odr dso_local void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %__str) unnamed_addr #7 comdat($_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC5EOS4_) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr %0, ptr %this, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_Alloc_hiderC1EPtOS3_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull %0, ptr noundef nonnull align 1 dereferenceable(1) %__str)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %entry
   %1 = load ptr, ptr %__str, align 8
   %2 = getelementptr inbounds i8, ptr %__str, i64 16
   %cmp.i = icmp eq ptr %1, %2
   br i1 %cmp.i, label %if.then, label %if.else
 
-if.then:                                          ; preds = %entry
+if.then:                                          ; preds = %invoke.cont
   %_M_string_length.i = getelementptr inbounds i8, ptr %__str, i64 8
   %3 = load i64, ptr %_M_string_length.i, align 8
   %cmp3.i = icmp ult i64 %3, 8
@@ -1754,7 +1788,7 @@ if.then:                                          ; preds = %entry
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1) %0, ptr noundef nonnull readonly align 8 dereferenceable(1) %2, i64 %mul.i.i, i1 false)
   br label %invoke.cont11
 
-if.else:                                          ; preds = %entry
+if.else:                                          ; preds = %invoke.cont
   store ptr %1, ptr %this, align 8
   %4 = load i64, ptr %2, align 8
   store i64 %4, ptr %0, align 8
@@ -1769,13 +1803,20 @@ invoke.cont11:                                    ; preds = %if.then, %if.else
   store i64 0, ptr %_M_string_length.i11, align 8
   store i16 0, ptr %2, align 8
   ret void
+
+terminate.lpad:                                   ; preds = %entry
+  %6 = landingpad { ptr, i32 }
+          catch ptr null
+  %7 = extractvalue { ptr, i32 } %6, 0
+  tail call void @__clang_call_terminate(ptr %7) #21
+  unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC2ESt16initializer_listItERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr %__l.coerce0, i64 %__l.coerce1, ptr noundef nonnull align 1 dereferenceable(1) %__a) unnamed_addr #4 comdat($_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC5ESt16initializer_listItERKS3_) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr %0, ptr %this, align 8
+  tail call void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_Alloc_hiderC1EPtRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull %0, ptr noundef nonnull align 1 dereferenceable(1) %__a)
   %add.ptr.i.idx = shl nsw i64 %__l.coerce1, 1
   %cmp.i = icmp ugt i64 %__l.coerce1, 7
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -1796,23 +1837,24 @@ if.end.i.thread:                                  ; preds = %if.then.i
   br label %if.else.i.i.i
 
 if.end.i:                                         ; preds = %entry
+  %.pre.i = load ptr, ptr %this, align 8
   %cmp.i.i.i = icmp eq i64 %__l.coerce1, 1
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i
   %1 = load i16, ptr %__l.coerce0, align 2
-  store i16 %1, ptr %0, align 8
+  store i16 %1, ptr %.pre.i, align 2
   br label %invoke.cont
 
 if.else.i.i.i:                                    ; preds = %if.end.i.thread, %if.end.i
-  %2 = phi ptr [ %call5.i.i.i.i1, %if.end.i.thread ], [ %0, %if.end.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 2 %2, ptr readonly align 2 %__l.coerce0, i64 %add.ptr.i.idx, i1 false)
+  %2 = phi ptr [ %call5.i.i.i.i1, %if.end.i.thread ], [ %.pre.i, %if.end.i ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 2 %2, ptr readonly align 2 %__l.coerce0, i64 %add.ptr.i.idx, i1 false)
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.else.i.i.i, %if.then.i.i.i
-  %3 = phi ptr [ %2, %if.else.i.i.i ], [ %0, %if.then.i.i.i ]
   %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %__l.coerce1, ptr %_M_string_length.i.i.i, align 8
+  %3 = load ptr, ptr %this, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %3, i64 %add.ptr.i.idx
   store i16 0, ptr %arrayidx.i.i, align 2
   ret void
@@ -1822,7 +1864,7 @@ invoke.cont:                                      ; preds = %if.else.i.i.i, %if.
 define weak_odr dso_local void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC2ERKS4_RKS3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %__str, ptr noundef nonnull align 1 dereferenceable(1) %__a) unnamed_addr #4 comdat($_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC5ERKS4_RKS3_) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr %0, ptr %this, align 8
+  tail call void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_Alloc_hiderC1EPtRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull %0, ptr noundef nonnull align 1 dereferenceable(1) %__a)
   %1 = load ptr, ptr %__str, align 8
   %_M_string_length.i.i = getelementptr inbounds i8, ptr %__str, i64 8
   %2 = load i64, ptr %_M_string_length.i.i, align 8
@@ -1846,23 +1888,24 @@ if.end.i.thread:                                  ; preds = %if.then.i
   br label %if.else.i.i.i.i
 
 if.end.i:                                         ; preds = %entry
+  %.pre.i = load ptr, ptr %this, align 8
   %cmp.i.i.i.i = icmp eq i64 %2, 1
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i
   %3 = load i16, ptr %1, align 2
-  store i16 %3, ptr %0, align 8
+  store i16 %3, ptr %.pre.i, align 2
   br label %invoke.cont
 
 if.else.i.i.i.i:                                  ; preds = %if.end.i.thread, %if.end.i
-  %4 = phi ptr [ %call5.i.i.i.i2, %if.end.i.thread ], [ %0, %if.end.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 2 %4, ptr readonly align 2 %1, i64 %add.ptr.i.idx, i1 false)
+  %4 = phi ptr [ %call5.i.i.i.i2, %if.end.i.thread ], [ %.pre.i, %if.end.i ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 2 %4, ptr readonly align 2 %1, i64 %add.ptr.i.idx, i1 false)
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
-  %5 = phi ptr [ %4, %if.else.i.i.i.i ], [ %0, %if.then.i.i.i.i ]
   %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %2, ptr %_M_string_length.i.i.i, align 8
+  %5 = load ptr, ptr %this, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %5, i64 %add.ptr.i.idx
   store i16 0, ptr %arrayidx.i.i, align 2
   ret void
@@ -1889,13 +1932,16 @@ entry:
 define weak_odr dso_local void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC2EOS4_RKS3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %__str, ptr noundef nonnull align 1 dereferenceable(1) %__a) unnamed_addr #7 comdat($_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC5EOS4_RKS3_) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr %0, ptr %this, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_Alloc_hiderC1EPtRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull %0, ptr noundef nonnull align 1 dereferenceable(1) %__a)
+          to label %invoke.cont unwind label %terminate.lpad
+
+invoke.cont:                                      ; preds = %entry
   %1 = load ptr, ptr %__str, align 8
   %2 = getelementptr inbounds i8, ptr %__str, i64 16
   %cmp.i = icmp eq ptr %1, %2
   br i1 %cmp.i, label %if.then, label %if.else
 
-if.then:                                          ; preds = %entry
+if.then:                                          ; preds = %invoke.cont
   %_M_string_length.i = getelementptr inbounds i8, ptr %__str, i64 8
   %3 = load i64, ptr %_M_string_length.i, align 8
   %cmp3.i = icmp ult i64 %3, 8
@@ -1910,7 +1956,7 @@ if.then:                                          ; preds = %entry
   %5 = load ptr, ptr %__str, align 8
   br label %if.end
 
-if.else:                                          ; preds = %entry
+if.else:                                          ; preds = %invoke.cont
   store ptr %1, ptr %this, align 8
   %_M_string_length.i14 = getelementptr inbounds i8, ptr %__str, i64 8
   %6 = load i64, ptr %_M_string_length.i14, align 8
@@ -1926,6 +1972,13 @@ if.end:                                           ; preds = %if.else, %if.then
   %.sink = phi ptr [ %2, %if.else ], [ %5, %if.then ]
   store i16 0, ptr %.sink, align 2
   ret void
+
+terminate.lpad:                                   ; preds = %entry
+  %8 = landingpad { ptr, i32 }
+          catch ptr null
+  %9 = extractvalue { ptr, i32 } %8, 0
+  tail call void @__clang_call_terminate(ptr %9) #21
+  unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -6983,63 +7036,19 @@ return:                                           ; preds = %do.cond, %do.body, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr dso_local void @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6substrEmm(ptr noalias sret(%"class.std::__cxx11::basic_string.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %__pos, i64 noundef %__n) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr dso_local void @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6substrEmm(ptr noalias sret(%"class.std::__cxx11::basic_string.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %__pos, i64 noundef %__n) local_unnamed_addr #4 comdat align 2 {
 entry:
   %_M_string_length.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %_M_string_length.i.i, align 8
   %cmp.i = icmp ult i64 %0, %__pos
-  br i1 %cmp.i, label %if.then.i, label %invoke.cont4.i
+  br i1 %cmp.i, label %if.then.i, label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit
 
 if.then.i:                                        ; preds = %entry
   tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i64 noundef %__pos, i64 noundef %0) #18
   unreachable
 
-invoke.cont4.i:                                   ; preds = %entry
-  %1 = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store ptr %1, ptr %agg.result, align 8
-  %2 = load ptr, ptr %this, align 8
-  %add.ptr.i = getelementptr inbounds i16, ptr %2, i64 %__pos
-  %sub.i.i = sub i64 %0, %__pos
-  %spec.select.i.i = tail call noundef i64 @llvm.umin.i64(i64 %sub.i.i, i64 %__n)
-  %add.ptr7.idx.i = shl nsw i64 %spec.select.i.i, 1
-  %cmp.i6.i = icmp ugt i64 %spec.select.i.i, 7
-  br i1 %cmp.i6.i, label %if.then.i7.i, label %if.end.i.i
-
-if.then.i7.i:                                     ; preds = %invoke.cont4.i
-  %cmp.i.i.i = icmp ugt i64 %spec.select.i.i, 2305843009213693951
-  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.thread.i
-
-if.then.i.i.i:                                    ; preds = %if.then.i7.i
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #18
-  unreachable
-
-if.end.i.thread.i:                                ; preds = %if.then.i7.i
-  %mul.i.i.i.i.i = add nuw nsw i64 %add.ptr7.idx.i, 2
-  %call5.i.i.i.i9.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #19
-  store ptr %call5.i.i.i.i9.i, ptr %agg.result, align 8
-  store i64 %spec.select.i.i, ptr %1, align 8
-  br label %if.else.i.i.i.i
-
-if.end.i.i:                                       ; preds = %invoke.cont4.i
-  %cmp.i.i.i.i = icmp eq i64 %spec.select.i.i, 1
-  br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
-
-if.then.i.i.i.i:                                  ; preds = %if.end.i.i
-  %3 = load i16, ptr %add.ptr.i, align 2
-  store i16 %3, ptr %1, align 8
-  br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC2ERKS4_mm.exit
-
-if.else.i.i.i.i:                                  ; preds = %if.end.i.i, %if.end.i.thread.i
-  %4 = phi ptr [ %call5.i.i.i.i9.i, %if.end.i.thread.i ], [ %1, %if.end.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 2 %4, ptr readonly align 2 %add.ptr.i, i64 %add.ptr7.idx.i, i1 false)
-  br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC2ERKS4_mm.exit
-
-_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC2ERKS4_mm.exit: ; preds = %if.then.i.i.i.i, %if.else.i.i.i.i
-  %5 = phi ptr [ %4, %if.else.i.i.i.i ], [ %1, %if.then.i.i.i.i ]
-  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store i64 %spec.select.i.i, ptr %_M_string_length.i.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %5, i64 %add.ptr7.idx.i
-  store i16 0, ptr %arrayidx.i.i.i, align 2
+_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit: ; preds = %entry
+  tail call void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC1ERKS4_mm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %__pos, i64 noundef %__n)
   ret void
 }
 

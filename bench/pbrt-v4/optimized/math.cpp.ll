@@ -5,13 +5,13 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"class.pbrt::Interval" = type { float, float }
+%"class.pbrt::SquareMatrix" = type { [2 x [2 x float]] }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator" = type { i8 }
 %"class.pstd::optional" = type { %"union.std::aligned_storage<16, 4>::type", i8, [3 x i8] }
 %"union.std::aligned_storage<16, 4>::type" = type { [16 x i8] }
-%"class.pbrt::SquareMatrix" = type { [2 x [2 x float]] }
 %"class.pbrt::SquareMatrix.1" = type { [3 x [3 x float]] }
 %"class.pbrt::SquareMatrix.2" = type { [4 x [4 x float]] }
 %struct._Guard = type { ptr }
@@ -242,6 +242,8 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local { <2 x float>, <2 x float> } @_ZN4pbrt12SquareMatrixILi2EE4ZeroEv() local_unnamed_addr #3 comdat align 2 {
 entry:
+  %retval = alloca %"class.pbrt::SquareMatrix", align 4
+  call void @_ZN4pbrt12SquareMatrixILi2EEC1Ev(ptr noundef nonnull align 4 dereferenceable(16) %retval)
   ret { <2 x float>, <2 x float> } zeroinitializer
 }
 
@@ -693,52 +695,53 @@ entry:
   %indxr = alloca [2 x i32], align 4
   %ipiv = alloca [2 x i32], align 8
   %minv = alloca [2 x [2 x float]], align 16
+  %ref.tmp179 = alloca %"class.pbrt::SquareMatrix", align 4
   store i64 0, ptr %ipiv, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %minv, ptr noundef nonnull align 4 dereferenceable(16) %m, i64 16, i1 false)
-  %indvars.iv104.sroa.gep = getelementptr inbounds i8, ptr %minv, i64 8
-  %indvars.iv92.sroa.gep117 = getelementptr inbounds i8, ptr %ipiv, i64 4
-  %indvars.iv.sroa.gep118 = getelementptr inbounds i8, ptr %ipiv, i64 4
-  %indvars.iv107.sroa.gep119 = getelementptr inbounds i8, ptr %indxr, i64 4
-  %indvars.iv107.sroa.gep122 = getelementptr inbounds i8, ptr %indxc, i64 4
+  %indvars.iv102.sroa.gep = getelementptr inbounds i8, ptr %minv, i64 8
+  %indvars.iv90.sroa.gep115 = getelementptr inbounds i8, ptr %ipiv, i64 4
+  %indvars.iv.sroa.gep116 = getelementptr inbounds i8, ptr %ipiv, i64 4
+  %indvars.iv105.sroa.gep117 = getelementptr inbounds i8, ptr %indxr, i64 4
+  %indvars.iv105.sroa.gep120 = getelementptr inbounds i8, ptr %indxc, i64 4
   br label %for.cond15.preheader
 
 for.cond15.preheader:                             ; preds = %entry, %for.inc144
   %cmp12 = phi i1 [ true, %entry ], [ false, %for.inc144 ]
-  %indvars.iv107.sroa.phi = phi ptr [ %indxr, %entry ], [ %indvars.iv107.sroa.gep119, %for.inc144 ]
-  %indvars.iv107.sroa.phi120 = phi ptr [ %indxc, %entry ], [ %indvars.iv107.sroa.gep122, %for.inc144 ]
+  %indvars.iv105.sroa.phi = phi ptr [ %indxr, %entry ], [ %indvars.iv105.sroa.gep117, %for.inc144 ]
+  %indvars.iv105.sroa.phi118 = phi ptr [ %indxc, %entry ], [ %indvars.iv105.sroa.gep120, %for.inc144 ]
   br label %for.body17
 
 for.body17:                                       ; preds = %for.cond15.preheader, %for.inc50
   %cmp16 = phi i1 [ true, %for.cond15.preheader ], [ false, %for.inc50 ]
-  %indvars.iv92.sroa.phi = phi ptr [ %ipiv, %for.cond15.preheader ], [ %indvars.iv92.sroa.gep117, %for.inc50 ]
-  %indvars.iv92 = phi i64 [ 0, %for.cond15.preheader ], [ 1, %for.inc50 ]
-  %big.079 = phi float [ 0.000000e+00, %for.cond15.preheader ], [ %big.3, %for.inc50 ]
-  %icol.078 = phi i32 [ 0, %for.cond15.preheader ], [ %icol.3, %for.inc50 ]
-  %irow.077 = phi i32 [ 0, %for.cond15.preheader ], [ %irow.3, %for.inc50 ]
-  %0 = load i32, ptr %indvars.iv92.sroa.phi, align 4
+  %indvars.iv90.sroa.phi = phi ptr [ %ipiv, %for.cond15.preheader ], [ %indvars.iv90.sroa.gep115, %for.inc50 ]
+  %indvars.iv90 = phi i64 [ 0, %for.cond15.preheader ], [ 1, %for.inc50 ]
+  %big.077 = phi float [ 0.000000e+00, %for.cond15.preheader ], [ %big.3, %for.inc50 ]
+  %icol.076 = phi i32 [ 0, %for.cond15.preheader ], [ %icol.3, %for.inc50 ]
+  %irow.075 = phi i32 [ 0, %for.cond15.preheader ], [ %irow.3, %for.inc50 ]
+  %0 = load i32, ptr %indvars.iv90.sroa.phi, align 4
   %cmp20.not = icmp eq i32 %0, 1
   br i1 %cmp20.not, label %for.inc50, label %for.body23.preheader
 
 for.body23.preheader:                             ; preds = %for.body17
-  %1 = trunc nuw nsw i64 %indvars.iv92 to i32
+  %1 = trunc nuw nsw i64 %indvars.iv90 to i32
   br label %for.body23
 
 for.body23:                                       ; preds = %for.body23.preheader, %for.inc46
   %cmp22 = phi i1 [ true, %for.body23.preheader ], [ false, %for.inc46 ]
-  %indvars.iv.sroa.phi = phi ptr [ %ipiv, %for.body23.preheader ], [ %indvars.iv.sroa.gep118, %for.inc46 ]
+  %indvars.iv.sroa.phi = phi ptr [ %ipiv, %for.body23.preheader ], [ %indvars.iv.sroa.gep116, %for.inc46 ]
   %indvars.iv = phi i64 [ 0, %for.body23.preheader ], [ 1, %for.inc46 ]
-  %big.175 = phi float [ %big.079, %for.body23.preheader ], [ %big.2, %for.inc46 ]
-  %icol.174 = phi i32 [ %icol.078, %for.body23.preheader ], [ %icol.2, %for.inc46 ]
-  %irow.173 = phi i32 [ %irow.077, %for.body23.preheader ], [ %irow.2, %for.inc46 ]
+  %big.173 = phi float [ %big.077, %for.body23.preheader ], [ %big.2, %for.inc46 ]
+  %icol.172 = phi i32 [ %icol.076, %for.body23.preheader ], [ %icol.2, %for.inc46 ]
+  %irow.171 = phi i32 [ %irow.075, %for.body23.preheader ], [ %irow.2, %for.inc46 ]
   %2 = load i32, ptr %indvars.iv.sroa.phi, align 4
   %cmp26 = icmp eq i32 %2, 0
   br i1 %cmp26, label %if.then27, label %if.else
 
 if.then27:                                        ; preds = %for.body23
-  %arrayidx31 = getelementptr inbounds [2 x [2 x float]], ptr %minv, i64 0, i64 %indvars.iv92, i64 %indvars.iv
+  %arrayidx31 = getelementptr inbounds [2 x [2 x float]], ptr %minv, i64 0, i64 %indvars.iv90, i64 %indvars.iv
   %3 = load float, ptr %arrayidx31, align 4
   %4 = tail call noundef float @llvm.fabs.f32(float %3)
-  %cmp33 = fcmp ult float %4, %big.175
+  %cmp33 = fcmp ult float %4, %big.173
   br i1 %cmp33, label %for.inc46, label %if.then34
 
 if.then34:                                        ; preds = %if.then27
@@ -754,15 +757,15 @@ if.then43:                                        ; preds = %if.else
   br label %return
 
 for.inc46:                                        ; preds = %if.then34, %if.then27, %if.else
-  %irow.2 = phi i32 [ %1, %if.then34 ], [ %irow.173, %if.then27 ], [ %irow.173, %if.else ]
-  %icol.2 = phi i32 [ %5, %if.then34 ], [ %icol.174, %if.then27 ], [ %icol.174, %if.else ]
-  %big.2 = phi float [ %4, %if.then34 ], [ %big.175, %if.then27 ], [ %big.175, %if.else ]
+  %irow.2 = phi i32 [ %1, %if.then34 ], [ %irow.171, %if.then27 ], [ %irow.171, %if.else ]
+  %icol.2 = phi i32 [ %5, %if.then34 ], [ %icol.172, %if.then27 ], [ %icol.172, %if.else ]
+  %big.2 = phi float [ %4, %if.then34 ], [ %big.173, %if.then27 ], [ %big.173, %if.else ]
   br i1 %cmp22, label %for.body23, label %for.inc50, !llvm.loop !17
 
 for.inc50:                                        ; preds = %for.inc46, %for.body17
-  %irow.3 = phi i32 [ %irow.077, %for.body17 ], [ %irow.2, %for.inc46 ]
-  %icol.3 = phi i32 [ %icol.078, %for.body17 ], [ %icol.2, %for.inc46 ]
-  %big.3 = phi float [ %big.079, %for.body17 ], [ %big.2, %for.inc46 ]
+  %irow.3 = phi i32 [ %irow.075, %for.body17 ], [ %irow.2, %for.inc46 ]
+  %icol.3 = phi i32 [ %icol.076, %for.body17 ], [ %icol.2, %for.inc46 ]
+  %big.3 = phi float [ %big.077, %for.body17 ], [ %big.2, %for.inc46 ]
   br i1 %cmp16, label %for.body17, label %for.end52, !llvm.loop !18
 
 for.end52:                                        ; preds = %for.inc50
@@ -785,8 +788,8 @@ for.cond59.preheader:                             ; preds = %for.end52
   br label %if.end73
 
 if.end73:                                         ; preds = %for.cond59.preheader, %for.end52
-  store i32 %irow.3, ptr %indvars.iv107.sroa.phi, align 4
-  store i32 %icol.3, ptr %indvars.iv107.sroa.phi120, align 4
+  store i32 %irow.3, ptr %indvars.iv105.sroa.phi, align 4
+  store i32 %icol.3, ptr %indvars.iv105.sroa.phi118, align 4
   %arrayidx81 = getelementptr inbounds [2 x [2 x float]], ptr %minv, i64 0, i64 %idxprom53, i64 %idxprom53
   %9 = load float, ptr %arrayidx81, align 4
   %cmp82 = fcmp oeq float %9, 0.000000e+00
@@ -810,22 +813,22 @@ if.end84:                                         ; preds = %if.end73
 
 for.body109:                                      ; preds = %if.end84, %for.inc141
   %cmp108 = phi i1 [ false, %for.inc141 ], [ true, %if.end84 ]
-  %indvars.iv104.sroa.phi = phi ptr [ %indvars.iv104.sroa.gep, %for.inc141 ], [ %minv, %if.end84 ]
-  %indvars.iv104 = phi i64 [ 1, %for.inc141 ], [ 0, %if.end84 ]
-  %cmp110.not = icmp eq i64 %indvars.iv104, %idxprom53
+  %indvars.iv102.sroa.phi = phi ptr [ %indvars.iv102.sroa.gep, %for.inc141 ], [ %minv, %if.end84 ]
+  %indvars.iv102 = phi i64 [ 1, %for.inc141 ], [ 0, %if.end84 ]
+  %cmp110.not = icmp eq i64 %indvars.iv102, %idxprom53
   br i1 %cmp110.not, label %for.inc141, label %if.then111
 
 if.then111:                                       ; preds = %for.body109
-  %arrayidx115 = getelementptr inbounds [2 x [2 x float]], ptr %minv, i64 0, i64 %indvars.iv104, i64 %idxprom53
+  %arrayidx115 = getelementptr inbounds [2 x [2 x float]], ptr %minv, i64 0, i64 %indvars.iv102, i64 %idxprom53
   %14 = load float, ptr %arrayidx115, align 4
   store float 0.000000e+00, ptr %arrayidx115, align 4
   %15 = load <2 x float>, ptr %arrayidx127, align 8
   %16 = fneg <2 x float> %15
-  %17 = load <2 x float>, ptr %indvars.iv104.sroa.phi, align 4
+  %17 = load <2 x float>, ptr %indvars.iv102.sroa.phi, align 4
   %18 = insertelement <2 x float> poison, float %14, i64 0
   %19 = shufflevector <2 x float> %18, <2 x float> poison, <2 x i32> zeroinitializer
   %20 = tail call <2 x float> @llvm.fma.v2f32(<2 x float> %16, <2 x float> %19, <2 x float> %17)
-  store <2 x float> %20, ptr %indvars.iv104.sroa.phi, align 4
+  store <2 x float> %20, ptr %indvars.iv102.sroa.phi, align 4
   br label %for.inc141
 
 for.inc141:                                       ; preds = %if.then111, %for.body109
@@ -835,10 +838,10 @@ for.inc144:                                       ; preds = %for.inc141
   br i1 %cmp12, label %for.cond15.preheader, label %for.body150, !llvm.loop !20
 
 for.body150:                                      ; preds = %for.inc144, %for.inc177
-  %indvars.iv113 = phi i64 [ %indvars.iv.next114, %for.inc177 ], [ 1, %for.inc144 ]
-  %arrayidx152 = getelementptr inbounds [2 x i32], ptr %indxr, i64 0, i64 %indvars.iv113
+  %indvars.iv111 = phi i64 [ %indvars.iv.next112, %for.inc177 ], [ 1, %for.inc144 ]
+  %arrayidx152 = getelementptr inbounds [2 x i32], ptr %indxr, i64 0, i64 %indvars.iv111
   %21 = load i32, ptr %arrayidx152, align 4
-  %arrayidx154 = getelementptr inbounds [2 x i32], ptr %indxc, i64 0, i64 %indvars.iv113
+  %arrayidx154 = getelementptr inbounds [2 x i32], ptr %indxc, i64 0, i64 %indvars.iv111
   %22 = load i32, ptr %arrayidx154, align 4
   %cmp155.not = icmp eq i32 %21, %22
   br i1 %cmp155.not, label %for.inc177, label %for.cond158.preheader
@@ -861,18 +864,18 @@ for.cond158.preheader:                            ; preds = %for.body150
   br label %for.inc177
 
 for.inc177:                                       ; preds = %for.cond158.preheader, %for.body150
-  %indvars.iv.next114 = add nsw i64 %indvars.iv113, -1
-  %cmp149.not = icmp eq i64 %indvars.iv113, 0
-  br i1 %cmp149.not, label %for.cond2.preheader.i, label %for.body150, !llvm.loop !21
+  %indvars.iv.next112 = add nsw i64 %indvars.iv111, -1
+  %cmp149.not = icmp eq i64 %indvars.iv111, 0
+  br i1 %cmp149.not, label %for.end178, label %for.body150, !llvm.loop !21
 
-for.cond2.preheader.i:                            ; preds = %for.inc177
+for.end178:                                       ; preds = %for.inc177
+  call void @_ZN4pbrt12SquareMatrixILi2EEC1EPA2_Kf(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp179, ptr noundef nonnull %minv)
   %set.i63 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i8 1, ptr %set.i63, align 4
-  %27 = load <4 x float>, ptr %minv, align 16
-  store <4 x float> %27, ptr %agg.result, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %agg.result, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp179, i64 16, i1 false)
   br label %return
 
-return:                                           ; preds = %for.cond2.preheader.i, %if.then83, %if.then43
+return:                                           ; preds = %for.end178, %if.then83, %if.then43
   ret void
 }
 
@@ -882,23 +885,23 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local { <2 x float>, <2 x float> } @_ZN4pbrtmlILi2EEENS_12SquareMatrixIXT_EEERKS2_S4_(ptr noundef nonnull align 4 dereferenceable(16) %m1, ptr noundef nonnull align 4 dereferenceable(16) %m2) local_unnamed_addr #3 comdat {
 entry:
-  %retval = alloca %"class.pbrt::SquareMatrix", align 16
-  store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %retval, align 16
-  %indvars.iv45.sroa.gep48 = getelementptr inbounds i8, ptr %retval, i64 8
+  %retval = alloca %"class.pbrt::SquareMatrix", align 8
+  call void @_ZN4pbrt12SquareMatrixILi2EEC1Ev(ptr noundef nonnull align 4 dereferenceable(16) %retval)
+  %indvars.iv42.sroa.gep45 = getelementptr inbounds i8, ptr %retval, i64 8
   br label %for.cond1.preheader
 
 for.cond1.preheader:                              ; preds = %entry, %for.inc28
   %cmp = phi i1 [ true, %entry ], [ false, %for.inc28 ]
-  %indvars.iv45.sroa.phi = phi ptr [ %retval, %entry ], [ %indvars.iv45.sroa.gep48, %for.inc28 ]
-  %indvars.iv45 = phi i64 [ 0, %entry ], [ 1, %for.inc28 ]
-  %arrayidx.i16 = getelementptr inbounds [2 x [2 x float]], ptr %m1, i64 0, i64 %indvars.iv45
+  %indvars.iv42.sroa.phi = phi ptr [ %retval, %entry ], [ %indvars.iv42.sroa.gep45, %for.inc28 ]
+  %indvars.iv42 = phi i64 [ 0, %entry ], [ 1, %for.inc28 ]
+  %arrayidx.i16 = getelementptr inbounds [2 x [2 x float]], ptr %m1, i64 0, i64 %indvars.iv42
   br label %for.body3
 
 for.body3:                                        ; preds = %for.cond1.preheader, %for.inc25
   %cmp2 = phi i1 [ true, %for.cond1.preheader ], [ false, %for.inc25 ]
-  %indvars.iv42 = phi i64 [ 0, %for.cond1.preheader ], [ 1, %for.inc25 ]
-  %arrayidx.i14 = getelementptr inbounds float, ptr %indvars.iv45.sroa.phi, i64 %indvars.iv42
-  %invariant.gep = getelementptr inbounds float, ptr %m2, i64 %indvars.iv42
+  %indvars.iv39 = phi i64 [ 0, %for.cond1.preheader ], [ 1, %for.inc25 ]
+  %arrayidx.i14 = getelementptr inbounds float, ptr %indvars.iv42.sroa.phi, i64 %indvars.iv39
+  %invariant.gep = getelementptr inbounds float, ptr %m2, i64 %indvars.iv39
   br label %for.body7
 
 for.body7:                                        ; preds = %for.body3, %for.body7
@@ -909,7 +912,7 @@ for.body7:                                        ; preds = %for.body3, %for.bod
   %1 = load float, ptr %arrayidx.i19, align 4
   %gep = getelementptr inbounds [2 x [2 x float]], ptr %invariant.gep, i64 0, i64 %indvars.iv
   %2 = load float, ptr %gep, align 4
-  %3 = tail call noundef float @llvm.fma.f32(float %1, float %2, float %0)
+  %3 = call noundef float @llvm.fma.f32(float %1, float %2, float %0)
   br i1 %cmp6, label %for.body7, label %for.inc25, !llvm.loop !22
 
 for.inc25:                                        ; preds = %for.body7
@@ -920,10 +923,10 @@ for.inc28:                                        ; preds = %for.inc25
   br i1 %cmp, label %for.cond1.preheader, label %for.end30, !llvm.loop !24
 
 for.end30:                                        ; preds = %for.inc28
-  %arrayidx7.i.c37 = getelementptr inbounds i8, ptr %retval, i64 8
-  %.fca.0.load = load <2 x float>, ptr %retval, align 16
+  %.fca.0.load = load <2 x float>, ptr %retval, align 8
   %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.fca.0.load, 0
-  %.fca.1.load = load <2 x float>, ptr %arrayidx7.i.c37, align 8
+  %.fca.1.gep = getelementptr inbounds i8, ptr %retval, i64 8
+  %.fca.1.load = load <2 x float>, ptr %.fca.1.gep, align 8
   %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %.fca.1.load, 1
   ret { <2 x float>, <2 x float> } %.fca.1.insert
 }
@@ -931,28 +934,7 @@ for.end30:                                        ; preds = %for.inc28
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN4pbrt12SquareMatrixILi3EE4ZeroEv(ptr noalias sret(%"class.pbrt::SquareMatrix.1") align 4 %agg.result) local_unnamed_addr #3 comdat align 2 {
 entry:
-  br label %for.cond2.preheader.i
-
-for.cond2.preheader.i:                            ; preds = %for.inc8.i, %entry
-  %indvars.iv10.i = phi i64 [ 0, %entry ], [ %indvars.iv.next11.i, %for.inc8.i ]
-  br label %for.body4.i
-
-for.body4.i:                                      ; preds = %for.body4.i, %for.cond2.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %for.cond2.preheader.i ], [ %indvars.iv.next.i, %for.body4.i ]
-  %cmp5.i = icmp eq i64 %indvars.iv10.i, %indvars.iv.i
-  %conv.i = uitofp i1 %cmp5.i to float
-  %arrayidx7.i = getelementptr inbounds [3 x [3 x float]], ptr %agg.result, i64 0, i64 %indvars.iv10.i, i64 %indvars.iv.i
-  store float %conv.i, ptr %arrayidx7.i, align 4
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %for.inc8.i, label %for.body4.i, !llvm.loop !25
-
-for.inc8.i:                                       ; preds = %for.body4.i
-  %indvars.iv.next11.i = add nuw nsw i64 %indvars.iv10.i, 1
-  %exitcond13.not.i = icmp eq i64 %indvars.iv.next11.i, 3
-  br i1 %exitcond13.not.i, label %for.cond1.preheader.preheader, label %for.cond2.preheader.i, !llvm.loop !26
-
-for.cond1.preheader.preheader:                    ; preds = %for.inc8.i
+  tail call void @_ZN4pbrt12SquareMatrixILi3EEC1Ev(ptr noundef nonnull align 4 dereferenceable(36) %agg.result)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %agg.result, i8 0, i64 36, i1 false)
   ret void
 }
@@ -1434,28 +1416,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN4pbrt12SquareMatrixILi4EE4ZeroEv(ptr noalias sret(%"class.pbrt::SquareMatrix.2") align 4 %agg.result) local_unnamed_addr #3 comdat align 2 {
 entry:
-  br label %for.cond2.preheader.i
-
-for.cond2.preheader.i:                            ; preds = %for.inc8.i, %entry
-  %indvars.iv10.i = phi i64 [ 0, %entry ], [ %indvars.iv.next11.i, %for.inc8.i ]
-  br label %for.body4.i
-
-for.body4.i:                                      ; preds = %for.body4.i, %for.cond2.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %for.cond2.preheader.i ], [ %indvars.iv.next.i, %for.body4.i ]
-  %cmp5.i = icmp eq i64 %indvars.iv10.i, %indvars.iv.i
-  %conv.i = uitofp i1 %cmp5.i to float
-  %arrayidx7.i = getelementptr inbounds [4 x [4 x float]], ptr %agg.result, i64 0, i64 %indvars.iv10.i, i64 %indvars.iv.i
-  store float %conv.i, ptr %arrayidx7.i, align 4
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %for.inc8.i, label %for.body4.i, !llvm.loop !44
-
-for.inc8.i:                                       ; preds = %for.body4.i
-  %indvars.iv.next11.i = add nuw nsw i64 %indvars.iv10.i, 1
-  %exitcond13.not.i = icmp eq i64 %indvars.iv.next11.i, 4
-  br i1 %exitcond13.not.i, label %for.cond1.preheader.preheader, label %for.cond2.preheader.i, !llvm.loop !45
-
-for.cond1.preheader.preheader:                    ; preds = %for.inc8.i
+  tail call void @_ZN4pbrt12SquareMatrixILi4EEC1Ev(ptr noundef nonnull align 4 dereferenceable(64) %agg.result)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %agg.result, i8 0, i64 64, i1 false)
   ret void
 }

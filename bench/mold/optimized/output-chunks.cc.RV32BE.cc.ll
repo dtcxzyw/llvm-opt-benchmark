@@ -12871,56 +12871,21 @@ if.end8:                                          ; preds = %_ZNSt11unique_lockI
   %7 = load i64, ptr %flags.addr, align 8
   %8 = load i64, ptr %type.addr, align 8
   %9 = load i64, ptr %entsize.addr, align 8
-  %name.i.i = getelementptr inbounds i8, ptr %call10, i64 8
-  %sh_addralign.i.i = getelementptr inbounds i8, ptr %call10, i64 56
-  %10 = getelementptr inbounds i8, ptr %call10, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, i8 0, i64 32, i1 false)
-  store i32 16777216, ptr %sh_addralign.i.i, align 1
-  %sh_entsize.i.i = getelementptr inbounds i8, ptr %call10, i64 60
-  %uncompressed_data.i.i = getelementptr inbounds i8, ptr %call10, i64 80
-  %11 = getelementptr inbounds i8, ptr %call10, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %11, i8 0, i64 10, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %uncompressed_data.i.i, i8 0, i64 96, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4mold3elf13MergedSectionINS0_6RV32BEEEE, i64 0, i32 0, i64 2), ptr %call10, align 8
-  %estimator.i = getelementptr inbounds i8, ptr %call10, i64 176
-  %call5.i.i.i.i.i.i.i.i = call noalias noundef nonnull dereferenceable(2048) ptr @_Znwm(i64 noundef 2048) #30
-  store ptr %call5.i.i.i.i.i.i.i.i, ptr %estimator.i, align 8
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 2048
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(2048) %call5.i.i.i.i.i.i.i.i, i8 0, i64 2048, i1 false)
-  %_M_finish.i.i7.i.i.i = getelementptr inbounds i8, ptr %call10, i64 184
-  %12 = getelementptr inbounds i8, ptr %call10, i64 192
-  store ptr %add.ptr.i.i.i.i.i, ptr %12, align 8
-  store ptr %add.ptr.i.i.i.i.i, ptr %_M_finish.i.i7.i.i.i, align 8
-  %map.i = getelementptr inbounds i8, ptr %call10, i64 200
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %map.i, i8 0, i64 52, i1 false)
-  store i64 %agg.tmp11.sroa.0.0.copyload, ptr %name.i.i, align 8
-  %name.sroa.2.0.name2.sroa_idx.i = getelementptr inbounds i8, ptr %call10, i64 16
-  store ptr %agg.tmp11.sroa.2.0.copyload, ptr %name.sroa.2.0.name2.sroa_idx.i, align 8
-  %conv.i = trunc i64 %7 to i32
-  %sh_flags.i = getelementptr inbounds i8, ptr %call10, i64 32
-  %13 = call noundef i32 @llvm.bswap.i32(i32 %conv.i)
-  store i32 %13, ptr %sh_flags.i, align 1
-  %conv3.i = trunc i64 %8 to i32
-  %sh_type.i = getelementptr inbounds i8, ptr %call10, i64 28
-  %14 = call noundef i32 @llvm.bswap.i32(i32 %conv3.i)
-  store i32 %14, ptr %sh_type.i, align 1
-  %conv6.i = trunc i64 %9 to i32
-  %15 = call noundef i32 @llvm.bswap.i32(i32 %conv6.i)
-  store i32 %15, ptr %sh_entsize.i.i, align 1
+  call void @_ZN4mold3elf13MergedSectionINS0_6RV32BEEEC1ESt17basic_string_viewIcSt11char_traitsIcEElll(ptr noundef nonnull align 8 dereferenceable(252) %call10, i64 %agg.tmp11.sroa.0.0.copyload, ptr %agg.tmp11.sroa.2.0.copyload, i64 noundef %7, i64 noundef %8, i64 noundef %9) #13
   %merged_sections = getelementptr inbounds i8, ptr %ctx, i64 2584
   %my_size.i.i = getelementptr inbounds i8, ptr %ctx, i64 2640
-  %16 = atomicrmw add ptr %my_size.i.i, i64 1 seq_cst, align 8, !noalias !136
+  %10 = atomicrmw add ptr %my_size.i.i, i64 1 seq_cst, align 8, !noalias !136
   %my_first_block.i.i.i = getelementptr inbounds i8, ptr %ctx, i64 2632
-  %17 = load atomic i64, ptr %my_first_block.i.i.i monotonic, align 8, !noalias !136
-  %cmp.i.i.i = icmp eq i64 %17, 0
+  %11 = load atomic i64, ptr %my_first_block.i.i.i monotonic, align 8, !noalias !136
+  %cmp.i.i.i = icmp eq i64 %11, 0
   br i1 %cmp.i.i.i, label %seqcst_fail50.i.i.i.i, label %_ZN3tbb6detail2d117concurrent_vectorISt10unique_ptrIN4mold3elf13MergedSectionINS5_6RV32BEEEESt14default_deleteIS8_EENS1_23cache_aligned_allocatorISB_EEE12emplace_backIJRPS8_EEENS1_15vector_iteratorISE_SB_EEDpOT_.exit
 
 seqcst_fail50.i.i.i.i:                            ; preds = %if.end8
-  %18 = cmpxchg ptr %my_first_block.i.i.i, i64 0, i64 1 seq_cst seq_cst, align 8, !noalias !136
+  %12 = cmpxchg ptr %my_first_block.i.i.i, i64 0, i64 1 seq_cst seq_cst, align 8, !noalias !136
   br label %_ZN3tbb6detail2d117concurrent_vectorISt10unique_ptrIN4mold3elf13MergedSectionINS5_6RV32BEEEESt14default_deleteIS8_EENS1_23cache_aligned_allocatorISB_EEE12emplace_backIJRPS8_EEENS1_15vector_iteratorISE_SB_EEDpOT_.exit
 
 _ZN3tbb6detail2d117concurrent_vectorISt10unique_ptrIN4mold3elf13MergedSectionINS5_6RV32BEEEESt14default_deleteIS8_EENS1_23cache_aligned_allocatorISB_EEE12emplace_backIJRPS8_EEENS1_15vector_iteratorISE_SB_EEDpOT_.exit: ; preds = %if.end8, %seqcst_fail50.i.i.i.i
-  %call2.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3tbb6detail2d113segment_tableISt10unique_ptrIN4mold3elf13MergedSectionINS5_6RV32BEEEESt14default_deleteIS8_EENS1_23cache_aligned_allocatorISB_EENS1_17concurrent_vectorISB_SD_EELm3EE18internal_subscriptILb1EEERSB_m(ptr noundef nonnull align 8 dereferenceable(65) %merged_sections, i64 noundef %16), !noalias !136
+  %call2.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3tbb6detail2d113segment_tableISt10unique_ptrIN4mold3elf13MergedSectionINS5_6RV32BEEEESt14default_deleteIS8_EENS1_23cache_aligned_allocatorISB_EENS1_17concurrent_vectorISB_SD_EELm3EE18internal_subscriptILb1EEERSB_m(ptr noundef nonnull align 8 dereferenceable(65) %merged_sections, i64 noundef %10), !noalias !136
   store ptr %call10, ptr %call2.i.i, align 8, !noalias !136
   br label %_ZNSt11unique_lockISt12shared_mutexED2Ev.exit
 

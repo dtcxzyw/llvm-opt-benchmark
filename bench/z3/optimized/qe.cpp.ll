@@ -818,7 +818,7 @@ $_ZTV18rewriter_exception = comdat any
 @_ZTS18rewriter_exception = linkonce_odr hidden constant [21 x i8] c"18rewriter_exception\00", comdat, align 1
 @_ZTI17default_exception = external constant ptr
 @_ZTI18rewriter_exception = linkonce_odr hidden constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS18rewriter_exception, ptr @_ZTI17default_exception }, comdat, align 8
-@_ZTV12rewriter_tplIN2qe21simplify_rewriter_cfgEE = weak_odr hidden unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr @_ZTI12rewriter_tplIN2qe21simplify_rewriter_cfgEE, ptr @_ZN12rewriter_tplIN2qe21simplify_rewriter_cfgEED2Ev, ptr @_ZN12rewriter_tplIN2qe21simplify_rewriter_cfgEED0Ev] }, comdat, align 8
+@_ZTV12rewriter_tplIN2qe21simplify_rewriter_cfgEE = weak_odr hidden unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr @_ZTI12rewriter_tplIN2qe21simplify_rewriter_cfgEE, ptr @_ZN12rewriter_tplIN2qe21simplify_rewriter_cfgEED1Ev, ptr @_ZN12rewriter_tplIN2qe21simplify_rewriter_cfgEED0Ev] }, comdat, align 8
 @_ZTVN2qe16i_solver_context11is_relevantE = hidden unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN2qe16i_solver_context11is_relevantE, ptr @_ZN2qe16i_solver_context11is_relevantclEP4expr, ptr @_ZN2qe16i_solver_context11is_relevantD2Ev, ptr @_ZN2qe16i_solver_context11is_relevantD0Ev] }, align 8
 @_ZTSN2qe16i_solver_context11is_relevantE = hidden constant [37 x i8] c"N2qe16i_solver_context11is_relevantE\00", align 1
 @_ZTS11i_expr_pred = linkonce_odr hidden constant [14 x i8] c"11i_expr_pred\00", comdat, align 1
@@ -10526,7 +10526,7 @@ if.then32:                                        ; preds = %if.end30
   %m_manager.i = getelementptr inbounds i8, ptr %this, i64 8
   %35 = load ptr, ptr %m_manager.i, align 8
   %36 = load ptr, ptr %m_cfg, align 8
-  call void @_ZN12rewriter_tplIN2qe21simplify_rewriter_cfgEEC2ER11ast_managerbRS1_(ptr noundef nonnull align 8 dereferenceable(536) %rw, ptr noundef nonnull align 8 dereferenceable(976) %35, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(8) %36)
+  call void @_ZN12rewriter_tplIN2qe21simplify_rewriter_cfgEEC1ER11ast_managerbRS1_(ptr noundef nonnull align 8 dereferenceable(536) %rw, ptr noundef nonnull align 8 dereferenceable(976) %35, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(8) %36)
   %m_blocked = getelementptr inbounds i8, ptr %this, i64 96
   %37 = load ptr, ptr %m_blocked, align 8
   %m_capacity.i = getelementptr inbounds i8, ptr %this, i64 104
@@ -10621,7 +10621,7 @@ invoke.cont50:                                    ; preds = %invoke.cont45
 
 invoke.cont52:                                    ; preds = %invoke.cont50
   call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %result) #24
-  call void @_ZN12rewriter_tplIN2qe21simplify_rewriter_cfgEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %rw) #24
+  call void @_ZN12rewriter_tplIN2qe21simplify_rewriter_cfgEED1Ev(ptr noundef nonnull align 8 dereferenceable(536) %rw) #24
   br label %if.end54
 
 lpad49:                                           ; preds = %invoke.cont50, %invoke.cont45
@@ -10632,7 +10632,7 @@ lpad49:                                           ; preds = %invoke.cont50, %inv
 
 ehcleanup:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad49
   %.pn = phi { ptr, i32 } [ %44, %lpad49 ], [ %lpad.loopexit176, %lpad.loopexit ], [ %lpad.loopexit.split-lp177, %lpad.loopexit.split-lp ]
-  call void @_ZN12rewriter_tplIN2qe21simplify_rewriter_cfgEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %rw) #24
+  call void @_ZN12rewriter_tplIN2qe21simplify_rewriter_cfgEED1Ev(ptr noundef nonnull align 8 dereferenceable(536) %rw) #24
   resume { ptr, i32 } %.pn
 
 if.end54:                                         ; preds = %invoke.cont52, %if.end30
@@ -11082,7 +11082,7 @@ _ZN6vectorIjLb0EjED2Ev.exit:                      ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN12rewriter_tplIN2qe21simplify_rewriter_cfgEED0Ev(ptr noundef nonnull align 8 dereferenceable(536) %this) unnamed_addr #4 comdat($_ZN12rewriter_tplIN2qe21simplify_rewriter_cfgEED5Ev) align 2 {
 entry:
-  tail call void @_ZN12rewriter_tplIN2qe21simplify_rewriter_cfgEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %this) #24
+  tail call void @_ZN12rewriter_tplIN2qe21simplify_rewriter_cfgEED1Ev(ptr noundef nonnull align 8 dereferenceable(536) %this) #24
   tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
@@ -39392,7 +39392,7 @@ if.then41:                                        ; preds = %if.end39
   %m_manager.i = getelementptr inbounds i8, ptr %this, i64 8
   %58 = load ptr, ptr %m_manager.i, align 8
   %59 = load ptr, ptr %m_cfg, align 8
-  call void @_ZN12rewriter_tplIN2qe21simplify_rewriter_cfgEEC2ER11ast_managerbRS1_(ptr noundef nonnull align 8 dereferenceable(536) %rw, ptr noundef nonnull align 8 dereferenceable(976) %58, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(8) %59)
+  call void @_ZN12rewriter_tplIN2qe21simplify_rewriter_cfgEEC1ER11ast_managerbRS1_(ptr noundef nonnull align 8 dereferenceable(536) %rw, ptr noundef nonnull align 8 dereferenceable(976) %58, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(8) %59)
   %m_blocked = getelementptr inbounds i8, ptr %this, i64 96
   %60 = load ptr, ptr %m_blocked, align 8
   %m_capacity.i = getelementptr inbounds i8, ptr %this, i64 104
@@ -39487,7 +39487,7 @@ invoke.cont56:                                    ; preds = %invoke.cont51
 
 invoke.cont58:                                    ; preds = %invoke.cont56
   call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %result) #24
-  call void @_ZN12rewriter_tplIN2qe21simplify_rewriter_cfgEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %rw) #24
+  call void @_ZN12rewriter_tplIN2qe21simplify_rewriter_cfgEED1Ev(ptr noundef nonnull align 8 dereferenceable(536) %rw) #24
   br label %if.end60
 
 lpad55:                                           ; preds = %invoke.cont56, %invoke.cont51
@@ -39498,7 +39498,7 @@ lpad55:                                           ; preds = %invoke.cont56, %inv
 
 ehcleanup:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad55
   %.pn = phi { ptr, i32 } [ %67, %lpad55 ], [ %lpad.loopexit251, %lpad.loopexit ], [ %lpad.loopexit.split-lp252, %lpad.loopexit.split-lp ]
-  call void @_ZN12rewriter_tplIN2qe21simplify_rewriter_cfgEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %rw) #24
+  call void @_ZN12rewriter_tplIN2qe21simplify_rewriter_cfgEED1Ev(ptr noundef nonnull align 8 dereferenceable(536) %rw) #24
   resume { ptr, i32 } %.pn
 
 if.end60:                                         ; preds = %invoke.cont58, %if.end39

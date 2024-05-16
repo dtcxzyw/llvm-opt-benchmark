@@ -1480,7 +1480,7 @@ invoke.cont50:                                    ; preds = %invoke.cont43
   %m_implied_bounds = getelementptr inbounds i8, ptr %this, i64 504
   %m_bp = getelementptr inbounds i8, ptr %this, i64 528
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_bound_params, i8 0, i64 32, i1 false)
-  invoke void @_ZN2lp19lp_bound_propagatorIN3smt10theory_lra3impEEC2ERS3_RSt6vectorINS_13implied_boundE13std_allocatorIS7_EE(ptr noundef nonnull align 8 dereferenceable(152) %m_bp, ptr noundef nonnull align 8 dereferenceable(960) %this, ptr noundef nonnull align 8 dereferenceable(24) %m_implied_bounds)
+  invoke void @_ZN2lp19lp_bound_propagatorIN3smt10theory_lra3impEEC1ERS3_RSt6vectorINS_13implied_boundE13std_allocatorIS7_EE(ptr noundef nonnull align 8 dereferenceable(152) %m_bp, ptr noundef nonnull align 8 dereferenceable(960) %this, ptr noundef nonnull align 8 dereferenceable(24) %m_implied_bounds)
           to label %invoke.cont53 unwind label %lpad52
 
 invoke.cont53:                                    ; preds = %invoke.cont50
@@ -12676,7 +12676,7 @@ entry:
   %y_nb = alloca i32, align 4
   %ex = alloca %"class.lp::explanation", align 8
   store i32 %row_index, ptr %row_index.addr, align 4
-  store ptr %this, ptr %_reset, align 8
+  call void @_ZN2lp19lp_bound_propagatorIN3smt10theory_lra3impEE14reset_cheap_eqC1ERS4_(ptr noundef nonnull align 8 dereferenceable(8) %_reset, ptr noundef nonnull align 8 dereferenceable(152) %this)
   %shr.i.i = lshr i32 %row_index, 5
   %0 = load ptr, ptr %this, align 8
   %cmp.i.i.i = icmp eq ptr %0, null
@@ -12740,7 +12740,7 @@ for.body.preheader.i.i.i:                         ; preds = %while.end.i.i.i
   %add.ptr.i.i.i = getelementptr i32, ptr %.pre13.i.i, i64 %idx.ext.i.i.i
   %5 = sub nsw i64 %idx.ext6.i.i.i, %idx.ext.i.i.i
   %6 = shl nsw i64 %5, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %add.ptr.i.i.i, i8 0, i64 %6, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 4 %add.ptr.i.i.i, i8 0, i64 %6, i1 false)
   %.pre.i.i = load ptr, ptr %this, align 8
   br label %if.end
 
@@ -13232,29 +13232,12 @@ for.inc:                                          ; preds = %_ZNK8uint_set8conta
   br i1 %cmp26.not, label %cleanup86, label %for.body
 
 cleanup86:                                        ; preds = %for.inc, %invoke.cont20, %_ZNK6vectorIN2lp8row_cellINS0_12empty_structEEELb1EjE3endEv.exit, %_ZNK8uint_set8containsEj.exit.i, %if.end10, %if.then8, %invoke.cont2
-  %90 = load ptr, ptr %_reset, align 8
-  %m_row2index_pos.i.i = getelementptr inbounds i8, ptr %90, i64 96
-  invoke void @_ZN14core_hashtableI17default_map_entryI8rationaljEN9table2mapIS2_8obj_hashIS1_E10default_eqIS1_EE15entry_hash_procENS8_13entry_eq_procEE5resetEv(ptr noundef nonnull align 8 dereferenceable(20) %m_row2index_pos.i.i)
-          to label %.noexc.i unwind label %terminate.lpad.i
-
-.noexc.i:                                         ; preds = %cleanup86
-  %m_row2index_neg.i.i = getelementptr inbounds i8, ptr %90, i64 120
-  invoke void @_ZN14core_hashtableI17default_map_entryI8rationaljEN9table2mapIS2_8obj_hashIS1_E10default_eqIS1_EE15entry_hash_procENS8_13entry_eq_procEE5resetEv(ptr noundef nonnull align 8 dereferenceable(20) %m_row2index_neg.i.i)
-          to label %_ZN2lp19lp_bound_propagatorIN3smt10theory_lra3impEE14reset_cheap_eqD2Ev.exit unwind label %terminate.lpad.i
-
-terminate.lpad.i:                                 ; preds = %.noexc.i, %cleanup86
-  %91 = landingpad { ptr, i32 }
-          catch ptr null
-  %92 = extractvalue { ptr, i32 } %91, 0
-  call void @__clang_call_terminate(ptr %92) #24
-  unreachable
-
-_ZN2lp19lp_bound_propagatorIN3smt10theory_lra3impEE14reset_cheap_eqD2Ev.exit: ; preds = %.noexc.i
+  call void @_ZN2lp19lp_bound_propagatorIN3smt10theory_lra3impEE14reset_cheap_eqD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_reset) #23
   ret void
 
 ehcleanup:                                        ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit141.loopexit, %lpad.loopexit141.loopexit.split-lp, %lpad.i, %lpad59
   %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad59 ], [ %43, %lpad.i ], [ %lpad.loopexit155, %lpad.loopexit141.loopexit ], [ %lpad.loopexit.split-lp156, %lpad.loopexit141.loopexit.split-lp ], [ %lpad.loopexit160, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp161, %lpad.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN2lp19lp_bound_propagatorIN3smt10theory_lra3impEE14reset_cheap_eqD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %_reset) #23
+  call void @_ZN2lp19lp_bound_propagatorIN3smt10theory_lra3impEE14reset_cheap_eqD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_reset) #23
   resume { ptr, i32 } %.pn
 }
 

@@ -227,62 +227,12 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_18SegmentedArrayBaseINS0_11Hermes
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 9552
   %heapStorage_.i.i = getelementptr inbounds i8, ptr %runtime, i64 840
   %call.i.i.i.i = tail call noundef ptr @_ZN6hermes2vm7HadesGC9allocWorkILb1ELNS0_12HasFinalizerE1EEEPvj(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i, i32 noundef 64)
-  %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %parentHandle.coerce, align 8
-  %and.i.i.i.i.i.i.i.i.i.i.i.i = and i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i, 281474976710655
-  %retval.sroa.0.0.copyload.i.i.i3.i.i.i.i.i.i.i = load i64, ptr %arrayidx.i.i.i, align 8
-  %and.i.i.i.i.i4.i.i.i.i.i.i.i = and i64 %retval.sroa.0.0.copyload.i.i.i3.i.i.i.i.i.i.i, 281474976710655
-  %flags_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 4
-  store i32 0, ptr %flags_.i.i.i.i.i.i.i.i.i, align 4
-  %parent_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
-  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i.i.i.i.i.i.i.i, 0
-  %4 = ptrtoint ptr %runtime to i64
-  %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i, %4
-  %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = trunc i64 %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i32
-  %retval.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  store i32 %retval.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %parent_.i.i.i.i.i.i.i.i.i, align 4
-  %clazz_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 12
-  %tobool.not.i.i.i.i.i5.i.i.i.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i4.i.i.i.i.i.i.i, 0
-  %sub.i.i.i.i.i.i6.i.i.i.i.i.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i3.i.i.i.i.i.i.i, %4
-  %conv.i.i.i.i.i.i7.i.i.i.i.i.i.i.i.i = trunc i64 %sub.i.i.i.i.i.i6.i.i.i.i.i.i.i.i.i to i32
-  %retval.sroa.0.0.i.i.i.i.i8.i.i.i.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i5.i.i.i.i.i.i.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i7.i.i.i.i.i.i.i.i.i
-  store i32 %retval.sroa.0.0.i.i.i.i.i8.i.i.i.i.i.i.i.i.i, ptr %clazz_.i.i.i.i.i.i.i.i.i, align 4
-  %propStorage_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 16
-  store i32 0, ptr %propStorage_.i.i.i.i.i.i.i.i.i, align 4
-  %map_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %map_.i.i.i.i.i.i.i, i8 0, i64 20, i1 false)
-  %valueStorage_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 48
-  %retval.sroa.0.0.copyload.i.i.i5.i.i.i.i.i.i.i = load i64, ptr %retval.0.i.i.i.i.i.i, align 8
-  %and.i.i.i.i.i6.i.i.i.i.i.i.i = and i64 %retval.sroa.0.0.copyload.i.i.i5.i.i.i.i.i.i.i, 281474976710655
-  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i6.i.i.i.i.i.i.i, 0
-  %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i5.i.i.i.i.i.i.i, %4
-  %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i = trunc i64 %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i32
-  %retval.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  store i32 %retval.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %valueStorage_.i.i.i.i.i.i.i, align 4
-  %youngGen_.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 1640
-  %5 = load ptr, ptr %youngGen_.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %6 = ptrtoint ptr %valueStorage_.i.i.i.i.i.i.i to i64
-  %and.i.i.i.i.i.i.i.i.i.i.i.i.i = and i64 %6, -4194304
-  %7 = inttoptr i64 %and.i.i.i.i.i.i.i.i.i.i.i.i.i to ptr
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, %7
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN6hermes2vm7Runtime10makeAFixedINS0_13JSWeakMapImplILNS0_8CellKindE51EEELNS0_12HasFinalizerE1ELNS0_9LongLivedE0EJRS1_RNS0_6HandleINS0_8JSObjectEEENS9_INS0_11HiddenClassEEERNS9_INS0_18SegmentedArrayBaseINS0_11HermesValueEEEEEEEEPT_DpOT2_.exit, label %if.then.i.i.i.i.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_18SegmentedArrayBaseINS0_11HermesValueEEEEENS0_6HandleIT_EEONS0_12PseudoHandleIS7_EE.exit
-  %8 = inttoptr i64 %and.i.i.i.i.i6.i.i.i.i.i.i.i to ptr
-  tail call void @_ZN6hermes2vm7HadesGC22relocationWriteBarrierEPKvS3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i, ptr noundef nonnull %valueStorage_.i.i.i.i.i.i.i, ptr noundef %8) #15
-  br label %_ZN6hermes2vm7Runtime10makeAFixedINS0_13JSWeakMapImplILNS0_8CellKindE51EEELNS0_12HasFinalizerE1ELNS0_9LongLivedE0EJRS1_RNS0_6HandleINS0_8JSObjectEEENS9_INS0_11HiddenClassEEERNS9_INS0_18SegmentedArrayBaseINS0_11HermesValueEEEEEEEEPT_DpOT2_.exit
-
-_ZN6hermes2vm7Runtime10makeAFixedINS0_13JSWeakMapImplILNS0_8CellKindE51EEELNS0_12HasFinalizerE1ELNS0_9LongLivedE0EJRS1_RNS0_6HandleINS0_8JSObjectEEENS9_INS0_11HiddenClassEEERNS9_INS0_18SegmentedArrayBaseINS0_11HermesValueEEEEEEEEPT_DpOT2_.exit: ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_18SegmentedArrayBaseINS0_11HermesValueEEEEENS0_6HandleIT_EEONS0_12PseudoHandleIS7_EE.exit, %if.then.i.i.i.i.i.i.i.i.i.i.i
-  %freeListHead_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 52
-  store i32 -1, ptr %freeListHead_.i.i.i.i.i.i.i, align 4
-  %nextIndex_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 56
-  store i32 0, ptr %nextIndex_.i.i.i.i.i.i.i, align 8
-  %hasFreeableSlots_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 60
-  store i8 0, ptr %hasFreeableSlots_.i.i.i.i.i.i.i, align 4
+  tail call void @_ZN6hermes2vm13JSWeakMapImplILNS0_8CellKindE51EEC1ERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS6_INS0_11HiddenClassEEENS6_INS0_18SegmentedArrayBaseINS0_11HermesValueEEEEE(ptr noundef nonnull align 8 dereferenceable(64) %call.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %parentHandle.coerce, ptr nonnull %arrayidx.i.i.i, ptr %retval.0.i.i.i.i.i.i) #15
   store i32 855638080, ptr %call.i.i.i.i, align 4
   br label %return
 
-return:                                           ; preds = %entry, %_ZN6hermes2vm7Runtime10makeAFixedINS0_13JSWeakMapImplILNS0_8CellKindE51EEELNS0_12HasFinalizerE1ELNS0_9LongLivedE0EJRS1_RNS0_6HandleINS0_8JSObjectEEENS9_INS0_11HiddenClassEEERNS9_INS0_18SegmentedArrayBaseINS0_11HermesValueEEEEEEEEPT_DpOT2_.exit
-  %retval.sroa.0.0 = phi ptr [ %call.i.i.i.i, %_ZN6hermes2vm7Runtime10makeAFixedINS0_13JSWeakMapImplILNS0_8CellKindE51EEELNS0_12HasFinalizerE1ELNS0_9LongLivedE0EJRS1_RNS0_6HandleINS0_8JSObjectEEENS9_INS0_11HiddenClassEEERNS9_INS0_18SegmentedArrayBaseINS0_11HermesValueEEEEEEEEPT_DpOT2_.exit ], [ inttoptr (i64 -1 to ptr), %entry ]
+return:                                           ; preds = %entry, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_18SegmentedArrayBaseINS0_11HermesValueEEEEENS0_6HandleIT_EEONS0_12PseudoHandleIS7_EE.exit
+  %retval.sroa.0.0 = phi ptr [ %call.i.i.i.i, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_18SegmentedArrayBaseINS0_11HermesValueEEEEENS0_6HandleIT_EEONS0_12PseudoHandleIS7_EE.exit ], [ inttoptr (i64 -1 to ptr), %entry ]
   ret ptr %retval.sroa.0.0
 }
 
@@ -444,62 +394,12 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_18SegmentedArrayBaseINS0_11Hermes
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 9552
   %heapStorage_.i.i = getelementptr inbounds i8, ptr %runtime, i64 840
   %call.i.i.i.i = tail call noundef ptr @_ZN6hermes2vm7HadesGC9allocWorkILb1ELNS0_12HasFinalizerE1EEEPvj(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i, i32 noundef 64)
-  %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %parentHandle.coerce, align 8
-  %and.i.i.i.i.i.i.i.i.i.i.i.i = and i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i, 281474976710655
-  %retval.sroa.0.0.copyload.i.i.i3.i.i.i.i.i.i.i = load i64, ptr %arrayidx.i.i.i, align 8
-  %and.i.i.i.i.i4.i.i.i.i.i.i.i = and i64 %retval.sroa.0.0.copyload.i.i.i3.i.i.i.i.i.i.i, 281474976710655
-  %flags_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 4
-  store i32 0, ptr %flags_.i.i.i.i.i.i.i.i.i, align 4
-  %parent_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
-  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i.i.i.i.i.i.i.i, 0
-  %4 = ptrtoint ptr %runtime to i64
-  %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i, %4
-  %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = trunc i64 %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i32
-  %retval.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  store i32 %retval.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %parent_.i.i.i.i.i.i.i.i.i, align 4
-  %clazz_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 12
-  %tobool.not.i.i.i.i.i5.i.i.i.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i4.i.i.i.i.i.i.i, 0
-  %sub.i.i.i.i.i.i6.i.i.i.i.i.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i3.i.i.i.i.i.i.i, %4
-  %conv.i.i.i.i.i.i7.i.i.i.i.i.i.i.i.i = trunc i64 %sub.i.i.i.i.i.i6.i.i.i.i.i.i.i.i.i to i32
-  %retval.sroa.0.0.i.i.i.i.i8.i.i.i.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i5.i.i.i.i.i.i.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i7.i.i.i.i.i.i.i.i.i
-  store i32 %retval.sroa.0.0.i.i.i.i.i8.i.i.i.i.i.i.i.i.i, ptr %clazz_.i.i.i.i.i.i.i.i.i, align 4
-  %propStorage_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 16
-  store i32 0, ptr %propStorage_.i.i.i.i.i.i.i.i.i, align 4
-  %map_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %map_.i.i.i.i.i.i.i, i8 0, i64 20, i1 false)
-  %valueStorage_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 48
-  %retval.sroa.0.0.copyload.i.i.i5.i.i.i.i.i.i.i = load i64, ptr %retval.0.i.i.i.i.i.i, align 8
-  %and.i.i.i.i.i6.i.i.i.i.i.i.i = and i64 %retval.sroa.0.0.copyload.i.i.i5.i.i.i.i.i.i.i, 281474976710655
-  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i6.i.i.i.i.i.i.i, 0
-  %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i5.i.i.i.i.i.i.i, %4
-  %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i = trunc i64 %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i32
-  %retval.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  store i32 %retval.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %valueStorage_.i.i.i.i.i.i.i, align 4
-  %youngGen_.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 1640
-  %5 = load ptr, ptr %youngGen_.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %6 = ptrtoint ptr %valueStorage_.i.i.i.i.i.i.i to i64
-  %and.i.i.i.i.i.i.i.i.i.i.i.i.i = and i64 %6, -4194304
-  %7 = inttoptr i64 %and.i.i.i.i.i.i.i.i.i.i.i.i.i to ptr
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, %7
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN6hermes2vm7Runtime10makeAFixedINS0_13JSWeakMapImplILNS0_8CellKindE52EEELNS0_12HasFinalizerE1ELNS0_9LongLivedE0EJRS1_RNS0_6HandleINS0_8JSObjectEEENS9_INS0_11HiddenClassEEERNS9_INS0_18SegmentedArrayBaseINS0_11HermesValueEEEEEEEEPT_DpOT2_.exit, label %if.then.i.i.i.i.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_18SegmentedArrayBaseINS0_11HermesValueEEEEENS0_6HandleIT_EEONS0_12PseudoHandleIS7_EE.exit
-  %8 = inttoptr i64 %and.i.i.i.i.i6.i.i.i.i.i.i.i to ptr
-  tail call void @_ZN6hermes2vm7HadesGC22relocationWriteBarrierEPKvS3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i, ptr noundef nonnull %valueStorage_.i.i.i.i.i.i.i, ptr noundef %8) #15
-  br label %_ZN6hermes2vm7Runtime10makeAFixedINS0_13JSWeakMapImplILNS0_8CellKindE52EEELNS0_12HasFinalizerE1ELNS0_9LongLivedE0EJRS1_RNS0_6HandleINS0_8JSObjectEEENS9_INS0_11HiddenClassEEERNS9_INS0_18SegmentedArrayBaseINS0_11HermesValueEEEEEEEEPT_DpOT2_.exit
-
-_ZN6hermes2vm7Runtime10makeAFixedINS0_13JSWeakMapImplILNS0_8CellKindE52EEELNS0_12HasFinalizerE1ELNS0_9LongLivedE0EJRS1_RNS0_6HandleINS0_8JSObjectEEENS9_INS0_11HiddenClassEEERNS9_INS0_18SegmentedArrayBaseINS0_11HermesValueEEEEEEEEPT_DpOT2_.exit: ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_18SegmentedArrayBaseINS0_11HermesValueEEEEENS0_6HandleIT_EEONS0_12PseudoHandleIS7_EE.exit, %if.then.i.i.i.i.i.i.i.i.i.i.i
-  %freeListHead_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 52
-  store i32 -1, ptr %freeListHead_.i.i.i.i.i.i.i, align 4
-  %nextIndex_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 56
-  store i32 0, ptr %nextIndex_.i.i.i.i.i.i.i, align 8
-  %hasFreeableSlots_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 60
-  store i8 0, ptr %hasFreeableSlots_.i.i.i.i.i.i.i, align 4
+  tail call void @_ZN6hermes2vm13JSWeakMapImplILNS0_8CellKindE52EEC1ERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS6_INS0_11HiddenClassEEENS6_INS0_18SegmentedArrayBaseINS0_11HermesValueEEEEE(ptr noundef nonnull align 8 dereferenceable(64) %call.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %parentHandle.coerce, ptr nonnull %arrayidx.i.i.i, ptr %retval.0.i.i.i.i.i.i) #15
   store i32 872415296, ptr %call.i.i.i.i, align 4
   br label %return
 
-return:                                           ; preds = %entry, %_ZN6hermes2vm7Runtime10makeAFixedINS0_13JSWeakMapImplILNS0_8CellKindE52EEELNS0_12HasFinalizerE1ELNS0_9LongLivedE0EJRS1_RNS0_6HandleINS0_8JSObjectEEENS9_INS0_11HiddenClassEEERNS9_INS0_18SegmentedArrayBaseINS0_11HermesValueEEEEEEEEPT_DpOT2_.exit
-  %retval.sroa.0.0 = phi ptr [ %call.i.i.i.i, %_ZN6hermes2vm7Runtime10makeAFixedINS0_13JSWeakMapImplILNS0_8CellKindE52EEELNS0_12HasFinalizerE1ELNS0_9LongLivedE0EJRS1_RNS0_6HandleINS0_8JSObjectEEENS9_INS0_11HiddenClassEEERNS9_INS0_18SegmentedArrayBaseINS0_11HermesValueEEEEEEEEPT_DpOT2_.exit ], [ inttoptr (i64 -1 to ptr), %entry ]
+return:                                           ; preds = %entry, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_18SegmentedArrayBaseINS0_11HermesValueEEEEENS0_6HandleIT_EEONS0_12PseudoHandleIS7_EE.exit
+  %retval.sroa.0.0 = phi ptr [ %call.i.i.i.i, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_18SegmentedArrayBaseINS0_11HermesValueEEEEENS0_6HandleIT_EEONS0_12PseudoHandleIS7_EE.exit ], [ inttoptr (i64 -1 to ptr), %entry ]
   ret ptr %retval.sroa.0.0
 }
 

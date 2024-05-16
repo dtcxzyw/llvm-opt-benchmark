@@ -2508,134 +2508,56 @@ invoke.cont:                                      ; preds = %entry
   %m_cacheFlags = getelementptr inbounds i8, ptr %this, i64 232
   store i32 3, ptr %m_cacheFlags, align 8
   %m_optProcessorCache = getelementptr inbounds i8, ptr %this, i64 240
-  %0 = load ptr, ptr @_ZN19OpenColorIO_v2_4dev29OCIO_DISABLE_PROCESSOR_CACHESE, align 8
-  %call.i4 = invoke noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev8Platform12isEnvPresentEPKc(ptr noundef %0)
-          to label %call.i.noexc unwind label %lpad2
-
-call.i.noexc:                                     ; preds = %invoke.cont
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12GenericCacheImSt10shared_ptrINS_9ProcessorEEEE, i64 0, i32 0, i64 2), ptr %m_optProcessorCache, align 8
-  %1 = load ptr, ptr @_ZN19OpenColorIO_v2_4dev23OCIO_DISABLE_ALL_CACHESE, align 8
-  %call.i.i5 = invoke noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev8Platform12isEnvPresentEPKc(ptr noundef %1)
+  invoke void @_ZN19OpenColorIO_v2_4dev14ProcessorCacheImSt10shared_ptrINS_9ProcessorEEEC1Ev(ptr noundef nonnull align 8 dereferenceable(104) %m_optProcessorCache)
           to label %invoke.cont3 unwind label %lpad2
 
-invoke.cont3:                                     ; preds = %call.i.noexc
-  %m_envDisableAllCaches.i.i = getelementptr inbounds i8, ptr %this, i64 248
-  %2 = or i1 %call.i4, %call.i.i5
-  %frombool2.i.i = zext i1 %2 to i8
-  store i8 %frombool2.i.i, ptr %m_envDisableAllCaches.i.i, align 8
-  %m_enabled.i.i = getelementptr inbounds i8, ptr %this, i64 249
-  store i8 1, ptr %m_enabled.i.i, align 1
-  %m_mutex.i.i = getelementptr inbounds i8, ptr %this, i64 256
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %m_mutex.i.i, i8 0, i64 40, i1 false)
-  %3 = getelementptr inbounds i8, ptr %this, i64 304
-  store i32 0, ptr %3, align 8
-  %_M_parent.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 312
-  store ptr null, ptr %_M_parent.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 320
-  store ptr %3, ptr %_M_left.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 328
-  store ptr %3, ptr %_M_right.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 336
-  store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev14ProcessorCacheImSt10shared_ptrINS_9ProcessorEEEE, i64 0, i32 0, i64 2), ptr %m_optProcessorCache, align 8
+invoke.cont3:                                     ; preds = %invoke.cont
   %m_gpuProcessorCache = getelementptr inbounds i8, ptr %this, i64 344
-  %4 = load ptr, ptr @_ZN19OpenColorIO_v2_4dev29OCIO_DISABLE_PROCESSOR_CACHESE, align 8
-  %call.i15 = invoke noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev8Platform12isEnvPresentEPKc(ptr noundef %4)
-          to label %call.i.noexc14 unwind label %lpad4
-
-call.i.noexc14:                                   ; preds = %invoke.cont3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12GenericCacheImSt10shared_ptrINS_12GPUProcessorEEEE, i64 0, i32 0, i64 2), ptr %m_gpuProcessorCache, align 8
-  %5 = load ptr, ptr @_ZN19OpenColorIO_v2_4dev23OCIO_DISABLE_ALL_CACHESE, align 8
-  %call.i.i16 = invoke noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev8Platform12isEnvPresentEPKc(ptr noundef %5)
+  invoke void @_ZN19OpenColorIO_v2_4dev14ProcessorCacheImSt10shared_ptrINS_12GPUProcessorEEEC1Ev(ptr noundef nonnull align 8 dereferenceable(104) %m_gpuProcessorCache)
           to label %invoke.cont5 unwind label %lpad4
 
-invoke.cont5:                                     ; preds = %call.i.noexc14
-  %m_envDisableAllCaches.i.i6 = getelementptr inbounds i8, ptr %this, i64 352
-  %6 = or i1 %call.i15, %call.i.i16
-  %frombool2.i.i7 = zext i1 %6 to i8
-  store i8 %frombool2.i.i7, ptr %m_envDisableAllCaches.i.i6, align 8
-  %m_enabled.i.i8 = getelementptr inbounds i8, ptr %this, i64 353
-  store i8 1, ptr %m_enabled.i.i8, align 1
-  %m_mutex.i.i9 = getelementptr inbounds i8, ptr %this, i64 360
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %m_mutex.i.i9, i8 0, i64 40, i1 false)
-  %7 = getelementptr inbounds i8, ptr %this, i64 408
-  store i32 0, ptr %7, align 8
-  %_M_parent.i.i.i.i.i.i.i10 = getelementptr inbounds i8, ptr %this, i64 416
-  store ptr null, ptr %_M_parent.i.i.i.i.i.i.i10, align 8
-  %_M_left.i.i.i.i.i.i.i11 = getelementptr inbounds i8, ptr %this, i64 424
-  store ptr %7, ptr %_M_left.i.i.i.i.i.i.i11, align 8
-  %_M_right.i.i.i.i.i.i.i12 = getelementptr inbounds i8, ptr %this, i64 432
-  store ptr %7, ptr %_M_right.i.i.i.i.i.i.i12, align 8
-  %_M_node_count.i.i.i.i.i.i.i13 = getelementptr inbounds i8, ptr %this, i64 440
-  store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i13, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev14ProcessorCacheImSt10shared_ptrINS_12GPUProcessorEEEE, i64 0, i32 0, i64 2), ptr %m_gpuProcessorCache, align 8
+invoke.cont5:                                     ; preds = %invoke.cont3
   %m_cpuProcessorCache = getelementptr inbounds i8, ptr %this, i64 448
-  %8 = load ptr, ptr @_ZN19OpenColorIO_v2_4dev29OCIO_DISABLE_PROCESSOR_CACHESE, align 8
-  %call.i26 = invoke noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev8Platform12isEnvPresentEPKc(ptr noundef %8)
-          to label %call.i.noexc25 unwind label %lpad6
-
-call.i.noexc25:                                   ; preds = %invoke.cont5
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12GenericCacheImSt10shared_ptrINS_12CPUProcessorEEEE, i64 0, i32 0, i64 2), ptr %m_cpuProcessorCache, align 8
-  %9 = load ptr, ptr @_ZN19OpenColorIO_v2_4dev23OCIO_DISABLE_ALL_CACHESE, align 8
-  %call.i.i27 = invoke noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev8Platform12isEnvPresentEPKc(ptr noundef %9)
+  invoke void @_ZN19OpenColorIO_v2_4dev14ProcessorCacheImSt10shared_ptrINS_12CPUProcessorEEEC1Ev(ptr noundef nonnull align 8 dereferenceable(104) %m_cpuProcessorCache)
           to label %invoke.cont7 unwind label %lpad6
 
-invoke.cont7:                                     ; preds = %call.i.noexc25
-  %m_envDisableAllCaches.i.i17 = getelementptr inbounds i8, ptr %this, i64 456
-  %10 = or i1 %call.i26, %call.i.i27
-  %frombool2.i.i18 = zext i1 %10 to i8
-  store i8 %frombool2.i.i18, ptr %m_envDisableAllCaches.i.i17, align 8
-  %m_enabled.i.i19 = getelementptr inbounds i8, ptr %this, i64 457
-  store i8 1, ptr %m_enabled.i.i19, align 1
-  %m_mutex.i.i20 = getelementptr inbounds i8, ptr %this, i64 464
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %m_mutex.i.i20, i8 0, i64 40, i1 false)
-  %11 = getelementptr inbounds i8, ptr %this, i64 512
-  store i32 0, ptr %11, align 8
-  %_M_parent.i.i.i.i.i.i.i21 = getelementptr inbounds i8, ptr %this, i64 520
-  store ptr null, ptr %_M_parent.i.i.i.i.i.i.i21, align 8
-  %_M_left.i.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %this, i64 528
-  store ptr %11, ptr %_M_left.i.i.i.i.i.i.i22, align 8
-  %_M_right.i.i.i.i.i.i.i23 = getelementptr inbounds i8, ptr %this, i64 536
-  store ptr %11, ptr %_M_right.i.i.i.i.i.i.i23, align 8
-  %_M_node_count.i.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %this, i64 544
-  store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i24, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev14ProcessorCacheImSt10shared_ptrINS_12CPUProcessorEEEE, i64 0, i32 0, i64 2), ptr %m_cpuProcessorCache, align 8
+invoke.cont7:                                     ; preds = %invoke.cont5
   ret void
 
 lpad:                                             ; preds = %entry
-  %12 = landingpad { ptr, i32 }
+  %0 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup10
 
-lpad2:                                            ; preds = %call.i.noexc, %invoke.cont
-  %13 = landingpad { ptr, i32 }
+lpad2:                                            ; preds = %invoke.cont
+  %1 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup8
 
-lpad4:                                            ; preds = %call.i.noexc14, %invoke.cont3
-  %14 = landingpad { ptr, i32 }
+lpad4:                                            ; preds = %invoke.cont3
+  %2 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
-lpad6:                                            ; preds = %call.i.noexc25, %invoke.cont5
-  %15 = landingpad { ptr, i32 }
+lpad6:                                            ; preds = %invoke.cont5
+  %3 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN19OpenColorIO_v2_4dev14ProcessorCacheImSt10shared_ptrINS_12GPUProcessorEEED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %m_gpuProcessorCache) #22
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad6, %lpad4
-  %.pn = phi { ptr, i32 } [ %15, %lpad6 ], [ %14, %lpad4 ]
+  %.pn = phi { ptr, i32 } [ %3, %lpad6 ], [ %2, %lpad4 ]
   tail call void @_ZN19OpenColorIO_v2_4dev14ProcessorCacheImSt10shared_ptrINS_9ProcessorEEED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %m_optProcessorCache) #22
   br label %ehcleanup8
 
 ehcleanup8:                                       ; preds = %ehcleanup, %lpad2
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %13, %lpad2 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %1, %lpad2 ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_cacheID) #22
   tail call void @_ZN19OpenColorIO_v2_4dev10OpRcPtrVecD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %m_ops) #22
   br label %ehcleanup10
 
 ehcleanup10:                                      ; preds = %ehcleanup8, %lpad
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup8 ], [ %12, %lpad ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup8 ], [ %0, %lpad ]
   tail call void @_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev17ProcessorMetadataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #22
   resume { ptr, i32 } %.pn.pn.pn
 }

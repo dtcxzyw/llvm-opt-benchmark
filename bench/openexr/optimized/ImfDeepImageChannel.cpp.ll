@@ -118,9 +118,9 @@ $_ZTIN7Imf_3_221TypedDeepImageChannelIjEE = comdat any
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
-@_ZTVN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEEE = weak_odr unnamed_addr constant { [12 x ptr] } { [12 x ptr] [ptr null, ptr @_ZTIN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEEE, ptr @_ZNK7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEE9pixelTypeEv, ptr @_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEED2Ev, ptr @_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEED0Ev, ptr @_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEE6resizeEv, ptr @_ZNK7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEE5sliceEv, ptr @_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEE16setSamplesToZeroEmjj, ptr @_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEE14moveSampleListEmjjm, ptr @_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEE22moveSamplesToNewBufferEPKjS5_PKm, ptr @_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEE21initializeSampleListsEv, ptr @_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEE16resetBasePointerEv] }, comdat, align 8
-@_ZTVN7Imf_3_221TypedDeepImageChannelIfEE = weak_odr unnamed_addr constant { [12 x ptr] } { [12 x ptr] [ptr null, ptr @_ZTIN7Imf_3_221TypedDeepImageChannelIfEE, ptr @_ZNK7Imf_3_221TypedDeepImageChannelIfE9pixelTypeEv, ptr @_ZN7Imf_3_221TypedDeepImageChannelIfED2Ev, ptr @_ZN7Imf_3_221TypedDeepImageChannelIfED0Ev, ptr @_ZN7Imf_3_221TypedDeepImageChannelIfE6resizeEv, ptr @_ZNK7Imf_3_221TypedDeepImageChannelIfE5sliceEv, ptr @_ZN7Imf_3_221TypedDeepImageChannelIfE16setSamplesToZeroEmjj, ptr @_ZN7Imf_3_221TypedDeepImageChannelIfE14moveSampleListEmjjm, ptr @_ZN7Imf_3_221TypedDeepImageChannelIfE22moveSamplesToNewBufferEPKjS3_PKm, ptr @_ZN7Imf_3_221TypedDeepImageChannelIfE21initializeSampleListsEv, ptr @_ZN7Imf_3_221TypedDeepImageChannelIfE16resetBasePointerEv] }, comdat, align 8
-@_ZTVN7Imf_3_221TypedDeepImageChannelIjEE = weak_odr unnamed_addr constant { [12 x ptr] } { [12 x ptr] [ptr null, ptr @_ZTIN7Imf_3_221TypedDeepImageChannelIjEE, ptr @_ZNK7Imf_3_221TypedDeepImageChannelIjE9pixelTypeEv, ptr @_ZN7Imf_3_221TypedDeepImageChannelIjED2Ev, ptr @_ZN7Imf_3_221TypedDeepImageChannelIjED0Ev, ptr @_ZN7Imf_3_221TypedDeepImageChannelIjE6resizeEv, ptr @_ZNK7Imf_3_221TypedDeepImageChannelIjE5sliceEv, ptr @_ZN7Imf_3_221TypedDeepImageChannelIjE16setSamplesToZeroEmjj, ptr @_ZN7Imf_3_221TypedDeepImageChannelIjE14moveSampleListEmjjm, ptr @_ZN7Imf_3_221TypedDeepImageChannelIjE22moveSamplesToNewBufferEPKjS3_PKm, ptr @_ZN7Imf_3_221TypedDeepImageChannelIjE21initializeSampleListsEv, ptr @_ZN7Imf_3_221TypedDeepImageChannelIjE16resetBasePointerEv] }, comdat, align 8
+@_ZTVN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEEE = weak_odr unnamed_addr constant { [12 x ptr] } { [12 x ptr] [ptr null, ptr @_ZTIN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEEE, ptr @_ZNK7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEE9pixelTypeEv, ptr @_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEED1Ev, ptr @_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEED0Ev, ptr @_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEE6resizeEv, ptr @_ZNK7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEE5sliceEv, ptr @_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEE16setSamplesToZeroEmjj, ptr @_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEE14moveSampleListEmjjm, ptr @_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEE22moveSamplesToNewBufferEPKjS5_PKm, ptr @_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEE21initializeSampleListsEv, ptr @_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEE16resetBasePointerEv] }, comdat, align 8
+@_ZTVN7Imf_3_221TypedDeepImageChannelIfEE = weak_odr unnamed_addr constant { [12 x ptr] } { [12 x ptr] [ptr null, ptr @_ZTIN7Imf_3_221TypedDeepImageChannelIfEE, ptr @_ZNK7Imf_3_221TypedDeepImageChannelIfE9pixelTypeEv, ptr @_ZN7Imf_3_221TypedDeepImageChannelIfED1Ev, ptr @_ZN7Imf_3_221TypedDeepImageChannelIfED0Ev, ptr @_ZN7Imf_3_221TypedDeepImageChannelIfE6resizeEv, ptr @_ZNK7Imf_3_221TypedDeepImageChannelIfE5sliceEv, ptr @_ZN7Imf_3_221TypedDeepImageChannelIfE16setSamplesToZeroEmjj, ptr @_ZN7Imf_3_221TypedDeepImageChannelIfE14moveSampleListEmjjm, ptr @_ZN7Imf_3_221TypedDeepImageChannelIfE22moveSamplesToNewBufferEPKjS3_PKm, ptr @_ZN7Imf_3_221TypedDeepImageChannelIfE21initializeSampleListsEv, ptr @_ZN7Imf_3_221TypedDeepImageChannelIfE16resetBasePointerEv] }, comdat, align 8
+@_ZTVN7Imf_3_221TypedDeepImageChannelIjEE = weak_odr unnamed_addr constant { [12 x ptr] } { [12 x ptr] [ptr null, ptr @_ZTIN7Imf_3_221TypedDeepImageChannelIjEE, ptr @_ZNK7Imf_3_221TypedDeepImageChannelIjE9pixelTypeEv, ptr @_ZN7Imf_3_221TypedDeepImageChannelIjED1Ev, ptr @_ZN7Imf_3_221TypedDeepImageChannelIjED0Ev, ptr @_ZN7Imf_3_221TypedDeepImageChannelIjE6resizeEv, ptr @_ZNK7Imf_3_221TypedDeepImageChannelIjE5sliceEv, ptr @_ZN7Imf_3_221TypedDeepImageChannelIjE16setSamplesToZeroEmjj, ptr @_ZN7Imf_3_221TypedDeepImageChannelIjE14moveSampleListEmjjm, ptr @_ZN7Imf_3_221TypedDeepImageChannelIjE22moveSamplesToNewBufferEPKjS3_PKm, ptr @_ZN7Imf_3_221TypedDeepImageChannelIjE21initializeSampleListsEv, ptr @_ZN7Imf_3_221TypedDeepImageChannelIjE16resetBasePointerEv] }, comdat, align 8
 @_ZTVN7Imf_3_216DeepImageChannelE = unnamed_addr constant { [12 x ptr] } { [12 x ptr] [ptr null, ptr @_ZTIN7Imf_3_216DeepImageChannelE, ptr @__cxa_pure_virtual, ptr @_ZN7Imf_3_216DeepImageChannelD1Ev, ptr @_ZN7Imf_3_216DeepImageChannelD0Ev, ptr @_ZN7Imf_3_216DeepImageChannel6resizeEv, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual] }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTSN7Imf_3_216DeepImageChannelE = constant [29 x i8] c"N7Imf_3_216DeepImageChannelE\00", align 1
@@ -360,28 +360,7 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #4 comdat($_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEED5Ev) align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEEE, i64 0, i32 0, i64 2), ptr %this, align 8
-  %_sampleListPointers.i = getelementptr inbounds i8, ptr %this, i64 48
-  %0 = load ptr, ptr %_sampleListPointers.i, align 8
-  %isnull.i = icmp eq ptr %0, null
-  br i1 %isnull.i, label %delete.end.i, label %delete.notnull.i
-
-delete.notnull.i:                                 ; preds = %entry
-  tail call void @_ZdaPv(ptr noundef nonnull %0) #13
-  br label %delete.end.i
-
-delete.end.i:                                     ; preds = %delete.notnull.i, %entry
-  %_sampleBuffer.i = getelementptr inbounds i8, ptr %this, i64 64
-  %1 = load ptr, ptr %_sampleBuffer.i, align 8
-  %isnull2.i = icmp eq ptr %1, null
-  br i1 %isnull2.i, label %_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEED2Ev.exit, label %delete.notnull3.i
-
-delete.notnull3.i:                                ; preds = %delete.end.i
-  tail call void @_ZdaPv(ptr noundef nonnull %1) #13
-  br label %_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEED2Ev.exit
-
-_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEED2Ev.exit: ; preds = %delete.end.i, %delete.notnull3.i
-  tail call void @_ZN7Imf_3_212ImageChannelD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #15
+  tail call void @_ZN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEED1Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   tail call void @_ZdlPv(ptr noundef nonnull %this) #13
   ret void
 }
@@ -941,28 +920,7 @@ delete.end4:                                      ; preds = %delete.notnull3, %d
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN7Imf_3_221TypedDeepImageChannelIfED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #4 comdat($_ZN7Imf_3_221TypedDeepImageChannelIfED5Ev) align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN7Imf_3_221TypedDeepImageChannelIfEE, i64 0, i32 0, i64 2), ptr %this, align 8
-  %_sampleListPointers.i = getelementptr inbounds i8, ptr %this, i64 48
-  %0 = load ptr, ptr %_sampleListPointers.i, align 8
-  %isnull.i = icmp eq ptr %0, null
-  br i1 %isnull.i, label %delete.end.i, label %delete.notnull.i
-
-delete.notnull.i:                                 ; preds = %entry
-  tail call void @_ZdaPv(ptr noundef nonnull %0) #13
-  br label %delete.end.i
-
-delete.end.i:                                     ; preds = %delete.notnull.i, %entry
-  %_sampleBuffer.i = getelementptr inbounds i8, ptr %this, i64 64
-  %1 = load ptr, ptr %_sampleBuffer.i, align 8
-  %isnull2.i = icmp eq ptr %1, null
-  br i1 %isnull2.i, label %_ZN7Imf_3_221TypedDeepImageChannelIfED2Ev.exit, label %delete.notnull3.i
-
-delete.notnull3.i:                                ; preds = %delete.end.i
-  tail call void @_ZdaPv(ptr noundef nonnull %1) #13
-  br label %_ZN7Imf_3_221TypedDeepImageChannelIfED2Ev.exit
-
-_ZN7Imf_3_221TypedDeepImageChannelIfED2Ev.exit:   ; preds = %delete.end.i, %delete.notnull3.i
-  tail call void @_ZN7Imf_3_212ImageChannelD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #15
+  tail call void @_ZN7Imf_3_221TypedDeepImageChannelIfED1Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   tail call void @_ZdlPv(ptr noundef nonnull %this) #13
   ret void
 }
@@ -1500,28 +1458,7 @@ delete.end4:                                      ; preds = %delete.notnull3, %d
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN7Imf_3_221TypedDeepImageChannelIjED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #4 comdat($_ZN7Imf_3_221TypedDeepImageChannelIjED5Ev) align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN7Imf_3_221TypedDeepImageChannelIjEE, i64 0, i32 0, i64 2), ptr %this, align 8
-  %_sampleListPointers.i = getelementptr inbounds i8, ptr %this, i64 48
-  %0 = load ptr, ptr %_sampleListPointers.i, align 8
-  %isnull.i = icmp eq ptr %0, null
-  br i1 %isnull.i, label %delete.end.i, label %delete.notnull.i
-
-delete.notnull.i:                                 ; preds = %entry
-  tail call void @_ZdaPv(ptr noundef nonnull %0) #13
-  br label %delete.end.i
-
-delete.end.i:                                     ; preds = %delete.notnull.i, %entry
-  %_sampleBuffer.i = getelementptr inbounds i8, ptr %this, i64 64
-  %1 = load ptr, ptr %_sampleBuffer.i, align 8
-  %isnull2.i = icmp eq ptr %1, null
-  br i1 %isnull2.i, label %_ZN7Imf_3_221TypedDeepImageChannelIjED2Ev.exit, label %delete.notnull3.i
-
-delete.notnull3.i:                                ; preds = %delete.end.i
-  tail call void @_ZdaPv(ptr noundef nonnull %1) #13
-  br label %_ZN7Imf_3_221TypedDeepImageChannelIjED2Ev.exit
-
-_ZN7Imf_3_221TypedDeepImageChannelIjED2Ev.exit:   ; preds = %delete.end.i, %delete.notnull3.i
-  tail call void @_ZN7Imf_3_212ImageChannelD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #15
+  tail call void @_ZN7Imf_3_221TypedDeepImageChannelIjED1Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #15
   tail call void @_ZdlPv(ptr noundef nonnull %this) #13
   ret void
 }

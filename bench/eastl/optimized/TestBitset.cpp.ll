@@ -3,24 +3,40 @@ source_filename = "bench/eastl/original/TestBitset.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
+%"class.eastl::bitset<1, unsigned char>::reference" = type { ptr, i64 }
 %"class.eastl::bitset.0" = type { %"struct.eastl::BitsetBase.1" }
 %"struct.eastl::BitsetBase.1" = type { [5 x i8] }
+%"class.eastl::bitset<33, unsigned char>::reference" = type { ptr, i64 }
 %"class.eastl::bitset.2" = type { %"struct.eastl::BitsetBase.3" }
 %"struct.eastl::BitsetBase.3" = type { [9 x i8] }
+%"class.eastl::bitset<65, unsigned char>::reference" = type { ptr, i64 }
 %"class.eastl::bitset.4" = type { %"struct.eastl::BitsetBase.5" }
 %"struct.eastl::BitsetBase.5" = type { [17 x i8] }
+%"class.eastl::bitset<129, unsigned char>::reference" = type { ptr, i64 }
+%"class.eastl::bitset<1, unsigned short>::reference" = type { ptr, i64 }
 %"class.eastl::bitset.8" = type { %"struct.eastl::BitsetBase.9" }
 %"struct.eastl::BitsetBase.9" = type { [3 x i16] }
+%"class.eastl::bitset<33, unsigned short>::reference" = type { ptr, i64 }
 %"class.eastl::bitset.10" = type { %"struct.eastl::BitsetBase.11" }
 %"struct.eastl::BitsetBase.11" = type { [5 x i16] }
+%"class.eastl::bitset<65, unsigned short>::reference" = type { ptr, i64 }
 %"class.eastl::bitset.12" = type { %"struct.eastl::BitsetBase.13" }
 %"struct.eastl::BitsetBase.13" = type { [9 x i16] }
+%"class.eastl::bitset<129, unsigned short>::reference" = type { ptr, i64 }
+%"class.eastl::bitset<1, unsigned int>::reference" = type { ptr, i64 }
+%"class.eastl::bitset<33, unsigned int>::reference" = type { ptr, i64 }
 %"class.eastl::bitset.18" = type { %"struct.eastl::BitsetBase.19" }
 %"struct.eastl::BitsetBase.19" = type { [3 x i32] }
+%"class.eastl::bitset<65, unsigned int>::reference" = type { ptr, i64 }
 %"class.eastl::bitset.20" = type { %"struct.eastl::BitsetBase.21" }
 %"struct.eastl::BitsetBase.21" = type { [5 x i32] }
+%"class.eastl::bitset<129, unsigned int>::reference" = type { ptr, i64 }
+%"class.eastl::bitset<1, unsigned __int128>::reference" = type { ptr, i64 }
+%"class.eastl::bitset<33, unsigned __int128>::reference" = type { ptr, i64 }
+%"class.eastl::bitset<65, unsigned __int128>::reference" = type { ptr, i64 }
 %"class.eastl::bitset.26" = type { %"struct.eastl::BitsetBase.27" }
 %"struct.eastl::BitsetBase.27" = type { [2 x i128] }
+%"class.eastl::bitset<129, unsigned __int128>::reference" = type { ptr, i64 }
 %"class.eastl::bitset.38" = type { %"struct.eastl::BitsetBase.39" }
 %"struct.eastl::BitsetBase.39" = type { [3 x i64] }
 %"class.eastl::bitset.42" = type { %"struct.eastl::BitsetBase.37" }
@@ -1905,9 +1921,13 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local { ptr, i64 } @_ZN5eastl6bitsetILm1EhEixEm(ptr noundef nonnull align 1 dereferenceable(1) %this, i64 noundef %i) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %and.i = and i64 %i, 7
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %this, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %and.i, 1
+  %retval = alloca %"class.eastl::bitset<1, unsigned char>::reference", align 8
+  call void @_ZN5eastl6bitsetILm1EhE9referenceC1ERKS1_m(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef nonnull align 1 dereferenceable(1) %this, i64 noundef %i)
+  %.fca.0.load = load ptr, ptr %retval, align 8
+  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.fca.0.load, 0
+  %.fca.1.gep = getelementptr inbounds i8, ptr %retval, i64 8
+  %.fca.1.load = load i64, ptr %.fca.1.gep, align 8
+  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { ptr, i64 } %.fca.1.insert
 }
 
@@ -2663,11 +2683,13 @@ _ZN5eastl6bitsetILm33EhE4flipEv.exit:             ; preds = %for.body.i.i
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local { ptr, i64 } @_ZN5eastl6bitsetILm33EhEixEm(ptr noundef nonnull align 1 dereferenceable(5) %this, i64 noundef %i) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %shr.i.i = lshr i64 %i, 3
-  %arrayidx.i.i = getelementptr inbounds [5 x i8], ptr %this, i64 0, i64 %shr.i.i
-  %and.i = and i64 %i, 7
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %arrayidx.i.i, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %and.i, 1
+  %retval = alloca %"class.eastl::bitset<33, unsigned char>::reference", align 8
+  call void @_ZN5eastl6bitsetILm33EhE9referenceC1ERKS1_m(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef nonnull align 1 dereferenceable(5) %this, i64 noundef %i)
+  %.fca.0.load = load ptr, ptr %retval, align 8
+  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.fca.0.load, 0
+  %.fca.1.gep = getelementptr inbounds i8, ptr %retval, i64 8
+  %.fca.1.load = load i64, ptr %.fca.1.gep, align 8
+  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { ptr, i64 } %.fca.1.insert
 }
 
@@ -3705,11 +3727,13 @@ _ZN5eastl6bitsetILm65EhE4flipEv.exit:             ; preds = %for.body.i.i
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local { ptr, i64 } @_ZN5eastl6bitsetILm65EhEixEm(ptr noundef nonnull align 1 dereferenceable(9) %this, i64 noundef %i) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %shr.i.i = lshr i64 %i, 3
-  %arrayidx.i.i = getelementptr inbounds [9 x i8], ptr %this, i64 0, i64 %shr.i.i
-  %and.i = and i64 %i, 7
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %arrayidx.i.i, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %and.i, 1
+  %retval = alloca %"class.eastl::bitset<65, unsigned char>::reference", align 8
+  call void @_ZN5eastl6bitsetILm65EhE9referenceC1ERKS1_m(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef nonnull align 1 dereferenceable(9) %this, i64 noundef %i)
+  %.fca.0.load = load ptr, ptr %retval, align 8
+  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.fca.0.load, 0
+  %.fca.1.gep = getelementptr inbounds i8, ptr %retval, i64 8
+  %.fca.1.load = load i64, ptr %.fca.1.gep, align 8
+  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { ptr, i64 } %.fca.1.insert
 }
 
@@ -4757,11 +4781,13 @@ _ZN5eastl6bitsetILm129EhE4flipEv.exit:            ; preds = %for.body.i.i
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local { ptr, i64 } @_ZN5eastl6bitsetILm129EhEixEm(ptr noundef nonnull align 1 dereferenceable(17) %this, i64 noundef %i) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %shr.i.i = lshr i64 %i, 3
-  %arrayidx.i.i = getelementptr inbounds [17 x i8], ptr %this, i64 0, i64 %shr.i.i
-  %and.i = and i64 %i, 7
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %arrayidx.i.i, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %and.i, 1
+  %retval = alloca %"class.eastl::bitset<129, unsigned char>::reference", align 8
+  call void @_ZN5eastl6bitsetILm129EhE9referenceC1ERKS1_m(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef nonnull align 1 dereferenceable(17) %this, i64 noundef %i)
+  %.fca.0.load = load ptr, ptr %retval, align 8
+  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.fca.0.load, 0
+  %.fca.1.gep = getelementptr inbounds i8, ptr %retval, i64 8
+  %.fca.1.load = load i64, ptr %.fca.1.gep, align 8
+  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { ptr, i64 } %.fca.1.insert
 }
 
@@ -5596,9 +5622,13 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local { ptr, i64 } @_ZN5eastl6bitsetILm1EtEixEm(ptr noundef nonnull align 2 dereferenceable(2) %this, i64 noundef %i) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %and.i = and i64 %i, 15
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %this, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %and.i, 1
+  %retval = alloca %"class.eastl::bitset<1, unsigned short>::reference", align 8
+  call void @_ZN5eastl6bitsetILm1EtE9referenceC1ERKS1_m(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef nonnull align 2 dereferenceable(2) %this, i64 noundef %i)
+  %.fca.0.load = load ptr, ptr %retval, align 8
+  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.fca.0.load, 0
+  %.fca.1.gep = getelementptr inbounds i8, ptr %retval, i64 8
+  %.fca.1.load = load i64, ptr %.fca.1.gep, align 8
+  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { ptr, i64 } %.fca.1.insert
 }
 
@@ -6374,11 +6404,13 @@ _ZN5eastl6bitsetILm33EtE4flipEv.exit:             ; preds = %for.body.i.i
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local { ptr, i64 } @_ZN5eastl6bitsetILm33EtEixEm(ptr noundef nonnull align 2 dereferenceable(6) %this, i64 noundef %i) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %shr.i.i = lshr i64 %i, 4
-  %arrayidx.i.i = getelementptr inbounds [3 x i16], ptr %this, i64 0, i64 %shr.i.i
-  %and.i = and i64 %i, 15
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %arrayidx.i.i, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %and.i, 1
+  %retval = alloca %"class.eastl::bitset<33, unsigned short>::reference", align 8
+  call void @_ZN5eastl6bitsetILm33EtE9referenceC1ERKS1_m(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef nonnull align 2 dereferenceable(6) %this, i64 noundef %i)
+  %.fca.0.load = load ptr, ptr %retval, align 8
+  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.fca.0.load, 0
+  %.fca.1.gep = getelementptr inbounds i8, ptr %retval, i64 8
+  %.fca.1.load = load i64, ptr %.fca.1.gep, align 8
+  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { ptr, i64 } %.fca.1.insert
 }
 
@@ -7437,11 +7469,13 @@ _ZN5eastl6bitsetILm65EtE4flipEv.exit:             ; preds = %for.body.i.i
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local { ptr, i64 } @_ZN5eastl6bitsetILm65EtEixEm(ptr noundef nonnull align 2 dereferenceable(10) %this, i64 noundef %i) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %shr.i.i = lshr i64 %i, 4
-  %arrayidx.i.i = getelementptr inbounds [5 x i16], ptr %this, i64 0, i64 %shr.i.i
-  %and.i = and i64 %i, 15
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %arrayidx.i.i, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %and.i, 1
+  %retval = alloca %"class.eastl::bitset<65, unsigned short>::reference", align 8
+  call void @_ZN5eastl6bitsetILm65EtE9referenceC1ERKS1_m(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef nonnull align 2 dereferenceable(10) %this, i64 noundef %i)
+  %.fca.0.load = load ptr, ptr %retval, align 8
+  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.fca.0.load, 0
+  %.fca.1.gep = getelementptr inbounds i8, ptr %retval, i64 8
+  %.fca.1.load = load i64, ptr %.fca.1.gep, align 8
+  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { ptr, i64 } %.fca.1.insert
 }
 
@@ -8511,11 +8545,13 @@ _ZN5eastl6bitsetILm129EtE4flipEv.exit:            ; preds = %for.body.i.i
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local { ptr, i64 } @_ZN5eastl6bitsetILm129EtEixEm(ptr noundef nonnull align 2 dereferenceable(18) %this, i64 noundef %i) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %shr.i.i = lshr i64 %i, 4
-  %arrayidx.i.i = getelementptr inbounds [9 x i16], ptr %this, i64 0, i64 %shr.i.i
-  %and.i = and i64 %i, 15
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %arrayidx.i.i, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %and.i, 1
+  %retval = alloca %"class.eastl::bitset<129, unsigned short>::reference", align 8
+  call void @_ZN5eastl6bitsetILm129EtE9referenceC1ERKS1_m(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef nonnull align 2 dereferenceable(18) %this, i64 noundef %i)
+  %.fca.0.load = load ptr, ptr %retval, align 8
+  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.fca.0.load, 0
+  %.fca.1.gep = getelementptr inbounds i8, ptr %retval, i64 8
+  %.fca.1.load = load i64, ptr %.fca.1.gep, align 8
+  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { ptr, i64 } %.fca.1.insert
 }
 
@@ -9366,9 +9402,13 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local { ptr, i64 } @_ZN5eastl6bitsetILm1EjEixEm(ptr noundef nonnull align 4 dereferenceable(4) %this, i64 noundef %i) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %and.i = and i64 %i, 31
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %this, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %and.i, 1
+  %retval = alloca %"class.eastl::bitset<1, unsigned int>::reference", align 8
+  call void @_ZN5eastl6bitsetILm1EjE9referenceC1ERKS1_m(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef nonnull align 4 dereferenceable(4) %this, i64 noundef %i)
+  %.fca.0.load = load ptr, ptr %retval, align 8
+  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.fca.0.load, 0
+  %.fca.1.gep = getelementptr inbounds i8, ptr %retval, i64 8
+  %.fca.1.load = load i64, ptr %.fca.1.gep, align 8
+  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { ptr, i64 } %.fca.1.insert
 }
 
@@ -10066,11 +10106,13 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local { ptr, i64 } @_ZN5eastl6bitsetILm33EjEixEm(ptr noundef nonnull align 4 dereferenceable(8) %this, i64 noundef %i) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %shr.i.i = lshr i64 %i, 5
-  %arrayidx.i.i = getelementptr inbounds [2 x i32], ptr %this, i64 0, i64 %shr.i.i
-  %and.i = and i64 %i, 31
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %arrayidx.i.i, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %and.i, 1
+  %retval = alloca %"class.eastl::bitset<33, unsigned int>::reference", align 8
+  call void @_ZN5eastl6bitsetILm33EjE9referenceC1ERKS1_m(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef nonnull align 4 dereferenceable(8) %this, i64 noundef %i)
+  %.fca.0.load = load ptr, ptr %retval, align 8
+  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.fca.0.load, 0
+  %.fca.1.gep = getelementptr inbounds i8, ptr %retval, i64 8
+  %.fca.1.load = load i64, ptr %.fca.1.gep, align 8
+  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { ptr, i64 } %.fca.1.insert
 }
 
@@ -11221,11 +11263,13 @@ _ZN5eastl6bitsetILm65EjE4flipEv.exit:             ; preds = %for.body.i.i
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local { ptr, i64 } @_ZN5eastl6bitsetILm65EjEixEm(ptr noundef nonnull align 4 dereferenceable(12) %this, i64 noundef %i) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %shr.i.i = lshr i64 %i, 5
-  %arrayidx.i.i = getelementptr inbounds [3 x i32], ptr %this, i64 0, i64 %shr.i.i
-  %and.i = and i64 %i, 31
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %arrayidx.i.i, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %and.i, 1
+  %retval = alloca %"class.eastl::bitset<65, unsigned int>::reference", align 8
+  call void @_ZN5eastl6bitsetILm65EjE9referenceC1ERKS1_m(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef nonnull align 4 dereferenceable(12) %this, i64 noundef %i)
+  %.fca.0.load = load ptr, ptr %retval, align 8
+  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.fca.0.load, 0
+  %.fca.1.gep = getelementptr inbounds i8, ptr %retval, i64 8
+  %.fca.1.load = load i64, ptr %.fca.1.gep, align 8
+  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { ptr, i64 } %.fca.1.insert
 }
 
@@ -12320,11 +12364,13 @@ _ZN5eastl6bitsetILm129EjE4flipEv.exit:            ; preds = %for.body.i.i
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local { ptr, i64 } @_ZN5eastl6bitsetILm129EjEixEm(ptr noundef nonnull align 4 dereferenceable(20) %this, i64 noundef %i) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %shr.i.i = lshr i64 %i, 5
-  %arrayidx.i.i = getelementptr inbounds [5 x i32], ptr %this, i64 0, i64 %shr.i.i
-  %and.i = and i64 %i, 31
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %arrayidx.i.i, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %and.i, 1
+  %retval = alloca %"class.eastl::bitset<129, unsigned int>::reference", align 8
+  call void @_ZN5eastl6bitsetILm129EjE9referenceC1ERKS1_m(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef nonnull align 4 dereferenceable(20) %this, i64 noundef %i)
+  %.fca.0.load = load ptr, ptr %retval, align 8
+  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.fca.0.load, 0
+  %.fca.1.gep = getelementptr inbounds i8, ptr %retval, i64 8
+  %.fca.1.load = load i64, ptr %.fca.1.gep, align 8
+  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { ptr, i64 } %.fca.1.insert
 }
 
@@ -13209,9 +13255,13 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local { ptr, i64 } @_ZN5eastl6bitsetILm1EoEixEm(ptr noundef nonnull align 16 dereferenceable(16) %this, i64 noundef %i) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %and.i = and i64 %i, 127
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %this, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %and.i, 1
+  %retval = alloca %"class.eastl::bitset<1, unsigned __int128>::reference", align 8
+  call void @_ZN5eastl6bitsetILm1EoE9referenceC1ERKS1_m(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef nonnull align 16 dereferenceable(16) %this, i64 noundef %i)
+  %.fca.0.load = load ptr, ptr %retval, align 8
+  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.fca.0.load, 0
+  %.fca.1.gep = getelementptr inbounds i8, ptr %retval, i64 8
+  %.fca.1.load = load i64, ptr %.fca.1.gep, align 8
+  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { ptr, i64 } %.fca.1.insert
 }
 
@@ -13884,9 +13934,13 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local { ptr, i64 } @_ZN5eastl6bitsetILm33EoEixEm(ptr noundef nonnull align 16 dereferenceable(16) %this, i64 noundef %i) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %and.i = and i64 %i, 127
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %this, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %and.i, 1
+  %retval = alloca %"class.eastl::bitset<33, unsigned __int128>::reference", align 8
+  call void @_ZN5eastl6bitsetILm33EoE9referenceC1ERKS1_m(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef nonnull align 16 dereferenceable(16) %this, i64 noundef %i)
+  %.fca.0.load = load ptr, ptr %retval, align 8
+  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.fca.0.load, 0
+  %.fca.1.gep = getelementptr inbounds i8, ptr %retval, i64 8
+  %.fca.1.load = load i64, ptr %.fca.1.gep, align 8
+  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { ptr, i64 } %.fca.1.insert
 }
 
@@ -14583,9 +14637,13 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local { ptr, i64 } @_ZN5eastl6bitsetILm65EoEixEm(ptr noundef nonnull align 16 dereferenceable(16) %this, i64 noundef %i) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %and.i = and i64 %i, 127
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %this, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %and.i, 1
+  %retval = alloca %"class.eastl::bitset<65, unsigned __int128>::reference", align 8
+  call void @_ZN5eastl6bitsetILm65EoE9referenceC1ERKS1_m(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef nonnull align 16 dereferenceable(16) %this, i64 noundef %i)
+  %.fca.0.load = load ptr, ptr %retval, align 8
+  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.fca.0.load, 0
+  %.fca.1.gep = getelementptr inbounds i8, ptr %retval, i64 8
+  %.fca.1.load = load i64, ptr %.fca.1.gep, align 8
+  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { ptr, i64 } %.fca.1.insert
 }
 
@@ -15376,11 +15434,13 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local { ptr, i64 } @_ZN5eastl6bitsetILm129EoEixEm(ptr noundef nonnull align 16 dereferenceable(32) %this, i64 noundef %i) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %shr.i.i = lshr i64 %i, 7
-  %arrayidx.i.i = getelementptr inbounds [2 x i128], ptr %this, i64 0, i64 %shr.i.i
-  %and.i = and i64 %i, 127
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %arrayidx.i.i, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %and.i, 1
+  %retval = alloca %"class.eastl::bitset<129, unsigned __int128>::reference", align 8
+  call void @_ZN5eastl6bitsetILm129EoE9referenceC1ERKS1_m(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef nonnull align 16 dereferenceable(32) %this, i64 noundef %i)
+  %.fca.0.load = load ptr, ptr %retval, align 8
+  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.fca.0.load, 0
+  %.fca.1.gep = getelementptr inbounds i8, ptr %retval, i64 8
+  %.fca.1.load = load i64, ptr %.fca.1.gep, align 8
+  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { ptr, i64 } %.fca.1.insert
 }
 

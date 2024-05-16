@@ -8,11 +8,13 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator" = type { i8 }
 %"class.std::reverse_iterator" = type { ptr }
+%"class.base::BasicStringPiece" = type { ptr, i64 }
 %"class.std::__cxx11::basic_string.1" = type { %"struct.std::__cxx11::basic_string<unsigned short, base::string16_char_traits>::_Alloc_hider", i64, %union.anon.5 }
 %"struct.std::__cxx11::basic_string<unsigned short, base::string16_char_traits>::_Alloc_hider" = type { ptr }
 %union.anon.5 = type { i64, [8 x i8] }
 %"class.std::allocator.2" = type { i8 }
 %"class.std::reverse_iterator.7" = type { ptr }
+%"class.base::BasicStringPiece.0" = type { ptr, i64 }
 
 $_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC5Ev = comdat any
 
@@ -231,7 +233,7 @@ entry:
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
-  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #14
+  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #13
   br label %cond.end
 
 cond.end:                                         ; preds = %entry, %cond.false
@@ -244,10 +246,10 @@ cond.end:                                         ; preds = %entry, %cond.false
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(32) %str) unnamed_addr #0 comdat($_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC5ERKS6_) align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #14
+  %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #13
   store ptr %call, ptr %this, align 8
   %length_ = getelementptr inbounds i8, ptr %this, i64 8
-  %call2 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #14
+  %call2 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #13
   store i64 %call2, ptr %length_, align 8
   ret void
 }
@@ -343,7 +345,7 @@ entry:
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #14
+  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #13
   br label %cond.end
 
 cond.end:                                         ; preds = %entry, %cond.true
@@ -420,7 +422,7 @@ entry:
 _ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10wordmemcmpEPKcS9_m.exit: ; preds = %entry
   %2 = load ptr, ptr %x, align 8
   %3 = load ptr, ptr %this, align 8
-  %call.i.i = tail call i32 @memcmp(ptr noundef %3, ptr noundef %2, i64 noundef %.) #14
+  %call.i.i = tail call i32 @memcmp(ptr noundef %3, ptr noundef %2, i64 noundef %.) #13
   %cmp6 = icmp ne i32 %call.i.i, 0
   %brmerge = or i1 %cmp, %cmp6
   %call.i.i.mux = select i1 %cmp6, i32 %call.i.i, i32 -1
@@ -446,7 +448,7 @@ entry:
   br i1 %cmp.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %call.i = tail call i32 @memcmp(ptr noundef %p, ptr noundef %p2, i64 noundef %N) #14
+  %call.i = tail call i32 @memcmp(ptr noundef %p, ptr noundef %p2, i64 noundef %N) #13
   br label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit:       ; preds = %entry, %if.end.i
@@ -464,17 +466,17 @@ entry:
   br i1 %cmp.i, label %cond.end.thread, label %cond.false
 
 cond.end.thread:                                  ; preds = %entry
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #14
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #13
   br label %cleanup.done
 
 cond.false:                                       ; preds = %entry
   %1 = load ptr, ptr %this, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #14
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #13
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %1, i64 noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %cleanup.action unwind label %lpad
 
 cleanup.action:                                   ; preds = %cond.false
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #14
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #13
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %cond.end.thread, %cleanup.action
@@ -483,7 +485,7 @@ cleanup.done:                                     ; preds = %cond.end.thread, %c
 lpad:                                             ; preds = %cond.false
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #14
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #13
   resume { ptr, i32 } %2
 }
 
@@ -561,7 +563,7 @@ entry:
   br i1 %cmp.i.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %target) #14
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %target) #13
   br label %_ZN4base8internal12CopyToStringERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPS7_.exit
 
 if.else.i.i:                                      ; preds = %entry
@@ -582,7 +584,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %target) #14
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %target) #13
   br label %_ZN4base8internal13CopyToStringTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKNS_16BasicStringPieceIT_EEPS9_.exit
 
 if.else.i:                                        ; preds = %entry
@@ -2206,6 +2208,8 @@ _ZN4base8internal17find_last_not_ofTINSt7__cxx1112basic_stringIcSt11char_traitsI
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local { ptr, i64 } @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6substrEmm(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %pos, i64 noundef %n) local_unnamed_addr #1 comdat align 2 {
 entry:
+  %retval.i.i = alloca %"class.base::BasicStringPiece", align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i)
   %length_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %length_.i.i.i, align 8
   %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %0, i64 %pos)
@@ -2213,14 +2217,21 @@ entry:
   %n.addr.0.i.i = tail call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %n)
   %1 = load ptr, ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %1, i64 %spec.select.i.i
-  %.fca.0.insert.i.i = insertvalue { ptr, i64 } poison, ptr %add.ptr.i.i, 0
-  %.fca.1.insert.i.i = insertvalue { ptr, i64 } %.fca.0.insert.i.i, i64 %n.addr.0.i.i, 1
+  call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i, ptr noundef %add.ptr.i.i, i64 noundef %n.addr.0.i.i)
+  %.fca.0.load.i.i = load ptr, ptr %retval.i.i, align 8
+  %.fca.0.insert.i.i = insertvalue { ptr, i64 } poison, ptr %.fca.0.load.i.i, 0
+  %.fca.1.gep.i.i = getelementptr inbounds i8, ptr %retval.i.i, i64 8
+  %.fca.1.load.i.i = load i64, ptr %.fca.1.gep.i.i, align 8
+  %.fca.1.insert.i.i = insertvalue { ptr, i64 } %.fca.0.insert.i.i, i64 %.fca.1.load.i.i, 1
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i)
   ret { ptr, i64 } %.fca.1.insert.i.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { ptr, i64 } @_ZN4base8internal6substrERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %self, i64 noundef %pos, i64 noundef %n) local_unnamed_addr #7 {
+; Function Attrs: mustprogress uwtable
+define dso_local { ptr, i64 } @_ZN4base8internal6substrERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %self, i64 noundef %pos, i64 noundef %n) local_unnamed_addr #1 {
 entry:
+  %retval.i = alloca %"class.base::BasicStringPiece", align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
   %length_.i.i = getelementptr inbounds i8, ptr %self, i64 8
   %0 = load i64, ptr %length_.i.i, align 8
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %0, i64 %pos)
@@ -2228,8 +2239,13 @@ entry:
   %n.addr.0.i = tail call i64 @llvm.umin.i64(i64 %sub.i, i64 %n)
   %1 = load ptr, ptr %self, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 %spec.select.i
-  %.fca.0.insert.i = insertvalue { ptr, i64 } poison, ptr %add.ptr.i, 0
-  %.fca.1.insert.i = insertvalue { ptr, i64 } %.fca.0.insert.i, i64 %n.addr.0.i, 1
+  call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %retval.i, ptr noundef %add.ptr.i, i64 noundef %n.addr.0.i)
+  %.fca.0.load.i = load ptr, ptr %retval.i, align 8
+  %.fca.0.insert.i = insertvalue { ptr, i64 } poison, ptr %.fca.0.load.i, 0
+  %.fca.1.gep.i = getelementptr inbounds i8, ptr %retval.i, i64 8
+  %.fca.1.load.i = load i64, ptr %.fca.1.gep.i, align 8
+  %.fca.1.insert.i = insertvalue { ptr, i64 } %.fca.0.insert.i, i64 %.fca.1.load.i, 1
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i)
   ret { ptr, i64 } %.fca.1.insert.i
 }
 
@@ -2261,10 +2277,10 @@ cond.end:                                         ; preds = %entry, %cond.false
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(32) %str) unnamed_addr #0 comdat($_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEC5ERKS5_) align 2 {
 entry:
-  %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #14
+  %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #13
   store ptr %call, ptr %this, align 8
   %length_ = getelementptr inbounds i8, ptr %this, i64 8
-  %call2 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #14
+  %call2 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #13
   store i64 %call2, ptr %length_, align 8
   ret void
 }
@@ -2467,7 +2483,7 @@ entry:
   br i1 %cmp.i, label %cond.end.thread, label %cond.false
 
 cond.end.thread:                                  ; preds = %entry
-  tail call void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #14
+  tail call void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #13
   br label %cleanup.done
 
 cond.false:                                       ; preds = %entry
@@ -2545,7 +2561,7 @@ entry:
   br i1 %cmp.i.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  tail call void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %target) #14
+  tail call void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %target) #13
   br label %_ZN4base8internal12CopyToStringERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEPS6_.exit
 
 if.else.i.i:                                      ; preds = %entry
@@ -2566,7 +2582,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %target) #14
+  tail call void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %target) #13
   br label %_ZN4base8internal13CopyToStringTINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEvRKNS_16BasicStringPieceIT_EEPS8_.exit
 
 if.else.i:                                        ; preds = %entry
@@ -3924,6 +3940,8 @@ _ZN4base8internal17find_last_not_ofTINSt7__cxx1112basic_stringItNS_20string16_ch
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local { ptr, i64 } @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE6substrEmm(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %pos, i64 noundef %n) local_unnamed_addr #1 comdat align 2 {
 entry:
+  %retval.i.i = alloca %"class.base::BasicStringPiece.0", align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i)
   %length_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %length_.i.i.i, align 8
   %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %0, i64 %pos)
@@ -3931,14 +3949,21 @@ entry:
   %n.addr.0.i.i = tail call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %n)
   %1 = load ptr, ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i16, ptr %1, i64 %spec.select.i.i
-  %.fca.0.insert.i.i = insertvalue { ptr, i64 } poison, ptr %add.ptr.i.i, 0
-  %.fca.1.insert.i.i = insertvalue { ptr, i64 } %.fca.0.insert.i.i, i64 %n.addr.0.i.i, 1
+  call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEC1EPKtm(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i, ptr noundef %add.ptr.i.i, i64 noundef %n.addr.0.i.i)
+  %.fca.0.load.i.i = load ptr, ptr %retval.i.i, align 8
+  %.fca.0.insert.i.i = insertvalue { ptr, i64 } poison, ptr %.fca.0.load.i.i, 0
+  %.fca.1.gep.i.i = getelementptr inbounds i8, ptr %retval.i.i, i64 8
+  %.fca.1.load.i.i = load i64, ptr %.fca.1.gep.i.i, align 8
+  %.fca.1.insert.i.i = insertvalue { ptr, i64 } %.fca.0.insert.i.i, i64 %.fca.1.load.i.i, 1
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i)
   ret { ptr, i64 } %.fca.1.insert.i.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { ptr, i64 } @_ZN4base8internal6substrERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %self, i64 noundef %pos, i64 noundef %n) local_unnamed_addr #7 {
+; Function Attrs: mustprogress uwtable
+define dso_local { ptr, i64 } @_ZN4base8internal6substrERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %self, i64 noundef %pos, i64 noundef %n) local_unnamed_addr #1 {
 entry:
+  %retval.i = alloca %"class.base::BasicStringPiece.0", align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
   %length_.i.i = getelementptr inbounds i8, ptr %self, i64 8
   %0 = load i64, ptr %length_.i.i, align 8
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %0, i64 %pos)
@@ -3946,13 +3971,18 @@ entry:
   %n.addr.0.i = tail call i64 @llvm.umin.i64(i64 %sub.i, i64 %n)
   %1 = load ptr, ptr %self, align 8
   %add.ptr.i = getelementptr inbounds i16, ptr %1, i64 %spec.select.i
-  %.fca.0.insert.i = insertvalue { ptr, i64 } poison, ptr %add.ptr.i, 0
-  %.fca.1.insert.i = insertvalue { ptr, i64 } %.fca.0.insert.i, i64 %n.addr.0.i, 1
+  call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEC1EPKtm(ptr noundef nonnull align 8 dereferenceable(16) %retval.i, ptr noundef %add.ptr.i, i64 noundef %n.addr.0.i)
+  %.fca.0.load.i = load ptr, ptr %retval.i, align 8
+  %.fca.0.insert.i = insertvalue { ptr, i64 } poison, ptr %.fca.0.load.i, 0
+  %.fca.1.gep.i = getelementptr inbounds i8, ptr %retval.i, i64 8
+  %.fca.1.load.i = load i64, ptr %.fca.1.gep.i, align 8
+  %.fca.1.insert.i = insertvalue { ptr, i64 } %.fca.0.insert.i, i64 %.fca.1.load.i, 1
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i)
   ret { ptr, i64 } %.fca.1.insert.i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4baseeqERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %x, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %y) local_unnamed_addr #8 {
+define dso_local noundef zeroext i1 @_ZN4baseeqERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %x, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %y) local_unnamed_addr #7 {
 entry:
   %length_.i = getelementptr inbounds i8, ptr %x, i64 8
   %0 = load i64, ptr %length_.i, align 8
@@ -3990,13 +4020,13 @@ entry:
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #10
+declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #9
 
 declare noundef i64 @_ZN4base6c16lenEPKt(ptr noundef) local_unnamed_addr #4
 
@@ -5099,16 +5129,16 @@ return:                                           ; preds = %if.end17, %_ZSt9__f
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #11
+declare i64 @llvm.umin.i64(i64, i64) #10
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -5117,14 +5147,13 @@ attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nounwind }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

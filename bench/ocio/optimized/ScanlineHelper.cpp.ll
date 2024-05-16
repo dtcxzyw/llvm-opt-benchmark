@@ -308,24 +308,24 @@ $_ZTIN19OpenColorIO_v2_4dev21GenericScanlineHelperIffEE = comdat any
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
-@_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIhhEE = weak_odr hidden unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN19OpenColorIO_v2_4dev21GenericScanlineHelperIhhEE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhhED2Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhhED0Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhhE4initERKNS_9ImageDescES4_, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhhE4initERKNS_9ImageDescE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhhE16prepRGBAScanlineEPPfRl, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhhE18finishRGBAScanlineEv] }, comdat, align 8
+@_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIhhEE = weak_odr hidden unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN19OpenColorIO_v2_4dev21GenericScanlineHelperIhhEE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhhED1Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhhED0Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhhE4initERKNS_9ImageDescES4_, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhhE4initERKNS_9ImageDescE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhhE16prepRGBAScanlineEPPfRl, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhhE18finishRGBAScanlineEv] }, comdat, align 8
 @.str = private unnamed_addr constant [70 x i8] c"Dimension inconsistency between source and destination image buffers.\00", align 1
 @_ZTIN19OpenColorIO_v2_4dev9ExceptionE = external constant ptr
-@_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIhtEE = weak_odr hidden unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN19OpenColorIO_v2_4dev21GenericScanlineHelperIhtEE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhtED2Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhtED0Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhtE4initERKNS_9ImageDescES4_, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhtE4initERKNS_9ImageDescE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhtE16prepRGBAScanlineEPPfRl, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhtE18finishRGBAScanlineEv] }, comdat, align 8
-@_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIhN9Imath_3_14halfEEE = weak_odr hidden unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN19OpenColorIO_v2_4dev21GenericScanlineHelperIhN9Imath_3_14halfEEE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhN9Imath_3_14halfEED2Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhN9Imath_3_14halfEED0Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhN9Imath_3_14halfEE4initERKNS_9ImageDescES6_, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhN9Imath_3_14halfEE4initERKNS_9ImageDescE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhN9Imath_3_14halfEE16prepRGBAScanlineEPPfRl, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhN9Imath_3_14halfEE18finishRGBAScanlineEv] }, comdat, align 8
-@_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIhfEE = weak_odr hidden unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN19OpenColorIO_v2_4dev21GenericScanlineHelperIhfEE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhfED2Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhfED0Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhfE4initERKNS_9ImageDescES4_, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhfE4initERKNS_9ImageDescE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhfE16prepRGBAScanlineEPPfRl, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhfE18finishRGBAScanlineEv] }, comdat, align 8
-@_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIthEE = weak_odr hidden unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN19OpenColorIO_v2_4dev21GenericScanlineHelperIthEE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIthED2Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIthED0Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIthE4initERKNS_9ImageDescES4_, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIthE4initERKNS_9ImageDescE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIthE16prepRGBAScanlineEPPfRl, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIthE18finishRGBAScanlineEv] }, comdat, align 8
-@_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIttEE = weak_odr hidden unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN19OpenColorIO_v2_4dev21GenericScanlineHelperIttEE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIttED2Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIttED0Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIttE4initERKNS_9ImageDescES4_, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIttE4initERKNS_9ImageDescE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIttE16prepRGBAScanlineEPPfRl, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIttE18finishRGBAScanlineEv] }, comdat, align 8
-@_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperItN9Imath_3_14halfEEE = weak_odr hidden unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN19OpenColorIO_v2_4dev21GenericScanlineHelperItN9Imath_3_14halfEEE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperItN9Imath_3_14halfEED2Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperItN9Imath_3_14halfEED0Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperItN9Imath_3_14halfEE4initERKNS_9ImageDescES6_, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperItN9Imath_3_14halfEE4initERKNS_9ImageDescE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperItN9Imath_3_14halfEE16prepRGBAScanlineEPPfRl, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperItN9Imath_3_14halfEE18finishRGBAScanlineEv] }, comdat, align 8
-@_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperItfEE = weak_odr hidden unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN19OpenColorIO_v2_4dev21GenericScanlineHelperItfEE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperItfED2Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperItfED0Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperItfE4initERKNS_9ImageDescES4_, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperItfE4initERKNS_9ImageDescE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperItfE16prepRGBAScanlineEPPfRl, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperItfE18finishRGBAScanlineEv] }, comdat, align 8
-@_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEhEE = weak_odr hidden unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEhEE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEhED2Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEhED0Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEhE4initERKNS_9ImageDescES6_, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEhE4initERKNS_9ImageDescE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEhE16prepRGBAScanlineEPPfRl, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEhE18finishRGBAScanlineEv] }, comdat, align 8
-@_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEtEE = weak_odr hidden unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEtEE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEtED2Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEtED0Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEtE4initERKNS_9ImageDescES6_, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEtE4initERKNS_9ImageDescE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEtE16prepRGBAScanlineEPPfRl, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEtE18finishRGBAScanlineEv] }, comdat, align 8
-@_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfES2_EE = weak_odr hidden unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfES2_EE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfES2_ED2Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfES2_ED0Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfES2_E4initERKNS_9ImageDescES6_, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfES2_E4initERKNS_9ImageDescE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfES2_E16prepRGBAScanlineEPPfRl, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfES2_E18finishRGBAScanlineEv] }, comdat, align 8
-@_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEfEE = weak_odr hidden unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEfEE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEfED2Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEfED0Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEfE4initERKNS_9ImageDescES6_, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEfE4initERKNS_9ImageDescE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEfE16prepRGBAScanlineEPPfRl, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEfE18finishRGBAScanlineEv] }, comdat, align 8
-@_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIfhEE = weak_odr hidden unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN19OpenColorIO_v2_4dev21GenericScanlineHelperIfhEE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIfhED2Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIfhED0Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIfhE4initERKNS_9ImageDescES4_, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIfhE4initERKNS_9ImageDescE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIfhE16prepRGBAScanlineEPPfRl, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIfhE18finishRGBAScanlineEv] }, comdat, align 8
-@_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIftEE = weak_odr hidden unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN19OpenColorIO_v2_4dev21GenericScanlineHelperIftEE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIftED2Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIftED0Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIftE4initERKNS_9ImageDescES4_, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIftE4initERKNS_9ImageDescE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIftE16prepRGBAScanlineEPPfRl, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIftE18finishRGBAScanlineEv] }, comdat, align 8
-@_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIfN9Imath_3_14halfEEE = weak_odr hidden unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN19OpenColorIO_v2_4dev21GenericScanlineHelperIfN9Imath_3_14halfEEE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIfN9Imath_3_14halfEED2Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIfN9Imath_3_14halfEED0Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIfN9Imath_3_14halfEE4initERKNS_9ImageDescES6_, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIfN9Imath_3_14halfEE4initERKNS_9ImageDescE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIfN9Imath_3_14halfEE16prepRGBAScanlineEPPfRl, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIfN9Imath_3_14halfEE18finishRGBAScanlineEv] }, comdat, align 8
-@_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIffEE = weak_odr hidden unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN19OpenColorIO_v2_4dev21GenericScanlineHelperIffEE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIffED2Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIffED0Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIffE4initERKNS_9ImageDescES4_, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIffE4initERKNS_9ImageDescE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIffE16prepRGBAScanlineEPPfRl, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIffE18finishRGBAScanlineEv] }, comdat, align 8
+@_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIhtEE = weak_odr hidden unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN19OpenColorIO_v2_4dev21GenericScanlineHelperIhtEE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhtED1Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhtED0Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhtE4initERKNS_9ImageDescES4_, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhtE4initERKNS_9ImageDescE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhtE16prepRGBAScanlineEPPfRl, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhtE18finishRGBAScanlineEv] }, comdat, align 8
+@_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIhN9Imath_3_14halfEEE = weak_odr hidden unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN19OpenColorIO_v2_4dev21GenericScanlineHelperIhN9Imath_3_14halfEEE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhN9Imath_3_14halfEED1Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhN9Imath_3_14halfEED0Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhN9Imath_3_14halfEE4initERKNS_9ImageDescES6_, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhN9Imath_3_14halfEE4initERKNS_9ImageDescE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhN9Imath_3_14halfEE16prepRGBAScanlineEPPfRl, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhN9Imath_3_14halfEE18finishRGBAScanlineEv] }, comdat, align 8
+@_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIhfEE = weak_odr hidden unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN19OpenColorIO_v2_4dev21GenericScanlineHelperIhfEE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhfED1Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhfED0Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhfE4initERKNS_9ImageDescES4_, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhfE4initERKNS_9ImageDescE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhfE16prepRGBAScanlineEPPfRl, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhfE18finishRGBAScanlineEv] }, comdat, align 8
+@_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIthEE = weak_odr hidden unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN19OpenColorIO_v2_4dev21GenericScanlineHelperIthEE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIthED1Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIthED0Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIthE4initERKNS_9ImageDescES4_, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIthE4initERKNS_9ImageDescE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIthE16prepRGBAScanlineEPPfRl, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIthE18finishRGBAScanlineEv] }, comdat, align 8
+@_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIttEE = weak_odr hidden unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN19OpenColorIO_v2_4dev21GenericScanlineHelperIttEE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIttED1Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIttED0Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIttE4initERKNS_9ImageDescES4_, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIttE4initERKNS_9ImageDescE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIttE16prepRGBAScanlineEPPfRl, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIttE18finishRGBAScanlineEv] }, comdat, align 8
+@_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperItN9Imath_3_14halfEEE = weak_odr hidden unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN19OpenColorIO_v2_4dev21GenericScanlineHelperItN9Imath_3_14halfEEE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperItN9Imath_3_14halfEED1Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperItN9Imath_3_14halfEED0Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperItN9Imath_3_14halfEE4initERKNS_9ImageDescES6_, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperItN9Imath_3_14halfEE4initERKNS_9ImageDescE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperItN9Imath_3_14halfEE16prepRGBAScanlineEPPfRl, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperItN9Imath_3_14halfEE18finishRGBAScanlineEv] }, comdat, align 8
+@_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperItfEE = weak_odr hidden unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN19OpenColorIO_v2_4dev21GenericScanlineHelperItfEE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperItfED1Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperItfED0Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperItfE4initERKNS_9ImageDescES4_, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperItfE4initERKNS_9ImageDescE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperItfE16prepRGBAScanlineEPPfRl, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperItfE18finishRGBAScanlineEv] }, comdat, align 8
+@_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEhEE = weak_odr hidden unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEhEE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEhED1Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEhED0Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEhE4initERKNS_9ImageDescES6_, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEhE4initERKNS_9ImageDescE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEhE16prepRGBAScanlineEPPfRl, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEhE18finishRGBAScanlineEv] }, comdat, align 8
+@_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEtEE = weak_odr hidden unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEtEE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEtED1Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEtED0Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEtE4initERKNS_9ImageDescES6_, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEtE4initERKNS_9ImageDescE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEtE16prepRGBAScanlineEPPfRl, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEtE18finishRGBAScanlineEv] }, comdat, align 8
+@_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfES2_EE = weak_odr hidden unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfES2_EE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfES2_ED1Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfES2_ED0Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfES2_E4initERKNS_9ImageDescES6_, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfES2_E4initERKNS_9ImageDescE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfES2_E16prepRGBAScanlineEPPfRl, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfES2_E18finishRGBAScanlineEv] }, comdat, align 8
+@_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEfEE = weak_odr hidden unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEfEE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEfED1Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEfED0Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEfE4initERKNS_9ImageDescES6_, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEfE4initERKNS_9ImageDescE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEfE16prepRGBAScanlineEPPfRl, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEfE18finishRGBAScanlineEv] }, comdat, align 8
+@_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIfhEE = weak_odr hidden unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN19OpenColorIO_v2_4dev21GenericScanlineHelperIfhEE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIfhED1Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIfhED0Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIfhE4initERKNS_9ImageDescES4_, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIfhE4initERKNS_9ImageDescE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIfhE16prepRGBAScanlineEPPfRl, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIfhE18finishRGBAScanlineEv] }, comdat, align 8
+@_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIftEE = weak_odr hidden unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN19OpenColorIO_v2_4dev21GenericScanlineHelperIftEE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIftED1Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIftED0Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIftE4initERKNS_9ImageDescES4_, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIftE4initERKNS_9ImageDescE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIftE16prepRGBAScanlineEPPfRl, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIftE18finishRGBAScanlineEv] }, comdat, align 8
+@_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIfN9Imath_3_14halfEEE = weak_odr hidden unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN19OpenColorIO_v2_4dev21GenericScanlineHelperIfN9Imath_3_14halfEEE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIfN9Imath_3_14halfEED1Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIfN9Imath_3_14halfEED0Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIfN9Imath_3_14halfEE4initERKNS_9ImageDescES6_, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIfN9Imath_3_14halfEE4initERKNS_9ImageDescE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIfN9Imath_3_14halfEE16prepRGBAScanlineEPPfRl, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIfN9Imath_3_14halfEE18finishRGBAScanlineEv] }, comdat, align 8
+@_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIffEE = weak_odr hidden unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN19OpenColorIO_v2_4dev21GenericScanlineHelperIffEE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIffED1Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIffED0Ev, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIffE4initERKNS_9ImageDescES4_, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIffE4initERKNS_9ImageDescE, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIffE16prepRGBAScanlineEPPfRl, ptr @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIffE18finishRGBAScanlineEv] }, comdat, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTSN19OpenColorIO_v2_4dev21GenericScanlineHelperIhhEE = weak_odr hidden constant [51 x i8] c"N19OpenColorIO_v2_4dev21GenericScanlineHelperIhhEE\00", comdat, align 1
 @_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
@@ -1167,7 +1167,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit72: ; preds = %_ZNSt10
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhhED0Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhhED5Ev) align 2 {
 entry:
-  tail call void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhhED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) #13
+  tail call void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhhED1Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) #13
   tail call void @_ZdlPv(ptr noundef nonnull %this) #16
   ret void
 }
@@ -1985,7 +1985,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit71: ; preds = %_ZNSt10
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhtED0Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhtED5Ev) align 2 {
 entry:
-  tail call void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhtED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) #13
+  tail call void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhtED1Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) #13
   tail call void @_ZdlPv(ptr noundef nonnull %this) #16
   ret void
 }
@@ -2798,7 +2798,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit71: ; preds = %_ZNSt10
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhN9Imath_3_14halfEED0Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhN9Imath_3_14halfEED5Ev) align 2 {
 entry:
-  tail call void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhN9Imath_3_14halfEED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) #13
+  tail call void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhN9Imath_3_14halfEED1Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) #13
   tail call void @_ZdlPv(ptr noundef nonnull %this) #16
   ret void
 }
@@ -3611,7 +3611,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit72: ; preds = %_ZNSt10
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhfED0Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhfED5Ev) align 2 {
 entry:
-  tail call void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhfED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) #13
+  tail call void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIhfED1Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) #13
   tail call void @_ZdlPv(ptr noundef nonnull %this) #16
   ret void
 }
@@ -4427,7 +4427,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit71: ; preds = %_ZNSt10
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIthED0Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIthED5Ev) align 2 {
 entry:
-  tail call void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIthED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) #13
+  tail call void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIthED1Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) #13
   tail call void @_ZdlPv(ptr noundef nonnull %this) #16
   ret void
 }
@@ -5293,7 +5293,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit72: ; preds = %_ZNSt10
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIttED0Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIttED5Ev) align 2 {
 entry:
-  tail call void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIttED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) #13
+  tail call void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIttED1Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) #13
   tail call void @_ZdlPv(ptr noundef nonnull %this) #16
   ret void
 }
@@ -6157,7 +6157,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit71: ; preds = %_ZNSt10
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperItN9Imath_3_14halfEED0Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperItN9Imath_3_14halfEED5Ev) align 2 {
 entry:
-  tail call void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperItN9Imath_3_14halfEED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) #13
+  tail call void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperItN9Imath_3_14halfEED1Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) #13
   tail call void @_ZdlPv(ptr noundef nonnull %this) #16
   ret void
 }
@@ -7021,7 +7021,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit72: ; preds = %_ZNSt10
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperItfED0Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperItfED5Ev) align 2 {
 entry:
-  tail call void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperItfED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) #13
+  tail call void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperItfED1Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) #13
   tail call void @_ZdlPv(ptr noundef nonnull %this) #16
   ret void
 }
@@ -7835,7 +7835,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit71: ; preds = %_ZNSt10
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEhED0Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEhED5Ev) align 2 {
 entry:
-  tail call void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEhED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) #13
+  tail call void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEhED1Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) #13
   tail call void @_ZdlPv(ptr noundef nonnull %this) #16
   ret void
 }
@@ -8701,7 +8701,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit71: ; preds = %_ZNSt10
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEtED0Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEtED5Ev) align 2 {
 entry:
-  tail call void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEtED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) #13
+  tail call void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEtED1Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) #13
   tail call void @_ZdlPv(ptr noundef nonnull %this) #16
   ret void
 }
@@ -9565,7 +9565,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit72: ; preds = %_ZNSt10
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfES2_ED0Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfES2_ED5Ev) align 2 {
 entry:
-  tail call void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfES2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) #13
+  tail call void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfES2_ED1Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) #13
   tail call void @_ZdlPv(ptr noundef nonnull %this) #16
   ret void
 }
@@ -10429,7 +10429,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit72: ; preds = %_ZNSt10
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEfED0Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEfED5Ev) align 2 {
 entry:
-  tail call void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEfED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) #13
+  tail call void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEfED1Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) #13
   tail call void @_ZdlPv(ptr noundef nonnull %this) #16
   ret void
 }
@@ -11243,7 +11243,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit72: ; preds = %_ZNSt10
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIfhED0Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIfhED5Ev) align 2 {
 entry:
-  tail call void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIfhED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) #13
+  tail call void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIfhED1Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) #13
   tail call void @_ZdlPv(ptr noundef nonnull %this) #16
   ret void
 }
@@ -12109,7 +12109,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit72: ; preds = %_ZNSt10
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIftED0Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIftED5Ev) align 2 {
 entry:
-  tail call void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIftED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) #13
+  tail call void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIftED1Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) #13
   tail call void @_ZdlPv(ptr noundef nonnull %this) #16
   ret void
 }
@@ -12973,7 +12973,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit72: ; preds = %_ZNSt10
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIfN9Imath_3_14halfEED0Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIfN9Imath_3_14halfEED5Ev) align 2 {
 entry:
-  tail call void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIfN9Imath_3_14halfEED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) #13
+  tail call void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIfN9Imath_3_14halfEED1Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) #13
   tail call void @_ZdlPv(ptr noundef nonnull %this) #16
   ret void
 }
@@ -13837,7 +13837,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev5OpCPUEED2Ev.exit73: ; preds = %_ZNSt10
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIffED0Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) unnamed_addr #3 comdat($_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIffED5Ev) align 2 {
 entry:
-  tail call void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIffED2Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) #13
+  tail call void @_ZN19OpenColorIO_v2_4dev21GenericScanlineHelperIffED1Ev(ptr noundef nonnull align 8 dereferenceable(309) %this) #13
   tail call void @_ZdlPv(ptr noundef nonnull %this) #16
   ret void
 }

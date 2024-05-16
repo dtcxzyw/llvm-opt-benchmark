@@ -280,7 +280,7 @@ $_ZTI25th_rewriter2expr_replacer = comdat any
 @_ZTS18rewriter_exception = linkonce_odr hidden constant [21 x i8] c"18rewriter_exception\00", comdat, align 1
 @_ZTI17default_exception = external constant ptr
 @_ZTI18rewriter_exception = linkonce_odr hidden constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS18rewriter_exception, ptr @_ZTI17default_exception }, comdat, align 8
-@_ZTV12rewriter_tplI25default_expr_replacer_cfgE = weak_odr hidden unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr @_ZTI12rewriter_tplI25default_expr_replacer_cfgE, ptr @_ZN12rewriter_tplI25default_expr_replacer_cfgED2Ev, ptr @_ZN12rewriter_tplI25default_expr_replacer_cfgED0Ev] }, comdat, align 8
+@_ZTV12rewriter_tplI25default_expr_replacer_cfgE = weak_odr hidden unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr @_ZTI12rewriter_tplI25default_expr_replacer_cfgE, ptr @_ZN12rewriter_tplI25default_expr_replacer_cfgED1Ev, ptr @_ZN12rewriter_tplI25default_expr_replacer_cfgED0Ev] }, comdat, align 8
 @_ZTS12rewriter_tplI25default_expr_replacer_cfgE = weak_odr hidden constant [44 x i8] c"12rewriter_tplI25default_expr_replacer_cfgE\00", comdat, align 1
 @_ZTI13rewriter_core = external constant ptr
 @_ZTI12rewriter_tplI25default_expr_replacer_cfgE = weak_odr hidden constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS12rewriter_tplI25default_expr_replacer_cfgE, ptr @_ZTI13rewriter_core }, comdat, align 8
@@ -1931,7 +1931,7 @@ if.then32:                                        ; preds = %if.end30
   %m_manager.i = getelementptr inbounds i8, ptr %this, i64 8
   %40 = load ptr, ptr %m_manager.i, align 8
   %41 = load ptr, ptr %m_cfg, align 8
-  call void @_ZN12rewriter_tplI25default_expr_replacer_cfgEC2ER11ast_managerbRS0_(ptr noundef nonnull align 8 dereferenceable(536) %rw, ptr noundef nonnull align 8 dereferenceable(976) %40, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %41)
+  call void @_ZN12rewriter_tplI25default_expr_replacer_cfgEC1ER11ast_managerbRS0_(ptr noundef nonnull align 8 dereferenceable(536) %rw, ptr noundef nonnull align 8 dereferenceable(976) %40, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %41)
   %m_blocked = getelementptr inbounds i8, ptr %this, i64 96
   %42 = load ptr, ptr %m_blocked, align 8
   %m_capacity.i = getelementptr inbounds i8, ptr %this, i64 104
@@ -2026,7 +2026,7 @@ invoke.cont50:                                    ; preds = %invoke.cont45
 
 invoke.cont52:                                    ; preds = %invoke.cont50
   call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %result) #14
-  call void @_ZN12rewriter_tplI25default_expr_replacer_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %rw) #14
+  call void @_ZN12rewriter_tplI25default_expr_replacer_cfgED1Ev(ptr noundef nonnull align 8 dereferenceable(536) %rw) #14
   br label %if.end54
 
 lpad49:                                           ; preds = %invoke.cont50, %invoke.cont45
@@ -2037,7 +2037,7 @@ lpad49:                                           ; preds = %invoke.cont50, %inv
 
 ehcleanup:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad49
   %.pn = phi { ptr, i32 } [ %49, %lpad49 ], [ %lpad.loopexit165, %lpad.loopexit ], [ %lpad.loopexit.split-lp166, %lpad.loopexit.split-lp ]
-  call void @_ZN12rewriter_tplI25default_expr_replacer_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %rw) #14
+  call void @_ZN12rewriter_tplI25default_expr_replacer_cfgED1Ev(ptr noundef nonnull align 8 dereferenceable(536) %rw) #14
   resume { ptr, i32 } %.pn
 
 if.end54:                                         ; preds = %invoke.cont52, %if.end30
@@ -2524,7 +2524,7 @@ _ZN10ptr_vectorI4exprED2Ev.exit:                  ; preds = %_ZN7obj_refI4expr11
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN12rewriter_tplI25default_expr_replacer_cfgED0Ev(ptr noundef nonnull align 8 dereferenceable(536) %this) unnamed_addr #4 comdat($_ZN12rewriter_tplI25default_expr_replacer_cfgED5Ev) align 2 {
 entry:
-  tail call void @_ZN12rewriter_tplI25default_expr_replacer_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %this) #14
+  tail call void @_ZN12rewriter_tplI25default_expr_replacer_cfgED1Ev(ptr noundef nonnull align 8 dereferenceable(536) %this) #14
   tail call void @_ZdlPv(ptr noundef nonnull %this) #16
   ret void
 }
@@ -4633,7 +4633,7 @@ entry:
   %0 = load i32, ptr %m_proof_mode.i.i, align 8
   %cmp.i.i = icmp ne i32 %0, 0
   %1 = and i1 %cmp.i.i, %proofs_allowed
-  invoke void @_ZN12rewriter_tplI25default_expr_replacer_cfgEC2ER11ast_managerbRS0_(ptr noundef nonnull align 8 dereferenceable(536) %m_replacer.i, ptr noundef nonnull align 8 dereferenceable(976) %m, i1 noundef zeroext %1, ptr noundef nonnull align 8 dereferenceable(32) %m_cfg.i)
+  invoke void @_ZN12rewriter_tplI25default_expr_replacer_cfgEC1ER11ast_managerbRS0_(ptr noundef nonnull align 8 dereferenceable(536) %m_replacer.i, ptr noundef nonnull align 8 dereferenceable(976) %m, i1 noundef zeroext %1, ptr noundef nonnull align 8 dereferenceable(32) %m_cfg.i)
           to label %_ZN21default_expr_replacerC2ER11ast_managerb.exit unwind label %lpad2.i
 
 lpad2.i:                                          ; preds = %entry
@@ -4821,7 +4821,7 @@ define linkonce_odr hidden void @_ZN21default_expr_replacerD2Ev(ptr noundef nonn
 entry:
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV21default_expr_replacer, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_replacer = getelementptr inbounds i8, ptr %this, i64 40
-  tail call void @_ZN12rewriter_tplI25default_expr_replacer_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %m_replacer) #14
+  tail call void @_ZN12rewriter_tplI25default_expr_replacer_cfgED1Ev(ptr noundef nonnull align 8 dereferenceable(536) %m_replacer) #14
   %m_used_dependencies.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_used_dependencies.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -4860,7 +4860,7 @@ define linkonce_odr hidden void @_ZN21default_expr_replacerD0Ev(ptr noundef nonn
 entry:
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV21default_expr_replacer, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_replacer.i = getelementptr inbounds i8, ptr %this, i64 40
-  tail call void @_ZN12rewriter_tplI25default_expr_replacer_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %m_replacer.i) #14
+  tail call void @_ZN12rewriter_tplI25default_expr_replacer_cfgED1Ev(ptr noundef nonnull align 8 dereferenceable(536) %m_replacer.i) #14
   %m_used_dependencies.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_used_dependencies.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -6977,7 +6977,7 @@ if.then41:                                        ; preds = %if.end39
   %m_manager.i = getelementptr inbounds i8, ptr %this, i64 8
   %65 = load ptr, ptr %m_manager.i, align 8
   %66 = load ptr, ptr %m_cfg, align 8
-  call void @_ZN12rewriter_tplI25default_expr_replacer_cfgEC2ER11ast_managerbRS0_(ptr noundef nonnull align 8 dereferenceable(536) %rw, ptr noundef nonnull align 8 dereferenceable(976) %65, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %66)
+  call void @_ZN12rewriter_tplI25default_expr_replacer_cfgEC1ER11ast_managerbRS0_(ptr noundef nonnull align 8 dereferenceable(536) %rw, ptr noundef nonnull align 8 dereferenceable(976) %65, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %66)
   %m_blocked = getelementptr inbounds i8, ptr %this, i64 96
   %67 = load ptr, ptr %m_blocked, align 8
   %m_capacity.i = getelementptr inbounds i8, ptr %this, i64 104
@@ -7072,7 +7072,7 @@ invoke.cont56:                                    ; preds = %invoke.cont51
 
 invoke.cont58:                                    ; preds = %invoke.cont56
   call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %result) #14
-  call void @_ZN12rewriter_tplI25default_expr_replacer_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %rw) #14
+  call void @_ZN12rewriter_tplI25default_expr_replacer_cfgED1Ev(ptr noundef nonnull align 8 dereferenceable(536) %rw) #14
   br label %if.end60
 
 lpad55:                                           ; preds = %invoke.cont56, %invoke.cont51
@@ -7083,7 +7083,7 @@ lpad55:                                           ; preds = %invoke.cont56, %inv
 
 ehcleanup:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad55
   %.pn = phi { ptr, i32 } [ %74, %lpad55 ], [ %lpad.loopexit240, %lpad.loopexit ], [ %lpad.loopexit.split-lp241, %lpad.loopexit.split-lp ]
-  call void @_ZN12rewriter_tplI25default_expr_replacer_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %rw) #14
+  call void @_ZN12rewriter_tplI25default_expr_replacer_cfgED1Ev(ptr noundef nonnull align 8 dereferenceable(536) %rw) #14
   resume { ptr, i32 } %.pn
 
 if.end60:                                         ; preds = %invoke.cont58, %if.end39

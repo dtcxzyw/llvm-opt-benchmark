@@ -99,9 +99,9 @@ $_ZTIN7Imf_3_221TypedFlatImageChannelIjEE = comdat any
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
-@_ZTVN7Imf_3_221TypedFlatImageChannelIN9Imath_3_24halfEEE = weak_odr unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN7Imf_3_221TypedFlatImageChannelIN9Imath_3_24halfEEE, ptr @_ZNK7Imf_3_221TypedFlatImageChannelIN9Imath_3_24halfEE9pixelTypeEv, ptr @_ZN7Imf_3_221TypedFlatImageChannelIN9Imath_3_24halfEED2Ev, ptr @_ZN7Imf_3_221TypedFlatImageChannelIN9Imath_3_24halfEED0Ev, ptr @_ZN7Imf_3_221TypedFlatImageChannelIN9Imath_3_24halfEE6resizeEv, ptr @_ZNK7Imf_3_221TypedFlatImageChannelIN9Imath_3_24halfEE5sliceEv, ptr @_ZN7Imf_3_221TypedFlatImageChannelIN9Imath_3_24halfEE16resetBasePointerEv] }, comdat, align 8
-@_ZTVN7Imf_3_221TypedFlatImageChannelIfEE = weak_odr unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN7Imf_3_221TypedFlatImageChannelIfEE, ptr @_ZNK7Imf_3_221TypedFlatImageChannelIfE9pixelTypeEv, ptr @_ZN7Imf_3_221TypedFlatImageChannelIfED2Ev, ptr @_ZN7Imf_3_221TypedFlatImageChannelIfED0Ev, ptr @_ZN7Imf_3_221TypedFlatImageChannelIfE6resizeEv, ptr @_ZNK7Imf_3_221TypedFlatImageChannelIfE5sliceEv, ptr @_ZN7Imf_3_221TypedFlatImageChannelIfE16resetBasePointerEv] }, comdat, align 8
-@_ZTVN7Imf_3_221TypedFlatImageChannelIjEE = weak_odr unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN7Imf_3_221TypedFlatImageChannelIjEE, ptr @_ZNK7Imf_3_221TypedFlatImageChannelIjE9pixelTypeEv, ptr @_ZN7Imf_3_221TypedFlatImageChannelIjED2Ev, ptr @_ZN7Imf_3_221TypedFlatImageChannelIjED0Ev, ptr @_ZN7Imf_3_221TypedFlatImageChannelIjE6resizeEv, ptr @_ZNK7Imf_3_221TypedFlatImageChannelIjE5sliceEv, ptr @_ZN7Imf_3_221TypedFlatImageChannelIjE16resetBasePointerEv] }, comdat, align 8
+@_ZTVN7Imf_3_221TypedFlatImageChannelIN9Imath_3_24halfEEE = weak_odr unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN7Imf_3_221TypedFlatImageChannelIN9Imath_3_24halfEEE, ptr @_ZNK7Imf_3_221TypedFlatImageChannelIN9Imath_3_24halfEE9pixelTypeEv, ptr @_ZN7Imf_3_221TypedFlatImageChannelIN9Imath_3_24halfEED1Ev, ptr @_ZN7Imf_3_221TypedFlatImageChannelIN9Imath_3_24halfEED0Ev, ptr @_ZN7Imf_3_221TypedFlatImageChannelIN9Imath_3_24halfEE6resizeEv, ptr @_ZNK7Imf_3_221TypedFlatImageChannelIN9Imath_3_24halfEE5sliceEv, ptr @_ZN7Imf_3_221TypedFlatImageChannelIN9Imath_3_24halfEE16resetBasePointerEv] }, comdat, align 8
+@_ZTVN7Imf_3_221TypedFlatImageChannelIfEE = weak_odr unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN7Imf_3_221TypedFlatImageChannelIfEE, ptr @_ZNK7Imf_3_221TypedFlatImageChannelIfE9pixelTypeEv, ptr @_ZN7Imf_3_221TypedFlatImageChannelIfED1Ev, ptr @_ZN7Imf_3_221TypedFlatImageChannelIfED0Ev, ptr @_ZN7Imf_3_221TypedFlatImageChannelIfE6resizeEv, ptr @_ZNK7Imf_3_221TypedFlatImageChannelIfE5sliceEv, ptr @_ZN7Imf_3_221TypedFlatImageChannelIfE16resetBasePointerEv] }, comdat, align 8
+@_ZTVN7Imf_3_221TypedFlatImageChannelIjEE = weak_odr unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN7Imf_3_221TypedFlatImageChannelIjEE, ptr @_ZNK7Imf_3_221TypedFlatImageChannelIjE9pixelTypeEv, ptr @_ZN7Imf_3_221TypedFlatImageChannelIjED1Ev, ptr @_ZN7Imf_3_221TypedFlatImageChannelIjED0Ev, ptr @_ZN7Imf_3_221TypedFlatImageChannelIjE6resizeEv, ptr @_ZNK7Imf_3_221TypedFlatImageChannelIjE5sliceEv, ptr @_ZN7Imf_3_221TypedFlatImageChannelIjE16resetBasePointerEv] }, comdat, align 8
 @_ZTVN7Imf_3_216FlatImageChannelE = unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN7Imf_3_216FlatImageChannelE, ptr @__cxa_pure_virtual, ptr @_ZN7Imf_3_216FlatImageChannelD1Ev, ptr @_ZN7Imf_3_216FlatImageChannelD0Ev, ptr @_ZN7Imf_3_216FlatImageChannel6resizeEv, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual] }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTSN7Imf_3_216FlatImageChannelE = constant [29 x i8] c"N7Imf_3_216FlatImageChannelE\00", align 1
@@ -355,18 +355,7 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN7Imf_3_221TypedFlatImageChannelIN9Imath_3_24halfEED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #4 comdat($_ZN7Imf_3_221TypedFlatImageChannelIN9Imath_3_24halfEED5Ev) align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7Imf_3_221TypedFlatImageChannelIN9Imath_3_24halfEEE, i64 0, i32 0, i64 2), ptr %this, align 8
-  %_pixels.i = getelementptr inbounds i8, ptr %this, i64 48
-  %0 = load ptr, ptr %_pixels.i, align 8
-  %isnull.i = icmp eq ptr %0, null
-  br i1 %isnull.i, label %_ZN7Imf_3_221TypedFlatImageChannelIN9Imath_3_24halfEED2Ev.exit, label %delete.notnull.i
-
-delete.notnull.i:                                 ; preds = %entry
-  tail call void @_ZdaPv(ptr noundef nonnull %0) #14
-  br label %_ZN7Imf_3_221TypedFlatImageChannelIN9Imath_3_24halfEED2Ev.exit
-
-_ZN7Imf_3_221TypedFlatImageChannelIN9Imath_3_24halfEED2Ev.exit: ; preds = %entry, %delete.notnull.i
-  tail call void @_ZN7Imf_3_212ImageChannelD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #13
+  tail call void @_ZN7Imf_3_221TypedFlatImageChannelIN9Imath_3_24halfEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #13
   tail call void @_ZdlPv(ptr noundef nonnull %this) #14
   ret void
 }
@@ -658,18 +647,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN7Imf_3_221TypedFlatImageChannelIfED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #4 comdat($_ZN7Imf_3_221TypedFlatImageChannelIfED5Ev) align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7Imf_3_221TypedFlatImageChannelIfEE, i64 0, i32 0, i64 2), ptr %this, align 8
-  %_pixels.i = getelementptr inbounds i8, ptr %this, i64 48
-  %0 = load ptr, ptr %_pixels.i, align 8
-  %isnull.i = icmp eq ptr %0, null
-  br i1 %isnull.i, label %_ZN7Imf_3_221TypedFlatImageChannelIfED2Ev.exit, label %delete.notnull.i
-
-delete.notnull.i:                                 ; preds = %entry
-  tail call void @_ZdaPv(ptr noundef nonnull %0) #14
-  br label %_ZN7Imf_3_221TypedFlatImageChannelIfED2Ev.exit
-
-_ZN7Imf_3_221TypedFlatImageChannelIfED2Ev.exit:   ; preds = %entry, %delete.notnull.i
-  tail call void @_ZN7Imf_3_212ImageChannelD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #13
+  tail call void @_ZN7Imf_3_221TypedFlatImageChannelIfED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #13
   tail call void @_ZdlPv(ptr noundef nonnull %this) #14
   ret void
 }
@@ -948,18 +926,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN7Imf_3_221TypedFlatImageChannelIjED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #4 comdat($_ZN7Imf_3_221TypedFlatImageChannelIjED5Ev) align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7Imf_3_221TypedFlatImageChannelIjEE, i64 0, i32 0, i64 2), ptr %this, align 8
-  %_pixels.i = getelementptr inbounds i8, ptr %this, i64 48
-  %0 = load ptr, ptr %_pixels.i, align 8
-  %isnull.i = icmp eq ptr %0, null
-  br i1 %isnull.i, label %_ZN7Imf_3_221TypedFlatImageChannelIjED2Ev.exit, label %delete.notnull.i
-
-delete.notnull.i:                                 ; preds = %entry
-  tail call void @_ZdaPv(ptr noundef nonnull %0) #14
-  br label %_ZN7Imf_3_221TypedFlatImageChannelIjED2Ev.exit
-
-_ZN7Imf_3_221TypedFlatImageChannelIjED2Ev.exit:   ; preds = %entry, %delete.notnull.i
-  tail call void @_ZN7Imf_3_212ImageChannelD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #13
+  tail call void @_ZN7Imf_3_221TypedFlatImageChannelIjED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #13
   tail call void @_ZdlPv(ptr noundef nonnull %this) #14
   ret void
 }

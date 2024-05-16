@@ -53,6 +53,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.sigaction = type { %union.anon.109, %struct.__sigset_t, i32, ptr }
 %union.anon.109 = type { ptr }
 %struct.__sigset_t = type { [16 x i64] }
+%"struct.doctest::IsNaN" = type <{ float, i8, [3 x i8] }>
+%"struct.doctest::IsNaN.0" = type <{ double, i8, [7 x i8] }>
 %"struct.doctest::IsNaN.2" = type <{ x86_fp80, i8, [15 x i8] }>
 %"class.std::fpos" = type { i64, %struct.__mbstate_t }
 %struct.__mbstate_t = type { i32, %union.anon.45 }
@@ -883,16 +885,15 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local i64 @_ZNK7doctest5IsNaNIfEntEv(ptr noundef nonnull align 4 dereferenceable(5) %this) local_unnamed_addr #7 comdat align 2 {
 entry:
-  %0 = load i32, ptr %this, align 4
+  %retval = alloca %"struct.doctest::IsNaN", align 8
+  %0 = load float, ptr %this, align 4
   %flipped = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i8, ptr %flipped, align 4
-  %lnot = and i8 %1, 1
-  %frombool.i = xor i8 %lnot, 1
-  %retval.sroa.2.0.insert.ext = zext nneg i8 %frombool.i to i64
-  %retval.sroa.2.0.insert.shift = shl nuw nsw i64 %retval.sroa.2.0.insert.ext, 32
-  %retval.sroa.0.0.insert.ext = zext i32 %0 to i64
-  %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.2.0.insert.shift, %retval.sroa.0.0.insert.ext
-  ret i64 %retval.sroa.0.0.insert.insert
+  %tobool = trunc i8 %1 to i1
+  %lnot = xor i1 %tobool, true
+  call void @_ZN7doctest5IsNaNIfEC1Efb(ptr noundef nonnull align 4 dereferenceable(5) %retval, float noundef %0, i1 noundef zeroext %lnot)
+  %2 = load i64, ptr %retval, align 8
+  ret i64 %2
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -920,13 +921,18 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local { double, i8 } @_ZNK7doctest5IsNaNIdEntEv(ptr noundef nonnull align 8 dereferenceable(9) %this) local_unnamed_addr #7 comdat align 2 {
 entry:
+  %retval = alloca %"struct.doctest::IsNaN.0", align 8
   %0 = load double, ptr %this, align 8
   %flipped = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i8, ptr %flipped, align 8
-  %lnot = and i8 %1, 1
-  %frombool.i = xor i8 %lnot, 1
-  %.fca.0.insert = insertvalue { double, i8 } poison, double %0, 0
-  %.fca.1.insert = insertvalue { double, i8 } %.fca.0.insert, i8 %frombool.i, 1
+  %tobool = trunc i8 %1 to i1
+  %lnot = xor i1 %tobool, true
+  call void @_ZN7doctest5IsNaNIdEC1Edb(ptr noundef nonnull align 8 dereferenceable(9) %retval, double noundef %0, i1 noundef zeroext %lnot)
+  %.fca.0.load = load double, ptr %retval, align 8
+  %.fca.0.insert = insertvalue { double, i8 } poison, double %.fca.0.load, 0
+  %.fca.1.gep = getelementptr inbounds i8, ptr %retval, i64 8
+  %.fca.1.load = load i8, ptr %.fca.1.gep, align 8
+  %.fca.1.insert = insertvalue { double, i8 } %.fca.0.insert, i8 %.fca.1.load, 1
   ret { double, i8 } %.fca.1.insert
 }
 
@@ -958,11 +964,9 @@ entry:
   %0 = load x86_fp80, ptr %this, align 16
   %flipped = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i8, ptr %flipped, align 16
-  %lnot = and i8 %1, 1
-  %frombool.i = xor i8 %lnot, 1
-  store x86_fp80 %0, ptr %agg.result, align 16
-  %flipped.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store i8 %frombool.i, ptr %flipped.i, align 16
+  %tobool = trunc i8 %1 to i1
+  %lnot = xor i1 %tobool, true
+  tail call void @_ZN7doctest5IsNaNIeEC1Eeb(ptr noundef nonnull align 16 dereferenceable(17) %agg.result, x86_fp80 noundef %0, i1 noundef zeroext %lnot)
   ret void
 }
 

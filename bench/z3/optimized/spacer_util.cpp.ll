@@ -920,8 +920,8 @@ $_ZTV18rewriter_exception = comdat any
 @_ZTS18rewriter_exception = linkonce_odr hidden constant [21 x i8] c"18rewriter_exception\00", comdat, align 1
 @_ZTI17default_exception = external constant ptr
 @_ZTI18rewriter_exception = linkonce_odr hidden constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS18rewriter_exception, ptr @_ZTI17default_exception }, comdat, align 8
-@_ZTV12rewriter_tplIN6spacer18adhoc_rewriter_cfgEE = weak_odr hidden unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr @_ZTI12rewriter_tplIN6spacer18adhoc_rewriter_cfgEE, ptr @_ZN12rewriter_tplIN6spacer18adhoc_rewriter_cfgEED2Ev, ptr @_ZN12rewriter_tplIN6spacer18adhoc_rewriter_cfgEED0Ev] }, comdat, align 8
-@_ZTV12rewriter_tplIN6spacer18adhoc_rewriter_rppEE = weak_odr hidden unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr @_ZTI12rewriter_tplIN6spacer18adhoc_rewriter_rppEE, ptr @_ZN12rewriter_tplIN6spacer18adhoc_rewriter_rppEED2Ev, ptr @_ZN12rewriter_tplIN6spacer18adhoc_rewriter_rppEED0Ev] }, comdat, align 8
+@_ZTV12rewriter_tplIN6spacer18adhoc_rewriter_cfgEE = weak_odr hidden unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr @_ZTI12rewriter_tplIN6spacer18adhoc_rewriter_cfgEE, ptr @_ZN12rewriter_tplIN6spacer18adhoc_rewriter_cfgEED1Ev, ptr @_ZN12rewriter_tplIN6spacer18adhoc_rewriter_cfgEED0Ev] }, comdat, align 8
+@_ZTV12rewriter_tplIN6spacer18adhoc_rewriter_rppEE = weak_odr hidden unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr @_ZTI12rewriter_tplIN6spacer18adhoc_rewriter_rppEE, ptr @_ZN12rewriter_tplIN6spacer18adhoc_rewriter_rppEED1Ev, ptr @_ZN12rewriter_tplIN6spacer18adhoc_rewriter_rppEED0Ev] }, comdat, align 8
 @_ZTS12rewriter_tplIN6spacer18adhoc_rewriter_cfgEE = weak_odr hidden constant [46 x i8] c"12rewriter_tplIN6spacer18adhoc_rewriter_cfgEE\00", comdat, align 1
 @_ZTI13rewriter_core = external constant ptr
 @_ZTI12rewriter_tplIN6spacer18adhoc_rewriter_cfgEE = weak_odr hidden constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS12rewriter_tplIN6spacer18adhoc_rewriter_cfgEE, ptr @_ZTI13rewriter_core }, comdat, align 8
@@ -9286,7 +9286,7 @@ if.then:                                          ; preds = %invoke.cont10
 
 .noexc:                                           ; preds = %if.then
   %4 = load ptr, ptr %m_manager.i, align 8
-  invoke void @_ZN12rewriter_tplIN6spacer18adhoc_rewriter_rppEEC2ER11ast_managerbRS1_(ptr noundef nonnull align 8 dereferenceable(536) %arw.i, ptr noundef nonnull align 8 dereferenceable(976) %4, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(24) %cfg.i)
+  invoke void @_ZN12rewriter_tplIN6spacer18adhoc_rewriter_rppEEC1ER11ast_managerbRS1_(ptr noundef nonnull align 8 dereferenceable(536) %arw.i, ptr noundef nonnull align 8 dereferenceable(976) %4, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(24) %cfg.i)
           to label %.noexc2 unwind label %lpad6
 
 .noexc2:                                          ; preds = %.noexc
@@ -9297,11 +9297,11 @@ if.then:                                          ; preds = %invoke.cont10
 lpad.i:                                           ; preds = %.noexc2
   %5 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN12rewriter_tplIN6spacer18adhoc_rewriter_rppEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %arw.i) #20
+  call void @_ZN12rewriter_tplIN6spacer18adhoc_rewriter_rppEED1Ev(ptr noundef nonnull align 8 dereferenceable(536) %arw.i) #20
   br label %lpad6.body
 
 invoke.cont15:                                    ; preds = %.noexc2
-  call void @_ZN12rewriter_tplIN6spacer18adhoc_rewriter_rppEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %arw.i) #20
+  call void @_ZN12rewriter_tplIN6spacer18adhoc_rewriter_rppEED1Ev(ptr noundef nonnull align 8 dereferenceable(536) %arw.i) #20
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %cfg.i)
   call void @llvm.lifetime.end.p0(i64 536, ptr nonnull %arw.i)
   %6 = load ptr, ptr %m_epp_expr, align 8
@@ -9338,19 +9338,19 @@ entry:
   %m_arith.i = getelementptr inbounds i8, ptr %cfg, i64 8
   call void @_ZN10arith_utilC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(16) %m_arith.i, ptr noundef nonnull align 8 dereferenceable(976) %0)
   %1 = load ptr, ptr %m_manager.i, align 8
-  call void @_ZN12rewriter_tplIN6spacer18adhoc_rewriter_rppEEC2ER11ast_managerbRS1_(ptr noundef nonnull align 8 dereferenceable(536) %arw, ptr noundef nonnull align 8 dereferenceable(976) %1, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(24) %cfg)
+  call void @_ZN12rewriter_tplIN6spacer18adhoc_rewriter_rppEEC1ER11ast_managerbRS1_(ptr noundef nonnull align 8 dereferenceable(536) %arw, ptr noundef nonnull align 8 dereferenceable(976) %1, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(24) %cfg)
   %m_pr.i = getelementptr inbounds i8, ptr %arw, i64 496
   invoke void @_ZN12rewriter_tplIN6spacer18adhoc_rewriter_rppEEclEP4exprR7obj_refIS3_11ast_managerERS5_I3appS6_E(ptr noundef nonnull align 8 dereferenceable(536) %arw, ptr noundef %e, ptr noundef nonnull align 8 dereferenceable(16) %out, ptr noundef nonnull align 8 dereferenceable(16) %m_pr.i)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  call void @_ZN12rewriter_tplIN6spacer18adhoc_rewriter_rppEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %arw) #20
+  call void @_ZN12rewriter_tplIN6spacer18adhoc_rewriter_rppEED1Ev(ptr noundef nonnull align 8 dereferenceable(536) %arw) #20
   ret void
 
 lpad:                                             ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN12rewriter_tplIN6spacer18adhoc_rewriter_rppEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %arw) #20
+  call void @_ZN12rewriter_tplIN6spacer18adhoc_rewriter_rppEED1Ev(ptr noundef nonnull align 8 dereferenceable(536) %arw) #20
   resume { ptr, i32 } %2
 }
 
@@ -11779,7 +11779,7 @@ if.then32:                                        ; preds = %if.end30
   %m_manager.i = getelementptr inbounds i8, ptr %this, i64 8
   %25 = load ptr, ptr %m_manager.i, align 8
   %26 = load ptr, ptr %m_cfg, align 8
-  call void @_ZN12rewriter_tplIN6spacer18adhoc_rewriter_cfgEEC2ER11ast_managerbRS1_(ptr noundef nonnull align 8 dereferenceable(536) %rw, ptr noundef nonnull align 8 dereferenceable(976) %25, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(24) %26)
+  call void @_ZN12rewriter_tplIN6spacer18adhoc_rewriter_cfgEEC1ER11ast_managerbRS1_(ptr noundef nonnull align 8 dereferenceable(536) %rw, ptr noundef nonnull align 8 dereferenceable(976) %25, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(24) %26)
   %m_blocked = getelementptr inbounds i8, ptr %this, i64 96
   %27 = load ptr, ptr %m_blocked, align 8
   %m_capacity.i = getelementptr inbounds i8, ptr %this, i64 104
@@ -11874,7 +11874,7 @@ invoke.cont50:                                    ; preds = %invoke.cont45
 
 invoke.cont52:                                    ; preds = %invoke.cont50
   call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %result) #20
-  call void @_ZN12rewriter_tplIN6spacer18adhoc_rewriter_cfgEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %rw) #20
+  call void @_ZN12rewriter_tplIN6spacer18adhoc_rewriter_cfgEED1Ev(ptr noundef nonnull align 8 dereferenceable(536) %rw) #20
   br label %if.end54
 
 lpad49:                                           ; preds = %invoke.cont50, %invoke.cont45
@@ -11885,7 +11885,7 @@ lpad49:                                           ; preds = %invoke.cont50, %inv
 
 ehcleanup:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad49
   %.pn = phi { ptr, i32 } [ %34, %lpad49 ], [ %lpad.loopexit166, %lpad.loopexit ], [ %lpad.loopexit.split-lp167, %lpad.loopexit.split-lp ]
-  call void @_ZN12rewriter_tplIN6spacer18adhoc_rewriter_cfgEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %rw) #20
+  call void @_ZN12rewriter_tplIN6spacer18adhoc_rewriter_cfgEED1Ev(ptr noundef nonnull align 8 dereferenceable(536) %rw) #20
   resume { ptr, i32 } %.pn
 
 if.end54:                                         ; preds = %invoke.cont52, %if.end30
@@ -12442,7 +12442,7 @@ _ZN6vectorIjLb0EjED2Ev.exit:                      ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN12rewriter_tplIN6spacer18adhoc_rewriter_cfgEED0Ev(ptr noundef nonnull align 8 dereferenceable(536) %this) unnamed_addr #4 comdat($_ZN12rewriter_tplIN6spacer18adhoc_rewriter_cfgEED5Ev) align 2 {
 entry:
-  tail call void @_ZN12rewriter_tplIN6spacer18adhoc_rewriter_cfgEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %this) #20
+  tail call void @_ZN12rewriter_tplIN6spacer18adhoc_rewriter_cfgEED1Ev(ptr noundef nonnull align 8 dereferenceable(536) %this) #20
   tail call void @_ZdlPv(ptr noundef nonnull %this) #22
   ret void
 }
@@ -15422,7 +15422,7 @@ if.then32:                                        ; preds = %if.end30
   %m_manager.i = getelementptr inbounds i8, ptr %this, i64 8
   %25 = load ptr, ptr %m_manager.i, align 8
   %26 = load ptr, ptr %m_cfg, align 8
-  call void @_ZN12rewriter_tplIN6spacer18adhoc_rewriter_rppEEC2ER11ast_managerbRS1_(ptr noundef nonnull align 8 dereferenceable(536) %rw, ptr noundef nonnull align 8 dereferenceable(976) %25, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(24) %26)
+  call void @_ZN12rewriter_tplIN6spacer18adhoc_rewriter_rppEEC1ER11ast_managerbRS1_(ptr noundef nonnull align 8 dereferenceable(536) %rw, ptr noundef nonnull align 8 dereferenceable(976) %25, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(24) %26)
   %m_blocked = getelementptr inbounds i8, ptr %this, i64 96
   %27 = load ptr, ptr %m_blocked, align 8
   %m_capacity.i = getelementptr inbounds i8, ptr %this, i64 104
@@ -15517,7 +15517,7 @@ invoke.cont47:                                    ; preds = %invoke.cont42
 
 invoke.cont49:                                    ; preds = %invoke.cont47
   call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %result) #20
-  call void @_ZN12rewriter_tplIN6spacer18adhoc_rewriter_rppEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %rw) #20
+  call void @_ZN12rewriter_tplIN6spacer18adhoc_rewriter_rppEED1Ev(ptr noundef nonnull align 8 dereferenceable(536) %rw) #20
   br label %if.end51
 
 lpad46:                                           ; preds = %invoke.cont47, %invoke.cont42
@@ -15528,7 +15528,7 @@ lpad46:                                           ; preds = %invoke.cont47, %inv
 
 ehcleanup:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad46
   %.pn = phi { ptr, i32 } [ %34, %lpad46 ], [ %lpad.loopexit166, %lpad.loopexit ], [ %lpad.loopexit.split-lp167, %lpad.loopexit.split-lp ]
-  call void @_ZN12rewriter_tplIN6spacer18adhoc_rewriter_rppEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %rw) #20
+  call void @_ZN12rewriter_tplIN6spacer18adhoc_rewriter_rppEED1Ev(ptr noundef nonnull align 8 dereferenceable(536) %rw) #20
   resume { ptr, i32 } %.pn
 
 if.end51:                                         ; preds = %invoke.cont49, %if.end30
@@ -15918,7 +15918,7 @@ _ZN10ptr_vectorI4exprED2Ev.exit:                  ; preds = %_ZN7obj_refI4expr11
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN12rewriter_tplIN6spacer18adhoc_rewriter_rppEED0Ev(ptr noundef nonnull align 8 dereferenceable(536) %this) unnamed_addr #4 comdat($_ZN12rewriter_tplIN6spacer18adhoc_rewriter_rppEED5Ev) align 2 {
 entry:
-  tail call void @_ZN12rewriter_tplIN6spacer18adhoc_rewriter_rppEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %this) #20
+  tail call void @_ZN12rewriter_tplIN6spacer18adhoc_rewriter_rppEED1Ev(ptr noundef nonnull align 8 dereferenceable(536) %this) #20
   tail call void @_ZdlPv(ptr noundef nonnull %this) #22
   ret void
 }
@@ -34117,7 +34117,7 @@ if.then41:                                        ; preds = %if.end39
   %m_manager.i = getelementptr inbounds i8, ptr %this, i64 8
   %41 = load ptr, ptr %m_manager.i, align 8
   %42 = load ptr, ptr %m_cfg, align 8
-  call void @_ZN12rewriter_tplIN6spacer18adhoc_rewriter_cfgEEC2ER11ast_managerbRS1_(ptr noundef nonnull align 8 dereferenceable(536) %rw, ptr noundef nonnull align 8 dereferenceable(976) %41, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(24) %42)
+  call void @_ZN12rewriter_tplIN6spacer18adhoc_rewriter_cfgEEC1ER11ast_managerbRS1_(ptr noundef nonnull align 8 dereferenceable(536) %rw, ptr noundef nonnull align 8 dereferenceable(976) %41, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(24) %42)
   %m_blocked = getelementptr inbounds i8, ptr %this, i64 96
   %43 = load ptr, ptr %m_blocked, align 8
   %m_capacity.i = getelementptr inbounds i8, ptr %this, i64 104
@@ -34212,7 +34212,7 @@ invoke.cont56:                                    ; preds = %invoke.cont51
 
 invoke.cont58:                                    ; preds = %invoke.cont56
   call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %result) #20
-  call void @_ZN12rewriter_tplIN6spacer18adhoc_rewriter_cfgEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %rw) #20
+  call void @_ZN12rewriter_tplIN6spacer18adhoc_rewriter_cfgEED1Ev(ptr noundef nonnull align 8 dereferenceable(536) %rw) #20
   br label %if.end60
 
 lpad55:                                           ; preds = %invoke.cont56, %invoke.cont51
@@ -34223,7 +34223,7 @@ lpad55:                                           ; preds = %invoke.cont56, %inv
 
 ehcleanup:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad55
   %.pn = phi { ptr, i32 } [ %50, %lpad55 ], [ %lpad.loopexit241, %lpad.loopexit ], [ %lpad.loopexit.split-lp242, %lpad.loopexit.split-lp ]
-  call void @_ZN12rewriter_tplIN6spacer18adhoc_rewriter_cfgEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %rw) #20
+  call void @_ZN12rewriter_tplIN6spacer18adhoc_rewriter_cfgEED1Ev(ptr noundef nonnull align 8 dereferenceable(536) %rw) #20
   resume { ptr, i32 } %.pn
 
 if.end60:                                         ; preds = %invoke.cont58, %if.end39
@@ -42177,7 +42177,7 @@ if.then41:                                        ; preds = %if.end39
   %m_manager.i = getelementptr inbounds i8, ptr %this, i64 8
   %41 = load ptr, ptr %m_manager.i, align 8
   %42 = load ptr, ptr %m_cfg, align 8
-  call void @_ZN12rewriter_tplIN6spacer18adhoc_rewriter_rppEEC2ER11ast_managerbRS1_(ptr noundef nonnull align 8 dereferenceable(536) %rw, ptr noundef nonnull align 8 dereferenceable(976) %41, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(24) %42)
+  call void @_ZN12rewriter_tplIN6spacer18adhoc_rewriter_rppEEC1ER11ast_managerbRS1_(ptr noundef nonnull align 8 dereferenceable(536) %rw, ptr noundef nonnull align 8 dereferenceable(976) %41, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(24) %42)
   %m_blocked = getelementptr inbounds i8, ptr %this, i64 96
   %43 = load ptr, ptr %m_blocked, align 8
   %m_capacity.i = getelementptr inbounds i8, ptr %this, i64 104
@@ -42272,7 +42272,7 @@ invoke.cont56:                                    ; preds = %invoke.cont51
 
 invoke.cont58:                                    ; preds = %invoke.cont56
   call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %result) #20
-  call void @_ZN12rewriter_tplIN6spacer18adhoc_rewriter_rppEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %rw) #20
+  call void @_ZN12rewriter_tplIN6spacer18adhoc_rewriter_rppEED1Ev(ptr noundef nonnull align 8 dereferenceable(536) %rw) #20
   br label %if.end60
 
 lpad55:                                           ; preds = %invoke.cont56, %invoke.cont51
@@ -42283,7 +42283,7 @@ lpad55:                                           ; preds = %invoke.cont56, %inv
 
 ehcleanup:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad55
   %.pn = phi { ptr, i32 } [ %50, %lpad55 ], [ %lpad.loopexit241, %lpad.loopexit ], [ %lpad.loopexit.split-lp242, %lpad.loopexit.split-lp ]
-  call void @_ZN12rewriter_tplIN6spacer18adhoc_rewriter_rppEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %rw) #20
+  call void @_ZN12rewriter_tplIN6spacer18adhoc_rewriter_rppEED1Ev(ptr noundef nonnull align 8 dereferenceable(536) %rw) #20
   resume { ptr, i32 } %.pn
 
 if.end60:                                         ; preds = %invoke.cont58, %if.end39

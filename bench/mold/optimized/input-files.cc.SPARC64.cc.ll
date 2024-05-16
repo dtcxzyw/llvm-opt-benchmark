@@ -1737,67 +1737,39 @@ entry:
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %call = tail call noalias noundef nonnull dereferenceable(704) ptr @_Znwm(i64 noundef 704) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %archive_name)
-  %frombool.i = zext i1 %is_in_lib to i8
-  call void @_ZN4mold3elf9InputFileINS0_7SPARC64EEC2ERNS0_7ContextIS2_EEPNS_10MappedFileIS5_EE(ptr noundef nonnull align 8 dereferenceable(280) %call, ptr noundef nonnull align 8 dereferenceable(4584) %ctx, ptr noundef %mf)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4mold3elf10ObjectFileINS0_7SPARC64EEE, i64 0, i32 0, i64 2), ptr %call, align 8
-  %archive_name2.i = getelementptr inbounds i8, ptr %call, i64 280
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %archive_name2.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp)
-  %sections.i = getelementptr inbounds i8, ptr %call, i64 312
-  %is_in_lib3.i = getelementptr inbounds i8, ptr %call, i64 360
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %sections.i, i8 0, i64 48, i1 false)
-  store i8 %frombool.i, ptr %is_in_lib3.i, align 8
-  %elf_sections2.i = getelementptr inbounds i8, ptr %call, i64 368
-  %0 = getelementptr inbounds i8, ptr %call, i64 528
-  store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 536
-  store ptr null, ptr %_M_parent.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 544
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(145) %elf_sections2.i, i8 0, i64 145, i1 false)
-  store ptr %0, ptr %_M_left.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 552
-  store ptr %0, ptr %_M_right.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 560
-  %num_dynrel.i = getelementptr inbounds i8, ptr %call, i64 576
-  %symtab_shndx_sec.i = getelementptr inbounds i8, ptr %call, i64 688
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %symtab_shndx_sec.i, i8 0, i64 16, i1 false)
-  %lnot.i = xor i1 %is_in_lib, true
-  %is_alive.i = getelementptr inbounds i8, ptr %call, i64 120
-  %frombool.i.i.i.i = zext i1 %lnot.i to i8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %_M_node_count.i.i.i.i.i.i, i8 0, i64 11, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(97) %num_dynrel.i, i8 0, i64 97, i1 false)
-  store atomic i8 %frombool.i.i.i.i, ptr %is_alive.i monotonic, align 1
-  %1 = load ptr, ptr %agg.tmp, align 8
-  %2 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
-  %cmp.i.i.i = icmp eq ptr %1, %2
+  call void @_ZN4mold3elf10ObjectFileINS0_7SPARC64EEC1ERNS0_7ContextIS2_EEPNS_10MappedFileIS5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(704) %call, ptr noundef nonnull align 8 dereferenceable(4584) %ctx, ptr noundef %mf, ptr noundef nonnull %agg.tmp, i1 noundef zeroext %is_in_lib) #14
+  %0 = load ptr, ptr %agg.tmp, align 8
+  %1 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
+  %cmp.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %entry
   %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  %3 = load i64, ptr %_M_string_length.i.i.i, align 8
-  %cmp3.i.i.i = icmp ult i64 %3, 16
+  %2 = load i64, ptr %_M_string_length.i.i.i, align 8
+  %cmp3.i.i.i = icmp ult i64 %2, 16
   call void @llvm.assume(i1 %cmp3.i.i.i)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 if.then.i.i:                                      ; preds = %entry
-  call void @_ZdlPv(ptr noundef %1) #26
+  call void @_ZdlPv(ptr noundef %0) #26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %if.then.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp) #14
   %my_size.i.i = getelementptr inbounds i8, ptr %ctx, i64 2856
-  %4 = atomicrmw add ptr %my_size.i.i, i64 1 seq_cst, align 8, !noalias !6
+  %3 = atomicrmw add ptr %my_size.i.i, i64 1 seq_cst, align 8, !noalias !6
   %my_first_block.i.i.i = getelementptr inbounds i8, ptr %ctx, i64 2848
-  %5 = load atomic i64, ptr %my_first_block.i.i.i monotonic, align 8, !noalias !6
-  %cmp.i.i.i2 = icmp eq i64 %5, 0
+  %4 = load atomic i64, ptr %my_first_block.i.i.i monotonic, align 8, !noalias !6
+  %cmp.i.i.i2 = icmp eq i64 %4, 0
   br i1 %cmp.i.i.i2, label %seqcst_fail50.i.i.i.i, label %_ZN3tbb6detail2d117concurrent_vectorISt10unique_ptrIN4mold3elf10ObjectFileINS5_7SPARC64EEESt14default_deleteIS8_EENS1_23cache_aligned_allocatorISB_EEE12emplace_backIJRPS8_EEENS1_15vector_iteratorISE_SB_EEDpOT_.exit
 
 seqcst_fail50.i.i.i.i:                            ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %6 = cmpxchg ptr %my_first_block.i.i.i, i64 0, i64 1 seq_cst seq_cst, align 8, !noalias !6
+  %5 = cmpxchg ptr %my_first_block.i.i.i, i64 0, i64 1 seq_cst seq_cst, align 8, !noalias !6
   br label %_ZN3tbb6detail2d117concurrent_vectorISt10unique_ptrIN4mold3elf10ObjectFileINS5_7SPARC64EEESt14default_deleteIS8_EENS1_23cache_aligned_allocatorISB_EEE12emplace_backIJRPS8_EEENS1_15vector_iteratorISE_SB_EEDpOT_.exit
 
 _ZN3tbb6detail2d117concurrent_vectorISt10unique_ptrIN4mold3elf10ObjectFileINS5_7SPARC64EEESt14default_deleteIS8_EENS1_23cache_aligned_allocatorISB_EEE12emplace_backIJRPS8_EEENS1_15vector_iteratorISE_SB_EEDpOT_.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %seqcst_fail50.i.i.i.i
   %obj_pool = getelementptr inbounds i8, ptr %ctx, i64 2800
-  %call2.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3tbb6detail2d113segment_tableISt10unique_ptrIN4mold3elf10ObjectFileINS5_7SPARC64EEESt14default_deleteIS8_EENS1_23cache_aligned_allocatorISB_EENS1_17concurrent_vectorISB_SD_EELm3EE18internal_subscriptILb1EEERSB_m(ptr noundef nonnull align 8 dereferenceable(65) %obj_pool, i64 noundef %4), !noalias !6
+  %call2.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3tbb6detail2d113segment_tableISt10unique_ptrIN4mold3elf10ObjectFileINS5_7SPARC64EEESt14default_deleteIS8_EENS1_23cache_aligned_allocatorISB_EENS1_17concurrent_vectorISB_SD_EELm3EE18internal_subscriptILb1EEERSB_m(ptr noundef nonnull align 8 dereferenceable(65) %obj_pool, i64 noundef %3), !noalias !6
   store ptr %call, ptr %call2.i.i, align 8, !noalias !6
   ret ptr %call
 }
@@ -9544,48 +9516,22 @@ _ZN4mold7SyncOutINS_3elf7ContextINS1_7SPARC64EEEElsIRA46_KcEERS5_OT_.exit: ; pre
 ; Function Attrs: mustprogress nounwind
 define weak_odr dso_local noundef ptr @_ZN4mold3elf10SharedFileINS0_7SPARC64EE6createERNS0_7ContextIS2_EEPNS_10MappedFileIS5_EE(ptr noundef nonnull align 8 dereferenceable(4584) %ctx, ptr noundef %mf) local_unnamed_addr #4 comdat align 2 {
 entry:
-  %ref.tmp.i.i = alloca %"class.std::allocator", align 1
   %call = tail call noalias noundef nonnull dereferenceable(424) ptr @_Znwm(i64 noundef 424) #28
-  tail call void @_ZN4mold3elf9InputFileINS0_7SPARC64EEC2ERNS0_7ContextIS2_EEPNS_10MappedFileIS5_EE(ptr noundef nonnull align 8 dereferenceable(280) %call, ptr noundef nonnull align 8 dereferenceable(4584) %ctx, ptr noundef %mf)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4mold3elf10SharedFileINS0_7SPARC64EEE, i64 0, i32 0, i64 2), ptr %call, align 8
-  %soname.i = getelementptr inbounds i8, ptr %call, i64 280
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i)
-  %0 = getelementptr inbounds i8, ptr %call, i64 296
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #14
-  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %soname.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #14
-  store ptr %0, ptr %soname.i, align 8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #14
-  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 288
-  store i64 0, ptr %_M_string_length.i.i.i.i, align 8
-  %1 = load ptr, ptr %soname.i, align 8
-  store i8 0, ptr %1, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i)
-  %version_strings.i = getelementptr inbounds i8, ptr %call, i64 312
-  %init_aliases.i = getelementptr inbounds i8, ptr %call, i64 392
-  store i32 0, ptr %init_aliases.i, align 4
-  %aliases.i = getelementptr inbounds i8, ptr %call, i64 400
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %aliases.i, i8 0, i64 24, i1 false)
-  %as_needed.i = getelementptr inbounds i8, ptr %ctx, i64 1200
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %version_strings.i, i8 0, i64 72, i1 false)
-  %2 = load i8, ptr %as_needed.i, align 8
-  %is_alive.i = getelementptr inbounds i8, ptr %call, i64 120
-  %lnot.i = and i8 %2, 1
-  %frombool.i.i.i.i = xor i8 %lnot.i, 1
-  store atomic i8 %frombool.i.i.i.i, ptr %is_alive.i monotonic, align 1
+  tail call void @_ZN4mold3elf10SharedFileINS0_7SPARC64EEC1ERNS0_7ContextIS2_EEPNS_10MappedFileIS5_EE(ptr noundef nonnull align 8 dereferenceable(424) %call, ptr noundef nonnull align 8 dereferenceable(4584) %ctx, ptr noundef %mf) #14
   %my_size.i.i = getelementptr inbounds i8, ptr %ctx, i64 2928
-  %3 = atomicrmw add ptr %my_size.i.i, i64 1 seq_cst, align 8, !noalias !112
+  %0 = atomicrmw add ptr %my_size.i.i, i64 1 seq_cst, align 8, !noalias !112
   %my_first_block.i.i.i = getelementptr inbounds i8, ptr %ctx, i64 2920
-  %4 = load atomic i64, ptr %my_first_block.i.i.i monotonic, align 8, !noalias !112
-  %cmp.i.i.i = icmp eq i64 %4, 0
+  %1 = load atomic i64, ptr %my_first_block.i.i.i monotonic, align 8, !noalias !112
+  %cmp.i.i.i = icmp eq i64 %1, 0
   br i1 %cmp.i.i.i, label %seqcst_fail50.i.i.i.i, label %_ZN3tbb6detail2d117concurrent_vectorISt10unique_ptrIN4mold3elf10SharedFileINS5_7SPARC64EEESt14default_deleteIS8_EENS1_23cache_aligned_allocatorISB_EEE12emplace_backIJRPS8_EEENS1_15vector_iteratorISE_SB_EEDpOT_.exit
 
 seqcst_fail50.i.i.i.i:                            ; preds = %entry
-  %5 = cmpxchg ptr %my_first_block.i.i.i, i64 0, i64 1 seq_cst seq_cst, align 8, !noalias !112
+  %2 = cmpxchg ptr %my_first_block.i.i.i, i64 0, i64 1 seq_cst seq_cst, align 8, !noalias !112
   br label %_ZN3tbb6detail2d117concurrent_vectorISt10unique_ptrIN4mold3elf10SharedFileINS5_7SPARC64EEESt14default_deleteIS8_EENS1_23cache_aligned_allocatorISB_EEE12emplace_backIJRPS8_EEENS1_15vector_iteratorISE_SB_EEDpOT_.exit
 
 _ZN3tbb6detail2d117concurrent_vectorISt10unique_ptrIN4mold3elf10SharedFileINS5_7SPARC64EEESt14default_deleteIS8_EENS1_23cache_aligned_allocatorISB_EEE12emplace_backIJRPS8_EEENS1_15vector_iteratorISE_SB_EEDpOT_.exit: ; preds = %entry, %seqcst_fail50.i.i.i.i
   %dso_pool = getelementptr inbounds i8, ptr %ctx, i64 2872
-  %call2.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3tbb6detail2d113segment_tableISt10unique_ptrIN4mold3elf10SharedFileINS5_7SPARC64EEESt14default_deleteIS8_EENS1_23cache_aligned_allocatorISB_EENS1_17concurrent_vectorISB_SD_EELm3EE18internal_subscriptILb1EEERSB_m(ptr noundef nonnull align 8 dereferenceable(65) %dso_pool, i64 noundef %3), !noalias !112
+  %call2.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3tbb6detail2d113segment_tableISt10unique_ptrIN4mold3elf10SharedFileINS5_7SPARC64EEESt14default_deleteIS8_EENS1_23cache_aligned_allocatorISB_EENS1_17concurrent_vectorISB_SD_EELm3EE18internal_subscriptILb1EEERSB_m(ptr noundef nonnull align 8 dereferenceable(65) %dso_pool, i64 noundef %0), !noalias !112
   store ptr %call, ptr %call2.i.i, align 8, !noalias !112
   ret ptr %call
 }

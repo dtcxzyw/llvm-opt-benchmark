@@ -310,28 +310,15 @@ entry:
 cond.true.i.i.i.i.i:                              ; preds = %entry
   %heapStorage_.i.i = getelementptr inbounds i8, ptr %runtime, i64 840
   %call3.i.i.i.i.i = tail call noundef ptr @_ZN6hermes2vm7HadesGC9allocSlowEj(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i, i32 noundef %div1.i.i.i.i) #15
-  br label %_ZN6hermes2vm7HadesGC9allocWorkILb0ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i
+  br label %_ZN6hermes2vm7Runtime13makeAVariableINS0_22DynamicStringPrimitiveIDsLb1EEELNS0_12HasFinalizerE0ELNS0_9LongLivedE0EJRN4llvh8ArrayRefIDsEEEEEPT_jDpOT2_.exit
 
 cond.false.i.i.i.i.i:                             ; preds = %entry
   store ptr %add.ptr.i.i.i.i.i.i, ptr %level_.i.i.i.i.i.i, align 8
-  br label %_ZN6hermes2vm7HadesGC9allocWorkILb0ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i
-
-_ZN6hermes2vm7HadesGC9allocWorkILb0ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i: ; preds = %cond.false.i.i.i.i.i, %cond.true.i.i.i.i.i
-  %cond.i.i.i.i.i = phi ptr [ %call3.i.i.i.i.i, %cond.true.i.i.i.i.i ], [ %0, %cond.false.i.i.i.i.i ]
-  %lengthAndUniquedFlag_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 4
-  store i32 %conv, ptr %lengthAndUniquedFlag_.i.i.i.i.i.i.i.i.i, align 4
-  %weakUniqueID_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 8
-  store i32 536870911, ptr %weakUniqueID_.i.i.i.i.i.i.i.i, align 4
-  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %str.coerce1, 0
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN6hermes2vm7Runtime13makeAVariableINS0_22DynamicStringPrimitiveIDsLb1EEELNS0_12HasFinalizerE0ELNS0_9LongLivedE0EJRN4llvh8ArrayRefIDsEEEEEPT_jDpOT2_.exit, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %_ZN6hermes2vm7HadesGC9allocWorkILb0ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i
-  %add.ptr.i.idx.i.i.i.i.i.i = shl nsw i64 %str.coerce1, 1
-  %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 12
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i.i.i.i.i.i, ptr align 2 %str.coerce0, i64 %add.ptr.i.idx.i.i.i.i.i.i, i1 false)
   br label %_ZN6hermes2vm7Runtime13makeAVariableINS0_22DynamicStringPrimitiveIDsLb1EEELNS0_12HasFinalizerE0ELNS0_9LongLivedE0EJRN4llvh8ArrayRefIDsEEEEEPT_jDpOT2_.exit
 
-_ZN6hermes2vm7Runtime13makeAVariableINS0_22DynamicStringPrimitiveIDsLb1EEELNS0_12HasFinalizerE0ELNS0_9LongLivedE0EJRN4llvh8ArrayRefIDsEEEEEPT_jDpOT2_.exit: ; preds = %_ZN6hermes2vm7HadesGC9allocWorkILb0ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i
+_ZN6hermes2vm7Runtime13makeAVariableINS0_22DynamicStringPrimitiveIDsLb1EEELNS0_12HasFinalizerE0ELNS0_9LongLivedE0EJRN4llvh8ArrayRefIDsEEEEEPT_jDpOT2_.exit: ; preds = %cond.true.i.i.i.i.i, %cond.false.i.i.i.i.i
+  %cond.i.i.i.i.i = phi ptr [ %call3.i.i.i.i.i, %cond.true.i.i.i.i.i ], [ %0, %cond.false.i.i.i.i.i ]
+  tail call void @_ZN6hermes2vm22DynamicStringPrimitiveIDsLb1EEC1EN4llvh8ArrayRefIDsEE(ptr noundef nonnull align 4 dereferenceable(12) %cond.i.i.i.i.i, ptr %str.coerce0, i64 %str.coerce1) #15
   %bf.value.i.i.i.i.i.i = and i32 %sub.i.i.i.i, 16777208
   %bf.set7.i.i.i.i.i.i = or disjoint i32 %bf.value.i.i.i.i.i.i, 117440512
   store i32 %bf.set7.i.i.i.i.i.i, ptr %cond.i.i.i.i.i, align 4
@@ -361,20 +348,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %lk.i.i.i.i)
   call void @_ZN6hermes2vm7HadesGC19pauseBackgroundTaskEv(ptr nonnull sret(%"class.std::lock_guard") align 8 %lk.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i) #15
   %call.i.i.i.i = call noundef ptr @_ZN6hermes2vm7HadesGC14allocLongLivedEj(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i, i32 noundef %div1.i.i.i.i) #15
-  %lengthAndUniquedFlag_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 4
-  store i32 %conv, ptr %lengthAndUniquedFlag_.i.i.i.i.i.i.i.i.i, align 4
-  %weakUniqueID_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
-  store i32 536870911, ptr %weakUniqueID_.i.i.i.i.i.i.i.i, align 4
-  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %str.coerce1, 0
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN6hermes2vm7Runtime13makeAVariableINS0_22DynamicStringPrimitiveIDsLb1EEELNS0_12HasFinalizerE0ELNS0_9LongLivedE1EJRN4llvh8ArrayRefIDsEEEEEPT_jDpOT2_.exit, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %entry
-  %add.ptr.i.idx.i.i.i.i.i.i = shl nsw i64 %str.coerce1, 1
-  %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 12
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i.i.i.i.i.i, ptr align 2 %str.coerce0, i64 %add.ptr.i.idx.i.i.i.i.i.i, i1 false)
-  br label %_ZN6hermes2vm7Runtime13makeAVariableINS0_22DynamicStringPrimitiveIDsLb1EEELNS0_12HasFinalizerE0ELNS0_9LongLivedE1EJRN4llvh8ArrayRefIDsEEEEEPT_jDpOT2_.exit
-
-_ZN6hermes2vm7Runtime13makeAVariableINS0_22DynamicStringPrimitiveIDsLb1EEELNS0_12HasFinalizerE0ELNS0_9LongLivedE1EJRN4llvh8ArrayRefIDsEEEEEPT_jDpOT2_.exit: ; preds = %entry, %if.then.i.i.i.i.i.i.i.i.i.i.i.i
+  call void @_ZN6hermes2vm22DynamicStringPrimitiveIDsLb1EEC1EN4llvh8ArrayRefIDsEE(ptr noundef nonnull align 4 dereferenceable(12) %call.i.i.i.i, ptr %str.coerce0, i64 %str.coerce1) #15
   %bf.value.i.i.i.i.i.i = and i32 %sub.i.i.i.i, 16777208
   %bf.set7.i.i.i.i.i.i = or disjoint i32 %bf.value.i.i.i.i.i.i, 117440512
   store i32 %bf.set7.i.i.i.i.i.i, ptr %call.i.i.i.i, align 4
@@ -413,10 +387,7 @@ cond.false.i.i.i.i.i:                             ; preds = %entry
 
 _ZN6hermes2vm7Runtime13makeAVariableINS0_22DynamicStringPrimitiveIDsLb1EEELNS0_12HasFinalizerE0ELNS0_9LongLivedE0EJRjEEEPT_jDpOT2_.exit: ; preds = %cond.true.i.i.i.i.i, %cond.false.i.i.i.i.i
   %cond.i.i.i.i.i = phi ptr [ %call3.i.i.i.i.i, %cond.true.i.i.i.i.i ], [ %0, %cond.false.i.i.i.i.i ]
-  %lengthAndUniquedFlag_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 4
-  store i32 %length, ptr %lengthAndUniquedFlag_.i.i.i.i.i.i.i.i, align 4
-  %weakUniqueID_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 8
-  store i32 536870911, ptr %weakUniqueID_.i.i.i.i.i.i.i, align 4
+  tail call void @_ZN6hermes2vm22DynamicStringPrimitiveIDsLb1EEC1Ej(ptr noundef nonnull align 4 dereferenceable(12) %cond.i.i.i.i.i, i32 noundef %length) #15
   %bf.value.i.i.i.i.i.i = and i32 %sub.i.i.i.i, 16777208
   %bf.set7.i.i.i.i.i.i = or disjoint i32 %bf.value.i.i.i.i.i.i, 117440512
   store i32 %bf.set7.i.i.i.i.i.i, ptr %cond.i.i.i.i.i, align 4
@@ -503,27 +474,15 @@ entry:
 cond.true.i.i.i.i.i:                              ; preds = %entry
   %heapStorage_.i.i = getelementptr inbounds i8, ptr %runtime, i64 840
   %call3.i.i.i.i.i = tail call noundef ptr @_ZN6hermes2vm7HadesGC9allocSlowEj(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i, i32 noundef %div1.i.i.i.i) #15
-  br label %_ZN6hermes2vm7HadesGC9allocWorkILb0ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i
+  br label %_ZN6hermes2vm7Runtime13makeAVariableINS0_22DynamicStringPrimitiveIcLb1EEELNS0_12HasFinalizerE0ELNS0_9LongLivedE0EJRN4llvh8ArrayRefIcEEEEEPT_jDpOT2_.exit
 
 cond.false.i.i.i.i.i:                             ; preds = %entry
   store ptr %add.ptr.i.i.i.i.i.i, ptr %level_.i.i.i.i.i.i, align 8
-  br label %_ZN6hermes2vm7HadesGC9allocWorkILb0ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i
-
-_ZN6hermes2vm7HadesGC9allocWorkILb0ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i: ; preds = %cond.false.i.i.i.i.i, %cond.true.i.i.i.i.i
-  %cond.i.i.i.i.i = phi ptr [ %call3.i.i.i.i.i, %cond.true.i.i.i.i.i ], [ %0, %cond.false.i.i.i.i.i ]
-  %lengthAndUniquedFlag_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 4
-  store i32 %conv, ptr %lengthAndUniquedFlag_.i.i.i.i.i.i.i.i.i, align 4
-  %weakUniqueID_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 8
-  store i32 536870911, ptr %weakUniqueID_.i.i.i.i.i.i.i.i, align 4
-  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %str.coerce1, 0
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN6hermes2vm7Runtime13makeAVariableINS0_22DynamicStringPrimitiveIcLb1EEELNS0_12HasFinalizerE0ELNS0_9LongLivedE0EJRN4llvh8ArrayRefIcEEEEEPT_jDpOT2_.exit, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %_ZN6hermes2vm7HadesGC9allocWorkILb0ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i
-  %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 12
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i.i.i.i.i.i, ptr align 1 %str.coerce0, i64 %str.coerce1, i1 false)
   br label %_ZN6hermes2vm7Runtime13makeAVariableINS0_22DynamicStringPrimitiveIcLb1EEELNS0_12HasFinalizerE0ELNS0_9LongLivedE0EJRN4llvh8ArrayRefIcEEEEEPT_jDpOT2_.exit
 
-_ZN6hermes2vm7Runtime13makeAVariableINS0_22DynamicStringPrimitiveIcLb1EEELNS0_12HasFinalizerE0ELNS0_9LongLivedE0EJRN4llvh8ArrayRefIcEEEEEPT_jDpOT2_.exit: ; preds = %_ZN6hermes2vm7HadesGC9allocWorkILb0ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i
+_ZN6hermes2vm7Runtime13makeAVariableINS0_22DynamicStringPrimitiveIcLb1EEELNS0_12HasFinalizerE0ELNS0_9LongLivedE0EJRN4llvh8ArrayRefIcEEEEEPT_jDpOT2_.exit: ; preds = %cond.true.i.i.i.i.i, %cond.false.i.i.i.i.i
+  %cond.i.i.i.i.i = phi ptr [ %call3.i.i.i.i.i, %cond.true.i.i.i.i.i ], [ %0, %cond.false.i.i.i.i.i ]
+  tail call void @_ZN6hermes2vm22DynamicStringPrimitiveIcLb1EEC1EN4llvh8ArrayRefIcEE(ptr noundef nonnull align 4 dereferenceable(12) %cond.i.i.i.i.i, ptr %str.coerce0, i64 %str.coerce1) #15
   %bf.value.i.i.i.i.i.i = and i32 %sub.i.i.i.i, 16777208
   %bf.set7.i.i.i.i.i.i = or disjoint i32 %bf.value.i.i.i.i.i.i, 134217728
   store i32 %bf.set7.i.i.i.i.i.i, ptr %cond.i.i.i.i.i, align 4
@@ -551,19 +510,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %lk.i.i.i.i)
   call void @_ZN6hermes2vm7HadesGC19pauseBackgroundTaskEv(ptr nonnull sret(%"class.std::lock_guard") align 8 %lk.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i) #15
   %call.i.i.i.i = call noundef ptr @_ZN6hermes2vm7HadesGC14allocLongLivedEj(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i, i32 noundef %div1.i.i.i.i) #15
-  %lengthAndUniquedFlag_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 4
-  store i32 %conv, ptr %lengthAndUniquedFlag_.i.i.i.i.i.i.i.i.i, align 4
-  %weakUniqueID_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
-  store i32 536870911, ptr %weakUniqueID_.i.i.i.i.i.i.i.i, align 4
-  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %str.coerce1, 0
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN6hermes2vm7Runtime13makeAVariableINS0_22DynamicStringPrimitiveIcLb1EEELNS0_12HasFinalizerE0ELNS0_9LongLivedE1EJRN4llvh8ArrayRefIcEEEEEPT_jDpOT2_.exit, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %entry
-  %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 12
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i.i.i.i.i.i, ptr align 1 %str.coerce0, i64 %str.coerce1, i1 false)
-  br label %_ZN6hermes2vm7Runtime13makeAVariableINS0_22DynamicStringPrimitiveIcLb1EEELNS0_12HasFinalizerE0ELNS0_9LongLivedE1EJRN4llvh8ArrayRefIcEEEEEPT_jDpOT2_.exit
-
-_ZN6hermes2vm7Runtime13makeAVariableINS0_22DynamicStringPrimitiveIcLb1EEELNS0_12HasFinalizerE0ELNS0_9LongLivedE1EJRN4llvh8ArrayRefIcEEEEEPT_jDpOT2_.exit: ; preds = %entry, %if.then.i.i.i.i.i.i.i.i.i.i.i.i
+  call void @_ZN6hermes2vm22DynamicStringPrimitiveIcLb1EEC1EN4llvh8ArrayRefIcEE(ptr noundef nonnull align 4 dereferenceable(12) %call.i.i.i.i, ptr %str.coerce0, i64 %str.coerce1) #15
   %bf.value.i.i.i.i.i.i = and i32 %sub.i.i.i.i, 16777208
   %bf.set7.i.i.i.i.i.i = or disjoint i32 %bf.value.i.i.i.i.i.i, 134217728
   store i32 %bf.set7.i.i.i.i.i.i, ptr %call.i.i.i.i, align 4
@@ -601,10 +548,7 @@ cond.false.i.i.i.i.i:                             ; preds = %entry
 
 _ZN6hermes2vm7Runtime13makeAVariableINS0_22DynamicStringPrimitiveIcLb1EEELNS0_12HasFinalizerE0ELNS0_9LongLivedE0EJRjEEEPT_jDpOT2_.exit: ; preds = %cond.true.i.i.i.i.i, %cond.false.i.i.i.i.i
   %cond.i.i.i.i.i = phi ptr [ %call3.i.i.i.i.i, %cond.true.i.i.i.i.i ], [ %0, %cond.false.i.i.i.i.i ]
-  %lengthAndUniquedFlag_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 4
-  store i32 %length, ptr %lengthAndUniquedFlag_.i.i.i.i.i.i.i.i, align 4
-  %weakUniqueID_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 8
-  store i32 536870911, ptr %weakUniqueID_.i.i.i.i.i.i.i, align 4
+  tail call void @_ZN6hermes2vm22DynamicStringPrimitiveIcLb1EEC1Ej(ptr noundef nonnull align 4 dereferenceable(12) %cond.i.i.i.i.i, i32 noundef %length) #15
   %bf.value.i.i.i.i.i.i = and i32 %sub.i.i.i.i, 16777208
   %bf.set7.i.i.i.i.i.i = or disjoint i32 %bf.value.i.i.i.i.i.i, 134217728
   store i32 %bf.set7.i.i.i.i.i.i, ptr %cond.i.i.i.i.i, align 4
@@ -689,26 +633,15 @@ entry:
 cond.true.i.i.i.i.i:                              ; preds = %entry
   %heapStorage_.i.i = getelementptr inbounds i8, ptr %runtime, i64 840
   %call3.i.i.i.i.i = tail call noundef ptr @_ZN6hermes2vm7HadesGC9allocSlowEj(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i, i32 noundef %div1.i.i.i.i) #15
-  br label %_ZN6hermes2vm7HadesGC9allocWorkILb0ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i
+  br label %_ZN6hermes2vm7Runtime13makeAVariableINS0_22DynamicStringPrimitiveIDsLb0EEELNS0_12HasFinalizerE0ELNS0_9LongLivedE0EJRN4llvh8ArrayRefIDsEEEEEPT_jDpOT2_.exit
 
 cond.false.i.i.i.i.i:                             ; preds = %entry
   store ptr %add.ptr.i.i.i.i.i.i, ptr %level_.i.i.i.i.i.i, align 8
-  br label %_ZN6hermes2vm7HadesGC9allocWorkILb0ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i
-
-_ZN6hermes2vm7HadesGC9allocWorkILb0ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i: ; preds = %cond.false.i.i.i.i.i, %cond.true.i.i.i.i.i
-  %cond.i.i.i.i.i = phi ptr [ %call3.i.i.i.i.i, %cond.true.i.i.i.i.i ], [ %0, %cond.false.i.i.i.i.i ]
-  %lengthAndUniquedFlag_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 4
-  store i32 %conv, ptr %lengthAndUniquedFlag_.i.i.i.i.i.i.i.i, align 4
-  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %str.coerce1, 0
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN6hermes2vm7Runtime13makeAVariableINS0_22DynamicStringPrimitiveIDsLb0EEELNS0_12HasFinalizerE0ELNS0_9LongLivedE0EJRN4llvh8ArrayRefIDsEEEEEPT_jDpOT2_.exit, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %_ZN6hermes2vm7HadesGC9allocWorkILb0ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i
-  %add.ptr.i.idx.i.i.i.i.i.i = shl nsw i64 %str.coerce1, 1
-  %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 8
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i.i.i.i.i.i, ptr align 2 %str.coerce0, i64 %add.ptr.i.idx.i.i.i.i.i.i, i1 false)
   br label %_ZN6hermes2vm7Runtime13makeAVariableINS0_22DynamicStringPrimitiveIDsLb0EEELNS0_12HasFinalizerE0ELNS0_9LongLivedE0EJRN4llvh8ArrayRefIDsEEEEEPT_jDpOT2_.exit
 
-_ZN6hermes2vm7Runtime13makeAVariableINS0_22DynamicStringPrimitiveIDsLb0EEELNS0_12HasFinalizerE0ELNS0_9LongLivedE0EJRN4llvh8ArrayRefIDsEEEEEPT_jDpOT2_.exit: ; preds = %_ZN6hermes2vm7HadesGC9allocWorkILb0ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i
+_ZN6hermes2vm7Runtime13makeAVariableINS0_22DynamicStringPrimitiveIDsLb0EEELNS0_12HasFinalizerE0ELNS0_9LongLivedE0EJRN4llvh8ArrayRefIDsEEEEEPT_jDpOT2_.exit: ; preds = %cond.true.i.i.i.i.i, %cond.false.i.i.i.i.i
+  %cond.i.i.i.i.i = phi ptr [ %call3.i.i.i.i.i, %cond.true.i.i.i.i.i ], [ %0, %cond.false.i.i.i.i.i ]
+  tail call void @_ZN6hermes2vm22DynamicStringPrimitiveIDsLb0EEC1EN4llvh8ArrayRefIDsEE(ptr noundef nonnull align 4 dereferenceable(8) %cond.i.i.i.i.i, ptr %str.coerce0, i64 %str.coerce1) #15
   %bf.value.i.i.i.i.i.i = and i32 %sub.i.i.i.i, 16777208
   %bf.set7.i.i.i.i.i.i = or disjoint i32 %bf.value.i.i.i.i.i.i, 50331648
   store i32 %bf.set7.i.i.i.i.i.i, ptr %cond.i.i.i.i.i, align 4
@@ -738,18 +671,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %lk.i.i.i.i)
   call void @_ZN6hermes2vm7HadesGC19pauseBackgroundTaskEv(ptr nonnull sret(%"class.std::lock_guard") align 8 %lk.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i) #15
   %call.i.i.i.i = call noundef ptr @_ZN6hermes2vm7HadesGC14allocLongLivedEj(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i, i32 noundef %div1.i.i.i.i) #15
-  %lengthAndUniquedFlag_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 4
-  store i32 %conv, ptr %lengthAndUniquedFlag_.i.i.i.i.i.i.i.i, align 4
-  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %str.coerce1, 0
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN6hermes2vm7Runtime13makeAVariableINS0_22DynamicStringPrimitiveIDsLb0EEELNS0_12HasFinalizerE0ELNS0_9LongLivedE1EJRN4llvh8ArrayRefIDsEEEEEPT_jDpOT2_.exit, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %entry
-  %add.ptr.i.idx.i.i.i.i.i.i = shl nsw i64 %str.coerce1, 1
-  %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i.i.i.i.i.i, ptr align 2 %str.coerce0, i64 %add.ptr.i.idx.i.i.i.i.i.i, i1 false)
-  br label %_ZN6hermes2vm7Runtime13makeAVariableINS0_22DynamicStringPrimitiveIDsLb0EEELNS0_12HasFinalizerE0ELNS0_9LongLivedE1EJRN4llvh8ArrayRefIDsEEEEEPT_jDpOT2_.exit
-
-_ZN6hermes2vm7Runtime13makeAVariableINS0_22DynamicStringPrimitiveIDsLb0EEELNS0_12HasFinalizerE0ELNS0_9LongLivedE1EJRN4llvh8ArrayRefIDsEEEEEPT_jDpOT2_.exit: ; preds = %entry, %if.then.i.i.i.i.i.i.i.i.i.i.i.i
+  call void @_ZN6hermes2vm22DynamicStringPrimitiveIDsLb0EEC1EN4llvh8ArrayRefIDsEE(ptr noundef nonnull align 4 dereferenceable(8) %call.i.i.i.i, ptr %str.coerce0, i64 %str.coerce1) #15
   %bf.value.i.i.i.i.i.i = and i32 %sub.i.i.i.i, 16777208
   %bf.set7.i.i.i.i.i.i = or disjoint i32 %bf.value.i.i.i.i.i.i, 50331648
   store i32 %bf.set7.i.i.i.i.i.i, ptr %call.i.i.i.i, align 4
@@ -788,8 +710,7 @@ cond.false.i.i.i.i.i:                             ; preds = %entry
 
 _ZN6hermes2vm7Runtime13makeAVariableINS0_22DynamicStringPrimitiveIDsLb0EEELNS0_12HasFinalizerE0ELNS0_9LongLivedE0EJRjEEEPT_jDpOT2_.exit: ; preds = %cond.true.i.i.i.i.i, %cond.false.i.i.i.i.i
   %cond.i.i.i.i.i = phi ptr [ %call3.i.i.i.i.i, %cond.true.i.i.i.i.i ], [ %0, %cond.false.i.i.i.i.i ]
-  %lengthAndUniquedFlag_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 4
-  store i32 %length, ptr %lengthAndUniquedFlag_.i.i.i.i.i.i.i, align 4
+  tail call void @_ZN6hermes2vm22DynamicStringPrimitiveIDsLb0EEC1Ej(ptr noundef nonnull align 4 dereferenceable(8) %cond.i.i.i.i.i, i32 noundef %length) #15
   %bf.value.i.i.i.i.i.i = and i32 %sub.i.i.i.i, 16777208
   %bf.set7.i.i.i.i.i.i = or disjoint i32 %bf.value.i.i.i.i.i.i, 50331648
   store i32 %bf.set7.i.i.i.i.i.i, ptr %cond.i.i.i.i.i, align 4
@@ -872,25 +793,15 @@ entry:
 cond.true.i.i.i.i.i:                              ; preds = %entry
   %heapStorage_.i.i = getelementptr inbounds i8, ptr %runtime, i64 840
   %call3.i.i.i.i.i = tail call noundef ptr @_ZN6hermes2vm7HadesGC9allocSlowEj(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i, i32 noundef %div1.i.i.i.i) #15
-  br label %_ZN6hermes2vm7HadesGC9allocWorkILb0ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i
+  br label %_ZN6hermes2vm7Runtime13makeAVariableINS0_22DynamicStringPrimitiveIcLb0EEELNS0_12HasFinalizerE0ELNS0_9LongLivedE0EJRN4llvh8ArrayRefIcEEEEEPT_jDpOT2_.exit
 
 cond.false.i.i.i.i.i:                             ; preds = %entry
   store ptr %add.ptr.i.i.i.i.i.i, ptr %level_.i.i.i.i.i.i, align 8
-  br label %_ZN6hermes2vm7HadesGC9allocWorkILb0ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i
-
-_ZN6hermes2vm7HadesGC9allocWorkILb0ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i: ; preds = %cond.false.i.i.i.i.i, %cond.true.i.i.i.i.i
-  %cond.i.i.i.i.i = phi ptr [ %call3.i.i.i.i.i, %cond.true.i.i.i.i.i ], [ %0, %cond.false.i.i.i.i.i ]
-  %lengthAndUniquedFlag_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 4
-  store i32 %conv, ptr %lengthAndUniquedFlag_.i.i.i.i.i.i.i.i, align 4
-  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %str.coerce1, 0
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN6hermes2vm7Runtime13makeAVariableINS0_22DynamicStringPrimitiveIcLb0EEELNS0_12HasFinalizerE0ELNS0_9LongLivedE0EJRN4llvh8ArrayRefIcEEEEEPT_jDpOT2_.exit, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %_ZN6hermes2vm7HadesGC9allocWorkILb0ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i
-  %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 8
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i.i.i.i.i.i, ptr align 1 %str.coerce0, i64 %str.coerce1, i1 false)
   br label %_ZN6hermes2vm7Runtime13makeAVariableINS0_22DynamicStringPrimitiveIcLb0EEELNS0_12HasFinalizerE0ELNS0_9LongLivedE0EJRN4llvh8ArrayRefIcEEEEEPT_jDpOT2_.exit
 
-_ZN6hermes2vm7Runtime13makeAVariableINS0_22DynamicStringPrimitiveIcLb0EEELNS0_12HasFinalizerE0ELNS0_9LongLivedE0EJRN4llvh8ArrayRefIcEEEEEPT_jDpOT2_.exit: ; preds = %_ZN6hermes2vm7HadesGC9allocWorkILb0ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i
+_ZN6hermes2vm7Runtime13makeAVariableINS0_22DynamicStringPrimitiveIcLb0EEELNS0_12HasFinalizerE0ELNS0_9LongLivedE0EJRN4llvh8ArrayRefIcEEEEEPT_jDpOT2_.exit: ; preds = %cond.true.i.i.i.i.i, %cond.false.i.i.i.i.i
+  %cond.i.i.i.i.i = phi ptr [ %call3.i.i.i.i.i, %cond.true.i.i.i.i.i ], [ %0, %cond.false.i.i.i.i.i ]
+  tail call void @_ZN6hermes2vm22DynamicStringPrimitiveIcLb0EEC1EN4llvh8ArrayRefIcEE(ptr noundef nonnull align 4 dereferenceable(8) %cond.i.i.i.i.i, ptr %str.coerce0, i64 %str.coerce1) #15
   %bf.value.i.i.i.i.i.i = and i32 %sub.i.i.i.i, 16777208
   %bf.set7.i.i.i.i.i.i = or disjoint i32 %bf.value.i.i.i.i.i.i, 67108864
   store i32 %bf.set7.i.i.i.i.i.i, ptr %cond.i.i.i.i.i, align 4
@@ -918,17 +829,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %lk.i.i.i.i)
   call void @_ZN6hermes2vm7HadesGC19pauseBackgroundTaskEv(ptr nonnull sret(%"class.std::lock_guard") align 8 %lk.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i) #15
   %call.i.i.i.i = call noundef ptr @_ZN6hermes2vm7HadesGC14allocLongLivedEj(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i, i32 noundef %div1.i.i.i.i) #15
-  %lengthAndUniquedFlag_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 4
-  store i32 %conv, ptr %lengthAndUniquedFlag_.i.i.i.i.i.i.i.i, align 4
-  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %str.coerce1, 0
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN6hermes2vm7Runtime13makeAVariableINS0_22DynamicStringPrimitiveIcLb0EEELNS0_12HasFinalizerE0ELNS0_9LongLivedE1EJRN4llvh8ArrayRefIcEEEEEPT_jDpOT2_.exit, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %entry
-  %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i.i.i.i.i.i, ptr align 1 %str.coerce0, i64 %str.coerce1, i1 false)
-  br label %_ZN6hermes2vm7Runtime13makeAVariableINS0_22DynamicStringPrimitiveIcLb0EEELNS0_12HasFinalizerE0ELNS0_9LongLivedE1EJRN4llvh8ArrayRefIcEEEEEPT_jDpOT2_.exit
-
-_ZN6hermes2vm7Runtime13makeAVariableINS0_22DynamicStringPrimitiveIcLb0EEELNS0_12HasFinalizerE0ELNS0_9LongLivedE1EJRN4llvh8ArrayRefIcEEEEEPT_jDpOT2_.exit: ; preds = %entry, %if.then.i.i.i.i.i.i.i.i.i.i.i.i
+  call void @_ZN6hermes2vm22DynamicStringPrimitiveIcLb0EEC1EN4llvh8ArrayRefIcEE(ptr noundef nonnull align 4 dereferenceable(8) %call.i.i.i.i, ptr %str.coerce0, i64 %str.coerce1) #15
   %bf.value.i.i.i.i.i.i = and i32 %sub.i.i.i.i, 16777208
   %bf.set7.i.i.i.i.i.i = or disjoint i32 %bf.value.i.i.i.i.i.i, 67108864
   store i32 %bf.set7.i.i.i.i.i.i, ptr %call.i.i.i.i, align 4
@@ -966,8 +867,7 @@ cond.false.i.i.i.i.i:                             ; preds = %entry
 
 _ZN6hermes2vm7Runtime13makeAVariableINS0_22DynamicStringPrimitiveIcLb0EEELNS0_12HasFinalizerE0ELNS0_9LongLivedE0EJRjEEEPT_jDpOT2_.exit: ; preds = %cond.true.i.i.i.i.i, %cond.false.i.i.i.i.i
   %cond.i.i.i.i.i = phi ptr [ %call3.i.i.i.i.i, %cond.true.i.i.i.i.i ], [ %0, %cond.false.i.i.i.i.i ]
-  %lengthAndUniquedFlag_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 4
-  store i32 %length, ptr %lengthAndUniquedFlag_.i.i.i.i.i.i.i, align 4
+  tail call void @_ZN6hermes2vm22DynamicStringPrimitiveIcLb0EEC1Ej(ptr noundef nonnull align 4 dereferenceable(8) %cond.i.i.i.i.i, i32 noundef %length) #15
   %bf.value.i.i.i.i.i.i = and i32 %sub.i.i.i.i, 16777208
   %bf.set7.i.i.i.i.i.i = or disjoint i32 %bf.value.i.i.i.i.i.i, 67108864
   store i32 %bf.set7.i.i.i.i.i.i, ptr %cond.i.i.i.i.i, align 4
@@ -1852,35 +1752,15 @@ entry:
 cond.true.i.i.i.i.i:                              ; preds = %entry
   %heapStorage_.i.i = getelementptr inbounds i8, ptr %runtime, i64 840
   %call3.i.i.i.i.i = tail call noundef ptr @_ZN6hermes2vm7HadesGC9allocSlowEj(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i, i32 noundef 16) #15
-  br label %_ZN6hermes2vm7HadesGC9allocWorkILb0ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i
+  br label %_ZN6hermes2vm7Runtime13makeAVariableINS0_23BufferedStringPrimitiveIDsEELNS0_12HasFinalizerE0ELNS0_9LongLivedE0EJRS1_RjRNS0_6HandleINS0_23ExternalStringPrimitiveIDsEEEEEEEPT_jDpOT2_.exit
 
 cond.false.i.i.i.i.i:                             ; preds = %entry
   store ptr %add.ptr.i.i.i.i.i.i, ptr %level_.i.i.i.i.i.i, align 8
-  br label %_ZN6hermes2vm7HadesGC9allocWorkILb0ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i
-
-_ZN6hermes2vm7HadesGC9allocWorkILb0ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i: ; preds = %cond.false.i.i.i.i.i, %cond.true.i.i.i.i.i
-  %cond.i.i.i.i.i = phi ptr [ %call3.i.i.i.i.i, %cond.true.i.i.i.i.i ], [ %0, %cond.false.i.i.i.i.i ]
-  %lengthAndUniquedFlag_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 4
-  store i32 %length, ptr %lengthAndUniquedFlag_.i.i.i.i.i.i.i, align 4
-  %concatBufferHV_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 8
-  store i64 -1688849860263936, ptr %concatBufferHV_.i.i.i.i.i.i, align 8
-  %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %storage.coerce, align 8
-  %or.i.i.i.i.i.i.i.i.i = or i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, -281474976710656
-  %youngGen_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 1640
-  %2 = load ptr, ptr %youngGen_.i.i.i.i.i.i.i.i.i, align 8
-  %3 = ptrtoint ptr %concatBufferHV_.i.i.i.i.i.i to i64
-  %and.i.i.i.i.i.i.i.i.i.i = and i64 %3, -4194304
-  %4 = inttoptr i64 %and.i.i.i.i.i.i.i.i.i.i to ptr
-  %cmp.i.i.i.i.i.i.i.i.i = icmp eq ptr %2, %4
-  br i1 %cmp.i.i.i.i.i.i.i.i.i, label %_ZN6hermes2vm7Runtime13makeAVariableINS0_23BufferedStringPrimitiveIDsEELNS0_12HasFinalizerE0ELNS0_9LongLivedE0EJRS1_RjRNS0_6HandleINS0_23ExternalStringPrimitiveIDsEEEEEEEPT_jDpOT2_.exit, label %if.then.i.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZN6hermes2vm7HadesGC9allocWorkILb0ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i
-  %heapStorage_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 840
-  tail call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_11HermesValueEEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i.i.i.i.i.i, ptr noundef nonnull %concatBufferHV_.i.i.i.i.i.i, i64 %or.i.i.i.i.i.i.i.i.i) #15
   br label %_ZN6hermes2vm7Runtime13makeAVariableINS0_23BufferedStringPrimitiveIDsEELNS0_12HasFinalizerE0ELNS0_9LongLivedE0EJRS1_RjRNS0_6HandleINS0_23ExternalStringPrimitiveIDsEEEEEEEPT_jDpOT2_.exit
 
-_ZN6hermes2vm7Runtime13makeAVariableINS0_23BufferedStringPrimitiveIDsEELNS0_12HasFinalizerE0ELNS0_9LongLivedE0EJRS1_RjRNS0_6HandleINS0_23ExternalStringPrimitiveIDsEEEEEEEPT_jDpOT2_.exit: ; preds = %_ZN6hermes2vm7HadesGC9allocWorkILb0ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
-  store i64 %or.i.i.i.i.i.i.i.i.i, ptr %concatBufferHV_.i.i.i.i.i.i, align 8
+_ZN6hermes2vm7Runtime13makeAVariableINS0_23BufferedStringPrimitiveIDsEELNS0_12HasFinalizerE0ELNS0_9LongLivedE0EJRS1_RjRNS0_6HandleINS0_23ExternalStringPrimitiveIDsEEEEEEEPT_jDpOT2_.exit: ; preds = %cond.true.i.i.i.i.i, %cond.false.i.i.i.i.i
+  %cond.i.i.i.i.i = phi ptr [ %call3.i.i.i.i.i, %cond.true.i.i.i.i.i ], [ %0, %cond.false.i.i.i.i.i ]
+  tail call void @_ZN6hermes2vm23BufferedStringPrimitiveIDsEC1ERNS0_7RuntimeEjNS0_6HandleINS0_23ExternalStringPrimitiveIDsEEEE(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %length, ptr %storage.coerce) #15
   store i32 83886096, ptr %cond.i.i.i.i.i, align 4
   ret ptr %cond.i.i.i.i.i
 }
@@ -1980,34 +1860,15 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_23ExternalStringPrimitiveIDsEEEEN
 
 cond.true.i.i.i.i.i.i:                            ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_23ExternalStringPrimitiveIDsEEEENS0_6HandleIT_EEPS6_.exit
   %call3.i.i.i.i.i.i = tail call noundef ptr @_ZN6hermes2vm7HadesGC9allocSlowEj(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i, i32 noundef 16) #15
-  br label %_ZN6hermes2vm7HadesGC9allocWorkILb0ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i.i
+  br label %_ZN6hermes2vm23BufferedStringPrimitiveIDsE6createERNS0_7RuntimeEjNS0_6HandleINS0_23ExternalStringPrimitiveIDsEEEE.exit
 
 cond.false.i.i.i.i.i.i:                           ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_23ExternalStringPrimitiveIDsEEEENS0_6HandleIT_EEPS6_.exit
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %level_.i.i.i.i.i.i.i, align 8
-  br label %_ZN6hermes2vm7HadesGC9allocWorkILb0ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i.i
-
-_ZN6hermes2vm7HadesGC9allocWorkILb0ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i.i: ; preds = %cond.false.i.i.i.i.i.i, %cond.true.i.i.i.i.i.i
-  %cond.i.i.i.i.i.i = phi ptr [ %call3.i.i.i.i.i.i, %cond.true.i.i.i.i.i.i ], [ %17, %cond.false.i.i.i.i.i.i ]
-  %lengthAndUniquedFlag_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i.i, i64 4
-  store i32 %conv22, ptr %lengthAndUniquedFlag_.i.i.i.i.i.i.i.i, align 4
-  %concatBufferHV_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i.i, i64 8
-  store i64 -1688849860263936, ptr %concatBufferHV_.i.i.i.i.i.i.i, align 8
-  %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %retval.0.i.i.i.i.i.i, align 8
-  %or.i.i.i.i.i.i.i.i.i.i = or i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i, -281474976710656
-  %youngGen_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 1640
-  %19 = load ptr, ptr %youngGen_.i.i.i.i.i.i.i.i.i.i, align 8
-  %20 = ptrtoint ptr %concatBufferHV_.i.i.i.i.i.i.i to i64
-  %and.i.i.i.i.i.i.i.i.i.i.i = and i64 %20, -4194304
-  %21 = inttoptr i64 %and.i.i.i.i.i.i.i.i.i.i.i to ptr
-  %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %19, %21
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %_ZN6hermes2vm23BufferedStringPrimitiveIDsE6createERNS0_7RuntimeEjNS0_6HandleINS0_23ExternalStringPrimitiveIDsEEEE.exit, label %if.then.i.i.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZN6hermes2vm7HadesGC9allocWorkILb0ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i.i
-  tail call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_11HermesValueEEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i, ptr noundef nonnull %concatBufferHV_.i.i.i.i.i.i.i, i64 %or.i.i.i.i.i.i.i.i.i.i) #15
   br label %_ZN6hermes2vm23BufferedStringPrimitiveIDsE6createERNS0_7RuntimeEjNS0_6HandleINS0_23ExternalStringPrimitiveIDsEEEE.exit
 
-_ZN6hermes2vm23BufferedStringPrimitiveIDsE6createERNS0_7RuntimeEjNS0_6HandleINS0_23ExternalStringPrimitiveIDsEEEE.exit: ; preds = %_ZN6hermes2vm7HadesGC9allocWorkILb0ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i
-  store i64 %or.i.i.i.i.i.i.i.i.i.i, ptr %concatBufferHV_.i.i.i.i.i.i.i, align 8
+_ZN6hermes2vm23BufferedStringPrimitiveIDsE6createERNS0_7RuntimeEjNS0_6HandleINS0_23ExternalStringPrimitiveIDsEEEE.exit: ; preds = %cond.true.i.i.i.i.i.i, %cond.false.i.i.i.i.i.i
+  %cond.i.i.i.i.i.i = phi ptr [ %call3.i.i.i.i.i.i, %cond.true.i.i.i.i.i.i ], [ %17, %cond.false.i.i.i.i.i.i ]
+  tail call void @_ZN6hermes2vm23BufferedStringPrimitiveIDsEC1ERNS0_7RuntimeEjNS0_6HandleINS0_23ExternalStringPrimitiveIDsEEEE(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %conv22, ptr %retval.0.i.i.i.i.i.i) #15
   store i32 83886096, ptr %cond.i.i.i.i.i.i, align 4
   br label %return
 
@@ -2184,48 +2045,28 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_23ExternalStringPrimitiveIDsEEEEN
 cond.true.i.i.i.i.i.i:                            ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_23ExternalStringPrimitiveIDsEEEENS0_6HandleIT_EENS0_11HermesValueE.exit
   %heapStorage_.i.i.i19 = getelementptr inbounds i8, ptr %runtime, i64 840
   %call3.i.i.i.i.i.i = call noundef ptr @_ZN6hermes2vm7HadesGC9allocSlowEj(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i.i19, i32 noundef 16) #15
-  br label %_ZN6hermes2vm7HadesGC9allocWorkILb0ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i.i
+  br label %_ZN6hermes2vm23BufferedStringPrimitiveIDsE6createERNS0_7RuntimeEjNS0_6HandleINS0_23ExternalStringPrimitiveIDsEEEE.exit
 
 cond.false.i.i.i.i.i.i:                           ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_23ExternalStringPrimitiveIDsEEEENS0_6HandleIT_EENS0_11HermesValueE.exit
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %level_.i.i.i.i.i.i.i, align 8
-  br label %_ZN6hermes2vm7HadesGC9allocWorkILb0ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i.i
-
-_ZN6hermes2vm7HadesGC9allocWorkILb0ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i.i: ; preds = %cond.false.i.i.i.i.i.i, %cond.true.i.i.i.i.i.i
-  %cond.i.i.i.i.i.i = phi ptr [ %call3.i.i.i.i.i.i, %cond.true.i.i.i.i.i.i ], [ %22, %cond.false.i.i.i.i.i.i ]
-  %lengthAndUniquedFlag_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i.i, i64 4
-  store i32 %add, ptr %lengthAndUniquedFlag_.i.i.i.i.i.i.i.i, align 4
-  %concatBufferHV_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i.i, i64 8
-  store i64 -1688849860263936, ptr %concatBufferHV_.i.i.i.i.i.i.i, align 8
-  %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %retval.0.i.i.i.i.i.i, align 8
-  %or.i.i.i.i.i.i.i.i.i.i = or i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i, -281474976710656
-  %youngGen_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 1640
-  %24 = load ptr, ptr %youngGen_.i.i.i.i.i.i.i.i.i.i, align 8
-  %25 = ptrtoint ptr %concatBufferHV_.i.i.i.i.i.i.i to i64
-  %and.i.i.i.i.i.i.i.i.i.i.i = and i64 %25, -4194304
-  %26 = inttoptr i64 %and.i.i.i.i.i.i.i.i.i.i.i to ptr
-  %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %24, %26
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %_ZN6hermes2vm23BufferedStringPrimitiveIDsE6createERNS0_7RuntimeEjNS0_6HandleINS0_23ExternalStringPrimitiveIDsEEEE.exit, label %if.then.i.i.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZN6hermes2vm7HadesGC9allocWorkILb0ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i.i
-  %heapStorage_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 840
-  call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_11HermesValueEEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i.i.i.i.i.i.i, ptr noundef nonnull %concatBufferHV_.i.i.i.i.i.i.i, i64 %or.i.i.i.i.i.i.i.i.i.i) #15
   br label %_ZN6hermes2vm23BufferedStringPrimitiveIDsE6createERNS0_7RuntimeEjNS0_6HandleINS0_23ExternalStringPrimitiveIDsEEEE.exit
 
-_ZN6hermes2vm23BufferedStringPrimitiveIDsE6createERNS0_7RuntimeEjNS0_6HandleINS0_23ExternalStringPrimitiveIDsEEEE.exit: ; preds = %_ZN6hermes2vm7HadesGC9allocWorkILb0ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i
-  store i64 %or.i.i.i.i.i.i.i.i.i.i, ptr %concatBufferHV_.i.i.i.i.i.i.i, align 8
+_ZN6hermes2vm23BufferedStringPrimitiveIDsE6createERNS0_7RuntimeEjNS0_6HandleINS0_23ExternalStringPrimitiveIDsEEEE.exit: ; preds = %cond.true.i.i.i.i.i.i, %cond.false.i.i.i.i.i.i
+  %cond.i.i.i.i.i.i = phi ptr [ %call3.i.i.i.i.i.i, %cond.true.i.i.i.i.i.i ], [ %22, %cond.false.i.i.i.i.i.i ]
+  call void @_ZN6hermes2vm23BufferedStringPrimitiveIDsEC1ERNS0_7RuntimeEjNS0_6HandleINS0_23ExternalStringPrimitiveIDsEEEE(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %add, ptr %retval.0.i.i.i.i.i.i) #15
   store i32 83886096, ptr %cond.i.i.i.i.i.i, align 4
-  %27 = load ptr, ptr %contents, align 8
-  %cmp.i.i.i20 = icmp eq ptr %27, %0
+  %24 = load ptr, ptr %contents, align 8
+  %cmp.i.i.i20 = icmp eq ptr %24, %0
   br i1 %cmp.i.i.i20, label %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i22, label %if.then.i.i
 
 _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i22: ; preds = %_ZN6hermes2vm23BufferedStringPrimitiveIDsE6createERNS0_7RuntimeEjNS0_6HandleINS0_23ExternalStringPrimitiveIDsEEEE.exit
-  %28 = load i64, ptr %_M_string_length.i.i.i, align 8
-  %cmp3.i.i.i24 = icmp ult i64 %28, 8
+  %25 = load i64, ptr %_M_string_length.i.i.i, align 8
+  %cmp3.i.i.i24 = icmp ult i64 %25, 8
   call void @llvm.assume(i1 %cmp3.i.i.i24)
   br label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEED2Ev.exit
 
 if.then.i.i:                                      ; preds = %_ZN6hermes2vm23BufferedStringPrimitiveIDsE6createERNS0_7RuntimeEjNS0_6HandleINS0_23ExternalStringPrimitiveIDsEEEE.exit
-  call void @_ZdlPv(ptr noundef %27) #16
+  call void @_ZdlPv(ptr noundef %24) #16
   br label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i22, %if.then.i.i
@@ -2402,35 +2243,15 @@ entry:
 cond.true.i.i.i.i.i:                              ; preds = %entry
   %heapStorage_.i.i = getelementptr inbounds i8, ptr %runtime, i64 840
   %call3.i.i.i.i.i = tail call noundef ptr @_ZN6hermes2vm7HadesGC9allocSlowEj(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i, i32 noundef 16) #15
-  br label %_ZN6hermes2vm7HadesGC9allocWorkILb0ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i
+  br label %_ZN6hermes2vm7Runtime13makeAVariableINS0_23BufferedStringPrimitiveIcEELNS0_12HasFinalizerE0ELNS0_9LongLivedE0EJRS1_RjRNS0_6HandleINS0_23ExternalStringPrimitiveIcEEEEEEEPT_jDpOT2_.exit
 
 cond.false.i.i.i.i.i:                             ; preds = %entry
   store ptr %add.ptr.i.i.i.i.i.i, ptr %level_.i.i.i.i.i.i, align 8
-  br label %_ZN6hermes2vm7HadesGC9allocWorkILb0ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i
-
-_ZN6hermes2vm7HadesGC9allocWorkILb0ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i: ; preds = %cond.false.i.i.i.i.i, %cond.true.i.i.i.i.i
-  %cond.i.i.i.i.i = phi ptr [ %call3.i.i.i.i.i, %cond.true.i.i.i.i.i ], [ %0, %cond.false.i.i.i.i.i ]
-  %lengthAndUniquedFlag_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 4
-  store i32 %length, ptr %lengthAndUniquedFlag_.i.i.i.i.i.i.i, align 4
-  %concatBufferHV_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 8
-  store i64 -1688849860263936, ptr %concatBufferHV_.i.i.i.i.i.i, align 8
-  %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %storage.coerce, align 8
-  %or.i.i.i.i.i.i.i.i.i = or i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, -281474976710656
-  %youngGen_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 1640
-  %2 = load ptr, ptr %youngGen_.i.i.i.i.i.i.i.i.i, align 8
-  %3 = ptrtoint ptr %concatBufferHV_.i.i.i.i.i.i to i64
-  %and.i.i.i.i.i.i.i.i.i.i = and i64 %3, -4194304
-  %4 = inttoptr i64 %and.i.i.i.i.i.i.i.i.i.i to ptr
-  %cmp.i.i.i.i.i.i.i.i.i = icmp eq ptr %2, %4
-  br i1 %cmp.i.i.i.i.i.i.i.i.i, label %_ZN6hermes2vm7Runtime13makeAVariableINS0_23BufferedStringPrimitiveIcEELNS0_12HasFinalizerE0ELNS0_9LongLivedE0EJRS1_RjRNS0_6HandleINS0_23ExternalStringPrimitiveIcEEEEEEEPT_jDpOT2_.exit, label %if.then.i.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZN6hermes2vm7HadesGC9allocWorkILb0ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i
-  %heapStorage_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 840
-  tail call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_11HermesValueEEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i.i.i.i.i.i, ptr noundef nonnull %concatBufferHV_.i.i.i.i.i.i, i64 %or.i.i.i.i.i.i.i.i.i) #15
   br label %_ZN6hermes2vm7Runtime13makeAVariableINS0_23BufferedStringPrimitiveIcEELNS0_12HasFinalizerE0ELNS0_9LongLivedE0EJRS1_RjRNS0_6HandleINS0_23ExternalStringPrimitiveIcEEEEEEEPT_jDpOT2_.exit
 
-_ZN6hermes2vm7Runtime13makeAVariableINS0_23BufferedStringPrimitiveIcEELNS0_12HasFinalizerE0ELNS0_9LongLivedE0EJRS1_RjRNS0_6HandleINS0_23ExternalStringPrimitiveIcEEEEEEEPT_jDpOT2_.exit: ; preds = %_ZN6hermes2vm7HadesGC9allocWorkILb0ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
-  store i64 %or.i.i.i.i.i.i.i.i.i, ptr %concatBufferHV_.i.i.i.i.i.i, align 8
+_ZN6hermes2vm7Runtime13makeAVariableINS0_23BufferedStringPrimitiveIcEELNS0_12HasFinalizerE0ELNS0_9LongLivedE0EJRS1_RjRNS0_6HandleINS0_23ExternalStringPrimitiveIcEEEEEEEPT_jDpOT2_.exit: ; preds = %cond.true.i.i.i.i.i, %cond.false.i.i.i.i.i
+  %cond.i.i.i.i.i = phi ptr [ %call3.i.i.i.i.i, %cond.true.i.i.i.i.i ], [ %0, %cond.false.i.i.i.i.i ]
+  tail call void @_ZN6hermes2vm23BufferedStringPrimitiveIcEC1ERNS0_7RuntimeEjNS0_6HandleINS0_23ExternalStringPrimitiveIcEEEE(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %length, ptr %storage.coerce) #15
   store i32 100663312, ptr %cond.i.i.i.i.i, align 4
   ret ptr %cond.i.i.i.i.i
 }
@@ -2545,34 +2366,15 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_23ExternalStringPrimitiveIcEEEENS
 
 cond.true.i.i.i.i.i.i:                            ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_23ExternalStringPrimitiveIcEEEENS0_6HandleIT_EEPS6_.exit
   %call3.i.i.i.i.i.i = tail call noundef ptr @_ZN6hermes2vm7HadesGC9allocSlowEj(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i, i32 noundef 16) #15
-  br label %_ZN6hermes2vm7HadesGC9allocWorkILb0ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i.i
+  br label %_ZN6hermes2vm23BufferedStringPrimitiveIcE6createERNS0_7RuntimeEjNS0_6HandleINS0_23ExternalStringPrimitiveIcEEEE.exit
 
 cond.false.i.i.i.i.i.i:                           ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_23ExternalStringPrimitiveIcEEEENS0_6HandleIT_EEPS6_.exit
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %level_.i.i.i.i.i.i.i, align 8
-  br label %_ZN6hermes2vm7HadesGC9allocWorkILb0ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i.i
-
-_ZN6hermes2vm7HadesGC9allocWorkILb0ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i.i: ; preds = %cond.false.i.i.i.i.i.i, %cond.true.i.i.i.i.i.i
-  %cond.i.i.i.i.i.i = phi ptr [ %call3.i.i.i.i.i.i, %cond.true.i.i.i.i.i.i ], [ %9, %cond.false.i.i.i.i.i.i ]
-  %lengthAndUniquedFlag_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i.i, i64 4
-  store i32 %conv22, ptr %lengthAndUniquedFlag_.i.i.i.i.i.i.i.i, align 4
-  %concatBufferHV_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i.i, i64 8
-  store i64 -1688849860263936, ptr %concatBufferHV_.i.i.i.i.i.i.i, align 8
-  %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %retval.0.i.i.i.i.i.i, align 8
-  %or.i.i.i.i.i.i.i.i.i.i = or i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i, -281474976710656
-  %youngGen_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 1640
-  %11 = load ptr, ptr %youngGen_.i.i.i.i.i.i.i.i.i.i, align 8
-  %12 = ptrtoint ptr %concatBufferHV_.i.i.i.i.i.i.i to i64
-  %and.i.i.i.i.i.i.i.i.i.i.i = and i64 %12, -4194304
-  %13 = inttoptr i64 %and.i.i.i.i.i.i.i.i.i.i.i to ptr
-  %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %11, %13
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %_ZN6hermes2vm23BufferedStringPrimitiveIcE6createERNS0_7RuntimeEjNS0_6HandleINS0_23ExternalStringPrimitiveIcEEEE.exit, label %if.then.i.i.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZN6hermes2vm7HadesGC9allocWorkILb0ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i.i
-  tail call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_11HermesValueEEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i, ptr noundef nonnull %concatBufferHV_.i.i.i.i.i.i.i, i64 %or.i.i.i.i.i.i.i.i.i.i) #15
   br label %_ZN6hermes2vm23BufferedStringPrimitiveIcE6createERNS0_7RuntimeEjNS0_6HandleINS0_23ExternalStringPrimitiveIcEEEE.exit
 
-_ZN6hermes2vm23BufferedStringPrimitiveIcE6createERNS0_7RuntimeEjNS0_6HandleINS0_23ExternalStringPrimitiveIcEEEE.exit: ; preds = %_ZN6hermes2vm7HadesGC9allocWorkILb0ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i
-  store i64 %or.i.i.i.i.i.i.i.i.i.i, ptr %concatBufferHV_.i.i.i.i.i.i.i, align 8
+_ZN6hermes2vm23BufferedStringPrimitiveIcE6createERNS0_7RuntimeEjNS0_6HandleINS0_23ExternalStringPrimitiveIcEEEE.exit: ; preds = %cond.true.i.i.i.i.i.i, %cond.false.i.i.i.i.i.i
+  %cond.i.i.i.i.i.i = phi ptr [ %call3.i.i.i.i.i.i, %cond.true.i.i.i.i.i.i ], [ %9, %cond.false.i.i.i.i.i.i ]
+  tail call void @_ZN6hermes2vm23BufferedStringPrimitiveIcEC1ERNS0_7RuntimeEjNS0_6HandleINS0_23ExternalStringPrimitiveIcEEEE(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %conv22, ptr %retval.0.i.i.i.i.i.i) #15
   store i32 100663312, ptr %cond.i.i.i.i.i.i, align 4
   br label %return
 
@@ -2739,35 +2541,15 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_23ExternalStringPrimitiveIcEEEENS
 cond.true.i.i.i.i.i.i:                            ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_23ExternalStringPrimitiveIcEEEENS0_6HandleIT_EENS0_11HermesValueE.exit
   %heapStorage_.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 840
   %call3.i.i.i.i.i.i = call noundef ptr @_ZN6hermes2vm7HadesGC9allocSlowEj(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i.i, i32 noundef 16) #15
-  br label %_ZN6hermes2vm7HadesGC9allocWorkILb0ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i.i
+  br label %_ZN6hermes2vm23BufferedStringPrimitiveIcE6createERNS0_7RuntimeEjNS0_6HandleINS0_23ExternalStringPrimitiveIcEEEE.exit
 
 cond.false.i.i.i.i.i.i:                           ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_23ExternalStringPrimitiveIcEEEENS0_6HandleIT_EENS0_11HermesValueE.exit
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %level_.i.i.i.i.i.i.i, align 8
-  br label %_ZN6hermes2vm7HadesGC9allocWorkILb0ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i.i
-
-_ZN6hermes2vm7HadesGC9allocWorkILb0ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i.i: ; preds = %cond.false.i.i.i.i.i.i, %cond.true.i.i.i.i.i.i
-  %cond.i.i.i.i.i.i = phi ptr [ %call3.i.i.i.i.i.i, %cond.true.i.i.i.i.i.i ], [ %13, %cond.false.i.i.i.i.i.i ]
-  %lengthAndUniquedFlag_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i.i, i64 4
-  store i32 %add, ptr %lengthAndUniquedFlag_.i.i.i.i.i.i.i.i, align 4
-  %concatBufferHV_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i.i, i64 8
-  store i64 -1688849860263936, ptr %concatBufferHV_.i.i.i.i.i.i.i, align 8
-  %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %retval.0.i.i.i.i.i.i, align 8
-  %or.i.i.i.i.i.i.i.i.i.i = or i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i, -281474976710656
-  %youngGen_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 1640
-  %15 = load ptr, ptr %youngGen_.i.i.i.i.i.i.i.i.i.i, align 8
-  %16 = ptrtoint ptr %concatBufferHV_.i.i.i.i.i.i.i to i64
-  %and.i.i.i.i.i.i.i.i.i.i.i = and i64 %16, -4194304
-  %17 = inttoptr i64 %and.i.i.i.i.i.i.i.i.i.i.i to ptr
-  %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %15, %17
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %_ZN6hermes2vm23BufferedStringPrimitiveIcE6createERNS0_7RuntimeEjNS0_6HandleINS0_23ExternalStringPrimitiveIcEEEE.exit, label %if.then.i.i.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZN6hermes2vm7HadesGC9allocWorkILb0ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i.i
-  %heapStorage_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 840
-  call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_11HermesValueEEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i.i.i.i.i.i.i, ptr noundef nonnull %concatBufferHV_.i.i.i.i.i.i.i, i64 %or.i.i.i.i.i.i.i.i.i.i) #15
   br label %_ZN6hermes2vm23BufferedStringPrimitiveIcE6createERNS0_7RuntimeEjNS0_6HandleINS0_23ExternalStringPrimitiveIcEEEE.exit
 
-_ZN6hermes2vm23BufferedStringPrimitiveIcE6createERNS0_7RuntimeEjNS0_6HandleINS0_23ExternalStringPrimitiveIcEEEE.exit: ; preds = %_ZN6hermes2vm7HadesGC9allocWorkILb0ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i
-  store i64 %or.i.i.i.i.i.i.i.i.i.i, ptr %concatBufferHV_.i.i.i.i.i.i.i, align 8
+_ZN6hermes2vm23BufferedStringPrimitiveIcE6createERNS0_7RuntimeEjNS0_6HandleINS0_23ExternalStringPrimitiveIcEEEE.exit: ; preds = %cond.true.i.i.i.i.i.i, %cond.false.i.i.i.i.i.i
+  %cond.i.i.i.i.i.i = phi ptr [ %call3.i.i.i.i.i.i, %cond.true.i.i.i.i.i.i ], [ %13, %cond.false.i.i.i.i.i.i ]
+  call void @_ZN6hermes2vm23BufferedStringPrimitiveIcEC1ERNS0_7RuntimeEjNS0_6HandleINS0_23ExternalStringPrimitiveIcEEEE(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %add, ptr %retval.0.i.i.i.i.i.i) #15
   store i32 100663312, ptr %cond.i.i.i.i.i.i, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %contents) #15
   ret ptr %cond.i.i.i.i.i.i
@@ -2956,8 +2738,7 @@ cond.false.i.i.i.i.i.i.i:                         ; preds = %if.then.i
 
 _ZN6hermes2vm22DynamicStringPrimitiveIcLb0EE6createERNS0_7RuntimeEj.exit.i: ; preds = %cond.false.i.i.i.i.i.i.i, %cond.true.i.i.i.i.i.i.i
   %cond.i.i.i.i.i.i.i = phi ptr [ %call3.i.i.i.i.i.i.i, %cond.true.i.i.i.i.i.i.i ], [ %4, %cond.false.i.i.i.i.i.i.i ]
-  %lengthAndUniquedFlag_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i.i.i, i64 4
-  store i32 %conv23, ptr %lengthAndUniquedFlag_.i.i.i.i.i.i.i.i.i, align 4
+  tail call void @_ZN6hermes2vm22DynamicStringPrimitiveIcLb0EEC1Ej(ptr noundef nonnull align 4 dereferenceable(8) %cond.i.i.i.i.i.i.i, i32 noundef %conv23) #15
   %bf.set7.i.i.i.i.i.i.i.i = or disjoint i32 %div1.i.i.i.i.i.i, 67108864
   store i32 %bf.set7.i.i.i.i.i.i.i.i, ptr %cond.i.i.i.i.i.i.i, align 4
   %6 = ptrtoint ptr %cond.i.i.i.i.i.i.i to i64
@@ -3428,8 +3209,7 @@ cond.false.i.i.i.i.i.i.i:                         ; preds = %if.then.i
 
 _ZN6hermes2vm22DynamicStringPrimitiveIcLb0EE6createERNS0_7RuntimeEj.exit.i: ; preds = %cond.false.i.i.i.i.i.i.i, %cond.true.i.i.i.i.i.i.i
   %cond.i.i.i.i.i.i.i = phi ptr [ %call3.i.i.i.i.i.i.i, %cond.true.i.i.i.i.i.i.i ], [ %5, %cond.false.i.i.i.i.i.i.i ]
-  %lengthAndUniquedFlag_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i.i.i, i64 4
-  store i32 %conv, ptr %lengthAndUniquedFlag_.i.i.i.i.i.i.i.i.i, align 4
+  tail call void @_ZN6hermes2vm22DynamicStringPrimitiveIcLb0EEC1Ej(ptr noundef nonnull align 4 dereferenceable(8) %cond.i.i.i.i.i.i.i, i32 noundef %conv) #15
   %bf.set7.i.i.i.i.i.i.i.i = or disjoint i32 %div1.i.i.i.i.i.i, 67108864
   store i32 %bf.set7.i.i.i.i.i.i.i.i, ptr %cond.i.i.i.i.i.i.i, align 4
   %7 = ptrtoint ptr %cond.i.i.i.i.i.i.i to i64
@@ -3543,7 +3323,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { i32, i64 } @_ZN6hermes2vm15StringPrimitive13createDynamicERNS0_7RuntimeEN4llvh8ArrayRefIDsEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr readonly %str.coerce0, i64 %str.coerce1) local_unnamed_addr #0 align 2 {
+define hidden { i32, i64 } @_ZN6hermes2vm15StringPrimitive13createDynamicERNS0_7RuntimeEN4llvh8ArrayRefIDsEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %str.coerce0, i64 %str.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i16, ptr %str.coerce0, i64 %str.coerce1
   %cmp3.not.i = icmp sgt i64 %str.coerce1, 0
@@ -3565,7 +3345,7 @@ _ZN6hermes10isAllASCIIIPKDsEEbT_S3_.exit:         ; preds = %while.body.i, %entr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { i32, i64 } @_ZN6hermes2vm15StringPrimitive30createDynamicWithKnownEncodingERNS0_7RuntimeEN4llvh8ArrayRefIDsEEb(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture readonly %str.coerce0, i64 %str.coerce1, i1 noundef zeroext %isASCII) local_unnamed_addr #0 align 2 {
+define hidden { i32, i64 } @_ZN6hermes2vm15StringPrimitive30createDynamicWithKnownEncodingERNS0_7RuntimeEN4llvh8ArrayRefIDsEEb(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %str.coerce0, i64 %str.coerce1, i1 noundef zeroext %isASCII) local_unnamed_addr #0 align 2 {
 entry:
   %conv = trunc i64 %str.coerce1 to i32
   br i1 %isASCII, label %if.then, label %if.else
@@ -3593,8 +3373,7 @@ cond.false.i.i.i.i.i.i:                           ; preds = %if.then
 
 _ZN6hermes2vm22DynamicStringPrimitiveIcLb0EE6createERNS0_7RuntimeEj.exit: ; preds = %cond.true.i.i.i.i.i.i, %cond.false.i.i.i.i.i.i
   %cond.i.i.i.i.i.i = phi ptr [ %call3.i.i.i.i.i.i, %cond.true.i.i.i.i.i.i ], [ %0, %cond.false.i.i.i.i.i.i ]
-  %lengthAndUniquedFlag_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i.i, i64 4
-  store i32 %conv, ptr %lengthAndUniquedFlag_.i.i.i.i.i.i.i.i, align 4
+  tail call void @_ZN6hermes2vm22DynamicStringPrimitiveIcLb0EEC1Ej(ptr noundef nonnull align 4 dereferenceable(8) %cond.i.i.i.i.i.i, i32 noundef %conv) #15
   %bf.value.i.i.i.i.i.i.i = and i32 %sub.i.i.i.i.i, 16777208
   %bf.set7.i.i.i.i.i.i.i = or disjoint i32 %bf.value.i.i.i.i.i.i.i, 67108864
   store i32 %bf.set7.i.i.i.i.i.i.i, ptr %cond.i.i.i.i.i.i, align 4
@@ -3657,26 +3436,15 @@ if.else:                                          ; preds = %entry
 cond.true.i.i.i.i.i.i16:                          ; preds = %if.else
   %heapStorage_.i.i.i17 = getelementptr inbounds i8, ptr %runtime, i64 840
   %call3.i.i.i.i.i.i18 = tail call noundef ptr @_ZN6hermes2vm7HadesGC9allocSlowEj(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i.i17, i32 noundef %div1.i.i.i.i.i4) #15
-  br label %_ZN6hermes2vm7HadesGC9allocWorkILb0ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i.i
+  br label %_ZN6hermes2vm22DynamicStringPrimitiveIDsLb0EE6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit
 
 cond.false.i.i.i.i.i.i10:                         ; preds = %if.else
   store ptr %add.ptr.i.i.i.i.i.i.i7, ptr %level_.i.i.i.i.i.i.i5, align 8
-  br label %_ZN6hermes2vm7HadesGC9allocWorkILb0ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i.i
-
-_ZN6hermes2vm7HadesGC9allocWorkILb0ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i.i: ; preds = %cond.false.i.i.i.i.i.i10, %cond.true.i.i.i.i.i.i16
-  %cond.i.i.i.i.i.i11 = phi ptr [ %call3.i.i.i.i.i.i18, %cond.true.i.i.i.i.i.i16 ], [ %5, %cond.false.i.i.i.i.i.i10 ]
-  %lengthAndUniquedFlag_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i.i11, i64 4
-  store i32 %conv, ptr %lengthAndUniquedFlag_.i.i.i.i.i.i.i.i.i, align 4
-  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %str.coerce1, 0
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN6hermes2vm22DynamicStringPrimitiveIDsLb0EE6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %_ZN6hermes2vm7HadesGC9allocWorkILb0ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i.i
-  %add.ptr.i.idx.i.i.i.i.i.i.i = shl nsw i64 %str.coerce1, 1
-  %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i.i11, i64 8
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i.i.i.i.i.i.i, ptr align 2 %str.coerce0, i64 %add.ptr.i.idx.i.i.i.i.i.i.i, i1 false)
   br label %_ZN6hermes2vm22DynamicStringPrimitiveIDsLb0EE6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit
 
-_ZN6hermes2vm22DynamicStringPrimitiveIDsLb0EE6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit: ; preds = %_ZN6hermes2vm7HadesGC9allocWorkILb0ELNS0_12HasFinalizerE0EEEPvj.exit.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i
+_ZN6hermes2vm22DynamicStringPrimitiveIDsLb0EE6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit: ; preds = %cond.true.i.i.i.i.i.i16, %cond.false.i.i.i.i.i.i10
+  %cond.i.i.i.i.i.i11 = phi ptr [ %call3.i.i.i.i.i.i18, %cond.true.i.i.i.i.i.i16 ], [ %5, %cond.false.i.i.i.i.i.i10 ]
+  tail call void @_ZN6hermes2vm22DynamicStringPrimitiveIDsLb0EEC1EN4llvh8ArrayRefIDsEE(ptr noundef nonnull align 4 dereferenceable(8) %cond.i.i.i.i.i.i11, ptr %str.coerce0, i64 %str.coerce1) #15
   %bf.value.i.i.i.i.i.i.i12 = and i32 %sub.i.i.i.i.i3, 16777208
   %bf.set7.i.i.i.i.i.i.i13 = or disjoint i32 %bf.value.i.i.i.i.i.i.i12, 50331648
   store i32 %bf.set7.i.i.i.i.i.i.i13, ptr %cond.i.i.i.i.i.i11, align 4
@@ -5665,26 +5433,25 @@ if.then.i:                                        ; preds = %if.then
   %effectiveEnd_.i.i.i.i.i.i.i.i15.i = getelementptr inbounds i8, ptr %3, i64 1664
   %6 = load ptr, ptr %effectiveEnd_.i.i.i.i.i.i.i.i15.i, align 8
   %cmp.i.i.i.i.i.i.i16.i = icmp ugt ptr %add.ptr.i.i.i.i.i.i.i14.i, %6
-  br i1 %cmp.i.i.i.i.i.i.i16.i, label %cond.true.i.i.i.i.i.i24.i, label %cond.false.i.i.i.i.i.i17.i
+  br i1 %cmp.i.i.i.i.i.i.i16.i, label %cond.true.i.i.i.i.i.i23.i, label %cond.false.i.i.i.i.i.i17.i
 
-cond.true.i.i.i.i.i.i24.i:                        ; preds = %if.then.i
-  %heapStorage_.i.i.i25.i = getelementptr inbounds i8, ptr %3, i64 840
-  %call3.i.i.i.i.i.i26.i = tail call noundef ptr @_ZN6hermes2vm7HadesGC9allocSlowEj(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i.i25.i, i32 noundef %div1.i.i.i.i.i11.i) #15
+cond.true.i.i.i.i.i.i23.i:                        ; preds = %if.then.i
+  %heapStorage_.i.i.i24.i = getelementptr inbounds i8, ptr %3, i64 840
+  %call3.i.i.i.i.i.i25.i = tail call noundef ptr @_ZN6hermes2vm7HadesGC9allocSlowEj(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i.i24.i, i32 noundef %div1.i.i.i.i.i11.i) #15
   br label %_ZN6hermes2vm22DynamicStringPrimitiveIDsLb0EE6createERNS0_7RuntimeEj.exit.i
 
 cond.false.i.i.i.i.i.i17.i:                       ; preds = %if.then.i
   store ptr %add.ptr.i.i.i.i.i.i.i14.i, ptr %level_.i.i.i.i.i.i.i12.i, align 8
   br label %_ZN6hermes2vm22DynamicStringPrimitiveIDsLb0EE6createERNS0_7RuntimeEj.exit.i
 
-_ZN6hermes2vm22DynamicStringPrimitiveIDsLb0EE6createERNS0_7RuntimeEj.exit.i: ; preds = %cond.false.i.i.i.i.i.i17.i, %cond.true.i.i.i.i.i.i24.i
-  %cond.i.i.i.i.i.i18.i = phi ptr [ %call3.i.i.i.i.i.i26.i, %cond.true.i.i.i.i.i.i24.i ], [ %5, %cond.false.i.i.i.i.i.i17.i ]
-  %lengthAndUniquedFlag_.i.i.i.i.i.i.i.i19.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i.i18.i, i64 4
-  store i32 %and.i, ptr %lengthAndUniquedFlag_.i.i.i.i.i.i.i.i19.i, align 4
-  %bf.set7.i.i.i.i.i.i.i21.i = or disjoint i32 %div1.i.i.i.i.i11.i, 50331648
-  store i32 %bf.set7.i.i.i.i.i.i.i21.i, ptr %cond.i.i.i.i.i.i18.i, align 4
+_ZN6hermes2vm22DynamicStringPrimitiveIDsLb0EE6createERNS0_7RuntimeEj.exit.i: ; preds = %cond.false.i.i.i.i.i.i17.i, %cond.true.i.i.i.i.i.i23.i
+  %cond.i.i.i.i.i.i18.i = phi ptr [ %call3.i.i.i.i.i.i25.i, %cond.true.i.i.i.i.i.i23.i ], [ %5, %cond.false.i.i.i.i.i.i17.i ]
+  tail call void @_ZN6hermes2vm22DynamicStringPrimitiveIDsLb0EEC1Ej(ptr noundef nonnull align 4 dereferenceable(8) %cond.i.i.i.i.i.i18.i, i32 noundef %and.i) #15
+  %bf.set7.i.i.i.i.i.i.i20.i = or disjoint i32 %div1.i.i.i.i.i11.i, 50331648
+  store i32 %bf.set7.i.i.i.i.i.i.i20.i, ptr %cond.i.i.i.i.i.i18.i, align 4
   %7 = ptrtoint ptr %cond.i.i.i.i.i.i18.i to i64
-  %or.i.i.i.i22.i = or i64 %7, -844424930131968
-  %.fca.1.insert.i23.i = insertvalue { i32, i64 } { i32 1, i64 poison }, i64 %or.i.i.i.i22.i, 1
+  %or.i.i.i.i21.i = or i64 %7, -844424930131968
+  %.fca.1.insert.i22.i = insertvalue { i32, i64 } { i32 1, i64 poison }, i64 %or.i.i.i.i21.i, 1
   br label %_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEjb.exit
 
 if.else4.i:                                       ; preds = %if.then
@@ -5692,7 +5459,7 @@ if.else4.i:                                       ; preds = %if.then
   br label %_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEjb.exit
 
 _ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEjb.exit: ; preds = %_ZN6hermes2vm22DynamicStringPrimitiveIDsLb0EE6createERNS0_7RuntimeEj.exit.i, %if.else4.i
-  %call2.pn.i = phi { i32, i64 } [ %.fca.1.insert.i23.i, %_ZN6hermes2vm22DynamicStringPrimitiveIDsLb0EE6createERNS0_7RuntimeEj.exit.i ], [ %call9.i, %if.else4.i ]
+  %call2.pn.i = phi { i32, i64 } [ %.fca.1.insert.i22.i, %_ZN6hermes2vm22DynamicStringPrimitiveIDsLb0EE6createERNS0_7RuntimeEj.exit.i ], [ %call9.i, %if.else4.i ]
   %8 = extractvalue { i32, i64 } %call2.pn.i, 0
   %9 = extractvalue { i32, i64 } %call2.pn.i, 1
   %cmp.i.i2 = icmp eq i32 %8, 0
@@ -6421,8 +6188,7 @@ cond.false.i.i.i.i.i.i:                           ; preds = %if.then1
 
 _ZN6hermes2vm22DynamicStringPrimitiveIcLb0EE6createERNS0_7RuntimeEj.exit: ; preds = %cond.true.i.i.i.i.i.i, %cond.false.i.i.i.i.i.i
   %cond.i.i.i.i.i.i = phi ptr [ %call3.i.i.i.i.i.i, %cond.true.i.i.i.i.i.i ], [ %0, %cond.false.i.i.i.i.i.i ]
-  %lengthAndUniquedFlag_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i.i, i64 4
-  store i32 %length, ptr %lengthAndUniquedFlag_.i.i.i.i.i.i.i.i, align 4
+  tail call void @_ZN6hermes2vm22DynamicStringPrimitiveIcLb0EEC1Ej(ptr noundef nonnull align 4 dereferenceable(8) %cond.i.i.i.i.i.i, i32 noundef %length) #15
   %bf.set7.i.i.i.i.i.i.i = or disjoint i32 %div1.i.i.i.i.i, 67108864
   store i32 %bf.set7.i.i.i.i.i.i.i, ptr %cond.i.i.i.i.i.i, align 4
   %2 = ptrtoint ptr %cond.i.i.i.i.i.i to i64
@@ -6441,26 +6207,25 @@ if.else:                                          ; preds = %if.then
   %effectiveEnd_.i.i.i.i.i.i.i.i15 = getelementptr inbounds i8, ptr %runtime, i64 1664
   %4 = load ptr, ptr %effectiveEnd_.i.i.i.i.i.i.i.i15, align 8
   %cmp.i.i.i.i.i.i.i16 = icmp ugt ptr %add.ptr.i.i.i.i.i.i.i14, %4
-  br i1 %cmp.i.i.i.i.i.i.i16, label %cond.true.i.i.i.i.i.i24, label %cond.false.i.i.i.i.i.i17
+  br i1 %cmp.i.i.i.i.i.i.i16, label %cond.true.i.i.i.i.i.i23, label %cond.false.i.i.i.i.i.i17
 
-cond.true.i.i.i.i.i.i24:                          ; preds = %if.else
-  %heapStorage_.i.i.i25 = getelementptr inbounds i8, ptr %runtime, i64 840
-  %call3.i.i.i.i.i.i26 = tail call noundef ptr @_ZN6hermes2vm7HadesGC9allocSlowEj(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i.i25, i32 noundef %div1.i.i.i.i.i11) #15
+cond.true.i.i.i.i.i.i23:                          ; preds = %if.else
+  %heapStorage_.i.i.i24 = getelementptr inbounds i8, ptr %runtime, i64 840
+  %call3.i.i.i.i.i.i25 = tail call noundef ptr @_ZN6hermes2vm7HadesGC9allocSlowEj(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i.i24, i32 noundef %div1.i.i.i.i.i11) #15
   br label %_ZN6hermes2vm22DynamicStringPrimitiveIDsLb0EE6createERNS0_7RuntimeEj.exit
 
 cond.false.i.i.i.i.i.i17:                         ; preds = %if.else
   store ptr %add.ptr.i.i.i.i.i.i.i14, ptr %level_.i.i.i.i.i.i.i12, align 8
   br label %_ZN6hermes2vm22DynamicStringPrimitiveIDsLb0EE6createERNS0_7RuntimeEj.exit
 
-_ZN6hermes2vm22DynamicStringPrimitiveIDsLb0EE6createERNS0_7RuntimeEj.exit: ; preds = %cond.true.i.i.i.i.i.i24, %cond.false.i.i.i.i.i.i17
-  %cond.i.i.i.i.i.i18 = phi ptr [ %call3.i.i.i.i.i.i26, %cond.true.i.i.i.i.i.i24 ], [ %3, %cond.false.i.i.i.i.i.i17 ]
-  %lengthAndUniquedFlag_.i.i.i.i.i.i.i.i19 = getelementptr inbounds i8, ptr %cond.i.i.i.i.i.i18, i64 4
-  store i32 %length, ptr %lengthAndUniquedFlag_.i.i.i.i.i.i.i.i19, align 4
-  %bf.set7.i.i.i.i.i.i.i21 = or disjoint i32 %div1.i.i.i.i.i11, 50331648
-  store i32 %bf.set7.i.i.i.i.i.i.i21, ptr %cond.i.i.i.i.i.i18, align 4
+_ZN6hermes2vm22DynamicStringPrimitiveIDsLb0EE6createERNS0_7RuntimeEj.exit: ; preds = %cond.true.i.i.i.i.i.i23, %cond.false.i.i.i.i.i.i17
+  %cond.i.i.i.i.i.i18 = phi ptr [ %call3.i.i.i.i.i.i25, %cond.true.i.i.i.i.i.i23 ], [ %3, %cond.false.i.i.i.i.i.i17 ]
+  tail call void @_ZN6hermes2vm22DynamicStringPrimitiveIDsLb0EEC1Ej(ptr noundef nonnull align 4 dereferenceable(8) %cond.i.i.i.i.i.i18, i32 noundef %length) #15
+  %bf.set7.i.i.i.i.i.i.i20 = or disjoint i32 %div1.i.i.i.i.i11, 50331648
+  store i32 %bf.set7.i.i.i.i.i.i.i20, ptr %cond.i.i.i.i.i.i18, align 4
   %5 = ptrtoint ptr %cond.i.i.i.i.i.i18 to i64
-  %or.i.i.i.i22 = or i64 %5, -844424930131968
-  %.fca.1.insert.i23 = insertvalue { i32, i64 } { i32 1, i64 poison }, i64 %or.i.i.i.i22, 1
+  %or.i.i.i.i21 = or i64 %5, -844424930131968
+  %.fca.1.insert.i22 = insertvalue { i32, i64 } { i32 1, i64 poison }, i64 %or.i.i.i.i21, 1
   br label %return
 
 if.else4:                                         ; preds = %entry
@@ -6475,7 +6240,7 @@ if.else8:                                         ; preds = %if.else4
   br label %return
 
 return:                                           ; preds = %if.else8, %if.then6, %_ZN6hermes2vm22DynamicStringPrimitiveIDsLb0EE6createERNS0_7RuntimeEj.exit, %_ZN6hermes2vm22DynamicStringPrimitiveIcLb0EE6createERNS0_7RuntimeEj.exit
-  %call2.pn = phi { i32, i64 } [ %.fca.1.insert.i, %_ZN6hermes2vm22DynamicStringPrimitiveIcLb0EE6createERNS0_7RuntimeEj.exit ], [ %.fca.1.insert.i23, %_ZN6hermes2vm22DynamicStringPrimitiveIDsLb0EE6createERNS0_7RuntimeEj.exit ], [ %call7, %if.then6 ], [ %call9, %if.else8 ]
+  %call2.pn = phi { i32, i64 } [ %.fca.1.insert.i, %_ZN6hermes2vm22DynamicStringPrimitiveIcLb0EE6createERNS0_7RuntimeEj.exit ], [ %.fca.1.insert.i22, %_ZN6hermes2vm22DynamicStringPrimitiveIDsLb0EE6createERNS0_7RuntimeEj.exit ], [ %call7, %if.then6 ], [ %call9, %if.else8 ]
   ret { i32, i64 } %call2.pn
 }
 
@@ -6694,26 +6459,25 @@ if.then.i39:                                      ; preds = %if.else13
   %effectiveEnd_.i.i.i.i.i.i.i.i15.i = getelementptr inbounds i8, ptr %17, i64 1664
   %20 = load ptr, ptr %effectiveEnd_.i.i.i.i.i.i.i.i15.i, align 8
   %cmp.i.i.i.i.i.i.i16.i = icmp ugt ptr %add.ptr.i.i.i.i.i.i.i14.i, %20
-  br i1 %cmp.i.i.i.i.i.i.i16.i, label %cond.true.i.i.i.i.i.i24.i, label %cond.false.i.i.i.i.i.i17.i
+  br i1 %cmp.i.i.i.i.i.i.i16.i, label %cond.true.i.i.i.i.i.i23.i, label %cond.false.i.i.i.i.i.i17.i
 
-cond.true.i.i.i.i.i.i24.i:                        ; preds = %if.then.i39
-  %heapStorage_.i.i.i25.i = getelementptr inbounds i8, ptr %17, i64 840
-  %call3.i.i.i.i.i.i26.i = tail call noundef ptr @_ZN6hermes2vm7HadesGC9allocSlowEj(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i.i25.i, i32 noundef %div1.i.i.i.i.i11.i) #15
+cond.true.i.i.i.i.i.i23.i:                        ; preds = %if.then.i39
+  %heapStorage_.i.i.i24.i = getelementptr inbounds i8, ptr %17, i64 840
+  %call3.i.i.i.i.i.i25.i = tail call noundef ptr @_ZN6hermes2vm7HadesGC9allocSlowEj(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i.i24.i, i32 noundef %div1.i.i.i.i.i11.i) #15
   br label %_ZN6hermes2vm22DynamicStringPrimitiveIDsLb0EE6createERNS0_7RuntimeEj.exit.i
 
 cond.false.i.i.i.i.i.i17.i:                       ; preds = %if.then.i39
   store ptr %add.ptr.i.i.i.i.i.i.i14.i, ptr %level_.i.i.i.i.i.i.i12.i, align 8
   br label %_ZN6hermes2vm22DynamicStringPrimitiveIDsLb0EE6createERNS0_7RuntimeEj.exit.i
 
-_ZN6hermes2vm22DynamicStringPrimitiveIDsLb0EE6createERNS0_7RuntimeEj.exit.i: ; preds = %cond.false.i.i.i.i.i.i17.i, %cond.true.i.i.i.i.i.i24.i
-  %cond.i.i.i.i.i.i18.i = phi ptr [ %call3.i.i.i.i.i.i26.i, %cond.true.i.i.i.i.i.i24.i ], [ %19, %cond.false.i.i.i.i.i.i17.i ]
-  %lengthAndUniquedFlag_.i.i.i.i.i.i.i.i19.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i.i18.i, i64 4
-  store i32 %and.i, ptr %lengthAndUniquedFlag_.i.i.i.i.i.i.i.i19.i, align 4
-  %bf.set7.i.i.i.i.i.i.i21.i = or disjoint i32 %div1.i.i.i.i.i11.i, 50331648
-  store i32 %bf.set7.i.i.i.i.i.i.i21.i, ptr %cond.i.i.i.i.i.i18.i, align 4
+_ZN6hermes2vm22DynamicStringPrimitiveIDsLb0EE6createERNS0_7RuntimeEj.exit.i: ; preds = %cond.false.i.i.i.i.i.i17.i, %cond.true.i.i.i.i.i.i23.i
+  %cond.i.i.i.i.i.i18.i = phi ptr [ %call3.i.i.i.i.i.i25.i, %cond.true.i.i.i.i.i.i23.i ], [ %19, %cond.false.i.i.i.i.i.i17.i ]
+  tail call void @_ZN6hermes2vm22DynamicStringPrimitiveIDsLb0EEC1Ej(ptr noundef nonnull align 4 dereferenceable(8) %cond.i.i.i.i.i.i18.i, i32 noundef %and.i) #15
+  %bf.set7.i.i.i.i.i.i.i20.i = or disjoint i32 %div1.i.i.i.i.i11.i, 50331648
+  store i32 %bf.set7.i.i.i.i.i.i.i20.i, ptr %cond.i.i.i.i.i.i18.i, align 4
   %21 = ptrtoint ptr %cond.i.i.i.i.i.i18.i to i64
-  %or.i.i.i.i22.i = or i64 %21, -844424930131968
-  %.fca.1.insert.i23.i = insertvalue { i32, i64 } { i32 1, i64 poison }, i64 %or.i.i.i.i22.i, 1
+  %or.i.i.i.i21.i = or i64 %21, -844424930131968
+  %.fca.1.insert.i22.i = insertvalue { i32, i64 } { i32 1, i64 poison }, i64 %or.i.i.i.i21.i, 1
   br label %_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEjb.exit
 
 if.else4.i:                                       ; preds = %if.else13
@@ -6721,7 +6485,7 @@ if.else4.i:                                       ; preds = %if.else13
   br label %_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEjb.exit
 
 _ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEjb.exit: ; preds = %_ZN6hermes2vm22DynamicStringPrimitiveIDsLb0EE6createERNS0_7RuntimeEj.exit.i, %if.else4.i
-  %call2.pn.i = phi { i32, i64 } [ %.fca.1.insert.i23.i, %_ZN6hermes2vm22DynamicStringPrimitiveIDsLb0EE6createERNS0_7RuntimeEj.exit.i ], [ %call9.i, %if.else4.i ]
+  %call2.pn.i = phi { i32, i64 } [ %.fca.1.insert.i22.i, %_ZN6hermes2vm22DynamicStringPrimitiveIDsLb0EE6createERNS0_7RuntimeEj.exit.i ], [ %call9.i, %if.else4.i ]
   %22 = extractvalue { i32, i64 } %call2.pn.i, 0
   %23 = extractvalue { i32, i64 } %call2.pn.i, 1
   %cmp.i.i41 = icmp eq i32 %22, 0
@@ -6949,7 +6713,7 @@ while.body.i.i:                                   ; preds = %if.then, %while.bod
 
 _ZN6hermes2vm15StringPrimitive13createDynamicERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit: ; preds = %while.body.i.i, %if.then
   %cmp.lcssa.i.i = phi i1 [ true, %if.then ], [ %cmp.i.i.i, %while.body.i.i ]
-  %call3.i = tail call { i32, i64 } @_ZN6hermes2vm15StringPrimitive30createDynamicWithKnownEncodingERNS0_7RuntimeEN4llvh8ArrayRefIDsEEb(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr readonly %str.coerce0, i64 %str.coerce1, i1 noundef zeroext %cmp.lcssa.i.i)
+  %call3.i = tail call { i32, i64 } @_ZN6hermes2vm15StringPrimitive30createDynamicWithKnownEncodingERNS0_7RuntimeEN4llvh8ArrayRefIDsEEb(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %str.coerce0, i64 %str.coerce1, i1 noundef zeroext %cmp.lcssa.i.i)
   br label %return
 
 if.then.i.i.i:                                    ; preds = %entry

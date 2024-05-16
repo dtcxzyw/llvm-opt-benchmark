@@ -3251,7 +3251,7 @@ entry:
 define weak_odr dso_local void @_ZN5eastl14fixed_hash_setIiLm1ELm2ELb1ENS_4hashIiEENS_8equal_toIiEELb0ENS_9allocatorEE4swapERS6_(ptr noundef nonnull align 8 dereferenceable(159) %this, ptr noundef nonnull align 8 dereferenceable(159) %x) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %temp = alloca %"class.eastl::fixed_hash_set", align 8
-  call void @_ZN5eastl14fixed_hash_setIiLm1ELm2ELb1ENS_4hashIiEENS_8equal_toIiEELb0ENS_9allocatorEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(159) %temp, ptr noundef nonnull align 8 dereferenceable(159) %this)
+  call void @_ZN5eastl14fixed_hash_setIiLm1ELm2ELb1ENS_4hashIiEENS_8equal_toIiEELb0ENS_9allocatorEEC1ERKS6_(ptr noundef nonnull align 8 dereferenceable(159) %temp, ptr noundef nonnull align 8 dereferenceable(159) %this)
   %call.i.i2 = invoke noundef nonnull align 8 dereferenceable(104) ptr @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EEaSERKSD_(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(104) %x)
           to label %invoke.cont unwind label %lpad
 
@@ -8020,7 +8020,7 @@ entry:
 define weak_odr dso_local void @_ZN5eastl14fixed_hash_setI1ALm1ELm2ELb1ENS_4hashIS1_EENS_8equal_toIS1_EELb0ENS_9allocatorEE4swapERS7_(ptr noundef nonnull align 8 dereferenceable(159) %this, ptr noundef nonnull align 8 dereferenceable(159) %x) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %temp = alloca %"class.eastl::fixed_hash_set.12", align 8
-  call void @_ZN5eastl14fixed_hash_setI1ALm1ELm2ELb1ENS_4hashIS1_EENS_8equal_toIS1_EELb0ENS_9allocatorEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(159) %temp, ptr noundef nonnull align 8 dereferenceable(159) %this)
+  call void @_ZN5eastl14fixed_hash_setI1ALm1ELm2ELb1ENS_4hashIS1_EENS_8equal_toIS1_EELb0ENS_9allocatorEEC1ERKS7_(ptr noundef nonnull align 8 dereferenceable(159) %temp, ptr noundef nonnull align 8 dereferenceable(159) %this)
   %call.i.i2 = invoke noundef nonnull align 8 dereferenceable(104) ptr @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EEaSERKSE_(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(104) %x)
           to label %invoke.cont unwind label %lpad
 
@@ -12771,7 +12771,7 @@ entry:
 define weak_odr dso_local void @_ZN5eastl14fixed_hash_setIiLm1ELm2ELb1ENS_4hashIiEENS_8equal_toIiEELb1ENS_9allocatorEE4swapERS6_(ptr noundef nonnull align 8 dereferenceable(175) %this, ptr noundef nonnull align 8 dereferenceable(175) %x) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %temp = alloca %"class.eastl::fixed_hash_set.45", align 8
-  call void @_ZN5eastl14fixed_hash_setIiLm1ELm2ELb1ENS_4hashIiEENS_8equal_toIiEELb1ENS_9allocatorEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(175) %temp, ptr noundef nonnull align 8 dereferenceable(175) %this)
+  call void @_ZN5eastl14fixed_hash_setIiLm1ELm2ELb1ENS_4hashIiEENS_8equal_toIiEELb1ENS_9allocatorEEC1ERKS6_(ptr noundef nonnull align 8 dereferenceable(175) %temp, ptr noundef nonnull align 8 dereferenceable(175) %this)
   %call.i.i2 = invoke noundef nonnull align 8 dereferenceable(104) ptr @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EEaSERKSD_(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(104) %x)
           to label %invoke.cont unwind label %lpad
 
@@ -17511,7 +17511,7 @@ entry:
 define weak_odr dso_local void @_ZN5eastl14fixed_hash_setI1ALm1ELm2ELb1ENS_4hashIS1_EENS_8equal_toIS1_EELb1ENS_9allocatorEE4swapERS7_(ptr noundef nonnull align 8 dereferenceable(175) %this, ptr noundef nonnull align 8 dereferenceable(175) %x) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %temp = alloca %"class.eastl::fixed_hash_set.74", align 8
-  call void @_ZN5eastl14fixed_hash_setI1ALm1ELm2ELb1ENS_4hashIS1_EENS_8equal_toIS1_EELb1ENS_9allocatorEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(175) %temp, ptr noundef nonnull align 8 dereferenceable(175) %this)
+  call void @_ZN5eastl14fixed_hash_setI1ALm1ELm2ELb1ENS_4hashIS1_EENS_8equal_toIS1_EELb1ENS_9allocatorEEC1ERKS7_(ptr noundef nonnull align 8 dereferenceable(175) %temp, ptr noundef nonnull align 8 dereferenceable(175) %this)
   %call.i.i2 = invoke noundef nonnull align 8 dereferenceable(104) ptr @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EEaSERKSE_(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(104) %x)
           to label %invoke.cont unwind label %lpad
 
@@ -22365,7 +22365,7 @@ entry:
 define weak_odr dso_local void @_ZN5eastl14fixed_hash_setIiLm1ELm2ELb1ENS_4hashIiEENS_8equal_toIiEELb0E15MallocAllocatorE4swapERS6_(ptr noundef nonnull align 8 dereferenceable(167) %this, ptr noundef nonnull align 8 dereferenceable(167) %x) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %temp = alloca %"class.eastl::fixed_hash_set.101", align 8
-  call void @_ZN5eastl14fixed_hash_setIiLm1ELm2ELb1ENS_4hashIiEENS_8equal_toIiEELb0E15MallocAllocatorEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(167) %temp, ptr noundef nonnull align 8 dereferenceable(167) %this)
+  call void @_ZN5eastl14fixed_hash_setIiLm1ELm2ELb1ENS_4hashIiEENS_8equal_toIiEELb0E15MallocAllocatorEC1ERKS6_(ptr noundef nonnull align 8 dereferenceable(167) %temp, ptr noundef nonnull align 8 dereferenceable(167) %this)
   %call.i.i2 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EEaSERKSD_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(112) %x)
           to label %invoke.cont unwind label %lpad
 
@@ -23604,7 +23604,7 @@ define weak_odr dso_local void @_ZN5eastl14fixed_hash_mapIiiLm1ELm2ELb1ENS_4hash
 entry:
   %temp.i.i = alloca %"class.eastl::fixed_hash_map.108", align 8
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %temp.i.i)
-  call void @_ZN5eastl14fixed_hash_mapIiiLm1ELm2ELb1ENS_4hashIiEENS_8equal_toIiEELb0E15MallocAllocatorEC2EOS6_(ptr noundef nonnull align 8 dereferenceable(167) %temp.i.i, ptr noundef nonnull align 8 dereferenceable(167) %this)
+  call void @_ZN5eastl14fixed_hash_mapIiiLm1ELm2ELb1ENS_4hashIiEENS_8equal_toIiEELb0E15MallocAllocatorEC1EOS6_(ptr noundef nonnull align 8 dereferenceable(167) %temp.i.i, ptr noundef nonnull align 8 dereferenceable(167) %this)
   %call.i.i3.i.i = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EEaSERKSG_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(112) %x)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
@@ -24960,7 +24960,7 @@ define weak_odr dso_local void @_ZN5eastl19fixed_hash_multisetIiLm1ELm2ELb1ENS_4
 entry:
   %temp.i.i = alloca %"class.eastl::fixed_hash_multiset.114", align 8
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %temp.i.i)
-  call void @_ZN5eastl19fixed_hash_multisetIiLm1ELm2ELb1ENS_4hashIiEENS_8equal_toIiEELb0E15MallocAllocatorEC2EOS6_(ptr noundef nonnull align 8 dereferenceable(167) %temp.i.i, ptr noundef nonnull align 8 dereferenceable(167) %this)
+  call void @_ZN5eastl19fixed_hash_multisetIiLm1ELm2ELb1ENS_4hashIiEENS_8equal_toIiEELb0E15MallocAllocatorEC1EOS6_(ptr noundef nonnull align 8 dereferenceable(167) %temp.i.i, ptr noundef nonnull align 8 dereferenceable(167) %this)
   %call.i.i3.i.i = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EEaSERKSD_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(112) %x)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
@@ -26200,7 +26200,7 @@ define weak_odr dso_local void @_ZN5eastl19fixed_hash_multimapIiiLm1ELm2ELb1ENS_
 entry:
   %temp.i.i = alloca %"class.eastl::fixed_hash_multimap.119", align 8
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %temp.i.i)
-  call void @_ZN5eastl19fixed_hash_multimapIiiLm1ELm2ELb1ENS_4hashIiEENS_8equal_toIiEELb0E15MallocAllocatorEC2EOS6_(ptr noundef nonnull align 8 dereferenceable(167) %temp.i.i, ptr noundef nonnull align 8 dereferenceable(167) %this)
+  call void @_ZN5eastl19fixed_hash_multimapIiiLm1ELm2ELb1ENS_4hashIiEENS_8equal_toIiEELb0E15MallocAllocatorEC1EOS6_(ptr noundef nonnull align 8 dereferenceable(167) %temp.i.i, ptr noundef nonnull align 8 dereferenceable(167) %this)
   %call.i.i3.i.i = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EEaSERKSG_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(112) %x)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
@@ -27570,7 +27570,7 @@ entry:
 define weak_odr dso_local void @_ZN5eastl14fixed_hash_setI1ALm1ELm2ELb1ENS_4hashIS1_EENS_8equal_toIS1_EELb0E15MallocAllocatorE4swapERS7_(ptr noundef nonnull align 8 dereferenceable(167) %this, ptr noundef nonnull align 8 dereferenceable(167) %x) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %temp = alloca %"class.eastl::fixed_hash_set.124", align 8
-  call void @_ZN5eastl14fixed_hash_setI1ALm1ELm2ELb1ENS_4hashIS1_EENS_8equal_toIS1_EELb0E15MallocAllocatorEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(167) %temp, ptr noundef nonnull align 8 dereferenceable(167) %this)
+  call void @_ZN5eastl14fixed_hash_setI1ALm1ELm2ELb1ENS_4hashIS1_EENS_8equal_toIS1_EELb0E15MallocAllocatorEC1ERKS7_(ptr noundef nonnull align 8 dereferenceable(167) %temp, ptr noundef nonnull align 8 dereferenceable(167) %this)
   %call.i.i2 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EEaSERKSE_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(112) %x)
           to label %invoke.cont unwind label %lpad
 
@@ -28809,7 +28809,7 @@ define weak_odr dso_local void @_ZN5eastl14fixed_hash_mapI1AS1_Lm1ELm2ELb1ENS_4h
 entry:
   %temp.i.i = alloca %"class.eastl::fixed_hash_map.129", align 8
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %temp.i.i)
-  call void @_ZN5eastl14fixed_hash_mapI1AS1_Lm1ELm2ELb1ENS_4hashIS1_EENS_8equal_toIS1_EELb0E15MallocAllocatorEC2EOS7_(ptr noundef nonnull align 8 dereferenceable(167) %temp.i.i, ptr noundef nonnull align 8 dereferenceable(167) %this)
+  call void @_ZN5eastl14fixed_hash_mapI1AS1_Lm1ELm2ELb1ENS_4hashIS1_EENS_8equal_toIS1_EELb0E15MallocAllocatorEC1EOS7_(ptr noundef nonnull align 8 dereferenceable(167) %temp.i.i, ptr noundef nonnull align 8 dereferenceable(167) %this)
   %call.i.i3.i.i = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EEaSERKSH_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(112) %x)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
@@ -30165,7 +30165,7 @@ define weak_odr dso_local void @_ZN5eastl19fixed_hash_multisetI1ALm1ELm2ELb1ENS_
 entry:
   %temp.i.i = alloca %"class.eastl::fixed_hash_multiset.134", align 8
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %temp.i.i)
-  call void @_ZN5eastl19fixed_hash_multisetI1ALm1ELm2ELb1ENS_4hashIS1_EENS_8equal_toIS1_EELb0E15MallocAllocatorEC2EOS7_(ptr noundef nonnull align 8 dereferenceable(167) %temp.i.i, ptr noundef nonnull align 8 dereferenceable(167) %this)
+  call void @_ZN5eastl19fixed_hash_multisetI1ALm1ELm2ELb1ENS_4hashIS1_EENS_8equal_toIS1_EELb0E15MallocAllocatorEC1EOS7_(ptr noundef nonnull align 8 dereferenceable(167) %temp.i.i, ptr noundef nonnull align 8 dereferenceable(167) %this)
   %call.i.i3.i.i = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EEaSERKSE_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(112) %x)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
@@ -31405,7 +31405,7 @@ define weak_odr dso_local void @_ZN5eastl19fixed_hash_multimapI1AS1_Lm1ELm2ELb1E
 entry:
   %temp.i.i = alloca %"class.eastl::fixed_hash_multimap.139", align 8
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %temp.i.i)
-  call void @_ZN5eastl19fixed_hash_multimapI1AS1_Lm1ELm2ELb1ENS_4hashIS1_EENS_8equal_toIS1_EELb0E15MallocAllocatorEC2EOS7_(ptr noundef nonnull align 8 dereferenceable(167) %temp.i.i, ptr noundef nonnull align 8 dereferenceable(167) %this)
+  call void @_ZN5eastl19fixed_hash_multimapI1AS1_Lm1ELm2ELb1ENS_4hashIS1_EENS_8equal_toIS1_EELb0E15MallocAllocatorEC1EOS7_(ptr noundef nonnull align 8 dereferenceable(167) %temp.i.i, ptr noundef nonnull align 8 dereferenceable(167) %this)
   %call.i.i3.i.i = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EEaSERKSH_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(112) %x)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
@@ -35093,7 +35093,7 @@ delete.notnull.i.i.i.i.i2319:                     ; preds = %if.else.i.i.i.i2317
   br label %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev.exit
 
 _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EED2Ev.exit: ; preds = %invoke.cont.thread.i2322, %invoke.cont.i2307, %if.then.i.i.i.i2320, %if.else.i.i.i.i2317, %delete.notnull.i.i.i.i.i2319
-  call void @_ZN5eastl14fixed_hash_setIiLm1ELm2ELb1ENS_4hashIiEENS_8equal_toIiEELb0ENS_9allocatorEEC2ERKS2_RKS4_(ptr noundef nonnull align 8 dereferenceable(159) %fixedHashSet543, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp544, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp545)
+  call void @_ZN5eastl14fixed_hash_setIiLm1ELm2ELb1ENS_4hashIiEENS_8equal_toIiEELb0ENS_9allocatorEEC1ERKS2_RKS4_(ptr noundef nonnull align 8 dereferenceable(159) %fixedHashSet543, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp544, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp545)
   store i32 0, ptr %ref.tmp546, align 4
   invoke void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE28DoInsertValueExtraForwardingIiNS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIiLb1ELb0EEEbEERKimPNS_9hash_nodeIiLb0EEEOT_(ptr nonnull sret(%"struct.eastl::pair.246") align 8 %tmp547, ptr noundef nonnull align 8 dereferenceable(104) %fixedHashSet543, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp546, i64 noundef 0, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp546)
           to label %invoke.cont549 unwind label %lpad548
@@ -82448,7 +82448,7 @@ if.end:                                           ; preds = %_ZN5eastl9hashtable
 define linkonce_odr dso_local void @_ZN5eastl15fixed_swap_implINS_14fixed_hash_mapIiiLm1ELm2ELb1ENS_4hashIiEENS_8equal_toIiEELb0ENS_9allocatorEEELb0EE4swapERS7_S9_(ptr noundef nonnull align 8 dereferenceable(159) %a, ptr noundef nonnull align 8 dereferenceable(159) %b) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %temp = alloca %"class.eastl::fixed_hash_map", align 8
-  call void @_ZN5eastl14fixed_hash_mapIiiLm1ELm2ELb1ENS_4hashIiEENS_8equal_toIiEELb0ENS_9allocatorEEC2EOS6_(ptr noundef nonnull align 8 dereferenceable(159) %temp, ptr noundef nonnull align 8 dereferenceable(159) %a)
+  call void @_ZN5eastl14fixed_hash_mapIiiLm1ELm2ELb1ENS_4hashIiEENS_8equal_toIiEELb0ENS_9allocatorEEC1EOS6_(ptr noundef nonnull align 8 dereferenceable(159) %temp, ptr noundef nonnull align 8 dereferenceable(159) %a)
   %call.i.i3 = invoke noundef nonnull align 8 dereferenceable(104) ptr @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EEaSERKSG_(ptr noundef nonnull align 8 dereferenceable(104) %a, ptr noundef nonnull align 8 dereferenceable(104) %b)
           to label %invoke.cont unwind label %lpad
 
@@ -82948,7 +82948,7 @@ if.end:                                           ; preds = %_ZN5eastl18hashtabl
 define linkonce_odr dso_local void @_ZN5eastl15fixed_swap_implINS_19fixed_hash_multisetIiLm1ELm2ELb1ENS_4hashIiEENS_8equal_toIiEELb0ENS_9allocatorEEELb0EE4swapERS7_S9_(ptr noundef nonnull align 8 dereferenceable(159) %a, ptr noundef nonnull align 8 dereferenceable(159) %b) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %temp = alloca %"class.eastl::fixed_hash_multiset", align 8
-  call void @_ZN5eastl19fixed_hash_multisetIiLm1ELm2ELb1ENS_4hashIiEENS_8equal_toIiEELb0ENS_9allocatorEEC2EOS6_(ptr noundef nonnull align 8 dereferenceable(159) %temp, ptr noundef nonnull align 8 dereferenceable(159) %a)
+  call void @_ZN5eastl19fixed_hash_multisetIiLm1ELm2ELb1ENS_4hashIiEENS_8equal_toIiEELb0ENS_9allocatorEEC1EOS6_(ptr noundef nonnull align 8 dereferenceable(159) %temp, ptr noundef nonnull align 8 dereferenceable(159) %a)
   %call.i.i3 = invoke noundef nonnull align 8 dereferenceable(104) ptr @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EEaSERKSD_(ptr noundef nonnull align 8 dereferenceable(104) %a, ptr noundef nonnull align 8 dereferenceable(104) %b)
           to label %invoke.cont unwind label %lpad
 
@@ -83560,7 +83560,7 @@ if.end:                                           ; preds = %_ZN5eastl9hashtable
 define linkonce_odr dso_local void @_ZN5eastl15fixed_swap_implINS_19fixed_hash_multimapIiiLm1ELm2ELb1ENS_4hashIiEENS_8equal_toIiEELb0ENS_9allocatorEEELb0EE4swapERS7_S9_(ptr noundef nonnull align 8 dereferenceable(159) %a, ptr noundef nonnull align 8 dereferenceable(159) %b) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %temp = alloca %"class.eastl::fixed_hash_multimap", align 8
-  call void @_ZN5eastl19fixed_hash_multimapIiiLm1ELm2ELb1ENS_4hashIiEENS_8equal_toIiEELb0ENS_9allocatorEEC2EOS6_(ptr noundef nonnull align 8 dereferenceable(159) %temp, ptr noundef nonnull align 8 dereferenceable(159) %a)
+  call void @_ZN5eastl19fixed_hash_multimapIiiLm1ELm2ELb1ENS_4hashIiEENS_8equal_toIiEELb0ENS_9allocatorEEC1EOS6_(ptr noundef nonnull align 8 dereferenceable(159) %temp, ptr noundef nonnull align 8 dereferenceable(159) %a)
   %call.i.i3 = invoke noundef nonnull align 8 dereferenceable(104) ptr @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EEaSERKSG_(ptr noundef nonnull align 8 dereferenceable(104) %a, ptr noundef nonnull align 8 dereferenceable(104) %b)
           to label %invoke.cont unwind label %lpad
 
@@ -84650,7 +84650,7 @@ if.end:                                           ; preds = %_ZN5eastl9hashtable
 define linkonce_odr dso_local void @_ZN5eastl15fixed_swap_implINS_14fixed_hash_mapI1AS2_Lm1ELm2ELb1ENS_4hashIS2_EENS_8equal_toIS2_EELb0ENS_9allocatorEEELb0EE4swapERS8_SA_(ptr noundef nonnull align 8 dereferenceable(159) %a, ptr noundef nonnull align 8 dereferenceable(159) %b) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %temp = alloca %"class.eastl::fixed_hash_map.24", align 8
-  call void @_ZN5eastl14fixed_hash_mapI1AS1_Lm1ELm2ELb1ENS_4hashIS1_EENS_8equal_toIS1_EELb0ENS_9allocatorEEC2EOS7_(ptr noundef nonnull align 8 dereferenceable(159) %temp, ptr noundef nonnull align 8 dereferenceable(159) %a)
+  call void @_ZN5eastl14fixed_hash_mapI1AS1_Lm1ELm2ELb1ENS_4hashIS1_EENS_8equal_toIS1_EELb0ENS_9allocatorEEC1EOS7_(ptr noundef nonnull align 8 dereferenceable(159) %temp, ptr noundef nonnull align 8 dereferenceable(159) %a)
   %call.i.i3 = invoke noundef nonnull align 8 dereferenceable(104) ptr @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EEaSERKSH_(ptr noundef nonnull align 8 dereferenceable(104) %a, ptr noundef nonnull align 8 dereferenceable(104) %b)
           to label %invoke.cont unwind label %lpad
 
@@ -85150,7 +85150,7 @@ if.end:                                           ; preds = %_ZN5eastl18hashtabl
 define linkonce_odr dso_local void @_ZN5eastl15fixed_swap_implINS_19fixed_hash_multisetI1ALm1ELm2ELb1ENS_4hashIS2_EENS_8equal_toIS2_EELb0ENS_9allocatorEEELb0EE4swapERS8_SA_(ptr noundef nonnull align 8 dereferenceable(159) %a, ptr noundef nonnull align 8 dereferenceable(159) %b) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %temp = alloca %"class.eastl::fixed_hash_multiset.35", align 8
-  call void @_ZN5eastl19fixed_hash_multisetI1ALm1ELm2ELb1ENS_4hashIS1_EENS_8equal_toIS1_EELb0ENS_9allocatorEEC2EOS7_(ptr noundef nonnull align 8 dereferenceable(159) %temp, ptr noundef nonnull align 8 dereferenceable(159) %a)
+  call void @_ZN5eastl19fixed_hash_multisetI1ALm1ELm2ELb1ENS_4hashIS1_EENS_8equal_toIS1_EELb0ENS_9allocatorEEC1EOS7_(ptr noundef nonnull align 8 dereferenceable(159) %temp, ptr noundef nonnull align 8 dereferenceable(159) %a)
   %call.i.i3 = invoke noundef nonnull align 8 dereferenceable(104) ptr @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EEaSERKSE_(ptr noundef nonnull align 8 dereferenceable(104) %a, ptr noundef nonnull align 8 dereferenceable(104) %b)
           to label %invoke.cont unwind label %lpad
 
@@ -85762,7 +85762,7 @@ if.end:                                           ; preds = %_ZN5eastl9hashtable
 define linkonce_odr dso_local void @_ZN5eastl15fixed_swap_implINS_19fixed_hash_multimapI1AS2_Lm1ELm2ELb1ENS_4hashIS2_EENS_8equal_toIS2_EELb0ENS_9allocatorEEELb0EE4swapERS8_SA_(ptr noundef nonnull align 8 dereferenceable(159) %a, ptr noundef nonnull align 8 dereferenceable(159) %b) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %temp = alloca %"class.eastl::fixed_hash_multimap.40", align 8
-  call void @_ZN5eastl19fixed_hash_multimapI1AS1_Lm1ELm2ELb1ENS_4hashIS1_EENS_8equal_toIS1_EELb0ENS_9allocatorEEC2EOS7_(ptr noundef nonnull align 8 dereferenceable(159) %temp, ptr noundef nonnull align 8 dereferenceable(159) %a)
+  call void @_ZN5eastl19fixed_hash_multimapI1AS1_Lm1ELm2ELb1ENS_4hashIS1_EENS_8equal_toIS1_EELb0ENS_9allocatorEEC1EOS7_(ptr noundef nonnull align 8 dereferenceable(159) %temp, ptr noundef nonnull align 8 dereferenceable(159) %a)
   %call.i.i3 = invoke noundef nonnull align 8 dereferenceable(104) ptr @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EEaSERKSH_(ptr noundef nonnull align 8 dereferenceable(104) %a, ptr noundef nonnull align 8 dereferenceable(104) %b)
           to label %invoke.cont unwind label %lpad
 
@@ -86899,7 +86899,7 @@ if.end:                                           ; preds = %_ZN5eastl9hashtable
 define linkonce_odr dso_local void @_ZN5eastl15fixed_swap_implINS_14fixed_hash_mapIiiLm1ELm2ELb1ENS_4hashIiEENS_8equal_toIiEELb1ENS_9allocatorEEELb0EE4swapERS7_S9_(ptr noundef nonnull align 8 dereferenceable(175) %a, ptr noundef nonnull align 8 dereferenceable(175) %b) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %temp = alloca %"class.eastl::fixed_hash_map.54", align 8
-  call void @_ZN5eastl14fixed_hash_mapIiiLm1ELm2ELb1ENS_4hashIiEENS_8equal_toIiEELb1ENS_9allocatorEEC2EOS6_(ptr noundef nonnull align 8 dereferenceable(175) %temp, ptr noundef nonnull align 8 dereferenceable(175) %a)
+  call void @_ZN5eastl14fixed_hash_mapIiiLm1ELm2ELb1ENS_4hashIiEENS_8equal_toIiEELb1ENS_9allocatorEEC1EOS6_(ptr noundef nonnull align 8 dereferenceable(175) %temp, ptr noundef nonnull align 8 dereferenceable(175) %a)
   %call.i.i3 = invoke noundef nonnull align 8 dereferenceable(104) ptr @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EEaSERKSG_(ptr noundef nonnull align 8 dereferenceable(104) %a, ptr noundef nonnull align 8 dereferenceable(104) %b)
           to label %invoke.cont unwind label %lpad
 
@@ -87411,7 +87411,7 @@ if.end:                                           ; preds = %_ZN5eastl18hashtabl
 define linkonce_odr dso_local void @_ZN5eastl15fixed_swap_implINS_19fixed_hash_multisetIiLm1ELm2ELb1ENS_4hashIiEENS_8equal_toIiEELb1ENS_9allocatorEEELb0EE4swapERS7_S9_(ptr noundef nonnull align 8 dereferenceable(175) %a, ptr noundef nonnull align 8 dereferenceable(175) %b) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %temp = alloca %"class.eastl::fixed_hash_multiset.64", align 8
-  call void @_ZN5eastl19fixed_hash_multisetIiLm1ELm2ELb1ENS_4hashIiEENS_8equal_toIiEELb1ENS_9allocatorEEC2EOS6_(ptr noundef nonnull align 8 dereferenceable(175) %temp, ptr noundef nonnull align 8 dereferenceable(175) %a)
+  call void @_ZN5eastl19fixed_hash_multisetIiLm1ELm2ELb1ENS_4hashIiEENS_8equal_toIiEELb1ENS_9allocatorEEC1EOS6_(ptr noundef nonnull align 8 dereferenceable(175) %temp, ptr noundef nonnull align 8 dereferenceable(175) %a)
   %call.i.i3 = invoke noundef nonnull align 8 dereferenceable(104) ptr @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EEaSERKSD_(ptr noundef nonnull align 8 dereferenceable(104) %a, ptr noundef nonnull align 8 dereferenceable(104) %b)
           to label %invoke.cont unwind label %lpad
 
@@ -88044,7 +88044,7 @@ if.end:                                           ; preds = %_ZN5eastl9hashtable
 define linkonce_odr dso_local void @_ZN5eastl15fixed_swap_implINS_19fixed_hash_multimapIiiLm1ELm2ELb1ENS_4hashIiEENS_8equal_toIiEELb1ENS_9allocatorEEELb0EE4swapERS7_S9_(ptr noundef nonnull align 8 dereferenceable(175) %a, ptr noundef nonnull align 8 dereferenceable(175) %b) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %temp = alloca %"class.eastl::fixed_hash_multimap.69", align 8
-  call void @_ZN5eastl19fixed_hash_multimapIiiLm1ELm2ELb1ENS_4hashIiEENS_8equal_toIiEELb1ENS_9allocatorEEC2EOS6_(ptr noundef nonnull align 8 dereferenceable(175) %temp, ptr noundef nonnull align 8 dereferenceable(175) %a)
+  call void @_ZN5eastl19fixed_hash_multimapIiiLm1ELm2ELb1ENS_4hashIiEENS_8equal_toIiEELb1ENS_9allocatorEEC1EOS6_(ptr noundef nonnull align 8 dereferenceable(175) %temp, ptr noundef nonnull align 8 dereferenceable(175) %a)
   %call.i.i3 = invoke noundef nonnull align 8 dereferenceable(104) ptr @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EEaSERKSG_(ptr noundef nonnull align 8 dereferenceable(104) %a, ptr noundef nonnull align 8 dereferenceable(104) %b)
           to label %invoke.cont unwind label %lpad
 
@@ -89181,7 +89181,7 @@ if.end:                                           ; preds = %_ZN5eastl9hashtable
 define linkonce_odr dso_local void @_ZN5eastl15fixed_swap_implINS_14fixed_hash_mapI1AS2_Lm1ELm2ELb1ENS_4hashIS2_EENS_8equal_toIS2_EELb1ENS_9allocatorEEELb0EE4swapERS8_SA_(ptr noundef nonnull align 8 dereferenceable(175) %a, ptr noundef nonnull align 8 dereferenceable(175) %b) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %temp = alloca %"class.eastl::fixed_hash_map.82", align 8
-  call void @_ZN5eastl14fixed_hash_mapI1AS1_Lm1ELm2ELb1ENS_4hashIS1_EENS_8equal_toIS1_EELb1ENS_9allocatorEEC2EOS7_(ptr noundef nonnull align 8 dereferenceable(175) %temp, ptr noundef nonnull align 8 dereferenceable(175) %a)
+  call void @_ZN5eastl14fixed_hash_mapI1AS1_Lm1ELm2ELb1ENS_4hashIS1_EENS_8equal_toIS1_EELb1ENS_9allocatorEEC1EOS7_(ptr noundef nonnull align 8 dereferenceable(175) %temp, ptr noundef nonnull align 8 dereferenceable(175) %a)
   %call.i.i3 = invoke noundef nonnull align 8 dereferenceable(104) ptr @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EEaSERKSH_(ptr noundef nonnull align 8 dereferenceable(104) %a, ptr noundef nonnull align 8 dereferenceable(104) %b)
           to label %invoke.cont unwind label %lpad
 
@@ -89693,7 +89693,7 @@ if.end:                                           ; preds = %_ZN5eastl18hashtabl
 define linkonce_odr dso_local void @_ZN5eastl15fixed_swap_implINS_19fixed_hash_multisetI1ALm1ELm2ELb1ENS_4hashIS2_EENS_8equal_toIS2_EELb1ENS_9allocatorEEELb0EE4swapERS8_SA_(ptr noundef nonnull align 8 dereferenceable(175) %a, ptr noundef nonnull align 8 dereferenceable(175) %b) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %temp = alloca %"class.eastl::fixed_hash_multiset.91", align 8
-  call void @_ZN5eastl19fixed_hash_multisetI1ALm1ELm2ELb1ENS_4hashIS1_EENS_8equal_toIS1_EELb1ENS_9allocatorEEC2EOS7_(ptr noundef nonnull align 8 dereferenceable(175) %temp, ptr noundef nonnull align 8 dereferenceable(175) %a)
+  call void @_ZN5eastl19fixed_hash_multisetI1ALm1ELm2ELb1ENS_4hashIS1_EENS_8equal_toIS1_EELb1ENS_9allocatorEEC1EOS7_(ptr noundef nonnull align 8 dereferenceable(175) %temp, ptr noundef nonnull align 8 dereferenceable(175) %a)
   %call.i.i3 = invoke noundef nonnull align 8 dereferenceable(104) ptr @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EEaSERKSE_(ptr noundef nonnull align 8 dereferenceable(104) %a, ptr noundef nonnull align 8 dereferenceable(104) %b)
           to label %invoke.cont unwind label %lpad
 
@@ -90326,7 +90326,7 @@ if.end:                                           ; preds = %_ZN5eastl9hashtable
 define linkonce_odr dso_local void @_ZN5eastl15fixed_swap_implINS_19fixed_hash_multimapI1AS2_Lm1ELm2ELb1ENS_4hashIS2_EENS_8equal_toIS2_EELb1ENS_9allocatorEEELb0EE4swapERS8_SA_(ptr noundef nonnull align 8 dereferenceable(175) %a, ptr noundef nonnull align 8 dereferenceable(175) %b) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %temp = alloca %"class.eastl::fixed_hash_multimap.96", align 8
-  call void @_ZN5eastl19fixed_hash_multimapI1AS1_Lm1ELm2ELb1ENS_4hashIS1_EENS_8equal_toIS1_EELb1ENS_9allocatorEEC2EOS7_(ptr noundef nonnull align 8 dereferenceable(175) %temp, ptr noundef nonnull align 8 dereferenceable(175) %a)
+  call void @_ZN5eastl19fixed_hash_multimapI1AS1_Lm1ELm2ELb1ENS_4hashIS1_EENS_8equal_toIS1_EELb1ENS_9allocatorEEC1EOS7_(ptr noundef nonnull align 8 dereferenceable(175) %temp, ptr noundef nonnull align 8 dereferenceable(175) %a)
   %call.i.i3 = invoke noundef nonnull align 8 dereferenceable(104) ptr @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EEaSERKSH_(ptr noundef nonnull align 8 dereferenceable(104) %a, ptr noundef nonnull align 8 dereferenceable(104) %b)
           to label %invoke.cont unwind label %lpad
 

@@ -60190,7 +60190,7 @@ declare void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSi
 define linkonce_odr dso_local void @_ZN5eastl15fixed_swap_implINS_9fixed_mapIifLm1ELb1ENS_4lessIiEENS_9allocatorEEELb0EE4swapERS5_S7_(ptr noundef nonnull align 8 dereferenceable(167) %a, ptr noundef nonnull align 8 dereferenceable(167) %b) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %temp = alloca %"class.eastl::fixed_map", align 8
-  call void @_ZN5eastl9fixed_mapIifLm1ELb1ENS_4lessIiEENS_9allocatorEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(167) %temp, ptr noundef nonnull align 8 dereferenceable(167) %a)
+  call void @_ZN5eastl9fixed_mapIifLm1ELb1ENS_4lessIiEENS_9allocatorEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(167) %temp, ptr noundef nonnull align 8 dereferenceable(167) %a)
   %cmp.not.i.i.i = icmp eq ptr %a, %b
   br i1 %cmp.not.i.i.i, label %invoke.cont, label %if.then.i.i.i
 
@@ -60476,7 +60476,7 @@ for.end:                                          ; preds = %for.inc, %if.end
 define linkonce_odr dso_local void @_ZN5eastl15fixed_swap_implINS_14fixed_multimapIfiLm1ELb1ENS_4lessIfEENS_9allocatorEEELb0EE4swapERS5_S7_(ptr noundef nonnull align 8 dereferenceable(167) %a, ptr noundef nonnull align 8 dereferenceable(167) %b) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %temp = alloca %"class.eastl::fixed_multimap", align 8
-  call void @_ZN5eastl14fixed_multimapIfiLm1ELb1ENS_4lessIfEENS_9allocatorEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(167) %temp, ptr noundef nonnull align 8 dereferenceable(167) %a)
+  call void @_ZN5eastl14fixed_multimapIfiLm1ELb1ENS_4lessIfEENS_9allocatorEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(167) %temp, ptr noundef nonnull align 8 dereferenceable(167) %a)
   %cmp.not.i.i.i = icmp eq ptr %a, %b
   br i1 %cmp.not.i.i.i, label %invoke.cont, label %if.then.i.i.i
 
@@ -60981,7 +60981,7 @@ return:                                           ; preds = %delete.notnull.i.i.
 define linkonce_odr dso_local void @_ZN5eastl15fixed_swap_implINS_9fixed_mapIi10TestObjectLm1ELb1ENS_4lessIiEENS_9allocatorEEELb0EE4swapERS6_S8_(ptr noundef nonnull align 8 dereferenceable(215) %a, ptr noundef nonnull align 8 dereferenceable(215) %b) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %temp = alloca %"class.eastl::fixed_map.5", align 8
-  call void @_ZN5eastl9fixed_mapIi10TestObjectLm1ELb1ENS_4lessIiEENS_9allocatorEEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(215) %temp, ptr noundef nonnull align 8 dereferenceable(215) %a)
+  call void @_ZN5eastl9fixed_mapIi10TestObjectLm1ELb1ENS_4lessIiEENS_9allocatorEEC1EOS5_(ptr noundef nonnull align 8 dereferenceable(215) %temp, ptr noundef nonnull align 8 dereferenceable(215) %a)
   %cmp.not.i.i.i = icmp eq ptr %a, %b
   br i1 %cmp.not.i.i.i, label %invoke.cont, label %if.then.i.i.i
 
@@ -61414,7 +61414,7 @@ _ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_alloc
 define linkonce_odr dso_local void @_ZN5eastl15fixed_swap_implINS_14fixed_multimapI10TestObjectiLm1ELb1ENS_4lessIS2_EENS_9allocatorEEELb0EE4swapERS6_S8_(ptr noundef nonnull align 8 dereferenceable(215) %a, ptr noundef nonnull align 8 dereferenceable(215) %b) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %temp = alloca %"class.eastl::fixed_multimap.12", align 8
-  call void @_ZN5eastl14fixed_multimapI10TestObjectiLm1ELb1ENS_4lessIS1_EENS_9allocatorEEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(215) %temp, ptr noundef nonnull align 8 dereferenceable(215) %a)
+  call void @_ZN5eastl14fixed_multimapI10TestObjectiLm1ELb1ENS_4lessIS1_EENS_9allocatorEEC1EOS5_(ptr noundef nonnull align 8 dereferenceable(215) %temp, ptr noundef nonnull align 8 dereferenceable(215) %a)
   %cmp.not.i.i.i = icmp eq ptr %a, %b
   br i1 %cmp.not.i.i.i, label %invoke.cont, label %if.then.i.i.i
 
@@ -61842,7 +61842,7 @@ return:                                           ; preds = %if.else.i.i.i, %if.
 define linkonce_odr dso_local void @_ZN5eastl15fixed_swap_implINS_9fixed_mapIifLm1ELb1ENS_4lessIiEE15MallocAllocatorEELb0EE4swapERS5_S7_(ptr noundef nonnull align 8 dereferenceable(175) %a, ptr noundef nonnull align 8 dereferenceable(175) %b) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %temp = alloca %"class.eastl::fixed_map.20", align 8
-  call void @_ZN5eastl9fixed_mapIifLm1ELb1ENS_4lessIiEE15MallocAllocatorEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(175) %temp, ptr noundef nonnull align 8 dereferenceable(175) %a)
+  call void @_ZN5eastl9fixed_mapIifLm1ELb1ENS_4lessIiEE15MallocAllocatorEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(175) %temp, ptr noundef nonnull align 8 dereferenceable(175) %a)
   %cmp.not.i.i.i = icmp eq ptr %a, %b
   br i1 %cmp.not.i.i.i, label %invoke.cont, label %if.then.i.i.i
 
@@ -62132,7 +62132,7 @@ for.end:                                          ; preds = %for.inc, %if.end
 define linkonce_odr dso_local void @_ZN5eastl15fixed_swap_implINS_14fixed_multimapIfiLm1ELb1ENS_4lessIfEE15MallocAllocatorEELb0EE4swapERS5_S7_(ptr noundef nonnull align 8 dereferenceable(175) %a, ptr noundef nonnull align 8 dereferenceable(175) %b) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %temp = alloca %"class.eastl::fixed_multimap.27", align 8
-  call void @_ZN5eastl14fixed_multimapIfiLm1ELb1ENS_4lessIfEE15MallocAllocatorEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(175) %temp, ptr noundef nonnull align 8 dereferenceable(175) %a)
+  call void @_ZN5eastl14fixed_multimapIfiLm1ELb1ENS_4lessIfEE15MallocAllocatorEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(175) %temp, ptr noundef nonnull align 8 dereferenceable(175) %a)
   %cmp.not.i.i.i = icmp eq ptr %a, %b
   br i1 %cmp.not.i.i.i, label %invoke.cont, label %if.then.i.i.i
 
@@ -62647,7 +62647,7 @@ return:                                           ; preds = %if.else.i.i.i, %if.
 define linkonce_odr dso_local void @_ZN5eastl15fixed_swap_implINS_9fixed_mapIi10TestObjectLm1ELb1ENS_4lessIiEE15MallocAllocatorEELb0EE4swapERS6_S8_(ptr noundef nonnull align 8 dereferenceable(223) %a, ptr noundef nonnull align 8 dereferenceable(223) %b) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %temp = alloca %"class.eastl::fixed_map.32", align 8
-  call void @_ZN5eastl9fixed_mapIi10TestObjectLm1ELb1ENS_4lessIiEE15MallocAllocatorEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(223) %temp, ptr noundef nonnull align 8 dereferenceable(223) %a)
+  call void @_ZN5eastl9fixed_mapIi10TestObjectLm1ELb1ENS_4lessIiEE15MallocAllocatorEC1EOS5_(ptr noundef nonnull align 8 dereferenceable(223) %temp, ptr noundef nonnull align 8 dereferenceable(223) %a)
   %cmp.not.i.i.i = icmp eq ptr %a, %b
   br i1 %cmp.not.i.i.i, label %invoke.cont, label %if.then.i.i.i
 
@@ -63087,7 +63087,7 @@ _ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_alloc
 define linkonce_odr dso_local void @_ZN5eastl15fixed_swap_implINS_14fixed_multimapI10TestObjectiLm1ELb1ENS_4lessIS2_EE15MallocAllocatorEELb0EE4swapERS6_S8_(ptr noundef nonnull align 8 dereferenceable(223) %a, ptr noundef nonnull align 8 dereferenceable(223) %b) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %temp = alloca %"class.eastl::fixed_multimap.38", align 8
-  call void @_ZN5eastl14fixed_multimapI10TestObjectiLm1ELb1ENS_4lessIS1_EE15MallocAllocatorEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(223) %temp, ptr noundef nonnull align 8 dereferenceable(223) %a)
+  call void @_ZN5eastl14fixed_multimapI10TestObjectiLm1ELb1ENS_4lessIS1_EE15MallocAllocatorEC1EOS5_(ptr noundef nonnull align 8 dereferenceable(223) %temp, ptr noundef nonnull align 8 dereferenceable(223) %a)
   %cmp.not.i.i.i = icmp eq ptr %a, %b
   br i1 %cmp.not.i.i.i, label %invoke.cont, label %if.then.i.i.i
 

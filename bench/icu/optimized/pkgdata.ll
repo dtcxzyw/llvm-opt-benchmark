@@ -43,8 +43,6 @@ $_ZN6icu_7515MaybeStackArrayIcLi40EE13orphanOrCloneEiRi = comdat any
 
 $_ZN6icu_7515MaybeStackArrayIcLi40EE8copyFromERKS1_R10UErrorCode = comdat any
 
-$_ZN6icu_7510CharStringD2Ev = comdat any
-
 @.str = private unnamed_addr constant [8 x i8] c"PKGDATA\00", align 1
 @progname = dso_local local_unnamed_addr global ptr @.str, align 8
 @.str.1 = private unnamed_addr constant [7 x i8] c"common\00", align 1
@@ -2974,24 +2972,20 @@ invoke.cont:
   %cmdBuf = alloca %"class.icu_75::CharString", align 8
   %status = alloca i32, align 4
   %agg.tmp = alloca %"class.icu_75::StringPiece", align 8
-  %stackArray.i.i = getelementptr inbounds i8, ptr %cmdBuf, i64 13
-  store ptr %stackArray.i.i, ptr %cmdBuf, align 8
-  %capacity.i.i = getelementptr inbounds i8, ptr %cmdBuf, i64 8
-  store i32 40, ptr %capacity.i.i, align 8
-  %needToRelease.i.i = getelementptr inbounds i8, ptr %cmdBuf, i64 12
-  store i8 0, ptr %needToRelease.i.i, align 4
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %cmdBuf)
   %len.i = getelementptr inbounds i8, ptr %cmdBuf, i64 56
   store i32 0, ptr %len.i, align 8
-  store i8 0, ptr %stackArray.i.i, align 1
+  %0 = load ptr, ptr %cmdBuf, align 8
+  store i8 0, ptr %0, align 1
   store i32 0, ptr %status, align 4
   invoke void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp, ptr noundef %cmd)
           to label %invoke.cont2 unwind label %_ZN20LocalPipeFilePointerD2Ev.exit
 
 invoke.cont2:                                     ; preds = %invoke.cont
-  %0 = load ptr, ptr %agg.tmp, align 8
-  %1 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  %2 = load i32, ptr %1, align 8
-  %call3.i4 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %cmdBuf, ptr noundef %0, i32 noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %1 = load ptr, ptr %agg.tmp, align 8
+  %2 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %3 = load i32, ptr %2, align 8
+  %call3.i4 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %cmdBuf, ptr noundef %1, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont3 unwind label %_ZN20LocalPipeFilePointerD2Ev.exit
 
 invoke.cont3:                                     ; preds = %invoke.cont2
@@ -2999,20 +2993,20 @@ invoke.cont3:                                     ; preds = %invoke.cont2
   br i1 %tobool.not, label %invoke.cont12, label %if.then
 
 if.then:                                          ; preds = %invoke.cont3
-  %3 = load ptr, ptr @stdout, align 8
-  %4 = load ptr, ptr %cmdBuf, align 8
-  %call7 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.161, ptr noundef %4)
+  %4 = load ptr, ptr @stdout, align 8
+  %5 = load ptr, ptr %cmdBuf, align 8
+  %call7 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.161, ptr noundef %5)
   br label %invoke.cont12
 
 _ZN20LocalPipeFilePointerD2Ev.exit:               ; preds = %invoke.cont, %invoke.cont2
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_7510CharStringD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %cmdBuf) #18
-  resume { ptr, i32 } %5
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %cmdBuf) #18
+  resume { ptr, i32 } %6
 
 invoke.cont12:                                    ; preds = %if.then, %invoke.cont3
-  %6 = load ptr, ptr %cmdBuf, align 8
-  %call11 = call noalias ptr @popen(ptr noundef %6, ptr noundef nonnull @.str.104)
+  %7 = load ptr, ptr %cmdBuf, align 8
+  %call11 = call noalias ptr @popen(ptr noundef %7, ptr noundef nonnull @.str.104)
   %cmp.i.not = icmp eq ptr %call11, null
   br i1 %cmp.i.not, label %_ZN20LocalPipeFilePointerD2Ev.exit11.critedge, label %lor.lhs.false
 
@@ -3022,9 +3016,9 @@ lor.lhs.false:                                    ; preds = %invoke.cont12
   br i1 %cmp, label %cleanup, label %if.then.i9
 
 cleanup:                                          ; preds = %lor.lhs.false
-  %7 = load ptr, ptr @stderr, align 8
-  %8 = load ptr, ptr @progname, align 8
-  %call22 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.162, ptr noundef %8, ptr noundef %cmd) #21
+  %8 = load ptr, ptr @stderr, align 8
+  %9 = load ptr, ptr @progname, align 8
+  %call22 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.162, ptr noundef %9, ptr noundef %cmd) #21
   store i8 0, ptr @_ZZL18pkg_getPkgDataPathaP7UOptionE3buf, align 16
   br i1 %cmp.i.not, label %_ZN20LocalPipeFilePointerD2Ev.exit11, label %if.then.i9
 
@@ -3034,31 +3028,15 @@ if.then.i9:                                       ; preds = %lor.lhs.false, %cle
   br label %_ZN20LocalPipeFilePointerD2Ev.exit11
 
 _ZN20LocalPipeFilePointerD2Ev.exit11.critedge:    ; preds = %invoke.cont12
-  %9 = load ptr, ptr @stderr, align 8
-  %10 = load ptr, ptr @progname, align 8
-  %call22.c = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.162, ptr noundef %10, ptr noundef %cmd) #21
+  %10 = load ptr, ptr @stderr, align 8
+  %11 = load ptr, ptr @progname, align 8
+  %call22.c = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.162, ptr noundef %11, ptr noundef %cmd) #21
   store i8 0, ptr @_ZZL18pkg_getPkgDataPathaP7UOptionE3buf, align 16
   br label %_ZN20LocalPipeFilePointerD2Ev.exit11
 
 _ZN20LocalPipeFilePointerD2Ev.exit11:             ; preds = %_ZN20LocalPipeFilePointerD2Ev.exit11.critedge, %cleanup, %if.then.i9
   %retval.07 = phi i8 [ 0, %cleanup ], [ %retval.06, %if.then.i9 ], [ 0, %_ZN20LocalPipeFilePointerD2Ev.exit11.critedge ]
-  %11 = load i8, ptr %needToRelease.i.i, align 4
-  %tobool.not.i.i.i = icmp eq i8 %11, 0
-  br i1 %tobool.not.i.i.i, label %_ZN6icu_7510CharStringD2Ev.exit, label %if.then.i.i.i
-
-if.then.i.i.i:                                    ; preds = %_ZN20LocalPipeFilePointerD2Ev.exit11
-  %12 = load ptr, ptr %cmdBuf, align 8
-  invoke void @uprv_free_75(ptr noundef %12)
-          to label %_ZN6icu_7510CharStringD2Ev.exit unwind label %terminate.lpad.i.i
-
-terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
-  %13 = landingpad { ptr, i32 }
-          catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #20
-  unreachable
-
-_ZN6icu_7510CharStringD2Ev.exit:                  ; preds = %_ZN20LocalPipeFilePointerD2Ev.exit11, %if.then.i.i.i
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %cmdBuf) #18
   ret i8 %retval.07
 }
 
@@ -3069,30 +3047,6 @@ declare noalias noundef ptr @popen(ptr nocapture noundef readonly, ptr nocapture
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #7
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN6icu_7510CharStringD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %needToRelease.i.i = getelementptr inbounds i8, ptr %this, i64 12
-  %0 = load i8, ptr %needToRelease.i.i, align 4
-  %tobool.not.i.i = icmp eq i8 %0, 0
-  br i1 %tobool.not.i.i, label %_ZN6icu_7515MaybeStackArrayIcLi40EED2Ev.exit, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %entry
-  %1 = load ptr, ptr %this, align 8
-  invoke void @uprv_free_75(ptr noundef %1)
-          to label %_ZN6icu_7515MaybeStackArrayIcLi40EED2Ev.exit unwind label %terminate.lpad.i
-
-terminate.lpad.i:                                 ; preds = %if.then.i.i
-  %2 = landingpad { ptr, i32 }
-          catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #20
-  unreachable
-
-_ZN6icu_7515MaybeStackArrayIcLi40EED2Ev.exit:     ; preds = %entry, %if.then.i.i
-  ret void
-}
 
 declare noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60), ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #5
 
